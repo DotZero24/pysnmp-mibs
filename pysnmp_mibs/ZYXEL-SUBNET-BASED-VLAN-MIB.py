@@ -1,77 +1,42 @@
-_H='not-accessible'
-_G='zySubnetBasedVlanSourceMaskBits'
-_F='zySubnetBasedVlanSourceIpAddress'
-_E='DisplayString'
-_D='ZYXEL-SUBNET-BASED-VLAN-MIB'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_E,'PhysAddress','RowStatus','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelSubnetBasedVlan=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,80))
-_ZyxelSubnetBasedVlanSetup_ObjectIdentity=ObjectIdentity
-zyxelSubnetBasedVlanSetup=_ZyxelSubnetBasedVlanSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,80,1))
-_ZySubnetBasedVlanState_Type=EnabledStatus
-_ZySubnetBasedVlanState_Object=MibScalar
-zySubnetBasedVlanState=_ZySubnetBasedVlanState_Object((1,3,6,1,4,1,890,1,15,3,80,1,1),_ZySubnetBasedVlanState_Type())
-zySubnetBasedVlanState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zySubnetBasedVlanState.setStatus(_A)
-_ZySubnetBasedVlanDhcpVlanOverrideState_Type=EnabledStatus
-_ZySubnetBasedVlanDhcpVlanOverrideState_Object=MibScalar
-zySubnetBasedVlanDhcpVlanOverrideState=_ZySubnetBasedVlanDhcpVlanOverrideState_Object((1,3,6,1,4,1,890,1,15,3,80,1,2),_ZySubnetBasedVlanDhcpVlanOverrideState_Type())
-zySubnetBasedVlanDhcpVlanOverrideState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zySubnetBasedVlanDhcpVlanOverrideState.setStatus(_A)
-_ZySubnetBasedVlanMaxNumberOfVlans_Type=Integer32
-_ZySubnetBasedVlanMaxNumberOfVlans_Object=MibScalar
-zySubnetBasedVlanMaxNumberOfVlans=_ZySubnetBasedVlanMaxNumberOfVlans_Object((1,3,6,1,4,1,890,1,15,3,80,1,3),_ZySubnetBasedVlanMaxNumberOfVlans_Type())
-zySubnetBasedVlanMaxNumberOfVlans.setMaxAccess('read-only')
-if mibBuilder.loadTexts:zySubnetBasedVlanMaxNumberOfVlans.setStatus(_A)
-_ZyxelSubnetBasedVlanTable_Object=MibTable
-zyxelSubnetBasedVlanTable=_ZyxelSubnetBasedVlanTable_Object((1,3,6,1,4,1,890,1,15,3,80,1,4))
-if mibBuilder.loadTexts:zyxelSubnetBasedVlanTable.setStatus(_A)
-_ZyxelSubnetBasedVlanEntry_Object=MibTableRow
-zyxelSubnetBasedVlanEntry=_ZyxelSubnetBasedVlanEntry_Object((1,3,6,1,4,1,890,1,15,3,80,1,4,1))
-zyxelSubnetBasedVlanEntry.setIndexNames((0,_D,_F),(0,_D,_G))
-if mibBuilder.loadTexts:zyxelSubnetBasedVlanEntry.setStatus(_A)
-_ZySubnetBasedVlanSourceIpAddress_Type=IpAddress
-_ZySubnetBasedVlanSourceIpAddress_Object=MibTableColumn
-zySubnetBasedVlanSourceIpAddress=_ZySubnetBasedVlanSourceIpAddress_Object((1,3,6,1,4,1,890,1,15,3,80,1,4,1,1),_ZySubnetBasedVlanSourceIpAddress_Type())
-zySubnetBasedVlanSourceIpAddress.setMaxAccess(_H)
-if mibBuilder.loadTexts:zySubnetBasedVlanSourceIpAddress.setStatus(_A)
-class _ZySubnetBasedVlanSourceMaskBits_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_ZySubnetBasedVlanSourceMaskBits_Type.__name__=_C
-_ZySubnetBasedVlanSourceMaskBits_Object=MibTableColumn
-zySubnetBasedVlanSourceMaskBits=_ZySubnetBasedVlanSourceMaskBits_Object((1,3,6,1,4,1,890,1,15,3,80,1,4,1,2),_ZySubnetBasedVlanSourceMaskBits_Type())
-zySubnetBasedVlanSourceMaskBits.setMaxAccess(_H)
-if mibBuilder.loadTexts:zySubnetBasedVlanSourceMaskBits.setStatus(_A)
-class _ZySubnetBasedVlanName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_ZySubnetBasedVlanName_Type.__name__=_E
-_ZySubnetBasedVlanName_Object=MibTableColumn
-zySubnetBasedVlanName=_ZySubnetBasedVlanName_Object((1,3,6,1,4,1,890,1,15,3,80,1,4,1,3),_ZySubnetBasedVlanName_Type())
-zySubnetBasedVlanName.setMaxAccess(_B)
-if mibBuilder.loadTexts:zySubnetBasedVlanName.setStatus(_A)
-class _ZySubnetBasedVlanVid_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_ZySubnetBasedVlanVid_Type.__name__=_C
-_ZySubnetBasedVlanVid_Object=MibTableColumn
-zySubnetBasedVlanVid=_ZySubnetBasedVlanVid_Object((1,3,6,1,4,1,890,1,15,3,80,1,4,1,4),_ZySubnetBasedVlanVid_Type())
-zySubnetBasedVlanVid.setMaxAccess(_B)
-if mibBuilder.loadTexts:zySubnetBasedVlanVid.setStatus(_A)
-class _ZySubnetBasedVlanPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_ZySubnetBasedVlanPriority_Type.__name__=_C
-_ZySubnetBasedVlanPriority_Object=MibTableColumn
-zySubnetBasedVlanPriority=_ZySubnetBasedVlanPriority_Object((1,3,6,1,4,1,890,1,15,3,80,1,4,1,5),_ZySubnetBasedVlanPriority_Type())
-zySubnetBasedVlanPriority.setMaxAccess(_B)
-if mibBuilder.loadTexts:zySubnetBasedVlanPriority.setStatus(_A)
-_ZySubnetBasedVlanRowStatus_Type=RowStatus
-_ZySubnetBasedVlanRowStatus_Object=MibTableColumn
-zySubnetBasedVlanRowStatus=_ZySubnetBasedVlanRowStatus_Object((1,3,6,1,4,1,890,1,15,3,80,1,4,1,6),_ZySubnetBasedVlanRowStatus_Type())
-zySubnetBasedVlanRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:zySubnetBasedVlanRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'zyxelSubnetBasedVlan':zyxelSubnetBasedVlan,'zyxelSubnetBasedVlanSetup':zyxelSubnetBasedVlanSetup,'zySubnetBasedVlanState':zySubnetBasedVlanState,'zySubnetBasedVlanDhcpVlanOverrideState':zySubnetBasedVlanDhcpVlanOverrideState,'zySubnetBasedVlanMaxNumberOfVlans':zySubnetBasedVlanMaxNumberOfVlans,'zyxelSubnetBasedVlanTable':zyxelSubnetBasedVlanTable,'zyxelSubnetBasedVlanEntry':zyxelSubnetBasedVlanEntry,_F:zySubnetBasedVlanSourceIpAddress,_G:zySubnetBasedVlanSourceMaskBits,'zySubnetBasedVlanName':zySubnetBasedVlanName,'zySubnetBasedVlanVid':zySubnetBasedVlanVid,'zySubnetBasedVlanPriority':zySubnetBasedVlanPriority,'zySubnetBasedVlanRowStatus':zySubnetBasedVlanRowStatus})
+#
+# PySNMP MIB module ZYXEL-SUBNET-BASED-VLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-SUBNET-BASED-VLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:17 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelSubnetBasedVlan = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 80))
+if mibBuilder.loadTexts: zyxelSubnetBasedVlan.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelSubnetBasedVlan.setOrganization('Enterprise Solution ZyXEL')
+zyxelSubnetBasedVlanSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 80, 1))
+zySubnetBasedVlanState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 80, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zySubnetBasedVlanState.setStatus('current')
+zySubnetBasedVlanDhcpVlanOverrideState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 80, 1, 2), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zySubnetBasedVlanDhcpVlanOverrideState.setStatus('current')
+zySubnetBasedVlanMaxNumberOfVlans = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 80, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zySubnetBasedVlanMaxNumberOfVlans.setStatus('current')
+zyxelSubnetBasedVlanTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 80, 1, 4), )
+if mibBuilder.loadTexts: zyxelSubnetBasedVlanTable.setStatus('current')
+zyxelSubnetBasedVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 80, 1, 4, 1), ).setIndexNames((0, "ZYXEL-SUBNET-BASED-VLAN-MIB", "zySubnetBasedVlanSourceIpAddress"), (0, "ZYXEL-SUBNET-BASED-VLAN-MIB", "zySubnetBasedVlanSourceMaskBits"))
+if mibBuilder.loadTexts: zyxelSubnetBasedVlanEntry.setStatus('current')
+zySubnetBasedVlanSourceIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 80, 1, 4, 1, 1), IpAddress())
+if mibBuilder.loadTexts: zySubnetBasedVlanSourceIpAddress.setStatus('current')
+zySubnetBasedVlanSourceMaskBits = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 80, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32)))
+if mibBuilder.loadTexts: zySubnetBasedVlanSourceMaskBits.setStatus('current')
+zySubnetBasedVlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 80, 1, 4, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zySubnetBasedVlanName.setStatus('current')
+zySubnetBasedVlanVid = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 80, 1, 4, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zySubnetBasedVlanVid.setStatus('current')
+zySubnetBasedVlanPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 80, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zySubnetBasedVlanPriority.setStatus('current')
+zySubnetBasedVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 80, 1, 4, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zySubnetBasedVlanRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-SUBNET-BASED-VLAN-MIB", zySubnetBasedVlanPriority=zySubnetBasedVlanPriority, zySubnetBasedVlanSourceIpAddress=zySubnetBasedVlanSourceIpAddress, PYSNMP_MODULE_ID=zyxelSubnetBasedVlan, zySubnetBasedVlanState=zySubnetBasedVlanState, zySubnetBasedVlanDhcpVlanOverrideState=zySubnetBasedVlanDhcpVlanOverrideState, zySubnetBasedVlanRowStatus=zySubnetBasedVlanRowStatus, zyxelSubnetBasedVlan=zyxelSubnetBasedVlan, zyxelSubnetBasedVlanTable=zyxelSubnetBasedVlanTable, zySubnetBasedVlanMaxNumberOfVlans=zySubnetBasedVlanMaxNumberOfVlans, zyxelSubnetBasedVlanSetup=zyxelSubnetBasedVlanSetup, zySubnetBasedVlanName=zySubnetBasedVlanName, zySubnetBasedVlanVid=zySubnetBasedVlanVid, zyxelSubnetBasedVlanEntry=zyxelSubnetBasedVlanEntry, zySubnetBasedVlanSourceMaskBits=zySubnetBasedVlanSourceMaskBits)

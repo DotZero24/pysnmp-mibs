@@ -1,140 +1,79 @@
-_W='safAlarmNotificationsGroup'
-_V='safAlarmActiveGroup'
-_U='safAlarmClearState'
-_T='safAlarmActiveTState'
-_S='safAlarmActiveState'
-_R='deprecated'
-_Q='safAlarmActiveLastChangedDateAndTime'
-_P='safAlarmActiveLastChanged'
-_O='safAlarmActiveIndex'
-_N='Unsigned32'
-_M='safAlarmActiveThresholdTValue'
-_L='safAlarmActiveThresholdTTriggered'
-_K='safAlarmActiveThresholdValue'
-_J='safAlarmActiveThresholdTriggered'
-_I='safAlarmActiveAdditionalText'
-_H='safAlarmActivePerceivedSeverity'
-_G='safAlarmActiveProbableCause'
-_F='safAlarmActiveEventType'
-_E='safAlarmActiveDateAndTime'
-_D='safAlarmActiveManagedObj'
-_C='read-only'
-_B='current'
-_A='SAF-ALARM-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-IANAItuEventType,IANAItuProbableCause=mibBuilder.importSymbols('IANA-ITU-ALARM-TC-MIB','IANAItuEventType','IANAItuProbableCause')
-tehnika,=mibBuilder.importSymbols('SAF-ENTERPRISE','tehnika')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_N,'iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
-safAlarmMIB=ModuleIdentity((1,3,6,1,4,1,7571,100,118))
-if mibBuilder.loadTexts:safAlarmMIB.setRevisions(('2016-03-03 00:00','2014-07-03 00:00','2014-07-01 00:00','2008-09-17 00:00','2007-05-10 00:00'))
-class SafPerceivedSeverity(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('cleared',1),('indeterminate',2),('critical',3),('major',4),('minor',5),('warning',6),('event',7)))
-_SafAlarmNotifications_ObjectIdentity=ObjectIdentity
-safAlarmNotifications=_SafAlarmNotifications_ObjectIdentity((1,3,6,1,4,1,7571,100,118,0))
-_SafAlarmObjects_ObjectIdentity=ObjectIdentity
-safAlarmObjects=_SafAlarmObjects_ObjectIdentity((1,3,6,1,4,1,7571,100,118,1))
-_SafAlarmActive_ObjectIdentity=ObjectIdentity
-safAlarmActive=_SafAlarmActive_ObjectIdentity((1,3,6,1,4,1,7571,100,118,1,1))
-_SafAlarmActiveLastChanged_Type=TimeTicks
-_SafAlarmActiveLastChanged_Object=MibScalar
-safAlarmActiveLastChanged=_SafAlarmActiveLastChanged_Object((1,3,6,1,4,1,7571,100,118,1,1,1),_SafAlarmActiveLastChanged_Type())
-safAlarmActiveLastChanged.setMaxAccess(_C)
-if mibBuilder.loadTexts:safAlarmActiveLastChanged.setStatus(_B)
-_SafAlarmActiveTable_Object=MibTable
-safAlarmActiveTable=_SafAlarmActiveTable_Object((1,3,6,1,4,1,7571,100,118,1,1,2))
-if mibBuilder.loadTexts:safAlarmActiveTable.setStatus(_B)
-_SafAlarmActiveEntry_Object=MibTableRow
-safAlarmActiveEntry=_SafAlarmActiveEntry_Object((1,3,6,1,4,1,7571,100,118,1,1,2,1))
-safAlarmActiveEntry.setIndexNames((0,_A,_O))
-if mibBuilder.loadTexts:safAlarmActiveEntry.setStatus(_B)
-class _SafAlarmActiveIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_SafAlarmActiveIndex_Type.__name__=_N
-_SafAlarmActiveIndex_Object=MibTableColumn
-safAlarmActiveIndex=_SafAlarmActiveIndex_Object((1,3,6,1,4,1,7571,100,118,1,1,2,1,1),_SafAlarmActiveIndex_Type())
-safAlarmActiveIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:safAlarmActiveIndex.setStatus(_B)
-_SafAlarmActiveManagedObj_Type=ObjectIdentifier
-_SafAlarmActiveManagedObj_Object=MibTableColumn
-safAlarmActiveManagedObj=_SafAlarmActiveManagedObj_Object((1,3,6,1,4,1,7571,100,118,1,1,2,1,2),_SafAlarmActiveManagedObj_Type())
-safAlarmActiveManagedObj.setMaxAccess(_C)
-if mibBuilder.loadTexts:safAlarmActiveManagedObj.setStatus(_B)
-_SafAlarmActiveDateAndTime_Type=DateAndTime
-_SafAlarmActiveDateAndTime_Object=MibTableColumn
-safAlarmActiveDateAndTime=_SafAlarmActiveDateAndTime_Object((1,3,6,1,4,1,7571,100,118,1,1,2,1,3),_SafAlarmActiveDateAndTime_Type())
-safAlarmActiveDateAndTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:safAlarmActiveDateAndTime.setStatus(_B)
-_SafAlarmActiveEventType_Type=IANAItuEventType
-_SafAlarmActiveEventType_Object=MibTableColumn
-safAlarmActiveEventType=_SafAlarmActiveEventType_Object((1,3,6,1,4,1,7571,100,118,1,1,2,1,4),_SafAlarmActiveEventType_Type())
-safAlarmActiveEventType.setMaxAccess(_C)
-if mibBuilder.loadTexts:safAlarmActiveEventType.setStatus(_B)
-_SafAlarmActiveProbableCause_Type=IANAItuProbableCause
-_SafAlarmActiveProbableCause_Object=MibTableColumn
-safAlarmActiveProbableCause=_SafAlarmActiveProbableCause_Object((1,3,6,1,4,1,7571,100,118,1,1,2,1,5),_SafAlarmActiveProbableCause_Type())
-safAlarmActiveProbableCause.setMaxAccess(_C)
-if mibBuilder.loadTexts:safAlarmActiveProbableCause.setStatus(_B)
-_SafAlarmActivePerceivedSeverity_Type=SafPerceivedSeverity
-_SafAlarmActivePerceivedSeverity_Object=MibTableColumn
-safAlarmActivePerceivedSeverity=_SafAlarmActivePerceivedSeverity_Object((1,3,6,1,4,1,7571,100,118,1,1,2,1,6),_SafAlarmActivePerceivedSeverity_Type())
-safAlarmActivePerceivedSeverity.setMaxAccess(_C)
-if mibBuilder.loadTexts:safAlarmActivePerceivedSeverity.setStatus(_B)
-_SafAlarmActiveThresholdTriggered_Type=Integer32
-_SafAlarmActiveThresholdTriggered_Object=MibTableColumn
-safAlarmActiveThresholdTriggered=_SafAlarmActiveThresholdTriggered_Object((1,3,6,1,4,1,7571,100,118,1,1,2,1,7),_SafAlarmActiveThresholdTriggered_Type())
-safAlarmActiveThresholdTriggered.setMaxAccess(_C)
-if mibBuilder.loadTexts:safAlarmActiveThresholdTriggered.setStatus(_B)
-_SafAlarmActiveThresholdValue_Type=Integer32
-_SafAlarmActiveThresholdValue_Object=MibTableColumn
-safAlarmActiveThresholdValue=_SafAlarmActiveThresholdValue_Object((1,3,6,1,4,1,7571,100,118,1,1,2,1,8),_SafAlarmActiveThresholdValue_Type())
-safAlarmActiveThresholdValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:safAlarmActiveThresholdValue.setStatus(_B)
-_SafAlarmActiveThresholdTTriggered_Type=DisplayString
-_SafAlarmActiveThresholdTTriggered_Object=MibTableColumn
-safAlarmActiveThresholdTTriggered=_SafAlarmActiveThresholdTTriggered_Object((1,3,6,1,4,1,7571,100,118,1,1,2,1,9),_SafAlarmActiveThresholdTTriggered_Type())
-safAlarmActiveThresholdTTriggered.setMaxAccess(_C)
-if mibBuilder.loadTexts:safAlarmActiveThresholdTTriggered.setStatus(_B)
-_SafAlarmActiveThresholdTValue_Type=DisplayString
-_SafAlarmActiveThresholdTValue_Object=MibTableColumn
-safAlarmActiveThresholdTValue=_SafAlarmActiveThresholdTValue_Object((1,3,6,1,4,1,7571,100,118,1,1,2,1,10),_SafAlarmActiveThresholdTValue_Type())
-safAlarmActiveThresholdTValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:safAlarmActiveThresholdTValue.setStatus(_B)
-_SafAlarmActiveAdditionalText_Type=SnmpAdminString
-_SafAlarmActiveAdditionalText_Object=MibTableColumn
-safAlarmActiveAdditionalText=_SafAlarmActiveAdditionalText_Object((1,3,6,1,4,1,7571,100,118,1,1,2,1,11),_SafAlarmActiveAdditionalText_Type())
-safAlarmActiveAdditionalText.setMaxAccess(_C)
-if mibBuilder.loadTexts:safAlarmActiveAdditionalText.setStatus(_B)
-_SafAlarmActiveLastChangedDateAndTime_Type=DateAndTime
-_SafAlarmActiveLastChangedDateAndTime_Object=MibScalar
-safAlarmActiveLastChangedDateAndTime=_SafAlarmActiveLastChangedDateAndTime_Object((1,3,6,1,4,1,7571,100,118,1,1,3),_SafAlarmActiveLastChangedDateAndTime_Type())
-safAlarmActiveLastChangedDateAndTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:safAlarmActiveLastChangedDateAndTime.setStatus(_B)
-_SafAlarmConformance_ObjectIdentity=ObjectIdentity
-safAlarmConformance=_SafAlarmConformance_ObjectIdentity((1,3,6,1,4,1,7571,100,118,3))
-_SafAlarmCompliances_ObjectIdentity=ObjectIdentity
-safAlarmCompliances=_SafAlarmCompliances_ObjectIdentity((1,3,6,1,4,1,7571,100,118,3,1))
-_SafAlarmGroups_ObjectIdentity=ObjectIdentity
-safAlarmGroups=_SafAlarmGroups_ObjectIdentity((1,3,6,1,4,1,7571,100,118,3,2))
-safAlarmActiveGroup=ObjectGroup((1,3,6,1,4,1,7571,100,118,3,2,1))
-safAlarmActiveGroup.setObjects(*((_A,_P),(_A,_Q),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_I)))
-if mibBuilder.loadTexts:safAlarmActiveGroup.setStatus(_B)
-safAlarmActiveState=NotificationType((1,3,6,1,4,1,7571,100,118,0,2))
-safAlarmActiveState.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_J),(_A,_K),(_A,_I)))
-if mibBuilder.loadTexts:safAlarmActiveState.setStatus(_B)
-safAlarmActiveTState=NotificationType((1,3,6,1,4,1,7571,100,118,0,3))
-safAlarmActiveTState.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_I)))
-if mibBuilder.loadTexts:safAlarmActiveTState.setStatus(_B)
-safAlarmClearState=NotificationType((1,3,6,1,4,1,7571,100,118,0,4))
-safAlarmClearState.setObjects((_A,_D))
-if mibBuilder.loadTexts:safAlarmClearState.setStatus(_R)
-safAlarmNotificationsGroup=NotificationGroup((1,3,6,1,4,1,7571,100,118,3,2,2))
-safAlarmNotificationsGroup.setObjects(*((_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:safAlarmNotificationsGroup.setStatus(_R)
-safAlarmCompliance=ModuleCompliance((1,3,6,1,4,1,7571,100,118,3,1,1))
-safAlarmCompliance.setObjects(*((_A,_V),(_A,_W)))
-if mibBuilder.loadTexts:safAlarmCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'SafPerceivedSeverity':SafPerceivedSeverity,'safAlarmMIB':safAlarmMIB,'safAlarmNotifications':safAlarmNotifications,_S:safAlarmActiveState,_T:safAlarmActiveTState,_U:safAlarmClearState,'safAlarmObjects':safAlarmObjects,'safAlarmActive':safAlarmActive,_P:safAlarmActiveLastChanged,'safAlarmActiveTable':safAlarmActiveTable,'safAlarmActiveEntry':safAlarmActiveEntry,_O:safAlarmActiveIndex,_D:safAlarmActiveManagedObj,_E:safAlarmActiveDateAndTime,_F:safAlarmActiveEventType,_G:safAlarmActiveProbableCause,_H:safAlarmActivePerceivedSeverity,_J:safAlarmActiveThresholdTriggered,_K:safAlarmActiveThresholdValue,_L:safAlarmActiveThresholdTTriggered,_M:safAlarmActiveThresholdTValue,_I:safAlarmActiveAdditionalText,_Q:safAlarmActiveLastChangedDateAndTime,'safAlarmConformance':safAlarmConformance,'safAlarmCompliances':safAlarmCompliances,'safAlarmCompliance':safAlarmCompliance,'safAlarmGroups':safAlarmGroups,_V:safAlarmActiveGroup,_W:safAlarmNotificationsGroup})
+#
+# PySNMP MIB module SAF-ALARM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/saf/SAF-ALARM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:18 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+IANAItuProbableCause, IANAItuEventType = mibBuilder.importSymbols("IANA-ITU-ALARM-TC-MIB", "IANAItuProbableCause", "IANAItuEventType")
+tehnika, = mibBuilder.importSymbols("SAF-ENTERPRISE", "tehnika")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+safAlarmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 7571, 100, 118))
+safAlarmMIB.setRevisions(('2016-03-03 00:00', '2014-07-03 00:00', '2014-07-01 00:00', '2008-09-17 00:00', '2007-05-10 00:00',))
+if mibBuilder.loadTexts: safAlarmMIB.setLastUpdated('201603030000Z')
+if mibBuilder.loadTexts: safAlarmMIB.setOrganization('SAF Tehnika')
+class SafPerceivedSeverity(TextualConvention, Integer32):
+    reference = "ITU Recommendation M.3100, 'Generic Network Information Model', 1995 ITU Recommendation X.733, 'Information Technology - Open Systems Interconnection - System Management: Alarm Reporting Function', 1992"
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
+    namedValues = NamedValues(("cleared", 1), ("indeterminate", 2), ("critical", 3), ("major", 4), ("minor", 5), ("warning", 6), ("event", 7))
+
+safAlarmObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1))
+safAlarmActive = MibIdentifier((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1))
+safAlarmActiveLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1, 1), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: safAlarmActiveLastChanged.setStatus('current')
+safAlarmActiveLastChangedDateAndTime = MibScalar((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1, 3), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: safAlarmActiveLastChangedDateAndTime.setStatus('current')
+safAlarmActiveTable = MibTable((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1, 2), )
+if mibBuilder.loadTexts: safAlarmActiveTable.setStatus('current')
+safAlarmActiveEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1, 2, 1), ).setIndexNames((0, "SAF-ALARM-MIB", "safAlarmActiveIndex"))
+if mibBuilder.loadTexts: safAlarmActiveEntry.setStatus('current')
+safAlarmActiveIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: safAlarmActiveIndex.setStatus('current')
+safAlarmActiveManagedObj = MibTableColumn((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1, 2, 1, 2), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: safAlarmActiveManagedObj.setStatus('current')
+safAlarmActiveDateAndTime = MibTableColumn((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1, 2, 1, 3), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: safAlarmActiveDateAndTime.setStatus('current')
+safAlarmActiveEventType = MibTableColumn((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1, 2, 1, 4), IANAItuEventType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: safAlarmActiveEventType.setStatus('current')
+safAlarmActiveProbableCause = MibTableColumn((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1, 2, 1, 5), IANAItuProbableCause()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: safAlarmActiveProbableCause.setStatus('current')
+safAlarmActivePerceivedSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1, 2, 1, 6), SafPerceivedSeverity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: safAlarmActivePerceivedSeverity.setStatus('current')
+safAlarmActiveThresholdTriggered = MibTableColumn((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1, 2, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: safAlarmActiveThresholdTriggered.setStatus('current')
+safAlarmActiveThresholdValue = MibTableColumn((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1, 2, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: safAlarmActiveThresholdValue.setStatus('current')
+safAlarmActiveThresholdTTriggered = MibTableColumn((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1, 2, 1, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: safAlarmActiveThresholdTTriggered.setStatus('current')
+safAlarmActiveThresholdTValue = MibTableColumn((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1, 2, 1, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: safAlarmActiveThresholdTValue.setStatus('current')
+safAlarmActiveAdditionalText = MibTableColumn((1, 3, 6, 1, 4, 1, 7571, 100, 118, 1, 1, 2, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: safAlarmActiveAdditionalText.setStatus('current')
+safAlarmNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 7571, 100, 118, 0))
+safAlarmActiveState = NotificationType((1, 3, 6, 1, 4, 1, 7571, 100, 118, 0, 2)).setObjects(("SAF-ALARM-MIB", "safAlarmActiveManagedObj"), ("SAF-ALARM-MIB", "safAlarmActiveDateAndTime"), ("SAF-ALARM-MIB", "safAlarmActiveEventType"), ("SAF-ALARM-MIB", "safAlarmActiveProbableCause"), ("SAF-ALARM-MIB", "safAlarmActivePerceivedSeverity"), ("SAF-ALARM-MIB", "safAlarmActiveThresholdTriggered"), ("SAF-ALARM-MIB", "safAlarmActiveThresholdValue"), ("SAF-ALARM-MIB", "safAlarmActiveAdditionalText"))
+if mibBuilder.loadTexts: safAlarmActiveState.setStatus('current')
+safAlarmActiveTState = NotificationType((1, 3, 6, 1, 4, 1, 7571, 100, 118, 0, 3)).setObjects(("SAF-ALARM-MIB", "safAlarmActiveManagedObj"), ("SAF-ALARM-MIB", "safAlarmActiveDateAndTime"), ("SAF-ALARM-MIB", "safAlarmActiveEventType"), ("SAF-ALARM-MIB", "safAlarmActiveProbableCause"), ("SAF-ALARM-MIB", "safAlarmActivePerceivedSeverity"), ("SAF-ALARM-MIB", "safAlarmActiveThresholdTTriggered"), ("SAF-ALARM-MIB", "safAlarmActiveThresholdTValue"), ("SAF-ALARM-MIB", "safAlarmActiveAdditionalText"))
+if mibBuilder.loadTexts: safAlarmActiveTState.setStatus('current')
+safAlarmClearState = NotificationType((1, 3, 6, 1, 4, 1, 7571, 100, 118, 0, 4)).setObjects(("SAF-ALARM-MIB", "safAlarmActiveManagedObj"))
+if mibBuilder.loadTexts: safAlarmClearState.setStatus('deprecated')
+safAlarmConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 7571, 100, 118, 3))
+safAlarmCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 7571, 100, 118, 3, 1))
+safAlarmCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 7571, 100, 118, 3, 1, 1)).setObjects(("SAF-ALARM-MIB", "safAlarmActiveGroup"), ("SAF-ALARM-MIB", "safAlarmNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    safAlarmCompliance = safAlarmCompliance.setStatus('current')
+safAlarmGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 7571, 100, 118, 3, 2))
+safAlarmActiveGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7571, 100, 118, 3, 2, 1)).setObjects(("SAF-ALARM-MIB", "safAlarmActiveLastChanged"), ("SAF-ALARM-MIB", "safAlarmActiveLastChangedDateAndTime"), ("SAF-ALARM-MIB", "safAlarmActiveManagedObj"), ("SAF-ALARM-MIB", "safAlarmActiveDateAndTime"), ("SAF-ALARM-MIB", "safAlarmActiveEventType"), ("SAF-ALARM-MIB", "safAlarmActiveProbableCause"), ("SAF-ALARM-MIB", "safAlarmActivePerceivedSeverity"), ("SAF-ALARM-MIB", "safAlarmActiveThresholdTriggered"), ("SAF-ALARM-MIB", "safAlarmActiveThresholdValue"), ("SAF-ALARM-MIB", "safAlarmActiveThresholdTTriggered"), ("SAF-ALARM-MIB", "safAlarmActiveThresholdTValue"), ("SAF-ALARM-MIB", "safAlarmActiveAdditionalText"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    safAlarmActiveGroup = safAlarmActiveGroup.setStatus('current')
+safAlarmNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 7571, 100, 118, 3, 2, 2)).setObjects(("SAF-ALARM-MIB", "safAlarmActiveState"), ("SAF-ALARM-MIB", "safAlarmActiveTState"), ("SAF-ALARM-MIB", "safAlarmClearState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    safAlarmNotificationsGroup = safAlarmNotificationsGroup.setStatus('deprecated')
+mibBuilder.exportSymbols("SAF-ALARM-MIB", safAlarmActiveProbableCause=safAlarmActiveProbableCause, safAlarmActiveThresholdTTriggered=safAlarmActiveThresholdTTriggered, safAlarmCompliances=safAlarmCompliances, safAlarmActiveAdditionalText=safAlarmActiveAdditionalText, safAlarmNotificationsGroup=safAlarmNotificationsGroup, safAlarmActiveGroup=safAlarmActiveGroup, safAlarmClearState=safAlarmClearState, safAlarmActive=safAlarmActive, safAlarmActivePerceivedSeverity=safAlarmActivePerceivedSeverity, safAlarmActiveTState=safAlarmActiveTState, safAlarmActiveIndex=safAlarmActiveIndex, safAlarmActiveThresholdTValue=safAlarmActiveThresholdTValue, safAlarmActiveDateAndTime=safAlarmActiveDateAndTime, safAlarmConformance=safAlarmConformance, safAlarmActiveManagedObj=safAlarmActiveManagedObj, safAlarmActiveThresholdValue=safAlarmActiveThresholdValue, safAlarmCompliance=safAlarmCompliance, PYSNMP_MODULE_ID=safAlarmMIB, safAlarmActiveThresholdTriggered=safAlarmActiveThresholdTriggered, safAlarmNotifications=safAlarmNotifications, safAlarmObjects=safAlarmObjects, safAlarmActiveTable=safAlarmActiveTable, SafPerceivedSeverity=SafPerceivedSeverity, safAlarmActiveEventType=safAlarmActiveEventType, safAlarmMIB=safAlarmMIB, safAlarmActiveState=safAlarmActiveState, safAlarmActiveEntry=safAlarmActiveEntry, safAlarmActiveLastChangedDateAndTime=safAlarmActiveLastChangedDateAndTime, safAlarmActiveLastChanged=safAlarmActiveLastChanged, safAlarmGroups=safAlarmGroups)

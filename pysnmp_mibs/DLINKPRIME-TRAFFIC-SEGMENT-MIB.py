@@ -1,47 +1,39 @@
-_F='dpTrafficSegIfCfgGroup'
-_E='dpTrafficSegForwardPorts'
-_D='ifIndex'
-_C='IF-MIB'
-_B='DLINKPRIME-TRAFFIC-SEGMENT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlinkPrimeCommon,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlinkPrimeCommon')
-InterfaceIndex,ifIndex=mibBuilder.importSymbols(_C,'InterfaceIndex',_D)
-PortList,=mibBuilder.importSymbols('Q-BRIDGE-MIB','PortList')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-dlinkPrimeTrafficSegMIB=ModuleIdentity((1,3,6,1,4,1,171,15,25))
-if mibBuilder.loadTexts:dlinkPrimeTrafficSegMIB.setRevisions(('2014-04-26 00:00',))
-_DpTrafficSegNotifications_ObjectIdentity=ObjectIdentity
-dpTrafficSegNotifications=_DpTrafficSegNotifications_ObjectIdentity((1,3,6,1,4,1,171,15,25,0))
-_DpTrafficSegObjects_ObjectIdentity=ObjectIdentity
-dpTrafficSegObjects=_DpTrafficSegObjects_ObjectIdentity((1,3,6,1,4,1,171,15,25,1))
-_DpTrafficSegForwardDomainTable_Object=MibTable
-dpTrafficSegForwardDomainTable=_DpTrafficSegForwardDomainTable_Object((1,3,6,1,4,1,171,15,25,1,1))
-if mibBuilder.loadTexts:dpTrafficSegForwardDomainTable.setStatus(_A)
-_DpTrafficSegForwardDomainEntry_Object=MibTableRow
-dpTrafficSegForwardDomainEntry=_DpTrafficSegForwardDomainEntry_Object((1,3,6,1,4,1,171,15,25,1,1,1))
-dpTrafficSegForwardDomainEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:dpTrafficSegForwardDomainEntry.setStatus(_A)
-_DpTrafficSegForwardPorts_Type=PortList
-_DpTrafficSegForwardPorts_Object=MibTableColumn
-dpTrafficSegForwardPorts=_DpTrafficSegForwardPorts_Object((1,3,6,1,4,1,171,15,25,1,1,1,1),_DpTrafficSegForwardPorts_Type())
-dpTrafficSegForwardPorts.setMaxAccess('read-write')
-if mibBuilder.loadTexts:dpTrafficSegForwardPorts.setStatus(_A)
-_DpTrafficSegConformance_ObjectIdentity=ObjectIdentity
-dpTrafficSegConformance=_DpTrafficSegConformance_ObjectIdentity((1,3,6,1,4,1,171,15,25,2))
-_DpTrafficSegMIBCompliances_ObjectIdentity=ObjectIdentity
-dpTrafficSegMIBCompliances=_DpTrafficSegMIBCompliances_ObjectIdentity((1,3,6,1,4,1,171,15,25,2,1))
-_DpTrafficSegMIBGroups_ObjectIdentity=ObjectIdentity
-dpTrafficSegMIBGroups=_DpTrafficSegMIBGroups_ObjectIdentity((1,3,6,1,4,1,171,15,25,2,2))
-dpTrafficSegIfCfgGroup=ObjectGroup((1,3,6,1,4,1,171,15,25,2,2,1))
-dpTrafficSegIfCfgGroup.setObjects((_B,_E))
-if mibBuilder.loadTexts:dpTrafficSegIfCfgGroup.setStatus(_A)
-dpTrafficSegMIBCompliance=ModuleCompliance((1,3,6,1,4,1,171,15,25,2,1,1))
-dpTrafficSegMIBCompliance.setObjects((_B,_F))
-if mibBuilder.loadTexts:dpTrafficSegMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'dlinkPrimeTrafficSegMIB':dlinkPrimeTrafficSegMIB,'dpTrafficSegNotifications':dpTrafficSegNotifications,'dpTrafficSegObjects':dpTrafficSegObjects,'dpTrafficSegForwardDomainTable':dpTrafficSegForwardDomainTable,'dpTrafficSegForwardDomainEntry':dpTrafficSegForwardDomainEntry,_E:dpTrafficSegForwardPorts,'dpTrafficSegConformance':dpTrafficSegConformance,'dpTrafficSegMIBCompliances':dpTrafficSegMIBCompliances,'dpTrafficSegMIBCompliance':dpTrafficSegMIBCompliance,'dpTrafficSegMIBGroups':dpTrafficSegMIBGroups,_F:dpTrafficSegIfCfgGroup})
+#
+# PySNMP MIB module DLINKPRIME-TRAFFIC-SEGMENT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DLINKPRIME-TRAFFIC-SEGMENT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlinkPrimeCommon, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlinkPrimeCommon")
+ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
+PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+dlinkPrimeTrafficSegMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 15, 25))
+dlinkPrimeTrafficSegMIB.setRevisions(('2014-04-26 00:00',))
+if mibBuilder.loadTexts: dlinkPrimeTrafficSegMIB.setLastUpdated('201404260000Z')
+if mibBuilder.loadTexts: dlinkPrimeTrafficSegMIB.setOrganization('D-Link Corp.')
+dpTrafficSegNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 25, 0))
+dpTrafficSegObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 25, 1))
+dpTrafficSegConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 25, 2))
+dpTrafficSegForwardDomainTable = MibTable((1, 3, 6, 1, 4, 1, 171, 15, 25, 1, 1), )
+if mibBuilder.loadTexts: dpTrafficSegForwardDomainTable.setStatus('current')
+dpTrafficSegForwardDomainEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 15, 25, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: dpTrafficSegForwardDomainEntry.setStatus('current')
+dpTrafficSegForwardPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 25, 1, 1, 1, 1), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpTrafficSegForwardPorts.setStatus('current')
+dpTrafficSegMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 25, 2, 1))
+dpTrafficSegMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 25, 2, 2))
+dpTrafficSegMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 15, 25, 2, 1, 1)).setObjects(("DLINKPRIME-TRAFFIC-SEGMENT-MIB", "dpTrafficSegIfCfgGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpTrafficSegMIBCompliance = dpTrafficSegMIBCompliance.setStatus('current')
+dpTrafficSegIfCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 15, 25, 2, 2, 1)).setObjects(("DLINKPRIME-TRAFFIC-SEGMENT-MIB", "dpTrafficSegForwardPorts"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpTrafficSegIfCfgGroup = dpTrafficSegIfCfgGroup.setStatus('current')
+mibBuilder.exportSymbols("DLINKPRIME-TRAFFIC-SEGMENT-MIB", dpTrafficSegConformance=dpTrafficSegConformance, dpTrafficSegMIBCompliance=dpTrafficSegMIBCompliance, dpTrafficSegForwardPorts=dpTrafficSegForwardPorts, PYSNMP_MODULE_ID=dlinkPrimeTrafficSegMIB, dpTrafficSegObjects=dpTrafficSegObjects, dpTrafficSegMIBCompliances=dpTrafficSegMIBCompliances, dpTrafficSegForwardDomainTable=dpTrafficSegForwardDomainTable, dlinkPrimeTrafficSegMIB=dlinkPrimeTrafficSegMIB, dpTrafficSegMIBGroups=dpTrafficSegMIBGroups, dpTrafficSegForwardDomainEntry=dpTrafficSegForwardDomainEntry, dpTrafficSegIfCfgGroup=dpTrafficSegIfCfgGroup, dpTrafficSegNotifications=dpTrafficSegNotifications)

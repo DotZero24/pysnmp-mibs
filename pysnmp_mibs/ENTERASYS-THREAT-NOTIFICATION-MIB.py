@@ -1,232 +1,119 @@
-_o='etsysThreatResponseNotificationMessageGroup'
-_n='etsysThreatUndoNotificationMessageGroup'
-_m='etsysThreatUndoNotificationMessageSystemGroup'
-_l='etsysThreatNotificationMessage4Group'
-_k='etsysThreatNotificationMessage3Group'
-_j='etsysThreatNotificationMessage2Group'
-_i='etsysThreatNotificationMessage1Group'
-_h='etsysThreatNotificationMessage4SystemGroup'
-_g='etsysThreatNotificationMessage3SystemGroup'
-_f='etsysThreatNotificationMessage2SystemGroup'
-_e='etsysThreatNotificationMessage1SystemGroup'
-_d='etsysThreatResponseNotificationMessage'
-_c='etsysThreatUndoNotificationMessage'
-_b='etsysThreatNotificationInformationMessage4'
-_a='etsysThreatNotificationInformationMessage3'
-_Z='etsysThreatNotificationInformationMessage2'
-_Y='etsysThreatNotificationInformationMessage1'
-_X='etsysThreatNotificationLastUpdated'
-_W='etsysThreatNotificationDetails'
-_V='etsysThreatNotificationAction'
-_U='etsysThreatNotificationRuleName'
-_T='etsysThreatNotificationDateTime'
-_S='etsysThreatNotificationStatus'
-_R='etsysThreatNotificationConsolidatedData'
-_Q='etsysThreatNotificationIncidentID'
-_P='etsysThreatNotificationTargetAddress'
-_O='etsysThreatNotificationTargetAddressType'
-_N='etsysThreatNotificationInitiatorMacAddress'
-_M='etsysThreatNotificationThreatName'
-_L='etsysThreatNotificationThreatCategory'
-_K='etsysThreatNotificationSenderName'
-_J='etsysThreatNotificationSenderID'
-_I='etsysThreatNotificationDeviceIfIndex'
-_H='etsysThreatNotificationDeviceAddress'
-_G='etsysThreatNotificationDeviceAddressType'
-_F='etsysThreatNotificationInitiatorAddress'
-_E='etsysThreatNotificationInitiatorAddressType'
-_D='DisplayString'
-_C='accessible-for-notify'
-_B='current'
-_A='ENTERASYS-THREAT-NOTIFICATION-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-etsysModules,=mibBuilder.importSymbols('ENTERASYS-MIB-NAMES','etsysModules')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_D,'MacAddress','PhysAddress','TextualConvention')
-etsysThreatNotificationMIB=ModuleIdentity((1,3,6,1,4,1,5624,1,2,45))
-if mibBuilder.loadTexts:etsysThreatNotificationMIB.setRevisions(('2005-09-14 13:14','2005-02-11 15:14','2004-07-19 17:58','2004-03-10 15:47'))
-_EtsysThreatNotificationObjects_ObjectIdentity=ObjectIdentity
-etsysThreatNotificationObjects=_EtsysThreatNotificationObjects_ObjectIdentity((1,3,6,1,4,1,5624,1,2,45,1))
-_EtsysThreatNotificationNotificationBranch_ObjectIdentity=ObjectIdentity
-etsysThreatNotificationNotificationBranch=_EtsysThreatNotificationNotificationBranch_ObjectIdentity((1,3,6,1,4,1,5624,1,2,45,1,0))
-_EtsysThreatNotificationSystemBranch_ObjectIdentity=ObjectIdentity
-etsysThreatNotificationSystemBranch=_EtsysThreatNotificationSystemBranch_ObjectIdentity((1,3,6,1,4,1,5624,1,2,45,1,1))
-class _EtsysThreatNotificationSenderID_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_EtsysThreatNotificationSenderID_Type.__name__=_D
-_EtsysThreatNotificationSenderID_Object=MibScalar
-etsysThreatNotificationSenderID=_EtsysThreatNotificationSenderID_Object((1,3,6,1,4,1,5624,1,2,45,1,1,1),_EtsysThreatNotificationSenderID_Type())
-etsysThreatNotificationSenderID.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationSenderID.setStatus(_B)
-class _EtsysThreatNotificationSenderName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_EtsysThreatNotificationSenderName_Type.__name__=_D
-_EtsysThreatNotificationSenderName_Object=MibScalar
-etsysThreatNotificationSenderName=_EtsysThreatNotificationSenderName_Object((1,3,6,1,4,1,5624,1,2,45,1,1,2),_EtsysThreatNotificationSenderName_Type())
-etsysThreatNotificationSenderName.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationSenderName.setStatus(_B)
-class _EtsysThreatNotificationThreatCategory_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_EtsysThreatNotificationThreatCategory_Type.__name__=_D
-_EtsysThreatNotificationThreatCategory_Object=MibScalar
-etsysThreatNotificationThreatCategory=_EtsysThreatNotificationThreatCategory_Object((1,3,6,1,4,1,5624,1,2,45,1,1,3),_EtsysThreatNotificationThreatCategory_Type())
-etsysThreatNotificationThreatCategory.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationThreatCategory.setStatus(_B)
-class _EtsysThreatNotificationThreatName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_EtsysThreatNotificationThreatName_Type.__name__=_D
-_EtsysThreatNotificationThreatName_Object=MibScalar
-etsysThreatNotificationThreatName=_EtsysThreatNotificationThreatName_Object((1,3,6,1,4,1,5624,1,2,45,1,1,4),_EtsysThreatNotificationThreatName_Type())
-etsysThreatNotificationThreatName.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationThreatName.setStatus(_B)
-_EtsysThreatNotificationDeviceAddressType_Type=InetAddressType
-_EtsysThreatNotificationDeviceAddressType_Object=MibScalar
-etsysThreatNotificationDeviceAddressType=_EtsysThreatNotificationDeviceAddressType_Object((1,3,6,1,4,1,5624,1,2,45,1,1,5),_EtsysThreatNotificationDeviceAddressType_Type())
-etsysThreatNotificationDeviceAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationDeviceAddressType.setStatus(_B)
-_EtsysThreatNotificationDeviceAddress_Type=InetAddress
-_EtsysThreatNotificationDeviceAddress_Object=MibScalar
-etsysThreatNotificationDeviceAddress=_EtsysThreatNotificationDeviceAddress_Object((1,3,6,1,4,1,5624,1,2,45,1,1,6),_EtsysThreatNotificationDeviceAddress_Type())
-etsysThreatNotificationDeviceAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationDeviceAddress.setStatus(_B)
-_EtsysThreatNotificationDeviceIfIndex_Type=InterfaceIndex
-_EtsysThreatNotificationDeviceIfIndex_Object=MibScalar
-etsysThreatNotificationDeviceIfIndex=_EtsysThreatNotificationDeviceIfIndex_Object((1,3,6,1,4,1,5624,1,2,45,1,1,7),_EtsysThreatNotificationDeviceIfIndex_Type())
-etsysThreatNotificationDeviceIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationDeviceIfIndex.setStatus(_B)
-_EtsysThreatNotificationInitiatorAddressType_Type=InetAddressType
-_EtsysThreatNotificationInitiatorAddressType_Object=MibScalar
-etsysThreatNotificationInitiatorAddressType=_EtsysThreatNotificationInitiatorAddressType_Object((1,3,6,1,4,1,5624,1,2,45,1,1,8),_EtsysThreatNotificationInitiatorAddressType_Type())
-etsysThreatNotificationInitiatorAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationInitiatorAddressType.setStatus(_B)
-_EtsysThreatNotificationInitiatorAddress_Type=InetAddress
-_EtsysThreatNotificationInitiatorAddress_Object=MibScalar
-etsysThreatNotificationInitiatorAddress=_EtsysThreatNotificationInitiatorAddress_Object((1,3,6,1,4,1,5624,1,2,45,1,1,9),_EtsysThreatNotificationInitiatorAddress_Type())
-etsysThreatNotificationInitiatorAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationInitiatorAddress.setStatus(_B)
-_EtsysThreatNotificationTargetAddressType_Type=InetAddressType
-_EtsysThreatNotificationTargetAddressType_Object=MibScalar
-etsysThreatNotificationTargetAddressType=_EtsysThreatNotificationTargetAddressType_Object((1,3,6,1,4,1,5624,1,2,45,1,1,10),_EtsysThreatNotificationTargetAddressType_Type())
-etsysThreatNotificationTargetAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationTargetAddressType.setStatus(_B)
-_EtsysThreatNotificationTargetAddress_Type=InetAddress
-_EtsysThreatNotificationTargetAddress_Object=MibScalar
-etsysThreatNotificationTargetAddress=_EtsysThreatNotificationTargetAddress_Object((1,3,6,1,4,1,5624,1,2,45,1,1,11),_EtsysThreatNotificationTargetAddress_Type())
-etsysThreatNotificationTargetAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationTargetAddress.setStatus(_B)
-class _EtsysThreatNotificationConsolidatedData_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
-_EtsysThreatNotificationConsolidatedData_Type.__name__=_D
-_EtsysThreatNotificationConsolidatedData_Object=MibScalar
-etsysThreatNotificationConsolidatedData=_EtsysThreatNotificationConsolidatedData_Object((1,3,6,1,4,1,5624,1,2,45,1,1,12),_EtsysThreatNotificationConsolidatedData_Type())
-etsysThreatNotificationConsolidatedData.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationConsolidatedData.setStatus(_B)
-_EtsysThreatNotificationInitiatorMacAddress_Type=MacAddress
-_EtsysThreatNotificationInitiatorMacAddress_Object=MibScalar
-etsysThreatNotificationInitiatorMacAddress=_EtsysThreatNotificationInitiatorMacAddress_Object((1,3,6,1,4,1,5624,1,2,45,1,1,13),_EtsysThreatNotificationInitiatorMacAddress_Type())
-etsysThreatNotificationInitiatorMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationInitiatorMacAddress.setStatus(_B)
-_EtsysThreatNotificationIncidentID_Type=Integer32
-_EtsysThreatNotificationIncidentID_Object=MibScalar
-etsysThreatNotificationIncidentID=_EtsysThreatNotificationIncidentID_Object((1,3,6,1,4,1,5624,1,2,45,1,1,14),_EtsysThreatNotificationIncidentID_Type())
-etsysThreatNotificationIncidentID.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationIncidentID.setStatus(_B)
-class _EtsysThreatNotificationStatus_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_EtsysThreatNotificationStatus_Type.__name__=_D
-_EtsysThreatNotificationStatus_Object=MibScalar
-etsysThreatNotificationStatus=_EtsysThreatNotificationStatus_Object((1,3,6,1,4,1,5624,1,2,45,1,1,15),_EtsysThreatNotificationStatus_Type())
-etsysThreatNotificationStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationStatus.setStatus(_B)
-class _EtsysThreatNotificationDetails_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_EtsysThreatNotificationDetails_Type.__name__=_D
-_EtsysThreatNotificationDetails_Object=MibScalar
-etsysThreatNotificationDetails=_EtsysThreatNotificationDetails_Object((1,3,6,1,4,1,5624,1,2,45,1,1,16),_EtsysThreatNotificationDetails_Type())
-etsysThreatNotificationDetails.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationDetails.setStatus(_B)
-class _EtsysThreatNotificationAction_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_EtsysThreatNotificationAction_Type.__name__=_D
-_EtsysThreatNotificationAction_Object=MibScalar
-etsysThreatNotificationAction=_EtsysThreatNotificationAction_Object((1,3,6,1,4,1,5624,1,2,45,1,1,17),_EtsysThreatNotificationAction_Type())
-etsysThreatNotificationAction.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationAction.setStatus(_B)
-class _EtsysThreatNotificationRuleName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_EtsysThreatNotificationRuleName_Type.__name__=_D
-_EtsysThreatNotificationRuleName_Object=MibScalar
-etsysThreatNotificationRuleName=_EtsysThreatNotificationRuleName_Object((1,3,6,1,4,1,5624,1,2,45,1,1,18),_EtsysThreatNotificationRuleName_Type())
-etsysThreatNotificationRuleName.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationRuleName.setStatus(_B)
-_EtsysThreatNotificationDateTime_Type=DateAndTime
-_EtsysThreatNotificationDateTime_Object=MibScalar
-etsysThreatNotificationDateTime=_EtsysThreatNotificationDateTime_Object((1,3,6,1,4,1,5624,1,2,45,1,1,19),_EtsysThreatNotificationDateTime_Type())
-etsysThreatNotificationDateTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationDateTime.setStatus(_B)
-_EtsysThreatNotificationLastUpdated_Type=DateAndTime
-_EtsysThreatNotificationLastUpdated_Object=MibScalar
-etsysThreatNotificationLastUpdated=_EtsysThreatNotificationLastUpdated_Object((1,3,6,1,4,1,5624,1,2,45,1,1,20),_EtsysThreatNotificationLastUpdated_Type())
-etsysThreatNotificationLastUpdated.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysThreatNotificationLastUpdated.setStatus(_B)
-_EtsysThreatNotificationConformance_ObjectIdentity=ObjectIdentity
-etsysThreatNotificationConformance=_EtsysThreatNotificationConformance_ObjectIdentity((1,3,6,1,4,1,5624,1,2,45,2))
-_EtsysThreatNotificationGroups_ObjectIdentity=ObjectIdentity
-etsysThreatNotificationGroups=_EtsysThreatNotificationGroups_ObjectIdentity((1,3,6,1,4,1,5624,1,2,45,2,1))
-_EtsysThreatNotificationCompliances_ObjectIdentity=ObjectIdentity
-etsysThreatNotificationCompliances=_EtsysThreatNotificationCompliances_ObjectIdentity((1,3,6,1,4,1,5624,1,2,45,2,2))
-etsysThreatNotificationMessage1SystemGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,45,2,1,1))
-etsysThreatNotificationMessage1SystemGroup.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_E),(_A,_F),(_A,_O),(_A,_P)))
-if mibBuilder.loadTexts:etsysThreatNotificationMessage1SystemGroup.setStatus(_B)
-etsysThreatNotificationMessage2SystemGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,45,2,1,2))
-etsysThreatNotificationMessage2SystemGroup.setObjects(*((_A,_G),(_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:etsysThreatNotificationMessage2SystemGroup.setStatus(_B)
-etsysThreatNotificationMessage3SystemGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,45,2,1,3))
-etsysThreatNotificationMessage3SystemGroup.setObjects((_A,_R))
-if mibBuilder.loadTexts:etsysThreatNotificationMessage3SystemGroup.setStatus(_B)
-etsysThreatNotificationMessage4SystemGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,45,2,1,7))
-etsysThreatNotificationMessage4SystemGroup.setObjects(*((_A,_G),(_A,_H),(_A,_I),(_A,_N)))
-if mibBuilder.loadTexts:etsysThreatNotificationMessage4SystemGroup.setStatus(_B)
-etsysThreatUndoNotificationMessageSystemGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,45,2,1,9))
-etsysThreatUndoNotificationMessageSystemGroup.setObjects(*((_A,_Q),(_A,_G),(_A,_H),(_A,_I),(_A,_E),(_A,_F),(_A,_N)))
-if mibBuilder.loadTexts:etsysThreatUndoNotificationMessageSystemGroup.setStatus(_B)
-etsysThreatResponseNotificationMessageSystemGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,45,2,1,11))
-etsysThreatResponseNotificationMessageSystemGroup.setObjects(*((_A,_Q),(_A,_S),(_A,_T),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_E),(_A,_F),(_A,_N),(_A,_G),(_A,_H),(_A,_I),(_A,_U),(_A,_V),(_A,_W),(_A,_X)))
-if mibBuilder.loadTexts:etsysThreatResponseNotificationMessageSystemGroup.setStatus(_B)
-etsysThreatNotificationInformationMessage1=NotificationType((1,3,6,1,4,1,5624,1,2,45,1,0,1))
-etsysThreatNotificationInformationMessage1.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_E),(_A,_F),(_A,_O),(_A,_P)))
-if mibBuilder.loadTexts:etsysThreatNotificationInformationMessage1.setStatus(_B)
-etsysThreatNotificationInformationMessage2=NotificationType((1,3,6,1,4,1,5624,1,2,45,1,0,2))
-etsysThreatNotificationInformationMessage2.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_G),(_A,_H),(_A,_I),(_A,_E),(_A,_F),(_A,_O),(_A,_P)))
-if mibBuilder.loadTexts:etsysThreatNotificationInformationMessage2.setStatus(_B)
-etsysThreatNotificationInformationMessage3=NotificationType((1,3,6,1,4,1,5624,1,2,45,1,0,3))
-etsysThreatNotificationInformationMessage3.setObjects((_A,_R))
-if mibBuilder.loadTexts:etsysThreatNotificationInformationMessage3.setStatus(_B)
-etsysThreatNotificationInformationMessage4=NotificationType((1,3,6,1,4,1,5624,1,2,45,1,0,4))
-etsysThreatNotificationInformationMessage4.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_G),(_A,_H),(_A,_I),(_A,_E),(_A,_F),(_A,_N),(_A,_O),(_A,_P)))
-if mibBuilder.loadTexts:etsysThreatNotificationInformationMessage4.setStatus(_B)
-etsysThreatUndoNotificationMessage=NotificationType((1,3,6,1,4,1,5624,1,2,45,1,0,5))
-etsysThreatUndoNotificationMessage.setObjects(*((_A,_Q),(_A,_G),(_A,_H),(_A,_I),(_A,_E),(_A,_F),(_A,_N)))
-if mibBuilder.loadTexts:etsysThreatUndoNotificationMessage.setStatus(_B)
-etsysThreatResponseNotificationMessage=NotificationType((1,3,6,1,4,1,5624,1,2,45,1,0,6))
-etsysThreatResponseNotificationMessage.setObjects(*((_A,_Q),(_A,_S),(_A,_T),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_E),(_A,_F),(_A,_N),(_A,_G),(_A,_H),(_A,_I),(_A,_U),(_A,_V),(_A,_W),(_A,_X)))
-if mibBuilder.loadTexts:etsysThreatResponseNotificationMessage.setStatus(_B)
-etsysThreatNotificationMessage1Group=NotificationGroup((1,3,6,1,4,1,5624,1,2,45,2,1,4))
-etsysThreatNotificationMessage1Group.setObjects((_A,_Y))
-if mibBuilder.loadTexts:etsysThreatNotificationMessage1Group.setStatus(_B)
-etsysThreatNotificationMessage2Group=NotificationGroup((1,3,6,1,4,1,5624,1,2,45,2,1,5))
-etsysThreatNotificationMessage2Group.setObjects((_A,_Z))
-if mibBuilder.loadTexts:etsysThreatNotificationMessage2Group.setStatus(_B)
-etsysThreatNotificationMessage3Group=NotificationGroup((1,3,6,1,4,1,5624,1,2,45,2,1,6))
-etsysThreatNotificationMessage3Group.setObjects((_A,_a))
-if mibBuilder.loadTexts:etsysThreatNotificationMessage3Group.setStatus(_B)
-etsysThreatNotificationMessage4Group=NotificationGroup((1,3,6,1,4,1,5624,1,2,45,2,1,8))
-etsysThreatNotificationMessage4Group.setObjects((_A,_b))
-if mibBuilder.loadTexts:etsysThreatNotificationMessage4Group.setStatus(_B)
-etsysThreatUndoNotificationMessageGroup=NotificationGroup((1,3,6,1,4,1,5624,1,2,45,2,1,10))
-etsysThreatUndoNotificationMessageGroup.setObjects((_A,_c))
-if mibBuilder.loadTexts:etsysThreatUndoNotificationMessageGroup.setStatus(_B)
-etsysThreatResponseNotificationMessageGroup=NotificationGroup((1,3,6,1,4,1,5624,1,2,45,2,1,12))
-etsysThreatResponseNotificationMessageGroup.setObjects((_A,_d))
-if mibBuilder.loadTexts:etsysThreatResponseNotificationMessageGroup.setStatus(_B)
-etsysThreatNotificationCompliance=ModuleCompliance((1,3,6,1,4,1,5624,1,2,45,2,2,1))
-etsysThreatNotificationCompliance.setObjects(*((_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o)))
-if mibBuilder.loadTexts:etsysThreatNotificationCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'etsysThreatNotificationMIB':etsysThreatNotificationMIB,'etsysThreatNotificationObjects':etsysThreatNotificationObjects,'etsysThreatNotificationNotificationBranch':etsysThreatNotificationNotificationBranch,_Y:etsysThreatNotificationInformationMessage1,_Z:etsysThreatNotificationInformationMessage2,_a:etsysThreatNotificationInformationMessage3,_b:etsysThreatNotificationInformationMessage4,_c:etsysThreatUndoNotificationMessage,_d:etsysThreatResponseNotificationMessage,'etsysThreatNotificationSystemBranch':etsysThreatNotificationSystemBranch,_J:etsysThreatNotificationSenderID,_K:etsysThreatNotificationSenderName,_L:etsysThreatNotificationThreatCategory,_M:etsysThreatNotificationThreatName,_G:etsysThreatNotificationDeviceAddressType,_H:etsysThreatNotificationDeviceAddress,_I:etsysThreatNotificationDeviceIfIndex,_E:etsysThreatNotificationInitiatorAddressType,_F:etsysThreatNotificationInitiatorAddress,_O:etsysThreatNotificationTargetAddressType,_P:etsysThreatNotificationTargetAddress,_R:etsysThreatNotificationConsolidatedData,_N:etsysThreatNotificationInitiatorMacAddress,_Q:etsysThreatNotificationIncidentID,_S:etsysThreatNotificationStatus,_W:etsysThreatNotificationDetails,_V:etsysThreatNotificationAction,_U:etsysThreatNotificationRuleName,_T:etsysThreatNotificationDateTime,_X:etsysThreatNotificationLastUpdated,'etsysThreatNotificationConformance':etsysThreatNotificationConformance,'etsysThreatNotificationGroups':etsysThreatNotificationGroups,_e:etsysThreatNotificationMessage1SystemGroup,_f:etsysThreatNotificationMessage2SystemGroup,_g:etsysThreatNotificationMessage3SystemGroup,_i:etsysThreatNotificationMessage1Group,_j:etsysThreatNotificationMessage2Group,_k:etsysThreatNotificationMessage3Group,_h:etsysThreatNotificationMessage4SystemGroup,_l:etsysThreatNotificationMessage4Group,_m:etsysThreatUndoNotificationMessageSystemGroup,_n:etsysThreatUndoNotificationMessageGroup,'etsysThreatResponseNotificationMessageSystemGroup':etsysThreatResponseNotificationMessageSystemGroup,_o:etsysThreatResponseNotificationMessageGroup,'etsysThreatNotificationCompliances':etsysThreatNotificationCompliances,'etsysThreatNotificationCompliance':etsysThreatNotificationCompliance})
+#
+# PySNMP MIB module ENTERASYS-THREAT-NOTIFICATION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/enterasys/ENTERASYS-THREAT-NOTIFICATION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:33 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "DateAndTime", "TextualConvention")
+etsysThreatNotificationMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45))
+etsysThreatNotificationMIB.setRevisions(('2005-09-14 13:14', '2005-02-11 15:14', '2004-07-19 17:58', '2004-03-10 15:47',))
+if mibBuilder.loadTexts: etsysThreatNotificationMIB.setLastUpdated('200509141314Z')
+if mibBuilder.loadTexts: etsysThreatNotificationMIB.setOrganization('Enterasys Networks, Inc')
+etsysThreatNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1))
+etsysThreatNotificationNotificationBranch = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 0))
+etsysThreatNotificationSystemBranch = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1))
+etsysThreatNotificationSenderID = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationSenderID.setStatus('current')
+etsysThreatNotificationSenderName = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationSenderName.setStatus('current')
+etsysThreatNotificationThreatCategory = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationThreatCategory.setStatus('current')
+etsysThreatNotificationThreatName = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationThreatName.setStatus('current')
+etsysThreatNotificationDeviceAddressType = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 5), InetAddressType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationDeviceAddressType.setStatus('current')
+etsysThreatNotificationDeviceAddress = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 6), InetAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationDeviceAddress.setStatus('current')
+etsysThreatNotificationDeviceIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 7), InterfaceIndex()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationDeviceIfIndex.setStatus('current')
+etsysThreatNotificationInitiatorAddressType = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 8), InetAddressType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationInitiatorAddressType.setStatus('current')
+etsysThreatNotificationInitiatorAddress = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 9), InetAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationInitiatorAddress.setStatus('current')
+etsysThreatNotificationTargetAddressType = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 10), InetAddressType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationTargetAddressType.setStatus('current')
+etsysThreatNotificationTargetAddress = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 11), InetAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationTargetAddress.setStatus('current')
+etsysThreatNotificationConsolidatedData = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 1024))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationConsolidatedData.setStatus('current')
+etsysThreatNotificationInitiatorMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 13), MacAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationInitiatorMacAddress.setStatus('current')
+etsysThreatNotificationIncidentID = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 14), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationIncidentID.setStatus('current')
+etsysThreatNotificationStatus = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 15), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationStatus.setStatus('current')
+etsysThreatNotificationDetails = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 16), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationDetails.setStatus('current')
+etsysThreatNotificationAction = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 17), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationAction.setStatus('current')
+etsysThreatNotificationRuleName = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationRuleName.setStatus('current')
+etsysThreatNotificationDateTime = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 19), DateAndTime()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationDateTime.setStatus('current')
+etsysThreatNotificationLastUpdated = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 1, 20), DateAndTime()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: etsysThreatNotificationLastUpdated.setStatus('current')
+etsysThreatNotificationInformationMessage1 = NotificationType((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 0, 1)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationSenderID"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationSenderName"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationThreatCategory"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationThreatName"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationTargetAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationTargetAddress"))
+if mibBuilder.loadTexts: etsysThreatNotificationInformationMessage1.setStatus('current')
+etsysThreatNotificationInformationMessage2 = NotificationType((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 0, 2)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationSenderID"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationSenderName"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationThreatCategory"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationThreatName"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceIfIndex"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationTargetAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationTargetAddress"))
+if mibBuilder.loadTexts: etsysThreatNotificationInformationMessage2.setStatus('current')
+etsysThreatNotificationInformationMessage3 = NotificationType((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 0, 3)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationConsolidatedData"))
+if mibBuilder.loadTexts: etsysThreatNotificationInformationMessage3.setStatus('current')
+etsysThreatNotificationInformationMessage4 = NotificationType((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 0, 4)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationSenderID"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationSenderName"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationThreatCategory"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationThreatName"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceIfIndex"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorMacAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationTargetAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationTargetAddress"))
+if mibBuilder.loadTexts: etsysThreatNotificationInformationMessage4.setStatus('current')
+etsysThreatUndoNotificationMessage = NotificationType((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 0, 5)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationIncidentID"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceIfIndex"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorMacAddress"))
+if mibBuilder.loadTexts: etsysThreatUndoNotificationMessage.setStatus('current')
+etsysThreatResponseNotificationMessage = NotificationType((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 1, 0, 6)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationIncidentID"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationStatus"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDateTime"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationSenderID"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationSenderName"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationThreatCategory"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationThreatName"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorMacAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceIfIndex"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationRuleName"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationAction"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDetails"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationLastUpdated"))
+if mibBuilder.loadTexts: etsysThreatResponseNotificationMessage.setStatus('current')
+etsysThreatNotificationConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2))
+etsysThreatNotificationGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2, 1))
+etsysThreatNotificationCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2, 2))
+etsysThreatNotificationMessage1SystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2, 1, 1)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationSenderID"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationSenderName"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationThreatCategory"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationThreatName"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationTargetAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationTargetAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysThreatNotificationMessage1SystemGroup = etsysThreatNotificationMessage1SystemGroup.setStatus('current')
+etsysThreatNotificationMessage2SystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2, 1, 2)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceIfIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysThreatNotificationMessage2SystemGroup = etsysThreatNotificationMessage2SystemGroup.setStatus('current')
+etsysThreatNotificationMessage3SystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2, 1, 3)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationConsolidatedData"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysThreatNotificationMessage3SystemGroup = etsysThreatNotificationMessage3SystemGroup.setStatus('current')
+etsysThreatNotificationMessage1Group = NotificationGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2, 1, 4)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInformationMessage1"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysThreatNotificationMessage1Group = etsysThreatNotificationMessage1Group.setStatus('current')
+etsysThreatNotificationMessage2Group = NotificationGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2, 1, 5)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInformationMessage2"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysThreatNotificationMessage2Group = etsysThreatNotificationMessage2Group.setStatus('current')
+etsysThreatNotificationMessage3Group = NotificationGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2, 1, 6)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInformationMessage3"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysThreatNotificationMessage3Group = etsysThreatNotificationMessage3Group.setStatus('current')
+etsysThreatNotificationMessage4SystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2, 1, 7)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceIfIndex"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorMacAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysThreatNotificationMessage4SystemGroup = etsysThreatNotificationMessage4SystemGroup.setStatus('current')
+etsysThreatNotificationMessage4Group = NotificationGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2, 1, 8)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInformationMessage4"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysThreatNotificationMessage4Group = etsysThreatNotificationMessage4Group.setStatus('current')
+etsysThreatUndoNotificationMessageSystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2, 1, 9)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationIncidentID"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceIfIndex"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorMacAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysThreatUndoNotificationMessageSystemGroup = etsysThreatUndoNotificationMessageSystemGroup.setStatus('current')
+etsysThreatUndoNotificationMessageGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2, 1, 10)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatUndoNotificationMessage"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysThreatUndoNotificationMessageGroup = etsysThreatUndoNotificationMessageGroup.setStatus('current')
+etsysThreatResponseNotificationMessageSystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2, 1, 11)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationIncidentID"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationStatus"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDateTime"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationSenderID"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationSenderName"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationThreatCategory"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationThreatName"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationInitiatorMacAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddressType"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceAddress"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDeviceIfIndex"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationRuleName"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationAction"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationDetails"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationLastUpdated"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysThreatResponseNotificationMessageSystemGroup = etsysThreatResponseNotificationMessageSystemGroup.setStatus('current')
+etsysThreatResponseNotificationMessageGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2, 1, 12)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatResponseNotificationMessage"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysThreatResponseNotificationMessageGroup = etsysThreatResponseNotificationMessageGroup.setStatus('current')
+etsysThreatNotificationCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 45, 2, 2, 1)).setObjects(("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationMessage1SystemGroup"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationMessage2SystemGroup"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationMessage3SystemGroup"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationMessage4SystemGroup"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationMessage1Group"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationMessage2Group"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationMessage3Group"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatNotificationMessage4Group"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatUndoNotificationMessageSystemGroup"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatUndoNotificationMessageGroup"), ("ENTERASYS-THREAT-NOTIFICATION-MIB", "etsysThreatResponseNotificationMessageGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysThreatNotificationCompliance = etsysThreatNotificationCompliance.setStatus('current')
+mibBuilder.exportSymbols("ENTERASYS-THREAT-NOTIFICATION-MIB", etsysThreatNotificationGroups=etsysThreatNotificationGroups, etsysThreatNotificationCompliances=etsysThreatNotificationCompliances, etsysThreatNotificationAction=etsysThreatNotificationAction, etsysThreatNotificationTargetAddress=etsysThreatNotificationTargetAddress, etsysThreatNotificationNotificationBranch=etsysThreatNotificationNotificationBranch, etsysThreatNotificationIncidentID=etsysThreatNotificationIncidentID, etsysThreatNotificationConsolidatedData=etsysThreatNotificationConsolidatedData, etsysThreatNotificationDateTime=etsysThreatNotificationDateTime, etsysThreatNotificationRuleName=etsysThreatNotificationRuleName, etsysThreatNotificationDeviceAddress=etsysThreatNotificationDeviceAddress, etsysThreatNotificationMIB=etsysThreatNotificationMIB, etsysThreatNotificationMessage4SystemGroup=etsysThreatNotificationMessage4SystemGroup, etsysThreatNotificationDeviceIfIndex=etsysThreatNotificationDeviceIfIndex, etsysThreatNotificationConformance=etsysThreatNotificationConformance, etsysThreatNotificationSenderName=etsysThreatNotificationSenderName, etsysThreatNotificationThreatName=etsysThreatNotificationThreatName, etsysThreatNotificationDetails=etsysThreatNotificationDetails, etsysThreatNotificationLastUpdated=etsysThreatNotificationLastUpdated, etsysThreatNotificationThreatCategory=etsysThreatNotificationThreatCategory, etsysThreatNotificationTargetAddressType=etsysThreatNotificationTargetAddressType, etsysThreatNotificationInformationMessage1=etsysThreatNotificationInformationMessage1, etsysThreatNotificationInformationMessage3=etsysThreatNotificationInformationMessage3, etsysThreatNotificationInitiatorAddress=etsysThreatNotificationInitiatorAddress, etsysThreatUndoNotificationMessage=etsysThreatUndoNotificationMessage, etsysThreatNotificationMessage1SystemGroup=etsysThreatNotificationMessage1SystemGroup, etsysThreatUndoNotificationMessageSystemGroup=etsysThreatUndoNotificationMessageSystemGroup, etsysThreatNotificationDeviceAddressType=etsysThreatNotificationDeviceAddressType, etsysThreatNotificationSystemBranch=etsysThreatNotificationSystemBranch, etsysThreatNotificationMessage4Group=etsysThreatNotificationMessage4Group, etsysThreatNotificationInformationMessage2=etsysThreatNotificationInformationMessage2, etsysThreatNotificationInitiatorMacAddress=etsysThreatNotificationInitiatorMacAddress, etsysThreatNotificationCompliance=etsysThreatNotificationCompliance, etsysThreatNotificationMessage3SystemGroup=etsysThreatNotificationMessage3SystemGroup, etsysThreatNotificationMessage1Group=etsysThreatNotificationMessage1Group, PYSNMP_MODULE_ID=etsysThreatNotificationMIB, etsysThreatNotificationMessage2SystemGroup=etsysThreatNotificationMessage2SystemGroup, etsysThreatResponseNotificationMessage=etsysThreatResponseNotificationMessage, etsysThreatNotificationObjects=etsysThreatNotificationObjects, etsysThreatNotificationMessage3Group=etsysThreatNotificationMessage3Group, etsysThreatResponseNotificationMessageSystemGroup=etsysThreatResponseNotificationMessageSystemGroup, etsysThreatNotificationInitiatorAddressType=etsysThreatNotificationInitiatorAddressType, etsysThreatNotificationInformationMessage4=etsysThreatNotificationInformationMessage4, etsysThreatUndoNotificationMessageGroup=etsysThreatUndoNotificationMessageGroup, etsysThreatNotificationMessage2Group=etsysThreatNotificationMessage2Group, etsysThreatNotificationStatus=etsysThreatNotificationStatus, etsysThreatNotificationSenderID=etsysThreatNotificationSenderID, etsysThreatResponseNotificationMessageGroup=etsysThreatResponseNotificationMessageGroup)

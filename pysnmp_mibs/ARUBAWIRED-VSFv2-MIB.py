@@ -1,316 +1,133 @@
-_w='arubaWiredVsfv2NotificationsGroup'
-_v='arubaWiredVsfv2PortTableGroup'
-_u='arubaWiredVsfv2LinkTableGroup'
-_t='arubaWiredVsfv2MemberTableGroup'
-_s='arubaWiredVsfv2StatusScalarGroup'
-_r='arubaWiredVsfv2ConfigScalarGroup'
-_q='arubaWiredVsfv2FragmentStatusChange'
-_p='arubaWiredVsfv2MemberStatusChange'
-_o='arubaWiredVsfv2PortPeerProductType'
-_n='arubaWiredVsfv2PortPeerSysMac'
-_m='arubaWiredVsfv2PortPeerInterface'
-_l='arubaWiredVsfv2PortStatusStr'
-_k='arubaWiredVsfv2PortOperStatus'
-_j='arubaWiredVsfv2LinkPortList'
-_i='arubaWiredVsfv2LinkPeerLinkId'
-_h='arubaWiredVsfv2LinkPeerMemberId'
-_g='arubaWiredVsfv2LinkOperStatus'
-_f='arubaWiredVsfv2MemberEntPhysicalIndex'
-_e='arubaWiredVsfv2MemberCurrentUsage'
-_d='arubaWiredVsfv2MemberTotalMemory'
-_c='arubaWiredVsfv2MemberBootRomVersion'
-_b='arubaWiredVsfv2MemberBootTime'
-_a='arubaWiredVsfv2MemberMemoryUtil'
-_Z='arubaWiredVsfv2MemberCpuUtil'
-_Y='arubaWiredVsfv2MemberBootImage'
-_X='arubaWiredVsfv2MemberSerialNum'
-_W='arubaWiredVsfv2MemberProductName'
-_V='arubaWiredVsfv2MemberMacAddr'
-_U='arubaWiredVsfv2MemberPartNumber'
-_T='arubaWiredVsfv2SplitDetectConfigured'
-_S='arubaWiredVsfv2Secondary'
-_R='arubaWiredVsfv2DomainId'
-_Q='arubaWiredVsfv2StackMacAddr'
-_P='arubaWiredVsfv2TrapEnable'
-_O='arubaWiredVsfv2Topology'
-_N='not-accessible'
-_M='arubaWiredVsfv2LinkId'
-_L='arubaWiredVsfv2LinkMemberId'
-_K='read-write'
-_J='arubaWiredVsfv2MemberStatus'
-_I='arubaWiredVsfv2MemberRole'
-_H='arubaWiredVsfv2OperStatus'
-_G='arubaWiredVsfv2PortIfIndex'
-_F='arubaWiredVsfv2MemberIndex'
-_E='DisplayString'
-_D='Integer32'
-_C='read-only'
-_B='current'
-_A='ARUBAWIRED-VSFv2-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-wndFeatures,=mibBuilder.importSymbols('ARUBAWIRED-NETWORKING-OID','wndFeatures')
-PortList,=mibBuilder.importSymbols('Q-BRIDGE-MIB','PortList')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_E,'MacAddress','PhysAddress','TextualConvention','TruthValue')
-arubaWiredVsfv2MIB=ModuleIdentity((1,3,6,1,4,1,47196,4,1,1,3,15))
-if mibBuilder.loadTexts:arubaWiredVsfv2MIB.setRevisions(('2023-05-16 00:00','2022-03-03 00:00','2021-11-21 00:00','2020-11-18 00:00','2020-09-09 00:00','2020-07-13 00:00'))
-_ArubaWiredVsfv2Notifications_ObjectIdentity=ObjectIdentity
-arubaWiredVsfv2Notifications=_ArubaWiredVsfv2Notifications_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,15,0))
-_ArubaWiredVsfv2Objects_ObjectIdentity=ObjectIdentity
-arubaWiredVsfv2Objects=_ArubaWiredVsfv2Objects_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,15,1))
-_ArubaWiredVsfv2Config_ObjectIdentity=ObjectIdentity
-arubaWiredVsfv2Config=_ArubaWiredVsfv2Config_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,15,1,0))
-_ArubaWiredVsfv2TrapEnable_Type=TruthValue
-_ArubaWiredVsfv2TrapEnable_Object=MibScalar
-arubaWiredVsfv2TrapEnable=_ArubaWiredVsfv2TrapEnable_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,0,1),_ArubaWiredVsfv2TrapEnable_Type())
-arubaWiredVsfv2TrapEnable.setMaxAccess(_K)
-if mibBuilder.loadTexts:arubaWiredVsfv2TrapEnable.setStatus(_B)
-class _ArubaWiredVsfv2SplitDetectConfigured_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('none',1),('mgmt',2)))
-_ArubaWiredVsfv2SplitDetectConfigured_Type.__name__=_D
-_ArubaWiredVsfv2SplitDetectConfigured_Object=MibScalar
-arubaWiredVsfv2SplitDetectConfigured=_ArubaWiredVsfv2SplitDetectConfigured_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,0,2),_ArubaWiredVsfv2SplitDetectConfigured_Type())
-arubaWiredVsfv2SplitDetectConfigured.setMaxAccess(_K)
-if mibBuilder.loadTexts:arubaWiredVsfv2SplitDetectConfigured.setStatus(_B)
-_ArubaWiredVsfv2Status_ObjectIdentity=ObjectIdentity
-arubaWiredVsfv2Status=_ArubaWiredVsfv2Status_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,15,1,1))
-_ArubaWiredVsfv2OperStatus_Type=DisplayString
-_ArubaWiredVsfv2OperStatus_Object=MibScalar
-arubaWiredVsfv2OperStatus=_ArubaWiredVsfv2OperStatus_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,1,1),_ArubaWiredVsfv2OperStatus_Type())
-arubaWiredVsfv2OperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2OperStatus.setStatus(_B)
-_ArubaWiredVsfv2Topology_Type=DisplayString
-_ArubaWiredVsfv2Topology_Object=MibScalar
-arubaWiredVsfv2Topology=_ArubaWiredVsfv2Topology_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,1,2),_ArubaWiredVsfv2Topology_Type())
-arubaWiredVsfv2Topology.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2Topology.setStatus(_B)
-_ArubaWiredVsfv2StackMacAddr_Type=MacAddress
-_ArubaWiredVsfv2StackMacAddr_Object=MibScalar
-arubaWiredVsfv2StackMacAddr=_ArubaWiredVsfv2StackMacAddr_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,1,3),_ArubaWiredVsfv2StackMacAddr_Type())
-arubaWiredVsfv2StackMacAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2StackMacAddr.setStatus(_B)
-class _ArubaWiredVsfv2DomainId_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,37))
-_ArubaWiredVsfv2DomainId_Type.__name__=_E
-_ArubaWiredVsfv2DomainId_Object=MibScalar
-arubaWiredVsfv2DomainId=_ArubaWiredVsfv2DomainId_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,1,4),_ArubaWiredVsfv2DomainId_Type())
-arubaWiredVsfv2DomainId.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2DomainId.setStatus(_B)
-class _ArubaWiredVsfv2Secondary_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,3))
-_ArubaWiredVsfv2Secondary_Type.__name__=_E
-_ArubaWiredVsfv2Secondary_Object=MibScalar
-arubaWiredVsfv2Secondary=_ArubaWiredVsfv2Secondary_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,1,5),_ArubaWiredVsfv2Secondary_Type())
-arubaWiredVsfv2Secondary.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2Secondary.setStatus(_B)
-_ArubaWiredVsfv2MemberTable_Object=MibTable
-arubaWiredVsfv2MemberTable=_ArubaWiredVsfv2MemberTable_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2))
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberTable.setStatus(_B)
-_ArubaWiredVsfv2MemberEntry_Object=MibTableRow
-arubaWiredVsfv2MemberEntry=_ArubaWiredVsfv2MemberEntry_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1))
-arubaWiredVsfv2MemberEntry.setIndexNames((0,_A,_F))
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberEntry.setStatus(_B)
-class _ArubaWiredVsfv2MemberIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_ArubaWiredVsfv2MemberIndex_Type.__name__=_D
-_ArubaWiredVsfv2MemberIndex_Object=MibTableColumn
-arubaWiredVsfv2MemberIndex=_ArubaWiredVsfv2MemberIndex_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1,1),_ArubaWiredVsfv2MemberIndex_Type())
-arubaWiredVsfv2MemberIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberIndex.setStatus(_B)
-class _ArubaWiredVsfv2MemberRole_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_ArubaWiredVsfv2MemberRole_Type.__name__=_E
-_ArubaWiredVsfv2MemberRole_Object=MibTableColumn
-arubaWiredVsfv2MemberRole=_ArubaWiredVsfv2MemberRole_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1,2),_ArubaWiredVsfv2MemberRole_Type())
-arubaWiredVsfv2MemberRole.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberRole.setStatus(_B)
-class _ArubaWiredVsfv2MemberStatus_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_ArubaWiredVsfv2MemberStatus_Type.__name__=_E
-_ArubaWiredVsfv2MemberStatus_Object=MibTableColumn
-arubaWiredVsfv2MemberStatus=_ArubaWiredVsfv2MemberStatus_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1,3),_ArubaWiredVsfv2MemberStatus_Type())
-arubaWiredVsfv2MemberStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberStatus.setStatus(_B)
-class _ArubaWiredVsfv2MemberPartNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_ArubaWiredVsfv2MemberPartNumber_Type.__name__=_E
-_ArubaWiredVsfv2MemberPartNumber_Object=MibTableColumn
-arubaWiredVsfv2MemberPartNumber=_ArubaWiredVsfv2MemberPartNumber_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1,4),_ArubaWiredVsfv2MemberPartNumber_Type())
-arubaWiredVsfv2MemberPartNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberPartNumber.setStatus(_B)
-_ArubaWiredVsfv2MemberMacAddr_Type=MacAddress
-_ArubaWiredVsfv2MemberMacAddr_Object=MibTableColumn
-arubaWiredVsfv2MemberMacAddr=_ArubaWiredVsfv2MemberMacAddr_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1,5),_ArubaWiredVsfv2MemberMacAddr_Type())
-arubaWiredVsfv2MemberMacAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberMacAddr.setStatus(_B)
-_ArubaWiredVsfv2MemberProductName_Type=DisplayString
-_ArubaWiredVsfv2MemberProductName_Object=MibTableColumn
-arubaWiredVsfv2MemberProductName=_ArubaWiredVsfv2MemberProductName_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1,6),_ArubaWiredVsfv2MemberProductName_Type())
-arubaWiredVsfv2MemberProductName.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberProductName.setStatus(_B)
-class _ArubaWiredVsfv2MemberSerialNum_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_ArubaWiredVsfv2MemberSerialNum_Type.__name__=_E
-_ArubaWiredVsfv2MemberSerialNum_Object=MibTableColumn
-arubaWiredVsfv2MemberSerialNum=_ArubaWiredVsfv2MemberSerialNum_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1,7),_ArubaWiredVsfv2MemberSerialNum_Type())
-arubaWiredVsfv2MemberSerialNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberSerialNum.setStatus(_B)
-class _ArubaWiredVsfv2MemberBootImage_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_ArubaWiredVsfv2MemberBootImage_Type.__name__=_E
-_ArubaWiredVsfv2MemberBootImage_Object=MibTableColumn
-arubaWiredVsfv2MemberBootImage=_ArubaWiredVsfv2MemberBootImage_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1,8),_ArubaWiredVsfv2MemberBootImage_Type())
-arubaWiredVsfv2MemberBootImage.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberBootImage.setStatus(_B)
-class _ArubaWiredVsfv2MemberCpuUtil_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_ArubaWiredVsfv2MemberCpuUtil_Type.__name__=_D
-_ArubaWiredVsfv2MemberCpuUtil_Object=MibTableColumn
-arubaWiredVsfv2MemberCpuUtil=_ArubaWiredVsfv2MemberCpuUtil_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1,9),_ArubaWiredVsfv2MemberCpuUtil_Type())
-arubaWiredVsfv2MemberCpuUtil.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberCpuUtil.setStatus(_B)
-class _ArubaWiredVsfv2MemberMemoryUtil_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_ArubaWiredVsfv2MemberMemoryUtil_Type.__name__=_D
-_ArubaWiredVsfv2MemberMemoryUtil_Object=MibTableColumn
-arubaWiredVsfv2MemberMemoryUtil=_ArubaWiredVsfv2MemberMemoryUtil_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1,10),_ArubaWiredVsfv2MemberMemoryUtil_Type())
-arubaWiredVsfv2MemberMemoryUtil.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberMemoryUtil.setStatus(_B)
-_ArubaWiredVsfv2MemberBootTime_Type=TimeTicks
-_ArubaWiredVsfv2MemberBootTime_Object=MibTableColumn
-arubaWiredVsfv2MemberBootTime=_ArubaWiredVsfv2MemberBootTime_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1,11),_ArubaWiredVsfv2MemberBootTime_Type())
-arubaWiredVsfv2MemberBootTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberBootTime.setStatus(_B)
-class _ArubaWiredVsfv2MemberBootRomVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_ArubaWiredVsfv2MemberBootRomVersion_Type.__name__=_E
-_ArubaWiredVsfv2MemberBootRomVersion_Object=MibTableColumn
-arubaWiredVsfv2MemberBootRomVersion=_ArubaWiredVsfv2MemberBootRomVersion_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1,12),_ArubaWiredVsfv2MemberBootRomVersion_Type())
-arubaWiredVsfv2MemberBootRomVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberBootRomVersion.setStatus(_B)
-class _ArubaWiredVsfv2MemberTotalMemory_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_ArubaWiredVsfv2MemberTotalMemory_Type.__name__=_D
-_ArubaWiredVsfv2MemberTotalMemory_Object=MibTableColumn
-arubaWiredVsfv2MemberTotalMemory=_ArubaWiredVsfv2MemberTotalMemory_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1,13),_ArubaWiredVsfv2MemberTotalMemory_Type())
-arubaWiredVsfv2MemberTotalMemory.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberTotalMemory.setStatus(_B)
-class _ArubaWiredVsfv2MemberCurrentUsage_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_ArubaWiredVsfv2MemberCurrentUsage_Type.__name__=_D
-_ArubaWiredVsfv2MemberCurrentUsage_Object=MibTableColumn
-arubaWiredVsfv2MemberCurrentUsage=_ArubaWiredVsfv2MemberCurrentUsage_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1,14),_ArubaWiredVsfv2MemberCurrentUsage_Type())
-arubaWiredVsfv2MemberCurrentUsage.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberCurrentUsage.setStatus(_B)
-class _ArubaWiredVsfv2MemberEntPhysicalIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_ArubaWiredVsfv2MemberEntPhysicalIndex_Type.__name__=_D
-_ArubaWiredVsfv2MemberEntPhysicalIndex_Object=MibTableColumn
-arubaWiredVsfv2MemberEntPhysicalIndex=_ArubaWiredVsfv2MemberEntPhysicalIndex_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,2,1,15),_ArubaWiredVsfv2MemberEntPhysicalIndex_Type())
-arubaWiredVsfv2MemberEntPhysicalIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberEntPhysicalIndex.setStatus(_B)
-_ArubaWiredVsfv2LinkTable_Object=MibTable
-arubaWiredVsfv2LinkTable=_ArubaWiredVsfv2LinkTable_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,3))
-if mibBuilder.loadTexts:arubaWiredVsfv2LinkTable.setStatus(_B)
-_ArubaWiredVsfv2LinkEntry_Object=MibTableRow
-arubaWiredVsfv2LinkEntry=_ArubaWiredVsfv2LinkEntry_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,3,1))
-arubaWiredVsfv2LinkEntry.setIndexNames((0,_A,_L),(0,_A,_M))
-if mibBuilder.loadTexts:arubaWiredVsfv2LinkEntry.setStatus(_B)
-class _ArubaWiredVsfv2LinkMemberId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_ArubaWiredVsfv2LinkMemberId_Type.__name__=_D
-_ArubaWiredVsfv2LinkMemberId_Object=MibTableColumn
-arubaWiredVsfv2LinkMemberId=_ArubaWiredVsfv2LinkMemberId_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,3,1,1),_ArubaWiredVsfv2LinkMemberId_Type())
-arubaWiredVsfv2LinkMemberId.setMaxAccess(_N)
-if mibBuilder.loadTexts:arubaWiredVsfv2LinkMemberId.setStatus(_B)
-class _ArubaWiredVsfv2LinkId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_ArubaWiredVsfv2LinkId_Type.__name__=_D
-_ArubaWiredVsfv2LinkId_Object=MibTableColumn
-arubaWiredVsfv2LinkId=_ArubaWiredVsfv2LinkId_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,3,1,2),_ArubaWiredVsfv2LinkId_Type())
-arubaWiredVsfv2LinkId.setMaxAccess(_N)
-if mibBuilder.loadTexts:arubaWiredVsfv2LinkId.setStatus(_B)
-_ArubaWiredVsfv2LinkOperStatus_Type=DisplayString
-_ArubaWiredVsfv2LinkOperStatus_Object=MibTableColumn
-arubaWiredVsfv2LinkOperStatus=_ArubaWiredVsfv2LinkOperStatus_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,3,1,3),_ArubaWiredVsfv2LinkOperStatus_Type())
-arubaWiredVsfv2LinkOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2LinkOperStatus.setStatus(_B)
-class _ArubaWiredVsfv2LinkPeerMemberId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_ArubaWiredVsfv2LinkPeerMemberId_Type.__name__=_D
-_ArubaWiredVsfv2LinkPeerMemberId_Object=MibTableColumn
-arubaWiredVsfv2LinkPeerMemberId=_ArubaWiredVsfv2LinkPeerMemberId_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,3,1,4),_ArubaWiredVsfv2LinkPeerMemberId_Type())
-arubaWiredVsfv2LinkPeerMemberId.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2LinkPeerMemberId.setStatus(_B)
-class _ArubaWiredVsfv2LinkPeerLinkId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_ArubaWiredVsfv2LinkPeerLinkId_Type.__name__=_D
-_ArubaWiredVsfv2LinkPeerLinkId_Object=MibTableColumn
-arubaWiredVsfv2LinkPeerLinkId=_ArubaWiredVsfv2LinkPeerLinkId_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,3,1,5),_ArubaWiredVsfv2LinkPeerLinkId_Type())
-arubaWiredVsfv2LinkPeerLinkId.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2LinkPeerLinkId.setStatus(_B)
-_ArubaWiredVsfv2LinkPortList_Type=PortList
-_ArubaWiredVsfv2LinkPortList_Object=MibTableColumn
-arubaWiredVsfv2LinkPortList=_ArubaWiredVsfv2LinkPortList_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,3,1,6),_ArubaWiredVsfv2LinkPortList_Type())
-arubaWiredVsfv2LinkPortList.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2LinkPortList.setStatus(_B)
-_ArubaWiredVsfv2PortTable_Object=MibTable
-arubaWiredVsfv2PortTable=_ArubaWiredVsfv2PortTable_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,4))
-if mibBuilder.loadTexts:arubaWiredVsfv2PortTable.setStatus(_B)
-_ArubaWiredVsfv2PortEntry_Object=MibTableRow
-arubaWiredVsfv2PortEntry=_ArubaWiredVsfv2PortEntry_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,4,1))
-arubaWiredVsfv2PortEntry.setIndexNames((0,_A,_G))
-if mibBuilder.loadTexts:arubaWiredVsfv2PortEntry.setStatus(_B)
-class _ArubaWiredVsfv2PortIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_ArubaWiredVsfv2PortIfIndex_Type.__name__=_D
-_ArubaWiredVsfv2PortIfIndex_Object=MibTableColumn
-arubaWiredVsfv2PortIfIndex=_ArubaWiredVsfv2PortIfIndex_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,4,1,1),_ArubaWiredVsfv2PortIfIndex_Type())
-arubaWiredVsfv2PortIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2PortIfIndex.setStatus(_B)
-class _ArubaWiredVsfv2PortOperStatus_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_ArubaWiredVsfv2PortOperStatus_Type.__name__=_E
-_ArubaWiredVsfv2PortOperStatus_Object=MibTableColumn
-arubaWiredVsfv2PortOperStatus=_ArubaWiredVsfv2PortOperStatus_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,4,1,2),_ArubaWiredVsfv2PortOperStatus_Type())
-arubaWiredVsfv2PortOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2PortOperStatus.setStatus(_B)
-class _ArubaWiredVsfv2PortStatusStr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_ArubaWiredVsfv2PortStatusStr_Type.__name__=_E
-_ArubaWiredVsfv2PortStatusStr_Object=MibTableColumn
-arubaWiredVsfv2PortStatusStr=_ArubaWiredVsfv2PortStatusStr_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,4,1,3),_ArubaWiredVsfv2PortStatusStr_Type())
-arubaWiredVsfv2PortStatusStr.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2PortStatusStr.setStatus(_B)
-_ArubaWiredVsfv2PortPeerInterface_Type=PortList
-_ArubaWiredVsfv2PortPeerInterface_Object=MibTableColumn
-arubaWiredVsfv2PortPeerInterface=_ArubaWiredVsfv2PortPeerInterface_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,4,1,4),_ArubaWiredVsfv2PortPeerInterface_Type())
-arubaWiredVsfv2PortPeerInterface.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2PortPeerInterface.setStatus(_B)
-_ArubaWiredVsfv2PortPeerSysMac_Type=MacAddress
-_ArubaWiredVsfv2PortPeerSysMac_Object=MibTableColumn
-arubaWiredVsfv2PortPeerSysMac=_ArubaWiredVsfv2PortPeerSysMac_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,4,1,5),_ArubaWiredVsfv2PortPeerSysMac_Type())
-arubaWiredVsfv2PortPeerSysMac.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2PortPeerSysMac.setStatus(_B)
-class _ArubaWiredVsfv2PortPeerProductType_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,10))
-_ArubaWiredVsfv2PortPeerProductType_Type.__name__=_E
-_ArubaWiredVsfv2PortPeerProductType_Object=MibTableColumn
-arubaWiredVsfv2PortPeerProductType=_ArubaWiredVsfv2PortPeerProductType_Object((1,3,6,1,4,1,47196,4,1,1,3,15,1,4,1,6),_ArubaWiredVsfv2PortPeerProductType_Type())
-arubaWiredVsfv2PortPeerProductType.setMaxAccess(_C)
-if mibBuilder.loadTexts:arubaWiredVsfv2PortPeerProductType.setStatus(_B)
-_ArubaWiredVsfv2Conformance_ObjectIdentity=ObjectIdentity
-arubaWiredVsfv2Conformance=_ArubaWiredVsfv2Conformance_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,15,2))
-_ArubaWiredVsfv2Compliances_ObjectIdentity=ObjectIdentity
-arubaWiredVsfv2Compliances=_ArubaWiredVsfv2Compliances_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,15,2,1))
-_ArubaWiredVsfv2Groups_ObjectIdentity=ObjectIdentity
-arubaWiredVsfv2Groups=_ArubaWiredVsfv2Groups_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,15,2,2))
-arubaWiredVsfv2ConfigScalarGroup=ObjectGroup((1,3,6,1,4,1,47196,4,1,1,3,15,2,2,1))
-arubaWiredVsfv2ConfigScalarGroup.setObjects(*((_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S)))
-if mibBuilder.loadTexts:arubaWiredVsfv2ConfigScalarGroup.setStatus(_B)
-arubaWiredVsfv2StatusScalarGroup=ObjectGroup((1,3,6,1,4,1,47196,4,1,1,3,15,2,2,2))
-arubaWiredVsfv2StatusScalarGroup.setObjects(*((_A,_H),(_A,_T)))
-if mibBuilder.loadTexts:arubaWiredVsfv2StatusScalarGroup.setStatus(_B)
-arubaWiredVsfv2MemberTableGroup=ObjectGroup((1,3,6,1,4,1,47196,4,1,1,3,15,2,2,3))
-arubaWiredVsfv2MemberTableGroup.setObjects(*((_A,_F),(_A,_I),(_A,_J),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f)))
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberTableGroup.setStatus(_B)
-arubaWiredVsfv2LinkTableGroup=ObjectGroup((1,3,6,1,4,1,47196,4,1,1,3,15,2,2,4))
-arubaWiredVsfv2LinkTableGroup.setObjects(*((_A,_g),(_A,_h),(_A,_i),(_A,_j)))
-if mibBuilder.loadTexts:arubaWiredVsfv2LinkTableGroup.setStatus(_B)
-arubaWiredVsfv2PortTableGroup=ObjectGroup((1,3,6,1,4,1,47196,4,1,1,3,15,2,2,5))
-arubaWiredVsfv2PortTableGroup.setObjects(*((_A,_G),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o)))
-if mibBuilder.loadTexts:arubaWiredVsfv2PortTableGroup.setStatus(_B)
-arubaWiredVsfv2MemberStatusChange=NotificationType((1,3,6,1,4,1,47196,4,1,1,3,15,0,1))
-arubaWiredVsfv2MemberStatusChange.setObjects(*((_A,_F),(_A,_I),(_A,_J)))
-if mibBuilder.loadTexts:arubaWiredVsfv2MemberStatusChange.setStatus(_B)
-arubaWiredVsfv2FragmentStatusChange=NotificationType((1,3,6,1,4,1,47196,4,1,1,3,15,0,2))
-arubaWiredVsfv2FragmentStatusChange.setObjects(*((_A,_F),(_A,_H)))
-if mibBuilder.loadTexts:arubaWiredVsfv2FragmentStatusChange.setStatus(_B)
-arubaWiredVsfv2NotificationsGroup=NotificationGroup((1,3,6,1,4,1,47196,4,1,1,3,15,2,2,6))
-arubaWiredVsfv2NotificationsGroup.setObjects(*((_A,_p),(_A,_q)))
-if mibBuilder.loadTexts:arubaWiredVsfv2NotificationsGroup.setStatus(_B)
-arubaWiredVsfv2MibCompliance=ModuleCompliance((1,3,6,1,4,1,47196,4,1,1,3,15,2,1,1))
-arubaWiredVsfv2MibCompliance.setObjects(*((_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w)))
-if mibBuilder.loadTexts:arubaWiredVsfv2MibCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'arubaWiredVsfv2MIB':arubaWiredVsfv2MIB,'arubaWiredVsfv2Notifications':arubaWiredVsfv2Notifications,_p:arubaWiredVsfv2MemberStatusChange,_q:arubaWiredVsfv2FragmentStatusChange,'arubaWiredVsfv2Objects':arubaWiredVsfv2Objects,'arubaWiredVsfv2Config':arubaWiredVsfv2Config,_P:arubaWiredVsfv2TrapEnable,_T:arubaWiredVsfv2SplitDetectConfigured,'arubaWiredVsfv2Status':arubaWiredVsfv2Status,_H:arubaWiredVsfv2OperStatus,_O:arubaWiredVsfv2Topology,_Q:arubaWiredVsfv2StackMacAddr,_R:arubaWiredVsfv2DomainId,_S:arubaWiredVsfv2Secondary,'arubaWiredVsfv2MemberTable':arubaWiredVsfv2MemberTable,'arubaWiredVsfv2MemberEntry':arubaWiredVsfv2MemberEntry,_F:arubaWiredVsfv2MemberIndex,_I:arubaWiredVsfv2MemberRole,_J:arubaWiredVsfv2MemberStatus,_U:arubaWiredVsfv2MemberPartNumber,_V:arubaWiredVsfv2MemberMacAddr,_W:arubaWiredVsfv2MemberProductName,_X:arubaWiredVsfv2MemberSerialNum,_Y:arubaWiredVsfv2MemberBootImage,_Z:arubaWiredVsfv2MemberCpuUtil,_a:arubaWiredVsfv2MemberMemoryUtil,_b:arubaWiredVsfv2MemberBootTime,_c:arubaWiredVsfv2MemberBootRomVersion,_d:arubaWiredVsfv2MemberTotalMemory,_e:arubaWiredVsfv2MemberCurrentUsage,_f:arubaWiredVsfv2MemberEntPhysicalIndex,'arubaWiredVsfv2LinkTable':arubaWiredVsfv2LinkTable,'arubaWiredVsfv2LinkEntry':arubaWiredVsfv2LinkEntry,_L:arubaWiredVsfv2LinkMemberId,_M:arubaWiredVsfv2LinkId,_g:arubaWiredVsfv2LinkOperStatus,_h:arubaWiredVsfv2LinkPeerMemberId,_i:arubaWiredVsfv2LinkPeerLinkId,_j:arubaWiredVsfv2LinkPortList,'arubaWiredVsfv2PortTable':arubaWiredVsfv2PortTable,'arubaWiredVsfv2PortEntry':arubaWiredVsfv2PortEntry,_G:arubaWiredVsfv2PortIfIndex,_k:arubaWiredVsfv2PortOperStatus,_l:arubaWiredVsfv2PortStatusStr,_m:arubaWiredVsfv2PortPeerInterface,_n:arubaWiredVsfv2PortPeerSysMac,_o:arubaWiredVsfv2PortPeerProductType,'arubaWiredVsfv2Conformance':arubaWiredVsfv2Conformance,'arubaWiredVsfv2Compliances':arubaWiredVsfv2Compliances,'arubaWiredVsfv2MibCompliance':arubaWiredVsfv2MibCompliance,'arubaWiredVsfv2Groups':arubaWiredVsfv2Groups,_r:arubaWiredVsfv2ConfigScalarGroup,_s:arubaWiredVsfv2StatusScalarGroup,_t:arubaWiredVsfv2MemberTableGroup,_u:arubaWiredVsfv2LinkTableGroup,_v:arubaWiredVsfv2PortTableGroup,_w:arubaWiredVsfv2NotificationsGroup})
+#
+# PySNMP MIB module ARUBAWIRED-VSFv2-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aruba/ARUBAWIRED-VSFv2-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:18 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+wndFeatures, = mibBuilder.importSymbols("ARUBAWIRED-NETWORKING-OID", "wndFeatures")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+MacAddress, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TruthValue", "TextualConvention")
+arubaWiredVsfv2MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15))
+arubaWiredVsfv2MIB.setRevisions(('2023-05-16 00:00', '2022-03-03 00:00', '2021-11-21 00:00', '2020-11-18 00:00', '2020-09-09 00:00', '2020-07-13 00:00',))
+if mibBuilder.loadTexts: arubaWiredVsfv2MIB.setLastUpdated('202305160000Z')
+if mibBuilder.loadTexts: arubaWiredVsfv2MIB.setOrganization('HPE/Aruba Networking Division')
+arubaWiredVsfv2Notifications = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 0))
+arubaWiredVsfv2Objects = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1))
+arubaWiredVsfv2Config = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 0))
+arubaWiredVsfv2Status = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 1))
+arubaWiredVsfv2TrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 0, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: arubaWiredVsfv2TrapEnable.setStatus('current')
+arubaWiredVsfv2SplitDetectConfigured = MibScalar((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 0, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("mgmt", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: arubaWiredVsfv2SplitDetectConfigured.setStatus('current')
+arubaWiredVsfv2OperStatus = MibScalar((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2OperStatus.setStatus('current')
+arubaWiredVsfv2Topology = MibScalar((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2Topology.setStatus('current')
+arubaWiredVsfv2StackMacAddr = MibScalar((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2StackMacAddr.setStatus('current')
+arubaWiredVsfv2DomainId = MibScalar((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 37))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2DomainId.setStatus('current')
+arubaWiredVsfv2Secondary = MibScalar((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 3))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2Secondary.setStatus('current')
+arubaWiredVsfv2MemberTable = MibTable((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2), )
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberTable.setStatus('current')
+arubaWiredVsfv2MemberEntry = MibTableRow((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1), ).setIndexNames((0, "ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberIndex"))
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberEntry.setStatus('current')
+arubaWiredVsfv2MemberIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberIndex.setStatus('current')
+arubaWiredVsfv2MemberRole = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberRole.setStatus('current')
+arubaWiredVsfv2MemberStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberStatus.setStatus('current')
+arubaWiredVsfv2MemberPartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberPartNumber.setStatus('current')
+arubaWiredVsfv2MemberMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1, 5), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberMacAddr.setStatus('current')
+arubaWiredVsfv2MemberProductName = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberProductName.setStatus('current')
+arubaWiredVsfv2MemberSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberSerialNum.setStatus('current')
+arubaWiredVsfv2MemberBootImage = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberBootImage.setStatus('current')
+arubaWiredVsfv2MemberCpuUtil = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberCpuUtil.setStatus('current')
+arubaWiredVsfv2MemberMemoryUtil = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberMemoryUtil.setStatus('current')
+arubaWiredVsfv2MemberBootTime = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1, 11), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberBootTime.setStatus('current')
+arubaWiredVsfv2MemberBootRomVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberBootRomVersion.setStatus('current')
+arubaWiredVsfv2MemberTotalMemory = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberTotalMemory.setStatus('current')
+arubaWiredVsfv2MemberCurrentUsage = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberCurrentUsage.setStatus('current')
+arubaWiredVsfv2MemberEntPhysicalIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 2, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberEntPhysicalIndex.setStatus('current')
+arubaWiredVsfv2LinkTable = MibTable((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 3), )
+if mibBuilder.loadTexts: arubaWiredVsfv2LinkTable.setStatus('current')
+arubaWiredVsfv2LinkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 3, 1), ).setIndexNames((0, "ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2LinkMemberId"), (0, "ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2LinkId"))
+if mibBuilder.loadTexts: arubaWiredVsfv2LinkEntry.setStatus('current')
+arubaWiredVsfv2LinkMemberId = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
+if mibBuilder.loadTexts: arubaWiredVsfv2LinkMemberId.setStatus('current')
+arubaWiredVsfv2LinkId = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
+if mibBuilder.loadTexts: arubaWiredVsfv2LinkId.setStatus('current')
+arubaWiredVsfv2LinkOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 3, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2LinkOperStatus.setStatus('current')
+arubaWiredVsfv2LinkPeerMemberId = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2LinkPeerMemberId.setStatus('current')
+arubaWiredVsfv2LinkPeerLinkId = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2LinkPeerLinkId.setStatus('current')
+arubaWiredVsfv2LinkPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 3, 1, 6), PortList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2LinkPortList.setStatus('current')
+arubaWiredVsfv2PortTable = MibTable((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 4), )
+if mibBuilder.loadTexts: arubaWiredVsfv2PortTable.setStatus('current')
+arubaWiredVsfv2PortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 4, 1), ).setIndexNames((0, "ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2PortIfIndex"))
+if mibBuilder.loadTexts: arubaWiredVsfv2PortEntry.setStatus('current')
+arubaWiredVsfv2PortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2PortIfIndex.setStatus('current')
+arubaWiredVsfv2PortOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 4, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2PortOperStatus.setStatus('current')
+arubaWiredVsfv2PortStatusStr = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 4, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2PortStatusStr.setStatus('current')
+arubaWiredVsfv2PortPeerInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 4, 1, 4), PortList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2PortPeerInterface.setStatus('current')
+arubaWiredVsfv2PortPeerSysMac = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 4, 1, 5), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2PortPeerSysMac.setStatus('current')
+arubaWiredVsfv2PortPeerProductType = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 1, 4, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredVsfv2PortPeerProductType.setStatus('current')
+arubaWiredVsfv2MemberStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 0, 1)).setObjects(("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberIndex"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberRole"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberStatus"))
+if mibBuilder.loadTexts: arubaWiredVsfv2MemberStatusChange.setStatus('current')
+arubaWiredVsfv2FragmentStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 0, 2)).setObjects(("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberIndex"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2OperStatus"))
+if mibBuilder.loadTexts: arubaWiredVsfv2FragmentStatusChange.setStatus('current')
+arubaWiredVsfv2Conformance = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 2))
+arubaWiredVsfv2Compliances = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 2, 1))
+arubaWiredVsfv2Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 2, 2))
+arubaWiredVsfv2ConfigScalarGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 2, 2, 1)).setObjects(("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2Topology"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2TrapEnable"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2StackMacAddr"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2DomainId"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2Secondary"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arubaWiredVsfv2ConfigScalarGroup = arubaWiredVsfv2ConfigScalarGroup.setStatus('current')
+arubaWiredVsfv2StatusScalarGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 2, 2, 2)).setObjects(("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2OperStatus"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2SplitDetectConfigured"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arubaWiredVsfv2StatusScalarGroup = arubaWiredVsfv2StatusScalarGroup.setStatus('current')
+arubaWiredVsfv2MemberTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 2, 2, 3)).setObjects(("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberIndex"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberRole"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberStatus"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberPartNumber"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberMacAddr"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberProductName"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberSerialNum"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberBootImage"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberCpuUtil"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberMemoryUtil"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberBootTime"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberBootRomVersion"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberTotalMemory"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberCurrentUsage"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberEntPhysicalIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arubaWiredVsfv2MemberTableGroup = arubaWiredVsfv2MemberTableGroup.setStatus('current')
+arubaWiredVsfv2LinkTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 2, 2, 4)).setObjects(("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2LinkOperStatus"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2LinkPeerMemberId"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2LinkPeerLinkId"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2LinkPortList"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arubaWiredVsfv2LinkTableGroup = arubaWiredVsfv2LinkTableGroup.setStatus('current')
+arubaWiredVsfv2PortTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 2, 2, 5)).setObjects(("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2PortIfIndex"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2PortOperStatus"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2PortStatusStr"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2PortPeerInterface"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2PortPeerSysMac"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2PortPeerProductType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arubaWiredVsfv2PortTableGroup = arubaWiredVsfv2PortTableGroup.setStatus('current')
+arubaWiredVsfv2NotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 2, 2, 6)).setObjects(("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberStatusChange"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2FragmentStatusChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arubaWiredVsfv2NotificationsGroup = arubaWiredVsfv2NotificationsGroup.setStatus('current')
+arubaWiredVsfv2MibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 15, 2, 1, 1)).setObjects(("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2ConfigScalarGroup"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2StatusScalarGroup"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2MemberTableGroup"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2LinkTableGroup"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2PortTableGroup"), ("ARUBAWIRED-VSFv2-MIB", "arubaWiredVsfv2NotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arubaWiredVsfv2MibCompliance = arubaWiredVsfv2MibCompliance.setStatus('current')
+mibBuilder.exportSymbols("ARUBAWIRED-VSFv2-MIB", arubaWiredVsfv2MemberBootImage=arubaWiredVsfv2MemberBootImage, arubaWiredVsfv2MemberEntPhysicalIndex=arubaWiredVsfv2MemberEntPhysicalIndex, arubaWiredVsfv2DomainId=arubaWiredVsfv2DomainId, arubaWiredVsfv2MibCompliance=arubaWiredVsfv2MibCompliance, arubaWiredVsfv2PortEntry=arubaWiredVsfv2PortEntry, arubaWiredVsfv2MemberEntry=arubaWiredVsfv2MemberEntry, arubaWiredVsfv2MemberStatusChange=arubaWiredVsfv2MemberStatusChange, arubaWiredVsfv2LinkPortList=arubaWiredVsfv2LinkPortList, arubaWiredVsfv2TrapEnable=arubaWiredVsfv2TrapEnable, arubaWiredVsfv2LinkEntry=arubaWiredVsfv2LinkEntry, arubaWiredVsfv2Secondary=arubaWiredVsfv2Secondary, arubaWiredVsfv2MemberIndex=arubaWiredVsfv2MemberIndex, arubaWiredVsfv2LinkPeerMemberId=arubaWiredVsfv2LinkPeerMemberId, arubaWiredVsfv2MemberPartNumber=arubaWiredVsfv2MemberPartNumber, arubaWiredVsfv2MemberProductName=arubaWiredVsfv2MemberProductName, arubaWiredVsfv2PortPeerInterface=arubaWiredVsfv2PortPeerInterface, arubaWiredVsfv2NotificationsGroup=arubaWiredVsfv2NotificationsGroup, arubaWiredVsfv2MemberCpuUtil=arubaWiredVsfv2MemberCpuUtil, arubaWiredVsfv2MemberRole=arubaWiredVsfv2MemberRole, arubaWiredVsfv2Config=arubaWiredVsfv2Config, arubaWiredVsfv2Objects=arubaWiredVsfv2Objects, arubaWiredVsfv2StackMacAddr=arubaWiredVsfv2StackMacAddr, arubaWiredVsfv2LinkTable=arubaWiredVsfv2LinkTable, arubaWiredVsfv2MemberSerialNum=arubaWiredVsfv2MemberSerialNum, arubaWiredVsfv2MemberBootRomVersion=arubaWiredVsfv2MemberBootRomVersion, arubaWiredVsfv2PortPeerProductType=arubaWiredVsfv2PortPeerProductType, arubaWiredVsfv2MIB=arubaWiredVsfv2MIB, arubaWiredVsfv2Conformance=arubaWiredVsfv2Conformance, arubaWiredVsfv2FragmentStatusChange=arubaWiredVsfv2FragmentStatusChange, arubaWiredVsfv2MemberTableGroup=arubaWiredVsfv2MemberTableGroup, arubaWiredVsfv2MemberTotalMemory=arubaWiredVsfv2MemberTotalMemory, arubaWiredVsfv2PortStatusStr=arubaWiredVsfv2PortStatusStr, arubaWiredVsfv2PortPeerSysMac=arubaWiredVsfv2PortPeerSysMac, arubaWiredVsfv2MemberStatus=arubaWiredVsfv2MemberStatus, arubaWiredVsfv2LinkOperStatus=arubaWiredVsfv2LinkOperStatus, arubaWiredVsfv2Compliances=arubaWiredVsfv2Compliances, arubaWiredVsfv2MemberCurrentUsage=arubaWiredVsfv2MemberCurrentUsage, arubaWiredVsfv2Status=arubaWiredVsfv2Status, arubaWiredVsfv2ConfigScalarGroup=arubaWiredVsfv2ConfigScalarGroup, arubaWiredVsfv2PortTableGroup=arubaWiredVsfv2PortTableGroup, arubaWiredVsfv2LinkPeerLinkId=arubaWiredVsfv2LinkPeerLinkId, arubaWiredVsfv2Groups=arubaWiredVsfv2Groups, arubaWiredVsfv2LinkId=arubaWiredVsfv2LinkId, arubaWiredVsfv2Topology=arubaWiredVsfv2Topology, arubaWiredVsfv2Notifications=arubaWiredVsfv2Notifications, arubaWiredVsfv2SplitDetectConfigured=arubaWiredVsfv2SplitDetectConfigured, arubaWiredVsfv2PortIfIndex=arubaWiredVsfv2PortIfIndex, arubaWiredVsfv2MemberTable=arubaWiredVsfv2MemberTable, arubaWiredVsfv2MemberBootTime=arubaWiredVsfv2MemberBootTime, arubaWiredVsfv2PortOperStatus=arubaWiredVsfv2PortOperStatus, arubaWiredVsfv2MemberMemoryUtil=arubaWiredVsfv2MemberMemoryUtil, PYSNMP_MODULE_ID=arubaWiredVsfv2MIB, arubaWiredVsfv2MemberMacAddr=arubaWiredVsfv2MemberMacAddr, arubaWiredVsfv2LinkTableGroup=arubaWiredVsfv2LinkTableGroup, arubaWiredVsfv2LinkMemberId=arubaWiredVsfv2LinkMemberId, arubaWiredVsfv2PortTable=arubaWiredVsfv2PortTable, arubaWiredVsfv2OperStatus=arubaWiredVsfv2OperStatus, arubaWiredVsfv2StatusScalarGroup=arubaWiredVsfv2StatusScalarGroup)

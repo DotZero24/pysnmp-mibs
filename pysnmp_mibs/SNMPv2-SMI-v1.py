@@ -1,34 +1,37 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-class Counter_32(Counter32):0
-class Gauge_32(Gauge32):0
-class Integer_32(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2147483648,2147483647))
-class Unsigned_32(Gauge32):0
-_Internet_ObjectIdentity=ObjectIdentity
-internet=_Internet_ObjectIdentity((1,3,6,1))
-_Directory_ObjectIdentity=ObjectIdentity
-directory=_Directory_ObjectIdentity((1,3,6,1,1))
-_Mgmt_ObjectIdentity=ObjectIdentity
-mgmt=_Mgmt_ObjectIdentity((1,3,6,1,2))
-_Experimental_ObjectIdentity=ObjectIdentity
-experimental=_Experimental_ObjectIdentity((1,3,6,1,3))
-_Private_ObjectIdentity=ObjectIdentity
-private=_Private_ObjectIdentity((1,3,6,1,4))
-_Enterprises_ObjectIdentity=ObjectIdentity
-enterprises=_Enterprises_ObjectIdentity((1,3,6,1,4,1))
-_Security_ObjectIdentity=ObjectIdentity
-security=_Security_ObjectIdentity((1,3,6,1,5))
-_SnmpV2_ObjectIdentity=ObjectIdentity
-snmpV2=_SnmpV2_ObjectIdentity((1,3,6,1,6))
-_SnmpDomains_ObjectIdentity=ObjectIdentity
-snmpDomains=_SnmpDomains_ObjectIdentity((1,3,6,1,6,1))
-_SnmpProxys_ObjectIdentity=ObjectIdentity
-snmpProxys=_SnmpProxys_ObjectIdentity((1,3,6,1,6,2))
-_SnmpModules_ObjectIdentity=ObjectIdentity
-snmpModules=_SnmpModules_ObjectIdentity((1,3,6,1,6,3))
-mibBuilder.exportSymbols('SNMPv2-SMI-v1',**{'Counter-32':Counter_32,'Gauge-32':Gauge_32,'Integer-32':Integer_32,'Unsigned-32':Unsigned_32,'internet':internet,'directory':directory,'mgmt':mgmt,'experimental':experimental,'private':private,'enterprises':enterprises,'security':security,'snmpV2':snmpV2,'snmpDomains':snmpDomains,'snmpProxys':snmpProxys,'snmpModules':snmpModules})
+#
+# PySNMP MIB module SNMPv2-SMI-v1 (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/SNMPv2-SMI-v1
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:42 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+class Counter_32(Counter32):
+    pass
+
+class Gauge_32(Gauge32):
+    pass
+
+class Integer_32(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(-2147483648, 2147483647)
+
+class Unsigned_32(Gauge32):
+    pass
+
+internet = MibIdentifier((1, 3, 6, 1))
+directory = MibIdentifier((1, 3, 6, 1, 1))
+mgmt = MibIdentifier((1, 3, 6, 1, 2))
+experimental = MibIdentifier((1, 3, 6, 1, 3))
+private = MibIdentifier((1, 3, 6, 1, 4))
+enterprises = MibIdentifier((1, 3, 6, 1, 4, 1))
+security = MibIdentifier((1, 3, 6, 1, 5))
+snmpV2 = MibIdentifier((1, 3, 6, 1, 6))
+snmpDomains = MibIdentifier((1, 3, 6, 1, 6, 1))
+snmpProxys = MibIdentifier((1, 3, 6, 1, 6, 2))
+snmpModules = MibIdentifier((1, 3, 6, 1, 6, 3))
+mibBuilder.exportSymbols("SNMPv2-SMI-v1", directory=directory, snmpProxys=snmpProxys, Gauge_32=Gauge_32, enterprises=enterprises, Unsigned_32=Unsigned_32, internet=internet, Integer_32=Integer_32, mgmt=mgmt, private=private, snmpModules=snmpModules, snmpDomains=snmpDomains, security=security, experimental=experimental, snmpV2=snmpV2, Counter_32=Counter_32)

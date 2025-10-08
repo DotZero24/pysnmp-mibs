@@ -1,37 +1,29 @@
-_E='read-write'
-_D='Integer32'
-_C='dot1dBasePort'
-_B='BRIDGE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_B,_C)
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelBridgeControlProtocolTransparency=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,15))
-_ZyxelBridgeControlProtocolTransparencySetup_ObjectIdentity=ObjectIdentity
-zyxelBridgeControlProtocolTransparencySetup=_ZyxelBridgeControlProtocolTransparencySetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,15,1))
-_ZyBridgeControlProtocolTransparencyState_Type=EnabledStatus
-_ZyBridgeControlProtocolTransparencyState_Object=MibScalar
-zyBridgeControlProtocolTransparencyState=_ZyBridgeControlProtocolTransparencyState_Object((1,3,6,1,4,1,890,1,15,3,15,1,1),_ZyBridgeControlProtocolTransparencyState_Type())
-zyBridgeControlProtocolTransparencyState.setMaxAccess(_E)
-if mibBuilder.loadTexts:zyBridgeControlProtocolTransparencyState.setStatus(_A)
-_ZyxelBridgeControlProtocolTransparencyPortTable_Object=MibTable
-zyxelBridgeControlProtocolTransparencyPortTable=_ZyxelBridgeControlProtocolTransparencyPortTable_Object((1,3,6,1,4,1,890,1,15,3,15,1,2))
-if mibBuilder.loadTexts:zyxelBridgeControlProtocolTransparencyPortTable.setStatus(_A)
-_ZyxelBridgeControlProtocolTransparencyPortEntry_Object=MibTableRow
-zyxelBridgeControlProtocolTransparencyPortEntry=_ZyxelBridgeControlProtocolTransparencyPortEntry_Object((1,3,6,1,4,1,890,1,15,3,15,1,2,1))
-zyxelBridgeControlProtocolTransparencyPortEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:zyxelBridgeControlProtocolTransparencyPortEntry.setStatus(_A)
-class _ZyBridgeControlProtocolTransparencyPortMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('peer',0),('tunnel',1),('discard',2),('network',3)))
-_ZyBridgeControlProtocolTransparencyPortMode_Type.__name__=_D
-_ZyBridgeControlProtocolTransparencyPortMode_Object=MibTableColumn
-zyBridgeControlProtocolTransparencyPortMode=_ZyBridgeControlProtocolTransparencyPortMode_Object((1,3,6,1,4,1,890,1,15,3,15,1,2,1,1),_ZyBridgeControlProtocolTransparencyPortMode_Type())
-zyBridgeControlProtocolTransparencyPortMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:zyBridgeControlProtocolTransparencyPortMode.setStatus(_A)
-mibBuilder.exportSymbols('ZYXEL-BRIDGE-CONTROL-PROTOCOL-TRANSPARENCY-MIB',**{'zyxelBridgeControlProtocolTransparency':zyxelBridgeControlProtocolTransparency,'zyxelBridgeControlProtocolTransparencySetup':zyxelBridgeControlProtocolTransparencySetup,'zyBridgeControlProtocolTransparencyState':zyBridgeControlProtocolTransparencyState,'zyxelBridgeControlProtocolTransparencyPortTable':zyxelBridgeControlProtocolTransparencyPortTable,'zyxelBridgeControlProtocolTransparencyPortEntry':zyxelBridgeControlProtocolTransparencyPortEntry,'zyBridgeControlProtocolTransparencyPortMode':zyBridgeControlProtocolTransparencyPortMode})
+#
+# PySNMP MIB module ZYXEL-BRIDGE-CONTROL-PROTOCOL-TRANSPARENCY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-BRIDGE-CONTROL-PROTOCOL-TRANSPARENCY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:12 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelBridgeControlProtocolTransparency = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 15))
+if mibBuilder.loadTexts: zyxelBridgeControlProtocolTransparency.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelBridgeControlProtocolTransparency.setOrganization('Enterprise Solution ZyXEL')
+zyxelBridgeControlProtocolTransparencySetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 15, 1))
+zyBridgeControlProtocolTransparencyState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 15, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyBridgeControlProtocolTransparencyState.setStatus('current')
+zyxelBridgeControlProtocolTransparencyPortTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 15, 1, 2), )
+if mibBuilder.loadTexts: zyxelBridgeControlProtocolTransparencyPortTable.setStatus('current')
+zyxelBridgeControlProtocolTransparencyPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 15, 1, 2, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: zyxelBridgeControlProtocolTransparencyPortEntry.setStatus('current')
+zyBridgeControlProtocolTransparencyPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 15, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("peer", 0), ("tunnel", 1), ("discard", 2), ("network", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyBridgeControlProtocolTransparencyPortMode.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-BRIDGE-CONTROL-PROTOCOL-TRANSPARENCY-MIB", zyxelBridgeControlProtocolTransparencyPortTable=zyxelBridgeControlProtocolTransparencyPortTable, zyxelBridgeControlProtocolTransparencySetup=zyxelBridgeControlProtocolTransparencySetup, PYSNMP_MODULE_ID=zyxelBridgeControlProtocolTransparency, zyxelBridgeControlProtocolTransparency=zyxelBridgeControlProtocolTransparency, zyxelBridgeControlProtocolTransparencyPortEntry=zyxelBridgeControlProtocolTransparencyPortEntry, zyBridgeControlProtocolTransparencyState=zyBridgeControlProtocolTransparencyState, zyBridgeControlProtocolTransparencyPortMode=zyBridgeControlProtocolTransparencyPortMode)

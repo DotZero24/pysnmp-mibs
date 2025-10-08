@@ -1,38 +1,36 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-alcatelNGOAWBaseMIB=ModuleIdentity((1,3,6,1,4,1,6486,802))
-if mibBuilder.loadTexts:alcatelNGOAWBaseMIB.setRevisions(('2016-09-01 00:00',))
-_Alcatel_ObjectIdentity=ObjectIdentity
-alcatel=_Alcatel_ObjectIdentity((1,3,6,1,4,1,6486))
-if mibBuilder.loadTexts:alcatel.setStatus(_A)
-_AlcatelNGOAWManagement_ObjectIdentity=ObjectIdentity
-alcatelNGOAWManagement=_AlcatelNGOAWManagement_ObjectIdentity((1,3,6,1,4,1,6486,802,1))
-if mibBuilder.loadTexts:alcatelNGOAWManagement.setStatus(_A)
-_ManagementNGOAWHardware_ObjectIdentity=ObjectIdentity
-managementNGOAWHardware=_ManagementNGOAWHardware_ObjectIdentity((1,3,6,1,4,1,6486,802,1,1))
-if mibBuilder.loadTexts:managementNGOAWHardware.setStatus(_A)
-_HardwareNGOAWEntities_ObjectIdentity=ObjectIdentity
-hardwareNGOAWEntities=_HardwareNGOAWEntities_ObjectIdentity((1,3,6,1,4,1,6486,802,1,1,1))
-if mibBuilder.loadTexts:hardwareNGOAWEntities.setStatus(_A)
-_HardwareNGOAWDevices_ObjectIdentity=ObjectIdentity
-hardwareNGOAWDevices=_HardwareNGOAWDevices_ObjectIdentity((1,3,6,1,4,1,6486,802,1,1,2))
-if mibBuilder.loadTexts:hardwareNGOAWDevices.setStatus(_A)
-_ManagementNGOAWSoftware_ObjectIdentity=ObjectIdentity
-managementNGOAWSoftware=_ManagementNGOAWSoftware_ObjectIdentity((1,3,6,1,4,1,6486,802,1,2))
-if mibBuilder.loadTexts:managementNGOAWSoftware.setStatus(_A)
-_SoftwareNGOAWEntities_ObjectIdentity=ObjectIdentity
-softwareNGOAWEntities=_SoftwareNGOAWEntities_ObjectIdentity((1,3,6,1,4,1,6486,802,1,2,1))
-if mibBuilder.loadTexts:softwareNGOAWEntities.setStatus(_A)
-_SoftwareNGOAWServices_ObjectIdentity=ObjectIdentity
-softwareNGOAWServices=_SoftwareNGOAWServices_ObjectIdentity((1,3,6,1,4,1,6486,802,1,2,2))
-if mibBuilder.loadTexts:softwareNGOAWServices.setStatus(_A)
-_ManagementNGOAWAgentCapabilities_ObjectIdentity=ObjectIdentity
-managementNGOAWAgentCapabilities=_ManagementNGOAWAgentCapabilities_ObjectIdentity((1,3,6,1,4,1,6486,802,1,4))
-if mibBuilder.loadTexts:managementNGOAWAgentCapabilities.setStatus(_A)
-mibBuilder.exportSymbols('ALCATEL-NGOAW-BASE-MIB',**{'alcatel':alcatel,'alcatelNGOAWBaseMIB':alcatelNGOAWBaseMIB,'alcatelNGOAWManagement':alcatelNGOAWManagement,'managementNGOAWHardware':managementNGOAWHardware,'hardwareNGOAWEntities':hardwareNGOAWEntities,'hardwareNGOAWDevices':hardwareNGOAWDevices,'managementNGOAWSoftware':managementNGOAWSoftware,'softwareNGOAWEntities':softwareNGOAWEntities,'softwareNGOAWServices':softwareNGOAWServices,'managementNGOAWAgentCapabilities':managementNGOAWAgentCapabilities})
+#
+# PySNMP MIB module ALCATEL-NGOAW-BASE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel/ALCATEL-NGOAW-BASE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:09 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+alcatelNGOAWBaseMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 802))
+alcatelNGOAWBaseMIB.setRevisions(('2016-09-01 00:00',))
+if mibBuilder.loadTexts: alcatelNGOAWBaseMIB.setLastUpdated('201609010000Z')
+if mibBuilder.loadTexts: alcatelNGOAWBaseMIB.setOrganization('AL-Enterprise Inc.')
+alcatel = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486))
+if mibBuilder.loadTexts: alcatel.setStatus('current')
+alcatelNGOAWManagement = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 802, 1))
+if mibBuilder.loadTexts: alcatelNGOAWManagement.setStatus('current')
+managementNGOAWHardware = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 802, 1, 1))
+if mibBuilder.loadTexts: managementNGOAWHardware.setStatus('current')
+managementNGOAWSoftware = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 802, 1, 2))
+if mibBuilder.loadTexts: managementNGOAWSoftware.setStatus('current')
+managementNGOAWAgentCapabilities = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 802, 1, 4))
+if mibBuilder.loadTexts: managementNGOAWAgentCapabilities.setStatus('current')
+hardwareNGOAWEntities = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 802, 1, 1, 1))
+if mibBuilder.loadTexts: hardwareNGOAWEntities.setStatus('current')
+hardwareNGOAWDevices = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 802, 1, 1, 2))
+if mibBuilder.loadTexts: hardwareNGOAWDevices.setStatus('current')
+softwareNGOAWEntities = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 802, 1, 2, 1))
+if mibBuilder.loadTexts: softwareNGOAWEntities.setStatus('current')
+softwareNGOAWServices = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 802, 1, 2, 2))
+if mibBuilder.loadTexts: softwareNGOAWServices.setStatus('current')
+mibBuilder.exportSymbols("ALCATEL-NGOAW-BASE-MIB", softwareNGOAWServices=softwareNGOAWServices, alcatelNGOAWManagement=alcatelNGOAWManagement, managementNGOAWSoftware=managementNGOAWSoftware, managementNGOAWAgentCapabilities=managementNGOAWAgentCapabilities, PYSNMP_MODULE_ID=alcatelNGOAWBaseMIB, alcatelNGOAWBaseMIB=alcatelNGOAWBaseMIB, hardwareNGOAWEntities=hardwareNGOAWEntities, softwareNGOAWEntities=softwareNGOAWEntities, alcatel=alcatel, hardwareNGOAWDevices=hardwareNGOAWDevices, managementNGOAWHardware=managementNGOAWHardware)

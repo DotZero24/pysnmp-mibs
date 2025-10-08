@@ -1,76 +1,41 @@
-_H='read-only'
-_G='enabled'
-_F='disabled'
-_E='swSafeGuardCurrentStatus'
-_D='SAFEGUARD-ENGINE-MIB'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_common_mgmt,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-common-mgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-swSafeGuardMIB=ModuleIdentity((1,3,6,1,4,1,171,12,19))
-_SwSafeGuardGblMgmt_ObjectIdentity=ObjectIdentity
-swSafeGuardGblMgmt=_SwSafeGuardGblMgmt_ObjectIdentity((1,3,6,1,4,1,171,12,19,1))
-class _SwSafeGuardAdminState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('other',1),(_F,2),(_G,3)))
-_SwSafeGuardAdminState_Type.__name__=_B
-_SwSafeGuardAdminState_Object=MibScalar
-swSafeGuardAdminState=_SwSafeGuardAdminState_Object((1,3,6,1,4,1,171,12,19,1,1),_SwSafeGuardAdminState_Type())
-swSafeGuardAdminState.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSafeGuardAdminState.setStatus(_A)
-_SwSafeGuardctrl_ObjectIdentity=ObjectIdentity
-swSafeGuardctrl=_SwSafeGuardctrl_ObjectIdentity((1,3,6,1,4,1,171,12,19,2))
-class _SwSafeGuardRisingThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(20,100))
-_SwSafeGuardRisingThreshold_Type.__name__=_B
-_SwSafeGuardRisingThreshold_Object=MibScalar
-swSafeGuardRisingThreshold=_SwSafeGuardRisingThreshold_Object((1,3,6,1,4,1,171,12,19,2,1),_SwSafeGuardRisingThreshold_Type())
-swSafeGuardRisingThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSafeGuardRisingThreshold.setStatus(_A)
-class _SwSafeGuardFallingThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(20,100))
-_SwSafeGuardFallingThreshold_Type.__name__=_B
-_SwSafeGuardFallingThreshold_Object=MibScalar
-swSafeGuardFallingThreshold=_SwSafeGuardFallingThreshold_Object((1,3,6,1,4,1,171,12,19,2,2),_SwSafeGuardFallingThreshold_Type())
-swSafeGuardFallingThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSafeGuardFallingThreshold.setStatus(_A)
-class _SwSafeGuardmode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('strict',1),('fuzzy',2)))
-_SwSafeGuardmode_Type.__name__=_B
-_SwSafeGuardmode_Object=MibScalar
-swSafeGuardmode=_SwSafeGuardmode_Object((1,3,6,1,4,1,171,12,19,2,3),_SwSafeGuardmode_Type())
-swSafeGuardmode.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSafeGuardmode.setStatus(_A)
-class _SwSafeGuardAlarmAdminState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('other',1),(_F,2),(_G,3)))
-_SwSafeGuardAlarmAdminState_Type.__name__=_B
-_SwSafeGuardAlarmAdminState_Object=MibScalar
-swSafeGuardAlarmAdminState=_SwSafeGuardAlarmAdminState_Object((1,3,6,1,4,1,171,12,19,2,4),_SwSafeGuardAlarmAdminState_Type())
-swSafeGuardAlarmAdminState.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSafeGuardAlarmAdminState.setStatus(_A)
-class _SwSafeGuardCurrentStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('normal',1),('exhausted',2)))
-_SwSafeGuardCurrentStatus_Type.__name__=_B
-_SwSafeGuardCurrentStatus_Object=MibScalar
-swSafeGuardCurrentStatus=_SwSafeGuardCurrentStatus_Object((1,3,6,1,4,1,171,12,19,2,5),_SwSafeGuardCurrentStatus_Type())
-swSafeGuardCurrentStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:swSafeGuardCurrentStatus.setStatus(_A)
-class _SwSafeGuardInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_SwSafeGuardInterval_Type.__name__=_B
-_SwSafeGuardInterval_Object=MibScalar
-swSafeGuardInterval=_SwSafeGuardInterval_Object((1,3,6,1,4,1,171,12,19,2,6),_SwSafeGuardInterval_Type())
-swSafeGuardInterval.setMaxAccess(_H)
-if mibBuilder.loadTexts:swSafeGuardInterval.setStatus(_A)
-_SwSafeGuardNotify_ObjectIdentity=ObjectIdentity
-swSafeGuardNotify=_SwSafeGuardNotify_ObjectIdentity((1,3,6,1,4,1,171,12,19,4))
-_SwSafeGuardNotification_ObjectIdentity=ObjectIdentity
-swSafeGuardNotification=_SwSafeGuardNotification_ObjectIdentity((1,3,6,1,4,1,171,12,19,4,1))
-_SwSafeGuardNotifyPrefix_ObjectIdentity=ObjectIdentity
-swSafeGuardNotifyPrefix=_SwSafeGuardNotifyPrefix_ObjectIdentity((1,3,6,1,4,1,171,12,19,4,1,0))
-swSafeGuardChgToExhausted=NotificationType((1,3,6,1,4,1,171,12,19,4,1,0,1))
-swSafeGuardChgToExhausted.setObjects((_D,_E))
-if mibBuilder.loadTexts:swSafeGuardChgToExhausted.setStatus(_A)
-swSafeGuardChgToNormal=NotificationType((1,3,6,1,4,1,171,12,19,4,1,0,2))
-swSafeGuardChgToNormal.setObjects((_D,_E))
-if mibBuilder.loadTexts:swSafeGuardChgToNormal.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'swSafeGuardMIB':swSafeGuardMIB,'swSafeGuardGblMgmt':swSafeGuardGblMgmt,'swSafeGuardAdminState':swSafeGuardAdminState,'swSafeGuardctrl':swSafeGuardctrl,'swSafeGuardRisingThreshold':swSafeGuardRisingThreshold,'swSafeGuardFallingThreshold':swSafeGuardFallingThreshold,'swSafeGuardmode':swSafeGuardmode,'swSafeGuardAlarmAdminState':swSafeGuardAlarmAdminState,_E:swSafeGuardCurrentStatus,'swSafeGuardInterval':swSafeGuardInterval,'swSafeGuardNotify':swSafeGuardNotify,'swSafeGuardNotification':swSafeGuardNotification,'swSafeGuardNotifyPrefix':swSafeGuardNotifyPrefix,'swSafeGuardChgToExhausted':swSafeGuardChgToExhausted,'swSafeGuardChgToNormal':swSafeGuardChgToNormal})
+#
+# PySNMP MIB module SAFEGUARD-ENGINE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/SAFEGUARD-ENGINE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:26 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+swSafeGuardMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 19))
+if mibBuilder.loadTexts: swSafeGuardMIB.setLastUpdated('200601160000Z')
+if mibBuilder.loadTexts: swSafeGuardMIB.setOrganization(' ')
+swSafeGuardGblMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 19, 1))
+swSafeGuardctrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 19, 2))
+swSafeGuardNotify = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 19, 4))
+swSafeGuardAdminState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 19, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSafeGuardAdminState.setStatus('current')
+swSafeGuardRisingThreshold = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 19, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(20, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSafeGuardRisingThreshold.setStatus('current')
+swSafeGuardFallingThreshold = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 19, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(20, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSafeGuardFallingThreshold.setStatus('current')
+swSafeGuardmode = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 19, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("strict", 1), ("fuzzy", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSafeGuardmode.setStatus('current')
+swSafeGuardAlarmAdminState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 19, 2, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSafeGuardAlarmAdminState.setStatus('current')
+swSafeGuardCurrentStatus = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 19, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("normal", 1), ("exhausted", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSafeGuardCurrentStatus.setStatus('current')
+swSafeGuardInterval = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 19, 2, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSafeGuardInterval.setStatus('current')
+swSafeGuardNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 19, 4, 1))
+swSafeGuardNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 19, 4, 1, 0))
+swSafeGuardChgToExhausted = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 19, 4, 1, 0, 1)).setObjects(("SAFEGUARD-ENGINE-MIB", "swSafeGuardCurrentStatus"))
+if mibBuilder.loadTexts: swSafeGuardChgToExhausted.setStatus('current')
+swSafeGuardChgToNormal = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 19, 4, 1, 0, 2)).setObjects(("SAFEGUARD-ENGINE-MIB", "swSafeGuardCurrentStatus"))
+if mibBuilder.loadTexts: swSafeGuardChgToNormal.setStatus('current')
+mibBuilder.exportSymbols("SAFEGUARD-ENGINE-MIB", swSafeGuardctrl=swSafeGuardctrl, swSafeGuardNotify=swSafeGuardNotify, swSafeGuardmode=swSafeGuardmode, swSafeGuardInterval=swSafeGuardInterval, swSafeGuardCurrentStatus=swSafeGuardCurrentStatus, swSafeGuardChgToNormal=swSafeGuardChgToNormal, swSafeGuardAlarmAdminState=swSafeGuardAlarmAdminState, swSafeGuardRisingThreshold=swSafeGuardRisingThreshold, swSafeGuardNotification=swSafeGuardNotification, swSafeGuardMIB=swSafeGuardMIB, PYSNMP_MODULE_ID=swSafeGuardMIB, swSafeGuardGblMgmt=swSafeGuardGblMgmt, swSafeGuardFallingThreshold=swSafeGuardFallingThreshold, swSafeGuardAdminState=swSafeGuardAdminState, swSafeGuardChgToExhausted=swSafeGuardChgToExhausted, swSafeGuardNotifyPrefix=swSafeGuardNotifyPrefix)

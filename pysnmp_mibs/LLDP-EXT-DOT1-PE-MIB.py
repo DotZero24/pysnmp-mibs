@@ -1,117 +1,64 @@
-_V='lldpXdot1PeGroup'
-_U='lldpXdot1PeRemPECSPAddress'
-_T='lldpXdot1PeRemPEAddress'
-_S='lldpXdot1PeRemPECascadePortPriority'
-_R='lldpXdot1PeLocPECSPAddress'
-_Q='lldpXdot1PeLocPEAddress'
-_P='lldpXdot1PeLocPECascadePortPriority'
-_O='lldpXdot1PeConfigPortExtensionTxEnable'
-_N='lldpXdot1PeConfigPortExtensionEntry'
-_M='read-write'
-_L='TruthValue'
-_K='lldpV2RemTimeMark'
-_J='lldpV2RemLocalIfIndex'
-_I='lldpV2RemLocalDestMACAddress'
-_H='lldpV2RemIndex'
-_G='lldpV2LocPortIfIndex'
-_F='ifGeneralInformationGroup'
-_E='Unsigned32'
-_D='read-only'
-_C='LLDP-V2-MIB'
-_B='LLDP-EXT-DOT1-PE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifGeneralInformationGroup,=mibBuilder.importSymbols('IF-MIB',_F)
-lldpXdot1StandAloneExtensions,=mibBuilder.importSymbols('LLDP-EXT-DOT1-EVB-EXTENSIONS-MIB','lldpXdot1StandAloneExtensions')
-lldpV2Extensions,lldpV2LocPortIfIndex,lldpV2PortConfigEntry,lldpV2RemIndex,lldpV2RemLocalDestMACAddress,lldpV2RemLocalIfIndex,lldpV2RemTimeMark=mibBuilder.importSymbols(_C,'lldpV2Extensions',_G,'lldpV2PortConfigEntry',_H,_I,_J,_K)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention',_L)
-lldpXDot1PEExtensions=ModuleIdentity((1,3,111,2,802,1,1,13,1,5,32962,7,2))
-if mibBuilder.loadTexts:lldpXDot1PEExtensions.setRevisions(('2012-01-23 00:00',))
-_LldpXdot1PeMIB_ObjectIdentity=ObjectIdentity
-lldpXdot1PeMIB=_LldpXdot1PeMIB_ObjectIdentity((1,3,111,2,802,1,1,13,1,5,32962,7,2,1))
-_LldpXdot1PeObjects_ObjectIdentity=ObjectIdentity
-lldpXdot1PeObjects=_LldpXdot1PeObjects_ObjectIdentity((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1))
-_LldpXdot1PeConfig_ObjectIdentity=ObjectIdentity
-lldpXdot1PeConfig=_LldpXdot1PeConfig_ObjectIdentity((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,1))
-_LldpXdot1PeConfigPortExtensionTable_Object=MibTable
-lldpXdot1PeConfigPortExtensionTable=_LldpXdot1PeConfigPortExtensionTable_Object((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,1,1))
-if mibBuilder.loadTexts:lldpXdot1PeConfigPortExtensionTable.setStatus(_A)
-_LldpXdot1PeConfigPortExtensionEntry_Object=MibTableRow
-lldpXdot1PeConfigPortExtensionEntry=_LldpXdot1PeConfigPortExtensionEntry_Object((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,1,1,1))
-if mibBuilder.loadTexts:lldpXdot1PeConfigPortExtensionEntry.setStatus(_A)
-class _LldpXdot1PeConfigPortExtensionTxEnable_Type(TruthValue):defaultValue=1
-_LldpXdot1PeConfigPortExtensionTxEnable_Type.__name__=_L
-_LldpXdot1PeConfigPortExtensionTxEnable_Object=MibTableColumn
-lldpXdot1PeConfigPortExtensionTxEnable=_LldpXdot1PeConfigPortExtensionTxEnable_Object((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,1,1,1,1),_LldpXdot1PeConfigPortExtensionTxEnable_Type())
-lldpXdot1PeConfigPortExtensionTxEnable.setMaxAccess(_M)
-if mibBuilder.loadTexts:lldpXdot1PeConfigPortExtensionTxEnable.setStatus(_A)
-_LldpXdot1PeLocalData_ObjectIdentity=ObjectIdentity
-lldpXdot1PeLocalData=_LldpXdot1PeLocalData_ObjectIdentity((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,2))
-_LldpXdot1PeLocPortExtensionTable_Object=MibTable
-lldpXdot1PeLocPortExtensionTable=_LldpXdot1PeLocPortExtensionTable_Object((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,2,1))
-if mibBuilder.loadTexts:lldpXdot1PeLocPortExtensionTable.setStatus(_A)
-_LldpXdot1PeLocPortExtensionEntry_Object=MibTableRow
-lldpXdot1PeLocPortExtensionEntry=_LldpXdot1PeLocPortExtensionEntry_Object((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,2,1,1))
-lldpXdot1PeLocPortExtensionEntry.setIndexNames((0,_C,_G))
-if mibBuilder.loadTexts:lldpXdot1PeLocPortExtensionEntry.setStatus(_A)
-class _LldpXdot1PeLocPECascadePortPriority_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_LldpXdot1PeLocPECascadePortPriority_Type.__name__=_E
-_LldpXdot1PeLocPECascadePortPriority_Object=MibTableColumn
-lldpXdot1PeLocPECascadePortPriority=_LldpXdot1PeLocPECascadePortPriority_Object((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,2,1,1,1),_LldpXdot1PeLocPECascadePortPriority_Type())
-lldpXdot1PeLocPECascadePortPriority.setMaxAccess(_M)
-if mibBuilder.loadTexts:lldpXdot1PeLocPECascadePortPriority.setStatus(_A)
-_LldpXdot1PeLocPEAddress_Type=MacAddress
-_LldpXdot1PeLocPEAddress_Object=MibTableColumn
-lldpXdot1PeLocPEAddress=_LldpXdot1PeLocPEAddress_Object((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,2,1,1,2),_LldpXdot1PeLocPEAddress_Type())
-lldpXdot1PeLocPEAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdot1PeLocPEAddress.setStatus(_A)
-_LldpXdot1PeLocPECSPAddress_Type=MacAddress
-_LldpXdot1PeLocPECSPAddress_Object=MibTableColumn
-lldpXdot1PeLocPECSPAddress=_LldpXdot1PeLocPECSPAddress_Object((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,2,1,1,3),_LldpXdot1PeLocPECSPAddress_Type())
-lldpXdot1PeLocPECSPAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdot1PeLocPECSPAddress.setStatus(_A)
-_LldpXdot1PeRemoteData_ObjectIdentity=ObjectIdentity
-lldpXdot1PeRemoteData=_LldpXdot1PeRemoteData_ObjectIdentity((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,3))
-_LldpXdot1PeRemPortExtensionTable_Object=MibTable
-lldpXdot1PeRemPortExtensionTable=_LldpXdot1PeRemPortExtensionTable_Object((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,3,1))
-if mibBuilder.loadTexts:lldpXdot1PeRemPortExtensionTable.setStatus(_A)
-_LldpXdot1PeRemPortExtensionEntry_Object=MibTableRow
-lldpXdot1PeRemPortExtensionEntry=_LldpXdot1PeRemPortExtensionEntry_Object((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,3,1,1))
-lldpXdot1PeRemPortExtensionEntry.setIndexNames((0,_C,_K),(0,_C,_J),(0,_C,_I),(0,_C,_H))
-if mibBuilder.loadTexts:lldpXdot1PeRemPortExtensionEntry.setStatus(_A)
-class _LldpXdot1PeRemPECascadePortPriority_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_LldpXdot1PeRemPECascadePortPriority_Type.__name__=_E
-_LldpXdot1PeRemPECascadePortPriority_Object=MibTableColumn
-lldpXdot1PeRemPECascadePortPriority=_LldpXdot1PeRemPECascadePortPriority_Object((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,3,1,1,1),_LldpXdot1PeRemPECascadePortPriority_Type())
-lldpXdot1PeRemPECascadePortPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdot1PeRemPECascadePortPriority.setStatus(_A)
-_LldpXdot1PeRemPEAddress_Type=MacAddress
-_LldpXdot1PeRemPEAddress_Object=MibTableColumn
-lldpXdot1PeRemPEAddress=_LldpXdot1PeRemPEAddress_Object((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,3,1,1,2),_LldpXdot1PeRemPEAddress_Type())
-lldpXdot1PeRemPEAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdot1PeRemPEAddress.setStatus(_A)
-_LldpXdot1PeRemPECSPAddress_Type=MacAddress
-_LldpXdot1PeRemPECSPAddress_Object=MibTableColumn
-lldpXdot1PeRemPECSPAddress=_LldpXdot1PeRemPECSPAddress_Object((1,3,111,2,802,1,1,13,1,5,32962,7,2,1,1,3,1,1,3),_LldpXdot1PeRemPECSPAddress_Type())
-lldpXdot1PeRemPECSPAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdot1PeRemPECSPAddress.setStatus(_A)
-_LldpXdot1PeConformance_ObjectIdentity=ObjectIdentity
-lldpXdot1PeConformance=_LldpXdot1PeConformance_ObjectIdentity((1,3,111,2,802,1,1,13,1,5,32962,7,2,2))
-_LldpXdot1PeCompliances_ObjectIdentity=ObjectIdentity
-lldpXdot1PeCompliances=_LldpXdot1PeCompliances_ObjectIdentity((1,3,111,2,802,1,1,13,1,5,32962,7,2,2,1))
-_LldpXdot1PeGroups_ObjectIdentity=ObjectIdentity
-lldpXdot1PeGroups=_LldpXdot1PeGroups_ObjectIdentity((1,3,111,2,802,1,1,13,1,5,32962,7,2,2,2))
-lldpV2PortConfigEntry.registerAugmentions((_B,_N))
+#
+# PySNMP MIB module LLDP-EXT-DOT1-PE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/LLDP-EXT-DOT1-PE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:26:18 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifGeneralInformationGroup, = mibBuilder.importSymbols("IF-MIB", "ifGeneralInformationGroup")
+lldpXdot1StandAloneExtensions, = mibBuilder.importSymbols("LLDP-EXT-DOT1-EVB-EXTENSIONS-MIB", "lldpXdot1StandAloneExtensions")
+lldpV2Extensions, lldpV2LocPortIfIndex, lldpV2RemLocalIfIndex, lldpV2RemLocalDestMACAddress, lldpV2RemIndex, lldpV2RemTimeMark, lldpV2PortConfigEntry = mibBuilder.importSymbols("LLDP-V2-MIB", "lldpV2Extensions", "lldpV2LocPortIfIndex", "lldpV2RemLocalIfIndex", "lldpV2RemLocalDestMACAddress", "lldpV2RemIndex", "lldpV2RemTimeMark", "lldpV2PortConfigEntry")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+MacAddress, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TruthValue", "TextualConvention")
+lldpXDot1PEExtensions = ModuleIdentity((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2))
+lldpXDot1PEExtensions.setRevisions(('2012-01-23 00:00',))
+if mibBuilder.loadTexts: lldpXDot1PEExtensions.setLastUpdated('201201230000Z')
+if mibBuilder.loadTexts: lldpXDot1PEExtensions.setOrganization('IEEE 802.1 Working Group')
+lldpXdot1PeMIB = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1))
+lldpXdot1PeObjects = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1))
+lldpXdot1PeConfig = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 1))
+lldpXdot1PeLocalData = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 2))
+lldpXdot1PeRemoteData = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 3))
+lldpXdot1PeConfigPortExtensionTable = MibTable((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 1, 1), )
+if mibBuilder.loadTexts: lldpXdot1PeConfigPortExtensionTable.setStatus('current')
+lldpXdot1PeConfigPortExtensionEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 1, 1, 1), )
+lldpV2PortConfigEntry.registerAugmentions(("LLDP-EXT-DOT1-PE-MIB", "lldpXdot1PeConfigPortExtensionEntry"))
 lldpXdot1PeConfigPortExtensionEntry.setIndexNames(*lldpV2PortConfigEntry.getIndexNames())
-lldpXdot1PeGroup=ObjectGroup((1,3,111,2,802,1,1,13,1,5,32962,7,2,2,2,1))
-lldpXdot1PeGroup.setObjects(*((_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:lldpXdot1PeGroup.setStatus(_A)
-lldpXdot1PeCompliance=ModuleCompliance((1,3,111,2,802,1,1,13,1,5,32962,7,2,2,1,1))
-lldpXdot1PeCompliance.setObjects(*((_B,_V),(_B,_F)))
-if mibBuilder.loadTexts:lldpXdot1PeCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'lldpXDot1PEExtensions':lldpXDot1PEExtensions,'lldpXdot1PeMIB':lldpXdot1PeMIB,'lldpXdot1PeObjects':lldpXdot1PeObjects,'lldpXdot1PeConfig':lldpXdot1PeConfig,'lldpXdot1PeConfigPortExtensionTable':lldpXdot1PeConfigPortExtensionTable,_N:lldpXdot1PeConfigPortExtensionEntry,_O:lldpXdot1PeConfigPortExtensionTxEnable,'lldpXdot1PeLocalData':lldpXdot1PeLocalData,'lldpXdot1PeLocPortExtensionTable':lldpXdot1PeLocPortExtensionTable,'lldpXdot1PeLocPortExtensionEntry':lldpXdot1PeLocPortExtensionEntry,_P:lldpXdot1PeLocPECascadePortPriority,_Q:lldpXdot1PeLocPEAddress,_R:lldpXdot1PeLocPECSPAddress,'lldpXdot1PeRemoteData':lldpXdot1PeRemoteData,'lldpXdot1PeRemPortExtensionTable':lldpXdot1PeRemPortExtensionTable,'lldpXdot1PeRemPortExtensionEntry':lldpXdot1PeRemPortExtensionEntry,_S:lldpXdot1PeRemPECascadePortPriority,_T:lldpXdot1PeRemPEAddress,_U:lldpXdot1PeRemPECSPAddress,'lldpXdot1PeConformance':lldpXdot1PeConformance,'lldpXdot1PeCompliances':lldpXdot1PeCompliances,'lldpXdot1PeCompliance':lldpXdot1PeCompliance,'lldpXdot1PeGroups':lldpXdot1PeGroups,_V:lldpXdot1PeGroup})
+if mibBuilder.loadTexts: lldpXdot1PeConfigPortExtensionEntry.setStatus('current')
+lldpXdot1PeConfigPortExtensionTxEnable = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 1, 1, 1, 1), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdot1PeConfigPortExtensionTxEnable.setStatus('current')
+lldpXdot1PeLocPortExtensionTable = MibTable((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 2, 1), )
+if mibBuilder.loadTexts: lldpXdot1PeLocPortExtensionTable.setStatus('current')
+lldpXdot1PeLocPortExtensionEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 2, 1, 1), ).setIndexNames((0, "LLDP-V2-MIB", "lldpV2LocPortIfIndex"))
+if mibBuilder.loadTexts: lldpXdot1PeLocPortExtensionEntry.setStatus('current')
+lldpXdot1PeLocPECascadePortPriority = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 2, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdot1PeLocPECascadePortPriority.setStatus('current')
+lldpXdot1PeLocPEAddress = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 2, 1, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdot1PeLocPEAddress.setStatus('current')
+lldpXdot1PeLocPECSPAddress = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 2, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdot1PeLocPECSPAddress.setStatus('current')
+lldpXdot1PeRemPortExtensionTable = MibTable((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 3, 1), )
+if mibBuilder.loadTexts: lldpXdot1PeRemPortExtensionTable.setStatus('current')
+lldpXdot1PeRemPortExtensionEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 3, 1, 1), ).setIndexNames((0, "LLDP-V2-MIB", "lldpV2RemTimeMark"), (0, "LLDP-V2-MIB", "lldpV2RemLocalIfIndex"), (0, "LLDP-V2-MIB", "lldpV2RemLocalDestMACAddress"), (0, "LLDP-V2-MIB", "lldpV2RemIndex"))
+if mibBuilder.loadTexts: lldpXdot1PeRemPortExtensionEntry.setStatus('current')
+lldpXdot1PeRemPECascadePortPriority = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 3, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdot1PeRemPECascadePortPriority.setStatus('current')
+lldpXdot1PeRemPEAddress = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 3, 1, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdot1PeRemPEAddress.setStatus('current')
+lldpXdot1PeRemPECSPAddress = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 1, 1, 3, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdot1PeRemPECSPAddress.setStatus('current')
+lldpXdot1PeConformance = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 2))
+lldpXdot1PeCompliances = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 2, 1))
+lldpXdot1PeGroups = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 2, 2))
+lldpXdot1PeCompliance = ModuleCompliance((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 2, 1, 1)).setObjects(("LLDP-EXT-DOT1-PE-MIB", "lldpXdot1PeGroup"), ("LLDP-EXT-DOT1-PE-MIB", "ifGeneralInformationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lldpXdot1PeCompliance = lldpXdot1PeCompliance.setStatus('current')
+lldpXdot1PeGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 13, 1, 5, 32962, 7, 2, 2, 2, 1)).setObjects(("LLDP-EXT-DOT1-PE-MIB", "lldpXdot1PeConfigPortExtensionTxEnable"), ("LLDP-EXT-DOT1-PE-MIB", "lldpXdot1PeLocPECascadePortPriority"), ("LLDP-EXT-DOT1-PE-MIB", "lldpXdot1PeLocPEAddress"), ("LLDP-EXT-DOT1-PE-MIB", "lldpXdot1PeLocPECSPAddress"), ("LLDP-EXT-DOT1-PE-MIB", "lldpXdot1PeRemPECascadePortPriority"), ("LLDP-EXT-DOT1-PE-MIB", "lldpXdot1PeRemPEAddress"), ("LLDP-EXT-DOT1-PE-MIB", "lldpXdot1PeRemPECSPAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lldpXdot1PeGroup = lldpXdot1PeGroup.setStatus('current')
+mibBuilder.exportSymbols("LLDP-EXT-DOT1-PE-MIB", lldpXdot1PeLocPortExtensionEntry=lldpXdot1PeLocPortExtensionEntry, lldpXdot1PeLocPEAddress=lldpXdot1PeLocPEAddress, lldpXDot1PEExtensions=lldpXDot1PEExtensions, lldpXdot1PeLocalData=lldpXdot1PeLocalData, lldpXdot1PeGroup=lldpXdot1PeGroup, lldpXdot1PeRemPECascadePortPriority=lldpXdot1PeRemPECascadePortPriority, lldpXdot1PeConformance=lldpXdot1PeConformance, lldpXdot1PeRemoteData=lldpXdot1PeRemoteData, lldpXdot1PeCompliance=lldpXdot1PeCompliance, lldpXdot1PeLocPECSPAddress=lldpXdot1PeLocPECSPAddress, lldpXdot1PeRemPECSPAddress=lldpXdot1PeRemPECSPAddress, PYSNMP_MODULE_ID=lldpXDot1PEExtensions, lldpXdot1PeObjects=lldpXdot1PeObjects, lldpXdot1PeConfigPortExtensionTable=lldpXdot1PeConfigPortExtensionTable, lldpXdot1PeMIB=lldpXdot1PeMIB, lldpXdot1PeGroups=lldpXdot1PeGroups, lldpXdot1PeConfig=lldpXdot1PeConfig, lldpXdot1PeRemPortExtensionTable=lldpXdot1PeRemPortExtensionTable, lldpXdot1PeLocPECascadePortPriority=lldpXdot1PeLocPECascadePortPriority, lldpXdot1PeLocPortExtensionTable=lldpXdot1PeLocPortExtensionTable, lldpXdot1PeConfigPortExtensionEntry=lldpXdot1PeConfigPortExtensionEntry, lldpXdot1PeCompliances=lldpXdot1PeCompliances, lldpXdot1PeConfigPortExtensionTxEnable=lldpXdot1PeConfigPortExtensionTxEnable, lldpXdot1PeRemPortExtensionEntry=lldpXdot1PeRemPortExtensionEntry, lldpXdot1PeRemPEAddress=lldpXdot1PeRemPEAddress)

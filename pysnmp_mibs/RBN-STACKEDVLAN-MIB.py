@@ -1,91 +1,53 @@
-_M='rbnStackedVlanMIBGroup'
-_L='rbnStackedVlanHCOutBroadcastPkts'
-_K='rbnStackedVlanHCOutMulticastPkts'
-_J='rbnStackedVlanHCOutUcastPkts'
-_I='rbnStackedVlanHCOutOctets'
-_H='rbnStackedVlanHCInBroadcastPkts'
-_G='rbnStackedVlanHCInMulticastPkts'
-_F='rbnStackedVlanHCInUcastPkts'
-_E='rbnStackedVlanHCInOctets'
-_D='rbnStackedVlanIndex'
-_C='read-only'
-_B='RBN-STACKEDVLAN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-rbnMgmt,=mibBuilder.importSymbols('RBN-SMI','rbnMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-rbnStackedVlanMIB=ModuleIdentity((1,3,6,1,4,1,2352,2,40))
-if mibBuilder.loadTexts:rbnStackedVlanMIB.setRevisions(('2007-02-27 00:00',))
-_RbnStackedVlanMIBObjects_ObjectIdentity=ObjectIdentity
-rbnStackedVlanMIBObjects=_RbnStackedVlanMIBObjects_ObjectIdentity((1,3,6,1,4,1,2352,2,40,1))
-_RbnStackedVlanAggrStatsTable_Object=MibTable
-rbnStackedVlanAggrStatsTable=_RbnStackedVlanAggrStatsTable_Object((1,3,6,1,4,1,2352,2,40,1,1))
-if mibBuilder.loadTexts:rbnStackedVlanAggrStatsTable.setStatus(_A)
-_RbnStackedVlanAggrStatsEntry_Object=MibTableRow
-rbnStackedVlanAggrStatsEntry=_RbnStackedVlanAggrStatsEntry_Object((1,3,6,1,4,1,2352,2,40,1,1,1))
-rbnStackedVlanAggrStatsEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:rbnStackedVlanAggrStatsEntry.setStatus(_A)
-_RbnStackedVlanIndex_Type=InterfaceIndex
-_RbnStackedVlanIndex_Object=MibTableColumn
-rbnStackedVlanIndex=_RbnStackedVlanIndex_Object((1,3,6,1,4,1,2352,2,40,1,1,1,1),_RbnStackedVlanIndex_Type())
-rbnStackedVlanIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:rbnStackedVlanIndex.setStatus(_A)
-_RbnStackedVlanHCInOctets_Type=Counter64
-_RbnStackedVlanHCInOctets_Object=MibTableColumn
-rbnStackedVlanHCInOctets=_RbnStackedVlanHCInOctets_Object((1,3,6,1,4,1,2352,2,40,1,1,1,2),_RbnStackedVlanHCInOctets_Type())
-rbnStackedVlanHCInOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnStackedVlanHCInOctets.setStatus(_A)
-_RbnStackedVlanHCInUcastPkts_Type=Counter64
-_RbnStackedVlanHCInUcastPkts_Object=MibTableColumn
-rbnStackedVlanHCInUcastPkts=_RbnStackedVlanHCInUcastPkts_Object((1,3,6,1,4,1,2352,2,40,1,1,1,3),_RbnStackedVlanHCInUcastPkts_Type())
-rbnStackedVlanHCInUcastPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnStackedVlanHCInUcastPkts.setStatus(_A)
-_RbnStackedVlanHCInMulticastPkts_Type=Counter64
-_RbnStackedVlanHCInMulticastPkts_Object=MibTableColumn
-rbnStackedVlanHCInMulticastPkts=_RbnStackedVlanHCInMulticastPkts_Object((1,3,6,1,4,1,2352,2,40,1,1,1,4),_RbnStackedVlanHCInMulticastPkts_Type())
-rbnStackedVlanHCInMulticastPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnStackedVlanHCInMulticastPkts.setStatus(_A)
-_RbnStackedVlanHCInBroadcastPkts_Type=Counter64
-_RbnStackedVlanHCInBroadcastPkts_Object=MibTableColumn
-rbnStackedVlanHCInBroadcastPkts=_RbnStackedVlanHCInBroadcastPkts_Object((1,3,6,1,4,1,2352,2,40,1,1,1,5),_RbnStackedVlanHCInBroadcastPkts_Type())
-rbnStackedVlanHCInBroadcastPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnStackedVlanHCInBroadcastPkts.setStatus(_A)
-_RbnStackedVlanHCOutOctets_Type=Counter64
-_RbnStackedVlanHCOutOctets_Object=MibTableColumn
-rbnStackedVlanHCOutOctets=_RbnStackedVlanHCOutOctets_Object((1,3,6,1,4,1,2352,2,40,1,1,1,6),_RbnStackedVlanHCOutOctets_Type())
-rbnStackedVlanHCOutOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnStackedVlanHCOutOctets.setStatus(_A)
-_RbnStackedVlanHCOutUcastPkts_Type=Counter64
-_RbnStackedVlanHCOutUcastPkts_Object=MibTableColumn
-rbnStackedVlanHCOutUcastPkts=_RbnStackedVlanHCOutUcastPkts_Object((1,3,6,1,4,1,2352,2,40,1,1,1,7),_RbnStackedVlanHCOutUcastPkts_Type())
-rbnStackedVlanHCOutUcastPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnStackedVlanHCOutUcastPkts.setStatus(_A)
-_RbnStackedVlanHCOutMulticastPkts_Type=Counter64
-_RbnStackedVlanHCOutMulticastPkts_Object=MibTableColumn
-rbnStackedVlanHCOutMulticastPkts=_RbnStackedVlanHCOutMulticastPkts_Object((1,3,6,1,4,1,2352,2,40,1,1,1,8),_RbnStackedVlanHCOutMulticastPkts_Type())
-rbnStackedVlanHCOutMulticastPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnStackedVlanHCOutMulticastPkts.setStatus(_A)
-_RbnStackedVlanHCOutBroadcastPkts_Type=Counter64
-_RbnStackedVlanHCOutBroadcastPkts_Object=MibTableColumn
-rbnStackedVlanHCOutBroadcastPkts=_RbnStackedVlanHCOutBroadcastPkts_Object((1,3,6,1,4,1,2352,2,40,1,1,1,9),_RbnStackedVlanHCOutBroadcastPkts_Type())
-rbnStackedVlanHCOutBroadcastPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnStackedVlanHCOutBroadcastPkts.setStatus(_A)
-_RbnStackedVlanMIBConformance_ObjectIdentity=ObjectIdentity
-rbnStackedVlanMIBConformance=_RbnStackedVlanMIBConformance_ObjectIdentity((1,3,6,1,4,1,2352,2,40,2))
-_RbnStackedVlanMIBGroups_ObjectIdentity=ObjectIdentity
-rbnStackedVlanMIBGroups=_RbnStackedVlanMIBGroups_ObjectIdentity((1,3,6,1,4,1,2352,2,40,2,1))
-_RbnStackedVlanMIBCompliances_ObjectIdentity=ObjectIdentity
-rbnStackedVlanMIBCompliances=_RbnStackedVlanMIBCompliances_ObjectIdentity((1,3,6,1,4,1,2352,2,40,2,2))
-rbnStackedVlanMIBGroup=ObjectGroup((1,3,6,1,4,1,2352,2,40,2,1,1))
-rbnStackedVlanMIBGroup.setObjects(*((_B,_E),(_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L)))
-if mibBuilder.loadTexts:rbnStackedVlanMIBGroup.setStatus(_A)
-rbnStackedVlanMIBCompliance=ModuleCompliance((1,3,6,1,4,1,2352,2,40,2,2,1))
-rbnStackedVlanMIBCompliance.setObjects((_B,_M))
-if mibBuilder.loadTexts:rbnStackedVlanMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'rbnStackedVlanMIB':rbnStackedVlanMIB,'rbnStackedVlanMIBObjects':rbnStackedVlanMIBObjects,'rbnStackedVlanAggrStatsTable':rbnStackedVlanAggrStatsTable,'rbnStackedVlanAggrStatsEntry':rbnStackedVlanAggrStatsEntry,_D:rbnStackedVlanIndex,_E:rbnStackedVlanHCInOctets,_F:rbnStackedVlanHCInUcastPkts,_G:rbnStackedVlanHCInMulticastPkts,_H:rbnStackedVlanHCInBroadcastPkts,_I:rbnStackedVlanHCOutOctets,_J:rbnStackedVlanHCOutUcastPkts,_K:rbnStackedVlanHCOutMulticastPkts,_L:rbnStackedVlanHCOutBroadcastPkts,'rbnStackedVlanMIBConformance':rbnStackedVlanMIBConformance,'rbnStackedVlanMIBGroups':rbnStackedVlanMIBGroups,_M:rbnStackedVlanMIBGroup,'rbnStackedVlanMIBCompliances':rbnStackedVlanMIBCompliances,'rbnStackedVlanMIBCompliance':rbnStackedVlanMIBCompliance})
+#
+# PySNMP MIB module RBN-STACKEDVLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ericsson/RBN-STACKEDVLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:49 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+rbnMgmt, = mibBuilder.importSymbols("RBN-SMI", "rbnMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+rbnStackedVlanMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2352, 2, 40))
+rbnStackedVlanMIB.setRevisions(('2007-02-27 00:00',))
+if mibBuilder.loadTexts: rbnStackedVlanMIB.setLastUpdated('200702270000Z')
+if mibBuilder.loadTexts: rbnStackedVlanMIB.setOrganization('RedBack Networks, Inc.')
+rbnStackedVlanMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 40, 1))
+rbnStackedVlanAggrStatsTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 2, 40, 1, 1), )
+if mibBuilder.loadTexts: rbnStackedVlanAggrStatsTable.setStatus('current')
+rbnStackedVlanAggrStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 2, 40, 1, 1, 1), ).setIndexNames((0, "RBN-STACKEDVLAN-MIB", "rbnStackedVlanIndex"))
+if mibBuilder.loadTexts: rbnStackedVlanAggrStatsEntry.setStatus('current')
+rbnStackedVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 40, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: rbnStackedVlanIndex.setStatus('current')
+rbnStackedVlanHCInOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 40, 1, 1, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnStackedVlanHCInOctets.setStatus('current')
+rbnStackedVlanHCInUcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 40, 1, 1, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnStackedVlanHCInUcastPkts.setStatus('current')
+rbnStackedVlanHCInMulticastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 40, 1, 1, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnStackedVlanHCInMulticastPkts.setStatus('current')
+rbnStackedVlanHCInBroadcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 40, 1, 1, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnStackedVlanHCInBroadcastPkts.setStatus('current')
+rbnStackedVlanHCOutOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 40, 1, 1, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnStackedVlanHCOutOctets.setStatus('current')
+rbnStackedVlanHCOutUcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 40, 1, 1, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnStackedVlanHCOutUcastPkts.setStatus('current')
+rbnStackedVlanHCOutMulticastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 40, 1, 1, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnStackedVlanHCOutMulticastPkts.setStatus('current')
+rbnStackedVlanHCOutBroadcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 40, 1, 1, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnStackedVlanHCOutBroadcastPkts.setStatus('current')
+rbnStackedVlanMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 40, 2))
+rbnStackedVlanMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 40, 2, 1))
+rbnStackedVlanMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 40, 2, 2))
+rbnStackedVlanMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 40, 2, 2, 1)).setObjects(("RBN-STACKEDVLAN-MIB", "rbnStackedVlanMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnStackedVlanMIBCompliance = rbnStackedVlanMIBCompliance.setStatus('current')
+rbnStackedVlanMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 40, 2, 1, 1)).setObjects(("RBN-STACKEDVLAN-MIB", "rbnStackedVlanHCInOctets"), ("RBN-STACKEDVLAN-MIB", "rbnStackedVlanHCInUcastPkts"), ("RBN-STACKEDVLAN-MIB", "rbnStackedVlanHCInMulticastPkts"), ("RBN-STACKEDVLAN-MIB", "rbnStackedVlanHCInBroadcastPkts"), ("RBN-STACKEDVLAN-MIB", "rbnStackedVlanHCOutOctets"), ("RBN-STACKEDVLAN-MIB", "rbnStackedVlanHCOutUcastPkts"), ("RBN-STACKEDVLAN-MIB", "rbnStackedVlanHCOutMulticastPkts"), ("RBN-STACKEDVLAN-MIB", "rbnStackedVlanHCOutBroadcastPkts"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnStackedVlanMIBGroup = rbnStackedVlanMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("RBN-STACKEDVLAN-MIB", rbnStackedVlanHCInBroadcastPkts=rbnStackedVlanHCInBroadcastPkts, rbnStackedVlanMIB=rbnStackedVlanMIB, rbnStackedVlanMIBCompliance=rbnStackedVlanMIBCompliance, PYSNMP_MODULE_ID=rbnStackedVlanMIB, rbnStackedVlanIndex=rbnStackedVlanIndex, rbnStackedVlanHCInMulticastPkts=rbnStackedVlanHCInMulticastPkts, rbnStackedVlanHCOutUcastPkts=rbnStackedVlanHCOutUcastPkts, rbnStackedVlanHCInUcastPkts=rbnStackedVlanHCInUcastPkts, rbnStackedVlanAggrStatsTable=rbnStackedVlanAggrStatsTable, rbnStackedVlanMIBGroups=rbnStackedVlanMIBGroups, rbnStackedVlanHCOutOctets=rbnStackedVlanHCOutOctets, rbnStackedVlanMIBObjects=rbnStackedVlanMIBObjects, rbnStackedVlanMIBGroup=rbnStackedVlanMIBGroup, rbnStackedVlanHCInOctets=rbnStackedVlanHCInOctets, rbnStackedVlanAggrStatsEntry=rbnStackedVlanAggrStatsEntry, rbnStackedVlanHCOutMulticastPkts=rbnStackedVlanHCOutMulticastPkts, rbnStackedVlanMIBConformance=rbnStackedVlanMIBConformance, rbnStackedVlanHCOutBroadcastPkts=rbnStackedVlanHCOutBroadcastPkts, rbnStackedVlanMIBCompliances=rbnStackedVlanMIBCompliances)

@@ -1,239 +1,111 @@
-_H='adGenPseudowireCEMIntervalNumber24Hr'
-_G='adGenPseudowireCEMIntervalNumber15Min'
-_F='ADTRAN-GENERIC-PSEUDOWIRE-CEM-COUNTERS-INFO-MIB'
-_E='Integer32'
-_D='ifIndex'
-_C='IF-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGenPseudowireCEMPerfInfo,adGenPseudowireCEMPerfInfoID=mibBuilder.importSymbols('ADTRAN-GENERIC-PSEUDOWIRE-CEM-MGMT-MIB','adGenPseudowireCEMPerfInfo','adGenPseudowireCEMPerfInfoID')
-InterfaceIndex,ifIndex=mibBuilder.importSymbols(_C,'InterfaceIndex',_D)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-adGenPseudowireCEMPerfInfoModuleIdentity=ModuleIdentity((1,3,6,1,4,1,664,6,10000,70,30,2,2,1))
-_AdGenPseudowireCEMCurrent15MinPerfTable_Object=MibTable
-adGenPseudowireCEMCurrent15MinPerfTable=_AdGenPseudowireCEMCurrent15MinPerfTable_Object((1,3,6,1,4,1,664,5,70,30,5,2,1))
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent15MinPerfTable.setStatus(_A)
-_AdGenPseudowireCEMCurrent15MinPerfTableEntry_Object=MibTableRow
-adGenPseudowireCEMCurrent15MinPerfTableEntry=_AdGenPseudowireCEMCurrent15MinPerfTableEntry_Object((1,3,6,1,4,1,664,5,70,30,5,2,1,1))
-adGenPseudowireCEMCurrent15MinPerfTableEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent15MinPerfTableEntry.setStatus(_A)
-_AdGenPseudowireCEMCurrent15MinPacketsMissed_Type=Gauge32
-_AdGenPseudowireCEMCurrent15MinPacketsMissed_Object=MibTableColumn
-adGenPseudowireCEMCurrent15MinPacketsMissed=_AdGenPseudowireCEMCurrent15MinPacketsMissed_Object((1,3,6,1,4,1,664,5,70,30,5,2,1,1,1),_AdGenPseudowireCEMCurrent15MinPacketsMissed_Type())
-adGenPseudowireCEMCurrent15MinPacketsMissed.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent15MinPacketsMissed.setStatus(_A)
-_AdGenPseudowireCEMCurrent15MinPacketsDropped_Type=Gauge32
-_AdGenPseudowireCEMCurrent15MinPacketsDropped_Object=MibTableColumn
-adGenPseudowireCEMCurrent15MinPacketsDropped=_AdGenPseudowireCEMCurrent15MinPacketsDropped_Object((1,3,6,1,4,1,664,5,70,30,5,2,1,1,2),_AdGenPseudowireCEMCurrent15MinPacketsDropped_Type())
-adGenPseudowireCEMCurrent15MinPacketsDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent15MinPacketsDropped.setStatus(_A)
-_AdGenPseudowireCEMCurrent15MinPacketsMalformed_Type=Gauge32
-_AdGenPseudowireCEMCurrent15MinPacketsMalformed_Object=MibTableColumn
-adGenPseudowireCEMCurrent15MinPacketsMalformed=_AdGenPseudowireCEMCurrent15MinPacketsMalformed_Object((1,3,6,1,4,1,664,5,70,30,5,2,1,1,3),_AdGenPseudowireCEMCurrent15MinPacketsMalformed_Type())
-adGenPseudowireCEMCurrent15MinPacketsMalformed.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent15MinPacketsMalformed.setStatus(_A)
-_AdGenPseudowireCEMCurrent15MinFailureCount_Type=Gauge32
-_AdGenPseudowireCEMCurrent15MinFailureCount_Object=MibTableColumn
-adGenPseudowireCEMCurrent15MinFailureCount=_AdGenPseudowireCEMCurrent15MinFailureCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,1,1,4),_AdGenPseudowireCEMCurrent15MinFailureCount_Type())
-adGenPseudowireCEMCurrent15MinFailureCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent15MinFailureCount.setStatus(_A)
-_AdGenPseudowireCEMCurrent15MinTxPacketCount_Type=Gauge32
-_AdGenPseudowireCEMCurrent15MinTxPacketCount_Object=MibTableColumn
-adGenPseudowireCEMCurrent15MinTxPacketCount=_AdGenPseudowireCEMCurrent15MinTxPacketCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,1,1,5),_AdGenPseudowireCEMCurrent15MinTxPacketCount_Type())
-adGenPseudowireCEMCurrent15MinTxPacketCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent15MinTxPacketCount.setStatus(_A)
-_AdGenPseudowireCEMCurrent15MinRxPacketCount_Type=Gauge32
-_AdGenPseudowireCEMCurrent15MinRxPacketCount_Object=MibTableColumn
-adGenPseudowireCEMCurrent15MinRxPacketCount=_AdGenPseudowireCEMCurrent15MinRxPacketCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,1,1,6),_AdGenPseudowireCEMCurrent15MinRxPacketCount_Type())
-adGenPseudowireCEMCurrent15MinRxPacketCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent15MinRxPacketCount.setStatus(_A)
-_AdGenPseudowireCEMCurrent15MinTxByteCount_Type=Counter64
-_AdGenPseudowireCEMCurrent15MinTxByteCount_Object=MibTableColumn
-adGenPseudowireCEMCurrent15MinTxByteCount=_AdGenPseudowireCEMCurrent15MinTxByteCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,1,1,7),_AdGenPseudowireCEMCurrent15MinTxByteCount_Type())
-adGenPseudowireCEMCurrent15MinTxByteCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent15MinTxByteCount.setStatus(_A)
-_AdGenPseudowireCEMCurrent15MinRxByteCount_Type=Counter64
-_AdGenPseudowireCEMCurrent15MinRxByteCount_Object=MibTableColumn
-adGenPseudowireCEMCurrent15MinRxByteCount=_AdGenPseudowireCEMCurrent15MinRxByteCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,1,1,8),_AdGenPseudowireCEMCurrent15MinRxByteCount_Type())
-adGenPseudowireCEMCurrent15MinRxByteCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent15MinRxByteCount.setStatus(_A)
-_AdGenPseudowireCEMCurrent15MinJitterBufferUnderrun_Type=Gauge32
-_AdGenPseudowireCEMCurrent15MinJitterBufferUnderrun_Object=MibTableColumn
-adGenPseudowireCEMCurrent15MinJitterBufferUnderrun=_AdGenPseudowireCEMCurrent15MinJitterBufferUnderrun_Object((1,3,6,1,4,1,664,5,70,30,5,2,1,1,9),_AdGenPseudowireCEMCurrent15MinJitterBufferUnderrun_Type())
-adGenPseudowireCEMCurrent15MinJitterBufferUnderrun.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent15MinJitterBufferUnderrun.setStatus(_A)
-_AdGenPseudowireCEMCurrent24HrPerfTable_Object=MibTable
-adGenPseudowireCEMCurrent24HrPerfTable=_AdGenPseudowireCEMCurrent24HrPerfTable_Object((1,3,6,1,4,1,664,5,70,30,5,2,2))
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent24HrPerfTable.setStatus(_A)
-_AdGenPseudowireCEMCurrent24HrPerfTableEntry_Object=MibTableRow
-adGenPseudowireCEMCurrent24HrPerfTableEntry=_AdGenPseudowireCEMCurrent24HrPerfTableEntry_Object((1,3,6,1,4,1,664,5,70,30,5,2,2,1))
-adGenPseudowireCEMCurrent24HrPerfTableEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent24HrPerfTableEntry.setStatus(_A)
-_AdGenPseudowireCEMCurrent24HrPacketsMissed_Type=Gauge32
-_AdGenPseudowireCEMCurrent24HrPacketsMissed_Object=MibTableColumn
-adGenPseudowireCEMCurrent24HrPacketsMissed=_AdGenPseudowireCEMCurrent24HrPacketsMissed_Object((1,3,6,1,4,1,664,5,70,30,5,2,2,1,1),_AdGenPseudowireCEMCurrent24HrPacketsMissed_Type())
-adGenPseudowireCEMCurrent24HrPacketsMissed.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent24HrPacketsMissed.setStatus(_A)
-_AdGenPseudowireCEMCurrent24HrPacketsDropped_Type=Gauge32
-_AdGenPseudowireCEMCurrent24HrPacketsDropped_Object=MibTableColumn
-adGenPseudowireCEMCurrent24HrPacketsDropped=_AdGenPseudowireCEMCurrent24HrPacketsDropped_Object((1,3,6,1,4,1,664,5,70,30,5,2,2,1,2),_AdGenPseudowireCEMCurrent24HrPacketsDropped_Type())
-adGenPseudowireCEMCurrent24HrPacketsDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent24HrPacketsDropped.setStatus(_A)
-_AdGenPseudowireCEMCurrent24HrPacketsMalformed_Type=Gauge32
-_AdGenPseudowireCEMCurrent24HrPacketsMalformed_Object=MibTableColumn
-adGenPseudowireCEMCurrent24HrPacketsMalformed=_AdGenPseudowireCEMCurrent24HrPacketsMalformed_Object((1,3,6,1,4,1,664,5,70,30,5,2,2,1,3),_AdGenPseudowireCEMCurrent24HrPacketsMalformed_Type())
-adGenPseudowireCEMCurrent24HrPacketsMalformed.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent24HrPacketsMalformed.setStatus(_A)
-_AdGenPseudowireCEMCurrent24HrFailureCount_Type=Gauge32
-_AdGenPseudowireCEMCurrent24HrFailureCount_Object=MibTableColumn
-adGenPseudowireCEMCurrent24HrFailureCount=_AdGenPseudowireCEMCurrent24HrFailureCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,2,1,4),_AdGenPseudowireCEMCurrent24HrFailureCount_Type())
-adGenPseudowireCEMCurrent24HrFailureCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent24HrFailureCount.setStatus(_A)
-_AdGenPseudowireCEMCurrent24HrTxPacketCount_Type=Gauge32
-_AdGenPseudowireCEMCurrent24HrTxPacketCount_Object=MibTableColumn
-adGenPseudowireCEMCurrent24HrTxPacketCount=_AdGenPseudowireCEMCurrent24HrTxPacketCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,2,1,5),_AdGenPseudowireCEMCurrent24HrTxPacketCount_Type())
-adGenPseudowireCEMCurrent24HrTxPacketCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent24HrTxPacketCount.setStatus(_A)
-_AdGenPseudowireCEMCurrent24HrRxPacketCount_Type=Gauge32
-_AdGenPseudowireCEMCurrent24HrRxPacketCount_Object=MibTableColumn
-adGenPseudowireCEMCurrent24HrRxPacketCount=_AdGenPseudowireCEMCurrent24HrRxPacketCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,2,1,6),_AdGenPseudowireCEMCurrent24HrRxPacketCount_Type())
-adGenPseudowireCEMCurrent24HrRxPacketCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent24HrRxPacketCount.setStatus(_A)
-_AdGenPseudowireCEMCurrent24HrTxByteCount_Type=Counter64
-_AdGenPseudowireCEMCurrent24HrTxByteCount_Object=MibTableColumn
-adGenPseudowireCEMCurrent24HrTxByteCount=_AdGenPseudowireCEMCurrent24HrTxByteCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,2,1,7),_AdGenPseudowireCEMCurrent24HrTxByteCount_Type())
-adGenPseudowireCEMCurrent24HrTxByteCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent24HrTxByteCount.setStatus(_A)
-_AdGenPseudowireCEMCurrent24HrRxByteCount_Type=Counter64
-_AdGenPseudowireCEMCurrent24HrRxByteCount_Object=MibTableColumn
-adGenPseudowireCEMCurrent24HrRxByteCount=_AdGenPseudowireCEMCurrent24HrRxByteCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,2,1,8),_AdGenPseudowireCEMCurrent24HrRxByteCount_Type())
-adGenPseudowireCEMCurrent24HrRxByteCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent24HrRxByteCount.setStatus(_A)
-_AdGenPseudowireCEMCurrent24HrJitterBufferUnderrun_Type=Gauge32
-_AdGenPseudowireCEMCurrent24HrJitterBufferUnderrun_Object=MibTableColumn
-adGenPseudowireCEMCurrent24HrJitterBufferUnderrun=_AdGenPseudowireCEMCurrent24HrJitterBufferUnderrun_Object((1,3,6,1,4,1,664,5,70,30,5,2,2,1,9),_AdGenPseudowireCEMCurrent24HrJitterBufferUnderrun_Type())
-adGenPseudowireCEMCurrent24HrJitterBufferUnderrun.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMCurrent24HrJitterBufferUnderrun.setStatus(_A)
-_AdGenPseudowireCEMInterval15MinPerfTable_Object=MibTable
-adGenPseudowireCEMInterval15MinPerfTable=_AdGenPseudowireCEMInterval15MinPerfTable_Object((1,3,6,1,4,1,664,5,70,30,5,2,3))
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval15MinPerfTable.setStatus(_A)
-_AdGenPseudowireCEMInterval15MinPerfTableEntry_Object=MibTableRow
-adGenPseudowireCEMInterval15MinPerfTableEntry=_AdGenPseudowireCEMInterval15MinPerfTableEntry_Object((1,3,6,1,4,1,664,5,70,30,5,2,3,1))
-adGenPseudowireCEMInterval15MinPerfTableEntry.setIndexNames((0,_C,_D),(0,_F,_G))
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval15MinPerfTableEntry.setStatus(_A)
-class _AdGenPseudowireCEMIntervalNumber15Min_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,96))
-_AdGenPseudowireCEMIntervalNumber15Min_Type.__name__=_E
-_AdGenPseudowireCEMIntervalNumber15Min_Object=MibTableColumn
-adGenPseudowireCEMIntervalNumber15Min=_AdGenPseudowireCEMIntervalNumber15Min_Object((1,3,6,1,4,1,664,5,70,30,5,2,3,1,1),_AdGenPseudowireCEMIntervalNumber15Min_Type())
-adGenPseudowireCEMIntervalNumber15Min.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMIntervalNumber15Min.setStatus(_A)
-_AdGenPseudowireCEMInterval15MinPacketsMissed_Type=Gauge32
-_AdGenPseudowireCEMInterval15MinPacketsMissed_Object=MibTableColumn
-adGenPseudowireCEMInterval15MinPacketsMissed=_AdGenPseudowireCEMInterval15MinPacketsMissed_Object((1,3,6,1,4,1,664,5,70,30,5,2,3,1,2),_AdGenPseudowireCEMInterval15MinPacketsMissed_Type())
-adGenPseudowireCEMInterval15MinPacketsMissed.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval15MinPacketsMissed.setStatus(_A)
-_AdGenPseudowireCEMInterval15MinPacketsDropped_Type=Gauge32
-_AdGenPseudowireCEMInterval15MinPacketsDropped_Object=MibTableColumn
-adGenPseudowireCEMInterval15MinPacketsDropped=_AdGenPseudowireCEMInterval15MinPacketsDropped_Object((1,3,6,1,4,1,664,5,70,30,5,2,3,1,3),_AdGenPseudowireCEMInterval15MinPacketsDropped_Type())
-adGenPseudowireCEMInterval15MinPacketsDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval15MinPacketsDropped.setStatus(_A)
-_AdGenPseudowireCEMInterval15MinPacketsMalformed_Type=Gauge32
-_AdGenPseudowireCEMInterval15MinPacketsMalformed_Object=MibTableColumn
-adGenPseudowireCEMInterval15MinPacketsMalformed=_AdGenPseudowireCEMInterval15MinPacketsMalformed_Object((1,3,6,1,4,1,664,5,70,30,5,2,3,1,4),_AdGenPseudowireCEMInterval15MinPacketsMalformed_Type())
-adGenPseudowireCEMInterval15MinPacketsMalformed.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval15MinPacketsMalformed.setStatus(_A)
-_AdGenPseudowireCEMInterval15MinFailureCount_Type=Gauge32
-_AdGenPseudowireCEMInterval15MinFailureCount_Object=MibTableColumn
-adGenPseudowireCEMInterval15MinFailureCount=_AdGenPseudowireCEMInterval15MinFailureCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,3,1,5),_AdGenPseudowireCEMInterval15MinFailureCount_Type())
-adGenPseudowireCEMInterval15MinFailureCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval15MinFailureCount.setStatus(_A)
-_AdGenPseudowireCEMInterval15MinTxPacketCount_Type=Gauge32
-_AdGenPseudowireCEMInterval15MinTxPacketCount_Object=MibTableColumn
-adGenPseudowireCEMInterval15MinTxPacketCount=_AdGenPseudowireCEMInterval15MinTxPacketCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,3,1,6),_AdGenPseudowireCEMInterval15MinTxPacketCount_Type())
-adGenPseudowireCEMInterval15MinTxPacketCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval15MinTxPacketCount.setStatus(_A)
-_AdGenPseudowireCEMInterval15MinRxPacketCount_Type=Gauge32
-_AdGenPseudowireCEMInterval15MinRxPacketCount_Object=MibTableColumn
-adGenPseudowireCEMInterval15MinRxPacketCount=_AdGenPseudowireCEMInterval15MinRxPacketCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,3,1,7),_AdGenPseudowireCEMInterval15MinRxPacketCount_Type())
-adGenPseudowireCEMInterval15MinRxPacketCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval15MinRxPacketCount.setStatus(_A)
-_AdGenPseudowireCEMInterval15MinTxByteCount_Type=Counter64
-_AdGenPseudowireCEMInterval15MinTxByteCount_Object=MibTableColumn
-adGenPseudowireCEMInterval15MinTxByteCount=_AdGenPseudowireCEMInterval15MinTxByteCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,3,1,8),_AdGenPseudowireCEMInterval15MinTxByteCount_Type())
-adGenPseudowireCEMInterval15MinTxByteCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval15MinTxByteCount.setStatus(_A)
-_AdGenPseudowireCEMInterval15MinRxByteCount_Type=Counter64
-_AdGenPseudowireCEMInterval15MinRxByteCount_Object=MibTableColumn
-adGenPseudowireCEMInterval15MinRxByteCount=_AdGenPseudowireCEMInterval15MinRxByteCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,3,1,9),_AdGenPseudowireCEMInterval15MinRxByteCount_Type())
-adGenPseudowireCEMInterval15MinRxByteCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval15MinRxByteCount.setStatus(_A)
-_AdGenPseudowireCEMInterval15MinJitterBufferUnderrun_Type=Gauge32
-_AdGenPseudowireCEMInterval15MinJitterBufferUnderrun_Object=MibTableColumn
-adGenPseudowireCEMInterval15MinJitterBufferUnderrun=_AdGenPseudowireCEMInterval15MinJitterBufferUnderrun_Object((1,3,6,1,4,1,664,5,70,30,5,2,3,1,10),_AdGenPseudowireCEMInterval15MinJitterBufferUnderrun_Type())
-adGenPseudowireCEMInterval15MinJitterBufferUnderrun.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval15MinJitterBufferUnderrun.setStatus(_A)
-_AdGenPseudowireCEMInterval24HrPerfTable_Object=MibTable
-adGenPseudowireCEMInterval24HrPerfTable=_AdGenPseudowireCEMInterval24HrPerfTable_Object((1,3,6,1,4,1,664,5,70,30,5,2,4))
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval24HrPerfTable.setStatus(_A)
-_AdGenPseudowireCEMInterval24HrPerfTableEntry_Object=MibTableRow
-adGenPseudowireCEMInterval24HrPerfTableEntry=_AdGenPseudowireCEMInterval24HrPerfTableEntry_Object((1,3,6,1,4,1,664,5,70,30,5,2,4,1))
-adGenPseudowireCEMInterval24HrPerfTableEntry.setIndexNames((0,_C,_D),(0,_F,_H))
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval24HrPerfTableEntry.setStatus(_A)
-class _AdGenPseudowireCEMIntervalNumber24Hr_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,7))
-_AdGenPseudowireCEMIntervalNumber24Hr_Type.__name__=_E
-_AdGenPseudowireCEMIntervalNumber24Hr_Object=MibTableColumn
-adGenPseudowireCEMIntervalNumber24Hr=_AdGenPseudowireCEMIntervalNumber24Hr_Object((1,3,6,1,4,1,664,5,70,30,5,2,4,1,1),_AdGenPseudowireCEMIntervalNumber24Hr_Type())
-adGenPseudowireCEMIntervalNumber24Hr.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMIntervalNumber24Hr.setStatus(_A)
-_AdGenPseudowireCEMInterval24HrPacketsMissed_Type=Gauge32
-_AdGenPseudowireCEMInterval24HrPacketsMissed_Object=MibTableColumn
-adGenPseudowireCEMInterval24HrPacketsMissed=_AdGenPseudowireCEMInterval24HrPacketsMissed_Object((1,3,6,1,4,1,664,5,70,30,5,2,4,1,2),_AdGenPseudowireCEMInterval24HrPacketsMissed_Type())
-adGenPseudowireCEMInterval24HrPacketsMissed.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval24HrPacketsMissed.setStatus(_A)
-_AdGenPseudowireCEMInterval24HrPacketsDropped_Type=Gauge32
-_AdGenPseudowireCEMInterval24HrPacketsDropped_Object=MibTableColumn
-adGenPseudowireCEMInterval24HrPacketsDropped=_AdGenPseudowireCEMInterval24HrPacketsDropped_Object((1,3,6,1,4,1,664,5,70,30,5,2,4,1,3),_AdGenPseudowireCEMInterval24HrPacketsDropped_Type())
-adGenPseudowireCEMInterval24HrPacketsDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval24HrPacketsDropped.setStatus(_A)
-_AdGenPseudowireCEMInterval24HrPacketsMalformed_Type=Gauge32
-_AdGenPseudowireCEMInterval24HrPacketsMalformed_Object=MibTableColumn
-adGenPseudowireCEMInterval24HrPacketsMalformed=_AdGenPseudowireCEMInterval24HrPacketsMalformed_Object((1,3,6,1,4,1,664,5,70,30,5,2,4,1,4),_AdGenPseudowireCEMInterval24HrPacketsMalformed_Type())
-adGenPseudowireCEMInterval24HrPacketsMalformed.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval24HrPacketsMalformed.setStatus(_A)
-_AdGenPseudowireCEMInterval24HrFailureCount_Type=Gauge32
-_AdGenPseudowireCEMInterval24HrFailureCount_Object=MibTableColumn
-adGenPseudowireCEMInterval24HrFailureCount=_AdGenPseudowireCEMInterval24HrFailureCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,4,1,5),_AdGenPseudowireCEMInterval24HrFailureCount_Type())
-adGenPseudowireCEMInterval24HrFailureCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval24HrFailureCount.setStatus(_A)
-_AdGenPseudowireCEMInterval24HrTxPacketCount_Type=Gauge32
-_AdGenPseudowireCEMInterval24HrTxPacketCount_Object=MibTableColumn
-adGenPseudowireCEMInterval24HrTxPacketCount=_AdGenPseudowireCEMInterval24HrTxPacketCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,4,1,6),_AdGenPseudowireCEMInterval24HrTxPacketCount_Type())
-adGenPseudowireCEMInterval24HrTxPacketCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval24HrTxPacketCount.setStatus(_A)
-_AdGenPseudowireCEMInterval24HrRxPacketCount_Type=Gauge32
-_AdGenPseudowireCEMInterval24HrRxPacketCount_Object=MibTableColumn
-adGenPseudowireCEMInterval24HrRxPacketCount=_AdGenPseudowireCEMInterval24HrRxPacketCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,4,1,7),_AdGenPseudowireCEMInterval24HrRxPacketCount_Type())
-adGenPseudowireCEMInterval24HrRxPacketCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval24HrRxPacketCount.setStatus(_A)
-_AdGenPseudowireCEMInterval24HrTxByteCount_Type=Counter64
-_AdGenPseudowireCEMInterval24HrTxByteCount_Object=MibTableColumn
-adGenPseudowireCEMInterval24HrTxByteCount=_AdGenPseudowireCEMInterval24HrTxByteCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,4,1,8),_AdGenPseudowireCEMInterval24HrTxByteCount_Type())
-adGenPseudowireCEMInterval24HrTxByteCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval24HrTxByteCount.setStatus(_A)
-_AdGenPseudowireCEMInterval24HrRxByteCount_Type=Counter64
-_AdGenPseudowireCEMInterval24HrRxByteCount_Object=MibTableColumn
-adGenPseudowireCEMInterval24HrRxByteCount=_AdGenPseudowireCEMInterval24HrRxByteCount_Object((1,3,6,1,4,1,664,5,70,30,5,2,4,1,9),_AdGenPseudowireCEMInterval24HrRxByteCount_Type())
-adGenPseudowireCEMInterval24HrRxByteCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval24HrRxByteCount.setStatus(_A)
-_AdGenPseudowireCEMInterval24HrJitterBufferUnderrun_Type=Gauge32
-_AdGenPseudowireCEMInterval24HrJitterBufferUnderrun_Object=MibTableColumn
-adGenPseudowireCEMInterval24HrJitterBufferUnderrun=_AdGenPseudowireCEMInterval24HrJitterBufferUnderrun_Object((1,3,6,1,4,1,664,5,70,30,5,2,4,1,10),_AdGenPseudowireCEMInterval24HrJitterBufferUnderrun_Type())
-adGenPseudowireCEMInterval24HrJitterBufferUnderrun.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenPseudowireCEMInterval24HrJitterBufferUnderrun.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'adGenPseudowireCEMCurrent15MinPerfTable':adGenPseudowireCEMCurrent15MinPerfTable,'adGenPseudowireCEMCurrent15MinPerfTableEntry':adGenPseudowireCEMCurrent15MinPerfTableEntry,'adGenPseudowireCEMCurrent15MinPacketsMissed':adGenPseudowireCEMCurrent15MinPacketsMissed,'adGenPseudowireCEMCurrent15MinPacketsDropped':adGenPseudowireCEMCurrent15MinPacketsDropped,'adGenPseudowireCEMCurrent15MinPacketsMalformed':adGenPseudowireCEMCurrent15MinPacketsMalformed,'adGenPseudowireCEMCurrent15MinFailureCount':adGenPseudowireCEMCurrent15MinFailureCount,'adGenPseudowireCEMCurrent15MinTxPacketCount':adGenPseudowireCEMCurrent15MinTxPacketCount,'adGenPseudowireCEMCurrent15MinRxPacketCount':adGenPseudowireCEMCurrent15MinRxPacketCount,'adGenPseudowireCEMCurrent15MinTxByteCount':adGenPseudowireCEMCurrent15MinTxByteCount,'adGenPseudowireCEMCurrent15MinRxByteCount':adGenPseudowireCEMCurrent15MinRxByteCount,'adGenPseudowireCEMCurrent15MinJitterBufferUnderrun':adGenPseudowireCEMCurrent15MinJitterBufferUnderrun,'adGenPseudowireCEMCurrent24HrPerfTable':adGenPseudowireCEMCurrent24HrPerfTable,'adGenPseudowireCEMCurrent24HrPerfTableEntry':adGenPseudowireCEMCurrent24HrPerfTableEntry,'adGenPseudowireCEMCurrent24HrPacketsMissed':adGenPseudowireCEMCurrent24HrPacketsMissed,'adGenPseudowireCEMCurrent24HrPacketsDropped':adGenPseudowireCEMCurrent24HrPacketsDropped,'adGenPseudowireCEMCurrent24HrPacketsMalformed':adGenPseudowireCEMCurrent24HrPacketsMalformed,'adGenPseudowireCEMCurrent24HrFailureCount':adGenPseudowireCEMCurrent24HrFailureCount,'adGenPseudowireCEMCurrent24HrTxPacketCount':adGenPseudowireCEMCurrent24HrTxPacketCount,'adGenPseudowireCEMCurrent24HrRxPacketCount':adGenPseudowireCEMCurrent24HrRxPacketCount,'adGenPseudowireCEMCurrent24HrTxByteCount':adGenPseudowireCEMCurrent24HrTxByteCount,'adGenPseudowireCEMCurrent24HrRxByteCount':adGenPseudowireCEMCurrent24HrRxByteCount,'adGenPseudowireCEMCurrent24HrJitterBufferUnderrun':adGenPseudowireCEMCurrent24HrJitterBufferUnderrun,'adGenPseudowireCEMInterval15MinPerfTable':adGenPseudowireCEMInterval15MinPerfTable,'adGenPseudowireCEMInterval15MinPerfTableEntry':adGenPseudowireCEMInterval15MinPerfTableEntry,_G:adGenPseudowireCEMIntervalNumber15Min,'adGenPseudowireCEMInterval15MinPacketsMissed':adGenPseudowireCEMInterval15MinPacketsMissed,'adGenPseudowireCEMInterval15MinPacketsDropped':adGenPseudowireCEMInterval15MinPacketsDropped,'adGenPseudowireCEMInterval15MinPacketsMalformed':adGenPseudowireCEMInterval15MinPacketsMalformed,'adGenPseudowireCEMInterval15MinFailureCount':adGenPseudowireCEMInterval15MinFailureCount,'adGenPseudowireCEMInterval15MinTxPacketCount':adGenPseudowireCEMInterval15MinTxPacketCount,'adGenPseudowireCEMInterval15MinRxPacketCount':adGenPseudowireCEMInterval15MinRxPacketCount,'adGenPseudowireCEMInterval15MinTxByteCount':adGenPseudowireCEMInterval15MinTxByteCount,'adGenPseudowireCEMInterval15MinRxByteCount':adGenPseudowireCEMInterval15MinRxByteCount,'adGenPseudowireCEMInterval15MinJitterBufferUnderrun':adGenPseudowireCEMInterval15MinJitterBufferUnderrun,'adGenPseudowireCEMInterval24HrPerfTable':adGenPseudowireCEMInterval24HrPerfTable,'adGenPseudowireCEMInterval24HrPerfTableEntry':adGenPseudowireCEMInterval24HrPerfTableEntry,_H:adGenPseudowireCEMIntervalNumber24Hr,'adGenPseudowireCEMInterval24HrPacketsMissed':adGenPseudowireCEMInterval24HrPacketsMissed,'adGenPseudowireCEMInterval24HrPacketsDropped':adGenPseudowireCEMInterval24HrPacketsDropped,'adGenPseudowireCEMInterval24HrPacketsMalformed':adGenPseudowireCEMInterval24HrPacketsMalformed,'adGenPseudowireCEMInterval24HrFailureCount':adGenPseudowireCEMInterval24HrFailureCount,'adGenPseudowireCEMInterval24HrTxPacketCount':adGenPseudowireCEMInterval24HrTxPacketCount,'adGenPseudowireCEMInterval24HrRxPacketCount':adGenPseudowireCEMInterval24HrRxPacketCount,'adGenPseudowireCEMInterval24HrTxByteCount':adGenPseudowireCEMInterval24HrTxByteCount,'adGenPseudowireCEMInterval24HrRxByteCount':adGenPseudowireCEMInterval24HrRxByteCount,'adGenPseudowireCEMInterval24HrJitterBufferUnderrun':adGenPseudowireCEMInterval24HrJitterBufferUnderrun,'adGenPseudowireCEMPerfInfoModuleIdentity':adGenPseudowireCEMPerfInfoModuleIdentity})
+#
+# PySNMP MIB module ADTRAN-GENERIC-PSEUDOWIRE-CEM-COUNTERS-INFO-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-GENERIC-PSEUDOWIRE-CEM-COUNTERS-INFO-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:07 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGenPseudowireCEMPerfInfo, adGenPseudowireCEMPerfInfoID = mibBuilder.importSymbols("ADTRAN-GENERIC-PSEUDOWIRE-CEM-MGMT-MIB", "adGenPseudowireCEMPerfInfo", "adGenPseudowireCEMPerfInfoID")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+adGenPseudowireCEMPerfInfoModuleIdentity = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 30, 2, 2, 1))
+if mibBuilder.loadTexts: adGenPseudowireCEMPerfInfoModuleIdentity.setLastUpdated('201007090800Z')
+if mibBuilder.loadTexts: adGenPseudowireCEMPerfInfoModuleIdentity.setOrganization('ADTRAN, Inc.')
+adGenPseudowireCEMCurrent15MinPerfTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 1), )
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent15MinPerfTable.setStatus('current')
+adGenPseudowireCEMCurrent15MinPerfTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent15MinPerfTableEntry.setStatus('current')
+adGenPseudowireCEMCurrent15MinPacketsMissed = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 1, 1, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent15MinPacketsMissed.setStatus('current')
+adGenPseudowireCEMCurrent15MinPacketsDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 1, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent15MinPacketsDropped.setStatus('current')
+adGenPseudowireCEMCurrent15MinPacketsMalformed = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 1, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent15MinPacketsMalformed.setStatus('current')
+adGenPseudowireCEMCurrent15MinFailureCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 1, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent15MinFailureCount.setStatus('current')
+adGenPseudowireCEMCurrent15MinTxPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 1, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent15MinTxPacketCount.setStatus('current')
+adGenPseudowireCEMCurrent15MinRxPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 1, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent15MinRxPacketCount.setStatus('current')
+adGenPseudowireCEMCurrent15MinTxByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 1, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent15MinTxByteCount.setStatus('current')
+adGenPseudowireCEMCurrent15MinRxByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 1, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent15MinRxByteCount.setStatus('current')
+adGenPseudowireCEMCurrent15MinJitterBufferUnderrun = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 1, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent15MinJitterBufferUnderrun.setStatus('current')
+adGenPseudowireCEMCurrent24HrPerfTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 2), )
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent24HrPerfTable.setStatus('current')
+adGenPseudowireCEMCurrent24HrPerfTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent24HrPerfTableEntry.setStatus('current')
+adGenPseudowireCEMCurrent24HrPacketsMissed = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 2, 1, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent24HrPacketsMissed.setStatus('current')
+adGenPseudowireCEMCurrent24HrPacketsDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 2, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent24HrPacketsDropped.setStatus('current')
+adGenPseudowireCEMCurrent24HrPacketsMalformed = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 2, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent24HrPacketsMalformed.setStatus('current')
+adGenPseudowireCEMCurrent24HrFailureCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 2, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent24HrFailureCount.setStatus('current')
+adGenPseudowireCEMCurrent24HrTxPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 2, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent24HrTxPacketCount.setStatus('current')
+adGenPseudowireCEMCurrent24HrRxPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 2, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent24HrRxPacketCount.setStatus('current')
+adGenPseudowireCEMCurrent24HrTxByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 2, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent24HrTxByteCount.setStatus('current')
+adGenPseudowireCEMCurrent24HrRxByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 2, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent24HrRxByteCount.setStatus('current')
+adGenPseudowireCEMCurrent24HrJitterBufferUnderrun = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 2, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMCurrent24HrJitterBufferUnderrun.setStatus('current')
+adGenPseudowireCEMInterval15MinPerfTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 3), )
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval15MinPerfTable.setStatus('current')
+adGenPseudowireCEMInterval15MinPerfTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ADTRAN-GENERIC-PSEUDOWIRE-CEM-COUNTERS-INFO-MIB", "adGenPseudowireCEMIntervalNumber15Min"))
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval15MinPerfTableEntry.setStatus('current')
+adGenPseudowireCEMIntervalNumber15Min = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 96))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMIntervalNumber15Min.setStatus('current')
+adGenPseudowireCEMInterval15MinPacketsMissed = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 3, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval15MinPacketsMissed.setStatus('current')
+adGenPseudowireCEMInterval15MinPacketsDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 3, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval15MinPacketsDropped.setStatus('current')
+adGenPseudowireCEMInterval15MinPacketsMalformed = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 3, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval15MinPacketsMalformed.setStatus('current')
+adGenPseudowireCEMInterval15MinFailureCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 3, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval15MinFailureCount.setStatus('current')
+adGenPseudowireCEMInterval15MinTxPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 3, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval15MinTxPacketCount.setStatus('current')
+adGenPseudowireCEMInterval15MinRxPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 3, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval15MinRxPacketCount.setStatus('current')
+adGenPseudowireCEMInterval15MinTxByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 3, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval15MinTxByteCount.setStatus('current')
+adGenPseudowireCEMInterval15MinRxByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 3, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval15MinRxByteCount.setStatus('current')
+adGenPseudowireCEMInterval15MinJitterBufferUnderrun = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 3, 1, 10), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval15MinJitterBufferUnderrun.setStatus('current')
+adGenPseudowireCEMInterval24HrPerfTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 4), )
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval24HrPerfTable.setStatus('current')
+adGenPseudowireCEMInterval24HrPerfTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ADTRAN-GENERIC-PSEUDOWIRE-CEM-COUNTERS-INFO-MIB", "adGenPseudowireCEMIntervalNumber24Hr"))
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval24HrPerfTableEntry.setStatus('current')
+adGenPseudowireCEMIntervalNumber24Hr = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 7))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMIntervalNumber24Hr.setStatus('current')
+adGenPseudowireCEMInterval24HrPacketsMissed = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 4, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval24HrPacketsMissed.setStatus('current')
+adGenPseudowireCEMInterval24HrPacketsDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 4, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval24HrPacketsDropped.setStatus('current')
+adGenPseudowireCEMInterval24HrPacketsMalformed = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 4, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval24HrPacketsMalformed.setStatus('current')
+adGenPseudowireCEMInterval24HrFailureCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 4, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval24HrFailureCount.setStatus('current')
+adGenPseudowireCEMInterval24HrTxPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 4, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval24HrTxPacketCount.setStatus('current')
+adGenPseudowireCEMInterval24HrRxPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 4, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval24HrRxPacketCount.setStatus('current')
+adGenPseudowireCEMInterval24HrTxByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 4, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval24HrTxByteCount.setStatus('current')
+adGenPseudowireCEMInterval24HrRxByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 4, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval24HrRxByteCount.setStatus('current')
+adGenPseudowireCEMInterval24HrJitterBufferUnderrun = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 30, 5, 2, 4, 1, 10), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenPseudowireCEMInterval24HrJitterBufferUnderrun.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-GENERIC-PSEUDOWIRE-CEM-COUNTERS-INFO-MIB", adGenPseudowireCEMInterval15MinPerfTable=adGenPseudowireCEMInterval15MinPerfTable, adGenPseudowireCEMInterval24HrTxPacketCount=adGenPseudowireCEMInterval24HrTxPacketCount, adGenPseudowireCEMCurrent24HrFailureCount=adGenPseudowireCEMCurrent24HrFailureCount, adGenPseudowireCEMInterval24HrPacketsMalformed=adGenPseudowireCEMInterval24HrPacketsMalformed, adGenPseudowireCEMCurrent24HrPacketsDropped=adGenPseudowireCEMCurrent24HrPacketsDropped, adGenPseudowireCEMCurrent15MinPacketsDropped=adGenPseudowireCEMCurrent15MinPacketsDropped, adGenPseudowireCEMPerfInfoModuleIdentity=adGenPseudowireCEMPerfInfoModuleIdentity, adGenPseudowireCEMCurrent24HrPerfTableEntry=adGenPseudowireCEMCurrent24HrPerfTableEntry, adGenPseudowireCEMInterval24HrFailureCount=adGenPseudowireCEMInterval24HrFailureCount, adGenPseudowireCEMInterval24HrPerfTable=adGenPseudowireCEMInterval24HrPerfTable, adGenPseudowireCEMInterval24HrRxByteCount=adGenPseudowireCEMInterval24HrRxByteCount, adGenPseudowireCEMCurrent15MinRxByteCount=adGenPseudowireCEMCurrent15MinRxByteCount, adGenPseudowireCEMCurrent15MinPerfTableEntry=adGenPseudowireCEMCurrent15MinPerfTableEntry, adGenPseudowireCEMInterval15MinJitterBufferUnderrun=adGenPseudowireCEMInterval15MinJitterBufferUnderrun, adGenPseudowireCEMCurrent15MinTxPacketCount=adGenPseudowireCEMCurrent15MinTxPacketCount, adGenPseudowireCEMInterval15MinTxPacketCount=adGenPseudowireCEMInterval15MinTxPacketCount, adGenPseudowireCEMCurrent15MinRxPacketCount=adGenPseudowireCEMCurrent15MinRxPacketCount, adGenPseudowireCEMIntervalNumber24Hr=adGenPseudowireCEMIntervalNumber24Hr, adGenPseudowireCEMCurrent15MinPacketsMalformed=adGenPseudowireCEMCurrent15MinPacketsMalformed, adGenPseudowireCEMCurrent24HrPacketsMissed=adGenPseudowireCEMCurrent24HrPacketsMissed, adGenPseudowireCEMInterval24HrPacketsDropped=adGenPseudowireCEMInterval24HrPacketsDropped, adGenPseudowireCEMInterval15MinPerfTableEntry=adGenPseudowireCEMInterval15MinPerfTableEntry, adGenPseudowireCEMInterval24HrTxByteCount=adGenPseudowireCEMInterval24HrTxByteCount, adGenPseudowireCEMCurrent15MinPacketsMissed=adGenPseudowireCEMCurrent15MinPacketsMissed, adGenPseudowireCEMCurrent24HrRxPacketCount=adGenPseudowireCEMCurrent24HrRxPacketCount, PYSNMP_MODULE_ID=adGenPseudowireCEMPerfInfoModuleIdentity, adGenPseudowireCEMCurrent24HrRxByteCount=adGenPseudowireCEMCurrent24HrRxByteCount, adGenPseudowireCEMCurrent24HrPacketsMalformed=adGenPseudowireCEMCurrent24HrPacketsMalformed, adGenPseudowireCEMInterval24HrPerfTableEntry=adGenPseudowireCEMInterval24HrPerfTableEntry, adGenPseudowireCEMInterval24HrRxPacketCount=adGenPseudowireCEMInterval24HrRxPacketCount, adGenPseudowireCEMInterval15MinPacketsMissed=adGenPseudowireCEMInterval15MinPacketsMissed, adGenPseudowireCEMCurrent15MinJitterBufferUnderrun=adGenPseudowireCEMCurrent15MinJitterBufferUnderrun, adGenPseudowireCEMCurrent24HrPerfTable=adGenPseudowireCEMCurrent24HrPerfTable, adGenPseudowireCEMCurrent15MinTxByteCount=adGenPseudowireCEMCurrent15MinTxByteCount, adGenPseudowireCEMInterval15MinPacketsDropped=adGenPseudowireCEMInterval15MinPacketsDropped, adGenPseudowireCEMCurrent24HrTxPacketCount=adGenPseudowireCEMCurrent24HrTxPacketCount, adGenPseudowireCEMIntervalNumber15Min=adGenPseudowireCEMIntervalNumber15Min, adGenPseudowireCEMInterval24HrJitterBufferUnderrun=adGenPseudowireCEMInterval24HrJitterBufferUnderrun, adGenPseudowireCEMInterval15MinRxByteCount=adGenPseudowireCEMInterval15MinRxByteCount, adGenPseudowireCEMCurrent15MinPerfTable=adGenPseudowireCEMCurrent15MinPerfTable, adGenPseudowireCEMCurrent15MinFailureCount=adGenPseudowireCEMCurrent15MinFailureCount, adGenPseudowireCEMInterval15MinFailureCount=adGenPseudowireCEMInterval15MinFailureCount, adGenPseudowireCEMInterval15MinPacketsMalformed=adGenPseudowireCEMInterval15MinPacketsMalformed, adGenPseudowireCEMInterval15MinRxPacketCount=adGenPseudowireCEMInterval15MinRxPacketCount, adGenPseudowireCEMCurrent24HrJitterBufferUnderrun=adGenPseudowireCEMCurrent24HrJitterBufferUnderrun, adGenPseudowireCEMInterval15MinTxByteCount=adGenPseudowireCEMInterval15MinTxByteCount, adGenPseudowireCEMCurrent24HrTxByteCount=adGenPseudowireCEMCurrent24HrTxByteCount, adGenPseudowireCEMInterval24HrPacketsMissed=adGenPseudowireCEMInterval24HrPacketsMissed)

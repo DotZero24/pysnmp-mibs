@@ -1,86 +1,52 @@
-_P='sCgmpGroup'
-_O='sCgmpRouterEntryStatus'
-_N='sCgmpRouterHoldTime'
-_M='sCgmpFastLeaveEnable'
-_L='sCgmpEnable'
-_K='not-accessible'
-_J='sCgmpRouterMacAddress'
-_I='sCgmpRouterVlanIndex'
-_H='disabled'
-_G='enabled'
-_F='dot1dBasePort'
-_E='BRIDGE-MIB'
-_D='read-write'
-_C='Integer32'
-_B='CISCO-SWITCH-CGMP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_E,_F)
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention')
-ciscoSwitchCgmpMIB=ModuleIdentity((1,3,6,1,4,1,9,9,101))
-if mibBuilder.loadTexts:ciscoSwitchCgmpMIB.setRevisions(('1998-05-07 00:00',))
-class SCgmpVlanIndex(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1023))
-_CiscoSwitchCgmpMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoSwitchCgmpMIBObjects=_CiscoSwitchCgmpMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,101,1))
-_SCgmpInfo_ObjectIdentity=ObjectIdentity
-sCgmpInfo=_SCgmpInfo_ObjectIdentity((1,3,6,1,4,1,9,9,101,1,1))
-class _SCgmpEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_SCgmpEnable_Type.__name__=_C
-_SCgmpEnable_Object=MibScalar
-sCgmpEnable=_SCgmpEnable_Object((1,3,6,1,4,1,9,9,101,1,1,1),_SCgmpEnable_Type())
-sCgmpEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:sCgmpEnable.setStatus(_A)
-class _SCgmpFastLeaveEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_SCgmpFastLeaveEnable_Type.__name__=_C
-_SCgmpFastLeaveEnable_Object=MibScalar
-sCgmpFastLeaveEnable=_SCgmpFastLeaveEnable_Object((1,3,6,1,4,1,9,9,101,1,1,2),_SCgmpFastLeaveEnable_Type())
-sCgmpFastLeaveEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:sCgmpFastLeaveEnable.setStatus(_A)
-class _SCgmpRouterHoldTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,6000))
-_SCgmpRouterHoldTime_Type.__name__=_C
-_SCgmpRouterHoldTime_Object=MibScalar
-sCgmpRouterHoldTime=_SCgmpRouterHoldTime_Object((1,3,6,1,4,1,9,9,101,1,1,3),_SCgmpRouterHoldTime_Type())
-sCgmpRouterHoldTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:sCgmpRouterHoldTime.setStatus(_A)
-if mibBuilder.loadTexts:sCgmpRouterHoldTime.setUnits('seconds')
-_SCgmpRouterTable_Object=MibTable
-sCgmpRouterTable=_SCgmpRouterTable_Object((1,3,6,1,4,1,9,9,101,1,1,4))
-if mibBuilder.loadTexts:sCgmpRouterTable.setStatus(_A)
-_SCgmpRouterEntry_Object=MibTableRow
-sCgmpRouterEntry=_SCgmpRouterEntry_Object((1,3,6,1,4,1,9,9,101,1,1,4,1))
-sCgmpRouterEntry.setIndexNames((0,_B,_I),(0,_E,_F),(0,_B,_J))
-if mibBuilder.loadTexts:sCgmpRouterEntry.setStatus(_A)
-_SCgmpRouterVlanIndex_Type=SCgmpVlanIndex
-_SCgmpRouterVlanIndex_Object=MibTableColumn
-sCgmpRouterVlanIndex=_SCgmpRouterVlanIndex_Object((1,3,6,1,4,1,9,9,101,1,1,4,1,1),_SCgmpRouterVlanIndex_Type())
-sCgmpRouterVlanIndex.setMaxAccess(_K)
-if mibBuilder.loadTexts:sCgmpRouterVlanIndex.setStatus(_A)
-_SCgmpRouterMacAddress_Type=MacAddress
-_SCgmpRouterMacAddress_Object=MibTableColumn
-sCgmpRouterMacAddress=_SCgmpRouterMacAddress_Object((1,3,6,1,4,1,9,9,101,1,1,4,1,3),_SCgmpRouterMacAddress_Type())
-sCgmpRouterMacAddress.setMaxAccess(_K)
-if mibBuilder.loadTexts:sCgmpRouterMacAddress.setStatus(_A)
-_SCgmpRouterEntryStatus_Type=RowStatus
-_SCgmpRouterEntryStatus_Object=MibTableColumn
-sCgmpRouterEntryStatus=_SCgmpRouterEntryStatus_Object((1,3,6,1,4,1,9,9,101,1,1,4,1,4),_SCgmpRouterEntryStatus_Type())
-sCgmpRouterEntryStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:sCgmpRouterEntryStatus.setStatus(_A)
-_CiscoSwitchCgmpMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoSwitchCgmpMIBConformance=_CiscoSwitchCgmpMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,101,3))
-_CiscoSwitchCgmpMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoSwitchCgmpMIBCompliances=_CiscoSwitchCgmpMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,101,3,1))
-_CiscoSwitchCgmpMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoSwitchCgmpMIBGroups=_CiscoSwitchCgmpMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,101,3,2))
-sCgmpGroup=ObjectGroup((1,3,6,1,4,1,9,9,101,3,2,1))
-sCgmpGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:sCgmpGroup.setStatus(_A)
-ciscoSwitchCgmpMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,101,3,1,1))
-ciscoSwitchCgmpMIBCompliance.setObjects((_B,_P))
-if mibBuilder.loadTexts:ciscoSwitchCgmpMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'SCgmpVlanIndex':SCgmpVlanIndex,'ciscoSwitchCgmpMIB':ciscoSwitchCgmpMIB,'ciscoSwitchCgmpMIBObjects':ciscoSwitchCgmpMIBObjects,'sCgmpInfo':sCgmpInfo,_L:sCgmpEnable,_M:sCgmpFastLeaveEnable,_N:sCgmpRouterHoldTime,'sCgmpRouterTable':sCgmpRouterTable,'sCgmpRouterEntry':sCgmpRouterEntry,_I:sCgmpRouterVlanIndex,_J:sCgmpRouterMacAddress,_O:sCgmpRouterEntryStatus,'ciscoSwitchCgmpMIBConformance':ciscoSwitchCgmpMIBConformance,'ciscoSwitchCgmpMIBCompliances':ciscoSwitchCgmpMIBCompliances,'ciscoSwitchCgmpMIBCompliance':ciscoSwitchCgmpMIBCompliance,'ciscoSwitchCgmpMIBGroups':ciscoSwitchCgmpMIBGroups,_P:sCgmpGroup})
+#
+# PySNMP MIB module CISCO-SWITCH-CGMP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-SWITCH-CGMP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:39 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+ciscoSwitchCgmpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 101))
+ciscoSwitchCgmpMIB.setRevisions(('1998-05-07 00:00',))
+if mibBuilder.loadTexts: ciscoSwitchCgmpMIB.setLastUpdated('9805070000Z')
+if mibBuilder.loadTexts: ciscoSwitchCgmpMIB.setOrganization('Cisco Systems, Inc')
+ciscoSwitchCgmpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 101, 1))
+sCgmpInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 101, 1, 1))
+class SCgmpVlanIndex(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 1023)
+
+sCgmpEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 101, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sCgmpEnable.setStatus('current')
+sCgmpFastLeaveEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 101, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sCgmpFastLeaveEnable.setStatus('current')
+sCgmpRouterHoldTime = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 101, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 6000))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sCgmpRouterHoldTime.setStatus('current')
+sCgmpRouterTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 101, 1, 1, 4), )
+if mibBuilder.loadTexts: sCgmpRouterTable.setStatus('current')
+sCgmpRouterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 101, 1, 1, 4, 1), ).setIndexNames((0, "CISCO-SWITCH-CGMP-MIB", "sCgmpRouterVlanIndex"), (0, "BRIDGE-MIB", "dot1dBasePort"), (0, "CISCO-SWITCH-CGMP-MIB", "sCgmpRouterMacAddress"))
+if mibBuilder.loadTexts: sCgmpRouterEntry.setStatus('current')
+sCgmpRouterVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 101, 1, 1, 4, 1, 1), SCgmpVlanIndex())
+if mibBuilder.loadTexts: sCgmpRouterVlanIndex.setStatus('current')
+sCgmpRouterMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 101, 1, 1, 4, 1, 3), MacAddress())
+if mibBuilder.loadTexts: sCgmpRouterMacAddress.setStatus('current')
+sCgmpRouterEntryStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 101, 1, 1, 4, 1, 4), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sCgmpRouterEntryStatus.setStatus('current')
+ciscoSwitchCgmpMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 101, 3))
+ciscoSwitchCgmpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 101, 3, 1))
+ciscoSwitchCgmpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 101, 3, 2))
+ciscoSwitchCgmpMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 101, 3, 1, 1)).setObjects(("CISCO-SWITCH-CGMP-MIB", "sCgmpGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSwitchCgmpMIBCompliance = ciscoSwitchCgmpMIBCompliance.setStatus('current')
+sCgmpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 101, 3, 2, 1)).setObjects(("CISCO-SWITCH-CGMP-MIB", "sCgmpEnable"), ("CISCO-SWITCH-CGMP-MIB", "sCgmpFastLeaveEnable"), ("CISCO-SWITCH-CGMP-MIB", "sCgmpRouterHoldTime"), ("CISCO-SWITCH-CGMP-MIB", "sCgmpRouterEntryStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    sCgmpGroup = sCgmpGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-SWITCH-CGMP-MIB", sCgmpRouterMacAddress=sCgmpRouterMacAddress, ciscoSwitchCgmpMIB=ciscoSwitchCgmpMIB, sCgmpFastLeaveEnable=sCgmpFastLeaveEnable, sCgmpRouterHoldTime=sCgmpRouterHoldTime, SCgmpVlanIndex=SCgmpVlanIndex, ciscoSwitchCgmpMIBCompliance=ciscoSwitchCgmpMIBCompliance, ciscoSwitchCgmpMIBGroups=ciscoSwitchCgmpMIBGroups, sCgmpRouterVlanIndex=sCgmpRouterVlanIndex, PYSNMP_MODULE_ID=ciscoSwitchCgmpMIB, ciscoSwitchCgmpMIBConformance=ciscoSwitchCgmpMIBConformance, sCgmpEnable=sCgmpEnable, sCgmpInfo=sCgmpInfo, sCgmpRouterEntry=sCgmpRouterEntry, ciscoSwitchCgmpMIBCompliances=ciscoSwitchCgmpMIBCompliances, sCgmpGroup=sCgmpGroup, sCgmpRouterEntryStatus=sCgmpRouterEntryStatus, sCgmpRouterTable=sCgmpRouterTable, ciscoSwitchCgmpMIBObjects=ciscoSwitchCgmpMIBObjects)

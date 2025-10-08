@@ -1,1000 +1,425 @@
-_Bh='cccaDialerTableGroup'
-_Bg='cccaCampaignMgrTableGroup'
-_Bf='cccaCtiOsTableGroupSup1'
-_Be='cccaCgTableGroupSup1'
-_Bd='cccaPgTableGroupSup1'
-_Bc='cccaDistAwTableGroupSup1'
-_Bb='cccaLoggerTableGroupSup1'
-_Ba='cccaRouterTableGroupSup1'
-_BZ='cccaGeneralInfoGroupSup1'
-_BY='cccaIcmEvent'
-_BX='cccaCtiOsCallsFailed'
-_BW='cccaCtiOsCallsInProgress'
-_BV='cccaCtiOsActiveMonitors'
-_BU='cccaCtiOsActiveClients'
-_BT='cccaCgOtherSessions'
-_BS='cccaCgOpenSessions'
-_BR='cccaPgAgentsTalking'
-_BQ='cccaPgAgentsReady'
-_BP='cccaPgAgentsLoggedOn'
-_BO='cccaPgCallsInProgress'
-_BN='cccaDistAwWebReskillingURL'
-_BM='cccaLoggerAvgDBWriteTime'
-_BL='cccaRouterPrivateNonHighAddr'
-_BK='cccaRouterPrivateHighAddr'
-_BJ='cccaRouterPublicNonHighAddr'
-_BI='cccaRouterPublicHighAddr'
-_BH='cccaRouterDBWorkerEnabled'
-_BG='cccaRouterAppGwEnabled'
-_BF='cccaRouterCallsInQueue'
-_BE='cccaRouterPGsEnabledCount'
-_BD='cccaNotificationsEnabled'
-_BC='cccaWebSetupURL'
-_BB='cccaDialerBlockedPorts'
-_BA='cccaDialerIdlePorts'
-_B9='cccaDialerBusyReservationPorts'
-_B8='cccaDialerBusyCustomerPorts'
-_B7='cccaDialerConfiguredPorts'
-_B6='cccaDialerCallAttemptsPerSec'
-_B5='cccaDialerTalkingAgents'
-_B4='cccaDialerAvgQueueTime'
-_B3='cccaDialerQueueDepth'
-_B2='cccaDialerMediaRouterStatus'
-_B1='cccaDialerCtiServerStatus'
-_B0='cccaDialerCtiServerBName'
-_A_='cccaDialerCtiServerAName'
-_Az='cccaDialerCampaignMgrStatus'
-_Ay='cccaDialerCampaignMgrName'
-_Ax='cccaCampaignMgrActiveDialers'
-_Aw='cccaCampaignMgrAvgQueueTime'
-_Av='cccaCampaignMgrQueueDepth'
-_Au='cccaCampaignMgrDbUtilization'
-_At='cccaCtiOsPeerName'
-_As='cccaCtiOsCgSideBName'
-_Ar='cccaCtiOsCgSideAName'
-_Aq='cccaCtiOsPeripheralType'
-_Ap='cccaCtiOsPeripheralName'
-_Ao='cccaCtiOsServerName'
-_An='cccaCgDuplexPairName'
-_Am='cccaCgPgSideBName'
-_Al='cccaCgPgSideAName'
-_Ak='cccaCgSide'
-_Aj='cccaCgNumber'
-_Ai='cccaPimPeripheralHostName'
-_Ah='cccaPimStatus'
-_Ag='cccaPimPeripheralType'
-_Af='cccaPimPeripheralName'
-_Ae='cccaPgPimCount'
-_Ad='cccaPgDuplexPairName'
-_Ac='cccaPgRouterSideBName'
-_Ab='cccaPgRouterSideAName'
-_Aa='cccaPgSide'
-_AZ='cccaPgNumber'
-_AY='cccaDistAwWebViewServerName'
-_AX='cccaDistAwWebViewEnabled'
-_AW='cccaDistAwHDSEnabled'
-_AV='cccaDistAwDuplexPairName'
-_AU='cccaDistAwLoggerSideBName'
-_AT='cccaDistAwLoggerSideAName'
-_AS='cccaDistAwRouterSideBName'
-_AR='cccaDistAwRouterSideAName'
-_AQ='cccaDistAwAdminSiteName'
-_AP='cccaDistAwType'
-_AO='cccaDistAwSide'
-_AN='cccaLoggerHDSReplication'
-_AM='cccaLoggerDuplexPairName'
-_AL='cccaLoggerRouterSideBName'
-_AK='cccaLoggerRouterSideAName'
-_AJ='cccaLoggerType'
-_AI='cccaLoggerSide'
-_AH='cccaNicStatus'
-_AG='cccaNicType'
-_AF='cccaRouterNicCount'
-_AE='cccaRouterDuplexPairName'
-_AD='cccaRouterCallsInProgress'
-_AC='cccaRouterAgentsLoggedOn'
-_AB='cccaRouterCallsPerSec'
-_AA='cccaRouterSide'
-_A9='cccaComponentElmtStatus'
-_A8='cccaComponentElmtRunID'
-_A7='cccaComponentElmtName'
-_A6='cccaComponentStatus'
-_A5='cccaComponentName'
-_A4='cccaComponentType'
-_A3='cccaInstanceName'
-_A2='cccaSupportToolsURL'
-_A1='cccaTimeZoneOffsetMinutes'
-_A0='cccaTimeZoneOffsetHours'
-_z='cccaTimeZoneName'
-_y='cccaVersion'
-_x='cccaDescription'
-_w='cccaName'
-_v='milliseconds'
-_u='cccaPimNumber'
-_t='standard'
-_s='cccaNicIndex'
-_r='entries'
-_q='cccaComponentElmtIndex'
-_p='unknown'
-_o='logger'
-_n='router'
-_m='cccaIcmEventsGroup'
-_l='cccaIcmNotificationInfoGroup'
-_k='cccaCtiOsTableGroup'
-_j='cccaCgTableGroup'
-_i='cccaPimTableGroup'
-_h='cccaPgTableGroup'
-_g='cccaDistAwTableGroup'
-_f='cccaLoggerTableGroup'
-_e='cccaNicTableGroup'
-_d='cccaRouterTableGroup'
-_c='cccaComponentElmtTableGroup'
-_b='cccaComponentTableGroup'
-_a='cccaInstanceTableGroup'
-_Z='cccaGeneralInfoGroup'
-_Y='cccaEventText'
-_X='cccaEventTimestamp'
-_W='cccaEventSeverity'
-_V='cccaEventDmpId'
-_U='cccaEventOriginatingSide'
-_T='cccaEventOriginatingProcessName'
-_S='cccaEventOriginatingNodeType'
-_R='cccaEventOriginatingNode'
-_Q='cccaEventMessageId'
-_P='cccaEventState'
-_O='cccaEventComponentId'
-_N='Gauge32'
-_M='ports'
-_L='deprecated'
-_K='agents'
-_J='calls'
-_I='not-accessible'
-_H='Unsigned32'
-_G='Integer32'
-_F='accessible-for-notify'
-_E='cccaComponentIndex'
-_D='cccaInstanceNumber'
-_C='read-only'
-_B='current'
-_A='CISCO-CONTACT-CENTER-APPS-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CiscoURLString,=mibBuilder.importSymbols('CISCO-TC','CiscoURLString')
-InetAddressDNS,=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressDNS')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64',_N,_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_H,'iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention','TruthValue')
-ciscoCcaMIB=ModuleIdentity((1,3,6,1,4,1,9,9,473))
-if mibBuilder.loadTexts:ciscoCcaMIB.setRevisions(('2009-05-06 17:00','2005-04-05 17:00'))
-class CcaIndex(TextualConvention,Unsigned32):status=_B;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-class CcaComponentType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_n,1),(_o,2),('distAW',3),('pg',4),('cg',5),('ctios',6),('campaign',7),('dialer',8)))
-class CcaComponentStatus(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*((_p,1),('disabled',2),('stopped',3),('started',4),('active',5),('standby',6),('disconnected',7),('uninitialized',8),('notRoutable',9)))
-class CcaComponentSide(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('sideA',1),('sideB',2)))
-class CcaPeripheralType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23)));namedValues=NamedValues(*(('aspect',1),('meridian',2),('dms100',3),('g2',4),('g3',5),('galaxy',6),('spectrum',7),('neax2400',8),('acp1000',9),('rolm9005',10),('siemensHicom',11),('ericssonMD110',12),('alcatel',13),('mediaRouting',14),('nonVoiceAgent',15),('symposium',16),('callManager',17),('acmiIPCC',18),('acmiCRS',19),('vru',20),('softACD',21),('systemIPCC',23)))
-_CiscoCcaMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoCcaMIBNotifs=_CiscoCcaMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,473,0))
-_CiscoCcaMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoCcaMIBObjects=_CiscoCcaMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,473,1))
-_CccaGeneralInfo_ObjectIdentity=ObjectIdentity
-cccaGeneralInfo=_CccaGeneralInfo_ObjectIdentity((1,3,6,1,4,1,9,9,473,1,1))
-_CccaName_Type=InetAddressDNS
-_CccaName_Object=MibScalar
-cccaName=_CccaName_Object((1,3,6,1,4,1,9,9,473,1,1,1),_CccaName_Type())
-cccaName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaName.setStatus(_B)
-_CccaDescription_Type=SnmpAdminString
-_CccaDescription_Object=MibScalar
-cccaDescription=_CccaDescription_Object((1,3,6,1,4,1,9,9,473,1,1,2),_CccaDescription_Type())
-cccaDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDescription.setStatus(_B)
-_CccaVersion_Type=SnmpAdminString
-_CccaVersion_Object=MibScalar
-cccaVersion=_CccaVersion_Object((1,3,6,1,4,1,9,9,473,1,1,3),_CccaVersion_Type())
-cccaVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaVersion.setStatus(_B)
-_CccaTimeZoneName_Type=SnmpAdminString
-_CccaTimeZoneName_Object=MibScalar
-cccaTimeZoneName=_CccaTimeZoneName_Object((1,3,6,1,4,1,9,9,473,1,1,4),_CccaTimeZoneName_Type())
-cccaTimeZoneName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaTimeZoneName.setStatus(_B)
-class _CccaTimeZoneOffsetHours_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-12,12))
-_CccaTimeZoneOffsetHours_Type.__name__=_G
-_CccaTimeZoneOffsetHours_Object=MibScalar
-cccaTimeZoneOffsetHours=_CccaTimeZoneOffsetHours_Object((1,3,6,1,4,1,9,9,473,1,1,5),_CccaTimeZoneOffsetHours_Type())
-cccaTimeZoneOffsetHours.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaTimeZoneOffsetHours.setStatus(_B)
-class _CccaTimeZoneOffsetMinutes_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-59,59))
-_CccaTimeZoneOffsetMinutes_Type.__name__=_G
-_CccaTimeZoneOffsetMinutes_Object=MibScalar
-cccaTimeZoneOffsetMinutes=_CccaTimeZoneOffsetMinutes_Object((1,3,6,1,4,1,9,9,473,1,1,6),_CccaTimeZoneOffsetMinutes_Type())
-cccaTimeZoneOffsetMinutes.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaTimeZoneOffsetMinutes.setStatus(_B)
-_CccaSupportToolsURL_Type=CiscoURLString
-_CccaSupportToolsURL_Object=MibScalar
-cccaSupportToolsURL=_CccaSupportToolsURL_Object((1,3,6,1,4,1,9,9,473,1,1,7),_CccaSupportToolsURL_Type())
-cccaSupportToolsURL.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaSupportToolsURL.setStatus(_B)
-_CccaWebSetupURL_Type=CiscoURLString
-_CccaWebSetupURL_Object=MibScalar
-cccaWebSetupURL=_CccaWebSetupURL_Object((1,3,6,1,4,1,9,9,473,1,1,8),_CccaWebSetupURL_Type())
-cccaWebSetupURL.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaWebSetupURL.setStatus(_B)
-_CccaNotificationsEnabled_Type=TruthValue
-_CccaNotificationsEnabled_Object=MibScalar
-cccaNotificationsEnabled=_CccaNotificationsEnabled_Object((1,3,6,1,4,1,9,9,473,1,1,9),_CccaNotificationsEnabled_Type())
-cccaNotificationsEnabled.setMaxAccess('read-write')
-if mibBuilder.loadTexts:cccaNotificationsEnabled.setStatus(_B)
-_CccaComponents_ObjectIdentity=ObjectIdentity
-cccaComponents=_CccaComponents_ObjectIdentity((1,3,6,1,4,1,9,9,473,1,2))
-_CccaInstanceTable_Object=MibTable
-cccaInstanceTable=_CccaInstanceTable_Object((1,3,6,1,4,1,9,9,473,1,2,1))
-if mibBuilder.loadTexts:cccaInstanceTable.setStatus(_B)
-_CccaInstanceEntry_Object=MibTableRow
-cccaInstanceEntry=_CccaInstanceEntry_Object((1,3,6,1,4,1,9,9,473,1,2,1,1))
-cccaInstanceEntry.setIndexNames((0,_A,_D))
-if mibBuilder.loadTexts:cccaInstanceEntry.setStatus(_B)
-_CccaInstanceNumber_Type=Unsigned32
-_CccaInstanceNumber_Object=MibTableColumn
-cccaInstanceNumber=_CccaInstanceNumber_Object((1,3,6,1,4,1,9,9,473,1,2,1,1,1),_CccaInstanceNumber_Type())
-cccaInstanceNumber.setMaxAccess(_I)
-if mibBuilder.loadTexts:cccaInstanceNumber.setStatus(_B)
-_CccaInstanceName_Type=SnmpAdminString
-_CccaInstanceName_Object=MibTableColumn
-cccaInstanceName=_CccaInstanceName_Object((1,3,6,1,4,1,9,9,473,1,2,1,1,2),_CccaInstanceName_Type())
-cccaInstanceName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaInstanceName.setStatus(_B)
-_CccaComponentTable_Object=MibTable
-cccaComponentTable=_CccaComponentTable_Object((1,3,6,1,4,1,9,9,473,1,2,2))
-if mibBuilder.loadTexts:cccaComponentTable.setStatus(_B)
-_CccaComponentEntry_Object=MibTableRow
-cccaComponentEntry=_CccaComponentEntry_Object((1,3,6,1,4,1,9,9,473,1,2,2,1))
-cccaComponentEntry.setIndexNames((0,_A,_D),(0,_A,_E))
-if mibBuilder.loadTexts:cccaComponentEntry.setStatus(_B)
-_CccaComponentIndex_Type=CcaIndex
-_CccaComponentIndex_Object=MibTableColumn
-cccaComponentIndex=_CccaComponentIndex_Object((1,3,6,1,4,1,9,9,473,1,2,2,1,1),_CccaComponentIndex_Type())
-cccaComponentIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:cccaComponentIndex.setStatus(_B)
-_CccaComponentType_Type=CcaComponentType
-_CccaComponentType_Object=MibTableColumn
-cccaComponentType=_CccaComponentType_Object((1,3,6,1,4,1,9,9,473,1,2,2,1,2),_CccaComponentType_Type())
-cccaComponentType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaComponentType.setStatus(_B)
-_CccaComponentName_Type=SnmpAdminString
-_CccaComponentName_Object=MibTableColumn
-cccaComponentName=_CccaComponentName_Object((1,3,6,1,4,1,9,9,473,1,2,2,1,3),_CccaComponentName_Type())
-cccaComponentName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaComponentName.setStatus(_B)
-_CccaComponentStatus_Type=CcaComponentStatus
-_CccaComponentStatus_Object=MibTableColumn
-cccaComponentStatus=_CccaComponentStatus_Object((1,3,6,1,4,1,9,9,473,1,2,2,1,4),_CccaComponentStatus_Type())
-cccaComponentStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaComponentStatus.setStatus(_B)
-_CccaComponentElmtTable_Object=MibTable
-cccaComponentElmtTable=_CccaComponentElmtTable_Object((1,3,6,1,4,1,9,9,473,1,2,3))
-if mibBuilder.loadTexts:cccaComponentElmtTable.setStatus(_B)
-_CccaComponentElmtEntry_Object=MibTableRow
-cccaComponentElmtEntry=_CccaComponentElmtEntry_Object((1,3,6,1,4,1,9,9,473,1,2,3,1))
-cccaComponentElmtEntry.setIndexNames((0,_A,_D),(0,_A,_E),(0,_A,_q))
-if mibBuilder.loadTexts:cccaComponentElmtEntry.setStatus(_B)
-class _CccaComponentElmtIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CccaComponentElmtIndex_Type.__name__=_H
-_CccaComponentElmtIndex_Object=MibTableColumn
-cccaComponentElmtIndex=_CccaComponentElmtIndex_Object((1,3,6,1,4,1,9,9,473,1,2,3,1,1),_CccaComponentElmtIndex_Type())
-cccaComponentElmtIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:cccaComponentElmtIndex.setStatus(_B)
-_CccaComponentElmtName_Type=SnmpAdminString
-_CccaComponentElmtName_Object=MibTableColumn
-cccaComponentElmtName=_CccaComponentElmtName_Object((1,3,6,1,4,1,9,9,473,1,2,3,1,2),_CccaComponentElmtName_Type())
-cccaComponentElmtName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaComponentElmtName.setStatus(_B)
-class _CccaComponentElmtRunID_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CccaComponentElmtRunID_Type.__name__=_H
-_CccaComponentElmtRunID_Object=MibTableColumn
-cccaComponentElmtRunID=_CccaComponentElmtRunID_Object((1,3,6,1,4,1,9,9,473,1,2,3,1,3),_CccaComponentElmtRunID_Type())
-cccaComponentElmtRunID.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaComponentElmtRunID.setStatus(_B)
-_CccaComponentElmtStatus_Type=CcaComponentStatus
-_CccaComponentElmtStatus_Object=MibTableColumn
-cccaComponentElmtStatus=_CccaComponentElmtStatus_Object((1,3,6,1,4,1,9,9,473,1,2,3,1,4),_CccaComponentElmtStatus_Type())
-cccaComponentElmtStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaComponentElmtStatus.setStatus(_B)
-_CccaComponentInfo_ObjectIdentity=ObjectIdentity
-cccaComponentInfo=_CccaComponentInfo_ObjectIdentity((1,3,6,1,4,1,9,9,473,1,3))
-_CccaRouterTable_Object=MibTable
-cccaRouterTable=_CccaRouterTable_Object((1,3,6,1,4,1,9,9,473,1,3,1))
-if mibBuilder.loadTexts:cccaRouterTable.setStatus(_B)
-_CccaRouterEntry_Object=MibTableRow
-cccaRouterEntry=_CccaRouterEntry_Object((1,3,6,1,4,1,9,9,473,1,3,1,1))
-cccaRouterEntry.setIndexNames((0,_A,_D),(0,_A,_E))
-if mibBuilder.loadTexts:cccaRouterEntry.setStatus(_B)
-_CccaRouterSide_Type=CcaComponentSide
-_CccaRouterSide_Object=MibTableColumn
-cccaRouterSide=_CccaRouterSide_Object((1,3,6,1,4,1,9,9,473,1,3,1,1,1),_CccaRouterSide_Type())
-cccaRouterSide.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaRouterSide.setStatus(_B)
-_CccaRouterCallsPerSec_Type=Gauge32
-_CccaRouterCallsPerSec_Object=MibTableColumn
-cccaRouterCallsPerSec=_CccaRouterCallsPerSec_Object((1,3,6,1,4,1,9,9,473,1,3,1,1,2),_CccaRouterCallsPerSec_Type())
-cccaRouterCallsPerSec.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaRouterCallsPerSec.setStatus(_B)
-if mibBuilder.loadTexts:cccaRouterCallsPerSec.setUnits(_J)
-_CccaRouterAgentsLoggedOn_Type=Gauge32
-_CccaRouterAgentsLoggedOn_Object=MibTableColumn
-cccaRouterAgentsLoggedOn=_CccaRouterAgentsLoggedOn_Object((1,3,6,1,4,1,9,9,473,1,3,1,1,3),_CccaRouterAgentsLoggedOn_Type())
-cccaRouterAgentsLoggedOn.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaRouterAgentsLoggedOn.setStatus(_B)
-if mibBuilder.loadTexts:cccaRouterAgentsLoggedOn.setUnits(_K)
-_CccaRouterCallsInProgress_Type=Gauge32
-_CccaRouterCallsInProgress_Object=MibTableColumn
-cccaRouterCallsInProgress=_CccaRouterCallsInProgress_Object((1,3,6,1,4,1,9,9,473,1,3,1,1,4),_CccaRouterCallsInProgress_Type())
-cccaRouterCallsInProgress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaRouterCallsInProgress.setStatus(_B)
-if mibBuilder.loadTexts:cccaRouterCallsInProgress.setUnits(_J)
-_CccaRouterDuplexPairName_Type=InetAddressDNS
-_CccaRouterDuplexPairName_Object=MibTableColumn
-cccaRouterDuplexPairName=_CccaRouterDuplexPairName_Object((1,3,6,1,4,1,9,9,473,1,3,1,1,5),_CccaRouterDuplexPairName_Type())
-cccaRouterDuplexPairName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaRouterDuplexPairName.setStatus(_B)
-class _CccaRouterNicCount_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_CccaRouterNicCount_Type.__name__=_N
-_CccaRouterNicCount_Object=MibTableColumn
-cccaRouterNicCount=_CccaRouterNicCount_Object((1,3,6,1,4,1,9,9,473,1,3,1,1,6),_CccaRouterNicCount_Type())
-cccaRouterNicCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaRouterNicCount.setStatus(_B)
-if mibBuilder.loadTexts:cccaRouterNicCount.setUnits(_r)
-class _CccaRouterPGsEnabledCount_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,250))
-_CccaRouterPGsEnabledCount_Type.__name__=_N
-_CccaRouterPGsEnabledCount_Object=MibTableColumn
-cccaRouterPGsEnabledCount=_CccaRouterPGsEnabledCount_Object((1,3,6,1,4,1,9,9,473,1,3,1,1,7),_CccaRouterPGsEnabledCount_Type())
-cccaRouterPGsEnabledCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaRouterPGsEnabledCount.setStatus(_B)
-if mibBuilder.loadTexts:cccaRouterPGsEnabledCount.setUnits('peripherals')
-_CccaRouterCallsInQueue_Type=Gauge32
-_CccaRouterCallsInQueue_Object=MibTableColumn
-cccaRouterCallsInQueue=_CccaRouterCallsInQueue_Object((1,3,6,1,4,1,9,9,473,1,3,1,1,8),_CccaRouterCallsInQueue_Type())
-cccaRouterCallsInQueue.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaRouterCallsInQueue.setStatus(_B)
-if mibBuilder.loadTexts:cccaRouterCallsInQueue.setUnits(_J)
-_CccaRouterAppGwEnabled_Type=TruthValue
-_CccaRouterAppGwEnabled_Object=MibTableColumn
-cccaRouterAppGwEnabled=_CccaRouterAppGwEnabled_Object((1,3,6,1,4,1,9,9,473,1,3,1,1,9),_CccaRouterAppGwEnabled_Type())
-cccaRouterAppGwEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaRouterAppGwEnabled.setStatus(_B)
-_CccaRouterDBWorkerEnabled_Type=TruthValue
-_CccaRouterDBWorkerEnabled_Object=MibTableColumn
-cccaRouterDBWorkerEnabled=_CccaRouterDBWorkerEnabled_Object((1,3,6,1,4,1,9,9,473,1,3,1,1,10),_CccaRouterDBWorkerEnabled_Type())
-cccaRouterDBWorkerEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaRouterDBWorkerEnabled.setStatus(_B)
-_CccaRouterPublicHighAddr_Type=InetAddressDNS
-_CccaRouterPublicHighAddr_Object=MibTableColumn
-cccaRouterPublicHighAddr=_CccaRouterPublicHighAddr_Object((1,3,6,1,4,1,9,9,473,1,3,1,1,11),_CccaRouterPublicHighAddr_Type())
-cccaRouterPublicHighAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaRouterPublicHighAddr.setStatus(_B)
-_CccaRouterPublicNonHighAddr_Type=InetAddressDNS
-_CccaRouterPublicNonHighAddr_Object=MibTableColumn
-cccaRouterPublicNonHighAddr=_CccaRouterPublicNonHighAddr_Object((1,3,6,1,4,1,9,9,473,1,3,1,1,12),_CccaRouterPublicNonHighAddr_Type())
-cccaRouterPublicNonHighAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaRouterPublicNonHighAddr.setStatus(_B)
-_CccaRouterPrivateHighAddr_Type=InetAddressDNS
-_CccaRouterPrivateHighAddr_Object=MibTableColumn
-cccaRouterPrivateHighAddr=_CccaRouterPrivateHighAddr_Object((1,3,6,1,4,1,9,9,473,1,3,1,1,13),_CccaRouterPrivateHighAddr_Type())
-cccaRouterPrivateHighAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaRouterPrivateHighAddr.setStatus(_B)
-_CccaRouterPrivateNonHighAddr_Type=InetAddressDNS
-_CccaRouterPrivateNonHighAddr_Object=MibTableColumn
-cccaRouterPrivateNonHighAddr=_CccaRouterPrivateNonHighAddr_Object((1,3,6,1,4,1,9,9,473,1,3,1,1,14),_CccaRouterPrivateNonHighAddr_Type())
-cccaRouterPrivateNonHighAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaRouterPrivateNonHighAddr.setStatus(_B)
-_CccaNicTable_Object=MibTable
-cccaNicTable=_CccaNicTable_Object((1,3,6,1,4,1,9,9,473,1,3,2))
-if mibBuilder.loadTexts:cccaNicTable.setStatus(_B)
-_CccaNicEntry_Object=MibTableRow
-cccaNicEntry=_CccaNicEntry_Object((1,3,6,1,4,1,9,9,473,1,3,2,1))
-cccaNicEntry.setIndexNames((0,_A,_D),(0,_A,_E),(0,_A,_s))
-if mibBuilder.loadTexts:cccaNicEntry.setStatus(_B)
-_CccaNicIndex_Type=CcaIndex
-_CccaNicIndex_Object=MibTableColumn
-cccaNicIndex=_CccaNicIndex_Object((1,3,6,1,4,1,9,9,473,1,3,2,1,1),_CccaNicIndex_Type())
-cccaNicIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:cccaNicIndex.setStatus(_B)
-class _CccaNicType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)));namedValues=NamedValues(*(('generic',1),('att',2),('aucsINAP',3),('cain',4),('crsp',5),('cwc',6),('gktmp',7),('incrp',8),('mci',9),('nortel',10),('ntl',11),('sprint',12),('ss7in',13),('stentor',14),('timINAP',15)))
-_CccaNicType_Type.__name__=_G
-_CccaNicType_Object=MibTableColumn
-cccaNicType=_CccaNicType_Object((1,3,6,1,4,1,9,9,473,1,3,2,1,2),_CccaNicType_Type())
-cccaNicType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaNicType.setStatus(_B)
-_CccaNicStatus_Type=CcaComponentStatus
-_CccaNicStatus_Object=MibTableColumn
-cccaNicStatus=_CccaNicStatus_Object((1,3,6,1,4,1,9,9,473,1,3,2,1,3),_CccaNicStatus_Type())
-cccaNicStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaNicStatus.setStatus(_B)
-_CccaLoggerTable_Object=MibTable
-cccaLoggerTable=_CccaLoggerTable_Object((1,3,6,1,4,1,9,9,473,1,3,3))
-if mibBuilder.loadTexts:cccaLoggerTable.setStatus(_B)
-_CccaLoggerEntry_Object=MibTableRow
-cccaLoggerEntry=_CccaLoggerEntry_Object((1,3,6,1,4,1,9,9,473,1,3,3,1))
-cccaLoggerEntry.setIndexNames((0,_A,_D),(0,_A,_E))
-if mibBuilder.loadTexts:cccaLoggerEntry.setStatus(_B)
-_CccaLoggerSide_Type=CcaComponentSide
-_CccaLoggerSide_Object=MibTableColumn
-cccaLoggerSide=_CccaLoggerSide_Object((1,3,6,1,4,1,9,9,473,1,3,3,1,1),_CccaLoggerSide_Type())
-cccaLoggerSide.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaLoggerSide.setStatus(_B)
-class _CccaLoggerType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_t,1),('nam',2),('cicm',3)))
-_CccaLoggerType_Type.__name__=_G
-_CccaLoggerType_Object=MibTableColumn
-cccaLoggerType=_CccaLoggerType_Object((1,3,6,1,4,1,9,9,473,1,3,3,1,2),_CccaLoggerType_Type())
-cccaLoggerType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaLoggerType.setStatus(_B)
-_CccaLoggerRouterSideAName_Type=InetAddressDNS
-_CccaLoggerRouterSideAName_Object=MibTableColumn
-cccaLoggerRouterSideAName=_CccaLoggerRouterSideAName_Object((1,3,6,1,4,1,9,9,473,1,3,3,1,3),_CccaLoggerRouterSideAName_Type())
-cccaLoggerRouterSideAName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaLoggerRouterSideAName.setStatus(_B)
-_CccaLoggerRouterSideBName_Type=InetAddressDNS
-_CccaLoggerRouterSideBName_Object=MibTableColumn
-cccaLoggerRouterSideBName=_CccaLoggerRouterSideBName_Object((1,3,6,1,4,1,9,9,473,1,3,3,1,4),_CccaLoggerRouterSideBName_Type())
-cccaLoggerRouterSideBName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaLoggerRouterSideBName.setStatus(_B)
-_CccaLoggerDuplexPairName_Type=InetAddressDNS
-_CccaLoggerDuplexPairName_Object=MibTableColumn
-cccaLoggerDuplexPairName=_CccaLoggerDuplexPairName_Object((1,3,6,1,4,1,9,9,473,1,3,3,1,5),_CccaLoggerDuplexPairName_Type())
-cccaLoggerDuplexPairName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaLoggerDuplexPairName.setStatus(_B)
-_CccaLoggerHDSReplication_Type=TruthValue
-_CccaLoggerHDSReplication_Object=MibTableColumn
-cccaLoggerHDSReplication=_CccaLoggerHDSReplication_Object((1,3,6,1,4,1,9,9,473,1,3,3,1,6),_CccaLoggerHDSReplication_Type())
-cccaLoggerHDSReplication.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaLoggerHDSReplication.setStatus(_B)
-_CccaLoggerAvgDBWriteTime_Type=Unsigned32
-_CccaLoggerAvgDBWriteTime_Object=MibTableColumn
-cccaLoggerAvgDBWriteTime=_CccaLoggerAvgDBWriteTime_Object((1,3,6,1,4,1,9,9,473,1,3,3,1,7),_CccaLoggerAvgDBWriteTime_Type())
-cccaLoggerAvgDBWriteTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaLoggerAvgDBWriteTime.setStatus(_B)
-if mibBuilder.loadTexts:cccaLoggerAvgDBWriteTime.setUnits('hundred nanoseconds')
-_CccaDistAwTable_Object=MibTable
-cccaDistAwTable=_CccaDistAwTable_Object((1,3,6,1,4,1,9,9,473,1,3,4))
-if mibBuilder.loadTexts:cccaDistAwTable.setStatus(_B)
-_CccaDistAwEntry_Object=MibTableRow
-cccaDistAwEntry=_CccaDistAwEntry_Object((1,3,6,1,4,1,9,9,473,1,3,4,1))
-cccaDistAwEntry.setIndexNames((0,_A,_D),(0,_A,_E))
-if mibBuilder.loadTexts:cccaDistAwEntry.setStatus(_B)
-_CccaDistAwSide_Type=CcaComponentSide
-_CccaDistAwSide_Object=MibTableColumn
-cccaDistAwSide=_CccaDistAwSide_Object((1,3,6,1,4,1,9,9,473,1,3,4,1,1),_CccaDistAwSide_Type())
-cccaDistAwSide.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDistAwSide.setStatus(_L)
-class _CccaDistAwType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_t,0),('nam',1),('cicm',2)))
-_CccaDistAwType_Type.__name__=_G
-_CccaDistAwType_Object=MibTableColumn
-cccaDistAwType=_CccaDistAwType_Object((1,3,6,1,4,1,9,9,473,1,3,4,1,2),_CccaDistAwType_Type())
-cccaDistAwType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDistAwType.setStatus(_B)
-_CccaDistAwAdminSiteName_Type=SnmpAdminString
-_CccaDistAwAdminSiteName_Object=MibTableColumn
-cccaDistAwAdminSiteName=_CccaDistAwAdminSiteName_Object((1,3,6,1,4,1,9,9,473,1,3,4,1,3),_CccaDistAwAdminSiteName_Type())
-cccaDistAwAdminSiteName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDistAwAdminSiteName.setStatus(_B)
-_CccaDistAwRouterSideAName_Type=InetAddressDNS
-_CccaDistAwRouterSideAName_Object=MibTableColumn
-cccaDistAwRouterSideAName=_CccaDistAwRouterSideAName_Object((1,3,6,1,4,1,9,9,473,1,3,4,1,4),_CccaDistAwRouterSideAName_Type())
-cccaDistAwRouterSideAName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDistAwRouterSideAName.setStatus(_B)
-_CccaDistAwRouterSideBName_Type=InetAddressDNS
-_CccaDistAwRouterSideBName_Object=MibTableColumn
-cccaDistAwRouterSideBName=_CccaDistAwRouterSideBName_Object((1,3,6,1,4,1,9,9,473,1,3,4,1,5),_CccaDistAwRouterSideBName_Type())
-cccaDistAwRouterSideBName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDistAwRouterSideBName.setStatus(_B)
-_CccaDistAwLoggerSideAName_Type=InetAddressDNS
-_CccaDistAwLoggerSideAName_Object=MibTableColumn
-cccaDistAwLoggerSideAName=_CccaDistAwLoggerSideAName_Object((1,3,6,1,4,1,9,9,473,1,3,4,1,6),_CccaDistAwLoggerSideAName_Type())
-cccaDistAwLoggerSideAName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDistAwLoggerSideAName.setStatus(_B)
-_CccaDistAwLoggerSideBName_Type=InetAddressDNS
-_CccaDistAwLoggerSideBName_Object=MibTableColumn
-cccaDistAwLoggerSideBName=_CccaDistAwLoggerSideBName_Object((1,3,6,1,4,1,9,9,473,1,3,4,1,7),_CccaDistAwLoggerSideBName_Type())
-cccaDistAwLoggerSideBName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDistAwLoggerSideBName.setStatus(_B)
-_CccaDistAwDuplexPairName_Type=InetAddressDNS
-_CccaDistAwDuplexPairName_Object=MibTableColumn
-cccaDistAwDuplexPairName=_CccaDistAwDuplexPairName_Object((1,3,6,1,4,1,9,9,473,1,3,4,1,8),_CccaDistAwDuplexPairName_Type())
-cccaDistAwDuplexPairName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDistAwDuplexPairName.setStatus(_L)
-_CccaDistAwHDSEnabled_Type=TruthValue
-_CccaDistAwHDSEnabled_Object=MibTableColumn
-cccaDistAwHDSEnabled=_CccaDistAwHDSEnabled_Object((1,3,6,1,4,1,9,9,473,1,3,4,1,9),_CccaDistAwHDSEnabled_Type())
-cccaDistAwHDSEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDistAwHDSEnabled.setStatus(_B)
-_CccaDistAwWebViewEnabled_Type=TruthValue
-_CccaDistAwWebViewEnabled_Object=MibTableColumn
-cccaDistAwWebViewEnabled=_CccaDistAwWebViewEnabled_Object((1,3,6,1,4,1,9,9,473,1,3,4,1,10),_CccaDistAwWebViewEnabled_Type())
-cccaDistAwWebViewEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDistAwWebViewEnabled.setStatus(_B)
-_CccaDistAwWebViewServerName_Type=SnmpAdminString
-_CccaDistAwWebViewServerName_Object=MibTableColumn
-cccaDistAwWebViewServerName=_CccaDistAwWebViewServerName_Object((1,3,6,1,4,1,9,9,473,1,3,4,1,11),_CccaDistAwWebViewServerName_Type())
-cccaDistAwWebViewServerName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDistAwWebViewServerName.setStatus(_B)
-_CccaDistAwWebReskillingURL_Type=SnmpAdminString
-_CccaDistAwWebReskillingURL_Object=MibTableColumn
-cccaDistAwWebReskillingURL=_CccaDistAwWebReskillingURL_Object((1,3,6,1,4,1,9,9,473,1,3,4,1,12),_CccaDistAwWebReskillingURL_Type())
-cccaDistAwWebReskillingURL.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDistAwWebReskillingURL.setStatus(_B)
-_CccaPgTable_Object=MibTable
-cccaPgTable=_CccaPgTable_Object((1,3,6,1,4,1,9,9,473,1,3,5))
-if mibBuilder.loadTexts:cccaPgTable.setStatus(_B)
-_CccaPgEntry_Object=MibTableRow
-cccaPgEntry=_CccaPgEntry_Object((1,3,6,1,4,1,9,9,473,1,3,5,1))
-cccaPgEntry.setIndexNames((0,_A,_D),(0,_A,_E))
-if mibBuilder.loadTexts:cccaPgEntry.setStatus(_B)
-class _CccaPgNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,80))
-_CccaPgNumber_Type.__name__=_H
-_CccaPgNumber_Object=MibTableColumn
-cccaPgNumber=_CccaPgNumber_Object((1,3,6,1,4,1,9,9,473,1,3,5,1,1),_CccaPgNumber_Type())
-cccaPgNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaPgNumber.setStatus(_L)
-_CccaPgSide_Type=CcaComponentSide
-_CccaPgSide_Object=MibTableColumn
-cccaPgSide=_CccaPgSide_Object((1,3,6,1,4,1,9,9,473,1,3,5,1,2),_CccaPgSide_Type())
-cccaPgSide.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaPgSide.setStatus(_B)
-_CccaPgRouterSideAName_Type=InetAddressDNS
-_CccaPgRouterSideAName_Object=MibTableColumn
-cccaPgRouterSideAName=_CccaPgRouterSideAName_Object((1,3,6,1,4,1,9,9,473,1,3,5,1,3),_CccaPgRouterSideAName_Type())
-cccaPgRouterSideAName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaPgRouterSideAName.setStatus(_B)
-_CccaPgRouterSideBName_Type=InetAddressDNS
-_CccaPgRouterSideBName_Object=MibTableColumn
-cccaPgRouterSideBName=_CccaPgRouterSideBName_Object((1,3,6,1,4,1,9,9,473,1,3,5,1,4),_CccaPgRouterSideBName_Type())
-cccaPgRouterSideBName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaPgRouterSideBName.setStatus(_B)
-_CccaPgDuplexPairName_Type=InetAddressDNS
-_CccaPgDuplexPairName_Object=MibTableColumn
-cccaPgDuplexPairName=_CccaPgDuplexPairName_Object((1,3,6,1,4,1,9,9,473,1,3,5,1,5),_CccaPgDuplexPairName_Type())
-cccaPgDuplexPairName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaPgDuplexPairName.setStatus(_B)
-class _CccaPgPimCount_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_CccaPgPimCount_Type.__name__=_N
-_CccaPgPimCount_Object=MibTableColumn
-cccaPgPimCount=_CccaPgPimCount_Object((1,3,6,1,4,1,9,9,473,1,3,5,1,6),_CccaPgPimCount_Type())
-cccaPgPimCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaPgPimCount.setStatus(_B)
-_CccaPgCallsInProgress_Type=Gauge32
-_CccaPgCallsInProgress_Object=MibTableColumn
-cccaPgCallsInProgress=_CccaPgCallsInProgress_Object((1,3,6,1,4,1,9,9,473,1,3,5,1,7),_CccaPgCallsInProgress_Type())
-cccaPgCallsInProgress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaPgCallsInProgress.setStatus(_B)
-if mibBuilder.loadTexts:cccaPgCallsInProgress.setUnits(_J)
-_CccaPgAgentsLoggedOn_Type=Gauge32
-_CccaPgAgentsLoggedOn_Object=MibTableColumn
-cccaPgAgentsLoggedOn=_CccaPgAgentsLoggedOn_Object((1,3,6,1,4,1,9,9,473,1,3,5,1,8),_CccaPgAgentsLoggedOn_Type())
-cccaPgAgentsLoggedOn.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaPgAgentsLoggedOn.setStatus(_B)
-if mibBuilder.loadTexts:cccaPgAgentsLoggedOn.setUnits(_K)
-_CccaPgAgentsReady_Type=Gauge32
-_CccaPgAgentsReady_Object=MibTableColumn
-cccaPgAgentsReady=_CccaPgAgentsReady_Object((1,3,6,1,4,1,9,9,473,1,3,5,1,9),_CccaPgAgentsReady_Type())
-cccaPgAgentsReady.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaPgAgentsReady.setStatus(_B)
-if mibBuilder.loadTexts:cccaPgAgentsReady.setUnits(_K)
-_CccaPgAgentsTalking_Type=Gauge32
-_CccaPgAgentsTalking_Object=MibTableColumn
-cccaPgAgentsTalking=_CccaPgAgentsTalking_Object((1,3,6,1,4,1,9,9,473,1,3,5,1,10),_CccaPgAgentsTalking_Type())
-cccaPgAgentsTalking.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaPgAgentsTalking.setStatus(_B)
-if mibBuilder.loadTexts:cccaPgAgentsTalking.setUnits(_K)
-_CccaPgID_Type=Unsigned32
-_CccaPgID_Object=MibTableColumn
-cccaPgID=_CccaPgID_Object((1,3,6,1,4,1,9,9,473,1,3,5,1,11),_CccaPgID_Type())
-cccaPgID.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaPgID.setStatus(_B)
-_CccaPimTable_Object=MibTable
-cccaPimTable=_CccaPimTable_Object((1,3,6,1,4,1,9,9,473,1,3,6))
-if mibBuilder.loadTexts:cccaPimTable.setStatus(_B)
-_CccaPimEntry_Object=MibTableRow
-cccaPimEntry=_CccaPimEntry_Object((1,3,6,1,4,1,9,9,473,1,3,6,1))
-cccaPimEntry.setIndexNames((0,_A,_D),(0,_A,_E),(0,_A,_u))
-if mibBuilder.loadTexts:cccaPimEntry.setStatus(_B)
-class _CccaPimNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_CccaPimNumber_Type.__name__=_H
-_CccaPimNumber_Object=MibTableColumn
-cccaPimNumber=_CccaPimNumber_Object((1,3,6,1,4,1,9,9,473,1,3,6,1,1),_CccaPimNumber_Type())
-cccaPimNumber.setMaxAccess(_I)
-if mibBuilder.loadTexts:cccaPimNumber.setStatus(_B)
-_CccaPimPeripheralName_Type=SnmpAdminString
-_CccaPimPeripheralName_Object=MibTableColumn
-cccaPimPeripheralName=_CccaPimPeripheralName_Object((1,3,6,1,4,1,9,9,473,1,3,6,1,2),_CccaPimPeripheralName_Type())
-cccaPimPeripheralName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaPimPeripheralName.setStatus(_B)
-_CccaPimPeripheralType_Type=CcaPeripheralType
-_CccaPimPeripheralType_Object=MibTableColumn
-cccaPimPeripheralType=_CccaPimPeripheralType_Object((1,3,6,1,4,1,9,9,473,1,3,6,1,3),_CccaPimPeripheralType_Type())
-cccaPimPeripheralType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaPimPeripheralType.setStatus(_B)
-_CccaPimStatus_Type=CcaComponentStatus
-_CccaPimStatus_Object=MibTableColumn
-cccaPimStatus=_CccaPimStatus_Object((1,3,6,1,4,1,9,9,473,1,3,6,1,4),_CccaPimStatus_Type())
-cccaPimStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaPimStatus.setStatus(_B)
-_CccaPimPeripheralHostName_Type=InetAddressDNS
-_CccaPimPeripheralHostName_Object=MibTableColumn
-cccaPimPeripheralHostName=_CccaPimPeripheralHostName_Object((1,3,6,1,4,1,9,9,473,1,3,6,1,5),_CccaPimPeripheralHostName_Type())
-cccaPimPeripheralHostName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaPimPeripheralHostName.setStatus(_B)
-_CccaCgTable_Object=MibTable
-cccaCgTable=_CccaCgTable_Object((1,3,6,1,4,1,9,9,473,1,3,7))
-if mibBuilder.loadTexts:cccaCgTable.setStatus(_B)
-_CccaCgEntry_Object=MibTableRow
-cccaCgEntry=_CccaCgEntry_Object((1,3,6,1,4,1,9,9,473,1,3,7,1))
-cccaCgEntry.setIndexNames((0,_A,_D),(0,_A,_E))
-if mibBuilder.loadTexts:cccaCgEntry.setStatus(_B)
-class _CccaCgNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,80))
-_CccaCgNumber_Type.__name__=_H
-_CccaCgNumber_Object=MibTableColumn
-cccaCgNumber=_CccaCgNumber_Object((1,3,6,1,4,1,9,9,473,1,3,7,1,1),_CccaCgNumber_Type())
-cccaCgNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCgNumber.setStatus(_L)
-_CccaCgSide_Type=CcaComponentSide
-_CccaCgSide_Object=MibTableColumn
-cccaCgSide=_CccaCgSide_Object((1,3,6,1,4,1,9,9,473,1,3,7,1,2),_CccaCgSide_Type())
-cccaCgSide.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCgSide.setStatus(_B)
-_CccaCgPgSideAName_Type=InetAddressDNS
-_CccaCgPgSideAName_Object=MibTableColumn
-cccaCgPgSideAName=_CccaCgPgSideAName_Object((1,3,6,1,4,1,9,9,473,1,3,7,1,3),_CccaCgPgSideAName_Type())
-cccaCgPgSideAName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCgPgSideAName.setStatus(_B)
-_CccaCgPgSideBName_Type=InetAddressDNS
-_CccaCgPgSideBName_Object=MibTableColumn
-cccaCgPgSideBName=_CccaCgPgSideBName_Object((1,3,6,1,4,1,9,9,473,1,3,7,1,4),_CccaCgPgSideBName_Type())
-cccaCgPgSideBName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCgPgSideBName.setStatus(_B)
-_CccaCgDuplexPairName_Type=InetAddressDNS
-_CccaCgDuplexPairName_Object=MibTableColumn
-cccaCgDuplexPairName=_CccaCgDuplexPairName_Object((1,3,6,1,4,1,9,9,473,1,3,7,1,5),_CccaCgDuplexPairName_Type())
-cccaCgDuplexPairName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCgDuplexPairName.setStatus(_B)
-_CccaCgOpenSessions_Type=Gauge32
-_CccaCgOpenSessions_Object=MibTableColumn
-cccaCgOpenSessions=_CccaCgOpenSessions_Object((1,3,6,1,4,1,9,9,473,1,3,7,1,6),_CccaCgOpenSessions_Type())
-cccaCgOpenSessions.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCgOpenSessions.setStatus(_B)
-_CccaCgOtherSessions_Type=Gauge32
-_CccaCgOtherSessions_Object=MibTableColumn
-cccaCgOtherSessions=_CccaCgOtherSessions_Object((1,3,6,1,4,1,9,9,473,1,3,7,1,7),_CccaCgOtherSessions_Type())
-cccaCgOtherSessions.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCgOtherSessions.setStatus(_B)
-_CccaCgID_Type=Unsigned32
-_CccaCgID_Object=MibTableColumn
-cccaCgID=_CccaCgID_Object((1,3,6,1,4,1,9,9,473,1,3,7,1,8),_CccaCgID_Type())
-cccaCgID.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCgID.setStatus(_B)
-_CccaCtiOsTable_Object=MibTable
-cccaCtiOsTable=_CccaCtiOsTable_Object((1,3,6,1,4,1,9,9,473,1,3,8))
-if mibBuilder.loadTexts:cccaCtiOsTable.setStatus(_B)
-_CccaCtiOsEntry_Object=MibTableRow
-cccaCtiOsEntry=_CccaCtiOsEntry_Object((1,3,6,1,4,1,9,9,473,1,3,8,1))
-cccaCtiOsEntry.setIndexNames((0,_A,_D),(0,_A,_E))
-if mibBuilder.loadTexts:cccaCtiOsEntry.setStatus(_B)
-_CccaCtiOsServerName_Type=SnmpAdminString
-_CccaCtiOsServerName_Object=MibTableColumn
-cccaCtiOsServerName=_CccaCtiOsServerName_Object((1,3,6,1,4,1,9,9,473,1,3,8,1,1),_CccaCtiOsServerName_Type())
-cccaCtiOsServerName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCtiOsServerName.setStatus(_B)
-_CccaCtiOsPeripheralName_Type=SnmpAdminString
-_CccaCtiOsPeripheralName_Object=MibTableColumn
-cccaCtiOsPeripheralName=_CccaCtiOsPeripheralName_Object((1,3,6,1,4,1,9,9,473,1,3,8,1,2),_CccaCtiOsPeripheralName_Type())
-cccaCtiOsPeripheralName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCtiOsPeripheralName.setStatus(_B)
-_CccaCtiOsPeripheralType_Type=CcaPeripheralType
-_CccaCtiOsPeripheralType_Object=MibTableColumn
-cccaCtiOsPeripheralType=_CccaCtiOsPeripheralType_Object((1,3,6,1,4,1,9,9,473,1,3,8,1,3),_CccaCtiOsPeripheralType_Type())
-cccaCtiOsPeripheralType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCtiOsPeripheralType.setStatus(_B)
-_CccaCtiOsCgSideAName_Type=InetAddressDNS
-_CccaCtiOsCgSideAName_Object=MibTableColumn
-cccaCtiOsCgSideAName=_CccaCtiOsCgSideAName_Object((1,3,6,1,4,1,9,9,473,1,3,8,1,4),_CccaCtiOsCgSideAName_Type())
-cccaCtiOsCgSideAName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCtiOsCgSideAName.setStatus(_B)
-_CccaCtiOsCgSideBName_Type=InetAddressDNS
-_CccaCtiOsCgSideBName_Object=MibTableColumn
-cccaCtiOsCgSideBName=_CccaCtiOsCgSideBName_Object((1,3,6,1,4,1,9,9,473,1,3,8,1,5),_CccaCtiOsCgSideBName_Type())
-cccaCtiOsCgSideBName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCtiOsCgSideBName.setStatus(_B)
-_CccaCtiOsPeerName_Type=InetAddressDNS
-_CccaCtiOsPeerName_Object=MibTableColumn
-cccaCtiOsPeerName=_CccaCtiOsPeerName_Object((1,3,6,1,4,1,9,9,473,1,3,8,1,6),_CccaCtiOsPeerName_Type())
-cccaCtiOsPeerName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCtiOsPeerName.setStatus(_B)
-_CccaCtiOsActiveClients_Type=Gauge32
-_CccaCtiOsActiveClients_Object=MibTableColumn
-cccaCtiOsActiveClients=_CccaCtiOsActiveClients_Object((1,3,6,1,4,1,9,9,473,1,3,8,1,7),_CccaCtiOsActiveClients_Type())
-cccaCtiOsActiveClients.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCtiOsActiveClients.setStatus(_B)
-_CccaCtiOsActiveMonitors_Type=Gauge32
-_CccaCtiOsActiveMonitors_Object=MibTableColumn
-cccaCtiOsActiveMonitors=_CccaCtiOsActiveMonitors_Object((1,3,6,1,4,1,9,9,473,1,3,8,1,8),_CccaCtiOsActiveMonitors_Type())
-cccaCtiOsActiveMonitors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCtiOsActiveMonitors.setStatus(_B)
-_CccaCtiOsCallsInProgress_Type=Gauge32
-_CccaCtiOsCallsInProgress_Object=MibTableColumn
-cccaCtiOsCallsInProgress=_CccaCtiOsCallsInProgress_Object((1,3,6,1,4,1,9,9,473,1,3,8,1,9),_CccaCtiOsCallsInProgress_Type())
-cccaCtiOsCallsInProgress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCtiOsCallsInProgress.setStatus(_B)
-_CccaCtiOsCallsFailed_Type=Unsigned32
-_CccaCtiOsCallsFailed_Object=MibTableColumn
-cccaCtiOsCallsFailed=_CccaCtiOsCallsFailed_Object((1,3,6,1,4,1,9,9,473,1,3,8,1,10),_CccaCtiOsCallsFailed_Type())
-cccaCtiOsCallsFailed.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCtiOsCallsFailed.setStatus(_B)
-_CccaCampaignMgrTable_Object=MibTable
-cccaCampaignMgrTable=_CccaCampaignMgrTable_Object((1,3,6,1,4,1,9,9,473,1,3,9))
-if mibBuilder.loadTexts:cccaCampaignMgrTable.setStatus(_B)
-_CccaCampaignMgrEntry_Object=MibTableRow
-cccaCampaignMgrEntry=_CccaCampaignMgrEntry_Object((1,3,6,1,4,1,9,9,473,1,3,9,1))
-cccaCampaignMgrEntry.setIndexNames((0,_A,_D),(0,_A,_E))
-if mibBuilder.loadTexts:cccaCampaignMgrEntry.setStatus(_B)
-_CccaCampaignMgrDbUtilization_Type=Gauge32
-_CccaCampaignMgrDbUtilization_Object=MibTableColumn
-cccaCampaignMgrDbUtilization=_CccaCampaignMgrDbUtilization_Object((1,3,6,1,4,1,9,9,473,1,3,9,1,1),_CccaCampaignMgrDbUtilization_Type())
-cccaCampaignMgrDbUtilization.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCampaignMgrDbUtilization.setStatus(_B)
-if mibBuilder.loadTexts:cccaCampaignMgrDbUtilization.setUnits('percent')
-_CccaCampaignMgrQueueDepth_Type=Gauge32
-_CccaCampaignMgrQueueDepth_Object=MibTableColumn
-cccaCampaignMgrQueueDepth=_CccaCampaignMgrQueueDepth_Object((1,3,6,1,4,1,9,9,473,1,3,9,1,2),_CccaCampaignMgrQueueDepth_Type())
-cccaCampaignMgrQueueDepth.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCampaignMgrQueueDepth.setStatus(_B)
-if mibBuilder.loadTexts:cccaCampaignMgrQueueDepth.setUnits(_r)
-_CccaCampaignMgrAvgQueueTime_Type=Gauge32
-_CccaCampaignMgrAvgQueueTime_Object=MibTableColumn
-cccaCampaignMgrAvgQueueTime=_CccaCampaignMgrAvgQueueTime_Object((1,3,6,1,4,1,9,9,473,1,3,9,1,3),_CccaCampaignMgrAvgQueueTime_Type())
-cccaCampaignMgrAvgQueueTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCampaignMgrAvgQueueTime.setStatus(_B)
-if mibBuilder.loadTexts:cccaCampaignMgrAvgQueueTime.setUnits(_v)
-_CccaCampaignMgrActiveDialers_Type=Gauge32
-_CccaCampaignMgrActiveDialers_Object=MibTableColumn
-cccaCampaignMgrActiveDialers=_CccaCampaignMgrActiveDialers_Object((1,3,6,1,4,1,9,9,473,1,3,9,1,4),_CccaCampaignMgrActiveDialers_Type())
-cccaCampaignMgrActiveDialers.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaCampaignMgrActiveDialers.setStatus(_B)
-if mibBuilder.loadTexts:cccaCampaignMgrActiveDialers.setUnits('dialers')
-_CccaDialerTable_Object=MibTable
-cccaDialerTable=_CccaDialerTable_Object((1,3,6,1,4,1,9,9,473,1,3,10))
-if mibBuilder.loadTexts:cccaDialerTable.setStatus(_B)
-_CccaDialerEntry_Object=MibTableRow
-cccaDialerEntry=_CccaDialerEntry_Object((1,3,6,1,4,1,9,9,473,1,3,10,1))
-cccaDialerEntry.setIndexNames((0,_A,_D),(0,_A,_E))
-if mibBuilder.loadTexts:cccaDialerEntry.setStatus(_B)
-_CccaDialerCampaignMgrName_Type=InetAddressDNS
-_CccaDialerCampaignMgrName_Object=MibTableColumn
-cccaDialerCampaignMgrName=_CccaDialerCampaignMgrName_Object((1,3,6,1,4,1,9,9,473,1,3,10,1,1),_CccaDialerCampaignMgrName_Type())
-cccaDialerCampaignMgrName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDialerCampaignMgrName.setStatus(_B)
-_CccaDialerCampaignMgrStatus_Type=CcaComponentStatus
-_CccaDialerCampaignMgrStatus_Object=MibTableColumn
-cccaDialerCampaignMgrStatus=_CccaDialerCampaignMgrStatus_Object((1,3,6,1,4,1,9,9,473,1,3,10,1,2),_CccaDialerCampaignMgrStatus_Type())
-cccaDialerCampaignMgrStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDialerCampaignMgrStatus.setStatus(_B)
-_CccaDialerCtiServerAName_Type=InetAddressDNS
-_CccaDialerCtiServerAName_Object=MibTableColumn
-cccaDialerCtiServerAName=_CccaDialerCtiServerAName_Object((1,3,6,1,4,1,9,9,473,1,3,10,1,3),_CccaDialerCtiServerAName_Type())
-cccaDialerCtiServerAName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDialerCtiServerAName.setStatus(_B)
-_CccaDialerCtiServerBName_Type=InetAddressDNS
-_CccaDialerCtiServerBName_Object=MibTableColumn
-cccaDialerCtiServerBName=_CccaDialerCtiServerBName_Object((1,3,6,1,4,1,9,9,473,1,3,10,1,4),_CccaDialerCtiServerBName_Type())
-cccaDialerCtiServerBName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDialerCtiServerBName.setStatus(_B)
-_CccaDialerCtiServerStatus_Type=CcaComponentStatus
-_CccaDialerCtiServerStatus_Object=MibTableColumn
-cccaDialerCtiServerStatus=_CccaDialerCtiServerStatus_Object((1,3,6,1,4,1,9,9,473,1,3,10,1,5),_CccaDialerCtiServerStatus_Type())
-cccaDialerCtiServerStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDialerCtiServerStatus.setStatus(_B)
-_CccaDialerMediaRouterStatus_Type=CcaComponentStatus
-_CccaDialerMediaRouterStatus_Object=MibTableColumn
-cccaDialerMediaRouterStatus=_CccaDialerMediaRouterStatus_Object((1,3,6,1,4,1,9,9,473,1,3,10,1,6),_CccaDialerMediaRouterStatus_Type())
-cccaDialerMediaRouterStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDialerMediaRouterStatus.setStatus(_B)
-_CccaDialerQueueDepth_Type=Gauge32
-_CccaDialerQueueDepth_Object=MibTableColumn
-cccaDialerQueueDepth=_CccaDialerQueueDepth_Object((1,3,6,1,4,1,9,9,473,1,3,10,1,7),_CccaDialerQueueDepth_Type())
-cccaDialerQueueDepth.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDialerQueueDepth.setStatus(_B)
-if mibBuilder.loadTexts:cccaDialerQueueDepth.setUnits('messages')
-_CccaDialerAvgQueueTime_Type=Gauge32
-_CccaDialerAvgQueueTime_Object=MibTableColumn
-cccaDialerAvgQueueTime=_CccaDialerAvgQueueTime_Object((1,3,6,1,4,1,9,9,473,1,3,10,1,8),_CccaDialerAvgQueueTime_Type())
-cccaDialerAvgQueueTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDialerAvgQueueTime.setStatus(_B)
-if mibBuilder.loadTexts:cccaDialerAvgQueueTime.setUnits(_v)
-_CccaDialerTalkingAgents_Type=Gauge32
-_CccaDialerTalkingAgents_Object=MibTableColumn
-cccaDialerTalkingAgents=_CccaDialerTalkingAgents_Object((1,3,6,1,4,1,9,9,473,1,3,10,1,9),_CccaDialerTalkingAgents_Type())
-cccaDialerTalkingAgents.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDialerTalkingAgents.setStatus(_B)
-if mibBuilder.loadTexts:cccaDialerTalkingAgents.setUnits(_K)
-_CccaDialerCallAttemptsPerSec_Type=Gauge32
-_CccaDialerCallAttemptsPerSec_Object=MibTableColumn
-cccaDialerCallAttemptsPerSec=_CccaDialerCallAttemptsPerSec_Object((1,3,6,1,4,1,9,9,473,1,3,10,1,10),_CccaDialerCallAttemptsPerSec_Type())
-cccaDialerCallAttemptsPerSec.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDialerCallAttemptsPerSec.setStatus(_B)
-if mibBuilder.loadTexts:cccaDialerCallAttemptsPerSec.setUnits(_J)
-_CccaDialerConfiguredPorts_Type=Gauge32
-_CccaDialerConfiguredPorts_Object=MibTableColumn
-cccaDialerConfiguredPorts=_CccaDialerConfiguredPorts_Object((1,3,6,1,4,1,9,9,473,1,3,10,1,11),_CccaDialerConfiguredPorts_Type())
-cccaDialerConfiguredPorts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDialerConfiguredPorts.setStatus(_B)
-if mibBuilder.loadTexts:cccaDialerConfiguredPorts.setUnits(_M)
-_CccaDialerBusyCustomerPorts_Type=Gauge32
-_CccaDialerBusyCustomerPorts_Object=MibTableColumn
-cccaDialerBusyCustomerPorts=_CccaDialerBusyCustomerPorts_Object((1,3,6,1,4,1,9,9,473,1,3,10,1,12),_CccaDialerBusyCustomerPorts_Type())
-cccaDialerBusyCustomerPorts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDialerBusyCustomerPorts.setStatus(_B)
-if mibBuilder.loadTexts:cccaDialerBusyCustomerPorts.setUnits(_M)
-_CccaDialerBusyReservationPorts_Type=Gauge32
-_CccaDialerBusyReservationPorts_Object=MibTableColumn
-cccaDialerBusyReservationPorts=_CccaDialerBusyReservationPorts_Object((1,3,6,1,4,1,9,9,473,1,3,10,1,13),_CccaDialerBusyReservationPorts_Type())
-cccaDialerBusyReservationPorts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDialerBusyReservationPorts.setStatus(_B)
-if mibBuilder.loadTexts:cccaDialerBusyReservationPorts.setUnits(_M)
-_CccaDialerIdlePorts_Type=Gauge32
-_CccaDialerIdlePorts_Object=MibTableColumn
-cccaDialerIdlePorts=_CccaDialerIdlePorts_Object((1,3,6,1,4,1,9,9,473,1,3,10,1,14),_CccaDialerIdlePorts_Type())
-cccaDialerIdlePorts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDialerIdlePorts.setStatus(_B)
-if mibBuilder.loadTexts:cccaDialerIdlePorts.setUnits(_M)
-_CccaDialerBlockedPorts_Type=Gauge32
-_CccaDialerBlockedPorts_Object=MibTableColumn
-cccaDialerBlockedPorts=_CccaDialerBlockedPorts_Object((1,3,6,1,4,1,9,9,473,1,3,10,1,15),_CccaDialerBlockedPorts_Type())
-cccaDialerBlockedPorts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cccaDialerBlockedPorts.setStatus(_B)
-if mibBuilder.loadTexts:cccaDialerBlockedPorts.setUnits(_M)
-_CccaNotificationInfo_ObjectIdentity=ObjectIdentity
-cccaNotificationInfo=_CccaNotificationInfo_ObjectIdentity((1,3,6,1,4,1,9,9,473,1,4))
-_CccaEventComponentId_Type=SnmpAdminString
-_CccaEventComponentId_Object=MibScalar
-cccaEventComponentId=_CccaEventComponentId_Object((1,3,6,1,4,1,9,9,473,1,4,1),_CccaEventComponentId_Type())
-cccaEventComponentId.setMaxAccess(_F)
-if mibBuilder.loadTexts:cccaEventComponentId.setStatus(_B)
-class _CccaEventState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,2,4,9)));namedValues=NamedValues(*(('clear',0),('applicationError',2),('raise',4),('singleStateRaise',9)))
-_CccaEventState_Type.__name__=_G
-_CccaEventState_Object=MibScalar
-cccaEventState=_CccaEventState_Object((1,3,6,1,4,1,9,9,473,1,4,2),_CccaEventState_Type())
-cccaEventState.setMaxAccess(_F)
-if mibBuilder.loadTexts:cccaEventState.setStatus(_B)
-_CccaEventMessageId_Type=Unsigned32
-_CccaEventMessageId_Object=MibScalar
-cccaEventMessageId=_CccaEventMessageId_Object((1,3,6,1,4,1,9,9,473,1,4,3),_CccaEventMessageId_Type())
-cccaEventMessageId.setMaxAccess(_F)
-if mibBuilder.loadTexts:cccaEventMessageId.setStatus(_B)
-_CccaEventOriginatingNode_Type=SnmpAdminString
-_CccaEventOriginatingNode_Object=MibScalar
-cccaEventOriginatingNode=_CccaEventOriginatingNode_Object((1,3,6,1,4,1,9,9,473,1,4,4),_CccaEventOriginatingNode_Type())
-cccaEventOriginatingNode.setMaxAccess(_F)
-if mibBuilder.loadTexts:cccaEventOriginatingNode.setStatus(_B)
-class _CccaEventOriginatingNodeType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_p,0),(_n,1),('pg',2),('nic',3),('aw',4),(_o,5),('listener',6),('cg',7),('ba',8)))
-_CccaEventOriginatingNodeType_Type.__name__=_G
-_CccaEventOriginatingNodeType_Object=MibScalar
-cccaEventOriginatingNodeType=_CccaEventOriginatingNodeType_Object((1,3,6,1,4,1,9,9,473,1,4,5),_CccaEventOriginatingNodeType_Type())
-cccaEventOriginatingNodeType.setMaxAccess(_F)
-if mibBuilder.loadTexts:cccaEventOriginatingNodeType.setStatus(_B)
-_CccaEventOriginatingProcessName_Type=SnmpAdminString
-_CccaEventOriginatingProcessName_Object=MibScalar
-cccaEventOriginatingProcessName=_CccaEventOriginatingProcessName_Object((1,3,6,1,4,1,9,9,473,1,4,6),_CccaEventOriginatingProcessName_Type())
-cccaEventOriginatingProcessName.setMaxAccess(_F)
-if mibBuilder.loadTexts:cccaEventOriginatingProcessName.setStatus(_B)
-_CccaEventOriginatingSide_Type=CcaComponentSide
-_CccaEventOriginatingSide_Object=MibScalar
-cccaEventOriginatingSide=_CccaEventOriginatingSide_Object((1,3,6,1,4,1,9,9,473,1,4,7),_CccaEventOriginatingSide_Type())
-cccaEventOriginatingSide.setMaxAccess(_F)
-if mibBuilder.loadTexts:cccaEventOriginatingSide.setStatus(_B)
-_CccaEventDmpId_Type=Integer32
-_CccaEventDmpId_Object=MibScalar
-cccaEventDmpId=_CccaEventDmpId_Object((1,3,6,1,4,1,9,9,473,1,4,8),_CccaEventDmpId_Type())
-cccaEventDmpId.setMaxAccess(_F)
-if mibBuilder.loadTexts:cccaEventDmpId.setStatus(_B)
-class _CccaEventSeverity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('informational',1),('warning',2),('error',3)))
-_CccaEventSeverity_Type.__name__=_G
-_CccaEventSeverity_Object=MibScalar
-cccaEventSeverity=_CccaEventSeverity_Object((1,3,6,1,4,1,9,9,473,1,4,9),_CccaEventSeverity_Type())
-cccaEventSeverity.setMaxAccess(_F)
-if mibBuilder.loadTexts:cccaEventSeverity.setStatus(_B)
-_CccaEventTimestamp_Type=DateAndTime
-_CccaEventTimestamp_Object=MibScalar
-cccaEventTimestamp=_CccaEventTimestamp_Object((1,3,6,1,4,1,9,9,473,1,4,10),_CccaEventTimestamp_Type())
-cccaEventTimestamp.setMaxAccess(_F)
-if mibBuilder.loadTexts:cccaEventTimestamp.setStatus(_B)
-_CccaEventText_Type=SnmpAdminString
-_CccaEventText_Object=MibScalar
-cccaEventText=_CccaEventText_Object((1,3,6,1,4,1,9,9,473,1,4,11),_CccaEventText_Type())
-cccaEventText.setMaxAccess(_F)
-if mibBuilder.loadTexts:cccaEventText.setStatus(_B)
-_CiscoCcaMIBConform_ObjectIdentity=ObjectIdentity
-ciscoCcaMIBConform=_CiscoCcaMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,473,2))
-_CiscoCcaMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoCcaMIBCompliances=_CiscoCcaMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,473,2,1))
-_CiscoCcaMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoCcaMIBGroups=_CiscoCcaMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,473,2,2))
-cccaGeneralInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,1))
-cccaGeneralInfoGroup.setObjects(*((_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2)))
-if mibBuilder.loadTexts:cccaGeneralInfoGroup.setStatus(_B)
-cccaInstanceTableGroup=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,2))
-cccaInstanceTableGroup.setObjects((_A,_A3))
-if mibBuilder.loadTexts:cccaInstanceTableGroup.setStatus(_B)
-cccaComponentTableGroup=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,3))
-cccaComponentTableGroup.setObjects(*((_A,_A4),(_A,_A5),(_A,_A6)))
-if mibBuilder.loadTexts:cccaComponentTableGroup.setStatus(_B)
-cccaComponentElmtTableGroup=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,4))
-cccaComponentElmtTableGroup.setObjects(*((_A,_A7),(_A,_A8),(_A,_A9)))
-if mibBuilder.loadTexts:cccaComponentElmtTableGroup.setStatus(_B)
-cccaRouterTableGroup=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,5))
-cccaRouterTableGroup.setObjects(*((_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF)))
-if mibBuilder.loadTexts:cccaRouterTableGroup.setStatus(_B)
-cccaNicTableGroup=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,6))
-cccaNicTableGroup.setObjects(*((_A,_AG),(_A,_AH)))
-if mibBuilder.loadTexts:cccaNicTableGroup.setStatus(_B)
-cccaLoggerTableGroup=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,7))
-cccaLoggerTableGroup.setObjects(*((_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN)))
-if mibBuilder.loadTexts:cccaLoggerTableGroup.setStatus(_B)
-cccaDistAwTableGroup=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,8))
-cccaDistAwTableGroup.setObjects(*((_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY)))
-if mibBuilder.loadTexts:cccaDistAwTableGroup.setStatus(_B)
-cccaPgTableGroup=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,9))
-cccaPgTableGroup.setObjects(*((_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae)))
-if mibBuilder.loadTexts:cccaPgTableGroup.setStatus(_B)
-cccaPimTableGroup=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,10))
-cccaPimTableGroup.setObjects(*((_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai)))
-if mibBuilder.loadTexts:cccaPimTableGroup.setStatus(_B)
-cccaCgTableGroup=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,11))
-cccaCgTableGroup.setObjects(*((_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An)))
-if mibBuilder.loadTexts:cccaCgTableGroup.setStatus(_B)
-cccaCtiOsTableGroup=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,12))
-cccaCtiOsTableGroup.setObjects(*((_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At)))
-if mibBuilder.loadTexts:cccaCtiOsTableGroup.setStatus(_B)
-cccaIcmNotificationInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,13))
-cccaIcmNotificationInfoGroup.setObjects(*((_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y)))
-if mibBuilder.loadTexts:cccaIcmNotificationInfoGroup.setStatus(_B)
-cccaCampaignMgrTableGroup=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,15))
-cccaCampaignMgrTableGroup.setObjects(*((_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax)))
-if mibBuilder.loadTexts:cccaCampaignMgrTableGroup.setStatus(_B)
-cccaDialerTableGroup=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,16))
-cccaDialerTableGroup.setObjects(*((_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB)))
-if mibBuilder.loadTexts:cccaDialerTableGroup.setStatus(_B)
-cccaGeneralInfoGroupSup1=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,17))
-cccaGeneralInfoGroupSup1.setObjects(*((_A,_BC),(_A,_BD)))
-if mibBuilder.loadTexts:cccaGeneralInfoGroupSup1.setStatus(_B)
-cccaRouterTableGroupSup1=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,18))
-cccaRouterTableGroupSup1.setObjects(*((_A,_BE),(_A,_BF),(_A,_BG),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL)))
-if mibBuilder.loadTexts:cccaRouterTableGroupSup1.setStatus(_B)
-cccaLoggerTableGroupSup1=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,19))
-cccaLoggerTableGroupSup1.setObjects((_A,_BM))
-if mibBuilder.loadTexts:cccaLoggerTableGroupSup1.setStatus(_B)
-cccaDistAwTableGroupSup1=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,20))
-cccaDistAwTableGroupSup1.setObjects((_A,_BN))
-if mibBuilder.loadTexts:cccaDistAwTableGroupSup1.setStatus(_B)
-cccaPgTableGroupSup1=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,21))
-cccaPgTableGroupSup1.setObjects(*((_A,_BO),(_A,_BP),(_A,_BQ),(_A,_BR),(_A,'cccaPgID')))
-if mibBuilder.loadTexts:cccaPgTableGroupSup1.setStatus(_B)
-cccaCgTableGroupSup1=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,22))
-cccaCgTableGroupSup1.setObjects(*((_A,_BS),(_A,_BT),(_A,'cccaCgID')))
-if mibBuilder.loadTexts:cccaCgTableGroupSup1.setStatus(_B)
-cccaCtiOsTableGroupSup1=ObjectGroup((1,3,6,1,4,1,9,9,473,2,2,23))
-cccaCtiOsTableGroupSup1.setObjects(*((_A,_BU),(_A,_BV),(_A,_BW),(_A,_BX)))
-if mibBuilder.loadTexts:cccaCtiOsTableGroupSup1.setStatus(_B)
-cccaIcmEvent=NotificationType((1,3,6,1,4,1,9,9,473,0,1))
-cccaIcmEvent.setObjects(*((_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y)))
-if mibBuilder.loadTexts:cccaIcmEvent.setStatus(_B)
-cccaIcmEventsGroup=NotificationGroup((1,3,6,1,4,1,9,9,473,2,2,14))
-cccaIcmEventsGroup.setObjects((_A,_BY))
-if mibBuilder.loadTexts:cccaIcmEventsGroup.setStatus(_B)
-ciscoCccaMIBComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,9,473,2,1,1))
-ciscoCccaMIBComplianceRev1.setObjects(*((_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m)))
-if mibBuilder.loadTexts:ciscoCccaMIBComplianceRev1.setStatus(_L)
-ciscoCccaMIBComplianceRev2=ModuleCompliance((1,3,6,1,4,1,9,9,473,2,1,2))
-ciscoCccaMIBComplianceRev2.setObjects(*((_A,_Z),(_A,_BZ),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_Ba),(_A,_e),(_A,_f),(_A,_Bb),(_A,_g),(_A,_Bc),(_A,_h),(_A,_Bd),(_A,_i),(_A,_j),(_A,_Be),(_A,_k),(_A,_Bf),(_A,_l),(_A,_m),(_A,_Bg),(_A,_Bh)))
-if mibBuilder.loadTexts:ciscoCccaMIBComplianceRev2.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'CcaIndex':CcaIndex,'CcaComponentType':CcaComponentType,'CcaComponentStatus':CcaComponentStatus,'CcaComponentSide':CcaComponentSide,'CcaPeripheralType':CcaPeripheralType,'ciscoCcaMIB':ciscoCcaMIB,'ciscoCcaMIBNotifs':ciscoCcaMIBNotifs,_BY:cccaIcmEvent,'ciscoCcaMIBObjects':ciscoCcaMIBObjects,'cccaGeneralInfo':cccaGeneralInfo,_w:cccaName,_x:cccaDescription,_y:cccaVersion,_z:cccaTimeZoneName,_A0:cccaTimeZoneOffsetHours,_A1:cccaTimeZoneOffsetMinutes,_A2:cccaSupportToolsURL,_BC:cccaWebSetupURL,_BD:cccaNotificationsEnabled,'cccaComponents':cccaComponents,'cccaInstanceTable':cccaInstanceTable,'cccaInstanceEntry':cccaInstanceEntry,_D:cccaInstanceNumber,_A3:cccaInstanceName,'cccaComponentTable':cccaComponentTable,'cccaComponentEntry':cccaComponentEntry,_E:cccaComponentIndex,_A4:cccaComponentType,_A5:cccaComponentName,_A6:cccaComponentStatus,'cccaComponentElmtTable':cccaComponentElmtTable,'cccaComponentElmtEntry':cccaComponentElmtEntry,_q:cccaComponentElmtIndex,_A7:cccaComponentElmtName,_A8:cccaComponentElmtRunID,_A9:cccaComponentElmtStatus,'cccaComponentInfo':cccaComponentInfo,'cccaRouterTable':cccaRouterTable,'cccaRouterEntry':cccaRouterEntry,_AA:cccaRouterSide,_AB:cccaRouterCallsPerSec,_AC:cccaRouterAgentsLoggedOn,_AD:cccaRouterCallsInProgress,_AE:cccaRouterDuplexPairName,_AF:cccaRouterNicCount,_BE:cccaRouterPGsEnabledCount,_BF:cccaRouterCallsInQueue,_BG:cccaRouterAppGwEnabled,_BH:cccaRouterDBWorkerEnabled,_BI:cccaRouterPublicHighAddr,_BJ:cccaRouterPublicNonHighAddr,_BK:cccaRouterPrivateHighAddr,_BL:cccaRouterPrivateNonHighAddr,'cccaNicTable':cccaNicTable,'cccaNicEntry':cccaNicEntry,_s:cccaNicIndex,_AG:cccaNicType,_AH:cccaNicStatus,'cccaLoggerTable':cccaLoggerTable,'cccaLoggerEntry':cccaLoggerEntry,_AI:cccaLoggerSide,_AJ:cccaLoggerType,_AK:cccaLoggerRouterSideAName,_AL:cccaLoggerRouterSideBName,_AM:cccaLoggerDuplexPairName,_AN:cccaLoggerHDSReplication,_BM:cccaLoggerAvgDBWriteTime,'cccaDistAwTable':cccaDistAwTable,'cccaDistAwEntry':cccaDistAwEntry,_AO:cccaDistAwSide,_AP:cccaDistAwType,_AQ:cccaDistAwAdminSiteName,_AR:cccaDistAwRouterSideAName,_AS:cccaDistAwRouterSideBName,_AT:cccaDistAwLoggerSideAName,_AU:cccaDistAwLoggerSideBName,_AV:cccaDistAwDuplexPairName,_AW:cccaDistAwHDSEnabled,_AX:cccaDistAwWebViewEnabled,_AY:cccaDistAwWebViewServerName,_BN:cccaDistAwWebReskillingURL,'cccaPgTable':cccaPgTable,'cccaPgEntry':cccaPgEntry,_AZ:cccaPgNumber,_Aa:cccaPgSide,_Ab:cccaPgRouterSideAName,_Ac:cccaPgRouterSideBName,_Ad:cccaPgDuplexPairName,_Ae:cccaPgPimCount,_BO:cccaPgCallsInProgress,_BP:cccaPgAgentsLoggedOn,_BQ:cccaPgAgentsReady,_BR:cccaPgAgentsTalking,'cccaPgID':cccaPgID,'cccaPimTable':cccaPimTable,'cccaPimEntry':cccaPimEntry,_u:cccaPimNumber,_Af:cccaPimPeripheralName,_Ag:cccaPimPeripheralType,_Ah:cccaPimStatus,_Ai:cccaPimPeripheralHostName,'cccaCgTable':cccaCgTable,'cccaCgEntry':cccaCgEntry,_Aj:cccaCgNumber,_Ak:cccaCgSide,_Al:cccaCgPgSideAName,_Am:cccaCgPgSideBName,_An:cccaCgDuplexPairName,_BS:cccaCgOpenSessions,_BT:cccaCgOtherSessions,'cccaCgID':cccaCgID,'cccaCtiOsTable':cccaCtiOsTable,'cccaCtiOsEntry':cccaCtiOsEntry,_Ao:cccaCtiOsServerName,_Ap:cccaCtiOsPeripheralName,_Aq:cccaCtiOsPeripheralType,_Ar:cccaCtiOsCgSideAName,_As:cccaCtiOsCgSideBName,_At:cccaCtiOsPeerName,_BU:cccaCtiOsActiveClients,_BV:cccaCtiOsActiveMonitors,_BW:cccaCtiOsCallsInProgress,_BX:cccaCtiOsCallsFailed,'cccaCampaignMgrTable':cccaCampaignMgrTable,'cccaCampaignMgrEntry':cccaCampaignMgrEntry,_Au:cccaCampaignMgrDbUtilization,_Av:cccaCampaignMgrQueueDepth,_Aw:cccaCampaignMgrAvgQueueTime,_Ax:cccaCampaignMgrActiveDialers,'cccaDialerTable':cccaDialerTable,'cccaDialerEntry':cccaDialerEntry,_Ay:cccaDialerCampaignMgrName,_Az:cccaDialerCampaignMgrStatus,_A_:cccaDialerCtiServerAName,_B0:cccaDialerCtiServerBName,_B1:cccaDialerCtiServerStatus,_B2:cccaDialerMediaRouterStatus,_B3:cccaDialerQueueDepth,_B4:cccaDialerAvgQueueTime,_B5:cccaDialerTalkingAgents,_B6:cccaDialerCallAttemptsPerSec,_B7:cccaDialerConfiguredPorts,_B8:cccaDialerBusyCustomerPorts,_B9:cccaDialerBusyReservationPorts,_BA:cccaDialerIdlePorts,_BB:cccaDialerBlockedPorts,'cccaNotificationInfo':cccaNotificationInfo,_O:cccaEventComponentId,_P:cccaEventState,_Q:cccaEventMessageId,_R:cccaEventOriginatingNode,_S:cccaEventOriginatingNodeType,_T:cccaEventOriginatingProcessName,_U:cccaEventOriginatingSide,_V:cccaEventDmpId,_W:cccaEventSeverity,_X:cccaEventTimestamp,_Y:cccaEventText,'ciscoCcaMIBConform':ciscoCcaMIBConform,'ciscoCcaMIBCompliances':ciscoCcaMIBCompliances,'ciscoCccaMIBComplianceRev1':ciscoCccaMIBComplianceRev1,'ciscoCccaMIBComplianceRev2':ciscoCccaMIBComplianceRev2,'ciscoCcaMIBGroups':ciscoCcaMIBGroups,_Z:cccaGeneralInfoGroup,_a:cccaInstanceTableGroup,_b:cccaComponentTableGroup,_c:cccaComponentElmtTableGroup,_d:cccaRouterTableGroup,_e:cccaNicTableGroup,_f:cccaLoggerTableGroup,_g:cccaDistAwTableGroup,_h:cccaPgTableGroup,_i:cccaPimTableGroup,_j:cccaCgTableGroup,_k:cccaCtiOsTableGroup,_l:cccaIcmNotificationInfoGroup,_m:cccaIcmEventsGroup,_Bg:cccaCampaignMgrTableGroup,_Bh:cccaDialerTableGroup,_BZ:cccaGeneralInfoGroupSup1,_Ba:cccaRouterTableGroupSup1,_Bb:cccaLoggerTableGroupSup1,_Bc:cccaDistAwTableGroupSup1,_Bd:cccaPgTableGroupSup1,_Be:cccaCgTableGroupSup1,_Bf:cccaCtiOsTableGroupSup1})
+#
+# PySNMP MIB module CISCO-CONTACT-CENTER-APPS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-CONTACT-CENTER-APPS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+CiscoURLString, = mibBuilder.importSymbols("CISCO-TC", "CiscoURLString")
+InetAddressDNS, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressDNS")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "DateAndTime", "TextualConvention")
+ciscoCcaMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 473))
+ciscoCcaMIB.setRevisions(('2009-05-06 17:00', '2005-04-05 17:00',))
+if mibBuilder.loadTexts: ciscoCcaMIB.setLastUpdated('200905061700Z')
+if mibBuilder.loadTexts: ciscoCcaMIB.setOrganization('Cisco Systems, Inc.')
+ciscoCcaMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 473, 0))
+ciscoCcaMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 473, 1))
+cccaGeneralInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 1))
+cccaComponents = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2))
+cccaComponentInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3))
+cccaNotificationInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 4))
+ciscoCcaMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 473, 2))
+ciscoCcaMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 1))
+ciscoCcaMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2))
+class CcaIndex(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
+
+class CcaComponentType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))
+    namedValues = NamedValues(("router", 1), ("logger", 2), ("distAW", 3), ("pg", 4), ("cg", 5), ("ctios", 6), ("campaign", 7), ("dialer", 8))
+
+class CcaComponentStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))
+    namedValues = NamedValues(("unknown", 1), ("disabled", 2), ("stopped", 3), ("started", 4), ("active", 5), ("standby", 6), ("disconnected", 7), ("uninitialized", 8), ("notRoutable", 9))
+
+class CcaComponentSide(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("sideA", 1), ("sideB", 2))
+
+class CcaPeripheralType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23))
+    namedValues = NamedValues(("aspect", 1), ("meridian", 2), ("dms100", 3), ("g2", 4), ("g3", 5), ("galaxy", 6), ("spectrum", 7), ("neax2400", 8), ("acp1000", 9), ("rolm9005", 10), ("siemensHicom", 11), ("ericssonMD110", 12), ("alcatel", 13), ("mediaRouting", 14), ("nonVoiceAgent", 15), ("symposium", 16), ("callManager", 17), ("acmiIPCC", 18), ("acmiCRS", 19), ("vru", 20), ("softACD", 21), ("systemIPCC", 23))
+
+cccaName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 1, 1), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaName.setStatus('current')
+cccaDescription = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDescription.setStatus('current')
+cccaVersion = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaVersion.setStatus('current')
+cccaTimeZoneName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaTimeZoneName.setStatus('current')
+cccaTimeZoneOffsetHours = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-12, 12))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaTimeZoneOffsetHours.setStatus('current')
+cccaTimeZoneOffsetMinutes = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-59, 59))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaTimeZoneOffsetMinutes.setStatus('current')
+cccaSupportToolsURL = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 1, 7), CiscoURLString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaSupportToolsURL.setStatus('current')
+cccaWebSetupURL = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 1, 8), CiscoURLString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaWebSetupURL.setStatus('current')
+cccaNotificationsEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 1, 9), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cccaNotificationsEnabled.setStatus('current')
+cccaInstanceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 1), )
+if mibBuilder.loadTexts: cccaInstanceTable.setStatus('current')
+cccaInstanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceNumber"))
+if mibBuilder.loadTexts: cccaInstanceEntry.setStatus('current')
+cccaInstanceNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: cccaInstanceNumber.setStatus('current')
+cccaInstanceName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaInstanceName.setStatus('current')
+cccaComponentTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 2), )
+if mibBuilder.loadTexts: cccaComponentTable.setStatus('current')
+cccaComponentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 2, 1), ).setIndexNames((0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceNumber"), (0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentIndex"))
+if mibBuilder.loadTexts: cccaComponentEntry.setStatus('current')
+cccaComponentIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 2, 1, 1), CcaIndex())
+if mibBuilder.loadTexts: cccaComponentIndex.setStatus('current')
+cccaComponentType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 2, 1, 2), CcaComponentType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaComponentType.setStatus('current')
+cccaComponentName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaComponentName.setStatus('current')
+cccaComponentStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 2, 1, 4), CcaComponentStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaComponentStatus.setStatus('current')
+cccaComponentElmtTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 3), )
+if mibBuilder.loadTexts: cccaComponentElmtTable.setStatus('current')
+cccaComponentElmtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 3, 1), ).setIndexNames((0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceNumber"), (0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentIndex"), (0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentElmtIndex"))
+if mibBuilder.loadTexts: cccaComponentElmtEntry.setStatus('current')
+cccaComponentElmtIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cccaComponentElmtIndex.setStatus('current')
+cccaComponentElmtName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 3, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaComponentElmtName.setStatus('current')
+cccaComponentElmtRunID = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 3, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaComponentElmtRunID.setStatus('current')
+cccaComponentElmtStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 2, 3, 1, 4), CcaComponentStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaComponentElmtStatus.setStatus('current')
+cccaRouterTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1), )
+if mibBuilder.loadTexts: cccaRouterTable.setStatus('current')
+cccaRouterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1, 1), ).setIndexNames((0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceNumber"), (0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentIndex"))
+if mibBuilder.loadTexts: cccaRouterEntry.setStatus('current')
+cccaRouterSide = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1, 1, 1), CcaComponentSide()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaRouterSide.setStatus('current')
+cccaRouterCallsPerSec = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1, 1, 2), Gauge32()).setUnits('calls').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaRouterCallsPerSec.setStatus('current')
+cccaRouterAgentsLoggedOn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1, 1, 3), Gauge32()).setUnits('agents').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaRouterAgentsLoggedOn.setStatus('current')
+cccaRouterCallsInProgress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1, 1, 4), Gauge32()).setUnits('calls').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaRouterCallsInProgress.setStatus('current')
+cccaRouterDuplexPairName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1, 1, 5), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaRouterDuplexPairName.setStatus('current')
+cccaRouterNicCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1, 1, 6), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setUnits('entries').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaRouterNicCount.setStatus('current')
+cccaRouterPGsEnabledCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1, 1, 7), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 250))).setUnits('peripherals').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaRouterPGsEnabledCount.setStatus('current')
+cccaRouterCallsInQueue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1, 1, 8), Gauge32()).setUnits('calls').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaRouterCallsInQueue.setStatus('current')
+cccaRouterAppGwEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1, 1, 9), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaRouterAppGwEnabled.setStatus('current')
+cccaRouterDBWorkerEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1, 1, 10), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaRouterDBWorkerEnabled.setStatus('current')
+cccaRouterPublicHighAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1, 1, 11), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaRouterPublicHighAddr.setStatus('current')
+cccaRouterPublicNonHighAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1, 1, 12), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaRouterPublicNonHighAddr.setStatus('current')
+cccaRouterPrivateHighAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1, 1, 13), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaRouterPrivateHighAddr.setStatus('current')
+cccaRouterPrivateNonHighAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 1, 1, 14), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaRouterPrivateNonHighAddr.setStatus('current')
+cccaNicTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 2), )
+if mibBuilder.loadTexts: cccaNicTable.setStatus('current')
+cccaNicEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 2, 1), ).setIndexNames((0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceNumber"), (0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentIndex"), (0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaNicIndex"))
+if mibBuilder.loadTexts: cccaNicEntry.setStatus('current')
+cccaNicIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 2, 1, 1), CcaIndex())
+if mibBuilder.loadTexts: cccaNicIndex.setStatus('current')
+cccaNicType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15))).clone(namedValues=NamedValues(("generic", 1), ("att", 2), ("aucsINAP", 3), ("cain", 4), ("crsp", 5), ("cwc", 6), ("gktmp", 7), ("incrp", 8), ("mci", 9), ("nortel", 10), ("ntl", 11), ("sprint", 12), ("ss7in", 13), ("stentor", 14), ("timINAP", 15)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaNicType.setStatus('current')
+cccaNicStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 2, 1, 3), CcaComponentStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaNicStatus.setStatus('current')
+cccaLoggerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 3), )
+if mibBuilder.loadTexts: cccaLoggerTable.setStatus('current')
+cccaLoggerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 3, 1), ).setIndexNames((0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceNumber"), (0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentIndex"))
+if mibBuilder.loadTexts: cccaLoggerEntry.setStatus('current')
+cccaLoggerSide = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 3, 1, 1), CcaComponentSide()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaLoggerSide.setStatus('current')
+cccaLoggerType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("standard", 1), ("nam", 2), ("cicm", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaLoggerType.setStatus('current')
+cccaLoggerRouterSideAName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 3, 1, 3), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaLoggerRouterSideAName.setStatus('current')
+cccaLoggerRouterSideBName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 3, 1, 4), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaLoggerRouterSideBName.setStatus('current')
+cccaLoggerDuplexPairName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 3, 1, 5), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaLoggerDuplexPairName.setStatus('current')
+cccaLoggerHDSReplication = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 3, 1, 6), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaLoggerHDSReplication.setStatus('current')
+cccaLoggerAvgDBWriteTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 3, 1, 7), Unsigned32()).setUnits('hundred nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaLoggerAvgDBWriteTime.setStatus('current')
+cccaDistAwTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 4), )
+if mibBuilder.loadTexts: cccaDistAwTable.setStatus('current')
+cccaDistAwEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 4, 1), ).setIndexNames((0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceNumber"), (0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentIndex"))
+if mibBuilder.loadTexts: cccaDistAwEntry.setStatus('current')
+cccaDistAwSide = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 4, 1, 1), CcaComponentSide()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDistAwSide.setStatus('deprecated')
+cccaDistAwType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("standard", 0), ("nam", 1), ("cicm", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDistAwType.setStatus('current')
+cccaDistAwAdminSiteName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 4, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDistAwAdminSiteName.setStatus('current')
+cccaDistAwRouterSideAName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 4, 1, 4), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDistAwRouterSideAName.setStatus('current')
+cccaDistAwRouterSideBName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 4, 1, 5), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDistAwRouterSideBName.setStatus('current')
+cccaDistAwLoggerSideAName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 4, 1, 6), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDistAwLoggerSideAName.setStatus('current')
+cccaDistAwLoggerSideBName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 4, 1, 7), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDistAwLoggerSideBName.setStatus('current')
+cccaDistAwDuplexPairName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 4, 1, 8), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDistAwDuplexPairName.setStatus('deprecated')
+cccaDistAwHDSEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 4, 1, 9), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDistAwHDSEnabled.setStatus('current')
+cccaDistAwWebViewEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 4, 1, 10), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDistAwWebViewEnabled.setStatus('current')
+cccaDistAwWebViewServerName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 4, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDistAwWebViewServerName.setStatus('current')
+cccaDistAwWebReskillingURL = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 4, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDistAwWebReskillingURL.setStatus('current')
+cccaPgTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 5), )
+if mibBuilder.loadTexts: cccaPgTable.setStatus('current')
+cccaPgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 5, 1), ).setIndexNames((0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceNumber"), (0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentIndex"))
+if mibBuilder.loadTexts: cccaPgEntry.setStatus('current')
+cccaPgNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 5, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaPgNumber.setStatus('deprecated')
+cccaPgSide = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 5, 1, 2), CcaComponentSide()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaPgSide.setStatus('current')
+cccaPgRouterSideAName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 5, 1, 3), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaPgRouterSideAName.setStatus('current')
+cccaPgRouterSideBName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 5, 1, 4), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaPgRouterSideBName.setStatus('current')
+cccaPgDuplexPairName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 5, 1, 5), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaPgDuplexPairName.setStatus('current')
+cccaPgPimCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 5, 1, 6), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaPgPimCount.setStatus('current')
+cccaPgCallsInProgress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 5, 1, 7), Gauge32()).setUnits('calls').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaPgCallsInProgress.setStatus('current')
+cccaPgAgentsLoggedOn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 5, 1, 8), Gauge32()).setUnits('agents').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaPgAgentsLoggedOn.setStatus('current')
+cccaPgAgentsReady = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 5, 1, 9), Gauge32()).setUnits('agents').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaPgAgentsReady.setStatus('current')
+cccaPgAgentsTalking = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 5, 1, 10), Gauge32()).setUnits('agents').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaPgAgentsTalking.setStatus('current')
+cccaPgID = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 5, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaPgID.setStatus('current')
+cccaPimTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 6), )
+if mibBuilder.loadTexts: cccaPimTable.setStatus('current')
+cccaPimEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 6, 1), ).setIndexNames((0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceNumber"), (0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentIndex"), (0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaPimNumber"))
+if mibBuilder.loadTexts: cccaPimEntry.setStatus('current')
+cccaPimNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 6, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 32)))
+if mibBuilder.loadTexts: cccaPimNumber.setStatus('current')
+cccaPimPeripheralName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 6, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaPimPeripheralName.setStatus('current')
+cccaPimPeripheralType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 6, 1, 3), CcaPeripheralType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaPimPeripheralType.setStatus('current')
+cccaPimStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 6, 1, 4), CcaComponentStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaPimStatus.setStatus('current')
+cccaPimPeripheralHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 6, 1, 5), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaPimPeripheralHostName.setStatus('current')
+cccaCgTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 7), )
+if mibBuilder.loadTexts: cccaCgTable.setStatus('current')
+cccaCgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 7, 1), ).setIndexNames((0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceNumber"), (0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentIndex"))
+if mibBuilder.loadTexts: cccaCgEntry.setStatus('current')
+cccaCgNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 7, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCgNumber.setStatus('deprecated')
+cccaCgSide = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 7, 1, 2), CcaComponentSide()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCgSide.setStatus('current')
+cccaCgPgSideAName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 7, 1, 3), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCgPgSideAName.setStatus('current')
+cccaCgPgSideBName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 7, 1, 4), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCgPgSideBName.setStatus('current')
+cccaCgDuplexPairName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 7, 1, 5), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCgDuplexPairName.setStatus('current')
+cccaCgOpenSessions = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 7, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCgOpenSessions.setStatus('current')
+cccaCgOtherSessions = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 7, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCgOtherSessions.setStatus('current')
+cccaCgID = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 7, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCgID.setStatus('current')
+cccaCtiOsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 8), )
+if mibBuilder.loadTexts: cccaCtiOsTable.setStatus('current')
+cccaCtiOsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 8, 1), ).setIndexNames((0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceNumber"), (0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentIndex"))
+if mibBuilder.loadTexts: cccaCtiOsEntry.setStatus('current')
+cccaCtiOsServerName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 8, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCtiOsServerName.setStatus('current')
+cccaCtiOsPeripheralName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 8, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCtiOsPeripheralName.setStatus('current')
+cccaCtiOsPeripheralType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 8, 1, 3), CcaPeripheralType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCtiOsPeripheralType.setStatus('current')
+cccaCtiOsCgSideAName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 8, 1, 4), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCtiOsCgSideAName.setStatus('current')
+cccaCtiOsCgSideBName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 8, 1, 5), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCtiOsCgSideBName.setStatus('current')
+cccaCtiOsPeerName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 8, 1, 6), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCtiOsPeerName.setStatus('current')
+cccaCtiOsActiveClients = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 8, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCtiOsActiveClients.setStatus('current')
+cccaCtiOsActiveMonitors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 8, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCtiOsActiveMonitors.setStatus('current')
+cccaCtiOsCallsInProgress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 8, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCtiOsCallsInProgress.setStatus('current')
+cccaCtiOsCallsFailed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 8, 1, 10), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCtiOsCallsFailed.setStatus('current')
+cccaCampaignMgrTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 9), )
+if mibBuilder.loadTexts: cccaCampaignMgrTable.setStatus('current')
+cccaCampaignMgrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 9, 1), ).setIndexNames((0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceNumber"), (0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentIndex"))
+if mibBuilder.loadTexts: cccaCampaignMgrEntry.setStatus('current')
+cccaCampaignMgrDbUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 9, 1, 1), Gauge32()).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCampaignMgrDbUtilization.setStatus('current')
+cccaCampaignMgrQueueDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 9, 1, 2), Gauge32()).setUnits('entries').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCampaignMgrQueueDepth.setStatus('current')
+cccaCampaignMgrAvgQueueTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 9, 1, 3), Gauge32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCampaignMgrAvgQueueTime.setStatus('current')
+cccaCampaignMgrActiveDialers = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 9, 1, 4), Gauge32()).setUnits('dialers').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaCampaignMgrActiveDialers.setStatus('current')
+cccaDialerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10), )
+if mibBuilder.loadTexts: cccaDialerTable.setStatus('current')
+cccaDialerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1), ).setIndexNames((0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceNumber"), (0, "CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentIndex"))
+if mibBuilder.loadTexts: cccaDialerEntry.setStatus('current')
+cccaDialerCampaignMgrName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1, 1), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDialerCampaignMgrName.setStatus('current')
+cccaDialerCampaignMgrStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1, 2), CcaComponentStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDialerCampaignMgrStatus.setStatus('current')
+cccaDialerCtiServerAName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1, 3), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDialerCtiServerAName.setStatus('current')
+cccaDialerCtiServerBName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1, 4), InetAddressDNS()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDialerCtiServerBName.setStatus('current')
+cccaDialerCtiServerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1, 5), CcaComponentStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDialerCtiServerStatus.setStatus('current')
+cccaDialerMediaRouterStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1, 6), CcaComponentStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDialerMediaRouterStatus.setStatus('current')
+cccaDialerQueueDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1, 7), Gauge32()).setUnits('messages').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDialerQueueDepth.setStatus('current')
+cccaDialerAvgQueueTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1, 8), Gauge32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDialerAvgQueueTime.setStatus('current')
+cccaDialerTalkingAgents = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1, 9), Gauge32()).setUnits('agents').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDialerTalkingAgents.setStatus('current')
+cccaDialerCallAttemptsPerSec = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1, 10), Gauge32()).setUnits('calls').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDialerCallAttemptsPerSec.setStatus('current')
+cccaDialerConfiguredPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1, 11), Gauge32()).setUnits('ports').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDialerConfiguredPorts.setStatus('current')
+cccaDialerBusyCustomerPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1, 12), Gauge32()).setUnits('ports').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDialerBusyCustomerPorts.setStatus('current')
+cccaDialerBusyReservationPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1, 13), Gauge32()).setUnits('ports').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDialerBusyReservationPorts.setStatus('current')
+cccaDialerIdlePorts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1, 14), Gauge32()).setUnits('ports').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDialerIdlePorts.setStatus('current')
+cccaDialerBlockedPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 3, 10, 1, 15), Gauge32()).setUnits('ports').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cccaDialerBlockedPorts.setStatus('current')
+cccaEventComponentId = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 4, 1), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cccaEventComponentId.setStatus('current')
+cccaEventState = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 4, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 2, 4, 9))).clone(namedValues=NamedValues(("clear", 0), ("applicationError", 2), ("raise", 4), ("singleStateRaise", 9)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cccaEventState.setStatus('current')
+cccaEventMessageId = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 4, 3), Unsigned32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cccaEventMessageId.setStatus('current')
+cccaEventOriginatingNode = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 4, 4), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cccaEventOriginatingNode.setStatus('current')
+cccaEventOriginatingNodeType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 4, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("unknown", 0), ("router", 1), ("pg", 2), ("nic", 3), ("aw", 4), ("logger", 5), ("listener", 6), ("cg", 7), ("ba", 8)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cccaEventOriginatingNodeType.setStatus('current')
+cccaEventOriginatingProcessName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 4, 6), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cccaEventOriginatingProcessName.setStatus('current')
+cccaEventOriginatingSide = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 4, 7), CcaComponentSide()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cccaEventOriginatingSide.setStatus('current')
+cccaEventDmpId = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 4, 8), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cccaEventDmpId.setStatus('current')
+cccaEventSeverity = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 4, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("informational", 1), ("warning", 2), ("error", 3)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cccaEventSeverity.setStatus('current')
+cccaEventTimestamp = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 4, 10), DateAndTime()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cccaEventTimestamp.setStatus('current')
+cccaEventText = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 473, 1, 4, 11), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cccaEventText.setStatus('current')
+cccaIcmEvent = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 473, 0, 1)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventComponentId"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventState"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventMessageId"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventOriginatingNode"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventOriginatingNodeType"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventOriginatingProcessName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventOriginatingSide"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventDmpId"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventSeverity"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventTimestamp"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventText"))
+if mibBuilder.loadTexts: cccaIcmEvent.setStatus('current')
+ciscoCccaMIBComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 1, 1)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaGeneralInfoGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentElmtTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaNicTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaLoggerTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDistAwTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPgTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPimTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCgTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCtiOsTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaIcmNotificationInfoGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaIcmEventsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCccaMIBComplianceRev1 = ciscoCccaMIBComplianceRev1.setStatus('deprecated')
+ciscoCccaMIBComplianceRev2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 1, 2)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaGeneralInfoGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaGeneralInfoGroupSup1"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentElmtTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterTableGroupSup1"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaNicTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaLoggerTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaLoggerTableGroupSup1"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDistAwTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDistAwTableGroupSup1"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPgTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPgTableGroupSup1"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPimTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCgTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCgTableGroupSup1"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCtiOsTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCtiOsTableGroupSup1"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaIcmNotificationInfoGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaIcmEventsGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCampaignMgrTableGroup"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerTableGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCccaMIBComplianceRev2 = ciscoCccaMIBComplianceRev2.setStatus('current')
+cccaGeneralInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 1)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDescription"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaVersion"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaTimeZoneName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaTimeZoneOffsetHours"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaTimeZoneOffsetMinutes"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaSupportToolsURL"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaGeneralInfoGroup = cccaGeneralInfoGroup.setStatus('current')
+cccaInstanceTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 2)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaInstanceName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaInstanceTableGroup = cccaInstanceTableGroup.setStatus('current')
+cccaComponentTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 3)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentType"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaComponentTableGroup = cccaComponentTableGroup.setStatus('current')
+cccaComponentElmtTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 4)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentElmtName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentElmtRunID"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaComponentElmtStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaComponentElmtTableGroup = cccaComponentElmtTableGroup.setStatus('current')
+cccaRouterTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 5)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterSide"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterCallsPerSec"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterAgentsLoggedOn"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterCallsInProgress"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterDuplexPairName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterNicCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaRouterTableGroup = cccaRouterTableGroup.setStatus('current')
+cccaNicTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 6)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaNicType"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaNicStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaNicTableGroup = cccaNicTableGroup.setStatus('current')
+cccaLoggerTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 7)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaLoggerSide"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaLoggerType"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaLoggerRouterSideAName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaLoggerRouterSideBName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaLoggerDuplexPairName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaLoggerHDSReplication"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaLoggerTableGroup = cccaLoggerTableGroup.setStatus('current')
+cccaDistAwTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 8)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDistAwSide"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDistAwType"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDistAwAdminSiteName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDistAwRouterSideAName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDistAwRouterSideBName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDistAwLoggerSideAName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDistAwLoggerSideBName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDistAwDuplexPairName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDistAwHDSEnabled"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDistAwWebViewEnabled"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDistAwWebViewServerName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaDistAwTableGroup = cccaDistAwTableGroup.setStatus('current')
+cccaPgTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 9)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPgNumber"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPgSide"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPgRouterSideAName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPgRouterSideBName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPgDuplexPairName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPgPimCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaPgTableGroup = cccaPgTableGroup.setStatus('current')
+cccaPimTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 10)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPimPeripheralName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPimPeripheralType"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPimStatus"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPimPeripheralHostName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaPimTableGroup = cccaPimTableGroup.setStatus('current')
+cccaCgTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 11)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCgNumber"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCgSide"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCgPgSideAName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCgPgSideBName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCgDuplexPairName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaCgTableGroup = cccaCgTableGroup.setStatus('current')
+cccaCtiOsTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 12)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCtiOsServerName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCtiOsPeripheralName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCtiOsPeripheralType"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCtiOsCgSideAName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCtiOsCgSideBName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCtiOsPeerName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaCtiOsTableGroup = cccaCtiOsTableGroup.setStatus('current')
+cccaIcmNotificationInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 13)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventComponentId"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventState"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventMessageId"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventOriginatingNode"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventOriginatingNodeType"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventOriginatingProcessName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventOriginatingSide"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventDmpId"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventSeverity"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventTimestamp"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaEventText"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaIcmNotificationInfoGroup = cccaIcmNotificationInfoGroup.setStatus('current')
+cccaIcmEventsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 14)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaIcmEvent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaIcmEventsGroup = cccaIcmEventsGroup.setStatus('current')
+cccaCampaignMgrTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 15)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCampaignMgrDbUtilization"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCampaignMgrQueueDepth"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCampaignMgrAvgQueueTime"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCampaignMgrActiveDialers"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaCampaignMgrTableGroup = cccaCampaignMgrTableGroup.setStatus('current')
+cccaDialerTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 16)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerCampaignMgrName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerCampaignMgrStatus"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerCtiServerAName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerCtiServerBName"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerCtiServerStatus"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerMediaRouterStatus"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerQueueDepth"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerAvgQueueTime"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerTalkingAgents"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerCallAttemptsPerSec"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerConfiguredPorts"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerBusyCustomerPorts"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerBusyReservationPorts"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerIdlePorts"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDialerBlockedPorts"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaDialerTableGroup = cccaDialerTableGroup.setStatus('current')
+cccaGeneralInfoGroupSup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 17)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaWebSetupURL"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaNotificationsEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaGeneralInfoGroupSup1 = cccaGeneralInfoGroupSup1.setStatus('current')
+cccaRouterTableGroupSup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 18)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterPGsEnabledCount"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterCallsInQueue"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterAppGwEnabled"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterDBWorkerEnabled"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterPublicHighAddr"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterPublicNonHighAddr"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterPrivateHighAddr"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaRouterPrivateNonHighAddr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaRouterTableGroupSup1 = cccaRouterTableGroupSup1.setStatus('current')
+cccaLoggerTableGroupSup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 19)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaLoggerAvgDBWriteTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaLoggerTableGroupSup1 = cccaLoggerTableGroupSup1.setStatus('current')
+cccaDistAwTableGroupSup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 20)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaDistAwWebReskillingURL"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaDistAwTableGroupSup1 = cccaDistAwTableGroupSup1.setStatus('current')
+cccaPgTableGroupSup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 21)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPgCallsInProgress"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPgAgentsLoggedOn"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPgAgentsReady"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPgAgentsTalking"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaPgID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaPgTableGroupSup1 = cccaPgTableGroupSup1.setStatus('current')
+cccaCgTableGroupSup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 22)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCgOpenSessions"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCgOtherSessions"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCgID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaCgTableGroupSup1 = cccaCgTableGroupSup1.setStatus('current')
+cccaCtiOsTableGroupSup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 473, 2, 2, 23)).setObjects(("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCtiOsActiveClients"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCtiOsActiveMonitors"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCtiOsCallsInProgress"), ("CISCO-CONTACT-CENTER-APPS-MIB", "cccaCtiOsCallsFailed"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cccaCtiOsTableGroupSup1 = cccaCtiOsTableGroupSup1.setStatus('current')
+mibBuilder.exportSymbols("CISCO-CONTACT-CENTER-APPS-MIB", cccaPgCallsInProgress=cccaPgCallsInProgress, cccaRouterPrivateNonHighAddr=cccaRouterPrivateNonHighAddr, cccaCgID=cccaCgID, cccaInstanceTable=cccaInstanceTable, cccaLoggerTableGroupSup1=cccaLoggerTableGroupSup1, cccaTimeZoneName=cccaTimeZoneName, cccaCgDuplexPairName=cccaCgDuplexPairName, cccaComponentTable=cccaComponentTable, cccaCgTableGroupSup1=cccaCgTableGroupSup1, cccaRouterAgentsLoggedOn=cccaRouterAgentsLoggedOn, ciscoCcaMIBConform=ciscoCcaMIBConform, cccaDistAwWebViewEnabled=cccaDistAwWebViewEnabled, cccaNicType=cccaNicType, CcaComponentStatus=CcaComponentStatus, cccaComponentEntry=cccaComponentEntry, cccaCtiOsCgSideAName=cccaCtiOsCgSideAName, cccaPgAgentsReady=cccaPgAgentsReady, CcaPeripheralType=CcaPeripheralType, cccaPgAgentsTalking=cccaPgAgentsTalking, cccaDistAwRouterSideBName=cccaDistAwRouterSideBName, cccaEventOriginatingNode=cccaEventOriginatingNode, cccaCtiOsCgSideBName=cccaCtiOsCgSideBName, cccaComponentElmtStatus=cccaComponentElmtStatus, ciscoCcaMIB=ciscoCcaMIB, cccaDistAwAdminSiteName=cccaDistAwAdminSiteName, cccaCampaignMgrActiveDialers=cccaCampaignMgrActiveDialers, CcaComponentSide=CcaComponentSide, cccaNicTableGroup=cccaNicTableGroup, cccaDistAwWebViewServerName=cccaDistAwWebViewServerName, CcaIndex=CcaIndex, cccaPimPeripheralName=cccaPimPeripheralName, cccaCampaignMgrAvgQueueTime=cccaCampaignMgrAvgQueueTime, cccaDialerAvgQueueTime=cccaDialerAvgQueueTime, cccaLoggerAvgDBWriteTime=cccaLoggerAvgDBWriteTime, cccaDialerTableGroup=cccaDialerTableGroup, cccaRouterAppGwEnabled=cccaRouterAppGwEnabled, cccaGeneralInfo=cccaGeneralInfo, cccaPgAgentsLoggedOn=cccaPgAgentsLoggedOn, cccaComponentStatus=cccaComponentStatus, cccaInstanceName=cccaInstanceName, cccaRouterPublicHighAddr=cccaRouterPublicHighAddr, cccaLoggerRouterSideAName=cccaLoggerRouterSideAName, cccaEventComponentId=cccaEventComponentId, cccaPgTableGroupSup1=cccaPgTableGroupSup1, ciscoCccaMIBComplianceRev1=ciscoCccaMIBComplianceRev1, cccaNicEntry=cccaNicEntry, cccaPgSide=cccaPgSide, cccaPimEntry=cccaPimEntry, cccaPgRouterSideBName=cccaPgRouterSideBName, cccaEventOriginatingNodeType=cccaEventOriginatingNodeType, cccaLoggerSide=cccaLoggerSide, cccaCtiOsPeripheralName=cccaCtiOsPeripheralName, cccaDialerBlockedPorts=cccaDialerBlockedPorts, cccaPgRouterSideAName=cccaPgRouterSideAName, cccaEventMessageId=cccaEventMessageId, cccaDialerTable=cccaDialerTable, ciscoCcaMIBNotifs=ciscoCcaMIBNotifs, cccaRouterDBWorkerEnabled=cccaRouterDBWorkerEnabled, cccaPgTable=cccaPgTable, cccaCtiOsTableGroupSup1=cccaCtiOsTableGroupSup1, cccaEventDmpId=cccaEventDmpId, cccaCtiOsCallsFailed=cccaCtiOsCallsFailed, cccaDistAwTableGroupSup1=cccaDistAwTableGroupSup1, cccaDialerBusyReservationPorts=cccaDialerBusyReservationPorts, cccaRouterPublicNonHighAddr=cccaRouterPublicNonHighAddr, cccaDistAwTableGroup=cccaDistAwTableGroup, cccaDialerCtiServerBName=cccaDialerCtiServerBName, cccaEventTimestamp=cccaEventTimestamp, cccaCgSide=cccaCgSide, cccaLoggerEntry=cccaLoggerEntry, cccaComponentElmtRunID=cccaComponentElmtRunID, cccaDistAwTable=cccaDistAwTable, cccaVersion=cccaVersion, cccaDialerConfiguredPorts=cccaDialerConfiguredPorts, cccaRouterTableGroup=cccaRouterTableGroup, cccaRouterEntry=cccaRouterEntry, cccaDialerTalkingAgents=cccaDialerTalkingAgents, cccaPimPeripheralType=cccaPimPeripheralType, cccaPgDuplexPairName=cccaPgDuplexPairName, ciscoCcaMIBObjects=ciscoCcaMIBObjects, cccaEventState=cccaEventState, cccaComponentElmtEntry=cccaComponentElmtEntry, cccaLoggerTableGroup=cccaLoggerTableGroup, cccaDistAwHDSEnabled=cccaDistAwHDSEnabled, cccaCgNumber=cccaCgNumber, cccaComponentInfo=cccaComponentInfo, cccaPgNumber=cccaPgNumber, cccaLoggerHDSReplication=cccaLoggerHDSReplication, cccaEventSeverity=cccaEventSeverity, cccaRouterCallsPerSec=cccaRouterCallsPerSec, cccaDistAwSide=cccaDistAwSide, CcaComponentType=CcaComponentType, cccaRouterDuplexPairName=cccaRouterDuplexPairName, cccaCtiOsPeripheralType=cccaCtiOsPeripheralType, cccaPgEntry=cccaPgEntry, cccaCampaignMgrDbUtilization=cccaCampaignMgrDbUtilization, cccaComponents=cccaComponents, cccaDialerCampaignMgrStatus=cccaDialerCampaignMgrStatus, cccaRouterPrivateHighAddr=cccaRouterPrivateHighAddr, cccaEventOriginatingSide=cccaEventOriginatingSide, cccaCgEntry=cccaCgEntry, cccaInstanceNumber=cccaInstanceNumber, cccaCtiOsEntry=cccaCtiOsEntry, cccaLoggerTable=cccaLoggerTable, cccaDialerBusyCustomerPorts=cccaDialerBusyCustomerPorts, cccaCampaignMgrQueueDepth=cccaCampaignMgrQueueDepth, cccaCgTableGroup=cccaCgTableGroup, cccaCgOpenSessions=cccaCgOpenSessions, cccaIcmEvent=cccaIcmEvent, cccaCampaignMgrTableGroup=cccaCampaignMgrTableGroup, cccaCtiOsActiveMonitors=cccaCtiOsActiveMonitors, cccaRouterCallsInQueue=cccaRouterCallsInQueue, cccaDialerEntry=cccaDialerEntry, cccaCgTable=cccaCgTable, cccaPimTableGroup=cccaPimTableGroup, cccaName=cccaName, cccaDialerMediaRouterStatus=cccaDialerMediaRouterStatus, cccaPimTable=cccaPimTable, cccaCampaignMgrTable=cccaCampaignMgrTable, cccaTimeZoneOffsetMinutes=cccaTimeZoneOffsetMinutes, cccaDistAwLoggerSideAName=cccaDistAwLoggerSideAName, cccaInstanceTableGroup=cccaInstanceTableGroup, cccaSupportToolsURL=cccaSupportToolsURL, cccaNicTable=cccaNicTable, cccaRouterCallsInProgress=cccaRouterCallsInProgress, ciscoCcaMIBGroups=ciscoCcaMIBGroups, cccaTimeZoneOffsetHours=cccaTimeZoneOffsetHours, cccaLoggerRouterSideBName=cccaLoggerRouterSideBName, cccaRouterNicCount=cccaRouterNicCount, cccaDistAwLoggerSideBName=cccaDistAwLoggerSideBName, cccaCtiOsTable=cccaCtiOsTable, PYSNMP_MODULE_ID=ciscoCcaMIB, cccaRouterSide=cccaRouterSide, cccaDistAwWebReskillingURL=cccaDistAwWebReskillingURL, cccaDialerCtiServerAName=cccaDialerCtiServerAName, cccaGeneralInfoGroup=cccaGeneralInfoGroup, cccaComponentIndex=cccaComponentIndex, cccaEventText=cccaEventText, cccaCgPgSideBName=cccaCgPgSideBName, cccaCtiOsTableGroup=cccaCtiOsTableGroup, cccaCtiOsCallsInProgress=cccaCtiOsCallsInProgress, cccaComponentElmtTableGroup=cccaComponentElmtTableGroup, cccaRouterTable=cccaRouterTable, cccaLoggerType=cccaLoggerType, cccaCtiOsActiveClients=cccaCtiOsActiveClients, cccaPgTableGroup=cccaPgTableGroup, cccaIcmNotificationInfoGroup=cccaIcmNotificationInfoGroup, cccaLoggerDuplexPairName=cccaLoggerDuplexPairName, cccaInstanceEntry=cccaInstanceEntry, ciscoCccaMIBComplianceRev2=ciscoCccaMIBComplianceRev2, cccaDistAwType=cccaDistAwType, cccaDistAwRouterSideAName=cccaDistAwRouterSideAName, cccaCgOtherSessions=cccaCgOtherSessions, cccaPimNumber=cccaPimNumber, cccaComponentTableGroup=cccaComponentTableGroup, cccaRouterTableGroupSup1=cccaRouterTableGroupSup1, cccaDialerCampaignMgrName=cccaDialerCampaignMgrName, cccaPgPimCount=cccaPgPimCount, cccaPimStatus=cccaPimStatus, cccaDialerCallAttemptsPerSec=cccaDialerCallAttemptsPerSec, cccaNicIndex=cccaNicIndex, cccaCgPgSideAName=cccaCgPgSideAName, cccaDescription=cccaDescription, cccaNicStatus=cccaNicStatus, cccaNotificationsEnabled=cccaNotificationsEnabled, cccaDialerQueueDepth=cccaDialerQueueDepth, cccaCtiOsServerName=cccaCtiOsServerName, cccaCtiOsPeerName=cccaCtiOsPeerName, cccaGeneralInfoGroupSup1=cccaGeneralInfoGroupSup1, cccaDistAwDuplexPairName=cccaDistAwDuplexPairName, cccaDialerCtiServerStatus=cccaDialerCtiServerStatus, cccaNotificationInfo=cccaNotificationInfo, cccaWebSetupURL=cccaWebSetupURL, cccaCampaignMgrEntry=cccaCampaignMgrEntry, ciscoCcaMIBCompliances=ciscoCcaMIBCompliances, cccaComponentElmtIndex=cccaComponentElmtIndex, cccaComponentName=cccaComponentName, cccaDistAwEntry=cccaDistAwEntry, cccaPimPeripheralHostName=cccaPimPeripheralHostName, cccaPgID=cccaPgID, cccaComponentElmtName=cccaComponentElmtName, cccaEventOriginatingProcessName=cccaEventOriginatingProcessName, cccaIcmEventsGroup=cccaIcmEventsGroup, cccaComponentType=cccaComponentType, cccaComponentElmtTable=cccaComponentElmtTable, cccaRouterPGsEnabledCount=cccaRouterPGsEnabledCount, cccaDialerIdlePorts=cccaDialerIdlePorts)

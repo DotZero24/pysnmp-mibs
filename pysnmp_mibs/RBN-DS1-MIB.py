@@ -1,52 +1,42 @@
-_G='rbnDs1Group'
-_F='rbnDsx1AlarmServiceAffecting'
-_E='rbnDsx1AlarmSeverity'
-_D='rbnDsx1ConfigEntry'
-_C='read-only'
-_B='RBN-DS1-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dsx1ConfigEntry,=mibBuilder.importSymbols('DS1-MIB','dsx1ConfigEntry')
-RbnAlarmPerceivedSeverity,RbnAlarmServiceAffecting=mibBuilder.importSymbols('RBN-ALARM-TC','RbnAlarmPerceivedSeverity','RbnAlarmServiceAffecting')
-rbnMgmt,=mibBuilder.importSymbols('RBN-SMI','rbnMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-rbnDS1MIB=ModuleIdentity((1,3,6,1,4,1,2352,2,37))
-if mibBuilder.loadTexts:rbnDS1MIB.setRevisions(('2005-05-09 00:00',))
-_RbnDs1MIBObjects_ObjectIdentity=ObjectIdentity
-rbnDs1MIBObjects=_RbnDs1MIBObjects_ObjectIdentity((1,3,6,1,4,1,2352,2,37,1))
-_RbnDsx1ConfigTable_Object=MibTable
-rbnDsx1ConfigTable=_RbnDsx1ConfigTable_Object((1,3,6,1,4,1,2352,2,37,1,1))
-if mibBuilder.loadTexts:rbnDsx1ConfigTable.setStatus(_A)
-_RbnDsx1ConfigEntry_Object=MibTableRow
-rbnDsx1ConfigEntry=_RbnDsx1ConfigEntry_Object((1,3,6,1,4,1,2352,2,37,1,1,1))
-if mibBuilder.loadTexts:rbnDsx1ConfigEntry.setStatus(_A)
-_RbnDsx1AlarmSeverity_Type=RbnAlarmPerceivedSeverity
-_RbnDsx1AlarmSeverity_Object=MibTableColumn
-rbnDsx1AlarmSeverity=_RbnDsx1AlarmSeverity_Object((1,3,6,1,4,1,2352,2,37,1,1,1,1),_RbnDsx1AlarmSeverity_Type())
-rbnDsx1AlarmSeverity.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnDsx1AlarmSeverity.setStatus(_A)
-_RbnDsx1AlarmServiceAffecting_Type=RbnAlarmServiceAffecting
-_RbnDsx1AlarmServiceAffecting_Object=MibTableColumn
-rbnDsx1AlarmServiceAffecting=_RbnDsx1AlarmServiceAffecting_Object((1,3,6,1,4,1,2352,2,37,1,1,1,2),_RbnDsx1AlarmServiceAffecting_Type())
-rbnDsx1AlarmServiceAffecting.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnDsx1AlarmServiceAffecting.setStatus(_A)
-_RbnDs1MIBConformance_ObjectIdentity=ObjectIdentity
-rbnDs1MIBConformance=_RbnDs1MIBConformance_ObjectIdentity((1,3,6,1,4,1,2352,2,37,2))
-_RbnDs1MIBGroups_ObjectIdentity=ObjectIdentity
-rbnDs1MIBGroups=_RbnDs1MIBGroups_ObjectIdentity((1,3,6,1,4,1,2352,2,37,2,1))
-_RbnDs1MIBCompliances_ObjectIdentity=ObjectIdentity
-rbnDs1MIBCompliances=_RbnDs1MIBCompliances_ObjectIdentity((1,3,6,1,4,1,2352,2,37,2,2))
-dsx1ConfigEntry.registerAugmentions((_B,_D))
+#
+# PySNMP MIB module RBN-DS1-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ericsson/RBN-DS1-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:51 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dsx1ConfigEntry, = mibBuilder.importSymbols("DS1-MIB", "dsx1ConfigEntry")
+RbnAlarmServiceAffecting, RbnAlarmPerceivedSeverity = mibBuilder.importSymbols("RBN-ALARM-TC", "RbnAlarmServiceAffecting", "RbnAlarmPerceivedSeverity")
+rbnMgmt, = mibBuilder.importSymbols("RBN-SMI", "rbnMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+rbnDS1MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2352, 2, 37))
+rbnDS1MIB.setRevisions(('2005-05-09 00:00',))
+if mibBuilder.loadTexts: rbnDS1MIB.setLastUpdated('200505090000Z')
+if mibBuilder.loadTexts: rbnDS1MIB.setOrganization('RedBack Networks, Inc.')
+rbnDs1MIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 37, 1))
+rbnDsx1ConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 2, 37, 1, 1), )
+if mibBuilder.loadTexts: rbnDsx1ConfigTable.setStatus('current')
+rbnDsx1ConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 2, 37, 1, 1, 1), )
+dsx1ConfigEntry.registerAugmentions(("RBN-DS1-MIB", "rbnDsx1ConfigEntry"))
 rbnDsx1ConfigEntry.setIndexNames(*dsx1ConfigEntry.getIndexNames())
-rbnDs1Group=ObjectGroup((1,3,6,1,4,1,2352,2,37,2,1,1))
-rbnDs1Group.setObjects(*((_B,_E),(_B,_F)))
-if mibBuilder.loadTexts:rbnDs1Group.setStatus(_A)
-rbnDs1MIBCompliance=ModuleCompliance((1,3,6,1,4,1,2352,2,37,2,2,1))
-rbnDs1MIBCompliance.setObjects((_B,_G))
-if mibBuilder.loadTexts:rbnDs1MIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'rbnDS1MIB':rbnDS1MIB,'rbnDs1MIBObjects':rbnDs1MIBObjects,'rbnDsx1ConfigTable':rbnDsx1ConfigTable,_D:rbnDsx1ConfigEntry,_E:rbnDsx1AlarmSeverity,_F:rbnDsx1AlarmServiceAffecting,'rbnDs1MIBConformance':rbnDs1MIBConformance,'rbnDs1MIBGroups':rbnDs1MIBGroups,_G:rbnDs1Group,'rbnDs1MIBCompliances':rbnDs1MIBCompliances,'rbnDs1MIBCompliance':rbnDs1MIBCompliance})
+if mibBuilder.loadTexts: rbnDsx1ConfigEntry.setStatus('current')
+rbnDsx1AlarmSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 37, 1, 1, 1, 1), RbnAlarmPerceivedSeverity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnDsx1AlarmSeverity.setStatus('current')
+rbnDsx1AlarmServiceAffecting = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 37, 1, 1, 1, 2), RbnAlarmServiceAffecting()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnDsx1AlarmServiceAffecting.setStatus('current')
+rbnDs1MIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 37, 2))
+rbnDs1MIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 37, 2, 1))
+rbnDs1MIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 37, 2, 2))
+rbnDs1MIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 37, 2, 2, 1)).setObjects(("RBN-DS1-MIB", "rbnDs1Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnDs1MIBCompliance = rbnDs1MIBCompliance.setStatus('current')
+rbnDs1Group = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 37, 2, 1, 1)).setObjects(("RBN-DS1-MIB", "rbnDsx1AlarmSeverity"), ("RBN-DS1-MIB", "rbnDsx1AlarmServiceAffecting"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnDs1Group = rbnDs1Group.setStatus('current')
+mibBuilder.exportSymbols("RBN-DS1-MIB", rbnDsx1ConfigTable=rbnDsx1ConfigTable, rbnDsx1AlarmSeverity=rbnDsx1AlarmSeverity, rbnDsx1AlarmServiceAffecting=rbnDsx1AlarmServiceAffecting, rbnDs1MIBGroups=rbnDs1MIBGroups, rbnDS1MIB=rbnDS1MIB, rbnDs1Group=rbnDs1Group, rbnDsx1ConfigEntry=rbnDsx1ConfigEntry, rbnDs1MIBConformance=rbnDs1MIBConformance, PYSNMP_MODULE_ID=rbnDS1MIB, rbnDs1MIBCompliances=rbnDs1MIBCompliances, rbnDs1MIBCompliance=rbnDs1MIBCompliance, rbnDs1MIBObjects=rbnDs1MIBObjects)

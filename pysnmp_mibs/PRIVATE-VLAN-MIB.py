@@ -1,84 +1,53 @@
-_G='swSecondaryVlanId'
-_F='read-only'
-_E='read-write'
-_D='swPrivateVlanId'
-_C='read-create'
-_B='PRIVATE-VLAN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_common_mgmt,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-common-mgmt')
-PortList,VlanId,VlanIdOrNone=mibBuilder.importSymbols('Q-BRIDGE-MIB','PortList','VlanId','VlanIdOrNone')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-swPrivateVLANMIB=ModuleIdentity((1,3,6,1,4,1,171,12,69))
-class SecondaryVlanType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('isolated',1),('community',2)))
-_SwPrivateVlanCtrl_ObjectIdentity=ObjectIdentity
-swPrivateVlanCtrl=_SwPrivateVlanCtrl_ObjectIdentity((1,3,6,1,4,1,171,12,69,1))
-_SwPrivateVlanInfo_ObjectIdentity=ObjectIdentity
-swPrivateVlanInfo=_SwPrivateVlanInfo_ObjectIdentity((1,3,6,1,4,1,171,12,69,2))
-_SwPrivateVlanMgmt_ObjectIdentity=ObjectIdentity
-swPrivateVlanMgmt=_SwPrivateVlanMgmt_ObjectIdentity((1,3,6,1,4,1,171,12,69,3))
-_SwPrivateVlanTable_Object=MibTable
-swPrivateVlanTable=_SwPrivateVlanTable_Object((1,3,6,1,4,1,171,12,69,3,1))
-if mibBuilder.loadTexts:swPrivateVlanTable.setStatus(_A)
-_SwPrivateVlanEntry_Object=MibTableRow
-swPrivateVlanEntry=_SwPrivateVlanEntry_Object((1,3,6,1,4,1,171,12,69,3,1,1))
-swPrivateVlanEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:swPrivateVlanEntry.setStatus(_A)
-_SwPrivateVlanId_Type=VlanId
-_SwPrivateVlanId_Object=MibTableColumn
-swPrivateVlanId=_SwPrivateVlanId_Object((1,3,6,1,4,1,171,12,69,3,1,1,1),_SwPrivateVlanId_Type())
-swPrivateVlanId.setMaxAccess(_F)
-if mibBuilder.loadTexts:swPrivateVlanId.setStatus(_A)
-_SwPrivateVlanName_Type=DisplayString
-_SwPrivateVlanName_Object=MibTableColumn
-swPrivateVlanName=_SwPrivateVlanName_Object((1,3,6,1,4,1,171,12,69,3,1,1,2),_SwPrivateVlanName_Type())
-swPrivateVlanName.setMaxAccess(_C)
-if mibBuilder.loadTexts:swPrivateVlanName.setStatus(_A)
-_SwPrivateVlanPromiscuousPorts_Type=PortList
-_SwPrivateVlanPromiscuousPorts_Object=MibTableColumn
-swPrivateVlanPromiscuousPorts=_SwPrivateVlanPromiscuousPorts_Object((1,3,6,1,4,1,171,12,69,3,1,1,3),_SwPrivateVlanPromiscuousPorts_Type())
-swPrivateVlanPromiscuousPorts.setMaxAccess(_E)
-if mibBuilder.loadTexts:swPrivateVlanPromiscuousPorts.setStatus(_A)
-_SwPrivateVlanTrunkPorts_Type=PortList
-_SwPrivateVlanTrunkPorts_Object=MibTableColumn
-swPrivateVlanTrunkPorts=_SwPrivateVlanTrunkPorts_Object((1,3,6,1,4,1,171,12,69,3,1,1,4),_SwPrivateVlanTrunkPorts_Type())
-swPrivateVlanTrunkPorts.setMaxAccess(_E)
-if mibBuilder.loadTexts:swPrivateVlanTrunkPorts.setStatus(_A)
-_SwPrivateVlanRowStatus_Type=RowStatus
-_SwPrivateVlanRowStatus_Object=MibTableColumn
-swPrivateVlanRowStatus=_SwPrivateVlanRowStatus_Object((1,3,6,1,4,1,171,12,69,3,1,1,5),_SwPrivateVlanRowStatus_Type())
-swPrivateVlanRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:swPrivateVlanRowStatus.setStatus(_A)
-_SwSecondaryVlanTable_Object=MibTable
-swSecondaryVlanTable=_SwSecondaryVlanTable_Object((1,3,6,1,4,1,171,12,69,3,2))
-if mibBuilder.loadTexts:swSecondaryVlanTable.setStatus(_A)
-_SwSecondaryVlanEntry_Object=MibTableRow
-swSecondaryVlanEntry=_SwSecondaryVlanEntry_Object((1,3,6,1,4,1,171,12,69,3,2,1))
-swSecondaryVlanEntry.setIndexNames((0,_B,_D),(0,_B,_G))
-if mibBuilder.loadTexts:swSecondaryVlanEntry.setStatus(_A)
-_SwSecondaryVlanId_Type=VlanId
-_SwSecondaryVlanId_Object=MibTableColumn
-swSecondaryVlanId=_SwSecondaryVlanId_Object((1,3,6,1,4,1,171,12,69,3,2,1,1),_SwSecondaryVlanId_Type())
-swSecondaryVlanId.setMaxAccess(_F)
-if mibBuilder.loadTexts:swSecondaryVlanId.setStatus(_A)
-_SwSecondaryVlanType_Type=SecondaryVlanType
-_SwSecondaryVlanType_Object=MibTableColumn
-swSecondaryVlanType=_SwSecondaryVlanType_Object((1,3,6,1,4,1,171,12,69,3,2,1,2),_SwSecondaryVlanType_Type())
-swSecondaryVlanType.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSecondaryVlanType.setStatus(_A)
-_SwSecondaryVlanPorts_Type=PortList
-_SwSecondaryVlanPorts_Object=MibTableColumn
-swSecondaryVlanPorts=_SwSecondaryVlanPorts_Object((1,3,6,1,4,1,171,12,69,3,2,1,3),_SwSecondaryVlanPorts_Type())
-swSecondaryVlanPorts.setMaxAccess(_E)
-if mibBuilder.loadTexts:swSecondaryVlanPorts.setStatus(_A)
-_SwSecondaryVlanRowStatus_Type=RowStatus
-_SwSecondaryVlanRowStatus_Object=MibTableColumn
-swSecondaryVlanRowStatus=_SwSecondaryVlanRowStatus_Object((1,3,6,1,4,1,171,12,69,3,2,1,4),_SwSecondaryVlanRowStatus_Type())
-swSecondaryVlanRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSecondaryVlanRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'SecondaryVlanType':SecondaryVlanType,'swPrivateVLANMIB':swPrivateVLANMIB,'swPrivateVlanCtrl':swPrivateVlanCtrl,'swPrivateVlanInfo':swPrivateVlanInfo,'swPrivateVlanMgmt':swPrivateVlanMgmt,'swPrivateVlanTable':swPrivateVlanTable,'swPrivateVlanEntry':swPrivateVlanEntry,_D:swPrivateVlanId,'swPrivateVlanName':swPrivateVlanName,'swPrivateVlanPromiscuousPorts':swPrivateVlanPromiscuousPorts,'swPrivateVlanTrunkPorts':swPrivateVlanTrunkPorts,'swPrivateVlanRowStatus':swPrivateVlanRowStatus,'swSecondaryVlanTable':swSecondaryVlanTable,'swSecondaryVlanEntry':swSecondaryVlanEntry,_G:swSecondaryVlanId,'swSecondaryVlanType':swSecondaryVlanType,'swSecondaryVlanPorts':swSecondaryVlanPorts,'swSecondaryVlanRowStatus':swSecondaryVlanRowStatus})
+#
+# PySNMP MIB module PRIVATE-VLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/PRIVATE-VLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:01 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
+PortList, VlanId, VlanIdOrNone = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList", "VlanId", "VlanIdOrNone")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+swPrivateVLANMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 69))
+if mibBuilder.loadTexts: swPrivateVLANMIB.setLastUpdated('200808110000Z')
+if mibBuilder.loadTexts: swPrivateVLANMIB.setOrganization('D-Link Corp.')
+class SecondaryVlanType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("isolated", 1), ("community", 2))
+
+swPrivateVlanCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 69, 1))
+swPrivateVlanInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 69, 2))
+swPrivateVlanMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 69, 3))
+swPrivateVlanTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 69, 3, 1), )
+if mibBuilder.loadTexts: swPrivateVlanTable.setStatus('current')
+swPrivateVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 69, 3, 1, 1), ).setIndexNames((0, "PRIVATE-VLAN-MIB", "swPrivateVlanId"))
+if mibBuilder.loadTexts: swPrivateVlanEntry.setStatus('current')
+swPrivateVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 69, 3, 1, 1, 1), VlanId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swPrivateVlanId.setStatus('current')
+swPrivateVlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 69, 3, 1, 1, 2), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swPrivateVlanName.setStatus('current')
+swPrivateVlanPromiscuousPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 69, 3, 1, 1, 3), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swPrivateVlanPromiscuousPorts.setStatus('current')
+swPrivateVlanTrunkPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 69, 3, 1, 1, 4), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swPrivateVlanTrunkPorts.setStatus('current')
+swPrivateVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 69, 3, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swPrivateVlanRowStatus.setStatus('current')
+swSecondaryVlanTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 69, 3, 2), )
+if mibBuilder.loadTexts: swSecondaryVlanTable.setStatus('current')
+swSecondaryVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 69, 3, 2, 1), ).setIndexNames((0, "PRIVATE-VLAN-MIB", "swPrivateVlanId"), (0, "PRIVATE-VLAN-MIB", "swSecondaryVlanId"))
+if mibBuilder.loadTexts: swSecondaryVlanEntry.setStatus('current')
+swSecondaryVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 69, 3, 2, 1, 1), VlanId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSecondaryVlanId.setStatus('current')
+swSecondaryVlanType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 69, 3, 2, 1, 2), SecondaryVlanType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swSecondaryVlanType.setStatus('current')
+swSecondaryVlanPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 69, 3, 2, 1, 3), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSecondaryVlanPorts.setStatus('current')
+swSecondaryVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 69, 3, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swSecondaryVlanRowStatus.setStatus('current')
+mibBuilder.exportSymbols("PRIVATE-VLAN-MIB", swPrivateVlanEntry=swPrivateVlanEntry, PYSNMP_MODULE_ID=swPrivateVLANMIB, swSecondaryVlanTable=swSecondaryVlanTable, swSecondaryVlanId=swSecondaryVlanId, swPrivateVlanTrunkPorts=swPrivateVlanTrunkPorts, swPrivateVlanRowStatus=swPrivateVlanRowStatus, swSecondaryVlanPorts=swSecondaryVlanPorts, swPrivateVlanTable=swPrivateVlanTable, swPrivateVLANMIB=swPrivateVLANMIB, SecondaryVlanType=SecondaryVlanType, swSecondaryVlanType=swSecondaryVlanType, swSecondaryVlanRowStatus=swSecondaryVlanRowStatus, swPrivateVlanMgmt=swPrivateVlanMgmt, swPrivateVlanInfo=swPrivateVlanInfo, swPrivateVlanName=swPrivateVlanName, swSecondaryVlanEntry=swSecondaryVlanEntry, swPrivateVlanId=swPrivateVlanId, swPrivateVlanPromiscuousPorts=swPrivateVlanPromiscuousPorts, swPrivateVlanCtrl=swPrivateVlanCtrl)

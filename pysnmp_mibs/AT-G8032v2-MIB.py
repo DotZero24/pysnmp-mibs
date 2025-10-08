@@ -1,51 +1,38 @@
-_H='atG8032v2NotificationSystemAlarmState'
-_G='atG8032v2NotificationInstanceCurrentState'
-_F='atG8032v2NotificationInstanceFromState'
-_E='atG8032v2NotificationInstanceName'
-_D='DisplayStringUnsized'
-_C='read-only'
-_B='AT-G8032v2-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-DisplayStringUnsized,modules=mibBuilder.importSymbols('AT-SMI-MIB',_D,'modules')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-atG8032v2=ModuleIdentity((1,3,6,1,4,1,207,8,4,4,4,604))
-if mibBuilder.loadTexts:atG8032v2.setRevisions(('2017-02-06 00:00','2017-01-17 00:00'))
-class AtG8032v2InstanceState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('unknown',1),('init',2),('idle',3),('protection',4),('manualSwitch',5),('forcedSwitch',6),('pending',7)))
-_AtG8032v2Notifications_ObjectIdentity=ObjectIdentity
-atG8032v2Notifications=_AtG8032v2Notifications_ObjectIdentity((1,3,6,1,4,1,207,8,4,4,4,604,0))
-_AtG8032v2NotificationVariable_ObjectIdentity=ObjectIdentity
-atG8032v2NotificationVariable=_AtG8032v2NotificationVariable_ObjectIdentity((1,3,6,1,4,1,207,8,4,4,4,604,1))
-class _AtG8032v2NotificationInstanceName_Type(DisplayStringUnsized):subtypeSpec=DisplayStringUnsized.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_AtG8032v2NotificationInstanceName_Type.__name__=_D
-_AtG8032v2NotificationInstanceName_Object=MibScalar
-atG8032v2NotificationInstanceName=_AtG8032v2NotificationInstanceName_Object((1,3,6,1,4,1,207,8,4,4,4,604,1,1),_AtG8032v2NotificationInstanceName_Type())
-atG8032v2NotificationInstanceName.setMaxAccess(_C)
-if mibBuilder.loadTexts:atG8032v2NotificationInstanceName.setStatus(_A)
-_AtG8032v2NotificationInstanceFromState_Type=AtG8032v2InstanceState
-_AtG8032v2NotificationInstanceFromState_Object=MibScalar
-atG8032v2NotificationInstanceFromState=_AtG8032v2NotificationInstanceFromState_Object((1,3,6,1,4,1,207,8,4,4,4,604,1,2),_AtG8032v2NotificationInstanceFromState_Type())
-atG8032v2NotificationInstanceFromState.setMaxAccess(_C)
-if mibBuilder.loadTexts:atG8032v2NotificationInstanceFromState.setStatus(_A)
-_AtG8032v2NotificationInstanceCurrentState_Type=AtG8032v2InstanceState
-_AtG8032v2NotificationInstanceCurrentState_Object=MibScalar
-atG8032v2NotificationInstanceCurrentState=_AtG8032v2NotificationInstanceCurrentState_Object((1,3,6,1,4,1,207,8,4,4,4,604,1,3),_AtG8032v2NotificationInstanceCurrentState_Type())
-atG8032v2NotificationInstanceCurrentState.setMaxAccess(_C)
-if mibBuilder.loadTexts:atG8032v2NotificationInstanceCurrentState.setStatus(_A)
-_AtG8032v2NotificationSystemAlarmState_Type=TruthValue
-_AtG8032v2NotificationSystemAlarmState_Object=MibScalar
-atG8032v2NotificationSystemAlarmState=_AtG8032v2NotificationSystemAlarmState_Object((1,3,6,1,4,1,207,8,4,4,4,604,1,4),_AtG8032v2NotificationSystemAlarmState_Type())
-atG8032v2NotificationSystemAlarmState.setMaxAccess(_C)
-if mibBuilder.loadTexts:atG8032v2NotificationSystemAlarmState.setStatus(_A)
-atG8032v2InstanceNotify=NotificationType((1,3,6,1,4,1,207,8,4,4,4,604,0,1))
-atG8032v2InstanceNotify.setObjects(*((_B,_E),(_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:atG8032v2InstanceNotify.setStatus(_A)
-atG8032v2SystemAlarmNotify=NotificationType((1,3,6,1,4,1,207,8,4,4,4,604,0,2))
-atG8032v2SystemAlarmNotify.setObjects((_B,_H))
-if mibBuilder.loadTexts:atG8032v2SystemAlarmNotify.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'AtG8032v2InstanceState':AtG8032v2InstanceState,'atG8032v2':atG8032v2,'atG8032v2Notifications':atG8032v2Notifications,'atG8032v2InstanceNotify':atG8032v2InstanceNotify,'atG8032v2SystemAlarmNotify':atG8032v2SystemAlarmNotify,'atG8032v2NotificationVariable':atG8032v2NotificationVariable,_E:atG8032v2NotificationInstanceName,_F:atG8032v2NotificationInstanceFromState,_G:atG8032v2NotificationInstanceCurrentState,_H:atG8032v2NotificationSystemAlarmState})
+#
+# PySNMP MIB module AT-G8032v2-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allied/AT-G8032v2-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:33 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+DisplayStringUnsized, modules = mibBuilder.importSymbols("AT-SMI-MIB", "DisplayStringUnsized", "modules")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+atG8032v2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 604))
+atG8032v2.setRevisions(('2017-02-06 00:00', '2017-01-17 00:00',))
+if mibBuilder.loadTexts: atG8032v2.setLastUpdated('201702060000Z')
+if mibBuilder.loadTexts: atG8032v2.setOrganization('Allied Telesis, Inc')
+class AtG8032v2InstanceState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
+    namedValues = NamedValues(("unknown", 1), ("init", 2), ("idle", 3), ("protection", 4), ("manualSwitch", 5), ("forcedSwitch", 6), ("pending", 7))
+
+atG8032v2Notifications = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 604, 0))
+atG8032v2InstanceNotify = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 604, 0, 1)).setObjects(("AT-G8032v2-MIB", "atG8032v2NotificationInstanceName"), ("AT-G8032v2-MIB", "atG8032v2NotificationInstanceFromState"), ("AT-G8032v2-MIB", "atG8032v2NotificationInstanceCurrentState"))
+if mibBuilder.loadTexts: atG8032v2InstanceNotify.setStatus('current')
+atG8032v2SystemAlarmNotify = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 604, 0, 2)).setObjects(("AT-G8032v2-MIB", "atG8032v2NotificationSystemAlarmState"))
+if mibBuilder.loadTexts: atG8032v2SystemAlarmNotify.setStatus('current')
+atG8032v2NotificationVariable = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 604, 1))
+atG8032v2NotificationInstanceName = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 604, 1, 1), DisplayStringUnsized().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atG8032v2NotificationInstanceName.setStatus('current')
+atG8032v2NotificationInstanceFromState = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 604, 1, 2), AtG8032v2InstanceState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atG8032v2NotificationInstanceFromState.setStatus('current')
+atG8032v2NotificationInstanceCurrentState = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 604, 1, 3), AtG8032v2InstanceState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atG8032v2NotificationInstanceCurrentState.setStatus('current')
+atG8032v2NotificationSystemAlarmState = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 604, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atG8032v2NotificationSystemAlarmState.setStatus('current')
+mibBuilder.exportSymbols("AT-G8032v2-MIB", atG8032v2NotificationVariable=atG8032v2NotificationVariable, AtG8032v2InstanceState=AtG8032v2InstanceState, atG8032v2Notifications=atG8032v2Notifications, atG8032v2NotificationSystemAlarmState=atG8032v2NotificationSystemAlarmState, atG8032v2NotificationInstanceName=atG8032v2NotificationInstanceName, atG8032v2NotificationInstanceCurrentState=atG8032v2NotificationInstanceCurrentState, atG8032v2NotificationInstanceFromState=atG8032v2NotificationInstanceFromState, atG8032v2SystemAlarmNotify=atG8032v2SystemAlarmNotify, PYSNMP_MODULE_ID=atG8032v2, atG8032v2InstanceNotify=atG8032v2InstanceNotify, atG8032v2=atG8032v2)

@@ -1,152 +1,79 @@
-_W='tptNgfwPerformanceGroup'
-_V='tptNgfwPerfPacketDistSizeGrpCount'
-_U='tptNgfwPerfPacketDistSizeGrp'
-_T='tptNgfwPerfIPSTrustedStreams'
-_S='tptNgfwPerfIPSBlockedStreams'
-_R='tptNgfwPerfIPSAfcAppEntries'
-_Q='tptNgfwPerfIPSAfcEntries'
-_P='tptNgfwPerfIPSRateLimitCount'
-_O='tptNgfwPerfIPSQuarantineCount'
-_N='tptNgfwPerfIPSManagedStreams'
-_M='tptNgfwPerfFWSessions'
-_L='tptNgfwPerfFWPermits'
-_K='tptNgfwPerfFWBlocks'
-_J='tptNgfwPerfFragmentsOut'
-_I='tptNgfwPerfFragmentsIn'
-_H='tptNgfwPerfBytesOut'
-_G='tptNgfwPerfBytesIn'
-_F='tptNgfwPerfPacketsOut'
-_E='tptNgfwPerfPacketsIn'
-_D='tptNgfwPerfPacketDistEntryIndex'
-_C='read-only'
-_B='TPT-NGFW-PERFORMANCE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tpt_ngfw_compls,tpt_ngfw_groups,tpt_ngfw_objs=mibBuilder.importSymbols('TPT-NGFW-REG-MIB','tpt-ngfw-compls','tpt-ngfw-groups','tpt-ngfw-objs')
-tptNgfwPerformance=ModuleIdentity((1,3,6,1,4,1,10734,3,9,2,3))
-if mibBuilder.loadTexts:tptNgfwPerformance.setRevisions(('2016-05-25 18:54','2013-01-03 17:39'))
-class TptNgfwPerfPacketSizeGrouping(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*(('bytes64',0),('bytes65to127',1),('bytes128to255',2),('bytes256to511',3),('bytes512to1023',4),('bytes1024to1518',5),('bytes1519to4095',6),('bytes4096to9216',7),('bytes9217to16383',8),('undersize',9),('oversize',10)))
-_TptNgfwPerformanceObjs_ObjectIdentity=ObjectIdentity
-tptNgfwPerformanceObjs=_TptNgfwPerformanceObjs_ObjectIdentity((1,3,6,1,4,1,10734,3,9,2,3,1))
-if mibBuilder.loadTexts:tptNgfwPerformanceObjs.setStatus(_A)
-_TptNgfwPerfPacketsIn_Type=Counter64
-_TptNgfwPerfPacketsIn_Object=MibScalar
-tptNgfwPerfPacketsIn=_TptNgfwPerfPacketsIn_Object((1,3,6,1,4,1,10734,3,9,2,3,1,1),_TptNgfwPerfPacketsIn_Type())
-tptNgfwPerfPacketsIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfPacketsIn.setStatus(_A)
-_TptNgfwPerfPacketsOut_Type=Counter64
-_TptNgfwPerfPacketsOut_Object=MibScalar
-tptNgfwPerfPacketsOut=_TptNgfwPerfPacketsOut_Object((1,3,6,1,4,1,10734,3,9,2,3,1,2),_TptNgfwPerfPacketsOut_Type())
-tptNgfwPerfPacketsOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfPacketsOut.setStatus(_A)
-_TptNgfwPerfBytesIn_Type=Counter64
-_TptNgfwPerfBytesIn_Object=MibScalar
-tptNgfwPerfBytesIn=_TptNgfwPerfBytesIn_Object((1,3,6,1,4,1,10734,3,9,2,3,1,3),_TptNgfwPerfBytesIn_Type())
-tptNgfwPerfBytesIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfBytesIn.setStatus(_A)
-_TptNgfwPerfBytesOut_Type=Counter64
-_TptNgfwPerfBytesOut_Object=MibScalar
-tptNgfwPerfBytesOut=_TptNgfwPerfBytesOut_Object((1,3,6,1,4,1,10734,3,9,2,3,1,4),_TptNgfwPerfBytesOut_Type())
-tptNgfwPerfBytesOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfBytesOut.setStatus(_A)
-_TptNgfwPerfFragmentsIn_Type=Counter64
-_TptNgfwPerfFragmentsIn_Object=MibScalar
-tptNgfwPerfFragmentsIn=_TptNgfwPerfFragmentsIn_Object((1,3,6,1,4,1,10734,3,9,2,3,1,5),_TptNgfwPerfFragmentsIn_Type())
-tptNgfwPerfFragmentsIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfFragmentsIn.setStatus(_A)
-_TptNgfwPerfFragmentsOut_Type=Counter64
-_TptNgfwPerfFragmentsOut_Object=MibScalar
-tptNgfwPerfFragmentsOut=_TptNgfwPerfFragmentsOut_Object((1,3,6,1,4,1,10734,3,9,2,3,1,6),_TptNgfwPerfFragmentsOut_Type())
-tptNgfwPerfFragmentsOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfFragmentsOut.setStatus(_A)
-_TptNgfwPerfPacketDistTable_Object=MibTable
-tptNgfwPerfPacketDistTable=_TptNgfwPerfPacketDistTable_Object((1,3,6,1,4,1,10734,3,9,2,3,1,7))
-if mibBuilder.loadTexts:tptNgfwPerfPacketDistTable.setStatus(_A)
-_TptNgfwPerfPacketDistEntry_Object=MibTableRow
-tptNgfwPerfPacketDistEntry=_TptNgfwPerfPacketDistEntry_Object((1,3,6,1,4,1,10734,3,9,2,3,1,7,1))
-tptNgfwPerfPacketDistEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:tptNgfwPerfPacketDistEntry.setStatus(_A)
-_TptNgfwPerfPacketDistEntryIndex_Type=Unsigned32
-_TptNgfwPerfPacketDistEntryIndex_Object=MibTableColumn
-tptNgfwPerfPacketDistEntryIndex=_TptNgfwPerfPacketDistEntryIndex_Object((1,3,6,1,4,1,10734,3,9,2,3,1,7,1,1),_TptNgfwPerfPacketDistEntryIndex_Type())
-tptNgfwPerfPacketDistEntryIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:tptNgfwPerfPacketDistEntryIndex.setStatus(_A)
-_TptNgfwPerfPacketDistSizeGrp_Type=TptNgfwPerfPacketSizeGrouping
-_TptNgfwPerfPacketDistSizeGrp_Object=MibTableColumn
-tptNgfwPerfPacketDistSizeGrp=_TptNgfwPerfPacketDistSizeGrp_Object((1,3,6,1,4,1,10734,3,9,2,3,1,7,1,2),_TptNgfwPerfPacketDistSizeGrp_Type())
-tptNgfwPerfPacketDistSizeGrp.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfPacketDistSizeGrp.setStatus(_A)
-_TptNgfwPerfPacketDistSizeGrpCount_Type=Counter64
-_TptNgfwPerfPacketDistSizeGrpCount_Object=MibTableColumn
-tptNgfwPerfPacketDistSizeGrpCount=_TptNgfwPerfPacketDistSizeGrpCount_Object((1,3,6,1,4,1,10734,3,9,2,3,1,7,1,3),_TptNgfwPerfPacketDistSizeGrpCount_Type())
-tptNgfwPerfPacketDistSizeGrpCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfPacketDistSizeGrpCount.setStatus(_A)
-_TptNgfwPerfFWObjs_ObjectIdentity=ObjectIdentity
-tptNgfwPerfFWObjs=_TptNgfwPerfFWObjs_ObjectIdentity((1,3,6,1,4,1,10734,3,9,2,3,2))
-if mibBuilder.loadTexts:tptNgfwPerfFWObjs.setStatus(_A)
-_TptNgfwPerfFWBlocks_Type=Counter64
-_TptNgfwPerfFWBlocks_Object=MibScalar
-tptNgfwPerfFWBlocks=_TptNgfwPerfFWBlocks_Object((1,3,6,1,4,1,10734,3,9,2,3,2,1),_TptNgfwPerfFWBlocks_Type())
-tptNgfwPerfFWBlocks.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfFWBlocks.setStatus(_A)
-_TptNgfwPerfFWPermits_Type=Counter64
-_TptNgfwPerfFWPermits_Object=MibScalar
-tptNgfwPerfFWPermits=_TptNgfwPerfFWPermits_Object((1,3,6,1,4,1,10734,3,9,2,3,2,2),_TptNgfwPerfFWPermits_Type())
-tptNgfwPerfFWPermits.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfFWPermits.setStatus(_A)
-_TptNgfwPerfFWSessions_Type=Counter64
-_TptNgfwPerfFWSessions_Object=MibScalar
-tptNgfwPerfFWSessions=_TptNgfwPerfFWSessions_Object((1,3,6,1,4,1,10734,3,9,2,3,2,3),_TptNgfwPerfFWSessions_Type())
-tptNgfwPerfFWSessions.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfFWSessions.setStatus(_A)
-_TptNgfwPerfIPSObjs_ObjectIdentity=ObjectIdentity
-tptNgfwPerfIPSObjs=_TptNgfwPerfIPSObjs_ObjectIdentity((1,3,6,1,4,1,10734,3,9,2,3,3))
-if mibBuilder.loadTexts:tptNgfwPerfIPSObjs.setStatus(_A)
-_TptNgfwPerfIPSManagedStreams_Type=Counter64
-_TptNgfwPerfIPSManagedStreams_Object=MibScalar
-tptNgfwPerfIPSManagedStreams=_TptNgfwPerfIPSManagedStreams_Object((1,3,6,1,4,1,10734,3,9,2,3,3,1),_TptNgfwPerfIPSManagedStreams_Type())
-tptNgfwPerfIPSManagedStreams.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfIPSManagedStreams.setStatus(_A)
-_TptNgfwPerfIPSQuarantineCount_Type=Counter64
-_TptNgfwPerfIPSQuarantineCount_Object=MibScalar
-tptNgfwPerfIPSQuarantineCount=_TptNgfwPerfIPSQuarantineCount_Object((1,3,6,1,4,1,10734,3,9,2,3,3,2),_TptNgfwPerfIPSQuarantineCount_Type())
-tptNgfwPerfIPSQuarantineCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfIPSQuarantineCount.setStatus(_A)
-_TptNgfwPerfIPSRateLimitCount_Type=Counter64
-_TptNgfwPerfIPSRateLimitCount_Object=MibScalar
-tptNgfwPerfIPSRateLimitCount=_TptNgfwPerfIPSRateLimitCount_Object((1,3,6,1,4,1,10734,3,9,2,3,3,3),_TptNgfwPerfIPSRateLimitCount_Type())
-tptNgfwPerfIPSRateLimitCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfIPSRateLimitCount.setStatus(_A)
-_TptNgfwPerfIPSAfcEntries_Type=Counter64
-_TptNgfwPerfIPSAfcEntries_Object=MibScalar
-tptNgfwPerfIPSAfcEntries=_TptNgfwPerfIPSAfcEntries_Object((1,3,6,1,4,1,10734,3,9,2,3,3,4),_TptNgfwPerfIPSAfcEntries_Type())
-tptNgfwPerfIPSAfcEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfIPSAfcEntries.setStatus(_A)
-_TptNgfwPerfIPSAfcAppEntries_Type=Counter64
-_TptNgfwPerfIPSAfcAppEntries_Object=MibScalar
-tptNgfwPerfIPSAfcAppEntries=_TptNgfwPerfIPSAfcAppEntries_Object((1,3,6,1,4,1,10734,3,9,2,3,3,5),_TptNgfwPerfIPSAfcAppEntries_Type())
-tptNgfwPerfIPSAfcAppEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfIPSAfcAppEntries.setStatus(_A)
-_TptNgfwPerfIPSBlockedStreams_Type=Counter64
-_TptNgfwPerfIPSBlockedStreams_Object=MibScalar
-tptNgfwPerfIPSBlockedStreams=_TptNgfwPerfIPSBlockedStreams_Object((1,3,6,1,4,1,10734,3,9,2,3,3,6),_TptNgfwPerfIPSBlockedStreams_Type())
-tptNgfwPerfIPSBlockedStreams.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfIPSBlockedStreams.setStatus(_A)
-_TptNgfwPerfIPSTrustedStreams_Type=Counter64
-_TptNgfwPerfIPSTrustedStreams_Object=MibScalar
-tptNgfwPerfIPSTrustedStreams=_TptNgfwPerfIPSTrustedStreams_Object((1,3,6,1,4,1,10734,3,9,2,3,3,7),_TptNgfwPerfIPSTrustedStreams_Type())
-tptNgfwPerfIPSTrustedStreams.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptNgfwPerfIPSTrustedStreams.setStatus(_A)
-tptNgfwPerformanceGroup=ObjectGroup((1,3,6,1,4,1,10734,3,9,1,1,6))
-tptNgfwPerformanceGroup.setObjects(*((_B,_E),(_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:tptNgfwPerformanceGroup.setStatus(_A)
-tptNgfwPerformanceCompl=ModuleCompliance((1,3,6,1,4,1,10734,3,9,1,2,3))
-tptNgfwPerformanceCompl.setObjects((_B,_W))
-if mibBuilder.loadTexts:tptNgfwPerformanceCompl.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'TptNgfwPerfPacketSizeGrouping':TptNgfwPerfPacketSizeGrouping,_W:tptNgfwPerformanceGroup,'tptNgfwPerformanceCompl':tptNgfwPerformanceCompl,'tptNgfwPerformance':tptNgfwPerformance,'tptNgfwPerformanceObjs':tptNgfwPerformanceObjs,_E:tptNgfwPerfPacketsIn,_F:tptNgfwPerfPacketsOut,_G:tptNgfwPerfBytesIn,_H:tptNgfwPerfBytesOut,_I:tptNgfwPerfFragmentsIn,_J:tptNgfwPerfFragmentsOut,'tptNgfwPerfPacketDistTable':tptNgfwPerfPacketDistTable,'tptNgfwPerfPacketDistEntry':tptNgfwPerfPacketDistEntry,_D:tptNgfwPerfPacketDistEntryIndex,_U:tptNgfwPerfPacketDistSizeGrp,_V:tptNgfwPerfPacketDistSizeGrpCount,'tptNgfwPerfFWObjs':tptNgfwPerfFWObjs,_K:tptNgfwPerfFWBlocks,_L:tptNgfwPerfFWPermits,_M:tptNgfwPerfFWSessions,'tptNgfwPerfIPSObjs':tptNgfwPerfIPSObjs,_N:tptNgfwPerfIPSManagedStreams,_O:tptNgfwPerfIPSQuarantineCount,_P:tptNgfwPerfIPSRateLimitCount,_Q:tptNgfwPerfIPSAfcEntries,_R:tptNgfwPerfIPSAfcAppEntries,_S:tptNgfwPerfIPSBlockedStreams,_T:tptNgfwPerfIPSTrustedStreams})
+#
+# PySNMP MIB module TPT-NGFW-PERFORMANCE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/trendmicro/TPT-NGFW-PERFORMANCE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tpt_ngfw_groups, tpt_ngfw_objs, tpt_ngfw_compls = mibBuilder.importSymbols("TPT-NGFW-REG-MIB", "tpt-ngfw-groups", "tpt-ngfw-objs", "tpt-ngfw-compls")
+tptNgfwPerformance = ModuleIdentity((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3))
+tptNgfwPerformance.setRevisions(('2016-05-25 18:54', '2013-01-03 17:39',))
+if mibBuilder.loadTexts: tptNgfwPerformance.setLastUpdated('201605251854Z')
+if mibBuilder.loadTexts: tptNgfwPerformance.setOrganization('Trend Micro, Inc.')
+class TptNgfwPerfPacketSizeGrouping(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+    namedValues = NamedValues(("bytes64", 0), ("bytes65to127", 1), ("bytes128to255", 2), ("bytes256to511", 3), ("bytes512to1023", 4), ("bytes1024to1518", 5), ("bytes1519to4095", 6), ("bytes4096to9216", 7), ("bytes9217to16383", 8), ("undersize", 9), ("oversize", 10))
+
+tptNgfwPerformanceObjs = ObjectIdentity((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 1))
+if mibBuilder.loadTexts: tptNgfwPerformanceObjs.setStatus('current')
+tptNgfwPerfPacketsIn = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfPacketsIn.setStatus('current')
+tptNgfwPerfPacketsOut = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfPacketsOut.setStatus('current')
+tptNgfwPerfBytesIn = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfBytesIn.setStatus('current')
+tptNgfwPerfBytesOut = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfBytesOut.setStatus('current')
+tptNgfwPerfFragmentsIn = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfFragmentsIn.setStatus('current')
+tptNgfwPerfFragmentsOut = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfFragmentsOut.setStatus('current')
+tptNgfwPerfPacketDistTable = MibTable((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 1, 7), )
+if mibBuilder.loadTexts: tptNgfwPerfPacketDistTable.setStatus('current')
+tptNgfwPerfPacketDistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 1, 7, 1), ).setIndexNames((0, "TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfPacketDistEntryIndex"))
+if mibBuilder.loadTexts: tptNgfwPerfPacketDistEntry.setStatus('current')
+tptNgfwPerfPacketDistEntryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 1, 7, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: tptNgfwPerfPacketDistEntryIndex.setStatus('current')
+tptNgfwPerfPacketDistSizeGrp = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 1, 7, 1, 2), TptNgfwPerfPacketSizeGrouping()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfPacketDistSizeGrp.setStatus('current')
+tptNgfwPerfPacketDistSizeGrpCount = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 1, 7, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfPacketDistSizeGrpCount.setStatus('current')
+tptNgfwPerfFWObjs = ObjectIdentity((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 2))
+if mibBuilder.loadTexts: tptNgfwPerfFWObjs.setStatus('current')
+tptNgfwPerfFWBlocks = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 2, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfFWBlocks.setStatus('current')
+tptNgfwPerfFWPermits = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 2, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfFWPermits.setStatus('current')
+tptNgfwPerfFWSessions = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 2, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfFWSessions.setStatus('current')
+tptNgfwPerfIPSObjs = ObjectIdentity((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 3))
+if mibBuilder.loadTexts: tptNgfwPerfIPSObjs.setStatus('current')
+tptNgfwPerfIPSManagedStreams = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 3, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfIPSManagedStreams.setStatus('current')
+tptNgfwPerfIPSQuarantineCount = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 3, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfIPSQuarantineCount.setStatus('current')
+tptNgfwPerfIPSRateLimitCount = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 3, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfIPSRateLimitCount.setStatus('current')
+tptNgfwPerfIPSAfcEntries = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 3, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfIPSAfcEntries.setStatus('current')
+tptNgfwPerfIPSAfcAppEntries = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 3, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfIPSAfcAppEntries.setStatus('current')
+tptNgfwPerfIPSBlockedStreams = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 3, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfIPSBlockedStreams.setStatus('current')
+tptNgfwPerfIPSTrustedStreams = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 9, 2, 3, 3, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptNgfwPerfIPSTrustedStreams.setStatus('current')
+tptNgfwPerformanceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 10734, 3, 9, 1, 1, 6)).setObjects(("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfPacketsIn"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfPacketsOut"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfBytesIn"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfBytesOut"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfFragmentsIn"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfFragmentsOut"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfFWBlocks"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfFWPermits"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfFWSessions"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfIPSManagedStreams"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfIPSQuarantineCount"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfIPSRateLimitCount"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfIPSAfcEntries"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfIPSAfcAppEntries"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfIPSBlockedStreams"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfIPSTrustedStreams"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfPacketDistSizeGrp"), ("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerfPacketDistSizeGrpCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tptNgfwPerformanceGroup = tptNgfwPerformanceGroup.setStatus('current')
+tptNgfwPerformanceCompl = ModuleCompliance((1, 3, 6, 1, 4, 1, 10734, 3, 9, 1, 2, 3)).setObjects(("TPT-NGFW-PERFORMANCE-MIB", "tptNgfwPerformanceGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tptNgfwPerformanceCompl = tptNgfwPerformanceCompl.setStatus('current')
+mibBuilder.exportSymbols("TPT-NGFW-PERFORMANCE-MIB", tptNgfwPerfBytesOut=tptNgfwPerfBytesOut, tptNgfwPerfFWSessions=tptNgfwPerfFWSessions, tptNgfwPerformanceObjs=tptNgfwPerformanceObjs, tptNgfwPerfPacketDistEntry=tptNgfwPerfPacketDistEntry, tptNgfwPerfIPSObjs=tptNgfwPerfIPSObjs, tptNgfwPerfIPSAfcEntries=tptNgfwPerfIPSAfcEntries, tptNgfwPerformanceCompl=tptNgfwPerformanceCompl, TptNgfwPerfPacketSizeGrouping=TptNgfwPerfPacketSizeGrouping, PYSNMP_MODULE_ID=tptNgfwPerformance, tptNgfwPerfFWObjs=tptNgfwPerfFWObjs, tptNgfwPerfIPSManagedStreams=tptNgfwPerfIPSManagedStreams, tptNgfwPerfFWBlocks=tptNgfwPerfFWBlocks, tptNgfwPerfFragmentsIn=tptNgfwPerfFragmentsIn, tptNgfwPerfFragmentsOut=tptNgfwPerfFragmentsOut, tptNgfwPerfPacketDistSizeGrp=tptNgfwPerfPacketDistSizeGrp, tptNgfwPerfPacketDistSizeGrpCount=tptNgfwPerfPacketDistSizeGrpCount, tptNgfwPerfIPSRateLimitCount=tptNgfwPerfIPSRateLimitCount, tptNgfwPerfPacketDistEntryIndex=tptNgfwPerfPacketDistEntryIndex, tptNgfwPerfBytesIn=tptNgfwPerfBytesIn, tptNgfwPerfIPSTrustedStreams=tptNgfwPerfIPSTrustedStreams, tptNgfwPerformance=tptNgfwPerformance, tptNgfwPerfPacketDistTable=tptNgfwPerfPacketDistTable, tptNgfwPerfFWPermits=tptNgfwPerfFWPermits, tptNgfwPerfIPSAfcAppEntries=tptNgfwPerfIPSAfcAppEntries, tptNgfwPerfPacketsOut=tptNgfwPerfPacketsOut, tptNgfwPerfPacketsIn=tptNgfwPerfPacketsIn, tptNgfwPerformanceGroup=tptNgfwPerformanceGroup, tptNgfwPerfIPSQuarantineCount=tptNgfwPerfIPSQuarantineCount, tptNgfwPerfIPSBlockedStreams=tptNgfwPerfIPSBlockedStreams)

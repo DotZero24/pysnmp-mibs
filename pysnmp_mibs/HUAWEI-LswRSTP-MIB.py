@@ -1,213 +1,104 @@
-_J='hwdot1dStpPortXEntry'
-_I='hwdot1dVlan'
-_H='enable'
-_G='HUAWEI-LswRSTP-MIB'
-_F='dot1dStpPort'
-_E='BRIDGE-MIB'
-_D='read-only'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dStpPort,dot1dStpPortEntry=mibBuilder.importSymbols(_E,_F,'dot1dStpPortEntry')
-lswCommon,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','lswCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TruthValue')
-hwLswRstpMib=ModuleIdentity((1,3,6,1,4,1,2011,2,23,1,6))
-if mibBuilder.loadTexts:hwLswRstpMib.setRevisions(('2001-06-29 00:00',))
-class EnabledStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_HwLswRstpMibObject_ObjectIdentity=ObjectIdentity
-hwLswRstpMibObject=_HwLswRstpMibObject_ObjectIdentity((1,3,6,1,4,1,2011,2,23,1,6,1))
-_HwRstpEventsV2_ObjectIdentity=ObjectIdentity
-hwRstpEventsV2=_HwRstpEventsV2_ObjectIdentity((1,3,6,1,4,1,2011,2,23,1,6,1,0))
-if mibBuilder.loadTexts:hwRstpEventsV2.setStatus(_A)
-_Hwdot1dStpStatus_Type=EnabledStatus
-_Hwdot1dStpStatus_Object=MibScalar
-hwdot1dStpStatus=_Hwdot1dStpStatus_Object((1,3,6,1,4,1,2011,2,23,1,6,1,1),_Hwdot1dStpStatus_Type())
-hwdot1dStpStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwdot1dStpStatus.setStatus(_A)
-class _Hwdot1dStpForceVersion_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,2)));namedValues=NamedValues(*(('stp',0),('rstp',2)))
-_Hwdot1dStpForceVersion_Type.__name__=_C
-_Hwdot1dStpForceVersion_Object=MibScalar
-hwdot1dStpForceVersion=_Hwdot1dStpForceVersion_Object((1,3,6,1,4,1,2011,2,23,1,6,1,2),_Hwdot1dStpForceVersion_Type())
-hwdot1dStpForceVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwdot1dStpForceVersion.setStatus(_A)
-class _Hwdot1dStpDiameter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,7))
-_Hwdot1dStpDiameter_Type.__name__=_C
-_Hwdot1dStpDiameter_Object=MibScalar
-hwdot1dStpDiameter=_Hwdot1dStpDiameter_Object((1,3,6,1,4,1,2011,2,23,1,6,1,3),_Hwdot1dStpDiameter_Type())
-hwdot1dStpDiameter.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwdot1dStpDiameter.setStatus(_A)
-_Hwdot1dStpRootBridgeAddress_Type=MacAddress
-_Hwdot1dStpRootBridgeAddress_Object=MibScalar
-hwdot1dStpRootBridgeAddress=_Hwdot1dStpRootBridgeAddress_Object((1,3,6,1,4,1,2011,2,23,1,6,1,4),_Hwdot1dStpRootBridgeAddress_Type())
-hwdot1dStpRootBridgeAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwdot1dStpRootBridgeAddress.setStatus(_A)
-_Hwdot1dStpPortXTable_Object=MibTable
-hwdot1dStpPortXTable=_Hwdot1dStpPortXTable_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5))
-if mibBuilder.loadTexts:hwdot1dStpPortXTable.setStatus(_A)
-_Hwdot1dStpPortXEntry_Object=MibTableRow
-hwdot1dStpPortXEntry=_Hwdot1dStpPortXEntry_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1))
-if mibBuilder.loadTexts:hwdot1dStpPortXEntry.setStatus(_A)
-_Hwdot1dStpPortStatus_Type=EnabledStatus
-_Hwdot1dStpPortStatus_Object=MibTableColumn
-hwdot1dStpPortStatus=_Hwdot1dStpPortStatus_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,1),_Hwdot1dStpPortStatus_Type())
-hwdot1dStpPortStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwdot1dStpPortStatus.setStatus(_A)
-_Hwdot1dStpPortEdgeport_Type=TruthValue
-_Hwdot1dStpPortEdgeport_Object=MibTableColumn
-hwdot1dStpPortEdgeport=_Hwdot1dStpPortEdgeport_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,2),_Hwdot1dStpPortEdgeport_Type())
-hwdot1dStpPortEdgeport.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwdot1dStpPortEdgeport.setStatus(_A)
-class _Hwdot1dStpPortPointToPoint_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('forceTrue',1),('forceFalse',2),('auto',3)))
-_Hwdot1dStpPortPointToPoint_Type.__name__=_C
-_Hwdot1dStpPortPointToPoint_Object=MibTableColumn
-hwdot1dStpPortPointToPoint=_Hwdot1dStpPortPointToPoint_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,3),_Hwdot1dStpPortPointToPoint_Type())
-hwdot1dStpPortPointToPoint.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwdot1dStpPortPointToPoint.setStatus(_A)
-_Hwdot1dStpMcheck_Type=TruthValue
-_Hwdot1dStpMcheck_Object=MibTableColumn
-hwdot1dStpMcheck=_Hwdot1dStpMcheck_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,4),_Hwdot1dStpMcheck_Type())
-hwdot1dStpMcheck.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwdot1dStpMcheck.setStatus(_A)
-class _Hwdot1dStpTransLimit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_Hwdot1dStpTransLimit_Type.__name__=_C
-_Hwdot1dStpTransLimit_Object=MibTableColumn
-hwdot1dStpTransLimit=_Hwdot1dStpTransLimit_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,5),_Hwdot1dStpTransLimit_Type())
-hwdot1dStpTransLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwdot1dStpTransLimit.setStatus(_A)
-_Hwdot1dStpRXStpBPDU_Type=Counter32
-_Hwdot1dStpRXStpBPDU_Object=MibTableColumn
-hwdot1dStpRXStpBPDU=_Hwdot1dStpRXStpBPDU_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,6),_Hwdot1dStpRXStpBPDU_Type())
-hwdot1dStpRXStpBPDU.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwdot1dStpRXStpBPDU.setStatus(_A)
-_Hwdot1dStpTXStpBPDU_Type=Counter32
-_Hwdot1dStpTXStpBPDU_Object=MibTableColumn
-hwdot1dStpTXStpBPDU=_Hwdot1dStpTXStpBPDU_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,7),_Hwdot1dStpTXStpBPDU_Type())
-hwdot1dStpTXStpBPDU.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwdot1dStpTXStpBPDU.setStatus(_A)
-_Hwdot1dStpRXTCNBPDU_Type=Counter32
-_Hwdot1dStpRXTCNBPDU_Object=MibTableColumn
-hwdot1dStpRXTCNBPDU=_Hwdot1dStpRXTCNBPDU_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,8),_Hwdot1dStpRXTCNBPDU_Type())
-hwdot1dStpRXTCNBPDU.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwdot1dStpRXTCNBPDU.setStatus(_A)
-_Hwdot1dStpTXTCNBPDU_Type=Counter32
-_Hwdot1dStpTXTCNBPDU_Object=MibTableColumn
-hwdot1dStpTXTCNBPDU=_Hwdot1dStpTXTCNBPDU_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,9),_Hwdot1dStpTXTCNBPDU_Type())
-hwdot1dStpTXTCNBPDU.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwdot1dStpTXTCNBPDU.setStatus(_A)
-_Hwdot1dStpRXRSTPBPDU_Type=Counter32
-_Hwdot1dStpRXRSTPBPDU_Object=MibTableColumn
-hwdot1dStpRXRSTPBPDU=_Hwdot1dStpRXRSTPBPDU_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,10),_Hwdot1dStpRXRSTPBPDU_Type())
-hwdot1dStpRXRSTPBPDU.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwdot1dStpRXRSTPBPDU.setStatus(_A)
-_Hwdot1dStpTXRSTPBPDU_Type=Counter32
-_Hwdot1dStpTXRSTPBPDU_Object=MibTableColumn
-hwdot1dStpTXRSTPBPDU=_Hwdot1dStpTXRSTPBPDU_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,11),_Hwdot1dStpTXRSTPBPDU_Type())
-hwdot1dStpTXRSTPBPDU.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwdot1dStpTXRSTPBPDU.setStatus(_A)
-class _Hwdot1dStpClearStatistics_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('clear',1))
-_Hwdot1dStpClearStatistics_Type.__name__=_C
-_Hwdot1dStpClearStatistics_Object=MibTableColumn
-hwdot1dStpClearStatistics=_Hwdot1dStpClearStatistics_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,12),_Hwdot1dStpClearStatistics_Type())
-hwdot1dStpClearStatistics.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwdot1dStpClearStatistics.setStatus(_A)
-class _Hwdot1dSetStpDefaultPortCost_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues((_H,1))
-_Hwdot1dSetStpDefaultPortCost_Type.__name__=_C
-_Hwdot1dSetStpDefaultPortCost_Object=MibTableColumn
-hwdot1dSetStpDefaultPortCost=_Hwdot1dSetStpDefaultPortCost_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,13),_Hwdot1dSetStpDefaultPortCost_Type())
-hwdot1dSetStpDefaultPortCost.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwdot1dSetStpDefaultPortCost.setStatus(_A)
-_Hwdot1dStpRootGuard_Type=EnabledStatus
-_Hwdot1dStpRootGuard_Object=MibTableColumn
-hwdot1dStpRootGuard=_Hwdot1dStpRootGuard_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,14),_Hwdot1dStpRootGuard_Type())
-hwdot1dStpRootGuard.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwdot1dStpRootGuard.setStatus(_A)
-_Hwdot1dStpLoopGuard_Type=EnabledStatus
-_Hwdot1dStpLoopGuard_Object=MibTableColumn
-hwdot1dStpLoopGuard=_Hwdot1dStpLoopGuard_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,15),_Hwdot1dStpLoopGuard_Type())
-hwdot1dStpLoopGuard.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwdot1dStpLoopGuard.setStatus(_A)
-class _Hwdot1dStpPortBlockedReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('notBlock',1),('blockForProtocol',2),('blockForRootGuard',3),('blockForBPDUGuard',4),('blockForLoopGuard',5)))
-_Hwdot1dStpPortBlockedReason_Type.__name__=_C
-_Hwdot1dStpPortBlockedReason_Object=MibTableColumn
-hwdot1dStpPortBlockedReason=_Hwdot1dStpPortBlockedReason_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,16),_Hwdot1dStpPortBlockedReason_Type())
-hwdot1dStpPortBlockedReason.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwdot1dStpPortBlockedReason.setStatus(_A)
-_Hwdot1dStpRXTCBPDU_Type=Counter32
-_Hwdot1dStpRXTCBPDU_Object=MibTableColumn
-hwdot1dStpRXTCBPDU=_Hwdot1dStpRXTCBPDU_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,17),_Hwdot1dStpRXTCBPDU_Type())
-hwdot1dStpRXTCBPDU.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwdot1dStpRXTCBPDU.setStatus(_A)
-class _Hwdot1dStpPortSendingBPDUType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,2)));namedValues=NamedValues(*(('stp',0),('rstp',2)))
-_Hwdot1dStpPortSendingBPDUType_Type.__name__=_C
-_Hwdot1dStpPortSendingBPDUType_Object=MibTableColumn
-hwdot1dStpPortSendingBPDUType=_Hwdot1dStpPortSendingBPDUType_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,18),_Hwdot1dStpPortSendingBPDUType_Type())
-hwdot1dStpPortSendingBPDUType.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwdot1dStpPortSendingBPDUType.setStatus(_A)
-class _Hwdot1dStpOperPortPointToPoint_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('true',1),('false',2)))
-_Hwdot1dStpOperPortPointToPoint_Type.__name__=_C
-_Hwdot1dStpOperPortPointToPoint_Object=MibTableColumn
-hwdot1dStpOperPortPointToPoint=_Hwdot1dStpOperPortPointToPoint_Object((1,3,6,1,4,1,2011,2,23,1,6,1,5,1,19),_Hwdot1dStpOperPortPointToPoint_Type())
-hwdot1dStpOperPortPointToPoint.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwdot1dStpOperPortPointToPoint.setStatus(_A)
-_HwDot1dStpBpduGuard_Type=EnabledStatus
-_HwDot1dStpBpduGuard_Object=MibScalar
-hwDot1dStpBpduGuard=_HwDot1dStpBpduGuard_Object((1,3,6,1,4,1,2011,2,23,1,6,1,6),_HwDot1dStpBpduGuard_Type())
-hwDot1dStpBpduGuard.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwDot1dStpBpduGuard.setStatus(_A)
-class _HwDot1dStpRootType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('normal',1),('primary',2),('secondary',3)))
-_HwDot1dStpRootType_Type.__name__=_C
-_HwDot1dStpRootType_Object=MibScalar
-hwDot1dStpRootType=_HwDot1dStpRootType_Object((1,3,6,1,4,1,2011,2,23,1,6,1,7),_HwDot1dStpRootType_Type())
-hwDot1dStpRootType.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwDot1dStpRootType.setStatus(_A)
-class _HwDot1dTimeOutFactor_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3,7))
-_HwDot1dTimeOutFactor_Type.__name__=_C
-_HwDot1dTimeOutFactor_Object=MibScalar
-hwDot1dTimeOutFactor=_HwDot1dTimeOutFactor_Object((1,3,6,1,4,1,2011,2,23,1,6,1,8),_HwDot1dTimeOutFactor_Type())
-hwDot1dTimeOutFactor.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwDot1dTimeOutFactor.setStatus(_A)
-class _HwDot1dStpPathCostStandard_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('dot1d-1998',1),('dot1t',2),('legacy',3)))
-_HwDot1dStpPathCostStandard_Type.__name__=_C
-_HwDot1dStpPathCostStandard_Object=MibScalar
-hwDot1dStpPathCostStandard=_HwDot1dStpPathCostStandard_Object((1,3,6,1,4,1,2011,2,23,1,6,1,9),_HwDot1dStpPathCostStandard_Type())
-hwDot1dStpPathCostStandard.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwDot1dStpPathCostStandard.setStatus(_A)
-_Hwdot1dStpIgnoredVlanTable_Object=MibTable
-hwdot1dStpIgnoredVlanTable=_Hwdot1dStpIgnoredVlanTable_Object((1,3,6,1,4,1,2011,2,23,1,6,1,10))
-if mibBuilder.loadTexts:hwdot1dStpIgnoredVlanTable.setStatus(_A)
-_Hwdot1dStpIgnoredVlanEntry_Object=MibTableRow
-hwdot1dStpIgnoredVlanEntry=_Hwdot1dStpIgnoredVlanEntry_Object((1,3,6,1,4,1,2011,2,23,1,6,1,10,1))
-hwdot1dStpIgnoredVlanEntry.setIndexNames((0,_G,_I))
-if mibBuilder.loadTexts:hwdot1dStpIgnoredVlanEntry.setStatus(_A)
-class _Hwdot1dVlan_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_Hwdot1dVlan_Type.__name__=_C
-_Hwdot1dVlan_Object=MibTableColumn
-hwdot1dVlan=_Hwdot1dVlan_Object((1,3,6,1,4,1,2011,2,23,1,6,1,10,1,1),_Hwdot1dVlan_Type())
-hwdot1dVlan.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwdot1dVlan.setStatus(_A)
-class _Hwdot1dStpIgnore_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),('disable',2)))
-_Hwdot1dStpIgnore_Type.__name__=_C
-_Hwdot1dStpIgnore_Object=MibTableColumn
-hwdot1dStpIgnore=_Hwdot1dStpIgnore_Object((1,3,6,1,4,1,2011,2,23,1,6,1,10,1,2),_Hwdot1dStpIgnore_Type())
-hwdot1dStpIgnore.setMaxAccess(_B)
-if mibBuilder.loadTexts:hwdot1dStpIgnore.setStatus(_A)
-dot1dStpPortEntry.registerAugmentions((_G,_J))
+#
+# PySNMP MIB module HUAWEI-LswRSTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/HUAWEI-LswRSTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:22 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dStpPort, dot1dStpPortEntry = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dStpPort", "dot1dStpPortEntry")
+lswCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "lswCommon")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+MacAddress, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TruthValue", "TextualConvention")
+hwLswRstpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6))
+hwLswRstpMib.setRevisions(('2001-06-29 00:00',))
+if mibBuilder.loadTexts: hwLswRstpMib.setLastUpdated('200106290000Z')
+if mibBuilder.loadTexts: hwLswRstpMib.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
+class EnabledStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("enabled", 1), ("disabled", 2))
+
+hwLswRstpMibObject = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1))
+hwdot1dStpStatus = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwdot1dStpStatus.setStatus('current')
+hwdot1dStpForceVersion = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 2))).clone(namedValues=NamedValues(("stp", 0), ("rstp", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwdot1dStpForceVersion.setStatus('current')
+hwdot1dStpDiameter = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwdot1dStpDiameter.setStatus('current')
+hwdot1dStpRootBridgeAddress = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 4), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwdot1dStpRootBridgeAddress.setStatus('current')
+hwDot1dStpBpduGuard = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 6), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwDot1dStpBpduGuard.setStatus('current')
+hwDot1dStpRootType = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("normal", 1), ("primary", 2), ("secondary", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwDot1dStpRootType.setStatus('current')
+hwDot1dTimeOutFactor = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(3, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwDot1dTimeOutFactor.setStatus('current')
+hwDot1dStpPathCostStandard = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("dot1d-1998", 1), ("dot1t", 2), ("legacy", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwDot1dStpPathCostStandard.setStatus('current')
+hwdot1dStpPortXTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5), )
+if mibBuilder.loadTexts: hwdot1dStpPortXTable.setStatus('current')
+hwdot1dStpPortXEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1), )
+dot1dStpPortEntry.registerAugmentions(("HUAWEI-LswRSTP-MIB", "hwdot1dStpPortXEntry"))
 hwdot1dStpPortXEntry.setIndexNames(*dot1dStpPortEntry.getIndexNames())
-hwRstpBpduGuarded=NotificationType((1,3,6,1,4,1,2011,2,23,1,6,1,0,1))
-hwRstpBpduGuarded.setObjects((_E,_F))
-if mibBuilder.loadTexts:hwRstpBpduGuarded.setStatus(_A)
-hwRstpRootGuarded=NotificationType((1,3,6,1,4,1,2011,2,23,1,6,1,0,2))
-hwRstpRootGuarded.setObjects((_E,_F))
-if mibBuilder.loadTexts:hwRstpRootGuarded.setStatus(_A)
-hwRstpBridgeLostRootPrimary=NotificationType((1,3,6,1,4,1,2011,2,23,1,6,1,0,3))
-if mibBuilder.loadTexts:hwRstpBridgeLostRootPrimary.setStatus(_A)
-hwRstpLoopGuarded=NotificationType((1,3,6,1,4,1,2011,2,23,1,6,1,0,4))
-hwRstpLoopGuarded.setObjects((_E,_F))
-if mibBuilder.loadTexts:hwRstpLoopGuarded.setStatus(_A)
-mibBuilder.exportSymbols(_G,**{'EnabledStatus':EnabledStatus,'hwLswRstpMib':hwLswRstpMib,'hwLswRstpMibObject':hwLswRstpMibObject,'hwRstpEventsV2':hwRstpEventsV2,'hwRstpBpduGuarded':hwRstpBpduGuarded,'hwRstpRootGuarded':hwRstpRootGuarded,'hwRstpBridgeLostRootPrimary':hwRstpBridgeLostRootPrimary,'hwRstpLoopGuarded':hwRstpLoopGuarded,'hwdot1dStpStatus':hwdot1dStpStatus,'hwdot1dStpForceVersion':hwdot1dStpForceVersion,'hwdot1dStpDiameter':hwdot1dStpDiameter,'hwdot1dStpRootBridgeAddress':hwdot1dStpRootBridgeAddress,'hwdot1dStpPortXTable':hwdot1dStpPortXTable,_J:hwdot1dStpPortXEntry,'hwdot1dStpPortStatus':hwdot1dStpPortStatus,'hwdot1dStpPortEdgeport':hwdot1dStpPortEdgeport,'hwdot1dStpPortPointToPoint':hwdot1dStpPortPointToPoint,'hwdot1dStpMcheck':hwdot1dStpMcheck,'hwdot1dStpTransLimit':hwdot1dStpTransLimit,'hwdot1dStpRXStpBPDU':hwdot1dStpRXStpBPDU,'hwdot1dStpTXStpBPDU':hwdot1dStpTXStpBPDU,'hwdot1dStpRXTCNBPDU':hwdot1dStpRXTCNBPDU,'hwdot1dStpTXTCNBPDU':hwdot1dStpTXTCNBPDU,'hwdot1dStpRXRSTPBPDU':hwdot1dStpRXRSTPBPDU,'hwdot1dStpTXRSTPBPDU':hwdot1dStpTXRSTPBPDU,'hwdot1dStpClearStatistics':hwdot1dStpClearStatistics,'hwdot1dSetStpDefaultPortCost':hwdot1dSetStpDefaultPortCost,'hwdot1dStpRootGuard':hwdot1dStpRootGuard,'hwdot1dStpLoopGuard':hwdot1dStpLoopGuard,'hwdot1dStpPortBlockedReason':hwdot1dStpPortBlockedReason,'hwdot1dStpRXTCBPDU':hwdot1dStpRXTCBPDU,'hwdot1dStpPortSendingBPDUType':hwdot1dStpPortSendingBPDUType,'hwdot1dStpOperPortPointToPoint':hwdot1dStpOperPortPointToPoint,'hwDot1dStpBpduGuard':hwDot1dStpBpduGuard,'hwDot1dStpRootType':hwDot1dStpRootType,'hwDot1dTimeOutFactor':hwDot1dTimeOutFactor,'hwDot1dStpPathCostStandard':hwDot1dStpPathCostStandard,'hwdot1dStpIgnoredVlanTable':hwdot1dStpIgnoredVlanTable,'hwdot1dStpIgnoredVlanEntry':hwdot1dStpIgnoredVlanEntry,_I:hwdot1dVlan,'hwdot1dStpIgnore':hwdot1dStpIgnore})
+if mibBuilder.loadTexts: hwdot1dStpPortXEntry.setStatus('current')
+hwdot1dStpPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwdot1dStpPortStatus.setStatus('current')
+hwdot1dStpPortEdgeport = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwdot1dStpPortEdgeport.setStatus('current')
+hwdot1dStpPortPointToPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("forceTrue", 1), ("forceFalse", 2), ("auto", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwdot1dStpPortPointToPoint.setStatus('current')
+hwdot1dStpMcheck = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 4), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwdot1dStpMcheck.setStatus('current')
+hwdot1dStpTransLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwdot1dStpTransLimit.setStatus('current')
+hwdot1dStpRXStpBPDU = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwdot1dStpRXStpBPDU.setStatus('current')
+hwdot1dStpTXStpBPDU = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwdot1dStpTXStpBPDU.setStatus('current')
+hwdot1dStpRXTCNBPDU = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwdot1dStpRXTCNBPDU.setStatus('current')
+hwdot1dStpTXTCNBPDU = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwdot1dStpTXTCNBPDU.setStatus('current')
+hwdot1dStpRXRSTPBPDU = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwdot1dStpRXRSTPBPDU.setStatus('current')
+hwdot1dStpTXRSTPBPDU = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwdot1dStpTXRSTPBPDU.setStatus('current')
+hwdot1dStpClearStatistics = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("clear", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwdot1dStpClearStatistics.setStatus('current')
+hwdot1dSetStpDefaultPortCost = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwdot1dSetStpDefaultPortCost.setStatus('current')
+hwdot1dStpRootGuard = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 14), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwdot1dStpRootGuard.setStatus('current')
+hwdot1dStpLoopGuard = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 15), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwdot1dStpLoopGuard.setStatus('current')
+hwdot1dStpPortBlockedReason = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("notBlock", 1), ("blockForProtocol", 2), ("blockForRootGuard", 3), ("blockForBPDUGuard", 4), ("blockForLoopGuard", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwdot1dStpPortBlockedReason.setStatus('current')
+hwdot1dStpRXTCBPDU = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwdot1dStpRXTCBPDU.setStatus('current')
+hwdot1dStpPortSendingBPDUType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 2))).clone(namedValues=NamedValues(("stp", 0), ("rstp", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwdot1dStpPortSendingBPDUType.setStatus('current')
+hwdot1dStpOperPortPointToPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 5, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("true", 1), ("false", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwdot1dStpOperPortPointToPoint.setStatus('current')
+hwRstpEventsV2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 0))
+if mibBuilder.loadTexts: hwRstpEventsV2.setStatus('current')
+hwRstpBpduGuarded = NotificationType((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 0, 1)).setObjects(("BRIDGE-MIB", "dot1dStpPort"))
+if mibBuilder.loadTexts: hwRstpBpduGuarded.setStatus('current')
+hwRstpRootGuarded = NotificationType((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 0, 2)).setObjects(("BRIDGE-MIB", "dot1dStpPort"))
+if mibBuilder.loadTexts: hwRstpRootGuarded.setStatus('current')
+hwRstpBridgeLostRootPrimary = NotificationType((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 0, 3))
+if mibBuilder.loadTexts: hwRstpBridgeLostRootPrimary.setStatus('current')
+hwRstpLoopGuarded = NotificationType((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 0, 4)).setObjects(("BRIDGE-MIB", "dot1dStpPort"))
+if mibBuilder.loadTexts: hwRstpLoopGuarded.setStatus('current')
+hwdot1dStpIgnoredVlanTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 10), )
+if mibBuilder.loadTexts: hwdot1dStpIgnoredVlanTable.setStatus('current')
+hwdot1dStpIgnoredVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 10, 1), ).setIndexNames((0, "HUAWEI-LswRSTP-MIB", "hwdot1dVlan"))
+if mibBuilder.loadTexts: hwdot1dStpIgnoredVlanEntry.setStatus('current')
+hwdot1dVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 10, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwdot1dVlan.setStatus('current')
+hwdot1dStpIgnore = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 23, 1, 6, 1, 10, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwdot1dStpIgnore.setStatus('current')
+mibBuilder.exportSymbols("HUAWEI-LswRSTP-MIB", hwdot1dStpPortEdgeport=hwdot1dStpPortEdgeport, hwDot1dStpPathCostStandard=hwDot1dStpPathCostStandard, EnabledStatus=EnabledStatus, hwdot1dStpTransLimit=hwdot1dStpTransLimit, hwdot1dStpRXStpBPDU=hwdot1dStpRXStpBPDU, hwdot1dStpPortPointToPoint=hwdot1dStpPortPointToPoint, hwdot1dStpRootBridgeAddress=hwdot1dStpRootBridgeAddress, hwdot1dVlan=hwdot1dVlan, hwdot1dStpTXStpBPDU=hwdot1dStpTXStpBPDU, hwdot1dStpRXTCNBPDU=hwdot1dStpRXTCNBPDU, hwdot1dStpTXTCNBPDU=hwdot1dStpTXTCNBPDU, hwdot1dStpPortBlockedReason=hwdot1dStpPortBlockedReason, hwLswRstpMibObject=hwLswRstpMibObject, hwdot1dStpPortXEntry=hwdot1dStpPortXEntry, hwdot1dStpTXRSTPBPDU=hwdot1dStpTXRSTPBPDU, hwdot1dStpRXRSTPBPDU=hwdot1dStpRXRSTPBPDU, PYSNMP_MODULE_ID=hwLswRstpMib, hwRstpEventsV2=hwRstpEventsV2, hwdot1dStpPortStatus=hwdot1dStpPortStatus, hwdot1dStpRXTCBPDU=hwdot1dStpRXTCBPDU, hwdot1dStpPortXTable=hwdot1dStpPortXTable, hwdot1dStpDiameter=hwdot1dStpDiameter, hwdot1dStpRootGuard=hwdot1dStpRootGuard, hwdot1dStpLoopGuard=hwdot1dStpLoopGuard, hwRstpRootGuarded=hwRstpRootGuarded, hwDot1dStpBpduGuard=hwDot1dStpBpduGuard, hwdot1dStpIgnore=hwdot1dStpIgnore, hwdot1dStpStatus=hwdot1dStpStatus, hwDot1dTimeOutFactor=hwDot1dTimeOutFactor, hwdot1dStpIgnoredVlanEntry=hwdot1dStpIgnoredVlanEntry, hwdot1dStpIgnoredVlanTable=hwdot1dStpIgnoredVlanTable, hwdot1dSetStpDefaultPortCost=hwdot1dSetStpDefaultPortCost, hwRstpLoopGuarded=hwRstpLoopGuarded, hwRstpBpduGuarded=hwRstpBpduGuarded, hwRstpBridgeLostRootPrimary=hwRstpBridgeLostRootPrimary, hwdot1dStpClearStatistics=hwdot1dStpClearStatistics, hwdot1dStpMcheck=hwdot1dStpMcheck, hwLswRstpMib=hwLswRstpMib, hwdot1dStpPortSendingBPDUType=hwdot1dStpPortSendingBPDUType, hwdot1dStpOperPortPointToPoint=hwdot1dStpOperPortPointToPoint, hwdot1dStpForceVersion=hwdot1dStpForceVersion, hwDot1dStpRootType=hwDot1dStpRootType)

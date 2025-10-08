@@ -1,66 +1,37 @@
-_J='DisplayString'
-_I='IpAddress'
-_H='Integer32'
-_G='Gauge32'
-_F='Counter32'
-_E='frCircuitIfIndex'
-_D='frCircuitDlci'
-_C='RFC1315-MIB'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-frCircuitDlci,frCircuitIfIndex=mibBuilder.importSymbols(_C,_D,_E)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits',_F,'Counter64',_G,_H,_I,'ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-Counter32,Gauge32,Integer32,IpAddress=mibBuilder.importSymbols('SNMPv2-SMI-v1',_F,_G,_H,_I)
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_J,'PhysAddress','TextualConvention')
-DisplayString,=mibBuilder.importSymbols('SNMPv2-TC-v1',_J)
-_IbmIROCfrcircuit_ObjectIdentity=ObjectIdentity
-ibmIROCfrcircuit=_IbmIROCfrcircuit_ObjectIdentity((1,3,6,1,4,1,2,6,119,4,4,5))
-_IbmframerelayPVCTable_Object=MibTable
-ibmframerelayPVCTable=_IbmframerelayPVCTable_Object((1,3,6,1,4,1,2,6,119,4,4,5,1))
-if mibBuilder.loadTexts:ibmframerelayPVCTable.setStatus(_A)
-_IbmframerelayPVCEntry_Object=MibTableRow
-ibmframerelayPVCEntry=_IbmframerelayPVCEntry_Object((1,3,6,1,4,1,2,6,119,4,4,5,1,1))
-ibmframerelayPVCEntry.setIndexNames((0,_C,_E),(0,_C,_D))
-if mibBuilder.loadTexts:ibmframerelayPVCEntry.setStatus(_A)
-_IbmframerelayPVCCircName_Type=DisplayString
-_IbmframerelayPVCCircName_Object=MibTableColumn
-ibmframerelayPVCCircName=_IbmframerelayPVCCircName_Object((1,3,6,1,4,1,2,6,119,4,4,5,1,1,1),_IbmframerelayPVCCircName_Type())
-ibmframerelayPVCCircName.setMaxAccess(_B)
-if mibBuilder.loadTexts:ibmframerelayPVCCircName.setStatus(_A)
-_IbmframerelayPVCTimesActive_Type=Counter32
-_IbmframerelayPVCTimesActive_Object=MibTableColumn
-ibmframerelayPVCTimesActive=_IbmframerelayPVCTimesActive_Object((1,3,6,1,4,1,2,6,119,4,4,5,1,1,2),_IbmframerelayPVCTimesActive_Type())
-ibmframerelayPVCTimesActive.setMaxAccess(_B)
-if mibBuilder.loadTexts:ibmframerelayPVCTimesActive.setStatus(_A)
-_IbmframerelayPVCTimesInactive_Type=Counter32
-_IbmframerelayPVCTimesInactive_Object=MibTableColumn
-ibmframerelayPVCTimesInactive=_IbmframerelayPVCTimesInactive_Object((1,3,6,1,4,1,2,6,119,4,4,5,1,1,3),_IbmframerelayPVCTimesInactive_Type())
-ibmframerelayPVCTimesInactive.setMaxAccess(_B)
-if mibBuilder.loadTexts:ibmframerelayPVCTimesInactive.setStatus(_A)
-_IbmframerelayPVCTimesCongested_Type=Counter32
-_IbmframerelayPVCTimesCongested_Object=MibTableColumn
-ibmframerelayPVCTimesCongested=_IbmframerelayPVCTimesCongested_Object((1,3,6,1,4,1,2,6,119,4,4,5,1,1,4),_IbmframerelayPVCTimesCongested_Type())
-ibmframerelayPVCTimesCongested.setMaxAccess(_B)
-if mibBuilder.loadTexts:ibmframerelayPVCTimesCongested.setStatus(_A)
-_IbmframerelayPVCTxQueued_Type=Gauge32
-_IbmframerelayPVCTxQueued_Object=MibTableColumn
-ibmframerelayPVCTxQueued=_IbmframerelayPVCTxQueued_Object((1,3,6,1,4,1,2,6,119,4,4,5,1,1,5),_IbmframerelayPVCTxQueued_Type())
-ibmframerelayPVCTxQueued.setMaxAccess(_B)
-if mibBuilder.loadTexts:ibmframerelayPVCTxQueued.setStatus(_A)
-_IbmframerelayPVCTxDropped_Type=Counter32
-_IbmframerelayPVCTxDropped_Object=MibTableColumn
-ibmframerelayPVCTxDropped=_IbmframerelayPVCTxDropped_Object((1,3,6,1,4,1,2,6,119,4,4,5,1,1,6),_IbmframerelayPVCTxDropped_Type())
-ibmframerelayPVCTxDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:ibmframerelayPVCTxDropped.setStatus(_A)
-_IbmframerelayPVCClearAll_Type=Integer32
-_IbmframerelayPVCClearAll_Object=MibTableColumn
-ibmframerelayPVCClearAll=_IbmframerelayPVCClearAll_Object((1,3,6,1,4,1,2,6,119,4,4,5,1,1,7),_IbmframerelayPVCClearAll_Type())
-ibmframerelayPVCClearAll.setMaxAccess('read-write')
-if mibBuilder.loadTexts:ibmframerelayPVCClearAll.setStatus(_A)
-mibBuilder.exportSymbols('IBM-FRAMERELAY-MIB',**{'ibmIROCfrcircuit':ibmIROCfrcircuit,'ibmframerelayPVCTable':ibmframerelayPVCTable,'ibmframerelayPVCEntry':ibmframerelayPVCEntry,'ibmframerelayPVCCircName':ibmframerelayPVCCircName,'ibmframerelayPVCTimesActive':ibmframerelayPVCTimesActive,'ibmframerelayPVCTimesInactive':ibmframerelayPVCTimesInactive,'ibmframerelayPVCTimesCongested':ibmframerelayPVCTimesCongested,'ibmframerelayPVCTxQueued':ibmframerelayPVCTxQueued,'ibmframerelayPVCTxDropped':ibmframerelayPVCTxDropped,'ibmframerelayPVCClearAll':ibmframerelayPVCClearAll})
+#
+# PySNMP MIB module IBM-FRAMERELAY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ibm/IBM-FRAMERELAY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:34 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+frCircuitDlci, frCircuitIfIndex = mibBuilder.importSymbols("RFC1315-MIB", "frCircuitDlci", "frCircuitIfIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+Gauge32, IpAddress, Counter32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI-v1", "Gauge32", "IpAddress", "Counter32", "Integer32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+DisplayString, = mibBuilder.importSymbols("SNMPv2-TC-v1", "DisplayString")
+ibmIROCfrcircuit = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 119, 4, 4, 5))
+ibmframerelayPVCTable = MibTable((1, 3, 6, 1, 4, 1, 2, 6, 119, 4, 4, 5, 1), )
+if mibBuilder.loadTexts: ibmframerelayPVCTable.setStatus('mandatory')
+ibmframerelayPVCEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2, 6, 119, 4, 4, 5, 1, 1), ).setIndexNames((0, "RFC1315-MIB", "frCircuitIfIndex"), (0, "RFC1315-MIB", "frCircuitDlci"))
+if mibBuilder.loadTexts: ibmframerelayPVCEntry.setStatus('mandatory')
+ibmframerelayPVCCircName = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 119, 4, 4, 5, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ibmframerelayPVCCircName.setStatus('mandatory')
+ibmframerelayPVCTimesActive = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 119, 4, 4, 5, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ibmframerelayPVCTimesActive.setStatus('mandatory')
+ibmframerelayPVCTimesInactive = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 119, 4, 4, 5, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ibmframerelayPVCTimesInactive.setStatus('mandatory')
+ibmframerelayPVCTimesCongested = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 119, 4, 4, 5, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ibmframerelayPVCTimesCongested.setStatus('mandatory')
+ibmframerelayPVCTxQueued = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 119, 4, 4, 5, 1, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ibmframerelayPVCTxQueued.setStatus('mandatory')
+ibmframerelayPVCTxDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 119, 4, 4, 5, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ibmframerelayPVCTxDropped.setStatus('mandatory')
+ibmframerelayPVCClearAll = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 119, 4, 4, 5, 1, 1, 7), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ibmframerelayPVCClearAll.setStatus('mandatory')
+mibBuilder.exportSymbols("IBM-FRAMERELAY-MIB", ibmframerelayPVCTable=ibmframerelayPVCTable, ibmIROCfrcircuit=ibmIROCfrcircuit, ibmframerelayPVCCircName=ibmframerelayPVCCircName, ibmframerelayPVCTimesInactive=ibmframerelayPVCTimesInactive, ibmframerelayPVCClearAll=ibmframerelayPVCClearAll, ibmframerelayPVCTxQueued=ibmframerelayPVCTxQueued, ibmframerelayPVCEntry=ibmframerelayPVCEntry, ibmframerelayPVCTimesActive=ibmframerelayPVCTimesActive, ibmframerelayPVCTxDropped=ibmframerelayPVCTxDropped, ibmframerelayPVCTimesCongested=ibmframerelayPVCTimesCongested)

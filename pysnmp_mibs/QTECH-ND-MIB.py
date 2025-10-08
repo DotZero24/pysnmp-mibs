@@ -1,53 +1,38 @@
-_H='qtechNDObjectsGroup'
-_G='qtechNDTotalActiveStaticNeighbors'
-_F='qtechNDTotalStaticNeighbors'
-_E='qtechNDTotalActiveDynamicNeighbors'
-_D='qtechNDTotalActiveNeighbors'
-_C='read-only'
-_B='QTECH-ND-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-qtechMgmt,=mibBuilder.importSymbols('QTECH-SMI','qtechMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-qtechNDMIB=ModuleIdentity((1,3,6,1,4,1,27514,1,1,10,2,125))
-if mibBuilder.loadTexts:qtechNDMIB.setRevisions(('2013-12-30 00:00',))
-_QtechNDMIBObjects_ObjectIdentity=ObjectIdentity
-qtechNDMIBObjects=_QtechNDMIBObjects_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,125,1))
-_QtechNDTotalActiveNeighbors_Type=Counter32
-_QtechNDTotalActiveNeighbors_Object=MibScalar
-qtechNDTotalActiveNeighbors=_QtechNDTotalActiveNeighbors_Object((1,3,6,1,4,1,27514,1,1,10,2,125,1,1),_QtechNDTotalActiveNeighbors_Type())
-qtechNDTotalActiveNeighbors.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechNDTotalActiveNeighbors.setStatus(_A)
-_QtechNDTotalActiveDynamicNeighbors_Type=Counter32
-_QtechNDTotalActiveDynamicNeighbors_Object=MibScalar
-qtechNDTotalActiveDynamicNeighbors=_QtechNDTotalActiveDynamicNeighbors_Object((1,3,6,1,4,1,27514,1,1,10,2,125,1,2),_QtechNDTotalActiveDynamicNeighbors_Type())
-qtechNDTotalActiveDynamicNeighbors.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechNDTotalActiveDynamicNeighbors.setStatus(_A)
-_QtechNDTotalStaticNeighbors_Type=Counter32
-_QtechNDTotalStaticNeighbors_Object=MibScalar
-qtechNDTotalStaticNeighbors=_QtechNDTotalStaticNeighbors_Object((1,3,6,1,4,1,27514,1,1,10,2,125,1,3),_QtechNDTotalStaticNeighbors_Type())
-qtechNDTotalStaticNeighbors.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechNDTotalStaticNeighbors.setStatus(_A)
-_QtechNDTotalActiveStaticNeighbors_Type=Counter32
-_QtechNDTotalActiveStaticNeighbors_Object=MibScalar
-qtechNDTotalActiveStaticNeighbors=_QtechNDTotalActiveStaticNeighbors_Object((1,3,6,1,4,1,27514,1,1,10,2,125,1,4),_QtechNDTotalActiveStaticNeighbors_Type())
-qtechNDTotalActiveStaticNeighbors.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechNDTotalActiveStaticNeighbors.setStatus(_A)
-_QtechNDMIBConformance_ObjectIdentity=ObjectIdentity
-qtechNDMIBConformance=_QtechNDMIBConformance_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,125,2))
-_QtechNDMIBCompliances_ObjectIdentity=ObjectIdentity
-qtechNDMIBCompliances=_QtechNDMIBCompliances_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,125,2,1))
-_QtechNDMIBGroups_ObjectIdentity=ObjectIdentity
-qtechNDMIBGroups=_QtechNDMIBGroups_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,125,2,2))
-qtechNDObjectsGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,125,2,2,1))
-qtechNDObjectsGroup.setObjects(*((_B,_D),(_B,_E),(_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:qtechNDObjectsGroup.setStatus(_A)
-qtechNDMIBCompliance=ModuleCompliance((1,3,6,1,4,1,27514,1,1,10,2,125,2,1,1))
-qtechNDMIBCompliance.setObjects((_B,_H))
-if mibBuilder.loadTexts:qtechNDMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'qtechNDMIB':qtechNDMIB,'qtechNDMIBObjects':qtechNDMIBObjects,_D:qtechNDTotalActiveNeighbors,_E:qtechNDTotalActiveDynamicNeighbors,_F:qtechNDTotalStaticNeighbors,_G:qtechNDTotalActiveStaticNeighbors,'qtechNDMIBConformance':qtechNDMIBConformance,'qtechNDMIBCompliances':qtechNDMIBCompliances,'qtechNDMIBCompliance':qtechNDMIBCompliance,'qtechNDMIBGroups':qtechNDMIBGroups,_H:qtechNDObjectsGroup})
+#
+# PySNMP MIB module QTECH-ND-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-ND-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+qtechNDMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 125))
+qtechNDMIB.setRevisions(('2013-12-30 00:00',))
+if mibBuilder.loadTexts: qtechNDMIB.setLastUpdated('201312300000Z')
+if mibBuilder.loadTexts: qtechNDMIB.setOrganization('Qtech Networks.')
+qtechNDMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 125, 1))
+qtechNDTotalActiveNeighbors = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 125, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechNDTotalActiveNeighbors.setStatus('current')
+qtechNDTotalActiveDynamicNeighbors = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 125, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechNDTotalActiveDynamicNeighbors.setStatus('current')
+qtechNDTotalStaticNeighbors = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 125, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechNDTotalStaticNeighbors.setStatus('current')
+qtechNDTotalActiveStaticNeighbors = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 125, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechNDTotalActiveStaticNeighbors.setStatus('current')
+qtechNDMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 125, 2))
+qtechNDMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 125, 2, 1))
+qtechNDMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 125, 2, 2))
+qtechNDMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 125, 2, 1, 1)).setObjects(("QTECH-ND-MIB", "qtechNDObjectsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechNDMIBCompliance = qtechNDMIBCompliance.setStatus('current')
+qtechNDObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 125, 2, 2, 1)).setObjects(("QTECH-ND-MIB", "qtechNDTotalActiveNeighbors"), ("QTECH-ND-MIB", "qtechNDTotalActiveDynamicNeighbors"), ("QTECH-ND-MIB", "qtechNDTotalStaticNeighbors"), ("QTECH-ND-MIB", "qtechNDTotalActiveStaticNeighbors"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechNDObjectsGroup = qtechNDObjectsGroup.setStatus('current')
+mibBuilder.exportSymbols("QTECH-ND-MIB", qtechNDMIBObjects=qtechNDMIBObjects, qtechNDTotalActiveNeighbors=qtechNDTotalActiveNeighbors, qtechNDTotalActiveDynamicNeighbors=qtechNDTotalActiveDynamicNeighbors, qtechNDMIBConformance=qtechNDMIBConformance, qtechNDMIBGroups=qtechNDMIBGroups, qtechNDMIBCompliance=qtechNDMIBCompliance, qtechNDTotalActiveStaticNeighbors=qtechNDTotalActiveStaticNeighbors, qtechNDMIBCompliances=qtechNDMIBCompliances, qtechNDTotalStaticNeighbors=qtechNDTotalStaticNeighbors, qtechNDMIB=qtechNDMIB, PYSNMP_MODULE_ID=qtechNDMIB, qtechNDObjectsGroup=qtechNDObjectsGroup)

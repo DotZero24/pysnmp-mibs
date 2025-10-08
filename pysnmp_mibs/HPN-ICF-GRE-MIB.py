@@ -1,45 +1,31 @@
-_G='disable'
-_F='enable'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpnicfCommon,=mibBuilder.importSymbols('HPN-ICF-OID-MIB','hpnicfCommon')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hpnicfGre=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,15,2,54))
-if mibBuilder.loadTexts:hpnicfGre.setRevisions(('2005-06-04 00:00',))
-_HpnicfGreObjects_ObjectIdentity=ObjectIdentity
-hpnicfGreObjects=_HpnicfGreObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,54,1))
-_HpnicfGreTable_Object=MibTable
-hpnicfGreTable=_HpnicfGreTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,54,1,1))
-if mibBuilder.loadTexts:hpnicfGreTable.setStatus(_A)
-_HpnicfGreEntry_Object=MibTableRow
-hpnicfGreEntry=_HpnicfGreEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,54,1,1,1))
-hpnicfGreEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:hpnicfGreEntry.setStatus(_A)
-_HpnicfGreKeyValue_Type=Unsigned32
-_HpnicfGreKeyValue_Object=MibTableColumn
-hpnicfGreKeyValue=_HpnicfGreKeyValue_Object((1,3,6,1,4,1,11,2,14,11,15,2,54,1,1,1,1),_HpnicfGreKeyValue_Type())
-hpnicfGreKeyValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfGreKeyValue.setStatus(_A)
-class _HpnicfGreKey_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_HpnicfGreKey_Type.__name__=_B
-_HpnicfGreKey_Object=MibTableColumn
-hpnicfGreKey=_HpnicfGreKey_Object((1,3,6,1,4,1,11,2,14,11,15,2,54,1,1,1,2),_HpnicfGreKey_Type())
-hpnicfGreKey.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfGreKey.setStatus(_A)
-class _HpnicfGreChecksum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_HpnicfGreChecksum_Type.__name__=_B
-_HpnicfGreChecksum_Object=MibTableColumn
-hpnicfGreChecksum=_HpnicfGreChecksum_Object((1,3,6,1,4,1,11,2,14,11,15,2,54,1,1,1,3),_HpnicfGreChecksum_Type())
-hpnicfGreChecksum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfGreChecksum.setStatus(_A)
-mibBuilder.exportSymbols('HPN-ICF-GRE-MIB',**{'hpnicfGre':hpnicfGre,'hpnicfGreObjects':hpnicfGreObjects,'hpnicfGreTable':hpnicfGreTable,'hpnicfGreEntry':hpnicfGreEntry,'hpnicfGreKeyValue':hpnicfGreKeyValue,'hpnicfGreKey':hpnicfGreKey,'hpnicfGreChecksum':hpnicfGreChecksum})
+#
+# PySNMP MIB module HPN-ICF-GRE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-GRE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:34 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hpnicfGre = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 54))
+hpnicfGre.setRevisions(('2005-06-04 00:00',))
+if mibBuilder.loadTexts: hpnicfGre.setLastUpdated('200506040000Z')
+if mibBuilder.loadTexts: hpnicfGre.setOrganization('')
+hpnicfGreObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 54, 1))
+hpnicfGreTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 54, 1, 1), )
+if mibBuilder.loadTexts: hpnicfGreTable.setStatus('current')
+hpnicfGreEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 54, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hpnicfGreEntry.setStatus('current')
+hpnicfGreKeyValue = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 54, 1, 1, 1, 1), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfGreKeyValue.setStatus('current')
+hpnicfGreKey = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 54, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfGreKey.setStatus('current')
+hpnicfGreChecksum = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 54, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfGreChecksum.setStatus('current')
+mibBuilder.exportSymbols("HPN-ICF-GRE-MIB", hpnicfGreKey=hpnicfGreKey, hpnicfGreChecksum=hpnicfGreChecksum, hpnicfGreTable=hpnicfGreTable, hpnicfGreKeyValue=hpnicfGreKeyValue, hpnicfGreEntry=hpnicfGreEntry, hpnicfGreObjects=hpnicfGreObjects, hpnicfGre=hpnicfGre, PYSNMP_MODULE_ID=hpnicfGre)

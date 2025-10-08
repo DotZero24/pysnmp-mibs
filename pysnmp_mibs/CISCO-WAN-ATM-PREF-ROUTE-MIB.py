@@ -1,93 +1,58 @@
-_M='cwaPrefRouteMIBGroups'
-_L='cwaPrefRouteNwElemRowStatus'
-_K='cwaPrefRouteNwElemPortId'
-_J='cwaPrefRouteNwElemNodeId'
-_I='cwaPrefRouteRowStatus'
-_H='cwaPrefRouteNwElemCount'
-_G='cwaPrefRouteNwElemPos'
-_F='not-accessible'
-_E='cwaPrefRouteId'
-_D='Unsigned32'
-_C='read-create'
-_B='CISCO-WAN-ATM-PREF-ROUTE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-PnniNodeId,PnniPortId=mibBuilder.importSymbols('PNNI-MIB','PnniNodeId','PnniPortId')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-ciscoWanATMPrefRouteMIB=ModuleIdentity((1,3,6,1,4,1,9,9,99996))
-if mibBuilder.loadTexts:ciscoWanATMPrefRouteMIB.setRevisions(('2002-06-25 00:00',))
-class RouteId(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CiscoWanATMPrefRouteMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoWanATMPrefRouteMIBNotifs=_CiscoWanATMPrefRouteMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,99996,0))
-_CiscoWanATMPrefRouteMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoWanATMPrefRouteMIBObjects=_CiscoWanATMPrefRouteMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,99996,1))
-_CwaPrefRouteConfTable_Object=MibTable
-cwaPrefRouteConfTable=_CwaPrefRouteConfTable_Object((1,3,6,1,4,1,9,9,99996,1,1))
-if mibBuilder.loadTexts:cwaPrefRouteConfTable.setStatus(_A)
-_CwaPrefRouteConfEntry_Object=MibTableRow
-cwaPrefRouteConfEntry=_CwaPrefRouteConfEntry_Object((1,3,6,1,4,1,9,9,99996,1,1,1))
-cwaPrefRouteConfEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:cwaPrefRouteConfEntry.setStatus(_A)
-_CwaPrefRouteId_Type=RouteId
-_CwaPrefRouteId_Object=MibTableColumn
-cwaPrefRouteId=_CwaPrefRouteId_Object((1,3,6,1,4,1,9,9,99996,1,1,1,1),_CwaPrefRouteId_Type())
-cwaPrefRouteId.setMaxAccess(_F)
-if mibBuilder.loadTexts:cwaPrefRouteId.setStatus(_A)
-class _CwaPrefRouteNwElemCount_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,20))
-_CwaPrefRouteNwElemCount_Type.__name__=_D
-_CwaPrefRouteNwElemCount_Object=MibTableColumn
-cwaPrefRouteNwElemCount=_CwaPrefRouteNwElemCount_Object((1,3,6,1,4,1,9,9,99996,1,1,1,2),_CwaPrefRouteNwElemCount_Type())
-cwaPrefRouteNwElemCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaPrefRouteNwElemCount.setStatus(_A)
-_CwaPrefRouteRowStatus_Type=RowStatus
-_CwaPrefRouteRowStatus_Object=MibTableColumn
-cwaPrefRouteRowStatus=_CwaPrefRouteRowStatus_Object((1,3,6,1,4,1,9,9,99996,1,1,1,3),_CwaPrefRouteRowStatus_Type())
-cwaPrefRouteRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaPrefRouteRowStatus.setStatus(_A)
-_CwaPrefRouteNwElemTable_Object=MibTable
-cwaPrefRouteNwElemTable=_CwaPrefRouteNwElemTable_Object((1,3,6,1,4,1,9,9,99996,1,2))
-if mibBuilder.loadTexts:cwaPrefRouteNwElemTable.setStatus(_A)
-_CwaPrefRouteNwElemEntry_Object=MibTableRow
-cwaPrefRouteNwElemEntry=_CwaPrefRouteNwElemEntry_Object((1,3,6,1,4,1,9,9,99996,1,2,1))
-cwaPrefRouteNwElemEntry.setIndexNames((0,_B,_E),(0,_B,_G))
-if mibBuilder.loadTexts:cwaPrefRouteNwElemEntry.setStatus(_A)
-class _CwaPrefRouteNwElemPos_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,20))
-_CwaPrefRouteNwElemPos_Type.__name__=_D
-_CwaPrefRouteNwElemPos_Object=MibTableColumn
-cwaPrefRouteNwElemPos=_CwaPrefRouteNwElemPos_Object((1,3,6,1,4,1,9,9,99996,1,2,1,1),_CwaPrefRouteNwElemPos_Type())
-cwaPrefRouteNwElemPos.setMaxAccess(_F)
-if mibBuilder.loadTexts:cwaPrefRouteNwElemPos.setStatus(_A)
-_CwaPrefRouteNwElemNodeId_Type=PnniNodeId
-_CwaPrefRouteNwElemNodeId_Object=MibTableColumn
-cwaPrefRouteNwElemNodeId=_CwaPrefRouteNwElemNodeId_Object((1,3,6,1,4,1,9,9,99996,1,2,1,2),_CwaPrefRouteNwElemNodeId_Type())
-cwaPrefRouteNwElemNodeId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaPrefRouteNwElemNodeId.setStatus(_A)
-_CwaPrefRouteNwElemPortId_Type=PnniPortId
-_CwaPrefRouteNwElemPortId_Object=MibTableColumn
-cwaPrefRouteNwElemPortId=_CwaPrefRouteNwElemPortId_Object((1,3,6,1,4,1,9,9,99996,1,2,1,3),_CwaPrefRouteNwElemPortId_Type())
-cwaPrefRouteNwElemPortId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaPrefRouteNwElemPortId.setStatus(_A)
-_CwaPrefRouteNwElemRowStatus_Type=RowStatus
-_CwaPrefRouteNwElemRowStatus_Object=MibTableColumn
-cwaPrefRouteNwElemRowStatus=_CwaPrefRouteNwElemRowStatus_Object((1,3,6,1,4,1,9,9,99996,1,2,1,4),_CwaPrefRouteNwElemRowStatus_Type())
-cwaPrefRouteNwElemRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaPrefRouteNwElemRowStatus.setStatus(_A)
-_CwaPrefRouteConformance_ObjectIdentity=ObjectIdentity
-cwaPrefRouteConformance=_CwaPrefRouteConformance_ObjectIdentity((1,3,6,1,4,1,9,9,99996,2))
-_CwaPrefRouteCompliances_ObjectIdentity=ObjectIdentity
-cwaPrefRouteCompliances=_CwaPrefRouteCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,99996,2,1))
-_CwaPrefMIBGroups_ObjectIdentity=ObjectIdentity
-cwaPrefMIBGroups=_CwaPrefMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,99996,2,2))
-cwaPrefRouteMIBGroups=ObjectGroup((1,3,6,1,4,1,9,9,99996,2,2,1))
-cwaPrefRouteMIBGroups.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L)))
-if mibBuilder.loadTexts:cwaPrefRouteMIBGroups.setStatus(_A)
-cwaPrefMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,99996,2,1,1))
-cwaPrefMIBCompliance.setObjects((_B,_M))
-if mibBuilder.loadTexts:cwaPrefMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'RouteId':RouteId,'ciscoWanATMPrefRouteMIB':ciscoWanATMPrefRouteMIB,'ciscoWanATMPrefRouteMIBNotifs':ciscoWanATMPrefRouteMIBNotifs,'ciscoWanATMPrefRouteMIBObjects':ciscoWanATMPrefRouteMIBObjects,'cwaPrefRouteConfTable':cwaPrefRouteConfTable,'cwaPrefRouteConfEntry':cwaPrefRouteConfEntry,_E:cwaPrefRouteId,_H:cwaPrefRouteNwElemCount,_I:cwaPrefRouteRowStatus,'cwaPrefRouteNwElemTable':cwaPrefRouteNwElemTable,'cwaPrefRouteNwElemEntry':cwaPrefRouteNwElemEntry,_G:cwaPrefRouteNwElemPos,_J:cwaPrefRouteNwElemNodeId,_K:cwaPrefRouteNwElemPortId,_L:cwaPrefRouteNwElemRowStatus,'cwaPrefRouteConformance':cwaPrefRouteConformance,'cwaPrefRouteCompliances':cwaPrefRouteCompliances,'cwaPrefMIBCompliance':cwaPrefMIBCompliance,'cwaPrefMIBGroups':cwaPrefMIBGroups,_M:cwaPrefRouteMIBGroups})
+#
+# PySNMP MIB module CISCO-WAN-ATM-PREF-ROUTE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-WAN-ATM-PREF-ROUTE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+PnniPortId, PnniNodeId = mibBuilder.importSymbols("PNNI-MIB", "PnniPortId", "PnniNodeId")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ciscoWanATMPrefRouteMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 99996))
+ciscoWanATMPrefRouteMIB.setRevisions(('2002-06-25 00:00',))
+if mibBuilder.loadTexts: ciscoWanATMPrefRouteMIB.setLastUpdated('200206250000Z')
+if mibBuilder.loadTexts: ciscoWanATMPrefRouteMIB.setOrganization('Cisco System Inc.')
+ciscoWanATMPrefRouteMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 99996, 0))
+ciscoWanATMPrefRouteMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 99996, 1))
+cwaPrefRouteConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 99996, 2))
+class RouteId(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 65535)
+
+cwaPrefRouteConfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 99996, 1, 1), )
+if mibBuilder.loadTexts: cwaPrefRouteConfTable.setStatus('current')
+cwaPrefRouteConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 99996, 1, 1, 1), ).setIndexNames((0, "CISCO-WAN-ATM-PREF-ROUTE-MIB", "cwaPrefRouteId"))
+if mibBuilder.loadTexts: cwaPrefRouteConfEntry.setStatus('current')
+cwaPrefRouteId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 99996, 1, 1, 1, 1), RouteId())
+if mibBuilder.loadTexts: cwaPrefRouteId.setStatus('current')
+cwaPrefRouteNwElemCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 99996, 1, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 20))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaPrefRouteNwElemCount.setStatus('current')
+cwaPrefRouteRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 99996, 1, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaPrefRouteRowStatus.setStatus('current')
+cwaPrefRouteNwElemTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 99996, 1, 2), )
+if mibBuilder.loadTexts: cwaPrefRouteNwElemTable.setStatus('current')
+cwaPrefRouteNwElemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 99996, 1, 2, 1), ).setIndexNames((0, "CISCO-WAN-ATM-PREF-ROUTE-MIB", "cwaPrefRouteId"), (0, "CISCO-WAN-ATM-PREF-ROUTE-MIB", "cwaPrefRouteNwElemPos"))
+if mibBuilder.loadTexts: cwaPrefRouteNwElemEntry.setStatus('current')
+cwaPrefRouteNwElemPos = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 99996, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 20)))
+if mibBuilder.loadTexts: cwaPrefRouteNwElemPos.setStatus('current')
+cwaPrefRouteNwElemNodeId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 99996, 1, 2, 1, 2), PnniNodeId()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaPrefRouteNwElemNodeId.setStatus('current')
+cwaPrefRouteNwElemPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 99996, 1, 2, 1, 3), PnniPortId()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaPrefRouteNwElemPortId.setStatus('current')
+cwaPrefRouteNwElemRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 99996, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaPrefRouteNwElemRowStatus.setStatus('current')
+cwaPrefRouteCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 99996, 2, 1))
+cwaPrefMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 99996, 2, 2))
+cwaPrefMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 99996, 2, 1, 1)).setObjects(("CISCO-WAN-ATM-PREF-ROUTE-MIB", "cwaPrefRouteMIBGroups"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cwaPrefMIBCompliance = cwaPrefMIBCompliance.setStatus('current')
+cwaPrefRouteMIBGroups = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 99996, 2, 2, 1)).setObjects(("CISCO-WAN-ATM-PREF-ROUTE-MIB", "cwaPrefRouteNwElemCount"), ("CISCO-WAN-ATM-PREF-ROUTE-MIB", "cwaPrefRouteRowStatus"), ("CISCO-WAN-ATM-PREF-ROUTE-MIB", "cwaPrefRouteNwElemNodeId"), ("CISCO-WAN-ATM-PREF-ROUTE-MIB", "cwaPrefRouteNwElemPortId"), ("CISCO-WAN-ATM-PREF-ROUTE-MIB", "cwaPrefRouteNwElemRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cwaPrefRouteMIBGroups = cwaPrefRouteMIBGroups.setStatus('current')
+mibBuilder.exportSymbols("CISCO-WAN-ATM-PREF-ROUTE-MIB", cwaPrefRouteCompliances=cwaPrefRouteCompliances, cwaPrefRouteId=cwaPrefRouteId, cwaPrefRouteConformance=cwaPrefRouteConformance, cwaPrefRouteConfEntry=cwaPrefRouteConfEntry, cwaPrefRouteNwElemPos=cwaPrefRouteNwElemPos, cwaPrefRouteConfTable=cwaPrefRouteConfTable, cwaPrefRouteMIBGroups=cwaPrefRouteMIBGroups, ciscoWanATMPrefRouteMIBNotifs=ciscoWanATMPrefRouteMIBNotifs, RouteId=RouteId, PYSNMP_MODULE_ID=ciscoWanATMPrefRouteMIB, cwaPrefRouteRowStatus=cwaPrefRouteRowStatus, cwaPrefMIBCompliance=cwaPrefMIBCompliance, cwaPrefRouteNwElemRowStatus=cwaPrefRouteNwElemRowStatus, ciscoWanATMPrefRouteMIBObjects=ciscoWanATMPrefRouteMIBObjects, ciscoWanATMPrefRouteMIB=ciscoWanATMPrefRouteMIB, cwaPrefRouteNwElemCount=cwaPrefRouteNwElemCount, cwaPrefRouteNwElemPortId=cwaPrefRouteNwElemPortId, cwaPrefRouteNwElemTable=cwaPrefRouteNwElemTable, cwaPrefRouteNwElemNodeId=cwaPrefRouteNwElemNodeId, cwaPrefRouteNwElemEntry=cwaPrefRouteNwElemEntry, cwaPrefMIBGroups=cwaPrefMIBGroups)

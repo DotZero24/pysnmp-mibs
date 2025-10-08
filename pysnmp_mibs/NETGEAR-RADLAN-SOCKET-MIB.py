@@ -1,56 +1,35 @@
-_E='rlSocketId'
-_D='NETGEAR-RADLAN-SOCKET-MIB'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-rnd,=mibBuilder.importSymbols('NETGEAR-RADLAN-MIB','rnd')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-rlSocket=ModuleIdentity((1,3,6,1,4,1,4526,17,85))
-if mibBuilder.loadTexts:rlSocket.setRevisions(('2007-01-02 00:00',))
-_RlSocketMibVersion_Type=Integer32
-_RlSocketMibVersion_Object=MibScalar
-rlSocketMibVersion=_RlSocketMibVersion_Object((1,3,6,1,4,1,4526,17,85,1),_RlSocketMibVersion_Type())
-rlSocketMibVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlSocketMibVersion.setStatus(_A)
-_RlSocketTable_Object=MibTable
-rlSocketTable=_RlSocketTable_Object((1,3,6,1,4,1,4526,17,85,2))
-if mibBuilder.loadTexts:rlSocketTable.setStatus(_A)
-_RlSocketEntry_Object=MibTableRow
-rlSocketEntry=_RlSocketEntry_Object((1,3,6,1,4,1,4526,17,85,2,1))
-rlSocketEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:rlSocketEntry.setStatus(_A)
-_RlSocketId_Type=Integer32
-_RlSocketId_Object=MibTableColumn
-rlSocketId=_RlSocketId_Object((1,3,6,1,4,1,4526,17,85,2,1,1),_RlSocketId_Type())
-rlSocketId.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlSocketId.setStatus(_A)
-class _RlSocketType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('stream',1),('dgram',2),('raw',3)))
-_RlSocketType_Type.__name__=_C
-_RlSocketType_Object=MibTableColumn
-rlSocketType=_RlSocketType_Object((1,3,6,1,4,1,4526,17,85,2,1,2),_RlSocketType_Type())
-rlSocketType.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlSocketType.setStatus(_A)
-class _RlSocketState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('connected',1),('notConnected',2),('recvClosed',3),('sendClosed',4),('closed',5),('peerClosed',6),('sendRecvClosed',7)))
-_RlSocketState_Type.__name__=_C
-_RlSocketState_Object=MibTableColumn
-rlSocketState=_RlSocketState_Object((1,3,6,1,4,1,4526,17,85,2,1,3),_RlSocketState_Type())
-rlSocketState.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlSocketState.setStatus(_A)
-class _RlSocketBlockMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('blocking',1),('nonBlocking',2)))
-_RlSocketBlockMode_Type.__name__=_C
-_RlSocketBlockMode_Object=MibTableColumn
-rlSocketBlockMode=_RlSocketBlockMode_Object((1,3,6,1,4,1,4526,17,85,2,1,4),_RlSocketBlockMode_Type())
-rlSocketBlockMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlSocketBlockMode.setStatus(_A)
-_RlSocketUpTime_Type=TimeTicks
-_RlSocketUpTime_Object=MibTableColumn
-rlSocketUpTime=_RlSocketUpTime_Object((1,3,6,1,4,1,4526,17,85,2,1,5),_RlSocketUpTime_Type())
-rlSocketUpTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlSocketUpTime.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'rlSocket':rlSocket,'rlSocketMibVersion':rlSocketMibVersion,'rlSocketTable':rlSocketTable,'rlSocketEntry':rlSocketEntry,_E:rlSocketId,'rlSocketType':rlSocketType,'rlSocketState':rlSocketState,'rlSocketBlockMode':rlSocketBlockMode,'rlSocketUpTime':rlSocketUpTime})
+#
+# PySNMP MIB module NETGEAR-RADLAN-SOCKET-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netgear/NETGEAR-RADLAN-SOCKET-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:28:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+rnd, = mibBuilder.importSymbols("NETGEAR-RADLAN-MIB", "rnd")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+rlSocket = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 17, 85))
+rlSocket.setRevisions(('2007-01-02 00:00',))
+if mibBuilder.loadTexts: rlSocket.setLastUpdated('200701020000Z')
+if mibBuilder.loadTexts: rlSocket.setOrganization('Radlan - a MARVELL company. Marvell Semiconductor, Inc.')
+rlSocketMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 85, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSocketMibVersion.setStatus('current')
+rlSocketTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 17, 85, 2), )
+if mibBuilder.loadTexts: rlSocketTable.setStatus('current')
+rlSocketEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 17, 85, 2, 1), ).setIndexNames((0, "NETGEAR-RADLAN-SOCKET-MIB", "rlSocketId"))
+if mibBuilder.loadTexts: rlSocketEntry.setStatus('current')
+rlSocketId = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 85, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSocketId.setStatus('current')
+rlSocketType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 85, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("stream", 1), ("dgram", 2), ("raw", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSocketType.setStatus('current')
+rlSocketState = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 85, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("connected", 1), ("notConnected", 2), ("recvClosed", 3), ("sendClosed", 4), ("closed", 5), ("peerClosed", 6), ("sendRecvClosed", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSocketState.setStatus('current')
+rlSocketBlockMode = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 85, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("blocking", 1), ("nonBlocking", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSocketBlockMode.setStatus('current')
+rlSocketUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 85, 2, 1, 5), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSocketUpTime.setStatus('current')
+mibBuilder.exportSymbols("NETGEAR-RADLAN-SOCKET-MIB", rlSocket=rlSocket, rlSocketUpTime=rlSocketUpTime, PYSNMP_MODULE_ID=rlSocket, rlSocketTable=rlSocketTable, rlSocketEntry=rlSocketEntry, rlSocketMibVersion=rlSocketMibVersion, rlSocketType=rlSocketType, rlSocketState=rlSocketState, rlSocketId=rlSocketId, rlSocketBlockMode=rlSocketBlockMode)

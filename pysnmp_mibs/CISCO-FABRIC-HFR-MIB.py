@@ -1,438 +1,209 @@
-_AI='cfhFabricCapacityGroup'
-_AH='cfhBundleDownedLinkNotification'
-_AG='cfhBundleStateNotification'
-_AF='cfhPlaneStateNotification'
-_AE='cfhPlaneCapacityThreshold'
-_AD='cfhCardPlaneRxConnectivity'
-_AC='cfhCardPlaneTxConnectivity'
-_AB='cfhCardFabInUseDiscTime'
-_AA='cfhCardFabUsage'
-_A9='cfhCardFabInUse'
-_A8='cfhBundlePortStatsHighRxPECells'
-_A7='cfhBundlePortStatsHighRxUCECells'
-_A6='cfhBundlePortStatsHighRxCECells'
-_A5='cfhBundlePortStatsRxPECells'
-_A4='cfhBundlePortStatsRxUCECells'
-_A3='cfhBundlePortStatsRxCECells'
-_A2='cfhBundlePortStatsTxDataCells'
-_A1='cfhBundlePortStatsRxDataCells'
-_A0='cfhBundlePortGrpId'
-_z='cfhBundlePortOperState'
-_y='cfhBundlePortAdminState'
-_x='cfhBundlePortTotalNumber'
-_w='cfhBundlePortSecondId'
-_v='cfhBundlePortSecondCardIndex'
-_u='cfhBundlePortLCRId'
-_t='cfhBundlePortLCRCardIndex'
-_s='cfhBundleTotalLinks'
-_r='cfhBundleDowned'
-_q='cfhBundleTotal'
-_p='cfhPlaneStatsCounterDiscTime'
-_o='cfhPlaneStatsMulticastLostCells'
-_n='cfhPlaneStatsUnicastLostCells'
-_m='cfhPlaneStatsRxPECells'
-_l='cfhPlaneStatsRxUCECells'
-_k='cfhPlaneStatsRxCECells'
-_j='cfhPlaneStatsTxDataCells'
-_i='cfhPlaneStatsRxDataCells'
-_h='cfhPlaneDownedBundles'
-_g='cfhPlaneTotalBundles'
-_f='cfhPlaneAdminStatus'
-_e='cfhGenBundleDownedLinkTrapEnable'
-_d='cfhGenBundleStateTrapEnable'
-_c='cfhGenPlaneStateTrapEnable'
-_b='cfhBundlePortStatsEntry'
-_a='cfhPlaneStatsEntry'
-_Z='cfhBundlePortId'
-_Y='cfhBundleId'
-_X='Unsigned32'
-_W='cfhNotificationsGroup'
-_V='cfhCardGroup'
-_U='cfhBundlePortGroup'
-_T='cfhBundleGroup'
-_S='cfhPlaneGroup'
-_R='cfhGenInfoGroup'
-_Q='cfhBundleDownedLinks'
-_P='cfhPlaneOperStatus'
-_O='not-accessible'
-_N='cfhPlaneId'
-_M='cfhBundleOperStatus'
-_L='cfhBundlePlane'
-_K='cfhBundleName'
-_J='down'
-_I='up'
-_H='TruthValue'
-_G='Integer32'
-_F='entPhysicalIndex'
-_E='ENTITY-MIB'
-_D='read-write'
-_C='read-only'
-_B='CISCO-FABRIC-HFR-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-PhysicalIndex,entPhysicalIndex=mibBuilder.importSymbols(_E,'PhysicalIndex',_F)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_X,'iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp',_H)
-ciscoFabricHfrMIB=ModuleIdentity((1,3,6,1,4,1,9,9,257))
-if mibBuilder.loadTexts:ciscoFabricHfrMIB.setRevisions(('2009-04-14 00:00','2006-01-01 00:00','2003-06-09 00:00'))
-class CfhPlane(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-class CfhBundle(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-class CfhAdminState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_I,1),(_J,2)))
-class CfhScaledPercentage(TextualConvention,Gauge32):status=_A;subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100000))
-_CfhMIBNotifications_ObjectIdentity=ObjectIdentity
-cfhMIBNotifications=_CfhMIBNotifications_ObjectIdentity((1,3,6,1,4,1,9,9,257,0))
-_CiscoFabricHfrMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoFabricHfrMIBObjects=_CiscoFabricHfrMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,257,1))
-_CfhGeneral_ObjectIdentity=ObjectIdentity
-cfhGeneral=_CfhGeneral_ObjectIdentity((1,3,6,1,4,1,9,9,257,1,1))
-class _CfhGenPlaneStateTrapEnable_Type(TruthValue):defaultValue=2
-_CfhGenPlaneStateTrapEnable_Type.__name__=_H
-_CfhGenPlaneStateTrapEnable_Object=MibScalar
-cfhGenPlaneStateTrapEnable=_CfhGenPlaneStateTrapEnable_Object((1,3,6,1,4,1,9,9,257,1,1,1),_CfhGenPlaneStateTrapEnable_Type())
-cfhGenPlaneStateTrapEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfhGenPlaneStateTrapEnable.setStatus(_A)
-class _CfhGenBundleStateTrapEnable_Type(TruthValue):defaultValue=2
-_CfhGenBundleStateTrapEnable_Type.__name__=_H
-_CfhGenBundleStateTrapEnable_Object=MibScalar
-cfhGenBundleStateTrapEnable=_CfhGenBundleStateTrapEnable_Object((1,3,6,1,4,1,9,9,257,1,1,2),_CfhGenBundleStateTrapEnable_Type())
-cfhGenBundleStateTrapEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfhGenBundleStateTrapEnable.setStatus(_A)
-class _CfhGenBundleDownedLinkTrapEnable_Type(TruthValue):defaultValue=2
-_CfhGenBundleDownedLinkTrapEnable_Type.__name__=_H
-_CfhGenBundleDownedLinkTrapEnable_Object=MibScalar
-cfhGenBundleDownedLinkTrapEnable=_CfhGenBundleDownedLinkTrapEnable_Object((1,3,6,1,4,1,9,9,257,1,1,3),_CfhGenBundleDownedLinkTrapEnable_Type())
-cfhGenBundleDownedLinkTrapEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfhGenBundleDownedLinkTrapEnable.setStatus(_A)
-_CfhPlane_ObjectIdentity=ObjectIdentity
-cfhPlane=_CfhPlane_ObjectIdentity((1,3,6,1,4,1,9,9,257,1,2))
-_CfhPlaneTable_Object=MibTable
-cfhPlaneTable=_CfhPlaneTable_Object((1,3,6,1,4,1,9,9,257,1,2,1))
-if mibBuilder.loadTexts:cfhPlaneTable.setStatus(_A)
-_CfhPlaneEntry_Object=MibTableRow
-cfhPlaneEntry=_CfhPlaneEntry_Object((1,3,6,1,4,1,9,9,257,1,2,1,1))
-cfhPlaneEntry.setIndexNames((0,_B,_N))
-if mibBuilder.loadTexts:cfhPlaneEntry.setStatus(_A)
-_CfhPlaneId_Type=CfhPlane
-_CfhPlaneId_Object=MibTableColumn
-cfhPlaneId=_CfhPlaneId_Object((1,3,6,1,4,1,9,9,257,1,2,1,1,1),_CfhPlaneId_Type())
-cfhPlaneId.setMaxAccess(_O)
-if mibBuilder.loadTexts:cfhPlaneId.setStatus(_A)
-_CfhPlaneAdminStatus_Type=CfhAdminState
-_CfhPlaneAdminStatus_Object=MibTableColumn
-cfhPlaneAdminStatus=_CfhPlaneAdminStatus_Object((1,3,6,1,4,1,9,9,257,1,2,1,1,2),_CfhPlaneAdminStatus_Type())
-cfhPlaneAdminStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfhPlaneAdminStatus.setStatus(_A)
-class _CfhPlaneOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_I,1),(_J,2),('mcastDown',3),('oos',4)))
-_CfhPlaneOperStatus_Type.__name__=_G
-_CfhPlaneOperStatus_Object=MibTableColumn
-cfhPlaneOperStatus=_CfhPlaneOperStatus_Object((1,3,6,1,4,1,9,9,257,1,2,1,1,3),_CfhPlaneOperStatus_Type())
-cfhPlaneOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhPlaneOperStatus.setStatus(_A)
-_CfhPlaneTotalBundles_Type=Unsigned32
-_CfhPlaneTotalBundles_Object=MibTableColumn
-cfhPlaneTotalBundles=_CfhPlaneTotalBundles_Object((1,3,6,1,4,1,9,9,257,1,2,1,1,4),_CfhPlaneTotalBundles_Type())
-cfhPlaneTotalBundles.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhPlaneTotalBundles.setStatus(_A)
-_CfhPlaneDownedBundles_Type=Gauge32
-_CfhPlaneDownedBundles_Object=MibTableColumn
-cfhPlaneDownedBundles=_CfhPlaneDownedBundles_Object((1,3,6,1,4,1,9,9,257,1,2,1,1,5),_CfhPlaneDownedBundles_Type())
-cfhPlaneDownedBundles.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhPlaneDownedBundles.setStatus(_A)
-_CfhPlaneStatsTable_Object=MibTable
-cfhPlaneStatsTable=_CfhPlaneStatsTable_Object((1,3,6,1,4,1,9,9,257,1,2,2))
-if mibBuilder.loadTexts:cfhPlaneStatsTable.setStatus(_A)
-_CfhPlaneStatsEntry_Object=MibTableRow
-cfhPlaneStatsEntry=_CfhPlaneStatsEntry_Object((1,3,6,1,4,1,9,9,257,1,2,2,1))
-if mibBuilder.loadTexts:cfhPlaneStatsEntry.setStatus(_A)
-_CfhPlaneStatsRxDataCells_Type=Counter64
-_CfhPlaneStatsRxDataCells_Object=MibTableColumn
-cfhPlaneStatsRxDataCells=_CfhPlaneStatsRxDataCells_Object((1,3,6,1,4,1,9,9,257,1,2,2,1,1),_CfhPlaneStatsRxDataCells_Type())
-cfhPlaneStatsRxDataCells.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhPlaneStatsRxDataCells.setStatus(_A)
-_CfhPlaneStatsTxDataCells_Type=Counter64
-_CfhPlaneStatsTxDataCells_Object=MibTableColumn
-cfhPlaneStatsTxDataCells=_CfhPlaneStatsTxDataCells_Object((1,3,6,1,4,1,9,9,257,1,2,2,1,2),_CfhPlaneStatsTxDataCells_Type())
-cfhPlaneStatsTxDataCells.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhPlaneStatsTxDataCells.setStatus(_A)
-_CfhPlaneStatsRxCECells_Type=Counter32
-_CfhPlaneStatsRxCECells_Object=MibTableColumn
-cfhPlaneStatsRxCECells=_CfhPlaneStatsRxCECells_Object((1,3,6,1,4,1,9,9,257,1,2,2,1,3),_CfhPlaneStatsRxCECells_Type())
-cfhPlaneStatsRxCECells.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhPlaneStatsRxCECells.setStatus(_A)
-_CfhPlaneStatsRxUCECells_Type=Counter32
-_CfhPlaneStatsRxUCECells_Object=MibTableColumn
-cfhPlaneStatsRxUCECells=_CfhPlaneStatsRxUCECells_Object((1,3,6,1,4,1,9,9,257,1,2,2,1,4),_CfhPlaneStatsRxUCECells_Type())
-cfhPlaneStatsRxUCECells.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhPlaneStatsRxUCECells.setStatus(_A)
-_CfhPlaneStatsRxPECells_Type=Counter32
-_CfhPlaneStatsRxPECells_Object=MibTableColumn
-cfhPlaneStatsRxPECells=_CfhPlaneStatsRxPECells_Object((1,3,6,1,4,1,9,9,257,1,2,2,1,5),_CfhPlaneStatsRxPECells_Type())
-cfhPlaneStatsRxPECells.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhPlaneStatsRxPECells.setStatus(_A)
-_CfhPlaneStatsUnicastLostCells_Type=Counter32
-_CfhPlaneStatsUnicastLostCells_Object=MibTableColumn
-cfhPlaneStatsUnicastLostCells=_CfhPlaneStatsUnicastLostCells_Object((1,3,6,1,4,1,9,9,257,1,2,2,1,6),_CfhPlaneStatsUnicastLostCells_Type())
-cfhPlaneStatsUnicastLostCells.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhPlaneStatsUnicastLostCells.setStatus(_A)
-_CfhPlaneStatsMulticastLostCells_Type=Counter32
-_CfhPlaneStatsMulticastLostCells_Object=MibTableColumn
-cfhPlaneStatsMulticastLostCells=_CfhPlaneStatsMulticastLostCells_Object((1,3,6,1,4,1,9,9,257,1,2,2,1,7),_CfhPlaneStatsMulticastLostCells_Type())
-cfhPlaneStatsMulticastLostCells.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhPlaneStatsMulticastLostCells.setStatus(_A)
-_CfhPlaneStatsCounterDiscTime_Type=TimeStamp
-_CfhPlaneStatsCounterDiscTime_Object=MibTableColumn
-cfhPlaneStatsCounterDiscTime=_CfhPlaneStatsCounterDiscTime_Object((1,3,6,1,4,1,9,9,257,1,2,2,1,8),_CfhPlaneStatsCounterDiscTime_Type())
-cfhPlaneStatsCounterDiscTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhPlaneStatsCounterDiscTime.setStatus(_A)
-_CfhPlaneCapacityThreshold_Type=Unsigned32
-_CfhPlaneCapacityThreshold_Object=MibScalar
-cfhPlaneCapacityThreshold=_CfhPlaneCapacityThreshold_Object((1,3,6,1,4,1,9,9,257,1,2,3),_CfhPlaneCapacityThreshold_Type())
-cfhPlaneCapacityThreshold.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfhPlaneCapacityThreshold.setStatus(_A)
-_CfhBundle_ObjectIdentity=ObjectIdentity
-cfhBundle=_CfhBundle_ObjectIdentity((1,3,6,1,4,1,9,9,257,1,3))
-_CfhBundleTotal_Type=Unsigned32
-_CfhBundleTotal_Object=MibScalar
-cfhBundleTotal=_CfhBundleTotal_Object((1,3,6,1,4,1,9,9,257,1,3,1),_CfhBundleTotal_Type())
-cfhBundleTotal.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundleTotal.setStatus(_A)
-_CfhBundleDowned_Type=Gauge32
-_CfhBundleDowned_Object=MibScalar
-cfhBundleDowned=_CfhBundleDowned_Object((1,3,6,1,4,1,9,9,257,1,3,2),_CfhBundleDowned_Type())
-cfhBundleDowned.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundleDowned.setStatus(_A)
-_CfhBundleTable_Object=MibTable
-cfhBundleTable=_CfhBundleTable_Object((1,3,6,1,4,1,9,9,257,1,3,3))
-if mibBuilder.loadTexts:cfhBundleTable.setStatus(_A)
-_CfhBundleEntry_Object=MibTableRow
-cfhBundleEntry=_CfhBundleEntry_Object((1,3,6,1,4,1,9,9,257,1,3,3,1))
-cfhBundleEntry.setIndexNames((0,_B,_Y))
-if mibBuilder.loadTexts:cfhBundleEntry.setStatus(_A)
-_CfhBundleId_Type=CfhBundle
-_CfhBundleId_Object=MibTableColumn
-cfhBundleId=_CfhBundleId_Object((1,3,6,1,4,1,9,9,257,1,3,3,1,1),_CfhBundleId_Type())
-cfhBundleId.setMaxAccess(_O)
-if mibBuilder.loadTexts:cfhBundleId.setStatus(_A)
-_CfhBundleName_Type=SnmpAdminString
-_CfhBundleName_Object=MibTableColumn
-cfhBundleName=_CfhBundleName_Object((1,3,6,1,4,1,9,9,257,1,3,3,1,2),_CfhBundleName_Type())
-cfhBundleName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundleName.setStatus(_A)
-_CfhBundlePlane_Type=CfhPlane
-_CfhBundlePlane_Object=MibTableColumn
-cfhBundlePlane=_CfhBundlePlane_Object((1,3,6,1,4,1,9,9,257,1,3,3,1,3),_CfhBundlePlane_Type())
-cfhBundlePlane.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePlane.setStatus(_A)
-class _CfhBundleOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_I,1),(_J,2)))
-_CfhBundleOperStatus_Type.__name__=_G
-_CfhBundleOperStatus_Object=MibTableColumn
-cfhBundleOperStatus=_CfhBundleOperStatus_Object((1,3,6,1,4,1,9,9,257,1,3,3,1,4),_CfhBundleOperStatus_Type())
-cfhBundleOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundleOperStatus.setStatus(_A)
-_CfhBundleTotalLinks_Type=Unsigned32
-_CfhBundleTotalLinks_Object=MibTableColumn
-cfhBundleTotalLinks=_CfhBundleTotalLinks_Object((1,3,6,1,4,1,9,9,257,1,3,3,1,5),_CfhBundleTotalLinks_Type())
-cfhBundleTotalLinks.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundleTotalLinks.setStatus(_A)
-_CfhBundleDownedLinks_Type=Gauge32
-_CfhBundleDownedLinks_Object=MibTableColumn
-cfhBundleDownedLinks=_CfhBundleDownedLinks_Object((1,3,6,1,4,1,9,9,257,1,3,3,1,6),_CfhBundleDownedLinks_Type())
-cfhBundleDownedLinks.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundleDownedLinks.setStatus(_A)
-_CfhBundlePortLCRCardIndex_Type=PhysicalIndex
-_CfhBundlePortLCRCardIndex_Object=MibTableColumn
-cfhBundlePortLCRCardIndex=_CfhBundlePortLCRCardIndex_Object((1,3,6,1,4,1,9,9,257,1,3,3,1,7),_CfhBundlePortLCRCardIndex_Type())
-cfhBundlePortLCRCardIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePortLCRCardIndex.setStatus(_A)
-_CfhBundlePortLCRId_Type=Unsigned32
-_CfhBundlePortLCRId_Object=MibTableColumn
-cfhBundlePortLCRId=_CfhBundlePortLCRId_Object((1,3,6,1,4,1,9,9,257,1,3,3,1,8),_CfhBundlePortLCRId_Type())
-cfhBundlePortLCRId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePortLCRId.setStatus(_A)
-_CfhBundlePortSecondCardIndex_Type=PhysicalIndex
-_CfhBundlePortSecondCardIndex_Object=MibTableColumn
-cfhBundlePortSecondCardIndex=_CfhBundlePortSecondCardIndex_Object((1,3,6,1,4,1,9,9,257,1,3,3,1,9),_CfhBundlePortSecondCardIndex_Type())
-cfhBundlePortSecondCardIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePortSecondCardIndex.setStatus(_A)
-_CfhBundlePortSecondId_Type=Unsigned32
-_CfhBundlePortSecondId_Object=MibTableColumn
-cfhBundlePortSecondId=_CfhBundlePortSecondId_Object((1,3,6,1,4,1,9,9,257,1,3,3,1,10),_CfhBundlePortSecondId_Type())
-cfhBundlePortSecondId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePortSecondId.setStatus(_A)
-_CfhBundlePort_ObjectIdentity=ObjectIdentity
-cfhBundlePort=_CfhBundlePort_ObjectIdentity((1,3,6,1,4,1,9,9,257,1,4))
-_CfhBundlePortTotalNumber_Type=Unsigned32
-_CfhBundlePortTotalNumber_Object=MibScalar
-cfhBundlePortTotalNumber=_CfhBundlePortTotalNumber_Object((1,3,6,1,4,1,9,9,257,1,4,1),_CfhBundlePortTotalNumber_Type())
-cfhBundlePortTotalNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePortTotalNumber.setStatus(_A)
-_CfhBundlePortTable_Object=MibTable
-cfhBundlePortTable=_CfhBundlePortTable_Object((1,3,6,1,4,1,9,9,257,1,4,2))
-if mibBuilder.loadTexts:cfhBundlePortTable.setStatus(_A)
-_CfhBundlePortEntry_Object=MibTableRow
-cfhBundlePortEntry=_CfhBundlePortEntry_Object((1,3,6,1,4,1,9,9,257,1,4,2,1))
-cfhBundlePortEntry.setIndexNames((0,_E,_F),(0,_B,_Z))
-if mibBuilder.loadTexts:cfhBundlePortEntry.setStatus(_A)
-class _CfhBundlePortId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CfhBundlePortId_Type.__name__=_X
-_CfhBundlePortId_Object=MibTableColumn
-cfhBundlePortId=_CfhBundlePortId_Object((1,3,6,1,4,1,9,9,257,1,4,2,1,1),_CfhBundlePortId_Type())
-cfhBundlePortId.setMaxAccess(_O)
-if mibBuilder.loadTexts:cfhBundlePortId.setStatus(_A)
-_CfhBundlePortAdminState_Type=CfhAdminState
-_CfhBundlePortAdminState_Object=MibTableColumn
-cfhBundlePortAdminState=_CfhBundlePortAdminState_Object((1,3,6,1,4,1,9,9,257,1,4,2,1,3),_CfhBundlePortAdminState_Type())
-cfhBundlePortAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfhBundlePortAdminState.setStatus(_A)
-class _CfhBundlePortOperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('unknown',1),(_I,2),(_J,3)))
-_CfhBundlePortOperState_Type.__name__=_G
-_CfhBundlePortOperState_Object=MibTableColumn
-cfhBundlePortOperState=_CfhBundlePortOperState_Object((1,3,6,1,4,1,9,9,257,1,4,2,1,4),_CfhBundlePortOperState_Type())
-cfhBundlePortOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePortOperState.setStatus(_A)
-_CfhBundlePortGrpId_Type=CfhBundle
-_CfhBundlePortGrpId_Object=MibTableColumn
-cfhBundlePortGrpId=_CfhBundlePortGrpId_Object((1,3,6,1,4,1,9,9,257,1,4,2,1,5),_CfhBundlePortGrpId_Type())
-cfhBundlePortGrpId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePortGrpId.setStatus(_A)
-_CfhBundlePortStatsTable_Object=MibTable
-cfhBundlePortStatsTable=_CfhBundlePortStatsTable_Object((1,3,6,1,4,1,9,9,257,1,4,3))
-if mibBuilder.loadTexts:cfhBundlePortStatsTable.setStatus(_A)
-_CfhBundlePortStatsEntry_Object=MibTableRow
-cfhBundlePortStatsEntry=_CfhBundlePortStatsEntry_Object((1,3,6,1,4,1,9,9,257,1,4,3,1))
-if mibBuilder.loadTexts:cfhBundlePortStatsEntry.setStatus(_A)
-_CfhBundlePortStatsRxDataCells_Type=Counter64
-_CfhBundlePortStatsRxDataCells_Object=MibTableColumn
-cfhBundlePortStatsRxDataCells=_CfhBundlePortStatsRxDataCells_Object((1,3,6,1,4,1,9,9,257,1,4,3,1,1),_CfhBundlePortStatsRxDataCells_Type())
-cfhBundlePortStatsRxDataCells.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePortStatsRxDataCells.setStatus(_A)
-_CfhBundlePortStatsTxDataCells_Type=Counter64
-_CfhBundlePortStatsTxDataCells_Object=MibTableColumn
-cfhBundlePortStatsTxDataCells=_CfhBundlePortStatsTxDataCells_Object((1,3,6,1,4,1,9,9,257,1,4,3,1,2),_CfhBundlePortStatsTxDataCells_Type())
-cfhBundlePortStatsTxDataCells.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePortStatsTxDataCells.setStatus(_A)
-_CfhBundlePortStatsRxCECells_Type=Counter32
-_CfhBundlePortStatsRxCECells_Object=MibTableColumn
-cfhBundlePortStatsRxCECells=_CfhBundlePortStatsRxCECells_Object((1,3,6,1,4,1,9,9,257,1,4,3,1,3),_CfhBundlePortStatsRxCECells_Type())
-cfhBundlePortStatsRxCECells.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePortStatsRxCECells.setStatus(_A)
-_CfhBundlePortStatsRxUCECells_Type=Counter32
-_CfhBundlePortStatsRxUCECells_Object=MibTableColumn
-cfhBundlePortStatsRxUCECells=_CfhBundlePortStatsRxUCECells_Object((1,3,6,1,4,1,9,9,257,1,4,3,1,4),_CfhBundlePortStatsRxUCECells_Type())
-cfhBundlePortStatsRxUCECells.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePortStatsRxUCECells.setStatus(_A)
-_CfhBundlePortStatsRxPECells_Type=Counter32
-_CfhBundlePortStatsRxPECells_Object=MibTableColumn
-cfhBundlePortStatsRxPECells=_CfhBundlePortStatsRxPECells_Object((1,3,6,1,4,1,9,9,257,1,4,3,1,5),_CfhBundlePortStatsRxPECells_Type())
-cfhBundlePortStatsRxPECells.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePortStatsRxPECells.setStatus(_A)
-_CfhBundlePortStatsHighRxCECells_Type=Gauge32
-_CfhBundlePortStatsHighRxCECells_Object=MibTableColumn
-cfhBundlePortStatsHighRxCECells=_CfhBundlePortStatsHighRxCECells_Object((1,3,6,1,4,1,9,9,257,1,4,3,1,6),_CfhBundlePortStatsHighRxCECells_Type())
-cfhBundlePortStatsHighRxCECells.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePortStatsHighRxCECells.setStatus(_A)
-_CfhBundlePortStatsHighRxUCECells_Type=Gauge32
-_CfhBundlePortStatsHighRxUCECells_Object=MibTableColumn
-cfhBundlePortStatsHighRxUCECells=_CfhBundlePortStatsHighRxUCECells_Object((1,3,6,1,4,1,9,9,257,1,4,3,1,7),_CfhBundlePortStatsHighRxUCECells_Type())
-cfhBundlePortStatsHighRxUCECells.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePortStatsHighRxUCECells.setStatus(_A)
-_CfhBundlePortStatsHighRxPECells_Type=Gauge32
-_CfhBundlePortStatsHighRxPECells_Object=MibTableColumn
-cfhBundlePortStatsHighRxPECells=_CfhBundlePortStatsHighRxPECells_Object((1,3,6,1,4,1,9,9,257,1,4,3,1,8),_CfhBundlePortStatsHighRxPECells_Type())
-cfhBundlePortStatsHighRxPECells.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhBundlePortStatsHighRxPECells.setStatus(_A)
-_CfhCard_ObjectIdentity=ObjectIdentity
-cfhCard=_CfhCard_ObjectIdentity((1,3,6,1,4,1,9,9,257,1,5))
-_CfhCardTable_Object=MibTable
-cfhCardTable=_CfhCardTable_Object((1,3,6,1,4,1,9,9,257,1,5,1))
-if mibBuilder.loadTexts:cfhCardTable.setStatus(_A)
-_CfhCardEntry_Object=MibTableRow
-cfhCardEntry=_CfhCardEntry_Object((1,3,6,1,4,1,9,9,257,1,5,1,1))
-cfhCardEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:cfhCardEntry.setStatus(_A)
-_CfhCardFabInUse_Type=TruthValue
-_CfhCardFabInUse_Object=MibTableColumn
-cfhCardFabInUse=_CfhCardFabInUse_Object((1,3,6,1,4,1,9,9,257,1,5,1,1,1),_CfhCardFabInUse_Type())
-cfhCardFabInUse.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhCardFabInUse.setStatus(_A)
-_CfhCardFabUsage_Type=CfhScaledPercentage
-_CfhCardFabUsage_Object=MibTableColumn
-cfhCardFabUsage=_CfhCardFabUsage_Object((1,3,6,1,4,1,9,9,257,1,5,1,1,2),_CfhCardFabUsage_Type())
-cfhCardFabUsage.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhCardFabUsage.setStatus(_A)
-if mibBuilder.loadTexts:cfhCardFabUsage.setUnits('thousandths of a percent')
-_CfhCardFabInUseDiscTime_Type=TimeStamp
-_CfhCardFabInUseDiscTime_Object=MibTableColumn
-cfhCardFabInUseDiscTime=_CfhCardFabInUseDiscTime_Object((1,3,6,1,4,1,9,9,257,1,5,1,1,3),_CfhCardFabInUseDiscTime_Type())
-cfhCardFabInUseDiscTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhCardFabInUseDiscTime.setStatus(_A)
-_CfhCardPlaneTable_Object=MibTable
-cfhCardPlaneTable=_CfhCardPlaneTable_Object((1,3,6,1,4,1,9,9,257,1,5,2))
-if mibBuilder.loadTexts:cfhCardPlaneTable.setStatus(_A)
-_CfhCardPlaneEntry_Object=MibTableRow
-cfhCardPlaneEntry=_CfhCardPlaneEntry_Object((1,3,6,1,4,1,9,9,257,1,5,2,1))
-cfhCardPlaneEntry.setIndexNames((0,_E,_F),(0,_B,_N))
-if mibBuilder.loadTexts:cfhCardPlaneEntry.setStatus(_A)
-_CfhCardPlaneTxConnectivity_Type=TruthValue
-_CfhCardPlaneTxConnectivity_Object=MibTableColumn
-cfhCardPlaneTxConnectivity=_CfhCardPlaneTxConnectivity_Object((1,3,6,1,4,1,9,9,257,1,5,2,1,1),_CfhCardPlaneTxConnectivity_Type())
-cfhCardPlaneTxConnectivity.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhCardPlaneTxConnectivity.setStatus(_A)
-_CfhCardPlaneRxConnectivity_Type=TruthValue
-_CfhCardPlaneRxConnectivity_Object=MibTableColumn
-cfhCardPlaneRxConnectivity=_CfhCardPlaneRxConnectivity_Object((1,3,6,1,4,1,9,9,257,1,5,2,1,2),_CfhCardPlaneRxConnectivity_Type())
-cfhCardPlaneRxConnectivity.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfhCardPlaneRxConnectivity.setStatus(_A)
-_CfhMIBConformance_ObjectIdentity=ObjectIdentity
-cfhMIBConformance=_CfhMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,257,3))
-_CfhMIBCompliances_ObjectIdentity=ObjectIdentity
-cfhMIBCompliances=_CfhMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,257,3,1))
-_CfhMIBGroups_ObjectIdentity=ObjectIdentity
-cfhMIBGroups=_CfhMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,257,3,2))
-cfhPlaneEntry.registerAugmentions((_B,_a))
+#
+# PySNMP MIB module CISCO-FABRIC-HFR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-FABRIC-HFR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:22 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+entPhysicalIndex, PhysicalIndex = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex", "PhysicalIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TruthValue", "TextualConvention")
+ciscoFabricHfrMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 257))
+ciscoFabricHfrMIB.setRevisions(('2009-04-14 00:00', '2006-01-01 00:00', '2003-06-09 00:00',))
+if mibBuilder.loadTexts: ciscoFabricHfrMIB.setLastUpdated('200904140000Z')
+if mibBuilder.loadTexts: ciscoFabricHfrMIB.setOrganization('Cisco Systems, Inc.')
+cfhMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 257, 0))
+ciscoFabricHfrMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 257, 1))
+cfhGeneral = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 1))
+cfhPlane = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2))
+cfhBundle = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 3))
+cfhBundlePort = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4))
+cfhCard = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 5))
+class CfhPlane(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
+
+class CfhBundle(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
+
+class CfhAdminState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("up", 1), ("down", 2))
+
+class CfhScaledPercentage(TextualConvention, Gauge32):
+    status = 'current'
+    subtypeSpec = Gauge32.subtypeSpec + ValueRangeConstraint(0, 100000)
+
+cfhGenPlaneStateTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cfhGenPlaneStateTrapEnable.setStatus('current')
+cfhGenBundleStateTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cfhGenBundleStateTrapEnable.setStatus('current')
+cfhGenBundleDownedLinkTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cfhGenBundleDownedLinkTrapEnable.setStatus('current')
+cfhPlaneTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 1), )
+if mibBuilder.loadTexts: cfhPlaneTable.setStatus('current')
+cfhPlaneEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-FABRIC-HFR-MIB", "cfhPlaneId"))
+if mibBuilder.loadTexts: cfhPlaneEntry.setStatus('current')
+cfhPlaneId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 1, 1, 1), CfhPlane())
+if mibBuilder.loadTexts: cfhPlaneId.setStatus('current')
+cfhPlaneAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 1, 1, 2), CfhAdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cfhPlaneAdminStatus.setStatus('current')
+cfhPlaneOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("mcastDown", 3), ("oos", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhPlaneOperStatus.setStatus('current')
+cfhPlaneTotalBundles = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhPlaneTotalBundles.setStatus('current')
+cfhPlaneDownedBundles = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 1, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhPlaneDownedBundles.setStatus('current')
+cfhPlaneStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 2), )
+if mibBuilder.loadTexts: cfhPlaneStatsTable.setStatus('current')
+cfhPlaneStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 2, 1), )
+cfhPlaneEntry.registerAugmentions(("CISCO-FABRIC-HFR-MIB", "cfhPlaneStatsEntry"))
 cfhPlaneStatsEntry.setIndexNames(*cfhPlaneEntry.getIndexNames())
-cfhBundlePortEntry.registerAugmentions((_B,_b))
+if mibBuilder.loadTexts: cfhPlaneStatsEntry.setStatus('current')
+cfhPlaneStatsRxDataCells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 2, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhPlaneStatsRxDataCells.setStatus('current')
+cfhPlaneStatsTxDataCells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 2, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhPlaneStatsTxDataCells.setStatus('current')
+cfhPlaneStatsRxCECells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhPlaneStatsRxCECells.setStatus('current')
+cfhPlaneStatsRxUCECells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhPlaneStatsRxUCECells.setStatus('current')
+cfhPlaneStatsRxPECells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhPlaneStatsRxPECells.setStatus('current')
+cfhPlaneStatsUnicastLostCells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhPlaneStatsUnicastLostCells.setStatus('current')
+cfhPlaneStatsMulticastLostCells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhPlaneStatsMulticastLostCells.setStatus('current')
+cfhPlaneStatsCounterDiscTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 2, 1, 8), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhPlaneStatsCounterDiscTime.setStatus('current')
+cfhPlaneCapacityThreshold = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 2, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cfhPlaneCapacityThreshold.setStatus('current')
+cfhBundleTotal = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 3, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundleTotal.setStatus('current')
+cfhBundleDowned = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 3, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundleDowned.setStatus('current')
+cfhBundleTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 3, 3), )
+if mibBuilder.loadTexts: cfhBundleTable.setStatus('current')
+cfhBundleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 3, 3, 1), ).setIndexNames((0, "CISCO-FABRIC-HFR-MIB", "cfhBundleId"))
+if mibBuilder.loadTexts: cfhBundleEntry.setStatus('current')
+cfhBundleId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 3, 3, 1, 1), CfhBundle())
+if mibBuilder.loadTexts: cfhBundleId.setStatus('current')
+cfhBundleName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 3, 3, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundleName.setStatus('current')
+cfhBundlePlane = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 3, 3, 1, 3), CfhPlane()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePlane.setStatus('current')
+cfhBundleOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 3, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundleOperStatus.setStatus('current')
+cfhBundleTotalLinks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 3, 3, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundleTotalLinks.setStatus('current')
+cfhBundleDownedLinks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 3, 3, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundleDownedLinks.setStatus('current')
+cfhBundlePortLCRCardIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 3, 3, 1, 7), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePortLCRCardIndex.setStatus('current')
+cfhBundlePortLCRId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 3, 3, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePortLCRId.setStatus('current')
+cfhBundlePortSecondCardIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 3, 3, 1, 9), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePortSecondCardIndex.setStatus('current')
+cfhBundlePortSecondId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 3, 3, 1, 10), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePortSecondId.setStatus('current')
+cfhBundlePortTotalNumber = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePortTotalNumber.setStatus('current')
+cfhBundlePortTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 2), )
+if mibBuilder.loadTexts: cfhBundlePortTable.setStatus('current')
+cfhBundlePortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-FABRIC-HFR-MIB", "cfhBundlePortId"))
+if mibBuilder.loadTexts: cfhBundlePortEntry.setStatus('current')
+cfhBundlePortId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cfhBundlePortId.setStatus('current')
+cfhBundlePortAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 2, 1, 3), CfhAdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cfhBundlePortAdminState.setStatus('current')
+cfhBundlePortOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("up", 2), ("down", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePortOperState.setStatus('current')
+cfhBundlePortGrpId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 2, 1, 5), CfhBundle()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePortGrpId.setStatus('current')
+cfhBundlePortStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 3), )
+if mibBuilder.loadTexts: cfhBundlePortStatsTable.setStatus('current')
+cfhBundlePortStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 3, 1), )
+cfhBundlePortEntry.registerAugmentions(("CISCO-FABRIC-HFR-MIB", "cfhBundlePortStatsEntry"))
 cfhBundlePortStatsEntry.setIndexNames(*cfhBundlePortEntry.getIndexNames())
-cfhGenInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,257,3,2,1))
-cfhGenInfoGroup.setObjects(*((_B,_c),(_B,_d),(_B,_e)))
-if mibBuilder.loadTexts:cfhGenInfoGroup.setStatus(_A)
-cfhPlaneGroup=ObjectGroup((1,3,6,1,4,1,9,9,257,3,2,2))
-cfhPlaneGroup.setObjects(*((_B,_f),(_B,_P),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p)))
-if mibBuilder.loadTexts:cfhPlaneGroup.setStatus(_A)
-cfhBundleGroup=ObjectGroup((1,3,6,1,4,1,9,9,257,3,2,3))
-cfhBundleGroup.setObjects(*((_B,_q),(_B,_r),(_B,_K),(_B,_L),(_B,_M),(_B,_s),(_B,_Q),(_B,_t),(_B,_u),(_B,_v),(_B,_w)))
-if mibBuilder.loadTexts:cfhBundleGroup.setStatus(_A)
-cfhBundlePortGroup=ObjectGroup((1,3,6,1,4,1,9,9,257,3,2,4))
-cfhBundlePortGroup.setObjects(*((_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8)))
-if mibBuilder.loadTexts:cfhBundlePortGroup.setStatus(_A)
-cfhCardGroup=ObjectGroup((1,3,6,1,4,1,9,9,257,3,2,5))
-cfhCardGroup.setObjects(*((_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD)))
-if mibBuilder.loadTexts:cfhCardGroup.setStatus(_A)
-cfhFabricCapacityGroup=ObjectGroup((1,3,6,1,4,1,9,9,257,3,2,7))
-cfhFabricCapacityGroup.setObjects((_B,_AE))
-if mibBuilder.loadTexts:cfhFabricCapacityGroup.setStatus(_A)
-cfhPlaneStateNotification=NotificationType((1,3,6,1,4,1,9,9,257,0,1))
-cfhPlaneStateNotification.setObjects((_B,_P))
-if mibBuilder.loadTexts:cfhPlaneStateNotification.setStatus(_A)
-cfhBundleStateNotification=NotificationType((1,3,6,1,4,1,9,9,257,0,2))
-cfhBundleStateNotification.setObjects(*((_B,_M),(_B,_L),(_B,_K)))
-if mibBuilder.loadTexts:cfhBundleStateNotification.setStatus(_A)
-cfhBundleDownedLinkNotification=NotificationType((1,3,6,1,4,1,9,9,257,0,3))
-cfhBundleDownedLinkNotification.setObjects(*((_B,_M),(_B,_L),(_B,_Q),(_B,_K)))
-if mibBuilder.loadTexts:cfhBundleDownedLinkNotification.setStatus(_A)
-cfhNotificationsGroup=NotificationGroup((1,3,6,1,4,1,9,9,257,3,2,6))
-cfhNotificationsGroup.setObjects(*((_B,_AF),(_B,_AG),(_B,_AH)))
-if mibBuilder.loadTexts:cfhNotificationsGroup.setStatus(_A)
-cfhMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,257,3,1,1))
-cfhMIBCompliance.setObjects(*((_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W)))
-if mibBuilder.loadTexts:cfhMIBCompliance.setStatus('deprecated')
-cfhMIBCompliance1=ModuleCompliance((1,3,6,1,4,1,9,9,257,3,1,2))
-cfhMIBCompliance1.setObjects(*((_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_AI)))
-if mibBuilder.loadTexts:cfhMIBCompliance1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CfhPlane':CfhPlane,'CfhBundle':CfhBundle,'CfhAdminState':CfhAdminState,'CfhScaledPercentage':CfhScaledPercentage,'ciscoFabricHfrMIB':ciscoFabricHfrMIB,'cfhMIBNotifications':cfhMIBNotifications,_AF:cfhPlaneStateNotification,_AG:cfhBundleStateNotification,_AH:cfhBundleDownedLinkNotification,'ciscoFabricHfrMIBObjects':ciscoFabricHfrMIBObjects,'cfhGeneral':cfhGeneral,_c:cfhGenPlaneStateTrapEnable,_d:cfhGenBundleStateTrapEnable,_e:cfhGenBundleDownedLinkTrapEnable,'cfhPlane':cfhPlane,'cfhPlaneTable':cfhPlaneTable,'cfhPlaneEntry':cfhPlaneEntry,_N:cfhPlaneId,_f:cfhPlaneAdminStatus,_P:cfhPlaneOperStatus,_g:cfhPlaneTotalBundles,_h:cfhPlaneDownedBundles,'cfhPlaneStatsTable':cfhPlaneStatsTable,_a:cfhPlaneStatsEntry,_i:cfhPlaneStatsRxDataCells,_j:cfhPlaneStatsTxDataCells,_k:cfhPlaneStatsRxCECells,_l:cfhPlaneStatsRxUCECells,_m:cfhPlaneStatsRxPECells,_n:cfhPlaneStatsUnicastLostCells,_o:cfhPlaneStatsMulticastLostCells,_p:cfhPlaneStatsCounterDiscTime,_AE:cfhPlaneCapacityThreshold,'cfhBundle':cfhBundle,_q:cfhBundleTotal,_r:cfhBundleDowned,'cfhBundleTable':cfhBundleTable,'cfhBundleEntry':cfhBundleEntry,_Y:cfhBundleId,_K:cfhBundleName,_L:cfhBundlePlane,_M:cfhBundleOperStatus,_s:cfhBundleTotalLinks,_Q:cfhBundleDownedLinks,_t:cfhBundlePortLCRCardIndex,_u:cfhBundlePortLCRId,_v:cfhBundlePortSecondCardIndex,_w:cfhBundlePortSecondId,'cfhBundlePort':cfhBundlePort,_x:cfhBundlePortTotalNumber,'cfhBundlePortTable':cfhBundlePortTable,'cfhBundlePortEntry':cfhBundlePortEntry,_Z:cfhBundlePortId,_y:cfhBundlePortAdminState,_z:cfhBundlePortOperState,_A0:cfhBundlePortGrpId,'cfhBundlePortStatsTable':cfhBundlePortStatsTable,_b:cfhBundlePortStatsEntry,_A1:cfhBundlePortStatsRxDataCells,_A2:cfhBundlePortStatsTxDataCells,_A3:cfhBundlePortStatsRxCECells,_A4:cfhBundlePortStatsRxUCECells,_A5:cfhBundlePortStatsRxPECells,_A6:cfhBundlePortStatsHighRxCECells,_A7:cfhBundlePortStatsHighRxUCECells,_A8:cfhBundlePortStatsHighRxPECells,'cfhCard':cfhCard,'cfhCardTable':cfhCardTable,'cfhCardEntry':cfhCardEntry,_A9:cfhCardFabInUse,_AA:cfhCardFabUsage,_AB:cfhCardFabInUseDiscTime,'cfhCardPlaneTable':cfhCardPlaneTable,'cfhCardPlaneEntry':cfhCardPlaneEntry,_AC:cfhCardPlaneTxConnectivity,_AD:cfhCardPlaneRxConnectivity,'cfhMIBConformance':cfhMIBConformance,'cfhMIBCompliances':cfhMIBCompliances,'cfhMIBCompliance':cfhMIBCompliance,'cfhMIBCompliance1':cfhMIBCompliance1,'cfhMIBGroups':cfhMIBGroups,_R:cfhGenInfoGroup,_S:cfhPlaneGroup,_T:cfhBundleGroup,_U:cfhBundlePortGroup,_V:cfhCardGroup,_W:cfhNotificationsGroup,_AI:cfhFabricCapacityGroup})
+if mibBuilder.loadTexts: cfhBundlePortStatsEntry.setStatus('current')
+cfhBundlePortStatsRxDataCells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 3, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePortStatsRxDataCells.setStatus('current')
+cfhBundlePortStatsTxDataCells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 3, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePortStatsTxDataCells.setStatus('current')
+cfhBundlePortStatsRxCECells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 3, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePortStatsRxCECells.setStatus('current')
+cfhBundlePortStatsRxUCECells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 3, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePortStatsRxUCECells.setStatus('current')
+cfhBundlePortStatsRxPECells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 3, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePortStatsRxPECells.setStatus('current')
+cfhBundlePortStatsHighRxCECells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 3, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePortStatsHighRxCECells.setStatus('current')
+cfhBundlePortStatsHighRxUCECells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 3, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePortStatsHighRxUCECells.setStatus('current')
+cfhBundlePortStatsHighRxPECells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 4, 3, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhBundlePortStatsHighRxPECells.setStatus('current')
+cfhCardTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 5, 1), )
+if mibBuilder.loadTexts: cfhCardTable.setStatus('current')
+cfhCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 5, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: cfhCardEntry.setStatus('current')
+cfhCardFabInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 5, 1, 1, 1), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhCardFabInUse.setStatus('current')
+cfhCardFabUsage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 5, 1, 1, 2), CfhScaledPercentage()).setUnits('thousandths of a percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhCardFabUsage.setStatus('current')
+cfhCardFabInUseDiscTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 5, 1, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhCardFabInUseDiscTime.setStatus('current')
+cfhCardPlaneTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 5, 2), )
+if mibBuilder.loadTexts: cfhCardPlaneTable.setStatus('current')
+cfhCardPlaneEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 5, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-FABRIC-HFR-MIB", "cfhPlaneId"))
+if mibBuilder.loadTexts: cfhCardPlaneEntry.setStatus('current')
+cfhCardPlaneTxConnectivity = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 5, 2, 1, 1), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhCardPlaneTxConnectivity.setStatus('current')
+cfhCardPlaneRxConnectivity = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 257, 1, 5, 2, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfhCardPlaneRxConnectivity.setStatus('current')
+cfhPlaneStateNotification = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 257, 0, 1)).setObjects(("CISCO-FABRIC-HFR-MIB", "cfhPlaneOperStatus"))
+if mibBuilder.loadTexts: cfhPlaneStateNotification.setStatus('current')
+cfhBundleStateNotification = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 257, 0, 2)).setObjects(("CISCO-FABRIC-HFR-MIB", "cfhBundleOperStatus"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePlane"), ("CISCO-FABRIC-HFR-MIB", "cfhBundleName"))
+if mibBuilder.loadTexts: cfhBundleStateNotification.setStatus('current')
+cfhBundleDownedLinkNotification = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 257, 0, 3)).setObjects(("CISCO-FABRIC-HFR-MIB", "cfhBundleOperStatus"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePlane"), ("CISCO-FABRIC-HFR-MIB", "cfhBundleDownedLinks"), ("CISCO-FABRIC-HFR-MIB", "cfhBundleName"))
+if mibBuilder.loadTexts: cfhBundleDownedLinkNotification.setStatus('current')
+cfhMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 257, 3))
+cfhMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 257, 3, 1))
+cfhMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 257, 3, 2))
+cfhMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 257, 3, 1, 1)).setObjects(("CISCO-FABRIC-HFR-MIB", "cfhGenInfoGroup"), ("CISCO-FABRIC-HFR-MIB", "cfhPlaneGroup"), ("CISCO-FABRIC-HFR-MIB", "cfhBundleGroup"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortGroup"), ("CISCO-FABRIC-HFR-MIB", "cfhCardGroup"), ("CISCO-FABRIC-HFR-MIB", "cfhNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfhMIBCompliance = cfhMIBCompliance.setStatus('deprecated')
+cfhMIBCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 257, 3, 1, 2)).setObjects(("CISCO-FABRIC-HFR-MIB", "cfhGenInfoGroup"), ("CISCO-FABRIC-HFR-MIB", "cfhPlaneGroup"), ("CISCO-FABRIC-HFR-MIB", "cfhBundleGroup"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortGroup"), ("CISCO-FABRIC-HFR-MIB", "cfhCardGroup"), ("CISCO-FABRIC-HFR-MIB", "cfhNotificationsGroup"), ("CISCO-FABRIC-HFR-MIB", "cfhFabricCapacityGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfhMIBCompliance1 = cfhMIBCompliance1.setStatus('current')
+cfhGenInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 257, 3, 2, 1)).setObjects(("CISCO-FABRIC-HFR-MIB", "cfhGenPlaneStateTrapEnable"), ("CISCO-FABRIC-HFR-MIB", "cfhGenBundleStateTrapEnable"), ("CISCO-FABRIC-HFR-MIB", "cfhGenBundleDownedLinkTrapEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfhGenInfoGroup = cfhGenInfoGroup.setStatus('current')
+cfhPlaneGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 257, 3, 2, 2)).setObjects(("CISCO-FABRIC-HFR-MIB", "cfhPlaneAdminStatus"), ("CISCO-FABRIC-HFR-MIB", "cfhPlaneOperStatus"), ("CISCO-FABRIC-HFR-MIB", "cfhPlaneTotalBundles"), ("CISCO-FABRIC-HFR-MIB", "cfhPlaneDownedBundles"), ("CISCO-FABRIC-HFR-MIB", "cfhPlaneStatsRxDataCells"), ("CISCO-FABRIC-HFR-MIB", "cfhPlaneStatsTxDataCells"), ("CISCO-FABRIC-HFR-MIB", "cfhPlaneStatsRxCECells"), ("CISCO-FABRIC-HFR-MIB", "cfhPlaneStatsRxUCECells"), ("CISCO-FABRIC-HFR-MIB", "cfhPlaneStatsRxPECells"), ("CISCO-FABRIC-HFR-MIB", "cfhPlaneStatsUnicastLostCells"), ("CISCO-FABRIC-HFR-MIB", "cfhPlaneStatsMulticastLostCells"), ("CISCO-FABRIC-HFR-MIB", "cfhPlaneStatsCounterDiscTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfhPlaneGroup = cfhPlaneGroup.setStatus('current')
+cfhBundleGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 257, 3, 2, 3)).setObjects(("CISCO-FABRIC-HFR-MIB", "cfhBundleTotal"), ("CISCO-FABRIC-HFR-MIB", "cfhBundleDowned"), ("CISCO-FABRIC-HFR-MIB", "cfhBundleName"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePlane"), ("CISCO-FABRIC-HFR-MIB", "cfhBundleOperStatus"), ("CISCO-FABRIC-HFR-MIB", "cfhBundleTotalLinks"), ("CISCO-FABRIC-HFR-MIB", "cfhBundleDownedLinks"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortLCRCardIndex"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortLCRId"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortSecondCardIndex"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortSecondId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfhBundleGroup = cfhBundleGroup.setStatus('current')
+cfhBundlePortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 257, 3, 2, 4)).setObjects(("CISCO-FABRIC-HFR-MIB", "cfhBundlePortTotalNumber"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortAdminState"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortOperState"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortGrpId"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortStatsRxDataCells"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortStatsTxDataCells"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortStatsRxCECells"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortStatsRxUCECells"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortStatsRxPECells"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortStatsHighRxCECells"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortStatsHighRxUCECells"), ("CISCO-FABRIC-HFR-MIB", "cfhBundlePortStatsHighRxPECells"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfhBundlePortGroup = cfhBundlePortGroup.setStatus('current')
+cfhCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 257, 3, 2, 5)).setObjects(("CISCO-FABRIC-HFR-MIB", "cfhCardFabInUse"), ("CISCO-FABRIC-HFR-MIB", "cfhCardFabUsage"), ("CISCO-FABRIC-HFR-MIB", "cfhCardFabInUseDiscTime"), ("CISCO-FABRIC-HFR-MIB", "cfhCardPlaneTxConnectivity"), ("CISCO-FABRIC-HFR-MIB", "cfhCardPlaneRxConnectivity"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfhCardGroup = cfhCardGroup.setStatus('current')
+cfhNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 257, 3, 2, 6)).setObjects(("CISCO-FABRIC-HFR-MIB", "cfhPlaneStateNotification"), ("CISCO-FABRIC-HFR-MIB", "cfhBundleStateNotification"), ("CISCO-FABRIC-HFR-MIB", "cfhBundleDownedLinkNotification"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfhNotificationsGroup = cfhNotificationsGroup.setStatus('current')
+cfhFabricCapacityGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 257, 3, 2, 7)).setObjects(("CISCO-FABRIC-HFR-MIB", "cfhPlaneCapacityThreshold"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfhFabricCapacityGroup = cfhFabricCapacityGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-FABRIC-HFR-MIB", cfhBundleTotal=cfhBundleTotal, cfhBundleId=cfhBundleId, cfhCardPlaneTable=cfhCardPlaneTable, cfhBundleTable=cfhBundleTable, cfhMIBGroups=cfhMIBGroups, cfhCardPlaneRxConnectivity=cfhCardPlaneRxConnectivity, cfhBundleTotalLinks=cfhBundleTotalLinks, cfhGenInfoGroup=cfhGenInfoGroup, cfhPlaneId=cfhPlaneId, cfhBundlePortId=cfhBundlePortId, cfhPlaneStatsTxDataCells=cfhPlaneStatsTxDataCells, cfhCardFabUsage=cfhCardFabUsage, cfhBundlePortTable=cfhBundlePortTable, cfhBundleDowned=cfhBundleDowned, cfhBundlePlane=cfhBundlePlane, cfhBundlePortStatsHighRxPECells=cfhBundlePortStatsHighRxPECells, CfhScaledPercentage=CfhScaledPercentage, ciscoFabricHfrMIBObjects=ciscoFabricHfrMIBObjects, cfhNotificationsGroup=cfhNotificationsGroup, cfhBundlePortGroup=cfhBundlePortGroup, cfhPlaneStatsRxPECells=cfhPlaneStatsRxPECells, cfhPlaneStatsRxCECells=cfhPlaneStatsRxCECells, cfhBundleStateNotification=cfhBundleStateNotification, cfhGenBundleDownedLinkTrapEnable=cfhGenBundleDownedLinkTrapEnable, cfhMIBCompliance=cfhMIBCompliance, cfhCard=cfhCard, cfhPlaneOperStatus=cfhPlaneOperStatus, cfhBundlePortGrpId=cfhBundlePortGrpId, cfhMIBCompliances=cfhMIBCompliances, cfhPlaneStatsRxDataCells=cfhPlaneStatsRxDataCells, cfhPlaneStatsRxUCECells=cfhPlaneStatsRxUCECells, cfhPlaneStatsMulticastLostCells=cfhPlaneStatsMulticastLostCells, cfhBundlePortLCRId=cfhBundlePortLCRId, cfhBundlePortStatsRxPECells=cfhBundlePortStatsRxPECells, cfhPlaneGroup=cfhPlaneGroup, CfhBundle=CfhBundle, cfhBundlePort=cfhBundlePort, cfhPlaneStateNotification=cfhPlaneStateNotification, cfhPlaneStatsTable=cfhPlaneStatsTable, cfhBundlePortStatsTxDataCells=cfhBundlePortStatsTxDataCells, cfhBundlePortEntry=cfhBundlePortEntry, cfhGenPlaneStateTrapEnable=cfhGenPlaneStateTrapEnable, cfhCardPlaneEntry=cfhCardPlaneEntry, cfhBundle=cfhBundle, cfhBundlePortStatsEntry=cfhBundlePortStatsEntry, cfhPlaneCapacityThreshold=cfhPlaneCapacityThreshold, cfhBundleDownedLinkNotification=cfhBundleDownedLinkNotification, cfhBundlePortStatsRxCECells=cfhBundlePortStatsRxCECells, cfhBundlePortSecondId=cfhBundlePortSecondId, cfhBundlePortStatsHighRxCECells=cfhBundlePortStatsHighRxCECells, cfhPlaneEntry=cfhPlaneEntry, cfhGenBundleStateTrapEnable=cfhGenBundleStateTrapEnable, cfhPlaneStatsEntry=cfhPlaneStatsEntry, cfhBundlePortSecondCardIndex=cfhBundlePortSecondCardIndex, cfhPlaneAdminStatus=cfhPlaneAdminStatus, cfhCardTable=cfhCardTable, cfhGeneral=cfhGeneral, cfhCardPlaneTxConnectivity=cfhCardPlaneTxConnectivity, cfhBundleEntry=cfhBundleEntry, cfhBundleName=cfhBundleName, cfhPlane=cfhPlane, cfhCardFabInUseDiscTime=cfhCardFabInUseDiscTime, cfhBundlePortStatsHighRxUCECells=cfhBundlePortStatsHighRxUCECells, cfhCardEntry=cfhCardEntry, cfhPlaneTable=cfhPlaneTable, cfhBundlePortTotalNumber=cfhBundlePortTotalNumber, cfhPlaneDownedBundles=cfhPlaneDownedBundles, cfhCardGroup=cfhCardGroup, cfhBundleOperStatus=cfhBundleOperStatus, cfhMIBConformance=cfhMIBConformance, cfhBundlePortLCRCardIndex=cfhBundlePortLCRCardIndex, ciscoFabricHfrMIB=ciscoFabricHfrMIB, cfhPlaneStatsCounterDiscTime=cfhPlaneStatsCounterDiscTime, cfhBundlePortStatsRxDataCells=cfhBundlePortStatsRxDataCells, cfhPlaneStatsUnicastLostCells=cfhPlaneStatsUnicastLostCells, cfhMIBCompliance1=cfhMIBCompliance1, CfhPlane=CfhPlane, cfhPlaneTotalBundles=cfhPlaneTotalBundles, cfhFabricCapacityGroup=cfhFabricCapacityGroup, cfhBundlePortAdminState=cfhBundlePortAdminState, cfhMIBNotifications=cfhMIBNotifications, cfhBundleGroup=cfhBundleGroup, cfhBundleDownedLinks=cfhBundleDownedLinks, cfhBundlePortOperState=cfhBundlePortOperState, cfhBundlePortStatsTable=cfhBundlePortStatsTable, cfhBundlePortStatsRxUCECells=cfhBundlePortStatsRxUCECells, cfhCardFabInUse=cfhCardFabInUse, CfhAdminState=CfhAdminState, PYSNMP_MODULE_ID=ciscoFabricHfrMIB)

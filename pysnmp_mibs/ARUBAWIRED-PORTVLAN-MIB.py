@@ -1,64 +1,49 @@
-_H='arubaWiredPortVlanMemberTableGroup'
-_G='arubaWiredPortVlanMemberVid'
-_F='arubaWiredPortVlanMemberMode'
-_E='read-only'
-_D='arubaWiredPortVlanMemberIndex'
-_C='Integer32'
-_B='ARUBAWIRED-PORTVLAN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-wndFeatures,=mibBuilder.importSymbols('ARUBAWIRED-NETWORKING-OID','wndFeatures')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-arubaWiredPortVlanMIB=ModuleIdentity((1,3,6,1,4,1,47196,4,1,1,3,18))
-if mibBuilder.loadTexts:arubaWiredPortVlanMIB.setRevisions(('2021-10-14 00:00','2020-11-20 00:00'))
-class VidList(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(512,512));fixedLength=512
-_ArubaWiredPortVlanNotifications_ObjectIdentity=ObjectIdentity
-arubaWiredPortVlanNotifications=_ArubaWiredPortVlanNotifications_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,18,0))
-_ArubaWiredPortVlanObjects_ObjectIdentity=ObjectIdentity
-arubaWiredPortVlanObjects=_ArubaWiredPortVlanObjects_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,18,1))
-_ArubaWiredPortVlanConfig_ObjectIdentity=ObjectIdentity
-arubaWiredPortVlanConfig=_ArubaWiredPortVlanConfig_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,18,1,0))
-_ArubaWiredPortVlanStatus_ObjectIdentity=ObjectIdentity
-arubaWiredPortVlanStatus=_ArubaWiredPortVlanStatus_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,18,1,1))
-_ArubaWiredPortVlanMemberTable_Object=MibTable
-arubaWiredPortVlanMemberTable=_ArubaWiredPortVlanMemberTable_Object((1,3,6,1,4,1,47196,4,1,1,3,18,1,1,1))
-if mibBuilder.loadTexts:arubaWiredPortVlanMemberTable.setStatus(_A)
-_ArubaWiredPortVlanMemberEntry_Object=MibTableRow
-arubaWiredPortVlanMemberEntry=_ArubaWiredPortVlanMemberEntry_Object((1,3,6,1,4,1,47196,4,1,1,3,18,1,1,1,1))
-arubaWiredPortVlanMemberEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:arubaWiredPortVlanMemberEntry.setStatus(_A)
-_ArubaWiredPortVlanMemberIndex_Type=InterfaceIndex
-_ArubaWiredPortVlanMemberIndex_Object=MibTableColumn
-arubaWiredPortVlanMemberIndex=_ArubaWiredPortVlanMemberIndex_Object((1,3,6,1,4,1,47196,4,1,1,3,18,1,1,1,1,1),_ArubaWiredPortVlanMemberIndex_Type())
-arubaWiredPortVlanMemberIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:arubaWiredPortVlanMemberIndex.setStatus(_A)
-class _ArubaWiredPortVlanMemberMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('trunk',1),('access',2)))
-_ArubaWiredPortVlanMemberMode_Type.__name__=_C
-_ArubaWiredPortVlanMemberMode_Object=MibTableColumn
-arubaWiredPortVlanMemberMode=_ArubaWiredPortVlanMemberMode_Object((1,3,6,1,4,1,47196,4,1,1,3,18,1,1,1,1,2),_ArubaWiredPortVlanMemberMode_Type())
-arubaWiredPortVlanMemberMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:arubaWiredPortVlanMemberMode.setStatus(_A)
-_ArubaWiredPortVlanMemberVid_Type=VidList
-_ArubaWiredPortVlanMemberVid_Object=MibTableColumn
-arubaWiredPortVlanMemberVid=_ArubaWiredPortVlanMemberVid_Object((1,3,6,1,4,1,47196,4,1,1,3,18,1,1,1,1,3),_ArubaWiredPortVlanMemberVid_Type())
-arubaWiredPortVlanMemberVid.setMaxAccess(_E)
-if mibBuilder.loadTexts:arubaWiredPortVlanMemberVid.setStatus(_A)
-_ArubaWiredPortVlanConformance_ObjectIdentity=ObjectIdentity
-arubaWiredPortVlanConformance=_ArubaWiredPortVlanConformance_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,18,2))
-_ArubaWiredPortVlanCompliances_ObjectIdentity=ObjectIdentity
-arubaWiredPortVlanCompliances=_ArubaWiredPortVlanCompliances_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,18,2,1))
-_ArubaWiredPortVlanGroups_ObjectIdentity=ObjectIdentity
-arubaWiredPortVlanGroups=_ArubaWiredPortVlanGroups_ObjectIdentity((1,3,6,1,4,1,47196,4,1,1,3,18,2,2))
-arubaWiredPortVlanMemberTableGroup=ObjectGroup((1,3,6,1,4,1,47196,4,1,1,3,18,2,2,1))
-arubaWiredPortVlanMemberTableGroup.setObjects(*((_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:arubaWiredPortVlanMemberTableGroup.setStatus(_A)
-arubaWiredPortVlanMibCompliance=ModuleCompliance((1,3,6,1,4,1,47196,4,1,1,3,18,2,1,1))
-arubaWiredPortVlanMibCompliance.setObjects((_B,_H))
-if mibBuilder.loadTexts:arubaWiredPortVlanMibCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'VidList':VidList,'arubaWiredPortVlanMIB':arubaWiredPortVlanMIB,'arubaWiredPortVlanNotifications':arubaWiredPortVlanNotifications,'arubaWiredPortVlanObjects':arubaWiredPortVlanObjects,'arubaWiredPortVlanConfig':arubaWiredPortVlanConfig,'arubaWiredPortVlanStatus':arubaWiredPortVlanStatus,'arubaWiredPortVlanMemberTable':arubaWiredPortVlanMemberTable,'arubaWiredPortVlanMemberEntry':arubaWiredPortVlanMemberEntry,_D:arubaWiredPortVlanMemberIndex,_F:arubaWiredPortVlanMemberMode,_G:arubaWiredPortVlanMemberVid,'arubaWiredPortVlanConformance':arubaWiredPortVlanConformance,'arubaWiredPortVlanCompliances':arubaWiredPortVlanCompliances,'arubaWiredPortVlanMibCompliance':arubaWiredPortVlanMibCompliance,'arubaWiredPortVlanGroups':arubaWiredPortVlanGroups,_H:arubaWiredPortVlanMemberTableGroup})
+#
+# PySNMP MIB module ARUBAWIRED-PORTVLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aruba/ARUBAWIRED-PORTVLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:04 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+wndFeatures, = mibBuilder.importSymbols("ARUBAWIRED-NETWORKING-OID", "wndFeatures")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+arubaWiredPortVlanMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 18))
+arubaWiredPortVlanMIB.setRevisions(('2021-10-14 00:00', '2020-11-20 00:00',))
+if mibBuilder.loadTexts: arubaWiredPortVlanMIB.setLastUpdated('202110140000Z')
+if mibBuilder.loadTexts: arubaWiredPortVlanMIB.setOrganization('HPE/Aruba Networking Division')
+class VidList(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(512, 512)
+    fixedLength = 512
+
+arubaWiredPortVlanNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 18, 0))
+arubaWiredPortVlanObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 18, 1))
+arubaWiredPortVlanConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 18, 1, 0))
+arubaWiredPortVlanStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 18, 1, 1))
+arubaWiredPortVlanMemberTable = MibTable((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 18, 1, 1, 1), )
+if mibBuilder.loadTexts: arubaWiredPortVlanMemberTable.setStatus('current')
+arubaWiredPortVlanMemberEntry = MibTableRow((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 18, 1, 1, 1, 1), ).setIndexNames((0, "ARUBAWIRED-PORTVLAN-MIB", "arubaWiredPortVlanMemberIndex"))
+if mibBuilder.loadTexts: arubaWiredPortVlanMemberEntry.setStatus('current')
+arubaWiredPortVlanMemberIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 18, 1, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: arubaWiredPortVlanMemberIndex.setStatus('current')
+arubaWiredPortVlanMemberMode = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 18, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("trunk", 1), ("access", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredPortVlanMemberMode.setStatus('current')
+arubaWiredPortVlanMemberVid = MibTableColumn((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 18, 1, 1, 1, 1, 3), VidList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arubaWiredPortVlanMemberVid.setStatus('current')
+arubaWiredPortVlanConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 18, 2))
+arubaWiredPortVlanCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 18, 2, 1))
+arubaWiredPortVlanGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 18, 2, 2))
+arubaWiredPortVlanMemberTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 18, 2, 2, 1)).setObjects(("ARUBAWIRED-PORTVLAN-MIB", "arubaWiredPortVlanMemberMode"), ("ARUBAWIRED-PORTVLAN-MIB", "arubaWiredPortVlanMemberVid"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arubaWiredPortVlanMemberTableGroup = arubaWiredPortVlanMemberTableGroup.setStatus('current')
+arubaWiredPortVlanMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 47196, 4, 1, 1, 3, 18, 2, 1, 1)).setObjects(("ARUBAWIRED-PORTVLAN-MIB", "arubaWiredPortVlanMemberTableGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    arubaWiredPortVlanMibCompliance = arubaWiredPortVlanMibCompliance.setStatus('current')
+mibBuilder.exportSymbols("ARUBAWIRED-PORTVLAN-MIB", arubaWiredPortVlanGroups=arubaWiredPortVlanGroups, arubaWiredPortVlanMIB=arubaWiredPortVlanMIB, arubaWiredPortVlanMemberTable=arubaWiredPortVlanMemberTable, arubaWiredPortVlanMemberTableGroup=arubaWiredPortVlanMemberTableGroup, VidList=VidList, arubaWiredPortVlanMemberMode=arubaWiredPortVlanMemberMode, arubaWiredPortVlanMemberIndex=arubaWiredPortVlanMemberIndex, arubaWiredPortVlanConformance=arubaWiredPortVlanConformance, arubaWiredPortVlanMemberEntry=arubaWiredPortVlanMemberEntry, arubaWiredPortVlanStatus=arubaWiredPortVlanStatus, PYSNMP_MODULE_ID=arubaWiredPortVlanMIB, arubaWiredPortVlanMemberVid=arubaWiredPortVlanMemberVid, arubaWiredPortVlanMibCompliance=arubaWiredPortVlanMibCompliance, arubaWiredPortVlanConfig=arubaWiredPortVlanConfig, arubaWiredPortVlanObjects=arubaWiredPortVlanObjects, arubaWiredPortVlanCompliances=arubaWiredPortVlanCompliances, arubaWiredPortVlanNotifications=arubaWiredPortVlanNotifications)

@@ -1,70 +1,42 @@
-_K='notificationAlarmState'
-_J='notificationSeverity'
-_I='notificationInfo'
-_H='notificationSourceValue'
-_G='notificationSourceType'
-_F='notificationName'
-_E='notificationTime'
-_D='Integer32'
-_C='accessible-for-notify'
-_B='DMOS-NOTIFICATIONS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-datacomDevicesMIBs,=mibBuilder.importSymbols('DATACOM-SMI','datacomDevicesMIBs')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
-dmosNotificationsMIB=ModuleIdentity((1,3,6,1,4,1,3709,3,6,3))
-if mibBuilder.loadTexts:dmosNotificationsMIB.setRevisions(('2016-10-20 00:00',))
-_NotificationObjects_ObjectIdentity=ObjectIdentity
-notificationObjects=_NotificationObjects_ObjectIdentity((1,3,6,1,4,1,3709,3,6,3,1))
-_NotificationTime_Type=DateAndTime
-_NotificationTime_Object=MibScalar
-notificationTime=_NotificationTime_Object((1,3,6,1,4,1,3709,3,6,3,1,1),_NotificationTime_Type())
-notificationTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:notificationTime.setStatus(_A)
-_NotificationName_Type=DisplayString
-_NotificationName_Object=MibScalar
-notificationName=_NotificationName_Object((1,3,6,1,4,1,3709,3,6,3,1,2),_NotificationName_Type())
-notificationName.setMaxAccess(_C)
-if mibBuilder.loadTexts:notificationName.setStatus(_A)
-_NotificationSourceType_Type=DisplayString
-_NotificationSourceType_Object=MibScalar
-notificationSourceType=_NotificationSourceType_Object((1,3,6,1,4,1,3709,3,6,3,1,3),_NotificationSourceType_Type())
-notificationSourceType.setMaxAccess(_C)
-if mibBuilder.loadTexts:notificationSourceType.setStatus(_A)
-_NotificationSourceValue_Type=DisplayString
-_NotificationSourceValue_Object=MibScalar
-notificationSourceValue=_NotificationSourceValue_Object((1,3,6,1,4,1,3709,3,6,3,1,4),_NotificationSourceValue_Type())
-notificationSourceValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:notificationSourceValue.setStatus(_A)
-_NotificationSeverity_Type=DisplayString
-_NotificationSeverity_Object=MibScalar
-notificationSeverity=_NotificationSeverity_Object((1,3,6,1,4,1,3709,3,6,3,1,5),_NotificationSeverity_Type())
-notificationSeverity.setMaxAccess(_C)
-if mibBuilder.loadTexts:notificationSeverity.setStatus(_A)
-_NotificationInfo_Type=DisplayString
-_NotificationInfo_Object=MibScalar
-notificationInfo=_NotificationInfo_Object((1,3,6,1,4,1,3709,3,6,3,1,6),_NotificationInfo_Type())
-notificationInfo.setMaxAccess(_C)
-if mibBuilder.loadTexts:notificationInfo.setStatus(_A)
-class _NotificationAlarmState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('clear',1),('set',2),('unstable',3)))
-_NotificationAlarmState_Type.__name__=_D
-_NotificationAlarmState_Object=MibScalar
-notificationAlarmState=_NotificationAlarmState_Object((1,3,6,1,4,1,3709,3,6,3,1,7),_NotificationAlarmState_Type())
-notificationAlarmState.setMaxAccess(_C)
-if mibBuilder.loadTexts:notificationAlarmState.setStatus(_A)
-_NotificationGroups_ObjectIdentity=ObjectIdentity
-notificationGroups=_NotificationGroups_ObjectIdentity((1,3,6,1,4,1,3709,3,6,3,2))
-_AlarmNotifications_ObjectIdentity=ObjectIdentity
-alarmNotifications=_AlarmNotifications_ObjectIdentity((1,3,6,1,4,1,3709,3,6,3,3))
-infoNotificationGroup=ObjectGroup((1,3,6,1,4,1,3709,3,6,3,2,1))
-infoNotificationGroup.setObjects(*((_B,_E),(_B,_F),(_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:infoNotificationGroup.setStatus(_A)
-alarmNotificationGroup=ObjectGroup((1,3,6,1,4,1,3709,3,6,3,2,2))
-alarmNotificationGroup.setObjects(*((_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:alarmNotificationGroup.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'dmosNotificationsMIB':dmosNotificationsMIB,'notificationObjects':notificationObjects,_E:notificationTime,_F:notificationName,_G:notificationSourceType,_H:notificationSourceValue,_J:notificationSeverity,_I:notificationInfo,_K:notificationAlarmState,'notificationGroups':notificationGroups,'infoNotificationGroup':infoNotificationGroup,'alarmNotificationGroup':alarmNotificationGroup,'alarmNotifications':alarmNotifications})
+#
+# PySNMP MIB module DMOS-NOTIFICATIONS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/datacom/DMOS-NOTIFICATIONS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:22:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+datacomDevicesMIBs, = mibBuilder.importSymbols("DATACOM-SMI", "datacomDevicesMIBs")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+dmosNotificationsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3))
+dmosNotificationsMIB.setRevisions(('2016-10-20 00:00',))
+if mibBuilder.loadTexts: dmosNotificationsMIB.setLastUpdated('201610200000Z')
+if mibBuilder.loadTexts: dmosNotificationsMIB.setOrganization('DATACOM')
+notificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 1))
+notificationTime = MibScalar((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 1, 1), DateAndTime()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: notificationTime.setStatus('current')
+notificationName = MibScalar((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 1, 2), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: notificationName.setStatus('current')
+notificationSourceType = MibScalar((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 1, 3), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: notificationSourceType.setStatus('current')
+notificationSourceValue = MibScalar((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 1, 4), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: notificationSourceValue.setStatus('current')
+notificationSeverity = MibScalar((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 1, 5), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: notificationSeverity.setStatus('current')
+notificationInfo = MibScalar((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 1, 6), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: notificationInfo.setStatus('current')
+notificationAlarmState = MibScalar((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("clear", 1), ("set", 2), ("unstable", 3)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: notificationAlarmState.setStatus('current')
+notificationGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 2))
+infoNotificationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 2, 1)).setObjects(("DMOS-NOTIFICATIONS-MIB", "notificationTime"), ("DMOS-NOTIFICATIONS-MIB", "notificationName"), ("DMOS-NOTIFICATIONS-MIB", "notificationSourceType"), ("DMOS-NOTIFICATIONS-MIB", "notificationSourceValue"), ("DMOS-NOTIFICATIONS-MIB", "notificationInfo"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    infoNotificationGroup = infoNotificationGroup.setStatus('current')
+alarmNotificationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 2, 2)).setObjects(("DMOS-NOTIFICATIONS-MIB", "notificationSeverity"), ("DMOS-NOTIFICATIONS-MIB", "notificationAlarmState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alarmNotificationGroup = alarmNotificationGroup.setStatus('current')
+alarmNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 3))
+mibBuilder.exportSymbols("DMOS-NOTIFICATIONS-MIB", alarmNotificationGroup=alarmNotificationGroup, alarmNotifications=alarmNotifications, notificationName=notificationName, notificationInfo=notificationInfo, notificationAlarmState=notificationAlarmState, dmosNotificationsMIB=dmosNotificationsMIB, notificationSeverity=notificationSeverity, notificationSourceType=notificationSourceType, notificationTime=notificationTime, PYSNMP_MODULE_ID=dmosNotificationsMIB, infoNotificationGroup=infoNotificationGroup, notificationSourceValue=notificationSourceValue, notificationGroups=notificationGroups, notificationObjects=notificationObjects)

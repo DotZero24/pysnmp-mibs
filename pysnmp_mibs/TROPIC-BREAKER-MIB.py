@@ -1,62 +1,41 @@
-_L='tnPowerFilterGroup'
-_K='tnPowerFilterCardPower'
-_J='tnPowerFilterAmpRating'
-_I='read-only'
-_H='tnSlotIndex'
-_G='TROPIC-SLOT-MIB'
-_F='tnShelfIndex'
-_E='TROPIC-SHELF-MIB'
-_D='Integer32'
-_C='OctetString'
-_B='TROPIC-BREAKER-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tnBreakerMIB,tnMiscModules=mibBuilder.importSymbols('TROPIC-GLOBAL-REG','tnBreakerMIB','tnMiscModules')
-tnShelfIndex,=mibBuilder.importSymbols(_E,_F)
-tnSlotIndex,=mibBuilder.importSymbols(_G,_H)
-tnBreakerMibModule=ModuleIdentity((1,3,6,1,4,1,7483,1,1,2,2,5,2))
-if mibBuilder.loadTexts:tnBreakerMibModule.setRevisions(('2018-02-23 12:00','2016-11-16 12:00','2013-05-21 12:00','2012-09-13 12:00','2011-05-23 12:00','2011-04-14 12:00','2010-10-18 12:00','2009-08-13 12:00'))
-_TnBreakerConf_ObjectIdentity=ObjectIdentity
-tnBreakerConf=_TnBreakerConf_ObjectIdentity((1,3,6,1,4,1,7483,2,2,5,2,1))
-_TnBreakerGroups_ObjectIdentity=ObjectIdentity
-tnBreakerGroups=_TnBreakerGroups_ObjectIdentity((1,3,6,1,4,1,7483,2,2,5,2,1,1))
-_TnBreakerCompliances_ObjectIdentity=ObjectIdentity
-tnBreakerCompliances=_TnBreakerCompliances_ObjectIdentity((1,3,6,1,4,1,7483,2,2,5,2,1,2))
-_TnBreakerObjs_ObjectIdentity=ObjectIdentity
-tnBreakerObjs=_TnBreakerObjs_ObjectIdentity((1,3,6,1,4,1,7483,2,2,5,2,2))
-_TnBreakerBasics_ObjectIdentity=ObjectIdentity
-tnBreakerBasics=_TnBreakerBasics_ObjectIdentity((1,3,6,1,4,1,7483,2,2,5,2,2,1))
-_TnPowerFilterTable_Object=MibTable
-tnPowerFilterTable=_TnPowerFilterTable_Object((1,3,6,1,4,1,7483,2,2,5,2,2,1,2))
-if mibBuilder.loadTexts:tnPowerFilterTable.setStatus(_A)
-_TnPowerFilterEntry_Object=MibTableRow
-tnPowerFilterEntry=_TnPowerFilterEntry_Object((1,3,6,1,4,1,7483,2,2,5,2,2,1,2,1))
-tnPowerFilterEntry.setIndexNames((0,_E,_F),(0,_G,_H))
-if mibBuilder.loadTexts:tnPowerFilterEntry.setStatus(_A)
-class _TnPowerFilterAmpRating_Type(Integer32):defaultValue=0
-_TnPowerFilterAmpRating_Type.__name__=_D
-_TnPowerFilterAmpRating_Object=MibTableColumn
-tnPowerFilterAmpRating=_TnPowerFilterAmpRating_Object((1,3,6,1,4,1,7483,2,2,5,2,2,1,2,1,1),_TnPowerFilterAmpRating_Type())
-tnPowerFilterAmpRating.setMaxAccess(_I)
-if mibBuilder.loadTexts:tnPowerFilterAmpRating.setStatus(_A)
-if mibBuilder.loadTexts:tnPowerFilterAmpRating.setUnits('1/10 amps')
-class _TnPowerFilterCardPower_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,100))
-_TnPowerFilterCardPower_Type.__name__=_C
-_TnPowerFilterCardPower_Object=MibTableColumn
-tnPowerFilterCardPower=_TnPowerFilterCardPower_Object((1,3,6,1,4,1,7483,2,2,5,2,2,1,2,1,2),_TnPowerFilterCardPower_Type())
-tnPowerFilterCardPower.setMaxAccess(_I)
-if mibBuilder.loadTexts:tnPowerFilterCardPower.setStatus(_A)
-if mibBuilder.loadTexts:tnPowerFilterCardPower.setUnits('watts')
-tnPowerFilterGroup=ObjectGroup((1,3,6,1,4,1,7483,2,2,5,2,1,1,2))
-tnPowerFilterGroup.setObjects(*((_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:tnPowerFilterGroup.setStatus(_A)
-tnBreakerCompliance=ModuleCompliance((1,3,6,1,4,1,7483,2,2,5,2,1,2,1))
-tnBreakerCompliance.setObjects((_B,_L))
-if mibBuilder.loadTexts:tnBreakerCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'tnBreakerMibModule':tnBreakerMibModule,'tnBreakerConf':tnBreakerConf,'tnBreakerGroups':tnBreakerGroups,_L:tnPowerFilterGroup,'tnBreakerCompliances':tnBreakerCompliances,'tnBreakerCompliance':tnBreakerCompliance,'tnBreakerObjs':tnBreakerObjs,'tnBreakerBasics':tnBreakerBasics,'tnPowerFilterTable':tnPowerFilterTable,'tnPowerFilterEntry':tnPowerFilterEntry,_J:tnPowerFilterAmpRating,_K:tnPowerFilterCardPower})
+#
+# PySNMP MIB module TROPIC-BREAKER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TROPIC-BREAKER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:20:53 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tnMiscModules, tnBreakerMIB = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnMiscModules", "tnBreakerMIB")
+tnShelfIndex, = mibBuilder.importSymbols("TROPIC-SHELF-MIB", "tnShelfIndex")
+tnSlotIndex, = mibBuilder.importSymbols("TROPIC-SLOT-MIB", "tnSlotIndex")
+tnBreakerMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 1, 1, 2, 2, 5, 2))
+tnBreakerMibModule.setRevisions(('2018-02-23 12:00', '2016-11-16 12:00', '2013-05-21 12:00', '2012-09-13 12:00', '2011-05-23 12:00', '2011-04-14 12:00', '2010-10-18 12:00', '2009-08-13 12:00',))
+if mibBuilder.loadTexts: tnBreakerMibModule.setLastUpdated('201802231200Z')
+if mibBuilder.loadTexts: tnBreakerMibModule.setOrganization('Nokia')
+tnBreakerConf = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 5, 2, 1))
+tnBreakerGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 5, 2, 1, 1))
+tnBreakerCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 5, 2, 1, 2))
+tnBreakerObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 5, 2, 2))
+tnBreakerBasics = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 5, 2, 2, 1))
+tnPowerFilterTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 2, 5, 2, 2, 1, 2), )
+if mibBuilder.loadTexts: tnPowerFilterTable.setStatus('current')
+tnPowerFilterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 2, 5, 2, 2, 1, 2, 1), ).setIndexNames((0, "TROPIC-SHELF-MIB", "tnShelfIndex"), (0, "TROPIC-SLOT-MIB", "tnSlotIndex"))
+if mibBuilder.loadTexts: tnPowerFilterEntry.setStatus('current')
+tnPowerFilterAmpRating = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 5, 2, 2, 1, 2, 1, 1), Integer32()).setUnits('1/10 amps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnPowerFilterAmpRating.setStatus('current')
+tnPowerFilterCardPower = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 5, 2, 2, 1, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 100))).setUnits('watts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnPowerFilterCardPower.setStatus('current')
+tnPowerFilterGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 2, 5, 2, 1, 1, 2)).setObjects(("TROPIC-BREAKER-MIB", "tnPowerFilterAmpRating"), ("TROPIC-BREAKER-MIB", "tnPowerFilterCardPower"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tnPowerFilterGroup = tnPowerFilterGroup.setStatus('current')
+tnBreakerCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 7483, 2, 2, 5, 2, 1, 2, 1)).setObjects(("TROPIC-BREAKER-MIB", "tnPowerFilterGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tnBreakerCompliance = tnBreakerCompliance.setStatus('current')
+mibBuilder.exportSymbols("TROPIC-BREAKER-MIB", tnBreakerGroups=tnBreakerGroups, tnPowerFilterTable=tnPowerFilterTable, tnBreakerMibModule=tnBreakerMibModule, tnPowerFilterGroup=tnPowerFilterGroup, PYSNMP_MODULE_ID=tnBreakerMibModule, tnBreakerCompliances=tnBreakerCompliances, tnBreakerBasics=tnBreakerBasics, tnBreakerConf=tnBreakerConf, tnPowerFilterCardPower=tnPowerFilterCardPower, tnPowerFilterAmpRating=tnPowerFilterAmpRating, tnBreakerObjs=tnBreakerObjs, tnPowerFilterEntry=tnPowerFilterEntry, tnBreakerCompliance=tnBreakerCompliance)

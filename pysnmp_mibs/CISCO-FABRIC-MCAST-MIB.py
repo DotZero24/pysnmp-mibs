@@ -1,141 +1,77 @@
-_U='cfmLrGroup'
-_T='cfmPoolGroup'
-_S='cfmGenInfoGroup'
-_R='cfmLrHighWaterInuseFgids'
-_Q='cfmLrInuseFgids'
-_P='cfmPoolHighWaterInuseFgids'
-_O='cfmPoolInuseFgids'
-_N='cfmPoolTotalFgids'
-_M='cfmPoolType'
-_L='cfmPoolName'
-_K='cfmGenInfoHighWaterInuseFgids'
-_J='cfmGenInfoInuseFgids'
-_I='cfmGenInfoTotalFgids'
-_H='cfmPoolId'
-_G='Integer32'
-_F='entLogicalIndex'
-_E='ENTITY-MIB'
-_D='fgid'
-_C='read-only'
-_B='CISCO-FABRIC-MCAST-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-entLogicalIndex,=mibBuilder.importSymbols(_E,_F)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoFabricMcastMIB=ModuleIdentity((1,3,6,1,4,1,9,9,255))
-if mibBuilder.loadTexts:ciscoFabricMcastMIB.setRevisions(('2002-08-20 00:00',))
-class CfmPoolIndex(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CiscoFabricMcastMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoFabricMcastMIBNotifs=_CiscoFabricMcastMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,255,0))
-_CiscoFabricMcastMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoFabricMcastMIBObjects=_CiscoFabricMcastMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,255,1))
-_CfmGeneral_ObjectIdentity=ObjectIdentity
-cfmGeneral=_CfmGeneral_ObjectIdentity((1,3,6,1,4,1,9,9,255,1,1))
-_CfmGenInfoTotalFgids_Type=Gauge32
-_CfmGenInfoTotalFgids_Object=MibScalar
-cfmGenInfoTotalFgids=_CfmGenInfoTotalFgids_Object((1,3,6,1,4,1,9,9,255,1,1,1),_CfmGenInfoTotalFgids_Type())
-cfmGenInfoTotalFgids.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmGenInfoTotalFgids.setStatus(_A)
-if mibBuilder.loadTexts:cfmGenInfoTotalFgids.setUnits(_D)
-_CfmGenInfoInuseFgids_Type=Gauge32
-_CfmGenInfoInuseFgids_Object=MibScalar
-cfmGenInfoInuseFgids=_CfmGenInfoInuseFgids_Object((1,3,6,1,4,1,9,9,255,1,1,2),_CfmGenInfoInuseFgids_Type())
-cfmGenInfoInuseFgids.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmGenInfoInuseFgids.setStatus(_A)
-if mibBuilder.loadTexts:cfmGenInfoInuseFgids.setUnits(_D)
-_CfmGenInfoHighWaterInuseFgids_Type=Gauge32
-_CfmGenInfoHighWaterInuseFgids_Object=MibScalar
-cfmGenInfoHighWaterInuseFgids=_CfmGenInfoHighWaterInuseFgids_Object((1,3,6,1,4,1,9,9,255,1,1,3),_CfmGenInfoHighWaterInuseFgids_Type())
-cfmGenInfoHighWaterInuseFgids.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmGenInfoHighWaterInuseFgids.setStatus(_A)
-if mibBuilder.loadTexts:cfmGenInfoHighWaterInuseFgids.setUnits(_D)
-_CfmPool_ObjectIdentity=ObjectIdentity
-cfmPool=_CfmPool_ObjectIdentity((1,3,6,1,4,1,9,9,255,1,2))
-_CfmPoolTable_Object=MibTable
-cfmPoolTable=_CfmPoolTable_Object((1,3,6,1,4,1,9,9,255,1,2,1))
-if mibBuilder.loadTexts:cfmPoolTable.setStatus(_A)
-_CfmPoolEntry_Object=MibTableRow
-cfmPoolEntry=_CfmPoolEntry_Object((1,3,6,1,4,1,9,9,255,1,2,1,1))
-cfmPoolEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:cfmPoolEntry.setStatus(_A)
-_CfmPoolId_Type=CfmPoolIndex
-_CfmPoolId_Object=MibTableColumn
-cfmPoolId=_CfmPoolId_Object((1,3,6,1,4,1,9,9,255,1,2,1,1,1),_CfmPoolId_Type())
-cfmPoolId.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:cfmPoolId.setStatus(_A)
-_CfmPoolName_Type=SnmpAdminString
-_CfmPoolName_Object=MibTableColumn
-cfmPoolName=_CfmPoolName_Object((1,3,6,1,4,1,9,9,255,1,2,1,1,2),_CfmPoolName_Type())
-cfmPoolName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmPoolName.setStatus(_A)
-class _CfmPoolType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('shared',1),('dedicated',2)))
-_CfmPoolType_Type.__name__=_G
-_CfmPoolType_Object=MibTableColumn
-cfmPoolType=_CfmPoolType_Object((1,3,6,1,4,1,9,9,255,1,2,1,1,3),_CfmPoolType_Type())
-cfmPoolType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmPoolType.setStatus(_A)
-_CfmPoolTotalFgids_Type=Gauge32
-_CfmPoolTotalFgids_Object=MibTableColumn
-cfmPoolTotalFgids=_CfmPoolTotalFgids_Object((1,3,6,1,4,1,9,9,255,1,2,1,1,4),_CfmPoolTotalFgids_Type())
-cfmPoolTotalFgids.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmPoolTotalFgids.setStatus(_A)
-if mibBuilder.loadTexts:cfmPoolTotalFgids.setUnits(_D)
-_CfmPoolInuseFgids_Type=Gauge32
-_CfmPoolInuseFgids_Object=MibTableColumn
-cfmPoolInuseFgids=_CfmPoolInuseFgids_Object((1,3,6,1,4,1,9,9,255,1,2,1,1,5),_CfmPoolInuseFgids_Type())
-cfmPoolInuseFgids.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmPoolInuseFgids.setStatus(_A)
-if mibBuilder.loadTexts:cfmPoolInuseFgids.setUnits(_D)
-_CfmPoolHighWaterInuseFgids_Type=Gauge32
-_CfmPoolHighWaterInuseFgids_Object=MibTableColumn
-cfmPoolHighWaterInuseFgids=_CfmPoolHighWaterInuseFgids_Object((1,3,6,1,4,1,9,9,255,1,2,1,1,6),_CfmPoolHighWaterInuseFgids_Type())
-cfmPoolHighWaterInuseFgids.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmPoolHighWaterInuseFgids.setStatus(_A)
-if mibBuilder.loadTexts:cfmPoolHighWaterInuseFgids.setUnits(_D)
-_CfmLr_ObjectIdentity=ObjectIdentity
-cfmLr=_CfmLr_ObjectIdentity((1,3,6,1,4,1,9,9,255,1,3))
-_CfmLrTable_Object=MibTable
-cfmLrTable=_CfmLrTable_Object((1,3,6,1,4,1,9,9,255,1,3,1))
-if mibBuilder.loadTexts:cfmLrTable.setStatus(_A)
-_CfmLrEntry_Object=MibTableRow
-cfmLrEntry=_CfmLrEntry_Object((1,3,6,1,4,1,9,9,255,1,3,1,1))
-cfmLrEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:cfmLrEntry.setStatus(_A)
-_CfmLrInuseFgids_Type=Gauge32
-_CfmLrInuseFgids_Object=MibTableColumn
-cfmLrInuseFgids=_CfmLrInuseFgids_Object((1,3,6,1,4,1,9,9,255,1,3,1,1,1),_CfmLrInuseFgids_Type())
-cfmLrInuseFgids.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmLrInuseFgids.setStatus(_A)
-if mibBuilder.loadTexts:cfmLrInuseFgids.setUnits(_D)
-_CfmLrHighWaterInuseFgids_Type=Gauge32
-_CfmLrHighWaterInuseFgids_Object=MibTableColumn
-cfmLrHighWaterInuseFgids=_CfmLrHighWaterInuseFgids_Object((1,3,6,1,4,1,9,9,255,1,3,1,1,2),_CfmLrHighWaterInuseFgids_Type())
-cfmLrHighWaterInuseFgids.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmLrHighWaterInuseFgids.setStatus(_A)
-if mibBuilder.loadTexts:cfmLrHighWaterInuseFgids.setUnits(_D)
-_CiscoFabricMcastMIBConform_ObjectIdentity=ObjectIdentity
-ciscoFabricMcastMIBConform=_CiscoFabricMcastMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,255,2))
-_CfmMIBCompliances_ObjectIdentity=ObjectIdentity
-cfmMIBCompliances=_CfmMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,255,2,1))
-_CfmMIBGroups_ObjectIdentity=ObjectIdentity
-cfmMIBGroups=_CfmMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,255,2,2))
-cfmGenInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,255,2,2,1))
-cfmGenInfoGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:cfmGenInfoGroup.setStatus(_A)
-cfmPoolGroup=ObjectGroup((1,3,6,1,4,1,9,9,255,2,2,2))
-cfmPoolGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:cfmPoolGroup.setStatus(_A)
-cfmLrGroup=ObjectGroup((1,3,6,1,4,1,9,9,255,2,2,3))
-cfmLrGroup.setObjects(*((_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:cfmLrGroup.setStatus(_A)
-cfmMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,255,2,1,1))
-cfmMIBCompliance.setObjects(*((_B,_S),(_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:cfmMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CfmPoolIndex':CfmPoolIndex,'ciscoFabricMcastMIB':ciscoFabricMcastMIB,'ciscoFabricMcastMIBNotifs':ciscoFabricMcastMIBNotifs,'ciscoFabricMcastMIBObjects':ciscoFabricMcastMIBObjects,'cfmGeneral':cfmGeneral,_I:cfmGenInfoTotalFgids,_J:cfmGenInfoInuseFgids,_K:cfmGenInfoHighWaterInuseFgids,'cfmPool':cfmPool,'cfmPoolTable':cfmPoolTable,'cfmPoolEntry':cfmPoolEntry,_H:cfmPoolId,_L:cfmPoolName,_M:cfmPoolType,_N:cfmPoolTotalFgids,_O:cfmPoolInuseFgids,_P:cfmPoolHighWaterInuseFgids,'cfmLr':cfmLr,'cfmLrTable':cfmLrTable,'cfmLrEntry':cfmLrEntry,_Q:cfmLrInuseFgids,_R:cfmLrHighWaterInuseFgids,'ciscoFabricMcastMIBConform':ciscoFabricMcastMIBConform,'cfmMIBCompliances':cfmMIBCompliances,'cfmMIBCompliance':cfmMIBCompliance,'cfmMIBGroups':cfmMIBGroups,_S:cfmGenInfoGroup,_T:cfmPoolGroup,_U:cfmLrGroup})
+#
+# PySNMP MIB module CISCO-FABRIC-MCAST-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-FABRIC-MCAST-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:38 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+entLogicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entLogicalIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoFabricMcastMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 255))
+ciscoFabricMcastMIB.setRevisions(('2002-08-20 00:00',))
+if mibBuilder.loadTexts: ciscoFabricMcastMIB.setLastUpdated('200208200000Z')
+if mibBuilder.loadTexts: ciscoFabricMcastMIB.setOrganization('Cisco Systems, Inc.')
+ciscoFabricMcastMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 255, 0))
+ciscoFabricMcastMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 255, 1))
+ciscoFabricMcastMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 255, 2))
+cfmGeneral = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 1))
+cfmPool = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 2))
+cfmLr = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 3))
+class CfmPoolIndex(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
+
+cfmGenInfoTotalFgids = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 1, 1), Gauge32()).setUnits('fgid').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmGenInfoTotalFgids.setStatus('current')
+cfmGenInfoInuseFgids = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 1, 2), Gauge32()).setUnits('fgid').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmGenInfoInuseFgids.setStatus('current')
+cfmGenInfoHighWaterInuseFgids = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 1, 3), Gauge32()).setUnits('fgid').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmGenInfoHighWaterInuseFgids.setStatus('current')
+cfmPoolTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 2, 1), )
+if mibBuilder.loadTexts: cfmPoolTable.setStatus('current')
+cfmPoolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-FABRIC-MCAST-MIB", "cfmPoolId"))
+if mibBuilder.loadTexts: cfmPoolEntry.setStatus('current')
+cfmPoolId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 2, 1, 1, 1), CfmPoolIndex())
+if mibBuilder.loadTexts: cfmPoolId.setStatus('current')
+cfmPoolName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 2, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmPoolName.setStatus('current')
+cfmPoolType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("shared", 1), ("dedicated", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmPoolType.setStatus('current')
+cfmPoolTotalFgids = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 2, 1, 1, 4), Gauge32()).setUnits('fgid').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmPoolTotalFgids.setStatus('current')
+cfmPoolInuseFgids = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 2, 1, 1, 5), Gauge32()).setUnits('fgid').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmPoolInuseFgids.setStatus('current')
+cfmPoolHighWaterInuseFgids = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 2, 1, 1, 6), Gauge32()).setUnits('fgid').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmPoolHighWaterInuseFgids.setStatus('current')
+cfmLrTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 3, 1), )
+if mibBuilder.loadTexts: cfmLrTable.setStatus('current')
+cfmLrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 3, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entLogicalIndex"))
+if mibBuilder.loadTexts: cfmLrEntry.setStatus('current')
+cfmLrInuseFgids = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 3, 1, 1, 1), Gauge32()).setUnits('fgid').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmLrInuseFgids.setStatus('current')
+cfmLrHighWaterInuseFgids = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 255, 1, 3, 1, 1, 2), Gauge32()).setUnits('fgid').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmLrHighWaterInuseFgids.setStatus('current')
+cfmMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 255, 2, 1))
+cfmMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 255, 2, 2))
+cfmMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 255, 2, 1, 1)).setObjects(("CISCO-FABRIC-MCAST-MIB", "cfmGenInfoGroup"), ("CISCO-FABRIC-MCAST-MIB", "cfmPoolGroup"), ("CISCO-FABRIC-MCAST-MIB", "cfmLrGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfmMIBCompliance = cfmMIBCompliance.setStatus('current')
+cfmGenInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 255, 2, 2, 1)).setObjects(("CISCO-FABRIC-MCAST-MIB", "cfmGenInfoTotalFgids"), ("CISCO-FABRIC-MCAST-MIB", "cfmGenInfoInuseFgids"), ("CISCO-FABRIC-MCAST-MIB", "cfmGenInfoHighWaterInuseFgids"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfmGenInfoGroup = cfmGenInfoGroup.setStatus('current')
+cfmPoolGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 255, 2, 2, 2)).setObjects(("CISCO-FABRIC-MCAST-MIB", "cfmPoolName"), ("CISCO-FABRIC-MCAST-MIB", "cfmPoolType"), ("CISCO-FABRIC-MCAST-MIB", "cfmPoolTotalFgids"), ("CISCO-FABRIC-MCAST-MIB", "cfmPoolInuseFgids"), ("CISCO-FABRIC-MCAST-MIB", "cfmPoolHighWaterInuseFgids"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfmPoolGroup = cfmPoolGroup.setStatus('current')
+cfmLrGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 255, 2, 2, 3)).setObjects(("CISCO-FABRIC-MCAST-MIB", "cfmLrInuseFgids"), ("CISCO-FABRIC-MCAST-MIB", "cfmLrHighWaterInuseFgids"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfmLrGroup = cfmLrGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-FABRIC-MCAST-MIB", CfmPoolIndex=CfmPoolIndex, cfmPoolInuseFgids=cfmPoolInuseFgids, cfmGenInfoInuseFgids=cfmGenInfoInuseFgids, cfmGenInfoTotalFgids=cfmGenInfoTotalFgids, cfmPoolType=cfmPoolType, ciscoFabricMcastMIBConform=ciscoFabricMcastMIBConform, cfmPool=cfmPool, cfmLr=cfmLr, cfmLrEntry=cfmLrEntry, cfmGenInfoGroup=cfmGenInfoGroup, cfmPoolGroup=cfmPoolGroup, cfmPoolHighWaterInuseFgids=cfmPoolHighWaterInuseFgids, cfmPoolTable=cfmPoolTable, cfmGenInfoHighWaterInuseFgids=cfmGenInfoHighWaterInuseFgids, cfmLrTable=cfmLrTable, cfmMIBCompliances=cfmMIBCompliances, cfmPoolTotalFgids=cfmPoolTotalFgids, cfmGeneral=cfmGeneral, cfmPoolId=cfmPoolId, ciscoFabricMcastMIB=ciscoFabricMcastMIB, cfmPoolName=cfmPoolName, ciscoFabricMcastMIBObjects=ciscoFabricMcastMIBObjects, cfmLrInuseFgids=cfmLrInuseFgids, PYSNMP_MODULE_ID=ciscoFabricMcastMIB, cfmPoolEntry=cfmPoolEntry, ciscoFabricMcastMIBNotifs=ciscoFabricMcastMIBNotifs, cfmLrGroup=cfmLrGroup, cfmLrHighWaterInuseFgids=cfmLrHighWaterInuseFgids, cfmMIBGroups=cfmMIBGroups, cfmMIBCompliance=cfmMIBCompliance)

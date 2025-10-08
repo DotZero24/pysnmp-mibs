@@ -1,407 +1,182 @@
-_AE='cAdslAturDmtBinDataGroup'
-_AD='cAdslAtucDmtBinDataGroup'
-_AC='cAdslDmtBinIfGroup'
-_AB='cAdslDmtLineConfProfileGroupRev1'
-_AA='cAdslDmtLineConfProfileGroup'
-_A9='cAdslAtucDmtDualBitmapEnabled'
-_A8='cAdslAtucDmtConfMinrateBlock'
-_A7='cAdslAturDmtBinNumber'
-_A6='cAdslAturDmtBinTxGain'
-_A5='cAdslAturDmtBinBitAlloc'
-_A4='cAdslAtucDmtBinNumber'
-_A3='cAdslAtucDmtBinTxGain'
-_A2='cAdslAtucDmtBinBitAlloc'
-_A1='cAdslDmtBinIfLstRqstUpldTime'
-_A0='cAdslDmtBinIfRqstStatus'
-_z='cAdslDmtBinIfNumber'
-_y='cAdslAturDmtThreshRateFallback'
-_x='cAdslAtucDmtThreshRateFallback'
-_w='deprecated'
-_v='cAdslAturDmtChanCodewordSize'
-_u='cAdslAturDmtChanFecSize'
-_t='cAdslAtucDmtChanCodewordSize'
-_s='cAdslAtucDmtChanFecSize'
-_r='cAdslAtucDmtState'
-_q='cAdslDmtLineOverheadFraming'
-_p='cAdslAturDmtBinIndex'
-_o='cAdslAturDmtBitmapIndex'
-_n='bits/Hz'
-_m='cAdslAtucDmtBinIndex'
-_l='cAdslAtucDmtBitmapIndex'
-_k='read-write'
-_j='DmtOverheadFraming'
-_i='standard'
-_h='adslLineConfProfileName'
-_g='adslLineAlarmConfProfileName'
-_f='cAdslDmtLineAlarmConfProfileGroup'
-_e='cAdslAturDmtChanGroup'
-_d='cAdslAtucDmtChanGroup'
-_c='cAdslAtucDmtPhysGroup'
-_b='cAdslDmtLineGroup'
-_a='cAdslAturDmtConfCodewordSize'
-_Z='cAdslAturDmtConfFastFecSize'
-_Y='cAdslAturDmtConfInterleaveFecSize'
-_X='cAdslAtucDmtConfBitSwapTo'
-_W='cAdslAtucDmtConfBitSwapFrom'
-_V='cAdslAtucDmtConfBitSwapEnabled'
-_U='cAdslAtucDmtConfOverheadFraming'
-_T='cAdslAtucDmtConfCodewordSize'
-_S='cAdslAtucDmtConfInterleaveFecSize'
-_R='cAdslAtucDmtConfFastFecSize'
-_Q='cAdslLineDmtConfTrainingMode'
-_P='cAdslLineDmtConfOperatingMode'
-_O='DmtCodewordSize'
-_N='ADSL-LINE-MIB'
-_M='not-accessible'
-_L='symbols'
-_K='TruthValue'
-_J='DmtFecSize'
-_I='ifIndex'
-_H='IF-MIB'
-_G='bytes'
-_F='Integer32'
-_E='Unsigned32'
-_D='read-only'
-_C='read-create'
-_B='CISCO-ADSL-DMT-LINE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adslLineAlarmConfProfileName,adslLineConfProfileName=mibBuilder.importSymbols(_N,_g,_h)
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-Unsigned32,=mibBuilder.importSymbols('CISCO-TC',_E)
-InterfaceIndexOrZero,ifIndex=mibBuilder.importSymbols(_H,'InterfaceIndexOrZero',_I)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention',_K)
-ciscoAdslDmtLineMIB=ModuleIdentity((1,3,6,1,4,1,9,9,130))
-if mibBuilder.loadTexts:ciscoAdslDmtLineMIB.setRevisions(('2001-05-17 16:00','2000-08-22 00:00','2000-05-19 00:00','1999-03-30 00:00'))
-class DmtOverheadFraming(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('structure0',0),('structure1',1),('structure2',2),('structure3',3)))
-class DmtFecSize(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(2,2),ValueRangeConstraint(4,4),ValueRangeConstraint(6,6),ValueRangeConstraint(8,8),ValueRangeConstraint(10,10),ValueRangeConstraint(12,12),ValueRangeConstraint(14,14),ValueRangeConstraint(16,16))
-class DmtCodewordSize(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(1,1),ValueRangeConstraint(2,2),ValueRangeConstraint(4,4),ValueRangeConstraint(8,8),ValueRangeConstraint(16,16))
-_CiscoAdslDmtLineMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoAdslDmtLineMIBObjects=_CiscoAdslDmtLineMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,130,1))
-_CAdslDmtLineTable_Object=MibTable
-cAdslDmtLineTable=_CAdslDmtLineTable_Object((1,3,6,1,4,1,9,9,130,1,1))
-if mibBuilder.loadTexts:cAdslDmtLineTable.setStatus(_A)
-_CAdslDmtLineEntry_Object=MibTableRow
-cAdslDmtLineEntry=_CAdslDmtLineEntry_Object((1,3,6,1,4,1,9,9,130,1,1,1))
-cAdslDmtLineEntry.setIndexNames((0,_H,_I))
-if mibBuilder.loadTexts:cAdslDmtLineEntry.setStatus(_A)
-_CAdslDmtLineOverheadFraming_Type=DmtOverheadFraming
-_CAdslDmtLineOverheadFraming_Object=MibTableColumn
-cAdslDmtLineOverheadFraming=_CAdslDmtLineOverheadFraming_Object((1,3,6,1,4,1,9,9,130,1,1,1,1),_CAdslDmtLineOverheadFraming_Type())
-cAdslDmtLineOverheadFraming.setMaxAccess(_D)
-if mibBuilder.loadTexts:cAdslDmtLineOverheadFraming.setStatus(_A)
-_CAdslAtucDmtPhysTable_Object=MibTable
-cAdslAtucDmtPhysTable=_CAdslAtucDmtPhysTable_Object((1,3,6,1,4,1,9,9,130,1,2))
-if mibBuilder.loadTexts:cAdslAtucDmtPhysTable.setStatus(_A)
-_CAdslAtucDmtPhysEntry_Object=MibTableRow
-cAdslAtucDmtPhysEntry=_CAdslAtucDmtPhysEntry_Object((1,3,6,1,4,1,9,9,130,1,2,1))
-cAdslAtucDmtPhysEntry.setIndexNames((0,_H,_I))
-if mibBuilder.loadTexts:cAdslAtucDmtPhysEntry.setStatus(_A)
-class _CAdslAtucDmtState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_i,1),('unknown',2),('downloading',3),('downloadFailed',4),('testing',5)))
-_CAdslAtucDmtState_Type.__name__=_F
-_CAdslAtucDmtState_Object=MibTableColumn
-cAdslAtucDmtState=_CAdslAtucDmtState_Object((1,3,6,1,4,1,9,9,130,1,2,1,1),_CAdslAtucDmtState_Type())
-cAdslAtucDmtState.setMaxAccess(_D)
-if mibBuilder.loadTexts:cAdslAtucDmtState.setStatus(_A)
-_CAdslAtucDmtChanTable_Object=MibTable
-cAdslAtucDmtChanTable=_CAdslAtucDmtChanTable_Object((1,3,6,1,4,1,9,9,130,1,4))
-if mibBuilder.loadTexts:cAdslAtucDmtChanTable.setStatus(_A)
-_CAdslAtucDmtChanEntry_Object=MibTableRow
-cAdslAtucDmtChanEntry=_CAdslAtucDmtChanEntry_Object((1,3,6,1,4,1,9,9,130,1,4,1))
-cAdslAtucDmtChanEntry.setIndexNames((0,_H,_I))
-if mibBuilder.loadTexts:cAdslAtucDmtChanEntry.setStatus(_A)
-_CAdslAtucDmtChanFecSize_Type=DmtFecSize
-_CAdslAtucDmtChanFecSize_Object=MibTableColumn
-cAdslAtucDmtChanFecSize=_CAdslAtucDmtChanFecSize_Object((1,3,6,1,4,1,9,9,130,1,4,1,1),_CAdslAtucDmtChanFecSize_Type())
-cAdslAtucDmtChanFecSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:cAdslAtucDmtChanFecSize.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAtucDmtChanFecSize.setUnits(_G)
-_CAdslAtucDmtChanCodewordSize_Type=DmtCodewordSize
-_CAdslAtucDmtChanCodewordSize_Object=MibTableColumn
-cAdslAtucDmtChanCodewordSize=_CAdslAtucDmtChanCodewordSize_Object((1,3,6,1,4,1,9,9,130,1,4,1,2),_CAdslAtucDmtChanCodewordSize_Type())
-cAdslAtucDmtChanCodewordSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:cAdslAtucDmtChanCodewordSize.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAtucDmtChanCodewordSize.setUnits(_L)
-_CAdslAturDmtChanTable_Object=MibTable
-cAdslAturDmtChanTable=_CAdslAturDmtChanTable_Object((1,3,6,1,4,1,9,9,130,1,5))
-if mibBuilder.loadTexts:cAdslAturDmtChanTable.setStatus(_A)
-_CAdslAturDmtChanEntry_Object=MibTableRow
-cAdslAturDmtChanEntry=_CAdslAturDmtChanEntry_Object((1,3,6,1,4,1,9,9,130,1,5,1))
-cAdslAturDmtChanEntry.setIndexNames((0,_H,_I))
-if mibBuilder.loadTexts:cAdslAturDmtChanEntry.setStatus(_A)
-_CAdslAturDmtChanFecSize_Type=DmtFecSize
-_CAdslAturDmtChanFecSize_Object=MibTableColumn
-cAdslAturDmtChanFecSize=_CAdslAturDmtChanFecSize_Object((1,3,6,1,4,1,9,9,130,1,5,1,1),_CAdslAturDmtChanFecSize_Type())
-cAdslAturDmtChanFecSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:cAdslAturDmtChanFecSize.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAturDmtChanFecSize.setUnits(_G)
-_CAdslAturDmtChanCodewordSize_Type=DmtCodewordSize
-_CAdslAturDmtChanCodewordSize_Object=MibTableColumn
-cAdslAturDmtChanCodewordSize=_CAdslAturDmtChanCodewordSize_Object((1,3,6,1,4,1,9,9,130,1,5,1,2),_CAdslAturDmtChanCodewordSize_Type())
-cAdslAturDmtChanCodewordSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:cAdslAturDmtChanCodewordSize.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAturDmtChanCodewordSize.setUnits(_L)
-_CAdslDmtLineConfProfileTable_Object=MibTable
-cAdslDmtLineConfProfileTable=_CAdslDmtLineConfProfileTable_Object((1,3,6,1,4,1,9,9,130,1,14))
-if mibBuilder.loadTexts:cAdslDmtLineConfProfileTable.setStatus(_A)
-_CAdslDmtLineConfProfileEntry_Object=MibTableRow
-cAdslDmtLineConfProfileEntry=_CAdslDmtLineConfProfileEntry_Object((1,3,6,1,4,1,9,9,130,1,14,1))
-cAdslDmtLineConfProfileEntry.setIndexNames((1,_N,_h))
-if mibBuilder.loadTexts:cAdslDmtLineConfProfileEntry.setStatus(_A)
-class _CAdslLineDmtConfOperatingMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('automatic',1),('splitterless',2),('g992Dot1',3),('g992Dot2',4),('t1Dot413',5)))
-_CAdslLineDmtConfOperatingMode_Type.__name__=_F
-_CAdslLineDmtConfOperatingMode_Object=MibTableColumn
-cAdslLineDmtConfOperatingMode=_CAdslLineDmtConfOperatingMode_Object((1,3,6,1,4,1,9,9,130,1,14,1,1),_CAdslLineDmtConfOperatingMode_Type())
-cAdslLineDmtConfOperatingMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslLineDmtConfOperatingMode.setStatus(_A)
-class _CAdslLineDmtConfTrainingMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_i,1),('fast',2)))
-_CAdslLineDmtConfTrainingMode_Type.__name__=_F
-_CAdslLineDmtConfTrainingMode_Object=MibTableColumn
-cAdslLineDmtConfTrainingMode=_CAdslLineDmtConfTrainingMode_Object((1,3,6,1,4,1,9,9,130,1,14,1,2),_CAdslLineDmtConfTrainingMode_Type())
-cAdslLineDmtConfTrainingMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslLineDmtConfTrainingMode.setStatus(_A)
-class _CAdslAtucDmtConfFastFecSize_Type(DmtFecSize):defaultValue=16
-_CAdslAtucDmtConfFastFecSize_Type.__name__=_J
-_CAdslAtucDmtConfFastFecSize_Object=MibTableColumn
-cAdslAtucDmtConfFastFecSize=_CAdslAtucDmtConfFastFecSize_Object((1,3,6,1,4,1,9,9,130,1,14,1,3),_CAdslAtucDmtConfFastFecSize_Type())
-cAdslAtucDmtConfFastFecSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslAtucDmtConfFastFecSize.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAtucDmtConfFastFecSize.setUnits(_G)
-class _CAdslAtucDmtConfInterleaveFecSize_Type(DmtFecSize):defaultValue=16
-_CAdslAtucDmtConfInterleaveFecSize_Type.__name__=_J
-_CAdslAtucDmtConfInterleaveFecSize_Object=MibTableColumn
-cAdslAtucDmtConfInterleaveFecSize=_CAdslAtucDmtConfInterleaveFecSize_Object((1,3,6,1,4,1,9,9,130,1,14,1,4),_CAdslAtucDmtConfInterleaveFecSize_Type())
-cAdslAtucDmtConfInterleaveFecSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslAtucDmtConfInterleaveFecSize.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAtucDmtConfInterleaveFecSize.setUnits(_G)
-class _CAdslAtucDmtConfCodewordSize_Type(DmtCodewordSize):defaultValue=16
-_CAdslAtucDmtConfCodewordSize_Type.__name__=_O
-_CAdslAtucDmtConfCodewordSize_Object=MibTableColumn
-cAdslAtucDmtConfCodewordSize=_CAdslAtucDmtConfCodewordSize_Object((1,3,6,1,4,1,9,9,130,1,14,1,5),_CAdslAtucDmtConfCodewordSize_Type())
-cAdslAtucDmtConfCodewordSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslAtucDmtConfCodewordSize.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAtucDmtConfCodewordSize.setUnits(_L)
-class _CAdslAtucDmtConfOverheadFraming_Type(DmtOverheadFraming):defaultValue=3
-_CAdslAtucDmtConfOverheadFraming_Type.__name__=_j
-_CAdslAtucDmtConfOverheadFraming_Object=MibTableColumn
-cAdslAtucDmtConfOverheadFraming=_CAdslAtucDmtConfOverheadFraming_Object((1,3,6,1,4,1,9,9,130,1,14,1,6),_CAdslAtucDmtConfOverheadFraming_Type())
-cAdslAtucDmtConfOverheadFraming.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslAtucDmtConfOverheadFraming.setStatus(_A)
-class _CAdslAtucDmtConfBitSwapEnabled_Type(TruthValue):defaultValue=1
-_CAdslAtucDmtConfBitSwapEnabled_Type.__name__=_K
-_CAdslAtucDmtConfBitSwapEnabled_Object=MibTableColumn
-cAdslAtucDmtConfBitSwapEnabled=_CAdslAtucDmtConfBitSwapEnabled_Object((1,3,6,1,4,1,9,9,130,1,14,1,7),_CAdslAtucDmtConfBitSwapEnabled_Type())
-cAdslAtucDmtConfBitSwapEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslAtucDmtConfBitSwapEnabled.setStatus(_A)
-class _CAdslAtucDmtConfBitSwapFrom_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,9))
-_CAdslAtucDmtConfBitSwapFrom_Type.__name__=_F
-_CAdslAtucDmtConfBitSwapFrom_Object=MibTableColumn
-cAdslAtucDmtConfBitSwapFrom=_CAdslAtucDmtConfBitSwapFrom_Object((1,3,6,1,4,1,9,9,130,1,14,1,8),_CAdslAtucDmtConfBitSwapFrom_Type())
-cAdslAtucDmtConfBitSwapFrom.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslAtucDmtConfBitSwapFrom.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAtucDmtConfBitSwapFrom.setUnits('dB')
-class _CAdslAtucDmtConfBitSwapTo_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,9))
-_CAdslAtucDmtConfBitSwapTo_Type.__name__=_F
-_CAdslAtucDmtConfBitSwapTo_Object=MibTableColumn
-cAdslAtucDmtConfBitSwapTo=_CAdslAtucDmtConfBitSwapTo_Object((1,3,6,1,4,1,9,9,130,1,14,1,9),_CAdslAtucDmtConfBitSwapTo_Type())
-cAdslAtucDmtConfBitSwapTo.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslAtucDmtConfBitSwapTo.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAtucDmtConfBitSwapTo.setUnits('dB')
-class _CAdslAturDmtConfFastFecSize_Type(DmtFecSize):defaultValue=16
-_CAdslAturDmtConfFastFecSize_Type.__name__=_J
-_CAdslAturDmtConfFastFecSize_Object=MibTableColumn
-cAdslAturDmtConfFastFecSize=_CAdslAturDmtConfFastFecSize_Object((1,3,6,1,4,1,9,9,130,1,14,1,10),_CAdslAturDmtConfFastFecSize_Type())
-cAdslAturDmtConfFastFecSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslAturDmtConfFastFecSize.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAturDmtConfFastFecSize.setUnits(_G)
-class _CAdslAturDmtConfInterleaveFecSize_Type(DmtFecSize):defaultValue=16
-_CAdslAturDmtConfInterleaveFecSize_Type.__name__=_J
-_CAdslAturDmtConfInterleaveFecSize_Object=MibTableColumn
-cAdslAturDmtConfInterleaveFecSize=_CAdslAturDmtConfInterleaveFecSize_Object((1,3,6,1,4,1,9,9,130,1,14,1,11),_CAdslAturDmtConfInterleaveFecSize_Type())
-cAdslAturDmtConfInterleaveFecSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslAturDmtConfInterleaveFecSize.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAturDmtConfInterleaveFecSize.setUnits(_G)
-class _CAdslAturDmtConfCodewordSize_Type(DmtCodewordSize):defaultValue=16
-_CAdslAturDmtConfCodewordSize_Type.__name__=_O
-_CAdslAturDmtConfCodewordSize_Object=MibTableColumn
-cAdslAturDmtConfCodewordSize=_CAdslAturDmtConfCodewordSize_Object((1,3,6,1,4,1,9,9,130,1,14,1,12),_CAdslAturDmtConfCodewordSize_Type())
-cAdslAturDmtConfCodewordSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslAturDmtConfCodewordSize.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAturDmtConfCodewordSize.setUnits(_L)
-class _CAdslAtucDmtConfMinrateBlock_Type(TruthValue):defaultValue=2
-_CAdslAtucDmtConfMinrateBlock_Type.__name__=_K
-_CAdslAtucDmtConfMinrateBlock_Object=MibTableColumn
-cAdslAtucDmtConfMinrateBlock=_CAdslAtucDmtConfMinrateBlock_Object((1,3,6,1,4,1,9,9,130,1,14,1,13),_CAdslAtucDmtConfMinrateBlock_Type())
-cAdslAtucDmtConfMinrateBlock.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslAtucDmtConfMinrateBlock.setStatus(_A)
-class _CAdslAtucDmtDualBitmapEnabled_Type(TruthValue):defaultValue=2
-_CAdslAtucDmtDualBitmapEnabled_Type.__name__=_K
-_CAdslAtucDmtDualBitmapEnabled_Object=MibTableColumn
-cAdslAtucDmtDualBitmapEnabled=_CAdslAtucDmtDualBitmapEnabled_Object((1,3,6,1,4,1,9,9,130,1,14,1,14),_CAdslAtucDmtDualBitmapEnabled_Type())
-cAdslAtucDmtDualBitmapEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslAtucDmtDualBitmapEnabled.setStatus(_A)
-_CAdslDmtLineAlarmConfProfileTable_Object=MibTable
-cAdslDmtLineAlarmConfProfileTable=_CAdslDmtLineAlarmConfProfileTable_Object((1,3,6,1,4,1,9,9,130,1,15))
-if mibBuilder.loadTexts:cAdslDmtLineAlarmConfProfileTable.setStatus(_A)
-_CAdslDmtLineAlarmConfProfileEntry_Object=MibTableRow
-cAdslDmtLineAlarmConfProfileEntry=_CAdslDmtLineAlarmConfProfileEntry_Object((1,3,6,1,4,1,9,9,130,1,15,1))
-cAdslDmtLineAlarmConfProfileEntry.setIndexNames((1,_N,_g))
-if mibBuilder.loadTexts:cAdslDmtLineAlarmConfProfileEntry.setStatus(_A)
-class _CAdslAtucDmtThreshRateFallback_Type(Integer32):defaultValue=0
-_CAdslAtucDmtThreshRateFallback_Type.__name__=_F
-_CAdslAtucDmtThreshRateFallback_Object=MibTableColumn
-cAdslAtucDmtThreshRateFallback=_CAdslAtucDmtThreshRateFallback_Object((1,3,6,1,4,1,9,9,130,1,15,1,1),_CAdslAtucDmtThreshRateFallback_Type())
-cAdslAtucDmtThreshRateFallback.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslAtucDmtThreshRateFallback.setStatus(_A)
-class _CAdslAturDmtThreshRateFallback_Type(Integer32):defaultValue=0
-_CAdslAturDmtThreshRateFallback_Type.__name__=_F
-_CAdslAturDmtThreshRateFallback_Object=MibTableColumn
-cAdslAturDmtThreshRateFallback=_CAdslAturDmtThreshRateFallback_Object((1,3,6,1,4,1,9,9,130,1,15,1,2),_CAdslAturDmtThreshRateFallback_Type())
-cAdslAturDmtThreshRateFallback.setMaxAccess(_C)
-if mibBuilder.loadTexts:cAdslAturDmtThreshRateFallback.setStatus(_A)
-_CAdslDmtBinIfNumber_Type=InterfaceIndexOrZero
-_CAdslDmtBinIfNumber_Object=MibScalar
-cAdslDmtBinIfNumber=_CAdslDmtBinIfNumber_Object((1,3,6,1,4,1,9,9,130,1,16),_CAdslDmtBinIfNumber_Type())
-cAdslDmtBinIfNumber.setMaxAccess(_k)
-if mibBuilder.loadTexts:cAdslDmtBinIfNumber.setStatus(_A)
-class _CAdslDmtBinIfRqstStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('reset',-1),('pollNow',1),('noIfConfigured',2),('ifConfigured',3),('rqstInProgess',4),('lcDownForIf',5),('ifUntrained',6),('failure',7),('success',8)))
-_CAdslDmtBinIfRqstStatus_Type.__name__=_F
-_CAdslDmtBinIfRqstStatus_Object=MibScalar
-cAdslDmtBinIfRqstStatus=_CAdslDmtBinIfRqstStatus_Object((1,3,6,1,4,1,9,9,130,1,17),_CAdslDmtBinIfRqstStatus_Type())
-cAdslDmtBinIfRqstStatus.setMaxAccess(_k)
-if mibBuilder.loadTexts:cAdslDmtBinIfRqstStatus.setStatus(_A)
-_CAdslDmtBinIfLstRqstUpldTime_Type=DateAndTime
-_CAdslDmtBinIfLstRqstUpldTime_Object=MibScalar
-cAdslDmtBinIfLstRqstUpldTime=_CAdslDmtBinIfLstRqstUpldTime_Object((1,3,6,1,4,1,9,9,130,1,18),_CAdslDmtBinIfLstRqstUpldTime_Type())
-cAdslDmtBinIfLstRqstUpldTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:cAdslDmtBinIfLstRqstUpldTime.setStatus(_A)
-_CAdslAtucDmtBinTable_Object=MibTable
-cAdslAtucDmtBinTable=_CAdslAtucDmtBinTable_Object((1,3,6,1,4,1,9,9,130,1,19))
-if mibBuilder.loadTexts:cAdslAtucDmtBinTable.setStatus(_A)
-_CAdslAtucDmtBinEntry_Object=MibTableRow
-cAdslAtucDmtBinEntry=_CAdslAtucDmtBinEntry_Object((1,3,6,1,4,1,9,9,130,1,19,1))
-cAdslAtucDmtBinEntry.setIndexNames((0,_B,_l),(0,_B,_m))
-if mibBuilder.loadTexts:cAdslAtucDmtBinEntry.setStatus(_A)
-class _CAdslAtucDmtBitmapIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,5))
-_CAdslAtucDmtBitmapIndex_Type.__name__=_E
-_CAdslAtucDmtBitmapIndex_Object=MibTableColumn
-cAdslAtucDmtBitmapIndex=_CAdslAtucDmtBitmapIndex_Object((1,3,6,1,4,1,9,9,130,1,19,1,1),_CAdslAtucDmtBitmapIndex_Type())
-cAdslAtucDmtBitmapIndex.setMaxAccess(_M)
-if mibBuilder.loadTexts:cAdslAtucDmtBitmapIndex.setStatus(_A)
-class _CAdslAtucDmtBinIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,256))
-_CAdslAtucDmtBinIndex_Type.__name__=_E
-_CAdslAtucDmtBinIndex_Object=MibTableColumn
-cAdslAtucDmtBinIndex=_CAdslAtucDmtBinIndex_Object((1,3,6,1,4,1,9,9,130,1,19,1,2),_CAdslAtucDmtBinIndex_Type())
-cAdslAtucDmtBinIndex.setMaxAccess(_M)
-if mibBuilder.loadTexts:cAdslAtucDmtBinIndex.setStatus(_A)
-class _CAdslAtucDmtBinBitAlloc_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
-_CAdslAtucDmtBinBitAlloc_Type.__name__=_E
-_CAdslAtucDmtBinBitAlloc_Object=MibTableColumn
-cAdslAtucDmtBinBitAlloc=_CAdslAtucDmtBinBitAlloc_Object((1,3,6,1,4,1,9,9,130,1,19,1,3),_CAdslAtucDmtBinBitAlloc_Type())
-cAdslAtucDmtBinBitAlloc.setMaxAccess(_D)
-if mibBuilder.loadTexts:cAdslAtucDmtBinBitAlloc.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAtucDmtBinBitAlloc.setUnits(_n)
-class _CAdslAtucDmtBinTxGain_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,400))
-_CAdslAtucDmtBinTxGain_Type.__name__=_E
-_CAdslAtucDmtBinTxGain_Object=MibTableColumn
-cAdslAtucDmtBinTxGain=_CAdslAtucDmtBinTxGain_Object((1,3,6,1,4,1,9,9,130,1,19,1,4),_CAdslAtucDmtBinTxGain_Type())
-cAdslAtucDmtBinTxGain.setMaxAccess(_D)
-if mibBuilder.loadTexts:cAdslAtucDmtBinTxGain.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAtucDmtBinTxGain.setUnits('tenth dB')
-class _CAdslAtucDmtBinNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_CAdslAtucDmtBinNumber_Type.__name__=_E
-_CAdslAtucDmtBinNumber_Object=MibTableColumn
-cAdslAtucDmtBinNumber=_CAdslAtucDmtBinNumber_Object((1,3,6,1,4,1,9,9,130,1,19,1,5),_CAdslAtucDmtBinNumber_Type())
-cAdslAtucDmtBinNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:cAdslAtucDmtBinNumber.setStatus(_A)
-_CAdslAturDmtBinTable_Object=MibTable
-cAdslAturDmtBinTable=_CAdslAturDmtBinTable_Object((1,3,6,1,4,1,9,9,130,1,20))
-if mibBuilder.loadTexts:cAdslAturDmtBinTable.setStatus(_A)
-_CAdslAturDmtBinEntry_Object=MibTableRow
-cAdslAturDmtBinEntry=_CAdslAturDmtBinEntry_Object((1,3,6,1,4,1,9,9,130,1,20,1))
-cAdslAturDmtBinEntry.setIndexNames((0,_B,_o),(0,_B,_p))
-if mibBuilder.loadTexts:cAdslAturDmtBinEntry.setStatus(_A)
-class _CAdslAturDmtBitmapIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,5))
-_CAdslAturDmtBitmapIndex_Type.__name__=_E
-_CAdslAturDmtBitmapIndex_Object=MibTableColumn
-cAdslAturDmtBitmapIndex=_CAdslAturDmtBitmapIndex_Object((1,3,6,1,4,1,9,9,130,1,20,1,1),_CAdslAturDmtBitmapIndex_Type())
-cAdslAturDmtBitmapIndex.setMaxAccess(_M)
-if mibBuilder.loadTexts:cAdslAturDmtBitmapIndex.setStatus(_A)
-class _CAdslAturDmtBinIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,256))
-_CAdslAturDmtBinIndex_Type.__name__=_E
-_CAdslAturDmtBinIndex_Object=MibTableColumn
-cAdslAturDmtBinIndex=_CAdslAturDmtBinIndex_Object((1,3,6,1,4,1,9,9,130,1,20,1,2),_CAdslAturDmtBinIndex_Type())
-cAdslAturDmtBinIndex.setMaxAccess(_M)
-if mibBuilder.loadTexts:cAdslAturDmtBinIndex.setStatus(_A)
-class _CAdslAturDmtBinBitAlloc_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
-_CAdslAturDmtBinBitAlloc_Type.__name__=_E
-_CAdslAturDmtBinBitAlloc_Object=MibTableColumn
-cAdslAturDmtBinBitAlloc=_CAdslAturDmtBinBitAlloc_Object((1,3,6,1,4,1,9,9,130,1,20,1,3),_CAdslAturDmtBinBitAlloc_Type())
-cAdslAturDmtBinBitAlloc.setMaxAccess(_D)
-if mibBuilder.loadTexts:cAdslAturDmtBinBitAlloc.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAturDmtBinBitAlloc.setUnits(_n)
-class _CAdslAturDmtBinTxGain_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,400))
-_CAdslAturDmtBinTxGain_Type.__name__=_E
-_CAdslAturDmtBinTxGain_Object=MibTableColumn
-cAdslAturDmtBinTxGain=_CAdslAturDmtBinTxGain_Object((1,3,6,1,4,1,9,9,130,1,20,1,4),_CAdslAturDmtBinTxGain_Type())
-cAdslAturDmtBinTxGain.setMaxAccess(_D)
-if mibBuilder.loadTexts:cAdslAturDmtBinTxGain.setStatus(_A)
-if mibBuilder.loadTexts:cAdslAturDmtBinTxGain.setUnits('hundredth dB')
-class _CAdslAturDmtBinNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_CAdslAturDmtBinNumber_Type.__name__=_E
-_CAdslAturDmtBinNumber_Object=MibTableColumn
-cAdslAturDmtBinNumber=_CAdslAturDmtBinNumber_Object((1,3,6,1,4,1,9,9,130,1,20,1,5),_CAdslAturDmtBinNumber_Type())
-cAdslAturDmtBinNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:cAdslAturDmtBinNumber.setStatus(_A)
-_CiscoAdslDmtLineMIBNotificationsPrefix_ObjectIdentity=ObjectIdentity
-ciscoAdslDmtLineMIBNotificationsPrefix=_CiscoAdslDmtLineMIBNotificationsPrefix_ObjectIdentity((1,3,6,1,4,1,9,9,130,2))
-_CiscoAdslDmtLineMIBNotifications_ObjectIdentity=ObjectIdentity
-ciscoAdslDmtLineMIBNotifications=_CiscoAdslDmtLineMIBNotifications_ObjectIdentity((1,3,6,1,4,1,9,9,130,2,0))
-_CiscoAdslDmtLineMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoAdslDmtLineMIBConformance=_CiscoAdslDmtLineMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,130,3))
-_CiscoAdslDmtLineMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoAdslDmtLineMIBCompliances=_CiscoAdslDmtLineMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,130,3,1))
-_CiscoAdslDmtLineMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoAdslDmtLineMIBGroups=_CiscoAdslDmtLineMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,130,3,2))
-cAdslDmtLineGroup=ObjectGroup((1,3,6,1,4,1,9,9,130,3,2,1))
-cAdslDmtLineGroup.setObjects((_B,_q))
-if mibBuilder.loadTexts:cAdslDmtLineGroup.setStatus(_A)
-cAdslAtucDmtPhysGroup=ObjectGroup((1,3,6,1,4,1,9,9,130,3,2,2))
-cAdslAtucDmtPhysGroup.setObjects((_B,_r))
-if mibBuilder.loadTexts:cAdslAtucDmtPhysGroup.setStatus(_A)
-cAdslAtucDmtChanGroup=ObjectGroup((1,3,6,1,4,1,9,9,130,3,2,3))
-cAdslAtucDmtChanGroup.setObjects(*((_B,_s),(_B,_t)))
-if mibBuilder.loadTexts:cAdslAtucDmtChanGroup.setStatus(_A)
-cAdslAturDmtChanGroup=ObjectGroup((1,3,6,1,4,1,9,9,130,3,2,4))
-cAdslAturDmtChanGroup.setObjects(*((_B,_u),(_B,_v)))
-if mibBuilder.loadTexts:cAdslAturDmtChanGroup.setStatus(_A)
-cAdslDmtLineConfProfileGroup=ObjectGroup((1,3,6,1,4,1,9,9,130,3,2,5))
-cAdslDmtLineConfProfileGroup.setObjects(*((_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a)))
-if mibBuilder.loadTexts:cAdslDmtLineConfProfileGroup.setStatus(_w)
-cAdslDmtLineAlarmConfProfileGroup=ObjectGroup((1,3,6,1,4,1,9,9,130,3,2,6))
-cAdslDmtLineAlarmConfProfileGroup.setObjects(*((_B,_x),(_B,_y)))
-if mibBuilder.loadTexts:cAdslDmtLineAlarmConfProfileGroup.setStatus(_A)
-cAdslDmtBinIfGroup=ObjectGroup((1,3,6,1,4,1,9,9,130,3,2,7))
-cAdslDmtBinIfGroup.setObjects(*((_B,_z),(_B,_A0),(_B,_A1)))
-if mibBuilder.loadTexts:cAdslDmtBinIfGroup.setStatus(_A)
-cAdslAtucDmtBinDataGroup=ObjectGroup((1,3,6,1,4,1,9,9,130,3,2,8))
-cAdslAtucDmtBinDataGroup.setObjects(*((_B,_A2),(_B,_A3),(_B,_A4)))
-if mibBuilder.loadTexts:cAdslAtucDmtBinDataGroup.setStatus(_A)
-cAdslAturDmtBinDataGroup=ObjectGroup((1,3,6,1,4,1,9,9,130,3,2,9))
-cAdslAturDmtBinDataGroup.setObjects(*((_B,_A5),(_B,_A6),(_B,_A7)))
-if mibBuilder.loadTexts:cAdslAturDmtBinDataGroup.setStatus(_A)
-cAdslDmtLineConfProfileGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,130,3,2,10))
-cAdslDmtLineConfProfileGroupRev1.setObjects(*((_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_A8),(_B,_A9)))
-if mibBuilder.loadTexts:cAdslDmtLineConfProfileGroupRev1.setStatus(_A)
-ciscoAdslDmtLineMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,130,3,1,1))
-ciscoAdslDmtLineMIBCompliance.setObjects(*((_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_AA),(_B,_f)))
-if mibBuilder.loadTexts:ciscoAdslDmtLineMIBCompliance.setStatus(_w)
-ciscoAdslDmtLineMIBComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,9,130,3,1,2))
-ciscoAdslDmtLineMIBComplianceRev1.setObjects(*((_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_AB),(_B,_f),(_B,_AC),(_B,_AD),(_B,_AE)))
-if mibBuilder.loadTexts:ciscoAdslDmtLineMIBComplianceRev1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_j:DmtOverheadFraming,_J:DmtFecSize,_O:DmtCodewordSize,'ciscoAdslDmtLineMIB':ciscoAdslDmtLineMIB,'ciscoAdslDmtLineMIBObjects':ciscoAdslDmtLineMIBObjects,'cAdslDmtLineTable':cAdslDmtLineTable,'cAdslDmtLineEntry':cAdslDmtLineEntry,_q:cAdslDmtLineOverheadFraming,'cAdslAtucDmtPhysTable':cAdslAtucDmtPhysTable,'cAdslAtucDmtPhysEntry':cAdslAtucDmtPhysEntry,_r:cAdslAtucDmtState,'cAdslAtucDmtChanTable':cAdslAtucDmtChanTable,'cAdslAtucDmtChanEntry':cAdslAtucDmtChanEntry,_s:cAdslAtucDmtChanFecSize,_t:cAdslAtucDmtChanCodewordSize,'cAdslAturDmtChanTable':cAdslAturDmtChanTable,'cAdslAturDmtChanEntry':cAdslAturDmtChanEntry,_u:cAdslAturDmtChanFecSize,_v:cAdslAturDmtChanCodewordSize,'cAdslDmtLineConfProfileTable':cAdslDmtLineConfProfileTable,'cAdslDmtLineConfProfileEntry':cAdslDmtLineConfProfileEntry,_P:cAdslLineDmtConfOperatingMode,_Q:cAdslLineDmtConfTrainingMode,_R:cAdslAtucDmtConfFastFecSize,_S:cAdslAtucDmtConfInterleaveFecSize,_T:cAdslAtucDmtConfCodewordSize,_U:cAdslAtucDmtConfOverheadFraming,_V:cAdslAtucDmtConfBitSwapEnabled,_W:cAdslAtucDmtConfBitSwapFrom,_X:cAdslAtucDmtConfBitSwapTo,_Z:cAdslAturDmtConfFastFecSize,_Y:cAdslAturDmtConfInterleaveFecSize,_a:cAdslAturDmtConfCodewordSize,_A8:cAdslAtucDmtConfMinrateBlock,_A9:cAdslAtucDmtDualBitmapEnabled,'cAdslDmtLineAlarmConfProfileTable':cAdslDmtLineAlarmConfProfileTable,'cAdslDmtLineAlarmConfProfileEntry':cAdslDmtLineAlarmConfProfileEntry,_x:cAdslAtucDmtThreshRateFallback,_y:cAdslAturDmtThreshRateFallback,_z:cAdslDmtBinIfNumber,_A0:cAdslDmtBinIfRqstStatus,_A1:cAdslDmtBinIfLstRqstUpldTime,'cAdslAtucDmtBinTable':cAdslAtucDmtBinTable,'cAdslAtucDmtBinEntry':cAdslAtucDmtBinEntry,_l:cAdslAtucDmtBitmapIndex,_m:cAdslAtucDmtBinIndex,_A2:cAdslAtucDmtBinBitAlloc,_A3:cAdslAtucDmtBinTxGain,_A4:cAdslAtucDmtBinNumber,'cAdslAturDmtBinTable':cAdslAturDmtBinTable,'cAdslAturDmtBinEntry':cAdslAturDmtBinEntry,_o:cAdslAturDmtBitmapIndex,_p:cAdslAturDmtBinIndex,_A5:cAdslAturDmtBinBitAlloc,_A6:cAdslAturDmtBinTxGain,_A7:cAdslAturDmtBinNumber,'ciscoAdslDmtLineMIBNotificationsPrefix':ciscoAdslDmtLineMIBNotificationsPrefix,'ciscoAdslDmtLineMIBNotifications':ciscoAdslDmtLineMIBNotifications,'ciscoAdslDmtLineMIBConformance':ciscoAdslDmtLineMIBConformance,'ciscoAdslDmtLineMIBCompliances':ciscoAdslDmtLineMIBCompliances,'ciscoAdslDmtLineMIBCompliance':ciscoAdslDmtLineMIBCompliance,'ciscoAdslDmtLineMIBComplianceRev1':ciscoAdslDmtLineMIBComplianceRev1,'ciscoAdslDmtLineMIBGroups':ciscoAdslDmtLineMIBGroups,_b:cAdslDmtLineGroup,_c:cAdslAtucDmtPhysGroup,_d:cAdslAtucDmtChanGroup,_e:cAdslAturDmtChanGroup,_AA:cAdslDmtLineConfProfileGroup,_f:cAdslDmtLineAlarmConfProfileGroup,_AC:cAdslDmtBinIfGroup,_AD:cAdslAtucDmtBinDataGroup,_AE:cAdslAturDmtBinDataGroup,_AB:cAdslDmtLineConfProfileGroupRev1})
+#
+# PySNMP MIB module CISCO-ADSL-DMT-LINE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-ADSL-DMT-LINE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:34 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adslLineConfProfileName, adslLineAlarmConfProfileName = mibBuilder.importSymbols("ADSL-LINE-MIB", "adslLineConfProfileName", "adslLineAlarmConfProfileName")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+Unsigned32, = mibBuilder.importSymbols("CISCO-TC", "Unsigned32")
+ifIndex, InterfaceIndexOrZero = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndexOrZero")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "DateAndTime", "TextualConvention")
+ciscoAdslDmtLineMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 130))
+ciscoAdslDmtLineMIB.setRevisions(('2001-05-17 16:00', '2000-08-22 00:00', '2000-05-19 00:00', '1999-03-30 00:00',))
+if mibBuilder.loadTexts: ciscoAdslDmtLineMIB.setLastUpdated('200105171600Z')
+if mibBuilder.loadTexts: ciscoAdslDmtLineMIB.setOrganization('Cisco Systems, Inc.')
+class DmtOverheadFraming(TextualConvention, Integer32):
+    reference = 'ANSI T1.413-1998 Issue 2, Network and Customer Installation Interfaces - Asymmetric Digital Subscriber Line (ADSL) Metallic Interfaces.'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
+    namedValues = NamedValues(("structure0", 0), ("structure1", 1), ("structure2", 2), ("structure3", 3))
+
+class DmtFecSize(TextualConvention, Integer32):
+    reference = 'ANSI T1.413-1998 Issue 2, Network and Customer Installation Interfaces - Asymmetric Digital Subscriber Line (ADSL) Metallic Interfaces. draft-ietf-adslmib-adsllinemib-04, Definitions of Managed Objects for ADSL Lines.'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(2, 2), ValueRangeConstraint(4, 4), ValueRangeConstraint(6, 6), ValueRangeConstraint(8, 8), ValueRangeConstraint(10, 10), ValueRangeConstraint(12, 12), ValueRangeConstraint(14, 14), ValueRangeConstraint(16, 16), )
+class DmtCodewordSize(TextualConvention, Integer32):
+    reference = 'ANSI T1.413-1998 Issue 2, Network and Customer Installation Interfaces - Asymmetric Digital Subscriber Line (ADSL) Metallic Interfaces. RFC 2662 - Definitions of Managed Objects for the ADSL Lines. G. Bathrick,. Ly. August 1999. '
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(1, 1), ValueRangeConstraint(2, 2), ValueRangeConstraint(4, 4), ValueRangeConstraint(8, 8), ValueRangeConstraint(16, 16), )
+ciscoAdslDmtLineMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 130, 1))
+cAdslDmtLineTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 1), )
+if mibBuilder.loadTexts: cAdslDmtLineTable.setStatus('current')
+cAdslDmtLineEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cAdslDmtLineEntry.setStatus('current')
+cAdslDmtLineOverheadFraming = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 1, 1, 1), DmtOverheadFraming()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cAdslDmtLineOverheadFraming.setStatus('current')
+cAdslAtucDmtPhysTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 2), )
+if mibBuilder.loadTexts: cAdslAtucDmtPhysTable.setStatus('current')
+cAdslAtucDmtPhysEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cAdslAtucDmtPhysEntry.setStatus('current')
+cAdslAtucDmtState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("standard", 1), ("unknown", 2), ("downloading", 3), ("downloadFailed", 4), ("testing", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cAdslAtucDmtState.setStatus('current')
+cAdslAtucDmtChanTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 4), )
+if mibBuilder.loadTexts: cAdslAtucDmtChanTable.setStatus('current')
+cAdslAtucDmtChanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cAdslAtucDmtChanEntry.setStatus('current')
+cAdslAtucDmtChanFecSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 4, 1, 1), DmtFecSize()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cAdslAtucDmtChanFecSize.setStatus('current')
+cAdslAtucDmtChanCodewordSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 4, 1, 2), DmtCodewordSize()).setUnits('symbols').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cAdslAtucDmtChanCodewordSize.setStatus('current')
+cAdslAturDmtChanTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 5), )
+if mibBuilder.loadTexts: cAdslAturDmtChanTable.setStatus('current')
+cAdslAturDmtChanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cAdslAturDmtChanEntry.setStatus('current')
+cAdslAturDmtChanFecSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 5, 1, 1), DmtFecSize()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cAdslAturDmtChanFecSize.setStatus('current')
+cAdslAturDmtChanCodewordSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 5, 1, 2), DmtCodewordSize()).setUnits('symbols').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cAdslAturDmtChanCodewordSize.setStatus('current')
+cAdslDmtLineConfProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14), )
+if mibBuilder.loadTexts: cAdslDmtLineConfProfileTable.setStatus('current')
+cAdslDmtLineConfProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14, 1), ).setIndexNames((1, "ADSL-LINE-MIB", "adslLineConfProfileName"))
+if mibBuilder.loadTexts: cAdslDmtLineConfProfileEntry.setStatus('current')
+cAdslLineDmtConfOperatingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("automatic", 1), ("splitterless", 2), ("g992Dot1", 3), ("g992Dot2", 4), ("t1Dot413", 5))).clone('automatic')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslLineDmtConfOperatingMode.setStatus('current')
+cAdslLineDmtConfTrainingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("standard", 1), ("fast", 2))).clone('standard')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslLineDmtConfTrainingMode.setStatus('current')
+cAdslAtucDmtConfFastFecSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14, 1, 3), DmtFecSize().clone(16)).setUnits('bytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslAtucDmtConfFastFecSize.setStatus('current')
+cAdslAtucDmtConfInterleaveFecSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14, 1, 4), DmtFecSize().clone(16)).setUnits('bytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslAtucDmtConfInterleaveFecSize.setStatus('current')
+cAdslAtucDmtConfCodewordSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14, 1, 5), DmtCodewordSize().clone(16)).setUnits('symbols').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslAtucDmtConfCodewordSize.setStatus('current')
+cAdslAtucDmtConfOverheadFraming = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14, 1, 6), DmtOverheadFraming().clone('structure3')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslAtucDmtConfOverheadFraming.setStatus('current')
+cAdslAtucDmtConfBitSwapEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14, 1, 7), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslAtucDmtConfBitSwapEnabled.setStatus('current')
+cAdslAtucDmtConfBitSwapFrom = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 9)).clone(3)).setUnits('dB').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslAtucDmtConfBitSwapFrom.setStatus('current')
+cAdslAtucDmtConfBitSwapTo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 9)).clone(3)).setUnits('dB').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslAtucDmtConfBitSwapTo.setStatus('current')
+cAdslAturDmtConfFastFecSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14, 1, 10), DmtFecSize().clone(16)).setUnits('bytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslAturDmtConfFastFecSize.setStatus('current')
+cAdslAturDmtConfInterleaveFecSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14, 1, 11), DmtFecSize().clone(16)).setUnits('bytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslAturDmtConfInterleaveFecSize.setStatus('current')
+cAdslAturDmtConfCodewordSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14, 1, 12), DmtCodewordSize().clone(16)).setUnits('symbols').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslAturDmtConfCodewordSize.setStatus('current')
+cAdslAtucDmtConfMinrateBlock = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14, 1, 13), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslAtucDmtConfMinrateBlock.setStatus('current')
+cAdslAtucDmtDualBitmapEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 14, 1, 14), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslAtucDmtDualBitmapEnabled.setStatus('current')
+cAdslDmtLineAlarmConfProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 15), )
+if mibBuilder.loadTexts: cAdslDmtLineAlarmConfProfileTable.setStatus('current')
+cAdslDmtLineAlarmConfProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 15, 1), ).setIndexNames((1, "ADSL-LINE-MIB", "adslLineAlarmConfProfileName"))
+if mibBuilder.loadTexts: cAdslDmtLineAlarmConfProfileEntry.setStatus('current')
+cAdslAtucDmtThreshRateFallback = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 15, 1, 1), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslAtucDmtThreshRateFallback.setStatus('current')
+cAdslAturDmtThreshRateFallback = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 15, 1, 2), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cAdslAturDmtThreshRateFallback.setStatus('current')
+cAdslDmtBinIfNumber = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 16), InterfaceIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cAdslDmtBinIfNumber.setStatus('current')
+cAdslDmtBinIfRqstStatus = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("reset", -1), ("pollNow", 1), ("noIfConfigured", 2), ("ifConfigured", 3), ("rqstInProgess", 4), ("lcDownForIf", 5), ("ifUntrained", 6), ("failure", 7), ("success", 8)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cAdslDmtBinIfRqstStatus.setStatus('current')
+cAdslDmtBinIfLstRqstUpldTime = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 18), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cAdslDmtBinIfLstRqstUpldTime.setStatus('current')
+cAdslAtucDmtBinTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 19), )
+if mibBuilder.loadTexts: cAdslAtucDmtBinTable.setStatus('current')
+cAdslAtucDmtBinEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 19, 1), ).setIndexNames((0, "CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtBitmapIndex"), (0, "CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtBinIndex"))
+if mibBuilder.loadTexts: cAdslAtucDmtBinEntry.setStatus('current')
+cAdslAtucDmtBitmapIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 19, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 5)))
+if mibBuilder.loadTexts: cAdslAtucDmtBitmapIndex.setStatus('current')
+cAdslAtucDmtBinIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 19, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 256)))
+if mibBuilder.loadTexts: cAdslAtucDmtBinIndex.setStatus('current')
+cAdslAtucDmtBinBitAlloc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 19, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setUnits('bits/Hz').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cAdslAtucDmtBinBitAlloc.setStatus('current')
+cAdslAtucDmtBinTxGain = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 19, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 400))).setUnits('tenth dB').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cAdslAtucDmtBinTxGain.setStatus('current')
+cAdslAtucDmtBinNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 19, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cAdslAtucDmtBinNumber.setStatus('current')
+cAdslAturDmtBinTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 20), )
+if mibBuilder.loadTexts: cAdslAturDmtBinTable.setStatus('current')
+cAdslAturDmtBinEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 20, 1), ).setIndexNames((0, "CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtBitmapIndex"), (0, "CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtBinIndex"))
+if mibBuilder.loadTexts: cAdslAturDmtBinEntry.setStatus('current')
+cAdslAturDmtBitmapIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 20, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 5)))
+if mibBuilder.loadTexts: cAdslAturDmtBitmapIndex.setStatus('current')
+cAdslAturDmtBinIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 20, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 256)))
+if mibBuilder.loadTexts: cAdslAturDmtBinIndex.setStatus('current')
+cAdslAturDmtBinBitAlloc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 20, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setUnits('bits/Hz').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cAdslAturDmtBinBitAlloc.setStatus('current')
+cAdslAturDmtBinTxGain = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 20, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 400))).setUnits('hundredth dB').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cAdslAturDmtBinTxGain.setStatus('current')
+cAdslAturDmtBinNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 130, 1, 20, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cAdslAturDmtBinNumber.setStatus('current')
+ciscoAdslDmtLineMIBNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 130, 2))
+ciscoAdslDmtLineMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 130, 2, 0))
+ciscoAdslDmtLineMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 130, 3))
+ciscoAdslDmtLineMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 130, 3, 1))
+ciscoAdslDmtLineMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 130, 3, 2))
+ciscoAdslDmtLineMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 130, 3, 1, 1)).setObjects(("CISCO-ADSL-DMT-LINE-MIB", "cAdslDmtLineGroup"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtPhysGroup"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtChanGroup"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtChanGroup"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslDmtLineConfProfileGroup"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslDmtLineAlarmConfProfileGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAdslDmtLineMIBCompliance = ciscoAdslDmtLineMIBCompliance.setStatus('deprecated')
+ciscoAdslDmtLineMIBComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 130, 3, 1, 2)).setObjects(("CISCO-ADSL-DMT-LINE-MIB", "cAdslDmtLineGroup"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtPhysGroup"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtChanGroup"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtChanGroup"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslDmtLineConfProfileGroupRev1"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslDmtLineAlarmConfProfileGroup"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslDmtBinIfGroup"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtBinDataGroup"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtBinDataGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAdslDmtLineMIBComplianceRev1 = ciscoAdslDmtLineMIBComplianceRev1.setStatus('current')
+cAdslDmtLineGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 130, 3, 2, 1)).setObjects(("CISCO-ADSL-DMT-LINE-MIB", "cAdslDmtLineOverheadFraming"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cAdslDmtLineGroup = cAdslDmtLineGroup.setStatus('current')
+cAdslAtucDmtPhysGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 130, 3, 2, 2)).setObjects(("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cAdslAtucDmtPhysGroup = cAdslAtucDmtPhysGroup.setStatus('current')
+cAdslAtucDmtChanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 130, 3, 2, 3)).setObjects(("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtChanFecSize"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtChanCodewordSize"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cAdslAtucDmtChanGroup = cAdslAtucDmtChanGroup.setStatus('current')
+cAdslAturDmtChanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 130, 3, 2, 4)).setObjects(("CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtChanFecSize"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtChanCodewordSize"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cAdslAturDmtChanGroup = cAdslAturDmtChanGroup.setStatus('current')
+cAdslDmtLineConfProfileGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 130, 3, 2, 5)).setObjects(("CISCO-ADSL-DMT-LINE-MIB", "cAdslLineDmtConfOperatingMode"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslLineDmtConfTrainingMode"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtConfFastFecSize"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtConfInterleaveFecSize"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtConfCodewordSize"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtConfOverheadFraming"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtConfBitSwapEnabled"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtConfBitSwapFrom"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtConfBitSwapTo"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtConfInterleaveFecSize"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtConfFastFecSize"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtConfCodewordSize"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cAdslDmtLineConfProfileGroup = cAdslDmtLineConfProfileGroup.setStatus('deprecated')
+cAdslDmtLineAlarmConfProfileGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 130, 3, 2, 6)).setObjects(("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtThreshRateFallback"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtThreshRateFallback"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cAdslDmtLineAlarmConfProfileGroup = cAdslDmtLineAlarmConfProfileGroup.setStatus('current')
+cAdslDmtBinIfGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 130, 3, 2, 7)).setObjects(("CISCO-ADSL-DMT-LINE-MIB", "cAdslDmtBinIfNumber"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslDmtBinIfRqstStatus"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslDmtBinIfLstRqstUpldTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cAdslDmtBinIfGroup = cAdslDmtBinIfGroup.setStatus('current')
+cAdslAtucDmtBinDataGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 130, 3, 2, 8)).setObjects(("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtBinBitAlloc"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtBinTxGain"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtBinNumber"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cAdslAtucDmtBinDataGroup = cAdslAtucDmtBinDataGroup.setStatus('current')
+cAdslAturDmtBinDataGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 130, 3, 2, 9)).setObjects(("CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtBinBitAlloc"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtBinTxGain"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtBinNumber"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cAdslAturDmtBinDataGroup = cAdslAturDmtBinDataGroup.setStatus('current')
+cAdslDmtLineConfProfileGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 130, 3, 2, 10)).setObjects(("CISCO-ADSL-DMT-LINE-MIB", "cAdslLineDmtConfOperatingMode"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslLineDmtConfTrainingMode"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtConfFastFecSize"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtConfInterleaveFecSize"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtConfCodewordSize"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtConfOverheadFraming"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtConfBitSwapEnabled"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtConfBitSwapFrom"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtConfBitSwapTo"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtConfInterleaveFecSize"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtConfFastFecSize"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAturDmtConfCodewordSize"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtConfMinrateBlock"), ("CISCO-ADSL-DMT-LINE-MIB", "cAdslAtucDmtDualBitmapEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cAdslDmtLineConfProfileGroupRev1 = cAdslDmtLineConfProfileGroupRev1.setStatus('current')
+mibBuilder.exportSymbols("CISCO-ADSL-DMT-LINE-MIB", cAdslAtucDmtConfBitSwapFrom=cAdslAtucDmtConfBitSwapFrom, cAdslAturDmtBinTable=cAdslAturDmtBinTable, ciscoAdslDmtLineMIBConformance=ciscoAdslDmtLineMIBConformance, cAdslAturDmtChanGroup=cAdslAturDmtChanGroup, cAdslDmtLineAlarmConfProfileTable=cAdslDmtLineAlarmConfProfileTable, cAdslAturDmtBinTxGain=cAdslAturDmtBinTxGain, cAdslDmtBinIfRqstStatus=cAdslDmtBinIfRqstStatus, cAdslAtucDmtBinTxGain=cAdslAtucDmtBinTxGain, cAdslDmtLineConfProfileGroup=cAdslDmtLineConfProfileGroup, ciscoAdslDmtLineMIB=ciscoAdslDmtLineMIB, DmtFecSize=DmtFecSize, cAdslDmtLineOverheadFraming=cAdslDmtLineOverheadFraming, cAdslAtucDmtConfBitSwapEnabled=cAdslAtucDmtConfBitSwapEnabled, cAdslDmtBinIfNumber=cAdslDmtBinIfNumber, cAdslAtucDmtBinNumber=cAdslAtucDmtBinNumber, cAdslAtucDmtConfCodewordSize=cAdslAtucDmtConfCodewordSize, cAdslLineDmtConfTrainingMode=cAdslLineDmtConfTrainingMode, cAdslAturDmtBitmapIndex=cAdslAturDmtBitmapIndex, ciscoAdslDmtLineMIBObjects=ciscoAdslDmtLineMIBObjects, cAdslAtucDmtBinTable=cAdslAtucDmtBinTable, cAdslAturDmtBinNumber=cAdslAturDmtBinNumber, cAdslAturDmtChanCodewordSize=cAdslAturDmtChanCodewordSize, cAdslDmtLineAlarmConfProfileEntry=cAdslDmtLineAlarmConfProfileEntry, cAdslAturDmtChanEntry=cAdslAturDmtChanEntry, cAdslAtucDmtConfInterleaveFecSize=cAdslAtucDmtConfInterleaveFecSize, cAdslAturDmtConfCodewordSize=cAdslAturDmtConfCodewordSize, PYSNMP_MODULE_ID=ciscoAdslDmtLineMIB, cAdslDmtLineConfProfileGroupRev1=cAdslDmtLineConfProfileGroupRev1, ciscoAdslDmtLineMIBNotificationsPrefix=ciscoAdslDmtLineMIBNotificationsPrefix, cAdslAtucDmtConfBitSwapTo=cAdslAtucDmtConfBitSwapTo, cAdslAturDmtConfFastFecSize=cAdslAturDmtConfFastFecSize, cAdslDmtLineTable=cAdslDmtLineTable, cAdslAtucDmtState=cAdslAtucDmtState, cAdslAtucDmtPhysEntry=cAdslAtucDmtPhysEntry, cAdslAturDmtChanTable=cAdslAturDmtChanTable, cAdslLineDmtConfOperatingMode=cAdslLineDmtConfOperatingMode, cAdslAtucDmtConfFastFecSize=cAdslAtucDmtConfFastFecSize, cAdslAtucDmtConfMinrateBlock=cAdslAtucDmtConfMinrateBlock, cAdslAtucDmtChanEntry=cAdslAtucDmtChanEntry, cAdslDmtBinIfLstRqstUpldTime=cAdslDmtBinIfLstRqstUpldTime, ciscoAdslDmtLineMIBCompliances=ciscoAdslDmtLineMIBCompliances, ciscoAdslDmtLineMIBGroups=ciscoAdslDmtLineMIBGroups, cAdslAtucDmtChanGroup=cAdslAtucDmtChanGroup, cAdslAtucDmtBinEntry=cAdslAtucDmtBinEntry, cAdslDmtLineConfProfileEntry=cAdslDmtLineConfProfileEntry, cAdslAtucDmtBitmapIndex=cAdslAtucDmtBitmapIndex, cAdslAtucDmtBinBitAlloc=cAdslAtucDmtBinBitAlloc, cAdslAturDmtBinEntry=cAdslAturDmtBinEntry, cAdslDmtLineAlarmConfProfileGroup=cAdslDmtLineAlarmConfProfileGroup, cAdslAtucDmtBinDataGroup=cAdslAtucDmtBinDataGroup, cAdslAtucDmtChanCodewordSize=cAdslAtucDmtChanCodewordSize, cAdslAtucDmtChanTable=cAdslAtucDmtChanTable, ciscoAdslDmtLineMIBComplianceRev1=ciscoAdslDmtLineMIBComplianceRev1, cAdslAtucDmtPhysTable=cAdslAtucDmtPhysTable, cAdslDmtLineEntry=cAdslDmtLineEntry, cAdslDmtBinIfGroup=cAdslDmtBinIfGroup, ciscoAdslDmtLineMIBNotifications=ciscoAdslDmtLineMIBNotifications, cAdslDmtLineConfProfileTable=cAdslDmtLineConfProfileTable, cAdslDmtLineGroup=cAdslDmtLineGroup, cAdslAtucDmtPhysGroup=cAdslAtucDmtPhysGroup, cAdslAturDmtBinIndex=cAdslAturDmtBinIndex, DmtOverheadFraming=DmtOverheadFraming, cAdslAtucDmtChanFecSize=cAdslAtucDmtChanFecSize, cAdslAtucDmtConfOverheadFraming=cAdslAtucDmtConfOverheadFraming, cAdslAturDmtConfInterleaveFecSize=cAdslAturDmtConfInterleaveFecSize, cAdslAtucDmtThreshRateFallback=cAdslAtucDmtThreshRateFallback, DmtCodewordSize=DmtCodewordSize, cAdslAturDmtThreshRateFallback=cAdslAturDmtThreshRateFallback, cAdslAturDmtBinDataGroup=cAdslAturDmtBinDataGroup, cAdslAturDmtChanFecSize=cAdslAturDmtChanFecSize, cAdslAtucDmtDualBitmapEnabled=cAdslAtucDmtDualBitmapEnabled, cAdslAtucDmtBinIndex=cAdslAtucDmtBinIndex, cAdslAturDmtBinBitAlloc=cAdslAturDmtBinBitAlloc, ciscoAdslDmtLineMIBCompliance=ciscoAdslDmtLineMIBCompliance)

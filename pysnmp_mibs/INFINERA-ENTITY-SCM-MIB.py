@@ -1,74 +1,46 @@
-_M='scmGroup'
-_L='scmAssociatedDegree'
-_K='scmProvisionedRemoteSCM'
-_J='scmIdlerVoaAttenuation'
-_I='scmRowStatus'
-_H='scmProvEqptType'
-_G='scmMoId'
-_F='entLPPhysicalIndex'
-_E='ENTITY-MIB'
-_D='read-write'
-_C='read-create'
-_B='INFINERA-ENTITY-SCM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-entLPPhysicalIndex,=mibBuilder.importSymbols(_E,_F)
-equipment,=mibBuilder.importSymbols('INFINERA-REG-MIB','equipment')
-FloatTenths,InfnEqptType=mibBuilder.importSymbols('INFINERA-TC-MIB','FloatTenths','InfnEqptType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-scmMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,1,18))
-_ScmTable_Object=MibTable
-scmTable=_ScmTable_Object((1,3,6,1,4,1,21296,2,2,2,1,18,1))
-if mibBuilder.loadTexts:scmTable.setStatus(_A)
-_ScmEntry_Object=MibTableRow
-scmEntry=_ScmEntry_Object((1,3,6,1,4,1,21296,2,2,2,1,18,1,1))
-scmEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:scmEntry.setStatus(_A)
-_ScmMoId_Type=DisplayString
-_ScmMoId_Object=MibTableColumn
-scmMoId=_ScmMoId_Object((1,3,6,1,4,1,21296,2,2,2,1,18,1,1,1),_ScmMoId_Type())
-scmMoId.setMaxAccess(_C)
-if mibBuilder.loadTexts:scmMoId.setStatus(_A)
-_ScmProvEqptType_Type=InfnEqptType
-_ScmProvEqptType_Object=MibTableColumn
-scmProvEqptType=_ScmProvEqptType_Object((1,3,6,1,4,1,21296,2,2,2,1,18,1,1,2),_ScmProvEqptType_Type())
-scmProvEqptType.setMaxAccess(_C)
-if mibBuilder.loadTexts:scmProvEqptType.setStatus(_A)
-_ScmIdlerVoaAttenuation_Type=FloatTenths
-_ScmIdlerVoaAttenuation_Object=MibTableColumn
-scmIdlerVoaAttenuation=_ScmIdlerVoaAttenuation_Object((1,3,6,1,4,1,21296,2,2,2,1,18,1,1,3),_ScmIdlerVoaAttenuation_Type())
-scmIdlerVoaAttenuation.setMaxAccess(_D)
-if mibBuilder.loadTexts:scmIdlerVoaAttenuation.setStatus(_A)
-_ScmProvisionedRemoteSCM_Type=DisplayString
-_ScmProvisionedRemoteSCM_Object=MibTableColumn
-scmProvisionedRemoteSCM=_ScmProvisionedRemoteSCM_Object((1,3,6,1,4,1,21296,2,2,2,1,18,1,1,4),_ScmProvisionedRemoteSCM_Type())
-scmProvisionedRemoteSCM.setMaxAccess(_D)
-if mibBuilder.loadTexts:scmProvisionedRemoteSCM.setStatus(_A)
-_ScmAssociatedDegree_Type=DisplayString
-_ScmAssociatedDegree_Object=MibTableColumn
-scmAssociatedDegree=_ScmAssociatedDegree_Object((1,3,6,1,4,1,21296,2,2,2,1,18,1,1,5),_ScmAssociatedDegree_Type())
-scmAssociatedDegree.setMaxAccess(_D)
-if mibBuilder.loadTexts:scmAssociatedDegree.setStatus(_A)
-_ScmRowStatus_Type=RowStatus
-_ScmRowStatus_Object=MibTableColumn
-scmRowStatus=_ScmRowStatus_Object((1,3,6,1,4,1,21296,2,2,2,1,18,1,1,6),_ScmRowStatus_Type())
-scmRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:scmRowStatus.setStatus(_A)
-_ScmConformance_ObjectIdentity=ObjectIdentity
-scmConformance=_ScmConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,18,3))
-_ScmCompliances_ObjectIdentity=ObjectIdentity
-scmCompliances=_ScmCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,18,3,1))
-_ScmGroups_ObjectIdentity=ObjectIdentity
-scmGroups=_ScmGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,18,3,2))
-scmGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,1,18,3,2,1))
-scmGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L)))
-if mibBuilder.loadTexts:scmGroup.setStatus(_A)
-scmCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,1,18,3,1,1))
-scmCompliance.setObjects((_B,_M))
-if mibBuilder.loadTexts:scmCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'scmMIB':scmMIB,'scmTable':scmTable,'scmEntry':scmEntry,_G:scmMoId,_H:scmProvEqptType,_J:scmIdlerVoaAttenuation,_K:scmProvisionedRemoteSCM,_L:scmAssociatedDegree,_I:scmRowStatus,'scmConformance':scmConformance,'scmCompliances':scmCompliances,'scmCompliance':scmCompliance,'scmGroups':scmGroups,_M:scmGroup})
+#
+# PySNMP MIB module INFINERA-ENTITY-SCM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-ENTITY-SCM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:20 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+entLPPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entLPPhysicalIndex")
+equipment, = mibBuilder.importSymbols("INFINERA-REG-MIB", "equipment")
+InfnEqptType, FloatTenths = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnEqptType", "FloatTenths")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+scmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 18))
+if mibBuilder.loadTexts: scmMIB.setLastUpdated('201005240000Z')
+if mibBuilder.loadTexts: scmMIB.setOrganization('INFINERA')
+scmConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 18, 3))
+scmCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 18, 3, 1))
+scmGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 18, 3, 2))
+scmTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 18, 1), )
+if mibBuilder.loadTexts: scmTable.setStatus('current')
+scmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 18, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entLPPhysicalIndex"))
+if mibBuilder.loadTexts: scmEntry.setStatus('current')
+scmMoId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 18, 1, 1, 1), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: scmMoId.setStatus('current')
+scmProvEqptType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 18, 1, 1, 2), InfnEqptType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: scmProvEqptType.setStatus('current')
+scmIdlerVoaAttenuation = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 18, 1, 1, 3), FloatTenths()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: scmIdlerVoaAttenuation.setStatus('current')
+scmProvisionedRemoteSCM = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 18, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: scmProvisionedRemoteSCM.setStatus('current')
+scmAssociatedDegree = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 18, 1, 1, 5), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: scmAssociatedDegree.setStatus('current')
+scmRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 18, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: scmRowStatus.setStatus('current')
+scmCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 18, 3, 1, 1)).setObjects(("INFINERA-ENTITY-SCM-MIB", "scmGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    scmCompliance = scmCompliance.setStatus('current')
+scmGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 18, 3, 2, 1)).setObjects(("INFINERA-ENTITY-SCM-MIB", "scmMoId"), ("INFINERA-ENTITY-SCM-MIB", "scmProvEqptType"), ("INFINERA-ENTITY-SCM-MIB", "scmRowStatus"), ("INFINERA-ENTITY-SCM-MIB", "scmIdlerVoaAttenuation"), ("INFINERA-ENTITY-SCM-MIB", "scmProvisionedRemoteSCM"), ("INFINERA-ENTITY-SCM-MIB", "scmAssociatedDegree"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    scmGroup = scmGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-ENTITY-SCM-MIB", scmGroup=scmGroup, scmConformance=scmConformance, scmAssociatedDegree=scmAssociatedDegree, scmRowStatus=scmRowStatus, scmGroups=scmGroups, scmIdlerVoaAttenuation=scmIdlerVoaAttenuation, scmCompliance=scmCompliance, PYSNMP_MODULE_ID=scmMIB, scmTable=scmTable, scmProvEqptType=scmProvEqptType, scmMoId=scmMoId, scmProvisionedRemoteSCM=scmProvisionedRemoteSCM, scmCompliances=scmCompliances, scmMIB=scmMIB, scmEntry=scmEntry)

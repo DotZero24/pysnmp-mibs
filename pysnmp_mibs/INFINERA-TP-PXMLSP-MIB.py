@@ -1,134 +1,66 @@
-_W='lspGroup'
-_V='lspAssociatedMplsTunnel'
-_U='lspAssociatedPeerLSP'
-_T='lspNextHop'
-_S='lspNum'
-_R='lspSupportingEqptAid'
-_Q='lspLoopBackbehaviour'
-_P='lspLoopBack'
-_O='lspAvailableBW'
-_N='lspMaxReservableBw'
-_M='lspConfiguredTrafficClass'
-_L='lspConfiguredTTL'
-_K='lspQOSModel'
-_J='lspOutgoingLabel'
-_I='lspIncomingLabel'
-_H='lspType'
-_G='ifIndex'
-_F='IF-MIB'
-_E='read-only'
-_D='read-create'
-_C='read-write'
-_B='INFINERA-TP-PXMLSP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_F,_G)
-terminationPoint,=mibBuilder.importSymbols('INFINERA-REG-MIB','terminationPoint')
-InfnEnableDisable,InfnLSPLoopBackBehaviour,InfnLSPType,InfnMplsQosModel=mibBuilder.importSymbols('INFINERA-TC-MIB','InfnEnableDisable','InfnLSPLoopBackBehaviour','InfnLSPType','InfnMplsQosModel')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-lspMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,2,71))
-_LspTable_Object=MibTable
-lspTable=_LspTable_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1))
-if mibBuilder.loadTexts:lspTable.setStatus(_A)
-_LspEntry_Object=MibTableRow
-lspEntry=_LspEntry_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1))
-lspEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:lspEntry.setStatus(_A)
-_LspType_Type=InfnLSPType
-_LspType_Object=MibTableColumn
-lspType=_LspType_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,1),_LspType_Type())
-lspType.setMaxAccess(_C)
-if mibBuilder.loadTexts:lspType.setStatus(_A)
-_LspIncomingLabel_Type=Integer32
-_LspIncomingLabel_Object=MibTableColumn
-lspIncomingLabel=_LspIncomingLabel_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,2),_LspIncomingLabel_Type())
-lspIncomingLabel.setMaxAccess(_D)
-if mibBuilder.loadTexts:lspIncomingLabel.setStatus(_A)
-_LspOutgoingLabel_Type=Integer32
-_LspOutgoingLabel_Object=MibTableColumn
-lspOutgoingLabel=_LspOutgoingLabel_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,3),_LspOutgoingLabel_Type())
-lspOutgoingLabel.setMaxAccess(_D)
-if mibBuilder.loadTexts:lspOutgoingLabel.setStatus(_A)
-_LspQOSModel_Type=InfnMplsQosModel
-_LspQOSModel_Object=MibTableColumn
-lspQOSModel=_LspQOSModel_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,4),_LspQOSModel_Type())
-lspQOSModel.setMaxAccess(_D)
-if mibBuilder.loadTexts:lspQOSModel.setStatus(_A)
-_LspConfiguredTTL_Type=Integer32
-_LspConfiguredTTL_Object=MibTableColumn
-lspConfiguredTTL=_LspConfiguredTTL_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,5),_LspConfiguredTTL_Type())
-lspConfiguredTTL.setMaxAccess(_C)
-if mibBuilder.loadTexts:lspConfiguredTTL.setStatus(_A)
-_LspConfiguredTrafficClass_Type=Integer32
-_LspConfiguredTrafficClass_Object=MibTableColumn
-lspConfiguredTrafficClass=_LspConfiguredTrafficClass_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,6),_LspConfiguredTrafficClass_Type())
-lspConfiguredTrafficClass.setMaxAccess(_C)
-if mibBuilder.loadTexts:lspConfiguredTrafficClass.setStatus(_A)
-_LspMaxReservableBw_Type=Integer32
-_LspMaxReservableBw_Object=MibTableColumn
-lspMaxReservableBw=_LspMaxReservableBw_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,7),_LspMaxReservableBw_Type())
-lspMaxReservableBw.setMaxAccess(_E)
-if mibBuilder.loadTexts:lspMaxReservableBw.setStatus(_A)
-_LspAvailableBW_Type=Integer32
-_LspAvailableBW_Object=MibTableColumn
-lspAvailableBW=_LspAvailableBW_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,8),_LspAvailableBW_Type())
-lspAvailableBW.setMaxAccess(_E)
-if mibBuilder.loadTexts:lspAvailableBW.setStatus(_A)
-_LspLoopBack_Type=InfnEnableDisable
-_LspLoopBack_Object=MibTableColumn
-lspLoopBack=_LspLoopBack_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,9),_LspLoopBack_Type())
-lspLoopBack.setMaxAccess(_C)
-if mibBuilder.loadTexts:lspLoopBack.setStatus(_A)
-_LspLoopBackbehaviour_Type=InfnLSPLoopBackBehaviour
-_LspLoopBackbehaviour_Object=MibTableColumn
-lspLoopBackbehaviour=_LspLoopBackbehaviour_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,10),_LspLoopBackbehaviour_Type())
-lspLoopBackbehaviour.setMaxAccess(_E)
-if mibBuilder.loadTexts:lspLoopBackbehaviour.setStatus(_A)
-_LspId_Type=DisplayString
-_LspId_Object=MibTableColumn
-lspId=_LspId_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,11),_LspId_Type())
-lspId.setMaxAccess(_C)
-if mibBuilder.loadTexts:lspId.setStatus(_A)
-_LspSupportingEqptAid_Type=DisplayString
-_LspSupportingEqptAid_Object=MibTableColumn
-lspSupportingEqptAid=_LspSupportingEqptAid_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,12),_LspSupportingEqptAid_Type())
-lspSupportingEqptAid.setMaxAccess(_D)
-if mibBuilder.loadTexts:lspSupportingEqptAid.setStatus(_A)
-_LspNum_Type=Integer32
-_LspNum_Object=MibTableColumn
-lspNum=_LspNum_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,13),_LspNum_Type())
-lspNum.setMaxAccess(_E)
-if mibBuilder.loadTexts:lspNum.setStatus(_A)
-_LspNextHop_Type=DisplayString
-_LspNextHop_Object=MibTableColumn
-lspNextHop=_LspNextHop_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,14),_LspNextHop_Type())
-lspNextHop.setMaxAccess(_C)
-if mibBuilder.loadTexts:lspNextHop.setStatus(_A)
-_LspAssociatedPeerLSP_Type=DisplayString
-_LspAssociatedPeerLSP_Object=MibTableColumn
-lspAssociatedPeerLSP=_LspAssociatedPeerLSP_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,15),_LspAssociatedPeerLSP_Type())
-lspAssociatedPeerLSP.setMaxAccess(_C)
-if mibBuilder.loadTexts:lspAssociatedPeerLSP.setStatus(_A)
-_LspAssociatedMplsTunnel_Type=DisplayString
-_LspAssociatedMplsTunnel_Object=MibTableColumn
-lspAssociatedMplsTunnel=_LspAssociatedMplsTunnel_Object((1,3,6,1,4,1,21296,2,2,2,2,71,1,1,16),_LspAssociatedMplsTunnel_Type())
-lspAssociatedMplsTunnel.setMaxAccess(_C)
-if mibBuilder.loadTexts:lspAssociatedMplsTunnel.setStatus(_A)
-_LspConformance_ObjectIdentity=ObjectIdentity
-lspConformance=_LspConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,71,3))
-_LspCompliances_ObjectIdentity=ObjectIdentity
-lspCompliances=_LspCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,71,3,1))
-_LspGroups_ObjectIdentity=ObjectIdentity
-lspGroups=_LspGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,71,3,2))
-lspGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,2,71,3,2,1))
-lspGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,'lspId'),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:lspGroup.setStatus(_A)
-lspCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,2,71,3,1,1))
-lspCompliance.setObjects((_B,_W))
-if mibBuilder.loadTexts:lspCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'lspMIB':lspMIB,'lspTable':lspTable,'lspEntry':lspEntry,_H:lspType,_I:lspIncomingLabel,_J:lspOutgoingLabel,_K:lspQOSModel,_L:lspConfiguredTTL,_M:lspConfiguredTrafficClass,_N:lspMaxReservableBw,_O:lspAvailableBW,_P:lspLoopBack,_Q:lspLoopBackbehaviour,'lspId':lspId,_R:lspSupportingEqptAid,_S:lspNum,_T:lspNextHop,_U:lspAssociatedPeerLSP,_V:lspAssociatedMplsTunnel,'lspConformance':lspConformance,'lspCompliances':lspCompliances,'lspCompliance':lspCompliance,'lspGroups':lspGroups,_W:lspGroup})
+#
+# PySNMP MIB module INFINERA-TP-PXMLSP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-PXMLSP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
+InfnLSPLoopBackBehaviour, InfnEnableDisable, InfnMplsQosModel, InfnLSPType = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnLSPLoopBackBehaviour", "InfnEnableDisable", "InfnMplsQosModel", "InfnLSPType")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+lspMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71))
+if mibBuilder.loadTexts: lspMIB.setLastUpdated('201605200000Z')
+if mibBuilder.loadTexts: lspMIB.setOrganization('INFINERA')
+lspConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 3))
+lspCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 3, 1))
+lspGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 3, 2))
+lspTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1), )
+if mibBuilder.loadTexts: lspTable.setStatus('current')
+lspEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: lspEntry.setStatus('current')
+lspType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 1), InfnLSPType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lspType.setStatus('current')
+lspIncomingLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 2), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lspIncomingLabel.setStatus('current')
+lspOutgoingLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 3), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lspOutgoingLabel.setStatus('current')
+lspQOSModel = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 4), InfnMplsQosModel()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lspQOSModel.setStatus('current')
+lspConfiguredTTL = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lspConfiguredTTL.setStatus('current')
+lspConfiguredTrafficClass = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lspConfiguredTrafficClass.setStatus('current')
+lspMaxReservableBw = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lspMaxReservableBw.setStatus('current')
+lspAvailableBW = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lspAvailableBW.setStatus('current')
+lspLoopBack = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 9), InfnEnableDisable()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lspLoopBack.setStatus('current')
+lspLoopBackbehaviour = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 10), InfnLSPLoopBackBehaviour()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lspLoopBackbehaviour.setStatus('current')
+lspId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 11), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lspId.setStatus('current')
+lspSupportingEqptAid = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 12), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lspSupportingEqptAid.setStatus('current')
+lspNum = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lspNum.setStatus('current')
+lspNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 14), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lspNextHop.setStatus('current')
+lspAssociatedPeerLSP = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 15), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lspAssociatedPeerLSP.setStatus('current')
+lspAssociatedMplsTunnel = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 1, 1, 16), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lspAssociatedMplsTunnel.setStatus('current')
+lspCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 3, 1, 1)).setObjects(("INFINERA-TP-PXMLSP-MIB", "lspGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lspCompliance = lspCompliance.setStatus('current')
+lspGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 71, 3, 2, 1)).setObjects(("INFINERA-TP-PXMLSP-MIB", "lspType"), ("INFINERA-TP-PXMLSP-MIB", "lspIncomingLabel"), ("INFINERA-TP-PXMLSP-MIB", "lspOutgoingLabel"), ("INFINERA-TP-PXMLSP-MIB", "lspQOSModel"), ("INFINERA-TP-PXMLSP-MIB", "lspConfiguredTTL"), ("INFINERA-TP-PXMLSP-MIB", "lspConfiguredTrafficClass"), ("INFINERA-TP-PXMLSP-MIB", "lspMaxReservableBw"), ("INFINERA-TP-PXMLSP-MIB", "lspAvailableBW"), ("INFINERA-TP-PXMLSP-MIB", "lspLoopBack"), ("INFINERA-TP-PXMLSP-MIB", "lspLoopBackbehaviour"), ("INFINERA-TP-PXMLSP-MIB", "lspId"), ("INFINERA-TP-PXMLSP-MIB", "lspSupportingEqptAid"), ("INFINERA-TP-PXMLSP-MIB", "lspNum"), ("INFINERA-TP-PXMLSP-MIB", "lspNextHop"), ("INFINERA-TP-PXMLSP-MIB", "lspAssociatedPeerLSP"), ("INFINERA-TP-PXMLSP-MIB", "lspAssociatedMplsTunnel"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lspGroup = lspGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-TP-PXMLSP-MIB", lspAssociatedMplsTunnel=lspAssociatedMplsTunnel, lspQOSModel=lspQOSModel, lspOutgoingLabel=lspOutgoingLabel, lspCompliances=lspCompliances, lspIncomingLabel=lspIncomingLabel, lspSupportingEqptAid=lspSupportingEqptAid, lspConfiguredTrafficClass=lspConfiguredTrafficClass, lspCompliance=lspCompliance, lspMIB=lspMIB, lspAvailableBW=lspAvailableBW, lspNextHop=lspNextHop, lspNum=lspNum, lspGroups=lspGroups, lspConfiguredTTL=lspConfiguredTTL, lspLoopBack=lspLoopBack, lspId=lspId, lspConformance=lspConformance, lspTable=lspTable, PYSNMP_MODULE_ID=lspMIB, lspLoopBackbehaviour=lspLoopBackbehaviour, lspType=lspType, lspMaxReservableBw=lspMaxReservableBw, lspEntry=lspEntry, lspGroup=lspGroup, lspAssociatedPeerLSP=lspAssociatedPeerLSP)

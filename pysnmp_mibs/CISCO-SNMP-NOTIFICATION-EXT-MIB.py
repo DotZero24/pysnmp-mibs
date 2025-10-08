@@ -1,65 +1,45 @@
-_J='csneNotifyFilterGroup'
-_I='csneFilterTimerUnit'
-_H='csneFilterAdminTimer'
-_G='csneFilterOperTimer'
-_F='csneSnmpNotifyFilterEntry'
-_E='read-create'
-_D='Unsigned32'
-_C='Integer32'
-_B='CISCO-SNMP-NOTIFICATION-EXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-snmpNotifyFilterEntry,=mibBuilder.importSymbols('SNMP-NOTIFICATION-MIB','snmpNotifyFilterEntry')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoSnmpNotificationExtMIB=ModuleIdentity((1,3,6,1,4,1,9,9,408))
-if mibBuilder.loadTexts:ciscoSnmpNotificationExtMIB.setRevisions(('2004-05-12 00:00',))
-_CsneMIBNotifs_ObjectIdentity=ObjectIdentity
-csneMIBNotifs=_CsneMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,408,0))
-_CsneMIBObjects_ObjectIdentity=ObjectIdentity
-csneMIBObjects=_CsneMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,408,1))
-_CsneNotifyObjects_ObjectIdentity=ObjectIdentity
-csneNotifyObjects=_CsneNotifyObjects_ObjectIdentity((1,3,6,1,4,1,9,9,408,1,1))
-_CsneSnmpNotifyFilterTable_Object=MibTable
-csneSnmpNotifyFilterTable=_CsneSnmpNotifyFilterTable_Object((1,3,6,1,4,1,9,9,408,1,1,1))
-if mibBuilder.loadTexts:csneSnmpNotifyFilterTable.setStatus(_A)
-_CsneSnmpNotifyFilterEntry_Object=MibTableRow
-csneSnmpNotifyFilterEntry=_CsneSnmpNotifyFilterEntry_Object((1,3,6,1,4,1,9,9,408,1,1,1,1))
-if mibBuilder.loadTexts:csneSnmpNotifyFilterEntry.setStatus(_A)
-class _CsneFilterAdminTimer_Type(Unsigned32):defaultValue=15
-_CsneFilterAdminTimer_Type.__name__=_D
-_CsneFilterAdminTimer_Object=MibTableColumn
-csneFilterAdminTimer=_CsneFilterAdminTimer_Object((1,3,6,1,4,1,9,9,408,1,1,1,1,1),_CsneFilterAdminTimer_Type())
-csneFilterAdminTimer.setMaxAccess(_E)
-if mibBuilder.loadTexts:csneFilterAdminTimer.setStatus(_A)
-_CsneFilterOperTimer_Type=Unsigned32
-_CsneFilterOperTimer_Object=MibTableColumn
-csneFilterOperTimer=_CsneFilterOperTimer_Object((1,3,6,1,4,1,9,9,408,1,1,1,1,2),_CsneFilterOperTimer_Type())
-csneFilterOperTimer.setMaxAccess('read-only')
-if mibBuilder.loadTexts:csneFilterOperTimer.setStatus(_A)
-class _CsneFilterTimerUnit_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('seconds',1),('minutes',2),('hours',3)))
-_CsneFilterTimerUnit_Type.__name__=_C
-_CsneFilterTimerUnit_Object=MibTableColumn
-csneFilterTimerUnit=_CsneFilterTimerUnit_Object((1,3,6,1,4,1,9,9,408,1,1,1,1,3),_CsneFilterTimerUnit_Type())
-csneFilterTimerUnit.setMaxAccess(_E)
-if mibBuilder.loadTexts:csneFilterTimerUnit.setStatus(_A)
-_CsneMIBConform_ObjectIdentity=ObjectIdentity
-csneMIBConform=_CsneMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,408,2))
-_CsneMIBCompliances_ObjectIdentity=ObjectIdentity
-csneMIBCompliances=_CsneMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,408,2,1))
-_CsneMIBGroups_ObjectIdentity=ObjectIdentity
-csneMIBGroups=_CsneMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,408,2,2))
-snmpNotifyFilterEntry.registerAugmentions((_B,_F))
+#
+# PySNMP MIB module CISCO-SNMP-NOTIFICATION-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-SNMP-NOTIFICATION-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:26 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+snmpNotifyFilterEntry, = mibBuilder.importSymbols("SNMP-NOTIFICATION-MIB", "snmpNotifyFilterEntry")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoSnmpNotificationExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 408))
+ciscoSnmpNotificationExtMIB.setRevisions(('2004-05-12 00:00',))
+if mibBuilder.loadTexts: ciscoSnmpNotificationExtMIB.setLastUpdated('200405120000Z')
+if mibBuilder.loadTexts: ciscoSnmpNotificationExtMIB.setOrganization('Cisco Systems, Inc.')
+csneMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 408, 0))
+csneMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 408, 1))
+csneMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 408, 2))
+csneNotifyObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 408, 1, 1))
+csneSnmpNotifyFilterTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 408, 1, 1, 1), )
+if mibBuilder.loadTexts: csneSnmpNotifyFilterTable.setStatus('current')
+csneSnmpNotifyFilterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 408, 1, 1, 1, 1), )
+snmpNotifyFilterEntry.registerAugmentions(("CISCO-SNMP-NOTIFICATION-EXT-MIB", "csneSnmpNotifyFilterEntry"))
 csneSnmpNotifyFilterEntry.setIndexNames(*snmpNotifyFilterEntry.getIndexNames())
-csneNotifyFilterGroup=ObjectGroup((1,3,6,1,4,1,9,9,408,2,2,1))
-csneNotifyFilterGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:csneNotifyFilterGroup.setStatus(_A)
-csneMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,408,2,1,1))
-csneMIBCompliance.setObjects((_B,_J))
-if mibBuilder.loadTexts:csneMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoSnmpNotificationExtMIB':ciscoSnmpNotificationExtMIB,'csneMIBNotifs':csneMIBNotifs,'csneMIBObjects':csneMIBObjects,'csneNotifyObjects':csneNotifyObjects,'csneSnmpNotifyFilterTable':csneSnmpNotifyFilterTable,_F:csneSnmpNotifyFilterEntry,_H:csneFilterAdminTimer,_G:csneFilterOperTimer,_I:csneFilterTimerUnit,'csneMIBConform':csneMIBConform,'csneMIBCompliances':csneMIBCompliances,'csneMIBCompliance':csneMIBCompliance,'csneMIBGroups':csneMIBGroups,_J:csneNotifyFilterGroup})
+if mibBuilder.loadTexts: csneSnmpNotifyFilterEntry.setStatus('current')
+csneFilterAdminTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 408, 1, 1, 1, 1, 1), Unsigned32().clone(15)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: csneFilterAdminTimer.setStatus('current')
+csneFilterOperTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 408, 1, 1, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csneFilterOperTimer.setStatus('current')
+csneFilterTimerUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 408, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("seconds", 1), ("minutes", 2), ("hours", 3))).clone('minutes')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: csneFilterTimerUnit.setStatus('current')
+csneMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 408, 2, 1))
+csneMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 408, 2, 2))
+csneMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 408, 2, 1, 1)).setObjects(("CISCO-SNMP-NOTIFICATION-EXT-MIB", "csneNotifyFilterGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    csneMIBCompliance = csneMIBCompliance.setStatus('current')
+csneNotifyFilterGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 408, 2, 2, 1)).setObjects(("CISCO-SNMP-NOTIFICATION-EXT-MIB", "csneFilterOperTimer"), ("CISCO-SNMP-NOTIFICATION-EXT-MIB", "csneFilterAdminTimer"), ("CISCO-SNMP-NOTIFICATION-EXT-MIB", "csneFilterTimerUnit"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    csneNotifyFilterGroup = csneNotifyFilterGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-SNMP-NOTIFICATION-EXT-MIB", csneNotifyObjects=csneNotifyObjects, csneMIBCompliances=csneMIBCompliances, csneMIBGroups=csneMIBGroups, csneMIBNotifs=csneMIBNotifs, csneMIBCompliance=csneMIBCompliance, csneFilterOperTimer=csneFilterOperTimer, PYSNMP_MODULE_ID=ciscoSnmpNotificationExtMIB, csneMIBConform=csneMIBConform, csneFilterTimerUnit=csneFilterTimerUnit, csneSnmpNotifyFilterTable=csneSnmpNotifyFilterTable, csneMIBObjects=csneMIBObjects, ciscoSnmpNotificationExtMIB=ciscoSnmpNotificationExtMIB, csneNotifyFilterGroup=csneNotifyFilterGroup, csneSnmpNotifyFilterEntry=csneSnmpNotifyFilterEntry, csneFilterAdminTimer=csneFilterAdminTimer)

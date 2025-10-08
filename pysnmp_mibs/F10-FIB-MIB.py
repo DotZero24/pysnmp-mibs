@@ -1,192 +1,91 @@
-_Z='f10IpForwardObjectGroup'
-_Y='f10InetCidrRouteCamIndex'
-_X='f10InetCidrRouteEgressPort'
-_W='f10InetCidrRouteMacAddress'
-_V='f10InetCidrRouteIfIndex'
-_U='f10IpForwardVersion'
-_T='f10InetCidrRouteFirstHop'
-_S='f10InetCidrRouteFirstHopType'
-_R='f10InetCidrRouteNextHop'
-_Q='f10InetCidrRouteNextHopType'
-_P='f10InetCidrRoutePfxLen'
-_O='f10InetCidrRouteDest'
-_N='f10InetCidrRouteDestType'
-_M='f10IpforwardFirstHop'
-_L='f10IpforwardNextHop'
-_K='f10IpforwardMask'
-_J='f10IpforwardDest'
-_I='f10IpForwardAddrFamily'
-_H='OctetString'
-_G='chSysCardNumber'
-_F='F10-CHASSIS-MIB'
-_E='not-accessible'
-_D='deprecated'
-_C='read-only'
-_B='F10-FIB-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_H,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-chSysCardNumber,=mibBuilder.importSymbols(_F,_G)
-f10Mgmt,=mibBuilder.importSymbols('FORCE10-SMI','f10Mgmt')
-InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB','InterfaceIndexOrZero')
-InetAddress,InetAddressPrefixLength,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressPrefixLength','InetAddressType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-f10IpForwardMib=ModuleIdentity((1,3,6,1,4,1,6027,3,9))
-if mibBuilder.loadTexts:f10IpForwardMib.setRevisions(('2011-07-08 12:00','2007-09-14 12:00'))
-_F10IpForwardMibObjects_ObjectIdentity=ObjectIdentity
-f10IpForwardMibObjects=_F10IpForwardMibObjects_ObjectIdentity((1,3,6,1,4,1,6027,3,9,1))
-_F10IpForwardVersionTable_Object=MibTable
-f10IpForwardVersionTable=_F10IpForwardVersionTable_Object((1,3,6,1,4,1,6027,3,9,1,1))
-if mibBuilder.loadTexts:f10IpForwardVersionTable.setStatus(_A)
-_F10IpForwardVersionEntry_Object=MibTableRow
-f10IpForwardVersionEntry=_F10IpForwardVersionEntry_Object((1,3,6,1,4,1,6027,3,9,1,1,1))
-f10IpForwardVersionEntry.setIndexNames((0,_F,_G),(0,_B,_I))
-if mibBuilder.loadTexts:f10IpForwardVersionEntry.setStatus(_A)
-_F10IpForwardAddrFamily_Type=InetAddressType
-_F10IpForwardAddrFamily_Object=MibTableColumn
-f10IpForwardAddrFamily=_F10IpForwardAddrFamily_Object((1,3,6,1,4,1,6027,3,9,1,1,1,1),_F10IpForwardAddrFamily_Type())
-f10IpForwardAddrFamily.setMaxAccess(_E)
-if mibBuilder.loadTexts:f10IpForwardAddrFamily.setStatus(_A)
-_F10IpForwardVersion_Type=Counter64
-_F10IpForwardVersion_Object=MibTableColumn
-f10IpForwardVersion=_F10IpForwardVersion_Object((1,3,6,1,4,1,6027,3,9,1,1,1,2),_F10IpForwardVersion_Type())
-f10IpForwardVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:f10IpForwardVersion.setStatus(_A)
-_F10IpForwardTable_Object=MibTable
-f10IpForwardTable=_F10IpForwardTable_Object((1,3,6,1,4,1,6027,3,9,1,2))
-if mibBuilder.loadTexts:f10IpForwardTable.setStatus(_D)
-_F10IpForwardEntry_Object=MibTableRow
-f10IpForwardEntry=_F10IpForwardEntry_Object((1,3,6,1,4,1,6027,3,9,1,2,1))
-f10IpForwardEntry.setIndexNames((0,_F,_G),(0,_B,_J),(0,_B,_K),(0,_B,_L),(0,_B,_M))
-if mibBuilder.loadTexts:f10IpForwardEntry.setStatus(_D)
-_F10IpforwardDest_Type=IpAddress
-_F10IpforwardDest_Object=MibTableColumn
-f10IpforwardDest=_F10IpforwardDest_Object((1,3,6,1,4,1,6027,3,9,1,2,1,1),_F10IpforwardDest_Type())
-f10IpforwardDest.setMaxAccess(_C)
-if mibBuilder.loadTexts:f10IpforwardDest.setStatus(_D)
-_F10IpforwardMask_Type=IpAddress
-_F10IpforwardMask_Object=MibTableColumn
-f10IpforwardMask=_F10IpforwardMask_Object((1,3,6,1,4,1,6027,3,9,1,2,1,2),_F10IpforwardMask_Type())
-f10IpforwardMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:f10IpforwardMask.setStatus(_D)
-_F10IpforwardNextHop_Type=IpAddress
-_F10IpforwardNextHop_Object=MibTableColumn
-f10IpforwardNextHop=_F10IpforwardNextHop_Object((1,3,6,1,4,1,6027,3,9,1,2,1,3),_F10IpforwardNextHop_Type())
-f10IpforwardNextHop.setMaxAccess(_C)
-if mibBuilder.loadTexts:f10IpforwardNextHop.setStatus(_D)
-_F10IpforwardFirstHop_Type=IpAddress
-_F10IpforwardFirstHop_Object=MibTableColumn
-f10IpforwardFirstHop=_F10IpforwardFirstHop_Object((1,3,6,1,4,1,6027,3,9,1,2,1,4),_F10IpforwardFirstHop_Type())
-f10IpforwardFirstHop.setMaxAccess(_C)
-if mibBuilder.loadTexts:f10IpforwardFirstHop.setStatus(_D)
-_F10IpforwardIfIndex_Type=Integer32
-_F10IpforwardIfIndex_Object=MibTableColumn
-f10IpforwardIfIndex=_F10IpforwardIfIndex_Object((1,3,6,1,4,1,6027,3,9,1,2,1,5),_F10IpforwardIfIndex_Type())
-f10IpforwardIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:f10IpforwardIfIndex.setStatus(_D)
-_F10IpforwardMacAddress_Type=MacAddress
-_F10IpforwardMacAddress_Object=MibTableColumn
-f10IpforwardMacAddress=_F10IpforwardMacAddress_Object((1,3,6,1,4,1,6027,3,9,1,2,1,6),_F10IpforwardMacAddress_Type())
-f10IpforwardMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:f10IpforwardMacAddress.setStatus(_D)
-class _F10IpforwardEgressPort_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_F10IpforwardEgressPort_Type.__name__=_H
-_F10IpforwardEgressPort_Object=MibTableColumn
-f10IpforwardEgressPort=_F10IpforwardEgressPort_Object((1,3,6,1,4,1,6027,3,9,1,2,1,7),_F10IpforwardEgressPort_Type())
-f10IpforwardEgressPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:f10IpforwardEgressPort.setStatus(_D)
-_F10IpforwardCamIndex_Type=Integer32
-_F10IpforwardCamIndex_Object=MibTableColumn
-f10IpforwardCamIndex=_F10IpforwardCamIndex_Object((1,3,6,1,4,1,6027,3,9,1,2,1,8),_F10IpforwardCamIndex_Type())
-f10IpforwardCamIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:f10IpforwardCamIndex.setStatus(_D)
-_F10InetCidrIpv4RouteNumber_Type=Gauge32
-_F10InetCidrIpv4RouteNumber_Object=MibScalar
-f10InetCidrIpv4RouteNumber=_F10InetCidrIpv4RouteNumber_Object((1,3,6,1,4,1,6027,3,9,1,3),_F10InetCidrIpv4RouteNumber_Type())
-f10InetCidrIpv4RouteNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:f10InetCidrIpv4RouteNumber.setStatus(_A)
-_F10InetCidrIpv6RouteNumber_Type=Gauge32
-_F10InetCidrIpv6RouteNumber_Object=MibScalar
-f10InetCidrIpv6RouteNumber=_F10InetCidrIpv6RouteNumber_Object((1,3,6,1,4,1,6027,3,9,1,4),_F10InetCidrIpv6RouteNumber_Type())
-f10InetCidrIpv6RouteNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:f10InetCidrIpv6RouteNumber.setStatus(_A)
-_F10InetCidrRouteTable_Object=MibTable
-f10InetCidrRouteTable=_F10InetCidrRouteTable_Object((1,3,6,1,4,1,6027,3,9,1,5))
-if mibBuilder.loadTexts:f10InetCidrRouteTable.setStatus(_A)
-_F10InetCidrRouteTableEntry_Object=MibTableRow
-f10InetCidrRouteTableEntry=_F10InetCidrRouteTableEntry_Object((1,3,6,1,4,1,6027,3,9,1,5,1))
-f10InetCidrRouteTableEntry.setIndexNames((0,_F,_G),(0,_B,_N),(0,_B,_O),(0,_B,_P),(0,_B,_Q),(0,_B,_R),(0,_B,_S),(0,_B,_T))
-if mibBuilder.loadTexts:f10InetCidrRouteTableEntry.setStatus(_A)
-_F10InetCidrRouteDestType_Type=InetAddressType
-_F10InetCidrRouteDestType_Object=MibTableColumn
-f10InetCidrRouteDestType=_F10InetCidrRouteDestType_Object((1,3,6,1,4,1,6027,3,9,1,5,1,1),_F10InetCidrRouteDestType_Type())
-f10InetCidrRouteDestType.setMaxAccess(_E)
-if mibBuilder.loadTexts:f10InetCidrRouteDestType.setStatus(_A)
-_F10InetCidrRouteDest_Type=InetAddress
-_F10InetCidrRouteDest_Object=MibTableColumn
-f10InetCidrRouteDest=_F10InetCidrRouteDest_Object((1,3,6,1,4,1,6027,3,9,1,5,1,2),_F10InetCidrRouteDest_Type())
-f10InetCidrRouteDest.setMaxAccess(_E)
-if mibBuilder.loadTexts:f10InetCidrRouteDest.setStatus(_A)
-_F10InetCidrRoutePfxLen_Type=InetAddressPrefixLength
-_F10InetCidrRoutePfxLen_Object=MibTableColumn
-f10InetCidrRoutePfxLen=_F10InetCidrRoutePfxLen_Object((1,3,6,1,4,1,6027,3,9,1,5,1,3),_F10InetCidrRoutePfxLen_Type())
-f10InetCidrRoutePfxLen.setMaxAccess(_E)
-if mibBuilder.loadTexts:f10InetCidrRoutePfxLen.setStatus(_A)
-_F10InetCidrRouteNextHopType_Type=InetAddressType
-_F10InetCidrRouteNextHopType_Object=MibTableColumn
-f10InetCidrRouteNextHopType=_F10InetCidrRouteNextHopType_Object((1,3,6,1,4,1,6027,3,9,1,5,1,4),_F10InetCidrRouteNextHopType_Type())
-f10InetCidrRouteNextHopType.setMaxAccess(_E)
-if mibBuilder.loadTexts:f10InetCidrRouteNextHopType.setStatus(_A)
-_F10InetCidrRouteNextHop_Type=InetAddress
-_F10InetCidrRouteNextHop_Object=MibTableColumn
-f10InetCidrRouteNextHop=_F10InetCidrRouteNextHop_Object((1,3,6,1,4,1,6027,3,9,1,5,1,5),_F10InetCidrRouteNextHop_Type())
-f10InetCidrRouteNextHop.setMaxAccess(_E)
-if mibBuilder.loadTexts:f10InetCidrRouteNextHop.setStatus(_A)
-_F10InetCidrRouteFirstHopType_Type=InetAddressType
-_F10InetCidrRouteFirstHopType_Object=MibTableColumn
-f10InetCidrRouteFirstHopType=_F10InetCidrRouteFirstHopType_Object((1,3,6,1,4,1,6027,3,9,1,5,1,6),_F10InetCidrRouteFirstHopType_Type())
-f10InetCidrRouteFirstHopType.setMaxAccess(_E)
-if mibBuilder.loadTexts:f10InetCidrRouteFirstHopType.setStatus(_A)
-_F10InetCidrRouteFirstHop_Type=InetAddress
-_F10InetCidrRouteFirstHop_Object=MibTableColumn
-f10InetCidrRouteFirstHop=_F10InetCidrRouteFirstHop_Object((1,3,6,1,4,1,6027,3,9,1,5,1,7),_F10InetCidrRouteFirstHop_Type())
-f10InetCidrRouteFirstHop.setMaxAccess(_E)
-if mibBuilder.loadTexts:f10InetCidrRouteFirstHop.setStatus(_A)
-_F10InetCidrRouteIfIndex_Type=InterfaceIndexOrZero
-_F10InetCidrRouteIfIndex_Object=MibTableColumn
-f10InetCidrRouteIfIndex=_F10InetCidrRouteIfIndex_Object((1,3,6,1,4,1,6027,3,9,1,5,1,8),_F10InetCidrRouteIfIndex_Type())
-f10InetCidrRouteIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:f10InetCidrRouteIfIndex.setStatus(_A)
-_F10InetCidrRouteMacAddress_Type=MacAddress
-_F10InetCidrRouteMacAddress_Object=MibTableColumn
-f10InetCidrRouteMacAddress=_F10InetCidrRouteMacAddress_Object((1,3,6,1,4,1,6027,3,9,1,5,1,9),_F10InetCidrRouteMacAddress_Type())
-f10InetCidrRouteMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:f10InetCidrRouteMacAddress.setStatus(_A)
-class _F10InetCidrRouteEgressPort_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_F10InetCidrRouteEgressPort_Type.__name__=_H
-_F10InetCidrRouteEgressPort_Object=MibTableColumn
-f10InetCidrRouteEgressPort=_F10InetCidrRouteEgressPort_Object((1,3,6,1,4,1,6027,3,9,1,5,1,10),_F10InetCidrRouteEgressPort_Type())
-f10InetCidrRouteEgressPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:f10InetCidrRouteEgressPort.setStatus(_A)
-_F10InetCidrRouteCamIndex_Type=Unsigned32
-_F10InetCidrRouteCamIndex_Object=MibTableColumn
-f10InetCidrRouteCamIndex=_F10InetCidrRouteCamIndex_Object((1,3,6,1,4,1,6027,3,9,1,5,1,11),_F10InetCidrRouteCamIndex_Type())
-f10InetCidrRouteCamIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:f10InetCidrRouteCamIndex.setStatus(_A)
-_F10IpForwardMibConformance_ObjectIdentity=ObjectIdentity
-f10IpForwardMibConformance=_F10IpForwardMibConformance_ObjectIdentity((1,3,6,1,4,1,6027,3,9,2))
-_F10IpForwardMibCompliances_ObjectIdentity=ObjectIdentity
-f10IpForwardMibCompliances=_F10IpForwardMibCompliances_ObjectIdentity((1,3,6,1,4,1,6027,3,9,2,1))
-_F10IpForwardMibGroups_ObjectIdentity=ObjectIdentity
-f10IpForwardMibGroups=_F10IpForwardMibGroups_ObjectIdentity((1,3,6,1,4,1,6027,3,9,2,2))
-f10IpForwardObjectGroup=ObjectGroup((1,3,6,1,4,1,6027,3,9,2,2,1))
-f10IpForwardObjectGroup.setObjects(*((_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y)))
-if mibBuilder.loadTexts:f10IpForwardObjectGroup.setStatus(_A)
-f10IpForwardMibCompliance=ModuleCompliance((1,3,6,1,4,1,6027,3,9,2,1,1))
-f10IpForwardMibCompliance.setObjects((_B,_Z))
-if mibBuilder.loadTexts:f10IpForwardMibCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'f10IpForwardMib':f10IpForwardMib,'f10IpForwardMibObjects':f10IpForwardMibObjects,'f10IpForwardVersionTable':f10IpForwardVersionTable,'f10IpForwardVersionEntry':f10IpForwardVersionEntry,_I:f10IpForwardAddrFamily,_U:f10IpForwardVersion,'f10IpForwardTable':f10IpForwardTable,'f10IpForwardEntry':f10IpForwardEntry,_J:f10IpforwardDest,_K:f10IpforwardMask,_L:f10IpforwardNextHop,_M:f10IpforwardFirstHop,'f10IpforwardIfIndex':f10IpforwardIfIndex,'f10IpforwardMacAddress':f10IpforwardMacAddress,'f10IpforwardEgressPort':f10IpforwardEgressPort,'f10IpforwardCamIndex':f10IpforwardCamIndex,'f10InetCidrIpv4RouteNumber':f10InetCidrIpv4RouteNumber,'f10InetCidrIpv6RouteNumber':f10InetCidrIpv6RouteNumber,'f10InetCidrRouteTable':f10InetCidrRouteTable,'f10InetCidrRouteTableEntry':f10InetCidrRouteTableEntry,_N:f10InetCidrRouteDestType,_O:f10InetCidrRouteDest,_P:f10InetCidrRoutePfxLen,_Q:f10InetCidrRouteNextHopType,_R:f10InetCidrRouteNextHop,_S:f10InetCidrRouteFirstHopType,_T:f10InetCidrRouteFirstHop,_V:f10InetCidrRouteIfIndex,_W:f10InetCidrRouteMacAddress,_X:f10InetCidrRouteEgressPort,_Y:f10InetCidrRouteCamIndex,'f10IpForwardMibConformance':f10IpForwardMibConformance,'f10IpForwardMibCompliances':f10IpForwardMibCompliances,'f10IpForwardMibCompliance':f10IpForwardMibCompliance,'f10IpForwardMibGroups':f10IpForwardMibGroups,_Z:f10IpForwardObjectGroup})
+#
+# PySNMP MIB module F10-FIB-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/force10/F10-FIB-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:11 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+chSysCardNumber, = mibBuilder.importSymbols("F10-CHASSIS-MIB", "chSysCardNumber")
+f10Mgmt, = mibBuilder.importSymbols("FORCE10-SMI", "f10Mgmt")
+InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
+InetAddressPrefixLength, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+f10IpForwardMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 6027, 3, 9))
+f10IpForwardMib.setRevisions(('2011-07-08 12:00', '2007-09-14 12:00',))
+if mibBuilder.loadTexts: f10IpForwardMib.setLastUpdated('200709141200Z')
+if mibBuilder.loadTexts: f10IpForwardMib.setOrganization('Dell Inc')
+f10IpForwardMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1))
+f10IpForwardMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 9, 2))
+f10IpForwardVersionTable = MibTable((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 1), )
+if mibBuilder.loadTexts: f10IpForwardVersionTable.setStatus('current')
+f10IpForwardVersionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 1, 1), ).setIndexNames((0, "F10-CHASSIS-MIB", "chSysCardNumber"), (0, "F10-FIB-MIB", "f10IpForwardAddrFamily"))
+if mibBuilder.loadTexts: f10IpForwardVersionEntry.setStatus('current')
+f10IpForwardAddrFamily = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 1, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: f10IpForwardAddrFamily.setStatus('current')
+f10IpForwardVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 1, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f10IpForwardVersion.setStatus('current')
+f10IpForwardTable = MibTable((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2), )
+if mibBuilder.loadTexts: f10IpForwardTable.setStatus('deprecated')
+f10IpForwardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1), ).setIndexNames((0, "F10-CHASSIS-MIB", "chSysCardNumber"), (0, "F10-FIB-MIB", "f10IpforwardDest"), (0, "F10-FIB-MIB", "f10IpforwardMask"), (0, "F10-FIB-MIB", "f10IpforwardNextHop"), (0, "F10-FIB-MIB", "f10IpforwardFirstHop"))
+if mibBuilder.loadTexts: f10IpForwardEntry.setStatus('deprecated')
+f10IpforwardDest = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f10IpforwardDest.setStatus('deprecated')
+f10IpforwardMask = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f10IpforwardMask.setStatus('deprecated')
+f10IpforwardNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f10IpforwardNextHop.setStatus('deprecated')
+f10IpforwardFirstHop = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f10IpforwardFirstHop.setStatus('deprecated')
+f10IpforwardIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f10IpforwardIfIndex.setStatus('deprecated')
+f10IpforwardMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 6), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f10IpforwardMacAddress.setStatus('deprecated')
+f10IpforwardEgressPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f10IpforwardEgressPort.setStatus('deprecated')
+f10IpforwardCamIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f10IpforwardCamIndex.setStatus('deprecated')
+f10InetCidrIpv4RouteNumber = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f10InetCidrIpv4RouteNumber.setStatus('current')
+f10InetCidrIpv6RouteNumber = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f10InetCidrIpv6RouteNumber.setStatus('current')
+f10InetCidrRouteTable = MibTable((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5), )
+if mibBuilder.loadTexts: f10InetCidrRouteTable.setStatus('current')
+f10InetCidrRouteTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1), ).setIndexNames((0, "F10-CHASSIS-MIB", "chSysCardNumber"), (0, "F10-FIB-MIB", "f10InetCidrRouteDestType"), (0, "F10-FIB-MIB", "f10InetCidrRouteDest"), (0, "F10-FIB-MIB", "f10InetCidrRoutePfxLen"), (0, "F10-FIB-MIB", "f10InetCidrRouteNextHopType"), (0, "F10-FIB-MIB", "f10InetCidrRouteNextHop"), (0, "F10-FIB-MIB", "f10InetCidrRouteFirstHopType"), (0, "F10-FIB-MIB", "f10InetCidrRouteFirstHop"))
+if mibBuilder.loadTexts: f10InetCidrRouteTableEntry.setStatus('current')
+f10InetCidrRouteDestType = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: f10InetCidrRouteDestType.setStatus('current')
+f10InetCidrRouteDest = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 2), InetAddress())
+if mibBuilder.loadTexts: f10InetCidrRouteDest.setStatus('current')
+f10InetCidrRoutePfxLen = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 3), InetAddressPrefixLength())
+if mibBuilder.loadTexts: f10InetCidrRoutePfxLen.setStatus('current')
+f10InetCidrRouteNextHopType = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 4), InetAddressType())
+if mibBuilder.loadTexts: f10InetCidrRouteNextHopType.setStatus('current')
+f10InetCidrRouteNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 5), InetAddress())
+if mibBuilder.loadTexts: f10InetCidrRouteNextHop.setStatus('current')
+f10InetCidrRouteFirstHopType = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 6), InetAddressType())
+if mibBuilder.loadTexts: f10InetCidrRouteFirstHopType.setStatus('current')
+f10InetCidrRouteFirstHop = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 7), InetAddress())
+if mibBuilder.loadTexts: f10InetCidrRouteFirstHop.setStatus('current')
+f10InetCidrRouteIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 8), InterfaceIndexOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f10InetCidrRouteIfIndex.setStatus('current')
+f10InetCidrRouteMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 9), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f10InetCidrRouteMacAddress.setStatus('current')
+f10InetCidrRouteEgressPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f10InetCidrRouteEgressPort.setStatus('current')
+f10InetCidrRouteCamIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f10InetCidrRouteCamIndex.setStatus('current')
+f10IpForwardMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 9, 2, 1))
+f10IpForwardMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 9, 2, 2))
+f10IpForwardMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6027, 3, 9, 2, 1, 1)).setObjects(("F10-FIB-MIB", "f10IpForwardObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    f10IpForwardMibCompliance = f10IpForwardMibCompliance.setStatus('current')
+f10IpForwardObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6027, 3, 9, 2, 2, 1)).setObjects(("F10-FIB-MIB", "f10IpForwardVersion"), ("F10-FIB-MIB", "f10InetCidrRouteIfIndex"), ("F10-FIB-MIB", "f10InetCidrRouteMacAddress"), ("F10-FIB-MIB", "f10InetCidrRouteEgressPort"), ("F10-FIB-MIB", "f10InetCidrRouteCamIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    f10IpForwardObjectGroup = f10IpForwardObjectGroup.setStatus('current')
+mibBuilder.exportSymbols("F10-FIB-MIB", f10IpforwardMask=f10IpforwardMask, f10InetCidrRouteMacAddress=f10InetCidrRouteMacAddress, f10IpForwardMibCompliances=f10IpForwardMibCompliances, f10IpForwardMibConformance=f10IpForwardMibConformance, f10InetCidrRouteDest=f10InetCidrRouteDest, f10IpForwardAddrFamily=f10IpForwardAddrFamily, f10InetCidrRouteNextHop=f10InetCidrRouteNextHop, f10IpForwardVersionTable=f10IpForwardVersionTable, f10InetCidrIpv4RouteNumber=f10InetCidrIpv4RouteNumber, f10IpforwardDest=f10IpforwardDest, f10IpForwardMibGroups=f10IpForwardMibGroups, f10IpforwardMacAddress=f10IpforwardMacAddress, f10InetCidrIpv6RouteNumber=f10InetCidrIpv6RouteNumber, f10InetCidrRoutePfxLen=f10InetCidrRoutePfxLen, f10IpforwardFirstHop=f10IpforwardFirstHop, f10InetCidrRouteNextHopType=f10InetCidrRouteNextHopType, f10IpForwardEntry=f10IpForwardEntry, f10IpforwardIfIndex=f10IpforwardIfIndex, f10IpforwardEgressPort=f10IpforwardEgressPort, f10IpForwardTable=f10IpForwardTable, f10IpForwardMib=f10IpForwardMib, f10IpforwardNextHop=f10IpforwardNextHop, f10InetCidrRouteFirstHop=f10InetCidrRouteFirstHop, f10InetCidrRouteCamIndex=f10InetCidrRouteCamIndex, f10InetCidrRouteTable=f10InetCidrRouteTable, f10IpForwardMibCompliance=f10IpForwardMibCompliance, f10IpForwardVersionEntry=f10IpForwardVersionEntry, f10InetCidrRouteTableEntry=f10InetCidrRouteTableEntry, f10IpForwardObjectGroup=f10IpForwardObjectGroup, f10IpforwardCamIndex=f10IpforwardCamIndex, f10InetCidrRouteFirstHopType=f10InetCidrRouteFirstHopType, f10InetCidrRouteIfIndex=f10InetCidrRouteIfIndex, f10IpForwardVersion=f10IpForwardVersion, f10IpForwardMibObjects=f10IpForwardMibObjects, f10InetCidrRouteDestType=f10InetCidrRouteDestType, PYSNMP_MODULE_ID=f10IpForwardMib, f10InetCidrRouteEgressPort=f10InetCidrRouteEgressPort)

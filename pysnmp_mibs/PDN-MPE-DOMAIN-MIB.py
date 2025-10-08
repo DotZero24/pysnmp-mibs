@@ -1,87 +1,48 @@
-_H='mpePdnCardConfigVnidId'
-_G='PDN-MPE-DOMAIN-MIB'
-_F='read-only'
-_E='NotificationType'
-_D='entPhysicalIndex'
-_C='ENTITY-MIB'
-_B='read-write'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-entPhysicalIndex,=mibBuilder.importSymbols(_C,_D)
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-mpe_domain,=mibBuilder.importSymbols('PDN-HEADER-MIB','mpe-domain')
-ClientState,SwitchState,VnidRange,VnidTaggingState=mibBuilder.importSymbols('PDN-TC','ClientState','SwitchState','VnidRange','VnidTaggingState')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier',_E,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_E,'TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention')
-_MpePdnDomainMIBObjects_ObjectIdentity=ObjectIdentity
-mpePdnDomainMIBObjects=_MpePdnDomainMIBObjects_ObjectIdentity((1,3,6,1,4,1,1795,2,24,12,22,1))
-_MpePdnCardGeneralParams_ObjectIdentity=ObjectIdentity
-mpePdnCardGeneralParams=_MpePdnCardGeneralParams_ObjectIdentity((1,3,6,1,4,1,1795,2,24,12,22,1,1))
-_MpePdnCardGeneralParamsTable_Object=MibTable
-mpePdnCardGeneralParamsTable=_MpePdnCardGeneralParamsTable_Object((1,3,6,1,4,1,1795,2,24,12,22,1,1,1))
-if mibBuilder.loadTexts:mpePdnCardGeneralParamsTable.setStatus(_A)
-_MpePdnCardGeneralParamsEntry_Object=MibTableRow
-mpePdnCardGeneralParamsEntry=_MpePdnCardGeneralParamsEntry_Object((1,3,6,1,4,1,1795,2,24,12,22,1,1,1,1))
-mpePdnCardGeneralParamsEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:mpePdnCardGeneralParamsEntry.setStatus(_A)
-_MpePdnCardGeneralParamsVNIDMode_Type=VnidTaggingState
-_MpePdnCardGeneralParamsVNIDMode_Object=MibTableColumn
-mpePdnCardGeneralParamsVNIDMode=_MpePdnCardGeneralParamsVNIDMode_Object((1,3,6,1,4,1,1795,2,24,12,22,1,1,1,1,1),_MpePdnCardGeneralParamsVNIDMode_Type())
-mpePdnCardGeneralParamsVNIDMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpePdnCardGeneralParamsVNIDMode.setStatus(_A)
-_MpePdnCardGeneralParamsAdditionalClientsAvailable_Type=Integer32
-_MpePdnCardGeneralParamsAdditionalClientsAvailable_Object=MibTableColumn
-mpePdnCardGeneralParamsAdditionalClientsAvailable=_MpePdnCardGeneralParamsAdditionalClientsAvailable_Object((1,3,6,1,4,1,1795,2,24,12,22,1,1,1,1,2),_MpePdnCardGeneralParamsAdditionalClientsAvailable_Type())
-mpePdnCardGeneralParamsAdditionalClientsAvailable.setMaxAccess(_F)
-if mibBuilder.loadTexts:mpePdnCardGeneralParamsAdditionalClientsAvailable.setStatus(_A)
-_MpePdnCardConfig_ObjectIdentity=ObjectIdentity
-mpePdnCardConfig=_MpePdnCardConfig_ObjectIdentity((1,3,6,1,4,1,1795,2,24,12,22,1,2))
-_MpePdnCardConfigTable_Object=MibTable
-mpePdnCardConfigTable=_MpePdnCardConfigTable_Object((1,3,6,1,4,1,1795,2,24,12,22,1,2,1))
-if mibBuilder.loadTexts:mpePdnCardConfigTable.setStatus(_A)
-_MpePdnCardConfigEntry_Object=MibTableRow
-mpePdnCardConfigEntry=_MpePdnCardConfigEntry_Object((1,3,6,1,4,1,1795,2,24,12,22,1,2,1,1))
-mpePdnCardConfigEntry.setIndexNames((0,_C,_D),(0,_G,_H))
-if mibBuilder.loadTexts:mpePdnCardConfigEntry.setStatus(_A)
-_MpePdnCardConfigVnidId_Type=VnidRange
-_MpePdnCardConfigVnidId_Object=MibTableColumn
-mpePdnCardConfigVnidId=_MpePdnCardConfigVnidId_Object((1,3,6,1,4,1,1795,2,24,12,22,1,2,1,1,1),_MpePdnCardConfigVnidId_Type())
-mpePdnCardConfigVnidId.setMaxAccess(_F)
-if mibBuilder.loadTexts:mpePdnCardConfigVnidId.setStatus(_A)
-_MpePdnCardConfigDomainName_Type=DisplayString
-_MpePdnCardConfigDomainName_Object=MibTableColumn
-mpePdnCardConfigDomainName=_MpePdnCardConfigDomainName_Object((1,3,6,1,4,1,1795,2,24,12,22,1,2,1,1,2),_MpePdnCardConfigDomainName_Type())
-mpePdnCardConfigDomainName.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpePdnCardConfigDomainName.setStatus(_A)
-_MpePdnCardConfigMuxFwd_Type=SwitchState
-_MpePdnCardConfigMuxFwd_Object=MibTableColumn
-mpePdnCardConfigMuxFwd=_MpePdnCardConfigMuxFwd_Object((1,3,6,1,4,1,1795,2,24,12,22,1,2,1,1,3),_MpePdnCardConfigMuxFwd_Type())
-mpePdnCardConfigMuxFwd.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpePdnCardConfigMuxFwd.setStatus(_A)
-_MpePdnCardConfigIPFiltering_Type=SwitchState
-_MpePdnCardConfigIPFiltering_Object=MibTableColumn
-mpePdnCardConfigIPFiltering=_MpePdnCardConfigIPFiltering_Object((1,3,6,1,4,1,1795,2,24,12,22,1,2,1,1,4),_MpePdnCardConfigIPFiltering_Type())
-mpePdnCardConfigIPFiltering.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpePdnCardConfigIPFiltering.setStatus(_A)
-_MpePdnCardConfigIPScoping_Type=SwitchState
-_MpePdnCardConfigIPScoping_Object=MibTableColumn
-mpePdnCardConfigIPScoping=_MpePdnCardConfigIPScoping_Object((1,3,6,1,4,1,1795,2,24,12,22,1,2,1,1,5),_MpePdnCardConfigIPScoping_Type())
-mpePdnCardConfigIPScoping.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpePdnCardConfigIPScoping.setStatus(_A)
-_MpePdnCardConfigVnidAuth_Type=SwitchState
-_MpePdnCardConfigVnidAuth_Object=MibTableColumn
-mpePdnCardConfigVnidAuth=_MpePdnCardConfigVnidAuth_Object((1,3,6,1,4,1,1795,2,24,12,22,1,2,1,1,6),_MpePdnCardConfigVnidAuth_Type())
-mpePdnCardConfigVnidAuth.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpePdnCardConfigVnidAuth.setStatus(_A)
-_MpePdnCardConfigRowStatus_Type=RowStatus
-_MpePdnCardConfigRowStatus_Object=MibTableColumn
-mpePdnCardConfigRowStatus=_MpePdnCardConfigRowStatus_Object((1,3,6,1,4,1,1795,2,24,12,22,1,2,1,1,7),_MpePdnCardConfigRowStatus_Type())
-mpePdnCardConfigRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpePdnCardConfigRowStatus.setStatus(_A)
-_MpePdnDomainMIBTraps_ObjectIdentity=ObjectIdentity
-mpePdnDomainMIBTraps=_MpePdnDomainMIBTraps_ObjectIdentity((1,3,6,1,4,1,1795,2,24,12,22,2))
-mibBuilder.exportSymbols(_G,**{'mpePdnDomainMIBObjects':mpePdnDomainMIBObjects,'mpePdnCardGeneralParams':mpePdnCardGeneralParams,'mpePdnCardGeneralParamsTable':mpePdnCardGeneralParamsTable,'mpePdnCardGeneralParamsEntry':mpePdnCardGeneralParamsEntry,'mpePdnCardGeneralParamsVNIDMode':mpePdnCardGeneralParamsVNIDMode,'mpePdnCardGeneralParamsAdditionalClientsAvailable':mpePdnCardGeneralParamsAdditionalClientsAvailable,'mpePdnCardConfig':mpePdnCardConfig,'mpePdnCardConfigTable':mpePdnCardConfigTable,'mpePdnCardConfigEntry':mpePdnCardConfigEntry,_H:mpePdnCardConfigVnidId,'mpePdnCardConfigDomainName':mpePdnCardConfigDomainName,'mpePdnCardConfigMuxFwd':mpePdnCardConfigMuxFwd,'mpePdnCardConfigIPFiltering':mpePdnCardConfigIPFiltering,'mpePdnCardConfigIPScoping':mpePdnCardConfigIPScoping,'mpePdnCardConfigVnidAuth':mpePdnCardConfigVnidAuth,'mpePdnCardConfigRowStatus':mpePdnCardConfigRowStatus,'mpePdnDomainMIBTraps':mpePdnDomainMIBTraps})
+#
+# PySNMP MIB module PDN-MPE-DOMAIN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/paradyne/PDN-MPE-DOMAIN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:45 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+mpe_domain, = mibBuilder.importSymbols("PDN-HEADER-MIB", "mpe-domain")
+VnidRange, VnidTaggingState, SwitchState, ClientState = mibBuilder.importSymbols("PDN-TC", "VnidRange", "VnidTaggingState", "SwitchState", "ClientState")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Integer32, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Integer32", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+mpePdnDomainMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1))
+mpePdnDomainMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 2))
+mpePdnCardGeneralParams = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1, 1))
+mpePdnCardConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1, 2))
+mpePdnCardGeneralParamsTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1, 1, 1), )
+if mibBuilder.loadTexts: mpePdnCardGeneralParamsTable.setStatus('mandatory')
+mpePdnCardGeneralParamsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: mpePdnCardGeneralParamsEntry.setStatus('mandatory')
+mpePdnCardGeneralParamsVNIDMode = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1, 1, 1, 1, 1), VnidTaggingState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mpePdnCardGeneralParamsVNIDMode.setStatus('mandatory')
+mpePdnCardGeneralParamsAdditionalClientsAvailable = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpePdnCardGeneralParamsAdditionalClientsAvailable.setStatus('mandatory')
+mpePdnCardConfigTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1, 2, 1), )
+if mibBuilder.loadTexts: mpePdnCardConfigTable.setStatus('mandatory')
+mpePdnCardConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1, 2, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "PDN-MPE-DOMAIN-MIB", "mpePdnCardConfigVnidId"))
+if mibBuilder.loadTexts: mpePdnCardConfigEntry.setStatus('mandatory')
+mpePdnCardConfigVnidId = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1, 2, 1, 1, 1), VnidRange()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpePdnCardConfigVnidId.setStatus('mandatory')
+mpePdnCardConfigDomainName = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1, 2, 1, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mpePdnCardConfigDomainName.setStatus('mandatory')
+mpePdnCardConfigMuxFwd = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1, 2, 1, 1, 3), SwitchState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mpePdnCardConfigMuxFwd.setStatus('mandatory')
+mpePdnCardConfigIPFiltering = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1, 2, 1, 1, 4), SwitchState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mpePdnCardConfigIPFiltering.setStatus('mandatory')
+mpePdnCardConfigIPScoping = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1, 2, 1, 1, 5), SwitchState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mpePdnCardConfigIPScoping.setStatus('mandatory')
+mpePdnCardConfigVnidAuth = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1, 2, 1, 1, 6), SwitchState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mpePdnCardConfigVnidAuth.setStatus('mandatory')
+mpePdnCardConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 12, 22, 1, 2, 1, 1, 7), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mpePdnCardConfigRowStatus.setStatus('mandatory')
+mibBuilder.exportSymbols("PDN-MPE-DOMAIN-MIB", mpePdnCardConfigRowStatus=mpePdnCardConfigRowStatus, mpePdnCardConfigEntry=mpePdnCardConfigEntry, mpePdnCardConfigIPFiltering=mpePdnCardConfigIPFiltering, mpePdnCardGeneralParamsEntry=mpePdnCardGeneralParamsEntry, mpePdnCardConfigTable=mpePdnCardConfigTable, mpePdnCardConfigDomainName=mpePdnCardConfigDomainName, mpePdnCardConfigIPScoping=mpePdnCardConfigIPScoping, mpePdnCardConfigVnidAuth=mpePdnCardConfigVnidAuth, mpePdnCardGeneralParamsVNIDMode=mpePdnCardGeneralParamsVNIDMode, mpePdnCardGeneralParamsAdditionalClientsAvailable=mpePdnCardGeneralParamsAdditionalClientsAvailable, mpePdnCardGeneralParamsTable=mpePdnCardGeneralParamsTable, mpePdnDomainMIBTraps=mpePdnDomainMIBTraps, mpePdnCardConfigMuxFwd=mpePdnCardConfigMuxFwd, mpePdnCardConfigVnidId=mpePdnCardConfigVnidId, mpePdnCardGeneralParams=mpePdnCardGeneralParams, mpePdnCardConfig=mpePdnCardConfig, mpePdnDomainMIBObjects=mpePdnDomainMIBObjects)

@@ -1,69 +1,44 @@
-_K='ciscoIfLoopbackGroup'
-_J='cifLRowStatus'
-_I='cifLFELoopbackDeviceAndCode'
-_H='cifLLoopbackStatus'
-_G='cifLLoopback'
-_F='ifIndex'
-_E='IF-MIB'
-_D='read-create'
-_C='Integer32'
-_B='CISCO-IF-LOOPBACK-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-ciscoIfLoopbackMIB=ModuleIdentity((1,3,6,1,4,1,9,9,9399))
-if mibBuilder.loadTexts:ciscoIfLoopbackMIB.setRevisions(('2001-11-15 00:00',))
-_CiscoIfLoopbackMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoIfLoopbackMIBObjects=_CiscoIfLoopbackMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,9399,1))
-_CiscoIfLoopbackConfig_ObjectIdentity=ObjectIdentity
-ciscoIfLoopbackConfig=_CiscoIfLoopbackConfig_ObjectIdentity((1,3,6,1,4,1,9,9,9399,1,1))
-_CifLConfTable_Object=MibTable
-cifLConfTable=_CifLConfTable_Object((1,3,6,1,4,1,9,9,9399,1,1,1))
-if mibBuilder.loadTexts:cifLConfTable.setStatus(_A)
-_CifLConfEntry_Object=MibTableRow
-cifLConfEntry=_CifLConfEntry_Object((1,3,6,1,4,1,9,9,9399,1,1,1,1))
-cifLConfEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:cifLConfEntry.setStatus(_A)
-class _CifLLoopback_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('farEndLineLoopback',1),('farEndPayloadLoopback',2),('remoteLineLoopback',3),('remotePayloadLoopback',4),('localLoopback',5)))
-_CifLLoopback_Type.__name__=_C
-_CifLLoopback_Object=MibTableColumn
-cifLLoopback=_CifLLoopback_Object((1,3,6,1,4,1,9,9,9399,1,1,1,1,1),_CifLLoopback_Type())
-cifLLoopback.setMaxAccess(_D)
-if mibBuilder.loadTexts:cifLLoopback.setStatus(_A)
-class _CifLLoopbackStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('completed',1),('inProgress',2),('clockOutOfSync',3),('failed',4)))
-_CifLLoopbackStatus_Type.__name__=_C
-_CifLLoopbackStatus_Object=MibTableColumn
-cifLLoopbackStatus=_CifLLoopbackStatus_Object((1,3,6,1,4,1,9,9,9399,1,1,1,1,2),_CifLLoopbackStatus_Type())
-cifLLoopbackStatus.setMaxAccess('read-only')
-if mibBuilder.loadTexts:cifLLoopbackStatus.setStatus(_A)
-class _CifLFELoopbackDeviceAndCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17)));namedValues=NamedValues(*(('nonLatchOCUwith1',1),('nonLatchOCUwithout1',2),('nonLatchCSU',3),('nonLatchDSU',4),('latchDS0Drop',5),('latchDS0Line',6),('latchOCU',7),('latchCSU',8),('latchDSU',9),('latchHL96',10),('v54PN127Polynomial',11),('lineInband',12),('lineLoopbackESF',13),('payloadLoopbackESF',14),('noCode',15),('lineLoopbackFEAC',16),('smartJackInband',17)))
-_CifLFELoopbackDeviceAndCode_Type.__name__=_C
-_CifLFELoopbackDeviceAndCode_Object=MibTableColumn
-cifLFELoopbackDeviceAndCode=_CifLFELoopbackDeviceAndCode_Object((1,3,6,1,4,1,9,9,9399,1,1,1,1,3),_CifLFELoopbackDeviceAndCode_Type())
-cifLFELoopbackDeviceAndCode.setMaxAccess(_D)
-if mibBuilder.loadTexts:cifLFELoopbackDeviceAndCode.setStatus(_A)
-_CifLRowStatus_Type=RowStatus
-_CifLRowStatus_Object=MibTableColumn
-cifLRowStatus=_CifLRowStatus_Object((1,3,6,1,4,1,9,9,9399,1,1,1,1,4),_CifLRowStatus_Type())
-cifLRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cifLRowStatus.setStatus(_A)
-_CiscoIfLoopbackMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoIfLoopbackMIBConformance=_CiscoIfLoopbackMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,9399,8))
-_CiscoIfLoopbackMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoIfLoopbackMIBCompliances=_CiscoIfLoopbackMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,9399,8,1))
-_CiscoIfLoopbackMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoIfLoopbackMIBGroups=_CiscoIfLoopbackMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,9399,8,2))
-ciscoIfLoopbackGroup=ObjectGroup((1,3,6,1,4,1,9,9,9399,8,2,1))
-ciscoIfLoopbackGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J)))
-if mibBuilder.loadTexts:ciscoIfLoopbackGroup.setStatus(_A)
-ciscoIfLoopbackMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,9399,8,1,1))
-ciscoIfLoopbackMIBCompliance.setObjects((_B,_K))
-if mibBuilder.loadTexts:ciscoIfLoopbackMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoIfLoopbackMIB':ciscoIfLoopbackMIB,'ciscoIfLoopbackMIBObjects':ciscoIfLoopbackMIBObjects,'ciscoIfLoopbackConfig':ciscoIfLoopbackConfig,'cifLConfTable':cifLConfTable,'cifLConfEntry':cifLConfEntry,_G:cifLLoopback,_H:cifLLoopbackStatus,_I:cifLFELoopbackDeviceAndCode,_J:cifLRowStatus,'ciscoIfLoopbackMIBConformance':ciscoIfLoopbackMIBConformance,'ciscoIfLoopbackMIBCompliances':ciscoIfLoopbackMIBCompliances,'ciscoIfLoopbackMIBCompliance':ciscoIfLoopbackMIBCompliance,'ciscoIfLoopbackMIBGroups':ciscoIfLoopbackMIBGroups,_K:ciscoIfLoopbackGroup})
+#
+# PySNMP MIB module CISCO-IF-LOOPBACK-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-IF-LOOPBACK-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:03 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ciscoIfLoopbackMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 9399))
+ciscoIfLoopbackMIB.setRevisions(('2001-11-15 00:00',))
+if mibBuilder.loadTexts: ciscoIfLoopbackMIB.setLastUpdated('200111150000Z')
+if mibBuilder.loadTexts: ciscoIfLoopbackMIB.setOrganization('Cisco Systems, Inc.')
+ciscoIfLoopbackMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9399, 1))
+ciscoIfLoopbackConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9399, 1, 1))
+cifLConfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 9399, 1, 1, 1), )
+if mibBuilder.loadTexts: cifLConfTable.setStatus('current')
+cifLConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 9399, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cifLConfEntry.setStatus('current')
+cifLLoopback = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9399, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("farEndLineLoopback", 1), ("farEndPayloadLoopback", 2), ("remoteLineLoopback", 3), ("remotePayloadLoopback", 4), ("localLoopback", 5)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cifLLoopback.setStatus('current')
+cifLLoopbackStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9399, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("completed", 1), ("inProgress", 2), ("clockOutOfSync", 3), ("failed", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cifLLoopbackStatus.setStatus('current')
+cifLFELoopbackDeviceAndCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9399, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17))).clone(namedValues=NamedValues(("nonLatchOCUwith1", 1), ("nonLatchOCUwithout1", 2), ("nonLatchCSU", 3), ("nonLatchDSU", 4), ("latchDS0Drop", 5), ("latchDS0Line", 6), ("latchOCU", 7), ("latchCSU", 8), ("latchDSU", 9), ("latchHL96", 10), ("v54PN127Polynomial", 11), ("lineInband", 12), ("lineLoopbackESF", 13), ("payloadLoopbackESF", 14), ("noCode", 15), ("lineLoopbackFEAC", 16), ("smartJackInband", 17)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cifLFELoopbackDeviceAndCode.setStatus('current')
+cifLRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9399, 1, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cifLRowStatus.setStatus('current')
+ciscoIfLoopbackMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9399, 8))
+ciscoIfLoopbackMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9399, 8, 1))
+ciscoIfLoopbackMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9399, 8, 2))
+ciscoIfLoopbackMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 9399, 8, 1, 1)).setObjects(("CISCO-IF-LOOPBACK-MIB", "ciscoIfLoopbackGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIfLoopbackMIBCompliance = ciscoIfLoopbackMIBCompliance.setStatus('current')
+ciscoIfLoopbackGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 9399, 8, 2, 1)).setObjects(("CISCO-IF-LOOPBACK-MIB", "cifLLoopback"), ("CISCO-IF-LOOPBACK-MIB", "cifLLoopbackStatus"), ("CISCO-IF-LOOPBACK-MIB", "cifLFELoopbackDeviceAndCode"), ("CISCO-IF-LOOPBACK-MIB", "cifLRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIfLoopbackGroup = ciscoIfLoopbackGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-IF-LOOPBACK-MIB", ciscoIfLoopbackConfig=ciscoIfLoopbackConfig, cifLConfEntry=cifLConfEntry, ciscoIfLoopbackMIBCompliance=ciscoIfLoopbackMIBCompliance, ciscoIfLoopbackGroup=ciscoIfLoopbackGroup, ciscoIfLoopbackMIBCompliances=ciscoIfLoopbackMIBCompliances, cifLFELoopbackDeviceAndCode=cifLFELoopbackDeviceAndCode, cifLLoopbackStatus=cifLLoopbackStatus, PYSNMP_MODULE_ID=ciscoIfLoopbackMIB, ciscoIfLoopbackMIBConformance=ciscoIfLoopbackMIBConformance, ciscoIfLoopbackMIBObjects=ciscoIfLoopbackMIBObjects, cifLLoopback=cifLLoopback, cifLRowStatus=cifLRowStatus, cifLConfTable=cifLConfTable, ciscoIfLoopbackMIB=ciscoIfLoopbackMIB, ciscoIfLoopbackMIBGroups=ciscoIfLoopbackMIBGroups)

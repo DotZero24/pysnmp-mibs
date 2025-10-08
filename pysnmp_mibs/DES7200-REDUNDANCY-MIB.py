@@ -1,128 +1,61 @@
-_U='myRedundancyMIBGroup'
-_T='myPluggableModuleAction'
-_S='myPluggableModuleOnlinePortsNum'
-_R='myPluggableModuleConfigPortsNum'
-_Q='myPluggableModuleOnlineInfoDescr'
-_P='myPluggableModuleConfigInfoDescr'
-_O='myPluggableModuleOnlineSwVer'
-_N='myPluggableModuleConfigSwVer'
-_M='myPluggableModuleConfigType'
-_L='myPluggableModuleStatus'
-_K='myMainCPU'
-_J='myRedundancyForceSwitchover'
-_I='none'
-_H='myPluggableModuleInfoSlotIndex'
-_G='myPluggableModuleInfoDeviceIndex'
-_F='read-write'
-_E='DisplayString'
-_D='Integer32'
-_C='read-only'
-_B='DES7200-REDUNDANCY-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-myMgmt,=mibBuilder.importSymbols('DES7200-SMI','myMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_E,'PhysAddress','RowStatus','TextualConvention','TruthValue')
-myRedundancyMIB=ModuleIdentity((1,3,6,1,4,1,171,10,97,2,34))
-if mibBuilder.loadTexts:myRedundancyMIB.setRevisions(('2003-09-20 00:00',))
-_MyRedundancyMIBObjects_ObjectIdentity=ObjectIdentity
-myRedundancyMIBObjects=_MyRedundancyMIBObjects_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,34,1))
-_MyRedundancyForceSwitchover_Type=Integer32
-_MyRedundancyForceSwitchover_Object=MibScalar
-myRedundancyForceSwitchover=_MyRedundancyForceSwitchover_Object((1,3,6,1,4,1,171,10,97,2,34,1,1),_MyRedundancyForceSwitchover_Type())
-myRedundancyForceSwitchover.setMaxAccess(_F)
-if mibBuilder.loadTexts:myRedundancyForceSwitchover.setStatus(_A)
-class _MyMainCPU_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('increasing',0),('decreasing',1)))
-_MyMainCPU_Type.__name__=_D
-_MyMainCPU_Object=MibScalar
-myMainCPU=_MyMainCPU_Object((1,3,6,1,4,1,171,10,97,2,34,1,2),_MyMainCPU_Type())
-myMainCPU.setMaxAccess(_C)
-if mibBuilder.loadTexts:myMainCPU.setStatus(_A)
-_MyPluggableMIBObjects_ObjectIdentity=ObjectIdentity
-myPluggableMIBObjects=_MyPluggableMIBObjects_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,34,2))
-_MyPluggableModuleInfoTable_Object=MibTable
-myPluggableModuleInfoTable=_MyPluggableModuleInfoTable_Object((1,3,6,1,4,1,171,10,97,2,34,2,1))
-if mibBuilder.loadTexts:myPluggableModuleInfoTable.setStatus(_A)
-_MyPluggableModuleInfoEntry_Object=MibTableRow
-myPluggableModuleInfoEntry=_MyPluggableModuleInfoEntry_Object((1,3,6,1,4,1,171,10,97,2,34,2,1,1))
-myPluggableModuleInfoEntry.setIndexNames((0,_B,_G),(0,_B,_H))
-if mibBuilder.loadTexts:myPluggableModuleInfoEntry.setStatus(_A)
-_MyPluggableModuleInfoDeviceIndex_Type=Integer32
-_MyPluggableModuleInfoDeviceIndex_Object=MibTableColumn
-myPluggableModuleInfoDeviceIndex=_MyPluggableModuleInfoDeviceIndex_Object((1,3,6,1,4,1,171,10,97,2,34,2,1,1,1),_MyPluggableModuleInfoDeviceIndex_Type())
-myPluggableModuleInfoDeviceIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:myPluggableModuleInfoDeviceIndex.setStatus(_A)
-_MyPluggableModuleInfoSlotIndex_Type=Integer32
-_MyPluggableModuleInfoSlotIndex_Object=MibTableColumn
-myPluggableModuleInfoSlotIndex=_MyPluggableModuleInfoSlotIndex_Object((1,3,6,1,4,1,171,10,97,2,34,2,1,1,2),_MyPluggableModuleInfoSlotIndex_Type())
-myPluggableModuleInfoSlotIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:myPluggableModuleInfoSlotIndex.setStatus(_A)
-class _MyPluggableModuleStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_I,0),('ok',1),('installed',2),('conflict',3),('removed',4),('uninstalled',5),('verIncompatible',6),('cannot-myup',7),('resetting',8),('master',9),('backup',10)))
-_MyPluggableModuleStatus_Type.__name__=_D
-_MyPluggableModuleStatus_Object=MibTableColumn
-myPluggableModuleStatus=_MyPluggableModuleStatus_Object((1,3,6,1,4,1,171,10,97,2,34,2,1,1,3),_MyPluggableModuleStatus_Type())
-myPluggableModuleStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:myPluggableModuleStatus.setStatus(_A)
-class _MyPluggableModuleConfigType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*((_I,0),('m6800-24T-4SFP-4GT',1),('m6800-32T-4SFP-GT',2),('m6800-32FMT',3),('m6800-12GB',4),('m6800-24SFP',5),('m6800-12SFP-GT',6),('m6800-1XENPAK',7),('m6800-2XENPAK',8),('m6800-MSC',9),('m6800-CM',10),('m6800-24GT-8SFP',11)))
-_MyPluggableModuleConfigType_Type.__name__=_D
-_MyPluggableModuleConfigType_Object=MibTableColumn
-myPluggableModuleConfigType=_MyPluggableModuleConfigType_Object((1,3,6,1,4,1,171,10,97,2,34,2,1,1,4),_MyPluggableModuleConfigType_Type())
-myPluggableModuleConfigType.setMaxAccess(_F)
-if mibBuilder.loadTexts:myPluggableModuleConfigType.setStatus(_A)
-class _MyPluggableModuleConfigSwVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_MyPluggableModuleConfigSwVer_Type.__name__=_E
-_MyPluggableModuleConfigSwVer_Object=MibTableColumn
-myPluggableModuleConfigSwVer=_MyPluggableModuleConfigSwVer_Object((1,3,6,1,4,1,171,10,97,2,34,2,1,1,5),_MyPluggableModuleConfigSwVer_Type())
-myPluggableModuleConfigSwVer.setMaxAccess(_C)
-if mibBuilder.loadTexts:myPluggableModuleConfigSwVer.setStatus(_A)
-class _MyPluggableModuleOnlineSwVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_MyPluggableModuleOnlineSwVer_Type.__name__=_E
-_MyPluggableModuleOnlineSwVer_Object=MibTableColumn
-myPluggableModuleOnlineSwVer=_MyPluggableModuleOnlineSwVer_Object((1,3,6,1,4,1,171,10,97,2,34,2,1,1,6),_MyPluggableModuleOnlineSwVer_Type())
-myPluggableModuleOnlineSwVer.setMaxAccess(_C)
-if mibBuilder.loadTexts:myPluggableModuleOnlineSwVer.setStatus(_A)
-class _MyPluggableModuleConfigInfoDescr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_MyPluggableModuleConfigInfoDescr_Type.__name__=_E
-_MyPluggableModuleConfigInfoDescr_Object=MibTableColumn
-myPluggableModuleConfigInfoDescr=_MyPluggableModuleConfigInfoDescr_Object((1,3,6,1,4,1,171,10,97,2,34,2,1,1,7),_MyPluggableModuleConfigInfoDescr_Type())
-myPluggableModuleConfigInfoDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:myPluggableModuleConfigInfoDescr.setStatus(_A)
-class _MyPluggableModuleOnlineInfoDescr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_MyPluggableModuleOnlineInfoDescr_Type.__name__=_E
-_MyPluggableModuleOnlineInfoDescr_Object=MibTableColumn
-myPluggableModuleOnlineInfoDescr=_MyPluggableModuleOnlineInfoDescr_Object((1,3,6,1,4,1,171,10,97,2,34,2,1,1,8),_MyPluggableModuleOnlineInfoDescr_Type())
-myPluggableModuleOnlineInfoDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:myPluggableModuleOnlineInfoDescr.setStatus(_A)
-_MyPluggableModuleConfigPortsNum_Type=Integer32
-_MyPluggableModuleConfigPortsNum_Object=MibTableColumn
-myPluggableModuleConfigPortsNum=_MyPluggableModuleConfigPortsNum_Object((1,3,6,1,4,1,171,10,97,2,34,2,1,1,9),_MyPluggableModuleConfigPortsNum_Type())
-myPluggableModuleConfigPortsNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:myPluggableModuleConfigPortsNum.setStatus(_A)
-_MyPluggableModuleOnlinePortsNum_Type=Integer32
-_MyPluggableModuleOnlinePortsNum_Object=MibTableColumn
-myPluggableModuleOnlinePortsNum=_MyPluggableModuleOnlinePortsNum_Object((1,3,6,1,4,1,171,10,97,2,34,2,1,1,10),_MyPluggableModuleOnlinePortsNum_Type())
-myPluggableModuleOnlinePortsNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:myPluggableModuleOnlinePortsNum.setStatus(_A)
-class _MyPluggableModuleAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_I,0),('reset',1),('clearAllConf',2),('uninstall',3)))
-_MyPluggableModuleAction_Type.__name__=_D
-_MyPluggableModuleAction_Object=MibTableColumn
-myPluggableModuleAction=_MyPluggableModuleAction_Object((1,3,6,1,4,1,171,10,97,2,34,2,1,1,11),_MyPluggableModuleAction_Type())
-myPluggableModuleAction.setMaxAccess(_F)
-if mibBuilder.loadTexts:myPluggableModuleAction.setStatus(_A)
-_MyRedundancyMIBConformance_ObjectIdentity=ObjectIdentity
-myRedundancyMIBConformance=_MyRedundancyMIBConformance_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,34,3))
-_MyRedundancyMIBCompliances_ObjectIdentity=ObjectIdentity
-myRedundancyMIBCompliances=_MyRedundancyMIBCompliances_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,34,3,1))
-_MyRedundancyMIBGroups_ObjectIdentity=ObjectIdentity
-myRedundancyMIBGroups=_MyRedundancyMIBGroups_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,34,3,2))
-myRedundancyMIBGroup=ObjectGroup((1,3,6,1,4,1,171,10,97,2,34,3,2,1))
-myRedundancyMIBGroup.setObjects(*((_B,_J),(_B,_K),(_B,_G),(_B,_H),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T)))
-if mibBuilder.loadTexts:myRedundancyMIBGroup.setStatus(_A)
-myRedundancyMIBCompliance=ModuleCompliance((1,3,6,1,4,1,171,10,97,2,34,3,1,1))
-myRedundancyMIBCompliance.setObjects((_B,_U))
-if mibBuilder.loadTexts:myRedundancyMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'myRedundancyMIB':myRedundancyMIB,'myRedundancyMIBObjects':myRedundancyMIBObjects,_J:myRedundancyForceSwitchover,_K:myMainCPU,'myPluggableMIBObjects':myPluggableMIBObjects,'myPluggableModuleInfoTable':myPluggableModuleInfoTable,'myPluggableModuleInfoEntry':myPluggableModuleInfoEntry,_G:myPluggableModuleInfoDeviceIndex,_H:myPluggableModuleInfoSlotIndex,_L:myPluggableModuleStatus,_M:myPluggableModuleConfigType,_N:myPluggableModuleConfigSwVer,_O:myPluggableModuleOnlineSwVer,_P:myPluggableModuleConfigInfoDescr,_Q:myPluggableModuleOnlineInfoDescr,_R:myPluggableModuleConfigPortsNum,_S:myPluggableModuleOnlinePortsNum,_T:myPluggableModuleAction,'myRedundancyMIBConformance':myRedundancyMIBConformance,'myRedundancyMIBCompliances':myRedundancyMIBCompliances,'myRedundancyMIBCompliance':myRedundancyMIBCompliance,'myRedundancyMIBGroups':myRedundancyMIBGroups,_U:myRedundancyMIBGroup})
+#
+# PySNMP MIB module DES7200-REDUNDANCY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DES7200-REDUNDANCY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:34:07 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+myMgmt, = mibBuilder.importSymbols("DES7200-SMI", "myMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+myRedundancyMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34))
+myRedundancyMIB.setRevisions(('2003-09-20 00:00',))
+if mibBuilder.loadTexts: myRedundancyMIB.setLastUpdated('200309100000Z')
+if mibBuilder.loadTexts: myRedundancyMIB.setOrganization('$Company$')
+myRedundancyMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 1))
+myRedundancyForceSwitchover = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: myRedundancyForceSwitchover.setStatus('current')
+myMainCPU = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("increasing", 0), ("decreasing", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myMainCPU.setStatus('current')
+myPluggableMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 2))
+myPluggableModuleInfoTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 2, 1), )
+if mibBuilder.loadTexts: myPluggableModuleInfoTable.setStatus('current')
+myPluggableModuleInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 2, 1, 1), ).setIndexNames((0, "DES7200-REDUNDANCY-MIB", "myPluggableModuleInfoDeviceIndex"), (0, "DES7200-REDUNDANCY-MIB", "myPluggableModuleInfoSlotIndex"))
+if mibBuilder.loadTexts: myPluggableModuleInfoEntry.setStatus('current')
+myPluggableModuleInfoDeviceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myPluggableModuleInfoDeviceIndex.setStatus('current')
+myPluggableModuleInfoSlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 2, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myPluggableModuleInfoSlotIndex.setStatus('current')
+myPluggableModuleStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("none", 0), ("ok", 1), ("installed", 2), ("conflict", 3), ("removed", 4), ("uninstalled", 5), ("verIncompatible", 6), ("cannot-myup", 7), ("resetting", 8), ("master", 9), ("backup", 10)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myPluggableModuleStatus.setStatus('current')
+myPluggableModuleConfigType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("none", 0), ("m6800-24T-4SFP-4GT", 1), ("m6800-32T-4SFP-GT", 2), ("m6800-32FMT", 3), ("m6800-12GB", 4), ("m6800-24SFP", 5), ("m6800-12SFP-GT", 6), ("m6800-1XENPAK", 7), ("m6800-2XENPAK", 8), ("m6800-MSC", 9), ("m6800-CM", 10), ("m6800-24GT-8SFP", 11)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: myPluggableModuleConfigType.setStatus('current')
+myPluggableModuleConfigSwVer = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 2, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myPluggableModuleConfigSwVer.setStatus('current')
+myPluggableModuleOnlineSwVer = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 2, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myPluggableModuleOnlineSwVer.setStatus('current')
+myPluggableModuleConfigInfoDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 2, 1, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myPluggableModuleConfigInfoDescr.setStatus('current')
+myPluggableModuleOnlineInfoDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 2, 1, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myPluggableModuleOnlineInfoDescr.setStatus('current')
+myPluggableModuleConfigPortsNum = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 2, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myPluggableModuleConfigPortsNum.setStatus('current')
+myPluggableModuleOnlinePortsNum = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 2, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: myPluggableModuleOnlinePortsNum.setStatus('current')
+myPluggableModuleAction = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 2, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("none", 0), ("reset", 1), ("clearAllConf", 2), ("uninstall", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: myPluggableModuleAction.setStatus('current')
+myRedundancyMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 3))
+myRedundancyMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 3, 1))
+myRedundancyMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 3, 2))
+myRedundancyMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 3, 1, 1)).setObjects(("DES7200-REDUNDANCY-MIB", "myRedundancyMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    myRedundancyMIBCompliance = myRedundancyMIBCompliance.setStatus('current')
+myRedundancyMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 34, 3, 2, 1)).setObjects(("DES7200-REDUNDANCY-MIB", "myRedundancyForceSwitchover"), ("DES7200-REDUNDANCY-MIB", "myMainCPU"), ("DES7200-REDUNDANCY-MIB", "myPluggableModuleInfoDeviceIndex"), ("DES7200-REDUNDANCY-MIB", "myPluggableModuleInfoSlotIndex"), ("DES7200-REDUNDANCY-MIB", "myPluggableModuleStatus"), ("DES7200-REDUNDANCY-MIB", "myPluggableModuleConfigType"), ("DES7200-REDUNDANCY-MIB", "myPluggableModuleConfigSwVer"), ("DES7200-REDUNDANCY-MIB", "myPluggableModuleOnlineSwVer"), ("DES7200-REDUNDANCY-MIB", "myPluggableModuleConfigInfoDescr"), ("DES7200-REDUNDANCY-MIB", "myPluggableModuleOnlineInfoDescr"), ("DES7200-REDUNDANCY-MIB", "myPluggableModuleConfigPortsNum"), ("DES7200-REDUNDANCY-MIB", "myPluggableModuleOnlinePortsNum"), ("DES7200-REDUNDANCY-MIB", "myPluggableModuleAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    myRedundancyMIBGroup = myRedundancyMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("DES7200-REDUNDANCY-MIB", myPluggableModuleConfigType=myPluggableModuleConfigType, PYSNMP_MODULE_ID=myRedundancyMIB, myPluggableMIBObjects=myPluggableMIBObjects, myRedundancyMIBGroups=myRedundancyMIBGroups, myRedundancyMIBGroup=myRedundancyMIBGroup, myRedundancyMIBConformance=myRedundancyMIBConformance, myPluggableModuleInfoDeviceIndex=myPluggableModuleInfoDeviceIndex, myRedundancyForceSwitchover=myRedundancyForceSwitchover, myPluggableModuleStatus=myPluggableModuleStatus, myPluggableModuleOnlineSwVer=myPluggableModuleOnlineSwVer, myPluggableModuleConfigSwVer=myPluggableModuleConfigSwVer, myPluggableModuleInfoTable=myPluggableModuleInfoTable, myRedundancyMIBCompliance=myRedundancyMIBCompliance, myPluggableModuleInfoSlotIndex=myPluggableModuleInfoSlotIndex, myPluggableModuleOnlinePortsNum=myPluggableModuleOnlinePortsNum, myPluggableModuleOnlineInfoDescr=myPluggableModuleOnlineInfoDescr, myPluggableModuleConfigPortsNum=myPluggableModuleConfigPortsNum, myPluggableModuleInfoEntry=myPluggableModuleInfoEntry, myPluggableModuleAction=myPluggableModuleAction, myRedundancyMIBObjects=myRedundancyMIBObjects, myRedundancyMIBCompliances=myRedundancyMIBCompliances, myPluggableModuleConfigInfoDescr=myPluggableModuleConfigInfoDescr, myRedundancyMIB=myRedundancyMIB, myMainCPU=myMainCPU)

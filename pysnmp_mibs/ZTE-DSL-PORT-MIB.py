@@ -1,38 +1,30 @@
-_D='Integer32'
-_C='ifIndex'
-_B='IF-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_B,_C)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-zxDslPortMib=ModuleIdentity((1,3,6,1,4,1,3902,1004,43))
-_Zte_ObjectIdentity=ObjectIdentity
-zte=_Zte_ObjectIdentity((1,3,6,1,4,1,3902))
-_ZxDsl_ObjectIdentity=ObjectIdentity
-zxDsl=_ZxDsl_ObjectIdentity((1,3,6,1,4,1,3902,1004))
-_ZxDslPortMibObjects_ObjectIdentity=ObjectIdentity
-zxDslPortMibObjects=_ZxDslPortMibObjects_ObjectIdentity((1,3,6,1,4,1,3902,1004,43,1))
-_ZxDslPortObjects_ObjectIdentity=ObjectIdentity
-zxDslPortObjects=_ZxDslPortObjects_ObjectIdentity((1,3,6,1,4,1,3902,1004,43,1,1))
-_ZxDslPortTable_Object=MibTable
-zxDslPortTable=_ZxDslPortTable_Object((1,3,6,1,4,1,3902,1004,43,1,1,10))
-if mibBuilder.loadTexts:zxDslPortTable.setStatus(_A)
-_ZxDslPortEntry_Object=MibTableRow
-zxDslPortEntry=_ZxDslPortEntry_Object((1,3,6,1,4,1,3902,1004,43,1,1,10,1))
-zxDslPortEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:zxDslPortEntry.setStatus(_A)
-class _ZxDslPortLockStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('unlock',1),('lock',2)))
-_ZxDslPortLockStatus_Type.__name__=_D
-_ZxDslPortLockStatus_Object=MibTableColumn
-zxDslPortLockStatus=_ZxDslPortLockStatus_Object((1,3,6,1,4,1,3902,1004,43,1,1,10,1,1),_ZxDslPortLockStatus_Type())
-zxDslPortLockStatus.setMaxAccess('read-write')
-if mibBuilder.loadTexts:zxDslPortLockStatus.setStatus(_A)
-_ZxDslPortTrapObjects_ObjectIdentity=ObjectIdentity
-zxDslPortTrapObjects=_ZxDslPortTrapObjects_ObjectIdentity((1,3,6,1,4,1,3902,1004,43,1,3))
-mibBuilder.exportSymbols('ZTE-DSL-PORT-MIB',**{'zte':zte,'zxDsl':zxDsl,'zxDslPortMib':zxDslPortMib,'zxDslPortMibObjects':zxDslPortMibObjects,'zxDslPortObjects':zxDslPortObjects,'zxDslPortTable':zxDslPortTable,'zxDslPortEntry':zxDslPortEntry,'zxDslPortLockStatus':zxDslPortLockStatus,'zxDslPortTrapObjects':zxDslPortTrapObjects})
+#
+# PySNMP MIB module ZTE-DSL-PORT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZTE-DSL-PORT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+zxDslPortMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1004, 43))
+if mibBuilder.loadTexts: zxDslPortMib.setLastUpdated('200712161500Z')
+if mibBuilder.loadTexts: zxDslPortMib.setOrganization('ZTE Corporation')
+zte = MibIdentifier((1, 3, 6, 1, 4, 1, 3902))
+zxDsl = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1004))
+zxDslPortMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1004, 43, 1))
+zxDslPortObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1004, 43, 1, 1))
+zxDslPortTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1004, 43, 1, 3))
+zxDslPortTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1004, 43, 1, 1, 10), )
+if mibBuilder.loadTexts: zxDslPortTable.setStatus('current')
+zxDslPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1004, 43, 1, 1, 10, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: zxDslPortEntry.setStatus('current')
+zxDslPortLockStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1004, 43, 1, 1, 10, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("unlock", 1), ("lock", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslPortLockStatus.setStatus('current')
+mibBuilder.exportSymbols("ZTE-DSL-PORT-MIB", zte=zte, zxDslPortObjects=zxDslPortObjects, zxDslPortEntry=zxDslPortEntry, zxDslPortLockStatus=zxDslPortLockStatus, zxDslPortMib=zxDslPortMib, zxDslPortTrapObjects=zxDslPortTrapObjects, zxDslPortTable=zxDslPortTable, zxDslPortMibObjects=zxDslPortMibObjects, PYSNMP_MODULE_ID=zxDslPortMib, zxDsl=zxDsl)

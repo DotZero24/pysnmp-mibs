@@ -1,142 +1,90 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-timetraGlobalMIBModule=ModuleIdentity((1,3,6,1,4,1,6527,1,1,1))
-if mibBuilder.loadTexts:timetraGlobalMIBModule.setRevisions(('1908-01-01 00:00','1907-01-01 00:00','1905-08-31 00:00','1905-01-24 00:00','1904-01-15 00:00','1903-01-20 00:00','1900-08-14 00:00'))
-_Timetra_ObjectIdentity=ObjectIdentity
-timetra=_Timetra_ObjectIdentity((1,3,6,1,4,1,6527))
-_TimetraReg_ObjectIdentity=ObjectIdentity
-timetraReg=_TimetraReg_ObjectIdentity((1,3,6,1,4,1,6527,1))
-_TimetraModules_ObjectIdentity=ObjectIdentity
-timetraModules=_TimetraModules_ObjectIdentity((1,3,6,1,4,1,6527,1,1))
-_TimetraSRMIBModules_ObjectIdentity=ObjectIdentity
-timetraSRMIBModules=_TimetraSRMIBModules_ObjectIdentity((1,3,6,1,4,1,6527,1,1,3))
-_TimetraCapabilityModule_ObjectIdentity=ObjectIdentity
-timetraCapabilityModule=_TimetraCapabilityModule_ObjectIdentity((1,3,6,1,4,1,6527,1,1,4))
-_Timetra7750CapModule_ObjectIdentity=ObjectIdentity
-timetra7750CapModule=_Timetra7750CapModule_ObjectIdentity((1,3,6,1,4,1,6527,1,1,4,1))
-_Timetra7450CapModule_ObjectIdentity=ObjectIdentity
-timetra7450CapModule=_Timetra7450CapModule_ObjectIdentity((1,3,6,1,4,1,6527,1,1,4,2))
-_Timetra7710CapModule_ObjectIdentity=ObjectIdentity
-timetra7710CapModule=_Timetra7710CapModule_ObjectIdentity((1,3,6,1,4,1,6527,1,1,4,3))
-_AlcatelCommonMIBModules_ObjectIdentity=ObjectIdentity
-alcatelCommonMIBModules=_AlcatelCommonMIBModules_ObjectIdentity((1,3,6,1,4,1,6527,1,1,5))
-_TimetraServiceRouters_ObjectIdentity=ObjectIdentity
-timetraServiceRouters=_TimetraServiceRouters_ObjectIdentity((1,3,6,1,4,1,6527,1,3))
-_TmnxModelSR1Reg_ObjectIdentity=ObjectIdentity
-tmnxModelSR1Reg=_TmnxModelSR1Reg_ObjectIdentity((1,3,6,1,4,1,6527,1,3,1))
-if mibBuilder.loadTexts:tmnxModelSR1Reg.setStatus(_A)
-_TmnxModelSR4Reg_ObjectIdentity=ObjectIdentity
-tmnxModelSR4Reg=_TmnxModelSR4Reg_ObjectIdentity((1,3,6,1,4,1,6527,1,3,2))
-if mibBuilder.loadTexts:tmnxModelSR4Reg.setStatus(_A)
-_TmnxModelSR12Reg_ObjectIdentity=ObjectIdentity
-tmnxModelSR12Reg=_TmnxModelSR12Reg_ObjectIdentity((1,3,6,1,4,1,6527,1,3,3))
-if mibBuilder.loadTexts:tmnxModelSR12Reg.setStatus(_A)
-_TmnxModelSR7Reg_ObjectIdentity=ObjectIdentity
-tmnxModelSR7Reg=_TmnxModelSR7Reg_ObjectIdentity((1,3,6,1,4,1,6527,1,3,4))
-if mibBuilder.loadTexts:tmnxModelSR7Reg.setStatus(_A)
-_TmnxModelSR6Reg_ObjectIdentity=ObjectIdentity
-tmnxModelSR6Reg=_TmnxModelSR6Reg_ObjectIdentity((1,3,6,1,4,1,6527,1,3,5))
-if mibBuilder.loadTexts:tmnxModelSR6Reg.setStatus(_A)
-_TimetraServiceSwitches_ObjectIdentity=ObjectIdentity
-timetraServiceSwitches=_TimetraServiceSwitches_ObjectIdentity((1,3,6,1,4,1,6527,1,6))
-_TmnxModelESS1Reg_ObjectIdentity=ObjectIdentity
-tmnxModelESS1Reg=_TmnxModelESS1Reg_ObjectIdentity((1,3,6,1,4,1,6527,1,6,1))
-if mibBuilder.loadTexts:tmnxModelESS1Reg.setStatus(_A)
-_TmnxModelESS4Reg_ObjectIdentity=ObjectIdentity
-tmnxModelESS4Reg=_TmnxModelESS4Reg_ObjectIdentity((1,3,6,1,4,1,6527,1,6,2))
-if mibBuilder.loadTexts:tmnxModelESS4Reg.setStatus(_A)
-_TmnxModelESS7Reg_ObjectIdentity=ObjectIdentity
-tmnxModelESS7Reg=_TmnxModelESS7Reg_ObjectIdentity((1,3,6,1,4,1,6527,1,6,3))
-if mibBuilder.loadTexts:tmnxModelESS7Reg.setStatus(_A)
-_TmnxModelESS12Reg_ObjectIdentity=ObjectIdentity
-tmnxModelESS12Reg=_TmnxModelESS12Reg_ObjectIdentity((1,3,6,1,4,1,6527,1,6,4))
-if mibBuilder.loadTexts:tmnxModelESS12Reg.setStatus(_A)
-_TmnxModelESS6Reg_ObjectIdentity=ObjectIdentity
-tmnxModelESS6Reg=_TmnxModelESS6Reg_ObjectIdentity((1,3,6,1,4,1,6527,1,6,5))
-if mibBuilder.loadTexts:tmnxModelESS6Reg.setStatus(_A)
-_TmnxModelESS6vReg_ObjectIdentity=ObjectIdentity
-tmnxModelESS6vReg=_TmnxModelESS6vReg_ObjectIdentity((1,3,6,1,4,1,6527,1,6,6))
-if mibBuilder.loadTexts:tmnxModelESS6vReg.setStatus(_A)
-_Alcatel7710ServiceRouters_ObjectIdentity=ObjectIdentity
-alcatel7710ServiceRouters=_Alcatel7710ServiceRouters_ObjectIdentity((1,3,6,1,4,1,6527,1,9))
-_TmnxModel7710SRc12Reg_ObjectIdentity=ObjectIdentity
-tmnxModel7710SRc12Reg=_TmnxModel7710SRc12Reg_ObjectIdentity((1,3,6,1,4,1,6527,1,9,1))
-if mibBuilder.loadTexts:tmnxModel7710SRc12Reg.setStatus(_A)
-_TmnxModel7710SRc4Reg_ObjectIdentity=ObjectIdentity
-tmnxModel7710SRc4Reg=_TmnxModel7710SRc4Reg_ObjectIdentity((1,3,6,1,4,1,6527,1,9,2))
-if mibBuilder.loadTexts:tmnxModel7710SRc4Reg.setStatus(_A)
-_TimetraGeneric_ObjectIdentity=ObjectIdentity
-timetraGeneric=_TimetraGeneric_ObjectIdentity((1,3,6,1,4,1,6527,2))
-_TimetraProducts_ObjectIdentity=ObjectIdentity
-timetraProducts=_TimetraProducts_ObjectIdentity((1,3,6,1,4,1,6527,3))
-_TmnxSRMIB_ObjectIdentity=ObjectIdentity
-tmnxSRMIB=_TmnxSRMIB_ObjectIdentity((1,3,6,1,4,1,6527,3,1))
-_TmnxSRConfs_ObjectIdentity=ObjectIdentity
-tmnxSRConfs=_TmnxSRConfs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1))
-_TmnxSRObjs_ObjectIdentity=ObjectIdentity
-tmnxSRObjs=_TmnxSRObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2))
-_TmnxSRNotifyPrefix_ObjectIdentity=ObjectIdentity
-tmnxSRNotifyPrefix=_TmnxSRNotifyPrefix_ObjectIdentity((1,3,6,1,4,1,6527,3,1,3))
-_TmnxESSMIB_ObjectIdentity=ObjectIdentity
-tmnxESSMIB=_TmnxESSMIB_ObjectIdentity((1,3,6,1,4,1,6527,3,2))
-_TmnxESSConfs_ObjectIdentity=ObjectIdentity
-tmnxESSConfs=_TmnxESSConfs_ObjectIdentity((1,3,6,1,4,1,6527,3,2,1))
-_TmnxESSObjs_ObjectIdentity=ObjectIdentity
-tmnxESSObjs=_TmnxESSObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,2,2))
-_TmnxESSNotifyPrefix_ObjectIdentity=ObjectIdentity
-tmnxESSNotifyPrefix=_TmnxESSNotifyPrefix_ObjectIdentity((1,3,6,1,4,1,6527,3,2,3))
-_AlcatelCommonMIB_ObjectIdentity=ObjectIdentity
-alcatelCommonMIB=_AlcatelCommonMIB_ObjectIdentity((1,3,6,1,4,1,6527,3,3))
-_AlcatelConformance_ObjectIdentity=ObjectIdentity
-alcatelConformance=_AlcatelConformance_ObjectIdentity((1,3,6,1,4,1,6527,3,3,1))
-_AlcatelObjects_ObjectIdentity=ObjectIdentity
-alcatelObjects=_AlcatelObjects_ObjectIdentity((1,3,6,1,4,1,6527,3,3,2))
-_AlcatelNotifyPrefix_ObjectIdentity=ObjectIdentity
-alcatelNotifyPrefix=_AlcatelNotifyPrefix_ObjectIdentity((1,3,6,1,4,1,6527,3,3,3))
-_TmnxAgentCapability_ObjectIdentity=ObjectIdentity
-tmnxAgentCapability=_TmnxAgentCapability_ObjectIdentity((1,3,6,1,4,1,6527,4))
-_Tmnx7750AgentCapability_ObjectIdentity=ObjectIdentity
-tmnx7750AgentCapability=_Tmnx7750AgentCapability_ObjectIdentity((1,3,6,1,4,1,6527,4,1))
-_Tmnx7450AgentCapability_ObjectIdentity=ObjectIdentity
-tmnx7450AgentCapability=_Tmnx7450AgentCapability_ObjectIdentity((1,3,6,1,4,1,6527,4,2))
-_Tmnx7710AgentCapability_ObjectIdentity=ObjectIdentity
-tmnx7710AgentCapability=_Tmnx7710AgentCapability_ObjectIdentity((1,3,6,1,4,1,6527,4,3))
-_TmnxProductCapability_ObjectIdentity=ObjectIdentity
-tmnxProductCapability=_TmnxProductCapability_ObjectIdentity((1,3,6,1,4,1,6527,5))
-_Tmnx7750Capability_ObjectIdentity=ObjectIdentity
-tmnx7750Capability=_Tmnx7750Capability_ObjectIdentity((1,3,6,1,4,1,6527,5,1))
-_Tmnx7750V3v0_ObjectIdentity=ObjectIdentity
-tmnx7750V3v0=_Tmnx7750V3v0_ObjectIdentity((1,3,6,1,4,1,6527,5,1,1))
-_Tmnx7750V4v0_ObjectIdentity=ObjectIdentity
-tmnx7750V4v0=_Tmnx7750V4v0_ObjectIdentity((1,3,6,1,4,1,6527,5,1,2))
-_Tmnx7750V5v0_ObjectIdentity=ObjectIdentity
-tmnx7750V5v0=_Tmnx7750V5v0_ObjectIdentity((1,3,6,1,4,1,6527,5,1,3))
-_Tmnx7750V6v0_ObjectIdentity=ObjectIdentity
-tmnx7750V6v0=_Tmnx7750V6v0_ObjectIdentity((1,3,6,1,4,1,6527,5,1,4))
-_Tmnx7450Capability_ObjectIdentity=ObjectIdentity
-tmnx7450Capability=_Tmnx7450Capability_ObjectIdentity((1,3,6,1,4,1,6527,5,2))
-_Tmnx7450V3v0_ObjectIdentity=ObjectIdentity
-tmnx7450V3v0=_Tmnx7450V3v0_ObjectIdentity((1,3,6,1,4,1,6527,5,2,1))
-_Tmnx7450V4v0_ObjectIdentity=ObjectIdentity
-tmnx7450V4v0=_Tmnx7450V4v0_ObjectIdentity((1,3,6,1,4,1,6527,5,2,2))
-_Tmnx7450V5v0_ObjectIdentity=ObjectIdentity
-tmnx7450V5v0=_Tmnx7450V5v0_ObjectIdentity((1,3,6,1,4,1,6527,5,2,3))
-_Tmnx7450V6v0_ObjectIdentity=ObjectIdentity
-tmnx7450V6v0=_Tmnx7450V6v0_ObjectIdentity((1,3,6,1,4,1,6527,5,2,4))
-_Tmnx7710Capability_ObjectIdentity=ObjectIdentity
-tmnx7710Capability=_Tmnx7710Capability_ObjectIdentity((1,3,6,1,4,1,6527,5,3))
-_Tmnx7710V3v0_ObjectIdentity=ObjectIdentity
-tmnx7710V3v0=_Tmnx7710V3v0_ObjectIdentity((1,3,6,1,4,1,6527,5,3,1))
-_Tmnx7710V4v0_ObjectIdentity=ObjectIdentity
-tmnx7710V4v0=_Tmnx7710V4v0_ObjectIdentity((1,3,6,1,4,1,6527,5,3,2))
-_Tmnx7710V5v0_ObjectIdentity=ObjectIdentity
-tmnx7710V5v0=_Tmnx7710V5v0_ObjectIdentity((1,3,6,1,4,1,6527,5,3,3))
-_Tmnx7710V6v0_ObjectIdentity=ObjectIdentity
-tmnx7710V6v0=_Tmnx7710V6v0_ObjectIdentity((1,3,6,1,4,1,6527,5,3,4))
-mibBuilder.exportSymbols('ALCATEL-ENT1-TIMETRA-GLOBAL-MIB',**{'timetra':timetra,'timetraReg':timetraReg,'timetraModules':timetraModules,'timetraGlobalMIBModule':timetraGlobalMIBModule,'timetraSRMIBModules':timetraSRMIBModules,'timetraCapabilityModule':timetraCapabilityModule,'timetra7750CapModule':timetra7750CapModule,'timetra7450CapModule':timetra7450CapModule,'timetra7710CapModule':timetra7710CapModule,'alcatelCommonMIBModules':alcatelCommonMIBModules,'timetraServiceRouters':timetraServiceRouters,'tmnxModelSR1Reg':tmnxModelSR1Reg,'tmnxModelSR4Reg':tmnxModelSR4Reg,'tmnxModelSR12Reg':tmnxModelSR12Reg,'tmnxModelSR7Reg':tmnxModelSR7Reg,'tmnxModelSR6Reg':tmnxModelSR6Reg,'timetraServiceSwitches':timetraServiceSwitches,'tmnxModelESS1Reg':tmnxModelESS1Reg,'tmnxModelESS4Reg':tmnxModelESS4Reg,'tmnxModelESS7Reg':tmnxModelESS7Reg,'tmnxModelESS12Reg':tmnxModelESS12Reg,'tmnxModelESS6Reg':tmnxModelESS6Reg,'tmnxModelESS6vReg':tmnxModelESS6vReg,'alcatel7710ServiceRouters':alcatel7710ServiceRouters,'tmnxModel7710SRc12Reg':tmnxModel7710SRc12Reg,'tmnxModel7710SRc4Reg':tmnxModel7710SRc4Reg,'timetraGeneric':timetraGeneric,'timetraProducts':timetraProducts,'tmnxSRMIB':tmnxSRMIB,'tmnxSRConfs':tmnxSRConfs,'tmnxSRObjs':tmnxSRObjs,'tmnxSRNotifyPrefix':tmnxSRNotifyPrefix,'tmnxESSMIB':tmnxESSMIB,'tmnxESSConfs':tmnxESSConfs,'tmnxESSObjs':tmnxESSObjs,'tmnxESSNotifyPrefix':tmnxESSNotifyPrefix,'alcatelCommonMIB':alcatelCommonMIB,'alcatelConformance':alcatelConformance,'alcatelObjects':alcatelObjects,'alcatelNotifyPrefix':alcatelNotifyPrefix,'tmnxAgentCapability':tmnxAgentCapability,'tmnx7750AgentCapability':tmnx7750AgentCapability,'tmnx7450AgentCapability':tmnx7450AgentCapability,'tmnx7710AgentCapability':tmnx7710AgentCapability,'tmnxProductCapability':tmnxProductCapability,'tmnx7750Capability':tmnx7750Capability,'tmnx7750V3v0':tmnx7750V3v0,'tmnx7750V4v0':tmnx7750V4v0,'tmnx7750V5v0':tmnx7750V5v0,'tmnx7750V6v0':tmnx7750V6v0,'tmnx7450Capability':tmnx7450Capability,'tmnx7450V3v0':tmnx7450V3v0,'tmnx7450V4v0':tmnx7450V4v0,'tmnx7450V5v0':tmnx7450V5v0,'tmnx7450V6v0':tmnx7450V6v0,'tmnx7710Capability':tmnx7710Capability,'tmnx7710V3v0':tmnx7710V3v0,'tmnx7710V4v0':tmnx7710V4v0,'tmnx7710V5v0':tmnx7710V5v0,'tmnx7710V6v0':tmnx7710V6v0})
+#
+# PySNMP MIB module ALCATEL-ENT1-TIMETRA-GLOBAL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel-ent1/ALCATEL-ENT1-TIMETRA-GLOBAL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:03 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+timetraGlobalMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 1, 1))
+timetraGlobalMIBModule.setRevisions(('1908-01-01 00:00', '1907-01-01 00:00', '1905-08-31 00:00', '1905-01-24 00:00', '1904-01-15 00:00', '1903-01-20 00:00', '1900-08-14 00:00',))
+if mibBuilder.loadTexts: timetraGlobalMIBModule.setLastUpdated('0801010000Z')
+if mibBuilder.loadTexts: timetraGlobalMIBModule.setOrganization('Alcatel')
+timetra = MibIdentifier((1, 3, 6, 1, 4, 1, 6527))
+timetraReg = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 1))
+timetraModules = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 1, 1))
+timetraSRMIBModules = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 1, 1, 3))
+timetraCapabilityModule = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 1, 1, 4))
+timetra7750CapModule = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 1, 1, 4, 1))
+timetra7450CapModule = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 1, 1, 4, 2))
+timetra7710CapModule = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 1, 1, 4, 3))
+alcatelCommonMIBModules = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 1, 1, 5))
+timetraServiceRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 1, 3))
+tmnxModelSR1Reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 3, 1))
+if mibBuilder.loadTexts: tmnxModelSR1Reg.setStatus('current')
+tmnxModelSR4Reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 3, 2))
+if mibBuilder.loadTexts: tmnxModelSR4Reg.setStatus('current')
+tmnxModelSR12Reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 3, 3))
+if mibBuilder.loadTexts: tmnxModelSR12Reg.setStatus('current')
+tmnxModelSR7Reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 3, 4))
+if mibBuilder.loadTexts: tmnxModelSR7Reg.setStatus('current')
+tmnxModelSR6Reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 3, 5))
+if mibBuilder.loadTexts: tmnxModelSR6Reg.setStatus('current')
+timetraServiceSwitches = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 1, 6))
+tmnxModelESS1Reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 6, 1))
+if mibBuilder.loadTexts: tmnxModelESS1Reg.setStatus('current')
+tmnxModelESS4Reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 6, 2))
+if mibBuilder.loadTexts: tmnxModelESS4Reg.setStatus('current')
+tmnxModelESS7Reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 6, 3))
+if mibBuilder.loadTexts: tmnxModelESS7Reg.setStatus('current')
+tmnxModelESS12Reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 6, 4))
+if mibBuilder.loadTexts: tmnxModelESS12Reg.setStatus('current')
+tmnxModelESS6Reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 6, 5))
+if mibBuilder.loadTexts: tmnxModelESS6Reg.setStatus('current')
+tmnxModelESS6vReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 6, 6))
+if mibBuilder.loadTexts: tmnxModelESS6vReg.setStatus('current')
+alcatel7710ServiceRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 1, 9))
+tmnxModel7710SRc12Reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 9, 1))
+if mibBuilder.loadTexts: tmnxModel7710SRc12Reg.setStatus('current')
+tmnxModel7710SRc4Reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 9, 2))
+if mibBuilder.loadTexts: tmnxModel7710SRc4Reg.setStatus('current')
+timetraGeneric = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 2))
+timetraProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3))
+tmnxSRMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1))
+tmnxSRConfs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1))
+tmnxSRObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2))
+tmnxSRNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3))
+tmnxESSMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 2))
+tmnxESSConfs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 2, 1))
+tmnxESSObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 2, 2))
+tmnxESSNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 2, 3))
+alcatelCommonMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 3))
+alcatelConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 3, 1))
+alcatelObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 3, 2))
+alcatelNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 3, 3))
+tmnxAgentCapability = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 4))
+tmnx7750AgentCapability = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 4, 1))
+tmnx7450AgentCapability = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 4, 2))
+tmnx7710AgentCapability = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 4, 3))
+tmnxProductCapability = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5))
+tmnx7750Capability = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5, 1))
+tmnx7750V3v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5, 1, 1))
+tmnx7750V4v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5, 1, 2))
+tmnx7750V5v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5, 1, 3))
+tmnx7750V6v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5, 1, 4))
+tmnx7450Capability = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5, 2))
+tmnx7450V3v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5, 2, 1))
+tmnx7450V4v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5, 2, 2))
+tmnx7450V5v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5, 2, 3))
+tmnx7450V6v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5, 2, 4))
+tmnx7710Capability = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5, 3))
+tmnx7710V3v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5, 3, 1))
+tmnx7710V4v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5, 3, 2))
+tmnx7710V5v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5, 3, 3))
+tmnx7710V6v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 5, 3, 4))
+mibBuilder.exportSymbols("ALCATEL-ENT1-TIMETRA-GLOBAL-MIB", timetraReg=timetraReg, tmnx7750V5v0=tmnx7750V5v0, tmnx7710V4v0=tmnx7710V4v0, timetraServiceSwitches=timetraServiceSwitches, alcatel7710ServiceRouters=alcatel7710ServiceRouters, tmnxModelSR1Reg=tmnxModelSR1Reg, tmnxESSObjs=tmnxESSObjs, tmnx7750V3v0=tmnx7750V3v0, timetra7750CapModule=timetra7750CapModule, alcatelConformance=alcatelConformance, PYSNMP_MODULE_ID=timetraGlobalMIBModule, tmnxModelSR6Reg=tmnxModelSR6Reg, tmnxModelSR7Reg=tmnxModelSR7Reg, alcatelCommonMIB=alcatelCommonMIB, alcatelCommonMIBModules=alcatelCommonMIBModules, tmnxModel7710SRc4Reg=tmnxModel7710SRc4Reg, tmnxESSNotifyPrefix=tmnxESSNotifyPrefix, tmnx7450AgentCapability=tmnx7450AgentCapability, tmnx7750Capability=tmnx7750Capability, tmnxModelESS1Reg=tmnxModelESS1Reg, timetraGeneric=timetraGeneric, tmnxSRObjs=tmnxSRObjs, timetraModules=timetraModules, tmnxAgentCapability=tmnxAgentCapability, tmnxModelSR4Reg=tmnxModelSR4Reg, tmnxModelESS12Reg=tmnxModelESS12Reg, alcatelObjects=alcatelObjects, timetraCapabilityModule=timetraCapabilityModule, tmnx7750V4v0=tmnx7750V4v0, tmnxSRMIB=tmnxSRMIB, tmnx7710V5v0=tmnx7710V5v0, timetraSRMIBModules=timetraSRMIBModules, tmnxModelESS6Reg=tmnxModelESS6Reg, tmnxModelESS6vReg=tmnxModelESS6vReg, tmnxSRNotifyPrefix=tmnxSRNotifyPrefix, tmnx7450V5v0=tmnx7450V5v0, tmnx7710Capability=tmnx7710Capability, timetra7450CapModule=timetra7450CapModule, tmnx7450V4v0=tmnx7450V4v0, timetra7710CapModule=timetra7710CapModule, tmnx7750AgentCapability=tmnx7750AgentCapability, timetra=timetra, tmnxModel7710SRc12Reg=tmnxModel7710SRc12Reg, tmnxModelESS7Reg=tmnxModelESS7Reg, tmnx7450Capability=tmnx7450Capability, timetraServiceRouters=timetraServiceRouters, timetraProducts=timetraProducts, tmnxESSMIB=tmnxESSMIB, tmnx7750V6v0=tmnx7750V6v0, alcatelNotifyPrefix=alcatelNotifyPrefix, tmnx7710V6v0=tmnx7710V6v0, tmnxESSConfs=tmnxESSConfs, tmnxModelESS4Reg=tmnxModelESS4Reg, tmnx7710AgentCapability=tmnx7710AgentCapability, timetraGlobalMIBModule=timetraGlobalMIBModule, tmnx7710V3v0=tmnx7710V3v0, tmnx7450V3v0=tmnx7450V3v0, tmnx7450V6v0=tmnx7450V6v0, tmnxProductCapability=tmnxProductCapability, tmnxSRConfs=tmnxSRConfs, tmnxModelSR12Reg=tmnxModelSR12Reg)

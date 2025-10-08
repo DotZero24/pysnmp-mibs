@@ -1,92 +1,61 @@
-_Q='cicServiceGroup'
-_P='cicServiceRepeatResult'
-_O='cicServiceRepeatOwner'
-_N='cicServiceRepetition'
-_M='cicServiceGraceTime'
-_L='cicServiceAdminState'
-_K='cicServiceOperState'
-_J='CIfCallServiceAdminState'
-_I='read-only'
-_H='inService'
-_G='Unsigned32'
-_F='ifIndex'
-_E='IF-MIB'
-_D='ConfigIterator'
-_C='read-write'
-_B='CISCO-IF-CALL-SERVICE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-BulkConfigResult,ConfigIterator=mibBuilder.importSymbols('CISCO-TC','BulkConfigResult',_D)
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-OwnerString,=mibBuilder.importSymbols('RMON-MIB','OwnerString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoIfCallServiceMIB=ModuleIdentity((1,3,6,1,4,1,9,9,9968))
-if mibBuilder.loadTexts:ciscoIfCallServiceMIB.setRevisions(('2003-04-25 00:00',))
-class CIfCallServiceOperState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_H,1),('outOfService',2),('oosPending',3)))
-class CIfCallServiceAdminState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_H,1),('forcedOutOfService',2),('gracefulOutOfService',3)))
-_CiscoIfCallServiceMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoIfCallServiceMIBNotifs=_CiscoIfCallServiceMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,9968,0))
-_CiscoIfCallServiceMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoIfCallServiceMIBObjects=_CiscoIfCallServiceMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,9968,1))
-_CicServiceConfig_ObjectIdentity=ObjectIdentity
-cicServiceConfig=_CicServiceConfig_ObjectIdentity((1,3,6,1,4,1,9,9,9968,1,1))
-_CicServiceTable_Object=MibTable
-cicServiceTable=_CicServiceTable_Object((1,3,6,1,4,1,9,9,9968,1,1,1))
-if mibBuilder.loadTexts:cicServiceTable.setStatus(_A)
-_CicServiceEntry_Object=MibTableRow
-cicServiceEntry=_CicServiceEntry_Object((1,3,6,1,4,1,9,9,9968,1,1,1,1))
-cicServiceEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:cicServiceEntry.setStatus(_A)
-_CicServiceOperState_Type=CIfCallServiceOperState
-_CicServiceOperState_Object=MibTableColumn
-cicServiceOperState=_CicServiceOperState_Object((1,3,6,1,4,1,9,9,9968,1,1,1,1,1),_CicServiceOperState_Type())
-cicServiceOperState.setMaxAccess(_I)
-if mibBuilder.loadTexts:cicServiceOperState.setStatus(_A)
-class _CicServiceAdminState_Type(CIfCallServiceAdminState):defaultValue=1
-_CicServiceAdminState_Type.__name__=_J
-_CicServiceAdminState_Object=MibTableColumn
-cicServiceAdminState=_CicServiceAdminState_Object((1,3,6,1,4,1,9,9,9968,1,1,1,1,2),_CicServiceAdminState_Type())
-cicServiceAdminState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cicServiceAdminState.setStatus(_A)
-class _CicServiceGraceTime_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CicServiceGraceTime_Type.__name__=_G
-_CicServiceGraceTime_Object=MibTableColumn
-cicServiceGraceTime=_CicServiceGraceTime_Object((1,3,6,1,4,1,9,9,9968,1,1,1,1,3),_CicServiceGraceTime_Type())
-cicServiceGraceTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cicServiceGraceTime.setStatus(_A)
-if mibBuilder.loadTexts:cicServiceGraceTime.setUnits('seconds')
-class _CicServiceRepetition_Type(ConfigIterator):defaultValue=1
-_CicServiceRepetition_Type.__name__=_D
-_CicServiceRepetition_Object=MibTableColumn
-cicServiceRepetition=_CicServiceRepetition_Object((1,3,6,1,4,1,9,9,9968,1,1,1,1,4),_CicServiceRepetition_Type())
-cicServiceRepetition.setMaxAccess(_C)
-if mibBuilder.loadTexts:cicServiceRepetition.setStatus(_A)
-_CicServiceRepeatOwner_Type=OwnerString
-_CicServiceRepeatOwner_Object=MibTableColumn
-cicServiceRepeatOwner=_CicServiceRepeatOwner_Object((1,3,6,1,4,1,9,9,9968,1,1,1,1,5),_CicServiceRepeatOwner_Type())
-cicServiceRepeatOwner.setMaxAccess(_C)
-if mibBuilder.loadTexts:cicServiceRepeatOwner.setStatus(_A)
-_CicServiceRepeatResult_Type=BulkConfigResult
-_CicServiceRepeatResult_Object=MibTableColumn
-cicServiceRepeatResult=_CicServiceRepeatResult_Object((1,3,6,1,4,1,9,9,9968,1,1,1,1,6),_CicServiceRepeatResult_Type())
-cicServiceRepeatResult.setMaxAccess(_I)
-if mibBuilder.loadTexts:cicServiceRepeatResult.setStatus(_A)
-_CiscoIfCallServiceMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoIfCallServiceMIBConformance=_CiscoIfCallServiceMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,9968,2))
-_CicServiceCompliances_ObjectIdentity=ObjectIdentity
-cicServiceCompliances=_CicServiceCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,9968,2,1))
-_CicServiceGroups_ObjectIdentity=ObjectIdentity
-cicServiceGroups=_CicServiceGroups_ObjectIdentity((1,3,6,1,4,1,9,9,9968,2,2))
-cicServiceGroup=ObjectGroup((1,3,6,1,4,1,9,9,9968,2,2,1))
-cicServiceGroup.setObjects(*((_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:cicServiceGroup.setStatus(_A)
-cicServiceCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,9968,2,1,1))
-cicServiceCompliance.setObjects((_B,_Q))
-if mibBuilder.loadTexts:cicServiceCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CIfCallServiceOperState':CIfCallServiceOperState,_J:CIfCallServiceAdminState,'ciscoIfCallServiceMIB':ciscoIfCallServiceMIB,'ciscoIfCallServiceMIBNotifs':ciscoIfCallServiceMIBNotifs,'ciscoIfCallServiceMIBObjects':ciscoIfCallServiceMIBObjects,'cicServiceConfig':cicServiceConfig,'cicServiceTable':cicServiceTable,'cicServiceEntry':cicServiceEntry,_K:cicServiceOperState,_L:cicServiceAdminState,_M:cicServiceGraceTime,_N:cicServiceRepetition,_O:cicServiceRepeatOwner,_P:cicServiceRepeatResult,'ciscoIfCallServiceMIBConformance':ciscoIfCallServiceMIBConformance,'cicServiceCompliances':cicServiceCompliances,'cicServiceCompliance':cicServiceCompliance,'cicServiceGroups':cicServiceGroups,_Q:cicServiceGroup})
+#
+# PySNMP MIB module CISCO-IF-CALL-SERVICE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-IF-CALL-SERVICE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ConfigIterator, BulkConfigResult = mibBuilder.importSymbols("CISCO-TC", "ConfigIterator", "BulkConfigResult")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+OwnerString, = mibBuilder.importSymbols("RMON-MIB", "OwnerString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoIfCallServiceMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 9968))
+ciscoIfCallServiceMIB.setRevisions(('2003-04-25 00:00',))
+if mibBuilder.loadTexts: ciscoIfCallServiceMIB.setLastUpdated('200304250000Z')
+if mibBuilder.loadTexts: ciscoIfCallServiceMIB.setOrganization('Cisco Systems, Inc.')
+ciscoIfCallServiceMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9968, 0))
+ciscoIfCallServiceMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9968, 1))
+ciscoIfCallServiceMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9968, 2))
+cicServiceConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9968, 1, 1))
+class CIfCallServiceOperState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("inService", 1), ("outOfService", 2), ("oosPending", 3))
+
+class CIfCallServiceAdminState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("inService", 1), ("forcedOutOfService", 2), ("gracefulOutOfService", 3))
+
+cicServiceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 9968, 1, 1, 1), )
+if mibBuilder.loadTexts: cicServiceTable.setStatus('current')
+cicServiceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 9968, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cicServiceEntry.setStatus('current')
+cicServiceOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9968, 1, 1, 1, 1, 1), CIfCallServiceOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cicServiceOperState.setStatus('current')
+cicServiceAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9968, 1, 1, 1, 1, 2), CIfCallServiceAdminState().clone('inService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cicServiceAdminState.setStatus('current')
+cicServiceGraceTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9968, 1, 1, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cicServiceGraceTime.setStatus('current')
+cicServiceRepetition = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9968, 1, 1, 1, 1, 4), ConfigIterator().clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cicServiceRepetition.setStatus('current')
+cicServiceRepeatOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9968, 1, 1, 1, 1, 5), OwnerString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cicServiceRepeatOwner.setStatus('current')
+cicServiceRepeatResult = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9968, 1, 1, 1, 1, 6), BulkConfigResult()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cicServiceRepeatResult.setStatus('current')
+cicServiceCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9968, 2, 1))
+cicServiceGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9968, 2, 2))
+cicServiceCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 9968, 2, 1, 1)).setObjects(("CISCO-IF-CALL-SERVICE-MIB", "cicServiceGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cicServiceCompliance = cicServiceCompliance.setStatus('current')
+cicServiceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 9968, 2, 2, 1)).setObjects(("CISCO-IF-CALL-SERVICE-MIB", "cicServiceOperState"), ("CISCO-IF-CALL-SERVICE-MIB", "cicServiceAdminState"), ("CISCO-IF-CALL-SERVICE-MIB", "cicServiceGraceTime"), ("CISCO-IF-CALL-SERVICE-MIB", "cicServiceRepetition"), ("CISCO-IF-CALL-SERVICE-MIB", "cicServiceRepeatOwner"), ("CISCO-IF-CALL-SERVICE-MIB", "cicServiceRepeatResult"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cicServiceGroup = cicServiceGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-IF-CALL-SERVICE-MIB", cicServiceRepeatResult=cicServiceRepeatResult, cicServiceAdminState=cicServiceAdminState, cicServiceTable=cicServiceTable, cicServiceCompliances=cicServiceCompliances, ciscoIfCallServiceMIB=ciscoIfCallServiceMIB, cicServiceGroup=cicServiceGroup, cicServiceConfig=cicServiceConfig, ciscoIfCallServiceMIBNotifs=ciscoIfCallServiceMIBNotifs, CIfCallServiceOperState=CIfCallServiceOperState, cicServiceGraceTime=cicServiceGraceTime, ciscoIfCallServiceMIBConformance=ciscoIfCallServiceMIBConformance, cicServiceGroups=cicServiceGroups, CIfCallServiceAdminState=CIfCallServiceAdminState, cicServiceRepetition=cicServiceRepetition, cicServiceRepeatOwner=cicServiceRepeatOwner, ciscoIfCallServiceMIBObjects=ciscoIfCallServiceMIBObjects, PYSNMP_MODULE_ID=ciscoIfCallServiceMIB, cicServiceCompliance=cicServiceCompliance, cicServiceOperState=cicServiceOperState, cicServiceEntry=cicServiceEntry)

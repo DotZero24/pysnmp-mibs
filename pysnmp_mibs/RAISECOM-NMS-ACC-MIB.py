@@ -1,58 +1,34 @@
-_H='read-write'
-_G='enable'
-_F='disable'
-_E='raisecomNMSACPAddrIndex'
-_D='RAISECOM-NMS-ACC-MIB'
-_C='read-create'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-raisecomAgent,=mibBuilder.importSymbols('RAISECOM-BASE-MIB','raisecomAgent')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-raisecomNMSAccessControl=ModuleIdentity((1,3,6,1,4,1,8886,1,5))
-_RaisecomNMSACPAddressTable_Object=MibTable
-raisecomNMSACPAddressTable=_RaisecomNMSACPAddressTable_Object((1,3,6,1,4,1,8886,1,5,1))
-if mibBuilder.loadTexts:raisecomNMSACPAddressTable.setStatus(_A)
-_RaisecomNMSACPAddressEntry_Object=MibTableRow
-raisecomNMSACPAddressEntry=_RaisecomNMSACPAddressEntry_Object((1,3,6,1,4,1,8886,1,5,1,1))
-raisecomNMSACPAddressEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:raisecomNMSACPAddressEntry.setStatus(_A)
-class _RaisecomNMSACPAddrIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,99))
-_RaisecomNMSACPAddrIndex_Type.__name__=_B
-_RaisecomNMSACPAddrIndex_Object=MibTableColumn
-raisecomNMSACPAddrIndex=_RaisecomNMSACPAddrIndex_Object((1,3,6,1,4,1,8886,1,5,1,1,1),_RaisecomNMSACPAddrIndex_Type())
-raisecomNMSACPAddrIndex.setMaxAccess('read-only')
-if mibBuilder.loadTexts:raisecomNMSACPAddrIndex.setStatus(_A)
-_RaisecomNMSACPAddrIPAddress_Type=IpAddress
-_RaisecomNMSACPAddrIPAddress_Object=MibTableColumn
-raisecomNMSACPAddrIPAddress=_RaisecomNMSACPAddrIPAddress_Object((1,3,6,1,4,1,8886,1,5,1,1,2),_RaisecomNMSACPAddrIPAddress_Type())
-raisecomNMSACPAddrIPAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:raisecomNMSACPAddrIPAddress.setStatus(_A)
-_RaisecomNMSACPAddrNetMask_Type=IpAddress
-_RaisecomNMSACPAddrNetMask_Object=MibTableColumn
-raisecomNMSACPAddrNetMask=_RaisecomNMSACPAddrNetMask_Object((1,3,6,1,4,1,8886,1,5,1,1,3),_RaisecomNMSACPAddrNetMask_Type())
-raisecomNMSACPAddrNetMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:raisecomNMSACPAddrNetMask.setStatus(_A)
-_RaisecomNMSACPAddrRowStatus_Type=RowStatus
-_RaisecomNMSACPAddrRowStatus_Object=MibTableColumn
-raisecomNMSACPAddrRowStatus=_RaisecomNMSACPAddrRowStatus_Object((1,3,6,1,4,1,8886,1,5,1,1,4),_RaisecomNMSACPAddrRowStatus_Type())
-raisecomNMSACPAddrRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:raisecomNMSACPAddrRowStatus.setStatus(_A)
-class _RaisecomTelnetAccessControlStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_F,0),(_G,1)))
-_RaisecomTelnetAccessControlStatus_Type.__name__=_B
-_RaisecomTelnetAccessControlStatus_Object=MibScalar
-raisecomTelnetAccessControlStatus=_RaisecomTelnetAccessControlStatus_Object((1,3,6,1,4,1,8886,1,5,2),_RaisecomTelnetAccessControlStatus_Type())
-raisecomTelnetAccessControlStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:raisecomTelnetAccessControlStatus.setStatus(_A)
-class _RaisecomWebAccessControlStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_F,0),(_G,1)))
-_RaisecomWebAccessControlStatus_Type.__name__=_B
-_RaisecomWebAccessControlStatus_Object=MibScalar
-raisecomWebAccessControlStatus=_RaisecomWebAccessControlStatus_Object((1,3,6,1,4,1,8886,1,5,3),_RaisecomWebAccessControlStatus_Type())
-raisecomWebAccessControlStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:raisecomWebAccessControlStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'raisecomNMSAccessControl':raisecomNMSAccessControl,'raisecomNMSACPAddressTable':raisecomNMSACPAddressTable,'raisecomNMSACPAddressEntry':raisecomNMSACPAddressEntry,_E:raisecomNMSACPAddrIndex,'raisecomNMSACPAddrIPAddress':raisecomNMSACPAddrIPAddress,'raisecomNMSACPAddrNetMask':raisecomNMSACPAddrNetMask,'raisecomNMSACPAddrRowStatus':raisecomNMSACPAddrRowStatus,'raisecomTelnetAccessControlStatus':raisecomTelnetAccessControlStatus,'raisecomWebAccessControlStatus':raisecomWebAccessControlStatus})
+#
+# PySNMP MIB module RAISECOM-NMS-ACC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/RAISECOM-NMS-ACC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:58 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+raisecomAgent, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "raisecomAgent")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+raisecomNMSAccessControl = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 1, 5))
+if mibBuilder.loadTexts: raisecomNMSAccessControl.setLastUpdated('200402060000Z')
+if mibBuilder.loadTexts: raisecomNMSAccessControl.setOrganization('raisecom, Ltd.')
+raisecomNMSACPAddressTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 5, 1), )
+if mibBuilder.loadTexts: raisecomNMSACPAddressTable.setStatus('current')
+raisecomNMSACPAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 5, 1, 1), ).setIndexNames((0, "RAISECOM-NMS-ACC-MIB", "raisecomNMSACPAddrIndex"))
+if mibBuilder.loadTexts: raisecomNMSACPAddressEntry.setStatus('current')
+raisecomNMSACPAddrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 5, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomNMSACPAddrIndex.setStatus('current')
+raisecomNMSACPAddrIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 5, 1, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: raisecomNMSACPAddrIPAddress.setStatus('current')
+raisecomNMSACPAddrNetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 5, 1, 1, 3), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: raisecomNMSACPAddrNetMask.setStatus('current')
+raisecomNMSACPAddrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 5, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: raisecomNMSACPAddrRowStatus.setStatus('current')
+raisecomTelnetAccessControlStatus = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 5, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 0))).clone(namedValues=NamedValues(("enable", 1), ("disable", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomTelnetAccessControlStatus.setStatus('current')
+raisecomWebAccessControlStatus = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 5, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 0))).clone(namedValues=NamedValues(("enable", 1), ("disable", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomWebAccessControlStatus.setStatus('current')
+mibBuilder.exportSymbols("RAISECOM-NMS-ACC-MIB", raisecomNMSACPAddressEntry=raisecomNMSACPAddressEntry, raisecomTelnetAccessControlStatus=raisecomTelnetAccessControlStatus, raisecomNMSAccessControl=raisecomNMSAccessControl, raisecomNMSACPAddrIndex=raisecomNMSACPAddrIndex, raisecomWebAccessControlStatus=raisecomWebAccessControlStatus, PYSNMP_MODULE_ID=raisecomNMSAccessControl, raisecomNMSACPAddressTable=raisecomNMSACPAddressTable, raisecomNMSACPAddrRowStatus=raisecomNMSACPAddrRowStatus, raisecomNMSACPAddrNetMask=raisecomNMSACPAddrNetMask, raisecomNMSACPAddrIPAddress=raisecomNMSACPAddrIPAddress)

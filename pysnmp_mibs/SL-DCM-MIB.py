@@ -1,66 +1,42 @@
-_E='read-write'
-_D='dcmIndex'
-_C='SL-DCM-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-PerfCurrentCount,PerfIntervalCount,PerfTotalCount=mibBuilder.importSymbols('PerfHist-TC-MIB','PerfCurrentCount','PerfIntervalCount','PerfTotalCount')
-CleiCode,=mibBuilder.importSymbols('SL-ENTITY-MIB','CleiCode')
-sitelight,=mibBuilder.importSymbols('SL-NE-MIB','sitelight')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp','TruthValue')
-slDcm=ModuleIdentity((1,3,6,1,4,1,4515,1,14))
-_DcmTable_Object=MibTable
-dcmTable=_DcmTable_Object((1,3,6,1,4,1,4515,1,14,1))
-if mibBuilder.loadTexts:dcmTable.setStatus(_A)
-_DcmEntry_Object=MibTableRow
-dcmEntry=_DcmEntry_Object((1,3,6,1,4,1,4515,1,14,1,1))
-dcmEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:dcmEntry.setStatus(_A)
-_DcmIndex_Type=InterfaceIndex
-_DcmIndex_Object=MibTableColumn
-dcmIndex=_DcmIndex_Object((1,3,6,1,4,1,4515,1,14,1,1,1),_DcmIndex_Type())
-dcmIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:dcmIndex.setStatus(_A)
-_DcmRange_Type=Integer32
-_DcmRange_Object=MibTableColumn
-dcmRange=_DcmRange_Object((1,3,6,1,4,1,4515,1,14,1,1,2),_DcmRange_Type())
-dcmRange.setMaxAccess(_E)
-if mibBuilder.loadTexts:dcmRange.setStatus(_A)
-_DcmSpacing_Type=Integer32
-_DcmSpacing_Object=MibTableColumn
-dcmSpacing=_DcmSpacing_Object((1,3,6,1,4,1,4515,1,14,1,1,3),_DcmSpacing_Type())
-dcmSpacing.setMaxAccess(_B)
-if mibBuilder.loadTexts:dcmSpacing.setStatus(_A)
-_DcmTemperature_Type=Integer32
-_DcmTemperature_Object=MibTableColumn
-dcmTemperature=_DcmTemperature_Object((1,3,6,1,4,1,4515,1,14,1,1,4),_DcmTemperature_Type())
-dcmTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:dcmTemperature.setStatus(_A)
-_DcmIsActive_Type=TruthValue
-_DcmIsActive_Object=MibTableColumn
-dcmIsActive=_DcmIsActive_Object((1,3,6,1,4,1,4515,1,14,1,1,5),_DcmIsActive_Type())
-dcmIsActive.setMaxAccess(_B)
-if mibBuilder.loadTexts:dcmIsActive.setStatus(_A)
-_DcmFiberCoefficient_Type=Integer32
-_DcmFiberCoefficient_Object=MibTableColumn
-dcmFiberCoefficient=_DcmFiberCoefficient_Object((1,3,6,1,4,1,4515,1,14,1,1,6),_DcmFiberCoefficient_Type())
-dcmFiberCoefficient.setMaxAccess(_E)
-if mibBuilder.loadTexts:dcmFiberCoefficient.setStatus(_A)
-_DcmMinDispersion_Type=Integer32
-_DcmMinDispersion_Object=MibTableColumn
-dcmMinDispersion=_DcmMinDispersion_Object((1,3,6,1,4,1,4515,1,14,1,1,7),_DcmMinDispersion_Type())
-dcmMinDispersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:dcmMinDispersion.setStatus(_A)
-_DcmMaxDispersion_Type=Integer32
-_DcmMaxDispersion_Object=MibTableColumn
-dcmMaxDispersion=_DcmMaxDispersion_Object((1,3,6,1,4,1,4515,1,14,1,1,8),_DcmMaxDispersion_Type())
-dcmMaxDispersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:dcmMaxDispersion.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'slDcm':slDcm,'dcmTable':dcmTable,'dcmEntry':dcmEntry,_D:dcmIndex,'dcmRange':dcmRange,'dcmSpacing':dcmSpacing,'dcmTemperature':dcmTemperature,'dcmIsActive':dcmIsActive,'dcmFiberCoefficient':dcmFiberCoefficient,'dcmMinDispersion':dcmMinDispersion,'dcmMaxDispersion':dcmMaxDispersion})
+#
+# PySNMP MIB module SL-DCM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/smartoptics/SL-DCM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:10 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+PerfCurrentCount, PerfTotalCount, PerfIntervalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfTotalCount", "PerfIntervalCount")
+CleiCode, = mibBuilder.importSymbols("SL-ENTITY-MIB", "CleiCode")
+sitelight, = mibBuilder.importSymbols("SL-NE-MIB", "sitelight")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+TimeStamp, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TruthValue", "TextualConvention")
+slDcm = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 14))
+if mibBuilder.loadTexts: slDcm.setLastUpdated('201206120000Z')
+if mibBuilder.loadTexts: slDcm.setOrganization('Smartoptics')
+dcmTable = MibTable((1, 3, 6, 1, 4, 1, 4515, 1, 14, 1), )
+if mibBuilder.loadTexts: dcmTable.setStatus('current')
+dcmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4515, 1, 14, 1, 1), ).setIndexNames((0, "SL-DCM-MIB", "dcmIndex"))
+if mibBuilder.loadTexts: dcmEntry.setStatus('current')
+dcmIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 14, 1, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dcmIndex.setStatus('current')
+dcmRange = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 14, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dcmRange.setStatus('current')
+dcmSpacing = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 14, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dcmSpacing.setStatus('current')
+dcmTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 14, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dcmTemperature.setStatus('current')
+dcmIsActive = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 14, 1, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dcmIsActive.setStatus('current')
+dcmFiberCoefficient = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 14, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dcmFiberCoefficient.setStatus('current')
+dcmMinDispersion = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 14, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dcmMinDispersion.setStatus('current')
+dcmMaxDispersion = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 14, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dcmMaxDispersion.setStatus('current')
+mibBuilder.exportSymbols("SL-DCM-MIB", dcmIndex=dcmIndex, dcmSpacing=dcmSpacing, dcmMaxDispersion=dcmMaxDispersion, dcmFiberCoefficient=dcmFiberCoefficient, PYSNMP_MODULE_ID=slDcm, dcmTemperature=dcmTemperature, dcmMinDispersion=dcmMinDispersion, slDcm=slDcm, dcmRange=dcmRange, dcmTable=dcmTable, dcmEntry=dcmEntry, dcmIsActive=dcmIsActive)

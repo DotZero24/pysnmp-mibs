@@ -1,125 +1,70 @@
-_R='twampServerConnGroup'
-_Q='twampServerMIBGroup'
-_P='twampServerConnectionStatus'
-_O='twampServerConnPktsRecvd'
-_N='twampServerConnPktsSent'
-_M='twampServerConnTimeOfLastRun'
-_L='twampServerConnSessionId'
-_K='twampRowStatus'
-_J='twampInactivityTimeout'
-_I='twampPortNumber'
-_H='twampServerConnClientIP'
-_G='twampClientIpaddressMask'
-_F='twampClientIpaddress'
-_E='Integer32'
-_D='read-create'
-_C='read-only'
-_B='ALCATEL-IND1-TWAMP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-softentIND1TWAMP,=mibBuilder.importSymbols('ALCATEL-IND1-BASE','softentIND1TWAMP')
-Ipv6Address,=mibBuilder.importSymbols('IPV6-TC','Ipv6Address')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-alcatelIND1TWAMPMIB=ModuleIdentity((1,3,6,1,4,1,6486,800,1,2,1,71,1))
-if mibBuilder.loadTexts:alcatelIND1TWAMPMIB.setRevisions(('2014-10-07 00:00',))
-_AlcatelIND1TWAMPMIBObjects_ObjectIdentity=ObjectIdentity
-alcatelIND1TWAMPMIBObjects=_AlcatelIND1TWAMPMIBObjects_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,71,1,1))
-if mibBuilder.loadTexts:alcatelIND1TWAMPMIBObjects.setStatus(_A)
-_TwampServerMIB_ObjectIdentity=ObjectIdentity
-twampServerMIB=_TwampServerMIB_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,1))
-_TwampServerTable_Object=MibTable
-twampServerTable=_TwampServerTable_Object((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,1,1))
-if mibBuilder.loadTexts:twampServerTable.setStatus(_A)
-_TwampServerTableEntry_Object=MibTableRow
-twampServerTableEntry=_TwampServerTableEntry_Object((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,1,1,1))
-twampServerTableEntry.setIndexNames((0,_B,_F),(0,_B,_G))
-if mibBuilder.loadTexts:twampServerTableEntry.setStatus(_A)
-class _TwampPortNumber_Type(Integer32):defaultValue=862;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
-_TwampPortNumber_Type.__name__=_E
-_TwampPortNumber_Object=MibTableColumn
-twampPortNumber=_TwampPortNumber_Object((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,1,1,1,1),_TwampPortNumber_Type())
-twampPortNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:twampPortNumber.setStatus(_A)
-class _TwampInactivityTimeout_Type(Integer32):defaultValue=15;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30))
-_TwampInactivityTimeout_Type.__name__=_E
-_TwampInactivityTimeout_Object=MibTableColumn
-twampInactivityTimeout=_TwampInactivityTimeout_Object((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,1,1,1,2),_TwampInactivityTimeout_Type())
-twampInactivityTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:twampInactivityTimeout.setStatus(_A)
-_TwampClientIpaddress_Type=IpAddress
-_TwampClientIpaddress_Object=MibTableColumn
-twampClientIpaddress=_TwampClientIpaddress_Object((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,1,1,1,3),_TwampClientIpaddress_Type())
-twampClientIpaddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:twampClientIpaddress.setStatus(_A)
-_TwampClientIpaddressMask_Type=IpAddress
-_TwampClientIpaddressMask_Object=MibTableColumn
-twampClientIpaddressMask=_TwampClientIpaddressMask_Object((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,1,1,1,4),_TwampClientIpaddressMask_Type())
-twampClientIpaddressMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:twampClientIpaddressMask.setStatus(_A)
-_TwampRowStatus_Type=RowStatus
-_TwampRowStatus_Object=MibTableColumn
-twampRowStatus=_TwampRowStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,1,1,1,5),_TwampRowStatus_Type())
-twampRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:twampRowStatus.setStatus(_A)
-_TwampServerConnectionTable_Object=MibTable
-twampServerConnectionTable=_TwampServerConnectionTable_Object((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,2))
-if mibBuilder.loadTexts:twampServerConnectionTable.setStatus(_A)
-_TwampServerConnectionTableEntry_Object=MibTableRow
-twampServerConnectionTableEntry=_TwampServerConnectionTableEntry_Object((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,2,1))
-twampServerConnectionTableEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:twampServerConnectionTableEntry.setStatus(_A)
-_TwampServerConnClientIP_Type=IpAddress
-_TwampServerConnClientIP_Object=MibTableColumn
-twampServerConnClientIP=_TwampServerConnClientIP_Object((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,2,1,1),_TwampServerConnClientIP_Type())
-twampServerConnClientIP.setMaxAccess(_C)
-if mibBuilder.loadTexts:twampServerConnClientIP.setStatus(_A)
-_TwampServerConnSessionId_Type=SnmpAdminString
-_TwampServerConnSessionId_Object=MibTableColumn
-twampServerConnSessionId=_TwampServerConnSessionId_Object((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,2,1,2),_TwampServerConnSessionId_Type())
-twampServerConnSessionId.setMaxAccess(_C)
-if mibBuilder.loadTexts:twampServerConnSessionId.setStatus(_A)
-_TwampServerConnTimeOfLastRun_Type=DisplayString
-_TwampServerConnTimeOfLastRun_Object=MibTableColumn
-twampServerConnTimeOfLastRun=_TwampServerConnTimeOfLastRun_Object((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,2,1,3),_TwampServerConnTimeOfLastRun_Type())
-twampServerConnTimeOfLastRun.setMaxAccess(_C)
-if mibBuilder.loadTexts:twampServerConnTimeOfLastRun.setStatus(_A)
-_TwampServerConnPktsSent_Type=Integer32
-_TwampServerConnPktsSent_Object=MibTableColumn
-twampServerConnPktsSent=_TwampServerConnPktsSent_Object((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,2,1,4),_TwampServerConnPktsSent_Type())
-twampServerConnPktsSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:twampServerConnPktsSent.setStatus(_A)
-_TwampServerConnPktsRecvd_Type=Integer32
-_TwampServerConnPktsRecvd_Object=MibTableColumn
-twampServerConnPktsRecvd=_TwampServerConnPktsRecvd_Object((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,2,1,5),_TwampServerConnPktsRecvd_Type())
-twampServerConnPktsRecvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:twampServerConnPktsRecvd.setStatus(_A)
-_TwampServerConnectionStatus_Type=DisplayString
-_TwampServerConnectionStatus_Object=MibTableColumn
-twampServerConnectionStatus=_TwampServerConnectionStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,71,1,1,2,1,6),_TwampServerConnectionStatus_Type())
-twampServerConnectionStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:twampServerConnectionStatus.setStatus(_A)
-_AlcatelIND1TWAMPMIBConformance_ObjectIdentity=ObjectIdentity
-alcatelIND1TWAMPMIBConformance=_AlcatelIND1TWAMPMIBConformance_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,71,1,2))
-if mibBuilder.loadTexts:alcatelIND1TWAMPMIBConformance.setStatus(_A)
-_AlcatelIND1TWAMPMIBGroups_ObjectIdentity=ObjectIdentity
-alcatelIND1TWAMPMIBGroups=_AlcatelIND1TWAMPMIBGroups_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,71,1,2,1))
-if mibBuilder.loadTexts:alcatelIND1TWAMPMIBGroups.setStatus(_A)
-_AlcatelIND1TWAMPMIBCompliances_ObjectIdentity=ObjectIdentity
-alcatelIND1TWAMPMIBCompliances=_AlcatelIND1TWAMPMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,71,1,2,2))
-if mibBuilder.loadTexts:alcatelIND1TWAMPMIBCompliances.setStatus(_A)
-twampServerMIBGroup=ObjectGroup((1,3,6,1,4,1,6486,800,1,2,1,71,1,2,1,1))
-twampServerMIBGroup.setObjects(*((_B,_I),(_B,_J),(_B,_F),(_B,_G),(_B,_K)))
-if mibBuilder.loadTexts:twampServerMIBGroup.setStatus(_A)
-twampServerConnGroup=ObjectGroup((1,3,6,1,4,1,6486,800,1,2,1,71,1,2,1,2))
-twampServerConnGroup.setObjects(*((_B,_H),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:twampServerConnGroup.setStatus(_A)
-alcatelIND1TWAMPMIBCompliance=ModuleCompliance((1,3,6,1,4,1,6486,800,1,2,1,71,1,2,2,1))
-alcatelIND1TWAMPMIBCompliance.setObjects(*((_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:alcatelIND1TWAMPMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'alcatelIND1TWAMPMIB':alcatelIND1TWAMPMIB,'alcatelIND1TWAMPMIBObjects':alcatelIND1TWAMPMIBObjects,'twampServerMIB':twampServerMIB,'twampServerTable':twampServerTable,'twampServerTableEntry':twampServerTableEntry,_I:twampPortNumber,_J:twampInactivityTimeout,_F:twampClientIpaddress,_G:twampClientIpaddressMask,_K:twampRowStatus,'twampServerConnectionTable':twampServerConnectionTable,'twampServerConnectionTableEntry':twampServerConnectionTableEntry,_H:twampServerConnClientIP,_L:twampServerConnSessionId,_M:twampServerConnTimeOfLastRun,_N:twampServerConnPktsSent,_O:twampServerConnPktsRecvd,_P:twampServerConnectionStatus,'alcatelIND1TWAMPMIBConformance':alcatelIND1TWAMPMIBConformance,'alcatelIND1TWAMPMIBGroups':alcatelIND1TWAMPMIBGroups,_Q:twampServerMIBGroup,_R:twampServerConnGroup,'alcatelIND1TWAMPMIBCompliances':alcatelIND1TWAMPMIBCompliances,'alcatelIND1TWAMPMIBCompliance':alcatelIND1TWAMPMIBCompliance})
+#
+# PySNMP MIB module ALCATEL-IND1-TWAMP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel/ALCATEL-IND1-TWAMP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+softentIND1TWAMP, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "softentIND1TWAMP")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+Ipv6Address, = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+alcatelIND1TWAMPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1))
+alcatelIND1TWAMPMIB.setRevisions(('2014-10-07 00:00',))
+if mibBuilder.loadTexts: alcatelIND1TWAMPMIB.setLastUpdated('201410070000Z')
+if mibBuilder.loadTexts: alcatelIND1TWAMPMIB.setOrganization('Alcatel-Lucent')
+alcatelIND1TWAMPMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1))
+if mibBuilder.loadTexts: alcatelIND1TWAMPMIBObjects.setStatus('current')
+alcatelIND1TWAMPMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 2))
+if mibBuilder.loadTexts: alcatelIND1TWAMPMIBConformance.setStatus('current')
+alcatelIND1TWAMPMIBGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 2, 1))
+if mibBuilder.loadTexts: alcatelIND1TWAMPMIBGroups.setStatus('current')
+alcatelIND1TWAMPMIBCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 2, 2))
+if mibBuilder.loadTexts: alcatelIND1TWAMPMIBCompliances.setStatus('current')
+twampServerMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 1))
+twampServerTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 1, 1), )
+if mibBuilder.loadTexts: twampServerTable.setStatus('current')
+twampServerTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 1, 1, 1), ).setIndexNames((0, "ALCATEL-IND1-TWAMP-MIB", "twampClientIpaddress"), (0, "ALCATEL-IND1-TWAMP-MIB", "twampClientIpaddressMask"))
+if mibBuilder.loadTexts: twampServerTableEntry.setStatus('current')
+twampPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000)).clone(862)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: twampPortNumber.setStatus('current')
+twampInactivityTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 30)).clone(15)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: twampInactivityTimeout.setStatus('current')
+twampClientIpaddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 1, 1, 1, 3), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: twampClientIpaddress.setStatus('current')
+twampClientIpaddressMask = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 1, 1, 1, 4), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: twampClientIpaddressMask.setStatus('current')
+twampRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 1, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: twampRowStatus.setStatus('current')
+twampServerConnectionTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 2), )
+if mibBuilder.loadTexts: twampServerConnectionTable.setStatus('current')
+twampServerConnectionTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 2, 1), ).setIndexNames((0, "ALCATEL-IND1-TWAMP-MIB", "twampServerConnClientIP"))
+if mibBuilder.loadTexts: twampServerConnectionTableEntry.setStatus('current')
+twampServerConnClientIP = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 2, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: twampServerConnClientIP.setStatus('current')
+twampServerConnSessionId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 2, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: twampServerConnSessionId.setStatus('current')
+twampServerConnTimeOfLastRun = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: twampServerConnTimeOfLastRun.setStatus('current')
+twampServerConnPktsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: twampServerConnPktsSent.setStatus('current')
+twampServerConnPktsRecvd = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: twampServerConnPktsRecvd.setStatus('current')
+twampServerConnectionStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 1, 2, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: twampServerConnectionStatus.setStatus('current')
+alcatelIND1TWAMPMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 2, 2, 1)).setObjects(("ALCATEL-IND1-TWAMP-MIB", "twampServerMIBGroup"), ("ALCATEL-IND1-TWAMP-MIB", "twampServerConnGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alcatelIND1TWAMPMIBCompliance = alcatelIND1TWAMPMIBCompliance.setStatus('current')
+twampServerMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 2, 1, 1)).setObjects(("ALCATEL-IND1-TWAMP-MIB", "twampPortNumber"), ("ALCATEL-IND1-TWAMP-MIB", "twampInactivityTimeout"), ("ALCATEL-IND1-TWAMP-MIB", "twampClientIpaddress"), ("ALCATEL-IND1-TWAMP-MIB", "twampClientIpaddressMask"), ("ALCATEL-IND1-TWAMP-MIB", "twampRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    twampServerMIBGroup = twampServerMIBGroup.setStatus('current')
+twampServerConnGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 71, 1, 2, 1, 2)).setObjects(("ALCATEL-IND1-TWAMP-MIB", "twampServerConnClientIP"), ("ALCATEL-IND1-TWAMP-MIB", "twampServerConnSessionId"), ("ALCATEL-IND1-TWAMP-MIB", "twampServerConnTimeOfLastRun"), ("ALCATEL-IND1-TWAMP-MIB", "twampServerConnPktsSent"), ("ALCATEL-IND1-TWAMP-MIB", "twampServerConnPktsRecvd"), ("ALCATEL-IND1-TWAMP-MIB", "twampServerConnectionStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    twampServerConnGroup = twampServerConnGroup.setStatus('current')
+mibBuilder.exportSymbols("ALCATEL-IND1-TWAMP-MIB", twampServerConnClientIP=twampServerConnClientIP, twampServerConnPktsSent=twampServerConnPktsSent, alcatelIND1TWAMPMIBConformance=alcatelIND1TWAMPMIBConformance, twampServerConnPktsRecvd=twampServerConnPktsRecvd, twampServerConnGroup=twampServerConnGroup, twampServerTable=twampServerTable, alcatelIND1TWAMPMIB=alcatelIND1TWAMPMIB, alcatelIND1TWAMPMIBCompliances=alcatelIND1TWAMPMIBCompliances, twampRowStatus=twampRowStatus, twampServerMIB=twampServerMIB, twampServerConnectionTableEntry=twampServerConnectionTableEntry, twampInactivityTimeout=twampInactivityTimeout, PYSNMP_MODULE_ID=alcatelIND1TWAMPMIB, twampServerConnTimeOfLastRun=twampServerConnTimeOfLastRun, alcatelIND1TWAMPMIBGroups=alcatelIND1TWAMPMIBGroups, twampServerTableEntry=twampServerTableEntry, twampServerConnectionTable=twampServerConnectionTable, twampServerConnSessionId=twampServerConnSessionId, twampServerMIBGroup=twampServerMIBGroup, twampClientIpaddress=twampClientIpaddress, twampServerConnectionStatus=twampServerConnectionStatus, alcatelIND1TWAMPMIBObjects=alcatelIND1TWAMPMIBObjects, alcatelIND1TWAMPMIBCompliance=alcatelIND1TWAMPMIBCompliance, twampClientIpaddressMask=twampClientIpaddressMask, twampPortNumber=twampPortNumber)

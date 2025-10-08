@@ -1,55 +1,36 @@
-_D='wlsxCtsIndex'
-_C='WLSX-CTS-MIB'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-wlsxEnterpriseMibModules,=mibBuilder.importSymbols('ARUBA-MIB','wlsxEnterpriseMibModules')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,snmpModules=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','snmpModules')
-DisplayString,MacAddress,PhysAddress,RowStatus,StorageType,TAddress,TDomain,TextualConvention,TestAndIncr,TimeInterval,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','StorageType','TAddress','TDomain','TextualConvention','TestAndIncr','TimeInterval','TruthValue')
-wlsxCtsMIB=ModuleIdentity((1,3,6,1,4,1,14823,2,2,1,11))
-if mibBuilder.loadTexts:wlsxCtsMIB.setRevisions(('2020-08-14 17:45',))
-_WlsxCtsOpGroup_ObjectIdentity=ObjectIdentity
-wlsxCtsOpGroup=_WlsxCtsOpGroup_ObjectIdentity((1,3,6,1,4,1,14823,2,2,1,11,1))
-_WlsxCtsRequestTable_Object=MibTable
-wlsxCtsRequestTable=_WlsxCtsRequestTable_Object((1,3,6,1,4,1,14823,2,2,1,11,1,1))
-if mibBuilder.loadTexts:wlsxCtsRequestTable.setStatus(_A)
-_WlsxCtsRequestEntry_Object=MibTableRow
-wlsxCtsRequestEntry=_WlsxCtsRequestEntry_Object((1,3,6,1,4,1,14823,2,2,1,11,1,1,1))
-wlsxCtsRequestEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:wlsxCtsRequestEntry.setStatus(_A)
-_WlsxCtsIndex_Type=Integer32
-_WlsxCtsIndex_Object=MibTableColumn
-wlsxCtsIndex=_WlsxCtsIndex_Object((1,3,6,1,4,1,14823,2,2,1,11,1,1,1,1),_WlsxCtsIndex_Type())
-wlsxCtsIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:wlsxCtsIndex.setStatus(_A)
-_WlsxCtsOpcode_Type=DisplayString
-_WlsxCtsOpcode_Object=MibTableColumn
-wlsxCtsOpcode=_WlsxCtsOpcode_Object((1,3,6,1,4,1,14823,2,2,1,11,1,1,1,2),_WlsxCtsOpcode_Type())
-wlsxCtsOpcode.setMaxAccess(_B)
-if mibBuilder.loadTexts:wlsxCtsOpcode.setStatus(_A)
-_WlsxCtsCookie_Type=DisplayString
-_WlsxCtsCookie_Object=MibTableColumn
-wlsxCtsCookie=_WlsxCtsCookie_Object((1,3,6,1,4,1,14823,2,2,1,11,1,1,1,3),_WlsxCtsCookie_Type())
-wlsxCtsCookie.setMaxAccess(_B)
-if mibBuilder.loadTexts:wlsxCtsCookie.setStatus(_A)
-_WlsxCtsURL_Type=DisplayString
-_WlsxCtsURL_Object=MibTableColumn
-wlsxCtsURL=_WlsxCtsURL_Object((1,3,6,1,4,1,14823,2,2,1,11,1,1,1,4),_WlsxCtsURL_Type())
-wlsxCtsURL.setMaxAccess(_B)
-if mibBuilder.loadTexts:wlsxCtsURL.setStatus(_A)
-class _WlsxCtsFlags_Type(Bits):namedValues=NamedValues(*(('wlsxCtsFlagForce',0),('wlsxCtsFlagUseCert',1)))
-_WlsxCtsFlags_Type.__name__='Bits'
-_WlsxCtsFlags_Object=MibTableColumn
-wlsxCtsFlags=_WlsxCtsFlags_Object((1,3,6,1,4,1,14823,2,2,1,11,1,1,1,5),_WlsxCtsFlags_Type())
-wlsxCtsFlags.setMaxAccess(_B)
-if mibBuilder.loadTexts:wlsxCtsFlags.setStatus(_A)
-_WlsxCtsStatus_Type=RowStatus
-_WlsxCtsStatus_Object=MibTableColumn
-wlsxCtsStatus=_WlsxCtsStatus_Object((1,3,6,1,4,1,14823,2,2,1,11,1,1,1,6),_WlsxCtsStatus_Type())
-wlsxCtsStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:wlsxCtsStatus.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'wlsxCtsMIB':wlsxCtsMIB,'wlsxCtsOpGroup':wlsxCtsOpGroup,'wlsxCtsRequestTable':wlsxCtsRequestTable,'wlsxCtsRequestEntry':wlsxCtsRequestEntry,_D:wlsxCtsIndex,'wlsxCtsOpcode':wlsxCtsOpcode,'wlsxCtsCookie':wlsxCtsCookie,'wlsxCtsURL':wlsxCtsURL,'wlsxCtsFlags':wlsxCtsFlags,'wlsxCtsStatus':wlsxCtsStatus})
+#
+# PySNMP MIB module WLSX-CTS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aruba/WLSX-CTS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+wlsxEnterpriseMibModules, = mibBuilder.importSymbols("ARUBA-MIB", "wlsxEnterpriseMibModules")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, snmpModules, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "snmpModules", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TDomain, TimeInterval, RowStatus, StorageType, TAddress, TestAndIncr, PhysAddress, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TDomain", "TimeInterval", "RowStatus", "StorageType", "TAddress", "TestAndIncr", "PhysAddress", "TruthValue", "TextualConvention")
+wlsxCtsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 11))
+wlsxCtsMIB.setRevisions(('2020-08-14 17:45',))
+if mibBuilder.loadTexts: wlsxCtsMIB.setLastUpdated('202008141745Z')
+if mibBuilder.loadTexts: wlsxCtsMIB.setOrganization('Aruba, a Hewlett Packard Enterprise company')
+wlsxCtsOpGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 11, 1))
+wlsxCtsRequestTable = MibTable((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 11, 1, 1), )
+if mibBuilder.loadTexts: wlsxCtsRequestTable.setStatus('current')
+wlsxCtsRequestEntry = MibTableRow((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 11, 1, 1, 1), ).setIndexNames((0, "WLSX-CTS-MIB", "wlsxCtsIndex"))
+if mibBuilder.loadTexts: wlsxCtsRequestEntry.setStatus('current')
+wlsxCtsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 11, 1, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: wlsxCtsIndex.setStatus('current')
+wlsxCtsOpcode = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 11, 1, 1, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wlsxCtsOpcode.setStatus('current')
+wlsxCtsCookie = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 11, 1, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wlsxCtsCookie.setStatus('current')
+wlsxCtsURL = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 11, 1, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wlsxCtsURL.setStatus('current')
+wlsxCtsFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 11, 1, 1, 1, 5), Bits().clone(namedValues=NamedValues(("wlsxCtsFlagForce", 0), ("wlsxCtsFlagUseCert", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wlsxCtsFlags.setStatus('current')
+wlsxCtsStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 11, 1, 1, 1, 6), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wlsxCtsStatus.setStatus('current')
+mibBuilder.exportSymbols("WLSX-CTS-MIB", wlsxCtsFlags=wlsxCtsFlags, PYSNMP_MODULE_ID=wlsxCtsMIB, wlsxCtsStatus=wlsxCtsStatus, wlsxCtsIndex=wlsxCtsIndex, wlsxCtsRequestEntry=wlsxCtsRequestEntry, wlsxCtsOpGroup=wlsxCtsOpGroup, wlsxCtsRequestTable=wlsxCtsRequestTable, wlsxCtsMIB=wlsxCtsMIB, wlsxCtsOpcode=wlsxCtsOpcode, wlsxCtsCookie=wlsxCtsCookie, wlsxCtsURL=wlsxCtsURL)

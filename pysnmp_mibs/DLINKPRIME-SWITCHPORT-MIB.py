@@ -1,65 +1,42 @@
-_L='dpSwPortBasicGroup'
-_K='dpSwPortIfSpeedAutoDowngrade'
-_J='dpSwPortIfJumboFrameSize'
-_I='dpSwPortIfMdix'
-_H='TruthValue'
-_G='Unsigned32'
-_F='Integer32'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-write'
-_B='DLINKPRIME-SWITCHPORT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlinkPrimeCommon,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlinkPrimeCommon')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_H)
-dlinkPrimeSwitchPortMIB=ModuleIdentity((1,3,6,1,4,1,171,15,20))
-if mibBuilder.loadTexts:dlinkPrimeSwitchPortMIB.setRevisions(('2014-05-07 00:00',))
-_DpSwPortNotifications_ObjectIdentity=ObjectIdentity
-dpSwPortNotifications=_DpSwPortNotifications_ObjectIdentity((1,3,6,1,4,1,171,15,20,0))
-_DpSwPortObjects_ObjectIdentity=ObjectIdentity
-dpSwPortObjects=_DpSwPortObjects_ObjectIdentity((1,3,6,1,4,1,171,15,20,1))
-_DpSwPortIfTable_Object=MibTable
-dpSwPortIfTable=_DpSwPortIfTable_Object((1,3,6,1,4,1,171,15,20,1,1))
-if mibBuilder.loadTexts:dpSwPortIfTable.setStatus(_A)
-_DpSwPortIfEntry_Object=MibTableRow
-dpSwPortIfEntry=_DpSwPortIfEntry_Object((1,3,6,1,4,1,171,15,20,1,1,1))
-dpSwPortIfEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:dpSwPortIfEntry.setStatus(_A)
-class _DpSwPortIfMdix_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('auto',1),('normal',2),('cross',3)))
-_DpSwPortIfMdix_Type.__name__=_F
-_DpSwPortIfMdix_Object=MibTableColumn
-dpSwPortIfMdix=_DpSwPortIfMdix_Object((1,3,6,1,4,1,171,15,20,1,1,1,1),_DpSwPortIfMdix_Type())
-dpSwPortIfMdix.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpSwPortIfMdix.setStatus(_A)
-class _DpSwPortIfJumboFrameSize_Type(Unsigned32):defaultValue=1518
-_DpSwPortIfJumboFrameSize_Type.__name__=_G
-_DpSwPortIfJumboFrameSize_Object=MibTableColumn
-dpSwPortIfJumboFrameSize=_DpSwPortIfJumboFrameSize_Object((1,3,6,1,4,1,171,15,20,1,1,1,2),_DpSwPortIfJumboFrameSize_Type())
-dpSwPortIfJumboFrameSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpSwPortIfJumboFrameSize.setStatus(_A)
-class _DpSwPortIfSpeedAutoDowngrade_Type(TruthValue):defaultValue=2
-_DpSwPortIfSpeedAutoDowngrade_Type.__name__=_H
-_DpSwPortIfSpeedAutoDowngrade_Object=MibTableColumn
-dpSwPortIfSpeedAutoDowngrade=_DpSwPortIfSpeedAutoDowngrade_Object((1,3,6,1,4,1,171,15,20,1,1,1,3),_DpSwPortIfSpeedAutoDowngrade_Type())
-dpSwPortIfSpeedAutoDowngrade.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpSwPortIfSpeedAutoDowngrade.setStatus(_A)
-_DpSwPortConformance_ObjectIdentity=ObjectIdentity
-dpSwPortConformance=_DpSwPortConformance_ObjectIdentity((1,3,6,1,4,1,171,15,20,2))
-_DpSwPortCompliances_ObjectIdentity=ObjectIdentity
-dpSwPortCompliances=_DpSwPortCompliances_ObjectIdentity((1,3,6,1,4,1,171,15,20,2,1))
-_DpSwPortGroups_ObjectIdentity=ObjectIdentity
-dpSwPortGroups=_DpSwPortGroups_ObjectIdentity((1,3,6,1,4,1,171,15,20,2,2))
-dpSwPortBasicGroup=ObjectGroup((1,3,6,1,4,1,171,15,20,2,2,1))
-dpSwPortBasicGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:dpSwPortBasicGroup.setStatus(_A)
-dpSwPortCompliance=ModuleCompliance((1,3,6,1,4,1,171,15,20,2,1,1))
-dpSwPortCompliance.setObjects((_B,_L))
-if mibBuilder.loadTexts:dpSwPortCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'dlinkPrimeSwitchPortMIB':dlinkPrimeSwitchPortMIB,'dpSwPortNotifications':dpSwPortNotifications,'dpSwPortObjects':dpSwPortObjects,'dpSwPortIfTable':dpSwPortIfTable,'dpSwPortIfEntry':dpSwPortIfEntry,_I:dpSwPortIfMdix,_J:dpSwPortIfJumboFrameSize,_K:dpSwPortIfSpeedAutoDowngrade,'dpSwPortConformance':dpSwPortConformance,'dpSwPortCompliances':dpSwPortCompliances,'dpSwPortCompliance':dpSwPortCompliance,'dpSwPortGroups':dpSwPortGroups,_L:dpSwPortBasicGroup})
+#
+# PySNMP MIB module DLINKPRIME-SWITCHPORT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DLINKPRIME-SWITCHPORT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:33:58 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlinkPrimeCommon, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlinkPrimeCommon")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+dlinkPrimeSwitchPortMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 15, 20))
+dlinkPrimeSwitchPortMIB.setRevisions(('2014-05-07 00:00',))
+if mibBuilder.loadTexts: dlinkPrimeSwitchPortMIB.setLastUpdated('201405070000Z')
+if mibBuilder.loadTexts: dlinkPrimeSwitchPortMIB.setOrganization('D-Link Corp.')
+dpSwPortNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 20, 0))
+dpSwPortObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 20, 1))
+dpSwPortConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 20, 2))
+dpSwPortIfTable = MibTable((1, 3, 6, 1, 4, 1, 171, 15, 20, 1, 1), )
+if mibBuilder.loadTexts: dpSwPortIfTable.setStatus('current')
+dpSwPortIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 15, 20, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: dpSwPortIfEntry.setStatus('current')
+dpSwPortIfMdix = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 20, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("auto", 1), ("normal", 2), ("cross", 3))).clone('auto')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpSwPortIfMdix.setStatus('current')
+dpSwPortIfJumboFrameSize = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 20, 1, 1, 1, 2), Unsigned32().clone(1518)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpSwPortIfJumboFrameSize.setStatus('current')
+dpSwPortIfSpeedAutoDowngrade = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 20, 1, 1, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpSwPortIfSpeedAutoDowngrade.setStatus('current')
+dpSwPortCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 20, 2, 1))
+dpSwPortCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 15, 20, 2, 1, 1)).setObjects(("DLINKPRIME-SWITCHPORT-MIB", "dpSwPortBasicGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpSwPortCompliance = dpSwPortCompliance.setStatus('current')
+dpSwPortGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 20, 2, 2))
+dpSwPortBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 15, 20, 2, 2, 1)).setObjects(("DLINKPRIME-SWITCHPORT-MIB", "dpSwPortIfMdix"), ("DLINKPRIME-SWITCHPORT-MIB", "dpSwPortIfJumboFrameSize"), ("DLINKPRIME-SWITCHPORT-MIB", "dpSwPortIfSpeedAutoDowngrade"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpSwPortBasicGroup = dpSwPortBasicGroup.setStatus('current')
+mibBuilder.exportSymbols("DLINKPRIME-SWITCHPORT-MIB", dpSwPortIfTable=dpSwPortIfTable, dpSwPortCompliance=dpSwPortCompliance, dlinkPrimeSwitchPortMIB=dlinkPrimeSwitchPortMIB, PYSNMP_MODULE_ID=dlinkPrimeSwitchPortMIB, dpSwPortNotifications=dpSwPortNotifications, dpSwPortIfJumboFrameSize=dpSwPortIfJumboFrameSize, dpSwPortIfSpeedAutoDowngrade=dpSwPortIfSpeedAutoDowngrade, dpSwPortCompliances=dpSwPortCompliances, dpSwPortObjects=dpSwPortObjects, dpSwPortConformance=dpSwPortConformance, dpSwPortIfMdix=dpSwPortIfMdix, dpSwPortGroups=dpSwPortGroups, dpSwPortIfEntry=dpSwPortIfEntry, dpSwPortBasicGroup=dpSwPortBasicGroup)

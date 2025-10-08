@@ -1,485 +1,203 @@
-_R='applTestStatus'
-_Q='applTracerouteHopCount'
-_P='applTracerouteResultTestId'
-_O='applTracerouteTestId'
-_N='service'
-_M='applPingTestId'
-_L='NotificationType'
-_K='applTestType'
-_J='ifTestId'
-_I='applTestId'
-_H='DisplayString'
-_G='ifIndex'
-_F='Integer32'
-_E='IF-MIB'
-_D='PDN-DIAGNOSTICS-MIB'
-_C='read-write'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,ifTestId=mibBuilder.importSymbols(_E,_G,_J)
-pdn_diagnostics,=mibBuilder.importSymbols('PDN-HEADER-MIB','pdn-diagnostics')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier',_L,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_L,'TimeTicks','Unsigned32','iso')
-AutonomousType,DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','AutonomousType',_H,'PhysAddress','RowStatus','TextualConvention')
-_DiagTestMIBObjects_ObjectIdentity=ObjectIdentity
-diagTestMIBObjects=_DiagTestMIBObjects_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,16,1))
-_DiagIfTest_ObjectIdentity=ObjectIdentity
-diagIfTest=_DiagIfTest_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,16,1,1))
-_IfLoopbackTestTable_Object=MibTable
-ifLoopbackTestTable=_IfLoopbackTestTable_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,1))
-if mibBuilder.loadTexts:ifLoopbackTestTable.setStatus(_A)
-_IfLoopbackTestEntry_Object=MibTableRow
-ifLoopbackTestEntry=_IfLoopbackTestEntry_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,1,1))
-ifLoopbackTestEntry.setIndexNames((0,_E,_G))
-if mibBuilder.loadTexts:ifLoopbackTestEntry.setStatus(_A)
-_LoopbackTestInputNumCycles_Type=Integer32
-_LoopbackTestInputNumCycles_Object=MibTableColumn
-loopbackTestInputNumCycles=_LoopbackTestInputNumCycles_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,1,1,1),_LoopbackTestInputNumCycles_Type())
-loopbackTestInputNumCycles.setMaxAccess(_C)
-if mibBuilder.loadTexts:loopbackTestInputNumCycles.setStatus(_A)
-_LoopbackTestResultsPktsSent_Type=Integer32
-_LoopbackTestResultsPktsSent_Object=MibTableColumn
-loopbackTestResultsPktsSent=_LoopbackTestResultsPktsSent_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,1,1,2),_LoopbackTestResultsPktsSent_Type())
-loopbackTestResultsPktsSent.setMaxAccess(_B)
-if mibBuilder.loadTexts:loopbackTestResultsPktsSent.setStatus(_A)
-_LoopbackTestResultsPktsRcvdOK_Type=Integer32
-_LoopbackTestResultsPktsRcvdOK_Object=MibTableColumn
-loopbackTestResultsPktsRcvdOK=_LoopbackTestResultsPktsRcvdOK_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,1,1,3),_LoopbackTestResultsPktsRcvdOK_Type())
-loopbackTestResultsPktsRcvdOK.setMaxAccess(_B)
-if mibBuilder.loadTexts:loopbackTestResultsPktsRcvdOK.setStatus(_A)
-_LoopbackTestResultsPktsRcvdErr_Type=Integer32
-_LoopbackTestResultsPktsRcvdErr_Object=MibTableColumn
-loopbackTestResultsPktsRcvdErr=_LoopbackTestResultsPktsRcvdErr_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,1,1,4),_LoopbackTestResultsPktsRcvdErr_Type())
-loopbackTestResultsPktsRcvdErr.setMaxAccess(_B)
-if mibBuilder.loadTexts:loopbackTestResultsPktsRcvdErr.setStatus(_A)
-_LoopbackTestResultsPktsNotRcvd_Type=Integer32
-_LoopbackTestResultsPktsNotRcvd_Object=MibTableColumn
-loopbackTestResultsPktsNotRcvd=_LoopbackTestResultsPktsNotRcvd_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,1,1,5),_LoopbackTestResultsPktsNotRcvd_Type())
-loopbackTestResultsPktsNotRcvd.setMaxAccess(_B)
-if mibBuilder.loadTexts:loopbackTestResultsPktsNotRcvd.setStatus(_A)
-class _LoopbackTestResultsPktErrorRate_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_LoopbackTestResultsPktErrorRate_Type.__name__=_H
-_LoopbackTestResultsPktErrorRate_Object=MibTableColumn
-loopbackTestResultsPktErrorRate=_LoopbackTestResultsPktErrorRate_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,1,1,6),_LoopbackTestResultsPktErrorRate_Type())
-loopbackTestResultsPktErrorRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:loopbackTestResultsPktErrorRate.setStatus(_A)
-_LoopbackTestResultsErrSecs_Type=Integer32
-_LoopbackTestResultsErrSecs_Object=MibTableColumn
-loopbackTestResultsErrSecs=_LoopbackTestResultsErrSecs_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,1,1,7),_LoopbackTestResultsErrSecs_Type())
-loopbackTestResultsErrSecs.setMaxAccess(_B)
-if mibBuilder.loadTexts:loopbackTestResultsErrSecs.setStatus(_A)
-_LoopbackTestResultsSvrErrSecs_Type=Integer32
-_LoopbackTestResultsSvrErrSecs_Object=MibTableColumn
-loopbackTestResultsSvrErrSecs=_LoopbackTestResultsSvrErrSecs_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,1,1,8),_LoopbackTestResultsSvrErrSecs_Type())
-loopbackTestResultsSvrErrSecs.setMaxAccess(_B)
-if mibBuilder.loadTexts:loopbackTestResultsSvrErrSecs.setStatus(_A)
-_LoopbackTestResultsElpTime_Type=Integer32
-_LoopbackTestResultsElpTime_Object=MibTableColumn
-loopbackTestResultsElpTime=_LoopbackTestResultsElpTime_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,1,1,9),_LoopbackTestResultsElpTime_Type())
-loopbackTestResultsElpTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:loopbackTestResultsElpTime.setStatus(_A)
-_IfBERTObjectsTable_Object=MibTable
-ifBERTObjectsTable=_IfBERTObjectsTable_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2))
-if mibBuilder.loadTexts:ifBERTObjectsTable.setStatus(_A)
-_IfBERTObjectsEntry_Object=MibTableRow
-ifBERTObjectsEntry=_IfBERTObjectsEntry_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1))
-ifBERTObjectsEntry.setIndexNames((0,_E,_G))
-if mibBuilder.loadTexts:ifBERTObjectsEntry.setStatus(_A)
-_IfBERTTestDuration_Type=Integer32
-_IfBERTTestDuration_Object=MibTableColumn
-ifBERTTestDuration=_IfBERTTestDuration_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,1),_IfBERTTestDuration_Type())
-ifBERTTestDuration.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifBERTTestDuration.setStatus(_A)
-_IfBERTElapsedTime_Type=Integer32
-_IfBERTElapsedTime_Object=MibTableColumn
-ifBERTElapsedTime=_IfBERTElapsedTime_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,2),_IfBERTElapsedTime_Type())
-ifBERTElapsedTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTElapsedTime.setStatus(_A)
-class _IfBERTDownSyncUP_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('yes',1),('no',2)))
-_IfBERTDownSyncUP_Type.__name__=_F
-_IfBERTDownSyncUP_Object=MibTableColumn
-ifBERTDownSyncUP=_IfBERTDownSyncUP_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,3),_IfBERTDownSyncUP_Type())
-ifBERTDownSyncUP.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTDownSyncUP.setStatus(_A)
-class _IfBERTUpSyncUP_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('yes',1),('no',2)))
-_IfBERTUpSyncUP_Type.__name__=_F
-_IfBERTUpSyncUP_Object=MibTableColumn
-ifBERTUpSyncUP=_IfBERTUpSyncUP_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,4),_IfBERTUpSyncUP_Type())
-ifBERTUpSyncUP.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTUpSyncUP.setStatus(_A)
-_IfBERTSegmentsSent_Type=Integer32
-_IfBERTSegmentsSent_Object=MibTableColumn
-ifBERTSegmentsSent=_IfBERTSegmentsSent_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,5),_IfBERTSegmentsSent_Type())
-ifBERTSegmentsSent.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTSegmentsSent.setStatus(_A)
-_IfBERTDownMBitsRcvd_Type=Integer32
-_IfBERTDownMBitsRcvd_Object=MibTableColumn
-ifBERTDownMBitsRcvd=_IfBERTDownMBitsRcvd_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,6),_IfBERTDownMBitsRcvd_Type())
-ifBERTDownMBitsRcvd.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTDownMBitsRcvd.setStatus(_A)
-_IfBERTUpMBitsRcvd_Type=Integer32
-_IfBERTUpMBitsRcvd_Object=MibTableColumn
-ifBERTUpMBitsRcvd=_IfBERTUpMBitsRcvd_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,7),_IfBERTUpMBitsRcvd_Type())
-ifBERTUpMBitsRcvd.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTUpMBitsRcvd.setStatus(_A)
-_IfBERTDownBitErrDetected_Type=Integer32
-_IfBERTDownBitErrDetected_Object=MibTableColumn
-ifBERTDownBitErrDetected=_IfBERTDownBitErrDetected_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,8),_IfBERTDownBitErrDetected_Type())
-ifBERTDownBitErrDetected.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTDownBitErrDetected.setStatus(_A)
-_IfBERTUpBitErrDetected_Type=Integer32
-_IfBERTUpBitErrDetected_Object=MibTableColumn
-ifBERTUpBitErrDetected=_IfBERTUpBitErrDetected_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,9),_IfBERTUpBitErrDetected_Type())
-ifBERTUpBitErrDetected.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTUpBitErrDetected.setStatus(_A)
-class _IfBERTDownBitErrRate_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_IfBERTDownBitErrRate_Type.__name__=_H
-_IfBERTDownBitErrRate_Object=MibTableColumn
-ifBERTDownBitErrRate=_IfBERTDownBitErrRate_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,10),_IfBERTDownBitErrRate_Type())
-ifBERTDownBitErrRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTDownBitErrRate.setStatus(_A)
-class _IfBERTUpBitErrRate_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_IfBERTUpBitErrRate_Type.__name__=_H
-_IfBERTUpBitErrRate_Object=MibTableColumn
-ifBERTUpBitErrRate=_IfBERTUpBitErrRate_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,11),_IfBERTUpBitErrRate_Type())
-ifBERTUpBitErrRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTUpBitErrRate.setStatus(_A)
-_IfBERTDownErroredSecs_Type=Integer32
-_IfBERTDownErroredSecs_Object=MibTableColumn
-ifBERTDownErroredSecs=_IfBERTDownErroredSecs_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,12),_IfBERTDownErroredSecs_Type())
-ifBERTDownErroredSecs.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTDownErroredSecs.setStatus(_A)
-_IfBERTUpErroredSecs_Type=Integer32
-_IfBERTUpErroredSecs_Object=MibTableColumn
-ifBERTUpErroredSecs=_IfBERTUpErroredSecs_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,13),_IfBERTUpErroredSecs_Type())
-ifBERTUpErroredSecs.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTUpErroredSecs.setStatus(_A)
-_IfBERTDownLineRate_Type=Integer32
-_IfBERTDownLineRate_Object=MibTableColumn
-ifBERTDownLineRate=_IfBERTDownLineRate_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,14),_IfBERTDownLineRate_Type())
-ifBERTDownLineRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTDownLineRate.setStatus(_A)
-_IfBERTUpLineRate_Type=Integer32
-_IfBERTUpLineRate_Object=MibTableColumn
-ifBERTUpLineRate=_IfBERTUpLineRate_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,15),_IfBERTUpLineRate_Type())
-ifBERTUpLineRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTUpLineRate.setStatus(_A)
-_IfBERTDownMargin_Type=Integer32
-_IfBERTDownMargin_Object=MibTableColumn
-ifBERTDownMargin=_IfBERTDownMargin_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,16),_IfBERTDownMargin_Type())
-ifBERTDownMargin.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTDownMargin.setStatus(_A)
-_IfBERTUpMargin_Type=Integer32
-_IfBERTUpMargin_Object=MibTableColumn
-ifBERTUpMargin=_IfBERTUpMargin_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,2,1,17),_IfBERTUpMargin_Type())
-ifBERTUpMargin.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBERTUpMargin.setStatus(_A)
-_IfBLERTObjectsTable_Object=MibTable
-ifBLERTObjectsTable=_IfBLERTObjectsTable_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,3))
-if mibBuilder.loadTexts:ifBLERTObjectsTable.setStatus(_A)
-_IfBLERTObjectsEntry_Object=MibTableRow
-ifBLERTObjectsEntry=_IfBLERTObjectsEntry_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,3,1))
-ifBLERTObjectsEntry.setIndexNames((0,_E,_G))
-if mibBuilder.loadTexts:ifBLERTObjectsEntry.setStatus(_A)
-_IfBLERTTestDuration_Type=Integer32
-_IfBLERTTestDuration_Object=MibTableColumn
-ifBLERTTestDuration=_IfBLERTTestDuration_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,3,1,1),_IfBLERTTestDuration_Type())
-ifBLERTTestDuration.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifBLERTTestDuration.setStatus(_A)
-_IfBLERTElapsedTime_Type=Integer32
-_IfBLERTElapsedTime_Object=MibTableColumn
-ifBLERTElapsedTime=_IfBLERTElapsedTime_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,3,1,2),_IfBLERTElapsedTime_Type())
-ifBLERTElapsedTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBLERTElapsedTime.setStatus(_A)
-_IfBLERTTxSeqCount_Type=Integer32
-_IfBLERTTxSeqCount_Object=MibTableColumn
-ifBLERTTxSeqCount=_IfBLERTTxSeqCount_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,3,1,3),_IfBLERTTxSeqCount_Type())
-ifBLERTTxSeqCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBLERTTxSeqCount.setStatus(_A)
-_IfBLERTRxSeqCount_Type=Integer32
-_IfBLERTRxSeqCount_Object=MibTableColumn
-ifBLERTRxSeqCount=_IfBLERTRxSeqCount_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,3,1,4),_IfBLERTRxSeqCount_Type())
-ifBLERTRxSeqCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBLERTRxSeqCount.setStatus(_A)
-_IfBLERTRxGoodFrames_Type=Integer32
-_IfBLERTRxGoodFrames_Object=MibTableColumn
-ifBLERTRxGoodFrames=_IfBLERTRxGoodFrames_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,3,1,5),_IfBLERTRxGoodFrames_Type())
-ifBLERTRxGoodFrames.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBLERTRxGoodFrames.setStatus(_A)
-_IfBLERTTxGoodFrames_Type=Integer32
-_IfBLERTTxGoodFrames_Object=MibTableColumn
-ifBLERTTxGoodFrames=_IfBLERTTxGoodFrames_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,3,1,6),_IfBLERTTxGoodFrames_Type())
-ifBLERTTxGoodFrames.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBLERTTxGoodFrames.setStatus(_A)
-_IfBLERTRxBadFrames_Type=Integer32
-_IfBLERTRxBadFrames_Object=MibTableColumn
-ifBLERTRxBadFrames=_IfBLERTRxBadFrames_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,3,1,7),_IfBLERTRxBadFrames_Type())
-ifBLERTRxBadFrames.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBLERTRxBadFrames.setStatus(_A)
-_IfBLERTTxBadFrames_Type=Integer32
-_IfBLERTTxBadFrames_Object=MibTableColumn
-ifBLERTTxBadFrames=_IfBLERTTxBadFrames_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,3,1,8),_IfBLERTTxBadFrames_Type())
-ifBLERTTxBadFrames.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBLERTTxBadFrames.setStatus(_A)
-_IfBLERTDnLineRate_Type=Integer32
-_IfBLERTDnLineRate_Object=MibTableColumn
-ifBLERTDnLineRate=_IfBLERTDnLineRate_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,3,1,9),_IfBLERTDnLineRate_Type())
-ifBLERTDnLineRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBLERTDnLineRate.setStatus(_A)
-_IfBLERTUpLineRate_Type=Integer32
-_IfBLERTUpLineRate_Object=MibTableColumn
-ifBLERTUpLineRate=_IfBLERTUpLineRate_Object((1,3,6,1,4,1,1795,2,24,2,16,1,1,3,1,10),_IfBLERTUpLineRate_Type())
-ifBLERTUpLineRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:ifBLERTUpLineRate.setStatus(_A)
-_DiagApplTest_ObjectIdentity=ObjectIdentity
-diagApplTest=_DiagApplTest_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,16,1,2))
-_ApplMaxNumberOfTests_Type=Integer32
-_ApplMaxNumberOfTests_Object=MibScalar
-applMaxNumberOfTests=_ApplMaxNumberOfTests_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,1),_ApplMaxNumberOfTests_Type())
-applMaxNumberOfTests.setMaxAccess(_B)
-if mibBuilder.loadTexts:applMaxNumberOfTests.setStatus(_A)
-_ApplCurrentNumberOfTests_Type=Integer32
-_ApplCurrentNumberOfTests_Object=MibScalar
-applCurrentNumberOfTests=_ApplCurrentNumberOfTests_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,2),_ApplCurrentNumberOfTests_Type())
-applCurrentNumberOfTests.setMaxAccess(_B)
-if mibBuilder.loadTexts:applCurrentNumberOfTests.setStatus(_A)
-class _ApplStopAllTests_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('noOp',1),('stop',2),('stopAndClear',3)))
-_ApplStopAllTests_Type.__name__=_F
-_ApplStopAllTests_Object=MibScalar
-applStopAllTests=_ApplStopAllTests_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,3),_ApplStopAllTests_Type())
-applStopAllTests.setMaxAccess(_C)
-if mibBuilder.loadTexts:applStopAllTests.setStatus(_A)
-_ApplNewTestId_Type=Integer32
-_ApplNewTestId_Object=MibScalar
-applNewTestId=_ApplNewTestId_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,4),_ApplNewTestId_Type())
-applNewTestId.setMaxAccess(_B)
-if mibBuilder.loadTexts:applNewTestId.setStatus(_A)
-_ApplTestStatusTable_Object=MibTable
-applTestStatusTable=_ApplTestStatusTable_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,5))
-if mibBuilder.loadTexts:applTestStatusTable.setStatus(_A)
-_ApplTestStatusEntry_Object=MibTableRow
-applTestStatusEntry=_ApplTestStatusEntry_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,5,1))
-applTestStatusEntry.setIndexNames((0,_D,_I))
-if mibBuilder.loadTexts:applTestStatusEntry.setStatus(_A)
-_ApplTestId_Type=Integer32
-_ApplTestId_Object=MibTableColumn
-applTestId=_ApplTestId_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,5,1,1),_ApplTestId_Type())
-applTestId.setMaxAccess(_B)
-if mibBuilder.loadTexts:applTestId.setStatus(_A)
-_ApplTestType_Type=AutonomousType
-_ApplTestType_Object=MibTableColumn
-applTestType=_ApplTestType_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,5,1,2),_ApplTestType_Type())
-applTestType.setMaxAccess(_C)
-if mibBuilder.loadTexts:applTestType.setStatus(_A)
-class _ApplTestStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('none',1),('inProgress',2),('success',3),('failed',4),('abort',5)))
-_ApplTestStatus_Type.__name__=_F
-_ApplTestStatus_Object=MibTableColumn
-applTestStatus=_ApplTestStatus_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,5,1,3),_ApplTestStatus_Type())
-applTestStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:applTestStatus.setStatus(_A)
-class _ApplTestErrorCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('none',1),('timeout',2),('icmpError',3),('systemError',4)))
-_ApplTestErrorCode_Type.__name__=_F
-_ApplTestErrorCode_Object=MibTableColumn
-applTestErrorCode=_ApplTestErrorCode_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,5,1,4),_ApplTestErrorCode_Type())
-applTestErrorCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:applTestErrorCode.setStatus(_A)
-class _ApplTestOwner_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,40))
-_ApplTestOwner_Type.__name__=_H
-_ApplTestOwner_Object=MibTableColumn
-applTestOwner=_ApplTestOwner_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,5,1,5),_ApplTestOwner_Type())
-applTestOwner.setMaxAccess(_C)
-if mibBuilder.loadTexts:applTestOwner.setStatus(_A)
-_ApplTestRowStatus_Type=RowStatus
-_ApplTestRowStatus_Object=MibTableColumn
-applTestRowStatus=_ApplTestRowStatus_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,5,1,6),_ApplTestRowStatus_Type())
-applTestRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:applTestRowStatus.setStatus(_A)
-_ApplPingTestTable_Object=MibTable
-applPingTestTable=_ApplPingTestTable_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,6))
-if mibBuilder.loadTexts:applPingTestTable.setStatus(_A)
-_ApplPingTestEntry_Object=MibTableRow
-applPingTestEntry=_ApplPingTestEntry_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,6,1))
-applPingTestEntry.setIndexNames((0,_D,_M))
-if mibBuilder.loadTexts:applPingTestEntry.setStatus(_A)
-_ApplPingTestId_Type=Integer32
-_ApplPingTestId_Object=MibTableColumn
-applPingTestId=_ApplPingTestId_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,6,1,1),_ApplPingTestId_Type())
-applPingTestId.setMaxAccess(_B)
-if mibBuilder.loadTexts:applPingTestId.setStatus(_A)
-_ApplPingTestIpAddress_Type=IpAddress
-_ApplPingTestIpAddress_Object=MibTableColumn
-applPingTestIpAddress=_ApplPingTestIpAddress_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,6,1,2),_ApplPingTestIpAddress_Type())
-applPingTestIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:applPingTestIpAddress.setStatus(_A)
-_ApplPingTestSourceIpAddr_Type=IpAddress
-_ApplPingTestSourceIpAddr_Object=MibTableColumn
-applPingTestSourceIpAddr=_ApplPingTestSourceIpAddr_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,6,1,3),_ApplPingTestSourceIpAddr_Type())
-applPingTestSourceIpAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:applPingTestSourceIpAddr.setStatus(_A)
-_ApplPingTestPacketSize_Type=Integer32
-_ApplPingTestPacketSize_Object=MibTableColumn
-applPingTestPacketSize=_ApplPingTestPacketSize_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,6,1,4),_ApplPingTestPacketSize_Type())
-applPingTestPacketSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:applPingTestPacketSize.setStatus(_A)
-_ApplPingTestTimeout_Type=Integer32
-_ApplPingTestTimeout_Object=MibTableColumn
-applPingTestTimeout=_ApplPingTestTimeout_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,6,1,5),_ApplPingTestTimeout_Type())
-applPingTestTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:applPingTestTimeout.setStatus(_A)
-_ApplPingTestMaxPings_Type=Integer32
-_ApplPingTestMaxPings_Object=MibTableColumn
-applPingTestMaxPings=_ApplPingTestMaxPings_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,6,1,6),_ApplPingTestMaxPings_Type())
-applPingTestMaxPings.setMaxAccess(_C)
-if mibBuilder.loadTexts:applPingTestMaxPings.setStatus(_A)
-_ApplPingTestPktsSent_Type=Integer32
-_ApplPingTestPktsSent_Object=MibTableColumn
-applPingTestPktsSent=_ApplPingTestPktsSent_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,6,1,7),_ApplPingTestPktsSent_Type())
-applPingTestPktsSent.setMaxAccess(_B)
-if mibBuilder.loadTexts:applPingTestPktsSent.setStatus(_A)
-_ApplPingTestPktsRecv_Type=Integer32
-_ApplPingTestPktsRecv_Object=MibTableColumn
-applPingTestPktsRecv=_ApplPingTestPktsRecv_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,6,1,8),_ApplPingTestPktsRecv_Type())
-applPingTestPktsRecv.setMaxAccess(_B)
-if mibBuilder.loadTexts:applPingTestPktsRecv.setStatus(_A)
-_ApplPingTestMinTime_Type=Integer32
-_ApplPingTestMinTime_Object=MibTableColumn
-applPingTestMinTime=_ApplPingTestMinTime_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,6,1,9),_ApplPingTestMinTime_Type())
-applPingTestMinTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:applPingTestMinTime.setStatus(_A)
-_ApplPingTestMaxTime_Type=Integer32
-_ApplPingTestMaxTime_Object=MibTableColumn
-applPingTestMaxTime=_ApplPingTestMaxTime_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,6,1,10),_ApplPingTestMaxTime_Type())
-applPingTestMaxTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:applPingTestMaxTime.setStatus(_A)
-_ApplPingTestAvgTime_Type=Integer32
-_ApplPingTestAvgTime_Object=MibTableColumn
-applPingTestAvgTime=_ApplPingTestAvgTime_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,6,1,11),_ApplPingTestAvgTime_Type())
-applPingTestAvgTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:applPingTestAvgTime.setStatus(_A)
-class _ApplPingTestDomain_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('noop',1),('mgmt',2),(_N,3)))
-_ApplPingTestDomain_Type.__name__=_F
-_ApplPingTestDomain_Object=MibTableColumn
-applPingTestDomain=_ApplPingTestDomain_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,6,1,12),_ApplPingTestDomain_Type())
-applPingTestDomain.setMaxAccess(_C)
-if mibBuilder.loadTexts:applPingTestDomain.setStatus(_A)
-_ApplPingTestIfIndex_Type=Integer32
-_ApplPingTestIfIndex_Object=MibTableColumn
-applPingTestIfIndex=_ApplPingTestIfIndex_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,6,1,13),_ApplPingTestIfIndex_Type())
-applPingTestIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:applPingTestIfIndex.setStatus(_A)
-_ApplTracerouteConfigTable_Object=MibTable
-applTracerouteConfigTable=_ApplTracerouteConfigTable_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,7))
-if mibBuilder.loadTexts:applTracerouteConfigTable.setStatus(_A)
-_ApplTracerouteConfigEntry_Object=MibTableRow
-applTracerouteConfigEntry=_ApplTracerouteConfigEntry_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,7,1))
-applTracerouteConfigEntry.setIndexNames((0,_D,_O))
-if mibBuilder.loadTexts:applTracerouteConfigEntry.setStatus(_A)
-_ApplTracerouteTestId_Type=Integer32
-_ApplTracerouteTestId_Object=MibTableColumn
-applTracerouteTestId=_ApplTracerouteTestId_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,7,1,1),_ApplTracerouteTestId_Type())
-applTracerouteTestId.setMaxAccess(_B)
-if mibBuilder.loadTexts:applTracerouteTestId.setStatus(_A)
-_ApplTracerouteIpAddress_Type=IpAddress
-_ApplTracerouteIpAddress_Object=MibTableColumn
-applTracerouteIpAddress=_ApplTracerouteIpAddress_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,7,1,2),_ApplTracerouteIpAddress_Type())
-applTracerouteIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:applTracerouteIpAddress.setStatus(_A)
-_ApplTracerouteSourceIpAddr_Type=IpAddress
-_ApplTracerouteSourceIpAddr_Object=MibTableColumn
-applTracerouteSourceIpAddr=_ApplTracerouteSourceIpAddr_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,7,1,3),_ApplTracerouteSourceIpAddr_Type())
-applTracerouteSourceIpAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:applTracerouteSourceIpAddr.setStatus(_A)
-_ApplTraceroutePktsSize_Type=Integer32
-_ApplTraceroutePktsSize_Object=MibTableColumn
-applTraceroutePktsSize=_ApplTraceroutePktsSize_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,7,1,4),_ApplTraceroutePktsSize_Type())
-applTraceroutePktsSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:applTraceroutePktsSize.setStatus(_A)
-_ApplTracerouteTimeout_Type=Integer32
-_ApplTracerouteTimeout_Object=MibTableColumn
-applTracerouteTimeout=_ApplTracerouteTimeout_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,7,1,5),_ApplTracerouteTimeout_Type())
-applTracerouteTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:applTracerouteTimeout.setStatus(_A)
-_ApplTracerouteMaxHops_Type=Integer32
-_ApplTracerouteMaxHops_Object=MibTableColumn
-applTracerouteMaxHops=_ApplTracerouteMaxHops_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,7,1,6),_ApplTracerouteMaxHops_Type())
-applTracerouteMaxHops.setMaxAccess(_C)
-if mibBuilder.loadTexts:applTracerouteMaxHops.setStatus(_A)
-class _ApplTracerouteDomain_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('noop',1),('mgmt',2),(_N,3)))
-_ApplTracerouteDomain_Type.__name__=_F
-_ApplTracerouteDomain_Object=MibTableColumn
-applTracerouteDomain=_ApplTracerouteDomain_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,7,1,7),_ApplTracerouteDomain_Type())
-applTracerouteDomain.setMaxAccess(_C)
-if mibBuilder.loadTexts:applTracerouteDomain.setStatus(_A)
-_ApplTracerouteIfIndex_Type=Integer32
-_ApplTracerouteIfIndex_Object=MibTableColumn
-applTracerouteIfIndex=_ApplTracerouteIfIndex_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,7,1,8),_ApplTracerouteIfIndex_Type())
-applTracerouteIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:applTracerouteIfIndex.setStatus(_A)
-_ApplTracerouteResultTable_Object=MibTable
-applTracerouteResultTable=_ApplTracerouteResultTable_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,8))
-if mibBuilder.loadTexts:applTracerouteResultTable.setStatus(_A)
-_ApplTracerouteResultEntry_Object=MibTableRow
-applTracerouteResultEntry=_ApplTracerouteResultEntry_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,8,1))
-applTracerouteResultEntry.setIndexNames((0,_D,_P),(0,_D,_Q))
-if mibBuilder.loadTexts:applTracerouteResultEntry.setStatus(_A)
-_ApplTracerouteResultTestId_Type=Integer32
-_ApplTracerouteResultTestId_Object=MibTableColumn
-applTracerouteResultTestId=_ApplTracerouteResultTestId_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,8,1,1),_ApplTracerouteResultTestId_Type())
-applTracerouteResultTestId.setMaxAccess(_B)
-if mibBuilder.loadTexts:applTracerouteResultTestId.setStatus(_A)
-_ApplTracerouteHopCount_Type=Integer32
-_ApplTracerouteHopCount_Object=MibTableColumn
-applTracerouteHopCount=_ApplTracerouteHopCount_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,8,1,2),_ApplTracerouteHopCount_Type())
-applTracerouteHopCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:applTracerouteHopCount.setStatus(_A)
-_ApplTracerouteIpAddr_Type=IpAddress
-_ApplTracerouteIpAddr_Object=MibTableColumn
-applTracerouteIpAddr=_ApplTracerouteIpAddr_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,8,1,3),_ApplTracerouteIpAddr_Type())
-applTracerouteIpAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:applTracerouteIpAddr.setStatus(_A)
-_ApplTraceroutePktSize_Type=Integer32
-_ApplTraceroutePktSize_Object=MibTableColumn
-applTraceroutePktSize=_ApplTraceroutePktSize_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,8,1,4),_ApplTraceroutePktSize_Type())
-applTraceroutePktSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:applTraceroutePktSize.setStatus(_A)
-_ApplTracerouteProbe1RTT_Type=Integer32
-_ApplTracerouteProbe1RTT_Object=MibTableColumn
-applTracerouteProbe1RTT=_ApplTracerouteProbe1RTT_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,8,1,5),_ApplTracerouteProbe1RTT_Type())
-applTracerouteProbe1RTT.setMaxAccess(_B)
-if mibBuilder.loadTexts:applTracerouteProbe1RTT.setStatus(_A)
-_ApplTracerouteProbe2RTT_Type=Integer32
-_ApplTracerouteProbe2RTT_Object=MibTableColumn
-applTracerouteProbe2RTT=_ApplTracerouteProbe2RTT_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,8,1,6),_ApplTracerouteProbe2RTT_Type())
-applTracerouteProbe2RTT.setMaxAccess(_B)
-if mibBuilder.loadTexts:applTracerouteProbe2RTT.setStatus(_A)
-_ApplTracerouteProbe3RTT_Type=Integer32
-_ApplTracerouteProbe3RTT_Object=MibTableColumn
-applTracerouteProbe3RTT=_ApplTracerouteProbe3RTT_Object((1,3,6,1,4,1,1795,2,24,2,16,1,2,8,1,7),_ApplTracerouteProbe3RTT_Type())
-applTracerouteProbe3RTT.setMaxAccess(_B)
-if mibBuilder.loadTexts:applTracerouteProbe3RTT.setStatus(_A)
-_DiagTest_ObjectIdentity=ObjectIdentity
-diagTest=_DiagTest_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,16,1,3))
-_DiagTestTrapEnable_Type=Integer32
-_DiagTestTrapEnable_Object=MibScalar
-diagTestTrapEnable=_DiagTestTrapEnable_Object((1,3,6,1,4,1,1795,2,24,2,16,1,3,1),_DiagTestTrapEnable_Type())
-diagTestTrapEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:diagTestTrapEnable.setStatus(_A)
-_DiagTestMIBTraps_ObjectIdentity=ObjectIdentity
-diagTestMIBTraps=_DiagTestMIBTraps_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,16,2))
-diagApplTestStart=NotificationType((1,3,6,1,4,1,1795,2,24,2,16,2,0,1))
-diagApplTestStart.setObjects(*((_E,_G),(_D,_I),(_D,_K)))
-if mibBuilder.loadTexts:diagApplTestStart.setStatus('')
-diagIfTestStart=NotificationType((1,3,6,1,4,1,1795,2,24,2,16,2,0,2))
-diagIfTestStart.setObjects((_E,_J))
-if mibBuilder.loadTexts:diagIfTestStart.setStatus('')
-diagApplTestStop=NotificationType((1,3,6,1,4,1,1795,2,24,2,16,2,0,101))
-diagApplTestStop.setObjects(*((_E,_G),(_D,_I),(_D,_K),(_D,_R)))
-if mibBuilder.loadTexts:diagApplTestStop.setStatus('')
-diagIfTestOver=NotificationType((1,3,6,1,4,1,1795,2,24,2,16,2,0,102))
-diagIfTestOver.setObjects((_E,_J))
-if mibBuilder.loadTexts:diagIfTestOver.setStatus('')
-mibBuilder.exportSymbols(_D,**{'diagTestMIBObjects':diagTestMIBObjects,'diagIfTest':diagIfTest,'ifLoopbackTestTable':ifLoopbackTestTable,'ifLoopbackTestEntry':ifLoopbackTestEntry,'loopbackTestInputNumCycles':loopbackTestInputNumCycles,'loopbackTestResultsPktsSent':loopbackTestResultsPktsSent,'loopbackTestResultsPktsRcvdOK':loopbackTestResultsPktsRcvdOK,'loopbackTestResultsPktsRcvdErr':loopbackTestResultsPktsRcvdErr,'loopbackTestResultsPktsNotRcvd':loopbackTestResultsPktsNotRcvd,'loopbackTestResultsPktErrorRate':loopbackTestResultsPktErrorRate,'loopbackTestResultsErrSecs':loopbackTestResultsErrSecs,'loopbackTestResultsSvrErrSecs':loopbackTestResultsSvrErrSecs,'loopbackTestResultsElpTime':loopbackTestResultsElpTime,'ifBERTObjectsTable':ifBERTObjectsTable,'ifBERTObjectsEntry':ifBERTObjectsEntry,'ifBERTTestDuration':ifBERTTestDuration,'ifBERTElapsedTime':ifBERTElapsedTime,'ifBERTDownSyncUP':ifBERTDownSyncUP,'ifBERTUpSyncUP':ifBERTUpSyncUP,'ifBERTSegmentsSent':ifBERTSegmentsSent,'ifBERTDownMBitsRcvd':ifBERTDownMBitsRcvd,'ifBERTUpMBitsRcvd':ifBERTUpMBitsRcvd,'ifBERTDownBitErrDetected':ifBERTDownBitErrDetected,'ifBERTUpBitErrDetected':ifBERTUpBitErrDetected,'ifBERTDownBitErrRate':ifBERTDownBitErrRate,'ifBERTUpBitErrRate':ifBERTUpBitErrRate,'ifBERTDownErroredSecs':ifBERTDownErroredSecs,'ifBERTUpErroredSecs':ifBERTUpErroredSecs,'ifBERTDownLineRate':ifBERTDownLineRate,'ifBERTUpLineRate':ifBERTUpLineRate,'ifBERTDownMargin':ifBERTDownMargin,'ifBERTUpMargin':ifBERTUpMargin,'ifBLERTObjectsTable':ifBLERTObjectsTable,'ifBLERTObjectsEntry':ifBLERTObjectsEntry,'ifBLERTTestDuration':ifBLERTTestDuration,'ifBLERTElapsedTime':ifBLERTElapsedTime,'ifBLERTTxSeqCount':ifBLERTTxSeqCount,'ifBLERTRxSeqCount':ifBLERTRxSeqCount,'ifBLERTRxGoodFrames':ifBLERTRxGoodFrames,'ifBLERTTxGoodFrames':ifBLERTTxGoodFrames,'ifBLERTRxBadFrames':ifBLERTRxBadFrames,'ifBLERTTxBadFrames':ifBLERTTxBadFrames,'ifBLERTDnLineRate':ifBLERTDnLineRate,'ifBLERTUpLineRate':ifBLERTUpLineRate,'diagApplTest':diagApplTest,'applMaxNumberOfTests':applMaxNumberOfTests,'applCurrentNumberOfTests':applCurrentNumberOfTests,'applStopAllTests':applStopAllTests,'applNewTestId':applNewTestId,'applTestStatusTable':applTestStatusTable,'applTestStatusEntry':applTestStatusEntry,_I:applTestId,_K:applTestType,_R:applTestStatus,'applTestErrorCode':applTestErrorCode,'applTestOwner':applTestOwner,'applTestRowStatus':applTestRowStatus,'applPingTestTable':applPingTestTable,'applPingTestEntry':applPingTestEntry,_M:applPingTestId,'applPingTestIpAddress':applPingTestIpAddress,'applPingTestSourceIpAddr':applPingTestSourceIpAddr,'applPingTestPacketSize':applPingTestPacketSize,'applPingTestTimeout':applPingTestTimeout,'applPingTestMaxPings':applPingTestMaxPings,'applPingTestPktsSent':applPingTestPktsSent,'applPingTestPktsRecv':applPingTestPktsRecv,'applPingTestMinTime':applPingTestMinTime,'applPingTestMaxTime':applPingTestMaxTime,'applPingTestAvgTime':applPingTestAvgTime,'applPingTestDomain':applPingTestDomain,'applPingTestIfIndex':applPingTestIfIndex,'applTracerouteConfigTable':applTracerouteConfigTable,'applTracerouteConfigEntry':applTracerouteConfigEntry,_O:applTracerouteTestId,'applTracerouteIpAddress':applTracerouteIpAddress,'applTracerouteSourceIpAddr':applTracerouteSourceIpAddr,'applTraceroutePktsSize':applTraceroutePktsSize,'applTracerouteTimeout':applTracerouteTimeout,'applTracerouteMaxHops':applTracerouteMaxHops,'applTracerouteDomain':applTracerouteDomain,'applTracerouteIfIndex':applTracerouteIfIndex,'applTracerouteResultTable':applTracerouteResultTable,'applTracerouteResultEntry':applTracerouteResultEntry,_P:applTracerouteResultTestId,_Q:applTracerouteHopCount,'applTracerouteIpAddr':applTracerouteIpAddr,'applTraceroutePktSize':applTraceroutePktSize,'applTracerouteProbe1RTT':applTracerouteProbe1RTT,'applTracerouteProbe2RTT':applTracerouteProbe2RTT,'applTracerouteProbe3RTT':applTracerouteProbe3RTT,'diagTest':diagTest,'diagTestTrapEnable':diagTestTrapEnable,'diagTestMIBTraps':diagTestMIBTraps,'diagApplTestStart':diagApplTestStart,'diagIfTestStart':diagIfTestStart,'diagApplTestStop':diagApplTestStop,'diagIfTestOver':diagIfTestOver})
+#
+# PySNMP MIB module PDN-DIAGNOSTICS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/paradyne/PDN-DIAGNOSTICS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, ifTestId = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifTestId")
+pdn_diagnostics, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-diagnostics")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention, AutonomousType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention", "AutonomousType")
+diagTestMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1))
+diagTestMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 2))
+diagIfTest = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1))
+diagApplTest = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2))
+diagTest = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 3))
+ifLoopbackTestTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 1), )
+if mibBuilder.loadTexts: ifLoopbackTestTable.setStatus('mandatory')
+ifLoopbackTestEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: ifLoopbackTestEntry.setStatus('mandatory')
+loopbackTestInputNumCycles = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: loopbackTestInputNumCycles.setStatus('mandatory')
+loopbackTestResultsPktsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loopbackTestResultsPktsSent.setStatus('mandatory')
+loopbackTestResultsPktsRcvdOK = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loopbackTestResultsPktsRcvdOK.setStatus('mandatory')
+loopbackTestResultsPktsRcvdErr = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loopbackTestResultsPktsRcvdErr.setStatus('mandatory')
+loopbackTestResultsPktsNotRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loopbackTestResultsPktsNotRcvd.setStatus('mandatory')
+loopbackTestResultsPktErrorRate = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loopbackTestResultsPktErrorRate.setStatus('mandatory')
+loopbackTestResultsErrSecs = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loopbackTestResultsErrSecs.setStatus('mandatory')
+loopbackTestResultsSvrErrSecs = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loopbackTestResultsSvrErrSecs.setStatus('mandatory')
+loopbackTestResultsElpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loopbackTestResultsElpTime.setStatus('mandatory')
+ifBERTObjectsTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2), )
+if mibBuilder.loadTexts: ifBERTObjectsTable.setStatus('mandatory')
+ifBERTObjectsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: ifBERTObjectsEntry.setStatus('mandatory')
+ifBERTTestDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ifBERTTestDuration.setStatus('mandatory')
+ifBERTElapsedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTElapsedTime.setStatus('mandatory')
+ifBERTDownSyncUP = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("yes", 1), ("no", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTDownSyncUP.setStatus('mandatory')
+ifBERTUpSyncUP = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("yes", 1), ("no", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTUpSyncUP.setStatus('mandatory')
+ifBERTSegmentsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTSegmentsSent.setStatus('mandatory')
+ifBERTDownMBitsRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTDownMBitsRcvd.setStatus('mandatory')
+ifBERTUpMBitsRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTUpMBitsRcvd.setStatus('mandatory')
+ifBERTDownBitErrDetected = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTDownBitErrDetected.setStatus('mandatory')
+ifBERTUpBitErrDetected = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTUpBitErrDetected.setStatus('mandatory')
+ifBERTDownBitErrRate = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTDownBitErrRate.setStatus('mandatory')
+ifBERTUpBitErrRate = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTUpBitErrRate.setStatus('mandatory')
+ifBERTDownErroredSecs = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTDownErroredSecs.setStatus('mandatory')
+ifBERTUpErroredSecs = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTUpErroredSecs.setStatus('mandatory')
+ifBERTDownLineRate = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTDownLineRate.setStatus('mandatory')
+ifBERTUpLineRate = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTUpLineRate.setStatus('mandatory')
+ifBERTDownMargin = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 16), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTDownMargin.setStatus('mandatory')
+ifBERTUpMargin = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 2, 1, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBERTUpMargin.setStatus('mandatory')
+ifBLERTObjectsTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 3), )
+if mibBuilder.loadTexts: ifBLERTObjectsTable.setStatus('mandatory')
+ifBLERTObjectsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: ifBLERTObjectsEntry.setStatus('mandatory')
+ifBLERTTestDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 3, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ifBLERTTestDuration.setStatus('mandatory')
+ifBLERTElapsedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 3, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBLERTElapsedTime.setStatus('mandatory')
+ifBLERTTxSeqCount = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 3, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBLERTTxSeqCount.setStatus('mandatory')
+ifBLERTRxSeqCount = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 3, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBLERTRxSeqCount.setStatus('mandatory')
+ifBLERTRxGoodFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 3, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBLERTRxGoodFrames.setStatus('mandatory')
+ifBLERTTxGoodFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 3, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBLERTTxGoodFrames.setStatus('mandatory')
+ifBLERTRxBadFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 3, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBLERTRxBadFrames.setStatus('mandatory')
+ifBLERTTxBadFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 3, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBLERTTxBadFrames.setStatus('mandatory')
+ifBLERTDnLineRate = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 3, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBLERTDnLineRate.setStatus('mandatory')
+ifBLERTUpLineRate = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 1, 3, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifBLERTUpLineRate.setStatus('mandatory')
+applMaxNumberOfTests = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applMaxNumberOfTests.setStatus('mandatory')
+applCurrentNumberOfTests = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applCurrentNumberOfTests.setStatus('mandatory')
+applStopAllTests = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noOp", 1), ("stop", 2), ("stopAndClear", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applStopAllTests.setStatus('mandatory')
+applNewTestId = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applNewTestId.setStatus('mandatory')
+applTestStatusTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 5), )
+if mibBuilder.loadTexts: applTestStatusTable.setStatus('mandatory')
+applTestStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 5, 1), ).setIndexNames((0, "PDN-DIAGNOSTICS-MIB", "applTestId"))
+if mibBuilder.loadTexts: applTestStatusEntry.setStatus('mandatory')
+applTestId = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 5, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applTestId.setStatus('mandatory')
+applTestType = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 5, 1, 2), AutonomousType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applTestType.setStatus('mandatory')
+applTestStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("inProgress", 2), ("success", 3), ("failed", 4), ("abort", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applTestStatus.setStatus('mandatory')
+applTestErrorCode = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 5, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("timeout", 2), ("icmpError", 3), ("systemError", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applTestErrorCode.setStatus('mandatory')
+applTestOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 5, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 40))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applTestOwner.setStatus('mandatory')
+applTestRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 5, 1, 6), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applTestRowStatus.setStatus('mandatory')
+applPingTestTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 6), )
+if mibBuilder.loadTexts: applPingTestTable.setStatus('mandatory')
+applPingTestEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 6, 1), ).setIndexNames((0, "PDN-DIAGNOSTICS-MIB", "applPingTestId"))
+if mibBuilder.loadTexts: applPingTestEntry.setStatus('mandatory')
+applPingTestId = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 6, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applPingTestId.setStatus('mandatory')
+applPingTestIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 6, 1, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applPingTestIpAddress.setStatus('mandatory')
+applPingTestSourceIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 6, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applPingTestSourceIpAddr.setStatus('mandatory')
+applPingTestPacketSize = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 6, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applPingTestPacketSize.setStatus('mandatory')
+applPingTestTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 6, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applPingTestTimeout.setStatus('mandatory')
+applPingTestMaxPings = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 6, 1, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applPingTestMaxPings.setStatus('mandatory')
+applPingTestPktsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 6, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applPingTestPktsSent.setStatus('mandatory')
+applPingTestPktsRecv = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 6, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applPingTestPktsRecv.setStatus('mandatory')
+applPingTestMinTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 6, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applPingTestMinTime.setStatus('mandatory')
+applPingTestMaxTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 6, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applPingTestMaxTime.setStatus('mandatory')
+applPingTestAvgTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 6, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applPingTestAvgTime.setStatus('mandatory')
+applPingTestDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 6, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noop", 1), ("mgmt", 2), ("service", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applPingTestDomain.setStatus('mandatory')
+applPingTestIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 6, 1, 13), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applPingTestIfIndex.setStatus('mandatory')
+applTracerouteConfigTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 7), )
+if mibBuilder.loadTexts: applTracerouteConfigTable.setStatus('mandatory')
+applTracerouteConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 7, 1), ).setIndexNames((0, "PDN-DIAGNOSTICS-MIB", "applTracerouteTestId"))
+if mibBuilder.loadTexts: applTracerouteConfigEntry.setStatus('mandatory')
+applTracerouteTestId = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 7, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applTracerouteTestId.setStatus('mandatory')
+applTracerouteIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 7, 1, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applTracerouteIpAddress.setStatus('mandatory')
+applTracerouteSourceIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 7, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applTracerouteSourceIpAddr.setStatus('mandatory')
+applTraceroutePktsSize = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 7, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applTraceroutePktsSize.setStatus('mandatory')
+applTracerouteTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 7, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applTracerouteTimeout.setStatus('mandatory')
+applTracerouteMaxHops = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 7, 1, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applTracerouteMaxHops.setStatus('mandatory')
+applTracerouteDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 7, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noop", 1), ("mgmt", 2), ("service", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applTracerouteDomain.setStatus('mandatory')
+applTracerouteIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 7, 1, 8), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: applTracerouteIfIndex.setStatus('mandatory')
+applTracerouteResultTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 8), )
+if mibBuilder.loadTexts: applTracerouteResultTable.setStatus('mandatory')
+applTracerouteResultEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 8, 1), ).setIndexNames((0, "PDN-DIAGNOSTICS-MIB", "applTracerouteResultTestId"), (0, "PDN-DIAGNOSTICS-MIB", "applTracerouteHopCount"))
+if mibBuilder.loadTexts: applTracerouteResultEntry.setStatus('mandatory')
+applTracerouteResultTestId = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 8, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applTracerouteResultTestId.setStatus('mandatory')
+applTracerouteHopCount = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 8, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applTracerouteHopCount.setStatus('mandatory')
+applTracerouteIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 8, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applTracerouteIpAddr.setStatus('mandatory')
+applTraceroutePktSize = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 8, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applTraceroutePktSize.setStatus('mandatory')
+applTracerouteProbe1RTT = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 8, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applTracerouteProbe1RTT.setStatus('mandatory')
+applTracerouteProbe2RTT = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 8, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applTracerouteProbe2RTT.setStatus('mandatory')
+applTracerouteProbe3RTT = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 2, 8, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: applTracerouteProbe3RTT.setStatus('mandatory')
+diagTestTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 1, 3, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: diagTestTrapEnable.setStatus('mandatory')
+diagApplTestStart = NotificationType((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 2) + (0,1)).setObjects(("IF-MIB", "ifIndex"), ("PDN-DIAGNOSTICS-MIB", "applTestId"), ("PDN-DIAGNOSTICS-MIB", "applTestType"))
+diagApplTestStop = NotificationType((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 2) + (0,101)).setObjects(("IF-MIB", "ifIndex"), ("PDN-DIAGNOSTICS-MIB", "applTestId"), ("PDN-DIAGNOSTICS-MIB", "applTestType"), ("PDN-DIAGNOSTICS-MIB", "applTestStatus"))
+diagIfTestStart = NotificationType((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 2) + (0,2)).setObjects(("IF-MIB", "ifTestId"))
+diagIfTestOver = NotificationType((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 16, 2) + (0,102)).setObjects(("IF-MIB", "ifTestId"))
+mibBuilder.exportSymbols("PDN-DIAGNOSTICS-MIB", applTestId=applTestId, loopbackTestResultsPktsSent=loopbackTestResultsPktsSent, applTestStatus=applTestStatus, diagTestTrapEnable=diagTestTrapEnable, applTestType=applTestType, applPingTestSourceIpAddr=applPingTestSourceIpAddr, ifBLERTRxGoodFrames=ifBLERTRxGoodFrames, ifBERTUpMargin=ifBERTUpMargin, ifBLERTUpLineRate=ifBLERTUpLineRate, applTestErrorCode=applTestErrorCode, applPingTestId=applPingTestId, applTracerouteProbe1RTT=applTracerouteProbe1RTT, applCurrentNumberOfTests=applCurrentNumberOfTests, applPingTestIpAddress=applPingTestIpAddress, loopbackTestResultsErrSecs=loopbackTestResultsErrSecs, applTracerouteMaxHops=applTracerouteMaxHops, diagIfTest=diagIfTest, applPingTestPktsSent=applPingTestPktsSent, applPingTestIfIndex=applPingTestIfIndex, diagIfTestStart=diagIfTestStart, diagApplTest=diagApplTest, loopbackTestResultsPktsRcvdOK=loopbackTestResultsPktsRcvdOK, ifBLERTTestDuration=ifBLERTTestDuration, applTracerouteDomain=applTracerouteDomain, diagTest=diagTest, loopbackTestResultsPktsRcvdErr=loopbackTestResultsPktsRcvdErr, applTracerouteProbe2RTT=applTracerouteProbe2RTT, ifBLERTRxSeqCount=ifBLERTRxSeqCount, applTraceroutePktsSize=applTraceroutePktsSize, applTracerouteIpAddress=applTracerouteIpAddress, ifBERTDownBitErrDetected=ifBERTDownBitErrDetected, applTestStatusEntry=applTestStatusEntry, loopbackTestResultsPktsNotRcvd=loopbackTestResultsPktsNotRcvd, applTracerouteIpAddr=applTracerouteIpAddr, ifBERTObjectsTable=ifBERTObjectsTable, applPingTestMinTime=applPingTestMinTime, applTracerouteIfIndex=applTracerouteIfIndex, ifBERTUpBitErrDetected=ifBERTUpBitErrDetected, applTestStatusTable=applTestStatusTable, applStopAllTests=applStopAllTests, ifBLERTRxBadFrames=ifBLERTRxBadFrames, applTracerouteHopCount=applTracerouteHopCount, ifBERTObjectsEntry=ifBERTObjectsEntry, applTracerouteSourceIpAddr=applTracerouteSourceIpAddr, ifBERTUpBitErrRate=ifBERTUpBitErrRate, applPingTestTable=applPingTestTable, ifBLERTObjectsTable=ifBLERTObjectsTable, applPingTestTimeout=applPingTestTimeout, ifBERTUpMBitsRcvd=ifBERTUpMBitsRcvd, applTracerouteConfigEntry=applTracerouteConfigEntry, diagApplTestStart=diagApplTestStart, ifBLERTTxSeqCount=ifBLERTTxSeqCount, ifBERTTestDuration=ifBERTTestDuration, applNewTestId=applNewTestId, ifBERTDownBitErrRate=ifBERTDownBitErrRate, diagTestMIBObjects=diagTestMIBObjects, applPingTestEntry=applPingTestEntry, loopbackTestInputNumCycles=loopbackTestInputNumCycles, ifBLERTTxGoodFrames=ifBLERTTxGoodFrames, ifBERTDownMargin=ifBERTDownMargin, ifBLERTTxBadFrames=ifBLERTTxBadFrames, applTracerouteTestId=applTracerouteTestId, applTracerouteConfigTable=applTracerouteConfigTable, applTraceroutePktSize=applTraceroutePktSize, loopbackTestResultsSvrErrSecs=loopbackTestResultsSvrErrSecs, applTracerouteTimeout=applTracerouteTimeout, ifBLERTDnLineRate=ifBLERTDnLineRate, ifBERTDownMBitsRcvd=ifBERTDownMBitsRcvd, applPingTestMaxPings=applPingTestMaxPings, applTestRowStatus=applTestRowStatus, applTracerouteProbe3RTT=applTracerouteProbe3RTT, applPingTestPacketSize=applPingTestPacketSize, applPingTestAvgTime=applPingTestAvgTime, ifBLERTObjectsEntry=ifBLERTObjectsEntry, ifBERTElapsedTime=ifBERTElapsedTime, ifLoopbackTestEntry=ifLoopbackTestEntry, applTracerouteResultTestId=applTracerouteResultTestId, ifBERTUpErroredSecs=ifBERTUpErroredSecs, diagApplTestStop=diagApplTestStop, applPingTestPktsRecv=applPingTestPktsRecv, loopbackTestResultsElpTime=loopbackTestResultsElpTime, ifBLERTElapsedTime=ifBLERTElapsedTime, applPingTestDomain=applPingTestDomain, ifBERTUpLineRate=ifBERTUpLineRate, ifBERTUpSyncUP=ifBERTUpSyncUP, ifBERTDownLineRate=ifBERTDownLineRate, ifBERTSegmentsSent=ifBERTSegmentsSent, ifBERTDownSyncUP=ifBERTDownSyncUP, applPingTestMaxTime=applPingTestMaxTime, loopbackTestResultsPktErrorRate=loopbackTestResultsPktErrorRate, ifLoopbackTestTable=ifLoopbackTestTable, ifBERTDownErroredSecs=ifBERTDownErroredSecs, applMaxNumberOfTests=applMaxNumberOfTests, applTracerouteResultTable=applTracerouteResultTable, diagTestMIBTraps=diagTestMIBTraps, applTracerouteResultEntry=applTracerouteResultEntry, diagIfTestOver=diagIfTestOver, applTestOwner=applTestOwner)

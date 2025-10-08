@@ -1,67 +1,55 @@
-_G='rlSpecialBpduProtId'
-_F='rlSpecialBpduEncap'
-_E='OctetString'
-_D='not-accessible'
-_C='rlSpecialBpduMacAddr'
-_B='MARVELL-SpecialBpdu-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-rnd,=mibBuilder.importSymbols('RADLAN-MIB','rnd')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-rlSpecialBpdu=ModuleIdentity((1,3,6,1,4,1,89,144))
-if mibBuilder.loadTexts:rlSpecialBpdu.setRevisions(('2008-05-03 12:34',))
-class EncapType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('none',1),('ethernet-v2',2),('llc',3),('llc-snap',4)))
-class Action(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('bridge',1),('discard',2)))
-class HwAction(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('forward',1),('drop',2),('trap',3)))
-_RlSpecialBpduTable_Object=MibTable
-rlSpecialBpduTable=_RlSpecialBpduTable_Object((1,3,6,1,4,1,89,144,1))
-if mibBuilder.loadTexts:rlSpecialBpduTable.setStatus(_A)
-_RlSpecialBpduEntry_Object=MibTableRow
-rlSpecialBpduEntry=_RlSpecialBpduEntry_Object((1,3,6,1,4,1,89,144,1,1))
-rlSpecialBpduEntry.setIndexNames((0,_B,_C),(0,_B,_F),(0,_B,_G))
-if mibBuilder.loadTexts:rlSpecialBpduEntry.setStatus(_A)
-_RlSpecialBpduMacAddr_Type=MacAddress
-_RlSpecialBpduMacAddr_Object=MibTableColumn
-rlSpecialBpduMacAddr=_RlSpecialBpduMacAddr_Object((1,3,6,1,4,1,89,144,1,1,1),_RlSpecialBpduMacAddr_Type())
-rlSpecialBpduMacAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:rlSpecialBpduMacAddr.setStatus(_A)
-_RlSpecialBpduEncap_Type=EncapType
-_RlSpecialBpduEncap_Object=MibTableColumn
-rlSpecialBpduEncap=_RlSpecialBpduEncap_Object((1,3,6,1,4,1,89,144,1,1,2),_RlSpecialBpduEncap_Type())
-rlSpecialBpduEncap.setMaxAccess(_D)
-if mibBuilder.loadTexts:rlSpecialBpduEncap.setStatus(_A)
-class _RlSpecialBpduProtId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(5,5));fixedLength=5
-_RlSpecialBpduProtId_Type.__name__=_E
-_RlSpecialBpduProtId_Object=MibTableColumn
-rlSpecialBpduProtId=_RlSpecialBpduProtId_Object((1,3,6,1,4,1,89,144,1,1,3),_RlSpecialBpduProtId_Type())
-rlSpecialBpduProtId.setMaxAccess(_D)
-if mibBuilder.loadTexts:rlSpecialBpduProtId.setStatus(_A)
-_RlSpecialBpduAction_Type=Action
-_RlSpecialBpduAction_Object=MibTableColumn
-rlSpecialBpduAction=_RlSpecialBpduAction_Object((1,3,6,1,4,1,89,144,1,1,4),_RlSpecialBpduAction_Type())
-rlSpecialBpduAction.setMaxAccess('read-write')
-if mibBuilder.loadTexts:rlSpecialBpduAction.setStatus(_A)
-_RlSpecialBpduRowStatus_Type=RowStatus
-_RlSpecialBpduRowStatus_Object=MibTableColumn
-rlSpecialBpduRowStatus=_RlSpecialBpduRowStatus_Object((1,3,6,1,4,1,89,144,1,1,5),_RlSpecialBpduRowStatus_Type())
-rlSpecialBpduRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:rlSpecialBpduRowStatus.setStatus(_A)
-_RlSpecialBpduHwTable_Object=MibTable
-rlSpecialBpduHwTable=_RlSpecialBpduHwTable_Object((1,3,6,1,4,1,89,144,2))
-if mibBuilder.loadTexts:rlSpecialBpduHwTable.setStatus(_A)
-_RlSpecialBpduHwEntry_Object=MibTableRow
-rlSpecialBpduHwEntry=_RlSpecialBpduHwEntry_Object((1,3,6,1,4,1,89,144,2,1))
-rlSpecialBpduHwEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:rlSpecialBpduHwEntry.setStatus(_A)
-_RlSpecialBpduHwAction_Type=HwAction
-_RlSpecialBpduHwAction_Object=MibTableColumn
-rlSpecialBpduHwAction=_RlSpecialBpduHwAction_Object((1,3,6,1,4,1,89,144,2,1,2),_RlSpecialBpduHwAction_Type())
-rlSpecialBpduHwAction.setMaxAccess('read-only')
-if mibBuilder.loadTexts:rlSpecialBpduHwAction.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'EncapType':EncapType,'Action':Action,'HwAction':HwAction,'rlSpecialBpdu':rlSpecialBpdu,'rlSpecialBpduTable':rlSpecialBpduTable,'rlSpecialBpduEntry':rlSpecialBpduEntry,_C:rlSpecialBpduMacAddr,_F:rlSpecialBpduEncap,_G:rlSpecialBpduProtId,'rlSpecialBpduAction':rlSpecialBpduAction,'rlSpecialBpduRowStatus':rlSpecialBpduRowStatus,'rlSpecialBpduHwTable':rlSpecialBpduHwTable,'rlSpecialBpduHwEntry':rlSpecialBpduHwEntry,'rlSpecialBpduHwAction':rlSpecialBpduHwAction})
+#
+# PySNMP MIB module MARVELL-SpecialBpdu-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/radlan/MARVELL-SpecialBpdu-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+rlSpecialBpdu = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 144))
+rlSpecialBpdu.setRevisions(('2008-05-03 12:34',))
+if mibBuilder.loadTexts: rlSpecialBpdu.setLastUpdated('200805031234Z')
+if mibBuilder.loadTexts: rlSpecialBpdu.setOrganization('MARVELL Semiconductor, Inc.')
+class EncapType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("none", 1), ("ethernet-v2", 2), ("llc", 3), ("llc-snap", 4))
+
+class Action(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("bridge", 1), ("discard", 2))
+
+class HwAction(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("forward", 1), ("drop", 2), ("trap", 3))
+
+rlSpecialBpduTable = MibTable((1, 3, 6, 1, 4, 1, 89, 144, 1), )
+if mibBuilder.loadTexts: rlSpecialBpduTable.setStatus('current')
+rlSpecialBpduEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 144, 1, 1), ).setIndexNames((0, "MARVELL-SpecialBpdu-MIB", "rlSpecialBpduMacAddr"), (0, "MARVELL-SpecialBpdu-MIB", "rlSpecialBpduEncap"), (0, "MARVELL-SpecialBpdu-MIB", "rlSpecialBpduProtId"))
+if mibBuilder.loadTexts: rlSpecialBpduEntry.setStatus('current')
+rlSpecialBpduMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 144, 1, 1, 1), MacAddress())
+if mibBuilder.loadTexts: rlSpecialBpduMacAddr.setStatus('current')
+rlSpecialBpduEncap = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 144, 1, 1, 2), EncapType())
+if mibBuilder.loadTexts: rlSpecialBpduEncap.setStatus('current')
+rlSpecialBpduProtId = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 144, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(5, 5)).setFixedLength(5))
+if mibBuilder.loadTexts: rlSpecialBpduProtId.setStatus('current')
+rlSpecialBpduAction = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 144, 1, 1, 4), Action()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlSpecialBpduAction.setStatus('current')
+rlSpecialBpduRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 144, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rlSpecialBpduRowStatus.setStatus('current')
+rlSpecialBpduHwTable = MibTable((1, 3, 6, 1, 4, 1, 89, 144, 2), )
+if mibBuilder.loadTexts: rlSpecialBpduHwTable.setStatus('current')
+rlSpecialBpduHwEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 144, 2, 1), ).setIndexNames((0, "MARVELL-SpecialBpdu-MIB", "rlSpecialBpduMacAddr"))
+if mibBuilder.loadTexts: rlSpecialBpduHwEntry.setStatus('current')
+rlSpecialBpduHwAction = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 144, 2, 1, 2), HwAction()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSpecialBpduHwAction.setStatus('current')
+mibBuilder.exportSymbols("MARVELL-SpecialBpdu-MIB", PYSNMP_MODULE_ID=rlSpecialBpdu, rlSpecialBpduTable=rlSpecialBpduTable, rlSpecialBpduHwTable=rlSpecialBpduHwTable, Action=Action, HwAction=HwAction, rlSpecialBpduEncap=rlSpecialBpduEncap, rlSpecialBpduProtId=rlSpecialBpduProtId, rlSpecialBpduHwAction=rlSpecialBpduHwAction, rlSpecialBpduHwEntry=rlSpecialBpduHwEntry, rlSpecialBpduMacAddr=rlSpecialBpduMacAddr, rlSpecialBpduEntry=rlSpecialBpduEntry, rlSpecialBpdu=rlSpecialBpdu, EncapType=EncapType, rlSpecialBpduAction=rlSpecialBpduAction, rlSpecialBpduRowStatus=rlSpecialBpduRowStatus)

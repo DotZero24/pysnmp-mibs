@@ -1,113 +1,60 @@
-_d='dpQosCoSGroup'
-_c='dpQosPortBandwidthCtrlGroup'
-_b='dpQosSchedulingGroup'
-_a='dpQosCfgSetCos'
-_Z='dpQosBandwidthTxRate'
-_Y='dpQosBandwidthRxRate'
-_X='dpQosSchedulingMode'
-_W='limit_512Mbps'
-_V='limit_256Mbps'
-_U='limit_128Mbps'
-_T='limit_64Mbps'
-_S='limit_32Mbps'
-_R='limit_16Mbps'
-_Q='limit_8Mbps'
-_P='limit_4Mbps'
-_O='limit_2Mbps'
-_N='limit_1Mbps'
-_M='limit_512Kbps'
-_L='limit_256Kbps'
-_K='limit_128Kbps'
-_J='limit_64Kbps'
-_I='limit_32Kbps'
-_H='limit_16Kbps'
-_G='noLimit'
-_F='read-write'
-_E='dot1dBasePort'
-_D='BRIDGE-MIB'
-_C='Integer32'
-_B='DLINKPRIME-QOS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_D,_E)
-dlinkPrimeCommon,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlinkPrimeCommon')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-dlinkPrimeQosMIB=ModuleIdentity((1,3,6,1,4,1,171,15,13))
-if mibBuilder.loadTexts:dlinkPrimeQosMIB.setRevisions(('2014-04-26 00:00',))
-_DpQosMIBObjects_ObjectIdentity=ObjectIdentity
-dpQosMIBObjects=_DpQosMIBObjects_ObjectIdentity((1,3,6,1,4,1,171,15,13,1))
-_DpQosScheduling_ObjectIdentity=ObjectIdentity
-dpQosScheduling=_DpQosScheduling_ObjectIdentity((1,3,6,1,4,1,171,15,13,1,1))
-_DpQosSchedulingModeTable_Object=MibTable
-dpQosSchedulingModeTable=_DpQosSchedulingModeTable_Object((1,3,6,1,4,1,171,15,13,1,1,1))
-if mibBuilder.loadTexts:dpQosSchedulingModeTable.setStatus(_A)
-_DpQosSchedulingModeEntry_Object=MibTableRow
-dpQosSchedulingModeEntry=_DpQosSchedulingModeEntry_Object((1,3,6,1,4,1,171,15,13,1,1,1,1))
-dpQosSchedulingModeEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:dpQosSchedulingModeEntry.setStatus(_A)
-class _DpQosSchedulingMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('sp',1),('wrr',2)))
-_DpQosSchedulingMode_Type.__name__=_C
-_DpQosSchedulingMode_Object=MibTableColumn
-dpQosSchedulingMode=_DpQosSchedulingMode_Object((1,3,6,1,4,1,171,15,13,1,1,1,1,1),_DpQosSchedulingMode_Type())
-dpQosSchedulingMode.setMaxAccess(_F)
-if mibBuilder.loadTexts:dpQosSchedulingMode.setStatus(_A)
-_DpQosBandwidthCtrl_ObjectIdentity=ObjectIdentity
-dpQosBandwidthCtrl=_DpQosBandwidthCtrl_ObjectIdentity((1,3,6,1,4,1,171,15,13,1,2))
-_DpQosBandwidthCtrlTable_Object=MibTable
-dpQosBandwidthCtrlTable=_DpQosBandwidthCtrlTable_Object((1,3,6,1,4,1,171,15,13,1,2,1))
-if mibBuilder.loadTexts:dpQosBandwidthCtrlTable.setStatus(_A)
-_DpQosBandwidthCtrlEntry_Object=MibTableRow
-dpQosBandwidthCtrlEntry=_DpQosBandwidthCtrlEntry_Object((1,3,6,1,4,1,171,15,13,1,2,1,1))
-dpQosBandwidthCtrlEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:dpQosBandwidthCtrlEntry.setStatus(_A)
-class _DpQosBandwidthRxRate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)));namedValues=NamedValues(*((_G,1),('limit_8Kbps',2),(_H,3),(_I,4),(_J,5),(_K,6),(_L,7),(_M,8),(_N,9),(_O,10),(_P,11),(_Q,12),(_R,13),(_S,14),(_T,15),(_U,16),(_V,17),(_W,18)))
-_DpQosBandwidthRxRate_Type.__name__=_C
-_DpQosBandwidthRxRate_Object=MibTableColumn
-dpQosBandwidthRxRate=_DpQosBandwidthRxRate_Object((1,3,6,1,4,1,171,15,13,1,2,1,1,1),_DpQosBandwidthRxRate_Type())
-dpQosBandwidthRxRate.setMaxAccess(_F)
-if mibBuilder.loadTexts:dpQosBandwidthRxRate.setStatus(_A)
-class _DpQosBandwidthTxRate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)));namedValues=NamedValues(*((_G,1),(_H,3),(_I,4),(_J,5),(_K,6),(_L,7),(_M,8),(_N,9),(_O,10),(_P,11),(_Q,12),(_R,13),(_S,14),(_T,15),(_U,16),(_V,17),(_W,18)))
-_DpQosBandwidthTxRate_Type.__name__=_C
-_DpQosBandwidthTxRate_Object=MibTableColumn
-dpQosBandwidthTxRate=_DpQosBandwidthTxRate_Object((1,3,6,1,4,1,171,15,13,1,2,1,1,2),_DpQosBandwidthTxRate_Type())
-dpQosBandwidthTxRate.setMaxAccess(_F)
-if mibBuilder.loadTexts:dpQosBandwidthTxRate.setStatus(_A)
-_DpQosCosCfg_ObjectIdentity=ObjectIdentity
-dpQosCosCfg=_DpQosCosCfg_ObjectIdentity((1,3,6,1,4,1,171,15,13,1,3))
-_DpQosCosCfgTable_Object=MibTable
-dpQosCosCfgTable=_DpQosCosCfgTable_Object((1,3,6,1,4,1,171,15,13,1,3,1))
-if mibBuilder.loadTexts:dpQosCosCfgTable.setStatus(_A)
-_DpQosCosCfgEntry_Object=MibTableRow
-dpQosCosCfgEntry=_DpQosCosCfgEntry_Object((1,3,6,1,4,1,171,15,13,1,3,1,1))
-dpQosCosCfgEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:dpQosCosCfgEntry.setStatus(_A)
-class _DpQosCfgSetCos_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('low',1),('medium',2),('high',3),('highest',4)))
-_DpQosCfgSetCos_Type.__name__=_C
-_DpQosCfgSetCos_Object=MibTableColumn
-dpQosCfgSetCos=_DpQosCfgSetCos_Object((1,3,6,1,4,1,171,15,13,1,3,1,1,1),_DpQosCfgSetCos_Type())
-dpQosCfgSetCos.setMaxAccess(_F)
-if mibBuilder.loadTexts:dpQosCfgSetCos.setStatus(_A)
-_DpQosMIBConformance_ObjectIdentity=ObjectIdentity
-dpQosMIBConformance=_DpQosMIBConformance_ObjectIdentity((1,3,6,1,4,1,171,15,13,2))
-_DpQosCompliances_ObjectIdentity=ObjectIdentity
-dpQosCompliances=_DpQosCompliances_ObjectIdentity((1,3,6,1,4,1,171,15,13,2,1))
-_DpQosGroups_ObjectIdentity=ObjectIdentity
-dpQosGroups=_DpQosGroups_ObjectIdentity((1,3,6,1,4,1,171,15,13,2,2))
-dpQosSchedulingGroup=ObjectGroup((1,3,6,1,4,1,171,15,13,2,2,1))
-dpQosSchedulingGroup.setObjects((_B,_X))
-if mibBuilder.loadTexts:dpQosSchedulingGroup.setStatus(_A)
-dpQosPortBandwidthCtrlGroup=ObjectGroup((1,3,6,1,4,1,171,15,13,2,2,2))
-dpQosPortBandwidthCtrlGroup.setObjects(*((_B,_Y),(_B,_Z)))
-if mibBuilder.loadTexts:dpQosPortBandwidthCtrlGroup.setStatus(_A)
-dpQosCoSGroup=ObjectGroup((1,3,6,1,4,1,171,15,13,2,2,3))
-dpQosCoSGroup.setObjects((_B,_a))
-if mibBuilder.loadTexts:dpQosCoSGroup.setStatus(_A)
-dpQosCompliance=ModuleCompliance((1,3,6,1,4,1,171,15,13,2,1,1))
-dpQosCompliance.setObjects(*((_B,_b),(_B,_c),(_B,_d)))
-if mibBuilder.loadTexts:dpQosCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'dlinkPrimeQosMIB':dlinkPrimeQosMIB,'dpQosMIBObjects':dpQosMIBObjects,'dpQosScheduling':dpQosScheduling,'dpQosSchedulingModeTable':dpQosSchedulingModeTable,'dpQosSchedulingModeEntry':dpQosSchedulingModeEntry,_X:dpQosSchedulingMode,'dpQosBandwidthCtrl':dpQosBandwidthCtrl,'dpQosBandwidthCtrlTable':dpQosBandwidthCtrlTable,'dpQosBandwidthCtrlEntry':dpQosBandwidthCtrlEntry,_Y:dpQosBandwidthRxRate,_Z:dpQosBandwidthTxRate,'dpQosCosCfg':dpQosCosCfg,'dpQosCosCfgTable':dpQosCosCfgTable,'dpQosCosCfgEntry':dpQosCosCfgEntry,_a:dpQosCfgSetCos,'dpQosMIBConformance':dpQosMIBConformance,'dpQosCompliances':dpQosCompliances,'dpQosCompliance':dpQosCompliance,'dpQosGroups':dpQosGroups,_b:dpQosSchedulingGroup,_c:dpQosPortBandwidthCtrlGroup,_d:dpQosCoSGroup})
+#
+# PySNMP MIB module DLINKPRIME-QOS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DLINKPRIME-QOS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:34:36 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+dlinkPrimeCommon, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlinkPrimeCommon")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+dlinkPrimeQosMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 15, 13))
+dlinkPrimeQosMIB.setRevisions(('2014-04-26 00:00',))
+if mibBuilder.loadTexts: dlinkPrimeQosMIB.setLastUpdated('201404260000Z')
+if mibBuilder.loadTexts: dlinkPrimeQosMIB.setOrganization('D-Link Corp.')
+dpQosMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 13, 1))
+dpQosMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 13, 2))
+dpQosScheduling = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 13, 1, 1))
+dpQosBandwidthCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 13, 1, 2))
+dpQosCosCfg = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 13, 1, 3))
+dpQosSchedulingModeTable = MibTable((1, 3, 6, 1, 4, 1, 171, 15, 13, 1, 1, 1), )
+if mibBuilder.loadTexts: dpQosSchedulingModeTable.setStatus('current')
+dpQosSchedulingModeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 15, 13, 1, 1, 1, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: dpQosSchedulingModeEntry.setStatus('current')
+dpQosSchedulingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 13, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("sp", 1), ("wrr", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpQosSchedulingMode.setStatus('current')
+dpQosBandwidthCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 15, 13, 1, 2, 1), )
+if mibBuilder.loadTexts: dpQosBandwidthCtrlTable.setStatus('current')
+dpQosBandwidthCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 15, 13, 1, 2, 1, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: dpQosBandwidthCtrlEntry.setStatus('current')
+dpQosBandwidthRxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 13, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))).clone(namedValues=NamedValues(("noLimit", 1), ("limit_8Kbps", 2), ("limit_16Kbps", 3), ("limit_32Kbps", 4), ("limit_64Kbps", 5), ("limit_128Kbps", 6), ("limit_256Kbps", 7), ("limit_512Kbps", 8), ("limit_1Mbps", 9), ("limit_2Mbps", 10), ("limit_4Mbps", 11), ("limit_8Mbps", 12), ("limit_16Mbps", 13), ("limit_32Mbps", 14), ("limit_64Mbps", 15), ("limit_128Mbps", 16), ("limit_256Mbps", 17), ("limit_512Mbps", 18)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpQosBandwidthRxRate.setStatus('current')
+dpQosBandwidthTxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 13, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))).clone(namedValues=NamedValues(("noLimit", 1), ("limit_16Kbps", 3), ("limit_32Kbps", 4), ("limit_64Kbps", 5), ("limit_128Kbps", 6), ("limit_256Kbps", 7), ("limit_512Kbps", 8), ("limit_1Mbps", 9), ("limit_2Mbps", 10), ("limit_4Mbps", 11), ("limit_8Mbps", 12), ("limit_16Mbps", 13), ("limit_32Mbps", 14), ("limit_64Mbps", 15), ("limit_128Mbps", 16), ("limit_256Mbps", 17), ("limit_512Mbps", 18)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpQosBandwidthTxRate.setStatus('current')
+dpQosCosCfgTable = MibTable((1, 3, 6, 1, 4, 1, 171, 15, 13, 1, 3, 1), )
+if mibBuilder.loadTexts: dpQosCosCfgTable.setStatus('current')
+dpQosCosCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 15, 13, 1, 3, 1, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: dpQosCosCfgEntry.setStatus('current')
+dpQosCfgSetCos = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 13, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("low", 1), ("medium", 2), ("high", 3), ("highest", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpQosCfgSetCos.setStatus('current')
+dpQosCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 13, 2, 1))
+dpQosCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 15, 13, 2, 1, 1)).setObjects(("DLINKPRIME-QOS-MIB", "dpQosSchedulingGroup"), ("DLINKPRIME-QOS-MIB", "dpQosPortBandwidthCtrlGroup"), ("DLINKPRIME-QOS-MIB", "dpQosCoSGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpQosCompliance = dpQosCompliance.setStatus('current')
+dpQosGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 13, 2, 2))
+dpQosSchedulingGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 15, 13, 2, 2, 1)).setObjects(("DLINKPRIME-QOS-MIB", "dpQosSchedulingMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpQosSchedulingGroup = dpQosSchedulingGroup.setStatus('current')
+dpQosPortBandwidthCtrlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 15, 13, 2, 2, 2)).setObjects(("DLINKPRIME-QOS-MIB", "dpQosBandwidthRxRate"), ("DLINKPRIME-QOS-MIB", "dpQosBandwidthTxRate"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpQosPortBandwidthCtrlGroup = dpQosPortBandwidthCtrlGroup.setStatus('current')
+dpQosCoSGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 15, 13, 2, 2, 3)).setObjects(("DLINKPRIME-QOS-MIB", "dpQosCfgSetCos"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpQosCoSGroup = dpQosCoSGroup.setStatus('current')
+mibBuilder.exportSymbols("DLINKPRIME-QOS-MIB", dpQosCosCfgEntry=dpQosCosCfgEntry, PYSNMP_MODULE_ID=dlinkPrimeQosMIB, dpQosBandwidthTxRate=dpQosBandwidthTxRate, dpQosBandwidthCtrl=dpQosBandwidthCtrl, dpQosGroups=dpQosGroups, dpQosBandwidthCtrlEntry=dpQosBandwidthCtrlEntry, dpQosCompliances=dpQosCompliances, dpQosSchedulingMode=dpQosSchedulingMode, dpQosCompliance=dpQosCompliance, dpQosSchedulingModeEntry=dpQosSchedulingModeEntry, dlinkPrimeQosMIB=dlinkPrimeQosMIB, dpQosMIBObjects=dpQosMIBObjects, dpQosBandwidthRxRate=dpQosBandwidthRxRate, dpQosBandwidthCtrlTable=dpQosBandwidthCtrlTable, dpQosScheduling=dpQosScheduling, dpQosSchedulingGroup=dpQosSchedulingGroup, dpQosCoSGroup=dpQosCoSGroup, dpQosCosCfg=dpQosCosCfg, dpQosPortBandwidthCtrlGroup=dpQosPortBandwidthCtrlGroup, dpQosSchedulingModeTable=dpQosSchedulingModeTable, dpQosCfgSetCos=dpQosCfgSetCos, dpQosCosCfgTable=dpQosCosCfgTable, dpQosMIBConformance=dpQosMIBConformance)

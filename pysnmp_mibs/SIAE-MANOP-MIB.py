@@ -1,82 +1,45 @@
-_G='read-write'
-_F='manualOpId'
-_E='SIAE-MANOP-MIB'
-_D='AlarmSeverityCode'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-AlarmSeverityCode,AlarmStatus=mibBuilder.importSymbols('SIAE-ALARM-MIB',_D,'AlarmStatus')
-siaeMib,=mibBuilder.importSymbols('SIAE-TREE-MIB','siaeMib')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-manualOperation=ModuleIdentity((1,3,6,1,4,1,3373,1103,71))
-if mibBuilder.loadTexts:manualOperation.setRevisions(('2014-03-17 00:00','2014-02-03 00:00','2013-04-16 00:00'))
-_ManualOpTrap_ObjectIdentity=ObjectIdentity
-manualOpTrap=_ManualOpTrap_ObjectIdentity((1,3,6,1,4,1,3373,1103,71,0))
-class _ManualOpMibVersion_Type(Integer32):defaultValue=1
-_ManualOpMibVersion_Type.__name__=_C
-_ManualOpMibVersion_Object=MibScalar
-manualOpMibVersion=_ManualOpMibVersion_Object((1,3,6,1,4,1,3373,1103,71,1),_ManualOpMibVersion_Type())
-manualOpMibVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:manualOpMibVersion.setStatus(_A)
-_ManualOpTable_Object=MibTable
-manualOpTable=_ManualOpTable_Object((1,3,6,1,4,1,3373,1103,71,2))
-if mibBuilder.loadTexts:manualOpTable.setStatus(_A)
-_ManualOpRecord_Object=MibTableRow
-manualOpRecord=_ManualOpRecord_Object((1,3,6,1,4,1,3373,1103,71,2,1))
-manualOpRecord.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:manualOpRecord.setStatus(_A)
-_ManualOpId_Type=Integer32
-_ManualOpId_Object=MibTableColumn
-manualOpId=_ManualOpId_Object((1,3,6,1,4,1,3373,1103,71,2,1,1),_ManualOpId_Type())
-manualOpId.setMaxAccess(_B)
-if mibBuilder.loadTexts:manualOpId.setStatus(_A)
-_ManualOpObjectId_Type=ObjectIdentifier
-_ManualOpObjectId_Object=MibTableColumn
-manualOpObjectId=_ManualOpObjectId_Object((1,3,6,1,4,1,3373,1103,71,2,1,2),_ManualOpObjectId_Type())
-manualOpObjectId.setMaxAccess(_B)
-if mibBuilder.loadTexts:manualOpObjectId.setStatus(_A)
-_ManualOpEventTime_Type=Unsigned32
-_ManualOpEventTime_Object=MibTableColumn
-manualOpEventTime=_ManualOpEventTime_Object((1,3,6,1,4,1,3373,1103,71,2,1,3),_ManualOpEventTime_Type())
-manualOpEventTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:manualOpEventTime.setStatus(_A)
-class _ManualOpValueType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('integer32',1),('objectId',2)))
-_ManualOpValueType_Type.__name__=_C
-_ManualOpValueType_Object=MibTableColumn
-manualOpValueType=_ManualOpValueType_Object((1,3,6,1,4,1,3373,1103,71,2,1,4),_ManualOpValueType_Type())
-manualOpValueType.setMaxAccess(_B)
-if mibBuilder.loadTexts:manualOpValueType.setStatus(_A)
-_ManualOpIntegerVal_Type=Integer32
-_ManualOpIntegerVal_Object=MibTableColumn
-manualOpIntegerVal=_ManualOpIntegerVal_Object((1,3,6,1,4,1,3373,1103,71,2,1,5),_ManualOpIntegerVal_Type())
-manualOpIntegerVal.setMaxAccess(_B)
-if mibBuilder.loadTexts:manualOpIntegerVal.setStatus(_A)
-_ManualOpOidVal_Type=ObjectIdentifier
-_ManualOpOidVal_Object=MibTableColumn
-manualOpOidVal=_ManualOpOidVal_Object((1,3,6,1,4,1,3373,1103,71,2,1,6),_ManualOpOidVal_Type())
-manualOpOidVal.setMaxAccess(_B)
-if mibBuilder.loadTexts:manualOpOidVal.setStatus(_A)
-_ManualOpActive_Type=AlarmStatus
-_ManualOpActive_Object=MibScalar
-manualOpActive=_ManualOpActive_Object((1,3,6,1,4,1,3373,1103,71,3),_ManualOpActive_Type())
-manualOpActive.setMaxAccess(_B)
-if mibBuilder.loadTexts:manualOpActive.setStatus(_A)
-class _ManualOpActiveSeverityCode_Type(AlarmSeverityCode):defaultValue=3
-_ManualOpActiveSeverityCode_Type.__name__=_D
-_ManualOpActiveSeverityCode_Object=MibScalar
-manualOpActiveSeverityCode=_ManualOpActiveSeverityCode_Object((1,3,6,1,4,1,3373,1103,71,4),_ManualOpActiveSeverityCode_Type())
-manualOpActiveSeverityCode.setMaxAccess(_G)
-if mibBuilder.loadTexts:manualOpActiveSeverityCode.setStatus(_A)
-class _ManualOpTimeOut_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,172800))
-_ManualOpTimeOut_Type.__name__=_C
-_ManualOpTimeOut_Object=MibScalar
-manualOpTimeOut=_ManualOpTimeOut_Object((1,3,6,1,4,1,3373,1103,71,5),_ManualOpTimeOut_Type())
-manualOpTimeOut.setMaxAccess(_G)
-if mibBuilder.loadTexts:manualOpTimeOut.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'manualOperation':manualOperation,'manualOpTrap':manualOpTrap,'manualOpMibVersion':manualOpMibVersion,'manualOpTable':manualOpTable,'manualOpRecord':manualOpRecord,_F:manualOpId,'manualOpObjectId':manualOpObjectId,'manualOpEventTime':manualOpEventTime,'manualOpValueType':manualOpValueType,'manualOpIntegerVal':manualOpIntegerVal,'manualOpOidVal':manualOpOidVal,'manualOpActive':manualOpActive,'manualOpActiveSeverityCode':manualOpActiveSeverityCode,'manualOpTimeOut':manualOpTimeOut})
+#
+# PySNMP MIB module SIAE-MANOP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/siaemic/SIAE-MANOP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:52 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+AlarmStatus, AlarmSeverityCode = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmStatus", "AlarmSeverityCode")
+siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+manualOperation = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 71))
+manualOperation.setRevisions(('2014-03-17 00:00', '2014-02-03 00:00', '2013-04-16 00:00',))
+if mibBuilder.loadTexts: manualOperation.setLastUpdated('201403170000Z')
+if mibBuilder.loadTexts: manualOperation.setOrganization('SIAE MICROELETTRONICA spa')
+manualOpTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 3373, 1103, 71, 0))
+manualOpMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 71, 1), Integer32().clone(1)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: manualOpMibVersion.setStatus('current')
+manualOpTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 71, 2), )
+if mibBuilder.loadTexts: manualOpTable.setStatus('current')
+manualOpRecord = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 71, 2, 1), ).setIndexNames((0, "SIAE-MANOP-MIB", "manualOpId"))
+if mibBuilder.loadTexts: manualOpRecord.setStatus('current')
+manualOpId = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 71, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: manualOpId.setStatus('current')
+manualOpObjectId = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 71, 2, 1, 2), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: manualOpObjectId.setStatus('current')
+manualOpEventTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 71, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: manualOpEventTime.setStatus('current')
+manualOpValueType = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 71, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("integer32", 1), ("objectId", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: manualOpValueType.setStatus('current')
+manualOpIntegerVal = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 71, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: manualOpIntegerVal.setStatus('current')
+manualOpOidVal = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 71, 2, 1, 6), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: manualOpOidVal.setStatus('current')
+manualOpActive = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 71, 3), AlarmStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: manualOpActive.setStatus('current')
+manualOpActiveSeverityCode = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 71, 4), AlarmSeverityCode().clone('warningTrapEnable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: manualOpActiveSeverityCode.setStatus('current')
+manualOpTimeOut = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 71, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 172800)).clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: manualOpTimeOut.setStatus('current')
+mibBuilder.exportSymbols("SIAE-MANOP-MIB", manualOpTrap=manualOpTrap, manualOpMibVersion=manualOpMibVersion, manualOpEventTime=manualOpEventTime, manualOpActive=manualOpActive, manualOpTimeOut=manualOpTimeOut, manualOpId=manualOpId, PYSNMP_MODULE_ID=manualOperation, manualOpObjectId=manualOpObjectId, manualOpValueType=manualOpValueType, manualOpIntegerVal=manualOpIntegerVal, manualOpOidVal=manualOpOidVal, manualOpActiveSeverityCode=manualOpActiveSeverityCode, manualOpTable=manualOpTable, manualOpRecord=manualOpRecord, manualOperation=manualOperation)

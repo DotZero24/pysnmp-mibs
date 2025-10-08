@@ -1,69 +1,40 @@
-_I='swUDPHelperServerCtrlServer'
-_H='swUDPHelperServerCtrlInterfaceName'
-_G='read-create'
-_F='swUDPHelperPortNumber'
-_E='DisplayString'
-_D='Integer32'
-_C='not-accessible'
-_B='UDP-Helper-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_common_mgmt,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-common-mgmt')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_E,'PhysAddress','RowStatus','TextualConvention')
-swUDPHelperMIB=ModuleIdentity((1,3,6,1,4,1,171,12,99))
-_SwUDPHelperMIBObjects_ObjectIdentity=ObjectIdentity
-swUDPHelperMIBObjects=_SwUDPHelperMIBObjects_ObjectIdentity((1,3,6,1,4,1,171,12,99,1))
-_SwUDPHelperGeneralGroup_ObjectIdentity=ObjectIdentity
-swUDPHelperGeneralGroup=_SwUDPHelperGeneralGroup_ObjectIdentity((1,3,6,1,4,1,171,12,99,1,1))
-class _SwUDPHelperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_SwUDPHelperState_Type.__name__=_D
-_SwUDPHelperState_Object=MibScalar
-swUDPHelperState=_SwUDPHelperState_Object((1,3,6,1,4,1,171,12,99,1,1,1),_SwUDPHelperState_Type())
-swUDPHelperState.setMaxAccess('read-write')
-if mibBuilder.loadTexts:swUDPHelperState.setStatus(_A)
-_SwUDPHelperPortCtrlTable_Object=MibTable
-swUDPHelperPortCtrlTable=_SwUDPHelperPortCtrlTable_Object((1,3,6,1,4,1,171,12,99,1,2))
-if mibBuilder.loadTexts:swUDPHelperPortCtrlTable.setStatus(_A)
-_SwUDPHelperPortCtrlEntry_Object=MibTableRow
-swUDPHelperPortCtrlEntry=_SwUDPHelperPortCtrlEntry_Object((1,3,6,1,4,1,171,12,99,1,2,1))
-swUDPHelperPortCtrlEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:swUDPHelperPortCtrlEntry.setStatus(_A)
-_SwUDPHelperPortNumber_Type=Integer32
-_SwUDPHelperPortNumber_Object=MibTableColumn
-swUDPHelperPortNumber=_SwUDPHelperPortNumber_Object((1,3,6,1,4,1,171,12,99,1,2,1,1),_SwUDPHelperPortNumber_Type())
-swUDPHelperPortNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:swUDPHelperPortNumber.setStatus(_A)
-_SwUDPHelperPortCtrlRowStatus_Type=RowStatus
-_SwUDPHelperPortCtrlRowStatus_Object=MibTableColumn
-swUDPHelperPortCtrlRowStatus=_SwUDPHelperPortCtrlRowStatus_Object((1,3,6,1,4,1,171,12,99,1,2,1,2),_SwUDPHelperPortCtrlRowStatus_Type())
-swUDPHelperPortCtrlRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:swUDPHelperPortCtrlRowStatus.setStatus(_A)
-_SwUDPHelperServerCtrlTable_Object=MibTable
-swUDPHelperServerCtrlTable=_SwUDPHelperServerCtrlTable_Object((1,3,6,1,4,1,171,12,99,1,3))
-if mibBuilder.loadTexts:swUDPHelperServerCtrlTable.setStatus(_A)
-_SwUDPHelperServerCtrlEntry_Object=MibTableRow
-swUDPHelperServerCtrlEntry=_SwUDPHelperServerCtrlEntry_Object((1,3,6,1,4,1,171,12,99,1,3,1))
-swUDPHelperServerCtrlEntry.setIndexNames((0,_B,_H),(0,_B,_I))
-if mibBuilder.loadTexts:swUDPHelperServerCtrlEntry.setStatus(_A)
-class _SwUDPHelperServerCtrlInterfaceName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,12))
-_SwUDPHelperServerCtrlInterfaceName_Type.__name__=_E
-_SwUDPHelperServerCtrlInterfaceName_Object=MibTableColumn
-swUDPHelperServerCtrlInterfaceName=_SwUDPHelperServerCtrlInterfaceName_Object((1,3,6,1,4,1,171,12,99,1,3,1,1),_SwUDPHelperServerCtrlInterfaceName_Type())
-swUDPHelperServerCtrlInterfaceName.setMaxAccess(_C)
-if mibBuilder.loadTexts:swUDPHelperServerCtrlInterfaceName.setStatus(_A)
-_SwUDPHelperServerCtrlServer_Type=IpAddress
-_SwUDPHelperServerCtrlServer_Object=MibTableColumn
-swUDPHelperServerCtrlServer=_SwUDPHelperServerCtrlServer_Object((1,3,6,1,4,1,171,12,99,1,3,1,2),_SwUDPHelperServerCtrlServer_Type())
-swUDPHelperServerCtrlServer.setMaxAccess(_C)
-if mibBuilder.loadTexts:swUDPHelperServerCtrlServer.setStatus(_A)
-_SwUDPHelperServerCtrlRowStatus_Type=RowStatus
-_SwUDPHelperServerCtrlRowStatus_Object=MibTableColumn
-swUDPHelperServerCtrlRowStatus=_SwUDPHelperServerCtrlRowStatus_Object((1,3,6,1,4,1,171,12,99,1,3,1,3),_SwUDPHelperServerCtrlRowStatus_Type())
-swUDPHelperServerCtrlRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:swUDPHelperServerCtrlRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'swUDPHelperMIB':swUDPHelperMIB,'swUDPHelperMIBObjects':swUDPHelperMIBObjects,'swUDPHelperGeneralGroup':swUDPHelperGeneralGroup,'swUDPHelperState':swUDPHelperState,'swUDPHelperPortCtrlTable':swUDPHelperPortCtrlTable,'swUDPHelperPortCtrlEntry':swUDPHelperPortCtrlEntry,_F:swUDPHelperPortNumber,'swUDPHelperPortCtrlRowStatus':swUDPHelperPortCtrlRowStatus,'swUDPHelperServerCtrlTable':swUDPHelperServerCtrlTable,'swUDPHelperServerCtrlEntry':swUDPHelperServerCtrlEntry,_H:swUDPHelperServerCtrlInterfaceName,_I:swUDPHelperServerCtrlServer,'swUDPHelperServerCtrlRowStatus':swUDPHelperServerCtrlRowStatus})
+#
+# PySNMP MIB module UDP-Helper-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/UDP-Helper-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:00 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+swUDPHelperMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 99))
+if mibBuilder.loadTexts: swUDPHelperMIB.setLastUpdated('201101100000Z')
+if mibBuilder.loadTexts: swUDPHelperMIB.setOrganization('D-Link Corp.')
+swUDPHelperMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 99, 1))
+swUDPHelperGeneralGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 99, 1, 1))
+swUDPHelperState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 99, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swUDPHelperState.setStatus('current')
+swUDPHelperPortCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 99, 1, 2), )
+if mibBuilder.loadTexts: swUDPHelperPortCtrlTable.setStatus('current')
+swUDPHelperPortCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 99, 1, 2, 1), ).setIndexNames((0, "UDP-Helper-MIB", "swUDPHelperPortNumber"))
+if mibBuilder.loadTexts: swUDPHelperPortCtrlEntry.setStatus('current')
+swUDPHelperPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 99, 1, 2, 1, 1), Integer32())
+if mibBuilder.loadTexts: swUDPHelperPortNumber.setStatus('current')
+swUDPHelperPortCtrlRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 99, 1, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swUDPHelperPortCtrlRowStatus.setStatus('current')
+swUDPHelperServerCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 99, 1, 3), )
+if mibBuilder.loadTexts: swUDPHelperServerCtrlTable.setStatus('current')
+swUDPHelperServerCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 99, 1, 3, 1), ).setIndexNames((0, "UDP-Helper-MIB", "swUDPHelperServerCtrlInterfaceName"), (0, "UDP-Helper-MIB", "swUDPHelperServerCtrlServer"))
+if mibBuilder.loadTexts: swUDPHelperServerCtrlEntry.setStatus('current')
+swUDPHelperServerCtrlInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 99, 1, 3, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 12)))
+if mibBuilder.loadTexts: swUDPHelperServerCtrlInterfaceName.setStatus('current')
+swUDPHelperServerCtrlServer = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 99, 1, 3, 1, 2), IpAddress())
+if mibBuilder.loadTexts: swUDPHelperServerCtrlServer.setStatus('current')
+swUDPHelperServerCtrlRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 99, 1, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swUDPHelperServerCtrlRowStatus.setStatus('current')
+mibBuilder.exportSymbols("UDP-Helper-MIB", swUDPHelperServerCtrlServer=swUDPHelperServerCtrlServer, swUDPHelperServerCtrlInterfaceName=swUDPHelperServerCtrlInterfaceName, swUDPHelperPortNumber=swUDPHelperPortNumber, swUDPHelperServerCtrlEntry=swUDPHelperServerCtrlEntry, PYSNMP_MODULE_ID=swUDPHelperMIB, swUDPHelperGeneralGroup=swUDPHelperGeneralGroup, swUDPHelperPortCtrlTable=swUDPHelperPortCtrlTable, swUDPHelperPortCtrlEntry=swUDPHelperPortCtrlEntry, swUDPHelperState=swUDPHelperState, swUDPHelperPortCtrlRowStatus=swUDPHelperPortCtrlRowStatus, swUDPHelperMIB=swUDPHelperMIB, swUDPHelperServerCtrlRowStatus=swUDPHelperServerCtrlRowStatus, swUDPHelperServerCtrlTable=swUDPHelperServerCtrlTable, swUDPHelperMIBObjects=swUDPHelperMIBObjects)

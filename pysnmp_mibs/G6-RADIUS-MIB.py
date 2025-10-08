@@ -1,64 +1,38 @@
-_F='radius'
-_E='serverIndex'
-_D='G6-RADIUS-MIB'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-g6,=mibBuilder.importSymbols('MICROSENS-G6-MIB','g6')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-management=ModuleIdentity((1,3,6,1,4,1,3181,10,6,3))
-if mibBuilder.loadTexts:management.setRevisions(('2018-02-12 16:19',))
-_Radius_ObjectIdentity=ObjectIdentity
-radius=_Radius_ObjectIdentity((1,3,6,1,4,1,3181,10,6,3,69))
-_ServerTable_Object=MibTable
-serverTable=_ServerTable_Object((1,3,6,1,4,1,3181,10,6,3,69,1))
-if mibBuilder.loadTexts:serverTable.setStatus(_A)
-_ServerEntry_Object=MibTableRow
-serverEntry=_ServerEntry_Object((1,3,6,1,4,1,3181,10,6,3,69,1,1))
-serverEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:serverEntry.setStatus(_A)
-class _ServerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_ServerIndex_Type.__name__=_C
-_ServerIndex_Object=MibTableColumn
-serverIndex=_ServerIndex_Object((1,3,6,1,4,1,3181,10,6,3,69,1,1,1),_ServerIndex_Type())
-serverIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:serverIndex.setStatus(_A)
-_ServerName_Type=DisplayString
-_ServerName_Object=MibTableColumn
-serverName=_ServerName_Object((1,3,6,1,4,1,3181,10,6,3,69,1,1,2),_ServerName_Type())
-serverName.setMaxAccess(_B)
-if mibBuilder.loadTexts:serverName.setStatus(_A)
-class _ServerServerType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_F,0),('tacacs',1)))
-_ServerServerType_Type.__name__=_C
-_ServerServerType_Object=MibTableColumn
-serverServerType=_ServerServerType_Object((1,3,6,1,4,1,3181,10,6,3,69,1,1,3),_ServerServerType_Type())
-serverServerType.setMaxAccess(_B)
-if mibBuilder.loadTexts:serverServerType.setStatus(_A)
-_ServerHostAddress_Type=DisplayString
-_ServerHostAddress_Object=MibTableColumn
-serverHostAddress=_ServerHostAddress_Object((1,3,6,1,4,1,3181,10,6,3,69,1,1,4),_ServerHostAddress_Type())
-serverHostAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:serverHostAddress.setStatus(_A)
-class _ServerUdpPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_ServerUdpPort_Type.__name__=_C
-_ServerUdpPort_Object=MibTableColumn
-serverUdpPort=_ServerUdpPort_Object((1,3,6,1,4,1,3181,10,6,3,69,1,1,5),_ServerUdpPort_Type())
-serverUdpPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:serverUdpPort.setStatus(_A)
-_ServerSharedSecret_Type=DisplayString
-_ServerSharedSecret_Object=MibTableColumn
-serverSharedSecret=_ServerSharedSecret_Object((1,3,6,1,4,1,3181,10,6,3,69,1,1,6),_ServerSharedSecret_Type())
-serverSharedSecret.setMaxAccess(_B)
-if mibBuilder.loadTexts:serverSharedSecret.setStatus(_A)
-_ServerInterimInterval_Type=Unsigned32
-_ServerInterimInterval_Object=MibTableColumn
-serverInterimInterval=_ServerInterimInterval_Object((1,3,6,1,4,1,3181,10,6,3,69,1,1,7),_ServerInterimInterval_Type())
-serverInterimInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:serverInterimInterval.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'management':management,_F:radius,'serverTable':serverTable,'serverEntry':serverEntry,_E:serverIndex,'serverName':serverName,'serverServerType':serverServerType,'serverHostAddress':serverHostAddress,'serverUdpPort':serverUdpPort,'serverSharedSecret':serverSharedSecret,'serverInterimInterval':serverInterimInterval})
+#
+# PySNMP MIB module G6-RADIUS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/microsens/G6-RADIUS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:51 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+g6, = mibBuilder.importSymbols("MICROSENS-G6-MIB", "g6")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+management = ModuleIdentity((1, 3, 6, 1, 4, 1, 3181, 10, 6, 3))
+management.setRevisions(('2018-02-12 16:19',))
+if mibBuilder.loadTexts: management.setLastUpdated('201802121619Z')
+if mibBuilder.loadTexts: management.setOrganization('MICROSENS GmbH & Co. KG')
+radius = MibIdentifier((1, 3, 6, 1, 4, 1, 3181, 10, 6, 3, 69))
+serverTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 3, 69, 1), )
+if mibBuilder.loadTexts: serverTable.setStatus('current')
+serverEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 3, 69, 1, 1), ).setIndexNames((0, "G6-RADIUS-MIB", "serverIndex"))
+if mibBuilder.loadTexts: serverEntry.setStatus('current')
+serverIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 3, 69, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)))
+if mibBuilder.loadTexts: serverIndex.setStatus('current')
+serverName = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 3, 69, 1, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: serverName.setStatus('current')
+serverServerType = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 3, 69, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("radius", 0), ("tacacs", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: serverServerType.setStatus('current')
+serverHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 3, 69, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: serverHostAddress.setStatus('current')
+serverUdpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 3, 69, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: serverUdpPort.setStatus('current')
+serverSharedSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 3, 69, 1, 1, 6), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: serverSharedSecret.setStatus('current')
+serverInterimInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 3, 69, 1, 1, 7), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: serverInterimInterval.setStatus('current')
+mibBuilder.exportSymbols("G6-RADIUS-MIB", serverServerType=serverServerType, serverHostAddress=serverHostAddress, PYSNMP_MODULE_ID=management, serverIndex=serverIndex, serverInterimInterval=serverInterimInterval, serverEntry=serverEntry, management=management, radius=radius, serverSharedSecret=serverSharedSecret, serverUdpPort=serverUdpPort, serverTable=serverTable, serverName=serverName)

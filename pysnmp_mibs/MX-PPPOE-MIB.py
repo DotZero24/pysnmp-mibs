@@ -1,53 +1,37 @@
-_I='pppoeConnectionCustomizationVer1'
-_H='pppoeServiceName'
-_G='pppoeAcName'
-_F='pppoeEnable'
-_E='MxEnableState'
-_D='read-write'
-_C='OctetString'
-_B='MX-PPPOE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mediatrixConfig,=mibBuilder.importSymbols('MX-SMI','mediatrixConfig')
-MxEnableState,=mibBuilder.importSymbols('MX-TC',_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-pppoeMIB=ModuleIdentity((1,3,6,1,4,1,4935,15,105))
-if mibBuilder.loadTexts:pppoeMIB.setRevisions(('1903-07-09 00:00',))
-_PppoeMIBObjects_ObjectIdentity=ObjectIdentity
-pppoeMIBObjects=_PppoeMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,15,105,1))
-class _PppoeEnable_Type(MxEnableState):defaultValue=0
-_PppoeEnable_Type.__name__=_E
-_PppoeEnable_Object=MibScalar
-pppoeEnable=_PppoeEnable_Object((1,3,6,1,4,1,4935,15,105,1,5),_PppoeEnable_Type())
-pppoeEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeEnable.setStatus(_A)
-class _PppoeAcName_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_PppoeAcName_Type.__name__=_C
-_PppoeAcName_Object=MibScalar
-pppoeAcName=_PppoeAcName_Object((1,3,6,1,4,1,4935,15,105,1,10),_PppoeAcName_Type())
-pppoeAcName.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeAcName.setStatus(_A)
-class _PppoeServiceName_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_PppoeServiceName_Type.__name__=_C
-_PppoeServiceName_Object=MibScalar
-pppoeServiceName=_PppoeServiceName_Object((1,3,6,1,4,1,4935,15,105,1,15),_PppoeServiceName_Type())
-pppoeServiceName.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeServiceName.setStatus(_A)
-_PppoeConformance_ObjectIdentity=ObjectIdentity
-pppoeConformance=_PppoeConformance_ObjectIdentity((1,3,6,1,4,1,4935,15,105,5))
-_PppoeCompliances_ObjectIdentity=ObjectIdentity
-pppoeCompliances=_PppoeCompliances_ObjectIdentity((1,3,6,1,4,1,4935,15,105,5,1))
-_PppoeGroups_ObjectIdentity=ObjectIdentity
-pppoeGroups=_PppoeGroups_ObjectIdentity((1,3,6,1,4,1,4935,15,105,5,5))
-pppoeConnectionCustomizationVer1=ObjectGroup((1,3,6,1,4,1,4935,15,105,5,5,10))
-pppoeConnectionCustomizationVer1.setObjects(*((_B,_F),(_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:pppoeConnectionCustomizationVer1.setStatus(_A)
-pppoeComplVer1=ModuleCompliance((1,3,6,1,4,1,4935,15,105,5,1,1))
-pppoeComplVer1.setObjects((_B,_I))
-if mibBuilder.loadTexts:pppoeComplVer1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'pppoeMIB':pppoeMIB,'pppoeMIBObjects':pppoeMIBObjects,_F:pppoeEnable,_G:pppoeAcName,_H:pppoeServiceName,'pppoeConformance':pppoeConformance,'pppoeCompliances':pppoeCompliances,'pppoeComplVer1':pppoeComplVer1,'pppoeGroups':pppoeGroups,_I:pppoeConnectionCustomizationVer1})
+#
+# PySNMP MIB module MX-PPPOE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-PPPOE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mediatrixConfig, = mibBuilder.importSymbols("MX-SMI", "mediatrixConfig")
+MxEnableState, = mibBuilder.importSymbols("MX-TC", "MxEnableState")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+pppoeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 15, 105))
+pppoeMIB.setRevisions(('1903-07-09 00:00',))
+if mibBuilder.loadTexts: pppoeMIB.setLastUpdated('0307090000Z')
+if mibBuilder.loadTexts: pppoeMIB.setOrganization('Mediatrix Telecom, Inc.')
+pppoeMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 105, 1))
+pppoeConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 105, 5))
+pppoeEnable = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 105, 1, 5), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeEnable.setStatus('current')
+pppoeAcName = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 105, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeAcName.setStatus('current')
+pppoeServiceName = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 105, 1, 15), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeServiceName.setStatus('current')
+pppoeCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 105, 5, 1))
+pppoeComplVer1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4935, 15, 105, 5, 1, 1)).setObjects(("MX-PPPOE-MIB", "pppoeConnectionCustomizationVer1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pppoeComplVer1 = pppoeComplVer1.setStatus('current')
+pppoeGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 105, 5, 5))
+pppoeConnectionCustomizationVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 105, 5, 5, 10)).setObjects(("MX-PPPOE-MIB", "pppoeEnable"), ("MX-PPPOE-MIB", "pppoeAcName"), ("MX-PPPOE-MIB", "pppoeServiceName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pppoeConnectionCustomizationVer1 = pppoeConnectionCustomizationVer1.setStatus('current')
+mibBuilder.exportSymbols("MX-PPPOE-MIB", pppoeConformance=pppoeConformance, pppoeConnectionCustomizationVer1=pppoeConnectionCustomizationVer1, PYSNMP_MODULE_ID=pppoeMIB, pppoeComplVer1=pppoeComplVer1, pppoeCompliances=pppoeCompliances, pppoeMIBObjects=pppoeMIBObjects, pppoeMIB=pppoeMIB, pppoeEnable=pppoeEnable, pppoeGroups=pppoeGroups, pppoeServiceName=pppoeServiceName, pppoeAcName=pppoeAcName)

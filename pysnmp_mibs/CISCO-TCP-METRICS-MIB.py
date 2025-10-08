@@ -1,113 +1,61 @@
-_S='ciscoTcpMetricsGroup'
-_R='cfmTcpMetricsIntRoundTripTime'
-_Q='cfmTcpMetricsIntRoundTripTimePrecision'
-_P='cfmTcpMetricsIntRoundTripTimeScale'
-_O='cfmTcpMetricsIntValid'
-_N='cfmTcpMetricsTableChanged'
-_M='cfmTcpMetricsRoundTripTime'
-_L='cfmTcpMetricsRoundTripTimePrecision'
-_K='cfmTcpMetricsRoundTripTimeScale'
-_J='cfmTcpMetricsValid'
-_I='roundTripTime'
-_H='cfmFlowMetricsIntNumber'
-_G='Bits'
-_F='cfmFlowMonitorId'
-_E='cfmFlowId'
-_D='CISCO-FLOW-MONITOR-MIB'
-_C='read-only'
-_B='CISCO-TCP-METRICS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-cfmFlowId,cfmFlowMetricsIntNumber,cfmFlowMonitorId=mibBuilder.importSymbols(_D,_E,_H,_F)
-FlowMetricPrecision,FlowMetricScale,FlowMetricValue=mibBuilder.importSymbols('CISCO-FLOW-MONITOR-TC-MIB','FlowMetricPrecision','FlowMetricScale','FlowMetricValue')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI',_G,'Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp')
-ciscoTcpMetricsMIB=ModuleIdentity((1,3,6,1,4,1,9,9,770))
-if mibBuilder.loadTexts:ciscoTcpMetricsMIB.setRevisions(('2011-03-06 00:00',))
-_CiscoTcpMetricsMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoTcpMetricsMIBNotifs=_CiscoTcpMetricsMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,770,0))
-_CiscoTcpMetricsMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoTcpMetricsMIBObjects=_CiscoTcpMetricsMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,770,1))
-_CfmTcpMetrics_ObjectIdentity=ObjectIdentity
-cfmTcpMetrics=_CfmTcpMetrics_ObjectIdentity((1,3,6,1,4,1,9,9,770,1,1))
-_CfmTcpMetricsTable_Object=MibTable
-cfmTcpMetricsTable=_CfmTcpMetricsTable_Object((1,3,6,1,4,1,9,9,770,1,1,1))
-if mibBuilder.loadTexts:cfmTcpMetricsTable.setStatus(_A)
-_CfmTcpMetricsEntry_Object=MibTableRow
-cfmTcpMetricsEntry=_CfmTcpMetricsEntry_Object((1,3,6,1,4,1,9,9,770,1,1,1,1))
-cfmTcpMetricsEntry.setIndexNames((0,_D,_F),(0,_D,_E))
-if mibBuilder.loadTexts:cfmTcpMetricsEntry.setStatus(_A)
-class _CfmTcpMetricsValid_Type(Bits):namedValues=NamedValues((_I,0))
-_CfmTcpMetricsValid_Type.__name__=_G
-_CfmTcpMetricsValid_Object=MibTableColumn
-cfmTcpMetricsValid=_CfmTcpMetricsValid_Object((1,3,6,1,4,1,9,9,770,1,1,1,1,1),_CfmTcpMetricsValid_Type())
-cfmTcpMetricsValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmTcpMetricsValid.setStatus(_A)
-_CfmTcpMetricsRoundTripTimeScale_Type=FlowMetricScale
-_CfmTcpMetricsRoundTripTimeScale_Object=MibTableColumn
-cfmTcpMetricsRoundTripTimeScale=_CfmTcpMetricsRoundTripTimeScale_Object((1,3,6,1,4,1,9,9,770,1,1,1,1,2),_CfmTcpMetricsRoundTripTimeScale_Type())
-cfmTcpMetricsRoundTripTimeScale.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmTcpMetricsRoundTripTimeScale.setStatus(_A)
-_CfmTcpMetricsRoundTripTimePrecision_Type=FlowMetricPrecision
-_CfmTcpMetricsRoundTripTimePrecision_Object=MibTableColumn
-cfmTcpMetricsRoundTripTimePrecision=_CfmTcpMetricsRoundTripTimePrecision_Object((1,3,6,1,4,1,9,9,770,1,1,1,1,3),_CfmTcpMetricsRoundTripTimePrecision_Type())
-cfmTcpMetricsRoundTripTimePrecision.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmTcpMetricsRoundTripTimePrecision.setStatus(_A)
-_CfmTcpMetricsRoundTripTime_Type=FlowMetricValue
-_CfmTcpMetricsRoundTripTime_Object=MibTableColumn
-cfmTcpMetricsRoundTripTime=_CfmTcpMetricsRoundTripTime_Object((1,3,6,1,4,1,9,9,770,1,1,1,1,4),_CfmTcpMetricsRoundTripTime_Type())
-cfmTcpMetricsRoundTripTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmTcpMetricsRoundTripTime.setStatus(_A)
-_CfmTcpMetricsTableChanged_Type=TimeStamp
-_CfmTcpMetricsTableChanged_Object=MibScalar
-cfmTcpMetricsTableChanged=_CfmTcpMetricsTableChanged_Object((1,3,6,1,4,1,9,9,770,1,1,2),_CfmTcpMetricsTableChanged_Type())
-cfmTcpMetricsTableChanged.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmTcpMetricsTableChanged.setStatus(_A)
-_CfmTcpMetricsIntTable_Object=MibTable
-cfmTcpMetricsIntTable=_CfmTcpMetricsIntTable_Object((1,3,6,1,4,1,9,9,770,1,1,3))
-if mibBuilder.loadTexts:cfmTcpMetricsIntTable.setStatus(_A)
-_CfmTcpMetricsIntEntry_Object=MibTableRow
-cfmTcpMetricsIntEntry=_CfmTcpMetricsIntEntry_Object((1,3,6,1,4,1,9,9,770,1,1,3,1))
-cfmTcpMetricsIntEntry.setIndexNames((0,_D,_F),(0,_D,_E),(0,_D,_H))
-if mibBuilder.loadTexts:cfmTcpMetricsIntEntry.setStatus(_A)
-class _CfmTcpMetricsIntValid_Type(Bits):namedValues=NamedValues((_I,0))
-_CfmTcpMetricsIntValid_Type.__name__=_G
-_CfmTcpMetricsIntValid_Object=MibTableColumn
-cfmTcpMetricsIntValid=_CfmTcpMetricsIntValid_Object((1,3,6,1,4,1,9,9,770,1,1,3,1,1),_CfmTcpMetricsIntValid_Type())
-cfmTcpMetricsIntValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmTcpMetricsIntValid.setStatus(_A)
-_CfmTcpMetricsIntRoundTripTimeScale_Type=FlowMetricScale
-_CfmTcpMetricsIntRoundTripTimeScale_Object=MibTableColumn
-cfmTcpMetricsIntRoundTripTimeScale=_CfmTcpMetricsIntRoundTripTimeScale_Object((1,3,6,1,4,1,9,9,770,1,1,3,1,2),_CfmTcpMetricsIntRoundTripTimeScale_Type())
-cfmTcpMetricsIntRoundTripTimeScale.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmTcpMetricsIntRoundTripTimeScale.setStatus(_A)
-_CfmTcpMetricsIntRoundTripTimePrecision_Type=FlowMetricPrecision
-_CfmTcpMetricsIntRoundTripTimePrecision_Object=MibTableColumn
-cfmTcpMetricsIntRoundTripTimePrecision=_CfmTcpMetricsIntRoundTripTimePrecision_Object((1,3,6,1,4,1,9,9,770,1,1,3,1,3),_CfmTcpMetricsIntRoundTripTimePrecision_Type())
-cfmTcpMetricsIntRoundTripTimePrecision.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmTcpMetricsIntRoundTripTimePrecision.setStatus(_A)
-_CfmTcpMetricsIntRoundTripTime_Type=FlowMetricValue
-_CfmTcpMetricsIntRoundTripTime_Object=MibTableColumn
-cfmTcpMetricsIntRoundTripTime=_CfmTcpMetricsIntRoundTripTime_Object((1,3,6,1,4,1,9,9,770,1,1,3,1,4),_CfmTcpMetricsIntRoundTripTime_Type())
-cfmTcpMetricsIntRoundTripTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmTcpMetricsIntRoundTripTime.setStatus(_A)
-_CiscoTcpMetricsMIBConform_ObjectIdentity=ObjectIdentity
-ciscoTcpMetricsMIBConform=_CiscoTcpMetricsMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,770,2))
-_CiscoTcpMetricsMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoTcpMetricsMIBCompliances=_CiscoTcpMetricsMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,770,2,1))
-_CiscoTcpMetricsMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoTcpMetricsMIBGroups=_CiscoTcpMetricsMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,770,2,2))
-_CiscoTcpMetricsMIBIds_ObjectIdentity=ObjectIdentity
-ciscoTcpMetricsMIBIds=_CiscoTcpMetricsMIBIds_ObjectIdentity((1,3,6,1,4,1,9,9,770,3))
-ciscoTcpMetricsGroup=ObjectGroup((1,3,6,1,4,1,9,9,770,2,2,1))
-ciscoTcpMetricsGroup.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:ciscoTcpMetricsGroup.setStatus(_A)
-ciscoTcpMetricsMIBCompliance01=ModuleCompliance((1,3,6,1,4,1,9,9,770,2,1,1))
-ciscoTcpMetricsMIBCompliance01.setObjects((_B,_S))
-if mibBuilder.loadTexts:ciscoTcpMetricsMIBCompliance01.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoTcpMetricsMIB':ciscoTcpMetricsMIB,'ciscoTcpMetricsMIBNotifs':ciscoTcpMetricsMIBNotifs,'ciscoTcpMetricsMIBObjects':ciscoTcpMetricsMIBObjects,'cfmTcpMetrics':cfmTcpMetrics,'cfmTcpMetricsTable':cfmTcpMetricsTable,'cfmTcpMetricsEntry':cfmTcpMetricsEntry,_J:cfmTcpMetricsValid,_K:cfmTcpMetricsRoundTripTimeScale,_L:cfmTcpMetricsRoundTripTimePrecision,_M:cfmTcpMetricsRoundTripTime,_N:cfmTcpMetricsTableChanged,'cfmTcpMetricsIntTable':cfmTcpMetricsIntTable,'cfmTcpMetricsIntEntry':cfmTcpMetricsIntEntry,_O:cfmTcpMetricsIntValid,_P:cfmTcpMetricsIntRoundTripTimeScale,_Q:cfmTcpMetricsIntRoundTripTimePrecision,_R:cfmTcpMetricsIntRoundTripTime,'ciscoTcpMetricsMIBConform':ciscoTcpMetricsMIBConform,'ciscoTcpMetricsMIBCompliances':ciscoTcpMetricsMIBCompliances,'ciscoTcpMetricsMIBCompliance01':ciscoTcpMetricsMIBCompliance01,'ciscoTcpMetricsMIBGroups':ciscoTcpMetricsMIBGroups,_S:ciscoTcpMetricsGroup,'ciscoTcpMetricsMIBIds':ciscoTcpMetricsMIBIds})
+#
+# PySNMP MIB module CISCO-TCP-METRICS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-TCP-METRICS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:24 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cfmFlowMonitorId, cfmFlowMetricsIntNumber, cfmFlowId = mibBuilder.importSymbols("CISCO-FLOW-MONITOR-MIB", "cfmFlowMonitorId", "cfmFlowMetricsIntNumber", "cfmFlowId")
+FlowMetricValue, FlowMetricPrecision, FlowMetricScale = mibBuilder.importSymbols("CISCO-FLOW-MONITOR-TC-MIB", "FlowMetricValue", "FlowMetricPrecision", "FlowMetricScale")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+ciscoTcpMetricsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 770))
+ciscoTcpMetricsMIB.setRevisions(('2011-03-06 00:00',))
+if mibBuilder.loadTexts: ciscoTcpMetricsMIB.setLastUpdated('201103060000Z')
+if mibBuilder.loadTexts: ciscoTcpMetricsMIB.setOrganization('Cisco Systems, Inc.')
+ciscoTcpMetricsMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 770, 0))
+ciscoTcpMetricsMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 770, 1))
+ciscoTcpMetricsMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 770, 2))
+ciscoTcpMetricsMIBIds = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 770, 3))
+ciscoTcpMetricsMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 770, 2, 1))
+cfmTcpMetrics = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 770, 1, 1))
+cfmTcpMetricsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 770, 1, 1, 1), )
+if mibBuilder.loadTexts: cfmTcpMetricsTable.setStatus('current')
+cfmTcpMetricsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 770, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-FLOW-MONITOR-MIB", "cfmFlowMonitorId"), (0, "CISCO-FLOW-MONITOR-MIB", "cfmFlowId"))
+if mibBuilder.loadTexts: cfmTcpMetricsEntry.setStatus('current')
+cfmTcpMetricsValid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 770, 1, 1, 1, 1, 1), Bits().clone(namedValues=NamedValues(("roundTripTime", 0)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmTcpMetricsValid.setStatus('current')
+cfmTcpMetricsRoundTripTimeScale = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 770, 1, 1, 1, 1, 2), FlowMetricScale()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmTcpMetricsRoundTripTimeScale.setStatus('current')
+cfmTcpMetricsRoundTripTimePrecision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 770, 1, 1, 1, 1, 3), FlowMetricPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmTcpMetricsRoundTripTimePrecision.setStatus('current')
+cfmTcpMetricsRoundTripTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 770, 1, 1, 1, 1, 4), FlowMetricValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmTcpMetricsRoundTripTime.setStatus('current')
+cfmTcpMetricsTableChanged = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 770, 1, 1, 2), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmTcpMetricsTableChanged.setStatus('current')
+cfmTcpMetricsIntTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 770, 1, 1, 3), )
+if mibBuilder.loadTexts: cfmTcpMetricsIntTable.setStatus('current')
+cfmTcpMetricsIntEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 770, 1, 1, 3, 1), ).setIndexNames((0, "CISCO-FLOW-MONITOR-MIB", "cfmFlowMonitorId"), (0, "CISCO-FLOW-MONITOR-MIB", "cfmFlowId"), (0, "CISCO-FLOW-MONITOR-MIB", "cfmFlowMetricsIntNumber"))
+if mibBuilder.loadTexts: cfmTcpMetricsIntEntry.setStatus('current')
+cfmTcpMetricsIntValid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 770, 1, 1, 3, 1, 1), Bits().clone(namedValues=NamedValues(("roundTripTime", 0)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmTcpMetricsIntValid.setStatus('current')
+cfmTcpMetricsIntRoundTripTimeScale = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 770, 1, 1, 3, 1, 2), FlowMetricScale()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmTcpMetricsIntRoundTripTimeScale.setStatus('current')
+cfmTcpMetricsIntRoundTripTimePrecision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 770, 1, 1, 3, 1, 3), FlowMetricPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmTcpMetricsIntRoundTripTimePrecision.setStatus('current')
+cfmTcpMetricsIntRoundTripTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 770, 1, 1, 3, 1, 4), FlowMetricValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmTcpMetricsIntRoundTripTime.setStatus('current')
+ciscoTcpMetricsMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 770, 2, 2))
+ciscoTcpMetricsMIBCompliance01 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 770, 2, 1, 1)).setObjects(("CISCO-TCP-METRICS-MIB", "ciscoTcpMetricsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoTcpMetricsMIBCompliance01 = ciscoTcpMetricsMIBCompliance01.setStatus('current')
+ciscoTcpMetricsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 770, 2, 2, 1)).setObjects(("CISCO-TCP-METRICS-MIB", "cfmTcpMetricsValid"), ("CISCO-TCP-METRICS-MIB", "cfmTcpMetricsRoundTripTimeScale"), ("CISCO-TCP-METRICS-MIB", "cfmTcpMetricsRoundTripTimePrecision"), ("CISCO-TCP-METRICS-MIB", "cfmTcpMetricsRoundTripTime"), ("CISCO-TCP-METRICS-MIB", "cfmTcpMetricsTableChanged"), ("CISCO-TCP-METRICS-MIB", "cfmTcpMetricsIntValid"), ("CISCO-TCP-METRICS-MIB", "cfmTcpMetricsIntRoundTripTimeScale"), ("CISCO-TCP-METRICS-MIB", "cfmTcpMetricsIntRoundTripTimePrecision"), ("CISCO-TCP-METRICS-MIB", "cfmTcpMetricsIntRoundTripTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoTcpMetricsGroup = ciscoTcpMetricsGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-TCP-METRICS-MIB", cfmTcpMetrics=cfmTcpMetrics, ciscoTcpMetricsMIBObjects=ciscoTcpMetricsMIBObjects, cfmTcpMetricsIntRoundTripTime=cfmTcpMetricsIntRoundTripTime, cfmTcpMetricsRoundTripTimePrecision=cfmTcpMetricsRoundTripTimePrecision, cfmTcpMetricsTable=cfmTcpMetricsTable, ciscoTcpMetricsMIBCompliance01=ciscoTcpMetricsMIBCompliance01, ciscoTcpMetricsMIBConform=ciscoTcpMetricsMIBConform, ciscoTcpMetricsGroup=ciscoTcpMetricsGroup, cfmTcpMetricsIntTable=cfmTcpMetricsIntTable, ciscoTcpMetricsMIBGroups=ciscoTcpMetricsMIBGroups, cfmTcpMetricsIntValid=cfmTcpMetricsIntValid, cfmTcpMetricsRoundTripTime=cfmTcpMetricsRoundTripTime, cfmTcpMetricsIntRoundTripTimePrecision=cfmTcpMetricsIntRoundTripTimePrecision, cfmTcpMetricsValid=cfmTcpMetricsValid, cfmTcpMetricsIntEntry=cfmTcpMetricsIntEntry, ciscoTcpMetricsMIBIds=ciscoTcpMetricsMIBIds, cfmTcpMetricsRoundTripTimeScale=cfmTcpMetricsRoundTripTimeScale, cfmTcpMetricsEntry=cfmTcpMetricsEntry, ciscoTcpMetricsMIBCompliances=ciscoTcpMetricsMIBCompliances, cfmTcpMetricsTableChanged=cfmTcpMetricsTableChanged, cfmTcpMetricsIntRoundTripTimeScale=cfmTcpMetricsIntRoundTripTimeScale, ciscoTcpMetricsMIB=ciscoTcpMetricsMIB, PYSNMP_MODULE_ID=ciscoTcpMetricsMIB, ciscoTcpMetricsMIBNotifs=ciscoTcpMetricsMIBNotifs)

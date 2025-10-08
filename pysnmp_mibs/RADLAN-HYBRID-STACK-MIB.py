@@ -1,145 +1,86 @@
-_G='rlStackHybridUnitId'
-_F='RADLAN-HYBRID-STACK-MIB'
-_E='Integer32'
-_D='OctetString'
-_C='read-write'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-MacAddress,=mibBuilder.importSymbols('BRIDGE-MIB','MacAddress')
-PortList,=mibBuilder.importSymbols('Q-BRIDGE-MIB','PortList')
-rnd,=mibBuilder.importSymbols('RADLAN-MIB','rnd')
-rlStack,=mibBuilder.importSymbols('RADLAN-STACK-MIB','rlStack')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-class StackMode(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('standalone',1),('native',2),('basic-hybrid',3),('advanced-hybrid',4),('advanced-hybrid-XG',5)))
-class PortsPair(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('pair-s1s2',1),('pair-s3s4',2),('pair-s1s25G',3),('pair-s1s2Xg',4),('pair-lionXg',5),('pair-s1s2-xg1xg2-Xg',6)))
-class HybridStackPortSpeed(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('port-speed-1G',1),('port-speed-5G',2),('port-speed-10G',3),('port-speed-auto',4),('port-speed-down',5)))
-class HybridStackDeviceMode(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('mode-L2',1),('mode-L3',2)))
-class UnitModuleType(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('unit-ros_sku1',1),('unit-ros_sku2',2),('unit-ros_sku3',3)))
-_RlStackHybridTable_Object=MibTable
-rlStackHybridTable=_RlStackHybridTable_Object((1,3,6,1,4,1,89,107,5))
-if mibBuilder.loadTexts:rlStackHybridTable.setStatus(_A)
-_RlStackHybridEntry_Object=MibTableRow
-rlStackHybridEntry=_RlStackHybridEntry_Object((1,3,6,1,4,1,89,107,5,1))
-rlStackHybridEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:rlStackHybridEntry.setStatus(_A)
-class _RlStackHybridUnitId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_RlStackHybridUnitId_Type.__name__=_E
-_RlStackHybridUnitId_Object=MibTableColumn
-rlStackHybridUnitId=_RlStackHybridUnitId_Object((1,3,6,1,4,1,89,107,5,1,1),_RlStackHybridUnitId_Type())
-rlStackHybridUnitId.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:rlStackHybridUnitId.setStatus(_A)
-_RlStackHybridStackMode_Type=StackMode
-_RlStackHybridStackMode_Object=MibTableColumn
-rlStackHybridStackMode=_RlStackHybridStackMode_Object((1,3,6,1,4,1,89,107,5,1,2),_RlStackHybridStackMode_Type())
-rlStackHybridStackMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlStackHybridStackMode.setStatus(_A)
-_RlStackHybridPortsPair_Type=PortsPair
-_RlStackHybridPortsPair_Object=MibTableColumn
-rlStackHybridPortsPair=_RlStackHybridPortsPair_Object((1,3,6,1,4,1,89,107,5,1,3),_RlStackHybridPortsPair_Type())
-rlStackHybridPortsPair.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlStackHybridPortsPair.setStatus(_A)
-_RlStackHybridPortNo1speedDeprecated_Type=HybridStackPortSpeed
-_RlStackHybridPortNo1speedDeprecated_Object=MibTableColumn
-rlStackHybridPortNo1speedDeprecated=_RlStackHybridPortNo1speedDeprecated_Object((1,3,6,1,4,1,89,107,5,1,4),_RlStackHybridPortNo1speedDeprecated_Type())
-rlStackHybridPortNo1speedDeprecated.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlStackHybridPortNo1speedDeprecated.setStatus(_A)
-_RlStackHybridPortNo2speedDeprecated_Type=HybridStackPortSpeed
-_RlStackHybridPortNo2speedDeprecated_Object=MibTableColumn
-rlStackHybridPortNo2speedDeprecated=_RlStackHybridPortNo2speedDeprecated_Object((1,3,6,1,4,1,89,107,5,1,5),_RlStackHybridPortNo2speedDeprecated_Type())
-rlStackHybridPortNo2speedDeprecated.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlStackHybridPortNo2speedDeprecated.setStatus(_A)
-class _RlStackHybridUnitIdAfterReset_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,8))
-_RlStackHybridUnitIdAfterReset_Type.__name__=_E
-_RlStackHybridUnitIdAfterReset_Object=MibTableColumn
-rlStackHybridUnitIdAfterReset=_RlStackHybridUnitIdAfterReset_Object((1,3,6,1,4,1,89,107,5,1,6),_RlStackHybridUnitIdAfterReset_Type())
-rlStackHybridUnitIdAfterReset.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlStackHybridUnitIdAfterReset.setStatus(_A)
-_RlStackHybridStackModeAfterReset_Type=StackMode
-_RlStackHybridStackModeAfterReset_Object=MibTableColumn
-rlStackHybridStackModeAfterReset=_RlStackHybridStackModeAfterReset_Object((1,3,6,1,4,1,89,107,5,1,7),_RlStackHybridStackModeAfterReset_Type())
-rlStackHybridStackModeAfterReset.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlStackHybridStackModeAfterReset.setStatus(_A)
-_RlStackHybridPortsPairAfterReset_Type=PortsPair
-_RlStackHybridPortsPairAfterReset_Object=MibTableColumn
-rlStackHybridPortsPairAfterReset=_RlStackHybridPortsPairAfterReset_Object((1,3,6,1,4,1,89,107,5,1,8),_RlStackHybridPortsPairAfterReset_Type())
-rlStackHybridPortsPairAfterReset.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlStackHybridPortsPairAfterReset.setStatus(_A)
-_RlStackHybridPortNo1speedAfterResetDeprecated_Type=HybridStackPortSpeed
-_RlStackHybridPortNo1speedAfterResetDeprecated_Object=MibTableColumn
-rlStackHybridPortNo1speedAfterResetDeprecated=_RlStackHybridPortNo1speedAfterResetDeprecated_Object((1,3,6,1,4,1,89,107,5,1,9),_RlStackHybridPortNo1speedAfterResetDeprecated_Type())
-rlStackHybridPortNo1speedAfterResetDeprecated.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlStackHybridPortNo1speedAfterResetDeprecated.setStatus(_A)
-_RlStackHybridPortNo2speedAfterResetDeprecated_Type=HybridStackPortSpeed
-_RlStackHybridPortNo2speedAfterResetDeprecated_Object=MibTableColumn
-rlStackHybridPortNo2speedAfterResetDeprecated=_RlStackHybridPortNo2speedAfterResetDeprecated_Object((1,3,6,1,4,1,89,107,5,1,10),_RlStackHybridPortNo2speedAfterResetDeprecated_Type())
-rlStackHybridPortNo2speedAfterResetDeprecated.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlStackHybridPortNo2speedAfterResetDeprecated.setStatus(_A)
-_RlStackHybridDeleteStartupAfterResetDeprecated_Type=TruthValue
-_RlStackHybridDeleteStartupAfterResetDeprecated_Object=MibTableColumn
-rlStackHybridDeleteStartupAfterResetDeprecated=_RlStackHybridDeleteStartupAfterResetDeprecated_Object((1,3,6,1,4,1,89,107,5,1,11),_RlStackHybridDeleteStartupAfterResetDeprecated_Type())
-rlStackHybridDeleteStartupAfterResetDeprecated.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlStackHybridDeleteStartupAfterResetDeprecated.setStatus(_A)
-_RlStackHybridDeviceModeAfterReset_Type=HybridStackDeviceMode
-_RlStackHybridDeviceModeAfterReset_Object=MibTableColumn
-rlStackHybridDeviceModeAfterReset=_RlStackHybridDeviceModeAfterReset_Object((1,3,6,1,4,1,89,107,5,1,12),_RlStackHybridDeviceModeAfterReset_Type())
-rlStackHybridDeviceModeAfterReset.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlStackHybridDeviceModeAfterReset.setStatus(_A)
-_RlStackHybridXgPortNo1NumDeprecated_Type=Integer32
-_RlStackHybridXgPortNo1NumDeprecated_Object=MibTableColumn
-rlStackHybridXgPortNo1NumDeprecated=_RlStackHybridXgPortNo1NumDeprecated_Object((1,3,6,1,4,1,89,107,5,1,13),_RlStackHybridXgPortNo1NumDeprecated_Type())
-rlStackHybridXgPortNo1NumDeprecated.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlStackHybridXgPortNo1NumDeprecated.setStatus(_A)
-_RlStackHybridXgPortNo1NumAfterResetDeprecated_Type=Integer32
-_RlStackHybridXgPortNo1NumAfterResetDeprecated_Object=MibTableColumn
-rlStackHybridXgPortNo1NumAfterResetDeprecated=_RlStackHybridXgPortNo1NumAfterResetDeprecated_Object((1,3,6,1,4,1,89,107,5,1,14),_RlStackHybridXgPortNo1NumAfterResetDeprecated_Type())
-rlStackHybridXgPortNo1NumAfterResetDeprecated.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlStackHybridXgPortNo1NumAfterResetDeprecated.setStatus(_A)
-_RlStackHybridXgPortNo2NumDeprecated_Type=Integer32
-_RlStackHybridXgPortNo2NumDeprecated_Object=MibTableColumn
-rlStackHybridXgPortNo2NumDeprecated=_RlStackHybridXgPortNo2NumDeprecated_Object((1,3,6,1,4,1,89,107,5,1,15),_RlStackHybridXgPortNo2NumDeprecated_Type())
-rlStackHybridXgPortNo2NumDeprecated.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlStackHybridXgPortNo2NumDeprecated.setStatus(_A)
-_RlStackHybridXgPortNo2NumAfterResetDeprecated_Type=Integer32
-_RlStackHybridXgPortNo2NumAfterResetDeprecated_Object=MibTableColumn
-rlStackHybridXgPortNo2NumAfterResetDeprecated=_RlStackHybridXgPortNo2NumAfterResetDeprecated_Object((1,3,6,1,4,1,89,107,5,1,16),_RlStackHybridXgPortNo2NumAfterResetDeprecated_Type())
-rlStackHybridXgPortNo2NumAfterResetDeprecated.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlStackHybridXgPortNo2NumAfterResetDeprecated.setStatus(_A)
-_RlStackHybridPortSpeed_Type=HybridStackPortSpeed
-_RlStackHybridPortSpeed_Object=MibTableColumn
-rlStackHybridPortSpeed=_RlStackHybridPortSpeed_Object((1,3,6,1,4,1,89,107,5,1,17),_RlStackHybridPortSpeed_Type())
-rlStackHybridPortSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlStackHybridPortSpeed.setStatus(_A)
-_RlStackHybridPortSpeedAfterReset_Type=HybridStackPortSpeed
-_RlStackHybridPortSpeedAfterReset_Object=MibTableColumn
-rlStackHybridPortSpeedAfterReset=_RlStackHybridPortSpeedAfterReset_Object((1,3,6,1,4,1,89,107,5,1,18),_RlStackHybridPortSpeedAfterReset_Type())
-rlStackHybridPortSpeedAfterReset.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlStackHybridPortSpeedAfterReset.setStatus(_A)
-class _RlStackHybridXgPortList_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,16))
-_RlStackHybridXgPortList_Type.__name__=_D
-_RlStackHybridXgPortList_Object=MibTableColumn
-rlStackHybridXgPortList=_RlStackHybridXgPortList_Object((1,3,6,1,4,1,89,107,5,1,19),_RlStackHybridXgPortList_Type())
-rlStackHybridXgPortList.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlStackHybridXgPortList.setStatus(_A)
-class _RlStackHybridXgPortListAfterReset_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,16))
-_RlStackHybridXgPortListAfterReset_Type.__name__=_D
-_RlStackHybridXgPortListAfterReset_Object=MibTableColumn
-rlStackHybridXgPortListAfterReset=_RlStackHybridXgPortListAfterReset_Object((1,3,6,1,4,1,89,107,5,1,20),_RlStackHybridXgPortListAfterReset_Type())
-rlStackHybridXgPortListAfterReset.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlStackHybridXgPortListAfterReset.setStatus(_A)
-_RlStackHybridUnitModuleType_Type=UnitModuleType
-_RlStackHybridUnitModuleType_Object=MibTableColumn
-rlStackHybridUnitModuleType=_RlStackHybridUnitModuleType_Object((1,3,6,1,4,1,89,107,5,1,21),_RlStackHybridUnitModuleType_Type())
-rlStackHybridUnitModuleType.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlStackHybridUnitModuleType.setStatus(_A)
-_RlStackHybridMibVersion_Type=Integer32
-_RlStackHybridMibVersion_Object=MibTableColumn
-rlStackHybridMibVersion=_RlStackHybridMibVersion_Object((1,3,6,1,4,1,89,107,5,1,22),_RlStackHybridMibVersion_Type())
-rlStackHybridMibVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlStackHybridMibVersion.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'StackMode':StackMode,'PortsPair':PortsPair,'HybridStackPortSpeed':HybridStackPortSpeed,'HybridStackDeviceMode':HybridStackDeviceMode,'UnitModuleType':UnitModuleType,'rlStackHybridTable':rlStackHybridTable,'rlStackHybridEntry':rlStackHybridEntry,_G:rlStackHybridUnitId,'rlStackHybridStackMode':rlStackHybridStackMode,'rlStackHybridPortsPair':rlStackHybridPortsPair,'rlStackHybridPortNo1speedDeprecated':rlStackHybridPortNo1speedDeprecated,'rlStackHybridPortNo2speedDeprecated':rlStackHybridPortNo2speedDeprecated,'rlStackHybridUnitIdAfterReset':rlStackHybridUnitIdAfterReset,'rlStackHybridStackModeAfterReset':rlStackHybridStackModeAfterReset,'rlStackHybridPortsPairAfterReset':rlStackHybridPortsPairAfterReset,'rlStackHybridPortNo1speedAfterResetDeprecated':rlStackHybridPortNo1speedAfterResetDeprecated,'rlStackHybridPortNo2speedAfterResetDeprecated':rlStackHybridPortNo2speedAfterResetDeprecated,'rlStackHybridDeleteStartupAfterResetDeprecated':rlStackHybridDeleteStartupAfterResetDeprecated,'rlStackHybridDeviceModeAfterReset':rlStackHybridDeviceModeAfterReset,'rlStackHybridXgPortNo1NumDeprecated':rlStackHybridXgPortNo1NumDeprecated,'rlStackHybridXgPortNo1NumAfterResetDeprecated':rlStackHybridXgPortNo1NumAfterResetDeprecated,'rlStackHybridXgPortNo2NumDeprecated':rlStackHybridXgPortNo2NumDeprecated,'rlStackHybridXgPortNo2NumAfterResetDeprecated':rlStackHybridXgPortNo2NumAfterResetDeprecated,'rlStackHybridPortSpeed':rlStackHybridPortSpeed,'rlStackHybridPortSpeedAfterReset':rlStackHybridPortSpeedAfterReset,'rlStackHybridXgPortList':rlStackHybridXgPortList,'rlStackHybridXgPortListAfterReset':rlStackHybridXgPortListAfterReset,'rlStackHybridUnitModuleType':rlStackHybridUnitModuleType,'rlStackHybridMibVersion':rlStackHybridMibVersion})
+#
+# PySNMP MIB module RADLAN-HYBRID-STACK-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/radlan/RADLAN-HYBRID-STACK-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+MacAddress, = mibBuilder.importSymbols("BRIDGE-MIB", "MacAddress")
+PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
+rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
+rlStack, = mibBuilder.importSymbols("RADLAN-STACK-MIB", "rlStack")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+class StackMode(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("standalone", 1), ("native", 2), ("basic-hybrid", 3), ("advanced-hybrid", 4), ("advanced-hybrid-XG", 5))
+
+class PortsPair(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
+    namedValues = NamedValues(("pair-s1s2", 1), ("pair-s3s4", 2), ("pair-s1s25G", 3), ("pair-s1s2Xg", 4), ("pair-lionXg", 5), ("pair-s1s2-xg1xg2-Xg", 6))
+
+class HybridStackPortSpeed(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("port-speed-1G", 1), ("port-speed-5G", 2), ("port-speed-10G", 3), ("port-speed-auto", 4), ("port-speed-down", 5))
+
+class HybridStackDeviceMode(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("mode-L2", 1), ("mode-L3", 2))
+
+class UnitModuleType(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("unit-ros_sku1", 1), ("unit-ros_sku2", 2), ("unit-ros_sku3", 3))
+
+rlStackHybridTable = MibTable((1, 3, 6, 1, 4, 1, 89, 107, 5), )
+if mibBuilder.loadTexts: rlStackHybridTable.setStatus('current')
+rlStackHybridEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 107, 5, 1), ).setIndexNames((0, "RADLAN-HYBRID-STACK-MIB", "rlStackHybridUnitId"))
+if mibBuilder.loadTexts: rlStackHybridEntry.setStatus('current')
+rlStackHybridUnitId = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)))
+if mibBuilder.loadTexts: rlStackHybridUnitId.setStatus('current')
+rlStackHybridStackMode = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 2), StackMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlStackHybridStackMode.setStatus('current')
+rlStackHybridPortsPair = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 3), PortsPair()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlStackHybridPortsPair.setStatus('current')
+rlStackHybridPortNo1speedDeprecated = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 4), HybridStackPortSpeed()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlStackHybridPortNo1speedDeprecated.setStatus('current')
+rlStackHybridPortNo2speedDeprecated = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 5), HybridStackPortSpeed()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlStackHybridPortNo2speedDeprecated.setStatus('current')
+rlStackHybridUnitIdAfterReset = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlStackHybridUnitIdAfterReset.setStatus('current')
+rlStackHybridStackModeAfterReset = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 7), StackMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlStackHybridStackModeAfterReset.setStatus('current')
+rlStackHybridPortsPairAfterReset = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 8), PortsPair()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlStackHybridPortsPairAfterReset.setStatus('current')
+rlStackHybridPortNo1speedAfterResetDeprecated = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 9), HybridStackPortSpeed()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlStackHybridPortNo1speedAfterResetDeprecated.setStatus('current')
+rlStackHybridPortNo2speedAfterResetDeprecated = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 10), HybridStackPortSpeed()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlStackHybridPortNo2speedAfterResetDeprecated.setStatus('current')
+rlStackHybridDeleteStartupAfterResetDeprecated = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 11), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlStackHybridDeleteStartupAfterResetDeprecated.setStatus('current')
+rlStackHybridDeviceModeAfterReset = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 12), HybridStackDeviceMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlStackHybridDeviceModeAfterReset.setStatus('current')
+rlStackHybridXgPortNo1NumDeprecated = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlStackHybridXgPortNo1NumDeprecated.setStatus('current')
+rlStackHybridXgPortNo1NumAfterResetDeprecated = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 14), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlStackHybridXgPortNo1NumAfterResetDeprecated.setStatus('current')
+rlStackHybridXgPortNo2NumDeprecated = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlStackHybridXgPortNo2NumDeprecated.setStatus('current')
+rlStackHybridXgPortNo2NumAfterResetDeprecated = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 16), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlStackHybridXgPortNo2NumAfterResetDeprecated.setStatus('current')
+rlStackHybridPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 17), HybridStackPortSpeed()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlStackHybridPortSpeed.setStatus('current')
+rlStackHybridPortSpeedAfterReset = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 18), HybridStackPortSpeed()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlStackHybridPortSpeedAfterReset.setStatus('current')
+rlStackHybridXgPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 19), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlStackHybridXgPortList.setStatus('current')
+rlStackHybridXgPortListAfterReset = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 20), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 16))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlStackHybridXgPortListAfterReset.setStatus('current')
+rlStackHybridUnitModuleType = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 21), UnitModuleType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlStackHybridUnitModuleType.setStatus('current')
+rlStackHybridMibVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 107, 5, 1, 22), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlStackHybridMibVersion.setStatus('current')
+mibBuilder.exportSymbols("RADLAN-HYBRID-STACK-MIB", rlStackHybridXgPortNo1NumAfterResetDeprecated=rlStackHybridXgPortNo1NumAfterResetDeprecated, rlStackHybridStackModeAfterReset=rlStackHybridStackModeAfterReset, rlStackHybridPortSpeedAfterReset=rlStackHybridPortSpeedAfterReset, rlStackHybridPortsPair=rlStackHybridPortsPair, rlStackHybridStackMode=rlStackHybridStackMode, rlStackHybridEntry=rlStackHybridEntry, UnitModuleType=UnitModuleType, rlStackHybridDeleteStartupAfterResetDeprecated=rlStackHybridDeleteStartupAfterResetDeprecated, rlStackHybridUnitId=rlStackHybridUnitId, rlStackHybridXgPortNo1NumDeprecated=rlStackHybridXgPortNo1NumDeprecated, HybridStackDeviceMode=HybridStackDeviceMode, rlStackHybridPortNo1speedDeprecated=rlStackHybridPortNo1speedDeprecated, rlStackHybridPortSpeed=rlStackHybridPortSpeed, rlStackHybridTable=rlStackHybridTable, rlStackHybridXgPortNo2NumDeprecated=rlStackHybridXgPortNo2NumDeprecated, rlStackHybridPortNo1speedAfterResetDeprecated=rlStackHybridPortNo1speedAfterResetDeprecated, rlStackHybridMibVersion=rlStackHybridMibVersion, StackMode=StackMode, rlStackHybridPortNo2speedDeprecated=rlStackHybridPortNo2speedDeprecated, rlStackHybridDeviceModeAfterReset=rlStackHybridDeviceModeAfterReset, rlStackHybridXgPortList=rlStackHybridXgPortList, rlStackHybridPortsPairAfterReset=rlStackHybridPortsPairAfterReset, rlStackHybridXgPortListAfterReset=rlStackHybridXgPortListAfterReset, rlStackHybridUnitModuleType=rlStackHybridUnitModuleType, rlStackHybridUnitIdAfterReset=rlStackHybridUnitIdAfterReset, rlStackHybridXgPortNo2NumAfterResetDeprecated=rlStackHybridXgPortNo2NumAfterResetDeprecated, PortsPair=PortsPair, HybridStackPortSpeed=HybridStackPortSpeed, rlStackHybridPortNo2speedAfterResetDeprecated=rlStackHybridPortNo2speedAfterResetDeprecated)

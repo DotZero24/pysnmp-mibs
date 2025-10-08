@@ -1,111 +1,55 @@
-_I='hmLLDPStatsIfaceID'
-_H='hmLLDPStatsIfaceGroupID'
-_G='hmLLDPIfaceID'
-_F='hmLLDPIfaceGroupID'
-_E='read-write'
-_D='HMLLDP-MIB'
-_C='read-only'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hmConfiguration,=mibBuilder.importSymbols('HMPRIV-MGMT-SNMP-MIB','hmConfiguration')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hmLLDP=ModuleIdentity((1,3,6,1,4,1,248,14,7))
-if mibBuilder.loadTexts:hmLLDP.setRevisions(('2004-11-22 00:00',))
-_HmLLDPConfig_ObjectIdentity=ObjectIdentity
-hmLLDPConfig=_HmLLDPConfig_ObjectIdentity((1,3,6,1,4,1,248,14,7,1))
-class _HmLLDPAdminStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_HmLLDPAdminStatus_Type.__name__=_B
-_HmLLDPAdminStatus_Object=MibScalar
-hmLLDPAdminStatus=_HmLLDPAdminStatus_Object((1,3,6,1,4,1,248,14,7,1,1),_HmLLDPAdminStatus_Type())
-hmLLDPAdminStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:hmLLDPAdminStatus.setStatus(_A)
-_HmLLDPInterfaceTable_Object=MibTable
-hmLLDPInterfaceTable=_HmLLDPInterfaceTable_Object((1,3,6,1,4,1,248,14,7,1,2))
-if mibBuilder.loadTexts:hmLLDPInterfaceTable.setStatus(_A)
-_HmLLDPIfEntry_Object=MibTableRow
-hmLLDPIfEntry=_HmLLDPIfEntry_Object((1,3,6,1,4,1,248,14,7,1,2,1))
-hmLLDPIfEntry.setIndexNames((0,_D,_F),(0,_D,_G))
-if mibBuilder.loadTexts:hmLLDPIfEntry.setStatus(_A)
-class _HmLLDPIfaceGroupID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,5))
-_HmLLDPIfaceGroupID_Type.__name__=_B
-_HmLLDPIfaceGroupID_Object=MibTableColumn
-hmLLDPIfaceGroupID=_HmLLDPIfaceGroupID_Object((1,3,6,1,4,1,248,14,7,1,2,1,1),_HmLLDPIfaceGroupID_Type())
-hmLLDPIfaceGroupID.setMaxAccess(_C)
-if mibBuilder.loadTexts:hmLLDPIfaceGroupID.setStatus(_A)
-class _HmLLDPIfaceID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,128))
-_HmLLDPIfaceID_Type.__name__=_B
-_HmLLDPIfaceID_Object=MibTableColumn
-hmLLDPIfaceID=_HmLLDPIfaceID_Object((1,3,6,1,4,1,248,14,7,1,2,1,2),_HmLLDPIfaceID_Type())
-hmLLDPIfaceID.setMaxAccess(_C)
-if mibBuilder.loadTexts:hmLLDPIfaceID.setStatus(_A)
-class _HmLLDPIfaceHirmaMode_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('txOnly',1),('rxOnly',2),('txAndRx',3),('disabled',4)))
-_HmLLDPIfaceHirmaMode_Type.__name__=_B
-_HmLLDPIfaceHirmaMode_Object=MibTableColumn
-hmLLDPIfaceHirmaMode=_HmLLDPIfaceHirmaMode_Object((1,3,6,1,4,1,248,14,7,1,2,1,3),_HmLLDPIfaceHirmaMode_Type())
-hmLLDPIfaceHirmaMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:hmLLDPIfaceHirmaMode.setStatus(_A)
-class _HmLLDPIfaceFDBMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('lldpOnly',1),('macOnly',2),('both',3),('autoDetect',4)))
-_HmLLDPIfaceFDBMode_Type.__name__=_B
-_HmLLDPIfaceFDBMode_Object=MibTableColumn
-hmLLDPIfaceFDBMode=_HmLLDPIfaceFDBMode_Object((1,3,6,1,4,1,248,14,7,1,2,1,4),_HmLLDPIfaceFDBMode_Type())
-hmLLDPIfaceFDBMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:hmLLDPIfaceFDBMode.setStatus(_A)
-class _HmLLDPIfaceMaxNeighbors_Type(Integer32):defaultValue=10;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,50))
-_HmLLDPIfaceMaxNeighbors_Type.__name__=_B
-_HmLLDPIfaceMaxNeighbors_Object=MibTableColumn
-hmLLDPIfaceMaxNeighbors=_HmLLDPIfaceMaxNeighbors_Object((1,3,6,1,4,1,248,14,7,1,2,1,5),_HmLLDPIfaceMaxNeighbors_Type())
-hmLLDPIfaceMaxNeighbors.setMaxAccess(_E)
-if mibBuilder.loadTexts:hmLLDPIfaceMaxNeighbors.setStatus(_A)
-_HmLLDPStatistics_ObjectIdentity=ObjectIdentity
-hmLLDPStatistics=_HmLLDPStatistics_ObjectIdentity((1,3,6,1,4,1,248,14,7,2))
-_HmLLDPStatsIfTable_Object=MibTable
-hmLLDPStatsIfTable=_HmLLDPStatsIfTable_Object((1,3,6,1,4,1,248,14,7,2,1))
-if mibBuilder.loadTexts:hmLLDPStatsIfTable.setStatus(_A)
-_HmLLDPStatsIfEntry_Object=MibTableRow
-hmLLDPStatsIfEntry=_HmLLDPStatsIfEntry_Object((1,3,6,1,4,1,248,14,7,2,1,1))
-hmLLDPStatsIfEntry.setIndexNames((0,_D,_H),(0,_D,_I))
-if mibBuilder.loadTexts:hmLLDPStatsIfEntry.setStatus(_A)
-class _HmLLDPStatsIfaceGroupID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,5))
-_HmLLDPStatsIfaceGroupID_Type.__name__=_B
-_HmLLDPStatsIfaceGroupID_Object=MibTableColumn
-hmLLDPStatsIfaceGroupID=_HmLLDPStatsIfaceGroupID_Object((1,3,6,1,4,1,248,14,7,2,1,1,1),_HmLLDPStatsIfaceGroupID_Type())
-hmLLDPStatsIfaceGroupID.setMaxAccess(_C)
-if mibBuilder.loadTexts:hmLLDPStatsIfaceGroupID.setStatus(_A)
-class _HmLLDPStatsIfaceID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_HmLLDPStatsIfaceID_Type.__name__=_B
-_HmLLDPStatsIfaceID_Object=MibTableColumn
-hmLLDPStatsIfaceID=_HmLLDPStatsIfaceID_Object((1,3,6,1,4,1,248,14,7,2,1,1,2),_HmLLDPStatsIfaceID_Type())
-hmLLDPStatsIfaceID.setMaxAccess(_C)
-if mibBuilder.loadTexts:hmLLDPStatsIfaceID.setStatus(_A)
-_HmLLDPStatsIfaceTotalFDBEntryCount_Type=Counter32
-_HmLLDPStatsIfaceTotalFDBEntryCount_Object=MibTableColumn
-hmLLDPStatsIfaceTotalFDBEntryCount=_HmLLDPStatsIfaceTotalFDBEntryCount_Object((1,3,6,1,4,1,248,14,7,2,1,1,3),_HmLLDPStatsIfaceTotalFDBEntryCount_Type())
-hmLLDPStatsIfaceTotalFDBEntryCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:hmLLDPStatsIfaceTotalFDBEntryCount.setStatus(_A)
-_HmLLDPStatsIfaceTotalEntryCount_Type=Counter32
-_HmLLDPStatsIfaceTotalEntryCount_Object=MibTableColumn
-hmLLDPStatsIfaceTotalEntryCount=_HmLLDPStatsIfaceTotalEntryCount_Object((1,3,6,1,4,1,248,14,7,2,1,1,4),_HmLLDPStatsIfaceTotalEntryCount_Type())
-hmLLDPStatsIfaceTotalEntryCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:hmLLDPStatsIfaceTotalEntryCount.setStatus(_A)
-_HmLLDPStatsIfaceIEEEEntryCount_Type=Counter32
-_HmLLDPStatsIfaceIEEEEntryCount_Object=MibTableColumn
-hmLLDPStatsIfaceIEEEEntryCount=_HmLLDPStatsIfaceIEEEEntryCount_Object((1,3,6,1,4,1,248,14,7,2,1,1,5),_HmLLDPStatsIfaceIEEEEntryCount_Type())
-hmLLDPStatsIfaceIEEEEntryCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:hmLLDPStatsIfaceIEEEEntryCount.setStatus(_A)
-_HmLLDPStatsIfaceHirmaEntryCount_Type=Counter32
-_HmLLDPStatsIfaceHirmaEntryCount_Object=MibTableColumn
-hmLLDPStatsIfaceHirmaEntryCount=_HmLLDPStatsIfaceHirmaEntryCount_Object((1,3,6,1,4,1,248,14,7,2,1,1,6),_HmLLDPStatsIfaceHirmaEntryCount_Type())
-hmLLDPStatsIfaceHirmaEntryCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:hmLLDPStatsIfaceHirmaEntryCount.setStatus(_A)
-_HmLLDPStatsIfaceFDBEntryCount_Type=Counter32
-_HmLLDPStatsIfaceFDBEntryCount_Object=MibTableColumn
-hmLLDPStatsIfaceFDBEntryCount=_HmLLDPStatsIfaceFDBEntryCount_Object((1,3,6,1,4,1,248,14,7,2,1,1,7),_HmLLDPStatsIfaceFDBEntryCount_Type())
-hmLLDPStatsIfaceFDBEntryCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:hmLLDPStatsIfaceFDBEntryCount.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'hmLLDP':hmLLDP,'hmLLDPConfig':hmLLDPConfig,'hmLLDPAdminStatus':hmLLDPAdminStatus,'hmLLDPInterfaceTable':hmLLDPInterfaceTable,'hmLLDPIfEntry':hmLLDPIfEntry,_F:hmLLDPIfaceGroupID,_G:hmLLDPIfaceID,'hmLLDPIfaceHirmaMode':hmLLDPIfaceHirmaMode,'hmLLDPIfaceFDBMode':hmLLDPIfaceFDBMode,'hmLLDPIfaceMaxNeighbors':hmLLDPIfaceMaxNeighbors,'hmLLDPStatistics':hmLLDPStatistics,'hmLLDPStatsIfTable':hmLLDPStatsIfTable,'hmLLDPStatsIfEntry':hmLLDPStatsIfEntry,_H:hmLLDPStatsIfaceGroupID,_I:hmLLDPStatsIfaceID,'hmLLDPStatsIfaceTotalFDBEntryCount':hmLLDPStatsIfaceTotalFDBEntryCount,'hmLLDPStatsIfaceTotalEntryCount':hmLLDPStatsIfaceTotalEntryCount,'hmLLDPStatsIfaceIEEEEntryCount':hmLLDPStatsIfaceIEEEEntryCount,'hmLLDPStatsIfaceHirmaEntryCount':hmLLDPStatsIfaceHirmaEntryCount,'hmLLDPStatsIfaceFDBEntryCount':hmLLDPStatsIfaceFDBEntryCount})
+#
+# PySNMP MIB module HMLLDP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/HMLLDP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hmConfiguration, = mibBuilder.importSymbols("HMPRIV-MGMT-SNMP-MIB", "hmConfiguration")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hmLLDP = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 14, 7))
+hmLLDP.setRevisions(('2004-11-22 00:00',))
+if mibBuilder.loadTexts: hmLLDP.setLastUpdated('200411220000Z')
+if mibBuilder.loadTexts: hmLLDP.setOrganization('Hirschmann Automation and Control GmbH')
+hmLLDPConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 14, 7, 1))
+hmLLDPStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 14, 7, 2))
+hmLLDPAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 14, 7, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hmLLDPAdminStatus.setStatus('current')
+hmLLDPInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 248, 14, 7, 1, 2), )
+if mibBuilder.loadTexts: hmLLDPInterfaceTable.setStatus('current')
+hmLLDPIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 14, 7, 1, 2, 1), ).setIndexNames((0, "HMLLDP-MIB", "hmLLDPIfaceGroupID"), (0, "HMLLDP-MIB", "hmLLDPIfaceID"))
+if mibBuilder.loadTexts: hmLLDPIfEntry.setStatus('current')
+hmLLDPIfaceGroupID = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 7, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmLLDPIfaceGroupID.setStatus('current')
+hmLLDPIfaceID = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 7, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmLLDPIfaceID.setStatus('current')
+hmLLDPIfaceHirmaMode = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 7, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("txOnly", 1), ("rxOnly", 2), ("txAndRx", 3), ("disabled", 4))).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hmLLDPIfaceHirmaMode.setStatus('current')
+hmLLDPIfaceFDBMode = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 7, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("lldpOnly", 1), ("macOnly", 2), ("both", 3), ("autoDetect", 4))).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hmLLDPIfaceFDBMode.setStatus('current')
+hmLLDPIfaceMaxNeighbors = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 7, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 50)).clone(10)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hmLLDPIfaceMaxNeighbors.setStatus('current')
+hmLLDPStatsIfTable = MibTable((1, 3, 6, 1, 4, 1, 248, 14, 7, 2, 1), )
+if mibBuilder.loadTexts: hmLLDPStatsIfTable.setStatus('current')
+hmLLDPStatsIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 14, 7, 2, 1, 1), ).setIndexNames((0, "HMLLDP-MIB", "hmLLDPStatsIfaceGroupID"), (0, "HMLLDP-MIB", "hmLLDPStatsIfaceID"))
+if mibBuilder.loadTexts: hmLLDPStatsIfEntry.setStatus('current')
+hmLLDPStatsIfaceGroupID = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 7, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmLLDPStatsIfaceGroupID.setStatus('current')
+hmLLDPStatsIfaceID = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 7, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmLLDPStatsIfaceID.setStatus('current')
+hmLLDPStatsIfaceTotalFDBEntryCount = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 7, 2, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmLLDPStatsIfaceTotalFDBEntryCount.setStatus('current')
+hmLLDPStatsIfaceTotalEntryCount = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 7, 2, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmLLDPStatsIfaceTotalEntryCount.setStatus('current')
+hmLLDPStatsIfaceIEEEEntryCount = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 7, 2, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmLLDPStatsIfaceIEEEEntryCount.setStatus('current')
+hmLLDPStatsIfaceHirmaEntryCount = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 7, 2, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmLLDPStatsIfaceHirmaEntryCount.setStatus('current')
+hmLLDPStatsIfaceFDBEntryCount = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 7, 2, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmLLDPStatsIfaceFDBEntryCount.setStatus('current')
+mibBuilder.exportSymbols("HMLLDP-MIB", hmLLDPStatsIfaceGroupID=hmLLDPStatsIfaceGroupID, hmLLDPStatistics=hmLLDPStatistics, hmLLDPStatsIfEntry=hmLLDPStatsIfEntry, hmLLDPIfaceFDBMode=hmLLDPIfaceFDBMode, hmLLDPStatsIfaceIEEEEntryCount=hmLLDPStatsIfaceIEEEEntryCount, hmLLDPIfEntry=hmLLDPIfEntry, hmLLDPStatsIfaceID=hmLLDPStatsIfaceID, PYSNMP_MODULE_ID=hmLLDP, hmLLDPStatsIfaceHirmaEntryCount=hmLLDPStatsIfaceHirmaEntryCount, hmLLDPIfaceMaxNeighbors=hmLLDPIfaceMaxNeighbors, hmLLDPStatsIfaceTotalFDBEntryCount=hmLLDPStatsIfaceTotalFDBEntryCount, hmLLDPStatsIfTable=hmLLDPStatsIfTable, hmLLDPIfaceHirmaMode=hmLLDPIfaceHirmaMode, hmLLDPIfaceID=hmLLDPIfaceID, hmLLDPIfaceGroupID=hmLLDPIfaceGroupID, hmLLDPStatsIfaceTotalEntryCount=hmLLDPStatsIfaceTotalEntryCount, hmLLDPInterfaceTable=hmLLDPInterfaceTable, hmLLDP=hmLLDP, hmLLDPStatsIfaceFDBEntryCount=hmLLDPStatsIfaceFDBEntryCount, hmLLDPConfig=hmLLDPConfig, hmLLDPAdminStatus=hmLLDPAdminStatus)

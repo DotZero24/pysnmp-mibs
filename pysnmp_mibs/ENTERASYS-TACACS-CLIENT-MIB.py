@@ -1,190 +1,87 @@
-_g='etsysTacacsClientSesnAuthGroup'
-_f='etsysTacacsClientCmdAcctGroup'
-_e='etsysTacacsClientCmdAuthGroup'
-_d='etsysTacacsClientSessionGroup'
-_c='etsysTacacsClientSesnAuthValue'
-_b='etsysTacacsClientSesnAuthAttribute'
-_a='etsysTacacsClientSesnAuthService'
-_Z='etsysTacacsClientCmdAcctEnabled'
-_Y='etsysTacacsClientCmdAuthEnabled'
-_X='etsysTacacsClientServerStatus'
-_W='etsysTacacsClientServerSecretEntered'
-_V='etsysTacacsClientServerSecret'
-_U='etsysTacacsClientServerTimeout'
-_T='etsysTacacsClientServerPortNumber'
-_S='etsysTacacsClientServerAddress'
-_R='etsysTacacsClientServerAddressType'
-_Q='etsysTacacsClientSingleConnection'
-_P='etsysTacacsClientSesnAcctEnabled'
-_O='etsysTacacsClientSesnAuthEnabled'
-_N='etsysTacacsClientServerIndex'
-_M='not-accessible'
-_L='etsysTacacsClientSesnAuthLevel'
-_K='InetPortNumber'
-_J='InetAddressType'
-_I='InetAddress'
-_H='OctetString'
-_G='SnmpAdminString'
-_F='Integer32'
-_E='read-create'
-_D='EnabledStatus'
-_C='read-write'
-_B='ENTERASYS-TACACS-CLIENT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_H,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-etsysModules,=mibBuilder.importSymbols('ENTERASYS-MIB-NAMES','etsysModules')
-InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB',_I,_J,_K)
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB',_D)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_G)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-etsysTacacsClientMIB=ModuleIdentity((1,3,6,1,4,1,5624,1,2,58))
-if mibBuilder.loadTexts:etsysTacacsClientMIB.setRevisions(('2010-02-01 17:02','2005-02-10 17:57'))
-_EtsysTacacsClientObjects_ObjectIdentity=ObjectIdentity
-etsysTacacsClientObjects=_EtsysTacacsClientObjects_ObjectIdentity((1,3,6,1,4,1,5624,1,2,58,1))
-_EtsysTacacsClientControl_ObjectIdentity=ObjectIdentity
-etsysTacacsClientControl=_EtsysTacacsClientControl_ObjectIdentity((1,3,6,1,4,1,5624,1,2,58,1,1))
-class _EtsysTacacsClientSesnAuthEnabled_Type(EnabledStatus):defaultValue=2
-_EtsysTacacsClientSesnAuthEnabled_Type.__name__=_D
-_EtsysTacacsClientSesnAuthEnabled_Object=MibScalar
-etsysTacacsClientSesnAuthEnabled=_EtsysTacacsClientSesnAuthEnabled_Object((1,3,6,1,4,1,5624,1,2,58,1,1,1),_EtsysTacacsClientSesnAuthEnabled_Type())
-etsysTacacsClientSesnAuthEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysTacacsClientSesnAuthEnabled.setStatus(_A)
-class _EtsysTacacsClientSesnAcctEnabled_Type(EnabledStatus):defaultValue=2
-_EtsysTacacsClientSesnAcctEnabled_Type.__name__=_D
-_EtsysTacacsClientSesnAcctEnabled_Object=MibScalar
-etsysTacacsClientSesnAcctEnabled=_EtsysTacacsClientSesnAcctEnabled_Object((1,3,6,1,4,1,5624,1,2,58,1,1,2),_EtsysTacacsClientSesnAcctEnabled_Type())
-etsysTacacsClientSesnAcctEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysTacacsClientSesnAcctEnabled.setStatus(_A)
-class _EtsysTacacsClientCmdAuthEnabled_Type(EnabledStatus):defaultValue=2
-_EtsysTacacsClientCmdAuthEnabled_Type.__name__=_D
-_EtsysTacacsClientCmdAuthEnabled_Object=MibScalar
-etsysTacacsClientCmdAuthEnabled=_EtsysTacacsClientCmdAuthEnabled_Object((1,3,6,1,4,1,5624,1,2,58,1,1,3),_EtsysTacacsClientCmdAuthEnabled_Type())
-etsysTacacsClientCmdAuthEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysTacacsClientCmdAuthEnabled.setStatus(_A)
-class _EtsysTacacsClientCmdAcctEnabled_Type(EnabledStatus):defaultValue=2
-_EtsysTacacsClientCmdAcctEnabled_Type.__name__=_D
-_EtsysTacacsClientCmdAcctEnabled_Object=MibScalar
-etsysTacacsClientCmdAcctEnabled=_EtsysTacacsClientCmdAcctEnabled_Object((1,3,6,1,4,1,5624,1,2,58,1,1,4),_EtsysTacacsClientCmdAcctEnabled_Type())
-etsysTacacsClientCmdAcctEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysTacacsClientCmdAcctEnabled.setStatus(_A)
-class _EtsysTacacsClientSingleConnection_Type(EnabledStatus):defaultValue=2
-_EtsysTacacsClientSingleConnection_Type.__name__=_D
-_EtsysTacacsClientSingleConnection_Object=MibScalar
-etsysTacacsClientSingleConnection=_EtsysTacacsClientSingleConnection_Object((1,3,6,1,4,1,5624,1,2,58,1,1,5),_EtsysTacacsClientSingleConnection_Type())
-etsysTacacsClientSingleConnection.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysTacacsClientSingleConnection.setStatus(_A)
-_EtsysTacacsClientSesnAuth_ObjectIdentity=ObjectIdentity
-etsysTacacsClientSesnAuth=_EtsysTacacsClientSesnAuth_ObjectIdentity((1,3,6,1,4,1,5624,1,2,58,1,2))
-class _EtsysTacacsClientSesnAuthService_Type(SnmpAdminString):defaultValue=OctetString('enable')
-_EtsysTacacsClientSesnAuthService_Type.__name__=_G
-_EtsysTacacsClientSesnAuthService_Object=MibScalar
-etsysTacacsClientSesnAuthService=_EtsysTacacsClientSesnAuthService_Object((1,3,6,1,4,1,5624,1,2,58,1,2,1),_EtsysTacacsClientSesnAuthService_Type())
-etsysTacacsClientSesnAuthService.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysTacacsClientSesnAuthService.setStatus(_A)
-_EtsysTacacsClientSesnAuthTable_Object=MibTable
-etsysTacacsClientSesnAuthTable=_EtsysTacacsClientSesnAuthTable_Object((1,3,6,1,4,1,5624,1,2,58,1,2,2))
-if mibBuilder.loadTexts:etsysTacacsClientSesnAuthTable.setStatus(_A)
-_EtsysTacacsClientSesnAuthEntry_Object=MibTableRow
-etsysTacacsClientSesnAuthEntry=_EtsysTacacsClientSesnAuthEntry_Object((1,3,6,1,4,1,5624,1,2,58,1,2,2,1))
-etsysTacacsClientSesnAuthEntry.setIndexNames((0,_B,_L))
-if mibBuilder.loadTexts:etsysTacacsClientSesnAuthEntry.setStatus(_A)
-class _EtsysTacacsClientSesnAuthLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('readonly',1),('readwrite',2),('superuser',3),('debug',4)))
-_EtsysTacacsClientSesnAuthLevel_Type.__name__=_F
-_EtsysTacacsClientSesnAuthLevel_Object=MibTableColumn
-etsysTacacsClientSesnAuthLevel=_EtsysTacacsClientSesnAuthLevel_Object((1,3,6,1,4,1,5624,1,2,58,1,2,2,1,1),_EtsysTacacsClientSesnAuthLevel_Type())
-etsysTacacsClientSesnAuthLevel.setMaxAccess(_M)
-if mibBuilder.loadTexts:etsysTacacsClientSesnAuthLevel.setStatus(_A)
-class _EtsysTacacsClientSesnAuthAttribute_Type(SnmpAdminString):defaultValue=OctetString('priv-lvl')
-_EtsysTacacsClientSesnAuthAttribute_Type.__name__=_G
-_EtsysTacacsClientSesnAuthAttribute_Object=MibTableColumn
-etsysTacacsClientSesnAuthAttribute=_EtsysTacacsClientSesnAuthAttribute_Object((1,3,6,1,4,1,5624,1,2,58,1,2,2,1,2),_EtsysTacacsClientSesnAuthAttribute_Type())
-etsysTacacsClientSesnAuthAttribute.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysTacacsClientSesnAuthAttribute.setStatus(_A)
-_EtsysTacacsClientSesnAuthValue_Type=SnmpAdminString
-_EtsysTacacsClientSesnAuthValue_Object=MibTableColumn
-etsysTacacsClientSesnAuthValue=_EtsysTacacsClientSesnAuthValue_Object((1,3,6,1,4,1,5624,1,2,58,1,2,2,1,3),_EtsysTacacsClientSesnAuthValue_Type())
-etsysTacacsClientSesnAuthValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysTacacsClientSesnAuthValue.setStatus(_A)
-_EtsysTacacsClientServer_ObjectIdentity=ObjectIdentity
-etsysTacacsClientServer=_EtsysTacacsClientServer_ObjectIdentity((1,3,6,1,4,1,5624,1,2,58,1,3))
-_EtsysTacacsClientServerTable_Object=MibTable
-etsysTacacsClientServerTable=_EtsysTacacsClientServerTable_Object((1,3,6,1,4,1,5624,1,2,58,1,3,1))
-if mibBuilder.loadTexts:etsysTacacsClientServerTable.setStatus(_A)
-_EtsysTacacsClientServerEntry_Object=MibTableRow
-etsysTacacsClientServerEntry=_EtsysTacacsClientServerEntry_Object((1,3,6,1,4,1,5624,1,2,58,1,3,1,1))
-etsysTacacsClientServerEntry.setIndexNames((0,_B,_N))
-if mibBuilder.loadTexts:etsysTacacsClientServerEntry.setStatus(_A)
-class _EtsysTacacsClientServerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_EtsysTacacsClientServerIndex_Type.__name__=_F
-_EtsysTacacsClientServerIndex_Object=MibTableColumn
-etsysTacacsClientServerIndex=_EtsysTacacsClientServerIndex_Object((1,3,6,1,4,1,5624,1,2,58,1,3,1,1,1),_EtsysTacacsClientServerIndex_Type())
-etsysTacacsClientServerIndex.setMaxAccess(_M)
-if mibBuilder.loadTexts:etsysTacacsClientServerIndex.setStatus(_A)
-class _EtsysTacacsClientServerAddressType_Type(InetAddressType):defaultValue=1
-_EtsysTacacsClientServerAddressType_Type.__name__=_J
-_EtsysTacacsClientServerAddressType_Object=MibTableColumn
-etsysTacacsClientServerAddressType=_EtsysTacacsClientServerAddressType_Object((1,3,6,1,4,1,5624,1,2,58,1,3,1,1,2),_EtsysTacacsClientServerAddressType_Type())
-etsysTacacsClientServerAddressType.setMaxAccess(_E)
-if mibBuilder.loadTexts:etsysTacacsClientServerAddressType.setStatus(_A)
-class _EtsysTacacsClientServerAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_EtsysTacacsClientServerAddress_Type.__name__=_I
-_EtsysTacacsClientServerAddress_Object=MibTableColumn
-etsysTacacsClientServerAddress=_EtsysTacacsClientServerAddress_Object((1,3,6,1,4,1,5624,1,2,58,1,3,1,1,3),_EtsysTacacsClientServerAddress_Type())
-etsysTacacsClientServerAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:etsysTacacsClientServerAddress.setStatus(_A)
-class _EtsysTacacsClientServerPortNumber_Type(InetPortNumber):defaultValue=49
-_EtsysTacacsClientServerPortNumber_Type.__name__=_K
-_EtsysTacacsClientServerPortNumber_Object=MibTableColumn
-etsysTacacsClientServerPortNumber=_EtsysTacacsClientServerPortNumber_Object((1,3,6,1,4,1,5624,1,2,58,1,3,1,1,4),_EtsysTacacsClientServerPortNumber_Type())
-etsysTacacsClientServerPortNumber.setMaxAccess(_E)
-if mibBuilder.loadTexts:etsysTacacsClientServerPortNumber.setStatus(_A)
-class _EtsysTacacsClientServerTimeout_Type(Integer32):defaultValue=10;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,180))
-_EtsysTacacsClientServerTimeout_Type.__name__=_F
-_EtsysTacacsClientServerTimeout_Object=MibTableColumn
-etsysTacacsClientServerTimeout=_EtsysTacacsClientServerTimeout_Object((1,3,6,1,4,1,5624,1,2,58,1,3,1,1,5),_EtsysTacacsClientServerTimeout_Type())
-etsysTacacsClientServerTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysTacacsClientServerTimeout.setStatus(_A)
-if mibBuilder.loadTexts:etsysTacacsClientServerTimeout.setUnits('seconds')
-class _EtsysTacacsClientServerSecret_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_EtsysTacacsClientServerSecret_Type.__name__=_H
-_EtsysTacacsClientServerSecret_Object=MibTableColumn
-etsysTacacsClientServerSecret=_EtsysTacacsClientServerSecret_Object((1,3,6,1,4,1,5624,1,2,58,1,3,1,1,6),_EtsysTacacsClientServerSecret_Type())
-etsysTacacsClientServerSecret.setMaxAccess(_E)
-if mibBuilder.loadTexts:etsysTacacsClientServerSecret.setStatus(_A)
-_EtsysTacacsClientServerSecretEntered_Type=TruthValue
-_EtsysTacacsClientServerSecretEntered_Object=MibTableColumn
-etsysTacacsClientServerSecretEntered=_EtsysTacacsClientServerSecretEntered_Object((1,3,6,1,4,1,5624,1,2,58,1,3,1,1,7),_EtsysTacacsClientServerSecretEntered_Type())
-etsysTacacsClientServerSecretEntered.setMaxAccess('read-only')
-if mibBuilder.loadTexts:etsysTacacsClientServerSecretEntered.setStatus(_A)
-_EtsysTacacsClientServerStatus_Type=RowStatus
-_EtsysTacacsClientServerStatus_Object=MibTableColumn
-etsysTacacsClientServerStatus=_EtsysTacacsClientServerStatus_Object((1,3,6,1,4,1,5624,1,2,58,1,3,1,1,8),_EtsysTacacsClientServerStatus_Type())
-etsysTacacsClientServerStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:etsysTacacsClientServerStatus.setStatus(_A)
-_EtsysTacacsClientConformance_ObjectIdentity=ObjectIdentity
-etsysTacacsClientConformance=_EtsysTacacsClientConformance_ObjectIdentity((1,3,6,1,4,1,5624,1,2,58,2))
-_EtsysTacacsClientCompliances_ObjectIdentity=ObjectIdentity
-etsysTacacsClientCompliances=_EtsysTacacsClientCompliances_ObjectIdentity((1,3,6,1,4,1,5624,1,2,58,2,1))
-_EtsysTacacsClientGroups_ObjectIdentity=ObjectIdentity
-etsysTacacsClientGroups=_EtsysTacacsClientGroups_ObjectIdentity((1,3,6,1,4,1,5624,1,2,58,2,2))
-etsysTacacsClientSessionGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,58,2,2,1))
-etsysTacacsClientSessionGroup.setObjects(*((_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:etsysTacacsClientSessionGroup.setStatus(_A)
-etsysTacacsClientCmdAuthGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,58,2,2,2))
-etsysTacacsClientCmdAuthGroup.setObjects((_B,_Y))
-if mibBuilder.loadTexts:etsysTacacsClientCmdAuthGroup.setStatus(_A)
-etsysTacacsClientCmdAcctGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,58,2,2,3))
-etsysTacacsClientCmdAcctGroup.setObjects((_B,_Z))
-if mibBuilder.loadTexts:etsysTacacsClientCmdAcctGroup.setStatus(_A)
-etsysTacacsClientSesnAuthGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,58,2,2,4))
-etsysTacacsClientSesnAuthGroup.setObjects(*((_B,_a),(_B,_b),(_B,_c)))
-if mibBuilder.loadTexts:etsysTacacsClientSesnAuthGroup.setStatus(_A)
-etsysTacacsClientCompliance=ModuleCompliance((1,3,6,1,4,1,5624,1,2,58,2,1,1))
-etsysTacacsClientCompliance.setObjects(*((_B,_d),(_B,_e),(_B,_f),(_B,_g)))
-if mibBuilder.loadTexts:etsysTacacsClientCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'etsysTacacsClientMIB':etsysTacacsClientMIB,'etsysTacacsClientObjects':etsysTacacsClientObjects,'etsysTacacsClientControl':etsysTacacsClientControl,_O:etsysTacacsClientSesnAuthEnabled,_P:etsysTacacsClientSesnAcctEnabled,_Y:etsysTacacsClientCmdAuthEnabled,_Z:etsysTacacsClientCmdAcctEnabled,_Q:etsysTacacsClientSingleConnection,'etsysTacacsClientSesnAuth':etsysTacacsClientSesnAuth,_a:etsysTacacsClientSesnAuthService,'etsysTacacsClientSesnAuthTable':etsysTacacsClientSesnAuthTable,'etsysTacacsClientSesnAuthEntry':etsysTacacsClientSesnAuthEntry,_L:etsysTacacsClientSesnAuthLevel,_b:etsysTacacsClientSesnAuthAttribute,_c:etsysTacacsClientSesnAuthValue,'etsysTacacsClientServer':etsysTacacsClientServer,'etsysTacacsClientServerTable':etsysTacacsClientServerTable,'etsysTacacsClientServerEntry':etsysTacacsClientServerEntry,_N:etsysTacacsClientServerIndex,_R:etsysTacacsClientServerAddressType,_S:etsysTacacsClientServerAddress,_T:etsysTacacsClientServerPortNumber,_U:etsysTacacsClientServerTimeout,_V:etsysTacacsClientServerSecret,_W:etsysTacacsClientServerSecretEntered,_X:etsysTacacsClientServerStatus,'etsysTacacsClientConformance':etsysTacacsClientConformance,'etsysTacacsClientCompliances':etsysTacacsClientCompliances,'etsysTacacsClientCompliance':etsysTacacsClientCompliance,'etsysTacacsClientGroups':etsysTacacsClientGroups,_d:etsysTacacsClientSessionGroup,_e:etsysTacacsClientCmdAuthGroup,_f:etsysTacacsClientCmdAcctGroup,_g:etsysTacacsClientSesnAuthGroup})
+#
+# PySNMP MIB module ENTERASYS-TACACS-CLIENT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/enterasys/ENTERASYS-TACACS-CLIENT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
+InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+etsysTacacsClientMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58))
+etsysTacacsClientMIB.setRevisions(('2010-02-01 17:02', '2005-02-10 17:57',))
+if mibBuilder.loadTexts: etsysTacacsClientMIB.setLastUpdated('201002011702Z')
+if mibBuilder.loadTexts: etsysTacacsClientMIB.setOrganization('Enterasys Networks, Inc')
+etsysTacacsClientObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1))
+etsysTacacsClientControl = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 1))
+etsysTacacsClientSesnAuth = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 2))
+etsysTacacsClientServer = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 3))
+etsysTacacsClientSesnAuthEnabled = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 1, 1), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysTacacsClientSesnAuthEnabled.setStatus('current')
+etsysTacacsClientSesnAcctEnabled = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 1, 2), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysTacacsClientSesnAcctEnabled.setStatus('current')
+etsysTacacsClientCmdAuthEnabled = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 1, 3), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysTacacsClientCmdAuthEnabled.setStatus('current')
+etsysTacacsClientCmdAcctEnabled = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 1, 4), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysTacacsClientCmdAcctEnabled.setStatus('current')
+etsysTacacsClientSingleConnection = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 1, 5), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysTacacsClientSingleConnection.setStatus('current')
+etsysTacacsClientSesnAuthService = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 2, 1), SnmpAdminString().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysTacacsClientSesnAuthService.setStatus('current')
+etsysTacacsClientSesnAuthTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 2, 2), )
+if mibBuilder.loadTexts: etsysTacacsClientSesnAuthTable.setStatus('current')
+etsysTacacsClientSesnAuthEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 2, 2, 1), ).setIndexNames((0, "ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientSesnAuthLevel"))
+if mibBuilder.loadTexts: etsysTacacsClientSesnAuthEntry.setStatus('current')
+etsysTacacsClientSesnAuthLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("readonly", 1), ("readwrite", 2), ("superuser", 3), ("debug", 4))))
+if mibBuilder.loadTexts: etsysTacacsClientSesnAuthLevel.setStatus('current')
+etsysTacacsClientSesnAuthAttribute = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 2, 2, 1, 2), SnmpAdminString().clone('priv-lvl')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysTacacsClientSesnAuthAttribute.setStatus('current')
+etsysTacacsClientSesnAuthValue = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 2, 2, 1, 3), SnmpAdminString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysTacacsClientSesnAuthValue.setStatus('current')
+etsysTacacsClientServerTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 3, 1), )
+if mibBuilder.loadTexts: etsysTacacsClientServerTable.setStatus('current')
+etsysTacacsClientServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 3, 1, 1), ).setIndexNames((0, "ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientServerIndex"))
+if mibBuilder.loadTexts: etsysTacacsClientServerEntry.setStatus('current')
+etsysTacacsClientServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: etsysTacacsClientServerIndex.setStatus('current')
+etsysTacacsClientServerAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 3, 1, 1, 2), InetAddressType().clone('ipv4')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: etsysTacacsClientServerAddressType.setStatus('current')
+etsysTacacsClientServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 3, 1, 1, 3), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: etsysTacacsClientServerAddress.setStatus('current')
+etsysTacacsClientServerPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 3, 1, 1, 4), InetPortNumber().clone(49)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: etsysTacacsClientServerPortNumber.setStatus('current')
+etsysTacacsClientServerTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 180)).clone(10)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysTacacsClientServerTimeout.setStatus('current')
+etsysTacacsClientServerSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 3, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: etsysTacacsClientServerSecret.setStatus('current')
+etsysTacacsClientServerSecretEntered = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 3, 1, 1, 7), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysTacacsClientServerSecretEntered.setStatus('current')
+etsysTacacsClientServerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 1, 3, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: etsysTacacsClientServerStatus.setStatus('current')
+etsysTacacsClientConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 2))
+etsysTacacsClientCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 2, 1))
+etsysTacacsClientGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 2, 2))
+etsysTacacsClientSessionGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 2, 2, 1)).setObjects(("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientSesnAuthEnabled"), ("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientSesnAcctEnabled"), ("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientSingleConnection"), ("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientServerAddressType"), ("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientServerAddress"), ("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientServerPortNumber"), ("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientServerTimeout"), ("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientServerSecret"), ("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientServerSecretEntered"), ("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientServerStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysTacacsClientSessionGroup = etsysTacacsClientSessionGroup.setStatus('current')
+etsysTacacsClientCmdAuthGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 2, 2, 2)).setObjects(("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientCmdAuthEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysTacacsClientCmdAuthGroup = etsysTacacsClientCmdAuthGroup.setStatus('current')
+etsysTacacsClientCmdAcctGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 2, 2, 3)).setObjects(("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientCmdAcctEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysTacacsClientCmdAcctGroup = etsysTacacsClientCmdAcctGroup.setStatus('current')
+etsysTacacsClientSesnAuthGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 2, 2, 4)).setObjects(("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientSesnAuthService"), ("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientSesnAuthAttribute"), ("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientSesnAuthValue"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysTacacsClientSesnAuthGroup = etsysTacacsClientSesnAuthGroup.setStatus('current')
+etsysTacacsClientCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 58, 2, 1, 1)).setObjects(("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientSessionGroup"), ("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientCmdAuthGroup"), ("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientCmdAcctGroup"), ("ENTERASYS-TACACS-CLIENT-MIB", "etsysTacacsClientSesnAuthGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysTacacsClientCompliance = etsysTacacsClientCompliance.setStatus('current')
+mibBuilder.exportSymbols("ENTERASYS-TACACS-CLIENT-MIB", etsysTacacsClientSesnAuthEntry=etsysTacacsClientSesnAuthEntry, etsysTacacsClientServer=etsysTacacsClientServer, etsysTacacsClientServerTimeout=etsysTacacsClientServerTimeout, PYSNMP_MODULE_ID=etsysTacacsClientMIB, etsysTacacsClientConformance=etsysTacacsClientConformance, etsysTacacsClientSingleConnection=etsysTacacsClientSingleConnection, etsysTacacsClientSessionGroup=etsysTacacsClientSessionGroup, etsysTacacsClientServerIndex=etsysTacacsClientServerIndex, etsysTacacsClientSesnAuthTable=etsysTacacsClientSesnAuthTable, etsysTacacsClientCmdAuthEnabled=etsysTacacsClientCmdAuthEnabled, etsysTacacsClientCmdAcctEnabled=etsysTacacsClientCmdAcctEnabled, etsysTacacsClientSesnAuthLevel=etsysTacacsClientSesnAuthLevel, etsysTacacsClientServerEntry=etsysTacacsClientServerEntry, etsysTacacsClientSesnAuthEnabled=etsysTacacsClientSesnAuthEnabled, etsysTacacsClientServerAddressType=etsysTacacsClientServerAddressType, etsysTacacsClientServerSecretEntered=etsysTacacsClientServerSecretEntered, etsysTacacsClientCompliances=etsysTacacsClientCompliances, etsysTacacsClientSesnAuthService=etsysTacacsClientSesnAuthService, etsysTacacsClientSesnAuthValue=etsysTacacsClientSesnAuthValue, etsysTacacsClientCmdAcctGroup=etsysTacacsClientCmdAcctGroup, etsysTacacsClientSesnAuthAttribute=etsysTacacsClientSesnAuthAttribute, etsysTacacsClientServerAddress=etsysTacacsClientServerAddress, etsysTacacsClientGroups=etsysTacacsClientGroups, etsysTacacsClientSesnAuthGroup=etsysTacacsClientSesnAuthGroup, etsysTacacsClientServerPortNumber=etsysTacacsClientServerPortNumber, etsysTacacsClientServerTable=etsysTacacsClientServerTable, etsysTacacsClientSesnAuth=etsysTacacsClientSesnAuth, etsysTacacsClientCompliance=etsysTacacsClientCompliance, etsysTacacsClientControl=etsysTacacsClientControl, etsysTacacsClientServerSecret=etsysTacacsClientServerSecret, etsysTacacsClientSesnAcctEnabled=etsysTacacsClientSesnAcctEnabled, etsysTacacsClientMIB=etsysTacacsClientMIB, etsysTacacsClientCmdAuthGroup=etsysTacacsClientCmdAuthGroup, etsysTacacsClientObjects=etsysTacacsClientObjects, etsysTacacsClientServerStatus=etsysTacacsClientServerStatus)

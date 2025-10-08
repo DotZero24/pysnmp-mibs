@@ -1,103 +1,67 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-qlogic=ModuleIdentity((1,3,6,1,4,1,3873))
-if mibBuilder.loadTexts:qlogic.setRevisions(('2006-10-11 00:00','2006-10-06 00:00','2005-07-08 00:00'))
-_Ancor_ObjectIdentity=ObjectIdentity
-ancor=_Ancor_ObjectIdentity((1,3,6,1,4,1,1663))
-_AncorOidTree_ObjectIdentity=ObjectIdentity
-ancorOidTree=_AncorOidTree_ObjectIdentity((1,3,6,1,4,1,1663,1))
-_Products_ObjectIdentity=ObjectIdentity
-products=_Products_ObjectIdentity((1,3,6,1,4,1,1663,1,1))
-_NetworkComponents_ObjectIdentity=ObjectIdentity
-networkComponents=_NetworkComponents_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1))
-_FibreChannelSwitches_ObjectIdentity=ObjectIdentity
-fibreChannelSwitches=_FibreChannelSwitches_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1))
-_SanboxTwo16Port_ObjectIdentity=ObjectIdentity
-sanboxTwo16Port=_SanboxTwo16Port_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,11))
-_SanboxTwo64Port_ObjectIdentity=ObjectIdentity
-sanboxTwo64Port=_SanboxTwo64Port_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,12))
-_OemConnectrixSCQ_ObjectIdentity=ObjectIdentity
-oemConnectrixSCQ=_OemConnectrixSCQ_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,13))
-_SanboxTwo8Port_ObjectIdentity=ObjectIdentity
-sanboxTwo8Port=_SanboxTwo8Port_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,14))
-_OemIBM2G8PortSwitch_ObjectIdentity=ObjectIdentity
-oemIBM2G8PortSwitch=_OemIBM2G8PortSwitch_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,15))
-_OemIBMSwitchBlade_ObjectIdentity=ObjectIdentity
-oemIBMSwitchBlade=_OemIBMSwitchBlade_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,16))
-_Sanbox5200_ObjectIdentity=ObjectIdentity
-sanbox5200=_Sanbox5200_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,17))
-_OemGenericSwitchBlade_ObjectIdentity=ObjectIdentity
-oemGenericSwitchBlade=_OemGenericSwitchBlade_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,18))
-_Sanbox3000_ObjectIdentity=ObjectIdentity
-sanbox3000=_Sanbox3000_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,19))
-_Sanbox3100_ObjectIdentity=ObjectIdentity
-sanbox3100=_Sanbox3100_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,20))
-_OemIBMSwitchBlade20_ObjectIdentity=ObjectIdentity
-oemIBMSwitchBlade20=_OemIBMSwitchBlade20_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,21))
-_OemGenericSwitchBlade20_ObjectIdentity=ObjectIdentity
-oemGenericSwitchBlade20=_OemGenericSwitchBlade20_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,22))
-_Sanbox5600_ObjectIdentity=ObjectIdentity
-sanbox5600=_Sanbox5600_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,23))
-_Sanbox5602_ObjectIdentity=ObjectIdentity
-sanbox5602=_Sanbox5602_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,24))
-_Sanbox3600_ObjectIdentity=ObjectIdentity
-sanbox3600=_Sanbox3600_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,25))
-_Sanbox3602_ObjectIdentity=ObjectIdentity
-sanbox3602=_Sanbox3602_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,26))
-_Sanbox1400_ObjectIdentity=ObjectIdentity
-sanbox1400=_Sanbox1400_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,27))
-_OemDellBlade_ObjectIdentity=ObjectIdentity
-oemDellBlade=_OemDellBlade_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,29))
-_Sanbox5202_ObjectIdentity=ObjectIdentity
-sanbox5202=_Sanbox5202_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,30))
-_OemHPStorageWorks28qFCSwitch_ObjectIdentity=ObjectIdentity
-oemHPStorageWorks28qFCSwitch=_OemHPStorageWorks28qFCSwitch_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,31))
-_OemEngenioESHIC_ObjectIdentity=ObjectIdentity
-oemEngenioESHIC=_OemEngenioESHIC_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,32))
-_SanBox9000_ObjectIdentity=ObjectIdentity
-sanBox9000=_SanBox9000_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,33))
-_OemIBM4GSwitchBlade20_ObjectIdentity=ObjectIdentity
-oemIBM4GSwitchBlade20=_OemIBM4GSwitchBlade20_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,34))
-_OemGeneric4GSwitchBlade20_ObjectIdentity=ObjectIdentity
-oemGeneric4GSwitchBlade20=_OemGeneric4GSwitchBlade20_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,35))
-_OemHPMcDATAMode4GSwitch_ObjectIdentity=ObjectIdentity
-oemHPMcDATAMode4GSwitch=_OemHPMcDATAMode4GSwitch_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,37))
-_OemMcDATASwitchBlade20_ObjectIdentity=ObjectIdentity
-oemMcDATASwitchBlade20=_OemMcDATASwitchBlade20_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,38))
-_OemMcDATA4GSwitchBlade20_ObjectIdentity=ObjectIdentity
-oemMcDATA4GSwitchBlade20=_OemMcDATA4GSwitchBlade20_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,1,39))
-_FibreChannelSwitchModules_ObjectIdentity=ObjectIdentity
-fibreChannelSwitchModules=_FibreChannelSwitchModules_ObjectIdentity((1,3,6,1,4,1,1663,1,1,1,2))
-_NetworkGateways_ObjectIdentity=ObjectIdentity
-networkGateways=_NetworkGateways_ObjectIdentity((1,3,6,1,4,1,1663,1,1,2))
-_NetworkInterfaces_ObjectIdentity=ObjectIdentity
-networkInterfaces=_NetworkInterfaces_ObjectIdentity((1,3,6,1,4,1,1663,1,1,3))
-_NetworkManagement_ObjectIdentity=ObjectIdentity
-networkManagement=_NetworkManagement_ObjectIdentity((1,3,6,1,4,1,1663,1,1,4))
-_EnterpriseMIB_ObjectIdentity=ObjectIdentity
-enterpriseMIB=_EnterpriseMIB_ObjectIdentity((1,3,6,1,4,1,1663,1,2))
-_QlogicProducts_ObjectIdentity=ObjectIdentity
-qlogicProducts=_QlogicProducts_ObjectIdentity((1,3,6,1,4,1,3873,1))
-if mibBuilder.loadTexts:qlogicProducts.setStatus(_A)
-_QlogicModules_ObjectIdentity=ObjectIdentity
-qlogicModules=_QlogicModules_ObjectIdentity((1,3,6,1,4,1,3873,2))
-if mibBuilder.loadTexts:qlogicModules.setStatus(_A)
-_QlogicMgmt_ObjectIdentity=ObjectIdentity
-qlogicMgmt=_QlogicMgmt_ObjectIdentity((1,3,6,1,4,1,3873,3))
-if mibBuilder.loadTexts:qlogicMgmt.setStatus(_A)
-_QlogicAgentCapability_ObjectIdentity=ObjectIdentity
-qlogicAgentCapability=_QlogicAgentCapability_ObjectIdentity((1,3,6,1,4,1,3873,4))
-if mibBuilder.loadTexts:qlogicAgentCapability.setStatus(_A)
-_QlogicOtherEnterprises_ObjectIdentity=ObjectIdentity
-qlogicOtherEnterprises=_QlogicOtherEnterprises_ObjectIdentity((1,3,6,1,4,1,3873,5))
-if mibBuilder.loadTexts:qlogicOtherEnterprises.setStatus(_A)
-_QlogicExperimental_ObjectIdentity=ObjectIdentity
-qlogicExperimental=_QlogicExperimental_ObjectIdentity((1,3,6,1,4,1,3873,6))
-if mibBuilder.loadTexts:qlogicExperimental.setStatus(_A)
-mibBuilder.exportSymbols('QLOGIC-SMI',**{'ancor':ancor,'ancorOidTree':ancorOidTree,'products':products,'networkComponents':networkComponents,'fibreChannelSwitches':fibreChannelSwitches,'sanboxTwo16Port':sanboxTwo16Port,'sanboxTwo64Port':sanboxTwo64Port,'oemConnectrixSCQ':oemConnectrixSCQ,'sanboxTwo8Port':sanboxTwo8Port,'oemIBM2G8PortSwitch':oemIBM2G8PortSwitch,'oemIBMSwitchBlade':oemIBMSwitchBlade,'sanbox5200':sanbox5200,'oemGenericSwitchBlade':oemGenericSwitchBlade,'sanbox3000':sanbox3000,'sanbox3100':sanbox3100,'oemIBMSwitchBlade20':oemIBMSwitchBlade20,'oemGenericSwitchBlade20':oemGenericSwitchBlade20,'sanbox5600':sanbox5600,'sanbox5602':sanbox5602,'sanbox3600':sanbox3600,'sanbox3602':sanbox3602,'sanbox1400':sanbox1400,'oemDellBlade':oemDellBlade,'sanbox5202':sanbox5202,'oemHPStorageWorks28qFCSwitch':oemHPStorageWorks28qFCSwitch,'oemEngenioESHIC':oemEngenioESHIC,'sanBox9000':sanBox9000,'oemIBM4GSwitchBlade20':oemIBM4GSwitchBlade20,'oemGeneric4GSwitchBlade20':oemGeneric4GSwitchBlade20,'oemHPMcDATAMode4GSwitch':oemHPMcDATAMode4GSwitch,'oemMcDATASwitchBlade20':oemMcDATASwitchBlade20,'oemMcDATA4GSwitchBlade20':oemMcDATA4GSwitchBlade20,'fibreChannelSwitchModules':fibreChannelSwitchModules,'networkGateways':networkGateways,'networkInterfaces':networkInterfaces,'networkManagement':networkManagement,'enterpriseMIB':enterpriseMIB,'qlogic':qlogic,'qlogicProducts':qlogicProducts,'qlogicModules':qlogicModules,'qlogicMgmt':qlogicMgmt,'qlogicAgentCapability':qlogicAgentCapability,'qlogicOtherEnterprises':qlogicOtherEnterprises,'qlogicExperimental':qlogicExperimental})
+#
+# PySNMP MIB module QLOGIC-SMI (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/marvell/QLOGIC-SMI
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+qlogic = ModuleIdentity((1, 3, 6, 1, 4, 1, 3873))
+qlogic.setRevisions(('2006-10-11 00:00', '2006-10-06 00:00', '2005-07-08 00:00',))
+if mibBuilder.loadTexts: qlogic.setLastUpdated('200610110000Z')
+if mibBuilder.loadTexts: qlogic.setOrganization('QLogic Corp.')
+qlogicProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1))
+if mibBuilder.loadTexts: qlogicProducts.setStatus('current')
+qlogicModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 2))
+if mibBuilder.loadTexts: qlogicModules.setStatus('current')
+qlogicMgmt = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 3))
+if mibBuilder.loadTexts: qlogicMgmt.setStatus('current')
+qlogicAgentCapability = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 4))
+if mibBuilder.loadTexts: qlogicAgentCapability.setStatus('current')
+qlogicOtherEnterprises = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 5))
+if mibBuilder.loadTexts: qlogicOtherEnterprises.setStatus('current')
+qlogicExperimental = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 6))
+if mibBuilder.loadTexts: qlogicExperimental.setStatus('current')
+ancor = MibIdentifier((1, 3, 6, 1, 4, 1, 1663))
+ancorOidTree = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1))
+products = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1))
+networkComponents = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1))
+fibreChannelSwitches = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1))
+sanboxTwo16Port = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 11))
+sanboxTwo64Port = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 12))
+oemConnectrixSCQ = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 13))
+sanboxTwo8Port = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 14))
+oemIBM2G8PortSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 15))
+oemIBMSwitchBlade = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 16))
+sanbox5200 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 17))
+oemGenericSwitchBlade = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 18))
+sanbox3000 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 19))
+sanbox3100 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 20))
+oemIBMSwitchBlade20 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 21))
+oemGenericSwitchBlade20 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 22))
+sanbox5600 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 23))
+sanbox5602 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 24))
+sanbox3600 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 25))
+sanbox3602 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 26))
+sanbox1400 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 27))
+oemDellBlade = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 29))
+sanbox5202 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 30))
+oemHPStorageWorks28qFCSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 31))
+oemEngenioESHIC = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 32))
+sanBox9000 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 33))
+oemIBM4GSwitchBlade20 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 34))
+oemGeneric4GSwitchBlade20 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 35))
+oemHPMcDATAMode4GSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 37))
+oemMcDATASwitchBlade20 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 38))
+oemMcDATA4GSwitchBlade20 = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 1, 39))
+fibreChannelSwitchModules = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 1, 2))
+networkGateways = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 2))
+networkInterfaces = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 3))
+networkManagement = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 1, 4))
+enterpriseMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 1663, 1, 2))
+mibBuilder.exportSymbols("QLOGIC-SMI", sanboxTwo64Port=sanboxTwo64Port, oemMcDATA4GSwitchBlade20=oemMcDATA4GSwitchBlade20, qlogicMgmt=qlogicMgmt, oemIBMSwitchBlade=oemIBMSwitchBlade, networkManagement=networkManagement, sanbox1400=sanbox1400, enterpriseMIB=enterpriseMIB, networkComponents=networkComponents, networkInterfaces=networkInterfaces, qlogicExperimental=qlogicExperimental, sanbox3000=sanbox3000, oemIBM2G8PortSwitch=oemIBM2G8PortSwitch, oemHPStorageWorks28qFCSwitch=oemHPStorageWorks28qFCSwitch, fibreChannelSwitchModules=fibreChannelSwitchModules, qlogicProducts=qlogicProducts, oemIBM4GSwitchBlade20=oemIBM4GSwitchBlade20, oemMcDATASwitchBlade20=oemMcDATASwitchBlade20, qlogicOtherEnterprises=qlogicOtherEnterprises, qlogicAgentCapability=qlogicAgentCapability, sanboxTwo16Port=sanboxTwo16Port, oemHPMcDATAMode4GSwitch=oemHPMcDATAMode4GSwitch, qlogicModules=qlogicModules, sanbox5202=sanbox5202, oemEngenioESHIC=oemEngenioESHIC, oemDellBlade=oemDellBlade, sanbox5600=sanbox5600, PYSNMP_MODULE_ID=qlogic, oemGenericSwitchBlade20=oemGenericSwitchBlade20, qlogic=qlogic, networkGateways=networkGateways, sanbox5602=sanbox5602, ancorOidTree=ancorOidTree, sanboxTwo8Port=sanboxTwo8Port, oemGenericSwitchBlade=oemGenericSwitchBlade, oemIBMSwitchBlade20=oemIBMSwitchBlade20, sanbox3602=sanbox3602, oemGeneric4GSwitchBlade20=oemGeneric4GSwitchBlade20, sanBox9000=sanBox9000, oemConnectrixSCQ=oemConnectrixSCQ, products=products, sanbox3600=sanbox3600, ancor=ancor, sanbox5200=sanbox5200, sanbox3100=sanbox3100, fibreChannelSwitches=fibreChannelSwitches)

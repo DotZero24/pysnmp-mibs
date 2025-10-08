@@ -1,134 +1,73 @@
-_V='oduiKtPmRealGroup'
-_U='oduiKtPmGroup'
-_T='oduiKtPmRealDefectSeconds'
-_S='oduiKtPmRealBEICount'
-_R='oduiKtPmRealErroredBlocks'
-_Q='oduiKtPmRealCVT'
-_P='oduiKtPmPayloadType'
-_O='oduiKtPmCircuitId'
-_N='oduiKtPmDefectSeconds'
-_M='oduiKtPmBEICount'
-_L='oduiKtPmErroredBlocks'
-_K='oduiKtPmCVT'
-_J='oduiKtPmValidity'
-_I='not-accessible'
-_H='Integer32'
-_G='oduiKtPmTimestamp'
-_F='oduiKtPmSampleDuration'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-only'
-_B='INFINERA-PM-ODUKTI-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-HCPerfIntervalCount,=mibBuilder.importSymbols('HC-PerfHist-TC-MIB','HCPerfIntervalCount')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-perfMon,=mibBuilder.importSymbols('INFINERA-REG-MIB','perfMon')
-InfnSampleDuration,InfnServiceType=mibBuilder.importSymbols('INFINERA-TC-MIB','InfnSampleDuration','InfnServiceType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-oduiKtPmMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,3,31))
-if mibBuilder.loadTexts:oduiKtPmMIB.setRevisions(('2011-10-20 00:00',))
-_OduiKtPmRealTable_Object=MibTable
-oduiKtPmRealTable=_OduiKtPmRealTable_Object((1,3,6,1,4,1,21296,2,2,2,3,31,1))
-if mibBuilder.loadTexts:oduiKtPmRealTable.setStatus(_A)
-_OduiKtPmRealEntry_Object=MibTableRow
-oduiKtPmRealEntry=_OduiKtPmRealEntry_Object((1,3,6,1,4,1,21296,2,2,2,3,31,1,1))
-oduiKtPmRealEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:oduiKtPmRealEntry.setStatus(_A)
-_OduiKtPmRealCVT_Type=HCPerfIntervalCount
-_OduiKtPmRealCVT_Object=MibTableColumn
-oduiKtPmRealCVT=_OduiKtPmRealCVT_Object((1,3,6,1,4,1,21296,2,2,2,3,31,1,1,1),_OduiKtPmRealCVT_Type())
-oduiKtPmRealCVT.setMaxAccess(_C)
-if mibBuilder.loadTexts:oduiKtPmRealCVT.setStatus(_A)
-_OduiKtPmRealErroredBlocks_Type=HCPerfIntervalCount
-_OduiKtPmRealErroredBlocks_Object=MibTableColumn
-oduiKtPmRealErroredBlocks=_OduiKtPmRealErroredBlocks_Object((1,3,6,1,4,1,21296,2,2,2,3,31,1,1,2),_OduiKtPmRealErroredBlocks_Type())
-oduiKtPmRealErroredBlocks.setMaxAccess(_C)
-if mibBuilder.loadTexts:oduiKtPmRealErroredBlocks.setStatus(_A)
-_OduiKtPmRealBEICount_Type=HCPerfIntervalCount
-_OduiKtPmRealBEICount_Object=MibTableColumn
-oduiKtPmRealBEICount=_OduiKtPmRealBEICount_Object((1,3,6,1,4,1,21296,2,2,2,3,31,1,1,3),_OduiKtPmRealBEICount_Type())
-oduiKtPmRealBEICount.setMaxAccess(_C)
-if mibBuilder.loadTexts:oduiKtPmRealBEICount.setStatus(_A)
-_OduiKtPmRealDefectSeconds_Type=Integer32
-_OduiKtPmRealDefectSeconds_Object=MibTableColumn
-oduiKtPmRealDefectSeconds=_OduiKtPmRealDefectSeconds_Object((1,3,6,1,4,1,21296,2,2,2,3,31,1,1,4),_OduiKtPmRealDefectSeconds_Type())
-oduiKtPmRealDefectSeconds.setMaxAccess(_C)
-if mibBuilder.loadTexts:oduiKtPmRealDefectSeconds.setStatus(_A)
-_OduiKtPmTable_Object=MibTable
-oduiKtPmTable=_OduiKtPmTable_Object((1,3,6,1,4,1,21296,2,2,2,3,31,2))
-if mibBuilder.loadTexts:oduiKtPmTable.setStatus(_A)
-_OduiKtPmEntry_Object=MibTableRow
-oduiKtPmEntry=_OduiKtPmEntry_Object((1,3,6,1,4,1,21296,2,2,2,3,31,2,1))
-oduiKtPmEntry.setIndexNames((0,_D,_E),(0,_B,_F),(0,_B,_G))
-if mibBuilder.loadTexts:oduiKtPmEntry.setStatus(_A)
-class _OduiKtPmTimestamp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_OduiKtPmTimestamp_Type.__name__=_H
-_OduiKtPmTimestamp_Object=MibTableColumn
-oduiKtPmTimestamp=_OduiKtPmTimestamp_Object((1,3,6,1,4,1,21296,2,2,2,3,31,2,1,1),_OduiKtPmTimestamp_Type())
-oduiKtPmTimestamp.setMaxAccess(_I)
-if mibBuilder.loadTexts:oduiKtPmTimestamp.setStatus(_A)
-_OduiKtPmSampleDuration_Type=InfnSampleDuration
-_OduiKtPmSampleDuration_Object=MibTableColumn
-oduiKtPmSampleDuration=_OduiKtPmSampleDuration_Object((1,3,6,1,4,1,21296,2,2,2,3,31,2,1,2),_OduiKtPmSampleDuration_Type())
-oduiKtPmSampleDuration.setMaxAccess(_I)
-if mibBuilder.loadTexts:oduiKtPmSampleDuration.setStatus(_A)
-_OduiKtPmValidity_Type=TruthValue
-_OduiKtPmValidity_Object=MibTableColumn
-oduiKtPmValidity=_OduiKtPmValidity_Object((1,3,6,1,4,1,21296,2,2,2,3,31,2,1,3),_OduiKtPmValidity_Type())
-oduiKtPmValidity.setMaxAccess(_C)
-if mibBuilder.loadTexts:oduiKtPmValidity.setStatus(_A)
-_OduiKtPmCVT_Type=HCPerfIntervalCount
-_OduiKtPmCVT_Object=MibTableColumn
-oduiKtPmCVT=_OduiKtPmCVT_Object((1,3,6,1,4,1,21296,2,2,2,3,31,2,1,4),_OduiKtPmCVT_Type())
-oduiKtPmCVT.setMaxAccess(_C)
-if mibBuilder.loadTexts:oduiKtPmCVT.setStatus(_A)
-_OduiKtPmErroredBlocks_Type=HCPerfIntervalCount
-_OduiKtPmErroredBlocks_Object=MibTableColumn
-oduiKtPmErroredBlocks=_OduiKtPmErroredBlocks_Object((1,3,6,1,4,1,21296,2,2,2,3,31,2,1,5),_OduiKtPmErroredBlocks_Type())
-oduiKtPmErroredBlocks.setMaxAccess(_C)
-if mibBuilder.loadTexts:oduiKtPmErroredBlocks.setStatus(_A)
-_OduiKtPmBEICount_Type=HCPerfIntervalCount
-_OduiKtPmBEICount_Object=MibTableColumn
-oduiKtPmBEICount=_OduiKtPmBEICount_Object((1,3,6,1,4,1,21296,2,2,2,3,31,2,1,6),_OduiKtPmBEICount_Type())
-oduiKtPmBEICount.setMaxAccess(_C)
-if mibBuilder.loadTexts:oduiKtPmBEICount.setStatus(_A)
-_OduiKtPmDefectSeconds_Type=Integer32
-_OduiKtPmDefectSeconds_Object=MibTableColumn
-oduiKtPmDefectSeconds=_OduiKtPmDefectSeconds_Object((1,3,6,1,4,1,21296,2,2,2,3,31,2,1,7),_OduiKtPmDefectSeconds_Type())
-oduiKtPmDefectSeconds.setMaxAccess(_C)
-if mibBuilder.loadTexts:oduiKtPmDefectSeconds.setStatus(_A)
-_OduiKtPmCircuitId_Type=DisplayString
-_OduiKtPmCircuitId_Object=MibTableColumn
-oduiKtPmCircuitId=_OduiKtPmCircuitId_Object((1,3,6,1,4,1,21296,2,2,2,3,31,2,1,8),_OduiKtPmCircuitId_Type())
-oduiKtPmCircuitId.setMaxAccess(_C)
-if mibBuilder.loadTexts:oduiKtPmCircuitId.setStatus(_A)
-_OduiKtPmPayloadType_Type=InfnServiceType
-_OduiKtPmPayloadType_Object=MibTableColumn
-oduiKtPmPayloadType=_OduiKtPmPayloadType_Object((1,3,6,1,4,1,21296,2,2,2,3,31,2,1,9),_OduiKtPmPayloadType_Type())
-oduiKtPmPayloadType.setMaxAccess(_C)
-if mibBuilder.loadTexts:oduiKtPmPayloadType.setStatus(_A)
-_OduiKtPmConformance_ObjectIdentity=ObjectIdentity
-oduiKtPmConformance=_OduiKtPmConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,3,31,3))
-_OduiKtPmCompliances_ObjectIdentity=ObjectIdentity
-oduiKtPmCompliances=_OduiKtPmCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,3,31,3,1))
-_OduiKtPmGroups_ObjectIdentity=ObjectIdentity
-oduiKtPmGroups=_OduiKtPmGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,3,31,3,2))
-oduiKtPmGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,3,31,3,2,1))
-oduiKtPmGroup.setObjects(*((_B,_G),(_B,_F),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:oduiKtPmGroup.setStatus(_A)
-oduiKtPmRealGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,3,31,3,2,2))
-oduiKtPmRealGroup.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_T)))
-if mibBuilder.loadTexts:oduiKtPmRealGroup.setStatus(_A)
-oduiKtPmCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,3,31,3,1,1))
-oduiKtPmCompliance.setObjects((_B,_U))
-if mibBuilder.loadTexts:oduiKtPmCompliance.setStatus(_A)
-oduiKtPmRealCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,3,31,3,1,2))
-oduiKtPmRealCompliance.setObjects((_B,_V))
-if mibBuilder.loadTexts:oduiKtPmRealCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'oduiKtPmMIB':oduiKtPmMIB,'oduiKtPmRealTable':oduiKtPmRealTable,'oduiKtPmRealEntry':oduiKtPmRealEntry,_Q:oduiKtPmRealCVT,_R:oduiKtPmRealErroredBlocks,_S:oduiKtPmRealBEICount,_T:oduiKtPmRealDefectSeconds,'oduiKtPmTable':oduiKtPmTable,'oduiKtPmEntry':oduiKtPmEntry,_G:oduiKtPmTimestamp,_F:oduiKtPmSampleDuration,_J:oduiKtPmValidity,_K:oduiKtPmCVT,_L:oduiKtPmErroredBlocks,_M:oduiKtPmBEICount,_N:oduiKtPmDefectSeconds,_O:oduiKtPmCircuitId,_P:oduiKtPmPayloadType,'oduiKtPmConformance':oduiKtPmConformance,'oduiKtPmCompliances':oduiKtPmCompliances,'oduiKtPmCompliance':oduiKtPmCompliance,'oduiKtPmRealCompliance':oduiKtPmRealCompliance,'oduiKtPmGroups':oduiKtPmGroups,_U:oduiKtPmGroup,_V:oduiKtPmRealGroup})
+#
+# PySNMP MIB module INFINERA-PM-ODUKTI-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-PM-ODUKTI-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:09 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+HCPerfIntervalCount, = mibBuilder.importSymbols("HC-PerfHist-TC-MIB", "HCPerfIntervalCount")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+perfMon, = mibBuilder.importSymbols("INFINERA-REG-MIB", "perfMon")
+InfnSampleDuration, InfnServiceType = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnSampleDuration", "InfnServiceType")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+oduiKtPmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31))
+oduiKtPmMIB.setRevisions(('2011-10-20 00:00',))
+if mibBuilder.loadTexts: oduiKtPmMIB.setLastUpdated('201110200000Z')
+if mibBuilder.loadTexts: oduiKtPmMIB.setOrganization('Infinera')
+oduiKtPmTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 2), )
+if mibBuilder.loadTexts: oduiKtPmTable.setStatus('current')
+oduiKtPmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "INFINERA-PM-ODUKTI-MIB", "oduiKtPmSampleDuration"), (0, "INFINERA-PM-ODUKTI-MIB", "oduiKtPmTimestamp"))
+if mibBuilder.loadTexts: oduiKtPmEntry.setStatus('current')
+oduiKtPmTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: oduiKtPmTimestamp.setStatus('current')
+oduiKtPmSampleDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 2, 1, 2), InfnSampleDuration())
+if mibBuilder.loadTexts: oduiKtPmSampleDuration.setStatus('current')
+oduiKtPmValidity = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oduiKtPmValidity.setStatus('current')
+oduiKtPmCVT = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 2, 1, 4), HCPerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oduiKtPmCVT.setStatus('current')
+oduiKtPmErroredBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 2, 1, 5), HCPerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oduiKtPmErroredBlocks.setStatus('current')
+oduiKtPmBEICount = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 2, 1, 6), HCPerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oduiKtPmBEICount.setStatus('current')
+oduiKtPmDefectSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 2, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oduiKtPmDefectSeconds.setStatus('current')
+oduiKtPmCircuitId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 2, 1, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oduiKtPmCircuitId.setStatus('current')
+oduiKtPmPayloadType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 2, 1, 9), InfnServiceType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oduiKtPmPayloadType.setStatus('current')
+oduiKtPmRealTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 1), )
+if mibBuilder.loadTexts: oduiKtPmRealTable.setStatus('current')
+oduiKtPmRealEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: oduiKtPmRealEntry.setStatus('current')
+oduiKtPmRealCVT = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 1, 1, 1), HCPerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oduiKtPmRealCVT.setStatus('current')
+oduiKtPmRealErroredBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 1, 1, 2), HCPerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oduiKtPmRealErroredBlocks.setStatus('current')
+oduiKtPmRealBEICount = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 1, 1, 3), HCPerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oduiKtPmRealBEICount.setStatus('current')
+oduiKtPmRealDefectSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oduiKtPmRealDefectSeconds.setStatus('current')
+oduiKtPmConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 3))
+oduiKtPmCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 3, 1))
+oduiKtPmGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 3, 2))
+oduiKtPmCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 3, 1, 1)).setObjects(("INFINERA-PM-ODUKTI-MIB", "oduiKtPmGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oduiKtPmCompliance = oduiKtPmCompliance.setStatus('current')
+oduiKtPmRealCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 3, 1, 2)).setObjects(("INFINERA-PM-ODUKTI-MIB", "oduiKtPmRealGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oduiKtPmRealCompliance = oduiKtPmRealCompliance.setStatus('current')
+oduiKtPmGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 3, 2, 1)).setObjects(("INFINERA-PM-ODUKTI-MIB", "oduiKtPmTimestamp"), ("INFINERA-PM-ODUKTI-MIB", "oduiKtPmSampleDuration"), ("INFINERA-PM-ODUKTI-MIB", "oduiKtPmValidity"), ("INFINERA-PM-ODUKTI-MIB", "oduiKtPmCVT"), ("INFINERA-PM-ODUKTI-MIB", "oduiKtPmErroredBlocks"), ("INFINERA-PM-ODUKTI-MIB", "oduiKtPmBEICount"), ("INFINERA-PM-ODUKTI-MIB", "oduiKtPmDefectSeconds"), ("INFINERA-PM-ODUKTI-MIB", "oduiKtPmCircuitId"), ("INFINERA-PM-ODUKTI-MIB", "oduiKtPmPayloadType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oduiKtPmGroup = oduiKtPmGroup.setStatus('current')
+oduiKtPmRealGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 31, 3, 2, 2)).setObjects(("INFINERA-PM-ODUKTI-MIB", "oduiKtPmRealCVT"), ("INFINERA-PM-ODUKTI-MIB", "oduiKtPmRealErroredBlocks"), ("INFINERA-PM-ODUKTI-MIB", "oduiKtPmRealBEICount"), ("INFINERA-PM-ODUKTI-MIB", "oduiKtPmRealDefectSeconds"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oduiKtPmRealGroup = oduiKtPmRealGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-PM-ODUKTI-MIB", oduiKtPmBEICount=oduiKtPmBEICount, oduiKtPmGroups=oduiKtPmGroups, oduiKtPmEntry=oduiKtPmEntry, oduiKtPmPayloadType=oduiKtPmPayloadType, oduiKtPmTable=oduiKtPmTable, oduiKtPmRealEntry=oduiKtPmRealEntry, oduiKtPmCVT=oduiKtPmCVT, oduiKtPmDefectSeconds=oduiKtPmDefectSeconds, oduiKtPmRealCompliance=oduiKtPmRealCompliance, oduiKtPmGroup=oduiKtPmGroup, oduiKtPmErroredBlocks=oduiKtPmErroredBlocks, oduiKtPmCircuitId=oduiKtPmCircuitId, oduiKtPmRealTable=oduiKtPmRealTable, oduiKtPmSampleDuration=oduiKtPmSampleDuration, oduiKtPmCompliance=oduiKtPmCompliance, oduiKtPmRealGroup=oduiKtPmRealGroup, oduiKtPmRealErroredBlocks=oduiKtPmRealErroredBlocks, oduiKtPmConformance=oduiKtPmConformance, oduiKtPmRealDefectSeconds=oduiKtPmRealDefectSeconds, oduiKtPmRealBEICount=oduiKtPmRealBEICount, oduiKtPmTimestamp=oduiKtPmTimestamp, PYSNMP_MODULE_ID=oduiKtPmMIB, oduiKtPmValidity=oduiKtPmValidity, oduiKtPmRealCVT=oduiKtPmRealCVT, oduiKtPmCompliances=oduiKtPmCompliances, oduiKtPmMIB=oduiKtPmMIB)

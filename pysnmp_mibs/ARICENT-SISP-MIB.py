@@ -1,98 +1,53 @@
-_J='fsSispCxtClassificationVlanId'
-_I='read-only'
-_H='read-create'
-_G='fsSispPortMapContextId'
-_F='read-write'
-_E='not-accessible'
-_D='fsSispPortIndex'
-_C='Integer32'
-_B='ARICENT-SISP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-VlanId,=mibBuilder.importSymbols('ARICENTQ-BRIDGE-MIB','VlanId')
-InterfaceIndex,InterfaceIndexOrZero=mibBuilder.importSymbols('IF-MIB','InterfaceIndex','InterfaceIndexOrZero')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-fssisp=ModuleIdentity((1,3,6,1,4,1,29601,2,20))
-if mibBuilder.loadTexts:fssisp.setRevisions(('2012-09-05 00:00',))
-_FsSispSystemGroup_ObjectIdentity=ObjectIdentity
-fsSispSystemGroup=_FsSispSystemGroup_ObjectIdentity((1,3,6,1,4,1,29601,2,20,1))
-class _FsSispSystemControl_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('start',1),('shutdown',2)))
-_FsSispSystemControl_Type.__name__=_C
-_FsSispSystemControl_Object=MibScalar
-fsSispSystemControl=_FsSispSystemControl_Object((1,3,6,1,4,1,29601,2,20,1,1),_FsSispSystemControl_Type())
-fsSispSystemControl.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsSispSystemControl.setStatus(_A)
-_FsSispConfig_ObjectIdentity=ObjectIdentity
-fsSispConfig=_FsSispConfig_ObjectIdentity((1,3,6,1,4,1,29601,2,20,2))
-_FsSispPortTable_Object=MibTable
-fsSispPortTable=_FsSispPortTable_Object((1,3,6,1,4,1,29601,2,20,2,1))
-if mibBuilder.loadTexts:fsSispPortTable.setStatus(_A)
-_FsSispPortEntry_Object=MibTableRow
-fsSispPortEntry=_FsSispPortEntry_Object((1,3,6,1,4,1,29601,2,20,2,1,1))
-fsSispPortEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:fsSispPortEntry.setStatus(_A)
-_FsSispPortIndex_Type=InterfaceIndex
-_FsSispPortIndex_Object=MibTableColumn
-fsSispPortIndex=_FsSispPortIndex_Object((1,3,6,1,4,1,29601,2,20,2,1,1,1),_FsSispPortIndex_Type())
-fsSispPortIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsSispPortIndex.setStatus(_A)
-class _FsSispPortCtrlStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_FsSispPortCtrlStatus_Type.__name__=_C
-_FsSispPortCtrlStatus_Object=MibTableColumn
-fsSispPortCtrlStatus=_FsSispPortCtrlStatus_Object((1,3,6,1,4,1,29601,2,20,2,1,1,2),_FsSispPortCtrlStatus_Type())
-fsSispPortCtrlStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsSispPortCtrlStatus.setStatus(_A)
-_FsSispPortMapTable_Object=MibTable
-fsSispPortMapTable=_FsSispPortMapTable_Object((1,3,6,1,4,1,29601,2,20,2,2))
-if mibBuilder.loadTexts:fsSispPortMapTable.setStatus(_A)
-_FsSispPortMapEntry_Object=MibTableRow
-fsSispPortMapEntry=_FsSispPortMapEntry_Object((1,3,6,1,4,1,29601,2,20,2,2,1))
-fsSispPortMapEntry.setIndexNames((0,_B,_D),(0,_B,_G))
-if mibBuilder.loadTexts:fsSispPortMapEntry.setStatus(_A)
-class _FsSispPortMapContextId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsSispPortMapContextId_Type.__name__=_C
-_FsSispPortMapContextId_Object=MibTableColumn
-fsSispPortMapContextId=_FsSispPortMapContextId_Object((1,3,6,1,4,1,29601,2,20,2,2,1,1),_FsSispPortMapContextId_Type())
-fsSispPortMapContextId.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsSispPortMapContextId.setStatus(_A)
-_FsSispPortMapSharedPort_Type=InterfaceIndex
-_FsSispPortMapSharedPort_Object=MibTableColumn
-fsSispPortMapSharedPort=_FsSispPortMapSharedPort_Object((1,3,6,1,4,1,29601,2,20,2,2,1,2),_FsSispPortMapSharedPort_Type())
-fsSispPortMapSharedPort.setMaxAccess(_H)
-if mibBuilder.loadTexts:fsSispPortMapSharedPort.setStatus(_A)
-_FsSispPortMapHlPortId_Type=InterfaceIndexOrZero
-_FsSispPortMapHlPortId_Object=MibTableColumn
-fsSispPortMapHlPortId=_FsSispPortMapHlPortId_Object((1,3,6,1,4,1,29601,2,20,2,2,1,3),_FsSispPortMapHlPortId_Type())
-fsSispPortMapHlPortId.setMaxAccess(_I)
-if mibBuilder.loadTexts:fsSispPortMapHlPortId.setStatus(_A)
-_FsSispPortMapRowStatus_Type=RowStatus
-_FsSispPortMapRowStatus_Object=MibTableColumn
-fsSispPortMapRowStatus=_FsSispPortMapRowStatus_Object((1,3,6,1,4,1,29601,2,20,2,2,1,4),_FsSispPortMapRowStatus_Type())
-fsSispPortMapRowStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:fsSispPortMapRowStatus.setStatus(_A)
-_FsSispInfo_ObjectIdentity=ObjectIdentity
-fsSispInfo=_FsSispInfo_ObjectIdentity((1,3,6,1,4,1,29601,2,20,3))
-_FsSispCxtClassificationTable_Object=MibTable
-fsSispCxtClassificationTable=_FsSispCxtClassificationTable_Object((1,3,6,1,4,1,29601,2,20,3,1))
-if mibBuilder.loadTexts:fsSispCxtClassificationTable.setStatus(_A)
-_FsSispCxtClassificationEntry_Object=MibTableRow
-fsSispCxtClassificationEntry=_FsSispCxtClassificationEntry_Object((1,3,6,1,4,1,29601,2,20,3,1,1))
-fsSispCxtClassificationEntry.setIndexNames((0,_B,_D),(0,_B,_J))
-if mibBuilder.loadTexts:fsSispCxtClassificationEntry.setStatus(_A)
-_FsSispCxtClassificationVlanId_Type=VlanId
-_FsSispCxtClassificationVlanId_Object=MibTableColumn
-fsSispCxtClassificationVlanId=_FsSispCxtClassificationVlanId_Object((1,3,6,1,4,1,29601,2,20,3,1,1,1),_FsSispCxtClassificationVlanId_Type())
-fsSispCxtClassificationVlanId.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsSispCxtClassificationVlanId.setStatus(_A)
-class _FsSispCxtClassificationCxtId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsSispCxtClassificationCxtId_Type.__name__=_C
-_FsSispCxtClassificationCxtId_Object=MibTableColumn
-fsSispCxtClassificationCxtId=_FsSispCxtClassificationCxtId_Object((1,3,6,1,4,1,29601,2,20,3,1,1,2),_FsSispCxtClassificationCxtId_Type())
-fsSispCxtClassificationCxtId.setMaxAccess(_I)
-if mibBuilder.loadTexts:fsSispCxtClassificationCxtId.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'fssisp':fssisp,'fsSispSystemGroup':fsSispSystemGroup,'fsSispSystemControl':fsSispSystemControl,'fsSispConfig':fsSispConfig,'fsSispPortTable':fsSispPortTable,'fsSispPortEntry':fsSispPortEntry,_D:fsSispPortIndex,'fsSispPortCtrlStatus':fsSispPortCtrlStatus,'fsSispPortMapTable':fsSispPortMapTable,'fsSispPortMapEntry':fsSispPortMapEntry,_G:fsSispPortMapContextId,'fsSispPortMapSharedPort':fsSispPortMapSharedPort,'fsSispPortMapHlPortId':fsSispPortMapHlPortId,'fsSispPortMapRowStatus':fsSispPortMapRowStatus,'fsSispInfo':fsSispInfo,'fsSispCxtClassificationTable':fsSispCxtClassificationTable,'fsSispCxtClassificationEntry':fsSispCxtClassificationEntry,_J:fsSispCxtClassificationVlanId,'fsSispCxtClassificationCxtId':fsSispCxtClassificationCxtId})
+#
+# PySNMP MIB module ARICENT-SISP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aricent/ARICENT-SISP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:32:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+VlanId, = mibBuilder.importSymbols("ARICENTQ-BRIDGE-MIB", "VlanId")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+fssisp = ModuleIdentity((1, 3, 6, 1, 4, 1, 29601, 2, 20))
+fssisp.setRevisions(('2012-09-05 00:00',))
+if mibBuilder.loadTexts: fssisp.setLastUpdated('201209050000Z')
+if mibBuilder.loadTexts: fssisp.setOrganization('ARICENT COMMUNICATIONS SOFTWARE')
+fsSispSystemGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 29601, 2, 20, 1))
+fsSispConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 29601, 2, 20, 2))
+fsSispInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 29601, 2, 20, 3))
+fsSispSystemControl = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 20, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("start", 1), ("shutdown", 2))).clone('shutdown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsSispSystemControl.setStatus('current')
+fsSispPortTable = MibTable((1, 3, 6, 1, 4, 1, 29601, 2, 20, 2, 1), )
+if mibBuilder.loadTexts: fsSispPortTable.setStatus('current')
+fsSispPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 29601, 2, 20, 2, 1, 1), ).setIndexNames((0, "ARICENT-SISP-MIB", "fsSispPortIndex"))
+if mibBuilder.loadTexts: fsSispPortEntry.setStatus('current')
+fsSispPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 20, 2, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: fsSispPortIndex.setStatus('current')
+fsSispPortCtrlStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 20, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsSispPortCtrlStatus.setStatus('current')
+fsSispPortMapTable = MibTable((1, 3, 6, 1, 4, 1, 29601, 2, 20, 2, 2), )
+if mibBuilder.loadTexts: fsSispPortMapTable.setStatus('current')
+fsSispPortMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 29601, 2, 20, 2, 2, 1), ).setIndexNames((0, "ARICENT-SISP-MIB", "fsSispPortIndex"), (0, "ARICENT-SISP-MIB", "fsSispPortMapContextId"))
+if mibBuilder.loadTexts: fsSispPortMapEntry.setStatus('current')
+fsSispPortMapContextId = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 20, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: fsSispPortMapContextId.setStatus('current')
+fsSispPortMapSharedPort = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 20, 2, 2, 1, 2), InterfaceIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsSispPortMapSharedPort.setStatus('current')
+fsSispPortMapHlPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 20, 2, 2, 1, 3), InterfaceIndexOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsSispPortMapHlPortId.setStatus('current')
+fsSispPortMapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 20, 2, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsSispPortMapRowStatus.setStatus('current')
+fsSispCxtClassificationTable = MibTable((1, 3, 6, 1, 4, 1, 29601, 2, 20, 3, 1), )
+if mibBuilder.loadTexts: fsSispCxtClassificationTable.setStatus('current')
+fsSispCxtClassificationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 29601, 2, 20, 3, 1, 1), ).setIndexNames((0, "ARICENT-SISP-MIB", "fsSispPortIndex"), (0, "ARICENT-SISP-MIB", "fsSispCxtClassificationVlanId"))
+if mibBuilder.loadTexts: fsSispCxtClassificationEntry.setStatus('current')
+fsSispCxtClassificationVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 20, 3, 1, 1, 1), VlanId())
+if mibBuilder.loadTexts: fsSispCxtClassificationVlanId.setStatus('current')
+fsSispCxtClassificationCxtId = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 20, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsSispCxtClassificationCxtId.setStatus('current')
+mibBuilder.exportSymbols("ARICENT-SISP-MIB", fsSispPortIndex=fsSispPortIndex, fsSispCxtClassificationEntry=fsSispCxtClassificationEntry, fsSispSystemControl=fsSispSystemControl, fsSispPortMapEntry=fsSispPortMapEntry, fsSispCxtClassificationVlanId=fsSispCxtClassificationVlanId, fssisp=fssisp, fsSispCxtClassificationTable=fsSispCxtClassificationTable, fsSispSystemGroup=fsSispSystemGroup, fsSispPortEntry=fsSispPortEntry, fsSispPortMapRowStatus=fsSispPortMapRowStatus, fsSispPortMapContextId=fsSispPortMapContextId, fsSispPortMapSharedPort=fsSispPortMapSharedPort, fsSispConfig=fsSispConfig, fsSispPortMapHlPortId=fsSispPortMapHlPortId, PYSNMP_MODULE_ID=fssisp, fsSispPortMapTable=fsSispPortMapTable, fsSispInfo=fsSispInfo, fsSispPortTable=fsSispPortTable, fsSispCxtClassificationCxtId=fsSispCxtClassificationCxtId, fsSispPortCtrlStatus=fsSispPortCtrlStatus)

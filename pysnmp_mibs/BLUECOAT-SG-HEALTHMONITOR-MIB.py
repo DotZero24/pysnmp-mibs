@@ -1,66 +1,57 @@
-_I='deviceHealthMonMIBGroup'
-_H='deviceHealthMonCriticalTrap'
-_G='deviceHealthMonWarningTrap'
-_F='deviceHealthMonOkTrap'
-_E='deviceHealthMonStatus'
-_D='read-only'
-_C='deviceHealthMonMessage'
-_B='BLUECOAT-SG-HEALTHMONITOR-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-blueCoatMgmt,=mibBuilder.importSymbols('BLUECOAT-MIB','blueCoatMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-bluecoatSGHealthMonMIB=ModuleIdentity((1,3,6,1,4,1,3417,2,12))
-if mibBuilder.loadTexts:bluecoatSGHealthMonMIB.setRevisions(('2013-06-10 03:00','2007-11-05 03:00'))
-class HealthMonMessageString(TextualConvention,OctetString):status=_A;displayHint='255a';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-class HealthMonStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('ok',1),('warning',2),('critical',3),('unknown',4)))
-_DeviceHealthMonMIBObjects_ObjectIdentity=ObjectIdentity
-deviceHealthMonMIBObjects=_DeviceHealthMonMIBObjects_ObjectIdentity((1,3,6,1,4,1,3417,2,12,1))
-_DeviceHealthMonValues_ObjectIdentity=ObjectIdentity
-deviceHealthMonValues=_DeviceHealthMonValues_ObjectIdentity((1,3,6,1,4,1,3417,2,12,1,1))
-_DeviceHealthMonMessage_Type=HealthMonMessageString
-_DeviceHealthMonMessage_Object=MibScalar
-deviceHealthMonMessage=_DeviceHealthMonMessage_Object((1,3,6,1,4,1,3417,2,12,1,1,1),_DeviceHealthMonMessage_Type())
-deviceHealthMonMessage.setMaxAccess(_D)
-if mibBuilder.loadTexts:deviceHealthMonMessage.setStatus(_A)
-_DeviceHealthMonStatus_Type=HealthMonStatus
-_DeviceHealthMonStatus_Object=MibScalar
-deviceHealthMonStatus=_DeviceHealthMonStatus_Object((1,3,6,1,4,1,3417,2,12,1,1,2),_DeviceHealthMonStatus_Type())
-deviceHealthMonStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:deviceHealthMonStatus.setStatus(_A)
-_DeviceHealthMonMIBNotification_ObjectIdentity=ObjectIdentity
-deviceHealthMonMIBNotification=_DeviceHealthMonMIBNotification_ObjectIdentity((1,3,6,1,4,1,3417,2,12,2))
-_DeviceHealthMonMIBNotifPrefix_ObjectIdentity=ObjectIdentity
-deviceHealthMonMIBNotifPrefix=_DeviceHealthMonMIBNotifPrefix_ObjectIdentity((1,3,6,1,4,1,3417,2,12,2,0))
-_DeviceHealthMonMIBConformance_ObjectIdentity=ObjectIdentity
-deviceHealthMonMIBConformance=_DeviceHealthMonMIBConformance_ObjectIdentity((1,3,6,1,4,1,3417,2,12,3))
-_DeviceHealthMonMIBCompliances_ObjectIdentity=ObjectIdentity
-deviceHealthMonMIBCompliances=_DeviceHealthMonMIBCompliances_ObjectIdentity((1,3,6,1,4,1,3417,2,12,3,1))
-_DeviceHealthMonMIBGroups_ObjectIdentity=ObjectIdentity
-deviceHealthMonMIBGroups=_DeviceHealthMonMIBGroups_ObjectIdentity((1,3,6,1,4,1,3417,2,12,3,2))
-_DeviceHealthMonMIBNotifGroups_ObjectIdentity=ObjectIdentity
-deviceHealthMonMIBNotifGroups=_DeviceHealthMonMIBNotifGroups_ObjectIdentity((1,3,6,1,4,1,3417,2,12,3,3))
-deviceHealthMonMIBGroup=ObjectGroup((1,3,6,1,4,1,3417,2,12,3,2,1))
-deviceHealthMonMIBGroup.setObjects(*((_B,_E),(_B,_C)))
-if mibBuilder.loadTexts:deviceHealthMonMIBGroup.setStatus(_A)
-deviceHealthMonOkTrap=NotificationType((1,3,6,1,4,1,3417,2,12,2,0,1))
-deviceHealthMonOkTrap.setObjects((_B,_C))
-if mibBuilder.loadTexts:deviceHealthMonOkTrap.setStatus(_A)
-deviceHealthMonWarningTrap=NotificationType((1,3,6,1,4,1,3417,2,12,2,0,2))
-deviceHealthMonWarningTrap.setObjects((_B,_C))
-if mibBuilder.loadTexts:deviceHealthMonWarningTrap.setStatus(_A)
-deviceHealthMonCriticalTrap=NotificationType((1,3,6,1,4,1,3417,2,12,2,0,3))
-deviceHealthMonCriticalTrap.setObjects((_B,_C))
-if mibBuilder.loadTexts:deviceHealthMonCriticalTrap.setStatus(_A)
-deviceHealthMonMIBNotifGroup=NotificationGroup((1,3,6,1,4,1,3417,2,12,3,3,1))
-deviceHealthMonMIBNotifGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:deviceHealthMonMIBNotifGroup.setStatus(_A)
-deviceHealthMonMIBCompliance=ModuleCompliance((1,3,6,1,4,1,3417,2,12,3,1,1))
-deviceHealthMonMIBCompliance.setObjects((_B,_I))
-if mibBuilder.loadTexts:deviceHealthMonMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'HealthMonMessageString':HealthMonMessageString,'HealthMonStatus':HealthMonStatus,'bluecoatSGHealthMonMIB':bluecoatSGHealthMonMIB,'deviceHealthMonMIBObjects':deviceHealthMonMIBObjects,'deviceHealthMonValues':deviceHealthMonValues,_C:deviceHealthMonMessage,_E:deviceHealthMonStatus,'deviceHealthMonMIBNotification':deviceHealthMonMIBNotification,'deviceHealthMonMIBNotifPrefix':deviceHealthMonMIBNotifPrefix,_F:deviceHealthMonOkTrap,_G:deviceHealthMonWarningTrap,_H:deviceHealthMonCriticalTrap,'deviceHealthMonMIBConformance':deviceHealthMonMIBConformance,'deviceHealthMonMIBCompliances':deviceHealthMonMIBCompliances,'deviceHealthMonMIBCompliance':deviceHealthMonMIBCompliance,'deviceHealthMonMIBGroups':deviceHealthMonMIBGroups,_I:deviceHealthMonMIBGroup,'deviceHealthMonMIBNotifGroups':deviceHealthMonMIBNotifGroups,'deviceHealthMonMIBNotifGroup':deviceHealthMonMIBNotifGroup})
+#
+# PySNMP MIB module BLUECOAT-SG-HEALTHMONITOR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/bluecoat/BLUECOAT-SG-HEALTHMONITOR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+blueCoatMgmt, = mibBuilder.importSymbols("BLUECOAT-MIB", "blueCoatMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+bluecoatSGHealthMonMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3417, 2, 12))
+bluecoatSGHealthMonMIB.setRevisions(('2013-06-10 03:00', '2007-11-05 03:00',))
+if mibBuilder.loadTexts: bluecoatSGHealthMonMIB.setLastUpdated('201306100300Z')
+if mibBuilder.loadTexts: bluecoatSGHealthMonMIB.setOrganization('Blue Coat Systems, Inc.')
+deviceHealthMonMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 12, 1))
+deviceHealthMonMIBNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 12, 2))
+deviceHealthMonMIBNotifPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 12, 2, 0))
+deviceHealthMonMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 12, 3))
+class HealthMonMessageString(TextualConvention, OctetString):
+    status = 'current'
+    displayHint = '255a'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+
+deviceHealthMonValues = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 12, 1, 1))
+deviceHealthMonMessage = MibScalar((1, 3, 6, 1, 4, 1, 3417, 2, 12, 1, 1, 1), HealthMonMessageString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceHealthMonMessage.setStatus('current')
+class HealthMonStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("ok", 1), ("warning", 2), ("critical", 3), ("unknown", 4))
+
+deviceHealthMonStatus = MibScalar((1, 3, 6, 1, 4, 1, 3417, 2, 12, 1, 1, 2), HealthMonStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceHealthMonStatus.setStatus('current')
+deviceHealthMonOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 3417, 2, 12, 2, 0, 1)).setObjects(("BLUECOAT-SG-HEALTHMONITOR-MIB", "deviceHealthMonMessage"))
+if mibBuilder.loadTexts: deviceHealthMonOkTrap.setStatus('current')
+deviceHealthMonWarningTrap = NotificationType((1, 3, 6, 1, 4, 1, 3417, 2, 12, 2, 0, 2)).setObjects(("BLUECOAT-SG-HEALTHMONITOR-MIB", "deviceHealthMonMessage"))
+if mibBuilder.loadTexts: deviceHealthMonWarningTrap.setStatus('current')
+deviceHealthMonCriticalTrap = NotificationType((1, 3, 6, 1, 4, 1, 3417, 2, 12, 2, 0, 3)).setObjects(("BLUECOAT-SG-HEALTHMONITOR-MIB", "deviceHealthMonMessage"))
+if mibBuilder.loadTexts: deviceHealthMonCriticalTrap.setStatus('current')
+deviceHealthMonMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 12, 3, 1))
+deviceHealthMonMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 12, 3, 2))
+deviceHealthMonMIBNotifGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 12, 3, 3))
+deviceHealthMonMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 3417, 2, 12, 3, 1, 1)).setObjects(("BLUECOAT-SG-HEALTHMONITOR-MIB", "deviceHealthMonMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    deviceHealthMonMIBCompliance = deviceHealthMonMIBCompliance.setStatus('current')
+deviceHealthMonMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3417, 2, 12, 3, 2, 1)).setObjects(("BLUECOAT-SG-HEALTHMONITOR-MIB", "deviceHealthMonStatus"), ("BLUECOAT-SG-HEALTHMONITOR-MIB", "deviceHealthMonMessage"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    deviceHealthMonMIBGroup = deviceHealthMonMIBGroup.setStatus('current')
+deviceHealthMonMIBNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 3417, 2, 12, 3, 3, 1)).setObjects(("BLUECOAT-SG-HEALTHMONITOR-MIB", "deviceHealthMonOkTrap"), ("BLUECOAT-SG-HEALTHMONITOR-MIB", "deviceHealthMonWarningTrap"), ("BLUECOAT-SG-HEALTHMONITOR-MIB", "deviceHealthMonCriticalTrap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    deviceHealthMonMIBNotifGroup = deviceHealthMonMIBNotifGroup.setStatus('current')
+mibBuilder.exportSymbols("BLUECOAT-SG-HEALTHMONITOR-MIB", PYSNMP_MODULE_ID=bluecoatSGHealthMonMIB, deviceHealthMonStatus=deviceHealthMonStatus, deviceHealthMonWarningTrap=deviceHealthMonWarningTrap, HealthMonStatus=HealthMonStatus, deviceHealthMonMIBGroups=deviceHealthMonMIBGroups, deviceHealthMonValues=deviceHealthMonValues, deviceHealthMonMIBGroup=deviceHealthMonMIBGroup, bluecoatSGHealthMonMIB=bluecoatSGHealthMonMIB, deviceHealthMonMIBNotifPrefix=deviceHealthMonMIBNotifPrefix, deviceHealthMonMIBCompliances=deviceHealthMonMIBCompliances, deviceHealthMonMIBNotifGroup=deviceHealthMonMIBNotifGroup, deviceHealthMonMessage=deviceHealthMonMessage, deviceHealthMonMIBObjects=deviceHealthMonMIBObjects, deviceHealthMonOkTrap=deviceHealthMonOkTrap, deviceHealthMonMIBConformance=deviceHealthMonMIBConformance, HealthMonMessageString=HealthMonMessageString, deviceHealthMonMIBNotification=deviceHealthMonMIBNotification, deviceHealthMonCriticalTrap=deviceHealthMonCriticalTrap, deviceHealthMonMIBNotifGroups=deviceHealthMonMIBNotifGroups, deviceHealthMonMIBCompliance=deviceHealthMonMIBCompliance)

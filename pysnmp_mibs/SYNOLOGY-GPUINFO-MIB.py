@@ -1,64 +1,41 @@
-_J='gpuInfoGroup'
-_I='gpuMemoryTotal'
-_H='gpuMemoryUsed'
-_G='gpuMemoryFree'
-_F='gpuMemoryUtilization'
-_E='gpuUtilization'
-_D='gpuInfoSupported'
-_C='read-only'
-_B='SYNOLOGY-GPUINFO-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-gpuInfo=ModuleIdentity((1,3,6,1,4,1,6574,108))
-if mibBuilder.loadTexts:gpuInfo.setRevisions(('2018-12-03 00:00',))
-_Synology_ObjectIdentity=ObjectIdentity
-synology=_Synology_ObjectIdentity((1,3,6,1,4,1,6574))
-_GpuInfoSupported_Type=Integer32
-_GpuInfoSupported_Object=MibScalar
-gpuInfoSupported=_GpuInfoSupported_Object((1,3,6,1,4,1,6574,108,1),_GpuInfoSupported_Type())
-gpuInfoSupported.setMaxAccess(_C)
-if mibBuilder.loadTexts:gpuInfoSupported.setStatus(_A)
-_GpuUtilization_Type=Integer32
-_GpuUtilization_Object=MibScalar
-gpuUtilization=_GpuUtilization_Object((1,3,6,1,4,1,6574,108,2),_GpuUtilization_Type())
-gpuUtilization.setMaxAccess(_C)
-if mibBuilder.loadTexts:gpuUtilization.setStatus(_A)
-_GpuMemoryUtilization_Type=Integer32
-_GpuMemoryUtilization_Object=MibScalar
-gpuMemoryUtilization=_GpuMemoryUtilization_Object((1,3,6,1,4,1,6574,108,3),_GpuMemoryUtilization_Type())
-gpuMemoryUtilization.setMaxAccess(_C)
-if mibBuilder.loadTexts:gpuMemoryUtilization.setStatus(_A)
-_GpuMemoryFree_Type=Integer32
-_GpuMemoryFree_Object=MibScalar
-gpuMemoryFree=_GpuMemoryFree_Object((1,3,6,1,4,1,6574,108,4),_GpuMemoryFree_Type())
-gpuMemoryFree.setMaxAccess(_C)
-if mibBuilder.loadTexts:gpuMemoryFree.setStatus(_A)
-_GpuMemoryUsed_Type=Integer32
-_GpuMemoryUsed_Object=MibScalar
-gpuMemoryUsed=_GpuMemoryUsed_Object((1,3,6,1,4,1,6574,108,5),_GpuMemoryUsed_Type())
-gpuMemoryUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:gpuMemoryUsed.setStatus(_A)
-_GpuMemoryTotal_Type=Integer32
-_GpuMemoryTotal_Object=MibScalar
-gpuMemoryTotal=_GpuMemoryTotal_Object((1,3,6,1,4,1,6574,108,6),_GpuMemoryTotal_Type())
-gpuMemoryTotal.setMaxAccess(_C)
-if mibBuilder.loadTexts:gpuMemoryTotal.setStatus(_A)
-_GpuInfoConformance_ObjectIdentity=ObjectIdentity
-gpuInfoConformance=_GpuInfoConformance_ObjectIdentity((1,3,6,1,4,1,6574,108,7))
-_GpuInfoCompliances_ObjectIdentity=ObjectIdentity
-gpuInfoCompliances=_GpuInfoCompliances_ObjectIdentity((1,3,6,1,4,1,6574,108,7,1))
-_GpuInfoGroups_ObjectIdentity=ObjectIdentity
-gpuInfoGroups=_GpuInfoGroups_ObjectIdentity((1,3,6,1,4,1,6574,108,7,2))
-gpuInfoGroup=ObjectGroup((1,3,6,1,4,1,6574,108,7,2,1))
-gpuInfoGroup.setObjects(*((_B,_D),(_B,_E),(_B,_F),(_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:gpuInfoGroup.setStatus(_A)
-gpuInfoCompliance=ModuleCompliance((1,3,6,1,4,1,6574,108,7,1,1))
-gpuInfoCompliance.setObjects((_B,_J))
-if mibBuilder.loadTexts:gpuInfoCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'synology':synology,'gpuInfo':gpuInfo,_D:gpuInfoSupported,_E:gpuUtilization,_F:gpuMemoryUtilization,_G:gpuMemoryFree,_H:gpuMemoryUsed,_I:gpuMemoryTotal,'gpuInfoConformance':gpuInfoConformance,'gpuInfoCompliances':gpuInfoCompliances,'gpuInfoCompliance':gpuInfoCompliance,'gpuInfoGroups':gpuInfoGroups,_J:gpuInfoGroup})
+#
+# PySNMP MIB module SYNOLOGY-GPUINFO-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/synology/SYNOLOGY-GPUINFO-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+gpuInfo = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 108))
+gpuInfo.setRevisions(('2018-12-03 00:00',))
+if mibBuilder.loadTexts: gpuInfo.setLastUpdated('201812030000Z')
+if mibBuilder.loadTexts: gpuInfo.setOrganization('www.synology.com')
+synology = MibIdentifier((1, 3, 6, 1, 4, 1, 6574))
+gpuInfoSupported = MibScalar((1, 3, 6, 1, 4, 1, 6574, 108, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: gpuInfoSupported.setStatus('current')
+gpuUtilization = MibScalar((1, 3, 6, 1, 4, 1, 6574, 108, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: gpuUtilization.setStatus('current')
+gpuMemoryUtilization = MibScalar((1, 3, 6, 1, 4, 1, 6574, 108, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: gpuMemoryUtilization.setStatus('current')
+gpuMemoryFree = MibScalar((1, 3, 6, 1, 4, 1, 6574, 108, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: gpuMemoryFree.setStatus('current')
+gpuMemoryUsed = MibScalar((1, 3, 6, 1, 4, 1, 6574, 108, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: gpuMemoryUsed.setStatus('current')
+gpuMemoryTotal = MibScalar((1, 3, 6, 1, 4, 1, 6574, 108, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: gpuMemoryTotal.setStatus('current')
+gpuInfoConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 108, 7))
+gpuInfoCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 108, 7, 1))
+gpuInfoGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 108, 7, 2))
+gpuInfoCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6574, 108, 7, 1, 1)).setObjects(("SYNOLOGY-GPUINFO-MIB", "gpuInfoGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    gpuInfoCompliance = gpuInfoCompliance.setStatus('current')
+gpuInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 108, 7, 2, 1)).setObjects(("SYNOLOGY-GPUINFO-MIB", "gpuInfoSupported"), ("SYNOLOGY-GPUINFO-MIB", "gpuUtilization"), ("SYNOLOGY-GPUINFO-MIB", "gpuMemoryUtilization"), ("SYNOLOGY-GPUINFO-MIB", "gpuMemoryFree"), ("SYNOLOGY-GPUINFO-MIB", "gpuMemoryUsed"), ("SYNOLOGY-GPUINFO-MIB", "gpuMemoryTotal"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    gpuInfoGroup = gpuInfoGroup.setStatus('current')
+mibBuilder.exportSymbols("SYNOLOGY-GPUINFO-MIB", gpuInfoConformance=gpuInfoConformance, gpuInfoGroup=gpuInfoGroup, gpuUtilization=gpuUtilization, PYSNMP_MODULE_ID=gpuInfo, gpuInfoGroups=gpuInfoGroups, gpuMemoryUsed=gpuMemoryUsed, gpuMemoryFree=gpuMemoryFree, gpuInfo=gpuInfo, gpuInfoCompliances=gpuInfoCompliances, gpuMemoryUtilization=gpuMemoryUtilization, gpuInfoSupported=gpuInfoSupported, gpuInfoCompliance=gpuInfoCompliance, gpuMemoryTotal=gpuMemoryTotal, synology=synology)

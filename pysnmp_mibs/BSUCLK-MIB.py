@@ -1,58 +1,32 @@
-_F='disable'
-_E='enable'
-_D='Integer32'
-_C='read-write'
-_B='DisplayString'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-bsu,=mibBuilder.importSymbols('ANIROOT-MIB','bsu')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_B,'PhysAddress','TextualConvention')
-aniBsuClock=ModuleIdentity((1,3,6,1,4,1,4325,3,4))
-class _AniBsuClkSntpTimeZone_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,6))
-_AniBsuClkSntpTimeZone_Type.__name__=_B
-_AniBsuClkSntpTimeZone_Object=MibScalar
-aniBsuClkSntpTimeZone=_AniBsuClkSntpTimeZone_Object((1,3,6,1,4,1,4325,3,4,1),_AniBsuClkSntpTimeZone_Type())
-aniBsuClkSntpTimeZone.setMaxAccess(_C)
-if mibBuilder.loadTexts:aniBsuClkSntpTimeZone.setStatus(_A)
-class _AniBsuClkSntpDstEnable_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_AniBsuClkSntpDstEnable_Type.__name__=_D
-_AniBsuClkSntpDstEnable_Object=MibScalar
-aniBsuClkSntpDstEnable=_AniBsuClkSntpDstEnable_Object((1,3,6,1,4,1,4325,3,4,2),_AniBsuClkSntpDstEnable_Type())
-aniBsuClkSntpDstEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:aniBsuClkSntpDstEnable.setStatus(_A)
-class _AniBsuClkSntpDstStart_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,6))
-_AniBsuClkSntpDstStart_Type.__name__=_B
-_AniBsuClkSntpDstStart_Object=MibScalar
-aniBsuClkSntpDstStart=_AniBsuClkSntpDstStart_Object((1,3,6,1,4,1,4325,3,4,3),_AniBsuClkSntpDstStart_Type())
-aniBsuClkSntpDstStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:aniBsuClkSntpDstStart.setStatus(_A)
-class _AniBsuClkSntpDstEnd_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,6))
-_AniBsuClkSntpDstEnd_Type.__name__=_B
-_AniBsuClkSntpDstEnd_Object=MibScalar
-aniBsuClkSntpDstEnd=_AniBsuClkSntpDstEnd_Object((1,3,6,1,4,1,4325,3,4,4),_AniBsuClkSntpDstEnd_Type())
-aniBsuClkSntpDstEnd.setMaxAccess(_C)
-if mibBuilder.loadTexts:aniBsuClkSntpDstEnd.setStatus(_A)
-class _AniBsuClkSntpEnable_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_AniBsuClkSntpEnable_Type.__name__=_D
-_AniBsuClkSntpEnable_Object=MibScalar
-aniBsuClkSntpEnable=_AniBsuClkSntpEnable_Object((1,3,6,1,4,1,4325,3,4,5),_AniBsuClkSntpEnable_Type())
-aniBsuClkSntpEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:aniBsuClkSntpEnable.setStatus(_A)
-class _AniBsuClkManualTime_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,19))
-_AniBsuClkManualTime_Type.__name__=_B
-_AniBsuClkManualTime_Object=MibScalar
-aniBsuClkManualTime=_AniBsuClkManualTime_Object((1,3,6,1,4,1,4325,3,4,6),_AniBsuClkManualTime_Type())
-aniBsuClkManualTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:aniBsuClkManualTime.setStatus(_A)
-class _AniBsuClkCurrentTime_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,17))
-_AniBsuClkCurrentTime_Type.__name__=_B
-_AniBsuClkCurrentTime_Object=MibScalar
-aniBsuClkCurrentTime=_AniBsuClkCurrentTime_Object((1,3,6,1,4,1,4325,3,4,7),_AniBsuClkCurrentTime_Type())
-aniBsuClkCurrentTime.setMaxAccess('read-only')
-if mibBuilder.loadTexts:aniBsuClkCurrentTime.setStatus(_A)
-mibBuilder.exportSymbols('BSUCLK-MIB',**{'aniBsuClock':aniBsuClock,'aniBsuClkSntpTimeZone':aniBsuClkSntpTimeZone,'aniBsuClkSntpDstEnable':aniBsuClkSntpDstEnable,'aniBsuClkSntpDstStart':aniBsuClkSntpDstStart,'aniBsuClkSntpDstEnd':aniBsuClkSntpDstEnd,'aniBsuClkSntpEnable':aniBsuClkSntpEnable,'aniBsuClkManualTime':aniBsuClkManualTime,'aniBsuClkCurrentTime':aniBsuClkCurrentTime})
+#
+# PySNMP MIB module BSUCLK-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aperto/BSUCLK-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+bsu, = mibBuilder.importSymbols("ANIROOT-MIB", "bsu")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+aniBsuClock = ModuleIdentity((1, 3, 6, 1, 4, 1, 4325, 3, 4))
+if mibBuilder.loadTexts: aniBsuClock.setLastUpdated('0105091130Z')
+if mibBuilder.loadTexts: aniBsuClock.setOrganization('Aperto Networks')
+aniBsuClkSntpTimeZone = MibScalar((1, 3, 6, 1, 4, 1, 4325, 3, 4, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 6))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aniBsuClkSntpTimeZone.setStatus('current')
+aniBsuClkSntpDstEnable = MibScalar((1, 3, 6, 1, 4, 1, 4325, 3, 4, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aniBsuClkSntpDstEnable.setStatus('current')
+aniBsuClkSntpDstStart = MibScalar((1, 3, 6, 1, 4, 1, 4325, 3, 4, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 6))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aniBsuClkSntpDstStart.setStatus('current')
+aniBsuClkSntpDstEnd = MibScalar((1, 3, 6, 1, 4, 1, 4325, 3, 4, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 6))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aniBsuClkSntpDstEnd.setStatus('current')
+aniBsuClkSntpEnable = MibScalar((1, 3, 6, 1, 4, 1, 4325, 3, 4, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aniBsuClkSntpEnable.setStatus('current')
+aniBsuClkManualTime = MibScalar((1, 3, 6, 1, 4, 1, 4325, 3, 4, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 19))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aniBsuClkManualTime.setStatus('current')
+aniBsuClkCurrentTime = MibScalar((1, 3, 6, 1, 4, 1, 4325, 3, 4, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 17))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aniBsuClkCurrentTime.setStatus('current')
+mibBuilder.exportSymbols("BSUCLK-MIB", aniBsuClkSntpTimeZone=aniBsuClkSntpTimeZone, aniBsuClkManualTime=aniBsuClkManualTime, aniBsuClkCurrentTime=aniBsuClkCurrentTime, aniBsuClock=aniBsuClock, aniBsuClkSntpEnable=aniBsuClkSntpEnable, aniBsuClkSntpDstStart=aniBsuClkSntpDstStart, aniBsuClkSntpDstEnable=aniBsuClkSntpDstEnable, aniBsuClkSntpDstEnd=aniBsuClkSntpDstEnd, PYSNMP_MODULE_ID=aniBsuClock)

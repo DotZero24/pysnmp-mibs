@@ -1,243 +1,122 @@
-_k='f3PbbStatsGroup'
-_j='f3PbbConfigGroup'
-_i='f3PbbEthernetNetPortHistoryStatsPbbGroupBdaDiscard'
-_h='f3PbbEthernetNetPortHistoryStatsPbbUniBdaDiscard'
-_g='f3PbbEthernetNetPortStatsPbbGroupBdaDiscard'
-_f='f3PbbEthernetNetPortStatsPbbUniBdaDiscard'
-_e='f3PbbIpManagementTunnelBackboneMacDestinationAddress'
-_d='f3PbbIpManagementTunnelBackboneMacDestinationEnabled'
-_c='f3PbbIpManagementTunnelIPriority'
-_b='f3PbbIpManagementTunnelISID'
-_a='f3PbbIpManagementTunnelItagEnabled'
-_Z='f3PbbFlowA2NPbbCapableFlag'
-_Y='f3PbbFlowBackboneMacDestinationAddress'
-_X='f3PbbFlowBackboneMacDestinationEnabled'
-_W='f3PbbFlowITagPriority'
-_V='f3PbbFlowITagISID'
-_U='f3PbbFlowITagControl'
-_T='f3PbbEthernetNetPortITagLoopback3'
-_S='f3PbbEthernetNetPortITagLoopback2'
-_R='f3PbbEthernetNetPortITagLoopback1'
-_Q='f3PbbEthernetNetPortITagLoopbackMask'
-_P='f3PbbEthernetNetPortBackboneMacAddress'
-_O='f3PbbEthernetAccPortITagLoopback3'
-_N='f3PbbEthernetAccPortITagLoopback2'
-_M='f3PbbEthernetAccPortITagLoopback1'
-_L='f3PbbEthernetAccPortITagLoopbackMask'
-_K='f3PbbEthernetNetPortHistoryStatsEntry'
-_J='f3PbbEthernetNetPortStatsEntry'
-_I='f3PbbIpManagementTunnelEntry'
-_H='f3PbbFlowEntry'
-_G='f3PbbEthernetNetPortEntry'
-_F='f3PbbEthernetAccPortEntry'
-_E='read-only'
-_D='Integer32'
-_C='read-write'
-_B='F3-PBB-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsp150cm,=mibBuilder.importSymbols('ADVA-MIB','fsp150cm')
-PerfCounter64,=mibBuilder.importSymbols('CM-COMMON-MIB','PerfCounter64')
-FlowTagControl,cmEthernetAccPortEntry,cmEthernetNetPortEntry,cmFlowEntry=mibBuilder.importSymbols('CM-FACILITY-MIB','FlowTagControl','cmEthernetAccPortEntry','cmEthernetNetPortEntry','cmFlowEntry')
-ipManagementTunnelEntry,=mibBuilder.importSymbols('CM-IP-MIB','ipManagementTunnelEntry')
-cmEthernetNetPortHistoryEntry,cmEthernetNetPortStatsEntry=mibBuilder.importSymbols('CM-PERFORMANCE-MIB','cmEthernetNetPortHistoryEntry','cmEthernetNetPortStatsEntry')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue,VariablePointer=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TruthValue','VariablePointer')
-f3PBBMIB=ModuleIdentity((1,3,6,1,4,1,2544,1,12,21))
-if mibBuilder.loadTexts:f3PBBMIB.setRevisions(('2012-10-08 00:00',))
-_F3PBBConfigObjects_ObjectIdentity=ObjectIdentity
-f3PBBConfigObjects=_F3PBBConfigObjects_ObjectIdentity((1,3,6,1,4,1,2544,1,12,21,1))
-_F3PbbEthernetAccPortTable_Object=MibTable
-f3PbbEthernetAccPortTable=_F3PbbEthernetAccPortTable_Object((1,3,6,1,4,1,2544,1,12,21,1,1))
-if mibBuilder.loadTexts:f3PbbEthernetAccPortTable.setStatus(_A)
-_F3PbbEthernetAccPortEntry_Object=MibTableRow
-f3PbbEthernetAccPortEntry=_F3PbbEthernetAccPortEntry_Object((1,3,6,1,4,1,2544,1,12,21,1,1,1))
-if mibBuilder.loadTexts:f3PbbEthernetAccPortEntry.setStatus(_A)
-_F3PbbEthernetAccPortITagLoopbackMask_Type=Integer32
-_F3PbbEthernetAccPortITagLoopbackMask_Object=MibTableColumn
-f3PbbEthernetAccPortITagLoopbackMask=_F3PbbEthernetAccPortITagLoopbackMask_Object((1,3,6,1,4,1,2544,1,12,21,1,1,1,1),_F3PbbEthernetAccPortITagLoopbackMask_Type())
-f3PbbEthernetAccPortITagLoopbackMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbEthernetAccPortITagLoopbackMask.setStatus(_A)
-_F3PbbEthernetAccPortITagLoopback1_Type=DisplayString
-_F3PbbEthernetAccPortITagLoopback1_Object=MibTableColumn
-f3PbbEthernetAccPortITagLoopback1=_F3PbbEthernetAccPortITagLoopback1_Object((1,3,6,1,4,1,2544,1,12,21,1,1,1,2),_F3PbbEthernetAccPortITagLoopback1_Type())
-f3PbbEthernetAccPortITagLoopback1.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbEthernetAccPortITagLoopback1.setStatus(_A)
-_F3PbbEthernetAccPortITagLoopback2_Type=DisplayString
-_F3PbbEthernetAccPortITagLoopback2_Object=MibTableColumn
-f3PbbEthernetAccPortITagLoopback2=_F3PbbEthernetAccPortITagLoopback2_Object((1,3,6,1,4,1,2544,1,12,21,1,1,1,3),_F3PbbEthernetAccPortITagLoopback2_Type())
-f3PbbEthernetAccPortITagLoopback2.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbEthernetAccPortITagLoopback2.setStatus(_A)
-_F3PbbEthernetAccPortITagLoopback3_Type=DisplayString
-_F3PbbEthernetAccPortITagLoopback3_Object=MibTableColumn
-f3PbbEthernetAccPortITagLoopback3=_F3PbbEthernetAccPortITagLoopback3_Object((1,3,6,1,4,1,2544,1,12,21,1,1,1,4),_F3PbbEthernetAccPortITagLoopback3_Type())
-f3PbbEthernetAccPortITagLoopback3.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbEthernetAccPortITagLoopback3.setStatus(_A)
-_F3PbbEthernetNetPortTable_Object=MibTable
-f3PbbEthernetNetPortTable=_F3PbbEthernetNetPortTable_Object((1,3,6,1,4,1,2544,1,12,21,1,2))
-if mibBuilder.loadTexts:f3PbbEthernetNetPortTable.setStatus(_A)
-_F3PbbEthernetNetPortEntry_Object=MibTableRow
-f3PbbEthernetNetPortEntry=_F3PbbEthernetNetPortEntry_Object((1,3,6,1,4,1,2544,1,12,21,1,2,1))
-if mibBuilder.loadTexts:f3PbbEthernetNetPortEntry.setStatus(_A)
-_F3PbbEthernetNetPortBackboneMacAddress_Type=MacAddress
-_F3PbbEthernetNetPortBackboneMacAddress_Object=MibTableColumn
-f3PbbEthernetNetPortBackboneMacAddress=_F3PbbEthernetNetPortBackboneMacAddress_Object((1,3,6,1,4,1,2544,1,12,21,1,2,1,1),_F3PbbEthernetNetPortBackboneMacAddress_Type())
-f3PbbEthernetNetPortBackboneMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbEthernetNetPortBackboneMacAddress.setStatus(_A)
-_F3PbbEthernetNetPortITagLoopbackMask_Type=Integer32
-_F3PbbEthernetNetPortITagLoopbackMask_Object=MibTableColumn
-f3PbbEthernetNetPortITagLoopbackMask=_F3PbbEthernetNetPortITagLoopbackMask_Object((1,3,6,1,4,1,2544,1,12,21,1,2,1,2),_F3PbbEthernetNetPortITagLoopbackMask_Type())
-f3PbbEthernetNetPortITagLoopbackMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbEthernetNetPortITagLoopbackMask.setStatus(_A)
-_F3PbbEthernetNetPortITagLoopback1_Type=DisplayString
-_F3PbbEthernetNetPortITagLoopback1_Object=MibTableColumn
-f3PbbEthernetNetPortITagLoopback1=_F3PbbEthernetNetPortITagLoopback1_Object((1,3,6,1,4,1,2544,1,12,21,1,2,1,3),_F3PbbEthernetNetPortITagLoopback1_Type())
-f3PbbEthernetNetPortITagLoopback1.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbEthernetNetPortITagLoopback1.setStatus(_A)
-_F3PbbEthernetNetPortITagLoopback2_Type=DisplayString
-_F3PbbEthernetNetPortITagLoopback2_Object=MibTableColumn
-f3PbbEthernetNetPortITagLoopback2=_F3PbbEthernetNetPortITagLoopback2_Object((1,3,6,1,4,1,2544,1,12,21,1,2,1,4),_F3PbbEthernetNetPortITagLoopback2_Type())
-f3PbbEthernetNetPortITagLoopback2.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbEthernetNetPortITagLoopback2.setStatus(_A)
-_F3PbbEthernetNetPortITagLoopback3_Type=DisplayString
-_F3PbbEthernetNetPortITagLoopback3_Object=MibTableColumn
-f3PbbEthernetNetPortITagLoopback3=_F3PbbEthernetNetPortITagLoopback3_Object((1,3,6,1,4,1,2544,1,12,21,1,2,1,5),_F3PbbEthernetNetPortITagLoopback3_Type())
-f3PbbEthernetNetPortITagLoopback3.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbEthernetNetPortITagLoopback3.setStatus(_A)
-_F3PbbFlowTable_Object=MibTable
-f3PbbFlowTable=_F3PbbFlowTable_Object((1,3,6,1,4,1,2544,1,12,21,1,3))
-if mibBuilder.loadTexts:f3PbbFlowTable.setStatus(_A)
-_F3PbbFlowEntry_Object=MibTableRow
-f3PbbFlowEntry=_F3PbbFlowEntry_Object((1,3,6,1,4,1,2544,1,12,21,1,3,1))
-if mibBuilder.loadTexts:f3PbbFlowEntry.setStatus(_A)
-_F3PbbFlowITagControl_Type=FlowTagControl
-_F3PbbFlowITagControl_Object=MibTableColumn
-f3PbbFlowITagControl=_F3PbbFlowITagControl_Object((1,3,6,1,4,1,2544,1,12,21,1,3,1,1),_F3PbbFlowITagControl_Type())
-f3PbbFlowITagControl.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbFlowITagControl.setStatus(_A)
-class _F3PbbFlowITagISID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(256,16777214))
-_F3PbbFlowITagISID_Type.__name__=_D
-_F3PbbFlowITagISID_Object=MibTableColumn
-f3PbbFlowITagISID=_F3PbbFlowITagISID_Object((1,3,6,1,4,1,2544,1,12,21,1,3,1,2),_F3PbbFlowITagISID_Type())
-f3PbbFlowITagISID.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbFlowITagISID.setStatus(_A)
-class _F3PbbFlowITagPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_F3PbbFlowITagPriority_Type.__name__=_D
-_F3PbbFlowITagPriority_Object=MibTableColumn
-f3PbbFlowITagPriority=_F3PbbFlowITagPriority_Object((1,3,6,1,4,1,2544,1,12,21,1,3,1,3),_F3PbbFlowITagPriority_Type())
-f3PbbFlowITagPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbFlowITagPriority.setStatus(_A)
-_F3PbbFlowBackboneMacDestinationEnabled_Type=TruthValue
-_F3PbbFlowBackboneMacDestinationEnabled_Object=MibTableColumn
-f3PbbFlowBackboneMacDestinationEnabled=_F3PbbFlowBackboneMacDestinationEnabled_Object((1,3,6,1,4,1,2544,1,12,21,1,3,1,4),_F3PbbFlowBackboneMacDestinationEnabled_Type())
-f3PbbFlowBackboneMacDestinationEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbFlowBackboneMacDestinationEnabled.setStatus(_A)
-_F3PbbFlowBackboneMacDestinationAddress_Type=MacAddress
-_F3PbbFlowBackboneMacDestinationAddress_Object=MibTableColumn
-f3PbbFlowBackboneMacDestinationAddress=_F3PbbFlowBackboneMacDestinationAddress_Object((1,3,6,1,4,1,2544,1,12,21,1,3,1,5),_F3PbbFlowBackboneMacDestinationAddress_Type())
-f3PbbFlowBackboneMacDestinationAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbFlowBackboneMacDestinationAddress.setStatus(_A)
-_F3PbbFlowA2NPbbCapableFlag_Type=TruthValue
-_F3PbbFlowA2NPbbCapableFlag_Object=MibTableColumn
-f3PbbFlowA2NPbbCapableFlag=_F3PbbFlowA2NPbbCapableFlag_Object((1,3,6,1,4,1,2544,1,12,21,1,3,1,6),_F3PbbFlowA2NPbbCapableFlag_Type())
-f3PbbFlowA2NPbbCapableFlag.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbFlowA2NPbbCapableFlag.setStatus(_A)
-_F3PbbIpManagementTunnelTable_Object=MibTable
-f3PbbIpManagementTunnelTable=_F3PbbIpManagementTunnelTable_Object((1,3,6,1,4,1,2544,1,12,21,1,4))
-if mibBuilder.loadTexts:f3PbbIpManagementTunnelTable.setStatus(_A)
-_F3PbbIpManagementTunnelEntry_Object=MibTableRow
-f3PbbIpManagementTunnelEntry=_F3PbbIpManagementTunnelEntry_Object((1,3,6,1,4,1,2544,1,12,21,1,4,1))
-if mibBuilder.loadTexts:f3PbbIpManagementTunnelEntry.setStatus(_A)
-_F3PbbIpManagementTunnelItagEnabled_Type=TruthValue
-_F3PbbIpManagementTunnelItagEnabled_Object=MibTableColumn
-f3PbbIpManagementTunnelItagEnabled=_F3PbbIpManagementTunnelItagEnabled_Object((1,3,6,1,4,1,2544,1,12,21,1,4,1,1),_F3PbbIpManagementTunnelItagEnabled_Type())
-f3PbbIpManagementTunnelItagEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbIpManagementTunnelItagEnabled.setStatus(_A)
-class _F3PbbIpManagementTunnelISID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(256,16777214))
-_F3PbbIpManagementTunnelISID_Type.__name__=_D
-_F3PbbIpManagementTunnelISID_Object=MibTableColumn
-f3PbbIpManagementTunnelISID=_F3PbbIpManagementTunnelISID_Object((1,3,6,1,4,1,2544,1,12,21,1,4,1,2),_F3PbbIpManagementTunnelISID_Type())
-f3PbbIpManagementTunnelISID.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbIpManagementTunnelISID.setStatus(_A)
-class _F3PbbIpManagementTunnelIPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_F3PbbIpManagementTunnelIPriority_Type.__name__=_D
-_F3PbbIpManagementTunnelIPriority_Object=MibTableColumn
-f3PbbIpManagementTunnelIPriority=_F3PbbIpManagementTunnelIPriority_Object((1,3,6,1,4,1,2544,1,12,21,1,4,1,3),_F3PbbIpManagementTunnelIPriority_Type())
-f3PbbIpManagementTunnelIPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbIpManagementTunnelIPriority.setStatus(_A)
-_F3PbbIpManagementTunnelBackboneMacDestinationEnabled_Type=TruthValue
-_F3PbbIpManagementTunnelBackboneMacDestinationEnabled_Object=MibTableColumn
-f3PbbIpManagementTunnelBackboneMacDestinationEnabled=_F3PbbIpManagementTunnelBackboneMacDestinationEnabled_Object((1,3,6,1,4,1,2544,1,12,21,1,4,1,4),_F3PbbIpManagementTunnelBackboneMacDestinationEnabled_Type())
-f3PbbIpManagementTunnelBackboneMacDestinationEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbIpManagementTunnelBackboneMacDestinationEnabled.setStatus(_A)
-_F3PbbIpManagementTunnelBackboneMacDestinationAddress_Type=MacAddress
-_F3PbbIpManagementTunnelBackboneMacDestinationAddress_Object=MibTableColumn
-f3PbbIpManagementTunnelBackboneMacDestinationAddress=_F3PbbIpManagementTunnelBackboneMacDestinationAddress_Object((1,3,6,1,4,1,2544,1,12,21,1,4,1,5),_F3PbbIpManagementTunnelBackboneMacDestinationAddress_Type())
-f3PbbIpManagementTunnelBackboneMacDestinationAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3PbbIpManagementTunnelBackboneMacDestinationAddress.setStatus(_A)
-_F3PBBPerformanceObjects_ObjectIdentity=ObjectIdentity
-f3PBBPerformanceObjects=_F3PBBPerformanceObjects_ObjectIdentity((1,3,6,1,4,1,2544,1,12,21,2))
-_F3PbbEthernetNetPortStatsTable_Object=MibTable
-f3PbbEthernetNetPortStatsTable=_F3PbbEthernetNetPortStatsTable_Object((1,3,6,1,4,1,2544,1,12,21,2,1))
-if mibBuilder.loadTexts:f3PbbEthernetNetPortStatsTable.setStatus(_A)
-_F3PbbEthernetNetPortStatsEntry_Object=MibTableRow
-f3PbbEthernetNetPortStatsEntry=_F3PbbEthernetNetPortStatsEntry_Object((1,3,6,1,4,1,2544,1,12,21,2,1,1))
-if mibBuilder.loadTexts:f3PbbEthernetNetPortStatsEntry.setStatus(_A)
-_F3PbbEthernetNetPortStatsPbbUniBdaDiscard_Type=PerfCounter64
-_F3PbbEthernetNetPortStatsPbbUniBdaDiscard_Object=MibTableColumn
-f3PbbEthernetNetPortStatsPbbUniBdaDiscard=_F3PbbEthernetNetPortStatsPbbUniBdaDiscard_Object((1,3,6,1,4,1,2544,1,12,21,2,1,1,1),_F3PbbEthernetNetPortStatsPbbUniBdaDiscard_Type())
-f3PbbEthernetNetPortStatsPbbUniBdaDiscard.setMaxAccess(_E)
-if mibBuilder.loadTexts:f3PbbEthernetNetPortStatsPbbUniBdaDiscard.setStatus(_A)
-_F3PbbEthernetNetPortStatsPbbGroupBdaDiscard_Type=PerfCounter64
-_F3PbbEthernetNetPortStatsPbbGroupBdaDiscard_Object=MibTableColumn
-f3PbbEthernetNetPortStatsPbbGroupBdaDiscard=_F3PbbEthernetNetPortStatsPbbGroupBdaDiscard_Object((1,3,6,1,4,1,2544,1,12,21,2,1,1,2),_F3PbbEthernetNetPortStatsPbbGroupBdaDiscard_Type())
-f3PbbEthernetNetPortStatsPbbGroupBdaDiscard.setMaxAccess(_E)
-if mibBuilder.loadTexts:f3PbbEthernetNetPortStatsPbbGroupBdaDiscard.setStatus(_A)
-_F3PbbEthernetNetPortHistoryStatsTable_Object=MibTable
-f3PbbEthernetNetPortHistoryStatsTable=_F3PbbEthernetNetPortHistoryStatsTable_Object((1,3,6,1,4,1,2544,1,12,21,2,2))
-if mibBuilder.loadTexts:f3PbbEthernetNetPortHistoryStatsTable.setStatus(_A)
-_F3PbbEthernetNetPortHistoryStatsEntry_Object=MibTableRow
-f3PbbEthernetNetPortHistoryStatsEntry=_F3PbbEthernetNetPortHistoryStatsEntry_Object((1,3,6,1,4,1,2544,1,12,21,2,2,1))
-if mibBuilder.loadTexts:f3PbbEthernetNetPortHistoryStatsEntry.setStatus(_A)
-_F3PbbEthernetNetPortHistoryStatsPbbUniBdaDiscard_Type=PerfCounter64
-_F3PbbEthernetNetPortHistoryStatsPbbUniBdaDiscard_Object=MibTableColumn
-f3PbbEthernetNetPortHistoryStatsPbbUniBdaDiscard=_F3PbbEthernetNetPortHistoryStatsPbbUniBdaDiscard_Object((1,3,6,1,4,1,2544,1,12,21,2,2,1,1),_F3PbbEthernetNetPortHistoryStatsPbbUniBdaDiscard_Type())
-f3PbbEthernetNetPortHistoryStatsPbbUniBdaDiscard.setMaxAccess(_E)
-if mibBuilder.loadTexts:f3PbbEthernetNetPortHistoryStatsPbbUniBdaDiscard.setStatus(_A)
-_F3PbbEthernetNetPortHistoryStatsPbbGroupBdaDiscard_Type=PerfCounter64
-_F3PbbEthernetNetPortHistoryStatsPbbGroupBdaDiscard_Object=MibTableColumn
-f3PbbEthernetNetPortHistoryStatsPbbGroupBdaDiscard=_F3PbbEthernetNetPortHistoryStatsPbbGroupBdaDiscard_Object((1,3,6,1,4,1,2544,1,12,21,2,2,1,2),_F3PbbEthernetNetPortHistoryStatsPbbGroupBdaDiscard_Type())
-f3PbbEthernetNetPortHistoryStatsPbbGroupBdaDiscard.setMaxAccess(_E)
-if mibBuilder.loadTexts:f3PbbEthernetNetPortHistoryStatsPbbGroupBdaDiscard.setStatus(_A)
-_F3PBBConformance_ObjectIdentity=ObjectIdentity
-f3PBBConformance=_F3PBBConformance_ObjectIdentity((1,3,6,1,4,1,2544,1,12,21,3))
-_F3PBBCompliances_ObjectIdentity=ObjectIdentity
-f3PBBCompliances=_F3PBBCompliances_ObjectIdentity((1,3,6,1,4,1,2544,1,12,21,3,1))
-_F3PBBGroups_ObjectIdentity=ObjectIdentity
-f3PBBGroups=_F3PBBGroups_ObjectIdentity((1,3,6,1,4,1,2544,1,12,21,3,2))
-cmEthernetAccPortEntry.registerAugmentions((_B,_F))
+#
+# PySNMP MIB module F3-PBB-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adva/F3-PBB-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:37:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+fsp150cm, = mibBuilder.importSymbols("ADVA-MIB", "fsp150cm")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+PerfCounter64, = mibBuilder.importSymbols("CM-COMMON-MIB", "PerfCounter64")
+cmEthernetNetPortEntry, FlowTagControl, cmFlowEntry, cmEthernetAccPortEntry = mibBuilder.importSymbols("CM-FACILITY-MIB", "cmEthernetNetPortEntry", "FlowTagControl", "cmFlowEntry", "cmEthernetAccPortEntry")
+ipManagementTunnelEntry, = mibBuilder.importSymbols("CM-IP-MIB", "ipManagementTunnelEntry")
+cmEthernetNetPortStatsEntry, cmEthernetNetPortHistoryEntry = mibBuilder.importSymbols("CM-PERFORMANCE-MIB", "cmEthernetNetPortStatsEntry", "cmEthernetNetPortHistoryEntry")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, VariablePointer, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "VariablePointer", "TruthValue", "TextualConvention")
+f3PBBMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21))
+f3PBBMIB.setRevisions(('2012-10-08 00:00',))
+if mibBuilder.loadTexts: f3PBBMIB.setLastUpdated('201210080000Z')
+if mibBuilder.loadTexts: f3PBBMIB.setOrganization('ADVA Optical Networking')
+f3PBBConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1))
+f3PBBPerformanceObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 2))
+f3PBBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 3))
+f3PbbEthernetAccPortTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 1), )
+if mibBuilder.loadTexts: f3PbbEthernetAccPortTable.setStatus('current')
+f3PbbEthernetAccPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 1, 1), )
+cmEthernetAccPortEntry.registerAugmentions(("F3-PBB-MIB", "f3PbbEthernetAccPortEntry"))
 f3PbbEthernetAccPortEntry.setIndexNames(*cmEthernetAccPortEntry.getIndexNames())
-cmEthernetNetPortEntry.registerAugmentions((_B,_G))
+if mibBuilder.loadTexts: f3PbbEthernetAccPortEntry.setStatus('current')
+f3PbbEthernetAccPortITagLoopbackMask = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbEthernetAccPortITagLoopbackMask.setStatus('current')
+f3PbbEthernetAccPortITagLoopback1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 1, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbEthernetAccPortITagLoopback1.setStatus('current')
+f3PbbEthernetAccPortITagLoopback2 = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbEthernetAccPortITagLoopback2.setStatus('current')
+f3PbbEthernetAccPortITagLoopback3 = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbEthernetAccPortITagLoopback3.setStatus('current')
+f3PbbEthernetNetPortTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 2), )
+if mibBuilder.loadTexts: f3PbbEthernetNetPortTable.setStatus('current')
+f3PbbEthernetNetPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 2, 1), )
+cmEthernetNetPortEntry.registerAugmentions(("F3-PBB-MIB", "f3PbbEthernetNetPortEntry"))
 f3PbbEthernetNetPortEntry.setIndexNames(*cmEthernetNetPortEntry.getIndexNames())
-cmFlowEntry.registerAugmentions((_B,_H))
+if mibBuilder.loadTexts: f3PbbEthernetNetPortEntry.setStatus('current')
+f3PbbEthernetNetPortBackboneMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 2, 1, 1), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbEthernetNetPortBackboneMacAddress.setStatus('current')
+f3PbbEthernetNetPortITagLoopbackMask = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 2, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbEthernetNetPortITagLoopbackMask.setStatus('current')
+f3PbbEthernetNetPortITagLoopback1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 2, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbEthernetNetPortITagLoopback1.setStatus('current')
+f3PbbEthernetNetPortITagLoopback2 = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 2, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbEthernetNetPortITagLoopback2.setStatus('current')
+f3PbbEthernetNetPortITagLoopback3 = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 2, 1, 5), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbEthernetNetPortITagLoopback3.setStatus('current')
+f3PbbFlowTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 3), )
+if mibBuilder.loadTexts: f3PbbFlowTable.setStatus('current')
+f3PbbFlowEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 3, 1), )
+cmFlowEntry.registerAugmentions(("F3-PBB-MIB", "f3PbbFlowEntry"))
 f3PbbFlowEntry.setIndexNames(*cmFlowEntry.getIndexNames())
-ipManagementTunnelEntry.registerAugmentions((_B,_I))
+if mibBuilder.loadTexts: f3PbbFlowEntry.setStatus('current')
+f3PbbFlowITagControl = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 3, 1, 1), FlowTagControl()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbFlowITagControl.setStatus('current')
+f3PbbFlowITagISID = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(256, 16777214))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbFlowITagISID.setStatus('current')
+f3PbbFlowITagPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbFlowITagPriority.setStatus('current')
+f3PbbFlowBackboneMacDestinationEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 3, 1, 4), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbFlowBackboneMacDestinationEnabled.setStatus('current')
+f3PbbFlowBackboneMacDestinationAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 3, 1, 5), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbFlowBackboneMacDestinationAddress.setStatus('current')
+f3PbbFlowA2NPbbCapableFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 3, 1, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbFlowA2NPbbCapableFlag.setStatus('current')
+f3PbbIpManagementTunnelTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 4), )
+if mibBuilder.loadTexts: f3PbbIpManagementTunnelTable.setStatus('current')
+f3PbbIpManagementTunnelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 4, 1), )
+ipManagementTunnelEntry.registerAugmentions(("F3-PBB-MIB", "f3PbbIpManagementTunnelEntry"))
 f3PbbIpManagementTunnelEntry.setIndexNames(*ipManagementTunnelEntry.getIndexNames())
-cmEthernetNetPortStatsEntry.registerAugmentions((_B,_J))
+if mibBuilder.loadTexts: f3PbbIpManagementTunnelEntry.setStatus('current')
+f3PbbIpManagementTunnelItagEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 4, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbIpManagementTunnelItagEnabled.setStatus('current')
+f3PbbIpManagementTunnelISID = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(256, 16777214))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbIpManagementTunnelISID.setStatus('current')
+f3PbbIpManagementTunnelIPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbIpManagementTunnelIPriority.setStatus('current')
+f3PbbIpManagementTunnelBackboneMacDestinationEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 4, 1, 4), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbIpManagementTunnelBackboneMacDestinationEnabled.setStatus('current')
+f3PbbIpManagementTunnelBackboneMacDestinationAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 1, 4, 1, 5), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3PbbIpManagementTunnelBackboneMacDestinationAddress.setStatus('current')
+f3PbbEthernetNetPortStatsTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 2, 1), )
+if mibBuilder.loadTexts: f3PbbEthernetNetPortStatsTable.setStatus('current')
+f3PbbEthernetNetPortStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 2, 1, 1), )
+cmEthernetNetPortStatsEntry.registerAugmentions(("F3-PBB-MIB", "f3PbbEthernetNetPortStatsEntry"))
 f3PbbEthernetNetPortStatsEntry.setIndexNames(*cmEthernetNetPortStatsEntry.getIndexNames())
-cmEthernetNetPortHistoryEntry.registerAugmentions((_B,_K))
+if mibBuilder.loadTexts: f3PbbEthernetNetPortStatsEntry.setStatus('current')
+f3PbbEthernetNetPortStatsPbbUniBdaDiscard = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 2, 1, 1, 1), PerfCounter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3PbbEthernetNetPortStatsPbbUniBdaDiscard.setStatus('current')
+f3PbbEthernetNetPortStatsPbbGroupBdaDiscard = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 2, 1, 1, 2), PerfCounter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3PbbEthernetNetPortStatsPbbGroupBdaDiscard.setStatus('current')
+f3PbbEthernetNetPortHistoryStatsTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 2, 2), )
+if mibBuilder.loadTexts: f3PbbEthernetNetPortHistoryStatsTable.setStatus('current')
+f3PbbEthernetNetPortHistoryStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 2, 2, 1), )
+cmEthernetNetPortHistoryEntry.registerAugmentions(("F3-PBB-MIB", "f3PbbEthernetNetPortHistoryStatsEntry"))
 f3PbbEthernetNetPortHistoryStatsEntry.setIndexNames(*cmEthernetNetPortHistoryEntry.getIndexNames())
-f3PbbConfigGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,21,3,2,1))
-f3PbbConfigGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e)))
-if mibBuilder.loadTexts:f3PbbConfigGroup.setStatus(_A)
-f3PbbStatsGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,21,3,2,2))
-f3PbbStatsGroup.setObjects(*((_B,_f),(_B,_g),(_B,_h),(_B,_i)))
-if mibBuilder.loadTexts:f3PbbStatsGroup.setStatus(_A)
-f3PBBCompliance=ModuleCompliance((1,3,6,1,4,1,2544,1,12,21,3,1,1))
-f3PBBCompliance.setObjects(*((_B,_j),(_B,_k)))
-if mibBuilder.loadTexts:f3PBBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'f3PBBMIB':f3PBBMIB,'f3PBBConfigObjects':f3PBBConfigObjects,'f3PbbEthernetAccPortTable':f3PbbEthernetAccPortTable,_F:f3PbbEthernetAccPortEntry,_L:f3PbbEthernetAccPortITagLoopbackMask,_M:f3PbbEthernetAccPortITagLoopback1,_N:f3PbbEthernetAccPortITagLoopback2,_O:f3PbbEthernetAccPortITagLoopback3,'f3PbbEthernetNetPortTable':f3PbbEthernetNetPortTable,_G:f3PbbEthernetNetPortEntry,_P:f3PbbEthernetNetPortBackboneMacAddress,_Q:f3PbbEthernetNetPortITagLoopbackMask,_R:f3PbbEthernetNetPortITagLoopback1,_S:f3PbbEthernetNetPortITagLoopback2,_T:f3PbbEthernetNetPortITagLoopback3,'f3PbbFlowTable':f3PbbFlowTable,_H:f3PbbFlowEntry,_U:f3PbbFlowITagControl,_V:f3PbbFlowITagISID,_W:f3PbbFlowITagPriority,_X:f3PbbFlowBackboneMacDestinationEnabled,_Y:f3PbbFlowBackboneMacDestinationAddress,_Z:f3PbbFlowA2NPbbCapableFlag,'f3PbbIpManagementTunnelTable':f3PbbIpManagementTunnelTable,_I:f3PbbIpManagementTunnelEntry,_a:f3PbbIpManagementTunnelItagEnabled,_b:f3PbbIpManagementTunnelISID,_c:f3PbbIpManagementTunnelIPriority,_d:f3PbbIpManagementTunnelBackboneMacDestinationEnabled,_e:f3PbbIpManagementTunnelBackboneMacDestinationAddress,'f3PBBPerformanceObjects':f3PBBPerformanceObjects,'f3PbbEthernetNetPortStatsTable':f3PbbEthernetNetPortStatsTable,_J:f3PbbEthernetNetPortStatsEntry,_f:f3PbbEthernetNetPortStatsPbbUniBdaDiscard,_g:f3PbbEthernetNetPortStatsPbbGroupBdaDiscard,'f3PbbEthernetNetPortHistoryStatsTable':f3PbbEthernetNetPortHistoryStatsTable,_K:f3PbbEthernetNetPortHistoryStatsEntry,_h:f3PbbEthernetNetPortHistoryStatsPbbUniBdaDiscard,_i:f3PbbEthernetNetPortHistoryStatsPbbGroupBdaDiscard,'f3PBBConformance':f3PBBConformance,'f3PBBCompliances':f3PBBCompliances,'f3PBBCompliance':f3PBBCompliance,'f3PBBGroups':f3PBBGroups,_j:f3PbbConfigGroup,_k:f3PbbStatsGroup})
+if mibBuilder.loadTexts: f3PbbEthernetNetPortHistoryStatsEntry.setStatus('current')
+f3PbbEthernetNetPortHistoryStatsPbbUniBdaDiscard = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 2, 2, 1, 1), PerfCounter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3PbbEthernetNetPortHistoryStatsPbbUniBdaDiscard.setStatus('current')
+f3PbbEthernetNetPortHistoryStatsPbbGroupBdaDiscard = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 2, 2, 1, 2), PerfCounter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3PbbEthernetNetPortHistoryStatsPbbGroupBdaDiscard.setStatus('current')
+f3PBBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 3, 1))
+f3PBBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 3, 2))
+f3PBBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 3, 1, 1)).setObjects(("F3-PBB-MIB", "f3PbbConfigGroup"), ("F3-PBB-MIB", "f3PbbStatsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    f3PBBCompliance = f3PBBCompliance.setStatus('current')
+f3PbbConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 3, 2, 1)).setObjects(("F3-PBB-MIB", "f3PbbEthernetAccPortITagLoopbackMask"), ("F3-PBB-MIB", "f3PbbEthernetAccPortITagLoopback1"), ("F3-PBB-MIB", "f3PbbEthernetAccPortITagLoopback2"), ("F3-PBB-MIB", "f3PbbEthernetAccPortITagLoopback3"), ("F3-PBB-MIB", "f3PbbEthernetNetPortBackboneMacAddress"), ("F3-PBB-MIB", "f3PbbEthernetNetPortITagLoopbackMask"), ("F3-PBB-MIB", "f3PbbEthernetNetPortITagLoopback1"), ("F3-PBB-MIB", "f3PbbEthernetNetPortITagLoopback2"), ("F3-PBB-MIB", "f3PbbEthernetNetPortITagLoopback3"), ("F3-PBB-MIB", "f3PbbFlowITagControl"), ("F3-PBB-MIB", "f3PbbFlowITagISID"), ("F3-PBB-MIB", "f3PbbFlowITagPriority"), ("F3-PBB-MIB", "f3PbbFlowBackboneMacDestinationEnabled"), ("F3-PBB-MIB", "f3PbbFlowBackboneMacDestinationAddress"), ("F3-PBB-MIB", "f3PbbFlowA2NPbbCapableFlag"), ("F3-PBB-MIB", "f3PbbIpManagementTunnelItagEnabled"), ("F3-PBB-MIB", "f3PbbIpManagementTunnelISID"), ("F3-PBB-MIB", "f3PbbIpManagementTunnelIPriority"), ("F3-PBB-MIB", "f3PbbIpManagementTunnelBackboneMacDestinationEnabled"), ("F3-PBB-MIB", "f3PbbIpManagementTunnelBackboneMacDestinationAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    f3PbbConfigGroup = f3PbbConfigGroup.setStatus('current')
+f3PbbStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 21, 3, 2, 2)).setObjects(("F3-PBB-MIB", "f3PbbEthernetNetPortStatsPbbUniBdaDiscard"), ("F3-PBB-MIB", "f3PbbEthernetNetPortStatsPbbGroupBdaDiscard"), ("F3-PBB-MIB", "f3PbbEthernetNetPortHistoryStatsPbbUniBdaDiscard"), ("F3-PBB-MIB", "f3PbbEthernetNetPortHistoryStatsPbbGroupBdaDiscard"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    f3PbbStatsGroup = f3PbbStatsGroup.setStatus('current')
+mibBuilder.exportSymbols("F3-PBB-MIB", f3PbbEthernetNetPortITagLoopback2=f3PbbEthernetNetPortITagLoopback2, f3PbbFlowITagISID=f3PbbFlowITagISID, f3PbbFlowA2NPbbCapableFlag=f3PbbFlowA2NPbbCapableFlag, f3PbbIpManagementTunnelIPriority=f3PbbIpManagementTunnelIPriority, f3PbbEthernetNetPortStatsEntry=f3PbbEthernetNetPortStatsEntry, f3PbbEthernetNetPortHistoryStatsEntry=f3PbbEthernetNetPortHistoryStatsEntry, f3PbbEthernetAccPortITagLoopback2=f3PbbEthernetAccPortITagLoopback2, f3PbbEthernetNetPortBackboneMacAddress=f3PbbEthernetNetPortBackboneMacAddress, f3PBBCompliance=f3PBBCompliance, f3PBBConformance=f3PBBConformance, f3PbbEthernetNetPortStatsTable=f3PbbEthernetNetPortStatsTable, f3PBBMIB=f3PBBMIB, f3PbbIpManagementTunnelISID=f3PbbIpManagementTunnelISID, f3PbbEthernetNetPortStatsPbbUniBdaDiscard=f3PbbEthernetNetPortStatsPbbUniBdaDiscard, f3PbbIpManagementTunnelItagEnabled=f3PbbIpManagementTunnelItagEnabled, f3PbbEthernetNetPortHistoryStatsTable=f3PbbEthernetNetPortHistoryStatsTable, f3PbbEthernetAccPortITagLoopbackMask=f3PbbEthernetAccPortITagLoopbackMask, f3PbbEthernetAccPortEntry=f3PbbEthernetAccPortEntry, f3PbbFlowITagPriority=f3PbbFlowITagPriority, f3PbbFlowBackboneMacDestinationEnabled=f3PbbFlowBackboneMacDestinationEnabled, f3PbbEthernetNetPortTable=f3PbbEthernetNetPortTable, f3PBBConfigObjects=f3PBBConfigObjects, f3PbbIpManagementTunnelEntry=f3PbbIpManagementTunnelEntry, PYSNMP_MODULE_ID=f3PBBMIB, f3PbbFlowEntry=f3PbbFlowEntry, f3PBBGroups=f3PBBGroups, f3PBBCompliances=f3PBBCompliances, f3PbbConfigGroup=f3PbbConfigGroup, f3PBBPerformanceObjects=f3PBBPerformanceObjects, f3PbbStatsGroup=f3PbbStatsGroup, f3PbbFlowITagControl=f3PbbFlowITagControl, f3PbbEthernetNetPortITagLoopbackMask=f3PbbEthernetNetPortITagLoopbackMask, f3PbbIpManagementTunnelBackboneMacDestinationEnabled=f3PbbIpManagementTunnelBackboneMacDestinationEnabled, f3PbbEthernetNetPortHistoryStatsPbbGroupBdaDiscard=f3PbbEthernetNetPortHistoryStatsPbbGroupBdaDiscard, f3PbbIpManagementTunnelTable=f3PbbIpManagementTunnelTable, f3PbbFlowBackboneMacDestinationAddress=f3PbbFlowBackboneMacDestinationAddress, f3PbbEthernetNetPortStatsPbbGroupBdaDiscard=f3PbbEthernetNetPortStatsPbbGroupBdaDiscard, f3PbbEthernetAccPortITagLoopback3=f3PbbEthernetAccPortITagLoopback3, f3PbbEthernetAccPortTable=f3PbbEthernetAccPortTable, f3PbbEthernetNetPortITagLoopback1=f3PbbEthernetNetPortITagLoopback1, f3PbbIpManagementTunnelBackboneMacDestinationAddress=f3PbbIpManagementTunnelBackboneMacDestinationAddress, f3PbbEthernetNetPortEntry=f3PbbEthernetNetPortEntry, f3PbbEthernetNetPortHistoryStatsPbbUniBdaDiscard=f3PbbEthernetNetPortHistoryStatsPbbUniBdaDiscard, f3PbbEthernetNetPortITagLoopback3=f3PbbEthernetNetPortITagLoopback3, f3PbbFlowTable=f3PbbFlowTable, f3PbbEthernetAccPortITagLoopback1=f3PbbEthernetAccPortITagLoopback1)

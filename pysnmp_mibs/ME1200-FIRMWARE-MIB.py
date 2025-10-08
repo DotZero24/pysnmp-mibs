@@ -1,198 +1,107 @@
-_e='me1200FirmwareControlImageUploadInfoGroup'
-_d='me1200FirmwareControlGlobalsInfoGroup'
-_c='me1200FirmwareStatusSwitchTableInfoGroup'
-_b='me1200FirmwareStatusImageUploadInfoGroup'
-_a='me1200FirmwareStatusImageTableInfoGroup'
-_Z='me1200FirmwareControlImageUploadUrl'
-_Y='me1200FirmwareControlImageUploadImageType'
-_X='me1200FirmwareControlImageUploadDoUpload'
-_W='me1200FirmwareControlGlobalsSwapFirmware'
-_V='me1200FirmwareStatusSwitchBuiltDate'
-_U='me1200FirmwareStatusSwitchVersion'
-_T='me1200FirmwareStatusSwitchProduct'
-_S='me1200FirmwareStatusSwitchPortCnt'
-_R='me1200FirmwareStatusSwitchBoardType'
-_Q='me1200FirmwareStatusSwitchChipId'
-_P='me1200FirmwareStatusImageUploadStatus'
-_O='me1200FirmwareStatusImageCodeRevision'
-_N='me1200FirmwareStatusImageBuiltDate'
-_M='me1200FirmwareStatusImageVersion'
-_L='me1200FirmwareStatusImageName'
-_K='me1200FirmwareStatusImageType'
-_J='me1200FirmwareStatusSwitchSwitchId'
-_I='not-accessible'
-_H='me1200FirmwareStatusImageNumber'
-_G='bootloader'
-_F='Integer32'
-_E='read-write'
-_D='ME1200DisplayString'
-_C='read-only'
-_B='ME1200-FIRMWARE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-me1200SwitchMgmt,=mibBuilder.importSymbols('CISCOME1200-MIB','me1200SwitchMgmt')
-ME1200DisplayString,=mibBuilder.importSymbols('ME1200-TC',_D)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-me1200FirmwareMIB=ModuleIdentity((1,3,6,1,4,1,9,9,815,1,28))
-if mibBuilder.loadTexts:me1200FirmwareMIB.setRevisions(('2014-12-16 00:00','2014-02-18 00:00','2014-01-29 00:00','2014-01-20 00:00'))
-class ME1200StatusImageType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_G,0),('activeFirmware',1),('alternativeFirmware',2)))
-class ME1200UploadImageType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),('firmware',1)))
-class ME1200UploadStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)));namedValues=NamedValues(*(('none',0),('success',1),('inProgress',2),('errIvalidIp',3),('errTftpFailed',4),('errBusy',5),('errMemoryInsufficient',6),('errInvalidImage',7),('errWriteFlash',8),('errSameImageExisted',9),('errUnknownImage',10),('errFlashImageNotFound',11),('errFlashEntryNotFound',12),('errCrc',13),('errImageSize',14),('errEraseFlash',15),('errIncorrectImageVersion',16),('errDownloadUrl',17),('errInvalidUrl',18)))
-_Me1200FirmwareMIBObjects_ObjectIdentity=ObjectIdentity
-me1200FirmwareMIBObjects=_Me1200FirmwareMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,28,1))
-_Me1200FirmwareStatus_ObjectIdentity=ObjectIdentity
-me1200FirmwareStatus=_Me1200FirmwareStatus_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,28,1,3))
-_Me1200FirmwareStatusImageTable_Object=MibTable
-me1200FirmwareStatusImageTable=_Me1200FirmwareStatusImageTable_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,1))
-if mibBuilder.loadTexts:me1200FirmwareStatusImageTable.setStatus(_A)
-_Me1200FirmwareStatusImageEntry_Object=MibTableRow
-me1200FirmwareStatusImageEntry=_Me1200FirmwareStatusImageEntry_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,1,1))
-me1200FirmwareStatusImageEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:me1200FirmwareStatusImageEntry.setStatus(_A)
-class _Me1200FirmwareStatusImageNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
-_Me1200FirmwareStatusImageNumber_Type.__name__=_F
-_Me1200FirmwareStatusImageNumber_Object=MibTableColumn
-me1200FirmwareStatusImageNumber=_Me1200FirmwareStatusImageNumber_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,1,1,1),_Me1200FirmwareStatusImageNumber_Type())
-me1200FirmwareStatusImageNumber.setMaxAccess(_I)
-if mibBuilder.loadTexts:me1200FirmwareStatusImageNumber.setStatus(_A)
-_Me1200FirmwareStatusImageType_Type=ME1200StatusImageType
-_Me1200FirmwareStatusImageType_Object=MibTableColumn
-me1200FirmwareStatusImageType=_Me1200FirmwareStatusImageType_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,1,1,2),_Me1200FirmwareStatusImageType_Type())
-me1200FirmwareStatusImageType.setMaxAccess(_C)
-if mibBuilder.loadTexts:me1200FirmwareStatusImageType.setStatus(_A)
-class _Me1200FirmwareStatusImageName_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_Me1200FirmwareStatusImageName_Type.__name__=_D
-_Me1200FirmwareStatusImageName_Object=MibTableColumn
-me1200FirmwareStatusImageName=_Me1200FirmwareStatusImageName_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,1,1,3),_Me1200FirmwareStatusImageName_Type())
-me1200FirmwareStatusImageName.setMaxAccess(_C)
-if mibBuilder.loadTexts:me1200FirmwareStatusImageName.setStatus(_A)
-class _Me1200FirmwareStatusImageVersion_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_Me1200FirmwareStatusImageVersion_Type.__name__=_D
-_Me1200FirmwareStatusImageVersion_Object=MibTableColumn
-me1200FirmwareStatusImageVersion=_Me1200FirmwareStatusImageVersion_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,1,1,4),_Me1200FirmwareStatusImageVersion_Type())
-me1200FirmwareStatusImageVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:me1200FirmwareStatusImageVersion.setStatus(_A)
-class _Me1200FirmwareStatusImageBuiltDate_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_Me1200FirmwareStatusImageBuiltDate_Type.__name__=_D
-_Me1200FirmwareStatusImageBuiltDate_Object=MibTableColumn
-me1200FirmwareStatusImageBuiltDate=_Me1200FirmwareStatusImageBuiltDate_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,1,1,5),_Me1200FirmwareStatusImageBuiltDate_Type())
-me1200FirmwareStatusImageBuiltDate.setMaxAccess(_C)
-if mibBuilder.loadTexts:me1200FirmwareStatusImageBuiltDate.setStatus(_A)
-class _Me1200FirmwareStatusImageCodeRevision_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_Me1200FirmwareStatusImageCodeRevision_Type.__name__=_D
-_Me1200FirmwareStatusImageCodeRevision_Object=MibTableColumn
-me1200FirmwareStatusImageCodeRevision=_Me1200FirmwareStatusImageCodeRevision_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,1,1,6),_Me1200FirmwareStatusImageCodeRevision_Type())
-me1200FirmwareStatusImageCodeRevision.setMaxAccess(_C)
-if mibBuilder.loadTexts:me1200FirmwareStatusImageCodeRevision.setStatus(_A)
-_Me1200FirmwareStatusImageUpload_ObjectIdentity=ObjectIdentity
-me1200FirmwareStatusImageUpload=_Me1200FirmwareStatusImageUpload_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,28,1,3,2))
-_Me1200FirmwareStatusImageUploadStatus_Type=ME1200UploadStatus
-_Me1200FirmwareStatusImageUploadStatus_Object=MibScalar
-me1200FirmwareStatusImageUploadStatus=_Me1200FirmwareStatusImageUploadStatus_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,2,1),_Me1200FirmwareStatusImageUploadStatus_Type())
-me1200FirmwareStatusImageUploadStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:me1200FirmwareStatusImageUploadStatus.setStatus(_A)
-_Me1200FirmwareStatusSwitchTable_Object=MibTable
-me1200FirmwareStatusSwitchTable=_Me1200FirmwareStatusSwitchTable_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,3))
-if mibBuilder.loadTexts:me1200FirmwareStatusSwitchTable.setStatus(_A)
-_Me1200FirmwareStatusSwitchEntry_Object=MibTableRow
-me1200FirmwareStatusSwitchEntry=_Me1200FirmwareStatusSwitchEntry_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,3,1))
-me1200FirmwareStatusSwitchEntry.setIndexNames((0,_B,_J))
-if mibBuilder.loadTexts:me1200FirmwareStatusSwitchEntry.setStatus(_A)
-class _Me1200FirmwareStatusSwitchSwitchId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_Me1200FirmwareStatusSwitchSwitchId_Type.__name__=_F
-_Me1200FirmwareStatusSwitchSwitchId_Object=MibTableColumn
-me1200FirmwareStatusSwitchSwitchId=_Me1200FirmwareStatusSwitchSwitchId_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,3,1,1),_Me1200FirmwareStatusSwitchSwitchId_Type())
-me1200FirmwareStatusSwitchSwitchId.setMaxAccess(_I)
-if mibBuilder.loadTexts:me1200FirmwareStatusSwitchSwitchId.setStatus(_A)
-class _Me1200FirmwareStatusSwitchChipId_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_Me1200FirmwareStatusSwitchChipId_Type.__name__=_D
-_Me1200FirmwareStatusSwitchChipId_Object=MibTableColumn
-me1200FirmwareStatusSwitchChipId=_Me1200FirmwareStatusSwitchChipId_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,3,1,2),_Me1200FirmwareStatusSwitchChipId_Type())
-me1200FirmwareStatusSwitchChipId.setMaxAccess(_C)
-if mibBuilder.loadTexts:me1200FirmwareStatusSwitchChipId.setStatus(_A)
-class _Me1200FirmwareStatusSwitchBoardType_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_Me1200FirmwareStatusSwitchBoardType_Type.__name__=_D
-_Me1200FirmwareStatusSwitchBoardType_Object=MibTableColumn
-me1200FirmwareStatusSwitchBoardType=_Me1200FirmwareStatusSwitchBoardType_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,3,1,3),_Me1200FirmwareStatusSwitchBoardType_Type())
-me1200FirmwareStatusSwitchBoardType.setMaxAccess(_C)
-if mibBuilder.loadTexts:me1200FirmwareStatusSwitchBoardType.setStatus(_A)
-_Me1200FirmwareStatusSwitchPortCnt_Type=Unsigned32
-_Me1200FirmwareStatusSwitchPortCnt_Object=MibTableColumn
-me1200FirmwareStatusSwitchPortCnt=_Me1200FirmwareStatusSwitchPortCnt_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,3,1,4),_Me1200FirmwareStatusSwitchPortCnt_Type())
-me1200FirmwareStatusSwitchPortCnt.setMaxAccess(_C)
-if mibBuilder.loadTexts:me1200FirmwareStatusSwitchPortCnt.setStatus(_A)
-class _Me1200FirmwareStatusSwitchProduct_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_Me1200FirmwareStatusSwitchProduct_Type.__name__=_D
-_Me1200FirmwareStatusSwitchProduct_Object=MibTableColumn
-me1200FirmwareStatusSwitchProduct=_Me1200FirmwareStatusSwitchProduct_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,3,1,5),_Me1200FirmwareStatusSwitchProduct_Type())
-me1200FirmwareStatusSwitchProduct.setMaxAccess(_C)
-if mibBuilder.loadTexts:me1200FirmwareStatusSwitchProduct.setStatus(_A)
-class _Me1200FirmwareStatusSwitchVersion_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_Me1200FirmwareStatusSwitchVersion_Type.__name__=_D
-_Me1200FirmwareStatusSwitchVersion_Object=MibTableColumn
-me1200FirmwareStatusSwitchVersion=_Me1200FirmwareStatusSwitchVersion_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,3,1,6),_Me1200FirmwareStatusSwitchVersion_Type())
-me1200FirmwareStatusSwitchVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:me1200FirmwareStatusSwitchVersion.setStatus(_A)
-class _Me1200FirmwareStatusSwitchBuiltDate_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_Me1200FirmwareStatusSwitchBuiltDate_Type.__name__=_D
-_Me1200FirmwareStatusSwitchBuiltDate_Object=MibTableColumn
-me1200FirmwareStatusSwitchBuiltDate=_Me1200FirmwareStatusSwitchBuiltDate_Object((1,3,6,1,4,1,9,9,815,1,28,1,3,3,1,7),_Me1200FirmwareStatusSwitchBuiltDate_Type())
-me1200FirmwareStatusSwitchBuiltDate.setMaxAccess(_C)
-if mibBuilder.loadTexts:me1200FirmwareStatusSwitchBuiltDate.setStatus(_A)
-_Me1200FirmwareControl_ObjectIdentity=ObjectIdentity
-me1200FirmwareControl=_Me1200FirmwareControl_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,28,1,4))
-_Me1200FirmwareControlGlobals_ObjectIdentity=ObjectIdentity
-me1200FirmwareControlGlobals=_Me1200FirmwareControlGlobals_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,28,1,4,1))
-_Me1200FirmwareControlGlobalsSwapFirmware_Type=TruthValue
-_Me1200FirmwareControlGlobalsSwapFirmware_Object=MibScalar
-me1200FirmwareControlGlobalsSwapFirmware=_Me1200FirmwareControlGlobalsSwapFirmware_Object((1,3,6,1,4,1,9,9,815,1,28,1,4,1,1),_Me1200FirmwareControlGlobalsSwapFirmware_Type())
-me1200FirmwareControlGlobalsSwapFirmware.setMaxAccess(_E)
-if mibBuilder.loadTexts:me1200FirmwareControlGlobalsSwapFirmware.setStatus(_A)
-_Me1200FirmwareControlImageUpload_ObjectIdentity=ObjectIdentity
-me1200FirmwareControlImageUpload=_Me1200FirmwareControlImageUpload_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,28,1,4,2))
-_Me1200FirmwareControlImageUploadDoUpload_Type=TruthValue
-_Me1200FirmwareControlImageUploadDoUpload_Object=MibScalar
-me1200FirmwareControlImageUploadDoUpload=_Me1200FirmwareControlImageUploadDoUpload_Object((1,3,6,1,4,1,9,9,815,1,28,1,4,2,1),_Me1200FirmwareControlImageUploadDoUpload_Type())
-me1200FirmwareControlImageUploadDoUpload.setMaxAccess(_E)
-if mibBuilder.loadTexts:me1200FirmwareControlImageUploadDoUpload.setStatus(_A)
-_Me1200FirmwareControlImageUploadImageType_Type=ME1200UploadImageType
-_Me1200FirmwareControlImageUploadImageType_Object=MibScalar
-me1200FirmwareControlImageUploadImageType=_Me1200FirmwareControlImageUploadImageType_Object((1,3,6,1,4,1,9,9,815,1,28,1,4,2,2),_Me1200FirmwareControlImageUploadImageType_Type())
-me1200FirmwareControlImageUploadImageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:me1200FirmwareControlImageUploadImageType.setStatus(_A)
-class _Me1200FirmwareControlImageUploadUrl_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_Me1200FirmwareControlImageUploadUrl_Type.__name__=_D
-_Me1200FirmwareControlImageUploadUrl_Object=MibScalar
-me1200FirmwareControlImageUploadUrl=_Me1200FirmwareControlImageUploadUrl_Object((1,3,6,1,4,1,9,9,815,1,28,1,4,2,3),_Me1200FirmwareControlImageUploadUrl_Type())
-me1200FirmwareControlImageUploadUrl.setMaxAccess(_E)
-if mibBuilder.loadTexts:me1200FirmwareControlImageUploadUrl.setStatus(_A)
-_Me1200FirmwareMIBConformance_ObjectIdentity=ObjectIdentity
-me1200FirmwareMIBConformance=_Me1200FirmwareMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,28,2))
-_Me1200FirmwareMIBCompliances_ObjectIdentity=ObjectIdentity
-me1200FirmwareMIBCompliances=_Me1200FirmwareMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,28,2,1))
-_Me1200FirmwareMIBGroups_ObjectIdentity=ObjectIdentity
-me1200FirmwareMIBGroups=_Me1200FirmwareMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,28,2,2))
-me1200FirmwareStatusImageTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,28,2,2,1))
-me1200FirmwareStatusImageTableInfoGroup.setObjects(*((_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:me1200FirmwareStatusImageTableInfoGroup.setStatus(_A)
-me1200FirmwareStatusImageUploadInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,28,2,2,2))
-me1200FirmwareStatusImageUploadInfoGroup.setObjects((_B,_P))
-if mibBuilder.loadTexts:me1200FirmwareStatusImageUploadInfoGroup.setStatus(_A)
-me1200FirmwareStatusSwitchTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,28,2,2,3))
-me1200FirmwareStatusSwitchTableInfoGroup.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:me1200FirmwareStatusSwitchTableInfoGroup.setStatus(_A)
-me1200FirmwareControlGlobalsInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,28,2,2,4))
-me1200FirmwareControlGlobalsInfoGroup.setObjects((_B,_W))
-if mibBuilder.loadTexts:me1200FirmwareControlGlobalsInfoGroup.setStatus(_A)
-me1200FirmwareControlImageUploadInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,28,2,2,5))
-me1200FirmwareControlImageUploadInfoGroup.setObjects(*((_B,_X),(_B,_Y),(_B,_Z)))
-if mibBuilder.loadTexts:me1200FirmwareControlImageUploadInfoGroup.setStatus(_A)
-me1200FirmwareMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,815,1,28,2,1,1))
-me1200FirmwareMIBCompliance.setObjects(*((_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e)))
-if mibBuilder.loadTexts:me1200FirmwareMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ME1200StatusImageType':ME1200StatusImageType,'ME1200UploadImageType':ME1200UploadImageType,'ME1200UploadStatus':ME1200UploadStatus,'me1200FirmwareMIB':me1200FirmwareMIB,'me1200FirmwareMIBObjects':me1200FirmwareMIBObjects,'me1200FirmwareStatus':me1200FirmwareStatus,'me1200FirmwareStatusImageTable':me1200FirmwareStatusImageTable,'me1200FirmwareStatusImageEntry':me1200FirmwareStatusImageEntry,_H:me1200FirmwareStatusImageNumber,_K:me1200FirmwareStatusImageType,_L:me1200FirmwareStatusImageName,_M:me1200FirmwareStatusImageVersion,_N:me1200FirmwareStatusImageBuiltDate,_O:me1200FirmwareStatusImageCodeRevision,'me1200FirmwareStatusImageUpload':me1200FirmwareStatusImageUpload,_P:me1200FirmwareStatusImageUploadStatus,'me1200FirmwareStatusSwitchTable':me1200FirmwareStatusSwitchTable,'me1200FirmwareStatusSwitchEntry':me1200FirmwareStatusSwitchEntry,_J:me1200FirmwareStatusSwitchSwitchId,_Q:me1200FirmwareStatusSwitchChipId,_R:me1200FirmwareStatusSwitchBoardType,_S:me1200FirmwareStatusSwitchPortCnt,_T:me1200FirmwareStatusSwitchProduct,_U:me1200FirmwareStatusSwitchVersion,_V:me1200FirmwareStatusSwitchBuiltDate,'me1200FirmwareControl':me1200FirmwareControl,'me1200FirmwareControlGlobals':me1200FirmwareControlGlobals,_W:me1200FirmwareControlGlobalsSwapFirmware,'me1200FirmwareControlImageUpload':me1200FirmwareControlImageUpload,_X:me1200FirmwareControlImageUploadDoUpload,_Y:me1200FirmwareControlImageUploadImageType,_Z:me1200FirmwareControlImageUploadUrl,'me1200FirmwareMIBConformance':me1200FirmwareMIBConformance,'me1200FirmwareMIBCompliances':me1200FirmwareMIBCompliances,'me1200FirmwareMIBCompliance':me1200FirmwareMIBCompliance,'me1200FirmwareMIBGroups':me1200FirmwareMIBGroups,_a:me1200FirmwareStatusImageTableInfoGroup,_b:me1200FirmwareStatusImageUploadInfoGroup,_c:me1200FirmwareStatusSwitchTableInfoGroup,_d:me1200FirmwareControlGlobalsInfoGroup,_e:me1200FirmwareControlImageUploadInfoGroup})
+#
+# PySNMP MIB module ME1200-FIRMWARE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/ME1200-FIRMWARE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:00 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+me1200SwitchMgmt, = mibBuilder.importSymbols("CISCOME1200-MIB", "me1200SwitchMgmt")
+ME1200DisplayString, = mibBuilder.importSymbols("ME1200-TC", "ME1200DisplayString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+me1200FirmwareMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28))
+me1200FirmwareMIB.setRevisions(('2014-12-16 00:00', '2014-02-18 00:00', '2014-01-29 00:00', '2014-01-20 00:00',))
+if mibBuilder.loadTexts: me1200FirmwareMIB.setLastUpdated('201412160000Z')
+if mibBuilder.loadTexts: me1200FirmwareMIB.setOrganization('Cisco Systems, Inc')
+class ME1200StatusImageType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("bootloader", 0), ("activeFirmware", 1), ("alternativeFirmware", 2))
+
+class ME1200UploadImageType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
+    namedValues = NamedValues(("bootloader", 0), ("firmware", 1))
+
+class ME1200UploadStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))
+    namedValues = NamedValues(("none", 0), ("success", 1), ("inProgress", 2), ("errIvalidIp", 3), ("errTftpFailed", 4), ("errBusy", 5), ("errMemoryInsufficient", 6), ("errInvalidImage", 7), ("errWriteFlash", 8), ("errSameImageExisted", 9), ("errUnknownImage", 10), ("errFlashImageNotFound", 11), ("errFlashEntryNotFound", 12), ("errCrc", 13), ("errImageSize", 14), ("errEraseFlash", 15), ("errIncorrectImageVersion", 16), ("errDownloadUrl", 17), ("errInvalidUrl", 18))
+
+me1200FirmwareMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1))
+me1200FirmwareStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3))
+me1200FirmwareStatusImageTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 1), )
+if mibBuilder.loadTexts: me1200FirmwareStatusImageTable.setStatus('current')
+me1200FirmwareStatusImageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 1, 1), ).setIndexNames((0, "ME1200-FIRMWARE-MIB", "me1200FirmwareStatusImageNumber"))
+if mibBuilder.loadTexts: me1200FirmwareStatusImageEntry.setStatus('current')
+me1200FirmwareStatusImageNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2)))
+if mibBuilder.loadTexts: me1200FirmwareStatusImageNumber.setStatus('current')
+me1200FirmwareStatusImageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 1, 1, 2), ME1200StatusImageType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: me1200FirmwareStatusImageType.setStatus('current')
+me1200FirmwareStatusImageName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 1, 1, 3), ME1200DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: me1200FirmwareStatusImageName.setStatus('current')
+me1200FirmwareStatusImageVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 1, 1, 4), ME1200DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: me1200FirmwareStatusImageVersion.setStatus('current')
+me1200FirmwareStatusImageBuiltDate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 1, 1, 5), ME1200DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: me1200FirmwareStatusImageBuiltDate.setStatus('current')
+me1200FirmwareStatusImageCodeRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 1, 1, 6), ME1200DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: me1200FirmwareStatusImageCodeRevision.setStatus('current')
+me1200FirmwareStatusImageUpload = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 2))
+me1200FirmwareStatusImageUploadStatus = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 2, 1), ME1200UploadStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: me1200FirmwareStatusImageUploadStatus.setStatus('current')
+me1200FirmwareStatusSwitchTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 3), )
+if mibBuilder.loadTexts: me1200FirmwareStatusSwitchTable.setStatus('current')
+me1200FirmwareStatusSwitchEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 3, 1), ).setIndexNames((0, "ME1200-FIRMWARE-MIB", "me1200FirmwareStatusSwitchSwitchId"))
+if mibBuilder.loadTexts: me1200FirmwareStatusSwitchEntry.setStatus('current')
+me1200FirmwareStatusSwitchSwitchId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
+if mibBuilder.loadTexts: me1200FirmwareStatusSwitchSwitchId.setStatus('current')
+me1200FirmwareStatusSwitchChipId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 3, 1, 2), ME1200DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: me1200FirmwareStatusSwitchChipId.setStatus('current')
+me1200FirmwareStatusSwitchBoardType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 3, 1, 3), ME1200DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: me1200FirmwareStatusSwitchBoardType.setStatus('current')
+me1200FirmwareStatusSwitchPortCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 3, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: me1200FirmwareStatusSwitchPortCnt.setStatus('current')
+me1200FirmwareStatusSwitchProduct = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 3, 1, 5), ME1200DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: me1200FirmwareStatusSwitchProduct.setStatus('current')
+me1200FirmwareStatusSwitchVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 3, 1, 6), ME1200DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: me1200FirmwareStatusSwitchVersion.setStatus('current')
+me1200FirmwareStatusSwitchBuiltDate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 3, 3, 1, 7), ME1200DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: me1200FirmwareStatusSwitchBuiltDate.setStatus('current')
+me1200FirmwareControl = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 4))
+me1200FirmwareControlGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 4, 1))
+me1200FirmwareControlGlobalsSwapFirmware = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 4, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: me1200FirmwareControlGlobalsSwapFirmware.setStatus('current')
+me1200FirmwareControlImageUpload = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 4, 2))
+me1200FirmwareControlImageUploadDoUpload = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 4, 2, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: me1200FirmwareControlImageUploadDoUpload.setStatus('current')
+me1200FirmwareControlImageUploadImageType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 4, 2, 2), ME1200UploadImageType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: me1200FirmwareControlImageUploadImageType.setStatus('current')
+me1200FirmwareControlImageUploadUrl = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 1, 4, 2, 3), ME1200DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: me1200FirmwareControlImageUploadUrl.setStatus('current')
+me1200FirmwareMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 2))
+me1200FirmwareMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 2, 1))
+me1200FirmwareMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 2, 2))
+me1200FirmwareStatusImageTableInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 2, 2, 1)).setObjects(("ME1200-FIRMWARE-MIB", "me1200FirmwareStatusImageType"), ("ME1200-FIRMWARE-MIB", "me1200FirmwareStatusImageName"), ("ME1200-FIRMWARE-MIB", "me1200FirmwareStatusImageVersion"), ("ME1200-FIRMWARE-MIB", "me1200FirmwareStatusImageBuiltDate"), ("ME1200-FIRMWARE-MIB", "me1200FirmwareStatusImageCodeRevision"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    me1200FirmwareStatusImageTableInfoGroup = me1200FirmwareStatusImageTableInfoGroup.setStatus('current')
+me1200FirmwareStatusImageUploadInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 2, 2, 2)).setObjects(("ME1200-FIRMWARE-MIB", "me1200FirmwareStatusImageUploadStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    me1200FirmwareStatusImageUploadInfoGroup = me1200FirmwareStatusImageUploadInfoGroup.setStatus('current')
+me1200FirmwareStatusSwitchTableInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 2, 2, 3)).setObjects(("ME1200-FIRMWARE-MIB", "me1200FirmwareStatusSwitchChipId"), ("ME1200-FIRMWARE-MIB", "me1200FirmwareStatusSwitchBoardType"), ("ME1200-FIRMWARE-MIB", "me1200FirmwareStatusSwitchPortCnt"), ("ME1200-FIRMWARE-MIB", "me1200FirmwareStatusSwitchProduct"), ("ME1200-FIRMWARE-MIB", "me1200FirmwareStatusSwitchVersion"), ("ME1200-FIRMWARE-MIB", "me1200FirmwareStatusSwitchBuiltDate"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    me1200FirmwareStatusSwitchTableInfoGroup = me1200FirmwareStatusSwitchTableInfoGroup.setStatus('current')
+me1200FirmwareControlGlobalsInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 2, 2, 4)).setObjects(("ME1200-FIRMWARE-MIB", "me1200FirmwareControlGlobalsSwapFirmware"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    me1200FirmwareControlGlobalsInfoGroup = me1200FirmwareControlGlobalsInfoGroup.setStatus('current')
+me1200FirmwareControlImageUploadInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 2, 2, 5)).setObjects(("ME1200-FIRMWARE-MIB", "me1200FirmwareControlImageUploadDoUpload"), ("ME1200-FIRMWARE-MIB", "me1200FirmwareControlImageUploadImageType"), ("ME1200-FIRMWARE-MIB", "me1200FirmwareControlImageUploadUrl"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    me1200FirmwareControlImageUploadInfoGroup = me1200FirmwareControlImageUploadInfoGroup.setStatus('current')
+me1200FirmwareMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 28, 2, 1, 1)).setObjects(("ME1200-FIRMWARE-MIB", "me1200FirmwareStatusImageTableInfoGroup"), ("ME1200-FIRMWARE-MIB", "me1200FirmwareStatusImageUploadInfoGroup"), ("ME1200-FIRMWARE-MIB", "me1200FirmwareStatusSwitchTableInfoGroup"), ("ME1200-FIRMWARE-MIB", "me1200FirmwareControlGlobalsInfoGroup"), ("ME1200-FIRMWARE-MIB", "me1200FirmwareControlImageUploadInfoGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    me1200FirmwareMIBCompliance = me1200FirmwareMIBCompliance.setStatus('current')
+mibBuilder.exportSymbols("ME1200-FIRMWARE-MIB", me1200FirmwareStatus=me1200FirmwareStatus, me1200FirmwareStatusSwitchVersion=me1200FirmwareStatusSwitchVersion, me1200FirmwareStatusSwitchChipId=me1200FirmwareStatusSwitchChipId, me1200FirmwareMIBConformance=me1200FirmwareMIBConformance, me1200FirmwareStatusSwitchBoardType=me1200FirmwareStatusSwitchBoardType, me1200FirmwareMIBCompliances=me1200FirmwareMIBCompliances, me1200FirmwareStatusSwitchBuiltDate=me1200FirmwareStatusSwitchBuiltDate, me1200FirmwareStatusSwitchTableInfoGroup=me1200FirmwareStatusSwitchTableInfoGroup, me1200FirmwareMIBCompliance=me1200FirmwareMIBCompliance, me1200FirmwareMIB=me1200FirmwareMIB, me1200FirmwareMIBObjects=me1200FirmwareMIBObjects, me1200FirmwareStatusImageName=me1200FirmwareStatusImageName, me1200FirmwareControl=me1200FirmwareControl, ME1200UploadStatus=ME1200UploadStatus, me1200FirmwareControlImageUploadInfoGroup=me1200FirmwareControlImageUploadInfoGroup, ME1200UploadImageType=ME1200UploadImageType, me1200FirmwareStatusImageTable=me1200FirmwareStatusImageTable, me1200FirmwareStatusSwitchPortCnt=me1200FirmwareStatusSwitchPortCnt, ME1200StatusImageType=ME1200StatusImageType, me1200FirmwareStatusSwitchTable=me1200FirmwareStatusSwitchTable, me1200FirmwareStatusImageUploadStatus=me1200FirmwareStatusImageUploadStatus, PYSNMP_MODULE_ID=me1200FirmwareMIB, me1200FirmwareStatusSwitchSwitchId=me1200FirmwareStatusSwitchSwitchId, me1200FirmwareMIBGroups=me1200FirmwareMIBGroups, me1200FirmwareStatusImageVersion=me1200FirmwareStatusImageVersion, me1200FirmwareControlGlobalsInfoGroup=me1200FirmwareControlGlobalsInfoGroup, me1200FirmwareStatusImageUploadInfoGroup=me1200FirmwareStatusImageUploadInfoGroup, me1200FirmwareControlImageUploadImageType=me1200FirmwareControlImageUploadImageType, me1200FirmwareStatusSwitchEntry=me1200FirmwareStatusSwitchEntry, me1200FirmwareControlImageUploadDoUpload=me1200FirmwareControlImageUploadDoUpload, me1200FirmwareStatusImageEntry=me1200FirmwareStatusImageEntry, me1200FirmwareControlGlobalsSwapFirmware=me1200FirmwareControlGlobalsSwapFirmware, me1200FirmwareControlImageUpload=me1200FirmwareControlImageUpload, me1200FirmwareControlImageUploadUrl=me1200FirmwareControlImageUploadUrl, me1200FirmwareStatusImageNumber=me1200FirmwareStatusImageNumber, me1200FirmwareStatusSwitchProduct=me1200FirmwareStatusSwitchProduct, me1200FirmwareStatusImageCodeRevision=me1200FirmwareStatusImageCodeRevision, me1200FirmwareStatusImageBuiltDate=me1200FirmwareStatusImageBuiltDate, me1200FirmwareStatusImageTableInfoGroup=me1200FirmwareStatusImageTableInfoGroup, me1200FirmwareStatusImageUpload=me1200FirmwareStatusImageUpload, me1200FirmwareStatusImageType=me1200FirmwareStatusImageType, me1200FirmwareControlGlobals=me1200FirmwareControlGlobals)

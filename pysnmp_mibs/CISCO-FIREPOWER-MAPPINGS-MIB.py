@@ -1,94 +1,54 @@
-_I='cfprMappingsDnToOidDn'
-_H='cfprMappingsMoInverseContainmentParentInstanceId'
-_G='cfprMappingsMoInverseContainmentChildInstanceId'
-_F='cfprMappingsMoContainmentChildInstanceId'
-_E='cfprMappingsMoContainmentParentInstanceId'
-_D='read-only'
-_C='not-accessible'
-_B='CISCO-FIREPOWER-MAPPINGS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CfprManagedObjectDn,CfprManagedObjectId,ciscoFirepowerMIB=mibBuilder.importSymbols('CISCO-FIREPOWER-MIB','CfprManagedObjectDn','CfprManagedObjectId','ciscoFirepowerMIB')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
-InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
-cfprMappingsObjects=ModuleIdentity((1,3,6,1,4,1,9,9,826,3))
-_CfprMappingsMoContainmentTable_Object=MibTable
-cfprMappingsMoContainmentTable=_CfprMappingsMoContainmentTable_Object((1,3,6,1,4,1,9,9,826,3,1))
-if mibBuilder.loadTexts:cfprMappingsMoContainmentTable.setStatus(_A)
-_CfprMappingsMoContainmentEntry_Object=MibTableRow
-cfprMappingsMoContainmentEntry=_CfprMappingsMoContainmentEntry_Object((1,3,6,1,4,1,9,9,826,3,1,1))
-cfprMappingsMoContainmentEntry.setIndexNames((0,_B,_E),(0,_B,_F))
-if mibBuilder.loadTexts:cfprMappingsMoContainmentEntry.setStatus(_A)
-_CfprMappingsMoContainmentParentInstanceId_Type=CfprManagedObjectId
-_CfprMappingsMoContainmentParentInstanceId_Object=MibTableColumn
-cfprMappingsMoContainmentParentInstanceId=_CfprMappingsMoContainmentParentInstanceId_Object((1,3,6,1,4,1,9,9,826,3,1,1,1),_CfprMappingsMoContainmentParentInstanceId_Type())
-cfprMappingsMoContainmentParentInstanceId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfprMappingsMoContainmentParentInstanceId.setStatus(_A)
-_CfprMappingsMoContainmentChildInstanceId_Type=CfprManagedObjectId
-_CfprMappingsMoContainmentChildInstanceId_Object=MibTableColumn
-cfprMappingsMoContainmentChildInstanceId=_CfprMappingsMoContainmentChildInstanceId_Object((1,3,6,1,4,1,9,9,826,3,1,1,2),_CfprMappingsMoContainmentChildInstanceId_Type())
-cfprMappingsMoContainmentChildInstanceId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfprMappingsMoContainmentChildInstanceId.setStatus(_A)
-_CfprMappingsMoContainmentParentDn_Type=CfprManagedObjectDn
-_CfprMappingsMoContainmentParentDn_Object=MibTableColumn
-cfprMappingsMoContainmentParentDn=_CfprMappingsMoContainmentParentDn_Object((1,3,6,1,4,1,9,9,826,3,1,1,3),_CfprMappingsMoContainmentParentDn_Type())
-cfprMappingsMoContainmentParentDn.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprMappingsMoContainmentParentDn.setStatus(_A)
-_CfprMappingsMoContainmentChildDn_Type=CfprManagedObjectDn
-_CfprMappingsMoContainmentChildDn_Object=MibTableColumn
-cfprMappingsMoContainmentChildDn=_CfprMappingsMoContainmentChildDn_Object((1,3,6,1,4,1,9,9,826,3,1,1,4),_CfprMappingsMoContainmentChildDn_Type())
-cfprMappingsMoContainmentChildDn.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprMappingsMoContainmentChildDn.setStatus(_A)
-_CfprMappingsMoInverseContainmentTable_Object=MibTable
-cfprMappingsMoInverseContainmentTable=_CfprMappingsMoInverseContainmentTable_Object((1,3,6,1,4,1,9,9,826,3,2))
-if mibBuilder.loadTexts:cfprMappingsMoInverseContainmentTable.setStatus(_A)
-_CfprMappingsMoInverseContainmentEntry_Object=MibTableRow
-cfprMappingsMoInverseContainmentEntry=_CfprMappingsMoInverseContainmentEntry_Object((1,3,6,1,4,1,9,9,826,3,2,1))
-cfprMappingsMoInverseContainmentEntry.setIndexNames((0,_B,_G),(0,_B,_H))
-if mibBuilder.loadTexts:cfprMappingsMoInverseContainmentEntry.setStatus(_A)
-_CfprMappingsMoInverseContainmentChildInstanceId_Type=CfprManagedObjectId
-_CfprMappingsMoInverseContainmentChildInstanceId_Object=MibTableColumn
-cfprMappingsMoInverseContainmentChildInstanceId=_CfprMappingsMoInverseContainmentChildInstanceId_Object((1,3,6,1,4,1,9,9,826,3,2,1,1),_CfprMappingsMoInverseContainmentChildInstanceId_Type())
-cfprMappingsMoInverseContainmentChildInstanceId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfprMappingsMoInverseContainmentChildInstanceId.setStatus(_A)
-_CfprMappingsMoInverseContainmentParentInstanceId_Type=CfprManagedObjectId
-_CfprMappingsMoInverseContainmentParentInstanceId_Object=MibTableColumn
-cfprMappingsMoInverseContainmentParentInstanceId=_CfprMappingsMoInverseContainmentParentInstanceId_Object((1,3,6,1,4,1,9,9,826,3,2,1,2),_CfprMappingsMoInverseContainmentParentInstanceId_Type())
-cfprMappingsMoInverseContainmentParentInstanceId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfprMappingsMoInverseContainmentParentInstanceId.setStatus(_A)
-_CfprMappingsMoInverseContainmentParentDn_Type=CfprManagedObjectDn
-_CfprMappingsMoInverseContainmentParentDn_Object=MibTableColumn
-cfprMappingsMoInverseContainmentParentDn=_CfprMappingsMoInverseContainmentParentDn_Object((1,3,6,1,4,1,9,9,826,3,2,1,3),_CfprMappingsMoInverseContainmentParentDn_Type())
-cfprMappingsMoInverseContainmentParentDn.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprMappingsMoInverseContainmentParentDn.setStatus(_A)
-_CfprMappingsMoInverseContainmentChildDn_Type=CfprManagedObjectDn
-_CfprMappingsMoInverseContainmentChildDn_Object=MibTableColumn
-cfprMappingsMoInverseContainmentChildDn=_CfprMappingsMoInverseContainmentChildDn_Object((1,3,6,1,4,1,9,9,826,3,2,1,4),_CfprMappingsMoInverseContainmentChildDn_Type())
-cfprMappingsMoInverseContainmentChildDn.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprMappingsMoInverseContainmentChildDn.setStatus(_A)
-_CfprMappingsDnToOidTable_Object=MibTable
-cfprMappingsDnToOidTable=_CfprMappingsDnToOidTable_Object((1,3,6,1,4,1,9,9,826,3,3))
-if mibBuilder.loadTexts:cfprMappingsDnToOidTable.setStatus(_A)
-_CfprMappingsDnToOidEntry_Object=MibTableRow
-cfprMappingsDnToOidEntry=_CfprMappingsDnToOidEntry_Object((1,3,6,1,4,1,9,9,826,3,3,1))
-cfprMappingsDnToOidEntry.setIndexNames((0,_B,_I))
-if mibBuilder.loadTexts:cfprMappingsDnToOidEntry.setStatus(_A)
-_CfprMappingsDnToOidDn_Type=CfprManagedObjectDn
-_CfprMappingsDnToOidDn_Object=MibTableColumn
-cfprMappingsDnToOidDn=_CfprMappingsDnToOidDn_Object((1,3,6,1,4,1,9,9,826,3,3,1,1),_CfprMappingsDnToOidDn_Type())
-cfprMappingsDnToOidDn.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfprMappingsDnToOidDn.setStatus(_A)
-_CfprMappingsDnToOidOid_Type=RowPointer
-_CfprMappingsDnToOidOid_Object=MibTableColumn
-cfprMappingsDnToOidOid=_CfprMappingsDnToOidOid_Object((1,3,6,1,4,1,9,9,826,3,3,1,2),_CfprMappingsDnToOidOid_Type())
-cfprMappingsDnToOidOid.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprMappingsDnToOidOid.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'cfprMappingsObjects':cfprMappingsObjects,'cfprMappingsMoContainmentTable':cfprMappingsMoContainmentTable,'cfprMappingsMoContainmentEntry':cfprMappingsMoContainmentEntry,_E:cfprMappingsMoContainmentParentInstanceId,_F:cfprMappingsMoContainmentChildInstanceId,'cfprMappingsMoContainmentParentDn':cfprMappingsMoContainmentParentDn,'cfprMappingsMoContainmentChildDn':cfprMappingsMoContainmentChildDn,'cfprMappingsMoInverseContainmentTable':cfprMappingsMoInverseContainmentTable,'cfprMappingsMoInverseContainmentEntry':cfprMappingsMoInverseContainmentEntry,_G:cfprMappingsMoInverseContainmentChildInstanceId,_H:cfprMappingsMoInverseContainmentParentInstanceId,'cfprMappingsMoInverseContainmentParentDn':cfprMappingsMoInverseContainmentParentDn,'cfprMappingsMoInverseContainmentChildDn':cfprMappingsMoInverseContainmentChildDn,'cfprMappingsDnToOidTable':cfprMappingsDnToOidTable,'cfprMappingsDnToOidEntry':cfprMappingsDnToOidEntry,_I:cfprMappingsDnToOidDn,'cfprMappingsDnToOidOid':cfprMappingsDnToOidOid})
+#
+# PySNMP MIB module CISCO-FIREPOWER-MAPPINGS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-FIREPOWER-MAPPINGS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:26 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+CfprManagedObjectDn, CfprManagedObjectId, ciscoFirepowerMIB = mibBuilder.importSymbols("CISCO-FIREPOWER-MIB", "CfprManagedObjectDn", "CfprManagedObjectId", "ciscoFirepowerMIB")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+Unsigned64, CiscoAlarmSeverity, CiscoInetAddressMask, TimeIntervalSec, CiscoNetworkAddress = mibBuilder.importSymbols("CISCO-TC", "Unsigned64", "CiscoAlarmSeverity", "CiscoInetAddressMask", "TimeIntervalSec", "CiscoNetworkAddress")
+InetAddressIPv6, InetAddressIPv4 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6", "InetAddressIPv4")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, TruthValue, DateAndTime, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "TruthValue", "DateAndTime", "RowPointer", "TextualConvention")
+cfprMappingsObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 826, 3))
+if mibBuilder.loadTexts: cfprMappingsObjects.setLastUpdated('202003100000Z')
+if mibBuilder.loadTexts: cfprMappingsObjects.setOrganization('Cisco Systems Inc.')
+cfprMappingsMoContainmentTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 1), )
+if mibBuilder.loadTexts: cfprMappingsMoContainmentTable.setStatus('current')
+cfprMappingsMoContainmentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 1, 1), ).setIndexNames((0, "CISCO-FIREPOWER-MAPPINGS-MIB", "cfprMappingsMoContainmentParentInstanceId"), (0, "CISCO-FIREPOWER-MAPPINGS-MIB", "cfprMappingsMoContainmentChildInstanceId"))
+if mibBuilder.loadTexts: cfprMappingsMoContainmentEntry.setStatus('current')
+cfprMappingsMoContainmentParentInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 1, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprMappingsMoContainmentParentInstanceId.setStatus('current')
+cfprMappingsMoContainmentChildInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 1, 1, 2), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprMappingsMoContainmentChildInstanceId.setStatus('current')
+cfprMappingsMoContainmentParentDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 1, 1, 3), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprMappingsMoContainmentParentDn.setStatus('current')
+cfprMappingsMoContainmentChildDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 1, 1, 4), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprMappingsMoContainmentChildDn.setStatus('current')
+cfprMappingsMoInverseContainmentTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 2), )
+if mibBuilder.loadTexts: cfprMappingsMoInverseContainmentTable.setStatus('current')
+cfprMappingsMoInverseContainmentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 2, 1), ).setIndexNames((0, "CISCO-FIREPOWER-MAPPINGS-MIB", "cfprMappingsMoInverseContainmentChildInstanceId"), (0, "CISCO-FIREPOWER-MAPPINGS-MIB", "cfprMappingsMoInverseContainmentParentInstanceId"))
+if mibBuilder.loadTexts: cfprMappingsMoInverseContainmentEntry.setStatus('current')
+cfprMappingsMoInverseContainmentChildInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 2, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprMappingsMoInverseContainmentChildInstanceId.setStatus('current')
+cfprMappingsMoInverseContainmentParentInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 2, 1, 2), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprMappingsMoInverseContainmentParentInstanceId.setStatus('current')
+cfprMappingsMoInverseContainmentParentDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 2, 1, 3), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprMappingsMoInverseContainmentParentDn.setStatus('current')
+cfprMappingsMoInverseContainmentChildDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 2, 1, 4), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprMappingsMoInverseContainmentChildDn.setStatus('current')
+cfprMappingsDnToOidTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 3), )
+if mibBuilder.loadTexts: cfprMappingsDnToOidTable.setStatus('current')
+cfprMappingsDnToOidEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 3, 1), ).setIndexNames((0, "CISCO-FIREPOWER-MAPPINGS-MIB", "cfprMappingsDnToOidDn"))
+if mibBuilder.loadTexts: cfprMappingsDnToOidEntry.setStatus('current')
+cfprMappingsDnToOidDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 3, 1, 1), CfprManagedObjectDn())
+if mibBuilder.loadTexts: cfprMappingsDnToOidDn.setStatus('current')
+cfprMappingsDnToOidOid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 3, 3, 1, 2), RowPointer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprMappingsDnToOidOid.setStatus('current')
+mibBuilder.exportSymbols("CISCO-FIREPOWER-MAPPINGS-MIB", cfprMappingsObjects=cfprMappingsObjects, cfprMappingsMoInverseContainmentParentInstanceId=cfprMappingsMoInverseContainmentParentInstanceId, cfprMappingsMoInverseContainmentChildDn=cfprMappingsMoInverseContainmentChildDn, cfprMappingsDnToOidDn=cfprMappingsDnToOidDn, cfprMappingsMoInverseContainmentChildInstanceId=cfprMappingsMoInverseContainmentChildInstanceId, PYSNMP_MODULE_ID=cfprMappingsObjects, cfprMappingsMoContainmentChildDn=cfprMappingsMoContainmentChildDn, cfprMappingsMoContainmentParentDn=cfprMappingsMoContainmentParentDn, cfprMappingsDnToOidEntry=cfprMappingsDnToOidEntry, cfprMappingsMoContainmentParentInstanceId=cfprMappingsMoContainmentParentInstanceId, cfprMappingsMoInverseContainmentTable=cfprMappingsMoInverseContainmentTable, cfprMappingsMoContainmentChildInstanceId=cfprMappingsMoContainmentChildInstanceId, cfprMappingsMoInverseContainmentParentDn=cfprMappingsMoInverseContainmentParentDn, cfprMappingsDnToOidTable=cfprMappingsDnToOidTable, cfprMappingsMoContainmentEntry=cfprMappingsMoContainmentEntry, cfprMappingsMoInverseContainmentEntry=cfprMappingsMoInverseContainmentEntry, cfprMappingsDnToOidOid=cfprMappingsDnToOidOid, cfprMappingsMoContainmentTable=cfprMappingsMoContainmentTable)

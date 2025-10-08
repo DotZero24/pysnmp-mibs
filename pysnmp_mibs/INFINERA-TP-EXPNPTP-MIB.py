@@ -1,56 +1,41 @@
-_I='expnPtpGroup'
-_H='expnPtpMode'
-_G='expnPtpExpectedNeighborPtp'
-_F='expnPtpMoId'
-_E='read-only'
-_D='ifIndex'
-_C='IF-MIB'
-_B='INFINERA-TP-EXPNPTP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_C,_D)
-terminationPoint,=mibBuilder.importSymbols('INFINERA-REG-MIB','terminationPoint')
-FloatHundredths,InfnExpnPtpMode=mibBuilder.importSymbols('INFINERA-TC-MIB','FloatHundredths','InfnExpnPtpMode')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-expnPtpMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,2,82))
-if mibBuilder.loadTexts:expnPtpMIB.setRevisions(('2017-02-02 00:00',))
-_ExpnPtpTable_Object=MibTable
-expnPtpTable=_ExpnPtpTable_Object((1,3,6,1,4,1,21296,2,2,2,2,82,1))
-if mibBuilder.loadTexts:expnPtpTable.setStatus(_A)
-_ExpnPtpEntry_Object=MibTableRow
-expnPtpEntry=_ExpnPtpEntry_Object((1,3,6,1,4,1,21296,2,2,2,2,82,1,1))
-expnPtpEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:expnPtpEntry.setStatus(_A)
-_ExpnPtpMoId_Type=DisplayString
-_ExpnPtpMoId_Object=MibTableColumn
-expnPtpMoId=_ExpnPtpMoId_Object((1,3,6,1,4,1,21296,2,2,2,2,82,1,1,1),_ExpnPtpMoId_Type())
-expnPtpMoId.setMaxAccess(_E)
-if mibBuilder.loadTexts:expnPtpMoId.setStatus(_A)
-_ExpnPtpExpectedNeighborPtp_Type=DisplayString
-_ExpnPtpExpectedNeighborPtp_Object=MibTableColumn
-expnPtpExpectedNeighborPtp=_ExpnPtpExpectedNeighborPtp_Object((1,3,6,1,4,1,21296,2,2,2,2,82,1,1,2),_ExpnPtpExpectedNeighborPtp_Type())
-expnPtpExpectedNeighborPtp.setMaxAccess(_E)
-if mibBuilder.loadTexts:expnPtpExpectedNeighborPtp.setStatus(_A)
-_ExpnPtpMode_Type=InfnExpnPtpMode
-_ExpnPtpMode_Object=MibTableColumn
-expnPtpMode=_ExpnPtpMode_Object((1,3,6,1,4,1,21296,2,2,2,2,82,1,1,3),_ExpnPtpMode_Type())
-expnPtpMode.setMaxAccess('read-write')
-if mibBuilder.loadTexts:expnPtpMode.setStatus(_A)
-_ExpnPtpConformance_ObjectIdentity=ObjectIdentity
-expnPtpConformance=_ExpnPtpConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,82,3))
-_ExpnPtpCompliances_ObjectIdentity=ObjectIdentity
-expnPtpCompliances=_ExpnPtpCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,82,3,1))
-_ExpnPtpGroups_ObjectIdentity=ObjectIdentity
-expnPtpGroups=_ExpnPtpGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,82,3,2))
-expnPtpGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,2,82,3,2,1))
-expnPtpGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:expnPtpGroup.setStatus(_A)
-expnPtpCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,2,82,3,1,1))
-expnPtpCompliance.setObjects((_B,_I))
-if mibBuilder.loadTexts:expnPtpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'expnPtpMIB':expnPtpMIB,'expnPtpTable':expnPtpTable,'expnPtpEntry':expnPtpEntry,_F:expnPtpMoId,_G:expnPtpExpectedNeighborPtp,_H:expnPtpMode,'expnPtpConformance':expnPtpConformance,'expnPtpCompliances':expnPtpCompliances,'expnPtpCompliance':expnPtpCompliance,'expnPtpGroups':expnPtpGroups,_I:expnPtpGroup})
+#
+# PySNMP MIB module INFINERA-TP-EXPNPTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-EXPNPTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
+InfnExpnPtpMode, FloatHundredths = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnExpnPtpMode", "FloatHundredths")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+expnPtpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 82))
+expnPtpMIB.setRevisions(('2017-02-02 00:00',))
+if mibBuilder.loadTexts: expnPtpMIB.setLastUpdated('201702020000Z')
+if mibBuilder.loadTexts: expnPtpMIB.setOrganization('Infinera')
+expnPtpTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 82, 1), )
+if mibBuilder.loadTexts: expnPtpTable.setStatus('current')
+expnPtpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 82, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: expnPtpEntry.setStatus('current')
+expnPtpMoId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 82, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expnPtpMoId.setStatus('current')
+expnPtpExpectedNeighborPtp = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 82, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expnPtpExpectedNeighborPtp.setStatus('current')
+expnPtpMode = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 82, 1, 1, 3), InfnExpnPtpMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: expnPtpMode.setStatus('current')
+expnPtpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 82, 3))
+expnPtpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 82, 3, 1))
+expnPtpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 82, 3, 2))
+expnPtpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 82, 3, 1, 1)).setObjects(("INFINERA-TP-EXPNPTP-MIB", "expnPtpGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    expnPtpCompliance = expnPtpCompliance.setStatus('current')
+expnPtpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 82, 3, 2, 1)).setObjects(("INFINERA-TP-EXPNPTP-MIB", "expnPtpMoId"), ("INFINERA-TP-EXPNPTP-MIB", "expnPtpExpectedNeighborPtp"), ("INFINERA-TP-EXPNPTP-MIB", "expnPtpMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    expnPtpGroup = expnPtpGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-TP-EXPNPTP-MIB", expnPtpGroups=expnPtpGroups, expnPtpTable=expnPtpTable, expnPtpGroup=expnPtpGroup, PYSNMP_MODULE_ID=expnPtpMIB, expnPtpConformance=expnPtpConformance, expnPtpMIB=expnPtpMIB, expnPtpEntry=expnPtpEntry, expnPtpMoId=expnPtpMoId, expnPtpExpectedNeighborPtp=expnPtpExpectedNeighborPtp, expnPtpCompliance=expnPtpCompliance, expnPtpCompliances=expnPtpCompliances, expnPtpMode=expnPtpMode)

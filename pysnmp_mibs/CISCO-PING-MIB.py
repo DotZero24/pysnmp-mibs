@@ -1,176 +1,84 @@
-_c='ciscoPingMIBGroupVpn'
-_b='ciscoPingMIBGroup'
-_a='ciscoPingCompletion'
-_Z='ciscoPingVrfName'
-_Y='obsolete'
-_X='ciscoPingSerialNumber'
-_W='TruthValue'
-_V='OctetString'
-_U='ciscoPingEntryStatus'
-_T='ciscoPingEntryOwner'
-_S='ciscoPingMaxRtt'
-_R='ciscoPingAvgRtt'
-_Q='ciscoPingMinRtt'
-_P='ciscoPingTrapOnCompletion'
-_O='ciscoPingDelay'
-_N='ciscoPingPacketTimeout'
-_M='ciscoPingPacketSize'
-_L='ciscoPingPacketCount'
-_K='ciscoPingAddress'
-_J='ciscoPingProtocol'
-_I='ciscoPingCompleted'
-_H='ciscoPingReceivedPackets'
-_G='ciscoPingSentPackets'
-_F='milliseconds'
-_E='read-only'
-_D='Integer32'
-_C='read-create'
-_B='current'
-_A='CISCO-PING-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_V,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CiscoNetworkAddress,CiscoNetworkProtocol=mibBuilder.importSymbols('CISCO-TC','CiscoNetworkAddress','CiscoNetworkProtocol')
-OwnerString,=mibBuilder.importSymbols('IF-MIB','OwnerString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_W)
-ciscoPingMIB=ModuleIdentity((1,3,6,1,4,1,9,9,16))
-if mibBuilder.loadTexts:ciscoPingMIB.setRevisions(('2001-08-28 00:00','2001-05-14 00:00','1999-10-08 00:00','1994-11-11 00:00','1994-07-22 00:00'))
-_CiscoPingMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoPingMIBObjects=_CiscoPingMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,16,1))
-_CiscoPingTable_Object=MibTable
-ciscoPingTable=_CiscoPingTable_Object((1,3,6,1,4,1,9,9,16,1,1))
-if mibBuilder.loadTexts:ciscoPingTable.setStatus(_B)
-_CiscoPingEntry_Object=MibTableRow
-ciscoPingEntry=_CiscoPingEntry_Object((1,3,6,1,4,1,9,9,16,1,1,1))
-ciscoPingEntry.setIndexNames((0,_A,_X))
-if mibBuilder.loadTexts:ciscoPingEntry.setStatus(_B)
-class _CiscoPingSerialNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_CiscoPingSerialNumber_Type.__name__=_D
-_CiscoPingSerialNumber_Object=MibTableColumn
-ciscoPingSerialNumber=_CiscoPingSerialNumber_Object((1,3,6,1,4,1,9,9,16,1,1,1,1),_CiscoPingSerialNumber_Type())
-ciscoPingSerialNumber.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:ciscoPingSerialNumber.setStatus(_B)
-_CiscoPingProtocol_Type=CiscoNetworkProtocol
-_CiscoPingProtocol_Object=MibTableColumn
-ciscoPingProtocol=_CiscoPingProtocol_Object((1,3,6,1,4,1,9,9,16,1,1,1,2),_CiscoPingProtocol_Type())
-ciscoPingProtocol.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoPingProtocol.setStatus(_B)
-_CiscoPingAddress_Type=CiscoNetworkAddress
-_CiscoPingAddress_Object=MibTableColumn
-ciscoPingAddress=_CiscoPingAddress_Object((1,3,6,1,4,1,9,9,16,1,1,1,3),_CiscoPingAddress_Type())
-ciscoPingAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoPingAddress.setStatus(_B)
-class _CiscoPingPacketCount_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_CiscoPingPacketCount_Type.__name__=_D
-_CiscoPingPacketCount_Object=MibTableColumn
-ciscoPingPacketCount=_CiscoPingPacketCount_Object((1,3,6,1,4,1,9,9,16,1,1,1,4),_CiscoPingPacketCount_Type())
-ciscoPingPacketCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoPingPacketCount.setStatus(_B)
-class _CiscoPingPacketSize_Type(Integer32):defaultValue=100
-_CiscoPingPacketSize_Type.__name__=_D
-_CiscoPingPacketSize_Object=MibTableColumn
-ciscoPingPacketSize=_CiscoPingPacketSize_Object((1,3,6,1,4,1,9,9,16,1,1,1,5),_CiscoPingPacketSize_Type())
-ciscoPingPacketSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoPingPacketSize.setStatus(_B)
-class _CiscoPingPacketTimeout_Type(Integer32):defaultValue=2000;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3600000))
-_CiscoPingPacketTimeout_Type.__name__=_D
-_CiscoPingPacketTimeout_Object=MibTableColumn
-ciscoPingPacketTimeout=_CiscoPingPacketTimeout_Object((1,3,6,1,4,1,9,9,16,1,1,1,6),_CiscoPingPacketTimeout_Type())
-ciscoPingPacketTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoPingPacketTimeout.setStatus(_B)
-if mibBuilder.loadTexts:ciscoPingPacketTimeout.setUnits(_F)
-class _CiscoPingDelay_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3600000))
-_CiscoPingDelay_Type.__name__=_D
-_CiscoPingDelay_Object=MibTableColumn
-ciscoPingDelay=_CiscoPingDelay_Object((1,3,6,1,4,1,9,9,16,1,1,1,7),_CiscoPingDelay_Type())
-ciscoPingDelay.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoPingDelay.setStatus(_B)
-if mibBuilder.loadTexts:ciscoPingDelay.setUnits(_F)
-class _CiscoPingTrapOnCompletion_Type(TruthValue):defaultValue=2
-_CiscoPingTrapOnCompletion_Type.__name__=_W
-_CiscoPingTrapOnCompletion_Object=MibTableColumn
-ciscoPingTrapOnCompletion=_CiscoPingTrapOnCompletion_Object((1,3,6,1,4,1,9,9,16,1,1,1,8),_CiscoPingTrapOnCompletion_Type())
-ciscoPingTrapOnCompletion.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoPingTrapOnCompletion.setStatus(_B)
-_CiscoPingSentPackets_Type=Counter32
-_CiscoPingSentPackets_Object=MibTableColumn
-ciscoPingSentPackets=_CiscoPingSentPackets_Object((1,3,6,1,4,1,9,9,16,1,1,1,9),_CiscoPingSentPackets_Type())
-ciscoPingSentPackets.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciscoPingSentPackets.setStatus(_B)
-_CiscoPingReceivedPackets_Type=Counter32
-_CiscoPingReceivedPackets_Object=MibTableColumn
-ciscoPingReceivedPackets=_CiscoPingReceivedPackets_Object((1,3,6,1,4,1,9,9,16,1,1,1,10),_CiscoPingReceivedPackets_Type())
-ciscoPingReceivedPackets.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciscoPingReceivedPackets.setStatus(_B)
-_CiscoPingMinRtt_Type=Integer32
-_CiscoPingMinRtt_Object=MibTableColumn
-ciscoPingMinRtt=_CiscoPingMinRtt_Object((1,3,6,1,4,1,9,9,16,1,1,1,11),_CiscoPingMinRtt_Type())
-ciscoPingMinRtt.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciscoPingMinRtt.setStatus(_B)
-if mibBuilder.loadTexts:ciscoPingMinRtt.setUnits(_F)
-_CiscoPingAvgRtt_Type=Integer32
-_CiscoPingAvgRtt_Object=MibTableColumn
-ciscoPingAvgRtt=_CiscoPingAvgRtt_Object((1,3,6,1,4,1,9,9,16,1,1,1,12),_CiscoPingAvgRtt_Type())
-ciscoPingAvgRtt.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciscoPingAvgRtt.setStatus(_B)
-if mibBuilder.loadTexts:ciscoPingAvgRtt.setUnits(_F)
-_CiscoPingMaxRtt_Type=Integer32
-_CiscoPingMaxRtt_Object=MibTableColumn
-ciscoPingMaxRtt=_CiscoPingMaxRtt_Object((1,3,6,1,4,1,9,9,16,1,1,1,13),_CiscoPingMaxRtt_Type())
-ciscoPingMaxRtt.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciscoPingMaxRtt.setStatus(_B)
-if mibBuilder.loadTexts:ciscoPingMaxRtt.setUnits(_F)
-_CiscoPingCompleted_Type=TruthValue
-_CiscoPingCompleted_Object=MibTableColumn
-ciscoPingCompleted=_CiscoPingCompleted_Object((1,3,6,1,4,1,9,9,16,1,1,1,14),_CiscoPingCompleted_Type())
-ciscoPingCompleted.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciscoPingCompleted.setStatus(_B)
-_CiscoPingEntryOwner_Type=OwnerString
-_CiscoPingEntryOwner_Object=MibTableColumn
-ciscoPingEntryOwner=_CiscoPingEntryOwner_Object((1,3,6,1,4,1,9,9,16,1,1,1,15),_CiscoPingEntryOwner_Type())
-ciscoPingEntryOwner.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoPingEntryOwner.setStatus(_B)
-_CiscoPingEntryStatus_Type=RowStatus
-_CiscoPingEntryStatus_Object=MibTableColumn
-ciscoPingEntryStatus=_CiscoPingEntryStatus_Object((1,3,6,1,4,1,9,9,16,1,1,1,16),_CiscoPingEntryStatus_Type())
-ciscoPingEntryStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoPingEntryStatus.setStatus(_B)
-class _CiscoPingVrfName_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CiscoPingVrfName_Type.__name__=_V
-_CiscoPingVrfName_Object=MibTableColumn
-ciscoPingVrfName=_CiscoPingVrfName_Object((1,3,6,1,4,1,9,9,16,1,1,1,17),_CiscoPingVrfName_Type())
-ciscoPingVrfName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoPingVrfName.setStatus(_B)
-_CiscoPingMIBTrapPrefix_ObjectIdentity=ObjectIdentity
-ciscoPingMIBTrapPrefix=_CiscoPingMIBTrapPrefix_ObjectIdentity((1,3,6,1,4,1,9,9,16,2))
-_CiscoPingMIBTraps_ObjectIdentity=ObjectIdentity
-ciscoPingMIBTraps=_CiscoPingMIBTraps_ObjectIdentity((1,3,6,1,4,1,9,9,16,2,0))
-_CiscoPingMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoPingMIBConformance=_CiscoPingMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,16,3))
-_CiscoPingMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoPingMIBCompliances=_CiscoPingMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,16,3,1))
-_CiscoPingMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoPingMIBGroups=_CiscoPingMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,16,3,2))
-ciscoPingMIBGroup=ObjectGroup((1,3,6,1,4,1,9,9,16,3,2,1))
-ciscoPingMIBGroup.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_G),(_A,_H),(_A,_Q),(_A,_R),(_A,_S),(_A,_I),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:ciscoPingMIBGroup.setStatus(_Y)
-ciscoPingMIBGroupVpn=ObjectGroup((1,3,6,1,4,1,9,9,16,3,2,2))
-ciscoPingMIBGroupVpn.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_G),(_A,_H),(_A,_Q),(_A,_R),(_A,_S),(_A,_I),(_A,_T),(_A,_U),(_A,_Z)))
-if mibBuilder.loadTexts:ciscoPingMIBGroupVpn.setStatus(_B)
-ciscoPingCompletion=NotificationType((1,3,6,1,4,1,9,9,16,2,0,1))
-ciscoPingCompletion.setObjects(*((_A,_I),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:ciscoPingCompletion.setStatus(_B)
-ciscoPingMIBNotificationGroup=NotificationGroup((1,3,6,1,4,1,9,9,16,3,2,3))
-ciscoPingMIBNotificationGroup.setObjects((_A,_a))
-if mibBuilder.loadTexts:ciscoPingMIBNotificationGroup.setStatus(_B)
-ciscoPingMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,16,3,1,1))
-ciscoPingMIBCompliance.setObjects((_A,_b))
-if mibBuilder.loadTexts:ciscoPingMIBCompliance.setStatus(_Y)
-ciscoPingMIBComplianceVpn=ModuleCompliance((1,3,6,1,4,1,9,9,16,3,1,2))
-ciscoPingMIBComplianceVpn.setObjects((_A,_c))
-if mibBuilder.loadTexts:ciscoPingMIBComplianceVpn.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ciscoPingMIB':ciscoPingMIB,'ciscoPingMIBObjects':ciscoPingMIBObjects,'ciscoPingTable':ciscoPingTable,'ciscoPingEntry':ciscoPingEntry,_X:ciscoPingSerialNumber,_J:ciscoPingProtocol,_K:ciscoPingAddress,_L:ciscoPingPacketCount,_M:ciscoPingPacketSize,_N:ciscoPingPacketTimeout,_O:ciscoPingDelay,_P:ciscoPingTrapOnCompletion,_G:ciscoPingSentPackets,_H:ciscoPingReceivedPackets,_Q:ciscoPingMinRtt,_R:ciscoPingAvgRtt,_S:ciscoPingMaxRtt,_I:ciscoPingCompleted,_T:ciscoPingEntryOwner,_U:ciscoPingEntryStatus,_Z:ciscoPingVrfName,'ciscoPingMIBTrapPrefix':ciscoPingMIBTrapPrefix,'ciscoPingMIBTraps':ciscoPingMIBTraps,_a:ciscoPingCompletion,'ciscoPingMIBConformance':ciscoPingMIBConformance,'ciscoPingMIBCompliances':ciscoPingMIBCompliances,'ciscoPingMIBCompliance':ciscoPingMIBCompliance,'ciscoPingMIBComplianceVpn':ciscoPingMIBComplianceVpn,'ciscoPingMIBGroups':ciscoPingMIBGroups,_b:ciscoPingMIBGroup,_c:ciscoPingMIBGroupVpn,'ciscoPingMIBNotificationGroup':ciscoPingMIBNotificationGroup})
+#
+# PySNMP MIB module CISCO-PING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-PING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:53 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+CiscoNetworkProtocol, CiscoNetworkAddress = mibBuilder.importSymbols("CISCO-TC", "CiscoNetworkProtocol", "CiscoNetworkAddress")
+OwnerString, = mibBuilder.importSymbols("IF-MIB", "OwnerString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ciscoPingMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 16))
+ciscoPingMIB.setRevisions(('2001-08-28 00:00', '2001-05-14 00:00', '1999-10-08 00:00', '1994-11-11 00:00', '1994-07-22 00:00',))
+if mibBuilder.loadTexts: ciscoPingMIB.setLastUpdated('200108280000Z')
+if mibBuilder.loadTexts: ciscoPingMIB.setOrganization('Cisco Systems, Inc.')
+ciscoPingMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 16, 1))
+ciscoPingTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1), )
+if mibBuilder.loadTexts: ciscoPingTable.setStatus('current')
+ciscoPingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1), ).setIndexNames((0, "CISCO-PING-MIB", "ciscoPingSerialNumber"))
+if mibBuilder.loadTexts: ciscoPingEntry.setStatus('current')
+ciscoPingSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: ciscoPingSerialNumber.setStatus('current')
+ciscoPingProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 2), CiscoNetworkProtocol()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciscoPingProtocol.setStatus('current')
+ciscoPingAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 3), CiscoNetworkAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciscoPingAddress.setStatus('current')
+ciscoPingPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)).clone(5)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciscoPingPacketCount.setStatus('current')
+ciscoPingPacketSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 5), Integer32().clone(100)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciscoPingPacketSize.setStatus('current')
+ciscoPingPacketTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3600000)).clone(2000)).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciscoPingPacketTimeout.setStatus('current')
+ciscoPingDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3600000))).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciscoPingDelay.setStatus('current')
+ciscoPingTrapOnCompletion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 8), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciscoPingTrapOnCompletion.setStatus('current')
+ciscoPingSentPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoPingSentPackets.setStatus('current')
+ciscoPingReceivedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoPingReceivedPackets.setStatus('current')
+ciscoPingMinRtt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 11), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoPingMinRtt.setStatus('current')
+ciscoPingAvgRtt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 12), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoPingAvgRtt.setStatus('current')
+ciscoPingMaxRtt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 13), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoPingMaxRtt.setStatus('current')
+ciscoPingCompleted = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 14), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoPingCompleted.setStatus('current')
+ciscoPingEntryOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 15), OwnerString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciscoPingEntryOwner.setStatus('current')
+ciscoPingEntryStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 16), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciscoPingEntryStatus.setStatus('current')
+ciscoPingVrfName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 16, 1, 1, 1, 17), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciscoPingVrfName.setStatus('current')
+ciscoPingMIBTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 16, 2))
+ciscoPingMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 16, 2, 0))
+ciscoPingCompletion = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 16, 2, 0, 1)).setObjects(("CISCO-PING-MIB", "ciscoPingCompleted"), ("CISCO-PING-MIB", "ciscoPingSentPackets"), ("CISCO-PING-MIB", "ciscoPingReceivedPackets"))
+if mibBuilder.loadTexts: ciscoPingCompletion.setStatus('current')
+ciscoPingMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 16, 3))
+ciscoPingMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 16, 3, 1))
+ciscoPingMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 16, 3, 2))
+ciscoPingMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 16, 3, 1, 1)).setObjects(("CISCO-PING-MIB", "ciscoPingMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoPingMIBCompliance = ciscoPingMIBCompliance.setStatus('obsolete')
+ciscoPingMIBComplianceVpn = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 16, 3, 1, 2)).setObjects(("CISCO-PING-MIB", "ciscoPingMIBGroupVpn"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoPingMIBComplianceVpn = ciscoPingMIBComplianceVpn.setStatus('current')
+ciscoPingMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 16, 3, 2, 1)).setObjects(("CISCO-PING-MIB", "ciscoPingProtocol"), ("CISCO-PING-MIB", "ciscoPingAddress"), ("CISCO-PING-MIB", "ciscoPingPacketCount"), ("CISCO-PING-MIB", "ciscoPingPacketSize"), ("CISCO-PING-MIB", "ciscoPingPacketTimeout"), ("CISCO-PING-MIB", "ciscoPingDelay"), ("CISCO-PING-MIB", "ciscoPingTrapOnCompletion"), ("CISCO-PING-MIB", "ciscoPingSentPackets"), ("CISCO-PING-MIB", "ciscoPingReceivedPackets"), ("CISCO-PING-MIB", "ciscoPingMinRtt"), ("CISCO-PING-MIB", "ciscoPingAvgRtt"), ("CISCO-PING-MIB", "ciscoPingMaxRtt"), ("CISCO-PING-MIB", "ciscoPingCompleted"), ("CISCO-PING-MIB", "ciscoPingEntryOwner"), ("CISCO-PING-MIB", "ciscoPingEntryStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoPingMIBGroup = ciscoPingMIBGroup.setStatus('obsolete')
+ciscoPingMIBGroupVpn = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 16, 3, 2, 2)).setObjects(("CISCO-PING-MIB", "ciscoPingProtocol"), ("CISCO-PING-MIB", "ciscoPingAddress"), ("CISCO-PING-MIB", "ciscoPingPacketCount"), ("CISCO-PING-MIB", "ciscoPingPacketSize"), ("CISCO-PING-MIB", "ciscoPingPacketTimeout"), ("CISCO-PING-MIB", "ciscoPingDelay"), ("CISCO-PING-MIB", "ciscoPingTrapOnCompletion"), ("CISCO-PING-MIB", "ciscoPingSentPackets"), ("CISCO-PING-MIB", "ciscoPingReceivedPackets"), ("CISCO-PING-MIB", "ciscoPingMinRtt"), ("CISCO-PING-MIB", "ciscoPingAvgRtt"), ("CISCO-PING-MIB", "ciscoPingMaxRtt"), ("CISCO-PING-MIB", "ciscoPingCompleted"), ("CISCO-PING-MIB", "ciscoPingEntryOwner"), ("CISCO-PING-MIB", "ciscoPingEntryStatus"), ("CISCO-PING-MIB", "ciscoPingVrfName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoPingMIBGroupVpn = ciscoPingMIBGroupVpn.setStatus('current')
+ciscoPingMIBNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 16, 3, 2, 3)).setObjects(("CISCO-PING-MIB", "ciscoPingCompletion"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoPingMIBNotificationGroup = ciscoPingMIBNotificationGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-PING-MIB", ciscoPingDelay=ciscoPingDelay, ciscoPingPacketSize=ciscoPingPacketSize, ciscoPingPacketTimeout=ciscoPingPacketTimeout, ciscoPingSentPackets=ciscoPingSentPackets, ciscoPingMIBObjects=ciscoPingMIBObjects, ciscoPingMIBTrapPrefix=ciscoPingMIBTrapPrefix, ciscoPingEntryStatus=ciscoPingEntryStatus, ciscoPingMinRtt=ciscoPingMinRtt, ciscoPingMIBGroupVpn=ciscoPingMIBGroupVpn, ciscoPingAvgRtt=ciscoPingAvgRtt, ciscoPingMIBCompliances=ciscoPingMIBCompliances, ciscoPingPacketCount=ciscoPingPacketCount, ciscoPingVrfName=ciscoPingVrfName, PYSNMP_MODULE_ID=ciscoPingMIB, ciscoPingAddress=ciscoPingAddress, ciscoPingMaxRtt=ciscoPingMaxRtt, ciscoPingMIBGroups=ciscoPingMIBGroups, ciscoPingMIBConformance=ciscoPingMIBConformance, ciscoPingMIBTraps=ciscoPingMIBTraps, ciscoPingReceivedPackets=ciscoPingReceivedPackets, ciscoPingCompleted=ciscoPingCompleted, ciscoPingCompletion=ciscoPingCompletion, ciscoPingSerialNumber=ciscoPingSerialNumber, ciscoPingMIBCompliance=ciscoPingMIBCompliance, ciscoPingProtocol=ciscoPingProtocol, ciscoPingMIBNotificationGroup=ciscoPingMIBNotificationGroup, ciscoPingTable=ciscoPingTable, ciscoPingMIB=ciscoPingMIB, ciscoPingMIBGroup=ciscoPingMIBGroup, ciscoPingTrapOnCompletion=ciscoPingTrapOnCompletion, ciscoPingEntryOwner=ciscoPingEntryOwner, ciscoPingEntry=ciscoPingEntry, ciscoPingMIBComplianceVpn=ciscoPingMIBComplianceVpn)

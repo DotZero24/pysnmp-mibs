@@ -1,55 +1,34 @@
-_G='zxAnDlIntIndex'
-_F='ZTE-AN-DHCP-L3PUB-MIB'
-_E='disable'
-_D='enable'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ZxAnIfindex,zxAn=mibBuilder.importSymbols('ZTE-AN-TC-MIB','ZxAnIfindex','zxAn')
-zxAnDhcpL3PubMIB=ModuleIdentity((1,3,6,1,4,1,3902,1015,52))
-_ZxAnDhcpL3PubMIBNotifs_ObjectIdentity=ObjectIdentity
-zxAnDhcpL3PubMIBNotifs=_ZxAnDhcpL3PubMIBNotifs_ObjectIdentity((1,3,6,1,4,1,3902,1015,52,0))
-_ZxAnDhcpL3PubMIBObjects_ObjectIdentity=ObjectIdentity
-zxAnDhcpL3PubMIBObjects=_ZxAnDhcpL3PubMIBObjects_ObjectIdentity((1,3,6,1,4,1,3902,1015,52,1))
-_ZxAnDlGlobal_ObjectIdentity=ObjectIdentity
-zxAnDlGlobal=_ZxAnDlGlobal_ObjectIdentity((1,3,6,1,4,1,3902,1015,52,1,1))
-class _ZxAnDlGlobalEnable_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_ZxAnDlGlobalEnable_Type.__name__=_B
-_ZxAnDlGlobalEnable_Object=MibScalar
-zxAnDlGlobalEnable=_ZxAnDlGlobalEnable_Object((1,3,6,1,4,1,3902,1015,52,1,1,1),_ZxAnDlGlobalEnable_Type())
-zxAnDlGlobalEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnDlGlobalEnable.setStatus(_A)
-class _ZxAnDlLog_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_ZxAnDlLog_Type.__name__=_B
-_ZxAnDlLog_Object=MibScalar
-zxAnDlLog=_ZxAnDlLog_Object((1,3,6,1,4,1,3902,1015,52,1,1,2),_ZxAnDlLog_Type())
-zxAnDlLog.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnDlLog.setStatus(_A)
-_ZxAnDlVlanInterface_ObjectIdentity=ObjectIdentity
-zxAnDlVlanInterface=_ZxAnDlVlanInterface_ObjectIdentity((1,3,6,1,4,1,3902,1015,52,1,2))
-_ZxAnDlVlanIntTable_Object=MibTable
-zxAnDlVlanIntTable=_ZxAnDlVlanIntTable_Object((1,3,6,1,4,1,3902,1015,52,1,2,1))
-if mibBuilder.loadTexts:zxAnDlVlanIntTable.setStatus(_A)
-_ZxAnDlVlanIntEntry_Object=MibTableRow
-zxAnDlVlanIntEntry=_ZxAnDlVlanIntEntry_Object((1,3,6,1,4,1,3902,1015,52,1,2,1,1))
-zxAnDlVlanIntEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:zxAnDlVlanIntEntry.setStatus(_A)
-_ZxAnDlIntIndex_Type=ZxAnIfindex
-_ZxAnDlIntIndex_Object=MibTableColumn
-zxAnDlIntIndex=_ZxAnDlIntIndex_Object((1,3,6,1,4,1,3902,1015,52,1,2,1,1,1),_ZxAnDlIntIndex_Type())
-zxAnDlIntIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:zxAnDlIntIndex.setStatus(_A)
-class _ZxAnDlMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('nowork',0),('server',1),('relay',2),('proxy',3)))
-_ZxAnDlMode_Type.__name__=_B
-_ZxAnDlMode_Object=MibTableColumn
-zxAnDlMode=_ZxAnDlMode_Object((1,3,6,1,4,1,3902,1015,52,1,2,1,1,2),_ZxAnDlMode_Type())
-zxAnDlMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnDlMode.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'zxAnDhcpL3PubMIB':zxAnDhcpL3PubMIB,'zxAnDhcpL3PubMIBNotifs':zxAnDhcpL3PubMIBNotifs,'zxAnDhcpL3PubMIBObjects':zxAnDhcpL3PubMIBObjects,'zxAnDlGlobal':zxAnDlGlobal,'zxAnDlGlobalEnable':zxAnDlGlobalEnable,'zxAnDlLog':zxAnDlLog,'zxAnDlVlanInterface':zxAnDlVlanInterface,'zxAnDlVlanIntTable':zxAnDlVlanIntTable,'zxAnDlVlanIntEntry':zxAnDlVlanIntEntry,_G:zxAnDlIntIndex,'zxAnDlMode':zxAnDlMode})
+#
+# PySNMP MIB module ZTE-AN-DHCP-L3PUB-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZTE-AN-DHCP-L3PUB-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:49 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ZxAnIfindex, zxAn = mibBuilder.importSymbols("ZTE-AN-TC-MIB", "ZxAnIfindex", "zxAn")
+zxAnDhcpL3PubMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1015, 52))
+if mibBuilder.loadTexts: zxAnDhcpL3PubMIB.setLastUpdated('200705080000Z')
+if mibBuilder.loadTexts: zxAnDhcpL3PubMIB.setOrganization('zte Telcom Co. Ltd.')
+zxAnDhcpL3PubMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 52, 0))
+zxAnDhcpL3PubMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 52, 1))
+zxAnDlGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 52, 1, 1))
+zxAnDlVlanInterface = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 52, 1, 2))
+zxAnDlGlobalEnable = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1015, 52, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnDlGlobalEnable.setStatus('current')
+zxAnDlLog = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1015, 52, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnDlLog.setStatus('current')
+zxAnDlVlanIntTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 52, 1, 2, 1), )
+if mibBuilder.loadTexts: zxAnDlVlanIntTable.setStatus('current')
+zxAnDlVlanIntEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 52, 1, 2, 1, 1), ).setIndexNames((0, "ZTE-AN-DHCP-L3PUB-MIB", "zxAnDlIntIndex"))
+if mibBuilder.loadTexts: zxAnDlVlanIntEntry.setStatus('current')
+zxAnDlIntIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 52, 1, 2, 1, 1, 1), ZxAnIfindex())
+if mibBuilder.loadTexts: zxAnDlIntIndex.setStatus('current')
+zxAnDlMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 52, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("nowork", 0), ("server", 1), ("relay", 2), ("proxy", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnDlMode.setStatus('current')
+mibBuilder.exportSymbols("ZTE-AN-DHCP-L3PUB-MIB", zxAnDlGlobal=zxAnDlGlobal, zxAnDlVlanIntEntry=zxAnDlVlanIntEntry, zxAnDlLog=zxAnDlLog, zxAnDlIntIndex=zxAnDlIntIndex, zxAnDlMode=zxAnDlMode, zxAnDhcpL3PubMIBObjects=zxAnDhcpL3PubMIBObjects, PYSNMP_MODULE_ID=zxAnDhcpL3PubMIB, zxAnDhcpL3PubMIB=zxAnDhcpL3PubMIB, zxAnDlVlanInterface=zxAnDlVlanInterface, zxAnDlGlobalEnable=zxAnDlGlobalEnable, zxAnDlVlanIntTable=zxAnDlVlanIntTable, zxAnDhcpL3PubMIBNotifs=zxAnDhcpL3PubMIBNotifs)

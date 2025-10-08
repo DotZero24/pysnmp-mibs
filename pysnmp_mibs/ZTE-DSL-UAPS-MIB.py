@@ -1,87 +1,44 @@
-_I='zxDslUapsSwapReason'
-_H='zxDslUapsPortOperStatus'
-_G='zxDslUapsPortWorkingStatus'
-_F='Bits'
-_E='ZTE-DSL-UAPS-MIB'
-_D='read-only'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI',_F,'Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TruthValue')
-zxDslUapsMib=ModuleIdentity((1,3,6,1,4,1,3902,1004,33))
-_Zte_ObjectIdentity=ObjectIdentity
-zte=_Zte_ObjectIdentity((1,3,6,1,4,1,3902))
-_ZxDsl_ObjectIdentity=ObjectIdentity
-zxDsl=_ZxDsl_ObjectIdentity((1,3,6,1,4,1,3902,1004))
-_ZxDslUapsObjects_ObjectIdentity=ObjectIdentity
-zxDslUapsObjects=_ZxDslUapsObjects_ObjectIdentity((1,3,6,1,4,1,3902,1004,33,1))
-class _ZxDslUapsPortMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('uaps',1),('trunk',2),('uplink',3)))
-_ZxDslUapsPortMode_Type.__name__=_B
-_ZxDslUapsPortMode_Object=MibScalar
-zxDslUapsPortMode=_ZxDslUapsPortMode_Object((1,3,6,1,4,1,3902,1004,33,1,1),_ZxDslUapsPortMode_Type())
-zxDslUapsPortMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxDslUapsPortMode.setStatus(_A)
-_ZxDslUapsPrimaryPort_Type=Integer32
-_ZxDslUapsPrimaryPort_Object=MibScalar
-zxDslUapsPrimaryPort=_ZxDslUapsPrimaryPort_Object((1,3,6,1,4,1,3902,1004,33,1,2),_ZxDslUapsPrimaryPort_Type())
-zxDslUapsPrimaryPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxDslUapsPrimaryPort.setStatus(_A)
-_ZxDslUapsAutoFailbackEnable_Type=Integer32
-_ZxDslUapsAutoFailbackEnable_Object=MibScalar
-zxDslUapsAutoFailbackEnable=_ZxDslUapsAutoFailbackEnable_Object((1,3,6,1,4,1,3902,1004,33,1,3),_ZxDslUapsAutoFailbackEnable_Type())
-zxDslUapsAutoFailbackEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxDslUapsAutoFailbackEnable.setStatus(_A)
-class _ZxDslUapsProtectionTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,900))
-_ZxDslUapsProtectionTime_Type.__name__=_B
-_ZxDslUapsProtectionTime_Object=MibScalar
-zxDslUapsProtectionTime=_ZxDslUapsProtectionTime_Object((1,3,6,1,4,1,3902,1004,33,1,4),_ZxDslUapsProtectionTime_Type())
-zxDslUapsProtectionTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxDslUapsProtectionTime.setStatus(_A)
-if mibBuilder.loadTexts:zxDslUapsProtectionTime.setUnits('second')
-_ZxDslUapsForceSwap_Type=Integer32
-_ZxDslUapsForceSwap_Object=MibScalar
-zxDslUapsForceSwap=_ZxDslUapsForceSwap_Object((1,3,6,1,4,1,3902,1004,33,1,5),_ZxDslUapsForceSwap_Type())
-zxDslUapsForceSwap.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxDslUapsForceSwap.setStatus(_A)
-class _ZxDslUapsPortWorkingStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('primaryPortInWorking',1),('secondaryPortInWorking',2)))
-_ZxDslUapsPortWorkingStatus_Type.__name__=_B
-_ZxDslUapsPortWorkingStatus_Object=MibScalar
-zxDslUapsPortWorkingStatus=_ZxDslUapsPortWorkingStatus_Object((1,3,6,1,4,1,3902,1004,33,1,6),_ZxDslUapsPortWorkingStatus_Type())
-zxDslUapsPortWorkingStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxDslUapsPortWorkingStatus.setStatus(_A)
-class _ZxDslUapsPortOperStatus_Type(Bits):namedValues=NamedValues(*(('primaryPort',0),('secondaryPort',1)))
-_ZxDslUapsPortOperStatus_Type.__name__=_F
-_ZxDslUapsPortOperStatus_Object=MibScalar
-zxDslUapsPortOperStatus=_ZxDslUapsPortOperStatus_Object((1,3,6,1,4,1,3902,1004,33,1,7),_ZxDslUapsPortOperStatus_Type())
-zxDslUapsPortOperStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxDslUapsPortOperStatus.setStatus(_A)
-_ZxDslUapsIsInPrtctTime_Type=TruthValue
-_ZxDslUapsIsInPrtctTime_Object=MibScalar
-zxDslUapsIsInPrtctTime=_ZxDslUapsIsInPrtctTime_Object((1,3,6,1,4,1,3902,1004,33,1,8),_ZxDslUapsIsInPrtctTime_Type())
-zxDslUapsIsInPrtctTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxDslUapsIsInPrtctTime.setStatus(_A)
-class _ZxDslUapsSwapRequestStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('existRequest',1),('noRequest',2)))
-_ZxDslUapsSwapRequestStatus_Type.__name__=_B
-_ZxDslUapsSwapRequestStatus_Object=MibScalar
-zxDslUapsSwapRequestStatus=_ZxDslUapsSwapRequestStatus_Object((1,3,6,1,4,1,3902,1004,33,1,9),_ZxDslUapsSwapRequestStatus_Type())
-zxDslUapsSwapRequestStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxDslUapsSwapRequestStatus.setStatus(_A)
-class _ZxDslUapsSwapReason_Type(Bits):namedValues=NamedValues(*(('failback',0),('failover',1),('forceSwap',2)))
-_ZxDslUapsSwapReason_Type.__name__=_F
-_ZxDslUapsSwapReason_Object=MibScalar
-zxDslUapsSwapReason=_ZxDslUapsSwapReason_Object((1,3,6,1,4,1,3902,1004,33,1,10),_ZxDslUapsSwapReason_Type())
-zxDslUapsSwapReason.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxDslUapsSwapReason.setStatus(_A)
-_ZxDslUapsTraps_ObjectIdentity=ObjectIdentity
-zxDslUapsTraps=_ZxDslUapsTraps_ObjectIdentity((1,3,6,1,4,1,3902,1004,33,2))
-zxDslUapsSwappedTrap=NotificationType((1,3,6,1,4,1,3902,1004,33,2,1))
-zxDslUapsSwappedTrap.setObjects(*((_E,_G),(_E,_H),(_E,_I)))
-if mibBuilder.loadTexts:zxDslUapsSwappedTrap.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'zte':zte,'zxDsl':zxDsl,'zxDslUapsMib':zxDslUapsMib,'zxDslUapsObjects':zxDslUapsObjects,'zxDslUapsPortMode':zxDslUapsPortMode,'zxDslUapsPrimaryPort':zxDslUapsPrimaryPort,'zxDslUapsAutoFailbackEnable':zxDslUapsAutoFailbackEnable,'zxDslUapsProtectionTime':zxDslUapsProtectionTime,'zxDslUapsForceSwap':zxDslUapsForceSwap,_G:zxDslUapsPortWorkingStatus,_H:zxDslUapsPortOperStatus,'zxDslUapsIsInPrtctTime':zxDslUapsIsInPrtctTime,'zxDslUapsSwapRequestStatus':zxDslUapsSwapRequestStatus,_I:zxDslUapsSwapReason,'zxDslUapsTraps':zxDslUapsTraps,'zxDslUapsSwappedTrap':zxDslUapsSwappedTrap})
+#
+# PySNMP MIB module ZTE-DSL-UAPS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZTE-DSL-UAPS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:51 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TruthValue, DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "MacAddress", "TextualConvention")
+zxDslUapsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1004, 33))
+if mibBuilder.loadTexts: zxDslUapsMib.setLastUpdated('200701311000Z')
+if mibBuilder.loadTexts: zxDslUapsMib.setOrganization('ZTE Corporation')
+zte = MibIdentifier((1, 3, 6, 1, 4, 1, 3902))
+zxDsl = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1004))
+zxDslUapsObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1004, 33, 1))
+zxDslUapsTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1004, 33, 2))
+zxDslUapsPortMode = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 33, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("uaps", 1), ("trunk", 2), ("uplink", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslUapsPortMode.setStatus('current')
+zxDslUapsPrimaryPort = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 33, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslUapsPrimaryPort.setStatus('current')
+zxDslUapsAutoFailbackEnable = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 33, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslUapsAutoFailbackEnable.setStatus('current')
+zxDslUapsProtectionTime = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 33, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 900))).setUnits('second').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslUapsProtectionTime.setStatus('current')
+zxDslUapsForceSwap = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 33, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslUapsForceSwap.setStatus('current')
+zxDslUapsPortWorkingStatus = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 33, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primaryPortInWorking", 1), ("secondaryPortInWorking", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxDslUapsPortWorkingStatus.setStatus('current')
+zxDslUapsPortOperStatus = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 33, 1, 7), Bits().clone(namedValues=NamedValues(("primaryPort", 0), ("secondaryPort", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxDslUapsPortOperStatus.setStatus('current')
+zxDslUapsIsInPrtctTime = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 33, 1, 8), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxDslUapsIsInPrtctTime.setStatus('current')
+zxDslUapsSwapRequestStatus = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 33, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("existRequest", 1), ("noRequest", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxDslUapsSwapRequestStatus.setStatus('current')
+zxDslUapsSwapReason = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 33, 1, 10), Bits().clone(namedValues=NamedValues(("failback", 0), ("failover", 1), ("forceSwap", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxDslUapsSwapReason.setStatus('current')
+zxDslUapsSwappedTrap = NotificationType((1, 3, 6, 1, 4, 1, 3902, 1004, 33, 2, 1)).setObjects(("ZTE-DSL-UAPS-MIB", "zxDslUapsPortWorkingStatus"), ("ZTE-DSL-UAPS-MIB", "zxDslUapsPortOperStatus"), ("ZTE-DSL-UAPS-MIB", "zxDslUapsSwapReason"))
+if mibBuilder.loadTexts: zxDslUapsSwappedTrap.setStatus('current')
+mibBuilder.exportSymbols("ZTE-DSL-UAPS-MIB", zte=zte, zxDslUapsMib=zxDslUapsMib, zxDslUapsSwapRequestStatus=zxDslUapsSwapRequestStatus, zxDslUapsSwappedTrap=zxDslUapsSwappedTrap, zxDslUapsAutoFailbackEnable=zxDslUapsAutoFailbackEnable, zxDslUapsProtectionTime=zxDslUapsProtectionTime, zxDslUapsForceSwap=zxDslUapsForceSwap, PYSNMP_MODULE_ID=zxDslUapsMib, zxDslUapsPortOperStatus=zxDslUapsPortOperStatus, zxDslUapsIsInPrtctTime=zxDslUapsIsInPrtctTime, zxDslUapsObjects=zxDslUapsObjects, zxDslUapsPortWorkingStatus=zxDslUapsPortWorkingStatus, zxDslUapsTraps=zxDslUapsTraps, zxDslUapsSwapReason=zxDslUapsSwapReason, zxDslUapsPrimaryPort=zxDslUapsPrimaryPort, zxDsl=zxDsl, zxDslUapsPortMode=zxDslUapsPortMode)

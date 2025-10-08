@@ -1,52 +1,41 @@
-_G='alaMsgSrvGlobalConfigGroup'
-_F='alaMsgSrvGlobalRestart'
-_E='alaMsgSrvGlobalConfigStatus'
-_D='read-write'
-_C='Integer32'
-_B='ALCATEL-ENT1-MSG-SRV-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-softentIND1MsgSrvMIB,=mibBuilder.importSymbols('ALCATEL-ENT1-BASE','softentIND1MsgSrvMIB')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','TextualConvention')
-alcatelIND1MsgSrvMIB=ModuleIdentity((1,3,6,1,4,1,6486,801,1,2,1,79,1))
-if mibBuilder.loadTexts:alcatelIND1MsgSrvMIB.setRevisions(('2013-06-05 00:00',))
-_AlcatelIND1MsgSrvMIBNotifications_ObjectIdentity=ObjectIdentity
-alcatelIND1MsgSrvMIBNotifications=_AlcatelIND1MsgSrvMIBNotifications_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,79,1,0))
-if mibBuilder.loadTexts:alcatelIND1MsgSrvMIBNotifications.setStatus(_A)
-_AlcatelIND1MsgSrvMIBObjects_ObjectIdentity=ObjectIdentity
-alcatelIND1MsgSrvMIBObjects=_AlcatelIND1MsgSrvMIBObjects_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,79,1,1))
-if mibBuilder.loadTexts:alcatelIND1MsgSrvMIBObjects.setStatus(_A)
-class _AlaMsgSrvGlobalConfigStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_AlaMsgSrvGlobalConfigStatus_Type.__name__=_C
-_AlaMsgSrvGlobalConfigStatus_Object=MibScalar
-alaMsgSrvGlobalConfigStatus=_AlaMsgSrvGlobalConfigStatus_Object((1,3,6,1,4,1,6486,801,1,2,1,79,1,1,1),_AlaMsgSrvGlobalConfigStatus_Type())
-alaMsgSrvGlobalConfigStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaMsgSrvGlobalConfigStatus.setStatus(_A)
-class _AlaMsgSrvGlobalRestart_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('inactive',1),('restart',2)))
-_AlaMsgSrvGlobalRestart_Type.__name__=_C
-_AlaMsgSrvGlobalRestart_Object=MibScalar
-alaMsgSrvGlobalRestart=_AlaMsgSrvGlobalRestart_Object((1,3,6,1,4,1,6486,801,1,2,1,79,1,1,2),_AlaMsgSrvGlobalRestart_Type())
-alaMsgSrvGlobalRestart.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaMsgSrvGlobalRestart.setStatus(_A)
-_AlcatelIND1MsgSrvMIBConformance_ObjectIdentity=ObjectIdentity
-alcatelIND1MsgSrvMIBConformance=_AlcatelIND1MsgSrvMIBConformance_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,79,1,2))
-if mibBuilder.loadTexts:alcatelIND1MsgSrvMIBConformance.setStatus(_A)
-_AlcatelIND1MsgSrvMIBGroups_ObjectIdentity=ObjectIdentity
-alcatelIND1MsgSrvMIBGroups=_AlcatelIND1MsgSrvMIBGroups_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,79,1,2,1))
-if mibBuilder.loadTexts:alcatelIND1MsgSrvMIBGroups.setStatus(_A)
-_AlcatelIND1MsgSrvMIBCompliances_ObjectIdentity=ObjectIdentity
-alcatelIND1MsgSrvMIBCompliances=_AlcatelIND1MsgSrvMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,79,1,2,2))
-if mibBuilder.loadTexts:alcatelIND1MsgSrvMIBCompliances.setStatus(_A)
-alaMsgSrvGlobalConfigGroup=ObjectGroup((1,3,6,1,4,1,6486,801,1,2,1,79,1,2,1,1))
-alaMsgSrvGlobalConfigGroup.setObjects(*((_B,_E),(_B,_F)))
-if mibBuilder.loadTexts:alaMsgSrvGlobalConfigGroup.setStatus(_A)
-alcatelIND1MsgSrvMIBCompliance=ModuleCompliance((1,3,6,1,4,1,6486,801,1,2,1,79,1,2,2,1))
-alcatelIND1MsgSrvMIBCompliance.setObjects((_B,_G))
-if mibBuilder.loadTexts:alcatelIND1MsgSrvMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'alcatelIND1MsgSrvMIB':alcatelIND1MsgSrvMIB,'alcatelIND1MsgSrvMIBNotifications':alcatelIND1MsgSrvMIBNotifications,'alcatelIND1MsgSrvMIBObjects':alcatelIND1MsgSrvMIBObjects,_E:alaMsgSrvGlobalConfigStatus,_F:alaMsgSrvGlobalRestart,'alcatelIND1MsgSrvMIBConformance':alcatelIND1MsgSrvMIBConformance,'alcatelIND1MsgSrvMIBGroups':alcatelIND1MsgSrvMIBGroups,_G:alaMsgSrvGlobalConfigGroup,'alcatelIND1MsgSrvMIBCompliances':alcatelIND1MsgSrvMIBCompliances,'alcatelIND1MsgSrvMIBCompliance':alcatelIND1MsgSrvMIBCompliance})
+#
+# PySNMP MIB module ALCATEL-ENT1-MSG-SRV-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel-ent1/ALCATEL-ENT1-MSG-SRV-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:46 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+softentIND1MsgSrvMIB, = mibBuilder.importSymbols("ALCATEL-ENT1-BASE", "softentIND1MsgSrvMIB")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, ObjectIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "ObjectIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "DateAndTime", "TextualConvention")
+alcatelIND1MsgSrvMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 79, 1))
+alcatelIND1MsgSrvMIB.setRevisions(('2013-06-05 00:00',))
+if mibBuilder.loadTexts: alcatelIND1MsgSrvMIB.setLastUpdated('201306050000Z')
+if mibBuilder.loadTexts: alcatelIND1MsgSrvMIB.setOrganization('Alcatel - Architects Of An Internet World')
+alcatelIND1MsgSrvMIBNotifications = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 79, 1, 0))
+if mibBuilder.loadTexts: alcatelIND1MsgSrvMIBNotifications.setStatus('current')
+alcatelIND1MsgSrvMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 79, 1, 1))
+if mibBuilder.loadTexts: alcatelIND1MsgSrvMIBObjects.setStatus('current')
+alcatelIND1MsgSrvMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 79, 1, 2))
+if mibBuilder.loadTexts: alcatelIND1MsgSrvMIBConformance.setStatus('current')
+alcatelIND1MsgSrvMIBGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 79, 1, 2, 1))
+if mibBuilder.loadTexts: alcatelIND1MsgSrvMIBGroups.setStatus('current')
+alcatelIND1MsgSrvMIBCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 79, 1, 2, 2))
+if mibBuilder.loadTexts: alcatelIND1MsgSrvMIBCompliances.setStatus('current')
+alaMsgSrvGlobalConfigStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 79, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaMsgSrvGlobalConfigStatus.setStatus('current')
+alaMsgSrvGlobalRestart = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 79, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inactive", 1), ("restart", 2))).clone('inactive')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaMsgSrvGlobalRestart.setStatus('current')
+alcatelIND1MsgSrvMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 79, 1, 2, 2, 1)).setObjects(("ALCATEL-ENT1-MSG-SRV-MIB", "alaMsgSrvGlobalConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alcatelIND1MsgSrvMIBCompliance = alcatelIND1MsgSrvMIBCompliance.setStatus('current')
+alaMsgSrvGlobalConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 79, 1, 2, 1, 1)).setObjects(("ALCATEL-ENT1-MSG-SRV-MIB", "alaMsgSrvGlobalConfigStatus"), ("ALCATEL-ENT1-MSG-SRV-MIB", "alaMsgSrvGlobalRestart"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaMsgSrvGlobalConfigGroup = alaMsgSrvGlobalConfigGroup.setStatus('current')
+mibBuilder.exportSymbols("ALCATEL-ENT1-MSG-SRV-MIB", alcatelIND1MsgSrvMIBNotifications=alcatelIND1MsgSrvMIBNotifications, alcatelIND1MsgSrvMIBConformance=alcatelIND1MsgSrvMIBConformance, PYSNMP_MODULE_ID=alcatelIND1MsgSrvMIB, alcatelIND1MsgSrvMIB=alcatelIND1MsgSrvMIB, alcatelIND1MsgSrvMIBGroups=alcatelIND1MsgSrvMIBGroups, alcatelIND1MsgSrvMIBCompliances=alcatelIND1MsgSrvMIBCompliances, alaMsgSrvGlobalRestart=alaMsgSrvGlobalRestart, alaMsgSrvGlobalConfigStatus=alaMsgSrvGlobalConfigStatus, alcatelIND1MsgSrvMIBObjects=alcatelIND1MsgSrvMIBObjects, alcatelIND1MsgSrvMIBCompliance=alcatelIND1MsgSrvMIBCompliance, alaMsgSrvGlobalConfigGroup=alaMsgSrvGlobalConfigGroup)

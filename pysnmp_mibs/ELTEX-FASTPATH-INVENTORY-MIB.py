@@ -1,109 +1,60 @@
-_R='efpAgentInventoryNextActiveImage'
-_Q='efpAgentInventoryActiveImage'
-_P='efpAgentInventoryUnitImage2Md5Digest'
-_O='efpAgentInventoryUnitImage1Md5Digest'
-_N='efpAgentInventoryUnitImage2Timestamp'
-_M='efpAgentInventoryUnitImage1Timestamp'
-_L='efpAgentInventoryUnitImage2CommitHash'
-_K='efpAgentInventoryUnitImage1CommitHash'
-_J='efpAgentInventoryUnitEntry'
-_I='image2'
-_H='image1'
-_G='unknown'
-_F='efpInventoryUnitGroup'
-_E='Integer32'
-_D='DisplayString'
-_C='read-only'
-_B='ELTEX-FASTPATH-INVENTORY-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-eltMesFastpath,=mibBuilder.importSymbols('ELTEX-MES-FASTPATH-MIB','eltMesFastpath')
-agentInventoryUnitEntry,=mibBuilder.importSymbols('FASTPATH-INVENTORY-MIB','agentInventoryUnitEntry')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention')
-eltFastpathInventoryMIB=ModuleIdentity((1,3,6,1,4,1,35265,1,103,1))
-if mibBuilder.loadTexts:eltFastpathInventoryMIB.setRevisions(('2017-02-07 00:00',))
-_EfpInventoryObjects_ObjectIdentity=ObjectIdentity
-efpInventoryObjects=_EfpInventoryObjects_ObjectIdentity((1,3,6,1,4,1,35265,1,103,1,1))
-_EfpInventoryGlobals_ObjectIdentity=ObjectIdentity
-efpInventoryGlobals=_EfpInventoryGlobals_ObjectIdentity((1,3,6,1,4,1,35265,1,103,1,1,1))
-_EfpAgentInventoryUnitTable_Object=MibTable
-efpAgentInventoryUnitTable=_EfpAgentInventoryUnitTable_Object((1,3,6,1,4,1,35265,1,103,1,1,1,1))
-if mibBuilder.loadTexts:efpAgentInventoryUnitTable.setStatus(_A)
-_EfpAgentInventoryUnitEntry_Object=MibTableRow
-efpAgentInventoryUnitEntry=_EfpAgentInventoryUnitEntry_Object((1,3,6,1,4,1,35265,1,103,1,1,1,1,1))
-if mibBuilder.loadTexts:efpAgentInventoryUnitEntry.setStatus(_A)
-class _EfpAgentInventoryUnitImage1CommitHash_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_EfpAgentInventoryUnitImage1CommitHash_Type.__name__=_D
-_EfpAgentInventoryUnitImage1CommitHash_Object=MibTableColumn
-efpAgentInventoryUnitImage1CommitHash=_EfpAgentInventoryUnitImage1CommitHash_Object((1,3,6,1,4,1,35265,1,103,1,1,1,1,1,1),_EfpAgentInventoryUnitImage1CommitHash_Type())
-efpAgentInventoryUnitImage1CommitHash.setMaxAccess(_C)
-if mibBuilder.loadTexts:efpAgentInventoryUnitImage1CommitHash.setStatus(_A)
-class _EfpAgentInventoryUnitImage2CommitHash_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_EfpAgentInventoryUnitImage2CommitHash_Type.__name__=_D
-_EfpAgentInventoryUnitImage2CommitHash_Object=MibTableColumn
-efpAgentInventoryUnitImage2CommitHash=_EfpAgentInventoryUnitImage2CommitHash_Object((1,3,6,1,4,1,35265,1,103,1,1,1,1,1,2),_EfpAgentInventoryUnitImage2CommitHash_Type())
-efpAgentInventoryUnitImage2CommitHash.setMaxAccess(_C)
-if mibBuilder.loadTexts:efpAgentInventoryUnitImage2CommitHash.setStatus(_A)
-class _EfpAgentInventoryUnitImage1Timestamp_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_EfpAgentInventoryUnitImage1Timestamp_Type.__name__=_D
-_EfpAgentInventoryUnitImage1Timestamp_Object=MibTableColumn
-efpAgentInventoryUnitImage1Timestamp=_EfpAgentInventoryUnitImage1Timestamp_Object((1,3,6,1,4,1,35265,1,103,1,1,1,1,1,3),_EfpAgentInventoryUnitImage1Timestamp_Type())
-efpAgentInventoryUnitImage1Timestamp.setMaxAccess(_C)
-if mibBuilder.loadTexts:efpAgentInventoryUnitImage1Timestamp.setStatus(_A)
-class _EfpAgentInventoryUnitImage2Timestamp_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_EfpAgentInventoryUnitImage2Timestamp_Type.__name__=_D
-_EfpAgentInventoryUnitImage2Timestamp_Object=MibTableColumn
-efpAgentInventoryUnitImage2Timestamp=_EfpAgentInventoryUnitImage2Timestamp_Object((1,3,6,1,4,1,35265,1,103,1,1,1,1,1,4),_EfpAgentInventoryUnitImage2Timestamp_Type())
-efpAgentInventoryUnitImage2Timestamp.setMaxAccess(_C)
-if mibBuilder.loadTexts:efpAgentInventoryUnitImage2Timestamp.setStatus(_A)
-class _EfpAgentInventoryUnitImage1Md5Digest_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_EfpAgentInventoryUnitImage1Md5Digest_Type.__name__=_D
-_EfpAgentInventoryUnitImage1Md5Digest_Object=MibTableColumn
-efpAgentInventoryUnitImage1Md5Digest=_EfpAgentInventoryUnitImage1Md5Digest_Object((1,3,6,1,4,1,35265,1,103,1,1,1,1,1,5),_EfpAgentInventoryUnitImage1Md5Digest_Type())
-efpAgentInventoryUnitImage1Md5Digest.setMaxAccess(_C)
-if mibBuilder.loadTexts:efpAgentInventoryUnitImage1Md5Digest.setStatus(_A)
-class _EfpAgentInventoryUnitImage2Md5Digest_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_EfpAgentInventoryUnitImage2Md5Digest_Type.__name__=_D
-_EfpAgentInventoryUnitImage2Md5Digest_Object=MibTableColumn
-efpAgentInventoryUnitImage2Md5Digest=_EfpAgentInventoryUnitImage2Md5Digest_Object((1,3,6,1,4,1,35265,1,103,1,1,1,1,1,6),_EfpAgentInventoryUnitImage2Md5Digest_Type())
-efpAgentInventoryUnitImage2Md5Digest.setMaxAccess(_C)
-if mibBuilder.loadTexts:efpAgentInventoryUnitImage2Md5Digest.setStatus(_A)
-class _EfpAgentInventoryActiveImage_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),(_H,2),(_I,3)))
-_EfpAgentInventoryActiveImage_Type.__name__=_E
-_EfpAgentInventoryActiveImage_Object=MibTableColumn
-efpAgentInventoryActiveImage=_EfpAgentInventoryActiveImage_Object((1,3,6,1,4,1,35265,1,103,1,1,1,1,1,7),_EfpAgentInventoryActiveImage_Type())
-efpAgentInventoryActiveImage.setMaxAccess(_C)
-if mibBuilder.loadTexts:efpAgentInventoryActiveImage.setStatus(_A)
-class _EfpAgentInventoryNextActiveImage_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),(_H,2),(_I,3)))
-_EfpAgentInventoryNextActiveImage_Type.__name__=_E
-_EfpAgentInventoryNextActiveImage_Object=MibTableColumn
-efpAgentInventoryNextActiveImage=_EfpAgentInventoryNextActiveImage_Object((1,3,6,1,4,1,35265,1,103,1,1,1,1,1,8),_EfpAgentInventoryNextActiveImage_Type())
-efpAgentInventoryNextActiveImage.setMaxAccess(_C)
-if mibBuilder.loadTexts:efpAgentInventoryNextActiveImage.setStatus(_A)
-_EfpInventoryNotifications_ObjectIdentity=ObjectIdentity
-efpInventoryNotifications=_EfpInventoryNotifications_ObjectIdentity((1,3,6,1,4,1,35265,1,103,1,2))
-_EfpInventoryNotificationsPrefix_ObjectIdentity=ObjectIdentity
-efpInventoryNotificationsPrefix=_EfpInventoryNotificationsPrefix_ObjectIdentity((1,3,6,1,4,1,35265,1,103,1,2,0))
-_EfpInventoryConformance_ObjectIdentity=ObjectIdentity
-efpInventoryConformance=_EfpInventoryConformance_ObjectIdentity((1,3,6,1,4,1,35265,1,103,1,3))
-_EfpInventoryCompliances_ObjectIdentity=ObjectIdentity
-efpInventoryCompliances=_EfpInventoryCompliances_ObjectIdentity((1,3,6,1,4,1,35265,1,103,1,3,1))
-_EfpInventoryGroups_ObjectIdentity=ObjectIdentity
-efpInventoryGroups=_EfpInventoryGroups_ObjectIdentity((1,3,6,1,4,1,35265,1,103,1,3,2))
-agentInventoryUnitEntry.registerAugmentions((_B,_J))
+#
+# PySNMP MIB module ELTEX-FASTPATH-INVENTORY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-FASTPATH-INVENTORY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:45 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltMesFastpath, = mibBuilder.importSymbols("ELTEX-MES-FASTPATH-MIB", "eltMesFastpath")
+agentInventoryUnitEntry, = mibBuilder.importSymbols("FASTPATH-INVENTORY-MIB", "agentInventoryUnitEntry")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+eltFastpathInventoryMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1))
+eltFastpathInventoryMIB.setRevisions(('2017-02-07 00:00',))
+if mibBuilder.loadTexts: eltFastpathInventoryMIB.setLastUpdated('201702070000Z')
+if mibBuilder.loadTexts: eltFastpathInventoryMIB.setOrganization('Eltex Enterprise Co, Ltd.')
+efpInventoryObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 1))
+efpInventoryGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 1, 1))
+efpAgentInventoryUnitTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 1, 1, 1), )
+if mibBuilder.loadTexts: efpAgentInventoryUnitTable.setStatus('current')
+efpAgentInventoryUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 1, 1, 1, 1), )
+agentInventoryUnitEntry.registerAugmentions(("ELTEX-FASTPATH-INVENTORY-MIB", "efpAgentInventoryUnitEntry"))
 efpAgentInventoryUnitEntry.setIndexNames(*agentInventoryUnitEntry.getIndexNames())
-efpInventoryUnitGroup=ObjectGroup((1,3,6,1,4,1,35265,1,103,1,3,2,2))
-efpInventoryUnitGroup.setObjects(*((_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:efpInventoryUnitGroup.setStatus(_A)
-efpInventoryCompliance=ModuleCompliance((1,3,6,1,4,1,35265,1,103,1,3,1,1))
-efpInventoryCompliance.setObjects((_B,_F))
-if mibBuilder.loadTexts:efpInventoryCompliance.setStatus('obsolete')
-efpFastPathInventoryMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,35265,1,103,1,3,1,2))
-efpFastPathInventoryMIBCompliance2.setObjects((_B,_F))
-if mibBuilder.loadTexts:efpFastPathInventoryMIBCompliance2.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'eltFastpathInventoryMIB':eltFastpathInventoryMIB,'efpInventoryObjects':efpInventoryObjects,'efpInventoryGlobals':efpInventoryGlobals,'efpAgentInventoryUnitTable':efpAgentInventoryUnitTable,_J:efpAgentInventoryUnitEntry,_K:efpAgentInventoryUnitImage1CommitHash,_L:efpAgentInventoryUnitImage2CommitHash,_M:efpAgentInventoryUnitImage1Timestamp,_N:efpAgentInventoryUnitImage2Timestamp,_O:efpAgentInventoryUnitImage1Md5Digest,_P:efpAgentInventoryUnitImage2Md5Digest,_Q:efpAgentInventoryActiveImage,_R:efpAgentInventoryNextActiveImage,'efpInventoryNotifications':efpInventoryNotifications,'efpInventoryNotificationsPrefix':efpInventoryNotificationsPrefix,'efpInventoryConformance':efpInventoryConformance,'efpInventoryCompliances':efpInventoryCompliances,'efpInventoryCompliance':efpInventoryCompliance,'efpFastPathInventoryMIBCompliance2':efpFastPathInventoryMIBCompliance2,'efpInventoryGroups':efpInventoryGroups,_F:efpInventoryUnitGroup})
+if mibBuilder.loadTexts: efpAgentInventoryUnitEntry.setStatus('current')
+efpAgentInventoryUnitImage1CommitHash = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 1, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: efpAgentInventoryUnitImage1CommitHash.setStatus('current')
+efpAgentInventoryUnitImage2CommitHash = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 1, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: efpAgentInventoryUnitImage2CommitHash.setStatus('current')
+efpAgentInventoryUnitImage1Timestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 1, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: efpAgentInventoryUnitImage1Timestamp.setStatus('current')
+efpAgentInventoryUnitImage2Timestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 1, 1, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: efpAgentInventoryUnitImage2Timestamp.setStatus('current')
+efpAgentInventoryUnitImage1Md5Digest = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 1, 1, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: efpAgentInventoryUnitImage1Md5Digest.setStatus('current')
+efpAgentInventoryUnitImage2Md5Digest = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 1, 1, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: efpAgentInventoryUnitImage2Md5Digest.setStatus('current')
+efpAgentInventoryActiveImage = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("image1", 2), ("image2", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: efpAgentInventoryActiveImage.setStatus('current')
+efpAgentInventoryNextActiveImage = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 1, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("image1", 2), ("image2", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: efpAgentInventoryNextActiveImage.setStatus('current')
+efpInventoryNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 2))
+efpInventoryNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 2, 0))
+efpInventoryConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 3))
+efpInventoryCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 3, 1))
+efpInventoryCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 3, 1, 1)).setObjects(("ELTEX-FASTPATH-INVENTORY-MIB", "efpInventoryUnitGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    efpInventoryCompliance = efpInventoryCompliance.setStatus('obsolete')
+efpFastPathInventoryMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 3, 1, 2)).setObjects(("ELTEX-FASTPATH-INVENTORY-MIB", "efpInventoryUnitGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    efpFastPathInventoryMIBCompliance2 = efpFastPathInventoryMIBCompliance2.setStatus('current')
+efpInventoryGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 3, 2))
+efpInventoryUnitGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 35265, 1, 103, 1, 3, 2, 2)).setObjects(("ELTEX-FASTPATH-INVENTORY-MIB", "efpAgentInventoryUnitImage1CommitHash"), ("ELTEX-FASTPATH-INVENTORY-MIB", "efpAgentInventoryUnitImage2CommitHash"), ("ELTEX-FASTPATH-INVENTORY-MIB", "efpAgentInventoryUnitImage1Timestamp"), ("ELTEX-FASTPATH-INVENTORY-MIB", "efpAgentInventoryUnitImage2Timestamp"), ("ELTEX-FASTPATH-INVENTORY-MIB", "efpAgentInventoryUnitImage1Md5Digest"), ("ELTEX-FASTPATH-INVENTORY-MIB", "efpAgentInventoryUnitImage2Md5Digest"), ("ELTEX-FASTPATH-INVENTORY-MIB", "efpAgentInventoryActiveImage"), ("ELTEX-FASTPATH-INVENTORY-MIB", "efpAgentInventoryNextActiveImage"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    efpInventoryUnitGroup = efpInventoryUnitGroup.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-FASTPATH-INVENTORY-MIB", eltFastpathInventoryMIB=eltFastpathInventoryMIB, efpAgentInventoryUnitImage1Md5Digest=efpAgentInventoryUnitImage1Md5Digest, efpInventoryGlobals=efpInventoryGlobals, efpInventoryCompliance=efpInventoryCompliance, PYSNMP_MODULE_ID=eltFastpathInventoryMIB, efpAgentInventoryUnitImage2Timestamp=efpAgentInventoryUnitImage2Timestamp, efpAgentInventoryUnitTable=efpAgentInventoryUnitTable, efpAgentInventoryUnitEntry=efpAgentInventoryUnitEntry, efpInventoryObjects=efpInventoryObjects, efpInventoryNotifications=efpInventoryNotifications, efpFastPathInventoryMIBCompliance2=efpFastPathInventoryMIBCompliance2, efpAgentInventoryActiveImage=efpAgentInventoryActiveImage, efpAgentInventoryUnitImage1CommitHash=efpAgentInventoryUnitImage1CommitHash, efpInventoryCompliances=efpInventoryCompliances, efpInventoryNotificationsPrefix=efpInventoryNotificationsPrefix, efpAgentInventoryNextActiveImage=efpAgentInventoryNextActiveImage, efpInventoryGroups=efpInventoryGroups, efpAgentInventoryUnitImage2Md5Digest=efpAgentInventoryUnitImage2Md5Digest, efpAgentInventoryUnitImage2CommitHash=efpAgentInventoryUnitImage2CommitHash, efpAgentInventoryUnitImage1Timestamp=efpAgentInventoryUnitImage1Timestamp, efpInventoryUnitGroup=efpInventoryUnitGroup, efpInventoryConformance=efpInventoryConformance)

@@ -1,107 +1,56 @@
-_I='hpnicfDhcpToL3VlanIfIndex'
-_H='read-only'
-_G='hpnicfDhcpClientIpAddress'
-_F='hpnicfDhcpGroupID'
-_E='read-create'
-_D='HPN-ICF-LswDHCP-MIB'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpnicflswCommon,=mibBuilder.importSymbols('HPN-ICF-OID-MIB','hpnicflswCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention')
-hpnicfLswDhcpMib=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,15,8,35,8))
-if mibBuilder.loadTexts:hpnicfLswDhcpMib.setRevisions(('2001-06-29 00:00',))
-_HpnicfLswDhcpMibObject_ObjectIdentity=ObjectIdentity
-hpnicfLswDhcpMibObject=_HpnicfLswDhcpMibObject_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1))
-_HpnicfDhcpGroupTable_Object=MibTable
-hpnicfDhcpGroupTable=_HpnicfDhcpGroupTable_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,1))
-if mibBuilder.loadTexts:hpnicfDhcpGroupTable.setStatus(_A)
-_HpnicfDhcpGroupEntry_Object=MibTableRow
-hpnicfDhcpGroupEntry=_HpnicfDhcpGroupEntry_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,1,1))
-hpnicfDhcpGroupEntry.setIndexNames((0,_D,_F))
-if mibBuilder.loadTexts:hpnicfDhcpGroupEntry.setStatus(_A)
-class _HpnicfDhcpGroupID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,19))
-_HpnicfDhcpGroupID_Type.__name__=_C
-_HpnicfDhcpGroupID_Object=MibTableColumn
-hpnicfDhcpGroupID=_HpnicfDhcpGroupID_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,1,1,1),_HpnicfDhcpGroupID_Type())
-hpnicfDhcpGroupID.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDhcpGroupID.setStatus(_A)
-_HpnicfIpDhcpServerAddress1_Type=IpAddress
-_HpnicfIpDhcpServerAddress1_Object=MibTableColumn
-hpnicfIpDhcpServerAddress1=_HpnicfIpDhcpServerAddress1_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,1,1,2),_HpnicfIpDhcpServerAddress1_Type())
-hpnicfIpDhcpServerAddress1.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfIpDhcpServerAddress1.setStatus(_A)
-_HpnicfIpDhcpServerAddress2_Type=IpAddress
-_HpnicfIpDhcpServerAddress2_Object=MibTableColumn
-hpnicfIpDhcpServerAddress2=_HpnicfIpDhcpServerAddress2_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,1,1,3),_HpnicfIpDhcpServerAddress2_Type())
-hpnicfIpDhcpServerAddress2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfIpDhcpServerAddress2.setStatus(_A)
-_HpnicfDhcpRowStatus_Type=RowStatus
-_HpnicfDhcpRowStatus_Object=MibTableColumn
-hpnicfDhcpRowStatus=_HpnicfDhcpRowStatus_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,1,1,4),_HpnicfDhcpRowStatus_Type())
-hpnicfDhcpRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDhcpRowStatus.setStatus(_A)
-_HpnicfDhcpSecurityTable_Object=MibTable
-hpnicfDhcpSecurityTable=_HpnicfDhcpSecurityTable_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,2))
-if mibBuilder.loadTexts:hpnicfDhcpSecurityTable.setStatus(_A)
-_HpnicfDhcpSecurityEntry_Object=MibTableRow
-hpnicfDhcpSecurityEntry=_HpnicfDhcpSecurityEntry_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,2,1))
-hpnicfDhcpSecurityEntry.setIndexNames((0,_D,_G))
-if mibBuilder.loadTexts:hpnicfDhcpSecurityEntry.setStatus(_A)
-_HpnicfDhcpClientIpAddress_Type=IpAddress
-_HpnicfDhcpClientIpAddress_Object=MibTableColumn
-hpnicfDhcpClientIpAddress=_HpnicfDhcpClientIpAddress_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,2,1,1),_HpnicfDhcpClientIpAddress_Type())
-hpnicfDhcpClientIpAddress.setMaxAccess(_H)
-if mibBuilder.loadTexts:hpnicfDhcpClientIpAddress.setStatus(_A)
-_HpnicfDhcpClientMacAddress_Type=MacAddress
-_HpnicfDhcpClientMacAddress_Object=MibTableColumn
-hpnicfDhcpClientMacAddress=_HpnicfDhcpClientMacAddress_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,2,1,2),_HpnicfDhcpClientMacAddress_Type())
-hpnicfDhcpClientMacAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfDhcpClientMacAddress.setStatus(_A)
-class _HpnicfDhcpClientProperty_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('static',1),('dynamic',2)))
-_HpnicfDhcpClientProperty_Type.__name__=_C
-_HpnicfDhcpClientProperty_Object=MibTableColumn
-hpnicfDhcpClientProperty=_HpnicfDhcpClientProperty_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,2,1,3),_HpnicfDhcpClientProperty_Type())
-hpnicfDhcpClientProperty.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfDhcpClientProperty.setStatus(_A)
-_HpnicfDhcpClientRowStatus_Type=RowStatus
-_HpnicfDhcpClientRowStatus_Object=MibTableColumn
-hpnicfDhcpClientRowStatus=_HpnicfDhcpClientRowStatus_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,2,1,4),_HpnicfDhcpClientRowStatus_Type())
-hpnicfDhcpClientRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDhcpClientRowStatus.setStatus(_A)
-_HpnicfDhcpToL3IfTable_Object=MibTable
-hpnicfDhcpToL3IfTable=_HpnicfDhcpToL3IfTable_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,3))
-if mibBuilder.loadTexts:hpnicfDhcpToL3IfTable.setStatus(_A)
-_HpnicfDhcpToL3IfEntry_Object=MibTableRow
-hpnicfDhcpToL3IfEntry=_HpnicfDhcpToL3IfEntry_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,3,1))
-hpnicfDhcpToL3IfEntry.setIndexNames((0,_D,_I))
-if mibBuilder.loadTexts:hpnicfDhcpToL3IfEntry.setStatus(_A)
-_HpnicfDhcpToL3VlanIfIndex_Type=Integer32
-_HpnicfDhcpToL3VlanIfIndex_Object=MibTableColumn
-hpnicfDhcpToL3VlanIfIndex=_HpnicfDhcpToL3VlanIfIndex_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,3,1,1),_HpnicfDhcpToL3VlanIfIndex_Type())
-hpnicfDhcpToL3VlanIfIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:hpnicfDhcpToL3VlanIfIndex.setStatus(_A)
-class _HpnicfDhcpToL3GroupId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,19))
-_HpnicfDhcpToL3GroupId_Type.__name__=_C
-_HpnicfDhcpToL3GroupId_Object=MibTableColumn
-hpnicfDhcpToL3GroupId=_HpnicfDhcpToL3GroupId_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,3,1,2),_HpnicfDhcpToL3GroupId_Type())
-hpnicfDhcpToL3GroupId.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfDhcpToL3GroupId.setStatus(_A)
-class _HpnicfDhcpToL3AddressCheck_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_HpnicfDhcpToL3AddressCheck_Type.__name__=_C
-_HpnicfDhcpToL3AddressCheck_Object=MibTableColumn
-hpnicfDhcpToL3AddressCheck=_HpnicfDhcpToL3AddressCheck_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,3,1,3),_HpnicfDhcpToL3AddressCheck_Type())
-hpnicfDhcpToL3AddressCheck.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfDhcpToL3AddressCheck.setStatus(_A)
-_HpnicfDhcpToL3RowStatus_Type=RowStatus
-_HpnicfDhcpToL3RowStatus_Object=MibTableColumn
-hpnicfDhcpToL3RowStatus=_HpnicfDhcpToL3RowStatus_Object((1,3,6,1,4,1,11,2,14,11,15,8,35,8,1,3,1,4),_HpnicfDhcpToL3RowStatus_Type())
-hpnicfDhcpToL3RowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDhcpToL3RowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'hpnicfLswDhcpMib':hpnicfLswDhcpMib,'hpnicfLswDhcpMibObject':hpnicfLswDhcpMibObject,'hpnicfDhcpGroupTable':hpnicfDhcpGroupTable,'hpnicfDhcpGroupEntry':hpnicfDhcpGroupEntry,_F:hpnicfDhcpGroupID,'hpnicfIpDhcpServerAddress1':hpnicfIpDhcpServerAddress1,'hpnicfIpDhcpServerAddress2':hpnicfIpDhcpServerAddress2,'hpnicfDhcpRowStatus':hpnicfDhcpRowStatus,'hpnicfDhcpSecurityTable':hpnicfDhcpSecurityTable,'hpnicfDhcpSecurityEntry':hpnicfDhcpSecurityEntry,_G:hpnicfDhcpClientIpAddress,'hpnicfDhcpClientMacAddress':hpnicfDhcpClientMacAddress,'hpnicfDhcpClientProperty':hpnicfDhcpClientProperty,'hpnicfDhcpClientRowStatus':hpnicfDhcpClientRowStatus,'hpnicfDhcpToL3IfTable':hpnicfDhcpToL3IfTable,'hpnicfDhcpToL3IfEntry':hpnicfDhcpToL3IfEntry,_I:hpnicfDhcpToL3VlanIfIndex,'hpnicfDhcpToL3GroupId':hpnicfDhcpToL3GroupId,'hpnicfDhcpToL3AddressCheck':hpnicfDhcpToL3AddressCheck,'hpnicfDhcpToL3RowStatus':hpnicfDhcpToL3RowStatus})
+#
+# PySNMP MIB module HPN-ICF-LswDHCP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-LswDHCP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpnicflswCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicflswCommon")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+hpnicfLswDhcpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8))
+hpnicfLswDhcpMib.setRevisions(('2001-06-29 00:00',))
+if mibBuilder.loadTexts: hpnicfLswDhcpMib.setLastUpdated('200106290000Z')
+if mibBuilder.loadTexts: hpnicfLswDhcpMib.setOrganization('')
+hpnicfLswDhcpMibObject = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1))
+hpnicfDhcpGroupTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 1), )
+if mibBuilder.loadTexts: hpnicfDhcpGroupTable.setStatus('current')
+hpnicfDhcpGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 1, 1), ).setIndexNames((0, "HPN-ICF-LswDHCP-MIB", "hpnicfDhcpGroupID"))
+if mibBuilder.loadTexts: hpnicfDhcpGroupEntry.setStatus('current')
+hpnicfDhcpGroupID = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 19))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfDhcpGroupID.setStatus('current')
+hpnicfIpDhcpServerAddress1 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 1, 1, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfIpDhcpServerAddress1.setStatus('current')
+hpnicfIpDhcpServerAddress2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 1, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfIpDhcpServerAddress2.setStatus('current')
+hpnicfDhcpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfDhcpRowStatus.setStatus('current')
+hpnicfDhcpSecurityTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 2), )
+if mibBuilder.loadTexts: hpnicfDhcpSecurityTable.setStatus('current')
+hpnicfDhcpSecurityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 2, 1), ).setIndexNames((0, "HPN-ICF-LswDHCP-MIB", "hpnicfDhcpClientIpAddress"))
+if mibBuilder.loadTexts: hpnicfDhcpSecurityEntry.setStatus('current')
+hpnicfDhcpClientIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 2, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDhcpClientIpAddress.setStatus('current')
+hpnicfDhcpClientMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 2, 1, 2), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDhcpClientMacAddress.setStatus('current')
+hpnicfDhcpClientProperty = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("static", 1), ("dynamic", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDhcpClientProperty.setStatus('current')
+hpnicfDhcpClientRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfDhcpClientRowStatus.setStatus('current')
+hpnicfDhcpToL3IfTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 3), )
+if mibBuilder.loadTexts: hpnicfDhcpToL3IfTable.setStatus('current')
+hpnicfDhcpToL3IfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 3, 1), ).setIndexNames((0, "HPN-ICF-LswDHCP-MIB", "hpnicfDhcpToL3VlanIfIndex"))
+if mibBuilder.loadTexts: hpnicfDhcpToL3IfEntry.setStatus('current')
+hpnicfDhcpToL3VlanIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDhcpToL3VlanIfIndex.setStatus('current')
+hpnicfDhcpToL3GroupId = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 19))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDhcpToL3GroupId.setStatus('current')
+hpnicfDhcpToL3AddressCheck = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDhcpToL3AddressCheck.setStatus('current')
+hpnicfDhcpToL3RowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 35, 8, 1, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfDhcpToL3RowStatus.setStatus('current')
+mibBuilder.exportSymbols("HPN-ICF-LswDHCP-MIB", hpnicfDhcpSecurityTable=hpnicfDhcpSecurityTable, hpnicfDhcpGroupID=hpnicfDhcpGroupID, hpnicfDhcpToL3IfEntry=hpnicfDhcpToL3IfEntry, hpnicfDhcpToL3RowStatus=hpnicfDhcpToL3RowStatus, hpnicfIpDhcpServerAddress1=hpnicfIpDhcpServerAddress1, hpnicfDhcpClientMacAddress=hpnicfDhcpClientMacAddress, hpnicfIpDhcpServerAddress2=hpnicfIpDhcpServerAddress2, hpnicfDhcpToL3GroupId=hpnicfDhcpToL3GroupId, hpnicfLswDhcpMibObject=hpnicfLswDhcpMibObject, hpnicfDhcpClientIpAddress=hpnicfDhcpClientIpAddress, hpnicfDhcpToL3IfTable=hpnicfDhcpToL3IfTable, hpnicfDhcpToL3AddressCheck=hpnicfDhcpToL3AddressCheck, hpnicfDhcpRowStatus=hpnicfDhcpRowStatus, PYSNMP_MODULE_ID=hpnicfLswDhcpMib, hpnicfLswDhcpMib=hpnicfLswDhcpMib, hpnicfDhcpGroupTable=hpnicfDhcpGroupTable, hpnicfDhcpToL3VlanIfIndex=hpnicfDhcpToL3VlanIfIndex, hpnicfDhcpGroupEntry=hpnicfDhcpGroupEntry, hpnicfDhcpSecurityEntry=hpnicfDhcpSecurityEntry, hpnicfDhcpClientRowStatus=hpnicfDhcpClientRowStatus, hpnicfDhcpClientProperty=hpnicfDhcpClientProperty)

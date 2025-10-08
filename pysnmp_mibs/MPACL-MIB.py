@@ -1,261 +1,103 @@
-_Q='wildcard'
-_P='no-care'
-_O='aclExtSequence'
-_N='aclExtName'
-_M='read-only'
-_L='enable'
-_K='disable'
-_J='remark'
-_I='permit'
-_H='aclStdSequence'
-_G='aclStdName'
-_F='MPACL-MIB'
-_E='read-create'
-_D='DisplayString'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mpMgmt,=mibBuilder.importSymbols('MAIPU-SMI','mpMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,ObjectName,ObjectSyntax,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','ObjectName','ObjectSyntax','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_D,'MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-mpAclMib=ModuleIdentity((1,3,6,1,4,1,5651,3,30))
-_MpAclConf_ObjectIdentity=ObjectIdentity
-mpAclConf=_MpAclConf_ObjectIdentity((1,3,6,1,4,1,5651,3,30,5))
-_MpAclStdTable_Object=MibTable
-mpAclStdTable=_MpAclStdTable_Object((1,3,6,1,4,1,5651,3,30,5,10))
-if mibBuilder.loadTexts:mpAclStdTable.setStatus(_A)
-_MpAclStdEntry_Object=MibTableRow
-mpAclStdEntry=_MpAclStdEntry_Object((1,3,6,1,4,1,5651,3,30,5,10,1))
-mpAclStdEntry.setIndexNames((0,_F,_G),(0,_F,_H))
-if mibBuilder.loadTexts:mpAclStdEntry.setStatus(_A)
-class _AclStdName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,31))
-_AclStdName_Type.__name__=_D
-_AclStdName_Object=MibTableColumn
-aclStdName=_AclStdName_Object((1,3,6,1,4,1,5651,3,30,5,10,1,1),_AclStdName_Type())
-aclStdName.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclStdName.setStatus(_A)
-class _AclStdSequence_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_AclStdSequence_Type.__name__=_C
-_AclStdSequence_Object=MibTableColumn
-aclStdSequence=_AclStdSequence_Object((1,3,6,1,4,1,5651,3,30,5,10,1,2),_AclStdSequence_Type())
-aclStdSequence.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclStdSequence.setStatus(_A)
-class _AclStdType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),('deny',2),(_J,3)))
-_AclStdType_Type.__name__=_C
-_AclStdType_Object=MibTableColumn
-aclStdType=_AclStdType_Object((1,3,6,1,4,1,5651,3,30,5,10,1,3),_AclStdType_Type())
-aclStdType.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclStdType.setStatus(_A)
-_AclStdSrcAddr_Type=IpAddress
-_AclStdSrcAddr_Object=MibTableColumn
-aclStdSrcAddr=_AclStdSrcAddr_Object((1,3,6,1,4,1,5651,3,30,5,10,1,4),_AclStdSrcAddr_Type())
-aclStdSrcAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclStdSrcAddr.setStatus(_A)
-_AclStdSrcWildcard_Type=IpAddress
-_AclStdSrcWildcard_Object=MibTableColumn
-aclStdSrcWildcard=_AclStdSrcWildcard_Object((1,3,6,1,4,1,5651,3,30,5,10,1,5),_AclStdSrcWildcard_Type())
-aclStdSrcWildcard.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclStdSrcWildcard.setStatus(_A)
-class _AclStdLogEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_K,1),(_L,2)))
-_AclStdLogEnable_Type.__name__=_C
-_AclStdLogEnable_Object=MibTableColumn
-aclStdLogEnable=_AclStdLogEnable_Object((1,3,6,1,4,1,5651,3,30,5,10,1,6),_AclStdLogEnable_Type())
-aclStdLogEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclStdLogEnable.setStatus(_A)
-class _AclStdTimeRngName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_AclStdTimeRngName_Type.__name__=_D
-_AclStdTimeRngName_Object=MibTableColumn
-aclStdTimeRngName=_AclStdTimeRngName_Object((1,3,6,1,4,1,5651,3,30,5,10,1,8),_AclStdTimeRngName_Type())
-aclStdTimeRngName.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclStdTimeRngName.setStatus(_A)
-class _AclStdRemark_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,99))
-_AclStdRemark_Type.__name__=_D
-_AclStdRemark_Object=MibTableColumn
-aclStdRemark=_AclStdRemark_Object((1,3,6,1,4,1,5651,3,30,5,10,1,9),_AclStdRemark_Type())
-aclStdRemark.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclStdRemark.setStatus(_A)
-_AclStdMatchPkts_Type=Counter64
-_AclStdMatchPkts_Object=MibTableColumn
-aclStdMatchPkts=_AclStdMatchPkts_Object((1,3,6,1,4,1,5651,3,30,5,10,1,10),_AclStdMatchPkts_Type())
-aclStdMatchPkts.setMaxAccess(_M)
-if mibBuilder.loadTexts:aclStdMatchPkts.setStatus(_A)
-_AclStdRowStatus_Type=RowStatus
-_AclStdRowStatus_Object=MibTableColumn
-aclStdRowStatus=_AclStdRowStatus_Object((1,3,6,1,4,1,5651,3,30,5,10,1,12),_AclStdRowStatus_Type())
-aclStdRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclStdRowStatus.setStatus(_A)
-_MpAclExtTable_Object=MibTable
-mpAclExtTable=_MpAclExtTable_Object((1,3,6,1,4,1,5651,3,30,5,20))
-if mibBuilder.loadTexts:mpAclExtTable.setStatus(_A)
-_MpAclExtEntry_Object=MibTableRow
-mpAclExtEntry=_MpAclExtEntry_Object((1,3,6,1,4,1,5651,3,30,5,20,1))
-mpAclExtEntry.setIndexNames((0,_F,_N),(0,_F,_O))
-if mibBuilder.loadTexts:mpAclExtEntry.setStatus(_A)
-class _AclExtName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,31))
-_AclExtName_Type.__name__=_D
-_AclExtName_Object=MibTableColumn
-aclExtName=_AclExtName_Object((1,3,6,1,4,1,5651,3,30,5,20,1,1),_AclExtName_Type())
-aclExtName.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclExtName.setStatus(_A)
-class _AclExtSequence_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_AclExtSequence_Type.__name__=_C
-_AclExtSequence_Object=MibTableColumn
-aclExtSequence=_AclExtSequence_Object((1,3,6,1,4,1,5651,3,30,5,20,1,2),_AclExtSequence_Type())
-aclExtSequence.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclExtSequence.setStatus(_A)
-class _AclExtType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_I,1),('deny',2),(_J,3),('evaluate',4)))
-_AclExtType_Type.__name__=_C
-_AclExtType_Object=MibTableColumn
-aclExtType=_AclExtType_Object((1,3,6,1,4,1,5651,3,30,5,20,1,3),_AclExtType_Type())
-aclExtType.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtType.setStatus(_A)
-class _AclExtProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_AclExtProtocol_Type.__name__=_C
-_AclExtProtocol_Object=MibTableColumn
-aclExtProtocol=_AclExtProtocol_Object((1,3,6,1,4,1,5651,3,30,5,20,1,4),_AclExtProtocol_Type())
-aclExtProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtProtocol.setStatus(_A)
-_AclExtSrcAddr_Type=IpAddress
-_AclExtSrcAddr_Object=MibTableColumn
-aclExtSrcAddr=_AclExtSrcAddr_Object((1,3,6,1,4,1,5651,3,30,5,20,1,5),_AclExtSrcAddr_Type())
-aclExtSrcAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtSrcAddr.setStatus(_A)
-_AclExtSrcWildcard_Type=IpAddress
-_AclExtSrcWildcard_Object=MibTableColumn
-aclExtSrcWildcard=_AclExtSrcWildcard_Object((1,3,6,1,4,1,5651,3,30,5,20,1,6),_AclExtSrcWildcard_Type())
-aclExtSrcWildcard.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtSrcWildcard.setStatus(_A)
-_AclExtDestAddr_Type=IpAddress
-_AclExtDestAddr_Object=MibTableColumn
-aclExtDestAddr=_AclExtDestAddr_Object((1,3,6,1,4,1,5651,3,30,5,20,1,7),_AclExtDestAddr_Type())
-aclExtDestAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtDestAddr.setStatus(_A)
-_AclExtDestWildcard_Type=IpAddress
-_AclExtDestWildcard_Object=MibTableColumn
-aclExtDestWildcard=_AclExtDestWildcard_Object((1,3,6,1,4,1,5651,3,30,5,20,1,8),_AclExtDestWildcard_Type())
-aclExtDestWildcard.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtDestWildcard.setStatus(_A)
-class _AclExtPrecedence_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,7))
-_AclExtPrecedence_Type.__name__=_C
-_AclExtPrecedence_Object=MibTableColumn
-aclExtPrecedence=_AclExtPrecedence_Object((1,3,6,1,4,1,5651,3,30,5,20,1,9),_AclExtPrecedence_Type())
-aclExtPrecedence.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtPrecedence.setStatus(_A)
-class _AclExtTos_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,15))
-_AclExtTos_Type.__name__=_C
-_AclExtTos_Object=MibTableColumn
-aclExtTos=_AclExtTos_Object((1,3,6,1,4,1,5651,3,30,5,20,1,10),_AclExtTos_Type())
-aclExtTos.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtTos.setStatus(_A)
-class _AclExtIcmpMsgType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,255))
-_AclExtIcmpMsgType_Type.__name__=_C
-_AclExtIcmpMsgType_Object=MibTableColumn
-aclExtIcmpMsgType=_AclExtIcmpMsgType_Object((1,3,6,1,4,1,5651,3,30,5,20,1,11),_AclExtIcmpMsgType_Type())
-aclExtIcmpMsgType.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtIcmpMsgType.setStatus(_A)
-class _AclExtIcmpMsgCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,255))
-_AclExtIcmpMsgCode_Type.__name__=_C
-_AclExtIcmpMsgCode_Object=MibTableColumn
-aclExtIcmpMsgCode=_AclExtIcmpMsgCode_Object((1,3,6,1,4,1,5651,3,30,5,20,1,12),_AclExtIcmpMsgCode_Type())
-aclExtIcmpMsgCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtIcmpMsgCode.setStatus(_A)
-class _AclExtIgmpMsgType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,15))
-_AclExtIgmpMsgType_Type.__name__=_C
-_AclExtIgmpMsgType_Object=MibTableColumn
-aclExtIgmpMsgType=_AclExtIgmpMsgType_Object((1,3,6,1,4,1,5651,3,30,5,20,1,13),_AclExtIgmpMsgType_Type())
-aclExtIgmpMsgType.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtIgmpMsgType.setStatus(_A)
-class _AclExtTUSrcPortType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*((_P,0),('eq',1),('gt',2),('lt',3),('neq',4),('range',5),(_Q,6)))
-_AclExtTUSrcPortType_Type.__name__=_C
-_AclExtTUSrcPortType_Object=MibTableColumn
-aclExtTUSrcPortType=_AclExtTUSrcPortType_Object((1,3,6,1,4,1,5651,3,30,5,20,1,14),_AclExtTUSrcPortType_Type())
-aclExtTUSrcPortType.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtTUSrcPortType.setStatus(_A)
-class _AclExtTUSrcPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclExtTUSrcPort_Type.__name__=_C
-_AclExtTUSrcPort_Object=MibTableColumn
-aclExtTUSrcPort=_AclExtTUSrcPort_Object((1,3,6,1,4,1,5651,3,30,5,20,1,15),_AclExtTUSrcPort_Type())
-aclExtTUSrcPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtTUSrcPort.setStatus(_A)
-class _AclExtTUSrcEndPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclExtTUSrcEndPort_Type.__name__=_C
-_AclExtTUSrcEndPort_Object=MibTableColumn
-aclExtTUSrcEndPort=_AclExtTUSrcEndPort_Object((1,3,6,1,4,1,5651,3,30,5,20,1,16),_AclExtTUSrcEndPort_Type())
-aclExtTUSrcEndPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtTUSrcEndPort.setStatus(_A)
-class _AclExtTUDestPortType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*((_P,0),('eq',1),('gt',2),('lt',3),('neq',4),('range',5),(_Q,6)))
-_AclExtTUDestPortType_Type.__name__=_C
-_AclExtTUDestPortType_Object=MibTableColumn
-aclExtTUDestPortType=_AclExtTUDestPortType_Object((1,3,6,1,4,1,5651,3,30,5,20,1,17),_AclExtTUDestPortType_Type())
-aclExtTUDestPortType.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtTUDestPortType.setStatus(_A)
-class _AclExtTUDestPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclExtTUDestPort_Type.__name__=_C
-_AclExtTUDestPort_Object=MibTableColumn
-aclExtTUDestPort=_AclExtTUDestPort_Object((1,3,6,1,4,1,5651,3,30,5,20,1,18),_AclExtTUDestPort_Type())
-aclExtTUDestPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtTUDestPort.setStatus(_A)
-class _AclExtTUDestEndPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AclExtTUDestEndPort_Type.__name__=_C
-_AclExtTUDestEndPort_Object=MibTableColumn
-aclExtTUDestEndPort=_AclExtTUDestEndPort_Object((1,3,6,1,4,1,5651,3,30,5,20,1,19),_AclExtTUDestEndPort_Type())
-aclExtTUDestEndPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtTUDestEndPort.setStatus(_A)
-class _AclExtTcpFlag_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,63))
-_AclExtTcpFlag_Type.__name__=_C
-_AclExtTcpFlag_Object=MibTableColumn
-aclExtTcpFlag=_AclExtTcpFlag_Object((1,3,6,1,4,1,5651,3,30,5,20,1,20),_AclExtTcpFlag_Type())
-aclExtTcpFlag.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtTcpFlag.setStatus(_A)
-class _AclExtLogEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_K,1),(_L,2)))
-_AclExtLogEnable_Type.__name__=_C
-_AclExtLogEnable_Object=MibTableColumn
-aclExtLogEnable=_AclExtLogEnable_Object((1,3,6,1,4,1,5651,3,30,5,20,1,21),_AclExtLogEnable_Type())
-aclExtLogEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtLogEnable.setStatus(_A)
-class _AclExtTimeRngName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_AclExtTimeRngName_Type.__name__=_D
-_AclExtTimeRngName_Object=MibTableColumn
-aclExtTimeRngName=_AclExtTimeRngName_Object((1,3,6,1,4,1,5651,3,30,5,20,1,23),_AclExtTimeRngName_Type())
-aclExtTimeRngName.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtTimeRngName.setStatus(_A)
-class _AclExtReflectName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_AclExtReflectName_Type.__name__=_D
-_AclExtReflectName_Object=MibTableColumn
-aclExtReflectName=_AclExtReflectName_Object((1,3,6,1,4,1,5651,3,30,5,20,1,24),_AclExtReflectName_Type())
-aclExtReflectName.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtReflectName.setStatus(_A)
-class _AclExtReflectTimeOut_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_AclExtReflectTimeOut_Type.__name__=_C
-_AclExtReflectTimeOut_Object=MibTableColumn
-aclExtReflectTimeOut=_AclExtReflectTimeOut_Object((1,3,6,1,4,1,5651,3,30,5,20,1,25),_AclExtReflectTimeOut_Type())
-aclExtReflectTimeOut.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtReflectTimeOut.setStatus(_A)
-class _AclExtEvaluateName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_AclExtEvaluateName_Type.__name__=_D
-_AclExtEvaluateName_Object=MibTableColumn
-aclExtEvaluateName=_AclExtEvaluateName_Object((1,3,6,1,4,1,5651,3,30,5,20,1,26),_AclExtEvaluateName_Type())
-aclExtEvaluateName.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtEvaluateName.setStatus(_A)
-class _AclExtRemark_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,99))
-_AclExtRemark_Type.__name__=_D
-_AclExtRemark_Object=MibTableColumn
-aclExtRemark=_AclExtRemark_Object((1,3,6,1,4,1,5651,3,30,5,20,1,27),_AclExtRemark_Type())
-aclExtRemark.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclExtRemark.setStatus(_A)
-_AclExtMatchPkts_Type=Counter64
-_AclExtMatchPkts_Object=MibTableColumn
-aclExtMatchPkts=_AclExtMatchPkts_Object((1,3,6,1,4,1,5651,3,30,5,20,1,28),_AclExtMatchPkts_Type())
-aclExtMatchPkts.setMaxAccess(_M)
-if mibBuilder.loadTexts:aclExtMatchPkts.setStatus(_A)
-_AclExtRowStatus_Type=RowStatus
-_AclExtRowStatus_Object=MibTableColumn
-aclExtRowStatus=_AclExtRowStatus_Object((1,3,6,1,4,1,5651,3,30,5,20,1,30),_AclExtRowStatus_Type())
-aclExtRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:aclExtRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'mpAclMib':mpAclMib,'mpAclConf':mpAclConf,'mpAclStdTable':mpAclStdTable,'mpAclStdEntry':mpAclStdEntry,_G:aclStdName,_H:aclStdSequence,'aclStdType':aclStdType,'aclStdSrcAddr':aclStdSrcAddr,'aclStdSrcWildcard':aclStdSrcWildcard,'aclStdLogEnable':aclStdLogEnable,'aclStdTimeRngName':aclStdTimeRngName,'aclStdRemark':aclStdRemark,'aclStdMatchPkts':aclStdMatchPkts,'aclStdRowStatus':aclStdRowStatus,'mpAclExtTable':mpAclExtTable,'mpAclExtEntry':mpAclExtEntry,_N:aclExtName,_O:aclExtSequence,'aclExtType':aclExtType,'aclExtProtocol':aclExtProtocol,'aclExtSrcAddr':aclExtSrcAddr,'aclExtSrcWildcard':aclExtSrcWildcard,'aclExtDestAddr':aclExtDestAddr,'aclExtDestWildcard':aclExtDestWildcard,'aclExtPrecedence':aclExtPrecedence,'aclExtTos':aclExtTos,'aclExtIcmpMsgType':aclExtIcmpMsgType,'aclExtIcmpMsgCode':aclExtIcmpMsgCode,'aclExtIgmpMsgType':aclExtIgmpMsgType,'aclExtTUSrcPortType':aclExtTUSrcPortType,'aclExtTUSrcPort':aclExtTUSrcPort,'aclExtTUSrcEndPort':aclExtTUSrcEndPort,'aclExtTUDestPortType':aclExtTUDestPortType,'aclExtTUDestPort':aclExtTUDestPort,'aclExtTUDestEndPort':aclExtTUDestEndPort,'aclExtTcpFlag':aclExtTcpFlag,'aclExtLogEnable':aclExtLogEnable,'aclExtTimeRngName':aclExtTimeRngName,'aclExtReflectName':aclExtReflectName,'aclExtReflectTimeOut':aclExtReflectTimeOut,'aclExtEvaluateName':aclExtEvaluateName,'aclExtRemark':aclExtRemark,'aclExtMatchPkts':aclExtMatchPkts,'aclExtRowStatus':aclExtRowStatus})
+#
+# PySNMP MIB module MPACL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/maipu/MPACL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:58 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mpMgmt, = mibBuilder.importSymbols("MAIPU-SMI", "mpMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, ObjectSyntax, iso, MibIdentifier, ObjectName, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "ObjectSyntax", "iso", "MibIdentifier", "ObjectName", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+mpAclMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 5651, 3, 30))
+if mibBuilder.loadTexts: mpAclMib.setLastUpdated('0603201716Z')
+if mibBuilder.loadTexts: mpAclMib.setOrganization('ĴͨŹɷ\u07b9˾, Maipu (Sichuan) Communication Technology Co. LTD.')
+mpAclConf = MibIdentifier((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5))
+mpAclStdTable = MibTable((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 10), )
+if mibBuilder.loadTexts: mpAclStdTable.setStatus('current')
+mpAclStdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 10, 1), ).setIndexNames((0, "MPACL-MIB", "aclStdName"), (0, "MPACL-MIB", "aclStdSequence"))
+if mibBuilder.loadTexts: mpAclStdEntry.setStatus('current')
+aclStdName = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 10, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclStdName.setStatus('current')
+aclStdSequence = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 10, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclStdSequence.setStatus('current')
+aclStdType = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 10, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("permit", 1), ("deny", 2), ("remark", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclStdType.setStatus('current')
+aclStdSrcAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 10, 1, 4), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclStdSrcAddr.setStatus('current')
+aclStdSrcWildcard = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 10, 1, 5), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclStdSrcWildcard.setStatus('current')
+aclStdLogEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 10, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclStdLogEnable.setStatus('current')
+aclStdTimeRngName = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 10, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclStdTimeRngName.setStatus('current')
+aclStdRemark = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 10, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 99))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclStdRemark.setStatus('current')
+aclStdMatchPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 10, 1, 10), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aclStdMatchPkts.setStatus('current')
+aclStdRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 10, 1, 12), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclStdRowStatus.setStatus('current')
+mpAclExtTable = MibTable((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20), )
+if mibBuilder.loadTexts: mpAclExtTable.setStatus('current')
+mpAclExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1), ).setIndexNames((0, "MPACL-MIB", "aclExtName"), (0, "MPACL-MIB", "aclExtSequence"))
+if mibBuilder.loadTexts: mpAclExtEntry.setStatus('current')
+aclExtName = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclExtName.setStatus('current')
+aclExtSequence = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclExtSequence.setStatus('current')
+aclExtType = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("permit", 1), ("deny", 2), ("remark", 3), ("evaluate", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtType.setStatus('current')
+aclExtProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtProtocol.setStatus('current')
+aclExtSrcAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 5), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtSrcAddr.setStatus('current')
+aclExtSrcWildcard = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 6), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtSrcWildcard.setStatus('current')
+aclExtDestAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 7), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtDestAddr.setStatus('current')
+aclExtDestWildcard = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 8), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtDestWildcard.setStatus('current')
+aclExtPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtPrecedence.setStatus('current')
+aclExtTos = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtTos.setStatus('current')
+aclExtIcmpMsgType = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtIcmpMsgType.setStatus('current')
+aclExtIcmpMsgCode = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtIcmpMsgCode.setStatus('current')
+aclExtIgmpMsgType = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtIgmpMsgType.setStatus('current')
+aclExtTUSrcPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("no-care", 0), ("eq", 1), ("gt", 2), ("lt", 3), ("neq", 4), ("range", 5), ("wildcard", 6)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtTUSrcPortType.setStatus('current')
+aclExtTUSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtTUSrcPort.setStatus('current')
+aclExtTUSrcEndPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtTUSrcEndPort.setStatus('current')
+aclExtTUDestPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("no-care", 0), ("eq", 1), ("gt", 2), ("lt", 3), ("neq", 4), ("range", 5), ("wildcard", 6)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtTUDestPortType.setStatus('current')
+aclExtTUDestPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtTUDestPort.setStatus('current')
+aclExtTUDestEndPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtTUDestEndPort.setStatus('current')
+aclExtTcpFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 63))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtTcpFlag.setStatus('current')
+aclExtLogEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtLogEnable.setStatus('current')
+aclExtTimeRngName = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 23), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtTimeRngName.setStatus('current')
+aclExtReflectName = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 24), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtReflectName.setStatus('current')
+aclExtReflectTimeOut = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 25), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtReflectTimeOut.setStatus('current')
+aclExtEvaluateName = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 26), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtEvaluateName.setStatus('current')
+aclExtRemark = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 27), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 99))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: aclExtRemark.setStatus('current')
+aclExtMatchPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 28), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aclExtMatchPkts.setStatus('current')
+aclExtRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 30, 5, 20, 1, 30), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclExtRowStatus.setStatus('current')
+mibBuilder.exportSymbols("MPACL-MIB", aclExtTUSrcPortType=aclExtTUSrcPortType, aclExtTUSrcPort=aclExtTUSrcPort, mpAclExtEntry=mpAclExtEntry, mpAclConf=mpAclConf, PYSNMP_MODULE_ID=mpAclMib, mpAclExtTable=mpAclExtTable, aclExtDestWildcard=aclExtDestWildcard, aclStdMatchPkts=aclStdMatchPkts, mpAclStdEntry=mpAclStdEntry, aclExtReflectTimeOut=aclExtReflectTimeOut, mpAclMib=mpAclMib, aclExtRemark=aclExtRemark, aclStdName=aclStdName, aclStdRowStatus=aclStdRowStatus, aclExtMatchPkts=aclExtMatchPkts, aclExtIcmpMsgCode=aclExtIcmpMsgCode, aclExtTcpFlag=aclExtTcpFlag, aclExtTos=aclExtTos, aclExtTUSrcEndPort=aclExtTUSrcEndPort, aclStdTimeRngName=aclStdTimeRngName, aclExtRowStatus=aclExtRowStatus, aclStdLogEnable=aclStdLogEnable, aclStdType=aclStdType, mpAclStdTable=mpAclStdTable, aclExtSequence=aclExtSequence, aclExtDestAddr=aclExtDestAddr, aclExtName=aclExtName, aclExtSrcAddr=aclExtSrcAddr, aclExtType=aclExtType, aclExtPrecedence=aclExtPrecedence, aclExtIcmpMsgType=aclExtIcmpMsgType, aclStdRemark=aclStdRemark, aclExtTimeRngName=aclExtTimeRngName, aclExtProtocol=aclExtProtocol, aclExtLogEnable=aclExtLogEnable, aclExtSrcWildcard=aclExtSrcWildcard, aclExtIgmpMsgType=aclExtIgmpMsgType, aclExtEvaluateName=aclExtEvaluateName, aclExtTUDestPort=aclExtTUDestPort, aclStdSrcWildcard=aclStdSrcWildcard, aclExtReflectName=aclExtReflectName, aclExtTUDestPortType=aclExtTUDestPortType, aclStdSequence=aclStdSequence, aclExtTUDestEndPort=aclExtTUDestEndPort, aclStdSrcAddr=aclStdSrcAddr)

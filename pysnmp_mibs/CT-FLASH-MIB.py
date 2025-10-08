@@ -1,149 +1,64 @@
-_O='package'
-_N='taggedData'
-_M='binaryCompressed'
-_L='binary'
-_K='iEEE695'
-_J='intelHexCompressed'
-_I='intelHex'
-_H='flashFileID'
-_G='flashVolume'
-_F='CT-FLASH-MIB'
-_E='DisplayString'
-_D='Integer32'
-_C='read-write'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ctFlash,=mibBuilder.importSymbols('CTRON-MIB-NAMES','ctFlash')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_E,'PhysAddress','TextualConvention')
-_FlashStatus_ObjectIdentity=ObjectIdentity
-flashStatus=_FlashStatus_ObjectIdentity((1,3,6,1,4,1,52,4,1,5,10,1))
-_FlashVolumeStatusTable_Object=MibTable
-flashVolumeStatusTable=_FlashVolumeStatusTable_Object((1,3,6,1,4,1,52,4,1,5,10,1,1))
-if mibBuilder.loadTexts:flashVolumeStatusTable.setStatus(_A)
-_FlashVolumeStatusEntry_Object=MibTableRow
-flashVolumeStatusEntry=_FlashVolumeStatusEntry_Object((1,3,6,1,4,1,52,4,1,5,10,1,1,1))
-flashVolumeStatusEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:flashVolumeStatusEntry.setStatus(_A)
-_FlashVolume_Type=Integer32
-_FlashVolume_Object=MibTableColumn
-flashVolume=_FlashVolume_Object((1,3,6,1,4,1,52,4,1,5,10,1,1,1,1),_FlashVolume_Type())
-flashVolume.setMaxAccess(_B)
-if mibBuilder.loadTexts:flashVolume.setStatus(_A)
-_FlashVolFiles_Type=Integer32
-_FlashVolFiles_Object=MibTableColumn
-flashVolFiles=_FlashVolFiles_Object((1,3,6,1,4,1,52,4,1,5,10,1,1,1,2),_FlashVolFiles_Type())
-flashVolFiles.setMaxAccess(_B)
-if mibBuilder.loadTexts:flashVolFiles.setStatus(_A)
-_FlashVolSpace_Type=Integer32
-_FlashVolSpace_Object=MibTableColumn
-flashVolSpace=_FlashVolSpace_Object((1,3,6,1,4,1,52,4,1,5,10,1,1,1,3),_FlashVolSpace_Type())
-flashVolSpace.setMaxAccess(_B)
-if mibBuilder.loadTexts:flashVolSpace.setStatus(_A)
-_FlashFile_ObjectIdentity=ObjectIdentity
-flashFile=_FlashFile_ObjectIdentity((1,3,6,1,4,1,52,4,1,5,10,2))
-_FlashFileTable_Object=MibTable
-flashFileTable=_FlashFileTable_Object((1,3,6,1,4,1,52,4,1,5,10,2,1))
-if mibBuilder.loadTexts:flashFileTable.setStatus(_A)
-_FlashFileEntry_Object=MibTableRow
-flashFileEntry=_FlashFileEntry_Object((1,3,6,1,4,1,52,4,1,5,10,2,1,1))
-flashFileEntry.setIndexNames((0,_F,_G),(0,_F,_H))
-if mibBuilder.loadTexts:flashFileEntry.setStatus(_A)
-_FlashFileID_Type=Integer32
-_FlashFileID_Object=MibTableColumn
-flashFileID=_FlashFileID_Object((1,3,6,1,4,1,52,4,1,5,10,2,1,1,1),_FlashFileID_Type())
-flashFileID.setMaxAccess(_B)
-if mibBuilder.loadTexts:flashFileID.setStatus(_A)
-class _FlashFilename_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_FlashFilename_Type.__name__=_E
-_FlashFilename_Object=MibTableColumn
-flashFilename=_FlashFilename_Object((1,3,6,1,4,1,52,4,1,5,10,2,1,1,2),_FlashFilename_Type())
-flashFilename.setMaxAccess(_B)
-if mibBuilder.loadTexts:flashFilename.setStatus(_A)
-class _FlashFileVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_FlashFileVersion_Type.__name__=_E
-_FlashFileVersion_Object=MibTableColumn
-flashFileVersion=_FlashFileVersion_Object((1,3,6,1,4,1,52,4,1,5,10,2,1,1,3),_FlashFileVersion_Type())
-flashFileVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:flashFileVersion.setStatus(_A)
-class _FlashFileType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*((_I,1),(_J,2),(_K,3),('eLF',4),('table',5),('dLL',6),('bOOT',7),(_L,8),(_M,9),(_N,10),(_O,11)))
-_FlashFileType_Type.__name__=_D
-_FlashFileType_Object=MibTableColumn
-flashFileType=_FlashFileType_Object((1,3,6,1,4,1,52,4,1,5,10,2,1,1,4),_FlashFileType_Type())
-flashFileType.setMaxAccess(_B)
-if mibBuilder.loadTexts:flashFileType.setStatus(_A)
-_FlashFileSize_Type=Integer32
-_FlashFileSize_Object=MibTableColumn
-flashFileSize=_FlashFileSize_Object((1,3,6,1,4,1,52,4,1,5,10,2,1,1,5),_FlashFileSize_Type())
-flashFileSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:flashFileSize.setStatus(_A)
-_FlashCmd_ObjectIdentity=ObjectIdentity
-flashCmd=_FlashCmd_ObjectIdentity((1,3,6,1,4,1,52,4,1,5,10,3))
-class _FlashCmdPath_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_FlashCmdPath_Type.__name__=_E
-_FlashCmdPath_Object=MibScalar
-flashCmdPath=_FlashCmdPath_Object((1,3,6,1,4,1,52,4,1,5,10,3,1),_FlashCmdPath_Type())
-flashCmdPath.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashCmdPath.setStatus(_A)
-_FlashCmdNetAddress_Type=IpAddress
-_FlashCmdNetAddress_Object=MibScalar
-flashCmdNetAddress=_FlashCmdNetAddress_Object((1,3,6,1,4,1,52,4,1,5,10,3,2),_FlashCmdNetAddress_Type())
-flashCmdNetAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashCmdNetAddress.setStatus(_A)
-_FlashCmdVolume_Type=Integer32
-_FlashCmdVolume_Object=MibScalar
-flashCmdVolume=_FlashCmdVolume_Object((1,3,6,1,4,1,52,4,1,5,10,3,3),_FlashCmdVolume_Type())
-flashCmdVolume.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashCmdVolume.setStatus(_A)
-class _FlashCmdOperation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('install',1),('download',2),('upload',3),('cleanup',4),('delete',5),('none',6)))
-_FlashCmdOperation_Type.__name__=_D
-_FlashCmdOperation_Object=MibScalar
-flashCmdOperation=_FlashCmdOperation_Object((1,3,6,1,4,1,52,4,1,5,10,3,4),_FlashCmdOperation_Type())
-flashCmdOperation.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashCmdOperation.setStatus(_A)
-class _FlashCmdStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('idle',1),('other',2),('flashVerifyServer',3),('flashCleanup',4),('downLoadActive',5),('upLoadActive',6),('completeError',7)))
-_FlashCmdStatus_Type.__name__=_D
-_FlashCmdStatus_Object=MibScalar
-flashCmdStatus=_FlashCmdStatus_Object((1,3,6,1,4,1,52,4,1,5,10,3,5),_FlashCmdStatus_Type())
-flashCmdStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:flashCmdStatus.setStatus(_A)
-class _FlashCmdError_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24)));namedValues=NamedValues(*(('oK',1),('deleteFailed',2),('fileSystem',3),('tFTPerror',4),('corruptFile',5),('dupFlashName',6),('noFlashFile',7),('flashAlloc',8),('maxFiles',9),('invalidName',10),('protocolErr',11),('serverLost',12),('noNetFile',13),('noNetAccess',14),('netDiskFull',15),('dupNetFile',16),('parseError',17),('invalidType',18),('invalidCmd',19),('invalidModId',20),('noServerIP',21),('socketError',22),('blockSequence',23),('bufferError',24)))
-_FlashCmdError_Type.__name__=_D
-_FlashCmdError_Object=MibScalar
-flashCmdError=_FlashCmdError_Object((1,3,6,1,4,1,52,4,1,5,10,3,6),_FlashCmdError_Type())
-flashCmdError.setMaxAccess(_B)
-if mibBuilder.loadTexts:flashCmdError.setStatus(_A)
-class _FlashCmdFile_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_FlashCmdFile_Type.__name__=_E
-_FlashCmdFile_Object=MibScalar
-flashCmdFile=_FlashCmdFile_Object((1,3,6,1,4,1,52,4,1,5,10,3,7),_FlashCmdFile_Type())
-flashCmdFile.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashCmdFile.setStatus(_A)
-class _FlashCmdVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_FlashCmdVersion_Type.__name__=_E
-_FlashCmdVersion_Object=MibScalar
-flashCmdVersion=_FlashCmdVersion_Object((1,3,6,1,4,1,52,4,1,5,10,3,8),_FlashCmdVersion_Type())
-flashCmdVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashCmdVersion.setStatus(_A)
-class _FlashCmdType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*((_I,1),(_J,2),(_K,3),('eLF',4),('table',5),('dLL',6),('bOOT',7),(_L,8),(_M,9),(_N,10),(_O,11)))
-_FlashCmdType_Type.__name__=_D
-_FlashCmdType_Object=MibScalar
-flashCmdType=_FlashCmdType_Object((1,3,6,1,4,1,52,4,1,5,10,3,9),_FlashCmdType_Type())
-flashCmdType.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashCmdType.setStatus(_A)
-_FlashCmdSize_Type=Integer32
-_FlashCmdSize_Object=MibScalar
-flashCmdSize=_FlashCmdSize_Object((1,3,6,1,4,1,52,4,1,5,10,3,10),_FlashCmdSize_Type())
-flashCmdSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashCmdSize.setStatus(_A)
-_FlashBlockCount_Type=Integer32
-_FlashBlockCount_Object=MibScalar
-flashBlockCount=_FlashBlockCount_Object((1,3,6,1,4,1,52,4,1,5,10,3,11),_FlashBlockCount_Type())
-flashBlockCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:flashBlockCount.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'flashStatus':flashStatus,'flashVolumeStatusTable':flashVolumeStatusTable,'flashVolumeStatusEntry':flashVolumeStatusEntry,_G:flashVolume,'flashVolFiles':flashVolFiles,'flashVolSpace':flashVolSpace,'flashFile':flashFile,'flashFileTable':flashFileTable,'flashFileEntry':flashFileEntry,_H:flashFileID,'flashFilename':flashFilename,'flashFileVersion':flashFileVersion,'flashFileType':flashFileType,'flashFileSize':flashFileSize,'flashCmd':flashCmd,'flashCmdPath':flashCmdPath,'flashCmdNetAddress':flashCmdNetAddress,'flashCmdVolume':flashCmdVolume,'flashCmdOperation':flashCmdOperation,'flashCmdStatus':flashCmdStatus,'flashCmdError':flashCmdError,'flashCmdFile':flashCmdFile,'flashCmdVersion':flashCmdVersion,'flashCmdType':flashCmdType,'flashCmdSize':flashCmdSize,'flashBlockCount':flashBlockCount})
+#
+# PySNMP MIB module CT-FLASH-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CT-FLASH-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ctFlash, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctFlash")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+flashStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 1))
+flashFile = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 2))
+flashCmd = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 3))
+flashVolumeStatusTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 1, 1), )
+if mibBuilder.loadTexts: flashVolumeStatusTable.setStatus('mandatory')
+flashVolumeStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 1, 1, 1), ).setIndexNames((0, "CT-FLASH-MIB", "flashVolume"))
+if mibBuilder.loadTexts: flashVolumeStatusEntry.setStatus('mandatory')
+flashVolume = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashVolume.setStatus('mandatory')
+flashVolFiles = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashVolFiles.setStatus('mandatory')
+flashVolSpace = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 1, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashVolSpace.setStatus('mandatory')
+flashFileTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 2, 1), )
+if mibBuilder.loadTexts: flashFileTable.setStatus('mandatory')
+flashFileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 2, 1, 1), ).setIndexNames((0, "CT-FLASH-MIB", "flashVolume"), (0, "CT-FLASH-MIB", "flashFileID"))
+if mibBuilder.loadTexts: flashFileEntry.setStatus('mandatory')
+flashFileID = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashFileID.setStatus('mandatory')
+flashFilename = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashFilename.setStatus('mandatory')
+flashFileVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 2, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashFileVersion.setStatus('mandatory')
+flashFileType = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("intelHex", 1), ("intelHexCompressed", 2), ("iEEE695", 3), ("eLF", 4), ("table", 5), ("dLL", 6), ("bOOT", 7), ("binary", 8), ("binaryCompressed", 9), ("taggedData", 10), ("package", 11)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashFileType.setStatus('mandatory')
+flashFileSize = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 2, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashFileSize.setStatus('mandatory')
+flashCmdPath = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 3, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: flashCmdPath.setStatus('mandatory')
+flashCmdNetAddress = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 3, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: flashCmdNetAddress.setStatus('mandatory')
+flashCmdVolume = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 3, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: flashCmdVolume.setStatus('mandatory')
+flashCmdOperation = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 3, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("install", 1), ("download", 2), ("upload", 3), ("cleanup", 4), ("delete", 5), ("none", 6)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: flashCmdOperation.setStatus('mandatory')
+flashCmdStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 3, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("idle", 1), ("other", 2), ("flashVerifyServer", 3), ("flashCleanup", 4), ("downLoadActive", 5), ("upLoadActive", 6), ("completeError", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashCmdStatus.setStatus('mandatory')
+flashCmdError = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 3, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24))).clone(namedValues=NamedValues(("oK", 1), ("deleteFailed", 2), ("fileSystem", 3), ("tFTPerror", 4), ("corruptFile", 5), ("dupFlashName", 6), ("noFlashFile", 7), ("flashAlloc", 8), ("maxFiles", 9), ("invalidName", 10), ("protocolErr", 11), ("serverLost", 12), ("noNetFile", 13), ("noNetAccess", 14), ("netDiskFull", 15), ("dupNetFile", 16), ("parseError", 17), ("invalidType", 18), ("invalidCmd", 19), ("invalidModId", 20), ("noServerIP", 21), ("socketError", 22), ("blockSequence", 23), ("bufferError", 24)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashCmdError.setStatus('mandatory')
+flashCmdFile = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 3, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: flashCmdFile.setStatus('mandatory')
+flashCmdVersion = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 3, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: flashCmdVersion.setStatus('mandatory')
+flashCmdType = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 3, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("intelHex", 1), ("intelHexCompressed", 2), ("iEEE695", 3), ("eLF", 4), ("table", 5), ("dLL", 6), ("bOOT", 7), ("binary", 8), ("binaryCompressed", 9), ("taggedData", 10), ("package", 11)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: flashCmdType.setStatus('mandatory')
+flashCmdSize = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 3, 10), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: flashCmdSize.setStatus('mandatory')
+flashBlockCount = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 3, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashBlockCount.setStatus('mandatory')
+mibBuilder.exportSymbols("CT-FLASH-MIB", flashCmdVersion=flashCmdVersion, flashVolumeStatusEntry=flashVolumeStatusEntry, flashFile=flashFile, flashCmdError=flashCmdError, flashCmdPath=flashCmdPath, flashCmdSize=flashCmdSize, flashVolume=flashVolume, flashFileVersion=flashFileVersion, flashCmdStatus=flashCmdStatus, flashCmd=flashCmd, flashCmdType=flashCmdType, flashVolSpace=flashVolSpace, flashCmdNetAddress=flashCmdNetAddress, flashCmdOperation=flashCmdOperation, flashCmdVolume=flashCmdVolume, flashVolFiles=flashVolFiles, flashFileTable=flashFileTable, flashVolumeStatusTable=flashVolumeStatusTable, flashFileSize=flashFileSize, flashBlockCount=flashBlockCount, flashFileEntry=flashFileEntry, flashFilename=flashFilename, flashFileID=flashFileID, flashCmdFile=flashCmdFile, flashStatus=flashStatus, flashFileType=flashFileType)

@@ -1,231 +1,107 @@
-_X='fruHistoryFactorySerialNum'
-_W='fruHistoryFactoryPartNum'
-_V='fruHistoryTime'
-_U='fruHistoryEvent'
-_T='fruHistoryObjectNum'
-_S='fruHistoryClass'
-_R='cpLastEvent'
-_Q='cpStatus'
-_P='fruObjectNum'
-_O='fruClass'
-_N='fruStatus'
-_M='fruHistoryIndex'
-_L='faulty'
-_K='entPhysicalName'
-_J='SW-MIB'
-_I='unknown'
-_H='other'
-_G='DisplayString'
-_F='entPhysicalIndex'
-_E='ENTITY-MIB'
-_D='Integer32'
-_C='HA-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fibrechannel,=mibBuilder.importSymbols('Brocade-REG-MIB','fibrechannel')
-entPhysicalIndex,entPhysicalName=mibBuilder.importSymbols(_E,_F,_K)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_G,'PhysAddress','TextualConvention')
-swID,swSsn=mibBuilder.importSymbols(_J,'swID','swSsn')
-haMIB=ModuleIdentity((1,3,6,1,4,1,1588,2,1,2))
-if mibBuilder.loadTexts:haMIB.setRevisions(('2002-08-16 00:00','2004-02-25 15:30','2009-02-09 00:00','2009-04-06 00:00','2009-06-25 12:00','2010-07-22 10:00','2012-09-25 10:00','2013-05-07 17:57'))
-class FruClass(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*((_H,1),(_I,2),('chassis',3),('cp',4),('other-CP',5),('switchblade',6),('wwn',7),('powerSupply',8),('fan',9),('coreblade',10),('applicationblade',11)))
-_HighAvailability_ObjectIdentity=ObjectIdentity
-highAvailability=_HighAvailability_ObjectIdentity((1,3,6,1,4,1,1588,2,1,2,1))
-class _HaStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('redundant',0),('nonredundant',1)))
-_HaStatus_Type.__name__=_D
-_HaStatus_Object=MibScalar
-haStatus=_HaStatus_Object((1,3,6,1,4,1,1588,2,1,2,1,1),_HaStatus_Type())
-haStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:haStatus.setStatus(_A)
-_FruTable_Object=MibTable
-fruTable=_FruTable_Object((1,3,6,1,4,1,1588,2,1,2,1,5))
-if mibBuilder.loadTexts:fruTable.setStatus(_A)
-_FRUEntry_Object=MibTableRow
-fRUEntry=_FRUEntry_Object((1,3,6,1,4,1,1588,2,1,2,1,5,1))
-fRUEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:fRUEntry.setStatus(_A)
-_FruClass_Type=FruClass
-_FruClass_Object=MibTableColumn
-fruClass=_FruClass_Object((1,3,6,1,4,1,1588,2,1,2,1,5,1,1),_FruClass_Type())
-fruClass.setMaxAccess(_B)
-if mibBuilder.loadTexts:fruClass.setStatus(_A)
-class _FruStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*((_H,1),(_I,2),('on',3),('off',4),(_L,5),('poweredon',6),('initialized',7)))
-_FruStatus_Type.__name__=_D
-_FruStatus_Object=MibTableColumn
-fruStatus=_FruStatus_Object((1,3,6,1,4,1,1588,2,1,2,1,5,1,2),_FruStatus_Type())
-fruStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fruStatus.setStatus(_A)
-_FruObjectNum_Type=Integer32
-_FruObjectNum_Object=MibTableColumn
-fruObjectNum=_FruObjectNum_Object((1,3,6,1,4,1,1588,2,1,2,1,5,1,3),_FruObjectNum_Type())
-fruObjectNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:fruObjectNum.setStatus(_A)
-_FruSupplierId_Type=DisplayString
-_FruSupplierId_Object=MibTableColumn
-fruSupplierId=_FruSupplierId_Object((1,3,6,1,4,1,1588,2,1,2,1,5,1,4),_FruSupplierId_Type())
-fruSupplierId.setMaxAccess(_B)
-if mibBuilder.loadTexts:fruSupplierId.setStatus(_A)
-_FruSupplierPartNum_Type=DisplayString
-_FruSupplierPartNum_Object=MibTableColumn
-fruSupplierPartNum=_FruSupplierPartNum_Object((1,3,6,1,4,1,1588,2,1,2,1,5,1,5),_FruSupplierPartNum_Type())
-fruSupplierPartNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:fruSupplierPartNum.setStatus(_A)
-class _FruSupplierSerialNum_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_FruSupplierSerialNum_Type.__name__=_G
-_FruSupplierSerialNum_Object=MibTableColumn
-fruSupplierSerialNum=_FruSupplierSerialNum_Object((1,3,6,1,4,1,1588,2,1,2,1,5,1,6),_FruSupplierSerialNum_Type())
-fruSupplierSerialNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:fruSupplierSerialNum.setStatus(_A)
-_FruSupplierRevCode_Type=DisplayString
-_FruSupplierRevCode_Object=MibTableColumn
-fruSupplierRevCode=_FruSupplierRevCode_Object((1,3,6,1,4,1,1588,2,1,2,1,5,1,7),_FruSupplierRevCode_Type())
-fruSupplierRevCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:fruSupplierRevCode.setStatus(_A)
-_FruPowerConsumption_Type=DisplayString
-_FruPowerConsumption_Object=MibTableColumn
-fruPowerConsumption=_FruPowerConsumption_Object((1,3,6,1,4,1,1588,2,1,2,1,5,1,8),_FruPowerConsumption_Type())
-fruPowerConsumption.setMaxAccess(_B)
-if mibBuilder.loadTexts:fruPowerConsumption.setStatus(_A)
-if mibBuilder.loadTexts:fruPowerConsumption.setUnits('watt')
-_FruHistoryTable_Object=MibTable
-fruHistoryTable=_FruHistoryTable_Object((1,3,6,1,4,1,1588,2,1,2,1,6))
-if mibBuilder.loadTexts:fruHistoryTable.setStatus(_A)
-_FruHistoryEntry_Object=MibTableRow
-fruHistoryEntry=_FruHistoryEntry_Object((1,3,6,1,4,1,1588,2,1,2,1,6,1))
-fruHistoryEntry.setIndexNames((0,_C,_M))
-if mibBuilder.loadTexts:fruHistoryEntry.setStatus(_A)
-_FruHistoryIndex_Type=Integer32
-_FruHistoryIndex_Object=MibTableColumn
-fruHistoryIndex=_FruHistoryIndex_Object((1,3,6,1,4,1,1588,2,1,2,1,6,1,1),_FruHistoryIndex_Type())
-fruHistoryIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:fruHistoryIndex.setStatus(_A)
-_FruHistoryClass_Type=FruClass
-_FruHistoryClass_Object=MibTableColumn
-fruHistoryClass=_FruHistoryClass_Object((1,3,6,1,4,1,1588,2,1,2,1,6,1,2),_FruHistoryClass_Type())
-fruHistoryClass.setMaxAccess(_B)
-if mibBuilder.loadTexts:fruHistoryClass.setStatus(_A)
-_FruHistoryObjectNum_Type=Integer32
-_FruHistoryObjectNum_Object=MibTableColumn
-fruHistoryObjectNum=_FruHistoryObjectNum_Object((1,3,6,1,4,1,1588,2,1,2,1,6,1,3),_FruHistoryObjectNum_Type())
-fruHistoryObjectNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:fruHistoryObjectNum.setStatus(_A)
-class _FruHistoryEvent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('added',1),('removed',2),('invalid',3)))
-_FruHistoryEvent_Type.__name__=_D
-_FruHistoryEvent_Object=MibTableColumn
-fruHistoryEvent=_FruHistoryEvent_Object((1,3,6,1,4,1,1588,2,1,2,1,6,1,4),_FruHistoryEvent_Type())
-fruHistoryEvent.setMaxAccess(_B)
-if mibBuilder.loadTexts:fruHistoryEvent.setStatus(_A)
-_FruHistoryTime_Type=DisplayString
-_FruHistoryTime_Object=MibTableColumn
-fruHistoryTime=_FruHistoryTime_Object((1,3,6,1,4,1,1588,2,1,2,1,6,1,5),_FruHistoryTime_Type())
-fruHistoryTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:fruHistoryTime.setStatus(_A)
-_FruHistoryFactoryPartNum_Type=DisplayString
-_FruHistoryFactoryPartNum_Object=MibTableColumn
-fruHistoryFactoryPartNum=_FruHistoryFactoryPartNum_Object((1,3,6,1,4,1,1588,2,1,2,1,6,1,6),_FruHistoryFactoryPartNum_Type())
-fruHistoryFactoryPartNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:fruHistoryFactoryPartNum.setStatus(_A)
-_FruHistoryFactorySerialNum_Type=DisplayString
-_FruHistoryFactorySerialNum_Object=MibTableColumn
-fruHistoryFactorySerialNum=_FruHistoryFactorySerialNum_Object((1,3,6,1,4,1,1588,2,1,2,1,6,1,7),_FruHistoryFactorySerialNum_Type())
-fruHistoryFactorySerialNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:fruHistoryFactorySerialNum.setStatus(_A)
-_CpTable_Object=MibTable
-cpTable=_CpTable_Object((1,3,6,1,4,1,1588,2,1,2,1,7))
-if mibBuilder.loadTexts:cpTable.setStatus(_A)
-_CpEntry_Object=MibTableRow
-cpEntry=_CpEntry_Object((1,3,6,1,4,1,1588,2,1,2,1,7,1))
-cpEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:cpEntry.setStatus(_A)
-class _CpStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_H,1),(_I,2),('active',3),('standby',4),('failed',5)))
-_CpStatus_Type.__name__=_D
-_CpStatus_Object=MibTableColumn
-cpStatus=_CpStatus_Object((1,3,6,1,4,1,1588,2,1,2,1,7,1,1),_CpStatus_Type())
-cpStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpStatus.setStatus(_A)
-_CpIpAddress_Type=IpAddress
-_CpIpAddress_Object=MibTableColumn
-cpIpAddress=_CpIpAddress_Object((1,3,6,1,4,1,1588,2,1,2,1,7,1,2),_CpIpAddress_Type())
-cpIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpIpAddress.setStatus(_A)
-_CpIpMask_Type=IpAddress
-_CpIpMask_Object=MibTableColumn
-cpIpMask=_CpIpMask_Object((1,3,6,1,4,1,1588,2,1,2,1,7,1,3),_CpIpMask_Type())
-cpIpMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpIpMask.setStatus(_A)
-_CpIpGateway_Type=IpAddress
-_CpIpGateway_Object=MibTableColumn
-cpIpGateway=_CpIpGateway_Object((1,3,6,1,4,1,1588,2,1,2,1,7,1,4),_CpIpGateway_Type())
-cpIpGateway.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpIpGateway.setStatus(_A)
-class _CpLastEvent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12)));namedValues=NamedValues(*((_H,1),(_I,2),('haSync',3),('haOutSync',4),('cpFaulty',5),('cpHealthy',6),('cpActive',7),('configChange',8),('failOverStart',9),('failOverDone',10),('firmwareCommit',11),('firmwareUpgrade',12)))
-_CpLastEvent_Type.__name__=_D
-_CpLastEvent_Object=MibTableColumn
-cpLastEvent=_CpLastEvent_Object((1,3,6,1,4,1,1588,2,1,2,1,7,1,5),_CpLastEvent_Type())
-cpLastEvent.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpLastEvent.setStatus(_A)
-_BpTable_Object=MibTable
-bpTable=_BpTable_Object((1,3,6,1,4,1,1588,2,1,2,1,8))
-if mibBuilder.loadTexts:bpTable.setStatus(_A)
-_BpEntry_Object=MibTableRow
-bpEntry=_BpEntry_Object((1,3,6,1,4,1,1588,2,1,2,1,8,1))
-bpEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:bpEntry.setStatus(_A)
-class _BpStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('on',1),('off',2),(_L,3),('unknow',4),('others',5)))
-_BpStatus_Type.__name__=_D
-_BpStatus_Object=MibTableColumn
-bpStatus=_BpStatus_Object((1,3,6,1,4,1,1588,2,1,2,1,8,1,1),_BpStatus_Type())
-bpStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:bpStatus.setStatus(_A)
-_Bpeth0IpAddress_Type=IpAddress
-_Bpeth0IpAddress_Object=MibTableColumn
-bpeth0IpAddress=_Bpeth0IpAddress_Object((1,3,6,1,4,1,1588,2,1,2,1,8,1,2),_Bpeth0IpAddress_Type())
-bpeth0IpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:bpeth0IpAddress.setStatus(_A)
-_Bpeth1IpAddress_Type=IpAddress
-_Bpeth1IpAddress_Object=MibTableColumn
-bpeth1IpAddress=_Bpeth1IpAddress_Object((1,3,6,1,4,1,1588,2,1,2,1,8,1,3),_Bpeth1IpAddress_Type())
-bpeth1IpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:bpeth1IpAddress.setStatus(_A)
-_BpsubNetMaskIpaddress_Type=IpAddress
-_BpsubNetMaskIpaddress_Object=MibTableColumn
-bpsubNetMaskIpaddress=_BpsubNetMaskIpaddress_Object((1,3,6,1,4,1,1588,2,1,2,1,8,1,4),_BpsubNetMaskIpaddress_Type())
-bpsubNetMaskIpaddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:bpsubNetMaskIpaddress.setStatus(_A)
-_BpIpGateway_Type=IpAddress
-_BpIpGateway_Object=MibTableColumn
-bpIpGateway=_BpIpGateway_Object((1,3,6,1,4,1,1588,2,1,2,1,8,1,5),_BpIpGateway_Type())
-bpIpGateway.setMaxAccess(_B)
-if mibBuilder.loadTexts:bpIpGateway.setStatus(_A)
-class _BpSasPriVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,24))
-_BpSasPriVersion_Type.__name__=_G
-_BpSasPriVersion_Object=MibTableColumn
-bpSasPriVersion=_BpSasPriVersion_Object((1,3,6,1,4,1,1588,2,1,2,1,8,1,6),_BpSasPriVersion_Type())
-bpSasPriVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:bpSasPriVersion.setStatus(_A)
-class _BpSasSecVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,24))
-_BpSasSecVersion_Type.__name__=_G
-_BpSasSecVersion_Object=MibTableColumn
-bpSasSecVersion=_BpSasSecVersion_Object((1,3,6,1,4,1,1588,2,1,2,1,8,1,7),_BpSasSecVersion_Type())
-bpSasSecVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:bpSasSecVersion.setStatus(_A)
-_HaMIBTraps_ObjectIdentity=ObjectIdentity
-haMIBTraps=_HaMIBTraps_ObjectIdentity((1,3,6,1,4,1,1588,2,1,2,2))
-_HaMIBTrapPrefix_ObjectIdentity=ObjectIdentity
-haMIBTrapPrefix=_HaMIBTrapPrefix_ObjectIdentity((1,3,6,1,4,1,1588,2,1,2,2,0))
-fruStatusChanged=NotificationType((1,3,6,1,4,1,1588,2,1,2,2,0,1))
-fruStatusChanged.setObjects(*((_E,_K),(_C,_N),(_C,_O),(_C,_P)))
-if mibBuilder.loadTexts:fruStatusChanged.setStatus(_A)
-cpStatusChanged=NotificationType((1,3,6,1,4,1,1588,2,1,2,2,0,2))
-cpStatusChanged.setObjects(*((_C,_Q),(_C,_R),(_J,'swID'),(_J,'swSsn')))
-if mibBuilder.loadTexts:cpStatusChanged.setStatus(_A)
-fruHistoryTrap=NotificationType((1,3,6,1,4,1,1588,2,1,2,2,0,3))
-fruHistoryTrap.setObjects(*((_C,_S),(_C,_T),(_C,_U),(_C,_V),(_C,_W),(_C,_X)))
-if mibBuilder.loadTexts:fruHistoryTrap.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'FruClass':FruClass,'haMIB':haMIB,'highAvailability':highAvailability,'haStatus':haStatus,'fruTable':fruTable,'fRUEntry':fRUEntry,_O:fruClass,_N:fruStatus,_P:fruObjectNum,'fruSupplierId':fruSupplierId,'fruSupplierPartNum':fruSupplierPartNum,'fruSupplierSerialNum':fruSupplierSerialNum,'fruSupplierRevCode':fruSupplierRevCode,'fruPowerConsumption':fruPowerConsumption,'fruHistoryTable':fruHistoryTable,'fruHistoryEntry':fruHistoryEntry,_M:fruHistoryIndex,_S:fruHistoryClass,_T:fruHistoryObjectNum,_U:fruHistoryEvent,_V:fruHistoryTime,_W:fruHistoryFactoryPartNum,_X:fruHistoryFactorySerialNum,'cpTable':cpTable,'cpEntry':cpEntry,_Q:cpStatus,'cpIpAddress':cpIpAddress,'cpIpMask':cpIpMask,'cpIpGateway':cpIpGateway,_R:cpLastEvent,'bpTable':bpTable,'bpEntry':bpEntry,'bpStatus':bpStatus,'bpeth0IpAddress':bpeth0IpAddress,'bpeth1IpAddress':bpeth1IpAddress,'bpsubNetMaskIpaddress':bpsubNetMaskIpaddress,'bpIpGateway':bpIpGateway,'bpSasPriVersion':bpSasPriVersion,'bpSasSecVersion':bpSasSecVersion,'haMIBTraps':haMIBTraps,'haMIBTrapPrefix':haMIBTrapPrefix,'fruStatusChanged':fruStatusChanged,'cpStatusChanged':cpStatusChanged,'fruHistoryTrap':fruHistoryTrap})
+#
+# PySNMP MIB module HA-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/brocade/HA-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fibrechannel, = mibBuilder.importSymbols("Brocade-REG-MIB", "fibrechannel")
+entPhysicalName, entPhysicalIndex = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalName", "entPhysicalIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+swID, swSsn = mibBuilder.importSymbols("SW-MIB", "swID", "swSsn")
+haMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2))
+haMIB.setRevisions(('2002-08-16 00:00', '2004-02-25 15:30', '2009-02-09 00:00', '2009-04-06 00:00', '2009-06-25 12:00', '2010-07-22 10:00', '2012-09-25 10:00', '2013-05-07 17:57',))
+if mibBuilder.loadTexts: haMIB.setLastUpdated('201305071757Z')
+if mibBuilder.loadTexts: haMIB.setOrganization('Brocade Communications Systems, Inc.,')
+highAvailability = MibIdentifier((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1))
+haStatus = MibScalar((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("redundant", 0), ("nonredundant", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: haStatus.setStatus('current')
+class FruClass(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+    namedValues = NamedValues(("other", 1), ("unknown", 2), ("chassis", 3), ("cp", 4), ("other-CP", 5), ("switchblade", 6), ("wwn", 7), ("powerSupply", 8), ("fan", 9), ("coreblade", 10), ("applicationblade", 11))
+
+fruTable = MibTable((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 5), )
+if mibBuilder.loadTexts: fruTable.setStatus('current')
+fRUEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 5, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: fRUEntry.setStatus('current')
+fruClass = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 5, 1, 1), FruClass()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fruClass.setStatus('current')
+fruStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("other", 1), ("unknown", 2), ("on", 3), ("off", 4), ("faulty", 5), ("poweredon", 6), ("initialized", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fruStatus.setStatus('current')
+fruObjectNum = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 5, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fruObjectNum.setStatus('current')
+fruSupplierId = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 5, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fruSupplierId.setStatus('current')
+fruSupplierPartNum = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 5, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fruSupplierPartNum.setStatus('current')
+fruSupplierSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 5, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fruSupplierSerialNum.setStatus('current')
+fruSupplierRevCode = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 5, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fruSupplierRevCode.setStatus('current')
+fruPowerConsumption = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 5, 1, 8), DisplayString()).setUnits('watt').setMaxAccess("readonly")
+if mibBuilder.loadTexts: fruPowerConsumption.setStatus('current')
+fruHistoryTable = MibTable((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 6), )
+if mibBuilder.loadTexts: fruHistoryTable.setStatus('current')
+fruHistoryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 6, 1), ).setIndexNames((0, "HA-MIB", "fruHistoryIndex"))
+if mibBuilder.loadTexts: fruHistoryEntry.setStatus('current')
+fruHistoryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 6, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fruHistoryIndex.setStatus('current')
+fruHistoryClass = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 6, 1, 2), FruClass()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fruHistoryClass.setStatus('current')
+fruHistoryObjectNum = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 6, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fruHistoryObjectNum.setStatus('current')
+fruHistoryEvent = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 6, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("added", 1), ("removed", 2), ("invalid", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fruHistoryEvent.setStatus('current')
+fruHistoryTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 6, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fruHistoryTime.setStatus('current')
+fruHistoryFactoryPartNum = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 6, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fruHistoryFactoryPartNum.setStatus('current')
+fruHistoryFactorySerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 6, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fruHistoryFactorySerialNum.setStatus('current')
+cpTable = MibTable((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 7), )
+if mibBuilder.loadTexts: cpTable.setStatus('current')
+cpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 7, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: cpEntry.setStatus('current')
+cpStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 7, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("other", 1), ("unknown", 2), ("active", 3), ("standby", 4), ("failed", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpStatus.setStatus('current')
+cpIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 7, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpIpAddress.setStatus('current')
+cpIpMask = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 7, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpIpMask.setStatus('current')
+cpIpGateway = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 7, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpIpGateway.setStatus('current')
+cpLastEvent = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 7, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("other", 1), ("unknown", 2), ("haSync", 3), ("haOutSync", 4), ("cpFaulty", 5), ("cpHealthy", 6), ("cpActive", 7), ("configChange", 8), ("failOverStart", 9), ("failOverDone", 10), ("firmwareCommit", 11), ("firmwareUpgrade", 12)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpLastEvent.setStatus('current')
+bpTable = MibTable((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 8), )
+if mibBuilder.loadTexts: bpTable.setStatus('current')
+bpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 8, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: bpEntry.setStatus('current')
+bpStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 8, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("on", 1), ("off", 2), ("faulty", 3), ("unknow", 4), ("others", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bpStatus.setStatus('current')
+bpeth0IpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 8, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bpeth0IpAddress.setStatus('current')
+bpeth1IpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 8, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bpeth1IpAddress.setStatus('current')
+bpsubNetMaskIpaddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 8, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bpsubNetMaskIpaddress.setStatus('current')
+bpIpGateway = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 8, 1, 5), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bpIpGateway.setStatus('current')
+bpSasPriVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 8, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 24))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bpSasPriVersion.setStatus('current')
+bpSasSecVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 1, 8, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 24))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bpSasSecVersion.setStatus('current')
+haMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 2))
+haMIBTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 2, 0))
+fruStatusChanged = NotificationType((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 2, 0, 1)).setObjects(("ENTITY-MIB", "entPhysicalName"), ("HA-MIB", "fruStatus"), ("HA-MIB", "fruClass"), ("HA-MIB", "fruObjectNum"))
+if mibBuilder.loadTexts: fruStatusChanged.setStatus('current')
+cpStatusChanged = NotificationType((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 2, 0, 2)).setObjects(("HA-MIB", "cpStatus"), ("HA-MIB", "cpLastEvent"), ("SW-MIB", "swID"), ("SW-MIB", "swSsn"))
+if mibBuilder.loadTexts: cpStatusChanged.setStatus('current')
+fruHistoryTrap = NotificationType((1, 3, 6, 1, 4, 1, 1588, 2, 1, 2, 2, 0, 3)).setObjects(("HA-MIB", "fruHistoryClass"), ("HA-MIB", "fruHistoryObjectNum"), ("HA-MIB", "fruHistoryEvent"), ("HA-MIB", "fruHistoryTime"), ("HA-MIB", "fruHistoryFactoryPartNum"), ("HA-MIB", "fruHistoryFactorySerialNum"))
+if mibBuilder.loadTexts: fruHistoryTrap.setStatus('current')
+mibBuilder.exportSymbols("HA-MIB", haMIB=haMIB, fruTable=fruTable, cpLastEvent=cpLastEvent, fruHistoryEntry=fruHistoryEntry, fruObjectNum=fruObjectNum, bpTable=bpTable, cpIpGateway=cpIpGateway, fruSupplierPartNum=fruSupplierPartNum, fruHistoryTable=fruHistoryTable, fruHistoryObjectNum=fruHistoryObjectNum, fruHistoryFactorySerialNum=fruHistoryFactorySerialNum, fruSupplierSerialNum=fruSupplierSerialNum, bpEntry=bpEntry, bpIpGateway=bpIpGateway, haMIBTrapPrefix=haMIBTrapPrefix, bpsubNetMaskIpaddress=bpsubNetMaskIpaddress, fruHistoryTrap=fruHistoryTrap, cpIpAddress=cpIpAddress, fruStatusChanged=fruStatusChanged, fruClass=fruClass, fruStatus=fruStatus, fruHistoryClass=fruHistoryClass, cpStatusChanged=cpStatusChanged, bpeth0IpAddress=bpeth0IpAddress, bpSasPriVersion=bpSasPriVersion, FruClass=FruClass, PYSNMP_MODULE_ID=haMIB, cpIpMask=cpIpMask, fruHistoryIndex=fruHistoryIndex, haMIBTraps=haMIBTraps, highAvailability=highAvailability, cpStatus=cpStatus, fruHistoryFactoryPartNum=fruHistoryFactoryPartNum, cpEntry=cpEntry, fruHistoryTime=fruHistoryTime, fruSupplierId=fruSupplierId, fruPowerConsumption=fruPowerConsumption, bpeth1IpAddress=bpeth1IpAddress, haStatus=haStatus, cpTable=cpTable, fruSupplierRevCode=fruSupplierRevCode, bpSasSecVersion=bpSasSecVersion, bpStatus=bpStatus, fruHistoryEvent=fruHistoryEvent, fRUEntry=fRUEntry)

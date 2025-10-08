@@ -1,251 +1,117 @@
-_M='TruthValue'
-_L='disable'
-_K='enable'
-_J='sonet'
-_I='sdh'
-_H='DisplayString'
-_G='ifDescr'
-_F='read-only'
-_E='Integer32'
-_D='ifIndex'
-_C='IF-MIB'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','h3cCommon')
-ifDescr,ifIndex=mibBuilder.importSymbols(_C,_G,_D)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_H,'PhysAddress','TextualConvention',_M)
-h3cPos=ModuleIdentity((1,3,6,1,4,1,2011,10,2,19))
-if mibBuilder.loadTexts:h3cPos.setRevisions(('2016-09-09 17:00','2013-10-10 17:00','2010-05-19 17:00','2007-07-19 17:00'))
-_H3cPosMIBObjects_ObjectIdentity=ObjectIdentity
-h3cPosMIBObjects=_H3cPosMIBObjects_ObjectIdentity((1,3,6,1,4,1,2011,10,2,19,1))
-_H3cPosParamTable_Object=MibTable
-h3cPosParamTable=_H3cPosParamTable_Object((1,3,6,1,4,1,2011,10,2,19,1,1))
-if mibBuilder.loadTexts:h3cPosParamTable.setStatus(_A)
-_H3cPosParamTableEntry_Object=MibTableRow
-h3cPosParamTableEntry=_H3cPosParamTableEntry_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1))
-h3cPosParamTableEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:h3cPosParamTableEntry.setStatus(_A)
-class _H3cPosCRC_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('crc32',1),('crc16',2)))
-_H3cPosCRC_Type.__name__=_E
-_H3cPosCRC_Object=MibTableColumn
-h3cPosCRC=_H3cPosCRC_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,1),_H3cPosCRC_Type())
-h3cPosCRC.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosCRC.setStatus(_A)
-_H3cPosMTU_Type=Integer32
-_H3cPosMTU_Object=MibTableColumn
-h3cPosMTU=_H3cPosMTU_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,2),_H3cPosMTU_Type())
-h3cPosMTU.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosMTU.setStatus(_A)
-class _H3cPosScramble_Type(TruthValue):defaultValue=1
-_H3cPosScramble_Type.__name__=_M
-_H3cPosScramble_Object=MibTableColumn
-h3cPosScramble=_H3cPosScramble_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,3),_H3cPosScramble_Type())
-h3cPosScramble.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosScramble.setStatus(_A)
-class _H3cPosClockSource_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('system',1),('line',2)))
-_H3cPosClockSource_Type.__name__=_E
-_H3cPosClockSource_Object=MibTableColumn
-h3cPosClockSource=_H3cPosClockSource_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,4),_H3cPosClockSource_Type())
-h3cPosClockSource.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosClockSource.setStatus(_A)
-class _H3cPosSdhFlagJ0_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_H3cPosSdhFlagJ0_Type.__name__=_H
-_H3cPosSdhFlagJ0_Object=MibTableColumn
-h3cPosSdhFlagJ0=_H3cPosSdhFlagJ0_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,5),_H3cPosSdhFlagJ0_Type())
-h3cPosSdhFlagJ0.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosSdhFlagJ0.setStatus(_A)
-class _H3cPosSdhFlagJ1_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_H3cPosSdhFlagJ1_Type.__name__=_H
-_H3cPosSdhFlagJ1_Object=MibTableColumn
-h3cPosSdhFlagJ1=_H3cPosSdhFlagJ1_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,6),_H3cPosSdhFlagJ1_Type())
-h3cPosSdhFlagJ1.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosSdhFlagJ1.setStatus(_A)
-class _H3cPosSonetFlagJ0_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_H3cPosSonetFlagJ0_Type.__name__=_E
-_H3cPosSonetFlagJ0_Object=MibTableColumn
-h3cPosSonetFlagJ0=_H3cPosSonetFlagJ0_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,7),_H3cPosSonetFlagJ0_Type())
-h3cPosSonetFlagJ0.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosSonetFlagJ0.setStatus(_A)
-class _H3cPosSonetFlagJ1_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,62))
-_H3cPosSonetFlagJ1_Type.__name__=_H
-_H3cPosSonetFlagJ1_Object=MibTableColumn
-h3cPosSonetFlagJ1=_H3cPosSonetFlagJ1_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,8),_H3cPosSonetFlagJ1_Type())
-h3cPosSonetFlagJ1.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosSonetFlagJ1.setStatus(_A)
-class _H3cPosFlagC2_Type(Integer32):defaultValue=22;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_H3cPosFlagC2_Type.__name__=_E
-_H3cPosFlagC2_Object=MibTableColumn
-h3cPosFlagC2=_H3cPosFlagC2_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,9),_H3cPosFlagC2_Type())
-h3cPosFlagC2.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosFlagC2.setStatus(_A)
-class _H3cPosFrameType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_I,1),(_J,2)))
-_H3cPosFrameType_Type.__name__=_E
-_H3cPosFrameType_Object=MibTableColumn
-h3cPosFrameType=_H3cPosFrameType_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,10),_H3cPosFrameType_Type())
-h3cPosFrameType.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosFrameType.setStatus(_A)
-class _H3cPosBindVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_H3cPosBindVlanId_Type.__name__=_E
-_H3cPosBindVlanId_Object=MibTableColumn
-h3cPosBindVlanId=_H3cPosBindVlanId_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,11),_H3cPosBindVlanId_Type())
-h3cPosBindVlanId.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosBindVlanId.setStatus(_A)
-class _H3cPosEncapsulation_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('ppp',1),('hdlc',2),('fr',3),('mfr',4)))
-_H3cPosEncapsulation_Type.__name__=_E
-_H3cPosEncapsulation_Object=MibTableColumn
-h3cPosEncapsulation=_H3cPosEncapsulation_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,12),_H3cPosEncapsulation_Type())
-h3cPosEncapsulation.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosEncapsulation.setStatus(_A)
-class _H3cPoskeepaliveTimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32767))
-_H3cPoskeepaliveTimeout_Type.__name__=_E
-_H3cPoskeepaliveTimeout_Object=MibTableColumn
-h3cPoskeepaliveTimeout=_H3cPoskeepaliveTimeout_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,13),_H3cPoskeepaliveTimeout_Type())
-h3cPoskeepaliveTimeout.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPoskeepaliveTimeout.setStatus(_A)
-class _H3cPosBERthresholdSF_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3,9))
-_H3cPosBERthresholdSF_Type.__name__=_E
-_H3cPosBERthresholdSF_Object=MibTableColumn
-h3cPosBERthresholdSF=_H3cPosBERthresholdSF_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,14),_H3cPosBERthresholdSF_Type())
-h3cPosBERthresholdSF.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosBERthresholdSF.setStatus(_A)
-class _H3cPosBERthresholdSD_Type(Integer32):defaultValue=6;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3,9))
-_H3cPosBERthresholdSD_Type.__name__=_E
-_H3cPosBERthresholdSD_Object=MibTableColumn
-h3cPosBERthresholdSD=_H3cPosBERthresholdSD_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,15),_H3cPosBERthresholdSD_Type())
-h3cPosBERthresholdSD.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosBERthresholdSD.setStatus(_A)
-_H3cPosB1Error_Type=Counter64
-_H3cPosB1Error_Object=MibTableColumn
-h3cPosB1Error=_H3cPosB1Error_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,16),_H3cPosB1Error_Type())
-h3cPosB1Error.setMaxAccess(_F)
-if mibBuilder.loadTexts:h3cPosB1Error.setStatus(_A)
-_H3cPosB2Error_Type=Counter64
-_H3cPosB2Error_Object=MibTableColumn
-h3cPosB2Error=_H3cPosB2Error_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,17),_H3cPosB2Error_Type())
-h3cPosB2Error.setMaxAccess(_F)
-if mibBuilder.loadTexts:h3cPosB2Error.setStatus(_A)
-_H3cPosB3Error_Type=Counter64
-_H3cPosB3Error_Object=MibTableColumn
-h3cPosB3Error=_H3cPosB3Error_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,18),_H3cPosB3Error_Type())
-h3cPosB3Error.setMaxAccess(_F)
-if mibBuilder.loadTexts:h3cPosB3Error.setStatus(_A)
-_H3cPosM1Error_Type=Counter64
-_H3cPosM1Error_Object=MibTableColumn
-h3cPosM1Error=_H3cPosM1Error_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,19),_H3cPosM1Error_Type())
-h3cPosM1Error.setMaxAccess(_F)
-if mibBuilder.loadTexts:h3cPosM1Error.setStatus(_A)
-_H3cPosG1Error_Type=Counter64
-_H3cPosG1Error_Object=MibTableColumn
-h3cPosG1Error=_H3cPosG1Error_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,20),_H3cPosG1Error_Type())
-h3cPosG1Error.setMaxAccess(_F)
-if mibBuilder.loadTexts:h3cPosG1Error.setStatus(_A)
-class _H3cPosFlagJ0Type_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_I,1),(_J,2)))
-_H3cPosFlagJ0Type_Type.__name__=_E
-_H3cPosFlagJ0Type_Object=MibTableColumn
-h3cPosFlagJ0Type=_H3cPosFlagJ0Type_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,21),_H3cPosFlagJ0Type_Type())
-h3cPosFlagJ0Type.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosFlagJ0Type.setStatus(_A)
-class _H3cPosFlagJ1Type_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_I,1),(_J,2)))
-_H3cPosFlagJ1Type_Type.__name__=_E
-_H3cPosFlagJ1Type_Object=MibTableColumn
-h3cPosFlagJ1Type=_H3cPosFlagJ1Type_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,22),_H3cPosFlagJ1Type_Type())
-h3cPosFlagJ1Type.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosFlagJ1Type.setStatus(_A)
-class _H3cPosB1TCAThreshold_Type(Integer32):defaultValue=6;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3,9))
-_H3cPosB1TCAThreshold_Type.__name__=_E
-_H3cPosB1TCAThreshold_Object=MibTableColumn
-h3cPosB1TCAThreshold=_H3cPosB1TCAThreshold_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,23),_H3cPosB1TCAThreshold_Type())
-h3cPosB1TCAThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosB1TCAThreshold.setStatus(_A)
-class _H3cPosB2TCAThreshold_Type(Integer32):defaultValue=6;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3,9))
-_H3cPosB2TCAThreshold_Type.__name__=_E
-_H3cPosB2TCAThreshold_Object=MibTableColumn
-h3cPosB2TCAThreshold=_H3cPosB2TCAThreshold_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,24),_H3cPosB2TCAThreshold_Type())
-h3cPosB2TCAThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosB2TCAThreshold.setStatus(_A)
-class _H3cPosB3TCAThreshold_Type(Integer32):defaultValue=6;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3,9))
-_H3cPosB3TCAThreshold_Type.__name__=_E
-_H3cPosB3TCAThreshold_Object=MibTableColumn
-h3cPosB3TCAThreshold=_H3cPosB3TCAThreshold_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,25),_H3cPosB3TCAThreshold_Type())
-h3cPosB3TCAThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosB3TCAThreshold.setStatus(_A)
-class _H3cPosB1TCAEnable_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_K,1),(_L,2)))
-_H3cPosB1TCAEnable_Type.__name__=_E
-_H3cPosB1TCAEnable_Object=MibTableColumn
-h3cPosB1TCAEnable=_H3cPosB1TCAEnable_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,26),_H3cPosB1TCAEnable_Type())
-h3cPosB1TCAEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosB1TCAEnable.setStatus(_A)
-class _H3cPosB2TCAEnable_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_K,1),(_L,2)))
-_H3cPosB2TCAEnable_Type.__name__=_E
-_H3cPosB2TCAEnable_Object=MibTableColumn
-h3cPosB2TCAEnable=_H3cPosB2TCAEnable_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,27),_H3cPosB2TCAEnable_Type())
-h3cPosB2TCAEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosB2TCAEnable.setStatus(_A)
-class _H3cPosB3TCAEnable_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_K,1),(_L,2)))
-_H3cPosB3TCAEnable_Type.__name__=_E
-_H3cPosB3TCAEnable_Object=MibTableColumn
-h3cPosB3TCAEnable=_H3cPosB3TCAEnable_Object((1,3,6,1,4,1,2011,10,2,19,1,1,1,28),_H3cPosB3TCAEnable_Type())
-h3cPosB3TCAEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cPosB3TCAEnable.setStatus(_A)
-_H3cPosMIBNotificationsPrefix_ObjectIdentity=ObjectIdentity
-h3cPosMIBNotificationsPrefix=_H3cPosMIBNotificationsPrefix_ObjectIdentity((1,3,6,1,4,1,2011,10,2,19,2))
-_H3cPosMIBNotifications_ObjectIdentity=ObjectIdentity
-h3cPosMIBNotifications=_H3cPosMIBNotifications_ObjectIdentity((1,3,6,1,4,1,2011,10,2,19,2,0))
-h3cPosLOSAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,1))
-h3cPosLOSAlarm.setObjects((_C,_D))
-if mibBuilder.loadTexts:h3cPosLOSAlarm.setStatus(_A)
-h3cPosLOFAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,2))
-h3cPosLOFAlarm.setObjects((_C,_D))
-if mibBuilder.loadTexts:h3cPosLOFAlarm.setStatus(_A)
-h3cPosOOFAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,3))
-h3cPosOOFAlarm.setObjects((_C,_D))
-if mibBuilder.loadTexts:h3cPosOOFAlarm.setStatus(_A)
-h3cPosLAISAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,4))
-h3cPosLAISAlarm.setObjects((_C,_D))
-if mibBuilder.loadTexts:h3cPosLAISAlarm.setStatus(_A)
-h3cPosLRDIAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,5))
-h3cPosLRDIAlarm.setObjects((_C,_D))
-if mibBuilder.loadTexts:h3cPosLRDIAlarm.setStatus(_A)
-h3cPosPRDIAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,6))
-h3cPosPRDIAlarm.setObjects((_C,_D))
-if mibBuilder.loadTexts:h3cPosPRDIAlarm.setStatus(_A)
-h3cPosPAISAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,7))
-h3cPosPAISAlarm.setObjects((_C,_D))
-if mibBuilder.loadTexts:h3cPosPAISAlarm.setStatus(_A)
-h3cPosLOPAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,8))
-h3cPosLOPAlarm.setObjects((_C,_D))
-if mibBuilder.loadTexts:h3cPosLOPAlarm.setStatus(_A)
-h3cPosSTIMAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,9))
-h3cPosSTIMAlarm.setObjects((_C,_D))
-if mibBuilder.loadTexts:h3cPosSTIMAlarm.setStatus(_A)
-h3cPosPTIMAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,10))
-h3cPosPTIMAlarm.setObjects((_C,_D))
-if mibBuilder.loadTexts:h3cPosPTIMAlarm.setStatus(_A)
-h3cPosPSLMAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,11))
-h3cPosPSLMAlarm.setObjects((_C,_D))
-if mibBuilder.loadTexts:h3cPosPSLMAlarm.setStatus(_A)
-h3cPosLSDAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,12))
-h3cPosLSDAlarm.setObjects((_C,_D))
-if mibBuilder.loadTexts:h3cPosLSDAlarm.setStatus(_A)
-h3cPosLSFAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,13))
-h3cPosLSFAlarm.setObjects((_C,_D))
-if mibBuilder.loadTexts:h3cPosLSFAlarm.setStatus(_A)
-h3cPosNormalAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,14))
-h3cPosNormalAlarm.setObjects((_C,_D))
-if mibBuilder.loadTexts:h3cPosNormalAlarm.setStatus(_A)
-h3cPosB1TCAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,15))
-h3cPosB1TCAlarm.setObjects(*((_C,_D),(_C,_G)))
-if mibBuilder.loadTexts:h3cPosB1TCAlarm.setStatus(_A)
-h3cPosB2TCAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,16))
-h3cPosB2TCAlarm.setObjects(*((_C,_D),(_C,_G)))
-if mibBuilder.loadTexts:h3cPosB2TCAlarm.setStatus(_A)
-h3cPosB3TCAlarm=NotificationType((1,3,6,1,4,1,2011,10,2,19,2,0,17))
-h3cPosB3TCAlarm.setObjects(*((_C,_D),(_C,_G)))
-if mibBuilder.loadTexts:h3cPosB3TCAlarm.setStatus(_A)
-mibBuilder.exportSymbols('H3C-PPP-OVER-SONET-MIB',**{'h3cPos':h3cPos,'h3cPosMIBObjects':h3cPosMIBObjects,'h3cPosParamTable':h3cPosParamTable,'h3cPosParamTableEntry':h3cPosParamTableEntry,'h3cPosCRC':h3cPosCRC,'h3cPosMTU':h3cPosMTU,'h3cPosScramble':h3cPosScramble,'h3cPosClockSource':h3cPosClockSource,'h3cPosSdhFlagJ0':h3cPosSdhFlagJ0,'h3cPosSdhFlagJ1':h3cPosSdhFlagJ1,'h3cPosSonetFlagJ0':h3cPosSonetFlagJ0,'h3cPosSonetFlagJ1':h3cPosSonetFlagJ1,'h3cPosFlagC2':h3cPosFlagC2,'h3cPosFrameType':h3cPosFrameType,'h3cPosBindVlanId':h3cPosBindVlanId,'h3cPosEncapsulation':h3cPosEncapsulation,'h3cPoskeepaliveTimeout':h3cPoskeepaliveTimeout,'h3cPosBERthresholdSF':h3cPosBERthresholdSF,'h3cPosBERthresholdSD':h3cPosBERthresholdSD,'h3cPosB1Error':h3cPosB1Error,'h3cPosB2Error':h3cPosB2Error,'h3cPosB3Error':h3cPosB3Error,'h3cPosM1Error':h3cPosM1Error,'h3cPosG1Error':h3cPosG1Error,'h3cPosFlagJ0Type':h3cPosFlagJ0Type,'h3cPosFlagJ1Type':h3cPosFlagJ1Type,'h3cPosB1TCAThreshold':h3cPosB1TCAThreshold,'h3cPosB2TCAThreshold':h3cPosB2TCAThreshold,'h3cPosB3TCAThreshold':h3cPosB3TCAThreshold,'h3cPosB1TCAEnable':h3cPosB1TCAEnable,'h3cPosB2TCAEnable':h3cPosB2TCAEnable,'h3cPosB3TCAEnable':h3cPosB3TCAEnable,'h3cPosMIBNotificationsPrefix':h3cPosMIBNotificationsPrefix,'h3cPosMIBNotifications':h3cPosMIBNotifications,'h3cPosLOSAlarm':h3cPosLOSAlarm,'h3cPosLOFAlarm':h3cPosLOFAlarm,'h3cPosOOFAlarm':h3cPosOOFAlarm,'h3cPosLAISAlarm':h3cPosLAISAlarm,'h3cPosLRDIAlarm':h3cPosLRDIAlarm,'h3cPosPRDIAlarm':h3cPosPRDIAlarm,'h3cPosPAISAlarm':h3cPosPAISAlarm,'h3cPosLOPAlarm':h3cPosLOPAlarm,'h3cPosSTIMAlarm':h3cPosSTIMAlarm,'h3cPosPTIMAlarm':h3cPosPTIMAlarm,'h3cPosPSLMAlarm':h3cPosPSLMAlarm,'h3cPosLSDAlarm':h3cPosLSDAlarm,'h3cPosLSFAlarm':h3cPosLSFAlarm,'h3cPosNormalAlarm':h3cPosNormalAlarm,'h3cPosB1TCAlarm':h3cPosB1TCAlarm,'h3cPosB2TCAlarm':h3cPosB2TCAlarm,'h3cPosB3TCAlarm':h3cPosB3TCAlarm})
+#
+# PySNMP MIB module H3C-PPP-OVER-SONET-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-PPP-OVER-SONET-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:37 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
+ifIndex, ifDescr = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifDescr")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+h3cPos = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19))
+h3cPos.setRevisions(('2016-09-09 17:00', '2013-10-10 17:00', '2010-05-19 17:00', '2007-07-19 17:00',))
+if mibBuilder.loadTexts: h3cPos.setLastUpdated('201609091700Z')
+if mibBuilder.loadTexts: h3cPos.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
+h3cPosMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1))
+h3cPosParamTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1), )
+if mibBuilder.loadTexts: h3cPosParamTable.setStatus('current')
+h3cPosParamTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cPosParamTableEntry.setStatus('current')
+h3cPosCRC = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("crc32", 1), ("crc16", 2))).clone('crc32')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosCRC.setStatus('current')
+h3cPosMTU = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosMTU.setStatus('current')
+h3cPosScramble = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 3), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosScramble.setStatus('current')
+h3cPosClockSource = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("system", 1), ("line", 2))).clone('line')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosClockSource.setStatus('current')
+h3cPosSdhFlagJ0 = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosSdhFlagJ0.setStatus('current')
+h3cPosSdhFlagJ1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosSdhFlagJ1.setStatus('current')
+h3cPosSonetFlagJ0 = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosSonetFlagJ0.setStatus('current')
+h3cPosSonetFlagJ1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 62))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosSonetFlagJ1.setStatus('current')
+h3cPosFlagC2 = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(22)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosFlagC2.setStatus('current')
+h3cPosFrameType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("sdh", 1), ("sonet", 2))).clone('sdh')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosFrameType.setStatus('current')
+h3cPosBindVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosBindVlanId.setStatus('current')
+h3cPosEncapsulation = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("ppp", 1), ("hdlc", 2), ("fr", 3), ("mfr", 4))).clone('ppp')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosEncapsulation.setStatus('current')
+h3cPoskeepaliveTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32767))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPoskeepaliveTimeout.setStatus('current')
+h3cPosBERthresholdSF = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(3, 9)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosBERthresholdSF.setStatus('current')
+h3cPosBERthresholdSD = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(3, 9)).clone(6)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosBERthresholdSD.setStatus('current')
+h3cPosB1Error = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 16), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cPosB1Error.setStatus('current')
+h3cPosB2Error = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 17), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cPosB2Error.setStatus('current')
+h3cPosB3Error = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 18), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cPosB3Error.setStatus('current')
+h3cPosM1Error = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 19), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cPosM1Error.setStatus('current')
+h3cPosG1Error = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 20), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cPosG1Error.setStatus('current')
+h3cPosFlagJ0Type = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("sdh", 1), ("sonet", 2))).clone('sdh')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosFlagJ0Type.setStatus('current')
+h3cPosFlagJ1Type = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("sdh", 1), ("sonet", 2))).clone('sdh')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosFlagJ1Type.setStatus('current')
+h3cPosB1TCAThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 23), Integer32().subtype(subtypeSpec=ValueRangeConstraint(3, 9)).clone(6)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosB1TCAThreshold.setStatus('current')
+h3cPosB2TCAThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 24), Integer32().subtype(subtypeSpec=ValueRangeConstraint(3, 9)).clone(6)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosB2TCAThreshold.setStatus('current')
+h3cPosB3TCAThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 25), Integer32().subtype(subtypeSpec=ValueRangeConstraint(3, 9)).clone(6)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosB3TCAThreshold.setStatus('current')
+h3cPosB1TCAEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 26), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosB1TCAEnable.setStatus('current')
+h3cPosB2TCAEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosB2TCAEnable.setStatus('current')
+h3cPosB3TCAEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 1, 1, 1, 28), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cPosB3TCAEnable.setStatus('current')
+h3cPosMIBNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2))
+h3cPosMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0))
+h3cPosLOSAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 1)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cPosLOSAlarm.setStatus('current')
+h3cPosLOFAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 2)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cPosLOFAlarm.setStatus('current')
+h3cPosOOFAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 3)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cPosOOFAlarm.setStatus('current')
+h3cPosLAISAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 4)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cPosLAISAlarm.setStatus('current')
+h3cPosLRDIAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 5)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cPosLRDIAlarm.setStatus('current')
+h3cPosPRDIAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 6)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cPosPRDIAlarm.setStatus('current')
+h3cPosPAISAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 7)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cPosPAISAlarm.setStatus('current')
+h3cPosLOPAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 8)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cPosLOPAlarm.setStatus('current')
+h3cPosSTIMAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 9)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cPosSTIMAlarm.setStatus('current')
+h3cPosPTIMAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 10)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cPosPTIMAlarm.setStatus('current')
+h3cPosPSLMAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 11)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cPosPSLMAlarm.setStatus('current')
+h3cPosLSDAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 12)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cPosLSDAlarm.setStatus('current')
+h3cPosLSFAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 13)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cPosLSFAlarm.setStatus('current')
+h3cPosNormalAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 14)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cPosNormalAlarm.setStatus('current')
+h3cPosB1TCAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 15)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"))
+if mibBuilder.loadTexts: h3cPosB1TCAlarm.setStatus('current')
+h3cPosB2TCAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 16)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"))
+if mibBuilder.loadTexts: h3cPosB2TCAlarm.setStatus('current')
+h3cPosB3TCAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 19, 2, 0, 17)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"))
+if mibBuilder.loadTexts: h3cPosB3TCAlarm.setStatus('current')
+mibBuilder.exportSymbols("H3C-PPP-OVER-SONET-MIB", h3cPosM1Error=h3cPosM1Error, h3cPosB3TCAlarm=h3cPosB3TCAlarm, h3cPosG1Error=h3cPosG1Error, h3cPosLOSAlarm=h3cPosLOSAlarm, h3cPosSdhFlagJ1=h3cPosSdhFlagJ1, h3cPosLRDIAlarm=h3cPosLRDIAlarm, h3cPosLSDAlarm=h3cPosLSDAlarm, h3cPos=h3cPos, h3cPosB2TCAEnable=h3cPosB2TCAEnable, h3cPosOOFAlarm=h3cPosOOFAlarm, h3cPosBindVlanId=h3cPosBindVlanId, h3cPosB1TCAEnable=h3cPosB1TCAEnable, h3cPosSonetFlagJ0=h3cPosSonetFlagJ0, h3cPosB3Error=h3cPosB3Error, h3cPosB3TCAEnable=h3cPosB3TCAEnable, h3cPosB2TCAlarm=h3cPosB2TCAlarm, h3cPosB1TCAlarm=h3cPosB1TCAlarm, h3cPosB1TCAThreshold=h3cPosB1TCAThreshold, h3cPosBERthresholdSD=h3cPosBERthresholdSD, h3cPosMIBNotifications=h3cPosMIBNotifications, h3cPosCRC=h3cPosCRC, h3cPosFlagJ0Type=h3cPosFlagJ0Type, h3cPosPAISAlarm=h3cPosPAISAlarm, h3cPosB2TCAThreshold=h3cPosB2TCAThreshold, h3cPosB3TCAThreshold=h3cPosB3TCAThreshold, h3cPosLOFAlarm=h3cPosLOFAlarm, h3cPosMIBObjects=h3cPosMIBObjects, h3cPosEncapsulation=h3cPosEncapsulation, h3cPosFlagJ1Type=h3cPosFlagJ1Type, h3cPosLOPAlarm=h3cPosLOPAlarm, h3cPosClockSource=h3cPosClockSource, h3cPosPSLMAlarm=h3cPosPSLMAlarm, h3cPosParamTable=h3cPosParamTable, h3cPosMTU=h3cPosMTU, h3cPosSonetFlagJ1=h3cPosSonetFlagJ1, h3cPoskeepaliveTimeout=h3cPoskeepaliveTimeout, PYSNMP_MODULE_ID=h3cPos, h3cPosLSFAlarm=h3cPosLSFAlarm, h3cPosB2Error=h3cPosB2Error, h3cPosFrameType=h3cPosFrameType, h3cPosMIBNotificationsPrefix=h3cPosMIBNotificationsPrefix, h3cPosParamTableEntry=h3cPosParamTableEntry, h3cPosBERthresholdSF=h3cPosBERthresholdSF, h3cPosSTIMAlarm=h3cPosSTIMAlarm, h3cPosSdhFlagJ0=h3cPosSdhFlagJ0, h3cPosB1Error=h3cPosB1Error, h3cPosLAISAlarm=h3cPosLAISAlarm, h3cPosFlagC2=h3cPosFlagC2, h3cPosScramble=h3cPosScramble, h3cPosPRDIAlarm=h3cPosPRDIAlarm, h3cPosPTIMAlarm=h3cPosPTIMAlarm, h3cPosNormalAlarm=h3cPosNormalAlarm)

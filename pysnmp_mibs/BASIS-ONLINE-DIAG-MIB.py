@@ -1,52 +1,37 @@
-_H='boDiagGroup'
-_G='diagTestId'
-_F='diagResult'
-_E='diagType'
-_D='read-only'
-_C='Integer32'
-_B='BASIS-ONLINE-DIAG-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-axisDiagnostics,=mibBuilder.importSymbols('BASIS-MIB','axisDiagnostics')
-ciscoWan,=mibBuilder.importSymbols('CISCOWAN-SMI','ciscoWan')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-basisOnlineDiagMIB=ModuleIdentity((1,3,6,1,4,1,351,150,80))
-if mibBuilder.loadTexts:basisOnlineDiagMIB.setRevisions(('2003-06-11 00:00',))
-_OnlineDiagnostics_ObjectIdentity=ObjectIdentity
-onlineDiagnostics=_OnlineDiagnostics_ObjectIdentity((1,3,6,1,4,1,351,110,6,3))
-class _DiagType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('post',1),('onlinediag',2)))
-_DiagType_Type.__name__=_C
-_DiagType_Object=MibScalar
-diagType=_DiagType_Object((1,3,6,1,4,1,351,110,6,3,1),_DiagType_Type())
-diagType.setMaxAccess(_D)
-if mibBuilder.loadTexts:diagType.setStatus(_A)
-class _DiagResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('passed',1),('failed',2)))
-_DiagResult_Type.__name__=_C
-_DiagResult_Object=MibScalar
-diagResult=_DiagResult_Object((1,3,6,1,4,1,351,110,6,3,2),_DiagResult_Type())
-diagResult.setMaxAccess(_D)
-if mibBuilder.loadTexts:diagResult.setStatus(_A)
-class _DiagTestId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_DiagTestId_Type.__name__=_C
-_DiagTestId_Object=MibScalar
-diagTestId=_DiagTestId_Object((1,3,6,1,4,1,351,110,6,3,3),_DiagTestId_Type())
-diagTestId.setMaxAccess(_D)
-if mibBuilder.loadTexts:diagTestId.setStatus(_A)
-_BoDiagMIBConformance_ObjectIdentity=ObjectIdentity
-boDiagMIBConformance=_BoDiagMIBConformance_ObjectIdentity((1,3,6,1,4,1,351,150,80,2))
-_BoDiagMIBCompliances_ObjectIdentity=ObjectIdentity
-boDiagMIBCompliances=_BoDiagMIBCompliances_ObjectIdentity((1,3,6,1,4,1,351,150,80,2,1))
-_BoDiagMIBGroups_ObjectIdentity=ObjectIdentity
-boDiagMIBGroups=_BoDiagMIBGroups_ObjectIdentity((1,3,6,1,4,1,351,150,80,2,2))
-boDiagGroup=ObjectGroup((1,3,6,1,4,1,351,150,80,2,2,1))
-boDiagGroup.setObjects(*((_B,_E),(_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:boDiagGroup.setStatus(_A)
-boDiagCompliance=ModuleCompliance((1,3,6,1,4,1,351,150,80,2,1,1))
-boDiagCompliance.setObjects((_B,_H))
-if mibBuilder.loadTexts:boDiagCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'onlineDiagnostics':onlineDiagnostics,_E:diagType,_F:diagResult,_G:diagTestId,'basisOnlineDiagMIB':basisOnlineDiagMIB,'boDiagMIBConformance':boDiagMIBConformance,'boDiagMIBCompliances':boDiagMIBCompliances,'boDiagCompliance':boDiagCompliance,'boDiagMIBGroups':boDiagMIBGroups,_H:boDiagGroup})
+#
+# PySNMP MIB module BASIS-ONLINE-DIAG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/BASIS-ONLINE-DIAG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:26 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+axisDiagnostics, = mibBuilder.importSymbols("BASIS-MIB", "axisDiagnostics")
+ciscoWan, = mibBuilder.importSymbols("CISCOWAN-SMI", "ciscoWan")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+basisOnlineDiagMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 351, 150, 80))
+basisOnlineDiagMIB.setRevisions(('2003-06-11 00:00',))
+if mibBuilder.loadTexts: basisOnlineDiagMIB.setLastUpdated('200306110000Z')
+if mibBuilder.loadTexts: basisOnlineDiagMIB.setOrganization('Cisco Systems, Inc.')
+onlineDiagnostics = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 110, 6, 3))
+diagType = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 6, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("post", 1), ("onlinediag", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diagType.setStatus('current')
+diagResult = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 6, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("passed", 1), ("failed", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diagResult.setStatus('current')
+diagTestId = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 6, 3, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diagTestId.setStatus('current')
+boDiagMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 80, 2))
+boDiagMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 80, 2, 1))
+boDiagMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 80, 2, 2))
+boDiagCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 351, 150, 80, 2, 1, 1)).setObjects(("BASIS-ONLINE-DIAG-MIB", "boDiagGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    boDiagCompliance = boDiagCompliance.setStatus('current')
+boDiagGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 80, 2, 2, 1)).setObjects(("BASIS-ONLINE-DIAG-MIB", "diagType"), ("BASIS-ONLINE-DIAG-MIB", "diagResult"), ("BASIS-ONLINE-DIAG-MIB", "diagTestId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    boDiagGroup = boDiagGroup.setStatus('current')
+mibBuilder.exportSymbols("BASIS-ONLINE-DIAG-MIB", boDiagMIBGroups=boDiagMIBGroups, diagType=diagType, onlineDiagnostics=onlineDiagnostics, basisOnlineDiagMIB=basisOnlineDiagMIB, PYSNMP_MODULE_ID=basisOnlineDiagMIB, boDiagMIBCompliances=boDiagMIBCompliances, boDiagGroup=boDiagGroup, boDiagMIBConformance=boDiagMIBConformance, boDiagCompliance=boDiagCompliance, diagTestId=diagTestId, diagResult=diagResult)

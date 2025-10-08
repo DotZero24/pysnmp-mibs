@@ -1,68 +1,39 @@
-_H='not-accessible'
-_G='nbsJumperIndex'
-_F='nbsJumperIfIndex'
-_E='Integer32'
-_D='NBS-JUMPER-MIB'
-_C='DisplayString'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-nbs,=mibBuilder.importSymbols('NBS-MIB','nbs')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_C,'PhysAddress','TextualConvention')
-nbsJumperMib=ModuleIdentity((1,3,6,1,4,1,629,210))
-_NbsJumperGrp_ObjectIdentity=ObjectIdentity
-nbsJumperGrp=_NbsJumperGrp_ObjectIdentity((1,3,6,1,4,1,629,210,1))
-if mibBuilder.loadTexts:nbsJumperGrp.setStatus(_A)
-_NbsJumperTableSize_Type=Unsigned32
-_NbsJumperTableSize_Object=MibScalar
-nbsJumperTableSize=_NbsJumperTableSize_Object((1,3,6,1,4,1,629,210,1,1),_NbsJumperTableSize_Type())
-nbsJumperTableSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:nbsJumperTableSize.setStatus(_A)
-_NbsJumperTable_Object=MibTable
-nbsJumperTable=_NbsJumperTable_Object((1,3,6,1,4,1,629,210,1,2))
-if mibBuilder.loadTexts:nbsJumperTable.setStatus(_A)
-_NbsJumperEntry_Object=MibTableRow
-nbsJumperEntry=_NbsJumperEntry_Object((1,3,6,1,4,1,629,210,1,2,1))
-nbsJumperEntry.setIndexNames((0,_D,_F),(0,_D,_G))
-if mibBuilder.loadTexts:nbsJumperEntry.setStatus(_A)
-_NbsJumperIfIndex_Type=InterfaceIndex
-_NbsJumperIfIndex_Object=MibTableColumn
-nbsJumperIfIndex=_NbsJumperIfIndex_Object((1,3,6,1,4,1,629,210,1,2,1,1),_NbsJumperIfIndex_Type())
-nbsJumperIfIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:nbsJumperIfIndex.setStatus(_A)
-_NbsJumperIndex_Type=Integer32
-_NbsJumperIndex_Object=MibTableColumn
-nbsJumperIndex=_NbsJumperIndex_Object((1,3,6,1,4,1,629,210,1,2,1,2),_NbsJumperIndex_Type())
-nbsJumperIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:nbsJumperIndex.setStatus(_A)
-class _NbsJumperPosition_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('notSupported',1),('off',2),('on',3)))
-_NbsJumperPosition_Type.__name__=_E
-_NbsJumperPosition_Object=MibTableColumn
-nbsJumperPosition=_NbsJumperPosition_Object((1,3,6,1,4,1,629,210,1,2,1,3),_NbsJumperPosition_Type())
-nbsJumperPosition.setMaxAccess(_B)
-if mibBuilder.loadTexts:nbsJumperPosition.setStatus(_A)
-class _NbsJumperInterpret_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,50))
-_NbsJumperInterpret_Type.__name__=_C
-_NbsJumperInterpret_Object=MibTableColumn
-nbsJumperInterpret=_NbsJumperInterpret_Object((1,3,6,1,4,1,629,210,1,2,1,4),_NbsJumperInterpret_Type())
-nbsJumperInterpret.setMaxAccess(_B)
-if mibBuilder.loadTexts:nbsJumperInterpret.setStatus(_A)
-class _NbsJumperSilkScreen_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,10))
-_NbsJumperSilkScreen_Type.__name__=_C
-_NbsJumperSilkScreen_Object=MibTableColumn
-nbsJumperSilkScreen=_NbsJumperSilkScreen_Object((1,3,6,1,4,1,629,210,1,2,1,5),_NbsJumperSilkScreen_Type())
-nbsJumperSilkScreen.setMaxAccess(_B)
-if mibBuilder.loadTexts:nbsJumperSilkScreen.setStatus(_A)
-class _NbsJumperDescription_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_NbsJumperDescription_Type.__name__=_C
-_NbsJumperDescription_Object=MibTableColumn
-nbsJumperDescription=_NbsJumperDescription_Object((1,3,6,1,4,1,629,210,1,2,1,6),_NbsJumperDescription_Type())
-nbsJumperDescription.setMaxAccess(_B)
-if mibBuilder.loadTexts:nbsJumperDescription.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'nbsJumperMib':nbsJumperMib,'nbsJumperGrp':nbsJumperGrp,'nbsJumperTableSize':nbsJumperTableSize,'nbsJumperTable':nbsJumperTable,'nbsJumperEntry':nbsJumperEntry,_F:nbsJumperIfIndex,_G:nbsJumperIndex,'nbsJumperPosition':nbsJumperPosition,'nbsJumperInterpret':nbsJumperInterpret,'nbsJumperSilkScreen':nbsJumperSilkScreen,'nbsJumperDescription':nbsJumperDescription})
+#
+# PySNMP MIB module NBS-JUMPER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/NBS-JUMPER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:22 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+nbsJumperMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 210))
+if mibBuilder.loadTexts: nbsJumperMib.setLastUpdated('201209260000Z')
+if mibBuilder.loadTexts: nbsJumperMib.setOrganization('NBS')
+nbsJumperGrp = ObjectIdentity((1, 3, 6, 1, 4, 1, 629, 210, 1))
+if mibBuilder.loadTexts: nbsJumperGrp.setStatus('current')
+nbsJumperTableSize = MibScalar((1, 3, 6, 1, 4, 1, 629, 210, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbsJumperTableSize.setStatus('current')
+nbsJumperTable = MibTable((1, 3, 6, 1, 4, 1, 629, 210, 1, 2), )
+if mibBuilder.loadTexts: nbsJumperTable.setStatus('current')
+nbsJumperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 210, 1, 2, 1), ).setIndexNames((0, "NBS-JUMPER-MIB", "nbsJumperIfIndex"), (0, "NBS-JUMPER-MIB", "nbsJumperIndex"))
+if mibBuilder.loadTexts: nbsJumperEntry.setStatus('current')
+nbsJumperIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 210, 1, 2, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: nbsJumperIfIndex.setStatus('current')
+nbsJumperIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 210, 1, 2, 1, 2), Integer32())
+if mibBuilder.loadTexts: nbsJumperIndex.setStatus('current')
+nbsJumperPosition = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 210, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notSupported", 1), ("off", 2), ("on", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbsJumperPosition.setStatus('current')
+nbsJumperInterpret = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 210, 1, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 50))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbsJumperInterpret.setStatus('current')
+nbsJumperSilkScreen = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 210, 1, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbsJumperSilkScreen.setStatus('current')
+nbsJumperDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 210, 1, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbsJumperDescription.setStatus('current')
+mibBuilder.exportSymbols("NBS-JUMPER-MIB", nbsJumperTable=nbsJumperTable, nbsJumperTableSize=nbsJumperTableSize, nbsJumperIfIndex=nbsJumperIfIndex, nbsJumperInterpret=nbsJumperInterpret, nbsJumperGrp=nbsJumperGrp, nbsJumperMib=nbsJumperMib, nbsJumperEntry=nbsJumperEntry, nbsJumperDescription=nbsJumperDescription, nbsJumperPosition=nbsJumperPosition, nbsJumperSilkScreen=nbsJumperSilkScreen, PYSNMP_MODULE_ID=nbsJumperMib, nbsJumperIndex=nbsJumperIndex)

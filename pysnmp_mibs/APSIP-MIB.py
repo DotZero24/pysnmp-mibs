@@ -1,72 +1,49 @@
-_H='apSipSecInterfaceRegThresholdClearTrap'
-_G='apSipSecInterfaceRegThresholdExceededTrap'
-_F='apSipSecInterfaceClearThreshold'
-_E='apSipSecInterfaceRegThreshold'
-_D='read-only'
-_C='apSipSecInterfaceTotalRegistrations'
-_B='current'
-_A='APSIP-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-acmepacketMgmt,=mibBuilder.importSymbols('ACMEPACKET-SMI','acmepacketMgmt')
-ApHardwareModuleFamily,ApPhyPortType,ApPresence,ApRedundancyState,ApServerStatus=mibBuilder.importSymbols('ACMEPACKET-TC','ApHardwareModuleFamily','ApPhyPortType','ApPresence','ApRedundancyState','ApServerStatus')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-apSipModule=ModuleIdentity((1,3,6,1,4,1,9148,3,15))
-if mibBuilder.loadTexts:apSipModule.setRevisions(('2012-07-13 00:00','2012-03-07 00:00'))
-_ApSipMIBObjects_ObjectIdentity=ObjectIdentity
-apSipMIBObjects=_ApSipMIBObjects_ObjectIdentity((1,3,6,1,4,1,9148,3,15,1))
-_ApSipMIBGeneralObjects_ObjectIdentity=ObjectIdentity
-apSipMIBGeneralObjects=_ApSipMIBGeneralObjects_ObjectIdentity((1,3,6,1,4,1,9148,3,15,1,1))
-_ApSipSecInterfaceObjects_ObjectIdentity=ObjectIdentity
-apSipSecInterfaceObjects=_ApSipSecInterfaceObjects_ObjectIdentity((1,3,6,1,4,1,9148,3,15,1,1,1))
-_ApSipSecInterfaceTotalRegistrations_Type=Unsigned32
-_ApSipSecInterfaceTotalRegistrations_Object=MibScalar
-apSipSecInterfaceTotalRegistrations=_ApSipSecInterfaceTotalRegistrations_Object((1,3,6,1,4,1,9148,3,15,1,1,1,1),_ApSipSecInterfaceTotalRegistrations_Type())
-apSipSecInterfaceTotalRegistrations.setMaxAccess(_D)
-if mibBuilder.loadTexts:apSipSecInterfaceTotalRegistrations.setStatus(_B)
-_ApSipSecInterfaceRegThreshold_Type=Unsigned32
-_ApSipSecInterfaceRegThreshold_Object=MibScalar
-apSipSecInterfaceRegThreshold=_ApSipSecInterfaceRegThreshold_Object((1,3,6,1,4,1,9148,3,15,1,1,1,2),_ApSipSecInterfaceRegThreshold_Type())
-apSipSecInterfaceRegThreshold.setMaxAccess(_D)
-if mibBuilder.loadTexts:apSipSecInterfaceRegThreshold.setStatus(_B)
-_ApSipSecInterfaceClearThreshold_Type=Unsigned32
-_ApSipSecInterfaceClearThreshold_Object=MibScalar
-apSipSecInterfaceClearThreshold=_ApSipSecInterfaceClearThreshold_Object((1,3,6,1,4,1,9148,3,15,1,1,1,3),_ApSipSecInterfaceClearThreshold_Type())
-apSipSecInterfaceClearThreshold.setMaxAccess(_D)
-if mibBuilder.loadTexts:apSipSecInterfaceClearThreshold.setStatus(_B)
-_ApSipMIBTabularObjects_ObjectIdentity=ObjectIdentity
-apSipMIBTabularObjects=_ApSipMIBTabularObjects_ObjectIdentity((1,3,6,1,4,1,9148,3,15,1,2))
-_ApSipNotificationObjects_ObjectIdentity=ObjectIdentity
-apSipNotificationObjects=_ApSipNotificationObjects_ObjectIdentity((1,3,6,1,4,1,9148,3,15,2))
-_ApSipSecInterfaceNotifications_ObjectIdentity=ObjectIdentity
-apSipSecInterfaceNotifications=_ApSipSecInterfaceNotifications_ObjectIdentity((1,3,6,1,4,1,9148,3,15,2,1))
-_ApSipSecIntfNotifObjects_ObjectIdentity=ObjectIdentity
-apSipSecIntfNotifObjects=_ApSipSecIntfNotifObjects_ObjectIdentity((1,3,6,1,4,1,9148,3,15,2,1,1))
-_ApSipSecIntfNotifPrefix_ObjectIdentity=ObjectIdentity
-apSipSecIntfNotifPrefix=_ApSipSecIntfNotifPrefix_ObjectIdentity((1,3,6,1,4,1,9148,3,15,2,1,2))
-_ApSipSecIntfNotifications_ObjectIdentity=ObjectIdentity
-apSipSecIntfNotifications=_ApSipSecIntfNotifications_ObjectIdentity((1,3,6,1,4,1,9148,3,15,2,1,2,0))
-_ApSipConformance_ObjectIdentity=ObjectIdentity
-apSipConformance=_ApSipConformance_ObjectIdentity((1,3,6,1,4,1,9148,3,15,3))
-_ApSipObjectGroups_ObjectIdentity=ObjectIdentity
-apSipObjectGroups=_ApSipObjectGroups_ObjectIdentity((1,3,6,1,4,1,9148,3,15,3,1))
-_ApSipNotificationGroups_ObjectIdentity=ObjectIdentity
-apSipNotificationGroups=_ApSipNotificationGroups_ObjectIdentity((1,3,6,1,4,1,9148,3,15,3,2))
-apSipSecInterfaceRegObjectsGroup=ObjectGroup((1,3,6,1,4,1,9148,3,15,3,1,1))
-apSipSecInterfaceRegObjectsGroup.setObjects(*((_A,_C),(_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:apSipSecInterfaceRegObjectsGroup.setStatus(_B)
-apSipSecInterfaceRegThresholdExceededTrap=NotificationType((1,3,6,1,4,1,9148,3,15,2,1,2,0,1))
-apSipSecInterfaceRegThresholdExceededTrap.setObjects(*((_A,_C),(_A,_E)))
-if mibBuilder.loadTexts:apSipSecInterfaceRegThresholdExceededTrap.setStatus(_B)
-apSipSecInterfaceRegThresholdClearTrap=NotificationType((1,3,6,1,4,1,9148,3,15,2,1,2,0,2))
-apSipSecInterfaceRegThresholdClearTrap.setObjects(*((_A,_C),(_A,_F)))
-if mibBuilder.loadTexts:apSipSecInterfaceRegThresholdClearTrap.setStatus(_B)
-apSipSecInterfaceRegNotificationsGroup=NotificationGroup((1,3,6,1,4,1,9148,3,15,3,2,1))
-apSipSecInterfaceRegNotificationsGroup.setObjects(*((_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:apSipSecInterfaceRegNotificationsGroup.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'apSipModule':apSipModule,'apSipMIBObjects':apSipMIBObjects,'apSipMIBGeneralObjects':apSipMIBGeneralObjects,'apSipSecInterfaceObjects':apSipSecInterfaceObjects,_C:apSipSecInterfaceTotalRegistrations,_E:apSipSecInterfaceRegThreshold,_F:apSipSecInterfaceClearThreshold,'apSipMIBTabularObjects':apSipMIBTabularObjects,'apSipNotificationObjects':apSipNotificationObjects,'apSipSecInterfaceNotifications':apSipSecInterfaceNotifications,'apSipSecIntfNotifObjects':apSipSecIntfNotifObjects,'apSipSecIntfNotifPrefix':apSipSecIntfNotifPrefix,'apSipSecIntfNotifications':apSipSecIntfNotifications,_G:apSipSecInterfaceRegThresholdExceededTrap,_H:apSipSecInterfaceRegThresholdClearTrap,'apSipConformance':apSipConformance,'apSipObjectGroups':apSipObjectGroups,'apSipSecInterfaceRegObjectsGroup':apSipSecInterfaceRegObjectsGroup,'apSipNotificationGroups':apSipNotificationGroups,'apSipSecInterfaceRegNotificationsGroup':apSipSecInterfaceRegNotificationsGroup})
+#
+# PySNMP MIB module APSIP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/acme/APSIP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+acmepacketMgmt, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacketMgmt")
+ApPhyPortType, ApHardwareModuleFamily, ApRedundancyState, ApServerStatus, ApPresence = mibBuilder.importSymbols("ACMEPACKET-TC", "ApPhyPortType", "ApHardwareModuleFamily", "ApRedundancyState", "ApServerStatus", "ApPresence")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+apSipModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 3, 15))
+apSipModule.setRevisions(('2012-07-13 00:00', '2012-03-07 00:00',))
+if mibBuilder.loadTexts: apSipModule.setLastUpdated('201207130000Z')
+if mibBuilder.loadTexts: apSipModule.setOrganization('Acme Packet, Inc')
+apSipMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 15, 1))
+apSipMIBGeneralObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 15, 1, 1))
+apSipMIBTabularObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 15, 1, 2))
+apSipNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 15, 2))
+apSipConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 15, 3))
+apSipObjectGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 15, 3, 1))
+apSipNotificationGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 15, 3, 2))
+apSipSecInterfaceObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 15, 1, 1, 1))
+apSipSecInterfaceNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 15, 2, 1))
+apSipSecIntfNotifObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 15, 2, 1, 1))
+apSipSecIntfNotifPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 15, 2, 1, 2))
+apSipSecIntfNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 15, 2, 1, 2, 0))
+apSipSecInterfaceTotalRegistrations = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 15, 1, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: apSipSecInterfaceTotalRegistrations.setStatus('current')
+apSipSecInterfaceRegThreshold = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 15, 1, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: apSipSecInterfaceRegThreshold.setStatus('current')
+apSipSecInterfaceClearThreshold = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 15, 1, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: apSipSecInterfaceClearThreshold.setStatus('current')
+apSipSecInterfaceRegThresholdExceededTrap = NotificationType((1, 3, 6, 1, 4, 1, 9148, 3, 15, 2, 1, 2, 0, 1)).setObjects(("APSIP-MIB", "apSipSecInterfaceTotalRegistrations"), ("APSIP-MIB", "apSipSecInterfaceRegThreshold"))
+if mibBuilder.loadTexts: apSipSecInterfaceRegThresholdExceededTrap.setStatus('current')
+apSipSecInterfaceRegThresholdClearTrap = NotificationType((1, 3, 6, 1, 4, 1, 9148, 3, 15, 2, 1, 2, 0, 2)).setObjects(("APSIP-MIB", "apSipSecInterfaceTotalRegistrations"), ("APSIP-MIB", "apSipSecInterfaceClearThreshold"))
+if mibBuilder.loadTexts: apSipSecInterfaceRegThresholdClearTrap.setStatus('current')
+apSipSecInterfaceRegNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9148, 3, 15, 3, 2, 1)).setObjects(("APSIP-MIB", "apSipSecInterfaceRegThresholdExceededTrap"), ("APSIP-MIB", "apSipSecInterfaceRegThresholdClearTrap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSipSecInterfaceRegNotificationsGroup = apSipSecInterfaceRegNotificationsGroup.setStatus('current')
+apSipSecInterfaceRegObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9148, 3, 15, 3, 1, 1)).setObjects(("APSIP-MIB", "apSipSecInterfaceTotalRegistrations"), ("APSIP-MIB", "apSipSecInterfaceRegThreshold"), ("APSIP-MIB", "apSipSecInterfaceClearThreshold"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSipSecInterfaceRegObjectsGroup = apSipSecInterfaceRegObjectsGroup.setStatus('current')
+mibBuilder.exportSymbols("APSIP-MIB", apSipSecInterfaceRegThreshold=apSipSecInterfaceRegThreshold, apSipMIBObjects=apSipMIBObjects, apSipSecInterfaceRegNotificationsGroup=apSipSecInterfaceRegNotificationsGroup, apSipSecIntfNotifPrefix=apSipSecIntfNotifPrefix, PYSNMP_MODULE_ID=apSipModule, apSipSecIntfNotifications=apSipSecIntfNotifications, apSipModule=apSipModule, apSipMIBTabularObjects=apSipMIBTabularObjects, apSipSecInterfaceNotifications=apSipSecInterfaceNotifications, apSipSecInterfaceClearThreshold=apSipSecInterfaceClearThreshold, apSipSecInterfaceRegThresholdClearTrap=apSipSecInterfaceRegThresholdClearTrap, apSipSecInterfaceRegThresholdExceededTrap=apSipSecInterfaceRegThresholdExceededTrap, apSipNotificationGroups=apSipNotificationGroups, apSipObjectGroups=apSipObjectGroups, apSipMIBGeneralObjects=apSipMIBGeneralObjects, apSipSecInterfaceRegObjectsGroup=apSipSecInterfaceRegObjectsGroup, apSipSecInterfaceObjects=apSipSecInterfaceObjects, apSipSecInterfaceTotalRegistrations=apSipSecInterfaceTotalRegistrations, apSipConformance=apSipConformance, apSipNotificationObjects=apSipNotificationObjects, apSipSecIntfNotifObjects=apSipSecIntfNotifObjects)

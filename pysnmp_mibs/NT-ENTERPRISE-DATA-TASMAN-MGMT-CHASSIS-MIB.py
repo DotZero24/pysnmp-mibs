@@ -1,26 +1,23 @@
-_C='current'
-_B='read-only'
-_A='DisplayString'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ntEnterpriseDataTasmanMgmt,=mibBuilder.importSymbols('NT-ENTERPRISE-DATA-MIB','ntEnterpriseDataTasmanMgmt')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_A,'PhysAddress','TextualConvention')
-nnchassisMib=ModuleIdentity((1,3,6,1,4,1,562,73,1,1,1,2))
-if mibBuilder.loadTexts:nnchassisMib.setRevisions(('1999-07-01 00:00',))
-class _NnchassisType_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_NnchassisType_Type.__name__=_A
-_NnchassisType_Object=MibScalar
-nnchassisType=_NnchassisType_Object((1,3,6,1,4,1,562,73,1,1,1,2,1),_NnchassisType_Type())
-nnchassisType.setMaxAccess(_B)
-if mibBuilder.loadTexts:nnchassisType.setStatus(_C)
-class _NnchassisSerialNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,30))
-_NnchassisSerialNumber_Type.__name__=_A
-_NnchassisSerialNumber_Object=MibScalar
-nnchassisSerialNumber=_NnchassisSerialNumber_Object((1,3,6,1,4,1,562,73,1,1,1,2,2),_NnchassisSerialNumber_Type())
-nnchassisSerialNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:nnchassisSerialNumber.setStatus(_C)
-mibBuilder.exportSymbols('NT-ENTERPRISE-DATA-TASMAN-MGMT-CHASSIS-MIB',**{'nnchassisMib':nnchassisMib,'nnchassisType':nnchassisType,'nnchassisSerialNumber':nnchassisSerialNumber})
+#
+# PySNMP MIB module NT-ENTERPRISE-DATA-TASMAN-MGMT-CHASSIS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/NT-ENTERPRISE-DATA-TASMAN-MGMT-CHASSIS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ntEnterpriseDataTasmanMgmt, = mibBuilder.importSymbols("NT-ENTERPRISE-DATA-MIB", "ntEnterpriseDataTasmanMgmt")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+nnchassisMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 1, 2))
+nnchassisMib.setRevisions(('1999-07-01 00:00',))
+if mibBuilder.loadTexts: nnchassisMib.setLastUpdated('9907010000Z')
+if mibBuilder.loadTexts: nnchassisMib.setOrganization('Nortel')
+nnchassisType = MibScalar((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 1, 2, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nnchassisType.setStatus('current')
+nnchassisSerialNumber = MibScalar((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 1, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nnchassisSerialNumber.setStatus('current')
+mibBuilder.exportSymbols("NT-ENTERPRISE-DATA-TASMAN-MGMT-CHASSIS-MIB", nnchassisSerialNumber=nnchassisSerialNumber, PYSNMP_MODULE_ID=nnchassisMib, nnchassisMib=nnchassisMib, nnchassisType=nnchassisType)

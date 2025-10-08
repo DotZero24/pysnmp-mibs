@@ -1,41 +1,35 @@
-_F='pxmNextHopGroup'
-_E='pxmNextHopMacAddress'
-_D='ifIndex'
-_C='IF-MIB'
-_B='INFINERA-TP-PXMNEXTHOP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_C,_D)
-terminationPoint,=mibBuilder.importSymbols('INFINERA-REG-MIB','terminationPoint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-pxmNextHopMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,2,68))
-_PxmNextHopTable_Object=MibTable
-pxmNextHopTable=_PxmNextHopTable_Object((1,3,6,1,4,1,21296,2,2,2,2,68,1))
-if mibBuilder.loadTexts:pxmNextHopTable.setStatus(_A)
-_PxmNextHopEntry_Object=MibTableRow
-pxmNextHopEntry=_PxmNextHopEntry_Object((1,3,6,1,4,1,21296,2,2,2,2,68,1,1))
-pxmNextHopEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:pxmNextHopEntry.setStatus(_A)
-_PxmNextHopMacAddress_Type=DisplayString
-_PxmNextHopMacAddress_Object=MibTableColumn
-pxmNextHopMacAddress=_PxmNextHopMacAddress_Object((1,3,6,1,4,1,21296,2,2,2,2,68,1,1,1),_PxmNextHopMacAddress_Type())
-pxmNextHopMacAddress.setMaxAccess('read-write')
-if mibBuilder.loadTexts:pxmNextHopMacAddress.setStatus(_A)
-_PxmNextHopConformance_ObjectIdentity=ObjectIdentity
-pxmNextHopConformance=_PxmNextHopConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,68,3))
-_PxmNextHopCompliances_ObjectIdentity=ObjectIdentity
-pxmNextHopCompliances=_PxmNextHopCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,68,3,1))
-_PxmNextHopGroups_ObjectIdentity=ObjectIdentity
-pxmNextHopGroups=_PxmNextHopGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,68,3,2))
-pxmNextHopGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,2,68,3,2,1))
-pxmNextHopGroup.setObjects((_B,_E))
-if mibBuilder.loadTexts:pxmNextHopGroup.setStatus(_A)
-pxmNextHopCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,2,68,3,1,1))
-pxmNextHopCompliance.setObjects((_B,_F))
-if mibBuilder.loadTexts:pxmNextHopCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'pxmNextHopMIB':pxmNextHopMIB,'pxmNextHopTable':pxmNextHopTable,'pxmNextHopEntry':pxmNextHopEntry,_E:pxmNextHopMacAddress,'pxmNextHopConformance':pxmNextHopConformance,'pxmNextHopCompliances':pxmNextHopCompliances,'pxmNextHopCompliance':pxmNextHopCompliance,'pxmNextHopGroups':pxmNextHopGroups,_F:pxmNextHopGroup})
+#
+# PySNMP MIB module INFINERA-TP-PXMNEXTHOP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-PXMNEXTHOP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:33 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+pxmNextHopMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 68))
+if mibBuilder.loadTexts: pxmNextHopMIB.setLastUpdated('201605200000Z')
+if mibBuilder.loadTexts: pxmNextHopMIB.setOrganization('INFINERA')
+pxmNextHopConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 68, 3))
+pxmNextHopCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 68, 3, 1))
+pxmNextHopGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 68, 3, 2))
+pxmNextHopTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 68, 1), )
+if mibBuilder.loadTexts: pxmNextHopTable.setStatus('current')
+pxmNextHopEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 68, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: pxmNextHopEntry.setStatus('current')
+pxmNextHopMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 68, 1, 1, 1), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmNextHopMacAddress.setStatus('current')
+pxmNextHopCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 68, 3, 1, 1)).setObjects(("INFINERA-TP-PXMNEXTHOP-MIB", "pxmNextHopGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pxmNextHopCompliance = pxmNextHopCompliance.setStatus('current')
+pxmNextHopGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 68, 3, 2, 1)).setObjects(("INFINERA-TP-PXMNEXTHOP-MIB", "pxmNextHopMacAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pxmNextHopGroup = pxmNextHopGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-TP-PXMNEXTHOP-MIB", pxmNextHopMIB=pxmNextHopMIB, pxmNextHopConformance=pxmNextHopConformance, pxmNextHopTable=pxmNextHopTable, pxmNextHopGroup=pxmNextHopGroup, pxmNextHopCompliance=pxmNextHopCompliance, pxmNextHopGroups=pxmNextHopGroups, pxmNextHopMacAddress=pxmNextHopMacAddress, pxmNextHopCompliances=pxmNextHopCompliances, pxmNextHopEntry=pxmNextHopEntry, PYSNMP_MODULE_ID=pxmNextHopMIB)

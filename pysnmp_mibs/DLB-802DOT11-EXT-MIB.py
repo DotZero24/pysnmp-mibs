@@ -1,225 +1,104 @@
-_O='dlbDot11IfLinkQuality'
-_N='dlbDot11IfNoiseLevel'
-_M='dlbDot11IfFrequency'
-_L='Integer32'
-_K='dBm'
-_J='ifPhysAddress'
-_I='OctetString'
-_H='dlbDot11RmtNodeMacAddress'
-_G='sysLocation'
-_F='SNMPv2-MIB'
-_E='DLB-802DOT11-EXT-MIB'
-_D='ifIndex'
-_C='IF-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_I,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlbMgmt,=mibBuilder.importSymbols('DELIBERANT-MIB','dlbMgmt')
-InterfaceIndex,ifIndex,ifPhysAddress=mibBuilder.importSymbols(_C,'InterfaceIndex',_D,_J)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-sysLocation,=mibBuilder.importSymbols(_F,_G)
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_L,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TruthValue')
-dlb802dot11ExtMIB=ModuleIdentity((1,3,6,1,4,1,32761,3,5))
-if mibBuilder.loadTexts:dlb802dot11ExtMIB.setRevisions(('2010-03-31 00:00','2009-05-15 00:00','2008-12-12 00:00'))
-_Dlb802dot11ExtMIBObjects_ObjectIdentity=ObjectIdentity
-dlb802dot11ExtMIBObjects=_Dlb802dot11ExtMIBObjects_ObjectIdentity((1,3,6,1,4,1,32761,3,5,1))
-_DlbDot11Notifs_ObjectIdentity=ObjectIdentity
-dlbDot11Notifs=_DlbDot11Notifs_ObjectIdentity((1,3,6,1,4,1,32761,3,5,1,0))
-_DlbDot11Info_ObjectIdentity=ObjectIdentity
-dlbDot11Info=_DlbDot11Info_ObjectIdentity((1,3,6,1,4,1,32761,3,5,1,1))
-_DlbDot11Conf_ObjectIdentity=ObjectIdentity
-dlbDot11Conf=_DlbDot11Conf_ObjectIdentity((1,3,6,1,4,1,32761,3,5,1,2))
-_DlbDot11IfConfTable_Object=MibTable
-dlbDot11IfConfTable=_DlbDot11IfConfTable_Object((1,3,6,1,4,1,32761,3,5,1,2,1))
-if mibBuilder.loadTexts:dlbDot11IfConfTable.setStatus(_A)
-_DlbDot11IfConfEntry_Object=MibTableRow
-dlbDot11IfConfEntry=_DlbDot11IfConfEntry_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1))
-dlbDot11IfConfEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:dlbDot11IfConfEntry.setStatus(_A)
-_DlbDot11IfParentIndex_Type=InterfaceIndex
-_DlbDot11IfParentIndex_Object=MibTableColumn
-dlbDot11IfParentIndex=_DlbDot11IfParentIndex_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,1),_DlbDot11IfParentIndex_Type())
-dlbDot11IfParentIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfParentIndex.setStatus(_A)
-class _DlbDot11IfProtocol_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_DlbDot11IfProtocol_Type.__name__=_I
-_DlbDot11IfProtocol_Object=MibTableColumn
-dlbDot11IfProtocol=_DlbDot11IfProtocol_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,2),_DlbDot11IfProtocol_Type())
-dlbDot11IfProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfProtocol.setStatus(_A)
-class _DlbDot11IfMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*(('auto',0),('adhoc',1),('managed',2),('master',3),('repeater',4),('secondary',5),('monitor',6)))
-_DlbDot11IfMode_Type.__name__=_L
-_DlbDot11IfMode_Object=MibTableColumn
-dlbDot11IfMode=_DlbDot11IfMode_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,3),_DlbDot11IfMode_Type())
-dlbDot11IfMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfMode.setStatus(_A)
-class _DlbDot11IfESSID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_DlbDot11IfESSID_Type.__name__=_I
-_DlbDot11IfESSID_Object=MibTableColumn
-dlbDot11IfESSID=_DlbDot11IfESSID_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,4),_DlbDot11IfESSID_Type())
-dlbDot11IfESSID.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfESSID.setStatus(_A)
-_DlbDot11IfAccessPoint_Type=MacAddress
-_DlbDot11IfAccessPoint_Object=MibTableColumn
-dlbDot11IfAccessPoint=_DlbDot11IfAccessPoint_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,5),_DlbDot11IfAccessPoint_Type())
-dlbDot11IfAccessPoint.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfAccessPoint.setStatus(_A)
-_DlbDot11IfCountryCode_Type=Integer32
-_DlbDot11IfCountryCode_Object=MibTableColumn
-dlbDot11IfCountryCode=_DlbDot11IfCountryCode_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,6),_DlbDot11IfCountryCode_Type())
-dlbDot11IfCountryCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfCountryCode.setStatus(_A)
-_DlbDot11IfFrequency_Type=Integer32
-_DlbDot11IfFrequency_Object=MibTableColumn
-dlbDot11IfFrequency=_DlbDot11IfFrequency_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,7),_DlbDot11IfFrequency_Type())
-dlbDot11IfFrequency.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfFrequency.setStatus(_A)
-if mibBuilder.loadTexts:dlbDot11IfFrequency.setUnits('MHz')
-_DlbDot11IfChannel_Type=Integer32
-_DlbDot11IfChannel_Object=MibTableColumn
-dlbDot11IfChannel=_DlbDot11IfChannel_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,8),_DlbDot11IfChannel_Type())
-dlbDot11IfChannel.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfChannel.setStatus(_A)
-_DlbDot11IfChannelBandwidth_Type=Integer32
-_DlbDot11IfChannelBandwidth_Object=MibTableColumn
-dlbDot11IfChannelBandwidth=_DlbDot11IfChannelBandwidth_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,9),_DlbDot11IfChannelBandwidth_Type())
-dlbDot11IfChannelBandwidth.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfChannelBandwidth.setStatus(_A)
-if mibBuilder.loadTexts:dlbDot11IfChannelBandwidth.setUnits('MHz')
-_DlbDot11IfTxPower_Type=Gauge32
-_DlbDot11IfTxPower_Object=MibTableColumn
-dlbDot11IfTxPower=_DlbDot11IfTxPower_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,10),_DlbDot11IfTxPower_Type())
-dlbDot11IfTxPower.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfTxPower.setStatus(_A)
-if mibBuilder.loadTexts:dlbDot11IfTxPower.setUnits(_K)
-_DlbDot11IfBitRate_Type=Gauge32
-_DlbDot11IfBitRate_Object=MibTableColumn
-dlbDot11IfBitRate=_DlbDot11IfBitRate_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,11),_DlbDot11IfBitRate_Type())
-dlbDot11IfBitRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfBitRate.setStatus(_A)
-if mibBuilder.loadTexts:dlbDot11IfBitRate.setUnits('kbit/s')
-_DlbDot11IfLinkQuality_Type=Gauge32
-_DlbDot11IfLinkQuality_Object=MibTableColumn
-dlbDot11IfLinkQuality=_DlbDot11IfLinkQuality_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,12),_DlbDot11IfLinkQuality_Type())
-dlbDot11IfLinkQuality.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfLinkQuality.setStatus(_A)
-_DlbDot11IfMaxLinkQuality_Type=Gauge32
-_DlbDot11IfMaxLinkQuality_Object=MibTableColumn
-dlbDot11IfMaxLinkQuality=_DlbDot11IfMaxLinkQuality_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,13),_DlbDot11IfMaxLinkQuality_Type())
-dlbDot11IfMaxLinkQuality.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfMaxLinkQuality.setStatus(_A)
-_DlbDot11IfSignalLevel_Type=Integer32
-_DlbDot11IfSignalLevel_Object=MibTableColumn
-dlbDot11IfSignalLevel=_DlbDot11IfSignalLevel_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,14),_DlbDot11IfSignalLevel_Type())
-dlbDot11IfSignalLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfSignalLevel.setStatus(_A)
-if mibBuilder.loadTexts:dlbDot11IfSignalLevel.setUnits(_K)
-_DlbDot11IfNoiseLevel_Type=Integer32
-_DlbDot11IfNoiseLevel_Object=MibTableColumn
-dlbDot11IfNoiseLevel=_DlbDot11IfNoiseLevel_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,15),_DlbDot11IfNoiseLevel_Type())
-dlbDot11IfNoiseLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfNoiseLevel.setStatus(_A)
-if mibBuilder.loadTexts:dlbDot11IfNoiseLevel.setUnits(_K)
-_DlbDot11IfAssocNodeCount_Type=Gauge32
-_DlbDot11IfAssocNodeCount_Object=MibTableColumn
-dlbDot11IfAssocNodeCount=_DlbDot11IfAssocNodeCount_Object((1,3,6,1,4,1,32761,3,5,1,2,1,1,16),_DlbDot11IfAssocNodeCount_Type())
-dlbDot11IfAssocNodeCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfAssocNodeCount.setStatus(_A)
-_DlbDot11Stats_ObjectIdentity=ObjectIdentity
-dlbDot11Stats=_DlbDot11Stats_ObjectIdentity((1,3,6,1,4,1,32761,3,5,1,3))
-_DlbDot11IfErrStatsTable_Object=MibTable
-dlbDot11IfErrStatsTable=_DlbDot11IfErrStatsTable_Object((1,3,6,1,4,1,32761,3,5,1,3,1))
-if mibBuilder.loadTexts:dlbDot11IfErrStatsTable.setStatus(_A)
-_DlbDot11IfErrStatsEntry_Object=MibTableRow
-dlbDot11IfErrStatsEntry=_DlbDot11IfErrStatsEntry_Object((1,3,6,1,4,1,32761,3,5,1,3,1,1))
-dlbDot11IfErrStatsEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:dlbDot11IfErrStatsEntry.setStatus(_A)
-_DlbDot11IfRxInvalidNWID_Type=Counter32
-_DlbDot11IfRxInvalidNWID_Object=MibTableColumn
-dlbDot11IfRxInvalidNWID=_DlbDot11IfRxInvalidNWID_Object((1,3,6,1,4,1,32761,3,5,1,3,1,1,1),_DlbDot11IfRxInvalidNWID_Type())
-dlbDot11IfRxInvalidNWID.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfRxInvalidNWID.setStatus(_A)
-_DlbDot11IfRxInvalidCrypt_Type=Counter32
-_DlbDot11IfRxInvalidCrypt_Object=MibTableColumn
-dlbDot11IfRxInvalidCrypt=_DlbDot11IfRxInvalidCrypt_Object((1,3,6,1,4,1,32761,3,5,1,3,1,1,2),_DlbDot11IfRxInvalidCrypt_Type())
-dlbDot11IfRxInvalidCrypt.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfRxInvalidCrypt.setStatus(_A)
-_DlbDot11IfRxInvalidFrag_Type=Counter32
-_DlbDot11IfRxInvalidFrag_Object=MibTableColumn
-dlbDot11IfRxInvalidFrag=_DlbDot11IfRxInvalidFrag_Object((1,3,6,1,4,1,32761,3,5,1,3,1,1,3),_DlbDot11IfRxInvalidFrag_Type())
-dlbDot11IfRxInvalidFrag.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfRxInvalidFrag.setStatus(_A)
-_DlbDot11IfTxExcessiveRetries_Type=Counter32
-_DlbDot11IfTxExcessiveRetries_Object=MibTableColumn
-dlbDot11IfTxExcessiveRetries=_DlbDot11IfTxExcessiveRetries_Object((1,3,6,1,4,1,32761,3,5,1,3,1,1,4),_DlbDot11IfTxExcessiveRetries_Type())
-dlbDot11IfTxExcessiveRetries.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfTxExcessiveRetries.setStatus(_A)
-_DlbDot11IfInvalidMisc_Type=Counter32
-_DlbDot11IfInvalidMisc_Object=MibTableColumn
-dlbDot11IfInvalidMisc=_DlbDot11IfInvalidMisc_Object((1,3,6,1,4,1,32761,3,5,1,3,1,1,5),_DlbDot11IfInvalidMisc_Type())
-dlbDot11IfInvalidMisc.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfInvalidMisc.setStatus(_A)
-_DlbDot11IfMissedBeacons_Type=Counter32
-_DlbDot11IfMissedBeacons_Object=MibTableColumn
-dlbDot11IfMissedBeacons=_DlbDot11IfMissedBeacons_Object((1,3,6,1,4,1,32761,3,5,1,3,1,1,6),_DlbDot11IfMissedBeacons_Type())
-dlbDot11IfMissedBeacons.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11IfMissedBeacons.setStatus(_A)
-_DlbDot11RemoteNodeStatsTable_Object=MibTable
-dlbDot11RemoteNodeStatsTable=_DlbDot11RemoteNodeStatsTable_Object((1,3,6,1,4,1,32761,3,5,1,3,2))
-if mibBuilder.loadTexts:dlbDot11RemoteNodeStatsTable.setStatus(_A)
-_DlbDot11RemoteNodeStatsEntry_Object=MibTableRow
-dlbDot11RemoteNodeStatsEntry=_DlbDot11RemoteNodeStatsEntry_Object((1,3,6,1,4,1,32761,3,5,1,3,2,1))
-dlbDot11RemoteNodeStatsEntry.setIndexNames((0,_C,_D),(0,_E,_H))
-if mibBuilder.loadTexts:dlbDot11RemoteNodeStatsEntry.setStatus(_A)
-_DlbDot11RmtNodeMacAddress_Type=MacAddress
-_DlbDot11RmtNodeMacAddress_Object=MibTableColumn
-dlbDot11RmtNodeMacAddress=_DlbDot11RmtNodeMacAddress_Object((1,3,6,1,4,1,32761,3,5,1,3,2,1,1),_DlbDot11RmtNodeMacAddress_Type())
-dlbDot11RmtNodeMacAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11RmtNodeMacAddress.setStatus(_A)
-_DlbDot11RmtNodeAssociated_Type=TruthValue
-_DlbDot11RmtNodeAssociated_Object=MibTableColumn
-dlbDot11RmtNodeAssociated=_DlbDot11RmtNodeAssociated_Object((1,3,6,1,4,1,32761,3,5,1,3,2,1,2),_DlbDot11RmtNodeAssociated_Type())
-dlbDot11RmtNodeAssociated.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11RmtNodeAssociated.setStatus(_A)
-_DlbDot11RmtNodeTxBytes_Type=Counter32
-_DlbDot11RmtNodeTxBytes_Object=MibTableColumn
-dlbDot11RmtNodeTxBytes=_DlbDot11RmtNodeTxBytes_Object((1,3,6,1,4,1,32761,3,5,1,3,2,1,3),_DlbDot11RmtNodeTxBytes_Type())
-dlbDot11RmtNodeTxBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11RmtNodeTxBytes.setStatus(_A)
-if mibBuilder.loadTexts:dlbDot11RmtNodeTxBytes.setUnits('bytes')
-_DlbDot11RmtNodeRxBytes_Type=Counter32
-_DlbDot11RmtNodeRxBytes_Object=MibTableColumn
-dlbDot11RmtNodeRxBytes=_DlbDot11RmtNodeRxBytes_Object((1,3,6,1,4,1,32761,3,5,1,3,2,1,4),_DlbDot11RmtNodeRxBytes_Type())
-dlbDot11RmtNodeRxBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11RmtNodeRxBytes.setStatus(_A)
-if mibBuilder.loadTexts:dlbDot11RmtNodeRxBytes.setUnits('bytes')
-_DlbDot11RmtNodeAssocTime_Type=Integer32
-_DlbDot11RmtNodeAssocTime_Object=MibTableColumn
-dlbDot11RmtNodeAssocTime=_DlbDot11RmtNodeAssocTime_Object((1,3,6,1,4,1,32761,3,5,1,3,2,1,5),_DlbDot11RmtNodeAssocTime_Type())
-dlbDot11RmtNodeAssocTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11RmtNodeAssocTime.setStatus(_A)
-_DlbDot11RmtNodeDisassocTime_Type=Integer32
-_DlbDot11RmtNodeDisassocTime_Object=MibTableColumn
-dlbDot11RmtNodeDisassocTime=_DlbDot11RmtNodeDisassocTime_Object((1,3,6,1,4,1,32761,3,5,1,3,2,1,6),_DlbDot11RmtNodeDisassocTime_Type())
-dlbDot11RmtNodeDisassocTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:dlbDot11RmtNodeDisassocTime.setStatus(_A)
-dlbFrequencyChange=NotificationType((1,3,6,1,4,1,32761,3,5,1,0,1))
-dlbFrequencyChange.setObjects(*((_F,_G),(_C,_D),(_E,_M)))
-if mibBuilder.loadTexts:dlbFrequencyChange.setStatus(_A)
-dlbNoiseThresholdReached=NotificationType((1,3,6,1,4,1,32761,3,5,1,0,2))
-dlbNoiseThresholdReached.setObjects(*((_F,_G),(_C,_D),(_E,_N)))
-if mibBuilder.loadTexts:dlbNoiseThresholdReached.setStatus(_A)
-dlbRemoteNodeConnected=NotificationType((1,3,6,1,4,1,32761,3,5,1,0,3))
-dlbRemoteNodeConnected.setObjects(*((_F,_G),(_C,_J),(_C,_D),(_E,_H)))
-if mibBuilder.loadTexts:dlbRemoteNodeConnected.setStatus(_A)
-dlbRemoteNodeDisconnected=NotificationType((1,3,6,1,4,1,32761,3,5,1,0,4))
-dlbRemoteNodeDisconnected.setObjects(*((_F,_G),(_C,_J),(_C,_D),(_E,_H)))
-if mibBuilder.loadTexts:dlbRemoteNodeDisconnected.setStatus(_A)
-dlbLinkQualThresholdReached=NotificationType((1,3,6,1,4,1,32761,3,5,1,0,5))
-dlbLinkQualThresholdReached.setObjects(*((_F,_G),(_C,_D),(_E,_O)))
-if mibBuilder.loadTexts:dlbLinkQualThresholdReached.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'dlb802dot11ExtMIB':dlb802dot11ExtMIB,'dlb802dot11ExtMIBObjects':dlb802dot11ExtMIBObjects,'dlbDot11Notifs':dlbDot11Notifs,'dlbFrequencyChange':dlbFrequencyChange,'dlbNoiseThresholdReached':dlbNoiseThresholdReached,'dlbRemoteNodeConnected':dlbRemoteNodeConnected,'dlbRemoteNodeDisconnected':dlbRemoteNodeDisconnected,'dlbLinkQualThresholdReached':dlbLinkQualThresholdReached,'dlbDot11Info':dlbDot11Info,'dlbDot11Conf':dlbDot11Conf,'dlbDot11IfConfTable':dlbDot11IfConfTable,'dlbDot11IfConfEntry':dlbDot11IfConfEntry,'dlbDot11IfParentIndex':dlbDot11IfParentIndex,'dlbDot11IfProtocol':dlbDot11IfProtocol,'dlbDot11IfMode':dlbDot11IfMode,'dlbDot11IfESSID':dlbDot11IfESSID,'dlbDot11IfAccessPoint':dlbDot11IfAccessPoint,'dlbDot11IfCountryCode':dlbDot11IfCountryCode,_M:dlbDot11IfFrequency,'dlbDot11IfChannel':dlbDot11IfChannel,'dlbDot11IfChannelBandwidth':dlbDot11IfChannelBandwidth,'dlbDot11IfTxPower':dlbDot11IfTxPower,'dlbDot11IfBitRate':dlbDot11IfBitRate,_O:dlbDot11IfLinkQuality,'dlbDot11IfMaxLinkQuality':dlbDot11IfMaxLinkQuality,'dlbDot11IfSignalLevel':dlbDot11IfSignalLevel,_N:dlbDot11IfNoiseLevel,'dlbDot11IfAssocNodeCount':dlbDot11IfAssocNodeCount,'dlbDot11Stats':dlbDot11Stats,'dlbDot11IfErrStatsTable':dlbDot11IfErrStatsTable,'dlbDot11IfErrStatsEntry':dlbDot11IfErrStatsEntry,'dlbDot11IfRxInvalidNWID':dlbDot11IfRxInvalidNWID,'dlbDot11IfRxInvalidCrypt':dlbDot11IfRxInvalidCrypt,'dlbDot11IfRxInvalidFrag':dlbDot11IfRxInvalidFrag,'dlbDot11IfTxExcessiveRetries':dlbDot11IfTxExcessiveRetries,'dlbDot11IfInvalidMisc':dlbDot11IfInvalidMisc,'dlbDot11IfMissedBeacons':dlbDot11IfMissedBeacons,'dlbDot11RemoteNodeStatsTable':dlbDot11RemoteNodeStatsTable,'dlbDot11RemoteNodeStatsEntry':dlbDot11RemoteNodeStatsEntry,_H:dlbDot11RmtNodeMacAddress,'dlbDot11RmtNodeAssociated':dlbDot11RmtNodeAssociated,'dlbDot11RmtNodeTxBytes':dlbDot11RmtNodeTxBytes,'dlbDot11RmtNodeRxBytes':dlbDot11RmtNodeRxBytes,'dlbDot11RmtNodeAssocTime':dlbDot11RmtNodeAssocTime,'dlbDot11RmtNodeDisassocTime':dlbDot11RmtNodeDisassocTime})
+#
+# PySNMP MIB module DLB-802DOT11-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/deliberant/DLB-802DOT11-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlbMgmt, = mibBuilder.importSymbols("DELIBERANT-MIB", "dlbMgmt")
+ifIndex, ifPhysAddress, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifPhysAddress", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+sysLocation, = mibBuilder.importSymbols("SNMPv2-MIB", "sysLocation")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TruthValue, MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "DisplayString", "TextualConvention")
+dlb802dot11ExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 32761, 3, 5))
+dlb802dot11ExtMIB.setRevisions(('2010-03-31 00:00', '2009-05-15 00:00', '2008-12-12 00:00',))
+if mibBuilder.loadTexts: dlb802dot11ExtMIB.setLastUpdated('201003310000Z')
+if mibBuilder.loadTexts: dlb802dot11ExtMIB.setOrganization('Deliberant')
+dlb802dot11ExtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1))
+dlbDot11Notifs = MibIdentifier((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 0))
+dlbDot11Info = MibIdentifier((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 1))
+dlbDot11Conf = MibIdentifier((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2))
+dlbDot11Stats = MibIdentifier((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3))
+dlbDot11IfConfTable = MibTable((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1), )
+if mibBuilder.loadTexts: dlbDot11IfConfTable.setStatus('current')
+dlbDot11IfConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: dlbDot11IfConfEntry.setStatus('current')
+dlbDot11IfParentIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfParentIndex.setStatus('current')
+dlbDot11IfProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfProtocol.setStatus('current')
+dlbDot11IfMode = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("auto", 0), ("adhoc", 1), ("managed", 2), ("master", 3), ("repeater", 4), ("secondary", 5), ("monitor", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfMode.setStatus('current')
+dlbDot11IfESSID = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfESSID.setStatus('current')
+dlbDot11IfAccessPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 5), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfAccessPoint.setStatus('current')
+dlbDot11IfCountryCode = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfCountryCode.setStatus('current')
+dlbDot11IfFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 7), Integer32()).setUnits('MHz').setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfFrequency.setStatus('current')
+dlbDot11IfChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfChannel.setStatus('current')
+dlbDot11IfChannelBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 9), Integer32()).setUnits('MHz').setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfChannelBandwidth.setStatus('current')
+dlbDot11IfTxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 10), Gauge32()).setUnits('dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfTxPower.setStatus('current')
+dlbDot11IfBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 11), Gauge32()).setUnits('kbit/s').setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfBitRate.setStatus('current')
+dlbDot11IfLinkQuality = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 12), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfLinkQuality.setStatus('current')
+dlbDot11IfMaxLinkQuality = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 13), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfMaxLinkQuality.setStatus('current')
+dlbDot11IfSignalLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 14), Integer32()).setUnits('dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfSignalLevel.setStatus('current')
+dlbDot11IfNoiseLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 15), Integer32()).setUnits('dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfNoiseLevel.setStatus('current')
+dlbDot11IfAssocNodeCount = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 2, 1, 1, 16), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfAssocNodeCount.setStatus('current')
+dlbDot11IfErrStatsTable = MibTable((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 1), )
+if mibBuilder.loadTexts: dlbDot11IfErrStatsTable.setStatus('current')
+dlbDot11IfErrStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: dlbDot11IfErrStatsEntry.setStatus('current')
+dlbDot11IfRxInvalidNWID = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 1, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfRxInvalidNWID.setStatus('current')
+dlbDot11IfRxInvalidCrypt = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfRxInvalidCrypt.setStatus('current')
+dlbDot11IfRxInvalidFrag = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfRxInvalidFrag.setStatus('current')
+dlbDot11IfTxExcessiveRetries = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfTxExcessiveRetries.setStatus('current')
+dlbDot11IfInvalidMisc = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfInvalidMisc.setStatus('current')
+dlbDot11IfMissedBeacons = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11IfMissedBeacons.setStatus('current')
+dlbDot11RemoteNodeStatsTable = MibTable((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 2), )
+if mibBuilder.loadTexts: dlbDot11RemoteNodeStatsTable.setStatus('current')
+dlbDot11RemoteNodeStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "DLB-802DOT11-EXT-MIB", "dlbDot11RmtNodeMacAddress"))
+if mibBuilder.loadTexts: dlbDot11RemoteNodeStatsEntry.setStatus('current')
+dlbDot11RmtNodeMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 2, 1, 1), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11RmtNodeMacAddress.setStatus('current')
+dlbDot11RmtNodeAssociated = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 2, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11RmtNodeAssociated.setStatus('current')
+dlbDot11RmtNodeTxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 2, 1, 3), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11RmtNodeTxBytes.setStatus('current')
+dlbDot11RmtNodeRxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 2, 1, 4), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11RmtNodeRxBytes.setStatus('current')
+dlbDot11RmtNodeAssocTime = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11RmtNodeAssocTime.setStatus('current')
+dlbDot11RmtNodeDisassocTime = MibTableColumn((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 3, 2, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlbDot11RmtNodeDisassocTime.setStatus('current')
+dlbFrequencyChange = NotificationType((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 0, 1)).setObjects(("SNMPv2-MIB", "sysLocation"), ("IF-MIB", "ifIndex"), ("DLB-802DOT11-EXT-MIB", "dlbDot11IfFrequency"))
+if mibBuilder.loadTexts: dlbFrequencyChange.setStatus('current')
+dlbNoiseThresholdReached = NotificationType((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 0, 2)).setObjects(("SNMPv2-MIB", "sysLocation"), ("IF-MIB", "ifIndex"), ("DLB-802DOT11-EXT-MIB", "dlbDot11IfNoiseLevel"))
+if mibBuilder.loadTexts: dlbNoiseThresholdReached.setStatus('current')
+dlbRemoteNodeConnected = NotificationType((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 0, 3)).setObjects(("SNMPv2-MIB", "sysLocation"), ("IF-MIB", "ifPhysAddress"), ("IF-MIB", "ifIndex"), ("DLB-802DOT11-EXT-MIB", "dlbDot11RmtNodeMacAddress"))
+if mibBuilder.loadTexts: dlbRemoteNodeConnected.setStatus('current')
+dlbRemoteNodeDisconnected = NotificationType((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 0, 4)).setObjects(("SNMPv2-MIB", "sysLocation"), ("IF-MIB", "ifPhysAddress"), ("IF-MIB", "ifIndex"), ("DLB-802DOT11-EXT-MIB", "dlbDot11RmtNodeMacAddress"))
+if mibBuilder.loadTexts: dlbRemoteNodeDisconnected.setStatus('current')
+dlbLinkQualThresholdReached = NotificationType((1, 3, 6, 1, 4, 1, 32761, 3, 5, 1, 0, 5)).setObjects(("SNMPv2-MIB", "sysLocation"), ("IF-MIB", "ifIndex"), ("DLB-802DOT11-EXT-MIB", "dlbDot11IfLinkQuality"))
+if mibBuilder.loadTexts: dlbLinkQualThresholdReached.setStatus('current')
+mibBuilder.exportSymbols("DLB-802DOT11-EXT-MIB", dlbDot11Conf=dlbDot11Conf, dlbDot11RmtNodeAssocTime=dlbDot11RmtNodeAssocTime, dlbDot11IfChannel=dlbDot11IfChannel, dlbFrequencyChange=dlbFrequencyChange, dlbDot11IfConfTable=dlbDot11IfConfTable, dlbDot11IfESSID=dlbDot11IfESSID, dlbDot11Notifs=dlbDot11Notifs, dlbDot11IfMode=dlbDot11IfMode, dlbDot11IfCountryCode=dlbDot11IfCountryCode, dlbDot11IfTxExcessiveRetries=dlbDot11IfTxExcessiveRetries, dlbDot11IfParentIndex=dlbDot11IfParentIndex, dlbDot11RmtNodeTxBytes=dlbDot11RmtNodeTxBytes, dlbRemoteNodeConnected=dlbRemoteNodeConnected, dlbDot11IfNoiseLevel=dlbDot11IfNoiseLevel, dlbDot11IfInvalidMisc=dlbDot11IfInvalidMisc, dlbDot11IfTxPower=dlbDot11IfTxPower, dlbDot11RemoteNodeStatsTable=dlbDot11RemoteNodeStatsTable, dlbDot11Info=dlbDot11Info, dlbDot11IfAccessPoint=dlbDot11IfAccessPoint, dlb802dot11ExtMIBObjects=dlb802dot11ExtMIBObjects, dlbDot11IfErrStatsTable=dlbDot11IfErrStatsTable, dlbDot11IfRxInvalidFrag=dlbDot11IfRxInvalidFrag, dlbDot11RmtNodeRxBytes=dlbDot11RmtNodeRxBytes, dlbRemoteNodeDisconnected=dlbRemoteNodeDisconnected, dlbDot11IfErrStatsEntry=dlbDot11IfErrStatsEntry, dlbDot11IfMissedBeacons=dlbDot11IfMissedBeacons, dlbDot11RmtNodeAssociated=dlbDot11RmtNodeAssociated, PYSNMP_MODULE_ID=dlb802dot11ExtMIB, dlbDot11RmtNodeDisassocTime=dlbDot11RmtNodeDisassocTime, dlbDot11RemoteNodeStatsEntry=dlbDot11RemoteNodeStatsEntry, dlbDot11IfChannelBandwidth=dlbDot11IfChannelBandwidth, dlbDot11Stats=dlbDot11Stats, dlbDot11RmtNodeMacAddress=dlbDot11RmtNodeMacAddress, dlbLinkQualThresholdReached=dlbLinkQualThresholdReached, dlbDot11IfFrequency=dlbDot11IfFrequency, dlbNoiseThresholdReached=dlbNoiseThresholdReached, dlb802dot11ExtMIB=dlb802dot11ExtMIB, dlbDot11IfRxInvalidCrypt=dlbDot11IfRxInvalidCrypt, dlbDot11IfLinkQuality=dlbDot11IfLinkQuality, dlbDot11IfAssocNodeCount=dlbDot11IfAssocNodeCount, dlbDot11IfConfEntry=dlbDot11IfConfEntry, dlbDot11IfBitRate=dlbDot11IfBitRate, dlbDot11IfSignalLevel=dlbDot11IfSignalLevel, dlbDot11IfProtocol=dlbDot11IfProtocol, dlbDot11IfMaxLinkQuality=dlbDot11IfMaxLinkQuality, dlbDot11IfRxInvalidNWID=dlbDot11IfRxInvalidNWID)

@@ -1,41 +1,27 @@
-_F='read-only'
-_E='read-write'
-_D='writeOnly'
-_C='DisplayString'
-_B='current'
-_A='Integer32'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoDSGUtilities,=mibBuilder.importSymbols('CISCO-DMN-DSG-ROOT-MIB','ciscoDSGUtilities')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_A,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_C,'PhysAddress','TextualConvention')
-ciscoDSGSessionControl=ModuleIdentity((1,3,6,1,4,1,1429,2,2,5,6))
-if mibBuilder.loadTexts:ciscoDSGSessionControl.setRevisions(('2010-08-30 11:00','2009-11-22 15:00'))
-class _SessionControlOpen_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('open',1),(_D,2)))
-_SessionControlOpen_Type.__name__=_A
-_SessionControlOpen_Object=MibScalar
-sessionControlOpen=_SessionControlOpen_Object((1,3,6,1,4,1,1429,2,2,5,6,1),_SessionControlOpen_Type())
-sessionControlOpen.setMaxAccess(_E)
-if mibBuilder.loadTexts:sessionControlOpen.setStatus(_B)
-class _SessionControlClose_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('saveAndClose',1),('ignoreAndClose',2),(_D,3)))
-_SessionControlClose_Type.__name__=_A
-_SessionControlClose_Object=MibScalar
-sessionControlClose=_SessionControlClose_Object((1,3,6,1,4,1,1429,2,2,5,6,2),_SessionControlClose_Type())
-sessionControlClose.setMaxAccess(_E)
-if mibBuilder.loadTexts:sessionControlClose.setStatus(_B)
-class _SessionControlStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('open',1),('closed',2),('expired',3),('openWithInvalidConfig',4)))
-_SessionControlStatus_Type.__name__=_A
-_SessionControlStatus_Object=MibScalar
-sessionControlStatus=_SessionControlStatus_Object((1,3,6,1,4,1,1429,2,2,5,6,3),_SessionControlStatus_Type())
-sessionControlStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:sessionControlStatus.setStatus(_B)
-class _SessionControlValidateStatus_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,250))
-_SessionControlValidateStatus_Type.__name__=_C
-_SessionControlValidateStatus_Object=MibScalar
-sessionControlValidateStatus=_SessionControlValidateStatus_Object((1,3,6,1,4,1,1429,2,2,5,6,4),_SessionControlValidateStatus_Type())
-sessionControlValidateStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:sessionControlValidateStatus.setStatus(_B)
-mibBuilder.exportSymbols('CISCO-DMN-DSG-SESSIONCONTROL-MIB',**{'ciscoDSGSessionControl':ciscoDSGSessionControl,'sessionControlOpen':sessionControlOpen,'sessionControlClose':sessionControlClose,'sessionControlStatus':sessionControlStatus,'sessionControlValidateStatus':sessionControlValidateStatus})
+#
+# PySNMP MIB module CISCO-DMN-DSG-SESSIONCONTROL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-DMN-DSG-SESSIONCONTROL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoDSGUtilities, = mibBuilder.importSymbols("CISCO-DMN-DSG-ROOT-MIB", "ciscoDSGUtilities")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoDSGSessionControl = ModuleIdentity((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 6))
+ciscoDSGSessionControl.setRevisions(('2010-08-30 11:00', '2009-11-22 15:00',))
+if mibBuilder.loadTexts: ciscoDSGSessionControl.setLastUpdated('201008301100Z')
+if mibBuilder.loadTexts: ciscoDSGSessionControl.setOrganization('Cisco Systems, Inc.')
+sessionControlOpen = MibScalar((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 6, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("open", 1), ("writeOnly", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sessionControlOpen.setStatus('current')
+sessionControlClose = MibScalar((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 6, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("saveAndClose", 1), ("ignoreAndClose", 2), ("writeOnly", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sessionControlClose.setStatus('current')
+sessionControlStatus = MibScalar((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 6, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("open", 1), ("closed", 2), ("expired", 3), ("openWithInvalidConfig", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sessionControlStatus.setStatus('current')
+sessionControlValidateStatus = MibScalar((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 6, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 250))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sessionControlValidateStatus.setStatus('current')
+mibBuilder.exportSymbols("CISCO-DMN-DSG-SESSIONCONTROL-MIB", sessionControlClose=sessionControlClose, sessionControlValidateStatus=sessionControlValidateStatus, sessionControlStatus=sessionControlStatus, sessionControlOpen=sessionControlOpen, PYSNMP_MODULE_ID=ciscoDSGSessionControl, ciscoDSGSessionControl=ciscoDSGSessionControl)

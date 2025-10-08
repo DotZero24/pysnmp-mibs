@@ -1,130 +1,69 @@
-_c='gmplsOutSegmentExtraParamsPtr'
-_b='gmplsOutSegmentTTLDecrement'
-_a='gmplsOutSegmentDirection'
-_Z='gmplsInSegmentExtraParamsPtr'
-_Y='gmplsInSegmentDirection'
-_X='gmplsInterfaceRsvpHelloPeriod'
-_W='gmplsInterfaceSignalingCaps'
-_V='mplsOutSegmentIndex'
-_U='mplsLsrNotificationGroup'
-_T='mplsInterfaceIndex'
-_S='mplsInSegmentIndex'
-_R='gmplsOutSegmentGroup'
-_Q='gmplsInSegmentGroup'
-_P='gmplsInterfaceGroup'
-_O='RowPointer'
-_N='Unsigned32'
-_M='mplsXCGroup'
-_L='mplsPerfGroup'
-_K='mplsOutSegmentGroup'
-_J='mplsInterfaceGroup'
-_I='mplsInSegmentGroup'
-_H='ifGeneralInformationGroup'
-_G='ifCounterDiscontinuityGroup'
-_F='GmplsSegmentDirectionTC'
-_E='IF-MIB'
-_D='read-create'
-_C='GMPLS-LSR-STD-MIB'
-_B='MPLS-LSR-STD-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-GmplsSegmentDirectionTC,=mibBuilder.importSymbols('GMPLS-TC-STD-MIB',_F)
-ifCounterDiscontinuityGroup,ifGeneralInformationGroup=mibBuilder.importSymbols(_E,_G,_H)
-mplsInSegmentGroup,mplsInSegmentIndex,mplsInterfaceGroup,mplsInterfaceIndex,mplsLsrNotificationGroup,mplsOutSegmentGroup,mplsOutSegmentIndex,mplsPerfGroup,mplsXCGroup=mibBuilder.importSymbols(_B,_I,_S,_J,_T,_U,_K,_V,_L,_M)
-mplsStdMIB,=mibBuilder.importSymbols('MPLS-TC-STD-MIB','mplsStdMIB')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,zeroDotZero=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_N,'iso','zeroDotZero')
-DisplayString,PhysAddress,RowPointer,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress',_O,'TextualConvention')
-gmplsLsrStdMIB=ModuleIdentity((1,3,6,1,2,1,10,166,15))
-if mibBuilder.loadTexts:gmplsLsrStdMIB.setRevisions(('2007-02-27 00:00',))
-_GmplsLsrObjects_ObjectIdentity=ObjectIdentity
-gmplsLsrObjects=_GmplsLsrObjects_ObjectIdentity((1,3,6,1,2,1,10,166,15,1))
-_GmplsInterfaceTable_Object=MibTable
-gmplsInterfaceTable=_GmplsInterfaceTable_Object((1,3,6,1,2,1,10,166,15,1,1))
-if mibBuilder.loadTexts:gmplsInterfaceTable.setStatus(_A)
-_GmplsInterfaceEntry_Object=MibTableRow
-gmplsInterfaceEntry=_GmplsInterfaceEntry_Object((1,3,6,1,2,1,10,166,15,1,1,1))
-gmplsInterfaceEntry.setIndexNames((0,_B,_T))
-if mibBuilder.loadTexts:gmplsInterfaceEntry.setStatus(_A)
-class _GmplsInterfaceSignalingCaps_Type(Bits):defaultBinValue='01';namedValues=NamedValues(*(('unknown',0),('rsvpGmpls',1),('crldpGmpls',2),('otherGmpls',3)))
-_GmplsInterfaceSignalingCaps_Type.__name__='Bits'
-_GmplsInterfaceSignalingCaps_Object=MibTableColumn
-gmplsInterfaceSignalingCaps=_GmplsInterfaceSignalingCaps_Object((1,3,6,1,2,1,10,166,15,1,1,1,1),_GmplsInterfaceSignalingCaps_Type())
-gmplsInterfaceSignalingCaps.setMaxAccess(_D)
-if mibBuilder.loadTexts:gmplsInterfaceSignalingCaps.setStatus(_A)
-class _GmplsInterfaceRsvpHelloPeriod_Type(Unsigned32):defaultValue=3000
-_GmplsInterfaceRsvpHelloPeriod_Type.__name__=_N
-_GmplsInterfaceRsvpHelloPeriod_Object=MibTableColumn
-gmplsInterfaceRsvpHelloPeriod=_GmplsInterfaceRsvpHelloPeriod_Object((1,3,6,1,2,1,10,166,15,1,1,1,2),_GmplsInterfaceRsvpHelloPeriod_Type())
-gmplsInterfaceRsvpHelloPeriod.setMaxAccess(_D)
-if mibBuilder.loadTexts:gmplsInterfaceRsvpHelloPeriod.setStatus(_A)
-if mibBuilder.loadTexts:gmplsInterfaceRsvpHelloPeriod.setUnits('milliseconds')
-_GmplsInSegmentTable_Object=MibTable
-gmplsInSegmentTable=_GmplsInSegmentTable_Object((1,3,6,1,2,1,10,166,15,1,2))
-if mibBuilder.loadTexts:gmplsInSegmentTable.setStatus(_A)
-_GmplsInSegmentEntry_Object=MibTableRow
-gmplsInSegmentEntry=_GmplsInSegmentEntry_Object((1,3,6,1,2,1,10,166,15,1,2,1))
-gmplsInSegmentEntry.setIndexNames((0,_B,_S))
-if mibBuilder.loadTexts:gmplsInSegmentEntry.setStatus(_A)
-class _GmplsInSegmentDirection_Type(GmplsSegmentDirectionTC):defaultValue=1
-_GmplsInSegmentDirection_Type.__name__=_F
-_GmplsInSegmentDirection_Object=MibTableColumn
-gmplsInSegmentDirection=_GmplsInSegmentDirection_Object((1,3,6,1,2,1,10,166,15,1,2,1,1),_GmplsInSegmentDirection_Type())
-gmplsInSegmentDirection.setMaxAccess(_D)
-if mibBuilder.loadTexts:gmplsInSegmentDirection.setStatus(_A)
-class _GmplsInSegmentExtraParamsPtr_Type(RowPointer):defaultValue=0,0
-_GmplsInSegmentExtraParamsPtr_Type.__name__=_O
-_GmplsInSegmentExtraParamsPtr_Object=MibTableColumn
-gmplsInSegmentExtraParamsPtr=_GmplsInSegmentExtraParamsPtr_Object((1,3,6,1,2,1,10,166,15,1,2,1,2),_GmplsInSegmentExtraParamsPtr_Type())
-gmplsInSegmentExtraParamsPtr.setMaxAccess(_D)
-if mibBuilder.loadTexts:gmplsInSegmentExtraParamsPtr.setStatus(_A)
-_GmplsOutSegmentTable_Object=MibTable
-gmplsOutSegmentTable=_GmplsOutSegmentTable_Object((1,3,6,1,2,1,10,166,15,1,3))
-if mibBuilder.loadTexts:gmplsOutSegmentTable.setStatus(_A)
-_GmplsOutSegmentEntry_Object=MibTableRow
-gmplsOutSegmentEntry=_GmplsOutSegmentEntry_Object((1,3,6,1,2,1,10,166,15,1,3,1))
-gmplsOutSegmentEntry.setIndexNames((0,_B,_V))
-if mibBuilder.loadTexts:gmplsOutSegmentEntry.setStatus(_A)
-class _GmplsOutSegmentDirection_Type(GmplsSegmentDirectionTC):defaultValue=1
-_GmplsOutSegmentDirection_Type.__name__=_F
-_GmplsOutSegmentDirection_Object=MibTableColumn
-gmplsOutSegmentDirection=_GmplsOutSegmentDirection_Object((1,3,6,1,2,1,10,166,15,1,3,1,1),_GmplsOutSegmentDirection_Type())
-gmplsOutSegmentDirection.setMaxAccess(_D)
-if mibBuilder.loadTexts:gmplsOutSegmentDirection.setStatus(_A)
-class _GmplsOutSegmentTTLDecrement_Type(Unsigned32):defaultValue=0
-_GmplsOutSegmentTTLDecrement_Type.__name__=_N
-_GmplsOutSegmentTTLDecrement_Object=MibTableColumn
-gmplsOutSegmentTTLDecrement=_GmplsOutSegmentTTLDecrement_Object((1,3,6,1,2,1,10,166,15,1,3,1,2),_GmplsOutSegmentTTLDecrement_Type())
-gmplsOutSegmentTTLDecrement.setMaxAccess(_D)
-if mibBuilder.loadTexts:gmplsOutSegmentTTLDecrement.setStatus(_A)
-class _GmplsOutSegmentExtraParamsPtr_Type(RowPointer):defaultValue=0,0
-_GmplsOutSegmentExtraParamsPtr_Type.__name__=_O
-_GmplsOutSegmentExtraParamsPtr_Object=MibTableColumn
-gmplsOutSegmentExtraParamsPtr=_GmplsOutSegmentExtraParamsPtr_Object((1,3,6,1,2,1,10,166,15,1,3,1,3),_GmplsOutSegmentExtraParamsPtr_Type())
-gmplsOutSegmentExtraParamsPtr.setMaxAccess(_D)
-if mibBuilder.loadTexts:gmplsOutSegmentExtraParamsPtr.setStatus(_A)
-_GmplsLsrConformance_ObjectIdentity=ObjectIdentity
-gmplsLsrConformance=_GmplsLsrConformance_ObjectIdentity((1,3,6,1,2,1,10,166,15,2))
-_GmplsLsrGroups_ObjectIdentity=ObjectIdentity
-gmplsLsrGroups=_GmplsLsrGroups_ObjectIdentity((1,3,6,1,2,1,10,166,15,2,1))
-_GmplsLsrCompliances_ObjectIdentity=ObjectIdentity
-gmplsLsrCompliances=_GmplsLsrCompliances_ObjectIdentity((1,3,6,1,2,1,10,166,15,2,2))
-gmplsInterfaceGroup=ObjectGroup((1,3,6,1,2,1,10,166,15,2,1,1))
-gmplsInterfaceGroup.setObjects(*((_C,_W),(_C,_X)))
-if mibBuilder.loadTexts:gmplsInterfaceGroup.setStatus(_A)
-gmplsInSegmentGroup=ObjectGroup((1,3,6,1,2,1,10,166,15,2,1,2))
-gmplsInSegmentGroup.setObjects(*((_C,_Y),(_C,_Z)))
-if mibBuilder.loadTexts:gmplsInSegmentGroup.setStatus(_A)
-gmplsOutSegmentGroup=ObjectGroup((1,3,6,1,2,1,10,166,15,2,1,3))
-gmplsOutSegmentGroup.setObjects(*((_C,_a),(_C,_b),(_C,_c)))
-if mibBuilder.loadTexts:gmplsOutSegmentGroup.setStatus(_A)
-gmplsLsrModuleFullCompliance=ModuleCompliance((1,3,6,1,2,1,10,166,15,2,2,1))
-gmplsLsrModuleFullCompliance.setObjects(*((_E,_H),(_E,_G),(_B,_J),(_B,_I),(_B,_K),(_B,_M),(_B,_L),(_B,_U),(_C,_P),(_C,_Q),(_C,_R)))
-if mibBuilder.loadTexts:gmplsLsrModuleFullCompliance.setStatus(_A)
-gmplsLsrModuleReadOnlyCompliance=ModuleCompliance((1,3,6,1,2,1,10,166,15,2,2,2))
-gmplsLsrModuleReadOnlyCompliance.setObjects(*((_E,_H),(_E,_G),(_B,_J),(_B,_I),(_B,_K),(_B,_M),(_B,_L),(_C,_P),(_C,_Q),(_C,_R)))
-if mibBuilder.loadTexts:gmplsLsrModuleReadOnlyCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'gmplsLsrStdMIB':gmplsLsrStdMIB,'gmplsLsrObjects':gmplsLsrObjects,'gmplsInterfaceTable':gmplsInterfaceTable,'gmplsInterfaceEntry':gmplsInterfaceEntry,_W:gmplsInterfaceSignalingCaps,_X:gmplsInterfaceRsvpHelloPeriod,'gmplsInSegmentTable':gmplsInSegmentTable,'gmplsInSegmentEntry':gmplsInSegmentEntry,_Y:gmplsInSegmentDirection,_Z:gmplsInSegmentExtraParamsPtr,'gmplsOutSegmentTable':gmplsOutSegmentTable,'gmplsOutSegmentEntry':gmplsOutSegmentEntry,_a:gmplsOutSegmentDirection,_b:gmplsOutSegmentTTLDecrement,_c:gmplsOutSegmentExtraParamsPtr,'gmplsLsrConformance':gmplsLsrConformance,'gmplsLsrGroups':gmplsLsrGroups,_P:gmplsInterfaceGroup,_Q:gmplsInSegmentGroup,_R:gmplsOutSegmentGroup,'gmplsLsrCompliances':gmplsLsrCompliances,'gmplsLsrModuleFullCompliance':gmplsLsrModuleFullCompliance,'gmplsLsrModuleReadOnlyCompliance':gmplsLsrModuleReadOnlyCompliance})
+#
+# PySNMP MIB module GMPLS-LSR-STD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/GMPLS-LSR-STD-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:27:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+GmplsSegmentDirectionTC, = mibBuilder.importSymbols("GMPLS-TC-STD-MIB", "GmplsSegmentDirectionTC")
+ifCounterDiscontinuityGroup, ifGeneralInformationGroup = mibBuilder.importSymbols("IF-MIB", "ifCounterDiscontinuityGroup", "ifGeneralInformationGroup")
+mplsOutSegmentIndex, mplsInterfaceIndex, mplsInSegmentGroup, mplsInterfaceGroup, mplsInSegmentIndex, mplsPerfGroup, mplsLsrNotificationGroup, mplsXCGroup, mplsOutSegmentGroup = mibBuilder.importSymbols("MPLS-LSR-STD-MIB", "mplsOutSegmentIndex", "mplsInterfaceIndex", "mplsInSegmentGroup", "mplsInterfaceGroup", "mplsInSegmentIndex", "mplsPerfGroup", "mplsLsrNotificationGroup", "mplsXCGroup", "mplsOutSegmentGroup")
+mplsStdMIB, = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "mplsStdMIB")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, zeroDotZero, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, ObjectIdentity, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "zeroDotZero", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "ObjectIdentity", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowPointer", "TextualConvention")
+gmplsLsrStdMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 166, 15))
+gmplsLsrStdMIB.setRevisions(('2007-02-27 00:00',))
+if mibBuilder.loadTexts: gmplsLsrStdMIB.setLastUpdated('200702270000Z')
+if mibBuilder.loadTexts: gmplsLsrStdMIB.setOrganization('IETF Common Control And Measurement Plane (CCAMP) Working Group')
+gmplsLsrObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 15, 1))
+gmplsLsrConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 15, 2))
+gmplsInterfaceTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 15, 1, 1), )
+if mibBuilder.loadTexts: gmplsInterfaceTable.setStatus('current')
+gmplsInterfaceEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 15, 1, 1, 1), ).setIndexNames((0, "MPLS-LSR-STD-MIB", "mplsInterfaceIndex"))
+if mibBuilder.loadTexts: gmplsInterfaceEntry.setStatus('current')
+gmplsInterfaceSignalingCaps = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 15, 1, 1, 1, 1), Bits().clone(namedValues=NamedValues(("unknown", 0), ("rsvpGmpls", 1), ("crldpGmpls", 2), ("otherGmpls", 3))).clone(namedValues=NamedValues(("rsvpGmpls", 1)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: gmplsInterfaceSignalingCaps.setStatus('current')
+gmplsInterfaceRsvpHelloPeriod = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 15, 1, 1, 1, 2), Unsigned32().clone(3000)).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: gmplsInterfaceRsvpHelloPeriod.setStatus('current')
+gmplsInSegmentTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 15, 1, 2), )
+if mibBuilder.loadTexts: gmplsInSegmentTable.setStatus('current')
+gmplsInSegmentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 15, 1, 2, 1), ).setIndexNames((0, "MPLS-LSR-STD-MIB", "mplsInSegmentIndex"))
+if mibBuilder.loadTexts: gmplsInSegmentEntry.setStatus('current')
+gmplsInSegmentDirection = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 15, 1, 2, 1, 1), GmplsSegmentDirectionTC().clone('forward')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: gmplsInSegmentDirection.setStatus('current')
+gmplsInSegmentExtraParamsPtr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 15, 1, 2, 1, 2), RowPointer().clone((0, 0))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: gmplsInSegmentExtraParamsPtr.setStatus('current')
+gmplsOutSegmentTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 15, 1, 3), )
+if mibBuilder.loadTexts: gmplsOutSegmentTable.setStatus('current')
+gmplsOutSegmentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 15, 1, 3, 1), ).setIndexNames((0, "MPLS-LSR-STD-MIB", "mplsOutSegmentIndex"))
+if mibBuilder.loadTexts: gmplsOutSegmentEntry.setStatus('current')
+gmplsOutSegmentDirection = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 15, 1, 3, 1, 1), GmplsSegmentDirectionTC().clone('forward')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: gmplsOutSegmentDirection.setStatus('current')
+gmplsOutSegmentTTLDecrement = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 15, 1, 3, 1, 2), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: gmplsOutSegmentTTLDecrement.setStatus('current')
+gmplsOutSegmentExtraParamsPtr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 15, 1, 3, 1, 3), RowPointer().clone((0, 0))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: gmplsOutSegmentExtraParamsPtr.setStatus('current')
+gmplsLsrGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 15, 2, 1))
+gmplsLsrCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 15, 2, 2))
+gmplsLsrModuleFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 166, 15, 2, 2, 1)).setObjects(("IF-MIB", "ifGeneralInformationGroup"), ("IF-MIB", "ifCounterDiscontinuityGroup"), ("MPLS-LSR-STD-MIB", "mplsInterfaceGroup"), ("MPLS-LSR-STD-MIB", "mplsInSegmentGroup"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentGroup"), ("MPLS-LSR-STD-MIB", "mplsXCGroup"), ("MPLS-LSR-STD-MIB", "mplsPerfGroup"), ("MPLS-LSR-STD-MIB", "mplsLsrNotificationGroup"), ("GMPLS-LSR-STD-MIB", "gmplsInterfaceGroup"), ("GMPLS-LSR-STD-MIB", "gmplsInSegmentGroup"), ("GMPLS-LSR-STD-MIB", "gmplsOutSegmentGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    gmplsLsrModuleFullCompliance = gmplsLsrModuleFullCompliance.setStatus('current')
+gmplsLsrModuleReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 166, 15, 2, 2, 2)).setObjects(("IF-MIB", "ifGeneralInformationGroup"), ("IF-MIB", "ifCounterDiscontinuityGroup"), ("MPLS-LSR-STD-MIB", "mplsInterfaceGroup"), ("MPLS-LSR-STD-MIB", "mplsInSegmentGroup"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentGroup"), ("MPLS-LSR-STD-MIB", "mplsXCGroup"), ("MPLS-LSR-STD-MIB", "mplsPerfGroup"), ("GMPLS-LSR-STD-MIB", "gmplsInterfaceGroup"), ("GMPLS-LSR-STD-MIB", "gmplsInSegmentGroup"), ("GMPLS-LSR-STD-MIB", "gmplsOutSegmentGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    gmplsLsrModuleReadOnlyCompliance = gmplsLsrModuleReadOnlyCompliance.setStatus('current')
+gmplsInterfaceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 15, 2, 1, 1)).setObjects(("GMPLS-LSR-STD-MIB", "gmplsInterfaceSignalingCaps"), ("GMPLS-LSR-STD-MIB", "gmplsInterfaceRsvpHelloPeriod"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    gmplsInterfaceGroup = gmplsInterfaceGroup.setStatus('current')
+gmplsInSegmentGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 15, 2, 1, 2)).setObjects(("GMPLS-LSR-STD-MIB", "gmplsInSegmentDirection"), ("GMPLS-LSR-STD-MIB", "gmplsInSegmentExtraParamsPtr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    gmplsInSegmentGroup = gmplsInSegmentGroup.setStatus('current')
+gmplsOutSegmentGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 15, 2, 1, 3)).setObjects(("GMPLS-LSR-STD-MIB", "gmplsOutSegmentDirection"), ("GMPLS-LSR-STD-MIB", "gmplsOutSegmentTTLDecrement"), ("GMPLS-LSR-STD-MIB", "gmplsOutSegmentExtraParamsPtr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    gmplsOutSegmentGroup = gmplsOutSegmentGroup.setStatus('current')
+mibBuilder.exportSymbols("GMPLS-LSR-STD-MIB", gmplsOutSegmentTable=gmplsOutSegmentTable, gmplsLsrModuleReadOnlyCompliance=gmplsLsrModuleReadOnlyCompliance, gmplsLsrGroups=gmplsLsrGroups, gmplsOutSegmentGroup=gmplsOutSegmentGroup, gmplsLsrConformance=gmplsLsrConformance, gmplsLsrObjects=gmplsLsrObjects, gmplsLsrCompliances=gmplsLsrCompliances, PYSNMP_MODULE_ID=gmplsLsrStdMIB, gmplsInSegmentTable=gmplsInSegmentTable, gmplsInterfaceEntry=gmplsInterfaceEntry, gmplsInterfaceTable=gmplsInterfaceTable, gmplsInterfaceGroup=gmplsInterfaceGroup, gmplsInSegmentExtraParamsPtr=gmplsInSegmentExtraParamsPtr, gmplsOutSegmentExtraParamsPtr=gmplsOutSegmentExtraParamsPtr, gmplsOutSegmentEntry=gmplsOutSegmentEntry, gmplsInSegmentDirection=gmplsInSegmentDirection, gmplsLsrModuleFullCompliance=gmplsLsrModuleFullCompliance, gmplsInSegmentEntry=gmplsInSegmentEntry, gmplsInterfaceRsvpHelloPeriod=gmplsInterfaceRsvpHelloPeriod, gmplsOutSegmentDirection=gmplsOutSegmentDirection, gmplsInterfaceSignalingCaps=gmplsInterfaceSignalingCaps, gmplsLsrStdMIB=gmplsLsrStdMIB, gmplsOutSegmentTTLDecrement=gmplsOutSegmentTTLDecrement, gmplsInSegmentGroup=gmplsInSegmentGroup)

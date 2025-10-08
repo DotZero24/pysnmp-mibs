@@ -1,98 +1,51 @@
-_L='not-accessible'
-_K='fsDcsPortCtrlVlanId'
-_J='fsDcsPortCtrlIndex'
-_I='disabled'
-_H='enabled'
-_G='EnabledStatus'
-_F='AricentDCS-MIB'
-_E='NULL'
-_D='DisplayString'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','RowStatus','TextualConvention')
-fsDcsMIB=ModuleIdentity((1,3,6,1,4,1,29601,2,1))
-class EnabledStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
-_FsDcsSystem_ObjectIdentity=ObjectIdentity
-fsDcsSystem=_FsDcsSystem_ObjectIdentity((1,3,6,1,4,1,29601,2,1,1))
-class _FsDcsDefCircuitIDFormatConfig_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
-_FsDcsDefCircuitIDFormatConfig_Type.__name__=_C
-_FsDcsDefCircuitIDFormatConfig_Object=MibScalar
-fsDcsDefCircuitIDFormatConfig=_FsDcsDefCircuitIDFormatConfig_Object((1,3,6,1,4,1,29601,2,1,1,1),_FsDcsDefCircuitIDFormatConfig_Type())
-fsDcsDefCircuitIDFormatConfig.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsDcsDefCircuitIDFormatConfig.setStatus(_A)
-class _FsDcsDefCircuitIDFormatString_Type(DisplayString):defaultValue=OctetString(_E);subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,48))
-_FsDcsDefCircuitIDFormatString_Type.__name__=_D
-_FsDcsDefCircuitIDFormatString_Object=MibScalar
-fsDcsDefCircuitIDFormatString=_FsDcsDefCircuitIDFormatString_Object((1,3,6,1,4,1,29601,2,1,1,2),_FsDcsDefCircuitIDFormatString_Type())
-fsDcsDefCircuitIDFormatString.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsDcsDefCircuitIDFormatString.setStatus(_A)
-class _FsDcsDefCircuitIDFormatOption_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('sp',1),('sv',2),('pv',3),('spv',4)))
-_FsDcsDefCircuitIDFormatOption_Type.__name__=_C
-_FsDcsDefCircuitIDFormatOption_Object=MibScalar
-fsDcsDefCircuitIDFormatOption=_FsDcsDefCircuitIDFormatOption_Object((1,3,6,1,4,1,29601,2,1,1,3),_FsDcsDefCircuitIDFormatOption_Type())
-fsDcsDefCircuitIDFormatOption.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsDcsDefCircuitIDFormatOption.setStatus(_A)
-class _FsDcsDefCircuitIDFormatDelimiter_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('hash',1),('dot',2),('comma',3),('semicolon',4),('rightslash',5),('space',6)))
-_FsDcsDefCircuitIDFormatDelimiter_Type.__name__=_C
-_FsDcsDefCircuitIDFormatDelimiter_Object=MibScalar
-fsDcsDefCircuitIDFormatDelimiter=_FsDcsDefCircuitIDFormatDelimiter_Object((1,3,6,1,4,1,29601,2,1,1,4),_FsDcsDefCircuitIDFormatDelimiter_Type())
-fsDcsDefCircuitIDFormatDelimiter.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsDcsDefCircuitIDFormatDelimiter.setStatus(_A)
-_FsDcsConfigControl_ObjectIdentity=ObjectIdentity
-fsDcsConfigControl=_FsDcsConfigControl_ObjectIdentity((1,3,6,1,4,1,29601,2,1,2))
-_FsDcsPortCtrlTable_Object=MibTable
-fsDcsPortCtrlTable=_FsDcsPortCtrlTable_Object((1,3,6,1,4,1,29601,2,1,2,1))
-if mibBuilder.loadTexts:fsDcsPortCtrlTable.setStatus(_A)
-_FsDcsPortCtrlEntry_Object=MibTableRow
-fsDcsPortCtrlEntry=_FsDcsPortCtrlEntry_Object((1,3,6,1,4,1,29601,2,1,2,1,1))
-fsDcsPortCtrlEntry.setIndexNames((0,_F,_J),(0,_F,_K))
-if mibBuilder.loadTexts:fsDcsPortCtrlEntry.setStatus(_A)
-_FsDcsPortCtrlIndex_Type=InterfaceIndex
-_FsDcsPortCtrlIndex_Object=MibTableColumn
-fsDcsPortCtrlIndex=_FsDcsPortCtrlIndex_Object((1,3,6,1,4,1,29601,2,1,2,1,1,1),_FsDcsPortCtrlIndex_Type())
-fsDcsPortCtrlIndex.setMaxAccess(_L)
-if mibBuilder.loadTexts:fsDcsPortCtrlIndex.setStatus(_A)
-class _FsDcsPortCtrlVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4094))
-_FsDcsPortCtrlVlanId_Type.__name__=_C
-_FsDcsPortCtrlVlanId_Object=MibTableColumn
-fsDcsPortCtrlVlanId=_FsDcsPortCtrlVlanId_Object((1,3,6,1,4,1,29601,2,1,2,1,1,2),_FsDcsPortCtrlVlanId_Type())
-fsDcsPortCtrlVlanId.setMaxAccess(_L)
-if mibBuilder.loadTexts:fsDcsPortCtrlVlanId.setStatus(_A)
-class _FsDcsPortCtrlRemoteAgentIdentifier_Type(DisplayString):defaultValue=OctetString(_E);subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_FsDcsPortCtrlRemoteAgentIdentifier_Type.__name__=_D
-_FsDcsPortCtrlRemoteAgentIdentifier_Object=MibTableColumn
-fsDcsPortCtrlRemoteAgentIdentifier=_FsDcsPortCtrlRemoteAgentIdentifier_Object((1,3,6,1,4,1,29601,2,1,2,1,1,3),_FsDcsPortCtrlRemoteAgentIdentifier_Type())
-fsDcsPortCtrlRemoteAgentIdentifier.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsDcsPortCtrlRemoteAgentIdentifier.setStatus(_A)
-class _FsDcsPortCtrlRemoteAgentIDStatus_Type(EnabledStatus):defaultValue=2
-_FsDcsPortCtrlRemoteAgentIDStatus_Type.__name__=_G
-_FsDcsPortCtrlRemoteAgentIDStatus_Object=MibTableColumn
-fsDcsPortCtrlRemoteAgentIDStatus=_FsDcsPortCtrlRemoteAgentIDStatus_Object((1,3,6,1,4,1,29601,2,1,2,1,1,4),_FsDcsPortCtrlRemoteAgentIDStatus_Type())
-fsDcsPortCtrlRemoteAgentIDStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsDcsPortCtrlRemoteAgentIDStatus.setStatus(_A)
-class _FsDcsPortCtrlAccessLoopStatus_Type(EnabledStatus):defaultValue=2
-_FsDcsPortCtrlAccessLoopStatus_Type.__name__=_G
-_FsDcsPortCtrlAccessLoopStatus_Object=MibTableColumn
-fsDcsPortCtrlAccessLoopStatus=_FsDcsPortCtrlAccessLoopStatus_Object((1,3,6,1,4,1,29601,2,1,2,1,1,5),_FsDcsPortCtrlAccessLoopStatus_Type())
-fsDcsPortCtrlAccessLoopStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsDcsPortCtrlAccessLoopStatus.setStatus(_A)
-class _FsDcsPortCtrlAgentCircuitID_Type(DisplayString):defaultValue=OctetString(_E);subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_FsDcsPortCtrlAgentCircuitID_Type.__name__=_D
-_FsDcsPortCtrlAgentCircuitID_Object=MibTableColumn
-fsDcsPortCtrlAgentCircuitID=_FsDcsPortCtrlAgentCircuitID_Object((1,3,6,1,4,1,29601,2,1,2,1,1,6),_FsDcsPortCtrlAgentCircuitID_Type())
-fsDcsPortCtrlAgentCircuitID.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsDcsPortCtrlAgentCircuitID.setStatus(_A)
-_FsDcsPortCtrlVlanRowStatus_Type=RowStatus
-_FsDcsPortCtrlVlanRowStatus_Object=MibTableColumn
-fsDcsPortCtrlVlanRowStatus=_FsDcsPortCtrlVlanRowStatus_Object((1,3,6,1,4,1,29601,2,1,2,1,1,7),_FsDcsPortCtrlVlanRowStatus_Type())
-fsDcsPortCtrlVlanRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:fsDcsPortCtrlVlanRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{_G:EnabledStatus,'fsDcsMIB':fsDcsMIB,'fsDcsSystem':fsDcsSystem,'fsDcsDefCircuitIDFormatConfig':fsDcsDefCircuitIDFormatConfig,'fsDcsDefCircuitIDFormatString':fsDcsDefCircuitIDFormatString,'fsDcsDefCircuitIDFormatOption':fsDcsDefCircuitIDFormatOption,'fsDcsDefCircuitIDFormatDelimiter':fsDcsDefCircuitIDFormatDelimiter,'fsDcsConfigControl':fsDcsConfigControl,'fsDcsPortCtrlTable':fsDcsPortCtrlTable,'fsDcsPortCtrlEntry':fsDcsPortCtrlEntry,_J:fsDcsPortCtrlIndex,_K:fsDcsPortCtrlVlanId,'fsDcsPortCtrlRemoteAgentIdentifier':fsDcsPortCtrlRemoteAgentIdentifier,'fsDcsPortCtrlRemoteAgentIDStatus':fsDcsPortCtrlRemoteAgentIDStatus,'fsDcsPortCtrlAccessLoopStatus':fsDcsPortCtrlAccessLoopStatus,'fsDcsPortCtrlAgentCircuitID':fsDcsPortCtrlAgentCircuitID,'fsDcsPortCtrlVlanRowStatus':fsDcsPortCtrlVlanRowStatus})
+#
+# PySNMP MIB module AricentDCS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aricent/AricentDCS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:32:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+fsDcsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 29601, 2, 1))
+if mibBuilder.loadTexts: fsDcsMIB.setLastUpdated('201806180000Z')
+if mibBuilder.loadTexts: fsDcsMIB.setOrganization('ARICENT COMMUNICATIONS SOFTWARE')
+class EnabledStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("enabled", 1), ("disabled", 2))
+
+fsDcsSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 29601, 2, 1, 1))
+fsDcsConfigControl = MibIdentifier((1, 3, 6, 1, 4, 1, 29601, 2, 1, 2))
+fsDcsDefCircuitIDFormatConfig = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsDcsDefCircuitIDFormatConfig.setStatus('current')
+fsDcsDefCircuitIDFormatString = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 48)).clone('NULL')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsDcsDefCircuitIDFormatString.setStatus('current')
+fsDcsDefCircuitIDFormatOption = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("sp", 1), ("sv", 2), ("pv", 3), ("spv", 4))).clone(4)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsDcsDefCircuitIDFormatOption.setStatus('current')
+fsDcsDefCircuitIDFormatDelimiter = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("hash", 1), ("dot", 2), ("comma", 3), ("semicolon", 4), ("rightslash", 5), ("space", 6))).clone(4)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsDcsDefCircuitIDFormatDelimiter.setStatus('current')
+fsDcsPortCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 29601, 2, 1, 2, 1), )
+if mibBuilder.loadTexts: fsDcsPortCtrlTable.setStatus('current')
+fsDcsPortCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 29601, 2, 1, 2, 1, 1), ).setIndexNames((0, "AricentDCS-MIB", "fsDcsPortCtrlIndex"), (0, "AricentDCS-MIB", "fsDcsPortCtrlVlanId"))
+if mibBuilder.loadTexts: fsDcsPortCtrlEntry.setStatus('current')
+fsDcsPortCtrlIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 1, 2, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: fsDcsPortCtrlIndex.setStatus('current')
+fsDcsPortCtrlVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094)))
+if mibBuilder.loadTexts: fsDcsPortCtrlVlanId.setStatus('current')
+fsDcsPortCtrlRemoteAgentIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 1, 2, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 63)).clone('NULL')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsDcsPortCtrlRemoteAgentIdentifier.setStatus('current')
+fsDcsPortCtrlRemoteAgentIDStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 1, 2, 1, 1, 4), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsDcsPortCtrlRemoteAgentIDStatus.setStatus('current')
+fsDcsPortCtrlAccessLoopStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 1, 2, 1, 1, 5), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsDcsPortCtrlAccessLoopStatus.setStatus('current')
+fsDcsPortCtrlAgentCircuitID = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 1, 2, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 63)).clone('NULL')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsDcsPortCtrlAgentCircuitID.setStatus('current')
+fsDcsPortCtrlVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 1, 2, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsDcsPortCtrlVlanRowStatus.setStatus('current')
+mibBuilder.exportSymbols("AricentDCS-MIB", fsDcsSystem=fsDcsSystem, fsDcsConfigControl=fsDcsConfigControl, fsDcsDefCircuitIDFormatConfig=fsDcsDefCircuitIDFormatConfig, fsDcsPortCtrlVlanId=fsDcsPortCtrlVlanId, fsDcsDefCircuitIDFormatOption=fsDcsDefCircuitIDFormatOption, fsDcsPortCtrlRemoteAgentIDStatus=fsDcsPortCtrlRemoteAgentIDStatus, fsDcsPortCtrlVlanRowStatus=fsDcsPortCtrlVlanRowStatus, EnabledStatus=EnabledStatus, fsDcsDefCircuitIDFormatDelimiter=fsDcsDefCircuitIDFormatDelimiter, fsDcsPortCtrlRemoteAgentIdentifier=fsDcsPortCtrlRemoteAgentIdentifier, fsDcsPortCtrlAgentCircuitID=fsDcsPortCtrlAgentCircuitID, fsDcsPortCtrlIndex=fsDcsPortCtrlIndex, fsDcsPortCtrlEntry=fsDcsPortCtrlEntry, fsDcsPortCtrlAccessLoopStatus=fsDcsPortCtrlAccessLoopStatus, fsDcsMIB=fsDcsMIB, fsDcsPortCtrlTable=fsDcsPortCtrlTable, PYSNMP_MODULE_ID=fsDcsMIB, fsDcsDefCircuitIDFormatString=fsDcsDefCircuitIDFormatString)

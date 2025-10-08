@@ -1,196 +1,82 @@
-_m='syslogMsgCustomizationGroupVer1'
-_l='syslogServerGroupVer1'
-_k='syslogBasicGroupVer1'
-_j='syslogMsgDisplayLocalHost'
-_i='syslogMsgDisplayTimeFormat'
-_h='syslogMsgDisplayTime'
-_g='syslogMsgDisplayMacAddress'
-_f='syslogDhcpSiteSpecificCode'
-_e='syslogStaticPort'
-_d='syslogStaticHost'
-_c='syslogSelectConfigSource'
-_b='syslogPort'
-_a='syslogHost'
-_Z='syslogConfigSource'
-_Y='syslogMsgLocalMsg'
-_X='syslogMsgLocalModule'
-_W='syslogMsgLocalSeverity'
-_V='syslogMsgLocalTime'
-_U='syslogMsgLocalMaxNbr'
-_T='syslogMsgLocalMaxSeverity'
-_S='syslogMsgMaxSeverity'
-_R='informational'
-_Q='warning'
-_P='critical'
-_O='disabled'
-_N='192.168.0.10'
-_M='Unsigned32'
-_L='MxIpSelectConfigSource'
-_K='MxIpDhcpSiteSpecificCode'
-_J='MxIpConfigSource'
-_I='MxIpPort'
-_H='MxIpHostName'
-_G='Integer32'
-_F='MxEnableState'
-_E='OctetString'
-_D='read-only'
-_C='read-write'
-_B='MX-SYSLOG-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ipAddressConfig,ipAddressStatus,mediatrixConfig=mibBuilder.importSymbols('MX-SMI','ipAddressConfig','ipAddressStatus','mediatrixConfig')
-MxEnableState,MxIpConfigSource,MxIpDhcpSiteSpecificCode,MxIpHostName,MxIpPort,MxIpSelectConfigSource=mibBuilder.importSymbols('MX-TC',_F,_J,_K,_H,_I,_L)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_M,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-syslogMIB=ModuleIdentity((1,3,6,1,4,1,4935,15,17))
-if mibBuilder.loadTexts:syslogMIB.setRevisions(('2004-11-05 00:00','2004-04-27 00:00','2004-02-09 00:00','2002-08-23 00:00','2001-08-06 00:00'))
-_IpAddressStatusSyslog_ObjectIdentity=ObjectIdentity
-ipAddressStatusSyslog=_IpAddressStatusSyslog_ObjectIdentity((1,3,6,1,4,1,4935,10,1,20))
-class _SyslogConfigSource_Type(MxIpConfigSource):defaultValue=1
-_SyslogConfigSource_Type.__name__=_J
-_SyslogConfigSource_Object=MibScalar
-syslogConfigSource=_SyslogConfigSource_Object((1,3,6,1,4,1,4935,10,1,20,1),_SyslogConfigSource_Type())
-syslogConfigSource.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogConfigSource.setStatus(_A)
-class _SyslogHost_Type(MxIpHostName):defaultValue=OctetString(_N)
-_SyslogHost_Type.__name__=_H
-_SyslogHost_Object=MibScalar
-syslogHost=_SyslogHost_Object((1,3,6,1,4,1,4935,10,1,20,2),_SyslogHost_Type())
-syslogHost.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogHost.setStatus(_A)
-class _SyslogPort_Type(MxIpPort):defaultValue=514
-_SyslogPort_Type.__name__=_I
-_SyslogPort_Object=MibScalar
-syslogPort=_SyslogPort_Object((1,3,6,1,4,1,4935,10,1,20,3),_SyslogPort_Type())
-syslogPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogPort.setStatus(_A)
-_IpAddressConfigSyslog_ObjectIdentity=ObjectIdentity
-ipAddressConfigSyslog=_IpAddressConfigSyslog_ObjectIdentity((1,3,6,1,4,1,4935,15,1,20))
-class _SyslogSelectConfigSource_Type(MxIpSelectConfigSource):defaultValue=1
-_SyslogSelectConfigSource_Type.__name__=_L
-_SyslogSelectConfigSource_Object=MibScalar
-syslogSelectConfigSource=_SyslogSelectConfigSource_Object((1,3,6,1,4,1,4935,15,1,20,1),_SyslogSelectConfigSource_Type())
-syslogSelectConfigSource.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogSelectConfigSource.setStatus(_A)
-_IpAddressConfigSyslogStatic_ObjectIdentity=ObjectIdentity
-ipAddressConfigSyslogStatic=_IpAddressConfigSyslogStatic_ObjectIdentity((1,3,6,1,4,1,4935,15,1,20,10))
-class _SyslogStaticHost_Type(MxIpHostName):defaultValue=OctetString(_N)
-_SyslogStaticHost_Type.__name__=_H
-_SyslogStaticHost_Object=MibScalar
-syslogStaticHost=_SyslogStaticHost_Object((1,3,6,1,4,1,4935,15,1,20,10,1),_SyslogStaticHost_Type())
-syslogStaticHost.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogStaticHost.setStatus(_A)
-class _SyslogStaticPort_Type(MxIpPort):defaultValue=514
-_SyslogStaticPort_Type.__name__=_I
-_SyslogStaticPort_Object=MibScalar
-syslogStaticPort=_SyslogStaticPort_Object((1,3,6,1,4,1,4935,15,1,20,10,2),_SyslogStaticPort_Type())
-syslogStaticPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogStaticPort.setStatus(_A)
-_IpAddressConfigSyslogDhcp_ObjectIdentity=ObjectIdentity
-ipAddressConfigSyslogDhcp=_IpAddressConfigSyslogDhcp_ObjectIdentity((1,3,6,1,4,1,4935,15,1,20,30))
-class _SyslogDhcpSiteSpecificCode_Type(MxIpDhcpSiteSpecificCode):defaultValue=0
-_SyslogDhcpSiteSpecificCode_Type.__name__=_K
-_SyslogDhcpSiteSpecificCode_Object=MibScalar
-syslogDhcpSiteSpecificCode=_SyslogDhcpSiteSpecificCode_Object((1,3,6,1,4,1,4935,15,1,20,30,1),_SyslogDhcpSiteSpecificCode_Type())
-syslogDhcpSiteSpecificCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogDhcpSiteSpecificCode.setStatus(_A)
-_SyslogMIBObjects_ObjectIdentity=ObjectIdentity
-syslogMIBObjects=_SyslogMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,15,17,1))
-class _SyslogMsgMaxSeverity_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*((_O,0),(_P,1),('error',2),(_Q,3),(_R,4),('debug',5)))
-_SyslogMsgMaxSeverity_Type.__name__=_G
-_SyslogMsgMaxSeverity_Object=MibScalar
-syslogMsgMaxSeverity=_SyslogMsgMaxSeverity_Object((1,3,6,1,4,1,4935,15,17,1,5),_SyslogMsgMaxSeverity_Type())
-syslogMsgMaxSeverity.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogMsgMaxSeverity.setStatus(_A)
-class _SyslogMsgLocalMaxSeverity_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*((_O,0),(_P,1),('error',2),(_Q,3),(_R,4),('debug',5)))
-_SyslogMsgLocalMaxSeverity_Type.__name__=_G
-_SyslogMsgLocalMaxSeverity_Object=MibScalar
-syslogMsgLocalMaxSeverity=_SyslogMsgLocalMaxSeverity_Object((1,3,6,1,4,1,4935,15,17,1,50),_SyslogMsgLocalMaxSeverity_Type())
-syslogMsgLocalMaxSeverity.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogMsgLocalMaxSeverity.setStatus(_A)
-class _SyslogMsgLocalMaxNbr_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_SyslogMsgLocalMaxNbr_Type.__name__=_M
-_SyslogMsgLocalMaxNbr_Object=MibScalar
-syslogMsgLocalMaxNbr=_SyslogMsgLocalMaxNbr_Object((1,3,6,1,4,1,4935,15,17,1,100),_SyslogMsgLocalMaxNbr_Type())
-syslogMsgLocalMaxNbr.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogMsgLocalMaxNbr.setStatus(_A)
-_SyslogLocalMsgTable_Object=MibTable
-syslogLocalMsgTable=_SyslogLocalMsgTable_Object((1,3,6,1,4,1,4935,15,17,1,150))
-if mibBuilder.loadTexts:syslogLocalMsgTable.setStatus(_A)
-_SyslogLocalMsgEntry_Object=MibTableRow
-syslogLocalMsgEntry=_SyslogLocalMsgEntry_Object((1,3,6,1,4,1,4935,15,17,1,150,50))
-syslogLocalMsgEntry.setIndexNames((0,_B,'ifIndex'))
-if mibBuilder.loadTexts:syslogLocalMsgEntry.setStatus(_A)
-class _SyslogMsgLocalSeverity_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_SyslogMsgLocalSeverity_Type.__name__=_E
-_SyslogMsgLocalSeverity_Object=MibTableColumn
-syslogMsgLocalSeverity=_SyslogMsgLocalSeverity_Object((1,3,6,1,4,1,4935,15,17,1,150,50,50),_SyslogMsgLocalSeverity_Type())
-syslogMsgLocalSeverity.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogMsgLocalSeverity.setStatus(_A)
-class _SyslogMsgLocalTime_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_SyslogMsgLocalTime_Type.__name__=_E
-_SyslogMsgLocalTime_Object=MibTableColumn
-syslogMsgLocalTime=_SyslogMsgLocalTime_Object((1,3,6,1,4,1,4935,15,17,1,150,50,100),_SyslogMsgLocalTime_Type())
-syslogMsgLocalTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogMsgLocalTime.setStatus(_A)
-class _SyslogMsgLocalModule_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SyslogMsgLocalModule_Type.__name__=_E
-_SyslogMsgLocalModule_Object=MibTableColumn
-syslogMsgLocalModule=_SyslogMsgLocalModule_Object((1,3,6,1,4,1,4935,15,17,1,150,50,150),_SyslogMsgLocalModule_Type())
-syslogMsgLocalModule.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogMsgLocalModule.setStatus(_A)
-class _SyslogMsgLocalMsg_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_SyslogMsgLocalMsg_Type.__name__=_E
-_SyslogMsgLocalMsg_Object=MibTableColumn
-syslogMsgLocalMsg=_SyslogMsgLocalMsg_Object((1,3,6,1,4,1,4935,15,17,1,150,50,200),_SyslogMsgLocalMsg_Type())
-syslogMsgLocalMsg.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogMsgLocalMsg.setStatus(_A)
-_SyslogMsgCustomization_ObjectIdentity=ObjectIdentity
-syslogMsgCustomization=_SyslogMsgCustomization_ObjectIdentity((1,3,6,1,4,1,4935,15,17,1,200))
-class _SyslogMsgDisplayMacAddress_Type(MxEnableState):defaultValue=0
-_SyslogMsgDisplayMacAddress_Type.__name__=_F
-_SyslogMsgDisplayMacAddress_Object=MibScalar
-syslogMsgDisplayMacAddress=_SyslogMsgDisplayMacAddress_Object((1,3,6,1,4,1,4935,15,17,1,200,50),_SyslogMsgDisplayMacAddress_Type())
-syslogMsgDisplayMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogMsgDisplayMacAddress.setStatus(_A)
-class _SyslogMsgDisplayTime_Type(MxEnableState):defaultValue=1
-_SyslogMsgDisplayTime_Type.__name__=_F
-_SyslogMsgDisplayTime_Object=MibScalar
-syslogMsgDisplayTime=_SyslogMsgDisplayTime_Object((1,3,6,1,4,1,4935,15,17,1,200,150),_SyslogMsgDisplayTime_Type())
-syslogMsgDisplayTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogMsgDisplayTime.setStatus(_A)
-class _SyslogMsgDisplayTimeFormat_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('pseudoRfcFormat',0),('trueRfcFormat',1)))
-_SyslogMsgDisplayTimeFormat_Type.__name__=_G
-_SyslogMsgDisplayTimeFormat_Object=MibScalar
-syslogMsgDisplayTimeFormat=_SyslogMsgDisplayTimeFormat_Object((1,3,6,1,4,1,4935,15,17,1,200,175),_SyslogMsgDisplayTimeFormat_Type())
-syslogMsgDisplayTimeFormat.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogMsgDisplayTimeFormat.setStatus(_A)
-class _SyslogMsgDisplayLocalHost_Type(MxEnableState):defaultValue=1
-_SyslogMsgDisplayLocalHost_Type.__name__=_F
-_SyslogMsgDisplayLocalHost_Object=MibScalar
-syslogMsgDisplayLocalHost=_SyslogMsgDisplayLocalHost_Object((1,3,6,1,4,1,4935,15,17,1,200,200),_SyslogMsgDisplayLocalHost_Type())
-syslogMsgDisplayLocalHost.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogMsgDisplayLocalHost.setStatus(_A)
-_SyslogConformance_ObjectIdentity=ObjectIdentity
-syslogConformance=_SyslogConformance_ObjectIdentity((1,3,6,1,4,1,4935,15,17,2))
-_SyslogCompliances_ObjectIdentity=ObjectIdentity
-syslogCompliances=_SyslogCompliances_ObjectIdentity((1,3,6,1,4,1,4935,15,17,2,1))
-_SyslogGroups_ObjectIdentity=ObjectIdentity
-syslogGroups=_SyslogGroups_ObjectIdentity((1,3,6,1,4,1,4935,15,17,2,2))
-syslogBasicGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,15,17,2,2,1))
-syslogBasicGroupVer1.setObjects(*((_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y)))
-if mibBuilder.loadTexts:syslogBasicGroupVer1.setStatus(_A)
-syslogServerGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,15,17,2,2,2))
-syslogServerGroupVer1.setObjects(*((_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f)))
-if mibBuilder.loadTexts:syslogServerGroupVer1.setStatus(_A)
-syslogMsgCustomizationGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,15,17,2,2,50))
-syslogMsgCustomizationGroupVer1.setObjects(*((_B,_g),(_B,_h),(_B,_i),(_B,_j)))
-if mibBuilder.loadTexts:syslogMsgCustomizationGroupVer1.setStatus(_A)
-syslogBasicComplVer1=ModuleCompliance((1,3,6,1,4,1,4935,15,17,2,1,1))
-syslogBasicComplVer1.setObjects(*((_B,_k),(_B,_l),(_B,_m)))
-if mibBuilder.loadTexts:syslogBasicComplVer1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ipAddressStatusSyslog':ipAddressStatusSyslog,_Z:syslogConfigSource,_a:syslogHost,_b:syslogPort,'ipAddressConfigSyslog':ipAddressConfigSyslog,_c:syslogSelectConfigSource,'ipAddressConfigSyslogStatic':ipAddressConfigSyslogStatic,_d:syslogStaticHost,_e:syslogStaticPort,'ipAddressConfigSyslogDhcp':ipAddressConfigSyslogDhcp,_f:syslogDhcpSiteSpecificCode,'syslogMIB':syslogMIB,'syslogMIBObjects':syslogMIBObjects,_S:syslogMsgMaxSeverity,_T:syslogMsgLocalMaxSeverity,_U:syslogMsgLocalMaxNbr,'syslogLocalMsgTable':syslogLocalMsgTable,'syslogLocalMsgEntry':syslogLocalMsgEntry,_W:syslogMsgLocalSeverity,_V:syslogMsgLocalTime,_X:syslogMsgLocalModule,_Y:syslogMsgLocalMsg,'syslogMsgCustomization':syslogMsgCustomization,_g:syslogMsgDisplayMacAddress,_h:syslogMsgDisplayTime,_i:syslogMsgDisplayTimeFormat,_j:syslogMsgDisplayLocalHost,'syslogConformance':syslogConformance,'syslogCompliances':syslogCompliances,'syslogBasicComplVer1':syslogBasicComplVer1,'syslogGroups':syslogGroups,_k:syslogBasicGroupVer1,_l:syslogServerGroupVer1,_m:syslogMsgCustomizationGroupVer1})
+#
+# PySNMP MIB module MX-SYSLOG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-SYSLOG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ipAddressStatus, mediatrixConfig, ipAddressConfig = mibBuilder.importSymbols("MX-SMI", "ipAddressStatus", "mediatrixConfig", "ipAddressConfig")
+MxIpSelectConfigSource, MxEnableState, MxIpConfigSource, MxIpPort, MxIpHostName, MxIpDhcpSiteSpecificCode = mibBuilder.importSymbols("MX-TC", "MxIpSelectConfigSource", "MxEnableState", "MxIpConfigSource", "MxIpPort", "MxIpHostName", "MxIpDhcpSiteSpecificCode")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+syslogMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 15, 17))
+syslogMIB.setRevisions(('2004-11-05 00:00', '2004-04-27 00:00', '2004-02-09 00:00', '2002-08-23 00:00', '2001-08-06 00:00',))
+if mibBuilder.loadTexts: syslogMIB.setLastUpdated('200411050000Z')
+if mibBuilder.loadTexts: syslogMIB.setOrganization('Mediatrix Telecom, Inc.')
+syslogMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 17, 1))
+syslogConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 17, 2))
+syslogMsgMaxSeverity = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 17, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("disabled", 0), ("critical", 1), ("error", 2), ("warning", 3), ("informational", 4), ("debug", 5))).clone('informational')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: syslogMsgMaxSeverity.setStatus('current')
+syslogMsgLocalMaxSeverity = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 17, 1, 50), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("disabled", 0), ("critical", 1), ("error", 2), ("warning", 3), ("informational", 4), ("debug", 5))).clone('informational')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: syslogMsgLocalMaxSeverity.setStatus('current')
+syslogMsgLocalMaxNbr = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 17, 1, 100), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: syslogMsgLocalMaxNbr.setStatus('current')
+syslogLocalMsgTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 15, 17, 1, 150), )
+if mibBuilder.loadTexts: syslogLocalMsgTable.setStatus('current')
+syslogLocalMsgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 15, 17, 1, 150, 50), ).setIndexNames((0, "MX-SYSLOG-MIB", "ifIndex"))
+if mibBuilder.loadTexts: syslogLocalMsgEntry.setStatus('current')
+syslogMsgLocalSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 17, 1, 150, 50, 50), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogMsgLocalSeverity.setStatus('current')
+syslogMsgLocalTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 17, 1, 150, 50, 100), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogMsgLocalTime.setStatus('current')
+syslogMsgLocalModule = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 17, 1, 150, 50, 150), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogMsgLocalModule.setStatus('current')
+syslogMsgLocalMsg = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 17, 1, 150, 50, 200), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogMsgLocalMsg.setStatus('current')
+syslogMsgCustomization = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 17, 1, 200))
+syslogMsgDisplayMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 17, 1, 200, 50), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: syslogMsgDisplayMacAddress.setStatus('current')
+syslogMsgDisplayTime = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 17, 1, 200, 150), MxEnableState().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: syslogMsgDisplayTime.setStatus('current')
+syslogMsgDisplayTimeFormat = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 17, 1, 200, 175), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("pseudoRfcFormat", 0), ("trueRfcFormat", 1))).clone('pseudoRfcFormat')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: syslogMsgDisplayTimeFormat.setStatus('current')
+syslogMsgDisplayLocalHost = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 17, 1, 200, 200), MxEnableState().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: syslogMsgDisplayLocalHost.setStatus('current')
+ipAddressStatusSyslog = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 10, 1, 20))
+ipAddressConfigSyslog = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 1, 20))
+syslogConfigSource = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 1, 20, 1), MxIpConfigSource().clone('dhcp')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogConfigSource.setStatus('current')
+syslogHost = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 1, 20, 2), MxIpHostName().clone('192.168.0.10')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogHost.setStatus('current')
+syslogPort = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 1, 20, 3), MxIpPort().clone(514)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogPort.setStatus('current')
+syslogSelectConfigSource = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 1, 20, 1), MxIpSelectConfigSource().clone('dhcp')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: syslogSelectConfigSource.setStatus('current')
+ipAddressConfigSyslogStatic = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 1, 20, 10))
+syslogStaticHost = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 1, 20, 10, 1), MxIpHostName().clone('192.168.0.10')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: syslogStaticHost.setStatus('current')
+syslogStaticPort = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 1, 20, 10, 2), MxIpPort().clone(514)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: syslogStaticPort.setStatus('current')
+ipAddressConfigSyslogDhcp = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 1, 20, 30))
+syslogDhcpSiteSpecificCode = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 1, 20, 30, 1), MxIpDhcpSiteSpecificCode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: syslogDhcpSiteSpecificCode.setStatus('current')
+syslogCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 17, 2, 1))
+syslogBasicComplVer1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4935, 15, 17, 2, 1, 1)).setObjects(("MX-SYSLOG-MIB", "syslogBasicGroupVer1"), ("MX-SYSLOG-MIB", "syslogServerGroupVer1"), ("MX-SYSLOG-MIB", "syslogMsgCustomizationGroupVer1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    syslogBasicComplVer1 = syslogBasicComplVer1.setStatus('current')
+syslogGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 17, 2, 2))
+syslogBasicGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 17, 2, 2, 1)).setObjects(("MX-SYSLOG-MIB", "syslogMsgMaxSeverity"), ("MX-SYSLOG-MIB", "syslogMsgLocalMaxSeverity"), ("MX-SYSLOG-MIB", "syslogMsgLocalMaxNbr"), ("MX-SYSLOG-MIB", "syslogMsgLocalTime"), ("MX-SYSLOG-MIB", "syslogMsgLocalSeverity"), ("MX-SYSLOG-MIB", "syslogMsgLocalModule"), ("MX-SYSLOG-MIB", "syslogMsgLocalMsg"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    syslogBasicGroupVer1 = syslogBasicGroupVer1.setStatus('current')
+syslogServerGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 17, 2, 2, 2)).setObjects(("MX-SYSLOG-MIB", "syslogConfigSource"), ("MX-SYSLOG-MIB", "syslogHost"), ("MX-SYSLOG-MIB", "syslogPort"), ("MX-SYSLOG-MIB", "syslogSelectConfigSource"), ("MX-SYSLOG-MIB", "syslogStaticHost"), ("MX-SYSLOG-MIB", "syslogStaticPort"), ("MX-SYSLOG-MIB", "syslogDhcpSiteSpecificCode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    syslogServerGroupVer1 = syslogServerGroupVer1.setStatus('current')
+syslogMsgCustomizationGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 17, 2, 2, 50)).setObjects(("MX-SYSLOG-MIB", "syslogMsgDisplayMacAddress"), ("MX-SYSLOG-MIB", "syslogMsgDisplayTime"), ("MX-SYSLOG-MIB", "syslogMsgDisplayTimeFormat"), ("MX-SYSLOG-MIB", "syslogMsgDisplayLocalHost"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    syslogMsgCustomizationGroupVer1 = syslogMsgCustomizationGroupVer1.setStatus('current')
+mibBuilder.exportSymbols("MX-SYSLOG-MIB", syslogBasicGroupVer1=syslogBasicGroupVer1, syslogHost=syslogHost, syslogMsgLocalMsg=syslogMsgLocalMsg, syslogServerGroupVer1=syslogServerGroupVer1, syslogLocalMsgTable=syslogLocalMsgTable, syslogMsgDisplayLocalHost=syslogMsgDisplayLocalHost, syslogMsgMaxSeverity=syslogMsgMaxSeverity, syslogMsgDisplayTime=syslogMsgDisplayTime, syslogMsgCustomizationGroupVer1=syslogMsgCustomizationGroupVer1, syslogPort=syslogPort, syslogMsgLocalTime=syslogMsgLocalTime, syslogStaticPort=syslogStaticPort, syslogSelectConfigSource=syslogSelectConfigSource, syslogMIBObjects=syslogMIBObjects, syslogMsgLocalMaxNbr=syslogMsgLocalMaxNbr, syslogLocalMsgEntry=syslogLocalMsgEntry, syslogStaticHost=syslogStaticHost, ipAddressConfigSyslog=ipAddressConfigSyslog, syslogMsgLocalSeverity=syslogMsgLocalSeverity, ipAddressConfigSyslogStatic=ipAddressConfigSyslogStatic, syslogMsgLocalModule=syslogMsgLocalModule, syslogMIB=syslogMIB, ipAddressConfigSyslogDhcp=ipAddressConfigSyslogDhcp, syslogMsgDisplayTimeFormat=syslogMsgDisplayTimeFormat, PYSNMP_MODULE_ID=syslogMIB, syslogBasicComplVer1=syslogBasicComplVer1, syslogConfigSource=syslogConfigSource, syslogMsgLocalMaxSeverity=syslogMsgLocalMaxSeverity, syslogDhcpSiteSpecificCode=syslogDhcpSiteSpecificCode, syslogConformance=syslogConformance, syslogGroups=syslogGroups, syslogMsgDisplayMacAddress=syslogMsgDisplayMacAddress, syslogMsgCustomization=syslogMsgCustomization, syslogCompliances=syslogCompliances, ipAddressStatusSyslog=ipAddressStatusSyslog)

@@ -1,128 +1,73 @@
-_V='ciscoDot11LbsConfigGroup'
-_U='cdot11LbsProfInterfaceRowStatus'
-_T='cdot11LbsProfileRowStatus'
-_S='cdot11LbsMatchChannel'
-_R='cdot11LbsTrackMulticast'
-_Q='cdot11LbsPsPacketType'
-_P='cdot11LbsTrackMethod'
-_O='cdot11LbsServerUdpPort'
-_N='cdot11LbsServerAddress'
-_M='cdot11LbsServerAddressType'
-_L='Cdot11LbsPsPacketType'
-_K='Cdot11LbsTrackMethodType'
-_J='TruthValue'
-_I='MacAddress'
-_H='SnmpAdminString'
-_G='InetAddressType'
-_F='ifIndex'
-_E='IF-MIB'
-_D='cdot11LbsProfileName'
-_C='read-create'
-_B='CISCO-DOT11-LBS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress',_G,'InetPortNumber')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_H)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString',_I,'PhysAddress','RowStatus','TextualConvention',_J)
-ciscoDot11LbsMIB=ModuleIdentity((1,3,6,1,4,1,9,9,454))
-if mibBuilder.loadTexts:ciscoDot11LbsMIB.setRevisions(('2004-11-17 00:00',))
-class Cdot11LbsTrackMethodType(TextualConvention,Bits):status=_A;namedValues=NamedValues(('rssi',0))
-class Cdot11LbsPsPacketType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('extended',1),('short',2)))
-_CiscoDot11LbsMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoDot11LbsMIBNotifs=_CiscoDot11LbsMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,454,0))
-_CiscoDot11LbsMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoDot11LbsMIBObjects=_CiscoDot11LbsMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,454,1))
-_CiscoDot11LbsConfigInfo_ObjectIdentity=ObjectIdentity
-ciscoDot11LbsConfigInfo=_CiscoDot11LbsConfigInfo_ObjectIdentity((1,3,6,1,4,1,9,9,454,1,1))
-_Cdot11LbsProfileTable_Object=MibTable
-cdot11LbsProfileTable=_Cdot11LbsProfileTable_Object((1,3,6,1,4,1,9,9,454,1,1,1))
-if mibBuilder.loadTexts:cdot11LbsProfileTable.setStatus(_A)
-_Cdot11LbsProfileEntry_Object=MibTableRow
-cdot11LbsProfileEntry=_Cdot11LbsProfileEntry_Object((1,3,6,1,4,1,9,9,454,1,1,1,1))
-cdot11LbsProfileEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:cdot11LbsProfileEntry.setStatus(_A)
-class _Cdot11LbsProfileName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,16))
-_Cdot11LbsProfileName_Type.__name__=_H
-_Cdot11LbsProfileName_Object=MibTableColumn
-cdot11LbsProfileName=_Cdot11LbsProfileName_Object((1,3,6,1,4,1,9,9,454,1,1,1,1,1),_Cdot11LbsProfileName_Type())
-cdot11LbsProfileName.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:cdot11LbsProfileName.setStatus(_A)
-class _Cdot11LbsServerAddressType_Type(InetAddressType):defaultValue=1
-_Cdot11LbsServerAddressType_Type.__name__=_G
-_Cdot11LbsServerAddressType_Object=MibTableColumn
-cdot11LbsServerAddressType=_Cdot11LbsServerAddressType_Object((1,3,6,1,4,1,9,9,454,1,1,1,1,2),_Cdot11LbsServerAddressType_Type())
-cdot11LbsServerAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdot11LbsServerAddressType.setStatus(_A)
-_Cdot11LbsServerAddress_Type=InetAddress
-_Cdot11LbsServerAddress_Object=MibTableColumn
-cdot11LbsServerAddress=_Cdot11LbsServerAddress_Object((1,3,6,1,4,1,9,9,454,1,1,1,1,3),_Cdot11LbsServerAddress_Type())
-cdot11LbsServerAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdot11LbsServerAddress.setStatus(_A)
-_Cdot11LbsServerUdpPort_Type=InetPortNumber
-_Cdot11LbsServerUdpPort_Object=MibTableColumn
-cdot11LbsServerUdpPort=_Cdot11LbsServerUdpPort_Object((1,3,6,1,4,1,9,9,454,1,1,1,1,4),_Cdot11LbsServerUdpPort_Type())
-cdot11LbsServerUdpPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdot11LbsServerUdpPort.setStatus(_A)
-class _Cdot11LbsTrackMethod_Type(Cdot11LbsTrackMethodType):defaultBinValue='1'
-_Cdot11LbsTrackMethod_Type.__name__=_K
-_Cdot11LbsTrackMethod_Object=MibTableColumn
-cdot11LbsTrackMethod=_Cdot11LbsTrackMethod_Object((1,3,6,1,4,1,9,9,454,1,1,1,1,5),_Cdot11LbsTrackMethod_Type())
-cdot11LbsTrackMethod.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdot11LbsTrackMethod.setStatus(_A)
-class _Cdot11LbsPsPacketType_Type(Cdot11LbsPsPacketType):defaultValue=1
-_Cdot11LbsPsPacketType_Type.__name__=_L
-_Cdot11LbsPsPacketType_Object=MibTableColumn
-cdot11LbsPsPacketType=_Cdot11LbsPsPacketType_Object((1,3,6,1,4,1,9,9,454,1,1,1,1,6),_Cdot11LbsPsPacketType_Type())
-cdot11LbsPsPacketType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdot11LbsPsPacketType.setStatus(_A)
-class _Cdot11LbsTrackMulticast_Type(MacAddress):defaultHexValue='014096000010'
-_Cdot11LbsTrackMulticast_Type.__name__=_I
-_Cdot11LbsTrackMulticast_Object=MibTableColumn
-cdot11LbsTrackMulticast=_Cdot11LbsTrackMulticast_Object((1,3,6,1,4,1,9,9,454,1,1,1,1,7),_Cdot11LbsTrackMulticast_Type())
-cdot11LbsTrackMulticast.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdot11LbsTrackMulticast.setStatus(_A)
-class _Cdot11LbsMatchChannel_Type(TruthValue):defaultValue=1
-_Cdot11LbsMatchChannel_Type.__name__=_J
-_Cdot11LbsMatchChannel_Object=MibTableColumn
-cdot11LbsMatchChannel=_Cdot11LbsMatchChannel_Object((1,3,6,1,4,1,9,9,454,1,1,1,1,8),_Cdot11LbsMatchChannel_Type())
-cdot11LbsMatchChannel.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdot11LbsMatchChannel.setStatus(_A)
-_Cdot11LbsProfileRowStatus_Type=RowStatus
-_Cdot11LbsProfileRowStatus_Object=MibTableColumn
-cdot11LbsProfileRowStatus=_Cdot11LbsProfileRowStatus_Object((1,3,6,1,4,1,9,9,454,1,1,1,1,9),_Cdot11LbsProfileRowStatus_Type())
-cdot11LbsProfileRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdot11LbsProfileRowStatus.setStatus(_A)
-_Cdot11LbsProfInterfaceTable_Object=MibTable
-cdot11LbsProfInterfaceTable=_Cdot11LbsProfInterfaceTable_Object((1,3,6,1,4,1,9,9,454,1,1,2))
-if mibBuilder.loadTexts:cdot11LbsProfInterfaceTable.setStatus(_A)
-_Cdot11LbsProfInterfaceEntry_Object=MibTableRow
-cdot11LbsProfInterfaceEntry=_Cdot11LbsProfInterfaceEntry_Object((1,3,6,1,4,1,9,9,454,1,1,2,1))
-cdot11LbsProfInterfaceEntry.setIndexNames((0,_B,_D),(0,_E,_F))
-if mibBuilder.loadTexts:cdot11LbsProfInterfaceEntry.setStatus(_A)
-_Cdot11LbsProfInterfaceRowStatus_Type=RowStatus
-_Cdot11LbsProfInterfaceRowStatus_Object=MibTableColumn
-cdot11LbsProfInterfaceRowStatus=_Cdot11LbsProfInterfaceRowStatus_Object((1,3,6,1,4,1,9,9,454,1,1,2,1,1),_Cdot11LbsProfInterfaceRowStatus_Type())
-cdot11LbsProfInterfaceRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdot11LbsProfInterfaceRowStatus.setStatus(_A)
-_CiscoDot11LbsStatistics_ObjectIdentity=ObjectIdentity
-ciscoDot11LbsStatistics=_CiscoDot11LbsStatistics_ObjectIdentity((1,3,6,1,4,1,9,9,454,1,2))
-_CiscoDot11LbsMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoDot11LbsMIBConformance=_CiscoDot11LbsMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,454,2))
-_CiscoDot11LbsMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoDot11LbsMIBCompliances=_CiscoDot11LbsMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,454,2,1))
-_CiscoDot11LbsMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoDot11LbsMIBGroups=_CiscoDot11LbsMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,454,2,2))
-ciscoDot11LbsConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,454,2,2,1))
-ciscoDot11LbsConfigGroup.setObjects(*((_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:ciscoDot11LbsConfigGroup.setStatus(_A)
-ciscoDot11LbsMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,454,2,1,1))
-ciscoDot11LbsMIBCompliance.setObjects((_B,_V))
-if mibBuilder.loadTexts:ciscoDot11LbsMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_K:Cdot11LbsTrackMethodType,_L:Cdot11LbsPsPacketType,'ciscoDot11LbsMIB':ciscoDot11LbsMIB,'ciscoDot11LbsMIBNotifs':ciscoDot11LbsMIBNotifs,'ciscoDot11LbsMIBObjects':ciscoDot11LbsMIBObjects,'ciscoDot11LbsConfigInfo':ciscoDot11LbsConfigInfo,'cdot11LbsProfileTable':cdot11LbsProfileTable,'cdot11LbsProfileEntry':cdot11LbsProfileEntry,_D:cdot11LbsProfileName,_M:cdot11LbsServerAddressType,_N:cdot11LbsServerAddress,_O:cdot11LbsServerUdpPort,_P:cdot11LbsTrackMethod,_Q:cdot11LbsPsPacketType,_R:cdot11LbsTrackMulticast,_S:cdot11LbsMatchChannel,_T:cdot11LbsProfileRowStatus,'cdot11LbsProfInterfaceTable':cdot11LbsProfInterfaceTable,'cdot11LbsProfInterfaceEntry':cdot11LbsProfInterfaceEntry,_U:cdot11LbsProfInterfaceRowStatus,'ciscoDot11LbsStatistics':ciscoDot11LbsStatistics,'ciscoDot11LbsMIBConformance':ciscoDot11LbsMIBConformance,'ciscoDot11LbsMIBCompliances':ciscoDot11LbsMIBCompliances,'ciscoDot11LbsMIBCompliance':ciscoDot11LbsMIBCompliance,'ciscoDot11LbsMIBGroups':ciscoDot11LbsMIBGroups,_V:ciscoDot11LbsConfigGroup})
+#
+# PySNMP MIB module CISCO-DOT11-LBS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-DOT11-LBS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:24 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+ciscoDot11LbsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 454))
+ciscoDot11LbsMIB.setRevisions(('2004-11-17 00:00',))
+if mibBuilder.loadTexts: ciscoDot11LbsMIB.setLastUpdated('200411170000Z')
+if mibBuilder.loadTexts: ciscoDot11LbsMIB.setOrganization('Cisco System Inc.')
+ciscoDot11LbsMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 454, 0))
+ciscoDot11LbsMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 454, 1))
+ciscoDot11LbsMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 454, 2))
+ciscoDot11LbsConfigInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 1))
+ciscoDot11LbsStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 2))
+class Cdot11LbsTrackMethodType(TextualConvention, Bits):
+    status = 'current'
+    namedValues = NamedValues(("rssi", 0))
+
+class Cdot11LbsPsPacketType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("extended", 1), ("short", 2))
+
+cdot11LbsProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 1, 1), )
+if mibBuilder.loadTexts: cdot11LbsProfileTable.setStatus('current')
+cdot11LbsProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-DOT11-LBS-MIB", "cdot11LbsProfileName"))
+if mibBuilder.loadTexts: cdot11LbsProfileEntry.setStatus('current')
+cdot11LbsProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 1, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 16)))
+if mibBuilder.loadTexts: cdot11LbsProfileName.setStatus('current')
+cdot11LbsServerAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 1, 1, 1, 2), InetAddressType().clone('ipv4')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdot11LbsServerAddressType.setStatus('current')
+cdot11LbsServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 1, 1, 1, 3), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdot11LbsServerAddress.setStatus('current')
+cdot11LbsServerUdpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 1, 1, 1, 4), InetPortNumber()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdot11LbsServerUdpPort.setStatus('current')
+cdot11LbsTrackMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 1, 1, 1, 5), Cdot11LbsTrackMethodType().clone(namedValues=NamedValues(("rssi", 0)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdot11LbsTrackMethod.setStatus('current')
+cdot11LbsPsPacketType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 1, 1, 1, 6), Cdot11LbsPsPacketType().clone('extended')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdot11LbsPsPacketType.setStatus('current')
+cdot11LbsTrackMulticast = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 1, 1, 1, 7), MacAddress().clone(hexValue="014096000010")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdot11LbsTrackMulticast.setStatus('current')
+cdot11LbsMatchChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 1, 1, 1, 8), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdot11LbsMatchChannel.setStatus('current')
+cdot11LbsProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 1, 1, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdot11LbsProfileRowStatus.setStatus('current')
+cdot11LbsProfInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 1, 2), )
+if mibBuilder.loadTexts: cdot11LbsProfInterfaceTable.setStatus('current')
+cdot11LbsProfInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 1, 2, 1), ).setIndexNames((0, "CISCO-DOT11-LBS-MIB", "cdot11LbsProfileName"), (0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cdot11LbsProfInterfaceEntry.setStatus('current')
+cdot11LbsProfInterfaceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 454, 1, 1, 2, 1, 1), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdot11LbsProfInterfaceRowStatus.setStatus('current')
+ciscoDot11LbsMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 454, 2, 1))
+ciscoDot11LbsMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 454, 2, 2))
+ciscoDot11LbsMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 454, 2, 1, 1)).setObjects(("CISCO-DOT11-LBS-MIB", "ciscoDot11LbsConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoDot11LbsMIBCompliance = ciscoDot11LbsMIBCompliance.setStatus('current')
+ciscoDot11LbsConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 454, 2, 2, 1)).setObjects(("CISCO-DOT11-LBS-MIB", "cdot11LbsServerAddressType"), ("CISCO-DOT11-LBS-MIB", "cdot11LbsServerAddress"), ("CISCO-DOT11-LBS-MIB", "cdot11LbsServerUdpPort"), ("CISCO-DOT11-LBS-MIB", "cdot11LbsTrackMethod"), ("CISCO-DOT11-LBS-MIB", "cdot11LbsPsPacketType"), ("CISCO-DOT11-LBS-MIB", "cdot11LbsTrackMulticast"), ("CISCO-DOT11-LBS-MIB", "cdot11LbsMatchChannel"), ("CISCO-DOT11-LBS-MIB", "cdot11LbsProfileRowStatus"), ("CISCO-DOT11-LBS-MIB", "cdot11LbsProfInterfaceRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoDot11LbsConfigGroup = ciscoDot11LbsConfigGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-DOT11-LBS-MIB", cdot11LbsProfileTable=cdot11LbsProfileTable, cdot11LbsProfInterfaceEntry=cdot11LbsProfInterfaceEntry, cdot11LbsProfileRowStatus=cdot11LbsProfileRowStatus, ciscoDot11LbsStatistics=ciscoDot11LbsStatistics, cdot11LbsServerAddress=cdot11LbsServerAddress, cdot11LbsServerAddressType=cdot11LbsServerAddressType, ciscoDot11LbsMIBGroups=ciscoDot11LbsMIBGroups, cdot11LbsTrackMulticast=cdot11LbsTrackMulticast, cdot11LbsProfileEntry=cdot11LbsProfileEntry, cdot11LbsProfInterfaceTable=cdot11LbsProfInterfaceTable, ciscoDot11LbsMIB=ciscoDot11LbsMIB, cdot11LbsServerUdpPort=cdot11LbsServerUdpPort, cdot11LbsProfileName=cdot11LbsProfileName, cdot11LbsTrackMethod=cdot11LbsTrackMethod, cdot11LbsPsPacketType=cdot11LbsPsPacketType, ciscoDot11LbsConfigInfo=ciscoDot11LbsConfigInfo, ciscoDot11LbsMIBCompliance=ciscoDot11LbsMIBCompliance, cdot11LbsMatchChannel=cdot11LbsMatchChannel, PYSNMP_MODULE_ID=ciscoDot11LbsMIB, ciscoDot11LbsMIBCompliances=ciscoDot11LbsMIBCompliances, ciscoDot11LbsMIBObjects=ciscoDot11LbsMIBObjects, Cdot11LbsPsPacketType=Cdot11LbsPsPacketType, ciscoDot11LbsMIBConformance=ciscoDot11LbsMIBConformance, ciscoDot11LbsMIBNotifs=ciscoDot11LbsMIBNotifs, ciscoDot11LbsConfigGroup=ciscoDot11LbsConfigGroup, Cdot11LbsTrackMethodType=Cdot11LbsTrackMethodType, cdot11LbsProfInterfaceRowStatus=cdot11LbsProfInterfaceRowStatus)

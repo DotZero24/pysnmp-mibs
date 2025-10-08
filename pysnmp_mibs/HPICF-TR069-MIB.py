@@ -1,147 +1,63 @@
-_Z='hpicfTR069Group'
-_Y='hpicfTR069PeriodicInformTime'
-_X='hpicfTR069PeriodicInformInterval'
-_W='hpicfTR069PeriodicInformEnable'
-_V='hpicfTR069CpeWaitTimeout'
-_U='hpicfTR069CpePasswordEncrypted'
-_T='hpicfTR069CpePassword'
-_S='hpicfTR069CpeUsername'
-_R='hpicfTR069AcsConnectRetryInterval'
-_Q='hpicfTR069AcsPasswordEncrypted'
-_P='hpicfTR069AcsPassword'
-_O='hpicfTR069AcsUsername'
-_N='hpicfTR069AcsProxyUrl'
-_M='hpicfTR069AcsUrlOrigin'
-_L='hpicfTR069AcsUrl'
-_K='hpicfTR069CWMPDeviceType'
-_J='hpicfTR069EnableCWMP'
-_I='seconds'
-_H='enable'
-_G='disable'
-_F='Integer32'
-_E='read-only'
-_D='OctetString'
-_C='read-write'
-_B='HPICF-TR069-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpSwitch,=mibBuilder.importSymbols('HP-ICF-OID','hpSwitch')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
-hpicfTR069MIB=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,5,1,98))
-if mibBuilder.loadTexts:hpicfTR069MIB.setRevisions(('2014-03-03 00:00',))
-_HpicfTR069Notifications_ObjectIdentity=ObjectIdentity
-hpicfTR069Notifications=_HpicfTR069Notifications_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,98,0))
-_HpicfTR069Objects_ObjectIdentity=ObjectIdentity
-hpicfTR069Objects=_HpicfTR069Objects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,98,1))
-class _HpicfTR069EnableCWMP_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_HpicfTR069EnableCWMP_Type.__name__=_F
-_HpicfTR069EnableCWMP_Object=MibScalar
-hpicfTR069EnableCWMP=_HpicfTR069EnableCWMP_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,1),_HpicfTR069EnableCWMP_Type())
-hpicfTR069EnableCWMP.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTR069EnableCWMP.setStatus(_A)
-class _HpicfTR069CWMPDeviceType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('device',1),('gateway',2)))
-_HpicfTR069CWMPDeviceType_Type.__name__=_F
-_HpicfTR069CWMPDeviceType_Object=MibScalar
-hpicfTR069CWMPDeviceType=_HpicfTR069CWMPDeviceType_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,2),_HpicfTR069CWMPDeviceType_Type())
-hpicfTR069CWMPDeviceType.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTR069CWMPDeviceType.setStatus(_A)
-class _HpicfTR069AcsUrl_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_HpicfTR069AcsUrl_Type.__name__=_D
-_HpicfTR069AcsUrl_Object=MibScalar
-hpicfTR069AcsUrl=_HpicfTR069AcsUrl_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,3),_HpicfTR069AcsUrl_Type())
-hpicfTR069AcsUrl.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTR069AcsUrl.setStatus(_A)
-class _HpicfTR069AcsUrlOrigin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('none',1),('config',2),('dhcp',3),('acs',4)))
-_HpicfTR069AcsUrlOrigin_Type.__name__=_F
-_HpicfTR069AcsUrlOrigin_Object=MibScalar
-hpicfTR069AcsUrlOrigin=_HpicfTR069AcsUrlOrigin_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,4),_HpicfTR069AcsUrlOrigin_Type())
-hpicfTR069AcsUrlOrigin.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfTR069AcsUrlOrigin.setStatus(_A)
-class _HpicfTR069AcsProxyUrl_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_HpicfTR069AcsProxyUrl_Type.__name__=_D
-_HpicfTR069AcsProxyUrl_Object=MibScalar
-hpicfTR069AcsProxyUrl=_HpicfTR069AcsProxyUrl_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,5),_HpicfTR069AcsProxyUrl_Type())
-hpicfTR069AcsProxyUrl.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTR069AcsProxyUrl.setStatus(_A)
-class _HpicfTR069AcsUsername_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_HpicfTR069AcsUsername_Type.__name__=_D
-_HpicfTR069AcsUsername_Object=MibScalar
-hpicfTR069AcsUsername=_HpicfTR069AcsUsername_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,6),_HpicfTR069AcsUsername_Type())
-hpicfTR069AcsUsername.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTR069AcsUsername.setStatus(_A)
-class _HpicfTR069AcsPassword_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_HpicfTR069AcsPassword_Type.__name__=_D
-_HpicfTR069AcsPassword_Object=MibScalar
-hpicfTR069AcsPassword=_HpicfTR069AcsPassword_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,7),_HpicfTR069AcsPassword_Type())
-hpicfTR069AcsPassword.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTR069AcsPassword.setStatus(_A)
-class _HpicfTR069AcsPasswordEncrypted_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,384))
-_HpicfTR069AcsPasswordEncrypted_Type.__name__=_D
-_HpicfTR069AcsPasswordEncrypted_Object=MibScalar
-hpicfTR069AcsPasswordEncrypted=_HpicfTR069AcsPasswordEncrypted_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,8),_HpicfTR069AcsPasswordEncrypted_Type())
-hpicfTR069AcsPasswordEncrypted.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTR069AcsPasswordEncrypted.setStatus(_A)
-_HpicfTR069AcsConnectRetryInterval_Type=Unsigned32
-_HpicfTR069AcsConnectRetryInterval_Object=MibScalar
-hpicfTR069AcsConnectRetryInterval=_HpicfTR069AcsConnectRetryInterval_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,9),_HpicfTR069AcsConnectRetryInterval_Type())
-hpicfTR069AcsConnectRetryInterval.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfTR069AcsConnectRetryInterval.setStatus(_A)
-if mibBuilder.loadTexts:hpicfTR069AcsConnectRetryInterval.setUnits(_I)
-class _HpicfTR069CpeUsername_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_HpicfTR069CpeUsername_Type.__name__=_D
-_HpicfTR069CpeUsername_Object=MibScalar
-hpicfTR069CpeUsername=_HpicfTR069CpeUsername_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,10),_HpicfTR069CpeUsername_Type())
-hpicfTR069CpeUsername.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTR069CpeUsername.setStatus(_A)
-class _HpicfTR069CpePassword_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_HpicfTR069CpePassword_Type.__name__=_D
-_HpicfTR069CpePassword_Object=MibScalar
-hpicfTR069CpePassword=_HpicfTR069CpePassword_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,11),_HpicfTR069CpePassword_Type())
-hpicfTR069CpePassword.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTR069CpePassword.setStatus(_A)
-class _HpicfTR069CpePasswordEncrypted_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,384))
-_HpicfTR069CpePasswordEncrypted_Type.__name__=_D
-_HpicfTR069CpePasswordEncrypted_Object=MibScalar
-hpicfTR069CpePasswordEncrypted=_HpicfTR069CpePasswordEncrypted_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,12),_HpicfTR069CpePasswordEncrypted_Type())
-hpicfTR069CpePasswordEncrypted.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTR069CpePasswordEncrypted.setStatus(_A)
-_HpicfTR069CpeWaitTimeout_Type=Unsigned32
-_HpicfTR069CpeWaitTimeout_Object=MibScalar
-hpicfTR069CpeWaitTimeout=_HpicfTR069CpeWaitTimeout_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,13),_HpicfTR069CpeWaitTimeout_Type())
-hpicfTR069CpeWaitTimeout.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfTR069CpeWaitTimeout.setStatus(_A)
-if mibBuilder.loadTexts:hpicfTR069CpeWaitTimeout.setUnits(_I)
-class _HpicfTR069PeriodicInformEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_HpicfTR069PeriodicInformEnable_Type.__name__=_F
-_HpicfTR069PeriodicInformEnable_Object=MibScalar
-hpicfTR069PeriodicInformEnable=_HpicfTR069PeriodicInformEnable_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,14),_HpicfTR069PeriodicInformEnable_Type())
-hpicfTR069PeriodicInformEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfTR069PeriodicInformEnable.setStatus(_A)
-_HpicfTR069PeriodicInformInterval_Type=Unsigned32
-_HpicfTR069PeriodicInformInterval_Object=MibScalar
-hpicfTR069PeriodicInformInterval=_HpicfTR069PeriodicInformInterval_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,15),_HpicfTR069PeriodicInformInterval_Type())
-hpicfTR069PeriodicInformInterval.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfTR069PeriodicInformInterval.setStatus(_A)
-_HpicfTR069PeriodicInformTime_Type=DateAndTime
-_HpicfTR069PeriodicInformTime_Object=MibScalar
-hpicfTR069PeriodicInformTime=_HpicfTR069PeriodicInformTime_Object((1,3,6,1,4,1,11,2,14,11,5,1,98,1,16),_HpicfTR069PeriodicInformTime_Type())
-hpicfTR069PeriodicInformTime.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfTR069PeriodicInformTime.setStatus(_A)
-_HpicfTR069Conformance_ObjectIdentity=ObjectIdentity
-hpicfTR069Conformance=_HpicfTR069Conformance_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,98,2))
-_HpicfTR069MIBCompliances_ObjectIdentity=ObjectIdentity
-hpicfTR069MIBCompliances=_HpicfTR069MIBCompliances_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,98,2,1))
-_HpicfTR069MIBGroups_ObjectIdentity=ObjectIdentity
-hpicfTR069MIBGroups=_HpicfTR069MIBGroups_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,98,2,2))
-hpicfTR069Group=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,98,2,2,1))
-hpicfTR069Group.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y)))
-if mibBuilder.loadTexts:hpicfTR069Group.setStatus(_A)
-hpicfTR069MIBCompliance=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,98,2,1,1))
-hpicfTR069MIBCompliance.setObjects((_B,_Z))
-if mibBuilder.loadTexts:hpicfTR069MIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'hpicfTR069MIB':hpicfTR069MIB,'hpicfTR069Notifications':hpicfTR069Notifications,'hpicfTR069Objects':hpicfTR069Objects,_J:hpicfTR069EnableCWMP,_K:hpicfTR069CWMPDeviceType,_L:hpicfTR069AcsUrl,_M:hpicfTR069AcsUrlOrigin,_N:hpicfTR069AcsProxyUrl,_O:hpicfTR069AcsUsername,_P:hpicfTR069AcsPassword,_Q:hpicfTR069AcsPasswordEncrypted,_R:hpicfTR069AcsConnectRetryInterval,_S:hpicfTR069CpeUsername,_T:hpicfTR069CpePassword,_U:hpicfTR069CpePasswordEncrypted,_V:hpicfTR069CpeWaitTimeout,_W:hpicfTR069PeriodicInformEnable,_X:hpicfTR069PeriodicInformInterval,_Y:hpicfTR069PeriodicInformTime,'hpicfTR069Conformance':hpicfTR069Conformance,'hpicfTR069MIBCompliances':hpicfTR069MIBCompliances,'hpicfTR069MIBCompliance':hpicfTR069MIBCompliance,'hpicfTR069MIBGroups':hpicfTR069MIBGroups,_Z:hpicfTR069Group})
+#
+# PySNMP MIB module HPICF-TR069-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPICF-TR069-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+hpicfTR069MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98))
+hpicfTR069MIB.setRevisions(('2014-03-03 00:00',))
+if mibBuilder.loadTexts: hpicfTR069MIB.setLastUpdated('201403030000Z')
+if mibBuilder.loadTexts: hpicfTR069MIB.setOrganization('HP Networking')
+hpicfTR069Notifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 0))
+hpicfTR069Objects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1))
+hpicfTR069Conformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 2))
+hpicfTR069EnableCWMP = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfTR069EnableCWMP.setStatus('current')
+hpicfTR069CWMPDeviceType = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("device", 1), ("gateway", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfTR069CWMPDeviceType.setStatus('current')
+hpicfTR069AcsUrl = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfTR069AcsUrl.setStatus('current')
+hpicfTR069AcsUrlOrigin = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("config", 2), ("dhcp", 3), ("acs", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfTR069AcsUrlOrigin.setStatus('current')
+hpicfTR069AcsProxyUrl = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfTR069AcsProxyUrl.setStatus('current')
+hpicfTR069AcsUsername = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfTR069AcsUsername.setStatus('current')
+hpicfTR069AcsPassword = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfTR069AcsPassword.setStatus('current')
+hpicfTR069AcsPasswordEncrypted = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 384))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfTR069AcsPasswordEncrypted.setStatus('current')
+hpicfTR069AcsConnectRetryInterval = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 9), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfTR069AcsConnectRetryInterval.setStatus('current')
+hpicfTR069CpeUsername = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfTR069CpeUsername.setStatus('current')
+hpicfTR069CpePassword = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 11), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfTR069CpePassword.setStatus('current')
+hpicfTR069CpePasswordEncrypted = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 384))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfTR069CpePasswordEncrypted.setStatus('current')
+hpicfTR069CpeWaitTimeout = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 13), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfTR069CpeWaitTimeout.setStatus('current')
+hpicfTR069PeriodicInformEnable = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfTR069PeriodicInformEnable.setStatus('current')
+hpicfTR069PeriodicInformInterval = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 15), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfTR069PeriodicInformInterval.setStatus('current')
+hpicfTR069PeriodicInformTime = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 1, 16), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfTR069PeriodicInformTime.setStatus('current')
+hpicfTR069MIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 2, 1))
+hpicfTR069MIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 2, 2))
+hpicfTR069MIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 2, 1, 1)).setObjects(("HPICF-TR069-MIB", "hpicfTR069Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfTR069MIBCompliance = hpicfTR069MIBCompliance.setStatus('current')
+hpicfTR069Group = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 98, 2, 2, 1)).setObjects(("HPICF-TR069-MIB", "hpicfTR069EnableCWMP"), ("HPICF-TR069-MIB", "hpicfTR069CWMPDeviceType"), ("HPICF-TR069-MIB", "hpicfTR069AcsUrl"), ("HPICF-TR069-MIB", "hpicfTR069AcsUrlOrigin"), ("HPICF-TR069-MIB", "hpicfTR069AcsProxyUrl"), ("HPICF-TR069-MIB", "hpicfTR069AcsUsername"), ("HPICF-TR069-MIB", "hpicfTR069AcsPassword"), ("HPICF-TR069-MIB", "hpicfTR069AcsPasswordEncrypted"), ("HPICF-TR069-MIB", "hpicfTR069AcsConnectRetryInterval"), ("HPICF-TR069-MIB", "hpicfTR069CpeUsername"), ("HPICF-TR069-MIB", "hpicfTR069CpePassword"), ("HPICF-TR069-MIB", "hpicfTR069CpePasswordEncrypted"), ("HPICF-TR069-MIB", "hpicfTR069CpeWaitTimeout"), ("HPICF-TR069-MIB", "hpicfTR069PeriodicInformEnable"), ("HPICF-TR069-MIB", "hpicfTR069PeriodicInformInterval"), ("HPICF-TR069-MIB", "hpicfTR069PeriodicInformTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfTR069Group = hpicfTR069Group.setStatus('current')
+mibBuilder.exportSymbols("HPICF-TR069-MIB", hpicfTR069Objects=hpicfTR069Objects, hpicfTR069EnableCWMP=hpicfTR069EnableCWMP, hpicfTR069CpePasswordEncrypted=hpicfTR069CpePasswordEncrypted, hpicfTR069Notifications=hpicfTR069Notifications, hpicfTR069MIB=hpicfTR069MIB, hpicfTR069AcsPasswordEncrypted=hpicfTR069AcsPasswordEncrypted, hpicfTR069MIBCompliances=hpicfTR069MIBCompliances, hpicfTR069AcsUrl=hpicfTR069AcsUrl, hpicfTR069CpeWaitTimeout=hpicfTR069CpeWaitTimeout, hpicfTR069MIBGroups=hpicfTR069MIBGroups, hpicfTR069AcsConnectRetryInterval=hpicfTR069AcsConnectRetryInterval, hpicfTR069PeriodicInformInterval=hpicfTR069PeriodicInformInterval, hpicfTR069AcsProxyUrl=hpicfTR069AcsProxyUrl, hpicfTR069PeriodicInformEnable=hpicfTR069PeriodicInformEnable, hpicfTR069CpePassword=hpicfTR069CpePassword, hpicfTR069CpeUsername=hpicfTR069CpeUsername, hpicfTR069AcsUrlOrigin=hpicfTR069AcsUrlOrigin, hpicfTR069MIBCompliance=hpicfTR069MIBCompliance, hpicfTR069AcsUsername=hpicfTR069AcsUsername, hpicfTR069Conformance=hpicfTR069Conformance, hpicfTR069PeriodicInformTime=hpicfTR069PeriodicInformTime, PYSNMP_MODULE_ID=hpicfTR069MIB, hpicfTR069CWMPDeviceType=hpicfTR069CWMPDeviceType, hpicfTR069AcsPassword=hpicfTR069AcsPassword, hpicfTR069Group=hpicfTR069Group)

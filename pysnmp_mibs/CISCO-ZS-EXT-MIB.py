@@ -1,154 +1,84 @@
-_V='ciscoZsExtConfigGroupSup1'
-_U='czseGlobalPropagationMode'
-_T='czseGlobalDefaultZoneBehaviour'
-_S='czseMergeControlRestrict'
-_R='czseSessionCntlResult'
-_Q='czseSessionCntl'
-_P='czseSessionOwner'
-_O='czseSessionOwnerType'
-_N='czseReadFrom'
-_M='czseOperationModeResult'
-_L='czseOperationMode'
-_K='czseCapabilityObject'
-_J='inProgress'
-_I='OctetString'
-_H='ciscoZsExtConfigGroup'
-_G='read-only'
-_F='vsanIndex'
-_E='CISCO-VSAN-MIB'
-_D='read-write'
-_C='Integer32'
-_B='CISCO-ZS-EXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_I,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-vsanIndex,=mibBuilder.importSymbols(_E,_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoZsExtMIB=ModuleIdentity((1,3,6,1,4,1,9,9,427))
-if mibBuilder.loadTexts:ciscoZsExtMIB.setRevisions(('2006-01-03 00:00','2004-08-11 00:00'))
-class CzseSessOwnerType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('other',1),('cli',2),('gs4client',3),('snmp',4)))
-_CiscoZsExtMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoZsExtMIBNotifs=_CiscoZsExtMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,427,0))
-_CiscoZsExtMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoZsExtMIBObjects=_CiscoZsExtMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,427,1))
-_CzseConfiguration_ObjectIdentity=ObjectIdentity
-czseConfiguration=_CzseConfiguration_ObjectIdentity((1,3,6,1,4,1,9,9,427,1,1))
-_CzseCapabilityTable_Object=MibTable
-czseCapabilityTable=_CzseCapabilityTable_Object((1,3,6,1,4,1,9,9,427,1,1,1))
-if mibBuilder.loadTexts:czseCapabilityTable.setStatus(_A)
-_CzseCapabilityEntry_Object=MibTableRow
-czseCapabilityEntry=_CzseCapabilityEntry_Object((1,3,6,1,4,1,9,9,427,1,1,1,1))
-czseCapabilityEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:czseCapabilityEntry.setStatus(_A)
-class _CzseCapabilityObject_Type(Bits):namedValues=NamedValues(*(('enhancedMode',0),('zsetDb',1),('dirAct',2),('hardZoning',3)))
-_CzseCapabilityObject_Type.__name__='Bits'
-_CzseCapabilityObject_Object=MibTableColumn
-czseCapabilityObject=_CzseCapabilityObject_Object((1,3,6,1,4,1,9,9,427,1,1,1,1,1),_CzseCapabilityObject_Type())
-czseCapabilityObject.setMaxAccess(_G)
-if mibBuilder.loadTexts:czseCapabilityObject.setStatus(_A)
-_CzseModeTable_Object=MibTable
-czseModeTable=_CzseModeTable_Object((1,3,6,1,4,1,9,9,427,1,1,2))
-if mibBuilder.loadTexts:czseModeTable.setStatus(_A)
-_CzseModeEntry_Object=MibTableRow
-czseModeEntry=_CzseModeEntry_Object((1,3,6,1,4,1,9,9,427,1,1,2,1))
-czseModeEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:czseModeEntry.setStatus(_A)
-class _CzseOperationMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('basic',1),('enhanced',2)))
-_CzseOperationMode_Type.__name__=_C
-_CzseOperationMode_Object=MibTableColumn
-czseOperationMode=_CzseOperationMode_Object((1,3,6,1,4,1,9,9,427,1,1,2,1,1),_CzseOperationMode_Type())
-czseOperationMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:czseOperationMode.setStatus(_A)
-class _CzseOperationModeResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('success',1),('failure',2),(_J,3)))
-_CzseOperationModeResult_Type.__name__=_C
-_CzseOperationModeResult_Object=MibTableColumn
-czseOperationModeResult=_CzseOperationModeResult_Object((1,3,6,1,4,1,9,9,427,1,1,2,1,2),_CzseOperationModeResult_Type())
-czseOperationModeResult.setMaxAccess(_G)
-if mibBuilder.loadTexts:czseOperationModeResult.setStatus(_A)
-class _CzseReadFrom_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('effectiveDB',1),('copyDB',2)))
-_CzseReadFrom_Type.__name__=_C
-_CzseReadFrom_Object=MibScalar
-czseReadFrom=_CzseReadFrom_Object((1,3,6,1,4,1,9,9,427,1,1,3),_CzseReadFrom_Type())
-czseReadFrom.setMaxAccess(_D)
-if mibBuilder.loadTexts:czseReadFrom.setStatus(_A)
-_CzseSessionTable_Object=MibTable
-czseSessionTable=_CzseSessionTable_Object((1,3,6,1,4,1,9,9,427,1,1,4))
-if mibBuilder.loadTexts:czseSessionTable.setStatus(_A)
-_CzseSessionEntry_Object=MibTableRow
-czseSessionEntry=_CzseSessionEntry_Object((1,3,6,1,4,1,9,9,427,1,1,4,1))
-czseSessionEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:czseSessionEntry.setStatus(_A)
-_CzseSessionOwnerType_Type=CzseSessOwnerType
-_CzseSessionOwnerType_Object=MibTableColumn
-czseSessionOwnerType=_CzseSessionOwnerType_Object((1,3,6,1,4,1,9,9,427,1,1,4,1,1),_CzseSessionOwnerType_Type())
-czseSessionOwnerType.setMaxAccess(_G)
-if mibBuilder.loadTexts:czseSessionOwnerType.setStatus(_A)
-class _CzseSessionOwner_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CzseSessionOwner_Type.__name__=_I
-_CzseSessionOwner_Object=MibTableColumn
-czseSessionOwner=_CzseSessionOwner_Object((1,3,6,1,4,1,9,9,427,1,1,4,1,2),_CzseSessionOwner_Type())
-czseSessionOwner.setMaxAccess(_G)
-if mibBuilder.loadTexts:czseSessionOwner.setStatus(_A)
-class _CzseSessionCntl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('commitChanges',1),('cleanup',2),('noop',3)))
-_CzseSessionCntl_Type.__name__=_C
-_CzseSessionCntl_Object=MibTableColumn
-czseSessionCntl=_CzseSessionCntl_Object((1,3,6,1,4,1,9,9,427,1,1,4,1,3),_CzseSessionCntl_Type())
-czseSessionCntl.setMaxAccess(_D)
-if mibBuilder.loadTexts:czseSessionCntl.setStatus(_A)
-class _CzseSessionCntlResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('commitSuccess',1),('commitFailure',2),(_J,3)))
-_CzseSessionCntlResult_Type.__name__=_C
-_CzseSessionCntlResult_Object=MibTableColumn
-czseSessionCntlResult=_CzseSessionCntlResult_Object((1,3,6,1,4,1,9,9,427,1,1,4,1,4),_CzseSessionCntlResult_Type())
-czseSessionCntlResult.setMaxAccess(_G)
-if mibBuilder.loadTexts:czseSessionCntlResult.setStatus(_A)
-_CzseMergeControlTable_Object=MibTable
-czseMergeControlTable=_CzseMergeControlTable_Object((1,3,6,1,4,1,9,9,427,1,1,5))
-if mibBuilder.loadTexts:czseMergeControlTable.setStatus(_A)
-_CzseMergeControlEntry_Object=MibTableRow
-czseMergeControlEntry=_CzseMergeControlEntry_Object((1,3,6,1,4,1,9,9,427,1,1,5,1))
-czseMergeControlEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:czseMergeControlEntry.setStatus(_A)
-class _CzseMergeControlRestrict_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('allow',1),('restrict',2)))
-_CzseMergeControlRestrict_Type.__name__=_C
-_CzseMergeControlRestrict_Object=MibTableColumn
-czseMergeControlRestrict=_CzseMergeControlRestrict_Object((1,3,6,1,4,1,9,9,427,1,1,5,1,1),_CzseMergeControlRestrict_Type())
-czseMergeControlRestrict.setMaxAccess(_D)
-if mibBuilder.loadTexts:czseMergeControlRestrict.setStatus(_A)
-class _CzseGlobalDefaultZoneBehaviour_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('permit',1),('deny',2)))
-_CzseGlobalDefaultZoneBehaviour_Type.__name__=_C
-_CzseGlobalDefaultZoneBehaviour_Object=MibScalar
-czseGlobalDefaultZoneBehaviour=_CzseGlobalDefaultZoneBehaviour_Object((1,3,6,1,4,1,9,9,427,1,1,6),_CzseGlobalDefaultZoneBehaviour_Type())
-czseGlobalDefaultZoneBehaviour.setMaxAccess(_D)
-if mibBuilder.loadTexts:czseGlobalDefaultZoneBehaviour.setStatus(_A)
-class _CzseGlobalPropagationMode_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('fullZoneset',1),('activeZoneset',2)))
-_CzseGlobalPropagationMode_Type.__name__=_C
-_CzseGlobalPropagationMode_Object=MibScalar
-czseGlobalPropagationMode=_CzseGlobalPropagationMode_Object((1,3,6,1,4,1,9,9,427,1,1,7),_CzseGlobalPropagationMode_Type())
-czseGlobalPropagationMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:czseGlobalPropagationMode.setStatus(_A)
-_CzseStats_ObjectIdentity=ObjectIdentity
-czseStats=_CzseStats_ObjectIdentity((1,3,6,1,4,1,9,9,427,1,2))
-_CiscoZsExtMIBConform_ObjectIdentity=ObjectIdentity
-ciscoZsExtMIBConform=_CiscoZsExtMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,427,2))
-_CiscoZsExtMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoZsExtMIBCompliances=_CiscoZsExtMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,427,2,1))
-_CiscoZsExtMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoZsExtMIBGroups=_CiscoZsExtMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,427,2,2))
-ciscoZsExtConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,427,2,2,1))
-ciscoZsExtConfigGroup.setObjects(*((_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S)))
-if mibBuilder.loadTexts:ciscoZsExtConfigGroup.setStatus(_A)
-ciscoZsExtConfigGroupSup1=ObjectGroup((1,3,6,1,4,1,9,9,427,2,2,2))
-ciscoZsExtConfigGroupSup1.setObjects(*((_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:ciscoZsExtConfigGroupSup1.setStatus(_A)
-ciscoZsExtMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,427,2,1,1))
-ciscoZsExtMIBCompliance.setObjects((_B,_H))
-if mibBuilder.loadTexts:ciscoZsExtMIBCompliance.setStatus('deprecated')
-ciscoZsExtMIBComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,9,427,2,1,2))
-ciscoZsExtMIBComplianceRev1.setObjects(*((_B,_H),(_B,_V)))
-if mibBuilder.loadTexts:ciscoZsExtMIBComplianceRev1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CzseSessOwnerType':CzseSessOwnerType,'ciscoZsExtMIB':ciscoZsExtMIB,'ciscoZsExtMIBNotifs':ciscoZsExtMIBNotifs,'ciscoZsExtMIBObjects':ciscoZsExtMIBObjects,'czseConfiguration':czseConfiguration,'czseCapabilityTable':czseCapabilityTable,'czseCapabilityEntry':czseCapabilityEntry,_K:czseCapabilityObject,'czseModeTable':czseModeTable,'czseModeEntry':czseModeEntry,_L:czseOperationMode,_M:czseOperationModeResult,_N:czseReadFrom,'czseSessionTable':czseSessionTable,'czseSessionEntry':czseSessionEntry,_O:czseSessionOwnerType,_P:czseSessionOwner,_Q:czseSessionCntl,_R:czseSessionCntlResult,'czseMergeControlTable':czseMergeControlTable,'czseMergeControlEntry':czseMergeControlEntry,_S:czseMergeControlRestrict,_T:czseGlobalDefaultZoneBehaviour,_U:czseGlobalPropagationMode,'czseStats':czseStats,'ciscoZsExtMIBConform':ciscoZsExtMIBConform,'ciscoZsExtMIBCompliances':ciscoZsExtMIBCompliances,'ciscoZsExtMIBCompliance':ciscoZsExtMIBCompliance,'ciscoZsExtMIBComplianceRev1':ciscoZsExtMIBComplianceRev1,'ciscoZsExtMIBGroups':ciscoZsExtMIBGroups,_H:ciscoZsExtConfigGroup,_V:ciscoZsExtConfigGroupSup1})
+#
+# PySNMP MIB module CISCO-ZS-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-ZS-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:22 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+vsanIndex, = mibBuilder.importSymbols("CISCO-VSAN-MIB", "vsanIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoZsExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 427))
+ciscoZsExtMIB.setRevisions(('2006-01-03 00:00', '2004-08-11 00:00',))
+if mibBuilder.loadTexts: ciscoZsExtMIB.setLastUpdated('200601030000Z')
+if mibBuilder.loadTexts: ciscoZsExtMIB.setOrganization('Cisco Systems Inc.')
+ciscoZsExtMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 427, 0))
+ciscoZsExtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 427, 1))
+ciscoZsExtMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 427, 2))
+czseConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1))
+czseStats = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 2))
+class CzseSessOwnerType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("other", 1), ("cli", 2), ("gs4client", 3), ("snmp", 4))
+
+czseCapabilityTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 1), )
+if mibBuilder.loadTexts: czseCapabilityTable.setStatus('current')
+czseCapabilityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-VSAN-MIB", "vsanIndex"))
+if mibBuilder.loadTexts: czseCapabilityEntry.setStatus('current')
+czseCapabilityObject = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 1, 1, 1), Bits().clone(namedValues=NamedValues(("enhancedMode", 0), ("zsetDb", 1), ("dirAct", 2), ("hardZoning", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: czseCapabilityObject.setStatus('current')
+czseModeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 2), )
+if mibBuilder.loadTexts: czseModeTable.setStatus('current')
+czseModeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 2, 1), ).setIndexNames((0, "CISCO-VSAN-MIB", "vsanIndex"))
+if mibBuilder.loadTexts: czseModeEntry.setStatus('current')
+czseOperationMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("basic", 1), ("enhanced", 2))).clone('basic')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: czseOperationMode.setStatus('current')
+czseOperationModeResult = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("success", 1), ("failure", 2), ("inProgress", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: czseOperationModeResult.setStatus('current')
+czseReadFrom = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("effectiveDB", 1), ("copyDB", 2))).clone('effectiveDB')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: czseReadFrom.setStatus('current')
+czseSessionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 4), )
+if mibBuilder.loadTexts: czseSessionTable.setStatus('current')
+czseSessionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 4, 1), ).setIndexNames((0, "CISCO-VSAN-MIB", "vsanIndex"))
+if mibBuilder.loadTexts: czseSessionEntry.setStatus('current')
+czseSessionOwnerType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 4, 1, 1), CzseSessOwnerType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: czseSessionOwnerType.setStatus('current')
+czseSessionOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 4, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: czseSessionOwner.setStatus('current')
+czseSessionCntl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("commitChanges", 1), ("cleanup", 2), ("noop", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: czseSessionCntl.setStatus('current')
+czseSessionCntlResult = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("commitSuccess", 1), ("commitFailure", 2), ("inProgress", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: czseSessionCntlResult.setStatus('current')
+czseMergeControlTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 5), )
+if mibBuilder.loadTexts: czseMergeControlTable.setStatus('current')
+czseMergeControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 5, 1), ).setIndexNames((0, "CISCO-VSAN-MIB", "vsanIndex"))
+if mibBuilder.loadTexts: czseMergeControlEntry.setStatus('current')
+czseMergeControlRestrict = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("allow", 1), ("restrict", 2))).clone('allow')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: czseMergeControlRestrict.setStatus('current')
+czseGlobalDefaultZoneBehaviour = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("permit", 1), ("deny", 2))).clone('deny')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: czseGlobalDefaultZoneBehaviour.setStatus('current')
+czseGlobalPropagationMode = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 427, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("fullZoneset", 1), ("activeZoneset", 2))).clone('activeZoneset')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: czseGlobalPropagationMode.setStatus('current')
+ciscoZsExtMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 427, 2, 1))
+ciscoZsExtMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 427, 2, 2))
+ciscoZsExtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 427, 2, 1, 1)).setObjects(("CISCO-ZS-EXT-MIB", "ciscoZsExtConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoZsExtMIBCompliance = ciscoZsExtMIBCompliance.setStatus('deprecated')
+ciscoZsExtMIBComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 427, 2, 1, 2)).setObjects(("CISCO-ZS-EXT-MIB", "ciscoZsExtConfigGroup"), ("CISCO-ZS-EXT-MIB", "ciscoZsExtConfigGroupSup1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoZsExtMIBComplianceRev1 = ciscoZsExtMIBComplianceRev1.setStatus('current')
+ciscoZsExtConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 427, 2, 2, 1)).setObjects(("CISCO-ZS-EXT-MIB", "czseCapabilityObject"), ("CISCO-ZS-EXT-MIB", "czseOperationMode"), ("CISCO-ZS-EXT-MIB", "czseOperationModeResult"), ("CISCO-ZS-EXT-MIB", "czseReadFrom"), ("CISCO-ZS-EXT-MIB", "czseSessionOwnerType"), ("CISCO-ZS-EXT-MIB", "czseSessionOwner"), ("CISCO-ZS-EXT-MIB", "czseSessionCntl"), ("CISCO-ZS-EXT-MIB", "czseSessionCntlResult"), ("CISCO-ZS-EXT-MIB", "czseMergeControlRestrict"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoZsExtConfigGroup = ciscoZsExtConfigGroup.setStatus('current')
+ciscoZsExtConfigGroupSup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 427, 2, 2, 2)).setObjects(("CISCO-ZS-EXT-MIB", "czseGlobalDefaultZoneBehaviour"), ("CISCO-ZS-EXT-MIB", "czseGlobalPropagationMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoZsExtConfigGroupSup1 = ciscoZsExtConfigGroupSup1.setStatus('current')
+mibBuilder.exportSymbols("CISCO-ZS-EXT-MIB", ciscoZsExtMIBConform=ciscoZsExtMIBConform, czseSessionTable=czseSessionTable, czseMergeControlRestrict=czseMergeControlRestrict, czseConfiguration=czseConfiguration, czseOperationModeResult=czseOperationModeResult, czseCapabilityTable=czseCapabilityTable, ciscoZsExtMIB=ciscoZsExtMIB, ciscoZsExtMIBCompliances=ciscoZsExtMIBCompliances, czseGlobalDefaultZoneBehaviour=czseGlobalDefaultZoneBehaviour, czseCapabilityEntry=czseCapabilityEntry, czseSessionEntry=czseSessionEntry, czseCapabilityObject=czseCapabilityObject, PYSNMP_MODULE_ID=ciscoZsExtMIB, czseSessionCntl=czseSessionCntl, ciscoZsExtMIBCompliance=ciscoZsExtMIBCompliance, czseStats=czseStats, czseSessionOwner=czseSessionOwner, ciscoZsExtMIBObjects=ciscoZsExtMIBObjects, czseModeEntry=czseModeEntry, czseSessionCntlResult=czseSessionCntlResult, ciscoZsExtMIBComplianceRev1=ciscoZsExtMIBComplianceRev1, czseModeTable=czseModeTable, czseMergeControlEntry=czseMergeControlEntry, CzseSessOwnerType=CzseSessOwnerType, czseReadFrom=czseReadFrom, czseSessionOwnerType=czseSessionOwnerType, czseOperationMode=czseOperationMode, czseMergeControlTable=czseMergeControlTable, ciscoZsExtConfigGroupSup1=ciscoZsExtConfigGroupSup1, ciscoZsExtMIBNotifs=ciscoZsExtMIBNotifs, ciscoZsExtMIBGroups=ciscoZsExtMIBGroups, czseGlobalPropagationMode=czseGlobalPropagationMode, ciscoZsExtConfigGroup=ciscoZsExtConfigGroup)

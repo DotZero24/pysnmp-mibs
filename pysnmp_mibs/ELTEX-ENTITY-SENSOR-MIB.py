@@ -1,127 +1,64 @@
-_P='eltexEntitySensorThresholdIndex'
-_O='read-write'
-_N='read-only'
-_M='SyslogSeverity'
-_L='EntitySensorValue'
-_K='eltexEntitySensorThresholdValue'
-_J='eltexEntitySensorThresholdRelation'
-_I='eltexEntitySensorThresholdSeverity'
-_H='entPhySensorValue'
-_G='ENTITY-SENSOR-MIB'
-_F='entPhysicalIndex'
-_E='ENTITY-MIB'
-_D='TruthValue'
-_C='read-create'
-_B='ELTEX-ENTITY-SENSOR-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-eltexLtd,=mibBuilder.importSymbols('ELTEX-SMI-ACTUAL','eltexLtd')
-EltexThresholdRelation,=mibBuilder.importSymbols('ELTEX-TC','EltexThresholdRelation')
-entPhysicalIndex,=mibBuilder.importSymbols(_E,_F)
-EntitySensorValue,entPhySensorValue=mibBuilder.importSymbols(_G,_L,_H)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_D)
-SyslogSeverity,=mibBuilder.importSymbols('SYSLOG-TC-MIB',_M)
-eltexEntitySensorMIB=ModuleIdentity((1,3,6,1,4,1,35265,40))
-if mibBuilder.loadTexts:eltexEntitySensorMIB.setRevisions(('2017-05-02 00:00',))
-_EltexEntitySensorMIBObjects_ObjectIdentity=ObjectIdentity
-eltexEntitySensorMIBObjects=_EltexEntitySensorMIBObjects_ObjectIdentity((1,3,6,1,4,1,35265,40,1))
-_EltexEntitySensorCommon_ObjectIdentity=ObjectIdentity
-eltexEntitySensorCommon=_EltexEntitySensorCommon_ObjectIdentity((1,3,6,1,4,1,35265,40,1,1))
-_EltexEntitySensorTable_Object=MibTable
-eltexEntitySensorTable=_EltexEntitySensorTable_Object((1,3,6,1,4,1,35265,40,1,1,2))
-if mibBuilder.loadTexts:eltexEntitySensorTable.setStatus(_A)
-_EltexEntitySensorEntry_Object=MibTableRow
-eltexEntitySensorEntry=_EltexEntitySensorEntry_Object((1,3,6,1,4,1,35265,40,1,1,2,1))
-eltexEntitySensorEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:eltexEntitySensorEntry.setStatus(_A)
-_EltexEntitySensorThresholdFreeIndex_Type=Unsigned32
-_EltexEntitySensorThresholdFreeIndex_Object=MibTableColumn
-eltexEntitySensorThresholdFreeIndex=_EltexEntitySensorThresholdFreeIndex_Object((1,3,6,1,4,1,35265,40,1,1,2,1,1),_EltexEntitySensorThresholdFreeIndex_Type())
-eltexEntitySensorThresholdFreeIndex.setMaxAccess(_N)
-if mibBuilder.loadTexts:eltexEntitySensorThresholdFreeIndex.setStatus(_A)
-_EltexEntitySensorThresholds_ObjectIdentity=ObjectIdentity
-eltexEntitySensorThresholds=_EltexEntitySensorThresholds_ObjectIdentity((1,3,6,1,4,1,35265,40,1,2))
-class _EltexEntitySensorThresholdNotificationGlobalEnable_Type(TruthValue):defaultValue=2
-_EltexEntitySensorThresholdNotificationGlobalEnable_Type.__name__=_D
-_EltexEntitySensorThresholdNotificationGlobalEnable_Object=MibScalar
-eltexEntitySensorThresholdNotificationGlobalEnable=_EltexEntitySensorThresholdNotificationGlobalEnable_Object((1,3,6,1,4,1,35265,40,1,2,1),_EltexEntitySensorThresholdNotificationGlobalEnable_Type())
-eltexEntitySensorThresholdNotificationGlobalEnable.setMaxAccess(_O)
-if mibBuilder.loadTexts:eltexEntitySensorThresholdNotificationGlobalEnable.setStatus(_A)
-class _EltexEntitySensorThresholdRecoveryNotificationGlobalEnable_Type(TruthValue):defaultValue=2
-_EltexEntitySensorThresholdRecoveryNotificationGlobalEnable_Type.__name__=_D
-_EltexEntitySensorThresholdRecoveryNotificationGlobalEnable_Object=MibScalar
-eltexEntitySensorThresholdRecoveryNotificationGlobalEnable=_EltexEntitySensorThresholdRecoveryNotificationGlobalEnable_Object((1,3,6,1,4,1,35265,40,1,2,2),_EltexEntitySensorThresholdRecoveryNotificationGlobalEnable_Type())
-eltexEntitySensorThresholdRecoveryNotificationGlobalEnable.setMaxAccess(_O)
-if mibBuilder.loadTexts:eltexEntitySensorThresholdRecoveryNotificationGlobalEnable.setStatus(_A)
-_EltexEntitySensorThresholdTable_Object=MibTable
-eltexEntitySensorThresholdTable=_EltexEntitySensorThresholdTable_Object((1,3,6,1,4,1,35265,40,1,2,3))
-if mibBuilder.loadTexts:eltexEntitySensorThresholdTable.setStatus(_A)
-_EltexEntitySensorThresholdEntry_Object=MibTableRow
-eltexEntitySensorThresholdEntry=_EltexEntitySensorThresholdEntry_Object((1,3,6,1,4,1,35265,40,1,2,3,1))
-eltexEntitySensorThresholdEntry.setIndexNames((0,_E,_F),(0,_B,_P))
-if mibBuilder.loadTexts:eltexEntitySensorThresholdEntry.setStatus(_A)
-_EltexEntitySensorThresholdIndex_Type=Unsigned32
-_EltexEntitySensorThresholdIndex_Object=MibTableColumn
-eltexEntitySensorThresholdIndex=_EltexEntitySensorThresholdIndex_Object((1,3,6,1,4,1,35265,40,1,2,3,1,1),_EltexEntitySensorThresholdIndex_Type())
-eltexEntitySensorThresholdIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:eltexEntitySensorThresholdIndex.setStatus(_A)
-_EltexEntitySensorThresholdRowStatus_Type=RowStatus
-_EltexEntitySensorThresholdRowStatus_Object=MibTableColumn
-eltexEntitySensorThresholdRowStatus=_EltexEntitySensorThresholdRowStatus_Object((1,3,6,1,4,1,35265,40,1,2,3,1,2),_EltexEntitySensorThresholdRowStatus_Type())
-eltexEntitySensorThresholdRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltexEntitySensorThresholdRowStatus.setStatus(_A)
-_EltexEntitySensorThresholdValue_Type=EntitySensorValue
-_EltexEntitySensorThresholdValue_Object=MibTableColumn
-eltexEntitySensorThresholdValue=_EltexEntitySensorThresholdValue_Object((1,3,6,1,4,1,35265,40,1,2,3,1,3),_EltexEntitySensorThresholdValue_Type())
-eltexEntitySensorThresholdValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltexEntitySensorThresholdValue.setStatus(_A)
-class _EltexEntitySensorThresholdFlappingInterval_Type(EntitySensorValue):defaultValue=0
-_EltexEntitySensorThresholdFlappingInterval_Type.__name__=_L
-_EltexEntitySensorThresholdFlappingInterval_Object=MibTableColumn
-eltexEntitySensorThresholdFlappingInterval=_EltexEntitySensorThresholdFlappingInterval_Object((1,3,6,1,4,1,35265,40,1,2,3,1,4),_EltexEntitySensorThresholdFlappingInterval_Type())
-eltexEntitySensorThresholdFlappingInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltexEntitySensorThresholdFlappingInterval.setStatus(_A)
-class _EltexEntitySensorThresholdSeverity_Type(SyslogSeverity):defaultValue=1
-_EltexEntitySensorThresholdSeverity_Type.__name__=_M
-_EltexEntitySensorThresholdSeverity_Object=MibTableColumn
-eltexEntitySensorThresholdSeverity=_EltexEntitySensorThresholdSeverity_Object((1,3,6,1,4,1,35265,40,1,2,3,1,5),_EltexEntitySensorThresholdSeverity_Type())
-eltexEntitySensorThresholdSeverity.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltexEntitySensorThresholdSeverity.setStatus(_A)
-_EltexEntitySensorThresholdRelation_Type=EltexThresholdRelation
-_EltexEntitySensorThresholdRelation_Object=MibTableColumn
-eltexEntitySensorThresholdRelation=_EltexEntitySensorThresholdRelation_Object((1,3,6,1,4,1,35265,40,1,2,3,1,6),_EltexEntitySensorThresholdRelation_Type())
-eltexEntitySensorThresholdRelation.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltexEntitySensorThresholdRelation.setStatus(_A)
-class _EltexEntitySensorThresholdNotificationEnable_Type(TruthValue):defaultValue=1
-_EltexEntitySensorThresholdNotificationEnable_Type.__name__=_D
-_EltexEntitySensorThresholdNotificationEnable_Object=MibTableColumn
-eltexEntitySensorThresholdNotificationEnable=_EltexEntitySensorThresholdNotificationEnable_Object((1,3,6,1,4,1,35265,40,1,2,3,1,7),_EltexEntitySensorThresholdNotificationEnable_Type())
-eltexEntitySensorThresholdNotificationEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltexEntitySensorThresholdNotificationEnable.setStatus(_A)
-class _EltexEntitySensorThresholdRecoveryNotificationEnable_Type(TruthValue):defaultValue=1
-_EltexEntitySensorThresholdRecoveryNotificationEnable_Type.__name__=_D
-_EltexEntitySensorThresholdRecoveryNotificationEnable_Object=MibTableColumn
-eltexEntitySensorThresholdRecoveryNotificationEnable=_EltexEntitySensorThresholdRecoveryNotificationEnable_Object((1,3,6,1,4,1,35265,40,1,2,3,1,8),_EltexEntitySensorThresholdRecoveryNotificationEnable_Type())
-eltexEntitySensorThresholdRecoveryNotificationEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltexEntitySensorThresholdRecoveryNotificationEnable.setStatus(_A)
-_EltexEntitySensorThresholdEvaluation_Type=TruthValue
-_EltexEntitySensorThresholdEvaluation_Object=MibTableColumn
-eltexEntitySensorThresholdEvaluation=_EltexEntitySensorThresholdEvaluation_Object((1,3,6,1,4,1,35265,40,1,2,3,1,9),_EltexEntitySensorThresholdEvaluation_Type())
-eltexEntitySensorThresholdEvaluation.setMaxAccess(_N)
-if mibBuilder.loadTexts:eltexEntitySensorThresholdEvaluation.setStatus(_A)
-_EltexEntitySensorMIBNotifications_ObjectIdentity=ObjectIdentity
-eltexEntitySensorMIBNotifications=_EltexEntitySensorMIBNotifications_ObjectIdentity((1,3,6,1,4,1,35265,40,2))
-_EltexEntitySensorMIBNotificationsPrefix_ObjectIdentity=ObjectIdentity
-eltexEntitySensorMIBNotificationsPrefix=_EltexEntitySensorMIBNotificationsPrefix_ObjectIdentity((1,3,6,1,4,1,35265,40,2,0))
-eltexEntitySensorThresholdNotification=NotificationType((1,3,6,1,4,1,35265,40,2,0,1))
-eltexEntitySensorThresholdNotification.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_G,_H)))
-if mibBuilder.loadTexts:eltexEntitySensorThresholdNotification.setStatus(_A)
-eltexEntitySensorThresholdRecoveryNotification=NotificationType((1,3,6,1,4,1,35265,40,2,0,2))
-eltexEntitySensorThresholdRecoveryNotification.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_G,_H)))
-if mibBuilder.loadTexts:eltexEntitySensorThresholdRecoveryNotification.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'eltexEntitySensorMIB':eltexEntitySensorMIB,'eltexEntitySensorMIBObjects':eltexEntitySensorMIBObjects,'eltexEntitySensorCommon':eltexEntitySensorCommon,'eltexEntitySensorTable':eltexEntitySensorTable,'eltexEntitySensorEntry':eltexEntitySensorEntry,'eltexEntitySensorThresholdFreeIndex':eltexEntitySensorThresholdFreeIndex,'eltexEntitySensorThresholds':eltexEntitySensorThresholds,'eltexEntitySensorThresholdNotificationGlobalEnable':eltexEntitySensorThresholdNotificationGlobalEnable,'eltexEntitySensorThresholdRecoveryNotificationGlobalEnable':eltexEntitySensorThresholdRecoveryNotificationGlobalEnable,'eltexEntitySensorThresholdTable':eltexEntitySensorThresholdTable,'eltexEntitySensorThresholdEntry':eltexEntitySensorThresholdEntry,_P:eltexEntitySensorThresholdIndex,'eltexEntitySensorThresholdRowStatus':eltexEntitySensorThresholdRowStatus,_K:eltexEntitySensorThresholdValue,'eltexEntitySensorThresholdFlappingInterval':eltexEntitySensorThresholdFlappingInterval,_I:eltexEntitySensorThresholdSeverity,_J:eltexEntitySensorThresholdRelation,'eltexEntitySensorThresholdNotificationEnable':eltexEntitySensorThresholdNotificationEnable,'eltexEntitySensorThresholdRecoveryNotificationEnable':eltexEntitySensorThresholdRecoveryNotificationEnable,'eltexEntitySensorThresholdEvaluation':eltexEntitySensorThresholdEvaluation,'eltexEntitySensorMIBNotifications':eltexEntitySensorMIBNotifications,'eltexEntitySensorMIBNotificationsPrefix':eltexEntitySensorMIBNotificationsPrefix,'eltexEntitySensorThresholdNotification':eltexEntitySensorThresholdNotification,'eltexEntitySensorThresholdRecoveryNotification':eltexEntitySensorThresholdRecoveryNotification})
+#
+# PySNMP MIB module ELTEX-ENTITY-SENSOR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-ENTITY-SENSOR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:39 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltexLtd, = mibBuilder.importSymbols("ELTEX-SMI-ACTUAL", "eltexLtd")
+EltexThresholdRelation, = mibBuilder.importSymbols("ELTEX-TC", "EltexThresholdRelation")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+entPhySensorValue, EntitySensorValue = mibBuilder.importSymbols("ENTITY-SENSOR-MIB", "entPhySensorValue", "EntitySensorValue")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+SyslogSeverity, = mibBuilder.importSymbols("SYSLOG-TC-MIB", "SyslogSeverity")
+eltexEntitySensorMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 40))
+eltexEntitySensorMIB.setRevisions(('2017-05-02 00:00',))
+if mibBuilder.loadTexts: eltexEntitySensorMIB.setLastUpdated('201705020000Z')
+if mibBuilder.loadTexts: eltexEntitySensorMIB.setOrganization('Eltex Enterprise, Ltd.')
+eltexEntitySensorMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 40, 1))
+eltexEntitySensorCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 40, 1, 1))
+eltexEntitySensorTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 40, 1, 1, 2), )
+if mibBuilder.loadTexts: eltexEntitySensorTable.setStatus('current')
+eltexEntitySensorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 40, 1, 1, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: eltexEntitySensorEntry.setStatus('current')
+eltexEntitySensorThresholdFreeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 40, 1, 1, 2, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexEntitySensorThresholdFreeIndex.setStatus('current')
+eltexEntitySensorThresholds = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 40, 1, 2))
+eltexEntitySensorThresholdNotificationGlobalEnable = MibScalar((1, 3, 6, 1, 4, 1, 35265, 40, 1, 2, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexEntitySensorThresholdNotificationGlobalEnable.setStatus('current')
+eltexEntitySensorThresholdRecoveryNotificationGlobalEnable = MibScalar((1, 3, 6, 1, 4, 1, 35265, 40, 1, 2, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexEntitySensorThresholdRecoveryNotificationGlobalEnable.setStatus('current')
+eltexEntitySensorThresholdTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 40, 1, 2, 3), )
+if mibBuilder.loadTexts: eltexEntitySensorThresholdTable.setStatus('current')
+eltexEntitySensorThresholdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 40, 1, 2, 3, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "ELTEX-ENTITY-SENSOR-MIB", "eltexEntitySensorThresholdIndex"))
+if mibBuilder.loadTexts: eltexEntitySensorThresholdEntry.setStatus('current')
+eltexEntitySensorThresholdIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 40, 1, 2, 3, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: eltexEntitySensorThresholdIndex.setStatus('current')
+eltexEntitySensorThresholdRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 40, 1, 2, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eltexEntitySensorThresholdRowStatus.setStatus('current')
+eltexEntitySensorThresholdValue = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 40, 1, 2, 3, 1, 3), EntitySensorValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eltexEntitySensorThresholdValue.setStatus('current')
+eltexEntitySensorThresholdFlappingInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 40, 1, 2, 3, 1, 4), EntitySensorValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eltexEntitySensorThresholdFlappingInterval.setStatus('current')
+eltexEntitySensorThresholdSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 40, 1, 2, 3, 1, 5), SyslogSeverity().clone('alert')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eltexEntitySensorThresholdSeverity.setStatus('current')
+eltexEntitySensorThresholdRelation = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 40, 1, 2, 3, 1, 6), EltexThresholdRelation()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eltexEntitySensorThresholdRelation.setStatus('current')
+eltexEntitySensorThresholdNotificationEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 40, 1, 2, 3, 1, 7), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eltexEntitySensorThresholdNotificationEnable.setStatus('current')
+eltexEntitySensorThresholdRecoveryNotificationEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 40, 1, 2, 3, 1, 8), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eltexEntitySensorThresholdRecoveryNotificationEnable.setStatus('current')
+eltexEntitySensorThresholdEvaluation = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 40, 1, 2, 3, 1, 9), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexEntitySensorThresholdEvaluation.setStatus('current')
+eltexEntitySensorMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 40, 2))
+eltexEntitySensorMIBNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 40, 2, 0))
+eltexEntitySensorThresholdNotification = NotificationType((1, 3, 6, 1, 4, 1, 35265, 40, 2, 0, 1)).setObjects(("ELTEX-ENTITY-SENSOR-MIB", "eltexEntitySensorThresholdSeverity"), ("ELTEX-ENTITY-SENSOR-MIB", "eltexEntitySensorThresholdRelation"), ("ELTEX-ENTITY-SENSOR-MIB", "eltexEntitySensorThresholdValue"), ("ENTITY-SENSOR-MIB", "entPhySensorValue"))
+if mibBuilder.loadTexts: eltexEntitySensorThresholdNotification.setStatus('current')
+eltexEntitySensorThresholdRecoveryNotification = NotificationType((1, 3, 6, 1, 4, 1, 35265, 40, 2, 0, 2)).setObjects(("ELTEX-ENTITY-SENSOR-MIB", "eltexEntitySensorThresholdSeverity"), ("ELTEX-ENTITY-SENSOR-MIB", "eltexEntitySensorThresholdRelation"), ("ELTEX-ENTITY-SENSOR-MIB", "eltexEntitySensorThresholdValue"), ("ENTITY-SENSOR-MIB", "entPhySensorValue"))
+if mibBuilder.loadTexts: eltexEntitySensorThresholdRecoveryNotification.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-ENTITY-SENSOR-MIB", eltexEntitySensorThresholdTable=eltexEntitySensorThresholdTable, eltexEntitySensorThresholdEntry=eltexEntitySensorThresholdEntry, eltexEntitySensorTable=eltexEntitySensorTable, eltexEntitySensorMIB=eltexEntitySensorMIB, eltexEntitySensorThresholdRelation=eltexEntitySensorThresholdRelation, eltexEntitySensorMIBNotificationsPrefix=eltexEntitySensorMIBNotificationsPrefix, eltexEntitySensorMIBObjects=eltexEntitySensorMIBObjects, eltexEntitySensorCommon=eltexEntitySensorCommon, eltexEntitySensorThresholdRowStatus=eltexEntitySensorThresholdRowStatus, PYSNMP_MODULE_ID=eltexEntitySensorMIB, eltexEntitySensorThresholds=eltexEntitySensorThresholds, eltexEntitySensorThresholdFreeIndex=eltexEntitySensorThresholdFreeIndex, eltexEntitySensorThresholdNotificationGlobalEnable=eltexEntitySensorThresholdNotificationGlobalEnable, eltexEntitySensorThresholdEvaluation=eltexEntitySensorThresholdEvaluation, eltexEntitySensorThresholdValue=eltexEntitySensorThresholdValue, eltexEntitySensorThresholdRecoveryNotificationEnable=eltexEntitySensorThresholdRecoveryNotificationEnable, eltexEntitySensorThresholdIndex=eltexEntitySensorThresholdIndex, eltexEntitySensorThresholdRecoveryNotificationGlobalEnable=eltexEntitySensorThresholdRecoveryNotificationGlobalEnable, eltexEntitySensorThresholdNotification=eltexEntitySensorThresholdNotification, eltexEntitySensorMIBNotifications=eltexEntitySensorMIBNotifications, eltexEntitySensorThresholdSeverity=eltexEntitySensorThresholdSeverity, eltexEntitySensorThresholdRecoveryNotification=eltexEntitySensorThresholdRecoveryNotification, eltexEntitySensorThresholdNotificationEnable=eltexEntitySensorThresholdNotificationEnable, eltexEntitySensorThresholdFlappingInterval=eltexEntitySensorThresholdFlappingInterval, eltexEntitySensorEntry=eltexEntitySensorEntry)

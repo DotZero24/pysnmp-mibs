@@ -1,84 +1,53 @@
-_O='etsysVlanAuthorizationGroup'
-_N='etsysVlanAuthorizationVlanID'
-_M='etsysVlanAuthorizationOperEgress'
-_L='etsysVlanAuthorizationAdminEgress'
-_K='etsysVlanAuthorizationStatus'
-_J='etsysVlanAuthorizationEnable'
-_I='read-only'
-_H='Integer32'
-_G='dot1dBasePort'
-_F='BRIDGE-MIB'
-_E='VlanAuthEgressStatus'
-_D='read-write'
-_C='EnabledStatus'
-_B='ENTERASYS-VLAN-AUTHORIZATION-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_F,_G)
-etsysModules,=mibBuilder.importSymbols('ENTERASYS-MIB-NAMES','etsysModules')
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB',_C)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-etsysVlanAuthorizationMIB=ModuleIdentity((1,3,6,1,4,1,5624,1,2,48))
-if mibBuilder.loadTexts:etsysVlanAuthorizationMIB.setRevisions(('2004-06-02 19:22',))
-class VlanAuthEgressStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('none',1),('tagged',2),('untagged',3),('dynamic',4)))
-_EtsysVlanAuthorizationObjects_ObjectIdentity=ObjectIdentity
-etsysVlanAuthorizationObjects=_EtsysVlanAuthorizationObjects_ObjectIdentity((1,3,6,1,4,1,5624,1,2,48,1))
-_EtsysVlanAuthorizationSystem_ObjectIdentity=ObjectIdentity
-etsysVlanAuthorizationSystem=_EtsysVlanAuthorizationSystem_ObjectIdentity((1,3,6,1,4,1,5624,1,2,48,1,1))
-class _EtsysVlanAuthorizationEnable_Type(EnabledStatus):defaultValue=2
-_EtsysVlanAuthorizationEnable_Type.__name__=_C
-_EtsysVlanAuthorizationEnable_Object=MibScalar
-etsysVlanAuthorizationEnable=_EtsysVlanAuthorizationEnable_Object((1,3,6,1,4,1,5624,1,2,48,1,1,1),_EtsysVlanAuthorizationEnable_Type())
-etsysVlanAuthorizationEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysVlanAuthorizationEnable.setStatus(_A)
-_EtsysVlanAuthorizationPorts_ObjectIdentity=ObjectIdentity
-etsysVlanAuthorizationPorts=_EtsysVlanAuthorizationPorts_ObjectIdentity((1,3,6,1,4,1,5624,1,2,48,1,2))
-_EtsysVlanAuthorizationTable_Object=MibTable
-etsysVlanAuthorizationTable=_EtsysVlanAuthorizationTable_Object((1,3,6,1,4,1,5624,1,2,48,1,2,1))
-if mibBuilder.loadTexts:etsysVlanAuthorizationTable.setStatus(_A)
-_EtsysVlanAuthorizationEntry_Object=MibTableRow
-etsysVlanAuthorizationEntry=_EtsysVlanAuthorizationEntry_Object((1,3,6,1,4,1,5624,1,2,48,1,2,1,1))
-etsysVlanAuthorizationEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:etsysVlanAuthorizationEntry.setStatus(_A)
-class _EtsysVlanAuthorizationStatus_Type(EnabledStatus):defaultValue=1
-_EtsysVlanAuthorizationStatus_Type.__name__=_C
-_EtsysVlanAuthorizationStatus_Object=MibTableColumn
-etsysVlanAuthorizationStatus=_EtsysVlanAuthorizationStatus_Object((1,3,6,1,4,1,5624,1,2,48,1,2,1,1,1),_EtsysVlanAuthorizationStatus_Type())
-etsysVlanAuthorizationStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysVlanAuthorizationStatus.setStatus(_A)
-class _EtsysVlanAuthorizationAdminEgress_Type(VlanAuthEgressStatus):defaultValue=3
-_EtsysVlanAuthorizationAdminEgress_Type.__name__=_E
-_EtsysVlanAuthorizationAdminEgress_Object=MibTableColumn
-etsysVlanAuthorizationAdminEgress=_EtsysVlanAuthorizationAdminEgress_Object((1,3,6,1,4,1,5624,1,2,48,1,2,1,1,2),_EtsysVlanAuthorizationAdminEgress_Type())
-etsysVlanAuthorizationAdminEgress.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysVlanAuthorizationAdminEgress.setStatus(_A)
-class _EtsysVlanAuthorizationOperEgress_Type(VlanAuthEgressStatus):defaultValue=1
-_EtsysVlanAuthorizationOperEgress_Type.__name__=_E
-_EtsysVlanAuthorizationOperEgress_Object=MibTableColumn
-etsysVlanAuthorizationOperEgress=_EtsysVlanAuthorizationOperEgress_Object((1,3,6,1,4,1,5624,1,2,48,1,2,1,1,3),_EtsysVlanAuthorizationOperEgress_Type())
-etsysVlanAuthorizationOperEgress.setMaxAccess(_I)
-if mibBuilder.loadTexts:etsysVlanAuthorizationOperEgress.setStatus(_A)
-class _EtsysVlanAuthorizationVlanID_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,4094),ValueRangeConstraint(4095,4095))
-_EtsysVlanAuthorizationVlanID_Type.__name__=_H
-_EtsysVlanAuthorizationVlanID_Object=MibTableColumn
-etsysVlanAuthorizationVlanID=_EtsysVlanAuthorizationVlanID_Object((1,3,6,1,4,1,5624,1,2,48,1,2,1,1,4),_EtsysVlanAuthorizationVlanID_Type())
-etsysVlanAuthorizationVlanID.setMaxAccess(_I)
-if mibBuilder.loadTexts:etsysVlanAuthorizationVlanID.setStatus(_A)
-_EtsysVlanAuthorizationConformance_ObjectIdentity=ObjectIdentity
-etsysVlanAuthorizationConformance=_EtsysVlanAuthorizationConformance_ObjectIdentity((1,3,6,1,4,1,5624,1,2,48,2))
-_EtsysVlanAuthorizationGroups_ObjectIdentity=ObjectIdentity
-etsysVlanAuthorizationGroups=_EtsysVlanAuthorizationGroups_ObjectIdentity((1,3,6,1,4,1,5624,1,2,48,2,1))
-_EtsysVlanAuthorizationCompliances_ObjectIdentity=ObjectIdentity
-etsysVlanAuthorizationCompliances=_EtsysVlanAuthorizationCompliances_ObjectIdentity((1,3,6,1,4,1,5624,1,2,48,2,2))
-etsysVlanAuthorizationGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,48,2,1,1))
-etsysVlanAuthorizationGroup.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:etsysVlanAuthorizationGroup.setStatus(_A)
-etsysVlanAuthorizationCompliance=ModuleCompliance((1,3,6,1,4,1,5624,1,2,48,2,2,1))
-etsysVlanAuthorizationCompliance.setObjects((_B,_O))
-if mibBuilder.loadTexts:etsysVlanAuthorizationCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_E:VlanAuthEgressStatus,'etsysVlanAuthorizationMIB':etsysVlanAuthorizationMIB,'etsysVlanAuthorizationObjects':etsysVlanAuthorizationObjects,'etsysVlanAuthorizationSystem':etsysVlanAuthorizationSystem,_J:etsysVlanAuthorizationEnable,'etsysVlanAuthorizationPorts':etsysVlanAuthorizationPorts,'etsysVlanAuthorizationTable':etsysVlanAuthorizationTable,'etsysVlanAuthorizationEntry':etsysVlanAuthorizationEntry,_K:etsysVlanAuthorizationStatus,_L:etsysVlanAuthorizationAdminEgress,_M:etsysVlanAuthorizationOperEgress,_N:etsysVlanAuthorizationVlanID,'etsysVlanAuthorizationConformance':etsysVlanAuthorizationConformance,'etsysVlanAuthorizationGroups':etsysVlanAuthorizationGroups,_O:etsysVlanAuthorizationGroup,'etsysVlanAuthorizationCompliances':etsysVlanAuthorizationCompliances,'etsysVlanAuthorizationCompliance':etsysVlanAuthorizationCompliance})
+#
+# PySNMP MIB module ENTERASYS-VLAN-AUTHORIZATION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/enterasys/ENTERASYS-VLAN-AUTHORIZATION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+etsysVlanAuthorizationMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48))
+etsysVlanAuthorizationMIB.setRevisions(('2004-06-02 19:22',))
+if mibBuilder.loadTexts: etsysVlanAuthorizationMIB.setLastUpdated('200406021922Z')
+if mibBuilder.loadTexts: etsysVlanAuthorizationMIB.setOrganization('Enterasys Networks, Inc')
+class VlanAuthEgressStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("none", 1), ("tagged", 2), ("untagged", 3), ("dynamic", 4))
+
+etsysVlanAuthorizationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48, 1))
+etsysVlanAuthorizationSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48, 1, 1))
+etsysVlanAuthorizationPorts = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48, 1, 2))
+etsysVlanAuthorizationEnable = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48, 1, 1, 1), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysVlanAuthorizationEnable.setStatus('current')
+etsysVlanAuthorizationTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48, 1, 2, 1), )
+if mibBuilder.loadTexts: etsysVlanAuthorizationTable.setStatus('current')
+etsysVlanAuthorizationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48, 1, 2, 1, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: etsysVlanAuthorizationEntry.setStatus('current')
+etsysVlanAuthorizationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48, 1, 2, 1, 1, 1), EnabledStatus().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysVlanAuthorizationStatus.setStatus('current')
+etsysVlanAuthorizationAdminEgress = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48, 1, 2, 1, 1, 2), VlanAuthEgressStatus().clone('untagged')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysVlanAuthorizationAdminEgress.setStatus('current')
+etsysVlanAuthorizationOperEgress = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48, 1, 2, 1, 1, 3), VlanAuthEgressStatus().clone('none')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysVlanAuthorizationOperEgress.setStatus('current')
+etsysVlanAuthorizationVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 4094), ValueRangeConstraint(4095, 4095), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysVlanAuthorizationVlanID.setStatus('current')
+etsysVlanAuthorizationConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48, 2))
+etsysVlanAuthorizationGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48, 2, 1))
+etsysVlanAuthorizationCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48, 2, 2))
+etsysVlanAuthorizationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48, 2, 1, 1)).setObjects(("ENTERASYS-VLAN-AUTHORIZATION-MIB", "etsysVlanAuthorizationEnable"), ("ENTERASYS-VLAN-AUTHORIZATION-MIB", "etsysVlanAuthorizationStatus"), ("ENTERASYS-VLAN-AUTHORIZATION-MIB", "etsysVlanAuthorizationAdminEgress"), ("ENTERASYS-VLAN-AUTHORIZATION-MIB", "etsysVlanAuthorizationOperEgress"), ("ENTERASYS-VLAN-AUTHORIZATION-MIB", "etsysVlanAuthorizationVlanID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysVlanAuthorizationGroup = etsysVlanAuthorizationGroup.setStatus('current')
+etsysVlanAuthorizationCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 48, 2, 2, 1)).setObjects(("ENTERASYS-VLAN-AUTHORIZATION-MIB", "etsysVlanAuthorizationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysVlanAuthorizationCompliance = etsysVlanAuthorizationCompliance.setStatus('current')
+mibBuilder.exportSymbols("ENTERASYS-VLAN-AUTHORIZATION-MIB", etsysVlanAuthorizationGroups=etsysVlanAuthorizationGroups, etsysVlanAuthorizationVlanID=etsysVlanAuthorizationVlanID, etsysVlanAuthorizationAdminEgress=etsysVlanAuthorizationAdminEgress, etsysVlanAuthorizationStatus=etsysVlanAuthorizationStatus, etsysVlanAuthorizationMIB=etsysVlanAuthorizationMIB, VlanAuthEgressStatus=VlanAuthEgressStatus, etsysVlanAuthorizationConformance=etsysVlanAuthorizationConformance, etsysVlanAuthorizationPorts=etsysVlanAuthorizationPorts, etsysVlanAuthorizationObjects=etsysVlanAuthorizationObjects, etsysVlanAuthorizationEnable=etsysVlanAuthorizationEnable, etsysVlanAuthorizationTable=etsysVlanAuthorizationTable, etsysVlanAuthorizationOperEgress=etsysVlanAuthorizationOperEgress, etsysVlanAuthorizationEntry=etsysVlanAuthorizationEntry, etsysVlanAuthorizationSystem=etsysVlanAuthorizationSystem, etsysVlanAuthorizationCompliances=etsysVlanAuthorizationCompliances, etsysVlanAuthorizationGroup=etsysVlanAuthorizationGroup, etsysVlanAuthorizationCompliance=etsysVlanAuthorizationCompliance, PYSNMP_MODULE_ID=etsysVlanAuthorizationMIB)

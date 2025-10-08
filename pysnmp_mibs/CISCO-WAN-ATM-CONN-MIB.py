@@ -1,644 +1,294 @@
-_Al='ciscoWanAtmConnChan4MIBGroup'
-_Ak='ciscoWanAtmConnChan3MIBGroup'
-_Aj='ciscoWanAtmConnChan2MIBGroup'
-_Ai='ciscoWanAtmConnChanMIBGroup'
-_Ah='cwChanGlobalTransactionId'
-_Ag='cwaChanDirectRoute'
-_Af='cwaChanPrefRouteId'
-_Ae='cwaChanP2MP'
-_Ad='cwaChanNumVCCsInAlarm'
-_Ac='cwaChanNumVPCsInAlarm'
-_Ab='cwaChanIngressRcvState'
-_Aa='cwaChanIngressXmtState'
-_AZ='cwaChanEgressRcvState'
-_AY='cwaChanEgressXmtState'
-_AX='cwaChanAlarmState'
-_AW='cwaChanRemoteCDVT'
-_AV='cwSlotIndex'
-_AU='CiscoWanTestStatus'
-_AT='CiscoWanLpbkTypes'
-_AS='CiscoWanAisIW'
-_AR='CiscoWanERSConfg'
-_AQ='milliseconds'
-_AP='ciscoWanAtmInformationGroup'
-_AO='cwaChanRoutingPriority'
-_AN='cwaChanSlaveType'
-_AM='cwaChanAisIWCapability'
-_AL='cwaChanAbrERS'
-_AK='read-write'
-_AJ='CiscoWanVSVDConfg'
-_AI='cells'
-_AH='not-accessible'
-_AG='cwaChanOamSegEpEnable'
-_AF='cwaChanVci'
-_AE='cwaChanVpi'
-_AD='ifIndex'
-_AC='IF-MIB'
-_AB='ciscoWanAtmConnStateGroup'
-_AA='cwaChanTestRoundTripDelay'
-_A9='cwaChanTestState'
-_A8='cwaChanTestIterations'
-_A7='cwaChanTestDir'
-_A6='cwaChanTestType'
-_A5='cwaChanRemoteCLR'
-_A4='cwaChanCLR'
-_A3='cwaChanExtAbrVSVD'
-_A2='cwaChanIntAbrVSVD'
-_A1='cwaChanRowStatus'
-_A0='cwaChanAbrVSVDEnable'
-_z='cwaChanAbrTBE'
-_y='cwaChanAbrFRTT'
-_x='cwaChanAbrCDF'
-_w='cwaChanAbrTRM'
-_v='cwaChanAbrNRM'
-_u='cwaChanAbrRIF'
-_t='cwaChanAbrRDF'
-_s='cwaChanAbrADTF'
-_r='cwaChanAbrICR'
-_q='cwaChanRemotePercentUtil'
-_p='cwaChanRemoteMBS'
-_o='cwaChanRemoteCTD'
-_n='cwaChanRemoteCDV'
-_m='cwaChanRemoteSCR'
-_l='cwaChanRemoteMCR'
-_k='cwaChanRemotePCR'
-_j='cwaChanPercentUtil'
-_i='cwaChanCDVT'
-_h='cwaChanMBS'
-_g='cwaChanCTD'
-_f='cwaChanCDV'
-_e='cwaChanSCR'
-_d='cwaChanMCR'
-_c='cwaChanPCR'
-_b='cwaChanOperStatus'
-_a='cwaChanFrameDiscard'
-_Z='cwaChanReroute'
-_Y='cwaChanMaxCost'
-_X='cwaChanRoutingMastership'
-_W='cwaChanControllerId'
-_V='cwaChanRemoteNSAPAddr'
-_U='cwaChanRemoteVci'
-_T='cwaChanRemoteVpi'
-_S='cwaChanLocalNSAPAddr'
-_R='cwaChanLocalVci'
-_Q='cwaChanLocalVpi'
-_P='cwaChanIdentifier'
-_O='cwaChanUploadCounter'
-_N='cwaChanCCEnable'
-_M='cwaChanStatsEnable'
-_L='cwaChanVpcFlag'
-_K='cwaChanServiceCategory'
-_J='microseconds'
-_I='cells per second'
-_H='Integer32'
-_G='deprecated'
-_F='TruthValue'
-_E='read-only'
-_D='Unsigned32'
-_C='read-create'
-_B='current'
-_A='CISCO-WAN-ATM-CONN-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoWan,=mibBuilder.importSymbols('CISCOWAN-SMI','ciscoWan')
-ifIndex,=mibBuilder.importSymbols(_AC,_AD)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_F)
-ciscoWanAtmConnMIB=ModuleIdentity((1,3,6,1,4,1,351,150,1))
-if mibBuilder.loadTexts:ciscoWanAtmConnMIB.setRevisions(('2003-03-30 00:00','2002-09-18 00:00','2002-03-24 00:00','2001-02-09 00:00','2001-01-03 00:00','2000-11-15 00:00','2000-07-17 00:00','2000-06-19 00:00'))
-class CiscoAtmServiceCategory(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12)));namedValues=NamedValues(*(('cbr1',1),('vbr1RT',2),('vbr2RT',3),('vbr3RT',4),('vbr1nRT',5),('vbr2nRT',6),('vbr3nRT',7),('ubr1',8),('ubr2',9),('abr',10),('cbr2',11),('cbr3',12)))
-class CiscoWanLpbkTypes(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('noLpbk',1),('destructive',2),('nonDestructive',3)))
-class CiscoWanLpbkDir(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('external',1),('internal',2),('forward',3),('reverse',4)))
-class CiscoWanTestStatus(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('noStatus',1),('lpbkInProgress',2),('lpbkSuccess',3),('lpbkAbort',4),('lpbkTimeOut',5),('lpbkInEffect',6)))
-class CiscoWanOperStatus(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('operOk',1),('operFail',2),('adminDown',3)))
-class CiscoWanNsapAtmAddress(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(20,20));fixedLength=20
-class CiscoWanAlarmState(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,4,8,16,32,64)));namedValues=NamedValues(*(('ingAisRdi',1),('egrAisRdi',2),('conditioned',4),('interfaceFail',8),('ccFail',16),('mismatch',32),('ingAbitFail',64)))
-class CiscoWanXmtState(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('normal',1),('sendingAIS',2),('sendingRDI',3)))
-class CiscoWanRcvState(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('normal',1),('receivingRDI',2),('receivingAIS',3),('ccFailure',4)))
-class CiscoWanERSConfg(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('none',1),('enableIngress',2),('enableEgress',3),('enableBoth',4)))
-class CiscoWanVSVDConfg(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('vsvdOff',1),('vsvdOn',2),('switchDefault',3)))
-class CiscoWanAisIW(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('e2eAisCapable',1),('segAisCapable',2)))
-class AbrRateFactors(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16)));namedValues=NamedValues(*(('oneOver32768',1),('oneOver16384',2),('oneOver8192',3),('oneOver4096',4),('oneOver2048',5),('oneOver1024',6),('oneOver512',7),('oneOver256',8),('oneOver128',9),('oneOver64',10),('oneOver32',11),('oneOver16',12),('oneOver8',13),('oneOver4',14),('oneOver2',15),('one',16)))
-_CwConnMibObjects_ObjectIdentity=ObjectIdentity
-cwConnMibObjects=_CwConnMibObjects_ObjectIdentity((1,3,6,1,4,1,351,150,1,1))
-_CwAtmChanCnfg_ObjectIdentity=ObjectIdentity
-cwAtmChanCnfg=_CwAtmChanCnfg_ObjectIdentity((1,3,6,1,4,1,351,150,1,1,1))
-_CwAtmChanCnfgTable_Object=MibTable
-cwAtmChanCnfgTable=_CwAtmChanCnfgTable_Object((1,3,6,1,4,1,351,150,1,1,1,1))
-if mibBuilder.loadTexts:cwAtmChanCnfgTable.setStatus(_B)
-_CwAtmChanCnfgEntry_Object=MibTableRow
-cwAtmChanCnfgEntry=_CwAtmChanCnfgEntry_Object((1,3,6,1,4,1,351,150,1,1,1,1,1))
-cwAtmChanCnfgEntry.setIndexNames((0,_AC,_AD),(0,_A,_AE),(0,_A,_AF))
-if mibBuilder.loadTexts:cwAtmChanCnfgEntry.setStatus(_B)
-class _CwaChanVpi_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_CwaChanVpi_Type.__name__=_D
-_CwaChanVpi_Object=MibTableColumn
-cwaChanVpi=_CwaChanVpi_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,1),_CwaChanVpi_Type())
-cwaChanVpi.setMaxAccess(_AH)
-if mibBuilder.loadTexts:cwaChanVpi.setStatus(_B)
-class _CwaChanVci_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CwaChanVci_Type.__name__=_D
-_CwaChanVci_Object=MibTableColumn
-cwaChanVci=_CwaChanVci_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,2),_CwaChanVci_Type())
-cwaChanVci.setMaxAccess(_AH)
-if mibBuilder.loadTexts:cwaChanVci.setStatus(_B)
-_CwaChanServiceCategory_Type=CiscoAtmServiceCategory
-_CwaChanServiceCategory_Object=MibTableColumn
-cwaChanServiceCategory=_CwaChanServiceCategory_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,3),_CwaChanServiceCategory_Type())
-cwaChanServiceCategory.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanServiceCategory.setStatus(_B)
-_CwaChanVpcFlag_Type=TruthValue
-_CwaChanVpcFlag_Object=MibTableColumn
-cwaChanVpcFlag=_CwaChanVpcFlag_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,4),_CwaChanVpcFlag_Type())
-cwaChanVpcFlag.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanVpcFlag.setStatus(_B)
-class _CwaChanIdentifier_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CwaChanIdentifier_Type.__name__=_D
-_CwaChanIdentifier_Object=MibTableColumn
-cwaChanIdentifier=_CwaChanIdentifier_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,5),_CwaChanIdentifier_Type())
-cwaChanIdentifier.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwaChanIdentifier.setStatus(_B)
-class _CwaChanUploadCounter_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CwaChanUploadCounter_Type.__name__=_D
-_CwaChanUploadCounter_Object=MibTableColumn
-cwaChanUploadCounter=_CwaChanUploadCounter_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,6),_CwaChanUploadCounter_Type())
-cwaChanUploadCounter.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwaChanUploadCounter.setStatus(_B)
-class _CwaChanStatsEnable_Type(TruthValue):defaultValue=2
-_CwaChanStatsEnable_Type.__name__=_F
-_CwaChanStatsEnable_Object=MibTableColumn
-cwaChanStatsEnable=_CwaChanStatsEnable_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,7),_CwaChanStatsEnable_Type())
-cwaChanStatsEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanStatsEnable.setStatus(_B)
-class _CwaChanCCEnable_Type(TruthValue):defaultValue=2
-_CwaChanCCEnable_Type.__name__=_F
-_CwaChanCCEnable_Object=MibTableColumn
-cwaChanCCEnable=_CwaChanCCEnable_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,8),_CwaChanCCEnable_Type())
-cwaChanCCEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanCCEnable.setStatus(_B)
-class _CwaChanLocalVpi_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_CwaChanLocalVpi_Type.__name__=_D
-_CwaChanLocalVpi_Object=MibTableColumn
-cwaChanLocalVpi=_CwaChanLocalVpi_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,9),_CwaChanLocalVpi_Type())
-cwaChanLocalVpi.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwaChanLocalVpi.setStatus(_B)
-class _CwaChanLocalVci_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CwaChanLocalVci_Type.__name__=_D
-_CwaChanLocalVci_Object=MibTableColumn
-cwaChanLocalVci=_CwaChanLocalVci_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,10),_CwaChanLocalVci_Type())
-cwaChanLocalVci.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwaChanLocalVci.setStatus(_B)
-_CwaChanLocalNSAPAddr_Type=CiscoWanNsapAtmAddress
-_CwaChanLocalNSAPAddr_Object=MibTableColumn
-cwaChanLocalNSAPAddr=_CwaChanLocalNSAPAddr_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,11),_CwaChanLocalNSAPAddr_Type())
-cwaChanLocalNSAPAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwaChanLocalNSAPAddr.setStatus(_B)
-class _CwaChanRemoteVpi_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_CwaChanRemoteVpi_Type.__name__=_D
-_CwaChanRemoteVpi_Object=MibTableColumn
-cwaChanRemoteVpi=_CwaChanRemoteVpi_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,12),_CwaChanRemoteVpi_Type())
-cwaChanRemoteVpi.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanRemoteVpi.setStatus(_B)
-class _CwaChanRemoteVci_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CwaChanRemoteVci_Type.__name__=_D
-_CwaChanRemoteVci_Object=MibTableColumn
-cwaChanRemoteVci=_CwaChanRemoteVci_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,13),_CwaChanRemoteVci_Type())
-cwaChanRemoteVci.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanRemoteVci.setStatus(_B)
-_CwaChanRemoteNSAPAddr_Type=CiscoWanNsapAtmAddress
-_CwaChanRemoteNSAPAddr_Object=MibTableColumn
-cwaChanRemoteNSAPAddr=_CwaChanRemoteNSAPAddr_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,14),_CwaChanRemoteNSAPAddr_Type())
-cwaChanRemoteNSAPAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanRemoteNSAPAddr.setStatus(_B)
-class _CwaChanControllerId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_CwaChanControllerId_Type.__name__=_D
-_CwaChanControllerId_Object=MibTableColumn
-cwaChanControllerId=_CwaChanControllerId_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,15),_CwaChanControllerId_Type())
-cwaChanControllerId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanControllerId.setStatus(_B)
-class _CwaChanRoutingMastership_Type(TruthValue):defaultValue=2
-_CwaChanRoutingMastership_Type.__name__=_F
-_CwaChanRoutingMastership_Object=MibTableColumn
-cwaChanRoutingMastership=_CwaChanRoutingMastership_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,16),_CwaChanRoutingMastership_Type())
-cwaChanRoutingMastership.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanRoutingMastership.setStatus(_B)
-class _CwaChanMaxCost_Type(Unsigned32):defaultValue=4294967295;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CwaChanMaxCost_Type.__name__=_D
-_CwaChanMaxCost_Object=MibTableColumn
-cwaChanMaxCost=_CwaChanMaxCost_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,17),_CwaChanMaxCost_Type())
-cwaChanMaxCost.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanMaxCost.setStatus(_B)
-class _CwaChanReroute_Type(TruthValue):defaultValue=2
-_CwaChanReroute_Type.__name__=_F
-_CwaChanReroute_Object=MibTableColumn
-cwaChanReroute=_CwaChanReroute_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,18),_CwaChanReroute_Type())
-cwaChanReroute.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanReroute.setStatus(_B)
-class _CwaChanFrameDiscard_Type(TruthValue):defaultValue=2
-_CwaChanFrameDiscard_Type.__name__=_F
-_CwaChanFrameDiscard_Object=MibTableColumn
-cwaChanFrameDiscard=_CwaChanFrameDiscard_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,19),_CwaChanFrameDiscard_Type())
-cwaChanFrameDiscard.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanFrameDiscard.setStatus(_B)
-_CwaChanOperStatus_Type=CiscoWanOperStatus
-_CwaChanOperStatus_Object=MibTableColumn
-cwaChanOperStatus=_CwaChanOperStatus_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,20),_CwaChanOperStatus_Type())
-cwaChanOperStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwaChanOperStatus.setStatus(_B)
-class _CwaChanPCR_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CwaChanPCR_Type.__name__=_D
-_CwaChanPCR_Object=MibTableColumn
-cwaChanPCR=_CwaChanPCR_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,21),_CwaChanPCR_Type())
-cwaChanPCR.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanPCR.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanPCR.setUnits(_I)
-class _CwaChanMCR_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CwaChanMCR_Type.__name__=_D
-_CwaChanMCR_Object=MibTableColumn
-cwaChanMCR=_CwaChanMCR_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,22),_CwaChanMCR_Type())
-cwaChanMCR.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanMCR.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanMCR.setUnits(_I)
-class _CwaChanSCR_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CwaChanSCR_Type.__name__=_D
-_CwaChanSCR_Object=MibTableColumn
-cwaChanSCR=_CwaChanSCR_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,23),_CwaChanSCR_Type())
-cwaChanSCR.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanSCR.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanSCR.setUnits(_I)
-class _CwaChanCDV_Type(Unsigned32):defaultValue=16777215;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16777215))
-_CwaChanCDV_Type.__name__=_D
-_CwaChanCDV_Object=MibTableColumn
-cwaChanCDV=_CwaChanCDV_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,24),_CwaChanCDV_Type())
-cwaChanCDV.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanCDV.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanCDV.setUnits(_J)
-class _CwaChanCTD_Type(Unsigned32):defaultValue=65535;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CwaChanCTD_Type.__name__=_D
-_CwaChanCTD_Object=MibTableColumn
-cwaChanCTD=_CwaChanCTD_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,25),_CwaChanCTD_Type())
-cwaChanCTD.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanCTD.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanCTD.setUnits(_AQ)
-class _CwaChanMBS_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,5000000))
-_CwaChanMBS_Type.__name__=_D
-_CwaChanMBS_Object=MibTableColumn
-cwaChanMBS=_CwaChanMBS_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,26),_CwaChanMBS_Type())
-cwaChanMBS.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanMBS.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanMBS.setUnits(_AI)
-class _CwaChanCDVT_Type(Unsigned32):defaultValue=4294967295;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CwaChanCDVT_Type.__name__=_D
-_CwaChanCDVT_Object=MibTableColumn
-cwaChanCDVT=_CwaChanCDVT_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,27),_CwaChanCDVT_Type())
-cwaChanCDVT.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanCDVT.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanCDVT.setUnits(_J)
-class _CwaChanPercentUtil_Type(Unsigned32):defaultValue=100;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_CwaChanPercentUtil_Type.__name__=_D
-_CwaChanPercentUtil_Object=MibTableColumn
-cwaChanPercentUtil=_CwaChanPercentUtil_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,28),_CwaChanPercentUtil_Type())
-cwaChanPercentUtil.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanPercentUtil.setStatus(_B)
-class _CwaChanRemotePCR_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CwaChanRemotePCR_Type.__name__=_D
-_CwaChanRemotePCR_Object=MibTableColumn
-cwaChanRemotePCR=_CwaChanRemotePCR_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,29),_CwaChanRemotePCR_Type())
-cwaChanRemotePCR.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanRemotePCR.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanRemotePCR.setUnits(_I)
-class _CwaChanRemoteMCR_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CwaChanRemoteMCR_Type.__name__=_D
-_CwaChanRemoteMCR_Object=MibTableColumn
-cwaChanRemoteMCR=_CwaChanRemoteMCR_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,30),_CwaChanRemoteMCR_Type())
-cwaChanRemoteMCR.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanRemoteMCR.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanRemoteMCR.setUnits(_I)
-class _CwaChanRemoteSCR_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CwaChanRemoteSCR_Type.__name__=_D
-_CwaChanRemoteSCR_Object=MibTableColumn
-cwaChanRemoteSCR=_CwaChanRemoteSCR_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,31),_CwaChanRemoteSCR_Type())
-cwaChanRemoteSCR.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanRemoteSCR.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanRemoteSCR.setUnits(_I)
-class _CwaChanRemoteCDV_Type(Unsigned32):defaultValue=16777215;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16777215))
-_CwaChanRemoteCDV_Type.__name__=_D
-_CwaChanRemoteCDV_Object=MibTableColumn
-cwaChanRemoteCDV=_CwaChanRemoteCDV_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,32),_CwaChanRemoteCDV_Type())
-cwaChanRemoteCDV.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanRemoteCDV.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanRemoteCDV.setUnits(_J)
-class _CwaChanRemoteCTD_Type(Unsigned32):defaultValue=65535;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CwaChanRemoteCTD_Type.__name__=_D
-_CwaChanRemoteCTD_Object=MibTableColumn
-cwaChanRemoteCTD=_CwaChanRemoteCTD_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,33),_CwaChanRemoteCTD_Type())
-cwaChanRemoteCTD.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanRemoteCTD.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanRemoteCTD.setUnits(_AQ)
-class _CwaChanRemoteMBS_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,5000000))
-_CwaChanRemoteMBS_Type.__name__=_D
-_CwaChanRemoteMBS_Object=MibTableColumn
-cwaChanRemoteMBS=_CwaChanRemoteMBS_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,34),_CwaChanRemoteMBS_Type())
-cwaChanRemoteMBS.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanRemoteMBS.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanRemoteMBS.setUnits(_AI)
-class _CwaChanRemoteCDVT_Type(Unsigned32):defaultValue=4294967295;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CwaChanRemoteCDVT_Type.__name__=_D
-_CwaChanRemoteCDVT_Object=MibTableColumn
-cwaChanRemoteCDVT=_CwaChanRemoteCDVT_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,35),_CwaChanRemoteCDVT_Type())
-cwaChanRemoteCDVT.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanRemoteCDVT.setStatus(_G)
-if mibBuilder.loadTexts:cwaChanRemoteCDVT.setUnits(_AI)
-class _CwaChanRemotePercentUtil_Type(Unsigned32):defaultValue=100;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_CwaChanRemotePercentUtil_Type.__name__=_D
-_CwaChanRemotePercentUtil_Object=MibTableColumn
-cwaChanRemotePercentUtil=_CwaChanRemotePercentUtil_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,36),_CwaChanRemotePercentUtil_Type())
-cwaChanRemotePercentUtil.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanRemotePercentUtil.setStatus(_B)
-class _CwaChanAbrICR_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CwaChanAbrICR_Type.__name__=_D
-_CwaChanAbrICR_Object=MibTableColumn
-cwaChanAbrICR=_CwaChanAbrICR_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,37),_CwaChanAbrICR_Type())
-cwaChanAbrICR.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanAbrICR.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanAbrICR.setUnits('cells/sec')
-class _CwaChanAbrADTF_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1023))
-_CwaChanAbrADTF_Type.__name__=_D
-_CwaChanAbrADTF_Object=MibTableColumn
-cwaChanAbrADTF=_CwaChanAbrADTF_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,38),_CwaChanAbrADTF_Type())
-cwaChanAbrADTF.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanAbrADTF.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanAbrADTF.setUnits('10 milliseconds')
-_CwaChanAbrRDF_Type=AbrRateFactors
-_CwaChanAbrRDF_Object=MibTableColumn
-cwaChanAbrRDF=_CwaChanAbrRDF_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,39),_CwaChanAbrRDF_Type())
-cwaChanAbrRDF.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanAbrRDF.setStatus(_B)
-_CwaChanAbrRIF_Type=AbrRateFactors
-_CwaChanAbrRIF_Object=MibTableColumn
-cwaChanAbrRIF=_CwaChanAbrRIF_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,40),_CwaChanAbrRIF_Type())
-cwaChanAbrRIF.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanAbrRIF.setStatus(_B)
-class _CwaChanAbrNRM_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('nrm2',1),('nrm4',2),('nrm8',3),('nrm16',4),('nrm32',5),('nrm64',6),('nrm128',7),('nrm256',8)))
-_CwaChanAbrNRM_Type.__name__=_H
-_CwaChanAbrNRM_Object=MibTableColumn
-cwaChanAbrNRM=_CwaChanAbrNRM_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,41),_CwaChanAbrNRM_Type())
-cwaChanAbrNRM.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanAbrNRM.setStatus(_B)
-class _CwaChanAbrTRM_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('trm0point78125',1),('trm1point5625',2),('trm3point125',3),('trm6point25',4),('trm12point5',5),('trm25',6),('trm50',7),('trm100',8)))
-_CwaChanAbrTRM_Type.__name__=_H
-_CwaChanAbrTRM_Object=MibTableColumn
-cwaChanAbrTRM=_CwaChanAbrTRM_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,42),_CwaChanAbrTRM_Type())
-cwaChanAbrTRM.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanAbrTRM.setStatus(_B)
-class _CwaChanAbrCDF_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('cdf0',1),('cdfOneOver64',2),('cdfOneOver32',3),('cdfOneOver16',4),('cdfOneOver8',5),('cdfOneOver4',6),('cdfOneOver2',7),('cdfOne',8)))
-_CwaChanAbrCDF_Type.__name__=_H
-_CwaChanAbrCDF_Object=MibTableColumn
-cwaChanAbrCDF=_CwaChanAbrCDF_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,43),_CwaChanAbrCDF_Type())
-cwaChanAbrCDF.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanAbrCDF.setStatus(_B)
-class _CwaChanAbrFRTT_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16700000))
-_CwaChanAbrFRTT_Type.__name__=_D
-_CwaChanAbrFRTT_Object=MibTableColumn
-cwaChanAbrFRTT=_CwaChanAbrFRTT_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,44),_CwaChanAbrFRTT_Type())
-cwaChanAbrFRTT.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanAbrFRTT.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanAbrFRTT.setUnits(_J)
-class _CwaChanAbrTBE_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16777215))
-_CwaChanAbrTBE_Type.__name__=_D
-_CwaChanAbrTBE_Object=MibTableColumn
-cwaChanAbrTBE=_CwaChanAbrTBE_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,45),_CwaChanAbrTBE_Type())
-cwaChanAbrTBE.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanAbrTBE.setStatus(_B)
-class _CwaChanAbrERS_Type(CiscoWanERSConfg):defaultValue=1
-_CwaChanAbrERS_Type.__name__=_AR
-_CwaChanAbrERS_Object=MibTableColumn
-cwaChanAbrERS=_CwaChanAbrERS_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,46),_CwaChanAbrERS_Type())
-cwaChanAbrERS.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanAbrERS.setStatus(_G)
-class _CwaChanAbrVSVDEnable_Type(TruthValue):defaultValue=2
-_CwaChanAbrVSVDEnable_Type.__name__=_F
-_CwaChanAbrVSVDEnable_Object=MibTableColumn
-cwaChanAbrVSVDEnable=_CwaChanAbrVSVDEnable_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,47),_CwaChanAbrVSVDEnable_Type())
-cwaChanAbrVSVDEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanAbrVSVDEnable.setStatus(_B)
-_CwaChanRowStatus_Type=RowStatus
-_CwaChanRowStatus_Object=MibTableColumn
-cwaChanRowStatus=_CwaChanRowStatus_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,48),_CwaChanRowStatus_Type())
-cwaChanRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanRowStatus.setStatus(_B)
-class _CwaChanIntAbrVSVD_Type(CiscoWanVSVDConfg):defaultValue=3
-_CwaChanIntAbrVSVD_Type.__name__=_AJ
-_CwaChanIntAbrVSVD_Object=MibTableColumn
-cwaChanIntAbrVSVD=_CwaChanIntAbrVSVD_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,49),_CwaChanIntAbrVSVD_Type())
-cwaChanIntAbrVSVD.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanIntAbrVSVD.setStatus(_B)
-class _CwaChanExtAbrVSVD_Type(CiscoWanVSVDConfg):defaultValue=3
-_CwaChanExtAbrVSVD_Type.__name__=_AJ
-_CwaChanExtAbrVSVD_Object=MibTableColumn
-cwaChanExtAbrVSVD=_CwaChanExtAbrVSVD_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,50),_CwaChanExtAbrVSVD_Type())
-cwaChanExtAbrVSVD.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanExtAbrVSVD.setStatus(_B)
-class _CwaChanAisIWCapability_Type(CiscoWanAisIW):defaultValue=1
-_CwaChanAisIWCapability_Type.__name__=_AS
-_CwaChanAisIWCapability_Object=MibTableColumn
-cwaChanAisIWCapability=_CwaChanAisIWCapability_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,51),_CwaChanAisIWCapability_Type())
-cwaChanAisIWCapability.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanAisIWCapability.setStatus(_G)
-class _CwaChanCLR_Type(Unsigned32):defaultValue=6;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,15))
-_CwaChanCLR_Type.__name__=_D
-_CwaChanCLR_Object=MibTableColumn
-cwaChanCLR=_CwaChanCLR_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,52),_CwaChanCLR_Type())
-cwaChanCLR.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanCLR.setStatus(_B)
-class _CwaChanRemoteCLR_Type(Unsigned32):defaultValue=6;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,15))
-_CwaChanRemoteCLR_Type.__name__=_D
-_CwaChanRemoteCLR_Object=MibTableColumn
-cwaChanRemoteCLR=_CwaChanRemoteCLR_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,53),_CwaChanRemoteCLR_Type())
-cwaChanRemoteCLR.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanRemoteCLR.setStatus(_B)
-class _CwaChanOamSegEpEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('oamSegEp',1),('nonOamSegEp',2)))
-_CwaChanOamSegEpEnable_Type.__name__=_H
-_CwaChanOamSegEpEnable_Object=MibTableColumn
-cwaChanOamSegEpEnable=_CwaChanOamSegEpEnable_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,54),_CwaChanOamSegEpEnable_Type())
-cwaChanOamSegEpEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanOamSegEpEnable.setStatus(_B)
-class _CwaChanSlaveType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('persistentSlave',1),('nonPersistentSlave',2)))
-_CwaChanSlaveType_Type.__name__=_H
-_CwaChanSlaveType_Object=MibTableColumn
-cwaChanSlaveType=_CwaChanSlaveType_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,55),_CwaChanSlaveType_Type())
-cwaChanSlaveType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanSlaveType.setStatus(_B)
-class _CwaChanRoutingPriority_Type(Integer32):defaultValue=8;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,15))
-_CwaChanRoutingPriority_Type.__name__=_H
-_CwaChanRoutingPriority_Object=MibTableColumn
-cwaChanRoutingPriority=_CwaChanRoutingPriority_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,56),_CwaChanRoutingPriority_Type())
-cwaChanRoutingPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanRoutingPriority.setStatus(_B)
-class _CwaChanP2MP_Type(TruthValue):defaultValue=2
-_CwaChanP2MP_Type.__name__=_F
-_CwaChanP2MP_Object=MibTableColumn
-cwaChanP2MP=_CwaChanP2MP_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,57),_CwaChanP2MP_Type())
-cwaChanP2MP.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanP2MP.setStatus(_B)
-class _CwaChanPrefRouteId_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CwaChanPrefRouteId_Type.__name__=_H
-_CwaChanPrefRouteId_Object=MibTableColumn
-cwaChanPrefRouteId=_CwaChanPrefRouteId_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,58),_CwaChanPrefRouteId_Type())
-cwaChanPrefRouteId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanPrefRouteId.setStatus(_B)
-class _CwaChanDirectRoute_Type(TruthValue):defaultValue=2
-_CwaChanDirectRoute_Type.__name__=_F
-_CwaChanDirectRoute_Object=MibTableColumn
-cwaChanDirectRoute=_CwaChanDirectRoute_Object((1,3,6,1,4,1,351,150,1,1,1,1,1,59),_CwaChanDirectRoute_Type())
-cwaChanDirectRoute.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwaChanDirectRoute.setStatus(_B)
-_CwAtmChanState_ObjectIdentity=ObjectIdentity
-cwAtmChanState=_CwAtmChanState_ObjectIdentity((1,3,6,1,4,1,351,150,1,1,2))
-_CwAtmChanStateTable_Object=MibTable
-cwAtmChanStateTable=_CwAtmChanStateTable_Object((1,3,6,1,4,1,351,150,1,1,2,1))
-if mibBuilder.loadTexts:cwAtmChanStateTable.setStatus(_B)
-_CwAtmChanStateEntry_Object=MibTableRow
-cwAtmChanStateEntry=_CwAtmChanStateEntry_Object((1,3,6,1,4,1,351,150,1,1,2,1,1))
-cwAtmChanStateEntry.setIndexNames((0,_AC,_AD),(0,_A,_AE),(0,_A,_AF))
-if mibBuilder.loadTexts:cwAtmChanStateEntry.setStatus(_B)
-_CwaChanAlarmState_Type=CiscoWanAlarmState
-_CwaChanAlarmState_Object=MibTableColumn
-cwaChanAlarmState=_CwaChanAlarmState_Object((1,3,6,1,4,1,351,150,1,1,2,1,1,1),_CwaChanAlarmState_Type())
-cwaChanAlarmState.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwaChanAlarmState.setStatus(_B)
-_CwaChanEgressXmtState_Type=CiscoWanXmtState
-_CwaChanEgressXmtState_Object=MibTableColumn
-cwaChanEgressXmtState=_CwaChanEgressXmtState_Object((1,3,6,1,4,1,351,150,1,1,2,1,1,2),_CwaChanEgressXmtState_Type())
-cwaChanEgressXmtState.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwaChanEgressXmtState.setStatus(_B)
-_CwaChanEgressRcvState_Type=CiscoWanRcvState
-_CwaChanEgressRcvState_Object=MibTableColumn
-cwaChanEgressRcvState=_CwaChanEgressRcvState_Object((1,3,6,1,4,1,351,150,1,1,2,1,1,3),_CwaChanEgressRcvState_Type())
-cwaChanEgressRcvState.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwaChanEgressRcvState.setStatus(_B)
-_CwaChanIngressXmtState_Type=CiscoWanXmtState
-_CwaChanIngressXmtState_Object=MibTableColumn
-cwaChanIngressXmtState=_CwaChanIngressXmtState_Object((1,3,6,1,4,1,351,150,1,1,2,1,1,4),_CwaChanIngressXmtState_Type())
-cwaChanIngressXmtState.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwaChanIngressXmtState.setStatus(_B)
-_CwaChanIngressRcvState_Type=CiscoWanRcvState
-_CwaChanIngressRcvState_Object=MibTableColumn
-cwaChanIngressRcvState=_CwaChanIngressRcvState_Object((1,3,6,1,4,1,351,150,1,1,2,1,1,5),_CwaChanIngressRcvState_Type())
-cwaChanIngressRcvState.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwaChanIngressRcvState.setStatus(_B)
-_CwAtmChanTest_ObjectIdentity=ObjectIdentity
-cwAtmChanTest=_CwAtmChanTest_ObjectIdentity((1,3,6,1,4,1,351,150,1,1,3))
-_CwAtmChanTestTable_Object=MibTable
-cwAtmChanTestTable=_CwAtmChanTestTable_Object((1,3,6,1,4,1,351,150,1,1,3,1))
-if mibBuilder.loadTexts:cwAtmChanTestTable.setStatus(_B)
-_CwAtmChanTestEntry_Object=MibTableRow
-cwAtmChanTestEntry=_CwAtmChanTestEntry_Object((1,3,6,1,4,1,351,150,1,1,3,1,1))
-cwAtmChanTestEntry.setIndexNames((0,_AC,_AD),(0,_A,_AE),(0,_A,_AF))
-if mibBuilder.loadTexts:cwAtmChanTestEntry.setStatus(_B)
-class _CwaChanTestType_Type(CiscoWanLpbkTypes):defaultValue=1
-_CwaChanTestType_Type.__name__=_AT
-_CwaChanTestType_Object=MibTableColumn
-cwaChanTestType=_CwaChanTestType_Object((1,3,6,1,4,1,351,150,1,1,3,1,1,1),_CwaChanTestType_Type())
-cwaChanTestType.setMaxAccess(_AK)
-if mibBuilder.loadTexts:cwaChanTestType.setStatus(_B)
-_CwaChanTestDir_Type=CiscoWanLpbkDir
-_CwaChanTestDir_Object=MibTableColumn
-cwaChanTestDir=_CwaChanTestDir_Object((1,3,6,1,4,1,351,150,1,1,3,1,1,2),_CwaChanTestDir_Type())
-cwaChanTestDir.setMaxAccess(_AK)
-if mibBuilder.loadTexts:cwaChanTestDir.setStatus(_B)
-class _CwaChanTestIterations_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_CwaChanTestIterations_Type.__name__=_D
-_CwaChanTestIterations_Object=MibTableColumn
-cwaChanTestIterations=_CwaChanTestIterations_Object((1,3,6,1,4,1,351,150,1,1,3,1,1,3),_CwaChanTestIterations_Type())
-cwaChanTestIterations.setMaxAccess(_AK)
-if mibBuilder.loadTexts:cwaChanTestIterations.setStatus(_B)
-class _CwaChanTestState_Type(CiscoWanTestStatus):defaultValue=1
-_CwaChanTestState_Type.__name__=_AU
-_CwaChanTestState_Object=MibTableColumn
-cwaChanTestState=_CwaChanTestState_Object((1,3,6,1,4,1,351,150,1,1,3,1,1,4),_CwaChanTestState_Type())
-cwaChanTestState.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwaChanTestState.setStatus(_B)
-class _CwaChanTestRoundTripDelay_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100000000))
-_CwaChanTestRoundTripDelay_Type.__name__=_D
-_CwaChanTestRoundTripDelay_Object=MibTableColumn
-cwaChanTestRoundTripDelay=_CwaChanTestRoundTripDelay_Object((1,3,6,1,4,1,351,150,1,1,3,1,1,5),_CwaChanTestRoundTripDelay_Type())
-cwaChanTestRoundTripDelay.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwaChanTestRoundTripDelay.setStatus(_B)
-if mibBuilder.loadTexts:cwaChanTestRoundTripDelay.setUnits(_J)
-_CwAtmChanInformation_ObjectIdentity=ObjectIdentity
-cwAtmChanInformation=_CwAtmChanInformation_ObjectIdentity((1,3,6,1,4,1,351,150,1,1,4))
-_CwaChanNumVPCsInAlarm_Type=Unsigned32
-_CwaChanNumVPCsInAlarm_Object=MibScalar
-cwaChanNumVPCsInAlarm=_CwaChanNumVPCsInAlarm_Object((1,3,6,1,4,1,351,150,1,1,4,1),_CwaChanNumVPCsInAlarm_Type())
-cwaChanNumVPCsInAlarm.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwaChanNumVPCsInAlarm.setStatus(_B)
-_CwaChanNumVCCsInAlarm_Type=Unsigned32
-_CwaChanNumVCCsInAlarm_Object=MibScalar
-cwaChanNumVCCsInAlarm=_CwaChanNumVCCsInAlarm_Object((1,3,6,1,4,1,351,150,1,1,4,2),_CwaChanNumVCCsInAlarm_Type())
-cwaChanNumVCCsInAlarm.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwaChanNumVCCsInAlarm.setStatus(_B)
-_CwGlobalChanDataGroup_ObjectIdentity=ObjectIdentity
-cwGlobalChanDataGroup=_CwGlobalChanDataGroup_ObjectIdentity((1,3,6,1,4,1,351,150,1,1,5))
-_CwGlobalChanDataTable_Object=MibTable
-cwGlobalChanDataTable=_CwGlobalChanDataTable_Object((1,3,6,1,4,1,351,150,1,1,5,1))
-if mibBuilder.loadTexts:cwGlobalChanDataTable.setStatus(_B)
-_CwGlobalChanDataEntry_Object=MibTableRow
-cwGlobalChanDataEntry=_CwGlobalChanDataEntry_Object((1,3,6,1,4,1,351,150,1,1,5,1,1))
-cwGlobalChanDataEntry.setIndexNames((0,_A,_AV))
-if mibBuilder.loadTexts:cwGlobalChanDataEntry.setStatus(_B)
-class _CwSlotIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,429496729))
-_CwSlotIndex_Type.__name__=_D
-_CwSlotIndex_Object=MibTableColumn
-cwSlotIndex=_CwSlotIndex_Object((1,3,6,1,4,1,351,150,1,1,5,1,1,1),_CwSlotIndex_Type())
-cwSlotIndex.setMaxAccess(_AH)
-if mibBuilder.loadTexts:cwSlotIndex.setStatus(_B)
-class _CwChanGlobalTransactionId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CwChanGlobalTransactionId_Type.__name__=_D
-_CwChanGlobalTransactionId_Object=MibTableColumn
-cwChanGlobalTransactionId=_CwChanGlobalTransactionId_Object((1,3,6,1,4,1,351,150,1,1,5,1,1,2),_CwChanGlobalTransactionId_Type())
-cwChanGlobalTransactionId.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwChanGlobalTransactionId.setStatus(_B)
-_CiscoWanAtmConnMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoWanAtmConnMIBConformance=_CiscoWanAtmConnMIBConformance_ObjectIdentity((1,3,6,1,4,1,351,150,1,2))
-_CiscoWanAtmConnMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoWanAtmConnMIBCompliances=_CiscoWanAtmConnMIBCompliances_ObjectIdentity((1,3,6,1,4,1,351,150,1,2,1))
-_CiscoWanAtmConnMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoWanAtmConnMIBGroups=_CiscoWanAtmConnMIBGroups_ObjectIdentity((1,3,6,1,4,1,351,150,1,2,2))
-ciscoWanAtmConnChanMIBGroup=ObjectGroup((1,3,6,1,4,1,351,150,1,2,2,1))
-ciscoWanAtmConnChanMIBGroup.setObjects(*((_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_AW),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_AL),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_AM),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA)))
-if mibBuilder.loadTexts:ciscoWanAtmConnChanMIBGroup.setStatus(_G)
-ciscoWanAtmConnStateGroup=ObjectGroup((1,3,6,1,4,1,351,150,1,2,2,2))
-ciscoWanAtmConnStateGroup.setObjects(*((_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab)))
-if mibBuilder.loadTexts:ciscoWanAtmConnStateGroup.setStatus(_B)
-ciscoWanAtmConnChan2MIBGroup=ObjectGroup((1,3,6,1,4,1,351,150,1,2,2,3))
-ciscoWanAtmConnChan2MIBGroup.setObjects(*((_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_AL),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_AM),(_A,_A4),(_A,_A5),(_A,_AG),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA)))
-if mibBuilder.loadTexts:ciscoWanAtmConnChan2MIBGroup.setStatus(_G)
-ciscoWanAtmConnChan3MIBGroup=ObjectGroup((1,3,6,1,4,1,351,150,1,2,2,4))
-ciscoWanAtmConnChan3MIBGroup.setObjects(*((_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_AG),(_A,_AN),(_A,_AO),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA)))
-if mibBuilder.loadTexts:ciscoWanAtmConnChan3MIBGroup.setStatus(_G)
-ciscoWanAtmInformationGroup=ObjectGroup((1,3,6,1,4,1,351,150,1,2,2,5))
-ciscoWanAtmInformationGroup.setObjects(*((_A,_Ac),(_A,_Ad)))
-if mibBuilder.loadTexts:ciscoWanAtmInformationGroup.setStatus(_B)
-ciscoWanAtmConnChan4MIBGroup=ObjectGroup((1,3,6,1,4,1,351,150,1,2,2,6))
-ciscoWanAtmConnChan4MIBGroup.setObjects(*((_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_AG),(_A,_AN),(_A,_AO),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA)))
-if mibBuilder.loadTexts:ciscoWanAtmConnChan4MIBGroup.setStatus(_B)
-ciscoWanConMIBGroup=ObjectGroup((1,3,6,1,4,1,351,150,1,2,2,7))
-ciscoWanConMIBGroup.setObjects((_A,_Ah))
-if mibBuilder.loadTexts:ciscoWanConMIBGroup.setStatus(_B)
-ciscoWanAtmConnMIBCompliance=ModuleCompliance((1,3,6,1,4,1,351,150,1,2,1,1))
-ciscoWanAtmConnMIBCompliance.setObjects(*((_A,_Ai),(_A,_AB)))
-if mibBuilder.loadTexts:ciscoWanAtmConnMIBCompliance.setStatus(_G)
-ciscoWanAtmConnMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,351,150,1,2,1,2))
-ciscoWanAtmConnMIBCompliance2.setObjects(*((_A,_Aj),(_A,_AB)))
-if mibBuilder.loadTexts:ciscoWanAtmConnMIBCompliance2.setStatus(_G)
-ciscoWanAtmConnMIBCompliance3=ModuleCompliance((1,3,6,1,4,1,351,150,1,2,1,3))
-ciscoWanAtmConnMIBCompliance3.setObjects(*((_A,_Ak),(_A,_AB),(_A,_AP)))
-if mibBuilder.loadTexts:ciscoWanAtmConnMIBCompliance3.setStatus(_G)
-ciscoWanAtmConnMIBCompliance4=ModuleCompliance((1,3,6,1,4,1,351,150,1,2,1,4))
-ciscoWanAtmConnMIBCompliance4.setObjects(*((_A,_Al),(_A,_AB),(_A,_AP)))
-if mibBuilder.loadTexts:ciscoWanAtmConnMIBCompliance4.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'CiscoAtmServiceCategory':CiscoAtmServiceCategory,_AT:CiscoWanLpbkTypes,'CiscoWanLpbkDir':CiscoWanLpbkDir,_AU:CiscoWanTestStatus,'CiscoWanOperStatus':CiscoWanOperStatus,'CiscoWanNsapAtmAddress':CiscoWanNsapAtmAddress,'CiscoWanAlarmState':CiscoWanAlarmState,'CiscoWanXmtState':CiscoWanXmtState,'CiscoWanRcvState':CiscoWanRcvState,_AR:CiscoWanERSConfg,_AJ:CiscoWanVSVDConfg,_AS:CiscoWanAisIW,'AbrRateFactors':AbrRateFactors,'ciscoWanAtmConnMIB':ciscoWanAtmConnMIB,'cwConnMibObjects':cwConnMibObjects,'cwAtmChanCnfg':cwAtmChanCnfg,'cwAtmChanCnfgTable':cwAtmChanCnfgTable,'cwAtmChanCnfgEntry':cwAtmChanCnfgEntry,_AE:cwaChanVpi,_AF:cwaChanVci,_K:cwaChanServiceCategory,_L:cwaChanVpcFlag,_P:cwaChanIdentifier,_O:cwaChanUploadCounter,_M:cwaChanStatsEnable,_N:cwaChanCCEnable,_Q:cwaChanLocalVpi,_R:cwaChanLocalVci,_S:cwaChanLocalNSAPAddr,_T:cwaChanRemoteVpi,_U:cwaChanRemoteVci,_V:cwaChanRemoteNSAPAddr,_W:cwaChanControllerId,_X:cwaChanRoutingMastership,_Y:cwaChanMaxCost,_Z:cwaChanReroute,_a:cwaChanFrameDiscard,_b:cwaChanOperStatus,_c:cwaChanPCR,_d:cwaChanMCR,_e:cwaChanSCR,_f:cwaChanCDV,_g:cwaChanCTD,_h:cwaChanMBS,_i:cwaChanCDVT,_j:cwaChanPercentUtil,_k:cwaChanRemotePCR,_l:cwaChanRemoteMCR,_m:cwaChanRemoteSCR,_n:cwaChanRemoteCDV,_o:cwaChanRemoteCTD,_p:cwaChanRemoteMBS,_AW:cwaChanRemoteCDVT,_q:cwaChanRemotePercentUtil,_r:cwaChanAbrICR,_s:cwaChanAbrADTF,_t:cwaChanAbrRDF,_u:cwaChanAbrRIF,_v:cwaChanAbrNRM,_w:cwaChanAbrTRM,_x:cwaChanAbrCDF,_y:cwaChanAbrFRTT,_z:cwaChanAbrTBE,_AL:cwaChanAbrERS,_A0:cwaChanAbrVSVDEnable,_A1:cwaChanRowStatus,_A2:cwaChanIntAbrVSVD,_A3:cwaChanExtAbrVSVD,_AM:cwaChanAisIWCapability,_A4:cwaChanCLR,_A5:cwaChanRemoteCLR,_AG:cwaChanOamSegEpEnable,_AN:cwaChanSlaveType,_AO:cwaChanRoutingPriority,_Ae:cwaChanP2MP,_Af:cwaChanPrefRouteId,_Ag:cwaChanDirectRoute,'cwAtmChanState':cwAtmChanState,'cwAtmChanStateTable':cwAtmChanStateTable,'cwAtmChanStateEntry':cwAtmChanStateEntry,_AX:cwaChanAlarmState,_AY:cwaChanEgressXmtState,_AZ:cwaChanEgressRcvState,_Aa:cwaChanIngressXmtState,_Ab:cwaChanIngressRcvState,'cwAtmChanTest':cwAtmChanTest,'cwAtmChanTestTable':cwAtmChanTestTable,'cwAtmChanTestEntry':cwAtmChanTestEntry,_A6:cwaChanTestType,_A7:cwaChanTestDir,_A8:cwaChanTestIterations,_A9:cwaChanTestState,_AA:cwaChanTestRoundTripDelay,'cwAtmChanInformation':cwAtmChanInformation,_Ac:cwaChanNumVPCsInAlarm,_Ad:cwaChanNumVCCsInAlarm,'cwGlobalChanDataGroup':cwGlobalChanDataGroup,'cwGlobalChanDataTable':cwGlobalChanDataTable,'cwGlobalChanDataEntry':cwGlobalChanDataEntry,_AV:cwSlotIndex,_Ah:cwChanGlobalTransactionId,'ciscoWanAtmConnMIBConformance':ciscoWanAtmConnMIBConformance,'ciscoWanAtmConnMIBCompliances':ciscoWanAtmConnMIBCompliances,'ciscoWanAtmConnMIBCompliance':ciscoWanAtmConnMIBCompliance,'ciscoWanAtmConnMIBCompliance2':ciscoWanAtmConnMIBCompliance2,'ciscoWanAtmConnMIBCompliance3':ciscoWanAtmConnMIBCompliance3,'ciscoWanAtmConnMIBCompliance4':ciscoWanAtmConnMIBCompliance4,'ciscoWanAtmConnMIBGroups':ciscoWanAtmConnMIBGroups,_Ai:ciscoWanAtmConnChanMIBGroup,_AB:ciscoWanAtmConnStateGroup,_Aj:ciscoWanAtmConnChan2MIBGroup,_Ak:ciscoWanAtmConnChan3MIBGroup,_AP:ciscoWanAtmInformationGroup,_Al:ciscoWanAtmConnChan4MIBGroup,'ciscoWanConMIBGroup':ciscoWanConMIBGroup})
+#
+# PySNMP MIB module CISCO-WAN-ATM-CONN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-WAN-ATM-CONN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:11 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoWan, = mibBuilder.importSymbols("CISCOWAN-SMI", "ciscoWan")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ciscoWanAtmConnMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 351, 150, 1))
+ciscoWanAtmConnMIB.setRevisions(('2003-03-30 00:00', '2002-09-18 00:00', '2002-03-24 00:00', '2001-02-09 00:00', '2001-01-03 00:00', '2000-11-15 00:00', '2000-07-17 00:00', '2000-06-19 00:00',))
+if mibBuilder.loadTexts: ciscoWanAtmConnMIB.setLastUpdated('200303300000Z')
+if mibBuilder.loadTexts: ciscoWanAtmConnMIB.setOrganization('Cisco Systems, Inc.')
+cwConnMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 1, 1))
+cwAtmChanCnfg = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1))
+cwAtmChanState = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 2))
+cwAtmChanTest = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 3))
+cwAtmChanInformation = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 4))
+cwGlobalChanDataGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 5))
+class CiscoAtmServiceCategory(TextualConvention, Integer32):
+    reference = 'ATM Forum Traffic Management Specification Version 4.0 Section 4.5.4'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
+    namedValues = NamedValues(("cbr1", 1), ("vbr1RT", 2), ("vbr2RT", 3), ("vbr3RT", 4), ("vbr1nRT", 5), ("vbr2nRT", 6), ("vbr3nRT", 7), ("ubr1", 8), ("ubr2", 9), ("abr", 10), ("cbr2", 11), ("cbr3", 12))
+
+class CiscoWanLpbkTypes(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("noLpbk", 1), ("destructive", 2), ("nonDestructive", 3))
+
+class CiscoWanLpbkDir(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("external", 1), ("internal", 2), ("forward", 3), ("reverse", 4))
+
+class CiscoWanTestStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
+    namedValues = NamedValues(("noStatus", 1), ("lpbkInProgress", 2), ("lpbkSuccess", 3), ("lpbkAbort", 4), ("lpbkTimeOut", 5), ("lpbkInEffect", 6))
+
+class CiscoWanOperStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("operOk", 1), ("operFail", 2), ("adminDown", 3))
+
+class CiscoWanNsapAtmAddress(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(20, 20)
+    fixedLength = 20
+
+class CiscoWanAlarmState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 4, 8, 16, 32, 64))
+    namedValues = NamedValues(("ingAisRdi", 1), ("egrAisRdi", 2), ("conditioned", 4), ("interfaceFail", 8), ("ccFail", 16), ("mismatch", 32), ("ingAbitFail", 64))
+
+class CiscoWanXmtState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("normal", 1), ("sendingAIS", 2), ("sendingRDI", 3))
+
+class CiscoWanRcvState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("normal", 1), ("receivingRDI", 2), ("receivingAIS", 3), ("ccFailure", 4))
+
+class CiscoWanERSConfg(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("none", 1), ("enableIngress", 2), ("enableEgress", 3), ("enableBoth", 4))
+
+class CiscoWanVSVDConfg(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("vsvdOff", 1), ("vsvdOn", 2), ("switchDefault", 3))
+
+class CiscoWanAisIW(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("e2eAisCapable", 1), ("segAisCapable", 2))
+
+class AbrRateFactors(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16))
+    namedValues = NamedValues(("oneOver32768", 1), ("oneOver16384", 2), ("oneOver8192", 3), ("oneOver4096", 4), ("oneOver2048", 5), ("oneOver1024", 6), ("oneOver512", 7), ("oneOver256", 8), ("oneOver128", 9), ("oneOver64", 10), ("oneOver32", 11), ("oneOver16", 12), ("oneOver8", 13), ("oneOver4", 14), ("oneOver2", 15), ("one", 16))
+
+cwAtmChanCnfgTable = MibTable((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1), )
+if mibBuilder.loadTexts: cwAtmChanCnfgTable.setStatus('current')
+cwAtmChanCnfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-WAN-ATM-CONN-MIB", "cwaChanVpi"), (0, "CISCO-WAN-ATM-CONN-MIB", "cwaChanVci"))
+if mibBuilder.loadTexts: cwAtmChanCnfgEntry.setStatus('current')
+cwaChanVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095)))
+if mibBuilder.loadTexts: cwaChanVpi.setStatus('current')
+cwaChanVci = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: cwaChanVci.setStatus('current')
+cwaChanServiceCategory = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 3), CiscoAtmServiceCategory()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanServiceCategory.setStatus('current')
+cwaChanVpcFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 4), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanVpcFlag.setStatus('current')
+cwaChanIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwaChanIdentifier.setStatus('current')
+cwaChanUploadCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwaChanUploadCounter.setStatus('current')
+cwaChanStatsEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 7), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanStatsEnable.setStatus('current')
+cwaChanCCEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 8), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanCCEnable.setStatus('current')
+cwaChanLocalVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwaChanLocalVpi.setStatus('current')
+cwaChanLocalVci = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwaChanLocalVci.setStatus('current')
+cwaChanLocalNSAPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 11), CiscoWanNsapAtmAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwaChanLocalNSAPAddr.setStatus('current')
+cwaChanRemoteVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanRemoteVpi.setStatus('current')
+cwaChanRemoteVci = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanRemoteVci.setStatus('current')
+cwaChanRemoteNSAPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 14), CiscoWanNsapAtmAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanRemoteNSAPAddr.setStatus('current')
+cwaChanControllerId = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanControllerId.setStatus('current')
+cwaChanRoutingMastership = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 16), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanRoutingMastership.setStatus('current')
+cwaChanMaxCost = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 17), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295)).clone(4294967295)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanMaxCost.setStatus('current')
+cwaChanReroute = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 18), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanReroute.setStatus('current')
+cwaChanFrameDiscard = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 19), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanFrameDiscard.setStatus('current')
+cwaChanOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 20), CiscoWanOperStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwaChanOperStatus.setStatus('current')
+cwaChanPCR = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 21), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('cells per second').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanPCR.setStatus('current')
+cwaChanMCR = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 22), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('cells per second').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanMCR.setStatus('current')
+cwaChanSCR = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 23), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('cells per second').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanSCR.setStatus('current')
+cwaChanCDV = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 24), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 16777215)).clone(16777215)).setUnits('microseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanCDV.setStatus('current')
+cwaChanCTD = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 25), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(65535)).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanCTD.setStatus('current')
+cwaChanMBS = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 26), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 5000000))).setUnits('cells').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanMBS.setStatus('current')
+cwaChanCDVT = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 27), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295)).clone(4294967295)).setUnits('microseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanCDVT.setStatus('current')
+cwaChanPercentUtil = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 28), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(100)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanPercentUtil.setStatus('current')
+cwaChanRemotePCR = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 29), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('cells per second').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanRemotePCR.setStatus('current')
+cwaChanRemoteMCR = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 30), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('cells per second').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanRemoteMCR.setStatus('current')
+cwaChanRemoteSCR = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 31), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('cells per second').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanRemoteSCR.setStatus('current')
+cwaChanRemoteCDV = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 32), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 16777215)).clone(16777215)).setUnits('microseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanRemoteCDV.setStatus('current')
+cwaChanRemoteCTD = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 33), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(65535)).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanRemoteCTD.setStatus('current')
+cwaChanRemoteMBS = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 34), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 5000000))).setUnits('cells').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanRemoteMBS.setStatus('current')
+cwaChanRemoteCDVT = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 35), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295)).clone(4294967295)).setUnits('cells').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanRemoteCDVT.setStatus('deprecated')
+cwaChanRemotePercentUtil = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 36), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(100)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanRemotePercentUtil.setStatus('current')
+cwaChanAbrICR = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 37), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('cells/sec').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanAbrICR.setStatus('current')
+cwaChanAbrADTF = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 38), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1023))).setUnits('10 milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanAbrADTF.setStatus('current')
+cwaChanAbrRDF = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 39), AbrRateFactors()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanAbrRDF.setStatus('current')
+cwaChanAbrRIF = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 40), AbrRateFactors()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanAbrRIF.setStatus('current')
+cwaChanAbrNRM = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 41), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("nrm2", 1), ("nrm4", 2), ("nrm8", 3), ("nrm16", 4), ("nrm32", 5), ("nrm64", 6), ("nrm128", 7), ("nrm256", 8)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanAbrNRM.setStatus('current')
+cwaChanAbrTRM = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 42), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("trm0point78125", 1), ("trm1point5625", 2), ("trm3point125", 3), ("trm6point25", 4), ("trm12point5", 5), ("trm25", 6), ("trm50", 7), ("trm100", 8)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanAbrTRM.setStatus('current')
+cwaChanAbrCDF = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 43), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("cdf0", 1), ("cdfOneOver64", 2), ("cdfOneOver32", 3), ("cdfOneOver16", 4), ("cdfOneOver8", 5), ("cdfOneOver4", 6), ("cdfOneOver2", 7), ("cdfOne", 8)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanAbrCDF.setStatus('current')
+cwaChanAbrFRTT = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 44), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 16700000))).setUnits('microseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanAbrFRTT.setStatus('current')
+cwaChanAbrTBE = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 45), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 16777215))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanAbrTBE.setStatus('current')
+cwaChanAbrERS = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 46), CiscoWanERSConfg().clone('none')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanAbrERS.setStatus('deprecated')
+cwaChanAbrVSVDEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 47), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanAbrVSVDEnable.setStatus('current')
+cwaChanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 48), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanRowStatus.setStatus('current')
+cwaChanIntAbrVSVD = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 49), CiscoWanVSVDConfg().clone('switchDefault')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanIntAbrVSVD.setStatus('current')
+cwaChanExtAbrVSVD = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 50), CiscoWanVSVDConfg().clone('switchDefault')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanExtAbrVSVD.setStatus('current')
+cwaChanAisIWCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 51), CiscoWanAisIW().clone('e2eAisCapable')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanAisIWCapability.setStatus('deprecated')
+cwaChanCLR = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 52), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 15)).clone(6)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanCLR.setStatus('current')
+cwaChanRemoteCLR = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 53), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 15)).clone(6)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanRemoteCLR.setStatus('current')
+cwaChanOamSegEpEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 54), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("oamSegEp", 1), ("nonOamSegEp", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanOamSegEpEnable.setStatus('current')
+cwaChanSlaveType = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 55), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("persistentSlave", 1), ("nonPersistentSlave", 2))).clone('persistentSlave')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanSlaveType.setStatus('current')
+cwaChanRoutingPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 56), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15)).clone(8)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanRoutingPriority.setStatus('current')
+cwaChanP2MP = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 57), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanP2MP.setStatus('current')
+cwaChanPrefRouteId = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 58), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanPrefRouteId.setStatus('current')
+cwaChanDirectRoute = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 1, 1, 1, 59), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwaChanDirectRoute.setStatus('current')
+cwAtmChanStateTable = MibTable((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 2, 1), )
+if mibBuilder.loadTexts: cwAtmChanStateTable.setStatus('current')
+cwAtmChanStateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-WAN-ATM-CONN-MIB", "cwaChanVpi"), (0, "CISCO-WAN-ATM-CONN-MIB", "cwaChanVci"))
+if mibBuilder.loadTexts: cwAtmChanStateEntry.setStatus('current')
+cwaChanAlarmState = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 2, 1, 1, 1), CiscoWanAlarmState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwaChanAlarmState.setStatus('current')
+cwaChanEgressXmtState = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 2, 1, 1, 2), CiscoWanXmtState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwaChanEgressXmtState.setStatus('current')
+cwaChanEgressRcvState = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 2, 1, 1, 3), CiscoWanRcvState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwaChanEgressRcvState.setStatus('current')
+cwaChanIngressXmtState = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 2, 1, 1, 4), CiscoWanXmtState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwaChanIngressXmtState.setStatus('current')
+cwaChanIngressRcvState = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 2, 1, 1, 5), CiscoWanRcvState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwaChanIngressRcvState.setStatus('current')
+cwAtmChanTestTable = MibTable((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 3, 1), )
+if mibBuilder.loadTexts: cwAtmChanTestTable.setStatus('current')
+cwAtmChanTestEntry = MibTableRow((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 3, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-WAN-ATM-CONN-MIB", "cwaChanVpi"), (0, "CISCO-WAN-ATM-CONN-MIB", "cwaChanVci"))
+if mibBuilder.loadTexts: cwAtmChanTestEntry.setStatus('current')
+cwaChanTestType = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 3, 1, 1, 1), CiscoWanLpbkTypes().clone('noLpbk')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cwaChanTestType.setStatus('current')
+cwaChanTestDir = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 3, 1, 1, 2), CiscoWanLpbkDir()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cwaChanTestDir.setStatus('current')
+cwaChanTestIterations = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 3, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cwaChanTestIterations.setStatus('current')
+cwaChanTestState = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 3, 1, 1, 4), CiscoWanTestStatus().clone('noStatus')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwaChanTestState.setStatus('current')
+cwaChanTestRoundTripDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 3, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100000000))).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwaChanTestRoundTripDelay.setStatus('current')
+cwaChanNumVPCsInAlarm = MibScalar((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 4, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwaChanNumVPCsInAlarm.setStatus('current')
+cwaChanNumVCCsInAlarm = MibScalar((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 4, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwaChanNumVCCsInAlarm.setStatus('current')
+cwGlobalChanDataTable = MibTable((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 5, 1), )
+if mibBuilder.loadTexts: cwGlobalChanDataTable.setStatus('current')
+cwGlobalChanDataEntry = MibTableRow((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 5, 1, 1), ).setIndexNames((0, "CISCO-WAN-ATM-CONN-MIB", "cwSlotIndex"))
+if mibBuilder.loadTexts: cwGlobalChanDataEntry.setStatus('current')
+cwSlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 5, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 429496729)))
+if mibBuilder.loadTexts: cwSlotIndex.setStatus('current')
+cwChanGlobalTransactionId = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 1, 1, 5, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwChanGlobalTransactionId.setStatus('current')
+ciscoWanAtmConnMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 1, 2))
+ciscoWanAtmConnMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 1, 2, 1))
+ciscoWanAtmConnMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 1, 2, 2))
+ciscoWanAtmConnMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 351, 150, 1, 2, 1, 1)).setObjects(("CISCO-WAN-ATM-CONN-MIB", "ciscoWanAtmConnChanMIBGroup"), ("CISCO-WAN-ATM-CONN-MIB", "ciscoWanAtmConnStateGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWanAtmConnMIBCompliance = ciscoWanAtmConnMIBCompliance.setStatus('deprecated')
+ciscoWanAtmConnMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 351, 150, 1, 2, 1, 2)).setObjects(("CISCO-WAN-ATM-CONN-MIB", "ciscoWanAtmConnChan2MIBGroup"), ("CISCO-WAN-ATM-CONN-MIB", "ciscoWanAtmConnStateGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWanAtmConnMIBCompliance2 = ciscoWanAtmConnMIBCompliance2.setStatus('deprecated')
+ciscoWanAtmConnMIBCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 351, 150, 1, 2, 1, 3)).setObjects(("CISCO-WAN-ATM-CONN-MIB", "ciscoWanAtmConnChan3MIBGroup"), ("CISCO-WAN-ATM-CONN-MIB", "ciscoWanAtmConnStateGroup"), ("CISCO-WAN-ATM-CONN-MIB", "ciscoWanAtmInformationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWanAtmConnMIBCompliance3 = ciscoWanAtmConnMIBCompliance3.setStatus('deprecated')
+ciscoWanAtmConnMIBCompliance4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 351, 150, 1, 2, 1, 4)).setObjects(("CISCO-WAN-ATM-CONN-MIB", "ciscoWanAtmConnChan4MIBGroup"), ("CISCO-WAN-ATM-CONN-MIB", "ciscoWanAtmConnStateGroup"), ("CISCO-WAN-ATM-CONN-MIB", "ciscoWanAtmInformationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWanAtmConnMIBCompliance4 = ciscoWanAtmConnMIBCompliance4.setStatus('current')
+ciscoWanAtmConnChanMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 1, 2, 2, 1)).setObjects(("CISCO-WAN-ATM-CONN-MIB", "cwaChanServiceCategory"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanVpcFlag"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanStatsEnable"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCCEnable"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanUploadCounter"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanIdentifier"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanLocalVpi"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanLocalVci"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanLocalNSAPAddr"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteVpi"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteVci"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteNSAPAddr"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanControllerId"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRoutingMastership"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanMaxCost"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanReroute"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanFrameDiscard"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanOperStatus"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanPCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanMCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanSCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCDV"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCTD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanMBS"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCDVT"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanPercentUtil"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemotePCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteMCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteSCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteCDV"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteCTD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteMBS"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteCDVT"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemotePercentUtil"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrICR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrADTF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrRDF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrRIF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrNRM"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrTRM"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrCDF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrFRTT"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrTBE"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrERS"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrVSVDEnable"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRowStatus"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanIntAbrVSVD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanExtAbrVSVD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAisIWCapability"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCLR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteCLR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestType"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestDir"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestIterations"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestState"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestRoundTripDelay"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWanAtmConnChanMIBGroup = ciscoWanAtmConnChanMIBGroup.setStatus('deprecated')
+ciscoWanAtmConnStateGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 1, 2, 2, 2)).setObjects(("CISCO-WAN-ATM-CONN-MIB", "cwaChanAlarmState"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanEgressXmtState"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanEgressRcvState"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanIngressXmtState"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanIngressRcvState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWanAtmConnStateGroup = ciscoWanAtmConnStateGroup.setStatus('current')
+ciscoWanAtmConnChan2MIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 1, 2, 2, 3)).setObjects(("CISCO-WAN-ATM-CONN-MIB", "cwaChanServiceCategory"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanVpcFlag"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanStatsEnable"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCCEnable"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanUploadCounter"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanIdentifier"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanLocalVpi"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanLocalVci"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanLocalNSAPAddr"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteVpi"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteVci"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteNSAPAddr"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanControllerId"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRoutingMastership"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanMaxCost"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanReroute"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanFrameDiscard"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanOperStatus"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanPCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanMCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanSCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCDV"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCTD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanMBS"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCDVT"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanPercentUtil"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemotePCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteMCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteSCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteCDV"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteCTD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteMBS"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemotePercentUtil"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrICR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrADTF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrRDF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrRIF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrNRM"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrTRM"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrCDF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrFRTT"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrTBE"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrERS"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrVSVDEnable"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRowStatus"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanIntAbrVSVD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanExtAbrVSVD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAisIWCapability"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCLR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteCLR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanOamSegEpEnable"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestType"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestDir"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestIterations"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestState"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestRoundTripDelay"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWanAtmConnChan2MIBGroup = ciscoWanAtmConnChan2MIBGroup.setStatus('deprecated')
+ciscoWanAtmConnChan3MIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 1, 2, 2, 4)).setObjects(("CISCO-WAN-ATM-CONN-MIB", "cwaChanServiceCategory"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanVpcFlag"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanStatsEnable"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCCEnable"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanUploadCounter"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanIdentifier"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanLocalVpi"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanLocalVci"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanLocalNSAPAddr"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteVpi"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteVci"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteNSAPAddr"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanControllerId"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRoutingMastership"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanMaxCost"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanReroute"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanFrameDiscard"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanOperStatus"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanPCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanMCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanSCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCDV"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCTD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanMBS"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCDVT"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanPercentUtil"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemotePCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteMCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteSCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteCDV"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteCTD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteMBS"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemotePercentUtil"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrICR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrADTF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrRDF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrRIF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrNRM"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrTRM"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrCDF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrFRTT"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrTBE"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrVSVDEnable"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRowStatus"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanIntAbrVSVD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanExtAbrVSVD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCLR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteCLR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanOamSegEpEnable"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanSlaveType"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRoutingPriority"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestType"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestDir"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestIterations"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestState"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestRoundTripDelay"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWanAtmConnChan3MIBGroup = ciscoWanAtmConnChan3MIBGroup.setStatus('deprecated')
+ciscoWanAtmInformationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 1, 2, 2, 5)).setObjects(("CISCO-WAN-ATM-CONN-MIB", "cwaChanNumVPCsInAlarm"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanNumVCCsInAlarm"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWanAtmInformationGroup = ciscoWanAtmInformationGroup.setStatus('current')
+ciscoWanAtmConnChan4MIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 1, 2, 2, 6)).setObjects(("CISCO-WAN-ATM-CONN-MIB", "cwaChanServiceCategory"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanVpcFlag"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanStatsEnable"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCCEnable"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanUploadCounter"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanIdentifier"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanLocalVpi"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanLocalVci"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanLocalNSAPAddr"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteVpi"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteVci"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteNSAPAddr"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanControllerId"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRoutingMastership"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanMaxCost"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanReroute"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanFrameDiscard"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanOperStatus"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanPCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanMCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanSCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCDV"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCTD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanMBS"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCDVT"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanPercentUtil"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemotePCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteMCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteSCR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteCDV"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteCTD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteMBS"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemotePercentUtil"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrICR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrADTF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrRDF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrRIF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrNRM"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrTRM"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrCDF"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrFRTT"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrTBE"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanAbrVSVDEnable"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRowStatus"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanIntAbrVSVD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanExtAbrVSVD"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanCLR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRemoteCLR"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanOamSegEpEnable"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanSlaveType"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanRoutingPriority"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanP2MP"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanPrefRouteId"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanDirectRoute"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestType"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestDir"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestIterations"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestState"), ("CISCO-WAN-ATM-CONN-MIB", "cwaChanTestRoundTripDelay"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWanAtmConnChan4MIBGroup = ciscoWanAtmConnChan4MIBGroup.setStatus('current')
+ciscoWanConMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 1, 2, 2, 7)).setObjects(("CISCO-WAN-ATM-CONN-MIB", "cwChanGlobalTransactionId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWanConMIBGroup = ciscoWanConMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-WAN-ATM-CONN-MIB", cwaChanIngressXmtState=cwaChanIngressXmtState, cwaChanAbrNRM=cwaChanAbrNRM, cwAtmChanTestEntry=cwAtmChanTestEntry, ciscoWanAtmConnChanMIBGroup=ciscoWanAtmConnChanMIBGroup, cwaChanRemoteVpi=cwaChanRemoteVpi, cwAtmChanStateEntry=cwAtmChanStateEntry, cwaChanStatsEnable=cwaChanStatsEnable, CiscoWanOperStatus=CiscoWanOperStatus, cwaChanLocalNSAPAddr=cwaChanLocalNSAPAddr, cwaChanAbrTBE=cwaChanAbrTBE, cwaChanCDV=cwaChanCDV, PYSNMP_MODULE_ID=ciscoWanAtmConnMIB, cwaChanSCR=cwaChanSCR, cwaChanMaxCost=cwaChanMaxCost, ciscoWanAtmConnMIBCompliance=ciscoWanAtmConnMIBCompliance, cwaChanAbrERS=cwaChanAbrERS, cwaChanAbrRIF=cwaChanAbrRIF, ciscoWanAtmInformationGroup=ciscoWanAtmInformationGroup, ciscoWanAtmConnMIB=ciscoWanAtmConnMIB, CiscoWanAlarmState=CiscoWanAlarmState, ciscoWanAtmConnMIBCompliances=ciscoWanAtmConnMIBCompliances, cwaChanEgressXmtState=cwaChanEgressXmtState, ciscoWanAtmConnChan3MIBGroup=ciscoWanAtmConnChan3MIBGroup, cwaChanVci=cwaChanVci, cwaChanTestDir=cwaChanTestDir, cwAtmChanState=cwAtmChanState, cwaChanIntAbrVSVD=cwaChanIntAbrVSVD, ciscoWanAtmConnChan4MIBGroup=ciscoWanAtmConnChan4MIBGroup, cwaChanRemoteMBS=cwaChanRemoteMBS, cwAtmChanTest=cwAtmChanTest, cwaChanIngressRcvState=cwaChanIngressRcvState, cwaChanServiceCategory=cwaChanServiceCategory, cwaChanVpi=cwaChanVpi, cwaChanTestType=cwaChanTestType, cwaChanCLR=cwaChanCLR, cwaChanRoutingMastership=cwaChanRoutingMastership, cwaChanRemoteNSAPAddr=cwaChanRemoteNSAPAddr, cwaChanNumVCCsInAlarm=cwaChanNumVCCsInAlarm, cwaChanFrameDiscard=cwaChanFrameDiscard, cwaChanVpcFlag=cwaChanVpcFlag, cwaChanRemotePCR=cwaChanRemotePCR, cwaChanRoutingPriority=cwaChanRoutingPriority, cwAtmChanCnfg=cwAtmChanCnfg, cwaChanAbrADTF=cwaChanAbrADTF, cwaChanAbrVSVDEnable=cwaChanAbrVSVDEnable, cwaChanCCEnable=cwaChanCCEnable, cwaChanTestState=cwaChanTestState, ciscoWanAtmConnMIBGroups=ciscoWanAtmConnMIBGroups, CiscoWanVSVDConfg=CiscoWanVSVDConfg, cwaChanMCR=cwaChanMCR, cwaChanExtAbrVSVD=cwaChanExtAbrVSVD, cwGlobalChanDataTable=cwGlobalChanDataTable, cwaChanRemoteSCR=cwaChanRemoteSCR, cwaChanPCR=cwaChanPCR, ciscoWanAtmConnChan2MIBGroup=ciscoWanAtmConnChan2MIBGroup, cwaChanLocalVci=cwaChanLocalVci, cwaChanOamSegEpEnable=cwaChanOamSegEpEnable, cwaChanIdentifier=cwaChanIdentifier, cwConnMibObjects=cwConnMibObjects, ciscoWanAtmConnMIBCompliance4=ciscoWanAtmConnMIBCompliance4, cwaChanNumVPCsInAlarm=cwaChanNumVPCsInAlarm, CiscoWanERSConfg=CiscoWanERSConfg, cwaChanAbrTRM=cwaChanAbrTRM, AbrRateFactors=AbrRateFactors, cwaChanTestIterations=cwaChanTestIterations, cwaChanAbrCDF=cwaChanAbrCDF, cwaChanAlarmState=cwaChanAlarmState, cwaChanAbrRDF=cwaChanAbrRDF, ciscoWanAtmConnMIBCompliance3=ciscoWanAtmConnMIBCompliance3, CiscoWanXmtState=CiscoWanXmtState, cwAtmChanCnfgTable=cwAtmChanCnfgTable, cwAtmChanTestTable=cwAtmChanTestTable, CiscoAtmServiceCategory=CiscoAtmServiceCategory, cwAtmChanCnfgEntry=cwAtmChanCnfgEntry, cwaChanRemoteCTD=cwaChanRemoteCTD, ciscoWanAtmConnMIBConformance=ciscoWanAtmConnMIBConformance, cwaChanTestRoundTripDelay=cwaChanTestRoundTripDelay, cwGlobalChanDataGroup=cwGlobalChanDataGroup, ciscoWanConMIBGroup=ciscoWanConMIBGroup, cwGlobalChanDataEntry=cwGlobalChanDataEntry, cwaChanOperStatus=cwaChanOperStatus, cwaChanP2MP=cwaChanP2MP, CiscoWanLpbkTypes=CiscoWanLpbkTypes, CiscoWanNsapAtmAddress=CiscoWanNsapAtmAddress, cwaChanCTD=cwaChanCTD, CiscoWanRcvState=CiscoWanRcvState, cwaChanReroute=cwaChanReroute, cwaChanUploadCounter=cwaChanUploadCounter, cwaChanAbrICR=cwaChanAbrICR, cwaChanPercentUtil=cwaChanPercentUtil, cwaChanAisIWCapability=cwaChanAisIWCapability, cwaChanRemotePercentUtil=cwaChanRemotePercentUtil, ciscoWanAtmConnStateGroup=ciscoWanAtmConnStateGroup, cwaChanLocalVpi=cwaChanLocalVpi, cwAtmChanStateTable=cwAtmChanStateTable, CiscoWanAisIW=CiscoWanAisIW, cwaChanAbrFRTT=cwaChanAbrFRTT, ciscoWanAtmConnMIBCompliance2=ciscoWanAtmConnMIBCompliance2, cwAtmChanInformation=cwAtmChanInformation, cwaChanMBS=cwaChanMBS, cwaChanRowStatus=cwaChanRowStatus, CiscoWanTestStatus=CiscoWanTestStatus, cwaChanSlaveType=cwaChanSlaveType, cwaChanRemoteCDV=cwaChanRemoteCDV, cwaChanRemoteMCR=cwaChanRemoteMCR, cwaChanEgressRcvState=cwaChanEgressRcvState, cwaChanRemoteCLR=cwaChanRemoteCLR, cwaChanRemoteCDVT=cwaChanRemoteCDVT, cwSlotIndex=cwSlotIndex, cwaChanControllerId=cwaChanControllerId, cwaChanCDVT=cwaChanCDVT, cwChanGlobalTransactionId=cwChanGlobalTransactionId, cwaChanRemoteVci=cwaChanRemoteVci, cwaChanPrefRouteId=cwaChanPrefRouteId, cwaChanDirectRoute=cwaChanDirectRoute, CiscoWanLpbkDir=CiscoWanLpbkDir)

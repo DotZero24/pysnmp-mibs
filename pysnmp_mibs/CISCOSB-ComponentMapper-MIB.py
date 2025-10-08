@@ -1,81 +1,50 @@
-_G='rlComponentMapperIndex'
-_F='rlComponentMapperType'
-_E='rlComponentMapperUnitNum'
-_D='not-accessible'
-_C='CISCOSB-ComponentMapper-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-switch001,=mibBuilder.importSymbols('CISCOSB-MIB','switch001')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-rlComponentMapper=ModuleIdentity((1,3,6,1,4,1,9,6,1,101,243))
-if mibBuilder.loadTexts:rlComponentMapper.setRevisions(('2019-04-03 00:00',))
-class ComponentType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14)));namedValues=NamedValues(*(('cpu',1),('packetProcessor',2),('phy',3),('flash',4),('sfp',5),('poe',6),('cpld',7),('image',8),('kernel',9),('bootloader',10),('fanController',11),('ssh',12),('ssl',13),('mcu',14)))
-_RlComponentMapperTable_Object=MibTable
-rlComponentMapperTable=_RlComponentMapperTable_Object((1,3,6,1,4,1,9,6,1,101,243,1))
-if mibBuilder.loadTexts:rlComponentMapperTable.setStatus(_A)
-_RlComponentMapperEntry_Object=MibTableRow
-rlComponentMapperEntry=_RlComponentMapperEntry_Object((1,3,6,1,4,1,9,6,1,101,243,1,1))
-rlComponentMapperEntry.setIndexNames((0,_C,_E),(0,_C,_F),(0,_C,_G))
-if mibBuilder.loadTexts:rlComponentMapperEntry.setStatus(_A)
-_RlComponentMapperUnitNum_Type=Integer32
-_RlComponentMapperUnitNum_Object=MibTableColumn
-rlComponentMapperUnitNum=_RlComponentMapperUnitNum_Object((1,3,6,1,4,1,9,6,1,101,243,1,1,1),_RlComponentMapperUnitNum_Type())
-rlComponentMapperUnitNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:rlComponentMapperUnitNum.setStatus(_A)
-_RlComponentMapperType_Type=ComponentType
-_RlComponentMapperType_Object=MibTableColumn
-rlComponentMapperType=_RlComponentMapperType_Object((1,3,6,1,4,1,9,6,1,101,243,1,1,2),_RlComponentMapperType_Type())
-rlComponentMapperType.setMaxAccess(_D)
-if mibBuilder.loadTexts:rlComponentMapperType.setStatus(_A)
-_RlComponentMapperIndex_Type=Integer32
-_RlComponentMapperIndex_Object=MibTableColumn
-rlComponentMapperIndex=_RlComponentMapperIndex_Object((1,3,6,1,4,1,9,6,1,101,243,1,1,3),_RlComponentMapperIndex_Type())
-rlComponentMapperIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:rlComponentMapperIndex.setStatus(_A)
-_RlComponentMapperVendorID_Type=DisplayString
-_RlComponentMapperVendorID_Object=MibTableColumn
-rlComponentMapperVendorID=_RlComponentMapperVendorID_Object((1,3,6,1,4,1,9,6,1,101,243,1,1,4),_RlComponentMapperVendorID_Type())
-rlComponentMapperVendorID.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlComponentMapperVendorID.setStatus(_A)
-_RlComponentMapperDeviceID_Type=DisplayString
-_RlComponentMapperDeviceID_Object=MibTableColumn
-rlComponentMapperDeviceID=_RlComponentMapperDeviceID_Object((1,3,6,1,4,1,9,6,1,101,243,1,1,5),_RlComponentMapperDeviceID_Type())
-rlComponentMapperDeviceID.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlComponentMapperDeviceID.setStatus(_A)
-_RlComponentMapperHardwareVersionID_Type=DisplayString
-_RlComponentMapperHardwareVersionID_Object=MibTableColumn
-rlComponentMapperHardwareVersionID=_RlComponentMapperHardwareVersionID_Object((1,3,6,1,4,1,9,6,1,101,243,1,1,6),_RlComponentMapperHardwareVersionID_Type())
-rlComponentMapperHardwareVersionID.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlComponentMapperHardwareVersionID.setStatus(_A)
-_RlComponentMapperSoftwareVersionID_Type=DisplayString
-_RlComponentMapperSoftwareVersionID_Object=MibTableColumn
-rlComponentMapperSoftwareVersionID=_RlComponentMapperSoftwareVersionID_Object((1,3,6,1,4,1,9,6,1,101,243,1,1,7),_RlComponentMapperSoftwareVersionID_Type())
-rlComponentMapperSoftwareVersionID.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlComponentMapperSoftwareVersionID.setStatus(_A)
-_RlComponentMapperAliasID_Type=DisplayString
-_RlComponentMapperAliasID_Object=MibTableColumn
-rlComponentMapperAliasID=_RlComponentMapperAliasID_Object((1,3,6,1,4,1,9,6,1,101,243,1,1,8),_RlComponentMapperAliasID_Type())
-rlComponentMapperAliasID.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlComponentMapperAliasID.setStatus(_A)
-_RlComponentMapperProductNumber_Type=DisplayString
-_RlComponentMapperProductNumber_Object=MibTableColumn
-rlComponentMapperProductNumber=_RlComponentMapperProductNumber_Object((1,3,6,1,4,1,9,6,1,101,243,1,1,9),_RlComponentMapperProductNumber_Type())
-rlComponentMapperProductNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlComponentMapperProductNumber.setStatus(_A)
-_RlComponentMapperSerialNumber_Type=DisplayString
-_RlComponentMapperSerialNumber_Object=MibTableColumn
-rlComponentMapperSerialNumber=_RlComponentMapperSerialNumber_Object((1,3,6,1,4,1,9,6,1,101,243,1,1,10),_RlComponentMapperSerialNumber_Type())
-rlComponentMapperSerialNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlComponentMapperSerialNumber.setStatus(_A)
-_RlComponentMapperPartNumber_Type=DisplayString
-_RlComponentMapperPartNumber_Object=MibTableColumn
-rlComponentMapperPartNumber=_RlComponentMapperPartNumber_Object((1,3,6,1,4,1,9,6,1,101,243,1,1,11),_RlComponentMapperPartNumber_Type())
-rlComponentMapperPartNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlComponentMapperPartNumber.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'ComponentType':ComponentType,'rlComponentMapper':rlComponentMapper,'rlComponentMapperTable':rlComponentMapperTable,'rlComponentMapperEntry':rlComponentMapperEntry,_E:rlComponentMapperUnitNum,_F:rlComponentMapperType,_G:rlComponentMapperIndex,'rlComponentMapperVendorID':rlComponentMapperVendorID,'rlComponentMapperDeviceID':rlComponentMapperDeviceID,'rlComponentMapperHardwareVersionID':rlComponentMapperHardwareVersionID,'rlComponentMapperSoftwareVersionID':rlComponentMapperSoftwareVersionID,'rlComponentMapperAliasID':rlComponentMapperAliasID,'rlComponentMapperProductNumber':rlComponentMapperProductNumber,'rlComponentMapperSerialNumber':rlComponentMapperSerialNumber,'rlComponentMapperPartNumber':rlComponentMapperPartNumber})
+#
+# PySNMP MIB module CISCOSB-ComponentMapper-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciscosb/CISCOSB-ComponentMapper-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:42 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+switch001, = mibBuilder.importSymbols("CISCOSB-MIB", "switch001")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+rlComponentMapper = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 243))
+rlComponentMapper.setRevisions(('2019-04-03 00:00',))
+if mibBuilder.loadTexts: rlComponentMapper.setLastUpdated('201903210000Z')
+if mibBuilder.loadTexts: rlComponentMapper.setOrganization('Cisco Systems, Inc.')
+class ComponentType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
+    namedValues = NamedValues(("cpu", 1), ("packetProcessor", 2), ("phy", 3), ("flash", 4), ("sfp", 5), ("poe", 6), ("cpld", 7), ("image", 8), ("kernel", 9), ("bootloader", 10), ("fanController", 11), ("ssh", 12), ("ssl", 13), ("mcu", 14))
+
+rlComponentMapperTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 243, 1), )
+if mibBuilder.loadTexts: rlComponentMapperTable.setStatus('current')
+rlComponentMapperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 243, 1, 1), ).setIndexNames((0, "CISCOSB-ComponentMapper-MIB", "rlComponentMapperUnitNum"), (0, "CISCOSB-ComponentMapper-MIB", "rlComponentMapperType"), (0, "CISCOSB-ComponentMapper-MIB", "rlComponentMapperIndex"))
+if mibBuilder.loadTexts: rlComponentMapperEntry.setStatus('current')
+rlComponentMapperUnitNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 243, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: rlComponentMapperUnitNum.setStatus('current')
+rlComponentMapperType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 243, 1, 1, 2), ComponentType())
+if mibBuilder.loadTexts: rlComponentMapperType.setStatus('current')
+rlComponentMapperIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 243, 1, 1, 3), Integer32())
+if mibBuilder.loadTexts: rlComponentMapperIndex.setStatus('current')
+rlComponentMapperVendorID = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 243, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlComponentMapperVendorID.setStatus('current')
+rlComponentMapperDeviceID = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 243, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlComponentMapperDeviceID.setStatus('current')
+rlComponentMapperHardwareVersionID = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 243, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlComponentMapperHardwareVersionID.setStatus('current')
+rlComponentMapperSoftwareVersionID = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 243, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlComponentMapperSoftwareVersionID.setStatus('current')
+rlComponentMapperAliasID = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 243, 1, 1, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlComponentMapperAliasID.setStatus('current')
+rlComponentMapperProductNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 243, 1, 1, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlComponentMapperProductNumber.setStatus('current')
+rlComponentMapperSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 243, 1, 1, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlComponentMapperSerialNumber.setStatus('current')
+rlComponentMapperPartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 243, 1, 1, 11), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlComponentMapperPartNumber.setStatus('current')
+mibBuilder.exportSymbols("CISCOSB-ComponentMapper-MIB", ComponentType=ComponentType, rlComponentMapper=rlComponentMapper, rlComponentMapperUnitNum=rlComponentMapperUnitNum, rlComponentMapperEntry=rlComponentMapperEntry, rlComponentMapperType=rlComponentMapperType, rlComponentMapperAliasID=rlComponentMapperAliasID, PYSNMP_MODULE_ID=rlComponentMapper, rlComponentMapperTable=rlComponentMapperTable, rlComponentMapperSoftwareVersionID=rlComponentMapperSoftwareVersionID, rlComponentMapperDeviceID=rlComponentMapperDeviceID, rlComponentMapperSerialNumber=rlComponentMapperSerialNumber, rlComponentMapperHardwareVersionID=rlComponentMapperHardwareVersionID, rlComponentMapperPartNumber=rlComponentMapperPartNumber, rlComponentMapperIndex=rlComponentMapperIndex, rlComponentMapperProductNumber=rlComponentMapperProductNumber, rlComponentMapperVendorID=rlComponentMapperVendorID)

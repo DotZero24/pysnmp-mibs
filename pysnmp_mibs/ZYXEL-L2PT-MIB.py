@@ -1,55 +1,35 @@
-_F='Integer32'
-_E='dot1dBasePort'
-_D='BRIDGE-MIB'
-_C='Bits'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_D,_E)
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI',_C,'Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelL2pt=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,39))
-_ZyxelL2ptSetup_ObjectIdentity=ObjectIdentity
-zyxelL2ptSetup=_ZyxelL2ptSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,39,1))
-_ZyL2ptState_Type=EnabledStatus
-_ZyL2ptState_Object=MibScalar
-zyL2ptState=_ZyL2ptState_Object((1,3,6,1,4,1,890,1,15,3,39,1,1),_ZyL2ptState_Type())
-zyL2ptState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyL2ptState.setStatus(_A)
-_ZyL2ptMacAddress_Type=MacAddress
-_ZyL2ptMacAddress_Object=MibScalar
-zyL2ptMacAddress=_ZyL2ptMacAddress_Object((1,3,6,1,4,1,890,1,15,3,39,1,2),_ZyL2ptMacAddress_Type())
-zyL2ptMacAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyL2ptMacAddress.setStatus(_A)
-_ZyxelL2ptTable_Object=MibTable
-zyxelL2ptTable=_ZyxelL2ptTable_Object((1,3,6,1,4,1,890,1,15,3,39,1,3))
-if mibBuilder.loadTexts:zyxelL2ptTable.setStatus(_A)
-_ZyxelL2ptEntry_Object=MibTableRow
-zyxelL2ptEntry=_ZyxelL2ptEntry_Object((1,3,6,1,4,1,890,1,15,3,39,1,3,1))
-zyxelL2ptEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:zyxelL2ptEntry.setStatus(_A)
-class _ZyL2ptProtocolGroup_Type(Bits):namedValues=NamedValues(*(('cdp',0),('stp',1),('vtp',2),('lldp',3)))
-_ZyL2ptProtocolGroup_Type.__name__=_C
-_ZyL2ptProtocolGroup_Object=MibTableColumn
-zyL2ptProtocolGroup=_ZyL2ptProtocolGroup_Object((1,3,6,1,4,1,890,1,15,3,39,1,3,1,1),_ZyL2ptProtocolGroup_Type())
-zyL2ptProtocolGroup.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyL2ptProtocolGroup.setStatus(_A)
-class _ZyL2ptPointToPointProtocolGroup_Type(Bits):namedValues=NamedValues(*(('pagp',0),('lacp',1),('udld',2)))
-_ZyL2ptPointToPointProtocolGroup_Type.__name__=_C
-_ZyL2ptPointToPointProtocolGroup_Object=MibTableColumn
-zyL2ptPointToPointProtocolGroup=_ZyL2ptPointToPointProtocolGroup_Object((1,3,6,1,4,1,890,1,15,3,39,1,3,1,2),_ZyL2ptPointToPointProtocolGroup_Type())
-zyL2ptPointToPointProtocolGroup.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyL2ptPointToPointProtocolGroup.setStatus(_A)
-class _ZyL2ptMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('access',1),('tunnel',2)))
-_ZyL2ptMode_Type.__name__=_F
-_ZyL2ptMode_Object=MibTableColumn
-zyL2ptMode=_ZyL2ptMode_Object((1,3,6,1,4,1,890,1,15,3,39,1,3,1,3),_ZyL2ptMode_Type())
-zyL2ptMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyL2ptMode.setStatus(_A)
-mibBuilder.exportSymbols('ZYXEL-L2PT-MIB',**{'zyxelL2pt':zyxelL2pt,'zyxelL2ptSetup':zyxelL2ptSetup,'zyL2ptState':zyL2ptState,'zyL2ptMacAddress':zyL2ptMacAddress,'zyxelL2ptTable':zyxelL2ptTable,'zyxelL2ptEntry':zyxelL2ptEntry,'zyL2ptProtocolGroup':zyL2ptProtocolGroup,'zyL2ptPointToPointProtocolGroup':zyL2ptPointToPointProtocolGroup,'zyL2ptMode':zyL2ptMode})
+#
+# PySNMP MIB module ZYXEL-L2PT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-L2PT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:01 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelL2pt = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 39))
+if mibBuilder.loadTexts: zyxelL2pt.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelL2pt.setOrganization('Enterprise Solution ZyXEL')
+zyxelL2ptSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 39, 1))
+zyL2ptState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 39, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyL2ptState.setStatus('current')
+zyL2ptMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 39, 1, 2), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyL2ptMacAddress.setStatus('current')
+zyxelL2ptTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 39, 1, 3), )
+if mibBuilder.loadTexts: zyxelL2ptTable.setStatus('current')
+zyxelL2ptEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 39, 1, 3, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: zyxelL2ptEntry.setStatus('current')
+zyL2ptProtocolGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 39, 1, 3, 1, 1), Bits().clone(namedValues=NamedValues(("cdp", 0), ("stp", 1), ("vtp", 2), ("lldp", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyL2ptProtocolGroup.setStatus('current')
+zyL2ptPointToPointProtocolGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 39, 1, 3, 1, 2), Bits().clone(namedValues=NamedValues(("pagp", 0), ("lacp", 1), ("udld", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyL2ptPointToPointProtocolGroup.setStatus('current')
+zyL2ptMode = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 39, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("access", 1), ("tunnel", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyL2ptMode.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-L2PT-MIB", zyL2ptProtocolGroup=zyL2ptProtocolGroup, zyxelL2ptTable=zyxelL2ptTable, zyL2ptMode=zyL2ptMode, zyxelL2ptEntry=zyxelL2ptEntry, PYSNMP_MODULE_ID=zyxelL2pt, zyL2ptMacAddress=zyL2ptMacAddress, zyL2ptState=zyL2ptState, zyL2ptPointToPointProtocolGroup=zyL2ptPointToPointProtocolGroup, zyxelL2ptSetup=zyxelL2ptSetup, zyxelL2pt=zyxelL2pt)

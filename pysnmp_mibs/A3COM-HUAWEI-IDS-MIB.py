@@ -1,156 +1,78 @@
-_S='h3cIDSTrapCfgLineInFile'
-_R='h3cIDSTrapUpgradeType'
-_Q='h3cIDSTrapLoginType'
-_P='h3cIDSTrapUserName'
-_O='h3cIDSTrapCertName'
-_N='h3cIDSTrapCRLName'
-_M='h3cIDSTrapEngineID'
-_L='h3cIDSTrapDetectRuleID'
-_K='h3cIDSTrapStatSessionTabLen'
-_J='h3cIDSTrapIPFragmentQueueLen'
-_I='h3cIDSTrapFileName'
-_H='h3cIDSTrapIPAddress'
-_G='h3cIDSTrapIPAddressType'
-_F='Integer32'
-_E='OctetString'
-_D='h3cIDSTrapReasonForError'
-_C='accessible-for-notify'
-_B='current'
-_A='A3COM-HUAWEI-IDS-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('A3COM-HUAWEI-OID-MIB','h3cCommon')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-h3cIDSMib=ModuleIdentity((1,3,6,1,4,1,43,45,1,10,2,47,1))
-_H3cIds_ObjectIdentity=ObjectIdentity
-h3cIds=_H3cIds_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,47))
-_H3cIDSTrapGroup_ObjectIdentity=ObjectIdentity
-h3cIDSTrapGroup=_H3cIDSTrapGroup_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,47,1,1))
-_H3cIDSTrapInfo_ObjectIdentity=ObjectIdentity
-h3cIDSTrapInfo=_H3cIDSTrapInfo_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,47,1,1,1))
-_H3cIDSTrapIPFragmentQueueLen_Type=Unsigned32
-_H3cIDSTrapIPFragmentQueueLen_Object=MibScalar
-h3cIDSTrapIPFragmentQueueLen=_H3cIDSTrapIPFragmentQueueLen_Object((1,3,6,1,4,1,43,45,1,10,2,47,1,1,1,1),_H3cIDSTrapIPFragmentQueueLen_Type())
-h3cIDSTrapIPFragmentQueueLen.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cIDSTrapIPFragmentQueueLen.setStatus(_B)
-_H3cIDSTrapStatSessionTabLen_Type=Unsigned32
-_H3cIDSTrapStatSessionTabLen_Object=MibScalar
-h3cIDSTrapStatSessionTabLen=_H3cIDSTrapStatSessionTabLen_Object((1,3,6,1,4,1,43,45,1,10,2,47,1,1,1,2),_H3cIDSTrapStatSessionTabLen_Type())
-h3cIDSTrapStatSessionTabLen.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cIDSTrapStatSessionTabLen.setStatus(_B)
-_H3cIDSTrapIPAddressType_Type=InetAddressType
-_H3cIDSTrapIPAddressType_Object=MibScalar
-h3cIDSTrapIPAddressType=_H3cIDSTrapIPAddressType_Object((1,3,6,1,4,1,43,45,1,10,2,47,1,1,1,3),_H3cIDSTrapIPAddressType_Type())
-h3cIDSTrapIPAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cIDSTrapIPAddressType.setStatus(_B)
-_H3cIDSTrapIPAddress_Type=InetAddress
-_H3cIDSTrapIPAddress_Object=MibScalar
-h3cIDSTrapIPAddress=_H3cIDSTrapIPAddress_Object((1,3,6,1,4,1,43,45,1,10,2,47,1,1,1,4),_H3cIDSTrapIPAddress_Type())
-h3cIDSTrapIPAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cIDSTrapIPAddress.setStatus(_B)
-class _H3cIDSTrapUserName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_H3cIDSTrapUserName_Type.__name__=_E
-_H3cIDSTrapUserName_Object=MibScalar
-h3cIDSTrapUserName=_H3cIDSTrapUserName_Object((1,3,6,1,4,1,43,45,1,10,2,47,1,1,1,5),_H3cIDSTrapUserName_Type())
-h3cIDSTrapUserName.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cIDSTrapUserName.setStatus(_B)
-class _H3cIDSTrapLoginType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('telnet',1),('ssh',2),('web',3)))
-_H3cIDSTrapLoginType_Type.__name__=_F
-_H3cIDSTrapLoginType_Object=MibScalar
-h3cIDSTrapLoginType=_H3cIDSTrapLoginType_Object((1,3,6,1,4,1,43,45,1,10,2,47,1,1,1,6),_H3cIDSTrapLoginType_Type())
-h3cIDSTrapLoginType.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cIDSTrapLoginType.setStatus(_B)
-class _H3cIDSTrapUpgradeType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('programme',1),('crb',2),('vrb',3)))
-_H3cIDSTrapUpgradeType_Type.__name__=_F
-_H3cIDSTrapUpgradeType_Object=MibScalar
-h3cIDSTrapUpgradeType=_H3cIDSTrapUpgradeType_Object((1,3,6,1,4,1,43,45,1,10,2,47,1,1,1,7),_H3cIDSTrapUpgradeType_Type())
-h3cIDSTrapUpgradeType.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cIDSTrapUpgradeType.setStatus(_B)
-class _H3cIDSTrapCRLName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_H3cIDSTrapCRLName_Type.__name__=_E
-_H3cIDSTrapCRLName_Object=MibScalar
-h3cIDSTrapCRLName=_H3cIDSTrapCRLName_Object((1,3,6,1,4,1,43,45,1,10,2,47,1,1,1,8),_H3cIDSTrapCRLName_Type())
-h3cIDSTrapCRLName.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cIDSTrapCRLName.setStatus(_B)
-class _H3cIDSTrapCertName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_H3cIDSTrapCertName_Type.__name__=_E
-_H3cIDSTrapCertName_Object=MibScalar
-h3cIDSTrapCertName=_H3cIDSTrapCertName_Object((1,3,6,1,4,1,43,45,1,10,2,47,1,1,1,9),_H3cIDSTrapCertName_Type())
-h3cIDSTrapCertName.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cIDSTrapCertName.setStatus(_B)
-_H3cIDSTrapDetectRuleID_Type=Unsigned32
-_H3cIDSTrapDetectRuleID_Object=MibScalar
-h3cIDSTrapDetectRuleID=_H3cIDSTrapDetectRuleID_Object((1,3,6,1,4,1,43,45,1,10,2,47,1,1,1,10),_H3cIDSTrapDetectRuleID_Type())
-h3cIDSTrapDetectRuleID.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cIDSTrapDetectRuleID.setStatus(_B)
-_H3cIDSTrapEngineID_Type=Integer32
-_H3cIDSTrapEngineID_Object=MibScalar
-h3cIDSTrapEngineID=_H3cIDSTrapEngineID_Object((1,3,6,1,4,1,43,45,1,10,2,47,1,1,1,11),_H3cIDSTrapEngineID_Type())
-h3cIDSTrapEngineID.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cIDSTrapEngineID.setStatus(_B)
-class _H3cIDSTrapFileName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_H3cIDSTrapFileName_Type.__name__=_E
-_H3cIDSTrapFileName_Object=MibScalar
-h3cIDSTrapFileName=_H3cIDSTrapFileName_Object((1,3,6,1,4,1,43,45,1,10,2,47,1,1,1,12),_H3cIDSTrapFileName_Type())
-h3cIDSTrapFileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cIDSTrapFileName.setStatus(_B)
-_H3cIDSTrapCfgLineInFile_Type=Unsigned32
-_H3cIDSTrapCfgLineInFile_Object=MibScalar
-h3cIDSTrapCfgLineInFile=_H3cIDSTrapCfgLineInFile_Object((1,3,6,1,4,1,43,45,1,10,2,47,1,1,1,13),_H3cIDSTrapCfgLineInFile_Type())
-h3cIDSTrapCfgLineInFile.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cIDSTrapCfgLineInFile.setStatus(_B)
-class _H3cIDSTrapReasonForError_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_H3cIDSTrapReasonForError_Type.__name__=_E
-_H3cIDSTrapReasonForError_Object=MibScalar
-h3cIDSTrapReasonForError=_H3cIDSTrapReasonForError_Object((1,3,6,1,4,1,43,45,1,10,2,47,1,1,1,14),_H3cIDSTrapReasonForError_Type())
-h3cIDSTrapReasonForError.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cIDSTrapReasonForError.setStatus(_B)
-_H3cIDSTrap_ObjectIdentity=ObjectIdentity
-h3cIDSTrap=_H3cIDSTrap_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,47,1,1,2))
-_H3cIDSTrapPrefix_ObjectIdentity=ObjectIdentity
-h3cIDSTrapPrefix=_H3cIDSTrapPrefix_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,47,1,1,2,0))
-h3cIDSTrapIPFragQueueFull=NotificationType((1,3,6,1,4,1,43,45,1,10,2,47,1,1,2,0,1))
-h3cIDSTrapIPFragQueueFull.setObjects(*((_A,_J),(_A,_D)))
-if mibBuilder.loadTexts:h3cIDSTrapIPFragQueueFull.setStatus(_B)
-h3cIDSTrapStatSessTabFull=NotificationType((1,3,6,1,4,1,43,45,1,10,2,47,1,1,2,0,2))
-h3cIDSTrapStatSessTabFull.setObjects(*((_A,_K),(_A,_D)))
-if mibBuilder.loadTexts:h3cIDSTrapStatSessTabFull.setStatus(_B)
-h3cIDSTrapDetectRuleParseFail=NotificationType((1,3,6,1,4,1,43,45,1,10,2,47,1,1,2,0,3))
-h3cIDSTrapDetectRuleParseFail.setObjects(*((_A,_L),(_A,_M),(_A,_D)))
-if mibBuilder.loadTexts:h3cIDSTrapDetectRuleParseFail.setStatus(_B)
-h3cIDSTrapDBConnLost=NotificationType((1,3,6,1,4,1,43,45,1,10,2,47,1,1,2,0,4))
-h3cIDSTrapDBConnLost.setObjects(*((_A,_G),(_A,_H),(_A,_D)))
-if mibBuilder.loadTexts:h3cIDSTrapDBConnLost.setStatus(_B)
-h3cIDSTrapCRLNeedUpdate=NotificationType((1,3,6,1,4,1,43,45,1,10,2,47,1,1,2,0,5))
-h3cIDSTrapCRLNeedUpdate.setObjects(*((_A,_N),(_A,_D)))
-if mibBuilder.loadTexts:h3cIDSTrapCRLNeedUpdate.setStatus(_B)
-h3cIDSTrapCertOverdue=NotificationType((1,3,6,1,4,1,43,45,1,10,2,47,1,1,2,0,6))
-h3cIDSTrapCertOverdue.setObjects(*((_A,_O),(_A,_D)))
-if mibBuilder.loadTexts:h3cIDSTrapCertOverdue.setStatus(_B)
-h3cIDSTrapTooManyLoginFail=NotificationType((1,3,6,1,4,1,43,45,1,10,2,47,1,1,2,0,7))
-h3cIDSTrapTooManyLoginFail.setObjects(*((_A,_P),(_A,_G),(_A,_H),(_A,_Q),(_A,_D)))
-if mibBuilder.loadTexts:h3cIDSTrapTooManyLoginFail.setStatus(_B)
-h3cIDSTrapUpgradeError=NotificationType((1,3,6,1,4,1,43,45,1,10,2,47,1,1,2,0,8))
-h3cIDSTrapUpgradeError.setObjects(*((_A,_R),(_A,_D)))
-if mibBuilder.loadTexts:h3cIDSTrapUpgradeError.setStatus(_B)
-h3cIDSTrapFileAccessError=NotificationType((1,3,6,1,4,1,43,45,1,10,2,47,1,1,2,0,9))
-h3cIDSTrapFileAccessError.setObjects(*((_A,_I),(_A,_D)))
-if mibBuilder.loadTexts:h3cIDSTrapFileAccessError.setStatus(_B)
-h3cIDSTrapConsArithMemLow=NotificationType((1,3,6,1,4,1,43,45,1,10,2,47,1,1,2,0,10))
-h3cIDSTrapConsArithMemLow.setObjects((_A,_D))
-if mibBuilder.loadTexts:h3cIDSTrapConsArithMemLow.setStatus(_B)
-h3cIDSTrapSSRAMOperFail=NotificationType((1,3,6,1,4,1,43,45,1,10,2,47,1,1,2,0,11))
-h3cIDSTrapSSRAMOperFail.setObjects((_A,_D))
-if mibBuilder.loadTexts:h3cIDSTrapSSRAMOperFail.setStatus(_B)
-h3cIDSTrapPacketProcessDisorder=NotificationType((1,3,6,1,4,1,43,45,1,10,2,47,1,1,2,0,12))
-h3cIDSTrapPacketProcessDisorder.setObjects((_A,_D))
-if mibBuilder.loadTexts:h3cIDSTrapPacketProcessDisorder.setStatus(_B)
-h3cIDSTrapCfgFileFormatError=NotificationType((1,3,6,1,4,1,43,45,1,10,2,47,1,1,2,0,13))
-h3cIDSTrapCfgFileFormatError.setObjects(*((_A,_I),(_A,_S)))
-if mibBuilder.loadTexts:h3cIDSTrapCfgFileFormatError.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'h3cIds':h3cIds,'h3cIDSMib':h3cIDSMib,'h3cIDSTrapGroup':h3cIDSTrapGroup,'h3cIDSTrapInfo':h3cIDSTrapInfo,_J:h3cIDSTrapIPFragmentQueueLen,_K:h3cIDSTrapStatSessionTabLen,_G:h3cIDSTrapIPAddressType,_H:h3cIDSTrapIPAddress,_P:h3cIDSTrapUserName,_Q:h3cIDSTrapLoginType,_R:h3cIDSTrapUpgradeType,_N:h3cIDSTrapCRLName,_O:h3cIDSTrapCertName,_L:h3cIDSTrapDetectRuleID,_M:h3cIDSTrapEngineID,_I:h3cIDSTrapFileName,_S:h3cIDSTrapCfgLineInFile,_D:h3cIDSTrapReasonForError,'h3cIDSTrap':h3cIDSTrap,'h3cIDSTrapPrefix':h3cIDSTrapPrefix,'h3cIDSTrapIPFragQueueFull':h3cIDSTrapIPFragQueueFull,'h3cIDSTrapStatSessTabFull':h3cIDSTrapStatSessTabFull,'h3cIDSTrapDetectRuleParseFail':h3cIDSTrapDetectRuleParseFail,'h3cIDSTrapDBConnLost':h3cIDSTrapDBConnLost,'h3cIDSTrapCRLNeedUpdate':h3cIDSTrapCRLNeedUpdate,'h3cIDSTrapCertOverdue':h3cIDSTrapCertOverdue,'h3cIDSTrapTooManyLoginFail':h3cIDSTrapTooManyLoginFail,'h3cIDSTrapUpgradeError':h3cIDSTrapUpgradeError,'h3cIDSTrapFileAccessError':h3cIDSTrapFileAccessError,'h3cIDSTrapConsArithMemLow':h3cIDSTrapConsArithMemLow,'h3cIDSTrapSSRAMOperFail':h3cIDSTrapSSRAMOperFail,'h3cIDSTrapPacketProcessDisorder':h3cIDSTrapPacketProcessDisorder,'h3cIDSTrapCfgFileFormatError':h3cIDSTrapCfgFileFormatError})
+#
+# PySNMP MIB module A3COM-HUAWEI-IDS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-IDS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+h3cIDSMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1))
+if mibBuilder.loadTexts: h3cIDSMib.setLastUpdated('200507141942Z')
+if mibBuilder.loadTexts: h3cIDSMib.setOrganization('Huawei-3com Technologies Co., Ltd.')
+h3cIds = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47))
+h3cIDSTrapGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1))
+h3cIDSTrapInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 1))
+h3cIDSTrapIPFragmentQueueLen = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 1, 1), Unsigned32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cIDSTrapIPFragmentQueueLen.setStatus('current')
+h3cIDSTrapStatSessionTabLen = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 1, 2), Unsigned32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cIDSTrapStatSessionTabLen.setStatus('current')
+h3cIDSTrapIPAddressType = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 1, 3), InetAddressType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cIDSTrapIPAddressType.setStatus('current')
+h3cIDSTrapIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 1, 4), InetAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cIDSTrapIPAddress.setStatus('current')
+h3cIDSTrapUserName = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cIDSTrapUserName.setStatus('current')
+h3cIDSTrapLoginType = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("telnet", 1), ("ssh", 2), ("web", 3)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cIDSTrapLoginType.setStatus('current')
+h3cIDSTrapUpgradeType = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("programme", 1), ("crb", 2), ("vrb", 3)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cIDSTrapUpgradeType.setStatus('current')
+h3cIDSTrapCRLName = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cIDSTrapCRLName.setStatus('current')
+h3cIDSTrapCertName = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cIDSTrapCertName.setStatus('current')
+h3cIDSTrapDetectRuleID = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 1, 10), Unsigned32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cIDSTrapDetectRuleID.setStatus('current')
+h3cIDSTrapEngineID = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 1, 11), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cIDSTrapEngineID.setStatus('current')
+h3cIDSTrapFileName = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cIDSTrapFileName.setStatus('current')
+h3cIDSTrapCfgLineInFile = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 1, 13), Unsigned32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cIDSTrapCfgLineInFile.setStatus('current')
+h3cIDSTrapReasonForError = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 1, 14), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cIDSTrapReasonForError.setStatus('current')
+h3cIDSTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 2))
+h3cIDSTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 2, 0))
+h3cIDSTrapIPFragQueueFull = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 2, 0, 1)).setObjects(("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapIPFragmentQueueLen"), ("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapReasonForError"))
+if mibBuilder.loadTexts: h3cIDSTrapIPFragQueueFull.setStatus('current')
+h3cIDSTrapStatSessTabFull = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 2, 0, 2)).setObjects(("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapStatSessionTabLen"), ("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapReasonForError"))
+if mibBuilder.loadTexts: h3cIDSTrapStatSessTabFull.setStatus('current')
+h3cIDSTrapDetectRuleParseFail = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 2, 0, 3)).setObjects(("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapDetectRuleID"), ("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapEngineID"), ("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapReasonForError"))
+if mibBuilder.loadTexts: h3cIDSTrapDetectRuleParseFail.setStatus('current')
+h3cIDSTrapDBConnLost = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 2, 0, 4)).setObjects(("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapIPAddressType"), ("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapIPAddress"), ("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapReasonForError"))
+if mibBuilder.loadTexts: h3cIDSTrapDBConnLost.setStatus('current')
+h3cIDSTrapCRLNeedUpdate = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 2, 0, 5)).setObjects(("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapCRLName"), ("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapReasonForError"))
+if mibBuilder.loadTexts: h3cIDSTrapCRLNeedUpdate.setStatus('current')
+h3cIDSTrapCertOverdue = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 2, 0, 6)).setObjects(("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapCertName"), ("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapReasonForError"))
+if mibBuilder.loadTexts: h3cIDSTrapCertOverdue.setStatus('current')
+h3cIDSTrapTooManyLoginFail = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 2, 0, 7)).setObjects(("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapUserName"), ("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapIPAddressType"), ("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapIPAddress"), ("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapLoginType"), ("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapReasonForError"))
+if mibBuilder.loadTexts: h3cIDSTrapTooManyLoginFail.setStatus('current')
+h3cIDSTrapUpgradeError = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 2, 0, 8)).setObjects(("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapUpgradeType"), ("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapReasonForError"))
+if mibBuilder.loadTexts: h3cIDSTrapUpgradeError.setStatus('current')
+h3cIDSTrapFileAccessError = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 2, 0, 9)).setObjects(("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapFileName"), ("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapReasonForError"))
+if mibBuilder.loadTexts: h3cIDSTrapFileAccessError.setStatus('current')
+h3cIDSTrapConsArithMemLow = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 2, 0, 10)).setObjects(("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapReasonForError"))
+if mibBuilder.loadTexts: h3cIDSTrapConsArithMemLow.setStatus('current')
+h3cIDSTrapSSRAMOperFail = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 2, 0, 11)).setObjects(("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapReasonForError"))
+if mibBuilder.loadTexts: h3cIDSTrapSSRAMOperFail.setStatus('current')
+h3cIDSTrapPacketProcessDisorder = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 2, 0, 12)).setObjects(("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapReasonForError"))
+if mibBuilder.loadTexts: h3cIDSTrapPacketProcessDisorder.setStatus('current')
+h3cIDSTrapCfgFileFormatError = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 47, 1, 1, 2, 0, 13)).setObjects(("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapFileName"), ("A3COM-HUAWEI-IDS-MIB", "h3cIDSTrapCfgLineInFile"))
+if mibBuilder.loadTexts: h3cIDSTrapCfgFileFormatError.setStatus('current')
+mibBuilder.exportSymbols("A3COM-HUAWEI-IDS-MIB", h3cIDSTrapTooManyLoginFail=h3cIDSTrapTooManyLoginFail, h3cIDSTrapStatSessTabFull=h3cIDSTrapStatSessTabFull, h3cIDSTrapInfo=h3cIDSTrapInfo, h3cIDSTrapConsArithMemLow=h3cIDSTrapConsArithMemLow, h3cIDSTrapLoginType=h3cIDSTrapLoginType, h3cIDSTrapCRLName=h3cIDSTrapCRLName, PYSNMP_MODULE_ID=h3cIDSMib, h3cIDSTrap=h3cIDSTrap, h3cIDSTrapUpgradeType=h3cIDSTrapUpgradeType, h3cIDSTrapGroup=h3cIDSTrapGroup, h3cIDSTrapUpgradeError=h3cIDSTrapUpgradeError, h3cIds=h3cIds, h3cIDSTrapReasonForError=h3cIDSTrapReasonForError, h3cIDSTrapStatSessionTabLen=h3cIDSTrapStatSessionTabLen, h3cIDSTrapDBConnLost=h3cIDSTrapDBConnLost, h3cIDSTrapIPFragmentQueueLen=h3cIDSTrapIPFragmentQueueLen, h3cIDSTrapCRLNeedUpdate=h3cIDSTrapCRLNeedUpdate, h3cIDSTrapIPAddressType=h3cIDSTrapIPAddressType, h3cIDSTrapSSRAMOperFail=h3cIDSTrapSSRAMOperFail, h3cIDSTrapCertOverdue=h3cIDSTrapCertOverdue, h3cIDSMib=h3cIDSMib, h3cIDSTrapEngineID=h3cIDSTrapEngineID, h3cIDSTrapCfgLineInFile=h3cIDSTrapCfgLineInFile, h3cIDSTrapUserName=h3cIDSTrapUserName, h3cIDSTrapCfgFileFormatError=h3cIDSTrapCfgFileFormatError, h3cIDSTrapDetectRuleParseFail=h3cIDSTrapDetectRuleParseFail, h3cIDSTrapFileName=h3cIDSTrapFileName, h3cIDSTrapFileAccessError=h3cIDSTrapFileAccessError, h3cIDSTrapPrefix=h3cIDSTrapPrefix, h3cIDSTrapIPAddress=h3cIDSTrapIPAddress, h3cIDSTrapPacketProcessDisorder=h3cIDSTrapPacketProcessDisorder, h3cIDSTrapCertName=h3cIDSTrapCertName, h3cIDSTrapIPFragQueueFull=h3cIDSTrapIPFragQueueFull, h3cIDSTrapDetectRuleID=h3cIDSTrapDetectRuleID)

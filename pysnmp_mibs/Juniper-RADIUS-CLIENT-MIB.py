@@ -1,2464 +1,896 @@
-_Ev='juniRadiusBrasClientGroup21'
-_Eu='juniRadiusBrasClientGroup20'
-_Et='juniRadiusBrasClientGroup19'
-_Es='juniRadiusBrasClientGroup18'
-_Er='juniRadiusBrasClientGroup16'
-_Eq='juniRadiusBrasClientGroup15'
-_Ep='juniRadiusBrasClientGroup14'
-_Eo='juniRadiusBrasClientGroup11'
-_En='juniRadiusBrasClientGroup10'
-_Em='juniRadiusBrasClientGroup9'
-_El='juniRadiusBrasClientGroup8'
-_Ek='juniRadiusBrasClientGroup7'
-_Ej='juniRadiusBrasClientGroup6'
-_Ei='juniRadiusAcctNotificationGroup'
-_Eh='juniRadiusAcctClientGroup2'
-_Eg='juniRadiusAuthNotificationGroup'
-_Ef='juniRadiusAuthClientGroup2'
-_Ee='juniRadiusBrasClientGroup4'
-_Ed='juniRadiusBrasClientGroup3'
-_Ec='juniRadiusBrasClientGroup2'
-_Eb='juniRadiusBrasClientGroup'
-_Ea='juniRadiusAcctClientServerAvailable'
-_EZ='juniRadiusAuthClientServerAvailable'
-_EY='juniRadiusClientIncludeQosProfileNameInAcctStop'
-_EX='juniRadiusClientIncludeQosProfileNameInAcctStart'
-_EW='juniRadiusClientIncludeDslForumAttributesInAcctStop'
-_EV='juniRadiusAcctClientRejectResponses'
-_EU='juniRadiusAcctClientRejectRequests'
-_ET='juniRadiusClientRollover'
-_ES='juniRadiusClientTunnelAccounting'
-_ER='juniRadiusAcctClientCfgServerAddress'
-_EQ='juniRadiusAcctClientServerAddress'
-_EP='juniRadiusAuthClientCfgServerAddress'
-_EO='juniRadiusAuthClientServerAddress'
-_EN='OctetString'
-_EM='juniRadiusAcctClientGroup3'
-_EL='juniRadiusBrasClientGroup5'
-_EK='juniRadiusBasicClientGroup'
-_EJ='juniRadiusGeneralClientGroup2'
-_EI='juniRadiusGeneralClientGroup'
-_EH='juniRadiusAcctClientNoServerAvailable'
-_EG='juniRadiusAcctClientServerUnavailable'
-_EF='juniRadiusAuthClientNoServerAvailable'
-_EE='juniRadiusAuthClientServerUnavailable'
-_ED='juniRadiusClientIncludeIpv6VirtualRouterInAcctStop'
-_EC='juniRadiusClientIncludeIpv6VirtualRouterInAcctStart'
-_EB='juniRadiusClientIncludeIpv6SecondaryDnsInAcctStop'
-_EA='juniRadiusClientIncludeIpv6SecondaryDnsInAcctStart'
-_E9='juniRadiusClientIncludeIpv6PrimaryDnsInAcctStop'
-_E8='juniRadiusClientIncludeIpv6PrimaryDnsInAcctStart'
-_E7='juniRadiusClientIncludeIpv6NdRaPrefixInAcctStop'
-_E6='juniRadiusClientIncludeIpv6NdRaPrefixInAcctStart'
-_E5='juniRadiusClientIncludeIpv6LocalInterfaceInAcctStop'
-_E4='juniRadiusClientIncludeIpv6LocalInterfaceInAcctStart'
-_E3='juniRadiusClientIncludeFramedIpv6RouteInAcctStop'
-_E2='juniRadiusClientIncludeFramedIpv6RouteInAcctStart'
-_E1='juniRadiusClientIncludeFramedIpv6PoolInAcctStop'
-_E0='juniRadiusClientIncludeFramedIpv6PoolInAcctStart'
-_D_='juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop'
-_Dz='juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart'
-_Dy='juniRadiusAcctClientStopResponses'
-_Dx='juniRadiusAcctClientInterimResponses'
-_Dw='juniRadiusAcctClientStartResponses'
-_Dv='juniRadiusAcctClientStopRequests'
-_Du='juniRadiusAcctClientInterimRequests'
-_Dt='juniRadiusAcctClientStartRequests'
-_Ds='juniRadiusAuthClientAvailableServer'
-_Dr='juniRadiusClientNasIdentifier'
-_Dq='juniRadiusClientUdpChecksum'
-_Dp='juniRadiusClientIncludeIpv6AccountingInAcctStop'
-_Do='juniRadiusAcctClientAvailableServer'
-_Dn='juniRadiusAuthClientNextAvailableServer'
-_Dm='juniRadiusAuthClientUnavailableServer'
-_Dl='juniRadiusClientSourceAddress'
-_Dk='juniRadiusAuthClientCfgDeadTime'
-_Dj='juniRadiusAuthClientCfgPrecedence'
-_Di='juniRadiusAuthClientCfgRowStatus'
-_Dh='juniRadiusAuthClientCfgMaxPendingRequests'
-_Dg='juniRadiusAuthClientCfgRetries'
-_Df='juniRadiusAuthClientCfgTimeoutInterval'
-_De='juniRadiusAuthClientCfgKey'
-_Dd='juniRadiusAuthClientCfgServerPortNumber'
-_Dc='juniRadiusAuthClientPacketsDropped'
-_Db='juniRadiusAuthClientUnknownTypes'
-_Da='juniRadiusAuthClientTimeouts'
-_DZ='juniRadiusAuthClientPendingRequests'
-_DY='juniRadiusAuthClientBadAuthenticators'
-_DX='juniRadiusAuthClientMalformedAccessResponses'
-_DW='juniRadiusAuthClientAccessChallenges'
-_DV='juniRadiusAuthClientAccessRejects'
-_DU='juniRadiusAuthClientAccessAccepts'
-_DT='juniRadiusAuthClientAccessRetransmissions'
-_DS='juniRadiusAuthClientAccessRequests'
-_DR='juniRadiusAuthClientRoundTripTime'
-_DQ='juniRadiusAuthClientServerPortNumber'
-_DP='juniRadiusAuthClientInvalidServerAddresses'
-_DO='not-accessible'
-_DN='none'
-_DM='juniRadiusClientIgnorePppoeMaxSession'
-_DL='juniRadiusAcctClientNextAvailableServer'
-_DK='juniRadiusAcctClientUnavailableServer'
-_DJ='juniRadiusAcctClientCfgDeadTime'
-_DI='juniRadiusAcctClientCfgPrecedence'
-_DH='juniRadiusAcctClientCfgRowStatus'
-_DG='juniRadiusAcctClientCfgMaxPendingRequests'
-_DF='juniRadiusAcctClientCfgRetries'
-_DE='juniRadiusAcctClientCfgTimeoutInterval'
-_DD='juniRadiusAcctClientCfgKey'
-_DC='juniRadiusAcctClientCfgServerPortNumber'
-_DB='juniRadiusAcctClientPacketsDropped'
-_DA='juniRadiusAcctClientUnknownTypes'
-_D9='juniRadiusAcctClientTimeouts'
-_D8='juniRadiusAcctClientPendingRequests'
-_D7='juniRadiusAcctClientBadAuthenticators'
-_D6='juniRadiusAcctClientMalformedResponses'
-_D5='juniRadiusAcctClientResponses'
-_D4='juniRadiusAcctClientRetransmissions'
-_D3='juniRadiusAcctClientRequests'
-_D2='juniRadiusAcctClientRoundTripTime'
-_D1='juniRadiusAcctClientServerPortNumber'
-_D0='juniRadiusAcctClientInvalidServerAddresses'
-_C_='juniRadiusClientAlgorithm'
-_Cz='juniRadiusClientIdentifier'
-_Cy='juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop'
-_Cx='juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop'
-_Cw='juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart'
-_Cv='juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart'
-_Cu='juniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq'
-_Ct='juniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq'
-_Cs='accessible-for-notify'
-_Cr='DisplayString'
-_Cq='juniRadiusClientIncludeIpv6PrefixInAcctStop'
-_Cp='juniRadiusClientIncludeIpAddrInAcctStop'
-_Co='juniRadiusClientIncludeInterfaceIdInAcctStop'
-_Cn='juniRadiusClientIncludeIpv6PrefixInAcctStart'
-_Cm='juniRadiusClientIncludeInterfaceIdInAcctStart'
-_Cl='juniRadiusAcctClientGroup'
-_Ck='juniRadiusAuthClientGroup'
-_Cj='juniRadiusClientIncludeL2cDslTypeInAcctStop'
-_Ci='juniRadiusClientIncludeL2cDslLineStateInAcctStop'
-_Ch='juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop'
-_Cg='juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop'
-_Cf='juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop'
-_Ce='juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop'
-_Cd='juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop'
-_Cc='juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop'
-_Cb='juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop'
-_Ca='juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop'
-_CZ='juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop'
-_CY='juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop'
-_CX='juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop'
-_CW='juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop'
-_CV='juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop'
-_CU='juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop'
-_CT='juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop'
-_CS='juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop'
-_CR='juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop'
-_CQ='juniRadiusClientIncludeL2cDslTypeInAcctStart'
-_CP='juniRadiusClientIncludeL2cDslLineStateInAcctStart'
-_CO='juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart'
-_CN='juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart'
-_CM='juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart'
-_CL='juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart'
-_CK='juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart'
-_CJ='juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart'
-_CI='juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart'
-_CH='juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart'
-_CG='juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart'
-_CF='juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart'
-_CE='juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart'
-_CD='juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart'
-_CC='juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart'
-_CB='juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart'
-_CA='juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart'
-_C9='juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart'
-_C8='juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart'
-_C7='juniRadiusClientIncludeL2cDslTypeInAccessReq'
-_C6='juniRadiusClientIncludeL2cDslLineStateInAccessReq'
-_C5='juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq'
-_C4='juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq'
-_C3='juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq'
-_C2='juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq'
-_C1='juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq'
-_C0='juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq'
-_B_='juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq'
-_Bz='juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq'
-_By='juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq'
-_Bx='juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq'
-_Bw='juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq'
-_Bv='juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq'
-_Bu='juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq'
-_Bt='juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq'
-_Bs='juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq'
-_Br='juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq'
-_Bq='juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq'
-_Bp='juniRadiusClientIncludeDslForumAttributesInAcctStart'
-_Bo='juniRadiusClientIncludeDslForumAttributesInAccessReq'
-_Bn='juniRadiusClientIncludeL2cUpStreamDataInAcctStop'
-_Bm='juniRadiusClientIncludeL2cDownStreamDataInAcctStop'
-_Bl='juniRadiusClientIncludeL2cUpStreamDataInAcctStart'
-_Bk='juniRadiusClientIncludeL2cDownStreamDataInAcctStart'
-_Bj='juniRadiusClientIncludeL2cUpStreamDataInAccessReq'
-_Bi='juniRadiusClientIncludeL2cDownStreamDataInAccessReq'
-_Bh='juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq'
-_Bg='juniRadiusClientRemoteCircuitIdDelimiter'
-_Bf='juniRadiusClientRemoteCircuitIdFormat'
-_Be='juniRadiusClientNasPortFieldWidthEthernetVlan'
-_Bd='juniRadiusClientNasPortFieldWidthEthernetSVlan'
-_Bc='juniRadiusClientNasPortFieldWidthEthernetPort'
-_Bb='juniRadiusClientNasPortFieldWidthEthernetAdapter'
-_Ba='juniRadiusClientNasPortFieldWidthEthernetSlot'
-_BZ='juniRadiusClientNasPortFieldWidthAtmVci'
-_BY='juniRadiusClientNasPortFieldWidthAtmVpi'
-_BX='juniRadiusClientNasPortFieldWidthAtmPort'
-_BW='juniRadiusClientNasPortFieldWidthAtmAdapter'
-_BV='juniRadiusClientNasPortFieldWidthAtmSlot'
-_BU='juniRadiusClientIncludeInterfaceDescriptionInAcctStop'
-_BT='juniRadiusClientIncludeInterfaceDescriptionInAcctStart'
-_BS='juniRadiusClientIncludeInterfaceDescriptionInAccessReq'
-_BR='juniRadiusAcctClientGroup4'
-_BQ='juniRadiusClientOverrideNasInfo'
-_BP='juniRadiusClientIncludeDhcpGiAddressInAcctStop'
-_BO='juniRadiusClientIncludeDhcpMacAddressInAcctStop'
-_BN='juniRadiusClientIncludeDhcpOptionsInAcctStop'
-_BM='juniRadiusClientIncludeDhcpGiAddressInAcctStart'
-_BL='juniRadiusClientIncludeDhcpMacAddressInAcctStart'
-_BK='juniRadiusClientIncludeDhcpOptionsInAcctStart'
-_BJ='juniRadiusClientIncludeDhcpGiAddressInAccessReq'
-_BI='juniRadiusClientIncludeDhcpMacAddressInAccessReq'
-_BH='juniRadiusClientIncludeDhcpOptionsInAccessReq'
-_BG='juniRadiusAcctNotificationGroup2'
-_BF='juniRadiusAuthNotificationGroup2'
-_BE='juniRadiusAuthClientGroup3'
-_BD='juniRadiusClientIncludeMlpppBundleNameInAcctStop'
-_BC='juniRadiusClientIncludeMlpppBundleNameInAcctStart'
-_BB='juniRadiusClientIncludeMlpppBundleNameInAccessReq'
-_BA='juniRadiusClientIncludeAcctTerminateCauseInAcctOff'
-_B9='juniRadiusClientIncludeAcctSessionIdInAcctOff'
-_B8='juniRadiusClientIncludeAcctDelayTimeInAcctOff'
-_B7='juniRadiusClientIncludeAcctAuthenticInAcctOff'
-_B6='juniRadiusClientIncludeAcctSessionIdInAcctOn'
-_B5='juniRadiusClientIncludeAcctDelayTimeInAcctOn'
-_B4='juniRadiusClientIncludeAcctAuthenticInAcctOn'
-_B3='juniRadiusClientIncludeProfileServiceDescrInAcctStop'
-_B2='juniRadiusClientIncludeProfileServiceDescrInAcctStart'
-_B1='juniRadiusClientIncludeProfileServiceDescrInAccessReq'
-_B0='juniRadiusClientConnectInfoFormat'
-_A_='juniRadiusClientIncludeAscendNumInMultilinkInAcctStop'
-_Az='juniRadiusClientIncludeAscendNumInMultilinkInAcctStart'
-_Ay='juniRadiusClientIncludeAscendNumInMultilinkInAccessReq'
-_Ax='juniRadiusClientIncludeAcctMultiSessionIdInAcctStop'
-_Aw='juniRadiusClientIncludeAcctMultiSessionIdInAcctStart'
-_Av='juniRadiusClientIncludeAcctMultiSessionIdInAccessReq'
-_Au='juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop'
-_At='read-create'
-_As='juniRadiusClientVlanNasPortFormat'
-_Ar='juniRadiusClientIncludeTunnelInterfaceIdInAcctStop'
-_Aq='juniRadiusClientIncludeTunnelInterfaceIdInAcctStart'
-_Ap='juniRadiusClientIncludeTunnelInterfaceIdInAccessReq'
-_Ao='juniRadiusClientPppoeNasPortFormat'
-_An='juniRadiusClientTrapOnAcctServerAvailable'
-_Am='juniRadiusClientTrapOnAuthServerAvailable'
-_Al='juniRadiusClientTrapOnNoAcctServerAvailable'
-_Ak='juniRadiusClientTrapOnNoAuthServerAvailable'
-_Aj='juniRadiusClientTrapOnAcctServerUnavailable'
-_Ai='juniRadiusClientTrapOnAuthServerUnavailable'
-_Ah='juniRadiusClientIgnoreVirtualRouter'
-_Ag='juniRadiusClientIgnoreIngressPolicyName'
-_Af='juniRadiusClientIgnoreEgressPolicyName'
-_Ae='juniRadiusClientIgnoreAtmScr'
-_Ad='juniRadiusClientIgnoreAtmPcr'
-_Ac='juniRadiusClientIgnoreAtmMbs'
-_Ab='juniRadiusClientIgnoreAtmCategory'
-_Aa='juniRadiusBasicClientGroup2'
-_AZ='juniRadiusClientIgnoreFramedIpNetmask'
-_AY='juniRadiusClientIncludeOutputGigapktsInAcctStop'
-_AX='juniRadiusClientIncludeInputGigapktsInAcctStop'
-_AW='juniRadiusClientIncludeTunnelTypeInAcctStop'
-_AV='juniRadiusClientIncludeTunnelServerEndpointInAcctStop'
-_AU='juniRadiusClientIncludeTunnelServerAuthIdInAcctStop'
-_AT='juniRadiusClientIncludeTunnelServerAttributesInAcctStop'
-_AS='juniRadiusClientIncludeTunnelPreferenceInAcctStop'
-_AR='juniRadiusClientIncludeTunnelMediumTypeInAcctStop'
-_AQ='juniRadiusClientIncludeTunnelClientEndpointInAcctStop'
-_AP='juniRadiusClientIncludeTunnelClientAuthIdInAcctStop'
-_AO='juniRadiusClientIncludeTunnelAssignmentIdInAcctStop'
-_AN='juniRadiusClientIncludePppoeDescriptionInAcctStop'
-_AM='juniRadiusClientIncludeOutputGigawordsInAcctStop'
-_AL='juniRadiusClientIncludeNasPortTypeInAcctStop'
-_AK='juniRadiusClientIncludeNasPortIdInAcctStop'
-_AJ='juniRadiusClientIncludeNasPortInAcctStop'
-_AI='juniRadiusClientIncludeNasIdentifierInAcctStop'
-_AH='juniRadiusClientIncludeInputGigawordsInAcctStop'
-_AG='juniRadiusClientIncludeIngressPolicyNameInAcctStop'
-_AF='juniRadiusClientIncludeFramedIpNetmaskInAcctStop'
-_AE='juniRadiusClientIncludeFramedCompressionInAcctStop'
-_AD='juniRadiusClientIncludeEventTimestampInAcctStop'
-_AC='juniRadiusClientIncludeEgressPolicyNameInAcctStop'
-_AB='juniRadiusClientIncludeConnectInfoInAcctStop'
-_AA='juniRadiusClientIncludeClassInAcctStop'
-_A9='juniRadiusClientIncludeCallingStationIdInAcctStop'
-_A8='juniRadiusClientIncludeCalledStationIdInAcctStop'
-_A7='juniRadiusClientIncludeAcctTunnelConnectionInAcctStop'
-_A6='juniRadiusClientIncludeTunnelTypeInAcctStart'
-_A5='juniRadiusClientIncludeTunnelServerEndpointInAcctStart'
-_A4='juniRadiusClientIncludeTunnelServerAuthIdInAcctStart'
-_A3='juniRadiusClientIncludeTunnelServerAttributesInAcctStart'
-_A2='juniRadiusClientIncludeTunnelPreferenceInAcctStart'
-_A1='juniRadiusClientIncludeTunnelMediumTypeInAcctStart'
-_A0='juniRadiusClientIncludeTunnelClientEndpointInAcctStart'
-_z='juniRadiusClientIncludeTunnelClientAuthIdInAcctStart'
-_y='juniRadiusClientIncludeTunnelAssignmentIdInAcctStart'
-_x='juniRadiusClientIncludePppoeDescriptionInAcctStart'
-_w='juniRadiusClientIncludeNasPortTypeInAcctStart'
-_v='juniRadiusClientIncludeNasPortIdInAcctStart'
-_u='juniRadiusClientIncludeNasPortInAcctStart'
-_t='juniRadiusClientIncludeNasIdentifierInAcctStart'
-_s='juniRadiusClientIncludeIngressPolicyNameInAcctStart'
-_r='juniRadiusClientIncludeFramedIpNetmaskInAcctStart'
-_q='juniRadiusClientIncludeFramedCompressionInAcctStart'
-_p='juniRadiusClientIncludeEventTimestampInAcctStart'
-_o='juniRadiusClientIncludeEgressPolicyNameInAcctStart'
-_n='juniRadiusClientIncludeConnectInfoInAcctStart'
-_m='juniRadiusClientIncludeClassInAcctStart'
-_l='juniRadiusClientIncludeCallingStationIdInAcctStart'
-_k='juniRadiusClientIncludeCalledStationIdInAcctStart'
-_j='juniRadiusClientIncludeAcctTunnelConnectionInAcctStart'
-_i='juniRadiusClientIncludeTunnelTypeInAccessReq'
-_h='juniRadiusClientIncludeTunnelServerEndpointInAccessReq'
-_g='juniRadiusClientIncludeTunnelServerAuthIdInAccessReq'
-_f='juniRadiusClientIncludeTunnelServerAttributesInAccessReq'
-_e='juniRadiusClientIncludeTunnelMediumTypeInAccessReq'
-_d='juniRadiusClientIncludeTunnelClientEndpointInAccessReq'
-_c='juniRadiusClientIncludeTunnelClientAuthIdInAccessReq'
-_b='juniRadiusClientIncludePppoeDescriptionInAccessReq'
-_a='juniRadiusClientIncludeNasPortTypeInAccessReq'
-_Z='juniRadiusClientIncludeNasPortIdInAccessReq'
-_Y='juniRadiusClientIncludeNasPortInAccessReq'
-_X='juniRadiusClientIncludeNasIdentifierInAccessReq'
-_W='juniRadiusClientIncludeConnectInfoInAccessReq'
-_V='juniRadiusClientIncludeCallingStationIdInAccessReq'
-_U='juniRadiusClientIncludeCalledStationIdInAccessReq'
-_T='juniRadiusClientIncludeAcctTunnelConnectionInAccessReq'
-_S='juniRadiusClientNasIpAddrUse'
-_R='juniRadiusTunnelClientGroup'
-_Q='juniRadiusClientCallingStationIdFormat'
-_P='juniRadiusClientIncludeAcctSessionIdInAccessReq'
-_O='juniRadiusClientIncludeIpAddrInAcctStart'
-_N='juniRadiusClientEthernetPortType'
-_M='juniRadiusClientCallingStationIdOverrideRemoteCircuitId'
-_L='juniRadiusClientNasPortIdOverrideRemoteCircuitId'
-_K='juniRadiusClientCallingStationDelimiter'
-_J='juniRadiusClientNasPortFormat'
-_I='juniRadiusClientAcctSessionIdFormat'
-_H='juniRadiusClientDslPortType'
-_G='Integer32'
-_F='read-only'
-_E='obsolete'
-_D='TruthValue'
-_C='read-write'
-_B='current'
-_A='Juniper-RADIUS-CLIENT-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_EN,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-juniMibs,=mibBuilder.importSymbols('Juniper-MIBs','juniMibs')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_Cr,'PhysAddress','RowStatus','TextualConvention',_D)
-juniRadiusClientMIB=ModuleIdentity((1,3,6,1,4,1,4874,2,2,19))
-if mibBuilder.loadTexts:juniRadiusClientMIB.setRevisions(('2009-02-26 16:41','2008-06-18 10:10','2008-06-11 06:15','2007-12-14 15:00','2007-09-18 18:22','2007-09-16 22:00','2007-04-10 01:03','2006-02-17 22:00','2006-01-12 22:00','2005-09-30 14:55','2005-01-14 15:15','2004-12-06 02:32','2004-12-03 22:12','2004-09-09 19:45','2003-12-15 16:36','2003-03-10 19:33','2003-01-27 18:33','2002-11-21 19:45','2002-05-13 17:54','2001-10-16 19:54','2001-09-06 21:08','2001-03-22 15:20','2000-12-19 16:40','2000-05-05 19:44','1999-06-01 00:00'))
-class JuniRadiusClientRemoterCircuitIdFormatComponents(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('agentCircuitId',1),('agentRemoteId',2),('nasIdentifier',3),('dsl-format-1',4)))
-_JuniRadiusClientObjects_ObjectIdentity=ObjectIdentity
-juniRadiusClientObjects=_JuniRadiusClientObjects_ObjectIdentity((1,3,6,1,4,1,4874,2,2,19,1))
-_JuniRadiusGeneralClient_ObjectIdentity=ObjectIdentity
-juniRadiusGeneralClient=_JuniRadiusGeneralClient_ObjectIdentity((1,3,6,1,4,1,4874,2,2,19,1,1))
-_JuniRadiusClientIdentifier_Type=DisplayString
-_JuniRadiusClientIdentifier_Object=MibScalar
-juniRadiusClientIdentifier=_JuniRadiusClientIdentifier_Object((1,3,6,1,4,1,4874,2,2,19,1,1,1),_JuniRadiusClientIdentifier_Type())
-juniRadiusClientIdentifier.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusClientIdentifier.setStatus(_B)
-class _JuniRadiusClientAlgorithm_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('direct',0),('roundRobin',1)))
-_JuniRadiusClientAlgorithm_Type.__name__=_G
-_JuniRadiusClientAlgorithm_Object=MibScalar
-juniRadiusClientAlgorithm=_JuniRadiusClientAlgorithm_Object((1,3,6,1,4,1,4874,2,2,19,1,1,2),_JuniRadiusClientAlgorithm_Type())
-juniRadiusClientAlgorithm.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientAlgorithm.setStatus(_B)
-_JuniRadiusClientSourceAddress_Type=IpAddress
-_JuniRadiusClientSourceAddress_Object=MibScalar
-juniRadiusClientSourceAddress=_JuniRadiusClientSourceAddress_Object((1,3,6,1,4,1,4874,2,2,19,1,1,3),_JuniRadiusClientSourceAddress_Type())
-juniRadiusClientSourceAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientSourceAddress.setStatus(_B)
-class _JuniRadiusClientUdpChecksum_Type(TruthValue):defaultValue=1
-_JuniRadiusClientUdpChecksum_Type.__name__=_D
-_JuniRadiusClientUdpChecksum_Object=MibScalar
-juniRadiusClientUdpChecksum=_JuniRadiusClientUdpChecksum_Object((1,3,6,1,4,1,4874,2,2,19,1,1,4),_JuniRadiusClientUdpChecksum_Type())
-juniRadiusClientUdpChecksum.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientUdpChecksum.setStatus(_B)
-class _JuniRadiusClientNasIdentifier_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_JuniRadiusClientNasIdentifier_Type.__name__=_Cr
-_JuniRadiusClientNasIdentifier_Object=MibScalar
-juniRadiusClientNasIdentifier=_JuniRadiusClientNasIdentifier_Object((1,3,6,1,4,1,4874,2,2,19,1,1,5),_JuniRadiusClientNasIdentifier_Type())
-juniRadiusClientNasIdentifier.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientNasIdentifier.setStatus(_B)
-class _JuniRadiusClientDslPortType_Type(Integer32):defaultValue=16;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(5,11,12,13,14,16)));namedValues=NamedValues(*(('virtual',5),('sdsl',11),('adsl-cap',12),('adsl-dmt',13),('idsl',14),('xdsl',16)))
-_JuniRadiusClientDslPortType_Type.__name__=_G
-_JuniRadiusClientDslPortType_Object=MibScalar
-juniRadiusClientDslPortType=_JuniRadiusClientDslPortType_Object((1,3,6,1,4,1,4874,2,2,19,1,1,6),_JuniRadiusClientDslPortType_Type())
-juniRadiusClientDslPortType.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientDslPortType.setStatus(_B)
-class _JuniRadiusClientTunnelAccounting_Type(TruthValue):defaultValue=2
-_JuniRadiusClientTunnelAccounting_Type.__name__=_D
-_JuniRadiusClientTunnelAccounting_Object=MibScalar
-juniRadiusClientTunnelAccounting=_JuniRadiusClientTunnelAccounting_Object((1,3,6,1,4,1,4874,2,2,19,1,1,7),_JuniRadiusClientTunnelAccounting_Type())
-juniRadiusClientTunnelAccounting.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientTunnelAccounting.setStatus(_B)
-class _JuniRadiusClientAcctSessionIdFormat_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('decimal',0),('description',1)))
-_JuniRadiusClientAcctSessionIdFormat_Type.__name__=_G
-_JuniRadiusClientAcctSessionIdFormat_Object=MibScalar
-juniRadiusClientAcctSessionIdFormat=_JuniRadiusClientAcctSessionIdFormat_Object((1,3,6,1,4,1,4874,2,2,19,1,1,8),_JuniRadiusClientAcctSessionIdFormat_Type())
-juniRadiusClientAcctSessionIdFormat.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientAcctSessionIdFormat.setStatus(_B)
-class _JuniRadiusClientNasPortFormat_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('xssssppp',0),('ssssxppp',1)))
-_JuniRadiusClientNasPortFormat_Type.__name__=_G
-_JuniRadiusClientNasPortFormat_Object=MibScalar
-juniRadiusClientNasPortFormat=_JuniRadiusClientNasPortFormat_Object((1,3,6,1,4,1,4874,2,2,19,1,1,9),_JuniRadiusClientNasPortFormat_Type())
-juniRadiusClientNasPortFormat.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientNasPortFormat.setStatus(_B)
-class _JuniRadiusClientCallingStationDelimiter_Type(DisplayString):defaultValue=OctetString('#');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
-_JuniRadiusClientCallingStationDelimiter_Type.__name__=_Cr
-_JuniRadiusClientCallingStationDelimiter_Object=MibScalar
-juniRadiusClientCallingStationDelimiter=_JuniRadiusClientCallingStationDelimiter_Object((1,3,6,1,4,1,4874,2,2,19,1,1,10),_JuniRadiusClientCallingStationDelimiter_Type())
-juniRadiusClientCallingStationDelimiter.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientCallingStationDelimiter.setStatus(_B)
-class _JuniRadiusClientEthernetPortType_Type(Integer32):defaultValue=15;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(5,15)));namedValues=NamedValues(*(('virtual',5),('ethernet',15)))
-_JuniRadiusClientEthernetPortType_Type.__name__=_G
-_JuniRadiusClientEthernetPortType_Object=MibScalar
-juniRadiusClientEthernetPortType=_JuniRadiusClientEthernetPortType_Object((1,3,6,1,4,1,4874,2,2,19,1,1,11),_JuniRadiusClientEthernetPortType_Type())
-juniRadiusClientEthernetPortType.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientEthernetPortType.setStatus(_B)
-class _JuniRadiusClientIncludeIpAddrInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeIpAddrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeIpAddrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeIpAddrInAcctStart=_JuniRadiusClientIncludeIpAddrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,12),_JuniRadiusClientIncludeIpAddrInAcctStart_Type())
-juniRadiusClientIncludeIpAddrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIpAddrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeAcctSessionIdInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeAcctSessionIdInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeAcctSessionIdInAccessReq_Object=MibScalar
-juniRadiusClientIncludeAcctSessionIdInAccessReq=_JuniRadiusClientIncludeAcctSessionIdInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,13),_JuniRadiusClientIncludeAcctSessionIdInAccessReq_Type())
-juniRadiusClientIncludeAcctSessionIdInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAcctSessionIdInAccessReq.setStatus(_B)
-class _JuniRadiusClientRollover_Type(TruthValue):defaultValue=2
-_JuniRadiusClientRollover_Type.__name__=_D
-_JuniRadiusClientRollover_Object=MibScalar
-juniRadiusClientRollover=_JuniRadiusClientRollover_Object((1,3,6,1,4,1,4874,2,2,19,1,1,14),_JuniRadiusClientRollover_Type())
-juniRadiusClientRollover.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientRollover.setStatus(_B)
-class _JuniRadiusClientCallingStationIdFormat_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*(('delimited',0),('fixedFormat',1),('fixedFormatAdapterEmbedded',2),('fixedFormatAdapterNewField',3),('fixedFormatStacked',4),('fixedFormatAdapterEmbeddedStacked',5),('fixedFormatAdapterNewFieldStacked',6)))
-_JuniRadiusClientCallingStationIdFormat_Type.__name__=_G
-_JuniRadiusClientCallingStationIdFormat_Object=MibScalar
-juniRadiusClientCallingStationIdFormat=_JuniRadiusClientCallingStationIdFormat_Object((1,3,6,1,4,1,4874,2,2,19,1,1,15),_JuniRadiusClientCallingStationIdFormat_Type())
-juniRadiusClientCallingStationIdFormat.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientCallingStationIdFormat.setStatus(_B)
-class _JuniRadiusClientNasIpAddrUse_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('normal',0),('tunnelClientEndpoint',1)))
-_JuniRadiusClientNasIpAddrUse_Type.__name__=_G
-_JuniRadiusClientNasIpAddrUse_Object=MibScalar
-juniRadiusClientNasIpAddrUse=_JuniRadiusClientNasIpAddrUse_Object((1,3,6,1,4,1,4874,2,2,19,1,1,16),_JuniRadiusClientNasIpAddrUse_Type())
-juniRadiusClientNasIpAddrUse.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientNasIpAddrUse.setStatus(_B)
-class _JuniRadiusClientIncludeAcctTunnelConnectionInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeAcctTunnelConnectionInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeAcctTunnelConnectionInAccessReq_Object=MibScalar
-juniRadiusClientIncludeAcctTunnelConnectionInAccessReq=_JuniRadiusClientIncludeAcctTunnelConnectionInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,17),_JuniRadiusClientIncludeAcctTunnelConnectionInAccessReq_Type())
-juniRadiusClientIncludeAcctTunnelConnectionInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAcctTunnelConnectionInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeCalledStationIdInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeCalledStationIdInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeCalledStationIdInAccessReq_Object=MibScalar
-juniRadiusClientIncludeCalledStationIdInAccessReq=_JuniRadiusClientIncludeCalledStationIdInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,18),_JuniRadiusClientIncludeCalledStationIdInAccessReq_Type())
-juniRadiusClientIncludeCalledStationIdInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeCalledStationIdInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeCallingStationIdInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeCallingStationIdInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeCallingStationIdInAccessReq_Object=MibScalar
-juniRadiusClientIncludeCallingStationIdInAccessReq=_JuniRadiusClientIncludeCallingStationIdInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,19),_JuniRadiusClientIncludeCallingStationIdInAccessReq_Type())
-juniRadiusClientIncludeCallingStationIdInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeCallingStationIdInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeConnectInfoInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeConnectInfoInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeConnectInfoInAccessReq_Object=MibScalar
-juniRadiusClientIncludeConnectInfoInAccessReq=_JuniRadiusClientIncludeConnectInfoInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,20),_JuniRadiusClientIncludeConnectInfoInAccessReq_Type())
-juniRadiusClientIncludeConnectInfoInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeConnectInfoInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeNasIdentifierInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeNasIdentifierInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeNasIdentifierInAccessReq_Object=MibScalar
-juniRadiusClientIncludeNasIdentifierInAccessReq=_JuniRadiusClientIncludeNasIdentifierInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,21),_JuniRadiusClientIncludeNasIdentifierInAccessReq_Type())
-juniRadiusClientIncludeNasIdentifierInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeNasIdentifierInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeNasPortInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeNasPortInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeNasPortInAccessReq_Object=MibScalar
-juniRadiusClientIncludeNasPortInAccessReq=_JuniRadiusClientIncludeNasPortInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,22),_JuniRadiusClientIncludeNasPortInAccessReq_Type())
-juniRadiusClientIncludeNasPortInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeNasPortInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeNasPortIdInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeNasPortIdInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeNasPortIdInAccessReq_Object=MibScalar
-juniRadiusClientIncludeNasPortIdInAccessReq=_JuniRadiusClientIncludeNasPortIdInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,23),_JuniRadiusClientIncludeNasPortIdInAccessReq_Type())
-juniRadiusClientIncludeNasPortIdInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeNasPortIdInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeNasPortTypeInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeNasPortTypeInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeNasPortTypeInAccessReq_Object=MibScalar
-juniRadiusClientIncludeNasPortTypeInAccessReq=_JuniRadiusClientIncludeNasPortTypeInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,24),_JuniRadiusClientIncludeNasPortTypeInAccessReq_Type())
-juniRadiusClientIncludeNasPortTypeInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeNasPortTypeInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludePppoeDescriptionInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludePppoeDescriptionInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludePppoeDescriptionInAccessReq_Object=MibScalar
-juniRadiusClientIncludePppoeDescriptionInAccessReq=_JuniRadiusClientIncludePppoeDescriptionInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,25),_JuniRadiusClientIncludePppoeDescriptionInAccessReq_Type())
-juniRadiusClientIncludePppoeDescriptionInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludePppoeDescriptionInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelClientAuthIdInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelClientAuthIdInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelClientAuthIdInAccessReq_Object=MibScalar
-juniRadiusClientIncludeTunnelClientAuthIdInAccessReq=_JuniRadiusClientIncludeTunnelClientAuthIdInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,26),_JuniRadiusClientIncludeTunnelClientAuthIdInAccessReq_Type())
-juniRadiusClientIncludeTunnelClientAuthIdInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelClientAuthIdInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelClientEndpointInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelClientEndpointInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelClientEndpointInAccessReq_Object=MibScalar
-juniRadiusClientIncludeTunnelClientEndpointInAccessReq=_JuniRadiusClientIncludeTunnelClientEndpointInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,27),_JuniRadiusClientIncludeTunnelClientEndpointInAccessReq_Type())
-juniRadiusClientIncludeTunnelClientEndpointInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelClientEndpointInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelMediumTypeInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelMediumTypeInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelMediumTypeInAccessReq_Object=MibScalar
-juniRadiusClientIncludeTunnelMediumTypeInAccessReq=_JuniRadiusClientIncludeTunnelMediumTypeInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,28),_JuniRadiusClientIncludeTunnelMediumTypeInAccessReq_Type())
-juniRadiusClientIncludeTunnelMediumTypeInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelMediumTypeInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelServerAttributesInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeTunnelServerAttributesInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelServerAttributesInAccessReq_Object=MibScalar
-juniRadiusClientIncludeTunnelServerAttributesInAccessReq=_JuniRadiusClientIncludeTunnelServerAttributesInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,29),_JuniRadiusClientIncludeTunnelServerAttributesInAccessReq_Type())
-juniRadiusClientIncludeTunnelServerAttributesInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelServerAttributesInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelServerAuthIdInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelServerAuthIdInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelServerAuthIdInAccessReq_Object=MibScalar
-juniRadiusClientIncludeTunnelServerAuthIdInAccessReq=_JuniRadiusClientIncludeTunnelServerAuthIdInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,30),_JuniRadiusClientIncludeTunnelServerAuthIdInAccessReq_Type())
-juniRadiusClientIncludeTunnelServerAuthIdInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelServerAuthIdInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelServerEndpointInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelServerEndpointInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelServerEndpointInAccessReq_Object=MibScalar
-juniRadiusClientIncludeTunnelServerEndpointInAccessReq=_JuniRadiusClientIncludeTunnelServerEndpointInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,31),_JuniRadiusClientIncludeTunnelServerEndpointInAccessReq_Type())
-juniRadiusClientIncludeTunnelServerEndpointInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelServerEndpointInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelTypeInAccessReq_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelTypeInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelTypeInAccessReq_Object=MibScalar
-juniRadiusClientIncludeTunnelTypeInAccessReq=_JuniRadiusClientIncludeTunnelTypeInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,32),_JuniRadiusClientIncludeTunnelTypeInAccessReq_Type())
-juniRadiusClientIncludeTunnelTypeInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelTypeInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeAcctTunnelConnectionInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeAcctTunnelConnectionInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeAcctTunnelConnectionInAcctStart_Object=MibScalar
-juniRadiusClientIncludeAcctTunnelConnectionInAcctStart=_JuniRadiusClientIncludeAcctTunnelConnectionInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,33),_JuniRadiusClientIncludeAcctTunnelConnectionInAcctStart_Type())
-juniRadiusClientIncludeAcctTunnelConnectionInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAcctTunnelConnectionInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeCalledStationIdInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeCalledStationIdInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeCalledStationIdInAcctStart_Object=MibScalar
-juniRadiusClientIncludeCalledStationIdInAcctStart=_JuniRadiusClientIncludeCalledStationIdInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,34),_JuniRadiusClientIncludeCalledStationIdInAcctStart_Type())
-juniRadiusClientIncludeCalledStationIdInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeCalledStationIdInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeCallingStationIdInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeCallingStationIdInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeCallingStationIdInAcctStart_Object=MibScalar
-juniRadiusClientIncludeCallingStationIdInAcctStart=_JuniRadiusClientIncludeCallingStationIdInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,35),_JuniRadiusClientIncludeCallingStationIdInAcctStart_Type())
-juniRadiusClientIncludeCallingStationIdInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeCallingStationIdInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeClassInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeClassInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeClassInAcctStart_Object=MibScalar
-juniRadiusClientIncludeClassInAcctStart=_JuniRadiusClientIncludeClassInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,36),_JuniRadiusClientIncludeClassInAcctStart_Type())
-juniRadiusClientIncludeClassInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeClassInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeConnectInfoInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeConnectInfoInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeConnectInfoInAcctStart_Object=MibScalar
-juniRadiusClientIncludeConnectInfoInAcctStart=_JuniRadiusClientIncludeConnectInfoInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,37),_JuniRadiusClientIncludeConnectInfoInAcctStart_Type())
-juniRadiusClientIncludeConnectInfoInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeConnectInfoInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeEgressPolicyNameInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeEgressPolicyNameInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeEgressPolicyNameInAcctStart_Object=MibScalar
-juniRadiusClientIncludeEgressPolicyNameInAcctStart=_JuniRadiusClientIncludeEgressPolicyNameInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,38),_JuniRadiusClientIncludeEgressPolicyNameInAcctStart_Type())
-juniRadiusClientIncludeEgressPolicyNameInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeEgressPolicyNameInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeEventTimestampInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeEventTimestampInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeEventTimestampInAcctStart_Object=MibScalar
-juniRadiusClientIncludeEventTimestampInAcctStart=_JuniRadiusClientIncludeEventTimestampInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,39),_JuniRadiusClientIncludeEventTimestampInAcctStart_Type())
-juniRadiusClientIncludeEventTimestampInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeEventTimestampInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeFramedCompressionInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeFramedCompressionInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeFramedCompressionInAcctStart_Object=MibScalar
-juniRadiusClientIncludeFramedCompressionInAcctStart=_JuniRadiusClientIncludeFramedCompressionInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,40),_JuniRadiusClientIncludeFramedCompressionInAcctStart_Type())
-juniRadiusClientIncludeFramedCompressionInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeFramedCompressionInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeFramedIpNetmaskInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeFramedIpNetmaskInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeFramedIpNetmaskInAcctStart_Object=MibScalar
-juniRadiusClientIncludeFramedIpNetmaskInAcctStart=_JuniRadiusClientIncludeFramedIpNetmaskInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,41),_JuniRadiusClientIncludeFramedIpNetmaskInAcctStart_Type())
-juniRadiusClientIncludeFramedIpNetmaskInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeFramedIpNetmaskInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeIngressPolicyNameInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeIngressPolicyNameInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeIngressPolicyNameInAcctStart_Object=MibScalar
-juniRadiusClientIncludeIngressPolicyNameInAcctStart=_JuniRadiusClientIncludeIngressPolicyNameInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,42),_JuniRadiusClientIncludeIngressPolicyNameInAcctStart_Type())
-juniRadiusClientIncludeIngressPolicyNameInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIngressPolicyNameInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeNasIdentifierInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeNasIdentifierInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeNasIdentifierInAcctStart_Object=MibScalar
-juniRadiusClientIncludeNasIdentifierInAcctStart=_JuniRadiusClientIncludeNasIdentifierInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,43),_JuniRadiusClientIncludeNasIdentifierInAcctStart_Type())
-juniRadiusClientIncludeNasIdentifierInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeNasIdentifierInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeNasPortInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeNasPortInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeNasPortInAcctStart_Object=MibScalar
-juniRadiusClientIncludeNasPortInAcctStart=_JuniRadiusClientIncludeNasPortInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,44),_JuniRadiusClientIncludeNasPortInAcctStart_Type())
-juniRadiusClientIncludeNasPortInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeNasPortInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeNasPortIdInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeNasPortIdInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeNasPortIdInAcctStart_Object=MibScalar
-juniRadiusClientIncludeNasPortIdInAcctStart=_JuniRadiusClientIncludeNasPortIdInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,45),_JuniRadiusClientIncludeNasPortIdInAcctStart_Type())
-juniRadiusClientIncludeNasPortIdInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeNasPortIdInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeNasPortTypeInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeNasPortTypeInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeNasPortTypeInAcctStart_Object=MibScalar
-juniRadiusClientIncludeNasPortTypeInAcctStart=_JuniRadiusClientIncludeNasPortTypeInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,46),_JuniRadiusClientIncludeNasPortTypeInAcctStart_Type())
-juniRadiusClientIncludeNasPortTypeInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeNasPortTypeInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludePppoeDescriptionInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludePppoeDescriptionInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludePppoeDescriptionInAcctStart_Object=MibScalar
-juniRadiusClientIncludePppoeDescriptionInAcctStart=_JuniRadiusClientIncludePppoeDescriptionInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,47),_JuniRadiusClientIncludePppoeDescriptionInAcctStart_Type())
-juniRadiusClientIncludePppoeDescriptionInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludePppoeDescriptionInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelAssignmentIdInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelAssignmentIdInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelAssignmentIdInAcctStart_Object=MibScalar
-juniRadiusClientIncludeTunnelAssignmentIdInAcctStart=_JuniRadiusClientIncludeTunnelAssignmentIdInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,48),_JuniRadiusClientIncludeTunnelAssignmentIdInAcctStart_Type())
-juniRadiusClientIncludeTunnelAssignmentIdInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelAssignmentIdInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelClientAuthIdInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelClientAuthIdInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelClientAuthIdInAcctStart_Object=MibScalar
-juniRadiusClientIncludeTunnelClientAuthIdInAcctStart=_JuniRadiusClientIncludeTunnelClientAuthIdInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,49),_JuniRadiusClientIncludeTunnelClientAuthIdInAcctStart_Type())
-juniRadiusClientIncludeTunnelClientAuthIdInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelClientAuthIdInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelClientEndpointInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelClientEndpointInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelClientEndpointInAcctStart_Object=MibScalar
-juniRadiusClientIncludeTunnelClientEndpointInAcctStart=_JuniRadiusClientIncludeTunnelClientEndpointInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,50),_JuniRadiusClientIncludeTunnelClientEndpointInAcctStart_Type())
-juniRadiusClientIncludeTunnelClientEndpointInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelClientEndpointInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelMediumTypeInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelMediumTypeInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelMediumTypeInAcctStart_Object=MibScalar
-juniRadiusClientIncludeTunnelMediumTypeInAcctStart=_JuniRadiusClientIncludeTunnelMediumTypeInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,51),_JuniRadiusClientIncludeTunnelMediumTypeInAcctStart_Type())
-juniRadiusClientIncludeTunnelMediumTypeInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelMediumTypeInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelPreferenceInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelPreferenceInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelPreferenceInAcctStart_Object=MibScalar
-juniRadiusClientIncludeTunnelPreferenceInAcctStart=_JuniRadiusClientIncludeTunnelPreferenceInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,52),_JuniRadiusClientIncludeTunnelPreferenceInAcctStart_Type())
-juniRadiusClientIncludeTunnelPreferenceInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelPreferenceInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelServerAttributesInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeTunnelServerAttributesInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelServerAttributesInAcctStart_Object=MibScalar
-juniRadiusClientIncludeTunnelServerAttributesInAcctStart=_JuniRadiusClientIncludeTunnelServerAttributesInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,53),_JuniRadiusClientIncludeTunnelServerAttributesInAcctStart_Type())
-juniRadiusClientIncludeTunnelServerAttributesInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelServerAttributesInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelServerAuthIdInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelServerAuthIdInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelServerAuthIdInAcctStart_Object=MibScalar
-juniRadiusClientIncludeTunnelServerAuthIdInAcctStart=_JuniRadiusClientIncludeTunnelServerAuthIdInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,54),_JuniRadiusClientIncludeTunnelServerAuthIdInAcctStart_Type())
-juniRadiusClientIncludeTunnelServerAuthIdInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelServerAuthIdInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelServerEndpointInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelServerEndpointInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelServerEndpointInAcctStart_Object=MibScalar
-juniRadiusClientIncludeTunnelServerEndpointInAcctStart=_JuniRadiusClientIncludeTunnelServerEndpointInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,55),_JuniRadiusClientIncludeTunnelServerEndpointInAcctStart_Type())
-juniRadiusClientIncludeTunnelServerEndpointInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelServerEndpointInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelTypeInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelTypeInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelTypeInAcctStart_Object=MibScalar
-juniRadiusClientIncludeTunnelTypeInAcctStart=_JuniRadiusClientIncludeTunnelTypeInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,56),_JuniRadiusClientIncludeTunnelTypeInAcctStart_Type())
-juniRadiusClientIncludeTunnelTypeInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelTypeInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeAcctTunnelConnectionInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeAcctTunnelConnectionInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeAcctTunnelConnectionInAcctStop_Object=MibScalar
-juniRadiusClientIncludeAcctTunnelConnectionInAcctStop=_JuniRadiusClientIncludeAcctTunnelConnectionInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,57),_JuniRadiusClientIncludeAcctTunnelConnectionInAcctStop_Type())
-juniRadiusClientIncludeAcctTunnelConnectionInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAcctTunnelConnectionInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeCalledStationIdInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeCalledStationIdInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeCalledStationIdInAcctStop_Object=MibScalar
-juniRadiusClientIncludeCalledStationIdInAcctStop=_JuniRadiusClientIncludeCalledStationIdInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,59),_JuniRadiusClientIncludeCalledStationIdInAcctStop_Type())
-juniRadiusClientIncludeCalledStationIdInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeCalledStationIdInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeCallingStationIdInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeCallingStationIdInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeCallingStationIdInAcctStop_Object=MibScalar
-juniRadiusClientIncludeCallingStationIdInAcctStop=_JuniRadiusClientIncludeCallingStationIdInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,60),_JuniRadiusClientIncludeCallingStationIdInAcctStop_Type())
-juniRadiusClientIncludeCallingStationIdInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeCallingStationIdInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeClassInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeClassInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeClassInAcctStop_Object=MibScalar
-juniRadiusClientIncludeClassInAcctStop=_JuniRadiusClientIncludeClassInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,61),_JuniRadiusClientIncludeClassInAcctStop_Type())
-juniRadiusClientIncludeClassInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeClassInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeConnectInfoInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeConnectInfoInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeConnectInfoInAcctStop_Object=MibScalar
-juniRadiusClientIncludeConnectInfoInAcctStop=_JuniRadiusClientIncludeConnectInfoInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,62),_JuniRadiusClientIncludeConnectInfoInAcctStop_Type())
-juniRadiusClientIncludeConnectInfoInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeConnectInfoInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeEgressPolicyNameInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeEgressPolicyNameInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeEgressPolicyNameInAcctStop_Object=MibScalar
-juniRadiusClientIncludeEgressPolicyNameInAcctStop=_JuniRadiusClientIncludeEgressPolicyNameInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,63),_JuniRadiusClientIncludeEgressPolicyNameInAcctStop_Type())
-juniRadiusClientIncludeEgressPolicyNameInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeEgressPolicyNameInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeEventTimestampInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeEventTimestampInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeEventTimestampInAcctStop_Object=MibScalar
-juniRadiusClientIncludeEventTimestampInAcctStop=_JuniRadiusClientIncludeEventTimestampInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,64),_JuniRadiusClientIncludeEventTimestampInAcctStop_Type())
-juniRadiusClientIncludeEventTimestampInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeEventTimestampInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeFramedCompressionInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeFramedCompressionInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeFramedCompressionInAcctStop_Object=MibScalar
-juniRadiusClientIncludeFramedCompressionInAcctStop=_JuniRadiusClientIncludeFramedCompressionInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,65),_JuniRadiusClientIncludeFramedCompressionInAcctStop_Type())
-juniRadiusClientIncludeFramedCompressionInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeFramedCompressionInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeFramedIpNetmaskInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeFramedIpNetmaskInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeFramedIpNetmaskInAcctStop_Object=MibScalar
-juniRadiusClientIncludeFramedIpNetmaskInAcctStop=_JuniRadiusClientIncludeFramedIpNetmaskInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,66),_JuniRadiusClientIncludeFramedIpNetmaskInAcctStop_Type())
-juniRadiusClientIncludeFramedIpNetmaskInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeFramedIpNetmaskInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeIngressPolicyNameInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeIngressPolicyNameInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeIngressPolicyNameInAcctStop_Object=MibScalar
-juniRadiusClientIncludeIngressPolicyNameInAcctStop=_JuniRadiusClientIncludeIngressPolicyNameInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,67),_JuniRadiusClientIncludeIngressPolicyNameInAcctStop_Type())
-juniRadiusClientIncludeIngressPolicyNameInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIngressPolicyNameInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeInputGigawordsInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeInputGigawordsInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeInputGigawordsInAcctStop_Object=MibScalar
-juniRadiusClientIncludeInputGigawordsInAcctStop=_JuniRadiusClientIncludeInputGigawordsInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,68),_JuniRadiusClientIncludeInputGigawordsInAcctStop_Type())
-juniRadiusClientIncludeInputGigawordsInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeInputGigawordsInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeNasIdentifierInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeNasIdentifierInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeNasIdentifierInAcctStop_Object=MibScalar
-juniRadiusClientIncludeNasIdentifierInAcctStop=_JuniRadiusClientIncludeNasIdentifierInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,69),_JuniRadiusClientIncludeNasIdentifierInAcctStop_Type())
-juniRadiusClientIncludeNasIdentifierInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeNasIdentifierInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeNasPortInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeNasPortInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeNasPortInAcctStop_Object=MibScalar
-juniRadiusClientIncludeNasPortInAcctStop=_JuniRadiusClientIncludeNasPortInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,70),_JuniRadiusClientIncludeNasPortInAcctStop_Type())
-juniRadiusClientIncludeNasPortInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeNasPortInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeNasPortIdInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeNasPortIdInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeNasPortIdInAcctStop_Object=MibScalar
-juniRadiusClientIncludeNasPortIdInAcctStop=_JuniRadiusClientIncludeNasPortIdInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,71),_JuniRadiusClientIncludeNasPortIdInAcctStop_Type())
-juniRadiusClientIncludeNasPortIdInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeNasPortIdInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeNasPortTypeInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeNasPortTypeInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeNasPortTypeInAcctStop_Object=MibScalar
-juniRadiusClientIncludeNasPortTypeInAcctStop=_JuniRadiusClientIncludeNasPortTypeInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,72),_JuniRadiusClientIncludeNasPortTypeInAcctStop_Type())
-juniRadiusClientIncludeNasPortTypeInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeNasPortTypeInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeOutputGigawordsInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeOutputGigawordsInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeOutputGigawordsInAcctStop_Object=MibScalar
-juniRadiusClientIncludeOutputGigawordsInAcctStop=_JuniRadiusClientIncludeOutputGigawordsInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,73),_JuniRadiusClientIncludeOutputGigawordsInAcctStop_Type())
-juniRadiusClientIncludeOutputGigawordsInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeOutputGigawordsInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludePppoeDescriptionInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludePppoeDescriptionInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludePppoeDescriptionInAcctStop_Object=MibScalar
-juniRadiusClientIncludePppoeDescriptionInAcctStop=_JuniRadiusClientIncludePppoeDescriptionInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,74),_JuniRadiusClientIncludePppoeDescriptionInAcctStop_Type())
-juniRadiusClientIncludePppoeDescriptionInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludePppoeDescriptionInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelAssignmentIdInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelAssignmentIdInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelAssignmentIdInAcctStop_Object=MibScalar
-juniRadiusClientIncludeTunnelAssignmentIdInAcctStop=_JuniRadiusClientIncludeTunnelAssignmentIdInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,75),_JuniRadiusClientIncludeTunnelAssignmentIdInAcctStop_Type())
-juniRadiusClientIncludeTunnelAssignmentIdInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelAssignmentIdInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelClientAuthIdInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelClientAuthIdInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelClientAuthIdInAcctStop_Object=MibScalar
-juniRadiusClientIncludeTunnelClientAuthIdInAcctStop=_JuniRadiusClientIncludeTunnelClientAuthIdInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,76),_JuniRadiusClientIncludeTunnelClientAuthIdInAcctStop_Type())
-juniRadiusClientIncludeTunnelClientAuthIdInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelClientAuthIdInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelClientEndpointInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelClientEndpointInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelClientEndpointInAcctStop_Object=MibScalar
-juniRadiusClientIncludeTunnelClientEndpointInAcctStop=_JuniRadiusClientIncludeTunnelClientEndpointInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,77),_JuniRadiusClientIncludeTunnelClientEndpointInAcctStop_Type())
-juniRadiusClientIncludeTunnelClientEndpointInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelClientEndpointInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelMediumTypeInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelMediumTypeInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelMediumTypeInAcctStop_Object=MibScalar
-juniRadiusClientIncludeTunnelMediumTypeInAcctStop=_JuniRadiusClientIncludeTunnelMediumTypeInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,78),_JuniRadiusClientIncludeTunnelMediumTypeInAcctStop_Type())
-juniRadiusClientIncludeTunnelMediumTypeInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelMediumTypeInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelPreferenceInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelPreferenceInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelPreferenceInAcctStop_Object=MibScalar
-juniRadiusClientIncludeTunnelPreferenceInAcctStop=_JuniRadiusClientIncludeTunnelPreferenceInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,79),_JuniRadiusClientIncludeTunnelPreferenceInAcctStop_Type())
-juniRadiusClientIncludeTunnelPreferenceInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelPreferenceInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelServerAttributesInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeTunnelServerAttributesInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelServerAttributesInAcctStop_Object=MibScalar
-juniRadiusClientIncludeTunnelServerAttributesInAcctStop=_JuniRadiusClientIncludeTunnelServerAttributesInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,80),_JuniRadiusClientIncludeTunnelServerAttributesInAcctStop_Type())
-juniRadiusClientIncludeTunnelServerAttributesInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelServerAttributesInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelServerAuthIdInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelServerAuthIdInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelServerAuthIdInAcctStop_Object=MibScalar
-juniRadiusClientIncludeTunnelServerAuthIdInAcctStop=_JuniRadiusClientIncludeTunnelServerAuthIdInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,81),_JuniRadiusClientIncludeTunnelServerAuthIdInAcctStop_Type())
-juniRadiusClientIncludeTunnelServerAuthIdInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelServerAuthIdInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelServerEndpointInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelServerEndpointInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelServerEndpointInAcctStop_Object=MibScalar
-juniRadiusClientIncludeTunnelServerEndpointInAcctStop=_JuniRadiusClientIncludeTunnelServerEndpointInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,82),_JuniRadiusClientIncludeTunnelServerEndpointInAcctStop_Type())
-juniRadiusClientIncludeTunnelServerEndpointInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelServerEndpointInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelTypeInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeTunnelTypeInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelTypeInAcctStop_Object=MibScalar
-juniRadiusClientIncludeTunnelTypeInAcctStop=_JuniRadiusClientIncludeTunnelTypeInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,83),_JuniRadiusClientIncludeTunnelTypeInAcctStop_Type())
-juniRadiusClientIncludeTunnelTypeInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelTypeInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeInputGigapktsInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeInputGigapktsInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeInputGigapktsInAcctStop_Object=MibScalar
-juniRadiusClientIncludeInputGigapktsInAcctStop=_JuniRadiusClientIncludeInputGigapktsInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,84),_JuniRadiusClientIncludeInputGigapktsInAcctStop_Type())
-juniRadiusClientIncludeInputGigapktsInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeInputGigapktsInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeOutputGigapktsInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeOutputGigapktsInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeOutputGigapktsInAcctStop_Object=MibScalar
-juniRadiusClientIncludeOutputGigapktsInAcctStop=_JuniRadiusClientIncludeOutputGigapktsInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,85),_JuniRadiusClientIncludeOutputGigapktsInAcctStop_Type())
-juniRadiusClientIncludeOutputGigapktsInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeOutputGigapktsInAcctStop.setStatus(_B)
-class _JuniRadiusClientIgnoreFramedIpNetmask_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIgnoreFramedIpNetmask_Type.__name__=_D
-_JuniRadiusClientIgnoreFramedIpNetmask_Object=MibScalar
-juniRadiusClientIgnoreFramedIpNetmask=_JuniRadiusClientIgnoreFramedIpNetmask_Object((1,3,6,1,4,1,4874,2,2,19,1,1,86),_JuniRadiusClientIgnoreFramedIpNetmask_Type())
-juniRadiusClientIgnoreFramedIpNetmask.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIgnoreFramedIpNetmask.setStatus(_B)
-class _JuniRadiusClientIgnoreAtmCategory_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIgnoreAtmCategory_Type.__name__=_D
-_JuniRadiusClientIgnoreAtmCategory_Object=MibScalar
-juniRadiusClientIgnoreAtmCategory=_JuniRadiusClientIgnoreAtmCategory_Object((1,3,6,1,4,1,4874,2,2,19,1,1,87),_JuniRadiusClientIgnoreAtmCategory_Type())
-juniRadiusClientIgnoreAtmCategory.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIgnoreAtmCategory.setStatus(_B)
-class _JuniRadiusClientIgnoreAtmMbs_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIgnoreAtmMbs_Type.__name__=_D
-_JuniRadiusClientIgnoreAtmMbs_Object=MibScalar
-juniRadiusClientIgnoreAtmMbs=_JuniRadiusClientIgnoreAtmMbs_Object((1,3,6,1,4,1,4874,2,2,19,1,1,88),_JuniRadiusClientIgnoreAtmMbs_Type())
-juniRadiusClientIgnoreAtmMbs.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIgnoreAtmMbs.setStatus(_B)
-class _JuniRadiusClientIgnoreAtmPcr_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIgnoreAtmPcr_Type.__name__=_D
-_JuniRadiusClientIgnoreAtmPcr_Object=MibScalar
-juniRadiusClientIgnoreAtmPcr=_JuniRadiusClientIgnoreAtmPcr_Object((1,3,6,1,4,1,4874,2,2,19,1,1,89),_JuniRadiusClientIgnoreAtmPcr_Type())
-juniRadiusClientIgnoreAtmPcr.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIgnoreAtmPcr.setStatus(_B)
-class _JuniRadiusClientIgnoreAtmScr_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIgnoreAtmScr_Type.__name__=_D
-_JuniRadiusClientIgnoreAtmScr_Object=MibScalar
-juniRadiusClientIgnoreAtmScr=_JuniRadiusClientIgnoreAtmScr_Object((1,3,6,1,4,1,4874,2,2,19,1,1,90),_JuniRadiusClientIgnoreAtmScr_Type())
-juniRadiusClientIgnoreAtmScr.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIgnoreAtmScr.setStatus(_B)
-class _JuniRadiusClientIgnoreEgressPolicyName_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIgnoreEgressPolicyName_Type.__name__=_D
-_JuniRadiusClientIgnoreEgressPolicyName_Object=MibScalar
-juniRadiusClientIgnoreEgressPolicyName=_JuniRadiusClientIgnoreEgressPolicyName_Object((1,3,6,1,4,1,4874,2,2,19,1,1,91),_JuniRadiusClientIgnoreEgressPolicyName_Type())
-juniRadiusClientIgnoreEgressPolicyName.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIgnoreEgressPolicyName.setStatus(_B)
-class _JuniRadiusClientIgnoreIngressPolicyName_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIgnoreIngressPolicyName_Type.__name__=_D
-_JuniRadiusClientIgnoreIngressPolicyName_Object=MibScalar
-juniRadiusClientIgnoreIngressPolicyName=_JuniRadiusClientIgnoreIngressPolicyName_Object((1,3,6,1,4,1,4874,2,2,19,1,1,92),_JuniRadiusClientIgnoreIngressPolicyName_Type())
-juniRadiusClientIgnoreIngressPolicyName.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIgnoreIngressPolicyName.setStatus(_B)
-class _JuniRadiusClientIgnoreVirtualRouter_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIgnoreVirtualRouter_Type.__name__=_D
-_JuniRadiusClientIgnoreVirtualRouter_Object=MibScalar
-juniRadiusClientIgnoreVirtualRouter=_JuniRadiusClientIgnoreVirtualRouter_Object((1,3,6,1,4,1,4874,2,2,19,1,1,93),_JuniRadiusClientIgnoreVirtualRouter_Type())
-juniRadiusClientIgnoreVirtualRouter.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIgnoreVirtualRouter.setStatus(_B)
-class _JuniRadiusClientTrapOnAuthServerUnavailable_Type(TruthValue):defaultValue=1
-_JuniRadiusClientTrapOnAuthServerUnavailable_Type.__name__=_D
-_JuniRadiusClientTrapOnAuthServerUnavailable_Object=MibScalar
-juniRadiusClientTrapOnAuthServerUnavailable=_JuniRadiusClientTrapOnAuthServerUnavailable_Object((1,3,6,1,4,1,4874,2,2,19,1,1,94),_JuniRadiusClientTrapOnAuthServerUnavailable_Type())
-juniRadiusClientTrapOnAuthServerUnavailable.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientTrapOnAuthServerUnavailable.setStatus(_B)
-class _JuniRadiusClientTrapOnAcctServerUnavailable_Type(TruthValue):defaultValue=1
-_JuniRadiusClientTrapOnAcctServerUnavailable_Type.__name__=_D
-_JuniRadiusClientTrapOnAcctServerUnavailable_Object=MibScalar
-juniRadiusClientTrapOnAcctServerUnavailable=_JuniRadiusClientTrapOnAcctServerUnavailable_Object((1,3,6,1,4,1,4874,2,2,19,1,1,95),_JuniRadiusClientTrapOnAcctServerUnavailable_Type())
-juniRadiusClientTrapOnAcctServerUnavailable.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientTrapOnAcctServerUnavailable.setStatus(_B)
-class _JuniRadiusClientTrapOnNoAuthServerAvailable_Type(TruthValue):defaultValue=1
-_JuniRadiusClientTrapOnNoAuthServerAvailable_Type.__name__=_D
-_JuniRadiusClientTrapOnNoAuthServerAvailable_Object=MibScalar
-juniRadiusClientTrapOnNoAuthServerAvailable=_JuniRadiusClientTrapOnNoAuthServerAvailable_Object((1,3,6,1,4,1,4874,2,2,19,1,1,96),_JuniRadiusClientTrapOnNoAuthServerAvailable_Type())
-juniRadiusClientTrapOnNoAuthServerAvailable.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientTrapOnNoAuthServerAvailable.setStatus(_B)
-class _JuniRadiusClientTrapOnNoAcctServerAvailable_Type(TruthValue):defaultValue=1
-_JuniRadiusClientTrapOnNoAcctServerAvailable_Type.__name__=_D
-_JuniRadiusClientTrapOnNoAcctServerAvailable_Object=MibScalar
-juniRadiusClientTrapOnNoAcctServerAvailable=_JuniRadiusClientTrapOnNoAcctServerAvailable_Object((1,3,6,1,4,1,4874,2,2,19,1,1,97),_JuniRadiusClientTrapOnNoAcctServerAvailable_Type())
-juniRadiusClientTrapOnNoAcctServerAvailable.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientTrapOnNoAcctServerAvailable.setStatus(_B)
-class _JuniRadiusClientTrapOnAuthServerAvailable_Type(TruthValue):defaultValue=1
-_JuniRadiusClientTrapOnAuthServerAvailable_Type.__name__=_D
-_JuniRadiusClientTrapOnAuthServerAvailable_Object=MibScalar
-juniRadiusClientTrapOnAuthServerAvailable=_JuniRadiusClientTrapOnAuthServerAvailable_Object((1,3,6,1,4,1,4874,2,2,19,1,1,98),_JuniRadiusClientTrapOnAuthServerAvailable_Type())
-juniRadiusClientTrapOnAuthServerAvailable.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientTrapOnAuthServerAvailable.setStatus(_B)
-class _JuniRadiusClientTrapOnAcctServerAvailable_Type(TruthValue):defaultValue=1
-_JuniRadiusClientTrapOnAcctServerAvailable_Type.__name__=_D
-_JuniRadiusClientTrapOnAcctServerAvailable_Object=MibScalar
-juniRadiusClientTrapOnAcctServerAvailable=_JuniRadiusClientTrapOnAcctServerAvailable_Object((1,3,6,1,4,1,4874,2,2,19,1,1,99),_JuniRadiusClientTrapOnAcctServerAvailable_Type())
-juniRadiusClientTrapOnAcctServerAvailable.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientTrapOnAcctServerAvailable.setStatus(_B)
-class _JuniRadiusClientPppoeNasPortFormat_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_DN,0),('unique',1)))
-_JuniRadiusClientPppoeNasPortFormat_Type.__name__=_G
-_JuniRadiusClientPppoeNasPortFormat_Object=MibScalar
-juniRadiusClientPppoeNasPortFormat=_JuniRadiusClientPppoeNasPortFormat_Object((1,3,6,1,4,1,4874,2,2,19,1,1,100),_JuniRadiusClientPppoeNasPortFormat_Type())
-juniRadiusClientPppoeNasPortFormat.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientPppoeNasPortFormat.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelInterfaceIdInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeTunnelInterfaceIdInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelInterfaceIdInAccessReq_Object=MibScalar
-juniRadiusClientIncludeTunnelInterfaceIdInAccessReq=_JuniRadiusClientIncludeTunnelInterfaceIdInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,101),_JuniRadiusClientIncludeTunnelInterfaceIdInAccessReq_Type())
-juniRadiusClientIncludeTunnelInterfaceIdInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelInterfaceIdInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelInterfaceIdInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeTunnelInterfaceIdInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelInterfaceIdInAcctStart_Object=MibScalar
-juniRadiusClientIncludeTunnelInterfaceIdInAcctStart=_JuniRadiusClientIncludeTunnelInterfaceIdInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,102),_JuniRadiusClientIncludeTunnelInterfaceIdInAcctStart_Type())
-juniRadiusClientIncludeTunnelInterfaceIdInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelInterfaceIdInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeTunnelInterfaceIdInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeTunnelInterfaceIdInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeTunnelInterfaceIdInAcctStop_Object=MibScalar
-juniRadiusClientIncludeTunnelInterfaceIdInAcctStop=_JuniRadiusClientIncludeTunnelInterfaceIdInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,103),_JuniRadiusClientIncludeTunnelInterfaceIdInAcctStop_Type())
-juniRadiusClientIncludeTunnelInterfaceIdInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeTunnelInterfaceIdInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop=_JuniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,104),_JuniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop_Type())
-juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop.setStatus(_B)
-class _JuniRadiusClientVlanNasPortFormat_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_DN,0),('stacked',1)))
-_JuniRadiusClientVlanNasPortFormat_Type.__name__=_G
-_JuniRadiusClientVlanNasPortFormat_Object=MibScalar
-juniRadiusClientVlanNasPortFormat=_JuniRadiusClientVlanNasPortFormat_Object((1,3,6,1,4,1,4874,2,2,19,1,1,105),_JuniRadiusClientVlanNasPortFormat_Type())
-juniRadiusClientVlanNasPortFormat.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientVlanNasPortFormat.setStatus(_B)
-class _JuniRadiusClientIncludeAcctMultiSessionIdInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeAcctMultiSessionIdInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeAcctMultiSessionIdInAccessReq_Object=MibScalar
-juniRadiusClientIncludeAcctMultiSessionIdInAccessReq=_JuniRadiusClientIncludeAcctMultiSessionIdInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,106),_JuniRadiusClientIncludeAcctMultiSessionIdInAccessReq_Type())
-juniRadiusClientIncludeAcctMultiSessionIdInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAcctMultiSessionIdInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeAcctMultiSessionIdInAcctStart_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeAcctMultiSessionIdInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeAcctMultiSessionIdInAcctStart_Object=MibScalar
-juniRadiusClientIncludeAcctMultiSessionIdInAcctStart=_JuniRadiusClientIncludeAcctMultiSessionIdInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,107),_JuniRadiusClientIncludeAcctMultiSessionIdInAcctStart_Type())
-juniRadiusClientIncludeAcctMultiSessionIdInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAcctMultiSessionIdInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeAcctMultiSessionIdInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeAcctMultiSessionIdInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeAcctMultiSessionIdInAcctStop_Object=MibScalar
-juniRadiusClientIncludeAcctMultiSessionIdInAcctStop=_JuniRadiusClientIncludeAcctMultiSessionIdInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,108),_JuniRadiusClientIncludeAcctMultiSessionIdInAcctStop_Type())
-juniRadiusClientIncludeAcctMultiSessionIdInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAcctMultiSessionIdInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeAscendNumInMultilinkInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeAscendNumInMultilinkInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeAscendNumInMultilinkInAccessReq_Object=MibScalar
-juniRadiusClientIncludeAscendNumInMultilinkInAccessReq=_JuniRadiusClientIncludeAscendNumInMultilinkInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,109),_JuniRadiusClientIncludeAscendNumInMultilinkInAccessReq_Type())
-juniRadiusClientIncludeAscendNumInMultilinkInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAscendNumInMultilinkInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeAscendNumInMultilinkInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeAscendNumInMultilinkInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeAscendNumInMultilinkInAcctStart_Object=MibScalar
-juniRadiusClientIncludeAscendNumInMultilinkInAcctStart=_JuniRadiusClientIncludeAscendNumInMultilinkInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,110),_JuniRadiusClientIncludeAscendNumInMultilinkInAcctStart_Type())
-juniRadiusClientIncludeAscendNumInMultilinkInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAscendNumInMultilinkInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeAscendNumInMultilinkInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeAscendNumInMultilinkInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeAscendNumInMultilinkInAcctStop_Object=MibScalar
-juniRadiusClientIncludeAscendNumInMultilinkInAcctStop=_JuniRadiusClientIncludeAscendNumInMultilinkInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,111),_JuniRadiusClientIncludeAscendNumInMultilinkInAcctStop_Type())
-juniRadiusClientIncludeAscendNumInMultilinkInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAscendNumInMultilinkInAcctStop.setStatus(_B)
-class _JuniRadiusClientConnectInfoFormat_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('default',0),('l2tpConnectSpeed',1),('l2tpConnectSpeedRxWhenEqual',2)))
-_JuniRadiusClientConnectInfoFormat_Type.__name__=_G
-_JuniRadiusClientConnectInfoFormat_Object=MibScalar
-juniRadiusClientConnectInfoFormat=_JuniRadiusClientConnectInfoFormat_Object((1,3,6,1,4,1,4874,2,2,19,1,1,112),_JuniRadiusClientConnectInfoFormat_Type())
-juniRadiusClientConnectInfoFormat.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientConnectInfoFormat.setStatus(_B)
-class _JuniRadiusClientIncludeProfileServiceDescrInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeProfileServiceDescrInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeProfileServiceDescrInAccessReq_Object=MibScalar
-juniRadiusClientIncludeProfileServiceDescrInAccessReq=_JuniRadiusClientIncludeProfileServiceDescrInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,113),_JuniRadiusClientIncludeProfileServiceDescrInAccessReq_Type())
-juniRadiusClientIncludeProfileServiceDescrInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeProfileServiceDescrInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeProfileServiceDescrInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeProfileServiceDescrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeProfileServiceDescrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeProfileServiceDescrInAcctStart=_JuniRadiusClientIncludeProfileServiceDescrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,114),_JuniRadiusClientIncludeProfileServiceDescrInAcctStart_Type())
-juniRadiusClientIncludeProfileServiceDescrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeProfileServiceDescrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeProfileServiceDescrInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeProfileServiceDescrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeProfileServiceDescrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeProfileServiceDescrInAcctStop=_JuniRadiusClientIncludeProfileServiceDescrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,115),_JuniRadiusClientIncludeProfileServiceDescrInAcctStop_Type())
-juniRadiusClientIncludeProfileServiceDescrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeProfileServiceDescrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeAcctAuthenticInAcctOn_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeAcctAuthenticInAcctOn_Type.__name__=_D
-_JuniRadiusClientIncludeAcctAuthenticInAcctOn_Object=MibScalar
-juniRadiusClientIncludeAcctAuthenticInAcctOn=_JuniRadiusClientIncludeAcctAuthenticInAcctOn_Object((1,3,6,1,4,1,4874,2,2,19,1,1,116),_JuniRadiusClientIncludeAcctAuthenticInAcctOn_Type())
-juniRadiusClientIncludeAcctAuthenticInAcctOn.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAcctAuthenticInAcctOn.setStatus(_B)
-class _JuniRadiusClientIncludeAcctDelayTimeInAcctOn_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeAcctDelayTimeInAcctOn_Type.__name__=_D
-_JuniRadiusClientIncludeAcctDelayTimeInAcctOn_Object=MibScalar
-juniRadiusClientIncludeAcctDelayTimeInAcctOn=_JuniRadiusClientIncludeAcctDelayTimeInAcctOn_Object((1,3,6,1,4,1,4874,2,2,19,1,1,117),_JuniRadiusClientIncludeAcctDelayTimeInAcctOn_Type())
-juniRadiusClientIncludeAcctDelayTimeInAcctOn.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAcctDelayTimeInAcctOn.setStatus(_B)
-class _JuniRadiusClientIncludeAcctSessionIdInAcctOn_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeAcctSessionIdInAcctOn_Type.__name__=_D
-_JuniRadiusClientIncludeAcctSessionIdInAcctOn_Object=MibScalar
-juniRadiusClientIncludeAcctSessionIdInAcctOn=_JuniRadiusClientIncludeAcctSessionIdInAcctOn_Object((1,3,6,1,4,1,4874,2,2,19,1,1,118),_JuniRadiusClientIncludeAcctSessionIdInAcctOn_Type())
-juniRadiusClientIncludeAcctSessionIdInAcctOn.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAcctSessionIdInAcctOn.setStatus(_B)
-class _JuniRadiusClientIncludeNasIdentifierInAcctOn_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeNasIdentifierInAcctOn_Type.__name__=_D
-_JuniRadiusClientIncludeNasIdentifierInAcctOn_Object=MibScalar
-juniRadiusClientIncludeNasIdentifierInAcctOn=_JuniRadiusClientIncludeNasIdentifierInAcctOn_Object((1,3,6,1,4,1,4874,2,2,19,1,1,119),_JuniRadiusClientIncludeNasIdentifierInAcctOn_Type())
-juniRadiusClientIncludeNasIdentifierInAcctOn.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeNasIdentifierInAcctOn.setStatus(_B)
-class _JuniRadiusClientIncludeEventTimestampInAcctOn_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeEventTimestampInAcctOn_Type.__name__=_D
-_JuniRadiusClientIncludeEventTimestampInAcctOn_Object=MibScalar
-juniRadiusClientIncludeEventTimestampInAcctOn=_JuniRadiusClientIncludeEventTimestampInAcctOn_Object((1,3,6,1,4,1,4874,2,2,19,1,1,120),_JuniRadiusClientIncludeEventTimestampInAcctOn_Type())
-juniRadiusClientIncludeEventTimestampInAcctOn.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeEventTimestampInAcctOn.setStatus(_B)
-class _JuniRadiusClientIncludeAcctAuthenticInAcctOff_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeAcctAuthenticInAcctOff_Type.__name__=_D
-_JuniRadiusClientIncludeAcctAuthenticInAcctOff_Object=MibScalar
-juniRadiusClientIncludeAcctAuthenticInAcctOff=_JuniRadiusClientIncludeAcctAuthenticInAcctOff_Object((1,3,6,1,4,1,4874,2,2,19,1,1,121),_JuniRadiusClientIncludeAcctAuthenticInAcctOff_Type())
-juniRadiusClientIncludeAcctAuthenticInAcctOff.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAcctAuthenticInAcctOff.setStatus(_B)
-class _JuniRadiusClientIncludeAcctDelayTimeInAcctOff_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeAcctDelayTimeInAcctOff_Type.__name__=_D
-_JuniRadiusClientIncludeAcctDelayTimeInAcctOff_Object=MibScalar
-juniRadiusClientIncludeAcctDelayTimeInAcctOff=_JuniRadiusClientIncludeAcctDelayTimeInAcctOff_Object((1,3,6,1,4,1,4874,2,2,19,1,1,122),_JuniRadiusClientIncludeAcctDelayTimeInAcctOff_Type())
-juniRadiusClientIncludeAcctDelayTimeInAcctOff.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAcctDelayTimeInAcctOff.setStatus(_B)
-class _JuniRadiusClientIncludeAcctSessionIdInAcctOff_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeAcctSessionIdInAcctOff_Type.__name__=_D
-_JuniRadiusClientIncludeAcctSessionIdInAcctOff_Object=MibScalar
-juniRadiusClientIncludeAcctSessionIdInAcctOff=_JuniRadiusClientIncludeAcctSessionIdInAcctOff_Object((1,3,6,1,4,1,4874,2,2,19,1,1,123),_JuniRadiusClientIncludeAcctSessionIdInAcctOff_Type())
-juniRadiusClientIncludeAcctSessionIdInAcctOff.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAcctSessionIdInAcctOff.setStatus(_B)
-class _JuniRadiusClientIncludeAcctTerminateCauseInAcctOff_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeAcctTerminateCauseInAcctOff_Type.__name__=_D
-_JuniRadiusClientIncludeAcctTerminateCauseInAcctOff_Object=MibScalar
-juniRadiusClientIncludeAcctTerminateCauseInAcctOff=_JuniRadiusClientIncludeAcctTerminateCauseInAcctOff_Object((1,3,6,1,4,1,4874,2,2,19,1,1,124),_JuniRadiusClientIncludeAcctTerminateCauseInAcctOff_Type())
-juniRadiusClientIncludeAcctTerminateCauseInAcctOff.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeAcctTerminateCauseInAcctOff.setStatus(_B)
-class _JuniRadiusClientIncludeNasIdentifierInAcctOff_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeNasIdentifierInAcctOff_Type.__name__=_D
-_JuniRadiusClientIncludeNasIdentifierInAcctOff_Object=MibScalar
-juniRadiusClientIncludeNasIdentifierInAcctOff=_JuniRadiusClientIncludeNasIdentifierInAcctOff_Object((1,3,6,1,4,1,4874,2,2,19,1,1,125),_JuniRadiusClientIncludeNasIdentifierInAcctOff_Type())
-juniRadiusClientIncludeNasIdentifierInAcctOff.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeNasIdentifierInAcctOff.setStatus(_B)
-class _JuniRadiusClientIncludeEventTimestampInAcctOff_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeEventTimestampInAcctOff_Type.__name__=_D
-_JuniRadiusClientIncludeEventTimestampInAcctOff_Object=MibScalar
-juniRadiusClientIncludeEventTimestampInAcctOff=_JuniRadiusClientIncludeEventTimestampInAcctOff_Object((1,3,6,1,4,1,4874,2,2,19,1,1,126),_JuniRadiusClientIncludeEventTimestampInAcctOff_Type())
-juniRadiusClientIncludeEventTimestampInAcctOff.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeEventTimestampInAcctOff.setStatus(_B)
-class _JuniRadiusClientIncludeDhcpOptionsInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDhcpOptionsInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeDhcpOptionsInAccessReq_Object=MibScalar
-juniRadiusClientIncludeDhcpOptionsInAccessReq=_JuniRadiusClientIncludeDhcpOptionsInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,127),_JuniRadiusClientIncludeDhcpOptionsInAccessReq_Type())
-juniRadiusClientIncludeDhcpOptionsInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDhcpOptionsInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeDhcpMacAddressInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDhcpMacAddressInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeDhcpMacAddressInAccessReq_Object=MibScalar
-juniRadiusClientIncludeDhcpMacAddressInAccessReq=_JuniRadiusClientIncludeDhcpMacAddressInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,128),_JuniRadiusClientIncludeDhcpMacAddressInAccessReq_Type())
-juniRadiusClientIncludeDhcpMacAddressInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDhcpMacAddressInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeDhcpGiAddressInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDhcpGiAddressInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeDhcpGiAddressInAccessReq_Object=MibScalar
-juniRadiusClientIncludeDhcpGiAddressInAccessReq=_JuniRadiusClientIncludeDhcpGiAddressInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,129),_JuniRadiusClientIncludeDhcpGiAddressInAccessReq_Type())
-juniRadiusClientIncludeDhcpGiAddressInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDhcpGiAddressInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeDhcpOptionsInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDhcpOptionsInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeDhcpOptionsInAcctStart_Object=MibScalar
-juniRadiusClientIncludeDhcpOptionsInAcctStart=_JuniRadiusClientIncludeDhcpOptionsInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,130),_JuniRadiusClientIncludeDhcpOptionsInAcctStart_Type())
-juniRadiusClientIncludeDhcpOptionsInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDhcpOptionsInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeDhcpMacAddressInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDhcpMacAddressInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeDhcpMacAddressInAcctStart_Object=MibScalar
-juniRadiusClientIncludeDhcpMacAddressInAcctStart=_JuniRadiusClientIncludeDhcpMacAddressInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,131),_JuniRadiusClientIncludeDhcpMacAddressInAcctStart_Type())
-juniRadiusClientIncludeDhcpMacAddressInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDhcpMacAddressInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeDhcpGiAddressInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDhcpGiAddressInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeDhcpGiAddressInAcctStart_Object=MibScalar
-juniRadiusClientIncludeDhcpGiAddressInAcctStart=_JuniRadiusClientIncludeDhcpGiAddressInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,132),_JuniRadiusClientIncludeDhcpGiAddressInAcctStart_Type())
-juniRadiusClientIncludeDhcpGiAddressInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDhcpGiAddressInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeDhcpOptionsInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDhcpOptionsInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeDhcpOptionsInAcctStop_Object=MibScalar
-juniRadiusClientIncludeDhcpOptionsInAcctStop=_JuniRadiusClientIncludeDhcpOptionsInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,133),_JuniRadiusClientIncludeDhcpOptionsInAcctStop_Type())
-juniRadiusClientIncludeDhcpOptionsInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDhcpOptionsInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeDhcpMacAddressInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDhcpMacAddressInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeDhcpMacAddressInAcctStop_Object=MibScalar
-juniRadiusClientIncludeDhcpMacAddressInAcctStop=_JuniRadiusClientIncludeDhcpMacAddressInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,134),_JuniRadiusClientIncludeDhcpMacAddressInAcctStop_Type())
-juniRadiusClientIncludeDhcpMacAddressInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDhcpMacAddressInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeDhcpGiAddressInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDhcpGiAddressInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeDhcpGiAddressInAcctStop_Object=MibScalar
-juniRadiusClientIncludeDhcpGiAddressInAcctStop=_JuniRadiusClientIncludeDhcpGiAddressInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,135),_JuniRadiusClientIncludeDhcpGiAddressInAcctStop_Type())
-juniRadiusClientIncludeDhcpGiAddressInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDhcpGiAddressInAcctStop.setStatus(_B)
-class _JuniRadiusClientNasPortIdOverrideRemoteCircuitId_Type(TruthValue):defaultValue=2
-_JuniRadiusClientNasPortIdOverrideRemoteCircuitId_Type.__name__=_D
-_JuniRadiusClientNasPortIdOverrideRemoteCircuitId_Object=MibScalar
-juniRadiusClientNasPortIdOverrideRemoteCircuitId=_JuniRadiusClientNasPortIdOverrideRemoteCircuitId_Object((1,3,6,1,4,1,4874,2,2,19,1,1,136),_JuniRadiusClientNasPortIdOverrideRemoteCircuitId_Type())
-juniRadiusClientNasPortIdOverrideRemoteCircuitId.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientNasPortIdOverrideRemoteCircuitId.setStatus(_B)
-class _JuniRadiusClientCallingStationIdOverrideRemoteCircuitId_Type(TruthValue):defaultValue=2
-_JuniRadiusClientCallingStationIdOverrideRemoteCircuitId_Type.__name__=_D
-_JuniRadiusClientCallingStationIdOverrideRemoteCircuitId_Object=MibScalar
-juniRadiusClientCallingStationIdOverrideRemoteCircuitId=_JuniRadiusClientCallingStationIdOverrideRemoteCircuitId_Object((1,3,6,1,4,1,4874,2,2,19,1,1,137),_JuniRadiusClientCallingStationIdOverrideRemoteCircuitId_Type())
-juniRadiusClientCallingStationIdOverrideRemoteCircuitId.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientCallingStationIdOverrideRemoteCircuitId.setStatus(_B)
-class _JuniRadiusClientIncludeMlpppBundleNameInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeMlpppBundleNameInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeMlpppBundleNameInAccessReq_Object=MibScalar
-juniRadiusClientIncludeMlpppBundleNameInAccessReq=_JuniRadiusClientIncludeMlpppBundleNameInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,138),_JuniRadiusClientIncludeMlpppBundleNameInAccessReq_Type())
-juniRadiusClientIncludeMlpppBundleNameInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeMlpppBundleNameInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeMlpppBundleNameInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeMlpppBundleNameInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeMlpppBundleNameInAcctStart_Object=MibScalar
-juniRadiusClientIncludeMlpppBundleNameInAcctStart=_JuniRadiusClientIncludeMlpppBundleNameInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,139),_JuniRadiusClientIncludeMlpppBundleNameInAcctStart_Type())
-juniRadiusClientIncludeMlpppBundleNameInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeMlpppBundleNameInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeMlpppBundleNameInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeMlpppBundleNameInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeMlpppBundleNameInAcctStop_Object=MibScalar
-juniRadiusClientIncludeMlpppBundleNameInAcctStop=_JuniRadiusClientIncludeMlpppBundleNameInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,140),_JuniRadiusClientIncludeMlpppBundleNameInAcctStop_Type())
-juniRadiusClientIncludeMlpppBundleNameInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeMlpppBundleNameInAcctStop.setStatus(_B)
-class _JuniRadiusClientOverrideNasInfo_Type(TruthValue):defaultValue=2
-_JuniRadiusClientOverrideNasInfo_Type.__name__=_D
-_JuniRadiusClientOverrideNasInfo_Object=MibScalar
-juniRadiusClientOverrideNasInfo=_JuniRadiusClientOverrideNasInfo_Object((1,3,6,1,4,1,4874,2,2,19,1,1,141),_JuniRadiusClientOverrideNasInfo_Type())
-juniRadiusClientOverrideNasInfo.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientOverrideNasInfo.setStatus(_B)
-class _JuniRadiusClientIncludeInterfaceDescriptionInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeInterfaceDescriptionInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeInterfaceDescriptionInAccessReq_Object=MibScalar
-juniRadiusClientIncludeInterfaceDescriptionInAccessReq=_JuniRadiusClientIncludeInterfaceDescriptionInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,142),_JuniRadiusClientIncludeInterfaceDescriptionInAccessReq_Type())
-juniRadiusClientIncludeInterfaceDescriptionInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeInterfaceDescriptionInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeInterfaceDescriptionInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeInterfaceDescriptionInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeInterfaceDescriptionInAcctStart_Object=MibScalar
-juniRadiusClientIncludeInterfaceDescriptionInAcctStart=_JuniRadiusClientIncludeInterfaceDescriptionInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,143),_JuniRadiusClientIncludeInterfaceDescriptionInAcctStart_Type())
-juniRadiusClientIncludeInterfaceDescriptionInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeInterfaceDescriptionInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeInterfaceDescriptionInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeInterfaceDescriptionInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeInterfaceDescriptionInAcctStop_Object=MibScalar
-juniRadiusClientIncludeInterfaceDescriptionInAcctStop=_JuniRadiusClientIncludeInterfaceDescriptionInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,144),_JuniRadiusClientIncludeInterfaceDescriptionInAcctStop_Type())
-juniRadiusClientIncludeInterfaceDescriptionInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeInterfaceDescriptionInAcctStop.setStatus(_B)
-class _JuniRadiusClientAtmNasPortFormat_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_DN,0),('extended',1)))
-_JuniRadiusClientAtmNasPortFormat_Type.__name__=_G
-_JuniRadiusClientAtmNasPortFormat_Object=MibScalar
-juniRadiusClientAtmNasPortFormat=_JuniRadiusClientAtmNasPortFormat_Object((1,3,6,1,4,1,4874,2,2,19,1,1,145),_JuniRadiusClientAtmNasPortFormat_Type())
-juniRadiusClientAtmNasPortFormat.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientAtmNasPortFormat.setStatus(_B)
-class _JuniRadiusClientNasPortFieldWidthAtmSlot_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_JuniRadiusClientNasPortFieldWidthAtmSlot_Type.__name__=_G
-_JuniRadiusClientNasPortFieldWidthAtmSlot_Object=MibScalar
-juniRadiusClientNasPortFieldWidthAtmSlot=_JuniRadiusClientNasPortFieldWidthAtmSlot_Object((1,3,6,1,4,1,4874,2,2,19,1,1,146),_JuniRadiusClientNasPortFieldWidthAtmSlot_Type())
-juniRadiusClientNasPortFieldWidthAtmSlot.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientNasPortFieldWidthAtmSlot.setStatus(_B)
-class _JuniRadiusClientNasPortFieldWidthAtmAdapter_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_JuniRadiusClientNasPortFieldWidthAtmAdapter_Type.__name__=_G
-_JuniRadiusClientNasPortFieldWidthAtmAdapter_Object=MibScalar
-juniRadiusClientNasPortFieldWidthAtmAdapter=_JuniRadiusClientNasPortFieldWidthAtmAdapter_Object((1,3,6,1,4,1,4874,2,2,19,1,1,147),_JuniRadiusClientNasPortFieldWidthAtmAdapter_Type())
-juniRadiusClientNasPortFieldWidthAtmAdapter.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientNasPortFieldWidthAtmAdapter.setStatus(_B)
-class _JuniRadiusClientNasPortFieldWidthAtmPort_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_JuniRadiusClientNasPortFieldWidthAtmPort_Type.__name__=_G
-_JuniRadiusClientNasPortFieldWidthAtmPort_Object=MibScalar
-juniRadiusClientNasPortFieldWidthAtmPort=_JuniRadiusClientNasPortFieldWidthAtmPort_Object((1,3,6,1,4,1,4874,2,2,19,1,1,148),_JuniRadiusClientNasPortFieldWidthAtmPort_Type())
-juniRadiusClientNasPortFieldWidthAtmPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientNasPortFieldWidthAtmPort.setStatus(_B)
-class _JuniRadiusClientNasPortFieldWidthAtmVpi_Type(Integer32):defaultValue=8;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_JuniRadiusClientNasPortFieldWidthAtmVpi_Type.__name__=_G
-_JuniRadiusClientNasPortFieldWidthAtmVpi_Object=MibScalar
-juniRadiusClientNasPortFieldWidthAtmVpi=_JuniRadiusClientNasPortFieldWidthAtmVpi_Object((1,3,6,1,4,1,4874,2,2,19,1,1,149),_JuniRadiusClientNasPortFieldWidthAtmVpi_Type())
-juniRadiusClientNasPortFieldWidthAtmVpi.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientNasPortFieldWidthAtmVpi.setStatus(_B)
-class _JuniRadiusClientNasPortFieldWidthAtmVci_Type(Integer32):defaultValue=16;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_JuniRadiusClientNasPortFieldWidthAtmVci_Type.__name__=_G
-_JuniRadiusClientNasPortFieldWidthAtmVci_Object=MibScalar
-juniRadiusClientNasPortFieldWidthAtmVci=_JuniRadiusClientNasPortFieldWidthAtmVci_Object((1,3,6,1,4,1,4874,2,2,19,1,1,150),_JuniRadiusClientNasPortFieldWidthAtmVci_Type())
-juniRadiusClientNasPortFieldWidthAtmVci.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientNasPortFieldWidthAtmVci.setStatus(_B)
-class _JuniRadiusClientEthernetNasPortFormat_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_DN,0),('extended',1)))
-_JuniRadiusClientEthernetNasPortFormat_Type.__name__=_G
-_JuniRadiusClientEthernetNasPortFormat_Object=MibScalar
-juniRadiusClientEthernetNasPortFormat=_JuniRadiusClientEthernetNasPortFormat_Object((1,3,6,1,4,1,4874,2,2,19,1,1,151),_JuniRadiusClientEthernetNasPortFormat_Type())
-juniRadiusClientEthernetNasPortFormat.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientEthernetNasPortFormat.setStatus(_B)
-class _JuniRadiusClientNasPortFieldWidthEthernetSlot_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_JuniRadiusClientNasPortFieldWidthEthernetSlot_Type.__name__=_G
-_JuniRadiusClientNasPortFieldWidthEthernetSlot_Object=MibScalar
-juniRadiusClientNasPortFieldWidthEthernetSlot=_JuniRadiusClientNasPortFieldWidthEthernetSlot_Object((1,3,6,1,4,1,4874,2,2,19,1,1,152),_JuniRadiusClientNasPortFieldWidthEthernetSlot_Type())
-juniRadiusClientNasPortFieldWidthEthernetSlot.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientNasPortFieldWidthEthernetSlot.setStatus(_B)
-class _JuniRadiusClientNasPortFieldWidthEthernetAdapter_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_JuniRadiusClientNasPortFieldWidthEthernetAdapter_Type.__name__=_G
-_JuniRadiusClientNasPortFieldWidthEthernetAdapter_Object=MibScalar
-juniRadiusClientNasPortFieldWidthEthernetAdapter=_JuniRadiusClientNasPortFieldWidthEthernetAdapter_Object((1,3,6,1,4,1,4874,2,2,19,1,1,153),_JuniRadiusClientNasPortFieldWidthEthernetAdapter_Type())
-juniRadiusClientNasPortFieldWidthEthernetAdapter.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientNasPortFieldWidthEthernetAdapter.setStatus(_B)
-class _JuniRadiusClientNasPortFieldWidthEthernetPort_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_JuniRadiusClientNasPortFieldWidthEthernetPort_Type.__name__=_G
-_JuniRadiusClientNasPortFieldWidthEthernetPort_Object=MibScalar
-juniRadiusClientNasPortFieldWidthEthernetPort=_JuniRadiusClientNasPortFieldWidthEthernetPort_Object((1,3,6,1,4,1,4874,2,2,19,1,1,154),_JuniRadiusClientNasPortFieldWidthEthernetPort_Type())
-juniRadiusClientNasPortFieldWidthEthernetPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientNasPortFieldWidthEthernetPort.setStatus(_B)
-class _JuniRadiusClientNasPortFieldWidthEthernetSVlan_Type(Integer32):defaultValue=12;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_JuniRadiusClientNasPortFieldWidthEthernetSVlan_Type.__name__=_G
-_JuniRadiusClientNasPortFieldWidthEthernetSVlan_Object=MibScalar
-juniRadiusClientNasPortFieldWidthEthernetSVlan=_JuniRadiusClientNasPortFieldWidthEthernetSVlan_Object((1,3,6,1,4,1,4874,2,2,19,1,1,155),_JuniRadiusClientNasPortFieldWidthEthernetSVlan_Type())
-juniRadiusClientNasPortFieldWidthEthernetSVlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientNasPortFieldWidthEthernetSVlan.setStatus(_B)
-class _JuniRadiusClientNasPortFieldWidthEthernetVlan_Type(Integer32):defaultValue=12;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_JuniRadiusClientNasPortFieldWidthEthernetVlan_Type.__name__=_G
-_JuniRadiusClientNasPortFieldWidthEthernetVlan_Object=MibScalar
-juniRadiusClientNasPortFieldWidthEthernetVlan=_JuniRadiusClientNasPortFieldWidthEthernetVlan_Object((1,3,6,1,4,1,4874,2,2,19,1,1,156),_JuniRadiusClientNasPortFieldWidthEthernetVlan_Type())
-juniRadiusClientNasPortFieldWidthEthernetVlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientNasPortFieldWidthEthernetVlan.setStatus(_B)
-class _JuniRadiusClientRemoteCircuitIdFormat_Type(OctetString):defaultHexValue='01';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,3))
-_JuniRadiusClientRemoteCircuitIdFormat_Type.__name__=_EN
-_JuniRadiusClientRemoteCircuitIdFormat_Object=MibScalar
-juniRadiusClientRemoteCircuitIdFormat=_JuniRadiusClientRemoteCircuitIdFormat_Object((1,3,6,1,4,1,4874,2,2,19,1,1,157),_JuniRadiusClientRemoteCircuitIdFormat_Type())
-juniRadiusClientRemoteCircuitIdFormat.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientRemoteCircuitIdFormat.setStatus(_B)
-class _JuniRadiusClientRemoteCircuitIdDelimiter_Type(DisplayString):defaultValue=OctetString('#');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
-_JuniRadiusClientRemoteCircuitIdDelimiter_Type.__name__=_Cr
-_JuniRadiusClientRemoteCircuitIdDelimiter_Object=MibScalar
-juniRadiusClientRemoteCircuitIdDelimiter=_JuniRadiusClientRemoteCircuitIdDelimiter_Object((1,3,6,1,4,1,4874,2,2,19,1,1,158),_JuniRadiusClientRemoteCircuitIdDelimiter_Type())
-juniRadiusClientRemoteCircuitIdDelimiter.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientRemoteCircuitIdDelimiter.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAccessLoopParametersInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAccessLoopParametersInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAccessLoopParametersInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq=_JuniRadiusClientIncludeL2cAccessLoopParametersInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,159),_JuniRadiusClientIncludeL2cAccessLoopParametersInAccessReq_Type())
-juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cDownStreamDataInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cDownStreamDataInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cDownStreamDataInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cDownStreamDataInAccessReq=_JuniRadiusClientIncludeL2cDownStreamDataInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,160),_JuniRadiusClientIncludeL2cDownStreamDataInAccessReq_Type())
-juniRadiusClientIncludeL2cDownStreamDataInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cDownStreamDataInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cUpStreamDataInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cUpStreamDataInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cUpStreamDataInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cUpStreamDataInAccessReq=_JuniRadiusClientIncludeL2cUpStreamDataInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,161),_JuniRadiusClientIncludeL2cUpStreamDataInAccessReq_Type())
-juniRadiusClientIncludeL2cUpStreamDataInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cUpStreamDataInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cDownStreamDataInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cDownStreamDataInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cDownStreamDataInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cDownStreamDataInAcctStart=_JuniRadiusClientIncludeL2cDownStreamDataInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,162),_JuniRadiusClientIncludeL2cDownStreamDataInAcctStart_Type())
-juniRadiusClientIncludeL2cDownStreamDataInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cDownStreamDataInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cUpStreamDataInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cUpStreamDataInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cUpStreamDataInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cUpStreamDataInAcctStart=_JuniRadiusClientIncludeL2cUpStreamDataInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,163),_JuniRadiusClientIncludeL2cUpStreamDataInAcctStart_Type())
-juniRadiusClientIncludeL2cUpStreamDataInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cUpStreamDataInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cDownStreamDataInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cDownStreamDataInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cDownStreamDataInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cDownStreamDataInAcctStop=_JuniRadiusClientIncludeL2cDownStreamDataInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,164),_JuniRadiusClientIncludeL2cDownStreamDataInAcctStop_Type())
-juniRadiusClientIncludeL2cDownStreamDataInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cDownStreamDataInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cUpStreamDataInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cUpStreamDataInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cUpStreamDataInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cUpStreamDataInAcctStop=_JuniRadiusClientIncludeL2cUpStreamDataInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,165),_JuniRadiusClientIncludeL2cUpStreamDataInAcctStop_Type())
-juniRadiusClientIncludeL2cUpStreamDataInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cUpStreamDataInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeDslForumAttributesInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDslForumAttributesInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeDslForumAttributesInAccessReq_Object=MibScalar
-juniRadiusClientIncludeDslForumAttributesInAccessReq=_JuniRadiusClientIncludeDslForumAttributesInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,166),_JuniRadiusClientIncludeDslForumAttributesInAccessReq_Type())
-juniRadiusClientIncludeDslForumAttributesInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDslForumAttributesInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeDslForumAttributesInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDslForumAttributesInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeDslForumAttributesInAcctStart_Object=MibScalar
-juniRadiusClientIncludeDslForumAttributesInAcctStart=_JuniRadiusClientIncludeDslForumAttributesInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,167),_JuniRadiusClientIncludeDslForumAttributesInAcctStart_Type())
-juniRadiusClientIncludeDslForumAttributesInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDslForumAttributesInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeDslForumAttributesInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDslForumAttributesInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeDslForumAttributesInAcctStop_Object=MibScalar
-juniRadiusClientIncludeDslForumAttributesInAcctStop=_JuniRadiusClientIncludeDslForumAttributesInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,168),_JuniRadiusClientIncludeDslForumAttributesInAcctStop_Type())
-juniRadiusClientIncludeDslForumAttributesInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDslForumAttributesInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq=_JuniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,169),_JuniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq_Type())
-juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq=_JuniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,170),_JuniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq_Type())
-juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq=_JuniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,171),_JuniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq_Type())
-juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cActualDataRateUstrInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cActualDataRateUstrInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cActualDataRateUstrInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq=_JuniRadiusClientIncludeL2cActualDataRateUstrInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,172),_JuniRadiusClientIncludeL2cActualDataRateUstrInAccessReq_Type())
-juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cActualDataRateDstrInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cActualDataRateDstrInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cActualDataRateDstrInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq=_JuniRadiusClientIncludeL2cActualDataRateDstrInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,173),_JuniRadiusClientIncludeL2cActualDataRateDstrInAccessReq_Type())
-juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq=_JuniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,174),_JuniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq_Type())
-juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq=_JuniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,175),_JuniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq_Type())
-juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq=_JuniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,176),_JuniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq_Type())
-juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq=_JuniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,177),_JuniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq_Type())
-juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq=_JuniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,178),_JuniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq_Type())
-juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq=_JuniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,179),_JuniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq_Type())
-juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq=_JuniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,180),_JuniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq_Type())
-juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq=_JuniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,181),_JuniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq_Type())
-juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq=_JuniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,182),_JuniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq_Type())
-juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq=_JuniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,183),_JuniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq_Type())
-juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq=_JuniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,184),_JuniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq_Type())
-juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq=_JuniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,185),_JuniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq_Type())
-juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cDslLineStateInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cDslLineStateInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cDslLineStateInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cDslLineStateInAccessReq=_JuniRadiusClientIncludeL2cDslLineStateInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,186),_JuniRadiusClientIncludeL2cDslLineStateInAccessReq_Type())
-juniRadiusClientIncludeL2cDslLineStateInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cDslLineStateInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cDslTypeInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cDslTypeInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeL2cDslTypeInAccessReq_Object=MibScalar
-juniRadiusClientIncludeL2cDslTypeInAccessReq=_JuniRadiusClientIncludeL2cDslTypeInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,187),_JuniRadiusClientIncludeL2cDslTypeInAccessReq_Type())
-juniRadiusClientIncludeL2cDslTypeInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cDslTypeInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart=_JuniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,188),_JuniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart_Type())
-juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart=_JuniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,189),_JuniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart_Type())
-juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart=_JuniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,190),_JuniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart_Type())
-juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cActualDataRateUstrInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cActualDataRateUstrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cActualDataRateUstrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart=_JuniRadiusClientIncludeL2cActualDataRateUstrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,191),_JuniRadiusClientIncludeL2cActualDataRateUstrInAcctStart_Type())
-juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cActualDataRateDstrInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cActualDataRateDstrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cActualDataRateDstrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart=_JuniRadiusClientIncludeL2cActualDataRateDstrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,192),_JuniRadiusClientIncludeL2cActualDataRateDstrInAcctStart_Type())
-juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart=_JuniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,193),_JuniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart_Type())
-juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart=_JuniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,194),_JuniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart_Type())
-juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart=_JuniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,195),_JuniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart_Type())
-juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart=_JuniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,196),_JuniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart_Type())
-juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart=_JuniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,197),_JuniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart_Type())
-juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart=_JuniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,198),_JuniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart_Type())
-juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart=_JuniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,199),_JuniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart_Type())
-juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart=_JuniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,200),_JuniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart_Type())
-juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart=_JuniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,201),_JuniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart_Type())
-juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart=_JuniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,202),_JuniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart_Type())
-juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart=_JuniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,203),_JuniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart_Type())
-juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart=_JuniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,204),_JuniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart_Type())
-juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cDslLineStateInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cDslLineStateInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cDslLineStateInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cDslLineStateInAcctStart=_JuniRadiusClientIncludeL2cDslLineStateInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,205),_JuniRadiusClientIncludeL2cDslLineStateInAcctStart_Type())
-juniRadiusClientIncludeL2cDslLineStateInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cDslLineStateInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cDslTypeInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cDslTypeInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeL2cDslTypeInAcctStart_Object=MibScalar
-juniRadiusClientIncludeL2cDslTypeInAcctStart=_JuniRadiusClientIncludeL2cDslTypeInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,206),_JuniRadiusClientIncludeL2cDslTypeInAcctStart_Type())
-juniRadiusClientIncludeL2cDslTypeInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cDslTypeInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop=_JuniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,207),_JuniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop_Type())
-juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop=_JuniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,208),_JuniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop_Type())
-juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop=_JuniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,209),_JuniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop_Type())
-juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cActualDataRateUstrInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cActualDataRateUstrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cActualDataRateUstrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop=_JuniRadiusClientIncludeL2cActualDataRateUstrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,210),_JuniRadiusClientIncludeL2cActualDataRateUstrInAcctStop_Type())
-juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cActualDataRateDstrInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cActualDataRateDstrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cActualDataRateDstrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop=_JuniRadiusClientIncludeL2cActualDataRateDstrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,211),_JuniRadiusClientIncludeL2cActualDataRateDstrInAcctStop_Type())
-juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop=_JuniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,212),_JuniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop_Type())
-juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop=_JuniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,213),_JuniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop_Type())
-juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop=_JuniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,214),_JuniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop_Type())
-juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop=_JuniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,215),_JuniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop_Type())
-juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop=_JuniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,216),_JuniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop_Type())
-juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop=_JuniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,217),_JuniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop_Type())
-juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop=_JuniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,218),_JuniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop_Type())
-juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop=_JuniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,219),_JuniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop_Type())
-juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop=_JuniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,220),_JuniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop_Type())
-juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop=_JuniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,221),_JuniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop_Type())
-juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop=_JuniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,222),_JuniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop_Type())
-juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop=_JuniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,223),_JuniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop_Type())
-juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cDslLineStateInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cDslLineStateInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cDslLineStateInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cDslLineStateInAcctStop=_JuniRadiusClientIncludeL2cDslLineStateInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,224),_JuniRadiusClientIncludeL2cDslLineStateInAcctStop_Type())
-juniRadiusClientIncludeL2cDslLineStateInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cDslLineStateInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeL2cDslTypeInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeL2cDslTypeInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeL2cDslTypeInAcctStop_Object=MibScalar
-juniRadiusClientIncludeL2cDslTypeInAcctStop=_JuniRadiusClientIncludeL2cDslTypeInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,225),_JuniRadiusClientIncludeL2cDslTypeInAcctStop_Type())
-juniRadiusClientIncludeL2cDslTypeInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeL2cDslTypeInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeInterfaceIdInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeInterfaceIdInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeInterfaceIdInAcctStart_Object=MibScalar
-juniRadiusClientIncludeInterfaceIdInAcctStart=_JuniRadiusClientIncludeInterfaceIdInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,226),_JuniRadiusClientIncludeInterfaceIdInAcctStart_Type())
-juniRadiusClientIncludeInterfaceIdInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeInterfaceIdInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeIpv6PrefixInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeIpv6PrefixInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeIpv6PrefixInAcctStart_Object=MibScalar
-juniRadiusClientIncludeIpv6PrefixInAcctStart=_JuniRadiusClientIncludeIpv6PrefixInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,227),_JuniRadiusClientIncludeIpv6PrefixInAcctStart_Type())
-juniRadiusClientIncludeIpv6PrefixInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIpv6PrefixInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeInterfaceIdInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeInterfaceIdInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeInterfaceIdInAcctStop_Object=MibScalar
-juniRadiusClientIncludeInterfaceIdInAcctStop=_JuniRadiusClientIncludeInterfaceIdInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,228),_JuniRadiusClientIncludeInterfaceIdInAcctStop_Type())
-juniRadiusClientIncludeInterfaceIdInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeInterfaceIdInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeIpAddrInAcctStop_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIncludeIpAddrInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeIpAddrInAcctStop_Object=MibScalar
-juniRadiusClientIncludeIpAddrInAcctStop=_JuniRadiusClientIncludeIpAddrInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,229),_JuniRadiusClientIncludeIpAddrInAcctStop_Type())
-juniRadiusClientIncludeIpAddrInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIpAddrInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeIpv6PrefixInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeIpv6PrefixInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeIpv6PrefixInAcctStop_Object=MibScalar
-juniRadiusClientIncludeIpv6PrefixInAcctStop=_JuniRadiusClientIncludeIpv6PrefixInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,230),_JuniRadiusClientIncludeIpv6PrefixInAcctStop_Type())
-juniRadiusClientIncludeIpv6PrefixInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIpv6PrefixInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq_Object=MibScalar
-juniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq=_JuniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,231),_JuniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq_Type())
-juniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq_Type.__name__=_D
-_JuniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq_Object=MibScalar
-juniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq=_JuniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq_Object((1,3,6,1,4,1,4874,2,2,19,1,1,232),_JuniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq_Type())
-juniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq.setStatus(_B)
-class _JuniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart_Object=MibScalar
-juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart=_JuniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,233),_JuniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart_Type())
-juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart_Object=MibScalar
-juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart=_JuniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,234),_JuniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart_Type())
-juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop_Object=MibScalar
-juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop=_JuniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,235),_JuniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop_Type())
-juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop_Object=MibScalar
-juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop=_JuniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,236),_JuniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop_Type())
-juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop.setStatus(_B)
-class _JuniRadiusClientIgnorePppoeMaxSession_Type(TruthValue):defaultValue=1
-_JuniRadiusClientIgnorePppoeMaxSession_Type.__name__=_D
-_JuniRadiusClientIgnorePppoeMaxSession_Object=MibScalar
-juniRadiusClientIgnorePppoeMaxSession=_JuniRadiusClientIgnorePppoeMaxSession_Object((1,3,6,1,4,1,4874,2,2,19,1,1,237),_JuniRadiusClientIgnorePppoeMaxSession_Type())
-juniRadiusClientIgnorePppoeMaxSession.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIgnorePppoeMaxSession.setStatus(_B)
-class _JuniRadiusClientIncludeIpv6AccountingInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeIpv6AccountingInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeIpv6AccountingInAcctStop_Object=MibScalar
-juniRadiusClientIncludeIpv6AccountingInAcctStop=_JuniRadiusClientIncludeIpv6AccountingInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,238),_JuniRadiusClientIncludeIpv6AccountingInAcctStop_Type())
-juniRadiusClientIncludeIpv6AccountingInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIpv6AccountingInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart_Object=MibScalar
-juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart=_JuniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,239),_JuniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart_Type())
-juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop_Object=MibScalar
-juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop=_JuniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,240),_JuniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop_Type())
-juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeFramedIpv6PoolInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeFramedIpv6PoolInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeFramedIpv6PoolInAcctStart_Object=MibScalar
-juniRadiusClientIncludeFramedIpv6PoolInAcctStart=_JuniRadiusClientIncludeFramedIpv6PoolInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,241),_JuniRadiusClientIncludeFramedIpv6PoolInAcctStart_Type())
-juniRadiusClientIncludeFramedIpv6PoolInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeFramedIpv6PoolInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeFramedIpv6PoolInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeFramedIpv6PoolInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeFramedIpv6PoolInAcctStop_Object=MibScalar
-juniRadiusClientIncludeFramedIpv6PoolInAcctStop=_JuniRadiusClientIncludeFramedIpv6PoolInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,242),_JuniRadiusClientIncludeFramedIpv6PoolInAcctStop_Type())
-juniRadiusClientIncludeFramedIpv6PoolInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeFramedIpv6PoolInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeFramedIpv6RouteInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeFramedIpv6RouteInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeFramedIpv6RouteInAcctStart_Object=MibScalar
-juniRadiusClientIncludeFramedIpv6RouteInAcctStart=_JuniRadiusClientIncludeFramedIpv6RouteInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,243),_JuniRadiusClientIncludeFramedIpv6RouteInAcctStart_Type())
-juniRadiusClientIncludeFramedIpv6RouteInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeFramedIpv6RouteInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeFramedIpv6RouteInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeFramedIpv6RouteInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeFramedIpv6RouteInAcctStop_Object=MibScalar
-juniRadiusClientIncludeFramedIpv6RouteInAcctStop=_JuniRadiusClientIncludeFramedIpv6RouteInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,244),_JuniRadiusClientIncludeFramedIpv6RouteInAcctStop_Type())
-juniRadiusClientIncludeFramedIpv6RouteInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeFramedIpv6RouteInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeIpv6LocalInterfaceInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeIpv6LocalInterfaceInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeIpv6LocalInterfaceInAcctStart_Object=MibScalar
-juniRadiusClientIncludeIpv6LocalInterfaceInAcctStart=_JuniRadiusClientIncludeIpv6LocalInterfaceInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,245),_JuniRadiusClientIncludeIpv6LocalInterfaceInAcctStart_Type())
-juniRadiusClientIncludeIpv6LocalInterfaceInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIpv6LocalInterfaceInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeIpv6LocalInterfaceInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeIpv6LocalInterfaceInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeIpv6LocalInterfaceInAcctStop_Object=MibScalar
-juniRadiusClientIncludeIpv6LocalInterfaceInAcctStop=_JuniRadiusClientIncludeIpv6LocalInterfaceInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,246),_JuniRadiusClientIncludeIpv6LocalInterfaceInAcctStop_Type())
-juniRadiusClientIncludeIpv6LocalInterfaceInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIpv6LocalInterfaceInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeIpv6NdRaPrefixInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeIpv6NdRaPrefixInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeIpv6NdRaPrefixInAcctStart_Object=MibScalar
-juniRadiusClientIncludeIpv6NdRaPrefixInAcctStart=_JuniRadiusClientIncludeIpv6NdRaPrefixInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,247),_JuniRadiusClientIncludeIpv6NdRaPrefixInAcctStart_Type())
-juniRadiusClientIncludeIpv6NdRaPrefixInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIpv6NdRaPrefixInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeIpv6NdRaPrefixInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeIpv6NdRaPrefixInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeIpv6NdRaPrefixInAcctStop_Object=MibScalar
-juniRadiusClientIncludeIpv6NdRaPrefixInAcctStop=_JuniRadiusClientIncludeIpv6NdRaPrefixInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,248),_JuniRadiusClientIncludeIpv6NdRaPrefixInAcctStop_Type())
-juniRadiusClientIncludeIpv6NdRaPrefixInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIpv6NdRaPrefixInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeIpv6PrimaryDnsInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeIpv6PrimaryDnsInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeIpv6PrimaryDnsInAcctStart_Object=MibScalar
-juniRadiusClientIncludeIpv6PrimaryDnsInAcctStart=_JuniRadiusClientIncludeIpv6PrimaryDnsInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,249),_JuniRadiusClientIncludeIpv6PrimaryDnsInAcctStart_Type())
-juniRadiusClientIncludeIpv6PrimaryDnsInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIpv6PrimaryDnsInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeIpv6PrimaryDnsInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeIpv6PrimaryDnsInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeIpv6PrimaryDnsInAcctStop_Object=MibScalar
-juniRadiusClientIncludeIpv6PrimaryDnsInAcctStop=_JuniRadiusClientIncludeIpv6PrimaryDnsInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,250),_JuniRadiusClientIncludeIpv6PrimaryDnsInAcctStop_Type())
-juniRadiusClientIncludeIpv6PrimaryDnsInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIpv6PrimaryDnsInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeIpv6SecondaryDnsInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeIpv6SecondaryDnsInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeIpv6SecondaryDnsInAcctStart_Object=MibScalar
-juniRadiusClientIncludeIpv6SecondaryDnsInAcctStart=_JuniRadiusClientIncludeIpv6SecondaryDnsInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,251),_JuniRadiusClientIncludeIpv6SecondaryDnsInAcctStart_Type())
-juniRadiusClientIncludeIpv6SecondaryDnsInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIpv6SecondaryDnsInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeIpv6SecondaryDnsInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeIpv6SecondaryDnsInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeIpv6SecondaryDnsInAcctStop_Object=MibScalar
-juniRadiusClientIncludeIpv6SecondaryDnsInAcctStop=_JuniRadiusClientIncludeIpv6SecondaryDnsInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,252),_JuniRadiusClientIncludeIpv6SecondaryDnsInAcctStop_Type())
-juniRadiusClientIncludeIpv6SecondaryDnsInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIpv6SecondaryDnsInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeIpv6VirtualRouterInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeIpv6VirtualRouterInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeIpv6VirtualRouterInAcctStart_Object=MibScalar
-juniRadiusClientIncludeIpv6VirtualRouterInAcctStart=_JuniRadiusClientIncludeIpv6VirtualRouterInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,253),_JuniRadiusClientIncludeIpv6VirtualRouterInAcctStart_Type())
-juniRadiusClientIncludeIpv6VirtualRouterInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIpv6VirtualRouterInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeIpv6VirtualRouterInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeIpv6VirtualRouterInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeIpv6VirtualRouterInAcctStop_Object=MibScalar
-juniRadiusClientIncludeIpv6VirtualRouterInAcctStop=_JuniRadiusClientIncludeIpv6VirtualRouterInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,254),_JuniRadiusClientIncludeIpv6VirtualRouterInAcctStop_Type())
-juniRadiusClientIncludeIpv6VirtualRouterInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeIpv6VirtualRouterInAcctStop.setStatus(_B)
-class _JuniRadiusClientIncludeQosProfileNameInAcctStart_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeQosProfileNameInAcctStart_Type.__name__=_D
-_JuniRadiusClientIncludeQosProfileNameInAcctStart_Object=MibScalar
-juniRadiusClientIncludeQosProfileNameInAcctStart=_JuniRadiusClientIncludeQosProfileNameInAcctStart_Object((1,3,6,1,4,1,4874,2,2,19,1,1,255),_JuniRadiusClientIncludeQosProfileNameInAcctStart_Type())
-juniRadiusClientIncludeQosProfileNameInAcctStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeQosProfileNameInAcctStart.setStatus(_B)
-class _JuniRadiusClientIncludeQosProfileNameInAcctStop_Type(TruthValue):defaultValue=2
-_JuniRadiusClientIncludeQosProfileNameInAcctStop_Type.__name__=_D
-_JuniRadiusClientIncludeQosProfileNameInAcctStop_Object=MibScalar
-juniRadiusClientIncludeQosProfileNameInAcctStop=_JuniRadiusClientIncludeQosProfileNameInAcctStop_Object((1,3,6,1,4,1,4874,2,2,19,1,1,256),_JuniRadiusClientIncludeQosProfileNameInAcctStop_Type())
-juniRadiusClientIncludeQosProfileNameInAcctStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusClientIncludeQosProfileNameInAcctStop.setStatus(_B)
-_JuniRadiusAuthClient_ObjectIdentity=ObjectIdentity
-juniRadiusAuthClient=_JuniRadiusAuthClient_ObjectIdentity((1,3,6,1,4,1,4874,2,2,19,1,2))
-_JuniRadiusAuthClientInvalidServerAddresses_Type=Counter32
-_JuniRadiusAuthClientInvalidServerAddresses_Object=MibScalar
-juniRadiusAuthClientInvalidServerAddresses=_JuniRadiusAuthClientInvalidServerAddresses_Object((1,3,6,1,4,1,4874,2,2,19,1,2,1),_JuniRadiusAuthClientInvalidServerAddresses_Type())
-juniRadiusAuthClientInvalidServerAddresses.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAuthClientInvalidServerAddresses.setStatus(_B)
-_JuniRadiusAuthClientServerTable_Object=MibTable
-juniRadiusAuthClientServerTable=_JuniRadiusAuthClientServerTable_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2))
-if mibBuilder.loadTexts:juniRadiusAuthClientServerTable.setStatus(_B)
-_JuniRadiusAuthClientServerEntry_Object=MibTableRow
-juniRadiusAuthClientServerEntry=_JuniRadiusAuthClientServerEntry_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2,1))
-juniRadiusAuthClientServerEntry.setIndexNames((0,_A,_EO))
-if mibBuilder.loadTexts:juniRadiusAuthClientServerEntry.setStatus(_B)
-_JuniRadiusAuthClientServerAddress_Type=IpAddress
-_JuniRadiusAuthClientServerAddress_Object=MibTableColumn
-juniRadiusAuthClientServerAddress=_JuniRadiusAuthClientServerAddress_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2,1,1),_JuniRadiusAuthClientServerAddress_Type())
-juniRadiusAuthClientServerAddress.setMaxAccess(_DO)
-if mibBuilder.loadTexts:juniRadiusAuthClientServerAddress.setStatus(_B)
-_JuniRadiusAuthClientServerPortNumber_Type=Integer32
-_JuniRadiusAuthClientServerPortNumber_Object=MibTableColumn
-juniRadiusAuthClientServerPortNumber=_JuniRadiusAuthClientServerPortNumber_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2,1,2),_JuniRadiusAuthClientServerPortNumber_Type())
-juniRadiusAuthClientServerPortNumber.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAuthClientServerPortNumber.setStatus(_B)
-_JuniRadiusAuthClientRoundTripTime_Type=TimeTicks
-_JuniRadiusAuthClientRoundTripTime_Object=MibTableColumn
-juniRadiusAuthClientRoundTripTime=_JuniRadiusAuthClientRoundTripTime_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2,1,3),_JuniRadiusAuthClientRoundTripTime_Type())
-juniRadiusAuthClientRoundTripTime.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAuthClientRoundTripTime.setStatus(_B)
-_JuniRadiusAuthClientAccessRequests_Type=Counter32
-_JuniRadiusAuthClientAccessRequests_Object=MibTableColumn
-juniRadiusAuthClientAccessRequests=_JuniRadiusAuthClientAccessRequests_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2,1,4),_JuniRadiusAuthClientAccessRequests_Type())
-juniRadiusAuthClientAccessRequests.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAuthClientAccessRequests.setStatus(_B)
-_JuniRadiusAuthClientAccessRetransmissions_Type=Counter32
-_JuniRadiusAuthClientAccessRetransmissions_Object=MibTableColumn
-juniRadiusAuthClientAccessRetransmissions=_JuniRadiusAuthClientAccessRetransmissions_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2,1,5),_JuniRadiusAuthClientAccessRetransmissions_Type())
-juniRadiusAuthClientAccessRetransmissions.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAuthClientAccessRetransmissions.setStatus(_B)
-_JuniRadiusAuthClientAccessAccepts_Type=Counter32
-_JuniRadiusAuthClientAccessAccepts_Object=MibTableColumn
-juniRadiusAuthClientAccessAccepts=_JuniRadiusAuthClientAccessAccepts_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2,1,6),_JuniRadiusAuthClientAccessAccepts_Type())
-juniRadiusAuthClientAccessAccepts.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAuthClientAccessAccepts.setStatus(_B)
-_JuniRadiusAuthClientAccessRejects_Type=Counter32
-_JuniRadiusAuthClientAccessRejects_Object=MibTableColumn
-juniRadiusAuthClientAccessRejects=_JuniRadiusAuthClientAccessRejects_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2,1,7),_JuniRadiusAuthClientAccessRejects_Type())
-juniRadiusAuthClientAccessRejects.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAuthClientAccessRejects.setStatus(_B)
-_JuniRadiusAuthClientAccessChallenges_Type=Counter32
-_JuniRadiusAuthClientAccessChallenges_Object=MibTableColumn
-juniRadiusAuthClientAccessChallenges=_JuniRadiusAuthClientAccessChallenges_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2,1,8),_JuniRadiusAuthClientAccessChallenges_Type())
-juniRadiusAuthClientAccessChallenges.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAuthClientAccessChallenges.setStatus(_B)
-_JuniRadiusAuthClientMalformedAccessResponses_Type=Counter32
-_JuniRadiusAuthClientMalformedAccessResponses_Object=MibTableColumn
-juniRadiusAuthClientMalformedAccessResponses=_JuniRadiusAuthClientMalformedAccessResponses_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2,1,9),_JuniRadiusAuthClientMalformedAccessResponses_Type())
-juniRadiusAuthClientMalformedAccessResponses.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAuthClientMalformedAccessResponses.setStatus(_B)
-_JuniRadiusAuthClientBadAuthenticators_Type=Counter32
-_JuniRadiusAuthClientBadAuthenticators_Object=MibTableColumn
-juniRadiusAuthClientBadAuthenticators=_JuniRadiusAuthClientBadAuthenticators_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2,1,10),_JuniRadiusAuthClientBadAuthenticators_Type())
-juniRadiusAuthClientBadAuthenticators.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAuthClientBadAuthenticators.setStatus(_B)
-_JuniRadiusAuthClientPendingRequests_Type=Gauge32
-_JuniRadiusAuthClientPendingRequests_Object=MibTableColumn
-juniRadiusAuthClientPendingRequests=_JuniRadiusAuthClientPendingRequests_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2,1,11),_JuniRadiusAuthClientPendingRequests_Type())
-juniRadiusAuthClientPendingRequests.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAuthClientPendingRequests.setStatus(_B)
-_JuniRadiusAuthClientTimeouts_Type=Counter32
-_JuniRadiusAuthClientTimeouts_Object=MibTableColumn
-juniRadiusAuthClientTimeouts=_JuniRadiusAuthClientTimeouts_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2,1,12),_JuniRadiusAuthClientTimeouts_Type())
-juniRadiusAuthClientTimeouts.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAuthClientTimeouts.setStatus(_B)
-_JuniRadiusAuthClientUnknownTypes_Type=Counter32
-_JuniRadiusAuthClientUnknownTypes_Object=MibTableColumn
-juniRadiusAuthClientUnknownTypes=_JuniRadiusAuthClientUnknownTypes_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2,1,13),_JuniRadiusAuthClientUnknownTypes_Type())
-juniRadiusAuthClientUnknownTypes.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAuthClientUnknownTypes.setStatus(_B)
-_JuniRadiusAuthClientPacketsDropped_Type=Counter32
-_JuniRadiusAuthClientPacketsDropped_Object=MibTableColumn
-juniRadiusAuthClientPacketsDropped=_JuniRadiusAuthClientPacketsDropped_Object((1,3,6,1,4,1,4874,2,2,19,1,2,2,1,14),_JuniRadiusAuthClientPacketsDropped_Type())
-juniRadiusAuthClientPacketsDropped.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAuthClientPacketsDropped.setStatus(_B)
-_JuniRadiusAuthClientCfgServerTable_Object=MibTable
-juniRadiusAuthClientCfgServerTable=_JuniRadiusAuthClientCfgServerTable_Object((1,3,6,1,4,1,4874,2,2,19,1,2,3))
-if mibBuilder.loadTexts:juniRadiusAuthClientCfgServerTable.setStatus(_B)
-_JuniRadiusAuthClientCfgServerEntry_Object=MibTableRow
-juniRadiusAuthClientCfgServerEntry=_JuniRadiusAuthClientCfgServerEntry_Object((1,3,6,1,4,1,4874,2,2,19,1,2,3,1))
-juniRadiusAuthClientCfgServerEntry.setIndexNames((0,_A,_EP))
-if mibBuilder.loadTexts:juniRadiusAuthClientCfgServerEntry.setStatus(_B)
-_JuniRadiusAuthClientCfgServerAddress_Type=IpAddress
-_JuniRadiusAuthClientCfgServerAddress_Object=MibTableColumn
-juniRadiusAuthClientCfgServerAddress=_JuniRadiusAuthClientCfgServerAddress_Object((1,3,6,1,4,1,4874,2,2,19,1,2,3,1,1),_JuniRadiusAuthClientCfgServerAddress_Type())
-juniRadiusAuthClientCfgServerAddress.setMaxAccess(_DO)
-if mibBuilder.loadTexts:juniRadiusAuthClientCfgServerAddress.setStatus(_B)
-class _JuniRadiusAuthClientCfgServerPortNumber_Type(Integer32):defaultValue=1812;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_JuniRadiusAuthClientCfgServerPortNumber_Type.__name__=_G
-_JuniRadiusAuthClientCfgServerPortNumber_Object=MibTableColumn
-juniRadiusAuthClientCfgServerPortNumber=_JuniRadiusAuthClientCfgServerPortNumber_Object((1,3,6,1,4,1,4874,2,2,19,1,2,3,1,2),_JuniRadiusAuthClientCfgServerPortNumber_Type())
-juniRadiusAuthClientCfgServerPortNumber.setMaxAccess(_At)
-if mibBuilder.loadTexts:juniRadiusAuthClientCfgServerPortNumber.setStatus(_B)
-class _JuniRadiusAuthClientCfgKey_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_JuniRadiusAuthClientCfgKey_Type.__name__=_Cr
-_JuniRadiusAuthClientCfgKey_Object=MibTableColumn
-juniRadiusAuthClientCfgKey=_JuniRadiusAuthClientCfgKey_Object((1,3,6,1,4,1,4874,2,2,19,1,2,3,1,3),_JuniRadiusAuthClientCfgKey_Type())
-juniRadiusAuthClientCfgKey.setMaxAccess(_At)
-if mibBuilder.loadTexts:juniRadiusAuthClientCfgKey.setStatus(_B)
-class _JuniRadiusAuthClientCfgTimeoutInterval_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000))
-_JuniRadiusAuthClientCfgTimeoutInterval_Type.__name__=_G
-_JuniRadiusAuthClientCfgTimeoutInterval_Object=MibTableColumn
-juniRadiusAuthClientCfgTimeoutInterval=_JuniRadiusAuthClientCfgTimeoutInterval_Object((1,3,6,1,4,1,4874,2,2,19,1,2,3,1,4),_JuniRadiusAuthClientCfgTimeoutInterval_Type())
-juniRadiusAuthClientCfgTimeoutInterval.setMaxAccess(_At)
-if mibBuilder.loadTexts:juniRadiusAuthClientCfgTimeoutInterval.setStatus(_B)
-if mibBuilder.loadTexts:juniRadiusAuthClientCfgTimeoutInterval.setUnits('seconds')
-class _JuniRadiusAuthClientCfgRetries_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_JuniRadiusAuthClientCfgRetries_Type.__name__=_G
-_JuniRadiusAuthClientCfgRetries_Object=MibTableColumn
-juniRadiusAuthClientCfgRetries=_JuniRadiusAuthClientCfgRetries_Object((1,3,6,1,4,1,4874,2,2,19,1,2,3,1,5),_JuniRadiusAuthClientCfgRetries_Type())
-juniRadiusAuthClientCfgRetries.setMaxAccess(_At)
-if mibBuilder.loadTexts:juniRadiusAuthClientCfgRetries.setStatus(_B)
-class _JuniRadiusAuthClientCfgMaxPendingRequests_Type(Integer32):defaultValue=255;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,32000))
-_JuniRadiusAuthClientCfgMaxPendingRequests_Type.__name__=_G
-_JuniRadiusAuthClientCfgMaxPendingRequests_Object=MibTableColumn
-juniRadiusAuthClientCfgMaxPendingRequests=_JuniRadiusAuthClientCfgMaxPendingRequests_Object((1,3,6,1,4,1,4874,2,2,19,1,2,3,1,6),_JuniRadiusAuthClientCfgMaxPendingRequests_Type())
-juniRadiusAuthClientCfgMaxPendingRequests.setMaxAccess(_At)
-if mibBuilder.loadTexts:juniRadiusAuthClientCfgMaxPendingRequests.setStatus(_B)
-_JuniRadiusAuthClientCfgRowStatus_Type=RowStatus
-_JuniRadiusAuthClientCfgRowStatus_Object=MibTableColumn
-juniRadiusAuthClientCfgRowStatus=_JuniRadiusAuthClientCfgRowStatus_Object((1,3,6,1,4,1,4874,2,2,19,1,2,3,1,7),_JuniRadiusAuthClientCfgRowStatus_Type())
-juniRadiusAuthClientCfgRowStatus.setMaxAccess(_At)
-if mibBuilder.loadTexts:juniRadiusAuthClientCfgRowStatus.setStatus(_B)
-class _JuniRadiusAuthClientCfgPrecedence_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_JuniRadiusAuthClientCfgPrecedence_Type.__name__=_G
-_JuniRadiusAuthClientCfgPrecedence_Object=MibTableColumn
-juniRadiusAuthClientCfgPrecedence=_JuniRadiusAuthClientCfgPrecedence_Object((1,3,6,1,4,1,4874,2,2,19,1,2,3,1,8),_JuniRadiusAuthClientCfgPrecedence_Type())
-juniRadiusAuthClientCfgPrecedence.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAuthClientCfgPrecedence.setStatus(_B)
-class _JuniRadiusAuthClientCfgDeadTime_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1440))
-_JuniRadiusAuthClientCfgDeadTime_Type.__name__=_G
-_JuniRadiusAuthClientCfgDeadTime_Object=MibTableColumn
-juniRadiusAuthClientCfgDeadTime=_JuniRadiusAuthClientCfgDeadTime_Object((1,3,6,1,4,1,4874,2,2,19,1,2,3,1,9),_JuniRadiusAuthClientCfgDeadTime_Type())
-juniRadiusAuthClientCfgDeadTime.setMaxAccess(_At)
-if mibBuilder.loadTexts:juniRadiusAuthClientCfgDeadTime.setStatus(_B)
-if mibBuilder.loadTexts:juniRadiusAuthClientCfgDeadTime.setUnits('minutes')
-_JuniRadiusAcctClient_ObjectIdentity=ObjectIdentity
-juniRadiusAcctClient=_JuniRadiusAcctClient_ObjectIdentity((1,3,6,1,4,1,4874,2,2,19,1,3))
-_JuniRadiusAcctClientInvalidServerAddresses_Type=Counter32
-_JuniRadiusAcctClientInvalidServerAddresses_Object=MibScalar
-juniRadiusAcctClientInvalidServerAddresses=_JuniRadiusAcctClientInvalidServerAddresses_Object((1,3,6,1,4,1,4874,2,2,19,1,3,1),_JuniRadiusAcctClientInvalidServerAddresses_Type())
-juniRadiusAcctClientInvalidServerAddresses.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientInvalidServerAddresses.setStatus(_B)
-_JuniRadiusAcctClientServerTable_Object=MibTable
-juniRadiusAcctClientServerTable=_JuniRadiusAcctClientServerTable_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2))
-if mibBuilder.loadTexts:juniRadiusAcctClientServerTable.setStatus(_B)
-_JuniRadiusAcctClientServerEntry_Object=MibTableRow
-juniRadiusAcctClientServerEntry=_JuniRadiusAcctClientServerEntry_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1))
-juniRadiusAcctClientServerEntry.setIndexNames((0,_A,_EQ))
-if mibBuilder.loadTexts:juniRadiusAcctClientServerEntry.setStatus(_B)
-_JuniRadiusAcctClientServerAddress_Type=IpAddress
-_JuniRadiusAcctClientServerAddress_Object=MibTableColumn
-juniRadiusAcctClientServerAddress=_JuniRadiusAcctClientServerAddress_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,1),_JuniRadiusAcctClientServerAddress_Type())
-juniRadiusAcctClientServerAddress.setMaxAccess(_DO)
-if mibBuilder.loadTexts:juniRadiusAcctClientServerAddress.setStatus(_B)
-_JuniRadiusAcctClientServerPortNumber_Type=Integer32
-_JuniRadiusAcctClientServerPortNumber_Object=MibTableColumn
-juniRadiusAcctClientServerPortNumber=_JuniRadiusAcctClientServerPortNumber_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,2),_JuniRadiusAcctClientServerPortNumber_Type())
-juniRadiusAcctClientServerPortNumber.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientServerPortNumber.setStatus(_B)
-_JuniRadiusAcctClientRoundTripTime_Type=TimeTicks
-_JuniRadiusAcctClientRoundTripTime_Object=MibTableColumn
-juniRadiusAcctClientRoundTripTime=_JuniRadiusAcctClientRoundTripTime_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,3),_JuniRadiusAcctClientRoundTripTime_Type())
-juniRadiusAcctClientRoundTripTime.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientRoundTripTime.setStatus(_B)
-_JuniRadiusAcctClientRequests_Type=Counter32
-_JuniRadiusAcctClientRequests_Object=MibTableColumn
-juniRadiusAcctClientRequests=_JuniRadiusAcctClientRequests_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,4),_JuniRadiusAcctClientRequests_Type())
-juniRadiusAcctClientRequests.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientRequests.setStatus(_B)
-_JuniRadiusAcctClientRetransmissions_Type=Counter32
-_JuniRadiusAcctClientRetransmissions_Object=MibTableColumn
-juniRadiusAcctClientRetransmissions=_JuniRadiusAcctClientRetransmissions_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,5),_JuniRadiusAcctClientRetransmissions_Type())
-juniRadiusAcctClientRetransmissions.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientRetransmissions.setStatus(_B)
-_JuniRadiusAcctClientResponses_Type=Counter32
-_JuniRadiusAcctClientResponses_Object=MibTableColumn
-juniRadiusAcctClientResponses=_JuniRadiusAcctClientResponses_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,6),_JuniRadiusAcctClientResponses_Type())
-juniRadiusAcctClientResponses.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientResponses.setStatus(_B)
-_JuniRadiusAcctClientMalformedResponses_Type=Counter32
-_JuniRadiusAcctClientMalformedResponses_Object=MibTableColumn
-juniRadiusAcctClientMalformedResponses=_JuniRadiusAcctClientMalformedResponses_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,7),_JuniRadiusAcctClientMalformedResponses_Type())
-juniRadiusAcctClientMalformedResponses.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientMalformedResponses.setStatus(_B)
-_JuniRadiusAcctClientBadAuthenticators_Type=Counter32
-_JuniRadiusAcctClientBadAuthenticators_Object=MibTableColumn
-juniRadiusAcctClientBadAuthenticators=_JuniRadiusAcctClientBadAuthenticators_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,8),_JuniRadiusAcctClientBadAuthenticators_Type())
-juniRadiusAcctClientBadAuthenticators.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientBadAuthenticators.setStatus(_B)
-_JuniRadiusAcctClientPendingRequests_Type=Gauge32
-_JuniRadiusAcctClientPendingRequests_Object=MibTableColumn
-juniRadiusAcctClientPendingRequests=_JuniRadiusAcctClientPendingRequests_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,9),_JuniRadiusAcctClientPendingRequests_Type())
-juniRadiusAcctClientPendingRequests.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientPendingRequests.setStatus(_B)
-_JuniRadiusAcctClientTimeouts_Type=Counter32
-_JuniRadiusAcctClientTimeouts_Object=MibTableColumn
-juniRadiusAcctClientTimeouts=_JuniRadiusAcctClientTimeouts_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,10),_JuniRadiusAcctClientTimeouts_Type())
-juniRadiusAcctClientTimeouts.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientTimeouts.setStatus(_B)
-_JuniRadiusAcctClientUnknownTypes_Type=Counter32
-_JuniRadiusAcctClientUnknownTypes_Object=MibTableColumn
-juniRadiusAcctClientUnknownTypes=_JuniRadiusAcctClientUnknownTypes_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,11),_JuniRadiusAcctClientUnknownTypes_Type())
-juniRadiusAcctClientUnknownTypes.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientUnknownTypes.setStatus(_B)
-_JuniRadiusAcctClientPacketsDropped_Type=Counter32
-_JuniRadiusAcctClientPacketsDropped_Object=MibTableColumn
-juniRadiusAcctClientPacketsDropped=_JuniRadiusAcctClientPacketsDropped_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,12),_JuniRadiusAcctClientPacketsDropped_Type())
-juniRadiusAcctClientPacketsDropped.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientPacketsDropped.setStatus(_B)
-_JuniRadiusAcctClientStartRequests_Type=Counter32
-_JuniRadiusAcctClientStartRequests_Object=MibTableColumn
-juniRadiusAcctClientStartRequests=_JuniRadiusAcctClientStartRequests_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,13),_JuniRadiusAcctClientStartRequests_Type())
-juniRadiusAcctClientStartRequests.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientStartRequests.setStatus(_B)
-_JuniRadiusAcctClientInterimRequests_Type=Counter32
-_JuniRadiusAcctClientInterimRequests_Object=MibTableColumn
-juniRadiusAcctClientInterimRequests=_JuniRadiusAcctClientInterimRequests_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,14),_JuniRadiusAcctClientInterimRequests_Type())
-juniRadiusAcctClientInterimRequests.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientInterimRequests.setStatus(_B)
-_JuniRadiusAcctClientStopRequests_Type=Counter32
-_JuniRadiusAcctClientStopRequests_Object=MibTableColumn
-juniRadiusAcctClientStopRequests=_JuniRadiusAcctClientStopRequests_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,15),_JuniRadiusAcctClientStopRequests_Type())
-juniRadiusAcctClientStopRequests.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientStopRequests.setStatus(_B)
-_JuniRadiusAcctClientStartResponses_Type=Counter32
-_JuniRadiusAcctClientStartResponses_Object=MibTableColumn
-juniRadiusAcctClientStartResponses=_JuniRadiusAcctClientStartResponses_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,16),_JuniRadiusAcctClientStartResponses_Type())
-juniRadiusAcctClientStartResponses.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientStartResponses.setStatus(_B)
-_JuniRadiusAcctClientInterimResponses_Type=Counter32
-_JuniRadiusAcctClientInterimResponses_Object=MibTableColumn
-juniRadiusAcctClientInterimResponses=_JuniRadiusAcctClientInterimResponses_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,17),_JuniRadiusAcctClientInterimResponses_Type())
-juniRadiusAcctClientInterimResponses.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientInterimResponses.setStatus(_B)
-_JuniRadiusAcctClientStopResponses_Type=Counter32
-_JuniRadiusAcctClientStopResponses_Object=MibTableColumn
-juniRadiusAcctClientStopResponses=_JuniRadiusAcctClientStopResponses_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,18),_JuniRadiusAcctClientStopResponses_Type())
-juniRadiusAcctClientStopResponses.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientStopResponses.setStatus(_B)
-_JuniRadiusAcctClientRejectRequests_Type=Counter32
-_JuniRadiusAcctClientRejectRequests_Object=MibTableColumn
-juniRadiusAcctClientRejectRequests=_JuniRadiusAcctClientRejectRequests_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,19),_JuniRadiusAcctClientRejectRequests_Type())
-juniRadiusAcctClientRejectRequests.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientRejectRequests.setStatus(_B)
-_JuniRadiusAcctClientRejectResponses_Type=Counter32
-_JuniRadiusAcctClientRejectResponses_Object=MibTableColumn
-juniRadiusAcctClientRejectResponses=_JuniRadiusAcctClientRejectResponses_Object((1,3,6,1,4,1,4874,2,2,19,1,3,2,1,20),_JuniRadiusAcctClientRejectResponses_Type())
-juniRadiusAcctClientRejectResponses.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientRejectResponses.setStatus(_B)
-_JuniRadiusAcctClientCfgServerTable_Object=MibTable
-juniRadiusAcctClientCfgServerTable=_JuniRadiusAcctClientCfgServerTable_Object((1,3,6,1,4,1,4874,2,2,19,1,3,3))
-if mibBuilder.loadTexts:juniRadiusAcctClientCfgServerTable.setStatus(_B)
-_JuniRadiusAcctClientCfgServerEntry_Object=MibTableRow
-juniRadiusAcctClientCfgServerEntry=_JuniRadiusAcctClientCfgServerEntry_Object((1,3,6,1,4,1,4874,2,2,19,1,3,3,1))
-juniRadiusAcctClientCfgServerEntry.setIndexNames((0,_A,_ER))
-if mibBuilder.loadTexts:juniRadiusAcctClientCfgServerEntry.setStatus(_B)
-_JuniRadiusAcctClientCfgServerAddress_Type=IpAddress
-_JuniRadiusAcctClientCfgServerAddress_Object=MibTableColumn
-juniRadiusAcctClientCfgServerAddress=_JuniRadiusAcctClientCfgServerAddress_Object((1,3,6,1,4,1,4874,2,2,19,1,3,3,1,1),_JuniRadiusAcctClientCfgServerAddress_Type())
-juniRadiusAcctClientCfgServerAddress.setMaxAccess(_DO)
-if mibBuilder.loadTexts:juniRadiusAcctClientCfgServerAddress.setStatus(_B)
-class _JuniRadiusAcctClientCfgServerPortNumber_Type(Integer32):defaultValue=1813;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_JuniRadiusAcctClientCfgServerPortNumber_Type.__name__=_G
-_JuniRadiusAcctClientCfgServerPortNumber_Object=MibTableColumn
-juniRadiusAcctClientCfgServerPortNumber=_JuniRadiusAcctClientCfgServerPortNumber_Object((1,3,6,1,4,1,4874,2,2,19,1,3,3,1,2),_JuniRadiusAcctClientCfgServerPortNumber_Type())
-juniRadiusAcctClientCfgServerPortNumber.setMaxAccess(_At)
-if mibBuilder.loadTexts:juniRadiusAcctClientCfgServerPortNumber.setStatus(_B)
-class _JuniRadiusAcctClientCfgKey_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_JuniRadiusAcctClientCfgKey_Type.__name__=_Cr
-_JuniRadiusAcctClientCfgKey_Object=MibTableColumn
-juniRadiusAcctClientCfgKey=_JuniRadiusAcctClientCfgKey_Object((1,3,6,1,4,1,4874,2,2,19,1,3,3,1,3),_JuniRadiusAcctClientCfgKey_Type())
-juniRadiusAcctClientCfgKey.setMaxAccess(_At)
-if mibBuilder.loadTexts:juniRadiusAcctClientCfgKey.setStatus(_B)
-class _JuniRadiusAcctClientCfgTimeoutInterval_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000))
-_JuniRadiusAcctClientCfgTimeoutInterval_Type.__name__=_G
-_JuniRadiusAcctClientCfgTimeoutInterval_Object=MibTableColumn
-juniRadiusAcctClientCfgTimeoutInterval=_JuniRadiusAcctClientCfgTimeoutInterval_Object((1,3,6,1,4,1,4874,2,2,19,1,3,3,1,4),_JuniRadiusAcctClientCfgTimeoutInterval_Type())
-juniRadiusAcctClientCfgTimeoutInterval.setMaxAccess(_At)
-if mibBuilder.loadTexts:juniRadiusAcctClientCfgTimeoutInterval.setStatus(_B)
-if mibBuilder.loadTexts:juniRadiusAcctClientCfgTimeoutInterval.setUnits('seconds')
-class _JuniRadiusAcctClientCfgRetries_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_JuniRadiusAcctClientCfgRetries_Type.__name__=_G
-_JuniRadiusAcctClientCfgRetries_Object=MibTableColumn
-juniRadiusAcctClientCfgRetries=_JuniRadiusAcctClientCfgRetries_Object((1,3,6,1,4,1,4874,2,2,19,1,3,3,1,5),_JuniRadiusAcctClientCfgRetries_Type())
-juniRadiusAcctClientCfgRetries.setMaxAccess(_At)
-if mibBuilder.loadTexts:juniRadiusAcctClientCfgRetries.setStatus(_B)
-class _JuniRadiusAcctClientCfgMaxPendingRequests_Type(Integer32):defaultValue=255;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,96000))
-_JuniRadiusAcctClientCfgMaxPendingRequests_Type.__name__=_G
-_JuniRadiusAcctClientCfgMaxPendingRequests_Object=MibTableColumn
-juniRadiusAcctClientCfgMaxPendingRequests=_JuniRadiusAcctClientCfgMaxPendingRequests_Object((1,3,6,1,4,1,4874,2,2,19,1,3,3,1,6),_JuniRadiusAcctClientCfgMaxPendingRequests_Type())
-juniRadiusAcctClientCfgMaxPendingRequests.setMaxAccess(_At)
-if mibBuilder.loadTexts:juniRadiusAcctClientCfgMaxPendingRequests.setStatus(_B)
-_JuniRadiusAcctClientCfgRowStatus_Type=RowStatus
-_JuniRadiusAcctClientCfgRowStatus_Object=MibTableColumn
-juniRadiusAcctClientCfgRowStatus=_JuniRadiusAcctClientCfgRowStatus_Object((1,3,6,1,4,1,4874,2,2,19,1,3,3,1,7),_JuniRadiusAcctClientCfgRowStatus_Type())
-juniRadiusAcctClientCfgRowStatus.setMaxAccess(_At)
-if mibBuilder.loadTexts:juniRadiusAcctClientCfgRowStatus.setStatus(_B)
-class _JuniRadiusAcctClientCfgPrecedence_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_JuniRadiusAcctClientCfgPrecedence_Type.__name__=_G
-_JuniRadiusAcctClientCfgPrecedence_Object=MibTableColumn
-juniRadiusAcctClientCfgPrecedence=_JuniRadiusAcctClientCfgPrecedence_Object((1,3,6,1,4,1,4874,2,2,19,1,3,3,1,8),_JuniRadiusAcctClientCfgPrecedence_Type())
-juniRadiusAcctClientCfgPrecedence.setMaxAccess(_F)
-if mibBuilder.loadTexts:juniRadiusAcctClientCfgPrecedence.setStatus(_B)
-class _JuniRadiusAcctClientCfgDeadTime_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1440))
-_JuniRadiusAcctClientCfgDeadTime_Type.__name__=_G
-_JuniRadiusAcctClientCfgDeadTime_Object=MibTableColumn
-juniRadiusAcctClientCfgDeadTime=_JuniRadiusAcctClientCfgDeadTime_Object((1,3,6,1,4,1,4874,2,2,19,1,3,3,1,9),_JuniRadiusAcctClientCfgDeadTime_Type())
-juniRadiusAcctClientCfgDeadTime.setMaxAccess(_At)
-if mibBuilder.loadTexts:juniRadiusAcctClientCfgDeadTime.setStatus(_B)
-if mibBuilder.loadTexts:juniRadiusAcctClientCfgDeadTime.setUnits('minutes')
-_JuniRadiusClientMIBConformance_ObjectIdentity=ObjectIdentity
-juniRadiusClientMIBConformance=_JuniRadiusClientMIBConformance_ObjectIdentity((1,3,6,1,4,1,4874,2,2,19,2))
-_JuniRadiusClientMIBCompliances_ObjectIdentity=ObjectIdentity
-juniRadiusClientMIBCompliances=_JuniRadiusClientMIBCompliances_ObjectIdentity((1,3,6,1,4,1,4874,2,2,19,2,1))
-_JuniRadiusClientMIBGroups_ObjectIdentity=ObjectIdentity
-juniRadiusClientMIBGroups=_JuniRadiusClientMIBGroups_ObjectIdentity((1,3,6,1,4,1,4874,2,2,19,2,2))
-_JuniRadiusClientTraps_ObjectIdentity=ObjectIdentity
-juniRadiusClientTraps=_JuniRadiusClientTraps_ObjectIdentity((1,3,6,1,4,1,4874,2,2,19,3))
-_JuniRadiusClientTrapPrefix_ObjectIdentity=ObjectIdentity
-juniRadiusClientTrapPrefix=_JuniRadiusClientTrapPrefix_ObjectIdentity((1,3,6,1,4,1,4874,2,2,19,3,0))
-_JuniRadiusClientTrapControl_ObjectIdentity=ObjectIdentity
-juniRadiusClientTrapControl=_JuniRadiusClientTrapControl_ObjectIdentity((1,3,6,1,4,1,4874,2,2,19,4))
-_JuniRadiusAuthClientUnavailableServer_Type=IpAddress
-_JuniRadiusAuthClientUnavailableServer_Object=MibScalar
-juniRadiusAuthClientUnavailableServer=_JuniRadiusAuthClientUnavailableServer_Object((1,3,6,1,4,1,4874,2,2,19,4,1),_JuniRadiusAuthClientUnavailableServer_Type())
-juniRadiusAuthClientUnavailableServer.setMaxAccess(_Cs)
-if mibBuilder.loadTexts:juniRadiusAuthClientUnavailableServer.setStatus(_B)
-_JuniRadiusAuthClientNextAvailableServer_Type=IpAddress
-_JuniRadiusAuthClientNextAvailableServer_Object=MibScalar
-juniRadiusAuthClientNextAvailableServer=_JuniRadiusAuthClientNextAvailableServer_Object((1,3,6,1,4,1,4874,2,2,19,4,2),_JuniRadiusAuthClientNextAvailableServer_Type())
-juniRadiusAuthClientNextAvailableServer.setMaxAccess(_Cs)
-if mibBuilder.loadTexts:juniRadiusAuthClientNextAvailableServer.setStatus(_B)
-_JuniRadiusAcctClientUnavailableServer_Type=IpAddress
-_JuniRadiusAcctClientUnavailableServer_Object=MibScalar
-juniRadiusAcctClientUnavailableServer=_JuniRadiusAcctClientUnavailableServer_Object((1,3,6,1,4,1,4874,2,2,19,4,3),_JuniRadiusAcctClientUnavailableServer_Type())
-juniRadiusAcctClientUnavailableServer.setMaxAccess(_Cs)
-if mibBuilder.loadTexts:juniRadiusAcctClientUnavailableServer.setStatus(_B)
-_JuniRadiusAcctClientNextAvailableServer_Type=IpAddress
-_JuniRadiusAcctClientNextAvailableServer_Object=MibScalar
-juniRadiusAcctClientNextAvailableServer=_JuniRadiusAcctClientNextAvailableServer_Object((1,3,6,1,4,1,4874,2,2,19,4,4),_JuniRadiusAcctClientNextAvailableServer_Type())
-juniRadiusAcctClientNextAvailableServer.setMaxAccess(_Cs)
-if mibBuilder.loadTexts:juniRadiusAcctClientNextAvailableServer.setStatus(_B)
-_JuniRadiusAuthClientAvailableServer_Type=IpAddress
-_JuniRadiusAuthClientAvailableServer_Object=MibScalar
-juniRadiusAuthClientAvailableServer=_JuniRadiusAuthClientAvailableServer_Object((1,3,6,1,4,1,4874,2,2,19,4,5),_JuniRadiusAuthClientAvailableServer_Type())
-juniRadiusAuthClientAvailableServer.setMaxAccess(_Cs)
-if mibBuilder.loadTexts:juniRadiusAuthClientAvailableServer.setStatus(_B)
-_JuniRadiusAcctClientAvailableServer_Type=IpAddress
-_JuniRadiusAcctClientAvailableServer_Object=MibScalar
-juniRadiusAcctClientAvailableServer=_JuniRadiusAcctClientAvailableServer_Object((1,3,6,1,4,1,4874,2,2,19,4,6),_JuniRadiusAcctClientAvailableServer_Type())
-juniRadiusAcctClientAvailableServer.setMaxAccess(_Cs)
-if mibBuilder.loadTexts:juniRadiusAcctClientAvailableServer.setStatus(_B)
-juniRadiusGeneralClientGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,1))
-juniRadiusGeneralClientGroup.setObjects(*((_A,_Cz),(_A,_C_)))
-if mibBuilder.loadTexts:juniRadiusGeneralClientGroup.setStatus(_E)
-juniRadiusAuthClientGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,2))
-juniRadiusAuthClientGroup.setObjects(*((_A,_DP),(_A,_DQ),(_A,_DR),(_A,_DS),(_A,_DT),(_A,_DU),(_A,_DV),(_A,_DW),(_A,_DX),(_A,_DY),(_A,_DZ),(_A,_Da),(_A,_Db),(_A,_Dc),(_A,_Dd),(_A,_De),(_A,_Df),(_A,_Dg),(_A,_Dh),(_A,_Di),(_A,_Dj),(_A,_Dk)))
-if mibBuilder.loadTexts:juniRadiusAuthClientGroup.setStatus(_E)
-juniRadiusAcctClientGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,3))
-juniRadiusAcctClientGroup.setObjects(*((_A,_D0),(_A,_D1),(_A,_D2),(_A,_D3),(_A,_D4),(_A,_D5),(_A,_D6),(_A,_D7),(_A,_D8),(_A,_D9),(_A,_DA),(_A,_DB),(_A,_DC),(_A,_DD),(_A,_DE),(_A,_DF),(_A,_DG),(_A,_DH),(_A,_DI),(_A,_DJ)))
-if mibBuilder.loadTexts:juniRadiusAcctClientGroup.setStatus(_E)
-juniRadiusGeneralClientGroup2=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,4))
-juniRadiusGeneralClientGroup2.setObjects(*((_A,_Cz),(_A,_C_),(_A,_Dl)))
-if mibBuilder.loadTexts:juniRadiusGeneralClientGroup2.setStatus(_E)
-juniRadiusBasicClientGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,5))
-juniRadiusBasicClientGroup.setObjects(*((_A,_Cz),(_A,_C_),(_A,_Dl),(_A,_Dq),(_A,_Dr)))
-if mibBuilder.loadTexts:juniRadiusBasicClientGroup.setStatus(_E)
-juniRadiusBrasClientGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,6))
-juniRadiusBrasClientGroup.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup.setStatus(_E)
-juniRadiusTunnelClientGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,7))
-juniRadiusTunnelClientGroup.setObjects((_A,_ES))
-if mibBuilder.loadTexts:juniRadiusTunnelClientGroup.setStatus(_B)
-juniRadiusBrasClientGroup2=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,8))
-juniRadiusBrasClientGroup2.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup2.setStatus(_E)
-juniRadiusBasicClientGroup2=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,9))
-juniRadiusBasicClientGroup2.setObjects(*((_A,_Cz),(_A,_C_),(_A,_Dl),(_A,_Dq),(_A,_Dr),(_A,_ET)))
-if mibBuilder.loadTexts:juniRadiusBasicClientGroup2.setStatus(_B)
-juniRadiusBrasClientGroup3=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,10))
-juniRadiusBrasClientGroup3.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup3.setStatus(_E)
-juniRadiusBrasClientGroup4=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,11))
-juniRadiusBrasClientGroup4.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup4.setStatus(_E)
-juniRadiusBrasClientGroup5=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,12))
-juniRadiusBrasClientGroup5.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup5.setStatus(_E)
-juniRadiusAuthClientGroup2=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,13))
-juniRadiusAuthClientGroup2.setObjects(*((_A,_DP),(_A,_DQ),(_A,_DR),(_A,_DS),(_A,_DT),(_A,_DU),(_A,_DV),(_A,_DW),(_A,_DX),(_A,_DY),(_A,_DZ),(_A,_Da),(_A,_Db),(_A,_Dc),(_A,_Dd),(_A,_De),(_A,_Df),(_A,_Dg),(_A,_Dh),(_A,_Di),(_A,_Dj),(_A,_Dk),(_A,_Dm),(_A,_Dn)))
-if mibBuilder.loadTexts:juniRadiusAuthClientGroup2.setStatus(_E)
-juniRadiusAcctClientGroup2=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,14))
-juniRadiusAcctClientGroup2.setObjects(*((_A,_D0),(_A,_D1),(_A,_D2),(_A,_D3),(_A,_D4),(_A,_D5),(_A,_D6),(_A,_D7),(_A,_D8),(_A,_D9),(_A,_DA),(_A,_DB),(_A,_DC),(_A,_DD),(_A,_DE),(_A,_DF),(_A,_DG),(_A,_DH),(_A,_DI),(_A,_DJ),(_A,_DK),(_A,_DL)))
-if mibBuilder.loadTexts:juniRadiusAcctClientGroup2.setStatus(_E)
-juniRadiusBrasClientGroup6=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,17))
-juniRadiusBrasClientGroup6.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup6.setStatus(_E)
-juniRadiusAuthClientGroup3=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,18))
-juniRadiusAuthClientGroup3.setObjects(*((_A,_DP),(_A,_DQ),(_A,_DR),(_A,_DS),(_A,_DT),(_A,_DU),(_A,_DV),(_A,_DW),(_A,_DX),(_A,_DY),(_A,_DZ),(_A,_Da),(_A,_Db),(_A,_Dc),(_A,_Dd),(_A,_De),(_A,_Df),(_A,_Dg),(_A,_Dh),(_A,_Di),(_A,_Dj),(_A,_Dk),(_A,_Dm),(_A,_Dn),(_A,_Ds)))
-if mibBuilder.loadTexts:juniRadiusAuthClientGroup3.setStatus(_B)
-juniRadiusAcctClientGroup3=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,19))
-juniRadiusAcctClientGroup3.setObjects(*((_A,_D0),(_A,_D1),(_A,_D2),(_A,_D3),(_A,_Dt),(_A,_Du),(_A,_Dv),(_A,_D4),(_A,_D5),(_A,_Dw),(_A,_Dx),(_A,_Dy),(_A,_D6),(_A,_D7),(_A,_D8),(_A,_D9),(_A,_DA),(_A,_DB),(_A,_DC),(_A,_DD),(_A,_DE),(_A,_DF),(_A,_DG),(_A,_DH),(_A,_DI),(_A,_DJ),(_A,_DK),(_A,_DL),(_A,_Do)))
-if mibBuilder.loadTexts:juniRadiusAcctClientGroup3.setStatus(_E)
-juniRadiusBrasClientGroup7=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,22))
-juniRadiusBrasClientGroup7.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup7.setStatus(_E)
-juniRadiusAcctClientGroup4=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,23))
-juniRadiusAcctClientGroup4.setObjects(*((_A,_D0),(_A,_D1),(_A,_D2),(_A,_D3),(_A,_Dt),(_A,_Du),(_A,_Dv),(_A,_EU),(_A,_D4),(_A,_D5),(_A,_Dw),(_A,_Dx),(_A,_Dy),(_A,_EV),(_A,_D6),(_A,_D7),(_A,_D8),(_A,_D9),(_A,_DA),(_A,_DB),(_A,_DC),(_A,_DD),(_A,_DE),(_A,_DF),(_A,_DG),(_A,_DH),(_A,_DI),(_A,_DJ),(_A,_DK),(_A,_DL),(_A,_Do)))
-if mibBuilder.loadTexts:juniRadiusAcctClientGroup4.setStatus(_B)
-juniRadiusBrasClientGroup8=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,24))
-juniRadiusBrasClientGroup8.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup8.setStatus(_E)
-juniRadiusBrasClientGroup9=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,25))
-juniRadiusBrasClientGroup9.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_Au),(_A,_As),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup9.setStatus(_E)
-juniRadiusBrasClientGroup10=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,26))
-juniRadiusBrasClientGroup10.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_Au),(_A,_As),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup10.setStatus(_E)
-juniRadiusBrasClientGroup11=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,27))
-juniRadiusBrasClientGroup11.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_Au),(_A,_As),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_L),(_A,_M),(_A,_BQ)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup11.setStatus(_E)
-juniRadiusBrasClientGroup12=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,28))
-juniRadiusBrasClientGroup12.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_Au),(_A,_As),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_L),(_A,_M),(_A,_BQ),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_L),(_A,_M),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup12.setStatus(_E)
-juniRadiusBrasClientGroup13=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,29))
-juniRadiusBrasClientGroup13.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_Au),(_A,_As),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_L),(_A,_M),(_A,_BQ),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_L),(_A,_M),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup13.setStatus(_E)
-juniRadiusBrasClientGroup14=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,30))
-juniRadiusBrasClientGroup14.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_Au),(_A,_As),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_L),(_A,_M),(_A,_BQ),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_L),(_A,_M),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_EW)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup14.setStatus(_E)
-juniRadiusBrasClientGroup15=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,31))
-juniRadiusBrasClientGroup15.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_Au),(_A,_As),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_L),(_A,_M),(_A,_BQ),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_L),(_A,_M),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1),(_A,_C2),(_A,_C3),(_A,_C4),(_A,_C5),(_A,_C6),(_A,_C7),(_A,_C8),(_A,_C9),(_A,_CA),(_A,_CB),(_A,_CC),(_A,_CD),(_A,_CE),(_A,_CF),(_A,_CG),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM),(_A,_CN),(_A,_CO),(_A,_CP),(_A,_CQ),(_A,_CR),(_A,_CS),(_A,_CT),(_A,_CU),(_A,_CV),(_A,_CW),(_A,_CX),(_A,_CY),(_A,_CZ),(_A,_Ca),(_A,_Cb),(_A,_Cc),(_A,_Cd),(_A,_Ce),(_A,_Cf),(_A,_Cg),(_A,_Ch),(_A,_Ci),(_A,_Cj)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup15.setStatus(_E)
-juniRadiusBrasClientGroup16=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,32))
-juniRadiusBrasClientGroup16.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_Au),(_A,_As),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_L),(_A,_M),(_A,_BQ),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_L),(_A,_M),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1),(_A,_C2),(_A,_C3),(_A,_C4),(_A,_C5),(_A,_C6),(_A,_C7),(_A,_C8),(_A,_C9),(_A,_CA),(_A,_CB),(_A,_CC),(_A,_CD),(_A,_CE),(_A,_CF),(_A,_CG),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM),(_A,_CN),(_A,_CO),(_A,_CP),(_A,_CQ),(_A,_CR),(_A,_CS),(_A,_CT),(_A,_CU),(_A,_CV),(_A,_CW),(_A,_CX),(_A,_CY),(_A,_CZ),(_A,_Ca),(_A,_Cb),(_A,_Cc),(_A,_Cd),(_A,_Ce),(_A,_Cf),(_A,_Cg),(_A,_Ch),(_A,_Ci),(_A,_Cj),(_A,_Cm),(_A,_Cn),(_A,_Co),(_A,_Cp),(_A,_Cq)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup16.setStatus(_E)
-juniRadiusBrasClientGroup17=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,33))
-juniRadiusBrasClientGroup17.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_Au),(_A,_As),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_L),(_A,_M),(_A,_BQ),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_L),(_A,_M),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1),(_A,_C2),(_A,_C3),(_A,_C4),(_A,_C5),(_A,_C6),(_A,_C7),(_A,_C8),(_A,_C9),(_A,_CA),(_A,_CB),(_A,_CC),(_A,_CD),(_A,_CE),(_A,_CF),(_A,_CG),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM),(_A,_CN),(_A,_CO),(_A,_CP),(_A,_CQ),(_A,_CR),(_A,_CS),(_A,_CT),(_A,_CU),(_A,_CV),(_A,_CW),(_A,_CX),(_A,_CY),(_A,_CZ),(_A,_Ca),(_A,_Cb),(_A,_Cc),(_A,_Cd),(_A,_Ce),(_A,_Cf),(_A,_Cg),(_A,_Ch),(_A,_Ci),(_A,_Cj),(_A,_Cm),(_A,_Cn),(_A,_Co),(_A,_Cp),(_A,_Cq),(_A,_Ct),(_A,_Cu),(_A,_Cv),(_A,_Cw),(_A,_Cx),(_A,_Cy)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup17.setStatus(_E)
-juniRadiusBrasClientGroup18=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,34))
-juniRadiusBrasClientGroup18.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_Au),(_A,_As),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_L),(_A,_M),(_A,_BQ),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_L),(_A,_M),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1),(_A,_C2),(_A,_C3),(_A,_C4),(_A,_C5),(_A,_C6),(_A,_C7),(_A,_C8),(_A,_C9),(_A,_CA),(_A,_CB),(_A,_CC),(_A,_CD),(_A,_CE),(_A,_CF),(_A,_CG),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM),(_A,_CN),(_A,_CO),(_A,_CP),(_A,_CQ),(_A,_CR),(_A,_CS),(_A,_CT),(_A,_CU),(_A,_CV),(_A,_CW),(_A,_CX),(_A,_CY),(_A,_CZ),(_A,_Ca),(_A,_Cb),(_A,_Cc),(_A,_Cd),(_A,_Ce),(_A,_Cf),(_A,_Cg),(_A,_Ch),(_A,_Ci),(_A,_Cj),(_A,_Cm),(_A,_Cn),(_A,_Co),(_A,_Cp),(_A,_Cq),(_A,_Ct),(_A,_Cu),(_A,_Cv),(_A,_Cw),(_A,_Cx),(_A,_Cy),(_A,_DM)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup18.setStatus(_E)
-juniRadiusBrasClientGroup19=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,35))
-juniRadiusBrasClientGroup19.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_Au),(_A,_As),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_L),(_A,_M),(_A,_BQ),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_L),(_A,_M),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1),(_A,_C2),(_A,_C3),(_A,_C4),(_A,_C5),(_A,_C6),(_A,_C7),(_A,_C8),(_A,_C9),(_A,_CA),(_A,_CB),(_A,_CC),(_A,_CD),(_A,_CE),(_A,_CF),(_A,_CG),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM),(_A,_CN),(_A,_CO),(_A,_CP),(_A,_CQ),(_A,_CR),(_A,_CS),(_A,_CT),(_A,_CU),(_A,_CV),(_A,_CW),(_A,_CX),(_A,_CY),(_A,_CZ),(_A,_Ca),(_A,_Cb),(_A,_Cc),(_A,_Cd),(_A,_Ce),(_A,_Cf),(_A,_Cg),(_A,_Ch),(_A,_Ci),(_A,_Cj),(_A,_Cm),(_A,_Cn),(_A,_Co),(_A,_Cp),(_A,_Cq),(_A,_Ct),(_A,_Cu),(_A,_Cv),(_A,_Cw),(_A,_Cx),(_A,_Cy),(_A,_DM),(_A,_Dp)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup19.setStatus(_E)
-juniRadiusBrasClientGroup20=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,36))
-juniRadiusBrasClientGroup20.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_Au),(_A,_As),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_L),(_A,_M),(_A,_BQ),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_L),(_A,_M),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1),(_A,_C2),(_A,_C3),(_A,_C4),(_A,_C5),(_A,_C6),(_A,_C7),(_A,_C8),(_A,_C9),(_A,_CA),(_A,_CB),(_A,_CC),(_A,_CD),(_A,_CE),(_A,_CF),(_A,_CG),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM),(_A,_CN),(_A,_CO),(_A,_CP),(_A,_CQ),(_A,_CR),(_A,_CS),(_A,_CT),(_A,_CU),(_A,_CV),(_A,_CW),(_A,_CX),(_A,_CY),(_A,_CZ),(_A,_Ca),(_A,_Cb),(_A,_Cc),(_A,_Cd),(_A,_Ce),(_A,_Cf),(_A,_Cg),(_A,_Ch),(_A,_Ci),(_A,_Cj),(_A,_Cm),(_A,_Cn),(_A,_Co),(_A,_Cp),(_A,_Cq),(_A,_Ct),(_A,_Cu),(_A,_Cv),(_A,_Cw),(_A,_Cx),(_A,_Cy),(_A,_DM),(_A,_Dp),(_A,_Dz),(_A,_D_),(_A,_E0),(_A,_E1),(_A,_E2),(_A,_E3),(_A,_E4),(_A,_E5),(_A,_E6),(_A,_E7),(_A,_E8),(_A,_E9),(_A,_EA),(_A,_EB),(_A,_EC),(_A,_ED)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup20.setStatus(_E)
-juniRadiusBrasClientGroup21=ObjectGroup((1,3,6,1,4,1,4874,2,2,19,2,2,37))
-juniRadiusBrasClientGroup21.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_Au),(_A,_As),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_L),(_A,_M),(_A,_BQ),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_L),(_A,_M),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1),(_A,_C2),(_A,_C3),(_A,_C4),(_A,_C5),(_A,_C6),(_A,_C7),(_A,_C8),(_A,_C9),(_A,_CA),(_A,_CB),(_A,_CC),(_A,_CD),(_A,_CE),(_A,_CF),(_A,_CG),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM),(_A,_CN),(_A,_CO),(_A,_CP),(_A,_CQ),(_A,_CR),(_A,_CS),(_A,_CT),(_A,_CU),(_A,_CV),(_A,_CW),(_A,_CX),(_A,_CY),(_A,_CZ),(_A,_Ca),(_A,_Cb),(_A,_Cc),(_A,_Cd),(_A,_Ce),(_A,_Cf),(_A,_Cg),(_A,_Ch),(_A,_Ci),(_A,_Cj),(_A,_Cm),(_A,_Cn),(_A,_Co),(_A,_Cp),(_A,_Cq),(_A,_Ct),(_A,_Cu),(_A,_Cv),(_A,_Cw),(_A,_Cx),(_A,_Cy),(_A,_DM),(_A,_Dp),(_A,_Dz),(_A,_D_),(_A,_E0),(_A,_E1),(_A,_E2),(_A,_E3),(_A,_E4),(_A,_E5),(_A,_E6),(_A,_E7),(_A,_E8),(_A,_E9),(_A,_EA),(_A,_EB),(_A,_EC),(_A,_ED),(_A,_EX),(_A,_EY)))
-if mibBuilder.loadTexts:juniRadiusBrasClientGroup21.setStatus(_B)
-juniRadiusAuthClientServerUnavailable=NotificationType((1,3,6,1,4,1,4874,2,2,19,3,0,1))
-juniRadiusAuthClientServerUnavailable.setObjects(*((_A,_Dm),(_A,_Dn)))
-if mibBuilder.loadTexts:juniRadiusAuthClientServerUnavailable.setStatus(_B)
-juniRadiusAuthClientNoServerAvailable=NotificationType((1,3,6,1,4,1,4874,2,2,19,3,0,2))
-if mibBuilder.loadTexts:juniRadiusAuthClientNoServerAvailable.setStatus(_B)
-juniRadiusAcctClientServerUnavailable=NotificationType((1,3,6,1,4,1,4874,2,2,19,3,0,3))
-juniRadiusAcctClientServerUnavailable.setObjects(*((_A,_DK),(_A,_DL)))
-if mibBuilder.loadTexts:juniRadiusAcctClientServerUnavailable.setStatus(_B)
-juniRadiusAcctClientNoServerAvailable=NotificationType((1,3,6,1,4,1,4874,2,2,19,3,0,4))
-if mibBuilder.loadTexts:juniRadiusAcctClientNoServerAvailable.setStatus(_B)
-juniRadiusAuthClientServerAvailable=NotificationType((1,3,6,1,4,1,4874,2,2,19,3,0,5))
-juniRadiusAuthClientServerAvailable.setObjects((_A,_Ds))
-if mibBuilder.loadTexts:juniRadiusAuthClientServerAvailable.setStatus(_B)
-juniRadiusAcctClientServerAvailable=NotificationType((1,3,6,1,4,1,4874,2,2,19,3,0,6))
-juniRadiusAcctClientServerAvailable.setObjects((_A,_Do))
-if mibBuilder.loadTexts:juniRadiusAcctClientServerAvailable.setStatus(_B)
-juniRadiusAuthNotificationGroup=NotificationGroup((1,3,6,1,4,1,4874,2,2,19,2,2,15))
-juniRadiusAuthNotificationGroup.setObjects(*((_A,_EE),(_A,_EF)))
-if mibBuilder.loadTexts:juniRadiusAuthNotificationGroup.setStatus(_E)
-juniRadiusAcctNotificationGroup=NotificationGroup((1,3,6,1,4,1,4874,2,2,19,2,2,16))
-juniRadiusAcctNotificationGroup.setObjects(*((_A,_EG),(_A,_EH)))
-if mibBuilder.loadTexts:juniRadiusAcctNotificationGroup.setStatus(_E)
-juniRadiusAuthNotificationGroup2=NotificationGroup((1,3,6,1,4,1,4874,2,2,19,2,2,20))
-juniRadiusAuthNotificationGroup2.setObjects(*((_A,_EE),(_A,_EF),(_A,_EZ)))
-if mibBuilder.loadTexts:juniRadiusAuthNotificationGroup2.setStatus(_B)
-juniRadiusAcctNotificationGroup2=NotificationGroup((1,3,6,1,4,1,4874,2,2,19,2,2,21))
-juniRadiusAcctNotificationGroup2.setObjects(*((_A,_EG),(_A,_EH),(_A,_Ea)))
-if mibBuilder.loadTexts:juniRadiusAcctNotificationGroup2.setStatus(_B)
-juniRadiusAuthClientCompliance=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,1))
-juniRadiusAuthClientCompliance.setObjects(*((_A,_EI),(_A,_Ck)))
-if mibBuilder.loadTexts:juniRadiusAuthClientCompliance.setStatus(_E)
-juniRadiusAcctClientCompliance=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,2))
-juniRadiusAcctClientCompliance.setObjects(*((_A,_EI),(_A,_Cl)))
-if mibBuilder.loadTexts:juniRadiusAcctClientCompliance.setStatus(_E)
-juniRadiusAuthClientCompliance2=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,3))
-juniRadiusAuthClientCompliance2.setObjects(*((_A,_EJ),(_A,_Ck)))
-if mibBuilder.loadTexts:juniRadiusAuthClientCompliance2.setStatus(_E)
-juniRadiusAcctClientCompliance2=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,4))
-juniRadiusAcctClientCompliance2.setObjects(*((_A,_EJ),(_A,_Cl)))
-if mibBuilder.loadTexts:juniRadiusAcctClientCompliance2.setStatus(_E)
-juniRadiusClientCompliance=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,5))
-juniRadiusClientCompliance.setObjects(*((_A,_EK),(_A,_Ck),(_A,_Cl),(_A,_Eb),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance.setStatus(_E)
-juniRadiusClientCompliance2=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,6))
-juniRadiusClientCompliance2.setObjects(*((_A,_EK),(_A,_Ck),(_A,_Cl),(_A,_Ec),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance2.setStatus(_E)
-juniRadiusClientCompliance3=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,7))
-juniRadiusClientCompliance3.setObjects(*((_A,_Aa),(_A,_Ck),(_A,_Cl),(_A,_Ed),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance3.setStatus(_E)
-juniRadiusClientCompliance4=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,8))
-juniRadiusClientCompliance4.setObjects(*((_A,_Aa),(_A,_Ck),(_A,_Cl),(_A,_Ee),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance4.setStatus(_E)
-juniRadiusClientCompliance5=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,9))
-juniRadiusClientCompliance5.setObjects(*((_A,_Aa),(_A,_Ck),(_A,_Cl),(_A,_EL),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance5.setStatus(_E)
-juniRadiusClientCompliance6=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,10))
-juniRadiusClientCompliance6.setObjects(*((_A,_Aa),(_A,_Ef),(_A,_Eg),(_A,_Eh),(_A,_Ei),(_A,_EL),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance6.setStatus(_E)
-juniRadiusClientCompliance7=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,11))
-juniRadiusClientCompliance7.setObjects(*((_A,_Aa),(_A,_BE),(_A,_BF),(_A,_EM),(_A,_BG),(_A,_Ej),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance7.setStatus(_E)
-juniRadiusClientCompliance8=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,12))
-juniRadiusClientCompliance8.setObjects(*((_A,_Aa),(_A,_BE),(_A,_BF),(_A,_EM),(_A,_BG),(_A,_Ek),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance8.setStatus(_E)
-juniRadiusClientCompliance9=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,13))
-juniRadiusClientCompliance9.setObjects(*((_A,_Aa),(_A,_BE),(_A,_BF),(_A,_BR),(_A,_BG),(_A,_El),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance9.setStatus(_E)
-juniRadiusClientCompliance10=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,14))
-juniRadiusClientCompliance10.setObjects(*((_A,_Aa),(_A,_BE),(_A,_BF),(_A,_BR),(_A,_BG),(_A,_Em),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance10.setStatus(_E)
-juniRadiusClientCompliance11=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,15))
-juniRadiusClientCompliance11.setObjects(*((_A,_Aa),(_A,_BE),(_A,_BF),(_A,_BR),(_A,_BG),(_A,_En),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance11.setStatus(_E)
-juniRadiusClientCompliance12=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,16))
-juniRadiusClientCompliance12.setObjects(*((_A,_Aa),(_A,_BE),(_A,_BF),(_A,_BR),(_A,_BG),(_A,_Eo),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance12.setStatus(_E)
-juniRadiusClientCompliance13=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,17))
-juniRadiusClientCompliance13.setObjects(*((_A,_Aa),(_A,_BE),(_A,_BF),(_A,_BR),(_A,_BG),(_A,_Ep),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance13.setStatus(_E)
-juniRadiusClientCompliance14=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,18))
-juniRadiusClientCompliance14.setObjects(*((_A,_Aa),(_A,_BE),(_A,_BF),(_A,_BR),(_A,_BG),(_A,_Eq),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance14.setStatus(_E)
-juniRadiusClientCompliance15=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,19))
-juniRadiusClientCompliance15.setObjects(*((_A,_Aa),(_A,_BE),(_A,_BF),(_A,_BR),(_A,_BG),(_A,_Er),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance15.setStatus(_E)
-juniRadiusClientCompliance16=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,20))
-juniRadiusClientCompliance16.setObjects(*((_A,_Aa),(_A,_BE),(_A,_BF),(_A,_BR),(_A,_BG),(_A,_Es),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance16.setStatus(_E)
-juniRadiusClientCompliance17=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,21))
-juniRadiusClientCompliance17.setObjects(*((_A,_Aa),(_A,_BE),(_A,_BF),(_A,_BR),(_A,_BG),(_A,_Et),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance17.setStatus(_E)
-juniRadiusClientCompliance18=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,22))
-juniRadiusClientCompliance18.setObjects(*((_A,_Aa),(_A,_BE),(_A,_BF),(_A,_BR),(_A,_BG),(_A,_Eu),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance18.setStatus(_E)
-juniRadiusClientCompliance19=ModuleCompliance((1,3,6,1,4,1,4874,2,2,19,2,1,23))
-juniRadiusClientCompliance19.setObjects(*((_A,_Aa),(_A,_BE),(_A,_BF),(_A,_BR),(_A,_BG),(_A,_Ev),(_A,_R)))
-if mibBuilder.loadTexts:juniRadiusClientCompliance19.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'JuniRadiusClientRemoterCircuitIdFormatComponents':JuniRadiusClientRemoterCircuitIdFormatComponents,'juniRadiusClientMIB':juniRadiusClientMIB,'juniRadiusClientObjects':juniRadiusClientObjects,'juniRadiusGeneralClient':juniRadiusGeneralClient,_Cz:juniRadiusClientIdentifier,_C_:juniRadiusClientAlgorithm,_Dl:juniRadiusClientSourceAddress,_Dq:juniRadiusClientUdpChecksum,_Dr:juniRadiusClientNasIdentifier,_H:juniRadiusClientDslPortType,_ES:juniRadiusClientTunnelAccounting,_I:juniRadiusClientAcctSessionIdFormat,_J:juniRadiusClientNasPortFormat,_K:juniRadiusClientCallingStationDelimiter,_N:juniRadiusClientEthernetPortType,_O:juniRadiusClientIncludeIpAddrInAcctStart,_P:juniRadiusClientIncludeAcctSessionIdInAccessReq,_ET:juniRadiusClientRollover,_Q:juniRadiusClientCallingStationIdFormat,_S:juniRadiusClientNasIpAddrUse,_T:juniRadiusClientIncludeAcctTunnelConnectionInAccessReq,_U:juniRadiusClientIncludeCalledStationIdInAccessReq,_V:juniRadiusClientIncludeCallingStationIdInAccessReq,_W:juniRadiusClientIncludeConnectInfoInAccessReq,_X:juniRadiusClientIncludeNasIdentifierInAccessReq,_Y:juniRadiusClientIncludeNasPortInAccessReq,_Z:juniRadiusClientIncludeNasPortIdInAccessReq,_a:juniRadiusClientIncludeNasPortTypeInAccessReq,_b:juniRadiusClientIncludePppoeDescriptionInAccessReq,_c:juniRadiusClientIncludeTunnelClientAuthIdInAccessReq,_d:juniRadiusClientIncludeTunnelClientEndpointInAccessReq,_e:juniRadiusClientIncludeTunnelMediumTypeInAccessReq,_f:juniRadiusClientIncludeTunnelServerAttributesInAccessReq,_g:juniRadiusClientIncludeTunnelServerAuthIdInAccessReq,_h:juniRadiusClientIncludeTunnelServerEndpointInAccessReq,_i:juniRadiusClientIncludeTunnelTypeInAccessReq,_j:juniRadiusClientIncludeAcctTunnelConnectionInAcctStart,_k:juniRadiusClientIncludeCalledStationIdInAcctStart,_l:juniRadiusClientIncludeCallingStationIdInAcctStart,_m:juniRadiusClientIncludeClassInAcctStart,_n:juniRadiusClientIncludeConnectInfoInAcctStart,_o:juniRadiusClientIncludeEgressPolicyNameInAcctStart,_p:juniRadiusClientIncludeEventTimestampInAcctStart,_q:juniRadiusClientIncludeFramedCompressionInAcctStart,_r:juniRadiusClientIncludeFramedIpNetmaskInAcctStart,_s:juniRadiusClientIncludeIngressPolicyNameInAcctStart,_t:juniRadiusClientIncludeNasIdentifierInAcctStart,_u:juniRadiusClientIncludeNasPortInAcctStart,_v:juniRadiusClientIncludeNasPortIdInAcctStart,_w:juniRadiusClientIncludeNasPortTypeInAcctStart,_x:juniRadiusClientIncludePppoeDescriptionInAcctStart,_y:juniRadiusClientIncludeTunnelAssignmentIdInAcctStart,_z:juniRadiusClientIncludeTunnelClientAuthIdInAcctStart,_A0:juniRadiusClientIncludeTunnelClientEndpointInAcctStart,_A1:juniRadiusClientIncludeTunnelMediumTypeInAcctStart,_A2:juniRadiusClientIncludeTunnelPreferenceInAcctStart,_A3:juniRadiusClientIncludeTunnelServerAttributesInAcctStart,_A4:juniRadiusClientIncludeTunnelServerAuthIdInAcctStart,_A5:juniRadiusClientIncludeTunnelServerEndpointInAcctStart,_A6:juniRadiusClientIncludeTunnelTypeInAcctStart,_A7:juniRadiusClientIncludeAcctTunnelConnectionInAcctStop,_A8:juniRadiusClientIncludeCalledStationIdInAcctStop,_A9:juniRadiusClientIncludeCallingStationIdInAcctStop,_AA:juniRadiusClientIncludeClassInAcctStop,_AB:juniRadiusClientIncludeConnectInfoInAcctStop,_AC:juniRadiusClientIncludeEgressPolicyNameInAcctStop,_AD:juniRadiusClientIncludeEventTimestampInAcctStop,_AE:juniRadiusClientIncludeFramedCompressionInAcctStop,_AF:juniRadiusClientIncludeFramedIpNetmaskInAcctStop,_AG:juniRadiusClientIncludeIngressPolicyNameInAcctStop,_AH:juniRadiusClientIncludeInputGigawordsInAcctStop,_AI:juniRadiusClientIncludeNasIdentifierInAcctStop,_AJ:juniRadiusClientIncludeNasPortInAcctStop,_AK:juniRadiusClientIncludeNasPortIdInAcctStop,_AL:juniRadiusClientIncludeNasPortTypeInAcctStop,_AM:juniRadiusClientIncludeOutputGigawordsInAcctStop,_AN:juniRadiusClientIncludePppoeDescriptionInAcctStop,_AO:juniRadiusClientIncludeTunnelAssignmentIdInAcctStop,_AP:juniRadiusClientIncludeTunnelClientAuthIdInAcctStop,_AQ:juniRadiusClientIncludeTunnelClientEndpointInAcctStop,_AR:juniRadiusClientIncludeTunnelMediumTypeInAcctStop,_AS:juniRadiusClientIncludeTunnelPreferenceInAcctStop,_AT:juniRadiusClientIncludeTunnelServerAttributesInAcctStop,_AU:juniRadiusClientIncludeTunnelServerAuthIdInAcctStop,_AV:juniRadiusClientIncludeTunnelServerEndpointInAcctStop,_AW:juniRadiusClientIncludeTunnelTypeInAcctStop,_AX:juniRadiusClientIncludeInputGigapktsInAcctStop,_AY:juniRadiusClientIncludeOutputGigapktsInAcctStop,_AZ:juniRadiusClientIgnoreFramedIpNetmask,_Ab:juniRadiusClientIgnoreAtmCategory,_Ac:juniRadiusClientIgnoreAtmMbs,_Ad:juniRadiusClientIgnoreAtmPcr,_Ae:juniRadiusClientIgnoreAtmScr,_Af:juniRadiusClientIgnoreEgressPolicyName,_Ag:juniRadiusClientIgnoreIngressPolicyName,_Ah:juniRadiusClientIgnoreVirtualRouter,_Ai:juniRadiusClientTrapOnAuthServerUnavailable,_Aj:juniRadiusClientTrapOnAcctServerUnavailable,_Ak:juniRadiusClientTrapOnNoAuthServerAvailable,_Al:juniRadiusClientTrapOnNoAcctServerAvailable,_Am:juniRadiusClientTrapOnAuthServerAvailable,_An:juniRadiusClientTrapOnAcctServerAvailable,_Ao:juniRadiusClientPppoeNasPortFormat,_Ap:juniRadiusClientIncludeTunnelInterfaceIdInAccessReq,_Aq:juniRadiusClientIncludeTunnelInterfaceIdInAcctStart,_Ar:juniRadiusClientIncludeTunnelInterfaceIdInAcctStop,_Au:juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop,_As:juniRadiusClientVlanNasPortFormat,_Av:juniRadiusClientIncludeAcctMultiSessionIdInAccessReq,_Aw:juniRadiusClientIncludeAcctMultiSessionIdInAcctStart,_Ax:juniRadiusClientIncludeAcctMultiSessionIdInAcctStop,_Ay:juniRadiusClientIncludeAscendNumInMultilinkInAccessReq,_Az:juniRadiusClientIncludeAscendNumInMultilinkInAcctStart,_A_:juniRadiusClientIncludeAscendNumInMultilinkInAcctStop,_B0:juniRadiusClientConnectInfoFormat,_B1:juniRadiusClientIncludeProfileServiceDescrInAccessReq,_B2:juniRadiusClientIncludeProfileServiceDescrInAcctStart,_B3:juniRadiusClientIncludeProfileServiceDescrInAcctStop,_B4:juniRadiusClientIncludeAcctAuthenticInAcctOn,_B5:juniRadiusClientIncludeAcctDelayTimeInAcctOn,_B6:juniRadiusClientIncludeAcctSessionIdInAcctOn,'juniRadiusClientIncludeNasIdentifierInAcctOn':juniRadiusClientIncludeNasIdentifierInAcctOn,'juniRadiusClientIncludeEventTimestampInAcctOn':juniRadiusClientIncludeEventTimestampInAcctOn,_B7:juniRadiusClientIncludeAcctAuthenticInAcctOff,_B8:juniRadiusClientIncludeAcctDelayTimeInAcctOff,_B9:juniRadiusClientIncludeAcctSessionIdInAcctOff,_BA:juniRadiusClientIncludeAcctTerminateCauseInAcctOff,'juniRadiusClientIncludeNasIdentifierInAcctOff':juniRadiusClientIncludeNasIdentifierInAcctOff,'juniRadiusClientIncludeEventTimestampInAcctOff':juniRadiusClientIncludeEventTimestampInAcctOff,_BH:juniRadiusClientIncludeDhcpOptionsInAccessReq,_BI:juniRadiusClientIncludeDhcpMacAddressInAccessReq,_BJ:juniRadiusClientIncludeDhcpGiAddressInAccessReq,_BK:juniRadiusClientIncludeDhcpOptionsInAcctStart,_BL:juniRadiusClientIncludeDhcpMacAddressInAcctStart,_BM:juniRadiusClientIncludeDhcpGiAddressInAcctStart,_BN:juniRadiusClientIncludeDhcpOptionsInAcctStop,_BO:juniRadiusClientIncludeDhcpMacAddressInAcctStop,_BP:juniRadiusClientIncludeDhcpGiAddressInAcctStop,_L:juniRadiusClientNasPortIdOverrideRemoteCircuitId,_M:juniRadiusClientCallingStationIdOverrideRemoteCircuitId,_BB:juniRadiusClientIncludeMlpppBundleNameInAccessReq,_BC:juniRadiusClientIncludeMlpppBundleNameInAcctStart,_BD:juniRadiusClientIncludeMlpppBundleNameInAcctStop,_BQ:juniRadiusClientOverrideNasInfo,_BS:juniRadiusClientIncludeInterfaceDescriptionInAccessReq,_BT:juniRadiusClientIncludeInterfaceDescriptionInAcctStart,_BU:juniRadiusClientIncludeInterfaceDescriptionInAcctStop,'juniRadiusClientAtmNasPortFormat':juniRadiusClientAtmNasPortFormat,_BV:juniRadiusClientNasPortFieldWidthAtmSlot,_BW:juniRadiusClientNasPortFieldWidthAtmAdapter,_BX:juniRadiusClientNasPortFieldWidthAtmPort,_BY:juniRadiusClientNasPortFieldWidthAtmVpi,_BZ:juniRadiusClientNasPortFieldWidthAtmVci,'juniRadiusClientEthernetNasPortFormat':juniRadiusClientEthernetNasPortFormat,_Ba:juniRadiusClientNasPortFieldWidthEthernetSlot,_Bb:juniRadiusClientNasPortFieldWidthEthernetAdapter,_Bc:juniRadiusClientNasPortFieldWidthEthernetPort,_Bd:juniRadiusClientNasPortFieldWidthEthernetSVlan,_Be:juniRadiusClientNasPortFieldWidthEthernetVlan,_Bf:juniRadiusClientRemoteCircuitIdFormat,_Bg:juniRadiusClientRemoteCircuitIdDelimiter,_Bh:juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq,_Bi:juniRadiusClientIncludeL2cDownStreamDataInAccessReq,_Bj:juniRadiusClientIncludeL2cUpStreamDataInAccessReq,_Bk:juniRadiusClientIncludeL2cDownStreamDataInAcctStart,_Bl:juniRadiusClientIncludeL2cUpStreamDataInAcctStart,_Bm:juniRadiusClientIncludeL2cDownStreamDataInAcctStop,_Bn:juniRadiusClientIncludeL2cUpStreamDataInAcctStop,_Bo:juniRadiusClientIncludeDslForumAttributesInAccessReq,_Bp:juniRadiusClientIncludeDslForumAttributesInAcctStart,_EW:juniRadiusClientIncludeDslForumAttributesInAcctStop,_Bq:juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq,_Br:juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq,_Bs:juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq,_Bt:juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq,_Bu:juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq,_Bv:juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq,_Bw:juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq,_Bx:juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq,_By:juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq,_Bz:juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq,_B_:juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq,_C0:juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq,_C1:juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq,_C2:juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq,_C3:juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq,_C4:juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq,_C5:juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq,_C6:juniRadiusClientIncludeL2cDslLineStateInAccessReq,_C7:juniRadiusClientIncludeL2cDslTypeInAccessReq,_C8:juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart,_C9:juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart,_CA:juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart,_CB:juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart,_CC:juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart,_CD:juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart,_CE:juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart,_CF:juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart,_CG:juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart,_CH:juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart,_CI:juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart,_CJ:juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart,_CK:juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart,_CL:juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart,_CM:juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart,_CN:juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart,_CO:juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart,_CP:juniRadiusClientIncludeL2cDslLineStateInAcctStart,_CQ:juniRadiusClientIncludeL2cDslTypeInAcctStart,_CR:juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop,_CS:juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop,_CT:juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop,_CU:juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop,_CV:juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop,_CW:juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop,_CX:juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop,_CY:juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop,_CZ:juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop,_Ca:juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop,_Cb:juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop,_Cc:juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop,_Cd:juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop,_Ce:juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop,_Cf:juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop,_Cg:juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop,_Ch:juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop,_Ci:juniRadiusClientIncludeL2cDslLineStateInAcctStop,_Cj:juniRadiusClientIncludeL2cDslTypeInAcctStop,_Cm:juniRadiusClientIncludeInterfaceIdInAcctStart,_Cn:juniRadiusClientIncludeIpv6PrefixInAcctStart,_Co:juniRadiusClientIncludeInterfaceIdInAcctStop,_Cp:juniRadiusClientIncludeIpAddrInAcctStop,_Cq:juniRadiusClientIncludeIpv6PrefixInAcctStop,_Ct:juniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq,_Cu:juniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq,_Cv:juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart,_Cw:juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart,_Cx:juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop,_Cy:juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop,_DM:juniRadiusClientIgnorePppoeMaxSession,_Dp:juniRadiusClientIncludeIpv6AccountingInAcctStop,_Dz:juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart,_D_:juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop,_E0:juniRadiusClientIncludeFramedIpv6PoolInAcctStart,_E1:juniRadiusClientIncludeFramedIpv6PoolInAcctStop,_E2:juniRadiusClientIncludeFramedIpv6RouteInAcctStart,_E3:juniRadiusClientIncludeFramedIpv6RouteInAcctStop,_E4:juniRadiusClientIncludeIpv6LocalInterfaceInAcctStart,_E5:juniRadiusClientIncludeIpv6LocalInterfaceInAcctStop,_E6:juniRadiusClientIncludeIpv6NdRaPrefixInAcctStart,_E7:juniRadiusClientIncludeIpv6NdRaPrefixInAcctStop,_E8:juniRadiusClientIncludeIpv6PrimaryDnsInAcctStart,_E9:juniRadiusClientIncludeIpv6PrimaryDnsInAcctStop,_EA:juniRadiusClientIncludeIpv6SecondaryDnsInAcctStart,_EB:juniRadiusClientIncludeIpv6SecondaryDnsInAcctStop,_EC:juniRadiusClientIncludeIpv6VirtualRouterInAcctStart,_ED:juniRadiusClientIncludeIpv6VirtualRouterInAcctStop,_EX:juniRadiusClientIncludeQosProfileNameInAcctStart,_EY:juniRadiusClientIncludeQosProfileNameInAcctStop,'juniRadiusAuthClient':juniRadiusAuthClient,_DP:juniRadiusAuthClientInvalidServerAddresses,'juniRadiusAuthClientServerTable':juniRadiusAuthClientServerTable,'juniRadiusAuthClientServerEntry':juniRadiusAuthClientServerEntry,_EO:juniRadiusAuthClientServerAddress,_DQ:juniRadiusAuthClientServerPortNumber,_DR:juniRadiusAuthClientRoundTripTime,_DS:juniRadiusAuthClientAccessRequests,_DT:juniRadiusAuthClientAccessRetransmissions,_DU:juniRadiusAuthClientAccessAccepts,_DV:juniRadiusAuthClientAccessRejects,_DW:juniRadiusAuthClientAccessChallenges,_DX:juniRadiusAuthClientMalformedAccessResponses,_DY:juniRadiusAuthClientBadAuthenticators,_DZ:juniRadiusAuthClientPendingRequests,_Da:juniRadiusAuthClientTimeouts,_Db:juniRadiusAuthClientUnknownTypes,_Dc:juniRadiusAuthClientPacketsDropped,'juniRadiusAuthClientCfgServerTable':juniRadiusAuthClientCfgServerTable,'juniRadiusAuthClientCfgServerEntry':juniRadiusAuthClientCfgServerEntry,_EP:juniRadiusAuthClientCfgServerAddress,_Dd:juniRadiusAuthClientCfgServerPortNumber,_De:juniRadiusAuthClientCfgKey,_Df:juniRadiusAuthClientCfgTimeoutInterval,_Dg:juniRadiusAuthClientCfgRetries,_Dh:juniRadiusAuthClientCfgMaxPendingRequests,_Di:juniRadiusAuthClientCfgRowStatus,_Dj:juniRadiusAuthClientCfgPrecedence,_Dk:juniRadiusAuthClientCfgDeadTime,'juniRadiusAcctClient':juniRadiusAcctClient,_D0:juniRadiusAcctClientInvalidServerAddresses,'juniRadiusAcctClientServerTable':juniRadiusAcctClientServerTable,'juniRadiusAcctClientServerEntry':juniRadiusAcctClientServerEntry,_EQ:juniRadiusAcctClientServerAddress,_D1:juniRadiusAcctClientServerPortNumber,_D2:juniRadiusAcctClientRoundTripTime,_D3:juniRadiusAcctClientRequests,_D4:juniRadiusAcctClientRetransmissions,_D5:juniRadiusAcctClientResponses,_D6:juniRadiusAcctClientMalformedResponses,_D7:juniRadiusAcctClientBadAuthenticators,_D8:juniRadiusAcctClientPendingRequests,_D9:juniRadiusAcctClientTimeouts,_DA:juniRadiusAcctClientUnknownTypes,_DB:juniRadiusAcctClientPacketsDropped,_Dt:juniRadiusAcctClientStartRequests,_Du:juniRadiusAcctClientInterimRequests,_Dv:juniRadiusAcctClientStopRequests,_Dw:juniRadiusAcctClientStartResponses,_Dx:juniRadiusAcctClientInterimResponses,_Dy:juniRadiusAcctClientStopResponses,_EU:juniRadiusAcctClientRejectRequests,_EV:juniRadiusAcctClientRejectResponses,'juniRadiusAcctClientCfgServerTable':juniRadiusAcctClientCfgServerTable,'juniRadiusAcctClientCfgServerEntry':juniRadiusAcctClientCfgServerEntry,_ER:juniRadiusAcctClientCfgServerAddress,_DC:juniRadiusAcctClientCfgServerPortNumber,_DD:juniRadiusAcctClientCfgKey,_DE:juniRadiusAcctClientCfgTimeoutInterval,_DF:juniRadiusAcctClientCfgRetries,_DG:juniRadiusAcctClientCfgMaxPendingRequests,_DH:juniRadiusAcctClientCfgRowStatus,_DI:juniRadiusAcctClientCfgPrecedence,_DJ:juniRadiusAcctClientCfgDeadTime,'juniRadiusClientMIBConformance':juniRadiusClientMIBConformance,'juniRadiusClientMIBCompliances':juniRadiusClientMIBCompliances,'juniRadiusAuthClientCompliance':juniRadiusAuthClientCompliance,'juniRadiusAcctClientCompliance':juniRadiusAcctClientCompliance,'juniRadiusAuthClientCompliance2':juniRadiusAuthClientCompliance2,'juniRadiusAcctClientCompliance2':juniRadiusAcctClientCompliance2,'juniRadiusClientCompliance':juniRadiusClientCompliance,'juniRadiusClientCompliance2':juniRadiusClientCompliance2,'juniRadiusClientCompliance3':juniRadiusClientCompliance3,'juniRadiusClientCompliance4':juniRadiusClientCompliance4,'juniRadiusClientCompliance5':juniRadiusClientCompliance5,'juniRadiusClientCompliance6':juniRadiusClientCompliance6,'juniRadiusClientCompliance7':juniRadiusClientCompliance7,'juniRadiusClientCompliance8':juniRadiusClientCompliance8,'juniRadiusClientCompliance9':juniRadiusClientCompliance9,'juniRadiusClientCompliance10':juniRadiusClientCompliance10,'juniRadiusClientCompliance11':juniRadiusClientCompliance11,'juniRadiusClientCompliance12':juniRadiusClientCompliance12,'juniRadiusClientCompliance13':juniRadiusClientCompliance13,'juniRadiusClientCompliance14':juniRadiusClientCompliance14,'juniRadiusClientCompliance15':juniRadiusClientCompliance15,'juniRadiusClientCompliance16':juniRadiusClientCompliance16,'juniRadiusClientCompliance17':juniRadiusClientCompliance17,'juniRadiusClientCompliance18':juniRadiusClientCompliance18,'juniRadiusClientCompliance19':juniRadiusClientCompliance19,'juniRadiusClientMIBGroups':juniRadiusClientMIBGroups,_EI:juniRadiusGeneralClientGroup,_Ck:juniRadiusAuthClientGroup,_Cl:juniRadiusAcctClientGroup,_EJ:juniRadiusGeneralClientGroup2,_EK:juniRadiusBasicClientGroup,_Eb:juniRadiusBrasClientGroup,_R:juniRadiusTunnelClientGroup,_Ec:juniRadiusBrasClientGroup2,_Aa:juniRadiusBasicClientGroup2,_Ed:juniRadiusBrasClientGroup3,_Ee:juniRadiusBrasClientGroup4,_EL:juniRadiusBrasClientGroup5,_Ef:juniRadiusAuthClientGroup2,_Eh:juniRadiusAcctClientGroup2,_Eg:juniRadiusAuthNotificationGroup,_Ei:juniRadiusAcctNotificationGroup,_Ej:juniRadiusBrasClientGroup6,_BE:juniRadiusAuthClientGroup3,_EM:juniRadiusAcctClientGroup3,_BF:juniRadiusAuthNotificationGroup2,_BG:juniRadiusAcctNotificationGroup2,_Ek:juniRadiusBrasClientGroup7,_BR:juniRadiusAcctClientGroup4,_El:juniRadiusBrasClientGroup8,_Em:juniRadiusBrasClientGroup9,_En:juniRadiusBrasClientGroup10,_Eo:juniRadiusBrasClientGroup11,'juniRadiusBrasClientGroup12':juniRadiusBrasClientGroup12,'juniRadiusBrasClientGroup13':juniRadiusBrasClientGroup13,_Ep:juniRadiusBrasClientGroup14,_Eq:juniRadiusBrasClientGroup15,_Er:juniRadiusBrasClientGroup16,'juniRadiusBrasClientGroup17':juniRadiusBrasClientGroup17,_Es:juniRadiusBrasClientGroup18,_Et:juniRadiusBrasClientGroup19,_Eu:juniRadiusBrasClientGroup20,_Ev:juniRadiusBrasClientGroup21,'juniRadiusClientTraps':juniRadiusClientTraps,'juniRadiusClientTrapPrefix':juniRadiusClientTrapPrefix,_EE:juniRadiusAuthClientServerUnavailable,_EF:juniRadiusAuthClientNoServerAvailable,_EG:juniRadiusAcctClientServerUnavailable,_EH:juniRadiusAcctClientNoServerAvailable,_EZ:juniRadiusAuthClientServerAvailable,_Ea:juniRadiusAcctClientServerAvailable,'juniRadiusClientTrapControl':juniRadiusClientTrapControl,_Dm:juniRadiusAuthClientUnavailableServer,_Dn:juniRadiusAuthClientNextAvailableServer,_DK:juniRadiusAcctClientUnavailableServer,_DL:juniRadiusAcctClientNextAvailableServer,_Ds:juniRadiusAuthClientAvailableServer,_Do:juniRadiusAcctClientAvailableServer})
+#
+# PySNMP MIB module Juniper-RADIUS-CLIENT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/junose/Juniper-RADIUS-CLIENT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:07 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+juniMibs, = mibBuilder.importSymbols("Juniper-MIBs", "juniMibs")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+juniRadiusClientMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19))
+juniRadiusClientMIB.setRevisions(('2009-02-26 16:41', '2008-06-18 10:10', '2008-06-11 06:15', '2007-12-14 15:00', '2007-09-18 18:22', '2007-09-16 22:00', '2007-04-10 01:03', '2006-02-17 22:00', '2006-01-12 22:00', '2005-09-30 14:55', '2005-01-14 15:15', '2004-12-06 02:32', '2004-12-03 22:12', '2004-09-09 19:45', '2003-12-15 16:36', '2003-03-10 19:33', '2003-01-27 18:33', '2002-11-21 19:45', '2002-05-13 17:54', '2001-10-16 19:54', '2001-09-06 21:08', '2001-03-22 15:20', '2000-12-19 16:40', '2000-05-05 19:44', '1999-06-01 00:00',))
+if mibBuilder.loadTexts: juniRadiusClientMIB.setLastUpdated('200902261641Z')
+if mibBuilder.loadTexts: juniRadiusClientMIB.setOrganization('Juniper Networks, Inc.')
+class JuniRadiusClientRemoterCircuitIdFormatComponents(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("agentCircuitId", 1), ("agentRemoteId", 2), ("nasIdentifier", 3), ("dsl-format-1", 4))
+
+juniRadiusClientObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1))
+juniRadiusGeneralClient = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1))
+juniRadiusAuthClient = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2))
+juniRadiusAcctClient = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3))
+juniRadiusClientIdentifier = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusClientIdentifier.setStatus('current')
+juniRadiusClientAlgorithm = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("direct", 0), ("roundRobin", 1))).clone('direct')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientAlgorithm.setStatus('current')
+juniRadiusClientSourceAddress = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientSourceAddress.setStatus('current')
+juniRadiusClientUdpChecksum = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 4), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientUdpChecksum.setStatus('current')
+juniRadiusClientNasIdentifier = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientNasIdentifier.setStatus('current')
+juniRadiusClientDslPortType = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(5, 11, 12, 13, 14, 16))).clone(namedValues=NamedValues(("virtual", 5), ("sdsl", 11), ("adsl-cap", 12), ("adsl-dmt", 13), ("idsl", 14), ("xdsl", 16))).clone('xdsl')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientDslPortType.setStatus('current')
+juniRadiusClientTunnelAccounting = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 7), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientTunnelAccounting.setStatus('current')
+juniRadiusClientAcctSessionIdFormat = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("decimal", 0), ("description", 1))).clone('description')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientAcctSessionIdFormat.setStatus('current')
+juniRadiusClientNasPortFormat = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("xssssppp", 0), ("ssssxppp", 1))).clone('ssssxppp')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientNasPortFormat.setStatus('current')
+juniRadiusClientCallingStationDelimiter = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1).clone('#')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientCallingStationDelimiter.setStatus('current')
+juniRadiusClientEthernetPortType = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(5, 15))).clone(namedValues=NamedValues(("virtual", 5), ("ethernet", 15))).clone('ethernet')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientEthernetPortType.setStatus('current')
+juniRadiusClientIncludeIpAddrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 12), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIpAddrInAcctStart.setStatus('current')
+juniRadiusClientIncludeAcctSessionIdInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 13), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAcctSessionIdInAccessReq.setStatus('current')
+juniRadiusClientRollover = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 14), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientRollover.setStatus('current')
+juniRadiusClientCallingStationIdFormat = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("delimited", 0), ("fixedFormat", 1), ("fixedFormatAdapterEmbedded", 2), ("fixedFormatAdapterNewField", 3), ("fixedFormatStacked", 4), ("fixedFormatAdapterEmbeddedStacked", 5), ("fixedFormatAdapterNewFieldStacked", 6))).clone('delimited')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientCallingStationIdFormat.setStatus('current')
+juniRadiusClientNasIpAddrUse = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("normal", 0), ("tunnelClientEndpoint", 1))).clone('normal')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientNasIpAddrUse.setStatus('current')
+juniRadiusClientIncludeAcctTunnelConnectionInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 17), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAcctTunnelConnectionInAccessReq.setStatus('current')
+juniRadiusClientIncludeCalledStationIdInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 18), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeCalledStationIdInAccessReq.setStatus('current')
+juniRadiusClientIncludeCallingStationIdInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 19), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeCallingStationIdInAccessReq.setStatus('current')
+juniRadiusClientIncludeConnectInfoInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 20), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeConnectInfoInAccessReq.setStatus('current')
+juniRadiusClientIncludeNasIdentifierInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 21), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeNasIdentifierInAccessReq.setStatus('current')
+juniRadiusClientIncludeNasPortInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 22), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeNasPortInAccessReq.setStatus('current')
+juniRadiusClientIncludeNasPortIdInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 23), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeNasPortIdInAccessReq.setStatus('current')
+juniRadiusClientIncludeNasPortTypeInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 24), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeNasPortTypeInAccessReq.setStatus('current')
+juniRadiusClientIncludePppoeDescriptionInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 25), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludePppoeDescriptionInAccessReq.setStatus('current')
+juniRadiusClientIncludeTunnelClientAuthIdInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 26), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelClientAuthIdInAccessReq.setStatus('current')
+juniRadiusClientIncludeTunnelClientEndpointInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 27), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelClientEndpointInAccessReq.setStatus('current')
+juniRadiusClientIncludeTunnelMediumTypeInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 28), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelMediumTypeInAccessReq.setStatus('current')
+juniRadiusClientIncludeTunnelServerAttributesInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 29), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelServerAttributesInAccessReq.setStatus('current')
+juniRadiusClientIncludeTunnelServerAuthIdInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 30), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelServerAuthIdInAccessReq.setStatus('current')
+juniRadiusClientIncludeTunnelServerEndpointInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 31), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelServerEndpointInAccessReq.setStatus('current')
+juniRadiusClientIncludeTunnelTypeInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 32), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelTypeInAccessReq.setStatus('current')
+juniRadiusClientIncludeAcctTunnelConnectionInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 33), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAcctTunnelConnectionInAcctStart.setStatus('current')
+juniRadiusClientIncludeCalledStationIdInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 34), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeCalledStationIdInAcctStart.setStatus('current')
+juniRadiusClientIncludeCallingStationIdInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 35), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeCallingStationIdInAcctStart.setStatus('current')
+juniRadiusClientIncludeClassInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 36), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeClassInAcctStart.setStatus('current')
+juniRadiusClientIncludeConnectInfoInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 37), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeConnectInfoInAcctStart.setStatus('current')
+juniRadiusClientIncludeEgressPolicyNameInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 38), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeEgressPolicyNameInAcctStart.setStatus('current')
+juniRadiusClientIncludeEventTimestampInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 39), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeEventTimestampInAcctStart.setStatus('current')
+juniRadiusClientIncludeFramedCompressionInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 40), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeFramedCompressionInAcctStart.setStatus('current')
+juniRadiusClientIncludeFramedIpNetmaskInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 41), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeFramedIpNetmaskInAcctStart.setStatus('current')
+juniRadiusClientIncludeIngressPolicyNameInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 42), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIngressPolicyNameInAcctStart.setStatus('current')
+juniRadiusClientIncludeNasIdentifierInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 43), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeNasIdentifierInAcctStart.setStatus('current')
+juniRadiusClientIncludeNasPortInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 44), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeNasPortInAcctStart.setStatus('current')
+juniRadiusClientIncludeNasPortIdInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 45), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeNasPortIdInAcctStart.setStatus('current')
+juniRadiusClientIncludeNasPortTypeInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 46), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeNasPortTypeInAcctStart.setStatus('current')
+juniRadiusClientIncludePppoeDescriptionInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 47), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludePppoeDescriptionInAcctStart.setStatus('current')
+juniRadiusClientIncludeTunnelAssignmentIdInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 48), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelAssignmentIdInAcctStart.setStatus('current')
+juniRadiusClientIncludeTunnelClientAuthIdInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 49), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelClientAuthIdInAcctStart.setStatus('current')
+juniRadiusClientIncludeTunnelClientEndpointInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 50), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelClientEndpointInAcctStart.setStatus('current')
+juniRadiusClientIncludeTunnelMediumTypeInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 51), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelMediumTypeInAcctStart.setStatus('current')
+juniRadiusClientIncludeTunnelPreferenceInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 52), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelPreferenceInAcctStart.setStatus('current')
+juniRadiusClientIncludeTunnelServerAttributesInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 53), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelServerAttributesInAcctStart.setStatus('current')
+juniRadiusClientIncludeTunnelServerAuthIdInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 54), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelServerAuthIdInAcctStart.setStatus('current')
+juniRadiusClientIncludeTunnelServerEndpointInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 55), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelServerEndpointInAcctStart.setStatus('current')
+juniRadiusClientIncludeTunnelTypeInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 56), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelTypeInAcctStart.setStatus('current')
+juniRadiusClientIncludeAcctTunnelConnectionInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 57), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAcctTunnelConnectionInAcctStop.setStatus('current')
+juniRadiusClientIncludeCalledStationIdInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 59), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeCalledStationIdInAcctStop.setStatus('current')
+juniRadiusClientIncludeCallingStationIdInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 60), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeCallingStationIdInAcctStop.setStatus('current')
+juniRadiusClientIncludeClassInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 61), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeClassInAcctStop.setStatus('current')
+juniRadiusClientIncludeConnectInfoInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 62), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeConnectInfoInAcctStop.setStatus('current')
+juniRadiusClientIncludeEgressPolicyNameInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 63), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeEgressPolicyNameInAcctStop.setStatus('current')
+juniRadiusClientIncludeEventTimestampInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 64), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeEventTimestampInAcctStop.setStatus('current')
+juniRadiusClientIncludeFramedCompressionInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 65), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeFramedCompressionInAcctStop.setStatus('current')
+juniRadiusClientIncludeFramedIpNetmaskInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 66), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeFramedIpNetmaskInAcctStop.setStatus('current')
+juniRadiusClientIncludeIngressPolicyNameInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 67), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIngressPolicyNameInAcctStop.setStatus('current')
+juniRadiusClientIncludeInputGigawordsInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 68), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeInputGigawordsInAcctStop.setStatus('current')
+juniRadiusClientIncludeNasIdentifierInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 69), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeNasIdentifierInAcctStop.setStatus('current')
+juniRadiusClientIncludeNasPortInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 70), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeNasPortInAcctStop.setStatus('current')
+juniRadiusClientIncludeNasPortIdInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 71), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeNasPortIdInAcctStop.setStatus('current')
+juniRadiusClientIncludeNasPortTypeInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 72), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeNasPortTypeInAcctStop.setStatus('current')
+juniRadiusClientIncludeOutputGigawordsInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 73), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeOutputGigawordsInAcctStop.setStatus('current')
+juniRadiusClientIncludePppoeDescriptionInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 74), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludePppoeDescriptionInAcctStop.setStatus('current')
+juniRadiusClientIncludeTunnelAssignmentIdInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 75), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelAssignmentIdInAcctStop.setStatus('current')
+juniRadiusClientIncludeTunnelClientAuthIdInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 76), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelClientAuthIdInAcctStop.setStatus('current')
+juniRadiusClientIncludeTunnelClientEndpointInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 77), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelClientEndpointInAcctStop.setStatus('current')
+juniRadiusClientIncludeTunnelMediumTypeInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 78), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelMediumTypeInAcctStop.setStatus('current')
+juniRadiusClientIncludeTunnelPreferenceInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 79), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelPreferenceInAcctStop.setStatus('current')
+juniRadiusClientIncludeTunnelServerAttributesInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 80), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelServerAttributesInAcctStop.setStatus('current')
+juniRadiusClientIncludeTunnelServerAuthIdInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 81), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelServerAuthIdInAcctStop.setStatus('current')
+juniRadiusClientIncludeTunnelServerEndpointInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 82), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelServerEndpointInAcctStop.setStatus('current')
+juniRadiusClientIncludeTunnelTypeInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 83), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelTypeInAcctStop.setStatus('current')
+juniRadiusClientIncludeInputGigapktsInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 84), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeInputGigapktsInAcctStop.setStatus('current')
+juniRadiusClientIncludeOutputGigapktsInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 85), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeOutputGigapktsInAcctStop.setStatus('current')
+juniRadiusClientIgnoreFramedIpNetmask = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 86), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIgnoreFramedIpNetmask.setStatus('current')
+juniRadiusClientIgnoreAtmCategory = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 87), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIgnoreAtmCategory.setStatus('current')
+juniRadiusClientIgnoreAtmMbs = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 88), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIgnoreAtmMbs.setStatus('current')
+juniRadiusClientIgnoreAtmPcr = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 89), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIgnoreAtmPcr.setStatus('current')
+juniRadiusClientIgnoreAtmScr = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 90), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIgnoreAtmScr.setStatus('current')
+juniRadiusClientIgnoreEgressPolicyName = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 91), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIgnoreEgressPolicyName.setStatus('current')
+juniRadiusClientIgnoreIngressPolicyName = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 92), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIgnoreIngressPolicyName.setStatus('current')
+juniRadiusClientIgnoreVirtualRouter = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 93), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIgnoreVirtualRouter.setStatus('current')
+juniRadiusClientTrapOnAuthServerUnavailable = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 94), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientTrapOnAuthServerUnavailable.setStatus('current')
+juniRadiusClientTrapOnAcctServerUnavailable = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 95), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientTrapOnAcctServerUnavailable.setStatus('current')
+juniRadiusClientTrapOnNoAuthServerAvailable = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 96), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientTrapOnNoAuthServerAvailable.setStatus('current')
+juniRadiusClientTrapOnNoAcctServerAvailable = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 97), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientTrapOnNoAcctServerAvailable.setStatus('current')
+juniRadiusClientTrapOnAuthServerAvailable = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 98), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientTrapOnAuthServerAvailable.setStatus('current')
+juniRadiusClientTrapOnAcctServerAvailable = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 99), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientTrapOnAcctServerAvailable.setStatus('current')
+juniRadiusClientPppoeNasPortFormat = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("unique", 1))).clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientPppoeNasPortFormat.setStatus('current')
+juniRadiusClientIncludeTunnelInterfaceIdInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 101), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelInterfaceIdInAccessReq.setStatus('current')
+juniRadiusClientIncludeTunnelInterfaceIdInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 102), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelInterfaceIdInAcctStart.setStatus('current')
+juniRadiusClientIncludeTunnelInterfaceIdInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 103), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeTunnelInterfaceIdInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 104), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop.setStatus('current')
+juniRadiusClientVlanNasPortFormat = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 105), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("stacked", 1))).clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientVlanNasPortFormat.setStatus('current')
+juniRadiusClientIncludeAcctMultiSessionIdInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 106), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAcctMultiSessionIdInAccessReq.setStatus('current')
+juniRadiusClientIncludeAcctMultiSessionIdInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 107), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAcctMultiSessionIdInAcctStart.setStatus('current')
+juniRadiusClientIncludeAcctMultiSessionIdInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 108), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAcctMultiSessionIdInAcctStop.setStatus('current')
+juniRadiusClientIncludeAscendNumInMultilinkInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 109), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAscendNumInMultilinkInAccessReq.setStatus('current')
+juniRadiusClientIncludeAscendNumInMultilinkInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 110), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAscendNumInMultilinkInAcctStart.setStatus('current')
+juniRadiusClientIncludeAscendNumInMultilinkInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 111), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAscendNumInMultilinkInAcctStop.setStatus('current')
+juniRadiusClientConnectInfoFormat = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 112), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("default", 0), ("l2tpConnectSpeed", 1), ("l2tpConnectSpeedRxWhenEqual", 2))).clone('default')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientConnectInfoFormat.setStatus('current')
+juniRadiusClientIncludeProfileServiceDescrInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 113), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeProfileServiceDescrInAccessReq.setStatus('current')
+juniRadiusClientIncludeProfileServiceDescrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 114), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeProfileServiceDescrInAcctStart.setStatus('current')
+juniRadiusClientIncludeProfileServiceDescrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 115), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeProfileServiceDescrInAcctStop.setStatus('current')
+juniRadiusClientIncludeAcctAuthenticInAcctOn = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 116), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAcctAuthenticInAcctOn.setStatus('current')
+juniRadiusClientIncludeAcctDelayTimeInAcctOn = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 117), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAcctDelayTimeInAcctOn.setStatus('current')
+juniRadiusClientIncludeAcctSessionIdInAcctOn = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 118), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAcctSessionIdInAcctOn.setStatus('current')
+juniRadiusClientIncludeNasIdentifierInAcctOn = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 119), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeNasIdentifierInAcctOn.setStatus('current')
+juniRadiusClientIncludeEventTimestampInAcctOn = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 120), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeEventTimestampInAcctOn.setStatus('current')
+juniRadiusClientIncludeAcctAuthenticInAcctOff = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 121), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAcctAuthenticInAcctOff.setStatus('current')
+juniRadiusClientIncludeAcctDelayTimeInAcctOff = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 122), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAcctDelayTimeInAcctOff.setStatus('current')
+juniRadiusClientIncludeAcctSessionIdInAcctOff = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 123), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAcctSessionIdInAcctOff.setStatus('current')
+juniRadiusClientIncludeAcctTerminateCauseInAcctOff = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 124), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeAcctTerminateCauseInAcctOff.setStatus('current')
+juniRadiusClientIncludeNasIdentifierInAcctOff = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 125), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeNasIdentifierInAcctOff.setStatus('current')
+juniRadiusClientIncludeEventTimestampInAcctOff = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 126), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeEventTimestampInAcctOff.setStatus('current')
+juniRadiusClientIncludeDhcpOptionsInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 127), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDhcpOptionsInAccessReq.setStatus('current')
+juniRadiusClientIncludeDhcpMacAddressInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 128), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDhcpMacAddressInAccessReq.setStatus('current')
+juniRadiusClientIncludeDhcpGiAddressInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 129), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDhcpGiAddressInAccessReq.setStatus('current')
+juniRadiusClientIncludeDhcpOptionsInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 130), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDhcpOptionsInAcctStart.setStatus('current')
+juniRadiusClientIncludeDhcpMacAddressInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 131), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDhcpMacAddressInAcctStart.setStatus('current')
+juniRadiusClientIncludeDhcpGiAddressInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 132), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDhcpGiAddressInAcctStart.setStatus('current')
+juniRadiusClientIncludeDhcpOptionsInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 133), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDhcpOptionsInAcctStop.setStatus('current')
+juniRadiusClientIncludeDhcpMacAddressInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 134), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDhcpMacAddressInAcctStop.setStatus('current')
+juniRadiusClientIncludeDhcpGiAddressInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 135), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDhcpGiAddressInAcctStop.setStatus('current')
+juniRadiusClientNasPortIdOverrideRemoteCircuitId = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 136), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientNasPortIdOverrideRemoteCircuitId.setStatus('current')
+juniRadiusClientCallingStationIdOverrideRemoteCircuitId = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 137), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientCallingStationIdOverrideRemoteCircuitId.setStatus('current')
+juniRadiusClientIncludeMlpppBundleNameInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 138), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeMlpppBundleNameInAccessReq.setStatus('current')
+juniRadiusClientIncludeMlpppBundleNameInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 139), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeMlpppBundleNameInAcctStart.setStatus('current')
+juniRadiusClientIncludeMlpppBundleNameInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 140), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeMlpppBundleNameInAcctStop.setStatus('current')
+juniRadiusClientOverrideNasInfo = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 141), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientOverrideNasInfo.setStatus('current')
+juniRadiusClientIncludeInterfaceDescriptionInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 142), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeInterfaceDescriptionInAccessReq.setStatus('current')
+juniRadiusClientIncludeInterfaceDescriptionInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 143), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeInterfaceDescriptionInAcctStart.setStatus('current')
+juniRadiusClientIncludeInterfaceDescriptionInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 144), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeInterfaceDescriptionInAcctStop.setStatus('current')
+juniRadiusClientAtmNasPortFormat = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 145), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("extended", 1))).clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientAtmNasPortFormat.setStatus('current')
+juniRadiusClientNasPortFieldWidthAtmSlot = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 146), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientNasPortFieldWidthAtmSlot.setStatus('current')
+juniRadiusClientNasPortFieldWidthAtmAdapter = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 147), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientNasPortFieldWidthAtmAdapter.setStatus('current')
+juniRadiusClientNasPortFieldWidthAtmPort = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 148), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientNasPortFieldWidthAtmPort.setStatus('current')
+juniRadiusClientNasPortFieldWidthAtmVpi = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 149), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32)).clone(8)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientNasPortFieldWidthAtmVpi.setStatus('current')
+juniRadiusClientNasPortFieldWidthAtmVci = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 150), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32)).clone(16)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientNasPortFieldWidthAtmVci.setStatus('current')
+juniRadiusClientEthernetNasPortFormat = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 151), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("extended", 1))).clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientEthernetNasPortFormat.setStatus('current')
+juniRadiusClientNasPortFieldWidthEthernetSlot = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 152), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientNasPortFieldWidthEthernetSlot.setStatus('current')
+juniRadiusClientNasPortFieldWidthEthernetAdapter = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 153), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientNasPortFieldWidthEthernetAdapter.setStatus('current')
+juniRadiusClientNasPortFieldWidthEthernetPort = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 154), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientNasPortFieldWidthEthernetPort.setStatus('current')
+juniRadiusClientNasPortFieldWidthEthernetSVlan = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 155), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32)).clone(12)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientNasPortFieldWidthEthernetSVlan.setStatus('current')
+juniRadiusClientNasPortFieldWidthEthernetVlan = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 156), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32)).clone(12)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientNasPortFieldWidthEthernetVlan.setStatus('current')
+juniRadiusClientRemoteCircuitIdFormat = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 157), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 3)).clone(hexValue="1")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientRemoteCircuitIdFormat.setStatus('current')
+juniRadiusClientRemoteCircuitIdDelimiter = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 158), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1).clone('#')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientRemoteCircuitIdDelimiter.setStatus('current')
+juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 159), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cDownStreamDataInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 160), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cDownStreamDataInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cUpStreamDataInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 161), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cUpStreamDataInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cDownStreamDataInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 162), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cDownStreamDataInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cUpStreamDataInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 163), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cUpStreamDataInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cDownStreamDataInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 164), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cDownStreamDataInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cUpStreamDataInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 165), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cUpStreamDataInAcctStop.setStatus('current')
+juniRadiusClientIncludeDslForumAttributesInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 166), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDslForumAttributesInAccessReq.setStatus('current')
+juniRadiusClientIncludeDslForumAttributesInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 167), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDslForumAttributesInAcctStart.setStatus('current')
+juniRadiusClientIncludeDslForumAttributesInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 168), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDslForumAttributesInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 169), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 170), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 171), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 172), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 173), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 174), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 175), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 176), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 177), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 178), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 179), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 180), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 181), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 182), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 183), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 184), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 185), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cDslLineStateInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 186), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cDslLineStateInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cDslTypeInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 187), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cDslTypeInAccessReq.setStatus('current')
+juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 188), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 189), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 190), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 191), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 192), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 193), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 194), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 195), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 196), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 197), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 198), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 199), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 200), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 201), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 202), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 203), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 204), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cDslLineStateInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 205), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cDslLineStateInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cDslTypeInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 206), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cDslTypeInAcctStart.setStatus('current')
+juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 207), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 208), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 209), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 210), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 211), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 212), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 213), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 214), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 215), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 216), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 217), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 218), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 219), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 220), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 221), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 222), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 223), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cDslLineStateInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 224), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cDslLineStateInAcctStop.setStatus('current')
+juniRadiusClientIncludeL2cDslTypeInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 225), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeL2cDslTypeInAcctStop.setStatus('current')
+juniRadiusClientIncludeInterfaceIdInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 226), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeInterfaceIdInAcctStart.setStatus('current')
+juniRadiusClientIncludeIpv6PrefixInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 227), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIpv6PrefixInAcctStart.setStatus('current')
+juniRadiusClientIncludeInterfaceIdInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 228), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeInterfaceIdInAcctStop.setStatus('current')
+juniRadiusClientIncludeIpAddrInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 229), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIpAddrInAcctStop.setStatus('current')
+juniRadiusClientIncludeIpv6PrefixInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 230), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIpv6PrefixInAcctStop.setStatus('current')
+juniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 231), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq.setStatus('current')
+juniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 232), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq.setStatus('current')
+juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 233), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart.setStatus('current')
+juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 234), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart.setStatus('current')
+juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 235), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop.setStatus('current')
+juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 236), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop.setStatus('current')
+juniRadiusClientIgnorePppoeMaxSession = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 237), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIgnorePppoeMaxSession.setStatus('current')
+juniRadiusClientIncludeIpv6AccountingInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 238), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIpv6AccountingInAcctStop.setStatus('current')
+juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 239), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart.setStatus('current')
+juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 240), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop.setStatus('current')
+juniRadiusClientIncludeFramedIpv6PoolInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 241), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeFramedIpv6PoolInAcctStart.setStatus('current')
+juniRadiusClientIncludeFramedIpv6PoolInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 242), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeFramedIpv6PoolInAcctStop.setStatus('current')
+juniRadiusClientIncludeFramedIpv6RouteInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 243), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeFramedIpv6RouteInAcctStart.setStatus('current')
+juniRadiusClientIncludeFramedIpv6RouteInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 244), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeFramedIpv6RouteInAcctStop.setStatus('current')
+juniRadiusClientIncludeIpv6LocalInterfaceInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 245), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIpv6LocalInterfaceInAcctStart.setStatus('current')
+juniRadiusClientIncludeIpv6LocalInterfaceInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 246), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIpv6LocalInterfaceInAcctStop.setStatus('current')
+juniRadiusClientIncludeIpv6NdRaPrefixInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 247), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIpv6NdRaPrefixInAcctStart.setStatus('current')
+juniRadiusClientIncludeIpv6NdRaPrefixInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 248), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIpv6NdRaPrefixInAcctStop.setStatus('current')
+juniRadiusClientIncludeIpv6PrimaryDnsInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 249), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIpv6PrimaryDnsInAcctStart.setStatus('current')
+juniRadiusClientIncludeIpv6PrimaryDnsInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 250), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIpv6PrimaryDnsInAcctStop.setStatus('current')
+juniRadiusClientIncludeIpv6SecondaryDnsInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 251), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIpv6SecondaryDnsInAcctStart.setStatus('current')
+juniRadiusClientIncludeIpv6SecondaryDnsInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 252), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIpv6SecondaryDnsInAcctStop.setStatus('current')
+juniRadiusClientIncludeIpv6VirtualRouterInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 253), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIpv6VirtualRouterInAcctStart.setStatus('current')
+juniRadiusClientIncludeIpv6VirtualRouterInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 254), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeIpv6VirtualRouterInAcctStop.setStatus('current')
+juniRadiusClientIncludeQosProfileNameInAcctStart = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 255), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeQosProfileNameInAcctStart.setStatus('current')
+juniRadiusClientIncludeQosProfileNameInAcctStop = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 1, 256), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniRadiusClientIncludeQosProfileNameInAcctStop.setStatus('current')
+juniRadiusAuthClientInvalidServerAddresses = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAuthClientInvalidServerAddresses.setStatus('current')
+juniRadiusAuthClientServerTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2), )
+if mibBuilder.loadTexts: juniRadiusAuthClientServerTable.setStatus('current')
+juniRadiusAuthClientServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2, 1), ).setIndexNames((0, "Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientServerAddress"))
+if mibBuilder.loadTexts: juniRadiusAuthClientServerEntry.setStatus('current')
+juniRadiusAuthClientServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2, 1, 1), IpAddress())
+if mibBuilder.loadTexts: juniRadiusAuthClientServerAddress.setStatus('current')
+juniRadiusAuthClientServerPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAuthClientServerPortNumber.setStatus('current')
+juniRadiusAuthClientRoundTripTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2, 1, 3), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAuthClientRoundTripTime.setStatus('current')
+juniRadiusAuthClientAccessRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAuthClientAccessRequests.setStatus('current')
+juniRadiusAuthClientAccessRetransmissions = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAuthClientAccessRetransmissions.setStatus('current')
+juniRadiusAuthClientAccessAccepts = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAuthClientAccessAccepts.setStatus('current')
+juniRadiusAuthClientAccessRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAuthClientAccessRejects.setStatus('current')
+juniRadiusAuthClientAccessChallenges = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAuthClientAccessChallenges.setStatus('current')
+juniRadiusAuthClientMalformedAccessResponses = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAuthClientMalformedAccessResponses.setStatus('current')
+juniRadiusAuthClientBadAuthenticators = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAuthClientBadAuthenticators.setStatus('current')
+juniRadiusAuthClientPendingRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2, 1, 11), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAuthClientPendingRequests.setStatus('current')
+juniRadiusAuthClientTimeouts = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAuthClientTimeouts.setStatus('current')
+juniRadiusAuthClientUnknownTypes = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAuthClientUnknownTypes.setStatus('current')
+juniRadiusAuthClientPacketsDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 2, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAuthClientPacketsDropped.setStatus('current')
+juniRadiusAuthClientCfgServerTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 3), )
+if mibBuilder.loadTexts: juniRadiusAuthClientCfgServerTable.setStatus('current')
+juniRadiusAuthClientCfgServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 3, 1), ).setIndexNames((0, "Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgServerAddress"))
+if mibBuilder.loadTexts: juniRadiusAuthClientCfgServerEntry.setStatus('current')
+juniRadiusAuthClientCfgServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 3, 1, 1), IpAddress())
+if mibBuilder.loadTexts: juniRadiusAuthClientCfgServerAddress.setStatus('current')
+juniRadiusAuthClientCfgServerPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(1812)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusAuthClientCfgServerPortNumber.setStatus('current')
+juniRadiusAuthClientCfgKey = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32)).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusAuthClientCfgKey.setStatus('current')
+juniRadiusAuthClientCfgTimeoutInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000)).clone(3)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusAuthClientCfgTimeoutInterval.setStatus('current')
+juniRadiusAuthClientCfgRetries = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100)).clone(3)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusAuthClientCfgRetries.setStatus('current')
+juniRadiusAuthClientCfgMaxPendingRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 3, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 32000)).clone(255)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusAuthClientCfgMaxPendingRequests.setStatus('current')
+juniRadiusAuthClientCfgRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 3, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusAuthClientCfgRowStatus.setStatus('current')
+juniRadiusAuthClientCfgPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 3, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAuthClientCfgPrecedence.setStatus('current')
+juniRadiusAuthClientCfgDeadTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 2, 3, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1440))).setUnits('minutes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusAuthClientCfgDeadTime.setStatus('current')
+juniRadiusAcctClientInvalidServerAddresses = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientInvalidServerAddresses.setStatus('current')
+juniRadiusAcctClientServerTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2), )
+if mibBuilder.loadTexts: juniRadiusAcctClientServerTable.setStatus('current')
+juniRadiusAcctClientServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1), ).setIndexNames((0, "Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientServerAddress"))
+if mibBuilder.loadTexts: juniRadiusAcctClientServerEntry.setStatus('current')
+juniRadiusAcctClientServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 1), IpAddress())
+if mibBuilder.loadTexts: juniRadiusAcctClientServerAddress.setStatus('current')
+juniRadiusAcctClientServerPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientServerPortNumber.setStatus('current')
+juniRadiusAcctClientRoundTripTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 3), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientRoundTripTime.setStatus('current')
+juniRadiusAcctClientRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientRequests.setStatus('current')
+juniRadiusAcctClientRetransmissions = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientRetransmissions.setStatus('current')
+juniRadiusAcctClientResponses = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientResponses.setStatus('current')
+juniRadiusAcctClientMalformedResponses = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientMalformedResponses.setStatus('current')
+juniRadiusAcctClientBadAuthenticators = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientBadAuthenticators.setStatus('current')
+juniRadiusAcctClientPendingRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientPendingRequests.setStatus('current')
+juniRadiusAcctClientTimeouts = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientTimeouts.setStatus('current')
+juniRadiusAcctClientUnknownTypes = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientUnknownTypes.setStatus('current')
+juniRadiusAcctClientPacketsDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientPacketsDropped.setStatus('current')
+juniRadiusAcctClientStartRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientStartRequests.setStatus('current')
+juniRadiusAcctClientInterimRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientInterimRequests.setStatus('current')
+juniRadiusAcctClientStopRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientStopRequests.setStatus('current')
+juniRadiusAcctClientStartResponses = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientStartResponses.setStatus('current')
+juniRadiusAcctClientInterimResponses = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientInterimResponses.setStatus('current')
+juniRadiusAcctClientStopResponses = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 18), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientStopResponses.setStatus('current')
+juniRadiusAcctClientRejectRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 19), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientRejectRequests.setStatus('current')
+juniRadiusAcctClientRejectResponses = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 2, 1, 20), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientRejectResponses.setStatus('current')
+juniRadiusAcctClientCfgServerTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 3), )
+if mibBuilder.loadTexts: juniRadiusAcctClientCfgServerTable.setStatus('current')
+juniRadiusAcctClientCfgServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 3, 1), ).setIndexNames((0, "Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgServerAddress"))
+if mibBuilder.loadTexts: juniRadiusAcctClientCfgServerEntry.setStatus('current')
+juniRadiusAcctClientCfgServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 3, 1, 1), IpAddress())
+if mibBuilder.loadTexts: juniRadiusAcctClientCfgServerAddress.setStatus('current')
+juniRadiusAcctClientCfgServerPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(1813)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusAcctClientCfgServerPortNumber.setStatus('current')
+juniRadiusAcctClientCfgKey = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32)).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusAcctClientCfgKey.setStatus('current')
+juniRadiusAcctClientCfgTimeoutInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000)).clone(3)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusAcctClientCfgTimeoutInterval.setStatus('current')
+juniRadiusAcctClientCfgRetries = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100)).clone(3)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusAcctClientCfgRetries.setStatus('current')
+juniRadiusAcctClientCfgMaxPendingRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 3, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 96000)).clone(255)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusAcctClientCfgMaxPendingRequests.setStatus('current')
+juniRadiusAcctClientCfgRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 3, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusAcctClientCfgRowStatus.setStatus('current')
+juniRadiusAcctClientCfgPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 3, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusAcctClientCfgPrecedence.setStatus('current')
+juniRadiusAcctClientCfgDeadTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 1, 3, 3, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1440))).setUnits('minutes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusAcctClientCfgDeadTime.setStatus('current')
+juniRadiusClientTrapControl = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 4))
+juniRadiusAuthClientUnavailableServer = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 4, 1), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: juniRadiusAuthClientUnavailableServer.setStatus('current')
+juniRadiusAuthClientNextAvailableServer = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 4, 2), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: juniRadiusAuthClientNextAvailableServer.setStatus('current')
+juniRadiusAcctClientUnavailableServer = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 4, 3), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: juniRadiusAcctClientUnavailableServer.setStatus('current')
+juniRadiusAcctClientNextAvailableServer = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 4, 4), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: juniRadiusAcctClientNextAvailableServer.setStatus('current')
+juniRadiusAuthClientAvailableServer = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 4, 5), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: juniRadiusAuthClientAvailableServer.setStatus('current')
+juniRadiusAcctClientAvailableServer = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 4, 6), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: juniRadiusAcctClientAvailableServer.setStatus('current')
+juniRadiusClientTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 3))
+juniRadiusClientTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 3, 0))
+juniRadiusAuthClientServerUnavailable = NotificationType((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 3, 0, 1)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientUnavailableServer"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientNextAvailableServer"))
+if mibBuilder.loadTexts: juniRadiusAuthClientServerUnavailable.setStatus('current')
+juniRadiusAuthClientNoServerAvailable = NotificationType((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 3, 0, 2))
+if mibBuilder.loadTexts: juniRadiusAuthClientNoServerAvailable.setStatus('current')
+juniRadiusAcctClientServerUnavailable = NotificationType((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 3, 0, 3)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientUnavailableServer"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientNextAvailableServer"))
+if mibBuilder.loadTexts: juniRadiusAcctClientServerUnavailable.setStatus('current')
+juniRadiusAcctClientNoServerAvailable = NotificationType((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 3, 0, 4))
+if mibBuilder.loadTexts: juniRadiusAcctClientNoServerAvailable.setStatus('current')
+juniRadiusAuthClientServerAvailable = NotificationType((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 3, 0, 5)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAvailableServer"))
+if mibBuilder.loadTexts: juniRadiusAuthClientServerAvailable.setStatus('current')
+juniRadiusAcctClientServerAvailable = NotificationType((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 3, 0, 6)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientAvailableServer"))
+if mibBuilder.loadTexts: juniRadiusAcctClientServerAvailable.setStatus('current')
+juniRadiusClientMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2))
+juniRadiusClientMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1))
+juniRadiusClientMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2))
+juniRadiusAuthClientCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 1)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusGeneralClientGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAuthClientCompliance = juniRadiusAuthClientCompliance.setStatus('obsolete')
+juniRadiusAcctClientCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 2)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusGeneralClientGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAcctClientCompliance = juniRadiusAcctClientCompliance.setStatus('obsolete')
+juniRadiusAuthClientCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 3)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusGeneralClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAuthClientCompliance2 = juniRadiusAuthClientCompliance2.setStatus('obsolete')
+juniRadiusAcctClientCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 4)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusGeneralClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAcctClientCompliance2 = juniRadiusAcctClientCompliance2.setStatus('obsolete')
+juniRadiusClientCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 5)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance = juniRadiusClientCompliance.setStatus('obsolete')
+juniRadiusClientCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 6)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance2 = juniRadiusClientCompliance2.setStatus('obsolete')
+juniRadiusClientCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 7)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance3 = juniRadiusClientCompliance3.setStatus('obsolete')
+juniRadiusClientCompliance4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 8)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup4"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance4 = juniRadiusClientCompliance4.setStatus('obsolete')
+juniRadiusClientCompliance5 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 9)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup5"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance5 = juniRadiusClientCompliance5.setStatus('obsolete')
+juniRadiusClientCompliance6 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 10)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthNotificationGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctNotificationGroup"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup5"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance6 = juniRadiusClientCompliance6.setStatus('obsolete')
+juniRadiusClientCompliance7 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 11)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup6"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance7 = juniRadiusClientCompliance7.setStatus('obsolete')
+juniRadiusClientCompliance8 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 12)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup7"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance8 = juniRadiusClientCompliance8.setStatus('obsolete')
+juniRadiusClientCompliance9 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 13)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup4"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup8"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance9 = juniRadiusClientCompliance9.setStatus('obsolete')
+juniRadiusClientCompliance10 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 14)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup4"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup9"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance10 = juniRadiusClientCompliance10.setStatus('obsolete')
+juniRadiusClientCompliance11 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 15)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup4"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup10"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance11 = juniRadiusClientCompliance11.setStatus('obsolete')
+juniRadiusClientCompliance12 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 16)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup4"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup11"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance12 = juniRadiusClientCompliance12.setStatus('obsolete')
+juniRadiusClientCompliance13 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 17)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup4"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup14"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance13 = juniRadiusClientCompliance13.setStatus('obsolete')
+juniRadiusClientCompliance14 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 18)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup4"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup15"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance14 = juniRadiusClientCompliance14.setStatus('obsolete')
+juniRadiusClientCompliance15 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 19)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup4"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup16"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance15 = juniRadiusClientCompliance15.setStatus('obsolete')
+juniRadiusClientCompliance16 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 20)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup4"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup18"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance16 = juniRadiusClientCompliance16.setStatus('obsolete')
+juniRadiusClientCompliance17 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 21)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup4"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup19"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance17 = juniRadiusClientCompliance17.setStatus('obsolete')
+juniRadiusClientCompliance18 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 22)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup4"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup20"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance18 = juniRadiusClientCompliance18.setStatus('obsolete')
+juniRadiusClientCompliance19 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 1, 23)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBasicClientGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientGroup3"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientGroup4"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctNotificationGroup2"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusBrasClientGroup21"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusTunnelClientGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusClientCompliance19 = juniRadiusClientCompliance19.setStatus('current')
+juniRadiusGeneralClientGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 1)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIdentifier"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAlgorithm"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusGeneralClientGroup = juniRadiusGeneralClientGroup.setStatus('obsolete')
+juniRadiusAuthClientGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 2)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientInvalidServerAddresses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientServerPortNumber"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientRoundTripTime"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAccessRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAccessRetransmissions"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAccessAccepts"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAccessRejects"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAccessChallenges"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientMalformedAccessResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientBadAuthenticators"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientPendingRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientTimeouts"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientUnknownTypes"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientPacketsDropped"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgServerPortNumber"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgKey"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgTimeoutInterval"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgRetries"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgMaxPendingRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgRowStatus"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgPrecedence"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgDeadTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAuthClientGroup = juniRadiusAuthClientGroup.setStatus('obsolete')
+juniRadiusAcctClientGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 3)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientInvalidServerAddresses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientServerPortNumber"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientRoundTripTime"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientRetransmissions"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientMalformedResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientBadAuthenticators"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientPendingRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientTimeouts"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientUnknownTypes"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientPacketsDropped"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgServerPortNumber"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgKey"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgTimeoutInterval"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgRetries"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgMaxPendingRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgRowStatus"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgPrecedence"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgDeadTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAcctClientGroup = juniRadiusAcctClientGroup.setStatus('obsolete')
+juniRadiusGeneralClientGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 4)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIdentifier"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAlgorithm"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientSourceAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusGeneralClientGroup2 = juniRadiusGeneralClientGroup2.setStatus('obsolete')
+juniRadiusBasicClientGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 5)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIdentifier"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAlgorithm"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientSourceAddress"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientUdpChecksum"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIdentifier"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBasicClientGroup = juniRadiusBasicClientGroup.setStatus('obsolete')
+juniRadiusBrasClientGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 6)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup = juniRadiusBrasClientGroup.setStatus('obsolete')
+juniRadiusTunnelClientGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 7)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTunnelAccounting"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusTunnelClientGroup = juniRadiusTunnelClientGroup.setStatus('current')
+juniRadiusBrasClientGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 8)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup2 = juniRadiusBrasClientGroup2.setStatus('obsolete')
+juniRadiusBasicClientGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 9)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIdentifier"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAlgorithm"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientSourceAddress"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientUdpChecksum"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIdentifier"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRollover"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBasicClientGroup2 = juniRadiusBasicClientGroup2.setStatus('current')
+juniRadiusBrasClientGroup3 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 10)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup3 = juniRadiusBrasClientGroup3.setStatus('obsolete')
+juniRadiusBrasClientGroup4 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 11)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup4 = juniRadiusBrasClientGroup4.setStatus('obsolete')
+juniRadiusBrasClientGroup5 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 12)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup5 = juniRadiusBrasClientGroup5.setStatus('obsolete')
+juniRadiusAuthClientGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 13)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientInvalidServerAddresses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientServerPortNumber"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientRoundTripTime"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAccessRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAccessRetransmissions"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAccessAccepts"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAccessRejects"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAccessChallenges"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientMalformedAccessResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientBadAuthenticators"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientPendingRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientTimeouts"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientUnknownTypes"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientPacketsDropped"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgServerPortNumber"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgKey"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgTimeoutInterval"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgRetries"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgMaxPendingRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgRowStatus"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgPrecedence"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgDeadTime"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientUnavailableServer"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientNextAvailableServer"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAuthClientGroup2 = juniRadiusAuthClientGroup2.setStatus('obsolete')
+juniRadiusAcctClientGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 14)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientInvalidServerAddresses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientServerPortNumber"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientRoundTripTime"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientRetransmissions"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientMalformedResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientBadAuthenticators"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientPendingRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientTimeouts"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientUnknownTypes"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientPacketsDropped"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgServerPortNumber"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgKey"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgTimeoutInterval"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgRetries"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgMaxPendingRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgRowStatus"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgPrecedence"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgDeadTime"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientUnavailableServer"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientNextAvailableServer"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAcctClientGroup2 = juniRadiusAcctClientGroup2.setStatus('obsolete')
+juniRadiusAuthNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 15)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientNoServerAvailable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAuthNotificationGroup = juniRadiusAuthNotificationGroup.setStatus('obsolete')
+juniRadiusAcctNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 16)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientNoServerAvailable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAcctNotificationGroup = juniRadiusAcctNotificationGroup.setStatus('obsolete')
+juniRadiusBrasClientGroup6 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 17)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup6 = juniRadiusBrasClientGroup6.setStatus('obsolete')
+juniRadiusAuthClientGroup3 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 18)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientInvalidServerAddresses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientServerPortNumber"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientRoundTripTime"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAccessRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAccessRetransmissions"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAccessAccepts"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAccessRejects"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAccessChallenges"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientMalformedAccessResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientBadAuthenticators"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientPendingRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientTimeouts"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientUnknownTypes"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientPacketsDropped"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgServerPortNumber"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgKey"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgTimeoutInterval"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgRetries"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgMaxPendingRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgRowStatus"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgPrecedence"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientCfgDeadTime"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientUnavailableServer"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientNextAvailableServer"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientAvailableServer"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAuthClientGroup3 = juniRadiusAuthClientGroup3.setStatus('current')
+juniRadiusAcctClientGroup3 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 19)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientInvalidServerAddresses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientServerPortNumber"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientRoundTripTime"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientStartRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientInterimRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientStopRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientRetransmissions"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientStartResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientInterimResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientStopResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientMalformedResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientBadAuthenticators"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientPendingRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientTimeouts"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientUnknownTypes"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientPacketsDropped"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgServerPortNumber"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgKey"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgTimeoutInterval"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgRetries"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgMaxPendingRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgRowStatus"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgPrecedence"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgDeadTime"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientUnavailableServer"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientNextAvailableServer"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientAvailableServer"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAcctClientGroup3 = juniRadiusAcctClientGroup3.setStatus('obsolete')
+juniRadiusAuthNotificationGroup2 = NotificationGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 20)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientNoServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAuthClientServerAvailable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAuthNotificationGroup2 = juniRadiusAuthNotificationGroup2.setStatus('current')
+juniRadiusAcctNotificationGroup2 = NotificationGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 21)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientNoServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientServerAvailable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAcctNotificationGroup2 = juniRadiusAcctNotificationGroup2.setStatus('current')
+juniRadiusBrasClientGroup7 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 22)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientPppoeNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStop"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup7 = juniRadiusBrasClientGroup7.setStatus('obsolete')
+juniRadiusAcctClientGroup4 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 23)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientInvalidServerAddresses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientServerPortNumber"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientRoundTripTime"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientStartRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientInterimRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientStopRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientRejectRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientRetransmissions"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientStartResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientInterimResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientStopResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientRejectResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientMalformedResponses"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientBadAuthenticators"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientPendingRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientTimeouts"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientUnknownTypes"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientPacketsDropped"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgServerPortNumber"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgKey"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgTimeoutInterval"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgRetries"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgMaxPendingRequests"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgRowStatus"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgPrecedence"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientCfgDeadTime"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientUnavailableServer"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientNextAvailableServer"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusAcctClientAvailableServer"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAcctClientGroup4 = juniRadiusAcctClientGroup4.setStatus('current')
+juniRadiusBrasClientGroup8 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 24)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientPppoeNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientVlanNasPortFormat"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup8 = juniRadiusBrasClientGroup8.setStatus('obsolete')
+juniRadiusBrasClientGroup9 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 25)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientPppoeNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientVlanNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientConnectInfoFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTerminateCauseInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStop"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup9 = juniRadiusBrasClientGroup9.setStatus('obsolete')
+juniRadiusBrasClientGroup10 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 26)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientPppoeNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientVlanNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientConnectInfoFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTerminateCauseInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStop"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup10 = juniRadiusBrasClientGroup10.setStatus('obsolete')
+juniRadiusBrasClientGroup11 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 27)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientPppoeNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientVlanNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientConnectInfoFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTerminateCauseInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientOverrideNasInfo"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup11 = juniRadiusBrasClientGroup11.setStatus('obsolete')
+juniRadiusBrasClientGroup12 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 28)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientPppoeNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientVlanNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientConnectInfoFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTerminateCauseInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientOverrideNasInfo"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVpi"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVci"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdDelimiter"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup12 = juniRadiusBrasClientGroup12.setStatus('obsolete')
+juniRadiusBrasClientGroup13 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 29)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientPppoeNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientVlanNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientConnectInfoFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTerminateCauseInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientOverrideNasInfo"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVpi"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVci"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStop"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup13 = juniRadiusBrasClientGroup13.setStatus('obsolete')
+juniRadiusBrasClientGroup14 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 30)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientPppoeNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientVlanNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientConnectInfoFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTerminateCauseInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientOverrideNasInfo"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVpi"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVci"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAcctStop"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup14 = juniRadiusBrasClientGroup14.setStatus('obsolete')
+juniRadiusBrasClientGroup15 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 31)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientPppoeNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientVlanNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientConnectInfoFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTerminateCauseInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientOverrideNasInfo"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVpi"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVci"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAcctStop"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup15 = juniRadiusBrasClientGroup15.setStatus('obsolete')
+juniRadiusBrasClientGroup16 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 32)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientPppoeNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientVlanNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientConnectInfoFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTerminateCauseInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientOverrideNasInfo"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVpi"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVci"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrefixInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrefixInAcctStop"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup16 = juniRadiusBrasClientGroup16.setStatus('obsolete')
+juniRadiusBrasClientGroup17 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 33)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientPppoeNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientVlanNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientConnectInfoFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTerminateCauseInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientOverrideNasInfo"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVpi"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVci"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrefixInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrefixInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup17 = juniRadiusBrasClientGroup17.setStatus('obsolete')
+juniRadiusBrasClientGroup18 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 34)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientPppoeNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientVlanNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientConnectInfoFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTerminateCauseInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientOverrideNasInfo"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVpi"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVci"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrefixInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrefixInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnorePppoeMaxSession"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup18 = juniRadiusBrasClientGroup18.setStatus('obsolete')
+juniRadiusBrasClientGroup19 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 35)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientPppoeNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientVlanNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientConnectInfoFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTerminateCauseInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientOverrideNasInfo"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVpi"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVci"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrefixInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrefixInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnorePppoeMaxSession"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6AccountingInAcctStop"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup19 = juniRadiusBrasClientGroup19.setStatus('obsolete')
+juniRadiusBrasClientGroup20 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 36)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientPppoeNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientVlanNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientConnectInfoFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTerminateCauseInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientOverrideNasInfo"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVpi"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVci"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrefixInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrefixInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnorePppoeMaxSession"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6AccountingInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpv6PoolInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpv6PoolInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpv6RouteInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpv6RouteInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6LocalInterfaceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6LocalInterfaceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6NdRaPrefixInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6NdRaPrefixInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrimaryDnsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrimaryDnsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6SecondaryDnsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6SecondaryDnsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6VirtualRouterInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6VirtualRouterInAcctStop"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup20 = juniRadiusBrasClientGroup20.setStatus('obsolete')
+juniRadiusBrasClientGroup21 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 19, 2, 2, 37)).setObjects(("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientDslPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientAcctSessionIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientEthernetPortType"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasIpAddrUse"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTunnelConnectionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCalledStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeCallingStationIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeClassInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeConnectInfoInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEgressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeEventTimestampInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedCompressionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpNetmaskInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIngressPolicyNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasIdentifierInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeNasPortTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigawordsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludePppoeDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelAssignmentIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelClientEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelMediumTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelPreferenceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAttributesInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerAuthIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelServerEndpointInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeOutputGigapktsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreFramedIpNetmask"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmCategory"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmMbs"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmPcr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreAtmScr"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreEgressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreIngressPolicyName"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnoreVirtualRouter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerUnavailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnNoAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAuthServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientTrapOnAcctServerAvailable"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientPppoeNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeTunnelInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientVlanNasPortFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctMultiSessionIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAscendNumInMultilinkInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientConnectInfoFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeProfileServiceDescrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOn"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctAuthenticInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctDelayTimeInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctSessionIdInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeAcctTerminateCauseInAcctOff"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeMlpppBundleNameInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpOptionsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpMacAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDhcpGiAddressInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientOverrideNasInfo"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceDescriptionInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientCallingStationIdOverrideRemoteCircuitId"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVpi"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthAtmVci"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSlot"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetAdapter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetPort"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetSVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientNasPortFieldWidthEthernetVlan"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdFormat"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientRemoteCircuitIdDelimiter"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDownStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cUpStreamDataInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDslForumAttributesInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslLineStateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeL2cDslTypeInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceIdInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrefixInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeInterfaceIdInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpAddrInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrefixInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIgnorePppoeMaxSession"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6AccountingInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpv6PoolInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpv6PoolInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpv6RouteInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeFramedIpv6RouteInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6LocalInterfaceInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6LocalInterfaceInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6NdRaPrefixInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6NdRaPrefixInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrimaryDnsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6PrimaryDnsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6SecondaryDnsInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6SecondaryDnsInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6VirtualRouterInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeIpv6VirtualRouterInAcctStop"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeQosProfileNameInAcctStart"), ("Juniper-RADIUS-CLIENT-MIB", "juniRadiusClientIncludeQosProfileNameInAcctStop"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusBrasClientGroup21 = juniRadiusBrasClientGroup21.setStatus('current')
+mibBuilder.exportSymbols("Juniper-RADIUS-CLIENT-MIB", juniRadiusAcctClientUnavailableServer=juniRadiusAcctClientUnavailableServer, juniRadiusClientIncludePppoeDescriptionInAccessReq=juniRadiusClientIncludePppoeDescriptionInAccessReq, juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart=juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStart, juniRadiusClientNasPortFieldWidthEthernetSlot=juniRadiusClientNasPortFieldWidthEthernetSlot, juniRadiusClientIncludeTunnelAssignmentIdInAcctStart=juniRadiusClientIncludeTunnelAssignmentIdInAcctStart, juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart=juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStart, juniRadiusClientNasPortIdOverrideRemoteCircuitId=juniRadiusClientNasPortIdOverrideRemoteCircuitId, juniRadiusClientIncludeAcctSessionIdInAcctOff=juniRadiusClientIncludeAcctSessionIdInAcctOff, juniRadiusAcctClientStopRequests=juniRadiusAcctClientStopRequests, juniRadiusAcctClientServerTable=juniRadiusAcctClientServerTable, juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq=juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAccessReq, juniRadiusAuthClientNoServerAvailable=juniRadiusAuthClientNoServerAvailable, juniRadiusClientIncludeIpAddrInAcctStop=juniRadiusClientIncludeIpAddrInAcctStop, juniRadiusClientNasPortFieldWidthAtmSlot=juniRadiusClientNasPortFieldWidthAtmSlot, juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart=juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStart, juniRadiusClientIncludeDhcpMacAddressInAccessReq=juniRadiusClientIncludeDhcpMacAddressInAccessReq, juniRadiusAcctClientGroup=juniRadiusAcctClientGroup, juniRadiusClientIncludeFramedIpNetmaskInAcctStart=juniRadiusClientIncludeFramedIpNetmaskInAcctStart, juniRadiusAcctClientGroup2=juniRadiusAcctClientGroup2, juniRadiusClientIncludeIpv6VirtualRouterInAcctStart=juniRadiusClientIncludeIpv6VirtualRouterInAcctStart, juniRadiusAcctClientCfgTimeoutInterval=juniRadiusAcctClientCfgTimeoutInterval, juniRadiusClientIgnoreAtmScr=juniRadiusClientIgnoreAtmScr, juniRadiusClientIncludeTunnelClientAuthIdInAcctStop=juniRadiusClientIncludeTunnelClientAuthIdInAcctStop, juniRadiusClientIncludeL2cDslLineStateInAcctStart=juniRadiusClientIncludeL2cDslLineStateInAcctStart, juniRadiusClientIncludeTunnelServerAuthIdInAccessReq=juniRadiusClientIncludeTunnelServerAuthIdInAccessReq, juniRadiusClientIncludeTunnelServerEndpointInAcctStop=juniRadiusClientIncludeTunnelServerEndpointInAcctStop, juniRadiusClientIncludeInputGigapktsInAcctStop=juniRadiusClientIncludeInputGigapktsInAcctStop, juniRadiusAcctClientCfgPrecedence=juniRadiusAcctClientCfgPrecedence, juniRadiusClientCompliance18=juniRadiusClientCompliance18, juniRadiusClientIncludeQosProfileNameInAcctStop=juniRadiusClientIncludeQosProfileNameInAcctStop, juniRadiusClientIncludeNasPortTypeInAccessReq=juniRadiusClientIncludeNasPortTypeInAccessReq, juniRadiusClientIncludeFramedCompressionInAcctStart=juniRadiusClientIncludeFramedCompressionInAcctStart, juniRadiusClientObjects=juniRadiusClientObjects, juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart=juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStart, juniRadiusClientIncludeAscendNumInMultilinkInAcctStart=juniRadiusClientIncludeAscendNumInMultilinkInAcctStart, juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart=juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStart, juniRadiusAcctClientPendingRequests=juniRadiusAcctClientPendingRequests, juniRadiusClientRemoteCircuitIdDelimiter=juniRadiusClientRemoteCircuitIdDelimiter, juniRadiusAcctClientBadAuthenticators=juniRadiusAcctClientBadAuthenticators, juniRadiusAuthClientPacketsDropped=juniRadiusAuthClientPacketsDropped, juniRadiusBrasClientGroup3=juniRadiusBrasClientGroup3, juniRadiusAuthClientServerEntry=juniRadiusAuthClientServerEntry, juniRadiusAcctClientServerEntry=juniRadiusAcctClientServerEntry, juniRadiusClientIncludeAscendNumInMultilinkInAcctStop=juniRadiusClientIncludeAscendNumInMultilinkInAcctStop, juniRadiusClientIncludeNasPortTypeInAcctStop=juniRadiusClientIncludeNasPortTypeInAcctStop, juniRadiusClientDslPortType=juniRadiusClientDslPortType, juniRadiusBrasClientGroup11=juniRadiusBrasClientGroup11, juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart=juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStart, juniRadiusAcctClientStopResponses=juniRadiusAcctClientStopResponses, juniRadiusClientIncludeNasPortInAccessReq=juniRadiusClientIncludeNasPortInAccessReq, juniRadiusAcctClientRejectRequests=juniRadiusAcctClientRejectRequests, juniRadiusClientIncludeTunnelServerAuthIdInAcctStart=juniRadiusClientIncludeTunnelServerAuthIdInAcctStart, juniRadiusClientCompliance16=juniRadiusClientCompliance16, juniRadiusBrasClientGroup16=juniRadiusBrasClientGroup16, juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop=juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStop, juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart=juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStart, juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart=juniRadiusClientIncludeL2cMaximumDataRateDstrInAcctStart, juniRadiusAcctClientInvalidServerAddresses=juniRadiusAcctClientInvalidServerAddresses, juniRadiusBrasClientGroup5=juniRadiusBrasClientGroup5, juniRadiusClientIncludeAcctDelayTimeInAcctOff=juniRadiusClientIncludeAcctDelayTimeInAcctOff, juniRadiusClientNasIpAddrUse=juniRadiusClientNasIpAddrUse, juniRadiusClientIncludeConnectInfoInAcctStop=juniRadiusClientIncludeConnectInfoInAcctStop, juniRadiusClientIncludeDhcpGiAddressInAccessReq=juniRadiusClientIncludeDhcpGiAddressInAccessReq, juniRadiusClientIncludeIpv6SecondaryDnsInAcctStart=juniRadiusClientIncludeIpv6SecondaryDnsInAcctStart, juniRadiusClientIncludeTunnelTypeInAccessReq=juniRadiusClientIncludeTunnelTypeInAccessReq, juniRadiusAcctClientCfgRetries=juniRadiusAcctClientCfgRetries, juniRadiusClientIncludeProfileServiceDescrInAccessReq=juniRadiusClientIncludeProfileServiceDescrInAccessReq, juniRadiusAcctClientGroup4=juniRadiusAcctClientGroup4, juniRadiusClientIncludeMlpppBundleNameInAccessReq=juniRadiusClientIncludeMlpppBundleNameInAccessReq, juniRadiusClientIncludeTunnelTypeInAcctStop=juniRadiusClientIncludeTunnelTypeInAcctStop, juniRadiusClientIncludeDslForumAttributesInAcctStop=juniRadiusClientIncludeDslForumAttributesInAcctStop, juniRadiusBrasClientGroup15=juniRadiusBrasClientGroup15, juniRadiusClientMIBConformance=juniRadiusClientMIBConformance, juniRadiusClientIncludeNasPortIdInAcctStart=juniRadiusClientIncludeNasPortIdInAcctStart, juniRadiusAcctClientServerPortNumber=juniRadiusAcctClientServerPortNumber, juniRadiusClientIncludeFramedCompressionInAcctStop=juniRadiusClientIncludeFramedCompressionInAcctStop, juniRadiusClientIncludeFramedIpv6PoolInAcctStart=juniRadiusClientIncludeFramedIpv6PoolInAcctStart, juniRadiusClientIncludeNasIdentifierInAcctOff=juniRadiusClientIncludeNasIdentifierInAcctOff, juniRadiusAuthClientCfgTimeoutInterval=juniRadiusAuthClientCfgTimeoutInterval, juniRadiusAcctClientCfgServerEntry=juniRadiusAcctClientCfgServerEntry, juniRadiusClientIncludeTunnelTypeInAcctStart=juniRadiusClientIncludeTunnelTypeInAcctStart, juniRadiusClientIncludeDhcpGiAddressInAcctStop=juniRadiusClientIncludeDhcpGiAddressInAcctStop, juniRadiusAuthClientCfgServerAddress=juniRadiusAuthClientCfgServerAddress, juniRadiusAuthClientCfgRowStatus=juniRadiusAuthClientCfgRowStatus, juniRadiusAcctClientNextAvailableServer=juniRadiusAcctClientNextAvailableServer, juniRadiusAuthClientAccessRetransmissions=juniRadiusAuthClientAccessRetransmissions, juniRadiusClientIncludeIpv6LocalInterfaceInAcctStart=juniRadiusClientIncludeIpv6LocalInterfaceInAcctStart, juniRadiusClientIncludeEgressPolicyNameInAcctStart=juniRadiusClientIncludeEgressPolicyNameInAcctStart, juniRadiusClientIncludeDhcpMacAddressInAcctStop=juniRadiusClientIncludeDhcpMacAddressInAcctStop, juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart=juniRadiusClientIncludeL2cActualDataRateDstrInAcctStart, juniRadiusClientNasPortFieldWidthEthernetAdapter=juniRadiusClientNasPortFieldWidthEthernetAdapter, juniRadiusClientIncludeDslForumAttributesInAccessReq=juniRadiusClientIncludeDslForumAttributesInAccessReq, juniRadiusClientIncludeIpv6PrimaryDnsInAcctStart=juniRadiusClientIncludeIpv6PrimaryDnsInAcctStart, juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq=juniRadiusClientIncludeL2cActualDataRateUstrInAccessReq, juniRadiusClientTrapControl=juniRadiusClientTrapControl, juniRadiusClientIncludeTunnelMediumTypeInAccessReq=juniRadiusClientIncludeTunnelMediumTypeInAccessReq, juniRadiusBrasClientGroup7=juniRadiusBrasClientGroup7, juniRadiusGeneralClientGroup2=juniRadiusGeneralClientGroup2, juniRadiusClientIncludeEgressPolicyNameInAcctStop=juniRadiusClientIncludeEgressPolicyNameInAcctStop, juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq=juniRadiusClientIncludeL2cMaximumDataRateDstrInAccessReq, juniRadiusClientIncludeL2cDslTypeInAccessReq=juniRadiusClientIncludeL2cDslTypeInAccessReq, juniRadiusClientIgnorePppoeMaxSession=juniRadiusClientIgnorePppoeMaxSession, juniRadiusAuthClientCfgPrecedence=juniRadiusAuthClientCfgPrecedence, juniRadiusClientRemoteCircuitIdFormat=juniRadiusClientRemoteCircuitIdFormat, juniRadiusClientAcctSessionIdFormat=juniRadiusClientAcctSessionIdFormat, juniRadiusClientIncludeL2cDslTypeInAcctStart=juniRadiusClientIncludeL2cDslTypeInAcctStart, juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq=juniRadiusClientIncludeL2cMinimumDataRateUstrInAccessReq, juniRadiusClientIncludeTunnelAssignmentIdInAcctStop=juniRadiusClientIncludeTunnelAssignmentIdInAcctStop, juniRadiusAcctNotificationGroup2=juniRadiusAcctNotificationGroup2, juniRadiusClientVlanNasPortFormat=juniRadiusClientVlanNasPortFormat, juniRadiusAcctClientCfgServerAddress=juniRadiusAcctClientCfgServerAddress, juniRadiusAuthClientAccessAccepts=juniRadiusAuthClientAccessAccepts, juniRadiusClientIncludeTunnelServerEndpointInAcctStart=juniRadiusClientIncludeTunnelServerEndpointInAcctStart, juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq=juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAccessReq, juniRadiusClientIncludeClassInAcctStop=juniRadiusClientIncludeClassInAcctStop, JuniRadiusClientRemoterCircuitIdFormatComponents=JuniRadiusClientRemoterCircuitIdFormatComponents, juniRadiusClientIncludeFramedIpv6RouteInAcctStart=juniRadiusClientIncludeFramedIpv6RouteInAcctStart, juniRadiusAuthClientUnknownTypes=juniRadiusAuthClientUnknownTypes, juniRadiusClientNasPortFormat=juniRadiusClientNasPortFormat, juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq=juniRadiusClientIncludeL2cAttainDataRateDstrInAccessReq, juniRadiusClientIncludeConnectInfoInAcctStart=juniRadiusClientIncludeConnectInfoInAcctStart, juniRadiusAuthClientGroup2=juniRadiusAuthClientGroup2, juniRadiusGeneralClientGroup=juniRadiusGeneralClientGroup, juniRadiusClientNasPortFieldWidthAtmVpi=juniRadiusClientNasPortFieldWidthAtmVpi, juniRadiusClientCompliance7=juniRadiusClientCompliance7, juniRadiusClientIncludeNasIdentifierInAcctStop=juniRadiusClientIncludeNasIdentifierInAcctStop, juniRadiusClientTrapOnNoAcctServerAvailable=juniRadiusClientTrapOnNoAcctServerAvailable, juniRadiusClientIncludeIpv6SecondaryDnsInAcctStop=juniRadiusClientIncludeIpv6SecondaryDnsInAcctStop, juniRadiusClientMIBCompliances=juniRadiusClientMIBCompliances, juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq=juniRadiusClientIncludeL2cMinimumDataRateDstrInAccessReq, juniRadiusClientRollover=juniRadiusClientRollover, juniRadiusAuthClientRoundTripTime=juniRadiusAuthClientRoundTripTime, juniRadiusClientIncludeDhcpGiAddressInAcctStart=juniRadiusClientIncludeDhcpGiAddressInAcctStart, juniRadiusClientIncludeTunnelClientAuthIdInAccessReq=juniRadiusClientIncludeTunnelClientAuthIdInAccessReq, juniRadiusClientCallingStationDelimiter=juniRadiusClientCallingStationDelimiter, juniRadiusAcctClientServerUnavailable=juniRadiusAcctClientServerUnavailable, juniRadiusClientIncludeEventTimestampInAcctOn=juniRadiusClientIncludeEventTimestampInAcctOn, juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop=juniRadiusClientIncludeDelegatedIpv6PrefixInAcctStop, juniRadiusClientCompliance14=juniRadiusClientCompliance14, juniRadiusTunnelClientGroup=juniRadiusTunnelClientGroup, juniRadiusClientIncludeTunnelClientEndpointInAcctStart=juniRadiusClientIncludeTunnelClientEndpointInAcctStart, juniRadiusClientTrapOnAuthServerAvailable=juniRadiusClientTrapOnAuthServerAvailable, juniRadiusClientIncludeDhcpOptionsInAcctStop=juniRadiusClientIncludeDhcpOptionsInAcctStop, juniRadiusClientIncludeTunnelMediumTypeInAcctStart=juniRadiusClientIncludeTunnelMediumTypeInAcctStart, juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart=juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStart, juniRadiusBrasClientGroup9=juniRadiusBrasClientGroup9, juniRadiusClientIncludeCalledStationIdInAcctStart=juniRadiusClientIncludeCalledStationIdInAcctStart, juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq=juniRadiusClientIncludeL2cAttainDataRateUstrInAccessReq, juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop=juniRadiusClientIncludeL2cActualDataRateDstrInAcctStop, juniRadiusClientIncludeAcctMultiSessionIdInAccessReq=juniRadiusClientIncludeAcctMultiSessionIdInAccessReq, juniRadiusBrasClientGroup14=juniRadiusBrasClientGroup14, juniRadiusAcctClientInterimResponses=juniRadiusAcctClientInterimResponses, juniRadiusClientIncludeCalledStationIdInAccessReq=juniRadiusClientIncludeCalledStationIdInAccessReq, juniRadiusClientCompliance5=juniRadiusClientCompliance5, juniRadiusAcctClientInterimRequests=juniRadiusAcctClientInterimRequests, juniRadiusAcctClient=juniRadiusAcctClient, juniRadiusBrasClientGroup21=juniRadiusBrasClientGroup21, juniRadiusClientIncludeOutputGigawordsInAcctStop=juniRadiusClientIncludeOutputGigawordsInAcctStop, juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop=juniRadiusClientIncludeL2cMinimumDataRateUstrInAcctStop, juniRadiusClientIncludeL2cDslLineStateInAcctStop=juniRadiusClientIncludeL2cDslLineStateInAcctStop, juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop=juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStop, juniRadiusClientAtmNasPortFormat=juniRadiusClientAtmNasPortFormat, juniRadiusClientIncludeAcctSessionIdInAcctOn=juniRadiusClientIncludeAcctSessionIdInAcctOn, juniRadiusClientIncludeTunnelClientEndpointInAcctStop=juniRadiusClientIncludeTunnelClientEndpointInAcctStop, juniRadiusClientTrapOnAcctServerAvailable=juniRadiusClientTrapOnAcctServerAvailable, juniRadiusClientIncludeMlpppBundleNameInAcctStop=juniRadiusClientIncludeMlpppBundleNameInAcctStop, juniRadiusClientIgnoreAtmPcr=juniRadiusClientIgnoreAtmPcr, juniRadiusClientTraps=juniRadiusClientTraps, juniRadiusAuthClientAccessChallenges=juniRadiusAuthClientAccessChallenges, juniRadiusAcctClientRetransmissions=juniRadiusAcctClientRetransmissions, juniRadiusAuthClientNextAvailableServer=juniRadiusAuthClientNextAvailableServer, juniRadiusAcctClientCompliance2=juniRadiusAcctClientCompliance2, juniRadiusAuthClientCfgServerEntry=juniRadiusAuthClientCfgServerEntry, juniRadiusAcctClientCfgServerTable=juniRadiusAcctClientCfgServerTable, juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop=juniRadiusClientIncludeUpStreamCalculatedQosRateInAcctStop, juniRadiusClientIncludeL2cUpStreamDataInAcctStop=juniRadiusClientIncludeL2cUpStreamDataInAcctStop, juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart=juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStart, juniRadiusClientIncludeOutputGigapktsInAcctStop=juniRadiusClientIncludeOutputGigapktsInAcctStop, juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop=juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStop, juniRadiusClientIncludeNasIdentifierInAcctStart=juniRadiusClientIncludeNasIdentifierInAcctStart, juniRadiusAuthNotificationGroup2=juniRadiusAuthNotificationGroup2, juniRadiusClientIncludePppoeDescriptionInAcctStop=juniRadiusClientIncludePppoeDescriptionInAcctStop, juniRadiusClientIncludeIpAddrInAcctStart=juniRadiusClientIncludeIpAddrInAcctStart, juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq=juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAccessReq, juniRadiusClientIncludeCallingStationIdInAcctStop=juniRadiusClientIncludeCallingStationIdInAcctStop, juniRadiusClientIncludeNasIdentifierInAcctOn=juniRadiusClientIncludeNasIdentifierInAcctOn, juniRadiusAuthClientServerAvailable=juniRadiusAuthClientServerAvailable, juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart=juniRadiusClientIncludeL2cAttainDataRateUstrInAcctStart, juniRadiusClientIncludeProfileServiceDescrInAcctStop=juniRadiusClientIncludeProfileServiceDescrInAcctStop, juniRadiusClientCallingStationIdFormat=juniRadiusClientCallingStationIdFormat, juniRadiusClientIncludeInputGigawordsInAcctStop=juniRadiusClientIncludeInputGigawordsInAcctStop, juniRadiusBrasClientGroup8=juniRadiusBrasClientGroup8, juniRadiusClientIncludeL2cDownStreamDataInAcctStop=juniRadiusClientIncludeL2cDownStreamDataInAcctStop, juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq=juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAccessReq, juniRadiusClientIncludeTunnelServerAttributesInAcctStart=juniRadiusClientIncludeTunnelServerAttributesInAcctStart, juniRadiusClientIncludeTunnelServerAttributesInAcctStop=juniRadiusClientIncludeTunnelServerAttributesInAcctStop, juniRadiusClientIncludeIpv6AccountingInAcctStop=juniRadiusClientIncludeIpv6AccountingInAcctStop, juniRadiusClientIncludeIpv6NdRaPrefixInAcctStop=juniRadiusClientIncludeIpv6NdRaPrefixInAcctStop, juniRadiusClientIncludeTunnelServerAuthIdInAcctStop=juniRadiusClientIncludeTunnelServerAuthIdInAcctStop, juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop=juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStop, juniRadiusAuthClientServerPortNumber=juniRadiusAuthClientServerPortNumber, juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq=juniRadiusClientIncludeL2cAccessLoopCircuitIdInAccessReq, juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop=juniRadiusClientIncludeL2tpPppDisconnectCauseInAcctStop, juniRadiusClientIncludeIngressPolicyNameInAcctStop=juniRadiusClientIncludeIngressPolicyNameInAcctStop, juniRadiusClientIncludeTunnelPreferenceInAcctStop=juniRadiusClientIncludeTunnelPreferenceInAcctStop, juniRadiusAuthClientCfgMaxPendingRequests=juniRadiusAuthClientCfgMaxPendingRequests, juniRadiusClientUdpChecksum=juniRadiusClientUdpChecksum, juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop=juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStop, juniRadiusClientNasPortFieldWidthEthernetPort=juniRadiusClientNasPortFieldWidthEthernetPort, juniRadiusClientIncludeTunnelInterfaceIdInAccessReq=juniRadiusClientIncludeTunnelInterfaceIdInAccessReq, juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq=juniRadiusClientIncludeL2cAccessLoopParametersInAccessReq, juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop=juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStop, juniRadiusAuthClientCfgServerTable=juniRadiusAuthClientCfgServerTable, juniRadiusClientCompliance12=juniRadiusClientCompliance12, juniRadiusClientEthernetPortType=juniRadiusClientEthernetPortType, juniRadiusClientIncludeAcctAuthenticInAcctOff=juniRadiusClientIncludeAcctAuthenticInAcctOff, juniRadiusBrasClientGroup2=juniRadiusBrasClientGroup2, juniRadiusClientIncludeTunnelServerEndpointInAccessReq=juniRadiusClientIncludeTunnelServerEndpointInAccessReq, juniRadiusAuthClientGroup3=juniRadiusAuthClientGroup3, juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop=juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStop, juniRadiusAuthClientCompliance2=juniRadiusAuthClientCompliance2, juniRadiusAuthClientMalformedAccessResponses=juniRadiusAuthClientMalformedAccessResponses, juniRadiusClientIncludeProfileServiceDescrInAcctStart=juniRadiusClientIncludeProfileServiceDescrInAcctStart, juniRadiusClientIgnoreIngressPolicyName=juniRadiusClientIgnoreIngressPolicyName, juniRadiusClientIncludeInterfaceIdInAcctStop=juniRadiusClientIncludeInterfaceIdInAcctStop, juniRadiusBrasClientGroup12=juniRadiusBrasClientGroup12, juniRadiusAcctClientPacketsDropped=juniRadiusAcctClientPacketsDropped, juniRadiusAuthClientCfgDeadTime=juniRadiusAuthClientCfgDeadTime, juniRadiusClientTrapPrefix=juniRadiusClientTrapPrefix, juniRadiusClientCompliance9=juniRadiusClientCompliance9, juniRadiusClientIncludeInterfaceDescriptionInAccessReq=juniRadiusClientIncludeInterfaceDescriptionInAccessReq, juniRadiusClientAlgorithm=juniRadiusClientAlgorithm, juniRadiusClientIncludeInterfaceIdInAcctStart=juniRadiusClientIncludeInterfaceIdInAcctStart, juniRadiusClientMIB=juniRadiusClientMIB, juniRadiusClientIncludeL2cUpStreamDataInAccessReq=juniRadiusClientIncludeL2cUpStreamDataInAccessReq, PYSNMP_MODULE_ID=juniRadiusClientMIB, juniRadiusClientIncludeQosProfileNameInAcctStart=juniRadiusClientIncludeQosProfileNameInAcctStart, juniRadiusAuthClient=juniRadiusAuthClient, juniRadiusClientIncludeAscendNumInMultilinkInAccessReq=juniRadiusClientIncludeAscendNumInMultilinkInAccessReq, juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop=juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAcctStop, juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop=juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStop, juniRadiusClientIncludeEventTimestampInAcctStop=juniRadiusClientIncludeEventTimestampInAcctStop, juniRadiusAcctClientCfgMaxPendingRequests=juniRadiusAcctClientCfgMaxPendingRequests, juniRadiusBrasClientGroup6=juniRadiusBrasClientGroup6, juniRadiusClientIncludeIpv6PrefixInAcctStart=juniRadiusClientIncludeIpv6PrefixInAcctStart, juniRadiusAuthClientBadAuthenticators=juniRadiusAuthClientBadAuthenticators, juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq=juniRadiusClientIncludeL2cMinLowPowerDataRateDstrInAccessReq, juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart=juniRadiusClientIncludeL2cAccessLoopCircuitIdInAcctStart, juniRadiusAcctClientMalformedResponses=juniRadiusAcctClientMalformedResponses, juniRadiusClientNasIdentifier=juniRadiusClientNasIdentifier, juniRadiusClientIgnoreAtmMbs=juniRadiusClientIgnoreAtmMbs, juniRadiusAuthClientAccessRequests=juniRadiusAuthClientAccessRequests, juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart=juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAcctStart, juniRadiusClientTunnelAccounting=juniRadiusClientTunnelAccounting)
+mibBuilder.exportSymbols("Juniper-RADIUS-CLIENT-MIB", juniRadiusClientIgnoreEgressPolicyName=juniRadiusClientIgnoreEgressPolicyName, juniRadiusClientIncludeL2cDownStreamDataInAccessReq=juniRadiusClientIncludeL2cDownStreamDataInAccessReq, juniRadiusAuthClientAccessRejects=juniRadiusAuthClientAccessRejects, juniRadiusBrasClientGroup20=juniRadiusBrasClientGroup20, juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop=juniRadiusClientIncludeL2cActualDataRateUstrInAcctStop, juniRadiusClientIncludeAcctMultiSessionIdInAcctStart=juniRadiusClientIncludeAcctMultiSessionIdInAcctStart, juniRadiusClientIncludeTunnelInterfaceIdInAcctStop=juniRadiusClientIncludeTunnelInterfaceIdInAcctStop, juniRadiusAcctClientCfgServerPortNumber=juniRadiusAcctClientCfgServerPortNumber, juniRadiusClientTrapOnAuthServerUnavailable=juniRadiusClientTrapOnAuthServerUnavailable, juniRadiusClientCompliance=juniRadiusClientCompliance, juniRadiusClientIncludeFramedIpv6PoolInAcctStop=juniRadiusClientIncludeFramedIpv6PoolInAcctStop, juniRadiusClientIncludeCallingStationIdInAccessReq=juniRadiusClientIncludeCallingStationIdInAccessReq, juniRadiusBrasClientGroup17=juniRadiusBrasClientGroup17, juniRadiusAcctClientServerAvailable=juniRadiusAcctClientServerAvailable, juniRadiusAcctClientCfgKey=juniRadiusAcctClientCfgKey, juniRadiusClientIncludeNasPortTypeInAcctStart=juniRadiusClientIncludeNasPortTypeInAcctStart, juniRadiusGeneralClient=juniRadiusGeneralClient, juniRadiusClientIncludeFramedIpNetmaskInAcctStop=juniRadiusClientIncludeFramedIpNetmaskInAcctStop, juniRadiusClientCompliance17=juniRadiusClientCompliance17, juniRadiusClientSourceAddress=juniRadiusClientSourceAddress, juniRadiusClientIncludeConnectInfoInAccessReq=juniRadiusClientIncludeConnectInfoInAccessReq, juniRadiusClientPppoeNasPortFormat=juniRadiusClientPppoeNasPortFormat, juniRadiusAcctClientStartResponses=juniRadiusAcctClientStartResponses, juniRadiusAuthClientAvailableServer=juniRadiusAuthClientAvailableServer, juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq=juniRadiusClientIncludeL2cMaxInterleavingDelayUstrInAccessReq, juniRadiusBrasClientGroup18=juniRadiusBrasClientGroup18, juniRadiusClientIncludeAcctTerminateCauseInAcctOff=juniRadiusClientIncludeAcctTerminateCauseInAcctOff, juniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq=juniRadiusClientIncludeUpStreamCalculatedQosRateInAccessReq, juniRadiusClientIncludeIngressPolicyNameInAcctStart=juniRadiusClientIncludeIngressPolicyNameInAcctStart, juniRadiusClientOverrideNasInfo=juniRadiusClientOverrideNasInfo, juniRadiusAcctClientRejectResponses=juniRadiusAcctClientRejectResponses, juniRadiusAcctClientCompliance=juniRadiusAcctClientCompliance, juniRadiusClientIncludeMlpppBundleNameInAcctStart=juniRadiusClientIncludeMlpppBundleNameInAcctStart, juniRadiusClientIncludeCallingStationIdInAcctStart=juniRadiusClientIncludeCallingStationIdInAcctStart, juniRadiusClientIncludeTunnelClientEndpointInAccessReq=juniRadiusClientIncludeTunnelClientEndpointInAccessReq, juniRadiusClientCompliance11=juniRadiusClientCompliance11, juniRadiusAuthClientCfgKey=juniRadiusAuthClientCfgKey, juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop=juniRadiusClientIncludeL2cMaximumDataRateUstrInAcctStop, juniRadiusBrasClientGroup13=juniRadiusBrasClientGroup13, juniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq=juniRadiusClientIncludeDownStreamCalculatedQosRateInAccessReq, juniRadiusClientIncludeIpv6NdRaPrefixInAcctStart=juniRadiusClientIncludeIpv6NdRaPrefixInAcctStart, juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq=juniRadiusClientIncludeL2cActInterleavingDelayDstrInAccessReq, juniRadiusAuthClientCfgServerPortNumber=juniRadiusAuthClientCfgServerPortNumber, juniRadiusBrasClientGroup4=juniRadiusBrasClientGroup4, juniRadiusClientIncludeInterfaceDescriptionInAcctStart=juniRadiusClientIncludeInterfaceDescriptionInAcctStart, juniRadiusClientCompliance19=juniRadiusClientCompliance19, juniRadiusAcctClientGroup3=juniRadiusAcctClientGroup3, juniRadiusClientIncludeAcctTunnelConnectionInAcctStop=juniRadiusClientIncludeAcctTunnelConnectionInAcctStop, juniRadiusClientNasPortFieldWidthAtmPort=juniRadiusClientNasPortFieldWidthAtmPort, juniRadiusClientNasPortFieldWidthAtmAdapter=juniRadiusClientNasPortFieldWidthAtmAdapter, juniRadiusClientIncludeNasPortIdInAccessReq=juniRadiusClientIncludeNasPortIdInAccessReq, juniRadiusClientIncludePppoeDescriptionInAcctStart=juniRadiusClientIncludePppoeDescriptionInAcctStart, juniRadiusClientIncludeIpv6PrefixInAcctStop=juniRadiusClientIncludeIpv6PrefixInAcctStop, juniRadiusClientIncludeNasPortInAcctStart=juniRadiusClientIncludeNasPortInAcctStart, juniRadiusClientIncludeAcctTunnelConnectionInAccessReq=juniRadiusClientIncludeAcctTunnelConnectionInAccessReq, juniRadiusClientTrapOnAcctServerUnavailable=juniRadiusClientTrapOnAcctServerUnavailable, juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop=juniRadiusClientIncludeL2cAttainDataRateDstrInAcctStop, juniRadiusClientIncludeAcctAuthenticInAcctOn=juniRadiusClientIncludeAcctAuthenticInAcctOn, juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop=juniRadiusClientIncludeL2cMinLowPowerDataRateUstrInAcctStop, juniRadiusClientIncludeTunnelClientAuthIdInAcctStart=juniRadiusClientIncludeTunnelClientAuthIdInAcctStart, juniRadiusClientIncludeTunnelServerAttributesInAccessReq=juniRadiusClientIncludeTunnelServerAttributesInAccessReq, juniRadiusClientIncludeDhcpOptionsInAcctStart=juniRadiusClientIncludeDhcpOptionsInAcctStart, juniRadiusClientCompliance13=juniRadiusClientCompliance13, juniRadiusAuthClientCfgRetries=juniRadiusAuthClientCfgRetries, juniRadiusAuthClientGroup=juniRadiusAuthClientGroup, juniRadiusClientIncludeIpv6PrimaryDnsInAcctStop=juniRadiusClientIncludeIpv6PrimaryDnsInAcctStop, juniRadiusClientIncludeClassInAcctStart=juniRadiusClientIncludeClassInAcctStart, juniRadiusClientIncludeNasPortIdInAcctStop=juniRadiusClientIncludeNasPortIdInAcctStop, juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart=juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStart, juniRadiusAcctClientRoundTripTime=juniRadiusAcctClientRoundTripTime, juniRadiusAcctNotificationGroup=juniRadiusAcctNotificationGroup, juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq=juniRadiusClientIncludeL2cActualDataRateDstrInAccessReq, juniRadiusAcctClientUnknownTypes=juniRadiusAcctClientUnknownTypes, juniRadiusAcctClientServerAddress=juniRadiusAcctClientServerAddress, juniRadiusClientIncludeTunnelMediumTypeInAcctStop=juniRadiusClientIncludeTunnelMediumTypeInAcctStop, juniRadiusClientIncludeEventTimestampInAcctStart=juniRadiusClientIncludeEventTimestampInAcctStart, juniRadiusAuthClientServerTable=juniRadiusAuthClientServerTable, juniRadiusAcctClientAvailableServer=juniRadiusAcctClientAvailableServer, juniRadiusClientIncludeFramedIpv6RouteInAcctStop=juniRadiusClientIncludeFramedIpv6RouteInAcctStop, juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq=juniRadiusClientIncludeL2cMaximumDataRateUstrInAccessReq, juniRadiusClientIncludeIpv6VirtualRouterInAcctStop=juniRadiusClientIncludeIpv6VirtualRouterInAcctStop, juniRadiusClientIncludeL2cDslLineStateInAccessReq=juniRadiusClientIncludeL2cDslLineStateInAccessReq, juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart=juniRadiusClientIncludeL2cMaxInterleavingDelayDstrInAcctStart, juniRadiusClientIncludeNasIdentifierInAccessReq=juniRadiusClientIncludeNasIdentifierInAccessReq, juniRadiusClientIncludeL2cDownStreamDataInAcctStart=juniRadiusClientIncludeL2cDownStreamDataInAcctStart, juniRadiusAuthClientCompliance=juniRadiusAuthClientCompliance, juniRadiusBasicClientGroup=juniRadiusBasicClientGroup, juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart=juniRadiusClientIncludeL2cMinimumDataRateDstrInAcctStart, juniRadiusClientIncludeTunnelInterfaceIdInAcctStart=juniRadiusClientIncludeTunnelInterfaceIdInAcctStart, juniRadiusClientConnectInfoFormat=juniRadiusClientConnectInfoFormat, juniRadiusClientCallingStationIdOverrideRemoteCircuitId=juniRadiusClientCallingStationIdOverrideRemoteCircuitId, juniRadiusClientCompliance8=juniRadiusClientCompliance8, juniRadiusClientIgnoreAtmCategory=juniRadiusClientIgnoreAtmCategory, juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq=juniRadiusClientIncludeL2cActInterleavingDelayUstrInAccessReq, juniRadiusClientCompliance6=juniRadiusClientCompliance6, juniRadiusClientNasPortFieldWidthEthernetSVlan=juniRadiusClientNasPortFieldWidthEthernetSVlan, juniRadiusClientIdentifier=juniRadiusClientIdentifier, juniRadiusAuthClientTimeouts=juniRadiusAuthClientTimeouts, juniRadiusClientCompliance3=juniRadiusClientCompliance3, juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop=juniRadiusClientIncludeL2cAccessAggrCircuitIdAsciiInAcctStop, juniRadiusAcctClientNoServerAvailable=juniRadiusAcctClientNoServerAvailable, juniRadiusClientIncludeIpv6LocalInterfaceInAcctStop=juniRadiusClientIncludeIpv6LocalInterfaceInAcctStop, juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop=juniRadiusClientIncludeL2cActInterleavingDelayDstrInAcctStop, juniRadiusClientIncludeAcctSessionIdInAccessReq=juniRadiusClientIncludeAcctSessionIdInAccessReq, juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart=juniRadiusClientIncludeL2cActInterleavingDelayUstrInAcctStart, juniRadiusAcctClientTimeouts=juniRadiusAcctClientTimeouts, juniRadiusAcctClientRequests=juniRadiusAcctClientRequests, juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart=juniRadiusClientIncludeL2cActualDataRateUstrInAcctStart, juniRadiusClientIncludeTunnelPreferenceInAcctStart=juniRadiusClientIncludeTunnelPreferenceInAcctStart, juniRadiusBrasClientGroup19=juniRadiusBrasClientGroup19, juniRadiusClientNasPortFieldWidthAtmVci=juniRadiusClientNasPortFieldWidthAtmVci, juniRadiusClientIncludeCalledStationIdInAcctStop=juniRadiusClientIncludeCalledStationIdInAcctStop, juniRadiusClientCompliance15=juniRadiusClientCompliance15, juniRadiusClientIncludeDhcpMacAddressInAcctStart=juniRadiusClientIncludeDhcpMacAddressInAcctStart, juniRadiusClientEthernetNasPortFormat=juniRadiusClientEthernetNasPortFormat, juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart=juniRadiusClientIncludeL2cAccessAggrCircuitIdBinaryInAcctStart, juniRadiusClientIgnoreVirtualRouter=juniRadiusClientIgnoreVirtualRouter, juniRadiusAuthClientServerUnavailable=juniRadiusAuthClientServerUnavailable, juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop=juniRadiusClientIncludeDownStreamCalculatedQosRateInAcctStop, juniRadiusClientIncludeDhcpOptionsInAccessReq=juniRadiusClientIncludeDhcpOptionsInAccessReq, juniRadiusClientIncludeL2cUpStreamDataInAcctStart=juniRadiusClientIncludeL2cUpStreamDataInAcctStart, juniRadiusAuthNotificationGroup=juniRadiusAuthNotificationGroup, juniRadiusClientIncludeInterfaceDescriptionInAcctStop=juniRadiusClientIncludeInterfaceDescriptionInAcctStop, juniRadiusAcctClientStartRequests=juniRadiusAcctClientStartRequests, juniRadiusAuthClientInvalidServerAddresses=juniRadiusAuthClientInvalidServerAddresses, juniRadiusAcctClientCfgDeadTime=juniRadiusAcctClientCfgDeadTime, juniRadiusClientIgnoreFramedIpNetmask=juniRadiusClientIgnoreFramedIpNetmask, juniRadiusBrasClientGroup=juniRadiusBrasClientGroup, juniRadiusClientMIBGroups=juniRadiusClientMIBGroups, juniRadiusClientIncludeDslForumAttributesInAcctStart=juniRadiusClientIncludeDslForumAttributesInAcctStart, juniRadiusAcctClientResponses=juniRadiusAcctClientResponses, juniRadiusClientTrapOnNoAuthServerAvailable=juniRadiusClientTrapOnNoAuthServerAvailable, juniRadiusClientCompliance2=juniRadiusClientCompliance2, juniRadiusClientCompliance4=juniRadiusClientCompliance4, juniRadiusBrasClientGroup10=juniRadiusBrasClientGroup10, juniRadiusClientNasPortFieldWidthEthernetVlan=juniRadiusClientNasPortFieldWidthEthernetVlan, juniRadiusAuthClientPendingRequests=juniRadiusAuthClientPendingRequests, juniRadiusAuthClientUnavailableServer=juniRadiusAuthClientUnavailableServer, juniRadiusClientIncludeAcctTunnelConnectionInAcctStart=juniRadiusClientIncludeAcctTunnelConnectionInAcctStart, juniRadiusClientIncludeEventTimestampInAcctOff=juniRadiusClientIncludeEventTimestampInAcctOff, juniRadiusAcctClientCfgRowStatus=juniRadiusAcctClientCfgRowStatus, juniRadiusClientIncludeL2cDslTypeInAcctStop=juniRadiusClientIncludeL2cDslTypeInAcctStop, juniRadiusClientIncludeAcctDelayTimeInAcctOn=juniRadiusClientIncludeAcctDelayTimeInAcctOn, juniRadiusClientIncludeNasPortInAcctStop=juniRadiusClientIncludeNasPortInAcctStop, juniRadiusClientIncludeAcctMultiSessionIdInAcctStop=juniRadiusClientIncludeAcctMultiSessionIdInAcctStop, juniRadiusClientCompliance10=juniRadiusClientCompliance10, juniRadiusAuthClientServerAddress=juniRadiusAuthClientServerAddress, juniRadiusBasicClientGroup2=juniRadiusBasicClientGroup2)

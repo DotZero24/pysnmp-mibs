@@ -1,81 +1,65 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-contivity,=mibBuilder.importSymbols('NEWOAK-MIB','contivity')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-id_ces=ModuleIdentity((1,3,6,1,4,1,2505,1,16))
-if mibBuilder.loadTexts:id_ces.setRevisions(('1901-05-10 23:00',))
-_Id_Software_ces_ObjectIdentity=ObjectIdentity
-id_Software_ces=_Id_Software_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1))
-if mibBuilder.loadTexts:id_Software_ces.setStatus(_A)
-_Id_SW_Server_ces_ObjectIdentity=ObjectIdentity
-id_SW_Server_ces=_Id_SW_Server_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1))
-if mibBuilder.loadTexts:id_SW_Server_ces.setStatus(_A)
-_Id_SW_Routing_ces_ObjectIdentity=ObjectIdentity
-id_SW_Routing_ces=_Id_SW_Routing_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,1))
-if mibBuilder.loadTexts:id_SW_Routing_ces.setStatus(_A)
-_Id_SW_Routing_RoutingInformationProtocol_ces_ObjectIdentity=ObjectIdentity
-id_SW_Routing_RoutingInformationProtocol_ces=_Id_SW_Routing_RoutingInformationProtocol_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,1,1))
-if mibBuilder.loadTexts:id_SW_Routing_RoutingInformationProtocol_ces.setStatus(_A)
-_Id_SW_Routing_AdvancedRouting_ces_ObjectIdentity=ObjectIdentity
-id_SW_Routing_AdvancedRouting_ces=_Id_SW_Routing_AdvancedRouting_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,1,2))
-if mibBuilder.loadTexts:id_SW_Routing_AdvancedRouting_ces.setStatus(_A)
-_Id_SW_AdvancedRouting_OpenShortestPathFirst_ces_ObjectIdentity=ObjectIdentity
-id_SW_AdvancedRouting_OpenShortestPathFirst_ces=_Id_SW_AdvancedRouting_OpenShortestPathFirst_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,1,2,2))
-if mibBuilder.loadTexts:id_SW_AdvancedRouting_OpenShortestPathFirst_ces.setStatus(_A)
-_Id_SW_AdvancedRouting_VirtualRouterRedundancyProtocol_ces_ObjectIdentity=ObjectIdentity
-id_SW_AdvancedRouting_VirtualRouterRedundancyProtocol_ces=_Id_SW_AdvancedRouting_VirtualRouterRedundancyProtocol_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,1,2,3))
-if mibBuilder.loadTexts:id_SW_AdvancedRouting_VirtualRouterRedundancyProtocol_ces.setStatus(_A)
-_Id_SW_AdvancedRouting_BandWidthManagement_ces_ObjectIdentity=ObjectIdentity
-id_SW_AdvancedRouting_BandWidthManagement_ces=_Id_SW_AdvancedRouting_BandWidthManagement_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,1,2,4))
-if mibBuilder.loadTexts:id_SW_AdvancedRouting_BandWidthManagement_ces.setStatus(_A)
-_Id_SW_AdvancedRouting_DiffServ_ces_ObjectIdentity=ObjectIdentity
-id_SW_AdvancedRouting_DiffServ_ces=_Id_SW_AdvancedRouting_DiffServ_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,1,2,5))
-if mibBuilder.loadTexts:id_SW_AdvancedRouting_DiffServ_ces.setStatus(_A)
-_Id_SW_DataLinkSwitchingFeature_ces_ObjectIdentity=ObjectIdentity
-id_SW_DataLinkSwitchingFeature_ces=_Id_SW_DataLinkSwitchingFeature_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,1,3))
-if mibBuilder.loadTexts:id_SW_DataLinkSwitchingFeature_ces.setStatus(_A)
-_Id_SW_Routing_BGPRouting_ces_ObjectIdentity=ObjectIdentity
-id_SW_Routing_BGPRouting_ces=_Id_SW_Routing_BGPRouting_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,1,4))
-if mibBuilder.loadTexts:id_SW_Routing_BGPRouting_ces.setStatus(_A)
-_Id_SW_BorderGatewayProtocol_ces_ObjectIdentity=ObjectIdentity
-id_SW_BorderGatewayProtocol_ces=_Id_SW_BorderGatewayProtocol_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,1,4,1))
-if mibBuilder.loadTexts:id_SW_BorderGatewayProtocol_ces.setStatus(_A)
-_Id_SW_Routing_Premium_Routing_ces_ObjectIdentity=ObjectIdentity
-id_SW_Routing_Premium_Routing_ces=_Id_SW_Routing_Premium_Routing_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,1,5))
-if mibBuilder.loadTexts:id_SW_Routing_Premium_Routing_ces.setStatus(_A)
-_Id_SW_Security_ces_ObjectIdentity=ObjectIdentity
-id_SW_Security_ces=_Id_SW_Security_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,2))
-if mibBuilder.loadTexts:id_SW_Security_ces.setStatus(_A)
-_Id_SW_Security_Firewall_ces_ObjectIdentity=ObjectIdentity
-id_SW_Security_Firewall_ces=_Id_SW_Security_Firewall_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,2,1))
-if mibBuilder.loadTexts:id_SW_Security_Firewall_ces.setStatus(_A)
-_Id_SW_Firewall_Contivity_ces_ObjectIdentity=ObjectIdentity
-id_SW_Firewall_Contivity_ces=_Id_SW_Firewall_Contivity_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,2,1,1))
-if mibBuilder.loadTexts:id_SW_Firewall_Contivity_ces.setStatus(_A)
-_Id_SW_Contivity_Stateful_Inspection_ces_ObjectIdentity=ObjectIdentity
-id_SW_Contivity_Stateful_Inspection_ces=_Id_SW_Contivity_Stateful_Inspection_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,2,1,1,1))
-if mibBuilder.loadTexts:id_SW_Contivity_Stateful_Inspection_ces.setStatus(_A)
-_Id_SW_Contivity_Interface_Filters_ces_ObjectIdentity=ObjectIdentity
-id_SW_Contivity_Interface_Filters_ces=_Id_SW_Contivity_Interface_Filters_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,2,1,1,2))
-if mibBuilder.loadTexts:id_SW_Contivity_Interface_Filters_ces.setStatus(_A)
-_Id_SW_Firewall_CheckPoint_ces_ObjectIdentity=ObjectIdentity
-id_SW_Firewall_CheckPoint_ces=_Id_SW_Firewall_CheckPoint_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,2,1,2))
-if mibBuilder.loadTexts:id_SW_Firewall_CheckPoint_ces.setStatus(_A)
-_Id_SW_Security_FIPS_ces_ObjectIdentity=ObjectIdentity
-id_SW_Security_FIPS_ces=_Id_SW_Security_FIPS_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,2,2))
-if mibBuilder.loadTexts:id_SW_Security_FIPS_ces.setStatus(_A)
-_Id_SW_Tunnel_ces_ObjectIdentity=ObjectIdentity
-id_SW_Tunnel_ces=_Id_SW_Tunnel_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,3))
-if mibBuilder.loadTexts:id_SW_Tunnel_ces.setStatus(_A)
-_Id_SW_Tunnel_BaseLevel_ces_ObjectIdentity=ObjectIdentity
-id_SW_Tunnel_BaseLevel_ces=_Id_SW_Tunnel_BaseLevel_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,1,1,3,1))
-if mibBuilder.loadTexts:id_SW_Tunnel_BaseLevel_ces.setStatus(_A)
-_Id_Hardware_ces_ObjectIdentity=ObjectIdentity
-id_Hardware_ces=_Id_Hardware_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,16,2))
-if mibBuilder.loadTexts:id_Hardware_ces.setStatus(_A)
-mibBuilder.exportSymbols('CONTIVITY-ID-V1-MIB',**{'id-ces':id_ces,'id-Software-ces':id_Software_ces,'id-SW-Server-ces':id_SW_Server_ces,'id-SW-Routing-ces':id_SW_Routing_ces,'id-SW-Routing-RoutingInformationProtocol-ces':id_SW_Routing_RoutingInformationProtocol_ces,'id-SW-Routing-AdvancedRouting-ces':id_SW_Routing_AdvancedRouting_ces,'id-SW-AdvancedRouting-OpenShortestPathFirst-ces':id_SW_AdvancedRouting_OpenShortestPathFirst_ces,'id-SW-AdvancedRouting-VirtualRouterRedundancyProtocol-ces':id_SW_AdvancedRouting_VirtualRouterRedundancyProtocol_ces,'id-SW-AdvancedRouting-BandWidthManagement-ces':id_SW_AdvancedRouting_BandWidthManagement_ces,'id-SW-AdvancedRouting-DiffServ-ces':id_SW_AdvancedRouting_DiffServ_ces,'id-SW-DataLinkSwitchingFeature-ces':id_SW_DataLinkSwitchingFeature_ces,'id-SW-Routing-BGPRouting-ces':id_SW_Routing_BGPRouting_ces,'id-SW-BorderGatewayProtocol-ces':id_SW_BorderGatewayProtocol_ces,'id-SW-Routing-Premium-Routing-ces':id_SW_Routing_Premium_Routing_ces,'id-SW-Security-ces':id_SW_Security_ces,'id-SW-Security-Firewall-ces':id_SW_Security_Firewall_ces,'id-SW-Firewall-Contivity-ces':id_SW_Firewall_Contivity_ces,'id-SW-Contivity-Stateful-Inspection-ces':id_SW_Contivity_Stateful_Inspection_ces,'id-SW-Contivity-Interface-Filters-ces':id_SW_Contivity_Interface_Filters_ces,'id-SW-Firewall-CheckPoint-ces':id_SW_Firewall_CheckPoint_ces,'id-SW-Security-FIPS-ces':id_SW_Security_FIPS_ces,'id-SW-Tunnel-ces':id_SW_Tunnel_ces,'id-SW-Tunnel-BaseLevel-ces':id_SW_Tunnel_BaseLevel_ces,'id-Hardware-ces':id_Hardware_ces})
+#
+# PySNMP MIB module CONTIVITY-ID-V1-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/CONTIVITY-ID-V1-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:21 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+contivity, = mibBuilder.importSymbols("NEWOAK-MIB", "contivity")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+id_ces = ModuleIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16)).setLabel("id-ces")
+id_ces.setRevisions(('1901-05-10 23:00',))
+if mibBuilder.loadTexts: id_ces.setLastUpdated('0604062230Z')
+if mibBuilder.loadTexts: id_ces.setOrganization('Nortel')
+id_Software_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1)).setLabel("id-Software-ces")
+if mibBuilder.loadTexts: id_Software_ces.setStatus('current')
+id_SW_Server_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1)).setLabel("id-SW-Server-ces")
+if mibBuilder.loadTexts: id_SW_Server_ces.setStatus('current')
+id_SW_Routing_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 1)).setLabel("id-SW-Routing-ces")
+if mibBuilder.loadTexts: id_SW_Routing_ces.setStatus('current')
+id_SW_Routing_RoutingInformationProtocol_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 1, 1)).setLabel("id-SW-Routing-RoutingInformationProtocol-ces")
+if mibBuilder.loadTexts: id_SW_Routing_RoutingInformationProtocol_ces.setStatus('current')
+id_SW_Routing_AdvancedRouting_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 1, 2)).setLabel("id-SW-Routing-AdvancedRouting-ces")
+if mibBuilder.loadTexts: id_SW_Routing_AdvancedRouting_ces.setStatus('current')
+id_SW_AdvancedRouting_OpenShortestPathFirst_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 1, 2, 2)).setLabel("id-SW-AdvancedRouting-OpenShortestPathFirst-ces")
+if mibBuilder.loadTexts: id_SW_AdvancedRouting_OpenShortestPathFirst_ces.setStatus('current')
+id_SW_AdvancedRouting_VirtualRouterRedundancyProtocol_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 1, 2, 3)).setLabel("id-SW-AdvancedRouting-VirtualRouterRedundancyProtocol-ces")
+if mibBuilder.loadTexts: id_SW_AdvancedRouting_VirtualRouterRedundancyProtocol_ces.setStatus('current')
+id_SW_AdvancedRouting_BandWidthManagement_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 1, 2, 4)).setLabel("id-SW-AdvancedRouting-BandWidthManagement-ces")
+if mibBuilder.loadTexts: id_SW_AdvancedRouting_BandWidthManagement_ces.setStatus('current')
+id_SW_AdvancedRouting_DiffServ_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 1, 2, 5)).setLabel("id-SW-AdvancedRouting-DiffServ-ces")
+if mibBuilder.loadTexts: id_SW_AdvancedRouting_DiffServ_ces.setStatus('current')
+id_SW_DataLinkSwitchingFeature_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 1, 3)).setLabel("id-SW-DataLinkSwitchingFeature-ces")
+if mibBuilder.loadTexts: id_SW_DataLinkSwitchingFeature_ces.setStatus('current')
+id_SW_Routing_BGPRouting_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 1, 4)).setLabel("id-SW-Routing-BGPRouting-ces")
+if mibBuilder.loadTexts: id_SW_Routing_BGPRouting_ces.setStatus('current')
+id_SW_BorderGatewayProtocol_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 1, 4, 1)).setLabel("id-SW-BorderGatewayProtocol-ces")
+if mibBuilder.loadTexts: id_SW_BorderGatewayProtocol_ces.setStatus('current')
+id_SW_Routing_Premium_Routing_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 1, 5)).setLabel("id-SW-Routing-Premium-Routing-ces")
+if mibBuilder.loadTexts: id_SW_Routing_Premium_Routing_ces.setStatus('current')
+id_SW_Security_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 2)).setLabel("id-SW-Security-ces")
+if mibBuilder.loadTexts: id_SW_Security_ces.setStatus('current')
+id_SW_Security_Firewall_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 2, 1)).setLabel("id-SW-Security-Firewall-ces")
+if mibBuilder.loadTexts: id_SW_Security_Firewall_ces.setStatus('current')
+id_SW_Firewall_Contivity_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 2, 1, 1)).setLabel("id-SW-Firewall-Contivity-ces")
+if mibBuilder.loadTexts: id_SW_Firewall_Contivity_ces.setStatus('current')
+id_SW_Contivity_Stateful_Inspection_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 2, 1, 1, 1)).setLabel("id-SW-Contivity-Stateful-Inspection-ces")
+if mibBuilder.loadTexts: id_SW_Contivity_Stateful_Inspection_ces.setStatus('current')
+id_SW_Contivity_Interface_Filters_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 2, 1, 1, 2)).setLabel("id-SW-Contivity-Interface-Filters-ces")
+if mibBuilder.loadTexts: id_SW_Contivity_Interface_Filters_ces.setStatus('current')
+id_SW_Firewall_CheckPoint_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 2, 1, 2)).setLabel("id-SW-Firewall-CheckPoint-ces")
+if mibBuilder.loadTexts: id_SW_Firewall_CheckPoint_ces.setStatus('current')
+id_SW_Security_FIPS_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 2, 2)).setLabel("id-SW-Security-FIPS-ces")
+if mibBuilder.loadTexts: id_SW_Security_FIPS_ces.setStatus('current')
+id_SW_Tunnel_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 3)).setLabel("id-SW-Tunnel-ces")
+if mibBuilder.loadTexts: id_SW_Tunnel_ces.setStatus('current')
+id_SW_Tunnel_BaseLevel_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 1, 1, 3, 1)).setLabel("id-SW-Tunnel-BaseLevel-ces")
+if mibBuilder.loadTexts: id_SW_Tunnel_BaseLevel_ces.setStatus('current')
+id_Hardware_ces = ObjectIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 16, 2)).setLabel("id-Hardware-ces")
+if mibBuilder.loadTexts: id_Hardware_ces.setStatus('current')
+mibBuilder.exportSymbols("CONTIVITY-ID-V1-MIB", id_SW_Server_ces=id_SW_Server_ces, id_SW_Contivity_Stateful_Inspection_ces=id_SW_Contivity_Stateful_Inspection_ces, id_ces=id_ces, id_SW_DataLinkSwitchingFeature_ces=id_SW_DataLinkSwitchingFeature_ces, id_SW_Firewall_CheckPoint_ces=id_SW_Firewall_CheckPoint_ces, id_SW_Contivity_Interface_Filters_ces=id_SW_Contivity_Interface_Filters_ces, id_SW_AdvancedRouting_BandWidthManagement_ces=id_SW_AdvancedRouting_BandWidthManagement_ces, id_SW_Routing_RoutingInformationProtocol_ces=id_SW_Routing_RoutingInformationProtocol_ces, id_SW_Tunnel_ces=id_SW_Tunnel_ces, id_SW_Security_Firewall_ces=id_SW_Security_Firewall_ces, id_SW_Routing_BGPRouting_ces=id_SW_Routing_BGPRouting_ces, id_SW_Routing_Premium_Routing_ces=id_SW_Routing_Premium_Routing_ces, id_SW_Security_ces=id_SW_Security_ces, id_SW_Tunnel_BaseLevel_ces=id_SW_Tunnel_BaseLevel_ces, id_SW_Firewall_Contivity_ces=id_SW_Firewall_Contivity_ces, id_SW_Routing_AdvancedRouting_ces=id_SW_Routing_AdvancedRouting_ces, id_SW_AdvancedRouting_OpenShortestPathFirst_ces=id_SW_AdvancedRouting_OpenShortestPathFirst_ces, id_SW_BorderGatewayProtocol_ces=id_SW_BorderGatewayProtocol_ces, PYSNMP_MODULE_ID=id_ces, id_SW_Routing_ces=id_SW_Routing_ces, id_SW_AdvancedRouting_VirtualRouterRedundancyProtocol_ces=id_SW_AdvancedRouting_VirtualRouterRedundancyProtocol_ces, id_SW_AdvancedRouting_DiffServ_ces=id_SW_AdvancedRouting_DiffServ_ces, id_Software_ces=id_Software_ces, id_Hardware_ces=id_Hardware_ces, id_SW_Security_FIPS_ces=id_SW_Security_FIPS_ces)

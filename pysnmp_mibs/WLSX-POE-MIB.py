@@ -1,189 +1,85 @@
-_d='wlsxPoEMIBNotificationsGroup'
-_c='wlsxPoEMIBMainPseGroup'
-_b='wlsxPoEMIBPortGroup'
-_a='wlsxTrapInterfacePoEState'
-_Z='wlsxPseSlotPoEManagementMode'
-_Y='wlsxPseSlotGuardBand'
-_X='wlsxPseSlotPowerConsumption'
-_W='wlsxPseSlotPowerAvailable'
-_V='wlsxPsePortCurrent'
-_U='wlsxPsePortVoltage'
-_T='wlsxPsePortPowerConsumed'
-_S='wlsxPsePortPowerAllocated'
-_R='wlsxPsePortDefaultPowerMax'
-_Q='wlsxPsePortPriority'
-_P='wlsxPsePortPdClass'
-_O='wlsxPsePortIsIeeePd'
-_N='wlsxPsePortIsPdDetected'
-_M='wlsxPsePortDiscoveryMode'
-_L='wlsxPsePortAdminStatus'
-_K='wlsxPseSlotIndex'
-_J='unknown'
-_I='not-accessible'
-_H='wlsxPsePortStatus'
-_G='wlsxPsePortState'
-_F='milliwatts'
-_E='wlsxPsePortIndex'
-_D='Integer32'
-_C='read-only'
-_B='WLSX-POE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-wlsxEnterpriseMibModules,=mibBuilder.importSymbols('ARUBA-MIB','wlsxEnterpriseMibModules')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-wlsxPoEMIB=ModuleIdentity((1,3,6,1,4,1,14823,2,2,1,18))
-if mibBuilder.loadTexts:wlsxPoEMIB.setRevisions(('2011-05-16 00:00',))
-_WlsxPoEMIBNotifications_ObjectIdentity=ObjectIdentity
-wlsxPoEMIBNotifications=_WlsxPoEMIBNotifications_ObjectIdentity((1,3,6,1,4,1,14823,2,2,1,18,0))
-_WlsxPoEMIBObjects_ObjectIdentity=ObjectIdentity
-wlsxPoEMIBObjects=_WlsxPoEMIBObjects_ObjectIdentity((1,3,6,1,4,1,14823,2,2,1,18,1))
-_WlsxPsePortTable_Object=MibTable
-wlsxPsePortTable=_WlsxPsePortTable_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1))
-if mibBuilder.loadTexts:wlsxPsePortTable.setStatus(_A)
-_WlsxPsePortEntry_Object=MibTableRow
-wlsxPsePortEntry=_WlsxPsePortEntry_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1,1))
-wlsxPsePortEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:wlsxPsePortEntry.setStatus(_A)
-_WlsxPsePortIndex_Type=Integer32
-_WlsxPsePortIndex_Object=MibTableColumn
-wlsxPsePortIndex=_WlsxPsePortIndex_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1,1,1),_WlsxPsePortIndex_Type())
-wlsxPsePortIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:wlsxPsePortIndex.setStatus(_A)
-class _WlsxPsePortAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_WlsxPsePortAdminStatus_Type.__name__=_D
-_WlsxPsePortAdminStatus_Object=MibTableColumn
-wlsxPsePortAdminStatus=_WlsxPsePortAdminStatus_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1,1,2),_WlsxPsePortAdminStatus_Type())
-wlsxPsePortAdminStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPsePortAdminStatus.setStatus(_A)
-class _WlsxPsePortState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('on',1),('off',2)))
-_WlsxPsePortState_Type.__name__=_D
-_WlsxPsePortState_Object=MibTableColumn
-wlsxPsePortState=_WlsxPsePortState_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1,1,3),_WlsxPsePortState_Type())
-wlsxPsePortState.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPsePortState.setStatus(_A)
-class _WlsxPsePortStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*((_J,1),('offAdmin',2),('offPowerManagement',3),('offIllegalClass',4),('offDetectionProgress',5),('offHardwareError',6),('offNonStandardPd',7)))
-_WlsxPsePortStatus_Type.__name__=_D
-_WlsxPsePortStatus_Object=MibTableColumn
-wlsxPsePortStatus=_WlsxPsePortStatus_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1,1,4),_WlsxPsePortStatus_Type())
-wlsxPsePortStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPsePortStatus.setStatus(_A)
-class _WlsxPsePortDiscoveryMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_J,0),('off',1),('ieee',2),('cisco',3)))
-_WlsxPsePortDiscoveryMode_Type.__name__=_D
-_WlsxPsePortDiscoveryMode_Object=MibTableColumn
-wlsxPsePortDiscoveryMode=_WlsxPsePortDiscoveryMode_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1,1,5),_WlsxPsePortDiscoveryMode_Type())
-wlsxPsePortDiscoveryMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPsePortDiscoveryMode.setStatus(_A)
-_WlsxPsePortIsPdDetected_Type=TruthValue
-_WlsxPsePortIsPdDetected_Object=MibTableColumn
-wlsxPsePortIsPdDetected=_WlsxPsePortIsPdDetected_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1,1,6),_WlsxPsePortIsPdDetected_Type())
-wlsxPsePortIsPdDetected.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPsePortIsPdDetected.setStatus(_A)
-_WlsxPsePortIsIeeePd_Type=TruthValue
-_WlsxPsePortIsIeeePd_Object=MibTableColumn
-wlsxPsePortIsIeeePd=_WlsxPsePortIsIeeePd_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1,1,7),_WlsxPsePortIsIeeePd_Type())
-wlsxPsePortIsIeeePd.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPsePortIsIeeePd.setStatus(_A)
-class _WlsxPsePortPdClass_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*(('unknownClass',0),('class0',1),('class1',2),('class2',3),('class3',4),('class4',5)))
-_WlsxPsePortPdClass_Type.__name__=_D
-_WlsxPsePortPdClass_Object=MibTableColumn
-wlsxPsePortPdClass=_WlsxPsePortPdClass_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1,1,8),_WlsxPsePortPdClass_Type())
-wlsxPsePortPdClass.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPsePortPdClass.setStatus(_A)
-class _WlsxPsePortPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('low',1),('high',2),('critical',3)))
-_WlsxPsePortPriority_Type.__name__=_D
-_WlsxPsePortPriority_Object=MibTableColumn
-wlsxPsePortPriority=_WlsxPsePortPriority_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1,1,9),_WlsxPsePortPriority_Type())
-wlsxPsePortPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPsePortPriority.setStatus(_A)
-_WlsxPsePortDefaultPowerMax_Type=Integer32
-_WlsxPsePortDefaultPowerMax_Object=MibTableColumn
-wlsxPsePortDefaultPowerMax=_WlsxPsePortDefaultPowerMax_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1,1,10),_WlsxPsePortDefaultPowerMax_Type())
-wlsxPsePortDefaultPowerMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPsePortDefaultPowerMax.setStatus(_A)
-if mibBuilder.loadTexts:wlsxPsePortDefaultPowerMax.setUnits(_F)
-_WlsxPsePortPowerAllocated_Type=Integer32
-_WlsxPsePortPowerAllocated_Object=MibTableColumn
-wlsxPsePortPowerAllocated=_WlsxPsePortPowerAllocated_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1,1,11),_WlsxPsePortPowerAllocated_Type())
-wlsxPsePortPowerAllocated.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPsePortPowerAllocated.setStatus(_A)
-if mibBuilder.loadTexts:wlsxPsePortPowerAllocated.setUnits(_F)
-_WlsxPsePortPowerConsumed_Type=Integer32
-_WlsxPsePortPowerConsumed_Object=MibTableColumn
-wlsxPsePortPowerConsumed=_WlsxPsePortPowerConsumed_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1,1,12),_WlsxPsePortPowerConsumed_Type())
-wlsxPsePortPowerConsumed.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPsePortPowerConsumed.setStatus(_A)
-if mibBuilder.loadTexts:wlsxPsePortPowerConsumed.setUnits(_F)
-_WlsxPsePortVoltage_Type=Integer32
-_WlsxPsePortVoltage_Object=MibTableColumn
-wlsxPsePortVoltage=_WlsxPsePortVoltage_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1,1,13),_WlsxPsePortVoltage_Type())
-wlsxPsePortVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPsePortVoltage.setStatus(_A)
-if mibBuilder.loadTexts:wlsxPsePortVoltage.setUnits('milliVolts')
-_WlsxPsePortCurrent_Type=Integer32
-_WlsxPsePortCurrent_Object=MibTableColumn
-wlsxPsePortCurrent=_WlsxPsePortCurrent_Object((1,3,6,1,4,1,14823,2,2,1,18,1,1,1,14),_WlsxPsePortCurrent_Type())
-wlsxPsePortCurrent.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPsePortCurrent.setStatus(_A)
-if mibBuilder.loadTexts:wlsxPsePortCurrent.setUnits('milliAmps')
-_WlsxPseSlotTable_Object=MibTable
-wlsxPseSlotTable=_WlsxPseSlotTable_Object((1,3,6,1,4,1,14823,2,2,1,18,1,2))
-if mibBuilder.loadTexts:wlsxPseSlotTable.setStatus(_A)
-_WlsxPseSlotEntry_Object=MibTableRow
-wlsxPseSlotEntry=_WlsxPseSlotEntry_Object((1,3,6,1,4,1,14823,2,2,1,18,1,2,1))
-wlsxPseSlotEntry.setIndexNames((0,_B,_K))
-if mibBuilder.loadTexts:wlsxPseSlotEntry.setStatus(_A)
-_WlsxPseSlotIndex_Type=Integer32
-_WlsxPseSlotIndex_Object=MibTableColumn
-wlsxPseSlotIndex=_WlsxPseSlotIndex_Object((1,3,6,1,4,1,14823,2,2,1,18,1,2,1,1),_WlsxPseSlotIndex_Type())
-wlsxPseSlotIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:wlsxPseSlotIndex.setStatus(_A)
-_WlsxPseSlotPowerAvailable_Type=Integer32
-_WlsxPseSlotPowerAvailable_Object=MibTableColumn
-wlsxPseSlotPowerAvailable=_WlsxPseSlotPowerAvailable_Object((1,3,6,1,4,1,14823,2,2,1,18,1,2,1,2),_WlsxPseSlotPowerAvailable_Type())
-wlsxPseSlotPowerAvailable.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPseSlotPowerAvailable.setStatus(_A)
-if mibBuilder.loadTexts:wlsxPseSlotPowerAvailable.setUnits('watts')
-_WlsxPseSlotPowerConsumption_Type=Integer32
-_WlsxPseSlotPowerConsumption_Object=MibTableColumn
-wlsxPseSlotPowerConsumption=_WlsxPseSlotPowerConsumption_Object((1,3,6,1,4,1,14823,2,2,1,18,1,2,1,3),_WlsxPseSlotPowerConsumption_Type())
-wlsxPseSlotPowerConsumption.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPseSlotPowerConsumption.setStatus(_A)
-if mibBuilder.loadTexts:wlsxPseSlotPowerConsumption.setUnits('watts')
-_WlsxPseSlotGuardBand_Type=Integer32
-_WlsxPseSlotGuardBand_Object=MibTableColumn
-wlsxPseSlotGuardBand=_WlsxPseSlotGuardBand_Object((1,3,6,1,4,1,14823,2,2,1,18,1,2,1,4),_WlsxPseSlotGuardBand_Type())
-wlsxPseSlotGuardBand.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPseSlotGuardBand.setStatus(_A)
-class _WlsxPseSlotPoEManagementMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('dynamic',1),('static',2),('class',3)))
-_WlsxPseSlotPoEManagementMode_Type.__name__=_D
-_WlsxPseSlotPoEManagementMode_Object=MibTableColumn
-wlsxPseSlotPoEManagementMode=_WlsxPseSlotPoEManagementMode_Object((1,3,6,1,4,1,14823,2,2,1,18,1,2,1,5),_WlsxPseSlotPoEManagementMode_Type())
-wlsxPseSlotPoEManagementMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:wlsxPseSlotPoEManagementMode.setStatus(_A)
-_WlsxPoEMIBConformance_ObjectIdentity=ObjectIdentity
-wlsxPoEMIBConformance=_WlsxPoEMIBConformance_ObjectIdentity((1,3,6,1,4,1,14823,2,2,1,18,2))
-_WlsxPoEMIBCompliances_ObjectIdentity=ObjectIdentity
-wlsxPoEMIBCompliances=_WlsxPoEMIBCompliances_ObjectIdentity((1,3,6,1,4,1,14823,2,2,1,18,2,1))
-_WlsxPoEMIBGroups_ObjectIdentity=ObjectIdentity
-wlsxPoEMIBGroups=_WlsxPoEMIBGroups_ObjectIdentity((1,3,6,1,4,1,14823,2,2,1,18,2,2))
-wlsxPoEMIBPortGroup=ObjectGroup((1,3,6,1,4,1,14823,2,2,1,18,2,2,1))
-wlsxPoEMIBPortGroup.setObjects(*((_B,_L),(_B,_G),(_B,_H),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:wlsxPoEMIBPortGroup.setStatus(_A)
-wlsxPoEMIBMainPseGroup=ObjectGroup((1,3,6,1,4,1,14823,2,2,1,18,2,2,2))
-wlsxPoEMIBMainPseGroup.setObjects(*((_B,_W),(_B,_X),(_B,_Y),(_B,_Z)))
-if mibBuilder.loadTexts:wlsxPoEMIBMainPseGroup.setStatus(_A)
-wlsxTrapInterfacePoEState=NotificationType((1,3,6,1,4,1,14823,2,2,1,18,0,1))
-wlsxTrapInterfacePoEState.setObjects(*((_B,_E),(_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:wlsxTrapInterfacePoEState.setStatus(_A)
-wlsxPoEMIBNotificationsGroup=NotificationGroup((1,3,6,1,4,1,14823,2,2,1,18,2,2,3))
-wlsxPoEMIBNotificationsGroup.setObjects((_B,_a))
-if mibBuilder.loadTexts:wlsxPoEMIBNotificationsGroup.setStatus(_A)
-wlsxPoEMIBCompliance=ModuleCompliance((1,3,6,1,4,1,14823,2,2,1,18,2,1,1))
-wlsxPoEMIBCompliance.setObjects(*((_B,_b),(_B,_c),(_B,_d)))
-if mibBuilder.loadTexts:wlsxPoEMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'wlsxPoEMIB':wlsxPoEMIB,'wlsxPoEMIBNotifications':wlsxPoEMIBNotifications,_a:wlsxTrapInterfacePoEState,'wlsxPoEMIBObjects':wlsxPoEMIBObjects,'wlsxPsePortTable':wlsxPsePortTable,'wlsxPsePortEntry':wlsxPsePortEntry,_E:wlsxPsePortIndex,_L:wlsxPsePortAdminStatus,_G:wlsxPsePortState,_H:wlsxPsePortStatus,_M:wlsxPsePortDiscoveryMode,_N:wlsxPsePortIsPdDetected,_O:wlsxPsePortIsIeeePd,_P:wlsxPsePortPdClass,_Q:wlsxPsePortPriority,_R:wlsxPsePortDefaultPowerMax,_S:wlsxPsePortPowerAllocated,_T:wlsxPsePortPowerConsumed,_U:wlsxPsePortVoltage,_V:wlsxPsePortCurrent,'wlsxPseSlotTable':wlsxPseSlotTable,'wlsxPseSlotEntry':wlsxPseSlotEntry,_K:wlsxPseSlotIndex,_W:wlsxPseSlotPowerAvailable,_X:wlsxPseSlotPowerConsumption,_Y:wlsxPseSlotGuardBand,_Z:wlsxPseSlotPoEManagementMode,'wlsxPoEMIBConformance':wlsxPoEMIBConformance,'wlsxPoEMIBCompliances':wlsxPoEMIBCompliances,'wlsxPoEMIBCompliance':wlsxPoEMIBCompliance,'wlsxPoEMIBGroups':wlsxPoEMIBGroups,_b:wlsxPoEMIBPortGroup,_c:wlsxPoEMIBMainPseGroup,_d:wlsxPoEMIBNotificationsGroup})
+#
+# PySNMP MIB module WLSX-POE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aruba/WLSX-POE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:15 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+wlsxEnterpriseMibModules, = mibBuilder.importSymbols("ARUBA-MIB", "wlsxEnterpriseMibModules")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+wlsxPoEMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18))
+wlsxPoEMIB.setRevisions(('2011-05-16 00:00',))
+if mibBuilder.loadTexts: wlsxPoEMIB.setLastUpdated('201105160000Z')
+if mibBuilder.loadTexts: wlsxPoEMIB.setOrganization('Aruba Wireless Networks')
+wlsxPoEMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 0))
+wlsxPoEMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1))
+wlsxPoEMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 2))
+wlsxPoEMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 2, 1))
+wlsxPoEMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 2, 2))
+wlsxPsePortTable = MibTable((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1), )
+if mibBuilder.loadTexts: wlsxPsePortTable.setStatus('current')
+wlsxPsePortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1, 1), ).setIndexNames((0, "WLSX-POE-MIB", "wlsxPsePortIndex"))
+if mibBuilder.loadTexts: wlsxPsePortEntry.setStatus('current')
+wlsxPsePortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: wlsxPsePortIndex.setStatus('current')
+wlsxPsePortAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPsePortAdminStatus.setStatus('current')
+wlsxPsePortState = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPsePortState.setStatus('current')
+wlsxPsePortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("unknown", 1), ("offAdmin", 2), ("offPowerManagement", 3), ("offIllegalClass", 4), ("offDetectionProgress", 5), ("offHardwareError", 6), ("offNonStandardPd", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPsePortStatus.setStatus('current')
+wlsxPsePortDiscoveryMode = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("unknown", 0), ("off", 1), ("ieee", 2), ("cisco", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPsePortDiscoveryMode.setStatus('current')
+wlsxPsePortIsPdDetected = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1, 1, 6), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPsePortIsPdDetected.setStatus('current')
+wlsxPsePortIsIeeePd = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1, 1, 7), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPsePortIsIeeePd.setStatus('current')
+wlsxPsePortPdClass = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknownClass", 0), ("class0", 1), ("class1", 2), ("class2", 3), ("class3", 4), ("class4", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPsePortPdClass.setStatus('current')
+wlsxPsePortPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("low", 1), ("high", 2), ("critical", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPsePortPriority.setStatus('current')
+wlsxPsePortDefaultPowerMax = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1, 1, 10), Integer32()).setUnits('milliwatts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPsePortDefaultPowerMax.setStatus('current')
+wlsxPsePortPowerAllocated = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1, 1, 11), Integer32()).setUnits('milliwatts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPsePortPowerAllocated.setStatus('current')
+wlsxPsePortPowerConsumed = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1, 1, 12), Integer32()).setUnits('milliwatts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPsePortPowerConsumed.setStatus('current')
+wlsxPsePortVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1, 1, 13), Integer32()).setUnits('milliVolts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPsePortVoltage.setStatus('current')
+wlsxPsePortCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 1, 1, 14), Integer32()).setUnits('milliAmps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPsePortCurrent.setStatus('current')
+wlsxPseSlotTable = MibTable((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 2), )
+if mibBuilder.loadTexts: wlsxPseSlotTable.setStatus('current')
+wlsxPseSlotEntry = MibTableRow((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 2, 1), ).setIndexNames((0, "WLSX-POE-MIB", "wlsxPseSlotIndex"))
+if mibBuilder.loadTexts: wlsxPseSlotEntry.setStatus('current')
+wlsxPseSlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 2, 1, 1), Integer32())
+if mibBuilder.loadTexts: wlsxPseSlotIndex.setStatus('current')
+wlsxPseSlotPowerAvailable = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 2, 1, 2), Integer32()).setUnits('watts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPseSlotPowerAvailable.setStatus('current')
+wlsxPseSlotPowerConsumption = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 2, 1, 3), Integer32()).setUnits('watts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPseSlotPowerConsumption.setStatus('current')
+wlsxPseSlotGuardBand = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPseSlotGuardBand.setStatus('current')
+wlsxPseSlotPoEManagementMode = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("dynamic", 1), ("static", 2), ("class", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wlsxPseSlotPoEManagementMode.setStatus('current')
+wlsxTrapInterfacePoEState = NotificationType((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 0, 1)).setObjects(("WLSX-POE-MIB", "wlsxPsePortIndex"), ("WLSX-POE-MIB", "wlsxPsePortState"), ("WLSX-POE-MIB", "wlsxPsePortStatus"))
+if mibBuilder.loadTexts: wlsxTrapInterfacePoEState.setStatus('current')
+wlsxPoEMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 2, 1, 1)).setObjects(("WLSX-POE-MIB", "wlsxPoEMIBPortGroup"), ("WLSX-POE-MIB", "wlsxPoEMIBMainPseGroup"), ("WLSX-POE-MIB", "wlsxPoEMIBNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    wlsxPoEMIBCompliance = wlsxPoEMIBCompliance.setStatus('current')
+wlsxPoEMIBPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 2, 2, 1)).setObjects(("WLSX-POE-MIB", "wlsxPsePortAdminStatus"), ("WLSX-POE-MIB", "wlsxPsePortState"), ("WLSX-POE-MIB", "wlsxPsePortStatus"), ("WLSX-POE-MIB", "wlsxPsePortDiscoveryMode"), ("WLSX-POE-MIB", "wlsxPsePortIsPdDetected"), ("WLSX-POE-MIB", "wlsxPsePortIsIeeePd"), ("WLSX-POE-MIB", "wlsxPsePortPdClass"), ("WLSX-POE-MIB", "wlsxPsePortPriority"), ("WLSX-POE-MIB", "wlsxPsePortDefaultPowerMax"), ("WLSX-POE-MIB", "wlsxPsePortPowerAllocated"), ("WLSX-POE-MIB", "wlsxPsePortPowerConsumed"), ("WLSX-POE-MIB", "wlsxPsePortVoltage"), ("WLSX-POE-MIB", "wlsxPsePortCurrent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    wlsxPoEMIBPortGroup = wlsxPoEMIBPortGroup.setStatus('current')
+wlsxPoEMIBMainPseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 2, 2, 2)).setObjects(("WLSX-POE-MIB", "wlsxPseSlotPowerAvailable"), ("WLSX-POE-MIB", "wlsxPseSlotPowerConsumption"), ("WLSX-POE-MIB", "wlsxPseSlotGuardBand"), ("WLSX-POE-MIB", "wlsxPseSlotPoEManagementMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    wlsxPoEMIBMainPseGroup = wlsxPoEMIBMainPseGroup.setStatus('current')
+wlsxPoEMIBNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 18, 2, 2, 3)).setObjects(("WLSX-POE-MIB", "wlsxTrapInterfacePoEState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    wlsxPoEMIBNotificationsGroup = wlsxPoEMIBNotificationsGroup.setStatus('current')
+mibBuilder.exportSymbols("WLSX-POE-MIB", wlsxPsePortTable=wlsxPsePortTable, wlsxPoEMIBNotificationsGroup=wlsxPoEMIBNotificationsGroup, wlsxPsePortDefaultPowerMax=wlsxPsePortDefaultPowerMax, wlsxPsePortPowerAllocated=wlsxPsePortPowerAllocated, wlsxPoEMIBObjects=wlsxPoEMIBObjects, wlsxPseSlotIndex=wlsxPseSlotIndex, wlsxPsePortIsPdDetected=wlsxPsePortIsPdDetected, wlsxPsePortPowerConsumed=wlsxPsePortPowerConsumed, wlsxPsePortVoltage=wlsxPsePortVoltage, wlsxPoEMIBGroups=wlsxPoEMIBGroups, wlsxPsePortPdClass=wlsxPsePortPdClass, wlsxPoEMIBMainPseGroup=wlsxPoEMIBMainPseGroup, wlsxTrapInterfacePoEState=wlsxTrapInterfacePoEState, wlsxPsePortIndex=wlsxPsePortIndex, wlsxPsePortDiscoveryMode=wlsxPsePortDiscoveryMode, wlsxPoEMIBPortGroup=wlsxPoEMIBPortGroup, wlsxPseSlotPoEManagementMode=wlsxPseSlotPoEManagementMode, wlsxPseSlotEntry=wlsxPseSlotEntry, wlsxPoEMIB=wlsxPoEMIB, wlsxPsePortEntry=wlsxPsePortEntry, wlsxPoEMIBCompliances=wlsxPoEMIBCompliances, wlsxPoEMIBConformance=wlsxPoEMIBConformance, wlsxPoEMIBNotifications=wlsxPoEMIBNotifications, wlsxPseSlotPowerAvailable=wlsxPseSlotPowerAvailable, wlsxPsePortStatus=wlsxPsePortStatus, wlsxPsePortAdminStatus=wlsxPsePortAdminStatus, wlsxPseSlotPowerConsumption=wlsxPseSlotPowerConsumption, PYSNMP_MODULE_ID=wlsxPoEMIB, wlsxPsePortState=wlsxPsePortState, wlsxPsePortPriority=wlsxPsePortPriority, wlsxPsePortCurrent=wlsxPsePortCurrent, wlsxPseSlotTable=wlsxPseSlotTable, wlsxPseSlotGuardBand=wlsxPseSlotGuardBand, wlsxPoEMIBCompliance=wlsxPoEMIBCompliance, wlsxPsePortIsIeeePd=wlsxPsePortIsIeeePd)

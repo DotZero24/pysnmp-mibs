@@ -1,57 +1,36 @@
-_E='loadIndex'
-_D='AT-LOADER-MIB'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-DisplayStringUnsized,modules=mibBuilder.importSymbols('AT-SMI-MIB','DisplayStringUnsized','modules')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-loader=ModuleIdentity((1,3,6,1,4,1,207,8,4,4,4,48))
-if mibBuilder.loadTexts:loader.setRevisions(('2007-02-07 10:10','2006-06-28 12:22'))
-_LoadTable_Object=MibTable
-loadTable=_LoadTable_Object((1,3,6,1,4,1,207,8,4,4,4,48,1))
-if mibBuilder.loadTexts:loadTable.setStatus(_A)
-_LoadEntry_Object=MibTableRow
-loadEntry=_LoadEntry_Object((1,3,6,1,4,1,207,8,4,4,4,48,1,1))
-loadEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:loadEntry.setStatus(_A)
-class _LoadIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('static',1),('dynamic',2)))
-_LoadIndex_Type.__name__=_C
-_LoadIndex_Object=MibTableColumn
-loadIndex=_LoadIndex_Object((1,3,6,1,4,1,207,8,4,4,4,48,1,1,1),_LoadIndex_Type())
-loadIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:loadIndex.setStatus(_A)
-_LoadServer_Type=IpAddress
-_LoadServer_Object=MibTableColumn
-loadServer=_LoadServer_Object((1,3,6,1,4,1,207,8,4,4,4,48,1,1,2),_LoadServer_Type())
-loadServer.setMaxAccess(_B)
-if mibBuilder.loadTexts:loadServer.setStatus(_A)
-class _LoadDestination_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('undefined',1),('nvs',2),('flash',3)))
-_LoadDestination_Type.__name__=_C
-_LoadDestination_Object=MibTableColumn
-loadDestination=_LoadDestination_Object((1,3,6,1,4,1,207,8,4,4,4,48,1,1,3),_LoadDestination_Type())
-loadDestination.setMaxAccess(_B)
-if mibBuilder.loadTexts:loadDestination.setStatus(_A)
-_LoadFilename_Type=DisplayString
-_LoadFilename_Object=MibTableColumn
-loadFilename=_LoadFilename_Object((1,3,6,1,4,1,207,8,4,4,4,48,1,1,4),_LoadFilename_Type())
-loadFilename.setMaxAccess(_B)
-if mibBuilder.loadTexts:loadFilename.setStatus(_A)
-_LoadDelay_Type=Integer32
-_LoadDelay_Object=MibTableColumn
-loadDelay=_LoadDelay_Object((1,3,6,1,4,1,207,8,4,4,4,48,1,1,5),_LoadDelay_Type())
-loadDelay.setMaxAccess(_B)
-if mibBuilder.loadTexts:loadDelay.setStatus(_A)
-class _LoadStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('idle',1),('wait',2),('loading',3),('complete',4),('reset',5),('actionload',6),('actionstop',7),('actionupload',8)))
-_LoadStatus_Type.__name__=_C
-_LoadStatus_Object=MibScalar
-loadStatus=_LoadStatus_Object((1,3,6,1,4,1,207,8,4,4,4,48,2),_LoadStatus_Type())
-loadStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:loadStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'loader':loader,'loadTable':loadTable,'loadEntry':loadEntry,_E:loadIndex,'loadServer':loadServer,'loadDestination':loadDestination,'loadFilename':loadFilename,'loadDelay':loadDelay,'loadStatus':loadStatus})
+#
+# PySNMP MIB module AT-LOADER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allied-old/AT-LOADER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:07 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+DisplayStringUnsized, modules = mibBuilder.importSymbols("AT-SMI-MIB", "DisplayStringUnsized", "modules")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+loader = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 48))
+loader.setRevisions(('2007-02-07 10:10', '2006-06-28 12:22',))
+if mibBuilder.loadTexts: loader.setLastUpdated('200702071010Z')
+if mibBuilder.loadTexts: loader.setOrganization('Allied Telesis, Inc')
+loadTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 48, 1), )
+if mibBuilder.loadTexts: loadTable.setStatus('current')
+loadEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 48, 1, 1), ).setIndexNames((0, "AT-LOADER-MIB", "loadIndex"))
+if mibBuilder.loadTexts: loadEntry.setStatus('current')
+loadIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 48, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("static", 1), ("dynamic", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: loadIndex.setStatus('current')
+loadServer = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 48, 1, 1, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: loadServer.setStatus('current')
+loadDestination = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 48, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("undefined", 1), ("nvs", 2), ("flash", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: loadDestination.setStatus('current')
+loadFilename = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 48, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: loadFilename.setStatus('current')
+loadDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 48, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: loadDelay.setStatus('current')
+loadStatus = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 48, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("idle", 1), ("wait", 2), ("loading", 3), ("complete", 4), ("reset", 5), ("actionload", 6), ("actionstop", 7), ("actionupload", 8)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: loadStatus.setStatus('current')
+mibBuilder.exportSymbols("AT-LOADER-MIB", loadTable=loadTable, loadIndex=loadIndex, loadServer=loadServer, loadFilename=loadFilename, PYSNMP_MODULE_ID=loader, loadDelay=loadDelay, loadEntry=loadEntry, loadDestination=loadDestination, loadStatus=loadStatus, loader=loader)

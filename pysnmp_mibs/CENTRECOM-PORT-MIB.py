@@ -1,44 +1,30 @@
-_F='atiPortLoadshareSlaveIfIndex'
-_E='atiPortLoadshareMasterIfIndex'
-_D='Integer32'
-_C='CENTRECOM-PORT-MIB'
-_B='read-write'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-extSwitchMIB,=mibBuilder.importSymbols('CENTRECOM-MIB','extSwitchMIB')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-atiPort=ModuleIdentity((1,3,6,1,4,1,207,8,12,2,6))
-_AtiPortLoadshareTable_Object=MibTable
-atiPortLoadshareTable=_AtiPortLoadshareTable_Object((1,3,6,1,4,1,207,8,12,2,6,1))
-if mibBuilder.loadTexts:atiPortLoadshareTable.setStatus(_A)
-_AtiPortLoadshareEntry_Object=MibTableRow
-atiPortLoadshareEntry=_AtiPortLoadshareEntry_Object((1,3,6,1,4,1,207,8,12,2,6,1,1))
-atiPortLoadshareEntry.setIndexNames((0,_C,_E),(0,_C,_F))
-if mibBuilder.loadTexts:atiPortLoadshareEntry.setStatus(_A)
-_AtiPortLoadshareMasterIfIndex_Type=Integer32
-_AtiPortLoadshareMasterIfIndex_Object=MibTableColumn
-atiPortLoadshareMasterIfIndex=_AtiPortLoadshareMasterIfIndex_Object((1,3,6,1,4,1,207,8,12,2,6,1,1,1),_AtiPortLoadshareMasterIfIndex_Type())
-atiPortLoadshareMasterIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiPortLoadshareMasterIfIndex.setStatus(_A)
-_AtiPortLoadshareSlaveIfIndex_Type=Integer32
-_AtiPortLoadshareSlaveIfIndex_Object=MibTableColumn
-atiPortLoadshareSlaveIfIndex=_AtiPortLoadshareSlaveIfIndex_Object((1,3,6,1,4,1,207,8,12,2,6,1,1,2),_AtiPortLoadshareSlaveIfIndex_Type())
-atiPortLoadshareSlaveIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiPortLoadshareSlaveIfIndex.setStatus(_A)
-class _AtiPortLoadshareGrouping_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,4)));namedValues=NamedValues(*(('pair',2),('quad',4)))
-_AtiPortLoadshareGrouping_Type.__name__=_D
-_AtiPortLoadshareGrouping_Object=MibTableColumn
-atiPortLoadshareGrouping=_AtiPortLoadshareGrouping_Object((1,3,6,1,4,1,207,8,12,2,6,1,1,3),_AtiPortLoadshareGrouping_Type())
-atiPortLoadshareGrouping.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiPortLoadshareGrouping.setStatus(_A)
-_AtiPortLoadshareStatus_Type=RowStatus
-_AtiPortLoadshareStatus_Object=MibTableColumn
-atiPortLoadshareStatus=_AtiPortLoadshareStatus_Object((1,3,6,1,4,1,207,8,12,2,6,1,1,4),_AtiPortLoadshareStatus_Type())
-atiPortLoadshareStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiPortLoadshareStatus.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'atiPort':atiPort,'atiPortLoadshareTable':atiPortLoadshareTable,'atiPortLoadshareEntry':atiPortLoadshareEntry,_E:atiPortLoadshareMasterIfIndex,_F:atiPortLoadshareSlaveIfIndex,'atiPortLoadshareGrouping':atiPortLoadshareGrouping,'atiPortLoadshareStatus':atiPortLoadshareStatus})
+#
+# PySNMP MIB module CENTRECOM-PORT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allied-old/CENTRECOM-PORT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:09 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+extSwitchMIB, = mibBuilder.importSymbols("CENTRECOM-MIB", "extSwitchMIB")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+atiPort = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 6))
+if mibBuilder.loadTexts: atiPort.setLastUpdated('9802030000Z')
+if mibBuilder.loadTexts: atiPort.setOrganization('Allied Telesis K.K')
+atiPortLoadshareTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 6, 1), )
+if mibBuilder.loadTexts: atiPortLoadshareTable.setStatus('mandatory')
+atiPortLoadshareEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 6, 1, 1), ).setIndexNames((0, "CENTRECOM-PORT-MIB", "atiPortLoadshareMasterIfIndex"), (0, "CENTRECOM-PORT-MIB", "atiPortLoadshareSlaveIfIndex"))
+if mibBuilder.loadTexts: atiPortLoadshareEntry.setStatus('mandatory')
+atiPortLoadshareMasterIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 6, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atiPortLoadshareMasterIfIndex.setStatus('mandatory')
+atiPortLoadshareSlaveIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 6, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atiPortLoadshareSlaveIfIndex.setStatus('mandatory')
+atiPortLoadshareGrouping = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 6, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 4))).clone(namedValues=NamedValues(("pair", 2), ("quad", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atiPortLoadshareGrouping.setStatus('mandatory')
+atiPortLoadshareStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 6, 1, 1, 4), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atiPortLoadshareStatus.setStatus('mandatory')
+mibBuilder.exportSymbols("CENTRECOM-PORT-MIB", atiPortLoadshareTable=atiPortLoadshareTable, atiPortLoadshareEntry=atiPortLoadshareEntry, atiPortLoadshareMasterIfIndex=atiPortLoadshareMasterIfIndex, atiPortLoadshareSlaveIfIndex=atiPortLoadshareSlaveIfIndex, atiPortLoadshareStatus=atiPortLoadshareStatus, atiPort=atiPort, atiPortLoadshareGrouping=atiPortLoadshareGrouping, PYSNMP_MODULE_ID=atiPort)

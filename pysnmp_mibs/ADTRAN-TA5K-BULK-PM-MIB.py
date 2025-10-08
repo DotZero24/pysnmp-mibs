@@ -1,48 +1,35 @@
-_F='adGenPortInfoIndex'
-_E='ADTRAN-GENPORT-MIB'
-_D='read-only'
-_C='adGenSlotInfoIndex'
-_B='ADTRAN-GENSLOT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGenPortInfoIndex,=mibBuilder.importSymbols(_E,_F)
-adGenSlotInfoIndex,=mibBuilder.importSymbols(_B,_C)
-adGenTa5kBulkPM,adGenTa5kBulkPMID=mibBuilder.importSymbols('ADTRAN-GENTA5K-MIB','adGenTa5kBulkPM','adGenTa5kBulkPMID')
-adIdentity,adIdentityShared,adMgmt,adProducts=mibBuilder.importSymbols('ADTRAN-MIB','adIdentity','adIdentityShared','adMgmt','adProducts')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-adTa5kBulkPMModuleIdentity=ModuleIdentity((1,3,6,1,4,1,664,6,10000,67,1,18,1))
-_AdTa5kBulkPMSlotTable_Object=MibTable
-adTa5kBulkPMSlotTable=_AdTa5kBulkPMSlotTable_Object((1,3,6,1,4,1,664,5,67,1,18,1))
-if mibBuilder.loadTexts:adTa5kBulkPMSlotTable.setStatus(_A)
-_AdTa5kBulkPMSlotEntry_Object=MibTableRow
-adTa5kBulkPMSlotEntry=_AdTa5kBulkPMSlotEntry_Object((1,3,6,1,4,1,664,5,67,1,18,1,1))
-adTa5kBulkPMSlotEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:adTa5kBulkPMSlotEntry.setStatus(_A)
-_AdTa5kBulkPMSlotInstance_Type=Integer32
-_AdTa5kBulkPMSlotInstance_Object=MibTableColumn
-adTa5kBulkPMSlotInstance=_AdTa5kBulkPMSlotInstance_Object((1,3,6,1,4,1,664,5,67,1,18,1,1,1),_AdTa5kBulkPMSlotInstance_Type())
-adTa5kBulkPMSlotInstance.setMaxAccess(_D)
-if mibBuilder.loadTexts:adTa5kBulkPMSlotInstance.setStatus(_A)
-_AdTa5kBulkPM15MinSlotInstance_Type=Integer32
-_AdTa5kBulkPM15MinSlotInstance_Object=MibTableColumn
-adTa5kBulkPM15MinSlotInstance=_AdTa5kBulkPM15MinSlotInstance_Object((1,3,6,1,4,1,664,5,67,1,18,1,1,2),_AdTa5kBulkPM15MinSlotInstance_Type())
-adTa5kBulkPM15MinSlotInstance.setMaxAccess(_D)
-if mibBuilder.loadTexts:adTa5kBulkPM15MinSlotInstance.setStatus(_A)
-_AdTa5kBulkPMPortTable_Object=MibTable
-adTa5kBulkPMPortTable=_AdTa5kBulkPMPortTable_Object((1,3,6,1,4,1,664,5,67,1,18,2))
-if mibBuilder.loadTexts:adTa5kBulkPMPortTable.setStatus(_A)
-_AdTa5kBulkPMPortEntry_Object=MibTableRow
-adTa5kBulkPMPortEntry=_AdTa5kBulkPMPortEntry_Object((1,3,6,1,4,1,664,5,67,1,18,2,1))
-adTa5kBulkPMPortEntry.setIndexNames((0,_B,_C),(0,_E,_F))
-if mibBuilder.loadTexts:adTa5kBulkPMPortEntry.setStatus(_A)
-_AdTa5kBulkPMPortInstance_Type=Integer32
-_AdTa5kBulkPMPortInstance_Object=MibTableColumn
-adTa5kBulkPMPortInstance=_AdTa5kBulkPMPortInstance_Object((1,3,6,1,4,1,664,5,67,1,18,2,1,1),_AdTa5kBulkPMPortInstance_Type())
-adTa5kBulkPMPortInstance.setMaxAccess(_D)
-if mibBuilder.loadTexts:adTa5kBulkPMPortInstance.setStatus(_A)
-mibBuilder.exportSymbols('ADTRAN-TA5K-BULK-PM-MIB',**{'adTa5kBulkPMSlotTable':adTa5kBulkPMSlotTable,'adTa5kBulkPMSlotEntry':adTa5kBulkPMSlotEntry,'adTa5kBulkPMSlotInstance':adTa5kBulkPMSlotInstance,'adTa5kBulkPM15MinSlotInstance':adTa5kBulkPM15MinSlotInstance,'adTa5kBulkPMPortTable':adTa5kBulkPMPortTable,'adTa5kBulkPMPortEntry':adTa5kBulkPMPortEntry,'adTa5kBulkPMPortInstance':adTa5kBulkPMPortInstance,'adTa5kBulkPMModuleIdentity':adTa5kBulkPMModuleIdentity})
+#
+# PySNMP MIB module ADTRAN-TA5K-BULK-PM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-TA5K-BULK-PM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:45 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGenPortInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENPORT-MIB", "adGenPortInfoIndex")
+adGenSlotInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex")
+adGenTa5kBulkPM, adGenTa5kBulkPMID = mibBuilder.importSymbols("ADTRAN-GENTA5K-MIB", "adGenTa5kBulkPM", "adGenTa5kBulkPMID")
+adMgmt, adIdentityShared, adProducts, adIdentity = mibBuilder.importSymbols("ADTRAN-MIB", "adMgmt", "adIdentityShared", "adProducts", "adIdentity")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+adTa5kBulkPMModuleIdentity = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 18, 1))
+if mibBuilder.loadTexts: adTa5kBulkPMModuleIdentity.setLastUpdated('200709200000Z')
+if mibBuilder.loadTexts: adTa5kBulkPMModuleIdentity.setOrganization('ADTRAN, Inc.')
+adTa5kBulkPMSlotTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 18, 1), )
+if mibBuilder.loadTexts: adTa5kBulkPMSlotTable.setStatus('current')
+adTa5kBulkPMSlotEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 18, 1, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adTa5kBulkPMSlotEntry.setStatus('current')
+adTa5kBulkPMSlotInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 18, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kBulkPMSlotInstance.setStatus('current')
+adTa5kBulkPM15MinSlotInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 18, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kBulkPM15MinSlotInstance.setStatus('current')
+adTa5kBulkPMPortTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 18, 2), )
+if mibBuilder.loadTexts: adTa5kBulkPMPortTable.setStatus('current')
+adTa5kBulkPMPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 18, 2, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"), (0, "ADTRAN-GENPORT-MIB", "adGenPortInfoIndex"))
+if mibBuilder.loadTexts: adTa5kBulkPMPortEntry.setStatus('current')
+adTa5kBulkPMPortInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 18, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kBulkPMPortInstance.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-TA5K-BULK-PM-MIB", PYSNMP_MODULE_ID=adTa5kBulkPMModuleIdentity, adTa5kBulkPMPortEntry=adTa5kBulkPMPortEntry, adTa5kBulkPMSlotTable=adTa5kBulkPMSlotTable, adTa5kBulkPMSlotEntry=adTa5kBulkPMSlotEntry, adTa5kBulkPMPortTable=adTa5kBulkPMPortTable, adTa5kBulkPMPortInstance=adTa5kBulkPMPortInstance, adTa5kBulkPM15MinSlotInstance=adTa5kBulkPM15MinSlotInstance, adTa5kBulkPMModuleIdentity=adTa5kBulkPMModuleIdentity, adTa5kBulkPMSlotInstance=adTa5kBulkPMSlotInstance)

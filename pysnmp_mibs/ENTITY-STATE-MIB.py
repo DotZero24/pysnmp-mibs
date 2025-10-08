@@ -1,94 +1,78 @@
-_P='entStateNotificationsGroup'
-_O='entStateGroup'
-_N='entStateOperDisabled'
-_M='entStateOperEnabled'
-_L='entStateStandby'
-_K='entStateUsage'
-_J='entStateOper'
-_I='entStateLastChanged'
-_H='entPhysicalIndex'
-_G='ENTITY-MIB'
-_F='entStateAlarm'
-_E='entStateAdmin'
-_D='read-only'
-_C='unknown'
-_B='ENTITY-STATE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-entPhysicalIndex,=mibBuilder.importSymbols(_G,_H)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
-DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
-entityStateMIB=ModuleIdentity((1,3,6,1,2,1,131))
-if mibBuilder.loadTexts:entityStateMIB.setRevisions(('2006-09-06 00:00',))
-class EntityAdminState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_C,1),('locked',2),('shuttingDown',3),('unlocked',4)))
-class EntityOperState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_C,1),('disabled',2),('enabled',3),('testing',4)))
-class EntityUsageState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_C,1),('idle',2),('active',3),('busy',4)))
-class EntityAlarmStatus(TextualConvention,Bits):status=_A;namedValues=NamedValues(*((_C,0),('underRepair',1),('critical',2),('major',3),('minor',4),('warning',5),('indeterminate',6)))
-class EntityStandbyStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_C,1),('hotStandby',2),('coldStandby',3),('providingService',4)))
-_EntStateNotifications_ObjectIdentity=ObjectIdentity
-entStateNotifications=_EntStateNotifications_ObjectIdentity((1,3,6,1,2,1,131,0))
-_EntStateObjects_ObjectIdentity=ObjectIdentity
-entStateObjects=_EntStateObjects_ObjectIdentity((1,3,6,1,2,1,131,1))
-_EntStateTable_Object=MibTable
-entStateTable=_EntStateTable_Object((1,3,6,1,2,1,131,1,1))
-if mibBuilder.loadTexts:entStateTable.setStatus(_A)
-_EntStateEntry_Object=MibTableRow
-entStateEntry=_EntStateEntry_Object((1,3,6,1,2,1,131,1,1,1))
-entStateEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:entStateEntry.setStatus(_A)
-_EntStateLastChanged_Type=DateAndTime
-_EntStateLastChanged_Object=MibTableColumn
-entStateLastChanged=_EntStateLastChanged_Object((1,3,6,1,2,1,131,1,1,1,1),_EntStateLastChanged_Type())
-entStateLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:entStateLastChanged.setStatus(_A)
-_EntStateAdmin_Type=EntityAdminState
-_EntStateAdmin_Object=MibTableColumn
-entStateAdmin=_EntStateAdmin_Object((1,3,6,1,2,1,131,1,1,1,2),_EntStateAdmin_Type())
-entStateAdmin.setMaxAccess('read-write')
-if mibBuilder.loadTexts:entStateAdmin.setStatus(_A)
-_EntStateOper_Type=EntityOperState
-_EntStateOper_Object=MibTableColumn
-entStateOper=_EntStateOper_Object((1,3,6,1,2,1,131,1,1,1,3),_EntStateOper_Type())
-entStateOper.setMaxAccess(_D)
-if mibBuilder.loadTexts:entStateOper.setStatus(_A)
-_EntStateUsage_Type=EntityUsageState
-_EntStateUsage_Object=MibTableColumn
-entStateUsage=_EntStateUsage_Object((1,3,6,1,2,1,131,1,1,1,4),_EntStateUsage_Type())
-entStateUsage.setMaxAccess(_D)
-if mibBuilder.loadTexts:entStateUsage.setStatus(_A)
-_EntStateAlarm_Type=EntityAlarmStatus
-_EntStateAlarm_Object=MibTableColumn
-entStateAlarm=_EntStateAlarm_Object((1,3,6,1,2,1,131,1,1,1,5),_EntStateAlarm_Type())
-entStateAlarm.setMaxAccess(_D)
-if mibBuilder.loadTexts:entStateAlarm.setStatus(_A)
-_EntStateStandby_Type=EntityStandbyStatus
-_EntStateStandby_Object=MibTableColumn
-entStateStandby=_EntStateStandby_Object((1,3,6,1,2,1,131,1,1,1,6),_EntStateStandby_Type())
-entStateStandby.setMaxAccess(_D)
-if mibBuilder.loadTexts:entStateStandby.setStatus(_A)
-_EntStateConformance_ObjectIdentity=ObjectIdentity
-entStateConformance=_EntStateConformance_ObjectIdentity((1,3,6,1,2,1,131,2))
-_EntStateCompliances_ObjectIdentity=ObjectIdentity
-entStateCompliances=_EntStateCompliances_ObjectIdentity((1,3,6,1,2,1,131,2,1))
-_EntStateGroups_ObjectIdentity=ObjectIdentity
-entStateGroups=_EntStateGroups_ObjectIdentity((1,3,6,1,2,1,131,2,2))
-entStateGroup=ObjectGroup((1,3,6,1,2,1,131,2,2,1))
-entStateGroup.setObjects(*((_B,_I),(_B,_E),(_B,_J),(_B,_K),(_B,_F),(_B,_L)))
-if mibBuilder.loadTexts:entStateGroup.setStatus(_A)
-entStateOperEnabled=NotificationType((1,3,6,1,2,1,131,0,1))
-entStateOperEnabled.setObjects(*((_B,_E),(_B,_F)))
-if mibBuilder.loadTexts:entStateOperEnabled.setStatus(_A)
-entStateOperDisabled=NotificationType((1,3,6,1,2,1,131,0,2))
-entStateOperDisabled.setObjects(*((_B,_E),(_B,_F)))
-if mibBuilder.loadTexts:entStateOperDisabled.setStatus(_A)
-entStateNotificationsGroup=NotificationGroup((1,3,6,1,2,1,131,2,2,2))
-entStateNotificationsGroup.setObjects(*((_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:entStateNotificationsGroup.setStatus(_A)
-entStateCompliance=ModuleCompliance((1,3,6,1,2,1,131,2,1,1))
-entStateCompliance.setObjects(*((_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:entStateCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'EntityAdminState':EntityAdminState,'EntityOperState':EntityOperState,'EntityUsageState':EntityUsageState,'EntityAlarmStatus':EntityAlarmStatus,'EntityStandbyStatus':EntityStandbyStatus,'entityStateMIB':entityStateMIB,'entStateNotifications':entStateNotifications,_M:entStateOperEnabled,_N:entStateOperDisabled,'entStateObjects':entStateObjects,'entStateTable':entStateTable,'entStateEntry':entStateEntry,_I:entStateLastChanged,_E:entStateAdmin,_J:entStateOper,_K:entStateUsage,_F:entStateAlarm,_L:entStateStandby,'entStateConformance':entStateConformance,'entStateCompliances':entStateCompliances,'entStateCompliance':entStateCompliance,'entStateGroups':entStateGroups,_O:entStateGroup,_P:entStateNotificationsGroup})
+#
+# PySNMP MIB module ENTITY-STATE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/ENTITY-STATE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:26:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, TimeTicks, MibIdentifier, Integer32, Bits, mib_2, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "TimeTicks", "MibIdentifier", "Integer32", "Bits", "mib-2", "IpAddress")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+entityStateMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 131))
+entityStateMIB.setRevisions(('2006-09-06 00:00',))
+if mibBuilder.loadTexts: entityStateMIB.setLastUpdated('200609060000Z')
+if mibBuilder.loadTexts: entityStateMIB.setOrganization('IETF Entity MIB Working Group')
+entStateObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 131, 1))
+class EntityAdminState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("unknown", 1), ("locked", 2), ("shuttingDown", 3), ("unlocked", 4))
+
+class EntityOperState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("unknown", 1), ("disabled", 2), ("enabled", 3), ("testing", 4))
+
+class EntityUsageState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("unknown", 1), ("idle", 2), ("active", 3), ("busy", 4))
+
+class EntityAlarmStatus(TextualConvention, Bits):
+    status = 'current'
+    namedValues = NamedValues(("unknown", 0), ("underRepair", 1), ("critical", 2), ("major", 3), ("minor", 4), ("warning", 5), ("indeterminate", 6))
+
+class EntityStandbyStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("unknown", 1), ("hotStandby", 2), ("coldStandby", 3), ("providingService", 4))
+
+entStateTable = MibTable((1, 3, 6, 1, 2, 1, 131, 1, 1), )
+if mibBuilder.loadTexts: entStateTable.setStatus('current')
+entStateEntry = MibTableRow((1, 3, 6, 1, 2, 1, 131, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: entStateEntry.setStatus('current')
+entStateLastChanged = MibTableColumn((1, 3, 6, 1, 2, 1, 131, 1, 1, 1, 1), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: entStateLastChanged.setStatus('current')
+entStateAdmin = MibTableColumn((1, 3, 6, 1, 2, 1, 131, 1, 1, 1, 2), EntityAdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: entStateAdmin.setStatus('current')
+entStateOper = MibTableColumn((1, 3, 6, 1, 2, 1, 131, 1, 1, 1, 3), EntityOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: entStateOper.setStatus('current')
+entStateUsage = MibTableColumn((1, 3, 6, 1, 2, 1, 131, 1, 1, 1, 4), EntityUsageState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: entStateUsage.setStatus('current')
+entStateAlarm = MibTableColumn((1, 3, 6, 1, 2, 1, 131, 1, 1, 1, 5), EntityAlarmStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: entStateAlarm.setStatus('current')
+entStateStandby = MibTableColumn((1, 3, 6, 1, 2, 1, 131, 1, 1, 1, 6), EntityStandbyStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: entStateStandby.setStatus('current')
+entStateNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 131, 0))
+entStateOperEnabled = NotificationType((1, 3, 6, 1, 2, 1, 131, 0, 1)).setObjects(("ENTITY-STATE-MIB", "entStateAdmin"), ("ENTITY-STATE-MIB", "entStateAlarm"))
+if mibBuilder.loadTexts: entStateOperEnabled.setStatus('current')
+entStateOperDisabled = NotificationType((1, 3, 6, 1, 2, 1, 131, 0, 2)).setObjects(("ENTITY-STATE-MIB", "entStateAdmin"), ("ENTITY-STATE-MIB", "entStateAlarm"))
+if mibBuilder.loadTexts: entStateOperDisabled.setStatus('current')
+entStateConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 131, 2))
+entStateCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 131, 2, 1))
+entStateCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 131, 2, 1, 1)).setObjects(("ENTITY-STATE-MIB", "entStateGroup"), ("ENTITY-STATE-MIB", "entStateNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    entStateCompliance = entStateCompliance.setStatus('current')
+entStateGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 131, 2, 2))
+entStateGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 131, 2, 2, 1)).setObjects(("ENTITY-STATE-MIB", "entStateLastChanged"), ("ENTITY-STATE-MIB", "entStateAdmin"), ("ENTITY-STATE-MIB", "entStateOper"), ("ENTITY-STATE-MIB", "entStateUsage"), ("ENTITY-STATE-MIB", "entStateAlarm"), ("ENTITY-STATE-MIB", "entStateStandby"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    entStateGroup = entStateGroup.setStatus('current')
+entStateNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 131, 2, 2, 2)).setObjects(("ENTITY-STATE-MIB", "entStateOperEnabled"), ("ENTITY-STATE-MIB", "entStateOperDisabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    entStateNotificationsGroup = entStateNotificationsGroup.setStatus('current')
+mibBuilder.exportSymbols("ENTITY-STATE-MIB", EntityAlarmStatus=EntityAlarmStatus, entStateEntry=entStateEntry, EntityOperState=EntityOperState, entityStateMIB=entityStateMIB, entStateUsage=entStateUsage, entStateOper=entStateOper, entStateOperDisabled=entStateOperDisabled, entStateNotificationsGroup=entStateNotificationsGroup, entStateAdmin=entStateAdmin, entStateObjects=entStateObjects, entStateOperEnabled=entStateOperEnabled, entStateLastChanged=entStateLastChanged, entStateNotifications=entStateNotifications, entStateAlarm=entStateAlarm, entStateCompliances=entStateCompliances, entStateGroups=entStateGroups, entStateCompliance=entStateCompliance, EntityStandbyStatus=EntityStandbyStatus, PYSNMP_MODULE_ID=entityStateMIB, entStateTable=entStateTable, entStateStandby=entStateStandby, EntityUsageState=EntityUsageState, entStateGroup=entStateGroup, EntityAdminState=EntityAdminState, entStateConformance=entStateConformance)

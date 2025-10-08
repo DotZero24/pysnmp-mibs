@@ -1,129 +1,64 @@
-_N='eltSecuritySuiteSynProtectionFlowDstPort'
-_M='eltSecuritySuiteSynProtectionFlowDstAddr'
-_L='eltSecuritySuiteSynProtectionFlowDstAddrType'
-_K='eltSecuritySuiteSynProtectionFlowSrcPort'
-_J='eltSecuritySuiteSynProtectionFlowSrcAddr'
-_I='eltSecuritySuiteSynProtectionFlowSrcAddrType'
-_H='eltSecuritySuiteSynProtectionFlowVlanId'
-_G='eltSecuritySuiteSynProtectionFlowIfIndex'
-_F='Integer32'
-_E='read-write'
-_D='Unsigned32'
-_C='ELTEX-MES-SECURITY-SUITE-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-eltMes,=mibBuilder.importSymbols('ELTEX-MES','eltMes')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-VlanId,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanId')
-RlSecuritySuiteSynProtectionPortMode,=mibBuilder.importSymbols('RADLAN-SECURITY-SUITE','RlSecuritySuiteSynProtectionPortMode')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-eltMesSecuritySuiteMIB=ModuleIdentity((1,3,6,1,4,1,35265,1,23,19))
-if mibBuilder.loadTexts:eltMesSecuritySuiteMIB.setRevisions(('2020-05-08 00:00',))
-_EltMesSecuritySuiteMIBObjects_ObjectIdentity=ObjectIdentity
-eltMesSecuritySuiteMIBObjects=_EltMesSecuritySuiteMIBObjects_ObjectIdentity((1,3,6,1,4,1,35265,1,23,19,1))
-_EltMesSecuritySuiteGlobals_ObjectIdentity=ObjectIdentity
-eltMesSecuritySuiteGlobals=_EltMesSecuritySuiteGlobals_ObjectIdentity((1,3,6,1,4,1,35265,1,23,19,1,1))
-_EltMesSecuritySuiteSynProtection_ObjectIdentity=ObjectIdentity
-eltMesSecuritySuiteSynProtection=_EltMesSecuritySuiteSynProtection_ObjectIdentity((1,3,6,1,4,1,35265,1,23,19,1,2))
-_EltMesSecuritySuiteSynProtectionGlobals_ObjectIdentity=ObjectIdentity
-eltMesSecuritySuiteSynProtectionGlobals=_EltMesSecuritySuiteSynProtectionGlobals_ObjectIdentity((1,3,6,1,4,1,35265,1,23,19,1,2,1))
-_EltMesSecuritySuiteSynProtectionStatistics_ObjectIdentity=ObjectIdentity
-eltMesSecuritySuiteSynProtectionStatistics=_EltMesSecuritySuiteSynProtectionStatistics_ObjectIdentity((1,3,6,1,4,1,35265,1,23,19,1,2,2))
-_EltSecuritySuiteSynProtectionStatsEnable_Type=TruthValue
-_EltSecuritySuiteSynProtectionStatsEnable_Object=MibScalar
-eltSecuritySuiteSynProtectionStatsEnable=_EltSecuritySuiteSynProtectionStatsEnable_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,1),_EltSecuritySuiteSynProtectionStatsEnable_Type())
-eltSecuritySuiteSynProtectionStatsEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionStatsEnable.setStatus(_A)
-class _EltSecuritySuiteSynProtectionStatsClearAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('noAction',1),('clearNow',2)))
-_EltSecuritySuiteSynProtectionStatsClearAction_Type.__name__=_F
-_EltSecuritySuiteSynProtectionStatsClearAction_Object=MibScalar
-eltSecuritySuiteSynProtectionStatsClearAction=_EltSecuritySuiteSynProtectionStatsClearAction_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,2),_EltSecuritySuiteSynProtectionStatsClearAction_Type())
-eltSecuritySuiteSynProtectionStatsClearAction.setMaxAccess(_E)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionStatsClearAction.setStatus(_A)
-_EltSecuritySuiteSynProtectionFlowTable_Object=MibTable
-eltSecuritySuiteSynProtectionFlowTable=_EltSecuritySuiteSynProtectionFlowTable_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3))
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowTable.setStatus(_A)
-_EltSecuritySuiteSynProtectionFlowEntry_Object=MibTableRow
-eltSecuritySuiteSynProtectionFlowEntry=_EltSecuritySuiteSynProtectionFlowEntry_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3,1))
-eltSecuritySuiteSynProtectionFlowEntry.setIndexNames((0,_C,_G),(0,_C,_H),(0,_C,_I),(0,_C,_J),(0,_C,_K),(0,_C,_L),(0,_C,_M),(0,_C,_N))
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowEntry.setStatus(_A)
-_EltSecuritySuiteSynProtectionFlowIfIndex_Type=InterfaceIndex
-_EltSecuritySuiteSynProtectionFlowIfIndex_Object=MibTableColumn
-eltSecuritySuiteSynProtectionFlowIfIndex=_EltSecuritySuiteSynProtectionFlowIfIndex_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3,1,1),_EltSecuritySuiteSynProtectionFlowIfIndex_Type())
-eltSecuritySuiteSynProtectionFlowIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowIfIndex.setStatus(_A)
-_EltSecuritySuiteSynProtectionFlowVlanId_Type=VlanId
-_EltSecuritySuiteSynProtectionFlowVlanId_Object=MibTableColumn
-eltSecuritySuiteSynProtectionFlowVlanId=_EltSecuritySuiteSynProtectionFlowVlanId_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3,1,2),_EltSecuritySuiteSynProtectionFlowVlanId_Type())
-eltSecuritySuiteSynProtectionFlowVlanId.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowVlanId.setStatus(_A)
-_EltSecuritySuiteSynProtectionFlowSrcAddrType_Type=InetAddressType
-_EltSecuritySuiteSynProtectionFlowSrcAddrType_Object=MibTableColumn
-eltSecuritySuiteSynProtectionFlowSrcAddrType=_EltSecuritySuiteSynProtectionFlowSrcAddrType_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3,1,3),_EltSecuritySuiteSynProtectionFlowSrcAddrType_Type())
-eltSecuritySuiteSynProtectionFlowSrcAddrType.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowSrcAddrType.setStatus(_A)
-_EltSecuritySuiteSynProtectionFlowSrcAddr_Type=InetAddress
-_EltSecuritySuiteSynProtectionFlowSrcAddr_Object=MibTableColumn
-eltSecuritySuiteSynProtectionFlowSrcAddr=_EltSecuritySuiteSynProtectionFlowSrcAddr_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3,1,4),_EltSecuritySuiteSynProtectionFlowSrcAddr_Type())
-eltSecuritySuiteSynProtectionFlowSrcAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowSrcAddr.setStatus(_A)
-class _EltSecuritySuiteSynProtectionFlowSrcPort_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_EltSecuritySuiteSynProtectionFlowSrcPort_Type.__name__=_D
-_EltSecuritySuiteSynProtectionFlowSrcPort_Object=MibTableColumn
-eltSecuritySuiteSynProtectionFlowSrcPort=_EltSecuritySuiteSynProtectionFlowSrcPort_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3,1,5),_EltSecuritySuiteSynProtectionFlowSrcPort_Type())
-eltSecuritySuiteSynProtectionFlowSrcPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowSrcPort.setStatus(_A)
-_EltSecuritySuiteSynProtectionFlowDstAddrType_Type=InetAddressType
-_EltSecuritySuiteSynProtectionFlowDstAddrType_Object=MibTableColumn
-eltSecuritySuiteSynProtectionFlowDstAddrType=_EltSecuritySuiteSynProtectionFlowDstAddrType_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3,1,6),_EltSecuritySuiteSynProtectionFlowDstAddrType_Type())
-eltSecuritySuiteSynProtectionFlowDstAddrType.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowDstAddrType.setStatus(_A)
-_EltSecuritySuiteSynProtectionFlowDstAddr_Type=InetAddress
-_EltSecuritySuiteSynProtectionFlowDstAddr_Object=MibTableColumn
-eltSecuritySuiteSynProtectionFlowDstAddr=_EltSecuritySuiteSynProtectionFlowDstAddr_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3,1,7),_EltSecuritySuiteSynProtectionFlowDstAddr_Type())
-eltSecuritySuiteSynProtectionFlowDstAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowDstAddr.setStatus(_A)
-class _EltSecuritySuiteSynProtectionFlowDstPort_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_EltSecuritySuiteSynProtectionFlowDstPort_Type.__name__=_D
-_EltSecuritySuiteSynProtectionFlowDstPort_Object=MibTableColumn
-eltSecuritySuiteSynProtectionFlowDstPort=_EltSecuritySuiteSynProtectionFlowDstPort_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3,1,8),_EltSecuritySuiteSynProtectionFlowDstPort_Type())
-eltSecuritySuiteSynProtectionFlowDstPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowDstPort.setStatus(_A)
-_EltSecuritySuiteSynProtectionFlowCurrentRate_Type=Unsigned32
-_EltSecuritySuiteSynProtectionFlowCurrentRate_Object=MibTableColumn
-eltSecuritySuiteSynProtectionFlowCurrentRate=_EltSecuritySuiteSynProtectionFlowCurrentRate_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3,1,9),_EltSecuritySuiteSynProtectionFlowCurrentRate_Type())
-eltSecuritySuiteSynProtectionFlowCurrentRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowCurrentRate.setStatus(_A)
-_EltSecuritySuiteSynProtectionFlowMaxRate_Type=Unsigned32
-_EltSecuritySuiteSynProtectionFlowMaxRate_Object=MibTableColumn
-eltSecuritySuiteSynProtectionFlowMaxRate=_EltSecuritySuiteSynProtectionFlowMaxRate_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3,1,10),_EltSecuritySuiteSynProtectionFlowMaxRate_Type())
-eltSecuritySuiteSynProtectionFlowMaxRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowMaxRate.setStatus(_A)
-_EltSecuritySuiteSynProtectionFlowTotalCount_Type=Counter32
-_EltSecuritySuiteSynProtectionFlowTotalCount_Object=MibTableColumn
-eltSecuritySuiteSynProtectionFlowTotalCount=_EltSecuritySuiteSynProtectionFlowTotalCount_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3,1,11),_EltSecuritySuiteSynProtectionFlowTotalCount_Type())
-eltSecuritySuiteSynProtectionFlowTotalCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowTotalCount.setStatus(_A)
-_EltSecuritySuiteSynProtectionFlowLastTimeAttack_Type=DisplayString
-_EltSecuritySuiteSynProtectionFlowLastTimeAttack_Object=MibTableColumn
-eltSecuritySuiteSynProtectionFlowLastTimeAttack=_EltSecuritySuiteSynProtectionFlowLastTimeAttack_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3,1,12),_EltSecuritySuiteSynProtectionFlowLastTimeAttack_Type())
-eltSecuritySuiteSynProtectionFlowLastTimeAttack.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowLastTimeAttack.setStatus(_A)
-_EltSecuritySuiteSynProtectionFlowStatus_Type=RlSecuritySuiteSynProtectionPortMode
-_EltSecuritySuiteSynProtectionFlowStatus_Object=MibTableColumn
-eltSecuritySuiteSynProtectionFlowStatus=_EltSecuritySuiteSynProtectionFlowStatus_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3,1,13),_EltSecuritySuiteSynProtectionFlowStatus_Type())
-eltSecuritySuiteSynProtectionFlowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowStatus.setStatus(_A)
-_EltSecuritySuiteSynProtectionFlowId_Type=Counter32
-_EltSecuritySuiteSynProtectionFlowId_Object=MibTableColumn
-eltSecuritySuiteSynProtectionFlowId=_EltSecuritySuiteSynProtectionFlowId_Object((1,3,6,1,4,1,35265,1,23,19,1,2,2,3,1,14),_EltSecuritySuiteSynProtectionFlowId_Type())
-eltSecuritySuiteSynProtectionFlowId.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltSecuritySuiteSynProtectionFlowId.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'eltMesSecuritySuiteMIB':eltMesSecuritySuiteMIB,'eltMesSecuritySuiteMIBObjects':eltMesSecuritySuiteMIBObjects,'eltMesSecuritySuiteGlobals':eltMesSecuritySuiteGlobals,'eltMesSecuritySuiteSynProtection':eltMesSecuritySuiteSynProtection,'eltMesSecuritySuiteSynProtectionGlobals':eltMesSecuritySuiteSynProtectionGlobals,'eltMesSecuritySuiteSynProtectionStatistics':eltMesSecuritySuiteSynProtectionStatistics,'eltSecuritySuiteSynProtectionStatsEnable':eltSecuritySuiteSynProtectionStatsEnable,'eltSecuritySuiteSynProtectionStatsClearAction':eltSecuritySuiteSynProtectionStatsClearAction,'eltSecuritySuiteSynProtectionFlowTable':eltSecuritySuiteSynProtectionFlowTable,'eltSecuritySuiteSynProtectionFlowEntry':eltSecuritySuiteSynProtectionFlowEntry,_G:eltSecuritySuiteSynProtectionFlowIfIndex,_H:eltSecuritySuiteSynProtectionFlowVlanId,_I:eltSecuritySuiteSynProtectionFlowSrcAddrType,_J:eltSecuritySuiteSynProtectionFlowSrcAddr,_K:eltSecuritySuiteSynProtectionFlowSrcPort,_L:eltSecuritySuiteSynProtectionFlowDstAddrType,_M:eltSecuritySuiteSynProtectionFlowDstAddr,_N:eltSecuritySuiteSynProtectionFlowDstPort,'eltSecuritySuiteSynProtectionFlowCurrentRate':eltSecuritySuiteSynProtectionFlowCurrentRate,'eltSecuritySuiteSynProtectionFlowMaxRate':eltSecuritySuiteSynProtectionFlowMaxRate,'eltSecuritySuiteSynProtectionFlowTotalCount':eltSecuritySuiteSynProtectionFlowTotalCount,'eltSecuritySuiteSynProtectionFlowLastTimeAttack':eltSecuritySuiteSynProtectionFlowLastTimeAttack,'eltSecuritySuiteSynProtectionFlowStatus':eltSecuritySuiteSynProtectionFlowStatus,'eltSecuritySuiteSynProtectionFlowId':eltSecuritySuiteSynProtectionFlowId})
+#
+# PySNMP MIB module ELTEX-MES-SECURITY-SUITE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-MES-SECURITY-SUITE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltMes, = mibBuilder.importSymbols("ELTEX-MES", "eltMes")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+VlanId, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId")
+RlSecuritySuiteSynProtectionPortMode, = mibBuilder.importSymbols("RADLAN-SECURITY-SUITE", "RlSecuritySuiteSynProtectionPortMode")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+eltMesSecuritySuiteMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19))
+eltMesSecuritySuiteMIB.setRevisions(('2020-05-08 00:00',))
+if mibBuilder.loadTexts: eltMesSecuritySuiteMIB.setLastUpdated('202005080000Z')
+if mibBuilder.loadTexts: eltMesSecuritySuiteMIB.setOrganization('Eltex Enterprise Co, Ltd.')
+eltMesSecuritySuiteMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1))
+eltMesSecuritySuiteGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 1))
+eltMesSecuritySuiteSynProtection = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2))
+eltMesSecuritySuiteSynProtectionGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 1))
+eltMesSecuritySuiteSynProtectionStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2))
+eltSecuritySuiteSynProtectionStatsEnable = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionStatsEnable.setStatus('current')
+eltSecuritySuiteSynProtectionStatsClearAction = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noAction", 1), ("clearNow", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionStatsClearAction.setStatus('current')
+eltSecuritySuiteSynProtectionFlowTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3), )
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowTable.setStatus('current')
+eltSecuritySuiteSynProtectionFlowEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3, 1), ).setIndexNames((0, "ELTEX-MES-SECURITY-SUITE-MIB", "eltSecuritySuiteSynProtectionFlowIfIndex"), (0, "ELTEX-MES-SECURITY-SUITE-MIB", "eltSecuritySuiteSynProtectionFlowVlanId"), (0, "ELTEX-MES-SECURITY-SUITE-MIB", "eltSecuritySuiteSynProtectionFlowSrcAddrType"), (0, "ELTEX-MES-SECURITY-SUITE-MIB", "eltSecuritySuiteSynProtectionFlowSrcAddr"), (0, "ELTEX-MES-SECURITY-SUITE-MIB", "eltSecuritySuiteSynProtectionFlowSrcPort"), (0, "ELTEX-MES-SECURITY-SUITE-MIB", "eltSecuritySuiteSynProtectionFlowDstAddrType"), (0, "ELTEX-MES-SECURITY-SUITE-MIB", "eltSecuritySuiteSynProtectionFlowDstAddr"), (0, "ELTEX-MES-SECURITY-SUITE-MIB", "eltSecuritySuiteSynProtectionFlowDstPort"))
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowEntry.setStatus('current')
+eltSecuritySuiteSynProtectionFlowIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowIfIndex.setStatus('current')
+eltSecuritySuiteSynProtectionFlowVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3, 1, 2), VlanId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowVlanId.setStatus('current')
+eltSecuritySuiteSynProtectionFlowSrcAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3, 1, 3), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowSrcAddrType.setStatus('current')
+eltSecuritySuiteSynProtectionFlowSrcAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3, 1, 4), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowSrcAddr.setStatus('current')
+eltSecuritySuiteSynProtectionFlowSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowSrcPort.setStatus('current')
+eltSecuritySuiteSynProtectionFlowDstAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3, 1, 6), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowDstAddrType.setStatus('current')
+eltSecuritySuiteSynProtectionFlowDstAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3, 1, 7), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowDstAddr.setStatus('current')
+eltSecuritySuiteSynProtectionFlowDstPort = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowDstPort.setStatus('current')
+eltSecuritySuiteSynProtectionFlowCurrentRate = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3, 1, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowCurrentRate.setStatus('current')
+eltSecuritySuiteSynProtectionFlowMaxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3, 1, 10), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowMaxRate.setStatus('current')
+eltSecuritySuiteSynProtectionFlowTotalCount = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowTotalCount.setStatus('current')
+eltSecuritySuiteSynProtectionFlowLastTimeAttack = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3, 1, 12), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowLastTimeAttack.setStatus('current')
+eltSecuritySuiteSynProtectionFlowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3, 1, 13), RlSecuritySuiteSynProtectionPortMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowStatus.setStatus('current')
+eltSecuritySuiteSynProtectionFlowId = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 19, 1, 2, 2, 3, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltSecuritySuiteSynProtectionFlowId.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-MES-SECURITY-SUITE-MIB", eltSecuritySuiteSynProtectionFlowDstPort=eltSecuritySuiteSynProtectionFlowDstPort, eltSecuritySuiteSynProtectionStatsClearAction=eltSecuritySuiteSynProtectionStatsClearAction, eltSecuritySuiteSynProtectionFlowSrcPort=eltSecuritySuiteSynProtectionFlowSrcPort, eltMesSecuritySuiteSynProtectionGlobals=eltMesSecuritySuiteSynProtectionGlobals, eltSecuritySuiteSynProtectionFlowSrcAddr=eltSecuritySuiteSynProtectionFlowSrcAddr, eltMesSecuritySuiteSynProtectionStatistics=eltMesSecuritySuiteSynProtectionStatistics, eltSecuritySuiteSynProtectionStatsEnable=eltSecuritySuiteSynProtectionStatsEnable, eltSecuritySuiteSynProtectionFlowStatus=eltSecuritySuiteSynProtectionFlowStatus, eltMesSecuritySuiteGlobals=eltMesSecuritySuiteGlobals, eltSecuritySuiteSynProtectionFlowId=eltSecuritySuiteSynProtectionFlowId, eltSecuritySuiteSynProtectionFlowMaxRate=eltSecuritySuiteSynProtectionFlowMaxRate, eltSecuritySuiteSynProtectionFlowLastTimeAttack=eltSecuritySuiteSynProtectionFlowLastTimeAttack, eltMesSecuritySuiteMIB=eltMesSecuritySuiteMIB, eltMesSecuritySuiteSynProtection=eltMesSecuritySuiteSynProtection, eltSecuritySuiteSynProtectionFlowEntry=eltSecuritySuiteSynProtectionFlowEntry, eltSecuritySuiteSynProtectionFlowCurrentRate=eltSecuritySuiteSynProtectionFlowCurrentRate, eltSecuritySuiteSynProtectionFlowTable=eltSecuritySuiteSynProtectionFlowTable, eltSecuritySuiteSynProtectionFlowIfIndex=eltSecuritySuiteSynProtectionFlowIfIndex, eltSecuritySuiteSynProtectionFlowVlanId=eltSecuritySuiteSynProtectionFlowVlanId, eltSecuritySuiteSynProtectionFlowDstAddrType=eltSecuritySuiteSynProtectionFlowDstAddrType, PYSNMP_MODULE_ID=eltMesSecuritySuiteMIB, eltSecuritySuiteSynProtectionFlowTotalCount=eltSecuritySuiteSynProtectionFlowTotalCount, eltMesSecuritySuiteMIBObjects=eltMesSecuritySuiteMIBObjects, eltSecuritySuiteSynProtectionFlowDstAddr=eltSecuritySuiteSynProtectionFlowDstAddr, eltSecuritySuiteSynProtectionFlowSrcAddrType=eltSecuritySuiteSynProtectionFlowSrcAddrType)

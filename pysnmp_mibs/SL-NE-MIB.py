@@ -1,60 +1,43 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-smartoptics=ModuleIdentity((1,3,6,1,4,1,4515))
-_Sitelight_ObjectIdentity=ObjectIdentity
-sitelight=_Sitelight_ObjectIdentity((1,3,6,1,4,1,4515,1))
-_SlService_ObjectIdentity=ObjectIdentity
-slService=_SlService_ObjectIdentity((1,3,6,1,4,1,4515,1,1))
-_Soproduct_ObjectIdentity=ObjectIdentity
-soproduct=_Soproduct_ObjectIdentity((1,3,6,1,4,1,4515,100))
-_Sone_ObjectIdentity=ObjectIdentity
-sone=_Sone_ObjectIdentity((1,3,6,1,4,1,4515,100,1))
-_T_4400r_ObjectIdentity=ObjectIdentity
-T_4400r=_T_4400r_ObjectIdentity((1,3,6,1,4,1,4515,100,1,404))
-_T_4408_ObjectIdentity=ObjectIdentity
-T_4408=_T_4408_ObjectIdentity((1,3,6,1,4,1,4515,100,1,404,1))
-_T_4900r_ObjectIdentity=ObjectIdentity
-T_4900r=_T_4900r_ObjectIdentity((1,3,6,1,4,1,4515,100,1,1000))
-_T_4904_ObjectIdentity=ObjectIdentity
-T_4904=_T_4904_ObjectIdentity((1,3,6,1,4,1,4515,100,1,1000,1))
-_T_4808_ObjectIdentity=ObjectIdentity
-T_4808=_T_4808_ObjectIdentity((1,3,6,1,4,1,4515,100,1,1000,2))
-_T_4910_ObjectIdentity=ObjectIdentity
-T_4910=_T_4910_ObjectIdentity((1,3,6,1,4,1,4515,100,1,1000,3))
-_T_ROADM_2_ObjectIdentity=ObjectIdentity
-T_ROADM_2=_T_ROADM_2_ObjectIdentity((1,3,6,1,4,1,4515,100,1,1000,4))
-_T_4906_ObjectIdentity=ObjectIdentity
-T_4906=_T_4906_ObjectIdentity((1,3,6,1,4,1,4515,100,1,1000,5))
-_T_1608_ObjectIdentity=ObjectIdentity
-T_1608=_T_1608_ObjectIdentity((1,3,6,1,4,1,4515,100,1,1000,6))
-_T_4900_IL_ObjectIdentity=ObjectIdentity
-T_4900_IL=_T_4900_IL_ObjectIdentity((1,3,6,1,4,1,4515,100,1,1000,7))
-_T_1608_CRY_ObjectIdentity=ObjectIdentity
-T_1608_CRY=_T_1608_CRY_ObjectIdentity((1,3,6,1,4,1,4515,100,1,1000,8))
-_T_4920r_ObjectIdentity=ObjectIdentity
-T_4920r=_T_4920r_ObjectIdentity((1,3,6,1,4,1,4515,100,1,2000))
-_T_4920_ObjectIdentity=ObjectIdentity
-T_4920=_T_4920_ObjectIdentity((1,3,6,1,4,1,4515,100,1,2000,1))
-_T_9900r_ObjectIdentity=ObjectIdentity
-T_9900r=_T_9900r_ObjectIdentity((1,3,6,1,4,1,4515,100,1,2100))
-_T_9910_ObjectIdentity=ObjectIdentity
-T_9910=_T_9910_ObjectIdentity((1,3,6,1,4,1,4515,100,1,2100,1))
-_T_9910_C_ObjectIdentity=ObjectIdentity
-T_9910_C=_T_9910_C_ObjectIdentity((1,3,6,1,4,1,4515,100,1,2100,2))
-_T_9901_ObjectIdentity=ObjectIdentity
-T_9901=_T_9901_ObjectIdentity((1,3,6,1,4,1,4515,100,1,2100,3))
-_T_ROADM_nro_ObjectIdentity=ObjectIdentity
-T_ROADM_nro=_T_ROADM_nro_ObjectIdentity((1,3,6,1,4,1,4515,100,1,2200))
-_T_ROADM_4ro1_ObjectIdentity=ObjectIdentity
-T_ROADM_4ro1=_T_ROADM_4ro1_ObjectIdentity((1,3,6,1,4,1,4515,100,1,2200,1))
-_T_ROADM_4ro2_ObjectIdentity=ObjectIdentity
-T_ROADM_4ro2=_T_ROADM_4ro2_ObjectIdentity((1,3,6,1,4,1,4515,100,1,2200,2))
-_T_ROADM_4ro3_ObjectIdentity=ObjectIdentity
-T_ROADM_4ro3=_T_ROADM_4ro3_ObjectIdentity((1,3,6,1,4,1,4515,100,1,2200,3))
-mibBuilder.exportSymbols('SL-NE-MIB',**{'smartoptics':smartoptics,'sitelight':sitelight,'slService':slService,'soproduct':soproduct,'sone':sone,'T-4400r':T_4400r,'T-4408':T_4408,'T-4900r':T_4900r,'T-4904':T_4904,'T-4808':T_4808,'T-4910':T_4910,'T-ROADM-2':T_ROADM_2,'T-4906':T_4906,'T-1608':T_1608,'T-4900-IL':T_4900_IL,'T-1608-CRY':T_1608_CRY,'T-4920r':T_4920r,'T-4920':T_4920,'T-9900r':T_9900r,'T-9910':T_9910,'T-9910-C':T_9910_C,'T-9901':T_9901,'T-ROADM-nro':T_ROADM_nro,'T-ROADM-4ro1':T_ROADM_4ro1,'T-ROADM-4ro2':T_ROADM_4ro2,'T-ROADM-4ro3':T_ROADM_4ro3})
+#
+# PySNMP MIB module SL-NE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/smartoptics/SL-NE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:13 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+smartoptics = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515))
+if mibBuilder.loadTexts: smartoptics.setLastUpdated('200009260000Z')
+if mibBuilder.loadTexts: smartoptics.setOrganization('Smartoptics')
+sitelight = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1))
+soproduct = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100))
+sone = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1))
+T_4400r = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 404)).setLabel("T-4400r")
+T_4408 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 404, 1)).setLabel("T-4408")
+T_4900r = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 1000)).setLabel("T-4900r")
+T_4904 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 1000, 1)).setLabel("T-4904")
+T_4808 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 1000, 2)).setLabel("T-4808")
+T_4910 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 1000, 3)).setLabel("T-4910")
+T_ROADM_2 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 1000, 4)).setLabel("T-ROADM-2")
+T_4906 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 1000, 5)).setLabel("T-4906")
+T_1608 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 1000, 6)).setLabel("T-1608")
+T_4900_IL = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 1000, 7)).setLabel("T-4900-IL")
+T_1608_CRY = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 1000, 8)).setLabel("T-1608-CRY")
+T_4920r = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 2000)).setLabel("T-4920r")
+T_4920 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 2000, 1)).setLabel("T-4920")
+T_9900r = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 2100)).setLabel("T-9900r")
+T_9910 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 2100, 1)).setLabel("T-9910")
+T_9910_C = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 2100, 2)).setLabel("T-9910-C")
+T_9901 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 2100, 3)).setLabel("T-9901")
+T_ROADM_nro = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 2200)).setLabel("T-ROADM-nro")
+T_ROADM_4ro1 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 2200, 1)).setLabel("T-ROADM-4ro1")
+T_ROADM_4ro2 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 2200, 2)).setLabel("T-ROADM-4ro2")
+T_ROADM_4ro3 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 2200, 3)).setLabel("T-ROADM-4ro3")
+slService = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 1))
+mibBuilder.exportSymbols("SL-NE-MIB", T_1608_CRY=T_1608_CRY, T_4904=T_4904, T_4906=T_4906, T_4408=T_4408, T_4920=T_4920, T_9900r=T_9900r, T_ROADM_4ro2=T_ROADM_4ro2, T_ROADM_4ro3=T_ROADM_4ro3, T_4910=T_4910, T_9910=T_9910, T_4920r=T_4920r, T_ROADM_4ro1=T_ROADM_4ro1, PYSNMP_MODULE_ID=smartoptics, sone=sone, T_4900r=T_4900r, T_1608=T_1608, T_4400r=T_4400r, T_ROADM_2=T_ROADM_2, T_4808=T_4808, sitelight=sitelight, T_ROADM_nro=T_ROADM_nro, slService=slService, T_9910_C=T_9910_C, T_4900_IL=T_4900_IL, soproduct=soproduct, smartoptics=smartoptics, T_9901=T_9901)

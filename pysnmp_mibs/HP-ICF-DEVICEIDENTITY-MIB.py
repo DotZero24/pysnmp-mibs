@@ -1,130 +1,72 @@
-_U='hpicfDeviceIdentityGroup2'
-_T='hpicfDeviceIdentityGroup1'
-_S='hpicfDeviceIdentityGroup'
-_R='hpicfDeviceIdentityLldpSysDescr'
-_Q='hpicfDeviceIdentityLldpSysName'
-_P='hpicfDevIdentityCdpType'
-_O='not-accessible'
-_N='Unsigned32'
-_M='hpicfDevIdentityCdpRowStatus'
-_L='hpicfDevIdentityCdpValue'
-_K='hpicfDeviceIdentityIndex'
-_J='Integer32'
-_I='deprecated'
-_H='hpicfDeviceIdentityLldpSubType'
-_G='hpicfDeviceIdentityLldpOui'
-_F='hpicfDeviceIdentityName'
-_E='hpicfDeviceIdentityRowStatus'
-_D='OctetString'
-_C='read-create'
-_B='current'
-_A='HP-ICF-DEVICEIDENTITY-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpSwitch,=mibBuilder.importSymbols('HP-ICF-OID','hpSwitch')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_J,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_N,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-hpicfDeviceIdentityMIB=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,5,1,135))
-if mibBuilder.loadTexts:hpicfDeviceIdentityMIB.setRevisions(('2019-07-16 00:00','2017-12-05 00:00','2017-01-03 00:00'))
-_HpicfDeviceIdentityConfig_ObjectIdentity=ObjectIdentity
-hpicfDeviceIdentityConfig=_HpicfDeviceIdentityConfig_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,135,1))
-_HpicfDeviceIdentityTable_Object=MibTable
-hpicfDeviceIdentityTable=_HpicfDeviceIdentityTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,135,1,1))
-if mibBuilder.loadTexts:hpicfDeviceIdentityTable.setStatus(_B)
-_HpicfDeviceIdentityEntry_Object=MibTableRow
-hpicfDeviceIdentityEntry=_HpicfDeviceIdentityEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,135,1,1,1))
-hpicfDeviceIdentityEntry.setIndexNames((0,_A,_K))
-if mibBuilder.loadTexts:hpicfDeviceIdentityEntry.setStatus(_B)
-class _HpicfDeviceIdentityIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_HpicfDeviceIdentityIndex_Type.__name__=_N
-_HpicfDeviceIdentityIndex_Object=MibTableColumn
-hpicfDeviceIdentityIndex=_HpicfDeviceIdentityIndex_Object((1,3,6,1,4,1,11,2,14,11,5,1,135,1,1,1,1),_HpicfDeviceIdentityIndex_Type())
-hpicfDeviceIdentityIndex.setMaxAccess(_O)
-if mibBuilder.loadTexts:hpicfDeviceIdentityIndex.setStatus(_B)
-_HpicfDeviceIdentityRowStatus_Type=RowStatus
-_HpicfDeviceIdentityRowStatus_Object=MibTableColumn
-hpicfDeviceIdentityRowStatus=_HpicfDeviceIdentityRowStatus_Object((1,3,6,1,4,1,11,2,14,11,5,1,135,1,1,1,2),_HpicfDeviceIdentityRowStatus_Type())
-hpicfDeviceIdentityRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDeviceIdentityRowStatus.setStatus(_B)
-class _HpicfDeviceIdentityName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,20))
-_HpicfDeviceIdentityName_Type.__name__=_D
-_HpicfDeviceIdentityName_Object=MibTableColumn
-hpicfDeviceIdentityName=_HpicfDeviceIdentityName_Object((1,3,6,1,4,1,11,2,14,11,5,1,135,1,1,1,3),_HpicfDeviceIdentityName_Type())
-hpicfDeviceIdentityName.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDeviceIdentityName.setStatus(_B)
-class _HpicfDeviceIdentityLldpOui_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,3));fixedLength=3
-_HpicfDeviceIdentityLldpOui_Type.__name__=_D
-_HpicfDeviceIdentityLldpOui_Object=MibTableColumn
-hpicfDeviceIdentityLldpOui=_HpicfDeviceIdentityLldpOui_Object((1,3,6,1,4,1,11,2,14,11,5,1,135,1,1,1,4),_HpicfDeviceIdentityLldpOui_Type())
-hpicfDeviceIdentityLldpOui.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDeviceIdentityLldpOui.setStatus(_B)
-class _HpicfDeviceIdentityLldpSubType_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_HpicfDeviceIdentityLldpSubType_Type.__name__=_J
-_HpicfDeviceIdentityLldpSubType_Object=MibTableColumn
-hpicfDeviceIdentityLldpSubType=_HpicfDeviceIdentityLldpSubType_Object((1,3,6,1,4,1,11,2,14,11,5,1,135,1,1,1,5),_HpicfDeviceIdentityLldpSubType_Type())
-hpicfDeviceIdentityLldpSubType.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDeviceIdentityLldpSubType.setStatus(_B)
-class _HpicfDeviceIdentityLldpSysName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,512))
-_HpicfDeviceIdentityLldpSysName_Type.__name__=_D
-_HpicfDeviceIdentityLldpSysName_Object=MibTableColumn
-hpicfDeviceIdentityLldpSysName=_HpicfDeviceIdentityLldpSysName_Object((1,3,6,1,4,1,11,2,14,11,5,1,135,1,1,1,6),_HpicfDeviceIdentityLldpSysName_Type())
-hpicfDeviceIdentityLldpSysName.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDeviceIdentityLldpSysName.setStatus(_B)
-class _HpicfDeviceIdentityLldpSysDescr_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,512))
-_HpicfDeviceIdentityLldpSysDescr_Type.__name__=_D
-_HpicfDeviceIdentityLldpSysDescr_Object=MibTableColumn
-hpicfDeviceIdentityLldpSysDescr=_HpicfDeviceIdentityLldpSysDescr_Object((1,3,6,1,4,1,11,2,14,11,5,1,135,1,1,1,7),_HpicfDeviceIdentityLldpSysDescr_Type())
-hpicfDeviceIdentityLldpSysDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDeviceIdentityLldpSysDescr.setStatus(_B)
-_HpicfCdpBypassTable_Object=MibTable
-hpicfCdpBypassTable=_HpicfCdpBypassTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,135,1,2))
-if mibBuilder.loadTexts:hpicfCdpBypassTable.setStatus(_B)
-_HpicfCdpBypassEntry_Object=MibTableRow
-hpicfCdpBypassEntry=_HpicfCdpBypassEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,135,1,2,1))
-hpicfCdpBypassEntry.setIndexNames((0,_A,_K),(0,_A,_P))
-if mibBuilder.loadTexts:hpicfCdpBypassEntry.setStatus(_B)
-class _HpicfDevIdentityCdpType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,19))
-_HpicfDevIdentityCdpType_Type.__name__=_J
-_HpicfDevIdentityCdpType_Object=MibTableColumn
-hpicfDevIdentityCdpType=_HpicfDevIdentityCdpType_Object((1,3,6,1,4,1,11,2,14,11,5,1,135,1,2,1,1),_HpicfDevIdentityCdpType_Type())
-hpicfDevIdentityCdpType.setMaxAccess(_O)
-if mibBuilder.loadTexts:hpicfDevIdentityCdpType.setStatus(_B)
-class _HpicfDevIdentityCdpValue_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_HpicfDevIdentityCdpValue_Type.__name__=_D
-_HpicfDevIdentityCdpValue_Object=MibTableColumn
-hpicfDevIdentityCdpValue=_HpicfDevIdentityCdpValue_Object((1,3,6,1,4,1,11,2,14,11,5,1,135,1,2,1,2),_HpicfDevIdentityCdpValue_Type())
-hpicfDevIdentityCdpValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDevIdentityCdpValue.setStatus(_B)
-_HpicfDevIdentityCdpRowStatus_Type=RowStatus
-_HpicfDevIdentityCdpRowStatus_Object=MibTableColumn
-hpicfDevIdentityCdpRowStatus=_HpicfDevIdentityCdpRowStatus_Object((1,3,6,1,4,1,11,2,14,11,5,1,135,1,2,1,3),_HpicfDevIdentityCdpRowStatus_Type())
-hpicfDevIdentityCdpRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDevIdentityCdpRowStatus.setStatus(_B)
-_HpicfDeviceIdentityConformance_ObjectIdentity=ObjectIdentity
-hpicfDeviceIdentityConformance=_HpicfDeviceIdentityConformance_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,135,2))
-_HpicfDeviceIdentityGroups_ObjectIdentity=ObjectIdentity
-hpicfDeviceIdentityGroups=_HpicfDeviceIdentityGroups_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,135,2,1))
-_HpicfDeviceIdentityCompliances_ObjectIdentity=ObjectIdentity
-hpicfDeviceIdentityCompliances=_HpicfDeviceIdentityCompliances_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,135,2,2))
-hpicfDeviceIdentityGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,135,2,1,1))
-hpicfDeviceIdentityGroup.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:hpicfDeviceIdentityGroup.setStatus(_I)
-hpicfDeviceIdentityGroup1=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,135,2,1,2))
-hpicfDeviceIdentityGroup1.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:hpicfDeviceIdentityGroup1.setStatus(_I)
-hpicfDeviceIdentityGroup2=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,135,2,1,3))
-hpicfDeviceIdentityGroup2.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_Q),(_A,_R),(_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:hpicfDeviceIdentityGroup2.setStatus(_B)
-hpicfiDeviceIdentityCompliance=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,135,2,2,1))
-hpicfiDeviceIdentityCompliance.setObjects((_A,_S))
-if mibBuilder.loadTexts:hpicfiDeviceIdentityCompliance.setStatus(_I)
-hpicfiDeviceIdentityCompliance1=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,135,2,2,2))
-hpicfiDeviceIdentityCompliance1.setObjects((_A,_T))
-if mibBuilder.loadTexts:hpicfiDeviceIdentityCompliance1.setStatus(_I)
-hpicfDeviceIdentityCompliance2=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,135,2,2,3))
-hpicfDeviceIdentityCompliance2.setObjects((_A,_U))
-if mibBuilder.loadTexts:hpicfDeviceIdentityCompliance2.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'hpicfDeviceIdentityMIB':hpicfDeviceIdentityMIB,'hpicfDeviceIdentityConfig':hpicfDeviceIdentityConfig,'hpicfDeviceIdentityTable':hpicfDeviceIdentityTable,'hpicfDeviceIdentityEntry':hpicfDeviceIdentityEntry,_K:hpicfDeviceIdentityIndex,_E:hpicfDeviceIdentityRowStatus,_F:hpicfDeviceIdentityName,_G:hpicfDeviceIdentityLldpOui,_H:hpicfDeviceIdentityLldpSubType,_Q:hpicfDeviceIdentityLldpSysName,_R:hpicfDeviceIdentityLldpSysDescr,'hpicfCdpBypassTable':hpicfCdpBypassTable,'hpicfCdpBypassEntry':hpicfCdpBypassEntry,_P:hpicfDevIdentityCdpType,_L:hpicfDevIdentityCdpValue,_M:hpicfDevIdentityCdpRowStatus,'hpicfDeviceIdentityConformance':hpicfDeviceIdentityConformance,'hpicfDeviceIdentityGroups':hpicfDeviceIdentityGroups,_S:hpicfDeviceIdentityGroup,_T:hpicfDeviceIdentityGroup1,_U:hpicfDeviceIdentityGroup2,'hpicfDeviceIdentityCompliances':hpicfDeviceIdentityCompliances,'hpicfiDeviceIdentityCompliance':hpicfiDeviceIdentityCompliance,'hpicfiDeviceIdentityCompliance1':hpicfiDeviceIdentityCompliance1,'hpicfDeviceIdentityCompliance2':hpicfDeviceIdentityCompliance2})
+#
+# PySNMP MIB module HP-ICF-DEVICEIDENTITY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HP-ICF-DEVICEIDENTITY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:34 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+hpicfDeviceIdentityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135))
+hpicfDeviceIdentityMIB.setRevisions(('2019-07-16 00:00', '2017-12-05 00:00', '2017-01-03 00:00',))
+if mibBuilder.loadTexts: hpicfDeviceIdentityMIB.setLastUpdated('201907160000Z')
+if mibBuilder.loadTexts: hpicfDeviceIdentityMIB.setOrganization('HP Networking')
+hpicfDeviceIdentityConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 1))
+hpicfDeviceIdentityConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 2))
+hpicfDeviceIdentityTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 1, 1), )
+if mibBuilder.loadTexts: hpicfDeviceIdentityTable.setStatus('current')
+hpicfDeviceIdentityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 1, 1, 1), ).setIndexNames((0, "HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityIndex"))
+if mibBuilder.loadTexts: hpicfDeviceIdentityEntry.setStatus('current')
+hpicfDeviceIdentityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
+if mibBuilder.loadTexts: hpicfDeviceIdentityIndex.setStatus('current')
+hpicfDeviceIdentityRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 1, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfDeviceIdentityRowStatus.setStatus('current')
+hpicfDeviceIdentityName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 1, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 20))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfDeviceIdentityName.setStatus('current')
+hpicfDeviceIdentityLldpOui = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 1, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(3, 3)).setFixedLength(3)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfDeviceIdentityLldpOui.setStatus('current')
+hpicfDeviceIdentityLldpSubType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfDeviceIdentityLldpSubType.setStatus('current')
+hpicfDeviceIdentityLldpSysName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 1, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 512))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfDeviceIdentityLldpSysName.setStatus('current')
+hpicfDeviceIdentityLldpSysDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 1, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 512))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfDeviceIdentityLldpSysDescr.setStatus('current')
+hpicfCdpBypassTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 1, 2), )
+if mibBuilder.loadTexts: hpicfCdpBypassTable.setStatus('current')
+hpicfCdpBypassEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 1, 2, 1), ).setIndexNames((0, "HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityIndex"), (0, "HP-ICF-DEVICEIDENTITY-MIB", "hpicfDevIdentityCdpType"))
+if mibBuilder.loadTexts: hpicfCdpBypassEntry.setStatus('current')
+hpicfDevIdentityCdpType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 19)))
+if mibBuilder.loadTexts: hpicfDevIdentityCdpType.setStatus('current')
+hpicfDevIdentityCdpValue = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 1, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfDevIdentityCdpValue.setStatus('current')
+hpicfDevIdentityCdpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfDevIdentityCdpRowStatus.setStatus('current')
+hpicfDeviceIdentityGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 2, 1))
+hpicfDeviceIdentityCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 2, 2))
+hpicfiDeviceIdentityCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 2, 2, 1)).setObjects(("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfiDeviceIdentityCompliance = hpicfiDeviceIdentityCompliance.setStatus('deprecated')
+hpicfiDeviceIdentityCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 2, 2, 2)).setObjects(("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityGroup1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfiDeviceIdentityCompliance1 = hpicfiDeviceIdentityCompliance1.setStatus('deprecated')
+hpicfDeviceIdentityCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 2, 2, 3)).setObjects(("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityGroup2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfDeviceIdentityCompliance2 = hpicfDeviceIdentityCompliance2.setStatus('current')
+hpicfDeviceIdentityGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 2, 1, 1)).setObjects(("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityRowStatus"), ("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityName"), ("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityLldpOui"), ("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityLldpSubType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfDeviceIdentityGroup = hpicfDeviceIdentityGroup.setStatus('deprecated')
+hpicfDeviceIdentityGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 2, 1, 2)).setObjects(("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityRowStatus"), ("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityName"), ("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityLldpOui"), ("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityLldpSubType"), ("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDevIdentityCdpValue"), ("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDevIdentityCdpRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfDeviceIdentityGroup1 = hpicfDeviceIdentityGroup1.setStatus('deprecated')
+hpicfDeviceIdentityGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 135, 2, 1, 3)).setObjects(("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityRowStatus"), ("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityName"), ("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityLldpOui"), ("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityLldpSubType"), ("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityLldpSysName"), ("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDeviceIdentityLldpSysDescr"), ("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDevIdentityCdpValue"), ("HP-ICF-DEVICEIDENTITY-MIB", "hpicfDevIdentityCdpRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfDeviceIdentityGroup2 = hpicfDeviceIdentityGroup2.setStatus('current')
+mibBuilder.exportSymbols("HP-ICF-DEVICEIDENTITY-MIB", hpicfDeviceIdentityGroup=hpicfDeviceIdentityGroup, hpicfDeviceIdentityRowStatus=hpicfDeviceIdentityRowStatus, hpicfCdpBypassEntry=hpicfCdpBypassEntry, hpicfDeviceIdentityMIB=hpicfDeviceIdentityMIB, hpicfDevIdentityCdpRowStatus=hpicfDevIdentityCdpRowStatus, hpicfDeviceIdentityGroup2=hpicfDeviceIdentityGroup2, hpicfiDeviceIdentityCompliance=hpicfiDeviceIdentityCompliance, hpicfDeviceIdentityLldpOui=hpicfDeviceIdentityLldpOui, hpicfDeviceIdentityGroup1=hpicfDeviceIdentityGroup1, hpicfDevIdentityCdpValue=hpicfDevIdentityCdpValue, hpicfDeviceIdentityLldpSysDescr=hpicfDeviceIdentityLldpSysDescr, hpicfDeviceIdentityIndex=hpicfDeviceIdentityIndex, hpicfDeviceIdentityConformance=hpicfDeviceIdentityConformance, PYSNMP_MODULE_ID=hpicfDeviceIdentityMIB, hpicfDevIdentityCdpType=hpicfDevIdentityCdpType, hpicfDeviceIdentityLldpSubType=hpicfDeviceIdentityLldpSubType, hpicfiDeviceIdentityCompliance1=hpicfiDeviceIdentityCompliance1, hpicfDeviceIdentityLldpSysName=hpicfDeviceIdentityLldpSysName, hpicfCdpBypassTable=hpicfCdpBypassTable, hpicfDeviceIdentityCompliances=hpicfDeviceIdentityCompliances, hpicfDeviceIdentityEntry=hpicfDeviceIdentityEntry, hpicfDeviceIdentityConfig=hpicfDeviceIdentityConfig, hpicfDeviceIdentityCompliance2=hpicfDeviceIdentityCompliance2, hpicfDeviceIdentityName=hpicfDeviceIdentityName, hpicfDeviceIdentityTable=hpicfDeviceIdentityTable, hpicfDeviceIdentityGroups=hpicfDeviceIdentityGroups)

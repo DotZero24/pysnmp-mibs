@@ -1,246 +1,113 @@
-_i='oacAtmStatGeneralGroup'
-_h='oacAtmAal5PortRxFramesDiscarded'
-_g='oacAtmAal5PortRxErrors'
-_f='oacAtmAal5PortRxFrames'
-_e='oacAtmAal5PortRxBytes'
-_d='oacAtmAal5PortTxFramesDiscarded'
-_c='oacAtmAal5PortTxFrames'
-_b='oacAtmAal5PortTxBytes'
-_a='oacAtmPortHecErrors'
-_Z='oacAtmPortRxCellsDiscarded'
-_Y='oacAtmPortRxCells'
-_X='oacAtmPortTxCells'
-_W='oacAtmAal5ChanReassemblyTimeouts'
-_V='oacAtmAal5ChanLengthErrors'
-_U='oacAtmAal5ChanCrc32Errors'
-_T='oacAtmAal5ChanRxFramesDiscarded'
-_S='oacAtmAal5ChanRxFrames'
-_R='oacAtmAal5ChanTxFrames'
-_Q='oacAtmAal1ChanRxOverflows'
-_P='oacAtmAal1ChanTxUnderflows'
-_O='oacAtmAal0ChanRxCellsDiscarded'
-_N='oacAtmChanTxOverflows'
-_M='oacAtmChanRxErrors'
-_L='oacAtmChanRxCells'
-_K='oacAtmChanRxBytes'
-_J='oacAtmChanTxCells'
-_I='oacAtmChanTxBytes'
-_H='not-accessible'
-_G='oacAtmChanVci'
-_F='oacAtmChanVpi'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-only'
-_B='ONEACCESS-ATM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-AtmVcIdentifier,AtmVpIdentifier=mibBuilder.importSymbols('ATM-TC-MIB','AtmVcIdentifier','AtmVpIdentifier')
-InterfaceIndex,ifIndex=mibBuilder.importSymbols(_D,'InterfaceIndex',_E)
-oacExpIMAtmStatistics,oacMIBModules=mibBuilder.importSymbols('ONEACCESS-GLOBAL-REG','oacExpIMAtmStatistics','oacMIBModules')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-oacAtmMIBModule=ModuleIdentity((1,3,6,1,4,1,13191,1,100,667))
-if mibBuilder.loadTexts:oacAtmMIBModule.setRevisions(('2011-10-27 00:00','2010-07-08 00:01'))
-_OacAtmStatObjects_ObjectIdentity=ObjectIdentity
-oacAtmStatObjects=_OacAtmStatObjects_ObjectIdentity((1,3,6,1,4,1,13191,10,3,2,1,1))
-_OacAtmChannelTable_Object=MibTable
-oacAtmChannelTable=_OacAtmChannelTable_Object((1,3,6,1,4,1,13191,10,3,2,1,1,1))
-if mibBuilder.loadTexts:oacAtmChannelTable.setStatus(_A)
-_OacAtmChannelEntry_Object=MibTableRow
-oacAtmChannelEntry=_OacAtmChannelEntry_Object((1,3,6,1,4,1,13191,10,3,2,1,1,1,1))
-oacAtmChannelEntry.setIndexNames((0,_D,_E),(0,_B,_F),(0,_B,_G))
-if mibBuilder.loadTexts:oacAtmChannelEntry.setStatus(_A)
-_OacAtmChanVpi_Type=AtmVpIdentifier
-_OacAtmChanVpi_Object=MibTableColumn
-oacAtmChanVpi=_OacAtmChanVpi_Object((1,3,6,1,4,1,13191,10,3,2,1,1,1,1,1),_OacAtmChanVpi_Type())
-oacAtmChanVpi.setMaxAccess(_H)
-if mibBuilder.loadTexts:oacAtmChanVpi.setStatus(_A)
-_OacAtmChanVci_Type=AtmVcIdentifier
-_OacAtmChanVci_Object=MibTableColumn
-oacAtmChanVci=_OacAtmChanVci_Object((1,3,6,1,4,1,13191,10,3,2,1,1,1,1,2),_OacAtmChanVci_Type())
-oacAtmChanVci.setMaxAccess(_H)
-if mibBuilder.loadTexts:oacAtmChanVci.setStatus(_A)
-_OacAtmChanTxBytes_Type=Counter32
-_OacAtmChanTxBytes_Object=MibTableColumn
-oacAtmChanTxBytes=_OacAtmChanTxBytes_Object((1,3,6,1,4,1,13191,10,3,2,1,1,1,1,3),_OacAtmChanTxBytes_Type())
-oacAtmChanTxBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmChanTxBytes.setStatus(_A)
-_OacAtmChanTxCells_Type=Counter32
-_OacAtmChanTxCells_Object=MibTableColumn
-oacAtmChanTxCells=_OacAtmChanTxCells_Object((1,3,6,1,4,1,13191,10,3,2,1,1,1,1,4),_OacAtmChanTxCells_Type())
-oacAtmChanTxCells.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmChanTxCells.setStatus(_A)
-_OacAtmChanRxBytes_Type=Counter32
-_OacAtmChanRxBytes_Object=MibTableColumn
-oacAtmChanRxBytes=_OacAtmChanRxBytes_Object((1,3,6,1,4,1,13191,10,3,2,1,1,1,1,5),_OacAtmChanRxBytes_Type())
-oacAtmChanRxBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmChanRxBytes.setStatus(_A)
-_OacAtmChanRxCells_Type=Counter32
-_OacAtmChanRxCells_Object=MibTableColumn
-oacAtmChanRxCells=_OacAtmChanRxCells_Object((1,3,6,1,4,1,13191,10,3,2,1,1,1,1,6),_OacAtmChanRxCells_Type())
-oacAtmChanRxCells.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmChanRxCells.setStatus(_A)
-_OacAtmChanRxErrors_Type=Counter32
-_OacAtmChanRxErrors_Object=MibTableColumn
-oacAtmChanRxErrors=_OacAtmChanRxErrors_Object((1,3,6,1,4,1,13191,10,3,2,1,1,1,1,7),_OacAtmChanRxErrors_Type())
-oacAtmChanRxErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmChanRxErrors.setStatus(_A)
-_OacAtmChanTxOverflows_Type=Counter32
-_OacAtmChanTxOverflows_Object=MibTableColumn
-oacAtmChanTxOverflows=_OacAtmChanTxOverflows_Object((1,3,6,1,4,1,13191,10,3,2,1,1,1,1,8),_OacAtmChanTxOverflows_Type())
-oacAtmChanTxOverflows.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmChanTxOverflows.setStatus(_A)
-_OacAtmAal0ChannelGlobalStatTable_Object=MibTable
-oacAtmAal0ChannelGlobalStatTable=_OacAtmAal0ChannelGlobalStatTable_Object((1,3,6,1,4,1,13191,10,3,2,1,1,2))
-if mibBuilder.loadTexts:oacAtmAal0ChannelGlobalStatTable.setStatus(_A)
-_OacAtmAal0ChannelGlobalStatEntry_Object=MibTableRow
-oacAtmAal0ChannelGlobalStatEntry=_OacAtmAal0ChannelGlobalStatEntry_Object((1,3,6,1,4,1,13191,10,3,2,1,1,2,1))
-oacAtmAal0ChannelGlobalStatEntry.setIndexNames((0,_D,_E),(0,_B,_F),(0,_B,_G))
-if mibBuilder.loadTexts:oacAtmAal0ChannelGlobalStatEntry.setStatus(_A)
-_OacAtmAal0ChanRxCellsDiscarded_Type=Counter32
-_OacAtmAal0ChanRxCellsDiscarded_Object=MibTableColumn
-oacAtmAal0ChanRxCellsDiscarded=_OacAtmAal0ChanRxCellsDiscarded_Object((1,3,6,1,4,1,13191,10,3,2,1,1,2,1,1),_OacAtmAal0ChanRxCellsDiscarded_Type())
-oacAtmAal0ChanRxCellsDiscarded.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal0ChanRxCellsDiscarded.setStatus(_A)
-_OacAtmAal1ChannelGlobalStatTable_Object=MibTable
-oacAtmAal1ChannelGlobalStatTable=_OacAtmAal1ChannelGlobalStatTable_Object((1,3,6,1,4,1,13191,10,3,2,1,1,3))
-if mibBuilder.loadTexts:oacAtmAal1ChannelGlobalStatTable.setStatus(_A)
-_OacAtmAal1ChannelGlobalStatEntry_Object=MibTableRow
-oacAtmAal1ChannelGlobalStatEntry=_OacAtmAal1ChannelGlobalStatEntry_Object((1,3,6,1,4,1,13191,10,3,2,1,1,3,1))
-oacAtmAal1ChannelGlobalStatEntry.setIndexNames((0,_D,_E),(0,_B,_F),(0,_B,_G))
-if mibBuilder.loadTexts:oacAtmAal1ChannelGlobalStatEntry.setStatus(_A)
-_OacAtmAal1ChanTxUnderflows_Type=Counter32
-_OacAtmAal1ChanTxUnderflows_Object=MibTableColumn
-oacAtmAal1ChanTxUnderflows=_OacAtmAal1ChanTxUnderflows_Object((1,3,6,1,4,1,13191,10,3,2,1,1,3,1,1),_OacAtmAal1ChanTxUnderflows_Type())
-oacAtmAal1ChanTxUnderflows.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal1ChanTxUnderflows.setStatus(_A)
-_OacAtmAal1ChanRxOverflows_Type=Counter32
-_OacAtmAal1ChanRxOverflows_Object=MibTableColumn
-oacAtmAal1ChanRxOverflows=_OacAtmAal1ChanRxOverflows_Object((1,3,6,1,4,1,13191,10,3,2,1,1,3,1,2),_OacAtmAal1ChanRxOverflows_Type())
-oacAtmAal1ChanRxOverflows.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal1ChanRxOverflows.setStatus(_A)
-_OacAtmAal5ChannelGlobalStatTable_Object=MibTable
-oacAtmAal5ChannelGlobalStatTable=_OacAtmAal5ChannelGlobalStatTable_Object((1,3,6,1,4,1,13191,10,3,2,1,1,4))
-if mibBuilder.loadTexts:oacAtmAal5ChannelGlobalStatTable.setStatus(_A)
-_OacAtmAal5ChannelGlobalStatEntry_Object=MibTableRow
-oacAtmAal5ChannelGlobalStatEntry=_OacAtmAal5ChannelGlobalStatEntry_Object((1,3,6,1,4,1,13191,10,3,2,1,1,4,1))
-oacAtmAal5ChannelGlobalStatEntry.setIndexNames((0,_D,_E),(0,_B,_F),(0,_B,_G))
-if mibBuilder.loadTexts:oacAtmAal5ChannelGlobalStatEntry.setStatus(_A)
-_OacAtmAal5ChanTxFrames_Type=Counter32
-_OacAtmAal5ChanTxFrames_Object=MibTableColumn
-oacAtmAal5ChanTxFrames=_OacAtmAal5ChanTxFrames_Object((1,3,6,1,4,1,13191,10,3,2,1,1,4,1,1),_OacAtmAal5ChanTxFrames_Type())
-oacAtmAal5ChanTxFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal5ChanTxFrames.setStatus(_A)
-_OacAtmAal5ChanRxFrames_Type=Counter32
-_OacAtmAal5ChanRxFrames_Object=MibTableColumn
-oacAtmAal5ChanRxFrames=_OacAtmAal5ChanRxFrames_Object((1,3,6,1,4,1,13191,10,3,2,1,1,4,1,2),_OacAtmAal5ChanRxFrames_Type())
-oacAtmAal5ChanRxFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal5ChanRxFrames.setStatus(_A)
-_OacAtmAal5ChanRxFramesDiscarded_Type=Counter32
-_OacAtmAal5ChanRxFramesDiscarded_Object=MibTableColumn
-oacAtmAal5ChanRxFramesDiscarded=_OacAtmAal5ChanRxFramesDiscarded_Object((1,3,6,1,4,1,13191,10,3,2,1,1,4,1,3),_OacAtmAal5ChanRxFramesDiscarded_Type())
-oacAtmAal5ChanRxFramesDiscarded.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal5ChanRxFramesDiscarded.setStatus(_A)
-_OacAtmAal5ChanCrc32Errors_Type=Counter32
-_OacAtmAal5ChanCrc32Errors_Object=MibTableColumn
-oacAtmAal5ChanCrc32Errors=_OacAtmAal5ChanCrc32Errors_Object((1,3,6,1,4,1,13191,10,3,2,1,1,4,1,4),_OacAtmAal5ChanCrc32Errors_Type())
-oacAtmAal5ChanCrc32Errors.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal5ChanCrc32Errors.setStatus(_A)
-_OacAtmAal5ChanLengthErrors_Type=Counter32
-_OacAtmAal5ChanLengthErrors_Object=MibTableColumn
-oacAtmAal5ChanLengthErrors=_OacAtmAal5ChanLengthErrors_Object((1,3,6,1,4,1,13191,10,3,2,1,1,4,1,5),_OacAtmAal5ChanLengthErrors_Type())
-oacAtmAal5ChanLengthErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal5ChanLengthErrors.setStatus(_A)
-_OacAtmAal5ChanReassemblyTimeouts_Type=Counter32
-_OacAtmAal5ChanReassemblyTimeouts_Object=MibTableColumn
-oacAtmAal5ChanReassemblyTimeouts=_OacAtmAal5ChanReassemblyTimeouts_Object((1,3,6,1,4,1,13191,10,3,2,1,1,4,1,6),_OacAtmAal5ChanReassemblyTimeouts_Type())
-oacAtmAal5ChanReassemblyTimeouts.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal5ChanReassemblyTimeouts.setStatus(_A)
-_OacAtmPortStatTable_Object=MibTable
-oacAtmPortStatTable=_OacAtmPortStatTable_Object((1,3,6,1,4,1,13191,10,3,2,1,1,5))
-if mibBuilder.loadTexts:oacAtmPortStatTable.setStatus(_A)
-_OacAtmPortStatEntry_Object=MibTableRow
-oacAtmPortStatEntry=_OacAtmPortStatEntry_Object((1,3,6,1,4,1,13191,10,3,2,1,1,5,1))
-oacAtmPortStatEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:oacAtmPortStatEntry.setStatus(_A)
-_OacAtmPortTxCells_Type=Counter32
-_OacAtmPortTxCells_Object=MibTableColumn
-oacAtmPortTxCells=_OacAtmPortTxCells_Object((1,3,6,1,4,1,13191,10,3,2,1,1,5,1,1),_OacAtmPortTxCells_Type())
-oacAtmPortTxCells.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmPortTxCells.setStatus(_A)
-_OacAtmPortRxCells_Type=Counter32
-_OacAtmPortRxCells_Object=MibTableColumn
-oacAtmPortRxCells=_OacAtmPortRxCells_Object((1,3,6,1,4,1,13191,10,3,2,1,1,5,1,2),_OacAtmPortRxCells_Type())
-oacAtmPortRxCells.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmPortRxCells.setStatus(_A)
-_OacAtmPortRxCellsDiscarded_Type=Counter32
-_OacAtmPortRxCellsDiscarded_Object=MibTableColumn
-oacAtmPortRxCellsDiscarded=_OacAtmPortRxCellsDiscarded_Object((1,3,6,1,4,1,13191,10,3,2,1,1,5,1,3),_OacAtmPortRxCellsDiscarded_Type())
-oacAtmPortRxCellsDiscarded.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmPortRxCellsDiscarded.setStatus(_A)
-_OacAtmPortHecErrors_Type=Counter32
-_OacAtmPortHecErrors_Object=MibTableColumn
-oacAtmPortHecErrors=_OacAtmPortHecErrors_Object((1,3,6,1,4,1,13191,10,3,2,1,1,5,1,4),_OacAtmPortHecErrors_Type())
-oacAtmPortHecErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmPortHecErrors.setStatus(_A)
-_OacAtmAal5PortStatTable_Object=MibTable
-oacAtmAal5PortStatTable=_OacAtmAal5PortStatTable_Object((1,3,6,1,4,1,13191,10,3,2,1,1,6))
-if mibBuilder.loadTexts:oacAtmAal5PortStatTable.setStatus(_A)
-_OacAtmAal5PortStatEntry_Object=MibTableRow
-oacAtmAal5PortStatEntry=_OacAtmAal5PortStatEntry_Object((1,3,6,1,4,1,13191,10,3,2,1,1,6,1))
-oacAtmAal5PortStatEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:oacAtmAal5PortStatEntry.setStatus(_A)
-_OacAtmAal5PortTxBytes_Type=Counter32
-_OacAtmAal5PortTxBytes_Object=MibTableColumn
-oacAtmAal5PortTxBytes=_OacAtmAal5PortTxBytes_Object((1,3,6,1,4,1,13191,10,3,2,1,1,6,1,1),_OacAtmAal5PortTxBytes_Type())
-oacAtmAal5PortTxBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal5PortTxBytes.setStatus(_A)
-_OacAtmAal5PortTxFrames_Type=Counter32
-_OacAtmAal5PortTxFrames_Object=MibTableColumn
-oacAtmAal5PortTxFrames=_OacAtmAal5PortTxFrames_Object((1,3,6,1,4,1,13191,10,3,2,1,1,6,1,2),_OacAtmAal5PortTxFrames_Type())
-oacAtmAal5PortTxFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal5PortTxFrames.setStatus(_A)
-_OacAtmAal5PortTxFramesDiscarded_Type=Counter32
-_OacAtmAal5PortTxFramesDiscarded_Object=MibTableColumn
-oacAtmAal5PortTxFramesDiscarded=_OacAtmAal5PortTxFramesDiscarded_Object((1,3,6,1,4,1,13191,10,3,2,1,1,6,1,3),_OacAtmAal5PortTxFramesDiscarded_Type())
-oacAtmAal5PortTxFramesDiscarded.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal5PortTxFramesDiscarded.setStatus(_A)
-_OacAtmAal5PortRxBytes_Type=Counter32
-_OacAtmAal5PortRxBytes_Object=MibTableColumn
-oacAtmAal5PortRxBytes=_OacAtmAal5PortRxBytes_Object((1,3,6,1,4,1,13191,10,3,2,1,1,6,1,4),_OacAtmAal5PortRxBytes_Type())
-oacAtmAal5PortRxBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal5PortRxBytes.setStatus(_A)
-_OacAtmAal5PortRxFrames_Type=Counter32
-_OacAtmAal5PortRxFrames_Object=MibTableColumn
-oacAtmAal5PortRxFrames=_OacAtmAal5PortRxFrames_Object((1,3,6,1,4,1,13191,10,3,2,1,1,6,1,5),_OacAtmAal5PortRxFrames_Type())
-oacAtmAal5PortRxFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal5PortRxFrames.setStatus(_A)
-_OacAtmAal5PortRxErrors_Type=Counter32
-_OacAtmAal5PortRxErrors_Object=MibTableColumn
-oacAtmAal5PortRxErrors=_OacAtmAal5PortRxErrors_Object((1,3,6,1,4,1,13191,10,3,2,1,1,6,1,6),_OacAtmAal5PortRxErrors_Type())
-oacAtmAal5PortRxErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal5PortRxErrors.setStatus(_A)
-_OacAtmAal5PortRxFramesDiscarded_Type=Counter32
-_OacAtmAal5PortRxFramesDiscarded_Object=MibTableColumn
-oacAtmAal5PortRxFramesDiscarded=_OacAtmAal5PortRxFramesDiscarded_Object((1,3,6,1,4,1,13191,10,3,2,1,1,6,1,7),_OacAtmAal5PortRxFramesDiscarded_Type())
-oacAtmAal5PortRxFramesDiscarded.setMaxAccess(_C)
-if mibBuilder.loadTexts:oacAtmAal5PortRxFramesDiscarded.setStatus(_A)
-_OacAtmStatNotifications_ObjectIdentity=ObjectIdentity
-oacAtmStatNotifications=_OacAtmStatNotifications_ObjectIdentity((1,3,6,1,4,1,13191,10,3,2,1,2))
-_OacAtmStatConformance_ObjectIdentity=ObjectIdentity
-oacAtmStatConformance=_OacAtmStatConformance_ObjectIdentity((1,3,6,1,4,1,13191,10,3,2,1,3))
-_OacAtmStatGroups_ObjectIdentity=ObjectIdentity
-oacAtmStatGroups=_OacAtmStatGroups_ObjectIdentity((1,3,6,1,4,1,13191,10,3,2,1,3,1))
-_OacAtmStatCompliances_ObjectIdentity=ObjectIdentity
-oacAtmStatCompliances=_OacAtmStatCompliances_ObjectIdentity((1,3,6,1,4,1,13191,10,3,2,1,3,2))
-oacAtmStatGeneralGroup=ObjectGroup((1,3,6,1,4,1,13191,10,3,2,1,3,1,1))
-oacAtmStatGeneralGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h)))
-if mibBuilder.loadTexts:oacAtmStatGeneralGroup.setStatus(_A)
-oacAtmStatCompliance=ModuleCompliance((1,3,6,1,4,1,13191,10,3,2,1,3,2,1))
-oacAtmStatCompliance.setObjects((_B,_i))
-if mibBuilder.loadTexts:oacAtmStatCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'oacAtmMIBModule':oacAtmMIBModule,'oacAtmStatObjects':oacAtmStatObjects,'oacAtmChannelTable':oacAtmChannelTable,'oacAtmChannelEntry':oacAtmChannelEntry,_F:oacAtmChanVpi,_G:oacAtmChanVci,_I:oacAtmChanTxBytes,_J:oacAtmChanTxCells,_K:oacAtmChanRxBytes,_L:oacAtmChanRxCells,_M:oacAtmChanRxErrors,_N:oacAtmChanTxOverflows,'oacAtmAal0ChannelGlobalStatTable':oacAtmAal0ChannelGlobalStatTable,'oacAtmAal0ChannelGlobalStatEntry':oacAtmAal0ChannelGlobalStatEntry,_O:oacAtmAal0ChanRxCellsDiscarded,'oacAtmAal1ChannelGlobalStatTable':oacAtmAal1ChannelGlobalStatTable,'oacAtmAal1ChannelGlobalStatEntry':oacAtmAal1ChannelGlobalStatEntry,_P:oacAtmAal1ChanTxUnderflows,_Q:oacAtmAal1ChanRxOverflows,'oacAtmAal5ChannelGlobalStatTable':oacAtmAal5ChannelGlobalStatTable,'oacAtmAal5ChannelGlobalStatEntry':oacAtmAal5ChannelGlobalStatEntry,_R:oacAtmAal5ChanTxFrames,_S:oacAtmAal5ChanRxFrames,_T:oacAtmAal5ChanRxFramesDiscarded,_U:oacAtmAal5ChanCrc32Errors,_V:oacAtmAal5ChanLengthErrors,_W:oacAtmAal5ChanReassemblyTimeouts,'oacAtmPortStatTable':oacAtmPortStatTable,'oacAtmPortStatEntry':oacAtmPortStatEntry,_X:oacAtmPortTxCells,_Y:oacAtmPortRxCells,_Z:oacAtmPortRxCellsDiscarded,_a:oacAtmPortHecErrors,'oacAtmAal5PortStatTable':oacAtmAal5PortStatTable,'oacAtmAal5PortStatEntry':oacAtmAal5PortStatEntry,_b:oacAtmAal5PortTxBytes,_c:oacAtmAal5PortTxFrames,_d:oacAtmAal5PortTxFramesDiscarded,_e:oacAtmAal5PortRxBytes,_f:oacAtmAal5PortRxFrames,_g:oacAtmAal5PortRxErrors,_h:oacAtmAal5PortRxFramesDiscarded,'oacAtmStatNotifications':oacAtmStatNotifications,'oacAtmStatConformance':oacAtmStatConformance,'oacAtmStatGroups':oacAtmStatGroups,_i:oacAtmStatGeneralGroup,'oacAtmStatCompliances':oacAtmStatCompliances,'oacAtmStatCompliance':oacAtmStatCompliance})
+#
+# PySNMP MIB module ONEACCESS-ATM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/oneaccess/ONEACCESS-ATM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:04 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+AtmVcIdentifier, AtmVpIdentifier = mibBuilder.importSymbols("ATM-TC-MIB", "AtmVcIdentifier", "AtmVpIdentifier")
+ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
+oacExpIMAtmStatistics, oacMIBModules = mibBuilder.importSymbols("ONEACCESS-GLOBAL-REG", "oacExpIMAtmStatistics", "oacMIBModules")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+oacAtmMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 13191, 1, 100, 667))
+oacAtmMIBModule.setRevisions(('2011-10-27 00:00', '2010-07-08 00:01',))
+if mibBuilder.loadTexts: oacAtmMIBModule.setLastUpdated('201110270000Z')
+if mibBuilder.loadTexts: oacAtmMIBModule.setOrganization(' OneAccess ')
+oacAtmStatObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1))
+oacAtmStatNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 2))
+oacAtmStatConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 3))
+oacAtmChannelTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 1), )
+if mibBuilder.loadTexts: oacAtmChannelTable.setStatus('current')
+oacAtmChannelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ONEACCESS-ATM-MIB", "oacAtmChanVpi"), (0, "ONEACCESS-ATM-MIB", "oacAtmChanVci"))
+if mibBuilder.loadTexts: oacAtmChannelEntry.setStatus('current')
+oacAtmChanVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 1, 1, 1), AtmVpIdentifier())
+if mibBuilder.loadTexts: oacAtmChanVpi.setStatus('current')
+oacAtmChanVci = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 1, 1, 2), AtmVcIdentifier())
+if mibBuilder.loadTexts: oacAtmChanVci.setStatus('current')
+oacAtmChanTxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmChanTxBytes.setStatus('current')
+oacAtmChanTxCells = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmChanTxCells.setStatus('current')
+oacAtmChanRxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmChanRxBytes.setStatus('current')
+oacAtmChanRxCells = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmChanRxCells.setStatus('current')
+oacAtmChanRxErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmChanRxErrors.setStatus('current')
+oacAtmChanTxOverflows = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmChanTxOverflows.setStatus('current')
+oacAtmAal0ChannelGlobalStatTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 2), )
+if mibBuilder.loadTexts: oacAtmAal0ChannelGlobalStatTable.setStatus('current')
+oacAtmAal0ChannelGlobalStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ONEACCESS-ATM-MIB", "oacAtmChanVpi"), (0, "ONEACCESS-ATM-MIB", "oacAtmChanVci"))
+if mibBuilder.loadTexts: oacAtmAal0ChannelGlobalStatEntry.setStatus('current')
+oacAtmAal0ChanRxCellsDiscarded = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 2, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal0ChanRxCellsDiscarded.setStatus('current')
+oacAtmAal1ChannelGlobalStatTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 3), )
+if mibBuilder.loadTexts: oacAtmAal1ChannelGlobalStatTable.setStatus('current')
+oacAtmAal1ChannelGlobalStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ONEACCESS-ATM-MIB", "oacAtmChanVpi"), (0, "ONEACCESS-ATM-MIB", "oacAtmChanVci"))
+if mibBuilder.loadTexts: oacAtmAal1ChannelGlobalStatEntry.setStatus('current')
+oacAtmAal1ChanTxUnderflows = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 3, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal1ChanTxUnderflows.setStatus('current')
+oacAtmAal1ChanRxOverflows = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 3, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal1ChanRxOverflows.setStatus('current')
+oacAtmAal5ChannelGlobalStatTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 4), )
+if mibBuilder.loadTexts: oacAtmAal5ChannelGlobalStatTable.setStatus('current')
+oacAtmAal5ChannelGlobalStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ONEACCESS-ATM-MIB", "oacAtmChanVpi"), (0, "ONEACCESS-ATM-MIB", "oacAtmChanVci"))
+if mibBuilder.loadTexts: oacAtmAal5ChannelGlobalStatEntry.setStatus('current')
+oacAtmAal5ChanTxFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 4, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal5ChanTxFrames.setStatus('current')
+oacAtmAal5ChanRxFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 4, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal5ChanRxFrames.setStatus('current')
+oacAtmAal5ChanRxFramesDiscarded = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 4, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal5ChanRxFramesDiscarded.setStatus('current')
+oacAtmAal5ChanCrc32Errors = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 4, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal5ChanCrc32Errors.setStatus('current')
+oacAtmAal5ChanLengthErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 4, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal5ChanLengthErrors.setStatus('current')
+oacAtmAal5ChanReassemblyTimeouts = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 4, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal5ChanReassemblyTimeouts.setStatus('current')
+oacAtmPortStatTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 5), )
+if mibBuilder.loadTexts: oacAtmPortStatTable.setStatus('current')
+oacAtmPortStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: oacAtmPortStatEntry.setStatus('current')
+oacAtmPortTxCells = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 5, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmPortTxCells.setStatus('current')
+oacAtmPortRxCells = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 5, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmPortRxCells.setStatus('current')
+oacAtmPortRxCellsDiscarded = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 5, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmPortRxCellsDiscarded.setStatus('current')
+oacAtmPortHecErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 5, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmPortHecErrors.setStatus('current')
+oacAtmAal5PortStatTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 6), )
+if mibBuilder.loadTexts: oacAtmAal5PortStatTable.setStatus('current')
+oacAtmAal5PortStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: oacAtmAal5PortStatEntry.setStatus('current')
+oacAtmAal5PortTxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 6, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal5PortTxBytes.setStatus('current')
+oacAtmAal5PortTxFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 6, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal5PortTxFrames.setStatus('current')
+oacAtmAal5PortTxFramesDiscarded = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 6, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal5PortTxFramesDiscarded.setStatus('current')
+oacAtmAal5PortRxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 6, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal5PortRxBytes.setStatus('current')
+oacAtmAal5PortRxFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 6, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal5PortRxFrames.setStatus('current')
+oacAtmAal5PortRxErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 6, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal5PortRxErrors.setStatus('current')
+oacAtmAal5PortRxFramesDiscarded = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 1, 6, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacAtmAal5PortRxFramesDiscarded.setStatus('current')
+oacAtmStatGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 3, 1))
+oacAtmStatCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 3, 2))
+oacAtmStatCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 3, 2, 1)).setObjects(("ONEACCESS-ATM-MIB", "oacAtmStatGeneralGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oacAtmStatCompliance = oacAtmStatCompliance.setStatus('current')
+oacAtmStatGeneralGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 13191, 10, 3, 2, 1, 3, 1, 1)).setObjects(("ONEACCESS-ATM-MIB", "oacAtmChanTxBytes"), ("ONEACCESS-ATM-MIB", "oacAtmChanTxCells"), ("ONEACCESS-ATM-MIB", "oacAtmChanRxBytes"), ("ONEACCESS-ATM-MIB", "oacAtmChanRxCells"), ("ONEACCESS-ATM-MIB", "oacAtmChanRxErrors"), ("ONEACCESS-ATM-MIB", "oacAtmChanTxOverflows"), ("ONEACCESS-ATM-MIB", "oacAtmAal0ChanRxCellsDiscarded"), ("ONEACCESS-ATM-MIB", "oacAtmAal1ChanTxUnderflows"), ("ONEACCESS-ATM-MIB", "oacAtmAal1ChanRxOverflows"), ("ONEACCESS-ATM-MIB", "oacAtmAal5ChanTxFrames"), ("ONEACCESS-ATM-MIB", "oacAtmAal5ChanRxFrames"), ("ONEACCESS-ATM-MIB", "oacAtmAal5ChanRxFramesDiscarded"), ("ONEACCESS-ATM-MIB", "oacAtmAal5ChanCrc32Errors"), ("ONEACCESS-ATM-MIB", "oacAtmAal5ChanLengthErrors"), ("ONEACCESS-ATM-MIB", "oacAtmAal5ChanReassemblyTimeouts"), ("ONEACCESS-ATM-MIB", "oacAtmPortTxCells"), ("ONEACCESS-ATM-MIB", "oacAtmPortRxCells"), ("ONEACCESS-ATM-MIB", "oacAtmPortRxCellsDiscarded"), ("ONEACCESS-ATM-MIB", "oacAtmPortHecErrors"), ("ONEACCESS-ATM-MIB", "oacAtmAal5PortTxBytes"), ("ONEACCESS-ATM-MIB", "oacAtmAal5PortTxFrames"), ("ONEACCESS-ATM-MIB", "oacAtmAal5PortTxFramesDiscarded"), ("ONEACCESS-ATM-MIB", "oacAtmAal5PortRxBytes"), ("ONEACCESS-ATM-MIB", "oacAtmAal5PortRxFrames"), ("ONEACCESS-ATM-MIB", "oacAtmAal5PortRxErrors"), ("ONEACCESS-ATM-MIB", "oacAtmAal5PortRxFramesDiscarded"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oacAtmStatGeneralGroup = oacAtmStatGeneralGroup.setStatus('current')
+mibBuilder.exportSymbols("ONEACCESS-ATM-MIB", oacAtmAal5ChannelGlobalStatTable=oacAtmAal5ChannelGlobalStatTable, oacAtmStatGeneralGroup=oacAtmStatGeneralGroup, oacAtmAal5ChanRxFrames=oacAtmAal5ChanRxFrames, oacAtmAal0ChannelGlobalStatTable=oacAtmAal0ChannelGlobalStatTable, oacAtmChanRxCells=oacAtmChanRxCells, oacAtmPortHecErrors=oacAtmPortHecErrors, oacAtmAal5ChanCrc32Errors=oacAtmAal5ChanCrc32Errors, oacAtmStatObjects=oacAtmStatObjects, oacAtmStatNotifications=oacAtmStatNotifications, oacAtmStatGroups=oacAtmStatGroups, oacAtmPortStatTable=oacAtmPortStatTable, oacAtmAal5PortTxFramesDiscarded=oacAtmAal5PortTxFramesDiscarded, oacAtmAal5ChanLengthErrors=oacAtmAal5ChanLengthErrors, oacAtmAal5PortRxErrors=oacAtmAal5PortRxErrors, oacAtmChanTxBytes=oacAtmChanTxBytes, oacAtmPortRxCells=oacAtmPortRxCells, oacAtmPortRxCellsDiscarded=oacAtmPortRxCellsDiscarded, oacAtmAal0ChanRxCellsDiscarded=oacAtmAal0ChanRxCellsDiscarded, oacAtmAal5PortTxBytes=oacAtmAal5PortTxBytes, oacAtmAal5PortStatTable=oacAtmAal5PortStatTable, oacAtmStatConformance=oacAtmStatConformance, oacAtmAal1ChannelGlobalStatTable=oacAtmAal1ChannelGlobalStatTable, oacAtmChannelTable=oacAtmChannelTable, oacAtmChanRxBytes=oacAtmChanRxBytes, oacAtmAal1ChanTxUnderflows=oacAtmAal1ChanTxUnderflows, oacAtmAal5ChanTxFrames=oacAtmAal5ChanTxFrames, oacAtmChanVci=oacAtmChanVci, oacAtmAal5PortRxBytes=oacAtmAal5PortRxBytes, oacAtmAal5ChanRxFramesDiscarded=oacAtmAal5ChanRxFramesDiscarded, oacAtmAal5PortRxFrames=oacAtmAal5PortRxFrames, oacAtmAal1ChannelGlobalStatEntry=oacAtmAal1ChannelGlobalStatEntry, oacAtmChanRxErrors=oacAtmChanRxErrors, oacAtmAal5ChannelGlobalStatEntry=oacAtmAal5ChannelGlobalStatEntry, oacAtmStatCompliances=oacAtmStatCompliances, oacAtmStatCompliance=oacAtmStatCompliance, oacAtmAal5PortStatEntry=oacAtmAal5PortStatEntry, oacAtmChannelEntry=oacAtmChannelEntry, oacAtmMIBModule=oacAtmMIBModule, oacAtmAal5ChanReassemblyTimeouts=oacAtmAal5ChanReassemblyTimeouts, oacAtmAal1ChanRxOverflows=oacAtmAal1ChanRxOverflows, oacAtmAal5PortTxFrames=oacAtmAal5PortTxFrames, oacAtmChanTxCells=oacAtmChanTxCells, oacAtmPortStatEntry=oacAtmPortStatEntry, PYSNMP_MODULE_ID=oacAtmMIBModule, oacAtmChanVpi=oacAtmChanVpi, oacAtmPortTxCells=oacAtmPortTxCells, oacAtmAal5PortRxFramesDiscarded=oacAtmAal5PortRxFramesDiscarded, oacAtmAal0ChannelGlobalStatEntry=oacAtmAal0ChannelGlobalStatEntry, oacAtmChanTxOverflows=oacAtmChanTxOverflows)

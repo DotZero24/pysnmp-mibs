@@ -1,147 +1,76 @@
-_V='alaGrtConfigMIBGroup'
-_U='alaGrt6RouteVrfName'
-_T='alaGrt6RouteTag'
-_S='alaGrt6RouteMetric'
-_R='alaGrtRouteIsid'
-_Q='alaGrtRouteVrfName'
-_P='alaGrtRouteTag'
-_O='alaGrtRouteMetric'
-_N='alaGrt6RouteIfIndex'
-_M='alaGrt6RouteNextHop'
-_L='alaGrt6RouteMaskLen'
-_K='alaGrt6RouteDest'
-_J='alaGrt6RouteDistinguisher'
-_I='alaGrtRouteNextHop'
-_H='alaGrtRouteMaskLen'
-_G='alaGrtRouteDest'
-_F='alaGrtRouteDistinguisher'
-_E='OctetString'
-_D='read-only'
-_C='not-accessible'
-_B='ALCATEL-ENT1-GLOBALROUTETABLE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-routingIND1GlobalRouteTable,=mibBuilder.importSymbols('ALCATEL-ENT1-BASE','routingIND1GlobalRouteTable')
-Ipv6Address,Ipv6IfIndex=mibBuilder.importSymbols('IPV6-TC','Ipv6Address','Ipv6IfIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-alcatelIND1GRTMIB=ModuleIdentity((1,3,6,1,4,1,6486,801,1,2,1,10,16,1))
-if mibBuilder.loadTexts:alcatelIND1GRTMIB.setRevisions(('2014-02-07 00:00',))
-class AlaGrtRouteDistinguisher(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_AlcatelIND1GRTMIBObjects_ObjectIdentity=ObjectIdentity
-alcatelIND1GRTMIBObjects=_AlcatelIND1GRTMIBObjects_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1))
-_AlaGrtConfig_ObjectIdentity=ObjectIdentity
-alaGrtConfig=_AlaGrtConfig_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1))
-_AlaGrtRouteTable_Object=MibTable
-alaGrtRouteTable=_AlaGrtRouteTable_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,1))
-if mibBuilder.loadTexts:alaGrtRouteTable.setStatus(_A)
-_AlaGrtRouteEntry_Object=MibTableRow
-alaGrtRouteEntry=_AlaGrtRouteEntry_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,1,1))
-alaGrtRouteEntry.setIndexNames((0,_B,_F),(0,_B,_G),(0,_B,_H),(0,_B,_I))
-if mibBuilder.loadTexts:alaGrtRouteEntry.setStatus(_A)
-_AlaGrtRouteDistinguisher_Type=AlaGrtRouteDistinguisher
-_AlaGrtRouteDistinguisher_Object=MibTableColumn
-alaGrtRouteDistinguisher=_AlaGrtRouteDistinguisher_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,1,1,1),_AlaGrtRouteDistinguisher_Type())
-alaGrtRouteDistinguisher.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaGrtRouteDistinguisher.setStatus(_A)
-_AlaGrtRouteDest_Type=IpAddress
-_AlaGrtRouteDest_Object=MibTableColumn
-alaGrtRouteDest=_AlaGrtRouteDest_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,1,1,2),_AlaGrtRouteDest_Type())
-alaGrtRouteDest.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaGrtRouteDest.setStatus(_A)
-_AlaGrtRouteMaskLen_Type=Unsigned32
-_AlaGrtRouteMaskLen_Object=MibTableColumn
-alaGrtRouteMaskLen=_AlaGrtRouteMaskLen_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,1,1,3),_AlaGrtRouteMaskLen_Type())
-alaGrtRouteMaskLen.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaGrtRouteMaskLen.setStatus(_A)
-_AlaGrtRouteNextHop_Type=IpAddress
-_AlaGrtRouteNextHop_Object=MibTableColumn
-alaGrtRouteNextHop=_AlaGrtRouteNextHop_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,1,1,4),_AlaGrtRouteNextHop_Type())
-alaGrtRouteNextHop.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaGrtRouteNextHop.setStatus(_A)
-_AlaGrtRouteMetric_Type=Unsigned32
-_AlaGrtRouteMetric_Object=MibTableColumn
-alaGrtRouteMetric=_AlaGrtRouteMetric_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,1,1,5),_AlaGrtRouteMetric_Type())
-alaGrtRouteMetric.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaGrtRouteMetric.setStatus(_A)
-_AlaGrtRouteTag_Type=Unsigned32
-_AlaGrtRouteTag_Object=MibTableColumn
-alaGrtRouteTag=_AlaGrtRouteTag_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,1,1,6),_AlaGrtRouteTag_Type())
-alaGrtRouteTag.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaGrtRouteTag.setStatus(_A)
-class _AlaGrtRouteVrfName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_AlaGrtRouteVrfName_Type.__name__=_E
-_AlaGrtRouteVrfName_Object=MibTableColumn
-alaGrtRouteVrfName=_AlaGrtRouteVrfName_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,1,1,7),_AlaGrtRouteVrfName_Type())
-alaGrtRouteVrfName.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaGrtRouteVrfName.setStatus(_A)
-_AlaGrtRouteIsid_Type=Unsigned32
-_AlaGrtRouteIsid_Object=MibTableColumn
-alaGrtRouteIsid=_AlaGrtRouteIsid_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,1,1,8),_AlaGrtRouteIsid_Type())
-alaGrtRouteIsid.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaGrtRouteIsid.setStatus(_A)
-_AlaGrt6RouteTable_Object=MibTable
-alaGrt6RouteTable=_AlaGrt6RouteTable_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,2))
-if mibBuilder.loadTexts:alaGrt6RouteTable.setStatus(_A)
-_AlaGrt6RouteEntry_Object=MibTableRow
-alaGrt6RouteEntry=_AlaGrt6RouteEntry_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,2,1))
-alaGrt6RouteEntry.setIndexNames((0,_B,_J),(0,_B,_K),(0,_B,_L),(0,_B,_M),(0,_B,_N))
-if mibBuilder.loadTexts:alaGrt6RouteEntry.setStatus(_A)
-_AlaGrt6RouteDistinguisher_Type=AlaGrtRouteDistinguisher
-_AlaGrt6RouteDistinguisher_Object=MibTableColumn
-alaGrt6RouteDistinguisher=_AlaGrt6RouteDistinguisher_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,2,1,1),_AlaGrt6RouteDistinguisher_Type())
-alaGrt6RouteDistinguisher.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaGrt6RouteDistinguisher.setStatus(_A)
-_AlaGrt6RouteDest_Type=Ipv6Address
-_AlaGrt6RouteDest_Object=MibTableColumn
-alaGrt6RouteDest=_AlaGrt6RouteDest_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,2,1,2),_AlaGrt6RouteDest_Type())
-alaGrt6RouteDest.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaGrt6RouteDest.setStatus(_A)
-_AlaGrt6RouteMaskLen_Type=Unsigned32
-_AlaGrt6RouteMaskLen_Object=MibTableColumn
-alaGrt6RouteMaskLen=_AlaGrt6RouteMaskLen_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,2,1,3),_AlaGrt6RouteMaskLen_Type())
-alaGrt6RouteMaskLen.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaGrt6RouteMaskLen.setStatus(_A)
-_AlaGrt6RouteNextHop_Type=Ipv6Address
-_AlaGrt6RouteNextHop_Object=MibTableColumn
-alaGrt6RouteNextHop=_AlaGrt6RouteNextHop_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,2,1,4),_AlaGrt6RouteNextHop_Type())
-alaGrt6RouteNextHop.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaGrt6RouteNextHop.setStatus(_A)
-_AlaGrt6RouteIfIndex_Type=Ipv6IfIndex
-_AlaGrt6RouteIfIndex_Object=MibTableColumn
-alaGrt6RouteIfIndex=_AlaGrt6RouteIfIndex_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,2,1,5),_AlaGrt6RouteIfIndex_Type())
-alaGrt6RouteIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaGrt6RouteIfIndex.setStatus(_A)
-_AlaGrt6RouteMetric_Type=Unsigned32
-_AlaGrt6RouteMetric_Object=MibTableColumn
-alaGrt6RouteMetric=_AlaGrt6RouteMetric_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,2,1,6),_AlaGrt6RouteMetric_Type())
-alaGrt6RouteMetric.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaGrt6RouteMetric.setStatus(_A)
-_AlaGrt6RouteTag_Type=Unsigned32
-_AlaGrt6RouteTag_Object=MibTableColumn
-alaGrt6RouteTag=_AlaGrt6RouteTag_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,2,1,7),_AlaGrt6RouteTag_Type())
-alaGrt6RouteTag.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaGrt6RouteTag.setStatus(_A)
-class _AlaGrt6RouteVrfName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_AlaGrt6RouteVrfName_Type.__name__=_E
-_AlaGrt6RouteVrfName_Object=MibTableColumn
-alaGrt6RouteVrfName=_AlaGrt6RouteVrfName_Object((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,1,1,2,1,8),_AlaGrt6RouteVrfName_Type())
-alaGrt6RouteVrfName.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaGrt6RouteVrfName.setStatus(_A)
-_AlcatelIND1GRTMIBConformance_ObjectIdentity=ObjectIdentity
-alcatelIND1GRTMIBConformance=_AlcatelIND1GRTMIBConformance_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,2))
-_AlcatelIND1GRTMIBCompliances_ObjectIdentity=ObjectIdentity
-alcatelIND1GRTMIBCompliances=_AlcatelIND1GRTMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,2,1))
-_AlcatelIND1GRTMIBGroups_ObjectIdentity=ObjectIdentity
-alcatelIND1GRTMIBGroups=_AlcatelIND1GRTMIBGroups_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,2,2))
-alaGrtConfigMIBGroup=ObjectGroup((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,2,2,1))
-alaGrtConfigMIBGroup.setObjects(*((_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:alaGrtConfigMIBGroup.setStatus(_A)
-alaGrtCompliance=ModuleCompliance((1,3,6,1,4,1,6486,801,1,2,1,10,16,1,2,1,1))
-alaGrtCompliance.setObjects((_B,_V))
-if mibBuilder.loadTexts:alaGrtCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'AlaGrtRouteDistinguisher':AlaGrtRouteDistinguisher,'alcatelIND1GRTMIB':alcatelIND1GRTMIB,'alcatelIND1GRTMIBObjects':alcatelIND1GRTMIBObjects,'alaGrtConfig':alaGrtConfig,'alaGrtRouteTable':alaGrtRouteTable,'alaGrtRouteEntry':alaGrtRouteEntry,_F:alaGrtRouteDistinguisher,_G:alaGrtRouteDest,_H:alaGrtRouteMaskLen,_I:alaGrtRouteNextHop,_O:alaGrtRouteMetric,_P:alaGrtRouteTag,_Q:alaGrtRouteVrfName,_R:alaGrtRouteIsid,'alaGrt6RouteTable':alaGrt6RouteTable,'alaGrt6RouteEntry':alaGrt6RouteEntry,_J:alaGrt6RouteDistinguisher,_K:alaGrt6RouteDest,_L:alaGrt6RouteMaskLen,_M:alaGrt6RouteNextHop,_N:alaGrt6RouteIfIndex,_S:alaGrt6RouteMetric,_T:alaGrt6RouteTag,_U:alaGrt6RouteVrfName,'alcatelIND1GRTMIBConformance':alcatelIND1GRTMIBConformance,'alcatelIND1GRTMIBCompliances':alcatelIND1GRTMIBCompliances,'alaGrtCompliance':alaGrtCompliance,'alcatelIND1GRTMIBGroups':alcatelIND1GRTMIBGroups,_V:alaGrtConfigMIBGroup})
+#
+# PySNMP MIB module ALCATEL-ENT1-GLOBALROUTETABLE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel-ent1/ALCATEL-ENT1-GLOBALROUTETABLE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:45 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+routingIND1GlobalRouteTable, = mibBuilder.importSymbols("ALCATEL-ENT1-BASE", "routingIND1GlobalRouteTable")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+Ipv6IfIndex, Ipv6Address = mibBuilder.importSymbols("IPV6-TC", "Ipv6IfIndex", "Ipv6Address")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+alcatelIND1GRTMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1))
+alcatelIND1GRTMIB.setRevisions(('2014-02-07 00:00',))
+if mibBuilder.loadTexts: alcatelIND1GRTMIB.setLastUpdated('201402070000Z')
+if mibBuilder.loadTexts: alcatelIND1GRTMIB.setOrganization('Alcatel-Lucent')
+alcatelIND1GRTMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1))
+alaGrtConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1))
+class AlaGrtRouteDistinguisher(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 256)
+
+alaGrtRouteTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 1), )
+if mibBuilder.loadTexts: alaGrtRouteTable.setStatus('current')
+alaGrtRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrtRouteDistinguisher"), (0, "ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrtRouteDest"), (0, "ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrtRouteMaskLen"), (0, "ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrtRouteNextHop"))
+if mibBuilder.loadTexts: alaGrtRouteEntry.setStatus('current')
+alaGrtRouteDistinguisher = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 1, 1, 1), AlaGrtRouteDistinguisher())
+if mibBuilder.loadTexts: alaGrtRouteDistinguisher.setStatus('current')
+alaGrtRouteDest = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 1, 1, 2), IpAddress())
+if mibBuilder.loadTexts: alaGrtRouteDest.setStatus('current')
+alaGrtRouteMaskLen = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 1, 1, 3), Unsigned32())
+if mibBuilder.loadTexts: alaGrtRouteMaskLen.setStatus('current')
+alaGrtRouteNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 1, 1, 4), IpAddress())
+if mibBuilder.loadTexts: alaGrtRouteNextHop.setStatus('current')
+alaGrtRouteMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaGrtRouteMetric.setStatus('current')
+alaGrtRouteTag = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaGrtRouteTag.setStatus('current')
+alaGrtRouteVrfName = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaGrtRouteVrfName.setStatus('current')
+alaGrtRouteIsid = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 1, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaGrtRouteIsid.setStatus('current')
+alaGrt6RouteTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 2), )
+if mibBuilder.loadTexts: alaGrt6RouteTable.setStatus('current')
+alaGrt6RouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 2, 1), ).setIndexNames((0, "ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrt6RouteDistinguisher"), (0, "ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrt6RouteDest"), (0, "ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrt6RouteMaskLen"), (0, "ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrt6RouteNextHop"), (0, "ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrt6RouteIfIndex"))
+if mibBuilder.loadTexts: alaGrt6RouteEntry.setStatus('current')
+alaGrt6RouteDistinguisher = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 2, 1, 1), AlaGrtRouteDistinguisher())
+if mibBuilder.loadTexts: alaGrt6RouteDistinguisher.setStatus('current')
+alaGrt6RouteDest = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 2, 1, 2), Ipv6Address())
+if mibBuilder.loadTexts: alaGrt6RouteDest.setStatus('current')
+alaGrt6RouteMaskLen = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 2, 1, 3), Unsigned32())
+if mibBuilder.loadTexts: alaGrt6RouteMaskLen.setStatus('current')
+alaGrt6RouteNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 2, 1, 4), Ipv6Address())
+if mibBuilder.loadTexts: alaGrt6RouteNextHop.setStatus('current')
+alaGrt6RouteIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 2, 1, 5), Ipv6IfIndex())
+if mibBuilder.loadTexts: alaGrt6RouteIfIndex.setStatus('current')
+alaGrt6RouteMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 2, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaGrt6RouteMetric.setStatus('current')
+alaGrt6RouteTag = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 2, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaGrt6RouteTag.setStatus('current')
+alaGrt6RouteVrfName = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 1, 1, 2, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaGrt6RouteVrfName.setStatus('current')
+alcatelIND1GRTMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 2))
+alcatelIND1GRTMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 2, 1))
+alcatelIND1GRTMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 2, 2))
+alaGrtCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 2, 1, 1)).setObjects(("ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrtConfigMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaGrtCompliance = alaGrtCompliance.setStatus('current')
+alaGrtConfigMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 16, 1, 2, 2, 1)).setObjects(("ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrtRouteMetric"), ("ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrtRouteTag"), ("ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrtRouteVrfName"), ("ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrtRouteIsid"), ("ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrt6RouteMetric"), ("ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrt6RouteTag"), ("ALCATEL-ENT1-GLOBALROUTETABLE-MIB", "alaGrt6RouteVrfName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaGrtConfigMIBGroup = alaGrtConfigMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("ALCATEL-ENT1-GLOBALROUTETABLE-MIB", alaGrtRouteTable=alaGrtRouteTable, alaGrtRouteIsid=alaGrtRouteIsid, alcatelIND1GRTMIB=alcatelIND1GRTMIB, alcatelIND1GRTMIBObjects=alcatelIND1GRTMIBObjects, alaGrt6RouteEntry=alaGrt6RouteEntry, alaGrtRouteDest=alaGrtRouteDest, alaGrt6RouteMaskLen=alaGrt6RouteMaskLen, alaGrt6RouteVrfName=alaGrt6RouteVrfName, alaGrt6RouteDest=alaGrt6RouteDest, alaGrt6RouteIfIndex=alaGrt6RouteIfIndex, alaGrtRouteTag=alaGrtRouteTag, alcatelIND1GRTMIBConformance=alcatelIND1GRTMIBConformance, alaGrt6RouteTable=alaGrt6RouteTable, alaGrtConfig=alaGrtConfig, alaGrtCompliance=alaGrtCompliance, alaGrtConfigMIBGroup=alaGrtConfigMIBGroup, alaGrtRouteEntry=alaGrtRouteEntry, alaGrtRouteVrfName=alaGrtRouteVrfName, alaGrt6RouteNextHop=alaGrt6RouteNextHop, alaGrtRouteMetric=alaGrtRouteMetric, alaGrtRouteMaskLen=alaGrtRouteMaskLen, alcatelIND1GRTMIBCompliances=alcatelIND1GRTMIBCompliances, alaGrtRouteDistinguisher=alaGrtRouteDistinguisher, PYSNMP_MODULE_ID=alcatelIND1GRTMIB, alaGrtRouteNextHop=alaGrtRouteNextHop, AlaGrtRouteDistinguisher=AlaGrtRouteDistinguisher, alaGrt6RouteDistinguisher=alaGrt6RouteDistinguisher, alaGrt6RouteMetric=alaGrt6RouteMetric, alaGrt6RouteTag=alaGrt6RouteTag, alcatelIND1GRTMIBGroups=alcatelIND1GRTMIBGroups)

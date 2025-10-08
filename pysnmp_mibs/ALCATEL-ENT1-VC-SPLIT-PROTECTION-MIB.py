@@ -1,136 +1,85 @@
-_U='alaVCSPHelperGroup'
-_T='alaVCSPConfigInfoGroup'
-_S='alaVCSPNotificationGroup'
-_R='alaVCSPRecoveryTrap'
-_Q='alaVCSPProtectionTrap'
-_P='alaVCSPHelperLinkaggRowStatus'
-_O='alaVCSPHelperAdminState'
-_N='alaVCSPAdminState'
-_M='alaVCSPGuardTimer'
-_L='alaVCSPUpTime'
-_K='alaVCSPTableOperState'
-_J='alaVCSPProtectionStateUpTime'
-_I='alaVCSPLinkaggId'
-_H='alaVCSPHelperLinkaggId'
-_G='AlaVCSPState'
-_F='read-write'
-_E='Integer32'
-_D='alaVCSPTableChassisID'
-_C='read-only'
-_B='ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-alcatelIND1VirtualChassisMIBVCSP,=mibBuilder.importSymbols('ALCATEL-ENT1-VIRTUAL-CHASSIS-MIB','alcatelIND1VirtualChassisMIBVCSP')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-alaVCSPMIB=ModuleIdentity((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1))
-if mibBuilder.loadTexts:alaVCSPMIB.setRevisions(('2013-10-14 00:00',))
-class AlaVCSPChassisID(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-class AlaVCSPOpState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('active',1),('protection',2),('inactive',3)))
-class AlaVCSPState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_AlaVCSPMIBNotifications_ObjectIdentity=ObjectIdentity
-alaVCSPMIBNotifications=_AlaVCSPMIBNotifications_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,0))
-_AlaVCSPMIBObjects_ObjectIdentity=ObjectIdentity
-alaVCSPMIBObjects=_AlaVCSPMIBObjects_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1))
-_AlaVCSPHelperGlobalConfig_ObjectIdentity=ObjectIdentity
-alaVCSPHelperGlobalConfig=_AlaVCSPHelperGlobalConfig_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,1))
-class _AlaVCSPHelperAdminState_Type(AlaVCSPState):defaultValue=2
-_AlaVCSPHelperAdminState_Type.__name__=_G
-_AlaVCSPHelperAdminState_Object=MibScalar
-alaVCSPHelperAdminState=_AlaVCSPHelperAdminState_Object((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,1,1),_AlaVCSPHelperAdminState_Type())
-alaVCSPHelperAdminState.setMaxAccess(_F)
-if mibBuilder.loadTexts:alaVCSPHelperAdminState.setStatus(_A)
-_AlaVCSPConfigInfo_ObjectIdentity=ObjectIdentity
-alaVCSPConfigInfo=_AlaVCSPConfigInfo_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,2))
-class _AlaVCSPAdminState_Type(AlaVCSPState):defaultValue=2
-_AlaVCSPAdminState_Type.__name__=_G
-_AlaVCSPAdminState_Object=MibScalar
-alaVCSPAdminState=_AlaVCSPAdminState_Object((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,2,1),_AlaVCSPAdminState_Type())
-alaVCSPAdminState.setMaxAccess(_F)
-if mibBuilder.loadTexts:alaVCSPAdminState.setStatus(_A)
-class _AlaVCSPLinkaggId_Type(Integer32):defaultValue=-1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,128))
-_AlaVCSPLinkaggId_Type.__name__=_E
-_AlaVCSPLinkaggId_Object=MibScalar
-alaVCSPLinkaggId=_AlaVCSPLinkaggId_Object((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,2,2),_AlaVCSPLinkaggId_Type())
-alaVCSPLinkaggId.setMaxAccess(_F)
-if mibBuilder.loadTexts:alaVCSPLinkaggId.setStatus(_A)
-class _AlaVCSPGuardTimer_Type(Integer32):defaultValue=30;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(30,100))
-_AlaVCSPGuardTimer_Type.__name__=_E
-_AlaVCSPGuardTimer_Object=MibScalar
-alaVCSPGuardTimer=_AlaVCSPGuardTimer_Object((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,2,3),_AlaVCSPGuardTimer_Type())
-alaVCSPGuardTimer.setMaxAccess(_F)
-if mibBuilder.loadTexts:alaVCSPGuardTimer.setStatus(_A)
-_AlaVCSPUpTime_Type=TimeTicks
-_AlaVCSPUpTime_Object=MibScalar
-alaVCSPUpTime=_AlaVCSPUpTime_Object((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,2,4),_AlaVCSPUpTime_Type())
-alaVCSPUpTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaVCSPUpTime.setStatus(_A)
-_AlaVCSPProtectionStateUpTime_Type=TimeTicks
-_AlaVCSPProtectionStateUpTime_Object=MibScalar
-alaVCSPProtectionStateUpTime=_AlaVCSPProtectionStateUpTime_Object((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,2,5),_AlaVCSPProtectionStateUpTime_Type())
-alaVCSPProtectionStateUpTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaVCSPProtectionStateUpTime.setStatus(_A)
-_AlaVCSPHelperLinkaggTable_Object=MibTable
-alaVCSPHelperLinkaggTable=_AlaVCSPHelperLinkaggTable_Object((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,3))
-if mibBuilder.loadTexts:alaVCSPHelperLinkaggTable.setStatus(_A)
-_AlaVCSPHelperLinkaggEntry_Object=MibTableRow
-alaVCSPHelperLinkaggEntry=_AlaVCSPHelperLinkaggEntry_Object((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,3,1))
-alaVCSPHelperLinkaggEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:alaVCSPHelperLinkaggEntry.setStatus(_A)
-class _AlaVCSPHelperLinkaggId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_AlaVCSPHelperLinkaggId_Type.__name__=_E
-_AlaVCSPHelperLinkaggId_Object=MibTableColumn
-alaVCSPHelperLinkaggId=_AlaVCSPHelperLinkaggId_Object((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,3,1,1),_AlaVCSPHelperLinkaggId_Type())
-alaVCSPHelperLinkaggId.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaVCSPHelperLinkaggId.setStatus(_A)
-_AlaVCSPHelperLinkaggRowStatus_Type=RowStatus
-_AlaVCSPHelperLinkaggRowStatus_Object=MibTableColumn
-alaVCSPHelperLinkaggRowStatus=_AlaVCSPHelperLinkaggRowStatus_Object((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,3,1,2),_AlaVCSPHelperLinkaggRowStatus_Type())
-alaVCSPHelperLinkaggRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:alaVCSPHelperLinkaggRowStatus.setStatus(_A)
-_AlaVCSPStateTable_Object=MibTable
-alaVCSPStateTable=_AlaVCSPStateTable_Object((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,4))
-if mibBuilder.loadTexts:alaVCSPStateTable.setStatus(_A)
-_AlaVCSPStateEntry_Object=MibTableRow
-alaVCSPStateEntry=_AlaVCSPStateEntry_Object((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,4,1))
-alaVCSPStateEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:alaVCSPStateEntry.setStatus(_A)
-_AlaVCSPTableChassisID_Type=AlaVCSPChassisID
-_AlaVCSPTableChassisID_Object=MibTableColumn
-alaVCSPTableChassisID=_AlaVCSPTableChassisID_Object((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,4,1,1),_AlaVCSPTableChassisID_Type())
-alaVCSPTableChassisID.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaVCSPTableChassisID.setStatus(_A)
-_AlaVCSPTableOperState_Type=AlaVCSPOpState
-_AlaVCSPTableOperState_Object=MibTableColumn
-alaVCSPTableOperState=_AlaVCSPTableOperState_Object((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,1,4,1,2),_AlaVCSPTableOperState_Type())
-alaVCSPTableOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaVCSPTableOperState.setStatus(_A)
-_AlaVCSPMIBConformance_ObjectIdentity=ObjectIdentity
-alaVCSPMIBConformance=_AlaVCSPMIBConformance_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,2))
-_AlaVCSPMIBGroups_ObjectIdentity=ObjectIdentity
-alaVCSPMIBGroups=_AlaVCSPMIBGroups_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,2,1))
-_AlaVCSPMIBCompliances_ObjectIdentity=ObjectIdentity
-alaVCSPMIBCompliances=_AlaVCSPMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,2,2))
-alaVCSPConfigInfoGroup=ObjectGroup((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,2,1,2))
-alaVCSPConfigInfoGroup.setObjects(*((_B,_I),(_B,_J),(_B,_D),(_B,_K),(_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:alaVCSPConfigInfoGroup.setStatus(_A)
-alaVCSPHelperGroup=ObjectGroup((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,2,1,3))
-alaVCSPHelperGroup.setObjects(*((_B,_O),(_B,_H),(_B,_P)))
-if mibBuilder.loadTexts:alaVCSPHelperGroup.setStatus(_A)
-alaVCSPProtectionTrap=NotificationType((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,0,1))
-alaVCSPProtectionTrap.setObjects((_B,_D))
-if mibBuilder.loadTexts:alaVCSPProtectionTrap.setStatus(_A)
-alaVCSPRecoveryTrap=NotificationType((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,0,2))
-alaVCSPRecoveryTrap.setObjects((_B,_D))
-if mibBuilder.loadTexts:alaVCSPRecoveryTrap.setStatus(_A)
-alaVCSPNotificationGroup=NotificationGroup((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,2,1,1))
-alaVCSPNotificationGroup.setObjects(*((_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:alaVCSPNotificationGroup.setStatus(_A)
-alaVCSPMIBCompliance=ModuleCompliance((1,3,6,1,4,1,6486,801,1,2,1,69,1,3,1,2,2,1))
-alaVCSPMIBCompliance.setObjects(*((_B,_S),(_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:alaVCSPMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'AlaVCSPChassisID':AlaVCSPChassisID,'AlaVCSPOpState':AlaVCSPOpState,_G:AlaVCSPState,'alaVCSPMIB':alaVCSPMIB,'alaVCSPMIBNotifications':alaVCSPMIBNotifications,_Q:alaVCSPProtectionTrap,_R:alaVCSPRecoveryTrap,'alaVCSPMIBObjects':alaVCSPMIBObjects,'alaVCSPHelperGlobalConfig':alaVCSPHelperGlobalConfig,_O:alaVCSPHelperAdminState,'alaVCSPConfigInfo':alaVCSPConfigInfo,_N:alaVCSPAdminState,_I:alaVCSPLinkaggId,_M:alaVCSPGuardTimer,_L:alaVCSPUpTime,_J:alaVCSPProtectionStateUpTime,'alaVCSPHelperLinkaggTable':alaVCSPHelperLinkaggTable,'alaVCSPHelperLinkaggEntry':alaVCSPHelperLinkaggEntry,_H:alaVCSPHelperLinkaggId,_P:alaVCSPHelperLinkaggRowStatus,'alaVCSPStateTable':alaVCSPStateTable,'alaVCSPStateEntry':alaVCSPStateEntry,_D:alaVCSPTableChassisID,_K:alaVCSPTableOperState,'alaVCSPMIBConformance':alaVCSPMIBConformance,'alaVCSPMIBGroups':alaVCSPMIBGroups,_S:alaVCSPNotificationGroup,_T:alaVCSPConfigInfoGroup,_U:alaVCSPHelperGroup,'alaVCSPMIBCompliances':alaVCSPMIBCompliances,'alaVCSPMIBCompliance':alaVCSPMIBCompliance})
+#
+# PySNMP MIB module ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel-ent1/ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+alcatelIND1VirtualChassisMIBVCSP, = mibBuilder.importSymbols("ALCATEL-ENT1-VIRTUAL-CHASSIS-MIB", "alcatelIND1VirtualChassisMIBVCSP")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+alaVCSPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1))
+alaVCSPMIB.setRevisions(('2013-10-14 00:00',))
+if mibBuilder.loadTexts: alaVCSPMIB.setLastUpdated('201310140000Z')
+if mibBuilder.loadTexts: alaVCSPMIB.setOrganization('Alcatel-Lucent, Enterprise Solutions Division')
+alaVCSPMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 0))
+alaVCSPMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1))
+alaVCSPMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 2))
+class AlaVCSPChassisID(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 8)
+
+class AlaVCSPOpState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("active", 1), ("protection", 2), ("inactive", 3))
+
+class AlaVCSPState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("enable", 1), ("disable", 2))
+
+alaVCSPConfigInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 2))
+alaVCSPAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 2, 1), AlaVCSPState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaVCSPAdminState.setStatus('current')
+alaVCSPLinkaggId = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 128)).clone(-1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaVCSPLinkaggId.setStatus('current')
+alaVCSPGuardTimer = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(30, 100)).clone(30)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaVCSPGuardTimer.setStatus('current')
+alaVCSPUpTime = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 2, 4), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaVCSPUpTime.setStatus('current')
+alaVCSPProtectionStateUpTime = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 2, 5), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaVCSPProtectionStateUpTime.setStatus('current')
+alaVCSPHelperGlobalConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 1))
+alaVCSPHelperAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 1, 1), AlaVCSPState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaVCSPHelperAdminState.setStatus('current')
+alaVCSPHelperLinkaggTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 3), )
+if mibBuilder.loadTexts: alaVCSPHelperLinkaggTable.setStatus('current')
+alaVCSPHelperLinkaggEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 3, 1), ).setIndexNames((0, "ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPHelperLinkaggId"))
+if mibBuilder.loadTexts: alaVCSPHelperLinkaggEntry.setStatus('current')
+alaVCSPHelperLinkaggId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaVCSPHelperLinkaggId.setStatus('current')
+alaVCSPHelperLinkaggRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: alaVCSPHelperLinkaggRowStatus.setStatus('current')
+alaVCSPStateTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 4), )
+if mibBuilder.loadTexts: alaVCSPStateTable.setStatus('current')
+alaVCSPStateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 4, 1), ).setIndexNames((0, "ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPTableChassisID"))
+if mibBuilder.loadTexts: alaVCSPStateEntry.setStatus('current')
+alaVCSPTableChassisID = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 4, 1, 1), AlaVCSPChassisID()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaVCSPTableChassisID.setStatus('current')
+alaVCSPTableOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 1, 4, 1, 2), AlaVCSPOpState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaVCSPTableOperState.setStatus('current')
+alaVCSPProtectionTrap = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 0, 1)).setObjects(("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPTableChassisID"))
+if mibBuilder.loadTexts: alaVCSPProtectionTrap.setStatus('current')
+alaVCSPRecoveryTrap = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 0, 2)).setObjects(("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPTableChassisID"))
+if mibBuilder.loadTexts: alaVCSPRecoveryTrap.setStatus('current')
+alaVCSPMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 2, 1))
+alaVCSPMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 2, 2))
+alaVCSPMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 2, 2, 1)).setObjects(("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPNotificationGroup"), ("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPConfigInfoGroup"), ("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPHelperGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaVCSPMIBCompliance = alaVCSPMIBCompliance.setStatus('current')
+alaVCSPNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 2, 1, 1)).setObjects(("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPProtectionTrap"), ("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPRecoveryTrap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaVCSPNotificationGroup = alaVCSPNotificationGroup.setStatus('current')
+alaVCSPHelperGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 2, 1, 3)).setObjects(("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPHelperAdminState"), ("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPHelperLinkaggId"), ("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPHelperLinkaggRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaVCSPHelperGroup = alaVCSPHelperGroup.setStatus('current')
+alaVCSPConfigInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 69, 1, 3, 1, 2, 1, 2)).setObjects(("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPLinkaggId"), ("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPProtectionStateUpTime"), ("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPTableChassisID"), ("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPTableOperState"), ("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPUpTime"), ("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPGuardTimer"), ("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", "alaVCSPAdminState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaVCSPConfigInfoGroup = alaVCSPConfigInfoGroup.setStatus('current')
+mibBuilder.exportSymbols("ALCATEL-ENT1-VC-SPLIT-PROTECTION-MIB", alaVCSPMIBCompliance=alaVCSPMIBCompliance, alaVCSPAdminState=alaVCSPAdminState, alaVCSPHelperAdminState=alaVCSPHelperAdminState, AlaVCSPChassisID=AlaVCSPChassisID, AlaVCSPOpState=AlaVCSPOpState, alaVCSPNotificationGroup=alaVCSPNotificationGroup, AlaVCSPState=AlaVCSPState, alaVCSPProtectionTrap=alaVCSPProtectionTrap, alaVCSPHelperGroup=alaVCSPHelperGroup, alaVCSPMIB=alaVCSPMIB, alaVCSPHelperLinkaggEntry=alaVCSPHelperLinkaggEntry, alaVCSPConfigInfo=alaVCSPConfigInfo, alaVCSPStateTable=alaVCSPStateTable, PYSNMP_MODULE_ID=alaVCSPMIB, alaVCSPGuardTimer=alaVCSPGuardTimer, alaVCSPMIBGroups=alaVCSPMIBGroups, alaVCSPHelperLinkaggId=alaVCSPHelperLinkaggId, alaVCSPProtectionStateUpTime=alaVCSPProtectionStateUpTime, alaVCSPMIBNotifications=alaVCSPMIBNotifications, alaVCSPHelperGlobalConfig=alaVCSPHelperGlobalConfig, alaVCSPConfigInfoGroup=alaVCSPConfigInfoGroup, alaVCSPHelperLinkaggTable=alaVCSPHelperLinkaggTable, alaVCSPTableChassisID=alaVCSPTableChassisID, alaVCSPTableOperState=alaVCSPTableOperState, alaVCSPHelperLinkaggRowStatus=alaVCSPHelperLinkaggRowStatus, alaVCSPLinkaggId=alaVCSPLinkaggId, alaVCSPRecoveryTrap=alaVCSPRecoveryTrap, alaVCSPMIBConformance=alaVCSPMIBConformance, alaVCSPMIBObjects=alaVCSPMIBObjects, alaVCSPMIBCompliances=alaVCSPMIBCompliances, alaVCSPStateEntry=alaVCSPStateEntry, alaVCSPUpTime=alaVCSPUpTime)

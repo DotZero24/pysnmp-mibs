@@ -1,131 +1,67 @@
-_N='static'
-_M='swIPv6NeighborCacheInterfaceName'
-_L='swIPv6NeighborCacheMacAddress'
-_K='swIPv6NeighborCacheIPv6Address'
-_J='swIPv6StaticRouteNextHop'
-_I='swIPv6StaticRouteInterfaceName'
-_H='swIPv6StaticRoutePrefixLen'
-_G='swIPv6StaticRouteDest'
-_F='DisplayString'
-_E='read-create'
-_D='Integer32'
-_C='IPV6-STATIC-ROUTE-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_common_mgmt,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-common-mgmt')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_F,'MacAddress','PhysAddress','RowStatus','TextualConvention')
-swIPv6StaticRouteMIB=ModuleIdentity((1,3,6,1,4,1,171,12,26))
-class Ipv6Address(TextualConvention,OctetString):status=_A;displayHint='2x:';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
-_SwIPv6StaticRouteCtrl_ObjectIdentity=ObjectIdentity
-swIPv6StaticRouteCtrl=_SwIPv6StaticRouteCtrl_ObjectIdentity((1,3,6,1,4,1,171,12,26,1))
-_SwIPv6StaticRouteInfo_ObjectIdentity=ObjectIdentity
-swIPv6StaticRouteInfo=_SwIPv6StaticRouteInfo_ObjectIdentity((1,3,6,1,4,1,171,12,26,2))
-_SwIPv6StaticRouteMgmt_ObjectIdentity=ObjectIdentity
-swIPv6StaticRouteMgmt=_SwIPv6StaticRouteMgmt_ObjectIdentity((1,3,6,1,4,1,171,12,26,3))
-_SwIPv6StaticRouteTable_Object=MibTable
-swIPv6StaticRouteTable=_SwIPv6StaticRouteTable_Object((1,3,6,1,4,1,171,12,26,3,1))
-if mibBuilder.loadTexts:swIPv6StaticRouteTable.setStatus(_A)
-_SwIPv6StaticRouteEntry_Object=MibTableRow
-swIPv6StaticRouteEntry=_SwIPv6StaticRouteEntry_Object((1,3,6,1,4,1,171,12,26,3,1,1))
-swIPv6StaticRouteEntry.setIndexNames((0,_C,_G),(0,_C,_H),(0,_C,_I),(0,_C,_J))
-if mibBuilder.loadTexts:swIPv6StaticRouteEntry.setStatus(_A)
-_SwIPv6StaticRouteDest_Type=Ipv6Address
-_SwIPv6StaticRouteDest_Object=MibTableColumn
-swIPv6StaticRouteDest=_SwIPv6StaticRouteDest_Object((1,3,6,1,4,1,171,12,26,3,1,1,1),_SwIPv6StaticRouteDest_Type())
-swIPv6StaticRouteDest.setMaxAccess(_B)
-if mibBuilder.loadTexts:swIPv6StaticRouteDest.setStatus(_A)
-class _SwIPv6StaticRoutePrefixLen_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_SwIPv6StaticRoutePrefixLen_Type.__name__=_D
-_SwIPv6StaticRoutePrefixLen_Object=MibTableColumn
-swIPv6StaticRoutePrefixLen=_SwIPv6StaticRoutePrefixLen_Object((1,3,6,1,4,1,171,12,26,3,1,1,2),_SwIPv6StaticRoutePrefixLen_Type())
-swIPv6StaticRoutePrefixLen.setMaxAccess(_B)
-if mibBuilder.loadTexts:swIPv6StaticRoutePrefixLen.setStatus(_A)
-class _SwIPv6StaticRouteInterfaceName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,12))
-_SwIPv6StaticRouteInterfaceName_Type.__name__=_F
-_SwIPv6StaticRouteInterfaceName_Object=MibTableColumn
-swIPv6StaticRouteInterfaceName=_SwIPv6StaticRouteInterfaceName_Object((1,3,6,1,4,1,171,12,26,3,1,1,3),_SwIPv6StaticRouteInterfaceName_Type())
-swIPv6StaticRouteInterfaceName.setMaxAccess(_B)
-if mibBuilder.loadTexts:swIPv6StaticRouteInterfaceName.setStatus(_A)
-_SwIPv6StaticRouteNextHop_Type=Ipv6Address
-_SwIPv6StaticRouteNextHop_Object=MibTableColumn
-swIPv6StaticRouteNextHop=_SwIPv6StaticRouteNextHop_Object((1,3,6,1,4,1,171,12,26,3,1,1,4),_SwIPv6StaticRouteNextHop_Type())
-swIPv6StaticRouteNextHop.setMaxAccess(_B)
-if mibBuilder.loadTexts:swIPv6StaticRouteNextHop.setStatus(_A)
-class _SwIPv6StaticRouteMetric_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_SwIPv6StaticRouteMetric_Type.__name__=_D
-_SwIPv6StaticRouteMetric_Object=MibTableColumn
-swIPv6StaticRouteMetric=_SwIPv6StaticRouteMetric_Object((1,3,6,1,4,1,171,12,26,3,1,1,5),_SwIPv6StaticRouteMetric_Type())
-swIPv6StaticRouteMetric.setMaxAccess(_E)
-if mibBuilder.loadTexts:swIPv6StaticRouteMetric.setStatus(_A)
-class _SwIPv6StaticRouteWeight_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_SwIPv6StaticRouteWeight_Type.__name__=_D
-_SwIPv6StaticRouteWeight_Object=MibTableColumn
-swIPv6StaticRouteWeight=_SwIPv6StaticRouteWeight_Object((1,3,6,1,4,1,171,12,26,3,1,1,6),_SwIPv6StaticRouteWeight_Type())
-swIPv6StaticRouteWeight.setMaxAccess(_E)
-if mibBuilder.loadTexts:swIPv6StaticRouteWeight.setStatus(_A)
-_SwIPv6StaticProtocol_Type=DisplayString
-_SwIPv6StaticProtocol_Object=MibTableColumn
-swIPv6StaticProtocol=_SwIPv6StaticProtocol_Object((1,3,6,1,4,1,171,12,26,3,1,1,7),_SwIPv6StaticProtocol_Type())
-swIPv6StaticProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:swIPv6StaticProtocol.setStatus(_A)
-_SwIPv6StaticRouteStatus_Type=RowStatus
-_SwIPv6StaticRouteStatus_Object=MibTableColumn
-swIPv6StaticRouteStatus=_SwIPv6StaticRouteStatus_Object((1,3,6,1,4,1,171,12,26,3,1,1,8),_SwIPv6StaticRouteStatus_Type())
-swIPv6StaticRouteStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:swIPv6StaticRouteStatus.setStatus(_A)
-class _SwIPv6StaticRouteBkupState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('primary',1),('backup',2),('none',3)))
-_SwIPv6StaticRouteBkupState_Type.__name__=_D
-_SwIPv6StaticRouteBkupState_Object=MibTableColumn
-swIPv6StaticRouteBkupState=_SwIPv6StaticRouteBkupState_Object((1,3,6,1,4,1,171,12,26,3,1,1,9),_SwIPv6StaticRouteBkupState_Type())
-swIPv6StaticRouteBkupState.setMaxAccess(_E)
-if mibBuilder.loadTexts:swIPv6StaticRouteBkupState.setStatus(_A)
-_SwIPv6NeighborCacheMgmt_ObjectIdentity=ObjectIdentity
-swIPv6NeighborCacheMgmt=_SwIPv6NeighborCacheMgmt_ObjectIdentity((1,3,6,1,4,1,171,12,26,4))
-_SwIPv6NeighborCacheTable_Object=MibTable
-swIPv6NeighborCacheTable=_SwIPv6NeighborCacheTable_Object((1,3,6,1,4,1,171,12,26,4,1))
-if mibBuilder.loadTexts:swIPv6NeighborCacheTable.setStatus(_A)
-_SwIPv6NeighborCacheEntry_Object=MibTableRow
-swIPv6NeighborCacheEntry=_SwIPv6NeighborCacheEntry_Object((1,3,6,1,4,1,171,12,26,4,1,1))
-swIPv6NeighborCacheEntry.setIndexNames((0,_C,_K),(0,_C,_L),(0,_C,_M))
-if mibBuilder.loadTexts:swIPv6NeighborCacheEntry.setStatus(_A)
-_SwIPv6NeighborCacheIPv6Address_Type=Ipv6Address
-_SwIPv6NeighborCacheIPv6Address_Object=MibTableColumn
-swIPv6NeighborCacheIPv6Address=_SwIPv6NeighborCacheIPv6Address_Object((1,3,6,1,4,1,171,12,26,4,1,1,1),_SwIPv6NeighborCacheIPv6Address_Type())
-swIPv6NeighborCacheIPv6Address.setMaxAccess(_B)
-if mibBuilder.loadTexts:swIPv6NeighborCacheIPv6Address.setStatus(_A)
-_SwIPv6NeighborCacheMacAddress_Type=MacAddress
-_SwIPv6NeighborCacheMacAddress_Object=MibTableColumn
-swIPv6NeighborCacheMacAddress=_SwIPv6NeighborCacheMacAddress_Object((1,3,6,1,4,1,171,12,26,4,1,1,2),_SwIPv6NeighborCacheMacAddress_Type())
-swIPv6NeighborCacheMacAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:swIPv6NeighborCacheMacAddress.setStatus(_A)
-class _SwIPv6NeighborCacheInterfaceName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,12))
-_SwIPv6NeighborCacheInterfaceName_Type.__name__=_F
-_SwIPv6NeighborCacheInterfaceName_Object=MibTableColumn
-swIPv6NeighborCacheInterfaceName=_SwIPv6NeighborCacheInterfaceName_Object((1,3,6,1,4,1,171,12,26,4,1,1,3),_SwIPv6NeighborCacheInterfaceName_Type())
-swIPv6NeighborCacheInterfaceName.setMaxAccess(_B)
-if mibBuilder.loadTexts:swIPv6NeighborCacheInterfaceName.setStatus(_A)
-class _SwIPv6NeighborCacheReachState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('incomplete',1),('reachable',2),('stale',3),('delay',4),('probe',5),(_N,6)))
-_SwIPv6NeighborCacheReachState_Type.__name__=_D
-_SwIPv6NeighborCacheReachState_Object=MibTableColumn
-swIPv6NeighborCacheReachState=_SwIPv6NeighborCacheReachState_Object((1,3,6,1,4,1,171,12,26,4,1,1,4),_SwIPv6NeighborCacheReachState_Type())
-swIPv6NeighborCacheReachState.setMaxAccess(_B)
-if mibBuilder.loadTexts:swIPv6NeighborCacheReachState.setStatus(_A)
-_SwIPv6NeighborCacheRouteStatus_Type=RowStatus
-_SwIPv6NeighborCacheRouteStatus_Object=MibTableColumn
-swIPv6NeighborCacheRouteStatus=_SwIPv6NeighborCacheRouteStatus_Object((1,3,6,1,4,1,171,12,26,4,1,1,5),_SwIPv6NeighborCacheRouteStatus_Type())
-swIPv6NeighborCacheRouteStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:swIPv6NeighborCacheRouteStatus.setStatus(_A)
-class _SwIPv6NeighborCacheDeleteAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('all',1),(_N,2),('dynamic',3),('other',4)))
-_SwIPv6NeighborCacheDeleteAction_Type.__name__=_D
-_SwIPv6NeighborCacheDeleteAction_Object=MibScalar
-swIPv6NeighborCacheDeleteAction=_SwIPv6NeighborCacheDeleteAction_Object((1,3,6,1,4,1,171,12,26,4,2),_SwIPv6NeighborCacheDeleteAction_Type())
-swIPv6NeighborCacheDeleteAction.setMaxAccess('read-write')
-if mibBuilder.loadTexts:swIPv6NeighborCacheDeleteAction.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'Ipv6Address':Ipv6Address,'swIPv6StaticRouteMIB':swIPv6StaticRouteMIB,'swIPv6StaticRouteCtrl':swIPv6StaticRouteCtrl,'swIPv6StaticRouteInfo':swIPv6StaticRouteInfo,'swIPv6StaticRouteMgmt':swIPv6StaticRouteMgmt,'swIPv6StaticRouteTable':swIPv6StaticRouteTable,'swIPv6StaticRouteEntry':swIPv6StaticRouteEntry,_G:swIPv6StaticRouteDest,_H:swIPv6StaticRoutePrefixLen,_I:swIPv6StaticRouteInterfaceName,_J:swIPv6StaticRouteNextHop,'swIPv6StaticRouteMetric':swIPv6StaticRouteMetric,'swIPv6StaticRouteWeight':swIPv6StaticRouteWeight,'swIPv6StaticProtocol':swIPv6StaticProtocol,'swIPv6StaticRouteStatus':swIPv6StaticRouteStatus,'swIPv6StaticRouteBkupState':swIPv6StaticRouteBkupState,'swIPv6NeighborCacheMgmt':swIPv6NeighborCacheMgmt,'swIPv6NeighborCacheTable':swIPv6NeighborCacheTable,'swIPv6NeighborCacheEntry':swIPv6NeighborCacheEntry,_K:swIPv6NeighborCacheIPv6Address,_L:swIPv6NeighborCacheMacAddress,_M:swIPv6NeighborCacheInterfaceName,'swIPv6NeighborCacheReachState':swIPv6NeighborCacheReachState,'swIPv6NeighborCacheRouteStatus':swIPv6NeighborCacheRouteStatus,'swIPv6NeighborCacheDeleteAction':swIPv6NeighborCacheDeleteAction})
+#
+# PySNMP MIB module IPV6-STATIC-ROUTE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/IPV6-STATIC-ROUTE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:34:24 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+swIPv6StaticRouteMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 26))
+if mibBuilder.loadTexts: swIPv6StaticRouteMIB.setLastUpdated('0706150000Z')
+if mibBuilder.loadTexts: swIPv6StaticRouteMIB.setOrganization('D-Link Corp.')
+class Ipv6Address(TextualConvention, OctetString):
+    status = 'current'
+    displayHint = '2x:'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(16, 16)
+    fixedLength = 16
+
+swIPv6StaticRouteCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 26, 1))
+swIPv6StaticRouteInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 26, 2))
+swIPv6StaticRouteMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 26, 3))
+swIPv6NeighborCacheMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 26, 4))
+swIPv6StaticRouteTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 26, 3, 1), )
+if mibBuilder.loadTexts: swIPv6StaticRouteTable.setStatus('current')
+swIPv6StaticRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 26, 3, 1, 1), ).setIndexNames((0, "IPV6-STATIC-ROUTE-MIB", "swIPv6StaticRouteDest"), (0, "IPV6-STATIC-ROUTE-MIB", "swIPv6StaticRoutePrefixLen"), (0, "IPV6-STATIC-ROUTE-MIB", "swIPv6StaticRouteInterfaceName"), (0, "IPV6-STATIC-ROUTE-MIB", "swIPv6StaticRouteNextHop"))
+if mibBuilder.loadTexts: swIPv6StaticRouteEntry.setStatus('current')
+swIPv6StaticRouteDest = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 26, 3, 1, 1, 1), Ipv6Address()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swIPv6StaticRouteDest.setStatus('current')
+swIPv6StaticRoutePrefixLen = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 26, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swIPv6StaticRoutePrefixLen.setStatus('current')
+swIPv6StaticRouteInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 26, 3, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 12))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swIPv6StaticRouteInterfaceName.setStatus('current')
+swIPv6StaticRouteNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 26, 3, 1, 1, 4), Ipv6Address()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swIPv6StaticRouteNextHop.setStatus('current')
+swIPv6StaticRouteMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 26, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swIPv6StaticRouteMetric.setStatus('current')
+swIPv6StaticRouteWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 26, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4)).clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swIPv6StaticRouteWeight.setStatus('current')
+swIPv6StaticProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 26, 3, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swIPv6StaticProtocol.setStatus('current')
+swIPv6StaticRouteStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 26, 3, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swIPv6StaticRouteStatus.setStatus('current')
+swIPv6StaticRouteBkupState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 26, 3, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("primary", 1), ("backup", 2), ("none", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swIPv6StaticRouteBkupState.setStatus('current')
+swIPv6NeighborCacheTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 26, 4, 1), )
+if mibBuilder.loadTexts: swIPv6NeighborCacheTable.setStatus('current')
+swIPv6NeighborCacheEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 26, 4, 1, 1), ).setIndexNames((0, "IPV6-STATIC-ROUTE-MIB", "swIPv6NeighborCacheIPv6Address"), (0, "IPV6-STATIC-ROUTE-MIB", "swIPv6NeighborCacheMacAddress"), (0, "IPV6-STATIC-ROUTE-MIB", "swIPv6NeighborCacheInterfaceName"))
+if mibBuilder.loadTexts: swIPv6NeighborCacheEntry.setStatus('current')
+swIPv6NeighborCacheIPv6Address = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 26, 4, 1, 1, 1), Ipv6Address()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swIPv6NeighborCacheIPv6Address.setStatus('current')
+swIPv6NeighborCacheMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 26, 4, 1, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swIPv6NeighborCacheMacAddress.setStatus('current')
+swIPv6NeighborCacheInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 26, 4, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 12))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swIPv6NeighborCacheInterfaceName.setStatus('current')
+swIPv6NeighborCacheReachState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 26, 4, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("incomplete", 1), ("reachable", 2), ("stale", 3), ("delay", 4), ("probe", 5), ("static", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swIPv6NeighborCacheReachState.setStatus('current')
+swIPv6NeighborCacheRouteStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 26, 4, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swIPv6NeighborCacheRouteStatus.setStatus('current')
+swIPv6NeighborCacheDeleteAction = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 26, 4, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("all", 1), ("static", 2), ("dynamic", 3), ("other", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swIPv6NeighborCacheDeleteAction.setStatus('current')
+mibBuilder.exportSymbols("IPV6-STATIC-ROUTE-MIB", swIPv6StaticRouteMetric=swIPv6StaticRouteMetric, swIPv6StaticRouteCtrl=swIPv6StaticRouteCtrl, swIPv6StaticRouteNextHop=swIPv6StaticRouteNextHop, swIPv6StaticRouteDest=swIPv6StaticRouteDest, swIPv6NeighborCacheReachState=swIPv6NeighborCacheReachState, swIPv6StaticProtocol=swIPv6StaticProtocol, swIPv6NeighborCacheInterfaceName=swIPv6NeighborCacheInterfaceName, swIPv6NeighborCacheMgmt=swIPv6NeighborCacheMgmt, swIPv6StaticRouteMgmt=swIPv6StaticRouteMgmt, swIPv6StaticRouteInfo=swIPv6StaticRouteInfo, swIPv6StaticRouteBkupState=swIPv6StaticRouteBkupState, swIPv6StaticRouteEntry=swIPv6StaticRouteEntry, Ipv6Address=Ipv6Address, swIPv6StaticRouteInterfaceName=swIPv6StaticRouteInterfaceName, swIPv6NeighborCacheMacAddress=swIPv6NeighborCacheMacAddress, PYSNMP_MODULE_ID=swIPv6StaticRouteMIB, swIPv6NeighborCacheDeleteAction=swIPv6NeighborCacheDeleteAction, swIPv6StaticRouteStatus=swIPv6StaticRouteStatus, swIPv6StaticRouteWeight=swIPv6StaticRouteWeight, swIPv6NeighborCacheRouteStatus=swIPv6NeighborCacheRouteStatus, swIPv6StaticRoutePrefixLen=swIPv6StaticRoutePrefixLen, swIPv6NeighborCacheTable=swIPv6NeighborCacheTable, swIPv6StaticRouteTable=swIPv6StaticRouteTable, swIPv6NeighborCacheEntry=swIPv6NeighborCacheEntry, swIPv6NeighborCacheIPv6Address=swIPv6NeighborCacheIPv6Address, swIPv6StaticRouteMIB=swIPv6StaticRouteMIB)

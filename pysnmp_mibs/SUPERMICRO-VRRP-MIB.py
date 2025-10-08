@@ -1,71 +1,40 @@
-_H='fsVrrpOperEntry'
-_G='SUPERMICRO-VRRP-MIB'
-_F='read-create'
-_E='disabled'
-_D='enabled'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-vrrpOperEntry,=mibBuilder.importSymbols('VRRP-MIB','vrrpOperEntry')
-fsvrrp=ModuleIdentity((1,3,6,1,4,1,10876,101,1,153))
-if mibBuilder.loadTexts:fsvrrp.setRevisions(('2012-09-05 00:00',))
-_FsVrrpSystem_ObjectIdentity=ObjectIdentity
-fsVrrpSystem=_FsVrrpSystem_ObjectIdentity((1,3,6,1,4,1,10876,101,1,153,1))
-class _FsVrrpStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_FsVrrpStatus_Type.__name__=_B
-_FsVrrpStatus_Object=MibScalar
-fsVrrpStatus=_FsVrrpStatus_Object((1,3,6,1,4,1,10876,101,1,153,1,1),_FsVrrpStatus_Type())
-fsVrrpStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsVrrpStatus.setStatus(_A)
-_FsVrrpMaxOperEntries_Type=Integer32
-_FsVrrpMaxOperEntries_Object=MibScalar
-fsVrrpMaxOperEntries=_FsVrrpMaxOperEntries_Object((1,3,6,1,4,1,10876,101,1,153,1,2),_FsVrrpMaxOperEntries_Type())
-fsVrrpMaxOperEntries.setMaxAccess('read-only')
-if mibBuilder.loadTexts:fsVrrpMaxOperEntries.setStatus(_A)
-_FsVrrpOperTable_Object=MibTable
-fsVrrpOperTable=_FsVrrpOperTable_Object((1,3,6,1,4,1,10876,101,1,153,1,3))
-if mibBuilder.loadTexts:fsVrrpOperTable.setStatus(_A)
-_FsVrrpOperEntry_Object=MibTableRow
-fsVrrpOperEntry=_FsVrrpOperEntry_Object((1,3,6,1,4,1,10876,101,1,153,1,3,1))
-if mibBuilder.loadTexts:fsVrrpOperEntry.setStatus(_A)
-class _FsVrrpAdminPriority_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
-_FsVrrpAdminPriority_Type.__name__=_B
-_FsVrrpAdminPriority_Object=MibTableColumn
-fsVrrpAdminPriority=_FsVrrpAdminPriority_Object((1,3,6,1,4,1,10876,101,1,153,1,3,1,1),_FsVrrpAdminPriority_Type())
-fsVrrpAdminPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsVrrpAdminPriority.setStatus(_A)
-class _FsVrrpOperAdvertisementIntervalInMsec_Type(Integer32):defaultValue=1000;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,255000))
-_FsVrrpOperAdvertisementIntervalInMsec_Type.__name__=_B
-_FsVrrpOperAdvertisementIntervalInMsec_Object=MibTableColumn
-fsVrrpOperAdvertisementIntervalInMsec=_FsVrrpOperAdvertisementIntervalInMsec_Object((1,3,6,1,4,1,10876,101,1,153,1,3,1,2),_FsVrrpOperAdvertisementIntervalInMsec_Type())
-fsVrrpOperAdvertisementIntervalInMsec.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsVrrpOperAdvertisementIntervalInMsec.setStatus(_A)
-if mibBuilder.loadTexts:fsVrrpOperAdvertisementIntervalInMsec.setUnits('milli seconds')
-class _FsvrrpOperPingEnable_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_FsvrrpOperPingEnable_Type.__name__=_B
-_FsvrrpOperPingEnable_Object=MibTableColumn
-fsvrrpOperPingEnable=_FsvrrpOperPingEnable_Object((1,3,6,1,4,1,10876,101,1,153,1,3,1,3),_FsvrrpOperPingEnable_Type())
-fsvrrpOperPingEnable.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsvrrpOperPingEnable.setStatus(_A)
-class _FsVrrpAuthDeprecate_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_FsVrrpAuthDeprecate_Type.__name__=_B
-_FsVrrpAuthDeprecate_Object=MibScalar
-fsVrrpAuthDeprecate=_FsVrrpAuthDeprecate_Object((1,3,6,1,4,1,10876,101,1,153,1,4),_FsVrrpAuthDeprecate_Type())
-fsVrrpAuthDeprecate.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsVrrpAuthDeprecate.setStatus(_A)
-class _FsVrrpTraceOption_Type(Integer32):defaultValue=0
-_FsVrrpTraceOption_Type.__name__=_B
-_FsVrrpTraceOption_Object=MibScalar
-fsVrrpTraceOption=_FsVrrpTraceOption_Object((1,3,6,1,4,1,10876,101,1,153,1,5),_FsVrrpTraceOption_Type())
-fsVrrpTraceOption.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsVrrpTraceOption.setStatus(_A)
-vrrpOperEntry.registerAugmentions((_G,_H))
+#
+# PySNMP MIB module SUPERMICRO-VRRP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-VRRP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:46 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+vrrpOperEntry, = mibBuilder.importSymbols("VRRP-MIB", "vrrpOperEntry")
+fsvrrp = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 1, 153))
+fsvrrp.setRevisions(('2012-09-05 00:00',))
+if mibBuilder.loadTexts: fsvrrp.setLastUpdated('201209050000Z')
+if mibBuilder.loadTexts: fsvrrp.setOrganization('Super Micro Computer Inc.')
+fsVrrpSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 153, 1))
+fsVrrpStatus = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 153, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsVrrpStatus.setStatus('current')
+fsVrrpMaxOperEntries = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 153, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsVrrpMaxOperEntries.setStatus('current')
+fsVrrpOperTable = MibTable((1, 3, 6, 1, 4, 1, 10876, 101, 1, 153, 1, 3), )
+if mibBuilder.loadTexts: fsVrrpOperTable.setStatus('current')
+fsVrrpOperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10876, 101, 1, 153, 1, 3, 1), )
+vrrpOperEntry.registerAugmentions(("SUPERMICRO-VRRP-MIB", "fsVrrpOperEntry"))
 fsVrrpOperEntry.setIndexNames(*vrrpOperEntry.getIndexNames())
-mibBuilder.exportSymbols(_G,**{'fsvrrp':fsvrrp,'fsVrrpSystem':fsVrrpSystem,'fsVrrpStatus':fsVrrpStatus,'fsVrrpMaxOperEntries':fsVrrpMaxOperEntries,'fsVrrpOperTable':fsVrrpOperTable,_H:fsVrrpOperEntry,'fsVrrpAdminPriority':fsVrrpAdminPriority,'fsVrrpOperAdvertisementIntervalInMsec':fsVrrpOperAdvertisementIntervalInMsec,'fsvrrpOperPingEnable':fsvrrpOperPingEnable,'fsVrrpAuthDeprecate':fsVrrpAuthDeprecate,'fsVrrpTraceOption':fsVrrpTraceOption})
+if mibBuilder.loadTexts: fsVrrpOperEntry.setStatus('current')
+fsVrrpAdminPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 153, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 254)).clone(100)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsVrrpAdminPriority.setStatus('current')
+fsVrrpOperAdvertisementIntervalInMsec = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 153, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100, 255000)).clone(1000)).setUnits('milli seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsVrrpOperAdvertisementIntervalInMsec.setStatus('current')
+fsvrrpOperPingEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 153, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone(2)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsvrrpOperPingEnable.setStatus('current')
+fsVrrpAuthDeprecate = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 153, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsVrrpAuthDeprecate.setStatus('current')
+fsVrrpTraceOption = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 153, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsVrrpTraceOption.setStatus('current')
+mibBuilder.exportSymbols("SUPERMICRO-VRRP-MIB", fsVrrpTraceOption=fsVrrpTraceOption, fsVrrpMaxOperEntries=fsVrrpMaxOperEntries, fsVrrpOperAdvertisementIntervalInMsec=fsVrrpOperAdvertisementIntervalInMsec, fsvrrpOperPingEnable=fsvrrpOperPingEnable, fsVrrpOperEntry=fsVrrpOperEntry, fsVrrpAdminPriority=fsVrrpAdminPriority, fsVrrpAuthDeprecate=fsVrrpAuthDeprecate, fsVrrpSystem=fsVrrpSystem, PYSNMP_MODULE_ID=fsvrrp, fsVrrpStatus=fsVrrpStatus, fsVrrpOperTable=fsVrrpOperTable, fsvrrp=fsvrrp)

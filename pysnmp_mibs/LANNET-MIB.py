@@ -1,111 +1,47 @@
-_R='vnsPacketBoxAgentIP'
-_Q='vnsPacketDetectedVLAN'
-_P='vnsPacketExpectedVLAN'
-_O='vnsPacketBackbonePort'
-_N='vnsPacketPortId'
-_M='vnsPacketPortGroupId'
-_L='vnsPacketIPXnetwork'
-_K='vnsPacketIPNetMask'
-_J='vnsPacketIPAddress'
-_I='vnsPacketProtocolTypeMask'
-_H='notSupported'
-_G='unknown'
-_F='vnsPacketMACAddress'
-_E='OctetString'
-_D='Integer32'
-_C='read-only'
-_B='LANNET-MIB'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Lannet_ObjectIdentity=ObjectIdentity
-lannet=_Lannet_ObjectIdentity((1,3,6,1,4,1,81))
-_LntBoxIdent_ObjectIdentity=ObjectIdentity
-lntBoxIdent=_LntBoxIdent_ObjectIdentity((1,3,6,1,4,1,81,17,1,5))
-_LntLanSwitch_ObjectIdentity=ObjectIdentity
-lntLanSwitch=_LntLanSwitch_ObjectIdentity((1,3,6,1,4,1,81,19))
-_VnsPacket_ObjectIdentity=ObjectIdentity
-vnsPacket=_VnsPacket_ObjectIdentity((1,3,6,1,4,1,81,19,7))
-_VnsPacketTable_Object=MibTable
-vnsPacketTable=_VnsPacketTable_Object((1,3,6,1,4,1,81,19,7,1))
-if mibBuilder.loadTexts:vnsPacketTable.setStatus(_A)
-_VnsPacketEntry_Object=MibTableRow
-vnsPacketEntry=_VnsPacketEntry_Object((1,3,6,1,4,1,81,19,7,1,1))
-vnsPacketEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:vnsPacketEntry.setStatus(_A)
-class _VnsPacketMACAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
-_VnsPacketMACAddress_Type.__name__=_E
-_VnsPacketMACAddress_Object=MibTableColumn
-vnsPacketMACAddress=_VnsPacketMACAddress_Object((1,3,6,1,4,1,81,19,7,1,1,1),_VnsPacketMACAddress_Type())
-vnsPacketMACAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:vnsPacketMACAddress.setStatus(_A)
-class _VnsPacketProtocolTypeMask_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
-_VnsPacketProtocolTypeMask_Type.__name__=_E
-_VnsPacketProtocolTypeMask_Object=MibTableColumn
-vnsPacketProtocolTypeMask=_VnsPacketProtocolTypeMask_Object((1,3,6,1,4,1,81,19,7,1,1,2),_VnsPacketProtocolTypeMask_Type())
-vnsPacketProtocolTypeMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:vnsPacketProtocolTypeMask.setStatus(_A)
-_VnsPacketIPAddress_Type=IpAddress
-_VnsPacketIPAddress_Object=MibTableColumn
-vnsPacketIPAddress=_VnsPacketIPAddress_Object((1,3,6,1,4,1,81,19,7,1,1,3),_VnsPacketIPAddress_Type())
-vnsPacketIPAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:vnsPacketIPAddress.setStatus(_A)
-_VnsPacketIPNetMask_Type=IpAddress
-_VnsPacketIPNetMask_Object=MibTableColumn
-vnsPacketIPNetMask=_VnsPacketIPNetMask_Object((1,3,6,1,4,1,81,19,7,1,1,4),_VnsPacketIPNetMask_Type())
-vnsPacketIPNetMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:vnsPacketIPNetMask.setStatus(_A)
-class _VnsPacketIPXnetwork_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
-_VnsPacketIPXnetwork_Type.__name__=_E
-_VnsPacketIPXnetwork_Object=MibTableColumn
-vnsPacketIPXnetwork=_VnsPacketIPXnetwork_Object((1,3,6,1,4,1,81,19,7,1,1,5),_VnsPacketIPXnetwork_Type())
-vnsPacketIPXnetwork.setMaxAccess(_C)
-if mibBuilder.loadTexts:vnsPacketIPXnetwork.setStatus(_A)
-class _VnsPacketStationType_Type(Integer32):defaultValue=255;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,255)));namedValues=NamedValues(*((_G,1),('client',2),('server',3),(_H,255)))
-_VnsPacketStationType_Type.__name__=_D
-_VnsPacketStationType_Object=MibTableColumn
-vnsPacketStationType=_VnsPacketStationType_Object((1,3,6,1,4,1,81,19,7,1,1,6),_VnsPacketStationType_Type())
-vnsPacketStationType.setMaxAccess(_C)
-if mibBuilder.loadTexts:vnsPacketStationType.setStatus(_A)
-class _VnsPacketPortGroupId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_VnsPacketPortGroupId_Type.__name__=_D
-_VnsPacketPortGroupId_Object=MibTableColumn
-vnsPacketPortGroupId=_VnsPacketPortGroupId_Object((1,3,6,1,4,1,81,19,7,1,1,7),_VnsPacketPortGroupId_Type())
-vnsPacketPortGroupId.setMaxAccess(_C)
-if mibBuilder.loadTexts:vnsPacketPortGroupId.setStatus(_A)
-class _VnsPacketPortId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_VnsPacketPortId_Type.__name__=_D
-_VnsPacketPortId_Object=MibTableColumn
-vnsPacketPortId=_VnsPacketPortId_Object((1,3,6,1,4,1,81,19,7,1,1,8),_VnsPacketPortId_Type())
-vnsPacketPortId.setMaxAccess(_C)
-if mibBuilder.loadTexts:vnsPacketPortId.setStatus(_A)
-class _VnsPacketBackbonePort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,255)));namedValues=NamedValues(*((_G,1),('backbone',2),('noBackbone',3),(_H,255)))
-_VnsPacketBackbonePort_Type.__name__=_D
-_VnsPacketBackbonePort_Object=MibTableColumn
-vnsPacketBackbonePort=_VnsPacketBackbonePort_Object((1,3,6,1,4,1,81,19,7,1,1,9),_VnsPacketBackbonePort_Type())
-vnsPacketBackbonePort.setMaxAccess(_C)
-if mibBuilder.loadTexts:vnsPacketBackbonePort.setStatus(_A)
-_VnsPacketExpectedVLAN_Type=Integer32
-_VnsPacketExpectedVLAN_Object=MibTableColumn
-vnsPacketExpectedVLAN=_VnsPacketExpectedVLAN_Object((1,3,6,1,4,1,81,19,7,1,1,10),_VnsPacketExpectedVLAN_Type())
-vnsPacketExpectedVLAN.setMaxAccess(_C)
-if mibBuilder.loadTexts:vnsPacketExpectedVLAN.setStatus(_A)
-_VnsPacketDetectedVLAN_Type=Integer32
-_VnsPacketDetectedVLAN_Object=MibTableColumn
-vnsPacketDetectedVLAN=_VnsPacketDetectedVLAN_Object((1,3,6,1,4,1,81,19,7,1,1,11),_VnsPacketDetectedVLAN_Type())
-vnsPacketDetectedVLAN.setMaxAccess(_C)
-if mibBuilder.loadTexts:vnsPacketDetectedVLAN.setStatus(_A)
-_VnsPacketBoxAgentIP_Type=IpAddress
-_VnsPacketBoxAgentIP_Object=MibTableColumn
-vnsPacketBoxAgentIP=_VnsPacketBoxAgentIP_Object((1,3,6,1,4,1,81,19,7,1,1,12),_VnsPacketBoxAgentIP_Type())
-vnsPacketBoxAgentIP.setMaxAccess(_C)
-if mibBuilder.loadTexts:vnsPacketBoxAgentIP.setStatus(_A)
-lreVLANViolationTrap=NotificationType((1,3,6,1,4,1,81,17,1,5,0,26))
-lreVLANViolationTrap.setObjects(*((_B,_F),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:lreVLANViolationTrap.setStatus('')
-mibBuilder.exportSymbols(_B,**{'lannet':lannet,'lntBoxIdent':lntBoxIdent,'lreVLANViolationTrap':lreVLANViolationTrap,'lntLanSwitch':lntLanSwitch,'vnsPacket':vnsPacket,'vnsPacketTable':vnsPacketTable,'vnsPacketEntry':vnsPacketEntry,_F:vnsPacketMACAddress,_I:vnsPacketProtocolTypeMask,_J:vnsPacketIPAddress,_K:vnsPacketIPNetMask,_L:vnsPacketIPXnetwork,'vnsPacketStationType':vnsPacketStationType,_M:vnsPacketPortGroupId,_N:vnsPacketPortId,_O:vnsPacketBackbonePort,_P:vnsPacketExpectedVLAN,_Q:vnsPacketDetectedVLAN,_R:vnsPacketBoxAgentIP})
+#
+# PySNMP MIB module LANNET-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/radware/LANNET-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:17 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+lannet = MibIdentifier((1, 3, 6, 1, 4, 1, 81))
+lntBoxIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 81, 17, 1, 5))
+lntLanSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 81, 19))
+vnsPacket = MibIdentifier((1, 3, 6, 1, 4, 1, 81, 19, 7))
+vnsPacketTable = MibTable((1, 3, 6, 1, 4, 1, 81, 19, 7, 1), )
+if mibBuilder.loadTexts: vnsPacketTable.setStatus('mandatory')
+vnsPacketEntry = MibTableRow((1, 3, 6, 1, 4, 1, 81, 19, 7, 1, 1), ).setIndexNames((0, "LANNET-MIB", "vnsPacketMACAddress"))
+if mibBuilder.loadTexts: vnsPacketEntry.setStatus('mandatory')
+vnsPacketMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 81, 19, 7, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vnsPacketMACAddress.setStatus('mandatory')
+vnsPacketProtocolTypeMask = MibTableColumn((1, 3, 6, 1, 4, 1, 81, 19, 7, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vnsPacketProtocolTypeMask.setStatus('mandatory')
+vnsPacketIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 81, 19, 7, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vnsPacketIPAddress.setStatus('mandatory')
+vnsPacketIPNetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 81, 19, 7, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vnsPacketIPNetMask.setStatus('mandatory')
+vnsPacketIPXnetwork = MibTableColumn((1, 3, 6, 1, 4, 1, 81, 19, 7, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vnsPacketIPXnetwork.setStatus('mandatory')
+vnsPacketStationType = MibTableColumn((1, 3, 6, 1, 4, 1, 81, 19, 7, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 255))).clone(namedValues=NamedValues(("unknown", 1), ("client", 2), ("server", 3), ("notSupported", 255))).clone('notSupported')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vnsPacketStationType.setStatus('mandatory')
+vnsPacketPortGroupId = MibTableColumn((1, 3, 6, 1, 4, 1, 81, 19, 7, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vnsPacketPortGroupId.setStatus('mandatory')
+vnsPacketPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 81, 19, 7, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vnsPacketPortId.setStatus('mandatory')
+vnsPacketBackbonePort = MibTableColumn((1, 3, 6, 1, 4, 1, 81, 19, 7, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 255))).clone(namedValues=NamedValues(("unknown", 1), ("backbone", 2), ("noBackbone", 3), ("notSupported", 255)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vnsPacketBackbonePort.setStatus('mandatory')
+vnsPacketExpectedVLAN = MibTableColumn((1, 3, 6, 1, 4, 1, 81, 19, 7, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vnsPacketExpectedVLAN.setStatus('mandatory')
+vnsPacketDetectedVLAN = MibTableColumn((1, 3, 6, 1, 4, 1, 81, 19, 7, 1, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vnsPacketDetectedVLAN.setStatus('mandatory')
+vnsPacketBoxAgentIP = MibTableColumn((1, 3, 6, 1, 4, 1, 81, 19, 7, 1, 1, 12), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vnsPacketBoxAgentIP.setStatus('mandatory')
+lreVLANViolationTrap = NotificationType((1, 3, 6, 1, 4, 1, 81, 17, 1, 5) + (0,26)).setObjects(("LANNET-MIB", "vnsPacketMACAddress"), ("LANNET-MIB", "vnsPacketProtocolTypeMask"), ("LANNET-MIB", "vnsPacketIPAddress"), ("LANNET-MIB", "vnsPacketIPNetMask"), ("LANNET-MIB", "vnsPacketIPXnetwork"), ("LANNET-MIB", "vnsPacketPortGroupId"), ("LANNET-MIB", "vnsPacketPortId"), ("LANNET-MIB", "vnsPacketBackbonePort"), ("LANNET-MIB", "vnsPacketExpectedVLAN"), ("LANNET-MIB", "vnsPacketDetectedVLAN"), ("LANNET-MIB", "vnsPacketBoxAgentIP"))
+mibBuilder.exportSymbols("LANNET-MIB", vnsPacketIPAddress=vnsPacketIPAddress, vnsPacketTable=vnsPacketTable, vnsPacketBoxAgentIP=vnsPacketBoxAgentIP, vnsPacketEntry=vnsPacketEntry, vnsPacketExpectedVLAN=vnsPacketExpectedVLAN, vnsPacketStationType=vnsPacketStationType, lannet=lannet, lreVLANViolationTrap=lreVLANViolationTrap, vnsPacketPortId=vnsPacketPortId, vnsPacketProtocolTypeMask=vnsPacketProtocolTypeMask, vnsPacketIPNetMask=vnsPacketIPNetMask, lntBoxIdent=lntBoxIdent, vnsPacketBackbonePort=vnsPacketBackbonePort, vnsPacketIPXnetwork=vnsPacketIPXnetwork, lntLanSwitch=lntLanSwitch, vnsPacket=vnsPacket, vnsPacketDetectedVLAN=vnsPacketDetectedVLAN, vnsPacketMACAddress=vnsPacketMACAddress, vnsPacketPortGroupId=vnsPacketPortGroupId)

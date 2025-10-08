@@ -1,112 +1,61 @@
-_L='read-only'
-_K='AlarmInverseMode'
-_J='raisecomAlarmMgmtId'
-_I='RAISECOM-ALARM-MGMT-MIB'
-_H='seconds'
-_G='ifIndex'
-_F='IF-MIB'
-_E='Integer32'
-_D='SnmpAdminString'
-_C='TruthValue'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,ifIndex=mibBuilder.importSymbols(_F,'InterfaceIndex',_G)
-raisecomAgent,=mibBuilder.importSymbols('RAISECOM-BASE-MIB','raisecomAgent')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_D)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,Opaque,TimeTicks,Unsigned32,iso,mib_2,zeroDotZero=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','Opaque','TimeTicks','Unsigned32','iso','mib-2','zeroDotZero')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_C)
-raisecomAlarmMgmt=ModuleIdentity((1,3,6,1,4,1,8886,1,34))
-class AlarmStorageMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('stop',1),('loop',2)))
-class AlarmInverseMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('auto',2),('manual',3)))
-_RaisecomAlarmMgmtObejcts_ObjectIdentity=ObjectIdentity
-raisecomAlarmMgmtObejcts=_RaisecomAlarmMgmtObejcts_ObjectIdentity((1,3,6,1,4,1,8886,1,34,1))
-class _RaisecomAlarmMgmtRaiseDelay_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,600))
-_RaisecomAlarmMgmtRaiseDelay_Type.__name__=_E
-_RaisecomAlarmMgmtRaiseDelay_Object=MibScalar
-raisecomAlarmMgmtRaiseDelay=_RaisecomAlarmMgmtRaiseDelay_Object((1,3,6,1,4,1,8886,1,34,1,1),_RaisecomAlarmMgmtRaiseDelay_Type())
-raisecomAlarmMgmtRaiseDelay.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomAlarmMgmtRaiseDelay.setStatus(_A)
-if mibBuilder.loadTexts:raisecomAlarmMgmtRaiseDelay.setUnits(_H)
-class _RaisecomAlarmMgmtClearDelay_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,600))
-_RaisecomAlarmMgmtClearDelay_Type.__name__=_E
-_RaisecomAlarmMgmtClearDelay_Object=MibScalar
-raisecomAlarmMgmtClearDelay=_RaisecomAlarmMgmtClearDelay_Object((1,3,6,1,4,1,8886,1,34,1,2),_RaisecomAlarmMgmtClearDelay_Type())
-raisecomAlarmMgmtClearDelay.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomAlarmMgmtClearDelay.setStatus(_A)
-if mibBuilder.loadTexts:raisecomAlarmMgmtClearDelay.setUnits(_H)
-_RaisecomAlarmMgmtActiveStoreMode_Type=AlarmStorageMode
-_RaisecomAlarmMgmtActiveStoreMode_Object=MibScalar
-raisecomAlarmMgmtActiveStoreMode=_RaisecomAlarmMgmtActiveStoreMode_Object((1,3,6,1,4,1,8886,1,34,1,3),_RaisecomAlarmMgmtActiveStoreMode_Type())
-raisecomAlarmMgmtActiveStoreMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomAlarmMgmtActiveStoreMode.setStatus(_A)
-class _RaisecomAlarmMgmtInhibitEnable_Type(TruthValue):defaultValue=1
-_RaisecomAlarmMgmtInhibitEnable_Type.__name__=_C
-_RaisecomAlarmMgmtInhibitEnable_Object=MibScalar
-raisecomAlarmMgmtInhibitEnable=_RaisecomAlarmMgmtInhibitEnable_Object((1,3,6,1,4,1,8886,1,34,1,4),_RaisecomAlarmMgmtInhibitEnable_Type())
-raisecomAlarmMgmtInhibitEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomAlarmMgmtInhibitEnable.setStatus(_A)
-class _RaisecomAlarmMgmtSyslogEnable_Type(TruthValue):defaultValue=1
-_RaisecomAlarmMgmtSyslogEnable_Type.__name__=_C
-_RaisecomAlarmMgmtSyslogEnable_Object=MibScalar
-raisecomAlarmMgmtSyslogEnable=_RaisecomAlarmMgmtSyslogEnable_Object((1,3,6,1,4,1,8886,1,34,1,5),_RaisecomAlarmMgmtSyslogEnable_Type())
-raisecomAlarmMgmtSyslogEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomAlarmMgmtSyslogEnable.setStatus(_A)
-_RaisecomAlarmMgmtActiveClear_Type=Integer32
-_RaisecomAlarmMgmtActiveClear_Object=MibScalar
-raisecomAlarmMgmtActiveClear=_RaisecomAlarmMgmtActiveClear_Object((1,3,6,1,4,1,8886,1,34,1,6),_RaisecomAlarmMgmtActiveClear_Type())
-raisecomAlarmMgmtActiveClear.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomAlarmMgmtActiveClear.setStatus(_A)
-_RaisecomAlarmMgmtConfigTable_Object=MibTable
-raisecomAlarmMgmtConfigTable=_RaisecomAlarmMgmtConfigTable_Object((1,3,6,1,4,1,8886,1,34,1,7))
-if mibBuilder.loadTexts:raisecomAlarmMgmtConfigTable.setStatus(_A)
-_RaisecomAlarmMgmtConfigEntry_Object=MibTableRow
-raisecomAlarmMgmtConfigEntry=_RaisecomAlarmMgmtConfigEntry_Object((1,3,6,1,4,1,8886,1,34,1,7,1))
-raisecomAlarmMgmtConfigEntry.setIndexNames((0,_I,_J),(0,_F,_G))
-if mibBuilder.loadTexts:raisecomAlarmMgmtConfigEntry.setStatus(_A)
-_RaisecomAlarmMgmtId_Type=Unsigned32
-_RaisecomAlarmMgmtId_Object=MibTableColumn
-raisecomAlarmMgmtId=_RaisecomAlarmMgmtId_Object((1,3,6,1,4,1,8886,1,34,1,7,1,1),_RaisecomAlarmMgmtId_Type())
-raisecomAlarmMgmtId.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:raisecomAlarmMgmtId.setStatus(_A)
-class _RaisecomAlarmMgmtClear_Type(TruthValue):defaultValue=2
-_RaisecomAlarmMgmtClear_Type.__name__=_C
-_RaisecomAlarmMgmtClear_Object=MibTableColumn
-raisecomAlarmMgmtClear=_RaisecomAlarmMgmtClear_Object((1,3,6,1,4,1,8886,1,34,1,7,1,2),_RaisecomAlarmMgmtClear_Type())
-raisecomAlarmMgmtClear.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomAlarmMgmtClear.setStatus(_A)
-class _RaisecomAlarmMgmtReportEnable_Type(TruthValue):defaultValue=1
-_RaisecomAlarmMgmtReportEnable_Type.__name__=_C
-_RaisecomAlarmMgmtReportEnable_Object=MibTableColumn
-raisecomAlarmMgmtReportEnable=_RaisecomAlarmMgmtReportEnable_Object((1,3,6,1,4,1,8886,1,34,1,7,1,3),_RaisecomAlarmMgmtReportEnable_Type())
-raisecomAlarmMgmtReportEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomAlarmMgmtReportEnable.setStatus(_A)
-class _RaisecomAlarmMgmtMonitorEnable_Type(TruthValue):defaultValue=1
-_RaisecomAlarmMgmtMonitorEnable_Type.__name__=_C
-_RaisecomAlarmMgmtMonitorEnable_Object=MibTableColumn
-raisecomAlarmMgmtMonitorEnable=_RaisecomAlarmMgmtMonitorEnable_Object((1,3,6,1,4,1,8886,1,34,1,7,1,4),_RaisecomAlarmMgmtMonitorEnable_Type())
-raisecomAlarmMgmtMonitorEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomAlarmMgmtMonitorEnable.setStatus(_A)
-class _RaisecomAlarmMgmtInverseMode_Type(AlarmInverseMode):defaultValue=1
-_RaisecomAlarmMgmtInverseMode_Type.__name__=_K
-_RaisecomAlarmMgmtInverseMode_Object=MibTableColumn
-raisecomAlarmMgmtInverseMode=_RaisecomAlarmMgmtInverseMode_Object((1,3,6,1,4,1,8886,1,34,1,7,1,5),_RaisecomAlarmMgmtInverseMode_Type())
-raisecomAlarmMgmtInverseMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomAlarmMgmtInverseMode.setStatus(_A)
-class _RaisecomAlarmMgmtModuleName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_RaisecomAlarmMgmtModuleName_Type.__name__=_D
-_RaisecomAlarmMgmtModuleName_Object=MibTableColumn
-raisecomAlarmMgmtModuleName=_RaisecomAlarmMgmtModuleName_Object((1,3,6,1,4,1,8886,1,34,1,7,1,6),_RaisecomAlarmMgmtModuleName_Type())
-raisecomAlarmMgmtModuleName.setMaxAccess(_L)
-if mibBuilder.loadTexts:raisecomAlarmMgmtModuleName.setStatus(_A)
-class _RaisecomAlarmMgmtGroupName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_RaisecomAlarmMgmtGroupName_Type.__name__=_D
-_RaisecomAlarmMgmtGroupName_Object=MibTableColumn
-raisecomAlarmMgmtGroupName=_RaisecomAlarmMgmtGroupName_Object((1,3,6,1,4,1,8886,1,34,1,7,1,7),_RaisecomAlarmMgmtGroupName_Type())
-raisecomAlarmMgmtGroupName.setMaxAccess(_L)
-if mibBuilder.loadTexts:raisecomAlarmMgmtGroupName.setStatus(_A)
-mibBuilder.exportSymbols(_I,**{'AlarmStorageMode':AlarmStorageMode,_K:AlarmInverseMode,'raisecomAlarmMgmt':raisecomAlarmMgmt,'raisecomAlarmMgmtObejcts':raisecomAlarmMgmtObejcts,'raisecomAlarmMgmtRaiseDelay':raisecomAlarmMgmtRaiseDelay,'raisecomAlarmMgmtClearDelay':raisecomAlarmMgmtClearDelay,'raisecomAlarmMgmtActiveStoreMode':raisecomAlarmMgmtActiveStoreMode,'raisecomAlarmMgmtInhibitEnable':raisecomAlarmMgmtInhibitEnable,'raisecomAlarmMgmtSyslogEnable':raisecomAlarmMgmtSyslogEnable,'raisecomAlarmMgmtActiveClear':raisecomAlarmMgmtActiveClear,'raisecomAlarmMgmtConfigTable':raisecomAlarmMgmtConfigTable,'raisecomAlarmMgmtConfigEntry':raisecomAlarmMgmtConfigEntry,_J:raisecomAlarmMgmtId,'raisecomAlarmMgmtClear':raisecomAlarmMgmtClear,'raisecomAlarmMgmtReportEnable':raisecomAlarmMgmtReportEnable,'raisecomAlarmMgmtMonitorEnable':raisecomAlarmMgmtMonitorEnable,'raisecomAlarmMgmtInverseMode':raisecomAlarmMgmtInverseMode,'raisecomAlarmMgmtModuleName':raisecomAlarmMgmtModuleName,'raisecomAlarmMgmtGroupName':raisecomAlarmMgmtGroupName})
+#
+# PySNMP MIB module RAISECOM-ALARM-MGMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/RAISECOM-ALARM-MGMT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:49 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
+raisecomAgent, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "raisecomAgent")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, zeroDotZero, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, Opaque, iso, ObjectIdentity, MibIdentifier, mib_2, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "zeroDotZero", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "Opaque", "iso", "ObjectIdentity", "MibIdentifier", "mib-2", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+raisecomAlarmMgmt = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 1, 34))
+if mibBuilder.loadTexts: raisecomAlarmMgmt.setLastUpdated('201103120000Z')
+if mibBuilder.loadTexts: raisecomAlarmMgmt.setOrganization('Raisecom Technology Co., Ltd.')
+raisecomAlarmMgmtObejcts = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1))
+class AlarmStorageMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("stop", 1), ("loop", 2))
+
+class AlarmInverseMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("none", 1), ("auto", 2), ("manual", 3))
+
+raisecomAlarmMgmtRaiseDelay = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 600))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomAlarmMgmtRaiseDelay.setStatus('current')
+raisecomAlarmMgmtClearDelay = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 600))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomAlarmMgmtClearDelay.setStatus('current')
+raisecomAlarmMgmtActiveStoreMode = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 3), AlarmStorageMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomAlarmMgmtActiveStoreMode.setStatus('current')
+raisecomAlarmMgmtInhibitEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 4), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomAlarmMgmtInhibitEnable.setStatus('current')
+raisecomAlarmMgmtSyslogEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 5), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomAlarmMgmtSyslogEnable.setStatus('current')
+raisecomAlarmMgmtActiveClear = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomAlarmMgmtActiveClear.setStatus('current')
+raisecomAlarmMgmtConfigTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 7), )
+if mibBuilder.loadTexts: raisecomAlarmMgmtConfigTable.setStatus('current')
+raisecomAlarmMgmtConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 7, 1), ).setIndexNames((0, "RAISECOM-ALARM-MGMT-MIB", "raisecomAlarmMgmtId"), (0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: raisecomAlarmMgmtConfigEntry.setStatus('current')
+raisecomAlarmMgmtId = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 7, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: raisecomAlarmMgmtId.setStatus('current')
+raisecomAlarmMgmtClear = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 7, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomAlarmMgmtClear.setStatus('current')
+raisecomAlarmMgmtReportEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 7, 1, 3), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomAlarmMgmtReportEnable.setStatus('current')
+raisecomAlarmMgmtMonitorEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 7, 1, 4), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomAlarmMgmtMonitorEnable.setStatus('current')
+raisecomAlarmMgmtInverseMode = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 7, 1, 5), AlarmInverseMode().clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomAlarmMgmtInverseMode.setStatus('current')
+raisecomAlarmMgmtModuleName = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 7, 1, 6), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomAlarmMgmtModuleName.setStatus('current')
+raisecomAlarmMgmtGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 34, 1, 7, 1, 7), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomAlarmMgmtGroupName.setStatus('current')
+mibBuilder.exportSymbols("RAISECOM-ALARM-MGMT-MIB", raisecomAlarmMgmtClearDelay=raisecomAlarmMgmtClearDelay, AlarmStorageMode=AlarmStorageMode, raisecomAlarmMgmtConfigEntry=raisecomAlarmMgmtConfigEntry, raisecomAlarmMgmtModuleName=raisecomAlarmMgmtModuleName, raisecomAlarmMgmtObejcts=raisecomAlarmMgmtObejcts, raisecomAlarmMgmtId=raisecomAlarmMgmtId, AlarmInverseMode=AlarmInverseMode, raisecomAlarmMgmtConfigTable=raisecomAlarmMgmtConfigTable, raisecomAlarmMgmtActiveStoreMode=raisecomAlarmMgmtActiveStoreMode, raisecomAlarmMgmtMonitorEnable=raisecomAlarmMgmtMonitorEnable, raisecomAlarmMgmtActiveClear=raisecomAlarmMgmtActiveClear, raisecomAlarmMgmtInverseMode=raisecomAlarmMgmtInverseMode, raisecomAlarmMgmtClear=raisecomAlarmMgmtClear, raisecomAlarmMgmtSyslogEnable=raisecomAlarmMgmtSyslogEnable, raisecomAlarmMgmtRaiseDelay=raisecomAlarmMgmtRaiseDelay, PYSNMP_MODULE_ID=raisecomAlarmMgmt, raisecomAlarmMgmt=raisecomAlarmMgmt, raisecomAlarmMgmtGroupName=raisecomAlarmMgmtGroupName, raisecomAlarmMgmtInhibitEnable=raisecomAlarmMgmtInhibitEnable, raisecomAlarmMgmtReportEnable=raisecomAlarmMgmtReportEnable)

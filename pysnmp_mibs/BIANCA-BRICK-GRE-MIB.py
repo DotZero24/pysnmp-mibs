@@ -1,67 +1,36 @@
-_F='greDstIpAddr'
-_E='BIANCA-BRICK-GRE-MIB'
-_D='DisplayString'
-_C='Integer32'
-_B='read-write'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention')
-_Bintec_ObjectIdentity=ObjectIdentity
-bintec=_Bintec_ObjectIdentity((1,3,6,1,4,1,272))
-_Bibo_ObjectIdentity=ObjectIdentity
-bibo=_Bibo_ObjectIdentity((1,3,6,1,4,1,272,4))
-_Vpn_ObjectIdentity=ObjectIdentity
-vpn=_Vpn_ObjectIdentity((1,3,6,1,4,1,272,4,23))
-_GreIfTable_Object=MibTable
-greIfTable=_GreIfTable_Object((1,3,6,1,4,1,272,4,23,5))
-if mibBuilder.loadTexts:greIfTable.setStatus(_A)
-_GreIfEntry_Object=MibTableRow
-greIfEntry=_GreIfEntry_Object((1,3,6,1,4,1,272,4,23,5,1))
-greIfEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:greIfEntry.setStatus(_A)
-class _GreIfIndex_Type(Integer32):defaultValue=0
-_GreIfIndex_Type.__name__=_C
-_GreIfIndex_Object=MibTableColumn
-greIfIndex=_GreIfIndex_Object((1,3,6,1,4,1,272,4,23,5,1,1),_GreIfIndex_Type())
-greIfIndex.setMaxAccess('read-only')
-if mibBuilder.loadTexts:greIfIndex.setStatus(_A)
-class _GreIfDescr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_GreIfDescr_Type.__name__=_D
-_GreIfDescr_Object=MibTableColumn
-greIfDescr=_GreIfDescr_Object((1,3,6,1,4,1,272,4,23,5,1,2),_GreIfDescr_Type())
-greIfDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:greIfDescr.setStatus(_A)
-class _GreIfMtu_Type(Integer32):defaultValue=1500;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8192))
-_GreIfMtu_Type.__name__=_C
-_GreIfMtu_Object=MibTableColumn
-greIfMtu=_GreIfMtu_Object((1,3,6,1,4,1,272,4,23,5,1,3),_GreIfMtu_Type())
-greIfMtu.setMaxAccess(_B)
-if mibBuilder.loadTexts:greIfMtu.setStatus(_A)
-_GreDstIpAddr_Type=IpAddress
-_GreDstIpAddr_Object=MibTableColumn
-greDstIpAddr=_GreDstIpAddr_Object((1,3,6,1,4,1,272,4,23,5,1,4),_GreDstIpAddr_Type())
-greDstIpAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:greDstIpAddr.setStatus(_A)
-class _GreKey_Type(Integer32):defaultValue=0
-_GreKey_Type.__name__=_C
-_GreKey_Object=MibTableColumn
-greKey=_GreKey_Object((1,3,6,1,4,1,272,4,23,5,1,5),_GreKey_Type())
-greKey.setMaxAccess(_B)
-if mibBuilder.loadTexts:greKey.setStatus(_A)
-class _GreUseKey_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('delete',1),('yes',2),('no',3)))
-_GreUseKey_Type.__name__=_C
-_GreUseKey_Object=MibTableColumn
-greUseKey=_GreUseKey_Object((1,3,6,1,4,1,272,4,23,5,1,6),_GreUseKey_Type())
-greUseKey.setMaxAccess(_B)
-if mibBuilder.loadTexts:greUseKey.setStatus(_A)
-_GreSrcIpAddr_Type=IpAddress
-_GreSrcIpAddr_Object=MibTableColumn
-greSrcIpAddr=_GreSrcIpAddr_Object((1,3,6,1,4,1,272,4,23,5,1,7),_GreSrcIpAddr_Type())
-greSrcIpAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:greSrcIpAddr.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'bintec':bintec,'bibo':bibo,'vpn':vpn,'greIfTable':greIfTable,'greIfEntry':greIfEntry,'greIfIndex':greIfIndex,'greIfDescr':greIfDescr,'greIfMtu':greIfMtu,_F:greDstIpAddr,'greKey':greKey,'greUseKey':greUseKey,'greSrcIpAddr':greSrcIpAddr})
+#
+# PySNMP MIB module BIANCA-BRICK-GRE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/bintec/BIANCA-BRICK-GRE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+DisplayString, = mibBuilder.importSymbols("RFC1158-MIB", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+bintec = MibIdentifier((1, 3, 6, 1, 4, 1, 272))
+bibo = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4))
+vpn = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4, 23))
+greIfTable = MibTable((1, 3, 6, 1, 4, 1, 272, 4, 23, 5), )
+if mibBuilder.loadTexts: greIfTable.setStatus('mandatory')
+greIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 272, 4, 23, 5, 1), ).setIndexNames((0, "BIANCA-BRICK-GRE-MIB", "greDstIpAddr"))
+if mibBuilder.loadTexts: greIfEntry.setStatus('mandatory')
+greIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 23, 5, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: greIfIndex.setStatus('mandatory')
+greIfDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 23, 5, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: greIfDescr.setStatus('mandatory')
+greIfMtu = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 23, 5, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8192)).clone(1500)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: greIfMtu.setStatus('mandatory')
+greDstIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 23, 5, 1, 4), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: greDstIpAddr.setStatus('mandatory')
+greKey = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 23, 5, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: greKey.setStatus('mandatory')
+greUseKey = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 23, 5, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("delete", 1), ("yes", 2), ("no", 3))).clone('no')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: greUseKey.setStatus('mandatory')
+greSrcIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 23, 5, 1, 7), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: greSrcIpAddr.setStatus('mandatory')
+mibBuilder.exportSymbols("BIANCA-BRICK-GRE-MIB", greDstIpAddr=greDstIpAddr, greIfEntry=greIfEntry, greSrcIpAddr=greSrcIpAddr, greUseKey=greUseKey, greIfDescr=greIfDescr, greKey=greKey, bintec=bintec, bibo=bibo, greIfMtu=greIfMtu, greIfTable=greIfTable, vpn=vpn, greIfIndex=greIfIndex)

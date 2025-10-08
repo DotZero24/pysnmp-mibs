@@ -1,154 +1,76 @@
-_W='staticMulticastGroup'
-_V='unicastGroup'
-_U='mpeConfigGroup'
-_T='staticMulticastRowstatus'
-_S='staticMulticastGroupAddress'
-_R='unicastRowStatus'
-_Q='unicastGatewayAddr'
-_P='unicastOutputPortID'
-_O='unicastMask'
-_N='unicastRoute'
-_M='mpeMultipacket'
-_L='mpeConfigRIP'
-_K='mpeConfigIGMP'
-_J='mpeConfigForwarding'
-_I='staticMulticastIdx'
-_H='unicastIdx'
-_G='mpeConfigPortID'
-_F='not-accessible'
-_E='read-write'
-_D='read-create'
-_C='Integer32'
-_B='CISCO-DMN-DSG-MPE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoDSGUtilities,=mibBuilder.importSymbols('CISCO-DMN-DSG-ROOT-MIB','ciscoDSGUtilities')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-ciscoDSGMPE=ModuleIdentity((1,3,6,1,4,1,1429,2,2,5,26))
-if mibBuilder.loadTexts:ciscoDSGMPE.setRevisions(('2010-08-30 11:00','2010-05-07 06:30','2010-05-03 11:00','2010-04-12 06:00'))
-_MpeTable_ObjectIdentity=ObjectIdentity
-mpeTable=_MpeTable_ObjectIdentity((1,3,6,1,4,1,1429,2,2,5,26,2))
-_MpeConfigTable_Object=MibTable
-mpeConfigTable=_MpeConfigTable_Object((1,3,6,1,4,1,1429,2,2,5,26,2,1))
-if mibBuilder.loadTexts:mpeConfigTable.setStatus(_A)
-_MpeConfigEntry_Object=MibTableRow
-mpeConfigEntry=_MpeConfigEntry_Object((1,3,6,1,4,1,1429,2,2,5,26,2,1,1))
-mpeConfigEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:mpeConfigEntry.setStatus(_A)
-class _MpeConfigPortID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_MpeConfigPortID_Type.__name__=_C
-_MpeConfigPortID_Object=MibTableColumn
-mpeConfigPortID=_MpeConfigPortID_Object((1,3,6,1,4,1,1429,2,2,5,26,2,1,1,1),_MpeConfigPortID_Type())
-mpeConfigPortID.setMaxAccess(_F)
-if mibBuilder.loadTexts:mpeConfigPortID.setStatus(_A)
-class _MpeConfigForwarding_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('forwardNone',1),('forwardAll',2),('forwardFilteredList',3)))
-_MpeConfigForwarding_Type.__name__=_C
-_MpeConfigForwarding_Object=MibTableColumn
-mpeConfigForwarding=_MpeConfigForwarding_Object((1,3,6,1,4,1,1429,2,2,5,26,2,1,1,2),_MpeConfigForwarding_Type())
-mpeConfigForwarding.setMaxAccess(_E)
-if mibBuilder.loadTexts:mpeConfigForwarding.setStatus(_A)
-class _MpeConfigIGMP_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('no',1),('yes',2)))
-_MpeConfigIGMP_Type.__name__=_C
-_MpeConfigIGMP_Object=MibTableColumn
-mpeConfigIGMP=_MpeConfigIGMP_Object((1,3,6,1,4,1,1429,2,2,5,26,2,1,1,3),_MpeConfigIGMP_Type())
-mpeConfigIGMP.setMaxAccess(_E)
-if mibBuilder.loadTexts:mpeConfigIGMP.setStatus(_A)
-class _MpeConfigRIP_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('no',1),('yes',2)))
-_MpeConfigRIP_Type.__name__=_C
-_MpeConfigRIP_Object=MibTableColumn
-mpeConfigRIP=_MpeConfigRIP_Object((1,3,6,1,4,1,1429,2,2,5,26,2,1,1,4),_MpeConfigRIP_Type())
-mpeConfigRIP.setMaxAccess(_E)
-if mibBuilder.loadTexts:mpeConfigRIP.setStatus(_A)
-class _MpeMultipacket_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,24)));namedValues=NamedValues(*(('lowerJitter',1),('higherBitRate',24)))
-_MpeMultipacket_Type.__name__=_C
-_MpeMultipacket_Object=MibTableColumn
-mpeMultipacket=_MpeMultipacket_Object((1,3,6,1,4,1,1429,2,2,5,26,2,1,1,5),_MpeMultipacket_Type())
-mpeMultipacket.setMaxAccess(_E)
-if mibBuilder.loadTexts:mpeMultipacket.setStatus(_A)
-_UnicastTable_Object=MibTable
-unicastTable=_UnicastTable_Object((1,3,6,1,4,1,1429,2,2,5,26,2,2))
-if mibBuilder.loadTexts:unicastTable.setStatus(_A)
-_UnicastEntry_Object=MibTableRow
-unicastEntry=_UnicastEntry_Object((1,3,6,1,4,1,1429,2,2,5,26,2,2,1))
-unicastEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:unicastEntry.setStatus(_A)
-class _UnicastIdx_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,6))
-_UnicastIdx_Type.__name__=_C
-_UnicastIdx_Object=MibTableColumn
-unicastIdx=_UnicastIdx_Object((1,3,6,1,4,1,1429,2,2,5,26,2,2,1,1),_UnicastIdx_Type())
-unicastIdx.setMaxAccess(_F)
-if mibBuilder.loadTexts:unicastIdx.setStatus(_A)
-_UnicastRoute_Type=IpAddress
-_UnicastRoute_Object=MibTableColumn
-unicastRoute=_UnicastRoute_Object((1,3,6,1,4,1,1429,2,2,5,26,2,2,1,2),_UnicastRoute_Type())
-unicastRoute.setMaxAccess(_D)
-if mibBuilder.loadTexts:unicastRoute.setStatus(_A)
-class _UnicastMask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(8,32))
-_UnicastMask_Type.__name__=_C
-_UnicastMask_Object=MibTableColumn
-unicastMask=_UnicastMask_Object((1,3,6,1,4,1,1429,2,2,5,26,2,2,1,3),_UnicastMask_Type())
-unicastMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:unicastMask.setStatus(_A)
-class _UnicastOutputPortID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_UnicastOutputPortID_Type.__name__=_C
-_UnicastOutputPortID_Object=MibTableColumn
-unicastOutputPortID=_UnicastOutputPortID_Object((1,3,6,1,4,1,1429,2,2,5,26,2,2,1,4),_UnicastOutputPortID_Type())
-unicastOutputPortID.setMaxAccess(_D)
-if mibBuilder.loadTexts:unicastOutputPortID.setStatus(_A)
-_UnicastGatewayAddr_Type=IpAddress
-_UnicastGatewayAddr_Object=MibTableColumn
-unicastGatewayAddr=_UnicastGatewayAddr_Object((1,3,6,1,4,1,1429,2,2,5,26,2,2,1,5),_UnicastGatewayAddr_Type())
-unicastGatewayAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:unicastGatewayAddr.setStatus(_A)
-_UnicastRowStatus_Type=RowStatus
-_UnicastRowStatus_Object=MibTableColumn
-unicastRowStatus=_UnicastRowStatus_Object((1,3,6,1,4,1,1429,2,2,5,26,2,2,1,6),_UnicastRowStatus_Type())
-unicastRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:unicastRowStatus.setStatus(_A)
-_StaticMulticastTable_Object=MibTable
-staticMulticastTable=_StaticMulticastTable_Object((1,3,6,1,4,1,1429,2,2,5,26,2,3))
-if mibBuilder.loadTexts:staticMulticastTable.setStatus(_A)
-_StaticMulticastEntry_Object=MibTableRow
-staticMulticastEntry=_StaticMulticastEntry_Object((1,3,6,1,4,1,1429,2,2,5,26,2,3,1))
-staticMulticastEntry.setIndexNames((0,_B,_I))
-if mibBuilder.loadTexts:staticMulticastEntry.setStatus(_A)
-class _StaticMulticastIdx_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_StaticMulticastIdx_Type.__name__=_C
-_StaticMulticastIdx_Object=MibTableColumn
-staticMulticastIdx=_StaticMulticastIdx_Object((1,3,6,1,4,1,1429,2,2,5,26,2,3,1,1),_StaticMulticastIdx_Type())
-staticMulticastIdx.setMaxAccess(_F)
-if mibBuilder.loadTexts:staticMulticastIdx.setStatus(_A)
-_StaticMulticastGroupAddress_Type=IpAddress
-_StaticMulticastGroupAddress_Object=MibTableColumn
-staticMulticastGroupAddress=_StaticMulticastGroupAddress_Object((1,3,6,1,4,1,1429,2,2,5,26,2,3,1,2),_StaticMulticastGroupAddress_Type())
-staticMulticastGroupAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:staticMulticastGroupAddress.setStatus(_A)
-_StaticMulticastRowstatus_Type=RowStatus
-_StaticMulticastRowstatus_Object=MibTableColumn
-staticMulticastRowstatus=_StaticMulticastRowstatus_Object((1,3,6,1,4,1,1429,2,2,5,26,2,3,1,3),_StaticMulticastRowstatus_Type())
-staticMulticastRowstatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:staticMulticastRowstatus.setStatus(_A)
-_MpeMIBConformance_ObjectIdentity=ObjectIdentity
-mpeMIBConformance=_MpeMIBConformance_ObjectIdentity((1,3,6,1,4,1,1429,2,2,5,26,3))
-_MpeMIBCompliances_ObjectIdentity=ObjectIdentity
-mpeMIBCompliances=_MpeMIBCompliances_ObjectIdentity((1,3,6,1,4,1,1429,2,2,5,26,3,1))
-_MpeMIBGroups_ObjectIdentity=ObjectIdentity
-mpeMIBGroups=_MpeMIBGroups_ObjectIdentity((1,3,6,1,4,1,1429,2,2,5,26,3,2))
-mpeConfigGroup=ObjectGroup((1,3,6,1,4,1,1429,2,2,5,26,3,2,1))
-mpeConfigGroup.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M)))
-if mibBuilder.loadTexts:mpeConfigGroup.setStatus(_A)
-unicastGroup=ObjectGroup((1,3,6,1,4,1,1429,2,2,5,26,3,2,2))
-unicastGroup.setObjects(*((_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:unicastGroup.setStatus(_A)
-staticMulticastGroup=ObjectGroup((1,3,6,1,4,1,1429,2,2,5,26,3,2,3))
-staticMulticastGroup.setObjects(*((_B,_S),(_B,_T)))
-if mibBuilder.loadTexts:staticMulticastGroup.setStatus(_A)
-mpeCompliance=ModuleCompliance((1,3,6,1,4,1,1429,2,2,5,26,3,1,1))
-mpeCompliance.setObjects(*((_B,_U),(_B,_V),(_B,_W)))
-if mibBuilder.loadTexts:mpeCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoDSGMPE':ciscoDSGMPE,'mpeTable':mpeTable,'mpeConfigTable':mpeConfigTable,'mpeConfigEntry':mpeConfigEntry,_G:mpeConfigPortID,_J:mpeConfigForwarding,_K:mpeConfigIGMP,_L:mpeConfigRIP,_M:mpeMultipacket,'unicastTable':unicastTable,'unicastEntry':unicastEntry,_H:unicastIdx,_N:unicastRoute,_O:unicastMask,_P:unicastOutputPortID,_Q:unicastGatewayAddr,_R:unicastRowStatus,'staticMulticastTable':staticMulticastTable,'staticMulticastEntry':staticMulticastEntry,_I:staticMulticastIdx,_S:staticMulticastGroupAddress,_T:staticMulticastRowstatus,'mpeMIBConformance':mpeMIBConformance,'mpeMIBCompliances':mpeMIBCompliances,'mpeCompliance':mpeCompliance,'mpeMIBGroups':mpeMIBGroups,_U:mpeConfigGroup,_V:unicastGroup,_W:staticMulticastGroup})
+#
+# PySNMP MIB module CISCO-DMN-DSG-MPE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-DMN-DSG-MPE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoDSGUtilities, = mibBuilder.importSymbols("CISCO-DMN-DSG-ROOT-MIB", "ciscoDSGUtilities")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ciscoDSGMPE = ModuleIdentity((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26))
+ciscoDSGMPE.setRevisions(('2010-08-30 11:00', '2010-05-07 06:30', '2010-05-03 11:00', '2010-04-12 06:00',))
+if mibBuilder.loadTexts: ciscoDSGMPE.setLastUpdated('201008301100Z')
+if mibBuilder.loadTexts: ciscoDSGMPE.setOrganization('Cisco systems, Inc.')
+mpeTable = MibIdentifier((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2))
+mpeConfigTable = MibTable((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 1), )
+if mibBuilder.loadTexts: mpeConfigTable.setStatus('current')
+mpeConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 1, 1), ).setIndexNames((0, "CISCO-DMN-DSG-MPE-MIB", "mpeConfigPortID"))
+if mibBuilder.loadTexts: mpeConfigEntry.setStatus('current')
+mpeConfigPortID = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2)))
+if mibBuilder.loadTexts: mpeConfigPortID.setStatus('current')
+mpeConfigForwarding = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("forwardNone", 1), ("forwardAll", 2), ("forwardFilteredList", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mpeConfigForwarding.setStatus('current')
+mpeConfigIGMP = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mpeConfigIGMP.setStatus('current')
+mpeConfigRIP = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mpeConfigRIP.setStatus('current')
+mpeMultipacket = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 24))).clone(namedValues=NamedValues(("lowerJitter", 1), ("higherBitRate", 24)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mpeMultipacket.setStatus('current')
+unicastTable = MibTable((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 2), )
+if mibBuilder.loadTexts: unicastTable.setStatus('current')
+unicastEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 2, 1), ).setIndexNames((0, "CISCO-DMN-DSG-MPE-MIB", "unicastIdx"))
+if mibBuilder.loadTexts: unicastEntry.setStatus('current')
+unicastIdx = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 6)))
+if mibBuilder.loadTexts: unicastIdx.setStatus('current')
+unicastRoute = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 2, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: unicastRoute.setStatus('current')
+unicastMask = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(8, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: unicastMask.setStatus('current')
+unicastOutputPortID = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: unicastOutputPortID.setStatus('current')
+unicastGatewayAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 2, 1, 5), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: unicastGatewayAddr.setStatus('current')
+unicastRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: unicastRowStatus.setStatus('current')
+staticMulticastTable = MibTable((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 3), )
+if mibBuilder.loadTexts: staticMulticastTable.setStatus('current')
+staticMulticastEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 3, 1), ).setIndexNames((0, "CISCO-DMN-DSG-MPE-MIB", "staticMulticastIdx"))
+if mibBuilder.loadTexts: staticMulticastEntry.setStatus('current')
+staticMulticastIdx = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
+if mibBuilder.loadTexts: staticMulticastIdx.setStatus('current')
+staticMulticastGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 3, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: staticMulticastGroupAddress.setStatus('current')
+staticMulticastRowstatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 2, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: staticMulticastRowstatus.setStatus('current')
+mpeMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 3))
+mpeMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 3, 1))
+mpeMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 3, 2))
+mpeCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 3, 1, 1)).setObjects(("CISCO-DMN-DSG-MPE-MIB", "mpeConfigGroup"), ("CISCO-DMN-DSG-MPE-MIB", "unicastGroup"), ("CISCO-DMN-DSG-MPE-MIB", "staticMulticastGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mpeCompliance = mpeCompliance.setStatus('current')
+mpeConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 3, 2, 1)).setObjects(("CISCO-DMN-DSG-MPE-MIB", "mpeConfigForwarding"), ("CISCO-DMN-DSG-MPE-MIB", "mpeConfigIGMP"), ("CISCO-DMN-DSG-MPE-MIB", "mpeConfigRIP"), ("CISCO-DMN-DSG-MPE-MIB", "mpeMultipacket"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mpeConfigGroup = mpeConfigGroup.setStatus('current')
+unicastGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 3, 2, 2)).setObjects(("CISCO-DMN-DSG-MPE-MIB", "unicastRoute"), ("CISCO-DMN-DSG-MPE-MIB", "unicastMask"), ("CISCO-DMN-DSG-MPE-MIB", "unicastOutputPortID"), ("CISCO-DMN-DSG-MPE-MIB", "unicastGatewayAddr"), ("CISCO-DMN-DSG-MPE-MIB", "unicastRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    unicastGroup = unicastGroup.setStatus('current')
+staticMulticastGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 26, 3, 2, 3)).setObjects(("CISCO-DMN-DSG-MPE-MIB", "staticMulticastGroupAddress"), ("CISCO-DMN-DSG-MPE-MIB", "staticMulticastRowstatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    staticMulticastGroup = staticMulticastGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-DMN-DSG-MPE-MIB", unicastIdx=unicastIdx, mpeConfigGroup=mpeConfigGroup, unicastTable=unicastTable, staticMulticastIdx=staticMulticastIdx, mpeConfigEntry=mpeConfigEntry, staticMulticastGroup=staticMulticastGroup, ciscoDSGMPE=ciscoDSGMPE, PYSNMP_MODULE_ID=ciscoDSGMPE, staticMulticastTable=staticMulticastTable, unicastGatewayAddr=unicastGatewayAddr, staticMulticastRowstatus=staticMulticastRowstatus, mpeConfigForwarding=mpeConfigForwarding, mpeCompliance=mpeCompliance, mpeMIBCompliances=mpeMIBCompliances, unicastMask=unicastMask, mpeMultipacket=mpeMultipacket, unicastGroup=unicastGroup, mpeConfigIGMP=mpeConfigIGMP, staticMulticastEntry=staticMulticastEntry, unicastEntry=unicastEntry, mpeMIBGroups=mpeMIBGroups, unicastRowStatus=unicastRowStatus, mpeTable=mpeTable, staticMulticastGroupAddress=staticMulticastGroupAddress, mpeConfigTable=mpeConfigTable, mpeConfigPortID=mpeConfigPortID, unicastRoute=unicastRoute, unicastOutputPortID=unicastOutputPortID, mpeConfigRIP=mpeConfigRIP, mpeMIBConformance=mpeMIBConformance)

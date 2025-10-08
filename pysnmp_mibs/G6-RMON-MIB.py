@@ -1,306 +1,134 @@
-_I='utilizationPortIndex'
-_H='histogramPortIndex'
-_G='egressPortIndex'
-_F='ingressPortIndex'
-_E='not-accessible'
-_D='G6-RMON-MIB'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-g6,=mibBuilder.importSymbols('MICROSENS-G6-MIB','g6')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-device=ModuleIdentity((1,3,6,1,4,1,3181,10,6,1))
-if mibBuilder.loadTexts:device.setRevisions(('2018-02-12 16:19',))
-_Rmon_ObjectIdentity=ObjectIdentity
-rmon=_Rmon_ObjectIdentity((1,3,6,1,4,1,3181,10,6,1,85))
-_RmonClearAllCounter_Type=DisplayString
-_RmonClearAllCounter_Object=MibScalar
-rmonClearAllCounter=_RmonClearAllCounter_Object((1,3,6,1,4,1,3181,10,6,1,85,1),_RmonClearAllCounter_Type())
-rmonClearAllCounter.setMaxAccess('read-write')
-if mibBuilder.loadTexts:rmonClearAllCounter.setStatus(_A)
-_IngressTable_Object=MibTable
-ingressTable=_IngressTable_Object((1,3,6,1,4,1,3181,10,6,1,85,100))
-if mibBuilder.loadTexts:ingressTable.setStatus(_A)
-_IngressEntry_Object=MibTableRow
-ingressEntry=_IngressEntry_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1))
-ingressEntry.setIndexNames((0,_D,_F))
-if mibBuilder.loadTexts:ingressEntry.setStatus(_A)
-class _IngressPortIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,31))
-_IngressPortIndex_Type.__name__=_C
-_IngressPortIndex_Object=MibTableColumn
-ingressPortIndex=_IngressPortIndex_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,1),_IngressPortIndex_Type())
-ingressPortIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:ingressPortIndex.setStatus(_A)
-class _IngressEntryStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('invalid',0),('valid',1)))
-_IngressEntryStatus_Type.__name__=_C
-_IngressEntryStatus_Object=MibTableColumn
-ingressEntryStatus=_IngressEntryStatus_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,2),_IngressEntryStatus_Type())
-ingressEntryStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressEntryStatus.setStatus(_A)
-_IngressInGoodOctetsLo_Type=Unsigned32
-_IngressInGoodOctetsLo_Object=MibTableColumn
-ingressInGoodOctetsLo=_IngressInGoodOctetsLo_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,3),_IngressInGoodOctetsLo_Type())
-ingressInGoodOctetsLo.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInGoodOctetsLo.setStatus(_A)
-_IngressInGoodOctetsHi_Type=Unsigned32
-_IngressInGoodOctetsHi_Object=MibTableColumn
-ingressInGoodOctetsHi=_IngressInGoodOctetsHi_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,4),_IngressInGoodOctetsHi_Type())
-ingressInGoodOctetsHi.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInGoodOctetsHi.setStatus(_A)
-_IngressInBadOctets_Type=Unsigned32
-_IngressInBadOctets_Object=MibTableColumn
-ingressInBadOctets=_IngressInBadOctets_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,5),_IngressInBadOctets_Type())
-ingressInBadOctets.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInBadOctets.setStatus(_A)
-_IngressInTotalPackets_Type=Unsigned32
-_IngressInTotalPackets_Object=MibTableColumn
-ingressInTotalPackets=_IngressInTotalPackets_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,6),_IngressInTotalPackets_Type())
-ingressInTotalPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInTotalPackets.setStatus(_A)
-_IngressInUnicasts_Type=Unsigned32
-_IngressInUnicasts_Object=MibTableColumn
-ingressInUnicasts=_IngressInUnicasts_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,7),_IngressInUnicasts_Type())
-ingressInUnicasts.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInUnicasts.setStatus(_A)
-_IngressInNonUnicasts_Type=Unsigned32
-_IngressInNonUnicasts_Object=MibTableColumn
-ingressInNonUnicasts=_IngressInNonUnicasts_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,8),_IngressInNonUnicasts_Type())
-ingressInNonUnicasts.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInNonUnicasts.setStatus(_A)
-_IngressInBroadcasts_Type=Unsigned32
-_IngressInBroadcasts_Object=MibTableColumn
-ingressInBroadcasts=_IngressInBroadcasts_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,9),_IngressInBroadcasts_Type())
-ingressInBroadcasts.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInBroadcasts.setStatus(_A)
-_IngressInMulticasts_Type=Unsigned32
-_IngressInMulticasts_Object=MibTableColumn
-ingressInMulticasts=_IngressInMulticasts_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,10),_IngressInMulticasts_Type())
-ingressInMulticasts.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInMulticasts.setStatus(_A)
-_IngressInPause_Type=Unsigned32
-_IngressInPause_Object=MibTableColumn
-ingressInPause=_IngressInPause_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,11),_IngressInPause_Type())
-ingressInPause.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInPause.setStatus(_A)
-_IngressInTotalReceiveErrors_Type=Unsigned32
-_IngressInTotalReceiveErrors_Object=MibTableColumn
-ingressInTotalReceiveErrors=_IngressInTotalReceiveErrors_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,12),_IngressInTotalReceiveErrors_Type())
-ingressInTotalReceiveErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInTotalReceiveErrors.setStatus(_A)
-_IngressInUndersize_Type=Unsigned32
-_IngressInUndersize_Object=MibTableColumn
-ingressInUndersize=_IngressInUndersize_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,13),_IngressInUndersize_Type())
-ingressInUndersize.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInUndersize.setStatus(_A)
-_IngressInOversize_Type=Unsigned32
-_IngressInOversize_Object=MibTableColumn
-ingressInOversize=_IngressInOversize_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,14),_IngressInOversize_Type())
-ingressInOversize.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInOversize.setStatus(_A)
-_IngressInFragments_Type=Unsigned32
-_IngressInFragments_Object=MibTableColumn
-ingressInFragments=_IngressInFragments_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,15),_IngressInFragments_Type())
-ingressInFragments.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInFragments.setStatus(_A)
-_IngressInJabber_Type=Unsigned32
-_IngressInJabber_Object=MibTableColumn
-ingressInJabber=_IngressInJabber_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,16),_IngressInJabber_Type())
-ingressInJabber.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInJabber.setStatus(_A)
-_IngressInFcsErrors_Type=Unsigned32
-_IngressInFcsErrors_Object=MibTableColumn
-ingressInFcsErrors=_IngressInFcsErrors_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,17),_IngressInFcsErrors_Type())
-ingressInFcsErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInFcsErrors.setStatus(_A)
-_IngressInDiscarded_Type=Unsigned32
-_IngressInDiscarded_Object=MibTableColumn
-ingressInDiscarded=_IngressInDiscarded_Object((1,3,6,1,4,1,3181,10,6,1,85,100,1,18),_IngressInDiscarded_Type())
-ingressInDiscarded.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingressInDiscarded.setStatus(_A)
-_EgressTable_Object=MibTable
-egressTable=_EgressTable_Object((1,3,6,1,4,1,3181,10,6,1,85,101))
-if mibBuilder.loadTexts:egressTable.setStatus(_A)
-_EgressEntry_Object=MibTableRow
-egressEntry=_EgressEntry_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1))
-egressEntry.setIndexNames((0,_D,_G))
-if mibBuilder.loadTexts:egressEntry.setStatus(_A)
-class _EgressPortIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,31))
-_EgressPortIndex_Type.__name__=_C
-_EgressPortIndex_Object=MibTableColumn
-egressPortIndex=_EgressPortIndex_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,1),_EgressPortIndex_Type())
-egressPortIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:egressPortIndex.setStatus(_A)
-_EgressOutGoodOctetsLo_Type=Unsigned32
-_EgressOutGoodOctetsLo_Object=MibTableColumn
-egressOutGoodOctetsLo=_EgressOutGoodOctetsLo_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,2),_EgressOutGoodOctetsLo_Type())
-egressOutGoodOctetsLo.setMaxAccess(_B)
-if mibBuilder.loadTexts:egressOutGoodOctetsLo.setStatus(_A)
-_EgressOutGoodOctetsHi_Type=Unsigned32
-_EgressOutGoodOctetsHi_Object=MibTableColumn
-egressOutGoodOctetsHi=_EgressOutGoodOctetsHi_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,3),_EgressOutGoodOctetsHi_Type())
-egressOutGoodOctetsHi.setMaxAccess(_B)
-if mibBuilder.loadTexts:egressOutGoodOctetsHi.setStatus(_A)
-_EgressOutUnicasts_Type=Unsigned32
-_EgressOutUnicasts_Object=MibTableColumn
-egressOutUnicasts=_EgressOutUnicasts_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,4),_EgressOutUnicasts_Type())
-egressOutUnicasts.setMaxAccess(_B)
-if mibBuilder.loadTexts:egressOutUnicasts.setStatus(_A)
-_EgressOutNonUnicasts_Type=Unsigned32
-_EgressOutNonUnicasts_Object=MibTableColumn
-egressOutNonUnicasts=_EgressOutNonUnicasts_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,5),_EgressOutNonUnicasts_Type())
-egressOutNonUnicasts.setMaxAccess(_B)
-if mibBuilder.loadTexts:egressOutNonUnicasts.setStatus(_A)
-_EgressOutBroadcasts_Type=Unsigned32
-_EgressOutBroadcasts_Object=MibTableColumn
-egressOutBroadcasts=_EgressOutBroadcasts_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,6),_EgressOutBroadcasts_Type())
-egressOutBroadcasts.setMaxAccess(_B)
-if mibBuilder.loadTexts:egressOutBroadcasts.setStatus(_A)
-_EgressOutMulticasts_Type=Unsigned32
-_EgressOutMulticasts_Object=MibTableColumn
-egressOutMulticasts=_EgressOutMulticasts_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,7),_EgressOutMulticasts_Type())
-egressOutMulticasts.setMaxAccess(_B)
-if mibBuilder.loadTexts:egressOutMulticasts.setStatus(_A)
-_EgressOutPause_Type=Unsigned32
-_EgressOutPause_Object=MibTableColumn
-egressOutPause=_EgressOutPause_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,8),_EgressOutPause_Type())
-egressOutPause.setMaxAccess(_B)
-if mibBuilder.loadTexts:egressOutPause.setStatus(_A)
-_EgressOutDeferred_Type=Unsigned32
-_EgressOutDeferred_Object=MibTableColumn
-egressOutDeferred=_EgressOutDeferred_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,9),_EgressOutDeferred_Type())
-egressOutDeferred.setMaxAccess(_B)
-if mibBuilder.loadTexts:egressOutDeferred.setStatus(_A)
-_EgressOutTotalCollisions_Type=Unsigned32
-_EgressOutTotalCollisions_Object=MibTableColumn
-egressOutTotalCollisions=_EgressOutTotalCollisions_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,10),_EgressOutTotalCollisions_Type())
-egressOutTotalCollisions.setMaxAccess(_B)
-if mibBuilder.loadTexts:egressOutTotalCollisions.setStatus(_A)
-_EgressOutSingleCollisions_Type=Unsigned32
-_EgressOutSingleCollisions_Object=MibTableColumn
-egressOutSingleCollisions=_EgressOutSingleCollisions_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,11),_EgressOutSingleCollisions_Type())
-egressOutSingleCollisions.setMaxAccess(_B)
-if mibBuilder.loadTexts:egressOutSingleCollisions.setStatus(_A)
-_EgressOutMultipleCollisions_Type=Unsigned32
-_EgressOutMultipleCollisions_Object=MibTableColumn
-egressOutMultipleCollisions=_EgressOutMultipleCollisions_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,12),_EgressOutMultipleCollisions_Type())
-egressOutMultipleCollisions.setMaxAccess(_B)
-if mibBuilder.loadTexts:egressOutMultipleCollisions.setStatus(_A)
-_EgressOutExcessiveCollisions_Type=Unsigned32
-_EgressOutExcessiveCollisions_Object=MibTableColumn
-egressOutExcessiveCollisions=_EgressOutExcessiveCollisions_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,13),_EgressOutExcessiveCollisions_Type())
-egressOutExcessiveCollisions.setMaxAccess(_B)
-if mibBuilder.loadTexts:egressOutExcessiveCollisions.setStatus(_A)
-_EgressOutLateCollisions_Type=Unsigned32
-_EgressOutLateCollisions_Object=MibTableColumn
-egressOutLateCollisions=_EgressOutLateCollisions_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,14),_EgressOutLateCollisions_Type())
-egressOutLateCollisions.setMaxAccess(_B)
-if mibBuilder.loadTexts:egressOutLateCollisions.setStatus(_A)
-_EgressOutFcsErrors_Type=Unsigned32
-_EgressOutFcsErrors_Object=MibTableColumn
-egressOutFcsErrors=_EgressOutFcsErrors_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,15),_EgressOutFcsErrors_Type())
-egressOutFcsErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:egressOutFcsErrors.setStatus(_A)
-_EgressOutDroppedPackets_Type=Unsigned32
-_EgressOutDroppedPackets_Object=MibTableColumn
-egressOutDroppedPackets=_EgressOutDroppedPackets_Object((1,3,6,1,4,1,3181,10,6,1,85,101,1,16),_EgressOutDroppedPackets_Type())
-egressOutDroppedPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:egressOutDroppedPackets.setStatus(_A)
-_HistogramTable_Object=MibTable
-histogramTable=_HistogramTable_Object((1,3,6,1,4,1,3181,10,6,1,85,102))
-if mibBuilder.loadTexts:histogramTable.setStatus(_A)
-_HistogramEntry_Object=MibTableRow
-histogramEntry=_HistogramEntry_Object((1,3,6,1,4,1,3181,10,6,1,85,102,1))
-histogramEntry.setIndexNames((0,_D,_H))
-if mibBuilder.loadTexts:histogramEntry.setStatus(_A)
-class _HistogramPortIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,31))
-_HistogramPortIndex_Type.__name__=_C
-_HistogramPortIndex_Object=MibTableColumn
-histogramPortIndex=_HistogramPortIndex_Object((1,3,6,1,4,1,3181,10,6,1,85,102,1,1),_HistogramPortIndex_Type())
-histogramPortIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:histogramPortIndex.setStatus(_A)
-_HistogramIn64Octets_Type=Unsigned32
-_HistogramIn64Octets_Object=MibTableColumn
-histogramIn64Octets=_HistogramIn64Octets_Object((1,3,6,1,4,1,3181,10,6,1,85,102,1,2),_HistogramIn64Octets_Type())
-histogramIn64Octets.setMaxAccess(_B)
-if mibBuilder.loadTexts:histogramIn64Octets.setStatus(_A)
-_HistogramIn65To127Octets_Type=Unsigned32
-_HistogramIn65To127Octets_Object=MibTableColumn
-histogramIn65To127Octets=_HistogramIn65To127Octets_Object((1,3,6,1,4,1,3181,10,6,1,85,102,1,3),_HistogramIn65To127Octets_Type())
-histogramIn65To127Octets.setMaxAccess(_B)
-if mibBuilder.loadTexts:histogramIn65To127Octets.setStatus(_A)
-_HistogramIn128To255Octets_Type=Unsigned32
-_HistogramIn128To255Octets_Object=MibTableColumn
-histogramIn128To255Octets=_HistogramIn128To255Octets_Object((1,3,6,1,4,1,3181,10,6,1,85,102,1,4),_HistogramIn128To255Octets_Type())
-histogramIn128To255Octets.setMaxAccess(_B)
-if mibBuilder.loadTexts:histogramIn128To255Octets.setStatus(_A)
-_HistogramIn256To511Octets_Type=Unsigned32
-_HistogramIn256To511Octets_Object=MibTableColumn
-histogramIn256To511Octets=_HistogramIn256To511Octets_Object((1,3,6,1,4,1,3181,10,6,1,85,102,1,5),_HistogramIn256To511Octets_Type())
-histogramIn256To511Octets.setMaxAccess(_B)
-if mibBuilder.loadTexts:histogramIn256To511Octets.setStatus(_A)
-_HistogramIn512To1023Octets_Type=Unsigned32
-_HistogramIn512To1023Octets_Object=MibTableColumn
-histogramIn512To1023Octets=_HistogramIn512To1023Octets_Object((1,3,6,1,4,1,3181,10,6,1,85,102,1,6),_HistogramIn512To1023Octets_Type())
-histogramIn512To1023Octets.setMaxAccess(_B)
-if mibBuilder.loadTexts:histogramIn512To1023Octets.setStatus(_A)
-_HistogramIn1024ToMaxOctets_Type=Unsigned32
-_HistogramIn1024ToMaxOctets_Object=MibTableColumn
-histogramIn1024ToMaxOctets=_HistogramIn1024ToMaxOctets_Object((1,3,6,1,4,1,3181,10,6,1,85,102,1,7),_HistogramIn1024ToMaxOctets_Type())
-histogramIn1024ToMaxOctets.setMaxAccess(_B)
-if mibBuilder.loadTexts:histogramIn1024ToMaxOctets.setStatus(_A)
-_UtilizationTable_Object=MibTable
-utilizationTable=_UtilizationTable_Object((1,3,6,1,4,1,3181,10,6,1,85,103))
-if mibBuilder.loadTexts:utilizationTable.setStatus(_A)
-_UtilizationEntry_Object=MibTableRow
-utilizationEntry=_UtilizationEntry_Object((1,3,6,1,4,1,3181,10,6,1,85,103,1))
-utilizationEntry.setIndexNames((0,_D,_I))
-if mibBuilder.loadTexts:utilizationEntry.setStatus(_A)
-class _UtilizationPortIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,31))
-_UtilizationPortIndex_Type.__name__=_C
-_UtilizationPortIndex_Object=MibTableColumn
-utilizationPortIndex=_UtilizationPortIndex_Object((1,3,6,1,4,1,3181,10,6,1,85,103,1,1),_UtilizationPortIndex_Type())
-utilizationPortIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:utilizationPortIndex.setStatus(_A)
-class _UtilizationIngressNow_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_UtilizationIngressNow_Type.__name__=_C
-_UtilizationIngressNow_Object=MibTableColumn
-utilizationIngressNow=_UtilizationIngressNow_Object((1,3,6,1,4,1,3181,10,6,1,85,103,1,2),_UtilizationIngressNow_Type())
-utilizationIngressNow.setMaxAccess(_B)
-if mibBuilder.loadTexts:utilizationIngressNow.setStatus(_A)
-class _UtilizationIngress30s_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_UtilizationIngress30s_Type.__name__=_C
-_UtilizationIngress30s_Object=MibTableColumn
-utilizationIngress30s=_UtilizationIngress30s_Object((1,3,6,1,4,1,3181,10,6,1,85,103,1,3),_UtilizationIngress30s_Type())
-utilizationIngress30s.setMaxAccess(_B)
-if mibBuilder.loadTexts:utilizationIngress30s.setStatus(_A)
-class _UtilizationIngress5min_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_UtilizationIngress5min_Type.__name__=_C
-_UtilizationIngress5min_Object=MibTableColumn
-utilizationIngress5min=_UtilizationIngress5min_Object((1,3,6,1,4,1,3181,10,6,1,85,103,1,4),_UtilizationIngress5min_Type())
-utilizationIngress5min.setMaxAccess(_B)
-if mibBuilder.loadTexts:utilizationIngress5min.setStatus(_A)
-class _UtilizationEgressNow_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_UtilizationEgressNow_Type.__name__=_C
-_UtilizationEgressNow_Object=MibTableColumn
-utilizationEgressNow=_UtilizationEgressNow_Object((1,3,6,1,4,1,3181,10,6,1,85,103,1,5),_UtilizationEgressNow_Type())
-utilizationEgressNow.setMaxAccess(_B)
-if mibBuilder.loadTexts:utilizationEgressNow.setStatus(_A)
-class _UtilizationEgress30s_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_UtilizationEgress30s_Type.__name__=_C
-_UtilizationEgress30s_Object=MibTableColumn
-utilizationEgress30s=_UtilizationEgress30s_Object((1,3,6,1,4,1,3181,10,6,1,85,103,1,6),_UtilizationEgress30s_Type())
-utilizationEgress30s.setMaxAccess(_B)
-if mibBuilder.loadTexts:utilizationEgress30s.setStatus(_A)
-class _UtilizationEgress5min_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_UtilizationEgress5min_Type.__name__=_C
-_UtilizationEgress5min_Object=MibTableColumn
-utilizationEgress5min=_UtilizationEgress5min_Object((1,3,6,1,4,1,3181,10,6,1,85,103,1,7),_UtilizationEgress5min_Type())
-utilizationEgress5min.setMaxAccess(_B)
-if mibBuilder.loadTexts:utilizationEgress5min.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'device':device,'rmon':rmon,'rmonClearAllCounter':rmonClearAllCounter,'ingressTable':ingressTable,'ingressEntry':ingressEntry,_F:ingressPortIndex,'ingressEntryStatus':ingressEntryStatus,'ingressInGoodOctetsLo':ingressInGoodOctetsLo,'ingressInGoodOctetsHi':ingressInGoodOctetsHi,'ingressInBadOctets':ingressInBadOctets,'ingressInTotalPackets':ingressInTotalPackets,'ingressInUnicasts':ingressInUnicasts,'ingressInNonUnicasts':ingressInNonUnicasts,'ingressInBroadcasts':ingressInBroadcasts,'ingressInMulticasts':ingressInMulticasts,'ingressInPause':ingressInPause,'ingressInTotalReceiveErrors':ingressInTotalReceiveErrors,'ingressInUndersize':ingressInUndersize,'ingressInOversize':ingressInOversize,'ingressInFragments':ingressInFragments,'ingressInJabber':ingressInJabber,'ingressInFcsErrors':ingressInFcsErrors,'ingressInDiscarded':ingressInDiscarded,'egressTable':egressTable,'egressEntry':egressEntry,_G:egressPortIndex,'egressOutGoodOctetsLo':egressOutGoodOctetsLo,'egressOutGoodOctetsHi':egressOutGoodOctetsHi,'egressOutUnicasts':egressOutUnicasts,'egressOutNonUnicasts':egressOutNonUnicasts,'egressOutBroadcasts':egressOutBroadcasts,'egressOutMulticasts':egressOutMulticasts,'egressOutPause':egressOutPause,'egressOutDeferred':egressOutDeferred,'egressOutTotalCollisions':egressOutTotalCollisions,'egressOutSingleCollisions':egressOutSingleCollisions,'egressOutMultipleCollisions':egressOutMultipleCollisions,'egressOutExcessiveCollisions':egressOutExcessiveCollisions,'egressOutLateCollisions':egressOutLateCollisions,'egressOutFcsErrors':egressOutFcsErrors,'egressOutDroppedPackets':egressOutDroppedPackets,'histogramTable':histogramTable,'histogramEntry':histogramEntry,_H:histogramPortIndex,'histogramIn64Octets':histogramIn64Octets,'histogramIn65To127Octets':histogramIn65To127Octets,'histogramIn128To255Octets':histogramIn128To255Octets,'histogramIn256To511Octets':histogramIn256To511Octets,'histogramIn512To1023Octets':histogramIn512To1023Octets,'histogramIn1024ToMaxOctets':histogramIn1024ToMaxOctets,'utilizationTable':utilizationTable,'utilizationEntry':utilizationEntry,_I:utilizationPortIndex,'utilizationIngressNow':utilizationIngressNow,'utilizationIngress30s':utilizationIngress30s,'utilizationIngress5min':utilizationIngress5min,'utilizationEgressNow':utilizationEgressNow,'utilizationEgress30s':utilizationEgress30s,'utilizationEgress5min':utilizationEgress5min})
+#
+# PySNMP MIB module G6-RMON-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/microsens/G6-RMON-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:52 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+g6, = mibBuilder.importSymbols("MICROSENS-G6-MIB", "g6")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+device = ModuleIdentity((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1))
+device.setRevisions(('2018-02-12 16:19',))
+if mibBuilder.loadTexts: device.setLastUpdated('201802121619Z')
+if mibBuilder.loadTexts: device.setOrganization('MICROSENS GmbH & Co. KG')
+rmon = MibIdentifier((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85))
+rmonClearAllCounter = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 1), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rmonClearAllCounter.setStatus('current')
+ingressTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100), )
+if mibBuilder.loadTexts: ingressTable.setStatus('current')
+ingressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1), ).setIndexNames((0, "G6-RMON-MIB", "ingressPortIndex"))
+if mibBuilder.loadTexts: ingressEntry.setStatus('current')
+ingressPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31)))
+if mibBuilder.loadTexts: ingressPortIndex.setStatus('current')
+ingressEntryStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("invalid", 0), ("valid", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressEntryStatus.setStatus('current')
+ingressInGoodOctetsLo = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInGoodOctetsLo.setStatus('current')
+ingressInGoodOctetsHi = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInGoodOctetsHi.setStatus('current')
+ingressInBadOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInBadOctets.setStatus('current')
+ingressInTotalPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInTotalPackets.setStatus('current')
+ingressInUnicasts = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInUnicasts.setStatus('current')
+ingressInNonUnicasts = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInNonUnicasts.setStatus('current')
+ingressInBroadcasts = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInBroadcasts.setStatus('current')
+ingressInMulticasts = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 10), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInMulticasts.setStatus('current')
+ingressInPause = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInPause.setStatus('current')
+ingressInTotalReceiveErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInTotalReceiveErrors.setStatus('current')
+ingressInUndersize = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 13), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInUndersize.setStatus('current')
+ingressInOversize = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 14), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInOversize.setStatus('current')
+ingressInFragments = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 15), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInFragments.setStatus('current')
+ingressInJabber = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 16), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInJabber.setStatus('current')
+ingressInFcsErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 17), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInFcsErrors.setStatus('current')
+ingressInDiscarded = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 100, 1, 18), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingressInDiscarded.setStatus('current')
+egressTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101), )
+if mibBuilder.loadTexts: egressTable.setStatus('current')
+egressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1), ).setIndexNames((0, "G6-RMON-MIB", "egressPortIndex"))
+if mibBuilder.loadTexts: egressEntry.setStatus('current')
+egressPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31)))
+if mibBuilder.loadTexts: egressPortIndex.setStatus('current')
+egressOutGoodOctetsLo = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egressOutGoodOctetsLo.setStatus('current')
+egressOutGoodOctetsHi = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egressOutGoodOctetsHi.setStatus('current')
+egressOutUnicasts = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egressOutUnicasts.setStatus('current')
+egressOutNonUnicasts = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egressOutNonUnicasts.setStatus('current')
+egressOutBroadcasts = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egressOutBroadcasts.setStatus('current')
+egressOutMulticasts = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egressOutMulticasts.setStatus('current')
+egressOutPause = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egressOutPause.setStatus('current')
+egressOutDeferred = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egressOutDeferred.setStatus('current')
+egressOutTotalCollisions = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 10), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egressOutTotalCollisions.setStatus('current')
+egressOutSingleCollisions = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egressOutSingleCollisions.setStatus('current')
+egressOutMultipleCollisions = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egressOutMultipleCollisions.setStatus('current')
+egressOutExcessiveCollisions = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 13), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egressOutExcessiveCollisions.setStatus('current')
+egressOutLateCollisions = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 14), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egressOutLateCollisions.setStatus('current')
+egressOutFcsErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 15), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egressOutFcsErrors.setStatus('current')
+egressOutDroppedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 101, 1, 16), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egressOutDroppedPackets.setStatus('current')
+histogramTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 102), )
+if mibBuilder.loadTexts: histogramTable.setStatus('current')
+histogramEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 102, 1), ).setIndexNames((0, "G6-RMON-MIB", "histogramPortIndex"))
+if mibBuilder.loadTexts: histogramEntry.setStatus('current')
+histogramPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 102, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31)))
+if mibBuilder.loadTexts: histogramPortIndex.setStatus('current')
+histogramIn64Octets = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 102, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: histogramIn64Octets.setStatus('current')
+histogramIn65To127Octets = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 102, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: histogramIn65To127Octets.setStatus('current')
+histogramIn128To255Octets = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 102, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: histogramIn128To255Octets.setStatus('current')
+histogramIn256To511Octets = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 102, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: histogramIn256To511Octets.setStatus('current')
+histogramIn512To1023Octets = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 102, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: histogramIn512To1023Octets.setStatus('current')
+histogramIn1024ToMaxOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 102, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: histogramIn1024ToMaxOctets.setStatus('current')
+utilizationTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 103), )
+if mibBuilder.loadTexts: utilizationTable.setStatus('current')
+utilizationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 103, 1), ).setIndexNames((0, "G6-RMON-MIB", "utilizationPortIndex"))
+if mibBuilder.loadTexts: utilizationEntry.setStatus('current')
+utilizationPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 103, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31)))
+if mibBuilder.loadTexts: utilizationPortIndex.setStatus('current')
+utilizationIngressNow = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 103, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: utilizationIngressNow.setStatus('current')
+utilizationIngress30s = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 103, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: utilizationIngress30s.setStatus('current')
+utilizationIngress5min = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 103, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: utilizationIngress5min.setStatus('current')
+utilizationEgressNow = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 103, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: utilizationEgressNow.setStatus('current')
+utilizationEgress30s = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 103, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: utilizationEgress30s.setStatus('current')
+utilizationEgress5min = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 85, 103, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: utilizationEgress5min.setStatus('current')
+mibBuilder.exportSymbols("G6-RMON-MIB", ingressInGoodOctetsHi=ingressInGoodOctetsHi, utilizationEntry=utilizationEntry, ingressPortIndex=ingressPortIndex, egressOutTotalCollisions=egressOutTotalCollisions, histogramEntry=histogramEntry, utilizationIngress30s=utilizationIngress30s, histogramIn128To255Octets=histogramIn128To255Octets, egressTable=egressTable, utilizationEgress30s=utilizationEgress30s, egressOutNonUnicasts=egressOutNonUnicasts, rmon=rmon, ingressInUndersize=ingressInUndersize, utilizationEgress5min=utilizationEgress5min, ingressInTotalPackets=ingressInTotalPackets, ingressInNonUnicasts=ingressInNonUnicasts, ingressInJabber=ingressInJabber, ingressInMulticasts=ingressInMulticasts, ingressTable=ingressTable, ingressInFragments=ingressInFragments, egressOutDroppedPackets=egressOutDroppedPackets, utilizationTable=utilizationTable, egressOutBroadcasts=egressOutBroadcasts, ingressInFcsErrors=ingressInFcsErrors, histogramIn64Octets=histogramIn64Octets, egressOutPause=egressOutPause, egressEntry=egressEntry, egressOutDeferred=egressOutDeferred, histogramTable=histogramTable, histogramIn256To511Octets=histogramIn256To511Octets, histogramIn512To1023Octets=histogramIn512To1023Octets, device=device, ingressInPause=ingressInPause, egressOutGoodOctetsHi=egressOutGoodOctetsHi, utilizationEgressNow=utilizationEgressNow, histogramIn65To127Octets=histogramIn65To127Octets, utilizationIngress5min=utilizationIngress5min, histogramPortIndex=histogramPortIndex, egressOutExcessiveCollisions=egressOutExcessiveCollisions, ingressInTotalReceiveErrors=ingressInTotalReceiveErrors, rmonClearAllCounter=rmonClearAllCounter, egressOutMultipleCollisions=egressOutMultipleCollisions, ingressEntry=ingressEntry, utilizationPortIndex=utilizationPortIndex, egressOutLateCollisions=egressOutLateCollisions, ingressInGoodOctetsLo=ingressInGoodOctetsLo, PYSNMP_MODULE_ID=device, egressOutMulticasts=egressOutMulticasts, egressOutSingleCollisions=egressOutSingleCollisions, egressOutGoodOctetsLo=egressOutGoodOctetsLo, ingressInUnicasts=ingressInUnicasts, ingressEntryStatus=ingressEntryStatus, ingressInBadOctets=ingressInBadOctets, egressPortIndex=egressPortIndex, egressOutUnicasts=egressOutUnicasts, ingressInBroadcasts=ingressInBroadcasts, histogramIn1024ToMaxOctets=histogramIn1024ToMaxOctets, egressOutFcsErrors=egressOutFcsErrors, ingressInOversize=ingressInOversize, ingressInDiscarded=ingressInDiscarded, utilizationIngressNow=utilizationIngressNow)

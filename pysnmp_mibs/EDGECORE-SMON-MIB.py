@@ -1,49 +1,37 @@
-_G='read-write'
-_F='read-only'
-_E='TruthValue'
-_D='Integer32'
-_C='dot1dBasePort'
-_B='BRIDGE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_B,_C)
-rnd,=mibBuilder.importSymbols('EDGECORE-MIB','rnd')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_E)
-rlSmon=ModuleIdentity((1,3,6,1,4,1,259,10,1,14,89,84))
-if mibBuilder.loadTexts:rlSmon.setRevisions(('2007-01-02 00:00',))
-class CopyModeType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('monitor-only',1),('network',2)))
-_RlPortCopyMibVersion_Type=Integer32
-_RlPortCopyMibVersion_Object=MibScalar
-rlPortCopyMibVersion=_RlPortCopyMibVersion_Object((1,3,6,1,4,1,259,10,1,14,89,84,1),_RlPortCopyMibVersion_Type())
-rlPortCopyMibVersion.setMaxAccess(_F)
-if mibBuilder.loadTexts:rlPortCopyMibVersion.setStatus(_A)
-class _RlPortCopySupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('supported',1),('notSupported',2)))
-_RlPortCopySupport_Type.__name__=_D
-_RlPortCopySupport_Object=MibScalar
-rlPortCopySupport=_RlPortCopySupport_Object((1,3,6,1,4,1,259,10,1,14,89,84,2),_RlPortCopySupport_Type())
-rlPortCopySupport.setMaxAccess(_F)
-if mibBuilder.loadTexts:rlPortCopySupport.setStatus(_A)
-_RlPortCopyVlanTaggingTable_Object=MibTable
-rlPortCopyVlanTaggingTable=_RlPortCopyVlanTaggingTable_Object((1,3,6,1,4,1,259,10,1,14,89,84,3))
-if mibBuilder.loadTexts:rlPortCopyVlanTaggingTable.setStatus(_A)
-_RlPortCopyVlanTaggingEntry_Object=MibTableRow
-rlPortCopyVlanTaggingEntry=_RlPortCopyVlanTaggingEntry_Object((1,3,6,1,4,1,259,10,1,14,89,84,3,1))
-rlPortCopyVlanTaggingEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:rlPortCopyVlanTaggingEntry.setStatus(_A)
-class _RlPortCopyVlanTagging_Type(TruthValue):defaultValue=1
-_RlPortCopyVlanTagging_Type.__name__=_E
-_RlPortCopyVlanTagging_Object=MibTableColumn
-rlPortCopyVlanTagging=_RlPortCopyVlanTagging_Object((1,3,6,1,4,1,259,10,1,14,89,84,3,1,1),_RlPortCopyVlanTagging_Type())
-rlPortCopyVlanTagging.setMaxAccess(_G)
-if mibBuilder.loadTexts:rlPortCopyVlanTagging.setStatus(_A)
-_RlPortCopyMode_Type=CopyModeType
-_RlPortCopyMode_Object=MibScalar
-rlPortCopyMode=_RlPortCopyMode_Object((1,3,6,1,4,1,259,10,1,14,89,84,4),_RlPortCopyMode_Type())
-rlPortCopyMode.setMaxAccess(_G)
-if mibBuilder.loadTexts:rlPortCopyMode.setStatus(_A)
-mibBuilder.exportSymbols('EDGECORE-SMON-MIB',**{'CopyModeType':CopyModeType,'rlSmon':rlSmon,'rlPortCopyMibVersion':rlPortCopyMibVersion,'rlPortCopySupport':rlPortCopySupport,'rlPortCopyVlanTaggingTable':rlPortCopyVlanTaggingTable,'rlPortCopyVlanTaggingEntry':rlPortCopyVlanTaggingEntry,'rlPortCopyVlanTagging':rlPortCopyVlanTagging,'rlPortCopyMode':rlPortCopyMode})
+#
+# PySNMP MIB module EDGECORE-SMON-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/edgecore/EDGECORE-SMON-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:11 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+rnd, = mibBuilder.importSymbols("EDGECORE-MIB", "rnd")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+class CopyModeType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("monitor-only", 1), ("network", 2))
+
+rlSmon = ModuleIdentity((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 84))
+rlSmon.setRevisions(('2007-01-02 00:00',))
+if mibBuilder.loadTexts: rlSmon.setLastUpdated('200701020000Z')
+if mibBuilder.loadTexts: rlSmon.setOrganization('Radlan - a MARVELL company. Marvell Semiconductor, Inc.')
+rlPortCopyMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 84, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlPortCopyMibVersion.setStatus('current')
+rlPortCopySupport = MibScalar((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 84, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("supported", 1), ("notSupported", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlPortCopySupport.setStatus('current')
+rlPortCopyVlanTaggingTable = MibTable((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 84, 3), )
+if mibBuilder.loadTexts: rlPortCopyVlanTaggingTable.setStatus('current')
+rlPortCopyVlanTaggingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 84, 3, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: rlPortCopyVlanTaggingEntry.setStatus('current')
+rlPortCopyVlanTagging = MibTableColumn((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 84, 3, 1, 1), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlPortCopyVlanTagging.setStatus('current')
+rlPortCopyMode = MibScalar((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 84, 4), CopyModeType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlPortCopyMode.setStatus('current')
+mibBuilder.exportSymbols("EDGECORE-SMON-MIB", rlPortCopyVlanTaggingEntry=rlPortCopyVlanTaggingEntry, rlPortCopyMode=rlPortCopyMode, rlPortCopySupport=rlPortCopySupport, rlPortCopyMibVersion=rlPortCopyMibVersion, rlSmon=rlSmon, rlPortCopyVlanTaggingTable=rlPortCopyVlanTaggingTable, rlPortCopyVlanTagging=rlPortCopyVlanTagging, PYSNMP_MODULE_ID=rlSmon, CopyModeType=CopyModeType)

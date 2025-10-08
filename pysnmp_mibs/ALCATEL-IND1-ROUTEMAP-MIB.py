@@ -1,271 +1,132 @@
-_n='alaRouteMapRedistProtoGroup'
-_m='alaRouteMapConfigMIBGroup'
-_l='alaRouteMapRedistStatus'
-_k='alaRouteMapRedistRowStatus'
-_j='alaRouteMapRedistAddressType'
-_i='alaRouteMapRowStatus'
-_h='alaRouteMapSequenceRowStatus'
-_g='alaRouteMapSequenceAction'
-_f='alaRouteMapNameRowStatus'
-_e='alaRouteMapNameIndex'
-_d='alaRouteMapAccessListRowStatus'
-_c='alaRouteMapAccessListAction'
-_b='alaRouteMapAccessListRedistControl'
-_a='alaRouteMapAccessListNameRowStatus'
-_Z='alaRouteMapAccessListNameAddressType'
-_Y='alaRouteMapAccessListNameIndex'
-_X='alaRouteMapValue'
-_W='alaRouteMapType'
-_V='alaRouteMapSequence'
-_U='alaRouteMapIndex'
-_T='alaRouteMapSequenceNumber'
-_S='alaRouteMapSequenceIndex'
-_R='alaRouteMapName'
-_Q='alaRouteMapAccessListPrefixLength'
-_P='alaRouteMapAccessListAddress'
-_O='alaRouteMapAccessListAddressType'
-_N='alaRouteMapAccessListIndex'
-_M='alaRouteMapAccessListName'
-_L='ospfv3'
-_K='alaRouteMapRedistRouteMapIndex'
-_J='alaRouteMapRedistDestProtoId'
-_I='alaRouteMapRedistSrcProtoId'
-_H='read-only'
-_G='DisplayString'
-_F='Integer32'
-_E='Unsigned32'
-_D='read-create'
-_C='not-accessible'
-_B='ALCATEL-IND1-ROUTEMAP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-routingIND1Iprm,=mibBuilder.importSymbols('ALCATEL-IND1-BASE','routingIND1Iprm')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_G,'PhysAddress','RowStatus','TextualConvention')
-alcatelIND1RouteMapMIB=ModuleIdentity((1,3,6,1,4,1,6486,800,1,2,1,10,2,3))
-if mibBuilder.loadTexts:alcatelIND1RouteMapMIB.setRevisions(('2007-04-03 00:00',))
-class AlaRouteMapType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,129,130,131,132,133,134,135,136)));namedValues=NamedValues(*(('matchIpAccesList',1),('matchIpAddress',2),('matchIpNextHopAccessList',3),('matchIpNextHopAddress',4),('matchIpv6AccessList',5),('matchIpv6Address',6),('matchIpv6nExtHopAccessList',7),('matchIpv6NextHopAddress',8),('matchTag',9),('matchIpv4Interface',10),('matchIpv6Interface',11),('matchMetric',12),('matchRouteType',13),('setMetric',129),('setMetricType',130),('setTag',131),('setCommunity',132),('setLocalPreference',133),('setLevel',134),('setIpNexthop',135),('setIpv6Nexthop',136)))
-class AlaRouteMapAction(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('permit',1),('deny',2)))
-class AlaRouteMapRedistControl(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('allSubnets',1),('noSubnets',2),('aggregate',3)))
-_AlcatelIND1RouteMapMIBObjects_ObjectIdentity=ObjectIdentity
-alcatelIND1RouteMapMIBObjects=_AlcatelIND1RouteMapMIBObjects_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1))
-_AlaRouteMapConfig_ObjectIdentity=ObjectIdentity
-alaRouteMapConfig=_AlaRouteMapConfig_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1))
-_AlaRouteMapRedistProtoTable_Object=MibTable
-alaRouteMapRedistProtoTable=_AlaRouteMapRedistProtoTable_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,1))
-if mibBuilder.loadTexts:alaRouteMapRedistProtoTable.setStatus(_A)
-_AlaRouteMapRedistProtoEntry_Object=MibTableRow
-alaRouteMapRedistProtoEntry=_AlaRouteMapRedistProtoEntry_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,1,1))
-alaRouteMapRedistProtoEntry.setIndexNames((0,_B,_I),(0,_B,_J),(0,_B,_K))
-if mibBuilder.loadTexts:alaRouteMapRedistProtoEntry.setStatus(_A)
-class _AlaRouteMapRedistSrcProtoId_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('other',1),('local',2),('static',3),('rip',4),('ospf',5),('bgp',6),('ripng',7),(_L,8),('bgp6',9),('isis',10),('isis6',11)))
-_AlaRouteMapRedistSrcProtoId_Type.__name__=_F
-_AlaRouteMapRedistSrcProtoId_Object=MibTableColumn
-alaRouteMapRedistSrcProtoId=_AlaRouteMapRedistSrcProtoId_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,1,1,1),_AlaRouteMapRedistSrcProtoId_Type())
-alaRouteMapRedistSrcProtoId.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaRouteMapRedistSrcProtoId.setStatus(_A)
-class _AlaRouteMapRedistDestProtoId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('rip',1),('ospf',2),('bgp',3),('ripng',4),(_L,5),('bgp6',6),('isis',7),('isis6',8)))
-_AlaRouteMapRedistDestProtoId_Type.__name__=_F
-_AlaRouteMapRedistDestProtoId_Object=MibTableColumn
-alaRouteMapRedistDestProtoId=_AlaRouteMapRedistDestProtoId_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,1,1,2),_AlaRouteMapRedistDestProtoId_Type())
-alaRouteMapRedistDestProtoId.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaRouteMapRedistDestProtoId.setStatus(_A)
-_AlaRouteMapRedistRouteMapIndex_Type=Unsigned32
-_AlaRouteMapRedistRouteMapIndex_Object=MibTableColumn
-alaRouteMapRedistRouteMapIndex=_AlaRouteMapRedistRouteMapIndex_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,1,1,3),_AlaRouteMapRedistRouteMapIndex_Type())
-alaRouteMapRedistRouteMapIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaRouteMapRedistRouteMapIndex.setStatus(_A)
-class _AlaRouteMapRedistStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_AlaRouteMapRedistStatus_Type.__name__=_F
-_AlaRouteMapRedistStatus_Object=MibTableColumn
-alaRouteMapRedistStatus=_AlaRouteMapRedistStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,1,1,4),_AlaRouteMapRedistStatus_Type())
-alaRouteMapRedistStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaRouteMapRedistStatus.setStatus(_A)
-_AlaRouteMapRedistAddressType_Type=InetAddressType
-_AlaRouteMapRedistAddressType_Object=MibTableColumn
-alaRouteMapRedistAddressType=_AlaRouteMapRedistAddressType_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,1,1,5),_AlaRouteMapRedistAddressType_Type())
-alaRouteMapRedistAddressType.setMaxAccess(_H)
-if mibBuilder.loadTexts:alaRouteMapRedistAddressType.setStatus(_A)
-_AlaRouteMapRedistRowStatus_Type=RowStatus
-_AlaRouteMapRedistRowStatus_Object=MibTableColumn
-alaRouteMapRedistRowStatus=_AlaRouteMapRedistRowStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,1,1,6),_AlaRouteMapRedistRowStatus_Type())
-alaRouteMapRedistRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaRouteMapRedistRowStatus.setStatus(_A)
-_AlaRouteMapAccessListNameTable_Object=MibTable
-alaRouteMapAccessListNameTable=_AlaRouteMapAccessListNameTable_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,2))
-if mibBuilder.loadTexts:alaRouteMapAccessListNameTable.setStatus(_A)
-_AlaRouteMapAccessListNameEntry_Object=MibTableRow
-alaRouteMapAccessListNameEntry=_AlaRouteMapAccessListNameEntry_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,2,1))
-alaRouteMapAccessListNameEntry.setIndexNames((0,_B,_M))
-if mibBuilder.loadTexts:alaRouteMapAccessListNameEntry.setStatus(_A)
-class _AlaRouteMapAccessListName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,20))
-_AlaRouteMapAccessListName_Type.__name__=_G
-_AlaRouteMapAccessListName_Object=MibTableColumn
-alaRouteMapAccessListName=_AlaRouteMapAccessListName_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,2,1,1),_AlaRouteMapAccessListName_Type())
-alaRouteMapAccessListName.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaRouteMapAccessListName.setStatus(_A)
-_AlaRouteMapAccessListNameIndex_Type=Unsigned32
-_AlaRouteMapAccessListNameIndex_Object=MibTableColumn
-alaRouteMapAccessListNameIndex=_AlaRouteMapAccessListNameIndex_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,2,1,2),_AlaRouteMapAccessListNameIndex_Type())
-alaRouteMapAccessListNameIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:alaRouteMapAccessListNameIndex.setStatus(_A)
-_AlaRouteMapAccessListNameAddressType_Type=InetAddressType
-_AlaRouteMapAccessListNameAddressType_Object=MibTableColumn
-alaRouteMapAccessListNameAddressType=_AlaRouteMapAccessListNameAddressType_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,2,1,3),_AlaRouteMapAccessListNameAddressType_Type())
-alaRouteMapAccessListNameAddressType.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaRouteMapAccessListNameAddressType.setStatus(_A)
-_AlaRouteMapAccessListNameRowStatus_Type=RowStatus
-_AlaRouteMapAccessListNameRowStatus_Object=MibTableColumn
-alaRouteMapAccessListNameRowStatus=_AlaRouteMapAccessListNameRowStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,2,1,4),_AlaRouteMapAccessListNameRowStatus_Type())
-alaRouteMapAccessListNameRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaRouteMapAccessListNameRowStatus.setStatus(_A)
-_AlaRouteMapAccessListTable_Object=MibTable
-alaRouteMapAccessListTable=_AlaRouteMapAccessListTable_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,3))
-if mibBuilder.loadTexts:alaRouteMapAccessListTable.setStatus(_A)
-_AlaRouteMapAccessListEntry_Object=MibTableRow
-alaRouteMapAccessListEntry=_AlaRouteMapAccessListEntry_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,3,1))
-alaRouteMapAccessListEntry.setIndexNames((0,_B,_N),(0,_B,_O),(0,_B,_P),(0,_B,_Q))
-if mibBuilder.loadTexts:alaRouteMapAccessListEntry.setStatus(_A)
-class _AlaRouteMapAccessListIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AlaRouteMapAccessListIndex_Type.__name__=_E
-_AlaRouteMapAccessListIndex_Object=MibTableColumn
-alaRouteMapAccessListIndex=_AlaRouteMapAccessListIndex_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,3,1,1),_AlaRouteMapAccessListIndex_Type())
-alaRouteMapAccessListIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaRouteMapAccessListIndex.setStatus(_A)
-_AlaRouteMapAccessListAddressType_Type=InetAddressType
-_AlaRouteMapAccessListAddressType_Object=MibTableColumn
-alaRouteMapAccessListAddressType=_AlaRouteMapAccessListAddressType_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,3,1,2),_AlaRouteMapAccessListAddressType_Type())
-alaRouteMapAccessListAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaRouteMapAccessListAddressType.setStatus(_A)
-_AlaRouteMapAccessListAddress_Type=InetAddress
-_AlaRouteMapAccessListAddress_Object=MibTableColumn
-alaRouteMapAccessListAddress=_AlaRouteMapAccessListAddress_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,3,1,3),_AlaRouteMapAccessListAddress_Type())
-alaRouteMapAccessListAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaRouteMapAccessListAddress.setStatus(_A)
-class _AlaRouteMapAccessListPrefixLength_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_AlaRouteMapAccessListPrefixLength_Type.__name__=_E
-_AlaRouteMapAccessListPrefixLength_Object=MibTableColumn
-alaRouteMapAccessListPrefixLength=_AlaRouteMapAccessListPrefixLength_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,3,1,4),_AlaRouteMapAccessListPrefixLength_Type())
-alaRouteMapAccessListPrefixLength.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaRouteMapAccessListPrefixLength.setStatus(_A)
-_AlaRouteMapAccessListRedistControl_Type=AlaRouteMapRedistControl
-_AlaRouteMapAccessListRedistControl_Object=MibTableColumn
-alaRouteMapAccessListRedistControl=_AlaRouteMapAccessListRedistControl_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,3,1,5),_AlaRouteMapAccessListRedistControl_Type())
-alaRouteMapAccessListRedistControl.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaRouteMapAccessListRedistControl.setStatus(_A)
-_AlaRouteMapAccessListAction_Type=AlaRouteMapAction
-_AlaRouteMapAccessListAction_Object=MibTableColumn
-alaRouteMapAccessListAction=_AlaRouteMapAccessListAction_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,3,1,6),_AlaRouteMapAccessListAction_Type())
-alaRouteMapAccessListAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaRouteMapAccessListAction.setStatus(_A)
-_AlaRouteMapAccessListRowStatus_Type=RowStatus
-_AlaRouteMapAccessListRowStatus_Object=MibTableColumn
-alaRouteMapAccessListRowStatus=_AlaRouteMapAccessListRowStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,3,1,7),_AlaRouteMapAccessListRowStatus_Type())
-alaRouteMapAccessListRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaRouteMapAccessListRowStatus.setStatus(_A)
-_AlaRouteMapNameTable_Object=MibTable
-alaRouteMapNameTable=_AlaRouteMapNameTable_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,4))
-if mibBuilder.loadTexts:alaRouteMapNameTable.setStatus(_A)
-_AlaRouteMapNameEntry_Object=MibTableRow
-alaRouteMapNameEntry=_AlaRouteMapNameEntry_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,4,1))
-alaRouteMapNameEntry.setIndexNames((0,_B,_R))
-if mibBuilder.loadTexts:alaRouteMapNameEntry.setStatus(_A)
-class _AlaRouteMapName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,20))
-_AlaRouteMapName_Type.__name__=_G
-_AlaRouteMapName_Object=MibTableColumn
-alaRouteMapName=_AlaRouteMapName_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,4,1,1),_AlaRouteMapName_Type())
-alaRouteMapName.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaRouteMapName.setStatus(_A)
-_AlaRouteMapNameIndex_Type=Unsigned32
-_AlaRouteMapNameIndex_Object=MibTableColumn
-alaRouteMapNameIndex=_AlaRouteMapNameIndex_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,4,1,2),_AlaRouteMapNameIndex_Type())
-alaRouteMapNameIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:alaRouteMapNameIndex.setStatus(_A)
-_AlaRouteMapNameRowStatus_Type=RowStatus
-_AlaRouteMapNameRowStatus_Object=MibTableColumn
-alaRouteMapNameRowStatus=_AlaRouteMapNameRowStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,4,1,3),_AlaRouteMapNameRowStatus_Type())
-alaRouteMapNameRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaRouteMapNameRowStatus.setStatus(_A)
-_AlaRouteMapSequenceTable_Object=MibTable
-alaRouteMapSequenceTable=_AlaRouteMapSequenceTable_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,5))
-if mibBuilder.loadTexts:alaRouteMapSequenceTable.setStatus(_A)
-_AlaRouteMapSequenceEntry_Object=MibTableRow
-alaRouteMapSequenceEntry=_AlaRouteMapSequenceEntry_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,5,1))
-alaRouteMapSequenceEntry.setIndexNames((0,_B,_S),(0,_B,_T))
-if mibBuilder.loadTexts:alaRouteMapSequenceEntry.setStatus(_A)
-_AlaRouteMapSequenceIndex_Type=Unsigned32
-_AlaRouteMapSequenceIndex_Object=MibTableColumn
-alaRouteMapSequenceIndex=_AlaRouteMapSequenceIndex_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,5,1,1),_AlaRouteMapSequenceIndex_Type())
-alaRouteMapSequenceIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaRouteMapSequenceIndex.setStatus(_A)
-class _AlaRouteMapSequenceNumber_Type(Unsigned32):defaultValue=50;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_AlaRouteMapSequenceNumber_Type.__name__=_E
-_AlaRouteMapSequenceNumber_Object=MibTableColumn
-alaRouteMapSequenceNumber=_AlaRouteMapSequenceNumber_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,5,1,2),_AlaRouteMapSequenceNumber_Type())
-alaRouteMapSequenceNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaRouteMapSequenceNumber.setStatus(_A)
-_AlaRouteMapSequenceAction_Type=AlaRouteMapAction
-_AlaRouteMapSequenceAction_Object=MibTableColumn
-alaRouteMapSequenceAction=_AlaRouteMapSequenceAction_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,5,1,3),_AlaRouteMapSequenceAction_Type())
-alaRouteMapSequenceAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaRouteMapSequenceAction.setStatus(_A)
-_AlaRouteMapSequenceRowStatus_Type=RowStatus
-_AlaRouteMapSequenceRowStatus_Object=MibTableColumn
-alaRouteMapSequenceRowStatus=_AlaRouteMapSequenceRowStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,5,1,4),_AlaRouteMapSequenceRowStatus_Type())
-alaRouteMapSequenceRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaRouteMapSequenceRowStatus.setStatus(_A)
-_AlaRouteMapTable_Object=MibTable
-alaRouteMapTable=_AlaRouteMapTable_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,6))
-if mibBuilder.loadTexts:alaRouteMapTable.setStatus(_A)
-_AlaRouteMapEntry_Object=MibTableRow
-alaRouteMapEntry=_AlaRouteMapEntry_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,6,1))
-alaRouteMapEntry.setIndexNames((0,_B,_U),(0,_B,_V),(0,_B,_W),(0,_B,_X))
-if mibBuilder.loadTexts:alaRouteMapEntry.setStatus(_A)
-_AlaRouteMapIndex_Type=Unsigned32
-_AlaRouteMapIndex_Object=MibTableColumn
-alaRouteMapIndex=_AlaRouteMapIndex_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,6,1,1),_AlaRouteMapIndex_Type())
-alaRouteMapIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaRouteMapIndex.setStatus(_A)
-class _AlaRouteMapSequence_Type(Unsigned32):defaultValue=50;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_AlaRouteMapSequence_Type.__name__=_E
-_AlaRouteMapSequence_Object=MibTableColumn
-alaRouteMapSequence=_AlaRouteMapSequence_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,6,1,2),_AlaRouteMapSequence_Type())
-alaRouteMapSequence.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaRouteMapSequence.setStatus(_A)
-_AlaRouteMapType_Type=AlaRouteMapType
-_AlaRouteMapType_Object=MibTableColumn
-alaRouteMapType=_AlaRouteMapType_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,6,1,3),_AlaRouteMapType_Type())
-alaRouteMapType.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaRouteMapType.setStatus(_A)
-class _AlaRouteMapValue_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,128))
-_AlaRouteMapValue_Type.__name__=_G
-_AlaRouteMapValue_Object=MibTableColumn
-alaRouteMapValue=_AlaRouteMapValue_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,6,1,4),_AlaRouteMapValue_Type())
-alaRouteMapValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaRouteMapValue.setStatus(_A)
-_AlaRouteMapRowStatus_Type=RowStatus
-_AlaRouteMapRowStatus_Object=MibTableColumn
-alaRouteMapRowStatus=_AlaRouteMapRowStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,1,1,6,1,5),_AlaRouteMapRowStatus_Type())
-alaRouteMapRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaRouteMapRowStatus.setStatus(_A)
-_AlcatelIND1RouteMapMIBConformance_ObjectIdentity=ObjectIdentity
-alcatelIND1RouteMapMIBConformance=_AlcatelIND1RouteMapMIBConformance_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,2))
-_AlcatelIND1RouteMapMIBCompliances_ObjectIdentity=ObjectIdentity
-alcatelIND1RouteMapMIBCompliances=_AlcatelIND1RouteMapMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,2,1))
-_AlcatelIND1RouteMapMIBGroups_ObjectIdentity=ObjectIdentity
-alcatelIND1RouteMapMIBGroups=_AlcatelIND1RouteMapMIBGroups_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,2,2))
-alaRouteMapConfigMIBGroup=ObjectGroup((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,2,2,1))
-alaRouteMapConfigMIBGroup.setObjects(*((_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i)))
-if mibBuilder.loadTexts:alaRouteMapConfigMIBGroup.setStatus(_A)
-alaRouteMapRedistProtoGroup=ObjectGroup((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,2,2,2))
-alaRouteMapRedistProtoGroup.setObjects(*((_B,_j),(_B,_k),(_B,_l)))
-if mibBuilder.loadTexts:alaRouteMapRedistProtoGroup.setStatus(_A)
-alaRouteMapCompliance=ModuleCompliance((1,3,6,1,4,1,6486,800,1,2,1,10,2,3,2,1,1))
-alaRouteMapCompliance.setObjects(*((_B,_m),(_B,_n)))
-if mibBuilder.loadTexts:alaRouteMapCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'AlaRouteMapType':AlaRouteMapType,'AlaRouteMapAction':AlaRouteMapAction,'AlaRouteMapRedistControl':AlaRouteMapRedistControl,'alcatelIND1RouteMapMIB':alcatelIND1RouteMapMIB,'alcatelIND1RouteMapMIBObjects':alcatelIND1RouteMapMIBObjects,'alaRouteMapConfig':alaRouteMapConfig,'alaRouteMapRedistProtoTable':alaRouteMapRedistProtoTable,'alaRouteMapRedistProtoEntry':alaRouteMapRedistProtoEntry,_I:alaRouteMapRedistSrcProtoId,_J:alaRouteMapRedistDestProtoId,_K:alaRouteMapRedistRouteMapIndex,_l:alaRouteMapRedistStatus,_j:alaRouteMapRedistAddressType,_k:alaRouteMapRedistRowStatus,'alaRouteMapAccessListNameTable':alaRouteMapAccessListNameTable,'alaRouteMapAccessListNameEntry':alaRouteMapAccessListNameEntry,_M:alaRouteMapAccessListName,_Y:alaRouteMapAccessListNameIndex,_Z:alaRouteMapAccessListNameAddressType,_a:alaRouteMapAccessListNameRowStatus,'alaRouteMapAccessListTable':alaRouteMapAccessListTable,'alaRouteMapAccessListEntry':alaRouteMapAccessListEntry,_N:alaRouteMapAccessListIndex,_O:alaRouteMapAccessListAddressType,_P:alaRouteMapAccessListAddress,_Q:alaRouteMapAccessListPrefixLength,_b:alaRouteMapAccessListRedistControl,_c:alaRouteMapAccessListAction,_d:alaRouteMapAccessListRowStatus,'alaRouteMapNameTable':alaRouteMapNameTable,'alaRouteMapNameEntry':alaRouteMapNameEntry,_R:alaRouteMapName,_e:alaRouteMapNameIndex,_f:alaRouteMapNameRowStatus,'alaRouteMapSequenceTable':alaRouteMapSequenceTable,'alaRouteMapSequenceEntry':alaRouteMapSequenceEntry,_S:alaRouteMapSequenceIndex,_T:alaRouteMapSequenceNumber,_g:alaRouteMapSequenceAction,_h:alaRouteMapSequenceRowStatus,'alaRouteMapTable':alaRouteMapTable,'alaRouteMapEntry':alaRouteMapEntry,_U:alaRouteMapIndex,_V:alaRouteMapSequence,_W:alaRouteMapType,_X:alaRouteMapValue,_i:alaRouteMapRowStatus,'alcatelIND1RouteMapMIBConformance':alcatelIND1RouteMapMIBConformance,'alcatelIND1RouteMapMIBCompliances':alcatelIND1RouteMapMIBCompliances,'alaRouteMapCompliance':alaRouteMapCompliance,'alcatelIND1RouteMapMIBGroups':alcatelIND1RouteMapMIBGroups,_m:alaRouteMapConfigMIBGroup,_n:alaRouteMapRedistProtoGroup})
+#
+# PySNMP MIB module ALCATEL-IND1-ROUTEMAP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel/ALCATEL-IND1-ROUTEMAP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:58 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+routingIND1Iprm, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "routingIND1Iprm")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+alcatelIND1RouteMapMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3))
+alcatelIND1RouteMapMIB.setRevisions(('2007-04-03 00:00',))
+if mibBuilder.loadTexts: alcatelIND1RouteMapMIB.setLastUpdated('200704030000Z')
+if mibBuilder.loadTexts: alcatelIND1RouteMapMIB.setOrganization('Alcatel-Lucent')
+alcatelIND1RouteMapMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1))
+alaRouteMapConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1))
+class AlaRouteMapType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 129, 130, 131, 132, 133, 134, 135, 136))
+    namedValues = NamedValues(("matchIpAccesList", 1), ("matchIpAddress", 2), ("matchIpNextHopAccessList", 3), ("matchIpNextHopAddress", 4), ("matchIpv6AccessList", 5), ("matchIpv6Address", 6), ("matchIpv6nExtHopAccessList", 7), ("matchIpv6NextHopAddress", 8), ("matchTag", 9), ("matchIpv4Interface", 10), ("matchIpv6Interface", 11), ("matchMetric", 12), ("matchRouteType", 13), ("setMetric", 129), ("setMetricType", 130), ("setTag", 131), ("setCommunity", 132), ("setLocalPreference", 133), ("setLevel", 134), ("setIpNexthop", 135), ("setIpv6Nexthop", 136))
+
+class AlaRouteMapAction(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("permit", 1), ("deny", 2))
+
+class AlaRouteMapRedistControl(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("allSubnets", 1), ("noSubnets", 2), ("aggregate", 3))
+
+alaRouteMapRedistProtoTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 1), )
+if mibBuilder.loadTexts: alaRouteMapRedistProtoTable.setStatus('current')
+alaRouteMapRedistProtoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 1, 1), ).setIndexNames((0, "ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapRedistSrcProtoId"), (0, "ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapRedistDestProtoId"), (0, "ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapRedistRouteMapIndex"))
+if mibBuilder.loadTexts: alaRouteMapRedistProtoEntry.setStatus('current')
+alaRouteMapRedistSrcProtoId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("other", 1), ("local", 2), ("static", 3), ("rip", 4), ("ospf", 5), ("bgp", 6), ("ripng", 7), ("ospfv3", 8), ("bgp6", 9), ("isis", 10), ("isis6", 11))).clone('other'))
+if mibBuilder.loadTexts: alaRouteMapRedistSrcProtoId.setStatus('current')
+alaRouteMapRedistDestProtoId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("rip", 1), ("ospf", 2), ("bgp", 3), ("ripng", 4), ("ospfv3", 5), ("bgp6", 6), ("isis", 7), ("isis6", 8))))
+if mibBuilder.loadTexts: alaRouteMapRedistDestProtoId.setStatus('current')
+alaRouteMapRedistRouteMapIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 1, 1, 3), Unsigned32())
+if mibBuilder.loadTexts: alaRouteMapRedistRouteMapIndex.setStatus('current')
+alaRouteMapRedistStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: alaRouteMapRedistStatus.setStatus('current')
+alaRouteMapRedistAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 1, 1, 5), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaRouteMapRedistAddressType.setStatus('current')
+alaRouteMapRedistRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: alaRouteMapRedistRowStatus.setStatus('current')
+alaRouteMapAccessListNameTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 2), )
+if mibBuilder.loadTexts: alaRouteMapAccessListNameTable.setStatus('current')
+alaRouteMapAccessListNameEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 2, 1), ).setIndexNames((0, "ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapAccessListName"))
+if mibBuilder.loadTexts: alaRouteMapAccessListNameEntry.setStatus('current')
+alaRouteMapAccessListName = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 20)))
+if mibBuilder.loadTexts: alaRouteMapAccessListName.setStatus('current')
+alaRouteMapAccessListNameIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaRouteMapAccessListNameIndex.setStatus('current')
+alaRouteMapAccessListNameAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 2, 1, 3), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: alaRouteMapAccessListNameAddressType.setStatus('current')
+alaRouteMapAccessListNameRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: alaRouteMapAccessListNameRowStatus.setStatus('current')
+alaRouteMapAccessListTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 3), )
+if mibBuilder.loadTexts: alaRouteMapAccessListTable.setStatus('current')
+alaRouteMapAccessListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 3, 1), ).setIndexNames((0, "ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapAccessListIndex"), (0, "ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapAccessListAddressType"), (0, "ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapAccessListAddress"), (0, "ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapAccessListPrefixLength"))
+if mibBuilder.loadTexts: alaRouteMapAccessListEntry.setStatus('current')
+alaRouteMapAccessListIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: alaRouteMapAccessListIndex.setStatus('current')
+alaRouteMapAccessListAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 3, 1, 2), InetAddressType())
+if mibBuilder.loadTexts: alaRouteMapAccessListAddressType.setStatus('current')
+alaRouteMapAccessListAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 3, 1, 3), InetAddress())
+if mibBuilder.loadTexts: alaRouteMapAccessListAddress.setStatus('current')
+alaRouteMapAccessListPrefixLength = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 3, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 128)))
+if mibBuilder.loadTexts: alaRouteMapAccessListPrefixLength.setStatus('current')
+alaRouteMapAccessListRedistControl = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 3, 1, 5), AlaRouteMapRedistControl()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: alaRouteMapAccessListRedistControl.setStatus('current')
+alaRouteMapAccessListAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 3, 1, 6), AlaRouteMapAction()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: alaRouteMapAccessListAction.setStatus('current')
+alaRouteMapAccessListRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 3, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: alaRouteMapAccessListRowStatus.setStatus('current')
+alaRouteMapNameTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 4), )
+if mibBuilder.loadTexts: alaRouteMapNameTable.setStatus('current')
+alaRouteMapNameEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 4, 1), ).setIndexNames((0, "ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapName"))
+if mibBuilder.loadTexts: alaRouteMapNameEntry.setStatus('current')
+alaRouteMapName = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 4, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 20)))
+if mibBuilder.loadTexts: alaRouteMapName.setStatus('current')
+alaRouteMapNameIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 4, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaRouteMapNameIndex.setStatus('current')
+alaRouteMapNameRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 4, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: alaRouteMapNameRowStatus.setStatus('current')
+alaRouteMapSequenceTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 5), )
+if mibBuilder.loadTexts: alaRouteMapSequenceTable.setStatus('current')
+alaRouteMapSequenceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 5, 1), ).setIndexNames((0, "ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapSequenceIndex"), (0, "ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapSequenceNumber"))
+if mibBuilder.loadTexts: alaRouteMapSequenceEntry.setStatus('current')
+alaRouteMapSequenceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 5, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: alaRouteMapSequenceIndex.setStatus('current')
+alaRouteMapSequenceNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 5, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(50))
+if mibBuilder.loadTexts: alaRouteMapSequenceNumber.setStatus('current')
+alaRouteMapSequenceAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 5, 1, 3), AlaRouteMapAction()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: alaRouteMapSequenceAction.setStatus('current')
+alaRouteMapSequenceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 5, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: alaRouteMapSequenceRowStatus.setStatus('current')
+alaRouteMapTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 6), )
+if mibBuilder.loadTexts: alaRouteMapTable.setStatus('current')
+alaRouteMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 6, 1), ).setIndexNames((0, "ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapIndex"), (0, "ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapSequence"), (0, "ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapType"), (0, "ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapValue"))
+if mibBuilder.loadTexts: alaRouteMapEntry.setStatus('current')
+alaRouteMapIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 6, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: alaRouteMapIndex.setStatus('current')
+alaRouteMapSequence = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 6, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100)).clone(50))
+if mibBuilder.loadTexts: alaRouteMapSequence.setStatus('current')
+alaRouteMapType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 6, 1, 3), AlaRouteMapType())
+if mibBuilder.loadTexts: alaRouteMapType.setStatus('current')
+alaRouteMapValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 6, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 128)))
+if mibBuilder.loadTexts: alaRouteMapValue.setStatus('current')
+alaRouteMapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 1, 1, 6, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: alaRouteMapRowStatus.setStatus('current')
+alcatelIND1RouteMapMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 2))
+alcatelIND1RouteMapMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 2, 1))
+alcatelIND1RouteMapMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 2, 2))
+alaRouteMapCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 2, 1, 1)).setObjects(("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapConfigMIBGroup"), ("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapRedistProtoGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaRouteMapCompliance = alaRouteMapCompliance.setStatus('current')
+alaRouteMapConfigMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 2, 2, 1)).setObjects(("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapAccessListNameIndex"), ("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapAccessListNameAddressType"), ("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapAccessListNameRowStatus"), ("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapAccessListRedistControl"), ("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapAccessListAction"), ("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapAccessListRowStatus"), ("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapNameIndex"), ("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapNameRowStatus"), ("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapSequenceAction"), ("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapSequenceRowStatus"), ("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaRouteMapConfigMIBGroup = alaRouteMapConfigMIBGroup.setStatus('current')
+alaRouteMapRedistProtoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 2, 3, 2, 2, 2)).setObjects(("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapRedistAddressType"), ("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapRedistRowStatus"), ("ALCATEL-IND1-ROUTEMAP-MIB", "alaRouteMapRedistStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaRouteMapRedistProtoGroup = alaRouteMapRedistProtoGroup.setStatus('current')
+mibBuilder.exportSymbols("ALCATEL-IND1-ROUTEMAP-MIB", alaRouteMapRedistSrcProtoId=alaRouteMapRedistSrcProtoId, alaRouteMapRedistRouteMapIndex=alaRouteMapRedistRouteMapIndex, alaRouteMapRowStatus=alaRouteMapRowStatus, alaRouteMapNameEntry=alaRouteMapNameEntry, alaRouteMapIndex=alaRouteMapIndex, AlaRouteMapRedistControl=AlaRouteMapRedistControl, alaRouteMapAccessListTable=alaRouteMapAccessListTable, alaRouteMapAccessListRedistControl=alaRouteMapAccessListRedistControl, alaRouteMapTable=alaRouteMapTable, alaRouteMapSequence=alaRouteMapSequence, alaRouteMapCompliance=alaRouteMapCompliance, alaRouteMapNameRowStatus=alaRouteMapNameRowStatus, alaRouteMapSequenceIndex=alaRouteMapSequenceIndex, alaRouteMapAccessListAddressType=alaRouteMapAccessListAddressType, alaRouteMapNameIndex=alaRouteMapNameIndex, alcatelIND1RouteMapMIBGroups=alcatelIND1RouteMapMIBGroups, alaRouteMapAccessListNameAddressType=alaRouteMapAccessListNameAddressType, PYSNMP_MODULE_ID=alcatelIND1RouteMapMIB, alcatelIND1RouteMapMIB=alcatelIND1RouteMapMIB, AlaRouteMapType=AlaRouteMapType, alaRouteMapAccessListName=alaRouteMapAccessListName, alaRouteMapAccessListNameIndex=alaRouteMapAccessListNameIndex, alaRouteMapEntry=alaRouteMapEntry, alaRouteMapValue=alaRouteMapValue, alaRouteMapRedistProtoGroup=alaRouteMapRedistProtoGroup, alaRouteMapSequenceEntry=alaRouteMapSequenceEntry, alaRouteMapRedistRowStatus=alaRouteMapRedistRowStatus, alaRouteMapRedistProtoTable=alaRouteMapRedistProtoTable, alaRouteMapConfig=alaRouteMapConfig, alcatelIND1RouteMapMIBObjects=alcatelIND1RouteMapMIBObjects, alaRouteMapRedistDestProtoId=alaRouteMapRedistDestProtoId, alcatelIND1RouteMapMIBConformance=alcatelIND1RouteMapMIBConformance, alaRouteMapConfigMIBGroup=alaRouteMapConfigMIBGroup, alaRouteMapAccessListRowStatus=alaRouteMapAccessListRowStatus, alaRouteMapRedistProtoEntry=alaRouteMapRedistProtoEntry, alaRouteMapAccessListNameRowStatus=alaRouteMapAccessListNameRowStatus, alaRouteMapAccessListAction=alaRouteMapAccessListAction, alaRouteMapSequenceRowStatus=alaRouteMapSequenceRowStatus, alaRouteMapNameTable=alaRouteMapNameTable, alaRouteMapSequenceNumber=alaRouteMapSequenceNumber, alaRouteMapAccessListEntry=alaRouteMapAccessListEntry, alaRouteMapRedistStatus=alaRouteMapRedistStatus, alaRouteMapRedistAddressType=alaRouteMapRedistAddressType, alaRouteMapName=alaRouteMapName, AlaRouteMapAction=AlaRouteMapAction, alaRouteMapSequenceTable=alaRouteMapSequenceTable, alcatelIND1RouteMapMIBCompliances=alcatelIND1RouteMapMIBCompliances, alaRouteMapType=alaRouteMapType, alaRouteMapAccessListIndex=alaRouteMapAccessListIndex, alaRouteMapSequenceAction=alaRouteMapSequenceAction, alaRouteMapAccessListAddress=alaRouteMapAccessListAddress, alaRouteMapAccessListPrefixLength=alaRouteMapAccessListPrefixLength, alaRouteMapAccessListNameEntry=alaRouteMapAccessListNameEntry, alaRouteMapAccessListNameTable=alaRouteMapAccessListNameTable)

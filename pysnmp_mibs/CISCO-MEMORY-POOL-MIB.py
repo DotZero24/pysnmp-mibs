@@ -1,161 +1,95 @@
-_a='ciscoMemoryPoolNotificationCtrlGroup'
-_Z='ciscoMemoryPoolNotificationGroup'
-_Y='ciscoMemoryPoolGroupRev1'
-_X='ciscoMemoryPoolLowMemoryRecoveryNotif'
-_W='ciscoMemoryPoolLowMemoryNotif'
-_V='ciscoMemoryPoolLowMemoryNotifThreshold'
-_U='ciscoMemoryPoolLowMemoryNotifEnable'
-_T='ciscoMemoryPoolUtilization10Min'
-_S='ciscoMemoryPoolUtilization5Min'
-_R='ciscoMemoryPoolUtilization1Min'
-_Q='ciscoMemoryPoolUtilizationEntry'
-_P='read-write'
-_O='ciscoMemoryPoolType'
-_N='Integer32'
-_M='ciscoMemoryPoolUtilizationGroup'
-_L='ciscoMemoryPoolGroup'
-_K='deprecated'
-_J='ciscoMemoryPoolLargestFree'
-_I='ciscoMemoryPoolFree'
-_H='ciscoMemoryPoolValid'
-_G='ciscoMemoryPoolAlternate'
-_F='bytes'
-_E='ciscoMemoryPoolUsed'
-_D='ciscoMemoryPoolName'
-_C='read-only'
-_B='current'
-_A='CISCO-MEMORY-POOL-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-Percent,=mibBuilder.importSymbols('CISCO-QOS-PIB-MIB','Percent')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_N,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-ciscoMemoryPoolMIB=ModuleIdentity((1,3,6,1,4,1,9,9,48))
-if mibBuilder.loadTexts:ciscoMemoryPoolMIB.setRevisions(('2013-09-18 00:00','2001-07-31 00:00','1996-02-01 00:00'))
-class CiscoMemoryPoolTypes(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CiscoMemoryPoolObjects_ObjectIdentity=ObjectIdentity
-ciscoMemoryPoolObjects=_CiscoMemoryPoolObjects_ObjectIdentity((1,3,6,1,4,1,9,9,48,1))
-_CiscoMemoryPoolTable_Object=MibTable
-ciscoMemoryPoolTable=_CiscoMemoryPoolTable_Object((1,3,6,1,4,1,9,9,48,1,1))
-if mibBuilder.loadTexts:ciscoMemoryPoolTable.setStatus(_B)
-_CiscoMemoryPoolEntry_Object=MibTableRow
-ciscoMemoryPoolEntry=_CiscoMemoryPoolEntry_Object((1,3,6,1,4,1,9,9,48,1,1,1))
-ciscoMemoryPoolEntry.setIndexNames((0,_A,_O))
-if mibBuilder.loadTexts:ciscoMemoryPoolEntry.setStatus(_B)
-_CiscoMemoryPoolType_Type=CiscoMemoryPoolTypes
-_CiscoMemoryPoolType_Object=MibTableColumn
-ciscoMemoryPoolType=_CiscoMemoryPoolType_Object((1,3,6,1,4,1,9,9,48,1,1,1,1),_CiscoMemoryPoolType_Type())
-ciscoMemoryPoolType.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:ciscoMemoryPoolType.setStatus(_B)
-_CiscoMemoryPoolName_Type=DisplayString
-_CiscoMemoryPoolName_Object=MibTableColumn
-ciscoMemoryPoolName=_CiscoMemoryPoolName_Object((1,3,6,1,4,1,9,9,48,1,1,1,2),_CiscoMemoryPoolName_Type())
-ciscoMemoryPoolName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoMemoryPoolName.setStatus(_B)
-class _CiscoMemoryPoolAlternate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CiscoMemoryPoolAlternate_Type.__name__=_N
-_CiscoMemoryPoolAlternate_Object=MibTableColumn
-ciscoMemoryPoolAlternate=_CiscoMemoryPoolAlternate_Object((1,3,6,1,4,1,9,9,48,1,1,1,3),_CiscoMemoryPoolAlternate_Type())
-ciscoMemoryPoolAlternate.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoMemoryPoolAlternate.setStatus(_B)
-_CiscoMemoryPoolValid_Type=TruthValue
-_CiscoMemoryPoolValid_Object=MibTableColumn
-ciscoMemoryPoolValid=_CiscoMemoryPoolValid_Object((1,3,6,1,4,1,9,9,48,1,1,1,4),_CiscoMemoryPoolValid_Type())
-ciscoMemoryPoolValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoMemoryPoolValid.setStatus(_B)
-_CiscoMemoryPoolUsed_Type=Gauge32
-_CiscoMemoryPoolUsed_Object=MibTableColumn
-ciscoMemoryPoolUsed=_CiscoMemoryPoolUsed_Object((1,3,6,1,4,1,9,9,48,1,1,1,5),_CiscoMemoryPoolUsed_Type())
-ciscoMemoryPoolUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoMemoryPoolUsed.setStatus(_B)
-if mibBuilder.loadTexts:ciscoMemoryPoolUsed.setUnits(_F)
-_CiscoMemoryPoolFree_Type=Gauge32
-_CiscoMemoryPoolFree_Object=MibTableColumn
-ciscoMemoryPoolFree=_CiscoMemoryPoolFree_Object((1,3,6,1,4,1,9,9,48,1,1,1,6),_CiscoMemoryPoolFree_Type())
-ciscoMemoryPoolFree.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoMemoryPoolFree.setStatus(_B)
-if mibBuilder.loadTexts:ciscoMemoryPoolFree.setUnits(_F)
-_CiscoMemoryPoolLargestFree_Type=Gauge32
-_CiscoMemoryPoolLargestFree_Object=MibTableColumn
-ciscoMemoryPoolLargestFree=_CiscoMemoryPoolLargestFree_Object((1,3,6,1,4,1,9,9,48,1,1,1,7),_CiscoMemoryPoolLargestFree_Type())
-ciscoMemoryPoolLargestFree.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoMemoryPoolLargestFree.setStatus(_B)
-if mibBuilder.loadTexts:ciscoMemoryPoolLargestFree.setUnits(_F)
-_CiscoMemoryPoolLowMemoryNotifThreshold_Type=Percent
-_CiscoMemoryPoolLowMemoryNotifThreshold_Object=MibTableColumn
-ciscoMemoryPoolLowMemoryNotifThreshold=_CiscoMemoryPoolLowMemoryNotifThreshold_Object((1,3,6,1,4,1,9,9,48,1,1,1,8),_CiscoMemoryPoolLowMemoryNotifThreshold_Type())
-ciscoMemoryPoolLowMemoryNotifThreshold.setMaxAccess(_P)
-if mibBuilder.loadTexts:ciscoMemoryPoolLowMemoryNotifThreshold.setStatus(_B)
-_CiscoMemoryPoolUtilizationTable_Object=MibTable
-ciscoMemoryPoolUtilizationTable=_CiscoMemoryPoolUtilizationTable_Object((1,3,6,1,4,1,9,9,48,1,2))
-if mibBuilder.loadTexts:ciscoMemoryPoolUtilizationTable.setStatus(_B)
-_CiscoMemoryPoolUtilizationEntry_Object=MibTableRow
-ciscoMemoryPoolUtilizationEntry=_CiscoMemoryPoolUtilizationEntry_Object((1,3,6,1,4,1,9,9,48,1,2,1))
-if mibBuilder.loadTexts:ciscoMemoryPoolUtilizationEntry.setStatus(_B)
-_CiscoMemoryPoolUtilization1Min_Type=Percent
-_CiscoMemoryPoolUtilization1Min_Object=MibTableColumn
-ciscoMemoryPoolUtilization1Min=_CiscoMemoryPoolUtilization1Min_Object((1,3,6,1,4,1,9,9,48,1,2,1,1),_CiscoMemoryPoolUtilization1Min_Type())
-ciscoMemoryPoolUtilization1Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoMemoryPoolUtilization1Min.setStatus(_B)
-_CiscoMemoryPoolUtilization5Min_Type=Percent
-_CiscoMemoryPoolUtilization5Min_Object=MibTableColumn
-ciscoMemoryPoolUtilization5Min=_CiscoMemoryPoolUtilization5Min_Object((1,3,6,1,4,1,9,9,48,1,2,1,2),_CiscoMemoryPoolUtilization5Min_Type())
-ciscoMemoryPoolUtilization5Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoMemoryPoolUtilization5Min.setStatus(_B)
-_CiscoMemoryPoolUtilization10Min_Type=Percent
-_CiscoMemoryPoolUtilization10Min_Object=MibTableColumn
-ciscoMemoryPoolUtilization10Min=_CiscoMemoryPoolUtilization10Min_Object((1,3,6,1,4,1,9,9,48,1,2,1,3),_CiscoMemoryPoolUtilization10Min_Type())
-ciscoMemoryPoolUtilization10Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoMemoryPoolUtilization10Min.setStatus(_B)
-_CiscoMemoryPoolLowMemoryNotifEnable_Type=TruthValue
-_CiscoMemoryPoolLowMemoryNotifEnable_Object=MibScalar
-ciscoMemoryPoolLowMemoryNotifEnable=_CiscoMemoryPoolLowMemoryNotifEnable_Object((1,3,6,1,4,1,9,9,48,1,3),_CiscoMemoryPoolLowMemoryNotifEnable_Type())
-ciscoMemoryPoolLowMemoryNotifEnable.setMaxAccess(_P)
-if mibBuilder.loadTexts:ciscoMemoryPoolLowMemoryNotifEnable.setStatus(_B)
-_CiscoMemoryPoolNotifications_ObjectIdentity=ObjectIdentity
-ciscoMemoryPoolNotifications=_CiscoMemoryPoolNotifications_ObjectIdentity((1,3,6,1,4,1,9,9,48,2))
-_CiscoMemoryPoolMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
-ciscoMemoryPoolMIBNotificationPrefix=_CiscoMemoryPoolMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,9,9,48,2,0))
-_CiscoMemoryPoolConformance_ObjectIdentity=ObjectIdentity
-ciscoMemoryPoolConformance=_CiscoMemoryPoolConformance_ObjectIdentity((1,3,6,1,4,1,9,9,48,3))
-_CiscoMemoryPoolCompliances_ObjectIdentity=ObjectIdentity
-ciscoMemoryPoolCompliances=_CiscoMemoryPoolCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,48,3,1))
-_CiscoMemoryPoolGroups_ObjectIdentity=ObjectIdentity
-ciscoMemoryPoolGroups=_CiscoMemoryPoolGroups_ObjectIdentity((1,3,6,1,4,1,9,9,48,3,2))
-ciscoMemoryPoolEntry.registerAugmentions((_A,_Q))
+#
+# PySNMP MIB module CISCO-MEMORY-POOL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-MEMORY-POOL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+Percent, = mibBuilder.importSymbols("CISCO-QOS-PIB-MIB", "Percent")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ciscoMemoryPoolMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 48))
+ciscoMemoryPoolMIB.setRevisions(('2013-09-18 00:00', '2001-07-31 00:00', '1996-02-01 00:00',))
+if mibBuilder.loadTexts: ciscoMemoryPoolMIB.setLastUpdated('201309180000Z')
+if mibBuilder.loadTexts: ciscoMemoryPoolMIB.setOrganization('Cisco Systems, Inc.')
+class CiscoMemoryPoolTypes(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 65535)
+
+ciscoMemoryPoolObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 48, 1))
+ciscoMemoryPoolTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 1), )
+if mibBuilder.loadTexts: ciscoMemoryPoolTable.setStatus('current')
+ciscoMemoryPoolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 1, 1), ).setIndexNames((0, "CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolType"))
+if mibBuilder.loadTexts: ciscoMemoryPoolEntry.setStatus('current')
+ciscoMemoryPoolType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 1, 1, 1), CiscoMemoryPoolTypes())
+if mibBuilder.loadTexts: ciscoMemoryPoolType.setStatus('current')
+ciscoMemoryPoolName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoMemoryPoolName.setStatus('current')
+ciscoMemoryPoolAlternate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoMemoryPoolAlternate.setStatus('current')
+ciscoMemoryPoolValid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 1, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoMemoryPoolValid.setStatus('current')
+ciscoMemoryPoolUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 1, 1, 5), Gauge32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoMemoryPoolUsed.setStatus('current')
+ciscoMemoryPoolFree = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 1, 1, 6), Gauge32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoMemoryPoolFree.setStatus('current')
+ciscoMemoryPoolLargestFree = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 1, 1, 7), Gauge32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoMemoryPoolLargestFree.setStatus('current')
+ciscoMemoryPoolLowMemoryNotifThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 1, 1, 8), Percent()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoMemoryPoolLowMemoryNotifThreshold.setStatus('current')
+ciscoMemoryPoolUtilizationTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 2), )
+if mibBuilder.loadTexts: ciscoMemoryPoolUtilizationTable.setStatus('current')
+ciscoMemoryPoolUtilizationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 2, 1), )
+ciscoMemoryPoolEntry.registerAugmentions(("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolUtilizationEntry"))
 ciscoMemoryPoolUtilizationEntry.setIndexNames(*ciscoMemoryPoolEntry.getIndexNames())
-ciscoMemoryPoolGroup=ObjectGroup((1,3,6,1,4,1,9,9,48,3,2,1))
-ciscoMemoryPoolGroup.setObjects(*((_A,_D),(_A,_G),(_A,_H),(_A,_E),(_A,_I),(_A,_J)))
-if mibBuilder.loadTexts:ciscoMemoryPoolGroup.setStatus(_K)
-ciscoMemoryPoolUtilizationGroup=ObjectGroup((1,3,6,1,4,1,9,9,48,3,2,2))
-ciscoMemoryPoolUtilizationGroup.setObjects(*((_A,_R),(_A,_S),(_A,_T)))
-if mibBuilder.loadTexts:ciscoMemoryPoolUtilizationGroup.setStatus(_B)
-ciscoMemoryPoolNotificationCtrlGroup=ObjectGroup((1,3,6,1,4,1,9,9,48,3,2,4))
-ciscoMemoryPoolNotificationCtrlGroup.setObjects((_A,_U))
-if mibBuilder.loadTexts:ciscoMemoryPoolNotificationCtrlGroup.setStatus(_B)
-ciscoMemoryPoolGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,48,3,2,5))
-ciscoMemoryPoolGroupRev1.setObjects(*((_A,_D),(_A,_G),(_A,_H),(_A,_E),(_A,_I),(_A,_J),(_A,_V)))
-if mibBuilder.loadTexts:ciscoMemoryPoolGroupRev1.setStatus(_B)
-ciscoMemoryPoolLowMemoryNotif=NotificationType((1,3,6,1,4,1,9,9,48,2,0,1))
-ciscoMemoryPoolLowMemoryNotif.setObjects(*((_A,_D),(_A,_E)))
-if mibBuilder.loadTexts:ciscoMemoryPoolLowMemoryNotif.setStatus(_B)
-ciscoMemoryPoolLowMemoryRecoveryNotif=NotificationType((1,3,6,1,4,1,9,9,48,2,0,2))
-ciscoMemoryPoolLowMemoryRecoveryNotif.setObjects(*((_A,_D),(_A,_E)))
-if mibBuilder.loadTexts:ciscoMemoryPoolLowMemoryRecoveryNotif.setStatus(_B)
-ciscoMemoryPoolNotificationGroup=NotificationGroup((1,3,6,1,4,1,9,9,48,3,2,3))
-ciscoMemoryPoolNotificationGroup.setObjects(*((_A,_W),(_A,_X)))
-if mibBuilder.loadTexts:ciscoMemoryPoolNotificationGroup.setStatus(_B)
-ciscoMemoryPoolCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,48,3,1,1))
-ciscoMemoryPoolCompliance.setObjects((_A,_L))
-if mibBuilder.loadTexts:ciscoMemoryPoolCompliance.setStatus(_K)
-ciscoMemoryPoolComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,9,48,3,1,2))
-ciscoMemoryPoolComplianceRev1.setObjects(*((_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:ciscoMemoryPoolComplianceRev1.setStatus(_K)
-ciscoMemoryPoolComplianceRev2=ModuleCompliance((1,3,6,1,4,1,9,9,48,3,1,3))
-ciscoMemoryPoolComplianceRev2.setObjects(*((_A,_Y),(_A,_M),(_A,_Z),(_A,_a)))
-if mibBuilder.loadTexts:ciscoMemoryPoolComplianceRev2.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'CiscoMemoryPoolTypes':CiscoMemoryPoolTypes,'ciscoMemoryPoolMIB':ciscoMemoryPoolMIB,'ciscoMemoryPoolObjects':ciscoMemoryPoolObjects,'ciscoMemoryPoolTable':ciscoMemoryPoolTable,'ciscoMemoryPoolEntry':ciscoMemoryPoolEntry,_O:ciscoMemoryPoolType,_D:ciscoMemoryPoolName,_G:ciscoMemoryPoolAlternate,_H:ciscoMemoryPoolValid,_E:ciscoMemoryPoolUsed,_I:ciscoMemoryPoolFree,_J:ciscoMemoryPoolLargestFree,_V:ciscoMemoryPoolLowMemoryNotifThreshold,'ciscoMemoryPoolUtilizationTable':ciscoMemoryPoolUtilizationTable,_Q:ciscoMemoryPoolUtilizationEntry,_R:ciscoMemoryPoolUtilization1Min,_S:ciscoMemoryPoolUtilization5Min,_T:ciscoMemoryPoolUtilization10Min,_U:ciscoMemoryPoolLowMemoryNotifEnable,'ciscoMemoryPoolNotifications':ciscoMemoryPoolNotifications,'ciscoMemoryPoolMIBNotificationPrefix':ciscoMemoryPoolMIBNotificationPrefix,_W:ciscoMemoryPoolLowMemoryNotif,_X:ciscoMemoryPoolLowMemoryRecoveryNotif,'ciscoMemoryPoolConformance':ciscoMemoryPoolConformance,'ciscoMemoryPoolCompliances':ciscoMemoryPoolCompliances,'ciscoMemoryPoolCompliance':ciscoMemoryPoolCompliance,'ciscoMemoryPoolComplianceRev1':ciscoMemoryPoolComplianceRev1,'ciscoMemoryPoolComplianceRev2':ciscoMemoryPoolComplianceRev2,'ciscoMemoryPoolGroups':ciscoMemoryPoolGroups,_L:ciscoMemoryPoolGroup,_M:ciscoMemoryPoolUtilizationGroup,_Z:ciscoMemoryPoolNotificationGroup,_a:ciscoMemoryPoolNotificationCtrlGroup,_Y:ciscoMemoryPoolGroupRev1})
+if mibBuilder.loadTexts: ciscoMemoryPoolUtilizationEntry.setStatus('current')
+ciscoMemoryPoolUtilization1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 2, 1, 1), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoMemoryPoolUtilization1Min.setStatus('current')
+ciscoMemoryPoolUtilization5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 2, 1, 2), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoMemoryPoolUtilization5Min.setStatus('current')
+ciscoMemoryPoolUtilization10Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 2, 1, 3), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoMemoryPoolUtilization10Min.setStatus('current')
+ciscoMemoryPoolLowMemoryNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 48, 1, 3), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoMemoryPoolLowMemoryNotifEnable.setStatus('current')
+ciscoMemoryPoolNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 48, 2))
+ciscoMemoryPoolMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 48, 2, 0))
+ciscoMemoryPoolLowMemoryNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 48, 2, 0, 1)).setObjects(("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolName"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolUsed"))
+if mibBuilder.loadTexts: ciscoMemoryPoolLowMemoryNotif.setStatus('current')
+ciscoMemoryPoolLowMemoryRecoveryNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 48, 2, 0, 2)).setObjects(("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolName"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolUsed"))
+if mibBuilder.loadTexts: ciscoMemoryPoolLowMemoryRecoveryNotif.setStatus('current')
+ciscoMemoryPoolConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 48, 3))
+ciscoMemoryPoolCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 48, 3, 1))
+ciscoMemoryPoolGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 48, 3, 2))
+ciscoMemoryPoolCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 48, 3, 1, 1)).setObjects(("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMemoryPoolCompliance = ciscoMemoryPoolCompliance.setStatus('deprecated')
+ciscoMemoryPoolComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 48, 3, 1, 2)).setObjects(("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolGroup"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolUtilizationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMemoryPoolComplianceRev1 = ciscoMemoryPoolComplianceRev1.setStatus('deprecated')
+ciscoMemoryPoolComplianceRev2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 48, 3, 1, 3)).setObjects(("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolGroupRev1"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolUtilizationGroup"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolNotificationGroup"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolNotificationCtrlGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMemoryPoolComplianceRev2 = ciscoMemoryPoolComplianceRev2.setStatus('current')
+ciscoMemoryPoolGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 48, 3, 2, 1)).setObjects(("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolName"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolAlternate"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolValid"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolUsed"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolFree"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolLargestFree"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMemoryPoolGroup = ciscoMemoryPoolGroup.setStatus('deprecated')
+ciscoMemoryPoolUtilizationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 48, 3, 2, 2)).setObjects(("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolUtilization1Min"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolUtilization5Min"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolUtilization10Min"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMemoryPoolUtilizationGroup = ciscoMemoryPoolUtilizationGroup.setStatus('current')
+ciscoMemoryPoolNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 48, 3, 2, 3)).setObjects(("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolLowMemoryNotif"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolLowMemoryRecoveryNotif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMemoryPoolNotificationGroup = ciscoMemoryPoolNotificationGroup.setStatus('current')
+ciscoMemoryPoolNotificationCtrlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 48, 3, 2, 4)).setObjects(("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolLowMemoryNotifEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMemoryPoolNotificationCtrlGroup = ciscoMemoryPoolNotificationCtrlGroup.setStatus('current')
+ciscoMemoryPoolGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 48, 3, 2, 5)).setObjects(("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolName"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolAlternate"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolValid"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolUsed"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolFree"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolLargestFree"), ("CISCO-MEMORY-POOL-MIB", "ciscoMemoryPoolLowMemoryNotifThreshold"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMemoryPoolGroupRev1 = ciscoMemoryPoolGroupRev1.setStatus('current')
+mibBuilder.exportSymbols("CISCO-MEMORY-POOL-MIB", ciscoMemoryPoolCompliance=ciscoMemoryPoolCompliance, PYSNMP_MODULE_ID=ciscoMemoryPoolMIB, ciscoMemoryPoolUtilization10Min=ciscoMemoryPoolUtilization10Min, ciscoMemoryPoolConformance=ciscoMemoryPoolConformance, ciscoMemoryPoolCompliances=ciscoMemoryPoolCompliances, ciscoMemoryPoolComplianceRev2=ciscoMemoryPoolComplianceRev2, ciscoMemoryPoolMIB=ciscoMemoryPoolMIB, ciscoMemoryPoolNotificationGroup=ciscoMemoryPoolNotificationGroup, ciscoMemoryPoolLowMemoryNotifThreshold=ciscoMemoryPoolLowMemoryNotifThreshold, ciscoMemoryPoolUtilizationTable=ciscoMemoryPoolUtilizationTable, ciscoMemoryPoolUtilization5Min=ciscoMemoryPoolUtilization5Min, ciscoMemoryPoolGroup=ciscoMemoryPoolGroup, ciscoMemoryPoolName=ciscoMemoryPoolName, ciscoMemoryPoolGroups=ciscoMemoryPoolGroups, ciscoMemoryPoolType=ciscoMemoryPoolType, ciscoMemoryPoolTable=ciscoMemoryPoolTable, ciscoMemoryPoolUsed=ciscoMemoryPoolUsed, ciscoMemoryPoolUtilizationGroup=ciscoMemoryPoolUtilizationGroup, ciscoMemoryPoolFree=ciscoMemoryPoolFree, ciscoMemoryPoolUtilization1Min=ciscoMemoryPoolUtilization1Min, ciscoMemoryPoolNotificationCtrlGroup=ciscoMemoryPoolNotificationCtrlGroup, ciscoMemoryPoolGroupRev1=ciscoMemoryPoolGroupRev1, ciscoMemoryPoolLowMemoryNotifEnable=ciscoMemoryPoolLowMemoryNotifEnable, ciscoMemoryPoolObjects=ciscoMemoryPoolObjects, ciscoMemoryPoolEntry=ciscoMemoryPoolEntry, ciscoMemoryPoolAlternate=ciscoMemoryPoolAlternate, ciscoMemoryPoolLowMemoryRecoveryNotif=ciscoMemoryPoolLowMemoryRecoveryNotif, ciscoMemoryPoolLowMemoryNotif=ciscoMemoryPoolLowMemoryNotif, ciscoMemoryPoolNotifications=ciscoMemoryPoolNotifications, ciscoMemoryPoolMIBNotificationPrefix=ciscoMemoryPoolMIBNotificationPrefix, ciscoMemoryPoolLargestFree=ciscoMemoryPoolLargestFree, ciscoMemoryPoolUtilizationEntry=ciscoMemoryPoolUtilizationEntry, ciscoMemoryPoolComplianceRev1=ciscoMemoryPoolComplianceRev1, CiscoMemoryPoolTypes=CiscoMemoryPoolTypes, ciscoMemoryPoolValid=ciscoMemoryPoolValid)

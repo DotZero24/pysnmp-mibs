@@ -1,111 +1,65 @@
-_Q='fmmc12Group'
-_P='fmmc5Group'
-_O='fmmc12OlosSoakTime'
-_N='fmmc12ModelingMode'
-_M='fmmc12AlienTxEDFAGain'
-_L='fmmc12InputSource'
-_K='fmmc12OperatingMode'
-_J='fmmc12ProvEqptType'
-_I='fmmc12MoId'
-_H='fmmc5OperatingMode'
-_G='fmmc5ProvEqptType'
-_F='fmmc5MoId'
-_E='entPhysicalIndex'
-_D='ENTITY-MIB'
-_C='read-write'
-_B='INFINERA-ENTITY-FMMC-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-entPhysicalIndex,=mibBuilder.importSymbols(_D,_E)
-equipment,=mibBuilder.importSymbols('INFINERA-REG-MIB','equipment')
-FloatThousandths,InfnAlienTxEDFAGain,InfnCBandOlosSoakTime,InfnEqptType,InfnModelingMode,InfnOperatingMode,InfnWaveInterfaceType=mibBuilder.importSymbols('INFINERA-TC-MIB','FloatThousandths','InfnAlienTxEDFAGain','InfnCBandOlosSoakTime','InfnEqptType','InfnModelingMode','InfnOperatingMode','InfnWaveInterfaceType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-fmmcMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,1,47))
-_Fmmc5Table_Object=MibTable
-fmmc5Table=_Fmmc5Table_Object((1,3,6,1,4,1,21296,2,2,2,1,47,1))
-if mibBuilder.loadTexts:fmmc5Table.setStatus(_A)
-_Fmmc5Entry_Object=MibTableRow
-fmmc5Entry=_Fmmc5Entry_Object((1,3,6,1,4,1,21296,2,2,2,1,47,1,1))
-fmmc5Entry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:fmmc5Entry.setStatus(_A)
-_Fmmc5MoId_Type=DisplayString
-_Fmmc5MoId_Object=MibTableColumn
-fmmc5MoId=_Fmmc5MoId_Object((1,3,6,1,4,1,21296,2,2,2,1,47,1,1,1),_Fmmc5MoId_Type())
-fmmc5MoId.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmc5MoId.setStatus(_A)
-_Fmmc5ProvEqptType_Type=InfnEqptType
-_Fmmc5ProvEqptType_Object=MibTableColumn
-fmmc5ProvEqptType=_Fmmc5ProvEqptType_Object((1,3,6,1,4,1,21296,2,2,2,1,47,1,1,2),_Fmmc5ProvEqptType_Type())
-fmmc5ProvEqptType.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmc5ProvEqptType.setStatus(_A)
-_Fmmc5OperatingMode_Type=InfnOperatingMode
-_Fmmc5OperatingMode_Object=MibTableColumn
-fmmc5OperatingMode=_Fmmc5OperatingMode_Object((1,3,6,1,4,1,21296,2,2,2,1,47,1,1,3),_Fmmc5OperatingMode_Type())
-fmmc5OperatingMode.setMaxAccess('read-only')
-if mibBuilder.loadTexts:fmmc5OperatingMode.setStatus(_A)
-_Fmmc12Table_Object=MibTable
-fmmc12Table=_Fmmc12Table_Object((1,3,6,1,4,1,21296,2,2,2,1,47,2))
-if mibBuilder.loadTexts:fmmc12Table.setStatus(_A)
-_Fmmc12Entry_Object=MibTableRow
-fmmc12Entry=_Fmmc12Entry_Object((1,3,6,1,4,1,21296,2,2,2,1,47,2,1))
-fmmc12Entry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:fmmc12Entry.setStatus(_A)
-_Fmmc12MoId_Type=DisplayString
-_Fmmc12MoId_Object=MibTableColumn
-fmmc12MoId=_Fmmc12MoId_Object((1,3,6,1,4,1,21296,2,2,2,1,47,2,1,1),_Fmmc12MoId_Type())
-fmmc12MoId.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmc12MoId.setStatus(_A)
-_Fmmc12ProvEqptType_Type=InfnEqptType
-_Fmmc12ProvEqptType_Object=MibTableColumn
-fmmc12ProvEqptType=_Fmmc12ProvEqptType_Object((1,3,6,1,4,1,21296,2,2,2,1,47,2,1,2),_Fmmc12ProvEqptType_Type())
-fmmc12ProvEqptType.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmc12ProvEqptType.setStatus(_A)
-_Fmmc12OperatingMode_Type=InfnOperatingMode
-_Fmmc12OperatingMode_Object=MibTableColumn
-fmmc12OperatingMode=_Fmmc12OperatingMode_Object((1,3,6,1,4,1,21296,2,2,2,1,47,2,1,3),_Fmmc12OperatingMode_Type())
-fmmc12OperatingMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmc12OperatingMode.setStatus(_A)
-_Fmmc12InputSource_Type=InfnWaveInterfaceType
-_Fmmc12InputSource_Object=MibTableColumn
-fmmc12InputSource=_Fmmc12InputSource_Object((1,3,6,1,4,1,21296,2,2,2,1,47,2,1,4),_Fmmc12InputSource_Type())
-fmmc12InputSource.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmc12InputSource.setStatus(_A)
-_Fmmc12AlienTxEDFAGain_Type=InfnAlienTxEDFAGain
-_Fmmc12AlienTxEDFAGain_Object=MibTableColumn
-fmmc12AlienTxEDFAGain=_Fmmc12AlienTxEDFAGain_Object((1,3,6,1,4,1,21296,2,2,2,1,47,2,1,5),_Fmmc12AlienTxEDFAGain_Type())
-fmmc12AlienTxEDFAGain.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmc12AlienTxEDFAGain.setStatus(_A)
-_Fmmc12ModelingMode_Type=InfnModelingMode
-_Fmmc12ModelingMode_Object=MibTableColumn
-fmmc12ModelingMode=_Fmmc12ModelingMode_Object((1,3,6,1,4,1,21296,2,2,2,1,47,2,1,6),_Fmmc12ModelingMode_Type())
-fmmc12ModelingMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmc12ModelingMode.setStatus(_A)
-_Fmmc12OlosSoakTime_Type=InfnCBandOlosSoakTime
-_Fmmc12OlosSoakTime_Object=MibTableColumn
-fmmc12OlosSoakTime=_Fmmc12OlosSoakTime_Object((1,3,6,1,4,1,21296,2,2,2,1,47,2,1,7),_Fmmc12OlosSoakTime_Type())
-fmmc12OlosSoakTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmc12OlosSoakTime.setStatus(_A)
-_FmmcConformance_ObjectIdentity=ObjectIdentity
-fmmcConformance=_FmmcConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,47,3))
-_FmmcCompliances_ObjectIdentity=ObjectIdentity
-fmmcCompliances=_FmmcCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,47,3,1))
-_FmmcGroups_ObjectIdentity=ObjectIdentity
-fmmcGroups=_FmmcGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,47,3,2))
-fmmc5Group=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,1,47,3,2,1))
-fmmc5Group.setObjects(*((_B,_F),(_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:fmmc5Group.setStatus(_A)
-fmmc12Group=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,1,47,3,2,2))
-fmmc12Group.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:fmmc12Group.setStatus(_A)
-fmmcCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,1,47,3,1,1))
-fmmcCompliance.setObjects((_B,_P))
-if mibBuilder.loadTexts:fmmcCompliance.setStatus(_A)
-fmmc12Compliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,1,47,3,1,2))
-fmmc12Compliance.setObjects((_B,_Q))
-if mibBuilder.loadTexts:fmmc12Compliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'fmmcMIB':fmmcMIB,'fmmc5Table':fmmc5Table,'fmmc5Entry':fmmc5Entry,_F:fmmc5MoId,_G:fmmc5ProvEqptType,_H:fmmc5OperatingMode,'fmmc12Table':fmmc12Table,'fmmc12Entry':fmmc12Entry,_I:fmmc12MoId,_J:fmmc12ProvEqptType,_K:fmmc12OperatingMode,_L:fmmc12InputSource,_M:fmmc12AlienTxEDFAGain,_N:fmmc12ModelingMode,_O:fmmc12OlosSoakTime,'fmmcConformance':fmmcConformance,'fmmcCompliances':fmmcCompliances,'fmmcCompliance':fmmcCompliance,'fmmc12Compliance':fmmc12Compliance,'fmmcGroups':fmmcGroups,_P:fmmc5Group,_Q:fmmc12Group})
+#
+# PySNMP MIB module INFINERA-ENTITY-FMMC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-ENTITY-FMMC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+equipment, = mibBuilder.importSymbols("INFINERA-REG-MIB", "equipment")
+InfnAlienTxEDFAGain, InfnWaveInterfaceType, InfnEqptType, FloatThousandths, InfnModelingMode, InfnOperatingMode, InfnCBandOlosSoakTime = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnAlienTxEDFAGain", "InfnWaveInterfaceType", "InfnEqptType", "FloatThousandths", "InfnModelingMode", "InfnOperatingMode", "InfnCBandOlosSoakTime")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+fmmcMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47))
+if mibBuilder.loadTexts: fmmcMIB.setLastUpdated('201508170000Z')
+if mibBuilder.loadTexts: fmmcMIB.setOrganization('Infinera')
+fmmcConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 3))
+fmmcCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 3, 1))
+fmmcGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 3, 2))
+fmmc5Table = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 1), )
+if mibBuilder.loadTexts: fmmc5Table.setStatus('current')
+fmmc5Entry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: fmmc5Entry.setStatus('current')
+fmmc5MoId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 1, 1, 1), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmc5MoId.setStatus('current')
+fmmc5ProvEqptType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 1, 1, 2), InfnEqptType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmc5ProvEqptType.setStatus('current')
+fmmc5OperatingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 1, 1, 3), InfnOperatingMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmc5OperatingMode.setStatus('current')
+fmmc12Table = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 2), )
+if mibBuilder.loadTexts: fmmc12Table.setStatus('current')
+fmmc12Entry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: fmmc12Entry.setStatus('current')
+fmmc12MoId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 2, 1, 1), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmc12MoId.setStatus('current')
+fmmc12ProvEqptType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 2, 1, 2), InfnEqptType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmc12ProvEqptType.setStatus('current')
+fmmc12OperatingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 2, 1, 3), InfnOperatingMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmc12OperatingMode.setStatus('current')
+fmmc12InputSource = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 2, 1, 4), InfnWaveInterfaceType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmc12InputSource.setStatus('current')
+fmmc12AlienTxEDFAGain = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 2, 1, 5), InfnAlienTxEDFAGain()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmc12AlienTxEDFAGain.setStatus('current')
+fmmc12ModelingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 2, 1, 6), InfnModelingMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmc12ModelingMode.setStatus('current')
+fmmc12OlosSoakTime = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 2, 1, 7), InfnCBandOlosSoakTime()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmc12OlosSoakTime.setStatus('current')
+fmmcCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 3, 1, 1)).setObjects(("INFINERA-ENTITY-FMMC-MIB", "fmmc5Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fmmcCompliance = fmmcCompliance.setStatus('current')
+fmmc12Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 3, 1, 2)).setObjects(("INFINERA-ENTITY-FMMC-MIB", "fmmc12Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fmmc12Compliance = fmmc12Compliance.setStatus('current')
+fmmc5Group = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 3, 2, 1)).setObjects(("INFINERA-ENTITY-FMMC-MIB", "fmmc5MoId"), ("INFINERA-ENTITY-FMMC-MIB", "fmmc5ProvEqptType"), ("INFINERA-ENTITY-FMMC-MIB", "fmmc5OperatingMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fmmc5Group = fmmc5Group.setStatus('current')
+fmmc12Group = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 47, 3, 2, 2)).setObjects(("INFINERA-ENTITY-FMMC-MIB", "fmmc12MoId"), ("INFINERA-ENTITY-FMMC-MIB", "fmmc12ProvEqptType"), ("INFINERA-ENTITY-FMMC-MIB", "fmmc12OperatingMode"), ("INFINERA-ENTITY-FMMC-MIB", "fmmc12InputSource"), ("INFINERA-ENTITY-FMMC-MIB", "fmmc12AlienTxEDFAGain"), ("INFINERA-ENTITY-FMMC-MIB", "fmmc12ModelingMode"), ("INFINERA-ENTITY-FMMC-MIB", "fmmc12OlosSoakTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fmmc12Group = fmmc12Group.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-ENTITY-FMMC-MIB", fmmc12ProvEqptType=fmmc12ProvEqptType, fmmcCompliances=fmmcCompliances, fmmc12Entry=fmmc12Entry, fmmc12ModelingMode=fmmc12ModelingMode, fmmc5Table=fmmc5Table, fmmc12Compliance=fmmc12Compliance, fmmc12Group=fmmc12Group, fmmc12AlienTxEDFAGain=fmmc12AlienTxEDFAGain, fmmcGroups=fmmcGroups, fmmc12MoId=fmmc12MoId, fmmc12InputSource=fmmc12InputSource, fmmc5MoId=fmmc5MoId, fmmcConformance=fmmcConformance, fmmc12Table=fmmc12Table, fmmc12OlosSoakTime=fmmc12OlosSoakTime, fmmcCompliance=fmmcCompliance, fmmc5ProvEqptType=fmmc5ProvEqptType, fmmc5OperatingMode=fmmc5OperatingMode, PYSNMP_MODULE_ID=fmmcMIB, fmmc5Entry=fmmc5Entry, fmmc12OperatingMode=fmmc12OperatingMode, fmmc5Group=fmmc5Group, fmmcMIB=fmmcMIB)

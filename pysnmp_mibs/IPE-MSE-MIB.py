@@ -1,227 +1,112 @@
-_N='provMseClockSelectCardId'
-_M='provMseClockModeExtIfIndex'
-_L='provMseClockModeIfIndex'
-_K='provMseLineModeIfIndex'
-_J='asMseLineIfIndex'
-_I='asMseCardIndex'
-_H='IpeEnableDisableValue'
-_G='invalid'
-_F='read-write'
-_E='Integer32'
-_D='IPE-MSE-MIB'
-_C='read-only'
-_B='not-accessible'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,Opaque,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','Opaque','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-class IpeEnableDisableValue(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_G,0),('disabled',1),('enabled',2)))
-class SeverityValue(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('cleared',1),('indetermine',2),('critical',3),('major',4),('minor',5),('warning',6)))
-_Nec_ObjectIdentity=ObjectIdentity
-nec=_Nec_ObjectIdentity((1,3,6,1,4,1,119))
-_Nec_mib_ObjectIdentity=ObjectIdentity
-nec_mib=_Nec_mib_ObjectIdentity((1,3,6,1,4,1,119,2))
-_NecProductDepend_ObjectIdentity=ObjectIdentity
-necProductDepend=_NecProductDepend_ObjectIdentity((1,3,6,1,4,1,119,2,3))
-_RadioEquipment_ObjectIdentity=ObjectIdentity
-radioEquipment=_RadioEquipment_ObjectIdentity((1,3,6,1,4,1,119,2,3,69))
-_PasoNeoIpe_common_ObjectIdentity=ObjectIdentity
-pasoNeoIpe_common=_PasoNeoIpe_common_ObjectIdentity((1,3,6,1,4,1,119,2,3,69,501))
-_AlarmStatusGroup_ObjectIdentity=ObjectIdentity
-alarmStatusGroup=_AlarmStatusGroup_ObjectIdentity((1,3,6,1,4,1,119,2,3,69,501,3))
-_AsMseGroup_ObjectIdentity=ObjectIdentity
-asMseGroup=_AsMseGroup_ObjectIdentity((1,3,6,1,4,1,119,2,3,69,501,3,40))
-_AsMseCardTable_Object=MibTable
-asMseCardTable=_AsMseCardTable_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,1))
-if mibBuilder.loadTexts:asMseCardTable.setStatus(_A)
-_AsMseCardEntry_Object=MibTableRow
-asMseCardEntry=_AsMseCardEntry_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,1,1))
-asMseCardEntry.setIndexNames((0,_D,_I))
-if mibBuilder.loadTexts:asMseCardEntry.setStatus(_A)
-_AsMseCardIndex_Type=Integer32
-_AsMseCardIndex_Object=MibTableColumn
-asMseCardIndex=_AsMseCardIndex_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,1,1,1),_AsMseCardIndex_Type())
-asMseCardIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMseCardIndex.setStatus(_A)
-_AsMseCardNEAddress_Type=IpAddress
-_AsMseCardNEAddress_Object=MibTableColumn
-asMseCardNEAddress=_AsMseCardNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,1,1,2),_AsMseCardNEAddress_Type())
-asMseCardNEAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMseCardNEAddress.setStatus(_A)
-_AsMseCardModuleFail_Type=SeverityValue
-_AsMseCardModuleFail_Object=MibTableColumn
-asMseCardModuleFail=_AsMseCardModuleFail_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,1,1,3),_AsMseCardModuleFail_Type())
-asMseCardModuleFail.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMseCardModuleFail.setStatus(_A)
-_AsMseCardComFailAlarm_Type=SeverityValue
-_AsMseCardComFailAlarm_Object=MibTableColumn
-asMseCardComFailAlarm=_AsMseCardComFailAlarm_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,1,1,4),_AsMseCardComFailAlarm_Type())
-asMseCardComFailAlarm.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMseCardComFailAlarm.setStatus(_A)
-_AsMseCardUnequipped_Type=SeverityValue
-_AsMseCardUnequipped_Object=MibTableColumn
-asMseCardUnequipped=_AsMseCardUnequipped_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,1,1,5),_AsMseCardUnequipped_Type())
-asMseCardUnequipped.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMseCardUnequipped.setStatus(_A)
-_AsMseCardTypeMismatch_Type=SeverityValue
-_AsMseCardTypeMismatch_Object=MibTableColumn
-asMseCardTypeMismatch=_AsMseCardTypeMismatch_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,1,1,6),_AsMseCardTypeMismatch_Type())
-asMseCardTypeMismatch.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMseCardTypeMismatch.setStatus(_A)
-_AsMseCardBusErrorTx_Type=SeverityValue
-_AsMseCardBusErrorTx_Object=MibTableColumn
-asMseCardBusErrorTx=_AsMseCardBusErrorTx_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,1,1,7),_AsMseCardBusErrorTx_Type())
-asMseCardBusErrorTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMseCardBusErrorTx.setStatus(_A)
-_AsMseCardBusErrorRx_Type=SeverityValue
-_AsMseCardBusErrorRx_Object=MibTableColumn
-asMseCardBusErrorRx=_AsMseCardBusErrorRx_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,1,1,8),_AsMseCardBusErrorRx_Type())
-asMseCardBusErrorRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMseCardBusErrorRx.setStatus(_A)
-_AsMseCardClkFail_Type=SeverityValue
-_AsMseCardClkFail_Object=MibTableColumn
-asMseCardClkFail=_AsMseCardClkFail_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,1,1,9),_AsMseCardClkFail_Type())
-asMseCardClkFail.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMseCardClkFail.setStatus('obsolete')
-_AsMseLineTable_Object=MibTable
-asMseLineTable=_AsMseLineTable_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,2))
-if mibBuilder.loadTexts:asMseLineTable.setStatus(_A)
-_AsMseLineEntry_Object=MibTableRow
-asMseLineEntry=_AsMseLineEntry_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,2,1))
-asMseLineEntry.setIndexNames((0,_D,_J))
-if mibBuilder.loadTexts:asMseLineEntry.setStatus(_A)
-_AsMseLineIfIndex_Type=InterfaceIndex
-_AsMseLineIfIndex_Object=MibTableColumn
-asMseLineIfIndex=_AsMseLineIfIndex_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,2,1,1),_AsMseLineIfIndex_Type())
-asMseLineIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMseLineIfIndex.setStatus(_A)
-_AsMseLineNEAddress_Type=IpAddress
-_AsMseLineNEAddress_Object=MibTableColumn
-asMseLineNEAddress=_AsMseLineNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,2,1,2),_AsMseLineNEAddress_Type())
-asMseLineNEAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMseLineNEAddress.setStatus(_A)
-_AsMseLineBfrUnderrun_Type=SeverityValue
-_AsMseLineBfrUnderrun_Object=MibTableColumn
-asMseLineBfrUnderrun=_AsMseLineBfrUnderrun_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,2,1,5),_AsMseLineBfrUnderrun_Type())
-asMseLineBfrUnderrun.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMseLineBfrUnderrun.setStatus(_A)
-class _AsMseLineAdaptiveClkStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_G,0),('holdover',1),('acquiring',2),('acquired',3)))
-_AsMseLineAdaptiveClkStatus_Type.__name__=_E
-_AsMseLineAdaptiveClkStatus_Object=MibTableColumn
-asMseLineAdaptiveClkStatus=_AsMseLineAdaptiveClkStatus_Object((1,3,6,1,4,1,119,2,3,69,501,3,40,2,1,6),_AsMseLineAdaptiveClkStatus_Type())
-asMseLineAdaptiveClkStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMseLineAdaptiveClkStatus.setStatus(_A)
-_ProvisioningGroup_ObjectIdentity=ObjectIdentity
-provisioningGroup=_ProvisioningGroup_ObjectIdentity((1,3,6,1,4,1,119,2,3,69,501,5))
-_ProvMseGroup_ObjectIdentity=ObjectIdentity
-provMseGroup=_ProvMseGroup_ObjectIdentity((1,3,6,1,4,1,119,2,3,69,501,5,40))
-_ProvMseLineModeTable_Object=MibTable
-provMseLineModeTable=_ProvMseLineModeTable_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,1))
-if mibBuilder.loadTexts:provMseLineModeTable.setStatus(_A)
-_ProvMseLineModeEntry_Object=MibTableRow
-provMseLineModeEntry=_ProvMseLineModeEntry_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,1,1))
-provMseLineModeEntry.setIndexNames((0,_D,_K))
-if mibBuilder.loadTexts:provMseLineModeEntry.setStatus(_A)
-_ProvMseLineModeIfIndex_Type=InterfaceIndex
-_ProvMseLineModeIfIndex_Object=MibTableColumn
-provMseLineModeIfIndex=_ProvMseLineModeIfIndex_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,1,1,1),_ProvMseLineModeIfIndex_Type())
-provMseLineModeIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:provMseLineModeIfIndex.setStatus(_A)
-_ProvMseLineModeNEAddress_Type=IpAddress
-_ProvMseLineModeNEAddress_Object=MibTableColumn
-provMseLineModeNEAddress=_ProvMseLineModeNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,1,1,2),_ProvMseLineModeNEAddress_Type())
-provMseLineModeNEAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:provMseLineModeNEAddress.setStatus(_A)
-class _ProvMseLineModeType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_G,0),('none',1),('satop',2)))
-_ProvMseLineModeType_Type.__name__=_E
-_ProvMseLineModeType_Object=MibTableColumn
-provMseLineModeType=_ProvMseLineModeType_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,1,1,3),_ProvMseLineModeType_Type())
-provMseLineModeType.setMaxAccess(_F)
-if mibBuilder.loadTexts:provMseLineModeType.setStatus(_A)
-_ProvMseClockModeTable_Object=MibTable
-provMseClockModeTable=_ProvMseClockModeTable_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,2))
-if mibBuilder.loadTexts:provMseClockModeTable.setStatus(_A)
-_ProvMseClockModeEntry_Object=MibTableRow
-provMseClockModeEntry=_ProvMseClockModeEntry_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,2,1))
-provMseClockModeEntry.setIndexNames((0,_D,_L))
-if mibBuilder.loadTexts:provMseClockModeEntry.setStatus(_A)
-_ProvMseClockModeIfIndex_Type=InterfaceIndex
-_ProvMseClockModeIfIndex_Object=MibTableColumn
-provMseClockModeIfIndex=_ProvMseClockModeIfIndex_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,2,1,1),_ProvMseClockModeIfIndex_Type())
-provMseClockModeIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:provMseClockModeIfIndex.setStatus(_A)
-_ProvMseClockModeNEAddress_Type=IpAddress
-_ProvMseClockModeNEAddress_Object=MibTableColumn
-provMseClockModeNEAddress=_ProvMseClockModeNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,2,1,2),_ProvMseClockModeNEAddress_Type())
-provMseClockModeNEAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:provMseClockModeNEAddress.setStatus(_A)
-class _ProvMseClockModeType_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_G,0),('syncToSystem',1),('syncToPw',2),('syncToLine',3)))
-_ProvMseClockModeType_Type.__name__=_E
-_ProvMseClockModeType_Object=MibTableColumn
-provMseClockModeType=_ProvMseClockModeType_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,2,1,3),_ProvMseClockModeType_Type())
-provMseClockModeType.setMaxAccess(_F)
-if mibBuilder.loadTexts:provMseClockModeType.setStatus(_A)
-class _ProvMseClockACRLineSelect_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_ProvMseClockACRLineSelect_Type.__name__=_E
-_ProvMseClockACRLineSelect_Object=MibTableColumn
-provMseClockACRLineSelect=_ProvMseClockACRLineSelect_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,2,1,4),_ProvMseClockACRLineSelect_Type())
-provMseClockACRLineSelect.setMaxAccess(_F)
-if mibBuilder.loadTexts:provMseClockACRLineSelect.setStatus(_A)
-_ProvMseClockModeExtTable_Object=MibTable
-provMseClockModeExtTable=_ProvMseClockModeExtTable_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,3))
-if mibBuilder.loadTexts:provMseClockModeExtTable.setStatus(_A)
-_ProvMseClockModeExtEntry_Object=MibTableRow
-provMseClockModeExtEntry=_ProvMseClockModeExtEntry_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,3,1))
-provMseClockModeExtEntry.setIndexNames((0,_D,_M))
-if mibBuilder.loadTexts:provMseClockModeExtEntry.setStatus(_A)
-_ProvMseClockModeExtIfIndex_Type=InterfaceIndex
-_ProvMseClockModeExtIfIndex_Object=MibTableColumn
-provMseClockModeExtIfIndex=_ProvMseClockModeExtIfIndex_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,3,1,1),_ProvMseClockModeExtIfIndex_Type())
-provMseClockModeExtIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:provMseClockModeExtIfIndex.setStatus(_A)
-_ProvMseClockModeExtNEAddress_Type=IpAddress
-_ProvMseClockModeExtNEAddress_Object=MibTableColumn
-provMseClockModeExtNEAddress=_ProvMseClockModeExtNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,3,1,2),_ProvMseClockModeExtNEAddress_Type())
-provMseClockModeExtNEAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:provMseClockModeExtNEAddress.setStatus(_A)
-class _ProvMseClockModeReply2Master_Type(IpeEnableDisableValue):defaultValue=2
-_ProvMseClockModeReply2Master_Type.__name__=_H
-_ProvMseClockModeReply2Master_Object=MibTableColumn
-provMseClockModeReply2Master=_ProvMseClockModeReply2Master_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,3,1,3),_ProvMseClockModeReply2Master_Type())
-provMseClockModeReply2Master.setMaxAccess(_F)
-if mibBuilder.loadTexts:provMseClockModeReply2Master.setStatus(_A)
-class _ProvMseClockSupplyMode_Type(IpeEnableDisableValue):defaultValue=1
-_ProvMseClockSupplyMode_Type.__name__=_H
-_ProvMseClockSupplyMode_Object=MibTableColumn
-provMseClockSupplyMode=_ProvMseClockSupplyMode_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,3,1,4),_ProvMseClockSupplyMode_Type())
-provMseClockSupplyMode.setMaxAccess(_F)
-if mibBuilder.loadTexts:provMseClockSupplyMode.setStatus(_A)
-_ProvMseClockSelectTable_Object=MibTable
-provMseClockSelectTable=_ProvMseClockSelectTable_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,4))
-if mibBuilder.loadTexts:provMseClockSelectTable.setStatus(_A)
-_ProvMseClockSelectEntry_Object=MibTableRow
-provMseClockSelectEntry=_ProvMseClockSelectEntry_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,4,1))
-provMseClockSelectEntry.setIndexNames((0,_D,_N))
-if mibBuilder.loadTexts:provMseClockSelectEntry.setStatus(_A)
-_ProvMseClockSelectCardId_Type=Integer32
-_ProvMseClockSelectCardId_Object=MibTableColumn
-provMseClockSelectCardId=_ProvMseClockSelectCardId_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,4,1,1),_ProvMseClockSelectCardId_Type())
-provMseClockSelectCardId.setMaxAccess(_B)
-if mibBuilder.loadTexts:provMseClockSelectCardId.setStatus(_A)
-_ProvMseClockSelectNEAddress_Type=IpAddress
-_ProvMseClockSelectNEAddress_Object=MibTableColumn
-provMseClockSelectNEAddress=_ProvMseClockSelectNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,4,1,2),_ProvMseClockSelectNEAddress_Type())
-provMseClockSelectNEAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:provMseClockSelectNEAddress.setStatus(_A)
-class _ProvMseClockSelectLineNum_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_ProvMseClockSelectLineNum_Type.__name__=_E
-_ProvMseClockSelectLineNum_Object=MibTableColumn
-provMseClockSelectLineNum=_ProvMseClockSelectLineNum_Object((1,3,6,1,4,1,119,2,3,69,501,5,40,4,1,3),_ProvMseClockSelectLineNum_Type())
-provMseClockSelectLineNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:provMseClockSelectLineNum.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{_H:IpeEnableDisableValue,'SeverityValue':SeverityValue,'nec':nec,'nec-mib':nec_mib,'necProductDepend':necProductDepend,'radioEquipment':radioEquipment,'pasoNeoIpe-common':pasoNeoIpe_common,'alarmStatusGroup':alarmStatusGroup,'asMseGroup':asMseGroup,'asMseCardTable':asMseCardTable,'asMseCardEntry':asMseCardEntry,_I:asMseCardIndex,'asMseCardNEAddress':asMseCardNEAddress,'asMseCardModuleFail':asMseCardModuleFail,'asMseCardComFailAlarm':asMseCardComFailAlarm,'asMseCardUnequipped':asMseCardUnequipped,'asMseCardTypeMismatch':asMseCardTypeMismatch,'asMseCardBusErrorTx':asMseCardBusErrorTx,'asMseCardBusErrorRx':asMseCardBusErrorRx,'asMseCardClkFail':asMseCardClkFail,'asMseLineTable':asMseLineTable,'asMseLineEntry':asMseLineEntry,_J:asMseLineIfIndex,'asMseLineNEAddress':asMseLineNEAddress,'asMseLineBfrUnderrun':asMseLineBfrUnderrun,'asMseLineAdaptiveClkStatus':asMseLineAdaptiveClkStatus,'provisioningGroup':provisioningGroup,'provMseGroup':provMseGroup,'provMseLineModeTable':provMseLineModeTable,'provMseLineModeEntry':provMseLineModeEntry,_K:provMseLineModeIfIndex,'provMseLineModeNEAddress':provMseLineModeNEAddress,'provMseLineModeType':provMseLineModeType,'provMseClockModeTable':provMseClockModeTable,'provMseClockModeEntry':provMseClockModeEntry,_L:provMseClockModeIfIndex,'provMseClockModeNEAddress':provMseClockModeNEAddress,'provMseClockModeType':provMseClockModeType,'provMseClockACRLineSelect':provMseClockACRLineSelect,'provMseClockModeExtTable':provMseClockModeExtTable,'provMseClockModeExtEntry':provMseClockModeExtEntry,_M:provMseClockModeExtIfIndex,'provMseClockModeExtNEAddress':provMseClockModeExtNEAddress,'provMseClockModeReply2Master':provMseClockModeReply2Master,'provMseClockSupplyMode':provMseClockSupplyMode,'provMseClockSelectTable':provMseClockSelectTable,'provMseClockSelectEntry':provMseClockSelectEntry,_N:provMseClockSelectCardId,'provMseClockSelectNEAddress':provMseClockSelectNEAddress,'provMseClockSelectLineNum':provMseClockSelectLineNum})
+#
+# PySNMP MIB module IPE-MSE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nec/IPE-MSE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Opaque, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Opaque", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+class IpeEnableDisableValue(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("invalid", 0), ("disabled", 1), ("enabled", 2))
+
+class SeverityValue(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
+    namedValues = NamedValues(("cleared", 1), ("indetermine", 2), ("critical", 3), ("major", 4), ("minor", 5), ("warning", 6))
+
+nec = MibIdentifier((1, 3, 6, 1, 4, 1, 119))
+nec_mib = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2)).setLabel("nec-mib")
+necProductDepend = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3))
+radioEquipment = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3, 69))
+pasoNeoIpe_common = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501)).setLabel("pasoNeoIpe-common")
+alarmStatusGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3))
+provisioningGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5))
+asMseGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40))
+asMseCardTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 1), )
+if mibBuilder.loadTexts: asMseCardTable.setStatus('current')
+asMseCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 1, 1), ).setIndexNames((0, "IPE-MSE-MIB", "asMseCardIndex"))
+if mibBuilder.loadTexts: asMseCardEntry.setStatus('current')
+asMseCardIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: asMseCardIndex.setStatus('current')
+asMseCardNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 1, 1, 2), IpAddress())
+if mibBuilder.loadTexts: asMseCardNEAddress.setStatus('current')
+asMseCardModuleFail = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 1, 1, 3), SeverityValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMseCardModuleFail.setStatus('current')
+asMseCardComFailAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 1, 1, 4), SeverityValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMseCardComFailAlarm.setStatus('current')
+asMseCardUnequipped = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 1, 1, 5), SeverityValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMseCardUnequipped.setStatus('current')
+asMseCardTypeMismatch = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 1, 1, 6), SeverityValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMseCardTypeMismatch.setStatus('current')
+asMseCardBusErrorTx = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 1, 1, 7), SeverityValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMseCardBusErrorTx.setStatus('current')
+asMseCardBusErrorRx = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 1, 1, 8), SeverityValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMseCardBusErrorRx.setStatus('current')
+asMseCardClkFail = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 1, 1, 9), SeverityValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMseCardClkFail.setStatus('obsolete')
+asMseLineTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 2), )
+if mibBuilder.loadTexts: asMseLineTable.setStatus('current')
+asMseLineEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 2, 1), ).setIndexNames((0, "IPE-MSE-MIB", "asMseLineIfIndex"))
+if mibBuilder.loadTexts: asMseLineEntry.setStatus('current')
+asMseLineIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 2, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: asMseLineIfIndex.setStatus('current')
+asMseLineNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 2, 1, 2), IpAddress())
+if mibBuilder.loadTexts: asMseLineNEAddress.setStatus('current')
+asMseLineBfrUnderrun = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 2, 1, 5), SeverityValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMseLineBfrUnderrun.setStatus('current')
+asMseLineAdaptiveClkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 40, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("invalid", 0), ("holdover", 1), ("acquiring", 2), ("acquired", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMseLineAdaptiveClkStatus.setStatus('current')
+provMseGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40))
+provMseLineModeTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 1), )
+if mibBuilder.loadTexts: provMseLineModeTable.setStatus('current')
+provMseLineModeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 1, 1), ).setIndexNames((0, "IPE-MSE-MIB", "provMseLineModeIfIndex"))
+if mibBuilder.loadTexts: provMseLineModeEntry.setStatus('current')
+provMseLineModeIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: provMseLineModeIfIndex.setStatus('current')
+provMseLineModeNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 1, 1, 2), IpAddress())
+if mibBuilder.loadTexts: provMseLineModeNEAddress.setStatus('current')
+provMseLineModeType = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("invalid", 0), ("none", 1), ("satop", 2))).clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMseLineModeType.setStatus('current')
+provMseClockModeTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 2), )
+if mibBuilder.loadTexts: provMseClockModeTable.setStatus('current')
+provMseClockModeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 2, 1), ).setIndexNames((0, "IPE-MSE-MIB", "provMseClockModeIfIndex"))
+if mibBuilder.loadTexts: provMseClockModeEntry.setStatus('current')
+provMseClockModeIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 2, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: provMseClockModeIfIndex.setStatus('current')
+provMseClockModeNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 2, 1, 2), IpAddress())
+if mibBuilder.loadTexts: provMseClockModeNEAddress.setStatus('current')
+provMseClockModeType = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("invalid", 0), ("syncToSystem", 1), ("syncToPw", 2), ("syncToLine", 3))).clone('syncToPw')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMseClockModeType.setStatus('current')
+provMseClockACRLineSelect = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMseClockACRLineSelect.setStatus('current')
+provMseClockModeExtTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 3), )
+if mibBuilder.loadTexts: provMseClockModeExtTable.setStatus('current')
+provMseClockModeExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 3, 1), ).setIndexNames((0, "IPE-MSE-MIB", "provMseClockModeExtIfIndex"))
+if mibBuilder.loadTexts: provMseClockModeExtEntry.setStatus('current')
+provMseClockModeExtIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 3, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: provMseClockModeExtIfIndex.setStatus('current')
+provMseClockModeExtNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 3, 1, 2), IpAddress())
+if mibBuilder.loadTexts: provMseClockModeExtNEAddress.setStatus('current')
+provMseClockModeReply2Master = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 3, 1, 3), IpeEnableDisableValue().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMseClockModeReply2Master.setStatus('current')
+provMseClockSupplyMode = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 3, 1, 4), IpeEnableDisableValue().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMseClockSupplyMode.setStatus('current')
+provMseClockSelectTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 4), )
+if mibBuilder.loadTexts: provMseClockSelectTable.setStatus('current')
+provMseClockSelectEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 4, 1), ).setIndexNames((0, "IPE-MSE-MIB", "provMseClockSelectCardId"))
+if mibBuilder.loadTexts: provMseClockSelectEntry.setStatus('current')
+provMseClockSelectCardId = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 4, 1, 1), Integer32())
+if mibBuilder.loadTexts: provMseClockSelectCardId.setStatus('current')
+provMseClockSelectNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 4, 1, 2), IpAddress())
+if mibBuilder.loadTexts: provMseClockSelectNEAddress.setStatus('current')
+provMseClockSelectLineNum = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 40, 4, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMseClockSelectLineNum.setStatus('current')
+mibBuilder.exportSymbols("IPE-MSE-MIB", provMseClockSelectLineNum=provMseClockSelectLineNum, alarmStatusGroup=alarmStatusGroup, provMseClockModeNEAddress=provMseClockModeNEAddress, asMseLineTable=asMseLineTable, provMseGroup=provMseGroup, nec_mib=nec_mib, pasoNeoIpe_common=pasoNeoIpe_common, provMseClockModeReply2Master=provMseClockModeReply2Master, provMseClockSelectNEAddress=provMseClockSelectNEAddress, provMseClockModeIfIndex=provMseClockModeIfIndex, provMseClockModeExtEntry=provMseClockModeExtEntry, asMseCardComFailAlarm=asMseCardComFailAlarm, asMseCardIndex=asMseCardIndex, asMseCardClkFail=asMseCardClkFail, asMseLineEntry=asMseLineEntry, asMseLineNEAddress=asMseLineNEAddress, provMseLineModeTable=provMseLineModeTable, asMseLineBfrUnderrun=asMseLineBfrUnderrun, asMseLineAdaptiveClkStatus=asMseLineAdaptiveClkStatus, radioEquipment=radioEquipment, provMseClockACRLineSelect=provMseClockACRLineSelect, IpeEnableDisableValue=IpeEnableDisableValue, asMseGroup=asMseGroup, provMseLineModeEntry=provMseLineModeEntry, provMseLineModeType=provMseLineModeType, SeverityValue=SeverityValue, asMseCardNEAddress=asMseCardNEAddress, asMseCardBusErrorRx=asMseCardBusErrorRx, provMseClockModeTable=provMseClockModeTable, provMseClockModeExtIfIndex=provMseClockModeExtIfIndex, asMseLineIfIndex=asMseLineIfIndex, provMseClockModeExtNEAddress=provMseClockModeExtNEAddress, provMseClockSelectCardId=provMseClockSelectCardId, nec=nec, asMseCardTable=asMseCardTable, provMseClockSelectEntry=provMseClockSelectEntry, necProductDepend=necProductDepend, asMseCardEntry=asMseCardEntry, asMseCardModuleFail=asMseCardModuleFail, provMseClockModeExtTable=provMseClockModeExtTable, asMseCardBusErrorTx=asMseCardBusErrorTx, asMseCardTypeMismatch=asMseCardTypeMismatch, provMseLineModeIfIndex=provMseLineModeIfIndex, provMseClockSelectTable=provMseClockSelectTable, provMseLineModeNEAddress=provMseLineModeNEAddress, provMseClockSupplyMode=provMseClockSupplyMode, provMseClockModeEntry=provMseClockModeEntry, provisioningGroup=provisioningGroup, asMseCardUnequipped=asMseCardUnequipped, provMseClockModeType=provMseClockModeType)

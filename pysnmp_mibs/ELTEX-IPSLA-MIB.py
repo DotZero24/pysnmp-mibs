@@ -1,615 +1,256 @@
-_M='eltexIpSlaStatsUdpJitterIndex'
-_L='eltexIpSlaStatsIcmpEchoIndex'
-_K='eltexIpSlaAdminUdpJitterIndex'
-_J='eltexIpSlaAdminIcmpEchoIndex'
-_I='eltexIpSlaAdminCtrlIndex'
-_H='InterfaceIndexOrZero'
-_G='DisplayString'
-_F='ELTEX-IPSLA-MIB'
-_E='Integer32'
-_D='read-write'
-_C='milliseconds'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-eltexLtd,=mibBuilder.importSymbols('ELTEX-SMI-ACTUAL','eltexLtd')
-InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB',_H)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_G,'PhysAddress','RowStatus','TextualConvention','TimeStamp','TruthValue')
-eltexIpSlaMIB=ModuleIdentity((1,3,6,1,4,1,35265,32))
-class EltexIpSlaOperationType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('icmp-echo',1),('udp-jitter',2)))
-class EltexIpSlaOperationStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('active',1),('inactive',2)))
-class EltexIpSlaStatsOperStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('unknown',0),('ok',1),('failed',2)))
-_EltexIpSlaObjects_ObjectIdentity=ObjectIdentity
-eltexIpSlaObjects=_EltexIpSlaObjects_ObjectIdentity((1,3,6,1,4,1,35265,32,1))
-_EltexIpSlaAppl_ObjectIdentity=ObjectIdentity
-eltexIpSlaAppl=_EltexIpSlaAppl_ObjectIdentity((1,3,6,1,4,1,35265,32,1,1))
-_EltexIpSlaApplResponder_ObjectIdentity=ObjectIdentity
-eltexIpSlaApplResponder=_EltexIpSlaApplResponder_ObjectIdentity((1,3,6,1,4,1,35265,32,1,1,13))
-class _EltexIpSlaApplResponderUdpJitterPort_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_EltexIpSlaApplResponderUdpJitterPort_Type.__name__=_E
-_EltexIpSlaApplResponderUdpJitterPort_Object=MibScalar
-eltexIpSlaApplResponderUdpJitterPort=_EltexIpSlaApplResponderUdpJitterPort_Object((1,3,6,1,4,1,35265,32,1,1,13,1),_EltexIpSlaApplResponderUdpJitterPort_Type())
-eltexIpSlaApplResponderUdpJitterPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaApplResponderUdpJitterPort.setStatus(_A)
-_EltexIpSlaAdmin_ObjectIdentity=ObjectIdentity
-eltexIpSlaAdmin=_EltexIpSlaAdmin_ObjectIdentity((1,3,6,1,4,1,35265,32,1,2))
-_EltexIpSlaAdminCtrlTable_Object=MibTable
-eltexIpSlaAdminCtrlTable=_EltexIpSlaAdminCtrlTable_Object((1,3,6,1,4,1,35265,32,1,2,1))
-if mibBuilder.loadTexts:eltexIpSlaAdminCtrlTable.setStatus(_A)
-_EltexIpSlaAdminCtrlEntry_Object=MibTableRow
-eltexIpSlaAdminCtrlEntry=_EltexIpSlaAdminCtrlEntry_Object((1,3,6,1,4,1,35265,32,1,2,1,1))
-eltexIpSlaAdminCtrlEntry.setIndexNames((0,_F,_I))
-if mibBuilder.loadTexts:eltexIpSlaAdminCtrlEntry.setStatus(_A)
-_EltexIpSlaAdminCtrlIndex_Type=Integer32
-_EltexIpSlaAdminCtrlIndex_Object=MibTableColumn
-eltexIpSlaAdminCtrlIndex=_EltexIpSlaAdminCtrlIndex_Object((1,3,6,1,4,1,35265,32,1,2,1,1,1),_EltexIpSlaAdminCtrlIndex_Type())
-eltexIpSlaAdminCtrlIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminCtrlIndex.setStatus(_A)
-_EltexIpSlaAdminCtrlType_Type=EltexIpSlaOperationType
-_EltexIpSlaAdminCtrlType_Object=MibTableColumn
-eltexIpSlaAdminCtrlType=_EltexIpSlaAdminCtrlType_Object((1,3,6,1,4,1,35265,32,1,2,1,1,2),_EltexIpSlaAdminCtrlType_Type())
-eltexIpSlaAdminCtrlType.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminCtrlType.setStatus(_A)
-_EltexIpSlaAdminCtrlStatus_Type=EltexIpSlaOperationStatus
-_EltexIpSlaAdminCtrlStatus_Object=MibTableColumn
-eltexIpSlaAdminCtrlStatus=_EltexIpSlaAdminCtrlStatus_Object((1,3,6,1,4,1,35265,32,1,2,1,1,3),_EltexIpSlaAdminCtrlStatus_Type())
-eltexIpSlaAdminCtrlStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaAdminCtrlStatus.setStatus(_A)
-class _EltexIpSlaAdminCtrlFrequency_Type(Integer32):defaultValue=60;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,604800))
-_EltexIpSlaAdminCtrlFrequency_Type.__name__=_E
-_EltexIpSlaAdminCtrlFrequency_Object=MibTableColumn
-eltexIpSlaAdminCtrlFrequency=_EltexIpSlaAdminCtrlFrequency_Object((1,3,6,1,4,1,35265,32,1,2,1,1,4),_EltexIpSlaAdminCtrlFrequency_Type())
-eltexIpSlaAdminCtrlFrequency.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminCtrlFrequency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaAdminCtrlFrequency.setUnits('seconds')
-class _EltexIpSlaAdminCtrlTag_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_EltexIpSlaAdminCtrlTag_Type.__name__=_G
-_EltexIpSlaAdminCtrlTag_Object=MibTableColumn
-eltexIpSlaAdminCtrlTag=_EltexIpSlaAdminCtrlTag_Object((1,3,6,1,4,1,35265,32,1,2,1,1,5),_EltexIpSlaAdminCtrlTag_Type())
-eltexIpSlaAdminCtrlTag.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminCtrlTag.setStatus(_A)
-class _EltexIpSlaAdminCtrlOwner_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_EltexIpSlaAdminCtrlOwner_Type.__name__=_G
-_EltexIpSlaAdminCtrlOwner_Object=MibTableColumn
-eltexIpSlaAdminCtrlOwner=_EltexIpSlaAdminCtrlOwner_Object((1,3,6,1,4,1,35265,32,1,2,1,1,6),_EltexIpSlaAdminCtrlOwner_Type())
-eltexIpSlaAdminCtrlOwner.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminCtrlOwner.setStatus(_A)
-_EltexIpSlaAdminCtrlRowStatus_Type=RowStatus
-_EltexIpSlaAdminCtrlRowStatus_Object=MibTableColumn
-eltexIpSlaAdminCtrlRowStatus=_EltexIpSlaAdminCtrlRowStatus_Object((1,3,6,1,4,1,35265,32,1,2,1,1,7),_EltexIpSlaAdminCtrlRowStatus_Type())
-eltexIpSlaAdminCtrlRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminCtrlRowStatus.setStatus(_A)
-_EltexIpSlaAdminIcmpEchoTable_Object=MibTable
-eltexIpSlaAdminIcmpEchoTable=_EltexIpSlaAdminIcmpEchoTable_Object((1,3,6,1,4,1,35265,32,1,2,2))
-if mibBuilder.loadTexts:eltexIpSlaAdminIcmpEchoTable.setStatus(_A)
-_EltexIpSlaAdminIcmpEchoEntry_Object=MibTableRow
-eltexIpSlaAdminIcmpEchoEntry=_EltexIpSlaAdminIcmpEchoEntry_Object((1,3,6,1,4,1,35265,32,1,2,2,1))
-eltexIpSlaAdminIcmpEchoEntry.setIndexNames((0,_F,_J))
-if mibBuilder.loadTexts:eltexIpSlaAdminIcmpEchoEntry.setStatus(_A)
-_EltexIpSlaAdminIcmpEchoIndex_Type=Integer32
-_EltexIpSlaAdminIcmpEchoIndex_Object=MibTableColumn
-eltexIpSlaAdminIcmpEchoIndex=_EltexIpSlaAdminIcmpEchoIndex_Object((1,3,6,1,4,1,35265,32,1,2,2,1,1),_EltexIpSlaAdminIcmpEchoIndex_Type())
-eltexIpSlaAdminIcmpEchoIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminIcmpEchoIndex.setStatus(_A)
-_EltexIpSlaAdminIcmpEchoTargetAddress_Type=IpAddress
-_EltexIpSlaAdminIcmpEchoTargetAddress_Object=MibTableColumn
-eltexIpSlaAdminIcmpEchoTargetAddress=_EltexIpSlaAdminIcmpEchoTargetAddress_Object((1,3,6,1,4,1,35265,32,1,2,2,1,2),_EltexIpSlaAdminIcmpEchoTargetAddress_Type())
-eltexIpSlaAdminIcmpEchoTargetAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminIcmpEchoTargetAddress.setStatus(_A)
-_EltexIpSlaAdminIcmpEchoSourceAddress_Type=IpAddress
-_EltexIpSlaAdminIcmpEchoSourceAddress_Object=MibTableColumn
-eltexIpSlaAdminIcmpEchoSourceAddress=_EltexIpSlaAdminIcmpEchoSourceAddress_Object((1,3,6,1,4,1,35265,32,1,2,2,1,3),_EltexIpSlaAdminIcmpEchoSourceAddress_Type())
-eltexIpSlaAdminIcmpEchoSourceAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminIcmpEchoSourceAddress.setStatus(_A)
-_EltexIpSlaAdminIcmpEchoSourceInterface_Type=InterfaceIndexOrZero
-_EltexIpSlaAdminIcmpEchoSourceInterface_Object=MibTableColumn
-eltexIpSlaAdminIcmpEchoSourceInterface=_EltexIpSlaAdminIcmpEchoSourceInterface_Object((1,3,6,1,4,1,35265,32,1,2,2,1,4),_EltexIpSlaAdminIcmpEchoSourceInterface_Type())
-eltexIpSlaAdminIcmpEchoSourceInterface.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminIcmpEchoSourceInterface.setStatus(_A)
-class _EltexIpSlaAdminIcmpEchoTimeOut_Type(Integer32):defaultValue=1000;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3600000))
-_EltexIpSlaAdminIcmpEchoTimeOut_Type.__name__=_E
-_EltexIpSlaAdminIcmpEchoTimeOut_Object=MibTableColumn
-eltexIpSlaAdminIcmpEchoTimeOut=_EltexIpSlaAdminIcmpEchoTimeOut_Object((1,3,6,1,4,1,35265,32,1,2,2,1,5),_EltexIpSlaAdminIcmpEchoTimeOut_Type())
-eltexIpSlaAdminIcmpEchoTimeOut.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminIcmpEchoTimeOut.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaAdminIcmpEchoTimeOut.setUnits(_C)
-class _EltexIpSlaAdminIcmpEchoReqDataSize_Type(Integer32):defaultValue=56;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1432))
-_EltexIpSlaAdminIcmpEchoReqDataSize_Type.__name__=_E
-_EltexIpSlaAdminIcmpEchoReqDataSize_Object=MibTableColumn
-eltexIpSlaAdminIcmpEchoReqDataSize=_EltexIpSlaAdminIcmpEchoReqDataSize_Object((1,3,6,1,4,1,35265,32,1,2,2,1,6),_EltexIpSlaAdminIcmpEchoReqDataSize_Type())
-eltexIpSlaAdminIcmpEchoReqDataSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminIcmpEchoReqDataSize.setStatus(_A)
-class _EltexIpSlaAdminIcmpEchoTOS_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_EltexIpSlaAdminIcmpEchoTOS_Type.__name__=_E
-_EltexIpSlaAdminIcmpEchoTOS_Object=MibTableColumn
-eltexIpSlaAdminIcmpEchoTOS=_EltexIpSlaAdminIcmpEchoTOS_Object((1,3,6,1,4,1,35265,32,1,2,2,1,7),_EltexIpSlaAdminIcmpEchoTOS_Type())
-eltexIpSlaAdminIcmpEchoTOS.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminIcmpEchoTOS.setStatus(_A)
-_EltexIpSlaAdminIcmpEchoRowStatus_Type=RowStatus
-_EltexIpSlaAdminIcmpEchoRowStatus_Object=MibTableColumn
-eltexIpSlaAdminIcmpEchoRowStatus=_EltexIpSlaAdminIcmpEchoRowStatus_Object((1,3,6,1,4,1,35265,32,1,2,2,1,8),_EltexIpSlaAdminIcmpEchoRowStatus_Type())
-eltexIpSlaAdminIcmpEchoRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminIcmpEchoRowStatus.setStatus(_A)
-_EltexIpSlaAdminUdpJitterTable_Object=MibTable
-eltexIpSlaAdminUdpJitterTable=_EltexIpSlaAdminUdpJitterTable_Object((1,3,6,1,4,1,35265,32,1,2,3))
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterTable.setStatus(_A)
-_EltexIpSlaAdminUdpJitterEntry_Object=MibTableRow
-eltexIpSlaAdminUdpJitterEntry=_EltexIpSlaAdminUdpJitterEntry_Object((1,3,6,1,4,1,35265,32,1,2,3,1))
-eltexIpSlaAdminUdpJitterEntry.setIndexNames((0,_F,_K))
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterEntry.setStatus(_A)
-_EltexIpSlaAdminUdpJitterIndex_Type=Integer32
-_EltexIpSlaAdminUdpJitterIndex_Object=MibTableColumn
-eltexIpSlaAdminUdpJitterIndex=_EltexIpSlaAdminUdpJitterIndex_Object((1,3,6,1,4,1,35265,32,1,2,3,1,1),_EltexIpSlaAdminUdpJitterIndex_Type())
-eltexIpSlaAdminUdpJitterIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterIndex.setStatus(_A)
-_EltexIpSlaAdminUdpJitterTargetAddress_Type=IpAddress
-_EltexIpSlaAdminUdpJitterTargetAddress_Object=MibTableColumn
-eltexIpSlaAdminUdpJitterTargetAddress=_EltexIpSlaAdminUdpJitterTargetAddress_Object((1,3,6,1,4,1,35265,32,1,2,3,1,2),_EltexIpSlaAdminUdpJitterTargetAddress_Type())
-eltexIpSlaAdminUdpJitterTargetAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterTargetAddress.setStatus(_A)
-class _EltexIpSlaAdminUdpJitterTargetPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_EltexIpSlaAdminUdpJitterTargetPort_Type.__name__=_E
-_EltexIpSlaAdminUdpJitterTargetPort_Object=MibTableColumn
-eltexIpSlaAdminUdpJitterTargetPort=_EltexIpSlaAdminUdpJitterTargetPort_Object((1,3,6,1,4,1,35265,32,1,2,3,1,3),_EltexIpSlaAdminUdpJitterTargetPort_Type())
-eltexIpSlaAdminUdpJitterTargetPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterTargetPort.setStatus(_A)
-_EltexIpSlaAdminUdpJitterSourceAddress_Type=IpAddress
-_EltexIpSlaAdminUdpJitterSourceAddress_Object=MibTableColumn
-eltexIpSlaAdminUdpJitterSourceAddress=_EltexIpSlaAdminUdpJitterSourceAddress_Object((1,3,6,1,4,1,35265,32,1,2,3,1,4),_EltexIpSlaAdminUdpJitterSourceAddress_Type())
-eltexIpSlaAdminUdpJitterSourceAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterSourceAddress.setStatus(_A)
-class _EltexIpSlaAdminUdpJitterSourcePort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_EltexIpSlaAdminUdpJitterSourcePort_Type.__name__=_E
-_EltexIpSlaAdminUdpJitterSourcePort_Object=MibTableColumn
-eltexIpSlaAdminUdpJitterSourcePort=_EltexIpSlaAdminUdpJitterSourcePort_Object((1,3,6,1,4,1,35265,32,1,2,3,1,5),_EltexIpSlaAdminUdpJitterSourcePort_Type())
-eltexIpSlaAdminUdpJitterSourcePort.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterSourcePort.setStatus(_A)
-class _EltexIpSlaAdminUdpJitterSourceInterface_Type(InterfaceIndexOrZero):defaultValue=0
-_EltexIpSlaAdminUdpJitterSourceInterface_Type.__name__=_H
-_EltexIpSlaAdminUdpJitterSourceInterface_Object=MibTableColumn
-eltexIpSlaAdminUdpJitterSourceInterface=_EltexIpSlaAdminUdpJitterSourceInterface_Object((1,3,6,1,4,1,35265,32,1,2,3,1,6),_EltexIpSlaAdminUdpJitterSourceInterface_Type())
-eltexIpSlaAdminUdpJitterSourceInterface.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterSourceInterface.setStatus(_A)
-class _EltexIpSlaAdminUdpJitterInterval_Type(Integer32):defaultValue=20;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,60000))
-_EltexIpSlaAdminUdpJitterInterval_Type.__name__=_E
-_EltexIpSlaAdminUdpJitterInterval_Object=MibTableColumn
-eltexIpSlaAdminUdpJitterInterval=_EltexIpSlaAdminUdpJitterInterval_Object((1,3,6,1,4,1,35265,32,1,2,3,1,7),_EltexIpSlaAdminUdpJitterInterval_Type())
-eltexIpSlaAdminUdpJitterInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterInterval.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterInterval.setUnits(_C)
-class _EltexIpSlaAdminUdpJitterNumPackets_Type(Integer32):defaultValue=10;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
-_EltexIpSlaAdminUdpJitterNumPackets_Type.__name__=_E
-_EltexIpSlaAdminUdpJitterNumPackets_Object=MibTableColumn
-eltexIpSlaAdminUdpJitterNumPackets=_EltexIpSlaAdminUdpJitterNumPackets_Object((1,3,6,1,4,1,35265,32,1,2,3,1,8),_EltexIpSlaAdminUdpJitterNumPackets_Type())
-eltexIpSlaAdminUdpJitterNumPackets.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterNumPackets.setStatus(_A)
-class _EltexIpSlaAdminUdpJitterTimeOut_Type(Integer32):defaultValue=1000;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3600000))
-_EltexIpSlaAdminUdpJitterTimeOut_Type.__name__=_E
-_EltexIpSlaAdminUdpJitterTimeOut_Object=MibTableColumn
-eltexIpSlaAdminUdpJitterTimeOut=_EltexIpSlaAdminUdpJitterTimeOut_Object((1,3,6,1,4,1,35265,32,1,2,3,1,9),_EltexIpSlaAdminUdpJitterTimeOut_Type())
-eltexIpSlaAdminUdpJitterTimeOut.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterTimeOut.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterTimeOut.setUnits(_C)
-class _EltexIpSlaAdminUdpJitterReqDataSize_Type(Integer32):defaultValue=30;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1432))
-_EltexIpSlaAdminUdpJitterReqDataSize_Type.__name__=_E
-_EltexIpSlaAdminUdpJitterReqDataSize_Object=MibTableColumn
-eltexIpSlaAdminUdpJitterReqDataSize=_EltexIpSlaAdminUdpJitterReqDataSize_Object((1,3,6,1,4,1,35265,32,1,2,3,1,10),_EltexIpSlaAdminUdpJitterReqDataSize_Type())
-eltexIpSlaAdminUdpJitterReqDataSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterReqDataSize.setStatus(_A)
-class _EltexIpSlaAdminUdpJitterTOS_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_EltexIpSlaAdminUdpJitterTOS_Type.__name__=_E
-_EltexIpSlaAdminUdpJitterTOS_Object=MibTableColumn
-eltexIpSlaAdminUdpJitterTOS=_EltexIpSlaAdminUdpJitterTOS_Object((1,3,6,1,4,1,35265,32,1,2,3,1,11),_EltexIpSlaAdminUdpJitterTOS_Type())
-eltexIpSlaAdminUdpJitterTOS.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterTOS.setStatus(_A)
-_EltexIpSlaAdminUdpJitterRowStatus_Type=RowStatus
-_EltexIpSlaAdminUdpJitterRowStatus_Object=MibTableColumn
-eltexIpSlaAdminUdpJitterRowStatus=_EltexIpSlaAdminUdpJitterRowStatus_Object((1,3,6,1,4,1,35265,32,1,2,3,1,12),_EltexIpSlaAdminUdpJitterRowStatus_Type())
-eltexIpSlaAdminUdpJitterRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaAdminUdpJitterRowStatus.setStatus(_A)
-_EltexIpSlaStats_ObjectIdentity=ObjectIdentity
-eltexIpSlaStats=_EltexIpSlaStats_ObjectIdentity((1,3,6,1,4,1,35265,32,1,3))
-_EltexIpSlaStatsIcmpEchoTable_Object=MibTable
-eltexIpSlaStatsIcmpEchoTable=_EltexIpSlaStatsIcmpEchoTable_Object((1,3,6,1,4,1,35265,32,1,3,2))
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoTable.setStatus(_A)
-_EltexIpSlaStatsIcmpEchoEntry_Object=MibTableRow
-eltexIpSlaStatsIcmpEchoEntry=_EltexIpSlaStatsIcmpEchoEntry_Object((1,3,6,1,4,1,35265,32,1,3,2,1))
-eltexIpSlaStatsIcmpEchoEntry.setIndexNames((0,_F,_L))
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoEntry.setStatus(_A)
-_EltexIpSlaStatsIcmpEchoIndex_Type=Integer32
-_EltexIpSlaStatsIcmpEchoIndex_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoIndex=_EltexIpSlaStatsIcmpEchoIndex_Object((1,3,6,1,4,1,35265,32,1,3,2,1,1),_EltexIpSlaStatsIcmpEchoIndex_Type())
-eltexIpSlaStatsIcmpEchoIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoIndex.setStatus(_A)
-_EltexIpSlaStatsIcmpEchoLastStatus_Type=EltexIpSlaStatsOperStatus
-_EltexIpSlaStatsIcmpEchoLastStatus_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoLastStatus=_EltexIpSlaStatsIcmpEchoLastStatus_Object((1,3,6,1,4,1,35265,32,1,3,2,1,2),_EltexIpSlaStatsIcmpEchoLastStatus_Type())
-eltexIpSlaStatsIcmpEchoLastStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoLastStatus.setStatus(_A)
-_EltexIpSlaStatsIcmpEchoLastLatency_Type=Integer32
-_EltexIpSlaStatsIcmpEchoLastLatency_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoLastLatency=_EltexIpSlaStatsIcmpEchoLastLatency_Object((1,3,6,1,4,1,35265,32,1,3,2,1,3),_EltexIpSlaStatsIcmpEchoLastLatency_Type())
-eltexIpSlaStatsIcmpEchoLastLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoLastLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoLastLatency.setUnits(_C)
-_EltexIpSlaStatsIcmpEchoMinLatency_Type=Integer32
-_EltexIpSlaStatsIcmpEchoMinLatency_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoMinLatency=_EltexIpSlaStatsIcmpEchoMinLatency_Object((1,3,6,1,4,1,35265,32,1,3,2,1,4),_EltexIpSlaStatsIcmpEchoMinLatency_Type())
-eltexIpSlaStatsIcmpEchoMinLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoMinLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoMinLatency.setUnits(_C)
-_EltexIpSlaStatsIcmpEchoAvgLatency_Type=Integer32
-_EltexIpSlaStatsIcmpEchoAvgLatency_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoAvgLatency=_EltexIpSlaStatsIcmpEchoAvgLatency_Object((1,3,6,1,4,1,35265,32,1,3,2,1,5),_EltexIpSlaStatsIcmpEchoAvgLatency_Type())
-eltexIpSlaStatsIcmpEchoAvgLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoAvgLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoAvgLatency.setUnits(_C)
-_EltexIpSlaStatsIcmpEchoMaxLatency_Type=Integer32
-_EltexIpSlaStatsIcmpEchoMaxLatency_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoMaxLatency=_EltexIpSlaStatsIcmpEchoMaxLatency_Object((1,3,6,1,4,1,35265,32,1,3,2,1,6),_EltexIpSlaStatsIcmpEchoMaxLatency_Type())
-eltexIpSlaStatsIcmpEchoMaxLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoMaxLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoMaxLatency.setUnits(_C)
-_EltexIpSlaStatsIcmpEchoOperationsCtr_Type=Counter32
-_EltexIpSlaStatsIcmpEchoOperationsCtr_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoOperationsCtr=_EltexIpSlaStatsIcmpEchoOperationsCtr_Object((1,3,6,1,4,1,35265,32,1,3,2,1,7),_EltexIpSlaStatsIcmpEchoOperationsCtr_Type())
-eltexIpSlaStatsIcmpEchoOperationsCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoOperationsCtr.setStatus(_A)
-_EltexIpSlaStatsIcmpEchoSuccessesCtr_Type=Counter32
-_EltexIpSlaStatsIcmpEchoSuccessesCtr_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoSuccessesCtr=_EltexIpSlaStatsIcmpEchoSuccessesCtr_Object((1,3,6,1,4,1,35265,32,1,3,2,1,8),_EltexIpSlaStatsIcmpEchoSuccessesCtr_Type())
-eltexIpSlaStatsIcmpEchoSuccessesCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoSuccessesCtr.setStatus(_A)
-_EltexIpSlaStatsIcmpEchoFailuresCtr_Type=Counter32
-_EltexIpSlaStatsIcmpEchoFailuresCtr_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoFailuresCtr=_EltexIpSlaStatsIcmpEchoFailuresCtr_Object((1,3,6,1,4,1,35265,32,1,3,2,1,9),_EltexIpSlaStatsIcmpEchoFailuresCtr_Type())
-eltexIpSlaStatsIcmpEchoFailuresCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoFailuresCtr.setStatus(_A)
-_EltexIpSlaStatsIcmpEchoTimeoutCtr_Type=Counter32
-_EltexIpSlaStatsIcmpEchoTimeoutCtr_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoTimeoutCtr=_EltexIpSlaStatsIcmpEchoTimeoutCtr_Object((1,3,6,1,4,1,35265,32,1,3,2,1,10),_EltexIpSlaStatsIcmpEchoTimeoutCtr_Type())
-eltexIpSlaStatsIcmpEchoTimeoutCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoTimeoutCtr.setStatus(_A)
-_EltexIpSlaStatsIcmpEchoUnreachNetCtr_Type=Counter32
-_EltexIpSlaStatsIcmpEchoUnreachNetCtr_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoUnreachNetCtr=_EltexIpSlaStatsIcmpEchoUnreachNetCtr_Object((1,3,6,1,4,1,35265,32,1,3,2,1,11),_EltexIpSlaStatsIcmpEchoUnreachNetCtr_Type())
-eltexIpSlaStatsIcmpEchoUnreachNetCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoUnreachNetCtr.setStatus(_A)
-_EltexIpSlaStatsIcmpEchoUnreachHostCtr_Type=Counter32
-_EltexIpSlaStatsIcmpEchoUnreachHostCtr_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoUnreachHostCtr=_EltexIpSlaStatsIcmpEchoUnreachHostCtr_Object((1,3,6,1,4,1,35265,32,1,3,2,1,12),_EltexIpSlaStatsIcmpEchoUnreachHostCtr_Type())
-eltexIpSlaStatsIcmpEchoUnreachHostCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoUnreachHostCtr.setStatus(_A)
-_EltexIpSlaStatsIcmpEchoUnreachProtCtr_Type=Counter32
-_EltexIpSlaStatsIcmpEchoUnreachProtCtr_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoUnreachProtCtr=_EltexIpSlaStatsIcmpEchoUnreachProtCtr_Object((1,3,6,1,4,1,35265,32,1,3,2,1,13),_EltexIpSlaStatsIcmpEchoUnreachProtCtr_Type())
-eltexIpSlaStatsIcmpEchoUnreachProtCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoUnreachProtCtr.setStatus(_A)
-_EltexIpSlaStatsIcmpEchoExTimeTransCtr_Type=Counter32
-_EltexIpSlaStatsIcmpEchoExTimeTransCtr_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoExTimeTransCtr=_EltexIpSlaStatsIcmpEchoExTimeTransCtr_Object((1,3,6,1,4,1,35265,32,1,3,2,1,14),_EltexIpSlaStatsIcmpEchoExTimeTransCtr_Type())
-eltexIpSlaStatsIcmpEchoExTimeTransCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoExTimeTransCtr.setStatus(_A)
-_EltexIpSlaStatsIcmpEchoExTimeReassCtr_Type=Counter32
-_EltexIpSlaStatsIcmpEchoExTimeReassCtr_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoExTimeReassCtr=_EltexIpSlaStatsIcmpEchoExTimeReassCtr_Object((1,3,6,1,4,1,35265,32,1,3,2,1,15),_EltexIpSlaStatsIcmpEchoExTimeReassCtr_Type())
-eltexIpSlaStatsIcmpEchoExTimeReassCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoExTimeReassCtr.setStatus(_A)
-_EltexIpSlaStatsIcmpEchoUnableSendCtr_Type=Counter32
-_EltexIpSlaStatsIcmpEchoUnableSendCtr_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoUnableSendCtr=_EltexIpSlaStatsIcmpEchoUnableSendCtr_Object((1,3,6,1,4,1,35265,32,1,3,2,1,16),_EltexIpSlaStatsIcmpEchoUnableSendCtr_Type())
-eltexIpSlaStatsIcmpEchoUnableSendCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoUnableSendCtr.setStatus(_A)
-_EltexIpSlaStatsIcmpEchoBadReplyCtr_Type=Counter32
-_EltexIpSlaStatsIcmpEchoBadReplyCtr_Object=MibTableColumn
-eltexIpSlaStatsIcmpEchoBadReplyCtr=_EltexIpSlaStatsIcmpEchoBadReplyCtr_Object((1,3,6,1,4,1,35265,32,1,3,2,1,17),_EltexIpSlaStatsIcmpEchoBadReplyCtr_Type())
-eltexIpSlaStatsIcmpEchoBadReplyCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsIcmpEchoBadReplyCtr.setStatus(_A)
-_EltexIpSlaStatsUdpJitterTable_Object=MibTable
-eltexIpSlaStatsUdpJitterTable=_EltexIpSlaStatsUdpJitterTable_Object((1,3,6,1,4,1,35265,32,1,3,3))
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterTable.setStatus(_A)
-_EltexIpSlaStatsUdpJitterEntry_Object=MibTableRow
-eltexIpSlaStatsUdpJitterEntry=_EltexIpSlaStatsUdpJitterEntry_Object((1,3,6,1,4,1,35265,32,1,3,3,1))
-eltexIpSlaStatsUdpJitterEntry.setIndexNames((0,_F,_M))
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterEntry.setStatus(_A)
-_EltexIpSlaStatsUdpJitterIndex_Type=Integer32
-_EltexIpSlaStatsUdpJitterIndex_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterIndex=_EltexIpSlaStatsUdpJitterIndex_Object((1,3,6,1,4,1,35265,32,1,3,3,1,1),_EltexIpSlaStatsUdpJitterIndex_Type())
-eltexIpSlaStatsUdpJitterIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterIndex.setStatus(_A)
-_EltexIpSlaStatsUdpJitterLastStatus_Type=EltexIpSlaStatsOperStatus
-_EltexIpSlaStatsUdpJitterLastStatus_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterLastStatus=_EltexIpSlaStatsUdpJitterLastStatus_Object((1,3,6,1,4,1,35265,32,1,3,3,1,2),_EltexIpSlaStatsUdpJitterLastStatus_Type())
-eltexIpSlaStatsUdpJitterLastStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterLastStatus.setStatus(_A)
-_EltexIpSlaStatsUdpJitterLastLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterLastLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterLastLatency=_EltexIpSlaStatsUdpJitterLastLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,3),_EltexIpSlaStatsUdpJitterLastLatency_Type())
-eltexIpSlaStatsUdpJitterLastLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterLastLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterLastLatency.setUnits(_C)
-_EltexIpSlaStatsUdpJitterNumLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterNumLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterNumLatency=_EltexIpSlaStatsUdpJitterNumLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,4),_EltexIpSlaStatsUdpJitterNumLatency_Type())
-eltexIpSlaStatsUdpJitterNumLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterNumLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterNumLatency.setUnits(_C)
-_EltexIpSlaStatsUdpJitterSumLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterSumLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterSumLatency=_EltexIpSlaStatsUdpJitterSumLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,5),_EltexIpSlaStatsUdpJitterSumLatency_Type())
-eltexIpSlaStatsUdpJitterSumLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterSumLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterSumLatency.setUnits(_C)
-_EltexIpSlaStatsUdpJitterMinLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterMinLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterMinLatency=_EltexIpSlaStatsUdpJitterMinLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,6),_EltexIpSlaStatsUdpJitterMinLatency_Type())
-eltexIpSlaStatsUdpJitterMinLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMinLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMinLatency.setUnits(_C)
-_EltexIpSlaStatsUdpJitterAvgLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterAvgLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterAvgLatency=_EltexIpSlaStatsUdpJitterAvgLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,7),_EltexIpSlaStatsUdpJitterAvgLatency_Type())
-eltexIpSlaStatsUdpJitterAvgLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterAvgLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterAvgLatency.setUnits(_C)
-_EltexIpSlaStatsUdpJitterMaxLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterMaxLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterMaxLatency=_EltexIpSlaStatsUdpJitterMaxLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,8),_EltexIpSlaStatsUdpJitterMaxLatency_Type())
-eltexIpSlaStatsUdpJitterMaxLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMaxLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMaxLatency.setUnits(_C)
-_EltexIpSlaStatsUdpJitterNumSDLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterNumSDLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterNumSDLatency=_EltexIpSlaStatsUdpJitterNumSDLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,9),_EltexIpSlaStatsUdpJitterNumSDLatency_Type())
-eltexIpSlaStatsUdpJitterNumSDLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterNumSDLatency.setStatus(_A)
-_EltexIpSlaStatsUdpJitterSumSDLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterSumSDLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterSumSDLatency=_EltexIpSlaStatsUdpJitterSumSDLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,10),_EltexIpSlaStatsUdpJitterSumSDLatency_Type())
-eltexIpSlaStatsUdpJitterSumSDLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterSumSDLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterSumSDLatency.setUnits(_C)
-_EltexIpSlaStatsUdpJitterMinSDLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterMinSDLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterMinSDLatency=_EltexIpSlaStatsUdpJitterMinSDLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,11),_EltexIpSlaStatsUdpJitterMinSDLatency_Type())
-eltexIpSlaStatsUdpJitterMinSDLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMinSDLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMinSDLatency.setUnits(_C)
-_EltexIpSlaStatsUdpJitterAvgSDLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterAvgSDLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterAvgSDLatency=_EltexIpSlaStatsUdpJitterAvgSDLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,12),_EltexIpSlaStatsUdpJitterAvgSDLatency_Type())
-eltexIpSlaStatsUdpJitterAvgSDLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterAvgSDLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterAvgSDLatency.setUnits(_C)
-_EltexIpSlaStatsUdpJitterMaxSDLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterMaxSDLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterMaxSDLatency=_EltexIpSlaStatsUdpJitterMaxSDLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,13),_EltexIpSlaStatsUdpJitterMaxSDLatency_Type())
-eltexIpSlaStatsUdpJitterMaxSDLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMaxSDLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMaxSDLatency.setUnits(_C)
-_EltexIpSlaStatsUdpJitterNumDSLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterNumDSLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterNumDSLatency=_EltexIpSlaStatsUdpJitterNumDSLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,14),_EltexIpSlaStatsUdpJitterNumDSLatency_Type())
-eltexIpSlaStatsUdpJitterNumDSLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterNumDSLatency.setStatus(_A)
-_EltexIpSlaStatsUdpJitterSumDSLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterSumDSLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterSumDSLatency=_EltexIpSlaStatsUdpJitterSumDSLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,15),_EltexIpSlaStatsUdpJitterSumDSLatency_Type())
-eltexIpSlaStatsUdpJitterSumDSLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterSumDSLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterSumDSLatency.setUnits(_C)
-_EltexIpSlaStatsUdpJitterMinDSLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterMinDSLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterMinDSLatency=_EltexIpSlaStatsUdpJitterMinDSLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,16),_EltexIpSlaStatsUdpJitterMinDSLatency_Type())
-eltexIpSlaStatsUdpJitterMinDSLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMinDSLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMinDSLatency.setUnits(_C)
-_EltexIpSlaStatsUdpJitterAvgDSLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterAvgDSLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterAvgDSLatency=_EltexIpSlaStatsUdpJitterAvgDSLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,17),_EltexIpSlaStatsUdpJitterAvgDSLatency_Type())
-eltexIpSlaStatsUdpJitterAvgDSLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterAvgDSLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterAvgDSLatency.setUnits(_C)
-_EltexIpSlaStatsUdpJitterMaxDSLatency_Type=Integer32
-_EltexIpSlaStatsUdpJitterMaxDSLatency_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterMaxDSLatency=_EltexIpSlaStatsUdpJitterMaxDSLatency_Object((1,3,6,1,4,1,35265,32,1,3,3,1,18),_EltexIpSlaStatsUdpJitterMaxDSLatency_Type())
-eltexIpSlaStatsUdpJitterMaxDSLatency.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMaxDSLatency.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMaxDSLatency.setUnits(_C)
-_EltexIpSlaStatsUdpJitterNumSDPosJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterNumSDPosJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterNumSDPosJitter=_EltexIpSlaStatsUdpJitterNumSDPosJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,19),_EltexIpSlaStatsUdpJitterNumSDPosJitter_Type())
-eltexIpSlaStatsUdpJitterNumSDPosJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterNumSDPosJitter.setStatus(_A)
-_EltexIpSlaStatsUdpJitterSumSDPosJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterSumSDPosJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterSumSDPosJitter=_EltexIpSlaStatsUdpJitterSumSDPosJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,20),_EltexIpSlaStatsUdpJitterSumSDPosJitter_Type())
-eltexIpSlaStatsUdpJitterSumSDPosJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterSumSDPosJitter.setStatus(_A)
-_EltexIpSlaStatsUdpJitterMinSDPosJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterMinSDPosJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterMinSDPosJitter=_EltexIpSlaStatsUdpJitterMinSDPosJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,21),_EltexIpSlaStatsUdpJitterMinSDPosJitter_Type())
-eltexIpSlaStatsUdpJitterMinSDPosJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMinSDPosJitter.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMinSDPosJitter.setUnits(_C)
-_EltexIpSlaStatsUdpJitterAvgSDPosJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterAvgSDPosJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterAvgSDPosJitter=_EltexIpSlaStatsUdpJitterAvgSDPosJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,22),_EltexIpSlaStatsUdpJitterAvgSDPosJitter_Type())
-eltexIpSlaStatsUdpJitterAvgSDPosJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterAvgSDPosJitter.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterAvgSDPosJitter.setUnits(_C)
-_EltexIpSlaStatsUdpJitterMaxSDPosJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterMaxSDPosJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterMaxSDPosJitter=_EltexIpSlaStatsUdpJitterMaxSDPosJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,23),_EltexIpSlaStatsUdpJitterMaxSDPosJitter_Type())
-eltexIpSlaStatsUdpJitterMaxSDPosJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMaxSDPosJitter.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMaxSDPosJitter.setUnits(_C)
-_EltexIpSlaStatsUdpJitterNumDSPosJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterNumDSPosJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterNumDSPosJitter=_EltexIpSlaStatsUdpJitterNumDSPosJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,24),_EltexIpSlaStatsUdpJitterNumDSPosJitter_Type())
-eltexIpSlaStatsUdpJitterNumDSPosJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterNumDSPosJitter.setStatus(_A)
-_EltexIpSlaStatsUdpJitterSumDSPosJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterSumDSPosJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterSumDSPosJitter=_EltexIpSlaStatsUdpJitterSumDSPosJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,25),_EltexIpSlaStatsUdpJitterSumDSPosJitter_Type())
-eltexIpSlaStatsUdpJitterSumDSPosJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterSumDSPosJitter.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterSumDSPosJitter.setUnits(_C)
-_EltexIpSlaStatsUdpJitterMinDSPosJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterMinDSPosJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterMinDSPosJitter=_EltexIpSlaStatsUdpJitterMinDSPosJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,26),_EltexIpSlaStatsUdpJitterMinDSPosJitter_Type())
-eltexIpSlaStatsUdpJitterMinDSPosJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMinDSPosJitter.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMinDSPosJitter.setUnits(_C)
-_EltexIpSlaStatsUdpJitterAvgDSPosJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterAvgDSPosJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterAvgDSPosJitter=_EltexIpSlaStatsUdpJitterAvgDSPosJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,27),_EltexIpSlaStatsUdpJitterAvgDSPosJitter_Type())
-eltexIpSlaStatsUdpJitterAvgDSPosJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterAvgDSPosJitter.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterAvgDSPosJitter.setUnits(_C)
-_EltexIpSlaStatsUdpJitterMaxDSPosJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterMaxDSPosJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterMaxDSPosJitter=_EltexIpSlaStatsUdpJitterMaxDSPosJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,28),_EltexIpSlaStatsUdpJitterMaxDSPosJitter_Type())
-eltexIpSlaStatsUdpJitterMaxDSPosJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMaxDSPosJitter.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMaxDSPosJitter.setUnits(_C)
-_EltexIpSlaStatsUdpJitterNumSDNegJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterNumSDNegJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterNumSDNegJitter=_EltexIpSlaStatsUdpJitterNumSDNegJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,29),_EltexIpSlaStatsUdpJitterNumSDNegJitter_Type())
-eltexIpSlaStatsUdpJitterNumSDNegJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterNumSDNegJitter.setStatus(_A)
-_EltexIpSlaStatsUdpJitterSumSDNegJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterSumSDNegJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterSumSDNegJitter=_EltexIpSlaStatsUdpJitterSumSDNegJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,30),_EltexIpSlaStatsUdpJitterSumSDNegJitter_Type())
-eltexIpSlaStatsUdpJitterSumSDNegJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterSumSDNegJitter.setStatus(_A)
-_EltexIpSlaStatsUdpJitterMinSDNegJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterMinSDNegJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterMinSDNegJitter=_EltexIpSlaStatsUdpJitterMinSDNegJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,31),_EltexIpSlaStatsUdpJitterMinSDNegJitter_Type())
-eltexIpSlaStatsUdpJitterMinSDNegJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMinSDNegJitter.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMinSDNegJitter.setUnits(_C)
-_EltexIpSlaStatsUdpJitterAvgSDNegJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterAvgSDNegJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterAvgSDNegJitter=_EltexIpSlaStatsUdpJitterAvgSDNegJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,32),_EltexIpSlaStatsUdpJitterAvgSDNegJitter_Type())
-eltexIpSlaStatsUdpJitterAvgSDNegJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterAvgSDNegJitter.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterAvgSDNegJitter.setUnits(_C)
-_EltexIpSlaStatsUdpJitterMaxSDNegJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterMaxSDNegJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterMaxSDNegJitter=_EltexIpSlaStatsUdpJitterMaxSDNegJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,33),_EltexIpSlaStatsUdpJitterMaxSDNegJitter_Type())
-eltexIpSlaStatsUdpJitterMaxSDNegJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMaxSDNegJitter.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMaxSDNegJitter.setUnits(_C)
-_EltexIpSlaStatsUdpJitterNumDSNegJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterNumDSNegJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterNumDSNegJitter=_EltexIpSlaStatsUdpJitterNumDSNegJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,34),_EltexIpSlaStatsUdpJitterNumDSNegJitter_Type())
-eltexIpSlaStatsUdpJitterNumDSNegJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterNumDSNegJitter.setStatus(_A)
-_EltexIpSlaStatsUdpJitterSumDSNegJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterSumDSNegJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterSumDSNegJitter=_EltexIpSlaStatsUdpJitterSumDSNegJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,35),_EltexIpSlaStatsUdpJitterSumDSNegJitter_Type())
-eltexIpSlaStatsUdpJitterSumDSNegJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterSumDSNegJitter.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterSumDSNegJitter.setUnits(_C)
-_EltexIpSlaStatsUdpJitterMinDSNegJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterMinDSNegJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterMinDSNegJitter=_EltexIpSlaStatsUdpJitterMinDSNegJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,36),_EltexIpSlaStatsUdpJitterMinDSNegJitter_Type())
-eltexIpSlaStatsUdpJitterMinDSNegJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMinDSNegJitter.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMinDSNegJitter.setUnits(_C)
-_EltexIpSlaStatsUdpJitterAvgDSNegJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterAvgDSNegJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterAvgDSNegJitter=_EltexIpSlaStatsUdpJitterAvgDSNegJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,37),_EltexIpSlaStatsUdpJitterAvgDSNegJitter_Type())
-eltexIpSlaStatsUdpJitterAvgDSNegJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterAvgDSNegJitter.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterAvgDSNegJitter.setUnits(_C)
-_EltexIpSlaStatsUdpJitterMaxDSNegJitter_Type=Integer32
-_EltexIpSlaStatsUdpJitterMaxDSNegJitter_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterMaxDSNegJitter=_EltexIpSlaStatsUdpJitterMaxDSNegJitter_Object((1,3,6,1,4,1,35265,32,1,3,3,1,38),_EltexIpSlaStatsUdpJitterMaxDSNegJitter_Type())
-eltexIpSlaStatsUdpJitterMaxDSNegJitter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMaxDSNegJitter.setStatus(_A)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterMaxDSNegJitter.setUnits(_C)
-_EltexIpSlaStatsUdpJitterOperationsCtr_Type=Counter32
-_EltexIpSlaStatsUdpJitterOperationsCtr_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterOperationsCtr=_EltexIpSlaStatsUdpJitterOperationsCtr_Object((1,3,6,1,4,1,35265,32,1,3,3,1,39),_EltexIpSlaStatsUdpJitterOperationsCtr_Type())
-eltexIpSlaStatsUdpJitterOperationsCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterOperationsCtr.setStatus(_A)
-_EltexIpSlaStatsUdpJitterSuccessesCtr_Type=Counter32
-_EltexIpSlaStatsUdpJitterSuccessesCtr_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterSuccessesCtr=_EltexIpSlaStatsUdpJitterSuccessesCtr_Object((1,3,6,1,4,1,35265,32,1,3,3,1,40),_EltexIpSlaStatsUdpJitterSuccessesCtr_Type())
-eltexIpSlaStatsUdpJitterSuccessesCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterSuccessesCtr.setStatus(_A)
-_EltexIpSlaStatsUdpJitterFailuresCtr_Type=Counter32
-_EltexIpSlaStatsUdpJitterFailuresCtr_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterFailuresCtr=_EltexIpSlaStatsUdpJitterFailuresCtr_Object((1,3,6,1,4,1,35265,32,1,3,3,1,41),_EltexIpSlaStatsUdpJitterFailuresCtr_Type())
-eltexIpSlaStatsUdpJitterFailuresCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterFailuresCtr.setStatus(_A)
-_EltexIpSlaStatsUdpJitterTimeoutCtr_Type=Counter32
-_EltexIpSlaStatsUdpJitterTimeoutCtr_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterTimeoutCtr=_EltexIpSlaStatsUdpJitterTimeoutCtr_Object((1,3,6,1,4,1,35265,32,1,3,3,1,42),_EltexIpSlaStatsUdpJitterTimeoutCtr_Type())
-eltexIpSlaStatsUdpJitterTimeoutCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterTimeoutCtr.setStatus(_A)
-_EltexIpSlaStatsUdpJitterUnreachNetCtr_Type=Counter32
-_EltexIpSlaStatsUdpJitterUnreachNetCtr_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterUnreachNetCtr=_EltexIpSlaStatsUdpJitterUnreachNetCtr_Object((1,3,6,1,4,1,35265,32,1,3,3,1,43),_EltexIpSlaStatsUdpJitterUnreachNetCtr_Type())
-eltexIpSlaStatsUdpJitterUnreachNetCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterUnreachNetCtr.setStatus(_A)
-_EltexIpSlaStatsUdpJitterUnreachHostCtr_Type=Counter32
-_EltexIpSlaStatsUdpJitterUnreachHostCtr_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterUnreachHostCtr=_EltexIpSlaStatsUdpJitterUnreachHostCtr_Object((1,3,6,1,4,1,35265,32,1,3,3,1,44),_EltexIpSlaStatsUdpJitterUnreachHostCtr_Type())
-eltexIpSlaStatsUdpJitterUnreachHostCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterUnreachHostCtr.setStatus(_A)
-_EltexIpSlaStatsUdpJitterUnreachPortCtr_Type=Counter32
-_EltexIpSlaStatsUdpJitterUnreachPortCtr_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterUnreachPortCtr=_EltexIpSlaStatsUdpJitterUnreachPortCtr_Object((1,3,6,1,4,1,35265,32,1,3,3,1,45),_EltexIpSlaStatsUdpJitterUnreachPortCtr_Type())
-eltexIpSlaStatsUdpJitterUnreachPortCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterUnreachPortCtr.setStatus(_A)
-_EltexIpSlaStatsUdpJitterUnreachProtCtr_Type=Counter32
-_EltexIpSlaStatsUdpJitterUnreachProtCtr_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterUnreachProtCtr=_EltexIpSlaStatsUdpJitterUnreachProtCtr_Object((1,3,6,1,4,1,35265,32,1,3,3,1,46),_EltexIpSlaStatsUdpJitterUnreachProtCtr_Type())
-eltexIpSlaStatsUdpJitterUnreachProtCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterUnreachProtCtr.setStatus(_A)
-_EltexIpSlaStatsUdpJitterExTimeTransCtr_Type=Counter32
-_EltexIpSlaStatsUdpJitterExTimeTransCtr_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterExTimeTransCtr=_EltexIpSlaStatsUdpJitterExTimeTransCtr_Object((1,3,6,1,4,1,35265,32,1,3,3,1,47),_EltexIpSlaStatsUdpJitterExTimeTransCtr_Type())
-eltexIpSlaStatsUdpJitterExTimeTransCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterExTimeTransCtr.setStatus(_A)
-_EltexIpSlaStatsUdpJitterExTimeReassCtr_Type=Counter32
-_EltexIpSlaStatsUdpJitterExTimeReassCtr_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterExTimeReassCtr=_EltexIpSlaStatsUdpJitterExTimeReassCtr_Object((1,3,6,1,4,1,35265,32,1,3,3,1,48),_EltexIpSlaStatsUdpJitterExTimeReassCtr_Type())
-eltexIpSlaStatsUdpJitterExTimeReassCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterExTimeReassCtr.setStatus(_A)
-_EltexIpSlaStatsUdpJitterUnableSendCtr_Type=Counter32
-_EltexIpSlaStatsUdpJitterUnableSendCtr_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterUnableSendCtr=_EltexIpSlaStatsUdpJitterUnableSendCtr_Object((1,3,6,1,4,1,35265,32,1,3,3,1,49),_EltexIpSlaStatsUdpJitterUnableSendCtr_Type())
-eltexIpSlaStatsUdpJitterUnableSendCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterUnableSendCtr.setStatus(_A)
-_EltexIpSlaStatsUdpJitterBadReplyCtr_Type=Counter32
-_EltexIpSlaStatsUdpJitterBadReplyCtr_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterBadReplyCtr=_EltexIpSlaStatsUdpJitterBadReplyCtr_Object((1,3,6,1,4,1,35265,32,1,3,3,1,50),_EltexIpSlaStatsUdpJitterBadReplyCtr_Type())
-eltexIpSlaStatsUdpJitterBadReplyCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterBadReplyCtr.setStatus(_A)
-_EltexIpSlaStatsUdpJitterPacketsOOSCtr_Type=Counter32
-_EltexIpSlaStatsUdpJitterPacketsOOSCtr_Object=MibTableColumn
-eltexIpSlaStatsUdpJitterPacketsOOSCtr=_EltexIpSlaStatsUdpJitterPacketsOOSCtr_Object((1,3,6,1,4,1,35265,32,1,3,3,1,51),_EltexIpSlaStatsUdpJitterPacketsOOSCtr_Type())
-eltexIpSlaStatsUdpJitterPacketsOOSCtr.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexIpSlaStatsUdpJitterPacketsOOSCtr.setStatus(_A)
-_EltexIpSlaSchedule_ObjectIdentity=ObjectIdentity
-eltexIpSlaSchedule=_EltexIpSlaSchedule_ObjectIdentity((1,3,6,1,4,1,35265,32,1,4))
-_EltexIpSlaScheduleStartTrigger_Type=Integer32
-_EltexIpSlaScheduleStartTrigger_Object=MibScalar
-eltexIpSlaScheduleStartTrigger=_EltexIpSlaScheduleStartTrigger_Object((1,3,6,1,4,1,35265,32,1,4,1),_EltexIpSlaScheduleStartTrigger_Type())
-eltexIpSlaScheduleStartTrigger.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaScheduleStartTrigger.setStatus(_A)
-_EltexIpSlaScheduleStopTrigger_Type=Integer32
-_EltexIpSlaScheduleStopTrigger_Object=MibScalar
-eltexIpSlaScheduleStopTrigger=_EltexIpSlaScheduleStopTrigger_Object((1,3,6,1,4,1,35265,32,1,4,2),_EltexIpSlaScheduleStopTrigger_Type())
-eltexIpSlaScheduleStopTrigger.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltexIpSlaScheduleStopTrigger.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'EltexIpSlaOperationType':EltexIpSlaOperationType,'EltexIpSlaOperationStatus':EltexIpSlaOperationStatus,'EltexIpSlaStatsOperStatus':EltexIpSlaStatsOperStatus,'eltexIpSlaMIB':eltexIpSlaMIB,'eltexIpSlaObjects':eltexIpSlaObjects,'eltexIpSlaAppl':eltexIpSlaAppl,'eltexIpSlaApplResponder':eltexIpSlaApplResponder,'eltexIpSlaApplResponderUdpJitterPort':eltexIpSlaApplResponderUdpJitterPort,'eltexIpSlaAdmin':eltexIpSlaAdmin,'eltexIpSlaAdminCtrlTable':eltexIpSlaAdminCtrlTable,'eltexIpSlaAdminCtrlEntry':eltexIpSlaAdminCtrlEntry,_I:eltexIpSlaAdminCtrlIndex,'eltexIpSlaAdminCtrlType':eltexIpSlaAdminCtrlType,'eltexIpSlaAdminCtrlStatus':eltexIpSlaAdminCtrlStatus,'eltexIpSlaAdminCtrlFrequency':eltexIpSlaAdminCtrlFrequency,'eltexIpSlaAdminCtrlTag':eltexIpSlaAdminCtrlTag,'eltexIpSlaAdminCtrlOwner':eltexIpSlaAdminCtrlOwner,'eltexIpSlaAdminCtrlRowStatus':eltexIpSlaAdminCtrlRowStatus,'eltexIpSlaAdminIcmpEchoTable':eltexIpSlaAdminIcmpEchoTable,'eltexIpSlaAdminIcmpEchoEntry':eltexIpSlaAdminIcmpEchoEntry,_J:eltexIpSlaAdminIcmpEchoIndex,'eltexIpSlaAdminIcmpEchoTargetAddress':eltexIpSlaAdminIcmpEchoTargetAddress,'eltexIpSlaAdminIcmpEchoSourceAddress':eltexIpSlaAdminIcmpEchoSourceAddress,'eltexIpSlaAdminIcmpEchoSourceInterface':eltexIpSlaAdminIcmpEchoSourceInterface,'eltexIpSlaAdminIcmpEchoTimeOut':eltexIpSlaAdminIcmpEchoTimeOut,'eltexIpSlaAdminIcmpEchoReqDataSize':eltexIpSlaAdminIcmpEchoReqDataSize,'eltexIpSlaAdminIcmpEchoTOS':eltexIpSlaAdminIcmpEchoTOS,'eltexIpSlaAdminIcmpEchoRowStatus':eltexIpSlaAdminIcmpEchoRowStatus,'eltexIpSlaAdminUdpJitterTable':eltexIpSlaAdminUdpJitterTable,'eltexIpSlaAdminUdpJitterEntry':eltexIpSlaAdminUdpJitterEntry,_K:eltexIpSlaAdminUdpJitterIndex,'eltexIpSlaAdminUdpJitterTargetAddress':eltexIpSlaAdminUdpJitterTargetAddress,'eltexIpSlaAdminUdpJitterTargetPort':eltexIpSlaAdminUdpJitterTargetPort,'eltexIpSlaAdminUdpJitterSourceAddress':eltexIpSlaAdminUdpJitterSourceAddress,'eltexIpSlaAdminUdpJitterSourcePort':eltexIpSlaAdminUdpJitterSourcePort,'eltexIpSlaAdminUdpJitterSourceInterface':eltexIpSlaAdminUdpJitterSourceInterface,'eltexIpSlaAdminUdpJitterInterval':eltexIpSlaAdminUdpJitterInterval,'eltexIpSlaAdminUdpJitterNumPackets':eltexIpSlaAdminUdpJitterNumPackets,'eltexIpSlaAdminUdpJitterTimeOut':eltexIpSlaAdminUdpJitterTimeOut,'eltexIpSlaAdminUdpJitterReqDataSize':eltexIpSlaAdminUdpJitterReqDataSize,'eltexIpSlaAdminUdpJitterTOS':eltexIpSlaAdminUdpJitterTOS,'eltexIpSlaAdminUdpJitterRowStatus':eltexIpSlaAdminUdpJitterRowStatus,'eltexIpSlaStats':eltexIpSlaStats,'eltexIpSlaStatsIcmpEchoTable':eltexIpSlaStatsIcmpEchoTable,'eltexIpSlaStatsIcmpEchoEntry':eltexIpSlaStatsIcmpEchoEntry,_L:eltexIpSlaStatsIcmpEchoIndex,'eltexIpSlaStatsIcmpEchoLastStatus':eltexIpSlaStatsIcmpEchoLastStatus,'eltexIpSlaStatsIcmpEchoLastLatency':eltexIpSlaStatsIcmpEchoLastLatency,'eltexIpSlaStatsIcmpEchoMinLatency':eltexIpSlaStatsIcmpEchoMinLatency,'eltexIpSlaStatsIcmpEchoAvgLatency':eltexIpSlaStatsIcmpEchoAvgLatency,'eltexIpSlaStatsIcmpEchoMaxLatency':eltexIpSlaStatsIcmpEchoMaxLatency,'eltexIpSlaStatsIcmpEchoOperationsCtr':eltexIpSlaStatsIcmpEchoOperationsCtr,'eltexIpSlaStatsIcmpEchoSuccessesCtr':eltexIpSlaStatsIcmpEchoSuccessesCtr,'eltexIpSlaStatsIcmpEchoFailuresCtr':eltexIpSlaStatsIcmpEchoFailuresCtr,'eltexIpSlaStatsIcmpEchoTimeoutCtr':eltexIpSlaStatsIcmpEchoTimeoutCtr,'eltexIpSlaStatsIcmpEchoUnreachNetCtr':eltexIpSlaStatsIcmpEchoUnreachNetCtr,'eltexIpSlaStatsIcmpEchoUnreachHostCtr':eltexIpSlaStatsIcmpEchoUnreachHostCtr,'eltexIpSlaStatsIcmpEchoUnreachProtCtr':eltexIpSlaStatsIcmpEchoUnreachProtCtr,'eltexIpSlaStatsIcmpEchoExTimeTransCtr':eltexIpSlaStatsIcmpEchoExTimeTransCtr,'eltexIpSlaStatsIcmpEchoExTimeReassCtr':eltexIpSlaStatsIcmpEchoExTimeReassCtr,'eltexIpSlaStatsIcmpEchoUnableSendCtr':eltexIpSlaStatsIcmpEchoUnableSendCtr,'eltexIpSlaStatsIcmpEchoBadReplyCtr':eltexIpSlaStatsIcmpEchoBadReplyCtr,'eltexIpSlaStatsUdpJitterTable':eltexIpSlaStatsUdpJitterTable,'eltexIpSlaStatsUdpJitterEntry':eltexIpSlaStatsUdpJitterEntry,_M:eltexIpSlaStatsUdpJitterIndex,'eltexIpSlaStatsUdpJitterLastStatus':eltexIpSlaStatsUdpJitterLastStatus,'eltexIpSlaStatsUdpJitterLastLatency':eltexIpSlaStatsUdpJitterLastLatency,'eltexIpSlaStatsUdpJitterNumLatency':eltexIpSlaStatsUdpJitterNumLatency,'eltexIpSlaStatsUdpJitterSumLatency':eltexIpSlaStatsUdpJitterSumLatency,'eltexIpSlaStatsUdpJitterMinLatency':eltexIpSlaStatsUdpJitterMinLatency,'eltexIpSlaStatsUdpJitterAvgLatency':eltexIpSlaStatsUdpJitterAvgLatency,'eltexIpSlaStatsUdpJitterMaxLatency':eltexIpSlaStatsUdpJitterMaxLatency,'eltexIpSlaStatsUdpJitterNumSDLatency':eltexIpSlaStatsUdpJitterNumSDLatency,'eltexIpSlaStatsUdpJitterSumSDLatency':eltexIpSlaStatsUdpJitterSumSDLatency,'eltexIpSlaStatsUdpJitterMinSDLatency':eltexIpSlaStatsUdpJitterMinSDLatency,'eltexIpSlaStatsUdpJitterAvgSDLatency':eltexIpSlaStatsUdpJitterAvgSDLatency,'eltexIpSlaStatsUdpJitterMaxSDLatency':eltexIpSlaStatsUdpJitterMaxSDLatency,'eltexIpSlaStatsUdpJitterNumDSLatency':eltexIpSlaStatsUdpJitterNumDSLatency,'eltexIpSlaStatsUdpJitterSumDSLatency':eltexIpSlaStatsUdpJitterSumDSLatency,'eltexIpSlaStatsUdpJitterMinDSLatency':eltexIpSlaStatsUdpJitterMinDSLatency,'eltexIpSlaStatsUdpJitterAvgDSLatency':eltexIpSlaStatsUdpJitterAvgDSLatency,'eltexIpSlaStatsUdpJitterMaxDSLatency':eltexIpSlaStatsUdpJitterMaxDSLatency,'eltexIpSlaStatsUdpJitterNumSDPosJitter':eltexIpSlaStatsUdpJitterNumSDPosJitter,'eltexIpSlaStatsUdpJitterSumSDPosJitter':eltexIpSlaStatsUdpJitterSumSDPosJitter,'eltexIpSlaStatsUdpJitterMinSDPosJitter':eltexIpSlaStatsUdpJitterMinSDPosJitter,'eltexIpSlaStatsUdpJitterAvgSDPosJitter':eltexIpSlaStatsUdpJitterAvgSDPosJitter,'eltexIpSlaStatsUdpJitterMaxSDPosJitter':eltexIpSlaStatsUdpJitterMaxSDPosJitter,'eltexIpSlaStatsUdpJitterNumDSPosJitter':eltexIpSlaStatsUdpJitterNumDSPosJitter,'eltexIpSlaStatsUdpJitterSumDSPosJitter':eltexIpSlaStatsUdpJitterSumDSPosJitter,'eltexIpSlaStatsUdpJitterMinDSPosJitter':eltexIpSlaStatsUdpJitterMinDSPosJitter,'eltexIpSlaStatsUdpJitterAvgDSPosJitter':eltexIpSlaStatsUdpJitterAvgDSPosJitter,'eltexIpSlaStatsUdpJitterMaxDSPosJitter':eltexIpSlaStatsUdpJitterMaxDSPosJitter,'eltexIpSlaStatsUdpJitterNumSDNegJitter':eltexIpSlaStatsUdpJitterNumSDNegJitter,'eltexIpSlaStatsUdpJitterSumSDNegJitter':eltexIpSlaStatsUdpJitterSumSDNegJitter,'eltexIpSlaStatsUdpJitterMinSDNegJitter':eltexIpSlaStatsUdpJitterMinSDNegJitter,'eltexIpSlaStatsUdpJitterAvgSDNegJitter':eltexIpSlaStatsUdpJitterAvgSDNegJitter,'eltexIpSlaStatsUdpJitterMaxSDNegJitter':eltexIpSlaStatsUdpJitterMaxSDNegJitter,'eltexIpSlaStatsUdpJitterNumDSNegJitter':eltexIpSlaStatsUdpJitterNumDSNegJitter,'eltexIpSlaStatsUdpJitterSumDSNegJitter':eltexIpSlaStatsUdpJitterSumDSNegJitter,'eltexIpSlaStatsUdpJitterMinDSNegJitter':eltexIpSlaStatsUdpJitterMinDSNegJitter,'eltexIpSlaStatsUdpJitterAvgDSNegJitter':eltexIpSlaStatsUdpJitterAvgDSNegJitter,'eltexIpSlaStatsUdpJitterMaxDSNegJitter':eltexIpSlaStatsUdpJitterMaxDSNegJitter,'eltexIpSlaStatsUdpJitterOperationsCtr':eltexIpSlaStatsUdpJitterOperationsCtr,'eltexIpSlaStatsUdpJitterSuccessesCtr':eltexIpSlaStatsUdpJitterSuccessesCtr,'eltexIpSlaStatsUdpJitterFailuresCtr':eltexIpSlaStatsUdpJitterFailuresCtr,'eltexIpSlaStatsUdpJitterTimeoutCtr':eltexIpSlaStatsUdpJitterTimeoutCtr,'eltexIpSlaStatsUdpJitterUnreachNetCtr':eltexIpSlaStatsUdpJitterUnreachNetCtr,'eltexIpSlaStatsUdpJitterUnreachHostCtr':eltexIpSlaStatsUdpJitterUnreachHostCtr,'eltexIpSlaStatsUdpJitterUnreachPortCtr':eltexIpSlaStatsUdpJitterUnreachPortCtr,'eltexIpSlaStatsUdpJitterUnreachProtCtr':eltexIpSlaStatsUdpJitterUnreachProtCtr,'eltexIpSlaStatsUdpJitterExTimeTransCtr':eltexIpSlaStatsUdpJitterExTimeTransCtr,'eltexIpSlaStatsUdpJitterExTimeReassCtr':eltexIpSlaStatsUdpJitterExTimeReassCtr,'eltexIpSlaStatsUdpJitterUnableSendCtr':eltexIpSlaStatsUdpJitterUnableSendCtr,'eltexIpSlaStatsUdpJitterBadReplyCtr':eltexIpSlaStatsUdpJitterBadReplyCtr,'eltexIpSlaStatsUdpJitterPacketsOOSCtr':eltexIpSlaStatsUdpJitterPacketsOOSCtr,'eltexIpSlaSchedule':eltexIpSlaSchedule,'eltexIpSlaScheduleStartTrigger':eltexIpSlaScheduleStartTrigger,'eltexIpSlaScheduleStopTrigger':eltexIpSlaScheduleStopTrigger})
+#
+# PySNMP MIB module ELTEX-IPSLA-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-IPSLA-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:38 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltexLtd, = mibBuilder.importSymbols("ELTEX-SMI-ACTUAL", "eltexLtd")
+InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "TruthValue", "TextualConvention")
+eltexIpSlaMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 32))
+if mibBuilder.loadTexts: eltexIpSlaMIB.setLastUpdated('201505250000Z')
+if mibBuilder.loadTexts: eltexIpSlaMIB.setOrganization('Eltex Ltd.')
+eltexIpSlaObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 32, 1))
+eltexIpSlaAppl = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 32, 1, 1))
+eltexIpSlaAdmin = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2))
+eltexIpSlaStats = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3))
+eltexIpSlaSchedule = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 32, 1, 4))
+class EltexIpSlaOperationType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("icmp-echo", 1), ("udp-jitter", 2))
+
+class EltexIpSlaOperationStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("active", 1), ("inactive", 2))
+
+eltexIpSlaApplResponder = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 32, 1, 1, 13))
+eltexIpSlaApplResponderUdpJitterPort = MibScalar((1, 3, 6, 1, 4, 1, 35265, 32, 1, 1, 13, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaApplResponderUdpJitterPort.setStatus('current')
+eltexIpSlaAdminCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 1), ).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminCtrlTable.setStatus('current')
+eltexIpSlaAdminCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 1, 1), ).setMaxAccess("readwrite").setIndexNames((0, "ELTEX-IPSLA-MIB", "eltexIpSlaAdminCtrlIndex"))
+if mibBuilder.loadTexts: eltexIpSlaAdminCtrlEntry.setStatus('current')
+eltexIpSlaAdminCtrlIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminCtrlIndex.setStatus('current')
+eltexIpSlaAdminCtrlType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 1, 1, 2), EltexIpSlaOperationType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminCtrlType.setStatus('current')
+eltexIpSlaAdminCtrlStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 1, 1, 3), EltexIpSlaOperationStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaAdminCtrlStatus.setStatus('current')
+eltexIpSlaAdminCtrlFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 604800)).clone(60)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminCtrlFrequency.setStatus('current')
+eltexIpSlaAdminCtrlTag = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminCtrlTag.setStatus('current')
+eltexIpSlaAdminCtrlOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminCtrlOwner.setStatus('current')
+eltexIpSlaAdminCtrlRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 1, 1, 7), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminCtrlRowStatus.setStatus('current')
+eltexIpSlaAdminIcmpEchoTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 2), ).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminIcmpEchoTable.setStatus('current')
+eltexIpSlaAdminIcmpEchoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 2, 1), ).setMaxAccess("readwrite").setIndexNames((0, "ELTEX-IPSLA-MIB", "eltexIpSlaAdminIcmpEchoIndex"))
+if mibBuilder.loadTexts: eltexIpSlaAdminIcmpEchoEntry.setStatus('current')
+eltexIpSlaAdminIcmpEchoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 2, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminIcmpEchoIndex.setStatus('current')
+eltexIpSlaAdminIcmpEchoTargetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 2, 1, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminIcmpEchoTargetAddress.setStatus('current')
+eltexIpSlaAdminIcmpEchoSourceAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 2, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminIcmpEchoSourceAddress.setStatus('current')
+eltexIpSlaAdminIcmpEchoSourceInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 2, 1, 4), InterfaceIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminIcmpEchoSourceInterface.setStatus('current')
+eltexIpSlaAdminIcmpEchoTimeOut = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3600000)).clone(1000)).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminIcmpEchoTimeOut.setStatus('current')
+eltexIpSlaAdminIcmpEchoReqDataSize = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1432)).clone(56)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminIcmpEchoReqDataSize.setStatus('current')
+eltexIpSlaAdminIcmpEchoTOS = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminIcmpEchoTOS.setStatus('current')
+eltexIpSlaAdminIcmpEchoRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 2, 1, 8), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminIcmpEchoRowStatus.setStatus('current')
+class EltexIpSlaStatsOperStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("unknown", 0), ("ok", 1), ("failed", 2))
+
+eltexIpSlaAdminUdpJitterTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 3), ).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminUdpJitterTable.setStatus('current')
+eltexIpSlaAdminUdpJitterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 3, 1), ).setMaxAccess("readwrite").setIndexNames((0, "ELTEX-IPSLA-MIB", "eltexIpSlaAdminUdpJitterIndex"))
+if mibBuilder.loadTexts: eltexIpSlaAdminUdpJitterEntry.setStatus('current')
+eltexIpSlaAdminUdpJitterIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 3, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminUdpJitterIndex.setStatus('current')
+eltexIpSlaAdminUdpJitterTargetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 3, 1, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminUdpJitterTargetAddress.setStatus('current')
+eltexIpSlaAdminUdpJitterTargetPort = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminUdpJitterTargetPort.setStatus('current')
+eltexIpSlaAdminUdpJitterSourceAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 3, 1, 4), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminUdpJitterSourceAddress.setStatus('current')
+eltexIpSlaAdminUdpJitterSourcePort = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminUdpJitterSourcePort.setStatus('current')
+eltexIpSlaAdminUdpJitterSourceInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 3, 1, 6), InterfaceIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminUdpJitterSourceInterface.setStatus('current')
+eltexIpSlaAdminUdpJitterInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 3, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 60000)).clone(20)).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminUdpJitterInterval.setStatus('current')
+eltexIpSlaAdminUdpJitterNumPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 3, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000)).clone(10)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminUdpJitterNumPackets.setStatus('current')
+eltexIpSlaAdminUdpJitterTimeOut = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 3, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3600000)).clone(1000)).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminUdpJitterTimeOut.setStatus('current')
+eltexIpSlaAdminUdpJitterReqDataSize = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 3, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1432)).clone(30)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminUdpJitterReqDataSize.setStatus('current')
+eltexIpSlaAdminUdpJitterTOS = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 3, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminUdpJitterTOS.setStatus('current')
+eltexIpSlaAdminUdpJitterRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 2, 3, 1, 12), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaAdminUdpJitterRowStatus.setStatus('current')
+eltexIpSlaStatsIcmpEchoTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2), ).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoTable.setStatus('current')
+eltexIpSlaStatsIcmpEchoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1), ).setMaxAccess("readwrite").setIndexNames((0, "ELTEX-IPSLA-MIB", "eltexIpSlaStatsIcmpEchoIndex"))
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoEntry.setStatus('current')
+eltexIpSlaStatsIcmpEchoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoIndex.setStatus('current')
+eltexIpSlaStatsIcmpEchoLastStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 2), EltexIpSlaStatsOperStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoLastStatus.setStatus('current')
+eltexIpSlaStatsIcmpEchoLastLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 3), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoLastLatency.setStatus('current')
+eltexIpSlaStatsIcmpEchoMinLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 4), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoMinLatency.setStatus('current')
+eltexIpSlaStatsIcmpEchoAvgLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 5), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoAvgLatency.setStatus('current')
+eltexIpSlaStatsIcmpEchoMaxLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 6), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoMaxLatency.setStatus('current')
+eltexIpSlaStatsIcmpEchoOperationsCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoOperationsCtr.setStatus('current')
+eltexIpSlaStatsIcmpEchoSuccessesCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoSuccessesCtr.setStatus('current')
+eltexIpSlaStatsIcmpEchoFailuresCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoFailuresCtr.setStatus('current')
+eltexIpSlaStatsIcmpEchoTimeoutCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoTimeoutCtr.setStatus('current')
+eltexIpSlaStatsIcmpEchoUnreachNetCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoUnreachNetCtr.setStatus('current')
+eltexIpSlaStatsIcmpEchoUnreachHostCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoUnreachHostCtr.setStatus('current')
+eltexIpSlaStatsIcmpEchoUnreachProtCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoUnreachProtCtr.setStatus('current')
+eltexIpSlaStatsIcmpEchoExTimeTransCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoExTimeTransCtr.setStatus('current')
+eltexIpSlaStatsIcmpEchoExTimeReassCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoExTimeReassCtr.setStatus('current')
+eltexIpSlaStatsIcmpEchoUnableSendCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoUnableSendCtr.setStatus('current')
+eltexIpSlaStatsIcmpEchoBadReplyCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 2, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsIcmpEchoBadReplyCtr.setStatus('current')
+eltexIpSlaStatsUdpJitterTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3), ).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterTable.setStatus('current')
+eltexIpSlaStatsUdpJitterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1), ).setMaxAccess("readwrite").setIndexNames((0, "ELTEX-IPSLA-MIB", "eltexIpSlaStatsUdpJitterIndex"))
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterEntry.setStatus('current')
+eltexIpSlaStatsUdpJitterIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterIndex.setStatus('current')
+eltexIpSlaStatsUdpJitterLastStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 2), EltexIpSlaStatsOperStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterLastStatus.setStatus('current')
+eltexIpSlaStatsUdpJitterLastLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 3), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterLastLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterNumLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 4), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterNumLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterSumLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 5), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterSumLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterMinLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 6), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterMinLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterAvgLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 7), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterAvgLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterMaxLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 8), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterMaxLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterNumSDLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterNumSDLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterSumSDLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 10), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterSumSDLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterMinSDLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 11), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterMinSDLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterAvgSDLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 12), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterAvgSDLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterMaxSDLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 13), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterMaxSDLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterNumDSLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterNumDSLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterSumDSLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 15), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterSumDSLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterMinDSLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 16), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterMinDSLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterAvgDSLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 17), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterAvgDSLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterMaxDSLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 18), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterMaxDSLatency.setStatus('current')
+eltexIpSlaStatsUdpJitterNumSDPosJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 19), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterNumSDPosJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterSumSDPosJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 20), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterSumSDPosJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterMinSDPosJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 21), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterMinSDPosJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterAvgSDPosJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 22), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterAvgSDPosJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterMaxSDPosJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 23), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterMaxSDPosJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterNumDSPosJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 24), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterNumDSPosJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterSumDSPosJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 25), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterSumDSPosJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterMinDSPosJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 26), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterMinDSPosJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterAvgDSPosJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 27), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterAvgDSPosJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterMaxDSPosJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 28), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterMaxDSPosJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterNumSDNegJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 29), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterNumSDNegJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterSumSDNegJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 30), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterSumSDNegJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterMinSDNegJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 31), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterMinSDNegJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterAvgSDNegJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 32), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterAvgSDNegJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterMaxSDNegJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 33), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterMaxSDNegJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterNumDSNegJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 34), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterNumDSNegJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterSumDSNegJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 35), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterSumDSNegJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterMinDSNegJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 36), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterMinDSNegJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterAvgDSNegJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 37), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterAvgDSNegJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterMaxDSNegJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 38), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterMaxDSNegJitter.setStatus('current')
+eltexIpSlaStatsUdpJitterOperationsCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 39), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterOperationsCtr.setStatus('current')
+eltexIpSlaStatsUdpJitterSuccessesCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 40), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterSuccessesCtr.setStatus('current')
+eltexIpSlaStatsUdpJitterFailuresCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 41), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterFailuresCtr.setStatus('current')
+eltexIpSlaStatsUdpJitterTimeoutCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 42), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterTimeoutCtr.setStatus('current')
+eltexIpSlaStatsUdpJitterUnreachNetCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 43), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterUnreachNetCtr.setStatus('current')
+eltexIpSlaStatsUdpJitterUnreachHostCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 44), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterUnreachHostCtr.setStatus('current')
+eltexIpSlaStatsUdpJitterUnreachPortCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 45), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterUnreachPortCtr.setStatus('current')
+eltexIpSlaStatsUdpJitterUnreachProtCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 46), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterUnreachProtCtr.setStatus('current')
+eltexIpSlaStatsUdpJitterExTimeTransCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 47), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterExTimeTransCtr.setStatus('current')
+eltexIpSlaStatsUdpJitterExTimeReassCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 48), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterExTimeReassCtr.setStatus('current')
+eltexIpSlaStatsUdpJitterUnableSendCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 49), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterUnableSendCtr.setStatus('current')
+eltexIpSlaStatsUdpJitterBadReplyCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 50), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterBadReplyCtr.setStatus('current')
+eltexIpSlaStatsUdpJitterPacketsOOSCtr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 32, 1, 3, 3, 1, 51), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexIpSlaStatsUdpJitterPacketsOOSCtr.setStatus('current')
+eltexIpSlaScheduleStartTrigger = MibScalar((1, 3, 6, 1, 4, 1, 35265, 32, 1, 4, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaScheduleStartTrigger.setStatus('current')
+eltexIpSlaScheduleStopTrigger = MibScalar((1, 3, 6, 1, 4, 1, 35265, 32, 1, 4, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexIpSlaScheduleStopTrigger.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-IPSLA-MIB", eltexIpSlaStatsIcmpEchoSuccessesCtr=eltexIpSlaStatsIcmpEchoSuccessesCtr, eltexIpSlaAdminCtrlFrequency=eltexIpSlaAdminCtrlFrequency, eltexIpSlaStatsUdpJitterUnreachHostCtr=eltexIpSlaStatsUdpJitterUnreachHostCtr, eltexIpSlaStatsUdpJitterNumSDPosJitter=eltexIpSlaStatsUdpJitterNumSDPosJitter, eltexIpSlaAdminCtrlOwner=eltexIpSlaAdminCtrlOwner, eltexIpSlaAdminUdpJitterReqDataSize=eltexIpSlaAdminUdpJitterReqDataSize, eltexIpSlaStatsUdpJitterNumSDNegJitter=eltexIpSlaStatsUdpJitterNumSDNegJitter, eltexIpSlaAdminUdpJitterIndex=eltexIpSlaAdminUdpJitterIndex, eltexIpSlaAdmin=eltexIpSlaAdmin, eltexIpSlaStatsUdpJitterLastStatus=eltexIpSlaStatsUdpJitterLastStatus, eltexIpSlaStatsUdpJitterUnableSendCtr=eltexIpSlaStatsUdpJitterUnableSendCtr, eltexIpSlaAdminIcmpEchoSourceInterface=eltexIpSlaAdminIcmpEchoSourceInterface, eltexIpSlaAdminIcmpEchoIndex=eltexIpSlaAdminIcmpEchoIndex, eltexIpSlaStatsIcmpEchoUnreachHostCtr=eltexIpSlaStatsIcmpEchoUnreachHostCtr, eltexIpSlaStatsIcmpEchoLastLatency=eltexIpSlaStatsIcmpEchoLastLatency, eltexIpSlaStatsIcmpEchoEntry=eltexIpSlaStatsIcmpEchoEntry, eltexIpSlaStatsUdpJitterMaxDSNegJitter=eltexIpSlaStatsUdpJitterMaxDSNegJitter, eltexIpSlaAdminCtrlStatus=eltexIpSlaAdminCtrlStatus, eltexIpSlaAdminIcmpEchoSourceAddress=eltexIpSlaAdminIcmpEchoSourceAddress, eltexIpSlaStatsIcmpEchoUnableSendCtr=eltexIpSlaStatsIcmpEchoUnableSendCtr, eltexIpSlaStatsIcmpEchoExTimeReassCtr=eltexIpSlaStatsIcmpEchoExTimeReassCtr, eltexIpSlaStatsUdpJitterAvgDSLatency=eltexIpSlaStatsUdpJitterAvgDSLatency, eltexIpSlaObjects=eltexIpSlaObjects, eltexIpSlaAdminCtrlRowStatus=eltexIpSlaAdminCtrlRowStatus, eltexIpSlaStatsUdpJitterSumSDNegJitter=eltexIpSlaStatsUdpJitterSumSDNegJitter, eltexIpSlaStats=eltexIpSlaStats, eltexIpSlaAdminUdpJitterSourcePort=eltexIpSlaAdminUdpJitterSourcePort, eltexIpSlaStatsUdpJitterNumLatency=eltexIpSlaStatsUdpJitterNumLatency, eltexIpSlaStatsUdpJitterSumDSNegJitter=eltexIpSlaStatsUdpJitterSumDSNegJitter, eltexIpSlaAdminUdpJitterRowStatus=eltexIpSlaAdminUdpJitterRowStatus, eltexIpSlaStatsUdpJitterNumSDLatency=eltexIpSlaStatsUdpJitterNumSDLatency, eltexIpSlaStatsUdpJitterMaxLatency=eltexIpSlaStatsUdpJitterMaxLatency, eltexIpSlaStatsUdpJitterNumDSPosJitter=eltexIpSlaStatsUdpJitterNumDSPosJitter, eltexIpSlaStatsIcmpEchoMinLatency=eltexIpSlaStatsIcmpEchoMinLatency, eltexIpSlaAdminUdpJitterTargetPort=eltexIpSlaAdminUdpJitterTargetPort, EltexIpSlaOperationType=EltexIpSlaOperationType, eltexIpSlaStatsUdpJitterMinSDPosJitter=eltexIpSlaStatsUdpJitterMinSDPosJitter, eltexIpSlaSchedule=eltexIpSlaSchedule, eltexIpSlaAdminCtrlEntry=eltexIpSlaAdminCtrlEntry, eltexIpSlaStatsUdpJitterTimeoutCtr=eltexIpSlaStatsUdpJitterTimeoutCtr, eltexIpSlaStatsUdpJitterUnreachNetCtr=eltexIpSlaStatsUdpJitterUnreachNetCtr, eltexIpSlaStatsIcmpEchoUnreachProtCtr=eltexIpSlaStatsIcmpEchoUnreachProtCtr, eltexIpSlaAdminIcmpEchoRowStatus=eltexIpSlaAdminIcmpEchoRowStatus, eltexIpSlaStatsIcmpEchoFailuresCtr=eltexIpSlaStatsIcmpEchoFailuresCtr, eltexIpSlaAdminUdpJitterEntry=eltexIpSlaAdminUdpJitterEntry, eltexIpSlaStatsUdpJitterIndex=eltexIpSlaStatsUdpJitterIndex, eltexIpSlaAdminUdpJitterTargetAddress=eltexIpSlaAdminUdpJitterTargetAddress, eltexIpSlaStatsUdpJitterAvgSDNegJitter=eltexIpSlaStatsUdpJitterAvgSDNegJitter, eltexIpSlaAdminIcmpEchoReqDataSize=eltexIpSlaAdminIcmpEchoReqDataSize, EltexIpSlaStatsOperStatus=EltexIpSlaStatsOperStatus, eltexIpSlaStatsUdpJitterMinDSPosJitter=eltexIpSlaStatsUdpJitterMinDSPosJitter, eltexIpSlaStatsUdpJitterMaxDSPosJitter=eltexIpSlaStatsUdpJitterMaxDSPosJitter, eltexIpSlaStatsUdpJitterAvgDSPosJitter=eltexIpSlaStatsUdpJitterAvgDSPosJitter, eltexIpSlaAdminUdpJitterTOS=eltexIpSlaAdminUdpJitterTOS, eltexIpSlaMIB=eltexIpSlaMIB, eltexIpSlaStatsUdpJitterSumSDLatency=eltexIpSlaStatsUdpJitterSumSDLatency, eltexIpSlaStatsUdpJitterSumSDPosJitter=eltexIpSlaStatsUdpJitterSumSDPosJitter, eltexIpSlaStatsUdpJitterPacketsOOSCtr=eltexIpSlaStatsUdpJitterPacketsOOSCtr, eltexIpSlaAdminIcmpEchoEntry=eltexIpSlaAdminIcmpEchoEntry, eltexIpSlaStatsUdpJitterAvgDSNegJitter=eltexIpSlaStatsUdpJitterAvgDSNegJitter, eltexIpSlaAdminIcmpEchoTimeOut=eltexIpSlaAdminIcmpEchoTimeOut, eltexIpSlaAppl=eltexIpSlaAppl, eltexIpSlaStatsUdpJitterMinDSNegJitter=eltexIpSlaStatsUdpJitterMinDSNegJitter, eltexIpSlaStatsUdpJitterEntry=eltexIpSlaStatsUdpJitterEntry, eltexIpSlaAdminIcmpEchoTOS=eltexIpSlaAdminIcmpEchoTOS, eltexIpSlaStatsUdpJitterSumDSPosJitter=eltexIpSlaStatsUdpJitterSumDSPosJitter, eltexIpSlaStatsUdpJitterNumDSNegJitter=eltexIpSlaStatsUdpJitterNumDSNegJitter, eltexIpSlaAdminUdpJitterNumPackets=eltexIpSlaAdminUdpJitterNumPackets, eltexIpSlaStatsIcmpEchoMaxLatency=eltexIpSlaStatsIcmpEchoMaxLatency, eltexIpSlaAdminCtrlTable=eltexIpSlaAdminCtrlTable, eltexIpSlaStatsIcmpEchoOperationsCtr=eltexIpSlaStatsIcmpEchoOperationsCtr, eltexIpSlaStatsUdpJitterMaxSDPosJitter=eltexIpSlaStatsUdpJitterMaxSDPosJitter, eltexIpSlaStatsUdpJitterMaxSDNegJitter=eltexIpSlaStatsUdpJitterMaxSDNegJitter, eltexIpSlaStatsUdpJitterSumLatency=eltexIpSlaStatsUdpJitterSumLatency, eltexIpSlaStatsUdpJitterOperationsCtr=eltexIpSlaStatsUdpJitterOperationsCtr, eltexIpSlaStatsIcmpEchoTimeoutCtr=eltexIpSlaStatsIcmpEchoTimeoutCtr, eltexIpSlaStatsIcmpEchoAvgLatency=eltexIpSlaStatsIcmpEchoAvgLatency, eltexIpSlaScheduleStopTrigger=eltexIpSlaScheduleStopTrigger, eltexIpSlaStatsUdpJitterMinSDLatency=eltexIpSlaStatsUdpJitterMinSDLatency, eltexIpSlaStatsIcmpEchoExTimeTransCtr=eltexIpSlaStatsIcmpEchoExTimeTransCtr, eltexIpSlaStatsUdpJitterMinLatency=eltexIpSlaStatsUdpJitterMinLatency, eltexIpSlaStatsUdpJitterBadReplyCtr=eltexIpSlaStatsUdpJitterBadReplyCtr, eltexIpSlaStatsUdpJitterMaxDSLatency=eltexIpSlaStatsUdpJitterMaxDSLatency, eltexIpSlaStatsUdpJitterAvgSDPosJitter=eltexIpSlaStatsUdpJitterAvgSDPosJitter, eltexIpSlaStatsUdpJitterUnreachPortCtr=eltexIpSlaStatsUdpJitterUnreachPortCtr, eltexIpSlaAdminCtrlType=eltexIpSlaAdminCtrlType, eltexIpSlaAdminCtrlIndex=eltexIpSlaAdminCtrlIndex, eltexIpSlaStatsUdpJitterExTimeTransCtr=eltexIpSlaStatsUdpJitterExTimeTransCtr, eltexIpSlaStatsIcmpEchoIndex=eltexIpSlaStatsIcmpEchoIndex, eltexIpSlaStatsUdpJitterExTimeReassCtr=eltexIpSlaStatsUdpJitterExTimeReassCtr, eltexIpSlaAdminCtrlTag=eltexIpSlaAdminCtrlTag, eltexIpSlaStatsUdpJitterMinSDNegJitter=eltexIpSlaStatsUdpJitterMinSDNegJitter, EltexIpSlaOperationStatus=EltexIpSlaOperationStatus, eltexIpSlaStatsIcmpEchoTable=eltexIpSlaStatsIcmpEchoTable, eltexIpSlaStatsUdpJitterAvgLatency=eltexIpSlaStatsUdpJitterAvgLatency, eltexIpSlaStatsUdpJitterUnreachProtCtr=eltexIpSlaStatsUdpJitterUnreachProtCtr, eltexIpSlaStatsUdpJitterLastLatency=eltexIpSlaStatsUdpJitterLastLatency, eltexIpSlaStatsUdpJitterAvgSDLatency=eltexIpSlaStatsUdpJitterAvgSDLatency, eltexIpSlaStatsUdpJitterMinDSLatency=eltexIpSlaStatsUdpJitterMinDSLatency, eltexIpSlaStatsUdpJitterFailuresCtr=eltexIpSlaStatsUdpJitterFailuresCtr, eltexIpSlaStatsIcmpEchoLastStatus=eltexIpSlaStatsIcmpEchoLastStatus, eltexIpSlaStatsUdpJitterSumDSLatency=eltexIpSlaStatsUdpJitterSumDSLatency, eltexIpSlaStatsUdpJitterSuccessesCtr=eltexIpSlaStatsUdpJitterSuccessesCtr, eltexIpSlaScheduleStartTrigger=eltexIpSlaScheduleStartTrigger, PYSNMP_MODULE_ID=eltexIpSlaMIB, eltexIpSlaStatsUdpJitterTable=eltexIpSlaStatsUdpJitterTable, eltexIpSlaAdminUdpJitterInterval=eltexIpSlaAdminUdpJitterInterval, eltexIpSlaAdminUdpJitterSourceAddress=eltexIpSlaAdminUdpJitterSourceAddress, eltexIpSlaAdminUdpJitterTable=eltexIpSlaAdminUdpJitterTable, eltexIpSlaStatsUdpJitterNumDSLatency=eltexIpSlaStatsUdpJitterNumDSLatency, eltexIpSlaAdminIcmpEchoTable=eltexIpSlaAdminIcmpEchoTable, eltexIpSlaApplResponderUdpJitterPort=eltexIpSlaApplResponderUdpJitterPort, eltexIpSlaAdminIcmpEchoTargetAddress=eltexIpSlaAdminIcmpEchoTargetAddress, eltexIpSlaApplResponder=eltexIpSlaApplResponder, eltexIpSlaStatsIcmpEchoUnreachNetCtr=eltexIpSlaStatsIcmpEchoUnreachNetCtr, eltexIpSlaAdminUdpJitterTimeOut=eltexIpSlaAdminUdpJitterTimeOut, eltexIpSlaStatsIcmpEchoBadReplyCtr=eltexIpSlaStatsIcmpEchoBadReplyCtr, eltexIpSlaAdminUdpJitterSourceInterface=eltexIpSlaAdminUdpJitterSourceInterface, eltexIpSlaStatsUdpJitterMaxSDLatency=eltexIpSlaStatsUdpJitterMaxSDLatency)

@@ -1,134 +1,68 @@
-_H='rcAclFilterStatisticsEntry'
-_G='rcAclFilterIndex'
-_F='SWITCH-FILTER-MIB'
-_E='read-write'
-_D='Integer32'
-_C='read-only'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-iscomSwitch,=mibBuilder.importSymbols('RAISECOM-BASE-MIB','iscomSwitch')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-EnableVar,PortList=mibBuilder.importSymbols('SWITCH-TC','EnableVar','PortList')
-rcFilter=ModuleIdentity((1,3,6,1,4,1,8886,6,1,14))
-_RcAclFilter_ObjectIdentity=ObjectIdentity
-rcAclFilter=_RcAclFilter_ObjectIdentity((1,3,6,1,4,1,8886,6,1,14,1))
-_RcAclFilterAction_Type=EnableVar
-_RcAclFilterAction_Object=MibScalar
-rcAclFilterAction=_RcAclFilterAction_Object((1,3,6,1,4,1,8886,6,1,14,1,1),_RcAclFilterAction_Type())
-rcAclFilterAction.setMaxAccess(_E)
-if mibBuilder.loadTexts:rcAclFilterAction.setStatus(_A)
-_RcAclFilterNextIndex_Type=Integer32
-_RcAclFilterNextIndex_Object=MibScalar
-rcAclFilterNextIndex=_RcAclFilterNextIndex_Object((1,3,6,1,4,1,8886,6,1,14,1,2),_RcAclFilterNextIndex_Type())
-rcAclFilterNextIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:rcAclFilterNextIndex.setStatus(_A)
-_RcAclFilterTable_Object=MibTable
-rcAclFilterTable=_RcAclFilterTable_Object((1,3,6,1,4,1,8886,6,1,14,1,3))
-if mibBuilder.loadTexts:rcAclFilterTable.setStatus(_A)
-_RcAclFilterEntry_Object=MibTableRow
-rcAclFilterEntry=_RcAclFilterEntry_Object((1,3,6,1,4,1,8886,6,1,14,1,3,1))
-rcAclFilterEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:rcAclFilterEntry.setStatus(_A)
-_RcAclFilterIndex_Type=Integer32
-_RcAclFilterIndex_Object=MibTableColumn
-rcAclFilterIndex=_RcAclFilterIndex_Object((1,3,6,1,4,1,8886,6,1,14,1,3,1,1),_RcAclFilterIndex_Type())
-rcAclFilterIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:rcAclFilterIndex.setStatus(_A)
-class _RcAclFilterAclType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('ip-acl',1),('mac-acl',2),('user-acl',3)))
-_RcAclFilterAclType_Type.__name__=_D
-_RcAclFilterAclType_Object=MibTableColumn
-rcAclFilterAclType=_RcAclFilterAclType_Object((1,3,6,1,4,1,8886,6,1,14,1,3,1,2),_RcAclFilterAclType_Type())
-rcAclFilterAclType.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcAclFilterAclType.setStatus(_A)
-_RcAclFilterAclNumber_Type=Integer32
-_RcAclFilterAclNumber_Object=MibTableColumn
-rcAclFilterAclNumber=_RcAclFilterAclNumber_Object((1,3,6,1,4,1,8886,6,1,14,1,3,1,3),_RcAclFilterAclNumber_Type())
-rcAclFilterAclNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcAclFilterAclNumber.setStatus(_A)
-_RcAclFilterIngressPort_Type=Integer32
-_RcAclFilterIngressPort_Object=MibTableColumn
-rcAclFilterIngressPort=_RcAclFilterIngressPort_Object((1,3,6,1,4,1,8886,6,1,14,1,3,1,4),_RcAclFilterIngressPort_Type())
-rcAclFilterIngressPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcAclFilterIngressPort.setStatus(_A)
-_RcAclFilterEgressPort_Type=Integer32
-_RcAclFilterEgressPort_Object=MibTableColumn
-rcAclFilterEgressPort=_RcAclFilterEgressPort_Object((1,3,6,1,4,1,8886,6,1,14,1,3,1,5),_RcAclFilterEgressPort_Type())
-rcAclFilterEgressPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcAclFilterEgressPort.setStatus(_A)
-class _RcAclFilterVlan_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4094))
-_RcAclFilterVlan_Type.__name__=_D
-_RcAclFilterVlan_Object=MibTableColumn
-rcAclFilterVlan=_RcAclFilterVlan_Object((1,3,6,1,4,1,8886,6,1,14,1,3,1,6),_RcAclFilterVlan_Type())
-rcAclFilterVlan.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcAclFilterVlan.setStatus(_A)
-_RcAclFilterStatus_Type=RowStatus
-_RcAclFilterStatus_Object=MibTableColumn
-rcAclFilterStatus=_RcAclFilterStatus_Object((1,3,6,1,4,1,8886,6,1,14,1,3,1,7),_RcAclFilterStatus_Type())
-rcAclFilterStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcAclFilterStatus.setStatus(_A)
-_RcAclFilterHwStatus_Type=EnableVar
-_RcAclFilterHwStatus_Object=MibTableColumn
-rcAclFilterHwStatus=_RcAclFilterHwStatus_Object((1,3,6,1,4,1,8886,6,1,14,1,3,1,8),_RcAclFilterHwStatus_Type())
-rcAclFilterHwStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:rcAclFilterHwStatus.setStatus(_A)
-_RcAclFilterDoubleTagging_Type=TruthValue
-_RcAclFilterDoubleTagging_Object=MibTableColumn
-rcAclFilterDoubleTagging=_RcAclFilterDoubleTagging_Object((1,3,6,1,4,1,8886,6,1,14,1,3,1,9),_RcAclFilterDoubleTagging_Type())
-rcAclFilterDoubleTagging.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcAclFilterDoubleTagging.setStatus(_A)
-class _RcAclFilterVlanType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('inner',1),('outer',2)))
-_RcAclFilterVlanType_Type.__name__=_D
-_RcAclFilterVlanType_Object=MibTableColumn
-rcAclFilterVlanType=_RcAclFilterVlanType_Object((1,3,6,1,4,1,8886,6,1,14,1,3,1,10),_RcAclFilterVlanType_Type())
-rcAclFilterVlanType.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcAclFilterVlanType.setStatus(_A)
-_RcAclFilterStatEnable_Type=EnableVar
-_RcAclFilterStatEnable_Object=MibTableColumn
-rcAclFilterStatEnable=_RcAclFilterStatEnable_Object((1,3,6,1,4,1,8886,6,1,14,1,3,1,11),_RcAclFilterStatEnable_Type())
-rcAclFilterStatEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcAclFilterStatEnable.setStatus(_A)
-_RcAclFilterStatHwStatus_Type=EnableVar
-_RcAclFilterStatHwStatus_Object=MibTableColumn
-rcAclFilterStatHwStatus=_RcAclFilterStatHwStatus_Object((1,3,6,1,4,1,8886,6,1,14,1,3,1,12),_RcAclFilterStatHwStatus_Type())
-rcAclFilterStatHwStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:rcAclFilterStatHwStatus.setStatus(_A)
-_RcAclFilterIngressPortList_Type=PortList
-_RcAclFilterIngressPortList_Object=MibTableColumn
-rcAclFilterIngressPortList=_RcAclFilterIngressPortList_Object((1,3,6,1,4,1,8886,6,1,14,1,3,1,14),_RcAclFilterIngressPortList_Type())
-rcAclFilterIngressPortList.setMaxAccess(_E)
-if mibBuilder.loadTexts:rcAclFilterIngressPortList.setStatus(_A)
-_RcAclFilterStatisticsTable_Object=MibTable
-rcAclFilterStatisticsTable=_RcAclFilterStatisticsTable_Object((1,3,6,1,4,1,8886,6,1,14,1,4))
-if mibBuilder.loadTexts:rcAclFilterStatisticsTable.setStatus(_A)
-_RcAclFilterStatisticsEntry_Object=MibTableRow
-rcAclFilterStatisticsEntry=_RcAclFilterStatisticsEntry_Object((1,3,6,1,4,1,8886,6,1,14,1,4,1))
-if mibBuilder.loadTexts:rcAclFilterStatisticsEntry.setStatus(_A)
-_RcAclFilterCounterReset_Type=EnableVar
-_RcAclFilterCounterReset_Object=MibTableColumn
-rcAclFilterCounterReset=_RcAclFilterCounterReset_Object((1,3,6,1,4,1,8886,6,1,14,1,4,1,1),_RcAclFilterCounterReset_Type())
-rcAclFilterCounterReset.setMaxAccess(_E)
-if mibBuilder.loadTexts:rcAclFilterCounterReset.setStatus(_A)
-_RcAclFilterCounterPkt64_Type=Counter64
-_RcAclFilterCounterPkt64_Object=MibTableColumn
-rcAclFilterCounterPkt64=_RcAclFilterCounterPkt64_Object((1,3,6,1,4,1,8886,6,1,14,1,4,1,2),_RcAclFilterCounterPkt64_Type())
-rcAclFilterCounterPkt64.setMaxAccess(_C)
-if mibBuilder.loadTexts:rcAclFilterCounterPkt64.setStatus(_A)
-_RcAclFilterCounterByte64_Type=Counter64
-_RcAclFilterCounterByte64_Object=MibTableColumn
-rcAclFilterCounterByte64=_RcAclFilterCounterByte64_Object((1,3,6,1,4,1,8886,6,1,14,1,4,1,3),_RcAclFilterCounterByte64_Type())
-rcAclFilterCounterByte64.setMaxAccess(_C)
-if mibBuilder.loadTexts:rcAclFilterCounterByte64.setStatus(_A)
-_RcAclFilterCounterStatisticUnit_Type=Integer32
-_RcAclFilterCounterStatisticUnit_Object=MibTableColumn
-rcAclFilterCounterStatisticUnit=_RcAclFilterCounterStatisticUnit_Object((1,3,6,1,4,1,8886,6,1,14,1,4,1,4),_RcAclFilterCounterStatisticUnit_Type())
-rcAclFilterCounterStatisticUnit.setMaxAccess(_C)
-if mibBuilder.loadTexts:rcAclFilterCounterStatisticUnit.setStatus(_A)
-rcAclFilterEntry.registerAugmentions((_F,_H))
+#
+# PySNMP MIB module SWITCH-FILTER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/SWITCH-FILTER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+iscomSwitch, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "iscomSwitch")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+PortList, EnableVar = mibBuilder.importSymbols("SWITCH-TC", "PortList", "EnableVar")
+rcFilter = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14))
+if mibBuilder.loadTexts: rcFilter.setLastUpdated('200504120000Z')
+if mibBuilder.loadTexts: rcFilter.setOrganization('Raisecom, Inc.')
+rcAclFilter = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1))
+rcAclFilterAction = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 1), EnableVar()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcAclFilterAction.setStatus('current')
+rcAclFilterNextIndex = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcAclFilterNextIndex.setStatus('current')
+rcAclFilterTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 3), )
+if mibBuilder.loadTexts: rcAclFilterTable.setStatus('current')
+rcAclFilterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 3, 1), ).setIndexNames((0, "SWITCH-FILTER-MIB", "rcAclFilterIndex"))
+if mibBuilder.loadTexts: rcAclFilterEntry.setStatus('current')
+rcAclFilterIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 3, 1, 1), Integer32())
+if mibBuilder.loadTexts: rcAclFilterIndex.setStatus('current')
+rcAclFilterAclType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ip-acl", 1), ("mac-acl", 2), ("user-acl", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcAclFilterAclType.setStatus('current')
+rcAclFilterAclNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 3, 1, 3), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcAclFilterAclNumber.setStatus('current')
+rcAclFilterIngressPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 3, 1, 4), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcAclFilterIngressPort.setStatus('current')
+rcAclFilterEgressPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 3, 1, 5), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcAclFilterEgressPort.setStatus('current')
+rcAclFilterVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 3, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcAclFilterVlan.setStatus('current')
+rcAclFilterStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 3, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcAclFilterStatus.setStatus('current')
+rcAclFilterHwStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 3, 1, 8), EnableVar()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcAclFilterHwStatus.setStatus('current')
+rcAclFilterDoubleTagging = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 3, 1, 9), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcAclFilterDoubleTagging.setStatus('current')
+rcAclFilterVlanType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inner", 1), ("outer", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcAclFilterVlanType.setStatus('current')
+rcAclFilterStatEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 3, 1, 11), EnableVar()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcAclFilterStatEnable.setStatus('current')
+rcAclFilterStatHwStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 3, 1, 12), EnableVar()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcAclFilterStatHwStatus.setStatus('current')
+rcAclFilterIngressPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 3, 1, 14), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcAclFilterIngressPortList.setStatus('current')
+rcAclFilterStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 4), )
+if mibBuilder.loadTexts: rcAclFilterStatisticsTable.setStatus('current')
+rcAclFilterStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 4, 1), )
+rcAclFilterEntry.registerAugmentions(("SWITCH-FILTER-MIB", "rcAclFilterStatisticsEntry"))
 rcAclFilterStatisticsEntry.setIndexNames(*rcAclFilterEntry.getIndexNames())
-mibBuilder.exportSymbols(_F,**{'rcFilter':rcFilter,'rcAclFilter':rcAclFilter,'rcAclFilterAction':rcAclFilterAction,'rcAclFilterNextIndex':rcAclFilterNextIndex,'rcAclFilterTable':rcAclFilterTable,'rcAclFilterEntry':rcAclFilterEntry,_G:rcAclFilterIndex,'rcAclFilterAclType':rcAclFilterAclType,'rcAclFilterAclNumber':rcAclFilterAclNumber,'rcAclFilterIngressPort':rcAclFilterIngressPort,'rcAclFilterEgressPort':rcAclFilterEgressPort,'rcAclFilterVlan':rcAclFilterVlan,'rcAclFilterStatus':rcAclFilterStatus,'rcAclFilterHwStatus':rcAclFilterHwStatus,'rcAclFilterDoubleTagging':rcAclFilterDoubleTagging,'rcAclFilterVlanType':rcAclFilterVlanType,'rcAclFilterStatEnable':rcAclFilterStatEnable,'rcAclFilterStatHwStatus':rcAclFilterStatHwStatus,'rcAclFilterIngressPortList':rcAclFilterIngressPortList,'rcAclFilterStatisticsTable':rcAclFilterStatisticsTable,_H:rcAclFilterStatisticsEntry,'rcAclFilterCounterReset':rcAclFilterCounterReset,'rcAclFilterCounterPkt64':rcAclFilterCounterPkt64,'rcAclFilterCounterByte64':rcAclFilterCounterByte64,'rcAclFilterCounterStatisticUnit':rcAclFilterCounterStatisticUnit})
+if mibBuilder.loadTexts: rcAclFilterStatisticsEntry.setStatus('current')
+rcAclFilterCounterReset = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 4, 1, 1), EnableVar()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcAclFilterCounterReset.setStatus('current')
+rcAclFilterCounterPkt64 = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 4, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcAclFilterCounterPkt64.setStatus('current')
+rcAclFilterCounterByte64 = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 4, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcAclFilterCounterByte64.setStatus('current')
+rcAclFilterCounterStatisticUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 14, 1, 4, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcAclFilterCounterStatisticUnit.setStatus('current')
+mibBuilder.exportSymbols("SWITCH-FILTER-MIB", rcAclFilterStatisticsTable=rcAclFilterStatisticsTable, rcAclFilterStatHwStatus=rcAclFilterStatHwStatus, rcAclFilterVlan=rcAclFilterVlan, rcAclFilterStatus=rcAclFilterStatus, rcAclFilterAclNumber=rcAclFilterAclNumber, rcAclFilterHwStatus=rcAclFilterHwStatus, rcAclFilterIngressPort=rcAclFilterIngressPort, rcAclFilterDoubleTagging=rcAclFilterDoubleTagging, rcFilter=rcFilter, rcAclFilterStatisticsEntry=rcAclFilterStatisticsEntry, rcAclFilter=rcAclFilter, rcAclFilterCounterPkt64=rcAclFilterCounterPkt64, PYSNMP_MODULE_ID=rcFilter, rcAclFilterVlanType=rcAclFilterVlanType, rcAclFilterAclType=rcAclFilterAclType, rcAclFilterEntry=rcAclFilterEntry, rcAclFilterTable=rcAclFilterTable, rcAclFilterStatEnable=rcAclFilterStatEnable, rcAclFilterEgressPort=rcAclFilterEgressPort, rcAclFilterCounterStatisticUnit=rcAclFilterCounterStatisticUnit, rcAclFilterIndex=rcAclFilterIndex, rcAclFilterCounterByte64=rcAclFilterCounterByte64, rcAclFilterIngressPortList=rcAclFilterIngressPortList, rcAclFilterNextIndex=rcAclFilterNextIndex, rcAclFilterCounterReset=rcAclFilterCounterReset, rcAclFilterAction=rcAclFilterAction)

@@ -1,208 +1,119 @@
-_h='ieee8021FqtssSRClassPriorityGroup'
-_g='ieee8021FqtssBapMeasurementGroup'
-_f='ieee8021FqtssBoundaryPortGroup'
-_e='ieee8021FqtssTxSelectionAlgorithmGroup'
-_d='ieee8021FqtssBapGroup'
-_c='ieee8021FqtssSRClassToPriorityRowStatus'
-_b='ieee8021FqtssSRClassToPrioritySrClassID'
-_a='ieee8021FqtssBAPLockClassBandwidth'
-_Z='ieee8021FqtssBAPClassMeasurementInterval'
-_Y='ieee8021FqtssSrpBoundaryPort'
-_X='ieee8021FqtssPriorityRegenOverride'
-_W='ieee8021FqtssTxSelectionAlgorithmID'
-_V='ieee8021FqtssBapRowStatus'
-_U='ieee8021FqtssAdminIdleSlopeLs'
-_T='ieee8021FqtssAdminIdleSlopeMs'
-_S='ieee8021FqtssOperIdleSlopeLs'
-_R='ieee8021FqtssOperIdleSlopeMs'
-_Q='ieee8021FqtssDeltaBandwidth'
-_P='ieee8021FqtssBapXEntry'
-_O='ieee8021FqtssTrafficClass'
-_N='ieee8021FqtssBAPTrafficClass'
-_M='TruthValue'
-_L='ieee8021FqtssSrClassPriority'
-_K='read-only'
-_J='not-accessible'
-_I='Unsigned32'
-_H='bits per second'
-_G='read-create'
-_F='read-write'
-_E='ieee8021BridgeBasePort'
-_D='ieee8021BridgeBaseComponentId'
-_C='IEEE8021-BRIDGE-MIB'
-_B='IEEE8021-FQTSS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-BridgeId,=mibBuilder.importSymbols('BRIDGE-MIB','BridgeId')
-ieee8021BridgeBaseComponentId,ieee8021BridgeBaseEntry,ieee8021BridgeBasePort,ieee8021BridgeBasePortEntry=mibBuilder.importSymbols(_C,_D,'ieee8021BridgeBaseEntry',_E,'ieee8021BridgeBasePortEntry')
-IEEE8021PriorityValue,ieee802dot1mibs=mibBuilder.importSymbols('IEEE8021-TC-MIB','IEEE8021PriorityValue','ieee802dot1mibs')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_I,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_M)
-ieee8021FqtssMib=ModuleIdentity((1,3,111,2,802,1,1,16))
-if mibBuilder.loadTexts:ieee8021FqtssMib.setRevisions(('2018-10-04 00:00','2018-06-28 00:00','2015-12-02 00:00','2014-12-15 00:00','2011-02-27 00:00','2009-10-01 00:00'))
-class IEEE8021FqtssTrafficClassValue(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-class IEEE8021FqtssDeltaBandwidthValue(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100000000))
-class IEEE8021FqtssTxSelectionAlgorithmIDValue(TextualConvention,Unsigned32):status=_A;displayHint='d'
-_Ieee8021FqtssNotifications_ObjectIdentity=ObjectIdentity
-ieee8021FqtssNotifications=_Ieee8021FqtssNotifications_ObjectIdentity((1,3,111,2,802,1,1,16,0))
-_Ieee8021FqtssObjects_ObjectIdentity=ObjectIdentity
-ieee8021FqtssObjects=_Ieee8021FqtssObjects_ObjectIdentity((1,3,111,2,802,1,1,16,1))
-_Ieee8021FqtssBap_ObjectIdentity=ObjectIdentity
-ieee8021FqtssBap=_Ieee8021FqtssBap_ObjectIdentity((1,3,111,2,802,1,1,16,1,1))
-_Ieee8021FqtssBapTable_Object=MibTable
-ieee8021FqtssBapTable=_Ieee8021FqtssBapTable_Object((1,3,111,2,802,1,1,16,1,1,1))
-if mibBuilder.loadTexts:ieee8021FqtssBapTable.setStatus(_A)
-_Ieee8021FqtssBapEntry_Object=MibTableRow
-ieee8021FqtssBapEntry=_Ieee8021FqtssBapEntry_Object((1,3,111,2,802,1,1,16,1,1,1,1))
-ieee8021FqtssBapEntry.setIndexNames((0,_C,_D),(0,_C,_E),(0,_B,_N))
-if mibBuilder.loadTexts:ieee8021FqtssBapEntry.setStatus(_A)
-_Ieee8021FqtssBAPTrafficClass_Type=IEEE8021FqtssTrafficClassValue
-_Ieee8021FqtssBAPTrafficClass_Object=MibTableColumn
-ieee8021FqtssBAPTrafficClass=_Ieee8021FqtssBAPTrafficClass_Object((1,3,111,2,802,1,1,16,1,1,1,1,1),_Ieee8021FqtssBAPTrafficClass_Type())
-ieee8021FqtssBAPTrafficClass.setMaxAccess(_J)
-if mibBuilder.loadTexts:ieee8021FqtssBAPTrafficClass.setStatus(_A)
-_Ieee8021FqtssDeltaBandwidth_Type=IEEE8021FqtssDeltaBandwidthValue
-_Ieee8021FqtssDeltaBandwidth_Object=MibTableColumn
-ieee8021FqtssDeltaBandwidth=_Ieee8021FqtssDeltaBandwidth_Object((1,3,111,2,802,1,1,16,1,1,1,1,2),_Ieee8021FqtssDeltaBandwidth_Type())
-ieee8021FqtssDeltaBandwidth.setMaxAccess(_F)
-if mibBuilder.loadTexts:ieee8021FqtssDeltaBandwidth.setStatus(_A)
-if mibBuilder.loadTexts:ieee8021FqtssDeltaBandwidth.setUnits('percent')
-_Ieee8021FqtssOperIdleSlopeMs_Type=Unsigned32
-_Ieee8021FqtssOperIdleSlopeMs_Object=MibTableColumn
-ieee8021FqtssOperIdleSlopeMs=_Ieee8021FqtssOperIdleSlopeMs_Object((1,3,111,2,802,1,1,16,1,1,1,1,3),_Ieee8021FqtssOperIdleSlopeMs_Type())
-ieee8021FqtssOperIdleSlopeMs.setMaxAccess(_K)
-if mibBuilder.loadTexts:ieee8021FqtssOperIdleSlopeMs.setStatus(_A)
-if mibBuilder.loadTexts:ieee8021FqtssOperIdleSlopeMs.setUnits(_H)
-_Ieee8021FqtssOperIdleSlopeLs_Type=Unsigned32
-_Ieee8021FqtssOperIdleSlopeLs_Object=MibTableColumn
-ieee8021FqtssOperIdleSlopeLs=_Ieee8021FqtssOperIdleSlopeLs_Object((1,3,111,2,802,1,1,16,1,1,1,1,4),_Ieee8021FqtssOperIdleSlopeLs_Type())
-ieee8021FqtssOperIdleSlopeLs.setMaxAccess(_K)
-if mibBuilder.loadTexts:ieee8021FqtssOperIdleSlopeLs.setStatus(_A)
-if mibBuilder.loadTexts:ieee8021FqtssOperIdleSlopeLs.setUnits(_H)
-class _Ieee8021FqtssAdminIdleSlopeMs_Type(Unsigned32):defaultValue=0
-_Ieee8021FqtssAdminIdleSlopeMs_Type.__name__=_I
-_Ieee8021FqtssAdminIdleSlopeMs_Object=MibTableColumn
-ieee8021FqtssAdminIdleSlopeMs=_Ieee8021FqtssAdminIdleSlopeMs_Object((1,3,111,2,802,1,1,16,1,1,1,1,5),_Ieee8021FqtssAdminIdleSlopeMs_Type())
-ieee8021FqtssAdminIdleSlopeMs.setMaxAccess(_F)
-if mibBuilder.loadTexts:ieee8021FqtssAdminIdleSlopeMs.setStatus(_A)
-if mibBuilder.loadTexts:ieee8021FqtssAdminIdleSlopeMs.setUnits(_H)
-class _Ieee8021FqtssAdminIdleSlopeLs_Type(Unsigned32):defaultValue=0
-_Ieee8021FqtssAdminIdleSlopeLs_Type.__name__=_I
-_Ieee8021FqtssAdminIdleSlopeLs_Object=MibTableColumn
-ieee8021FqtssAdminIdleSlopeLs=_Ieee8021FqtssAdminIdleSlopeLs_Object((1,3,111,2,802,1,1,16,1,1,1,1,6),_Ieee8021FqtssAdminIdleSlopeLs_Type())
-ieee8021FqtssAdminIdleSlopeLs.setMaxAccess(_F)
-if mibBuilder.loadTexts:ieee8021FqtssAdminIdleSlopeLs.setStatus(_A)
-if mibBuilder.loadTexts:ieee8021FqtssAdminIdleSlopeLs.setUnits(_H)
-_Ieee8021FqtssBapRowStatus_Type=RowStatus
-_Ieee8021FqtssBapRowStatus_Object=MibTableColumn
-ieee8021FqtssBapRowStatus=_Ieee8021FqtssBapRowStatus_Object((1,3,111,2,802,1,1,16,1,1,1,1,7),_Ieee8021FqtssBapRowStatus_Type())
-ieee8021FqtssBapRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:ieee8021FqtssBapRowStatus.setStatus(_A)
-_Ieee8021FqtssMappings_ObjectIdentity=ObjectIdentity
-ieee8021FqtssMappings=_Ieee8021FqtssMappings_ObjectIdentity((1,3,111,2,802,1,1,16,1,2))
-_Ieee8021FqtssTxSelectionAlgorithmTable_Object=MibTable
-ieee8021FqtssTxSelectionAlgorithmTable=_Ieee8021FqtssTxSelectionAlgorithmTable_Object((1,3,111,2,802,1,1,16,1,2,1))
-if mibBuilder.loadTexts:ieee8021FqtssTxSelectionAlgorithmTable.setStatus(_A)
-_Ieee8021FqtssTxSelectionAlgorithmEntry_Object=MibTableRow
-ieee8021FqtssTxSelectionAlgorithmEntry=_Ieee8021FqtssTxSelectionAlgorithmEntry_Object((1,3,111,2,802,1,1,16,1,2,1,1))
-ieee8021FqtssTxSelectionAlgorithmEntry.setIndexNames((0,_C,_D),(0,_C,_E),(0,_B,_O))
-if mibBuilder.loadTexts:ieee8021FqtssTxSelectionAlgorithmEntry.setStatus(_A)
-_Ieee8021FqtssTrafficClass_Type=IEEE8021FqtssTrafficClassValue
-_Ieee8021FqtssTrafficClass_Object=MibTableColumn
-ieee8021FqtssTrafficClass=_Ieee8021FqtssTrafficClass_Object((1,3,111,2,802,1,1,16,1,2,1,1,1),_Ieee8021FqtssTrafficClass_Type())
-ieee8021FqtssTrafficClass.setMaxAccess(_J)
-if mibBuilder.loadTexts:ieee8021FqtssTrafficClass.setStatus(_A)
-_Ieee8021FqtssTxSelectionAlgorithmID_Type=IEEE8021FqtssTxSelectionAlgorithmIDValue
-_Ieee8021FqtssTxSelectionAlgorithmID_Object=MibTableColumn
-ieee8021FqtssTxSelectionAlgorithmID=_Ieee8021FqtssTxSelectionAlgorithmID_Object((1,3,111,2,802,1,1,16,1,2,1,1,2),_Ieee8021FqtssTxSelectionAlgorithmID_Type())
-ieee8021FqtssTxSelectionAlgorithmID.setMaxAccess(_F)
-if mibBuilder.loadTexts:ieee8021FqtssTxSelectionAlgorithmID.setStatus(_A)
-_Ieee8021FqtssSrpRegenOverrideTable_Object=MibTable
-ieee8021FqtssSrpRegenOverrideTable=_Ieee8021FqtssSrpRegenOverrideTable_Object((1,3,111,2,802,1,1,16,1,2,2))
-if mibBuilder.loadTexts:ieee8021FqtssSrpRegenOverrideTable.setStatus(_A)
-_Ieee8021FqtssSrpRegenOverrideEntry_Object=MibTableRow
-ieee8021FqtssSrpRegenOverrideEntry=_Ieee8021FqtssSrpRegenOverrideEntry_Object((1,3,111,2,802,1,1,16,1,2,2,1))
-ieee8021FqtssSrpRegenOverrideEntry.setIndexNames((0,_C,_D),(0,_C,_E),(0,_B,_L))
-if mibBuilder.loadTexts:ieee8021FqtssSrpRegenOverrideEntry.setStatus(_A)
-_Ieee8021FqtssSrClassPriority_Type=IEEE8021PriorityValue
-_Ieee8021FqtssSrClassPriority_Object=MibTableColumn
-ieee8021FqtssSrClassPriority=_Ieee8021FqtssSrClassPriority_Object((1,3,111,2,802,1,1,16,1,2,2,1,1),_Ieee8021FqtssSrClassPriority_Type())
-ieee8021FqtssSrClassPriority.setMaxAccess(_J)
-if mibBuilder.loadTexts:ieee8021FqtssSrClassPriority.setStatus(_A)
-_Ieee8021FqtssPriorityRegenOverride_Type=IEEE8021PriorityValue
-_Ieee8021FqtssPriorityRegenOverride_Object=MibTableColumn
-ieee8021FqtssPriorityRegenOverride=_Ieee8021FqtssPriorityRegenOverride_Object((1,3,111,2,802,1,1,16,1,2,2,1,2),_Ieee8021FqtssPriorityRegenOverride_Type())
-ieee8021FqtssPriorityRegenOverride.setMaxAccess(_F)
-if mibBuilder.loadTexts:ieee8021FqtssPriorityRegenOverride.setStatus(_A)
-_Ieee8021FqtssSrpBoundaryPort_Type=TruthValue
-_Ieee8021FqtssSrpBoundaryPort_Object=MibTableColumn
-ieee8021FqtssSrpBoundaryPort=_Ieee8021FqtssSrpBoundaryPort_Object((1,3,111,2,802,1,1,16,1,2,2,1,3),_Ieee8021FqtssSrpBoundaryPort_Type())
-ieee8021FqtssSrpBoundaryPort.setMaxAccess(_K)
-if mibBuilder.loadTexts:ieee8021FqtssSrpBoundaryPort.setStatus(_A)
-_Ieee8021FqtssSRClassToPriorityTable_Object=MibTable
-ieee8021FqtssSRClassToPriorityTable=_Ieee8021FqtssSRClassToPriorityTable_Object((1,3,111,2,802,1,1,16,1,2,3))
-if mibBuilder.loadTexts:ieee8021FqtssSRClassToPriorityTable.setStatus(_A)
-_Ieee8021FqtssSRClassToPriorityEntry_Object=MibTableRow
-ieee8021FqtssSRClassToPriorityEntry=_Ieee8021FqtssSRClassToPriorityEntry_Object((1,3,111,2,802,1,1,16,1,2,3,1))
-ieee8021FqtssSRClassToPriorityEntry.setIndexNames((0,_C,_D),(0,_C,_E),(0,_B,_L))
-if mibBuilder.loadTexts:ieee8021FqtssSRClassToPriorityEntry.setStatus(_A)
-_Ieee8021FqtssSRClassToPrioritySrClassID_Type=IEEE8021FqtssTrafficClassValue
-_Ieee8021FqtssSRClassToPrioritySrClassID_Object=MibTableColumn
-ieee8021FqtssSRClassToPrioritySrClassID=_Ieee8021FqtssSRClassToPrioritySrClassID_Object((1,3,111,2,802,1,1,16,1,2,3,1,1),_Ieee8021FqtssSRClassToPrioritySrClassID_Type())
-ieee8021FqtssSRClassToPrioritySrClassID.setMaxAccess(_G)
-if mibBuilder.loadTexts:ieee8021FqtssSRClassToPrioritySrClassID.setStatus(_A)
-_Ieee8021FqtssSRClassToPriorityRowStatus_Type=RowStatus
-_Ieee8021FqtssSRClassToPriorityRowStatus_Object=MibTableColumn
-ieee8021FqtssSRClassToPriorityRowStatus=_Ieee8021FqtssSRClassToPriorityRowStatus_Object((1,3,111,2,802,1,1,16,1,2,3,1,2),_Ieee8021FqtssSRClassToPriorityRowStatus_Type())
-ieee8021FqtssSRClassToPriorityRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:ieee8021FqtssSRClassToPriorityRowStatus.setStatus(_A)
-_Ieee8021FqtssBapX_ObjectIdentity=ObjectIdentity
-ieee8021FqtssBapX=_Ieee8021FqtssBapX_ObjectIdentity((1,3,111,2,802,1,1,16,1,3))
-_Ieee8021FqtssBapXTable_Object=MibTable
-ieee8021FqtssBapXTable=_Ieee8021FqtssBapXTable_Object((1,3,111,2,802,1,1,16,1,3,1))
-if mibBuilder.loadTexts:ieee8021FqtssBapXTable.setStatus(_A)
-_Ieee8021FqtssBapXEntry_Object=MibTableRow
-ieee8021FqtssBapXEntry=_Ieee8021FqtssBapXEntry_Object((1,3,111,2,802,1,1,16,1,3,1,1))
-if mibBuilder.loadTexts:ieee8021FqtssBapXEntry.setStatus(_A)
-_Ieee8021FqtssBAPClassMeasurementInterval_Type=Unsigned32
-_Ieee8021FqtssBAPClassMeasurementInterval_Object=MibTableColumn
-ieee8021FqtssBAPClassMeasurementInterval=_Ieee8021FqtssBAPClassMeasurementInterval_Object((1,3,111,2,802,1,1,16,1,3,1,1,1),_Ieee8021FqtssBAPClassMeasurementInterval_Type())
-ieee8021FqtssBAPClassMeasurementInterval.setMaxAccess(_G)
-if mibBuilder.loadTexts:ieee8021FqtssBAPClassMeasurementInterval.setStatus(_A)
-class _Ieee8021FqtssBAPLockClassBandwidth_Type(TruthValue):defaultValue=2
-_Ieee8021FqtssBAPLockClassBandwidth_Type.__name__=_M
-_Ieee8021FqtssBAPLockClassBandwidth_Object=MibTableColumn
-ieee8021FqtssBAPLockClassBandwidth=_Ieee8021FqtssBAPLockClassBandwidth_Object((1,3,111,2,802,1,1,16,1,3,1,1,2),_Ieee8021FqtssBAPLockClassBandwidth_Type())
-ieee8021FqtssBAPLockClassBandwidth.setMaxAccess(_G)
-if mibBuilder.loadTexts:ieee8021FqtssBAPLockClassBandwidth.setStatus(_A)
-_Ieee8021FqtssConformance_ObjectIdentity=ObjectIdentity
-ieee8021FqtssConformance=_Ieee8021FqtssConformance_ObjectIdentity((1,3,111,2,802,1,1,16,2))
-_Ieee8021FqtssCompliances_ObjectIdentity=ObjectIdentity
-ieee8021FqtssCompliances=_Ieee8021FqtssCompliances_ObjectIdentity((1,3,111,2,802,1,1,16,2,1))
-_Ieee8021FqtssGroups_ObjectIdentity=ObjectIdentity
-ieee8021FqtssGroups=_Ieee8021FqtssGroups_ObjectIdentity((1,3,111,2,802,1,1,16,2,2))
-ieee8021FqtssBapEntry.registerAugmentions((_B,_P))
+#
+# PySNMP MIB module IEEE8021-FQTSS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/IEEE8021-FQTSS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:27:31 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+BridgeId, = mibBuilder.importSymbols("BRIDGE-MIB", "BridgeId")
+ieee8021BridgeBasePortEntry, ieee8021BridgeBasePort, ieee8021BridgeBaseEntry, ieee8021BridgeBaseComponentId = mibBuilder.importSymbols("IEEE8021-BRIDGE-MIB", "ieee8021BridgeBasePortEntry", "ieee8021BridgeBasePort", "ieee8021BridgeBaseEntry", "ieee8021BridgeBaseComponentId")
+IEEE8021PriorityValue, ieee802dot1mibs = mibBuilder.importSymbols("IEEE8021-TC-MIB", "IEEE8021PriorityValue", "ieee802dot1mibs")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ieee8021FqtssMib = ModuleIdentity((1, 3, 111, 2, 802, 1, 1, 16))
+ieee8021FqtssMib.setRevisions(('2018-10-04 00:00', '2018-06-28 00:00', '2015-12-02 00:00', '2014-12-15 00:00', '2011-02-27 00:00', '2009-10-01 00:00',))
+if mibBuilder.loadTexts: ieee8021FqtssMib.setLastUpdated('201810040000Z')
+if mibBuilder.loadTexts: ieee8021FqtssMib.setOrganization('IEEE 802.1 Working Group')
+class IEEE8021FqtssTrafficClassValue(TextualConvention, Unsigned32):
+    reference = '12.20.1'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 7)
+
+class IEEE8021FqtssDeltaBandwidthValue(TextualConvention, Unsigned32):
+    reference = '12.20.1, 34.4'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 100000000)
+
+class IEEE8021FqtssTxSelectionAlgorithmIDValue(TextualConvention, Unsigned32):
+    reference = '8.6.8, 12.20.2'
+    status = 'current'
+    displayHint = 'd'
+
+ieee8021FqtssNotifications = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 16, 0))
+ieee8021FqtssObjects = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 16, 1))
+ieee8021FqtssConformance = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 16, 2))
+ieee8021FqtssBap = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 16, 1, 1))
+ieee8021FqtssMappings = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 16, 1, 2))
+ieee8021FqtssBapX = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 16, 1, 3))
+ieee8021FqtssBapTable = MibTable((1, 3, 111, 2, 802, 1, 1, 16, 1, 1, 1), )
+if mibBuilder.loadTexts: ieee8021FqtssBapTable.setStatus('current')
+ieee8021FqtssBapEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 16, 1, 1, 1, 1), ).setIndexNames((0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBaseComponentId"), (0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBasePort"), (0, "IEEE8021-FQTSS-MIB", "ieee8021FqtssBAPTrafficClass"))
+if mibBuilder.loadTexts: ieee8021FqtssBapEntry.setStatus('current')
+ieee8021FqtssBAPTrafficClass = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 1, 1, 1, 1), IEEE8021FqtssTrafficClassValue())
+if mibBuilder.loadTexts: ieee8021FqtssBAPTrafficClass.setStatus('current')
+ieee8021FqtssDeltaBandwidth = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 1, 1, 1, 2), IEEE8021FqtssDeltaBandwidthValue()).setUnits('percent').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021FqtssDeltaBandwidth.setStatus('current')
+ieee8021FqtssOperIdleSlopeMs = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 1, 1, 1, 3), Unsigned32()).setUnits('bits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021FqtssOperIdleSlopeMs.setStatus('current')
+ieee8021FqtssOperIdleSlopeLs = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 1, 1, 1, 4), Unsigned32()).setUnits('bits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021FqtssOperIdleSlopeLs.setStatus('current')
+ieee8021FqtssAdminIdleSlopeMs = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 1, 1, 1, 5), Unsigned32()).setUnits('bits per second').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021FqtssAdminIdleSlopeMs.setStatus('current')
+ieee8021FqtssAdminIdleSlopeLs = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 1, 1, 1, 6), Unsigned32()).setUnits('bits per second').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021FqtssAdminIdleSlopeLs.setStatus('current')
+ieee8021FqtssBapRowStatus = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 1, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021FqtssBapRowStatus.setStatus('current')
+ieee8021FqtssTxSelectionAlgorithmTable = MibTable((1, 3, 111, 2, 802, 1, 1, 16, 1, 2, 1), )
+if mibBuilder.loadTexts: ieee8021FqtssTxSelectionAlgorithmTable.setStatus('current')
+ieee8021FqtssTxSelectionAlgorithmEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 16, 1, 2, 1, 1), ).setIndexNames((0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBaseComponentId"), (0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBasePort"), (0, "IEEE8021-FQTSS-MIB", "ieee8021FqtssTrafficClass"))
+if mibBuilder.loadTexts: ieee8021FqtssTxSelectionAlgorithmEntry.setStatus('current')
+ieee8021FqtssTrafficClass = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 2, 1, 1, 1), IEEE8021FqtssTrafficClassValue())
+if mibBuilder.loadTexts: ieee8021FqtssTrafficClass.setStatus('current')
+ieee8021FqtssTxSelectionAlgorithmID = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 2, 1, 1, 2), IEEE8021FqtssTxSelectionAlgorithmIDValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021FqtssTxSelectionAlgorithmID.setStatus('current')
+ieee8021FqtssSrpRegenOverrideTable = MibTable((1, 3, 111, 2, 802, 1, 1, 16, 1, 2, 2), )
+if mibBuilder.loadTexts: ieee8021FqtssSrpRegenOverrideTable.setStatus('current')
+ieee8021FqtssSrpRegenOverrideEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 16, 1, 2, 2, 1), ).setIndexNames((0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBaseComponentId"), (0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBasePort"), (0, "IEEE8021-FQTSS-MIB", "ieee8021FqtssSrClassPriority"))
+if mibBuilder.loadTexts: ieee8021FqtssSrpRegenOverrideEntry.setStatus('current')
+ieee8021FqtssSrClassPriority = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 2, 2, 1, 1), IEEE8021PriorityValue())
+if mibBuilder.loadTexts: ieee8021FqtssSrClassPriority.setStatus('current')
+ieee8021FqtssPriorityRegenOverride = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 2, 2, 1, 2), IEEE8021PriorityValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021FqtssPriorityRegenOverride.setStatus('current')
+ieee8021FqtssSrpBoundaryPort = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 2, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021FqtssSrpBoundaryPort.setStatus('current')
+ieee8021FqtssSRClassToPriorityTable = MibTable((1, 3, 111, 2, 802, 1, 1, 16, 1, 2, 3), )
+if mibBuilder.loadTexts: ieee8021FqtssSRClassToPriorityTable.setStatus('current')
+ieee8021FqtssSRClassToPriorityEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 16, 1, 2, 3, 1), ).setIndexNames((0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBaseComponentId"), (0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBasePort"), (0, "IEEE8021-FQTSS-MIB", "ieee8021FqtssSrClassPriority"))
+if mibBuilder.loadTexts: ieee8021FqtssSRClassToPriorityEntry.setStatus('current')
+ieee8021FqtssSRClassToPrioritySrClassID = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 2, 3, 1, 1), IEEE8021FqtssTrafficClassValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021FqtssSRClassToPrioritySrClassID.setStatus('current')
+ieee8021FqtssSRClassToPriorityRowStatus = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 2, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021FqtssSRClassToPriorityRowStatus.setStatus('current')
+ieee8021FqtssBapXTable = MibTable((1, 3, 111, 2, 802, 1, 1, 16, 1, 3, 1), )
+if mibBuilder.loadTexts: ieee8021FqtssBapXTable.setStatus('current')
+ieee8021FqtssBapXEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 16, 1, 3, 1, 1), )
+ieee8021FqtssBapEntry.registerAugmentions(("IEEE8021-FQTSS-MIB", "ieee8021FqtssBapXEntry"))
 ieee8021FqtssBapXEntry.setIndexNames(*ieee8021FqtssBapEntry.getIndexNames())
-ieee8021FqtssBapGroup=ObjectGroup((1,3,111,2,802,1,1,16,2,2,1))
-ieee8021FqtssBapGroup.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:ieee8021FqtssBapGroup.setStatus(_A)
-ieee8021FqtssTxSelectionAlgorithmGroup=ObjectGroup((1,3,111,2,802,1,1,16,2,2,2))
-ieee8021FqtssTxSelectionAlgorithmGroup.setObjects((_B,_W))
-if mibBuilder.loadTexts:ieee8021FqtssTxSelectionAlgorithmGroup.setStatus(_A)
-ieee8021FqtssBoundaryPortGroup=ObjectGroup((1,3,111,2,802,1,1,16,2,2,3))
-ieee8021FqtssBoundaryPortGroup.setObjects(*((_B,_X),(_B,_Y)))
-if mibBuilder.loadTexts:ieee8021FqtssBoundaryPortGroup.setStatus(_A)
-ieee8021FqtssBapMeasurementGroup=ObjectGroup((1,3,111,2,802,1,1,16,2,2,4))
-ieee8021FqtssBapMeasurementGroup.setObjects(*((_B,_Z),(_B,_a)))
-if mibBuilder.loadTexts:ieee8021FqtssBapMeasurementGroup.setStatus(_A)
-ieee8021FqtssSRClassPriorityGroup=ObjectGroup((1,3,111,2,802,1,1,16,2,2,5))
-ieee8021FqtssSRClassPriorityGroup.setObjects(*((_B,_b),(_B,_c)))
-if mibBuilder.loadTexts:ieee8021FqtssSRClassPriorityGroup.setStatus(_A)
-ieee8021FqtssCompliance=ModuleCompliance((1,3,111,2,802,1,1,16,2,1,1))
-ieee8021FqtssCompliance.setObjects(*((_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h)))
-if mibBuilder.loadTexts:ieee8021FqtssCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'IEEE8021FqtssTrafficClassValue':IEEE8021FqtssTrafficClassValue,'IEEE8021FqtssDeltaBandwidthValue':IEEE8021FqtssDeltaBandwidthValue,'IEEE8021FqtssTxSelectionAlgorithmIDValue':IEEE8021FqtssTxSelectionAlgorithmIDValue,'ieee8021FqtssMib':ieee8021FqtssMib,'ieee8021FqtssNotifications':ieee8021FqtssNotifications,'ieee8021FqtssObjects':ieee8021FqtssObjects,'ieee8021FqtssBap':ieee8021FqtssBap,'ieee8021FqtssBapTable':ieee8021FqtssBapTable,'ieee8021FqtssBapEntry':ieee8021FqtssBapEntry,_N:ieee8021FqtssBAPTrafficClass,_Q:ieee8021FqtssDeltaBandwidth,_R:ieee8021FqtssOperIdleSlopeMs,_S:ieee8021FqtssOperIdleSlopeLs,_T:ieee8021FqtssAdminIdleSlopeMs,_U:ieee8021FqtssAdminIdleSlopeLs,_V:ieee8021FqtssBapRowStatus,'ieee8021FqtssMappings':ieee8021FqtssMappings,'ieee8021FqtssTxSelectionAlgorithmTable':ieee8021FqtssTxSelectionAlgorithmTable,'ieee8021FqtssTxSelectionAlgorithmEntry':ieee8021FqtssTxSelectionAlgorithmEntry,_O:ieee8021FqtssTrafficClass,_W:ieee8021FqtssTxSelectionAlgorithmID,'ieee8021FqtssSrpRegenOverrideTable':ieee8021FqtssSrpRegenOverrideTable,'ieee8021FqtssSrpRegenOverrideEntry':ieee8021FqtssSrpRegenOverrideEntry,_L:ieee8021FqtssSrClassPriority,_X:ieee8021FqtssPriorityRegenOverride,_Y:ieee8021FqtssSrpBoundaryPort,'ieee8021FqtssSRClassToPriorityTable':ieee8021FqtssSRClassToPriorityTable,'ieee8021FqtssSRClassToPriorityEntry':ieee8021FqtssSRClassToPriorityEntry,_b:ieee8021FqtssSRClassToPrioritySrClassID,_c:ieee8021FqtssSRClassToPriorityRowStatus,'ieee8021FqtssBapX':ieee8021FqtssBapX,'ieee8021FqtssBapXTable':ieee8021FqtssBapXTable,_P:ieee8021FqtssBapXEntry,_Z:ieee8021FqtssBAPClassMeasurementInterval,_a:ieee8021FqtssBAPLockClassBandwidth,'ieee8021FqtssConformance':ieee8021FqtssConformance,'ieee8021FqtssCompliances':ieee8021FqtssCompliances,'ieee8021FqtssCompliance':ieee8021FqtssCompliance,'ieee8021FqtssGroups':ieee8021FqtssGroups,_d:ieee8021FqtssBapGroup,_e:ieee8021FqtssTxSelectionAlgorithmGroup,_f:ieee8021FqtssBoundaryPortGroup,_g:ieee8021FqtssBapMeasurementGroup,_h:ieee8021FqtssSRClassPriorityGroup})
+if mibBuilder.loadTexts: ieee8021FqtssBapXEntry.setStatus('current')
+ieee8021FqtssBAPClassMeasurementInterval = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 3, 1, 1, 1), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021FqtssBAPClassMeasurementInterval.setStatus('current')
+ieee8021FqtssBAPLockClassBandwidth = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 16, 1, 3, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021FqtssBAPLockClassBandwidth.setStatus('current')
+ieee8021FqtssCompliances = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 16, 2, 1))
+ieee8021FqtssGroups = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 16, 2, 2))
+ieee8021FqtssBapGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 16, 2, 2, 1)).setObjects(("IEEE8021-FQTSS-MIB", "ieee8021FqtssDeltaBandwidth"), ("IEEE8021-FQTSS-MIB", "ieee8021FqtssOperIdleSlopeMs"), ("IEEE8021-FQTSS-MIB", "ieee8021FqtssOperIdleSlopeLs"), ("IEEE8021-FQTSS-MIB", "ieee8021FqtssAdminIdleSlopeMs"), ("IEEE8021-FQTSS-MIB", "ieee8021FqtssAdminIdleSlopeLs"), ("IEEE8021-FQTSS-MIB", "ieee8021FqtssBapRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021FqtssBapGroup = ieee8021FqtssBapGroup.setStatus('current')
+ieee8021FqtssTxSelectionAlgorithmGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 16, 2, 2, 2)).setObjects(("IEEE8021-FQTSS-MIB", "ieee8021FqtssTxSelectionAlgorithmID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021FqtssTxSelectionAlgorithmGroup = ieee8021FqtssTxSelectionAlgorithmGroup.setStatus('current')
+ieee8021FqtssBoundaryPortGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 16, 2, 2, 3)).setObjects(("IEEE8021-FQTSS-MIB", "ieee8021FqtssPriorityRegenOverride"), ("IEEE8021-FQTSS-MIB", "ieee8021FqtssSrpBoundaryPort"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021FqtssBoundaryPortGroup = ieee8021FqtssBoundaryPortGroup.setStatus('current')
+ieee8021FqtssBapMeasurementGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 16, 2, 2, 4)).setObjects(("IEEE8021-FQTSS-MIB", "ieee8021FqtssBAPClassMeasurementInterval"), ("IEEE8021-FQTSS-MIB", "ieee8021FqtssBAPLockClassBandwidth"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021FqtssBapMeasurementGroup = ieee8021FqtssBapMeasurementGroup.setStatus('current')
+ieee8021FqtssSRClassPriorityGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 16, 2, 2, 5)).setObjects(("IEEE8021-FQTSS-MIB", "ieee8021FqtssSRClassToPrioritySrClassID"), ("IEEE8021-FQTSS-MIB", "ieee8021FqtssSRClassToPriorityRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021FqtssSRClassPriorityGroup = ieee8021FqtssSRClassPriorityGroup.setStatus('current')
+ieee8021FqtssCompliance = ModuleCompliance((1, 3, 111, 2, 802, 1, 1, 16, 2, 1, 1)).setObjects(("IEEE8021-FQTSS-MIB", "ieee8021FqtssBapGroup"), ("IEEE8021-FQTSS-MIB", "ieee8021FqtssTxSelectionAlgorithmGroup"), ("IEEE8021-FQTSS-MIB", "ieee8021FqtssBoundaryPortGroup"), ("IEEE8021-FQTSS-MIB", "ieee8021FqtssBapMeasurementGroup"), ("IEEE8021-FQTSS-MIB", "ieee8021FqtssSRClassPriorityGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021FqtssCompliance = ieee8021FqtssCompliance.setStatus('current')
+mibBuilder.exportSymbols("IEEE8021-FQTSS-MIB", ieee8021FqtssSRClassToPrioritySrClassID=ieee8021FqtssSRClassToPrioritySrClassID, ieee8021FqtssBAPClassMeasurementInterval=ieee8021FqtssBAPClassMeasurementInterval, ieee8021FqtssSRClassToPriorityEntry=ieee8021FqtssSRClassToPriorityEntry, ieee8021FqtssTxSelectionAlgorithmEntry=ieee8021FqtssTxSelectionAlgorithmEntry, ieee8021FqtssBAPLockClassBandwidth=ieee8021FqtssBAPLockClassBandwidth, ieee8021FqtssBapX=ieee8021FqtssBapX, ieee8021FqtssTrafficClass=ieee8021FqtssTrafficClass, ieee8021FqtssSrClassPriority=ieee8021FqtssSrClassPriority, ieee8021FqtssBapMeasurementGroup=ieee8021FqtssBapMeasurementGroup, ieee8021FqtssSRClassToPriorityRowStatus=ieee8021FqtssSRClassToPriorityRowStatus, ieee8021FqtssBapGroup=ieee8021FqtssBapGroup, ieee8021FqtssSRClassPriorityGroup=ieee8021FqtssSRClassPriorityGroup, ieee8021FqtssSrpRegenOverrideEntry=ieee8021FqtssSrpRegenOverrideEntry, ieee8021FqtssAdminIdleSlopeMs=ieee8021FqtssAdminIdleSlopeMs, IEEE8021FqtssTxSelectionAlgorithmIDValue=IEEE8021FqtssTxSelectionAlgorithmIDValue, ieee8021FqtssAdminIdleSlopeLs=ieee8021FqtssAdminIdleSlopeLs, ieee8021FqtssBapXTable=ieee8021FqtssBapXTable, ieee8021FqtssCompliance=ieee8021FqtssCompliance, ieee8021FqtssBap=ieee8021FqtssBap, ieee8021FqtssOperIdleSlopeMs=ieee8021FqtssOperIdleSlopeMs, ieee8021FqtssPriorityRegenOverride=ieee8021FqtssPriorityRegenOverride, ieee8021FqtssBapEntry=ieee8021FqtssBapEntry, ieee8021FqtssConformance=ieee8021FqtssConformance, ieee8021FqtssBapRowStatus=ieee8021FqtssBapRowStatus, ieee8021FqtssSrpBoundaryPort=ieee8021FqtssSrpBoundaryPort, ieee8021FqtssSrpRegenOverrideTable=ieee8021FqtssSrpRegenOverrideTable, ieee8021FqtssTxSelectionAlgorithmGroup=ieee8021FqtssTxSelectionAlgorithmGroup, ieee8021FqtssOperIdleSlopeLs=ieee8021FqtssOperIdleSlopeLs, IEEE8021FqtssDeltaBandwidthValue=IEEE8021FqtssDeltaBandwidthValue, ieee8021FqtssBapTable=ieee8021FqtssBapTable, ieee8021FqtssBAPTrafficClass=ieee8021FqtssBAPTrafficClass, ieee8021FqtssObjects=ieee8021FqtssObjects, ieee8021FqtssDeltaBandwidth=ieee8021FqtssDeltaBandwidth, ieee8021FqtssSRClassToPriorityTable=ieee8021FqtssSRClassToPriorityTable, ieee8021FqtssGroups=ieee8021FqtssGroups, ieee8021FqtssBapXEntry=ieee8021FqtssBapXEntry, ieee8021FqtssTxSelectionAlgorithmID=ieee8021FqtssTxSelectionAlgorithmID, ieee8021FqtssCompliances=ieee8021FqtssCompliances, ieee8021FqtssMappings=ieee8021FqtssMappings, ieee8021FqtssNotifications=ieee8021FqtssNotifications, PYSNMP_MODULE_ID=ieee8021FqtssMib, ieee8021FqtssTxSelectionAlgorithmTable=ieee8021FqtssTxSelectionAlgorithmTable, ieee8021FqtssMib=ieee8021FqtssMib, IEEE8021FqtssTrafficClassValue=IEEE8021FqtssTrafficClassValue, ieee8021FqtssBoundaryPortGroup=ieee8021FqtssBoundaryPortGroup)

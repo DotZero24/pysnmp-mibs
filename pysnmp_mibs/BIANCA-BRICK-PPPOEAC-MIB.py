@@ -1,67 +1,38 @@
-_G='pppoeAcServiceEthIfIndex'
-_F='delete'
-_E='pppoeAcEthIfIndex'
-_D='BIANCA-BRICK-PPPOEAC-MIB'
-_C='Integer32'
-_B='read-write'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Bintec_ObjectIdentity=ObjectIdentity
-bintec=_Bintec_ObjectIdentity((1,3,6,1,4,1,272))
-_Bibo_ObjectIdentity=ObjectIdentity
-bibo=_Bibo_ObjectIdentity((1,3,6,1,4,1,272,4))
-_Pppoe_ObjectIdentity=ObjectIdentity
-pppoe=_Pppoe_ObjectIdentity((1,3,6,1,4,1,272,4,24))
-_PppoeAcTable_Object=MibTable
-pppoeAcTable=_PppoeAcTable_Object((1,3,6,1,4,1,272,4,24,3))
-if mibBuilder.loadTexts:pppoeAcTable.setStatus(_A)
-_PppoeAcEntry_Object=MibTableRow
-pppoeAcEntry=_PppoeAcEntry_Object((1,3,6,1,4,1,272,4,24,3,1))
-pppoeAcEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:pppoeAcEntry.setStatus(_A)
-_PppoeAcEthIfIndex_Type=Integer32
-_PppoeAcEthIfIndex_Object=MibTableColumn
-pppoeAcEthIfIndex=_PppoeAcEthIfIndex_Object((1,3,6,1,4,1,272,4,24,3,1,1),_PppoeAcEthIfIndex_Type())
-pppoeAcEthIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:pppoeAcEthIfIndex.setStatus(_A)
-class _PppoeAcChkService_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,4)));namedValues=NamedValues(*(('accept-all',1),('accept-from-list',2),(_F,4)))
-_PppoeAcChkService_Type.__name__=_C
-_PppoeAcChkService_Object=MibTableColumn
-pppoeAcChkService=_PppoeAcChkService_Object((1,3,6,1,4,1,272,4,24,3,1,2),_PppoeAcChkService_Type())
-pppoeAcChkService.setMaxAccess(_B)
-if mibBuilder.loadTexts:pppoeAcChkService.setStatus(_A)
-_PppoeAcName_Type=DisplayString
-_PppoeAcName_Object=MibTableColumn
-pppoeAcName=_PppoeAcName_Object((1,3,6,1,4,1,272,4,24,3,1,3),_PppoeAcName_Type())
-pppoeAcName.setMaxAccess(_B)
-if mibBuilder.loadTexts:pppoeAcName.setStatus(_A)
-_PppoeAcServiceTable_Object=MibTable
-pppoeAcServiceTable=_PppoeAcServiceTable_Object((1,3,6,1,4,1,272,4,24,4))
-if mibBuilder.loadTexts:pppoeAcServiceTable.setStatus(_A)
-_PppoeAcServiceEntry_Object=MibTableRow
-pppoeAcServiceEntry=_PppoeAcServiceEntry_Object((1,3,6,1,4,1,272,4,24,4,1))
-pppoeAcServiceEntry.setIndexNames((0,_D,_G))
-if mibBuilder.loadTexts:pppoeAcServiceEntry.setStatus(_A)
-_PppoeAcServiceEthIfIndex_Type=Integer32
-_PppoeAcServiceEthIfIndex_Object=MibTableColumn
-pppoeAcServiceEthIfIndex=_PppoeAcServiceEthIfIndex_Object((1,3,6,1,4,1,272,4,24,4,1,1),_PppoeAcServiceEthIfIndex_Type())
-pppoeAcServiceEthIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:pppoeAcServiceEthIfIndex.setStatus(_A)
-_PppoeAcServiceName_Type=DisplayString
-_PppoeAcServiceName_Object=MibTableColumn
-pppoeAcServiceName=_PppoeAcServiceName_Object((1,3,6,1,4,1,272,4,24,4,1,2),_PppoeAcServiceName_Type())
-pppoeAcServiceName.setMaxAccess(_B)
-if mibBuilder.loadTexts:pppoeAcServiceName.setStatus(_A)
-class _PppoeAcServiceStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('enabled',1),('disabled',2),(_F,3)))
-_PppoeAcServiceStatus_Type.__name__=_C
-_PppoeAcServiceStatus_Object=MibTableColumn
-pppoeAcServiceStatus=_PppoeAcServiceStatus_Object((1,3,6,1,4,1,272,4,24,4,1,3),_PppoeAcServiceStatus_Type())
-pppoeAcServiceStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:pppoeAcServiceStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'bintec':bintec,'bibo':bibo,'pppoe':pppoe,'pppoeAcTable':pppoeAcTable,'pppoeAcEntry':pppoeAcEntry,_E:pppoeAcEthIfIndex,'pppoeAcChkService':pppoeAcChkService,'pppoeAcName':pppoeAcName,'pppoeAcServiceTable':pppoeAcServiceTable,'pppoeAcServiceEntry':pppoeAcServiceEntry,_G:pppoeAcServiceEthIfIndex,'pppoeAcServiceName':pppoeAcServiceName,'pppoeAcServiceStatus':pppoeAcServiceStatus})
+#
+# PySNMP MIB module BIANCA-BRICK-PPPOEAC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/bintec/BIANCA-BRICK-PPPOEAC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:24 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+DisplayString, = mibBuilder.importSymbols("RFC1158-MIB", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+bintec = MibIdentifier((1, 3, 6, 1, 4, 1, 272))
+bibo = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4))
+pppoe = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4, 24))
+pppoeAcTable = MibTable((1, 3, 6, 1, 4, 1, 272, 4, 24, 3), )
+if mibBuilder.loadTexts: pppoeAcTable.setStatus('mandatory')
+pppoeAcEntry = MibTableRow((1, 3, 6, 1, 4, 1, 272, 4, 24, 3, 1), ).setIndexNames((0, "BIANCA-BRICK-PPPOEAC-MIB", "pppoeAcEthIfIndex"))
+if mibBuilder.loadTexts: pppoeAcEntry.setStatus('mandatory')
+pppoeAcEthIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 24, 3, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeAcEthIfIndex.setStatus('mandatory')
+pppoeAcChkService = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 24, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4))).clone(namedValues=NamedValues(("accept-all", 1), ("accept-from-list", 2), ("delete", 4))).clone('accept-all')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeAcChkService.setStatus('mandatory')
+pppoeAcName = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 24, 3, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeAcName.setStatus('mandatory')
+pppoeAcServiceTable = MibTable((1, 3, 6, 1, 4, 1, 272, 4, 24, 4), )
+if mibBuilder.loadTexts: pppoeAcServiceTable.setStatus('mandatory')
+pppoeAcServiceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 272, 4, 24, 4, 1), ).setIndexNames((0, "BIANCA-BRICK-PPPOEAC-MIB", "pppoeAcServiceEthIfIndex"))
+if mibBuilder.loadTexts: pppoeAcServiceEntry.setStatus('mandatory')
+pppoeAcServiceEthIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 24, 4, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeAcServiceEthIfIndex.setStatus('mandatory')
+pppoeAcServiceName = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 24, 4, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeAcServiceName.setStatus('mandatory')
+pppoeAcServiceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 24, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2), ("delete", 3))).clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeAcServiceStatus.setStatus('mandatory')
+mibBuilder.exportSymbols("BIANCA-BRICK-PPPOEAC-MIB", pppoeAcEntry=pppoeAcEntry, pppoe=pppoe, pppoeAcServiceEthIfIndex=pppoeAcServiceEthIfIndex, pppoeAcChkService=pppoeAcChkService, pppoeAcServiceTable=pppoeAcServiceTable, bintec=bintec, bibo=bibo, pppoeAcServiceName=pppoeAcServiceName, pppoeAcTable=pppoeAcTable, pppoeAcEthIfIndex=pppoeAcEthIfIndex, pppoeAcServiceEntry=pppoeAcServiceEntry, pppoeAcName=pppoeAcName, pppoeAcServiceStatus=pppoeAcServiceStatus)

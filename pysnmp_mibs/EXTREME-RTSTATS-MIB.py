@@ -1,74 +1,42 @@
-_E='extremeRtStatsIndex'
-_D='EXTREME-RTSTATS-MIB'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-extremeAgent,=mibBuilder.importSymbols('EXTREME-BASE-MIB','extremeAgent')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-extremeRtStats=ModuleIdentity((1,3,6,1,4,1,1916,1,11))
-_ExtremeRtStatsTable_Object=MibTable
-extremeRtStatsTable=_ExtremeRtStatsTable_Object((1,3,6,1,4,1,1916,1,11,1))
-if mibBuilder.loadTexts:extremeRtStatsTable.setStatus(_A)
-_ExtremeRtStatsEntry_Object=MibTableRow
-extremeRtStatsEntry=_ExtremeRtStatsEntry_Object((1,3,6,1,4,1,1916,1,11,1,1))
-extremeRtStatsEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:extremeRtStatsEntry.setStatus(_A)
-class _ExtremeRtStatsIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_ExtremeRtStatsIndex_Type.__name__=_C
-_ExtremeRtStatsIndex_Object=MibTableColumn
-extremeRtStatsIndex=_ExtremeRtStatsIndex_Object((1,3,6,1,4,1,1916,1,11,1,1,1),_ExtremeRtStatsIndex_Type())
-extremeRtStatsIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeRtStatsIndex.setStatus(_A)
-_ExtremeRtStatsIntervalStart_Type=TimeTicks
-_ExtremeRtStatsIntervalStart_Object=MibTableColumn
-extremeRtStatsIntervalStart=_ExtremeRtStatsIntervalStart_Object((1,3,6,1,4,1,1916,1,11,1,1,2),_ExtremeRtStatsIntervalStart_Type())
-extremeRtStatsIntervalStart.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeRtStatsIntervalStart.setStatus(_A)
-_ExtremeRtStatsCRCAlignErrors_Type=Counter32
-_ExtremeRtStatsCRCAlignErrors_Object=MibTableColumn
-extremeRtStatsCRCAlignErrors=_ExtremeRtStatsCRCAlignErrors_Object((1,3,6,1,4,1,1916,1,11,1,1,3),_ExtremeRtStatsCRCAlignErrors_Type())
-extremeRtStatsCRCAlignErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeRtStatsCRCAlignErrors.setStatus(_A)
-_ExtremeRtStatsUndersizePkts_Type=Counter32
-_ExtremeRtStatsUndersizePkts_Object=MibTableColumn
-extremeRtStatsUndersizePkts=_ExtremeRtStatsUndersizePkts_Object((1,3,6,1,4,1,1916,1,11,1,1,4),_ExtremeRtStatsUndersizePkts_Type())
-extremeRtStatsUndersizePkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeRtStatsUndersizePkts.setStatus(_A)
-_ExtremeRtStatsOversizePkts_Type=Counter32
-_ExtremeRtStatsOversizePkts_Object=MibTableColumn
-extremeRtStatsOversizePkts=_ExtremeRtStatsOversizePkts_Object((1,3,6,1,4,1,1916,1,11,1,1,5),_ExtremeRtStatsOversizePkts_Type())
-extremeRtStatsOversizePkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeRtStatsOversizePkts.setStatus(_A)
-_ExtremeRtStatsFragments_Type=Counter32
-_ExtremeRtStatsFragments_Object=MibTableColumn
-extremeRtStatsFragments=_ExtremeRtStatsFragments_Object((1,3,6,1,4,1,1916,1,11,1,1,6),_ExtremeRtStatsFragments_Type())
-extremeRtStatsFragments.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeRtStatsFragments.setStatus(_A)
-_ExtremeRtStatsJabbers_Type=Counter32
-_ExtremeRtStatsJabbers_Object=MibTableColumn
-extremeRtStatsJabbers=_ExtremeRtStatsJabbers_Object((1,3,6,1,4,1,1916,1,11,1,1,7),_ExtremeRtStatsJabbers_Type())
-extremeRtStatsJabbers.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeRtStatsJabbers.setStatus(_A)
-_ExtremeRtStatsCollisions_Type=Counter32
-_ExtremeRtStatsCollisions_Object=MibTableColumn
-extremeRtStatsCollisions=_ExtremeRtStatsCollisions_Object((1,3,6,1,4,1,1916,1,11,1,1,8),_ExtremeRtStatsCollisions_Type())
-extremeRtStatsCollisions.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeRtStatsCollisions.setStatus(_A)
-_ExtremeRtStatsTotalErrors_Type=Counter32
-_ExtremeRtStatsTotalErrors_Object=MibTableColumn
-extremeRtStatsTotalErrors=_ExtremeRtStatsTotalErrors_Object((1,3,6,1,4,1,1916,1,11,1,1,9),_ExtremeRtStatsTotalErrors_Type())
-extremeRtStatsTotalErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeRtStatsTotalErrors.setStatus(_A)
-class _ExtremeRtStatsUtilization_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-_ExtremeRtStatsUtilization_Type.__name__=_C
-_ExtremeRtStatsUtilization_Object=MibTableColumn
-extremeRtStatsUtilization=_ExtremeRtStatsUtilization_Object((1,3,6,1,4,1,1916,1,11,1,1,10),_ExtremeRtStatsUtilization_Type())
-extremeRtStatsUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeRtStatsUtilization.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'extremeRtStats':extremeRtStats,'extremeRtStatsTable':extremeRtStatsTable,'extremeRtStatsEntry':extremeRtStatsEntry,_E:extremeRtStatsIndex,'extremeRtStatsIntervalStart':extremeRtStatsIntervalStart,'extremeRtStatsCRCAlignErrors':extremeRtStatsCRCAlignErrors,'extremeRtStatsUndersizePkts':extremeRtStatsUndersizePkts,'extremeRtStatsOversizePkts':extremeRtStatsOversizePkts,'extremeRtStatsFragments':extremeRtStatsFragments,'extremeRtStatsJabbers':extremeRtStatsJabbers,'extremeRtStatsCollisions':extremeRtStatsCollisions,'extremeRtStatsTotalErrors':extremeRtStatsTotalErrors,'extremeRtStatsUtilization':extremeRtStatsUtilization})
+#
+# PySNMP MIB module EXTREME-RTSTATS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/extreme/EXTREME-RTSTATS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:52 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+extremeAgent, = mibBuilder.importSymbols("EXTREME-BASE-MIB", "extremeAgent")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+extremeRtStats = ModuleIdentity((1, 3, 6, 1, 4, 1, 1916, 1, 11))
+if mibBuilder.loadTexts: extremeRtStats.setLastUpdated('9906240000Z')
+if mibBuilder.loadTexts: extremeRtStats.setOrganization('Extreme Networks, Inc.')
+extremeRtStatsTable = MibTable((1, 3, 6, 1, 4, 1, 1916, 1, 11, 1), )
+if mibBuilder.loadTexts: extremeRtStatsTable.setStatus('current')
+extremeRtStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1916, 1, 11, 1, 1), ).setIndexNames((0, "EXTREME-RTSTATS-MIB", "extremeRtStatsIndex"))
+if mibBuilder.loadTexts: extremeRtStatsEntry.setStatus('current')
+extremeRtStatsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 11, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeRtStatsIndex.setStatus('current')
+extremeRtStatsIntervalStart = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 11, 1, 1, 2), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeRtStatsIntervalStart.setStatus('current')
+extremeRtStatsCRCAlignErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 11, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeRtStatsCRCAlignErrors.setStatus('current')
+extremeRtStatsUndersizePkts = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 11, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeRtStatsUndersizePkts.setStatus('current')
+extremeRtStatsOversizePkts = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 11, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeRtStatsOversizePkts.setStatus('current')
+extremeRtStatsFragments = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 11, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeRtStatsFragments.setStatus('current')
+extremeRtStatsJabbers = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 11, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeRtStatsJabbers.setStatus('current')
+extremeRtStatsCollisions = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 11, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeRtStatsCollisions.setStatus('current')
+extremeRtStatsTotalErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 11, 1, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeRtStatsTotalErrors.setStatus('current')
+extremeRtStatsUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 11, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeRtStatsUtilization.setStatus('current')
+mibBuilder.exportSymbols("EXTREME-RTSTATS-MIB", extremeRtStatsJabbers=extremeRtStatsJabbers, extremeRtStats=extremeRtStats, extremeRtStatsUndersizePkts=extremeRtStatsUndersizePkts, extremeRtStatsCollisions=extremeRtStatsCollisions, extremeRtStatsEntry=extremeRtStatsEntry, extremeRtStatsFragments=extremeRtStatsFragments, extremeRtStatsCRCAlignErrors=extremeRtStatsCRCAlignErrors, extremeRtStatsTable=extremeRtStatsTable, extremeRtStatsIndex=extremeRtStatsIndex, extremeRtStatsTotalErrors=extremeRtStatsTotalErrors, PYSNMP_MODULE_ID=extremeRtStats, extremeRtStatsUtilization=extremeRtStatsUtilization, extremeRtStatsOversizePkts=extremeRtStatsOversizePkts, extremeRtStatsIntervalStart=extremeRtStatsIntervalStart)

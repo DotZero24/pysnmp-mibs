@@ -1,146 +1,68 @@
-_a='bmmGroup'
-_Z='bmmSuccessfulACGRunTime'
-_Y='bmmCBandSoakCapableFW'
-_X='bmmMaxChanRatePlan'
-_W='bmmRowStatus'
-_V='bmmGain'
-_U='bmmOperatingMode'
-_T='bmmTilt'
-_S='bmmRxDampSeqNum'
-_R='bmmTxDampSeqNum'
-_Q='bmmNumberOfChannel'
-_P='bmmLaunchPowerOffset'
-_O='bmmDisableGainControlLoop'
-_N='bmmRxLastAmpDeviceCommitTs'
-_M='bmmRxAmpDeviceTarget'
-_L='bmmRxAmpDeviceSetpoint'
-_K='bmmProvisonedType'
-_J='bmmMoId'
-_I='TruthValue'
-_H='Integer32'
-_G='InfnEqptType'
-_F='entPhysicalIndex'
-_E='ENTITY-MIB'
-_D='read-only'
-_C='read-create'
-_B='INFINERA-ENTITY-BMM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-entPhysicalIndex,=mibBuilder.importSymbols(_E,_F)
-equipment,=mibBuilder.importSymbols('INFINERA-REG-MIB','equipment')
-FloatTenths,InfnEqptType,InfnMaxChRatePlan=mibBuilder.importSymbols('INFINERA-TC-MIB','FloatTenths',_G,'InfnMaxChRatePlan')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_I)
-bmmMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,1,3))
-_BmmTable_Object=MibTable
-bmmTable=_BmmTable_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1))
-if mibBuilder.loadTexts:bmmTable.setStatus(_A)
-_BmmEntry_Object=MibTableRow
-bmmEntry=_BmmEntry_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1))
-bmmEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:bmmEntry.setStatus(_A)
-_BmmMoId_Type=DisplayString
-_BmmMoId_Object=MibTableColumn
-bmmMoId=_BmmMoId_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,1),_BmmMoId_Type())
-bmmMoId.setMaxAccess(_C)
-if mibBuilder.loadTexts:bmmMoId.setStatus(_A)
-class _BmmProvisonedType_Type(InfnEqptType):defaultValue=47
-_BmmProvisonedType_Type.__name__=_G
-_BmmProvisonedType_Object=MibTableColumn
-bmmProvisonedType=_BmmProvisonedType_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,2),_BmmProvisonedType_Type())
-bmmProvisonedType.setMaxAccess(_C)
-if mibBuilder.loadTexts:bmmProvisonedType.setStatus(_A)
-_BmmRxAmpDeviceSetpoint_Type=FloatTenths
-_BmmRxAmpDeviceSetpoint_Object=MibTableColumn
-bmmRxAmpDeviceSetpoint=_BmmRxAmpDeviceSetpoint_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,3),_BmmRxAmpDeviceSetpoint_Type())
-bmmRxAmpDeviceSetpoint.setMaxAccess(_D)
-if mibBuilder.loadTexts:bmmRxAmpDeviceSetpoint.setStatus(_A)
-_BmmRxAmpDeviceTarget_Type=FloatTenths
-_BmmRxAmpDeviceTarget_Object=MibTableColumn
-bmmRxAmpDeviceTarget=_BmmRxAmpDeviceTarget_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,4),_BmmRxAmpDeviceTarget_Type())
-bmmRxAmpDeviceTarget.setMaxAccess(_D)
-if mibBuilder.loadTexts:bmmRxAmpDeviceTarget.setStatus(_A)
-_BmmRxLastAmpDeviceCommitTs_Type=Integer32
-_BmmRxLastAmpDeviceCommitTs_Object=MibTableColumn
-bmmRxLastAmpDeviceCommitTs=_BmmRxLastAmpDeviceCommitTs_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,5),_BmmRxLastAmpDeviceCommitTs_Type())
-bmmRxLastAmpDeviceCommitTs.setMaxAccess(_D)
-if mibBuilder.loadTexts:bmmRxLastAmpDeviceCommitTs.setStatus(_A)
-class _BmmDisableGainControlLoop_Type(TruthValue):defaultValue=2
-_BmmDisableGainControlLoop_Type.__name__=_I
-_BmmDisableGainControlLoop_Object=MibTableColumn
-bmmDisableGainControlLoop=_BmmDisableGainControlLoop_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,6),_BmmDisableGainControlLoop_Type())
-bmmDisableGainControlLoop.setMaxAccess(_C)
-if mibBuilder.loadTexts:bmmDisableGainControlLoop.setStatus(_A)
-_BmmLaunchPowerOffset_Type=FloatTenths
-_BmmLaunchPowerOffset_Object=MibTableColumn
-bmmLaunchPowerOffset=_BmmLaunchPowerOffset_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,7),_BmmLaunchPowerOffset_Type())
-bmmLaunchPowerOffset.setMaxAccess(_C)
-if mibBuilder.loadTexts:bmmLaunchPowerOffset.setStatus(_A)
-_BmmNumberOfChannel_Type=Integer32
-_BmmNumberOfChannel_Object=MibTableColumn
-bmmNumberOfChannel=_BmmNumberOfChannel_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,8),_BmmNumberOfChannel_Type())
-bmmNumberOfChannel.setMaxAccess(_C)
-if mibBuilder.loadTexts:bmmNumberOfChannel.setStatus(_A)
-_BmmTxDampSeqNum_Type=Integer32
-_BmmTxDampSeqNum_Object=MibTableColumn
-bmmTxDampSeqNum=_BmmTxDampSeqNum_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,9),_BmmTxDampSeqNum_Type())
-bmmTxDampSeqNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:bmmTxDampSeqNum.setStatus(_A)
-_BmmRxDampSeqNum_Type=Integer32
-_BmmRxDampSeqNum_Object=MibTableColumn
-bmmRxDampSeqNum=_BmmRxDampSeqNum_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,10),_BmmRxDampSeqNum_Type())
-bmmRxDampSeqNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:bmmRxDampSeqNum.setStatus(_A)
-_BmmTilt_Type=FloatTenths
-_BmmTilt_Object=MibTableColumn
-bmmTilt=_BmmTilt_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,11),_BmmTilt_Type())
-bmmTilt.setMaxAccess(_C)
-if mibBuilder.loadTexts:bmmTilt.setStatus(_A)
-class _BmmOperatingMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('nativeAutomated',1),('slteMode1',2),('thirdPartyAmp',3),('static',4)))
-_BmmOperatingMode_Type.__name__=_H
-_BmmOperatingMode_Object=MibTableColumn
-bmmOperatingMode=_BmmOperatingMode_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,12),_BmmOperatingMode_Type())
-bmmOperatingMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:bmmOperatingMode.setStatus(_A)
-_BmmGain_Type=FloatTenths
-_BmmGain_Object=MibTableColumn
-bmmGain=_BmmGain_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,13),_BmmGain_Type())
-bmmGain.setMaxAccess(_C)
-if mibBuilder.loadTexts:bmmGain.setStatus(_A)
-_BmmRowStatus_Type=RowStatus
-_BmmRowStatus_Object=MibTableColumn
-bmmRowStatus=_BmmRowStatus_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,14),_BmmRowStatus_Type())
-bmmRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:bmmRowStatus.setStatus(_A)
-_BmmMaxChanRatePlan_Type=InfnMaxChRatePlan
-_BmmMaxChanRatePlan_Object=MibTableColumn
-bmmMaxChanRatePlan=_BmmMaxChanRatePlan_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,15),_BmmMaxChanRatePlan_Type())
-bmmMaxChanRatePlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:bmmMaxChanRatePlan.setStatus(_A)
-_BmmCBandSoakCapableFW_Type=TruthValue
-_BmmCBandSoakCapableFW_Object=MibTableColumn
-bmmCBandSoakCapableFW=_BmmCBandSoakCapableFW_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,16),_BmmCBandSoakCapableFW_Type())
-bmmCBandSoakCapableFW.setMaxAccess(_D)
-if mibBuilder.loadTexts:bmmCBandSoakCapableFW.setStatus(_A)
-_BmmSuccessfulACGRunTime_Type=Integer32
-_BmmSuccessfulACGRunTime_Object=MibTableColumn
-bmmSuccessfulACGRunTime=_BmmSuccessfulACGRunTime_Object((1,3,6,1,4,1,21296,2,2,2,1,3,1,1,17),_BmmSuccessfulACGRunTime_Type())
-bmmSuccessfulACGRunTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:bmmSuccessfulACGRunTime.setStatus(_A)
-_BmmConformance_ObjectIdentity=ObjectIdentity
-bmmConformance=_BmmConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,3,3))
-_BmmCompliances_ObjectIdentity=ObjectIdentity
-bmmCompliances=_BmmCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,3,3,1))
-_BmmGroups_ObjectIdentity=ObjectIdentity
-bmmGroups=_BmmGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,3,3,2))
-bmmGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,1,3,3,2,1))
-bmmGroup.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z)))
-if mibBuilder.loadTexts:bmmGroup.setStatus(_A)
-bmmCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,1,3,3,1,1))
-bmmCompliance.setObjects((_B,_a))
-if mibBuilder.loadTexts:bmmCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'bmmMIB':bmmMIB,'bmmTable':bmmTable,'bmmEntry':bmmEntry,_J:bmmMoId,_K:bmmProvisonedType,_L:bmmRxAmpDeviceSetpoint,_M:bmmRxAmpDeviceTarget,_N:bmmRxLastAmpDeviceCommitTs,_O:bmmDisableGainControlLoop,_P:bmmLaunchPowerOffset,_Q:bmmNumberOfChannel,_R:bmmTxDampSeqNum,_S:bmmRxDampSeqNum,_T:bmmTilt,_U:bmmOperatingMode,_V:bmmGain,_W:bmmRowStatus,_X:bmmMaxChanRatePlan,_Y:bmmCBandSoakCapableFW,_Z:bmmSuccessfulACGRunTime,'bmmConformance':bmmConformance,'bmmCompliances':bmmCompliances,'bmmCompliance':bmmCompliance,'bmmGroups':bmmGroups,_a:bmmGroup})
+#
+# PySNMP MIB module INFINERA-ENTITY-BMM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-ENTITY-BMM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+equipment, = mibBuilder.importSymbols("INFINERA-REG-MIB", "equipment")
+InfnEqptType, InfnMaxChRatePlan, FloatTenths = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnEqptType", "InfnMaxChRatePlan", "FloatTenths")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+bmmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3))
+if mibBuilder.loadTexts: bmmMIB.setLastUpdated('200810200000Z')
+if mibBuilder.loadTexts: bmmMIB.setOrganization('Infinera')
+bmmConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 3))
+bmmCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 3, 1))
+bmmGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 3, 2))
+bmmTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1), )
+if mibBuilder.loadTexts: bmmTable.setStatus('current')
+bmmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: bmmEntry.setStatus('current')
+bmmMoId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 1), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bmmMoId.setStatus('current')
+bmmProvisonedType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 2), InfnEqptType().clone(47)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bmmProvisonedType.setStatus('current')
+bmmRxAmpDeviceSetpoint = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 3), FloatTenths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bmmRxAmpDeviceSetpoint.setStatus('current')
+bmmRxAmpDeviceTarget = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 4), FloatTenths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bmmRxAmpDeviceTarget.setStatus('current')
+bmmRxLastAmpDeviceCommitTs = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bmmRxLastAmpDeviceCommitTs.setStatus('current')
+bmmDisableGainControlLoop = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 6), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bmmDisableGainControlLoop.setStatus('current')
+bmmLaunchPowerOffset = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 7), FloatTenths()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bmmLaunchPowerOffset.setStatus('current')
+bmmNumberOfChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 8), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bmmNumberOfChannel.setStatus('current')
+bmmTxDampSeqNum = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bmmTxDampSeqNum.setStatus('current')
+bmmRxDampSeqNum = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bmmRxDampSeqNum.setStatus('current')
+bmmTilt = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 11), FloatTenths()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bmmTilt.setStatus('current')
+bmmOperatingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("nativeAutomated", 1), ("slteMode1", 2), ("thirdPartyAmp", 3), ("static", 4)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bmmOperatingMode.setStatus('current')
+bmmGain = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 13), FloatTenths()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bmmGain.setStatus('current')
+bmmRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 14), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bmmRowStatus.setStatus('current')
+bmmMaxChanRatePlan = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 15), InfnMaxChRatePlan()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bmmMaxChanRatePlan.setStatus('current')
+bmmCBandSoakCapableFW = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 16), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bmmCBandSoakCapableFW.setStatus('current')
+bmmSuccessfulACGRunTime = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 1, 1, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bmmSuccessfulACGRunTime.setStatus('current')
+bmmCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 3, 1, 1)).setObjects(("INFINERA-ENTITY-BMM-MIB", "bmmGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bmmCompliance = bmmCompliance.setStatus('current')
+bmmGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 3, 3, 2, 1)).setObjects(("INFINERA-ENTITY-BMM-MIB", "bmmMoId"), ("INFINERA-ENTITY-BMM-MIB", "bmmProvisonedType"), ("INFINERA-ENTITY-BMM-MIB", "bmmRxAmpDeviceSetpoint"), ("INFINERA-ENTITY-BMM-MIB", "bmmRxAmpDeviceTarget"), ("INFINERA-ENTITY-BMM-MIB", "bmmRxLastAmpDeviceCommitTs"), ("INFINERA-ENTITY-BMM-MIB", "bmmDisableGainControlLoop"), ("INFINERA-ENTITY-BMM-MIB", "bmmLaunchPowerOffset"), ("INFINERA-ENTITY-BMM-MIB", "bmmNumberOfChannel"), ("INFINERA-ENTITY-BMM-MIB", "bmmTxDampSeqNum"), ("INFINERA-ENTITY-BMM-MIB", "bmmRxDampSeqNum"), ("INFINERA-ENTITY-BMM-MIB", "bmmTilt"), ("INFINERA-ENTITY-BMM-MIB", "bmmOperatingMode"), ("INFINERA-ENTITY-BMM-MIB", "bmmGain"), ("INFINERA-ENTITY-BMM-MIB", "bmmRowStatus"), ("INFINERA-ENTITY-BMM-MIB", "bmmMaxChanRatePlan"), ("INFINERA-ENTITY-BMM-MIB", "bmmCBandSoakCapableFW"), ("INFINERA-ENTITY-BMM-MIB", "bmmSuccessfulACGRunTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bmmGroup = bmmGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-ENTITY-BMM-MIB", bmmGain=bmmGain, bmmSuccessfulACGRunTime=bmmSuccessfulACGRunTime, bmmCompliance=bmmCompliance, bmmCBandSoakCapableFW=bmmCBandSoakCapableFW, bmmTxDampSeqNum=bmmTxDampSeqNum, bmmNumberOfChannel=bmmNumberOfChannel, bmmConformance=bmmConformance, PYSNMP_MODULE_ID=bmmMIB, bmmRxDampSeqNum=bmmRxDampSeqNum, bmmTable=bmmTable, bmmCompliances=bmmCompliances, bmmEntry=bmmEntry, bmmTilt=bmmTilt, bmmOperatingMode=bmmOperatingMode, bmmLaunchPowerOffset=bmmLaunchPowerOffset, bmmGroups=bmmGroups, bmmMIB=bmmMIB, bmmMaxChanRatePlan=bmmMaxChanRatePlan, bmmRxAmpDeviceSetpoint=bmmRxAmpDeviceSetpoint, bmmGroup=bmmGroup, bmmMoId=bmmMoId, bmmRxAmpDeviceTarget=bmmRxAmpDeviceTarget, bmmRxLastAmpDeviceCommitTs=bmmRxLastAmpDeviceCommitTs, bmmDisableGainControlLoop=bmmDisableGainControlLoop, bmmRowStatus=bmmRowStatus, bmmProvisonedType=bmmProvisonedType)

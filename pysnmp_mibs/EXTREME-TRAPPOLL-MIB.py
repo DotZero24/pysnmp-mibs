@@ -1,96 +1,50 @@
-_J='extremeSmartTrapInstanceSubindex'
-_I='extremeSmartTrapRulesTrapDestIndex'
-_H='modify'
-_G='delete'
-_F='extremeSmartTrapRulesIndex'
-_E='Integer32'
-_D='read-create'
-_C='EXTREME-TRAPPOLL-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-extremeAgent,=mibBuilder.importSymbols('EXTREME-BASE-MIB','extremeAgent')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-extremeTrapPoll=ModuleIdentity((1,3,6,1,4,1,1916,1,6))
-_ExtremeSmartTrapRulesTable_Object=MibTable
-extremeSmartTrapRulesTable=_ExtremeSmartTrapRulesTable_Object((1,3,6,1,4,1,1916,1,6,1))
-if mibBuilder.loadTexts:extremeSmartTrapRulesTable.setStatus(_A)
-_ExtremeSmartTrapRulesEntry_Object=MibTableRow
-extremeSmartTrapRulesEntry=_ExtremeSmartTrapRulesEntry_Object((1,3,6,1,4,1,1916,1,6,1,1))
-extremeSmartTrapRulesEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:extremeSmartTrapRulesEntry.setStatus(_A)
-_ExtremeSmartTrapRulesIndex_Type=Integer32
-_ExtremeSmartTrapRulesIndex_Object=MibTableColumn
-extremeSmartTrapRulesIndex=_ExtremeSmartTrapRulesIndex_Object((1,3,6,1,4,1,1916,1,6,1,1,1),_ExtremeSmartTrapRulesIndex_Type())
-extremeSmartTrapRulesIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeSmartTrapRulesIndex.setStatus(_A)
-_ExtremeSmartTrapRulesRowStatus_Type=RowStatus
-_ExtremeSmartTrapRulesRowStatus_Object=MibTableColumn
-extremeSmartTrapRulesRowStatus=_ExtremeSmartTrapRulesRowStatus_Object((1,3,6,1,4,1,1916,1,6,1,1,2),_ExtremeSmartTrapRulesRowStatus_Type())
-extremeSmartTrapRulesRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:extremeSmartTrapRulesRowStatus.setStatus(_A)
-_ExtremeSmartTrapRulesDesiredOID_Type=ObjectIdentifier
-_ExtremeSmartTrapRulesDesiredOID_Object=MibTableColumn
-extremeSmartTrapRulesDesiredOID=_ExtremeSmartTrapRulesDesiredOID_Object((1,3,6,1,4,1,1916,1,6,1,1,3),_ExtremeSmartTrapRulesDesiredOID_Type())
-extremeSmartTrapRulesDesiredOID.setMaxAccess(_D)
-if mibBuilder.loadTexts:extremeSmartTrapRulesDesiredOID.setStatus(_A)
-_ExtremeSmartTrapRulesSupportedOID_Type=ObjectIdentifier
-_ExtremeSmartTrapRulesSupportedOID_Object=MibTableColumn
-extremeSmartTrapRulesSupportedOID=_ExtremeSmartTrapRulesSupportedOID_Object((1,3,6,1,4,1,1916,1,6,1,1,4),_ExtremeSmartTrapRulesSupportedOID_Type())
-extremeSmartTrapRulesSupportedOID.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeSmartTrapRulesSupportedOID.setStatus(_A)
-class _ExtremeSmartTrapRulesOperation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('add',1),(_G,2),(_H,3),('any',4)))
-_ExtremeSmartTrapRulesOperation_Type.__name__=_E
-_ExtremeSmartTrapRulesOperation_Object=MibTableColumn
-extremeSmartTrapRulesOperation=_ExtremeSmartTrapRulesOperation_Object((1,3,6,1,4,1,1916,1,6,1,1,5),_ExtremeSmartTrapRulesOperation_Type())
-extremeSmartTrapRulesOperation.setMaxAccess(_D)
-if mibBuilder.loadTexts:extremeSmartTrapRulesOperation.setStatus(_A)
-_ExtremeSmartTrapRulesTrapDestIndex_Type=Integer32
-_ExtremeSmartTrapRulesTrapDestIndex_Object=MibTableColumn
-extremeSmartTrapRulesTrapDestIndex=_ExtremeSmartTrapRulesTrapDestIndex_Object((1,3,6,1,4,1,1916,1,6,1,1,6),_ExtremeSmartTrapRulesTrapDestIndex_Type())
-extremeSmartTrapRulesTrapDestIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:extremeSmartTrapRulesTrapDestIndex.setStatus(_A)
-_ExtremeSmartTrapInstanceTable_Object=MibTable
-extremeSmartTrapInstanceTable=_ExtremeSmartTrapInstanceTable_Object((1,3,6,1,4,1,1916,1,6,2))
-if mibBuilder.loadTexts:extremeSmartTrapInstanceTable.setStatus(_A)
-_ExtremeSmartTrapInstanceEntry_Object=MibTableRow
-extremeSmartTrapInstanceEntry=_ExtremeSmartTrapInstanceEntry_Object((1,3,6,1,4,1,1916,1,6,2,1))
-extremeSmartTrapInstanceEntry.setIndexNames((0,_C,_I),(0,_C,_J))
-if mibBuilder.loadTexts:extremeSmartTrapInstanceEntry.setStatus(_A)
-_ExtremeSmartTrapInstanceSubindex_Type=Integer32
-_ExtremeSmartTrapInstanceSubindex_Object=MibTableColumn
-extremeSmartTrapInstanceSubindex=_ExtremeSmartTrapInstanceSubindex_Object((1,3,6,1,4,1,1916,1,6,2,1,1),_ExtremeSmartTrapInstanceSubindex_Type())
-extremeSmartTrapInstanceSubindex.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeSmartTrapInstanceSubindex.setStatus(_A)
-_ExtremeSmartTrapInstanceRule_Type=Integer32
-_ExtremeSmartTrapInstanceRule_Object=MibTableColumn
-extremeSmartTrapInstanceRule=_ExtremeSmartTrapInstanceRule_Object((1,3,6,1,4,1,1916,1,6,2,1,2),_ExtremeSmartTrapInstanceRule_Type())
-extremeSmartTrapInstanceRule.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeSmartTrapInstanceRule.setStatus(_A)
-_ExtremeSmartTrapInstanceChangedOid_Type=ObjectIdentifier
-_ExtremeSmartTrapInstanceChangedOid_Object=MibTableColumn
-extremeSmartTrapInstanceChangedOid=_ExtremeSmartTrapInstanceChangedOid_Object((1,3,6,1,4,1,1916,1,6,2,1,3),_ExtremeSmartTrapInstanceChangedOid_Type())
-extremeSmartTrapInstanceChangedOid.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeSmartTrapInstanceChangedOid.setStatus(_A)
-class _ExtremeSmartTrapInstanceActualOperation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('add',1),(_G,2),(_H,3)))
-_ExtremeSmartTrapInstanceActualOperation_Type.__name__=_E
-_ExtremeSmartTrapInstanceActualOperation_Object=MibTableColumn
-extremeSmartTrapInstanceActualOperation=_ExtremeSmartTrapInstanceActualOperation_Object((1,3,6,1,4,1,1916,1,6,2,1,4),_ExtremeSmartTrapInstanceActualOperation_Type())
-extremeSmartTrapInstanceActualOperation.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeSmartTrapInstanceActualOperation.setStatus(_A)
-_ExtremeSmartTrapInstanceChangeTime_Type=TimeTicks
-_ExtremeSmartTrapInstanceChangeTime_Object=MibTableColumn
-extremeSmartTrapInstanceChangeTime=_ExtremeSmartTrapInstanceChangeTime_Object((1,3,6,1,4,1,1916,1,6,2,1,5),_ExtremeSmartTrapInstanceChangeTime_Type())
-extremeSmartTrapInstanceChangeTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeSmartTrapInstanceChangeTime.setStatus(_A)
-_ExtremeSmartTrapFlushInstanceTableIndex_Type=Integer32
-_ExtremeSmartTrapFlushInstanceTableIndex_Object=MibScalar
-extremeSmartTrapFlushInstanceTableIndex=_ExtremeSmartTrapFlushInstanceTableIndex_Object((1,3,6,1,4,1,1916,1,6,3),_ExtremeSmartTrapFlushInstanceTableIndex_Type())
-extremeSmartTrapFlushInstanceTableIndex.setMaxAccess('read-write')
-if mibBuilder.loadTexts:extremeSmartTrapFlushInstanceTableIndex.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'extremeTrapPoll':extremeTrapPoll,'extremeSmartTrapRulesTable':extremeSmartTrapRulesTable,'extremeSmartTrapRulesEntry':extremeSmartTrapRulesEntry,_F:extremeSmartTrapRulesIndex,'extremeSmartTrapRulesRowStatus':extremeSmartTrapRulesRowStatus,'extremeSmartTrapRulesDesiredOID':extremeSmartTrapRulesDesiredOID,'extremeSmartTrapRulesSupportedOID':extremeSmartTrapRulesSupportedOID,'extremeSmartTrapRulesOperation':extremeSmartTrapRulesOperation,_I:extremeSmartTrapRulesTrapDestIndex,'extremeSmartTrapInstanceTable':extremeSmartTrapInstanceTable,'extremeSmartTrapInstanceEntry':extremeSmartTrapInstanceEntry,_J:extremeSmartTrapInstanceSubindex,'extremeSmartTrapInstanceRule':extremeSmartTrapInstanceRule,'extremeSmartTrapInstanceChangedOid':extremeSmartTrapInstanceChangedOid,'extremeSmartTrapInstanceActualOperation':extremeSmartTrapInstanceActualOperation,'extremeSmartTrapInstanceChangeTime':extremeSmartTrapInstanceChangeTime,'extremeSmartTrapFlushInstanceTableIndex':extremeSmartTrapFlushInstanceTableIndex})
+#
+# PySNMP MIB module EXTREME-TRAPPOLL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/extreme/EXTREME-TRAPPOLL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:49 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+extremeAgent, = mibBuilder.importSymbols("EXTREME-BASE-MIB", "extremeAgent")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+extremeTrapPoll = ModuleIdentity((1, 3, 6, 1, 4, 1, 1916, 1, 6))
+if mibBuilder.loadTexts: extremeTrapPoll.setLastUpdated('9801090000Z')
+if mibBuilder.loadTexts: extremeTrapPoll.setOrganization('Extreme Networks, Inc.')
+extremeSmartTrapRulesTable = MibTable((1, 3, 6, 1, 4, 1, 1916, 1, 6, 1), )
+if mibBuilder.loadTexts: extremeSmartTrapRulesTable.setStatus('current')
+extremeSmartTrapRulesEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1916, 1, 6, 1, 1), ).setIndexNames((0, "EXTREME-TRAPPOLL-MIB", "extremeSmartTrapRulesIndex"))
+if mibBuilder.loadTexts: extremeSmartTrapRulesEntry.setStatus('current')
+extremeSmartTrapRulesIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 6, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeSmartTrapRulesIndex.setStatus('current')
+extremeSmartTrapRulesRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 6, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: extremeSmartTrapRulesRowStatus.setStatus('current')
+extremeSmartTrapRulesDesiredOID = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 6, 1, 1, 3), ObjectIdentifier()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: extremeSmartTrapRulesDesiredOID.setStatus('current')
+extremeSmartTrapRulesSupportedOID = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 6, 1, 1, 4), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeSmartTrapRulesSupportedOID.setStatus('current')
+extremeSmartTrapRulesOperation = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 6, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("add", 1), ("delete", 2), ("modify", 3), ("any", 4)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: extremeSmartTrapRulesOperation.setStatus('current')
+extremeSmartTrapRulesTrapDestIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 6, 1, 1, 6), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: extremeSmartTrapRulesTrapDestIndex.setStatus('current')
+extremeSmartTrapInstanceTable = MibTable((1, 3, 6, 1, 4, 1, 1916, 1, 6, 2), )
+if mibBuilder.loadTexts: extremeSmartTrapInstanceTable.setStatus('current')
+extremeSmartTrapInstanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1916, 1, 6, 2, 1), ).setIndexNames((0, "EXTREME-TRAPPOLL-MIB", "extremeSmartTrapRulesTrapDestIndex"), (0, "EXTREME-TRAPPOLL-MIB", "extremeSmartTrapInstanceSubindex"))
+if mibBuilder.loadTexts: extremeSmartTrapInstanceEntry.setStatus('current')
+extremeSmartTrapInstanceSubindex = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 6, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeSmartTrapInstanceSubindex.setStatus('current')
+extremeSmartTrapInstanceRule = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 6, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeSmartTrapInstanceRule.setStatus('current')
+extremeSmartTrapInstanceChangedOid = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 6, 2, 1, 3), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeSmartTrapInstanceChangedOid.setStatus('current')
+extremeSmartTrapInstanceActualOperation = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 6, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("add", 1), ("delete", 2), ("modify", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeSmartTrapInstanceActualOperation.setStatus('current')
+extremeSmartTrapInstanceChangeTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 6, 2, 1, 5), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeSmartTrapInstanceChangeTime.setStatus('current')
+extremeSmartTrapFlushInstanceTableIndex = MibScalar((1, 3, 6, 1, 4, 1, 1916, 1, 6, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: extremeSmartTrapFlushInstanceTableIndex.setStatus('current')
+mibBuilder.exportSymbols("EXTREME-TRAPPOLL-MIB", extremeSmartTrapRulesTable=extremeSmartTrapRulesTable, extremeSmartTrapRulesIndex=extremeSmartTrapRulesIndex, extremeSmartTrapInstanceEntry=extremeSmartTrapInstanceEntry, extremeTrapPoll=extremeTrapPoll, extremeSmartTrapInstanceChangeTime=extremeSmartTrapInstanceChangeTime, extremeSmartTrapRulesSupportedOID=extremeSmartTrapRulesSupportedOID, extremeSmartTrapFlushInstanceTableIndex=extremeSmartTrapFlushInstanceTableIndex, extremeSmartTrapRulesOperation=extremeSmartTrapRulesOperation, extremeSmartTrapRulesEntry=extremeSmartTrapRulesEntry, extremeSmartTrapInstanceSubindex=extremeSmartTrapInstanceSubindex, extremeSmartTrapInstanceRule=extremeSmartTrapInstanceRule, extremeSmartTrapInstanceActualOperation=extremeSmartTrapInstanceActualOperation, extremeSmartTrapRulesTrapDestIndex=extremeSmartTrapRulesTrapDestIndex, extremeSmartTrapRulesRowStatus=extremeSmartTrapRulesRowStatus, extremeSmartTrapRulesDesiredOID=extremeSmartTrapRulesDesiredOID, PYSNMP_MODULE_ID=extremeTrapPoll, extremeSmartTrapInstanceChangedOid=extremeSmartTrapInstanceChangedOid, extremeSmartTrapInstanceTable=extremeSmartTrapInstanceTable)

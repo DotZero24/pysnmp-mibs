@@ -1,195 +1,110 @@
-_h='eoRelationStorageType'
-_g='eoRelationStatus'
-_f='eoRelationship'
-_e='eoRelationID'
-_d='eoMgmtDNSName'
-_c='eoMgmtAddress'
-_b='eoMgmtAddressType'
-_a='eoMgmtMacAddress'
-_Z='eoLldpPortNumber'
-_Y='eoEthPortGrpIndex'
-_X='eoEthPortIndex'
-_W='eoPowerInterfaceType'
-_V='eoPowerCategory'
-_U='eoImportance'
-_T='eoKeywords'
-_S='eoAlternateKey'
-_R='eoRoleDescription'
-_Q='eoDomainName'
-_P='eoRelationIndex'
-_O='LldpPortNumberOrZero'
-_N='PethPsePortGroupIndexOrZero'
-_M='PethPsePortIndexOrZero'
-_L='StorageType'
-_K='energyObjectOptionalMIBTableGroup'
-_J='energyObjectRelationTableGroup'
-_I='energyObjectContextMIBTableGroup'
-_H='entPhysicalIndex'
-_G='ENTITY-MIB'
-_F='read-create'
-_E='read-write'
-_D='Integer32'
-_C='read-only'
-_B='ENERGY-OBJECT-CONTEXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-entPhysicalIndex,=mibBuilder.importSymbols(_G,_H)
-IANAEnergyRelationship,=mibBuilder.importSymbols('IANA-ENERGY-RELATION-MIB','IANAEnergyRelationship')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
-DisplayString,MacAddress,PhysAddress,RowStatus,StorageType,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus',_L,'TextualConvention','TruthValue')
-UUIDorZero,=mibBuilder.importSymbols('UUID-TC-MIB','UUIDorZero')
-energyObjectContextMIB=ModuleIdentity((1,3,6,1,2,1,231))
-if mibBuilder.loadTexts:energyObjectContextMIB.setRevisions(('2015-02-09 00:00',))
-class PethPsePortIndexOrZero(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-class PethPsePortGroupIndexOrZero(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-class LldpPortNumberOrZero(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4096))
-class EnergyObjectKeywordList(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,2048))
-_EnergyObjectContextMIBNotifs_ObjectIdentity=ObjectIdentity
-energyObjectContextMIBNotifs=_EnergyObjectContextMIBNotifs_ObjectIdentity((1,3,6,1,2,1,231,0))
-_EnergyObjectContextMIBObjects_ObjectIdentity=ObjectIdentity
-energyObjectContextMIBObjects=_EnergyObjectContextMIBObjects_ObjectIdentity((1,3,6,1,2,1,231,1))
-_EoTable_Object=MibTable
-eoTable=_EoTable_Object((1,3,6,1,2,1,231,1,1))
-if mibBuilder.loadTexts:eoTable.setStatus(_A)
-_EoEntry_Object=MibTableRow
-eoEntry=_EoEntry_Object((1,3,6,1,2,1,231,1,1,1))
-eoEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:eoEntry.setStatus(_A)
-class _EoEthPortIndex_Type(PethPsePortIndexOrZero):defaultValue=0
-_EoEthPortIndex_Type.__name__=_M
-_EoEthPortIndex_Object=MibTableColumn
-eoEthPortIndex=_EoEthPortIndex_Object((1,3,6,1,2,1,231,1,1,1,1),_EoEthPortIndex_Type())
-eoEthPortIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:eoEthPortIndex.setStatus(_A)
-class _EoEthPortGrpIndex_Type(PethPsePortGroupIndexOrZero):defaultValue=0
-_EoEthPortGrpIndex_Type.__name__=_N
-_EoEthPortGrpIndex_Object=MibTableColumn
-eoEthPortGrpIndex=_EoEthPortGrpIndex_Object((1,3,6,1,2,1,231,1,1,1,2),_EoEthPortGrpIndex_Type())
-eoEthPortGrpIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:eoEthPortGrpIndex.setStatus(_A)
-class _EoLldpPortNumber_Type(LldpPortNumberOrZero):defaultValue=0
-_EoLldpPortNumber_Type.__name__=_O
-_EoLldpPortNumber_Object=MibTableColumn
-eoLldpPortNumber=_EoLldpPortNumber_Object((1,3,6,1,2,1,231,1,1,1,3),_EoLldpPortNumber_Type())
-eoLldpPortNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:eoLldpPortNumber.setStatus(_A)
-_EoMgmtMacAddress_Type=MacAddress
-_EoMgmtMacAddress_Object=MibTableColumn
-eoMgmtMacAddress=_EoMgmtMacAddress_Object((1,3,6,1,2,1,231,1,1,1,4),_EoMgmtMacAddress_Type())
-eoMgmtMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:eoMgmtMacAddress.setStatus(_A)
-_EoMgmtAddressType_Type=InetAddressType
-_EoMgmtAddressType_Object=MibTableColumn
-eoMgmtAddressType=_EoMgmtAddressType_Object((1,3,6,1,2,1,231,1,1,1,5),_EoMgmtAddressType_Type())
-eoMgmtAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:eoMgmtAddressType.setStatus(_A)
-_EoMgmtAddress_Type=InetAddress
-_EoMgmtAddress_Object=MibTableColumn
-eoMgmtAddress=_EoMgmtAddress_Object((1,3,6,1,2,1,231,1,1,1,6),_EoMgmtAddress_Type())
-eoMgmtAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:eoMgmtAddress.setStatus(_A)
-_EoMgmtDNSName_Type=OctetString
-_EoMgmtDNSName_Object=MibTableColumn
-eoMgmtDNSName=_EoMgmtDNSName_Object((1,3,6,1,2,1,231,1,1,1,7),_EoMgmtDNSName_Type())
-eoMgmtDNSName.setMaxAccess(_C)
-if mibBuilder.loadTexts:eoMgmtDNSName.setStatus(_A)
-_EoDomainName_Type=SnmpAdminString
-_EoDomainName_Object=MibTableColumn
-eoDomainName=_EoDomainName_Object((1,3,6,1,2,1,231,1,1,1,8),_EoDomainName_Type())
-eoDomainName.setMaxAccess(_E)
-if mibBuilder.loadTexts:eoDomainName.setStatus(_A)
-_EoRoleDescription_Type=SnmpAdminString
-_EoRoleDescription_Object=MibTableColumn
-eoRoleDescription=_EoRoleDescription_Object((1,3,6,1,2,1,231,1,1,1,9),_EoRoleDescription_Type())
-eoRoleDescription.setMaxAccess(_E)
-if mibBuilder.loadTexts:eoRoleDescription.setStatus(_A)
-_EoKeywords_Type=EnergyObjectKeywordList
-_EoKeywords_Object=MibTableColumn
-eoKeywords=_EoKeywords_Object((1,3,6,1,2,1,231,1,1,1,10),_EoKeywords_Type())
-eoKeywords.setMaxAccess(_E)
-if mibBuilder.loadTexts:eoKeywords.setStatus(_A)
-class _EoImportance_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_EoImportance_Type.__name__=_D
-_EoImportance_Object=MibTableColumn
-eoImportance=_EoImportance_Object((1,3,6,1,2,1,231,1,1,1,11),_EoImportance_Type())
-eoImportance.setMaxAccess(_E)
-if mibBuilder.loadTexts:eoImportance.setStatus(_A)
-class _EoPowerCategory_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('consumer',0),('producer',1),('meter',2),('distributor',3),('store',4)))
-_EoPowerCategory_Type.__name__=_D
-_EoPowerCategory_Object=MibTableColumn
-eoPowerCategory=_EoPowerCategory_Object((1,3,6,1,2,1,231,1,1,1,12),_EoPowerCategory_Type())
-eoPowerCategory.setMaxAccess(_C)
-if mibBuilder.loadTexts:eoPowerCategory.setStatus(_A)
-_EoAlternateKey_Type=SnmpAdminString
-_EoAlternateKey_Object=MibTableColumn
-eoAlternateKey=_EoAlternateKey_Object((1,3,6,1,2,1,231,1,1,1,13),_EoAlternateKey_Type())
-eoAlternateKey.setMaxAccess(_E)
-if mibBuilder.loadTexts:eoAlternateKey.setStatus(_A)
-class _EoPowerInterfaceType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('inlet',0),('outlet',1),('both',2)))
-_EoPowerInterfaceType_Type.__name__=_D
-_EoPowerInterfaceType_Object=MibTableColumn
-eoPowerInterfaceType=_EoPowerInterfaceType_Object((1,3,6,1,2,1,231,1,1,1,14),_EoPowerInterfaceType_Type())
-eoPowerInterfaceType.setMaxAccess(_C)
-if mibBuilder.loadTexts:eoPowerInterfaceType.setStatus(_A)
-_EoRelationTable_Object=MibTable
-eoRelationTable=_EoRelationTable_Object((1,3,6,1,2,1,231,1,2))
-if mibBuilder.loadTexts:eoRelationTable.setStatus(_A)
-_EoRelationEntry_Object=MibTableRow
-eoRelationEntry=_EoRelationEntry_Object((1,3,6,1,2,1,231,1,2,1))
-eoRelationEntry.setIndexNames((0,_G,_H),(0,_B,_P))
-if mibBuilder.loadTexts:eoRelationEntry.setStatus(_A)
-class _EoRelationIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_EoRelationIndex_Type.__name__=_D
-_EoRelationIndex_Object=MibTableColumn
-eoRelationIndex=_EoRelationIndex_Object((1,3,6,1,2,1,231,1,2,1,1),_EoRelationIndex_Type())
-eoRelationIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:eoRelationIndex.setStatus(_A)
-_EoRelationID_Type=UUIDorZero
-_EoRelationID_Object=MibTableColumn
-eoRelationID=_EoRelationID_Object((1,3,6,1,2,1,231,1,2,1,2),_EoRelationID_Type())
-eoRelationID.setMaxAccess(_F)
-if mibBuilder.loadTexts:eoRelationID.setStatus(_A)
-_EoRelationship_Type=IANAEnergyRelationship
-_EoRelationship_Object=MibTableColumn
-eoRelationship=_EoRelationship_Object((1,3,6,1,2,1,231,1,2,1,3),_EoRelationship_Type())
-eoRelationship.setMaxAccess(_F)
-if mibBuilder.loadTexts:eoRelationship.setStatus(_A)
-_EoRelationStatus_Type=RowStatus
-_EoRelationStatus_Object=MibTableColumn
-eoRelationStatus=_EoRelationStatus_Object((1,3,6,1,2,1,231,1,2,1,4),_EoRelationStatus_Type())
-eoRelationStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:eoRelationStatus.setStatus(_A)
-class _EoRelationStorageType_Type(StorageType):defaultValue=3
-_EoRelationStorageType_Type.__name__=_L
-_EoRelationStorageType_Object=MibTableColumn
-eoRelationStorageType=_EoRelationStorageType_Object((1,3,6,1,2,1,231,1,2,1,5),_EoRelationStorageType_Type())
-eoRelationStorageType.setMaxAccess(_F)
-if mibBuilder.loadTexts:eoRelationStorageType.setStatus(_A)
-_EnergyObjectContextMIBConform_ObjectIdentity=ObjectIdentity
-energyObjectContextMIBConform=_EnergyObjectContextMIBConform_ObjectIdentity((1,3,6,1,2,1,231,2))
-_EnergyObjectContextMIBCompliances_ObjectIdentity=ObjectIdentity
-energyObjectContextMIBCompliances=_EnergyObjectContextMIBCompliances_ObjectIdentity((1,3,6,1,2,1,231,2,1))
-_EnergyObjectContextMIBGroups_ObjectIdentity=ObjectIdentity
-energyObjectContextMIBGroups=_EnergyObjectContextMIBGroups_ObjectIdentity((1,3,6,1,2,1,231,2,2))
-energyObjectContextMIBTableGroup=ObjectGroup((1,3,6,1,2,1,231,2,2,1))
-energyObjectContextMIBTableGroup.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W)))
-if mibBuilder.loadTexts:energyObjectContextMIBTableGroup.setStatus(_A)
-energyObjectOptionalMIBTableGroup=ObjectGroup((1,3,6,1,2,1,231,2,2,2))
-energyObjectOptionalMIBTableGroup.setObjects(*((_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d)))
-if mibBuilder.loadTexts:energyObjectOptionalMIBTableGroup.setStatus(_A)
-energyObjectRelationTableGroup=ObjectGroup((1,3,6,1,2,1,231,2,2,3))
-energyObjectRelationTableGroup.setObjects(*((_B,_e),(_B,_f),(_B,_g),(_B,_h)))
-if mibBuilder.loadTexts:energyObjectRelationTableGroup.setStatus(_A)
-energyObjectContextMIBFullCompliance=ModuleCompliance((1,3,6,1,2,1,231,2,1,1))
-energyObjectContextMIBFullCompliance.setObjects(*((_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:energyObjectContextMIBFullCompliance.setStatus(_A)
-energyObjectContextMIBReadOnlyCompliance=ModuleCompliance((1,3,6,1,2,1,231,2,1,2))
-energyObjectContextMIBReadOnlyCompliance.setObjects(*((_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:energyObjectContextMIBReadOnlyCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_M:PethPsePortIndexOrZero,_N:PethPsePortGroupIndexOrZero,_O:LldpPortNumberOrZero,'EnergyObjectKeywordList':EnergyObjectKeywordList,'energyObjectContextMIB':energyObjectContextMIB,'energyObjectContextMIBNotifs':energyObjectContextMIBNotifs,'energyObjectContextMIBObjects':energyObjectContextMIBObjects,'eoTable':eoTable,'eoEntry':eoEntry,_X:eoEthPortIndex,_Y:eoEthPortGrpIndex,_Z:eoLldpPortNumber,_a:eoMgmtMacAddress,_b:eoMgmtAddressType,_c:eoMgmtAddress,_d:eoMgmtDNSName,_Q:eoDomainName,_R:eoRoleDescription,_T:eoKeywords,_U:eoImportance,_V:eoPowerCategory,_S:eoAlternateKey,_W:eoPowerInterfaceType,'eoRelationTable':eoRelationTable,'eoRelationEntry':eoRelationEntry,_P:eoRelationIndex,_e:eoRelationID,_f:eoRelationship,_g:eoRelationStatus,_h:eoRelationStorageType,'energyObjectContextMIBConform':energyObjectContextMIBConform,'energyObjectContextMIBCompliances':energyObjectContextMIBCompliances,'energyObjectContextMIBFullCompliance':energyObjectContextMIBFullCompliance,'energyObjectContextMIBReadOnlyCompliance':energyObjectContextMIBReadOnlyCompliance,'energyObjectContextMIBGroups':energyObjectContextMIBGroups,_I:energyObjectContextMIBTableGroup,_K:energyObjectOptionalMIBTableGroup,_J:energyObjectRelationTableGroup})
+#
+# PySNMP MIB module ENERGY-OBJECT-CONTEXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/ENERGY-OBJECT-CONTEXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:26:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+IANAEnergyRelationship, = mibBuilder.importSymbols("IANA-ENERGY-RELATION-MIB", "IANAEnergyRelationship")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, TimeTicks, MibIdentifier, Integer32, Bits, mib_2, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "TimeTicks", "MibIdentifier", "Integer32", "Bits", "mib-2", "IpAddress")
+DisplayString, MacAddress, RowStatus, StorageType, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "StorageType", "TruthValue", "TextualConvention")
+UUIDorZero, = mibBuilder.importSymbols("UUID-TC-MIB", "UUIDorZero")
+energyObjectContextMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 231))
+energyObjectContextMIB.setRevisions(('2015-02-09 00:00',))
+if mibBuilder.loadTexts: energyObjectContextMIB.setLastUpdated('201502090000Z')
+if mibBuilder.loadTexts: energyObjectContextMIB.setOrganization('IETF EMAN Working Group')
+energyObjectContextMIBNotifs = MibIdentifier((1, 3, 6, 1, 2, 1, 231, 0))
+energyObjectContextMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 231, 1))
+energyObjectContextMIBConform = MibIdentifier((1, 3, 6, 1, 2, 1, 231, 2))
+class PethPsePortIndexOrZero(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+
+class PethPsePortGroupIndexOrZero(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+
+class LldpPortNumberOrZero(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 4096)
+
+class EnergyObjectKeywordList(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 2048)
+
+eoTable = MibTable((1, 3, 6, 1, 2, 1, 231, 1, 1), )
+if mibBuilder.loadTexts: eoTable.setStatus('current')
+eoEntry = MibTableRow((1, 3, 6, 1, 2, 1, 231, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: eoEntry.setStatus('current')
+eoEthPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 1, 1, 1), PethPsePortIndexOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eoEthPortIndex.setStatus('current')
+eoEthPortGrpIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 1, 1, 2), PethPsePortGroupIndexOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eoEthPortGrpIndex.setStatus('current')
+eoLldpPortNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 1, 1, 3), LldpPortNumberOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eoLldpPortNumber.setStatus('current')
+eoMgmtMacAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 1, 1, 4), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eoMgmtMacAddress.setStatus('current')
+eoMgmtAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 1, 1, 5), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eoMgmtAddressType.setStatus('current')
+eoMgmtAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 1, 1, 6), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eoMgmtAddress.setStatus('current')
+eoMgmtDNSName = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 1, 1, 7), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eoMgmtDNSName.setStatus('current')
+eoDomainName = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 1, 1, 8), SnmpAdminString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eoDomainName.setStatus('current')
+eoRoleDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 1, 1, 9), SnmpAdminString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eoRoleDescription.setStatus('current')
+eoKeywords = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 1, 1, 10), EnergyObjectKeywordList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eoKeywords.setStatus('current')
+eoImportance = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eoImportance.setStatus('current')
+eoPowerCategory = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("consumer", 0), ("producer", 1), ("meter", 2), ("distributor", 3), ("store", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eoPowerCategory.setStatus('current')
+eoAlternateKey = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 1, 1, 13), SnmpAdminString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eoAlternateKey.setStatus('current')
+eoPowerInterfaceType = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("inlet", 0), ("outlet", 1), ("both", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eoPowerInterfaceType.setStatus('current')
+eoRelationTable = MibTable((1, 3, 6, 1, 2, 1, 231, 1, 2), )
+if mibBuilder.loadTexts: eoRelationTable.setStatus('current')
+eoRelationEntry = MibTableRow((1, 3, 6, 1, 2, 1, 231, 1, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "ENERGY-OBJECT-CONTEXT-MIB", "eoRelationIndex"))
+if mibBuilder.loadTexts: eoRelationEntry.setStatus('current')
+eoRelationIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: eoRelationIndex.setStatus('current')
+eoRelationID = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 2, 1, 2), UUIDorZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eoRelationID.setStatus('current')
+eoRelationship = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 2, 1, 3), IANAEnergyRelationship()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eoRelationship.setStatus('current')
+eoRelationStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eoRelationStatus.setStatus('current')
+eoRelationStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 231, 1, 2, 1, 5), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eoRelationStorageType.setStatus('current')
+energyObjectContextMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 231, 2, 1))
+energyObjectContextMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 231, 2, 2))
+energyObjectContextMIBFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 231, 2, 1, 1)).setObjects(("ENERGY-OBJECT-CONTEXT-MIB", "energyObjectContextMIBTableGroup"), ("ENERGY-OBJECT-CONTEXT-MIB", "energyObjectRelationTableGroup"), ("ENERGY-OBJECT-CONTEXT-MIB", "energyObjectOptionalMIBTableGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    energyObjectContextMIBFullCompliance = energyObjectContextMIBFullCompliance.setStatus('current')
+energyObjectContextMIBReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 231, 2, 1, 2)).setObjects(("ENERGY-OBJECT-CONTEXT-MIB", "energyObjectContextMIBTableGroup"), ("ENERGY-OBJECT-CONTEXT-MIB", "energyObjectRelationTableGroup"), ("ENERGY-OBJECT-CONTEXT-MIB", "energyObjectOptionalMIBTableGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    energyObjectContextMIBReadOnlyCompliance = energyObjectContextMIBReadOnlyCompliance.setStatus('current')
+energyObjectContextMIBTableGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 231, 2, 2, 1)).setObjects(("ENERGY-OBJECT-CONTEXT-MIB", "eoDomainName"), ("ENERGY-OBJECT-CONTEXT-MIB", "eoRoleDescription"), ("ENERGY-OBJECT-CONTEXT-MIB", "eoAlternateKey"), ("ENERGY-OBJECT-CONTEXT-MIB", "eoKeywords"), ("ENERGY-OBJECT-CONTEXT-MIB", "eoImportance"), ("ENERGY-OBJECT-CONTEXT-MIB", "eoPowerCategory"), ("ENERGY-OBJECT-CONTEXT-MIB", "eoPowerInterfaceType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    energyObjectContextMIBTableGroup = energyObjectContextMIBTableGroup.setStatus('current')
+energyObjectOptionalMIBTableGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 231, 2, 2, 2)).setObjects(("ENERGY-OBJECT-CONTEXT-MIB", "eoEthPortIndex"), ("ENERGY-OBJECT-CONTEXT-MIB", "eoEthPortGrpIndex"), ("ENERGY-OBJECT-CONTEXT-MIB", "eoLldpPortNumber"), ("ENERGY-OBJECT-CONTEXT-MIB", "eoMgmtMacAddress"), ("ENERGY-OBJECT-CONTEXT-MIB", "eoMgmtAddressType"), ("ENERGY-OBJECT-CONTEXT-MIB", "eoMgmtAddress"), ("ENERGY-OBJECT-CONTEXT-MIB", "eoMgmtDNSName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    energyObjectOptionalMIBTableGroup = energyObjectOptionalMIBTableGroup.setStatus('current')
+energyObjectRelationTableGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 231, 2, 2, 3)).setObjects(("ENERGY-OBJECT-CONTEXT-MIB", "eoRelationID"), ("ENERGY-OBJECT-CONTEXT-MIB", "eoRelationship"), ("ENERGY-OBJECT-CONTEXT-MIB", "eoRelationStatus"), ("ENERGY-OBJECT-CONTEXT-MIB", "eoRelationStorageType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    energyObjectRelationTableGroup = energyObjectRelationTableGroup.setStatus('current')
+mibBuilder.exportSymbols("ENERGY-OBJECT-CONTEXT-MIB", eoEthPortGrpIndex=eoEthPortGrpIndex, eoLldpPortNumber=eoLldpPortNumber, PYSNMP_MODULE_ID=energyObjectContextMIB, eoRoleDescription=eoRoleDescription, eoRelationIndex=eoRelationIndex, eoImportance=eoImportance, energyObjectContextMIBGroups=energyObjectContextMIBGroups, energyObjectContextMIBTableGroup=energyObjectContextMIBTableGroup, PethPsePortGroupIndexOrZero=PethPsePortGroupIndexOrZero, eoRelationStorageType=eoRelationStorageType, energyObjectOptionalMIBTableGroup=energyObjectOptionalMIBTableGroup, energyObjectContextMIBCompliances=energyObjectContextMIBCompliances, PethPsePortIndexOrZero=PethPsePortIndexOrZero, eoRelationEntry=eoRelationEntry, eoPowerInterfaceType=eoPowerInterfaceType, eoRelationStatus=eoRelationStatus, eoTable=eoTable, energyObjectContextMIBFullCompliance=energyObjectContextMIBFullCompliance, eoRelationID=eoRelationID, energyObjectRelationTableGroup=energyObjectRelationTableGroup, energyObjectContextMIBConform=energyObjectContextMIBConform, eoEthPortIndex=eoEthPortIndex, eoMgmtDNSName=eoMgmtDNSName, eoPowerCategory=eoPowerCategory, eoMgmtMacAddress=eoMgmtMacAddress, energyObjectContextMIBObjects=energyObjectContextMIBObjects, eoRelationship=eoRelationship, EnergyObjectKeywordList=EnergyObjectKeywordList, eoMgmtAddress=eoMgmtAddress, eoRelationTable=eoRelationTable, eoKeywords=eoKeywords, energyObjectContextMIBNotifs=energyObjectContextMIBNotifs, energyObjectContextMIBReadOnlyCompliance=energyObjectContextMIBReadOnlyCompliance, LldpPortNumberOrZero=LldpPortNumberOrZero, eoMgmtAddressType=eoMgmtAddressType, eoDomainName=eoDomainName, eoAlternateKey=eoAlternateKey, eoEntry=eoEntry, energyObjectContextMIB=energyObjectContextMIB)

@@ -1,99 +1,59 @@
-_M='qtechIPPrivateAcNotifyChangeIpv4AddressAlarm'
-_L='qtechIPPrivateAcApGateway'
-_K='qtechIPPrivateAcApMask'
-_J='qtechIPPrivateAcNotifyIpv4ChangeIfIndex'
-_I='qtechIPPrivateAcNotifyIpv4ChangeAddressMask'
-_H='qtechIPPrivateAcNotifyIpv4ChangeAddress'
-_G='qtechIPPrivateAcNotifyIpv4AddressChangeType'
-_F='qtechIPPrivateAcApIp'
-_E='qtechIPPrivateAcApMacAddr'
-_D='read-only'
-_C='accessible-for-notify'
-_B='current'
-_A='QTECH-IP-PRIVATE-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-qtechMgmt,=mibBuilder.importSymbols('QTECH-SMI','qtechMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention')
-qtechIPPrivateMgmt=ModuleIdentity((1,3,6,1,4,1,27514,1,1,10,2,73))
-if mibBuilder.loadTexts:qtechIPPrivateMgmt.setRevisions(('2009-09-18 00:00',))
-_QtechIPPrivateAcNotificationsMIBObjects_ObjectIdentity=ObjectIdentity
-qtechIPPrivateAcNotificationsMIBObjects=_QtechIPPrivateAcNotificationsMIBObjects_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,73,1))
-_QtechIPPrivateAcNtfObjects_ObjectIdentity=ObjectIdentity
-qtechIPPrivateAcNtfObjects=_QtechIPPrivateAcNtfObjects_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,73,1,1))
-_QtechIPPrivateAcNotifyIpv4AddressChangeType_Type=Integer32
-_QtechIPPrivateAcNotifyIpv4AddressChangeType_Object=MibScalar
-qtechIPPrivateAcNotifyIpv4AddressChangeType=_QtechIPPrivateAcNotifyIpv4AddressChangeType_Object((1,3,6,1,4,1,27514,1,1,10,2,73,1,1,1),_QtechIPPrivateAcNotifyIpv4AddressChangeType_Type())
-qtechIPPrivateAcNotifyIpv4AddressChangeType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechIPPrivateAcNotifyIpv4AddressChangeType.setStatus(_B)
-_QtechIPPrivateAcNotifyIpv4ChangeAddress_Type=IpAddress
-_QtechIPPrivateAcNotifyIpv4ChangeAddress_Object=MibScalar
-qtechIPPrivateAcNotifyIpv4ChangeAddress=_QtechIPPrivateAcNotifyIpv4ChangeAddress_Object((1,3,6,1,4,1,27514,1,1,10,2,73,1,1,2),_QtechIPPrivateAcNotifyIpv4ChangeAddress_Type())
-qtechIPPrivateAcNotifyIpv4ChangeAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechIPPrivateAcNotifyIpv4ChangeAddress.setStatus(_B)
-_QtechIPPrivateAcNotifyIpv4ChangeAddressMask_Type=IpAddress
-_QtechIPPrivateAcNotifyIpv4ChangeAddressMask_Object=MibScalar
-qtechIPPrivateAcNotifyIpv4ChangeAddressMask=_QtechIPPrivateAcNotifyIpv4ChangeAddressMask_Object((1,3,6,1,4,1,27514,1,1,10,2,73,1,1,3),_QtechIPPrivateAcNotifyIpv4ChangeAddressMask_Type())
-qtechIPPrivateAcNotifyIpv4ChangeAddressMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechIPPrivateAcNotifyIpv4ChangeAddressMask.setStatus(_B)
-_QtechIPPrivateAcNotifyIpv4ChangeIfIndex_Type=Integer32
-_QtechIPPrivateAcNotifyIpv4ChangeIfIndex_Object=MibScalar
-qtechIPPrivateAcNotifyIpv4ChangeIfIndex=_QtechIPPrivateAcNotifyIpv4ChangeIfIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,73,1,1,4),_QtechIPPrivateAcNotifyIpv4ChangeIfIndex_Type())
-qtechIPPrivateAcNotifyIpv4ChangeIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechIPPrivateAcNotifyIpv4ChangeIfIndex.setStatus(_B)
-_QtechIPPrivateAcNotifications_ObjectIdentity=ObjectIdentity
-qtechIPPrivateAcNotifications=_QtechIPPrivateAcNotifications_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,73,1,2))
-_QtechIPPrivateAcQueryApMIBObject_ObjectIdentity=ObjectIdentity
-qtechIPPrivateAcQueryApMIBObject=_QtechIPPrivateAcQueryApMIBObject_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,73,1,3))
-_QtechIPPrivateAcQueryApInfo_ObjectIdentity=ObjectIdentity
-qtechIPPrivateAcQueryApInfo=_QtechIPPrivateAcQueryApInfo_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,73,1,3,1))
-_QtechIPPrivateAcQueryApMIBTable_Object=MibTable
-qtechIPPrivateAcQueryApMIBTable=_QtechIPPrivateAcQueryApMIBTable_Object((1,3,6,1,4,1,27514,1,1,10,2,73,1,3,1,1))
-if mibBuilder.loadTexts:qtechIPPrivateAcQueryApMIBTable.setStatus(_B)
-_QtechIPPrivateApInfoEntry_Object=MibTableRow
-qtechIPPrivateApInfoEntry=_QtechIPPrivateApInfoEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,73,1,3,1,1,1))
-qtechIPPrivateApInfoEntry.setIndexNames((0,_A,_E),(0,_A,_F))
-if mibBuilder.loadTexts:qtechIPPrivateApInfoEntry.setStatus(_B)
-_QtechIPPrivateAcApMacAddr_Type=MacAddress
-_QtechIPPrivateAcApMacAddr_Object=MibTableColumn
-qtechIPPrivateAcApMacAddr=_QtechIPPrivateAcApMacAddr_Object((1,3,6,1,4,1,27514,1,1,10,2,73,1,3,1,1,1,1),_QtechIPPrivateAcApMacAddr_Type())
-qtechIPPrivateAcApMacAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechIPPrivateAcApMacAddr.setStatus(_B)
-_QtechIPPrivateAcApIp_Type=IpAddress
-_QtechIPPrivateAcApIp_Object=MibTableColumn
-qtechIPPrivateAcApIp=_QtechIPPrivateAcApIp_Object((1,3,6,1,4,1,27514,1,1,10,2,73,1,3,1,1,1,2),_QtechIPPrivateAcApIp_Type())
-qtechIPPrivateAcApIp.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechIPPrivateAcApIp.setStatus(_B)
-_QtechIPPrivateAcApMask_Type=IpAddress
-_QtechIPPrivateAcApMask_Object=MibTableColumn
-qtechIPPrivateAcApMask=_QtechIPPrivateAcApMask_Object((1,3,6,1,4,1,27514,1,1,10,2,73,1,3,1,1,1,3),_QtechIPPrivateAcApMask_Type())
-qtechIPPrivateAcApMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechIPPrivateAcApMask.setStatus(_B)
-_QtechIPPrivateAcApGateway_Type=IpAddress
-_QtechIPPrivateAcApGateway_Object=MibTableColumn
-qtechIPPrivateAcApGateway=_QtechIPPrivateAcApGateway_Object((1,3,6,1,4,1,27514,1,1,10,2,73,1,3,1,1,1,4),_QtechIPPrivateAcApGateway_Type())
-qtechIPPrivateAcApGateway.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechIPPrivateAcApGateway.setStatus(_B)
-_QtechIPPrivateMIBConformance_ObjectIdentity=ObjectIdentity
-qtechIPPrivateMIBConformance=_QtechIPPrivateMIBConformance_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,73,2))
-_QtechIPPrivateMIBCompliances_ObjectIdentity=ObjectIdentity
-qtechIPPrivateMIBCompliances=_QtechIPPrivateMIBCompliances_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,73,2,1))
-_QtechIPPrivateMIBGroups_ObjectIdentity=ObjectIdentity
-qtechIPPrivateMIBGroups=_QtechIPPrivateMIBGroups_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,73,2,2))
-qtechIPPrivateMIBGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,73,2,2,1))
-qtechIPPrivateMIBGroup.setObjects(*((_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_E),(_A,_F),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:qtechIPPrivateMIBGroup.setStatus(_B)
-qtechIPPrivateAcNotifyChangeIpv4AddressAlarm=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,73,1,2,1))
-qtechIPPrivateAcNotifyChangeIpv4AddressAlarm.setObjects(*((_A,_G),(_A,_H),(_A,_I),(_A,_J)))
-if mibBuilder.loadTexts:qtechIPPrivateAcNotifyChangeIpv4AddressAlarm.setStatus(_B)
-qtechIPPrivateTrapGroup=NotificationGroup((1,3,6,1,4,1,27514,1,1,10,2,73,2,2,2))
-qtechIPPrivateTrapGroup.setObjects((_A,_M))
-if mibBuilder.loadTexts:qtechIPPrivateTrapGroup.setStatus(_B)
-qtechIPPrivateMIBCompliance=ModuleCompliance((1,3,6,1,4,1,27514,1,1,10,2,73,2,1,1))
-qtechIPPrivateMIBCompliance.setObjects(*((_A,'qtechAcIPPrivateMIBGroup'),(_A,'qtechAcIPPrivateTrapGroup')))
-if mibBuilder.loadTexts:qtechIPPrivateMIBCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'qtechIPPrivateMgmt':qtechIPPrivateMgmt,'qtechIPPrivateAcNotificationsMIBObjects':qtechIPPrivateAcNotificationsMIBObjects,'qtechIPPrivateAcNtfObjects':qtechIPPrivateAcNtfObjects,_G:qtechIPPrivateAcNotifyIpv4AddressChangeType,_H:qtechIPPrivateAcNotifyIpv4ChangeAddress,_I:qtechIPPrivateAcNotifyIpv4ChangeAddressMask,_J:qtechIPPrivateAcNotifyIpv4ChangeIfIndex,'qtechIPPrivateAcNotifications':qtechIPPrivateAcNotifications,_M:qtechIPPrivateAcNotifyChangeIpv4AddressAlarm,'qtechIPPrivateAcQueryApMIBObject':qtechIPPrivateAcQueryApMIBObject,'qtechIPPrivateAcQueryApInfo':qtechIPPrivateAcQueryApInfo,'qtechIPPrivateAcQueryApMIBTable':qtechIPPrivateAcQueryApMIBTable,'qtechIPPrivateApInfoEntry':qtechIPPrivateApInfoEntry,_E:qtechIPPrivateAcApMacAddr,_F:qtechIPPrivateAcApIp,_K:qtechIPPrivateAcApMask,_L:qtechIPPrivateAcApGateway,'qtechIPPrivateMIBConformance':qtechIPPrivateMIBConformance,'qtechIPPrivateMIBCompliances':qtechIPPrivateMIBCompliances,'qtechIPPrivateMIBCompliance':qtechIPPrivateMIBCompliance,'qtechIPPrivateMIBGroups':qtechIPPrivateMIBGroups,'qtechIPPrivateMIBGroup':qtechIPPrivateMIBGroup,'qtechIPPrivateTrapGroup':qtechIPPrivateTrapGroup})
+#
+# PySNMP MIB module QTECH-IP-PRIVATE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-IP-PRIVATE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:12 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+qtechIPPrivateMgmt = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73))
+qtechIPPrivateMgmt.setRevisions(('2009-09-18 00:00',))
+if mibBuilder.loadTexts: qtechIPPrivateMgmt.setLastUpdated('200909180000Z')
+if mibBuilder.loadTexts: qtechIPPrivateMgmt.setOrganization('Qtech Networks Co.,Ltd.')
+qtechIPPrivateAcNotificationsMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1))
+qtechIPPrivateAcNtfObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1, 1))
+qtechIPPrivateAcNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1, 2))
+qtechIPPrivateAcNotifyIpv4AddressChangeType = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1, 1, 1), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechIPPrivateAcNotifyIpv4AddressChangeType.setStatus('current')
+qtechIPPrivateAcNotifyIpv4ChangeAddress = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1, 1, 2), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechIPPrivateAcNotifyIpv4ChangeAddress.setStatus('current')
+qtechIPPrivateAcNotifyIpv4ChangeAddressMask = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1, 1, 3), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechIPPrivateAcNotifyIpv4ChangeAddressMask.setStatus('current')
+qtechIPPrivateAcNotifyIpv4ChangeIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1, 1, 4), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechIPPrivateAcNotifyIpv4ChangeIfIndex.setStatus('current')
+qtechIPPrivateAcNotifyChangeIpv4AddressAlarm = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1, 2, 1)).setObjects(("QTECH-IP-PRIVATE-MIB", "qtechIPPrivateAcNotifyIpv4AddressChangeType"), ("QTECH-IP-PRIVATE-MIB", "qtechIPPrivateAcNotifyIpv4ChangeAddress"), ("QTECH-IP-PRIVATE-MIB", "qtechIPPrivateAcNotifyIpv4ChangeAddressMask"), ("QTECH-IP-PRIVATE-MIB", "qtechIPPrivateAcNotifyIpv4ChangeIfIndex"))
+if mibBuilder.loadTexts: qtechIPPrivateAcNotifyChangeIpv4AddressAlarm.setStatus('current')
+qtechIPPrivateAcQueryApMIBObject = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1, 3))
+qtechIPPrivateAcQueryApInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1, 3, 1))
+qtechIPPrivateAcQueryApMIBTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1, 3, 1, 1), )
+if mibBuilder.loadTexts: qtechIPPrivateAcQueryApMIBTable.setStatus('current')
+qtechIPPrivateApInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1, 3, 1, 1, 1), ).setIndexNames((0, "QTECH-IP-PRIVATE-MIB", "qtechIPPrivateAcApMacAddr"), (0, "QTECH-IP-PRIVATE-MIB", "qtechIPPrivateAcApIp"))
+if mibBuilder.loadTexts: qtechIPPrivateApInfoEntry.setStatus('current')
+qtechIPPrivateAcApMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1, 3, 1, 1, 1, 1), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechIPPrivateAcApMacAddr.setStatus('current')
+qtechIPPrivateAcApIp = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1, 3, 1, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechIPPrivateAcApIp.setStatus('current')
+qtechIPPrivateAcApMask = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1, 3, 1, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechIPPrivateAcApMask.setStatus('current')
+qtechIPPrivateAcApGateway = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 1, 3, 1, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechIPPrivateAcApGateway.setStatus('current')
+qtechIPPrivateMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 2))
+qtechIPPrivateMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 2, 1))
+qtechIPPrivateMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 2, 2))
+qtechIPPrivateMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 2, 1, 1)).setObjects(("QTECH-IP-PRIVATE-MIB", "qtechAcIPPrivateMIBGroup"), ("QTECH-IP-PRIVATE-MIB", "qtechAcIPPrivateTrapGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechIPPrivateMIBCompliance = qtechIPPrivateMIBCompliance.setStatus('current')
+qtechIPPrivateMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 2, 2, 1)).setObjects(("QTECH-IP-PRIVATE-MIB", "qtechIPPrivateAcNotifyIpv4AddressChangeType"), ("QTECH-IP-PRIVATE-MIB", "qtechIPPrivateAcNotifyIpv4ChangeAddress"), ("QTECH-IP-PRIVATE-MIB", "qtechIPPrivateAcNotifyIpv4ChangeAddressMask"), ("QTECH-IP-PRIVATE-MIB", "qtechIPPrivateAcNotifyIpv4ChangeIfIndex"), ("QTECH-IP-PRIVATE-MIB", "qtechIPPrivateAcApMacAddr"), ("QTECH-IP-PRIVATE-MIB", "qtechIPPrivateAcApIp"), ("QTECH-IP-PRIVATE-MIB", "qtechIPPrivateAcApMask"), ("QTECH-IP-PRIVATE-MIB", "qtechIPPrivateAcApGateway"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechIPPrivateMIBGroup = qtechIPPrivateMIBGroup.setStatus('current')
+qtechIPPrivateTrapGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 73, 2, 2, 2)).setObjects(("QTECH-IP-PRIVATE-MIB", "qtechIPPrivateAcNotifyChangeIpv4AddressAlarm"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechIPPrivateTrapGroup = qtechIPPrivateTrapGroup.setStatus('current')
+mibBuilder.exportSymbols("QTECH-IP-PRIVATE-MIB", qtechIPPrivateMIBCompliances=qtechIPPrivateMIBCompliances, qtechIPPrivateMIBGroups=qtechIPPrivateMIBGroups, qtechIPPrivateAcApMask=qtechIPPrivateAcApMask, qtechIPPrivateAcNotifyIpv4AddressChangeType=qtechIPPrivateAcNotifyIpv4AddressChangeType, qtechIPPrivateAcQueryApMIBTable=qtechIPPrivateAcQueryApMIBTable, qtechIPPrivateAcApGateway=qtechIPPrivateAcApGateway, qtechIPPrivateAcNotifications=qtechIPPrivateAcNotifications, qtechIPPrivateAcQueryApMIBObject=qtechIPPrivateAcQueryApMIBObject, qtechIPPrivateMgmt=qtechIPPrivateMgmt, qtechIPPrivateAcNotifyIpv4ChangeAddressMask=qtechIPPrivateAcNotifyIpv4ChangeAddressMask, qtechIPPrivateAcNotifyChangeIpv4AddressAlarm=qtechIPPrivateAcNotifyChangeIpv4AddressAlarm, qtechIPPrivateApInfoEntry=qtechIPPrivateApInfoEntry, qtechIPPrivateAcQueryApInfo=qtechIPPrivateAcQueryApInfo, qtechIPPrivateMIBCompliance=qtechIPPrivateMIBCompliance, qtechIPPrivateAcNotificationsMIBObjects=qtechIPPrivateAcNotificationsMIBObjects, qtechIPPrivateAcNotifyIpv4ChangeIfIndex=qtechIPPrivateAcNotifyIpv4ChangeIfIndex, PYSNMP_MODULE_ID=qtechIPPrivateMgmt, qtechIPPrivateTrapGroup=qtechIPPrivateTrapGroup, qtechIPPrivateAcNtfObjects=qtechIPPrivateAcNtfObjects, qtechIPPrivateAcApIp=qtechIPPrivateAcApIp, qtechIPPrivateAcNotifyIpv4ChangeAddress=qtechIPPrivateAcNotifyIpv4ChangeAddress, qtechIPPrivateMIBConformance=qtechIPPrivateMIBConformance, qtechIPPrivateMIBGroup=qtechIPPrivateMIBGroup, qtechIPPrivateAcApMacAddr=qtechIPPrivateAcApMacAddr)

@@ -1,1580 +1,631 @@
-_P='specialDB'
-_O='ieee8021'
-_N='notUsed'
-_M='active'
-_L='linkSignalActive'
-_K='linkSignalInactive'
-_J='OctetString'
-_I='relay'
-_H='filter'
-_G='enable'
-_F='disable'
-_E='optional'
-_D='Integer32'
-_C='read-write'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_J,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Cabletron_ObjectIdentity=ObjectIdentity
-cabletron=_Cabletron_ObjectIdentity((1,3,6,1,4,1,52))
-_CommsDevice_ObjectIdentity=ObjectIdentity
-commsDevice=_CommsDevice_ObjectIdentity((1,3,6,1,4,1,52,1))
-_Common_ObjectIdentity=ObjectIdentity
-common=_Common_ObjectIdentity((1,3,6,1,4,1,52,1,1))
-_CommonRev1_ObjectIdentity=ObjectIdentity
-commonRev1=_CommonRev1_ObjectIdentity((1,3,6,1,4,1,52,1,1,1))
-_DeviceType_Type=Integer32
-_DeviceType_Object=MibScalar
-deviceType=_DeviceType_Object((1,3,6,1,4,1,52,1,1,1,1),_DeviceType_Type())
-deviceType.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceType.setStatus(_A)
-_DeviceName_Type=OctetString
-_DeviceName_Object=MibScalar
-deviceName=_DeviceName_Object((1,3,6,1,4,1,52,1,1,1,2),_DeviceName_Type())
-deviceName.setMaxAccess(_C)
-if mibBuilder.loadTexts:deviceName.setStatus(_A)
-_DeviceIPAddress_Type=IpAddress
-_DeviceIPAddress_Object=MibScalar
-deviceIPAddress=_DeviceIPAddress_Object((1,3,6,1,4,1,52,1,1,1,3),_DeviceIPAddress_Type())
-deviceIPAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:deviceIPAddress.setStatus(_A)
-class _CurrentTime_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
-_CurrentTime_Type.__name__=_J
-_CurrentTime_Object=MibScalar
-currentTime=_CurrentTime_Object((1,3,6,1,4,1,52,1,1,1,4),_CurrentTime_Type())
-currentTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:currentTime.setStatus(_A)
-class _CurrentDate_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
-_CurrentDate_Type.__name__=_J
-_CurrentDate_Object=MibScalar
-currentDate=_CurrentDate_Object((1,3,6,1,4,1,52,1,1,1,5),_CurrentDate_Type())
-currentDate.setMaxAccess(_C)
-if mibBuilder.loadTexts:currentDate.setStatus(_A)
-_MACAddress_Type=OctetString
-_MACAddress_Object=MibScalar
-mACAddress=_MACAddress_Object((1,3,6,1,4,1,52,1,1,1,6),_MACAddress_Type())
-mACAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:mACAddress.setStatus(_A)
-_SysOIDs_ObjectIdentity=ObjectIdentity
-sysOIDs=_SysOIDs_ObjectIdentity((1,3,6,1,4,1,52,1,1,2))
-_SysOtherType_ObjectIdentity=ObjectIdentity
-sysOtherType=_SysOtherType_ObjectIdentity((1,3,6,1,4,1,52,1,1,2,1))
-_SysIRMType_ObjectIdentity=ObjectIdentity
-sysIRMType=_SysIRMType_ObjectIdentity((1,3,6,1,4,1,52,1,1,2,2))
-_SoidIRMSNMP_ObjectIdentity=ObjectIdentity
-soidIRMSNMP=_SoidIRMSNMP_ObjectIdentity((1,3,6,1,4,1,52,1,1,2,2,1))
-_SoidIRBM_ObjectIdentity=ObjectIdentity
-soidIRBM=_SoidIRBM_ObjectIdentity((1,3,6,1,4,1,52,1,1,2,2,2))
-_SoidIRM2_ObjectIdentity=ObjectIdentity
-soidIRM2=_SoidIRM2_ObjectIdentity((1,3,6,1,4,1,52,1,1,2,2,3))
-_SysRepType_ObjectIdentity=ObjectIdentity
-sysRepType=_SysRepType_ObjectIdentity((1,3,6,1,4,1,52,1,1,2,3))
-_SoidMINIMMAC_ObjectIdentity=ObjectIdentity
-soidMINIMMAC=_SoidMINIMMAC_ObjectIdentity((1,3,6,1,4,1,52,1,1,2,3,1))
-_SoidMRXI_ObjectIdentity=ObjectIdentity
-soidMRXI=_SoidMRXI_ObjectIdentity((1,3,6,1,4,1,52,1,1,2,3,2))
-_SysBDGType_ObjectIdentity=ObjectIdentity
-sysBDGType=_SysBDGType_ObjectIdentity((1,3,6,1,4,1,52,1,1,2,4))
-_Repeater_ObjectIdentity=ObjectIdentity
-repeater=_Repeater_ObjectIdentity((1,3,6,1,4,1,52,1,2))
-_RepeaterRev1_ObjectIdentity=ObjectIdentity
-repeaterRev1=_RepeaterRev1_ObjectIdentity((1,3,6,1,4,1,52,1,2,1))
-_Device_ObjectIdentity=ObjectIdentity
-device=_Device_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,1))
-class _DeviceMMACType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('mMAC8',0),('mMAC3',1)))
-_DeviceMMACType_Type.__name__=_D
-_DeviceMMACType_Object=MibScalar
-deviceMMACType=_DeviceMMACType_Object((1,3,6,1,4,1,52,1,2,1,1,2),_DeviceMMACType_Type())
-deviceMMACType.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceMMACType.setStatus(_A)
-class _DeviceSlots_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(3,8)));namedValues=NamedValues(*(('mMAC3',3),('mMAC8',8)))
-_DeviceSlots_Type.__name__=_D
-_DeviceSlots_Object=MibScalar
-deviceSlots=_DeviceSlots_Object((1,3,6,1,4,1,52,1,2,1,1,3),_DeviceSlots_Type())
-deviceSlots.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceSlots.setStatus(_A)
-_DeviceOccupiedSlots_Type=Integer32
-_DeviceOccupiedSlots_Object=MibScalar
-deviceOccupiedSlots=_DeviceOccupiedSlots_Object((1,3,6,1,4,1,52,1,2,1,1,4),_DeviceOccupiedSlots_Type())
-deviceOccupiedSlots.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceOccupiedSlots.setStatus(_A)
-_DevicePortsOn_Type=Integer32
-_DevicePortsOn_Object=MibScalar
-devicePortsOn=_DevicePortsOn_Object((1,3,6,1,4,1,52,1,2,1,1,5),_DevicePortsOn_Type())
-devicePortsOn.setMaxAccess(_B)
-if mibBuilder.loadTexts:devicePortsOn.setStatus(_A)
-_DeviceTotalPorts_Type=Integer32
-_DeviceTotalPorts_Object=MibScalar
-deviceTotalPorts=_DeviceTotalPorts_Object((1,3,6,1,4,1,52,1,2,1,1,6),_DeviceTotalPorts_Type())
-deviceTotalPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceTotalPorts.setStatus(_A)
-_DeviceTotalPkts_Type=Counter32
-_DeviceTotalPkts_Object=MibScalar
-deviceTotalPkts=_DeviceTotalPkts_Object((1,3,6,1,4,1,52,1,2,1,1,7),_DeviceTotalPkts_Type())
-deviceTotalPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceTotalPkts.setStatus(_A)
-_DeviceTotalErrors_Type=Counter32
-_DeviceTotalErrors_Object=MibScalar
-deviceTotalErrors=_DeviceTotalErrors_Object((1,3,6,1,4,1,52,1,2,1,1,8),_DeviceTotalErrors_Type())
-deviceTotalErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceTotalErrors.setStatus(_A)
-_DeviceTransmitColl_Type=Counter32
-_DeviceTransmitColl_Object=MibScalar
-deviceTransmitColl=_DeviceTransmitColl_Object((1,3,6,1,4,1,52,1,2,1,1,9),_DeviceTransmitColl_Type())
-deviceTransmitColl.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceTransmitColl.setStatus(_E)
-_DeviceRecColls_Type=Counter32
-_DeviceRecColls_Object=MibScalar
-deviceRecColls=_DeviceRecColls_Object((1,3,6,1,4,1,52,1,2,1,1,10),_DeviceRecColls_Type())
-deviceRecColls.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceRecColls.setStatus(_E)
-_DeviceAlign_Type=Counter32
-_DeviceAlign_Object=MibScalar
-deviceAlign=_DeviceAlign_Object((1,3,6,1,4,1,52,1,2,1,1,11),_DeviceAlign_Type())
-deviceAlign.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceAlign.setStatus(_E)
-_DeviceCRC_Type=Counter32
-_DeviceCRC_Object=MibScalar
-deviceCRC=_DeviceCRC_Object((1,3,6,1,4,1,52,1,2,1,1,12),_DeviceCRC_Type())
-deviceCRC.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceCRC.setStatus(_E)
-_DeviceRunt_Type=Counter32
-_DeviceRunt_Object=MibScalar
-deviceRunt=_DeviceRunt_Object((1,3,6,1,4,1,52,1,2,1,1,13),_DeviceRunt_Type())
-deviceRunt.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceRunt.setStatus(_E)
-_DeviceOOWColl_Type=Counter32
-_DeviceOOWColl_Object=MibScalar
-deviceOOWColl=_DeviceOOWColl_Object((1,3,6,1,4,1,52,1,2,1,1,14),_DeviceOOWColl_Type())
-deviceOOWColl.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceOOWColl.setStatus(_E)
-_DeviceNoResources_Type=Counter32
-_DeviceNoResources_Object=MibScalar
-deviceNoResources=_DeviceNoResources_Object((1,3,6,1,4,1,52,1,2,1,1,15),_DeviceNoResources_Type())
-deviceNoResources.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceNoResources.setStatus(_A)
-_DeviceRecBytes_Type=Counter32
-_DeviceRecBytes_Object=MibScalar
-deviceRecBytes=_DeviceRecBytes_Object((1,3,6,1,4,1,52,1,2,1,1,16),_DeviceRecBytes_Type())
-deviceRecBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceRecBytes.setStatus(_E)
-_DeviceGiantFrames_Type=Counter32
-_DeviceGiantFrames_Object=MibScalar
-deviceGiantFrames=_DeviceGiantFrames_Object((1,3,6,1,4,1,52,1,2,1,1,17),_DeviceGiantFrames_Type())
-deviceGiantFrames.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceGiantFrames.setStatus(_A)
-_DeviceRestart_Type=Integer32
-_DeviceRestart_Object=MibScalar
-deviceRestart=_DeviceRestart_Object((1,3,6,1,4,1,52,1,2,1,1,18),_DeviceRestart_Type())
-deviceRestart.setMaxAccess(_C)
-if mibBuilder.loadTexts:deviceRestart.setStatus(_A)
-_DeviceResetCounter_Type=Counter32
-_DeviceResetCounter_Object=MibScalar
-deviceResetCounter=_DeviceResetCounter_Object((1,3,6,1,4,1,52,1,2,1,1,19),_DeviceResetCounter_Type())
-deviceResetCounter.setMaxAccess(_C)
-if mibBuilder.loadTexts:deviceResetCounter.setStatus(_A)
-_DeviceRedundantCts_Type=Integer32
-_DeviceRedundantCts_Object=MibScalar
-deviceRedundantCts=_DeviceRedundantCts_Object((1,3,6,1,4,1,52,1,2,1,1,20),_DeviceRedundantCts_Type())
-deviceRedundantCts.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceRedundantCts.setStatus(_A)
-_DeviceTimeBase_Type=Integer32
-_DeviceTimeBase_Object=MibScalar
-deviceTimeBase=_DeviceTimeBase_Object((1,3,6,1,4,1,52,1,2,1,1,24),_DeviceTimeBase_Type())
-deviceTimeBase.setMaxAccess(_C)
-if mibBuilder.loadTexts:deviceTimeBase.setStatus(_A)
-_DeviceResetRedundancy_Type=Integer32
-_DeviceResetRedundancy_Object=MibScalar
-deviceResetRedundancy=_DeviceResetRedundancy_Object((1,3,6,1,4,1,52,1,2,1,1,25),_DeviceResetRedundancy_Type())
-deviceResetRedundancy.setMaxAccess(_C)
-if mibBuilder.loadTexts:deviceResetRedundancy.setStatus(_A)
-_DeviceSrcAddrAgingTime_Type=Integer32
-_DeviceSrcAddrAgingTime_Object=MibScalar
-deviceSrcAddrAgingTime=_DeviceSrcAddrAgingTime_Object((1,3,6,1,4,1,52,1,2,1,1,26),_DeviceSrcAddrAgingTime_Type())
-deviceSrcAddrAgingTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:deviceSrcAddrAgingTime.setStatus(_A)
-class _DeviceSrcAddrTraps_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('trapsoff',1),('trapson',2)))
-_DeviceSrcAddrTraps_Type.__name__=_D
-_DeviceSrcAddrTraps_Object=MibScalar
-deviceSrcAddrTraps=_DeviceSrcAddrTraps_Object((1,3,6,1,4,1,52,1,2,1,1,27),_DeviceSrcAddrTraps_Type())
-deviceSrcAddrTraps.setMaxAccess(_C)
-if mibBuilder.loadTexts:deviceSrcAddrTraps.setStatus(_A)
-class _DeviceSrcAddrLocked_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('lockoff',1),('lockon',2)))
-_DeviceSrcAddrLocked_Type.__name__=_D
-_DeviceSrcAddrLocked_Object=MibScalar
-deviceSrcAddrLocked=_DeviceSrcAddrLocked_Object((1,3,6,1,4,1,52,1,2,1,1,28),_DeviceSrcAddrLocked_Type())
-deviceSrcAddrLocked.setMaxAccess(_C)
-if mibBuilder.loadTexts:deviceSrcAddrLocked.setStatus(_A)
-_DeviceEnetBoardMap_Type=Integer32
-_DeviceEnetBoardMap_Object=MibScalar
-deviceEnetBoardMap=_DeviceEnetBoardMap_Object((1,3,6,1,4,1,52,1,2,1,1,29),_DeviceEnetBoardMap_Type())
-deviceEnetBoardMap.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceEnetBoardMap.setStatus(_A)
-_DeviceTokenRingBoardMap_Type=Integer32
-_DeviceTokenRingBoardMap_Object=MibScalar
-deviceTokenRingBoardMap=_DeviceTokenRingBoardMap_Object((1,3,6,1,4,1,52,1,2,1,1,30),_DeviceTokenRingBoardMap_Type())
-deviceTokenRingBoardMap.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceTokenRingBoardMap.setStatus(_A)
-_DeviceFDDIBoardMap_Type=Integer32
-_DeviceFDDIBoardMap_Object=MibScalar
-deviceFDDIBoardMap=_DeviceFDDIBoardMap_Object((1,3,6,1,4,1,52,1,2,1,1,31),_DeviceFDDIBoardMap_Type())
-deviceFDDIBoardMap.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceFDDIBoardMap.setStatus(_A)
-_Board_ObjectIdentity=ObjectIdentity
-board=_Board_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,2))
-_Port_ObjectIdentity=ObjectIdentity
-port=_Port_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,3))
-_SourceAddr_ObjectIdentity=ObjectIdentity
-sourceAddr=_SourceAddr_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,7))
-_SourceAddrBoard_Type=Integer32
-_SourceAddrBoard_Object=MibScalar
-sourceAddrBoard=_SourceAddrBoard_Object((1,3,6,1,4,1,52,1,2,1,7,1),_SourceAddrBoard_Type())
-sourceAddrBoard.setMaxAccess(_B)
-if mibBuilder.loadTexts:sourceAddrBoard.setStatus(_A)
-_SourceAddrPort_Type=Integer32
-_SourceAddrPort_Object=MibScalar
-sourceAddrPort=_SourceAddrPort_Object((1,3,6,1,4,1,52,1,2,1,7,2),_SourceAddrPort_Type())
-sourceAddrPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:sourceAddrPort.setStatus(_A)
-_Redundancy_ObjectIdentity=ObjectIdentity
-redundancy=_Redundancy_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,8))
-_RedundancyPollInterval_Type=Integer32
-_RedundancyPollInterval_Object=MibScalar
-redundancyPollInterval=_RedundancyPollInterval_Object((1,3,6,1,4,1,52,1,2,1,8,1),_RedundancyPollInterval_Type())
-redundancyPollInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:redundancyPollInterval.setStatus(_A)
-_RedundancyTestTod_Type=OctetString
-_RedundancyTestTod_Object=MibScalar
-redundancyTestTod=_RedundancyTestTod_Object((1,3,6,1,4,1,52,1,2,1,8,2),_RedundancyTestTod_Type())
-redundancyTestTod.setMaxAccess(_C)
-if mibBuilder.loadTexts:redundancyTestTod.setStatus(_A)
-class _RedundancyPerformTest_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('performTest',1))
-_RedundancyPerformTest_Type.__name__=_D
-_RedundancyPerformTest_Object=MibScalar
-redundancyPerformTest=_RedundancyPerformTest_Object((1,3,6,1,4,1,52,1,2,1,8,3),_RedundancyPerformTest_Type())
-redundancyPerformTest.setMaxAccess(_C)
-if mibBuilder.loadTexts:redundancyPerformTest.setStatus(_A)
-_RedundancyCircuitName_Type=OctetString
-_RedundancyCircuitName_Object=MibScalar
-redundancyCircuitName=_RedundancyCircuitName_Object((1,3,6,1,4,1,52,1,2,1,8,4),_RedundancyCircuitName_Type())
-redundancyCircuitName.setMaxAccess(_C)
-if mibBuilder.loadTexts:redundancyCircuitName.setStatus(_A)
-_RedundancyRetryCount_Type=Integer32
-_RedundancyRetryCount_Object=MibScalar
-redundancyRetryCount=_RedundancyRetryCount_Object((1,3,6,1,4,1,52,1,2,1,8,5),_RedundancyRetryCount_Type())
-redundancyRetryCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:redundancyRetryCount.setStatus(_A)
-_RedundancyNumBPs_Type=Integer32
-_RedundancyNumBPs_Object=MibScalar
-redundancyNumBPs=_RedundancyNumBPs_Object((1,3,6,1,4,1,52,1,2,1,8,6),_RedundancyNumBPs_Type())
-redundancyNumBPs.setMaxAccess(_B)
-if mibBuilder.loadTexts:redundancyNumBPs.setStatus(_A)
-_RedundancyCircuitBoards_Type=Integer32
-_RedundancyCircuitBoards_Object=MibScalar
-redundancyCircuitBoards=_RedundancyCircuitBoards_Object((1,3,6,1,4,1,52,1,2,1,8,7),_RedundancyCircuitBoards_Type())
-redundancyCircuitBoards.setMaxAccess(_B)
-if mibBuilder.loadTexts:redundancyCircuitBoards.setStatus(_A)
-_RedundancyCircuitPort_Type=Integer32
-_RedundancyCircuitPort_Object=MibScalar
-redundancyCircuitPort=_RedundancyCircuitPort_Object((1,3,6,1,4,1,52,1,2,1,8,8),_RedundancyCircuitPort_Type())
-redundancyCircuitPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:redundancyCircuitPort.setStatus(_A)
-_RedundancyCircuitTypes_Type=Integer32
-_RedundancyCircuitTypes_Object=MibScalar
-redundancyCircuitTypes=_RedundancyCircuitTypes_Object((1,3,6,1,4,1,52,1,2,1,8,9),_RedundancyCircuitTypes_Type())
-redundancyCircuitTypes.setMaxAccess(_B)
-if mibBuilder.loadTexts:redundancyCircuitTypes.setStatus(_A)
-_RedundancyCircuitNumAddr_Type=Integer32
-_RedundancyCircuitNumAddr_Object=MibScalar
-redundancyCircuitNumAddr=_RedundancyCircuitNumAddr_Object((1,3,6,1,4,1,52,1,2,1,8,10),_RedundancyCircuitNumAddr_Type())
-redundancyCircuitNumAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:redundancyCircuitNumAddr.setStatus(_A)
-_RedundancyCircuitMACAddrAdd_Type=OctetString
-_RedundancyCircuitMACAddrAdd_Object=MibScalar
-redundancyCircuitMACAddrAdd=_RedundancyCircuitMACAddrAdd_Object((1,3,6,1,4,1,52,1,2,1,8,11),_RedundancyCircuitMACAddrAdd_Type())
-redundancyCircuitMACAddrAdd.setMaxAccess(_C)
-if mibBuilder.loadTexts:redundancyCircuitMACAddrAdd.setStatus(_A)
-_RedundancyCircuitMACAddrDel_Type=OctetString
-_RedundancyCircuitMACAddrDel_Object=MibScalar
-redundancyCircuitMACAddrDel=_RedundancyCircuitMACAddrDel_Object((1,3,6,1,4,1,52,1,2,1,8,12),_RedundancyCircuitMACAddrDel_Type())
-redundancyCircuitMACAddrDel.setMaxAccess(_C)
-if mibBuilder.loadTexts:redundancyCircuitMACAddrDel.setStatus(_A)
-_RedundancyCircuitMACAddrDisp_Type=OctetString
-_RedundancyCircuitMACAddrDisp_Object=MibScalar
-redundancyCircuitMACAddrDisp=_RedundancyCircuitMACAddrDisp_Object((1,3,6,1,4,1,52,1,2,1,8,13),_RedundancyCircuitMACAddrDisp_Type())
-redundancyCircuitMACAddrDisp.setMaxAccess(_B)
-if mibBuilder.loadTexts:redundancyCircuitMACAddrDisp.setStatus(_A)
-class _RedundancyCircuitEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_RedundancyCircuitEnable_Type.__name__=_D
-_RedundancyCircuitEnable_Object=MibScalar
-redundancyCircuitEnable=_RedundancyCircuitEnable_Object((1,3,6,1,4,1,52,1,2,1,8,14),_RedundancyCircuitEnable_Type())
-redundancyCircuitEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:redundancyCircuitEnable.setStatus(_A)
-class _RedundancyCircuitReset_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('reset',1))
-_RedundancyCircuitReset_Type.__name__=_D
-_RedundancyCircuitReset_Object=MibScalar
-redundancyCircuitReset=_RedundancyCircuitReset_Object((1,3,6,1,4,1,52,1,2,1,8,15),_RedundancyCircuitReset_Type())
-redundancyCircuitReset.setMaxAccess(_C)
-if mibBuilder.loadTexts:redundancyCircuitReset.setStatus(_A)
-_Alarm_ObjectIdentity=ObjectIdentity
-alarm=_Alarm_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,9))
-_DevAlrm_ObjectIdentity=ObjectIdentity
-devAlrm=_DevAlrm_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,9,1))
-_DevTraffic_ObjectIdentity=ObjectIdentity
-devTraffic=_DevTraffic_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,9,1,1))
-class _DevTrafficEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_DevTrafficEnable_Type.__name__=_D
-_DevTrafficEnable_Object=MibScalar
-devTrafficEnable=_DevTrafficEnable_Object((1,3,6,1,4,1,52,1,2,1,9,1,1,1),_DevTrafficEnable_Type())
-devTrafficEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:devTrafficEnable.setStatus(_A)
-_DevTrafficThreshold_Type=Counter32
-_DevTrafficThreshold_Object=MibScalar
-devTrafficThreshold=_DevTrafficThreshold_Object((1,3,6,1,4,1,52,1,2,1,9,1,1,2),_DevTrafficThreshold_Type())
-devTrafficThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:devTrafficThreshold.setStatus(_A)
-_DevColls_ObjectIdentity=ObjectIdentity
-devColls=_DevColls_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,9,1,2))
-class _DevCollsEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_DevCollsEnable_Type.__name__=_D
-_DevCollsEnable_Object=MibScalar
-devCollsEnable=_DevCollsEnable_Object((1,3,6,1,4,1,52,1,2,1,9,1,2,1),_DevCollsEnable_Type())
-devCollsEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:devCollsEnable.setStatus(_A)
-_DevCollsThreshold_Type=Integer32
-_DevCollsThreshold_Object=MibScalar
-devCollsThreshold=_DevCollsThreshold_Object((1,3,6,1,4,1,52,1,2,1,9,1,2,2),_DevCollsThreshold_Type())
-devCollsThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:devCollsThreshold.setStatus(_A)
-_DevError_ObjectIdentity=ObjectIdentity
-devError=_DevError_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,9,1,3))
-class _DevErrorEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_DevErrorEnable_Type.__name__=_D
-_DevErrorEnable_Object=MibScalar
-devErrorEnable=_DevErrorEnable_Object((1,3,6,1,4,1,52,1,2,1,9,1,3,1),_DevErrorEnable_Type())
-devErrorEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:devErrorEnable.setStatus(_A)
-_DevErrorThreshold_Type=Integer32
-_DevErrorThreshold_Object=MibScalar
-devErrorThreshold=_DevErrorThreshold_Object((1,3,6,1,4,1,52,1,2,1,9,1,3,2),_DevErrorThreshold_Type())
-devErrorThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:devErrorThreshold.setStatus(_A)
-_DevErrorSource_Type=Integer32
-_DevErrorSource_Object=MibScalar
-devErrorSource=_DevErrorSource_Object((1,3,6,1,4,1,52,1,2,1,9,1,3,3),_DevErrorSource_Type())
-devErrorSource.setMaxAccess(_C)
-if mibBuilder.loadTexts:devErrorSource.setStatus(_A)
-_BdAlrm_ObjectIdentity=ObjectIdentity
-bdAlrm=_BdAlrm_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,9,2))
-_BdTraffic_ObjectIdentity=ObjectIdentity
-bdTraffic=_BdTraffic_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,9,2,1))
-class _BdTrafficEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_BdTrafficEnable_Type.__name__=_D
-_BdTrafficEnable_Object=MibScalar
-bdTrafficEnable=_BdTrafficEnable_Object((1,3,6,1,4,1,52,1,2,1,9,2,1,1),_BdTrafficEnable_Type())
-bdTrafficEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdTrafficEnable.setStatus(_A)
-_BdTrafficThreshold_Type=Counter32
-_BdTrafficThreshold_Object=MibScalar
-bdTrafficThreshold=_BdTrafficThreshold_Object((1,3,6,1,4,1,52,1,2,1,9,2,1,2),_BdTrafficThreshold_Type())
-bdTrafficThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdTrafficThreshold.setStatus(_A)
-_BdColls_ObjectIdentity=ObjectIdentity
-bdColls=_BdColls_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,9,2,2))
-class _BdCollsEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_BdCollsEnable_Type.__name__=_D
-_BdCollsEnable_Object=MibScalar
-bdCollsEnable=_BdCollsEnable_Object((1,3,6,1,4,1,52,1,2,1,9,2,2,1),_BdCollsEnable_Type())
-bdCollsEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdCollsEnable.setStatus(_A)
-_BdCollsThreshold_Type=Integer32
-_BdCollsThreshold_Object=MibScalar
-bdCollsThreshold=_BdCollsThreshold_Object((1,3,6,1,4,1,52,1,2,1,9,2,2,2),_BdCollsThreshold_Type())
-bdCollsThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdCollsThreshold.setStatus(_A)
-_BdError_ObjectIdentity=ObjectIdentity
-bdError=_BdError_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,9,2,3))
-class _BdErrorEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_BdErrorEnable_Type.__name__=_D
-_BdErrorEnable_Object=MibScalar
-bdErrorEnable=_BdErrorEnable_Object((1,3,6,1,4,1,52,1,2,1,9,2,3,1),_BdErrorEnable_Type())
-bdErrorEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdErrorEnable.setStatus(_A)
-_BdErrorThreshold_Type=Integer32
-_BdErrorThreshold_Object=MibScalar
-bdErrorThreshold=_BdErrorThreshold_Object((1,3,6,1,4,1,52,1,2,1,9,2,3,2),_BdErrorThreshold_Type())
-bdErrorThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdErrorThreshold.setStatus(_A)
-_BdErrorSource_Type=Integer32
-_BdErrorSource_Object=MibScalar
-bdErrorSource=_BdErrorSource_Object((1,3,6,1,4,1,52,1,2,1,9,2,3,3),_BdErrorSource_Type())
-bdErrorSource.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdErrorSource.setStatus(_A)
-_PortAlrm_ObjectIdentity=ObjectIdentity
-portAlrm=_PortAlrm_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,9,3))
-_PortTraffic_ObjectIdentity=ObjectIdentity
-portTraffic=_PortTraffic_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,9,3,1))
-class _PortTrafficEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_PortTrafficEnable_Type.__name__=_D
-_PortTrafficEnable_Object=MibScalar
-portTrafficEnable=_PortTrafficEnable_Object((1,3,6,1,4,1,52,1,2,1,9,3,1,1),_PortTrafficEnable_Type())
-portTrafficEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:portTrafficEnable.setStatus(_A)
-_PortTrafficThreshold_Type=Counter32
-_PortTrafficThreshold_Object=MibScalar
-portTrafficThreshold=_PortTrafficThreshold_Object((1,3,6,1,4,1,52,1,2,1,9,3,1,2),_PortTrafficThreshold_Type())
-portTrafficThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:portTrafficThreshold.setStatus(_A)
-_PortColls_ObjectIdentity=ObjectIdentity
-portColls=_PortColls_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,9,3,2))
-class _PortCollsEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_PortCollsEnable_Type.__name__=_D
-_PortCollsEnable_Object=MibScalar
-portCollsEnable=_PortCollsEnable_Object((1,3,6,1,4,1,52,1,2,1,9,3,2,1),_PortCollsEnable_Type())
-portCollsEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:portCollsEnable.setStatus(_A)
-_PortCollsThreshold_Type=Integer32
-_PortCollsThreshold_Object=MibScalar
-portCollsThreshold=_PortCollsThreshold_Object((1,3,6,1,4,1,52,1,2,1,9,3,2,2),_PortCollsThreshold_Type())
-portCollsThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:portCollsThreshold.setStatus(_A)
-_PortError_ObjectIdentity=ObjectIdentity
-portError=_PortError_ObjectIdentity((1,3,6,1,4,1,52,1,2,1,9,3,3))
-class _PortErrorEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_PortErrorEnable_Type.__name__=_D
-_PortErrorEnable_Object=MibScalar
-portErrorEnable=_PortErrorEnable_Object((1,3,6,1,4,1,52,1,2,1,9,3,3,1),_PortErrorEnable_Type())
-portErrorEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:portErrorEnable.setStatus(_A)
-_PortErrorThreshold_Type=Integer32
-_PortErrorThreshold_Object=MibScalar
-portErrorThreshold=_PortErrorThreshold_Object((1,3,6,1,4,1,52,1,2,1,9,3,3,2),_PortErrorThreshold_Type())
-portErrorThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:portErrorThreshold.setStatus(_A)
-_PortErrorSource_Type=Integer32
-_PortErrorSource_Object=MibScalar
-portErrorSource=_PortErrorSource_Object((1,3,6,1,4,1,52,1,2,1,9,3,3,3),_PortErrorSource_Type())
-portErrorSource.setMaxAccess(_C)
-if mibBuilder.loadTexts:portErrorSource.setStatus(_A)
-_RepeaterRev2_ObjectIdentity=ObjectIdentity
-repeaterRev2=_RepeaterRev2_ObjectIdentity((1,3,6,1,4,1,52,1,2,2))
-_Rr2device_ObjectIdentity=ObjectIdentity
-rr2device=_Rr2device_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,1))
-_CommonD_ObjectIdentity=ObjectIdentity
-commonD=_CommonD_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,1,1))
-_EthernetD_ObjectIdentity=ObjectIdentity
-ethernetD=_EthernetD_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,1,2))
-_TokenRingD_ObjectIdentity=ObjectIdentity
-tokenRingD=_TokenRingD_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,1,3))
-_DeviceTRTokenRingPortsOn_Type=Integer32
-_DeviceTRTokenRingPortsOn_Object=MibScalar
-deviceTRTokenRingPortsOn=_DeviceTRTokenRingPortsOn_Object((1,3,6,1,4,1,52,1,2,2,1,3,1),_DeviceTRTokenRingPortsOn_Type())
-deviceTRTokenRingPortsOn.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceTRTokenRingPortsOn.setStatus(_A)
-_DeviceTRTotalTokenRingPorts_Type=Integer32
-_DeviceTRTotalTokenRingPorts_Object=MibScalar
-deviceTRTotalTokenRingPorts=_DeviceTRTotalTokenRingPorts_Object((1,3,6,1,4,1,52,1,2,2,1,3,2),_DeviceTRTotalTokenRingPorts_Type())
-deviceTRTotalTokenRingPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceTRTotalTokenRingPorts.setStatus(_A)
-_DeviceTRTotalTokenRingRingPortsOn_Type=Integer32
-_DeviceTRTotalTokenRingRingPortsOn_Object=MibScalar
-deviceTRTotalTokenRingRingPortsOn=_DeviceTRTotalTokenRingRingPortsOn_Object((1,3,6,1,4,1,52,1,2,2,1,3,3),_DeviceTRTotalTokenRingRingPortsOn_Type())
-deviceTRTotalTokenRingRingPortsOn.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceTRTotalTokenRingRingPortsOn.setStatus(_A)
-_DeviceTRTotalTokenRingRingPorts_Type=Integer32
-_DeviceTRTotalTokenRingRingPorts_Object=MibScalar
-deviceTRTotalTokenRingRingPorts=_DeviceTRTotalTokenRingRingPorts_Object((1,3,6,1,4,1,52,1,2,2,1,3,4),_DeviceTRTotalTokenRingRingPorts_Type())
-deviceTRTotalTokenRingRingPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceTRTotalTokenRingRingPorts.setStatus(_A)
-_DeviceTRTotalTokenRingRings_Type=Integer32
-_DeviceTRTotalTokenRingRings_Object=MibScalar
-deviceTRTotalTokenRingRings=_DeviceTRTotalTokenRingRings_Object((1,3,6,1,4,1,52,1,2,2,1,3,5),_DeviceTRTotalTokenRingRings_Type())
-deviceTRTotalTokenRingRings.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceTRTotalTokenRingRings.setStatus(_A)
-_Network_ObjectIdentity=ObjectIdentity
-network=_Network_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,2))
-_Rr2board_ObjectIdentity=ObjectIdentity
-rr2board=_Rr2board_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,3))
-_CommonB_ObjectIdentity=ObjectIdentity
-commonB=_CommonB_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,3,1))
-_BoardIndex_Type=Integer32
-_BoardIndex_Object=MibScalar
-boardIndex=_BoardIndex_Object((1,3,6,1,4,1,52,1,2,2,3,1,1),_BoardIndex_Type())
-boardIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardIndex.setStatus(_A)
-_BoardName_Type=OctetString
-_BoardName_Object=MibScalar
-boardName=_BoardName_Object((1,3,6,1,4,1,52,1,2,2,3,1,2),_BoardName_Type())
-boardName.setMaxAccess(_C)
-if mibBuilder.loadTexts:boardName.setStatus(_A)
-_BoardType_Type=Integer32
-_BoardType_Object=MibScalar
-boardType=_BoardType_Object((1,3,6,1,4,1,52,1,2,2,3,1,3),_BoardType_Type())
-boardType.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardType.setStatus(_A)
-_BoardTotalPorts_Type=Integer32
-_BoardTotalPorts_Object=MibScalar
-boardTotalPorts=_BoardTotalPorts_Object((1,3,6,1,4,1,52,1,2,2,3,1,4),_BoardTotalPorts_Type())
-boardTotalPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardTotalPorts.setStatus(_A)
-class _BoardSTATUS_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('disabled',1),('enabled',2)))
-_BoardSTATUS_Type.__name__=_D
-_BoardSTATUS_Object=MibScalar
-boardSTATUS=_BoardSTATUS_Object((1,3,6,1,4,1,52,1,2,2,3,1,5),_BoardSTATUS_Type())
-boardSTATUS.setMaxAccess(_C)
-if mibBuilder.loadTexts:boardSTATUS.setStatus(_E)
-_BoardPortsOn_Type=Integer32
-_BoardPortsOn_Object=MibScalar
-boardPortsOn=_BoardPortsOn_Object((1,3,6,1,4,1,52,1,2,2,3,1,6),_BoardPortsOn_Type())
-boardPortsOn.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardPortsOn.setStatus(_A)
-_EthernetB_ObjectIdentity=ObjectIdentity
-ethernetB=_EthernetB_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,3,2))
-_BoardTotalPkts_Type=Counter32
-_BoardTotalPkts_Object=MibScalar
-boardTotalPkts=_BoardTotalPkts_Object((1,3,6,1,4,1,52,1,2,2,3,2,1),_BoardTotalPkts_Type())
-boardTotalPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardTotalPkts.setStatus(_A)
-_BoardErrorPkts_Type=Counter32
-_BoardErrorPkts_Object=MibScalar
-boardErrorPkts=_BoardErrorPkts_Object((1,3,6,1,4,1,52,1,2,2,3,2,2),_BoardErrorPkts_Type())
-boardErrorPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardErrorPkts.setStatus(_A)
-_BoardTransColl_Type=Counter32
-_BoardTransColl_Object=MibScalar
-boardTransColl=_BoardTransColl_Object((1,3,6,1,4,1,52,1,2,2,3,2,3),_BoardTransColl_Type())
-boardTransColl.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardTransColl.setStatus(_E)
-_BoardRecColl_Type=Counter32
-_BoardRecColl_Object=MibScalar
-boardRecColl=_BoardRecColl_Object((1,3,6,1,4,1,52,1,2,2,3,2,4),_BoardRecColl_Type())
-boardRecColl.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardRecColl.setStatus(_E)
-_BoardAlign_Type=Counter32
-_BoardAlign_Object=MibScalar
-boardAlign=_BoardAlign_Object((1,3,6,1,4,1,52,1,2,2,3,2,5),_BoardAlign_Type())
-boardAlign.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardAlign.setStatus(_E)
-_BoardCRC_Type=Counter32
-_BoardCRC_Object=MibScalar
-boardCRC=_BoardCRC_Object((1,3,6,1,4,1,52,1,2,2,3,2,6),_BoardCRC_Type())
-boardCRC.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardCRC.setStatus(_E)
-_BoardRunt_Type=Counter32
-_BoardRunt_Object=MibScalar
-boardRunt=_BoardRunt_Object((1,3,6,1,4,1,52,1,2,2,3,2,7),_BoardRunt_Type())
-boardRunt.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardRunt.setStatus(_E)
-_BoardOOWColl_Type=Counter32
-_BoardOOWColl_Object=MibScalar
-boardOOWColl=_BoardOOWColl_Object((1,3,6,1,4,1,52,1,2,2,3,2,8),_BoardOOWColl_Type())
-boardOOWColl.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardOOWColl.setStatus(_E)
-_BoardNoResources_Type=Counter32
-_BoardNoResources_Object=MibScalar
-boardNoResources=_BoardNoResources_Object((1,3,6,1,4,1,52,1,2,2,3,2,9),_BoardNoResources_Type())
-boardNoResources.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardNoResources.setStatus(_E)
-_BoardRecBytes_Type=Counter32
-_BoardRecBytes_Object=MibScalar
-boardRecBytes=_BoardRecBytes_Object((1,3,6,1,4,1,52,1,2,2,3,2,10),_BoardRecBytes_Type())
-boardRecBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardRecBytes.setStatus(_E)
-_BoardGiants_Type=Counter32
-_BoardGiants_Object=MibScalar
-boardGiants=_BoardGiants_Object((1,3,6,1,4,1,52,1,2,2,3,2,11),_BoardGiants_Type())
-boardGiants.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardGiants.setStatus(_A)
-_TokenRingB_ObjectIdentity=ObjectIdentity
-tokenRingB=_TokenRingB_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,3,3))
-_BoardTotalRingPorts_Type=Integer32
-_BoardTotalRingPorts_Object=MibScalar
-boardTotalRingPorts=_BoardTotalRingPorts_Object((1,3,6,1,4,1,52,1,2,2,3,3,1),_BoardTotalRingPorts_Type())
-boardTotalRingPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardTotalRingPorts.setStatus(_A)
-_BoardTotalStationPorts_Type=Integer32
-_BoardTotalStationPorts_Object=MibScalar
-boardTotalStationPorts=_BoardTotalStationPorts_Object((1,3,6,1,4,1,52,1,2,2,3,3,2),_BoardTotalStationPorts_Type())
-boardTotalStationPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardTotalStationPorts.setStatus(_A)
-_BoardModeStatus_Type=Integer32
-_BoardModeStatus_Object=MibScalar
-boardModeStatus=_BoardModeStatus_Object((1,3,6,1,4,1,52,1,2,2,3,3,3),_BoardModeStatus_Type())
-boardModeStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:boardModeStatus.setStatus(_A)
-_BoardTotalRingPortsOn_Type=Integer32
-_BoardTotalRingPortsOn_Object=MibScalar
-boardTotalRingPortsOn=_BoardTotalRingPortsOn_Object((1,3,6,1,4,1,52,1,2,2,3,3,4),_BoardTotalRingPortsOn_Type())
-boardTotalRingPortsOn.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardTotalRingPortsOn.setStatus(_A)
-_BoardTotalStationPortsOn_Type=Integer32
-_BoardTotalStationPortsOn_Object=MibScalar
-boardTotalStationPortsOn=_BoardTotalStationPortsOn_Object((1,3,6,1,4,1,52,1,2,2,3,3,5),_BoardTotalStationPortsOn_Type())
-boardTotalStationPortsOn.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardTotalStationPortsOn.setStatus(_A)
-_BoardSpeed_Type=Integer32
-_BoardSpeed_Object=MibScalar
-boardSpeed=_BoardSpeed_Object((1,3,6,1,4,1,52,1,2,2,3,3,6),_BoardSpeed_Type())
-boardSpeed.setMaxAccess(_C)
-if mibBuilder.loadTexts:boardSpeed.setStatus(_A)
-class _BoardRingSpeedFault_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('noFaultDetected',1),('faultDetected',2)))
-_BoardRingSpeedFault_Type.__name__=_D
-_BoardRingSpeedFault_Object=MibScalar
-boardRingSpeedFault=_BoardRingSpeedFault_Object((1,3,6,1,4,1,52,1,2,2,3,3,7),_BoardRingSpeedFault_Type())
-boardRingSpeedFault.setMaxAccess(_B)
-if mibBuilder.loadTexts:boardRingSpeedFault.setStatus(_A)
-_FddiB_ObjectIdentity=ObjectIdentity
-fddiB=_FddiB_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,3,4))
-_Rr2port_ObjectIdentity=ObjectIdentity
-rr2port=_Rr2port_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,4))
-_CommonP_ObjectIdentity=ObjectIdentity
-commonP=_CommonP_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,4,1))
-_PortIndex_Type=Integer32
-_PortIndex_Object=MibScalar
-portIndex=_PortIndex_Object((1,3,6,1,4,1,52,1,2,2,4,1,1),_PortIndex_Type())
-portIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:portIndex.setStatus(_A)
-_PortMediaType_Type=Integer32
-_PortMediaType_Object=MibScalar
-portMediaType=_PortMediaType_Object((1,3,6,1,4,1,52,1,2,2,4,1,2),_PortMediaType_Type())
-portMediaType.setMaxAccess(_B)
-if mibBuilder.loadTexts:portMediaType.setStatus(_A)
-class _PortAdminState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('off',1),('on',2)))
-_PortAdminState_Type.__name__=_D
-_PortAdminState_Object=MibScalar
-portAdminState=_PortAdminState_Object((1,3,6,1,4,1,52,1,2,2,4,1,3),_PortAdminState_Type())
-portAdminState.setMaxAccess(_C)
-if mibBuilder.loadTexts:portAdminState.setStatus(_A)
-_PortSourceAddr_Type=OctetString
-_PortSourceAddr_Object=MibScalar
-portSourceAddr=_PortSourceAddr_Object((1,3,6,1,4,1,52,1,2,2,4,1,4),_PortSourceAddr_Type())
-portSourceAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:portSourceAddr.setStatus(_A)
-_EthernetP_ObjectIdentity=ObjectIdentity
-ethernetP=_EthernetP_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,4,2))
-_PortTopologyType_Type=Integer32
-_PortTopologyType_Object=MibScalar
-portTopologyType=_PortTopologyType_Object((1,3,6,1,4,1,52,1,2,2,4,2,1),_PortTopologyType_Type())
-portTopologyType.setMaxAccess(_B)
-if mibBuilder.loadTexts:portTopologyType.setStatus(_A)
-class _PortLinkStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),(_L,2),('linkSignalNotSupported',3)))
-_PortLinkStatus_Type.__name__=_D
-_PortLinkStatus_Object=MibScalar
-portLinkStatus=_PortLinkStatus_Object((1,3,6,1,4,1,52,1,2,2,4,2,2),_PortLinkStatus_Type())
-portLinkStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:portLinkStatus.setStatus(_A)
-class _PortStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_M,1),('segmented',2)))
-_PortStatus_Type.__name__=_D
-_PortStatus_Object=MibScalar
-portStatus=_PortStatus_Object((1,3,6,1,4,1,52,1,2,2,4,2,3),_PortStatus_Type())
-portStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:portStatus.setStatus(_A)
-_PortTotalPkts_Type=Integer32
-_PortTotalPkts_Object=MibScalar
-portTotalPkts=_PortTotalPkts_Object((1,3,6,1,4,1,52,1,2,2,4,2,4),_PortTotalPkts_Type())
-portTotalPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:portTotalPkts.setStatus(_A)
-_PortErrorPkts_Type=Counter32
-_PortErrorPkts_Object=MibScalar
-portErrorPkts=_PortErrorPkts_Object((1,3,6,1,4,1,52,1,2,2,4,2,5),_PortErrorPkts_Type())
-portErrorPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:portErrorPkts.setStatus(_A)
-_PortXmitColls_Type=Counter32
-_PortXmitColls_Object=MibScalar
-portXmitColls=_PortXmitColls_Object((1,3,6,1,4,1,52,1,2,2,4,2,6),_PortXmitColls_Type())
-portXmitColls.setMaxAccess(_B)
-if mibBuilder.loadTexts:portXmitColls.setStatus(_E)
-_PortRecColls_Type=Counter32
-_PortRecColls_Object=MibScalar
-portRecColls=_PortRecColls_Object((1,3,6,1,4,1,52,1,2,2,4,2,7),_PortRecColls_Type())
-portRecColls.setMaxAccess(_B)
-if mibBuilder.loadTexts:portRecColls.setStatus(_E)
-_PortAlign_Type=Counter32
-_PortAlign_Object=MibScalar
-portAlign=_PortAlign_Object((1,3,6,1,4,1,52,1,2,2,4,2,8),_PortAlign_Type())
-portAlign.setMaxAccess(_B)
-if mibBuilder.loadTexts:portAlign.setStatus(_E)
-_PortCRC_Type=Counter32
-_PortCRC_Object=MibScalar
-portCRC=_PortCRC_Object((1,3,6,1,4,1,52,1,2,2,4,2,9),_PortCRC_Type())
-portCRC.setMaxAccess(_B)
-if mibBuilder.loadTexts:portCRC.setStatus(_E)
-_PortRunt_Type=Counter32
-_PortRunt_Object=MibScalar
-portRunt=_PortRunt_Object((1,3,6,1,4,1,52,1,2,2,4,2,10),_PortRunt_Type())
-portRunt.setMaxAccess(_B)
-if mibBuilder.loadTexts:portRunt.setStatus(_E)
-_PortOOWColl_Type=Counter32
-_PortOOWColl_Object=MibScalar
-portOOWColl=_PortOOWColl_Object((1,3,6,1,4,1,52,1,2,2,4,2,11),_PortOOWColl_Type())
-portOOWColl.setMaxAccess(_B)
-if mibBuilder.loadTexts:portOOWColl.setStatus(_E)
-_PortNoResorces_Type=Counter32
-_PortNoResorces_Object=MibScalar
-portNoResorces=_PortNoResorces_Object((1,3,6,1,4,1,52,1,2,2,4,2,12),_PortNoResorces_Type())
-portNoResorces.setMaxAccess(_B)
-if mibBuilder.loadTexts:portNoResorces.setStatus(_E)
-_PortRecBytes_Type=Counter32
-_PortRecBytes_Object=MibScalar
-portRecBytes=_PortRecBytes_Object((1,3,6,1,4,1,52,1,2,2,4,2,13),_PortRecBytes_Type())
-portRecBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:portRecBytes.setStatus(_E)
-_PortGiants_Type=Counter32
-_PortGiants_Object=MibScalar
-portGiants=_PortGiants_Object((1,3,6,1,4,1,52,1,2,2,4,2,14),_PortGiants_Type())
-portGiants.setMaxAccess(_B)
-if mibBuilder.loadTexts:portGiants.setStatus(_E)
-_PortRedundCrt_Type=Integer32
-_PortRedundCrt_Object=MibScalar
-portRedundCrt=_PortRedundCrt_Object((1,3,6,1,4,1,52,1,2,2,4,2,15),_PortRedundCrt_Type())
-portRedundCrt.setMaxAccess(_C)
-if mibBuilder.loadTexts:portRedundCrt.setStatus(_A)
-class _PortRedundType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3,4)));namedValues=NamedValues(*((_N,1),('primary',3),('backup',4)))
-_PortRedundType_Type.__name__=_D
-_PortRedundType_Object=MibScalar
-portRedundType=_PortRedundType_Object((1,3,6,1,4,1,52,1,2,2,4,2,16),_PortRedundType_Type())
-portRedundType.setMaxAccess(_C)
-if mibBuilder.loadTexts:portRedundType.setStatus(_A)
-class _PortRedundStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_N,1),(_M,2),('inactive',3)))
-_PortRedundStatus_Type.__name__=_D
-_PortRedundStatus_Object=MibScalar
-portRedundStatus=_PortRedundStatus_Object((1,3,6,1,4,1,52,1,2,2,4,2,17),_PortRedundStatus_Type())
-portRedundStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:portRedundStatus.setStatus(_A)
-class _PortForceLinkType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('notForced',1),('forced',2)))
-_PortForceLinkType_Type.__name__=_D
-_PortForceLinkType_Object=MibScalar
-portForceLinkType=_PortForceLinkType_Object((1,3,6,1,4,1,52,1,2,2,4,2,18),_PortForceLinkType_Type())
-portForceLinkType.setMaxAccess(_C)
-if mibBuilder.loadTexts:portForceLinkType.setStatus(_A)
-_TokenRingP_ObjectIdentity=ObjectIdentity
-tokenRingP=_TokenRingP_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,4,3))
-_StationP_ObjectIdentity=ObjectIdentity
-stationP=_StationP_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,4,3,1))
-class _StationPortLinkStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_K,1),(_L,2)))
-_StationPortLinkStatus_Type.__name__=_D
-_StationPortLinkStatus_Object=MibScalar
-stationPortLinkStatus=_StationPortLinkStatus_Object((1,3,6,1,4,1,52,1,2,2,4,3,1,1),_StationPortLinkStatus_Type())
-stationPortLinkStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:stationPortLinkStatus.setStatus(_A)
-_StationPortLinkStateTime_Type=Integer32
-_StationPortLinkStateTime_Object=MibScalar
-stationPortLinkStateTime=_StationPortLinkStateTime_Object((1,3,6,1,4,1,52,1,2,2,4,3,1,2),_StationPortLinkStateTime_Type())
-stationPortLinkStateTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:stationPortLinkStateTime.setStatus(_A)
-_RingP_ObjectIdentity=ObjectIdentity
-ringP=_RingP_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,4,3,2))
-class _RingPortLinkStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('off',1),('on',2)))
-_RingPortLinkStatus_Type.__name__=_D
-_RingPortLinkStatus_Object=MibScalar
-ringPortLinkStatus=_RingPortLinkStatus_Object((1,3,6,1,4,1,52,1,2,2,4,3,2,1),_RingPortLinkStatus_Type())
-ringPortLinkStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:ringPortLinkStatus.setStatus(_A)
-_RingPortLinkStateTime_Type=Integer32
-_RingPortLinkStateTime_Object=MibScalar
-ringPortLinkStateTime=_RingPortLinkStateTime_Object((1,3,6,1,4,1,52,1,2,2,4,3,2,2),_RingPortLinkStateTime_Type())
-ringPortLinkStateTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ringPortLinkStateTime.setStatus(_A)
-_FddiP_ObjectIdentity=ObjectIdentity
-fddiP=_FddiP_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,4,4))
-_RepeaterTables_ObjectIdentity=ObjectIdentity
-repeaterTables=_RepeaterTables_ObjectIdentity((1,3,6,1,4,1,52,1,2,2,5))
-_Bridge_ObjectIdentity=ObjectIdentity
-bridge=_Bridge_ObjectIdentity((1,3,6,1,4,1,52,1,3))
-_BridgeRev1_ObjectIdentity=ObjectIdentity
-bridgeRev1=_BridgeRev1_ObjectIdentity((1,3,6,1,4,1,52,1,3,1))
-_Bdgdevice_ObjectIdentity=ObjectIdentity
-bdgdevice=_Bdgdevice_ObjectIdentity((1,3,6,1,4,1,52,1,3,1,1))
-class _BdgdeviceDisableBdg_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disableBridge',0),('enableBridge',1)))
-_BdgdeviceDisableBdg_Type.__name__=_D
-_BdgdeviceDisableBdg_Object=MibScalar
-bdgdeviceDisableBdg=_BdgdeviceDisableBdg_Object((1,3,6,1,4,1,52,1,3,1,1,1),_BdgdeviceDisableBdg_Type())
-bdgdeviceDisableBdg.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgdeviceDisableBdg.setStatus(_A)
-class _BdgdeviceRestoreSettings_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('restoreSettings',0))
-_BdgdeviceRestoreSettings_Type.__name__=_D
-_BdgdeviceRestoreSettings_Object=MibScalar
-bdgdeviceRestoreSettings=_BdgdeviceRestoreSettings_Object((1,3,6,1,4,1,52,1,3,1,1,2),_BdgdeviceRestoreSettings_Type())
-bdgdeviceRestoreSettings.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgdeviceRestoreSettings.setStatus(_A)
-_BdgdeviceBdgName_Type=OctetString
-_BdgdeviceBdgName_Object=MibScalar
-bdgdeviceBdgName=_BdgdeviceBdgName_Object((1,3,6,1,4,1,52,1,3,1,1,4),_BdgdeviceBdgName_Type())
-bdgdeviceBdgName.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgdeviceBdgName.setStatus(_A)
-_BdgdeviceNumPorts_Type=Integer32
-_BdgdeviceNumPorts_Object=MibScalar
-bdgdeviceNumPorts=_BdgdeviceNumPorts_Object((1,3,6,1,4,1,52,1,3,1,1,5),_BdgdeviceNumPorts_Type())
-bdgdeviceNumPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceNumPorts.setStatus(_A)
-_BdgdeviceType_Type=OctetString
-_BdgdeviceType_Object=MibScalar
-bdgdeviceType=_BdgdeviceType_Object((1,3,6,1,4,1,52,1,3,1,1,6),_BdgdeviceType_Type())
-bdgdeviceType.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceType.setStatus(_A)
-_BdgdeviceVersion_Type=OctetString
-_BdgdeviceVersion_Object=MibScalar
-bdgdeviceVersion=_BdgdeviceVersion_Object((1,3,6,1,4,1,52,1,3,1,1,7),_BdgdeviceVersion_Type())
-bdgdeviceVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceVersion.setStatus(_A)
-_BdgdeviceLocation_Type=OctetString
-_BdgdeviceLocation_Object=MibScalar
-bdgdeviceLocation=_BdgdeviceLocation_Object((1,3,6,1,4,1,52,1,3,1,1,8),_BdgdeviceLocation_Type())
-bdgdeviceLocation.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgdeviceLocation.setStatus(_A)
-_BdgdeviceStatus_Type=OctetString
-_BdgdeviceStatus_Object=MibScalar
-bdgdeviceStatus=_BdgdeviceStatus_Object((1,3,6,1,4,1,52,1,3,1,1,9),_BdgdeviceStatus_Type())
-bdgdeviceStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceStatus.setStatus(_A)
-class _BdgdeviceRestartBdg_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('restartBridge',0))
-_BdgdeviceRestartBdg_Type.__name__=_D
-_BdgdeviceRestartBdg_Object=MibScalar
-bdgdeviceRestartBdg=_BdgdeviceRestartBdg_Object((1,3,6,1,4,1,52,1,3,1,1,10),_BdgdeviceRestartBdg_Type())
-bdgdeviceRestartBdg.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgdeviceRestartBdg.setStatus(_A)
-_BdgdeviceFrFwd_Type=Counter32
-_BdgdeviceFrFwd_Object=MibScalar
-bdgdeviceFrFwd=_BdgdeviceFrFwd_Object((1,3,6,1,4,1,52,1,3,1,1,11),_BdgdeviceFrFwd_Type())
-bdgdeviceFrFwd.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceFrFwd.setStatus(_A)
-_BdgdeviceFrRx_Type=Counter32
-_BdgdeviceFrRx_Object=MibScalar
-bdgdeviceFrRx=_BdgdeviceFrRx_Object((1,3,6,1,4,1,52,1,3,1,1,12),_BdgdeviceFrRx_Type())
-bdgdeviceFrRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceFrRx.setStatus(_A)
-_BdgdeviceFrFlt_Type=Counter32
-_BdgdeviceFrFlt_Object=MibScalar
-bdgdeviceFrFlt=_BdgdeviceFrFlt_Object((1,3,6,1,4,1,52,1,3,1,1,13),_BdgdeviceFrFlt_Type())
-bdgdeviceFrFlt.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceFrFlt.setStatus(_A)
-_BdgdeviceErr_Type=Counter32
-_BdgdeviceErr_Object=MibScalar
-bdgdeviceErr=_BdgdeviceErr_Object((1,3,6,1,4,1,52,1,3,1,1,14),_BdgdeviceErr_Type())
-bdgdeviceErr.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceErr.setStatus(_A)
-_BdgdeviceSwitchSetting_Type=OctetString
-_BdgdeviceSwitchSetting_Object=MibScalar
-bdgdeviceSwitchSetting=_BdgdeviceSwitchSetting_Object((1,3,6,1,4,1,52,1,3,1,1,15),_BdgdeviceSwitchSetting_Type())
-bdgdeviceSwitchSetting.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceSwitchSetting.setStatus(_A)
-_BdgdeviceNumRestarts_Type=Counter32
-_BdgdeviceNumRestarts_Object=MibScalar
-bdgdeviceNumRestarts=_BdgdeviceNumRestarts_Object((1,3,6,1,4,1,52,1,3,1,1,16),_BdgdeviceNumRestarts_Type())
-bdgdeviceNumRestarts.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceNumRestarts.setStatus(_A)
-class _BdgdeviceTypeFiltering_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_O,0),(_P,1),('both',2)))
-_BdgdeviceTypeFiltering_Type.__name__=_D
-_BdgdeviceTypeFiltering_Object=MibScalar
-bdgdeviceTypeFiltering=_BdgdeviceTypeFiltering_Object((1,3,6,1,4,1,52,1,3,1,1,17),_BdgdeviceTypeFiltering_Type())
-bdgdeviceTypeFiltering.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgdeviceTypeFiltering.setStatus(_A)
-class _BdgdeviceSTAProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_O,0),('dec',1),('none',2)))
-_BdgdeviceSTAProtocol_Type.__name__=_D
-_BdgdeviceSTAProtocol_Object=MibScalar
-bdgdeviceSTAProtocol=_BdgdeviceSTAProtocol_Object((1,3,6,1,4,1,52,1,3,1,1,18),_BdgdeviceSTAProtocol_Type())
-bdgdeviceSTAProtocol.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgdeviceSTAProtocol.setStatus(_A)
-_BdgdeviceBridgeID_Type=OctetString
-_BdgdeviceBridgeID_Object=MibScalar
-bdgdeviceBridgeID=_BdgdeviceBridgeID_Object((1,3,6,1,4,1,52,1,3,1,1,19),_BdgdeviceBridgeID_Type())
-bdgdeviceBridgeID.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceBridgeID.setStatus(_A)
-_BdgdeviceTopChgCnt_Type=Counter32
-_BdgdeviceTopChgCnt_Object=MibScalar
-bdgdeviceTopChgCnt=_BdgdeviceTopChgCnt_Object((1,3,6,1,4,1,52,1,3,1,1,20),_BdgdeviceTopChgCnt_Type())
-bdgdeviceTopChgCnt.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceTopChgCnt.setStatus(_A)
-_BdgdeviceRootCost_Type=Integer32
-_BdgdeviceRootCost_Object=MibScalar
-bdgdeviceRootCost=_BdgdeviceRootCost_Object((1,3,6,1,4,1,52,1,3,1,1,21),_BdgdeviceRootCost_Type())
-bdgdeviceRootCost.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceRootCost.setStatus(_A)
-_BdgdeviceRootPort_Type=Integer32
-_BdgdeviceRootPort_Object=MibScalar
-bdgdeviceRootPort=_BdgdeviceRootPort_Object((1,3,6,1,4,1,52,1,3,1,1,22),_BdgdeviceRootPort_Type())
-bdgdeviceRootPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceRootPort.setStatus(_A)
-_BdgdeviceHelloTime_Type=Integer32
-_BdgdeviceHelloTime_Object=MibScalar
-bdgdeviceHelloTime=_BdgdeviceHelloTime_Object((1,3,6,1,4,1,52,1,3,1,1,23),_BdgdeviceHelloTime_Type())
-bdgdeviceHelloTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceHelloTime.setStatus(_A)
-_BdgdeviceBdgMaxAge_Type=Integer32
-_BdgdeviceBdgMaxAge_Object=MibScalar
-bdgdeviceBdgMaxAge=_BdgdeviceBdgMaxAge_Object((1,3,6,1,4,1,52,1,3,1,1,24),_BdgdeviceBdgMaxAge_Type())
-bdgdeviceBdgMaxAge.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgdeviceBdgMaxAge.setStatus(_A)
-_BdgdeviceBdgFwdDly_Type=Integer32
-_BdgdeviceBdgFwdDly_Object=MibScalar
-bdgdeviceBdgFwdDly=_BdgdeviceBdgFwdDly_Object((1,3,6,1,4,1,52,1,3,1,1,25),_BdgdeviceBdgFwdDly_Type())
-bdgdeviceBdgFwdDly.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgdeviceBdgFwdDly.setStatus(_A)
-_BdgdeviceTimeTopChg_Type=Integer32
-_BdgdeviceTimeTopChg_Object=MibScalar
-bdgdeviceTimeTopChg=_BdgdeviceTimeTopChg_Object((1,3,6,1,4,1,52,1,3,1,1,26),_BdgdeviceTimeTopChg_Type())
-bdgdeviceTimeTopChg.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceTimeTopChg.setStatus(_A)
-class _BdgdeviceTopChg_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('noTopologyChangeInProgress',0),('topologyChangeInProgress',1)))
-_BdgdeviceTopChg_Type.__name__=_D
-_BdgdeviceTopChg_Object=MibScalar
-bdgdeviceTopChg=_BdgdeviceTopChg_Object((1,3,6,1,4,1,52,1,3,1,1,27),_BdgdeviceTopChg_Type())
-bdgdeviceTopChg.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceTopChg.setStatus(_A)
-_BdgdeviceDesigRoot_Type=OctetString
-_BdgdeviceDesigRoot_Object=MibScalar
-bdgdeviceDesigRoot=_BdgdeviceDesigRoot_Object((1,3,6,1,4,1,52,1,3,1,1,28),_BdgdeviceDesigRoot_Type())
-bdgdeviceDesigRoot.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceDesigRoot.setStatus(_A)
-_BdgdeviceMaxAge_Type=Integer32
-_BdgdeviceMaxAge_Object=MibScalar
-bdgdeviceMaxAge=_BdgdeviceMaxAge_Object((1,3,6,1,4,1,52,1,3,1,1,29),_BdgdeviceMaxAge_Type())
-bdgdeviceMaxAge.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceMaxAge.setStatus(_A)
-_BdgdeviceHoldTime_Type=Integer32
-_BdgdeviceHoldTime_Object=MibScalar
-bdgdeviceHoldTime=_BdgdeviceHoldTime_Object((1,3,6,1,4,1,52,1,3,1,1,30),_BdgdeviceHoldTime_Type())
-bdgdeviceHoldTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceHoldTime.setStatus(_A)
-_BdgdeviceFwdDly_Type=Integer32
-_BdgdeviceFwdDly_Object=MibScalar
-bdgdeviceFwdDly=_BdgdeviceFwdDly_Object((1,3,6,1,4,1,52,1,3,1,1,31),_BdgdeviceFwdDly_Type())
-bdgdeviceFwdDly.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceFwdDly.setStatus(_A)
-_BdgdeviceBdgHello_Type=Integer32
-_BdgdeviceBdgHello_Object=MibScalar
-bdgdeviceBdgHello=_BdgdeviceBdgHello_Object((1,3,6,1,4,1,52,1,3,1,1,32),_BdgdeviceBdgHello_Type())
-bdgdeviceBdgHello.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgdeviceBdgHello.setStatus(_A)
-_BdgdeviceBdgPriority_Type=Integer32
-_BdgdeviceBdgPriority_Object=MibScalar
-bdgdeviceBdgPriority=_BdgdeviceBdgPriority_Object((1,3,6,1,4,1,52,1,3,1,1,33),_BdgdeviceBdgPriority_Type())
-bdgdeviceBdgPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgdeviceBdgPriority.setStatus(_A)
-class _BdgdeviceResetCounts_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('resetCounts',0))
-_BdgdeviceResetCounts_Type.__name__=_D
-_BdgdeviceResetCounts_Object=MibScalar
-bdgdeviceResetCounts=_BdgdeviceResetCounts_Object((1,3,6,1,4,1,52,1,3,1,1,34),_BdgdeviceResetCounts_Type())
-bdgdeviceResetCounts.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgdeviceResetCounts.setStatus(_A)
-_BdgdeviceUptime_Type=Integer32
-_BdgdeviceUptime_Object=MibScalar
-bdgdeviceUptime=_BdgdeviceUptime_Object((1,3,6,1,4,1,52,1,3,1,1,35),_BdgdeviceUptime_Type())
-bdgdeviceUptime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceUptime.setStatus(_A)
-_BdgdeviceTrapType_Type=ObjectIdentifier
-_BdgdeviceTrapType_Object=MibScalar
-bdgdeviceTrapType=_BdgdeviceTrapType_Object((1,3,6,1,4,1,52,1,3,1,1,36),_BdgdeviceTrapType_Type())
-bdgdeviceTrapType.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgdeviceTrapType.setStatus(_A)
-_BdgPort_ObjectIdentity=ObjectIdentity
-bdgPort=_BdgPort_ObjectIdentity((1,3,6,1,4,1,52,1,3,1,2))
-_BdgPortAddress_Type=OctetString
-_BdgPortAddress_Object=MibScalar
-bdgPortAddress=_BdgPortAddress_Object((1,3,6,1,4,1,52,1,3,1,2,1),_BdgPortAddress_Type())
-bdgPortAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortAddress.setStatus(_A)
-_BdgPortName_Type=OctetString
-_BdgPortName_Object=MibScalar
-bdgPortName=_BdgPortName_Object((1,3,6,1,4,1,52,1,3,1,2,2),_BdgPortName_Type())
-bdgPortName.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgPortName.setStatus(_A)
-_BdgPortType_Type=OctetString
-_BdgPortType_Object=MibScalar
-bdgPortType=_BdgPortType_Object((1,3,6,1,4,1,52,1,3,1,2,3),_BdgPortType_Type())
-bdgPortType.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortType.setStatus(_A)
-_BdgPortStatus_Type=OctetString
-_BdgPortStatus_Object=MibScalar
-bdgPortStatus=_BdgPortStatus_Object((1,3,6,1,4,1,52,1,3,1,2,4),_BdgPortStatus_Type())
-bdgPortStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortStatus.setStatus(_A)
-_BdgPortNetName_Type=OctetString
-_BdgPortNetName_Object=MibScalar
-bdgPortNetName=_BdgPortNetName_Object((1,3,6,1,4,1,52,1,3,1,2,5),_BdgPortNetName_Type())
-bdgPortNetName.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgPortNetName.setStatus(_A)
-_BdgPortFrRx_Type=Counter32
-_BdgPortFrRx_Object=MibScalar
-bdgPortFrRx=_BdgPortFrRx_Object((1,3,6,1,4,1,52,1,3,1,2,6),_BdgPortFrRx_Type())
-bdgPortFrRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortFrRx.setStatus(_A)
-_BdgPortDisInb_Type=Counter32
-_BdgPortDisInb_Object=MibScalar
-bdgPortDisInb=_BdgPortDisInb_Object((1,3,6,1,4,1,52,1,3,1,2,7),_BdgPortDisInb_Type())
-bdgPortDisInb.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortDisInb.setStatus(_A)
-_BdgPortFwdOutb_Type=Counter32
-_BdgPortFwdOutb_Object=MibScalar
-bdgPortFwdOutb=_BdgPortFwdOutb_Object((1,3,6,1,4,1,52,1,3,1,2,8),_BdgPortFwdOutb_Type())
-bdgPortFwdOutb.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortFwdOutb.setStatus(_A)
-_BdgPortDisLOB_Type=Counter32
-_BdgPortDisLOB_Object=MibScalar
-bdgPortDisLOB=_BdgPortDisLOB_Object((1,3,6,1,4,1,52,1,3,1,2,9),_BdgPortDisLOB_Type())
-bdgPortDisLOB.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortDisLOB.setStatus(_A)
-_BdgPortDisTDE_Type=Counter32
-_BdgPortDisTDE_Object=MibScalar
-bdgPortDisTDE=_BdgPortDisTDE_Object((1,3,6,1,4,1,52,1,3,1,2,10),_BdgPortDisTDE_Type())
-bdgPortDisTDE.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortDisTDE.setStatus(_A)
-_BdgPortDisErr_Type=Counter32
-_BdgPortDisErr_Object=MibScalar
-bdgPortDisErr=_BdgPortDisErr_Object((1,3,6,1,4,1,52,1,3,1,2,11),_BdgPortDisErr_Type())
-bdgPortDisErr.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortDisErr.setStatus(_A)
-_BdgPortColl_Type=Counter32
-_BdgPortColl_Object=MibScalar
-bdgPortColl=_BdgPortColl_Object((1,3,6,1,4,1,52,1,3,1,2,12),_BdgPortColl_Type())
-bdgPortColl.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortColl.setStatus(_A)
-_BdgPortTxAbrt_Type=Counter32
-_BdgPortTxAbrt_Object=MibScalar
-bdgPortTxAbrt=_BdgPortTxAbrt_Object((1,3,6,1,4,1,52,1,3,1,2,13),_BdgPortTxAbrt_Type())
-bdgPortTxAbrt.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortTxAbrt.setStatus(_A)
-_BdgPortOowColl_Type=Counter32
-_BdgPortOowColl_Object=MibScalar
-bdgPortOowColl=_BdgPortOowColl_Object((1,3,6,1,4,1,52,1,3,1,2,14),_BdgPortOowColl_Type())
-bdgPortOowColl.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortOowColl.setStatus(_A)
-_BdgPortCRCErr_Type=Counter32
-_BdgPortCRCErr_Object=MibScalar
-bdgPortCRCErr=_BdgPortCRCErr_Object((1,3,6,1,4,1,52,1,3,1,2,15),_BdgPortCRCErr_Type())
-bdgPortCRCErr.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortCRCErr.setStatus(_A)
-_BdgPortFrAlErr_Type=Counter32
-_BdgPortFrAlErr_Object=MibScalar
-bdgPortFrAlErr=_BdgPortFrAlErr_Object((1,3,6,1,4,1,52,1,3,1,2,16),_BdgPortFrAlErr_Type())
-bdgPortFrAlErr.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortFrAlErr.setStatus(_A)
-_BdgPortPriority_Type=Integer32
-_BdgPortPriority_Object=MibScalar
-bdgPortPriority=_BdgPortPriority_Object((1,3,6,1,4,1,52,1,3,1,2,17),_BdgPortPriority_Type())
-bdgPortPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgPortPriority.setStatus(_A)
-_BdgPortState_Type=OctetString
-_BdgPortState_Object=MibScalar
-bdgPortState=_BdgPortState_Object((1,3,6,1,4,1,52,1,3,1,2,18),_BdgPortState_Type())
-bdgPortState.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortState.setStatus(_A)
-_BdgPortPathCost_Type=Integer32
-_BdgPortPathCost_Object=MibScalar
-bdgPortPathCost=_BdgPortPathCost_Object((1,3,6,1,4,1,52,1,3,1,2,19),_BdgPortPathCost_Type())
-bdgPortPathCost.setMaxAccess(_C)
-if mibBuilder.loadTexts:bdgPortPathCost.setStatus(_A)
-_BdgPortDesigCost_Type=Integer32
-_BdgPortDesigCost_Object=MibScalar
-bdgPortDesigCost=_BdgPortDesigCost_Object((1,3,6,1,4,1,52,1,3,1,2,20),_BdgPortDesigCost_Type())
-bdgPortDesigCost.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortDesigCost.setStatus(_A)
-_BdgPortDesigBrdg_Type=OctetString
-_BdgPortDesigBrdg_Object=MibScalar
-bdgPortDesigBrdg=_BdgPortDesigBrdg_Object((1,3,6,1,4,1,52,1,3,1,2,21),_BdgPortDesigBrdg_Type())
-bdgPortDesigBrdg.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortDesigBrdg.setStatus(_A)
-_BdgPortDesigPort_Type=Integer32
-_BdgPortDesigPort_Object=MibScalar
-bdgPortDesigPort=_BdgPortDesigPort_Object((1,3,6,1,4,1,52,1,3,1,2,22),_BdgPortDesigPort_Type())
-bdgPortDesigPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortDesigPort.setStatus(_A)
-class _BdgPortTopChgAck_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('noTopologyChangeIsOccurring',0),('topologyChangeIsOccurring',1)))
-_BdgPortTopChgAck_Type.__name__=_D
-_BdgPortTopChgAck_Object=MibScalar
-bdgPortTopChgAck=_BdgPortTopChgAck_Object((1,3,6,1,4,1,52,1,3,1,2,23),_BdgPortTopChgAck_Type())
-bdgPortTopChgAck.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortTopChgAck.setStatus(_A)
-_BdgPortDesigRoot_Type=OctetString
-_BdgPortDesigRoot_Object=MibScalar
-bdgPortDesigRoot=_BdgPortDesigRoot_Object((1,3,6,1,4,1,52,1,3,1,2,24),_BdgPortDesigRoot_Type())
-bdgPortDesigRoot.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortDesigRoot.setStatus(_A)
-_BdgPortRuntPackets_Type=Counter32
-_BdgPortRuntPackets_Object=MibScalar
-bdgPortRuntPackets=_BdgPortRuntPackets_Object((1,3,6,1,4,1,52,1,3,1,2,25),_BdgPortRuntPackets_Type())
-bdgPortRuntPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortRuntPackets.setStatus(_A)
-_BdgPortOversizePackets_Type=Counter32
-_BdgPortOversizePackets_Object=MibScalar
-bdgPortOversizePackets=_BdgPortOversizePackets_Object((1,3,6,1,4,1,52,1,3,1,2,26),_BdgPortOversizePackets_Type())
-bdgPortOversizePackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortOversizePackets.setStatus(_A)
-_BdgPortFrFilt_Type=Counter32
-_BdgPortFrFilt_Object=MibScalar
-bdgPortFrFilt=_BdgPortFrFilt_Object((1,3,6,1,4,1,52,1,3,1,2,27),_BdgPortFrFilt_Type())
-bdgPortFrFilt.setMaxAccess(_B)
-if mibBuilder.loadTexts:bdgPortFrFilt.setStatus(_A)
-_FilterDB_ObjectIdentity=ObjectIdentity
-filterDB=_FilterDB_ObjectIdentity((1,3,6,1,4,1,52,1,3,1,3))
-_AcqDB_ObjectIdentity=ObjectIdentity
-acqDB=_AcqDB_ObjectIdentity((1,3,6,1,4,1,52,1,3,1,3,1))
-_AcqStats_ObjectIdentity=ObjectIdentity
-acqStats=_AcqStats_ObjectIdentity((1,3,6,1,4,1,52,1,3,1,3,1,1))
-_AcqTotalEntries_Type=Integer32
-_AcqTotalEntries_Object=MibScalar
-acqTotalEntries=_AcqTotalEntries_Object((1,3,6,1,4,1,52,1,3,1,3,1,1,1),_AcqTotalEntries_Type())
-acqTotalEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:acqTotalEntries.setStatus(_A)
-_AcqMaxEntries_Type=Integer32
-_AcqMaxEntries_Object=MibScalar
-acqMaxEntries=_AcqMaxEntries_Object((1,3,6,1,4,1,52,1,3,1,3,1,1,2),_AcqMaxEntries_Type())
-acqMaxEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:acqMaxEntries.setStatus(_A)
-_AcqStaticEntries_Type=Integer32
-_AcqStaticEntries_Object=MibScalar
-acqStaticEntries=_AcqStaticEntries_Object((1,3,6,1,4,1,52,1,3,1,3,1,1,3),_AcqStaticEntries_Type())
-acqStaticEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:acqStaticEntries.setStatus(_A)
-_AcqStaticAgeTime_Type=Integer32
-_AcqStaticAgeTime_Object=MibScalar
-acqStaticAgeTime=_AcqStaticAgeTime_Object((1,3,6,1,4,1,52,1,3,1,3,1,1,4),_AcqStaticAgeTime_Type())
-acqStaticAgeTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:acqStaticAgeTime.setStatus(_A)
-_AcqDynEntries_Type=Integer32
-_AcqDynEntries_Object=MibScalar
-acqDynEntries=_AcqDynEntries_Object((1,3,6,1,4,1,52,1,3,1,3,1,1,5),_AcqDynEntries_Type())
-acqDynEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:acqDynEntries.setStatus(_A)
-_AcqDynAgeTime_Type=Integer32
-_AcqDynAgeTime_Object=MibScalar
-acqDynAgeTime=_AcqDynAgeTime_Object((1,3,6,1,4,1,52,1,3,1,3,1,1,6),_AcqDynAgeTime_Type())
-acqDynAgeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:acqDynAgeTime.setStatus(_A)
-class _AcqEraseDatabase_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('eraseAcquiredDatabase',0))
-_AcqEraseDatabase_Type.__name__=_D
-_AcqEraseDatabase_Object=MibScalar
-acqEraseDatabase=_AcqEraseDatabase_Object((1,3,6,1,4,1,52,1,3,1,3,1,1,7),_AcqEraseDatabase_Type())
-acqEraseDatabase.setMaxAccess(_C)
-if mibBuilder.loadTexts:acqEraseDatabase.setStatus(_A)
-_AcqOptions_ObjectIdentity=ObjectIdentity
-acqOptions=_AcqOptions_ObjectIdentity((1,3,6,1,4,1,52,1,3,1,3,1,2))
-class _AcqCreate00_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('createAcquiredEntryFilterPort1FilterPort2',0))
-_AcqCreate00_Type.__name__=_D
-_AcqCreate00_Object=MibScalar
-acqCreate00=_AcqCreate00_Object((1,3,6,1,4,1,52,1,3,1,3,1,2,1),_AcqCreate00_Type())
-acqCreate00.setMaxAccess(_C)
-if mibBuilder.loadTexts:acqCreate00.setStatus(_A)
-class _AcqCreate20_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('createAcquiredEntryForwardPort1FilterPort2',0))
-_AcqCreate20_Type.__name__=_D
-_AcqCreate20_Object=MibScalar
-acqCreate20=_AcqCreate20_Object((1,3,6,1,4,1,52,1,3,1,3,1,2,2),_AcqCreate20_Type())
-acqCreate20.setMaxAccess(_C)
-if mibBuilder.loadTexts:acqCreate20.setStatus(_A)
-class _AcqCreate01_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('createAcquiredEntryFilterPort1ForwardPort2',0))
-_AcqCreate01_Type.__name__=_D
-_AcqCreate01_Object=MibScalar
-acqCreate01=_AcqCreate01_Object((1,3,6,1,4,1,52,1,3,1,3,1,2,3),_AcqCreate01_Type())
-acqCreate01.setMaxAccess(_C)
-if mibBuilder.loadTexts:acqCreate01.setStatus(_A)
-class _AcqCreate21_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('createAcquiredEntryForwardPort1ForwardPort2',0))
-_AcqCreate21_Type.__name__=_D
-_AcqCreate21_Object=MibScalar
-acqCreate21=_AcqCreate21_Object((1,3,6,1,4,1,52,1,3,1,3,1,2,4),_AcqCreate21_Type())
-acqCreate21.setMaxAccess(_C)
-if mibBuilder.loadTexts:acqCreate21.setStatus(_A)
-class _AcqDelete_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('deleteAcquiredEntry',0))
-_AcqDelete_Type.__name__=_D
-_AcqDelete_Object=MibScalar
-acqDelete=_AcqDelete_Object((1,3,6,1,4,1,52,1,3,1,3,1,2,5),_AcqDelete_Type())
-acqDelete.setMaxAccess(_C)
-if mibBuilder.loadTexts:acqDelete.setStatus(_A)
-_AcqDispType_Type=OctetString
-_AcqDispType_Object=MibScalar
-acqDispType=_AcqDispType_Object((1,3,6,1,4,1,52,1,3,1,3,1,2,6),_AcqDispType_Type())
-acqDispType.setMaxAccess(_B)
-if mibBuilder.loadTexts:acqDispType.setStatus(_A)
-class _AcqDispOutp1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,2)));namedValues=NamedValues(*((_H,0),(_I,2)))
-_AcqDispOutp1_Type.__name__=_D
-_AcqDispOutp1_Object=MibScalar
-acqDispOutp1=_AcqDispOutp1_Object((1,3,6,1,4,1,52,1,3,1,3,1,2,7),_AcqDispOutp1_Type())
-acqDispOutp1.setMaxAccess(_B)
-if mibBuilder.loadTexts:acqDispOutp1.setStatus(_A)
-class _AcqDispOutp2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_H,0),(_I,1)))
-_AcqDispOutp2_Type.__name__=_D
-_AcqDispOutp2_Object=MibScalar
-acqDispOutp2=_AcqDispOutp2_Object((1,3,6,1,4,1,52,1,3,1,3,1,2,8),_AcqDispOutp2_Type())
-acqDispOutp2.setMaxAccess(_B)
-if mibBuilder.loadTexts:acqDispOutp2.setStatus(_A)
-_AcqSrcAddress_Type=OctetString
-_AcqSrcAddress_Object=MibScalar
-acqSrcAddress=_AcqSrcAddress_Object((1,3,6,1,4,1,52,1,3,1,3,1,2,9),_AcqSrcAddress_Type())
-acqSrcAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:acqSrcAddress.setStatus(_A)
-_PermDB_ObjectIdentity=ObjectIdentity
-permDB=_PermDB_ObjectIdentity((1,3,6,1,4,1,52,1,3,1,3,2))
-_PermStats_ObjectIdentity=ObjectIdentity
-permStats=_PermStats_ObjectIdentity((1,3,6,1,4,1,52,1,3,1,3,2,1))
-_PermMaxEntries_Type=Integer32
-_PermMaxEntries_Object=MibScalar
-permMaxEntries=_PermMaxEntries_Object((1,3,6,1,4,1,52,1,3,1,3,2,1,1),_PermMaxEntries_Type())
-permMaxEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:permMaxEntries.setStatus(_A)
-_PermCurrEntries_Type=Integer32
-_PermCurrEntries_Object=MibScalar
-permCurrEntries=_PermCurrEntries_Object((1,3,6,1,4,1,52,1,3,1,3,2,1,2),_PermCurrEntries_Type())
-permCurrEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:permCurrEntries.setStatus(_A)
-class _PermEraseDatabase_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('erasePermanentDatabase',0))
-_PermEraseDatabase_Type.__name__=_D
-_PermEraseDatabase_Object=MibScalar
-permEraseDatabase=_PermEraseDatabase_Object((1,3,6,1,4,1,52,1,3,1,3,2,1,3),_PermEraseDatabase_Type())
-permEraseDatabase.setMaxAccess(_C)
-if mibBuilder.loadTexts:permEraseDatabase.setStatus(_A)
-_PermOptions_ObjectIdentity=ObjectIdentity
-permOptions=_PermOptions_ObjectIdentity((1,3,6,1,4,1,52,1,3,1,3,2,2))
-class _PermCreate00_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('createPermanentEntryFilterPort1FilterPort2',0))
-_PermCreate00_Type.__name__=_D
-_PermCreate00_Object=MibScalar
-permCreate00=_PermCreate00_Object((1,3,6,1,4,1,52,1,3,1,3,2,2,1),_PermCreate00_Type())
-permCreate00.setMaxAccess(_C)
-if mibBuilder.loadTexts:permCreate00.setStatus(_A)
-class _PermCreate20_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('createPermanentEntryForwardPort1FilterPort2',0))
-_PermCreate20_Type.__name__=_D
-_PermCreate20_Object=MibScalar
-permCreate20=_PermCreate20_Object((1,3,6,1,4,1,52,1,3,1,3,2,2,2),_PermCreate20_Type())
-permCreate20.setMaxAccess(_C)
-if mibBuilder.loadTexts:permCreate20.setStatus(_A)
-class _PermCreate01_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('createPermanentEntryFilterPort1ForwardPort2',0))
-_PermCreate01_Type.__name__=_D
-_PermCreate01_Object=MibScalar
-permCreate01=_PermCreate01_Object((1,3,6,1,4,1,52,1,3,1,3,2,2,3),_PermCreate01_Type())
-permCreate01.setMaxAccess(_C)
-if mibBuilder.loadTexts:permCreate01.setStatus(_A)
-class _PermCreate21_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('createPermanentEntryForwardPort1ForwardPort2',0))
-_PermCreate21_Type.__name__=_D
-_PermCreate21_Object=MibScalar
-permCreate21=_PermCreate21_Object((1,3,6,1,4,1,52,1,3,1,3,2,2,4),_PermCreate21_Type())
-permCreate21.setMaxAccess(_C)
-if mibBuilder.loadTexts:permCreate21.setStatus(_A)
-class _PermDelete_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('deletePermanentEntry',0))
-_PermDelete_Type.__name__=_D
-_PermDelete_Object=MibScalar
-permDelete=_PermDelete_Object((1,3,6,1,4,1,52,1,3,1,3,2,2,5),_PermDelete_Type())
-permDelete.setMaxAccess(_C)
-if mibBuilder.loadTexts:permDelete.setStatus(_A)
-_PermDispType_Type=OctetString
-_PermDispType_Object=MibScalar
-permDispType=_PermDispType_Object((1,3,6,1,4,1,52,1,3,1,3,2,2,6),_PermDispType_Type())
-permDispType.setMaxAccess(_B)
-if mibBuilder.loadTexts:permDispType.setStatus(_A)
-class _PermDispOutp1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,2)));namedValues=NamedValues(*((_H,0),(_I,2)))
-_PermDispOutp1_Type.__name__=_D
-_PermDispOutp1_Object=MibScalar
-permDispOutp1=_PermDispOutp1_Object((1,3,6,1,4,1,52,1,3,1,3,2,2,7),_PermDispOutp1_Type())
-permDispOutp1.setMaxAccess(_B)
-if mibBuilder.loadTexts:permDispOutp1.setStatus(_A)
-class _PermDispOutp2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_H,0),(_I,1)))
-_PermDispOutp2_Type.__name__=_D
-_PermDispOutp2_Object=MibScalar
-permDispOutp2=_PermDispOutp2_Object((1,3,6,1,4,1,52,1,3,1,3,2,2,8),_PermDispOutp2_Type())
-permDispOutp2.setMaxAccess(_B)
-if mibBuilder.loadTexts:permDispOutp2.setStatus(_A)
-_PermSrcAddress_Type=OctetString
-_PermSrcAddress_Object=MibScalar
-permSrcAddress=_PermSrcAddress_Object((1,3,6,1,4,1,52,1,3,1,3,2,2,9),_PermSrcAddress_Type())
-permSrcAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:permSrcAddress.setStatus(_A)
-_SpecialDB_ObjectIdentity=ObjectIdentity
-specialDB=_SpecialDB_ObjectIdentity((1,3,6,1,4,1,52,1,3,1,3,3))
-_SpecStats_ObjectIdentity=ObjectIdentity
-specStats=_SpecStats_ObjectIdentity((1,3,6,1,4,1,52,1,3,1,3,3,1))
-_SpecNumEntries_Type=Integer32
-_SpecNumEntries_Object=MibScalar
-specNumEntries=_SpecNumEntries_Object((1,3,6,1,4,1,52,1,3,1,3,3,1,1),_SpecNumEntries_Type())
-specNumEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:specNumEntries.setStatus(_A)
-_SpecMaxEntries_Type=Integer32
-_SpecMaxEntries_Object=MibScalar
-specMaxEntries=_SpecMaxEntries_Object((1,3,6,1,4,1,52,1,3,1,3,3,1,2),_SpecMaxEntries_Type())
-specMaxEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:specMaxEntries.setStatus(_A)
-_SpecNextFilterNum_Type=Integer32
-_SpecNextFilterNum_Object=MibScalar
-specNextFilterNum=_SpecNextFilterNum_Object((1,3,6,1,4,1,52,1,3,1,3,3,1,3),_SpecNextFilterNum_Type())
-specNextFilterNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:specNextFilterNum.setStatus(_A)
-_SpecFilters_ObjectIdentity=ObjectIdentity
-specFilters=_SpecFilters_ObjectIdentity((1,3,6,1,4,1,52,1,3,1,3,3,2))
-class _SpecEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disableFilter',0),('enableFilter',1)))
-_SpecEnable_Type.__name__=_D
-_SpecEnable_Object=MibScalar
-specEnable=_SpecEnable_Object((1,3,6,1,4,1,52,1,3,1,3,3,2,1),_SpecEnable_Type())
-specEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:specEnable.setStatus(_A)
-class _SpecPort1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,2)));namedValues=NamedValues(*((_H,0),(_I,2)))
-_SpecPort1_Type.__name__=_D
-_SpecPort1_Object=MibScalar
-specPort1=_SpecPort1_Object((1,3,6,1,4,1,52,1,3,1,3,3,2,2),_SpecPort1_Type())
-specPort1.setMaxAccess(_C)
-if mibBuilder.loadTexts:specPort1.setStatus(_A)
-class _SpecPort2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_H,0),(_I,1)))
-_SpecPort2_Type.__name__=_D
-_SpecPort2_Object=MibScalar
-specPort2=_SpecPort2_Object((1,3,6,1,4,1,52,1,3,1,3,3,2,3),_SpecPort2_Type())
-specPort2.setMaxAccess(_C)
-if mibBuilder.loadTexts:specPort2.setStatus(_A)
-_SpecDestAddress_Type=OctetString
-_SpecDestAddress_Object=MibScalar
-specDestAddress=_SpecDestAddress_Object((1,3,6,1,4,1,52,1,3,1,3,3,2,4),_SpecDestAddress_Type())
-specDestAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:specDestAddress.setStatus(_A)
-_SpecSrcAddress_Type=OctetString
-_SpecSrcAddress_Object=MibScalar
-specSrcAddress=_SpecSrcAddress_Object((1,3,6,1,4,1,52,1,3,1,3,3,2,5),_SpecSrcAddress_Type())
-specSrcAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:specSrcAddress.setStatus(_A)
-_SpecType_Type=OctetString
-_SpecType_Object=MibScalar
-specType=_SpecType_Object((1,3,6,1,4,1,52,1,3,1,3,3,2,6),_SpecType_Type())
-specType.setMaxAccess(_C)
-if mibBuilder.loadTexts:specType.setStatus(_A)
-_SpecDataField_Type=OctetString
-_SpecDataField_Object=MibScalar
-specDataField=_SpecDataField_Object((1,3,6,1,4,1,52,1,3,1,3,3,2,7),_SpecDataField_Type())
-specDataField.setMaxAccess(_C)
-if mibBuilder.loadTexts:specDataField.setStatus(_A)
-class _SpecDeleteFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('deleteFilter',0))
-_SpecDeleteFilter_Type.__name__=_D
-_SpecDeleteFilter_Object=MibScalar
-specDeleteFilter=_SpecDeleteFilter_Object((1,3,6,1,4,1,52,1,3,1,3,3,2,8),_SpecDeleteFilter_Type())
-specDeleteFilter.setMaxAccess(_C)
-if mibBuilder.loadTexts:specDeleteFilter.setStatus(_A)
-_TrapTypes_ObjectIdentity=ObjectIdentity
-trapTypes=_TrapTypes_ObjectIdentity((1,3,6,1,4,1,52,1,3,1,4))
-_BdgTables_ObjectIdentity=ObjectIdentity
-bdgTables=_BdgTables_ObjectIdentity((1,3,6,1,4,1,52,1,3,1,5))
-_Router_ObjectIdentity=ObjectIdentity
-router=_Router_ObjectIdentity((1,3,6,1,4,1,52,1,4))
-_Product_ObjectIdentity=ObjectIdentity
-product=_Product_ObjectIdentity((1,3,6,1,4,1,52,1,5))
-_ProductRev1_ObjectIdentity=ObjectIdentity
-productRev1=_ProductRev1_ObjectIdentity((1,3,6,1,4,1,52,1,5,1))
-_IRBM_ObjectIdentity=ObjectIdentity
-iRBM=_IRBM_ObjectIdentity((1,3,6,1,4,1,52,1,5,1,1))
-class _IRBMRevision_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('rev0',0),('rev1',1),('rev2',2),('rev3',3)))
-_IRBMRevision_Type.__name__=_D
-_IRBMRevision_Object=MibScalar
-iRBMRevision=_IRBMRevision_Object((1,3,6,1,4,1,52,1,5,1,1,1),_IRBMRevision_Type())
-iRBMRevision.setMaxAccess(_C)
-if mibBuilder.loadTexts:iRBMRevision.setStatus(_A)
-_IRBMPortAssociation_Type=Integer32
-_IRBMPortAssociation_Object=MibScalar
-iRBMPortAssociation=_IRBMPortAssociation_Object((1,3,6,1,4,1,52,1,5,1,1,2),_IRBMPortAssociation_Type())
-iRBMPortAssociation.setMaxAccess(_C)
-if mibBuilder.loadTexts:iRBMPortAssociation.setStatus(_A)
-_Subsystem_ObjectIdentity=ObjectIdentity
-subsystem=_Subsystem_ObjectIdentity((1,3,6,1,4,1,52,1,6))
-_MMAC_ObjectIdentity=ObjectIdentity
-mMAC=_MMAC_ObjectIdentity((1,3,6,1,4,1,52,1,6,1))
-_Fnb_ObjectIdentity=ObjectIdentity
-fnb=_Fnb_ObjectIdentity((1,3,6,1,4,1,52,1,6,1,1))
-_FnbConnectedLeft_Type=Integer32
-_FnbConnectedLeft_Object=MibScalar
-fnbConnectedLeft=_FnbConnectedLeft_Object((1,3,6,1,4,1,52,1,6,1,1,1),_FnbConnectedLeft_Type())
-fnbConnectedLeft.setMaxAccess(_C)
-if mibBuilder.loadTexts:fnbConnectedLeft.setStatus(_A)
-_FnbConnectedRight_Type=Integer32
-_FnbConnectedRight_Object=MibScalar
-fnbConnectedRight=_FnbConnectedRight_Object((1,3,6,1,4,1,52,1,6,1,1,2),_FnbConnectedRight_Type())
-fnbConnectedRight.setMaxAccess(_C)
-if mibBuilder.loadTexts:fnbConnectedRight.setStatus(_A)
-_FnbBoardBypassState_Type=Integer32
-_FnbBoardBypassState_Object=MibScalar
-fnbBoardBypassState=_FnbBoardBypassState_Object((1,3,6,1,4,1,52,1,6,1,1,3),_FnbBoardBypassState_Type())
-fnbBoardBypassState.setMaxAccess(_C)
-if mibBuilder.loadTexts:fnbBoardBypassState.setStatus(_A)
-_LayerMgmt_ObjectIdentity=ObjectIdentity
-layerMgmt=_LayerMgmt_ObjectIdentity((1,3,6,1,4,1,52,2))
-_Lmcommon_ObjectIdentity=ObjectIdentity
-lmcommon=_Lmcommon_ObjectIdentity((1,3,6,1,4,1,52,2,1))
-_MAC_ObjectIdentity=ObjectIdentity
-mAC=_MAC_ObjectIdentity((1,3,6,1,4,1,52,2,2))
-_Ieee8023_ObjectIdentity=ObjectIdentity
-ieee8023=_Ieee8023_ObjectIdentity((1,3,6,1,4,1,52,2,2,1))
-_PcIF_ObjectIdentity=ObjectIdentity
-pcIF=_PcIF_ObjectIdentity((1,3,6,1,4,1,52,2,2,1,1))
-_PcIfRev_ObjectIdentity=ObjectIdentity
-pcIfRev=_PcIfRev_ObjectIdentity((1,3,6,1,4,1,52,2,2,1,1,1))
-_PcDeviceName_Type=OctetString
-_PcDeviceName_Object=MibScalar
-pcDeviceName=_PcDeviceName_Object((1,3,6,1,4,1,52,2,2,1,1,1,1),_PcDeviceName_Type())
-pcDeviceName.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcDeviceName.setStatus(_A)
-_PcBoardType_Type=ObjectIdentifier
-_PcBoardType_Object=MibScalar
-pcBoardType=_PcBoardType_Object((1,3,6,1,4,1,52,2,2,1,1,1,2),_PcBoardType_Type())
-pcBoardType.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcBoardType.setStatus(_A)
-_PcOwnerName_Type=OctetString
-_PcOwnerName_Object=MibScalar
-pcOwnerName=_PcOwnerName_Object((1,3,6,1,4,1,52,2,2,1,1,1,3),_PcOwnerName_Type())
-pcOwnerName.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcOwnerName.setStatus(_A)
-_PcLocation_Type=OctetString
-_PcLocation_Object=MibScalar
-pcLocation=_PcLocation_Object((1,3,6,1,4,1,52,2,2,1,1,1,4),_PcLocation_Type())
-pcLocation.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcLocation.setStatus(_A)
-_PcMMACAddr_Type=OctetString
-_PcMMACAddr_Object=MibScalar
-pcMMACAddr=_PcMMACAddr_Object((1,3,6,1,4,1,52,2,2,1,1,1,5),_PcMMACAddr_Type())
-pcMMACAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcMMACAddr.setStatus(_A)
-_PcMMACBoard_Type=OctetString
-_PcMMACBoard_Object=MibScalar
-pcMMACBoard=_PcMMACBoard_Object((1,3,6,1,4,1,52,2,2,1,1,1,6),_PcMMACBoard_Type())
-pcMMACBoard.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcMMACBoard.setStatus(_A)
-_PcMMACPort_Type=OctetString
-_PcMMACPort_Object=MibScalar
-pcMMACPort=_PcMMACPort_Object((1,3,6,1,4,1,52,2,2,1,1,1,7),_PcMMACPort_Type())
-pcMMACPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcMMACPort.setStatus(_A)
-_PcApplication_Type=OctetString
-_PcApplication_Object=MibScalar
-pcApplication=_PcApplication_Object((1,3,6,1,4,1,52,2,2,1,1,1,8),_PcApplication_Type())
-pcApplication.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcApplication.setStatus(_A)
-_PcDriverRev_Type=OctetString
-_PcDriverRev_Object=MibScalar
-pcDriverRev=_PcDriverRev_Object((1,3,6,1,4,1,52,2,2,1,1,1,9),_PcDriverRev_Type())
-pcDriverRev.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcDriverRev.setStatus(_A)
-_PcOnboardMemory_Type=Integer32
-_PcOnboardMemory_Object=MibScalar
-pcOnboardMemory=_PcOnboardMemory_Object((1,3,6,1,4,1,52,2,2,1,1,1,10),_PcOnboardMemory_Type())
-pcOnboardMemory.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcOnboardMemory.setStatus(_A)
-_PcComment_Type=OctetString
-_PcComment_Object=MibScalar
-pcComment=_PcComment_Object((1,3,6,1,4,1,52,2,2,1,1,1,11),_PcComment_Type())
-pcComment.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcComment.setStatus(_A)
-_PcMACAddr_Type=OctetString
-_PcMACAddr_Object=MibScalar
-pcMACAddr=_PcMACAddr_Object((1,3,6,1,4,1,52,2,2,1,1,1,12),_PcMACAddr_Type())
-pcMACAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcMACAddr.setStatus(_A)
-_PcFramesXmit_Type=Integer32
-_PcFramesXmit_Object=MibScalar
-pcFramesXmit=_PcFramesXmit_Object((1,3,6,1,4,1,52,2,2,1,1,1,13),_PcFramesXmit_Type())
-pcFramesXmit.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcFramesXmit.setStatus(_A)
-_PcBytesXmit_Type=Integer32
-_PcBytesXmit_Object=MibScalar
-pcBytesXmit=_PcBytesXmit_Object((1,3,6,1,4,1,52,2,2,1,1,1,14),_PcBytesXmit_Type())
-pcBytesXmit.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcBytesXmit.setStatus(_A)
-_PcMcastXmit_Type=Integer32
-_PcMcastXmit_Object=MibScalar
-pcMcastXmit=_PcMcastXmit_Object((1,3,6,1,4,1,52,2,2,1,1,1,15),_PcMcastXmit_Type())
-pcMcastXmit.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcMcastXmit.setStatus(_A)
-_PcBcastXmit_Type=Integer32
-_PcBcastXmit_Object=MibScalar
-pcBcastXmit=_PcBcastXmit_Object((1,3,6,1,4,1,52,2,2,1,1,1,16),_PcBcastXmit_Type())
-pcBcastXmit.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcBcastXmit.setStatus(_A)
-_PcDeferXmit_Type=Integer32
-_PcDeferXmit_Object=MibScalar
-pcDeferXmit=_PcDeferXmit_Object((1,3,6,1,4,1,52,2,2,1,1,1,17),_PcDeferXmit_Type())
-pcDeferXmit.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcDeferXmit.setStatus(_A)
-_PcSglColl_Type=Integer32
-_PcSglColl_Object=MibScalar
-pcSglColl=_PcSglColl_Object((1,3,6,1,4,1,52,2,2,1,1,1,18),_PcSglColl_Type())
-pcSglColl.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcSglColl.setStatus(_A)
-_PcMultiColl_Type=Integer32
-_PcMultiColl_Object=MibScalar
-pcMultiColl=_PcMultiColl_Object((1,3,6,1,4,1,52,2,2,1,1,1,19),_PcMultiColl_Type())
-pcMultiColl.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcMultiColl.setStatus(_A)
-_PcTotXmitErrs_Type=Integer32
-_PcTotXmitErrs_Object=MibScalar
-pcTotXmitErrs=_PcTotXmitErrs_Object((1,3,6,1,4,1,52,2,2,1,1,1,20),_PcTotXmitErrs_Type())
-pcTotXmitErrs.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcTotXmitErrs.setStatus(_A)
-_PcLateColls_Type=Integer32
-_PcLateColls_Object=MibScalar
-pcLateColls=_PcLateColls_Object((1,3,6,1,4,1,52,2,2,1,1,1,21),_PcLateColls_Type())
-pcLateColls.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcLateColls.setStatus(_A)
-_PcXcessColls_Type=Integer32
-_PcXcessColls_Object=MibScalar
-pcXcessColls=_PcXcessColls_Object((1,3,6,1,4,1,52,2,2,1,1,1,22),_PcXcessColls_Type())
-pcXcessColls.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcXcessColls.setStatus(_A)
-_PcCarrErr_Type=Integer32
-_PcCarrErr_Object=MibScalar
-pcCarrErr=_PcCarrErr_Object((1,3,6,1,4,1,52,2,2,1,1,1,23),_PcCarrErr_Type())
-pcCarrErr.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcCarrErr.setStatus(_A)
-_PcFramesRec_Type=Integer32
-_PcFramesRec_Object=MibScalar
-pcFramesRec=_PcFramesRec_Object((1,3,6,1,4,1,52,2,2,1,1,1,24),_PcFramesRec_Type())
-pcFramesRec.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcFramesRec.setStatus(_A)
-_PcBytesRec_Type=Integer32
-_PcBytesRec_Object=MibScalar
-pcBytesRec=_PcBytesRec_Object((1,3,6,1,4,1,52,2,2,1,1,1,25),_PcBytesRec_Type())
-pcBytesRec.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcBytesRec.setStatus(_A)
-_PcMcastRec_Type=Integer32
-_PcMcastRec_Object=MibScalar
-pcMcastRec=_PcMcastRec_Object((1,3,6,1,4,1,52,2,2,1,1,1,26),_PcMcastRec_Type())
-pcMcastRec.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcMcastRec.setStatus(_A)
-_PcBcastRec_Type=Integer32
-_PcBcastRec_Object=MibScalar
-pcBcastRec=_PcBcastRec_Object((1,3,6,1,4,1,52,2,2,1,1,1,27),_PcBcastRec_Type())
-pcBcastRec.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcBcastRec.setStatus(_A)
-_PcTotRecErrs_Type=Integer32
-_PcTotRecErrs_Object=MibScalar
-pcTotRecErrs=_PcTotRecErrs_Object((1,3,6,1,4,1,52,2,2,1,1,1,28),_PcTotRecErrs_Type())
-pcTotRecErrs.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcTotRecErrs.setStatus(_A)
-_PcTooLong_Type=Integer32
-_PcTooLong_Object=MibScalar
-pcTooLong=_PcTooLong_Object((1,3,6,1,4,1,52,2,2,1,1,1,29),_PcTooLong_Type())
-pcTooLong.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcTooLong.setStatus(_A)
-_PcTooShort_Type=Integer32
-_PcTooShort_Object=MibScalar
-pcTooShort=_PcTooShort_Object((1,3,6,1,4,1,52,2,2,1,1,1,30),_PcTooShort_Type())
-pcTooShort.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcTooShort.setStatus(_A)
-_PcAlignErrs_Type=Integer32
-_PcAlignErrs_Object=MibScalar
-pcAlignErrs=_PcAlignErrs_Object((1,3,6,1,4,1,52,2,2,1,1,1,31),_PcAlignErrs_Type())
-pcAlignErrs.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcAlignErrs.setStatus(_A)
-_PcCRCErrs_Type=Integer32
-_PcCRCErrs_Object=MibScalar
-pcCRCErrs=_PcCRCErrs_Object((1,3,6,1,4,1,52,2,2,1,1,1,32),_PcCRCErrs_Type())
-pcCRCErrs.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcCRCErrs.setStatus(_A)
-_PcLenErrs_Type=Integer32
-_PcLenErrs_Object=MibScalar
-pcLenErrs=_PcLenErrs_Object((1,3,6,1,4,1,52,2,2,1,1,1,33),_PcLenErrs_Type())
-pcLenErrs.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcLenErrs.setStatus(_A)
-_PcIntRecErr_Type=Integer32
-_PcIntRecErr_Object=MibScalar
-pcIntRecErr=_PcIntRecErr_Object((1,3,6,1,4,1,52,2,2,1,1,1,34),_PcIntRecErr_Type())
-pcIntRecErr.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcIntRecErr.setStatus(_A)
-_PcSqeErr_Type=Integer32
-_PcSqeErr_Object=MibScalar
-pcSqeErr=_PcSqeErr_Object((1,3,6,1,4,1,52,2,2,1,1,1,35),_PcSqeErr_Type())
-pcSqeErr.setMaxAccess(_B)
-if mibBuilder.loadTexts:pcSqeErr.setStatus(_A)
-mibBuilder.exportSymbols('Cabletron-MIB',**{'cabletron':cabletron,'commsDevice':commsDevice,'common':common,'commonRev1':commonRev1,'deviceType':deviceType,'deviceName':deviceName,'deviceIPAddress':deviceIPAddress,'currentTime':currentTime,'currentDate':currentDate,'mACAddress':mACAddress,'sysOIDs':sysOIDs,'sysOtherType':sysOtherType,'sysIRMType':sysIRMType,'soidIRMSNMP':soidIRMSNMP,'soidIRBM':soidIRBM,'soidIRM2':soidIRM2,'sysRepType':sysRepType,'soidMINIMMAC':soidMINIMMAC,'soidMRXI':soidMRXI,'sysBDGType':sysBDGType,'repeater':repeater,'repeaterRev1':repeaterRev1,'device':device,'deviceMMACType':deviceMMACType,'deviceSlots':deviceSlots,'deviceOccupiedSlots':deviceOccupiedSlots,'devicePortsOn':devicePortsOn,'deviceTotalPorts':deviceTotalPorts,'deviceTotalPkts':deviceTotalPkts,'deviceTotalErrors':deviceTotalErrors,'deviceTransmitColl':deviceTransmitColl,'deviceRecColls':deviceRecColls,'deviceAlign':deviceAlign,'deviceCRC':deviceCRC,'deviceRunt':deviceRunt,'deviceOOWColl':deviceOOWColl,'deviceNoResources':deviceNoResources,'deviceRecBytes':deviceRecBytes,'deviceGiantFrames':deviceGiantFrames,'deviceRestart':deviceRestart,'deviceResetCounter':deviceResetCounter,'deviceRedundantCts':deviceRedundantCts,'deviceTimeBase':deviceTimeBase,'deviceResetRedundancy':deviceResetRedundancy,'deviceSrcAddrAgingTime':deviceSrcAddrAgingTime,'deviceSrcAddrTraps':deviceSrcAddrTraps,'deviceSrcAddrLocked':deviceSrcAddrLocked,'deviceEnetBoardMap':deviceEnetBoardMap,'deviceTokenRingBoardMap':deviceTokenRingBoardMap,'deviceFDDIBoardMap':deviceFDDIBoardMap,'board':board,'port':port,'sourceAddr':sourceAddr,'sourceAddrBoard':sourceAddrBoard,'sourceAddrPort':sourceAddrPort,'redundancy':redundancy,'redundancyPollInterval':redundancyPollInterval,'redundancyTestTod':redundancyTestTod,'redundancyPerformTest':redundancyPerformTest,'redundancyCircuitName':redundancyCircuitName,'redundancyRetryCount':redundancyRetryCount,'redundancyNumBPs':redundancyNumBPs,'redundancyCircuitBoards':redundancyCircuitBoards,'redundancyCircuitPort':redundancyCircuitPort,'redundancyCircuitTypes':redundancyCircuitTypes,'redundancyCircuitNumAddr':redundancyCircuitNumAddr,'redundancyCircuitMACAddrAdd':redundancyCircuitMACAddrAdd,'redundancyCircuitMACAddrDel':redundancyCircuitMACAddrDel,'redundancyCircuitMACAddrDisp':redundancyCircuitMACAddrDisp,'redundancyCircuitEnable':redundancyCircuitEnable,'redundancyCircuitReset':redundancyCircuitReset,'alarm':alarm,'devAlrm':devAlrm,'devTraffic':devTraffic,'devTrafficEnable':devTrafficEnable,'devTrafficThreshold':devTrafficThreshold,'devColls':devColls,'devCollsEnable':devCollsEnable,'devCollsThreshold':devCollsThreshold,'devError':devError,'devErrorEnable':devErrorEnable,'devErrorThreshold':devErrorThreshold,'devErrorSource':devErrorSource,'bdAlrm':bdAlrm,'bdTraffic':bdTraffic,'bdTrafficEnable':bdTrafficEnable,'bdTrafficThreshold':bdTrafficThreshold,'bdColls':bdColls,'bdCollsEnable':bdCollsEnable,'bdCollsThreshold':bdCollsThreshold,'bdError':bdError,'bdErrorEnable':bdErrorEnable,'bdErrorThreshold':bdErrorThreshold,'bdErrorSource':bdErrorSource,'portAlrm':portAlrm,'portTraffic':portTraffic,'portTrafficEnable':portTrafficEnable,'portTrafficThreshold':portTrafficThreshold,'portColls':portColls,'portCollsEnable':portCollsEnable,'portCollsThreshold':portCollsThreshold,'portError':portError,'portErrorEnable':portErrorEnable,'portErrorThreshold':portErrorThreshold,'portErrorSource':portErrorSource,'repeaterRev2':repeaterRev2,'rr2device':rr2device,'commonD':commonD,'ethernetD':ethernetD,'tokenRingD':tokenRingD,'deviceTRTokenRingPortsOn':deviceTRTokenRingPortsOn,'deviceTRTotalTokenRingPorts':deviceTRTotalTokenRingPorts,'deviceTRTotalTokenRingRingPortsOn':deviceTRTotalTokenRingRingPortsOn,'deviceTRTotalTokenRingRingPorts':deviceTRTotalTokenRingRingPorts,'deviceTRTotalTokenRingRings':deviceTRTotalTokenRingRings,'network':network,'rr2board':rr2board,'commonB':commonB,'boardIndex':boardIndex,'boardName':boardName,'boardType':boardType,'boardTotalPorts':boardTotalPorts,'boardSTATUS':boardSTATUS,'boardPortsOn':boardPortsOn,'ethernetB':ethernetB,'boardTotalPkts':boardTotalPkts,'boardErrorPkts':boardErrorPkts,'boardTransColl':boardTransColl,'boardRecColl':boardRecColl,'boardAlign':boardAlign,'boardCRC':boardCRC,'boardRunt':boardRunt,'boardOOWColl':boardOOWColl,'boardNoResources':boardNoResources,'boardRecBytes':boardRecBytes,'boardGiants':boardGiants,'tokenRingB':tokenRingB,'boardTotalRingPorts':boardTotalRingPorts,'boardTotalStationPorts':boardTotalStationPorts,'boardModeStatus':boardModeStatus,'boardTotalRingPortsOn':boardTotalRingPortsOn,'boardTotalStationPortsOn':boardTotalStationPortsOn,'boardSpeed':boardSpeed,'boardRingSpeedFault':boardRingSpeedFault,'fddiB':fddiB,'rr2port':rr2port,'commonP':commonP,'portIndex':portIndex,'portMediaType':portMediaType,'portAdminState':portAdminState,'portSourceAddr':portSourceAddr,'ethernetP':ethernetP,'portTopologyType':portTopologyType,'portLinkStatus':portLinkStatus,'portStatus':portStatus,'portTotalPkts':portTotalPkts,'portErrorPkts':portErrorPkts,'portXmitColls':portXmitColls,'portRecColls':portRecColls,'portAlign':portAlign,'portCRC':portCRC,'portRunt':portRunt,'portOOWColl':portOOWColl,'portNoResorces':portNoResorces,'portRecBytes':portRecBytes,'portGiants':portGiants,'portRedundCrt':portRedundCrt,'portRedundType':portRedundType,'portRedundStatus':portRedundStatus,'portForceLinkType':portForceLinkType,'tokenRingP':tokenRingP,'stationP':stationP,'stationPortLinkStatus':stationPortLinkStatus,'stationPortLinkStateTime':stationPortLinkStateTime,'ringP':ringP,'ringPortLinkStatus':ringPortLinkStatus,'ringPortLinkStateTime':ringPortLinkStateTime,'fddiP':fddiP,'repeaterTables':repeaterTables,'bridge':bridge,'bridgeRev1':bridgeRev1,'bdgdevice':bdgdevice,'bdgdeviceDisableBdg':bdgdeviceDisableBdg,'bdgdeviceRestoreSettings':bdgdeviceRestoreSettings,'bdgdeviceBdgName':bdgdeviceBdgName,'bdgdeviceNumPorts':bdgdeviceNumPorts,'bdgdeviceType':bdgdeviceType,'bdgdeviceVersion':bdgdeviceVersion,'bdgdeviceLocation':bdgdeviceLocation,'bdgdeviceStatus':bdgdeviceStatus,'bdgdeviceRestartBdg':bdgdeviceRestartBdg,'bdgdeviceFrFwd':bdgdeviceFrFwd,'bdgdeviceFrRx':bdgdeviceFrRx,'bdgdeviceFrFlt':bdgdeviceFrFlt,'bdgdeviceErr':bdgdeviceErr,'bdgdeviceSwitchSetting':bdgdeviceSwitchSetting,'bdgdeviceNumRestarts':bdgdeviceNumRestarts,'bdgdeviceTypeFiltering':bdgdeviceTypeFiltering,'bdgdeviceSTAProtocol':bdgdeviceSTAProtocol,'bdgdeviceBridgeID':bdgdeviceBridgeID,'bdgdeviceTopChgCnt':bdgdeviceTopChgCnt,'bdgdeviceRootCost':bdgdeviceRootCost,'bdgdeviceRootPort':bdgdeviceRootPort,'bdgdeviceHelloTime':bdgdeviceHelloTime,'bdgdeviceBdgMaxAge':bdgdeviceBdgMaxAge,'bdgdeviceBdgFwdDly':bdgdeviceBdgFwdDly,'bdgdeviceTimeTopChg':bdgdeviceTimeTopChg,'bdgdeviceTopChg':bdgdeviceTopChg,'bdgdeviceDesigRoot':bdgdeviceDesigRoot,'bdgdeviceMaxAge':bdgdeviceMaxAge,'bdgdeviceHoldTime':bdgdeviceHoldTime,'bdgdeviceFwdDly':bdgdeviceFwdDly,'bdgdeviceBdgHello':bdgdeviceBdgHello,'bdgdeviceBdgPriority':bdgdeviceBdgPriority,'bdgdeviceResetCounts':bdgdeviceResetCounts,'bdgdeviceUptime':bdgdeviceUptime,'bdgdeviceTrapType':bdgdeviceTrapType,'bdgPort':bdgPort,'bdgPortAddress':bdgPortAddress,'bdgPortName':bdgPortName,'bdgPortType':bdgPortType,'bdgPortStatus':bdgPortStatus,'bdgPortNetName':bdgPortNetName,'bdgPortFrRx':bdgPortFrRx,'bdgPortDisInb':bdgPortDisInb,'bdgPortFwdOutb':bdgPortFwdOutb,'bdgPortDisLOB':bdgPortDisLOB,'bdgPortDisTDE':bdgPortDisTDE,'bdgPortDisErr':bdgPortDisErr,'bdgPortColl':bdgPortColl,'bdgPortTxAbrt':bdgPortTxAbrt,'bdgPortOowColl':bdgPortOowColl,'bdgPortCRCErr':bdgPortCRCErr,'bdgPortFrAlErr':bdgPortFrAlErr,'bdgPortPriority':bdgPortPriority,'bdgPortState':bdgPortState,'bdgPortPathCost':bdgPortPathCost,'bdgPortDesigCost':bdgPortDesigCost,'bdgPortDesigBrdg':bdgPortDesigBrdg,'bdgPortDesigPort':bdgPortDesigPort,'bdgPortTopChgAck':bdgPortTopChgAck,'bdgPortDesigRoot':bdgPortDesigRoot,'bdgPortRuntPackets':bdgPortRuntPackets,'bdgPortOversizePackets':bdgPortOversizePackets,'bdgPortFrFilt':bdgPortFrFilt,'filterDB':filterDB,'acqDB':acqDB,'acqStats':acqStats,'acqTotalEntries':acqTotalEntries,'acqMaxEntries':acqMaxEntries,'acqStaticEntries':acqStaticEntries,'acqStaticAgeTime':acqStaticAgeTime,'acqDynEntries':acqDynEntries,'acqDynAgeTime':acqDynAgeTime,'acqEraseDatabase':acqEraseDatabase,'acqOptions':acqOptions,'acqCreate00':acqCreate00,'acqCreate20':acqCreate20,'acqCreate01':acqCreate01,'acqCreate21':acqCreate21,'acqDelete':acqDelete,'acqDispType':acqDispType,'acqDispOutp1':acqDispOutp1,'acqDispOutp2':acqDispOutp2,'acqSrcAddress':acqSrcAddress,'permDB':permDB,'permStats':permStats,'permMaxEntries':permMaxEntries,'permCurrEntries':permCurrEntries,'permEraseDatabase':permEraseDatabase,'permOptions':permOptions,'permCreate00':permCreate00,'permCreate20':permCreate20,'permCreate01':permCreate01,'permCreate21':permCreate21,'permDelete':permDelete,'permDispType':permDispType,'permDispOutp1':permDispOutp1,'permDispOutp2':permDispOutp2,'permSrcAddress':permSrcAddress,_P:specialDB,'specStats':specStats,'specNumEntries':specNumEntries,'specMaxEntries':specMaxEntries,'specNextFilterNum':specNextFilterNum,'specFilters':specFilters,'specEnable':specEnable,'specPort1':specPort1,'specPort2':specPort2,'specDestAddress':specDestAddress,'specSrcAddress':specSrcAddress,'specType':specType,'specDataField':specDataField,'specDeleteFilter':specDeleteFilter,'trapTypes':trapTypes,'bdgTables':bdgTables,'router':router,'product':product,'productRev1':productRev1,'iRBM':iRBM,'iRBMRevision':iRBMRevision,'iRBMPortAssociation':iRBMPortAssociation,'subsystem':subsystem,'mMAC':mMAC,'fnb':fnb,'fnbConnectedLeft':fnbConnectedLeft,'fnbConnectedRight':fnbConnectedRight,'fnbBoardBypassState':fnbBoardBypassState,'layerMgmt':layerMgmt,'lmcommon':lmcommon,'mAC':mAC,'ieee8023':ieee8023,'pcIF':pcIF,'pcIfRev':pcIfRev,'pcDeviceName':pcDeviceName,'pcBoardType':pcBoardType,'pcOwnerName':pcOwnerName,'pcLocation':pcLocation,'pcMMACAddr':pcMMACAddr,'pcMMACBoard':pcMMACBoard,'pcMMACPort':pcMMACPort,'pcApplication':pcApplication,'pcDriverRev':pcDriverRev,'pcOnboardMemory':pcOnboardMemory,'pcComment':pcComment,'pcMACAddr':pcMACAddr,'pcFramesXmit':pcFramesXmit,'pcBytesXmit':pcBytesXmit,'pcMcastXmit':pcMcastXmit,'pcBcastXmit':pcBcastXmit,'pcDeferXmit':pcDeferXmit,'pcSglColl':pcSglColl,'pcMultiColl':pcMultiColl,'pcTotXmitErrs':pcTotXmitErrs,'pcLateColls':pcLateColls,'pcXcessColls':pcXcessColls,'pcCarrErr':pcCarrErr,'pcFramesRec':pcFramesRec,'pcBytesRec':pcBytesRec,'pcMcastRec':pcMcastRec,'pcBcastRec':pcBcastRec,'pcTotRecErrs':pcTotRecErrs,'pcTooLong':pcTooLong,'pcTooShort':pcTooShort,'pcAlignErrs':pcAlignErrs,'pcCRCErrs':pcCRCErrs,'pcLenErrs':pcLenErrs,'pcIntRecErr':pcIntRecErr,'pcSqeErr':pcSqeErr})
+#
+# PySNMP MIB module Cabletron-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/Cabletron-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:52 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+cabletron = MibIdentifier((1, 3, 6, 1, 4, 1, 52))
+commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
+layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
+common = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1))
+repeater = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2))
+bridge = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3))
+router = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 4))
+product = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 5))
+subsystem = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 6))
+commonRev1 = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 1))
+sysOIDs = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2))
+repeaterRev1 = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1))
+repeaterRev2 = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2))
+deviceType = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceType.setStatus('mandatory')
+deviceName = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 1, 1, 2), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: deviceName.setStatus('mandatory')
+deviceIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 1, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: deviceIPAddress.setStatus('mandatory')
+currentTime = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: currentTime.setStatus('mandatory')
+currentDate = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: currentDate.setStatus('mandatory')
+mACAddress = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 1, 1, 6), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mACAddress.setStatus('mandatory')
+sysOtherType = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 1))
+sysIRMType = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 2))
+sysRepType = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
+sysBDGType = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
+soidIRMSNMP = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 2, 1))
+soidIRBM = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 2, 2))
+soidIRM2 = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 2, 3))
+soidMINIMMAC = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3, 1))
+soidMRXI = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3, 2))
+device = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1))
+board = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 2))
+port = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 3))
+sourceAddr = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 7))
+redundancy = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8))
+alarm = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9))
+deviceMMACType = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("mMAC8", 0), ("mMAC3", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceMMACType.setStatus('mandatory')
+deviceSlots = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(8, 3))).clone(namedValues=NamedValues(("mMAC8", 8), ("mMAC3", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceSlots.setStatus('mandatory')
+deviceOccupiedSlots = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceOccupiedSlots.setStatus('mandatory')
+devicePortsOn = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devicePortsOn.setStatus('mandatory')
+deviceTotalPorts = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceTotalPorts.setStatus('mandatory')
+deviceTotalPkts = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceTotalPkts.setStatus('mandatory')
+deviceTotalErrors = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceTotalErrors.setStatus('mandatory')
+deviceTransmitColl = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceTransmitColl.setStatus('optional')
+deviceRecColls = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceRecColls.setStatus('optional')
+deviceAlign = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceAlign.setStatus('optional')
+deviceCRC = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceCRC.setStatus('optional')
+deviceRunt = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceRunt.setStatus('optional')
+deviceOOWColl = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceOOWColl.setStatus('optional')
+deviceNoResources = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceNoResources.setStatus('mandatory')
+deviceRecBytes = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceRecBytes.setStatus('optional')
+deviceGiantFrames = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceGiantFrames.setStatus('mandatory')
+deviceRestart = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 18), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: deviceRestart.setStatus('mandatory')
+deviceResetCounter = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 19), Counter32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: deviceResetCounter.setStatus('mandatory')
+deviceRedundantCts = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 20), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceRedundantCts.setStatus('mandatory')
+deviceTimeBase = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 24), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: deviceTimeBase.setStatus('mandatory')
+deviceResetRedundancy = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 25), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: deviceResetRedundancy.setStatus('mandatory')
+deviceSrcAddrAgingTime = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 26), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: deviceSrcAddrAgingTime.setStatus('mandatory')
+deviceSrcAddrTraps = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("trapsoff", 1), ("trapson", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: deviceSrcAddrTraps.setStatus('mandatory')
+deviceSrcAddrLocked = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 28), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("lockoff", 1), ("lockon", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: deviceSrcAddrLocked.setStatus('mandatory')
+deviceEnetBoardMap = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 29), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceEnetBoardMap.setStatus('mandatory')
+deviceTokenRingBoardMap = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 30), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceTokenRingBoardMap.setStatus('mandatory')
+deviceFDDIBoardMap = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 1, 31), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceFDDIBoardMap.setStatus('mandatory')
+sourceAddrBoard = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 7, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sourceAddrBoard.setStatus('mandatory')
+sourceAddrPort = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 7, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sourceAddrPort.setStatus('mandatory')
+redundancyPollInterval = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: redundancyPollInterval.setStatus('mandatory')
+redundancyTestTod = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8, 2), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: redundancyTestTod.setStatus('mandatory')
+redundancyPerformTest = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("performTest", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: redundancyPerformTest.setStatus('mandatory')
+redundancyCircuitName = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8, 4), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: redundancyCircuitName.setStatus('mandatory')
+redundancyRetryCount = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: redundancyRetryCount.setStatus('mandatory')
+redundancyNumBPs = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: redundancyNumBPs.setStatus('mandatory')
+redundancyCircuitBoards = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: redundancyCircuitBoards.setStatus('mandatory')
+redundancyCircuitPort = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: redundancyCircuitPort.setStatus('mandatory')
+redundancyCircuitTypes = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: redundancyCircuitTypes.setStatus('mandatory')
+redundancyCircuitNumAddr = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: redundancyCircuitNumAddr.setStatus('mandatory')
+redundancyCircuitMACAddrAdd = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8, 11), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: redundancyCircuitMACAddrAdd.setStatus('mandatory')
+redundancyCircuitMACAddrDel = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8, 12), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: redundancyCircuitMACAddrDel.setStatus('mandatory')
+redundancyCircuitMACAddrDisp = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8, 13), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: redundancyCircuitMACAddrDisp.setStatus('mandatory')
+redundancyCircuitEnable = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: redundancyCircuitEnable.setStatus('mandatory')
+redundancyCircuitReset = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 8, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("reset", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: redundancyCircuitReset.setStatus('mandatory')
+devAlrm = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 1))
+bdAlrm = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 2))
+portAlrm = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 3))
+devTraffic = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 1, 1))
+devColls = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 1, 2))
+devError = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 1, 3))
+devTrafficEnable = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devTrafficEnable.setStatus('mandatory')
+devTrafficThreshold = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 1, 1, 2), Counter32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devTrafficThreshold.setStatus('mandatory')
+devCollsEnable = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devCollsEnable.setStatus('mandatory')
+devCollsThreshold = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 1, 2, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devCollsThreshold.setStatus('mandatory')
+devErrorEnable = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 1, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devErrorEnable.setStatus('mandatory')
+devErrorThreshold = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 1, 3, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devErrorThreshold.setStatus('mandatory')
+devErrorSource = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 1, 3, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devErrorSource.setStatus('mandatory')
+bdTraffic = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 2, 1))
+bdColls = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 2, 2))
+bdError = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 2, 3))
+bdTrafficEnable = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdTrafficEnable.setStatus('mandatory')
+bdTrafficThreshold = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 2, 1, 2), Counter32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdTrafficThreshold.setStatus('mandatory')
+bdCollsEnable = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 2, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdCollsEnable.setStatus('mandatory')
+bdCollsThreshold = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 2, 2, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdCollsThreshold.setStatus('mandatory')
+bdErrorEnable = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 2, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdErrorEnable.setStatus('mandatory')
+bdErrorThreshold = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 2, 3, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdErrorThreshold.setStatus('mandatory')
+bdErrorSource = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 2, 3, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdErrorSource.setStatus('mandatory')
+portTraffic = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 3, 1))
+portColls = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 3, 2))
+portError = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 3, 3))
+portTrafficEnable = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portTrafficEnable.setStatus('mandatory')
+portTrafficThreshold = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 3, 1, 2), Counter32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portTrafficThreshold.setStatus('mandatory')
+portCollsEnable = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 3, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portCollsEnable.setStatus('mandatory')
+portCollsThreshold = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 3, 2, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portCollsThreshold.setStatus('mandatory')
+portErrorEnable = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 3, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portErrorEnable.setStatus('mandatory')
+portErrorThreshold = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 3, 3, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portErrorThreshold.setStatus('mandatory')
+portErrorSource = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 1, 9, 3, 3, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portErrorSource.setStatus('mandatory')
+rr2device = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 1))
+network = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 2))
+rr2board = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3))
+rr2port = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4))
+repeaterTables = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 5))
+commonD = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 1, 1))
+ethernetD = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 1, 2))
+tokenRingD = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 1, 3))
+deviceTRTokenRingPortsOn = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 1, 3, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceTRTokenRingPortsOn.setStatus('mandatory')
+deviceTRTotalTokenRingPorts = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 1, 3, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceTRTotalTokenRingPorts.setStatus('mandatory')
+deviceTRTotalTokenRingRingPortsOn = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 1, 3, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceTRTotalTokenRingRingPortsOn.setStatus('mandatory')
+deviceTRTotalTokenRingRingPorts = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 1, 3, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceTRTotalTokenRingRingPorts.setStatus('mandatory')
+deviceTRTotalTokenRingRings = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 1, 3, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceTRTotalTokenRingRings.setStatus('mandatory')
+commonB = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 1))
+ethernetB = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 2))
+tokenRingB = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 3))
+fddiB = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 4))
+boardIndex = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardIndex.setStatus('mandatory')
+boardName = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 1, 2), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: boardName.setStatus('mandatory')
+boardType = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardType.setStatus('mandatory')
+boardTotalPorts = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardTotalPorts.setStatus('mandatory')
+boardSTATUS = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: boardSTATUS.setStatus('optional')
+boardPortsOn = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardPortsOn.setStatus('mandatory')
+boardTotalPkts = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 2, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardTotalPkts.setStatus('mandatory')
+boardErrorPkts = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 2, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardErrorPkts.setStatus('mandatory')
+boardTransColl = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 2, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardTransColl.setStatus('optional')
+boardRecColl = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 2, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardRecColl.setStatus('optional')
+boardAlign = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 2, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardAlign.setStatus('optional')
+boardCRC = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 2, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardCRC.setStatus('optional')
+boardRunt = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 2, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardRunt.setStatus('optional')
+boardOOWColl = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 2, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardOOWColl.setStatus('optional')
+boardNoResources = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 2, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardNoResources.setStatus('optional')
+boardRecBytes = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 2, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardRecBytes.setStatus('optional')
+boardGiants = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 2, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardGiants.setStatus('mandatory')
+boardTotalRingPorts = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 3, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardTotalRingPorts.setStatus('mandatory')
+boardTotalStationPorts = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 3, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardTotalStationPorts.setStatus('mandatory')
+boardModeStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 3, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: boardModeStatus.setStatus('mandatory')
+boardTotalRingPortsOn = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 3, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardTotalRingPortsOn.setStatus('mandatory')
+boardTotalStationPortsOn = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 3, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardTotalStationPortsOn.setStatus('mandatory')
+boardSpeed = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 3, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: boardSpeed.setStatus('mandatory')
+boardRingSpeedFault = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 3, 3, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noFaultDetected", 1), ("faultDetected", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: boardRingSpeedFault.setStatus('mandatory')
+commonP = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 1))
+ethernetP = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2))
+tokenRingP = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 3))
+fddiP = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 4))
+portIndex = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portIndex.setStatus('mandatory')
+portMediaType = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portMediaType.setStatus('mandatory')
+portAdminState = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portAdminState.setStatus('mandatory')
+portSourceAddr = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 1, 4), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portSourceAddr.setStatus('mandatory')
+portTopologyType = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portTopologyType.setStatus('mandatory')
+portLinkStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("linkSignalInactive", 1), ("linkSignalActive", 2), ("linkSignalNotSupported", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portLinkStatus.setStatus('mandatory')
+portStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("segmented", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portStatus.setStatus('mandatory')
+portTotalPkts = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portTotalPkts.setStatus('mandatory')
+portErrorPkts = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portErrorPkts.setStatus('mandatory')
+portXmitColls = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portXmitColls.setStatus('optional')
+portRecColls = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portRecColls.setStatus('optional')
+portAlign = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portAlign.setStatus('optional')
+portCRC = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portCRC.setStatus('optional')
+portRunt = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portRunt.setStatus('optional')
+portOOWColl = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portOOWColl.setStatus('optional')
+portNoResorces = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portNoResorces.setStatus('optional')
+portRecBytes = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portRecBytes.setStatus('optional')
+portGiants = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portGiants.setStatus('optional')
+portRedundCrt = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 15), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portRedundCrt.setStatus('mandatory')
+portRedundType = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 4))).clone(namedValues=NamedValues(("notUsed", 1), ("primary", 3), ("backup", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portRedundType.setStatus('mandatory')
+portRedundStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notUsed", 1), ("active", 2), ("inactive", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portRedundStatus.setStatus('mandatory')
+portForceLinkType = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 2, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("notForced", 1), ("forced", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portForceLinkType.setStatus('mandatory')
+stationP = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 3, 1))
+ringP = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 3, 2))
+stationPortLinkStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("linkSignalInactive", 1), ("linkSignalActive", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stationPortLinkStatus.setStatus('mandatory')
+stationPortLinkStateTime = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 3, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: stationPortLinkStateTime.setStatus('mandatory')
+ringPortLinkStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 3, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ringPortLinkStatus.setStatus('mandatory')
+ringPortLinkStateTime = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 2, 2, 4, 3, 2, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ringPortLinkStateTime.setStatus('mandatory')
+productRev1 = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 5, 1))
+iRBM = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 5, 1, 1))
+iRBMRevision = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 5, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("rev0", 0), ("rev1", 1), ("rev2", 2), ("rev3", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: iRBMRevision.setStatus('mandatory')
+iRBMPortAssociation = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 5, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: iRBMPortAssociation.setStatus('mandatory')
+mMAC = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 6, 1))
+fnb = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 6, 1, 1))
+fnbConnectedLeft = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 6, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fnbConnectedLeft.setStatus('mandatory')
+fnbConnectedRight = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 6, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fnbConnectedRight.setStatus('mandatory')
+fnbBoardBypassState = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 6, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fnbBoardBypassState.setStatus('mandatory')
+bridgeRev1 = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3, 1))
+bdgdevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1))
+bdgPort = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2))
+filterDB = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3))
+trapTypes = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 4))
+bdgTables = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 5))
+acqDB = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1))
+permDB = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 2))
+specialDB = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 3))
+acqStats = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 1))
+acqOptions = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 2))
+permStats = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 2, 1))
+permOptions = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 2, 2))
+specStats = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 3, 1))
+specFilters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 3, 2))
+bdgdeviceDisableBdg = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disableBridge", 0), ("enableBridge", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgdeviceDisableBdg.setStatus('mandatory')
+bdgdeviceRestoreSettings = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("restoreSettings", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgdeviceRestoreSettings.setStatus('mandatory')
+bdgdeviceBdgName = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 4), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgdeviceBdgName.setStatus('mandatory')
+bdgdeviceNumPorts = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceNumPorts.setStatus('mandatory')
+bdgdeviceType = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 6), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceType.setStatus('mandatory')
+bdgdeviceVersion = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 7), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceVersion.setStatus('mandatory')
+bdgdeviceLocation = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 8), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgdeviceLocation.setStatus('mandatory')
+bdgdeviceStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 9), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceStatus.setStatus('mandatory')
+bdgdeviceRestartBdg = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("restartBridge", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgdeviceRestartBdg.setStatus('mandatory')
+bdgdeviceFrFwd = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceFrFwd.setStatus('mandatory')
+bdgdeviceFrRx = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceFrRx.setStatus('mandatory')
+bdgdeviceFrFlt = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceFrFlt.setStatus('mandatory')
+bdgdeviceErr = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceErr.setStatus('mandatory')
+bdgdeviceSwitchSetting = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 15), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceSwitchSetting.setStatus('mandatory')
+bdgdeviceNumRestarts = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceNumRestarts.setStatus('mandatory')
+bdgdeviceTypeFiltering = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("ieee8021", 0), ("specialDB", 1), ("both", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgdeviceTypeFiltering.setStatus('mandatory')
+bdgdeviceSTAProtocol = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("ieee8021", 0), ("dec", 1), ("none", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgdeviceSTAProtocol.setStatus('mandatory')
+bdgdeviceBridgeID = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 19), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceBridgeID.setStatus('mandatory')
+bdgdeviceTopChgCnt = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 20), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceTopChgCnt.setStatus('mandatory')
+bdgdeviceRootCost = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 21), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceRootCost.setStatus('mandatory')
+bdgdeviceRootPort = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 22), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceRootPort.setStatus('mandatory')
+bdgdeviceHelloTime = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 23), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceHelloTime.setStatus('mandatory')
+bdgdeviceBdgMaxAge = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 24), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgdeviceBdgMaxAge.setStatus('mandatory')
+bdgdeviceBdgFwdDly = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 25), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgdeviceBdgFwdDly.setStatus('mandatory')
+bdgdeviceTimeTopChg = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 26), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceTimeTopChg.setStatus('mandatory')
+bdgdeviceTopChg = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("noTopologyChangeInProgress", 0), ("topologyChangeInProgress", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceTopChg.setStatus('mandatory')
+bdgdeviceDesigRoot = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 28), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceDesigRoot.setStatus('mandatory')
+bdgdeviceMaxAge = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 29), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceMaxAge.setStatus('mandatory')
+bdgdeviceHoldTime = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 30), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceHoldTime.setStatus('mandatory')
+bdgdeviceFwdDly = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 31), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceFwdDly.setStatus('mandatory')
+bdgdeviceBdgHello = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 32), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgdeviceBdgHello.setStatus('mandatory')
+bdgdeviceBdgPriority = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 33), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgdeviceBdgPriority.setStatus('mandatory')
+bdgdeviceResetCounts = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 34), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("resetCounts", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgdeviceResetCounts.setStatus('mandatory')
+bdgdeviceUptime = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 35), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceUptime.setStatus('mandatory')
+bdgdeviceTrapType = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 1, 36), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgdeviceTrapType.setStatus('mandatory')
+bdgPortAddress = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 1), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortAddress.setStatus('mandatory')
+bdgPortName = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 2), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgPortName.setStatus('mandatory')
+bdgPortType = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 3), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortType.setStatus('mandatory')
+bdgPortStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 4), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortStatus.setStatus('mandatory')
+bdgPortNetName = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 5), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgPortNetName.setStatus('mandatory')
+bdgPortFrRx = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortFrRx.setStatus('mandatory')
+bdgPortDisInb = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortDisInb.setStatus('mandatory')
+bdgPortFwdOutb = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortFwdOutb.setStatus('mandatory')
+bdgPortDisLOB = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortDisLOB.setStatus('mandatory')
+bdgPortDisTDE = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortDisTDE.setStatus('mandatory')
+bdgPortDisErr = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortDisErr.setStatus('mandatory')
+bdgPortColl = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortColl.setStatus('mandatory')
+bdgPortTxAbrt = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortTxAbrt.setStatus('mandatory')
+bdgPortOowColl = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortOowColl.setStatus('mandatory')
+bdgPortCRCErr = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortCRCErr.setStatus('mandatory')
+bdgPortFrAlErr = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortFrAlErr.setStatus('mandatory')
+bdgPortPriority = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 17), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgPortPriority.setStatus('mandatory')
+bdgPortState = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 18), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortState.setStatus('mandatory')
+bdgPortPathCost = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 19), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bdgPortPathCost.setStatus('mandatory')
+bdgPortDesigCost = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 20), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortDesigCost.setStatus('mandatory')
+bdgPortDesigBrdg = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 21), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortDesigBrdg.setStatus('mandatory')
+bdgPortDesigPort = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 22), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortDesigPort.setStatus('mandatory')
+bdgPortTopChgAck = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("noTopologyChangeIsOccurring", 0), ("topologyChangeIsOccurring", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortTopChgAck.setStatus('mandatory')
+bdgPortDesigRoot = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 24), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortDesigRoot.setStatus('mandatory')
+bdgPortRuntPackets = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 25), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortRuntPackets.setStatus('mandatory')
+bdgPortOversizePackets = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 26), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortOversizePackets.setStatus('mandatory')
+bdgPortFrFilt = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 2, 27), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bdgPortFrFilt.setStatus('mandatory')
+acqTotalEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acqTotalEntries.setStatus('mandatory')
+acqMaxEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acqMaxEntries.setStatus('mandatory')
+acqStaticEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acqStaticEntries.setStatus('mandatory')
+acqStaticAgeTime = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acqStaticAgeTime.setStatus('mandatory')
+acqDynEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acqDynEntries.setStatus('mandatory')
+acqDynAgeTime = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acqDynAgeTime.setStatus('mandatory')
+acqEraseDatabase = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("eraseAcquiredDatabase", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acqEraseDatabase.setStatus('mandatory')
+acqCreate00 = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("createAcquiredEntryFilterPort1FilterPort2", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acqCreate00.setStatus('mandatory')
+acqCreate20 = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("createAcquiredEntryForwardPort1FilterPort2", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acqCreate20.setStatus('mandatory')
+acqCreate01 = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("createAcquiredEntryFilterPort1ForwardPort2", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acqCreate01.setStatus('mandatory')
+acqCreate21 = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 2, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("createAcquiredEntryForwardPort1ForwardPort2", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acqCreate21.setStatus('mandatory')
+acqDelete = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("deleteAcquiredEntry", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acqDelete.setStatus('mandatory')
+acqDispType = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 2, 6), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acqDispType.setStatus('mandatory')
+acqDispOutp1 = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 2, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 2))).clone(namedValues=NamedValues(("filter", 0), ("relay", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acqDispOutp1.setStatus('mandatory')
+acqDispOutp2 = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 2, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filter", 0), ("relay", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acqDispOutp2.setStatus('mandatory')
+acqSrcAddress = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 1, 2, 9), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acqSrcAddress.setStatus('mandatory')
+permMaxEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: permMaxEntries.setStatus('mandatory')
+permCurrEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: permCurrEntries.setStatus('mandatory')
+permEraseDatabase = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("erasePermanentDatabase", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: permEraseDatabase.setStatus('mandatory')
+permCreate00 = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 2, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("createPermanentEntryFilterPort1FilterPort2", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: permCreate00.setStatus('mandatory')
+permCreate20 = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 2, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("createPermanentEntryForwardPort1FilterPort2", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: permCreate20.setStatus('mandatory')
+permCreate01 = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 2, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("createPermanentEntryFilterPort1ForwardPort2", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: permCreate01.setStatus('mandatory')
+permCreate21 = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 2, 2, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("createPermanentEntryForwardPort1ForwardPort2", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: permCreate21.setStatus('mandatory')
+permDelete = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 2, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("deletePermanentEntry", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: permDelete.setStatus('mandatory')
+permDispType = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 2, 2, 6), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: permDispType.setStatus('mandatory')
+permDispOutp1 = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 2, 2, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 2))).clone(namedValues=NamedValues(("filter", 0), ("relay", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: permDispOutp1.setStatus('mandatory')
+permDispOutp2 = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 2, 2, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filter", 0), ("relay", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: permDispOutp2.setStatus('mandatory')
+permSrcAddress = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 2, 2, 9), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: permSrcAddress.setStatus('mandatory')
+specNumEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: specNumEntries.setStatus('mandatory')
+specMaxEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 3, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: specMaxEntries.setStatus('mandatory')
+specNextFilterNum = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 3, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: specNextFilterNum.setStatus('mandatory')
+specEnable = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 3, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disableFilter", 0), ("enableFilter", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specEnable.setStatus('mandatory')
+specPort1 = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 3, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 2))).clone(namedValues=NamedValues(("filter", 0), ("relay", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specPort1.setStatus('mandatory')
+specPort2 = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 3, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filter", 0), ("relay", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specPort2.setStatus('mandatory')
+specDestAddress = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 3, 2, 4), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specDestAddress.setStatus('mandatory')
+specSrcAddress = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 3, 2, 5), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specSrcAddress.setStatus('mandatory')
+specType = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 3, 2, 6), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specType.setStatus('mandatory')
+specDataField = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 3, 2, 7), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specDataField.setStatus('mandatory')
+specDeleteFilter = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 3, 1, 3, 3, 2, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("deleteFilter", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specDeleteFilter.setStatus('mandatory')
+lmcommon = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2, 1))
+mAC = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2, 2))
+ieee8023 = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2, 2, 1))
+pcIF = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1))
+pcIfRev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1))
+pcDeviceName = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 1), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcDeviceName.setStatus('mandatory')
+pcBoardType = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 2), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcBoardType.setStatus('mandatory')
+pcOwnerName = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 3), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcOwnerName.setStatus('mandatory')
+pcLocation = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 4), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcLocation.setStatus('mandatory')
+pcMMACAddr = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 5), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcMMACAddr.setStatus('mandatory')
+pcMMACBoard = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 6), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcMMACBoard.setStatus('mandatory')
+pcMMACPort = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 7), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcMMACPort.setStatus('mandatory')
+pcApplication = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 8), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcApplication.setStatus('mandatory')
+pcDriverRev = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 9), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcDriverRev.setStatus('mandatory')
+pcOnboardMemory = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcOnboardMemory.setStatus('mandatory')
+pcComment = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 11), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcComment.setStatus('mandatory')
+pcMACAddr = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 12), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcMACAddr.setStatus('mandatory')
+pcFramesXmit = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcFramesXmit.setStatus('mandatory')
+pcBytesXmit = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcBytesXmit.setStatus('mandatory')
+pcMcastXmit = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcMcastXmit.setStatus('mandatory')
+pcBcastXmit = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 16), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcBcastXmit.setStatus('mandatory')
+pcDeferXmit = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcDeferXmit.setStatus('mandatory')
+pcSglColl = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 18), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcSglColl.setStatus('mandatory')
+pcMultiColl = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 19), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcMultiColl.setStatus('mandatory')
+pcTotXmitErrs = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 20), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcTotXmitErrs.setStatus('mandatory')
+pcLateColls = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 21), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcLateColls.setStatus('mandatory')
+pcXcessColls = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 22), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcXcessColls.setStatus('mandatory')
+pcCarrErr = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 23), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcCarrErr.setStatus('mandatory')
+pcFramesRec = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 24), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcFramesRec.setStatus('mandatory')
+pcBytesRec = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 25), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcBytesRec.setStatus('mandatory')
+pcMcastRec = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 26), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcMcastRec.setStatus('mandatory')
+pcBcastRec = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 27), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcBcastRec.setStatus('mandatory')
+pcTotRecErrs = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 28), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcTotRecErrs.setStatus('mandatory')
+pcTooLong = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 29), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcTooLong.setStatus('mandatory')
+pcTooShort = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 30), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcTooShort.setStatus('mandatory')
+pcAlignErrs = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 31), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcAlignErrs.setStatus('mandatory')
+pcCRCErrs = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 32), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcCRCErrs.setStatus('mandatory')
+pcLenErrs = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 33), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcLenErrs.setStatus('mandatory')
+pcIntRecErr = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 34), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcIntRecErr.setStatus('mandatory')
+pcSqeErr = MibScalar((1, 3, 6, 1, 4, 1, 52, 2, 2, 1, 1, 1, 35), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pcSqeErr.setStatus('mandatory')
+mibBuilder.exportSymbols("Cabletron-MIB", redundancyCircuitReset=redundancyCircuitReset, bdgPortDesigPort=bdgPortDesigPort, bdgdeviceBdgPriority=bdgdeviceBdgPriority, bdErrorSource=bdErrorSource, redundancyCircuitMACAddrDel=redundancyCircuitMACAddrDel, bdgdeviceBdgMaxAge=bdgdeviceBdgMaxAge, ringP=ringP, acqDelete=acqDelete, deviceMMACType=deviceMMACType, bdgdeviceRestoreSettings=bdgdeviceRestoreSettings, trapTypes=trapTypes, pcOnboardMemory=pcOnboardMemory, boardErrorPkts=boardErrorPkts, bdgdeviceSwitchSetting=bdgdeviceSwitchSetting, productRev1=productRev1, specPort1=specPort1, pcBytesRec=pcBytesRec, pcCRCErrs=pcCRCErrs, pcBytesXmit=pcBytesXmit, bdgPortAddress=bdgPortAddress, pcMcastXmit=pcMcastXmit, portOOWColl=portOOWColl, deviceTransmitColl=deviceTransmitColl, deviceTokenRingBoardMap=deviceTokenRingBoardMap, redundancyTestTod=redundancyTestTod, permCreate21=permCreate21, stationP=stationP, deviceEnetBoardMap=deviceEnetBoardMap, bdgdeviceTopChg=bdgdeviceTopChg, device=device, redundancyCircuitPort=redundancyCircuitPort, fnbConnectedLeft=fnbConnectedLeft, permSrcAddress=permSrcAddress, permDB=permDB, specFilters=specFilters, permEraseDatabase=permEraseDatabase, ringPortLinkStateTime=ringPortLinkStateTime, pcBoardType=pcBoardType, soidIRBM=soidIRBM, acqSrcAddress=acqSrcAddress, repeaterRev1=repeaterRev1, tokenRingB=tokenRingB, pcLocation=pcLocation, ieee8023=ieee8023, bdgdeviceResetCounts=bdgdeviceResetCounts, bdgdeviceSTAProtocol=bdgdeviceSTAProtocol, bdgdeviceMaxAge=bdgdeviceMaxAge, bdgPortRuntPackets=bdgPortRuntPackets, pcFramesRec=pcFramesRec, deviceTotalErrors=deviceTotalErrors, currentDate=currentDate, bdgdeviceTrapType=bdgdeviceTrapType, devTrafficEnable=devTrafficEnable, pcOwnerName=pcOwnerName, commonP=commonP, iRBM=iRBM, acqDispOutp1=acqDispOutp1, bdgdeviceHoldTime=bdgdeviceHoldTime, bdgPortName=bdgPortName, commonD=commonD, specNumEntries=specNumEntries, sysIRMType=sysIRMType, permDispOutp2=permDispOutp2, bdgdeviceFrFwd=bdgdeviceFrFwd, bdgdeviceErr=bdgdeviceErr, permCreate01=permCreate01, acqCreate00=acqCreate00, pcMMACBoard=pcMMACBoard, devCollsEnable=devCollsEnable, sysBDGType=sysBDGType, sysRepType=sysRepType, deviceSrcAddrTraps=deviceSrcAddrTraps, bdgdevice=bdgdevice, rr2device=rr2device, pcDeviceName=pcDeviceName, repeaterTables=repeaterTables, pcDriverRev=pcDriverRev, commsDevice=commsDevice, pcCarrErr=pcCarrErr, redundancyCircuitMACAddrAdd=redundancyCircuitMACAddrAdd, bdgdeviceLocation=bdgdeviceLocation, portError=portError, common=common, commonB=commonB, bdAlrm=bdAlrm, portIndex=portIndex, deviceAlign=deviceAlign, ringPortLinkStatus=ringPortLinkStatus, boardType=boardType, pcBcastXmit=pcBcastXmit, portAlign=portAlign, fddiB=fddiB, boardTotalStationPortsOn=boardTotalStationPortsOn, portForceLinkType=portForceLinkType, fnb=fnb, deviceNoResources=deviceNoResources, bdgdeviceTimeTopChg=bdgdeviceTimeTopChg, iRBMRevision=iRBMRevision, redundancyNumBPs=redundancyNumBPs, pcDeferXmit=pcDeferXmit, portRecColls=portRecColls, sourceAddrBoard=sourceAddrBoard, pcTooLong=pcTooLong, boardRingSpeedFault=boardRingSpeedFault, fddiP=fddiP, stationPortLinkStatus=stationPortLinkStatus, portCRC=portCRC, rr2port=rr2port, deviceRunt=deviceRunt, mACAddress=mACAddress, pcMACAddr=pcMACAddr, redundancyCircuitMACAddrDisp=redundancyCircuitMACAddrDisp, sourceAddrPort=sourceAddrPort, fnbBoardBypassState=fnbBoardBypassState, bdTrafficEnable=bdTrafficEnable, specDataField=specDataField, portErrorSource=portErrorSource, pcFramesXmit=pcFramesXmit, lmcommon=lmcommon, redundancyPollInterval=redundancyPollInterval, pcIntRecErr=pcIntRecErr, bdgdeviceNumRestarts=bdgdeviceNumRestarts, bdCollsThreshold=bdCollsThreshold, soidMINIMMAC=soidMINIMMAC, boardSTATUS=boardSTATUS, deviceResetCounter=deviceResetCounter, repeaterRev2=repeaterRev2, bdgdeviceFrRx=bdgdeviceFrRx, devError=devError, portCollsEnable=portCollsEnable, pcIfRev=pcIfRev, pcXcessColls=pcXcessColls, acqStaticAgeTime=acqStaticAgeTime, deviceCRC=deviceCRC, portXmitColls=portXmitColls, deviceIPAddress=deviceIPAddress, bdgPortDesigRoot=bdgPortDesigRoot, layerMgmt=layerMgmt, product=product, fnbConnectedRight=fnbConnectedRight, deviceResetRedundancy=deviceResetRedundancy, devErrorEnable=devErrorEnable, boardTransColl=boardTransColl, devAlrm=devAlrm, rr2board=rr2board, boardNoResources=boardNoResources, bdgdeviceBdgName=bdgdeviceBdgName, permMaxEntries=permMaxEntries, portTrafficThreshold=portTrafficThreshold, bdgPortOversizePackets=bdgPortOversizePackets, redundancyCircuitBoards=redundancyCircuitBoards, bdgPortPathCost=bdgPortPathCost, deviceRecColls=deviceRecColls, portErrorPkts=portErrorPkts, bdgdeviceFrFlt=bdgdeviceFrFlt, permOptions=permOptions, portRecBytes=portRecBytes, acqDispOutp2=acqDispOutp2, sysOIDs=sysOIDs, redundancyCircuitEnable=redundancyCircuitEnable, bridge=bridge, portTopologyType=portTopologyType, bdgTables=bdgTables, boardRunt=boardRunt, network=network, pcLenErrs=pcLenErrs, portAlrm=portAlrm, acqCreate01=acqCreate01, soidIRM2=soidIRM2, bdgdeviceType=bdgdeviceType, bdgPortFrRx=bdgPortFrRx, boardGiants=boardGiants, pcSglColl=pcSglColl, pcMMACAddr=pcMMACAddr, deviceRedundantCts=deviceRedundantCts, deviceOOWColl=deviceOOWColl, soidMRXI=soidMRXI, bdgdeviceVersion=bdgdeviceVersion, acqMaxEntries=acqMaxEntries, boardIndex=boardIndex, acqDynEntries=acqDynEntries, bdColls=bdColls, bdgdeviceNumPorts=bdgdeviceNumPorts, pcMcastRec=pcMcastRec, specPort2=specPort2, deviceRestart=deviceRestart, mMAC=mMAC, cabletron=cabletron, bdgdeviceBridgeID=bdgdeviceBridgeID, acqEraseDatabase=acqEraseDatabase, boardOOWColl=boardOOWColl, bdgdeviceRestartBdg=bdgdeviceRestartBdg, bdgPortOowColl=bdgPortOowColl, specSrcAddress=specSrcAddress, boardRecBytes=boardRecBytes, bdgPortFwdOutb=bdgPortFwdOutb, boardTotalPkts=boardTotalPkts, specDestAddress=specDestAddress, bdgPortFrAlErr=bdgPortFrAlErr, pcTotXmitErrs=pcTotXmitErrs, tokenRingD=tokenRingD, bdgdeviceBdgFwdDly=bdgdeviceBdgFwdDly, bdgPortNetName=bdgPortNetName, pcAlignErrs=pcAlignErrs, sourceAddr=sourceAddr, deviceTotalPorts=deviceTotalPorts, boardPortsOn=boardPortsOn, portErrorEnable=portErrorEnable, pcTooShort=pcTooShort, deviceTRTotalTokenRingRings=deviceTRTotalTokenRingRings, portRedundStatus=portRedundStatus, ethernetP=ethernetP, bdErrorEnable=bdErrorEnable, deviceTRTotalTokenRingRingPortsOn=deviceTRTotalTokenRingRingPortsOn, permDelete=permDelete, specEnable=specEnable, acqStats=acqStats, pcSqeErr=pcSqeErr, stationPortLinkStateTime=stationPortLinkStateTime, bdgdeviceUptime=bdgdeviceUptime, devicePortsOn=devicePortsOn, portLinkStatus=portLinkStatus, portTrafficEnable=portTrafficEnable, acqCreate21=acqCreate21, deviceSrcAddrAgingTime=deviceSrcAddrAgingTime, bdgPortCRCErr=bdgPortCRCErr, boardRecColl=boardRecColl, iRBMPortAssociation=iRBMPortAssociation, bdError=bdError, bdgdeviceBdgHello=bdgdeviceBdgHello, portNoResorces=portNoResorces, acqDB=acqDB, pcMMACPort=pcMMACPort, portTraffic=portTraffic, soidIRMSNMP=soidIRMSNMP, boardTotalRingPortsOn=boardTotalRingPortsOn, board=board, portErrorThreshold=portErrorThreshold, bdgdeviceHelloTime=bdgdeviceHelloTime, deviceTimeBase=deviceTimeBase, bdgPortTopChgAck=bdgPortTopChgAck, bridgeRev1=bridgeRev1, port=port, deviceTRTotalTokenRingRingPorts=deviceTRTotalTokenRingRingPorts, bdgdeviceFwdDly=bdgdeviceFwdDly, boardModeStatus=boardModeStatus, boardAlign=boardAlign, router=router, ethernetB=ethernetB, acqCreate20=acqCreate20, mAC=mAC, bdErrorThreshold=bdErrorThreshold, permDispOutp1=permDispOutp1, bdgPortDisErr=bdgPortDisErr)
+mibBuilder.exportSymbols("Cabletron-MIB", deviceGiantFrames=deviceGiantFrames, specialDB=specialDB, portColls=portColls, permStats=permStats, devErrorThreshold=devErrorThreshold, redundancyCircuitTypes=redundancyCircuitTypes, devErrorSource=devErrorSource, bdgPortColl=bdgPortColl, bdgPortPriority=bdgPortPriority, devColls=devColls, deviceOccupiedSlots=deviceOccupiedSlots, bdgdeviceStatus=bdgdeviceStatus, bdgPort=bdgPort, bdgPortDisInb=bdgPortDisInb, acqDispType=acqDispType, pcIF=pcIF, devTrafficThreshold=devTrafficThreshold, bdCollsEnable=bdCollsEnable, bdgPortDesigCost=bdgPortDesigCost, deviceRecBytes=deviceRecBytes, boardSpeed=boardSpeed, alarm=alarm, bdgPortStatus=bdgPortStatus, portGiants=portGiants, subsystem=subsystem, repeater=repeater, portRunt=portRunt, redundancy=redundancy, specType=specType, bdgPortDisTDE=bdgPortDisTDE, bdgdeviceDisableBdg=bdgdeviceDisableBdg, acqStaticEntries=acqStaticEntries, devTraffic=devTraffic, boardTotalRingPorts=boardTotalRingPorts, boardName=boardName, acqDynAgeTime=acqDynAgeTime, permCreate20=permCreate20, bdgdeviceTypeFiltering=bdgdeviceTypeFiltering, currentTime=currentTime, portCollsThreshold=portCollsThreshold, permDispType=permDispType, devCollsThreshold=devCollsThreshold, bdgPortTxAbrt=bdgPortTxAbrt, portMediaType=portMediaType, deviceSlots=deviceSlots, deviceType=deviceType, bdgPortType=bdgPortType, ethernetD=ethernetD, tokenRingP=tokenRingP, boardTotalStationPorts=boardTotalStationPorts, portRedundCrt=portRedundCrt, bdTrafficThreshold=bdTrafficThreshold, bdTraffic=bdTraffic, pcApplication=pcApplication, bdgPortDisLOB=bdgPortDisLOB, bdgdeviceRootCost=bdgdeviceRootCost, specNextFilterNum=specNextFilterNum, permCurrEntries=permCurrEntries, specMaxEntries=specMaxEntries, pcTotRecErrs=pcTotRecErrs, portRedundType=portRedundType, portTotalPkts=portTotalPkts, permCreate00=permCreate00, portStatus=portStatus, bdgdeviceTopChgCnt=bdgdeviceTopChgCnt, pcMultiColl=pcMultiColl, pcBcastRec=pcBcastRec, redundancyPerformTest=redundancyPerformTest, bdgPortState=bdgPortState, commonRev1=commonRev1, deviceTRTokenRingPortsOn=deviceTRTokenRingPortsOn, sysOtherType=sysOtherType, deviceName=deviceName, acqOptions=acqOptions, redundancyCircuitNumAddr=redundancyCircuitNumAddr, deviceFDDIBoardMap=deviceFDDIBoardMap, redundancyCircuitName=redundancyCircuitName, pcComment=pcComment, portSourceAddr=portSourceAddr, deviceTRTotalTokenRingPorts=deviceTRTotalTokenRingPorts, boardTotalPorts=boardTotalPorts, deviceSrcAddrLocked=deviceSrcAddrLocked, bdgPortDesigBrdg=bdgPortDesigBrdg, bdgdeviceRootPort=bdgdeviceRootPort, specDeleteFilter=specDeleteFilter, acqTotalEntries=acqTotalEntries, deviceTotalPkts=deviceTotalPkts, filterDB=filterDB, pcLateColls=pcLateColls, boardCRC=boardCRC, redundancyRetryCount=redundancyRetryCount, bdgdeviceDesigRoot=bdgdeviceDesigRoot, bdgPortFrFilt=bdgPortFrFilt, specStats=specStats, portAdminState=portAdminState)

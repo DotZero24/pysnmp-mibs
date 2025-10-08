@@ -1,64 +1,47 @@
-_K='dot5SrRouteGroup'
-_J='dot5SrRouteStatus'
-_I='dot5SrRouteDescr'
-_H='dot5SrRouteControl'
-_G='dot5SrRouteDestination'
-_F='ifIndex'
-_E='IF-MIB'
-_D='OctetString'
-_C='read-create'
-_B='TOKENRING-STATION-SR-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention')
-dot5SrMIB=ModuleIdentity((1,3,6,1,2,1,42))
-class SourceRoute(TextualConvention,OctetString):status=_A;displayHint='1x:';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,30))
-_Dot5SrMIBObjects_ObjectIdentity=ObjectIdentity
-dot5SrMIBObjects=_Dot5SrMIBObjects_ObjectIdentity((1,3,6,1,2,1,42,1))
-_Dot5SrRouteTable_Object=MibTable
-dot5SrRouteTable=_Dot5SrRouteTable_Object((1,3,6,1,2,1,42,1,1))
-if mibBuilder.loadTexts:dot5SrRouteTable.setStatus(_A)
-_Dot5SrRouteEntry_Object=MibTableRow
-dot5SrRouteEntry=_Dot5SrRouteEntry_Object((1,3,6,1,2,1,42,1,1,1))
-dot5SrRouteEntry.setIndexNames((0,_E,_F),(0,_B,_G))
-if mibBuilder.loadTexts:dot5SrRouteEntry.setStatus(_A)
-_Dot5SrRouteDestination_Type=MacAddress
-_Dot5SrRouteDestination_Object=MibTableColumn
-dot5SrRouteDestination=_Dot5SrRouteDestination_Object((1,3,6,1,2,1,42,1,1,1,2),_Dot5SrRouteDestination_Type())
-dot5SrRouteDestination.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:dot5SrRouteDestination.setStatus(_A)
-class _Dot5SrRouteControl_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
-_Dot5SrRouteControl_Type.__name__=_D
-_Dot5SrRouteControl_Object=MibTableColumn
-dot5SrRouteControl=_Dot5SrRouteControl_Object((1,3,6,1,2,1,42,1,1,1,3),_Dot5SrRouteControl_Type())
-dot5SrRouteControl.setMaxAccess(_C)
-if mibBuilder.loadTexts:dot5SrRouteControl.setStatus(_A)
-_Dot5SrRouteDescr_Type=SourceRoute
-_Dot5SrRouteDescr_Object=MibTableColumn
-dot5SrRouteDescr=_Dot5SrRouteDescr_Object((1,3,6,1,2,1,42,1,1,1,4),_Dot5SrRouteDescr_Type())
-dot5SrRouteDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:dot5SrRouteDescr.setStatus(_A)
-_Dot5SrRouteStatus_Type=RowStatus
-_Dot5SrRouteStatus_Object=MibTableColumn
-dot5SrRouteStatus=_Dot5SrRouteStatus_Object((1,3,6,1,2,1,42,1,1,1,5),_Dot5SrRouteStatus_Type())
-dot5SrRouteStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:dot5SrRouteStatus.setStatus(_A)
-_Dot5SrConformance_ObjectIdentity=ObjectIdentity
-dot5SrConformance=_Dot5SrConformance_ObjectIdentity((1,3,6,1,2,1,42,2))
-_Dot5SrGroups_ObjectIdentity=ObjectIdentity
-dot5SrGroups=_Dot5SrGroups_ObjectIdentity((1,3,6,1,2,1,42,2,1))
-_Dot5SrCompliances_ObjectIdentity=ObjectIdentity
-dot5SrCompliances=_Dot5SrCompliances_ObjectIdentity((1,3,6,1,2,1,42,2,2))
-dot5SrRouteGroup=ObjectGroup((1,3,6,1,2,1,42,2,1,1))
-dot5SrRouteGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J)))
-if mibBuilder.loadTexts:dot5SrRouteGroup.setStatus(_A)
-dot5SrCompliance=ModuleCompliance((1,3,6,1,2,1,42,2,2,1))
-dot5SrCompliance.setObjects((_B,_K))
-if mibBuilder.loadTexts:dot5SrCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'SourceRoute':SourceRoute,'dot5SrMIB':dot5SrMIB,'dot5SrMIBObjects':dot5SrMIBObjects,'dot5SrRouteTable':dot5SrRouteTable,'dot5SrRouteEntry':dot5SrRouteEntry,_G:dot5SrRouteDestination,_H:dot5SrRouteControl,_I:dot5SrRouteDescr,_J:dot5SrRouteStatus,'dot5SrConformance':dot5SrConformance,'dot5SrGroups':dot5SrGroups,_K:dot5SrRouteGroup,'dot5SrCompliances':dot5SrCompliances,'dot5SrCompliance':dot5SrCompliance})
+#
+# PySNMP MIB module TOKENRING-STATION-SR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/TOKENRING-STATION-SR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:27:17 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, TimeTicks, MibIdentifier, Integer32, Bits, mib_2, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "TimeTicks", "MibIdentifier", "Integer32", "Bits", "mib-2", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+dot5SrMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 42))
+if mibBuilder.loadTexts: dot5SrMIB.setLastUpdated('9412161000Z')
+if mibBuilder.loadTexts: dot5SrMIB.setOrganization('IETF Interfaces MIB Working Group')
+dot5SrMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 42, 1))
+class SourceRoute(TextualConvention, OctetString):
+    reference = 'Annex C of ISO/IEC 10038: 1993, [ANSI/IEEE Std 802.1D, 1993]'
+    status = 'current'
+    displayHint = '1x:'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 30)
+
+dot5SrRouteTable = MibTable((1, 3, 6, 1, 2, 1, 42, 1, 1), )
+if mibBuilder.loadTexts: dot5SrRouteTable.setStatus('current')
+dot5SrRouteEntry = MibTableRow((1, 3, 6, 1, 2, 1, 42, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "TOKENRING-STATION-SR-MIB", "dot5SrRouteDestination"))
+if mibBuilder.loadTexts: dot5SrRouteEntry.setStatus('current')
+dot5SrRouteDestination = MibTableColumn((1, 3, 6, 1, 2, 1, 42, 1, 1, 1, 2), MacAddress())
+if mibBuilder.loadTexts: dot5SrRouteDestination.setStatus('current')
+dot5SrRouteControl = MibTableColumn((1, 3, 6, 1, 2, 1, 42, 1, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dot5SrRouteControl.setStatus('current')
+dot5SrRouteDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 42, 1, 1, 1, 4), SourceRoute()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dot5SrRouteDescr.setStatus('current')
+dot5SrRouteStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 42, 1, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dot5SrRouteStatus.setStatus('current')
+dot5SrConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 42, 2))
+dot5SrGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 42, 2, 1))
+dot5SrCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 42, 2, 2))
+dot5SrCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 42, 2, 2, 1)).setObjects(("TOKENRING-STATION-SR-MIB", "dot5SrRouteGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dot5SrCompliance = dot5SrCompliance.setStatus('current')
+dot5SrRouteGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 42, 2, 1, 1)).setObjects(("TOKENRING-STATION-SR-MIB", "dot5SrRouteControl"), ("TOKENRING-STATION-SR-MIB", "dot5SrRouteDescr"), ("TOKENRING-STATION-SR-MIB", "dot5SrRouteStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dot5SrRouteGroup = dot5SrRouteGroup.setStatus('current')
+mibBuilder.exportSymbols("TOKENRING-STATION-SR-MIB", dot5SrRouteStatus=dot5SrRouteStatus, dot5SrRouteDescr=dot5SrRouteDescr, dot5SrRouteGroup=dot5SrRouteGroup, dot5SrRouteDestination=dot5SrRouteDestination, dot5SrRouteEntry=dot5SrRouteEntry, dot5SrConformance=dot5SrConformance, dot5SrRouteTable=dot5SrRouteTable, dot5SrMIB=dot5SrMIB, dot5SrCompliance=dot5SrCompliance, SourceRoute=SourceRoute, dot5SrRouteControl=dot5SrRouteControl, dot5SrGroups=dot5SrGroups, dot5SrCompliances=dot5SrCompliances, dot5SrMIBObjects=dot5SrMIBObjects, PYSNMP_MODULE_ID=dot5SrMIB)

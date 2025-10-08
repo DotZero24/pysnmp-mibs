@@ -1,239 +1,103 @@
-_T='mpQATMstatQNumber'
-_S='mpQFRstatQNumber'
-_R='mpQIFstatQNumber'
-_Q='cells'
-_P='bytes'
-_O='mpQATMCfgVCI'
-_N='mpQATMCfgVPI'
-_M='mpQFRCfgDLCI'
-_L='weightedFair'
-_K='custom'
-_J='priority'
-_I='fifo'
-_H='Unsigned32'
-_G='not-accessible'
-_F='ifIndex'
-_E='packets'
-_D='Integer32'
-_C='MAIPU-QUEUE-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mpMgmt,=mibBuilder.importSymbols('MAIPU-SMI','mpMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_H,'enterprises','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-maipuQueueMIB=ModuleIdentity((1,3,6,1,4,1,5651,6,2,3,3))
-_Maipu_ObjectIdentity=ObjectIdentity
-maipu=_Maipu_ObjectIdentity((1,3,6,1,4,1,5651))
-_MpMgmt2_ObjectIdentity=ObjectIdentity
-mpMgmt2=_MpMgmt2_ObjectIdentity((1,3,6,1,4,1,5651,6))
-_MpRouterTech_ObjectIdentity=ObjectIdentity
-mpRouterTech=_MpRouterTech_ObjectIdentity((1,3,6,1,4,1,5651,6,2))
-_MpRtQoSv2_ObjectIdentity=ObjectIdentity
-mpRtQoSv2=_MpRtQoSv2_ObjectIdentity((1,3,6,1,4,1,5651,6,2,3))
-_MaipuQueueObjects_ObjectIdentity=ObjectIdentity
-maipuQueueObjects=_MaipuQueueObjects_ObjectIdentity((1,3,6,1,4,1,5651,6,2,3,3,1))
-_MpQueueConfig_ObjectIdentity=ObjectIdentity
-mpQueueConfig=_MpQueueConfig_ObjectIdentity((1,3,6,1,4,1,5651,6,2,3,3,1,1))
-_MpQInterfaceCfgTable_Object=MibTable
-mpQInterfaceCfgTable=_MpQInterfaceCfgTable_Object((1,3,6,1,4,1,5651,6,2,3,3,1,1,1))
-if mibBuilder.loadTexts:mpQInterfaceCfgTable.setStatus(_A)
-_MpQInterfaceCfgEntry_Object=MibTableRow
-mpQInterfaceCfgEntry=_MpQInterfaceCfgEntry_Object((1,3,6,1,4,1,5651,6,2,3,3,1,1,1,1))
-mpQInterfaceCfgEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:mpQInterfaceCfgEntry.setStatus(_A)
-class _MpQIFCfgQType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_I,1),(_J,2),(_K,3),(_L,4)))
-_MpQIFCfgQType_Type.__name__=_D
-_MpQIFCfgQType_Object=MibTableColumn
-mpQIFCfgQType=_MpQIFCfgQType_Object((1,3,6,1,4,1,5651,6,2,3,3,1,1,1,1,1),_MpQIFCfgQType_Type())
-mpQIFCfgQType.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQIFCfgQType.setStatus(_A)
-_MpQIFCfgQueues_Type=Integer32
-_MpQIFCfgQueues_Object=MibTableColumn
-mpQIFCfgQueues=_MpQIFCfgQueues_Object((1,3,6,1,4,1,5651,6,2,3,3,1,1,1,1,2),_MpQIFCfgQueues_Type())
-mpQIFCfgQueues.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQIFCfgQueues.setStatus(_A)
-_MpQFrameRelayVCCfgTable_Object=MibTable
-mpQFrameRelayVCCfgTable=_MpQFrameRelayVCCfgTable_Object((1,3,6,1,4,1,5651,6,2,3,3,1,1,2))
-if mibBuilder.loadTexts:mpQFrameRelayVCCfgTable.setStatus(_A)
-_MpQFrameRelayVCCfgEntry_Object=MibTableRow
-mpQFrameRelayVCCfgEntry=_MpQFrameRelayVCCfgEntry_Object((1,3,6,1,4,1,5651,6,2,3,3,1,1,2,1))
-mpQFrameRelayVCCfgEntry.setIndexNames((0,_C,_F),(0,_C,_M))
-if mibBuilder.loadTexts:mpQFrameRelayVCCfgEntry.setStatus(_A)
-class _MpQFRCfgDLCI_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1007))
-_MpQFRCfgDLCI_Type.__name__=_H
-_MpQFRCfgDLCI_Object=MibTableColumn
-mpQFRCfgDLCI=_MpQFRCfgDLCI_Object((1,3,6,1,4,1,5651,6,2,3,3,1,1,2,1,1),_MpQFRCfgDLCI_Type())
-mpQFRCfgDLCI.setMaxAccess(_G)
-if mibBuilder.loadTexts:mpQFRCfgDLCI.setStatus(_A)
-class _MpQFRCfgQType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_I,1),(_J,2),(_K,3),(_L,4)))
-_MpQFRCfgQType_Type.__name__=_D
-_MpQFRCfgQType_Object=MibTableColumn
-mpQFRCfgQType=_MpQFRCfgQType_Object((1,3,6,1,4,1,5651,6,2,3,3,1,1,2,1,2),_MpQFRCfgQType_Type())
-mpQFRCfgQType.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQFRCfgQType.setStatus(_A)
-_MpQFRCfgQueues_Type=Integer32
-_MpQFRCfgQueues_Object=MibTableColumn
-mpQFRCfgQueues=_MpQFRCfgQueues_Object((1,3,6,1,4,1,5651,6,2,3,3,1,1,2,1,3),_MpQFRCfgQueues_Type())
-mpQFRCfgQueues.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQFRCfgQueues.setStatus(_A)
-_MpQATMPVCCfgTable_Object=MibTable
-mpQATMPVCCfgTable=_MpQATMPVCCfgTable_Object((1,3,6,1,4,1,5651,6,2,3,3,1,1,3))
-if mibBuilder.loadTexts:mpQATMPVCCfgTable.setStatus(_A)
-_MpQATMPVCCfgEntry_Object=MibTableRow
-mpQATMPVCCfgEntry=_MpQATMPVCCfgEntry_Object((1,3,6,1,4,1,5651,6,2,3,3,1,1,3,1))
-mpQATMPVCCfgEntry.setIndexNames((0,_C,_F),(0,_C,_N),(0,_C,_O))
-if mibBuilder.loadTexts:mpQATMPVCCfgEntry.setStatus(_A)
-class _MpQATMCfgVPI_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_MpQATMCfgVPI_Type.__name__=_H
-_MpQATMCfgVPI_Object=MibTableColumn
-mpQATMCfgVPI=_MpQATMCfgVPI_Object((1,3,6,1,4,1,5651,6,2,3,3,1,1,3,1,1),_MpQATMCfgVPI_Type())
-mpQATMCfgVPI.setMaxAccess(_G)
-if mibBuilder.loadTexts:mpQATMCfgVPI.setStatus(_A)
-class _MpQATMCfgVCI_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_MpQATMCfgVCI_Type.__name__=_H
-_MpQATMCfgVCI_Object=MibTableColumn
-mpQATMCfgVCI=_MpQATMCfgVCI_Object((1,3,6,1,4,1,5651,6,2,3,3,1,1,3,1,2),_MpQATMCfgVCI_Type())
-mpQATMCfgVCI.setMaxAccess(_G)
-if mibBuilder.loadTexts:mpQATMCfgVCI.setStatus(_A)
-class _MpQATMCfgQType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_I,1),(_J,2),(_K,3),(_L,4)))
-_MpQATMCfgQType_Type.__name__=_D
-_MpQATMCfgQType_Object=MibTableColumn
-mpQATMCfgQType=_MpQATMCfgQType_Object((1,3,6,1,4,1,5651,6,2,3,3,1,1,3,1,3),_MpQATMCfgQType_Type())
-mpQATMCfgQType.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQATMCfgQType.setStatus(_A)
-_MpQATMCfgQueues_Type=Integer32
-_MpQATMCfgQueues_Object=MibTableColumn
-mpQATMCfgQueues=_MpQATMCfgQueues_Object((1,3,6,1,4,1,5651,6,2,3,3,1,1,3,1,4),_MpQATMCfgQueues_Type())
-mpQATMCfgQueues.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQATMCfgQueues.setStatus(_A)
-_MpQueueStats_ObjectIdentity=ObjectIdentity
-mpQueueStats=_MpQueueStats_ObjectIdentity((1,3,6,1,4,1,5651,6,2,3,3,1,2))
-_MpQInterfaceStatTable_Object=MibTable
-mpQInterfaceStatTable=_MpQInterfaceStatTable_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,1))
-if mibBuilder.loadTexts:mpQInterfaceStatTable.setStatus(_A)
-_MpQInterfaceStatEntry_Object=MibTableRow
-mpQInterfaceStatEntry=_MpQInterfaceStatEntry_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,1,1))
-mpQInterfaceStatEntry.setIndexNames((0,_C,_F),(0,_C,_R))
-if mibBuilder.loadTexts:mpQInterfaceStatEntry.setStatus(_A)
-class _MpQIFstatQNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_MpQIFstatQNumber_Type.__name__=_D
-_MpQIFstatQNumber_Object=MibTableColumn
-mpQIFstatQNumber=_MpQIFstatQNumber_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,1,1,1),_MpQIFstatQNumber_Type())
-mpQIFstatQNumber.setMaxAccess(_G)
-if mibBuilder.loadTexts:mpQIFstatQNumber.setStatus(_A)
-class _MpQIFstatDepthUnit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_E,1),(_P,2),(_Q,3),('ms',4),('us',5)))
-_MpQIFstatDepthUnit_Type.__name__=_D
-_MpQIFstatDepthUnit_Object=MibTableColumn
-mpQIFstatDepthUnit=_MpQIFstatDepthUnit_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,1,1,2),_MpQIFstatDepthUnit_Type())
-mpQIFstatDepthUnit.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQIFstatDepthUnit.setStatus(_A)
-_MpQIFstatCurrentDepth_Type=Gauge32
-_MpQIFstatCurrentDepth_Object=MibTableColumn
-mpQIFstatCurrentDepth=_MpQIFstatCurrentDepth_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,1,1,3),_MpQIFstatCurrentDepth_Type())
-mpQIFstatCurrentDepth.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQIFstatCurrentDepth.setStatus(_A)
-_MpQIFstatMaxDepth_Type=Integer32
-_MpQIFstatMaxDepth_Object=MibTableColumn
-mpQIFstatMaxDepth=_MpQIFstatMaxDepth_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,1,1,4),_MpQIFstatMaxDepth_Type())
-mpQIFstatMaxDepth.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQIFstatMaxDepth.setStatus(_A)
-_MpQIFstatTransmitPkt64_Type=Counter64
-_MpQIFstatTransmitPkt64_Object=MibTableColumn
-mpQIFstatTransmitPkt64=_MpQIFstatTransmitPkt64_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,1,1,5),_MpQIFstatTransmitPkt64_Type())
-mpQIFstatTransmitPkt64.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQIFstatTransmitPkt64.setStatus(_A)
-if mibBuilder.loadTexts:mpQIFstatTransmitPkt64.setUnits(_E)
-_MpQIFstatDiscardPkt64_Type=Counter64
-_MpQIFstatDiscardPkt64_Object=MibTableColumn
-mpQIFstatDiscardPkt64=_MpQIFstatDiscardPkt64_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,1,1,6),_MpQIFstatDiscardPkt64_Type())
-mpQIFstatDiscardPkt64.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQIFstatDiscardPkt64.setStatus(_A)
-if mibBuilder.loadTexts:mpQIFstatDiscardPkt64.setUnits(_E)
-_MpQFrameRelayVCStatTable_Object=MibTable
-mpQFrameRelayVCStatTable=_MpQFrameRelayVCStatTable_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,2))
-if mibBuilder.loadTexts:mpQFrameRelayVCStatTable.setStatus(_A)
-_MpQFrameRelayVCStatEntry_Object=MibTableRow
-mpQFrameRelayVCStatEntry=_MpQFrameRelayVCStatEntry_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,2,1))
-mpQFrameRelayVCStatEntry.setIndexNames((0,_C,_F),(0,_C,_M),(0,_C,_S))
-if mibBuilder.loadTexts:mpQFrameRelayVCStatEntry.setStatus(_A)
-class _MpQFRstatQNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_MpQFRstatQNumber_Type.__name__=_D
-_MpQFRstatQNumber_Object=MibTableColumn
-mpQFRstatQNumber=_MpQFRstatQNumber_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,2,1,1),_MpQFRstatQNumber_Type())
-mpQFRstatQNumber.setMaxAccess(_G)
-if mibBuilder.loadTexts:mpQFRstatQNumber.setStatus(_A)
-class _MpQFRstatDepthUnit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_E,1),(_P,2),(_Q,3),('ms',4),('us',5)))
-_MpQFRstatDepthUnit_Type.__name__=_D
-_MpQFRstatDepthUnit_Object=MibTableColumn
-mpQFRstatDepthUnit=_MpQFRstatDepthUnit_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,2,1,2),_MpQFRstatDepthUnit_Type())
-mpQFRstatDepthUnit.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQFRstatDepthUnit.setStatus(_A)
-_MpQFRstatCurrentDepth_Type=Gauge32
-_MpQFRstatCurrentDepth_Object=MibTableColumn
-mpQFRstatCurrentDepth=_MpQFRstatCurrentDepth_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,2,1,3),_MpQFRstatCurrentDepth_Type())
-mpQFRstatCurrentDepth.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQFRstatCurrentDepth.setStatus(_A)
-_MpQFRstatMaxDepth_Type=Integer32
-_MpQFRstatMaxDepth_Object=MibTableColumn
-mpQFRstatMaxDepth=_MpQFRstatMaxDepth_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,2,1,4),_MpQFRstatMaxDepth_Type())
-mpQFRstatMaxDepth.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQFRstatMaxDepth.setStatus(_A)
-_MpQFRstatTransmitPkt64_Type=Counter64
-_MpQFRstatTransmitPkt64_Object=MibTableColumn
-mpQFRstatTransmitPkt64=_MpQFRstatTransmitPkt64_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,2,1,5),_MpQFRstatTransmitPkt64_Type())
-mpQFRstatTransmitPkt64.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQFRstatTransmitPkt64.setStatus(_A)
-if mibBuilder.loadTexts:mpQFRstatTransmitPkt64.setUnits(_E)
-_MpQFRstatDiscardPkt64_Type=Counter64
-_MpQFRstatDiscardPkt64_Object=MibTableColumn
-mpQFRstatDiscardPkt64=_MpQFRstatDiscardPkt64_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,2,1,6),_MpQFRstatDiscardPkt64_Type())
-mpQFRstatDiscardPkt64.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQFRstatDiscardPkt64.setStatus(_A)
-if mibBuilder.loadTexts:mpQFRstatDiscardPkt64.setUnits(_E)
-_MpQATMPVCStatTable_Object=MibTable
-mpQATMPVCStatTable=_MpQATMPVCStatTable_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,3))
-if mibBuilder.loadTexts:mpQATMPVCStatTable.setStatus(_A)
-_MpQATMPVCStatEntry_Object=MibTableRow
-mpQATMPVCStatEntry=_MpQATMPVCStatEntry_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,3,1))
-mpQATMPVCStatEntry.setIndexNames((0,_C,_F),(0,_C,_N),(0,_C,_O),(0,_C,_T))
-if mibBuilder.loadTexts:mpQATMPVCStatEntry.setStatus(_A)
-class _MpQATMstatQNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_MpQATMstatQNumber_Type.__name__=_D
-_MpQATMstatQNumber_Object=MibTableColumn
-mpQATMstatQNumber=_MpQATMstatQNumber_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,3,1,1),_MpQATMstatQNumber_Type())
-mpQATMstatQNumber.setMaxAccess(_G)
-if mibBuilder.loadTexts:mpQATMstatQNumber.setStatus(_A)
-class _MpQATMstatDepthUnit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_E,1),(_P,2),(_Q,3),('ms',4),('us',5)))
-_MpQATMstatDepthUnit_Type.__name__=_D
-_MpQATMstatDepthUnit_Object=MibTableColumn
-mpQATMstatDepthUnit=_MpQATMstatDepthUnit_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,3,1,2),_MpQATMstatDepthUnit_Type())
-mpQATMstatDepthUnit.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQATMstatDepthUnit.setStatus(_A)
-_MpQATMstatCurrentDepth_Type=Gauge32
-_MpQATMstatCurrentDepth_Object=MibTableColumn
-mpQATMstatCurrentDepth=_MpQATMstatCurrentDepth_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,3,1,3),_MpQATMstatCurrentDepth_Type())
-mpQATMstatCurrentDepth.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQATMstatCurrentDepth.setStatus(_A)
-_MpQATMstatMaxDepth_Type=Integer32
-_MpQATMstatMaxDepth_Object=MibTableColumn
-mpQATMstatMaxDepth=_MpQATMstatMaxDepth_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,3,1,4),_MpQATMstatMaxDepth_Type())
-mpQATMstatMaxDepth.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQATMstatMaxDepth.setStatus(_A)
-_MpQATMstatTransmitPkt64_Type=Counter64
-_MpQATMstatTransmitPkt64_Object=MibTableColumn
-mpQATMstatTransmitPkt64=_MpQATMstatTransmitPkt64_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,3,1,5),_MpQATMstatTransmitPkt64_Type())
-mpQATMstatTransmitPkt64.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQATMstatTransmitPkt64.setStatus(_A)
-if mibBuilder.loadTexts:mpQATMstatTransmitPkt64.setUnits(_E)
-_MpQATMstatDiscardPkt64_Type=Counter64
-_MpQATMstatDiscardPkt64_Object=MibTableColumn
-mpQATMstatDiscardPkt64=_MpQATMstatDiscardPkt64_Object((1,3,6,1,4,1,5651,6,2,3,3,1,2,3,1,6),_MpQATMstatDiscardPkt64_Type())
-mpQATMstatDiscardPkt64.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpQATMstatDiscardPkt64.setStatus(_A)
-if mibBuilder.loadTexts:mpQATMstatDiscardPkt64.setUnits(_E)
-mibBuilder.exportSymbols(_C,**{'maipu':maipu,'mpMgmt2':mpMgmt2,'mpRouterTech':mpRouterTech,'mpRtQoSv2':mpRtQoSv2,'maipuQueueMIB':maipuQueueMIB,'maipuQueueObjects':maipuQueueObjects,'mpQueueConfig':mpQueueConfig,'mpQInterfaceCfgTable':mpQInterfaceCfgTable,'mpQInterfaceCfgEntry':mpQInterfaceCfgEntry,'mpQIFCfgQType':mpQIFCfgQType,'mpQIFCfgQueues':mpQIFCfgQueues,'mpQFrameRelayVCCfgTable':mpQFrameRelayVCCfgTable,'mpQFrameRelayVCCfgEntry':mpQFrameRelayVCCfgEntry,_M:mpQFRCfgDLCI,'mpQFRCfgQType':mpQFRCfgQType,'mpQFRCfgQueues':mpQFRCfgQueues,'mpQATMPVCCfgTable':mpQATMPVCCfgTable,'mpQATMPVCCfgEntry':mpQATMPVCCfgEntry,_N:mpQATMCfgVPI,_O:mpQATMCfgVCI,'mpQATMCfgQType':mpQATMCfgQType,'mpQATMCfgQueues':mpQATMCfgQueues,'mpQueueStats':mpQueueStats,'mpQInterfaceStatTable':mpQInterfaceStatTable,'mpQInterfaceStatEntry':mpQInterfaceStatEntry,_R:mpQIFstatQNumber,'mpQIFstatDepthUnit':mpQIFstatDepthUnit,'mpQIFstatCurrentDepth':mpQIFstatCurrentDepth,'mpQIFstatMaxDepth':mpQIFstatMaxDepth,'mpQIFstatTransmitPkt64':mpQIFstatTransmitPkt64,'mpQIFstatDiscardPkt64':mpQIFstatDiscardPkt64,'mpQFrameRelayVCStatTable':mpQFrameRelayVCStatTable,'mpQFrameRelayVCStatEntry':mpQFrameRelayVCStatEntry,_S:mpQFRstatQNumber,'mpQFRstatDepthUnit':mpQFRstatDepthUnit,'mpQFRstatCurrentDepth':mpQFRstatCurrentDepth,'mpQFRstatMaxDepth':mpQFRstatMaxDepth,'mpQFRstatTransmitPkt64':mpQFRstatTransmitPkt64,'mpQFRstatDiscardPkt64':mpQFRstatDiscardPkt64,'mpQATMPVCStatTable':mpQATMPVCStatTable,'mpQATMPVCStatEntry':mpQATMPVCStatEntry,_T:mpQATMstatQNumber,'mpQATMstatDepthUnit':mpQATMstatDepthUnit,'mpQATMstatCurrentDepth':mpQATMstatCurrentDepth,'mpQATMstatMaxDepth':mpQATMstatMaxDepth,'mpQATMstatTransmitPkt64':mpQATMstatTransmitPkt64,'mpQATMstatDiscardPkt64':mpQATMstatDiscardPkt64})
+#
+# PySNMP MIB module MAIPU-QUEUE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/maipu/MAIPU-QUEUE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mpMgmt, = mibBuilder.importSymbols("MAIPU-SMI", "mpMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+maipu = MibIdentifier((1, 3, 6, 1, 4, 1, 5651))
+mpMgmt2 = MibIdentifier((1, 3, 6, 1, 4, 1, 5651, 6))
+mpRouterTech = MibIdentifier((1, 3, 6, 1, 4, 1, 5651, 6, 2))
+mpRtQoSv2 = MibIdentifier((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3))
+maipuQueueMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3))
+if mibBuilder.loadTexts: maipuQueueMIB.setLastUpdated('0912261525Z')
+if mibBuilder.loadTexts: maipuQueueMIB.setOrganization('Maipu Communication Technology Co., LTD.')
+maipuQueueObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1))
+mpQueueConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1))
+mpQInterfaceCfgTable = MibTable((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1, 1), )
+if mibBuilder.loadTexts: mpQInterfaceCfgTable.setStatus('current')
+mpQInterfaceCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1, 1, 1), ).setIndexNames((0, "MAIPU-QUEUE-MIB", "ifIndex"))
+if mibBuilder.loadTexts: mpQInterfaceCfgEntry.setStatus('current')
+mpQIFCfgQType = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("fifo", 1), ("priority", 2), ("custom", 3), ("weightedFair", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQIFCfgQType.setStatus('current')
+mpQIFCfgQueues = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQIFCfgQueues.setStatus('current')
+mpQFrameRelayVCCfgTable = MibTable((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1, 2), )
+if mibBuilder.loadTexts: mpQFrameRelayVCCfgTable.setStatus('current')
+mpQFrameRelayVCCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1, 2, 1), ).setIndexNames((0, "MAIPU-QUEUE-MIB", "ifIndex"), (0, "MAIPU-QUEUE-MIB", "mpQFRCfgDLCI"))
+if mibBuilder.loadTexts: mpQFrameRelayVCCfgEntry.setStatus('current')
+mpQFRCfgDLCI = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1007)))
+if mibBuilder.loadTexts: mpQFRCfgDLCI.setStatus('current')
+mpQFRCfgQType = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("fifo", 1), ("priority", 2), ("custom", 3), ("weightedFair", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQFRCfgQType.setStatus('current')
+mpQFRCfgQueues = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQFRCfgQueues.setStatus('current')
+mpQATMPVCCfgTable = MibTable((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1, 3), )
+if mibBuilder.loadTexts: mpQATMPVCCfgTable.setStatus('current')
+mpQATMPVCCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1, 3, 1), ).setIndexNames((0, "MAIPU-QUEUE-MIB", "ifIndex"), (0, "MAIPU-QUEUE-MIB", "mpQATMCfgVPI"), (0, "MAIPU-QUEUE-MIB", "mpQATMCfgVCI"))
+if mibBuilder.loadTexts: mpQATMPVCCfgEntry.setStatus('current')
+mpQATMCfgVPI = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095)))
+if mibBuilder.loadTexts: mpQATMCfgVPI.setStatus('current')
+mpQATMCfgVCI = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1, 3, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: mpQATMCfgVCI.setStatus('current')
+mpQATMCfgQType = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("fifo", 1), ("priority", 2), ("custom", 3), ("weightedFair", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQATMCfgQType.setStatus('current')
+mpQATMCfgQueues = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 1, 3, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQATMCfgQueues.setStatus('current')
+mpQueueStats = MibIdentifier((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2))
+mpQInterfaceStatTable = MibTable((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 1), )
+if mibBuilder.loadTexts: mpQInterfaceStatTable.setStatus('current')
+mpQInterfaceStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 1, 1), ).setIndexNames((0, "MAIPU-QUEUE-MIB", "ifIndex"), (0, "MAIPU-QUEUE-MIB", "mpQIFstatQNumber"))
+if mibBuilder.loadTexts: mpQInterfaceStatEntry.setStatus('current')
+mpQIFstatQNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: mpQIFstatQNumber.setStatus('current')
+mpQIFstatDepthUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("packets", 1), ("bytes", 2), ("cells", 3), ("ms", 4), ("us", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQIFstatDepthUnit.setStatus('current')
+mpQIFstatCurrentDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 1, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQIFstatCurrentDepth.setStatus('current')
+mpQIFstatMaxDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQIFstatMaxDepth.setStatus('current')
+mpQIFstatTransmitPkt64 = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 1, 1, 5), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQIFstatTransmitPkt64.setStatus('current')
+mpQIFstatDiscardPkt64 = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 1, 1, 6), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQIFstatDiscardPkt64.setStatus('current')
+mpQFrameRelayVCStatTable = MibTable((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 2), )
+if mibBuilder.loadTexts: mpQFrameRelayVCStatTable.setStatus('current')
+mpQFrameRelayVCStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 2, 1), ).setIndexNames((0, "MAIPU-QUEUE-MIB", "ifIndex"), (0, "MAIPU-QUEUE-MIB", "mpQFRCfgDLCI"), (0, "MAIPU-QUEUE-MIB", "mpQFRstatQNumber"))
+if mibBuilder.loadTexts: mpQFrameRelayVCStatEntry.setStatus('current')
+mpQFRstatQNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: mpQFRstatQNumber.setStatus('current')
+mpQFRstatDepthUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("packets", 1), ("bytes", 2), ("cells", 3), ("ms", 4), ("us", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQFRstatDepthUnit.setStatus('current')
+mpQFRstatCurrentDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 2, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQFRstatCurrentDepth.setStatus('current')
+mpQFRstatMaxDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQFRstatMaxDepth.setStatus('current')
+mpQFRstatTransmitPkt64 = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 2, 1, 5), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQFRstatTransmitPkt64.setStatus('current')
+mpQFRstatDiscardPkt64 = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 2, 1, 6), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQFRstatDiscardPkt64.setStatus('current')
+mpQATMPVCStatTable = MibTable((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 3), )
+if mibBuilder.loadTexts: mpQATMPVCStatTable.setStatus('current')
+mpQATMPVCStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 3, 1), ).setIndexNames((0, "MAIPU-QUEUE-MIB", "ifIndex"), (0, "MAIPU-QUEUE-MIB", "mpQATMCfgVPI"), (0, "MAIPU-QUEUE-MIB", "mpQATMCfgVCI"), (0, "MAIPU-QUEUE-MIB", "mpQATMstatQNumber"))
+if mibBuilder.loadTexts: mpQATMPVCStatEntry.setStatus('current')
+mpQATMstatQNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: mpQATMstatQNumber.setStatus('current')
+mpQATMstatDepthUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("packets", 1), ("bytes", 2), ("cells", 3), ("ms", 4), ("us", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQATMstatDepthUnit.setStatus('current')
+mpQATMstatCurrentDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 3, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQATMstatCurrentDepth.setStatus('current')
+mpQATMstatMaxDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 3, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQATMstatMaxDepth.setStatus('current')
+mpQATMstatTransmitPkt64 = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 3, 1, 5), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQATMstatTransmitPkt64.setStatus('current')
+mpQATMstatDiscardPkt64 = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 6, 2, 3, 3, 1, 2, 3, 1, 6), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpQATMstatDiscardPkt64.setStatus('current')
+mibBuilder.exportSymbols("MAIPU-QUEUE-MIB", mpQFRCfgQueues=mpQFRCfgQueues, mpQFRCfgDLCI=mpQFRCfgDLCI, mpQATMCfgVCI=mpQATMCfgVCI, mpQATMstatMaxDepth=mpQATMstatMaxDepth, mpRouterTech=mpRouterTech, mpQFRstatMaxDepth=mpQFRstatMaxDepth, mpQATMCfgQType=mpQATMCfgQType, mpMgmt2=mpMgmt2, maipuQueueMIB=maipuQueueMIB, mpQueueStats=mpQueueStats, mpQInterfaceStatTable=mpQInterfaceStatTable, mpQIFstatQNumber=mpQIFstatQNumber, mpQInterfaceCfgTable=mpQInterfaceCfgTable, mpQATMstatDiscardPkt64=mpQATMstatDiscardPkt64, mpQFrameRelayVCCfgEntry=mpQFrameRelayVCCfgEntry, mpQIFstatDepthUnit=mpQIFstatDepthUnit, mpQFRstatDepthUnit=mpQFRstatDepthUnit, mpQATMPVCCfgEntry=mpQATMPVCCfgEntry, mpQFRstatTransmitPkt64=mpQFRstatTransmitPkt64, mpQATMPVCStatEntry=mpQATMPVCStatEntry, mpQueueConfig=mpQueueConfig, mpQIFCfgQType=mpQIFCfgQType, mpQATMPVCStatTable=mpQATMPVCStatTable, mpQATMstatQNumber=mpQATMstatQNumber, mpQIFstatCurrentDepth=mpQIFstatCurrentDepth, mpRtQoSv2=mpRtQoSv2, mpQATMstatDepthUnit=mpQATMstatDepthUnit, mpQFrameRelayVCCfgTable=mpQFrameRelayVCCfgTable, mpQATMCfgQueues=mpQATMCfgQueues, mpQIFCfgQueues=mpQIFCfgQueues, maipu=maipu, mpQInterfaceCfgEntry=mpQInterfaceCfgEntry, mpQFRstatQNumber=mpQFRstatQNumber, mpQATMstatCurrentDepth=mpQATMstatCurrentDepth, mpQATMstatTransmitPkt64=mpQATMstatTransmitPkt64, mpQFRstatCurrentDepth=mpQFRstatCurrentDepth, mpQATMCfgVPI=mpQATMCfgVPI, mpQIFstatDiscardPkt64=mpQIFstatDiscardPkt64, mpQFrameRelayVCStatEntry=mpQFrameRelayVCStatEntry, PYSNMP_MODULE_ID=maipuQueueMIB, mpQInterfaceStatEntry=mpQInterfaceStatEntry, mpQIFstatTransmitPkt64=mpQIFstatTransmitPkt64, mpQIFstatMaxDepth=mpQIFstatMaxDepth, mpQFrameRelayVCStatTable=mpQFrameRelayVCStatTable, mpQFRCfgQType=mpQFRCfgQType, mpQATMPVCCfgTable=mpQATMPVCCfgTable, maipuQueueObjects=maipuQueueObjects, mpQFRstatDiscardPkt64=mpQFRstatDiscardPkt64)

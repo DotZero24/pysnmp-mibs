@@ -1,52 +1,40 @@
-_I='bcsiUdldNotifGroup'
-_H='bcsiUdldNotifLinkUp'
-_G='bcsiUdldNotifLinkDown'
-_F='SnmpAdminString'
-_E='bcsiUdldNotifMessage'
-_D='ifIndex'
-_C='IF-MIB'
-_B='current'
-_A='BROCADE-UDLD-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-bcsiModules,=mibBuilder.importSymbols('Brocade-REG-MIB','bcsiModules')
-ifIndex,=mibBuilder.importSymbols(_C,_D)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-brocadeUdldMIB=ModuleIdentity((1,3,6,1,4,1,1588,3,1,9))
-if mibBuilder.loadTexts:brocadeUdldMIB.setRevisions(('2018-07-26 21:00','2016-09-28 00:00'))
-_BcsiUdldNotifications_ObjectIdentity=ObjectIdentity
-bcsiUdldNotifications=_BcsiUdldNotifications_ObjectIdentity((1,3,6,1,4,1,1588,3,1,9,0))
-_BcsiUdldObjects_ObjectIdentity=ObjectIdentity
-bcsiUdldObjects=_BcsiUdldObjects_ObjectIdentity((1,3,6,1,4,1,1588,3,1,9,1))
-_BcsiUdldNotifObjects_ObjectIdentity=ObjectIdentity
-bcsiUdldNotifObjects=_BcsiUdldNotifObjects_ObjectIdentity((1,3,6,1,4,1,1588,3,1,9,1,1))
-class _BcsiUdldNotifMessage_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_BcsiUdldNotifMessage_Type.__name__=_F
-_BcsiUdldNotifMessage_Object=MibScalar
-bcsiUdldNotifMessage=_BcsiUdldNotifMessage_Object((1,3,6,1,4,1,1588,3,1,9,1,1,1),_BcsiUdldNotifMessage_Type())
-bcsiUdldNotifMessage.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:bcsiUdldNotifMessage.setStatus(_B)
-_BcsiUdldConformance_ObjectIdentity=ObjectIdentity
-bcsiUdldConformance=_BcsiUdldConformance_ObjectIdentity((1,3,6,1,4,1,1588,3,1,9,2))
-_BcsiUdldCompliances_ObjectIdentity=ObjectIdentity
-bcsiUdldCompliances=_BcsiUdldCompliances_ObjectIdentity((1,3,6,1,4,1,1588,3,1,9,2,1))
-_BcsiUdldGroups_ObjectIdentity=ObjectIdentity
-bcsiUdldGroups=_BcsiUdldGroups_ObjectIdentity((1,3,6,1,4,1,1588,3,1,9,2,2))
-bcsiUdldNotifLinkDown=NotificationType((1,3,6,1,4,1,1588,3,1,9,0,1))
-bcsiUdldNotifLinkDown.setObjects(*((_C,_D),(_A,_E)))
-if mibBuilder.loadTexts:bcsiUdldNotifLinkDown.setStatus(_B)
-bcsiUdldNotifLinkUp=NotificationType((1,3,6,1,4,1,1588,3,1,9,0,2))
-bcsiUdldNotifLinkUp.setObjects(*((_C,_D),(_A,_E)))
-if mibBuilder.loadTexts:bcsiUdldNotifLinkUp.setStatus(_B)
-bcsiUdldNotifGroup=NotificationGroup((1,3,6,1,4,1,1588,3,1,9,2,2,1))
-bcsiUdldNotifGroup.setObjects(*((_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:bcsiUdldNotifGroup.setStatus(_B)
-bcsiUdldCompliance=ModuleCompliance((1,3,6,1,4,1,1588,3,1,9,2,1,1))
-bcsiUdldCompliance.setObjects((_A,_I))
-if mibBuilder.loadTexts:bcsiUdldCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'brocadeUdldMIB':brocadeUdldMIB,'bcsiUdldNotifications':bcsiUdldNotifications,_G:bcsiUdldNotifLinkDown,_H:bcsiUdldNotifLinkUp,'bcsiUdldObjects':bcsiUdldObjects,'bcsiUdldNotifObjects':bcsiUdldNotifObjects,_E:bcsiUdldNotifMessage,'bcsiUdldConformance':bcsiUdldConformance,'bcsiUdldCompliances':bcsiUdldCompliances,'bcsiUdldCompliance':bcsiUdldCompliance,'bcsiUdldGroups':bcsiUdldGroups,_I:bcsiUdldNotifGroup})
+#
+# PySNMP MIB module BROCADE-UDLD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/brocade/BROCADE-UDLD-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+bcsiModules, = mibBuilder.importSymbols("Brocade-REG-MIB", "bcsiModules")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+brocadeUdldMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1588, 3, 1, 9))
+brocadeUdldMIB.setRevisions(('2018-07-26 21:00', '2016-09-28 00:00',))
+if mibBuilder.loadTexts: brocadeUdldMIB.setLastUpdated('201807262100Z')
+if mibBuilder.loadTexts: brocadeUdldMIB.setOrganization('Extreme Networks, Inc.')
+bcsiUdldNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 1588, 3, 1, 9, 0))
+bcsiUdldObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1588, 3, 1, 9, 1))
+bcsiUdldConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1588, 3, 1, 9, 2))
+bcsiUdldNotifObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1588, 3, 1, 9, 1, 1))
+bcsiUdldNotifMessage = MibScalar((1, 3, 6, 1, 4, 1, 1588, 3, 1, 9, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: bcsiUdldNotifMessage.setStatus('current')
+bcsiUdldNotifLinkDown = NotificationType((1, 3, 6, 1, 4, 1, 1588, 3, 1, 9, 0, 1)).setObjects(("IF-MIB", "ifIndex"), ("BROCADE-UDLD-MIB", "bcsiUdldNotifMessage"))
+if mibBuilder.loadTexts: bcsiUdldNotifLinkDown.setStatus('current')
+bcsiUdldNotifLinkUp = NotificationType((1, 3, 6, 1, 4, 1, 1588, 3, 1, 9, 0, 2)).setObjects(("IF-MIB", "ifIndex"), ("BROCADE-UDLD-MIB", "bcsiUdldNotifMessage"))
+if mibBuilder.loadTexts: bcsiUdldNotifLinkUp.setStatus('current')
+bcsiUdldCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1588, 3, 1, 9, 2, 1))
+bcsiUdldGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1588, 3, 1, 9, 2, 2))
+bcsiUdldCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 1588, 3, 1, 9, 2, 1, 1)).setObjects(("BROCADE-UDLD-MIB", "bcsiUdldNotifGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bcsiUdldCompliance = bcsiUdldCompliance.setStatus('current')
+bcsiUdldNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 1588, 3, 1, 9, 2, 2, 1)).setObjects(("BROCADE-UDLD-MIB", "bcsiUdldNotifLinkDown"), ("BROCADE-UDLD-MIB", "bcsiUdldNotifLinkUp"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bcsiUdldNotifGroup = bcsiUdldNotifGroup.setStatus('current')
+mibBuilder.exportSymbols("BROCADE-UDLD-MIB", PYSNMP_MODULE_ID=brocadeUdldMIB, bcsiUdldGroups=bcsiUdldGroups, bcsiUdldCompliance=bcsiUdldCompliance, bcsiUdldNotifications=bcsiUdldNotifications, bcsiUdldConformance=bcsiUdldConformance, bcsiUdldNotifObjects=bcsiUdldNotifObjects, bcsiUdldObjects=bcsiUdldObjects, bcsiUdldNotifGroup=bcsiUdldNotifGroup, bcsiUdldNotifLinkDown=bcsiUdldNotifLinkDown, bcsiUdldNotifMessage=bcsiUdldNotifMessage, bcsiUdldNotifLinkUp=bcsiUdldNotifLinkUp, bcsiUdldCompliances=bcsiUdldCompliances, brocadeUdldMIB=brocadeUdldMIB)

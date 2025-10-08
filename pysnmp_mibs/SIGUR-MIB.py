@@ -1,139 +1,69 @@
-_I='accessPoint'
-_H='Normal'
-_G='osdpNumber'
-_F='OctetString'
-_E='SIGUR-MIB'
-_D='Unknown'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention','TimeStamp')
-_SigurProduct_ObjectIdentity=ObjectIdentity
-sigurProduct=_SigurProduct_ObjectIdentity((1,3,6,1,4,1,56627))
-_Controllers_ObjectIdentity=ObjectIdentity
-controllers=_Controllers_ObjectIdentity((1,3,6,1,4,1,56627,1))
-_Informs_ObjectIdentity=ObjectIdentity
-informs=_Informs_ObjectIdentity((1,3,6,1,4,1,56627,1,0))
-class _SerialNumber_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_SerialNumber_Type.__name__=_F
-_SerialNumber_Object=MibScalar
-serialNumber=_SerialNumber_Object((1,3,6,1,4,1,56627,1,1),_SerialNumber_Type())
-serialNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:serialNumber.setStatus(_A)
-_OsdpReaderStateTable_Object=MibTable
-osdpReaderStateTable=_OsdpReaderStateTable_Object((1,3,6,1,4,1,56627,1,2))
-if mibBuilder.loadTexts:osdpReaderStateTable.setStatus(_A)
-_OsdpReaderStateEntry_Object=MibTableRow
-osdpReaderStateEntry=_OsdpReaderStateEntry_Object((1,3,6,1,4,1,56627,1,2,1))
-osdpReaderStateEntry.setIndexNames((0,_E,_G))
-if mibBuilder.loadTexts:osdpReaderStateEntry.setStatus(_A)
-_OsdpNumber_Type=Counter32
-_OsdpNumber_Object=MibTableColumn
-osdpNumber=_OsdpNumber_Object((1,3,6,1,4,1,56627,1,2,1,1),_OsdpNumber_Type())
-osdpNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:osdpNumber.setStatus(_A)
-class _OsdpState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*((_D,0),('NotConfigured',1),('Misconfigured',2),('Offline',3),('Online',4),('Unencrypted',5)))
-_OsdpState_Type.__name__=_C
-_OsdpState_Object=MibTableColumn
-osdpState=_OsdpState_Object((1,3,6,1,4,1,56627,1,2,1,2),_OsdpState_Type())
-osdpState.setMaxAccess(_B)
-if mibBuilder.loadTexts:osdpState.setStatus(_A)
-_OsdpAddress_Type=Counter32
-_OsdpAddress_Object=MibTableColumn
-osdpAddress=_OsdpAddress_Object((1,3,6,1,4,1,56627,1,2,1,3),_OsdpAddress_Type())
-osdpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:osdpAddress.setStatus(_A)
-_Voltage_Type=Integer32
-_Voltage_Object=MibScalar
-voltage=_Voltage_Object((1,3,6,1,4,1,56627,1,3),_Voltage_Type())
-voltage.setMaxAccess(_B)
-if mibBuilder.loadTexts:voltage.setStatus(_A)
-class _FireAlarmState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_D,0),('Fire',1),('NotFire',2)))
-_FireAlarmState_Type.__name__=_C
-_FireAlarmState_Object=MibScalar
-fireAlarmState=_FireAlarmState_Object((1,3,6,1,4,1,56627,1,4),_FireAlarmState_Type())
-fireAlarmState.setMaxAccess(_B)
-if mibBuilder.loadTexts:fireAlarmState.setStatus(_A)
-_LocalDateTime_Type=DateAndTime
-_LocalDateTime_Object=MibScalar
-localDateTime=_LocalDateTime_Object((1,3,6,1,4,1,56627,1,5),_LocalDateTime_Type())
-localDateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:localDateTime.setStatus(_A)
-class _BatteryOperation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_D,0),('Charging',1),('EmergencyPower',2)))
-_BatteryOperation_Type.__name__=_C
-_BatteryOperation_Object=MibScalar
-batteryOperation=_BatteryOperation_Object((1,3,6,1,4,1,56627,1,6),_BatteryOperation_Type())
-batteryOperation.setMaxAccess(_B)
-if mibBuilder.loadTexts:batteryOperation.setStatus(_A)
-class _TamperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_D,0),(_H,1),('BreakIn',2)))
-_TamperState_Type.__name__=_C
-_TamperState_Object=MibScalar
-tamperState=_TamperState_Object((1,3,6,1,4,1,56627,1,7),_TamperState_Type())
-tamperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:tamperState.setStatus(_A)
-_IoPortStateTable_Object=MibTable
-ioPortStateTable=_IoPortStateTable_Object((1,3,6,1,4,1,56627,1,8))
-if mibBuilder.loadTexts:ioPortStateTable.setStatus(_A)
-_IoPortStateEntry_Object=MibTableRow
-ioPortStateEntry=_IoPortStateEntry_Object((1,3,6,1,4,1,56627,1,8,1))
-ioPortStateEntry.setIndexNames((0,_E,_I))
-if mibBuilder.loadTexts:ioPortStateEntry.setStatus(_A)
-_AccessPoint_Type=Integer32
-_AccessPoint_Object=MibTableColumn
-accessPoint=_AccessPoint_Object((1,3,6,1,4,1,56627,1,8,1,1),_AccessPoint_Type())
-accessPoint.setMaxAccess(_B)
-if mibBuilder.loadTexts:accessPoint.setStatus(_A)
-class _Function_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68)));namedValues=NamedValues(*(('liReaderUn',-3),('liReaderIn',-2),('liReaderOut',-1),(_D,0),('liTurnstilePanelA',1),('liTurnstilePanelB',2),('liTurnstilePanelL',3),('loTurnstileIndA',4),('loTurnstileIndB',5),('loTurnstileIndL',6),('liTurnstileDetA',7),('liTurnstileDetB',8),('loTurnstileCntlA',9),('loTurnstileCntlB',10),('loTurnstileCntlL',11),('liDoorDet',12),('liDoorRteA',13),('liDoorRteB',14),('liDoorRteX',15),('liDoorLock',16),('loDoorLock',17),('loDoorUnlock',18),('liGateDetA',19),('liGateDetB',20),('liGateDetC',21),('liGatePanelM',22),('liGatePanelS',23),('loOprAllowed',24),('loOprDeny',25),('liFire',26),('liOpd',27),('loBreakAlarm',28),('liRegDetA',29),('liRegDetB',30),('liTurnstileDetX',31),('loImpAllowA',32),('loImpAllowB',33),('loImpDenyA',34),('loImpDenyB',35),('liReqmngstateNormal',36),('liReqmngstateLock',37),('liReqmngstateUnlock',38),('loAlmNormal',39),('loAlmAlarm',40),('loDoorHoldAlarm',41),('liDcin',42),('loMngstateLock',43),('loAcceptA',44),('loAcceptB',45),('loRejectA',46),('loRejectB',47),('loMngstateUnlock',48),('loPowerMain',49),('loPowerStandby',50),('loTraflightA',51),('loTraflightB',52),('loCardinpocket',53),('loLedc',54),('loWaitingAlkoA',55),('loWaitingAlkoB',56),('liSurpressalko',57),('liHallsensor',58),('loWaitingEscortA',59),('loWaitingEscortB',60),('loGateOpen',61),('loGateClose',62),('loGateStop',63),('loGateOpen2',64),('loGateClose2',65),('liGateDd',66),('liGateDu',67),('liResetPeopleCnt',68)))
-_Function_Type.__name__=_C
-_Function_Object=MibTableColumn
-function=_Function_Object((1,3,6,1,4,1,56627,1,8,1,2),_Function_Type())
-function.setMaxAccess(_B)
-if mibBuilder.loadTexts:function.setStatus(_A)
-class _PhysicalPin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38)));namedValues=NamedValues(*(('port4',-4),('port3',-3),('port2',-2),('port1',-1),('portDet1Pass1',0),('portDet2Pass2',1),('portDet3Rte1',2),('portDet4Rte2',3),('portDet5StopPass3',4),('portDet6Pass4',5),('portDet7Rte3',6),('portDet8Rte4',7),('portDet9Auxin1',8),('portDet10Auxin2',9),('portOpd',10),('portFire',11),('portDcd',12),('portK1',13),('portK2',14),('portK3',15),('portK4',16),('portOut1Auxout1',17),('portOut2Auxout2',18),('portOut3',19),('portOut4',20),('portOut5',21),('portL1ALed1',22),('portL1B',23),('portL2ALed2',24),('portL2B',25),('portL3A',26),('portL3B',27),('portL4A',28),('portL4B',29),('portCpi1',30),('portCpi2',31),('portCpi3',32),('portLedrx',33),('portLedtx',34),('portLedpwr',35),('portSnd',36),('portRst',37),('portBat',38)))
-_PhysicalPin_Type.__name__=_C
-_PhysicalPin_Object=MibTableColumn
-physicalPin=_PhysicalPin_Object((1,3,6,1,4,1,56627,1,8,1,3),_PhysicalPin_Type())
-physicalPin.setMaxAccess(_B)
-if mibBuilder.loadTexts:physicalPin.setStatus(_A)
-class _PortState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_D,0),('Inactive',1),('Active',2)))
-_PortState_Type.__name__=_C
-_PortState_Object=MibTableColumn
-portState=_PortState_Object((1,3,6,1,4,1,56627,1,8,1,4),_PortState_Type())
-portState.setMaxAccess(_B)
-if mibBuilder.loadTexts:portState.setStatus(_A)
-class _Direction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_D,0),('Input',1),('Output',2)))
-_Direction_Type.__name__=_C
-_Direction_Object=MibTableColumn
-direction=_Direction_Object((1,3,6,1,4,1,56627,1,8,1,5),_Direction_Type())
-direction.setMaxAccess(_B)
-if mibBuilder.loadTexts:direction.setStatus(_A)
-class _ActiveState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_H,0),('Inverted',1)))
-_ActiveState_Type.__name__=_C
-_ActiveState_Object=MibScalar
-activeState=_ActiveState_Object((1,3,6,1,4,1,56627,1,8,1,6),_ActiveState_Type())
-activeState.setMaxAccess(_B)
-if mibBuilder.loadTexts:activeState.setStatus(_A)
-_Temperature_Type=Integer32
-_Temperature_Object=MibScalar
-temperature=_Temperature_Object((1,3,6,1,4,1,56627,1,9),_Temperature_Type())
-temperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:temperature.setStatus(_A)
-fireAlarmInform=NotificationType((1,3,6,1,4,1,56627,1,0,1))
-if mibBuilder.loadTexts:fireAlarmInform.setStatus(_A)
-voltageWrongInform=NotificationType((1,3,6,1,4,1,56627,1,0,2))
-if mibBuilder.loadTexts:voltageWrongInform.setStatus(_A)
-tamperStateInform=NotificationType((1,3,6,1,4,1,56627,1,0,3))
-if mibBuilder.loadTexts:tamperStateInform.setStatus(_A)
-batteryStateInform=NotificationType((1,3,6,1,4,1,56627,1,0,4))
-if mibBuilder.loadTexts:batteryStateInform.setStatus(_A)
-breakInInform=NotificationType((1,3,6,1,4,1,56627,1,0,5))
-if mibBuilder.loadTexts:breakInInform.setStatus(_A)
-osdpReaderStateFail=NotificationType((1,3,6,1,4,1,56627,1,0,6))
-if mibBuilder.loadTexts:osdpReaderStateFail.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'sigurProduct':sigurProduct,'controllers':controllers,'informs':informs,'fireAlarmInform':fireAlarmInform,'voltageWrongInform':voltageWrongInform,'tamperStateInform':tamperStateInform,'batteryStateInform':batteryStateInform,'breakInInform':breakInInform,'osdpReaderStateFail':osdpReaderStateFail,'serialNumber':serialNumber,'osdpReaderStateTable':osdpReaderStateTable,'osdpReaderStateEntry':osdpReaderStateEntry,_G:osdpNumber,'osdpState':osdpState,'osdpAddress':osdpAddress,'voltage':voltage,'fireAlarmState':fireAlarmState,'localDateTime':localDateTime,'batteryOperation':batteryOperation,'tamperState':tamperState,'ioPortStateTable':ioPortStateTable,'ioPortStateEntry':ioPortStateEntry,_I:accessPoint,'function':function,'physicalPin':physicalPin,'portState':portState,'direction':direction,'activeState':activeState,'temperature':temperature})
+#
+# PySNMP MIB module SIGUR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/sigur/SIGUR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "DateAndTime", "TextualConvention")
+sigurProduct = MibIdentifier((1, 3, 6, 1, 4, 1, 56627))
+controllers = MibIdentifier((1, 3, 6, 1, 4, 1, 56627, 1))
+informs = MibIdentifier((1, 3, 6, 1, 4, 1, 56627, 1, 0))
+fireAlarmInform = NotificationType((1, 3, 6, 1, 4, 1, 56627, 1, 0, 1))
+if mibBuilder.loadTexts: fireAlarmInform.setStatus('current')
+voltageWrongInform = NotificationType((1, 3, 6, 1, 4, 1, 56627, 1, 0, 2))
+if mibBuilder.loadTexts: voltageWrongInform.setStatus('current')
+tamperStateInform = NotificationType((1, 3, 6, 1, 4, 1, 56627, 1, 0, 3))
+if mibBuilder.loadTexts: tamperStateInform.setStatus('current')
+batteryStateInform = NotificationType((1, 3, 6, 1, 4, 1, 56627, 1, 0, 4))
+if mibBuilder.loadTexts: batteryStateInform.setStatus('current')
+breakInInform = NotificationType((1, 3, 6, 1, 4, 1, 56627, 1, 0, 5))
+if mibBuilder.loadTexts: breakInInform.setStatus('current')
+osdpReaderStateFail = NotificationType((1, 3, 6, 1, 4, 1, 56627, 1, 0, 6))
+if mibBuilder.loadTexts: osdpReaderStateFail.setStatus('current')
+serialNumber = MibScalar((1, 3, 6, 1, 4, 1, 56627, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: serialNumber.setStatus('current')
+osdpReaderStateTable = MibTable((1, 3, 6, 1, 4, 1, 56627, 1, 2), ).setMaxAccess("readonly")
+if mibBuilder.loadTexts: osdpReaderStateTable.setStatus('current')
+osdpReaderStateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 56627, 1, 2, 1), ).setMaxAccess("readonly").setIndexNames((0, "SIGUR-MIB", "osdpNumber"))
+if mibBuilder.loadTexts: osdpReaderStateEntry.setStatus('current')
+osdpNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 56627, 1, 2, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: osdpNumber.setStatus('current')
+osdpState = MibTableColumn((1, 3, 6, 1, 4, 1, 56627, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("Unknown", 0), ("NotConfigured", 1), ("Misconfigured", 2), ("Offline", 3), ("Online", 4), ("Unencrypted", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: osdpState.setStatus('current')
+osdpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 56627, 1, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: osdpAddress.setStatus('current')
+voltage = MibScalar((1, 3, 6, 1, 4, 1, 56627, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: voltage.setStatus('current')
+fireAlarmState = MibScalar((1, 3, 6, 1, 4, 1, 56627, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("Unknown", 0), ("Fire", 1), ("NotFire", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fireAlarmState.setStatus('current')
+localDateTime = MibScalar((1, 3, 6, 1, 4, 1, 56627, 1, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: localDateTime.setStatus('current')
+batteryOperation = MibScalar((1, 3, 6, 1, 4, 1, 56627, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("Unknown", 0), ("Charging", 1), ("EmergencyPower", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: batteryOperation.setStatus('current')
+tamperState = MibScalar((1, 3, 6, 1, 4, 1, 56627, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("Unknown", 0), ("Normal", 1), ("BreakIn", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tamperState.setStatus('current')
+ioPortStateTable = MibTable((1, 3, 6, 1, 4, 1, 56627, 1, 8), ).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ioPortStateTable.setStatus('current')
+ioPortStateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 56627, 1, 8, 1), ).setMaxAccess("readonly").setIndexNames((0, "SIGUR-MIB", "accessPoint"))
+if mibBuilder.loadTexts: ioPortStateEntry.setStatus('current')
+accessPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 56627, 1, 8, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: accessPoint.setStatus('current')
+function = MibTableColumn((1, 3, 6, 1, 4, 1, 56627, 1, 8, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, -1, -2, -3))).clone(namedValues=NamedValues(("Unknown", 0), ("liTurnstilePanelA", 1), ("liTurnstilePanelB", 2), ("liTurnstilePanelL", 3), ("loTurnstileIndA", 4), ("loTurnstileIndB", 5), ("loTurnstileIndL", 6), ("liTurnstileDetA", 7), ("liTurnstileDetB", 8), ("loTurnstileCntlA", 9), ("loTurnstileCntlB", 10), ("loTurnstileCntlL", 11), ("liDoorDet", 12), ("liDoorRteA", 13), ("liDoorRteB", 14), ("liDoorRteX", 15), ("liDoorLock", 16), ("loDoorLock", 17), ("loDoorUnlock", 18), ("liGateDetA", 19), ("liGateDetB", 20), ("liGateDetC", 21), ("liGatePanelM", 22), ("liGatePanelS", 23), ("loOprAllowed", 24), ("loOprDeny", 25), ("liFire", 26), ("liOpd", 27), ("loBreakAlarm", 28), ("liRegDetA", 29), ("liRegDetB", 30), ("liTurnstileDetX", 31), ("loImpAllowA", 32), ("loImpAllowB", 33), ("loImpDenyA", 34), ("loImpDenyB", 35), ("liReqmngstateNormal", 36), ("liReqmngstateLock", 37), ("liReqmngstateUnlock", 38), ("loAlmNormal", 39), ("loAlmAlarm", 40), ("loDoorHoldAlarm", 41), ("liDcin", 42), ("loMngstateLock", 43), ("loAcceptA", 44), ("loAcceptB", 45), ("loRejectA", 46), ("loRejectB", 47), ("loMngstateUnlock", 48), ("loPowerMain", 49), ("loPowerStandby", 50), ("loTraflightA", 51), ("loTraflightB", 52), ("loCardinpocket", 53), ("loLedc", 54), ("loWaitingAlkoA", 55), ("loWaitingAlkoB", 56), ("liSurpressalko", 57), ("liHallsensor", 58), ("loWaitingEscortA", 59), ("loWaitingEscortB", 60), ("loGateOpen", 61), ("loGateClose", 62), ("loGateStop", 63), ("loGateOpen2", 64), ("loGateClose2", 65), ("liGateDd", 66), ("liGateDu", 67), ("liResetPeopleCnt", 68), ("liReaderOut", -1), ("liReaderIn", -2), ("liReaderUn", -3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: function.setStatus('current')
+physicalPin = MibTableColumn((1, 3, 6, 1, 4, 1, 56627, 1, 8, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, -1, -2, -3, -4))).clone(namedValues=NamedValues(("portDet1Pass1", 0), ("portDet2Pass2", 1), ("portDet3Rte1", 2), ("portDet4Rte2", 3), ("portDet5StopPass3", 4), ("portDet6Pass4", 5), ("portDet7Rte3", 6), ("portDet8Rte4", 7), ("portDet9Auxin1", 8), ("portDet10Auxin2", 9), ("portOpd", 10), ("portFire", 11), ("portDcd", 12), ("portK1", 13), ("portK2", 14), ("portK3", 15), ("portK4", 16), ("portOut1Auxout1", 17), ("portOut2Auxout2", 18), ("portOut3", 19), ("portOut4", 20), ("portOut5", 21), ("portL1ALed1", 22), ("portL1B", 23), ("portL2ALed2", 24), ("portL2B", 25), ("portL3A", 26), ("portL3B", 27), ("portL4A", 28), ("portL4B", 29), ("portCpi1", 30), ("portCpi2", 31), ("portCpi3", 32), ("portLedrx", 33), ("portLedtx", 34), ("portLedpwr", 35), ("portSnd", 36), ("portRst", 37), ("portBat", 38), ("port1", -1), ("port2", -2), ("port3", -3), ("port4", -4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: physicalPin.setStatus('current')
+portState = MibTableColumn((1, 3, 6, 1, 4, 1, 56627, 1, 8, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("Unknown", 0), ("Inactive", 1), ("Active", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portState.setStatus('current')
+direction = MibTableColumn((1, 3, 6, 1, 4, 1, 56627, 1, 8, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("Unknown", 0), ("Input", 1), ("Output", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: direction.setStatus('current')
+activeState = MibScalar((1, 3, 6, 1, 4, 1, 56627, 1, 8, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("Normal", 0), ("Inverted", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: activeState.setStatus('current')
+temperature = MibScalar((1, 3, 6, 1, 4, 1, 56627, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: temperature.setStatus('current')
+mibBuilder.exportSymbols("SIGUR-MIB", localDateTime=localDateTime, voltage=voltage, fireAlarmInform=fireAlarmInform, voltageWrongInform=voltageWrongInform, ioPortStateTable=ioPortStateTable, ioPortStateEntry=ioPortStateEntry, osdpReaderStateTable=osdpReaderStateTable, serialNumber=serialNumber, osdpState=osdpState, osdpAddress=osdpAddress, activeState=activeState, accessPoint=accessPoint, batteryOperation=batteryOperation, sigurProduct=sigurProduct, function=function, temperature=temperature, controllers=controllers, osdpReaderStateEntry=osdpReaderStateEntry, breakInInform=breakInInform, physicalPin=physicalPin, osdpNumber=osdpNumber, batteryStateInform=batteryStateInform, osdpReaderStateFail=osdpReaderStateFail, direction=direction, informs=informs, portState=portState, tamperState=tamperState, tamperStateInform=tamperStateInform, fireAlarmState=fireAlarmState)

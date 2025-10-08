@@ -1,91 +1,51 @@
-_F='mwLogTransferTableIndex'
-_E='not-accessible'
-_D='mwSyslogTableIndex'
-_C='MERU-SYSLOG-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-Ipv6Address,=mibBuilder.importSymbols('IPV6-TC','Ipv6Address')
-mwDiagnostics,=mibBuilder.importSymbols('MERU-SMI','mwDiagnostics')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TimeInterval','TimeStamp','TruthValue')
-mwSyslog=ModuleIdentity((1,3,6,1,4,1,15983,1,1,5,2))
-_MwSyslogTable_Object=MibTable
-mwSyslogTable=_MwSyslogTable_Object((1,3,6,1,4,1,15983,1,1,5,2,1))
-if mibBuilder.loadTexts:mwSyslogTable.setStatus(_A)
-_MwSyslogEntry_Object=MibTableRow
-mwSyslogEntry=_MwSyslogEntry_Object((1,3,6,1,4,1,15983,1,1,5,2,1,1))
-mwSyslogEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:mwSyslogEntry.setStatus(_A)
-_MwSyslogTableIndex_Type=Integer32
-_MwSyslogTableIndex_Object=MibTableColumn
-mwSyslogTableIndex=_MwSyslogTableIndex_Object((1,3,6,1,4,1,15983,1,1,5,2,1,1,1),_MwSyslogTableIndex_Type())
-mwSyslogTableIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:mwSyslogTableIndex.setStatus(_A)
-_MwSysloglinenb_Type=Unsigned32
-_MwSysloglinenb_Object=MibTableColumn
-mwSysloglinenb=_MwSysloglinenb_Object((1,3,6,1,4,1,15983,1,1,5,2,1,1,2),_MwSysloglinenb_Type())
-mwSysloglinenb.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwSysloglinenb.setStatus(_A)
-_MwSyslogrecord_Type=DisplayString
-_MwSyslogrecord_Object=MibTableColumn
-mwSyslogrecord=_MwSyslogrecord_Object((1,3,6,1,4,1,15983,1,1,5,2,1,1,3),_MwSyslogrecord_Type())
-mwSyslogrecord.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwSyslogrecord.setStatus(_A)
-_MwSyslogpriority_Type=DisplayString
-_MwSyslogpriority_Object=MibTableColumn
-mwSyslogpriority=_MwSyslogpriority_Object((1,3,6,1,4,1,15983,1,1,5,2,1,1,4),_MwSyslogpriority_Type())
-mwSyslogpriority.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwSyslogpriority.setStatus(_A)
-_MwSyslogmnemonic_Type=DisplayString
-_MwSyslogmnemonic_Object=MibTableColumn
-mwSyslogmnemonic=_MwSyslogmnemonic_Object((1,3,6,1,4,1,15983,1,1,5,2,1,1,5),_MwSyslogmnemonic_Type())
-mwSyslogmnemonic.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwSyslogmnemonic.setStatus(_A)
-_MwSyslogtimestamp_Type=DateAndTime
-_MwSyslogtimestamp_Object=MibTableColumn
-mwSyslogtimestamp=_MwSyslogtimestamp_Object((1,3,6,1,4,1,15983,1,1,5,2,1,1,6),_MwSyslogtimestamp_Type())
-mwSyslogtimestamp.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwSyslogtimestamp.setStatus(_A)
-_MwLogTransferTable_Object=MibTable
-mwLogTransferTable=_MwLogTransferTable_Object((1,3,6,1,4,1,15983,1,1,5,2,2))
-if mibBuilder.loadTexts:mwLogTransferTable.setStatus(_A)
-_MwLogTransferEntry_Object=MibTableRow
-mwLogTransferEntry=_MwLogTransferEntry_Object((1,3,6,1,4,1,15983,1,1,5,2,2,1))
-mwLogTransferEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:mwLogTransferEntry.setStatus(_A)
-_MwLogTransferTableIndex_Type=Integer32
-_MwLogTransferTableIndex_Object=MibTableColumn
-mwLogTransferTableIndex=_MwLogTransferTableIndex_Object((1,3,6,1,4,1,15983,1,1,5,2,2,1,1),_MwLogTransferTableIndex_Type())
-mwLogTransferTableIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:mwLogTransferTableIndex.setStatus(_A)
-_MwLogTransfersize_Type=Unsigned32
-_MwLogTransfersize_Object=MibTableColumn
-mwLogTransfersize=_MwLogTransfersize_Object((1,3,6,1,4,1,15983,1,1,5,2,2,1,2),_MwLogTransfersize_Type())
-mwLogTransfersize.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwLogTransfersize.setStatus(_A)
-_MwLogTransfernblines_Type=Unsigned32
-_MwLogTransfernblines_Object=MibTableColumn
-mwLogTransfernblines=_MwLogTransfernblines_Object((1,3,6,1,4,1,15983,1,1,5,2,2,1,3),_MwLogTransfernblines_Type())
-mwLogTransfernblines.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwLogTransfernblines.setStatus(_A)
-_MwLogTransferlastaccess_Type=DateAndTime
-_MwLogTransferlastaccess_Object=MibTableColumn
-mwLogTransferlastaccess=_MwLogTransferlastaccess_Object((1,3,6,1,4,1,15983,1,1,5,2,2,1,4),_MwLogTransferlastaccess_Type())
-mwLogTransferlastaccess.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwLogTransferlastaccess.setStatus(_A)
-_MwLogTransferlastrecord_Type=DisplayString
-_MwLogTransferlastrecord_Object=MibTableColumn
-mwLogTransferlastrecord=_MwLogTransferlastrecord_Object((1,3,6,1,4,1,15983,1,1,5,2,2,1,5),_MwLogTransferlastrecord_Type())
-mwLogTransferlastrecord.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwLogTransferlastrecord.setStatus(_A)
-_MwLogTransferdescription_Type=DisplayString
-_MwLogTransferdescription_Object=MibTableColumn
-mwLogTransferdescription=_MwLogTransferdescription_Object((1,3,6,1,4,1,15983,1,1,5,2,2,1,6),_MwLogTransferdescription_Type())
-mwLogTransferdescription.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwLogTransferdescription.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'mwSyslog':mwSyslog,'mwSyslogTable':mwSyslogTable,'mwSyslogEntry':mwSyslogEntry,_D:mwSyslogTableIndex,'mwSysloglinenb':mwSysloglinenb,'mwSyslogrecord':mwSyslogrecord,'mwSyslogpriority':mwSyslogpriority,'mwSyslogmnemonic':mwSyslogmnemonic,'mwSyslogtimestamp':mwSyslogtimestamp,'mwLogTransferTable':mwLogTransferTable,'mwLogTransferEntry':mwLogTransferEntry,_F:mwLogTransferTableIndex,'mwLogTransfersize':mwLogTransfersize,'mwLogTransfernblines':mwLogTransfernblines,'mwLogTransferlastaccess':mwLogTransferlastaccess,'mwLogTransferlastrecord':mwLogTransferlastrecord,'mwLogTransferdescription':mwLogTransferdescription})
+#
+# PySNMP MIB module MERU-SYSLOG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/meru/MERU-SYSLOG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+Ipv6Address, = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address")
+mwDiagnostics, = mibBuilder.importSymbols("MERU-SMI", "mwDiagnostics")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Integer32, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+mwSyslog = ModuleIdentity((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2))
+if mibBuilder.loadTexts: mwSyslog.setLastUpdated('200506050000Z')
+if mibBuilder.loadTexts: mwSyslog.setOrganization('Meru Networks')
+mwSyslogTable = MibTable((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 1), )
+if mibBuilder.loadTexts: mwSyslogTable.setStatus('current')
+mwSyslogEntry = MibTableRow((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 1, 1), ).setIndexNames((0, "MERU-SYSLOG-MIB", "mwSyslogTableIndex"))
+if mibBuilder.loadTexts: mwSyslogEntry.setStatus('current')
+mwSyslogTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: mwSyslogTableIndex.setStatus('current')
+mwSysloglinenb = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mwSysloglinenb.setStatus('current')
+mwSyslogrecord = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mwSyslogrecord.setStatus('current')
+mwSyslogpriority = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mwSyslogpriority.setStatus('current')
+mwSyslogmnemonic = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mwSyslogmnemonic.setStatus('current')
+mwSyslogtimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 1, 1, 6), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mwSyslogtimestamp.setStatus('current')
+mwLogTransferTable = MibTable((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 2), )
+if mibBuilder.loadTexts: mwLogTransferTable.setStatus('current')
+mwLogTransferEntry = MibTableRow((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 2, 1), ).setIndexNames((0, "MERU-SYSLOG-MIB", "mwLogTransferTableIndex"))
+if mibBuilder.loadTexts: mwLogTransferEntry.setStatus('current')
+mwLogTransferTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 2, 1, 1), Integer32())
+if mibBuilder.loadTexts: mwLogTransferTableIndex.setStatus('current')
+mwLogTransfersize = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mwLogTransfersize.setStatus('current')
+mwLogTransfernblines = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mwLogTransfernblines.setStatus('current')
+mwLogTransferlastaccess = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 2, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mwLogTransferlastaccess.setStatus('current')
+mwLogTransferlastrecord = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 2, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mwLogTransferlastrecord.setStatus('current')
+mwLogTransferdescription = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5, 2, 2, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mwLogTransferdescription.setStatus('current')
+mibBuilder.exportSymbols("MERU-SYSLOG-MIB", mwSysloglinenb=mwSysloglinenb, mwSyslogmnemonic=mwSyslogmnemonic, mwSyslogtimestamp=mwSyslogtimestamp, mwLogTransfernblines=mwLogTransfernblines, mwLogTransferlastaccess=mwLogTransferlastaccess, PYSNMP_MODULE_ID=mwSyslog, mwLogTransfersize=mwLogTransfersize, mwSyslogpriority=mwSyslogpriority, mwLogTransferEntry=mwLogTransferEntry, mwLogTransferlastrecord=mwLogTransferlastrecord, mwLogTransferTable=mwLogTransferTable, mwSyslog=mwSyslog, mwLogTransferTableIndex=mwLogTransferTableIndex, mwLogTransferdescription=mwLogTransferdescription, mwSyslogTable=mwSyslogTable, mwSyslogEntry=mwSyslogEntry, mwSyslogTableIndex=mwSyslogTableIndex, mwSyslogrecord=mwSyslogrecord)

@@ -1,109 +1,55 @@
-_V='cmmOchPtpGroup'
-_U='cmmOchPtpModulationCatagory'
-_T='cmmOchPtpPowerControlLoop'
-_S='cmmOchPtpTargetPowerOffset'
-_R='cmmOchPtpInterfaceType'
-_Q='cmmOchPtpWavelengthDetectedState'
-_P='cmmOchPtpDiscoveredWavelength'
-_O='cmmOchPtpDiscoveredOchPortId'
-_N='cmmOchPtpProvisionedOchPort'
-_M='cmmOchPtpPmHistStatsEnable'
-_L='cmmOchPtpProvisionedOchOWPortId'
-_K='Integer32'
-_J='InfnPmHistStatsControl'
-_I='InfnModulationCategory'
-_H='InfnEnableDisableType'
-_G='FloatHundredths'
-_F='ifIndex'
-_E='IF-MIB'
-_D='read-write'
-_C='read-only'
-_B='INFINERA-TP-CMMOCHPTP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-terminationPoint,=mibBuilder.importSymbols('INFINERA-REG-MIB','terminationPoint')
-FloatHundredths,InfnEnableDisableType,InfnModulationCategory,InfnPmHistStatsControl,InfnServiceType,InfnWaveInterfaceType=mibBuilder.importSymbols('INFINERA-TC-MIB',_G,_H,_I,_J,'InfnServiceType','InfnWaveInterfaceType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_K,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-cmmOchPtpMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,2,29))
-if mibBuilder.loadTexts:cmmOchPtpMIB.setRevisions(('2008-10-20 00:00',))
-_CmmOchPtpTable_Object=MibTable
-cmmOchPtpTable=_CmmOchPtpTable_Object((1,3,6,1,4,1,21296,2,2,2,2,29,1))
-if mibBuilder.loadTexts:cmmOchPtpTable.setStatus(_A)
-_CmmOchPtpEntry_Object=MibTableRow
-cmmOchPtpEntry=_CmmOchPtpEntry_Object((1,3,6,1,4,1,21296,2,2,2,2,29,1,1))
-cmmOchPtpEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:cmmOchPtpEntry.setStatus(_A)
-_CmmOchPtpProvisionedOchOWPortId_Type=Integer32
-_CmmOchPtpProvisionedOchOWPortId_Object=MibTableColumn
-cmmOchPtpProvisionedOchOWPortId=_CmmOchPtpProvisionedOchOWPortId_Object((1,3,6,1,4,1,21296,2,2,2,2,29,1,1,1),_CmmOchPtpProvisionedOchOWPortId_Type())
-cmmOchPtpProvisionedOchOWPortId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmmOchPtpProvisionedOchOWPortId.setStatus(_A)
-class _CmmOchPtpPmHistStatsEnable_Type(InfnPmHistStatsControl):defaultValue=1
-_CmmOchPtpPmHistStatsEnable_Type.__name__=_J
-_CmmOchPtpPmHistStatsEnable_Object=MibTableColumn
-cmmOchPtpPmHistStatsEnable=_CmmOchPtpPmHistStatsEnable_Object((1,3,6,1,4,1,21296,2,2,2,2,29,1,1,2),_CmmOchPtpPmHistStatsEnable_Type())
-cmmOchPtpPmHistStatsEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:cmmOchPtpPmHistStatsEnable.setStatus(_A)
-_CmmOchPtpProvisionedOchPort_Type=DisplayString
-_CmmOchPtpProvisionedOchPort_Object=MibTableColumn
-cmmOchPtpProvisionedOchPort=_CmmOchPtpProvisionedOchPort_Object((1,3,6,1,4,1,21296,2,2,2,2,29,1,1,3),_CmmOchPtpProvisionedOchPort_Type())
-cmmOchPtpProvisionedOchPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:cmmOchPtpProvisionedOchPort.setStatus(_A)
-_CmmOchPtpDiscoveredOchPortId_Type=DisplayString
-_CmmOchPtpDiscoveredOchPortId_Object=MibTableColumn
-cmmOchPtpDiscoveredOchPortId=_CmmOchPtpDiscoveredOchPortId_Object((1,3,6,1,4,1,21296,2,2,2,2,29,1,1,4),_CmmOchPtpDiscoveredOchPortId_Type())
-cmmOchPtpDiscoveredOchPortId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmmOchPtpDiscoveredOchPortId.setStatus(_A)
-_CmmOchPtpDiscoveredWavelength_Type=FloatHundredths
-_CmmOchPtpDiscoveredWavelength_Object=MibTableColumn
-cmmOchPtpDiscoveredWavelength=_CmmOchPtpDiscoveredWavelength_Object((1,3,6,1,4,1,21296,2,2,2,2,29,1,1,5),_CmmOchPtpDiscoveredWavelength_Type())
-cmmOchPtpDiscoveredWavelength.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmmOchPtpDiscoveredWavelength.setStatus(_A)
-class _CmmOchPtpWavelengthDetectedState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('unknown',1),('notStarted',2),('failed',3),('notValid',4),('shutdown',5),('inprogress',6),('completed',7)))
-_CmmOchPtpWavelengthDetectedState_Type.__name__=_K
-_CmmOchPtpWavelengthDetectedState_Object=MibTableColumn
-cmmOchPtpWavelengthDetectedState=_CmmOchPtpWavelengthDetectedState_Object((1,3,6,1,4,1,21296,2,2,2,2,29,1,1,6),_CmmOchPtpWavelengthDetectedState_Type())
-cmmOchPtpWavelengthDetectedState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmmOchPtpWavelengthDetectedState.setStatus(_A)
-_CmmOchPtpInterfaceType_Type=InfnWaveInterfaceType
-_CmmOchPtpInterfaceType_Object=MibTableColumn
-cmmOchPtpInterfaceType=_CmmOchPtpInterfaceType_Object((1,3,6,1,4,1,21296,2,2,2,2,29,1,1,7),_CmmOchPtpInterfaceType_Type())
-cmmOchPtpInterfaceType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cmmOchPtpInterfaceType.setStatus(_A)
-class _CmmOchPtpTargetPowerOffset_Type(FloatHundredths):defaultValue=0
-_CmmOchPtpTargetPowerOffset_Type.__name__=_G
-_CmmOchPtpTargetPowerOffset_Object=MibTableColumn
-cmmOchPtpTargetPowerOffset=_CmmOchPtpTargetPowerOffset_Object((1,3,6,1,4,1,21296,2,2,2,2,29,1,1,8),_CmmOchPtpTargetPowerOffset_Type())
-cmmOchPtpTargetPowerOffset.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmmOchPtpTargetPowerOffset.setStatus(_A)
-class _CmmOchPtpPowerControlLoop_Type(InfnEnableDisableType):defaultValue=2
-_CmmOchPtpPowerControlLoop_Type.__name__=_H
-_CmmOchPtpPowerControlLoop_Object=MibTableColumn
-cmmOchPtpPowerControlLoop=_CmmOchPtpPowerControlLoop_Object((1,3,6,1,4,1,21296,2,2,2,2,29,1,1,9),_CmmOchPtpPowerControlLoop_Type())
-cmmOchPtpPowerControlLoop.setMaxAccess(_D)
-if mibBuilder.loadTexts:cmmOchPtpPowerControlLoop.setStatus(_A)
-class _CmmOchPtpModulationCatagory_Type(InfnModulationCategory):defaultValue=1
-_CmmOchPtpModulationCatagory_Type.__name__=_I
-_CmmOchPtpModulationCatagory_Object=MibTableColumn
-cmmOchPtpModulationCatagory=_CmmOchPtpModulationCatagory_Object((1,3,6,1,4,1,21296,2,2,2,2,29,1,1,10),_CmmOchPtpModulationCatagory_Type())
-cmmOchPtpModulationCatagory.setMaxAccess(_D)
-if mibBuilder.loadTexts:cmmOchPtpModulationCatagory.setStatus(_A)
-_CmmOchPtpConformance_ObjectIdentity=ObjectIdentity
-cmmOchPtpConformance=_CmmOchPtpConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,29,3))
-_CmmOchPtpCompliances_ObjectIdentity=ObjectIdentity
-cmmOchPtpCompliances=_CmmOchPtpCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,29,3,1))
-_CmmOchPtpGroups_ObjectIdentity=ObjectIdentity
-cmmOchPtpGroups=_CmmOchPtpGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,29,3,2))
-cmmOchPtpGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,2,29,3,2,1))
-cmmOchPtpGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:cmmOchPtpGroup.setStatus(_A)
-cmmOchPtpCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,2,29,3,1,1))
-cmmOchPtpCompliance.setObjects((_B,_V))
-if mibBuilder.loadTexts:cmmOchPtpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'cmmOchPtpMIB':cmmOchPtpMIB,'cmmOchPtpTable':cmmOchPtpTable,'cmmOchPtpEntry':cmmOchPtpEntry,_L:cmmOchPtpProvisionedOchOWPortId,_M:cmmOchPtpPmHistStatsEnable,_N:cmmOchPtpProvisionedOchPort,_O:cmmOchPtpDiscoveredOchPortId,_P:cmmOchPtpDiscoveredWavelength,_Q:cmmOchPtpWavelengthDetectedState,_R:cmmOchPtpInterfaceType,_S:cmmOchPtpTargetPowerOffset,_T:cmmOchPtpPowerControlLoop,_U:cmmOchPtpModulationCatagory,'cmmOchPtpConformance':cmmOchPtpConformance,'cmmOchPtpCompliances':cmmOchPtpCompliances,'cmmOchPtpCompliance':cmmOchPtpCompliance,'cmmOchPtpGroups':cmmOchPtpGroups,_V:cmmOchPtpGroup})
+#
+# PySNMP MIB module INFINERA-TP-CMMOCHPTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-CMMOCHPTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:42 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
+InfnEnableDisableType, InfnWaveInterfaceType, InfnServiceType, InfnPmHistStatsControl, InfnModulationCategory, FloatHundredths = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnEnableDisableType", "InfnWaveInterfaceType", "InfnServiceType", "InfnPmHistStatsControl", "InfnModulationCategory", "FloatHundredths")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+cmmOchPtpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29))
+cmmOchPtpMIB.setRevisions(('2008-10-20 00:00',))
+if mibBuilder.loadTexts: cmmOchPtpMIB.setLastUpdated('200810200000Z')
+if mibBuilder.loadTexts: cmmOchPtpMIB.setOrganization('Infinera')
+cmmOchPtpTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 1), )
+if mibBuilder.loadTexts: cmmOchPtpTable.setStatus('current')
+cmmOchPtpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cmmOchPtpEntry.setStatus('current')
+cmmOchPtpProvisionedOchOWPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cmmOchPtpProvisionedOchOWPortId.setStatus('current')
+cmmOchPtpPmHistStatsEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 1, 1, 2), InfnPmHistStatsControl().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmmOchPtpPmHistStatsEnable.setStatus('current')
+cmmOchPtpProvisionedOchPort = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmmOchPtpProvisionedOchPort.setStatus('current')
+cmmOchPtpDiscoveredOchPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cmmOchPtpDiscoveredOchPortId.setStatus('current')
+cmmOchPtpDiscoveredWavelength = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 1, 1, 5), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cmmOchPtpDiscoveredWavelength.setStatus('current')
+cmmOchPtpWavelengthDetectedState = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("unknown", 1), ("notStarted", 2), ("failed", 3), ("notValid", 4), ("shutdown", 5), ("inprogress", 6), ("completed", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cmmOchPtpWavelengthDetectedState.setStatus('current')
+cmmOchPtpInterfaceType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 1, 1, 7), InfnWaveInterfaceType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmmOchPtpInterfaceType.setStatus('current')
+cmmOchPtpTargetPowerOffset = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 1, 1, 8), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cmmOchPtpTargetPowerOffset.setStatus('current')
+cmmOchPtpPowerControlLoop = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 1, 1, 9), InfnEnableDisableType().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmmOchPtpPowerControlLoop.setStatus('current')
+cmmOchPtpModulationCatagory = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 1, 1, 10), InfnModulationCategory().clone('notset')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmmOchPtpModulationCatagory.setStatus('current')
+cmmOchPtpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 3))
+cmmOchPtpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 3, 1))
+cmmOchPtpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 3, 2))
+cmmOchPtpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 3, 1, 1)).setObjects(("INFINERA-TP-CMMOCHPTP-MIB", "cmmOchPtpGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmmOchPtpCompliance = cmmOchPtpCompliance.setStatus('current')
+cmmOchPtpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 29, 3, 2, 1)).setObjects(("INFINERA-TP-CMMOCHPTP-MIB", "cmmOchPtpProvisionedOchOWPortId"), ("INFINERA-TP-CMMOCHPTP-MIB", "cmmOchPtpPmHistStatsEnable"), ("INFINERA-TP-CMMOCHPTP-MIB", "cmmOchPtpProvisionedOchPort"), ("INFINERA-TP-CMMOCHPTP-MIB", "cmmOchPtpDiscoveredOchPortId"), ("INFINERA-TP-CMMOCHPTP-MIB", "cmmOchPtpDiscoveredWavelength"), ("INFINERA-TP-CMMOCHPTP-MIB", "cmmOchPtpWavelengthDetectedState"), ("INFINERA-TP-CMMOCHPTP-MIB", "cmmOchPtpInterfaceType"), ("INFINERA-TP-CMMOCHPTP-MIB", "cmmOchPtpTargetPowerOffset"), ("INFINERA-TP-CMMOCHPTP-MIB", "cmmOchPtpPowerControlLoop"), ("INFINERA-TP-CMMOCHPTP-MIB", "cmmOchPtpModulationCatagory"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmmOchPtpGroup = cmmOchPtpGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-TP-CMMOCHPTP-MIB", cmmOchPtpPmHistStatsEnable=cmmOchPtpPmHistStatsEnable, PYSNMP_MODULE_ID=cmmOchPtpMIB, cmmOchPtpModulationCatagory=cmmOchPtpModulationCatagory, cmmOchPtpWavelengthDetectedState=cmmOchPtpWavelengthDetectedState, cmmOchPtpTargetPowerOffset=cmmOchPtpTargetPowerOffset, cmmOchPtpCompliances=cmmOchPtpCompliances, cmmOchPtpProvisionedOchPort=cmmOchPtpProvisionedOchPort, cmmOchPtpInterfaceType=cmmOchPtpInterfaceType, cmmOchPtpConformance=cmmOchPtpConformance, cmmOchPtpGroup=cmmOchPtpGroup, cmmOchPtpCompliance=cmmOchPtpCompliance, cmmOchPtpDiscoveredWavelength=cmmOchPtpDiscoveredWavelength, cmmOchPtpEntry=cmmOchPtpEntry, cmmOchPtpGroups=cmmOchPtpGroups, cmmOchPtpDiscoveredOchPortId=cmmOchPtpDiscoveredOchPortId, cmmOchPtpProvisionedOchOWPortId=cmmOchPtpProvisionedOchOWPortId, cmmOchPtpTable=cmmOchPtpTable, cmmOchPtpMIB=cmmOchPtpMIB, cmmOchPtpPowerControlLoop=cmmOchPtpPowerControlLoop)

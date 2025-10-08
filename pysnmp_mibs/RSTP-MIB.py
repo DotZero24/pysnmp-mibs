@@ -1,98 +1,56 @@
-_P='rstpPortGroup'
-_O='rstpBridgeGroup'
-_N='dot1dStpPortAdminPathCost'
-_M='dot1dStpPortOperPointToPoint'
-_L='dot1dStpPortAdminPointToPoint'
-_K='dot1dStpPortOperEdgePort'
-_J='dot1dStpPortAdminEdgePort'
-_I='dot1dStpPortProtocolMigration'
-_H='dot1dStpTxHoldCount'
-_G='dot1dStpVersion'
-_F='dot1dStpExtPortEntry'
-_E='read-only'
-_D='Integer32'
-_C='read-write'
-_B='RSTP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dStp,dot1dStpPortEntry=mibBuilder.importSymbols('BRIDGE-MIB','dot1dStp','dot1dStpPortEntry')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-rstpMIB=ModuleIdentity((1,3,6,1,2,1,134))
-if mibBuilder.loadTexts:rstpMIB.setRevisions(('2005-12-07 00:00',))
-class _Dot1dStpVersion_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,2)));namedValues=NamedValues(*(('stpCompatible',0),('rstp',2)))
-_Dot1dStpVersion_Type.__name__=_D
-_Dot1dStpVersion_Object=MibScalar
-dot1dStpVersion=_Dot1dStpVersion_Object((1,3,6,1,2,1,17,2,16),_Dot1dStpVersion_Type())
-dot1dStpVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:dot1dStpVersion.setStatus(_A)
-class _Dot1dStpTxHoldCount_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_Dot1dStpTxHoldCount_Type.__name__=_D
-_Dot1dStpTxHoldCount_Object=MibScalar
-dot1dStpTxHoldCount=_Dot1dStpTxHoldCount_Object((1,3,6,1,2,1,17,2,17),_Dot1dStpTxHoldCount_Type())
-dot1dStpTxHoldCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:dot1dStpTxHoldCount.setStatus(_A)
-_Dot1dStpExtPortTable_Object=MibTable
-dot1dStpExtPortTable=_Dot1dStpExtPortTable_Object((1,3,6,1,2,1,17,2,19))
-if mibBuilder.loadTexts:dot1dStpExtPortTable.setStatus(_A)
-_Dot1dStpExtPortEntry_Object=MibTableRow
-dot1dStpExtPortEntry=_Dot1dStpExtPortEntry_Object((1,3,6,1,2,1,17,2,19,1))
-if mibBuilder.loadTexts:dot1dStpExtPortEntry.setStatus(_A)
-_Dot1dStpPortProtocolMigration_Type=TruthValue
-_Dot1dStpPortProtocolMigration_Object=MibTableColumn
-dot1dStpPortProtocolMigration=_Dot1dStpPortProtocolMigration_Object((1,3,6,1,2,1,17,2,19,1,1),_Dot1dStpPortProtocolMigration_Type())
-dot1dStpPortProtocolMigration.setMaxAccess(_C)
-if mibBuilder.loadTexts:dot1dStpPortProtocolMigration.setStatus(_A)
-_Dot1dStpPortAdminEdgePort_Type=TruthValue
-_Dot1dStpPortAdminEdgePort_Object=MibTableColumn
-dot1dStpPortAdminEdgePort=_Dot1dStpPortAdminEdgePort_Object((1,3,6,1,2,1,17,2,19,1,2),_Dot1dStpPortAdminEdgePort_Type())
-dot1dStpPortAdminEdgePort.setMaxAccess(_C)
-if mibBuilder.loadTexts:dot1dStpPortAdminEdgePort.setStatus(_A)
-_Dot1dStpPortOperEdgePort_Type=TruthValue
-_Dot1dStpPortOperEdgePort_Object=MibTableColumn
-dot1dStpPortOperEdgePort=_Dot1dStpPortOperEdgePort_Object((1,3,6,1,2,1,17,2,19,1,3),_Dot1dStpPortOperEdgePort_Type())
-dot1dStpPortOperEdgePort.setMaxAccess(_E)
-if mibBuilder.loadTexts:dot1dStpPortOperEdgePort.setStatus(_A)
-class _Dot1dStpPortAdminPointToPoint_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('forceTrue',0),('forceFalse',1),('auto',2)))
-_Dot1dStpPortAdminPointToPoint_Type.__name__=_D
-_Dot1dStpPortAdminPointToPoint_Object=MibTableColumn
-dot1dStpPortAdminPointToPoint=_Dot1dStpPortAdminPointToPoint_Object((1,3,6,1,2,1,17,2,19,1,4),_Dot1dStpPortAdminPointToPoint_Type())
-dot1dStpPortAdminPointToPoint.setMaxAccess(_C)
-if mibBuilder.loadTexts:dot1dStpPortAdminPointToPoint.setStatus(_A)
-_Dot1dStpPortOperPointToPoint_Type=TruthValue
-_Dot1dStpPortOperPointToPoint_Object=MibTableColumn
-dot1dStpPortOperPointToPoint=_Dot1dStpPortOperPointToPoint_Object((1,3,6,1,2,1,17,2,19,1,5),_Dot1dStpPortOperPointToPoint_Type())
-dot1dStpPortOperPointToPoint.setMaxAccess(_E)
-if mibBuilder.loadTexts:dot1dStpPortOperPointToPoint.setStatus(_A)
-class _Dot1dStpPortAdminPathCost_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,200000000))
-_Dot1dStpPortAdminPathCost_Type.__name__=_D
-_Dot1dStpPortAdminPathCost_Object=MibTableColumn
-dot1dStpPortAdminPathCost=_Dot1dStpPortAdminPathCost_Object((1,3,6,1,2,1,17,2,19,1,6),_Dot1dStpPortAdminPathCost_Type())
-dot1dStpPortAdminPathCost.setMaxAccess(_C)
-if mibBuilder.loadTexts:dot1dStpPortAdminPathCost.setStatus(_A)
-_RstpNotifications_ObjectIdentity=ObjectIdentity
-rstpNotifications=_RstpNotifications_ObjectIdentity((1,3,6,1,2,1,134,0))
-_RstpObjects_ObjectIdentity=ObjectIdentity
-rstpObjects=_RstpObjects_ObjectIdentity((1,3,6,1,2,1,134,1))
-_RstpConformance_ObjectIdentity=ObjectIdentity
-rstpConformance=_RstpConformance_ObjectIdentity((1,3,6,1,2,1,134,2))
-_RstpGroups_ObjectIdentity=ObjectIdentity
-rstpGroups=_RstpGroups_ObjectIdentity((1,3,6,1,2,1,134,2,1))
-_RstpCompliances_ObjectIdentity=ObjectIdentity
-rstpCompliances=_RstpCompliances_ObjectIdentity((1,3,6,1,2,1,134,2,2))
-dot1dStpPortEntry.registerAugmentions((_B,_F))
+#
+# PySNMP MIB module RSTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/RSTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:32:31 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dStp, dot1dStpPortEntry = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dStp", "dot1dStpPortEntry")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, TimeTicks, MibIdentifier, Integer32, Bits, mib_2, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "TimeTicks", "MibIdentifier", "Integer32", "Bits", "mib-2", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+rstpMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 134))
+rstpMIB.setRevisions(('2005-12-07 00:00',))
+if mibBuilder.loadTexts: rstpMIB.setLastUpdated('200512070000Z')
+if mibBuilder.loadTexts: rstpMIB.setOrganization('IETF Bridge MIB Working Group')
+rstpNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 134, 0))
+rstpObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 134, 1))
+rstpConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 134, 2))
+dot1dStpVersion = MibScalar((1, 3, 6, 1, 2, 1, 17, 2, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 2))).clone(namedValues=NamedValues(("stpCompatible", 0), ("rstp", 2))).clone('rstp')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot1dStpVersion.setStatus('current')
+dot1dStpTxHoldCount = MibScalar((1, 3, 6, 1, 2, 1, 17, 2, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot1dStpTxHoldCount.setStatus('current')
+dot1dStpExtPortTable = MibTable((1, 3, 6, 1, 2, 1, 17, 2, 19), )
+if mibBuilder.loadTexts: dot1dStpExtPortTable.setStatus('current')
+dot1dStpExtPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 17, 2, 19, 1), )
+dot1dStpPortEntry.registerAugmentions(("RSTP-MIB", "dot1dStpExtPortEntry"))
 dot1dStpExtPortEntry.setIndexNames(*dot1dStpPortEntry.getIndexNames())
-rstpBridgeGroup=ObjectGroup((1,3,6,1,2,1,134,2,1,1))
-rstpBridgeGroup.setObjects(*((_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:rstpBridgeGroup.setStatus(_A)
-rstpPortGroup=ObjectGroup((1,3,6,1,2,1,134,2,1,2))
-rstpPortGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:rstpPortGroup.setStatus(_A)
-rstpCompliance=ModuleCompliance((1,3,6,1,2,1,134,2,2,1))
-rstpCompliance.setObjects(*((_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:rstpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_G:dot1dStpVersion,_H:dot1dStpTxHoldCount,'dot1dStpExtPortTable':dot1dStpExtPortTable,_F:dot1dStpExtPortEntry,_I:dot1dStpPortProtocolMigration,_J:dot1dStpPortAdminEdgePort,_K:dot1dStpPortOperEdgePort,_L:dot1dStpPortAdminPointToPoint,_M:dot1dStpPortOperPointToPoint,_N:dot1dStpPortAdminPathCost,'rstpMIB':rstpMIB,'rstpNotifications':rstpNotifications,'rstpObjects':rstpObjects,'rstpConformance':rstpConformance,'rstpGroups':rstpGroups,_O:rstpBridgeGroup,_P:rstpPortGroup,'rstpCompliances':rstpCompliances,'rstpCompliance':rstpCompliance})
+if mibBuilder.loadTexts: dot1dStpExtPortEntry.setStatus('current')
+dot1dStpPortProtocolMigration = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 2, 19, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot1dStpPortProtocolMigration.setStatus('current')
+dot1dStpPortAdminEdgePort = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 2, 19, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot1dStpPortAdminEdgePort.setStatus('current')
+dot1dStpPortOperEdgePort = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 2, 19, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot1dStpPortOperEdgePort.setStatus('current')
+dot1dStpPortAdminPointToPoint = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 2, 19, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("forceTrue", 0), ("forceFalse", 1), ("auto", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot1dStpPortAdminPointToPoint.setStatus('current')
+dot1dStpPortOperPointToPoint = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 2, 19, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot1dStpPortOperPointToPoint.setStatus('current')
+dot1dStpPortAdminPathCost = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 2, 19, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 200000000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot1dStpPortAdminPathCost.setStatus('current')
+rstpGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 134, 2, 1))
+rstpCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 134, 2, 2))
+rstpBridgeGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 134, 2, 1, 1)).setObjects(("RSTP-MIB", "dot1dStpVersion"), ("RSTP-MIB", "dot1dStpTxHoldCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rstpBridgeGroup = rstpBridgeGroup.setStatus('current')
+rstpPortGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 134, 2, 1, 2)).setObjects(("RSTP-MIB", "dot1dStpPortProtocolMigration"), ("RSTP-MIB", "dot1dStpPortAdminEdgePort"), ("RSTP-MIB", "dot1dStpPortOperEdgePort"), ("RSTP-MIB", "dot1dStpPortAdminPointToPoint"), ("RSTP-MIB", "dot1dStpPortOperPointToPoint"), ("RSTP-MIB", "dot1dStpPortAdminPathCost"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rstpPortGroup = rstpPortGroup.setStatus('current')
+rstpCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 134, 2, 2, 1)).setObjects(("RSTP-MIB", "rstpBridgeGroup"), ("RSTP-MIB", "rstpPortGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rstpCompliance = rstpCompliance.setStatus('current')
+mibBuilder.exportSymbols("RSTP-MIB", dot1dStpPortAdminPathCost=dot1dStpPortAdminPathCost, dot1dStpPortAdminEdgePort=dot1dStpPortAdminEdgePort, rstpNotifications=rstpNotifications, dot1dStpTxHoldCount=dot1dStpTxHoldCount, rstpGroups=rstpGroups, PYSNMP_MODULE_ID=rstpMIB, rstpCompliance=rstpCompliance, dot1dStpExtPortEntry=dot1dStpExtPortEntry, rstpConformance=rstpConformance, dot1dStpPortAdminPointToPoint=dot1dStpPortAdminPointToPoint, rstpBridgeGroup=rstpBridgeGroup, dot1dStpExtPortTable=dot1dStpExtPortTable, rstpObjects=rstpObjects, rstpPortGroup=rstpPortGroup, dot1dStpVersion=dot1dStpVersion, dot1dStpPortOperEdgePort=dot1dStpPortOperEdgePort, dot1dStpPortProtocolMigration=dot1dStpPortProtocolMigration, rstpCompliances=rstpCompliances, rstpMIB=rstpMIB, dot1dStpPortOperPointToPoint=dot1dStpPortOperPointToPoint)

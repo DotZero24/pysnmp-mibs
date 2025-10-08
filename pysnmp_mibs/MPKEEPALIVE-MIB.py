@@ -1,48 +1,32 @@
-_D='MPKEEPALIVE-MIB'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mpMgmt,=mibBuilder.importSymbols('MAIPU-SMI','mpMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,ObjectName,ObjectSyntax,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','ObjectName','ObjectSyntax','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-mpKeepaliveMib=ModuleIdentity((1,3,6,1,4,1,5651,3,800))
-_MpKeepaliveTable_Object=MibTable
-mpKeepaliveTable=_MpKeepaliveTable_Object((1,3,6,1,4,1,5651,3,800,1))
-if mibBuilder.loadTexts:mpKeepaliveTable.setStatus(_A)
-_MpKeepaliveEntry_Object=MibTableRow
-mpKeepaliveEntry=_MpKeepaliveEntry_Object((1,3,6,1,4,1,5651,3,800,1,1))
-mpKeepaliveEntry.setIndexNames((0,_D,'mpIfNmae'))
-if mibBuilder.loadTexts:mpKeepaliveEntry.setStatus(_A)
-_MpKaIfNmae_Type=DisplayString
-_MpKaIfNmae_Object=MibTableColumn
-mpKaIfNmae=_MpKaIfNmae_Object((1,3,6,1,4,1,5651,3,800,1,1,1),_MpKaIfNmae_Type())
-mpKaIfNmae.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:mpKaIfNmae.setStatus(_A)
-class _MpKaTimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32767))
-_MpKaTimeout_Type.__name__=_B
-_MpKaTimeout_Object=MibTableColumn
-mpKaTimeout=_MpKaTimeout_Object((1,3,6,1,4,1,5651,3,800,1,1,2),_MpKaTimeout_Type())
-mpKaTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:mpKaTimeout.setStatus(_A)
-class _MpKaRetry_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_MpKaRetry_Type.__name__=_B
-_MpKaRetry_Object=MibTableColumn
-mpKaRetry=_MpKaRetry_Object((1,3,6,1,4,1,5651,3,800,1,1,3),_MpKaRetry_Type())
-mpKaRetry.setMaxAccess(_C)
-if mibBuilder.loadTexts:mpKaRetry.setStatus(_A)
-_MpKaGateway_Type=IpAddress
-_MpKaGateway_Object=MibTableColumn
-mpKaGateway=_MpKaGateway_Object((1,3,6,1,4,1,5651,3,800,1,1,4),_MpKaGateway_Type())
-mpKaGateway.setMaxAccess(_C)
-if mibBuilder.loadTexts:mpKaGateway.setStatus(_A)
-_MpKaRowstatus_Type=RowStatus
-_MpKaRowstatus_Object=MibTableColumn
-mpKaRowstatus=_MpKaRowstatus_Object((1,3,6,1,4,1,5651,3,800,1,1,5),_MpKaRowstatus_Type())
-mpKaRowstatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:mpKaRowstatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'mpKeepaliveMib':mpKeepaliveMib,'mpKeepaliveTable':mpKeepaliveTable,'mpKeepaliveEntry':mpKeepaliveEntry,'mpKaIfNmae':mpKaIfNmae,'mpKaTimeout':mpKaTimeout,'mpKaRetry':mpKaRetry,'mpKaGateway':mpKaGateway,'mpKaRowstatus':mpKaRowstatus})
+#
+# PySNMP MIB module MPKEEPALIVE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/maipu/MPKEEPALIVE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mpMgmt, = mibBuilder.importSymbols("MAIPU-SMI", "mpMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, ObjectSyntax, iso, MibIdentifier, ObjectName, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "ObjectSyntax", "iso", "MibIdentifier", "ObjectName", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+mpKeepaliveMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 5651, 3, 800))
+if mibBuilder.loadTexts: mpKeepaliveMib.setLastUpdated('0704060952Z')
+if mibBuilder.loadTexts: mpKeepaliveMib.setOrganization('ĴͨŹɷ\u07b9˾, Maipu (Sichuan) Communication Technology Co. LTD.')
+mpKeepaliveTable = MibTable((1, 3, 6, 1, 4, 1, 5651, 3, 800, 1), )
+if mibBuilder.loadTexts: mpKeepaliveTable.setStatus('current')
+mpKeepaliveEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 3, 800, 1, 1), ).setIndexNames((0, "MPKEEPALIVE-MIB", "mpIfNmae"))
+if mibBuilder.loadTexts: mpKeepaliveEntry.setStatus('current')
+mpKaIfNmae = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 800, 1, 1, 1), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: mpKaIfNmae.setStatus('current')
+mpKaTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 800, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32767))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mpKaTimeout.setStatus('current')
+mpKaRetry = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 800, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mpKaRetry.setStatus('current')
+mpKaGateway = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 800, 1, 1, 4), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mpKaGateway.setStatus('current')
+mpKaRowstatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 800, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mpKaRowstatus.setStatus('current')
+mibBuilder.exportSymbols("MPKEEPALIVE-MIB", mpKaRowstatus=mpKaRowstatus, mpKaTimeout=mpKaTimeout, mpKeepaliveEntry=mpKeepaliveEntry, PYSNMP_MODULE_ID=mpKeepaliveMib, mpKaRetry=mpKaRetry, mpKeepaliveMib=mpKeepaliveMib, mpKaGateway=mpKaGateway, mpKeepaliveTable=mpKeepaliveTable, mpKaIfNmae=mpKaIfNmae)

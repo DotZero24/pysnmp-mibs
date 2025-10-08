@@ -1,34 +1,30 @@
-_D='eltPingInetEntry'
-_C='ELTEX-MES-APPLICATIONS-MIB'
-_B='TruthValue'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-eltMes,=mibBuilder.importSymbols('ELTEX-MES','eltMes')
-rsPingInetEntry,=mibBuilder.importSymbols('RADLAN-rndApplications','rsPingInetEntry')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_B)
-eltMesApplicationsMIB=ModuleIdentity((1,3,6,1,4,1,35265,1,23,96))
-if mibBuilder.loadTexts:eltMesApplicationsMIB.setRevisions(('2018-06-26 00:00',))
-_EltMesApplicationsObjects_ObjectIdentity=ObjectIdentity
-eltMesApplicationsObjects=_EltMesApplicationsObjects_ObjectIdentity((1,3,6,1,4,1,35265,1,23,96,1))
-_EltMesApplicationsGlobals_ObjectIdentity=ObjectIdentity
-eltMesApplicationsGlobals=_EltMesApplicationsGlobals_ObjectIdentity((1,3,6,1,4,1,35265,1,23,96,1,1))
-_EltPingInetTable_Object=MibTable
-eltPingInetTable=_EltPingInetTable_Object((1,3,6,1,4,1,35265,1,23,96,1,1,1))
-if mibBuilder.loadTexts:eltPingInetTable.setStatus(_A)
-_EltPingInetEntry_Object=MibTableRow
-eltPingInetEntry=_EltPingInetEntry_Object((1,3,6,1,4,1,35265,1,23,96,1,1,1,1))
-if mibBuilder.loadTexts:eltPingInetEntry.setStatus(_A)
-class _EltPingInetDontFragment_Type(TruthValue):defaultValue=2
-_EltPingInetDontFragment_Type.__name__=_B
-_EltPingInetDontFragment_Object=MibTableColumn
-eltPingInetDontFragment=_EltPingInetDontFragment_Object((1,3,6,1,4,1,35265,1,23,96,1,1,1,1,1),_EltPingInetDontFragment_Type())
-eltPingInetDontFragment.setMaxAccess('read-write')
-if mibBuilder.loadTexts:eltPingInetDontFragment.setStatus(_A)
-rsPingInetEntry.registerAugmentions((_C,_D))
+#
+# PySNMP MIB module ELTEX-MES-APPLICATIONS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-MES-APPLICATIONS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltMes, = mibBuilder.importSymbols("ELTEX-MES", "eltMes")
+rsPingInetEntry, = mibBuilder.importSymbols("RADLAN-rndApplications", "rsPingInetEntry")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+eltMesApplicationsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 23, 96))
+eltMesApplicationsMIB.setRevisions(('2018-06-26 00:00',))
+if mibBuilder.loadTexts: eltMesApplicationsMIB.setLastUpdated('201806260000Z')
+if mibBuilder.loadTexts: eltMesApplicationsMIB.setOrganization('Eltex Enterprise, Ltd.')
+eltMesApplicationsObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 96, 1))
+eltMesApplicationsGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 96, 1, 1))
+eltPingInetTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 96, 1, 1, 1), )
+if mibBuilder.loadTexts: eltPingInetTable.setStatus('current')
+eltPingInetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 96, 1, 1, 1, 1), )
+rsPingInetEntry.registerAugmentions(("ELTEX-MES-APPLICATIONS-MIB", "eltPingInetEntry"))
 eltPingInetEntry.setIndexNames(*rsPingInetEntry.getIndexNames())
-mibBuilder.exportSymbols(_C,**{'eltMesApplicationsMIB':eltMesApplicationsMIB,'eltMesApplicationsObjects':eltMesApplicationsObjects,'eltMesApplicationsGlobals':eltMesApplicationsGlobals,'eltPingInetTable':eltPingInetTable,_D:eltPingInetEntry,'eltPingInetDontFragment':eltPingInetDontFragment})
+if mibBuilder.loadTexts: eltPingInetEntry.setStatus('current')
+eltPingInetDontFragment = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 96, 1, 1, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltPingInetDontFragment.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-MES-APPLICATIONS-MIB", eltPingInetEntry=eltPingInetEntry, eltPingInetTable=eltPingInetTable, eltMesApplicationsMIB=eltMesApplicationsMIB, eltPingInetDontFragment=eltPingInetDontFragment, eltMesApplicationsGlobals=eltMesApplicationsGlobals, PYSNMP_MODULE_ID=eltMesApplicationsMIB, eltMesApplicationsObjects=eltMesApplicationsObjects)

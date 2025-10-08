@@ -1,126 +1,59 @@
-_Z='dlmOcgPtpGroup'
-_Y='dlmOcgPtpAggregateRate'
-_X='dlmOcgPtpChannelCount'
-_W='dlmOcgPtpOpenwaveTargetTxOcgPower'
-_V='dlmOcgPtpProvisionedPeerTP'
-_U='dlmOcgPtpLineSystemMode'
-_T='dlmOcgPtpDiscoveredOcgTP'
-_S='dlmOcgPtpProvisionedOcgTP'
-_R='dlmOcgPtpOcgPowerControlLoop'
-_Q='dlmOcgPtpIsBorderOCG'
-_P='dlmOcgPtpPmHistStatsEnable'
-_O='dlmOcgPtpAutoDiscoveryState'
-_N='dlmOcgPtpDiscoveredRemoteTP'
-_M='obsolete'
-_L='TruthValue'
-_K='InfnPmHistStatsControl'
-_J='InfnOperationalState'
-_I='InfnLineSystemMode'
-_H='InfnAutoDiscoveryState'
-_G='ifIndex'
-_F='IF-MIB'
-_E='read-only'
-_D='FloatTenths'
-_C='read-write'
-_B='INFINERA-TP-DLMOCGPTP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_F,_G)
-terminationPoint,=mibBuilder.importSymbols('INFINERA-REG-MIB','terminationPoint')
-FloatTenths,InfnAutoDiscoveryState,InfnLineSystemMode,InfnOperationalState,InfnPmHistStatsControl=mibBuilder.importSymbols('INFINERA-TC-MIB',_D,_H,_I,_J,_K)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_L)
-dlmOcgPtpMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,2,6))
-if mibBuilder.loadTexts:dlmOcgPtpMIB.setRevisions(('2008-10-20 00:00',))
-_DlmOcgPtpTable_Object=MibTable
-dlmOcgPtpTable=_DlmOcgPtpTable_Object((1,3,6,1,4,1,21296,2,2,2,2,6,1))
-if mibBuilder.loadTexts:dlmOcgPtpTable.setStatus(_A)
-_DlmOcgPtpEntry_Object=MibTableRow
-dlmOcgPtpEntry=_DlmOcgPtpEntry_Object((1,3,6,1,4,1,21296,2,2,2,2,6,1,1))
-dlmOcgPtpEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:dlmOcgPtpEntry.setStatus(_A)
-_DlmOcgPtpDiscoveredRemoteTP_Type=DisplayString
-_DlmOcgPtpDiscoveredRemoteTP_Object=MibTableColumn
-dlmOcgPtpDiscoveredRemoteTP=_DlmOcgPtpDiscoveredRemoteTP_Object((1,3,6,1,4,1,21296,2,2,2,2,6,1,1,1),_DlmOcgPtpDiscoveredRemoteTP_Type())
-dlmOcgPtpDiscoveredRemoteTP.setMaxAccess(_E)
-if mibBuilder.loadTexts:dlmOcgPtpDiscoveredRemoteTP.setStatus(_A)
-class _DlmOcgPtpAutoDiscoveryState_Type(InfnAutoDiscoveryState):defaultValue=4
-_DlmOcgPtpAutoDiscoveryState_Type.__name__=_H
-_DlmOcgPtpAutoDiscoveryState_Object=MibTableColumn
-dlmOcgPtpAutoDiscoveryState=_DlmOcgPtpAutoDiscoveryState_Object((1,3,6,1,4,1,21296,2,2,2,2,6,1,1,2),_DlmOcgPtpAutoDiscoveryState_Type())
-dlmOcgPtpAutoDiscoveryState.setMaxAccess(_E)
-if mibBuilder.loadTexts:dlmOcgPtpAutoDiscoveryState.setStatus(_A)
-class _DlmOcgPtpPmHistStatsEnable_Type(InfnPmHistStatsControl):defaultValue=1
-_DlmOcgPtpPmHistStatsEnable_Type.__name__=_K
-_DlmOcgPtpPmHistStatsEnable_Object=MibTableColumn
-dlmOcgPtpPmHistStatsEnable=_DlmOcgPtpPmHistStatsEnable_Object((1,3,6,1,4,1,21296,2,2,2,2,6,1,1,3),_DlmOcgPtpPmHistStatsEnable_Type())
-dlmOcgPtpPmHistStatsEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmOcgPtpPmHistStatsEnable.setStatus(_M)
-class _DlmOcgPtpIsBorderOCG_Type(TruthValue):defaultValue=2
-_DlmOcgPtpIsBorderOCG_Type.__name__=_L
-_DlmOcgPtpIsBorderOCG_Object=MibTableColumn
-dlmOcgPtpIsBorderOCG=_DlmOcgPtpIsBorderOCG_Object((1,3,6,1,4,1,21296,2,2,2,2,6,1,1,4),_DlmOcgPtpIsBorderOCG_Type())
-dlmOcgPtpIsBorderOCG.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmOcgPtpIsBorderOCG.setStatus(_M)
-class _DlmOcgPtpOcgPowerControlLoop_Type(InfnOperationalState):defaultValue=2
-_DlmOcgPtpOcgPowerControlLoop_Type.__name__=_J
-_DlmOcgPtpOcgPowerControlLoop_Object=MibTableColumn
-dlmOcgPtpOcgPowerControlLoop=_DlmOcgPtpOcgPowerControlLoop_Object((1,3,6,1,4,1,21296,2,2,2,2,6,1,1,5),_DlmOcgPtpOcgPowerControlLoop_Type())
-dlmOcgPtpOcgPowerControlLoop.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmOcgPtpOcgPowerControlLoop.setStatus(_A)
-_DlmOcgPtpProvisionedOcgTP_Type=DisplayString
-_DlmOcgPtpProvisionedOcgTP_Object=MibTableColumn
-dlmOcgPtpProvisionedOcgTP=_DlmOcgPtpProvisionedOcgTP_Object((1,3,6,1,4,1,21296,2,2,2,2,6,1,1,6),_DlmOcgPtpProvisionedOcgTP_Type())
-dlmOcgPtpProvisionedOcgTP.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmOcgPtpProvisionedOcgTP.setStatus(_A)
-_DlmOcgPtpDiscoveredOcgTP_Type=DisplayString
-_DlmOcgPtpDiscoveredOcgTP_Object=MibTableColumn
-dlmOcgPtpDiscoveredOcgTP=_DlmOcgPtpDiscoveredOcgTP_Object((1,3,6,1,4,1,21296,2,2,2,2,6,1,1,7),_DlmOcgPtpDiscoveredOcgTP_Type())
-dlmOcgPtpDiscoveredOcgTP.setMaxAccess(_E)
-if mibBuilder.loadTexts:dlmOcgPtpDiscoveredOcgTP.setStatus(_A)
-class _DlmOcgPtpLineSystemMode_Type(InfnLineSystemMode):defaultValue=1
-_DlmOcgPtpLineSystemMode_Type.__name__=_I
-_DlmOcgPtpLineSystemMode_Object=MibTableColumn
-dlmOcgPtpLineSystemMode=_DlmOcgPtpLineSystemMode_Object((1,3,6,1,4,1,21296,2,2,2,2,6,1,1,8),_DlmOcgPtpLineSystemMode_Type())
-dlmOcgPtpLineSystemMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmOcgPtpLineSystemMode.setStatus(_A)
-_DlmOcgPtpProvisionedPeerTP_Type=DisplayString
-_DlmOcgPtpProvisionedPeerTP_Object=MibTableColumn
-dlmOcgPtpProvisionedPeerTP=_DlmOcgPtpProvisionedPeerTP_Object((1,3,6,1,4,1,21296,2,2,2,2,6,1,1,9),_DlmOcgPtpProvisionedPeerTP_Type())
-dlmOcgPtpProvisionedPeerTP.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmOcgPtpProvisionedPeerTP.setStatus(_A)
-class _DlmOcgPtpOpenwaveTargetTxOcgPower_Type(FloatTenths):defaultValue=50
-_DlmOcgPtpOpenwaveTargetTxOcgPower_Type.__name__=_D
-_DlmOcgPtpOpenwaveTargetTxOcgPower_Object=MibTableColumn
-dlmOcgPtpOpenwaveTargetTxOcgPower=_DlmOcgPtpOpenwaveTargetTxOcgPower_Object((1,3,6,1,4,1,21296,2,2,2,2,6,1,1,10),_DlmOcgPtpOpenwaveTargetTxOcgPower_Type())
-dlmOcgPtpOpenwaveTargetTxOcgPower.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmOcgPtpOpenwaveTargetTxOcgPower.setStatus(_A)
-class _DlmOcgPtpChannelCount_Type(FloatTenths):defaultValue=100
-_DlmOcgPtpChannelCount_Type.__name__=_D
-_DlmOcgPtpChannelCount_Object=MibTableColumn
-dlmOcgPtpChannelCount=_DlmOcgPtpChannelCount_Object((1,3,6,1,4,1,21296,2,2,2,2,6,1,1,11),_DlmOcgPtpChannelCount_Type())
-dlmOcgPtpChannelCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmOcgPtpChannelCount.setStatus(_A)
-class _DlmOcgPtpAggregateRate_Type(FloatTenths):defaultValue=500
-_DlmOcgPtpAggregateRate_Type.__name__=_D
-_DlmOcgPtpAggregateRate_Object=MibTableColumn
-dlmOcgPtpAggregateRate=_DlmOcgPtpAggregateRate_Object((1,3,6,1,4,1,21296,2,2,2,2,6,1,1,12),_DlmOcgPtpAggregateRate_Type())
-dlmOcgPtpAggregateRate.setMaxAccess(_E)
-if mibBuilder.loadTexts:dlmOcgPtpAggregateRate.setStatus(_A)
-_DlmOcgPtpConformance_ObjectIdentity=ObjectIdentity
-dlmOcgPtpConformance=_DlmOcgPtpConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,6,3))
-_DlmOcgPtpCompliances_ObjectIdentity=ObjectIdentity
-dlmOcgPtpCompliances=_DlmOcgPtpCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,6,3,1))
-_DlmOcgPtpGroups_ObjectIdentity=ObjectIdentity
-dlmOcgPtpGroups=_DlmOcgPtpGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,6,3,2))
-dlmOcgPtpGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,2,6,3,2,1))
-dlmOcgPtpGroup.setObjects(*((_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y)))
-if mibBuilder.loadTexts:dlmOcgPtpGroup.setStatus(_A)
-dlmOcgPtpCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,2,6,3,1,1))
-dlmOcgPtpCompliance.setObjects((_B,_Z))
-if mibBuilder.loadTexts:dlmOcgPtpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'dlmOcgPtpMIB':dlmOcgPtpMIB,'dlmOcgPtpTable':dlmOcgPtpTable,'dlmOcgPtpEntry':dlmOcgPtpEntry,_N:dlmOcgPtpDiscoveredRemoteTP,_O:dlmOcgPtpAutoDiscoveryState,_P:dlmOcgPtpPmHistStatsEnable,_Q:dlmOcgPtpIsBorderOCG,_R:dlmOcgPtpOcgPowerControlLoop,_S:dlmOcgPtpProvisionedOcgTP,_T:dlmOcgPtpDiscoveredOcgTP,_U:dlmOcgPtpLineSystemMode,_V:dlmOcgPtpProvisionedPeerTP,_W:dlmOcgPtpOpenwaveTargetTxOcgPower,_X:dlmOcgPtpChannelCount,_Y:dlmOcgPtpAggregateRate,'dlmOcgPtpConformance':dlmOcgPtpConformance,'dlmOcgPtpCompliances':dlmOcgPtpCompliances,'dlmOcgPtpCompliance':dlmOcgPtpCompliance,'dlmOcgPtpGroups':dlmOcgPtpGroups,_Z:dlmOcgPtpGroup})
+#
+# PySNMP MIB module INFINERA-TP-DLMOCGPTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-DLMOCGPTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:47 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
+InfnAutoDiscoveryState, FloatTenths, InfnPmHistStatsControl, InfnOperationalState, InfnLineSystemMode = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnAutoDiscoveryState", "FloatTenths", "InfnPmHistStatsControl", "InfnOperationalState", "InfnLineSystemMode")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+dlmOcgPtpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6))
+dlmOcgPtpMIB.setRevisions(('2008-10-20 00:00',))
+if mibBuilder.loadTexts: dlmOcgPtpMIB.setLastUpdated('200810200000Z')
+if mibBuilder.loadTexts: dlmOcgPtpMIB.setOrganization('Infinera')
+dlmOcgPtpTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 1), )
+if mibBuilder.loadTexts: dlmOcgPtpTable.setStatus('current')
+dlmOcgPtpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: dlmOcgPtpEntry.setStatus('current')
+dlmOcgPtpDiscoveredRemoteTP = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlmOcgPtpDiscoveredRemoteTP.setStatus('current')
+dlmOcgPtpAutoDiscoveryState = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 1, 1, 2), InfnAutoDiscoveryState().clone('notValid')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlmOcgPtpAutoDiscoveryState.setStatus('current')
+dlmOcgPtpPmHistStatsEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 1, 1, 3), InfnPmHistStatsControl().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dlmOcgPtpPmHistStatsEnable.setStatus('obsolete')
+dlmOcgPtpIsBorderOCG = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 1, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dlmOcgPtpIsBorderOCG.setStatus('obsolete')
+dlmOcgPtpOcgPowerControlLoop = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 1, 1, 5), InfnOperationalState().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dlmOcgPtpOcgPowerControlLoop.setStatus('current')
+dlmOcgPtpProvisionedOcgTP = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 1, 1, 6), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dlmOcgPtpProvisionedOcgTP.setStatus('current')
+dlmOcgPtpDiscoveredOcgTP = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlmOcgPtpDiscoveredOcgTP.setStatus('current')
+dlmOcgPtpLineSystemMode = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 1, 1, 8), InfnLineSystemMode().clone('modeOcg')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dlmOcgPtpLineSystemMode.setStatus('current')
+dlmOcgPtpProvisionedPeerTP = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 1, 1, 9), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dlmOcgPtpProvisionedPeerTP.setStatus('current')
+dlmOcgPtpOpenwaveTargetTxOcgPower = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 1, 1, 10), FloatTenths().clone(50)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dlmOcgPtpOpenwaveTargetTxOcgPower.setStatus('current')
+dlmOcgPtpChannelCount = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 1, 1, 11), FloatTenths().clone(100)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dlmOcgPtpChannelCount.setStatus('current')
+dlmOcgPtpAggregateRate = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 1, 1, 12), FloatTenths().clone(500)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlmOcgPtpAggregateRate.setStatus('current')
+dlmOcgPtpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 3))
+dlmOcgPtpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 3, 1))
+dlmOcgPtpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 3, 2))
+dlmOcgPtpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 3, 1, 1)).setObjects(("INFINERA-TP-DLMOCGPTP-MIB", "dlmOcgPtpGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dlmOcgPtpCompliance = dlmOcgPtpCompliance.setStatus('current')
+dlmOcgPtpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 6, 3, 2, 1)).setObjects(("INFINERA-TP-DLMOCGPTP-MIB", "dlmOcgPtpDiscoveredRemoteTP"), ("INFINERA-TP-DLMOCGPTP-MIB", "dlmOcgPtpAutoDiscoveryState"), ("INFINERA-TP-DLMOCGPTP-MIB", "dlmOcgPtpPmHistStatsEnable"), ("INFINERA-TP-DLMOCGPTP-MIB", "dlmOcgPtpIsBorderOCG"), ("INFINERA-TP-DLMOCGPTP-MIB", "dlmOcgPtpOcgPowerControlLoop"), ("INFINERA-TP-DLMOCGPTP-MIB", "dlmOcgPtpProvisionedOcgTP"), ("INFINERA-TP-DLMOCGPTP-MIB", "dlmOcgPtpDiscoveredOcgTP"), ("INFINERA-TP-DLMOCGPTP-MIB", "dlmOcgPtpLineSystemMode"), ("INFINERA-TP-DLMOCGPTP-MIB", "dlmOcgPtpProvisionedPeerTP"), ("INFINERA-TP-DLMOCGPTP-MIB", "dlmOcgPtpOpenwaveTargetTxOcgPower"), ("INFINERA-TP-DLMOCGPTP-MIB", "dlmOcgPtpChannelCount"), ("INFINERA-TP-DLMOCGPTP-MIB", "dlmOcgPtpAggregateRate"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dlmOcgPtpGroup = dlmOcgPtpGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-TP-DLMOCGPTP-MIB", dlmOcgPtpOcgPowerControlLoop=dlmOcgPtpOcgPowerControlLoop, dlmOcgPtpCompliance=dlmOcgPtpCompliance, dlmOcgPtpConformance=dlmOcgPtpConformance, dlmOcgPtpGroup=dlmOcgPtpGroup, dlmOcgPtpProvisionedOcgTP=dlmOcgPtpProvisionedOcgTP, dlmOcgPtpProvisionedPeerTP=dlmOcgPtpProvisionedPeerTP, dlmOcgPtpAggregateRate=dlmOcgPtpAggregateRate, dlmOcgPtpGroups=dlmOcgPtpGroups, dlmOcgPtpPmHistStatsEnable=dlmOcgPtpPmHistStatsEnable, dlmOcgPtpChannelCount=dlmOcgPtpChannelCount, dlmOcgPtpOpenwaveTargetTxOcgPower=dlmOcgPtpOpenwaveTargetTxOcgPower, dlmOcgPtpAutoDiscoveryState=dlmOcgPtpAutoDiscoveryState, dlmOcgPtpDiscoveredOcgTP=dlmOcgPtpDiscoveredOcgTP, dlmOcgPtpDiscoveredRemoteTP=dlmOcgPtpDiscoveredRemoteTP, dlmOcgPtpLineSystemMode=dlmOcgPtpLineSystemMode, dlmOcgPtpCompliances=dlmOcgPtpCompliances, dlmOcgPtpMIB=dlmOcgPtpMIB, dlmOcgPtpTable=dlmOcgPtpTable, dlmOcgPtpEntry=dlmOcgPtpEntry, dlmOcgPtpIsBorderOCG=dlmOcgPtpIsBorderOCG, PYSNMP_MODULE_ID=dlmOcgPtpMIB)

@@ -1,159 +1,77 @@
-_I='aclRuleIndex'
-_H='aclIfDirection'
-_G='aclIfIndex'
-_F='not-accessible'
-_E='aclIndex'
-_D='Integer32'
-_C='GSM7312-QOS-ACL-MIB'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-gsm7312QOS,=mibBuilder.importSymbols('GSM7312-QOS-MIB','gsm7312QOS')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-gsm7312QOSACL=ModuleIdentity((1,3,6,1,4,1,4526,1,6,3,2))
-if mibBuilder.loadTexts:gsm7312QOSACL.setRevisions(('2003-05-06 12:00',))
-_AclTable_Object=MibTable
-aclTable=_AclTable_Object((1,3,6,1,4,1,4526,1,6,3,2,1))
-if mibBuilder.loadTexts:aclTable.setStatus(_A)
-_AclEntry_Object=MibTableRow
-aclEntry=_AclEntry_Object((1,3,6,1,4,1,4526,1,6,3,2,1,1))
-aclEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:aclEntry.setStatus(_A)
-_AclIndex_Type=Integer32
-_AclIndex_Object=MibTableColumn
-aclIndex=_AclIndex_Object((1,3,6,1,4,1,4526,1,6,3,2,1,1,1),_AclIndex_Type())
-aclIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:aclIndex.setStatus(_A)
-_AclStatus_Type=RowStatus
-_AclStatus_Object=MibTableColumn
-aclStatus=_AclStatus_Object((1,3,6,1,4,1,4526,1,6,3,2,1,1,3),_AclStatus_Type())
-aclStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclStatus.setStatus(_A)
-_AclIfTable_Object=MibTable
-aclIfTable=_AclIfTable_Object((1,3,6,1,4,1,4526,1,6,3,2,2))
-if mibBuilder.loadTexts:aclIfTable.setStatus(_A)
-_AclIfEntry_Object=MibTableRow
-aclIfEntry=_AclIfEntry_Object((1,3,6,1,4,1,4526,1,6,3,2,2,1))
-aclIfEntry.setIndexNames((0,_C,_E),(0,_C,_G),(0,_C,_H))
-if mibBuilder.loadTexts:aclIfEntry.setStatus(_A)
-_AclIfIndex_Type=Integer32
-_AclIfIndex_Object=MibTableColumn
-aclIfIndex=_AclIfIndex_Object((1,3,6,1,4,1,4526,1,6,3,2,2,1,1),_AclIfIndex_Type())
-aclIfIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:aclIfIndex.setStatus(_A)
-class _AclIfDirection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('inbound',1),('outbound',2)))
-_AclIfDirection_Type.__name__=_D
-_AclIfDirection_Object=MibTableColumn
-aclIfDirection=_AclIfDirection_Object((1,3,6,1,4,1,4526,1,6,3,2,2,1,2),_AclIfDirection_Type())
-aclIfDirection.setMaxAccess(_F)
-if mibBuilder.loadTexts:aclIfDirection.setStatus(_A)
-_AclIfStatus_Type=RowStatus
-_AclIfStatus_Object=MibTableColumn
-aclIfStatus=_AclIfStatus_Object((1,3,6,1,4,1,4526,1,6,3,2,2,1,3),_AclIfStatus_Type())
-aclIfStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclIfStatus.setStatus(_A)
-_AclRuleTable_Object=MibTable
-aclRuleTable=_AclRuleTable_Object((1,3,6,1,4,1,4526,1,6,3,2,3))
-if mibBuilder.loadTexts:aclRuleTable.setStatus(_A)
-_AclRuleEntry_Object=MibTableRow
-aclRuleEntry=_AclRuleEntry_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1))
-aclRuleEntry.setIndexNames((0,_C,_E),(0,_C,_I))
-if mibBuilder.loadTexts:aclRuleEntry.setStatus(_A)
-_AclRuleIndex_Type=Integer32
-_AclRuleIndex_Object=MibTableColumn
-aclRuleIndex=_AclRuleIndex_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,1),_AclRuleIndex_Type())
-aclRuleIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:aclRuleIndex.setStatus(_A)
-class _AclRuleAction_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('permit',1),('deny',2)))
-_AclRuleAction_Type.__name__=_D
-_AclRuleAction_Object=MibTableColumn
-aclRuleAction=_AclRuleAction_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,2),_AclRuleAction_Type())
-aclRuleAction.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleAction.setStatus(_A)
-class _AclRuleProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_AclRuleProtocol_Type.__name__=_D
-_AclRuleProtocol_Object=MibTableColumn
-aclRuleProtocol=_AclRuleProtocol_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,3),_AclRuleProtocol_Type())
-aclRuleProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleProtocol.setStatus(_A)
-_AclRuleSrcIpAddress_Type=IpAddress
-_AclRuleSrcIpAddress_Object=MibTableColumn
-aclRuleSrcIpAddress=_AclRuleSrcIpAddress_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,4),_AclRuleSrcIpAddress_Type())
-aclRuleSrcIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleSrcIpAddress.setStatus(_A)
-_AclRuleSrcIpMask_Type=IpAddress
-_AclRuleSrcIpMask_Object=MibTableColumn
-aclRuleSrcIpMask=_AclRuleSrcIpMask_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,5),_AclRuleSrcIpMask_Type())
-aclRuleSrcIpMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleSrcIpMask.setStatus(_A)
-_AclRuleSrcL4Port_Type=Integer32
-_AclRuleSrcL4Port_Object=MibTableColumn
-aclRuleSrcL4Port=_AclRuleSrcL4Port_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,6),_AclRuleSrcL4Port_Type())
-aclRuleSrcL4Port.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleSrcL4Port.setStatus(_A)
-_AclRuleSrcL4PortRangeStart_Type=Integer32
-_AclRuleSrcL4PortRangeStart_Object=MibTableColumn
-aclRuleSrcL4PortRangeStart=_AclRuleSrcL4PortRangeStart_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,7),_AclRuleSrcL4PortRangeStart_Type())
-aclRuleSrcL4PortRangeStart.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleSrcL4PortRangeStart.setStatus(_A)
-_AclRuleSrcL4PortRangeEnd_Type=Integer32
-_AclRuleSrcL4PortRangeEnd_Object=MibTableColumn
-aclRuleSrcL4PortRangeEnd=_AclRuleSrcL4PortRangeEnd_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,8),_AclRuleSrcL4PortRangeEnd_Type())
-aclRuleSrcL4PortRangeEnd.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleSrcL4PortRangeEnd.setStatus(_A)
-_AclRuleDestIpAddress_Type=IpAddress
-_AclRuleDestIpAddress_Object=MibTableColumn
-aclRuleDestIpAddress=_AclRuleDestIpAddress_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,9),_AclRuleDestIpAddress_Type())
-aclRuleDestIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleDestIpAddress.setStatus(_A)
-_AclRuleDestIpMask_Type=IpAddress
-_AclRuleDestIpMask_Object=MibTableColumn
-aclRuleDestIpMask=_AclRuleDestIpMask_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,10),_AclRuleDestIpMask_Type())
-aclRuleDestIpMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleDestIpMask.setStatus(_A)
-_AclRuleDestL4Port_Type=Integer32
-_AclRuleDestL4Port_Object=MibTableColumn
-aclRuleDestL4Port=_AclRuleDestL4Port_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,11),_AclRuleDestL4Port_Type())
-aclRuleDestL4Port.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleDestL4Port.setStatus(_A)
-_AclRuleDestL4PortRangeStart_Type=Integer32
-_AclRuleDestL4PortRangeStart_Object=MibTableColumn
-aclRuleDestL4PortRangeStart=_AclRuleDestL4PortRangeStart_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,12),_AclRuleDestL4PortRangeStart_Type())
-aclRuleDestL4PortRangeStart.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleDestL4PortRangeStart.setStatus(_A)
-_AclRuleDestL4PortRangeEnd_Type=Integer32
-_AclRuleDestL4PortRangeEnd_Object=MibTableColumn
-aclRuleDestL4PortRangeEnd=_AclRuleDestL4PortRangeEnd_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,13),_AclRuleDestL4PortRangeEnd_Type())
-aclRuleDestL4PortRangeEnd.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleDestL4PortRangeEnd.setStatus(_A)
-_AclRuleIPDSCP_Type=Integer32
-_AclRuleIPDSCP_Object=MibTableColumn
-aclRuleIPDSCP=_AclRuleIPDSCP_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,14),_AclRuleIPDSCP_Type())
-aclRuleIPDSCP.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleIPDSCP.setStatus(_A)
-_AclRuleIpPrecedence_Type=Integer32
-_AclRuleIpPrecedence_Object=MibTableColumn
-aclRuleIpPrecedence=_AclRuleIpPrecedence_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,15),_AclRuleIpPrecedence_Type())
-aclRuleIpPrecedence.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleIpPrecedence.setStatus(_A)
-_AclRuleIpTosBits_Type=Integer32
-_AclRuleIpTosBits_Object=MibTableColumn
-aclRuleIpTosBits=_AclRuleIpTosBits_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,16),_AclRuleIpTosBits_Type())
-aclRuleIpTosBits.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleIpTosBits.setStatus(_A)
-_AclRuleIpTosMask_Type=Integer32
-_AclRuleIpTosMask_Object=MibTableColumn
-aclRuleIpTosMask=_AclRuleIpTosMask_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,17),_AclRuleIpTosMask_Type())
-aclRuleIpTosMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleIpTosMask.setStatus(_A)
-_AclRuleStatus_Type=RowStatus
-_AclRuleStatus_Object=MibTableColumn
-aclRuleStatus=_AclRuleStatus_Object((1,3,6,1,4,1,4526,1,6,3,2,3,1,18),_AclRuleStatus_Type())
-aclRuleStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:aclRuleStatus.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'gsm7312QOSACL':gsm7312QOSACL,'aclTable':aclTable,'aclEntry':aclEntry,_E:aclIndex,'aclStatus':aclStatus,'aclIfTable':aclIfTable,'aclIfEntry':aclIfEntry,_G:aclIfIndex,_H:aclIfDirection,'aclIfStatus':aclIfStatus,'aclRuleTable':aclRuleTable,'aclRuleEntry':aclRuleEntry,_I:aclRuleIndex,'aclRuleAction':aclRuleAction,'aclRuleProtocol':aclRuleProtocol,'aclRuleSrcIpAddress':aclRuleSrcIpAddress,'aclRuleSrcIpMask':aclRuleSrcIpMask,'aclRuleSrcL4Port':aclRuleSrcL4Port,'aclRuleSrcL4PortRangeStart':aclRuleSrcL4PortRangeStart,'aclRuleSrcL4PortRangeEnd':aclRuleSrcL4PortRangeEnd,'aclRuleDestIpAddress':aclRuleDestIpAddress,'aclRuleDestIpMask':aclRuleDestIpMask,'aclRuleDestL4Port':aclRuleDestL4Port,'aclRuleDestL4PortRangeStart':aclRuleDestL4PortRangeStart,'aclRuleDestL4PortRangeEnd':aclRuleDestL4PortRangeEnd,'aclRuleIPDSCP':aclRuleIPDSCP,'aclRuleIpPrecedence':aclRuleIpPrecedence,'aclRuleIpTosBits':aclRuleIpTosBits,'aclRuleIpTosMask':aclRuleIpTosMask,'aclRuleStatus':aclRuleStatus})
+#
+# PySNMP MIB module GSM7312-QOS-ACL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netgear/GSM7312-QOS-ACL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:28:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+gsm7312QOS, = mibBuilder.importSymbols("GSM7312-QOS-MIB", "gsm7312QOS")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+gsm7312QOSACL = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2))
+gsm7312QOSACL.setRevisions(('2003-05-06 12:00',))
+if mibBuilder.loadTexts: gsm7312QOSACL.setLastUpdated('200305061200Z')
+if mibBuilder.loadTexts: gsm7312QOSACL.setOrganization('Netgear')
+aclTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 1), )
+if mibBuilder.loadTexts: aclTable.setStatus('current')
+aclEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 1, 1), ).setIndexNames((0, "GSM7312-QOS-ACL-MIB", "aclIndex"))
+if mibBuilder.loadTexts: aclEntry.setStatus('current')
+aclStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclStatus.setStatus('current')
+aclIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: aclIndex.setStatus('current')
+aclIfTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 2), )
+if mibBuilder.loadTexts: aclIfTable.setStatus('current')
+aclIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 2, 1), ).setIndexNames((0, "GSM7312-QOS-ACL-MIB", "aclIndex"), (0, "GSM7312-QOS-ACL-MIB", "aclIfIndex"), (0, "GSM7312-QOS-ACL-MIB", "aclIfDirection"))
+if mibBuilder.loadTexts: aclIfEntry.setStatus('current')
+aclIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 2, 1, 1), Integer32())
+if mibBuilder.loadTexts: aclIfIndex.setStatus('current')
+aclIfDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inbound", 1), ("outbound", 2))))
+if mibBuilder.loadTexts: aclIfDirection.setStatus('current')
+aclIfStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclIfStatus.setStatus('current')
+aclRuleTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3), )
+if mibBuilder.loadTexts: aclRuleTable.setStatus('current')
+aclRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1), ).setIndexNames((0, "GSM7312-QOS-ACL-MIB", "aclIndex"), (0, "GSM7312-QOS-ACL-MIB", "aclRuleIndex"))
+if mibBuilder.loadTexts: aclRuleEntry.setStatus('current')
+aclRuleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 1), Integer32())
+if mibBuilder.loadTexts: aclRuleIndex.setStatus('current')
+aclRuleAction = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("permit", 1), ("deny", 2))).clone('deny')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleAction.setStatus('current')
+aclRuleProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleProtocol.setStatus('current')
+aclRuleSrcIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 4), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleSrcIpAddress.setStatus('current')
+aclRuleSrcIpMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 5), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleSrcIpMask.setStatus('current')
+aclRuleSrcL4Port = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 6), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleSrcL4Port.setStatus('current')
+aclRuleSrcL4PortRangeStart = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 7), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleSrcL4PortRangeStart.setStatus('current')
+aclRuleSrcL4PortRangeEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 8), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleSrcL4PortRangeEnd.setStatus('current')
+aclRuleDestIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 9), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleDestIpAddress.setStatus('current')
+aclRuleDestIpMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 10), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleDestIpMask.setStatus('current')
+aclRuleDestL4Port = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 11), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleDestL4Port.setStatus('current')
+aclRuleDestL4PortRangeStart = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 12), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleDestL4PortRangeStart.setStatus('current')
+aclRuleDestL4PortRangeEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 13), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleDestL4PortRangeEnd.setStatus('current')
+aclRuleIPDSCP = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 14), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleIPDSCP.setStatus('current')
+aclRuleIpPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 15), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleIpPrecedence.setStatus('current')
+aclRuleIpTosBits = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 16), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleIpTosBits.setStatus('current')
+aclRuleIpTosMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 17), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleIpTosMask.setStatus('current')
+aclRuleStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 6, 3, 2, 3, 1, 18), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aclRuleStatus.setStatus('current')
+mibBuilder.exportSymbols("GSM7312-QOS-ACL-MIB", aclRuleSrcL4PortRangeEnd=aclRuleSrcL4PortRangeEnd, aclRuleTable=aclRuleTable, aclIfEntry=aclIfEntry, aclRuleSrcIpAddress=aclRuleSrcIpAddress, aclIfStatus=aclIfStatus, aclRuleIpTosBits=aclRuleIpTosBits, aclIfTable=aclIfTable, aclRuleIPDSCP=aclRuleIPDSCP, aclRuleIpPrecedence=aclRuleIpPrecedence, aclRuleDestL4PortRangeEnd=aclRuleDestL4PortRangeEnd, aclRuleDestL4Port=aclRuleDestL4Port, aclRuleStatus=aclRuleStatus, aclRuleIndex=aclRuleIndex, aclRuleSrcIpMask=aclRuleSrcIpMask, aclTable=aclTable, aclRuleDestIpMask=aclRuleDestIpMask, aclStatus=aclStatus, aclRuleSrcL4PortRangeStart=aclRuleSrcL4PortRangeStart, aclRuleEntry=aclRuleEntry, aclRuleAction=aclRuleAction, gsm7312QOSACL=gsm7312QOSACL, aclRuleSrcL4Port=aclRuleSrcL4Port, aclRuleDestL4PortRangeStart=aclRuleDestL4PortRangeStart, aclIfIndex=aclIfIndex, aclRuleProtocol=aclRuleProtocol, aclEntry=aclEntry, aclRuleIpTosMask=aclRuleIpTosMask, aclRuleDestIpAddress=aclRuleDestIpAddress, aclIndex=aclIndex, aclIfDirection=aclIfDirection, PYSNMP_MODULE_ID=gsm7312QOSACL)

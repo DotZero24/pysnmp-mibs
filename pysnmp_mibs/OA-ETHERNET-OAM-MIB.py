@@ -1,1362 +1,472 @@
-_CP='nbEthOamNotificationsGroup'
-_CO='nbEthOamMandatoryGroup'
-_CN='nbEthOamPcktLossAlarm'
-_CM='nbEthOamDSJittAlarm'
-_CL='nbEthOamSDJittAlarm'
-_CK='nbEthOamFdAlarm'
-_CJ='nbEthOamCcmAlarm'
-_CI='nbEthOamServiceLmResponderSL'
-_CH='nbEthOamServiceLbResponderSL'
-_CG='nbEthOamServiceDmResponderSL'
-_CF='nbEthOamPcktLossFallThold'
-_CE='nbEthOamPcktLossRiseThold'
-_CD='nbEthOamSDJittSum2FallThold'
-_CC='nbEthOamSDJittSum2RiseThold'
-_CB='nbEthOamSDJittFallThold'
-_CA='nbEthOamSDJittRiseThold'
-_C9='nbEthOamDSJittSum2FallThold'
-_C8='nbEthOamDSJittSum2RiseThold'
-_C7='nbEthOamDSJittFallThold'
-_C6='nbEthOamDSJittRiseThold'
-_C5='nbEthOamFdFallThold'
-_C4='nbEthOamFdRiseThold'
-_C3='nbEthOamTrapTrapGeneration'
-_C2='nbEthOamDmConfRunMethod'
-_C1='nbEthOamDmConfNumberOfBursts'
-_C0='nbEthOamDmConfBurstInterval'
-_B_='nbEthOamLbConfRunMethod'
-_Bz='nbEthOamLbConfNumberOfBursts'
-_By='nbEthOamLbConfBurstInterval'
-_Bx='nbEthOamDmHcLastRunStatus'
-_Bw='nbEthOamDmHcLastSDJittIA'
-_Bv='nbEthOamDmHcLastSDJittSum2'
-_Bu='nbEthOamDmHcLastSDJittAverage'
-_Bt='nbEthOamDmHcLastSDJittMax'
-_Bs='nbEthOamDmHcLastSDJittMin'
-_Br='nbEthOamDmHcLastDSJittIA'
-_Bq='nbEthOamDmHcLastDSJittSum2'
-_Bp='nbEthOamDmHcLastDSJittAverage'
-_Bo='nbEthOamDmHcLastDSJittMax'
-_Bn='nbEthOamDmHcLastDSJittMin'
-_Bm='nbEthOamDmHcLastRttSum2'
-_Bl='nbEthOamDmHcLastRttAverage'
-_Bk='nbEthOamDmHcLastRttMax'
-_Bj='nbEthOamDmHcLastRttMin'
-_Bi='nbEthOamDmHcHistSDJittIA'
-_Bh='nbEthOamDmHcHistSDJittSum2'
-_Bg='nbEthOamDmHcHistSDJittAverage'
-_Bf='nbEthOamDmHcHistSDJittMax'
-_Be='nbEthOamDmHcHistSDJittMin'
-_Bd='nbEthOamDmHcHistDSJittIA'
-_Bc='nbEthOamDmHcHistDSJittSum2'
-_Bb='nbEthOamDmHcHistDSJittAverage'
-_Ba='nbEthOamDmHcHistDSJittMax'
-_BZ='nbEthOamDmHcHistDSJittMin'
-_BY='nbEthOamDmHcHistRttSum2'
-_BX='nbEthOamDmHcHistRttAverage'
-_BW='nbEthOamDmHcHistRttMax'
-_BV='nbEthOamDmHcHistRttMin'
-_BU='nbEthOamDmLastType'
-_BT='nbEthOamDmLastPriority'
-_BS='nbEthOamDmLastSDJittIA'
-_BR='nbEthOamDmLastSDJittSum2'
-_BQ='nbEthOamDmLastSDJittMax'
-_BP='nbEthOamDmLastSDJittMin'
-_BO='nbEthOamDmLastSDJittNumber'
-_BN='nbEthOamDmLastDSJittIA'
-_BM='nbEthOamDmLastDSJittSum2'
-_BL='nbEthOamDmLastDSJittMax'
-_BK='nbEthOamDmLastDSJittMin'
-_BJ='nbEthOamDmLastDSJittNumber'
-_BI='nbEthOamDmLastRttSum2'
-_BH='nbEthOamDmLastRttMax'
-_BG='nbEthOamDmLastRttMin'
-_BF='nbEthOamDmLastMsgReceived'
-_BE='nbEthOamDmLastMsgTransmitted'
-_BD='nbEthOamDmLastStarted'
-_BC='nbEthOamLbLastType'
-_BB='nbEthOamLbLastHistIndx'
-_BA='nbEthOamLbLastPriority'
-_B9='nbEthOamLbLastPcktLoss'
-_B8='nbEthOamLbLastJittIA'
-_B7='nbEthOamLbLastJittSum2'
-_B6='nbEthOamLbLastJittAverage'
-_B5='nbEthOamLbLastJittMax'
-_B4='nbEthOamLbLastJittMin'
-_B3='nbEthOamLbLastJittNumber'
-_B2='nbEthOamLbLastRttSum2'
-_B1='nbEthOamLbLastRttAverage'
-_B0='nbEthOamLbLastRttMax'
-_A_='nbEthOamLbLastRttMin'
-_Az='nbEthOamLbLastMsgReceived'
-_Ay='nbEthOamLbLastMsgTransmitted'
-_Ax='nbEthOamLbLastDestMepMac'
-_Aw='nbEthOamLbLastDestMepId'
-_Av='nbEthOamLbLastStarted'
-_Au='nbEthOamDmHistPriority'
-_At='nbEthOamDmHistType'
-_As='nbEthOamDmHistPcktLoss'
-_Ar='nbEthOamDmHistSDJittIA'
-_Aq='nbEthOamDmHistSDJittSum2'
-_Ap='nbEthOamDmHistSDJittAverage'
-_Ao='nbEthOamDmHistSDJittMax'
-_An='nbEthOamDmHistSDJittMin'
-_Am='nbEthOamDmHistSDJittNumber'
-_Al='nbEthOamDmHistDSJittIA'
-_Ak='nbEthOamDmHistDSJittSum2'
-_Aj='nbEthOamDmHistDSJittAverage'
-_Ai='nbEthOamDmHistDSJittMax'
-_Ah='nbEthOamDmHistDSJittMin'
-_Ag='nbEthOamDmHistDSJittNumber'
-_Af='nbEthOamDmHistRttSum2'
-_Ae='nbEthOamDmHistRttAverage'
-_Ad='nbEthOamDmHistRttMax'
-_Ac='nbEthOamDmHistRttMin'
-_Ab='nbEthOamDmHistMsgReceived'
-_Aa='nbEthOamDmHistMsgTransmitted'
-_AZ='nbEthOamDmHistDestMepMac'
-_AY='nbEthOamDmHistDestMepId'
-_AX='nbEthOamDmHistStarted'
-_AW='nbEthOamDmConfMessages'
-_AV='nbEthOamDmConfDestIsMepId'
-_AU='nbEthOamDmConfDestMepList'
-_AT='nbEthOamDmConfDestMepMac'
-_AS='nbEthOamDmConfDestMepId'
-_AR='nbEthOamDmConfPriority'
-_AQ='nbEthOamDmConfDataFill'
-_AP='nbEthOamDmConfDataLength'
-_AO='nbEthOamDmConfTimeout'
-_AN='nbEthOamDmConfIntervalMicro'
-_AM='nbEthOamDmConfInterval'
-_AL='nbEthOamDmConfHistorySize'
-_AK='nbEthOamLbHistPriority'
-_AJ='nbEthOamLbHistType'
-_AI='nbEthOamLbHistPcktLoss'
-_AH='nbEthOamLbHistJittIA'
-_AG='nbEthOamLbHistJittSum2'
-_AF='nbEthOamLbHistJittAverage'
-_AE='nbEthOamLbHistJittMax'
-_AD='nbEthOamLbHistJittMin'
-_AC='nbEthOamLbHistJittNumber'
-_AB='nbEthOamLbHistRttSum2'
-_AA='nbEthOamLbHistRttAverage'
-_A9='nbEthOamLbHistRttMax'
-_A8='nbEthOamLbHistRttMin'
-_A7='nbEthOamLbHistMsgReceived'
-_A6='nbEthOamLbHistMsgTransmitted'
-_A5='nbEthOamLbHistDestMepMac'
-_A4='nbEthOamLbHistDestMepId'
-_A3='nbEthOamLbHistStarted'
-_A2='nbEthOamLbConfMessages'
-_A1='nbEthOamLbConfDestIsMepId'
-_A0='nbEthOamLbConfDestMepList'
-_z='nbEthOamLbConfDestMepMac'
-_y='nbEthOamLbConfDestMepId'
-_x='nbEthOamLbConfPriority'
-_w='nbEthOamLbConfDataFill'
-_v='nbEthOamLbConfDataLength'
-_u='nbEthOamLbConfTimeout'
-_t='nbEthOamLbConfIntervalMicro'
-_s='nbEthOamLbConfInterval'
-_r='nbEthOamLbConfHistorySize'
-_q='nbEthOamCcmIntervals'
-_p='nbEthOamFeaturesSupport'
-_o='nbEthOamDmHcLastEntry'
-_n='nbEthOamDmHcHistEntry'
-_m='nbEthOamDmConfExtEntry'
-_l='nbEthOamLbConfExtEntry'
-_k='frames'
-_j='nbEthOamDmHistSampleIndex'
-_i='nbEthOamLbHistSampleIndex'
-_h='bursts'
-_g='seconds'
-_f='octets'
-_e='nbEthOamTrapCcmAlarmType'
-_d='nbEthOamTrapCcmHighestPrDefect'
-_c='nbEthOamDmLastPcktLoss'
-_b='nbEthOamDmLastSDJittAverage'
-_a='nbEthOamDmLastDSJittAverage'
-_Z='nbEthOamDmLastRttAverage'
-_Y='TestRunMethod'
-_X='DestinationType'
-_W='OctetString'
-_V='square of nanoseconds'
-_U='0.01%'
-_T='milliseconds'
-_S='Integer32'
-_R='Bits'
-_Q='not-accessible'
-_P='nbEthOamTrapDmmReason'
-_O='nbEthOamDmLastHistIndx'
-_N='nbEthOamDmLastDestMepMac'
-_M='nbEthOamDmLastDestMepId'
-_L='packets'
-_K='nbEthOamMepIdentifier'
-_J='nbEthOamMaIndex'
-_I='nbEthOamMdIndex'
-_H='square of milliseconds'
-_G='nanoseconds'
-_F='Unsigned32'
-_E='microseconds'
-_D='read-write'
-_C='read-only'
-_B='current'
-_A='OA-ETHERNET-OAM-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_W,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-MepList,nbSwitchG1Il=mibBuilder.importSymbols('OS-COMMON-TC-MIB','MepList','nbSwitchG1Il')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI',_R,'Counter32','Counter64','Gauge32',_S,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','TextualConvention')
-nbEthOam=ModuleIdentity((1,3,6,1,4,1,629,1,50,17))
-if mibBuilder.loadTexts:nbEthOam.setRevisions(('2018-12-30 00:00','2013-02-18 00:00','2012-10-21 00:00','2012-04-15 00:00','2011-09-22 00:00','2011-05-30 00:00','2010-03-15 00:00','2007-01-07 00:00'))
-class NbEthOamMepId(TextualConvention,Unsigned32):status=_B;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4095))
-class NbEthOamMepIdOrZero(TextualConvention,Unsigned32):status=_B;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,4095))
-class TestRunMethod(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3,4)));namedValues=NamedValues(*(('slow',2),('fast',3),('none',4)))
-class NbEthOamCcmHighestDefectPri(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*(('none',0),('defRDICCM',1),('defMACstatus',2),('defRemoteCCM',3),('defErrorCCM',4),('defXconCCM',5)))
-class DestinationType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('singleRMepId',1),('macAddress',2),('listOfRMeps',3),('multicastClass1',4),('multicastClass2',5)))
-_NbEthOamNotifications_ObjectIdentity=ObjectIdentity
-nbEthOamNotifications=_NbEthOamNotifications_ObjectIdentity((1,3,6,1,4,1,629,1,50,17,0))
-_NbEthOamCapabilities_ObjectIdentity=ObjectIdentity
-nbEthOamCapabilities=_NbEthOamCapabilities_ObjectIdentity((1,3,6,1,4,1,629,1,50,17,1))
-class _NbEthOamFeaturesSupport_Type(Bits):namedValues=NamedValues(*(('mayDoSlowTests',0),('mayDoFastTests',1)))
-_NbEthOamFeaturesSupport_Type.__name__=_R
-_NbEthOamFeaturesSupport_Object=MibScalar
-nbEthOamFeaturesSupport=_NbEthOamFeaturesSupport_Object((1,3,6,1,4,1,629,1,50,17,1,1),_NbEthOamFeaturesSupport_Type())
-nbEthOamFeaturesSupport.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamFeaturesSupport.setStatus(_B)
-class _NbEthOamCcmIntervals_Type(Bits):namedValues=NamedValues(*(('supports300Hz',0),('supports10ms',1),('supports100ms',2),('supports1s',3),('supports10s',4),('supports1min',5),('supports10min',6)))
-_NbEthOamCcmIntervals_Type.__name__=_R
-_NbEthOamCcmIntervals_Object=MibScalar
-nbEthOamCcmIntervals=_NbEthOamCcmIntervals_Object((1,3,6,1,4,1,629,1,50,17,1,2),_NbEthOamCcmIntervals_Type())
-nbEthOamCcmIntervals.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamCcmIntervals.setStatus(_B)
-_NbEthOamLb_ObjectIdentity=ObjectIdentity
-nbEthOamLb=_NbEthOamLb_ObjectIdentity((1,3,6,1,4,1,629,1,50,17,10))
-_NbEthOamLbConfTable_Object=MibTable
-nbEthOamLbConfTable=_NbEthOamLbConfTable_Object((1,3,6,1,4,1,629,1,50,17,10,1))
-if mibBuilder.loadTexts:nbEthOamLbConfTable.setStatus(_B)
-_NbEthOamLbConfEntry_Object=MibTableRow
-nbEthOamLbConfEntry=_NbEthOamLbConfEntry_Object((1,3,6,1,4,1,629,1,50,17,10,1,1))
-nbEthOamLbConfEntry.setIndexNames((0,_A,_I),(0,_A,_J),(0,_A,_K))
-if mibBuilder.loadTexts:nbEthOamLbConfEntry.setStatus(_B)
-class _NbEthOamMdIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_NbEthOamMdIndex_Type.__name__=_F
-_NbEthOamMdIndex_Object=MibTableColumn
-nbEthOamMdIndex=_NbEthOamMdIndex_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,1),_NbEthOamMdIndex_Type())
-nbEthOamMdIndex.setMaxAccess(_Q)
-if mibBuilder.loadTexts:nbEthOamMdIndex.setStatus(_B)
-class _NbEthOamMaIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_NbEthOamMaIndex_Type.__name__=_F
-_NbEthOamMaIndex_Object=MibTableColumn
-nbEthOamMaIndex=_NbEthOamMaIndex_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,2),_NbEthOamMaIndex_Type())
-nbEthOamMaIndex.setMaxAccess(_Q)
-if mibBuilder.loadTexts:nbEthOamMaIndex.setStatus(_B)
-_NbEthOamMepIdentifier_Type=NbEthOamMepId
-_NbEthOamMepIdentifier_Object=MibTableColumn
-nbEthOamMepIdentifier=_NbEthOamMepIdentifier_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,3),_NbEthOamMepIdentifier_Type())
-nbEthOamMepIdentifier.setMaxAccess(_Q)
-if mibBuilder.loadTexts:nbEthOamMepIdentifier.setStatus(_B)
-class _NbEthOamLbConfHistorySize_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,65535))
-_NbEthOamLbConfHistorySize_Type.__name__=_F
-_NbEthOamLbConfHistorySize_Object=MibTableColumn
-nbEthOamLbConfHistorySize=_NbEthOamLbConfHistorySize_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,5),_NbEthOamLbConfHistorySize_Type())
-nbEthOamLbConfHistorySize.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamLbConfHistorySize.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbConfHistorySize.setUnits('lines')
-class _NbEthOamLbConfInterval_Type(Unsigned32):defaultValue=100;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
-_NbEthOamLbConfInterval_Type.__name__=_F
-_NbEthOamLbConfInterval_Object=MibTableColumn
-nbEthOamLbConfInterval=_NbEthOamLbConfInterval_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,6),_NbEthOamLbConfInterval_Type())
-nbEthOamLbConfInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamLbConfInterval.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbConfInterval.setUnits(_T)
-class _NbEthOamLbConfTimeout_Type(Unsigned32):defaultValue=200;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,60000))
-_NbEthOamLbConfTimeout_Type.__name__=_F
-_NbEthOamLbConfTimeout_Object=MibTableColumn
-nbEthOamLbConfTimeout=_NbEthOamLbConfTimeout_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,7),_NbEthOamLbConfTimeout_Type())
-nbEthOamLbConfTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamLbConfTimeout.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbConfTimeout.setUnits(_T)
-class _NbEthOamLbConfDataLength_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,9000))
-_NbEthOamLbConfDataLength_Type.__name__=_F
-_NbEthOamLbConfDataLength_Object=MibTableColumn
-nbEthOamLbConfDataLength=_NbEthOamLbConfDataLength_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,8),_NbEthOamLbConfDataLength_Type())
-nbEthOamLbConfDataLength.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamLbConfDataLength.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbConfDataLength.setUnits(_f)
-class _NbEthOamLbConfDataFill_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1436))
-_NbEthOamLbConfDataFill_Type.__name__=_W
-_NbEthOamLbConfDataFill_Object=MibTableColumn
-nbEthOamLbConfDataFill=_NbEthOamLbConfDataFill_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,9),_NbEthOamLbConfDataFill_Type())
-nbEthOamLbConfDataFill.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamLbConfDataFill.setStatus(_B)
-class _NbEthOamLbConfPriority_Type(Unsigned32):defaultValue=8;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7),ValueRangeConstraint(8,8))
-_NbEthOamLbConfPriority_Type.__name__=_F
-_NbEthOamLbConfPriority_Object=MibTableColumn
-nbEthOamLbConfPriority=_NbEthOamLbConfPriority_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,10),_NbEthOamLbConfPriority_Type())
-nbEthOamLbConfPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamLbConfPriority.setStatus(_B)
-_NbEthOamLbConfDestMepId_Type=NbEthOamMepIdOrZero
-_NbEthOamLbConfDestMepId_Object=MibTableColumn
-nbEthOamLbConfDestMepId=_NbEthOamLbConfDestMepId_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,11),_NbEthOamLbConfDestMepId_Type())
-nbEthOamLbConfDestMepId.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamLbConfDestMepId.setStatus(_B)
-_NbEthOamLbConfDestMepMac_Type=MacAddress
-_NbEthOamLbConfDestMepMac_Object=MibTableColumn
-nbEthOamLbConfDestMepMac=_NbEthOamLbConfDestMepMac_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,12),_NbEthOamLbConfDestMepMac_Type())
-nbEthOamLbConfDestMepMac.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamLbConfDestMepMac.setStatus(_B)
-class _NbEthOamLbConfDestIsMepId_Type(DestinationType):defaultValue=2
-_NbEthOamLbConfDestIsMepId_Type.__name__=_X
-_NbEthOamLbConfDestIsMepId_Object=MibTableColumn
-nbEthOamLbConfDestIsMepId=_NbEthOamLbConfDestIsMepId_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,13),_NbEthOamLbConfDestIsMepId_Type())
-nbEthOamLbConfDestIsMepId.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamLbConfDestIsMepId.setStatus(_B)
-class _NbEthOamLbConfMessages_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000000))
-_NbEthOamLbConfMessages_Type.__name__=_F
-_NbEthOamLbConfMessages_Object=MibTableColumn
-nbEthOamLbConfMessages=_NbEthOamLbConfMessages_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,14),_NbEthOamLbConfMessages_Type())
-nbEthOamLbConfMessages.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamLbConfMessages.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbConfMessages.setUnits(_L)
-class _NbEthOamLbConfBurstInterval_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,86400))
-_NbEthOamLbConfBurstInterval_Type.__name__=_F
-_NbEthOamLbConfBurstInterval_Object=MibTableColumn
-nbEthOamLbConfBurstInterval=_NbEthOamLbConfBurstInterval_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,15),_NbEthOamLbConfBurstInterval_Type())
-nbEthOamLbConfBurstInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamLbConfBurstInterval.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbConfBurstInterval.setUnits(_g)
-class _NbEthOamLbConfNumberOfBursts_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,4294967295))
-_NbEthOamLbConfNumberOfBursts_Type.__name__=_F
-_NbEthOamLbConfNumberOfBursts_Object=MibTableColumn
-nbEthOamLbConfNumberOfBursts=_NbEthOamLbConfNumberOfBursts_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,16),_NbEthOamLbConfNumberOfBursts_Type())
-nbEthOamLbConfNumberOfBursts.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamLbConfNumberOfBursts.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbConfNumberOfBursts.setUnits(_h)
-class _NbEthOamLbConfRunMethod_Type(TestRunMethod):defaultValue=4
-_NbEthOamLbConfRunMethod_Type.__name__=_Y
-_NbEthOamLbConfRunMethod_Object=MibTableColumn
-nbEthOamLbConfRunMethod=_NbEthOamLbConfRunMethod_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,21),_NbEthOamLbConfRunMethod_Type())
-nbEthOamLbConfRunMethod.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamLbConfRunMethod.setStatus(_B)
-class _NbEthOamLbConfIntervalMicro_Type(Unsigned32):defaultValue=100000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000000))
-_NbEthOamLbConfIntervalMicro_Type.__name__=_F
-_NbEthOamLbConfIntervalMicro_Object=MibTableColumn
-nbEthOamLbConfIntervalMicro=_NbEthOamLbConfIntervalMicro_Object((1,3,6,1,4,1,629,1,50,17,10,1,1,22),_NbEthOamLbConfIntervalMicro_Type())
-nbEthOamLbConfIntervalMicro.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamLbConfIntervalMicro.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbConfIntervalMicro.setUnits(_E)
-_NbEthOamLbHistTable_Object=MibTable
-nbEthOamLbHistTable=_NbEthOamLbHistTable_Object((1,3,6,1,4,1,629,1,50,17,10,2))
-if mibBuilder.loadTexts:nbEthOamLbHistTable.setStatus(_B)
-_NbEthOamLbHistEntry_Object=MibTableRow
-nbEthOamLbHistEntry=_NbEthOamLbHistEntry_Object((1,3,6,1,4,1,629,1,50,17,10,2,1))
-nbEthOamLbHistEntry.setIndexNames((0,_A,_I),(0,_A,_J),(0,_A,_K),(0,_A,_i))
-if mibBuilder.loadTexts:nbEthOamLbHistEntry.setStatus(_B)
-class _NbEthOamLbHistSampleIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_NbEthOamLbHistSampleIndex_Type.__name__=_F
-_NbEthOamLbHistSampleIndex_Object=MibTableColumn
-nbEthOamLbHistSampleIndex=_NbEthOamLbHistSampleIndex_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,5),_NbEthOamLbHistSampleIndex_Type())
-nbEthOamLbHistSampleIndex.setMaxAccess(_Q)
-if mibBuilder.loadTexts:nbEthOamLbHistSampleIndex.setStatus(_B)
-_NbEthOamLbHistStarted_Type=DateAndTime
-_NbEthOamLbHistStarted_Object=MibTableColumn
-nbEthOamLbHistStarted=_NbEthOamLbHistStarted_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,6),_NbEthOamLbHistStarted_Type())
-nbEthOamLbHistStarted.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistStarted.setStatus(_B)
-_NbEthOamLbHistDestMepId_Type=NbEthOamMepIdOrZero
-_NbEthOamLbHistDestMepId_Object=MibTableColumn
-nbEthOamLbHistDestMepId=_NbEthOamLbHistDestMepId_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,7),_NbEthOamLbHistDestMepId_Type())
-nbEthOamLbHistDestMepId.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistDestMepId.setStatus(_B)
-_NbEthOamLbHistDestMepMac_Type=MacAddress
-_NbEthOamLbHistDestMepMac_Object=MibTableColumn
-nbEthOamLbHistDestMepMac=_NbEthOamLbHistDestMepMac_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,8),_NbEthOamLbHistDestMepMac_Type())
-nbEthOamLbHistDestMepMac.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistDestMepMac.setStatus(_B)
-_NbEthOamLbHistMsgTransmitted_Type=Unsigned32
-_NbEthOamLbHistMsgTransmitted_Object=MibTableColumn
-nbEthOamLbHistMsgTransmitted=_NbEthOamLbHistMsgTransmitted_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,9),_NbEthOamLbHistMsgTransmitted_Type())
-nbEthOamLbHistMsgTransmitted.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistMsgTransmitted.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbHistMsgTransmitted.setUnits(_L)
-_NbEthOamLbHistMsgReceived_Type=Unsigned32
-_NbEthOamLbHistMsgReceived_Object=MibTableColumn
-nbEthOamLbHistMsgReceived=_NbEthOamLbHistMsgReceived_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,10),_NbEthOamLbHistMsgReceived_Type())
-nbEthOamLbHistMsgReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistMsgReceived.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbHistMsgReceived.setUnits(_L)
-_NbEthOamLbHistRttMin_Type=Unsigned32
-_NbEthOamLbHistRttMin_Object=MibTableColumn
-nbEthOamLbHistRttMin=_NbEthOamLbHistRttMin_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,12),_NbEthOamLbHistRttMin_Type())
-nbEthOamLbHistRttMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistRttMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbHistRttMin.setUnits(_E)
-_NbEthOamLbHistRttMax_Type=Unsigned32
-_NbEthOamLbHistRttMax_Object=MibTableColumn
-nbEthOamLbHistRttMax=_NbEthOamLbHistRttMax_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,13),_NbEthOamLbHistRttMax_Type())
-nbEthOamLbHistRttMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistRttMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbHistRttMax.setUnits(_E)
-_NbEthOamLbHistRttAverage_Type=Unsigned32
-_NbEthOamLbHistRttAverage_Object=MibTableColumn
-nbEthOamLbHistRttAverage=_NbEthOamLbHistRttAverage_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,14),_NbEthOamLbHistRttAverage_Type())
-nbEthOamLbHistRttAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistRttAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbHistRttAverage.setUnits(_E)
-_NbEthOamLbHistRttSum2_Type=Unsigned32
-_NbEthOamLbHistRttSum2_Object=MibTableColumn
-nbEthOamLbHistRttSum2=_NbEthOamLbHistRttSum2_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,15),_NbEthOamLbHistRttSum2_Type())
-nbEthOamLbHistRttSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistRttSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbHistRttSum2.setUnits(_H)
-_NbEthOamLbHistJittNumber_Type=Unsigned32
-_NbEthOamLbHistJittNumber_Object=MibTableColumn
-nbEthOamLbHistJittNumber=_NbEthOamLbHistJittNumber_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,23),_NbEthOamLbHistJittNumber_Type())
-nbEthOamLbHistJittNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistJittNumber.setStatus(_B)
-_NbEthOamLbHistJittMin_Type=Unsigned32
-_NbEthOamLbHistJittMin_Object=MibTableColumn
-nbEthOamLbHistJittMin=_NbEthOamLbHistJittMin_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,24),_NbEthOamLbHistJittMin_Type())
-nbEthOamLbHistJittMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistJittMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbHistJittMin.setUnits(_E)
-_NbEthOamLbHistJittMax_Type=Unsigned32
-_NbEthOamLbHistJittMax_Object=MibTableColumn
-nbEthOamLbHistJittMax=_NbEthOamLbHistJittMax_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,25),_NbEthOamLbHistJittMax_Type())
-nbEthOamLbHistJittMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistJittMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbHistJittMax.setUnits(_E)
-_NbEthOamLbHistJittAverage_Type=Unsigned32
-_NbEthOamLbHistJittAverage_Object=MibTableColumn
-nbEthOamLbHistJittAverage=_NbEthOamLbHistJittAverage_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,26),_NbEthOamLbHistJittAverage_Type())
-nbEthOamLbHistJittAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistJittAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbHistJittAverage.setUnits(_E)
-_NbEthOamLbHistJittSum2_Type=Unsigned32
-_NbEthOamLbHistJittSum2_Object=MibTableColumn
-nbEthOamLbHistJittSum2=_NbEthOamLbHistJittSum2_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,27),_NbEthOamLbHistJittSum2_Type())
-nbEthOamLbHistJittSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistJittSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbHistJittSum2.setUnits(_H)
-_NbEthOamLbHistJittIA_Type=Unsigned32
-_NbEthOamLbHistJittIA_Object=MibTableColumn
-nbEthOamLbHistJittIA=_NbEthOamLbHistJittIA_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,30),_NbEthOamLbHistJittIA_Type())
-nbEthOamLbHistJittIA.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistJittIA.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbHistJittIA.setUnits(_E)
-_NbEthOamLbHistPcktLoss_Type=Unsigned32
-_NbEthOamLbHistPcktLoss_Object=MibTableColumn
-nbEthOamLbHistPcktLoss=_NbEthOamLbHistPcktLoss_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,31),_NbEthOamLbHistPcktLoss_Type())
-nbEthOamLbHistPcktLoss.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistPcktLoss.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbHistPcktLoss.setUnits(_U)
-_NbEthOamLbHistType_Type=TestRunMethod
-_NbEthOamLbHistType_Object=MibTableColumn
-nbEthOamLbHistType=_NbEthOamLbHistType_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,32),_NbEthOamLbHistType_Type())
-nbEthOamLbHistType.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistType.setStatus(_B)
-class _NbEthOamLbHistPriority_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_NbEthOamLbHistPriority_Type.__name__=_F
-_NbEthOamLbHistPriority_Object=MibTableColumn
-nbEthOamLbHistPriority=_NbEthOamLbHistPriority_Object((1,3,6,1,4,1,629,1,50,17,10,2,1,33),_NbEthOamLbHistPriority_Type())
-nbEthOamLbHistPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbHistPriority.setStatus(_B)
-_NbEthOamLbLastTable_Object=MibTable
-nbEthOamLbLastTable=_NbEthOamLbLastTable_Object((1,3,6,1,4,1,629,1,50,17,10,3))
-if mibBuilder.loadTexts:nbEthOamLbLastTable.setStatus(_B)
-_NbEthOamLbLastEntry_Object=MibTableRow
-nbEthOamLbLastEntry=_NbEthOamLbLastEntry_Object((1,3,6,1,4,1,629,1,50,17,10,3,1))
-nbEthOamLbLastEntry.setIndexNames((0,_A,_I),(0,_A,_J),(0,_A,_K))
-if mibBuilder.loadTexts:nbEthOamLbLastEntry.setStatus(_B)
-_NbEthOamLbLastStarted_Type=DateAndTime
-_NbEthOamLbLastStarted_Object=MibTableColumn
-nbEthOamLbLastStarted=_NbEthOamLbLastStarted_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,6),_NbEthOamLbLastStarted_Type())
-nbEthOamLbLastStarted.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastStarted.setStatus(_B)
-_NbEthOamLbLastDestMepId_Type=NbEthOamMepIdOrZero
-_NbEthOamLbLastDestMepId_Object=MibTableColumn
-nbEthOamLbLastDestMepId=_NbEthOamLbLastDestMepId_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,7),_NbEthOamLbLastDestMepId_Type())
-nbEthOamLbLastDestMepId.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastDestMepId.setStatus(_B)
-_NbEthOamLbLastDestMepMac_Type=MacAddress
-_NbEthOamLbLastDestMepMac_Object=MibTableColumn
-nbEthOamLbLastDestMepMac=_NbEthOamLbLastDestMepMac_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,8),_NbEthOamLbLastDestMepMac_Type())
-nbEthOamLbLastDestMepMac.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastDestMepMac.setStatus(_B)
-_NbEthOamLbLastMsgTransmitted_Type=Unsigned32
-_NbEthOamLbLastMsgTransmitted_Object=MibTableColumn
-nbEthOamLbLastMsgTransmitted=_NbEthOamLbLastMsgTransmitted_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,9),_NbEthOamLbLastMsgTransmitted_Type())
-nbEthOamLbLastMsgTransmitted.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastMsgTransmitted.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbLastMsgTransmitted.setUnits(_L)
-_NbEthOamLbLastMsgReceived_Type=Unsigned32
-_NbEthOamLbLastMsgReceived_Object=MibTableColumn
-nbEthOamLbLastMsgReceived=_NbEthOamLbLastMsgReceived_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,10),_NbEthOamLbLastMsgReceived_Type())
-nbEthOamLbLastMsgReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastMsgReceived.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbLastMsgReceived.setUnits(_L)
-_NbEthOamLbLastRttMin_Type=Unsigned32
-_NbEthOamLbLastRttMin_Object=MibTableColumn
-nbEthOamLbLastRttMin=_NbEthOamLbLastRttMin_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,12),_NbEthOamLbLastRttMin_Type())
-nbEthOamLbLastRttMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastRttMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbLastRttMin.setUnits(_E)
-_NbEthOamLbLastRttMax_Type=Unsigned32
-_NbEthOamLbLastRttMax_Object=MibTableColumn
-nbEthOamLbLastRttMax=_NbEthOamLbLastRttMax_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,13),_NbEthOamLbLastRttMax_Type())
-nbEthOamLbLastRttMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastRttMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbLastRttMax.setUnits(_E)
-_NbEthOamLbLastRttAverage_Type=Unsigned32
-_NbEthOamLbLastRttAverage_Object=MibTableColumn
-nbEthOamLbLastRttAverage=_NbEthOamLbLastRttAverage_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,14),_NbEthOamLbLastRttAverage_Type())
-nbEthOamLbLastRttAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastRttAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbLastRttAverage.setUnits(_E)
-_NbEthOamLbLastRttSum2_Type=Unsigned32
-_NbEthOamLbLastRttSum2_Object=MibTableColumn
-nbEthOamLbLastRttSum2=_NbEthOamLbLastRttSum2_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,15),_NbEthOamLbLastRttSum2_Type())
-nbEthOamLbLastRttSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastRttSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbLastRttSum2.setUnits(_H)
-_NbEthOamLbLastJittNumber_Type=Unsigned32
-_NbEthOamLbLastJittNumber_Object=MibTableColumn
-nbEthOamLbLastJittNumber=_NbEthOamLbLastJittNumber_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,23),_NbEthOamLbLastJittNumber_Type())
-nbEthOamLbLastJittNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastJittNumber.setStatus(_B)
-_NbEthOamLbLastJittMin_Type=Unsigned32
-_NbEthOamLbLastJittMin_Object=MibTableColumn
-nbEthOamLbLastJittMin=_NbEthOamLbLastJittMin_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,24),_NbEthOamLbLastJittMin_Type())
-nbEthOamLbLastJittMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastJittMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbLastJittMin.setUnits(_E)
-_NbEthOamLbLastJittMax_Type=Unsigned32
-_NbEthOamLbLastJittMax_Object=MibTableColumn
-nbEthOamLbLastJittMax=_NbEthOamLbLastJittMax_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,25),_NbEthOamLbLastJittMax_Type())
-nbEthOamLbLastJittMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastJittMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbLastJittMax.setUnits(_E)
-_NbEthOamLbLastJittAverage_Type=Unsigned32
-_NbEthOamLbLastJittAverage_Object=MibTableColumn
-nbEthOamLbLastJittAverage=_NbEthOamLbLastJittAverage_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,26),_NbEthOamLbLastJittAverage_Type())
-nbEthOamLbLastJittAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastJittAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbLastJittAverage.setUnits(_E)
-_NbEthOamLbLastJittSum2_Type=Unsigned32
-_NbEthOamLbLastJittSum2_Object=MibTableColumn
-nbEthOamLbLastJittSum2=_NbEthOamLbLastJittSum2_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,27),_NbEthOamLbLastJittSum2_Type())
-nbEthOamLbLastJittSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastJittSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbLastJittSum2.setUnits(_H)
-_NbEthOamLbLastJittIA_Type=Unsigned32
-_NbEthOamLbLastJittIA_Object=MibTableColumn
-nbEthOamLbLastJittIA=_NbEthOamLbLastJittIA_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,30),_NbEthOamLbLastJittIA_Type())
-nbEthOamLbLastJittIA.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastJittIA.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbLastJittIA.setUnits(_E)
-_NbEthOamLbLastPcktLoss_Type=Unsigned32
-_NbEthOamLbLastPcktLoss_Object=MibTableColumn
-nbEthOamLbLastPcktLoss=_NbEthOamLbLastPcktLoss_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,31),_NbEthOamLbLastPcktLoss_Type())
-nbEthOamLbLastPcktLoss.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastPcktLoss.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamLbLastPcktLoss.setUnits(_U)
-_NbEthOamLbLastType_Type=TestRunMethod
-_NbEthOamLbLastType_Object=MibTableColumn
-nbEthOamLbLastType=_NbEthOamLbLastType_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,32),_NbEthOamLbLastType_Type())
-nbEthOamLbLastType.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastType.setStatus(_B)
-class _NbEthOamLbLastPriority_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_NbEthOamLbLastPriority_Type.__name__=_F
-_NbEthOamLbLastPriority_Object=MibTableColumn
-nbEthOamLbLastPriority=_NbEthOamLbLastPriority_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,33),_NbEthOamLbLastPriority_Type())
-nbEthOamLbLastPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastPriority.setStatus(_B)
-_NbEthOamLbLastHistIndx_Type=Unsigned32
-_NbEthOamLbLastHistIndx_Object=MibTableColumn
-nbEthOamLbLastHistIndx=_NbEthOamLbLastHistIndx_Object((1,3,6,1,4,1,629,1,50,17,10,3,1,50),_NbEthOamLbLastHistIndx_Type())
-nbEthOamLbLastHistIndx.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamLbLastHistIndx.setStatus(_B)
-_NbEthOamLbConfExtTable_Object=MibTable
-nbEthOamLbConfExtTable=_NbEthOamLbConfExtTable_Object((1,3,6,1,4,1,629,1,50,17,10,4))
-if mibBuilder.loadTexts:nbEthOamLbConfExtTable.setStatus(_B)
-_NbEthOamLbConfExtEntry_Object=MibTableRow
-nbEthOamLbConfExtEntry=_NbEthOamLbConfExtEntry_Object((1,3,6,1,4,1,629,1,50,17,10,4,1))
-if mibBuilder.loadTexts:nbEthOamLbConfExtEntry.setStatus(_B)
-_NbEthOamLbConfDestMepList_Type=MepList
-_NbEthOamLbConfDestMepList_Object=MibTableColumn
-nbEthOamLbConfDestMepList=_NbEthOamLbConfDestMepList_Object((1,3,6,1,4,1,629,1,50,17,10,4,1,12),_NbEthOamLbConfDestMepList_Type())
-nbEthOamLbConfDestMepList.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamLbConfDestMepList.setStatus(_B)
-_NbEthOamDm_ObjectIdentity=ObjectIdentity
-nbEthOamDm=_NbEthOamDm_ObjectIdentity((1,3,6,1,4,1,629,1,50,17,11))
-_NbEthOamDmConfTable_Object=MibTable
-nbEthOamDmConfTable=_NbEthOamDmConfTable_Object((1,3,6,1,4,1,629,1,50,17,11,1))
-if mibBuilder.loadTexts:nbEthOamDmConfTable.setStatus(_B)
-_NbEthOamDmConfEntry_Object=MibTableRow
-nbEthOamDmConfEntry=_NbEthOamDmConfEntry_Object((1,3,6,1,4,1,629,1,50,17,11,1,1))
-nbEthOamDmConfEntry.setIndexNames((0,_A,_I),(0,_A,_J),(0,_A,_K))
-if mibBuilder.loadTexts:nbEthOamDmConfEntry.setStatus(_B)
-class _NbEthOamDmConfHistorySize_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,65535))
-_NbEthOamDmConfHistorySize_Type.__name__=_F
-_NbEthOamDmConfHistorySize_Object=MibTableColumn
-nbEthOamDmConfHistorySize=_NbEthOamDmConfHistorySize_Object((1,3,6,1,4,1,629,1,50,17,11,1,1,5),_NbEthOamDmConfHistorySize_Type())
-nbEthOamDmConfHistorySize.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDmConfHistorySize.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmConfHistorySize.setUnits('lines')
-class _NbEthOamDmConfInterval_Type(Unsigned32):defaultValue=100;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
-_NbEthOamDmConfInterval_Type.__name__=_F
-_NbEthOamDmConfInterval_Object=MibTableColumn
-nbEthOamDmConfInterval=_NbEthOamDmConfInterval_Object((1,3,6,1,4,1,629,1,50,17,11,1,1,6),_NbEthOamDmConfInterval_Type())
-nbEthOamDmConfInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDmConfInterval.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmConfInterval.setUnits(_T)
-class _NbEthOamDmConfTimeout_Type(Unsigned32):defaultValue=200;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,60000))
-_NbEthOamDmConfTimeout_Type.__name__=_F
-_NbEthOamDmConfTimeout_Object=MibTableColumn
-nbEthOamDmConfTimeout=_NbEthOamDmConfTimeout_Object((1,3,6,1,4,1,629,1,50,17,11,1,1,7),_NbEthOamDmConfTimeout_Type())
-nbEthOamDmConfTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDmConfTimeout.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmConfTimeout.setUnits(_T)
-class _NbEthOamDmConfDataLength_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,9000))
-_NbEthOamDmConfDataLength_Type.__name__=_F
-_NbEthOamDmConfDataLength_Object=MibTableColumn
-nbEthOamDmConfDataLength=_NbEthOamDmConfDataLength_Object((1,3,6,1,4,1,629,1,50,17,11,1,1,8),_NbEthOamDmConfDataLength_Type())
-nbEthOamDmConfDataLength.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDmConfDataLength.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmConfDataLength.setUnits(_f)
-class _NbEthOamDmConfDataFill_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1436))
-_NbEthOamDmConfDataFill_Type.__name__=_W
-_NbEthOamDmConfDataFill_Object=MibTableColumn
-nbEthOamDmConfDataFill=_NbEthOamDmConfDataFill_Object((1,3,6,1,4,1,629,1,50,17,11,1,1,9),_NbEthOamDmConfDataFill_Type())
-nbEthOamDmConfDataFill.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDmConfDataFill.setStatus(_B)
-class _NbEthOamDmConfPriority_Type(Unsigned32):defaultValue=8;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7),ValueRangeConstraint(8,8))
-_NbEthOamDmConfPriority_Type.__name__=_F
-_NbEthOamDmConfPriority_Object=MibTableColumn
-nbEthOamDmConfPriority=_NbEthOamDmConfPriority_Object((1,3,6,1,4,1,629,1,50,17,11,1,1,10),_NbEthOamDmConfPriority_Type())
-nbEthOamDmConfPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDmConfPriority.setStatus(_B)
-_NbEthOamDmConfDestMepId_Type=NbEthOamMepIdOrZero
-_NbEthOamDmConfDestMepId_Object=MibTableColumn
-nbEthOamDmConfDestMepId=_NbEthOamDmConfDestMepId_Object((1,3,6,1,4,1,629,1,50,17,11,1,1,11),_NbEthOamDmConfDestMepId_Type())
-nbEthOamDmConfDestMepId.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDmConfDestMepId.setStatus(_B)
-_NbEthOamDmConfDestMepMac_Type=MacAddress
-_NbEthOamDmConfDestMepMac_Object=MibTableColumn
-nbEthOamDmConfDestMepMac=_NbEthOamDmConfDestMepMac_Object((1,3,6,1,4,1,629,1,50,17,11,1,1,12),_NbEthOamDmConfDestMepMac_Type())
-nbEthOamDmConfDestMepMac.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDmConfDestMepMac.setStatus(_B)
-class _NbEthOamDmConfDestIsMepId_Type(DestinationType):defaultValue=2
-_NbEthOamDmConfDestIsMepId_Type.__name__=_X
-_NbEthOamDmConfDestIsMepId_Object=MibTableColumn
-nbEthOamDmConfDestIsMepId=_NbEthOamDmConfDestIsMepId_Object((1,3,6,1,4,1,629,1,50,17,11,1,1,13),_NbEthOamDmConfDestIsMepId_Type())
-nbEthOamDmConfDestIsMepId.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDmConfDestIsMepId.setStatus(_B)
-class _NbEthOamDmConfMessages_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000000))
-_NbEthOamDmConfMessages_Type.__name__=_F
-_NbEthOamDmConfMessages_Object=MibTableColumn
-nbEthOamDmConfMessages=_NbEthOamDmConfMessages_Object((1,3,6,1,4,1,629,1,50,17,11,1,1,14),_NbEthOamDmConfMessages_Type())
-nbEthOamDmConfMessages.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDmConfMessages.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmConfMessages.setUnits(_L)
-class _NbEthOamDmConfBurstInterval_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,86400))
-_NbEthOamDmConfBurstInterval_Type.__name__=_F
-_NbEthOamDmConfBurstInterval_Object=MibTableColumn
-nbEthOamDmConfBurstInterval=_NbEthOamDmConfBurstInterval_Object((1,3,6,1,4,1,629,1,50,17,11,1,1,15),_NbEthOamDmConfBurstInterval_Type())
-nbEthOamDmConfBurstInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDmConfBurstInterval.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmConfBurstInterval.setUnits(_g)
-class _NbEthOamDmConfNumberOfBursts_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,4294967295))
-_NbEthOamDmConfNumberOfBursts_Type.__name__=_F
-_NbEthOamDmConfNumberOfBursts_Object=MibTableColumn
-nbEthOamDmConfNumberOfBursts=_NbEthOamDmConfNumberOfBursts_Object((1,3,6,1,4,1,629,1,50,17,11,1,1,16),_NbEthOamDmConfNumberOfBursts_Type())
-nbEthOamDmConfNumberOfBursts.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDmConfNumberOfBursts.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmConfNumberOfBursts.setUnits(_h)
-class _NbEthOamDmConfRunMethod_Type(TestRunMethod):defaultValue=4
-_NbEthOamDmConfRunMethod_Type.__name__=_Y
-_NbEthOamDmConfRunMethod_Object=MibTableColumn
-nbEthOamDmConfRunMethod=_NbEthOamDmConfRunMethod_Object((1,3,6,1,4,1,629,1,50,17,11,1,1,21),_NbEthOamDmConfRunMethod_Type())
-nbEthOamDmConfRunMethod.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDmConfRunMethod.setStatus(_B)
-class _NbEthOamDmConfIntervalMicro_Type(Unsigned32):defaultValue=100000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000000))
-_NbEthOamDmConfIntervalMicro_Type.__name__=_F
-_NbEthOamDmConfIntervalMicro_Object=MibTableColumn
-nbEthOamDmConfIntervalMicro=_NbEthOamDmConfIntervalMicro_Object((1,3,6,1,4,1,629,1,50,17,11,1,1,22),_NbEthOamDmConfIntervalMicro_Type())
-nbEthOamDmConfIntervalMicro.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDmConfIntervalMicro.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmConfIntervalMicro.setUnits(_E)
-_NbEthOamDmHistTable_Object=MibTable
-nbEthOamDmHistTable=_NbEthOamDmHistTable_Object((1,3,6,1,4,1,629,1,50,17,11,2))
-if mibBuilder.loadTexts:nbEthOamDmHistTable.setStatus(_B)
-_NbEthOamDmHistEntry_Object=MibTableRow
-nbEthOamDmHistEntry=_NbEthOamDmHistEntry_Object((1,3,6,1,4,1,629,1,50,17,11,2,1))
-nbEthOamDmHistEntry.setIndexNames((0,_A,_I),(0,_A,_J),(0,_A,_K),(0,_A,_j))
-if mibBuilder.loadTexts:nbEthOamDmHistEntry.setStatus(_B)
-class _NbEthOamDmHistSampleIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_NbEthOamDmHistSampleIndex_Type.__name__=_F
-_NbEthOamDmHistSampleIndex_Object=MibTableColumn
-nbEthOamDmHistSampleIndex=_NbEthOamDmHistSampleIndex_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,5),_NbEthOamDmHistSampleIndex_Type())
-nbEthOamDmHistSampleIndex.setMaxAccess(_Q)
-if mibBuilder.loadTexts:nbEthOamDmHistSampleIndex.setStatus(_B)
-_NbEthOamDmHistStarted_Type=DateAndTime
-_NbEthOamDmHistStarted_Object=MibTableColumn
-nbEthOamDmHistStarted=_NbEthOamDmHistStarted_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,6),_NbEthOamDmHistStarted_Type())
-nbEthOamDmHistStarted.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistStarted.setStatus(_B)
-_NbEthOamDmHistDestMepId_Type=NbEthOamMepIdOrZero
-_NbEthOamDmHistDestMepId_Object=MibTableColumn
-nbEthOamDmHistDestMepId=_NbEthOamDmHistDestMepId_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,7),_NbEthOamDmHistDestMepId_Type())
-nbEthOamDmHistDestMepId.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistDestMepId.setStatus(_B)
-_NbEthOamDmHistDestMepMac_Type=MacAddress
-_NbEthOamDmHistDestMepMac_Object=MibTableColumn
-nbEthOamDmHistDestMepMac=_NbEthOamDmHistDestMepMac_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,8),_NbEthOamDmHistDestMepMac_Type())
-nbEthOamDmHistDestMepMac.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistDestMepMac.setStatus(_B)
-_NbEthOamDmHistMsgTransmitted_Type=Unsigned32
-_NbEthOamDmHistMsgTransmitted_Object=MibTableColumn
-nbEthOamDmHistMsgTransmitted=_NbEthOamDmHistMsgTransmitted_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,9),_NbEthOamDmHistMsgTransmitted_Type())
-nbEthOamDmHistMsgTransmitted.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistMsgTransmitted.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistMsgTransmitted.setUnits(_k)
-_NbEthOamDmHistMsgReceived_Type=Unsigned32
-_NbEthOamDmHistMsgReceived_Object=MibTableColumn
-nbEthOamDmHistMsgReceived=_NbEthOamDmHistMsgReceived_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,10),_NbEthOamDmHistMsgReceived_Type())
-nbEthOamDmHistMsgReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistMsgReceived.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistMsgReceived.setUnits(_L)
-_NbEthOamDmHistRttMin_Type=Unsigned32
-_NbEthOamDmHistRttMin_Object=MibTableColumn
-nbEthOamDmHistRttMin=_NbEthOamDmHistRttMin_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,12),_NbEthOamDmHistRttMin_Type())
-nbEthOamDmHistRttMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistRttMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistRttMin.setUnits(_E)
-_NbEthOamDmHistRttMax_Type=Unsigned32
-_NbEthOamDmHistRttMax_Object=MibTableColumn
-nbEthOamDmHistRttMax=_NbEthOamDmHistRttMax_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,13),_NbEthOamDmHistRttMax_Type())
-nbEthOamDmHistRttMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistRttMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistRttMax.setUnits(_E)
-_NbEthOamDmHistRttAverage_Type=Unsigned32
-_NbEthOamDmHistRttAverage_Object=MibTableColumn
-nbEthOamDmHistRttAverage=_NbEthOamDmHistRttAverage_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,14),_NbEthOamDmHistRttAverage_Type())
-nbEthOamDmHistRttAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistRttAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistRttAverage.setUnits(_E)
-_NbEthOamDmHistRttSum2_Type=Unsigned32
-_NbEthOamDmHistRttSum2_Object=MibTableColumn
-nbEthOamDmHistRttSum2=_NbEthOamDmHistRttSum2_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,15),_NbEthOamDmHistRttSum2_Type())
-nbEthOamDmHistRttSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistRttSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistRttSum2.setUnits(_H)
-_NbEthOamDmHistDSJittNumber_Type=Unsigned32
-_NbEthOamDmHistDSJittNumber_Object=MibTableColumn
-nbEthOamDmHistDSJittNumber=_NbEthOamDmHistDSJittNumber_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,23),_NbEthOamDmHistDSJittNumber_Type())
-nbEthOamDmHistDSJittNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistDSJittNumber.setStatus(_B)
-_NbEthOamDmHistDSJittMin_Type=Unsigned32
-_NbEthOamDmHistDSJittMin_Object=MibTableColumn
-nbEthOamDmHistDSJittMin=_NbEthOamDmHistDSJittMin_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,24),_NbEthOamDmHistDSJittMin_Type())
-nbEthOamDmHistDSJittMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistDSJittMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistDSJittMin.setUnits(_E)
-_NbEthOamDmHistDSJittMax_Type=Unsigned32
-_NbEthOamDmHistDSJittMax_Object=MibTableColumn
-nbEthOamDmHistDSJittMax=_NbEthOamDmHistDSJittMax_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,25),_NbEthOamDmHistDSJittMax_Type())
-nbEthOamDmHistDSJittMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistDSJittMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistDSJittMax.setUnits(_E)
-_NbEthOamDmHistDSJittAverage_Type=Unsigned32
-_NbEthOamDmHistDSJittAverage_Object=MibTableColumn
-nbEthOamDmHistDSJittAverage=_NbEthOamDmHistDSJittAverage_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,26),_NbEthOamDmHistDSJittAverage_Type())
-nbEthOamDmHistDSJittAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistDSJittAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistDSJittAverage.setUnits(_E)
-_NbEthOamDmHistDSJittSum2_Type=Unsigned32
-_NbEthOamDmHistDSJittSum2_Object=MibTableColumn
-nbEthOamDmHistDSJittSum2=_NbEthOamDmHistDSJittSum2_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,27),_NbEthOamDmHistDSJittSum2_Type())
-nbEthOamDmHistDSJittSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistDSJittSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistDSJittSum2.setUnits(_H)
-_NbEthOamDmHistDSJittIA_Type=Unsigned32
-_NbEthOamDmHistDSJittIA_Object=MibTableColumn
-nbEthOamDmHistDSJittIA=_NbEthOamDmHistDSJittIA_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,30),_NbEthOamDmHistDSJittIA_Type())
-nbEthOamDmHistDSJittIA.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistDSJittIA.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistDSJittIA.setUnits(_E)
-_NbEthOamDmHistSDJittNumber_Type=Unsigned32
-_NbEthOamDmHistSDJittNumber_Object=MibTableColumn
-nbEthOamDmHistSDJittNumber=_NbEthOamDmHistSDJittNumber_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,36),_NbEthOamDmHistSDJittNumber_Type())
-nbEthOamDmHistSDJittNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistSDJittNumber.setStatus(_B)
-_NbEthOamDmHistSDJittMin_Type=Unsigned32
-_NbEthOamDmHistSDJittMin_Object=MibTableColumn
-nbEthOamDmHistSDJittMin=_NbEthOamDmHistSDJittMin_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,37),_NbEthOamDmHistSDJittMin_Type())
-nbEthOamDmHistSDJittMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistSDJittMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistSDJittMin.setUnits(_E)
-_NbEthOamDmHistSDJittMax_Type=Unsigned32
-_NbEthOamDmHistSDJittMax_Object=MibTableColumn
-nbEthOamDmHistSDJittMax=_NbEthOamDmHistSDJittMax_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,38),_NbEthOamDmHistSDJittMax_Type())
-nbEthOamDmHistSDJittMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistSDJittMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistSDJittMax.setUnits(_E)
-_NbEthOamDmHistSDJittAverage_Type=Unsigned32
-_NbEthOamDmHistSDJittAverage_Object=MibTableColumn
-nbEthOamDmHistSDJittAverage=_NbEthOamDmHistSDJittAverage_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,39),_NbEthOamDmHistSDJittAverage_Type())
-nbEthOamDmHistSDJittAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistSDJittAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistSDJittAverage.setUnits(_E)
-_NbEthOamDmHistSDJittSum2_Type=Unsigned32
-_NbEthOamDmHistSDJittSum2_Object=MibTableColumn
-nbEthOamDmHistSDJittSum2=_NbEthOamDmHistSDJittSum2_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,40),_NbEthOamDmHistSDJittSum2_Type())
-nbEthOamDmHistSDJittSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistSDJittSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistSDJittSum2.setUnits(_H)
-_NbEthOamDmHistSDJittIA_Type=Unsigned32
-_NbEthOamDmHistSDJittIA_Object=MibTableColumn
-nbEthOamDmHistSDJittIA=_NbEthOamDmHistSDJittIA_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,41),_NbEthOamDmHistSDJittIA_Type())
-nbEthOamDmHistSDJittIA.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistSDJittIA.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistSDJittIA.setUnits(_E)
-_NbEthOamDmHistPcktLoss_Type=Unsigned32
-_NbEthOamDmHistPcktLoss_Object=MibTableColumn
-nbEthOamDmHistPcktLoss=_NbEthOamDmHistPcktLoss_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,42),_NbEthOamDmHistPcktLoss_Type())
-nbEthOamDmHistPcktLoss.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistPcktLoss.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHistPcktLoss.setUnits(_U)
-_NbEthOamDmHistType_Type=TestRunMethod
-_NbEthOamDmHistType_Object=MibTableColumn
-nbEthOamDmHistType=_NbEthOamDmHistType_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,43),_NbEthOamDmHistType_Type())
-nbEthOamDmHistType.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistType.setStatus(_B)
-class _NbEthOamDmHistPriority_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_NbEthOamDmHistPriority_Type.__name__=_F
-_NbEthOamDmHistPriority_Object=MibTableColumn
-nbEthOamDmHistPriority=_NbEthOamDmHistPriority_Object((1,3,6,1,4,1,629,1,50,17,11,2,1,44),_NbEthOamDmHistPriority_Type())
-nbEthOamDmHistPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHistPriority.setStatus(_B)
-_NbEthOamDmLastTable_Object=MibTable
-nbEthOamDmLastTable=_NbEthOamDmLastTable_Object((1,3,6,1,4,1,629,1,50,17,11,3))
-if mibBuilder.loadTexts:nbEthOamDmLastTable.setStatus(_B)
-_NbEthOamDmLastEntry_Object=MibTableRow
-nbEthOamDmLastEntry=_NbEthOamDmLastEntry_Object((1,3,6,1,4,1,629,1,50,17,11,3,1))
-nbEthOamDmLastEntry.setIndexNames((0,_A,_I),(0,_A,_J),(0,_A,_K))
-if mibBuilder.loadTexts:nbEthOamDmLastEntry.setStatus(_B)
-_NbEthOamDmLastStarted_Type=DateAndTime
-_NbEthOamDmLastStarted_Object=MibTableColumn
-nbEthOamDmLastStarted=_NbEthOamDmLastStarted_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,6),_NbEthOamDmLastStarted_Type())
-nbEthOamDmLastStarted.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastStarted.setStatus(_B)
-_NbEthOamDmLastDestMepId_Type=NbEthOamMepIdOrZero
-_NbEthOamDmLastDestMepId_Object=MibTableColumn
-nbEthOamDmLastDestMepId=_NbEthOamDmLastDestMepId_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,7),_NbEthOamDmLastDestMepId_Type())
-nbEthOamDmLastDestMepId.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastDestMepId.setStatus(_B)
-_NbEthOamDmLastDestMepMac_Type=MacAddress
-_NbEthOamDmLastDestMepMac_Object=MibTableColumn
-nbEthOamDmLastDestMepMac=_NbEthOamDmLastDestMepMac_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,8),_NbEthOamDmLastDestMepMac_Type())
-nbEthOamDmLastDestMepMac.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastDestMepMac.setStatus(_B)
-_NbEthOamDmLastMsgTransmitted_Type=Unsigned32
-_NbEthOamDmLastMsgTransmitted_Object=MibTableColumn
-nbEthOamDmLastMsgTransmitted=_NbEthOamDmLastMsgTransmitted_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,9),_NbEthOamDmLastMsgTransmitted_Type())
-nbEthOamDmLastMsgTransmitted.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastMsgTransmitted.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastMsgTransmitted.setUnits(_k)
-_NbEthOamDmLastMsgReceived_Type=Unsigned32
-_NbEthOamDmLastMsgReceived_Object=MibTableColumn
-nbEthOamDmLastMsgReceived=_NbEthOamDmLastMsgReceived_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,10),_NbEthOamDmLastMsgReceived_Type())
-nbEthOamDmLastMsgReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastMsgReceived.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastMsgReceived.setUnits(_L)
-_NbEthOamDmLastRttMin_Type=Unsigned32
-_NbEthOamDmLastRttMin_Object=MibTableColumn
-nbEthOamDmLastRttMin=_NbEthOamDmLastRttMin_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,12),_NbEthOamDmLastRttMin_Type())
-nbEthOamDmLastRttMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastRttMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastRttMin.setUnits(_E)
-_NbEthOamDmLastRttMax_Type=Unsigned32
-_NbEthOamDmLastRttMax_Object=MibTableColumn
-nbEthOamDmLastRttMax=_NbEthOamDmLastRttMax_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,13),_NbEthOamDmLastRttMax_Type())
-nbEthOamDmLastRttMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastRttMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastRttMax.setUnits(_E)
-_NbEthOamDmLastRttAverage_Type=Unsigned32
-_NbEthOamDmLastRttAverage_Object=MibTableColumn
-nbEthOamDmLastRttAverage=_NbEthOamDmLastRttAverage_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,14),_NbEthOamDmLastRttAverage_Type())
-nbEthOamDmLastRttAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastRttAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastRttAverage.setUnits(_E)
-_NbEthOamDmLastRttSum2_Type=Unsigned32
-_NbEthOamDmLastRttSum2_Object=MibTableColumn
-nbEthOamDmLastRttSum2=_NbEthOamDmLastRttSum2_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,15),_NbEthOamDmLastRttSum2_Type())
-nbEthOamDmLastRttSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastRttSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastRttSum2.setUnits(_H)
-_NbEthOamDmLastDSJittNumber_Type=Unsigned32
-_NbEthOamDmLastDSJittNumber_Object=MibTableColumn
-nbEthOamDmLastDSJittNumber=_NbEthOamDmLastDSJittNumber_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,23),_NbEthOamDmLastDSJittNumber_Type())
-nbEthOamDmLastDSJittNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastDSJittNumber.setStatus(_B)
-_NbEthOamDmLastDSJittMin_Type=Unsigned32
-_NbEthOamDmLastDSJittMin_Object=MibTableColumn
-nbEthOamDmLastDSJittMin=_NbEthOamDmLastDSJittMin_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,24),_NbEthOamDmLastDSJittMin_Type())
-nbEthOamDmLastDSJittMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastDSJittMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastDSJittMin.setUnits(_E)
-_NbEthOamDmLastDSJittMax_Type=Unsigned32
-_NbEthOamDmLastDSJittMax_Object=MibTableColumn
-nbEthOamDmLastDSJittMax=_NbEthOamDmLastDSJittMax_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,25),_NbEthOamDmLastDSJittMax_Type())
-nbEthOamDmLastDSJittMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastDSJittMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastDSJittMax.setUnits(_E)
-_NbEthOamDmLastDSJittAverage_Type=Unsigned32
-_NbEthOamDmLastDSJittAverage_Object=MibTableColumn
-nbEthOamDmLastDSJittAverage=_NbEthOamDmLastDSJittAverage_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,26),_NbEthOamDmLastDSJittAverage_Type())
-nbEthOamDmLastDSJittAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastDSJittAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastDSJittAverage.setUnits(_E)
-_NbEthOamDmLastDSJittSum2_Type=Unsigned32
-_NbEthOamDmLastDSJittSum2_Object=MibTableColumn
-nbEthOamDmLastDSJittSum2=_NbEthOamDmLastDSJittSum2_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,27),_NbEthOamDmLastDSJittSum2_Type())
-nbEthOamDmLastDSJittSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastDSJittSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastDSJittSum2.setUnits(_H)
-_NbEthOamDmLastDSJittIA_Type=Unsigned32
-_NbEthOamDmLastDSJittIA_Object=MibTableColumn
-nbEthOamDmLastDSJittIA=_NbEthOamDmLastDSJittIA_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,30),_NbEthOamDmLastDSJittIA_Type())
-nbEthOamDmLastDSJittIA.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastDSJittIA.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastDSJittIA.setUnits(_E)
-_NbEthOamDmLastSDJittNumber_Type=Unsigned32
-_NbEthOamDmLastSDJittNumber_Object=MibTableColumn
-nbEthOamDmLastSDJittNumber=_NbEthOamDmLastSDJittNumber_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,36),_NbEthOamDmLastSDJittNumber_Type())
-nbEthOamDmLastSDJittNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastSDJittNumber.setStatus(_B)
-_NbEthOamDmLastSDJittMin_Type=Unsigned32
-_NbEthOamDmLastSDJittMin_Object=MibTableColumn
-nbEthOamDmLastSDJittMin=_NbEthOamDmLastSDJittMin_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,37),_NbEthOamDmLastSDJittMin_Type())
-nbEthOamDmLastSDJittMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastSDJittMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastSDJittMin.setUnits(_E)
-_NbEthOamDmLastSDJittMax_Type=Unsigned32
-_NbEthOamDmLastSDJittMax_Object=MibTableColumn
-nbEthOamDmLastSDJittMax=_NbEthOamDmLastSDJittMax_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,38),_NbEthOamDmLastSDJittMax_Type())
-nbEthOamDmLastSDJittMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastSDJittMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastSDJittMax.setUnits(_E)
-_NbEthOamDmLastSDJittAverage_Type=Unsigned32
-_NbEthOamDmLastSDJittAverage_Object=MibTableColumn
-nbEthOamDmLastSDJittAverage=_NbEthOamDmLastSDJittAverage_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,39),_NbEthOamDmLastSDJittAverage_Type())
-nbEthOamDmLastSDJittAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastSDJittAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastSDJittAverage.setUnits(_E)
-_NbEthOamDmLastSDJittSum2_Type=Unsigned32
-_NbEthOamDmLastSDJittSum2_Object=MibTableColumn
-nbEthOamDmLastSDJittSum2=_NbEthOamDmLastSDJittSum2_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,40),_NbEthOamDmLastSDJittSum2_Type())
-nbEthOamDmLastSDJittSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastSDJittSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastSDJittSum2.setUnits(_H)
-_NbEthOamDmLastSDJittIA_Type=Unsigned32
-_NbEthOamDmLastSDJittIA_Object=MibTableColumn
-nbEthOamDmLastSDJittIA=_NbEthOamDmLastSDJittIA_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,41),_NbEthOamDmLastSDJittIA_Type())
-nbEthOamDmLastSDJittIA.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastSDJittIA.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastSDJittIA.setUnits(_E)
-_NbEthOamDmLastPcktLoss_Type=Unsigned32
-_NbEthOamDmLastPcktLoss_Object=MibTableColumn
-nbEthOamDmLastPcktLoss=_NbEthOamDmLastPcktLoss_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,42),_NbEthOamDmLastPcktLoss_Type())
-nbEthOamDmLastPcktLoss.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastPcktLoss.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmLastPcktLoss.setUnits(_U)
-_NbEthOamDmLastType_Type=TestRunMethod
-_NbEthOamDmLastType_Object=MibTableColumn
-nbEthOamDmLastType=_NbEthOamDmLastType_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,43),_NbEthOamDmLastType_Type())
-nbEthOamDmLastType.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastType.setStatus(_B)
-class _NbEthOamDmLastPriority_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_NbEthOamDmLastPriority_Type.__name__=_F
-_NbEthOamDmLastPriority_Object=MibTableColumn
-nbEthOamDmLastPriority=_NbEthOamDmLastPriority_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,44),_NbEthOamDmLastPriority_Type())
-nbEthOamDmLastPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastPriority.setStatus(_B)
-_NbEthOamDmLastHistIndx_Type=Unsigned32
-_NbEthOamDmLastHistIndx_Object=MibTableColumn
-nbEthOamDmLastHistIndx=_NbEthOamDmLastHistIndx_Object((1,3,6,1,4,1,629,1,50,17,11,3,1,50),_NbEthOamDmLastHistIndx_Type())
-nbEthOamDmLastHistIndx.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmLastHistIndx.setStatus(_B)
-_NbEthOamDmConfExtTable_Object=MibTable
-nbEthOamDmConfExtTable=_NbEthOamDmConfExtTable_Object((1,3,6,1,4,1,629,1,50,17,11,4))
-if mibBuilder.loadTexts:nbEthOamDmConfExtTable.setStatus(_B)
-_NbEthOamDmConfExtEntry_Object=MibTableRow
-nbEthOamDmConfExtEntry=_NbEthOamDmConfExtEntry_Object((1,3,6,1,4,1,629,1,50,17,11,4,1))
-if mibBuilder.loadTexts:nbEthOamDmConfExtEntry.setStatus(_B)
-_NbEthOamDmConfDestMepList_Type=MepList
-_NbEthOamDmConfDestMepList_Object=MibTableColumn
-nbEthOamDmConfDestMepList=_NbEthOamDmConfDestMepList_Object((1,3,6,1,4,1,629,1,50,17,11,4,1,12),_NbEthOamDmConfDestMepList_Type())
-nbEthOamDmConfDestMepList.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDmConfDestMepList.setStatus(_B)
-_NbEthOamDmHcHistTable_Object=MibTable
-nbEthOamDmHcHistTable=_NbEthOamDmHcHistTable_Object((1,3,6,1,4,1,629,1,50,17,11,5))
-if mibBuilder.loadTexts:nbEthOamDmHcHistTable.setStatus(_B)
-_NbEthOamDmHcHistEntry_Object=MibTableRow
-nbEthOamDmHcHistEntry=_NbEthOamDmHcHistEntry_Object((1,3,6,1,4,1,629,1,50,17,11,5,1))
-if mibBuilder.loadTexts:nbEthOamDmHcHistEntry.setStatus(_B)
-_NbEthOamDmHcHistRttMin_Type=Counter64
-_NbEthOamDmHcHistRttMin_Object=MibTableColumn
-nbEthOamDmHcHistRttMin=_NbEthOamDmHcHistRttMin_Object((1,3,6,1,4,1,629,1,50,17,11,5,1,12),_NbEthOamDmHcHistRttMin_Type())
-nbEthOamDmHcHistRttMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcHistRttMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcHistRttMin.setUnits(_G)
-_NbEthOamDmHcHistRttMax_Type=Counter64
-_NbEthOamDmHcHistRttMax_Object=MibTableColumn
-nbEthOamDmHcHistRttMax=_NbEthOamDmHcHistRttMax_Object((1,3,6,1,4,1,629,1,50,17,11,5,1,13),_NbEthOamDmHcHistRttMax_Type())
-nbEthOamDmHcHistRttMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcHistRttMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcHistRttMax.setUnits(_G)
-_NbEthOamDmHcHistRttAverage_Type=Counter64
-_NbEthOamDmHcHistRttAverage_Object=MibTableColumn
-nbEthOamDmHcHistRttAverage=_NbEthOamDmHcHistRttAverage_Object((1,3,6,1,4,1,629,1,50,17,11,5,1,14),_NbEthOamDmHcHistRttAverage_Type())
-nbEthOamDmHcHistRttAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcHistRttAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcHistRttAverage.setUnits(_G)
-_NbEthOamDmHcHistRttSum2_Type=Counter64
-_NbEthOamDmHcHistRttSum2_Object=MibTableColumn
-nbEthOamDmHcHistRttSum2=_NbEthOamDmHcHistRttSum2_Object((1,3,6,1,4,1,629,1,50,17,11,5,1,15),_NbEthOamDmHcHistRttSum2_Type())
-nbEthOamDmHcHistRttSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcHistRttSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcHistRttSum2.setUnits(_H)
-_NbEthOamDmHcHistDSJittMin_Type=Counter64
-_NbEthOamDmHcHistDSJittMin_Object=MibTableColumn
-nbEthOamDmHcHistDSJittMin=_NbEthOamDmHcHistDSJittMin_Object((1,3,6,1,4,1,629,1,50,17,11,5,1,24),_NbEthOamDmHcHistDSJittMin_Type())
-nbEthOamDmHcHistDSJittMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcHistDSJittMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcHistDSJittMin.setUnits(_G)
-_NbEthOamDmHcHistDSJittMax_Type=Counter64
-_NbEthOamDmHcHistDSJittMax_Object=MibTableColumn
-nbEthOamDmHcHistDSJittMax=_NbEthOamDmHcHistDSJittMax_Object((1,3,6,1,4,1,629,1,50,17,11,5,1,25),_NbEthOamDmHcHistDSJittMax_Type())
-nbEthOamDmHcHistDSJittMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcHistDSJittMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcHistDSJittMax.setUnits(_G)
-_NbEthOamDmHcHistDSJittAverage_Type=Counter64
-_NbEthOamDmHcHistDSJittAverage_Object=MibTableColumn
-nbEthOamDmHcHistDSJittAverage=_NbEthOamDmHcHistDSJittAverage_Object((1,3,6,1,4,1,629,1,50,17,11,5,1,26),_NbEthOamDmHcHistDSJittAverage_Type())
-nbEthOamDmHcHistDSJittAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcHistDSJittAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcHistDSJittAverage.setUnits(_G)
-_NbEthOamDmHcHistDSJittSum2_Type=Counter64
-_NbEthOamDmHcHistDSJittSum2_Object=MibTableColumn
-nbEthOamDmHcHistDSJittSum2=_NbEthOamDmHcHistDSJittSum2_Object((1,3,6,1,4,1,629,1,50,17,11,5,1,27),_NbEthOamDmHcHistDSJittSum2_Type())
-nbEthOamDmHcHistDSJittSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcHistDSJittSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcHistDSJittSum2.setUnits(_V)
-_NbEthOamDmHcHistDSJittIA_Type=Counter64
-_NbEthOamDmHcHistDSJittIA_Object=MibTableColumn
-nbEthOamDmHcHistDSJittIA=_NbEthOamDmHcHistDSJittIA_Object((1,3,6,1,4,1,629,1,50,17,11,5,1,30),_NbEthOamDmHcHistDSJittIA_Type())
-nbEthOamDmHcHistDSJittIA.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcHistDSJittIA.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcHistDSJittIA.setUnits(_G)
-_NbEthOamDmHcHistSDJittMin_Type=Counter64
-_NbEthOamDmHcHistSDJittMin_Object=MibTableColumn
-nbEthOamDmHcHistSDJittMin=_NbEthOamDmHcHistSDJittMin_Object((1,3,6,1,4,1,629,1,50,17,11,5,1,37),_NbEthOamDmHcHistSDJittMin_Type())
-nbEthOamDmHcHistSDJittMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcHistSDJittMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcHistSDJittMin.setUnits(_G)
-_NbEthOamDmHcHistSDJittMax_Type=Counter64
-_NbEthOamDmHcHistSDJittMax_Object=MibTableColumn
-nbEthOamDmHcHistSDJittMax=_NbEthOamDmHcHistSDJittMax_Object((1,3,6,1,4,1,629,1,50,17,11,5,1,38),_NbEthOamDmHcHistSDJittMax_Type())
-nbEthOamDmHcHistSDJittMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcHistSDJittMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcHistSDJittMax.setUnits(_G)
-_NbEthOamDmHcHistSDJittAverage_Type=Counter64
-_NbEthOamDmHcHistSDJittAverage_Object=MibTableColumn
-nbEthOamDmHcHistSDJittAverage=_NbEthOamDmHcHistSDJittAverage_Object((1,3,6,1,4,1,629,1,50,17,11,5,1,39),_NbEthOamDmHcHistSDJittAverage_Type())
-nbEthOamDmHcHistSDJittAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcHistSDJittAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcHistSDJittAverage.setUnits(_G)
-_NbEthOamDmHcHistSDJittSum2_Type=Counter64
-_NbEthOamDmHcHistSDJittSum2_Object=MibTableColumn
-nbEthOamDmHcHistSDJittSum2=_NbEthOamDmHcHistSDJittSum2_Object((1,3,6,1,4,1,629,1,50,17,11,5,1,40),_NbEthOamDmHcHistSDJittSum2_Type())
-nbEthOamDmHcHistSDJittSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcHistSDJittSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcHistSDJittSum2.setUnits(_V)
-_NbEthOamDmHcHistSDJittIA_Type=Counter64
-_NbEthOamDmHcHistSDJittIA_Object=MibTableColumn
-nbEthOamDmHcHistSDJittIA=_NbEthOamDmHcHistSDJittIA_Object((1,3,6,1,4,1,629,1,50,17,11,5,1,41),_NbEthOamDmHcHistSDJittIA_Type())
-nbEthOamDmHcHistSDJittIA.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcHistSDJittIA.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcHistSDJittIA.setUnits(_G)
-_NbEthOamDmHcLastTable_Object=MibTable
-nbEthOamDmHcLastTable=_NbEthOamDmHcLastTable_Object((1,3,6,1,4,1,629,1,50,17,11,6))
-if mibBuilder.loadTexts:nbEthOamDmHcLastTable.setStatus(_B)
-_NbEthOamDmHcLastEntry_Object=MibTableRow
-nbEthOamDmHcLastEntry=_NbEthOamDmHcLastEntry_Object((1,3,6,1,4,1,629,1,50,17,11,6,1))
-if mibBuilder.loadTexts:nbEthOamDmHcLastEntry.setStatus(_B)
-_NbEthOamDmHcLastRttMin_Type=Counter64
-_NbEthOamDmHcLastRttMin_Object=MibTableColumn
-nbEthOamDmHcLastRttMin=_NbEthOamDmHcLastRttMin_Object((1,3,6,1,4,1,629,1,50,17,11,6,1,12),_NbEthOamDmHcLastRttMin_Type())
-nbEthOamDmHcLastRttMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcLastRttMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcLastRttMin.setUnits(_E)
-_NbEthOamDmHcLastRttMax_Type=Counter64
-_NbEthOamDmHcLastRttMax_Object=MibTableColumn
-nbEthOamDmHcLastRttMax=_NbEthOamDmHcLastRttMax_Object((1,3,6,1,4,1,629,1,50,17,11,6,1,13),_NbEthOamDmHcLastRttMax_Type())
-nbEthOamDmHcLastRttMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcLastRttMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcLastRttMax.setUnits(_G)
-_NbEthOamDmHcLastRttAverage_Type=Counter64
-_NbEthOamDmHcLastRttAverage_Object=MibTableColumn
-nbEthOamDmHcLastRttAverage=_NbEthOamDmHcLastRttAverage_Object((1,3,6,1,4,1,629,1,50,17,11,6,1,14),_NbEthOamDmHcLastRttAverage_Type())
-nbEthOamDmHcLastRttAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcLastRttAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcLastRttAverage.setUnits(_G)
-_NbEthOamDmHcLastRttSum2_Type=Counter64
-_NbEthOamDmHcLastRttSum2_Object=MibTableColumn
-nbEthOamDmHcLastRttSum2=_NbEthOamDmHcLastRttSum2_Object((1,3,6,1,4,1,629,1,50,17,11,6,1,15),_NbEthOamDmHcLastRttSum2_Type())
-nbEthOamDmHcLastRttSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcLastRttSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcLastRttSum2.setUnits(_H)
-_NbEthOamDmHcLastDSJittMin_Type=Counter64
-_NbEthOamDmHcLastDSJittMin_Object=MibTableColumn
-nbEthOamDmHcLastDSJittMin=_NbEthOamDmHcLastDSJittMin_Object((1,3,6,1,4,1,629,1,50,17,11,6,1,24),_NbEthOamDmHcLastDSJittMin_Type())
-nbEthOamDmHcLastDSJittMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcLastDSJittMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcLastDSJittMin.setUnits(_G)
-_NbEthOamDmHcLastDSJittMax_Type=Counter64
-_NbEthOamDmHcLastDSJittMax_Object=MibTableColumn
-nbEthOamDmHcLastDSJittMax=_NbEthOamDmHcLastDSJittMax_Object((1,3,6,1,4,1,629,1,50,17,11,6,1,25),_NbEthOamDmHcLastDSJittMax_Type())
-nbEthOamDmHcLastDSJittMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcLastDSJittMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcLastDSJittMax.setUnits(_G)
-_NbEthOamDmHcLastDSJittAverage_Type=Counter64
-_NbEthOamDmHcLastDSJittAverage_Object=MibTableColumn
-nbEthOamDmHcLastDSJittAverage=_NbEthOamDmHcLastDSJittAverage_Object((1,3,6,1,4,1,629,1,50,17,11,6,1,26),_NbEthOamDmHcLastDSJittAverage_Type())
-nbEthOamDmHcLastDSJittAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcLastDSJittAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcLastDSJittAverage.setUnits(_G)
-_NbEthOamDmHcLastDSJittSum2_Type=Counter64
-_NbEthOamDmHcLastDSJittSum2_Object=MibTableColumn
-nbEthOamDmHcLastDSJittSum2=_NbEthOamDmHcLastDSJittSum2_Object((1,3,6,1,4,1,629,1,50,17,11,6,1,27),_NbEthOamDmHcLastDSJittSum2_Type())
-nbEthOamDmHcLastDSJittSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcLastDSJittSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcLastDSJittSum2.setUnits(_V)
-_NbEthOamDmHcLastDSJittIA_Type=Counter64
-_NbEthOamDmHcLastDSJittIA_Object=MibTableColumn
-nbEthOamDmHcLastDSJittIA=_NbEthOamDmHcLastDSJittIA_Object((1,3,6,1,4,1,629,1,50,17,11,6,1,30),_NbEthOamDmHcLastDSJittIA_Type())
-nbEthOamDmHcLastDSJittIA.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcLastDSJittIA.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcLastDSJittIA.setUnits(_G)
-_NbEthOamDmHcLastSDJittMin_Type=Counter64
-_NbEthOamDmHcLastSDJittMin_Object=MibTableColumn
-nbEthOamDmHcLastSDJittMin=_NbEthOamDmHcLastSDJittMin_Object((1,3,6,1,4,1,629,1,50,17,11,6,1,37),_NbEthOamDmHcLastSDJittMin_Type())
-nbEthOamDmHcLastSDJittMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcLastSDJittMin.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcLastSDJittMin.setUnits(_G)
-_NbEthOamDmHcLastSDJittMax_Type=Counter64
-_NbEthOamDmHcLastSDJittMax_Object=MibTableColumn
-nbEthOamDmHcLastSDJittMax=_NbEthOamDmHcLastSDJittMax_Object((1,3,6,1,4,1,629,1,50,17,11,6,1,38),_NbEthOamDmHcLastSDJittMax_Type())
-nbEthOamDmHcLastSDJittMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcLastSDJittMax.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcLastSDJittMax.setUnits(_G)
-_NbEthOamDmHcLastSDJittAverage_Type=Counter64
-_NbEthOamDmHcLastSDJittAverage_Object=MibTableColumn
-nbEthOamDmHcLastSDJittAverage=_NbEthOamDmHcLastSDJittAverage_Object((1,3,6,1,4,1,629,1,50,17,11,6,1,39),_NbEthOamDmHcLastSDJittAverage_Type())
-nbEthOamDmHcLastSDJittAverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcLastSDJittAverage.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcLastSDJittAverage.setUnits(_G)
-_NbEthOamDmHcLastSDJittSum2_Type=Counter64
-_NbEthOamDmHcLastSDJittSum2_Object=MibTableColumn
-nbEthOamDmHcLastSDJittSum2=_NbEthOamDmHcLastSDJittSum2_Object((1,3,6,1,4,1,629,1,50,17,11,6,1,40),_NbEthOamDmHcLastSDJittSum2_Type())
-nbEthOamDmHcLastSDJittSum2.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcLastSDJittSum2.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcLastSDJittSum2.setUnits(_V)
-_NbEthOamDmHcLastSDJittIA_Type=Counter64
-_NbEthOamDmHcLastSDJittIA_Object=MibTableColumn
-nbEthOamDmHcLastSDJittIA=_NbEthOamDmHcLastSDJittIA_Object((1,3,6,1,4,1,629,1,50,17,11,6,1,41),_NbEthOamDmHcLastSDJittIA_Type())
-nbEthOamDmHcLastSDJittIA.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcLastSDJittIA.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDmHcLastSDJittIA.setUnits(_G)
-class _NbEthOamDmHcLastRunStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,14,104)));namedValues=NamedValues(*(('unknown',0),('idle',1),('running',2),('scheduled',3),('deferred',4),('stopped',5),('noVlan',6),('error',7),('noMac',14),('deferredForMac',104)))
-_NbEthOamDmHcLastRunStatus_Type.__name__=_S
-_NbEthOamDmHcLastRunStatus_Object=MibTableColumn
-nbEthOamDmHcLastRunStatus=_NbEthOamDmHcLastRunStatus_Object((1,3,6,1,4,1,629,1,50,17,11,6,1,59),_NbEthOamDmHcLastRunStatus_Type())
-nbEthOamDmHcLastRunStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamDmHcLastRunStatus.setStatus(_B)
-_NbEthOamServiceTable_Object=MibTable
-nbEthOamServiceTable=_NbEthOamServiceTable_Object((1,3,6,1,4,1,629,1,50,17,16))
-if mibBuilder.loadTexts:nbEthOamServiceTable.setStatus(_B)
-_NbEthOamServiceEntry_Object=MibTableRow
-nbEthOamServiceEntry=_NbEthOamServiceEntry_Object((1,3,6,1,4,1,629,1,50,17,16,1))
-nbEthOamServiceEntry.setIndexNames((0,_A,_I),(0,_A,_J))
-if mibBuilder.loadTexts:nbEthOamServiceEntry.setStatus(_B)
-class _NbEthOamServiceDmResponderSL_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,8))
-_NbEthOamServiceDmResponderSL_Type.__name__=_F
-_NbEthOamServiceDmResponderSL_Object=MibTableColumn
-nbEthOamServiceDmResponderSL=_NbEthOamServiceDmResponderSL_Object((1,3,6,1,4,1,629,1,50,17,16,1,20),_NbEthOamServiceDmResponderSL_Type())
-nbEthOamServiceDmResponderSL.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamServiceDmResponderSL.setStatus(_B)
-class _NbEthOamServiceLbResponderSL_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,8))
-_NbEthOamServiceLbResponderSL_Type.__name__=_F
-_NbEthOamServiceLbResponderSL_Object=MibTableColumn
-nbEthOamServiceLbResponderSL=_NbEthOamServiceLbResponderSL_Object((1,3,6,1,4,1,629,1,50,17,16,1,21),_NbEthOamServiceLbResponderSL_Type())
-nbEthOamServiceLbResponderSL.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamServiceLbResponderSL.setStatus(_B)
-class _NbEthOamServiceLmResponderSL_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,8))
-_NbEthOamServiceLmResponderSL_Type.__name__=_F
-_NbEthOamServiceLmResponderSL_Object=MibTableColumn
-nbEthOamServiceLmResponderSL=_NbEthOamServiceLmResponderSL_Object((1,3,6,1,4,1,629,1,50,17,16,1,22),_NbEthOamServiceLmResponderSL_Type())
-nbEthOamServiceLmResponderSL.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamServiceLmResponderSL.setStatus(_B)
-_NbEthOamTrapTable_Object=MibTable
-nbEthOamTrapTable=_NbEthOamTrapTable_Object((1,3,6,1,4,1,629,1,50,17,20))
-if mibBuilder.loadTexts:nbEthOamTrapTable.setStatus(_B)
-_NbEthOamTrapEntry_Object=MibTableRow
-nbEthOamTrapEntry=_NbEthOamTrapEntry_Object((1,3,6,1,4,1,629,1,50,17,20,1))
-nbEthOamTrapEntry.setIndexNames((0,_A,_I),(0,_A,_J),(0,_A,_K))
-if mibBuilder.loadTexts:nbEthOamTrapEntry.setStatus(_B)
-class _NbEthOamTrapTrapGeneration_Type(Bits):defaultBinValue='0';namedValues=NamedValues(*(('ccmRecovery',0),('ccmFault',1)))
-_NbEthOamTrapTrapGeneration_Type.__name__=_R
-_NbEthOamTrapTrapGeneration_Object=MibTableColumn
-nbEthOamTrapTrapGeneration=_NbEthOamTrapTrapGeneration_Object((1,3,6,1,4,1,629,1,50,17,20,1,1),_NbEthOamTrapTrapGeneration_Type())
-nbEthOamTrapTrapGeneration.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamTrapTrapGeneration.setStatus(_B)
-_NbEthOamTrapCcmHighestPrDefect_Type=NbEthOamCcmHighestDefectPri
-_NbEthOamTrapCcmHighestPrDefect_Object=MibTableColumn
-nbEthOamTrapCcmHighestPrDefect=_NbEthOamTrapCcmHighestPrDefect_Object((1,3,6,1,4,1,629,1,50,17,20,1,2),_NbEthOamTrapCcmHighestPrDefect_Type())
-nbEthOamTrapCcmHighestPrDefect.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamTrapCcmHighestPrDefect.setStatus(_B)
-class _NbEthOamTrapCcmAlarmType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('fault',1),('recovery',2)))
-_NbEthOamTrapCcmAlarmType_Type.__name__=_S
-_NbEthOamTrapCcmAlarmType_Object=MibTableColumn
-nbEthOamTrapCcmAlarmType=_NbEthOamTrapCcmAlarmType_Object((1,3,6,1,4,1,629,1,50,17,20,1,3),_NbEthOamTrapCcmAlarmType_Type())
-nbEthOamTrapCcmAlarmType.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamTrapCcmAlarmType.setStatus(_B)
-class _NbEthOamTrapDmmReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('risingDmAlarm',1),('fallingDmAlarm',2)))
-_NbEthOamTrapDmmReason_Type.__name__=_S
-_NbEthOamTrapDmmReason_Object=MibTableColumn
-nbEthOamTrapDmmReason=_NbEthOamTrapDmmReason_Object((1,3,6,1,4,1,629,1,50,17,20,1,30),_NbEthOamTrapDmmReason_Type())
-nbEthOamTrapDmmReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbEthOamTrapDmmReason.setStatus(_B)
-class _NbEthOamFdRiseThold_Type(Unsigned32):defaultValue=0
-_NbEthOamFdRiseThold_Type.__name__=_F
-_NbEthOamFdRiseThold_Object=MibTableColumn
-nbEthOamFdRiseThold=_NbEthOamFdRiseThold_Object((1,3,6,1,4,1,629,1,50,17,20,1,35),_NbEthOamFdRiseThold_Type())
-nbEthOamFdRiseThold.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamFdRiseThold.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamFdRiseThold.setUnits(_E)
-class _NbEthOamFdFallThold_Type(Unsigned32):defaultValue=0
-_NbEthOamFdFallThold_Type.__name__=_F
-_NbEthOamFdFallThold_Object=MibTableColumn
-nbEthOamFdFallThold=_NbEthOamFdFallThold_Object((1,3,6,1,4,1,629,1,50,17,20,1,36),_NbEthOamFdFallThold_Type())
-nbEthOamFdFallThold.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamFdFallThold.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamFdFallThold.setUnits(_E)
-class _NbEthOamDSJittRiseThold_Type(Unsigned32):defaultValue=0
-_NbEthOamDSJittRiseThold_Type.__name__=_F
-_NbEthOamDSJittRiseThold_Object=MibTableColumn
-nbEthOamDSJittRiseThold=_NbEthOamDSJittRiseThold_Object((1,3,6,1,4,1,629,1,50,17,20,1,49),_NbEthOamDSJittRiseThold_Type())
-nbEthOamDSJittRiseThold.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDSJittRiseThold.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDSJittRiseThold.setUnits(_E)
-class _NbEthOamDSJittFallThold_Type(Unsigned32):defaultValue=0
-_NbEthOamDSJittFallThold_Type.__name__=_F
-_NbEthOamDSJittFallThold_Object=MibTableColumn
-nbEthOamDSJittFallThold=_NbEthOamDSJittFallThold_Object((1,3,6,1,4,1,629,1,50,17,20,1,50),_NbEthOamDSJittFallThold_Type())
-nbEthOamDSJittFallThold.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDSJittFallThold.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamDSJittFallThold.setUnits(_E)
-class _NbEthOamDSJittSum2RiseThold_Type(Unsigned32):defaultValue=0
-_NbEthOamDSJittSum2RiseThold_Type.__name__=_F
-_NbEthOamDSJittSum2RiseThold_Object=MibTableColumn
-nbEthOamDSJittSum2RiseThold=_NbEthOamDSJittSum2RiseThold_Object((1,3,6,1,4,1,629,1,50,17,20,1,51),_NbEthOamDSJittSum2RiseThold_Type())
-nbEthOamDSJittSum2RiseThold.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDSJittSum2RiseThold.setStatus(_B)
-class _NbEthOamDSJittSum2FallThold_Type(Unsigned32):defaultValue=0
-_NbEthOamDSJittSum2FallThold_Type.__name__=_F
-_NbEthOamDSJittSum2FallThold_Object=MibTableColumn
-nbEthOamDSJittSum2FallThold=_NbEthOamDSJittSum2FallThold_Object((1,3,6,1,4,1,629,1,50,17,20,1,52),_NbEthOamDSJittSum2FallThold_Type())
-nbEthOamDSJittSum2FallThold.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamDSJittSum2FallThold.setStatus(_B)
-class _NbEthOamSDJittRiseThold_Type(Unsigned32):defaultValue=0
-_NbEthOamSDJittRiseThold_Type.__name__=_F
-_NbEthOamSDJittRiseThold_Object=MibTableColumn
-nbEthOamSDJittRiseThold=_NbEthOamSDJittRiseThold_Object((1,3,6,1,4,1,629,1,50,17,20,1,63),_NbEthOamSDJittRiseThold_Type())
-nbEthOamSDJittRiseThold.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamSDJittRiseThold.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamSDJittRiseThold.setUnits(_E)
-class _NbEthOamSDJittFallThold_Type(Unsigned32):defaultValue=0
-_NbEthOamSDJittFallThold_Type.__name__=_F
-_NbEthOamSDJittFallThold_Object=MibTableColumn
-nbEthOamSDJittFallThold=_NbEthOamSDJittFallThold_Object((1,3,6,1,4,1,629,1,50,17,20,1,64),_NbEthOamSDJittFallThold_Type())
-nbEthOamSDJittFallThold.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamSDJittFallThold.setStatus(_B)
-if mibBuilder.loadTexts:nbEthOamSDJittFallThold.setUnits(_E)
-class _NbEthOamSDJittSum2RiseThold_Type(Unsigned32):defaultValue=0
-_NbEthOamSDJittSum2RiseThold_Type.__name__=_F
-_NbEthOamSDJittSum2RiseThold_Object=MibTableColumn
-nbEthOamSDJittSum2RiseThold=_NbEthOamSDJittSum2RiseThold_Object((1,3,6,1,4,1,629,1,50,17,20,1,66),_NbEthOamSDJittSum2RiseThold_Type())
-nbEthOamSDJittSum2RiseThold.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamSDJittSum2RiseThold.setStatus(_B)
-class _NbEthOamSDJittSum2FallThold_Type(Unsigned32):defaultValue=0
-_NbEthOamSDJittSum2FallThold_Type.__name__=_F
-_NbEthOamSDJittSum2FallThold_Object=MibTableColumn
-nbEthOamSDJittSum2FallThold=_NbEthOamSDJittSum2FallThold_Object((1,3,6,1,4,1,629,1,50,17,20,1,67),_NbEthOamSDJittSum2FallThold_Type())
-nbEthOamSDJittSum2FallThold.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamSDJittSum2FallThold.setStatus(_B)
-class _NbEthOamPcktLossRiseThold_Type(Unsigned32):defaultValue=0
-_NbEthOamPcktLossRiseThold_Type.__name__=_F
-_NbEthOamPcktLossRiseThold_Object=MibTableColumn
-nbEthOamPcktLossRiseThold=_NbEthOamPcktLossRiseThold_Object((1,3,6,1,4,1,629,1,50,17,20,1,68),_NbEthOamPcktLossRiseThold_Type())
-nbEthOamPcktLossRiseThold.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamPcktLossRiseThold.setStatus(_B)
-class _NbEthOamPcktLossFallThold_Type(Unsigned32):defaultValue=0
-_NbEthOamPcktLossFallThold_Type.__name__=_F
-_NbEthOamPcktLossFallThold_Object=MibTableColumn
-nbEthOamPcktLossFallThold=_NbEthOamPcktLossFallThold_Object((1,3,6,1,4,1,629,1,50,17,20,1,69),_NbEthOamPcktLossFallThold_Type())
-nbEthOamPcktLossFallThold.setMaxAccess(_D)
-if mibBuilder.loadTexts:nbEthOamPcktLossFallThold.setStatus(_B)
-_NbEthOamConformance_ObjectIdentity=ObjectIdentity
-nbEthOamConformance=_NbEthOamConformance_ObjectIdentity((1,3,6,1,4,1,629,1,50,17,100))
-_NbEthOamMIBCompliances_ObjectIdentity=ObjectIdentity
-nbEthOamMIBCompliances=_NbEthOamMIBCompliances_ObjectIdentity((1,3,6,1,4,1,629,1,50,17,100,1))
-_NbEthOamMIBGroups_ObjectIdentity=ObjectIdentity
-nbEthOamMIBGroups=_NbEthOamMIBGroups_ObjectIdentity((1,3,6,1,4,1,629,1,50,17,100,2))
-nbEthOamLbConfEntry.registerAugmentions((_A,_l))
+#
+# PySNMP MIB module OA-ETHERNET-OAM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/OA-ETHERNET-OAM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:41 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+MepList, nbSwitchG1Il = mibBuilder.importSymbols("OS-COMMON-TC-MIB", "MepList", "nbSwitchG1Il")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "DateAndTime", "TextualConvention")
+nbEthOam = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 1, 50, 17))
+nbEthOam.setRevisions(('2018-12-30 00:00', '2013-02-18 00:00', '2012-10-21 00:00', '2012-04-15 00:00', '2011-09-22 00:00', '2011-05-30 00:00', '2010-03-15 00:00', '2007-01-07 00:00',))
+if mibBuilder.loadTexts: nbEthOam.setLastUpdated('201812300000Z')
+if mibBuilder.loadTexts: nbEthOam.setOrganization('MRV Communications, Inc.')
+nbEthOamNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 0))
+nbEthOamCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 1))
+nbEthOamLb = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10))
+nbEthOamDm = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11))
+nbEthOamConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 100))
+nbEthOamMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 100, 1))
+nbEthOamMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 100, 2))
+class NbEthOamMepId(TextualConvention, Unsigned32):
+    reference = '802.1ag clauses 3.19 and 19.2.1'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4095)
+
+class NbEthOamMepIdOrZero(TextualConvention, Unsigned32):
+    reference = '.'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 4095), )
+class TestRunMethod(TextualConvention, Integer32):
+    reference = '.'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(2, 3, 4))
+    namedValues = NamedValues(("slow", 2), ("fast", 3), ("none", 4))
+
+class NbEthOamCcmHighestDefectPri(TextualConvention, Integer32):
+    reference = '802.1ag clause 20.1.2, 12.14.7.7.2:c and 20.33.9'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))
+    namedValues = NamedValues(("none", 0), ("defRDICCM", 1), ("defMACstatus", 2), ("defRemoteCCM", 3), ("defErrorCCM", 4), ("defXconCCM", 5))
+
+class DestinationType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("singleRMepId", 1), ("macAddress", 2), ("listOfRMeps", 3), ("multicastClass1", 4), ("multicastClass2", 5))
+
+nbEthOamFeaturesSupport = MibScalar((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 1, 1), Bits().clone(namedValues=NamedValues(("mayDoSlowTests", 0), ("mayDoFastTests", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamFeaturesSupport.setStatus('current')
+nbEthOamCcmIntervals = MibScalar((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 1, 2), Bits().clone(namedValues=NamedValues(("supports300Hz", 0), ("supports10ms", 1), ("supports100ms", 2), ("supports1s", 3), ("supports10s", 4), ("supports1min", 5), ("supports10min", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamCcmIntervals.setStatus('current')
+nbEthOamLbConfTable = MibTable((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1), )
+if mibBuilder.loadTexts: nbEthOamLbConfTable.setStatus('current')
+nbEthOamLbConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1), ).setIndexNames((0, "OA-ETHERNET-OAM-MIB", "nbEthOamMdIndex"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamMaIndex"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamMepIdentifier"))
+if mibBuilder.loadTexts: nbEthOamLbConfEntry.setStatus('current')
+nbEthOamMdIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)))
+if mibBuilder.loadTexts: nbEthOamMdIndex.setStatus('current')
+nbEthOamMaIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: nbEthOamMaIndex.setStatus('current')
+nbEthOamMepIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 3), NbEthOamMepId())
+if mibBuilder.loadTexts: nbEthOamMepIdentifier.setStatus('current')
+nbEthOamLbConfHistorySize = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(2, 65535)).clone(5)).setUnits('lines').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamLbConfHistorySize.setStatus('current')
+nbEthOamLbConfInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000)).clone(100)).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamLbConfInterval.setStatus('current')
+nbEthOamLbConfTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 60000)).clone(200)).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamLbConfTimeout.setStatus('current')
+nbEthOamLbConfDataLength = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(60, 9000)).clone(60)).setUnits('octets').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamLbConfDataLength.setStatus('current')
+nbEthOamLbConfDataFill = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 1436))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamLbConfDataFill.setStatus('current')
+nbEthOamLbConfPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 7), ValueRangeConstraint(8, 8), )).clone(8)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamLbConfPriority.setStatus('current')
+nbEthOamLbConfDestMepId = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 11), NbEthOamMepIdOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamLbConfDestMepId.setStatus('current')
+nbEthOamLbConfDestMepMac = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 12), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamLbConfDestMepMac.setStatus('current')
+nbEthOamLbConfDestIsMepId = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 13), DestinationType().clone('macAddress')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamLbConfDestIsMepId.setStatus('current')
+nbEthOamLbConfMessages = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000000)).clone(3)).setUnits('packets').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamLbConfMessages.setStatus('current')
+nbEthOamLbConfBurstInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 86400)).clone(60)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamLbConfBurstInterval.setStatus('current')
+nbEthOamLbConfNumberOfBursts = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 16), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 4294967295), )).clone(1)).setUnits('bursts').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamLbConfNumberOfBursts.setStatus('current')
+nbEthOamLbConfRunMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 21), TestRunMethod().clone(4)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamLbConfRunMethod.setStatus('current')
+nbEthOamLbConfIntervalMicro = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 1, 1, 22), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000000)).clone(100000)).setUnits('microseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamLbConfIntervalMicro.setStatus('current')
+nbEthOamLbHistTable = MibTable((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2), )
+if mibBuilder.loadTexts: nbEthOamLbHistTable.setStatus('current')
+nbEthOamLbHistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1), ).setIndexNames((0, "OA-ETHERNET-OAM-MIB", "nbEthOamMdIndex"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamMaIndex"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamMepIdentifier"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamLbHistSampleIndex"))
+if mibBuilder.loadTexts: nbEthOamLbHistEntry.setStatus('current')
+nbEthOamLbHistSampleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: nbEthOamLbHistSampleIndex.setStatus('current')
+nbEthOamLbHistStarted = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 6), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistStarted.setStatus('current')
+nbEthOamLbHistDestMepId = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 7), NbEthOamMepIdOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistDestMepId.setStatus('current')
+nbEthOamLbHistDestMepMac = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 8), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistDestMepMac.setStatus('current')
+nbEthOamLbHistMsgTransmitted = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 9), Unsigned32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistMsgTransmitted.setStatus('current')
+nbEthOamLbHistMsgReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 10), Unsigned32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistMsgReceived.setStatus('current')
+nbEthOamLbHistRttMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 12), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistRttMin.setStatus('current')
+nbEthOamLbHistRttMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 13), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistRttMax.setStatus('current')
+nbEthOamLbHistRttAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 14), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistRttAverage.setStatus('current')
+nbEthOamLbHistRttSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 15), Unsigned32()).setUnits('square of milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistRttSum2.setStatus('current')
+nbEthOamLbHistJittNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 23), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistJittNumber.setStatus('current')
+nbEthOamLbHistJittMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 24), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistJittMin.setStatus('current')
+nbEthOamLbHistJittMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 25), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistJittMax.setStatus('current')
+nbEthOamLbHistJittAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 26), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistJittAverage.setStatus('current')
+nbEthOamLbHistJittSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 27), Unsigned32()).setUnits('square of milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistJittSum2.setStatus('current')
+nbEthOamLbHistJittIA = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 30), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistJittIA.setStatus('current')
+nbEthOamLbHistPcktLoss = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 31), Unsigned32()).setUnits('0.01%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistPcktLoss.setStatus('current')
+nbEthOamLbHistType = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 32), TestRunMethod()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistType.setStatus('current')
+nbEthOamLbHistPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 2, 1, 33), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbHistPriority.setStatus('current')
+nbEthOamLbLastTable = MibTable((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3), )
+if mibBuilder.loadTexts: nbEthOamLbLastTable.setStatus('current')
+nbEthOamLbLastEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1), ).setIndexNames((0, "OA-ETHERNET-OAM-MIB", "nbEthOamMdIndex"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamMaIndex"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamMepIdentifier"))
+if mibBuilder.loadTexts: nbEthOamLbLastEntry.setStatus('current')
+nbEthOamLbLastStarted = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 6), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastStarted.setStatus('current')
+nbEthOamLbLastDestMepId = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 7), NbEthOamMepIdOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastDestMepId.setStatus('current')
+nbEthOamLbLastDestMepMac = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 8), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastDestMepMac.setStatus('current')
+nbEthOamLbLastMsgTransmitted = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 9), Unsigned32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastMsgTransmitted.setStatus('current')
+nbEthOamLbLastMsgReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 10), Unsigned32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastMsgReceived.setStatus('current')
+nbEthOamLbLastRttMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 12), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastRttMin.setStatus('current')
+nbEthOamLbLastRttMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 13), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastRttMax.setStatus('current')
+nbEthOamLbLastRttAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 14), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastRttAverage.setStatus('current')
+nbEthOamLbLastRttSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 15), Unsigned32()).setUnits('square of milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastRttSum2.setStatus('current')
+nbEthOamLbLastJittNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 23), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastJittNumber.setStatus('current')
+nbEthOamLbLastJittMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 24), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastJittMin.setStatus('current')
+nbEthOamLbLastJittMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 25), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastJittMax.setStatus('current')
+nbEthOamLbLastJittAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 26), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastJittAverage.setStatus('current')
+nbEthOamLbLastJittSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 27), Unsigned32()).setUnits('square of milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastJittSum2.setStatus('current')
+nbEthOamLbLastJittIA = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 30), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastJittIA.setStatus('current')
+nbEthOamLbLastPcktLoss = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 31), Unsigned32()).setUnits('0.01%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastPcktLoss.setStatus('current')
+nbEthOamLbLastType = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 32), TestRunMethod()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastType.setStatus('current')
+nbEthOamLbLastPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 33), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastPriority.setStatus('current')
+nbEthOamLbLastHistIndx = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 3, 1, 50), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamLbLastHistIndx.setStatus('current')
+nbEthOamLbConfExtTable = MibTable((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 4), )
+if mibBuilder.loadTexts: nbEthOamLbConfExtTable.setStatus('current')
+nbEthOamLbConfExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 4, 1), )
+nbEthOamLbConfEntry.registerAugmentions(("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfExtEntry"))
 nbEthOamLbConfExtEntry.setIndexNames(*nbEthOamLbConfEntry.getIndexNames())
-nbEthOamDmConfEntry.registerAugmentions((_A,_m))
+if mibBuilder.loadTexts: nbEthOamLbConfExtEntry.setStatus('current')
+nbEthOamLbConfDestMepList = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 10, 4, 1, 12), MepList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamLbConfDestMepList.setStatus('current')
+nbEthOamDmConfTable = MibTable((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1), )
+if mibBuilder.loadTexts: nbEthOamDmConfTable.setStatus('current')
+nbEthOamDmConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1, 1), ).setIndexNames((0, "OA-ETHERNET-OAM-MIB", "nbEthOamMdIndex"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamMaIndex"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamMepIdentifier"))
+if mibBuilder.loadTexts: nbEthOamDmConfEntry.setStatus('current')
+nbEthOamDmConfHistorySize = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(2, 65535)).clone(5)).setUnits('lines').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDmConfHistorySize.setStatus('current')
+nbEthOamDmConfInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000)).clone(100)).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDmConfInterval.setStatus('current')
+nbEthOamDmConfTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 60000)).clone(200)).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDmConfTimeout.setStatus('current')
+nbEthOamDmConfDataLength = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(60, 9000)).clone(60)).setUnits('octets').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDmConfDataLength.setStatus('current')
+nbEthOamDmConfDataFill = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 1436))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDmConfDataFill.setStatus('current')
+nbEthOamDmConfPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 7), ValueRangeConstraint(8, 8), )).clone(8)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDmConfPriority.setStatus('current')
+nbEthOamDmConfDestMepId = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1, 1, 11), NbEthOamMepIdOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDmConfDestMepId.setStatus('current')
+nbEthOamDmConfDestMepMac = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1, 1, 12), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDmConfDestMepMac.setStatus('current')
+nbEthOamDmConfDestIsMepId = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1, 1, 13), DestinationType().clone('macAddress')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDmConfDestIsMepId.setStatus('current')
+nbEthOamDmConfMessages = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000000)).clone(3)).setUnits('packets').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDmConfMessages.setStatus('current')
+nbEthOamDmConfBurstInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 86400)).clone(60)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDmConfBurstInterval.setStatus('current')
+nbEthOamDmConfNumberOfBursts = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1, 1, 16), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 4294967295), )).clone(1)).setUnits('bursts').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDmConfNumberOfBursts.setStatus('current')
+nbEthOamDmConfRunMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1, 1, 21), TestRunMethod().clone(4)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDmConfRunMethod.setStatus('current')
+nbEthOamDmConfIntervalMicro = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 1, 1, 22), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000000)).clone(100000)).setUnits('microseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDmConfIntervalMicro.setStatus('current')
+nbEthOamDmHistTable = MibTable((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2), )
+if mibBuilder.loadTexts: nbEthOamDmHistTable.setStatus('current')
+nbEthOamDmHistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1), ).setIndexNames((0, "OA-ETHERNET-OAM-MIB", "nbEthOamMdIndex"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamMaIndex"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamMepIdentifier"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamDmHistSampleIndex"))
+if mibBuilder.loadTexts: nbEthOamDmHistEntry.setStatus('current')
+nbEthOamDmHistSampleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: nbEthOamDmHistSampleIndex.setStatus('current')
+nbEthOamDmHistStarted = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 6), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistStarted.setStatus('current')
+nbEthOamDmHistDestMepId = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 7), NbEthOamMepIdOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistDestMepId.setStatus('current')
+nbEthOamDmHistDestMepMac = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 8), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistDestMepMac.setStatus('current')
+nbEthOamDmHistMsgTransmitted = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 9), Unsigned32()).setUnits('frames').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistMsgTransmitted.setStatus('current')
+nbEthOamDmHistMsgReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 10), Unsigned32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistMsgReceived.setStatus('current')
+nbEthOamDmHistRttMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 12), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistRttMin.setStatus('current')
+nbEthOamDmHistRttMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 13), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistRttMax.setStatus('current')
+nbEthOamDmHistRttAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 14), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistRttAverage.setStatus('current')
+nbEthOamDmHistRttSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 15), Unsigned32()).setUnits('square of milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistRttSum2.setStatus('current')
+nbEthOamDmHistDSJittNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 23), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistDSJittNumber.setStatus('current')
+nbEthOamDmHistDSJittMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 24), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistDSJittMin.setStatus('current')
+nbEthOamDmHistDSJittMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 25), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistDSJittMax.setStatus('current')
+nbEthOamDmHistDSJittAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 26), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistDSJittAverage.setStatus('current')
+nbEthOamDmHistDSJittSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 27), Unsigned32()).setUnits('square of milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistDSJittSum2.setStatus('current')
+nbEthOamDmHistDSJittIA = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 30), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistDSJittIA.setStatus('current')
+nbEthOamDmHistSDJittNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 36), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistSDJittNumber.setStatus('current')
+nbEthOamDmHistSDJittMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 37), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistSDJittMin.setStatus('current')
+nbEthOamDmHistSDJittMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 38), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistSDJittMax.setStatus('current')
+nbEthOamDmHistSDJittAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 39), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistSDJittAverage.setStatus('current')
+nbEthOamDmHistSDJittSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 40), Unsigned32()).setUnits('square of milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistSDJittSum2.setStatus('current')
+nbEthOamDmHistSDJittIA = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 41), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistSDJittIA.setStatus('current')
+nbEthOamDmHistPcktLoss = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 42), Unsigned32()).setUnits('0.01%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistPcktLoss.setStatus('current')
+nbEthOamDmHistType = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 43), TestRunMethod()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistType.setStatus('current')
+nbEthOamDmHistPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 2, 1, 44), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHistPriority.setStatus('current')
+nbEthOamDmLastTable = MibTable((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3), )
+if mibBuilder.loadTexts: nbEthOamDmLastTable.setStatus('current')
+nbEthOamDmLastEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1), ).setIndexNames((0, "OA-ETHERNET-OAM-MIB", "nbEthOamMdIndex"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamMaIndex"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamMepIdentifier"))
+if mibBuilder.loadTexts: nbEthOamDmLastEntry.setStatus('current')
+nbEthOamDmLastStarted = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 6), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastStarted.setStatus('current')
+nbEthOamDmLastDestMepId = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 7), NbEthOamMepIdOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastDestMepId.setStatus('current')
+nbEthOamDmLastDestMepMac = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 8), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastDestMepMac.setStatus('current')
+nbEthOamDmLastMsgTransmitted = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 9), Unsigned32()).setUnits('frames').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastMsgTransmitted.setStatus('current')
+nbEthOamDmLastMsgReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 10), Unsigned32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastMsgReceived.setStatus('current')
+nbEthOamDmLastRttMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 12), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastRttMin.setStatus('current')
+nbEthOamDmLastRttMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 13), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastRttMax.setStatus('current')
+nbEthOamDmLastRttAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 14), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastRttAverage.setStatus('current')
+nbEthOamDmLastRttSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 15), Unsigned32()).setUnits('square of milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastRttSum2.setStatus('current')
+nbEthOamDmLastDSJittNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 23), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastDSJittNumber.setStatus('current')
+nbEthOamDmLastDSJittMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 24), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastDSJittMin.setStatus('current')
+nbEthOamDmLastDSJittMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 25), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastDSJittMax.setStatus('current')
+nbEthOamDmLastDSJittAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 26), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastDSJittAverage.setStatus('current')
+nbEthOamDmLastDSJittSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 27), Unsigned32()).setUnits('square of milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastDSJittSum2.setStatus('current')
+nbEthOamDmLastDSJittIA = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 30), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastDSJittIA.setStatus('current')
+nbEthOamDmLastSDJittNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 36), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastSDJittNumber.setStatus('current')
+nbEthOamDmLastSDJittMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 37), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastSDJittMin.setStatus('current')
+nbEthOamDmLastSDJittMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 38), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastSDJittMax.setStatus('current')
+nbEthOamDmLastSDJittAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 39), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastSDJittAverage.setStatus('current')
+nbEthOamDmLastSDJittSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 40), Unsigned32()).setUnits('square of milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastSDJittSum2.setStatus('current')
+nbEthOamDmLastSDJittIA = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 41), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastSDJittIA.setStatus('current')
+nbEthOamDmLastPcktLoss = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 42), Unsigned32()).setUnits('0.01%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastPcktLoss.setStatus('current')
+nbEthOamDmLastType = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 43), TestRunMethod()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastType.setStatus('current')
+nbEthOamDmLastPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 44), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastPriority.setStatus('current')
+nbEthOamDmLastHistIndx = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 3, 1, 50), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmLastHistIndx.setStatus('current')
+nbEthOamDmConfExtTable = MibTable((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 4), )
+if mibBuilder.loadTexts: nbEthOamDmConfExtTable.setStatus('current')
+nbEthOamDmConfExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 4, 1), )
+nbEthOamDmConfEntry.registerAugmentions(("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfExtEntry"))
 nbEthOamDmConfExtEntry.setIndexNames(*nbEthOamDmConfEntry.getIndexNames())
-nbEthOamDmHistEntry.registerAugmentions((_A,_n))
+if mibBuilder.loadTexts: nbEthOamDmConfExtEntry.setStatus('current')
+nbEthOamDmConfDestMepList = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 4, 1, 12), MepList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDmConfDestMepList.setStatus('current')
+nbEthOamDmHcHistTable = MibTable((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5), )
+if mibBuilder.loadTexts: nbEthOamDmHcHistTable.setStatus('current')
+nbEthOamDmHcHistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5, 1), )
+nbEthOamDmHistEntry.registerAugmentions(("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcHistEntry"))
 nbEthOamDmHcHistEntry.setIndexNames(*nbEthOamDmHistEntry.getIndexNames())
-nbEthOamDmLastEntry.registerAugmentions((_A,_o))
+if mibBuilder.loadTexts: nbEthOamDmHcHistEntry.setStatus('current')
+nbEthOamDmHcHistRttMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5, 1, 12), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcHistRttMin.setStatus('current')
+nbEthOamDmHcHistRttMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5, 1, 13), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcHistRttMax.setStatus('current')
+nbEthOamDmHcHistRttAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5, 1, 14), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcHistRttAverage.setStatus('current')
+nbEthOamDmHcHistRttSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5, 1, 15), Counter64()).setUnits('square of milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcHistRttSum2.setStatus('current')
+nbEthOamDmHcHistDSJittMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5, 1, 24), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcHistDSJittMin.setStatus('current')
+nbEthOamDmHcHistDSJittMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5, 1, 25), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcHistDSJittMax.setStatus('current')
+nbEthOamDmHcHistDSJittAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5, 1, 26), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcHistDSJittAverage.setStatus('current')
+nbEthOamDmHcHistDSJittSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5, 1, 27), Counter64()).setUnits('square of nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcHistDSJittSum2.setStatus('current')
+nbEthOamDmHcHistDSJittIA = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5, 1, 30), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcHistDSJittIA.setStatus('current')
+nbEthOamDmHcHistSDJittMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5, 1, 37), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcHistSDJittMin.setStatus('current')
+nbEthOamDmHcHistSDJittMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5, 1, 38), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcHistSDJittMax.setStatus('current')
+nbEthOamDmHcHistSDJittAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5, 1, 39), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcHistSDJittAverage.setStatus('current')
+nbEthOamDmHcHistSDJittSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5, 1, 40), Counter64()).setUnits('square of nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcHistSDJittSum2.setStatus('current')
+nbEthOamDmHcHistSDJittIA = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 5, 1, 41), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcHistSDJittIA.setStatus('current')
+nbEthOamDmHcLastTable = MibTable((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6), )
+if mibBuilder.loadTexts: nbEthOamDmHcLastTable.setStatus('current')
+nbEthOamDmHcLastEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1), )
+nbEthOamDmLastEntry.registerAugmentions(("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastEntry"))
 nbEthOamDmHcLastEntry.setIndexNames(*nbEthOamDmLastEntry.getIndexNames())
-nbEthOamMandatoryGroup=ObjectGroup((1,3,6,1,4,1,629,1,50,17,100,2,1))
-nbEthOamMandatoryGroup.setObjects(*((_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_M),(_A,_N),(_A,_BE),(_A,_BF),(_A,_BG),(_A,_BH),(_A,_Z),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_a),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_BQ),(_A,_b),(_A,_BR),(_A,_BS),(_A,_c),(_A,_BT),(_A,_O),(_A,_BU),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1),(_A,_C2),(_A,_C3),(_A,_d),(_A,_e),(_A,_P),(_A,_C4),(_A,_C5),(_A,_C6),(_A,_C7),(_A,_C8),(_A,_C9),(_A,_CA),(_A,_CB),(_A,_CC),(_A,_CD),(_A,_CE),(_A,_CF),(_A,_CG),(_A,_CH),(_A,_CI)))
-if mibBuilder.loadTexts:nbEthOamMandatoryGroup.setStatus(_B)
-nbEthOamCcmAlarm=NotificationType((1,3,6,1,4,1,629,1,50,17,0,1))
-nbEthOamCcmAlarm.setObjects(*((_A,_d),(_A,_e)))
-if mibBuilder.loadTexts:nbEthOamCcmAlarm.setStatus(_B)
-nbEthOamFdAlarm=NotificationType((1,3,6,1,4,1,629,1,50,17,0,4))
-nbEthOamFdAlarm.setObjects(*((_A,_Z),(_A,_P),(_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:nbEthOamFdAlarm.setStatus(_B)
-nbEthOamSDJittAlarm=NotificationType((1,3,6,1,4,1,629,1,50,17,0,8))
-nbEthOamSDJittAlarm.setObjects(*((_A,_b),(_A,_P),(_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:nbEthOamSDJittAlarm.setStatus(_B)
-nbEthOamDSJittAlarm=NotificationType((1,3,6,1,4,1,629,1,50,17,0,14))
-nbEthOamDSJittAlarm.setObjects(*((_A,_a),(_A,_P),(_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:nbEthOamDSJittAlarm.setStatus(_B)
-nbEthOamPcktLossAlarm=NotificationType((1,3,6,1,4,1,629,1,50,17,0,20))
-nbEthOamPcktLossAlarm.setObjects(*((_A,_c),(_A,_P),(_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:nbEthOamPcktLossAlarm.setStatus(_B)
-nbEthOamNotificationsGroup=NotificationGroup((1,3,6,1,4,1,629,1,50,17,100,2,2))
-nbEthOamNotificationsGroup.setObjects(*((_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM),(_A,_CN)))
-if mibBuilder.loadTexts:nbEthOamNotificationsGroup.setStatus(_B)
-nbEthOamMIBCompliance=ModuleCompliance((1,3,6,1,4,1,629,1,50,17,100,1,1))
-nbEthOamMIBCompliance.setObjects(*((_A,_CO),(_A,_CP)))
-if mibBuilder.loadTexts:nbEthOamMIBCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'NbEthOamMepId':NbEthOamMepId,'NbEthOamMepIdOrZero':NbEthOamMepIdOrZero,_Y:TestRunMethod,'NbEthOamCcmHighestDefectPri':NbEthOamCcmHighestDefectPri,_X:DestinationType,'nbEthOam':nbEthOam,'nbEthOamNotifications':nbEthOamNotifications,_CJ:nbEthOamCcmAlarm,_CK:nbEthOamFdAlarm,_CL:nbEthOamSDJittAlarm,_CM:nbEthOamDSJittAlarm,_CN:nbEthOamPcktLossAlarm,'nbEthOamCapabilities':nbEthOamCapabilities,_p:nbEthOamFeaturesSupport,_q:nbEthOamCcmIntervals,'nbEthOamLb':nbEthOamLb,'nbEthOamLbConfTable':nbEthOamLbConfTable,'nbEthOamLbConfEntry':nbEthOamLbConfEntry,_I:nbEthOamMdIndex,_J:nbEthOamMaIndex,_K:nbEthOamMepIdentifier,_r:nbEthOamLbConfHistorySize,_s:nbEthOamLbConfInterval,_u:nbEthOamLbConfTimeout,_v:nbEthOamLbConfDataLength,_w:nbEthOamLbConfDataFill,_x:nbEthOamLbConfPriority,_y:nbEthOamLbConfDestMepId,_z:nbEthOamLbConfDestMepMac,_A1:nbEthOamLbConfDestIsMepId,_A2:nbEthOamLbConfMessages,_By:nbEthOamLbConfBurstInterval,_Bz:nbEthOamLbConfNumberOfBursts,_B_:nbEthOamLbConfRunMethod,_t:nbEthOamLbConfIntervalMicro,'nbEthOamLbHistTable':nbEthOamLbHistTable,'nbEthOamLbHistEntry':nbEthOamLbHistEntry,_i:nbEthOamLbHistSampleIndex,_A3:nbEthOamLbHistStarted,_A4:nbEthOamLbHistDestMepId,_A5:nbEthOamLbHistDestMepMac,_A6:nbEthOamLbHistMsgTransmitted,_A7:nbEthOamLbHistMsgReceived,_A8:nbEthOamLbHistRttMin,_A9:nbEthOamLbHistRttMax,_AA:nbEthOamLbHistRttAverage,_AB:nbEthOamLbHistRttSum2,_AC:nbEthOamLbHistJittNumber,_AD:nbEthOamLbHistJittMin,_AE:nbEthOamLbHistJittMax,_AF:nbEthOamLbHistJittAverage,_AG:nbEthOamLbHistJittSum2,_AH:nbEthOamLbHistJittIA,_AI:nbEthOamLbHistPcktLoss,_AJ:nbEthOamLbHistType,_AK:nbEthOamLbHistPriority,'nbEthOamLbLastTable':nbEthOamLbLastTable,'nbEthOamLbLastEntry':nbEthOamLbLastEntry,_Av:nbEthOamLbLastStarted,_Aw:nbEthOamLbLastDestMepId,_Ax:nbEthOamLbLastDestMepMac,_Ay:nbEthOamLbLastMsgTransmitted,_Az:nbEthOamLbLastMsgReceived,_A_:nbEthOamLbLastRttMin,_B0:nbEthOamLbLastRttMax,_B1:nbEthOamLbLastRttAverage,_B2:nbEthOamLbLastRttSum2,_B3:nbEthOamLbLastJittNumber,_B4:nbEthOamLbLastJittMin,_B5:nbEthOamLbLastJittMax,_B6:nbEthOamLbLastJittAverage,_B7:nbEthOamLbLastJittSum2,_B8:nbEthOamLbLastJittIA,_B9:nbEthOamLbLastPcktLoss,_BC:nbEthOamLbLastType,_BA:nbEthOamLbLastPriority,_BB:nbEthOamLbLastHistIndx,'nbEthOamLbConfExtTable':nbEthOamLbConfExtTable,_l:nbEthOamLbConfExtEntry,_A0:nbEthOamLbConfDestMepList,'nbEthOamDm':nbEthOamDm,'nbEthOamDmConfTable':nbEthOamDmConfTable,'nbEthOamDmConfEntry':nbEthOamDmConfEntry,_AL:nbEthOamDmConfHistorySize,_AM:nbEthOamDmConfInterval,_AO:nbEthOamDmConfTimeout,_AP:nbEthOamDmConfDataLength,_AQ:nbEthOamDmConfDataFill,_AR:nbEthOamDmConfPriority,_AS:nbEthOamDmConfDestMepId,_AT:nbEthOamDmConfDestMepMac,_AV:nbEthOamDmConfDestIsMepId,_AW:nbEthOamDmConfMessages,_C0:nbEthOamDmConfBurstInterval,_C1:nbEthOamDmConfNumberOfBursts,_C2:nbEthOamDmConfRunMethod,_AN:nbEthOamDmConfIntervalMicro,'nbEthOamDmHistTable':nbEthOamDmHistTable,'nbEthOamDmHistEntry':nbEthOamDmHistEntry,_j:nbEthOamDmHistSampleIndex,_AX:nbEthOamDmHistStarted,_AY:nbEthOamDmHistDestMepId,_AZ:nbEthOamDmHistDestMepMac,_Aa:nbEthOamDmHistMsgTransmitted,_Ab:nbEthOamDmHistMsgReceived,_Ac:nbEthOamDmHistRttMin,_Ad:nbEthOamDmHistRttMax,_Ae:nbEthOamDmHistRttAverage,_Af:nbEthOamDmHistRttSum2,_Ag:nbEthOamDmHistDSJittNumber,_Ah:nbEthOamDmHistDSJittMin,_Ai:nbEthOamDmHistDSJittMax,_Aj:nbEthOamDmHistDSJittAverage,_Ak:nbEthOamDmHistDSJittSum2,_Al:nbEthOamDmHistDSJittIA,_Am:nbEthOamDmHistSDJittNumber,_An:nbEthOamDmHistSDJittMin,_Ao:nbEthOamDmHistSDJittMax,_Ap:nbEthOamDmHistSDJittAverage,_Aq:nbEthOamDmHistSDJittSum2,_Ar:nbEthOamDmHistSDJittIA,_As:nbEthOamDmHistPcktLoss,_At:nbEthOamDmHistType,_Au:nbEthOamDmHistPriority,'nbEthOamDmLastTable':nbEthOamDmLastTable,'nbEthOamDmLastEntry':nbEthOamDmLastEntry,_BD:nbEthOamDmLastStarted,_M:nbEthOamDmLastDestMepId,_N:nbEthOamDmLastDestMepMac,_BE:nbEthOamDmLastMsgTransmitted,_BF:nbEthOamDmLastMsgReceived,_BG:nbEthOamDmLastRttMin,_BH:nbEthOamDmLastRttMax,_Z:nbEthOamDmLastRttAverage,_BI:nbEthOamDmLastRttSum2,_BJ:nbEthOamDmLastDSJittNumber,_BK:nbEthOamDmLastDSJittMin,_BL:nbEthOamDmLastDSJittMax,_a:nbEthOamDmLastDSJittAverage,_BM:nbEthOamDmLastDSJittSum2,_BN:nbEthOamDmLastDSJittIA,_BO:nbEthOamDmLastSDJittNumber,_BP:nbEthOamDmLastSDJittMin,_BQ:nbEthOamDmLastSDJittMax,_b:nbEthOamDmLastSDJittAverage,_BR:nbEthOamDmLastSDJittSum2,_BS:nbEthOamDmLastSDJittIA,_c:nbEthOamDmLastPcktLoss,_BU:nbEthOamDmLastType,_BT:nbEthOamDmLastPriority,_O:nbEthOamDmLastHistIndx,'nbEthOamDmConfExtTable':nbEthOamDmConfExtTable,_m:nbEthOamDmConfExtEntry,_AU:nbEthOamDmConfDestMepList,'nbEthOamDmHcHistTable':nbEthOamDmHcHistTable,_n:nbEthOamDmHcHistEntry,_BV:nbEthOamDmHcHistRttMin,_BW:nbEthOamDmHcHistRttMax,_BX:nbEthOamDmHcHistRttAverage,_BY:nbEthOamDmHcHistRttSum2,_BZ:nbEthOamDmHcHistDSJittMin,_Ba:nbEthOamDmHcHistDSJittMax,_Bb:nbEthOamDmHcHistDSJittAverage,_Bc:nbEthOamDmHcHistDSJittSum2,_Bd:nbEthOamDmHcHistDSJittIA,_Be:nbEthOamDmHcHistSDJittMin,_Bf:nbEthOamDmHcHistSDJittMax,_Bg:nbEthOamDmHcHistSDJittAverage,_Bh:nbEthOamDmHcHistSDJittSum2,_Bi:nbEthOamDmHcHistSDJittIA,'nbEthOamDmHcLastTable':nbEthOamDmHcLastTable,_o:nbEthOamDmHcLastEntry,_Bj:nbEthOamDmHcLastRttMin,_Bk:nbEthOamDmHcLastRttMax,_Bl:nbEthOamDmHcLastRttAverage,_Bm:nbEthOamDmHcLastRttSum2,_Bn:nbEthOamDmHcLastDSJittMin,_Bo:nbEthOamDmHcLastDSJittMax,_Bp:nbEthOamDmHcLastDSJittAverage,_Bq:nbEthOamDmHcLastDSJittSum2,_Br:nbEthOamDmHcLastDSJittIA,_Bs:nbEthOamDmHcLastSDJittMin,_Bt:nbEthOamDmHcLastSDJittMax,_Bu:nbEthOamDmHcLastSDJittAverage,_Bv:nbEthOamDmHcLastSDJittSum2,_Bw:nbEthOamDmHcLastSDJittIA,_Bx:nbEthOamDmHcLastRunStatus,'nbEthOamServiceTable':nbEthOamServiceTable,'nbEthOamServiceEntry':nbEthOamServiceEntry,_CG:nbEthOamServiceDmResponderSL,_CH:nbEthOamServiceLbResponderSL,_CI:nbEthOamServiceLmResponderSL,'nbEthOamTrapTable':nbEthOamTrapTable,'nbEthOamTrapEntry':nbEthOamTrapEntry,_C3:nbEthOamTrapTrapGeneration,_d:nbEthOamTrapCcmHighestPrDefect,_e:nbEthOamTrapCcmAlarmType,_P:nbEthOamTrapDmmReason,_C4:nbEthOamFdRiseThold,_C5:nbEthOamFdFallThold,_C6:nbEthOamDSJittRiseThold,_C7:nbEthOamDSJittFallThold,_C8:nbEthOamDSJittSum2RiseThold,_C9:nbEthOamDSJittSum2FallThold,_CA:nbEthOamSDJittRiseThold,_CB:nbEthOamSDJittFallThold,_CC:nbEthOamSDJittSum2RiseThold,_CD:nbEthOamSDJittSum2FallThold,_CE:nbEthOamPcktLossRiseThold,_CF:nbEthOamPcktLossFallThold,'nbEthOamConformance':nbEthOamConformance,'nbEthOamMIBCompliances':nbEthOamMIBCompliances,'nbEthOamMIBCompliance':nbEthOamMIBCompliance,'nbEthOamMIBGroups':nbEthOamMIBGroups,_CO:nbEthOamMandatoryGroup,_CP:nbEthOamNotificationsGroup})
+if mibBuilder.loadTexts: nbEthOamDmHcLastEntry.setStatus('current')
+nbEthOamDmHcLastRttMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1, 12), Counter64()).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcLastRttMin.setStatus('current')
+nbEthOamDmHcLastRttMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1, 13), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcLastRttMax.setStatus('current')
+nbEthOamDmHcLastRttAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1, 14), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcLastRttAverage.setStatus('current')
+nbEthOamDmHcLastRttSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1, 15), Counter64()).setUnits('square of milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcLastRttSum2.setStatus('current')
+nbEthOamDmHcLastDSJittMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1, 24), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcLastDSJittMin.setStatus('current')
+nbEthOamDmHcLastDSJittMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1, 25), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcLastDSJittMax.setStatus('current')
+nbEthOamDmHcLastDSJittAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1, 26), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcLastDSJittAverage.setStatus('current')
+nbEthOamDmHcLastDSJittSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1, 27), Counter64()).setUnits('square of nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcLastDSJittSum2.setStatus('current')
+nbEthOamDmHcLastDSJittIA = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1, 30), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcLastDSJittIA.setStatus('current')
+nbEthOamDmHcLastSDJittMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1, 37), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcLastSDJittMin.setStatus('current')
+nbEthOamDmHcLastSDJittMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1, 38), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcLastSDJittMax.setStatus('current')
+nbEthOamDmHcLastSDJittAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1, 39), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcLastSDJittAverage.setStatus('current')
+nbEthOamDmHcLastSDJittSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1, 40), Counter64()).setUnits('square of nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcLastSDJittSum2.setStatus('current')
+nbEthOamDmHcLastSDJittIA = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1, 41), Counter64()).setUnits('nanoseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcLastSDJittIA.setStatus('current')
+nbEthOamDmHcLastRunStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 11, 6, 1, 59), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 14, 104))).clone(namedValues=NamedValues(("unknown", 0), ("idle", 1), ("running", 2), ("scheduled", 3), ("deferred", 4), ("stopped", 5), ("noVlan", 6), ("error", 7), ("noMac", 14), ("deferredForMac", 104)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamDmHcLastRunStatus.setStatus('current')
+nbEthOamServiceTable = MibTable((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 16), )
+if mibBuilder.loadTexts: nbEthOamServiceTable.setStatus('current')
+nbEthOamServiceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 16, 1), ).setIndexNames((0, "OA-ETHERNET-OAM-MIB", "nbEthOamMdIndex"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamMaIndex"))
+if mibBuilder.loadTexts: nbEthOamServiceEntry.setStatus('current')
+nbEthOamServiceDmResponderSL = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 16, 1, 20), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 8), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamServiceDmResponderSL.setStatus('current')
+nbEthOamServiceLbResponderSL = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 16, 1, 21), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 8), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamServiceLbResponderSL.setStatus('current')
+nbEthOamServiceLmResponderSL = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 16, 1, 22), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 8), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamServiceLmResponderSL.setStatus('current')
+nbEthOamTrapTable = MibTable((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20), )
+if mibBuilder.loadTexts: nbEthOamTrapTable.setStatus('current')
+nbEthOamTrapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1), ).setIndexNames((0, "OA-ETHERNET-OAM-MIB", "nbEthOamMdIndex"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamMaIndex"), (0, "OA-ETHERNET-OAM-MIB", "nbEthOamMepIdentifier"))
+if mibBuilder.loadTexts: nbEthOamTrapEntry.setStatus('current')
+nbEthOamTrapTrapGeneration = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 1), Bits().clone(namedValues=NamedValues(("ccmRecovery", 0), ("ccmFault", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamTrapTrapGeneration.setStatus('current')
+nbEthOamTrapCcmHighestPrDefect = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 2), NbEthOamCcmHighestDefectPri()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamTrapCcmHighestPrDefect.setStatus('current')
+nbEthOamTrapCcmAlarmType = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("fault", 1), ("recovery", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamTrapCcmAlarmType.setStatus('current')
+nbEthOamTrapDmmReason = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 30), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("risingDmAlarm", 1), ("fallingDmAlarm", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbEthOamTrapDmmReason.setStatus('current')
+nbEthOamFdRiseThold = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 35), Unsigned32()).setUnits('microseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamFdRiseThold.setStatus('current')
+nbEthOamFdFallThold = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 36), Unsigned32()).setUnits('microseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamFdFallThold.setStatus('current')
+nbEthOamDSJittRiseThold = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 49), Unsigned32()).setUnits('microseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDSJittRiseThold.setStatus('current')
+nbEthOamDSJittFallThold = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 50), Unsigned32()).setUnits('microseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDSJittFallThold.setStatus('current')
+nbEthOamDSJittSum2RiseThold = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 51), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDSJittSum2RiseThold.setStatus('current')
+nbEthOamDSJittSum2FallThold = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 52), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamDSJittSum2FallThold.setStatus('current')
+nbEthOamSDJittRiseThold = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 63), Unsigned32()).setUnits('microseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamSDJittRiseThold.setStatus('current')
+nbEthOamSDJittFallThold = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 64), Unsigned32()).setUnits('microseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamSDJittFallThold.setStatus('current')
+nbEthOamSDJittSum2RiseThold = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 66), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamSDJittSum2RiseThold.setStatus('current')
+nbEthOamSDJittSum2FallThold = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 67), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamSDJittSum2FallThold.setStatus('current')
+nbEthOamPcktLossRiseThold = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 68), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamPcktLossRiseThold.setStatus('current')
+nbEthOamPcktLossFallThold = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 20, 1, 69), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nbEthOamPcktLossFallThold.setStatus('current')
+nbEthOamCcmAlarm = NotificationType((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 0, 1)).setObjects(("OA-ETHERNET-OAM-MIB", "nbEthOamTrapCcmHighestPrDefect"), ("OA-ETHERNET-OAM-MIB", "nbEthOamTrapCcmAlarmType"))
+if mibBuilder.loadTexts: nbEthOamCcmAlarm.setStatus('current')
+nbEthOamFdAlarm = NotificationType((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 0, 4)).setObjects(("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastRttAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamTrapDmmReason"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDestMepId"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDestMepMac"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastHistIndx"))
+if mibBuilder.loadTexts: nbEthOamFdAlarm.setStatus('current')
+nbEthOamSDJittAlarm = NotificationType((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 0, 8)).setObjects(("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastSDJittAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamTrapDmmReason"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDestMepId"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDestMepMac"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastHistIndx"))
+if mibBuilder.loadTexts: nbEthOamSDJittAlarm.setStatus('current')
+nbEthOamDSJittAlarm = NotificationType((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 0, 14)).setObjects(("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDSJittAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamTrapDmmReason"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDestMepId"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDestMepMac"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastHistIndx"))
+if mibBuilder.loadTexts: nbEthOamDSJittAlarm.setStatus('current')
+nbEthOamPcktLossAlarm = NotificationType((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 0, 20)).setObjects(("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastPcktLoss"), ("OA-ETHERNET-OAM-MIB", "nbEthOamTrapDmmReason"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDestMepId"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDestMepMac"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastHistIndx"))
+if mibBuilder.loadTexts: nbEthOamPcktLossAlarm.setStatus('current')
+nbEthOamMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 100, 1, 1)).setObjects(("OA-ETHERNET-OAM-MIB", "nbEthOamMandatoryGroup"), ("OA-ETHERNET-OAM-MIB", "nbEthOamNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nbEthOamMIBCompliance = nbEthOamMIBCompliance.setStatus('current')
+nbEthOamMandatoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 100, 2, 1)).setObjects(("OA-ETHERNET-OAM-MIB", "nbEthOamFeaturesSupport"), ("OA-ETHERNET-OAM-MIB", "nbEthOamCcmIntervals"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfHistorySize"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfInterval"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfIntervalMicro"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfTimeout"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfDataLength"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfDataFill"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfPriority"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfDestMepId"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfDestMepMac"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfDestMepList"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfDestIsMepId"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfMessages"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistStarted"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistDestMepId"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistDestMepMac"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistMsgTransmitted"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistMsgReceived"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistRttMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistRttMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistRttAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistRttSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistJittNumber"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistJittMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistJittMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistJittAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistJittSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistJittIA"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistPcktLoss"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistType"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbHistPriority"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfHistorySize"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfInterval"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfIntervalMicro"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfTimeout"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfDataLength"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfDataFill"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfPriority"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfDestMepId"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfDestMepMac"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfDestMepList"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfDestIsMepId"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfMessages"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistStarted"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistDestMepId"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistDestMepMac"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistMsgTransmitted"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistMsgReceived"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistRttMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistRttMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistRttAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistRttSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistDSJittNumber"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistDSJittMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistDSJittMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistDSJittAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistDSJittSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistDSJittIA"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistSDJittNumber"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistSDJittMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistSDJittMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistSDJittAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistSDJittSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistSDJittIA"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistPcktLoss"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistType"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHistPriority"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastStarted"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastDestMepId"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastDestMepMac"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastMsgTransmitted"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastMsgReceived"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastRttMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastRttMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastRttAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastRttSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastJittNumber"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastJittMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastJittMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastJittAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastJittSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastJittIA"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastPcktLoss"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastPriority"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastHistIndx"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbLastType"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastStarted"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDestMepId"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDestMepMac"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastMsgTransmitted"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastMsgReceived"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastRttMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastRttMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastRttAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastRttSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDSJittNumber"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDSJittMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDSJittMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDSJittAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDSJittSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastDSJittIA"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastSDJittNumber"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastSDJittMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastSDJittMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastSDJittAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastSDJittSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastSDJittIA"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastPcktLoss"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastPriority"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastHistIndx"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmLastType"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcHistRttMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcHistRttMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcHistRttAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcHistRttSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcHistDSJittMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcHistDSJittMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcHistDSJittAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcHistDSJittSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcHistDSJittIA"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcHistSDJittMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcHistSDJittMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcHistSDJittAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcHistSDJittSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcHistSDJittIA"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastRttMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastRttMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastRttAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastRttSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastDSJittMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastDSJittMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastDSJittAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastDSJittSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastDSJittIA"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastSDJittMin"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastSDJittMax"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastSDJittAverage"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastSDJittSum2"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastSDJittIA"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmHcLastRunStatus"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfBurstInterval"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfNumberOfBursts"), ("OA-ETHERNET-OAM-MIB", "nbEthOamLbConfRunMethod"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfBurstInterval"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfNumberOfBursts"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDmConfRunMethod"), ("OA-ETHERNET-OAM-MIB", "nbEthOamTrapTrapGeneration"), ("OA-ETHERNET-OAM-MIB", "nbEthOamTrapCcmHighestPrDefect"), ("OA-ETHERNET-OAM-MIB", "nbEthOamTrapCcmAlarmType"), ("OA-ETHERNET-OAM-MIB", "nbEthOamTrapDmmReason"), ("OA-ETHERNET-OAM-MIB", "nbEthOamFdRiseThold"), ("OA-ETHERNET-OAM-MIB", "nbEthOamFdFallThold"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDSJittRiseThold"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDSJittFallThold"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDSJittSum2RiseThold"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDSJittSum2FallThold"), ("OA-ETHERNET-OAM-MIB", "nbEthOamSDJittRiseThold"), ("OA-ETHERNET-OAM-MIB", "nbEthOamSDJittFallThold"), ("OA-ETHERNET-OAM-MIB", "nbEthOamSDJittSum2RiseThold"), ("OA-ETHERNET-OAM-MIB", "nbEthOamSDJittSum2FallThold"), ("OA-ETHERNET-OAM-MIB", "nbEthOamPcktLossRiseThold"), ("OA-ETHERNET-OAM-MIB", "nbEthOamPcktLossFallThold"), ("OA-ETHERNET-OAM-MIB", "nbEthOamServiceDmResponderSL"), ("OA-ETHERNET-OAM-MIB", "nbEthOamServiceLbResponderSL"), ("OA-ETHERNET-OAM-MIB", "nbEthOamServiceLmResponderSL"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nbEthOamMandatoryGroup = nbEthOamMandatoryGroup.setStatus('current')
+nbEthOamNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 629, 1, 50, 17, 100, 2, 2)).setObjects(("OA-ETHERNET-OAM-MIB", "nbEthOamCcmAlarm"), ("OA-ETHERNET-OAM-MIB", "nbEthOamFdAlarm"), ("OA-ETHERNET-OAM-MIB", "nbEthOamSDJittAlarm"), ("OA-ETHERNET-OAM-MIB", "nbEthOamDSJittAlarm"), ("OA-ETHERNET-OAM-MIB", "nbEthOamPcktLossAlarm"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nbEthOamNotificationsGroup = nbEthOamNotificationsGroup.setStatus('current')
+mibBuilder.exportSymbols("OA-ETHERNET-OAM-MIB", nbEthOamDmHistTable=nbEthOamDmHistTable, nbEthOamLbHistDestMepMac=nbEthOamLbHistDestMepMac, nbEthOamLbConfDestMepMac=nbEthOamLbConfDestMepMac, nbEthOamLbHistType=nbEthOamLbHistType, nbEthOamLbConfBurstInterval=nbEthOamLbConfBurstInterval, nbEthOamDmHistSampleIndex=nbEthOamDmHistSampleIndex, nbEthOamDmConfEntry=nbEthOamDmConfEntry, nbEthOamDmLastDSJittSum2=nbEthOamDmLastDSJittSum2, nbEthOamDmLastRttAverage=nbEthOamDmLastRttAverage, nbEthOamDmHcHistSDJittSum2=nbEthOamDmHcHistSDJittSum2, nbEthOamDmConfIntervalMicro=nbEthOamDmConfIntervalMicro, nbEthOamDmConfDataLength=nbEthOamDmConfDataLength, nbEthOamDmHcLastEntry=nbEthOamDmHcLastEntry, nbEthOamDmHcHistDSJittMin=nbEthOamDmHcHistDSJittMin, PYSNMP_MODULE_ID=nbEthOam, nbEthOamDSJittSum2FallThold=nbEthOamDSJittSum2FallThold, nbEthOamDmLastType=nbEthOamDmLastType, nbEthOamDmLastSDJittMin=nbEthOamDmLastSDJittMin, nbEthOamDmHcLastSDJittMin=nbEthOamDmHcLastSDJittMin, nbEthOamLbHistJittIA=nbEthOamLbHistJittIA, nbEthOamDSJittSum2RiseThold=nbEthOamDSJittSum2RiseThold, nbEthOamLbConfDataLength=nbEthOamLbConfDataLength, nbEthOamDSJittFallThold=nbEthOamDSJittFallThold, nbEthOamDmConfTimeout=nbEthOamDmConfTimeout, nbEthOamNotificationsGroup=nbEthOamNotificationsGroup, nbEthOamDmLastDestMepId=nbEthOamDmLastDestMepId, nbEthOamLbConfIntervalMicro=nbEthOamLbConfIntervalMicro, nbEthOamSDJittSum2FallThold=nbEthOamSDJittSum2FallThold, nbEthOamDmHcHistDSJittSum2=nbEthOamDmHcHistDSJittSum2, nbEthOamLbConfPriority=nbEthOamLbConfPriority, nbEthOamDmLastSDJittNumber=nbEthOamDmLastSDJittNumber, nbEthOamDmConfHistorySize=nbEthOamDmConfHistorySize, nbEthOamServiceTable=nbEthOamServiceTable, NbEthOamCcmHighestDefectPri=NbEthOamCcmHighestDefectPri, nbEthOamLbLastRttAverage=nbEthOamLbLastRttAverage, nbEthOamDmHcLastDSJittIA=nbEthOamDmHcLastDSJittIA, nbEthOamTrapDmmReason=nbEthOamTrapDmmReason, nbEthOamFdFallThold=nbEthOamFdFallThold, nbEthOamDmLastDSJittMax=nbEthOamDmLastDSJittMax, nbEthOamServiceLmResponderSL=nbEthOamServiceLmResponderSL, nbEthOamDmLastMsgReceived=nbEthOamDmLastMsgReceived, nbEthOamDmConfTable=nbEthOamDmConfTable, nbEthOamLbLastDestMepMac=nbEthOamLbLastDestMepMac, nbEthOamLbHistPriority=nbEthOamLbHistPriority, nbEthOamCapabilities=nbEthOamCapabilities, nbEthOamDmHistMsgReceived=nbEthOamDmHistMsgReceived, nbEthOamDmHcHistEntry=nbEthOamDmHcHistEntry, nbEthOamLbLastJittMin=nbEthOamLbLastJittMin, nbEthOamFdAlarm=nbEthOamFdAlarm, nbEthOamSDJittRiseThold=nbEthOamSDJittRiseThold, nbEthOamLbConfDestMepId=nbEthOamLbConfDestMepId, nbEthOamLbLastPriority=nbEthOamLbLastPriority, nbEthOamDmHistRttMax=nbEthOamDmHistRttMax, nbEthOamDmHistMsgTransmitted=nbEthOamDmHistMsgTransmitted, nbEthOamDmConfDataFill=nbEthOamDmConfDataFill, nbEthOamDmHistDSJittAverage=nbEthOamDmHistDSJittAverage, nbEthOamDmConfExtTable=nbEthOamDmConfExtTable, nbEthOamTrapTable=nbEthOamTrapTable, nbEthOamDmLastSDJittSum2=nbEthOamDmLastSDJittSum2, nbEthOamLbHistRttAverage=nbEthOamLbHistRttAverage, nbEthOamDmConfDestMepMac=nbEthOamDmConfDestMepMac, nbEthOamLbHistEntry=nbEthOamLbHistEntry, nbEthOamDmHistSDJittAverage=nbEthOamDmHistSDJittAverage, nbEthOamLbConfMessages=nbEthOamLbConfMessages, nbEthOamLbLastStarted=nbEthOamLbLastStarted, nbEthOamDmHcHistSDJittAverage=nbEthOamDmHcHistSDJittAverage, nbEthOamDmHcLastSDJittMax=nbEthOamDmHcLastSDJittMax, nbEthOamDmConfExtEntry=nbEthOamDmConfExtEntry, nbEthOamLbConfInterval=nbEthOamLbConfInterval, nbEthOamLbLastJittMax=nbEthOamLbLastJittMax, nbEthOamDmHistRttMin=nbEthOamDmHistRttMin, nbEthOamDmHcHistSDJittMin=nbEthOamDmHcHistSDJittMin, nbEthOamSDJittFallThold=nbEthOamSDJittFallThold, nbEthOamLbHistStarted=nbEthOamLbHistStarted, nbEthOamLbHistRttSum2=nbEthOamLbHistRttSum2, nbEthOamLbLastPcktLoss=nbEthOamLbLastPcktLoss, nbEthOamDmLastDSJittAverage=nbEthOamDmLastDSJittAverage, nbEthOamLbHistJittNumber=nbEthOamLbHistJittNumber, nbEthOamMandatoryGroup=nbEthOamMandatoryGroup, nbEthOamLbLastRttMin=nbEthOamLbLastRttMin, nbEthOam=nbEthOam, nbEthOamCcmIntervals=nbEthOamCcmIntervals, nbEthOamDmHistDSJittMax=nbEthOamDmHistDSJittMax, nbEthOamNotifications=nbEthOamNotifications, nbEthOamDmHcHistSDJittIA=nbEthOamDmHcHistSDJittIA, nbEthOamLbLastTable=nbEthOamLbLastTable, nbEthOamDmHcLastDSJittMax=nbEthOamDmHcLastDSJittMax, nbEthOamMaIndex=nbEthOamMaIndex, nbEthOamDmHcHistRttSum2=nbEthOamDmHcHistRttSum2, nbEthOamDmConfMessages=nbEthOamDmConfMessages, nbEthOamDmLastDestMepMac=nbEthOamDmLastDestMepMac, nbEthOamLbHistRttMin=nbEthOamLbHistRttMin, nbEthOamLbLastDestMepId=nbEthOamLbLastDestMepId, nbEthOamLbConfRunMethod=nbEthOamLbConfRunMethod, nbEthOamDmConfNumberOfBursts=nbEthOamDmConfNumberOfBursts, nbEthOamDmLastTable=nbEthOamDmLastTable, nbEthOamLbHistRttMax=nbEthOamLbHistRttMax, nbEthOamLbConfTable=nbEthOamLbConfTable, nbEthOamDmLastDSJittNumber=nbEthOamDmLastDSJittNumber, nbEthOamDmHcHistRttMin=nbEthOamDmHcHistRttMin, nbEthOamDmHcLastDSJittAverage=nbEthOamDmHcLastDSJittAverage, nbEthOamMIBCompliance=nbEthOamMIBCompliance, nbEthOamLbHistTable=nbEthOamLbHistTable, nbEthOamPcktLossFallThold=nbEthOamPcktLossFallThold, nbEthOamDmHistDestMepMac=nbEthOamDmHistDestMepMac, nbEthOamDmLastSDJittIA=nbEthOamDmLastSDJittIA, nbEthOamLbConfNumberOfBursts=nbEthOamLbConfNumberOfBursts, nbEthOamLbConfExtEntry=nbEthOamLbConfExtEntry, nbEthOamMIBGroups=nbEthOamMIBGroups, nbEthOamDmHcHistRttAverage=nbEthOamDmHcHistRttAverage, nbEthOamDmHcLastSDJittAverage=nbEthOamDmHcLastSDJittAverage, nbEthOamLbConfDataFill=nbEthOamLbConfDataFill, nbEthOamDmHcHistRttMax=nbEthOamDmHcHistRttMax, NbEthOamMepIdOrZero=NbEthOamMepIdOrZero, nbEthOamLbLastHistIndx=nbEthOamLbLastHistIndx, nbEthOamDm=nbEthOamDm, nbEthOamDmHistDSJittMin=nbEthOamDmHistDSJittMin, nbEthOamDmHistSDJittMin=nbEthOamDmHistSDJittMin, nbEthOamDmHistSDJittMax=nbEthOamDmHistSDJittMax, nbEthOamTrapCcmAlarmType=nbEthOamTrapCcmAlarmType, nbEthOamDmHistSDJittNumber=nbEthOamDmHistSDJittNumber, nbEthOamLbLastRttSum2=nbEthOamLbLastRttSum2, nbEthOamLbLastJittSum2=nbEthOamLbLastJittSum2, nbEthOamDmLastStarted=nbEthOamDmLastStarted, nbEthOamLbLastJittAverage=nbEthOamLbLastJittAverage, nbEthOamDmLastHistIndx=nbEthOamDmLastHistIndx, nbEthOamDmHistDestMepId=nbEthOamDmHistDestMepId, nbEthOamTrapTrapGeneration=nbEthOamTrapTrapGeneration, nbEthOamLbHistDestMepId=nbEthOamLbHistDestMepId, nbEthOamDmConfInterval=nbEthOamDmConfInterval, nbEthOamDmConfRunMethod=nbEthOamDmConfRunMethod, nbEthOamPcktLossRiseThold=nbEthOamPcktLossRiseThold, nbEthOamLbHistJittSum2=nbEthOamLbHistJittSum2, nbEthOamTrapEntry=nbEthOamTrapEntry, nbEthOamDmHistType=nbEthOamDmHistType, NbEthOamMepId=NbEthOamMepId, nbEthOamDmHistRttSum2=nbEthOamDmHistRttSum2, nbEthOamTrapCcmHighestPrDefect=nbEthOamTrapCcmHighestPrDefect, nbEthOamLbConfEntry=nbEthOamLbConfEntry, nbEthOamDmHistDSJittSum2=nbEthOamDmHistDSJittSum2, nbEthOamMdIndex=nbEthOamMdIndex, nbEthOamDmLastPriority=nbEthOamDmLastPriority, nbEthOamDmConfDestMepId=nbEthOamDmConfDestMepId, nbEthOamDmHcLastTable=nbEthOamDmHcLastTable, nbEthOamServiceLbResponderSL=nbEthOamServiceLbResponderSL, nbEthOamDmLastDSJittMin=nbEthOamDmLastDSJittMin, nbEthOamDmHcHistTable=nbEthOamDmHcHistTable, nbEthOamDmHcLastRttMin=nbEthOamDmHcLastRttMin, nbEthOamLbHistPcktLoss=nbEthOamLbHistPcktLoss, nbEthOamDmHistRttAverage=nbEthOamDmHistRttAverage, nbEthOamDmHcHistSDJittMax=nbEthOamDmHcHistSDJittMax, nbEthOamDSJittAlarm=nbEthOamDSJittAlarm, nbEthOamDmConfDestMepList=nbEthOamDmConfDestMepList, nbEthOamLbLastJittNumber=nbEthOamLbLastJittNumber, nbEthOamDmHcLastSDJittSum2=nbEthOamDmHcLastSDJittSum2, nbEthOamLbHistMsgTransmitted=nbEthOamLbHistMsgTransmitted, nbEthOamLbConfDestMepList=nbEthOamLbConfDestMepList, nbEthOamDmLastRttMin=nbEthOamDmLastRttMin, nbEthOamDmHcLastRunStatus=nbEthOamDmHcLastRunStatus, nbEthOamDSJittRiseThold=nbEthOamDSJittRiseThold, nbEthOamLbLastMsgTransmitted=nbEthOamLbLastMsgTransmitted, nbEthOamLbLastJittIA=nbEthOamLbLastJittIA, nbEthOamLbHistJittAverage=nbEthOamLbHistJittAverage, nbEthOamCcmAlarm=nbEthOamCcmAlarm, nbEthOamDmHistStarted=nbEthOamDmHistStarted, nbEthOamDmHcLastRttSum2=nbEthOamDmHcLastRttSum2, nbEthOamDmLastMsgTransmitted=nbEthOamDmLastMsgTransmitted, nbEthOamLbHistSampleIndex=nbEthOamLbHistSampleIndex, nbEthOamLbHistJittMax=nbEthOamLbHistJittMax, nbEthOamLbHistJittMin=nbEthOamLbHistJittMin, nbEthOamLbConfTimeout=nbEthOamLbConfTimeout, nbEthOamDmHistSDJittSum2=nbEthOamDmHistSDJittSum2, nbEthOamConformance=nbEthOamConformance, nbEthOamSDJittSum2RiseThold=nbEthOamSDJittSum2RiseThold, nbEthOamDmLastRttSum2=nbEthOamDmLastRttSum2, nbEthOamSDJittAlarm=nbEthOamSDJittAlarm, nbEthOamMIBCompliances=nbEthOamMIBCompliances, DestinationType=DestinationType, nbEthOamDmLastSDJittMax=nbEthOamDmLastSDJittMax, nbEthOamLbConfDestIsMepId=nbEthOamLbConfDestIsMepId, nbEthOamDmHcLastDSJittMin=nbEthOamDmHcLastDSJittMin, nbEthOamDmHcHistDSJittAverage=nbEthOamDmHcHistDSJittAverage, nbEthOamDmHcLastDSJittSum2=nbEthOamDmHcLastDSJittSum2, nbEthOamDmLastSDJittAverage=nbEthOamDmLastSDJittAverage, nbEthOamDmLastRttMax=nbEthOamDmLastRttMax, nbEthOamLbLastMsgReceived=nbEthOamLbLastMsgReceived, nbEthOamLbConfExtTable=nbEthOamLbConfExtTable, nbEthOamServiceDmResponderSL=nbEthOamServiceDmResponderSL, nbEthOamDmLastDSJittIA=nbEthOamDmLastDSJittIA, nbEthOamLbLastRttMax=nbEthOamLbLastRttMax, nbEthOamServiceEntry=nbEthOamServiceEntry, nbEthOamDmHistSDJittIA=nbEthOamDmHistSDJittIA, nbEthOamLbConfHistorySize=nbEthOamLbConfHistorySize, nbEthOamDmHistPriority=nbEthOamDmHistPriority, nbEthOamDmLastPcktLoss=nbEthOamDmLastPcktLoss, nbEthOamDmHcLastSDJittIA=nbEthOamDmHcLastSDJittIA, nbEthOamDmHcHistDSJittIA=nbEthOamDmHcHistDSJittIA, nbEthOamLbLastEntry=nbEthOamLbLastEntry, nbEthOamLb=nbEthOamLb, nbEthOamDmConfPriority=nbEthOamDmConfPriority, nbEthOamDmHistEntry=nbEthOamDmHistEntry, nbEthOamDmConfDestIsMepId=nbEthOamDmConfDestIsMepId, nbEthOamFdRiseThold=nbEthOamFdRiseThold, nbEthOamLbHistMsgReceived=nbEthOamLbHistMsgReceived, nbEthOamDmHistDSJittNumber=nbEthOamDmHistDSJittNumber, nbEthOamDmHistDSJittIA=nbEthOamDmHistDSJittIA, TestRunMethod=TestRunMethod, nbEthOamLbLastType=nbEthOamLbLastType, nbEthOamDmLastEntry=nbEthOamDmLastEntry, nbEthOamDmHcLastRttAverage=nbEthOamDmHcLastRttAverage, nbEthOamDmHcLastRttMax=nbEthOamDmHcLastRttMax, nbEthOamDmConfBurstInterval=nbEthOamDmConfBurstInterval, nbEthOamDmHistPcktLoss=nbEthOamDmHistPcktLoss, nbEthOamMepIdentifier=nbEthOamMepIdentifier, nbEthOamDmHcHistDSJittMax=nbEthOamDmHcHistDSJittMax, nbEthOamPcktLossAlarm=nbEthOamPcktLossAlarm, nbEthOamFeaturesSupport=nbEthOamFeaturesSupport)

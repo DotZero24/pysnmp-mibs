@@ -1,49 +1,38 @@
-_F='trpzQosConfQosProfileConfigGroup'
-_E='trpzQosConfQosProfConfMaxBandwidthKbps'
-_D='trpzQosConfQosProfConfProfileName'
-_C='OctetString'
-_B='TRAPEZE-NETWORKS-QOS-CONFIG-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-trpzMibs,=mibBuilder.importSymbols('TRAPEZE-NETWORKS-ROOT-MIB','trpzMibs')
-trpzQosConfigMib=ModuleIdentity((1,3,6,1,4,1,14525,4,20))
-if mibBuilder.loadTexts:trpzQosConfigMib.setRevisions(('2011-02-24 00:11',))
-_TrpzQosConfigMibObjects_ObjectIdentity=ObjectIdentity
-trpzQosConfigMibObjects=_TrpzQosConfigMibObjects_ObjectIdentity((1,3,6,1,4,1,14525,4,20,1))
-_TrpzQosConfQosProfileConfigTable_Object=MibTable
-trpzQosConfQosProfileConfigTable=_TrpzQosConfQosProfileConfigTable_Object((1,3,6,1,4,1,14525,4,20,1,1))
-if mibBuilder.loadTexts:trpzQosConfQosProfileConfigTable.setStatus(_A)
-_TrpzQosConfQosProfileConfigEntry_Object=MibTableRow
-trpzQosConfQosProfileConfigEntry=_TrpzQosConfQosProfileConfigEntry_Object((1,3,6,1,4,1,14525,4,20,1,1,1))
-trpzQosConfQosProfileConfigEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:trpzQosConfQosProfileConfigEntry.setStatus(_A)
-class _TrpzQosConfQosProfConfProfileName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_TrpzQosConfQosProfConfProfileName_Type.__name__=_C
-_TrpzQosConfQosProfConfProfileName_Object=MibTableColumn
-trpzQosConfQosProfConfProfileName=_TrpzQosConfQosProfConfProfileName_Object((1,3,6,1,4,1,14525,4,20,1,1,1,1),_TrpzQosConfQosProfConfProfileName_Type())
-trpzQosConfQosProfConfProfileName.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:trpzQosConfQosProfConfProfileName.setStatus(_A)
-_TrpzQosConfQosProfConfMaxBandwidthKbps_Type=Unsigned32
-_TrpzQosConfQosProfConfMaxBandwidthKbps_Object=MibTableColumn
-trpzQosConfQosProfConfMaxBandwidthKbps=_TrpzQosConfQosProfConfMaxBandwidthKbps_Object((1,3,6,1,4,1,14525,4,20,1,1,1,2),_TrpzQosConfQosProfConfMaxBandwidthKbps_Type())
-trpzQosConfQosProfConfMaxBandwidthKbps.setMaxAccess('read-write')
-if mibBuilder.loadTexts:trpzQosConfQosProfConfMaxBandwidthKbps.setStatus(_A)
-_TrpzQosConfigConformance_ObjectIdentity=ObjectIdentity
-trpzQosConfigConformance=_TrpzQosConfigConformance_ObjectIdentity((1,3,6,1,4,1,14525,4,20,2))
-_TrpzQosConfigCompliances_ObjectIdentity=ObjectIdentity
-trpzQosConfigCompliances=_TrpzQosConfigCompliances_ObjectIdentity((1,3,6,1,4,1,14525,4,20,2,1))
-_TrpzQosConfigGroups_ObjectIdentity=ObjectIdentity
-trpzQosConfigGroups=_TrpzQosConfigGroups_ObjectIdentity((1,3,6,1,4,1,14525,4,20,2,2))
-trpzQosConfQosProfileConfigGroup=ObjectGroup((1,3,6,1,4,1,14525,4,20,2,2,1))
-trpzQosConfQosProfileConfigGroup.setObjects((_B,_E))
-if mibBuilder.loadTexts:trpzQosConfQosProfileConfigGroup.setStatus(_A)
-trpzQosConfigCompliance=ModuleCompliance((1,3,6,1,4,1,14525,4,20,2,1,1))
-trpzQosConfigCompliance.setObjects((_B,_F))
-if mibBuilder.loadTexts:trpzQosConfigCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'trpzQosConfigMib':trpzQosConfigMib,'trpzQosConfigMibObjects':trpzQosConfigMibObjects,'trpzQosConfQosProfileConfigTable':trpzQosConfQosProfileConfigTable,'trpzQosConfQosProfileConfigEntry':trpzQosConfQosProfileConfigEntry,_D:trpzQosConfQosProfConfProfileName,_E:trpzQosConfQosProfConfMaxBandwidthKbps,'trpzQosConfigConformance':trpzQosConfigConformance,'trpzQosConfigCompliances':trpzQosConfigCompliances,'trpzQosConfigCompliance':trpzQosConfigCompliance,'trpzQosConfigGroups':trpzQosConfigGroups,_F:trpzQosConfQosProfileConfigGroup})
+#
+# PySNMP MIB module TRAPEZE-NETWORKS-QOS-CONFIG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/trapeze/TRAPEZE-NETWORKS-QOS-CONFIG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+trpzMibs, = mibBuilder.importSymbols("TRAPEZE-NETWORKS-ROOT-MIB", "trpzMibs")
+trpzQosConfigMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 14525, 4, 20))
+trpzQosConfigMib.setRevisions(('2011-02-24 00:11',))
+if mibBuilder.loadTexts: trpzQosConfigMib.setLastUpdated('201102240011Z')
+if mibBuilder.loadTexts: trpzQosConfigMib.setOrganization('Trapeze Networks')
+trpzQosConfigMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4, 20, 1))
+trpzQosConfQosProfileConfigTable = MibTable((1, 3, 6, 1, 4, 1, 14525, 4, 20, 1, 1), )
+if mibBuilder.loadTexts: trpzQosConfQosProfileConfigTable.setStatus('current')
+trpzQosConfQosProfileConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 14525, 4, 20, 1, 1, 1), ).setIndexNames((0, "TRAPEZE-NETWORKS-QOS-CONFIG-MIB", "trpzQosConfQosProfConfProfileName"))
+if mibBuilder.loadTexts: trpzQosConfQosProfileConfigEntry.setStatus('current')
+trpzQosConfQosProfConfProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 14525, 4, 20, 1, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 32)))
+if mibBuilder.loadTexts: trpzQosConfQosProfConfProfileName.setStatus('current')
+trpzQosConfQosProfConfMaxBandwidthKbps = MibTableColumn((1, 3, 6, 1, 4, 1, 14525, 4, 20, 1, 1, 1, 2), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: trpzQosConfQosProfConfMaxBandwidthKbps.setStatus('current')
+trpzQosConfigConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4, 20, 2))
+trpzQosConfigCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4, 20, 2, 1))
+trpzQosConfigGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4, 20, 2, 2))
+trpzQosConfigCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 14525, 4, 20, 2, 1, 1)).setObjects(("TRAPEZE-NETWORKS-QOS-CONFIG-MIB", "trpzQosConfQosProfileConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    trpzQosConfigCompliance = trpzQosConfigCompliance.setStatus('current')
+trpzQosConfQosProfileConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 14525, 4, 20, 2, 2, 1)).setObjects(("TRAPEZE-NETWORKS-QOS-CONFIG-MIB", "trpzQosConfQosProfConfMaxBandwidthKbps"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    trpzQosConfQosProfileConfigGroup = trpzQosConfQosProfileConfigGroup.setStatus('current')
+mibBuilder.exportSymbols("TRAPEZE-NETWORKS-QOS-CONFIG-MIB", trpzQosConfQosProfileConfigEntry=trpzQosConfQosProfileConfigEntry, trpzQosConfQosProfileConfigGroup=trpzQosConfQosProfileConfigGroup, trpzQosConfigGroups=trpzQosConfigGroups, trpzQosConfigMib=trpzQosConfigMib, PYSNMP_MODULE_ID=trpzQosConfigMib, trpzQosConfQosProfConfProfileName=trpzQosConfQosProfConfProfileName, trpzQosConfigCompliances=trpzQosConfigCompliances, trpzQosConfigMibObjects=trpzQosConfigMibObjects, trpzQosConfigCompliance=trpzQosConfigCompliance, trpzQosConfigConformance=trpzQosConfigConformance, trpzQosConfQosProfConfMaxBandwidthKbps=trpzQosConfQosProfConfMaxBandwidthKbps, trpzQosConfQosProfileConfigTable=trpzQosConfQosProfileConfigTable)

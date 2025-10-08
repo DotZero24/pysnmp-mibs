@@ -1,100 +1,60 @@
-_P='heRFAmpOutputMandatoryGroup'
-_O='heRFAmpOutputAttenuatorControl'
-_N='heRFAmpOutputLevel'
-_M='heRFAmpSlopeControl'
-_L='heRFAmpAttenuatorControl'
-_K='heRFAmpGainControlMode'
-_J='heRFAmpOutputDescription'
-_I='read-only'
-_H='heRFAmpOutputIndex'
-_G='DisplayString'
-_F='Integer32'
-_E='entPhysicalIndex'
-_D='ENTITY-MIB'
-_C='read-write'
-_B='SCTE-HMS-HE-RF-AMP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-entPhysicalIndex,=mibBuilder.importSymbols(_D,_E)
-heRFAmplifierGroup,=mibBuilder.importSymbols('SCTE-HMS-HE-RF-MIB','heRFAmplifierGroup')
-HeFaultStatus,HeTenthdB,HeTenthdBmV=mibBuilder.importSymbols('SCTE-HMS-HEADENDIDENT-MIB','HeFaultStatus','HeTenthdB','HeTenthdBmV')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_G,'PhysAddress','TextualConvention')
-heRFAmpMIB=ModuleIdentity((1,3,6,1,4,1,5591,1,11,4,1,1))
-if mibBuilder.loadTexts:heRFAmpMIB.setRevisions(('2003-09-11 00:00','2003-08-29 00:00'))
-_HeRFAmpMIBObjects_ObjectIdentity=ObjectIdentity
-heRFAmpMIBObjects=_HeRFAmpMIBObjects_ObjectIdentity((1,3,6,1,4,1,5591,1,11,4,1,1,1))
-_HeRFAmpUnitTable_Object=MibTable
-heRFAmpUnitTable=_HeRFAmpUnitTable_Object((1,3,6,1,4,1,5591,1,11,4,1,1,1,1))
-if mibBuilder.loadTexts:heRFAmpUnitTable.setStatus(_A)
-_HeRFAmpUnitEntry_Object=MibTableRow
-heRFAmpUnitEntry=_HeRFAmpUnitEntry_Object((1,3,6,1,4,1,5591,1,11,4,1,1,1,1,1))
-heRFAmpUnitEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:heRFAmpUnitEntry.setStatus(_A)
-class _HeRFAmpGainControlMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('none',1),('alc',2),('asc',3),('agc',4),('alsc',5)))
-_HeRFAmpGainControlMode_Type.__name__=_F
-_HeRFAmpGainControlMode_Object=MibTableColumn
-heRFAmpGainControlMode=_HeRFAmpGainControlMode_Object((1,3,6,1,4,1,5591,1,11,4,1,1,1,1,1,1),_HeRFAmpGainControlMode_Type())
-heRFAmpGainControlMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:heRFAmpGainControlMode.setStatus(_A)
-_HeRFAmpAttenuatorControl_Type=HeTenthdB
-_HeRFAmpAttenuatorControl_Object=MibTableColumn
-heRFAmpAttenuatorControl=_HeRFAmpAttenuatorControl_Object((1,3,6,1,4,1,5591,1,11,4,1,1,1,1,1,2),_HeRFAmpAttenuatorControl_Type())
-heRFAmpAttenuatorControl.setMaxAccess(_C)
-if mibBuilder.loadTexts:heRFAmpAttenuatorControl.setStatus(_A)
-_HeRFAmpSlopeControl_Type=HeTenthdB
-_HeRFAmpSlopeControl_Object=MibTableColumn
-heRFAmpSlopeControl=_HeRFAmpSlopeControl_Object((1,3,6,1,4,1,5591,1,11,4,1,1,1,1,1,3),_HeRFAmpSlopeControl_Type())
-heRFAmpSlopeControl.setMaxAccess(_C)
-if mibBuilder.loadTexts:heRFAmpSlopeControl.setStatus(_A)
-_HeRFAmpOutputTable_Object=MibTable
-heRFAmpOutputTable=_HeRFAmpOutputTable_Object((1,3,6,1,4,1,5591,1,11,4,1,1,1,2))
-if mibBuilder.loadTexts:heRFAmpOutputTable.setStatus(_A)
-_HeRFAmpOutputEntry_Object=MibTableRow
-heRFAmpOutputEntry=_HeRFAmpOutputEntry_Object((1,3,6,1,4,1,5591,1,11,4,1,1,1,2,1))
-heRFAmpOutputEntry.setIndexNames((0,_D,_E),(0,_B,_H))
-if mibBuilder.loadTexts:heRFAmpOutputEntry.setStatus(_A)
-_HeRFAmpOutputIndex_Type=Unsigned32
-_HeRFAmpOutputIndex_Object=MibTableColumn
-heRFAmpOutputIndex=_HeRFAmpOutputIndex_Object((1,3,6,1,4,1,5591,1,11,4,1,1,1,2,1,1),_HeRFAmpOutputIndex_Type())
-heRFAmpOutputIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:heRFAmpOutputIndex.setStatus(_A)
-class _HeRFAmpOutputDescription_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_HeRFAmpOutputDescription_Type.__name__=_G
-_HeRFAmpOutputDescription_Object=MibTableColumn
-heRFAmpOutputDescription=_HeRFAmpOutputDescription_Object((1,3,6,1,4,1,5591,1,11,4,1,1,1,2,1,2),_HeRFAmpOutputDescription_Type())
-heRFAmpOutputDescription.setMaxAccess(_I)
-if mibBuilder.loadTexts:heRFAmpOutputDescription.setStatus(_A)
-_HeRFAmpOutputLevel_Type=HeTenthdBmV
-_HeRFAmpOutputLevel_Object=MibTableColumn
-heRFAmpOutputLevel=_HeRFAmpOutputLevel_Object((1,3,6,1,4,1,5591,1,11,4,1,1,1,2,1,3),_HeRFAmpOutputLevel_Type())
-heRFAmpOutputLevel.setMaxAccess(_I)
-if mibBuilder.loadTexts:heRFAmpOutputLevel.setStatus(_A)
-_HeRFAmpOutputAttenuatorControl_Type=HeTenthdB
-_HeRFAmpOutputAttenuatorControl_Object=MibTableColumn
-heRFAmpOutputAttenuatorControl=_HeRFAmpOutputAttenuatorControl_Object((1,3,6,1,4,1,5591,1,11,4,1,1,1,2,1,4),_HeRFAmpOutputAttenuatorControl_Type())
-heRFAmpOutputAttenuatorControl.setMaxAccess(_C)
-if mibBuilder.loadTexts:heRFAmpOutputAttenuatorControl.setStatus(_A)
-_HeRFAmpMIBConformance_ObjectIdentity=ObjectIdentity
-heRFAmpMIBConformance=_HeRFAmpMIBConformance_ObjectIdentity((1,3,6,1,4,1,5591,1,11,4,1,1,2))
-_HeRFAmpMIBCompliances_ObjectIdentity=ObjectIdentity
-heRFAmpMIBCompliances=_HeRFAmpMIBCompliances_ObjectIdentity((1,3,6,1,4,1,5591,1,11,4,1,1,2,1))
-_HeRFAmpMIBGroups_ObjectIdentity=ObjectIdentity
-heRFAmpMIBGroups=_HeRFAmpMIBGroups_ObjectIdentity((1,3,6,1,4,1,5591,1,11,4,1,1,2,2))
-heRFAmpOutputMandatoryGroup=ObjectGroup((1,3,6,1,4,1,5591,1,11,4,1,1,2,2,1))
-heRFAmpOutputMandatoryGroup.setObjects((_B,_J))
-if mibBuilder.loadTexts:heRFAmpOutputMandatoryGroup.setStatus(_A)
-heRFAmpUnitGroup=ObjectGroup((1,3,6,1,4,1,5591,1,11,4,1,1,2,2,2))
-heRFAmpUnitGroup.setObjects(*((_B,_K),(_B,_L),(_B,_M)))
-if mibBuilder.loadTexts:heRFAmpUnitGroup.setStatus(_A)
-heRFAmpOutputGroup=ObjectGroup((1,3,6,1,4,1,5591,1,11,4,1,1,2,2,3))
-heRFAmpOutputGroup.setObjects(*((_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:heRFAmpOutputGroup.setStatus(_A)
-heRFAmpBasicCompliance=ModuleCompliance((1,3,6,1,4,1,5591,1,11,4,1,1,2,1,1))
-heRFAmpBasicCompliance.setObjects((_B,_P))
-if mibBuilder.loadTexts:heRFAmpBasicCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'heRFAmpMIB':heRFAmpMIB,'heRFAmpMIBObjects':heRFAmpMIBObjects,'heRFAmpUnitTable':heRFAmpUnitTable,'heRFAmpUnitEntry':heRFAmpUnitEntry,_K:heRFAmpGainControlMode,_L:heRFAmpAttenuatorControl,_M:heRFAmpSlopeControl,'heRFAmpOutputTable':heRFAmpOutputTable,'heRFAmpOutputEntry':heRFAmpOutputEntry,_H:heRFAmpOutputIndex,_J:heRFAmpOutputDescription,_N:heRFAmpOutputLevel,_O:heRFAmpOutputAttenuatorControl,'heRFAmpMIBConformance':heRFAmpMIBConformance,'heRFAmpMIBCompliances':heRFAmpMIBCompliances,'heRFAmpBasicCompliance':heRFAmpBasicCompliance,'heRFAmpMIBGroups':heRFAmpMIBGroups,_P:heRFAmpOutputMandatoryGroup,'heRFAmpUnitGroup':heRFAmpUnitGroup,'heRFAmpOutputGroup':heRFAmpOutputGroup})
+#
+# PySNMP MIB module SCTE-HMS-HE-RF-AMP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/scte/SCTE-HMS-HE-RF-AMP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:36 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+heRFAmplifierGroup, = mibBuilder.importSymbols("SCTE-HMS-HE-RF-MIB", "heRFAmplifierGroup")
+HeTenthdBmV, HeFaultStatus, HeTenthdB = mibBuilder.importSymbols("SCTE-HMS-HEADENDIDENT-MIB", "HeTenthdBmV", "HeFaultStatus", "HeTenthdB")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+heRFAmpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1))
+heRFAmpMIB.setRevisions(('2003-09-11 00:00', '2003-08-29 00:00',))
+if mibBuilder.loadTexts: heRFAmpMIB.setLastUpdated('200309110000Z')
+if mibBuilder.loadTexts: heRFAmpMIB.setOrganization('SCTE HMS Working Group')
+heRFAmpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 1))
+heRFAmpUnitTable = MibTable((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 1, 1), )
+if mibBuilder.loadTexts: heRFAmpUnitTable.setStatus('current')
+heRFAmpUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: heRFAmpUnitEntry.setStatus('current')
+heRFAmpGainControlMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("alc", 2), ("asc", 3), ("agc", 4), ("alsc", 5)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: heRFAmpGainControlMode.setStatus('current')
+heRFAmpAttenuatorControl = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 1, 1, 1, 2), HeTenthdB()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: heRFAmpAttenuatorControl.setStatus('current')
+heRFAmpSlopeControl = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 1, 1, 1, 3), HeTenthdB()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: heRFAmpSlopeControl.setStatus('current')
+heRFAmpOutputTable = MibTable((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 1, 2), )
+if mibBuilder.loadTexts: heRFAmpOutputTable.setStatus('current')
+heRFAmpOutputEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 1, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "SCTE-HMS-HE-RF-AMP-MIB", "heRFAmpOutputIndex"))
+if mibBuilder.loadTexts: heRFAmpOutputEntry.setStatus('current')
+heRFAmpOutputIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 1, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: heRFAmpOutputIndex.setStatus('current')
+heRFAmpOutputDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: heRFAmpOutputDescription.setStatus('current')
+heRFAmpOutputLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 1, 2, 1, 3), HeTenthdBmV()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: heRFAmpOutputLevel.setStatus('current')
+heRFAmpOutputAttenuatorControl = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 1, 2, 1, 4), HeTenthdB()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: heRFAmpOutputAttenuatorControl.setStatus('current')
+heRFAmpMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 2))
+heRFAmpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 2, 1))
+heRFAmpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 2, 2))
+heRFAmpBasicCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 2, 1, 1)).setObjects(("SCTE-HMS-HE-RF-AMP-MIB", "heRFAmpOutputMandatoryGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    heRFAmpBasicCompliance = heRFAmpBasicCompliance.setStatus('current')
+heRFAmpOutputMandatoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 2, 2, 1)).setObjects(("SCTE-HMS-HE-RF-AMP-MIB", "heRFAmpOutputDescription"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    heRFAmpOutputMandatoryGroup = heRFAmpOutputMandatoryGroup.setStatus('current')
+heRFAmpUnitGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 2, 2, 2)).setObjects(("SCTE-HMS-HE-RF-AMP-MIB", "heRFAmpGainControlMode"), ("SCTE-HMS-HE-RF-AMP-MIB", "heRFAmpAttenuatorControl"), ("SCTE-HMS-HE-RF-AMP-MIB", "heRFAmpSlopeControl"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    heRFAmpUnitGroup = heRFAmpUnitGroup.setStatus('current')
+heRFAmpOutputGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5591, 1, 11, 4, 1, 1, 2, 2, 3)).setObjects(("SCTE-HMS-HE-RF-AMP-MIB", "heRFAmpOutputLevel"), ("SCTE-HMS-HE-RF-AMP-MIB", "heRFAmpOutputAttenuatorControl"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    heRFAmpOutputGroup = heRFAmpOutputGroup.setStatus('current')
+mibBuilder.exportSymbols("SCTE-HMS-HE-RF-AMP-MIB", heRFAmpUnitEntry=heRFAmpUnitEntry, heRFAmpMIBConformance=heRFAmpMIBConformance, heRFAmpOutputIndex=heRFAmpOutputIndex, heRFAmpSlopeControl=heRFAmpSlopeControl, heRFAmpAttenuatorControl=heRFAmpAttenuatorControl, heRFAmpUnitTable=heRFAmpUnitTable, heRFAmpOutputDescription=heRFAmpOutputDescription, heRFAmpOutputAttenuatorControl=heRFAmpOutputAttenuatorControl, heRFAmpOutputGroup=heRFAmpOutputGroup, heRFAmpOutputTable=heRFAmpOutputTable, heRFAmpMIB=heRFAmpMIB, heRFAmpOutputLevel=heRFAmpOutputLevel, heRFAmpMIBObjects=heRFAmpMIBObjects, heRFAmpUnitGroup=heRFAmpUnitGroup, heRFAmpMIBGroups=heRFAmpMIBGroups, heRFAmpOutputMandatoryGroup=heRFAmpOutputMandatoryGroup, heRFAmpBasicCompliance=heRFAmpBasicCompliance, heRFAmpOutputEntry=heRFAmpOutputEntry, PYSNMP_MODULE_ID=heRFAmpMIB, heRFAmpGainControlMode=heRFAmpGainControlMode, heRFAmpMIBCompliances=heRFAmpMIBCompliances)

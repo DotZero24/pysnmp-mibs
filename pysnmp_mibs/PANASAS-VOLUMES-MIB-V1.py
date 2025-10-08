@@ -1,57 +1,37 @@
-_D='panVolPath'
-_C='PANASAS-VOLUMES-MIB-V1'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-panFs,=mibBuilder.importSymbols('PANASAS-PANFS-MIB-V1','panFs')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-panVol=ModuleIdentity((1,3,6,1,4,1,10159,1,3,4))
-if mibBuilder.loadTexts:panVol.setRevisions(('2011-04-07 00:00',))
-_PanVolTable_Object=MibTable
-panVolTable=_PanVolTable_Object((1,3,6,1,4,1,10159,1,3,4,1))
-if mibBuilder.loadTexts:panVolTable.setStatus(_A)
-_PanVolEntry_Object=MibTableRow
-panVolEntry=_PanVolEntry_Object((1,3,6,1,4,1,10159,1,3,4,1,1))
-panVolEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:panVolEntry.setStatus(_A)
-_PanVolPath_Type=DisplayString
-_PanVolPath_Object=MibTableColumn
-panVolPath=_PanVolPath_Object((1,3,6,1,4,1,10159,1,3,4,1,1,1),_PanVolPath_Type())
-panVolPath.setMaxAccess(_B)
-if mibBuilder.loadTexts:panVolPath.setStatus(_A)
-_PanVolBladeSet_Type=DisplayString
-_PanVolBladeSet_Object=MibTableColumn
-panVolBladeSet=_PanVolBladeSet_Object((1,3,6,1,4,1,10159,1,3,4,1,1,2),_PanVolBladeSet_Type())
-panVolBladeSet.setMaxAccess(_B)
-if mibBuilder.loadTexts:panVolBladeSet.setStatus(_A)
-_PanVolSoftQuota_Type=Unsigned32
-_PanVolSoftQuota_Object=MibTableColumn
-panVolSoftQuota=_PanVolSoftQuota_Object((1,3,6,1,4,1,10159,1,3,4,1,1,3),_PanVolSoftQuota_Type())
-panVolSoftQuota.setMaxAccess(_B)
-if mibBuilder.loadTexts:panVolSoftQuota.setStatus(_A)
-_PanVolHardQuota_Type=Unsigned32
-_PanVolHardQuota_Object=MibTableColumn
-panVolHardQuota=_PanVolHardQuota_Object((1,3,6,1,4,1,10159,1,3,4,1,1,4),_PanVolHardQuota_Type())
-panVolHardQuota.setMaxAccess(_B)
-if mibBuilder.loadTexts:panVolHardQuota.setStatus(_A)
-_PanVolUsed_Type=Unsigned32
-_PanVolUsed_Object=MibTableColumn
-panVolUsed=_PanVolUsed_Object((1,3,6,1,4,1,10159,1,3,4,1,1,5),_PanVolUsed_Type())
-panVolUsed.setMaxAccess(_B)
-if mibBuilder.loadTexts:panVolUsed.setStatus(_A)
-_PanVolRaid_Type=DisplayString
-_PanVolRaid_Object=MibTableColumn
-panVolRaid=_PanVolRaid_Object((1,3,6,1,4,1,10159,1,3,4,1,1,6),_PanVolRaid_Type())
-panVolRaid.setMaxAccess(_B)
-if mibBuilder.loadTexts:panVolRaid.setStatus(_A)
-_PanVolInfo_Type=DisplayString
-_PanVolInfo_Object=MibTableColumn
-panVolInfo=_PanVolInfo_Object((1,3,6,1,4,1,10159,1,3,4,1,1,7),_PanVolInfo_Type())
-panVolInfo.setMaxAccess(_B)
-if mibBuilder.loadTexts:panVolInfo.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'panVol':panVol,'panVolTable':panVolTable,'panVolEntry':panVolEntry,_D:panVolPath,'panVolBladeSet':panVolBladeSet,'panVolSoftQuota':panVolSoftQuota,'panVolHardQuota':panVolHardQuota,'panVolUsed':panVolUsed,'panVolRaid':panVolRaid,'panVolInfo':panVolInfo})
+#
+# PySNMP MIB module PANASAS-VOLUMES-MIB-V1 (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/panasas/PANASAS-VOLUMES-MIB-V1
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:38 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+panFs, = mibBuilder.importSymbols("PANASAS-PANFS-MIB-V1", "panFs")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+panVol = ModuleIdentity((1, 3, 6, 1, 4, 1, 10159, 1, 3, 4))
+panVol.setRevisions(('2011-04-07 00:00',))
+if mibBuilder.loadTexts: panVol.setLastUpdated('201104070000Z')
+if mibBuilder.loadTexts: panVol.setOrganization('Panasas, Inc')
+panVolTable = MibTable((1, 3, 6, 1, 4, 1, 10159, 1, 3, 4, 1), )
+if mibBuilder.loadTexts: panVolTable.setStatus('current')
+panVolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10159, 1, 3, 4, 1, 1), ).setIndexNames((0, "PANASAS-VOLUMES-MIB-V1", "panVolPath"))
+if mibBuilder.loadTexts: panVolEntry.setStatus('current')
+panVolPath = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 4, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: panVolPath.setStatus('current')
+panVolBladeSet = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 4, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: panVolBladeSet.setStatus('current')
+panVolSoftQuota = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 4, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: panVolSoftQuota.setStatus('current')
+panVolHardQuota = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 4, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: panVolHardQuota.setStatus('current')
+panVolUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 4, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: panVolUsed.setStatus('current')
+panVolRaid = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 4, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: panVolRaid.setStatus('current')
+panVolInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 4, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: panVolInfo.setStatus('current')
+mibBuilder.exportSymbols("PANASAS-VOLUMES-MIB-V1", panVolEntry=panVolEntry, panVolHardQuota=panVolHardQuota, panVolTable=panVolTable, panVolInfo=panVolInfo, panVol=panVol, panVolUsed=panVolUsed, PYSNMP_MODULE_ID=panVol, panVolSoftQuota=panVolSoftQuota, panVolBladeSet=panVolBladeSet, panVolRaid=panVolRaid, panVolPath=panVolPath)

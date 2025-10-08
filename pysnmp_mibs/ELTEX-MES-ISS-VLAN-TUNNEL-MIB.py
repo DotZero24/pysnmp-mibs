@@ -1,197 +1,100 @@
-_G='eltMesIssVlanDiscardStatsEntry'
-_F='eltMesIssVlanTunnelProtocolStatsEntry'
-_E='eltMesIssVlanTunnelProtocolEntry'
-_D='ELTEX-MES-ISS-VLAN-TUNNEL-MIB'
-_C='read-write'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-TunnelStatus,fsVlanDiscardStatsEntry,fsVlanTunnelProtocolEntry,fsVlanTunnelProtocolStatsEntry=mibBuilder.importSymbols('ARICENT-VLAN-EXT-MIB','TunnelStatus','fsVlanDiscardStatsEntry','fsVlanTunnelProtocolEntry','fsVlanTunnelProtocolStatsEntry')
-eltMesIss,=mibBuilder.importSymbols('ELTEX-MES-ISS-MIB','eltMesIss')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-eltMesIssVlanTunnelMIB=ModuleIdentity((1,3,6,1,4,1,35265,1,139,21))
-if mibBuilder.loadTexts:eltMesIssVlanTunnelMIB.setRevisions(('2021-06-29 00:00','2020-07-06 00:00'))
-_EltMesIssVlanTunnelObjects_ObjectIdentity=ObjectIdentity
-eltMesIssVlanTunnelObjects=_EltMesIssVlanTunnelObjects_ObjectIdentity((1,3,6,1,4,1,35265,1,139,21,1))
-_EltMesIssVlanTunnelPvstAddress_Type=MacAddress
-_EltMesIssVlanTunnelPvstAddress_Object=MibScalar
-eltMesIssVlanTunnelPvstAddress=_EltMesIssVlanTunnelPvstAddress_Object((1,3,6,1,4,1,35265,1,139,21,1,1),_EltMesIssVlanTunnelPvstAddress_Type())
-eltMesIssVlanTunnelPvstAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelPvstAddress.setStatus(_A)
-_EltMesIssVlanTunnelVtpAddress_Type=MacAddress
-_EltMesIssVlanTunnelVtpAddress_Object=MibScalar
-eltMesIssVlanTunnelVtpAddress=_EltMesIssVlanTunnelVtpAddress_Object((1,3,6,1,4,1,35265,1,139,21,1,2),_EltMesIssVlanTunnelVtpAddress_Type())
-eltMesIssVlanTunnelVtpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelVtpAddress.setStatus(_A)
-_EltMesIssVlanTunnelOspfAddress_Type=MacAddress
-_EltMesIssVlanTunnelOspfAddress_Object=MibScalar
-eltMesIssVlanTunnelOspfAddress=_EltMesIssVlanTunnelOspfAddress_Object((1,3,6,1,4,1,35265,1,139,21,1,3),_EltMesIssVlanTunnelOspfAddress_Type())
-eltMesIssVlanTunnelOspfAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelOspfAddress.setStatus(_A)
-_EltMesIssVlanTunnelRipAddress_Type=MacAddress
-_EltMesIssVlanTunnelRipAddress_Object=MibScalar
-eltMesIssVlanTunnelRipAddress=_EltMesIssVlanTunnelRipAddress_Object((1,3,6,1,4,1,35265,1,139,21,1,4),_EltMesIssVlanTunnelRipAddress_Type())
-eltMesIssVlanTunnelRipAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelRipAddress.setStatus(_A)
-_EltMesIssVlanTunnelVrrpAddress_Type=MacAddress
-_EltMesIssVlanTunnelVrrpAddress_Object=MibScalar
-eltMesIssVlanTunnelVrrpAddress=_EltMesIssVlanTunnelVrrpAddress_Object((1,3,6,1,4,1,35265,1,139,21,1,5),_EltMesIssVlanTunnelVrrpAddress_Type())
-eltMesIssVlanTunnelVrrpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelVrrpAddress.setStatus(_A)
-_EltMesIssVlanTunnelProtocolTable_Object=MibTable
-eltMesIssVlanTunnelProtocolTable=_EltMesIssVlanTunnelProtocolTable_Object((1,3,6,1,4,1,35265,1,139,21,1,6))
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolTable.setStatus(_A)
-_EltMesIssVlanTunnelProtocolEntry_Object=MibTableRow
-eltMesIssVlanTunnelProtocolEntry=_EltMesIssVlanTunnelProtocolEntry_Object((1,3,6,1,4,1,35265,1,139,21,1,6,1))
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolEntry.setStatus(_A)
-_EltMesIssVlanTunnelProtocolPvst_Type=TunnelStatus
-_EltMesIssVlanTunnelProtocolPvst_Object=MibTableColumn
-eltMesIssVlanTunnelProtocolPvst=_EltMesIssVlanTunnelProtocolPvst_Object((1,3,6,1,4,1,35265,1,139,21,1,6,1,1),_EltMesIssVlanTunnelProtocolPvst_Type())
-eltMesIssVlanTunnelProtocolPvst.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolPvst.setStatus(_A)
-_EltMesIssVlanTunnelProtocolVtp_Type=TunnelStatus
-_EltMesIssVlanTunnelProtocolVtp_Object=MibTableColumn
-eltMesIssVlanTunnelProtocolVtp=_EltMesIssVlanTunnelProtocolVtp_Object((1,3,6,1,4,1,35265,1,139,21,1,6,1,2),_EltMesIssVlanTunnelProtocolVtp_Type())
-eltMesIssVlanTunnelProtocolVtp.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolVtp.setStatus(_A)
-_EltMesIssVlanTunnelProtocolOspf_Type=TunnelStatus
-_EltMesIssVlanTunnelProtocolOspf_Object=MibTableColumn
-eltMesIssVlanTunnelProtocolOspf=_EltMesIssVlanTunnelProtocolOspf_Object((1,3,6,1,4,1,35265,1,139,21,1,6,1,3),_EltMesIssVlanTunnelProtocolOspf_Type())
-eltMesIssVlanTunnelProtocolOspf.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolOspf.setStatus(_A)
-_EltMesIssVlanTunnelProtocolRip_Type=TunnelStatus
-_EltMesIssVlanTunnelProtocolRip_Object=MibTableColumn
-eltMesIssVlanTunnelProtocolRip=_EltMesIssVlanTunnelProtocolRip_Object((1,3,6,1,4,1,35265,1,139,21,1,6,1,4),_EltMesIssVlanTunnelProtocolRip_Type())
-eltMesIssVlanTunnelProtocolRip.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolRip.setStatus(_A)
-_EltMesIssVlanTunnelProtocolVrrp_Type=TunnelStatus
-_EltMesIssVlanTunnelProtocolVrrp_Object=MibTableColumn
-eltMesIssVlanTunnelProtocolVrrp=_EltMesIssVlanTunnelProtocolVrrp_Object((1,3,6,1,4,1,35265,1,139,21,1,6,1,5),_EltMesIssVlanTunnelProtocolVrrp_Type())
-eltMesIssVlanTunnelProtocolVrrp.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolVrrp.setStatus(_A)
-_EltMesIssVlanTunnelProtocolStatsTable_Object=MibTable
-eltMesIssVlanTunnelProtocolStatsTable=_EltMesIssVlanTunnelProtocolStatsTable_Object((1,3,6,1,4,1,35265,1,139,21,1,7))
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolStatsTable.setStatus(_A)
-_EltMesIssVlanTunnelProtocolStatsEntry_Object=MibTableRow
-eltMesIssVlanTunnelProtocolStatsEntry=_EltMesIssVlanTunnelProtocolStatsEntry_Object((1,3,6,1,4,1,35265,1,139,21,1,7,1))
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolStatsEntry.setStatus(_A)
-_EltMesIssVlanTunnelProtocolPvstPktsRecvd_Type=Counter32
-_EltMesIssVlanTunnelProtocolPvstPktsRecvd_Object=MibTableColumn
-eltMesIssVlanTunnelProtocolPvstPktsRecvd=_EltMesIssVlanTunnelProtocolPvstPktsRecvd_Object((1,3,6,1,4,1,35265,1,139,21,1,7,1,1),_EltMesIssVlanTunnelProtocolPvstPktsRecvd_Type())
-eltMesIssVlanTunnelProtocolPvstPktsRecvd.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolPvstPktsRecvd.setStatus(_A)
-_EltMesIssVlanTunnelProtocolPvstPktsSent_Type=Counter32
-_EltMesIssVlanTunnelProtocolPvstPktsSent_Object=MibTableColumn
-eltMesIssVlanTunnelProtocolPvstPktsSent=_EltMesIssVlanTunnelProtocolPvstPktsSent_Object((1,3,6,1,4,1,35265,1,139,21,1,7,1,2),_EltMesIssVlanTunnelProtocolPvstPktsSent_Type())
-eltMesIssVlanTunnelProtocolPvstPktsSent.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolPvstPktsSent.setStatus(_A)
-_EltMesIssVlanTunnelProtocolVtpPktsRecvd_Type=Counter32
-_EltMesIssVlanTunnelProtocolVtpPktsRecvd_Object=MibTableColumn
-eltMesIssVlanTunnelProtocolVtpPktsRecvd=_EltMesIssVlanTunnelProtocolVtpPktsRecvd_Object((1,3,6,1,4,1,35265,1,139,21,1,7,1,3),_EltMesIssVlanTunnelProtocolVtpPktsRecvd_Type())
-eltMesIssVlanTunnelProtocolVtpPktsRecvd.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolVtpPktsRecvd.setStatus(_A)
-_EltMesIssVlanTunnelProtocolVtpPktsSent_Type=Counter32
-_EltMesIssVlanTunnelProtocolVtpPktsSent_Object=MibTableColumn
-eltMesIssVlanTunnelProtocolVtpPktsSent=_EltMesIssVlanTunnelProtocolVtpPktsSent_Object((1,3,6,1,4,1,35265,1,139,21,1,7,1,4),_EltMesIssVlanTunnelProtocolVtpPktsSent_Type())
-eltMesIssVlanTunnelProtocolVtpPktsSent.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolVtpPktsSent.setStatus(_A)
-_EltMesIssVlanTunnelProtocolOspfPktsRecvd_Type=Counter32
-_EltMesIssVlanTunnelProtocolOspfPktsRecvd_Object=MibTableColumn
-eltMesIssVlanTunnelProtocolOspfPktsRecvd=_EltMesIssVlanTunnelProtocolOspfPktsRecvd_Object((1,3,6,1,4,1,35265,1,139,21,1,7,1,5),_EltMesIssVlanTunnelProtocolOspfPktsRecvd_Type())
-eltMesIssVlanTunnelProtocolOspfPktsRecvd.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolOspfPktsRecvd.setStatus(_A)
-_EltMesIssVlanTunnelProtocolOspfPktsSent_Type=Counter32
-_EltMesIssVlanTunnelProtocolOspfPktsSent_Object=MibTableColumn
-eltMesIssVlanTunnelProtocolOspfPktsSent=_EltMesIssVlanTunnelProtocolOspfPktsSent_Object((1,3,6,1,4,1,35265,1,139,21,1,7,1,6),_EltMesIssVlanTunnelProtocolOspfPktsSent_Type())
-eltMesIssVlanTunnelProtocolOspfPktsSent.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolOspfPktsSent.setStatus(_A)
-_EltMesIssVlanTunnelProtocolRipPktsRecvd_Type=Counter32
-_EltMesIssVlanTunnelProtocolRipPktsRecvd_Object=MibTableColumn
-eltMesIssVlanTunnelProtocolRipPktsRecvd=_EltMesIssVlanTunnelProtocolRipPktsRecvd_Object((1,3,6,1,4,1,35265,1,139,21,1,7,1,7),_EltMesIssVlanTunnelProtocolRipPktsRecvd_Type())
-eltMesIssVlanTunnelProtocolRipPktsRecvd.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolRipPktsRecvd.setStatus(_A)
-_EltMesIssVlanTunnelProtocolRipPktsSent_Type=Counter32
-_EltMesIssVlanTunnelProtocolRipPktsSent_Object=MibTableColumn
-eltMesIssVlanTunnelProtocolRipPktsSent=_EltMesIssVlanTunnelProtocolRipPktsSent_Object((1,3,6,1,4,1,35265,1,139,21,1,7,1,8),_EltMesIssVlanTunnelProtocolRipPktsSent_Type())
-eltMesIssVlanTunnelProtocolRipPktsSent.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolRipPktsSent.setStatus(_A)
-_EltMesIssVlanTunnelProtocolVrrpPktsRecvd_Type=Counter32
-_EltMesIssVlanTunnelProtocolVrrpPktsRecvd_Object=MibTableColumn
-eltMesIssVlanTunnelProtocolVrrpPktsRecvd=_EltMesIssVlanTunnelProtocolVrrpPktsRecvd_Object((1,3,6,1,4,1,35265,1,139,21,1,7,1,9),_EltMesIssVlanTunnelProtocolVrrpPktsRecvd_Type())
-eltMesIssVlanTunnelProtocolVrrpPktsRecvd.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolVrrpPktsRecvd.setStatus(_A)
-_EltMesIssVlanTunnelProtocolVrrpPktsSent_Type=Counter32
-_EltMesIssVlanTunnelProtocolVrrpPktsSent_Object=MibTableColumn
-eltMesIssVlanTunnelProtocolVrrpPktsSent=_EltMesIssVlanTunnelProtocolVrrpPktsSent_Object((1,3,6,1,4,1,35265,1,139,21,1,7,1,10),_EltMesIssVlanTunnelProtocolVrrpPktsSent_Type())
-eltMesIssVlanTunnelProtocolVrrpPktsSent.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanTunnelProtocolVrrpPktsSent.setStatus(_A)
-_EltMesIssVlanDiscardObjects_ObjectIdentity=ObjectIdentity
-eltMesIssVlanDiscardObjects=_EltMesIssVlanDiscardObjects_ObjectIdentity((1,3,6,1,4,1,35265,1,139,21,2))
-_EltMesIssVlanDiscardStatsTable_Object=MibTable
-eltMesIssVlanDiscardStatsTable=_EltMesIssVlanDiscardStatsTable_Object((1,3,6,1,4,1,35265,1,139,21,2,1))
-if mibBuilder.loadTexts:eltMesIssVlanDiscardStatsTable.setStatus(_A)
-_EltMesIssVlanDiscardStatsEntry_Object=MibTableRow
-eltMesIssVlanDiscardStatsEntry=_EltMesIssVlanDiscardStatsEntry_Object((1,3,6,1,4,1,35265,1,139,21,2,1,1))
-if mibBuilder.loadTexts:eltMesIssVlanDiscardStatsEntry.setStatus(_A)
-_EltMesIssVlanDiscardPvstPktsRx_Type=Counter32
-_EltMesIssVlanDiscardPvstPktsRx_Object=MibTableColumn
-eltMesIssVlanDiscardPvstPktsRx=_EltMesIssVlanDiscardPvstPktsRx_Object((1,3,6,1,4,1,35265,1,139,21,2,1,1,1),_EltMesIssVlanDiscardPvstPktsRx_Type())
-eltMesIssVlanDiscardPvstPktsRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanDiscardPvstPktsRx.setStatus(_A)
-_EltMesIssVlanDiscardPvstPktsTx_Type=Counter32
-_EltMesIssVlanDiscardPvstPktsTx_Object=MibTableColumn
-eltMesIssVlanDiscardPvstPktsTx=_EltMesIssVlanDiscardPvstPktsTx_Object((1,3,6,1,4,1,35265,1,139,21,2,1,1,2),_EltMesIssVlanDiscardPvstPktsTx_Type())
-eltMesIssVlanDiscardPvstPktsTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanDiscardPvstPktsTx.setStatus(_A)
-_EltMesIssVlanDiscardVtpPktsRx_Type=Counter32
-_EltMesIssVlanDiscardVtpPktsRx_Object=MibTableColumn
-eltMesIssVlanDiscardVtpPktsRx=_EltMesIssVlanDiscardVtpPktsRx_Object((1,3,6,1,4,1,35265,1,139,21,2,1,1,3),_EltMesIssVlanDiscardVtpPktsRx_Type())
-eltMesIssVlanDiscardVtpPktsRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanDiscardVtpPktsRx.setStatus(_A)
-_EltMesIssVlanDiscardVtpPktsTx_Type=Counter32
-_EltMesIssVlanDiscardVtpPktsTx_Object=MibTableColumn
-eltMesIssVlanDiscardVtpPktsTx=_EltMesIssVlanDiscardVtpPktsTx_Object((1,3,6,1,4,1,35265,1,139,21,2,1,1,4),_EltMesIssVlanDiscardVtpPktsTx_Type())
-eltMesIssVlanDiscardVtpPktsTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanDiscardVtpPktsTx.setStatus(_A)
-_EltMesIssVlanDiscardOspfPktsRx_Type=Counter32
-_EltMesIssVlanDiscardOspfPktsRx_Object=MibTableColumn
-eltMesIssVlanDiscardOspfPktsRx=_EltMesIssVlanDiscardOspfPktsRx_Object((1,3,6,1,4,1,35265,1,139,21,2,1,1,5),_EltMesIssVlanDiscardOspfPktsRx_Type())
-eltMesIssVlanDiscardOspfPktsRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanDiscardOspfPktsRx.setStatus(_A)
-_EltMesIssVlanDiscardOspfPktsTx_Type=Counter32
-_EltMesIssVlanDiscardOspfPktsTx_Object=MibTableColumn
-eltMesIssVlanDiscardOspfPktsTx=_EltMesIssVlanDiscardOspfPktsTx_Object((1,3,6,1,4,1,35265,1,139,21,2,1,1,6),_EltMesIssVlanDiscardOspfPktsTx_Type())
-eltMesIssVlanDiscardOspfPktsTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanDiscardOspfPktsTx.setStatus(_A)
-_EltMesIssVlanDiscardRipPktsRx_Type=Counter32
-_EltMesIssVlanDiscardRipPktsRx_Object=MibTableColumn
-eltMesIssVlanDiscardRipPktsRx=_EltMesIssVlanDiscardRipPktsRx_Object((1,3,6,1,4,1,35265,1,139,21,2,1,1,7),_EltMesIssVlanDiscardRipPktsRx_Type())
-eltMesIssVlanDiscardRipPktsRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanDiscardRipPktsRx.setStatus(_A)
-_EltMesIssVlanDiscardRipPktsTx_Type=Counter32
-_EltMesIssVlanDiscardRipPktsTx_Object=MibTableColumn
-eltMesIssVlanDiscardRipPktsTx=_EltMesIssVlanDiscardRipPktsTx_Object((1,3,6,1,4,1,35265,1,139,21,2,1,1,8),_EltMesIssVlanDiscardRipPktsTx_Type())
-eltMesIssVlanDiscardRipPktsTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanDiscardRipPktsTx.setStatus(_A)
-_EltMesIssVlanDiscardVrrpPktsRx_Type=Counter32
-_EltMesIssVlanDiscardVrrpPktsRx_Object=MibTableColumn
-eltMesIssVlanDiscardVrrpPktsRx=_EltMesIssVlanDiscardVrrpPktsRx_Object((1,3,6,1,4,1,35265,1,139,21,2,1,1,9),_EltMesIssVlanDiscardVrrpPktsRx_Type())
-eltMesIssVlanDiscardVrrpPktsRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanDiscardVrrpPktsRx.setStatus(_A)
-_EltMesIssVlanDiscardVrrpPktsTx_Type=Counter32
-_EltMesIssVlanDiscardVrrpPktsTx_Object=MibTableColumn
-eltMesIssVlanDiscardVrrpPktsTx=_EltMesIssVlanDiscardVrrpPktsTx_Object((1,3,6,1,4,1,35265,1,139,21,2,1,1,10),_EltMesIssVlanDiscardVrrpPktsTx_Type())
-eltMesIssVlanDiscardVrrpPktsTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssVlanDiscardVrrpPktsTx.setStatus(_A)
-fsVlanTunnelProtocolEntry.registerAugmentions((_D,_E))
+#
+# PySNMP MIB module ELTEX-MES-ISS-VLAN-TUNNEL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-MES-ISS-VLAN-TUNNEL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:18 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+fsVlanTunnelProtocolStatsEntry, TunnelStatus, fsVlanDiscardStatsEntry, fsVlanTunnelProtocolEntry = mibBuilder.importSymbols("ARICENT-VLAN-EXT-MIB", "fsVlanTunnelProtocolStatsEntry", "TunnelStatus", "fsVlanDiscardStatsEntry", "fsVlanTunnelProtocolEntry")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltMesIss, = mibBuilder.importSymbols("ELTEX-MES-ISS-MIB", "eltMesIss")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+eltMesIssVlanTunnelMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21))
+eltMesIssVlanTunnelMIB.setRevisions(('2021-06-29 00:00', '2020-07-06 00:00',))
+if mibBuilder.loadTexts: eltMesIssVlanTunnelMIB.setLastUpdated('202106290000Z')
+if mibBuilder.loadTexts: eltMesIssVlanTunnelMIB.setOrganization('Eltex Enterprise, Ltd.')
+eltMesIssVlanTunnelObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1))
+eltMesIssVlanDiscardObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 2))
+eltMesIssVlanTunnelPvstAddress = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 1), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelPvstAddress.setStatus('current')
+eltMesIssVlanTunnelVtpAddress = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 2), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelVtpAddress.setStatus('current')
+eltMesIssVlanTunnelOspfAddress = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 3), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelOspfAddress.setStatus('current')
+eltMesIssVlanTunnelRipAddress = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 4), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelRipAddress.setStatus('current')
+eltMesIssVlanTunnelVrrpAddress = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 5), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelVrrpAddress.setStatus('current')
+eltMesIssVlanTunnelProtocolTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 6), )
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolTable.setStatus('current')
+eltMesIssVlanTunnelProtocolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 6, 1), )
+fsVlanTunnelProtocolEntry.registerAugmentions(("ELTEX-MES-ISS-VLAN-TUNNEL-MIB", "eltMesIssVlanTunnelProtocolEntry"))
 eltMesIssVlanTunnelProtocolEntry.setIndexNames(*fsVlanTunnelProtocolEntry.getIndexNames())
-fsVlanTunnelProtocolStatsEntry.registerAugmentions((_D,_F))
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolEntry.setStatus('current')
+eltMesIssVlanTunnelProtocolPvst = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 6, 1, 1), TunnelStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolPvst.setStatus('current')
+eltMesIssVlanTunnelProtocolVtp = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 6, 1, 2), TunnelStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolVtp.setStatus('current')
+eltMesIssVlanTunnelProtocolOspf = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 6, 1, 3), TunnelStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolOspf.setStatus('current')
+eltMesIssVlanTunnelProtocolRip = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 6, 1, 4), TunnelStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolRip.setStatus('current')
+eltMesIssVlanTunnelProtocolVrrp = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 6, 1, 5), TunnelStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolVrrp.setStatus('current')
+eltMesIssVlanTunnelProtocolStatsTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 7), )
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolStatsTable.setStatus('current')
+eltMesIssVlanTunnelProtocolStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 7, 1), )
+fsVlanTunnelProtocolStatsEntry.registerAugmentions(("ELTEX-MES-ISS-VLAN-TUNNEL-MIB", "eltMesIssVlanTunnelProtocolStatsEntry"))
 eltMesIssVlanTunnelProtocolStatsEntry.setIndexNames(*fsVlanTunnelProtocolStatsEntry.getIndexNames())
-fsVlanDiscardStatsEntry.registerAugmentions((_D,_G))
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolStatsEntry.setStatus('current')
+eltMesIssVlanTunnelProtocolPvstPktsRecvd = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 7, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolPvstPktsRecvd.setStatus('current')
+eltMesIssVlanTunnelProtocolPvstPktsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 7, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolPvstPktsSent.setStatus('current')
+eltMesIssVlanTunnelProtocolVtpPktsRecvd = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 7, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolVtpPktsRecvd.setStatus('current')
+eltMesIssVlanTunnelProtocolVtpPktsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 7, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolVtpPktsSent.setStatus('current')
+eltMesIssVlanTunnelProtocolOspfPktsRecvd = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 7, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolOspfPktsRecvd.setStatus('current')
+eltMesIssVlanTunnelProtocolOspfPktsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 7, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolOspfPktsSent.setStatus('current')
+eltMesIssVlanTunnelProtocolRipPktsRecvd = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 7, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolRipPktsRecvd.setStatus('current')
+eltMesIssVlanTunnelProtocolRipPktsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 7, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolRipPktsSent.setStatus('current')
+eltMesIssVlanTunnelProtocolVrrpPktsRecvd = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 7, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolVrrpPktsRecvd.setStatus('current')
+eltMesIssVlanTunnelProtocolVrrpPktsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 1, 7, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanTunnelProtocolVrrpPktsSent.setStatus('current')
+eltMesIssVlanDiscardStatsTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 2, 1), )
+if mibBuilder.loadTexts: eltMesIssVlanDiscardStatsTable.setStatus('current')
+eltMesIssVlanDiscardStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 2, 1, 1), )
+fsVlanDiscardStatsEntry.registerAugmentions(("ELTEX-MES-ISS-VLAN-TUNNEL-MIB", "eltMesIssVlanDiscardStatsEntry"))
 eltMesIssVlanDiscardStatsEntry.setIndexNames(*fsVlanDiscardStatsEntry.getIndexNames())
-mibBuilder.exportSymbols(_D,**{'eltMesIssVlanTunnelMIB':eltMesIssVlanTunnelMIB,'eltMesIssVlanTunnelObjects':eltMesIssVlanTunnelObjects,'eltMesIssVlanTunnelPvstAddress':eltMesIssVlanTunnelPvstAddress,'eltMesIssVlanTunnelVtpAddress':eltMesIssVlanTunnelVtpAddress,'eltMesIssVlanTunnelOspfAddress':eltMesIssVlanTunnelOspfAddress,'eltMesIssVlanTunnelRipAddress':eltMesIssVlanTunnelRipAddress,'eltMesIssVlanTunnelVrrpAddress':eltMesIssVlanTunnelVrrpAddress,'eltMesIssVlanTunnelProtocolTable':eltMesIssVlanTunnelProtocolTable,_E:eltMesIssVlanTunnelProtocolEntry,'eltMesIssVlanTunnelProtocolPvst':eltMesIssVlanTunnelProtocolPvst,'eltMesIssVlanTunnelProtocolVtp':eltMesIssVlanTunnelProtocolVtp,'eltMesIssVlanTunnelProtocolOspf':eltMesIssVlanTunnelProtocolOspf,'eltMesIssVlanTunnelProtocolRip':eltMesIssVlanTunnelProtocolRip,'eltMesIssVlanTunnelProtocolVrrp':eltMesIssVlanTunnelProtocolVrrp,'eltMesIssVlanTunnelProtocolStatsTable':eltMesIssVlanTunnelProtocolStatsTable,_F:eltMesIssVlanTunnelProtocolStatsEntry,'eltMesIssVlanTunnelProtocolPvstPktsRecvd':eltMesIssVlanTunnelProtocolPvstPktsRecvd,'eltMesIssVlanTunnelProtocolPvstPktsSent':eltMesIssVlanTunnelProtocolPvstPktsSent,'eltMesIssVlanTunnelProtocolVtpPktsRecvd':eltMesIssVlanTunnelProtocolVtpPktsRecvd,'eltMesIssVlanTunnelProtocolVtpPktsSent':eltMesIssVlanTunnelProtocolVtpPktsSent,'eltMesIssVlanTunnelProtocolOspfPktsRecvd':eltMesIssVlanTunnelProtocolOspfPktsRecvd,'eltMesIssVlanTunnelProtocolOspfPktsSent':eltMesIssVlanTunnelProtocolOspfPktsSent,'eltMesIssVlanTunnelProtocolRipPktsRecvd':eltMesIssVlanTunnelProtocolRipPktsRecvd,'eltMesIssVlanTunnelProtocolRipPktsSent':eltMesIssVlanTunnelProtocolRipPktsSent,'eltMesIssVlanTunnelProtocolVrrpPktsRecvd':eltMesIssVlanTunnelProtocolVrrpPktsRecvd,'eltMesIssVlanTunnelProtocolVrrpPktsSent':eltMesIssVlanTunnelProtocolVrrpPktsSent,'eltMesIssVlanDiscardObjects':eltMesIssVlanDiscardObjects,'eltMesIssVlanDiscardStatsTable':eltMesIssVlanDiscardStatsTable,_G:eltMesIssVlanDiscardStatsEntry,'eltMesIssVlanDiscardPvstPktsRx':eltMesIssVlanDiscardPvstPktsRx,'eltMesIssVlanDiscardPvstPktsTx':eltMesIssVlanDiscardPvstPktsTx,'eltMesIssVlanDiscardVtpPktsRx':eltMesIssVlanDiscardVtpPktsRx,'eltMesIssVlanDiscardVtpPktsTx':eltMesIssVlanDiscardVtpPktsTx,'eltMesIssVlanDiscardOspfPktsRx':eltMesIssVlanDiscardOspfPktsRx,'eltMesIssVlanDiscardOspfPktsTx':eltMesIssVlanDiscardOspfPktsTx,'eltMesIssVlanDiscardRipPktsRx':eltMesIssVlanDiscardRipPktsRx,'eltMesIssVlanDiscardRipPktsTx':eltMesIssVlanDiscardRipPktsTx,'eltMesIssVlanDiscardVrrpPktsRx':eltMesIssVlanDiscardVrrpPktsRx,'eltMesIssVlanDiscardVrrpPktsTx':eltMesIssVlanDiscardVrrpPktsTx})
+if mibBuilder.loadTexts: eltMesIssVlanDiscardStatsEntry.setStatus('current')
+eltMesIssVlanDiscardPvstPktsRx = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 2, 1, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanDiscardPvstPktsRx.setStatus('current')
+eltMesIssVlanDiscardPvstPktsTx = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 2, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanDiscardPvstPktsTx.setStatus('current')
+eltMesIssVlanDiscardVtpPktsRx = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 2, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanDiscardVtpPktsRx.setStatus('current')
+eltMesIssVlanDiscardVtpPktsTx = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 2, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanDiscardVtpPktsTx.setStatus('current')
+eltMesIssVlanDiscardOspfPktsRx = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 2, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanDiscardOspfPktsRx.setStatus('current')
+eltMesIssVlanDiscardOspfPktsTx = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 2, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanDiscardOspfPktsTx.setStatus('current')
+eltMesIssVlanDiscardRipPktsRx = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 2, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanDiscardRipPktsRx.setStatus('current')
+eltMesIssVlanDiscardRipPktsTx = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 2, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanDiscardRipPktsTx.setStatus('current')
+eltMesIssVlanDiscardVrrpPktsRx = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 2, 1, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanDiscardVrrpPktsRx.setStatus('current')
+eltMesIssVlanDiscardVrrpPktsTx = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21, 2, 1, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssVlanDiscardVrrpPktsTx.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-MES-ISS-VLAN-TUNNEL-MIB", eltMesIssVlanTunnelProtocolTable=eltMesIssVlanTunnelProtocolTable, eltMesIssVlanTunnelMIB=eltMesIssVlanTunnelMIB, eltMesIssVlanTunnelProtocolVtpPktsRecvd=eltMesIssVlanTunnelProtocolVtpPktsRecvd, eltMesIssVlanDiscardVtpPktsTx=eltMesIssVlanDiscardVtpPktsTx, eltMesIssVlanDiscardVrrpPktsTx=eltMesIssVlanDiscardVrrpPktsTx, eltMesIssVlanDiscardObjects=eltMesIssVlanDiscardObjects, eltMesIssVlanTunnelProtocolRipPktsRecvd=eltMesIssVlanTunnelProtocolRipPktsRecvd, eltMesIssVlanTunnelProtocolRipPktsSent=eltMesIssVlanTunnelProtocolRipPktsSent, eltMesIssVlanTunnelProtocolOspf=eltMesIssVlanTunnelProtocolOspf, eltMesIssVlanTunnelProtocolVrrpPktsRecvd=eltMesIssVlanTunnelProtocolVrrpPktsRecvd, eltMesIssVlanTunnelVtpAddress=eltMesIssVlanTunnelVtpAddress, eltMesIssVlanTunnelProtocolStatsTable=eltMesIssVlanTunnelProtocolStatsTable, eltMesIssVlanTunnelProtocolEntry=eltMesIssVlanTunnelProtocolEntry, eltMesIssVlanTunnelObjects=eltMesIssVlanTunnelObjects, eltMesIssVlanTunnelProtocolRip=eltMesIssVlanTunnelProtocolRip, eltMesIssVlanTunnelOspfAddress=eltMesIssVlanTunnelOspfAddress, eltMesIssVlanDiscardVtpPktsRx=eltMesIssVlanDiscardVtpPktsRx, eltMesIssVlanTunnelProtocolPvstPktsRecvd=eltMesIssVlanTunnelProtocolPvstPktsRecvd, eltMesIssVlanTunnelProtocolOspfPktsSent=eltMesIssVlanTunnelProtocolOspfPktsSent, eltMesIssVlanDiscardVrrpPktsRx=eltMesIssVlanDiscardVrrpPktsRx, eltMesIssVlanDiscardStatsTable=eltMesIssVlanDiscardStatsTable, eltMesIssVlanTunnelPvstAddress=eltMesIssVlanTunnelPvstAddress, eltMesIssVlanTunnelProtocolOspfPktsRecvd=eltMesIssVlanTunnelProtocolOspfPktsRecvd, eltMesIssVlanDiscardOspfPktsRx=eltMesIssVlanDiscardOspfPktsRx, eltMesIssVlanTunnelProtocolVrrpPktsSent=eltMesIssVlanTunnelProtocolVrrpPktsSent, eltMesIssVlanDiscardOspfPktsTx=eltMesIssVlanDiscardOspfPktsTx, eltMesIssVlanDiscardPvstPktsTx=eltMesIssVlanDiscardPvstPktsTx, PYSNMP_MODULE_ID=eltMesIssVlanTunnelMIB, eltMesIssVlanTunnelProtocolVtpPktsSent=eltMesIssVlanTunnelProtocolVtpPktsSent, eltMesIssVlanTunnelProtocolVtp=eltMesIssVlanTunnelProtocolVtp, eltMesIssVlanDiscardRipPktsTx=eltMesIssVlanDiscardRipPktsTx, eltMesIssVlanTunnelVrrpAddress=eltMesIssVlanTunnelVrrpAddress, eltMesIssVlanDiscardRipPktsRx=eltMesIssVlanDiscardRipPktsRx, eltMesIssVlanTunnelRipAddress=eltMesIssVlanTunnelRipAddress, eltMesIssVlanTunnelProtocolStatsEntry=eltMesIssVlanTunnelProtocolStatsEntry, eltMesIssVlanDiscardPvstPktsRx=eltMesIssVlanDiscardPvstPktsRx, eltMesIssVlanTunnelProtocolPvstPktsSent=eltMesIssVlanTunnelProtocolPvstPktsSent, eltMesIssVlanDiscardStatsEntry=eltMesIssVlanDiscardStatsEntry, eltMesIssVlanTunnelProtocolVrrp=eltMesIssVlanTunnelProtocolVrrp, eltMesIssVlanTunnelProtocolPvst=eltMesIssVlanTunnelProtocolPvst)

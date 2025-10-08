@@ -1,1375 +1,519 @@
-_Ck='tmnxRipNgNotificationV16v0Group'
-_Cj='tmnxRipNgV16v0Group'
-_Ci='tmnxRipNgNotificationV12v0Group'
-_Ch='tmnxRipNgPeerV12v0Group'
-_Cg='tmnxRipNgRoutesV12v0Group'
-_Cf='tmnxRipNgInterfaceV12v0Group'
-_Ce='tmnxRipNgGroupV12v0Group'
-_Cd='tmnxRipNgInstanceV12v0Group'
-_Cc='tmnxRipNgGlobalV12v0Group'
-_Cb='tmnxRipNgPeerBfdDown'
-_Ca='tmnxRipNgIfUcastAddrNotUsed'
-_CZ='tmnxRipNgInstRtsExpLmtDropped'
-_CY='tmnxRipNgInstExpLmtWarning'
-_CX='tmnxRipNgInstExpLmtReached'
-_CW='tmnxRipNgInstRestarted'
-_CV='tmnxRipNgInstShuttingDown'
-_CU='tmnxRipNgAuthFailure'
-_CT='tmnxRipNgAuthTypeMismatch'
-_CS='tmnxRipNgIfBfdEnable'
-_CR='tmnxRipNgGroupBfdEnable'
-_CQ='tmnxRipNgInstBfdEnable'
-_CP='tmnxRipNgNotifySrcAddr'
-_CO='tmnxRipNgNotifySrcAddrType'
-_CN='tmnxRipNgPeerRcvBadRoutes'
-_CM='tmnxRipNgPeerRcvBadPackets'
-_CL='tmnxRipNgPeerVersion'
-_CK='tmnxRipNgAdvRouteTimerRem'
-_CJ='tmnxRipNgAdvRouteTag'
-_CI='tmnxRipNgAdvRouteMetric'
-_CH='tmnxRipNgAdvRouteNHAddress'
-_CG='tmnxRipNgAdvRouteNHAddrType'
-_CF='tmnxRipNgRouteFCPriority'
-_CE='tmnxRipNgRouteFC'
-_CD='tmnxRipNgRouteTimerRemaining'
-_CC='tmnxRipNgRouteStatus'
-_CB='tmnxRipNgRouteTag'
-_CA='tmnxRipNgRouteMetric'
-_C9='tmnxRipNgRouteNHAddress'
-_C8='tmnxRipNgRouteNHAddrType'
-_C7='tmnxRipNgIfUcastRowStatus'
-_C6='tmnxRipNgIfStatAuthErrors1Min'
-_C5='tmnxRipNgIfStatV2BadRoutes1Min'
-_C4='tmnxRipNgIfStatV2BadRequests1Min'
-_C3='tmnxRipNgIfStatV2BadUpdates1Min'
-_C2='tmnxRipNgIfStatV2RcvRequests1Min'
-_C1='tmnxRipNgIfStatV2RcvUpdates1Min'
-_C0='tmnxRipNgIfStatV1BadRoutes1Min'
-_B_='tmnxRipNgIfStatV1BadRequests1Min'
-_Bz='tmnxRipNgIfStatV1BadUpdates1Min'
-_By='tmnxRipNgIfStatV1RcvRequests1Min'
-_Bx='tmnxRipNgIfStatV1RcvUpdates1Min'
-_Bw='tmnxRipNgIfStatAllRcvBadPkts1Min'
-_Bv='tmnxRipNgIfStatAllTrigUpdts1Min'
-_Bu='tmnxRipNgIfStatAllSentUpdts1Min'
-_Bt='tmnxRipNgIfStatAuthErrors5Min'
-_Bs='tmnxRipNgIfStatV2BadRoutes5Min'
-_Br='tmnxRipNgIfStatV2BadRequests5Min'
-_Bq='tmnxRipNgIfStatV2BadUpdates5Min'
-_Bp='tmnxRipNgIfStatV2RcvRequests5Min'
-_Bo='tmnxRipNgIfStatV2RcvUpdates5Min'
-_Bn='tmnxRipNgIfStatV1BadRoutes5Min'
-_Bm='tmnxRipNgIfStatV1BadRequests5Min'
-_Bl='tmnxRipNgIfStatV1BadUpdates5Min'
-_Bk='tmnxRipNgIfStatV1RcvRequests5Min'
-_Bj='tmnxRipNgIfStatV1RcvUpdates5Min'
-_Bi='tmnxRipNgIfStatAllRcvBadPkts5Min'
-_Bh='tmnxRipNgIfStatAllTrigUpdts5Min'
-_Bg='tmnxRipNgIfStatAllSentUpdts5Min'
-_Bf='tmnxRipNgIfStatAuthErrors'
-_Be='tmnxRipNgIfStatV2BadRoutes'
-_Bd='tmnxRipNgIfStatV2BadRequests'
-_Bc='tmnxRipNgIfStatV2BadUpdates'
-_Bb='tmnxRipNgIfStatV2RcvRequests'
-_Ba='tmnxRipNgIfStatV2RcvUpdates'
-_BZ='tmnxRipNgIfStatV1BadRoutes'
-_BY='tmnxRipNgIfStatV1BadRequests'
-_BX='tmnxRipNgIfStatV1BadUpdates'
-_BW='tmnxRipNgIfStatV1RcvRequests'
-_BV='tmnxRipNgIfStatV1RcvUpdates'
-_BU='tmnxRipNgIfStatAllRcvBadPkts'
-_BT='tmnxRipNgIfStatAllTrigUpdates'
-_BS='tmnxRipNgIfStatAllSentUpdates'
-_BR='tmnxRipNgIfOperStatus'
-_BQ='tmnxRipNgIfAdminStatus'
-_BP='tmnxRipNgIfInheritance'
-_BO='tmnxRipNgIfDescription'
-_BN='tmnxRipNgIfExportPolicy5'
-_BM='tmnxRipNgIfExportPolicy4'
-_BL='tmnxRipNgIfExportPolicy3'
-_BK='tmnxRipNgIfExportPolicy2'
-_BJ='tmnxRipNgIfExportPolicy1'
-_BI='tmnxRipNgIfImportPolicy5'
-_BH='tmnxRipNgIfImportPolicy4'
-_BG='tmnxRipNgIfImportPolicy3'
-_BF='tmnxRipNgIfImportPolicy2'
-_BE='tmnxRipNgIfImportPolicy1'
-_BD='tmnxRipNgIfTimerUpdate'
-_BC='tmnxRipNgIfTimerTimeout'
-_BB='tmnxRipNgIfTimerFlush'
-_BA='tmnxRipNgIfSplitHorizon'
-_B9='tmnxRipNgIfSend'
-_B8='tmnxRipNgIfReceive'
-_B7='tmnxRipNgIfPreference'
-_B6='tmnxRipNgIfMetricOut'
-_B5='tmnxRipNgIfMetricIn'
-_B4='tmnxRipNgIfMessageSize'
-_B3='tmnxRipNgIfCheckZero'
-_B2='tmnxRipNgIfAuthKey'
-_B1='tmnxRipNgIfAuthType'
-_B0='tmnxRipNgIfGroupName'
-_A_='tmnxRipNgGroupRowStatus'
-_Az='tmnxRipNgGroupOperStatus'
-_Ay='tmnxRipNgGroupAdminStatus'
-_Ax='tmnxRipNgGroupInheritance'
-_Aw='tmnxRipNgGroupDescription'
-_Av='tmnxRipNgGroupExportPolicy5'
-_Au='tmnxRipNgGroupExportPolicy4'
-_At='tmnxRipNgGroupExportPolicy3'
-_As='tmnxRipNgGroupExportPolicy2'
-_Ar='tmnxRipNgGroupExportPolicy1'
-_Aq='tmnxRipNgGroupImportPolicy5'
-_Ap='tmnxRipNgGroupImportPolicy4'
-_Ao='tmnxRipNgGroupImportPolicy3'
-_An='tmnxRipNgGroupImportPolicy2'
-_Am='tmnxRipNgGroupImportPolicy1'
-_Al='tmnxRipNgGroupTimerUpdate'
-_Ak='tmnxRipNgGroupTimerTimeout'
-_Aj='tmnxRipNgGroupTimerFlush'
-_Ai='tmnxRipNgGroupSplitHorizon'
-_Ah='tmnxRipNgGroupSend'
-_Ag='tmnxRipNgGroupReceive'
-_Af='tmnxRipNgGroupPreference'
-_Ae='tmnxRipNgGroupMetricOut'
-_Ad='tmnxRipNgGroupMetricIn'
-_Ac='tmnxRipNgGroupMessageSize'
-_Ab='tmnxRipNgGroupCheckZero'
-_Aa='tmnxRipNgGroupAuthKey'
-_AZ='tmnxRipNgGroupAuthType'
-_AY='tmnxRipNgInstTotalExpRoutes'
-_AX='tmnxRipNgInstPropagateMetric'
-_AW='tmnxRipNgInstAdminStatus'
-_AV='tmnxRipNgInstDescription'
-_AU='tmnxRipNgInstExportPolicy5'
-_AT='tmnxRipNgInstExportPolicy4'
-_AS='tmnxRipNgInstExportPolicy3'
-_AR='tmnxRipNgInstExportPolicy2'
-_AQ='tmnxRipNgInstExportPolicy1'
-_AP='tmnxRipNgInstImportPolicy5'
-_AO='tmnxRipNgInstImportPolicy4'
-_AN='tmnxRipNgInstImportPolicy3'
-_AM='tmnxRipNgInstImportPolicy2'
-_AL='tmnxRipNgInstImportPolicy1'
-_AK='tmnxRipNgInstTimerUpdate'
-_AJ='tmnxRipNgInstTimerTimeout'
-_AI='tmnxRipNgInstTimerFlush'
-_AH='tmnxRipNgInstSplitHorizon'
-_AG='tmnxRipNgInstSend'
-_AF='tmnxRipNgInstReceive'
-_AE='tmnxRipNgInstPreference'
-_AD='tmnxRipNgInstMetricOut'
-_AC='tmnxRipNgInstMetricIn'
-_AB='tmnxRipNgInstMessageSize'
-_AA='tmnxRipNgInstCheckZero'
-_A9='tmnxRipNgInstAuthKey'
-_A8='tmnxRipNgInstAuthType'
-_A7='tmnxRipNgGlobalMaximumMemory'
-_A6='tmnxRipNgGlobalCurrentMemory'
-_A5='tmnxRipNgGlobalTimedoutRoutes'
-_A4='tmnxRipNgGlobalLearnedRoutes'
-_A3='tmnxRipNgIfUcastAddress'
-_A2='tmnxRipNgIfUcastAddrType'
-_A1='tmnxRipNgAdvRouteIfAddress'
-_A0='tmnxRipNgAdvRouteIfAddrType'
-_z='tmnxRipNgAdvRouteIfIndex'
-_y='tmnxRipNgAdvRouteMaskLength'
-_x='tmnxRipNgAdvRouteDestAddress'
-_w='tmnxRipNgAdvRouteDestAddrType'
-_v='tmnxRipNgPeerAddress'
-_u='tmnxRipNgPeerAddrType'
-_t='tmnxRipNgPeerIfIndex'
-_s='tmnxRipNgRoutePeerAddress'
-_r='tmnxRipNgRoutePeerAddrType'
-_q='tmnxRipNgRouteIfIndex'
-_p='tmnxRipNgRouteMaskLength'
-_o='tmnxRipNgRouteDestAddress'
-_n='tmnxRipNgRouteDestAddrType'
-_m='tmnxRipNgGroupName'
-_l='2013-04-22 00:00'
-_k='TmnxOperState'
-_j='DisplayString'
-_i='Integer32'
-_h='tmnxRipNgNotifyReason'
-_g='tmnxRipNgIfRowStatus'
-_f='tmnxRipNgInstExpLmtLogPct'
-_e='accessible-for-notify'
-_d='InetAddressPrefixLength'
-_c='tmnxRipNgInstOperStatus'
-_b='TmnxRipNgTimerUpdate'
-_a='TmnxRipNgTimerTimeout'
-_Z='TmnxRipNgTimerFlush'
-_Y='TmnxRipNgSend'
-_X='TmnxRipNgReceive'
-_W='TmnxRipNgPreference'
-_V='TmnxRipNgMessageSize'
-_U='vRtrIfIndex'
-_T='TmnxRipNgAuthType'
-_S='TmnxRipNgAuthKey'
-_R='TmnxAdminState'
-_Q='TItemDescription'
-_P='tmnxRipNgPeerLastUpdate'
-_O='tmnxRipNgInstExportLimit'
-_N='Unsigned32'
-_M='TmnxRipNgMetric'
-_L='seconds'
-_K='tmnxRipNgInstVersion'
-_J='vRtrID'
-_I='InetAddress'
-_H='TruthValue'
-_G='TIMETRA-VRTR-MIB'
-_F='not-accessible'
-_E='TPolicyStatementNameOrEmpty'
-_D='read-only'
-_C='read-create'
-_B='TIMETRA-RIP-NG-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-InetAddress,InetAddressPrefixLength,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB',_I,_d,'InetAddressType')
-RouteTag,=mibBuilder.importSymbols('RIPv2-MIB','RouteTag')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_i,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_N,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_j,'PhysAddress','RowStatus','TextualConvention','TimeStamp',_H)
-timetraSRMIBModules,tmnxSRConfs,tmnxSRNotifyPrefix,tmnxSRObjs=mibBuilder.importSymbols('TIMETRA-GLOBAL-MIB','timetraSRMIBModules','tmnxSRConfs','tmnxSRNotifyPrefix','tmnxSRObjs')
-TItemDescription,TNamedItem,TNamedItemOrEmpty,TPolicyStatementNameOrEmpty,TPriorityOrUndefined,TmnxAdminState,TmnxOperState,TmnxRipNgAuthKey,TmnxRipNgAuthType=mibBuilder.importSymbols('TIMETRA-TC-MIB',_Q,'TNamedItem','TNamedItemOrEmpty',_E,'TPriorityOrUndefined',_R,_k,_S,_T)
-vRtrID,vRtrIfIndex=mibBuilder.importSymbols(_G,_J,_U)
-timetraRipNgMIBModule=ModuleIdentity((1,3,6,1,4,1,6527,1,1,3,89))
-if mibBuilder.loadTexts:timetraRipNgMIBModule.setRevisions((_l,_l))
-class TmnxRipNgInstVersion(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('none',0),('rip',1),('ripNg',2)))
-class TmnxRipNgPeerVersion(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('none',0),('rip-v1',1),('rip-v2',2),('ripNg-v1',3)))
-class TmnxRipNgMessageSize(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(25,255))
-class TmnxRipNgMetric(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-class TmnxRipNgPreference(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-class TmnxRipNgReceive(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('rip1',1),('rip2',2),('rip1OrRip2',3),('doNotReceive',4),('ripNg1',5)))
-class TmnxRipNgSend(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('doNotSend',1),('ripVersion1',2),('rip1Compatible',3),('ripVersion2',4),('ripNgVersion1',5),('ripUnicast',6)))
-class TmnxRipNgTimerFlush(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1200))
-class TmnxRipNgTimerTimeout(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1200))
-class TmnxRipNgTimerUpdate(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,600))
-_TmnxRipNgConformance_ObjectIdentity=ObjectIdentity
-tmnxRipNgConformance=_TmnxRipNgConformance_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,89))
-_TmnxRipNgCompliances_ObjectIdentity=ObjectIdentity
-tmnxRipNgCompliances=_TmnxRipNgCompliances_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,89,1))
-_TmnxRipNgGroups_ObjectIdentity=ObjectIdentity
-tmnxRipNgGroups=_TmnxRipNgGroups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,89,2))
-_TmnxRipNgObjs_ObjectIdentity=ObjectIdentity
-tmnxRipNgObjs=_TmnxRipNgObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,89))
-_TmnxRipNgGlobals_ObjectIdentity=ObjectIdentity
-tmnxRipNgGlobals=_TmnxRipNgGlobals_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,89,1))
-_TmnxRipNgGlobalLearnedRoutes_Type=Counter32
-_TmnxRipNgGlobalLearnedRoutes_Object=MibScalar
-tmnxRipNgGlobalLearnedRoutes=_TmnxRipNgGlobalLearnedRoutes_Object((1,3,6,1,4,1,6527,3,1,2,89,1,1),_TmnxRipNgGlobalLearnedRoutes_Type())
-tmnxRipNgGlobalLearnedRoutes.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgGlobalLearnedRoutes.setStatus(_A)
-_TmnxRipNgGlobalTimedoutRoutes_Type=Counter32
-_TmnxRipNgGlobalTimedoutRoutes_Object=MibScalar
-tmnxRipNgGlobalTimedoutRoutes=_TmnxRipNgGlobalTimedoutRoutes_Object((1,3,6,1,4,1,6527,3,1,2,89,1,2),_TmnxRipNgGlobalTimedoutRoutes_Type())
-tmnxRipNgGlobalTimedoutRoutes.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgGlobalTimedoutRoutes.setStatus(_A)
-_TmnxRipNgGlobalCurrentMemory_Type=Counter32
-_TmnxRipNgGlobalCurrentMemory_Object=MibScalar
-tmnxRipNgGlobalCurrentMemory=_TmnxRipNgGlobalCurrentMemory_Object((1,3,6,1,4,1,6527,3,1,2,89,1,3),_TmnxRipNgGlobalCurrentMemory_Type())
-tmnxRipNgGlobalCurrentMemory.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgGlobalCurrentMemory.setStatus(_A)
-_TmnxRipNgGlobalMaximumMemory_Type=Counter32
-_TmnxRipNgGlobalMaximumMemory_Object=MibScalar
-tmnxRipNgGlobalMaximumMemory=_TmnxRipNgGlobalMaximumMemory_Object((1,3,6,1,4,1,6527,3,1,2,89,1,4),_TmnxRipNgGlobalMaximumMemory_Type())
-tmnxRipNgGlobalMaximumMemory.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgGlobalMaximumMemory.setStatus(_A)
-_TmnxRipNgTableObjs_ObjectIdentity=ObjectIdentity
-tmnxRipNgTableObjs=_TmnxRipNgTableObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,89,2))
-_TmnxRipNgInstTable_Object=MibTable
-tmnxRipNgInstTable=_TmnxRipNgInstTable_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1))
-if mibBuilder.loadTexts:tmnxRipNgInstTable.setStatus(_A)
-_TmnxRipNgInstEntry_Object=MibTableRow
-tmnxRipNgInstEntry=_TmnxRipNgInstEntry_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1))
-tmnxRipNgInstEntry.setIndexNames((0,_G,_J),(0,_B,_K))
-if mibBuilder.loadTexts:tmnxRipNgInstEntry.setStatus(_A)
-_TmnxRipNgInstVersion_Type=TmnxRipNgInstVersion
-_TmnxRipNgInstVersion_Object=MibTableColumn
-tmnxRipNgInstVersion=_TmnxRipNgInstVersion_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,1),_TmnxRipNgInstVersion_Type())
-tmnxRipNgInstVersion.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgInstVersion.setStatus(_A)
-class _TmnxRipNgInstAuthType_Type(TmnxRipNgAuthType):defaultValue=1
-_TmnxRipNgInstAuthType_Type.__name__=_T
-_TmnxRipNgInstAuthType_Object=MibTableColumn
-tmnxRipNgInstAuthType=_TmnxRipNgInstAuthType_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,2),_TmnxRipNgInstAuthType_Type())
-tmnxRipNgInstAuthType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstAuthType.setStatus(_A)
-class _TmnxRipNgInstAuthKey_Type(TmnxRipNgAuthKey):defaultHexValue=''
-_TmnxRipNgInstAuthKey_Type.__name__=_S
-_TmnxRipNgInstAuthKey_Object=MibTableColumn
-tmnxRipNgInstAuthKey=_TmnxRipNgInstAuthKey_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,3),_TmnxRipNgInstAuthKey_Type())
-tmnxRipNgInstAuthKey.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstAuthKey.setStatus(_A)
-class _TmnxRipNgInstCheckZero_Type(TruthValue):defaultValue=2
-_TmnxRipNgInstCheckZero_Type.__name__=_H
-_TmnxRipNgInstCheckZero_Object=MibTableColumn
-tmnxRipNgInstCheckZero=_TmnxRipNgInstCheckZero_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,4),_TmnxRipNgInstCheckZero_Type())
-tmnxRipNgInstCheckZero.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstCheckZero.setStatus(_A)
-class _TmnxRipNgInstMessageSize_Type(TmnxRipNgMessageSize):defaultValue=25
-_TmnxRipNgInstMessageSize_Type.__name__=_V
-_TmnxRipNgInstMessageSize_Object=MibTableColumn
-tmnxRipNgInstMessageSize=_TmnxRipNgInstMessageSize_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,5),_TmnxRipNgInstMessageSize_Type())
-tmnxRipNgInstMessageSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstMessageSize.setStatus(_A)
-class _TmnxRipNgInstMetricIn_Type(TmnxRipNgMetric):defaultValue=1
-_TmnxRipNgInstMetricIn_Type.__name__=_M
-_TmnxRipNgInstMetricIn_Object=MibTableColumn
-tmnxRipNgInstMetricIn=_TmnxRipNgInstMetricIn_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,6),_TmnxRipNgInstMetricIn_Type())
-tmnxRipNgInstMetricIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstMetricIn.setStatus(_A)
-class _TmnxRipNgInstMetricOut_Type(TmnxRipNgMetric):defaultValue=1
-_TmnxRipNgInstMetricOut_Type.__name__=_M
-_TmnxRipNgInstMetricOut_Object=MibTableColumn
-tmnxRipNgInstMetricOut=_TmnxRipNgInstMetricOut_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,7),_TmnxRipNgInstMetricOut_Type())
-tmnxRipNgInstMetricOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstMetricOut.setStatus(_A)
-class _TmnxRipNgInstPreference_Type(TmnxRipNgPreference):defaultValue=100
-_TmnxRipNgInstPreference_Type.__name__=_W
-_TmnxRipNgInstPreference_Object=MibTableColumn
-tmnxRipNgInstPreference=_TmnxRipNgInstPreference_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,8),_TmnxRipNgInstPreference_Type())
-tmnxRipNgInstPreference.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstPreference.setStatus(_A)
-class _TmnxRipNgInstReceive_Type(TmnxRipNgReceive):defaultValue=5
-_TmnxRipNgInstReceive_Type.__name__=_X
-_TmnxRipNgInstReceive_Object=MibTableColumn
-tmnxRipNgInstReceive=_TmnxRipNgInstReceive_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,9),_TmnxRipNgInstReceive_Type())
-tmnxRipNgInstReceive.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstReceive.setStatus(_A)
-class _TmnxRipNgInstSend_Type(TmnxRipNgSend):defaultValue=5
-_TmnxRipNgInstSend_Type.__name__=_Y
-_TmnxRipNgInstSend_Object=MibTableColumn
-tmnxRipNgInstSend=_TmnxRipNgInstSend_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,10),_TmnxRipNgInstSend_Type())
-tmnxRipNgInstSend.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstSend.setStatus(_A)
-class _TmnxRipNgInstSplitHorizon_Type(TruthValue):defaultValue=1
-_TmnxRipNgInstSplitHorizon_Type.__name__=_H
-_TmnxRipNgInstSplitHorizon_Object=MibTableColumn
-tmnxRipNgInstSplitHorizon=_TmnxRipNgInstSplitHorizon_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,11),_TmnxRipNgInstSplitHorizon_Type())
-tmnxRipNgInstSplitHorizon.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstSplitHorizon.setStatus(_A)
-class _TmnxRipNgInstTimerFlush_Type(TmnxRipNgTimerFlush):defaultValue=120
-_TmnxRipNgInstTimerFlush_Type.__name__=_Z
-_TmnxRipNgInstTimerFlush_Object=MibTableColumn
-tmnxRipNgInstTimerFlush=_TmnxRipNgInstTimerFlush_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,12),_TmnxRipNgInstTimerFlush_Type())
-tmnxRipNgInstTimerFlush.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstTimerFlush.setStatus(_A)
-if mibBuilder.loadTexts:tmnxRipNgInstTimerFlush.setUnits(_L)
-class _TmnxRipNgInstTimerTimeout_Type(TmnxRipNgTimerTimeout):defaultValue=180
-_TmnxRipNgInstTimerTimeout_Type.__name__=_a
-_TmnxRipNgInstTimerTimeout_Object=MibTableColumn
-tmnxRipNgInstTimerTimeout=_TmnxRipNgInstTimerTimeout_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,13),_TmnxRipNgInstTimerTimeout_Type())
-tmnxRipNgInstTimerTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstTimerTimeout.setStatus(_A)
-if mibBuilder.loadTexts:tmnxRipNgInstTimerTimeout.setUnits(_L)
-class _TmnxRipNgInstTimerUpdate_Type(TmnxRipNgTimerUpdate):defaultValue=30
-_TmnxRipNgInstTimerUpdate_Type.__name__=_b
-_TmnxRipNgInstTimerUpdate_Object=MibTableColumn
-tmnxRipNgInstTimerUpdate=_TmnxRipNgInstTimerUpdate_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,14),_TmnxRipNgInstTimerUpdate_Type())
-tmnxRipNgInstTimerUpdate.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstTimerUpdate.setStatus(_A)
-if mibBuilder.loadTexts:tmnxRipNgInstTimerUpdate.setUnits(_L)
-class _TmnxRipNgInstImportPolicy1_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgInstImportPolicy1_Type.__name__=_E
-_TmnxRipNgInstImportPolicy1_Object=MibTableColumn
-tmnxRipNgInstImportPolicy1=_TmnxRipNgInstImportPolicy1_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,15),_TmnxRipNgInstImportPolicy1_Type())
-tmnxRipNgInstImportPolicy1.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstImportPolicy1.setStatus(_A)
-class _TmnxRipNgInstImportPolicy2_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgInstImportPolicy2_Type.__name__=_E
-_TmnxRipNgInstImportPolicy2_Object=MibTableColumn
-tmnxRipNgInstImportPolicy2=_TmnxRipNgInstImportPolicy2_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,16),_TmnxRipNgInstImportPolicy2_Type())
-tmnxRipNgInstImportPolicy2.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstImportPolicy2.setStatus(_A)
-class _TmnxRipNgInstImportPolicy3_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgInstImportPolicy3_Type.__name__=_E
-_TmnxRipNgInstImportPolicy3_Object=MibTableColumn
-tmnxRipNgInstImportPolicy3=_TmnxRipNgInstImportPolicy3_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,17),_TmnxRipNgInstImportPolicy3_Type())
-tmnxRipNgInstImportPolicy3.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstImportPolicy3.setStatus(_A)
-class _TmnxRipNgInstImportPolicy4_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgInstImportPolicy4_Type.__name__=_E
-_TmnxRipNgInstImportPolicy4_Object=MibTableColumn
-tmnxRipNgInstImportPolicy4=_TmnxRipNgInstImportPolicy4_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,18),_TmnxRipNgInstImportPolicy4_Type())
-tmnxRipNgInstImportPolicy4.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstImportPolicy4.setStatus(_A)
-class _TmnxRipNgInstImportPolicy5_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgInstImportPolicy5_Type.__name__=_E
-_TmnxRipNgInstImportPolicy5_Object=MibTableColumn
-tmnxRipNgInstImportPolicy5=_TmnxRipNgInstImportPolicy5_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,19),_TmnxRipNgInstImportPolicy5_Type())
-tmnxRipNgInstImportPolicy5.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstImportPolicy5.setStatus(_A)
-class _TmnxRipNgInstExportPolicy1_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgInstExportPolicy1_Type.__name__=_E
-_TmnxRipNgInstExportPolicy1_Object=MibTableColumn
-tmnxRipNgInstExportPolicy1=_TmnxRipNgInstExportPolicy1_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,20),_TmnxRipNgInstExportPolicy1_Type())
-tmnxRipNgInstExportPolicy1.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstExportPolicy1.setStatus(_A)
-class _TmnxRipNgInstExportPolicy2_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgInstExportPolicy2_Type.__name__=_E
-_TmnxRipNgInstExportPolicy2_Object=MibTableColumn
-tmnxRipNgInstExportPolicy2=_TmnxRipNgInstExportPolicy2_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,21),_TmnxRipNgInstExportPolicy2_Type())
-tmnxRipNgInstExportPolicy2.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstExportPolicy2.setStatus(_A)
-class _TmnxRipNgInstExportPolicy3_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgInstExportPolicy3_Type.__name__=_E
-_TmnxRipNgInstExportPolicy3_Object=MibTableColumn
-tmnxRipNgInstExportPolicy3=_TmnxRipNgInstExportPolicy3_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,22),_TmnxRipNgInstExportPolicy3_Type())
-tmnxRipNgInstExportPolicy3.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstExportPolicy3.setStatus(_A)
-class _TmnxRipNgInstExportPolicy4_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgInstExportPolicy4_Type.__name__=_E
-_TmnxRipNgInstExportPolicy4_Object=MibTableColumn
-tmnxRipNgInstExportPolicy4=_TmnxRipNgInstExportPolicy4_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,23),_TmnxRipNgInstExportPolicy4_Type())
-tmnxRipNgInstExportPolicy4.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstExportPolicy4.setStatus(_A)
-class _TmnxRipNgInstExportPolicy5_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgInstExportPolicy5_Type.__name__=_E
-_TmnxRipNgInstExportPolicy5_Object=MibTableColumn
-tmnxRipNgInstExportPolicy5=_TmnxRipNgInstExportPolicy5_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,24),_TmnxRipNgInstExportPolicy5_Type())
-tmnxRipNgInstExportPolicy5.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstExportPolicy5.setStatus(_A)
-class _TmnxRipNgInstDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxRipNgInstDescription_Type.__name__=_Q
-_TmnxRipNgInstDescription_Object=MibTableColumn
-tmnxRipNgInstDescription=_TmnxRipNgInstDescription_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,25),_TmnxRipNgInstDescription_Type())
-tmnxRipNgInstDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstDescription.setStatus(_A)
-class _TmnxRipNgInstAdminStatus_Type(TmnxAdminState):defaultValue=2
-_TmnxRipNgInstAdminStatus_Type.__name__=_R
-_TmnxRipNgInstAdminStatus_Object=MibTableColumn
-tmnxRipNgInstAdminStatus=_TmnxRipNgInstAdminStatus_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,26),_TmnxRipNgInstAdminStatus_Type())
-tmnxRipNgInstAdminStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstAdminStatus.setStatus(_A)
-_TmnxRipNgInstOperStatus_Type=TmnxOperState
-_TmnxRipNgInstOperStatus_Object=MibTableColumn
-tmnxRipNgInstOperStatus=_TmnxRipNgInstOperStatus_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,27),_TmnxRipNgInstOperStatus_Type())
-tmnxRipNgInstOperStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgInstOperStatus.setStatus(_A)
-class _TmnxRipNgInstPropagateMetric_Type(TruthValue):defaultValue=2
-_TmnxRipNgInstPropagateMetric_Type.__name__=_H
-_TmnxRipNgInstPropagateMetric_Object=MibTableColumn
-tmnxRipNgInstPropagateMetric=_TmnxRipNgInstPropagateMetric_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,28),_TmnxRipNgInstPropagateMetric_Type())
-tmnxRipNgInstPropagateMetric.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstPropagateMetric.setStatus(_A)
-class _TmnxRipNgInstExportLimit_Type(Unsigned32):defaultValue=0
-_TmnxRipNgInstExportLimit_Type.__name__=_N
-_TmnxRipNgInstExportLimit_Object=MibTableColumn
-tmnxRipNgInstExportLimit=_TmnxRipNgInstExportLimit_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,29),_TmnxRipNgInstExportLimit_Type())
-tmnxRipNgInstExportLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstExportLimit.setStatus(_A)
-class _TmnxRipNgInstExpLmtLogPct_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_TmnxRipNgInstExpLmtLogPct_Type.__name__=_N
-_TmnxRipNgInstExpLmtLogPct_Object=MibTableColumn
-tmnxRipNgInstExpLmtLogPct=_TmnxRipNgInstExpLmtLogPct_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,30),_TmnxRipNgInstExpLmtLogPct_Type())
-tmnxRipNgInstExpLmtLogPct.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstExpLmtLogPct.setStatus(_A)
-if mibBuilder.loadTexts:tmnxRipNgInstExpLmtLogPct.setUnits('percent')
-_TmnxRipNgInstTotalExpRoutes_Type=Gauge32
-_TmnxRipNgInstTotalExpRoutes_Object=MibTableColumn
-tmnxRipNgInstTotalExpRoutes=_TmnxRipNgInstTotalExpRoutes_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,31),_TmnxRipNgInstTotalExpRoutes_Type())
-tmnxRipNgInstTotalExpRoutes.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgInstTotalExpRoutes.setStatus(_A)
-class _TmnxRipNgInstBfdEnable_Type(TruthValue):defaultValue=2
-_TmnxRipNgInstBfdEnable_Type.__name__=_H
-_TmnxRipNgInstBfdEnable_Object=MibTableColumn
-tmnxRipNgInstBfdEnable=_TmnxRipNgInstBfdEnable_Object((1,3,6,1,4,1,6527,3,1,2,89,2,1,1,32),_TmnxRipNgInstBfdEnable_Type())
-tmnxRipNgInstBfdEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgInstBfdEnable.setStatus(_A)
-_TmnxRipNgGroupTable_Object=MibTable
-tmnxRipNgGroupTable=_TmnxRipNgGroupTable_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2))
-if mibBuilder.loadTexts:tmnxRipNgGroupTable.setStatus(_A)
-_TmnxRipNgGroupEntry_Object=MibTableRow
-tmnxRipNgGroupEntry=_TmnxRipNgGroupEntry_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1))
-tmnxRipNgGroupEntry.setIndexNames((0,_G,_J),(0,_B,_K),(0,_B,_m))
-if mibBuilder.loadTexts:tmnxRipNgGroupEntry.setStatus(_A)
-_TmnxRipNgGroupName_Type=TNamedItem
-_TmnxRipNgGroupName_Object=MibTableColumn
-tmnxRipNgGroupName=_TmnxRipNgGroupName_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,1),_TmnxRipNgGroupName_Type())
-tmnxRipNgGroupName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgGroupName.setStatus(_A)
-class _TmnxRipNgGroupAuthType_Type(TmnxRipNgAuthType):defaultValue=1
-_TmnxRipNgGroupAuthType_Type.__name__=_T
-_TmnxRipNgGroupAuthType_Object=MibTableColumn
-tmnxRipNgGroupAuthType=_TmnxRipNgGroupAuthType_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,2),_TmnxRipNgGroupAuthType_Type())
-tmnxRipNgGroupAuthType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupAuthType.setStatus(_A)
-class _TmnxRipNgGroupAuthKey_Type(TmnxRipNgAuthKey):defaultHexValue=''
-_TmnxRipNgGroupAuthKey_Type.__name__=_S
-_TmnxRipNgGroupAuthKey_Object=MibTableColumn
-tmnxRipNgGroupAuthKey=_TmnxRipNgGroupAuthKey_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,3),_TmnxRipNgGroupAuthKey_Type())
-tmnxRipNgGroupAuthKey.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupAuthKey.setStatus(_A)
-class _TmnxRipNgGroupCheckZero_Type(TruthValue):defaultValue=2
-_TmnxRipNgGroupCheckZero_Type.__name__=_H
-_TmnxRipNgGroupCheckZero_Object=MibTableColumn
-tmnxRipNgGroupCheckZero=_TmnxRipNgGroupCheckZero_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,4),_TmnxRipNgGroupCheckZero_Type())
-tmnxRipNgGroupCheckZero.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupCheckZero.setStatus(_A)
-class _TmnxRipNgGroupMessageSize_Type(TmnxRipNgMessageSize):defaultValue=25
-_TmnxRipNgGroupMessageSize_Type.__name__=_V
-_TmnxRipNgGroupMessageSize_Object=MibTableColumn
-tmnxRipNgGroupMessageSize=_TmnxRipNgGroupMessageSize_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,5),_TmnxRipNgGroupMessageSize_Type())
-tmnxRipNgGroupMessageSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupMessageSize.setStatus(_A)
-class _TmnxRipNgGroupMetricIn_Type(TmnxRipNgMetric):defaultValue=1
-_TmnxRipNgGroupMetricIn_Type.__name__=_M
-_TmnxRipNgGroupMetricIn_Object=MibTableColumn
-tmnxRipNgGroupMetricIn=_TmnxRipNgGroupMetricIn_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,6),_TmnxRipNgGroupMetricIn_Type())
-tmnxRipNgGroupMetricIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupMetricIn.setStatus(_A)
-class _TmnxRipNgGroupMetricOut_Type(TmnxRipNgMetric):defaultValue=1
-_TmnxRipNgGroupMetricOut_Type.__name__=_M
-_TmnxRipNgGroupMetricOut_Object=MibTableColumn
-tmnxRipNgGroupMetricOut=_TmnxRipNgGroupMetricOut_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,7),_TmnxRipNgGroupMetricOut_Type())
-tmnxRipNgGroupMetricOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupMetricOut.setStatus(_A)
-class _TmnxRipNgGroupPreference_Type(TmnxRipNgPreference):defaultValue=100
-_TmnxRipNgGroupPreference_Type.__name__=_W
-_TmnxRipNgGroupPreference_Object=MibTableColumn
-tmnxRipNgGroupPreference=_TmnxRipNgGroupPreference_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,8),_TmnxRipNgGroupPreference_Type())
-tmnxRipNgGroupPreference.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupPreference.setStatus(_A)
-class _TmnxRipNgGroupReceive_Type(TmnxRipNgReceive):defaultValue=5
-_TmnxRipNgGroupReceive_Type.__name__=_X
-_TmnxRipNgGroupReceive_Object=MibTableColumn
-tmnxRipNgGroupReceive=_TmnxRipNgGroupReceive_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,9),_TmnxRipNgGroupReceive_Type())
-tmnxRipNgGroupReceive.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupReceive.setStatus(_A)
-class _TmnxRipNgGroupSend_Type(TmnxRipNgSend):defaultValue=5
-_TmnxRipNgGroupSend_Type.__name__=_Y
-_TmnxRipNgGroupSend_Object=MibTableColumn
-tmnxRipNgGroupSend=_TmnxRipNgGroupSend_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,10),_TmnxRipNgGroupSend_Type())
-tmnxRipNgGroupSend.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupSend.setStatus(_A)
-class _TmnxRipNgGroupSplitHorizon_Type(TruthValue):defaultValue=1
-_TmnxRipNgGroupSplitHorizon_Type.__name__=_H
-_TmnxRipNgGroupSplitHorizon_Object=MibTableColumn
-tmnxRipNgGroupSplitHorizon=_TmnxRipNgGroupSplitHorizon_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,11),_TmnxRipNgGroupSplitHorizon_Type())
-tmnxRipNgGroupSplitHorizon.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupSplitHorizon.setStatus(_A)
-class _TmnxRipNgGroupTimerFlush_Type(TmnxRipNgTimerFlush):defaultValue=120
-_TmnxRipNgGroupTimerFlush_Type.__name__=_Z
-_TmnxRipNgGroupTimerFlush_Object=MibTableColumn
-tmnxRipNgGroupTimerFlush=_TmnxRipNgGroupTimerFlush_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,12),_TmnxRipNgGroupTimerFlush_Type())
-tmnxRipNgGroupTimerFlush.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupTimerFlush.setStatus(_A)
-if mibBuilder.loadTexts:tmnxRipNgGroupTimerFlush.setUnits(_L)
-class _TmnxRipNgGroupTimerTimeout_Type(TmnxRipNgTimerTimeout):defaultValue=180
-_TmnxRipNgGroupTimerTimeout_Type.__name__=_a
-_TmnxRipNgGroupTimerTimeout_Object=MibTableColumn
-tmnxRipNgGroupTimerTimeout=_TmnxRipNgGroupTimerTimeout_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,13),_TmnxRipNgGroupTimerTimeout_Type())
-tmnxRipNgGroupTimerTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupTimerTimeout.setStatus(_A)
-if mibBuilder.loadTexts:tmnxRipNgGroupTimerTimeout.setUnits(_L)
-class _TmnxRipNgGroupTimerUpdate_Type(TmnxRipNgTimerUpdate):defaultValue=30
-_TmnxRipNgGroupTimerUpdate_Type.__name__=_b
-_TmnxRipNgGroupTimerUpdate_Object=MibTableColumn
-tmnxRipNgGroupTimerUpdate=_TmnxRipNgGroupTimerUpdate_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,14),_TmnxRipNgGroupTimerUpdate_Type())
-tmnxRipNgGroupTimerUpdate.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupTimerUpdate.setStatus(_A)
-if mibBuilder.loadTexts:tmnxRipNgGroupTimerUpdate.setUnits(_L)
-class _TmnxRipNgGroupImportPolicy1_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgGroupImportPolicy1_Type.__name__=_E
-_TmnxRipNgGroupImportPolicy1_Object=MibTableColumn
-tmnxRipNgGroupImportPolicy1=_TmnxRipNgGroupImportPolicy1_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,15),_TmnxRipNgGroupImportPolicy1_Type())
-tmnxRipNgGroupImportPolicy1.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupImportPolicy1.setStatus(_A)
-class _TmnxRipNgGroupImportPolicy2_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgGroupImportPolicy2_Type.__name__=_E
-_TmnxRipNgGroupImportPolicy2_Object=MibTableColumn
-tmnxRipNgGroupImportPolicy2=_TmnxRipNgGroupImportPolicy2_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,16),_TmnxRipNgGroupImportPolicy2_Type())
-tmnxRipNgGroupImportPolicy2.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupImportPolicy2.setStatus(_A)
-class _TmnxRipNgGroupImportPolicy3_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgGroupImportPolicy3_Type.__name__=_E
-_TmnxRipNgGroupImportPolicy3_Object=MibTableColumn
-tmnxRipNgGroupImportPolicy3=_TmnxRipNgGroupImportPolicy3_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,17),_TmnxRipNgGroupImportPolicy3_Type())
-tmnxRipNgGroupImportPolicy3.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupImportPolicy3.setStatus(_A)
-class _TmnxRipNgGroupImportPolicy4_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgGroupImportPolicy4_Type.__name__=_E
-_TmnxRipNgGroupImportPolicy4_Object=MibTableColumn
-tmnxRipNgGroupImportPolicy4=_TmnxRipNgGroupImportPolicy4_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,18),_TmnxRipNgGroupImportPolicy4_Type())
-tmnxRipNgGroupImportPolicy4.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupImportPolicy4.setStatus(_A)
-class _TmnxRipNgGroupImportPolicy5_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgGroupImportPolicy5_Type.__name__=_E
-_TmnxRipNgGroupImportPolicy5_Object=MibTableColumn
-tmnxRipNgGroupImportPolicy5=_TmnxRipNgGroupImportPolicy5_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,19),_TmnxRipNgGroupImportPolicy5_Type())
-tmnxRipNgGroupImportPolicy5.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupImportPolicy5.setStatus(_A)
-class _TmnxRipNgGroupExportPolicy1_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgGroupExportPolicy1_Type.__name__=_E
-_TmnxRipNgGroupExportPolicy1_Object=MibTableColumn
-tmnxRipNgGroupExportPolicy1=_TmnxRipNgGroupExportPolicy1_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,20),_TmnxRipNgGroupExportPolicy1_Type())
-tmnxRipNgGroupExportPolicy1.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupExportPolicy1.setStatus(_A)
-class _TmnxRipNgGroupExportPolicy2_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgGroupExportPolicy2_Type.__name__=_E
-_TmnxRipNgGroupExportPolicy2_Object=MibTableColumn
-tmnxRipNgGroupExportPolicy2=_TmnxRipNgGroupExportPolicy2_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,21),_TmnxRipNgGroupExportPolicy2_Type())
-tmnxRipNgGroupExportPolicy2.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupExportPolicy2.setStatus(_A)
-class _TmnxRipNgGroupExportPolicy3_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgGroupExportPolicy3_Type.__name__=_E
-_TmnxRipNgGroupExportPolicy3_Object=MibTableColumn
-tmnxRipNgGroupExportPolicy3=_TmnxRipNgGroupExportPolicy3_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,22),_TmnxRipNgGroupExportPolicy3_Type())
-tmnxRipNgGroupExportPolicy3.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupExportPolicy3.setStatus(_A)
-class _TmnxRipNgGroupExportPolicy4_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgGroupExportPolicy4_Type.__name__=_E
-_TmnxRipNgGroupExportPolicy4_Object=MibTableColumn
-tmnxRipNgGroupExportPolicy4=_TmnxRipNgGroupExportPolicy4_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,23),_TmnxRipNgGroupExportPolicy4_Type())
-tmnxRipNgGroupExportPolicy4.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupExportPolicy4.setStatus(_A)
-class _TmnxRipNgGroupExportPolicy5_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgGroupExportPolicy5_Type.__name__=_E
-_TmnxRipNgGroupExportPolicy5_Object=MibTableColumn
-tmnxRipNgGroupExportPolicy5=_TmnxRipNgGroupExportPolicy5_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,24),_TmnxRipNgGroupExportPolicy5_Type())
-tmnxRipNgGroupExportPolicy5.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupExportPolicy5.setStatus(_A)
-class _TmnxRipNgGroupDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxRipNgGroupDescription_Type.__name__=_Q
-_TmnxRipNgGroupDescription_Object=MibTableColumn
-tmnxRipNgGroupDescription=_TmnxRipNgGroupDescription_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,25),_TmnxRipNgGroupDescription_Type())
-tmnxRipNgGroupDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupDescription.setStatus(_A)
-class _TmnxRipNgGroupInheritance_Type(Unsigned32):defaultValue=0
-_TmnxRipNgGroupInheritance_Type.__name__=_N
-_TmnxRipNgGroupInheritance_Object=MibTableColumn
-tmnxRipNgGroupInheritance=_TmnxRipNgGroupInheritance_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,26),_TmnxRipNgGroupInheritance_Type())
-tmnxRipNgGroupInheritance.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupInheritance.setStatus(_A)
-class _TmnxRipNgGroupAdminStatus_Type(TmnxAdminState):defaultValue=2
-_TmnxRipNgGroupAdminStatus_Type.__name__=_R
-_TmnxRipNgGroupAdminStatus_Object=MibTableColumn
-tmnxRipNgGroupAdminStatus=_TmnxRipNgGroupAdminStatus_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,27),_TmnxRipNgGroupAdminStatus_Type())
-tmnxRipNgGroupAdminStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupAdminStatus.setStatus(_A)
-_TmnxRipNgGroupOperStatus_Type=TmnxOperState
-_TmnxRipNgGroupOperStatus_Object=MibTableColumn
-tmnxRipNgGroupOperStatus=_TmnxRipNgGroupOperStatus_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,28),_TmnxRipNgGroupOperStatus_Type())
-tmnxRipNgGroupOperStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgGroupOperStatus.setStatus(_A)
-_TmnxRipNgGroupRowStatus_Type=RowStatus
-_TmnxRipNgGroupRowStatus_Object=MibTableColumn
-tmnxRipNgGroupRowStatus=_TmnxRipNgGroupRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,29),_TmnxRipNgGroupRowStatus_Type())
-tmnxRipNgGroupRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupRowStatus.setStatus(_A)
-class _TmnxRipNgGroupBfdEnable_Type(TruthValue):defaultValue=2
-_TmnxRipNgGroupBfdEnable_Type.__name__=_H
-_TmnxRipNgGroupBfdEnable_Object=MibTableColumn
-tmnxRipNgGroupBfdEnable=_TmnxRipNgGroupBfdEnable_Object((1,3,6,1,4,1,6527,3,1,2,89,2,2,1,30),_TmnxRipNgGroupBfdEnable_Type())
-tmnxRipNgGroupBfdEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgGroupBfdEnable.setStatus(_A)
-_TmnxRipNgIfTable_Object=MibTable
-tmnxRipNgIfTable=_TmnxRipNgIfTable_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3))
-if mibBuilder.loadTexts:tmnxRipNgIfTable.setStatus(_A)
-_TmnxRipNgIfEntry_Object=MibTableRow
-tmnxRipNgIfEntry=_TmnxRipNgIfEntry_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1))
-tmnxRipNgIfEntry.setIndexNames((0,_G,_J),(0,_B,_K),(0,_G,_U))
-if mibBuilder.loadTexts:tmnxRipNgIfEntry.setStatus(_A)
-_TmnxRipNgIfGroupName_Type=TNamedItem
-_TmnxRipNgIfGroupName_Object=MibTableColumn
-tmnxRipNgIfGroupName=_TmnxRipNgIfGroupName_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,1),_TmnxRipNgIfGroupName_Type())
-tmnxRipNgIfGroupName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfGroupName.setStatus(_A)
-class _TmnxRipNgIfAuthType_Type(TmnxRipNgAuthType):defaultValue=1
-_TmnxRipNgIfAuthType_Type.__name__=_T
-_TmnxRipNgIfAuthType_Object=MibTableColumn
-tmnxRipNgIfAuthType=_TmnxRipNgIfAuthType_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,2),_TmnxRipNgIfAuthType_Type())
-tmnxRipNgIfAuthType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfAuthType.setStatus(_A)
-class _TmnxRipNgIfAuthKey_Type(TmnxRipNgAuthKey):defaultHexValue=''
-_TmnxRipNgIfAuthKey_Type.__name__=_S
-_TmnxRipNgIfAuthKey_Object=MibTableColumn
-tmnxRipNgIfAuthKey=_TmnxRipNgIfAuthKey_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,3),_TmnxRipNgIfAuthKey_Type())
-tmnxRipNgIfAuthKey.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfAuthKey.setStatus(_A)
-class _TmnxRipNgIfCheckZero_Type(TruthValue):defaultValue=2
-_TmnxRipNgIfCheckZero_Type.__name__=_H
-_TmnxRipNgIfCheckZero_Object=MibTableColumn
-tmnxRipNgIfCheckZero=_TmnxRipNgIfCheckZero_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,4),_TmnxRipNgIfCheckZero_Type())
-tmnxRipNgIfCheckZero.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfCheckZero.setStatus(_A)
-class _TmnxRipNgIfMessageSize_Type(TmnxRipNgMessageSize):defaultValue=25
-_TmnxRipNgIfMessageSize_Type.__name__=_V
-_TmnxRipNgIfMessageSize_Object=MibTableColumn
-tmnxRipNgIfMessageSize=_TmnxRipNgIfMessageSize_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,5),_TmnxRipNgIfMessageSize_Type())
-tmnxRipNgIfMessageSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfMessageSize.setStatus(_A)
-class _TmnxRipNgIfMetricIn_Type(TmnxRipNgMetric):defaultValue=1
-_TmnxRipNgIfMetricIn_Type.__name__=_M
-_TmnxRipNgIfMetricIn_Object=MibTableColumn
-tmnxRipNgIfMetricIn=_TmnxRipNgIfMetricIn_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,6),_TmnxRipNgIfMetricIn_Type())
-tmnxRipNgIfMetricIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfMetricIn.setStatus(_A)
-class _TmnxRipNgIfMetricOut_Type(TmnxRipNgMetric):defaultValue=1
-_TmnxRipNgIfMetricOut_Type.__name__=_M
-_TmnxRipNgIfMetricOut_Object=MibTableColumn
-tmnxRipNgIfMetricOut=_TmnxRipNgIfMetricOut_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,7),_TmnxRipNgIfMetricOut_Type())
-tmnxRipNgIfMetricOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfMetricOut.setStatus(_A)
-class _TmnxRipNgIfPreference_Type(TmnxRipNgPreference):defaultValue=100
-_TmnxRipNgIfPreference_Type.__name__=_W
-_TmnxRipNgIfPreference_Object=MibTableColumn
-tmnxRipNgIfPreference=_TmnxRipNgIfPreference_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,8),_TmnxRipNgIfPreference_Type())
-tmnxRipNgIfPreference.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfPreference.setStatus(_A)
-class _TmnxRipNgIfReceive_Type(TmnxRipNgReceive):defaultValue=5
-_TmnxRipNgIfReceive_Type.__name__=_X
-_TmnxRipNgIfReceive_Object=MibTableColumn
-tmnxRipNgIfReceive=_TmnxRipNgIfReceive_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,9),_TmnxRipNgIfReceive_Type())
-tmnxRipNgIfReceive.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfReceive.setStatus(_A)
-class _TmnxRipNgIfSend_Type(TmnxRipNgSend):defaultValue=5
-_TmnxRipNgIfSend_Type.__name__=_Y
-_TmnxRipNgIfSend_Object=MibTableColumn
-tmnxRipNgIfSend=_TmnxRipNgIfSend_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,10),_TmnxRipNgIfSend_Type())
-tmnxRipNgIfSend.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfSend.setStatus(_A)
-class _TmnxRipNgIfSplitHorizon_Type(TruthValue):defaultValue=1
-_TmnxRipNgIfSplitHorizon_Type.__name__=_H
-_TmnxRipNgIfSplitHorizon_Object=MibTableColumn
-tmnxRipNgIfSplitHorizon=_TmnxRipNgIfSplitHorizon_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,11),_TmnxRipNgIfSplitHorizon_Type())
-tmnxRipNgIfSplitHorizon.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfSplitHorizon.setStatus(_A)
-class _TmnxRipNgIfTimerFlush_Type(TmnxRipNgTimerFlush):defaultValue=120
-_TmnxRipNgIfTimerFlush_Type.__name__=_Z
-_TmnxRipNgIfTimerFlush_Object=MibTableColumn
-tmnxRipNgIfTimerFlush=_TmnxRipNgIfTimerFlush_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,12),_TmnxRipNgIfTimerFlush_Type())
-tmnxRipNgIfTimerFlush.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfTimerFlush.setStatus(_A)
-if mibBuilder.loadTexts:tmnxRipNgIfTimerFlush.setUnits(_L)
-class _TmnxRipNgIfTimerTimeout_Type(TmnxRipNgTimerTimeout):defaultValue=180
-_TmnxRipNgIfTimerTimeout_Type.__name__=_a
-_TmnxRipNgIfTimerTimeout_Object=MibTableColumn
-tmnxRipNgIfTimerTimeout=_TmnxRipNgIfTimerTimeout_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,13),_TmnxRipNgIfTimerTimeout_Type())
-tmnxRipNgIfTimerTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfTimerTimeout.setStatus(_A)
-if mibBuilder.loadTexts:tmnxRipNgIfTimerTimeout.setUnits(_L)
-class _TmnxRipNgIfTimerUpdate_Type(TmnxRipNgTimerUpdate):defaultValue=30
-_TmnxRipNgIfTimerUpdate_Type.__name__=_b
-_TmnxRipNgIfTimerUpdate_Object=MibTableColumn
-tmnxRipNgIfTimerUpdate=_TmnxRipNgIfTimerUpdate_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,14),_TmnxRipNgIfTimerUpdate_Type())
-tmnxRipNgIfTimerUpdate.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfTimerUpdate.setStatus(_A)
-if mibBuilder.loadTexts:tmnxRipNgIfTimerUpdate.setUnits(_L)
-class _TmnxRipNgIfImportPolicy1_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgIfImportPolicy1_Type.__name__=_E
-_TmnxRipNgIfImportPolicy1_Object=MibTableColumn
-tmnxRipNgIfImportPolicy1=_TmnxRipNgIfImportPolicy1_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,15),_TmnxRipNgIfImportPolicy1_Type())
-tmnxRipNgIfImportPolicy1.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfImportPolicy1.setStatus(_A)
-class _TmnxRipNgIfImportPolicy2_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgIfImportPolicy2_Type.__name__=_E
-_TmnxRipNgIfImportPolicy2_Object=MibTableColumn
-tmnxRipNgIfImportPolicy2=_TmnxRipNgIfImportPolicy2_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,16),_TmnxRipNgIfImportPolicy2_Type())
-tmnxRipNgIfImportPolicy2.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfImportPolicy2.setStatus(_A)
-class _TmnxRipNgIfImportPolicy3_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgIfImportPolicy3_Type.__name__=_E
-_TmnxRipNgIfImportPolicy3_Object=MibTableColumn
-tmnxRipNgIfImportPolicy3=_TmnxRipNgIfImportPolicy3_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,17),_TmnxRipNgIfImportPolicy3_Type())
-tmnxRipNgIfImportPolicy3.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfImportPolicy3.setStatus(_A)
-class _TmnxRipNgIfImportPolicy4_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgIfImportPolicy4_Type.__name__=_E
-_TmnxRipNgIfImportPolicy4_Object=MibTableColumn
-tmnxRipNgIfImportPolicy4=_TmnxRipNgIfImportPolicy4_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,18),_TmnxRipNgIfImportPolicy4_Type())
-tmnxRipNgIfImportPolicy4.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfImportPolicy4.setStatus(_A)
-class _TmnxRipNgIfImportPolicy5_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgIfImportPolicy5_Type.__name__=_E
-_TmnxRipNgIfImportPolicy5_Object=MibTableColumn
-tmnxRipNgIfImportPolicy5=_TmnxRipNgIfImportPolicy5_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,19),_TmnxRipNgIfImportPolicy5_Type())
-tmnxRipNgIfImportPolicy5.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfImportPolicy5.setStatus(_A)
-class _TmnxRipNgIfExportPolicy1_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgIfExportPolicy1_Type.__name__=_E
-_TmnxRipNgIfExportPolicy1_Object=MibTableColumn
-tmnxRipNgIfExportPolicy1=_TmnxRipNgIfExportPolicy1_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,20),_TmnxRipNgIfExportPolicy1_Type())
-tmnxRipNgIfExportPolicy1.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfExportPolicy1.setStatus(_A)
-class _TmnxRipNgIfExportPolicy2_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgIfExportPolicy2_Type.__name__=_E
-_TmnxRipNgIfExportPolicy2_Object=MibTableColumn
-tmnxRipNgIfExportPolicy2=_TmnxRipNgIfExportPolicy2_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,21),_TmnxRipNgIfExportPolicy2_Type())
-tmnxRipNgIfExportPolicy2.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfExportPolicy2.setStatus(_A)
-class _TmnxRipNgIfExportPolicy3_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgIfExportPolicy3_Type.__name__=_E
-_TmnxRipNgIfExportPolicy3_Object=MibTableColumn
-tmnxRipNgIfExportPolicy3=_TmnxRipNgIfExportPolicy3_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,22),_TmnxRipNgIfExportPolicy3_Type())
-tmnxRipNgIfExportPolicy3.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfExportPolicy3.setStatus(_A)
-class _TmnxRipNgIfExportPolicy4_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgIfExportPolicy4_Type.__name__=_E
-_TmnxRipNgIfExportPolicy4_Object=MibTableColumn
-tmnxRipNgIfExportPolicy4=_TmnxRipNgIfExportPolicy4_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,23),_TmnxRipNgIfExportPolicy4_Type())
-tmnxRipNgIfExportPolicy4.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfExportPolicy4.setStatus(_A)
-class _TmnxRipNgIfExportPolicy5_Type(TPolicyStatementNameOrEmpty):defaultHexValue=''
-_TmnxRipNgIfExportPolicy5_Type.__name__=_E
-_TmnxRipNgIfExportPolicy5_Object=MibTableColumn
-tmnxRipNgIfExportPolicy5=_TmnxRipNgIfExportPolicy5_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,24),_TmnxRipNgIfExportPolicy5_Type())
-tmnxRipNgIfExportPolicy5.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfExportPolicy5.setStatus(_A)
-class _TmnxRipNgIfDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxRipNgIfDescription_Type.__name__=_Q
-_TmnxRipNgIfDescription_Object=MibTableColumn
-tmnxRipNgIfDescription=_TmnxRipNgIfDescription_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,25),_TmnxRipNgIfDescription_Type())
-tmnxRipNgIfDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfDescription.setStatus(_A)
-class _TmnxRipNgIfInheritance_Type(Unsigned32):defaultValue=0
-_TmnxRipNgIfInheritance_Type.__name__=_N
-_TmnxRipNgIfInheritance_Object=MibTableColumn
-tmnxRipNgIfInheritance=_TmnxRipNgIfInheritance_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,26),_TmnxRipNgIfInheritance_Type())
-tmnxRipNgIfInheritance.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfInheritance.setStatus(_A)
-class _TmnxRipNgIfAdminStatus_Type(TmnxAdminState):defaultValue=2
-_TmnxRipNgIfAdminStatus_Type.__name__=_R
-_TmnxRipNgIfAdminStatus_Object=MibTableColumn
-tmnxRipNgIfAdminStatus=_TmnxRipNgIfAdminStatus_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,27),_TmnxRipNgIfAdminStatus_Type())
-tmnxRipNgIfAdminStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfAdminStatus.setStatus(_A)
-class _TmnxRipNgIfOperStatus_Type(TmnxOperState):defaultValue=2
-_TmnxRipNgIfOperStatus_Type.__name__=_k
-_TmnxRipNgIfOperStatus_Object=MibTableColumn
-tmnxRipNgIfOperStatus=_TmnxRipNgIfOperStatus_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,28),_TmnxRipNgIfOperStatus_Type())
-tmnxRipNgIfOperStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfOperStatus.setStatus(_A)
-_TmnxRipNgIfRowStatus_Type=RowStatus
-_TmnxRipNgIfRowStatus_Object=MibTableColumn
-tmnxRipNgIfRowStatus=_TmnxRipNgIfRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,29),_TmnxRipNgIfRowStatus_Type())
-tmnxRipNgIfRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfRowStatus.setStatus(_A)
-class _TmnxRipNgIfBfdEnable_Type(TruthValue):defaultValue=2
-_TmnxRipNgIfBfdEnable_Type.__name__=_H
-_TmnxRipNgIfBfdEnable_Object=MibTableColumn
-tmnxRipNgIfBfdEnable=_TmnxRipNgIfBfdEnable_Object((1,3,6,1,4,1,6527,3,1,2,89,2,3,1,30),_TmnxRipNgIfBfdEnable_Type())
-tmnxRipNgIfBfdEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfBfdEnable.setStatus(_A)
-_TmnxRipNgRouteTable_Object=MibTable
-tmnxRipNgRouteTable=_TmnxRipNgRouteTable_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4))
-if mibBuilder.loadTexts:tmnxRipNgRouteTable.setStatus(_A)
-_TmnxRipNgRouteEntry_Object=MibTableRow
-tmnxRipNgRouteEntry=_TmnxRipNgRouteEntry_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4,1))
-tmnxRipNgRouteEntry.setIndexNames((0,_G,_J),(0,_B,_K),(0,_B,_n),(0,_B,_o),(0,_B,_p),(0,_B,_q),(0,_B,_r),(0,_B,_s))
-if mibBuilder.loadTexts:tmnxRipNgRouteEntry.setStatus(_A)
-_TmnxRipNgRouteDestAddrType_Type=InetAddressType
-_TmnxRipNgRouteDestAddrType_Object=MibTableColumn
-tmnxRipNgRouteDestAddrType=_TmnxRipNgRouteDestAddrType_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4,1,1),_TmnxRipNgRouteDestAddrType_Type())
-tmnxRipNgRouteDestAddrType.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgRouteDestAddrType.setStatus(_A)
-class _TmnxRipNgRouteDestAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxRipNgRouteDestAddress_Type.__name__=_I
-_TmnxRipNgRouteDestAddress_Object=MibTableColumn
-tmnxRipNgRouteDestAddress=_TmnxRipNgRouteDestAddress_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4,1,2),_TmnxRipNgRouteDestAddress_Type())
-tmnxRipNgRouteDestAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgRouteDestAddress.setStatus(_A)
-class _TmnxRipNgRouteMaskLength_Type(InetAddressPrefixLength):subtypeSpec=InetAddressPrefixLength.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_TmnxRipNgRouteMaskLength_Type.__name__=_d
-_TmnxRipNgRouteMaskLength_Object=MibTableColumn
-tmnxRipNgRouteMaskLength=_TmnxRipNgRouteMaskLength_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4,1,3),_TmnxRipNgRouteMaskLength_Type())
-tmnxRipNgRouteMaskLength.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgRouteMaskLength.setStatus(_A)
-_TmnxRipNgRouteIfIndex_Type=InterfaceIndex
-_TmnxRipNgRouteIfIndex_Object=MibTableColumn
-tmnxRipNgRouteIfIndex=_TmnxRipNgRouteIfIndex_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4,1,4),_TmnxRipNgRouteIfIndex_Type())
-tmnxRipNgRouteIfIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgRouteIfIndex.setStatus(_A)
-_TmnxRipNgRoutePeerAddrType_Type=InetAddressType
-_TmnxRipNgRoutePeerAddrType_Object=MibTableColumn
-tmnxRipNgRoutePeerAddrType=_TmnxRipNgRoutePeerAddrType_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4,1,5),_TmnxRipNgRoutePeerAddrType_Type())
-tmnxRipNgRoutePeerAddrType.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgRoutePeerAddrType.setStatus(_A)
-class _TmnxRipNgRoutePeerAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxRipNgRoutePeerAddress_Type.__name__=_I
-_TmnxRipNgRoutePeerAddress_Object=MibTableColumn
-tmnxRipNgRoutePeerAddress=_TmnxRipNgRoutePeerAddress_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4,1,6),_TmnxRipNgRoutePeerAddress_Type())
-tmnxRipNgRoutePeerAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgRoutePeerAddress.setStatus(_A)
-_TmnxRipNgRouteNHAddrType_Type=InetAddressType
-_TmnxRipNgRouteNHAddrType_Object=MibTableColumn
-tmnxRipNgRouteNHAddrType=_TmnxRipNgRouteNHAddrType_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4,1,7),_TmnxRipNgRouteNHAddrType_Type())
-tmnxRipNgRouteNHAddrType.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgRouteNHAddrType.setStatus(_A)
-class _TmnxRipNgRouteNHAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxRipNgRouteNHAddress_Type.__name__=_I
-_TmnxRipNgRouteNHAddress_Object=MibTableColumn
-tmnxRipNgRouteNHAddress=_TmnxRipNgRouteNHAddress_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4,1,8),_TmnxRipNgRouteNHAddress_Type())
-tmnxRipNgRouteNHAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgRouteNHAddress.setStatus(_A)
-_TmnxRipNgRouteMetric_Type=TmnxRipNgMetric
-_TmnxRipNgRouteMetric_Object=MibTableColumn
-tmnxRipNgRouteMetric=_TmnxRipNgRouteMetric_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4,1,9),_TmnxRipNgRouteMetric_Type())
-tmnxRipNgRouteMetric.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgRouteMetric.setStatus(_A)
-_TmnxRipNgRouteTag_Type=RouteTag
-_TmnxRipNgRouteTag_Object=MibTableColumn
-tmnxRipNgRouteTag=_TmnxRipNgRouteTag_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4,1,10),_TmnxRipNgRouteTag_Type())
-tmnxRipNgRouteTag.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgRouteTag.setStatus(_A)
-class _TmnxRipNgRouteStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('active',1),('inactive',2)))
-_TmnxRipNgRouteStatus_Type.__name__=_i
-_TmnxRipNgRouteStatus_Object=MibTableColumn
-tmnxRipNgRouteStatus=_TmnxRipNgRouteStatus_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4,1,11),_TmnxRipNgRouteStatus_Type())
-tmnxRipNgRouteStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgRouteStatus.setStatus(_A)
-_TmnxRipNgRouteTimerRemaining_Type=Unsigned32
-_TmnxRipNgRouteTimerRemaining_Object=MibTableColumn
-tmnxRipNgRouteTimerRemaining=_TmnxRipNgRouteTimerRemaining_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4,1,12),_TmnxRipNgRouteTimerRemaining_Type())
-tmnxRipNgRouteTimerRemaining.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgRouteTimerRemaining.setStatus(_A)
-_TmnxRipNgRouteFC_Type=TNamedItemOrEmpty
-_TmnxRipNgRouteFC_Object=MibTableColumn
-tmnxRipNgRouteFC=_TmnxRipNgRouteFC_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4,1,13),_TmnxRipNgRouteFC_Type())
-tmnxRipNgRouteFC.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgRouteFC.setStatus(_A)
-_TmnxRipNgRouteFCPriority_Type=TPriorityOrUndefined
-_TmnxRipNgRouteFCPriority_Object=MibTableColumn
-tmnxRipNgRouteFCPriority=_TmnxRipNgRouteFCPriority_Object((1,3,6,1,4,1,6527,3,1,2,89,2,4,1,14),_TmnxRipNgRouteFCPriority_Type())
-tmnxRipNgRouteFCPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgRouteFCPriority.setStatus(_A)
-_TmnxRipNgIfStatTable_Object=MibTable
-tmnxRipNgIfStatTable=_TmnxRipNgIfStatTable_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5))
-if mibBuilder.loadTexts:tmnxRipNgIfStatTable.setStatus(_A)
-_TmnxRipNgIfStatEntry_Object=MibTableRow
-tmnxRipNgIfStatEntry=_TmnxRipNgIfStatEntry_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1))
-tmnxRipNgIfStatEntry.setIndexNames((0,_G,_J),(0,_B,_K),(0,_G,_U))
-if mibBuilder.loadTexts:tmnxRipNgIfStatEntry.setStatus(_A)
-_TmnxRipNgIfStatAllSentUpdates_Type=Counter32
-_TmnxRipNgIfStatAllSentUpdates_Object=MibTableColumn
-tmnxRipNgIfStatAllSentUpdates=_TmnxRipNgIfStatAllSentUpdates_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,1),_TmnxRipNgIfStatAllSentUpdates_Type())
-tmnxRipNgIfStatAllSentUpdates.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatAllSentUpdates.setStatus(_A)
-_TmnxRipNgIfStatAllTrigUpdates_Type=Counter32
-_TmnxRipNgIfStatAllTrigUpdates_Object=MibTableColumn
-tmnxRipNgIfStatAllTrigUpdates=_TmnxRipNgIfStatAllTrigUpdates_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,2),_TmnxRipNgIfStatAllTrigUpdates_Type())
-tmnxRipNgIfStatAllTrigUpdates.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatAllTrigUpdates.setStatus(_A)
-_TmnxRipNgIfStatAllRcvBadPkts_Type=Counter32
-_TmnxRipNgIfStatAllRcvBadPkts_Object=MibTableColumn
-tmnxRipNgIfStatAllRcvBadPkts=_TmnxRipNgIfStatAllRcvBadPkts_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,3),_TmnxRipNgIfStatAllRcvBadPkts_Type())
-tmnxRipNgIfStatAllRcvBadPkts.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatAllRcvBadPkts.setStatus(_A)
-_TmnxRipNgIfStatV1RcvUpdates_Type=Counter32
-_TmnxRipNgIfStatV1RcvUpdates_Object=MibTableColumn
-tmnxRipNgIfStatV1RcvUpdates=_TmnxRipNgIfStatV1RcvUpdates_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,4),_TmnxRipNgIfStatV1RcvUpdates_Type())
-tmnxRipNgIfStatV1RcvUpdates.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV1RcvUpdates.setStatus(_A)
-_TmnxRipNgIfStatV1RcvRequests_Type=Counter32
-_TmnxRipNgIfStatV1RcvRequests_Object=MibTableColumn
-tmnxRipNgIfStatV1RcvRequests=_TmnxRipNgIfStatV1RcvRequests_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,5),_TmnxRipNgIfStatV1RcvRequests_Type())
-tmnxRipNgIfStatV1RcvRequests.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV1RcvRequests.setStatus(_A)
-_TmnxRipNgIfStatV1BadUpdates_Type=Counter32
-_TmnxRipNgIfStatV1BadUpdates_Object=MibTableColumn
-tmnxRipNgIfStatV1BadUpdates=_TmnxRipNgIfStatV1BadUpdates_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,6),_TmnxRipNgIfStatV1BadUpdates_Type())
-tmnxRipNgIfStatV1BadUpdates.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV1BadUpdates.setStatus(_A)
-_TmnxRipNgIfStatV1BadRequests_Type=Counter32
-_TmnxRipNgIfStatV1BadRequests_Object=MibTableColumn
-tmnxRipNgIfStatV1BadRequests=_TmnxRipNgIfStatV1BadRequests_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,7),_TmnxRipNgIfStatV1BadRequests_Type())
-tmnxRipNgIfStatV1BadRequests.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV1BadRequests.setStatus(_A)
-_TmnxRipNgIfStatV1BadRoutes_Type=Counter32
-_TmnxRipNgIfStatV1BadRoutes_Object=MibTableColumn
-tmnxRipNgIfStatV1BadRoutes=_TmnxRipNgIfStatV1BadRoutes_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,8),_TmnxRipNgIfStatV1BadRoutes_Type())
-tmnxRipNgIfStatV1BadRoutes.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV1BadRoutes.setStatus(_A)
-_TmnxRipNgIfStatV2RcvUpdates_Type=Counter32
-_TmnxRipNgIfStatV2RcvUpdates_Object=MibTableColumn
-tmnxRipNgIfStatV2RcvUpdates=_TmnxRipNgIfStatV2RcvUpdates_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,9),_TmnxRipNgIfStatV2RcvUpdates_Type())
-tmnxRipNgIfStatV2RcvUpdates.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV2RcvUpdates.setStatus(_A)
-_TmnxRipNgIfStatV2RcvRequests_Type=Counter32
-_TmnxRipNgIfStatV2RcvRequests_Object=MibTableColumn
-tmnxRipNgIfStatV2RcvRequests=_TmnxRipNgIfStatV2RcvRequests_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,10),_TmnxRipNgIfStatV2RcvRequests_Type())
-tmnxRipNgIfStatV2RcvRequests.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV2RcvRequests.setStatus(_A)
-_TmnxRipNgIfStatV2BadUpdates_Type=Counter32
-_TmnxRipNgIfStatV2BadUpdates_Object=MibTableColumn
-tmnxRipNgIfStatV2BadUpdates=_TmnxRipNgIfStatV2BadUpdates_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,11),_TmnxRipNgIfStatV2BadUpdates_Type())
-tmnxRipNgIfStatV2BadUpdates.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV2BadUpdates.setStatus(_A)
-_TmnxRipNgIfStatV2BadRequests_Type=Counter32
-_TmnxRipNgIfStatV2BadRequests_Object=MibTableColumn
-tmnxRipNgIfStatV2BadRequests=_TmnxRipNgIfStatV2BadRequests_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,12),_TmnxRipNgIfStatV2BadRequests_Type())
-tmnxRipNgIfStatV2BadRequests.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV2BadRequests.setStatus(_A)
-_TmnxRipNgIfStatV2BadRoutes_Type=Counter32
-_TmnxRipNgIfStatV2BadRoutes_Object=MibTableColumn
-tmnxRipNgIfStatV2BadRoutes=_TmnxRipNgIfStatV2BadRoutes_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,13),_TmnxRipNgIfStatV2BadRoutes_Type())
-tmnxRipNgIfStatV2BadRoutes.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV2BadRoutes.setStatus(_A)
-_TmnxRipNgIfStatAuthErrors_Type=Counter32
-_TmnxRipNgIfStatAuthErrors_Object=MibTableColumn
-tmnxRipNgIfStatAuthErrors=_TmnxRipNgIfStatAuthErrors_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,14),_TmnxRipNgIfStatAuthErrors_Type())
-tmnxRipNgIfStatAuthErrors.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatAuthErrors.setStatus(_A)
-_TmnxRipNgIfStatAllSentUpdts5Min_Type=Counter32
-_TmnxRipNgIfStatAllSentUpdts5Min_Object=MibTableColumn
-tmnxRipNgIfStatAllSentUpdts5Min=_TmnxRipNgIfStatAllSentUpdts5Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,15),_TmnxRipNgIfStatAllSentUpdts5Min_Type())
-tmnxRipNgIfStatAllSentUpdts5Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatAllSentUpdts5Min.setStatus(_A)
-_TmnxRipNgIfStatAllTrigUpdts5Min_Type=Counter32
-_TmnxRipNgIfStatAllTrigUpdts5Min_Object=MibTableColumn
-tmnxRipNgIfStatAllTrigUpdts5Min=_TmnxRipNgIfStatAllTrigUpdts5Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,16),_TmnxRipNgIfStatAllTrigUpdts5Min_Type())
-tmnxRipNgIfStatAllTrigUpdts5Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatAllTrigUpdts5Min.setStatus(_A)
-_TmnxRipNgIfStatAllRcvBadPkts5Min_Type=Counter32
-_TmnxRipNgIfStatAllRcvBadPkts5Min_Object=MibTableColumn
-tmnxRipNgIfStatAllRcvBadPkts5Min=_TmnxRipNgIfStatAllRcvBadPkts5Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,17),_TmnxRipNgIfStatAllRcvBadPkts5Min_Type())
-tmnxRipNgIfStatAllRcvBadPkts5Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatAllRcvBadPkts5Min.setStatus(_A)
-_TmnxRipNgIfStatV1RcvUpdates5Min_Type=Counter32
-_TmnxRipNgIfStatV1RcvUpdates5Min_Object=MibTableColumn
-tmnxRipNgIfStatV1RcvUpdates5Min=_TmnxRipNgIfStatV1RcvUpdates5Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,18),_TmnxRipNgIfStatV1RcvUpdates5Min_Type())
-tmnxRipNgIfStatV1RcvUpdates5Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV1RcvUpdates5Min.setStatus(_A)
-_TmnxRipNgIfStatV1RcvRequests5Min_Type=Counter32
-_TmnxRipNgIfStatV1RcvRequests5Min_Object=MibTableColumn
-tmnxRipNgIfStatV1RcvRequests5Min=_TmnxRipNgIfStatV1RcvRequests5Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,19),_TmnxRipNgIfStatV1RcvRequests5Min_Type())
-tmnxRipNgIfStatV1RcvRequests5Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV1RcvRequests5Min.setStatus(_A)
-_TmnxRipNgIfStatV1BadUpdates5Min_Type=Counter32
-_TmnxRipNgIfStatV1BadUpdates5Min_Object=MibTableColumn
-tmnxRipNgIfStatV1BadUpdates5Min=_TmnxRipNgIfStatV1BadUpdates5Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,20),_TmnxRipNgIfStatV1BadUpdates5Min_Type())
-tmnxRipNgIfStatV1BadUpdates5Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV1BadUpdates5Min.setStatus(_A)
-_TmnxRipNgIfStatV1BadRequests5Min_Type=Counter32
-_TmnxRipNgIfStatV1BadRequests5Min_Object=MibTableColumn
-tmnxRipNgIfStatV1BadRequests5Min=_TmnxRipNgIfStatV1BadRequests5Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,21),_TmnxRipNgIfStatV1BadRequests5Min_Type())
-tmnxRipNgIfStatV1BadRequests5Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV1BadRequests5Min.setStatus(_A)
-_TmnxRipNgIfStatV1BadRoutes5Min_Type=Counter32
-_TmnxRipNgIfStatV1BadRoutes5Min_Object=MibTableColumn
-tmnxRipNgIfStatV1BadRoutes5Min=_TmnxRipNgIfStatV1BadRoutes5Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,22),_TmnxRipNgIfStatV1BadRoutes5Min_Type())
-tmnxRipNgIfStatV1BadRoutes5Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV1BadRoutes5Min.setStatus(_A)
-_TmnxRipNgIfStatV2RcvUpdates5Min_Type=Counter32
-_TmnxRipNgIfStatV2RcvUpdates5Min_Object=MibTableColumn
-tmnxRipNgIfStatV2RcvUpdates5Min=_TmnxRipNgIfStatV2RcvUpdates5Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,23),_TmnxRipNgIfStatV2RcvUpdates5Min_Type())
-tmnxRipNgIfStatV2RcvUpdates5Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV2RcvUpdates5Min.setStatus(_A)
-_TmnxRipNgIfStatV2RcvRequests5Min_Type=Counter32
-_TmnxRipNgIfStatV2RcvRequests5Min_Object=MibTableColumn
-tmnxRipNgIfStatV2RcvRequests5Min=_TmnxRipNgIfStatV2RcvRequests5Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,24),_TmnxRipNgIfStatV2RcvRequests5Min_Type())
-tmnxRipNgIfStatV2RcvRequests5Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV2RcvRequests5Min.setStatus(_A)
-_TmnxRipNgIfStatV2BadUpdates5Min_Type=Counter32
-_TmnxRipNgIfStatV2BadUpdates5Min_Object=MibTableColumn
-tmnxRipNgIfStatV2BadUpdates5Min=_TmnxRipNgIfStatV2BadUpdates5Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,25),_TmnxRipNgIfStatV2BadUpdates5Min_Type())
-tmnxRipNgIfStatV2BadUpdates5Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV2BadUpdates5Min.setStatus(_A)
-_TmnxRipNgIfStatV2BadRequests5Min_Type=Counter32
-_TmnxRipNgIfStatV2BadRequests5Min_Object=MibTableColumn
-tmnxRipNgIfStatV2BadRequests5Min=_TmnxRipNgIfStatV2BadRequests5Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,26),_TmnxRipNgIfStatV2BadRequests5Min_Type())
-tmnxRipNgIfStatV2BadRequests5Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV2BadRequests5Min.setStatus(_A)
-_TmnxRipNgIfStatV2BadRoutes5Min_Type=Counter32
-_TmnxRipNgIfStatV2BadRoutes5Min_Object=MibTableColumn
-tmnxRipNgIfStatV2BadRoutes5Min=_TmnxRipNgIfStatV2BadRoutes5Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,27),_TmnxRipNgIfStatV2BadRoutes5Min_Type())
-tmnxRipNgIfStatV2BadRoutes5Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV2BadRoutes5Min.setStatus(_A)
-_TmnxRipNgIfStatAuthErrors5Min_Type=Counter32
-_TmnxRipNgIfStatAuthErrors5Min_Object=MibTableColumn
-tmnxRipNgIfStatAuthErrors5Min=_TmnxRipNgIfStatAuthErrors5Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,28),_TmnxRipNgIfStatAuthErrors5Min_Type())
-tmnxRipNgIfStatAuthErrors5Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatAuthErrors5Min.setStatus(_A)
-_TmnxRipNgIfStatAllSentUpdts1Min_Type=Counter32
-_TmnxRipNgIfStatAllSentUpdts1Min_Object=MibTableColumn
-tmnxRipNgIfStatAllSentUpdts1Min=_TmnxRipNgIfStatAllSentUpdts1Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,29),_TmnxRipNgIfStatAllSentUpdts1Min_Type())
-tmnxRipNgIfStatAllSentUpdts1Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatAllSentUpdts1Min.setStatus(_A)
-_TmnxRipNgIfStatAllTrigUpdts1Min_Type=Counter32
-_TmnxRipNgIfStatAllTrigUpdts1Min_Object=MibTableColumn
-tmnxRipNgIfStatAllTrigUpdts1Min=_TmnxRipNgIfStatAllTrigUpdts1Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,30),_TmnxRipNgIfStatAllTrigUpdts1Min_Type())
-tmnxRipNgIfStatAllTrigUpdts1Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatAllTrigUpdts1Min.setStatus(_A)
-_TmnxRipNgIfStatAllRcvBadPkts1Min_Type=Counter32
-_TmnxRipNgIfStatAllRcvBadPkts1Min_Object=MibTableColumn
-tmnxRipNgIfStatAllRcvBadPkts1Min=_TmnxRipNgIfStatAllRcvBadPkts1Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,31),_TmnxRipNgIfStatAllRcvBadPkts1Min_Type())
-tmnxRipNgIfStatAllRcvBadPkts1Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatAllRcvBadPkts1Min.setStatus(_A)
-_TmnxRipNgIfStatV1RcvUpdates1Min_Type=Counter32
-_TmnxRipNgIfStatV1RcvUpdates1Min_Object=MibTableColumn
-tmnxRipNgIfStatV1RcvUpdates1Min=_TmnxRipNgIfStatV1RcvUpdates1Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,32),_TmnxRipNgIfStatV1RcvUpdates1Min_Type())
-tmnxRipNgIfStatV1RcvUpdates1Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV1RcvUpdates1Min.setStatus(_A)
-_TmnxRipNgIfStatV1RcvRequests1Min_Type=Counter32
-_TmnxRipNgIfStatV1RcvRequests1Min_Object=MibTableColumn
-tmnxRipNgIfStatV1RcvRequests1Min=_TmnxRipNgIfStatV1RcvRequests1Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,33),_TmnxRipNgIfStatV1RcvRequests1Min_Type())
-tmnxRipNgIfStatV1RcvRequests1Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV1RcvRequests1Min.setStatus(_A)
-_TmnxRipNgIfStatV1BadUpdates1Min_Type=Counter32
-_TmnxRipNgIfStatV1BadUpdates1Min_Object=MibTableColumn
-tmnxRipNgIfStatV1BadUpdates1Min=_TmnxRipNgIfStatV1BadUpdates1Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,34),_TmnxRipNgIfStatV1BadUpdates1Min_Type())
-tmnxRipNgIfStatV1BadUpdates1Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV1BadUpdates1Min.setStatus(_A)
-_TmnxRipNgIfStatV1BadRequests1Min_Type=Counter32
-_TmnxRipNgIfStatV1BadRequests1Min_Object=MibTableColumn
-tmnxRipNgIfStatV1BadRequests1Min=_TmnxRipNgIfStatV1BadRequests1Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,35),_TmnxRipNgIfStatV1BadRequests1Min_Type())
-tmnxRipNgIfStatV1BadRequests1Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV1BadRequests1Min.setStatus(_A)
-_TmnxRipNgIfStatV1BadRoutes1Min_Type=Counter32
-_TmnxRipNgIfStatV1BadRoutes1Min_Object=MibTableColumn
-tmnxRipNgIfStatV1BadRoutes1Min=_TmnxRipNgIfStatV1BadRoutes1Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,36),_TmnxRipNgIfStatV1BadRoutes1Min_Type())
-tmnxRipNgIfStatV1BadRoutes1Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV1BadRoutes1Min.setStatus(_A)
-_TmnxRipNgIfStatV2RcvUpdates1Min_Type=Counter32
-_TmnxRipNgIfStatV2RcvUpdates1Min_Object=MibTableColumn
-tmnxRipNgIfStatV2RcvUpdates1Min=_TmnxRipNgIfStatV2RcvUpdates1Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,37),_TmnxRipNgIfStatV2RcvUpdates1Min_Type())
-tmnxRipNgIfStatV2RcvUpdates1Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV2RcvUpdates1Min.setStatus(_A)
-_TmnxRipNgIfStatV2RcvRequests1Min_Type=Counter32
-_TmnxRipNgIfStatV2RcvRequests1Min_Object=MibTableColumn
-tmnxRipNgIfStatV2RcvRequests1Min=_TmnxRipNgIfStatV2RcvRequests1Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,38),_TmnxRipNgIfStatV2RcvRequests1Min_Type())
-tmnxRipNgIfStatV2RcvRequests1Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV2RcvRequests1Min.setStatus(_A)
-_TmnxRipNgIfStatV2BadUpdates1Min_Type=Counter32
-_TmnxRipNgIfStatV2BadUpdates1Min_Object=MibTableColumn
-tmnxRipNgIfStatV2BadUpdates1Min=_TmnxRipNgIfStatV2BadUpdates1Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,39),_TmnxRipNgIfStatV2BadUpdates1Min_Type())
-tmnxRipNgIfStatV2BadUpdates1Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV2BadUpdates1Min.setStatus(_A)
-_TmnxRipNgIfStatV2BadRequests1Min_Type=Counter32
-_TmnxRipNgIfStatV2BadRequests1Min_Object=MibTableColumn
-tmnxRipNgIfStatV2BadRequests1Min=_TmnxRipNgIfStatV2BadRequests1Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,40),_TmnxRipNgIfStatV2BadRequests1Min_Type())
-tmnxRipNgIfStatV2BadRequests1Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV2BadRequests1Min.setStatus(_A)
-_TmnxRipNgIfStatV2BadRoutes1Min_Type=Counter32
-_TmnxRipNgIfStatV2BadRoutes1Min_Object=MibTableColumn
-tmnxRipNgIfStatV2BadRoutes1Min=_TmnxRipNgIfStatV2BadRoutes1Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,41),_TmnxRipNgIfStatV2BadRoutes1Min_Type())
-tmnxRipNgIfStatV2BadRoutes1Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatV2BadRoutes1Min.setStatus(_A)
-_TmnxRipNgIfStatAuthErrors1Min_Type=Counter32
-_TmnxRipNgIfStatAuthErrors1Min_Object=MibTableColumn
-tmnxRipNgIfStatAuthErrors1Min=_TmnxRipNgIfStatAuthErrors1Min_Object((1,3,6,1,4,1,6527,3,1,2,89,2,5,1,42),_TmnxRipNgIfStatAuthErrors1Min_Type())
-tmnxRipNgIfStatAuthErrors1Min.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgIfStatAuthErrors1Min.setStatus(_A)
-_TmnxRipNgPeerTable_Object=MibTable
-tmnxRipNgPeerTable=_TmnxRipNgPeerTable_Object((1,3,6,1,4,1,6527,3,1,2,89,2,6))
-if mibBuilder.loadTexts:tmnxRipNgPeerTable.setStatus(_A)
-_TmnxRipNgPeerEntry_Object=MibTableRow
-tmnxRipNgPeerEntry=_TmnxRipNgPeerEntry_Object((1,3,6,1,4,1,6527,3,1,2,89,2,6,1))
-tmnxRipNgPeerEntry.setIndexNames((0,_G,_J),(0,_B,_K),(0,_B,_t),(0,_B,_u),(0,_B,_v))
-if mibBuilder.loadTexts:tmnxRipNgPeerEntry.setStatus(_A)
-_TmnxRipNgPeerIfIndex_Type=InterfaceIndex
-_TmnxRipNgPeerIfIndex_Object=MibTableColumn
-tmnxRipNgPeerIfIndex=_TmnxRipNgPeerIfIndex_Object((1,3,6,1,4,1,6527,3,1,2,89,2,6,1,1),_TmnxRipNgPeerIfIndex_Type())
-tmnxRipNgPeerIfIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgPeerIfIndex.setStatus(_A)
-_TmnxRipNgPeerAddrType_Type=InetAddressType
-_TmnxRipNgPeerAddrType_Object=MibTableColumn
-tmnxRipNgPeerAddrType=_TmnxRipNgPeerAddrType_Object((1,3,6,1,4,1,6527,3,1,2,89,2,6,1,2),_TmnxRipNgPeerAddrType_Type())
-tmnxRipNgPeerAddrType.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgPeerAddrType.setStatus(_A)
-class _TmnxRipNgPeerAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxRipNgPeerAddress_Type.__name__=_I
-_TmnxRipNgPeerAddress_Object=MibTableColumn
-tmnxRipNgPeerAddress=_TmnxRipNgPeerAddress_Object((1,3,6,1,4,1,6527,3,1,2,89,2,6,1,3),_TmnxRipNgPeerAddress_Type())
-tmnxRipNgPeerAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgPeerAddress.setStatus(_A)
-_TmnxRipNgPeerLastUpdate_Type=TimeStamp
-_TmnxRipNgPeerLastUpdate_Object=MibTableColumn
-tmnxRipNgPeerLastUpdate=_TmnxRipNgPeerLastUpdate_Object((1,3,6,1,4,1,6527,3,1,2,89,2,6,1,4),_TmnxRipNgPeerLastUpdate_Type())
-tmnxRipNgPeerLastUpdate.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgPeerLastUpdate.setStatus(_A)
-_TmnxRipNgPeerVersion_Type=TmnxRipNgPeerVersion
-_TmnxRipNgPeerVersion_Object=MibTableColumn
-tmnxRipNgPeerVersion=_TmnxRipNgPeerVersion_Object((1,3,6,1,4,1,6527,3,1,2,89,2,6,1,5),_TmnxRipNgPeerVersion_Type())
-tmnxRipNgPeerVersion.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgPeerVersion.setStatus(_A)
-_TmnxRipNgPeerRcvBadPackets_Type=Counter32
-_TmnxRipNgPeerRcvBadPackets_Object=MibTableColumn
-tmnxRipNgPeerRcvBadPackets=_TmnxRipNgPeerRcvBadPackets_Object((1,3,6,1,4,1,6527,3,1,2,89,2,6,1,6),_TmnxRipNgPeerRcvBadPackets_Type())
-tmnxRipNgPeerRcvBadPackets.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgPeerRcvBadPackets.setStatus(_A)
-_TmnxRipNgPeerRcvBadRoutes_Type=Counter32
-_TmnxRipNgPeerRcvBadRoutes_Object=MibTableColumn
-tmnxRipNgPeerRcvBadRoutes=_TmnxRipNgPeerRcvBadRoutes_Object((1,3,6,1,4,1,6527,3,1,2,89,2,6,1,7),_TmnxRipNgPeerRcvBadRoutes_Type())
-tmnxRipNgPeerRcvBadRoutes.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgPeerRcvBadRoutes.setStatus(_A)
-_TmnxRipNgAdvRouteTable_Object=MibTable
-tmnxRipNgAdvRouteTable=_TmnxRipNgAdvRouteTable_Object((1,3,6,1,4,1,6527,3,1,2,89,2,7))
-if mibBuilder.loadTexts:tmnxRipNgAdvRouteTable.setStatus(_A)
-_TmnxRipNgAdvRouteEntry_Object=MibTableRow
-tmnxRipNgAdvRouteEntry=_TmnxRipNgAdvRouteEntry_Object((1,3,6,1,4,1,6527,3,1,2,89,2,7,1))
-tmnxRipNgAdvRouteEntry.setIndexNames((0,_G,_J),(0,_B,_K),(0,_B,_w),(0,_B,_x),(0,_B,_y),(0,_B,_z),(0,_B,_A0),(0,_B,_A1))
-if mibBuilder.loadTexts:tmnxRipNgAdvRouteEntry.setStatus(_A)
-_TmnxRipNgAdvRouteDestAddrType_Type=InetAddressType
-_TmnxRipNgAdvRouteDestAddrType_Object=MibTableColumn
-tmnxRipNgAdvRouteDestAddrType=_TmnxRipNgAdvRouteDestAddrType_Object((1,3,6,1,4,1,6527,3,1,2,89,2,7,1,1),_TmnxRipNgAdvRouteDestAddrType_Type())
-tmnxRipNgAdvRouteDestAddrType.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgAdvRouteDestAddrType.setStatus(_A)
-class _TmnxRipNgAdvRouteDestAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxRipNgAdvRouteDestAddress_Type.__name__=_I
-_TmnxRipNgAdvRouteDestAddress_Object=MibTableColumn
-tmnxRipNgAdvRouteDestAddress=_TmnxRipNgAdvRouteDestAddress_Object((1,3,6,1,4,1,6527,3,1,2,89,2,7,1,2),_TmnxRipNgAdvRouteDestAddress_Type())
-tmnxRipNgAdvRouteDestAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgAdvRouteDestAddress.setStatus(_A)
-class _TmnxRipNgAdvRouteMaskLength_Type(InetAddressPrefixLength):subtypeSpec=InetAddressPrefixLength.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_TmnxRipNgAdvRouteMaskLength_Type.__name__=_d
-_TmnxRipNgAdvRouteMaskLength_Object=MibTableColumn
-tmnxRipNgAdvRouteMaskLength=_TmnxRipNgAdvRouteMaskLength_Object((1,3,6,1,4,1,6527,3,1,2,89,2,7,1,3),_TmnxRipNgAdvRouteMaskLength_Type())
-tmnxRipNgAdvRouteMaskLength.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgAdvRouteMaskLength.setStatus(_A)
-_TmnxRipNgAdvRouteIfIndex_Type=InterfaceIndex
-_TmnxRipNgAdvRouteIfIndex_Object=MibTableColumn
-tmnxRipNgAdvRouteIfIndex=_TmnxRipNgAdvRouteIfIndex_Object((1,3,6,1,4,1,6527,3,1,2,89,2,7,1,4),_TmnxRipNgAdvRouteIfIndex_Type())
-tmnxRipNgAdvRouteIfIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgAdvRouteIfIndex.setStatus(_A)
-_TmnxRipNgAdvRouteIfAddrType_Type=InetAddressType
-_TmnxRipNgAdvRouteIfAddrType_Object=MibTableColumn
-tmnxRipNgAdvRouteIfAddrType=_TmnxRipNgAdvRouteIfAddrType_Object((1,3,6,1,4,1,6527,3,1,2,89,2,7,1,5),_TmnxRipNgAdvRouteIfAddrType_Type())
-tmnxRipNgAdvRouteIfAddrType.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgAdvRouteIfAddrType.setStatus(_A)
-class _TmnxRipNgAdvRouteIfAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxRipNgAdvRouteIfAddress_Type.__name__=_I
-_TmnxRipNgAdvRouteIfAddress_Object=MibTableColumn
-tmnxRipNgAdvRouteIfAddress=_TmnxRipNgAdvRouteIfAddress_Object((1,3,6,1,4,1,6527,3,1,2,89,2,7,1,6),_TmnxRipNgAdvRouteIfAddress_Type())
-tmnxRipNgAdvRouteIfAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgAdvRouteIfAddress.setStatus(_A)
-_TmnxRipNgAdvRouteNHAddrType_Type=InetAddressType
-_TmnxRipNgAdvRouteNHAddrType_Object=MibTableColumn
-tmnxRipNgAdvRouteNHAddrType=_TmnxRipNgAdvRouteNHAddrType_Object((1,3,6,1,4,1,6527,3,1,2,89,2,7,1,7),_TmnxRipNgAdvRouteNHAddrType_Type())
-tmnxRipNgAdvRouteNHAddrType.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgAdvRouteNHAddrType.setStatus(_A)
-class _TmnxRipNgAdvRouteNHAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxRipNgAdvRouteNHAddress_Type.__name__=_I
-_TmnxRipNgAdvRouteNHAddress_Object=MibTableColumn
-tmnxRipNgAdvRouteNHAddress=_TmnxRipNgAdvRouteNHAddress_Object((1,3,6,1,4,1,6527,3,1,2,89,2,7,1,8),_TmnxRipNgAdvRouteNHAddress_Type())
-tmnxRipNgAdvRouteNHAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgAdvRouteNHAddress.setStatus(_A)
-class _TmnxRipNgAdvRouteMetric_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_TmnxRipNgAdvRouteMetric_Type.__name__=_N
-_TmnxRipNgAdvRouteMetric_Object=MibTableColumn
-tmnxRipNgAdvRouteMetric=_TmnxRipNgAdvRouteMetric_Object((1,3,6,1,4,1,6527,3,1,2,89,2,7,1,9),_TmnxRipNgAdvRouteMetric_Type())
-tmnxRipNgAdvRouteMetric.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgAdvRouteMetric.setStatus(_A)
-_TmnxRipNgAdvRouteTag_Type=RouteTag
-_TmnxRipNgAdvRouteTag_Object=MibTableColumn
-tmnxRipNgAdvRouteTag=_TmnxRipNgAdvRouteTag_Object((1,3,6,1,4,1,6527,3,1,2,89,2,7,1,10),_TmnxRipNgAdvRouteTag_Type())
-tmnxRipNgAdvRouteTag.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgAdvRouteTag.setStatus(_A)
-_TmnxRipNgAdvRouteTimerRem_Type=Integer32
-_TmnxRipNgAdvRouteTimerRem_Object=MibTableColumn
-tmnxRipNgAdvRouteTimerRem=_TmnxRipNgAdvRouteTimerRem_Object((1,3,6,1,4,1,6527,3,1,2,89,2,7,1,11),_TmnxRipNgAdvRouteTimerRem_Type())
-tmnxRipNgAdvRouteTimerRem.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxRipNgAdvRouteTimerRem.setStatus(_A)
-_TmnxRipNgIfUcastTable_Object=MibTable
-tmnxRipNgIfUcastTable=_TmnxRipNgIfUcastTable_Object((1,3,6,1,4,1,6527,3,1,2,89,2,8))
-if mibBuilder.loadTexts:tmnxRipNgIfUcastTable.setStatus(_A)
-_TmnxRipNgIfUcastEntry_Object=MibTableRow
-tmnxRipNgIfUcastEntry=_TmnxRipNgIfUcastEntry_Object((1,3,6,1,4,1,6527,3,1,2,89,2,8,1))
-tmnxRipNgIfUcastEntry.setIndexNames((0,_G,_J),(0,_B,_K),(0,_G,_U),(0,_B,_A2),(0,_B,_A3))
-if mibBuilder.loadTexts:tmnxRipNgIfUcastEntry.setStatus(_A)
-_TmnxRipNgIfUcastAddrType_Type=InetAddressType
-_TmnxRipNgIfUcastAddrType_Object=MibTableColumn
-tmnxRipNgIfUcastAddrType=_TmnxRipNgIfUcastAddrType_Object((1,3,6,1,4,1,6527,3,1,2,89,2,8,1,1),_TmnxRipNgIfUcastAddrType_Type())
-tmnxRipNgIfUcastAddrType.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgIfUcastAddrType.setStatus(_A)
-class _TmnxRipNgIfUcastAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxRipNgIfUcastAddress_Type.__name__=_I
-_TmnxRipNgIfUcastAddress_Object=MibTableColumn
-tmnxRipNgIfUcastAddress=_TmnxRipNgIfUcastAddress_Object((1,3,6,1,4,1,6527,3,1,2,89,2,8,1,2),_TmnxRipNgIfUcastAddress_Type())
-tmnxRipNgIfUcastAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxRipNgIfUcastAddress.setStatus(_A)
-_TmnxRipNgIfUcastRowStatus_Type=RowStatus
-_TmnxRipNgIfUcastRowStatus_Object=MibTableColumn
-tmnxRipNgIfUcastRowStatus=_TmnxRipNgIfUcastRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,89,2,8,1,3),_TmnxRipNgIfUcastRowStatus_Type())
-tmnxRipNgIfUcastRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxRipNgIfUcastRowStatus.setStatus(_A)
-_TmnxRipNgNotificationObjs_ObjectIdentity=ObjectIdentity
-tmnxRipNgNotificationObjs=_TmnxRipNgNotificationObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,89,3))
-_TmnxRipNgNotifySrcAddrType_Type=InetAddressType
-_TmnxRipNgNotifySrcAddrType_Object=MibScalar
-tmnxRipNgNotifySrcAddrType=_TmnxRipNgNotifySrcAddrType_Object((1,3,6,1,4,1,6527,3,1,2,89,3,1),_TmnxRipNgNotifySrcAddrType_Type())
-tmnxRipNgNotifySrcAddrType.setMaxAccess(_e)
-if mibBuilder.loadTexts:tmnxRipNgNotifySrcAddrType.setStatus(_A)
-_TmnxRipNgNotifySrcAddr_Type=InetAddress
-_TmnxRipNgNotifySrcAddr_Object=MibScalar
-tmnxRipNgNotifySrcAddr=_TmnxRipNgNotifySrcAddr_Object((1,3,6,1,4,1,6527,3,1,2,89,3,2),_TmnxRipNgNotifySrcAddr_Type())
-tmnxRipNgNotifySrcAddr.setMaxAccess(_e)
-if mibBuilder.loadTexts:tmnxRipNgNotifySrcAddr.setStatus(_A)
-class _TmnxRipNgNotifyReason_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,200))
-_TmnxRipNgNotifyReason_Type.__name__=_j
-_TmnxRipNgNotifyReason_Object=MibScalar
-tmnxRipNgNotifyReason=_TmnxRipNgNotifyReason_Object((1,3,6,1,4,1,6527,3,1,2,89,3,3),_TmnxRipNgNotifyReason_Type())
-tmnxRipNgNotifyReason.setMaxAccess(_e)
-if mibBuilder.loadTexts:tmnxRipNgNotifyReason.setStatus(_A)
-_TmnxRipNgNotifyPrefix_ObjectIdentity=ObjectIdentity
-tmnxRipNgNotifyPrefix=_TmnxRipNgNotifyPrefix_ObjectIdentity((1,3,6,1,4,1,6527,3,1,3,89))
-_TmnxRipNgNotifications_ObjectIdentity=ObjectIdentity
-tmnxRipNgNotifications=_TmnxRipNgNotifications_ObjectIdentity((1,3,6,1,4,1,6527,3,1,3,89,0))
-tmnxRipNgGlobalV12v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,89,2,1))
-tmnxRipNgGlobalV12v0Group.setObjects(*((_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7)))
-if mibBuilder.loadTexts:tmnxRipNgGlobalV12v0Group.setStatus(_A)
-tmnxRipNgInstanceV12v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,89,2,2))
-tmnxRipNgInstanceV12v0Group.setObjects(*((_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_c),(_B,_AX),(_B,_O),(_B,_f),(_B,_AY)))
-if mibBuilder.loadTexts:tmnxRipNgInstanceV12v0Group.setStatus(_A)
-tmnxRipNgGroupV12v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,89,2,3))
-tmnxRipNgGroupV12v0Group.setObjects(*((_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_)))
-if mibBuilder.loadTexts:tmnxRipNgGroupV12v0Group.setStatus(_A)
-tmnxRipNgInterfaceV12v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,89,2,4))
-tmnxRipNgInterfaceV12v0Group.setObjects(*((_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_g),(_B,_BS),(_B,_BT),(_B,_BU),(_B,_BV),(_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,_Bb),(_B,_Bc),(_B,_Bd),(_B,_Be),(_B,_Bf),(_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm),(_B,_Bn),(_B,_Bo),(_B,_Bp),(_B,_Bq),(_B,_Br),(_B,_Bs),(_B,_Bt),(_B,_Bu),(_B,_Bv),(_B,_Bw),(_B,_Bx),(_B,_By),(_B,_Bz),(_B,_B_),(_B,_C0),(_B,_C1),(_B,_C2),(_B,_C3),(_B,_C4),(_B,_C5),(_B,_C6),(_B,_C7)))
-if mibBuilder.loadTexts:tmnxRipNgInterfaceV12v0Group.setStatus(_A)
-tmnxRipNgRoutesV12v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,89,2,5))
-tmnxRipNgRoutesV12v0Group.setObjects(*((_B,_C8),(_B,_C9),(_B,_CA),(_B,_CB),(_B,_CC),(_B,_CD),(_B,_CE),(_B,_CF),(_B,_CG),(_B,_CH),(_B,_CI),(_B,_CJ),(_B,_CK)))
-if mibBuilder.loadTexts:tmnxRipNgRoutesV12v0Group.setStatus(_A)
-tmnxRipNgPeerV12v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,89,2,6))
-tmnxRipNgPeerV12v0Group.setObjects(*((_B,_P),(_B,_CL),(_B,_CM),(_B,_CN)))
-if mibBuilder.loadTexts:tmnxRipNgPeerV12v0Group.setStatus(_A)
-tmnxRipNgNotifyObjsV12v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,89,2,7))
-tmnxRipNgNotifyObjsV12v0Group.setObjects(*((_B,_CO),(_B,_CP),(_B,_h)))
-if mibBuilder.loadTexts:tmnxRipNgNotifyObjsV12v0Group.setStatus(_A)
-tmnxRipNgV16v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,89,2,9))
-tmnxRipNgV16v0Group.setObjects(*((_B,_CQ),(_B,_CR),(_B,_CS)))
-if mibBuilder.loadTexts:tmnxRipNgV16v0Group.setStatus(_A)
-tmnxRipNgAuthTypeMismatch=NotificationType((1,3,6,1,4,1,6527,3,1,3,89,0,1))
-tmnxRipNgAuthTypeMismatch.setObjects((_B,_P))
-if mibBuilder.loadTexts:tmnxRipNgAuthTypeMismatch.setStatus(_A)
-tmnxRipNgAuthFailure=NotificationType((1,3,6,1,4,1,6527,3,1,3,89,0,2))
-tmnxRipNgAuthFailure.setObjects((_B,_P))
-if mibBuilder.loadTexts:tmnxRipNgAuthFailure.setStatus(_A)
-tmnxRipNgInstShuttingDown=NotificationType((1,3,6,1,4,1,6527,3,1,3,89,0,3))
-tmnxRipNgInstShuttingDown.setObjects(*((_B,_c),(_B,_h)))
-if mibBuilder.loadTexts:tmnxRipNgInstShuttingDown.setStatus(_A)
-tmnxRipNgInstRestarted=NotificationType((1,3,6,1,4,1,6527,3,1,3,89,0,4))
-tmnxRipNgInstRestarted.setObjects((_B,_c))
-if mibBuilder.loadTexts:tmnxRipNgInstRestarted.setStatus(_A)
-tmnxRipNgInstExpLmtReached=NotificationType((1,3,6,1,4,1,6527,3,1,3,89,0,5))
-tmnxRipNgInstExpLmtReached.setObjects((_B,_O))
-if mibBuilder.loadTexts:tmnxRipNgInstExpLmtReached.setStatus(_A)
-tmnxRipNgInstExpLmtWarning=NotificationType((1,3,6,1,4,1,6527,3,1,3,89,0,6))
-tmnxRipNgInstExpLmtWarning.setObjects(*((_B,_O),(_B,_f)))
-if mibBuilder.loadTexts:tmnxRipNgInstExpLmtWarning.setStatus(_A)
-tmnxRipNgInstRtsExpLmtDropped=NotificationType((1,3,6,1,4,1,6527,3,1,3,89,0,7))
-tmnxRipNgInstRtsExpLmtDropped.setObjects((_B,_O))
-if mibBuilder.loadTexts:tmnxRipNgInstRtsExpLmtDropped.setStatus(_A)
-tmnxRipNgIfUcastAddrNotUsed=NotificationType((1,3,6,1,4,1,6527,3,1,3,89,0,8))
-tmnxRipNgIfUcastAddrNotUsed.setObjects((_B,_g))
-if mibBuilder.loadTexts:tmnxRipNgIfUcastAddrNotUsed.setStatus(_A)
-tmnxRipNgPeerBfdDown=NotificationType((1,3,6,1,4,1,6527,3,1,3,89,0,9))
-tmnxRipNgPeerBfdDown.setObjects((_B,_P))
-if mibBuilder.loadTexts:tmnxRipNgPeerBfdDown.setStatus(_A)
-tmnxRipNgNotificationV12v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,89,2,8))
-tmnxRipNgNotificationV12v0Group.setObjects(*((_B,_CT),(_B,_CU),(_B,_CV),(_B,_CW),(_B,_CX),(_B,_CY),(_B,_CZ),(_B,_Ca)))
-if mibBuilder.loadTexts:tmnxRipNgNotificationV12v0Group.setStatus(_A)
-tmnxRipNgNotificationV16v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,89,2,10))
-tmnxRipNgNotificationV16v0Group.setObjects((_B,_Cb))
-if mibBuilder.loadTexts:tmnxRipNgNotificationV16v0Group.setStatus(_A)
-tmnxRipNgV12v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,89,1,1))
-tmnxRipNgV12v0Compliance.setObjects(*((_B,_Cc),(_B,_Cd),(_B,_Ce),(_B,_Cf),(_B,_Cg),(_B,_Ch),(_B,_Ci)))
-if mibBuilder.loadTexts:tmnxRipNgV12v0Compliance.setStatus(_A)
-tmnxRipNgV16v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,89,1,2))
-tmnxRipNgV16v0Compliance.setObjects(*((_B,_Cj),(_B,_Ck)))
-if mibBuilder.loadTexts:tmnxRipNgV16v0Compliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'TmnxRipNgInstVersion':TmnxRipNgInstVersion,'TmnxRipNgPeerVersion':TmnxRipNgPeerVersion,_V:TmnxRipNgMessageSize,_M:TmnxRipNgMetric,_W:TmnxRipNgPreference,_X:TmnxRipNgReceive,_Y:TmnxRipNgSend,_Z:TmnxRipNgTimerFlush,_a:TmnxRipNgTimerTimeout,_b:TmnxRipNgTimerUpdate,'timetraRipNgMIBModule':timetraRipNgMIBModule,'tmnxRipNgConformance':tmnxRipNgConformance,'tmnxRipNgCompliances':tmnxRipNgCompliances,'tmnxRipNgV12v0Compliance':tmnxRipNgV12v0Compliance,'tmnxRipNgV16v0Compliance':tmnxRipNgV16v0Compliance,'tmnxRipNgGroups':tmnxRipNgGroups,_Cc:tmnxRipNgGlobalV12v0Group,_Cd:tmnxRipNgInstanceV12v0Group,_Ce:tmnxRipNgGroupV12v0Group,_Cf:tmnxRipNgInterfaceV12v0Group,_Cg:tmnxRipNgRoutesV12v0Group,_Ch:tmnxRipNgPeerV12v0Group,'tmnxRipNgNotifyObjsV12v0Group':tmnxRipNgNotifyObjsV12v0Group,_Ci:tmnxRipNgNotificationV12v0Group,_Cj:tmnxRipNgV16v0Group,_Ck:tmnxRipNgNotificationV16v0Group,'tmnxRipNgObjs':tmnxRipNgObjs,'tmnxRipNgGlobals':tmnxRipNgGlobals,_A4:tmnxRipNgGlobalLearnedRoutes,_A5:tmnxRipNgGlobalTimedoutRoutes,_A6:tmnxRipNgGlobalCurrentMemory,_A7:tmnxRipNgGlobalMaximumMemory,'tmnxRipNgTableObjs':tmnxRipNgTableObjs,'tmnxRipNgInstTable':tmnxRipNgInstTable,'tmnxRipNgInstEntry':tmnxRipNgInstEntry,_K:tmnxRipNgInstVersion,_A8:tmnxRipNgInstAuthType,_A9:tmnxRipNgInstAuthKey,_AA:tmnxRipNgInstCheckZero,_AB:tmnxRipNgInstMessageSize,_AC:tmnxRipNgInstMetricIn,_AD:tmnxRipNgInstMetricOut,_AE:tmnxRipNgInstPreference,_AF:tmnxRipNgInstReceive,_AG:tmnxRipNgInstSend,_AH:tmnxRipNgInstSplitHorizon,_AI:tmnxRipNgInstTimerFlush,_AJ:tmnxRipNgInstTimerTimeout,_AK:tmnxRipNgInstTimerUpdate,_AL:tmnxRipNgInstImportPolicy1,_AM:tmnxRipNgInstImportPolicy2,_AN:tmnxRipNgInstImportPolicy3,_AO:tmnxRipNgInstImportPolicy4,_AP:tmnxRipNgInstImportPolicy5,_AQ:tmnxRipNgInstExportPolicy1,_AR:tmnxRipNgInstExportPolicy2,_AS:tmnxRipNgInstExportPolicy3,_AT:tmnxRipNgInstExportPolicy4,_AU:tmnxRipNgInstExportPolicy5,_AV:tmnxRipNgInstDescription,_AW:tmnxRipNgInstAdminStatus,_c:tmnxRipNgInstOperStatus,_AX:tmnxRipNgInstPropagateMetric,_O:tmnxRipNgInstExportLimit,_f:tmnxRipNgInstExpLmtLogPct,_AY:tmnxRipNgInstTotalExpRoutes,_CQ:tmnxRipNgInstBfdEnable,'tmnxRipNgGroupTable':tmnxRipNgGroupTable,'tmnxRipNgGroupEntry':tmnxRipNgGroupEntry,_m:tmnxRipNgGroupName,_AZ:tmnxRipNgGroupAuthType,_Aa:tmnxRipNgGroupAuthKey,_Ab:tmnxRipNgGroupCheckZero,_Ac:tmnxRipNgGroupMessageSize,_Ad:tmnxRipNgGroupMetricIn,_Ae:tmnxRipNgGroupMetricOut,_Af:tmnxRipNgGroupPreference,_Ag:tmnxRipNgGroupReceive,_Ah:tmnxRipNgGroupSend,_Ai:tmnxRipNgGroupSplitHorizon,_Aj:tmnxRipNgGroupTimerFlush,_Ak:tmnxRipNgGroupTimerTimeout,_Al:tmnxRipNgGroupTimerUpdate,_Am:tmnxRipNgGroupImportPolicy1,_An:tmnxRipNgGroupImportPolicy2,_Ao:tmnxRipNgGroupImportPolicy3,_Ap:tmnxRipNgGroupImportPolicy4,_Aq:tmnxRipNgGroupImportPolicy5,_Ar:tmnxRipNgGroupExportPolicy1,_As:tmnxRipNgGroupExportPolicy2,_At:tmnxRipNgGroupExportPolicy3,_Au:tmnxRipNgGroupExportPolicy4,_Av:tmnxRipNgGroupExportPolicy5,_Aw:tmnxRipNgGroupDescription,_Ax:tmnxRipNgGroupInheritance,_Ay:tmnxRipNgGroupAdminStatus,_Az:tmnxRipNgGroupOperStatus,_A_:tmnxRipNgGroupRowStatus,_CR:tmnxRipNgGroupBfdEnable,'tmnxRipNgIfTable':tmnxRipNgIfTable,'tmnxRipNgIfEntry':tmnxRipNgIfEntry,_B0:tmnxRipNgIfGroupName,_B1:tmnxRipNgIfAuthType,_B2:tmnxRipNgIfAuthKey,_B3:tmnxRipNgIfCheckZero,_B4:tmnxRipNgIfMessageSize,_B5:tmnxRipNgIfMetricIn,_B6:tmnxRipNgIfMetricOut,_B7:tmnxRipNgIfPreference,_B8:tmnxRipNgIfReceive,_B9:tmnxRipNgIfSend,_BA:tmnxRipNgIfSplitHorizon,_BB:tmnxRipNgIfTimerFlush,_BC:tmnxRipNgIfTimerTimeout,_BD:tmnxRipNgIfTimerUpdate,_BE:tmnxRipNgIfImportPolicy1,_BF:tmnxRipNgIfImportPolicy2,_BG:tmnxRipNgIfImportPolicy3,_BH:tmnxRipNgIfImportPolicy4,_BI:tmnxRipNgIfImportPolicy5,_BJ:tmnxRipNgIfExportPolicy1,_BK:tmnxRipNgIfExportPolicy2,_BL:tmnxRipNgIfExportPolicy3,_BM:tmnxRipNgIfExportPolicy4,_BN:tmnxRipNgIfExportPolicy5,_BO:tmnxRipNgIfDescription,_BP:tmnxRipNgIfInheritance,_BQ:tmnxRipNgIfAdminStatus,_BR:tmnxRipNgIfOperStatus,_g:tmnxRipNgIfRowStatus,_CS:tmnxRipNgIfBfdEnable,'tmnxRipNgRouteTable':tmnxRipNgRouteTable,'tmnxRipNgRouteEntry':tmnxRipNgRouteEntry,_n:tmnxRipNgRouteDestAddrType,_o:tmnxRipNgRouteDestAddress,_p:tmnxRipNgRouteMaskLength,_q:tmnxRipNgRouteIfIndex,_r:tmnxRipNgRoutePeerAddrType,_s:tmnxRipNgRoutePeerAddress,_C8:tmnxRipNgRouteNHAddrType,_C9:tmnxRipNgRouteNHAddress,_CA:tmnxRipNgRouteMetric,_CB:tmnxRipNgRouteTag,_CC:tmnxRipNgRouteStatus,_CD:tmnxRipNgRouteTimerRemaining,_CE:tmnxRipNgRouteFC,_CF:tmnxRipNgRouteFCPriority,'tmnxRipNgIfStatTable':tmnxRipNgIfStatTable,'tmnxRipNgIfStatEntry':tmnxRipNgIfStatEntry,_BS:tmnxRipNgIfStatAllSentUpdates,_BT:tmnxRipNgIfStatAllTrigUpdates,_BU:tmnxRipNgIfStatAllRcvBadPkts,_BV:tmnxRipNgIfStatV1RcvUpdates,_BW:tmnxRipNgIfStatV1RcvRequests,_BX:tmnxRipNgIfStatV1BadUpdates,_BY:tmnxRipNgIfStatV1BadRequests,_BZ:tmnxRipNgIfStatV1BadRoutes,_Ba:tmnxRipNgIfStatV2RcvUpdates,_Bb:tmnxRipNgIfStatV2RcvRequests,_Bc:tmnxRipNgIfStatV2BadUpdates,_Bd:tmnxRipNgIfStatV2BadRequests,_Be:tmnxRipNgIfStatV2BadRoutes,_Bf:tmnxRipNgIfStatAuthErrors,_Bg:tmnxRipNgIfStatAllSentUpdts5Min,_Bh:tmnxRipNgIfStatAllTrigUpdts5Min,_Bi:tmnxRipNgIfStatAllRcvBadPkts5Min,_Bj:tmnxRipNgIfStatV1RcvUpdates5Min,_Bk:tmnxRipNgIfStatV1RcvRequests5Min,_Bl:tmnxRipNgIfStatV1BadUpdates5Min,_Bm:tmnxRipNgIfStatV1BadRequests5Min,_Bn:tmnxRipNgIfStatV1BadRoutes5Min,_Bo:tmnxRipNgIfStatV2RcvUpdates5Min,_Bp:tmnxRipNgIfStatV2RcvRequests5Min,_Bq:tmnxRipNgIfStatV2BadUpdates5Min,_Br:tmnxRipNgIfStatV2BadRequests5Min,_Bs:tmnxRipNgIfStatV2BadRoutes5Min,_Bt:tmnxRipNgIfStatAuthErrors5Min,_Bu:tmnxRipNgIfStatAllSentUpdts1Min,_Bv:tmnxRipNgIfStatAllTrigUpdts1Min,_Bw:tmnxRipNgIfStatAllRcvBadPkts1Min,_Bx:tmnxRipNgIfStatV1RcvUpdates1Min,_By:tmnxRipNgIfStatV1RcvRequests1Min,_Bz:tmnxRipNgIfStatV1BadUpdates1Min,_B_:tmnxRipNgIfStatV1BadRequests1Min,_C0:tmnxRipNgIfStatV1BadRoutes1Min,_C1:tmnxRipNgIfStatV2RcvUpdates1Min,_C2:tmnxRipNgIfStatV2RcvRequests1Min,_C3:tmnxRipNgIfStatV2BadUpdates1Min,_C4:tmnxRipNgIfStatV2BadRequests1Min,_C5:tmnxRipNgIfStatV2BadRoutes1Min,_C6:tmnxRipNgIfStatAuthErrors1Min,'tmnxRipNgPeerTable':tmnxRipNgPeerTable,'tmnxRipNgPeerEntry':tmnxRipNgPeerEntry,_t:tmnxRipNgPeerIfIndex,_u:tmnxRipNgPeerAddrType,_v:tmnxRipNgPeerAddress,_P:tmnxRipNgPeerLastUpdate,_CL:tmnxRipNgPeerVersion,_CM:tmnxRipNgPeerRcvBadPackets,_CN:tmnxRipNgPeerRcvBadRoutes,'tmnxRipNgAdvRouteTable':tmnxRipNgAdvRouteTable,'tmnxRipNgAdvRouteEntry':tmnxRipNgAdvRouteEntry,_w:tmnxRipNgAdvRouteDestAddrType,_x:tmnxRipNgAdvRouteDestAddress,_y:tmnxRipNgAdvRouteMaskLength,_z:tmnxRipNgAdvRouteIfIndex,_A0:tmnxRipNgAdvRouteIfAddrType,_A1:tmnxRipNgAdvRouteIfAddress,_CG:tmnxRipNgAdvRouteNHAddrType,_CH:tmnxRipNgAdvRouteNHAddress,_CI:tmnxRipNgAdvRouteMetric,_CJ:tmnxRipNgAdvRouteTag,_CK:tmnxRipNgAdvRouteTimerRem,'tmnxRipNgIfUcastTable':tmnxRipNgIfUcastTable,'tmnxRipNgIfUcastEntry':tmnxRipNgIfUcastEntry,_A2:tmnxRipNgIfUcastAddrType,_A3:tmnxRipNgIfUcastAddress,_C7:tmnxRipNgIfUcastRowStatus,'tmnxRipNgNotificationObjs':tmnxRipNgNotificationObjs,_CO:tmnxRipNgNotifySrcAddrType,_CP:tmnxRipNgNotifySrcAddr,_h:tmnxRipNgNotifyReason,'tmnxRipNgNotifyPrefix':tmnxRipNgNotifyPrefix,'tmnxRipNgNotifications':tmnxRipNgNotifications,_CT:tmnxRipNgAuthTypeMismatch,_CU:tmnxRipNgAuthFailure,_CV:tmnxRipNgInstShuttingDown,_CW:tmnxRipNgInstRestarted,_CX:tmnxRipNgInstExpLmtReached,_CY:tmnxRipNgInstExpLmtWarning,_CZ:tmnxRipNgInstRtsExpLmtDropped,_Ca:tmnxRipNgIfUcastAddrNotUsed,_Cb:tmnxRipNgPeerBfdDown})
+#
+# PySNMP MIB module TIMETRA-RIP-NG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TIMETRA-RIP-NG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:19:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+InetAddressPrefixLength, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetAddressType", "InetAddress")
+RouteTag, = mibBuilder.importSymbols("RIPv2-MIB", "RouteTag")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "TruthValue", "TextualConvention")
+tmnxSRConfs, tmnxSRObjs, timetraSRMIBModules, tmnxSRNotifyPrefix = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRConfs", "tmnxSRObjs", "timetraSRMIBModules", "tmnxSRNotifyPrefix")
+TPolicyStatementNameOrEmpty, TNamedItem, TmnxRipNgAuthKey, TPriorityOrUndefined, TNamedItemOrEmpty, TmnxOperState, TItemDescription, TmnxRipNgAuthType, TmnxAdminState = mibBuilder.importSymbols("TIMETRA-TC-MIB", "TPolicyStatementNameOrEmpty", "TNamedItem", "TmnxRipNgAuthKey", "TPriorityOrUndefined", "TNamedItemOrEmpty", "TmnxOperState", "TItemDescription", "TmnxRipNgAuthType", "TmnxAdminState")
+vRtrID, vRtrIfIndex = mibBuilder.importSymbols("TIMETRA-VRTR-MIB", "vRtrID", "vRtrIfIndex")
+timetraRipNgMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 89))
+timetraRipNgMIBModule.setRevisions(('2013-04-22 00:00', '2013-04-22 00:00',))
+if mibBuilder.loadTexts: timetraRipNgMIBModule.setLastUpdated('201304220000Z')
+if mibBuilder.loadTexts: timetraRipNgMIBModule.setOrganization('Nokia')
+class TmnxRipNgInstVersion(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("none", 0), ("rip", 1), ("ripNg", 2))
+
+class TmnxRipNgPeerVersion(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
+    namedValues = NamedValues(("none", 0), ("rip-v1", 1), ("rip-v2", 2), ("ripNg-v1", 3))
+
+class TmnxRipNgMessageSize(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(25, 255)
+
+class TmnxRipNgMetric(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 16)
+
+class TmnxRipNgPreference(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 255)
+
+class TmnxRipNgReceive(TextualConvention, Integer32):
+    reference = 'RIP2-MIB.rip2IfConfReceive'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("rip1", 1), ("rip2", 2), ("rip1OrRip2", 3), ("doNotReceive", 4), ("ripNg1", 5))
+
+class TmnxRipNgSend(TextualConvention, Integer32):
+    reference = 'RIP2-MIB.rip2IfConfSend'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
+    namedValues = NamedValues(("doNotSend", 1), ("ripVersion1", 2), ("rip1Compatible", 3), ("ripVersion2", 4), ("ripNgVersion1", 5), ("ripUnicast", 6))
+
+class TmnxRipNgTimerFlush(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 1200)
+
+class TmnxRipNgTimerTimeout(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 1200)
+
+class TmnxRipNgTimerUpdate(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 600)
+
+tmnxRipNgObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89))
+tmnxRipNgGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 1))
+tmnxRipNgGlobalLearnedRoutes = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgGlobalLearnedRoutes.setStatus('current')
+tmnxRipNgGlobalTimedoutRoutes = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgGlobalTimedoutRoutes.setStatus('current')
+tmnxRipNgGlobalCurrentMemory = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgGlobalCurrentMemory.setStatus('current')
+tmnxRipNgGlobalMaximumMemory = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgGlobalMaximumMemory.setStatus('current')
+tmnxRipNgTableObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2))
+tmnxRipNgInstTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1), )
+if mibBuilder.loadTexts: tmnxRipNgInstTable.setStatus('current')
+tmnxRipNgInstEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1), ).setIndexNames((0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgInstVersion"))
+if mibBuilder.loadTexts: tmnxRipNgInstEntry.setStatus('current')
+tmnxRipNgInstVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 1), TmnxRipNgInstVersion())
+if mibBuilder.loadTexts: tmnxRipNgInstVersion.setStatus('current')
+tmnxRipNgInstAuthType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 2), TmnxRipNgAuthType().clone('noAuthentication')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstAuthType.setStatus('current')
+tmnxRipNgInstAuthKey = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 3), TmnxRipNgAuthKey().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstAuthKey.setStatus('current')
+tmnxRipNgInstCheckZero = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 4), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstCheckZero.setStatus('current')
+tmnxRipNgInstMessageSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 5), TmnxRipNgMessageSize().clone(25)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstMessageSize.setStatus('current')
+tmnxRipNgInstMetricIn = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 6), TmnxRipNgMetric().clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstMetricIn.setStatus('current')
+tmnxRipNgInstMetricOut = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 7), TmnxRipNgMetric().clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstMetricOut.setStatus('current')
+tmnxRipNgInstPreference = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 8), TmnxRipNgPreference().clone(100)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstPreference.setStatus('current')
+tmnxRipNgInstReceive = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 9), TmnxRipNgReceive().clone('ripNg1')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstReceive.setStatus('current')
+tmnxRipNgInstSend = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 10), TmnxRipNgSend().clone('ripNgVersion1')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstSend.setStatus('current')
+tmnxRipNgInstSplitHorizon = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 11), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstSplitHorizon.setStatus('current')
+tmnxRipNgInstTimerFlush = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 12), TmnxRipNgTimerFlush().clone(120)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstTimerFlush.setStatus('current')
+tmnxRipNgInstTimerTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 13), TmnxRipNgTimerTimeout().clone(180)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstTimerTimeout.setStatus('current')
+tmnxRipNgInstTimerUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 14), TmnxRipNgTimerUpdate().clone(30)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstTimerUpdate.setStatus('current')
+tmnxRipNgInstImportPolicy1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 15), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstImportPolicy1.setStatus('current')
+tmnxRipNgInstImportPolicy2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 16), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstImportPolicy2.setStatus('current')
+tmnxRipNgInstImportPolicy3 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 17), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstImportPolicy3.setStatus('current')
+tmnxRipNgInstImportPolicy4 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 18), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstImportPolicy4.setStatus('current')
+tmnxRipNgInstImportPolicy5 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 19), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstImportPolicy5.setStatus('current')
+tmnxRipNgInstExportPolicy1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 20), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstExportPolicy1.setStatus('current')
+tmnxRipNgInstExportPolicy2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 21), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstExportPolicy2.setStatus('current')
+tmnxRipNgInstExportPolicy3 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 22), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstExportPolicy3.setStatus('current')
+tmnxRipNgInstExportPolicy4 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 23), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstExportPolicy4.setStatus('current')
+tmnxRipNgInstExportPolicy5 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 24), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstExportPolicy5.setStatus('current')
+tmnxRipNgInstDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 25), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstDescription.setStatus('current')
+tmnxRipNgInstAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 26), TmnxAdminState().clone('inService')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstAdminStatus.setStatus('current')
+tmnxRipNgInstOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 27), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgInstOperStatus.setStatus('current')
+tmnxRipNgInstPropagateMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 28), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstPropagateMetric.setStatus('current')
+tmnxRipNgInstExportLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 29), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstExportLimit.setStatus('current')
+tmnxRipNgInstExpLmtLogPct = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 30), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('percent').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstExpLmtLogPct.setStatus('current')
+tmnxRipNgInstTotalExpRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 31), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgInstTotalExpRoutes.setStatus('current')
+tmnxRipNgInstBfdEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 1, 1, 32), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgInstBfdEnable.setStatus('current')
+tmnxRipNgGroupTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2), )
+if mibBuilder.loadTexts: tmnxRipNgGroupTable.setStatus('current')
+tmnxRipNgGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1), ).setIndexNames((0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgInstVersion"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupName"))
+if mibBuilder.loadTexts: tmnxRipNgGroupEntry.setStatus('current')
+tmnxRipNgGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 1), TNamedItem())
+if mibBuilder.loadTexts: tmnxRipNgGroupName.setStatus('current')
+tmnxRipNgGroupAuthType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 2), TmnxRipNgAuthType().clone('noAuthentication')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupAuthType.setStatus('current')
+tmnxRipNgGroupAuthKey = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 3), TmnxRipNgAuthKey().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupAuthKey.setStatus('current')
+tmnxRipNgGroupCheckZero = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 4), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupCheckZero.setStatus('current')
+tmnxRipNgGroupMessageSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 5), TmnxRipNgMessageSize().clone(25)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupMessageSize.setStatus('current')
+tmnxRipNgGroupMetricIn = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 6), TmnxRipNgMetric().clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupMetricIn.setStatus('current')
+tmnxRipNgGroupMetricOut = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 7), TmnxRipNgMetric().clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupMetricOut.setStatus('current')
+tmnxRipNgGroupPreference = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 8), TmnxRipNgPreference().clone(100)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupPreference.setStatus('current')
+tmnxRipNgGroupReceive = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 9), TmnxRipNgReceive().clone('ripNg1')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupReceive.setStatus('current')
+tmnxRipNgGroupSend = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 10), TmnxRipNgSend().clone('ripNgVersion1')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupSend.setStatus('current')
+tmnxRipNgGroupSplitHorizon = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 11), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupSplitHorizon.setStatus('current')
+tmnxRipNgGroupTimerFlush = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 12), TmnxRipNgTimerFlush().clone(120)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupTimerFlush.setStatus('current')
+tmnxRipNgGroupTimerTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 13), TmnxRipNgTimerTimeout().clone(180)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupTimerTimeout.setStatus('current')
+tmnxRipNgGroupTimerUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 14), TmnxRipNgTimerUpdate().clone(30)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupTimerUpdate.setStatus('current')
+tmnxRipNgGroupImportPolicy1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 15), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupImportPolicy1.setStatus('current')
+tmnxRipNgGroupImportPolicy2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 16), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupImportPolicy2.setStatus('current')
+tmnxRipNgGroupImportPolicy3 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 17), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupImportPolicy3.setStatus('current')
+tmnxRipNgGroupImportPolicy4 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 18), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupImportPolicy4.setStatus('current')
+tmnxRipNgGroupImportPolicy5 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 19), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupImportPolicy5.setStatus('current')
+tmnxRipNgGroupExportPolicy1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 20), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupExportPolicy1.setStatus('current')
+tmnxRipNgGroupExportPolicy2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 21), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupExportPolicy2.setStatus('current')
+tmnxRipNgGroupExportPolicy3 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 22), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupExportPolicy3.setStatus('current')
+tmnxRipNgGroupExportPolicy4 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 23), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupExportPolicy4.setStatus('current')
+tmnxRipNgGroupExportPolicy5 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 24), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupExportPolicy5.setStatus('current')
+tmnxRipNgGroupDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 25), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupDescription.setStatus('current')
+tmnxRipNgGroupInheritance = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 26), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupInheritance.setStatus('current')
+tmnxRipNgGroupAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 27), TmnxAdminState().clone('inService')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupAdminStatus.setStatus('current')
+tmnxRipNgGroupOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 28), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgGroupOperStatus.setStatus('current')
+tmnxRipNgGroupRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 29), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupRowStatus.setStatus('current')
+tmnxRipNgGroupBfdEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 2, 1, 30), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgGroupBfdEnable.setStatus('current')
+tmnxRipNgIfTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3), )
+if mibBuilder.loadTexts: tmnxRipNgIfTable.setStatus('current')
+tmnxRipNgIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1), ).setIndexNames((0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgInstVersion"), (0, "TIMETRA-VRTR-MIB", "vRtrIfIndex"))
+if mibBuilder.loadTexts: tmnxRipNgIfEntry.setStatus('current')
+tmnxRipNgIfGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 1), TNamedItem()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfGroupName.setStatus('current')
+tmnxRipNgIfAuthType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 2), TmnxRipNgAuthType().clone('noAuthentication')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfAuthType.setStatus('current')
+tmnxRipNgIfAuthKey = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 3), TmnxRipNgAuthKey().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfAuthKey.setStatus('current')
+tmnxRipNgIfCheckZero = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 4), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfCheckZero.setStatus('current')
+tmnxRipNgIfMessageSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 5), TmnxRipNgMessageSize().clone(25)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfMessageSize.setStatus('current')
+tmnxRipNgIfMetricIn = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 6), TmnxRipNgMetric().clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfMetricIn.setStatus('current')
+tmnxRipNgIfMetricOut = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 7), TmnxRipNgMetric().clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfMetricOut.setStatus('current')
+tmnxRipNgIfPreference = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 8), TmnxRipNgPreference().clone(100)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfPreference.setStatus('current')
+tmnxRipNgIfReceive = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 9), TmnxRipNgReceive().clone('ripNg1')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfReceive.setStatus('current')
+tmnxRipNgIfSend = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 10), TmnxRipNgSend().clone('ripNgVersion1')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfSend.setStatus('current')
+tmnxRipNgIfSplitHorizon = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 11), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfSplitHorizon.setStatus('current')
+tmnxRipNgIfTimerFlush = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 12), TmnxRipNgTimerFlush().clone(120)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfTimerFlush.setStatus('current')
+tmnxRipNgIfTimerTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 13), TmnxRipNgTimerTimeout().clone(180)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfTimerTimeout.setStatus('current')
+tmnxRipNgIfTimerUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 14), TmnxRipNgTimerUpdate().clone(30)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfTimerUpdate.setStatus('current')
+tmnxRipNgIfImportPolicy1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 15), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfImportPolicy1.setStatus('current')
+tmnxRipNgIfImportPolicy2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 16), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfImportPolicy2.setStatus('current')
+tmnxRipNgIfImportPolicy3 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 17), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfImportPolicy3.setStatus('current')
+tmnxRipNgIfImportPolicy4 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 18), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfImportPolicy4.setStatus('current')
+tmnxRipNgIfImportPolicy5 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 19), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfImportPolicy5.setStatus('current')
+tmnxRipNgIfExportPolicy1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 20), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfExportPolicy1.setStatus('current')
+tmnxRipNgIfExportPolicy2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 21), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfExportPolicy2.setStatus('current')
+tmnxRipNgIfExportPolicy3 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 22), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfExportPolicy3.setStatus('current')
+tmnxRipNgIfExportPolicy4 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 23), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfExportPolicy4.setStatus('current')
+tmnxRipNgIfExportPolicy5 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 24), TPolicyStatementNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfExportPolicy5.setStatus('current')
+tmnxRipNgIfDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 25), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfDescription.setStatus('current')
+tmnxRipNgIfInheritance = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 26), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfInheritance.setStatus('current')
+tmnxRipNgIfAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 27), TmnxAdminState().clone('inService')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfAdminStatus.setStatus('current')
+tmnxRipNgIfOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 28), TmnxOperState().clone('inService')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfOperStatus.setStatus('current')
+tmnxRipNgIfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 29), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfRowStatus.setStatus('current')
+tmnxRipNgIfBfdEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 3, 1, 30), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfBfdEnable.setStatus('current')
+tmnxRipNgRouteTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4), )
+if mibBuilder.loadTexts: tmnxRipNgRouteTable.setStatus('current')
+tmnxRipNgRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4, 1), ).setIndexNames((0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgInstVersion"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgRouteDestAddrType"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgRouteDestAddress"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgRouteMaskLength"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgRouteIfIndex"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgRoutePeerAddrType"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgRoutePeerAddress"))
+if mibBuilder.loadTexts: tmnxRipNgRouteEntry.setStatus('current')
+tmnxRipNgRouteDestAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: tmnxRipNgRouteDestAddrType.setStatus('current')
+tmnxRipNgRouteDestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
+if mibBuilder.loadTexts: tmnxRipNgRouteDestAddress.setStatus('current')
+tmnxRipNgRouteMaskLength = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4, 1, 3), InetAddressPrefixLength().subtype(subtypeSpec=ValueRangeConstraint(0, 128)))
+if mibBuilder.loadTexts: tmnxRipNgRouteMaskLength.setStatus('current')
+tmnxRipNgRouteIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4, 1, 4), InterfaceIndex())
+if mibBuilder.loadTexts: tmnxRipNgRouteIfIndex.setStatus('current')
+tmnxRipNgRoutePeerAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4, 1, 5), InetAddressType())
+if mibBuilder.loadTexts: tmnxRipNgRoutePeerAddrType.setStatus('current')
+tmnxRipNgRoutePeerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4, 1, 6), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
+if mibBuilder.loadTexts: tmnxRipNgRoutePeerAddress.setStatus('current')
+tmnxRipNgRouteNHAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4, 1, 7), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgRouteNHAddrType.setStatus('current')
+tmnxRipNgRouteNHAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4, 1, 8), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgRouteNHAddress.setStatus('current')
+tmnxRipNgRouteMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4, 1, 9), TmnxRipNgMetric()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgRouteMetric.setStatus('current')
+tmnxRipNgRouteTag = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4, 1, 10), RouteTag()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgRouteTag.setStatus('current')
+tmnxRipNgRouteStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgRouteStatus.setStatus('current')
+tmnxRipNgRouteTimerRemaining = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgRouteTimerRemaining.setStatus('current')
+tmnxRipNgRouteFC = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4, 1, 13), TNamedItemOrEmpty()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgRouteFC.setStatus('current')
+tmnxRipNgRouteFCPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 4, 1, 14), TPriorityOrUndefined()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgRouteFCPriority.setStatus('current')
+tmnxRipNgIfStatTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5), )
+if mibBuilder.loadTexts: tmnxRipNgIfStatTable.setStatus('current')
+tmnxRipNgIfStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1), ).setIndexNames((0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgInstVersion"), (0, "TIMETRA-VRTR-MIB", "vRtrIfIndex"))
+if mibBuilder.loadTexts: tmnxRipNgIfStatEntry.setStatus('current')
+tmnxRipNgIfStatAllSentUpdates = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatAllSentUpdates.setStatus('current')
+tmnxRipNgIfStatAllTrigUpdates = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatAllTrigUpdates.setStatus('current')
+tmnxRipNgIfStatAllRcvBadPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatAllRcvBadPkts.setStatus('current')
+tmnxRipNgIfStatV1RcvUpdates = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV1RcvUpdates.setStatus('current')
+tmnxRipNgIfStatV1RcvRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV1RcvRequests.setStatus('current')
+tmnxRipNgIfStatV1BadUpdates = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV1BadUpdates.setStatus('current')
+tmnxRipNgIfStatV1BadRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV1BadRequests.setStatus('current')
+tmnxRipNgIfStatV1BadRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV1BadRoutes.setStatus('current')
+tmnxRipNgIfStatV2RcvUpdates = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV2RcvUpdates.setStatus('current')
+tmnxRipNgIfStatV2RcvRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV2RcvRequests.setStatus('current')
+tmnxRipNgIfStatV2BadUpdates = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV2BadUpdates.setStatus('current')
+tmnxRipNgIfStatV2BadRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV2BadRequests.setStatus('current')
+tmnxRipNgIfStatV2BadRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV2BadRoutes.setStatus('current')
+tmnxRipNgIfStatAuthErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatAuthErrors.setStatus('current')
+tmnxRipNgIfStatAllSentUpdts5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatAllSentUpdts5Min.setStatus('current')
+tmnxRipNgIfStatAllTrigUpdts5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatAllTrigUpdts5Min.setStatus('current')
+tmnxRipNgIfStatAllRcvBadPkts5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatAllRcvBadPkts5Min.setStatus('current')
+tmnxRipNgIfStatV1RcvUpdates5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 18), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV1RcvUpdates5Min.setStatus('current')
+tmnxRipNgIfStatV1RcvRequests5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 19), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV1RcvRequests5Min.setStatus('current')
+tmnxRipNgIfStatV1BadUpdates5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 20), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV1BadUpdates5Min.setStatus('current')
+tmnxRipNgIfStatV1BadRequests5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 21), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV1BadRequests5Min.setStatus('current')
+tmnxRipNgIfStatV1BadRoutes5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 22), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV1BadRoutes5Min.setStatus('current')
+tmnxRipNgIfStatV2RcvUpdates5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 23), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV2RcvUpdates5Min.setStatus('current')
+tmnxRipNgIfStatV2RcvRequests5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 24), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV2RcvRequests5Min.setStatus('current')
+tmnxRipNgIfStatV2BadUpdates5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 25), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV2BadUpdates5Min.setStatus('current')
+tmnxRipNgIfStatV2BadRequests5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 26), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV2BadRequests5Min.setStatus('current')
+tmnxRipNgIfStatV2BadRoutes5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 27), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV2BadRoutes5Min.setStatus('current')
+tmnxRipNgIfStatAuthErrors5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 28), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatAuthErrors5Min.setStatus('current')
+tmnxRipNgIfStatAllSentUpdts1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 29), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatAllSentUpdts1Min.setStatus('current')
+tmnxRipNgIfStatAllTrigUpdts1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 30), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatAllTrigUpdts1Min.setStatus('current')
+tmnxRipNgIfStatAllRcvBadPkts1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 31), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatAllRcvBadPkts1Min.setStatus('current')
+tmnxRipNgIfStatV1RcvUpdates1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 32), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV1RcvUpdates1Min.setStatus('current')
+tmnxRipNgIfStatV1RcvRequests1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 33), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV1RcvRequests1Min.setStatus('current')
+tmnxRipNgIfStatV1BadUpdates1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 34), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV1BadUpdates1Min.setStatus('current')
+tmnxRipNgIfStatV1BadRequests1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 35), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV1BadRequests1Min.setStatus('current')
+tmnxRipNgIfStatV1BadRoutes1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 36), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV1BadRoutes1Min.setStatus('current')
+tmnxRipNgIfStatV2RcvUpdates1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 37), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV2RcvUpdates1Min.setStatus('current')
+tmnxRipNgIfStatV2RcvRequests1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 38), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV2RcvRequests1Min.setStatus('current')
+tmnxRipNgIfStatV2BadUpdates1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 39), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV2BadUpdates1Min.setStatus('current')
+tmnxRipNgIfStatV2BadRequests1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 40), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV2BadRequests1Min.setStatus('current')
+tmnxRipNgIfStatV2BadRoutes1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 41), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatV2BadRoutes1Min.setStatus('current')
+tmnxRipNgIfStatAuthErrors1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 5, 1, 42), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgIfStatAuthErrors1Min.setStatus('current')
+tmnxRipNgPeerTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 6), )
+if mibBuilder.loadTexts: tmnxRipNgPeerTable.setStatus('current')
+tmnxRipNgPeerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 6, 1), ).setIndexNames((0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgInstVersion"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgPeerIfIndex"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgPeerAddrType"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgPeerAddress"))
+if mibBuilder.loadTexts: tmnxRipNgPeerEntry.setStatus('current')
+tmnxRipNgPeerIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 6, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: tmnxRipNgPeerIfIndex.setStatus('current')
+tmnxRipNgPeerAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 6, 1, 2), InetAddressType())
+if mibBuilder.loadTexts: tmnxRipNgPeerAddrType.setStatus('current')
+tmnxRipNgPeerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 6, 1, 3), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
+if mibBuilder.loadTexts: tmnxRipNgPeerAddress.setStatus('current')
+tmnxRipNgPeerLastUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 6, 1, 4), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgPeerLastUpdate.setStatus('current')
+tmnxRipNgPeerVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 6, 1, 5), TmnxRipNgPeerVersion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgPeerVersion.setStatus('current')
+tmnxRipNgPeerRcvBadPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 6, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgPeerRcvBadPackets.setStatus('current')
+tmnxRipNgPeerRcvBadRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 6, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgPeerRcvBadRoutes.setStatus('current')
+tmnxRipNgAdvRouteTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 7), )
+if mibBuilder.loadTexts: tmnxRipNgAdvRouteTable.setStatus('current')
+tmnxRipNgAdvRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 7, 1), ).setIndexNames((0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgInstVersion"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgAdvRouteDestAddrType"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgAdvRouteDestAddress"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgAdvRouteMaskLength"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgAdvRouteIfIndex"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgAdvRouteIfAddrType"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgAdvRouteIfAddress"))
+if mibBuilder.loadTexts: tmnxRipNgAdvRouteEntry.setStatus('current')
+tmnxRipNgAdvRouteDestAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 7, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: tmnxRipNgAdvRouteDestAddrType.setStatus('current')
+tmnxRipNgAdvRouteDestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 7, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
+if mibBuilder.loadTexts: tmnxRipNgAdvRouteDestAddress.setStatus('current')
+tmnxRipNgAdvRouteMaskLength = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 7, 1, 3), InetAddressPrefixLength().subtype(subtypeSpec=ValueRangeConstraint(0, 128)))
+if mibBuilder.loadTexts: tmnxRipNgAdvRouteMaskLength.setStatus('current')
+tmnxRipNgAdvRouteIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 7, 1, 4), InterfaceIndex())
+if mibBuilder.loadTexts: tmnxRipNgAdvRouteIfIndex.setStatus('current')
+tmnxRipNgAdvRouteIfAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 7, 1, 5), InetAddressType())
+if mibBuilder.loadTexts: tmnxRipNgAdvRouteIfAddrType.setStatus('current')
+tmnxRipNgAdvRouteIfAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 7, 1, 6), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
+if mibBuilder.loadTexts: tmnxRipNgAdvRouteIfAddress.setStatus('current')
+tmnxRipNgAdvRouteNHAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 7, 1, 7), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgAdvRouteNHAddrType.setStatus('current')
+tmnxRipNgAdvRouteNHAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 7, 1, 8), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgAdvRouteNHAddress.setStatus('current')
+tmnxRipNgAdvRouteMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 7, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgAdvRouteMetric.setStatus('current')
+tmnxRipNgAdvRouteTag = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 7, 1, 10), RouteTag()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgAdvRouteTag.setStatus('current')
+tmnxRipNgAdvRouteTimerRem = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 7, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxRipNgAdvRouteTimerRem.setStatus('current')
+tmnxRipNgIfUcastTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 8), )
+if mibBuilder.loadTexts: tmnxRipNgIfUcastTable.setStatus('current')
+tmnxRipNgIfUcastEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 8, 1), ).setIndexNames((0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgInstVersion"), (0, "TIMETRA-VRTR-MIB", "vRtrIfIndex"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgIfUcastAddrType"), (0, "TIMETRA-RIP-NG-MIB", "tmnxRipNgIfUcastAddress"))
+if mibBuilder.loadTexts: tmnxRipNgIfUcastEntry.setStatus('current')
+tmnxRipNgIfUcastAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 8, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: tmnxRipNgIfUcastAddrType.setStatus('current')
+tmnxRipNgIfUcastAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 8, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
+if mibBuilder.loadTexts: tmnxRipNgIfUcastAddress.setStatus('current')
+tmnxRipNgIfUcastRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 2, 8, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxRipNgIfUcastRowStatus.setStatus('current')
+tmnxRipNgNotificationObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 3))
+tmnxRipNgNotifySrcAddrType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 3, 1), InetAddressType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxRipNgNotifySrcAddrType.setStatus('current')
+tmnxRipNgNotifySrcAddr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 3, 2), InetAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxRipNgNotifySrcAddr.setStatus('current')
+tmnxRipNgNotifyReason = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 89, 3, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 200))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxRipNgNotifyReason.setStatus('current')
+tmnxRipNgConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 89))
+tmnxRipNgCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 89, 1))
+tmnxRipNgV12v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 89, 1, 1)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgGlobalV12v0Group"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstanceV12v0Group"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupV12v0Group"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInterfaceV12v0Group"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgRoutesV12v0Group"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgPeerV12v0Group"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgNotificationV12v0Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxRipNgV12v0Compliance = tmnxRipNgV12v0Compliance.setStatus('current')
+tmnxRipNgV16v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 89, 1, 2)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgV16v0Group"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgNotificationV16v0Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxRipNgV16v0Compliance = tmnxRipNgV16v0Compliance.setStatus('current')
+tmnxRipNgGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 89, 2))
+tmnxRipNgGlobalV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 89, 2, 1)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgGlobalLearnedRoutes"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGlobalTimedoutRoutes"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGlobalCurrentMemory"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGlobalMaximumMemory"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxRipNgGlobalV12v0Group = tmnxRipNgGlobalV12v0Group.setStatus('current')
+tmnxRipNgInstanceV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 89, 2, 2)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstAuthType"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstAuthKey"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstCheckZero"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstMessageSize"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstMetricIn"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstMetricOut"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstPreference"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstReceive"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstSend"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstSplitHorizon"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstTimerFlush"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstTimerTimeout"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstTimerUpdate"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstImportPolicy1"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstImportPolicy2"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstImportPolicy3"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstImportPolicy4"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstImportPolicy5"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstExportPolicy1"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstExportPolicy2"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstExportPolicy3"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstExportPolicy4"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstExportPolicy5"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstDescription"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstAdminStatus"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstOperStatus"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstPropagateMetric"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstExportLimit"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstExpLmtLogPct"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstTotalExpRoutes"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxRipNgInstanceV12v0Group = tmnxRipNgInstanceV12v0Group.setStatus('current')
+tmnxRipNgGroupV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 89, 2, 3)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupAuthType"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupAuthKey"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupCheckZero"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupMessageSize"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupMetricIn"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupMetricOut"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupPreference"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupReceive"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupSend"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupSplitHorizon"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupTimerFlush"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupTimerTimeout"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupTimerUpdate"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupImportPolicy1"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupImportPolicy2"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupImportPolicy3"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupImportPolicy4"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupImportPolicy5"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupExportPolicy1"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupExportPolicy2"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupExportPolicy3"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupExportPolicy4"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupExportPolicy5"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupDescription"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupInheritance"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupAdminStatus"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupOperStatus"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxRipNgGroupV12v0Group = tmnxRipNgGroupV12v0Group.setStatus('current')
+tmnxRipNgInterfaceV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 89, 2, 4)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfGroupName"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfAuthType"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfAuthKey"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfCheckZero"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfMessageSize"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfMetricIn"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfMetricOut"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfPreference"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfReceive"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfSend"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfSplitHorizon"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfTimerFlush"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfTimerTimeout"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfTimerUpdate"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfImportPolicy1"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfImportPolicy2"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfImportPolicy3"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfImportPolicy4"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfImportPolicy5"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfExportPolicy1"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfExportPolicy2"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfExportPolicy3"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfExportPolicy4"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfExportPolicy5"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfDescription"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfInheritance"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfAdminStatus"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfOperStatus"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfRowStatus"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatAllSentUpdates"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatAllTrigUpdates"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatAllRcvBadPkts"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV1RcvUpdates"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV1RcvRequests"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV1BadUpdates"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV1BadRequests"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV1BadRoutes"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV2RcvUpdates"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV2RcvRequests"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV2BadUpdates"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV2BadRequests"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV2BadRoutes"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatAuthErrors"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatAllSentUpdts5Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatAllTrigUpdts5Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatAllRcvBadPkts5Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV1RcvUpdates5Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV1RcvRequests5Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV1BadUpdates5Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV1BadRequests5Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV1BadRoutes5Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV2RcvUpdates5Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV2RcvRequests5Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV2BadUpdates5Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV2BadRequests5Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV2BadRoutes5Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatAuthErrors5Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatAllSentUpdts1Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatAllTrigUpdts1Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatAllRcvBadPkts1Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV1RcvUpdates1Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV1RcvRequests1Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV1BadUpdates1Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV1BadRequests1Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV1BadRoutes1Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV2RcvUpdates1Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV2RcvRequests1Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV2BadUpdates1Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV2BadRequests1Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatV2BadRoutes1Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfStatAuthErrors1Min"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfUcastRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxRipNgInterfaceV12v0Group = tmnxRipNgInterfaceV12v0Group.setStatus('current')
+tmnxRipNgRoutesV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 89, 2, 5)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgRouteNHAddrType"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgRouteNHAddress"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgRouteMetric"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgRouteTag"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgRouteStatus"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgRouteTimerRemaining"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgRouteFC"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgRouteFCPriority"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgAdvRouteNHAddrType"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgAdvRouteNHAddress"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgAdvRouteMetric"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgAdvRouteTag"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgAdvRouteTimerRem"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxRipNgRoutesV12v0Group = tmnxRipNgRoutesV12v0Group.setStatus('current')
+tmnxRipNgPeerV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 89, 2, 6)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgPeerLastUpdate"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgPeerVersion"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgPeerRcvBadPackets"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgPeerRcvBadRoutes"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxRipNgPeerV12v0Group = tmnxRipNgPeerV12v0Group.setStatus('current')
+tmnxRipNgNotifyObjsV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 89, 2, 7)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgNotifySrcAddrType"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgNotifySrcAddr"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgNotifyReason"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxRipNgNotifyObjsV12v0Group = tmnxRipNgNotifyObjsV12v0Group.setStatus('current')
+tmnxRipNgNotificationV12v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 89, 2, 8)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgAuthTypeMismatch"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgAuthFailure"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstShuttingDown"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstRestarted"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstExpLmtReached"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstExpLmtWarning"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstRtsExpLmtDropped"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfUcastAddrNotUsed"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxRipNgNotificationV12v0Group = tmnxRipNgNotificationV12v0Group.setStatus('current')
+tmnxRipNgV16v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 89, 2, 9)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstBfdEnable"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgGroupBfdEnable"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfBfdEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxRipNgV16v0Group = tmnxRipNgV16v0Group.setStatus('current')
+tmnxRipNgNotificationV16v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 89, 2, 10)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgPeerBfdDown"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxRipNgNotificationV16v0Group = tmnxRipNgNotificationV16v0Group.setStatus('current')
+tmnxRipNgNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 89))
+tmnxRipNgNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 89, 0))
+tmnxRipNgAuthTypeMismatch = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 89, 0, 1)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgPeerLastUpdate"))
+if mibBuilder.loadTexts: tmnxRipNgAuthTypeMismatch.setStatus('current')
+tmnxRipNgAuthFailure = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 89, 0, 2)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgPeerLastUpdate"))
+if mibBuilder.loadTexts: tmnxRipNgAuthFailure.setStatus('current')
+tmnxRipNgInstShuttingDown = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 89, 0, 3)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstOperStatus"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgNotifyReason"))
+if mibBuilder.loadTexts: tmnxRipNgInstShuttingDown.setStatus('current')
+tmnxRipNgInstRestarted = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 89, 0, 4)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstOperStatus"))
+if mibBuilder.loadTexts: tmnxRipNgInstRestarted.setStatus('current')
+tmnxRipNgInstExpLmtReached = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 89, 0, 5)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstExportLimit"))
+if mibBuilder.loadTexts: tmnxRipNgInstExpLmtReached.setStatus('current')
+tmnxRipNgInstExpLmtWarning = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 89, 0, 6)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstExportLimit"), ("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstExpLmtLogPct"))
+if mibBuilder.loadTexts: tmnxRipNgInstExpLmtWarning.setStatus('current')
+tmnxRipNgInstRtsExpLmtDropped = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 89, 0, 7)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgInstExportLimit"))
+if mibBuilder.loadTexts: tmnxRipNgInstRtsExpLmtDropped.setStatus('current')
+tmnxRipNgIfUcastAddrNotUsed = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 89, 0, 8)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgIfRowStatus"))
+if mibBuilder.loadTexts: tmnxRipNgIfUcastAddrNotUsed.setStatus('current')
+tmnxRipNgPeerBfdDown = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 89, 0, 9)).setObjects(("TIMETRA-RIP-NG-MIB", "tmnxRipNgPeerLastUpdate"))
+if mibBuilder.loadTexts: tmnxRipNgPeerBfdDown.setStatus('current')
+mibBuilder.exportSymbols("TIMETRA-RIP-NG-MIB", tmnxRipNgIfAdminStatus=tmnxRipNgIfAdminStatus, tmnxRipNgGroupTimerFlush=tmnxRipNgGroupTimerFlush, tmnxRipNgGroupOperStatus=tmnxRipNgGroupOperStatus, tmnxRipNgIfStatV2RcvRequests=tmnxRipNgIfStatV2RcvRequests, tmnxRipNgAdvRouteIfIndex=tmnxRipNgAdvRouteIfIndex, tmnxRipNgIfStatV2RcvUpdates1Min=tmnxRipNgIfStatV2RcvUpdates1Min, tmnxRipNgInstPreference=tmnxRipNgInstPreference, tmnxRipNgNotifyReason=tmnxRipNgNotifyReason, tmnxRipNgIfStatV1BadRoutes1Min=tmnxRipNgIfStatV1BadRoutes1Min, tmnxRipNgIfReceive=tmnxRipNgIfReceive, tmnxRipNgRouteNHAddrType=tmnxRipNgRouteNHAddrType, tmnxRipNgGroupExportPolicy4=tmnxRipNgGroupExportPolicy4, tmnxRipNgGroupV12v0Group=tmnxRipNgGroupV12v0Group, tmnxRipNgV16v0Group=tmnxRipNgV16v0Group, tmnxRipNgRouteStatus=tmnxRipNgRouteStatus, tmnxRipNgNotificationV12v0Group=tmnxRipNgNotificationV12v0Group, tmnxRipNgInstSplitHorizon=tmnxRipNgInstSplitHorizon, TmnxRipNgMetric=TmnxRipNgMetric, tmnxRipNgInstAdminStatus=tmnxRipNgInstAdminStatus, tmnxRipNgRouteTable=tmnxRipNgRouteTable, tmnxRipNgInstRestarted=tmnxRipNgInstRestarted, tmnxRipNgGroupAuthKey=tmnxRipNgGroupAuthKey, tmnxRipNgRouteEntry=tmnxRipNgRouteEntry, tmnxRipNgInstanceV12v0Group=tmnxRipNgInstanceV12v0Group, tmnxRipNgGroupTimerTimeout=tmnxRipNgGroupTimerTimeout, tmnxRipNgGlobalLearnedRoutes=tmnxRipNgGlobalLearnedRoutes, tmnxRipNgPeerTable=tmnxRipNgPeerTable, tmnxRipNgRoutesV12v0Group=tmnxRipNgRoutesV12v0Group, tmnxRipNgGroupTable=tmnxRipNgGroupTable, tmnxRipNgIfStatV1BadUpdates5Min=tmnxRipNgIfStatV1BadUpdates5Min, tmnxRipNgInstSend=tmnxRipNgInstSend, tmnxRipNgAdvRouteNHAddrType=tmnxRipNgAdvRouteNHAddrType, tmnxRipNgGroupPreference=tmnxRipNgGroupPreference, tmnxRipNgRouteDestAddrType=tmnxRipNgRouteDestAddrType, tmnxRipNgAdvRouteTimerRem=tmnxRipNgAdvRouteTimerRem, tmnxRipNgInstTotalExpRoutes=tmnxRipNgInstTotalExpRoutes, tmnxRipNgIfTimerTimeout=tmnxRipNgIfTimerTimeout, tmnxRipNgPeerV12v0Group=tmnxRipNgPeerV12v0Group, tmnxRipNgAdvRouteIfAddress=tmnxRipNgAdvRouteIfAddress, tmnxRipNgInstEntry=tmnxRipNgInstEntry, tmnxRipNgIfInheritance=tmnxRipNgIfInheritance, tmnxRipNgGroupSend=tmnxRipNgGroupSend, tmnxRipNgIfUcastAddrNotUsed=tmnxRipNgIfUcastAddrNotUsed, tmnxRipNgPeerBfdDown=tmnxRipNgPeerBfdDown, tmnxRipNgIfImportPolicy2=tmnxRipNgIfImportPolicy2, tmnxRipNgIfStatV2RcvUpdates5Min=tmnxRipNgIfStatV2RcvUpdates5Min, tmnxRipNgInstTimerTimeout=tmnxRipNgInstTimerTimeout, tmnxRipNgGroupMetricIn=tmnxRipNgGroupMetricIn, tmnxRipNgNotifySrcAddr=tmnxRipNgNotifySrcAddr, tmnxRipNgPeerVersion=tmnxRipNgPeerVersion, tmnxRipNgInstExportPolicy4=tmnxRipNgInstExportPolicy4, tmnxRipNgIfStatV2BadRequests1Min=tmnxRipNgIfStatV2BadRequests1Min, tmnxRipNgInstExportPolicy1=tmnxRipNgInstExportPolicy1, tmnxRipNgIfStatAllRcvBadPkts5Min=tmnxRipNgIfStatAllRcvBadPkts5Min, tmnxRipNgIfBfdEnable=tmnxRipNgIfBfdEnable, tmnxRipNgIfStatV2RcvRequests1Min=tmnxRipNgIfStatV2RcvRequests1Min, tmnxRipNgIfStatAuthErrors5Min=tmnxRipNgIfStatAuthErrors5Min, tmnxRipNgGroupTimerUpdate=tmnxRipNgGroupTimerUpdate, tmnxRipNgPeerAddress=tmnxRipNgPeerAddress, tmnxRipNgGroupName=tmnxRipNgGroupName, tmnxRipNgInstExportPolicy2=tmnxRipNgInstExportPolicy2, tmnxRipNgInstMessageSize=tmnxRipNgInstMessageSize, tmnxRipNgTableObjs=tmnxRipNgTableObjs, tmnxRipNgAuthFailure=tmnxRipNgAuthFailure, tmnxRipNgAdvRouteDestAddress=tmnxRipNgAdvRouteDestAddress, tmnxRipNgAuthTypeMismatch=tmnxRipNgAuthTypeMismatch, TmnxRipNgPreference=TmnxRipNgPreference, tmnxRipNgIfDescription=tmnxRipNgIfDescription, tmnxRipNgInstImportPolicy2=tmnxRipNgInstImportPolicy2, tmnxRipNgNotifyObjsV12v0Group=tmnxRipNgNotifyObjsV12v0Group, tmnxRipNgIfStatAllSentUpdts5Min=tmnxRipNgIfStatAllSentUpdts5Min, tmnxRipNgGlobalMaximumMemory=tmnxRipNgGlobalMaximumMemory, tmnxRipNgIfAuthType=tmnxRipNgIfAuthType, tmnxRipNgIfStatV1BadRequests1Min=tmnxRipNgIfStatV1BadRequests1Min, tmnxRipNgNotifyPrefix=tmnxRipNgNotifyPrefix, tmnxRipNgInstImportPolicy5=tmnxRipNgInstImportPolicy5, tmnxRipNgGroupAuthType=tmnxRipNgGroupAuthType, tmnxRipNgIfStatV2BadRoutes=tmnxRipNgIfStatV2BadRoutes, tmnxRipNgIfUcastRowStatus=tmnxRipNgIfUcastRowStatus, tmnxRipNgIfUcastAddress=tmnxRipNgIfUcastAddress, tmnxRipNgGroupBfdEnable=tmnxRipNgGroupBfdEnable, tmnxRipNgIfSend=tmnxRipNgIfSend, tmnxRipNgIfStatAllSentUpdts1Min=tmnxRipNgIfStatAllSentUpdts1Min, tmnxRipNgIfImportPolicy5=tmnxRipNgIfImportPolicy5, tmnxRipNgIfStatV1BadRequests5Min=tmnxRipNgIfStatV1BadRequests5Min, tmnxRipNgIfStatV2BadRoutes1Min=tmnxRipNgIfStatV2BadRoutes1Min, TmnxRipNgSend=TmnxRipNgSend, tmnxRipNgRouteTag=tmnxRipNgRouteTag, tmnxRipNgGroupAdminStatus=tmnxRipNgGroupAdminStatus, tmnxRipNgIfStatV2RcvUpdates=tmnxRipNgIfStatV2RcvUpdates, tmnxRipNgIfStatAllTrigUpdts5Min=tmnxRipNgIfStatAllTrigUpdts5Min, tmnxRipNgGroupExportPolicy3=tmnxRipNgGroupExportPolicy3, tmnxRipNgIfCheckZero=tmnxRipNgIfCheckZero, tmnxRipNgRouteFCPriority=tmnxRipNgRouteFCPriority, tmnxRipNgIfStatV2BadUpdates1Min=tmnxRipNgIfStatV2BadUpdates1Min, tmnxRipNgInstMetricIn=tmnxRipNgInstMetricIn, tmnxRipNgNotifications=tmnxRipNgNotifications, tmnxRipNgInstAuthType=tmnxRipNgInstAuthType, tmnxRipNgInstExpLmtReached=tmnxRipNgInstExpLmtReached, tmnxRipNgIfGroupName=tmnxRipNgIfGroupName, tmnxRipNgIfExportPolicy3=tmnxRipNgIfExportPolicy3, tmnxRipNgIfStatAllSentUpdates=tmnxRipNgIfStatAllSentUpdates, tmnxRipNgIfMessageSize=tmnxRipNgIfMessageSize, tmnxRipNgIfStatV1RcvRequests=tmnxRipNgIfStatV1RcvRequests, tmnxRipNgIfImportPolicy3=tmnxRipNgIfImportPolicy3, tmnxRipNgIfStatAuthErrors=tmnxRipNgIfStatAuthErrors, tmnxRipNgIfUcastAddrType=tmnxRipNgIfUcastAddrType, tmnxRipNgGroups=tmnxRipNgGroups, tmnxRipNgPeerEntry=tmnxRipNgPeerEntry, timetraRipNgMIBModule=timetraRipNgMIBModule, TmnxRipNgMessageSize=TmnxRipNgMessageSize, tmnxRipNgGroupExportPolicy2=tmnxRipNgGroupExportPolicy2, tmnxRipNgGlobalTimedoutRoutes=tmnxRipNgGlobalTimedoutRoutes, tmnxRipNgGroupSplitHorizon=tmnxRipNgGroupSplitHorizon, tmnxRipNgIfExportPolicy5=tmnxRipNgIfExportPolicy5, tmnxRipNgAdvRouteTag=tmnxRipNgAdvRouteTag, tmnxRipNgIfStatAllRcvBadPkts=tmnxRipNgIfStatAllRcvBadPkts, tmnxRipNgIfStatV1RcvRequests5Min=tmnxRipNgIfStatV1RcvRequests5Min, tmnxRipNgIfStatV2BadRequests=tmnxRipNgIfStatV2BadRequests, tmnxRipNgRouteFC=tmnxRipNgRouteFC, tmnxRipNgInstExportPolicy3=tmnxRipNgInstExportPolicy3, tmnxRipNgIfTable=tmnxRipNgIfTable, tmnxRipNgInstReceive=tmnxRipNgInstReceive, tmnxRipNgGroupImportPolicy4=tmnxRipNgGroupImportPolicy4, tmnxRipNgIfStatAllTrigUpdts1Min=tmnxRipNgIfStatAllTrigUpdts1Min, TmnxRipNgReceive=TmnxRipNgReceive, tmnxRipNgGroupRowStatus=tmnxRipNgGroupRowStatus, tmnxRipNgIfImportPolicy4=tmnxRipNgIfImportPolicy4, tmnxRipNgIfStatAuthErrors1Min=tmnxRipNgIfStatAuthErrors1Min, tmnxRipNgInstOperStatus=tmnxRipNgInstOperStatus, tmnxRipNgRouteDestAddress=tmnxRipNgRouteDestAddress, tmnxRipNgIfPreference=tmnxRipNgIfPreference, tmnxRipNgIfStatV1RcvRequests1Min=tmnxRipNgIfStatV1RcvRequests1Min, tmnxRipNgInstDescription=tmnxRipNgInstDescription, tmnxRipNgRouteNHAddress=tmnxRipNgRouteNHAddress, tmnxRipNgGroupMetricOut=tmnxRipNgGroupMetricOut, tmnxRipNgIfStatTable=tmnxRipNgIfStatTable, tmnxRipNgGroupImportPolicy2=tmnxRipNgGroupImportPolicy2, tmnxRipNgIfExportPolicy1=tmnxRipNgIfExportPolicy1, tmnxRipNgInterfaceV12v0Group=tmnxRipNgInterfaceV12v0Group, tmnxRipNgIfRowStatus=tmnxRipNgIfRowStatus, tmnxRipNgAdvRouteTable=tmnxRipNgAdvRouteTable, tmnxRipNgIfStatEntry=tmnxRipNgIfStatEntry, tmnxRipNgCompliances=tmnxRipNgCompliances, tmnxRipNgInstShuttingDown=tmnxRipNgInstShuttingDown, TmnxRipNgTimerTimeout=TmnxRipNgTimerTimeout, tmnxRipNgIfStatV2BadRoutes5Min=tmnxRipNgIfStatV2BadRoutes5Min, tmnxRipNgInstExpLmtLogPct=tmnxRipNgInstExpLmtLogPct, tmnxRipNgIfStatAllRcvBadPkts1Min=tmnxRipNgIfStatAllRcvBadPkts1Min, tmnxRipNgPeerAddrType=tmnxRipNgPeerAddrType, tmnxRipNgGroupImportPolicy1=tmnxRipNgGroupImportPolicy1, tmnxRipNgV16v0Compliance=tmnxRipNgV16v0Compliance, tmnxRipNgIfExportPolicy4=tmnxRipNgIfExportPolicy4, tmnxRipNgInstTimerUpdate=tmnxRipNgInstTimerUpdate, tmnxRipNgIfAuthKey=tmnxRipNgIfAuthKey, tmnxRipNgInstAuthKey=tmnxRipNgInstAuthKey, tmnxRipNgRouteMaskLength=tmnxRipNgRouteMaskLength, PYSNMP_MODULE_ID=timetraRipNgMIBModule, tmnxRipNgIfMetricIn=tmnxRipNgIfMetricIn, tmnxRipNgIfStatV1BadRoutes=tmnxRipNgIfStatV1BadRoutes, tmnxRipNgIfStatV2BadUpdates5Min=tmnxRipNgIfStatV2BadUpdates5Min, tmnxRipNgGlobalCurrentMemory=tmnxRipNgGlobalCurrentMemory, tmnxRipNgInstTimerFlush=tmnxRipNgInstTimerFlush, tmnxRipNgIfTimerUpdate=tmnxRipNgIfTimerUpdate, TmnxRipNgInstVersion=TmnxRipNgInstVersion, tmnxRipNgPeerIfIndex=tmnxRipNgPeerIfIndex, tmnxRipNgPeerRcvBadRoutes=tmnxRipNgPeerRcvBadRoutes, tmnxRipNgInstVersion=tmnxRipNgInstVersion, tmnxRipNgIfStatV2BadUpdates=tmnxRipNgIfStatV2BadUpdates, tmnxRipNgPeerRcvBadPackets=tmnxRipNgPeerRcvBadPackets, tmnxRipNgIfUcastTable=tmnxRipNgIfUcastTable, tmnxRipNgIfOperStatus=tmnxRipNgIfOperStatus, tmnxRipNgGlobalV12v0Group=tmnxRipNgGlobalV12v0Group, tmnxRipNgInstBfdEnable=tmnxRipNgInstBfdEnable, tmnxRipNgIfStatV1BadUpdates1Min=tmnxRipNgIfStatV1BadUpdates1Min, tmnxRipNgNotifySrcAddrType=tmnxRipNgNotifySrcAddrType, tmnxRipNgRouteIfIndex=tmnxRipNgRouteIfIndex, tmnxRipNgPeerLastUpdate=tmnxRipNgPeerLastUpdate, tmnxRipNgIfTimerFlush=tmnxRipNgIfTimerFlush, tmnxRipNgGroupExportPolicy5=tmnxRipNgGroupExportPolicy5, tmnxRipNgAdvRouteMetric=tmnxRipNgAdvRouteMetric, tmnxRipNgIfStatV1BadRoutes5Min=tmnxRipNgIfStatV1BadRoutes5Min, tmnxRipNgAdvRouteEntry=tmnxRipNgAdvRouteEntry, tmnxRipNgIfStatV2RcvRequests5Min=tmnxRipNgIfStatV2RcvRequests5Min, tmnxRipNgAdvRouteMaskLength=tmnxRipNgAdvRouteMaskLength, tmnxRipNgRouteMetric=tmnxRipNgRouteMetric, tmnxRipNgIfUcastEntry=tmnxRipNgIfUcastEntry, tmnxRipNgIfMetricOut=tmnxRipNgIfMetricOut, tmnxRipNgInstExportPolicy5=tmnxRipNgInstExportPolicy5, tmnxRipNgConformance=tmnxRipNgConformance, tmnxRipNgAdvRouteDestAddrType=tmnxRipNgAdvRouteDestAddrType, tmnxRipNgGroupReceive=tmnxRipNgGroupReceive, tmnxRipNgGroupDescription=tmnxRipNgGroupDescription, tmnxRipNgRoutePeerAddress=tmnxRipNgRoutePeerAddress, tmnxRipNgIfStatV1RcvUpdates5Min=tmnxRipNgIfStatV1RcvUpdates5Min, tmnxRipNgInstExpLmtWarning=tmnxRipNgInstExpLmtWarning, tmnxRipNgGroupImportPolicy5=tmnxRipNgGroupImportPolicy5, tmnxRipNgRoutePeerAddrType=tmnxRipNgRoutePeerAddrType, tmnxRipNgIfStatV1BadRequests=tmnxRipNgIfStatV1BadRequests, tmnxRipNgIfEntry=tmnxRipNgIfEntry, tmnxRipNgIfStatV1RcvUpdates=tmnxRipNgIfStatV1RcvUpdates, tmnxRipNgGroupExportPolicy1=tmnxRipNgGroupExportPolicy1, tmnxRipNgInstImportPolicy4=tmnxRipNgInstImportPolicy4, tmnxRipNgV12v0Compliance=tmnxRipNgV12v0Compliance, tmnxRipNgGroupMessageSize=tmnxRipNgGroupMessageSize, tmnxRipNgObjs=tmnxRipNgObjs, tmnxRipNgRouteTimerRemaining=tmnxRipNgRouteTimerRemaining, tmnxRipNgIfStatAllTrigUpdates=tmnxRipNgIfStatAllTrigUpdates, TmnxRipNgPeerVersion=TmnxRipNgPeerVersion, tmnxRipNgInstImportPolicy1=tmnxRipNgInstImportPolicy1, tmnxRipNgAdvRouteIfAddrType=tmnxRipNgAdvRouteIfAddrType, tmnxRipNgNotificationV16v0Group=tmnxRipNgNotificationV16v0Group, tmnxRipNgGlobals=tmnxRipNgGlobals, tmnxRipNgIfStatV1RcvUpdates1Min=tmnxRipNgIfStatV1RcvUpdates1Min, tmnxRipNgInstTable=tmnxRipNgInstTable, tmnxRipNgIfImportPolicy1=tmnxRipNgIfImportPolicy1, tmnxRipNgGroupEntry=tmnxRipNgGroupEntry, tmnxRipNgGroupCheckZero=tmnxRipNgGroupCheckZero, tmnxRipNgInstRtsExpLmtDropped=tmnxRipNgInstRtsExpLmtDropped, tmnxRipNgInstCheckZero=tmnxRipNgInstCheckZero, tmnxRipNgGroupInheritance=tmnxRipNgGroupInheritance, tmnxRipNgIfStatV1BadUpdates=tmnxRipNgIfStatV1BadUpdates, tmnxRipNgIfStatV2BadRequests5Min=tmnxRipNgIfStatV2BadRequests5Min, tmnxRipNgInstImportPolicy3=tmnxRipNgInstImportPolicy3, tmnxRipNgInstPropagateMetric=tmnxRipNgInstPropagateMetric, tmnxRipNgNotificationObjs=tmnxRipNgNotificationObjs, tmnxRipNgInstExportLimit=tmnxRipNgInstExportLimit, tmnxRipNgGroupImportPolicy3=tmnxRipNgGroupImportPolicy3, TmnxRipNgTimerUpdate=TmnxRipNgTimerUpdate, tmnxRipNgAdvRouteNHAddress=tmnxRipNgAdvRouteNHAddress, tmnxRipNgIfSplitHorizon=tmnxRipNgIfSplitHorizon, TmnxRipNgTimerFlush=TmnxRipNgTimerFlush, tmnxRipNgIfExportPolicy2=tmnxRipNgIfExportPolicy2, tmnxRipNgInstMetricOut=tmnxRipNgInstMetricOut)

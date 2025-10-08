@@ -1,30 +1,26 @@
-_D='h3cAAANasIdName'
-_C='A3COM-HUAWEI-AAA-NASID-MIB'
-_B='OctetString'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_B,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('A3COM-HUAWEI-OID-MIB','h3cCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-h3cAAANasId=ModuleIdentity((1,3,6,1,4,1,43,45,1,10,2,114))
-if mibBuilder.loadTexts:h3cAAANasId.setRevisions(('2011-03-09 09:45',))
-_H3cAAANasIdObjects_ObjectIdentity=ObjectIdentity
-h3cAAANasIdObjects=_H3cAAANasIdObjects_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,114,1))
-_H3cAAANasIdTable_Object=MibTable
-h3cAAANasIdTable=_H3cAAANasIdTable_Object((1,3,6,1,4,1,43,45,1,10,2,114,1,1))
-if mibBuilder.loadTexts:h3cAAANasIdTable.setStatus(_A)
-_H3cAAANasIdEntry_Object=MibTableRow
-h3cAAANasIdEntry=_H3cAAANasIdEntry_Object((1,3,6,1,4,1,43,45,1,10,2,114,1,1,1))
-h3cAAANasIdEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:h3cAAANasIdEntry.setStatus(_A)
-class _H3cAAANasIdName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_H3cAAANasIdName_Type.__name__=_B
-_H3cAAANasIdName_Object=MibTableColumn
-h3cAAANasIdName=_H3cAAANasIdName_Object((1,3,6,1,4,1,43,45,1,10,2,114,1,1,1,1),_H3cAAANasIdName_Type())
-h3cAAANasIdName.setMaxAccess('read-only')
-if mibBuilder.loadTexts:h3cAAANasIdName.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'h3cAAANasId':h3cAAANasId,'h3cAAANasIdObjects':h3cAAANasIdObjects,'h3cAAANasIdTable':h3cAAANasIdTable,'h3cAAANasIdEntry':h3cAAANasIdEntry,_D:h3cAAANasIdName})
+#
+# PySNMP MIB module A3COM-HUAWEI-AAA-NASID-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-AAA-NASID-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+h3cAAANasId = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 114))
+h3cAAANasId.setRevisions(('2011-03-09 09:45',))
+if mibBuilder.loadTexts: h3cAAANasId.setLastUpdated('201103090945Z')
+if mibBuilder.loadTexts: h3cAAANasId.setOrganization('Hangzhou H3C Technologies Co., Ltd.')
+h3cAAANasIdObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 114, 1))
+h3cAAANasIdTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 114, 1, 1), )
+if mibBuilder.loadTexts: h3cAAANasIdTable.setStatus('current')
+h3cAAANasIdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 114, 1, 1, 1), ).setIndexNames((0, "A3COM-HUAWEI-AAA-NASID-MIB", "h3cAAANasIdName"))
+if mibBuilder.loadTexts: h3cAAANasIdEntry.setStatus('current')
+h3cAAANasIdName = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 114, 1, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cAAANasIdName.setStatus('current')
+mibBuilder.exportSymbols("A3COM-HUAWEI-AAA-NASID-MIB", h3cAAANasIdTable=h3cAAANasIdTable, h3cAAANasId=h3cAAANasId, h3cAAANasIdEntry=h3cAAANasIdEntry, h3cAAANasIdObjects=h3cAAANasIdObjects, PYSNMP_MODULE_ID=h3cAAANasId, h3cAAANasIdName=h3cAAANasIdName)

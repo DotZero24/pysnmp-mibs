@@ -1,129 +1,58 @@
-_I='atiFanNumber'
-_H='CENTRECOM-SYSTEM-MIB'
-_G='read-write'
-_F='secondary'
-_E='primary'
-_D='DisplayString'
-_C='Integer32'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-extSwitchMIB,=mibBuilder.importSymbols('CENTRECOM-MIB','extSwitchMIB')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention','TruthValue')
-atiSwitchSystem=ModuleIdentity((1,3,6,1,4,1,207,8,12,2,3))
-class _AtiSaveConfiguration_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('saveToPrimary',1),('saveToSecondary',2)))
-_AtiSaveConfiguration_Type.__name__=_C
-_AtiSaveConfiguration_Object=MibScalar
-atiSaveConfiguration=_AtiSaveConfiguration_Object((1,3,6,1,4,1,207,8,12,2,3,3),_AtiSaveConfiguration_Type())
-atiSaveConfiguration.setMaxAccess('write-only')
-if mibBuilder.loadTexts:atiSaveConfiguration.setStatus(_A)
-class _AtiSaveStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('saveInProgress',1),('saveNotInProgress',2)))
-_AtiSaveStatus_Type.__name__=_C
-_AtiSaveStatus_Object=MibScalar
-atiSaveStatus=_AtiSaveStatus_Object((1,3,6,1,4,1,207,8,12,2,3,4),_AtiSaveStatus_Type())
-atiSaveStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiSaveStatus.setStatus(_A)
-class _AtiCurrentConfigInUse_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_AtiCurrentConfigInUse_Type.__name__=_C
-_AtiCurrentConfigInUse_Object=MibScalar
-atiCurrentConfigInUse=_AtiCurrentConfigInUse_Object((1,3,6,1,4,1,207,8,12,2,3,5),_AtiCurrentConfigInUse_Type())
-atiCurrentConfigInUse.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiCurrentConfigInUse.setStatus(_A)
-class _AtiConfigToUseOnReboot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_AtiConfigToUseOnReboot_Type.__name__=_C
-_AtiConfigToUseOnReboot_Object=MibScalar
-atiConfigToUseOnReboot=_AtiConfigToUseOnReboot_Object((1,3,6,1,4,1,207,8,12,2,3,6),_AtiConfigToUseOnReboot_Type())
-atiConfigToUseOnReboot.setMaxAccess(_G)
-if mibBuilder.loadTexts:atiConfigToUseOnReboot.setStatus(_A)
-_AtiOverTemperatureAlarm_Type=TruthValue
-_AtiOverTemperatureAlarm_Object=MibScalar
-atiOverTemperatureAlarm=_AtiOverTemperatureAlarm_Object((1,3,6,1,4,1,207,8,12,2,3,7),_AtiOverTemperatureAlarm_Type())
-atiOverTemperatureAlarm.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiOverTemperatureAlarm.setStatus(_A)
-class _AtiCurrentTemperature_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_AtiCurrentTemperature_Type.__name__=_C
-_AtiCurrentTemperature_Object=MibScalar
-atiCurrentTemperature=_AtiCurrentTemperature_Object((1,3,6,1,4,1,207,8,12,2,3,8),_AtiCurrentTemperature_Type())
-atiCurrentTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiCurrentTemperature.setStatus(_A)
-_AtiFanStatusTable_Object=MibTable
-atiFanStatusTable=_AtiFanStatusTable_Object((1,3,6,1,4,1,207,8,12,2,3,9))
-if mibBuilder.loadTexts:atiFanStatusTable.setStatus(_A)
-_AtiFanStatusEntry_Object=MibTableRow
-atiFanStatusEntry=_AtiFanStatusEntry_Object((1,3,6,1,4,1,207,8,12,2,3,9,1))
-atiFanStatusEntry.setIndexNames((0,_H,_I))
-if mibBuilder.loadTexts:atiFanStatusEntry.setStatus(_A)
-_AtiFanNumber_Type=Integer32
-_AtiFanNumber_Object=MibTableColumn
-atiFanNumber=_AtiFanNumber_Object((1,3,6,1,4,1,207,8,12,2,3,9,1,1),_AtiFanNumber_Type())
-atiFanNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiFanNumber.setStatus(_A)
-_AtiFanOperational_Type=TruthValue
-_AtiFanOperational_Object=MibTableColumn
-atiFanOperational=_AtiFanOperational_Object((1,3,6,1,4,1,207,8,12,2,3,9,1,2),_AtiFanOperational_Type())
-atiFanOperational.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiFanOperational.setStatus(_A)
-_AtiPrimaryPowerOperational_Type=TruthValue
-_AtiPrimaryPowerOperational_Object=MibScalar
-atiPrimaryPowerOperational=_AtiPrimaryPowerOperational_Object((1,3,6,1,4,1,207,8,12,2,3,10),_AtiPrimaryPowerOperational_Type())
-atiPrimaryPowerOperational.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiPrimaryPowerOperational.setStatus(_A)
-class _AtiRedundantPowerStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('notPresent',1),('presentOK',2),('presentNotOK',3)))
-_AtiRedundantPowerStatus_Type.__name__=_C
-_AtiRedundantPowerStatus_Object=MibScalar
-atiRedundantPowerStatus=_AtiRedundantPowerStatus_Object((1,3,6,1,4,1,207,8,12,2,3,11),_AtiRedundantPowerStatus_Type())
-atiRedundantPowerStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiRedundantPowerStatus.setStatus(_A)
-_AtiRedundantPowerAlarm_Type=TruthValue
-_AtiRedundantPowerAlarm_Object=MibScalar
-atiRedundantPowerAlarm=_AtiRedundantPowerAlarm_Object((1,3,6,1,4,1,207,8,12,2,3,12),_AtiRedundantPowerAlarm_Type())
-atiRedundantPowerAlarm.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiRedundantPowerAlarm.setStatus(_A)
-class _AtiPrimarySoftwareRev_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_AtiPrimarySoftwareRev_Type.__name__=_D
-_AtiPrimarySoftwareRev_Object=MibScalar
-atiPrimarySoftwareRev=_AtiPrimarySoftwareRev_Object((1,3,6,1,4,1,207,8,12,2,3,13),_AtiPrimarySoftwareRev_Type())
-atiPrimarySoftwareRev.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiPrimarySoftwareRev.setStatus(_A)
-class _AtiSecondarySoftwareRev_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_AtiSecondarySoftwareRev_Type.__name__=_D
-_AtiSecondarySoftwareRev_Object=MibScalar
-atiSecondarySoftwareRev=_AtiSecondarySoftwareRev_Object((1,3,6,1,4,1,207,8,12,2,3,14),_AtiSecondarySoftwareRev_Type())
-atiSecondarySoftwareRev.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiSecondarySoftwareRev.setStatus(_A)
-class _AtiImageToUseOnReboot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_AtiImageToUseOnReboot_Type.__name__=_C
-_AtiImageToUseOnReboot_Object=MibScalar
-atiImageToUseOnReboot=_AtiImageToUseOnReboot_Object((1,3,6,1,4,1,207,8,12,2,3,15),_AtiImageToUseOnReboot_Type())
-atiImageToUseOnReboot.setMaxAccess(_G)
-if mibBuilder.loadTexts:atiImageToUseOnReboot.setStatus(_A)
-class _AtiSystemID_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,126))
-_AtiSystemID_Type.__name__=_D
-_AtiSystemID_Object=MibScalar
-atiSystemID=_AtiSystemID_Object((1,3,6,1,4,1,207,8,12,2,3,16),_AtiSystemID_Type())
-atiSystemID.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiSystemID.setStatus(_A)
-class _AtiSystemBoardID_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,126))
-_AtiSystemBoardID_Type.__name__=_D
-_AtiSystemBoardID_Object=MibScalar
-atiSystemBoardID=_AtiSystemBoardID_Object((1,3,6,1,4,1,207,8,12,2,3,17),_AtiSystemBoardID_Type())
-atiSystemBoardID.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiSystemBoardID.setStatus(_A)
-class _AtiSystemLeftBoardID_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,126))
-_AtiSystemLeftBoardID_Type.__name__=_D
-_AtiSystemLeftBoardID_Object=MibScalar
-atiSystemLeftBoardID=_AtiSystemLeftBoardID_Object((1,3,6,1,4,1,207,8,12,2,3,18),_AtiSystemLeftBoardID_Type())
-atiSystemLeftBoardID.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiSystemLeftBoardID.setStatus(_A)
-class _AtiSystemRightBoardID_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,126))
-_AtiSystemRightBoardID_Type.__name__=_D
-_AtiSystemRightBoardID_Object=MibScalar
-atiSystemRightBoardID=_AtiSystemRightBoardID_Object((1,3,6,1,4,1,207,8,12,2,3,19),_AtiSystemRightBoardID_Type())
-atiSystemRightBoardID.setMaxAccess(_B)
-if mibBuilder.loadTexts:atiSystemRightBoardID.setStatus(_A)
-mibBuilder.exportSymbols(_H,**{'atiSwitchSystem':atiSwitchSystem,'atiSaveConfiguration':atiSaveConfiguration,'atiSaveStatus':atiSaveStatus,'atiCurrentConfigInUse':atiCurrentConfigInUse,'atiConfigToUseOnReboot':atiConfigToUseOnReboot,'atiOverTemperatureAlarm':atiOverTemperatureAlarm,'atiCurrentTemperature':atiCurrentTemperature,'atiFanStatusTable':atiFanStatusTable,'atiFanStatusEntry':atiFanStatusEntry,_I:atiFanNumber,'atiFanOperational':atiFanOperational,'atiPrimaryPowerOperational':atiPrimaryPowerOperational,'atiRedundantPowerStatus':atiRedundantPowerStatus,'atiRedundantPowerAlarm':atiRedundantPowerAlarm,'atiPrimarySoftwareRev':atiPrimarySoftwareRev,'atiSecondarySoftwareRev':atiSecondarySoftwareRev,'atiImageToUseOnReboot':atiImageToUseOnReboot,'atiSystemID':atiSystemID,'atiSystemBoardID':atiSystemBoardID,'atiSystemLeftBoardID':atiSystemLeftBoardID,'atiSystemRightBoardID':atiSystemRightBoardID})
+#
+# PySNMP MIB module CENTRECOM-SYSTEM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allied-old/CENTRECOM-SYSTEM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+extSwitchMIB, = mibBuilder.importSymbols("CENTRECOM-MIB", "extSwitchMIB")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+atiSwitchSystem = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3))
+if mibBuilder.loadTexts: atiSwitchSystem.setLastUpdated('9810020000Z')
+if mibBuilder.loadTexts: atiSwitchSystem.setOrganization('Allied Telesis K.K')
+atiSaveConfiguration = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("saveToPrimary", 1), ("saveToSecondary", 2)))).setMaxAccess("writeonly")
+if mibBuilder.loadTexts: atiSaveConfiguration.setStatus('mandatory')
+atiSaveStatus = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("saveInProgress", 1), ("saveNotInProgress", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atiSaveStatus.setStatus('mandatory')
+atiCurrentConfigInUse = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atiCurrentConfigInUse.setStatus('mandatory')
+atiConfigToUseOnReboot = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atiConfigToUseOnReboot.setStatus('mandatory')
+atiOverTemperatureAlarm = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 7), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atiOverTemperatureAlarm.setStatus('mandatory')
+atiCurrentTemperature = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atiCurrentTemperature.setStatus('mandatory')
+atiFanStatusTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 9), )
+if mibBuilder.loadTexts: atiFanStatusTable.setStatus('mandatory')
+atiFanStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 9, 1), ).setIndexNames((0, "CENTRECOM-SYSTEM-MIB", "atiFanNumber"))
+if mibBuilder.loadTexts: atiFanStatusEntry.setStatus('mandatory')
+atiFanNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 9, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atiFanNumber.setStatus('mandatory')
+atiFanOperational = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 9, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atiFanOperational.setStatus('mandatory')
+atiPrimaryPowerOperational = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 10), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atiPrimaryPowerOperational.setStatus('mandatory')
+atiRedundantPowerStatus = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notPresent", 1), ("presentOK", 2), ("presentNotOK", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atiRedundantPowerStatus.setStatus('mandatory')
+atiRedundantPowerAlarm = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 12), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atiRedundantPowerAlarm.setStatus('mandatory')
+atiPrimarySoftwareRev = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atiPrimarySoftwareRev.setStatus('mandatory')
+atiSecondarySoftwareRev = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atiSecondarySoftwareRev.setStatus('mandatory')
+atiImageToUseOnReboot = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atiImageToUseOnReboot.setStatus('mandatory')
+atiSystemID = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 16), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 126))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atiSystemID.setStatus('mandatory')
+atiSystemBoardID = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 17), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 126))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atiSystemBoardID.setStatus('mandatory')
+atiSystemLeftBoardID = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 126))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atiSystemLeftBoardID.setStatus('mandatory')
+atiSystemRightBoardID = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 12, 2, 3, 19), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 126))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atiSystemRightBoardID.setStatus('mandatory')
+mibBuilder.exportSymbols("CENTRECOM-SYSTEM-MIB", atiPrimarySoftwareRev=atiPrimarySoftwareRev, atiSecondarySoftwareRev=atiSecondarySoftwareRev, atiSaveConfiguration=atiSaveConfiguration, atiSystemID=atiSystemID, atiFanNumber=atiFanNumber, atiSwitchSystem=atiSwitchSystem, PYSNMP_MODULE_ID=atiSwitchSystem, atiRedundantPowerStatus=atiRedundantPowerStatus, atiFanStatusEntry=atiFanStatusEntry, atiFanStatusTable=atiFanStatusTable, atiSaveStatus=atiSaveStatus, atiConfigToUseOnReboot=atiConfigToUseOnReboot, atiFanOperational=atiFanOperational, atiSystemLeftBoardID=atiSystemLeftBoardID, atiSystemBoardID=atiSystemBoardID, atiRedundantPowerAlarm=atiRedundantPowerAlarm, atiPrimaryPowerOperational=atiPrimaryPowerOperational, atiSystemRightBoardID=atiSystemRightBoardID, atiCurrentTemperature=atiCurrentTemperature, atiOverTemperatureAlarm=atiOverTemperatureAlarm, atiCurrentConfigInUse=atiCurrentConfigInUse, atiImageToUseOnReboot=atiImageToUseOnReboot)

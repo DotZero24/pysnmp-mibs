@@ -1,75 +1,46 @@
-_I='mitelAppMonTaskCrashedNotif'
-_H='mitelApplicationMonFaultDescr'
-_G='mitelApplicationMonFaultDateTime'
-_F='mitelApplicationMonFaultStatus'
-_E='mitelApplicationMonFaultTblIndex'
-_D='Integer32'
-_C='read-only'
-_B='MITEL-APPLICATION-MON-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-mitelApplicationMon=ModuleIdentity((1,3,6,1,4,1,1027,4,11))
-if mibBuilder.loadTexts:mitelApplicationMon.setRevisions(('2003-03-24 01:36','2002-04-02 00:00'))
-class DateAndTime(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8),ValueSizeConstraint(11,11))
-_Mitel_ObjectIdentity=ObjectIdentity
-mitel=_Mitel_ObjectIdentity((1,3,6,1,4,1,1027))
-_MitelIdentification_ObjectIdentity=ObjectIdentity
-mitelIdentification=_MitelIdentification_ObjectIdentity((1,3,6,1,4,1,1027,1))
-_MitelIdCallServers_ObjectIdentity=ObjectIdentity
-mitelIdCallServers=_MitelIdCallServers_ObjectIdentity((1,3,6,1,4,1,1027,1,2))
-_MitelIdCsIpera1000_ObjectIdentity=ObjectIdentity
-mitelIdCsIpera1000=_MitelIdCsIpera1000_ObjectIdentity((1,3,6,1,4,1,1027,1,2,4))
-_MitelProprietary_ObjectIdentity=ObjectIdentity
-mitelProprietary=_MitelProprietary_ObjectIdentity((1,3,6,1,4,1,1027,4))
-_MitelApplicationMonFaultTable_Object=MibTable
-mitelApplicationMonFaultTable=_MitelApplicationMonFaultTable_Object((1,3,6,1,4,1,1027,4,11,1))
-if mibBuilder.loadTexts:mitelApplicationMonFaultTable.setStatus(_A)
-_MitelApplicationMonFaultEntry_Object=MibTableRow
-mitelApplicationMonFaultEntry=_MitelApplicationMonFaultEntry_Object((1,3,6,1,4,1,1027,4,11,1,1))
-mitelApplicationMonFaultEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:mitelApplicationMonFaultEntry.setStatus(_A)
-_MitelApplicationMonFaultTblIndex_Type=Integer32
-_MitelApplicationMonFaultTblIndex_Object=MibTableColumn
-mitelApplicationMonFaultTblIndex=_MitelApplicationMonFaultTblIndex_Object((1,3,6,1,4,1,1027,4,11,1,1,1),_MitelApplicationMonFaultTblIndex_Type())
-mitelApplicationMonFaultTblIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:mitelApplicationMonFaultTblIndex.setStatus(_A)
-class _MitelApplicationMonFaultId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('appMonTaskCrashed',1))
-_MitelApplicationMonFaultId_Type.__name__=_D
-_MitelApplicationMonFaultId_Object=MibTableColumn
-mitelApplicationMonFaultId=_MitelApplicationMonFaultId_Object((1,3,6,1,4,1,1027,4,11,1,1,2),_MitelApplicationMonFaultId_Type())
-mitelApplicationMonFaultId.setMaxAccess(_C)
-if mibBuilder.loadTexts:mitelApplicationMonFaultId.setStatus(_A)
-class _MitelApplicationMonFaultStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('set',1),('clear',2),('message',3)))
-_MitelApplicationMonFaultStatus_Type.__name__=_D
-_MitelApplicationMonFaultStatus_Object=MibTableColumn
-mitelApplicationMonFaultStatus=_MitelApplicationMonFaultStatus_Object((1,3,6,1,4,1,1027,4,11,1,1,3),_MitelApplicationMonFaultStatus_Type())
-mitelApplicationMonFaultStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:mitelApplicationMonFaultStatus.setStatus(_A)
-_MitelApplicationMonFaultOccur_Type=Counter32
-_MitelApplicationMonFaultOccur_Object=MibTableColumn
-mitelApplicationMonFaultOccur=_MitelApplicationMonFaultOccur_Object((1,3,6,1,4,1,1027,4,11,1,1,4),_MitelApplicationMonFaultOccur_Type())
-mitelApplicationMonFaultOccur.setMaxAccess(_C)
-if mibBuilder.loadTexts:mitelApplicationMonFaultOccur.setStatus(_A)
-_MitelApplicationMonFaultDateTime_Type=DateAndTime
-_MitelApplicationMonFaultDateTime_Object=MibTableColumn
-mitelApplicationMonFaultDateTime=_MitelApplicationMonFaultDateTime_Object((1,3,6,1,4,1,1027,4,11,1,1,5),_MitelApplicationMonFaultDateTime_Type())
-mitelApplicationMonFaultDateTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:mitelApplicationMonFaultDateTime.setStatus(_A)
-_MitelApplicationMonFaultDescr_Type=DisplayString
-_MitelApplicationMonFaultDescr_Object=MibTableColumn
-mitelApplicationMonFaultDescr=_MitelApplicationMonFaultDescr_Object((1,3,6,1,4,1,1027,4,11,1,1,6),_MitelApplicationMonFaultDescr_Type())
-mitelApplicationMonFaultDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:mitelApplicationMonFaultDescr.setStatus(_A)
-mitelAppMonTaskCrashedNotif=NotificationType((1,3,6,1,4,1,1027,1,2,4,0,411))
-mitelAppMonTaskCrashedNotif.setObjects(*((_B,_F),(_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:mitelAppMonTaskCrashedNotif.setStatus(_A)
-mitelIpera1000Notifications=NotificationGroup((1,3,6,1,4,1,1027,1,2,4,0))
-mitelIpera1000Notifications.setObjects((_B,_I))
-if mibBuilder.loadTexts:mitelIpera1000Notifications.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'DateAndTime':DateAndTime,'mitel':mitel,'mitelIdentification':mitelIdentification,'mitelIdCallServers':mitelIdCallServers,'mitelIdCsIpera1000':mitelIdCsIpera1000,'mitelIpera1000Notifications':mitelIpera1000Notifications,_I:mitelAppMonTaskCrashedNotif,'mitelProprietary':mitelProprietary,'mitelApplicationMon':mitelApplicationMon,'mitelApplicationMonFaultTable':mitelApplicationMonFaultTable,'mitelApplicationMonFaultEntry':mitelApplicationMonFaultEntry,_E:mitelApplicationMonFaultTblIndex,'mitelApplicationMonFaultId':mitelApplicationMonFaultId,_F:mitelApplicationMonFaultStatus,'mitelApplicationMonFaultOccur':mitelApplicationMonFaultOccur,_G:mitelApplicationMonFaultDateTime,_H:mitelApplicationMonFaultDescr})
+#
+# PySNMP MIB module MITEL-APPLICATION-MON-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mitel/MITEL-APPLICATION-MON-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:41 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+mitelApplicationMon = ModuleIdentity((1, 3, 6, 1, 4, 1, 1027, 4, 11))
+mitelApplicationMon.setRevisions(('2003-03-24 01:36', '2002-04-02 00:00',))
+if mibBuilder.loadTexts: mitelApplicationMon.setLastUpdated('200204020000Z')
+if mibBuilder.loadTexts: mitelApplicationMon.setOrganization('MITEL Networks Corporation')
+mitel = MibIdentifier((1, 3, 6, 1, 4, 1, 1027))
+mitelProprietary = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 4))
+mitelIdentification = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 1))
+mitelIdCallServers = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 1, 2))
+mitelIdCsIpera1000 = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 1, 2, 4))
+class DateAndTime(OctetString):
+    subtypeSpec = OctetString.subtypeSpec + ConstraintsUnion(ValueSizeConstraint(8, 8), ValueSizeConstraint(11, 11), )
+mitelApplicationMonFaultTable = MibTable((1, 3, 6, 1, 4, 1, 1027, 4, 11, 1), )
+if mibBuilder.loadTexts: mitelApplicationMonFaultTable.setStatus('current')
+mitelApplicationMonFaultEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1027, 4, 11, 1, 1), ).setIndexNames((0, "MITEL-APPLICATION-MON-MIB", "mitelApplicationMonFaultTblIndex"))
+if mibBuilder.loadTexts: mitelApplicationMonFaultEntry.setStatus('current')
+mitelApplicationMonFaultTblIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 11, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mitelApplicationMonFaultTblIndex.setStatus('current')
+mitelApplicationMonFaultId = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 11, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("appMonTaskCrashed", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mitelApplicationMonFaultId.setStatus('current')
+mitelApplicationMonFaultStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 11, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("set", 1), ("clear", 2), ("message", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mitelApplicationMonFaultStatus.setStatus('current')
+mitelApplicationMonFaultOccur = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 11, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mitelApplicationMonFaultOccur.setStatus('current')
+mitelApplicationMonFaultDateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 11, 1, 1, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mitelApplicationMonFaultDateTime.setStatus('current')
+mitelApplicationMonFaultDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 11, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mitelApplicationMonFaultDescr.setStatus('current')
+mitelIpera1000Notifications = NotificationGroup((1, 3, 6, 1, 4, 1, 1027, 1, 2, 4, 0)).setObjects(("MITEL-APPLICATION-MON-MIB", "mitelAppMonTaskCrashedNotif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mitelIpera1000Notifications = mitelIpera1000Notifications.setStatus('current')
+mitelAppMonTaskCrashedNotif = NotificationType((1, 3, 6, 1, 4, 1, 1027, 1, 2, 4, 0, 411)).setObjects(("MITEL-APPLICATION-MON-MIB", "mitelApplicationMonFaultStatus"), ("MITEL-APPLICATION-MON-MIB", "mitelApplicationMonFaultDateTime"), ("MITEL-APPLICATION-MON-MIB", "mitelApplicationMonFaultDescr"))
+if mibBuilder.loadTexts: mitelAppMonTaskCrashedNotif.setStatus('current')
+mibBuilder.exportSymbols("MITEL-APPLICATION-MON-MIB", mitelProprietary=mitelProprietary, mitelIdentification=mitelIdentification, mitelApplicationMonFaultTable=mitelApplicationMonFaultTable, mitelApplicationMonFaultId=mitelApplicationMonFaultId, mitelApplicationMonFaultEntry=mitelApplicationMonFaultEntry, PYSNMP_MODULE_ID=mitelApplicationMon, mitelIdCallServers=mitelIdCallServers, mitelApplicationMonFaultTblIndex=mitelApplicationMonFaultTblIndex, mitelApplicationMonFaultStatus=mitelApplicationMonFaultStatus, mitelIpera1000Notifications=mitelIpera1000Notifications, mitel=mitel, mitelIdCsIpera1000=mitelIdCsIpera1000, mitelAppMonTaskCrashedNotif=mitelAppMonTaskCrashedNotif, mitelApplicationMonFaultDescr=mitelApplicationMonFaultDescr, mitelApplicationMon=mitelApplicationMon, mitelApplicationMonFaultDateTime=mitelApplicationMonFaultDateTime, mitelApplicationMonFaultOccur=mitelApplicationMonFaultOccur, DateAndTime=DateAndTime)

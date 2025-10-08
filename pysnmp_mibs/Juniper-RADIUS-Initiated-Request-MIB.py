@@ -1,193 +1,86 @@
-_f='juniRadiusInitiatedRequestGroup'
-_e='juniRadiusInitiatedRequestCfgRowStatus'
-_d='juniRadiusInitiatedRequestCfgChangeOfAuthorization'
-_c='juniRadiusInitiatedRequestCfgDisconnect'
-_b='juniRadiusInitiatedRequestCfgKey'
-_a='juniRadiusInitiatedRequestCfgClientPortNumber'
-_Z='juniRadiusInitiatedRequestCoaPacketsDropped'
-_Y='juniRadiusInitiatedRequestCoaBadAuthenticators'
-_X='juniRadiusInitiatedRequestCoaNoSessionIds'
-_W='juniRadiusInitiatedRequestCoaRejects'
-_V='juniRadiusInitiatedRequestCoaAccepts'
-_U='juniRadiusInitiatedRequestCoaRequests'
-_T='juniRadiusInitiatedRequestDisconnectPacketsDropped'
-_S='juniRadiusInitiatedRequestDisconnectBadAuthenticators'
-_R='juniRadiusInitiatedRequestDisconnectNoSessionIds'
-_Q='juniRadiusInitiatedRequestDisconnectRejects'
-_P='juniRadiusInitiatedRequestDisconnectAccepts'
-_O='juniRadiusInitiatedRequestDisconnectRequests'
-_N='juniRadiusInitiatedRequestNoSecret'
-_M='juniRadiusInitiatedRequestUnknownTypes'
-_L='juniRadiusInitiatedRequestClientPortNumber'
-_K='juniRadiusInitiatedRequestInvalidClientAddresses'
-_J='juniRadiusInitiatedRequestCfgClientAddress'
-_I='not-accessible'
-_H='juniRadiusInitiatedRequestClientAddress'
-_G='DisplayString'
-_F='Integer32'
-_E='JuniEnable'
-_D='read-create'
-_C='read-only'
-_B='Juniper-RADIUS-Initiated-Request-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-juniMibs,=mibBuilder.importSymbols('Juniper-MIBs','juniMibs')
-JuniEnable,=mibBuilder.importSymbols('Juniper-TC',_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_G,'PhysAddress','RowStatus','TextualConvention')
-juniRadiusInitiatedRequestMIB=ModuleIdentity((1,3,6,1,4,1,4874,2,2,75))
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestMIB.setRevisions(('2004-06-10 19:08',))
-_JuniRadiusInitiatedRequestObjects_ObjectIdentity=ObjectIdentity
-juniRadiusInitiatedRequestObjects=_JuniRadiusInitiatedRequestObjects_ObjectIdentity((1,3,6,1,4,1,4874,2,2,75,1))
-_JuniRadiusInitiatedRequest_ObjectIdentity=ObjectIdentity
-juniRadiusInitiatedRequest=_JuniRadiusInitiatedRequest_ObjectIdentity((1,3,6,1,4,1,4874,2,2,75,1,1))
-_JuniRadiusInitiatedRequestInvalidClientAddresses_Type=Counter32
-_JuniRadiusInitiatedRequestInvalidClientAddresses_Object=MibScalar
-juniRadiusInitiatedRequestInvalidClientAddresses=_JuniRadiusInitiatedRequestInvalidClientAddresses_Object((1,3,6,1,4,1,4874,2,2,75,1,1,1),_JuniRadiusInitiatedRequestInvalidClientAddresses_Type())
-juniRadiusInitiatedRequestInvalidClientAddresses.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestInvalidClientAddresses.setStatus(_A)
-_JuniRadiusInitiatedRequestClientTable_Object=MibTable
-juniRadiusInitiatedRequestClientTable=_JuniRadiusInitiatedRequestClientTable_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2))
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestClientTable.setStatus(_A)
-_JuniRadiusInitiatedRequestClientEntry_Object=MibTableRow
-juniRadiusInitiatedRequestClientEntry=_JuniRadiusInitiatedRequestClientEntry_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1))
-juniRadiusInitiatedRequestClientEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestClientEntry.setStatus(_A)
-_JuniRadiusInitiatedRequestClientAddress_Type=IpAddress
-_JuniRadiusInitiatedRequestClientAddress_Object=MibTableColumn
-juniRadiusInitiatedRequestClientAddress=_JuniRadiusInitiatedRequestClientAddress_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,1),_JuniRadiusInitiatedRequestClientAddress_Type())
-juniRadiusInitiatedRequestClientAddress.setMaxAccess(_I)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestClientAddress.setStatus(_A)
-_JuniRadiusInitiatedRequestClientPortNumber_Type=Integer32
-_JuniRadiusInitiatedRequestClientPortNumber_Object=MibTableColumn
-juniRadiusInitiatedRequestClientPortNumber=_JuniRadiusInitiatedRequestClientPortNumber_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,2),_JuniRadiusInitiatedRequestClientPortNumber_Type())
-juniRadiusInitiatedRequestClientPortNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestClientPortNumber.setStatus(_A)
-_JuniRadiusInitiatedRequestUnknownTypes_Type=Counter32
-_JuniRadiusInitiatedRequestUnknownTypes_Object=MibTableColumn
-juniRadiusInitiatedRequestUnknownTypes=_JuniRadiusInitiatedRequestUnknownTypes_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,3),_JuniRadiusInitiatedRequestUnknownTypes_Type())
-juniRadiusInitiatedRequestUnknownTypes.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestUnknownTypes.setStatus(_A)
-_JuniRadiusInitiatedRequestNoSecret_Type=Counter32
-_JuniRadiusInitiatedRequestNoSecret_Object=MibTableColumn
-juniRadiusInitiatedRequestNoSecret=_JuniRadiusInitiatedRequestNoSecret_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,4),_JuniRadiusInitiatedRequestNoSecret_Type())
-juniRadiusInitiatedRequestNoSecret.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestNoSecret.setStatus(_A)
-_JuniRadiusInitiatedRequestDisconnectRequests_Type=Counter32
-_JuniRadiusInitiatedRequestDisconnectRequests_Object=MibTableColumn
-juniRadiusInitiatedRequestDisconnectRequests=_JuniRadiusInitiatedRequestDisconnectRequests_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,5),_JuniRadiusInitiatedRequestDisconnectRequests_Type())
-juniRadiusInitiatedRequestDisconnectRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestDisconnectRequests.setStatus(_A)
-_JuniRadiusInitiatedRequestDisconnectAccepts_Type=Counter32
-_JuniRadiusInitiatedRequestDisconnectAccepts_Object=MibTableColumn
-juniRadiusInitiatedRequestDisconnectAccepts=_JuniRadiusInitiatedRequestDisconnectAccepts_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,6),_JuniRadiusInitiatedRequestDisconnectAccepts_Type())
-juniRadiusInitiatedRequestDisconnectAccepts.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestDisconnectAccepts.setStatus(_A)
-_JuniRadiusInitiatedRequestDisconnectRejects_Type=Counter32
-_JuniRadiusInitiatedRequestDisconnectRejects_Object=MibTableColumn
-juniRadiusInitiatedRequestDisconnectRejects=_JuniRadiusInitiatedRequestDisconnectRejects_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,7),_JuniRadiusInitiatedRequestDisconnectRejects_Type())
-juniRadiusInitiatedRequestDisconnectRejects.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestDisconnectRejects.setStatus(_A)
-_JuniRadiusInitiatedRequestDisconnectNoSessionIds_Type=Counter32
-_JuniRadiusInitiatedRequestDisconnectNoSessionIds_Object=MibTableColumn
-juniRadiusInitiatedRequestDisconnectNoSessionIds=_JuniRadiusInitiatedRequestDisconnectNoSessionIds_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,8),_JuniRadiusInitiatedRequestDisconnectNoSessionIds_Type())
-juniRadiusInitiatedRequestDisconnectNoSessionIds.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestDisconnectNoSessionIds.setStatus(_A)
-_JuniRadiusInitiatedRequestDisconnectBadAuthenticators_Type=Counter32
-_JuniRadiusInitiatedRequestDisconnectBadAuthenticators_Object=MibTableColumn
-juniRadiusInitiatedRequestDisconnectBadAuthenticators=_JuniRadiusInitiatedRequestDisconnectBadAuthenticators_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,9),_JuniRadiusInitiatedRequestDisconnectBadAuthenticators_Type())
-juniRadiusInitiatedRequestDisconnectBadAuthenticators.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestDisconnectBadAuthenticators.setStatus(_A)
-_JuniRadiusInitiatedRequestDisconnectPacketsDropped_Type=Counter32
-_JuniRadiusInitiatedRequestDisconnectPacketsDropped_Object=MibTableColumn
-juniRadiusInitiatedRequestDisconnectPacketsDropped=_JuniRadiusInitiatedRequestDisconnectPacketsDropped_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,10),_JuniRadiusInitiatedRequestDisconnectPacketsDropped_Type())
-juniRadiusInitiatedRequestDisconnectPacketsDropped.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestDisconnectPacketsDropped.setStatus(_A)
-_JuniRadiusInitiatedRequestCoaRequests_Type=Counter32
-_JuniRadiusInitiatedRequestCoaRequests_Object=MibTableColumn
-juniRadiusInitiatedRequestCoaRequests=_JuniRadiusInitiatedRequestCoaRequests_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,11),_JuniRadiusInitiatedRequestCoaRequests_Type())
-juniRadiusInitiatedRequestCoaRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestCoaRequests.setStatus(_A)
-_JuniRadiusInitiatedRequestCoaAccepts_Type=Counter32
-_JuniRadiusInitiatedRequestCoaAccepts_Object=MibTableColumn
-juniRadiusInitiatedRequestCoaAccepts=_JuniRadiusInitiatedRequestCoaAccepts_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,12),_JuniRadiusInitiatedRequestCoaAccepts_Type())
-juniRadiusInitiatedRequestCoaAccepts.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestCoaAccepts.setStatus(_A)
-_JuniRadiusInitiatedRequestCoaRejects_Type=Counter32
-_JuniRadiusInitiatedRequestCoaRejects_Object=MibTableColumn
-juniRadiusInitiatedRequestCoaRejects=_JuniRadiusInitiatedRequestCoaRejects_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,13),_JuniRadiusInitiatedRequestCoaRejects_Type())
-juniRadiusInitiatedRequestCoaRejects.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestCoaRejects.setStatus(_A)
-_JuniRadiusInitiatedRequestCoaNoSessionIds_Type=Counter32
-_JuniRadiusInitiatedRequestCoaNoSessionIds_Object=MibTableColumn
-juniRadiusInitiatedRequestCoaNoSessionIds=_JuniRadiusInitiatedRequestCoaNoSessionIds_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,14),_JuniRadiusInitiatedRequestCoaNoSessionIds_Type())
-juniRadiusInitiatedRequestCoaNoSessionIds.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestCoaNoSessionIds.setStatus(_A)
-_JuniRadiusInitiatedRequestCoaBadAuthenticators_Type=Counter32
-_JuniRadiusInitiatedRequestCoaBadAuthenticators_Object=MibTableColumn
-juniRadiusInitiatedRequestCoaBadAuthenticators=_JuniRadiusInitiatedRequestCoaBadAuthenticators_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,15),_JuniRadiusInitiatedRequestCoaBadAuthenticators_Type())
-juniRadiusInitiatedRequestCoaBadAuthenticators.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestCoaBadAuthenticators.setStatus(_A)
-_JuniRadiusInitiatedRequestCoaPacketsDropped_Type=Counter32
-_JuniRadiusInitiatedRequestCoaPacketsDropped_Object=MibTableColumn
-juniRadiusInitiatedRequestCoaPacketsDropped=_JuniRadiusInitiatedRequestCoaPacketsDropped_Object((1,3,6,1,4,1,4874,2,2,75,1,1,2,1,16),_JuniRadiusInitiatedRequestCoaPacketsDropped_Type())
-juniRadiusInitiatedRequestCoaPacketsDropped.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestCoaPacketsDropped.setStatus(_A)
-_JuniRadiusInitiatedRequestCfgClientTable_Object=MibTable
-juniRadiusInitiatedRequestCfgClientTable=_JuniRadiusInitiatedRequestCfgClientTable_Object((1,3,6,1,4,1,4874,2,2,75,1,1,3))
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestCfgClientTable.setStatus(_A)
-_JuniRadiusInitiatedRequestCfgClientEntry_Object=MibTableRow
-juniRadiusInitiatedRequestCfgClientEntry=_JuniRadiusInitiatedRequestCfgClientEntry_Object((1,3,6,1,4,1,4874,2,2,75,1,1,3,1))
-juniRadiusInitiatedRequestCfgClientEntry.setIndexNames((0,_B,_J))
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestCfgClientEntry.setStatus(_A)
-_JuniRadiusInitiatedRequestCfgClientAddress_Type=IpAddress
-_JuniRadiusInitiatedRequestCfgClientAddress_Object=MibTableColumn
-juniRadiusInitiatedRequestCfgClientAddress=_JuniRadiusInitiatedRequestCfgClientAddress_Object((1,3,6,1,4,1,4874,2,2,75,1,1,3,1,1),_JuniRadiusInitiatedRequestCfgClientAddress_Type())
-juniRadiusInitiatedRequestCfgClientAddress.setMaxAccess(_I)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestCfgClientAddress.setStatus(_A)
-class _JuniRadiusInitiatedRequestCfgClientPortNumber_Type(Integer32):defaultValue=3799;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_JuniRadiusInitiatedRequestCfgClientPortNumber_Type.__name__=_F
-_JuniRadiusInitiatedRequestCfgClientPortNumber_Object=MibTableColumn
-juniRadiusInitiatedRequestCfgClientPortNumber=_JuniRadiusInitiatedRequestCfgClientPortNumber_Object((1,3,6,1,4,1,4874,2,2,75,1,1,3,1,2),_JuniRadiusInitiatedRequestCfgClientPortNumber_Type())
-juniRadiusInitiatedRequestCfgClientPortNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestCfgClientPortNumber.setStatus(_A)
-class _JuniRadiusInitiatedRequestCfgKey_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_JuniRadiusInitiatedRequestCfgKey_Type.__name__=_G
-_JuniRadiusInitiatedRequestCfgKey_Object=MibTableColumn
-juniRadiusInitiatedRequestCfgKey=_JuniRadiusInitiatedRequestCfgKey_Object((1,3,6,1,4,1,4874,2,2,75,1,1,3,1,3),_JuniRadiusInitiatedRequestCfgKey_Type())
-juniRadiusInitiatedRequestCfgKey.setMaxAccess(_D)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestCfgKey.setStatus(_A)
-class _JuniRadiusInitiatedRequestCfgDisconnect_Type(JuniEnable):defaultValue=0
-_JuniRadiusInitiatedRequestCfgDisconnect_Type.__name__=_E
-_JuniRadiusInitiatedRequestCfgDisconnect_Object=MibTableColumn
-juniRadiusInitiatedRequestCfgDisconnect=_JuniRadiusInitiatedRequestCfgDisconnect_Object((1,3,6,1,4,1,4874,2,2,75,1,1,3,1,4),_JuniRadiusInitiatedRequestCfgDisconnect_Type())
-juniRadiusInitiatedRequestCfgDisconnect.setMaxAccess(_D)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestCfgDisconnect.setStatus(_A)
-class _JuniRadiusInitiatedRequestCfgChangeOfAuthorization_Type(JuniEnable):defaultValue=0
-_JuniRadiusInitiatedRequestCfgChangeOfAuthorization_Type.__name__=_E
-_JuniRadiusInitiatedRequestCfgChangeOfAuthorization_Object=MibTableColumn
-juniRadiusInitiatedRequestCfgChangeOfAuthorization=_JuniRadiusInitiatedRequestCfgChangeOfAuthorization_Object((1,3,6,1,4,1,4874,2,2,75,1,1,3,1,5),_JuniRadiusInitiatedRequestCfgChangeOfAuthorization_Type())
-juniRadiusInitiatedRequestCfgChangeOfAuthorization.setMaxAccess(_D)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestCfgChangeOfAuthorization.setStatus(_A)
-_JuniRadiusInitiatedRequestCfgRowStatus_Type=RowStatus
-_JuniRadiusInitiatedRequestCfgRowStatus_Object=MibTableColumn
-juniRadiusInitiatedRequestCfgRowStatus=_JuniRadiusInitiatedRequestCfgRowStatus_Object((1,3,6,1,4,1,4874,2,2,75,1,1,3,1,6),_JuniRadiusInitiatedRequestCfgRowStatus_Type())
-juniRadiusInitiatedRequestCfgRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestCfgRowStatus.setStatus(_A)
-_JuniRadiusInitiatedRequestMIBConformance_ObjectIdentity=ObjectIdentity
-juniRadiusInitiatedRequestMIBConformance=_JuniRadiusInitiatedRequestMIBConformance_ObjectIdentity((1,3,6,1,4,1,4874,2,2,75,2))
-_JuniRadiusInitiatedRequestMIBCompliances_ObjectIdentity=ObjectIdentity
-juniRadiusInitiatedRequestMIBCompliances=_JuniRadiusInitiatedRequestMIBCompliances_ObjectIdentity((1,3,6,1,4,1,4874,2,2,75,2,1))
-_JuniRadiusInitiatedRequestMIBGroups_ObjectIdentity=ObjectIdentity
-juniRadiusInitiatedRequestMIBGroups=_JuniRadiusInitiatedRequestMIBGroups_ObjectIdentity((1,3,6,1,4,1,4874,2,2,75,2,2))
-juniRadiusInitiatedRequestGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,75,2,2,1))
-juniRadiusInitiatedRequestGroup.setObjects(*((_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e)))
-if mibBuilder.loadTexts:juniRadiusInitiatedRequestGroup.setStatus(_A)
-juniRadiusAuthInitiatedRequestCompliance=ModuleCompliance((1,3,6,1,4,1,4874,2,2,75,2,1,1))
-juniRadiusAuthInitiatedRequestCompliance.setObjects((_B,_f))
-if mibBuilder.loadTexts:juniRadiusAuthInitiatedRequestCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'juniRadiusInitiatedRequestMIB':juniRadiusInitiatedRequestMIB,'juniRadiusInitiatedRequestObjects':juniRadiusInitiatedRequestObjects,'juniRadiusInitiatedRequest':juniRadiusInitiatedRequest,_K:juniRadiusInitiatedRequestInvalidClientAddresses,'juniRadiusInitiatedRequestClientTable':juniRadiusInitiatedRequestClientTable,'juniRadiusInitiatedRequestClientEntry':juniRadiusInitiatedRequestClientEntry,_H:juniRadiusInitiatedRequestClientAddress,_L:juniRadiusInitiatedRequestClientPortNumber,_M:juniRadiusInitiatedRequestUnknownTypes,_N:juniRadiusInitiatedRequestNoSecret,_O:juniRadiusInitiatedRequestDisconnectRequests,_P:juniRadiusInitiatedRequestDisconnectAccepts,_Q:juniRadiusInitiatedRequestDisconnectRejects,_R:juniRadiusInitiatedRequestDisconnectNoSessionIds,_S:juniRadiusInitiatedRequestDisconnectBadAuthenticators,_T:juniRadiusInitiatedRequestDisconnectPacketsDropped,_U:juniRadiusInitiatedRequestCoaRequests,_V:juniRadiusInitiatedRequestCoaAccepts,_W:juniRadiusInitiatedRequestCoaRejects,_X:juniRadiusInitiatedRequestCoaNoSessionIds,_Y:juniRadiusInitiatedRequestCoaBadAuthenticators,_Z:juniRadiusInitiatedRequestCoaPacketsDropped,'juniRadiusInitiatedRequestCfgClientTable':juniRadiusInitiatedRequestCfgClientTable,'juniRadiusInitiatedRequestCfgClientEntry':juniRadiusInitiatedRequestCfgClientEntry,_J:juniRadiusInitiatedRequestCfgClientAddress,_a:juniRadiusInitiatedRequestCfgClientPortNumber,_b:juniRadiusInitiatedRequestCfgKey,_c:juniRadiusInitiatedRequestCfgDisconnect,_d:juniRadiusInitiatedRequestCfgChangeOfAuthorization,_e:juniRadiusInitiatedRequestCfgRowStatus,'juniRadiusInitiatedRequestMIBConformance':juniRadiusInitiatedRequestMIBConformance,'juniRadiusInitiatedRequestMIBCompliances':juniRadiusInitiatedRequestMIBCompliances,'juniRadiusAuthInitiatedRequestCompliance':juniRadiusAuthInitiatedRequestCompliance,'juniRadiusInitiatedRequestMIBGroups':juniRadiusInitiatedRequestMIBGroups,_f:juniRadiusInitiatedRequestGroup})
+#
+# PySNMP MIB module Juniper-RADIUS-Initiated-Request-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/junose/Juniper-RADIUS-Initiated-Request-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:04 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+juniMibs, = mibBuilder.importSymbols("Juniper-MIBs", "juniMibs")
+JuniEnable, = mibBuilder.importSymbols("Juniper-TC", "JuniEnable")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+juniRadiusInitiatedRequestMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75))
+juniRadiusInitiatedRequestMIB.setRevisions(('2004-06-10 19:08',))
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestMIB.setLastUpdated('200406101908Z')
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestMIB.setOrganization('Juniper Networks, Inc.')
+juniRadiusInitiatedRequestObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1))
+juniRadiusInitiatedRequest = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1))
+juniRadiusInitiatedRequestInvalidClientAddresses = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestInvalidClientAddresses.setStatus('current')
+juniRadiusInitiatedRequestClientTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2), )
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestClientTable.setStatus('current')
+juniRadiusInitiatedRequestClientEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1), ).setIndexNames((0, "Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestClientAddress"))
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestClientEntry.setStatus('current')
+juniRadiusInitiatedRequestClientAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 1), IpAddress())
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestClientAddress.setStatus('current')
+juniRadiusInitiatedRequestClientPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestClientPortNumber.setStatus('current')
+juniRadiusInitiatedRequestUnknownTypes = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestUnknownTypes.setStatus('current')
+juniRadiusInitiatedRequestNoSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestNoSecret.setStatus('current')
+juniRadiusInitiatedRequestDisconnectRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestDisconnectRequests.setStatus('current')
+juniRadiusInitiatedRequestDisconnectAccepts = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestDisconnectAccepts.setStatus('current')
+juniRadiusInitiatedRequestDisconnectRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestDisconnectRejects.setStatus('current')
+juniRadiusInitiatedRequestDisconnectNoSessionIds = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestDisconnectNoSessionIds.setStatus('current')
+juniRadiusInitiatedRequestDisconnectBadAuthenticators = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestDisconnectBadAuthenticators.setStatus('current')
+juniRadiusInitiatedRequestDisconnectPacketsDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestDisconnectPacketsDropped.setStatus('current')
+juniRadiusInitiatedRequestCoaRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestCoaRequests.setStatus('current')
+juniRadiusInitiatedRequestCoaAccepts = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestCoaAccepts.setStatus('current')
+juniRadiusInitiatedRequestCoaRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestCoaRejects.setStatus('current')
+juniRadiusInitiatedRequestCoaNoSessionIds = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestCoaNoSessionIds.setStatus('current')
+juniRadiusInitiatedRequestCoaBadAuthenticators = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestCoaBadAuthenticators.setStatus('current')
+juniRadiusInitiatedRequestCoaPacketsDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 2, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestCoaPacketsDropped.setStatus('current')
+juniRadiusInitiatedRequestCfgClientTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 3), )
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestCfgClientTable.setStatus('current')
+juniRadiusInitiatedRequestCfgClientEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 3, 1), ).setIndexNames((0, "Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestCfgClientAddress"))
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestCfgClientEntry.setStatus('current')
+juniRadiusInitiatedRequestCfgClientAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 3, 1, 1), IpAddress())
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestCfgClientAddress.setStatus('current')
+juniRadiusInitiatedRequestCfgClientPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(3799)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestCfgClientPortNumber.setStatus('current')
+juniRadiusInitiatedRequestCfgKey = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32)).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestCfgKey.setStatus('current')
+juniRadiusInitiatedRequestCfgDisconnect = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 3, 1, 4), JuniEnable().clone('disable')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestCfgDisconnect.setStatus('current')
+juniRadiusInitiatedRequestCfgChangeOfAuthorization = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 3, 1, 5), JuniEnable().clone('disable')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestCfgChangeOfAuthorization.setStatus('current')
+juniRadiusInitiatedRequestCfgRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 1, 1, 3, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: juniRadiusInitiatedRequestCfgRowStatus.setStatus('current')
+juniRadiusInitiatedRequestMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 2))
+juniRadiusInitiatedRequestMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 2, 1))
+juniRadiusInitiatedRequestMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 2, 2))
+juniRadiusAuthInitiatedRequestCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 2, 1, 1)).setObjects(("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusAuthInitiatedRequestCompliance = juniRadiusAuthInitiatedRequestCompliance.setStatus('current')
+juniRadiusInitiatedRequestGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 75, 2, 2, 1)).setObjects(("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestInvalidClientAddresses"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestClientPortNumber"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestUnknownTypes"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestNoSecret"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestDisconnectRequests"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestDisconnectAccepts"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestDisconnectRejects"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestDisconnectNoSessionIds"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestDisconnectBadAuthenticators"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestDisconnectPacketsDropped"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestCoaRequests"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestCoaAccepts"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestCoaRejects"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestCoaNoSessionIds"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestCoaBadAuthenticators"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestCoaPacketsDropped"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestCfgClientPortNumber"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestCfgKey"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestCfgDisconnect"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestCfgChangeOfAuthorization"), ("Juniper-RADIUS-Initiated-Request-MIB", "juniRadiusInitiatedRequestCfgRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniRadiusInitiatedRequestGroup = juniRadiusInitiatedRequestGroup.setStatus('current')
+mibBuilder.exportSymbols("Juniper-RADIUS-Initiated-Request-MIB", juniRadiusInitiatedRequestObjects=juniRadiusInitiatedRequestObjects, juniRadiusInitiatedRequestCfgKey=juniRadiusInitiatedRequestCfgKey, juniRadiusInitiatedRequestClientEntry=juniRadiusInitiatedRequestClientEntry, juniRadiusInitiatedRequestUnknownTypes=juniRadiusInitiatedRequestUnknownTypes, juniRadiusInitiatedRequestDisconnectPacketsDropped=juniRadiusInitiatedRequestDisconnectPacketsDropped, juniRadiusInitiatedRequestCfgDisconnect=juniRadiusInitiatedRequestCfgDisconnect, juniRadiusInitiatedRequestCfgClientTable=juniRadiusInitiatedRequestCfgClientTable, juniRadiusInitiatedRequestCfgClientPortNumber=juniRadiusInitiatedRequestCfgClientPortNumber, juniRadiusInitiatedRequestCfgClientEntry=juniRadiusInitiatedRequestCfgClientEntry, juniRadiusInitiatedRequestCoaPacketsDropped=juniRadiusInitiatedRequestCoaPacketsDropped, juniRadiusInitiatedRequestDisconnectRejects=juniRadiusInitiatedRequestDisconnectRejects, juniRadiusInitiatedRequestDisconnectBadAuthenticators=juniRadiusInitiatedRequestDisconnectBadAuthenticators, juniRadiusInitiatedRequestGroup=juniRadiusInitiatedRequestGroup, juniRadiusInitiatedRequestMIBConformance=juniRadiusInitiatedRequestMIBConformance, juniRadiusInitiatedRequestCfgChangeOfAuthorization=juniRadiusInitiatedRequestCfgChangeOfAuthorization, juniRadiusInitiatedRequestDisconnectRequests=juniRadiusInitiatedRequestDisconnectRequests, juniRadiusInitiatedRequestCoaAccepts=juniRadiusInitiatedRequestCoaAccepts, juniRadiusInitiatedRequestMIBCompliances=juniRadiusInitiatedRequestMIBCompliances, juniRadiusInitiatedRequestMIB=juniRadiusInitiatedRequestMIB, juniRadiusAuthInitiatedRequestCompliance=juniRadiusAuthInitiatedRequestCompliance, juniRadiusInitiatedRequestDisconnectAccepts=juniRadiusInitiatedRequestDisconnectAccepts, PYSNMP_MODULE_ID=juniRadiusInitiatedRequestMIB, juniRadiusInitiatedRequestCoaRequests=juniRadiusInitiatedRequestCoaRequests, juniRadiusInitiatedRequestClientPortNumber=juniRadiusInitiatedRequestClientPortNumber, juniRadiusInitiatedRequestNoSecret=juniRadiusInitiatedRequestNoSecret, juniRadiusInitiatedRequestCfgClientAddress=juniRadiusInitiatedRequestCfgClientAddress, juniRadiusInitiatedRequestCoaRejects=juniRadiusInitiatedRequestCoaRejects, juniRadiusInitiatedRequestDisconnectNoSessionIds=juniRadiusInitiatedRequestDisconnectNoSessionIds, juniRadiusInitiatedRequestClientTable=juniRadiusInitiatedRequestClientTable, juniRadiusInitiatedRequest=juniRadiusInitiatedRequest, juniRadiusInitiatedRequestCoaBadAuthenticators=juniRadiusInitiatedRequestCoaBadAuthenticators, juniRadiusInitiatedRequestMIBGroups=juniRadiusInitiatedRequestMIBGroups, juniRadiusInitiatedRequestInvalidClientAddresses=juniRadiusInitiatedRequestInvalidClientAddresses, juniRadiusInitiatedRequestCfgRowStatus=juniRadiusInitiatedRequestCfgRowStatus, juniRadiusInitiatedRequestClientAddress=juniRadiusInitiatedRequestClientAddress, juniRadiusInitiatedRequestCoaNoSessionIds=juniRadiusInitiatedRequestCoaNoSessionIds)

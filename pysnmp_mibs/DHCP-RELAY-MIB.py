@@ -1,124 +1,63 @@
-_H='read-create'
-_G='rcDhcpRelayServerIndex'
-_F='DHCP-RELAY-MIB'
-_E='read-write'
-_D='Integer32'
-_C='current'
-_B='mandatory'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-iscomSwitch,=mibBuilder.importSymbols('RAISECOM-BASE-MIB','iscomSwitch')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-EnableVar,Vlanset=mibBuilder.importSymbols('SWITCH-TC','EnableVar','Vlanset')
-rcDhcpRelay=ModuleIdentity((1,3,6,1,4,1,8886,6,1,13))
-if mibBuilder.loadTexts:rcDhcpRelay.setRevisions(('2004-12-20 00:00',))
-_RcDhcpRelayMibObjects_ObjectIdentity=ObjectIdentity
-rcDhcpRelayMibObjects=_RcDhcpRelayMibObjects_ObjectIdentity((1,3,6,1,4,1,8886,6,1,13,1))
-_RcDhcpRelayGroup_ObjectIdentity=ObjectIdentity
-rcDhcpRelayGroup=_RcDhcpRelayGroup_ObjectIdentity((1,3,6,1,4,1,8886,6,1,13,1,1))
-_RcDhcpRelayEnable_Type=EnableVar
-_RcDhcpRelayEnable_Object=MibScalar
-rcDhcpRelayEnable=_RcDhcpRelayEnable_Object((1,3,6,1,4,1,8886,6,1,13,1,1,1),_RcDhcpRelayEnable_Type())
-rcDhcpRelayEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:rcDhcpRelayEnable.setStatus(_C)
-_RcDhcpRelayStartTime_Type=TimeTicks
-_RcDhcpRelayStartTime_Object=MibScalar
-rcDhcpRelayStartTime=_RcDhcpRelayStartTime_Object((1,3,6,1,4,1,8886,6,1,13,1,1,2),_RcDhcpRelayStartTime_Type())
-rcDhcpRelayStartTime.setMaxAccess(_A)
-if mibBuilder.loadTexts:rcDhcpRelayStartTime.setStatus(_B)
-_RcDhcpRelayServerTable_Object=MibTable
-rcDhcpRelayServerTable=_RcDhcpRelayServerTable_Object((1,3,6,1,4,1,8886,6,1,13,1,1,3))
-if mibBuilder.loadTexts:rcDhcpRelayServerTable.setStatus(_C)
-_RcDhcpRelayServerEntry_Object=MibTableRow
-rcDhcpRelayServerEntry=_RcDhcpRelayServerEntry_Object((1,3,6,1,4,1,8886,6,1,13,1,1,3,1))
-rcDhcpRelayServerEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:rcDhcpRelayServerEntry.setStatus(_C)
-_RcDhcpRelayServerIndex_Type=Integer32
-_RcDhcpRelayServerIndex_Object=MibTableColumn
-rcDhcpRelayServerIndex=_RcDhcpRelayServerIndex_Object((1,3,6,1,4,1,8886,6,1,13,1,1,3,1,1),_RcDhcpRelayServerIndex_Type())
-rcDhcpRelayServerIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:rcDhcpRelayServerIndex.setStatus(_C)
-_RcDhcpRelayServerAddress_Type=IpAddress
-_RcDhcpRelayServerAddress_Object=MibTableColumn
-rcDhcpRelayServerAddress=_RcDhcpRelayServerAddress_Object((1,3,6,1,4,1,8886,6,1,13,1,1,3,1,2),_RcDhcpRelayServerAddress_Type())
-rcDhcpRelayServerAddress.setMaxAccess(_H)
-if mibBuilder.loadTexts:rcDhcpRelayServerAddress.setStatus(_C)
-_RcDhcpRelayServerRowStatus_Type=RowStatus
-_RcDhcpRelayServerRowStatus_Object=MibTableColumn
-rcDhcpRelayServerRowStatus=_RcDhcpRelayServerRowStatus_Object((1,3,6,1,4,1,8886,6,1,13,1,1,3,1,3),_RcDhcpRelayServerRowStatus_Type())
-rcDhcpRelayServerRowStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:rcDhcpRelayServerRowStatus.setStatus(_C)
-class _RcDhcpRelayServerNextIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_RcDhcpRelayServerNextIndex_Type.__name__=_D
-_RcDhcpRelayServerNextIndex_Object=MibScalar
-rcDhcpRelayServerNextIndex=_RcDhcpRelayServerNextIndex_Object((1,3,6,1,4,1,8886,6,1,13,1,1,4),_RcDhcpRelayServerNextIndex_Type())
-rcDhcpRelayServerNextIndex.setMaxAccess(_A)
-if mibBuilder.loadTexts:rcDhcpRelayServerNextIndex.setStatus(_C)
-_RcDhcpRelayVlans_Type=Vlanset
-_RcDhcpRelayVlans_Object=MibScalar
-rcDhcpRelayVlans=_RcDhcpRelayVlans_Object((1,3,6,1,4,1,8886,6,1,13,1,1,5),_RcDhcpRelayVlans_Type())
-rcDhcpRelayVlans.setMaxAccess(_E)
-if mibBuilder.loadTexts:rcDhcpRelayVlans.setStatus(_C)
-_RcDhcpRelayStatistics_ObjectIdentity=ObjectIdentity
-rcDhcpRelayStatistics=_RcDhcpRelayStatistics_ObjectIdentity((1,3,6,1,4,1,8886,6,1,13,1,2))
-_RcDhcpRelayStatsBootps_Type=Counter32
-_RcDhcpRelayStatsBootps_Object=MibScalar
-rcDhcpRelayStatsBootps=_RcDhcpRelayStatsBootps_Object((1,3,6,1,4,1,8886,6,1,13,1,2,1),_RcDhcpRelayStatsBootps_Type())
-rcDhcpRelayStatsBootps.setMaxAccess(_A)
-if mibBuilder.loadTexts:rcDhcpRelayStatsBootps.setStatus(_B)
-_RcDhcpRelayStatsDiscovers_Type=Counter32
-_RcDhcpRelayStatsDiscovers_Object=MibScalar
-rcDhcpRelayStatsDiscovers=_RcDhcpRelayStatsDiscovers_Object((1,3,6,1,4,1,8886,6,1,13,1,2,2),_RcDhcpRelayStatsDiscovers_Type())
-rcDhcpRelayStatsDiscovers.setMaxAccess(_A)
-if mibBuilder.loadTexts:rcDhcpRelayStatsDiscovers.setStatus(_B)
-_RcDhcpRelayStatsRequests_Type=Counter32
-_RcDhcpRelayStatsRequests_Object=MibScalar
-rcDhcpRelayStatsRequests=_RcDhcpRelayStatsRequests_Object((1,3,6,1,4,1,8886,6,1,13,1,2,3),_RcDhcpRelayStatsRequests_Type())
-rcDhcpRelayStatsRequests.setMaxAccess(_A)
-if mibBuilder.loadTexts:rcDhcpRelayStatsRequests.setStatus(_B)
-_RcDhcpRelayStatsReleases_Type=Counter32
-_RcDhcpRelayStatsReleases_Object=MibScalar
-rcDhcpRelayStatsReleases=_RcDhcpRelayStatsReleases_Object((1,3,6,1,4,1,8886,6,1,13,1,2,4),_RcDhcpRelayStatsReleases_Type())
-rcDhcpRelayStatsReleases.setMaxAccess(_A)
-if mibBuilder.loadTexts:rcDhcpRelayStatsReleases.setStatus(_B)
-_RcDhcpRelayStatsOffers_Type=Counter32
-_RcDhcpRelayStatsOffers_Object=MibScalar
-rcDhcpRelayStatsOffers=_RcDhcpRelayStatsOffers_Object((1,3,6,1,4,1,8886,6,1,13,1,2,5),_RcDhcpRelayStatsOffers_Type())
-rcDhcpRelayStatsOffers.setMaxAccess(_A)
-if mibBuilder.loadTexts:rcDhcpRelayStatsOffers.setStatus(_B)
-_RcDhcpRelayStatsAcks_Type=Counter32
-_RcDhcpRelayStatsAcks_Object=MibScalar
-rcDhcpRelayStatsAcks=_RcDhcpRelayStatsAcks_Object((1,3,6,1,4,1,8886,6,1,13,1,2,6),_RcDhcpRelayStatsAcks_Type())
-rcDhcpRelayStatsAcks.setMaxAccess(_A)
-if mibBuilder.loadTexts:rcDhcpRelayStatsAcks.setStatus(_B)
-_RcDhcpRelayStatsNacks_Type=Counter32
-_RcDhcpRelayStatsNacks_Object=MibScalar
-rcDhcpRelayStatsNacks=_RcDhcpRelayStatsNacks_Object((1,3,6,1,4,1,8886,6,1,13,1,2,7),_RcDhcpRelayStatsNacks_Type())
-rcDhcpRelayStatsNacks.setMaxAccess(_A)
-if mibBuilder.loadTexts:rcDhcpRelayStatsNacks.setStatus(_B)
-_RcDhcpRelayStatsDeclines_Type=Counter32
-_RcDhcpRelayStatsDeclines_Object=MibScalar
-rcDhcpRelayStatsDeclines=_RcDhcpRelayStatsDeclines_Object((1,3,6,1,4,1,8886,6,1,13,1,2,8),_RcDhcpRelayStatsDeclines_Type())
-rcDhcpRelayStatsDeclines.setMaxAccess(_A)
-if mibBuilder.loadTexts:rcDhcpRelayStatsDeclines.setStatus(_B)
-_RcDhcpRelayStatsInformations_Type=Counter32
-_RcDhcpRelayStatsInformations_Object=MibScalar
-rcDhcpRelayStatsInformations=_RcDhcpRelayStatsInformations_Object((1,3,6,1,4,1,8886,6,1,13,1,2,9),_RcDhcpRelayStatsInformations_Type())
-rcDhcpRelayStatsInformations.setMaxAccess(_A)
-if mibBuilder.loadTexts:rcDhcpRelayStatsInformations.setStatus(_B)
-_RcDhcpRelayStatsUnknows_Type=Counter32
-_RcDhcpRelayStatsUnknows_Object=MibScalar
-rcDhcpRelayStatsUnknows=_RcDhcpRelayStatsUnknows_Object((1,3,6,1,4,1,8886,6,1,13,1,2,10),_RcDhcpRelayStatsUnknows_Type())
-rcDhcpRelayStatsUnknows.setMaxAccess(_A)
-if mibBuilder.loadTexts:rcDhcpRelayStatsUnknows.setStatus(_B)
-_RcDhcpRelayStatsPackets_Type=Counter32
-_RcDhcpRelayStatsPackets_Object=MibScalar
-rcDhcpRelayStatsPackets=_RcDhcpRelayStatsPackets_Object((1,3,6,1,4,1,8886,6,1,13,1,2,11),_RcDhcpRelayStatsPackets_Type())
-rcDhcpRelayStatsPackets.setMaxAccess(_A)
-if mibBuilder.loadTexts:rcDhcpRelayStatsPackets.setStatus(_B)
-mibBuilder.exportSymbols(_F,**{'rcDhcpRelay':rcDhcpRelay,'rcDhcpRelayMibObjects':rcDhcpRelayMibObjects,'rcDhcpRelayGroup':rcDhcpRelayGroup,'rcDhcpRelayEnable':rcDhcpRelayEnable,'rcDhcpRelayStartTime':rcDhcpRelayStartTime,'rcDhcpRelayServerTable':rcDhcpRelayServerTable,'rcDhcpRelayServerEntry':rcDhcpRelayServerEntry,_G:rcDhcpRelayServerIndex,'rcDhcpRelayServerAddress':rcDhcpRelayServerAddress,'rcDhcpRelayServerRowStatus':rcDhcpRelayServerRowStatus,'rcDhcpRelayServerNextIndex':rcDhcpRelayServerNextIndex,'rcDhcpRelayVlans':rcDhcpRelayVlans,'rcDhcpRelayStatistics':rcDhcpRelayStatistics,'rcDhcpRelayStatsBootps':rcDhcpRelayStatsBootps,'rcDhcpRelayStatsDiscovers':rcDhcpRelayStatsDiscovers,'rcDhcpRelayStatsRequests':rcDhcpRelayStatsRequests,'rcDhcpRelayStatsReleases':rcDhcpRelayStatsReleases,'rcDhcpRelayStatsOffers':rcDhcpRelayStatsOffers,'rcDhcpRelayStatsAcks':rcDhcpRelayStatsAcks,'rcDhcpRelayStatsNacks':rcDhcpRelayStatsNacks,'rcDhcpRelayStatsDeclines':rcDhcpRelayStatsDeclines,'rcDhcpRelayStatsInformations':rcDhcpRelayStatsInformations,'rcDhcpRelayStatsUnknows':rcDhcpRelayStatsUnknows,'rcDhcpRelayStatsPackets':rcDhcpRelayStatsPackets})
+#
+# PySNMP MIB module DHCP-RELAY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/DHCP-RELAY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+iscomSwitch, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "iscomSwitch")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+Vlanset, EnableVar = mibBuilder.importSymbols("SWITCH-TC", "Vlanset", "EnableVar")
+rcDhcpRelay = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13))
+rcDhcpRelay.setRevisions(('2004-12-20 00:00',))
+if mibBuilder.loadTexts: rcDhcpRelay.setLastUpdated('200412200000Z')
+if mibBuilder.loadTexts: rcDhcpRelay.setOrganization('raisecom.')
+rcDhcpRelayMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1))
+rcDhcpRelayGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 1))
+rcDhcpRelayStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 2))
+rcDhcpRelayEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 1, 1), EnableVar().clone()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcDhcpRelayEnable.setStatus('current')
+rcDhcpRelayStartTime = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 1, 2), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDhcpRelayStartTime.setStatus('mandatory')
+rcDhcpRelayServerTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 1, 3), )
+if mibBuilder.loadTexts: rcDhcpRelayServerTable.setStatus('current')
+rcDhcpRelayServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 1, 3, 1), ).setIndexNames((0, "DHCP-RELAY-MIB", "rcDhcpRelayServerIndex"))
+if mibBuilder.loadTexts: rcDhcpRelayServerEntry.setStatus('current')
+rcDhcpRelayServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 1, 3, 1, 1), Integer32())
+if mibBuilder.loadTexts: rcDhcpRelayServerIndex.setStatus('current')
+rcDhcpRelayServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 1, 3, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcDhcpRelayServerAddress.setStatus('current')
+rcDhcpRelayServerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 1, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcDhcpRelayServerRowStatus.setStatus('current')
+rcDhcpRelayServerNextIndex = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDhcpRelayServerNextIndex.setStatus('current')
+rcDhcpRelayVlans = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 1, 5), Vlanset()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcDhcpRelayVlans.setStatus('current')
+rcDhcpRelayStatsBootps = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 2, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDhcpRelayStatsBootps.setStatus('mandatory')
+rcDhcpRelayStatsDiscovers = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 2, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDhcpRelayStatsDiscovers.setStatus('mandatory')
+rcDhcpRelayStatsRequests = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 2, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDhcpRelayStatsRequests.setStatus('mandatory')
+rcDhcpRelayStatsReleases = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 2, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDhcpRelayStatsReleases.setStatus('mandatory')
+rcDhcpRelayStatsOffers = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 2, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDhcpRelayStatsOffers.setStatus('mandatory')
+rcDhcpRelayStatsAcks = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 2, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDhcpRelayStatsAcks.setStatus('mandatory')
+rcDhcpRelayStatsNacks = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 2, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDhcpRelayStatsNacks.setStatus('mandatory')
+rcDhcpRelayStatsDeclines = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 2, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDhcpRelayStatsDeclines.setStatus('mandatory')
+rcDhcpRelayStatsInformations = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 2, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDhcpRelayStatsInformations.setStatus('mandatory')
+rcDhcpRelayStatsUnknows = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 2, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDhcpRelayStatsUnknows.setStatus('mandatory')
+rcDhcpRelayStatsPackets = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 13, 1, 2, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcDhcpRelayStatsPackets.setStatus('mandatory')
+mibBuilder.exportSymbols("DHCP-RELAY-MIB", rcDhcpRelayStatsReleases=rcDhcpRelayStatsReleases, rcDhcpRelayEnable=rcDhcpRelayEnable, PYSNMP_MODULE_ID=rcDhcpRelay, rcDhcpRelayStatistics=rcDhcpRelayStatistics, rcDhcpRelayVlans=rcDhcpRelayVlans, rcDhcpRelayStatsDeclines=rcDhcpRelayStatsDeclines, rcDhcpRelayStatsUnknows=rcDhcpRelayStatsUnknows, rcDhcpRelayServerAddress=rcDhcpRelayServerAddress, rcDhcpRelayServerNextIndex=rcDhcpRelayServerNextIndex, rcDhcpRelayServerIndex=rcDhcpRelayServerIndex, rcDhcpRelayMibObjects=rcDhcpRelayMibObjects, rcDhcpRelayStartTime=rcDhcpRelayStartTime, rcDhcpRelayServerTable=rcDhcpRelayServerTable, rcDhcpRelayStatsDiscovers=rcDhcpRelayStatsDiscovers, rcDhcpRelayServerEntry=rcDhcpRelayServerEntry, rcDhcpRelayStatsInformations=rcDhcpRelayStatsInformations, rcDhcpRelayGroup=rcDhcpRelayGroup, rcDhcpRelayStatsNacks=rcDhcpRelayStatsNacks, rcDhcpRelayServerRowStatus=rcDhcpRelayServerRowStatus, rcDhcpRelayStatsOffers=rcDhcpRelayStatsOffers, rcDhcpRelayStatsPackets=rcDhcpRelayStatsPackets, rcDhcpRelay=rcDhcpRelay, rcDhcpRelayStatsRequests=rcDhcpRelayStatsRequests, rcDhcpRelayStatsAcks=rcDhcpRelayStatsAcks, rcDhcpRelayStatsBootps=rcDhcpRelayStatsBootps)

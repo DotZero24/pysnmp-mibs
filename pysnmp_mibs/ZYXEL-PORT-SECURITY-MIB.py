@@ -1,87 +1,50 @@
-_H='not-accessible'
-_G='zyPortSecurityVMLVID'
-_F='zyPortSecurityVMLPort'
-_E='dot1dBasePort'
-_D='BRIDGE-MIB'
-_C='ZYXEL-PORT-SECURITY-MIB'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_D,_E)
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-PortList,=mibBuilder.importSymbols('Q-BRIDGE-MIB','PortList')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelPortSecurity=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,66))
-_ZyxelPortSecuritySetup_ObjectIdentity=ObjectIdentity
-zyxelPortSecuritySetup=_ZyxelPortSecuritySetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,66,1))
-_ZyPortSecurityState_Type=EnabledStatus
-_ZyPortSecurityState_Object=MibScalar
-zyPortSecurityState=_ZyPortSecurityState_Object((1,3,6,1,4,1,890,1,15,3,66,1,1),_ZyPortSecurityState_Type())
-zyPortSecurityState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyPortSecurityState.setStatus(_A)
-_ZyxelPortSecurityPortTable_Object=MibTable
-zyxelPortSecurityPortTable=_ZyxelPortSecurityPortTable_Object((1,3,6,1,4,1,890,1,15,3,66,1,2))
-if mibBuilder.loadTexts:zyxelPortSecurityPortTable.setStatus(_A)
-_ZyxelPortSecurityPortEntry_Object=MibTableRow
-zyxelPortSecurityPortEntry=_ZyxelPortSecurityPortEntry_Object((1,3,6,1,4,1,890,1,15,3,66,1,2,1))
-zyxelPortSecurityPortEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:zyxelPortSecurityPortEntry.setStatus(_A)
-_ZyPortSecurityPortState_Type=EnabledStatus
-_ZyPortSecurityPortState_Object=MibTableColumn
-zyPortSecurityPortState=_ZyPortSecurityPortState_Object((1,3,6,1,4,1,890,1,15,3,66,1,2,1,1),_ZyPortSecurityPortState_Type())
-zyPortSecurityPortState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyPortSecurityPortState.setStatus(_A)
-_ZyPortSecurityPortLearnState_Type=EnabledStatus
-_ZyPortSecurityPortLearnState_Object=MibTableColumn
-zyPortSecurityPortLearnState=_ZyPortSecurityPortLearnState_Object((1,3,6,1,4,1,890,1,15,3,66,1,2,1,2),_ZyPortSecurityPortLearnState_Type())
-zyPortSecurityPortLearnState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyPortSecurityPortLearnState.setStatus(_A)
-_ZyPortSecurityPortMacLimit_Type=Integer32
-_ZyPortSecurityPortMacLimit_Object=MibTableColumn
-zyPortSecurityPortMacLimit=_ZyPortSecurityPortMacLimit_Object((1,3,6,1,4,1,890,1,15,3,66,1,2,1,3),_ZyPortSecurityPortMacLimit_Type())
-zyPortSecurityPortMacLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyPortSecurityPortMacLimit.setStatus(_A)
-_ZyPortSecurityMacFreeze_Type=PortList
-_ZyPortSecurityMacFreeze_Object=MibScalar
-zyPortSecurityMacFreeze=_ZyPortSecurityMacFreeze_Object((1,3,6,1,4,1,890,1,15,3,66,1,3),_ZyPortSecurityMacFreeze_Type())
-zyPortSecurityMacFreeze.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyPortSecurityMacFreeze.setStatus(_A)
-_ZyPortSecurityMaxNumberOfVMLs_Type=Integer32
-_ZyPortSecurityMaxNumberOfVMLs_Object=MibScalar
-zyPortSecurityMaxNumberOfVMLs=_ZyPortSecurityMaxNumberOfVMLs_Object((1,3,6,1,4,1,890,1,15,3,66,1,4),_ZyPortSecurityMaxNumberOfVMLs_Type())
-zyPortSecurityMaxNumberOfVMLs.setMaxAccess('read-only')
-if mibBuilder.loadTexts:zyPortSecurityMaxNumberOfVMLs.setStatus(_A)
-_ZyxelPortSecurityVMLTable_Object=MibTable
-zyxelPortSecurityVMLTable=_ZyxelPortSecurityVMLTable_Object((1,3,6,1,4,1,890,1,15,3,66,1,5))
-if mibBuilder.loadTexts:zyxelPortSecurityVMLTable.setStatus(_A)
-_ZyxelPortSecurityVMLEntry_Object=MibTableRow
-zyxelPortSecurityVMLEntry=_ZyxelPortSecurityVMLEntry_Object((1,3,6,1,4,1,890,1,15,3,66,1,5,1))
-zyxelPortSecurityVMLEntry.setIndexNames((0,_C,_F),(0,_C,_G))
-if mibBuilder.loadTexts:zyxelPortSecurityVMLEntry.setStatus(_A)
-_ZyPortSecurityVMLPort_Type=Integer32
-_ZyPortSecurityVMLPort_Object=MibTableColumn
-zyPortSecurityVMLPort=_ZyPortSecurityVMLPort_Object((1,3,6,1,4,1,890,1,15,3,66,1,5,1,1),_ZyPortSecurityVMLPort_Type())
-zyPortSecurityVMLPort.setMaxAccess(_H)
-if mibBuilder.loadTexts:zyPortSecurityVMLPort.setStatus(_A)
-_ZyPortSecurityVMLVID_Type=Integer32
-_ZyPortSecurityVMLVID_Object=MibTableColumn
-zyPortSecurityVMLVID=_ZyPortSecurityVMLVID_Object((1,3,6,1,4,1,890,1,15,3,66,1,5,1,2),_ZyPortSecurityVMLVID_Type())
-zyPortSecurityVMLVID.setMaxAccess(_H)
-if mibBuilder.loadTexts:zyPortSecurityVMLVID.setStatus(_A)
-_ZyPortSecurityVMLMacLimit_Type=Integer32
-_ZyPortSecurityVMLMacLimit_Object=MibTableColumn
-zyPortSecurityVMLMacLimit=_ZyPortSecurityVMLMacLimit_Object((1,3,6,1,4,1,890,1,15,3,66,1,5,1,3),_ZyPortSecurityVMLMacLimit_Type())
-zyPortSecurityVMLMacLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyPortSecurityVMLMacLimit.setStatus(_A)
-_ZyPortSecurityVMLRowStatus_Type=RowStatus
-_ZyPortSecurityVMLRowStatus_Object=MibTableColumn
-zyPortSecurityVMLRowStatus=_ZyPortSecurityVMLRowStatus_Object((1,3,6,1,4,1,890,1,15,3,66,1,5,1,4),_ZyPortSecurityVMLRowStatus_Type())
-zyPortSecurityVMLRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:zyPortSecurityVMLRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'zyxelPortSecurity':zyxelPortSecurity,'zyxelPortSecuritySetup':zyxelPortSecuritySetup,'zyPortSecurityState':zyPortSecurityState,'zyxelPortSecurityPortTable':zyxelPortSecurityPortTable,'zyxelPortSecurityPortEntry':zyxelPortSecurityPortEntry,'zyPortSecurityPortState':zyPortSecurityPortState,'zyPortSecurityPortLearnState':zyPortSecurityPortLearnState,'zyPortSecurityPortMacLimit':zyPortSecurityPortMacLimit,'zyPortSecurityMacFreeze':zyPortSecurityMacFreeze,'zyPortSecurityMaxNumberOfVMLs':zyPortSecurityMaxNumberOfVMLs,'zyxelPortSecurityVMLTable':zyxelPortSecurityVMLTable,'zyxelPortSecurityVMLEntry':zyxelPortSecurityVMLEntry,_F:zyPortSecurityVMLPort,_G:zyPortSecurityVMLVID,'zyPortSecurityVMLMacLimit':zyPortSecurityVMLMacLimit,'zyPortSecurityVMLRowStatus':zyPortSecurityVMLRowStatus})
+#
+# PySNMP MIB module ZYXEL-PORT-SECURITY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-PORT-SECURITY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:11 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelPortSecurity = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66))
+if mibBuilder.loadTexts: zyxelPortSecurity.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelPortSecurity.setOrganization('Enterprise Solution ZyXEL')
+zyxelPortSecuritySetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66, 1))
+zyPortSecurityState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyPortSecurityState.setStatus('current')
+zyxelPortSecurityPortTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66, 1, 2), )
+if mibBuilder.loadTexts: zyxelPortSecurityPortTable.setStatus('current')
+zyxelPortSecurityPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66, 1, 2, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: zyxelPortSecurityPortEntry.setStatus('current')
+zyPortSecurityPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66, 1, 2, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyPortSecurityPortState.setStatus('current')
+zyPortSecurityPortLearnState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66, 1, 2, 1, 2), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyPortSecurityPortLearnState.setStatus('current')
+zyPortSecurityPortMacLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66, 1, 2, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyPortSecurityPortMacLimit.setStatus('current')
+zyPortSecurityMacFreeze = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66, 1, 3), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyPortSecurityMacFreeze.setStatus('current')
+zyPortSecurityMaxNumberOfVMLs = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zyPortSecurityMaxNumberOfVMLs.setStatus('current')
+zyxelPortSecurityVMLTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66, 1, 5), )
+if mibBuilder.loadTexts: zyxelPortSecurityVMLTable.setStatus('current')
+zyxelPortSecurityVMLEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66, 1, 5, 1), ).setIndexNames((0, "ZYXEL-PORT-SECURITY-MIB", "zyPortSecurityVMLPort"), (0, "ZYXEL-PORT-SECURITY-MIB", "zyPortSecurityVMLVID"))
+if mibBuilder.loadTexts: zyxelPortSecurityVMLEntry.setStatus('current')
+zyPortSecurityVMLPort = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66, 1, 5, 1, 1), Integer32())
+if mibBuilder.loadTexts: zyPortSecurityVMLPort.setStatus('current')
+zyPortSecurityVMLVID = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66, 1, 5, 1, 2), Integer32())
+if mibBuilder.loadTexts: zyPortSecurityVMLVID.setStatus('current')
+zyPortSecurityVMLMacLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66, 1, 5, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyPortSecurityVMLMacLimit.setStatus('current')
+zyPortSecurityVMLRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 66, 1, 5, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zyPortSecurityVMLRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-PORT-SECURITY-MIB", zyxelPortSecuritySetup=zyxelPortSecuritySetup, zyPortSecurityVMLVID=zyPortSecurityVMLVID, zyxelPortSecurityPortTable=zyxelPortSecurityPortTable, zyxelPortSecurity=zyxelPortSecurity, zyPortSecurityPortLearnState=zyPortSecurityPortLearnState, zyPortSecurityMaxNumberOfVMLs=zyPortSecurityMaxNumberOfVMLs, zyxelPortSecurityPortEntry=zyxelPortSecurityPortEntry, zyPortSecurityVMLPort=zyPortSecurityVMLPort, zyxelPortSecurityVMLTable=zyxelPortSecurityVMLTable, PYSNMP_MODULE_ID=zyxelPortSecurity, zyPortSecurityPortMacLimit=zyPortSecurityPortMacLimit, zyPortSecurityState=zyPortSecurityState, zyPortSecurityMacFreeze=zyPortSecurityMacFreeze, zyPortSecurityVMLMacLimit=zyPortSecurityVMLMacLimit, zyPortSecurityPortState=zyPortSecurityPortState, zyxelPortSecurityVMLEntry=zyxelPortSecurityVMLEntry, zyPortSecurityVMLRowStatus=zyPortSecurityVMLRowStatus)

@@ -1,30 +1,25 @@
-_A='NotificationType'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-sysDescr,sysUpTime=mibBuilder.importSymbols('SNMPv2-MIB','sysDescr','sysUpTime')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier',_A,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_A,'TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Ati_ObjectIdentity=ObjectIdentity
-ati=_Ati_ObjectIdentity((1,3,6,1,4,1,207))
-_Products_ObjectIdentity=ObjectIdentity
-products=_Products_ObjectIdentity((1,3,6,1,4,1,207,1))
-_CentreCom_ObjectIdentity=ObjectIdentity
-centreCom=_CentreCom_ObjectIdentity((1,3,6,1,4,1,207,1,4))
-_Centrecom8500sx_ObjectIdentity=ObjectIdentity
-centrecom8500sx=_Centrecom8500sx_ObjectIdentity((1,3,6,1,4,1,207,1,4,16))
-_Centrecom8500lx_ObjectIdentity=ObjectIdentity
-centrecom8500lx=_Centrecom8500lx_ObjectIdentity((1,3,6,1,4,1,207,1,4,17))
-_Centrecom9100sx_ObjectIdentity=ObjectIdentity
-centrecom9100sx=_Centrecom9100sx_ObjectIdentity((1,3,6,1,4,1,207,1,4,18))
-_Centrecom9100lx_ObjectIdentity=ObjectIdentity
-centrecom9100lx=_Centrecom9100lx_ObjectIdentity((1,3,6,1,4,1,207,1,4,19))
-_MibObjects_ObjectIdentity=ObjectIdentity
-mibObjects=_MibObjects_ObjectIdentity((1,3,6,1,4,1,207,8))
-_AtkkSwitchMIB_ObjectIdentity=ObjectIdentity
-atkkSwitchMIB=_AtkkSwitchMIB_ObjectIdentity((1,3,6,1,4,1,207,8,12))
-_ExtSwitchMIB_ObjectIdentity=ObjectIdentity
-extSwitchMIB=_ExtSwitchMIB_ObjectIdentity((1,3,6,1,4,1,207,8,12,2))
-mibBuilder.exportSymbols('CENTRECOM-MIB',**{'ati':ati,'products':products,'centreCom':centreCom,'centrecom8500sx':centrecom8500sx,'centrecom8500lx':centrecom8500lx,'centrecom9100sx':centrecom9100sx,'centrecom9100lx':centrecom9100lx,'mibObjects':mibObjects,'atkkSwitchMIB':atkkSwitchMIB,'extSwitchMIB':extSwitchMIB})
+#
+# PySNMP MIB module CENTRECOM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allied-old/CENTRECOM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+sysUpTime, sysDescr = mibBuilder.importSymbols("SNMPv2-MIB", "sysUpTime", "sysDescr")
+ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ati = MibIdentifier((1, 3, 6, 1, 4, 1, 207))
+products = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 1))
+mibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8))
+atkkSwitchMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 12))
+extSwitchMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 12, 2))
+centreCom = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 1, 4))
+centrecom8500sx = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 1, 4, 16))
+centrecom8500lx = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 1, 4, 17))
+centrecom9100sx = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 1, 4, 18))
+centrecom9100lx = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 1, 4, 19))
+mibBuilder.exportSymbols("CENTRECOM-MIB", centreCom=centreCom, extSwitchMIB=extSwitchMIB, centrecom8500sx=centrecom8500sx, ati=ati, atkkSwitchMIB=atkkSwitchMIB, products=products, mibObjects=mibObjects, centrecom8500lx=centrecom8500lx, centrecom9100sx=centrecom9100sx, centrecom9100lx=centrecom9100lx)

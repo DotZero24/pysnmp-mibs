@@ -1,87 +1,61 @@
-_N='etsysIeee8021BridgeMibExtMrpGroup'
-_M='etsysIeee8021BridgeMibExtBasePortGroup'
-_L='etsysIeee8021BridgeMibExtBaseModeGroup'
-_K='etsysIeee8021BridgeMibExtMrpPeriodicEnabled'
-_J='etsys8021BridgePortComponentId'
-_I='etsysIeee8021BridgeBaseMode'
-_H='etsysIeee8021BridgeMibExtMrpEntry'
-_G='read-write'
-_F='Integer32'
-_E='EnabledStatus'
-_D='ieee8021BridgeBasePort'
-_C='IEEE8021-BRIDGE-MIB'
-_B='ENTERASYS-IEEE8021-BRIDGE-MIB-EXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-etsysModules,=mibBuilder.importSymbols('ENTERASYS-MIB-NAMES','etsysModules')
-ieee8021BridgeBasePort,ieee8021BridgeBasePortEntry=mibBuilder.importSymbols(_C,_D,'ieee8021BridgeBasePortEntry')
-IEEE8021PbbComponentIdentifier,=mibBuilder.importSymbols('IEEE8021-TC-MIB','IEEE8021PbbComponentIdentifier')
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB',_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-etsysIeee8021BridgeMibExtMIB=ModuleIdentity((1,3,6,1,4,1,5624,1,2,90))
-if mibBuilder.loadTexts:etsysIeee8021BridgeMibExtMIB.setRevisions(('2012-02-07 14:35',))
-_EtsysIeee8021BridgeMibExtObjects_ObjectIdentity=ObjectIdentity
-etsysIeee8021BridgeMibExtObjects=_EtsysIeee8021BridgeMibExtObjects_ObjectIdentity((1,3,6,1,4,1,5624,1,2,90,1))
-_EtsysIeee8021BridgeBase_ObjectIdentity=ObjectIdentity
-etsysIeee8021BridgeBase=_EtsysIeee8021BridgeBase_ObjectIdentity((1,3,6,1,4,1,5624,1,2,90,1,1))
-class _EtsysIeee8021BridgeBaseMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('customerBridge',1),('providerBridge',2),('providerBackboneBridge',3)))
-_EtsysIeee8021BridgeBaseMode_Type.__name__=_F
-_EtsysIeee8021BridgeBaseMode_Object=MibScalar
-etsysIeee8021BridgeBaseMode=_EtsysIeee8021BridgeBaseMode_Object((1,3,6,1,4,1,5624,1,2,90,1,1,1),_EtsysIeee8021BridgeBaseMode_Type())
-etsysIeee8021BridgeBaseMode.setMaxAccess(_G)
-if mibBuilder.loadTexts:etsysIeee8021BridgeBaseMode.setStatus(_A)
-_EtsysIeee8021BridgeBasePortTable_Object=MibTable
-etsysIeee8021BridgeBasePortTable=_EtsysIeee8021BridgeBasePortTable_Object((1,3,6,1,4,1,5624,1,2,90,1,1,2))
-if mibBuilder.loadTexts:etsysIeee8021BridgeBasePortTable.setStatus(_A)
-_EtsysIeee8021BridgeBasePortEntry_Object=MibTableRow
-etsysIeee8021BridgeBasePortEntry=_EtsysIeee8021BridgeBasePortEntry_Object((1,3,6,1,4,1,5624,1,2,90,1,1,2,1))
-etsysIeee8021BridgeBasePortEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:etsysIeee8021BridgeBasePortEntry.setStatus(_A)
-_Etsys8021BridgePortComponentId_Type=IEEE8021PbbComponentIdentifier
-_Etsys8021BridgePortComponentId_Object=MibTableColumn
-etsys8021BridgePortComponentId=_Etsys8021BridgePortComponentId_Object((1,3,6,1,4,1,5624,1,2,90,1,1,2,1,1),_Etsys8021BridgePortComponentId_Type())
-etsys8021BridgePortComponentId.setMaxAccess('read-only')
-if mibBuilder.loadTexts:etsys8021BridgePortComponentId.setStatus(_A)
-_EtsysIeee8021BridgeMibExtMrpBranch_ObjectIdentity=ObjectIdentity
-etsysIeee8021BridgeMibExtMrpBranch=_EtsysIeee8021BridgeMibExtMrpBranch_ObjectIdentity((1,3,6,1,4,1,5624,1,2,90,1,2))
-_EtsysIeee8021BridgeMibExtMrpTable_Object=MibTable
-etsysIeee8021BridgeMibExtMrpTable=_EtsysIeee8021BridgeMibExtMrpTable_Object((1,3,6,1,4,1,5624,1,2,90,1,2,1))
-if mibBuilder.loadTexts:etsysIeee8021BridgeMibExtMrpTable.setStatus(_A)
-_EtsysIeee8021BridgeMibExtMrpEntry_Object=MibTableRow
-etsysIeee8021BridgeMibExtMrpEntry=_EtsysIeee8021BridgeMibExtMrpEntry_Object((1,3,6,1,4,1,5624,1,2,90,1,2,1,1))
-if mibBuilder.loadTexts:etsysIeee8021BridgeMibExtMrpEntry.setStatus(_A)
-class _EtsysIeee8021BridgeMibExtMrpPeriodicEnabled_Type(EnabledStatus):defaultValue=2
-_EtsysIeee8021BridgeMibExtMrpPeriodicEnabled_Type.__name__=_E
-_EtsysIeee8021BridgeMibExtMrpPeriodicEnabled_Object=MibTableColumn
-etsysIeee8021BridgeMibExtMrpPeriodicEnabled=_EtsysIeee8021BridgeMibExtMrpPeriodicEnabled_Object((1,3,6,1,4,1,5624,1,2,90,1,2,1,1,1),_EtsysIeee8021BridgeMibExtMrpPeriodicEnabled_Type())
-etsysIeee8021BridgeMibExtMrpPeriodicEnabled.setMaxAccess(_G)
-if mibBuilder.loadTexts:etsysIeee8021BridgeMibExtMrpPeriodicEnabled.setStatus(_A)
-_EtsysIeee8021BridgeMibExtConformance_ObjectIdentity=ObjectIdentity
-etsysIeee8021BridgeMibExtConformance=_EtsysIeee8021BridgeMibExtConformance_ObjectIdentity((1,3,6,1,4,1,5624,1,2,90,2))
-_EtsysIeee8021BridgeMibExtGroups_ObjectIdentity=ObjectIdentity
-etsysIeee8021BridgeMibExtGroups=_EtsysIeee8021BridgeMibExtGroups_ObjectIdentity((1,3,6,1,4,1,5624,1,2,90,2,1))
-_EtsysIeee8021BridgeMibExtCompliances_ObjectIdentity=ObjectIdentity
-etsysIeee8021BridgeMibExtCompliances=_EtsysIeee8021BridgeMibExtCompliances_ObjectIdentity((1,3,6,1,4,1,5624,1,2,90,2,2))
-ieee8021BridgeBasePortEntry.registerAugmentions((_B,_H))
+#
+# PySNMP MIB module ENTERASYS-IEEE8021-BRIDGE-MIB-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/enterasys/ENTERASYS-IEEE8021-BRIDGE-MIB-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
+ieee8021BridgeBasePortEntry, ieee8021BridgeBasePort = mibBuilder.importSymbols("IEEE8021-BRIDGE-MIB", "ieee8021BridgeBasePortEntry", "ieee8021BridgeBasePort")
+IEEE8021PbbComponentIdentifier, = mibBuilder.importSymbols("IEEE8021-TC-MIB", "IEEE8021PbbComponentIdentifier")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+etsysIeee8021BridgeMibExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90))
+etsysIeee8021BridgeMibExtMIB.setRevisions(('2012-02-07 14:35',))
+if mibBuilder.loadTexts: etsysIeee8021BridgeMibExtMIB.setLastUpdated('201202071435Z')
+if mibBuilder.loadTexts: etsysIeee8021BridgeMibExtMIB.setOrganization('Enterasys Networks, Inc')
+etsysIeee8021BridgeMibExtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 1))
+etsysIeee8021BridgeMibExtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 2))
+etsysIeee8021BridgeBase = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 1, 1))
+etsysIeee8021BridgeBaseMode = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("customerBridge", 1), ("providerBridge", 2), ("providerBackboneBridge", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysIeee8021BridgeBaseMode.setStatus('current')
+etsysIeee8021BridgeBasePortTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 1, 1, 2), )
+if mibBuilder.loadTexts: etsysIeee8021BridgeBasePortTable.setStatus('current')
+etsysIeee8021BridgeBasePortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 1, 1, 2, 1), ).setIndexNames((0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBasePort"))
+if mibBuilder.loadTexts: etsysIeee8021BridgeBasePortEntry.setStatus('current')
+etsys8021BridgePortComponentId = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 1, 1, 2, 1, 1), IEEE8021PbbComponentIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsys8021BridgePortComponentId.setStatus('current')
+etsysIeee8021BridgeMibExtMrpBranch = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 1, 2))
+etsysIeee8021BridgeMibExtMrpTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 1, 2, 1), )
+if mibBuilder.loadTexts: etsysIeee8021BridgeMibExtMrpTable.setStatus('current')
+etsysIeee8021BridgeMibExtMrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 1, 2, 1, 1), )
+ieee8021BridgeBasePortEntry.registerAugmentions(("ENTERASYS-IEEE8021-BRIDGE-MIB-EXT-MIB", "etsysIeee8021BridgeMibExtMrpEntry"))
 etsysIeee8021BridgeMibExtMrpEntry.setIndexNames(*ieee8021BridgeBasePortEntry.getIndexNames())
-etsysIeee8021BridgeMibExtBaseModeGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,90,2,1,1))
-etsysIeee8021BridgeMibExtBaseModeGroup.setObjects((_B,_I))
-if mibBuilder.loadTexts:etsysIeee8021BridgeMibExtBaseModeGroup.setStatus(_A)
-etsysIeee8021BridgeMibExtBasePortGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,90,2,1,2))
-etsysIeee8021BridgeMibExtBasePortGroup.setObjects((_B,_J))
-if mibBuilder.loadTexts:etsysIeee8021BridgeMibExtBasePortGroup.setStatus(_A)
-etsysIeee8021BridgeMibExtMrpGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,90,2,1,3))
-etsysIeee8021BridgeMibExtMrpGroup.setObjects((_B,_K))
-if mibBuilder.loadTexts:etsysIeee8021BridgeMibExtMrpGroup.setStatus(_A)
-etsysIeee8021BridgeMibExtCompliance=ModuleCompliance((1,3,6,1,4,1,5624,1,2,90,2,2,1))
-etsysIeee8021BridgeMibExtCompliance.setObjects(*((_B,_L),(_B,_M)))
-if mibBuilder.loadTexts:etsysIeee8021BridgeMibExtCompliance.setStatus(_A)
-etsysIeee8021BridgeMibExtMrpCompliance=ModuleCompliance((1,3,6,1,4,1,5624,1,2,90,2,2,2))
-etsysIeee8021BridgeMibExtMrpCompliance.setObjects((_B,_N))
-if mibBuilder.loadTexts:etsysIeee8021BridgeMibExtMrpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'etsysIeee8021BridgeMibExtMIB':etsysIeee8021BridgeMibExtMIB,'etsysIeee8021BridgeMibExtObjects':etsysIeee8021BridgeMibExtObjects,'etsysIeee8021BridgeBase':etsysIeee8021BridgeBase,_I:etsysIeee8021BridgeBaseMode,'etsysIeee8021BridgeBasePortTable':etsysIeee8021BridgeBasePortTable,'etsysIeee8021BridgeBasePortEntry':etsysIeee8021BridgeBasePortEntry,_J:etsys8021BridgePortComponentId,'etsysIeee8021BridgeMibExtMrpBranch':etsysIeee8021BridgeMibExtMrpBranch,'etsysIeee8021BridgeMibExtMrpTable':etsysIeee8021BridgeMibExtMrpTable,_H:etsysIeee8021BridgeMibExtMrpEntry,_K:etsysIeee8021BridgeMibExtMrpPeriodicEnabled,'etsysIeee8021BridgeMibExtConformance':etsysIeee8021BridgeMibExtConformance,'etsysIeee8021BridgeMibExtGroups':etsysIeee8021BridgeMibExtGroups,_L:etsysIeee8021BridgeMibExtBaseModeGroup,_M:etsysIeee8021BridgeMibExtBasePortGroup,_N:etsysIeee8021BridgeMibExtMrpGroup,'etsysIeee8021BridgeMibExtCompliances':etsysIeee8021BridgeMibExtCompliances,'etsysIeee8021BridgeMibExtCompliance':etsysIeee8021BridgeMibExtCompliance,'etsysIeee8021BridgeMibExtMrpCompliance':etsysIeee8021BridgeMibExtMrpCompliance})
+if mibBuilder.loadTexts: etsysIeee8021BridgeMibExtMrpEntry.setStatus('current')
+etsysIeee8021BridgeMibExtMrpPeriodicEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 1, 2, 1, 1, 1), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysIeee8021BridgeMibExtMrpPeriodicEnabled.setStatus('current')
+etsysIeee8021BridgeMibExtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 2, 1))
+etsysIeee8021BridgeMibExtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 2, 2))
+etsysIeee8021BridgeMibExtBaseModeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 2, 1, 1)).setObjects(("ENTERASYS-IEEE8021-BRIDGE-MIB-EXT-MIB", "etsysIeee8021BridgeBaseMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysIeee8021BridgeMibExtBaseModeGroup = etsysIeee8021BridgeMibExtBaseModeGroup.setStatus('current')
+etsysIeee8021BridgeMibExtBasePortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 2, 1, 2)).setObjects(("ENTERASYS-IEEE8021-BRIDGE-MIB-EXT-MIB", "etsys8021BridgePortComponentId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysIeee8021BridgeMibExtBasePortGroup = etsysIeee8021BridgeMibExtBasePortGroup.setStatus('current')
+etsysIeee8021BridgeMibExtMrpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 2, 1, 3)).setObjects(("ENTERASYS-IEEE8021-BRIDGE-MIB-EXT-MIB", "etsysIeee8021BridgeMibExtMrpPeriodicEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysIeee8021BridgeMibExtMrpGroup = etsysIeee8021BridgeMibExtMrpGroup.setStatus('current')
+etsysIeee8021BridgeMibExtCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 2, 2, 1)).setObjects(("ENTERASYS-IEEE8021-BRIDGE-MIB-EXT-MIB", "etsysIeee8021BridgeMibExtBaseModeGroup"), ("ENTERASYS-IEEE8021-BRIDGE-MIB-EXT-MIB", "etsysIeee8021BridgeMibExtBasePortGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysIeee8021BridgeMibExtCompliance = etsysIeee8021BridgeMibExtCompliance.setStatus('current')
+etsysIeee8021BridgeMibExtMrpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 90, 2, 2, 2)).setObjects(("ENTERASYS-IEEE8021-BRIDGE-MIB-EXT-MIB", "etsysIeee8021BridgeMibExtMrpGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysIeee8021BridgeMibExtMrpCompliance = etsysIeee8021BridgeMibExtMrpCompliance.setStatus('current')
+mibBuilder.exportSymbols("ENTERASYS-IEEE8021-BRIDGE-MIB-EXT-MIB", etsysIeee8021BridgeMibExtGroups=etsysIeee8021BridgeMibExtGroups, etsysIeee8021BridgeMibExtMIB=etsysIeee8021BridgeMibExtMIB, etsysIeee8021BridgeBase=etsysIeee8021BridgeBase, etsysIeee8021BridgeMibExtCompliances=etsysIeee8021BridgeMibExtCompliances, etsys8021BridgePortComponentId=etsys8021BridgePortComponentId, etsysIeee8021BridgeMibExtMrpPeriodicEnabled=etsysIeee8021BridgeMibExtMrpPeriodicEnabled, etsysIeee8021BridgeMibExtMrpTable=etsysIeee8021BridgeMibExtMrpTable, etsysIeee8021BridgeMibExtMrpEntry=etsysIeee8021BridgeMibExtMrpEntry, etsysIeee8021BridgeMibExtBaseModeGroup=etsysIeee8021BridgeMibExtBaseModeGroup, etsysIeee8021BridgeMibExtConformance=etsysIeee8021BridgeMibExtConformance, etsysIeee8021BridgeBasePortTable=etsysIeee8021BridgeBasePortTable, etsysIeee8021BridgeMibExtMrpBranch=etsysIeee8021BridgeMibExtMrpBranch, etsysIeee8021BridgeMibExtMrpGroup=etsysIeee8021BridgeMibExtMrpGroup, etsysIeee8021BridgeMibExtMrpCompliance=etsysIeee8021BridgeMibExtMrpCompliance, etsysIeee8021BridgeMibExtCompliance=etsysIeee8021BridgeMibExtCompliance, PYSNMP_MODULE_ID=etsysIeee8021BridgeMibExtMIB, etsysIeee8021BridgeBaseMode=etsysIeee8021BridgeBaseMode, etsysIeee8021BridgeMibExtObjects=etsysIeee8021BridgeMibExtObjects, etsysIeee8021BridgeBasePortEntry=etsysIeee8021BridgeBasePortEntry, etsysIeee8021BridgeMibExtBasePortGroup=etsysIeee8021BridgeMibExtBasePortGroup)

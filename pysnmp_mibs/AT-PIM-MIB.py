@@ -1,42 +1,33 @@
-_G='pim4ErrorTrapType'
-_F='AT-PIM-MIB'
-_E='Integer32'
-_D='pimNeighborIfIndex'
-_C='pimInterfaceStatus'
-_B='PIM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-modules,=mibBuilder.importSymbols('AT-SMI-MIB','modules')
-pimInterfaceStatus,pimNeighborIfIndex=mibBuilder.importSymbols(_B,_C,_D)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-pim4=ModuleIdentity((1,3,6,1,4,1,207,8,4,4,4,97))
-if mibBuilder.loadTexts:pim4.setRevisions(('2005-01-20 15:25',))
-_Pim4Events_ObjectIdentity=ObjectIdentity
-pim4Events=_Pim4Events_ObjectIdentity((1,3,6,1,4,1,207,8,4,4,4,97,0))
-class _Pim4ErrorTrapType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*(('pim4InvalidPacket',1),('pim4InvalidDestinationError',2),('pim4FragmentError',3),('pim4LengthError',4),('pim4GroupaddressError',5),('pim4SourceaddressError',6),('pim4MissingOptionError',7),('pim4GeneralError',8),('pim4InternalError',9),('pim4RpaddressError',10)))
-_Pim4ErrorTrapType_Type.__name__=_E
-_Pim4ErrorTrapType_Object=MibScalar
-pim4ErrorTrapType=_Pim4ErrorTrapType_Object((1,3,6,1,4,1,207,8,4,4,4,97,1),_Pim4ErrorTrapType_Type())
-pim4ErrorTrapType.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:pim4ErrorTrapType.setStatus(_A)
-pim4NeighbourAddedTrap=NotificationType((1,3,6,1,4,1,207,8,4,4,4,97,0,1))
-pim4NeighbourAddedTrap.setObjects((_B,_D))
-if mibBuilder.loadTexts:pim4NeighbourAddedTrap.setStatus(_A)
-pim4NeighbourDeletedTrap=NotificationType((1,3,6,1,4,1,207,8,4,4,4,97,0,2))
-pim4NeighbourDeletedTrap.setObjects((_B,_D))
-if mibBuilder.loadTexts:pim4NeighbourDeletedTrap.setStatus(_A)
-pim4InterfaceUpTrap=NotificationType((1,3,6,1,4,1,207,8,4,4,4,97,0,3))
-pim4InterfaceUpTrap.setObjects((_B,_C))
-if mibBuilder.loadTexts:pim4InterfaceUpTrap.setStatus(_A)
-pim4InterfaceDownTrap=NotificationType((1,3,6,1,4,1,207,8,4,4,4,97,0,4))
-pim4InterfaceDownTrap.setObjects((_B,_C))
-if mibBuilder.loadTexts:pim4InterfaceDownTrap.setStatus(_A)
-pim4ErrorTrap=NotificationType((1,3,6,1,4,1,207,8,4,4,4,97,0,5))
-pim4ErrorTrap.setObjects((_F,_G))
-if mibBuilder.loadTexts:pim4ErrorTrap.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'pim4':pim4,'pim4Events':pim4Events,'pim4NeighbourAddedTrap':pim4NeighbourAddedTrap,'pim4NeighbourDeletedTrap':pim4NeighbourDeletedTrap,'pim4InterfaceUpTrap':pim4InterfaceUpTrap,'pim4InterfaceDownTrap':pim4InterfaceDownTrap,'pim4ErrorTrap':pim4ErrorTrap,_G:pim4ErrorTrapType})
+#
+# PySNMP MIB module AT-PIM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allied-old/AT-PIM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:09 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
+pimInterfaceStatus, pimNeighborIfIndex = mibBuilder.importSymbols("PIM-MIB", "pimInterfaceStatus", "pimNeighborIfIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+pim4 = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 97))
+pim4.setRevisions(('2005-01-20 15:25',))
+if mibBuilder.loadTexts: pim4.setLastUpdated('200501201525Z')
+if mibBuilder.loadTexts: pim4.setOrganization('Allied Telesis, Inc')
+pim4Events = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 97, 0))
+pim4NeighbourAddedTrap = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 97, 0, 1)).setObjects(("PIM-MIB", "pimNeighborIfIndex"))
+if mibBuilder.loadTexts: pim4NeighbourAddedTrap.setStatus('current')
+pim4NeighbourDeletedTrap = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 97, 0, 2)).setObjects(("PIM-MIB", "pimNeighborIfIndex"))
+if mibBuilder.loadTexts: pim4NeighbourDeletedTrap.setStatus('current')
+pim4InterfaceUpTrap = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 97, 0, 3)).setObjects(("PIM-MIB", "pimInterfaceStatus"))
+if mibBuilder.loadTexts: pim4InterfaceUpTrap.setStatus('current')
+pim4InterfaceDownTrap = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 97, 0, 4)).setObjects(("PIM-MIB", "pimInterfaceStatus"))
+if mibBuilder.loadTexts: pim4InterfaceDownTrap.setStatus('current')
+pim4ErrorTrap = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 97, 0, 5)).setObjects(("AT-PIM-MIB", "pim4ErrorTrapType"))
+if mibBuilder.loadTexts: pim4ErrorTrap.setStatus('current')
+pim4ErrorTrapType = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 97, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("pim4InvalidPacket", 1), ("pim4InvalidDestinationError", 2), ("pim4FragmentError", 3), ("pim4LengthError", 4), ("pim4GroupaddressError", 5), ("pim4SourceaddressError", 6), ("pim4MissingOptionError", 7), ("pim4GeneralError", 8), ("pim4InternalError", 9), ("pim4RpaddressError", 10)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: pim4ErrorTrapType.setStatus('current')
+mibBuilder.exportSymbols("AT-PIM-MIB", pim4NeighbourDeletedTrap=pim4NeighbourDeletedTrap, pim4NeighbourAddedTrap=pim4NeighbourAddedTrap, pim4InterfaceUpTrap=pim4InterfaceUpTrap, PYSNMP_MODULE_ID=pim4, pim4InterfaceDownTrap=pim4InterfaceDownTrap, pim4ErrorTrapType=pim4ErrorTrapType, pim4Events=pim4Events, pim4ErrorTrap=pim4ErrorTrap, pim4=pim4)

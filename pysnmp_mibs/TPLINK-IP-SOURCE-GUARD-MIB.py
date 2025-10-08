@@ -1,59 +1,37 @@
-_H='read-only'
-_G='read-write'
-_F='disable'
-_E='ifIndex'
-_D='IF-MIB'
-_C='Integer32'
-_B='OctetString'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_B,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tplinkMgmt,=mibBuilder.importSymbols('TPLINK-MIB','tplinkMgmt')
-tplinkIpSourceGuardMIB=ModuleIdentity((1,3,6,1,4,1,11863,6,29))
-if mibBuilder.loadTexts:tplinkIpSourceGuardMIB.setRevisions(('2012-12-13 09:30',))
-_TplinkIpSourceGuardMIBObjects_ObjectIdentity=ObjectIdentity
-tplinkIpSourceGuardMIBObjects=_TplinkIpSourceGuardMIBObjects_ObjectIdentity((1,3,6,1,4,1,11863,6,29,1))
-_TpIpSourceGuardConfig_ObjectIdentity=ObjectIdentity
-tpIpSourceGuardConfig=_TpIpSourceGuardConfig_ObjectIdentity((1,3,6,1,4,1,11863,6,29,1,1))
-class _TpIpSourceGuardLoggingConfig_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_F,0),('enable',1)))
-_TpIpSourceGuardLoggingConfig_Type.__name__=_C
-_TpIpSourceGuardLoggingConfig_Object=MibScalar
-tpIpSourceGuardLoggingConfig=_TpIpSourceGuardLoggingConfig_Object((1,3,6,1,4,1,11863,6,29,1,1,1),_TpIpSourceGuardLoggingConfig_Type())
-tpIpSourceGuardLoggingConfig.setMaxAccess(_G)
-if mibBuilder.loadTexts:tpIpSourceGuardLoggingConfig.setStatus(_A)
-_TpIpSourceGuardConfigTable_Object=MibTable
-tpIpSourceGuardConfigTable=_TpIpSourceGuardConfigTable_Object((1,3,6,1,4,1,11863,6,29,1,1,2))
-if mibBuilder.loadTexts:tpIpSourceGuardConfigTable.setStatus(_A)
-_TpIpSourceGuardConfigEntry_Object=MibTableRow
-tpIpSourceGuardConfigEntry=_TpIpSourceGuardConfigEntry_Object((1,3,6,1,4,1,11863,6,29,1,1,2,1))
-tpIpSourceGuardConfigEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:tpIpSourceGuardConfigEntry.setStatus(_A)
-class _TpIpSourceGuardConfigPort_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_TpIpSourceGuardConfigPort_Type.__name__=_B
-_TpIpSourceGuardConfigPort_Object=MibTableColumn
-tpIpSourceGuardConfigPort=_TpIpSourceGuardConfigPort_Object((1,3,6,1,4,1,11863,6,29,1,1,2,1,1),_TpIpSourceGuardConfigPort_Type())
-tpIpSourceGuardConfigPort.setMaxAccess(_H)
-if mibBuilder.loadTexts:tpIpSourceGuardConfigPort.setStatus(_A)
-class _TpIpSourceGuardConfigType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_F,0),('sip',1),('sip-mac',2)))
-_TpIpSourceGuardConfigType_Type.__name__=_C
-_TpIpSourceGuardConfigType_Object=MibTableColumn
-tpIpSourceGuardConfigType=_TpIpSourceGuardConfigType_Object((1,3,6,1,4,1,11863,6,29,1,1,2,1,2),_TpIpSourceGuardConfigType_Type())
-tpIpSourceGuardConfigType.setMaxAccess(_G)
-if mibBuilder.loadTexts:tpIpSourceGuardConfigType.setStatus(_A)
-class _TpIpSourceGuardConfigPortLag_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_TpIpSourceGuardConfigPortLag_Type.__name__=_B
-_TpIpSourceGuardConfigPortLag_Object=MibTableColumn
-tpIpSourceGuardConfigPortLag=_TpIpSourceGuardConfigPortLag_Object((1,3,6,1,4,1,11863,6,29,1,1,2,1,3),_TpIpSourceGuardConfigPortLag_Type())
-tpIpSourceGuardConfigPortLag.setMaxAccess(_H)
-if mibBuilder.loadTexts:tpIpSourceGuardConfigPortLag.setStatus(_A)
-_TplinkIpSourceGuardNotifications_ObjectIdentity=ObjectIdentity
-tplinkIpSourceGuardNotifications=_TplinkIpSourceGuardNotifications_ObjectIdentity((1,3,6,1,4,1,11863,6,29,2))
-tpIpSourceGuardRxIllegalIpPacket=NotificationType((1,3,6,1,4,1,11863,6,29,2,1))
-if mibBuilder.loadTexts:tpIpSourceGuardRxIllegalIpPacket.setStatus(_A)
-mibBuilder.exportSymbols('TPLINK-IP-SOURCE-GUARD-MIB',**{'tplinkIpSourceGuardMIB':tplinkIpSourceGuardMIB,'tplinkIpSourceGuardMIBObjects':tplinkIpSourceGuardMIBObjects,'tpIpSourceGuardConfig':tpIpSourceGuardConfig,'tpIpSourceGuardLoggingConfig':tpIpSourceGuardLoggingConfig,'tpIpSourceGuardConfigTable':tpIpSourceGuardConfigTable,'tpIpSourceGuardConfigEntry':tpIpSourceGuardConfigEntry,'tpIpSourceGuardConfigPort':tpIpSourceGuardConfigPort,'tpIpSourceGuardConfigType':tpIpSourceGuardConfigType,'tpIpSourceGuardConfigPortLag':tpIpSourceGuardConfigPortLag,'tplinkIpSourceGuardNotifications':tplinkIpSourceGuardNotifications,'tpIpSourceGuardRxIllegalIpPacket':tpIpSourceGuardRxIllegalIpPacket})
+#
+# PySNMP MIB module TPLINK-IP-SOURCE-GUARD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-IP-SOURCE-GUARD-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:24 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
+tplinkIpSourceGuardMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 29))
+tplinkIpSourceGuardMIB.setRevisions(('2012-12-13 09:30',))
+if mibBuilder.loadTexts: tplinkIpSourceGuardMIB.setLastUpdated('201212130930Z')
+if mibBuilder.loadTexts: tplinkIpSourceGuardMIB.setOrganization('TPLINK')
+tplinkIpSourceGuardMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 29, 1))
+tplinkIpSourceGuardNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 29, 2))
+tpIpSourceGuardConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 29, 1, 1))
+tpIpSourceGuardLoggingConfig = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 29, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpIpSourceGuardLoggingConfig.setStatus('current')
+tpIpSourceGuardConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 29, 1, 1, 2), )
+if mibBuilder.loadTexts: tpIpSourceGuardConfigTable.setStatus('current')
+tpIpSourceGuardConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 29, 1, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: tpIpSourceGuardConfigEntry.setStatus('current')
+tpIpSourceGuardConfigPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 29, 1, 1, 2, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpSourceGuardConfigPort.setStatus('current')
+tpIpSourceGuardConfigType = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 29, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disable", 0), ("sip", 1), ("sip-mac", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpIpSourceGuardConfigType.setStatus('current')
+tpIpSourceGuardConfigPortLag = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 29, 1, 1, 2, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpSourceGuardConfigPortLag.setStatus('current')
+tpIpSourceGuardRxIllegalIpPacket = NotificationType((1, 3, 6, 1, 4, 1, 11863, 6, 29, 2, 1))
+if mibBuilder.loadTexts: tpIpSourceGuardRxIllegalIpPacket.setStatus('current')
+mibBuilder.exportSymbols("TPLINK-IP-SOURCE-GUARD-MIB", tpIpSourceGuardRxIllegalIpPacket=tpIpSourceGuardRxIllegalIpPacket, tpIpSourceGuardConfigTable=tpIpSourceGuardConfigTable, tpIpSourceGuardConfigEntry=tpIpSourceGuardConfigEntry, tpIpSourceGuardConfigPortLag=tpIpSourceGuardConfigPortLag, PYSNMP_MODULE_ID=tplinkIpSourceGuardMIB, tpIpSourceGuardConfigType=tpIpSourceGuardConfigType, tplinkIpSourceGuardMIB=tplinkIpSourceGuardMIB, tpIpSourceGuardConfigPort=tpIpSourceGuardConfigPort, tplinkIpSourceGuardMIBObjects=tplinkIpSourceGuardMIBObjects, tpIpSourceGuardConfig=tpIpSourceGuardConfig, tplinkIpSourceGuardNotifications=tplinkIpSourceGuardNotifications, tpIpSourceGuardLoggingConfig=tpIpSourceGuardLoggingConfig)

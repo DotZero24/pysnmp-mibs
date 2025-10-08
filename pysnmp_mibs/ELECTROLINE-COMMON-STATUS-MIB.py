@@ -1,40 +1,27 @@
-_C='Integer32'
-_B='current'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-commonStatus,electrolineCommon=mibBuilder.importSymbols('ELECTROLINE-COMMON-ROOT-MIB','commonStatus','electrolineCommon')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-commonLogicalID,commonPhysAddress=mibBuilder.importSymbols('SCTE-HMS-COMMON-MIB','commonLogicalID','commonPhysAddress')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-class _InternalTemperature_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-60,130))
-_InternalTemperature_Type.__name__=_C
-_InternalTemperature_Object=MibScalar
-internalTemperature=_InternalTemperature_Object((1,3,6,1,4,1,5802,1,3,1,4,3,1),_InternalTemperature_Type())
-internalTemperature.setMaxAccess(_A)
-if mibBuilder.loadTexts:internalTemperature.setStatus(_B)
-_InetNetworkAddressType_Type=InetAddressType
-_InetNetworkAddressType_Object=MibScalar
-inetNetworkAddressType=_InetNetworkAddressType_Object((1,3,6,1,4,1,5802,1,3,1,4,3,2),_InetNetworkAddressType_Type())
-inetNetworkAddressType.setMaxAccess(_A)
-if mibBuilder.loadTexts:inetNetworkAddressType.setStatus(_B)
-_InetNetworkAddress_Type=InetAddress
-_InetNetworkAddress_Object=MibScalar
-inetNetworkAddress=_InetNetworkAddress_Object((1,3,6,1,4,1,5802,1,3,1,4,3,3),_InetNetworkAddress_Type())
-inetNetworkAddress.setMaxAccess(_A)
-if mibBuilder.loadTexts:inetNetworkAddress.setStatus(_B)
-_InetMonitoringNetworkAddressType_Type=InetAddressType
-_InetMonitoringNetworkAddressType_Object=MibScalar
-inetMonitoringNetworkAddressType=_InetMonitoringNetworkAddressType_Object((1,3,6,1,4,1,5802,1,3,1,4,3,4),_InetMonitoringNetworkAddressType_Type())
-inetMonitoringNetworkAddressType.setMaxAccess(_A)
-if mibBuilder.loadTexts:inetMonitoringNetworkAddressType.setStatus(_B)
-_InetMonitoringNetworkAddress_Type=InetAddress
-_InetMonitoringNetworkAddress_Object=MibScalar
-inetMonitoringNetworkAddress=_InetMonitoringNetworkAddress_Object((1,3,6,1,4,1,5802,1,3,1,4,3,5),_InetMonitoringNetworkAddress_Type())
-inetMonitoringNetworkAddress.setMaxAccess(_A)
-if mibBuilder.loadTexts:inetMonitoringNetworkAddress.setStatus(_B)
-mibBuilder.exportSymbols('ELECTROLINE-COMMON-STATUS-MIB',**{'internalTemperature':internalTemperature,'inetNetworkAddressType':inetNetworkAddressType,'inetNetworkAddress':inetNetworkAddress,'inetMonitoringNetworkAddressType':inetMonitoringNetworkAddressType,'inetMonitoringNetworkAddress':inetMonitoringNetworkAddress})
+#
+# PySNMP MIB module ELECTROLINE-COMMON-STATUS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/electroline/ELECTROLINE-COMMON-STATUS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:12 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+commonStatus, electrolineCommon = mibBuilder.importSymbols("ELECTROLINE-COMMON-ROOT-MIB", "commonStatus", "electrolineCommon")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+commonLogicalID, commonPhysAddress = mibBuilder.importSymbols("SCTE-HMS-COMMON-MIB", "commonLogicalID", "commonPhysAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+internalTemperature = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 4, 3, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-60, 130))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: internalTemperature.setStatus('current')
+inetNetworkAddressType = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 4, 3, 2), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: inetNetworkAddressType.setStatus('current')
+inetNetworkAddress = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 4, 3, 3), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: inetNetworkAddress.setStatus('current')
+inetMonitoringNetworkAddressType = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 4, 3, 4), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: inetMonitoringNetworkAddressType.setStatus('current')
+inetMonitoringNetworkAddress = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 4, 3, 5), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: inetMonitoringNetworkAddress.setStatus('current')
+mibBuilder.exportSymbols("ELECTROLINE-COMMON-STATUS-MIB", inetNetworkAddressType=inetNetworkAddressType, inetNetworkAddress=inetNetworkAddress, inetMonitoringNetworkAddressType=inetMonitoringNetworkAddressType, inetMonitoringNetworkAddress=inetMonitoringNetworkAddress, internalTemperature=internalTemperature)

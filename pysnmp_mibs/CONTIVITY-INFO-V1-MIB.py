@@ -1,78 +1,43 @@
-_I='pingSrcAddress-ces'
-_H='pingPacketSize-ces'
-_G='pingRepetitions-ces'
-_F='pingAddress-ces'
-_E='Integer32'
-_D='not-accessible'
-_C='CONTIVITY-INFO-V1-MIB'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-contivity,=mibBuilder.importSymbols('NEWOAK-MIB','contivity')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-snmpAgentInfo_ces=ModuleIdentity((1,3,6,1,4,1,2505,1,15))
-if mibBuilder.loadTexts:snmpAgentInfo_ces.setRevisions(('1900-08-07 22:30',))
-_SnmpAgentInfo_Utilities_ces_ObjectIdentity=ObjectIdentity
-snmpAgentInfo_Utilities_ces=_SnmpAgentInfo_Utilities_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,15,1))
-_SnmpAgentInfo_Utilities_Ping_ces_ObjectIdentity=ObjectIdentity
-snmpAgentInfo_Utilities_Ping_ces=_SnmpAgentInfo_Utilities_Ping_ces_ObjectIdentity((1,3,6,1,4,1,2505,1,15,1,1))
-_SnmpAgentInfo_Utilities_RevDate_ces_Type=DisplayString
-_SnmpAgentInfo_Utilities_RevDate_ces_Object=MibScalar
-snmpAgentInfo_Utilities_RevDate_ces=_SnmpAgentInfo_Utilities_RevDate_ces_Object((1,3,6,1,4,1,2505,1,15,1,1,1),_SnmpAgentInfo_Utilities_RevDate_ces_Type())
-snmpAgentInfo_Utilities_RevDate_ces.setMaxAccess(_B)
-if mibBuilder.loadTexts:snmpAgentInfo_Utilities_RevDate_ces.setStatus(_A)
-_SnmpAgentInfo_Utilities_Rev_ces_Type=Integer32
-_SnmpAgentInfo_Utilities_Rev_ces_Object=MibScalar
-snmpAgentInfo_Utilities_Rev_ces=_SnmpAgentInfo_Utilities_Rev_ces_Object((1,3,6,1,4,1,2505,1,15,1,1,2),_SnmpAgentInfo_Utilities_Rev_ces_Type())
-snmpAgentInfo_Utilities_Rev_ces.setMaxAccess(_B)
-if mibBuilder.loadTexts:snmpAgentInfo_Utilities_Rev_ces.setStatus(_A)
-_SnmpAgentInfo_Utilities_ServerRev_ces_Type=DisplayString
-_SnmpAgentInfo_Utilities_ServerRev_ces_Object=MibScalar
-snmpAgentInfo_Utilities_ServerRev_ces=_SnmpAgentInfo_Utilities_ServerRev_ces_Object((1,3,6,1,4,1,2505,1,15,1,1,3),_SnmpAgentInfo_Utilities_ServerRev_ces_Type())
-snmpAgentInfo_Utilities_ServerRev_ces.setMaxAccess(_B)
-if mibBuilder.loadTexts:snmpAgentInfo_Utilities_ServerRev_ces.setStatus(_A)
-_PingAddress_ces_Type=IpAddress
-_PingAddress_ces_Object=MibScalar
-pingAddress_ces=_PingAddress_ces_Object((1,3,6,1,4,1,2505,1,15,1,1,4),_PingAddress_ces_Type())
-pingAddress_ces.setMaxAccess(_D)
-if mibBuilder.loadTexts:pingAddress_ces.setStatus(_A)
-class _PingRepetitions_ces_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_PingRepetitions_ces_Type.__name__=_E
-_PingRepetitions_ces_Object=MibScalar
-pingRepetitions_ces=_PingRepetitions_ces_Object((1,3,6,1,4,1,2505,1,15,1,1,5),_PingRepetitions_ces_Type())
-pingRepetitions_ces.setMaxAccess(_D)
-if mibBuilder.loadTexts:pingRepetitions_ces.setStatus(_A)
-class _PingPacketSize_ces_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(64,4076))
-_PingPacketSize_ces_Type.__name__=_E
-_PingPacketSize_ces_Object=MibScalar
-pingPacketSize_ces=_PingPacketSize_ces_Object((1,3,6,1,4,1,2505,1,15,1,1,6),_PingPacketSize_ces_Type())
-pingPacketSize_ces.setMaxAccess(_D)
-if mibBuilder.loadTexts:pingPacketSize_ces.setStatus(_A)
-_PingSrcAddress_ces_Type=IpAddress
-_PingSrcAddress_ces_Object=MibScalar
-pingSrcAddress_ces=_PingSrcAddress_ces_Object((1,3,6,1,4,1,2505,1,15,1,1,7),_PingSrcAddress_ces_Type())
-pingSrcAddress_ces.setMaxAccess(_D)
-if mibBuilder.loadTexts:pingSrcAddress_ces.setStatus(_A)
-_PingTable_ces_Object=MibTable
-pingTable_ces=_PingTable_ces_Object((1,3,6,1,4,1,2505,1,15,1,1,8))
-if mibBuilder.loadTexts:pingTable_ces.setStatus(_A)
-_PingEntry_ces_Object=MibTableRow
-pingEntry_ces=_PingEntry_ces_Object((1,3,6,1,4,1,2505,1,15,1,1,8,1))
-pingEntry_ces.setIndexNames((0,_C,_F),(0,_C,_G),(0,_C,_H),(0,_C,_I))
-if mibBuilder.loadTexts:pingEntry_ces.setStatus(_A)
-_PingAverageTime_ces_Type=Integer32
-_PingAverageTime_ces_Object=MibTableColumn
-pingAverageTime_ces=_PingAverageTime_ces_Object((1,3,6,1,4,1,2505,1,15,1,1,8,1,1),_PingAverageTime_ces_Type())
-pingAverageTime_ces.setMaxAccess(_B)
-if mibBuilder.loadTexts:pingAverageTime_ces.setStatus(_A)
-_PingPercentLoss_ces_Type=Integer32
-_PingPercentLoss_ces_Object=MibTableColumn
-pingPercentLoss_ces=_PingPercentLoss_ces_Object((1,3,6,1,4,1,2505,1,15,1,1,8,1,2),_PingPercentLoss_ces_Type())
-pingPercentLoss_ces.setMaxAccess(_B)
-if mibBuilder.loadTexts:pingPercentLoss_ces.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'snmpAgentInfo-ces':snmpAgentInfo_ces,'snmpAgentInfo-Utilities-ces':snmpAgentInfo_Utilities_ces,'snmpAgentInfo-Utilities-Ping-ces':snmpAgentInfo_Utilities_Ping_ces,'snmpAgentInfo-Utilities-RevDate-ces':snmpAgentInfo_Utilities_RevDate_ces,'snmpAgentInfo-Utilities-Rev-ces':snmpAgentInfo_Utilities_Rev_ces,'snmpAgentInfo-Utilities-ServerRev-ces':snmpAgentInfo_Utilities_ServerRev_ces,_F:pingAddress_ces,_G:pingRepetitions_ces,_H:pingPacketSize_ces,_I:pingSrcAddress_ces,'pingTable-ces':pingTable_ces,'pingEntry-ces':pingEntry_ces,'pingAverageTime-ces':pingAverageTime_ces,'pingPercentLoss-ces':pingPercentLoss_ces})
+#
+# PySNMP MIB module CONTIVITY-INFO-V1-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/CONTIVITY-INFO-V1-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+contivity, = mibBuilder.importSymbols("NEWOAK-MIB", "contivity")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+snmpAgentInfo_ces = ModuleIdentity((1, 3, 6, 1, 4, 1, 2505, 1, 15)).setLabel("snmpAgentInfo-ces")
+snmpAgentInfo_ces.setRevisions(('1900-08-07 22:30',))
+if mibBuilder.loadTexts: snmpAgentInfo_ces.setLastUpdated('0604062230Z')
+if mibBuilder.loadTexts: snmpAgentInfo_ces.setOrganization('Nortel')
+snmpAgentInfo_Utilities_ces = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1)).setLabel("snmpAgentInfo-Utilities-ces")
+snmpAgentInfo_Utilities_Ping_ces = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1, 1)).setLabel("snmpAgentInfo-Utilities-Ping-ces")
+snmpAgentInfo_Utilities_RevDate_ces = MibScalar((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1, 1, 1), DisplayString()).setLabel("snmpAgentInfo-Utilities-RevDate-ces").setMaxAccess("readonly")
+if mibBuilder.loadTexts: snmpAgentInfo_Utilities_RevDate_ces.setStatus('mandatory')
+snmpAgentInfo_Utilities_Rev_ces = MibScalar((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1, 1, 2), Integer32()).setLabel("snmpAgentInfo-Utilities-Rev-ces").setMaxAccess("readonly")
+if mibBuilder.loadTexts: snmpAgentInfo_Utilities_Rev_ces.setStatus('mandatory')
+snmpAgentInfo_Utilities_ServerRev_ces = MibScalar((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1, 1, 3), DisplayString()).setLabel("snmpAgentInfo-Utilities-ServerRev-ces").setMaxAccess("readonly")
+if mibBuilder.loadTexts: snmpAgentInfo_Utilities_ServerRev_ces.setStatus('mandatory')
+pingAddress_ces = MibScalar((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1, 1, 4), IpAddress()).setLabel("pingAddress-ces")
+if mibBuilder.loadTexts: pingAddress_ces.setStatus('mandatory')
+pingRepetitions_ces = MibScalar((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setLabel("pingRepetitions-ces")
+if mibBuilder.loadTexts: pingRepetitions_ces.setStatus('mandatory')
+pingPacketSize_ces = MibScalar((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(64, 4076))).setLabel("pingPacketSize-ces")
+if mibBuilder.loadTexts: pingPacketSize_ces.setStatus('mandatory')
+pingSrcAddress_ces = MibScalar((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1, 1, 7), IpAddress()).setLabel("pingSrcAddress-ces")
+if mibBuilder.loadTexts: pingSrcAddress_ces.setStatus('mandatory')
+pingTable_ces = MibTable((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1, 1, 8), ).setLabel("pingTable-ces")
+if mibBuilder.loadTexts: pingTable_ces.setStatus('mandatory')
+pingEntry_ces = MibTableRow((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1, 1, 8, 1), ).setLabel("pingEntry-ces").setIndexNames((0, "CONTIVITY-INFO-V1-MIB", "pingAddress-ces"), (0, "CONTIVITY-INFO-V1-MIB", "pingRepetitions-ces"), (0, "CONTIVITY-INFO-V1-MIB", "pingPacketSize-ces"), (0, "CONTIVITY-INFO-V1-MIB", "pingSrcAddress-ces"))
+if mibBuilder.loadTexts: pingEntry_ces.setStatus('mandatory')
+pingAverageTime_ces = MibScalar((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1, 1, 8, 1, 1), Integer32()).setLabel("pingAverageTime-ces").setMaxAccess("readonly")
+if mibBuilder.loadTexts: pingAverageTime_ces.setStatus('mandatory')
+pingPercentLoss_ces = MibScalar((1, 3, 6, 1, 4, 1, 2505, 1, 15, 1, 1, 8, 1, 2), Integer32()).setLabel("pingPercentLoss-ces").setMaxAccess("readonly")
+if mibBuilder.loadTexts: pingPercentLoss_ces.setStatus('mandatory')
+mibBuilder.exportSymbols("CONTIVITY-INFO-V1-MIB", snmpAgentInfo_Utilities_ces=snmpAgentInfo_Utilities_ces, pingRepetitions_ces=pingRepetitions_ces, pingSrcAddress_ces=pingSrcAddress_ces, pingAddress_ces=pingAddress_ces, PYSNMP_MODULE_ID=snmpAgentInfo_ces, pingEntry_ces=pingEntry_ces, snmpAgentInfo_Utilities_Rev_ces=snmpAgentInfo_Utilities_Rev_ces, pingPacketSize_ces=pingPacketSize_ces, snmpAgentInfo_Utilities_ServerRev_ces=snmpAgentInfo_Utilities_ServerRev_ces, pingPercentLoss_ces=pingPercentLoss_ces, snmpAgentInfo_Utilities_Ping_ces=snmpAgentInfo_Utilities_Ping_ces, pingAverageTime_ces=pingAverageTime_ces, pingTable_ces=pingTable_ces, snmpAgentInfo_ces=snmpAgentInfo_ces, snmpAgentInfo_Utilities_RevDate_ces=snmpAgentInfo_Utilities_RevDate_ces)

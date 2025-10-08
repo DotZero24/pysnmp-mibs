@@ -1,155 +1,70 @@
-_L='cienaCesLdpHelloAdjacencyIndex'
-_K='seconds'
-_J='cienaCesLdpPeerLdpId'
-_I='cienaCesLdpEntityIndex'
-_H='cienaCesLdpEntityLdpId'
-_G='Integer32'
-_F='not-accessible'
-_E='milliseconds'
-_D='CIENA-CES-LDP-MIB'
-_C='Unsigned32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-cienaCesConfig,cienaCesNotifications=mibBuilder.importSymbols('CIENA-SMI','cienaCesConfig','cienaCesNotifications')
-CienaGlobalState,=mibBuilder.importSymbols('CIENA-TC','CienaGlobalState')
-MplsLdpIdentifier,=mibBuilder.importSymbols('MPLS-TC-STD-MIB','MplsLdpIdentifier')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_C,'iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-cienaCesLdpMIB=ModuleIdentity((1,3,6,1,4,1,1271,2,1,17))
-if mibBuilder.loadTexts:cienaCesLdpMIB.setRevisions(('2017-06-07 00:00','2016-07-15 00:00','2016-07-13 00:00','2013-04-18 00:00','2011-02-02 00:00'))
-_CienaCesLdpMIBObjects_ObjectIdentity=ObjectIdentity
-cienaCesLdpMIBObjects=_CienaCesLdpMIBObjects_ObjectIdentity((1,3,6,1,4,1,1271,2,1,17,1))
-_CienaCesLdpObjects_ObjectIdentity=ObjectIdentity
-cienaCesLdpObjects=_CienaCesLdpObjects_ObjectIdentity((1,3,6,1,4,1,1271,2,1,17,1,1))
-_CienaCesLdpAdminStatus_Type=CienaGlobalState
-_CienaCesLdpAdminStatus_Object=MibScalar
-cienaCesLdpAdminStatus=_CienaCesLdpAdminStatus_Object((1,3,6,1,4,1,1271,2,1,17,1,1,1),_CienaCesLdpAdminStatus_Type())
-cienaCesLdpAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cienaCesLdpAdminStatus.setStatus(_A)
-class _CienaCesLdpOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('unknown',0),('up',1),('down',2)))
-_CienaCesLdpOperStatus_Type.__name__=_G
-_CienaCesLdpOperStatus_Object=MibScalar
-cienaCesLdpOperStatus=_CienaCesLdpOperStatus_Object((1,3,6,1,4,1,1271,2,1,17,1,1,2),_CienaCesLdpOperStatus_Type())
-cienaCesLdpOperStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cienaCesLdpOperStatus.setStatus(_A)
-class _CienaCesLdpHelloHoldTime_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CienaCesLdpHelloHoldTime_Type.__name__=_C
-_CienaCesLdpHelloHoldTime_Object=MibScalar
-cienaCesLdpHelloHoldTime=_CienaCesLdpHelloHoldTime_Object((1,3,6,1,4,1,1271,2,1,17,1,1,3),_CienaCesLdpHelloHoldTime_Type())
-cienaCesLdpHelloHoldTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cienaCesLdpHelloHoldTime.setStatus(_A)
-if mibBuilder.loadTexts:cienaCesLdpHelloHoldTime.setUnits(_K)
-class _CienaCesLdpKeepAliveHoldTime_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CienaCesLdpKeepAliveHoldTime_Type.__name__=_C
-_CienaCesLdpKeepAliveHoldTime_Object=MibScalar
-cienaCesLdpKeepAliveHoldTime=_CienaCesLdpKeepAliveHoldTime_Object((1,3,6,1,4,1,1271,2,1,17,1,1,4),_CienaCesLdpKeepAliveHoldTime_Type())
-cienaCesLdpKeepAliveHoldTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cienaCesLdpKeepAliveHoldTime.setStatus(_A)
-if mibBuilder.loadTexts:cienaCesLdpKeepAliveHoldTime.setUnits(_K)
-_CienaCesLdpGRAdminStatus_Type=CienaGlobalState
-_CienaCesLdpGRAdminStatus_Object=MibScalar
-cienaCesLdpGRAdminStatus=_CienaCesLdpGRAdminStatus_Object((1,3,6,1,4,1,1271,2,1,17,1,1,5),_CienaCesLdpGRAdminStatus_Type())
-cienaCesLdpGRAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cienaCesLdpGRAdminStatus.setStatus(_A)
-class _CienaCesLdpGRMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('helpNeighbor',1),('restartCapable',2),('notApplicable',3)))
-_CienaCesLdpGRMode_Type.__name__=_G
-_CienaCesLdpGRMode_Object=MibScalar
-cienaCesLdpGRMode=_CienaCesLdpGRMode_Object((1,3,6,1,4,1,1271,2,1,17,1,1,6),_CienaCesLdpGRMode_Type())
-cienaCesLdpGRMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cienaCesLdpGRMode.setStatus(_A)
-class _CienaCesLdpReconnectTime_Type(Unsigned32):defaultValue=60000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,600000))
-_CienaCesLdpReconnectTime_Type.__name__=_C
-_CienaCesLdpReconnectTime_Object=MibScalar
-cienaCesLdpReconnectTime=_CienaCesLdpReconnectTime_Object((1,3,6,1,4,1,1271,2,1,17,1,1,7),_CienaCesLdpReconnectTime_Type())
-cienaCesLdpReconnectTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cienaCesLdpReconnectTime.setStatus(_A)
-if mibBuilder.loadTexts:cienaCesLdpReconnectTime.setUnits(_E)
-class _CienaCesLdpRecoveryTime_Type(Unsigned32):defaultValue=180000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,600000))
-_CienaCesLdpRecoveryTime_Type.__name__=_C
-_CienaCesLdpRecoveryTime_Object=MibScalar
-cienaCesLdpRecoveryTime=_CienaCesLdpRecoveryTime_Object((1,3,6,1,4,1,1271,2,1,17,1,1,8),_CienaCesLdpRecoveryTime_Type())
-cienaCesLdpRecoveryTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cienaCesLdpRecoveryTime.setStatus(_A)
-if mibBuilder.loadTexts:cienaCesLdpRecoveryTime.setUnits(_E)
-class _CienaCesLdpMaxPeerReconnect_Type(Unsigned32):defaultValue=180000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,600000))
-_CienaCesLdpMaxPeerReconnect_Type.__name__=_C
-_CienaCesLdpMaxPeerReconnect_Object=MibScalar
-cienaCesLdpMaxPeerReconnect=_CienaCesLdpMaxPeerReconnect_Object((1,3,6,1,4,1,1271,2,1,17,1,1,9),_CienaCesLdpMaxPeerReconnect_Type())
-cienaCesLdpMaxPeerReconnect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cienaCesLdpMaxPeerReconnect.setStatus(_A)
-if mibBuilder.loadTexts:cienaCesLdpMaxPeerReconnect.setUnits(_E)
-class _CienaCesLdpMaxPeerRecovery_Type(Unsigned32):defaultValue=240000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,600000))
-_CienaCesLdpMaxPeerRecovery_Type.__name__=_C
-_CienaCesLdpMaxPeerRecovery_Object=MibScalar
-cienaCesLdpMaxPeerRecovery=_CienaCesLdpMaxPeerRecovery_Object((1,3,6,1,4,1,1271,2,1,17,1,1,10),_CienaCesLdpMaxPeerRecovery_Type())
-cienaCesLdpMaxPeerRecovery.setMaxAccess(_B)
-if mibBuilder.loadTexts:cienaCesLdpMaxPeerRecovery.setStatus(_A)
-if mibBuilder.loadTexts:cienaCesLdpMaxPeerRecovery.setUnits(_E)
-_CienaCesLdp_ObjectIdentity=ObjectIdentity
-cienaCesLdp=_CienaCesLdp_ObjectIdentity((1,3,6,1,4,1,1271,2,1,17,1,2))
-_CienaCesLdpSessionTable_Object=MibTable
-cienaCesLdpSessionTable=_CienaCesLdpSessionTable_Object((1,3,6,1,4,1,1271,2,1,17,1,2,1))
-if mibBuilder.loadTexts:cienaCesLdpSessionTable.setStatus(_A)
-_CienaCesLdpSessionEntry_Object=MibTableRow
-cienaCesLdpSessionEntry=_CienaCesLdpSessionEntry_Object((1,3,6,1,4,1,1271,2,1,17,1,2,1,1))
-cienaCesLdpSessionEntry.setIndexNames((0,_D,_H),(0,_D,_I),(0,_D,_J))
-if mibBuilder.loadTexts:cienaCesLdpSessionEntry.setStatus(_A)
-_CienaCesLdpEntityLdpId_Type=MplsLdpIdentifier
-_CienaCesLdpEntityLdpId_Object=MibTableColumn
-cienaCesLdpEntityLdpId=_CienaCesLdpEntityLdpId_Object((1,3,6,1,4,1,1271,2,1,17,1,2,1,1,1),_CienaCesLdpEntityLdpId_Type())
-cienaCesLdpEntityLdpId.setMaxAccess(_F)
-if mibBuilder.loadTexts:cienaCesLdpEntityLdpId.setStatus(_A)
-_CienaCesLdpEntityIndex_Type=Unsigned32
-_CienaCesLdpEntityIndex_Object=MibTableColumn
-cienaCesLdpEntityIndex=_CienaCesLdpEntityIndex_Object((1,3,6,1,4,1,1271,2,1,17,1,2,1,1,2),_CienaCesLdpEntityIndex_Type())
-cienaCesLdpEntityIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:cienaCesLdpEntityIndex.setStatus(_A)
-_CienaCesLdpPeerLdpId_Type=MplsLdpIdentifier
-_CienaCesLdpPeerLdpId_Object=MibTableColumn
-cienaCesLdpPeerLdpId=_CienaCesLdpPeerLdpId_Object((1,3,6,1,4,1,1271,2,1,17,1,2,1,1,3),_CienaCesLdpPeerLdpId_Type())
-cienaCesLdpPeerLdpId.setMaxAccess(_F)
-if mibBuilder.loadTexts:cienaCesLdpPeerLdpId.setStatus(_A)
-_CienaCesLdpSessionConfiguredHoldTime_Type=Unsigned32
-_CienaCesLdpSessionConfiguredHoldTime_Object=MibTableColumn
-cienaCesLdpSessionConfiguredHoldTime=_CienaCesLdpSessionConfiguredHoldTime_Object((1,3,6,1,4,1,1271,2,1,17,1,2,1,1,4),_CienaCesLdpSessionConfiguredHoldTime_Type())
-cienaCesLdpSessionConfiguredHoldTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cienaCesLdpSessionConfiguredHoldTime.setStatus(_A)
-_CienaCesLdpSessionPeerHoldTime_Type=Unsigned32
-_CienaCesLdpSessionPeerHoldTime_Object=MibTableColumn
-cienaCesLdpSessionPeerHoldTime=_CienaCesLdpSessionPeerHoldTime_Object((1,3,6,1,4,1,1271,2,1,17,1,2,1,1,5),_CienaCesLdpSessionPeerHoldTime_Type())
-cienaCesLdpSessionPeerHoldTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cienaCesLdpSessionPeerHoldTime.setStatus(_A)
-_CienaCesLdpSessionHoldTimeInUse_Type=Unsigned32
-_CienaCesLdpSessionHoldTimeInUse_Object=MibTableColumn
-cienaCesLdpSessionHoldTimeInUse=_CienaCesLdpSessionHoldTimeInUse_Object((1,3,6,1,4,1,1271,2,1,17,1,2,1,1,6),_CienaCesLdpSessionHoldTimeInUse_Type())
-cienaCesLdpSessionHoldTimeInUse.setMaxAccess(_B)
-if mibBuilder.loadTexts:cienaCesLdpSessionHoldTimeInUse.setStatus(_A)
-_CienaCesLdpHelloAdjacencyTable_Object=MibTable
-cienaCesLdpHelloAdjacencyTable=_CienaCesLdpHelloAdjacencyTable_Object((1,3,6,1,4,1,1271,2,1,17,1,2,2))
-if mibBuilder.loadTexts:cienaCesLdpHelloAdjacencyTable.setStatus(_A)
-_CienaCesLdpHelloAdjacencyEntry_Object=MibTableRow
-cienaCesLdpHelloAdjacencyEntry=_CienaCesLdpHelloAdjacencyEntry_Object((1,3,6,1,4,1,1271,2,1,17,1,2,2,1))
-cienaCesLdpHelloAdjacencyEntry.setIndexNames((0,_D,_H),(0,_D,_I),(0,_D,_J),(0,_D,_L))
-if mibBuilder.loadTexts:cienaCesLdpHelloAdjacencyEntry.setStatus(_A)
-class _CienaCesLdpHelloAdjacencyIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CienaCesLdpHelloAdjacencyIndex_Type.__name__=_C
-_CienaCesLdpHelloAdjacencyIndex_Object=MibTableColumn
-cienaCesLdpHelloAdjacencyIndex=_CienaCesLdpHelloAdjacencyIndex_Object((1,3,6,1,4,1,1271,2,1,17,1,2,2,1,1),_CienaCesLdpHelloAdjacencyIndex_Type())
-cienaCesLdpHelloAdjacencyIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:cienaCesLdpHelloAdjacencyIndex.setStatus(_A)
-_CienaCesLdpHelloAdjacencyConfiguredHoldTime_Type=Unsigned32
-_CienaCesLdpHelloAdjacencyConfiguredHoldTime_Object=MibTableColumn
-cienaCesLdpHelloAdjacencyConfiguredHoldTime=_CienaCesLdpHelloAdjacencyConfiguredHoldTime_Object((1,3,6,1,4,1,1271,2,1,17,1,2,2,1,2),_CienaCesLdpHelloAdjacencyConfiguredHoldTime_Type())
-cienaCesLdpHelloAdjacencyConfiguredHoldTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cienaCesLdpHelloAdjacencyConfiguredHoldTime.setStatus(_A)
-_CienaCesLdpHelloAdjacencyPeerHoldTime_Type=Unsigned32
-_CienaCesLdpHelloAdjacencyPeerHoldTime_Object=MibTableColumn
-cienaCesLdpHelloAdjacencyPeerHoldTime=_CienaCesLdpHelloAdjacencyPeerHoldTime_Object((1,3,6,1,4,1,1271,2,1,17,1,2,2,1,3),_CienaCesLdpHelloAdjacencyPeerHoldTime_Type())
-cienaCesLdpHelloAdjacencyPeerHoldTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cienaCesLdpHelloAdjacencyPeerHoldTime.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'cienaCesLdpMIB':cienaCesLdpMIB,'cienaCesLdpMIBObjects':cienaCesLdpMIBObjects,'cienaCesLdpObjects':cienaCesLdpObjects,'cienaCesLdpAdminStatus':cienaCesLdpAdminStatus,'cienaCesLdpOperStatus':cienaCesLdpOperStatus,'cienaCesLdpHelloHoldTime':cienaCesLdpHelloHoldTime,'cienaCesLdpKeepAliveHoldTime':cienaCesLdpKeepAliveHoldTime,'cienaCesLdpGRAdminStatus':cienaCesLdpGRAdminStatus,'cienaCesLdpGRMode':cienaCesLdpGRMode,'cienaCesLdpReconnectTime':cienaCesLdpReconnectTime,'cienaCesLdpRecoveryTime':cienaCesLdpRecoveryTime,'cienaCesLdpMaxPeerReconnect':cienaCesLdpMaxPeerReconnect,'cienaCesLdpMaxPeerRecovery':cienaCesLdpMaxPeerRecovery,'cienaCesLdp':cienaCesLdp,'cienaCesLdpSessionTable':cienaCesLdpSessionTable,'cienaCesLdpSessionEntry':cienaCesLdpSessionEntry,_H:cienaCesLdpEntityLdpId,_I:cienaCesLdpEntityIndex,_J:cienaCesLdpPeerLdpId,'cienaCesLdpSessionConfiguredHoldTime':cienaCesLdpSessionConfiguredHoldTime,'cienaCesLdpSessionPeerHoldTime':cienaCesLdpSessionPeerHoldTime,'cienaCesLdpSessionHoldTimeInUse':cienaCesLdpSessionHoldTimeInUse,'cienaCesLdpHelloAdjacencyTable':cienaCesLdpHelloAdjacencyTable,'cienaCesLdpHelloAdjacencyEntry':cienaCesLdpHelloAdjacencyEntry,_L:cienaCesLdpHelloAdjacencyIndex,'cienaCesLdpHelloAdjacencyConfiguredHoldTime':cienaCesLdpHelloAdjacencyConfiguredHoldTime,'cienaCesLdpHelloAdjacencyPeerHoldTime':cienaCesLdpHelloAdjacencyPeerHoldTime})
+#
+# PySNMP MIB module CIENA-CES-LDP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/CIENA-CES-LDP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:12 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cienaCesConfig, cienaCesNotifications = mibBuilder.importSymbols("CIENA-SMI", "cienaCesConfig", "cienaCesNotifications")
+CienaGlobalState, = mibBuilder.importSymbols("CIENA-TC", "CienaGlobalState")
+MplsLdpIdentifier, = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "MplsLdpIdentifier")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+cienaCesLdpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17))
+cienaCesLdpMIB.setRevisions(('2017-06-07 00:00', '2016-07-15 00:00', '2016-07-13 00:00', '2013-04-18 00:00', '2011-02-02 00:00',))
+if mibBuilder.loadTexts: cienaCesLdpMIB.setLastUpdated('201706070000Z')
+if mibBuilder.loadTexts: cienaCesLdpMIB.setOrganization('Ciena Corp.')
+cienaCesLdpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1))
+cienaCesLdpObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 1))
+cienaCesLdp = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 2))
+cienaCesLdpAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 1, 1), CienaGlobalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cienaCesLdpAdminStatus.setStatus('current')
+cienaCesLdpOperStatus = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("unknown", 0), ("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cienaCesLdpOperStatus.setStatus('current')
+cienaCesLdpHelloHoldTime = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cienaCesLdpHelloHoldTime.setStatus('current')
+cienaCesLdpKeepAliveHoldTime = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cienaCesLdpKeepAliveHoldTime.setStatus('current')
+cienaCesLdpGRAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 1, 5), CienaGlobalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cienaCesLdpGRAdminStatus.setStatus('current')
+cienaCesLdpGRMode = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("helpNeighbor", 1), ("restartCapable", 2), ("notApplicable", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cienaCesLdpGRMode.setStatus('current')
+cienaCesLdpReconnectTime = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 600000)).clone(60000)).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cienaCesLdpReconnectTime.setStatus('current')
+cienaCesLdpRecoveryTime = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 600000)).clone(180000)).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cienaCesLdpRecoveryTime.setStatus('current')
+cienaCesLdpMaxPeerReconnect = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 600000)).clone(180000)).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cienaCesLdpMaxPeerReconnect.setStatus('current')
+cienaCesLdpMaxPeerRecovery = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 600000)).clone(240000)).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cienaCesLdpMaxPeerRecovery.setStatus('current')
+cienaCesLdpSessionTable = MibTable((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 2, 1), )
+if mibBuilder.loadTexts: cienaCesLdpSessionTable.setStatus('current')
+cienaCesLdpSessionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 2, 1, 1), ).setIndexNames((0, "CIENA-CES-LDP-MIB", "cienaCesLdpEntityLdpId"), (0, "CIENA-CES-LDP-MIB", "cienaCesLdpEntityIndex"), (0, "CIENA-CES-LDP-MIB", "cienaCesLdpPeerLdpId"))
+if mibBuilder.loadTexts: cienaCesLdpSessionEntry.setStatus('current')
+cienaCesLdpEntityLdpId = MibTableColumn((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 2, 1, 1, 1), MplsLdpIdentifier())
+if mibBuilder.loadTexts: cienaCesLdpEntityLdpId.setStatus('current')
+cienaCesLdpEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 2, 1, 1, 2), Unsigned32())
+if mibBuilder.loadTexts: cienaCesLdpEntityIndex.setStatus('current')
+cienaCesLdpPeerLdpId = MibTableColumn((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 2, 1, 1, 3), MplsLdpIdentifier())
+if mibBuilder.loadTexts: cienaCesLdpPeerLdpId.setStatus('current')
+cienaCesLdpSessionConfiguredHoldTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 2, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cienaCesLdpSessionConfiguredHoldTime.setStatus('current')
+cienaCesLdpSessionPeerHoldTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 2, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cienaCesLdpSessionPeerHoldTime.setStatus('current')
+cienaCesLdpSessionHoldTimeInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 2, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cienaCesLdpSessionHoldTimeInUse.setStatus('current')
+cienaCesLdpHelloAdjacencyTable = MibTable((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 2, 2), )
+if mibBuilder.loadTexts: cienaCesLdpHelloAdjacencyTable.setStatus('current')
+cienaCesLdpHelloAdjacencyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 2, 2, 1), ).setIndexNames((0, "CIENA-CES-LDP-MIB", "cienaCesLdpEntityLdpId"), (0, "CIENA-CES-LDP-MIB", "cienaCesLdpEntityIndex"), (0, "CIENA-CES-LDP-MIB", "cienaCesLdpPeerLdpId"), (0, "CIENA-CES-LDP-MIB", "cienaCesLdpHelloAdjacencyIndex"))
+if mibBuilder.loadTexts: cienaCesLdpHelloAdjacencyEntry.setStatus('current')
+cienaCesLdpHelloAdjacencyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 2, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cienaCesLdpHelloAdjacencyIndex.setStatus('current')
+cienaCesLdpHelloAdjacencyConfiguredHoldTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 2, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cienaCesLdpHelloAdjacencyConfiguredHoldTime.setStatus('current')
+cienaCesLdpHelloAdjacencyPeerHoldTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1271, 2, 1, 17, 1, 2, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cienaCesLdpHelloAdjacencyPeerHoldTime.setStatus('current')
+mibBuilder.exportSymbols("CIENA-CES-LDP-MIB", cienaCesLdpHelloAdjacencyConfiguredHoldTime=cienaCesLdpHelloAdjacencyConfiguredHoldTime, cienaCesLdpOperStatus=cienaCesLdpOperStatus, cienaCesLdp=cienaCesLdp, cienaCesLdpHelloAdjacencyTable=cienaCesLdpHelloAdjacencyTable, cienaCesLdpMaxPeerReconnect=cienaCesLdpMaxPeerReconnect, cienaCesLdpObjects=cienaCesLdpObjects, cienaCesLdpSessionEntry=cienaCesLdpSessionEntry, cienaCesLdpRecoveryTime=cienaCesLdpRecoveryTime, cienaCesLdpSessionTable=cienaCesLdpSessionTable, PYSNMP_MODULE_ID=cienaCesLdpMIB, cienaCesLdpMIBObjects=cienaCesLdpMIBObjects, cienaCesLdpMIB=cienaCesLdpMIB, cienaCesLdpGRMode=cienaCesLdpGRMode, cienaCesLdpPeerLdpId=cienaCesLdpPeerLdpId, cienaCesLdpSessionHoldTimeInUse=cienaCesLdpSessionHoldTimeInUse, cienaCesLdpSessionConfiguredHoldTime=cienaCesLdpSessionConfiguredHoldTime, cienaCesLdpAdminStatus=cienaCesLdpAdminStatus, cienaCesLdpHelloAdjacencyEntry=cienaCesLdpHelloAdjacencyEntry, cienaCesLdpHelloAdjacencyPeerHoldTime=cienaCesLdpHelloAdjacencyPeerHoldTime, cienaCesLdpKeepAliveHoldTime=cienaCesLdpKeepAliveHoldTime, cienaCesLdpEntityLdpId=cienaCesLdpEntityLdpId, cienaCesLdpGRAdminStatus=cienaCesLdpGRAdminStatus, cienaCesLdpMaxPeerRecovery=cienaCesLdpMaxPeerRecovery, cienaCesLdpEntityIndex=cienaCesLdpEntityIndex, cienaCesLdpSessionPeerHoldTime=cienaCesLdpSessionPeerHoldTime, cienaCesLdpHelloHoldTime=cienaCesLdpHelloHoldTime, cienaCesLdpReconnectTime=cienaCesLdpReconnectTime, cienaCesLdpHelloAdjacencyIndex=cienaCesLdpHelloAdjacencyIndex)

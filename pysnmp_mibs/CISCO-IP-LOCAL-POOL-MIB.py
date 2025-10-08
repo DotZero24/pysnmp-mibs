@@ -1,283 +1,152 @@
-_s='ciscoIpLocalPoolPriorityGroup'
-_r='deprecated'
-_q='cilpPercentAddrUsedHiNotif'
-_p='cilpPercentAddrUsedLoNotif'
-_o='ciscoIpLocalPoolInUseAddrNoti'
-_n='cIpLocalPoolPriority'
-_m='cIpLocalPoolPercentAddrThldHi'
-_l='cIpLocalPoolPercentAddrThldLo'
-_k='cIpLocalPoolAllocUser'
-_j='cIpLocalPoolAllocIfIndex'
-_i='cIpLocalPoolStatInUseAddrThldHi'
-_h='cIpLocalPoolStatInUseAddrThldLo'
-_g='cIpLocalPoolStatHiWaterUsedAddrs'
-_f='cIpLocalPoolGroupInUseAddrs'
-_e='cIpLocalPoolGroupFreeAddrs'
-_d='cIpLocalPoolRowStatus'
-_c='cIpLocalPoolGroupContainedIn'
-_b='cIpLocalPoolInUseAddrs'
-_a='cIpLocalPoolFreeAddrs'
-_Z='cIpLocalPoolAddressHi'
-_Y='cIpLocalPoolNotificationsEnable'
-_X='cIpLocalPoolAllocAddr'
-_W='cIpLocalPoolAllocAddrType'
-_V='CIpLocalPoolGroupNameOrNull'
-_U='cIpLocalPoolAddressLo'
-_T='cIpLocalPoolAddrType'
-_S='ciscoIpLocalPoolNotifGroupSup1'
-_R='ciscoIpLocalPoolStatsGroupSup1'
-_Q='ciscoIpLocalPoolNotifGroup'
-_P='CIpLocalPoolPercentage'
-_O='cIpLocalPoolChildIndex'
-_N='cIpLocalPoolGroupName'
-_M='ciscoIpLocalPoolGroupGroup'
-_L='ciscoIpLocalPoolStatsGroup'
-_K='ciscoIpLocalPoolConfigGroup'
-_J='read-create'
-_I='cIpLocalPoolName'
-_H='Unsigned32'
-_G='cIpLocalPoolStatInUseAddrs'
-_F='cIpLocalPoolStatFreeAddrs'
-_E='not-accessible'
-_D='read-write'
-_C='read-only'
-_B='current'
-_A='CISCO-IP-LOCAL-POOL-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB','InterfaceIndexOrZero')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_H,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-ciscoIpLocalPoolMIB=ModuleIdentity((1,3,6,1,4,1,9,9,326))
-if mibBuilder.loadTexts:ciscoIpLocalPoolMIB.setRevisions(('2007-11-12 00:00','2005-01-11 00:00','2003-04-03 20:00'))
-class CIpLocalPoolName(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,48))
-class CIpLocalPoolGroupNameOrNull(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,48))
-class CIpLocalPoolPercentage(TextualConvention,Gauge32):status=_B;displayHint='d-2';subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_CiscoIpLocalPoolMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoIpLocalPoolMIBNotifs=_CiscoIpLocalPoolMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,326,0))
-_CiscoIpLocalPoolMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoIpLocalPoolMIBObjects=_CiscoIpLocalPoolMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,326,1))
-_CIpLocalPoolConfig_ObjectIdentity=ObjectIdentity
-cIpLocalPoolConfig=_CIpLocalPoolConfig_ObjectIdentity((1,3,6,1,4,1,9,9,326,1,1))
-_CIpLocalPoolNotificationsEnable_Type=TruthValue
-_CIpLocalPoolNotificationsEnable_Object=MibScalar
-cIpLocalPoolNotificationsEnable=_CIpLocalPoolNotificationsEnable_Object((1,3,6,1,4,1,9,9,326,1,1,1),_CIpLocalPoolNotificationsEnable_Type())
-cIpLocalPoolNotificationsEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:cIpLocalPoolNotificationsEnable.setStatus(_B)
-_CIpLocalPoolConfigTable_Object=MibTable
-cIpLocalPoolConfigTable=_CIpLocalPoolConfigTable_Object((1,3,6,1,4,1,9,9,326,1,1,2))
-if mibBuilder.loadTexts:cIpLocalPoolConfigTable.setStatus(_B)
-_CIpLocalPoolConfigEntry_Object=MibTableRow
-cIpLocalPoolConfigEntry=_CIpLocalPoolConfigEntry_Object((1,3,6,1,4,1,9,9,326,1,1,2,1))
-cIpLocalPoolConfigEntry.setIndexNames((0,_A,_I),(0,_A,_T),(0,_A,_U))
-if mibBuilder.loadTexts:cIpLocalPoolConfigEntry.setStatus(_B)
-_CIpLocalPoolName_Type=CIpLocalPoolName
-_CIpLocalPoolName_Object=MibTableColumn
-cIpLocalPoolName=_CIpLocalPoolName_Object((1,3,6,1,4,1,9,9,326,1,1,2,1,1),_CIpLocalPoolName_Type())
-cIpLocalPoolName.setMaxAccess(_E)
-if mibBuilder.loadTexts:cIpLocalPoolName.setStatus(_B)
-_CIpLocalPoolAddrType_Type=InetAddressType
-_CIpLocalPoolAddrType_Object=MibTableColumn
-cIpLocalPoolAddrType=_CIpLocalPoolAddrType_Object((1,3,6,1,4,1,9,9,326,1,1,2,1,2),_CIpLocalPoolAddrType_Type())
-cIpLocalPoolAddrType.setMaxAccess(_E)
-if mibBuilder.loadTexts:cIpLocalPoolAddrType.setStatus(_B)
-_CIpLocalPoolAddressLo_Type=InetAddress
-_CIpLocalPoolAddressLo_Object=MibTableColumn
-cIpLocalPoolAddressLo=_CIpLocalPoolAddressLo_Object((1,3,6,1,4,1,9,9,326,1,1,2,1,3),_CIpLocalPoolAddressLo_Type())
-cIpLocalPoolAddressLo.setMaxAccess(_E)
-if mibBuilder.loadTexts:cIpLocalPoolAddressLo.setStatus(_B)
-_CIpLocalPoolAddressHi_Type=InetAddress
-_CIpLocalPoolAddressHi_Object=MibTableColumn
-cIpLocalPoolAddressHi=_CIpLocalPoolAddressHi_Object((1,3,6,1,4,1,9,9,326,1,1,2,1,4),_CIpLocalPoolAddressHi_Type())
-cIpLocalPoolAddressHi.setMaxAccess(_J)
-if mibBuilder.loadTexts:cIpLocalPoolAddressHi.setStatus(_B)
-_CIpLocalPoolFreeAddrs_Type=Gauge32
-_CIpLocalPoolFreeAddrs_Object=MibTableColumn
-cIpLocalPoolFreeAddrs=_CIpLocalPoolFreeAddrs_Object((1,3,6,1,4,1,9,9,326,1,1,2,1,5),_CIpLocalPoolFreeAddrs_Type())
-cIpLocalPoolFreeAddrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIpLocalPoolFreeAddrs.setStatus(_B)
-_CIpLocalPoolInUseAddrs_Type=Gauge32
-_CIpLocalPoolInUseAddrs_Object=MibTableColumn
-cIpLocalPoolInUseAddrs=_CIpLocalPoolInUseAddrs_Object((1,3,6,1,4,1,9,9,326,1,1,2,1,6),_CIpLocalPoolInUseAddrs_Type())
-cIpLocalPoolInUseAddrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIpLocalPoolInUseAddrs.setStatus(_B)
-class _CIpLocalPoolGroupContainedIn_Type(CIpLocalPoolGroupNameOrNull):defaultValue=OctetString('')
-_CIpLocalPoolGroupContainedIn_Type.__name__=_V
-_CIpLocalPoolGroupContainedIn_Object=MibTableColumn
-cIpLocalPoolGroupContainedIn=_CIpLocalPoolGroupContainedIn_Object((1,3,6,1,4,1,9,9,326,1,1,2,1,7),_CIpLocalPoolGroupContainedIn_Type())
-cIpLocalPoolGroupContainedIn.setMaxAccess(_J)
-if mibBuilder.loadTexts:cIpLocalPoolGroupContainedIn.setStatus(_B)
-_CIpLocalPoolRowStatus_Type=RowStatus
-_CIpLocalPoolRowStatus_Object=MibTableColumn
-cIpLocalPoolRowStatus=_CIpLocalPoolRowStatus_Object((1,3,6,1,4,1,9,9,326,1,1,2,1,8),_CIpLocalPoolRowStatus_Type())
-cIpLocalPoolRowStatus.setMaxAccess(_J)
-if mibBuilder.loadTexts:cIpLocalPoolRowStatus.setStatus(_B)
-class _CIpLocalPoolPriority_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_CIpLocalPoolPriority_Type.__name__=_H
-_CIpLocalPoolPriority_Object=MibTableColumn
-cIpLocalPoolPriority=_CIpLocalPoolPriority_Object((1,3,6,1,4,1,9,9,326,1,1,2,1,9),_CIpLocalPoolPriority_Type())
-cIpLocalPoolPriority.setMaxAccess(_J)
-if mibBuilder.loadTexts:cIpLocalPoolPriority.setStatus(_B)
-_CIpLocalPoolGroup_ObjectIdentity=ObjectIdentity
-cIpLocalPoolGroup=_CIpLocalPoolGroup_ObjectIdentity((1,3,6,1,4,1,9,9,326,1,2))
-_CIpLocalPoolGroupContainsTable_Object=MibTable
-cIpLocalPoolGroupContainsTable=_CIpLocalPoolGroupContainsTable_Object((1,3,6,1,4,1,9,9,326,1,2,1))
-if mibBuilder.loadTexts:cIpLocalPoolGroupContainsTable.setStatus(_B)
-_CIpLocalPoolGroupContainsEntry_Object=MibTableRow
-cIpLocalPoolGroupContainsEntry=_CIpLocalPoolGroupContainsEntry_Object((1,3,6,1,4,1,9,9,326,1,2,1,1))
-cIpLocalPoolGroupContainsEntry.setIndexNames((0,_A,_N),(0,_A,_O))
-if mibBuilder.loadTexts:cIpLocalPoolGroupContainsEntry.setStatus(_B)
-_CIpLocalPoolGroupName_Type=CIpLocalPoolGroupNameOrNull
-_CIpLocalPoolGroupName_Object=MibTableColumn
-cIpLocalPoolGroupName=_CIpLocalPoolGroupName_Object((1,3,6,1,4,1,9,9,326,1,2,1,1,1),_CIpLocalPoolGroupName_Type())
-cIpLocalPoolGroupName.setMaxAccess(_E)
-if mibBuilder.loadTexts:cIpLocalPoolGroupName.setStatus(_B)
-_CIpLocalPoolChildIndex_Type=CIpLocalPoolName
-_CIpLocalPoolChildIndex_Object=MibTableColumn
-cIpLocalPoolChildIndex=_CIpLocalPoolChildIndex_Object((1,3,6,1,4,1,9,9,326,1,2,1,1,2),_CIpLocalPoolChildIndex_Type())
-cIpLocalPoolChildIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIpLocalPoolChildIndex.setStatus(_B)
-_CIpLocalPoolGroupTable_Object=MibTable
-cIpLocalPoolGroupTable=_CIpLocalPoolGroupTable_Object((1,3,6,1,4,1,9,9,326,1,2,2))
-if mibBuilder.loadTexts:cIpLocalPoolGroupTable.setStatus(_B)
-_CIpLocalPoolGroupEntry_Object=MibTableRow
-cIpLocalPoolGroupEntry=_CIpLocalPoolGroupEntry_Object((1,3,6,1,4,1,9,9,326,1,2,2,1))
-cIpLocalPoolGroupEntry.setIndexNames((0,_A,_N))
-if mibBuilder.loadTexts:cIpLocalPoolGroupEntry.setStatus(_B)
-_CIpLocalPoolGroupFreeAddrs_Type=Gauge32
-_CIpLocalPoolGroupFreeAddrs_Object=MibTableColumn
-cIpLocalPoolGroupFreeAddrs=_CIpLocalPoolGroupFreeAddrs_Object((1,3,6,1,4,1,9,9,326,1,2,2,1,1),_CIpLocalPoolGroupFreeAddrs_Type())
-cIpLocalPoolGroupFreeAddrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIpLocalPoolGroupFreeAddrs.setStatus(_B)
-_CIpLocalPoolGroupInUseAddrs_Type=Gauge32
-_CIpLocalPoolGroupInUseAddrs_Object=MibTableColumn
-cIpLocalPoolGroupInUseAddrs=_CIpLocalPoolGroupInUseAddrs_Object((1,3,6,1,4,1,9,9,326,1,2,2,1,2),_CIpLocalPoolGroupInUseAddrs_Type())
-cIpLocalPoolGroupInUseAddrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIpLocalPoolGroupInUseAddrs.setStatus(_B)
-_CIpLocalPoolStats_ObjectIdentity=ObjectIdentity
-cIpLocalPoolStats=_CIpLocalPoolStats_ObjectIdentity((1,3,6,1,4,1,9,9,326,1,3))
-_CIpLocalPoolStatsTable_Object=MibTable
-cIpLocalPoolStatsTable=_CIpLocalPoolStatsTable_Object((1,3,6,1,4,1,9,9,326,1,3,1))
-if mibBuilder.loadTexts:cIpLocalPoolStatsTable.setStatus(_B)
-_CIpLocalPoolStatsEntry_Object=MibTableRow
-cIpLocalPoolStatsEntry=_CIpLocalPoolStatsEntry_Object((1,3,6,1,4,1,9,9,326,1,3,1,1))
-cIpLocalPoolStatsEntry.setIndexNames((0,_A,_I))
-if mibBuilder.loadTexts:cIpLocalPoolStatsEntry.setStatus(_B)
-_CIpLocalPoolStatFreeAddrs_Type=Gauge32
-_CIpLocalPoolStatFreeAddrs_Object=MibTableColumn
-cIpLocalPoolStatFreeAddrs=_CIpLocalPoolStatFreeAddrs_Object((1,3,6,1,4,1,9,9,326,1,3,1,1,1),_CIpLocalPoolStatFreeAddrs_Type())
-cIpLocalPoolStatFreeAddrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIpLocalPoolStatFreeAddrs.setStatus(_B)
-_CIpLocalPoolStatInUseAddrs_Type=Gauge32
-_CIpLocalPoolStatInUseAddrs_Object=MibTableColumn
-cIpLocalPoolStatInUseAddrs=_CIpLocalPoolStatInUseAddrs_Object((1,3,6,1,4,1,9,9,326,1,3,1,1,2),_CIpLocalPoolStatInUseAddrs_Type())
-cIpLocalPoolStatInUseAddrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIpLocalPoolStatInUseAddrs.setStatus(_B)
-_CIpLocalPoolStatHiWaterUsedAddrs_Type=Unsigned32
-_CIpLocalPoolStatHiWaterUsedAddrs_Object=MibTableColumn
-cIpLocalPoolStatHiWaterUsedAddrs=_CIpLocalPoolStatHiWaterUsedAddrs_Object((1,3,6,1,4,1,9,9,326,1,3,1,1,3),_CIpLocalPoolStatHiWaterUsedAddrs_Type())
-cIpLocalPoolStatHiWaterUsedAddrs.setMaxAccess(_D)
-if mibBuilder.loadTexts:cIpLocalPoolStatHiWaterUsedAddrs.setStatus(_B)
-class _CIpLocalPoolStatInUseAddrThldLo_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CIpLocalPoolStatInUseAddrThldLo_Type.__name__=_H
-_CIpLocalPoolStatInUseAddrThldLo_Object=MibTableColumn
-cIpLocalPoolStatInUseAddrThldLo=_CIpLocalPoolStatInUseAddrThldLo_Object((1,3,6,1,4,1,9,9,326,1,3,1,1,4),_CIpLocalPoolStatInUseAddrThldLo_Type())
-cIpLocalPoolStatInUseAddrThldLo.setMaxAccess(_D)
-if mibBuilder.loadTexts:cIpLocalPoolStatInUseAddrThldLo.setStatus(_B)
-class _CIpLocalPoolStatInUseAddrThldHi_Type(Unsigned32):defaultValue=4294967295;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CIpLocalPoolStatInUseAddrThldHi_Type.__name__=_H
-_CIpLocalPoolStatInUseAddrThldHi_Object=MibTableColumn
-cIpLocalPoolStatInUseAddrThldHi=_CIpLocalPoolStatInUseAddrThldHi_Object((1,3,6,1,4,1,9,9,326,1,3,1,1,5),_CIpLocalPoolStatInUseAddrThldHi_Type())
-cIpLocalPoolStatInUseAddrThldHi.setMaxAccess(_D)
-if mibBuilder.loadTexts:cIpLocalPoolStatInUseAddrThldHi.setStatus(_B)
-class _CIpLocalPoolPercentAddrThldLo_Type(CIpLocalPoolPercentage):defaultValue=0
-_CIpLocalPoolPercentAddrThldLo_Type.__name__=_P
-_CIpLocalPoolPercentAddrThldLo_Object=MibTableColumn
-cIpLocalPoolPercentAddrThldLo=_CIpLocalPoolPercentAddrThldLo_Object((1,3,6,1,4,1,9,9,326,1,3,1,1,6),_CIpLocalPoolPercentAddrThldLo_Type())
-cIpLocalPoolPercentAddrThldLo.setMaxAccess(_D)
-if mibBuilder.loadTexts:cIpLocalPoolPercentAddrThldLo.setStatus(_B)
-class _CIpLocalPoolPercentAddrThldHi_Type(CIpLocalPoolPercentage):defaultValue=100
-_CIpLocalPoolPercentAddrThldHi_Type.__name__=_P
-_CIpLocalPoolPercentAddrThldHi_Object=MibTableColumn
-cIpLocalPoolPercentAddrThldHi=_CIpLocalPoolPercentAddrThldHi_Object((1,3,6,1,4,1,9,9,326,1,3,1,1,7),_CIpLocalPoolPercentAddrThldHi_Type())
-cIpLocalPoolPercentAddrThldHi.setMaxAccess(_D)
-if mibBuilder.loadTexts:cIpLocalPoolPercentAddrThldHi.setStatus(_B)
-_CIpLocalPoolAllocTable_Object=MibTable
-cIpLocalPoolAllocTable=_CIpLocalPoolAllocTable_Object((1,3,6,1,4,1,9,9,326,1,3,2))
-if mibBuilder.loadTexts:cIpLocalPoolAllocTable.setStatus(_B)
-_CIpLocalPoolAllocEntry_Object=MibTableRow
-cIpLocalPoolAllocEntry=_CIpLocalPoolAllocEntry_Object((1,3,6,1,4,1,9,9,326,1,3,2,1))
-cIpLocalPoolAllocEntry.setIndexNames((0,_A,_I),(0,_A,_W),(0,_A,_X))
-if mibBuilder.loadTexts:cIpLocalPoolAllocEntry.setStatus(_B)
-_CIpLocalPoolAllocAddrType_Type=InetAddressType
-_CIpLocalPoolAllocAddrType_Object=MibTableColumn
-cIpLocalPoolAllocAddrType=_CIpLocalPoolAllocAddrType_Object((1,3,6,1,4,1,9,9,326,1,3,2,1,1),_CIpLocalPoolAllocAddrType_Type())
-cIpLocalPoolAllocAddrType.setMaxAccess(_E)
-if mibBuilder.loadTexts:cIpLocalPoolAllocAddrType.setStatus(_B)
-_CIpLocalPoolAllocAddr_Type=InetAddress
-_CIpLocalPoolAllocAddr_Object=MibTableColumn
-cIpLocalPoolAllocAddr=_CIpLocalPoolAllocAddr_Object((1,3,6,1,4,1,9,9,326,1,3,2,1,2),_CIpLocalPoolAllocAddr_Type())
-cIpLocalPoolAllocAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:cIpLocalPoolAllocAddr.setStatus(_B)
-_CIpLocalPoolAllocIfIndex_Type=InterfaceIndexOrZero
-_CIpLocalPoolAllocIfIndex_Object=MibTableColumn
-cIpLocalPoolAllocIfIndex=_CIpLocalPoolAllocIfIndex_Object((1,3,6,1,4,1,9,9,326,1,3,2,1,3),_CIpLocalPoolAllocIfIndex_Type())
-cIpLocalPoolAllocIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIpLocalPoolAllocIfIndex.setStatus(_B)
-_CIpLocalPoolAllocUser_Type=SnmpAdminString
-_CIpLocalPoolAllocUser_Object=MibTableColumn
-cIpLocalPoolAllocUser=_CIpLocalPoolAllocUser_Object((1,3,6,1,4,1,9,9,326,1,3,2,1,4),_CIpLocalPoolAllocUser_Type())
-cIpLocalPoolAllocUser.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIpLocalPoolAllocUser.setStatus(_B)
-_CiscoIpLocalPoolMIBConform_ObjectIdentity=ObjectIdentity
-ciscoIpLocalPoolMIBConform=_CiscoIpLocalPoolMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,326,2))
-_CiscoIpLocalPoolMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoIpLocalPoolMIBCompliances=_CiscoIpLocalPoolMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,326,2,1))
-_CiscoIpLocalPoolMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoIpLocalPoolMIBGroups=_CiscoIpLocalPoolMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,326,2,2))
-ciscoIpLocalPoolConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,326,2,2,1))
-ciscoIpLocalPoolConfigGroup.setObjects(*((_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d)))
-if mibBuilder.loadTexts:ciscoIpLocalPoolConfigGroup.setStatus(_B)
-ciscoIpLocalPoolGroupGroup=ObjectGroup((1,3,6,1,4,1,9,9,326,2,2,2))
-ciscoIpLocalPoolGroupGroup.setObjects(*((_A,_O),(_A,_e),(_A,_f)))
-if mibBuilder.loadTexts:ciscoIpLocalPoolGroupGroup.setStatus(_B)
-ciscoIpLocalPoolStatsGroup=ObjectGroup((1,3,6,1,4,1,9,9,326,2,2,3))
-ciscoIpLocalPoolStatsGroup.setObjects(*((_A,_F),(_A,_G),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k)))
-if mibBuilder.loadTexts:ciscoIpLocalPoolStatsGroup.setStatus(_B)
-ciscoIpLocalPoolStatsGroupSup1=ObjectGroup((1,3,6,1,4,1,9,9,326,2,2,5))
-ciscoIpLocalPoolStatsGroupSup1.setObjects(*((_A,_l),(_A,_m)))
-if mibBuilder.loadTexts:ciscoIpLocalPoolStatsGroupSup1.setStatus(_B)
-ciscoIpLocalPoolPriorityGroup=ObjectGroup((1,3,6,1,4,1,9,9,326,2,2,7))
-ciscoIpLocalPoolPriorityGroup.setObjects((_A,_n))
-if mibBuilder.loadTexts:ciscoIpLocalPoolPriorityGroup.setStatus(_B)
-ciscoIpLocalPoolInUseAddrNoti=NotificationType((1,3,6,1,4,1,9,9,326,0,1))
-ciscoIpLocalPoolInUseAddrNoti.setObjects(*((_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:ciscoIpLocalPoolInUseAddrNoti.setStatus(_B)
-cilpPercentAddrUsedLoNotif=NotificationType((1,3,6,1,4,1,9,9,326,0,2))
-cilpPercentAddrUsedLoNotif.setObjects(*((_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:cilpPercentAddrUsedLoNotif.setStatus(_B)
-cilpPercentAddrUsedHiNotif=NotificationType((1,3,6,1,4,1,9,9,326,0,3))
-cilpPercentAddrUsedHiNotif.setObjects(*((_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:cilpPercentAddrUsedHiNotif.setStatus(_B)
-ciscoIpLocalPoolNotifGroup=NotificationGroup((1,3,6,1,4,1,9,9,326,2,2,4))
-ciscoIpLocalPoolNotifGroup.setObjects((_A,_o))
-if mibBuilder.loadTexts:ciscoIpLocalPoolNotifGroup.setStatus(_B)
-ciscoIpLocalPoolNotifGroupSup1=NotificationGroup((1,3,6,1,4,1,9,9,326,2,2,6))
-ciscoIpLocalPoolNotifGroupSup1.setObjects(*((_A,_p),(_A,_q)))
-if mibBuilder.loadTexts:ciscoIpLocalPoolNotifGroupSup1.setStatus(_B)
-ciscoIpLocalPoolMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,326,2,1,1))
-ciscoIpLocalPoolMIBCompliance.setObjects(*((_A,_K),(_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:ciscoIpLocalPoolMIBCompliance.setStatus(_r)
-ciscoIpLocalPoolMIBCompliance1=ModuleCompliance((1,3,6,1,4,1,9,9,326,2,1,2))
-ciscoIpLocalPoolMIBCompliance1.setObjects(*((_A,_K),(_A,_L),(_A,_Q),(_A,_M),(_A,_R),(_A,_S)))
-if mibBuilder.loadTexts:ciscoIpLocalPoolMIBCompliance1.setStatus(_r)
-ciscoIpLocalPoolMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,9,9,326,2,1,3))
-ciscoIpLocalPoolMIBCompliance2.setObjects(*((_A,_K),(_A,_L),(_A,_Q),(_A,_s),(_A,_M),(_A,_R),(_A,_S)))
-if mibBuilder.loadTexts:ciscoIpLocalPoolMIBCompliance2.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'CIpLocalPoolName':CIpLocalPoolName,_V:CIpLocalPoolGroupNameOrNull,_P:CIpLocalPoolPercentage,'ciscoIpLocalPoolMIB':ciscoIpLocalPoolMIB,'ciscoIpLocalPoolMIBNotifs':ciscoIpLocalPoolMIBNotifs,_o:ciscoIpLocalPoolInUseAddrNoti,_p:cilpPercentAddrUsedLoNotif,_q:cilpPercentAddrUsedHiNotif,'ciscoIpLocalPoolMIBObjects':ciscoIpLocalPoolMIBObjects,'cIpLocalPoolConfig':cIpLocalPoolConfig,_Y:cIpLocalPoolNotificationsEnable,'cIpLocalPoolConfigTable':cIpLocalPoolConfigTable,'cIpLocalPoolConfigEntry':cIpLocalPoolConfigEntry,_I:cIpLocalPoolName,_T:cIpLocalPoolAddrType,_U:cIpLocalPoolAddressLo,_Z:cIpLocalPoolAddressHi,_a:cIpLocalPoolFreeAddrs,_b:cIpLocalPoolInUseAddrs,_c:cIpLocalPoolGroupContainedIn,_d:cIpLocalPoolRowStatus,_n:cIpLocalPoolPriority,'cIpLocalPoolGroup':cIpLocalPoolGroup,'cIpLocalPoolGroupContainsTable':cIpLocalPoolGroupContainsTable,'cIpLocalPoolGroupContainsEntry':cIpLocalPoolGroupContainsEntry,_N:cIpLocalPoolGroupName,_O:cIpLocalPoolChildIndex,'cIpLocalPoolGroupTable':cIpLocalPoolGroupTable,'cIpLocalPoolGroupEntry':cIpLocalPoolGroupEntry,_e:cIpLocalPoolGroupFreeAddrs,_f:cIpLocalPoolGroupInUseAddrs,'cIpLocalPoolStats':cIpLocalPoolStats,'cIpLocalPoolStatsTable':cIpLocalPoolStatsTable,'cIpLocalPoolStatsEntry':cIpLocalPoolStatsEntry,_F:cIpLocalPoolStatFreeAddrs,_G:cIpLocalPoolStatInUseAddrs,_g:cIpLocalPoolStatHiWaterUsedAddrs,_h:cIpLocalPoolStatInUseAddrThldLo,_i:cIpLocalPoolStatInUseAddrThldHi,_l:cIpLocalPoolPercentAddrThldLo,_m:cIpLocalPoolPercentAddrThldHi,'cIpLocalPoolAllocTable':cIpLocalPoolAllocTable,'cIpLocalPoolAllocEntry':cIpLocalPoolAllocEntry,_W:cIpLocalPoolAllocAddrType,_X:cIpLocalPoolAllocAddr,_j:cIpLocalPoolAllocIfIndex,_k:cIpLocalPoolAllocUser,'ciscoIpLocalPoolMIBConform':ciscoIpLocalPoolMIBConform,'ciscoIpLocalPoolMIBCompliances':ciscoIpLocalPoolMIBCompliances,'ciscoIpLocalPoolMIBCompliance':ciscoIpLocalPoolMIBCompliance,'ciscoIpLocalPoolMIBCompliance1':ciscoIpLocalPoolMIBCompliance1,'ciscoIpLocalPoolMIBCompliance2':ciscoIpLocalPoolMIBCompliance2,'ciscoIpLocalPoolMIBGroups':ciscoIpLocalPoolMIBGroups,_K:ciscoIpLocalPoolConfigGroup,_M:ciscoIpLocalPoolGroupGroup,_L:ciscoIpLocalPoolStatsGroup,_Q:ciscoIpLocalPoolNotifGroup,_R:ciscoIpLocalPoolStatsGroupSup1,_S:ciscoIpLocalPoolNotifGroupSup1,_s:ciscoIpLocalPoolPriorityGroup})
+#
+# PySNMP MIB module CISCO-IP-LOCAL-POOL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-IP-LOCAL-POOL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ciscoIpLocalPoolMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 326))
+ciscoIpLocalPoolMIB.setRevisions(('2007-11-12 00:00', '2005-01-11 00:00', '2003-04-03 20:00',))
+if mibBuilder.loadTexts: ciscoIpLocalPoolMIB.setLastUpdated('200711120000Z')
+if mibBuilder.loadTexts: ciscoIpLocalPoolMIB.setOrganization('Cisco Systems, Inc.')
+class CIpLocalPoolName(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 48)
+
+class CIpLocalPoolGroupNameOrNull(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 48)
+
+class CIpLocalPoolPercentage(TextualConvention, Gauge32):
+    status = 'current'
+    displayHint = 'd-2'
+    subtypeSpec = Gauge32.subtypeSpec + ValueRangeConstraint(0, 100)
+
+ciscoIpLocalPoolMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 326, 0))
+ciscoIpLocalPoolMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 326, 1))
+ciscoIpLocalPoolMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 326, 2))
+cIpLocalPoolConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 1))
+cIpLocalPoolGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 2))
+cIpLocalPoolStats = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3))
+cIpLocalPoolNotificationsEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cIpLocalPoolNotificationsEnable.setStatus('current')
+cIpLocalPoolConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 1, 2), )
+if mibBuilder.loadTexts: cIpLocalPoolConfigTable.setStatus('current')
+cIpLocalPoolConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 1, 2, 1), ).setIndexNames((0, "CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolName"), (0, "CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolAddrType"), (0, "CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolAddressLo"))
+if mibBuilder.loadTexts: cIpLocalPoolConfigEntry.setStatus('current')
+cIpLocalPoolName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 1, 2, 1, 1), CIpLocalPoolName())
+if mibBuilder.loadTexts: cIpLocalPoolName.setStatus('current')
+cIpLocalPoolAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 1, 2, 1, 2), InetAddressType())
+if mibBuilder.loadTexts: cIpLocalPoolAddrType.setStatus('current')
+cIpLocalPoolAddressLo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 1, 2, 1, 3), InetAddress())
+if mibBuilder.loadTexts: cIpLocalPoolAddressLo.setStatus('current')
+cIpLocalPoolAddressHi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 1, 2, 1, 4), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cIpLocalPoolAddressHi.setStatus('current')
+cIpLocalPoolFreeAddrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 1, 2, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIpLocalPoolFreeAddrs.setStatus('current')
+cIpLocalPoolInUseAddrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 1, 2, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIpLocalPoolInUseAddrs.setStatus('current')
+cIpLocalPoolGroupContainedIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 1, 2, 1, 7), CIpLocalPoolGroupNameOrNull()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cIpLocalPoolGroupContainedIn.setStatus('current')
+cIpLocalPoolRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 1, 2, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cIpLocalPoolRowStatus.setStatus('current')
+cIpLocalPoolPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 1, 2, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cIpLocalPoolPriority.setStatus('current')
+cIpLocalPoolGroupContainsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 2, 1), )
+if mibBuilder.loadTexts: cIpLocalPoolGroupContainsTable.setStatus('current')
+cIpLocalPoolGroupContainsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolGroupName"), (0, "CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolChildIndex"))
+if mibBuilder.loadTexts: cIpLocalPoolGroupContainsEntry.setStatus('current')
+cIpLocalPoolGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 2, 1, 1, 1), CIpLocalPoolGroupNameOrNull())
+if mibBuilder.loadTexts: cIpLocalPoolGroupName.setStatus('current')
+cIpLocalPoolChildIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 2, 1, 1, 2), CIpLocalPoolName()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIpLocalPoolChildIndex.setStatus('current')
+cIpLocalPoolGroupTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 2, 2), )
+if mibBuilder.loadTexts: cIpLocalPoolGroupTable.setStatus('current')
+cIpLocalPoolGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 2, 2, 1), ).setIndexNames((0, "CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolGroupName"))
+if mibBuilder.loadTexts: cIpLocalPoolGroupEntry.setStatus('current')
+cIpLocalPoolGroupFreeAddrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 2, 2, 1, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIpLocalPoolGroupFreeAddrs.setStatus('current')
+cIpLocalPoolGroupInUseAddrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 2, 2, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIpLocalPoolGroupInUseAddrs.setStatus('current')
+cIpLocalPoolStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3, 1), )
+if mibBuilder.loadTexts: cIpLocalPoolStatsTable.setStatus('current')
+cIpLocalPoolStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3, 1, 1), ).setIndexNames((0, "CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolName"))
+if mibBuilder.loadTexts: cIpLocalPoolStatsEntry.setStatus('current')
+cIpLocalPoolStatFreeAddrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3, 1, 1, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIpLocalPoolStatFreeAddrs.setStatus('current')
+cIpLocalPoolStatInUseAddrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3, 1, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIpLocalPoolStatInUseAddrs.setStatus('current')
+cIpLocalPoolStatHiWaterUsedAddrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3, 1, 1, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cIpLocalPoolStatHiWaterUsedAddrs.setStatus('current')
+cIpLocalPoolStatInUseAddrThldLo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cIpLocalPoolStatInUseAddrThldLo.setStatus('current')
+cIpLocalPoolStatInUseAddrThldHi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295)).clone(4294967295)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cIpLocalPoolStatInUseAddrThldHi.setStatus('current')
+cIpLocalPoolPercentAddrThldLo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3, 1, 1, 6), CIpLocalPoolPercentage()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cIpLocalPoolPercentAddrThldLo.setStatus('current')
+cIpLocalPoolPercentAddrThldHi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3, 1, 1, 7), CIpLocalPoolPercentage().clone(100)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cIpLocalPoolPercentAddrThldHi.setStatus('current')
+cIpLocalPoolAllocTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3, 2), )
+if mibBuilder.loadTexts: cIpLocalPoolAllocTable.setStatus('current')
+cIpLocalPoolAllocEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3, 2, 1), ).setIndexNames((0, "CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolName"), (0, "CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolAllocAddrType"), (0, "CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolAllocAddr"))
+if mibBuilder.loadTexts: cIpLocalPoolAllocEntry.setStatus('current')
+cIpLocalPoolAllocAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3, 2, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: cIpLocalPoolAllocAddrType.setStatus('current')
+cIpLocalPoolAllocAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3, 2, 1, 2), InetAddress())
+if mibBuilder.loadTexts: cIpLocalPoolAllocAddr.setStatus('current')
+cIpLocalPoolAllocIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3, 2, 1, 3), InterfaceIndexOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIpLocalPoolAllocIfIndex.setStatus('current')
+cIpLocalPoolAllocUser = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 326, 1, 3, 2, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIpLocalPoolAllocUser.setStatus('current')
+ciscoIpLocalPoolInUseAddrNoti = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 326, 0, 1)).setObjects(("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolStatFreeAddrs"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolStatInUseAddrs"))
+if mibBuilder.loadTexts: ciscoIpLocalPoolInUseAddrNoti.setStatus('current')
+cilpPercentAddrUsedLoNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 326, 0, 2)).setObjects(("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolStatFreeAddrs"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolStatInUseAddrs"))
+if mibBuilder.loadTexts: cilpPercentAddrUsedLoNotif.setStatus('current')
+cilpPercentAddrUsedHiNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 326, 0, 3)).setObjects(("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolStatFreeAddrs"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolStatInUseAddrs"))
+if mibBuilder.loadTexts: cilpPercentAddrUsedHiNotif.setStatus('current')
+ciscoIpLocalPoolMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 326, 2, 1))
+ciscoIpLocalPoolMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 326, 2, 2))
+ciscoIpLocalPoolMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 326, 2, 1, 1)).setObjects(("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolConfigGroup"), ("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolStatsGroup"), ("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolGroupGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIpLocalPoolMIBCompliance = ciscoIpLocalPoolMIBCompliance.setStatus('deprecated')
+ciscoIpLocalPoolMIBCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 326, 2, 1, 2)).setObjects(("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolConfigGroup"), ("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolStatsGroup"), ("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolNotifGroup"), ("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolGroupGroup"), ("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolStatsGroupSup1"), ("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolNotifGroupSup1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIpLocalPoolMIBCompliance1 = ciscoIpLocalPoolMIBCompliance1.setStatus('deprecated')
+ciscoIpLocalPoolMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 326, 2, 1, 3)).setObjects(("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolConfigGroup"), ("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolStatsGroup"), ("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolNotifGroup"), ("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolPriorityGroup"), ("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolGroupGroup"), ("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolStatsGroupSup1"), ("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolNotifGroupSup1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIpLocalPoolMIBCompliance2 = ciscoIpLocalPoolMIBCompliance2.setStatus('current')
+ciscoIpLocalPoolConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 326, 2, 2, 1)).setObjects(("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolNotificationsEnable"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolAddressHi"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolFreeAddrs"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolInUseAddrs"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolGroupContainedIn"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIpLocalPoolConfigGroup = ciscoIpLocalPoolConfigGroup.setStatus('current')
+ciscoIpLocalPoolGroupGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 326, 2, 2, 2)).setObjects(("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolChildIndex"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolGroupFreeAddrs"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolGroupInUseAddrs"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIpLocalPoolGroupGroup = ciscoIpLocalPoolGroupGroup.setStatus('current')
+ciscoIpLocalPoolStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 326, 2, 2, 3)).setObjects(("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolStatFreeAddrs"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolStatInUseAddrs"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolStatHiWaterUsedAddrs"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolStatInUseAddrThldLo"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolStatInUseAddrThldHi"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolAllocIfIndex"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolAllocUser"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIpLocalPoolStatsGroup = ciscoIpLocalPoolStatsGroup.setStatus('current')
+ciscoIpLocalPoolNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 326, 2, 2, 4)).setObjects(("CISCO-IP-LOCAL-POOL-MIB", "ciscoIpLocalPoolInUseAddrNoti"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIpLocalPoolNotifGroup = ciscoIpLocalPoolNotifGroup.setStatus('current')
+ciscoIpLocalPoolStatsGroupSup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 326, 2, 2, 5)).setObjects(("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolPercentAddrThldLo"), ("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolPercentAddrThldHi"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIpLocalPoolStatsGroupSup1 = ciscoIpLocalPoolStatsGroupSup1.setStatus('current')
+ciscoIpLocalPoolNotifGroupSup1 = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 326, 2, 2, 6)).setObjects(("CISCO-IP-LOCAL-POOL-MIB", "cilpPercentAddrUsedLoNotif"), ("CISCO-IP-LOCAL-POOL-MIB", "cilpPercentAddrUsedHiNotif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIpLocalPoolNotifGroupSup1 = ciscoIpLocalPoolNotifGroupSup1.setStatus('current')
+ciscoIpLocalPoolPriorityGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 326, 2, 2, 7)).setObjects(("CISCO-IP-LOCAL-POOL-MIB", "cIpLocalPoolPriority"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIpLocalPoolPriorityGroup = ciscoIpLocalPoolPriorityGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-IP-LOCAL-POOL-MIB", cIpLocalPoolConfigEntry=cIpLocalPoolConfigEntry, CIpLocalPoolPercentage=CIpLocalPoolPercentage, cIpLocalPoolGroupName=cIpLocalPoolGroupName, CIpLocalPoolGroupNameOrNull=CIpLocalPoolGroupNameOrNull, cIpLocalPoolAddressLo=cIpLocalPoolAddressLo, ciscoIpLocalPoolMIBObjects=ciscoIpLocalPoolMIBObjects, cIpLocalPoolAddrType=cIpLocalPoolAddrType, cIpLocalPoolRowStatus=cIpLocalPoolRowStatus, ciscoIpLocalPoolMIB=ciscoIpLocalPoolMIB, cIpLocalPoolStats=cIpLocalPoolStats, cIpLocalPoolAddressHi=cIpLocalPoolAddressHi, CIpLocalPoolName=CIpLocalPoolName, cIpLocalPoolAllocIfIndex=cIpLocalPoolAllocIfIndex, cIpLocalPoolStatHiWaterUsedAddrs=cIpLocalPoolStatHiWaterUsedAddrs, cIpLocalPoolStatFreeAddrs=cIpLocalPoolStatFreeAddrs, ciscoIpLocalPoolMIBNotifs=ciscoIpLocalPoolMIBNotifs, cIpLocalPoolStatInUseAddrThldLo=cIpLocalPoolStatInUseAddrThldLo, cIpLocalPoolStatInUseAddrs=cIpLocalPoolStatInUseAddrs, cIpLocalPoolAllocUser=cIpLocalPoolAllocUser, ciscoIpLocalPoolMIBCompliance2=ciscoIpLocalPoolMIBCompliance2, cIpLocalPoolPercentAddrThldLo=cIpLocalPoolPercentAddrThldLo, ciscoIpLocalPoolMIBConform=ciscoIpLocalPoolMIBConform, cIpLocalPoolPercentAddrThldHi=cIpLocalPoolPercentAddrThldHi, ciscoIpLocalPoolStatsGroup=ciscoIpLocalPoolStatsGroup, cIpLocalPoolGroupTable=cIpLocalPoolGroupTable, cIpLocalPoolChildIndex=cIpLocalPoolChildIndex, cIpLocalPoolName=cIpLocalPoolName, cIpLocalPoolGroupInUseAddrs=cIpLocalPoolGroupInUseAddrs, ciscoIpLocalPoolPriorityGroup=ciscoIpLocalPoolPriorityGroup, cilpPercentAddrUsedLoNotif=cilpPercentAddrUsedLoNotif, cilpPercentAddrUsedHiNotif=cilpPercentAddrUsedHiNotif, cIpLocalPoolStatInUseAddrThldHi=cIpLocalPoolStatInUseAddrThldHi, cIpLocalPoolNotificationsEnable=cIpLocalPoolNotificationsEnable, cIpLocalPoolPriority=cIpLocalPoolPriority, cIpLocalPoolAllocAddrType=cIpLocalPoolAllocAddrType, ciscoIpLocalPoolConfigGroup=ciscoIpLocalPoolConfigGroup, cIpLocalPoolAllocTable=cIpLocalPoolAllocTable, cIpLocalPoolFreeAddrs=cIpLocalPoolFreeAddrs, cIpLocalPoolStatsEntry=cIpLocalPoolStatsEntry, ciscoIpLocalPoolMIBCompliance=ciscoIpLocalPoolMIBCompliance, cIpLocalPoolInUseAddrs=cIpLocalPoolInUseAddrs, cIpLocalPoolGroupFreeAddrs=cIpLocalPoolGroupFreeAddrs, cIpLocalPoolGroupEntry=cIpLocalPoolGroupEntry, cIpLocalPoolConfig=cIpLocalPoolConfig, cIpLocalPoolConfigTable=cIpLocalPoolConfigTable, PYSNMP_MODULE_ID=ciscoIpLocalPoolMIB, cIpLocalPoolAllocEntry=cIpLocalPoolAllocEntry, ciscoIpLocalPoolMIBCompliances=ciscoIpLocalPoolMIBCompliances, ciscoIpLocalPoolMIBGroups=ciscoIpLocalPoolMIBGroups, ciscoIpLocalPoolStatsGroupSup1=ciscoIpLocalPoolStatsGroupSup1, ciscoIpLocalPoolInUseAddrNoti=ciscoIpLocalPoolInUseAddrNoti, ciscoIpLocalPoolGroupGroup=ciscoIpLocalPoolGroupGroup, cIpLocalPoolAllocAddr=cIpLocalPoolAllocAddr, ciscoIpLocalPoolNotifGroupSup1=ciscoIpLocalPoolNotifGroupSup1, cIpLocalPoolGroupContainsTable=cIpLocalPoolGroupContainsTable, ciscoIpLocalPoolMIBCompliance1=ciscoIpLocalPoolMIBCompliance1, cIpLocalPoolGroupContainsEntry=cIpLocalPoolGroupContainsEntry, ciscoIpLocalPoolNotifGroup=ciscoIpLocalPoolNotifGroup, cIpLocalPoolGroupContainedIn=cIpLocalPoolGroupContainedIn, cIpLocalPoolGroup=cIpLocalPoolGroup, cIpLocalPoolStatsTable=cIpLocalPoolStatsTable)

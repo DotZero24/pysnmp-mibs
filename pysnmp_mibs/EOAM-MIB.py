@@ -1,46 +1,34 @@
-_D='Unsigned32'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-fseoam=ModuleIdentity((1,3,6,1,4,1,10876,101,1,121))
-if mibBuilder.loadTexts:fseoam.setRevisions(('2012-09-05 00:00',))
-class EoamOui(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,3));fixedLength=3
-_FsEoamSystem_ObjectIdentity=ObjectIdentity
-fsEoamSystem=_FsEoamSystem_ObjectIdentity((1,3,6,1,4,1,10876,101,1,121,1))
-class _FsEoamSystemControl_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('start',1),('shutdown',2)))
-_FsEoamSystemControl_Type.__name__=_C
-_FsEoamSystemControl_Object=MibScalar
-fsEoamSystemControl=_FsEoamSystemControl_Object((1,3,6,1,4,1,10876,101,1,121,1,1),_FsEoamSystemControl_Type())
-fsEoamSystemControl.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsEoamSystemControl.setStatus(_A)
-class _FsEoamModuleStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_FsEoamModuleStatus_Type.__name__=_C
-_FsEoamModuleStatus_Object=MibScalar
-fsEoamModuleStatus=_FsEoamModuleStatus_Object((1,3,6,1,4,1,10876,101,1,121,1,2),_FsEoamModuleStatus_Type())
-fsEoamModuleStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsEoamModuleStatus.setStatus(_A)
-class _FsEoamErrorEventResend_Type(Unsigned32):defaultValue=10;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_FsEoamErrorEventResend_Type.__name__=_D
-_FsEoamErrorEventResend_Object=MibScalar
-fsEoamErrorEventResend=_FsEoamErrorEventResend_Object((1,3,6,1,4,1,10876,101,1,121,1,3),_FsEoamErrorEventResend_Type())
-fsEoamErrorEventResend.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsEoamErrorEventResend.setStatus(_A)
-_FsEoamOui_Type=EoamOui
-_FsEoamOui_Object=MibScalar
-fsEoamOui=_FsEoamOui_Object((1,3,6,1,4,1,10876,101,1,121,1,4),_FsEoamOui_Type())
-fsEoamOui.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsEoamOui.setStatus(_A)
-class _FsEoamTraceOption_Type(Integer32):defaultValue=262144
-_FsEoamTraceOption_Type.__name__=_C
-_FsEoamTraceOption_Object=MibScalar
-fsEoamTraceOption=_FsEoamTraceOption_Object((1,3,6,1,4,1,10876,101,1,121,1,5),_FsEoamTraceOption_Type())
-fsEoamTraceOption.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsEoamTraceOption.setStatus(_A)
-mibBuilder.exportSymbols('EOAM-MIB',**{'EoamOui':EoamOui,'fseoam':fseoam,'fsEoamSystem':fsEoamSystem,'fsEoamSystemControl':fsEoamSystemControl,'fsEoamModuleStatus':fsEoamModuleStatus,'fsEoamErrorEventResend':fsEoamErrorEventResend,'fsEoamOui':fsEoamOui,'fsEoamTraceOption':fsEoamTraceOption})
+#
+# PySNMP MIB module EOAM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/EOAM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:33:00 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+fseoam = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 1, 121))
+fseoam.setRevisions(('2012-09-05 00:00',))
+if mibBuilder.loadTexts: fseoam.setLastUpdated('201209050000Z')
+if mibBuilder.loadTexts: fseoam.setOrganization('Super Micro Computer Inc.')
+class EoamOui(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(3, 3)
+    fixedLength = 3
+
+fsEoamSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 121, 1))
+fsEoamSystemControl = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 121, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("start", 1), ("shutdown", 2))).clone('start')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsEoamSystemControl.setStatus('current')
+fsEoamModuleStatus = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 121, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsEoamModuleStatus.setStatus('current')
+fsEoamErrorEventResend = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 121, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(10)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsEoamErrorEventResend.setStatus('current')
+fsEoamOui = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 121, 1, 4), EoamOui()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsEoamOui.setStatus('current')
+fsEoamTraceOption = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 121, 1, 5), Integer32().clone(262144)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsEoamTraceOption.setStatus('current')
+mibBuilder.exportSymbols("EOAM-MIB", fsEoamSystem=fsEoamSystem, fsEoamOui=fsEoamOui, EoamOui=EoamOui, fsEoamErrorEventResend=fsEoamErrorEventResend, fseoam=fseoam, fsEoamSystemControl=fsEoamSystemControl, fsEoamTraceOption=fsEoamTraceOption, fsEoamModuleStatus=fsEoamModuleStatus, PYSNMP_MODULE_ID=fseoam)

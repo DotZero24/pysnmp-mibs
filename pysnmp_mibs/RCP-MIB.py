@@ -1,200 +1,91 @@
-_M='swRCPServerConfigIndex'
-_L='swRCPFileSystemIndex'
-_K='read-only'
-_J='download'
-_I='upload'
-_H='swRCPFileIndex'
-_G='not-accessible'
-_F='other'
-_E='RCP-MIB'
-_D='Integer32'
-_C='DisplayString'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_common_mgmt,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-common-mgmt')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_C,'PhysAddress','TextualConvention','TruthValue')
-swRCPMIB=ModuleIdentity((1,3,6,1,4,1,171,12,82))
-class UnitList(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,3))
-_SwRCPMgmt_ObjectIdentity=ObjectIdentity
-swRCPMgmt=_SwRCPMgmt_ObjectIdentity((1,3,6,1,4,1,171,12,82,1))
-_SwRCPFileTable_Object=MibTable
-swRCPFileTable=_SwRCPFileTable_Object((1,3,6,1,4,1,171,12,82,1,1))
-if mibBuilder.loadTexts:swRCPFileTable.setStatus(_A)
-_SwRCPFileEntry_Object=MibTableRow
-swRCPFileEntry=_SwRCPFileEntry_Object((1,3,6,1,4,1,171,12,82,1,1,1))
-swRCPFileEntry.setIndexNames((0,_E,_H))
-if mibBuilder.loadTexts:swRCPFileEntry.setStatus(_A)
-_SwRCPFileIndex_Type=Integer32
-_SwRCPFileIndex_Object=MibTableColumn
-swRCPFileIndex=_SwRCPFileIndex_Object((1,3,6,1,4,1,171,12,82,1,1,1,1),_SwRCPFileIndex_Type())
-swRCPFileIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:swRCPFileIndex.setStatus(_A)
-class _SwRCPFileLoadType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_F,1),(_I,2),(_J,3)))
-_SwRCPFileLoadType_Type.__name__=_D
-_SwRCPFileLoadType_Object=MibTableColumn
-swRCPFileLoadType=_SwRCPFileLoadType_Object((1,3,6,1,4,1,171,12,82,1,1,1,2),_SwRCPFileLoadType_Type())
-swRCPFileLoadType.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileLoadType.setStatus(_A)
-class _SwRCPFileType_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwRCPFileType_Type.__name__=_C
-_SwRCPFileType_Object=MibTableColumn
-swRCPFileType=_SwRCPFileType_Object((1,3,6,1,4,1,171,12,82,1,1,1,3),_SwRCPFileType_Type())
-swRCPFileType.setMaxAccess(_K)
-if mibBuilder.loadTexts:swRCPFileType.setStatus(_A)
-class _SwRCPFileServerUserName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_SwRCPFileServerUserName_Type.__name__=_C
-_SwRCPFileServerUserName_Object=MibTableColumn
-swRCPFileServerUserName=_SwRCPFileServerUserName_Object((1,3,6,1,4,1,171,12,82,1,1,1,4),_SwRCPFileServerUserName_Type())
-swRCPFileServerUserName.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileServerUserName.setStatus(_A)
-_SwRCPFileServerAddrType_Type=InetAddressType
-_SwRCPFileServerAddrType_Object=MibTableColumn
-swRCPFileServerAddrType=_SwRCPFileServerAddrType_Object((1,3,6,1,4,1,171,12,82,1,1,1,5),_SwRCPFileServerAddrType_Type())
-swRCPFileServerAddrType.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileServerAddrType.setStatus(_A)
-_SwRCPFileServerAddr_Type=InetAddress
-_SwRCPFileServerAddr_Object=MibTableColumn
-swRCPFileServerAddr=_SwRCPFileServerAddr_Object((1,3,6,1,4,1,171,12,82,1,1,1,6),_SwRCPFileServerAddr_Type())
-swRCPFileServerAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileServerAddr.setStatus(_A)
-class _SwRCPFileServerPathFileName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_SwRCPFileServerPathFileName_Type.__name__=_C
-_SwRCPFileServerPathFileName_Object=MibTableColumn
-swRCPFileServerPathFileName=_SwRCPFileServerPathFileName_Object((1,3,6,1,4,1,171,12,82,1,1,1,7),_SwRCPFileServerPathFileName_Type())
-swRCPFileServerPathFileName.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileServerPathFileName.setStatus(_A)
-_SwRCPFileUnitID_Type=UnitList
-_SwRCPFileUnitID_Object=MibTableColumn
-swRCPFileUnitID=_SwRCPFileUnitID_Object((1,3,6,1,4,1,171,12,82,1,1,1,8),_SwRCPFileUnitID_Type())
-swRCPFileUnitID.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileUnitID.setStatus(_A)
-_SwRCPFileCtrlID_Type=Integer32
-_SwRCPFileCtrlID_Object=MibTableColumn
-swRCPFileCtrlID=_SwRCPFileCtrlID_Object((1,3,6,1,4,1,171,12,82,1,1,1,9),_SwRCPFileCtrlID_Type())
-swRCPFileCtrlID.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileCtrlID.setStatus(_A)
-_SwRCPFileBootUpImage_Type=TruthValue
-_SwRCPFileBootUpImage_Object=MibTableColumn
-swRCPFileBootUpImage=_SwRCPFileBootUpImage_Object((1,3,6,1,4,1,171,12,82,1,1,1,10),_SwRCPFileBootUpImage_Type())
-swRCPFileBootUpImage.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileBootUpImage.setStatus(_A)
-_SwRCPFileForceAgree_Type=TruthValue
-_SwRCPFileForceAgree_Object=MibTableColumn
-swRCPFileForceAgree=_SwRCPFileForceAgree_Object((1,3,6,1,4,1,171,12,82,1,1,1,11),_SwRCPFileForceAgree_Type())
-swRCPFileForceAgree.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileForceAgree.setStatus(_A)
-class _SwRCPFileCtrl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),('start',2)))
-_SwRCPFileCtrl_Type.__name__=_D
-_SwRCPFileCtrl_Object=MibTableColumn
-swRCPFileCtrl=_SwRCPFileCtrl_Object((1,3,6,1,4,1,171,12,82,1,1,1,12),_SwRCPFileCtrl_Type())
-swRCPFileCtrl.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileCtrl.setStatus(_A)
-_SwRCPFileSystemTable_Object=MibTable
-swRCPFileSystemTable=_SwRCPFileSystemTable_Object((1,3,6,1,4,1,171,12,82,1,2))
-if mibBuilder.loadTexts:swRCPFileSystemTable.setStatus(_A)
-_SwRCPFileSystemEntry_Object=MibTableRow
-swRCPFileSystemEntry=_SwRCPFileSystemEntry_Object((1,3,6,1,4,1,171,12,82,1,2,1))
-swRCPFileSystemEntry.setIndexNames((0,_E,_L))
-if mibBuilder.loadTexts:swRCPFileSystemEntry.setStatus(_A)
-_SwRCPFileSystemIndex_Type=Integer32
-_SwRCPFileSystemIndex_Object=MibTableColumn
-swRCPFileSystemIndex=_SwRCPFileSystemIndex_Object((1,3,6,1,4,1,171,12,82,1,2,1,1),_SwRCPFileSystemIndex_Type())
-swRCPFileSystemIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:swRCPFileSystemIndex.setStatus(_A)
-class _SwRCPFileSystemLoadType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_F,1),(_I,2),(_J,3)))
-_SwRCPFileSystemLoadType_Type.__name__=_D
-_SwRCPFileSystemLoadType_Object=MibTableColumn
-swRCPFileSystemLoadType=_SwRCPFileSystemLoadType_Object((1,3,6,1,4,1,171,12,82,1,2,1,2),_SwRCPFileSystemLoadType_Type())
-swRCPFileSystemLoadType.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileSystemLoadType.setStatus(_A)
-class _SwRCPFileSystemFileType_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwRCPFileSystemFileType_Type.__name__=_C
-_SwRCPFileSystemFileType_Object=MibTableColumn
-swRCPFileSystemFileType=_SwRCPFileSystemFileType_Object((1,3,6,1,4,1,171,12,82,1,2,1,3),_SwRCPFileSystemFileType_Type())
-swRCPFileSystemFileType.setMaxAccess(_K)
-if mibBuilder.loadTexts:swRCPFileSystemFileType.setStatus(_A)
-class _SwRCPFileSystemServerUserName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_SwRCPFileSystemServerUserName_Type.__name__=_C
-_SwRCPFileSystemServerUserName_Object=MibTableColumn
-swRCPFileSystemServerUserName=_SwRCPFileSystemServerUserName_Object((1,3,6,1,4,1,171,12,82,1,2,1,4),_SwRCPFileSystemServerUserName_Type())
-swRCPFileSystemServerUserName.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileSystemServerUserName.setStatus(_A)
-_SwRCPFileSystemServerAddrType_Type=InetAddressType
-_SwRCPFileSystemServerAddrType_Object=MibTableColumn
-swRCPFileSystemServerAddrType=_SwRCPFileSystemServerAddrType_Object((1,3,6,1,4,1,171,12,82,1,2,1,5),_SwRCPFileSystemServerAddrType_Type())
-swRCPFileSystemServerAddrType.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileSystemServerAddrType.setStatus(_A)
-_SwRCPFileSystemServerAddr_Type=InetAddress
-_SwRCPFileSystemServerAddr_Object=MibTableColumn
-swRCPFileSystemServerAddr=_SwRCPFileSystemServerAddr_Object((1,3,6,1,4,1,171,12,82,1,2,1,6),_SwRCPFileSystemServerAddr_Type())
-swRCPFileSystemServerAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileSystemServerAddr.setStatus(_A)
-class _SwRCPFileSystemServerPathFileName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_SwRCPFileSystemServerPathFileName_Type.__name__=_C
-_SwRCPFileSystemServerPathFileName_Object=MibTableColumn
-swRCPFileSystemServerPathFileName=_SwRCPFileSystemServerPathFileName_Object((1,3,6,1,4,1,171,12,82,1,2,1,7),_SwRCPFileSystemServerPathFileName_Type())
-swRCPFileSystemServerPathFileName.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileSystemServerPathFileName.setStatus(_A)
-class _SwRCPFileSystemDevicePathFileName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_SwRCPFileSystemDevicePathFileName_Type.__name__=_C
-_SwRCPFileSystemDevicePathFileName_Object=MibTableColumn
-swRCPFileSystemDevicePathFileName=_SwRCPFileSystemDevicePathFileName_Object((1,3,6,1,4,1,171,12,82,1,2,1,8),_SwRCPFileSystemDevicePathFileName_Type())
-swRCPFileSystemDevicePathFileName.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileSystemDevicePathFileName.setStatus(_A)
-_SwRCPFileSystemUnitID_Type=UnitList
-_SwRCPFileSystemUnitID_Object=MibTableColumn
-swRCPFileSystemUnitID=_SwRCPFileSystemUnitID_Object((1,3,6,1,4,1,171,12,82,1,2,1,9),_SwRCPFileSystemUnitID_Type())
-swRCPFileSystemUnitID.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileSystemUnitID.setStatus(_A)
-_SwRCPFileSystemBootUpImage_Type=TruthValue
-_SwRCPFileSystemBootUpImage_Object=MibTableColumn
-swRCPFileSystemBootUpImage=_SwRCPFileSystemBootUpImage_Object((1,3,6,1,4,1,171,12,82,1,2,1,10),_SwRCPFileSystemBootUpImage_Type())
-swRCPFileSystemBootUpImage.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileSystemBootUpImage.setStatus(_A)
-_SwRCPFileSystemForceAgree_Type=TruthValue
-_SwRCPFileSystemForceAgree_Object=MibTableColumn
-swRCPFileSystemForceAgree=_SwRCPFileSystemForceAgree_Object((1,3,6,1,4,1,171,12,82,1,2,1,11),_SwRCPFileSystemForceAgree_Type())
-swRCPFileSystemForceAgree.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileSystemForceAgree.setStatus(_A)
-class _SwRCPFileSystemCtrl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),('start',2)))
-_SwRCPFileSystemCtrl_Type.__name__=_D
-_SwRCPFileSystemCtrl_Object=MibTableColumn
-swRCPFileSystemCtrl=_SwRCPFileSystemCtrl_Object((1,3,6,1,4,1,171,12,82,1,2,1,12),_SwRCPFileSystemCtrl_Type())
-swRCPFileSystemCtrl.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPFileSystemCtrl.setStatus(_A)
-_SwRCPServerConfigTable_Object=MibTable
-swRCPServerConfigTable=_SwRCPServerConfigTable_Object((1,3,6,1,4,1,171,12,82,1,3))
-if mibBuilder.loadTexts:swRCPServerConfigTable.setStatus(_A)
-_SwRCPServerConfigEntry_Object=MibTableRow
-swRCPServerConfigEntry=_SwRCPServerConfigEntry_Object((1,3,6,1,4,1,171,12,82,1,3,1))
-swRCPServerConfigEntry.setIndexNames((0,_E,_M))
-if mibBuilder.loadTexts:swRCPServerConfigEntry.setStatus(_A)
-_SwRCPServerConfigIndex_Type=Integer32
-_SwRCPServerConfigIndex_Object=MibTableColumn
-swRCPServerConfigIndex=_SwRCPServerConfigIndex_Object((1,3,6,1,4,1,171,12,82,1,3,1,1),_SwRCPServerConfigIndex_Type())
-swRCPServerConfigIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:swRCPServerConfigIndex.setStatus(_A)
-_SwRCPServerConfigAddrType_Type=InetAddressType
-_SwRCPServerConfigAddrType_Object=MibTableColumn
-swRCPServerConfigAddrType=_SwRCPServerConfigAddrType_Object((1,3,6,1,4,1,171,12,82,1,3,1,2),_SwRCPServerConfigAddrType_Type())
-swRCPServerConfigAddrType.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPServerConfigAddrType.setStatus(_A)
-_SwRCPServerConfigAddr_Type=InetAddress
-_SwRCPServerConfigAddr_Object=MibTableColumn
-swRCPServerConfigAddr=_SwRCPServerConfigAddr_Object((1,3,6,1,4,1,171,12,82,1,3,1,3),_SwRCPServerConfigAddr_Type())
-swRCPServerConfigAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPServerConfigAddr.setStatus(_A)
-class _SwRCPServerConfigUserName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_SwRCPServerConfigUserName_Type.__name__=_C
-_SwRCPServerConfigUserName_Object=MibTableColumn
-swRCPServerConfigUserName=_SwRCPServerConfigUserName_Object((1,3,6,1,4,1,171,12,82,1,3,1,4),_SwRCPServerConfigUserName_Type())
-swRCPServerConfigUserName.setMaxAccess(_B)
-if mibBuilder.loadTexts:swRCPServerConfigUserName.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'UnitList':UnitList,'swRCPMIB':swRCPMIB,'swRCPMgmt':swRCPMgmt,'swRCPFileTable':swRCPFileTable,'swRCPFileEntry':swRCPFileEntry,_H:swRCPFileIndex,'swRCPFileLoadType':swRCPFileLoadType,'swRCPFileType':swRCPFileType,'swRCPFileServerUserName':swRCPFileServerUserName,'swRCPFileServerAddrType':swRCPFileServerAddrType,'swRCPFileServerAddr':swRCPFileServerAddr,'swRCPFileServerPathFileName':swRCPFileServerPathFileName,'swRCPFileUnitID':swRCPFileUnitID,'swRCPFileCtrlID':swRCPFileCtrlID,'swRCPFileBootUpImage':swRCPFileBootUpImage,'swRCPFileForceAgree':swRCPFileForceAgree,'swRCPFileCtrl':swRCPFileCtrl,'swRCPFileSystemTable':swRCPFileSystemTable,'swRCPFileSystemEntry':swRCPFileSystemEntry,_L:swRCPFileSystemIndex,'swRCPFileSystemLoadType':swRCPFileSystemLoadType,'swRCPFileSystemFileType':swRCPFileSystemFileType,'swRCPFileSystemServerUserName':swRCPFileSystemServerUserName,'swRCPFileSystemServerAddrType':swRCPFileSystemServerAddrType,'swRCPFileSystemServerAddr':swRCPFileSystemServerAddr,'swRCPFileSystemServerPathFileName':swRCPFileSystemServerPathFileName,'swRCPFileSystemDevicePathFileName':swRCPFileSystemDevicePathFileName,'swRCPFileSystemUnitID':swRCPFileSystemUnitID,'swRCPFileSystemBootUpImage':swRCPFileSystemBootUpImage,'swRCPFileSystemForceAgree':swRCPFileSystemForceAgree,'swRCPFileSystemCtrl':swRCPFileSystemCtrl,'swRCPServerConfigTable':swRCPServerConfigTable,'swRCPServerConfigEntry':swRCPServerConfigEntry,_M:swRCPServerConfigIndex,'swRCPServerConfigAddrType':swRCPServerConfigAddrType,'swRCPServerConfigAddr':swRCPServerConfigAddr,'swRCPServerConfigUserName':swRCPServerConfigUserName})
+#
+# PySNMP MIB module RCP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/RCP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:34:01 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+swRCPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 82))
+if mibBuilder.loadTexts: swRCPMIB.setLastUpdated('200904210000Z')
+if mibBuilder.loadTexts: swRCPMIB.setOrganization(' D-Link Crop.')
+class UnitList(OctetString):
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 3)
+
+swRCPMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 82, 1))
+swRCPFileTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 1), )
+if mibBuilder.loadTexts: swRCPFileTable.setStatus('current')
+swRCPFileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 1, 1), ).setIndexNames((0, "RCP-MIB", "swRCPFileIndex"))
+if mibBuilder.loadTexts: swRCPFileEntry.setStatus('current')
+swRCPFileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: swRCPFileIndex.setStatus('current')
+swRCPFileLoadType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("upload", 2), ("download", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileLoadType.setStatus('current')
+swRCPFileType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swRCPFileType.setStatus('current')
+swRCPFileServerUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileServerUserName.setStatus('current')
+swRCPFileServerAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 1, 1, 5), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileServerAddrType.setStatus('current')
+swRCPFileServerAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 1, 1, 6), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileServerAddr.setStatus('current')
+swRCPFileServerPathFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 1, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileServerPathFileName.setStatus('current')
+swRCPFileUnitID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 1, 1, 8), UnitList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileUnitID.setStatus('current')
+swRCPFileCtrlID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 1, 1, 9), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileCtrlID.setStatus('current')
+swRCPFileBootUpImage = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 1, 1, 10), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileBootUpImage.setStatus('current')
+swRCPFileForceAgree = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 1, 1, 11), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileForceAgree.setStatus('current')
+swRCPFileCtrl = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("other", 1), ("start", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileCtrl.setStatus('current')
+swRCPFileSystemTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 2), )
+if mibBuilder.loadTexts: swRCPFileSystemTable.setStatus('current')
+swRCPFileSystemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 2, 1), ).setIndexNames((0, "RCP-MIB", "swRCPFileSystemIndex"))
+if mibBuilder.loadTexts: swRCPFileSystemEntry.setStatus('current')
+swRCPFileSystemIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 2, 1, 1), Integer32())
+if mibBuilder.loadTexts: swRCPFileSystemIndex.setStatus('current')
+swRCPFileSystemLoadType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("upload", 2), ("download", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileSystemLoadType.setStatus('current')
+swRCPFileSystemFileType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swRCPFileSystemFileType.setStatus('current')
+swRCPFileSystemServerUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileSystemServerUserName.setStatus('current')
+swRCPFileSystemServerAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 2, 1, 5), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileSystemServerAddrType.setStatus('current')
+swRCPFileSystemServerAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 2, 1, 6), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileSystemServerAddr.setStatus('current')
+swRCPFileSystemServerPathFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 2, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileSystemServerPathFileName.setStatus('current')
+swRCPFileSystemDevicePathFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 2, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileSystemDevicePathFileName.setStatus('current')
+swRCPFileSystemUnitID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 2, 1, 9), UnitList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileSystemUnitID.setStatus('current')
+swRCPFileSystemBootUpImage = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 2, 1, 10), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileSystemBootUpImage.setStatus('current')
+swRCPFileSystemForceAgree = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 2, 1, 11), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileSystemForceAgree.setStatus('current')
+swRCPFileSystemCtrl = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 2, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("other", 1), ("start", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPFileSystemCtrl.setStatus('current')
+swRCPServerConfigTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 3), )
+if mibBuilder.loadTexts: swRCPServerConfigTable.setStatus('current')
+swRCPServerConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 3, 1), ).setIndexNames((0, "RCP-MIB", "swRCPServerConfigIndex"))
+if mibBuilder.loadTexts: swRCPServerConfigEntry.setStatus('current')
+swRCPServerConfigIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 3, 1, 1), Integer32())
+if mibBuilder.loadTexts: swRCPServerConfigIndex.setStatus('current')
+swRCPServerConfigAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 3, 1, 2), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPServerConfigAddrType.setStatus('current')
+swRCPServerConfigAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 3, 1, 3), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPServerConfigAddr.setStatus('current')
+swRCPServerConfigUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 82, 1, 3, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swRCPServerConfigUserName.setStatus('current')
+mibBuilder.exportSymbols("RCP-MIB", swRCPServerConfigEntry=swRCPServerConfigEntry, swRCPFileBootUpImage=swRCPFileBootUpImage, swRCPFileIndex=swRCPFileIndex, swRCPFileType=swRCPFileType, swRCPFileCtrl=swRCPFileCtrl, swRCPFileForceAgree=swRCPFileForceAgree, swRCPFileUnitID=swRCPFileUnitID, swRCPFileSystemUnitID=swRCPFileSystemUnitID, swRCPFileEntry=swRCPFileEntry, swRCPServerConfigIndex=swRCPServerConfigIndex, swRCPFileSystemIndex=swRCPFileSystemIndex, swRCPFileServerPathFileName=swRCPFileServerPathFileName, swRCPFileCtrlID=swRCPFileCtrlID, swRCPFileServerAddrType=swRCPFileServerAddrType, swRCPServerConfigTable=swRCPServerConfigTable, swRCPFileSystemLoadType=swRCPFileSystemLoadType, swRCPFileTable=swRCPFileTable, swRCPServerConfigUserName=swRCPServerConfigUserName, swRCPFileSystemEntry=swRCPFileSystemEntry, swRCPFileSystemServerPathFileName=swRCPFileSystemServerPathFileName, swRCPFileSystemBootUpImage=swRCPFileSystemBootUpImage, PYSNMP_MODULE_ID=swRCPMIB, swRCPServerConfigAddrType=swRCPServerConfigAddrType, swRCPFileServerUserName=swRCPFileServerUserName, swRCPFileSystemCtrl=swRCPFileSystemCtrl, swRCPFileSystemTable=swRCPFileSystemTable, swRCPFileServerAddr=swRCPFileServerAddr, swRCPServerConfigAddr=swRCPServerConfigAddr, swRCPFileSystemServerAddrType=swRCPFileSystemServerAddrType, swRCPFileSystemFileType=swRCPFileSystemFileType, swRCPMIB=swRCPMIB, swRCPFileLoadType=swRCPFileLoadType, swRCPMgmt=swRCPMgmt, swRCPFileSystemServerUserName=swRCPFileSystemServerUserName, swRCPFileSystemServerAddr=swRCPFileSystemServerAddr, swRCPFileSystemDevicePathFileName=swRCPFileSystemDevicePathFileName, swRCPFileSystemForceAgree=swRCPFileSystemForceAgree, UnitList=UnitList)

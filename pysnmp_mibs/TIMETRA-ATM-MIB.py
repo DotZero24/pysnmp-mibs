@@ -1,1596 +1,654 @@
-_DR='tmnxAtmCpStatisticsGroup'
-_DQ='tmnxAtmVclInfoGroupV9v0'
-_DP='tAtmIlmiLinkStatusChange'
-_DO='tAtmMaxPeerVpcsExceeded'
-_DN='tAtmMaxPeerVccsExceeded'
-_DM='tAtmEpOutOfPeerVpiOrVciRange'
-_DL='tAtmPlcpSubLayerClear'
-_DK='tAtmPlcpSubLayerDown'
-_DJ='tAtmTcSubLayerClear'
-_DI='tAtmTcSubLayerDown'
-_DH='tAtmVclInfoTxTrafficDescrIdOvr'
-_DG='tAtmVclInfoRxTrafficDescrIdOvr'
-_DF='tAtmCpStatsTagCells'
-_DE='tAtmCpStatsDrpClp0CellsTxd'
-_DD='tAtmCpStatsDrpClp0CellsRxd'
-_DC='tAtmCpStatsDrpCellsRxd'
-_DB='tAtmCpStatsClp0CellsTxdHi'
-_DA='tAtmCpStatsClp0CellsTxdLo'
-_D9='tAtmCpStatsClp0CellsTxd'
-_D8='tAtmCpStatsClp0CellsRxdHi'
-_D7='tAtmCpStatsClp0CellsRxdLo'
-_D6='tAtmCpStatsClp0CellsRxd'
-_D5='tAtmCpStatsTotalCellsTxdHi'
-_D4='tAtmCpStatsTotalCellsTxdLo'
-_D3='tAtmCpStatsTotalCellsTxd'
-_D2='tAtmCpStatsTotalCellsRxdHi'
-_D1='tAtmCpStatsTotalCellsRxdLo'
-_D0='tAtmCpStatsTotalCellsRxd'
-_C_='tAtmIntfStatsTotalHecErrFixed'
-_Cz='tAtmIntfStatsTotalHecErr'
-_Cy='tAtmTCSublayerHecErrorsFixed'
-_Cx='tAtmTCSublayerHecErrors'
-_Cw='tAtmIntfAal5StatsTotalCrc32Err'
-_Cv='tAtmIntfAal5StatsTotalPktsDrpTxd'
-_Cu='tAtmIntfAal5StatsTotalPktsDrpRxd'
-_Ct='tAtmIntfAal5StatsTotalPktsTxd'
-_Cs='tAtmIntfAal5StatsTotalPktsRxd'
-_Cr='tAtmIntfStatsTotalUnknCellsDrp'
-_Cq='tAtmIntfStatsTotalBytesTxd'
-_Cp='tAtmIntfStatsTotalBytesRxd'
-_Co='tAtmIntfStatsTotalCellsTxd'
-_Cn='tAtmIntfStatsTotalCellsRxd'
-_Cm='tAtmSysOamLoopbackPeriod'
-_Cl='tAtmSysOamRetryDown'
-_Ck='tAtmSysOamRetryUp'
-_Cj='tAtmSysLlid'
-_Ci='tAtmIntfConfIfcs'
-_Ch='tAtmIntfConfVtcs'
-_Cg='tAtmIntfOperStatus'
-_Cf='tAtmIntfLastUnknVci'
-_Ce='tAtmIntfLastUnknVpi'
-_Cd='tAtmIntfShapedBandwidth'
-_Cc='tAtmIntfBandwidth'
-_Cb='tAtmIntfTotalEgrUbrBandwidth'
-_Ca='tAtmIntfTotalEgrNrtVbrBandwidth'
-_CZ='tAtmIntfTotalEgrRtVbrBandwidth'
-_CY='tAtmIntfTotalEgrCbrBandwidth'
-_CX='tAtmIntfTotalIngrUbrBandwidth'
-_CW='tAtmIntfTotalIngrNrtVbrBandwidth'
-_CV='tAtmIntfTotalIngrRtVbrBandwidth'
-_CU='tAtmIntfTotalIngrCbrBandwidth'
-_CT='tAtmIlmiLinkInInvalidSnmpFormatPdus'
-_CS='tAtmIlmiLinkInInvalidSnmpCommunityStringPdus'
-_CR='tAtmIlmiLinkInInvalidSnmpVersionPdus'
-_CQ='tAtmIlmiLinkInGeneralErrors'
-_CP='tAtmIlmiLinkInReadOnlyErrors'
-_CO='tAtmIlmiLinkInBadValueErrors'
-_CN='tAtmIlmiLinkInNoSuchNameErrors'
-_CM='tAtmIlmiLinkInTooBigErrors'
-_CL='tAtmIlmiLinkInTrapPdus'
-_CK='tAtmIlmiLinkInGetResponsePdus'
-_CJ='tAtmIlmiLinkInSetRequestPdus'
-_CI='tAtmIlmiLinkInGetNextRequestPdus'
-_CH='tAtmIlmiLinkInGetRequestPdus'
-_CG='tAtmIlmiLinkInPdus'
-_CF='tAtmIlmiLinkOutGeneralErrors'
-_CE='tAtmIlmiLinkOutReadOnlyErrors'
-_CD='tAtmIlmiLinkOutBadValueErrors'
-_CC='tAtmIlmiLinkOutNoSuchNameErrors'
-_CB='tAtmIlmiLinkOutTooBigErrors'
-_CA='tAtmIlmiLinkOutTrapPdus'
-_C9='tAtmIlmiLinkOutGetResponsePdus'
-_C8='tAtmIlmiLinkOutSetRequestPdus'
-_C7='tAtmIlmiLinkOutGetNextRequestPdus'
-_C6='tAtmIlmiLinkOutGetRequestPdus'
-_C5='tAtmIlmiLinkOutPdus'
-_C4='tAtmIlmiLinkNeighborMaxVciBits'
-_C3='tAtmIlmiLinkNeighborMaxVpiBits'
-_C2='tAtmIlmiLinkNeighborMaxVccs'
-_C1='tAtmIlmiLinkNeighborMaxVpcs'
-_C0='tAtmIlmiLinkNeighborVersion'
-_B_='tAtmIlmiLinkNeighborDeviceType'
-_Bz='tAtmIlmiLinkNeighborUniType'
-_By='tAtmIlmiLinkNeighborSystemIdentifier'
-_Bx='tAtmIlmiLinkNeighborIfIdentifier'
-_Bw='tAtmIlmiLinkNegotiatedImeType'
-_Bv='tAtmIlmiLinkNegotiatedVersion'
-_Bu='tAtmIlmiLinkImeType'
-_Bt='tAtmIlmiLinkVersion'
-_Bs='tAtmIlmiLinkDeviceType'
-_Br='tAtmIlmiLinkUniType'
-_Bq='tAtmIlmiLinkConPollInactFactor'
-_Bp='tAtmIlmiLinkCheckConPollIntvl'
-_Bo='tAtmIlmiLinkEstablishConPollIntvl'
-_Bn='tAtmIlmiLinkTransmitTrafficDescrIndex'
-_Bm='tAtmIlmiLinkReceiveTrafficDescrIndex'
-_Bl='tAtmIlmiLinkFsmState'
-_Bk='tAtmIlmiLinkLastChanged'
-_Bj='tAtmIlmiLinkRowStatus'
-_Bi='tAtmMdaConfiguredVccs'
-_Bh='tAtmMdaConfiguredVpcs'
-_Bg='tAtmMdaMaxSupportedVccs'
-_Bf='tAtmMdaMaxSupportedVpcs'
-_Be='tAtmIfcStatsTagCells'
-_Bd='tAtmIfcStatsDrpClp0CellsTxd'
-_Bc='tAtmIfcStatsDrpClp0CellsRxd'
-_Bb='tAtmIfcStatsDrpCellsRxd'
-_Ba='tAtmIfcStatsTotalBytesRxd'
-_BZ='tAtmIfcStatsTotalBytesTxd'
-_BY='tAtmIfcStatsTotalClp0CellsTxd'
-_BX='tAtmIfcStatsTotalCellsTxd'
-_BW='tAtmIfcStatsTotalClp0CellsRxd'
-_BV='tAtmIfcStatsTotalCellsRxd'
-_BU='tAtmIfcInfoOwner'
-_BT='tAtmIfcConnKind'
-_BS='tAtmIfcCastType'
-_BR='tAtmIfcRowStatus'
-_BQ='tAtmIfcTransmitTrafficDescrIndex'
-_BP='tAtmIfcReceiveTrafficDescrIndex'
-_BO='tAtmIfcLastChange'
-_BN='tAtmIfcOperStatus'
-_BM='tAtmIfcAdminStatus'
-_BL='tAtmVtlStatsTagCells'
-_BK='tAtmVtlStatsDrpClp0CellsTxd'
-_BJ='tAtmVtlStatsDrpClp0CellsRxd'
-_BI='tAtmVtlStatsDrpCellsRxd'
-_BH='tAtmVtlStatsTotalBytesRxd'
-_BG='tAtmVtlStatsTotalBytesTxd'
-_BF='tAtmVtlStatsTotalClp0CellsTxd'
-_BE='tAtmVtlStatsTotalCellsTxd'
-_BD='tAtmVtlStatsTotalClp0CellsRxd'
-_BC='tAtmVtlStatsTotalCellsRxd'
-_BB='tAtmVtlInfoOwner'
-_BA='tAtmVtlConnKind'
-_B9='tAtmVtlCastType'
-_B8='tAtmVtlRowStatus'
-_B7='tAtmVtlTransmitTrafficDescrIndex'
-_B6='tAtmVtlReceiveTrafficDescrIndex'
-_B5='tAtmVtlLastChange'
-_B4='tAtmVtlOperStatus'
-_B3='tAtmVtlAdminStatus'
-_B2='tAtmOamVplStatsOtherCellsRxd'
-_B1='tAtmOamVplStatsCrc10Errors'
-_B0='tAtmOamVplStatsLoopbackCellsRxd'
-_A_='tAtmOamVplStatsRDICellsRxd'
-_Az='tAtmOamVplStatsAISCellsRxd'
-_Ay='tAtmOamVplStatsLoopbackCellsTxd'
-_Ax='tAtmOamVplStatsRDICellsTxd'
-_Aw='tAtmOamVplStatsAISCellsTxd'
-_Av='tAtmVplStatsTagCells'
-_Au='tAtmVplStatsDrpClp0CellsTxd'
-_At='tAtmVplStatsDrpClp0CellsRxd'
-_As='tAtmVplStatsDrpCellsRxd'
-_Ar='tAtmVplStatsTotalBytesRxd'
-_Aq='tAtmVplStatsTotalBytesTxd'
-_Ap='tAtmVplStatsTotalClp0CellsTxd'
-_Ao='tAtmVplStatsTotalCellsTxd'
-_An='tAtmVplStatsTotalClp0CellsRxd'
-_Am='tAtmVplStatsTotalCellsRxd'
-_Al='tAtmVplInfoIlmiStatus'
-_Ak='tAtmVplInfoOamStatus'
-_Aj='tAtmVplInfoOwner'
-_Ai='tAtmCellVclStatsTagCells'
-_Ah='tAtmCellVclStatsDrpClp0CellsTxd'
-_Ag='tAtmCellVclStatsDrpClp0CellsRxd'
-_Af='tAtmCellVclStatsDrpCellsRxd'
-_Ae='tAtmCellVclStatsClp0CellsTxd'
-_Ad='tAtmCellVclStatsClp0CellsRxd'
-_Ac='tAal5VccStatsDrpPacketsTxd'
-_Ab='tAal5VccStatsDrpPacketsRxd'
-_Aa='tAal5VccStatsPacketsTxd'
-_AZ='tAal5VccStatsPacketsRxd'
-_AY='tAtmOamVclStatsOtherCellsRxd'
-_AX='tAtmOamVclStatsCrc10Err'
-_AW='tAtmOamVclStatsLoopbackCellsRxd'
-_AV='tAtmOamVclStatsRDICellsRxd'
-_AU='tAtmOamVclStatsAISCellsRxd'
-_AT='tAtmOamVclStatsLoopbackCellsTxd'
-_AS='tAtmOamVclStatsRDICellsTxd'
-_AR='tAtmOamVclStatsAISCellsTxd'
-_AQ='tAtmVclStatsTotalBytesRxd'
-_AP='tAtmVclStatsTotalBytesTxd'
-_AO='tAtmVclStatsTotalCellsTxd'
-_AN='tAtmVclStatsTotalCellsRxd'
-_AM='tAtmVclInfoIlmiStatus'
-_AL='tAtmVclInfoOamStatus'
-_AK='tAtmVclInfoOwner'
-_AJ='tAtmTCSublayerEntry'
-_AI='tAtmCellVclStatisticsEntry'
-_AH='tAtmVplInfoEntry'
-_AG='tAal5VccStatisticsEntry'
-_AF='tAtmOamVclStatisticsEntry'
-_AE='tAtmVclInfoEntry'
-_AD='tAtmIntfConfEntry'
-_AC='AtmIlmiLinkDeviceType'
-_AB='AtmIlmiLinkUniType'
-_AA='AtmIlmiLinkImeType'
-_A9='not-accessible'
-_A8='tmnxConnProfId'
-_A7='TIMETRA-CONN-PROF-MIB'
-_A6='tmnxMDASlotNum'
-_A5='tmnxChassisIndex'
-_A4='tmnxCardSlotNum'
-_A3='AtmVpIdentifier'
-_A2='AtmVcIdentifier'
-_A1='AtmConnCastType'
-_A0='atmVclVpi'
-_z='atmVclVci'
-_y='atmInterfaceMaxActiveVpiBits'
-_x='atmInterfaceMaxActiveVciBits'
-_w='atmInterfaceCurrentMaxVpiBits'
-_v='atmInterfaceCurrentMaxVciBits'
-_u='atmInterfaceConfVpcs'
-_t='atmInterfaceConfVccs'
-_s='OctetString'
-_r='tmnxAtmNotificationsR4r0Group'
-_q='tmnxAtmTCSublayerGroup'
-_p='tmnxAtmIlmiStatisticsGroup'
-_o='tmnxAtmIlmiLinkGroup'
-_n='tmnxAtmSysConfV4v0Group'
-_m='tmnxAtmIfcStatisticsGroup'
-_l='tmnxAtmVtlStatisticsGroup'
-_k='tmnxAtmVtlInfoGroup'
-_j='tmnxAtmVplStatisticsGroup'
-_i='tmnxAtmVplInfoGroup'
-_h='tmnxAtmCellVclStatisticsGroup'
-_g='tmnxAtmAal5VccStatisticsGroup'
-_f='tmnxAtmVclStatisticsGroup'
-_e='tmnxAtmVclInfoGroup'
-_d='tmnxAtmIfcInfoGroup'
-_c='tmnxAtmIntfStatsV4v0Group'
-_b='tmnxAtmIntfConfV4v0Group'
-_a='tAtmIntfCurrentMaxVccs'
-_Z='tAtmIntfCurrentMaxVpcs'
-_Y='tAtmIlmiLinkVci'
-_X='tAtmIlmiLinkVpi'
-_W='tAtmIlmiLinkOperStatus'
-_V='tAtmIlmiLinkAdminStatus'
-_U='AtmIlmiLinkVersion'
-_T='seconds'
-_S='tAtmVtlEndVpi'
-_R='tAtmVtlStartVpi'
-_Q='atmVplVpi'
-_P='atmInterfaceTCAlarmState'
-_O='atmInterfaceDs3PlcpAlarmState'
-_N='read-write'
-_M='undefined'
-_L='TIMETRA-CHASSIS-MIB'
-_K='AtmTrafficDescrParamIndex'
-_J='obsolete'
-_I='read-create'
-_H='ifIndex'
-_G='IF-MIB'
-_F='ATM-MIB'
-_E='cells'
-_D='Integer32'
-_C='read-only'
-_B='TIMETRA-ATM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_s,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-aal5VccEntry,atmInterfaceConfEntry,atmInterfaceConfVccs,atmInterfaceConfVpcs,atmInterfaceCurrentMaxVciBits,atmInterfaceCurrentMaxVpiBits,atmInterfaceDs3PlcpAlarmState,atmInterfaceMaxActiveVciBits,atmInterfaceMaxActiveVpiBits,atmInterfaceTCAlarmState,atmInterfaceTCEntry,atmVclEntry,atmVclVci,atmVclVpi,atmVplEntry,atmVplVpi=mibBuilder.importSymbols(_F,'aal5VccEntry','atmInterfaceConfEntry',_t,_u,_v,_w,_O,_x,_y,_P,'atmInterfaceTCEntry','atmVclEntry',_z,_A0,'atmVplEntry',_Q)
-AtmConnCastType,AtmConnKind,AtmTrafficDescrParamIndex,AtmVcIdentifier,AtmVorXAdminStatus,AtmVorXLastChange,AtmVorXOperStatus,AtmVpIdentifier=mibBuilder.importSymbols('ATM-TC-MIB',_A1,'AtmConnKind',_K,_A2,'AtmVorXAdminStatus','AtmVorXLastChange','AtmVorXOperStatus',_A3)
-ifIndex,=mibBuilder.importSymbols(_G,_H)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp')
-tmnxCardSlotNum,tmnxChassisIndex,tmnxMDASlotNum=mibBuilder.importSymbols(_L,_A4,_A5,_A6)
-tmnxConnProfId,=mibBuilder.importSymbols(_A7,_A8)
-timetraSRMIBModules,tmnxSRConfs,tmnxSRNotifyPrefix,tmnxSRObjs=mibBuilder.importSymbols('TIMETRA-GLOBAL-MIB','timetraSRMIBModules','tmnxSRConfs','tmnxSRNotifyPrefix','tmnxSRObjs')
-timetraATMMIBModule=ModuleIdentity((1,3,6,1,4,1,6527,1,1,3,27))
-if mibBuilder.loadTexts:timetraATMMIBModule.setRevisions(('2011-02-01 00:00','2009-02-28 00:00','2006-03-16 00:00','2005-08-31 00:00','2005-01-24 00:00','2003-10-28 00:00'))
-class AtmConnectionOwner(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('sap',1),('ilmi',2)))
-class AtmOamStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('up',1),('eteAis',2),('eteRdi',3),('eteAisLoc',4)))
-class AtmIlmiStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_M,0),('ok',1),('vpiOrVciRangeConflict',2)))
-class AtmLlid(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
-class AtmIlmiLinkUniType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_M,0),('public',1),('private',2)))
-class AtmIlmiLinkDeviceType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_M,0),('user',1),('node',2)))
-class AtmIlmiLinkVersion(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_M,0),('version3point1',1),('version4point0',2),('version3point0',3)))
-class AtmIlmiLinkImeType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('userside',1),('networkside',2)))
-_TAtmMIBConformance_ObjectIdentity=ObjectIdentity
-tAtmMIBConformance=_TAtmMIBConformance_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,27))
-_TmnxAtmMIBCompliances_ObjectIdentity=ObjectIdentity
-tmnxAtmMIBCompliances=_TmnxAtmMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,27,1))
-_TmnxAtmMIBGroups_ObjectIdentity=ObjectIdentity
-tmnxAtmMIBGroups=_TmnxAtmMIBGroups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,27,2))
-_TAtmObjs_ObjectIdentity=ObjectIdentity
-tAtmObjs=_TAtmObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,27))
-_TAtmMdaObjs_ObjectIdentity=ObjectIdentity
-tAtmMdaObjs=_TAtmMdaObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,27,1))
-_TAtmMdaInfoTable_Object=MibTable
-tAtmMdaInfoTable=_TAtmMdaInfoTable_Object((1,3,6,1,4,1,6527,3,1,2,27,1,1))
-if mibBuilder.loadTexts:tAtmMdaInfoTable.setStatus(_J)
-_TAtmMdaInfoEntry_Object=MibTableRow
-tAtmMdaInfoEntry=_TAtmMdaInfoEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,1,1,1))
-tAtmMdaInfoEntry.setIndexNames((0,_L,_A5),(0,_L,_A4),(0,_L,_A6))
-if mibBuilder.loadTexts:tAtmMdaInfoEntry.setStatus(_J)
-_TAtmMdaMaxSupportedVpcs_Type=Integer32
-_TAtmMdaMaxSupportedVpcs_Object=MibTableColumn
-tAtmMdaMaxSupportedVpcs=_TAtmMdaMaxSupportedVpcs_Object((1,3,6,1,4,1,6527,3,1,2,27,1,1,1,1),_TAtmMdaMaxSupportedVpcs_Type())
-tAtmMdaMaxSupportedVpcs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmMdaMaxSupportedVpcs.setStatus(_J)
-_TAtmMdaMaxSupportedVccs_Type=Integer32
-_TAtmMdaMaxSupportedVccs_Object=MibTableColumn
-tAtmMdaMaxSupportedVccs=_TAtmMdaMaxSupportedVccs_Object((1,3,6,1,4,1,6527,3,1,2,27,1,1,1,2),_TAtmMdaMaxSupportedVccs_Type())
-tAtmMdaMaxSupportedVccs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmMdaMaxSupportedVccs.setStatus(_J)
-_TAtmMdaConfiguredVpcs_Type=Integer32
-_TAtmMdaConfiguredVpcs_Object=MibTableColumn
-tAtmMdaConfiguredVpcs=_TAtmMdaConfiguredVpcs_Object((1,3,6,1,4,1,6527,3,1,2,27,1,1,1,3),_TAtmMdaConfiguredVpcs_Type())
-tAtmMdaConfiguredVpcs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmMdaConfiguredVpcs.setStatus(_J)
-_TAtmMdaConfiguredVccs_Type=Integer32
-_TAtmMdaConfiguredVccs_Object=MibTableColumn
-tAtmMdaConfiguredVccs=_TAtmMdaConfiguredVccs_Object((1,3,6,1,4,1,6527,3,1,2,27,1,1,1,4),_TAtmMdaConfiguredVccs_Type())
-tAtmMdaConfiguredVccs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmMdaConfiguredVccs.setStatus(_J)
-_TAtmIntfObjs_ObjectIdentity=ObjectIdentity
-tAtmIntfObjs=_TAtmIntfObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,27,2))
-_TAtmIntfConfTable_Object=MibTable
-tAtmIntfConfTable=_TAtmIntfConfTable_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1))
-if mibBuilder.loadTexts:tAtmIntfConfTable.setStatus(_A)
-_TAtmIntfConfEntry_Object=MibTableRow
-tAtmIntfConfEntry=_TAtmIntfConfEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1))
-if mibBuilder.loadTexts:tAtmIntfConfEntry.setStatus(_A)
-class _TAtmIntfCurrentMaxVpcs_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1024))
-_TAtmIntfCurrentMaxVpcs_Type.__name__=_D
-_TAtmIntfCurrentMaxVpcs_Object=MibTableColumn
-tAtmIntfCurrentMaxVpcs=_TAtmIntfCurrentMaxVpcs_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,1),_TAtmIntfCurrentMaxVpcs_Type())
-tAtmIntfCurrentMaxVpcs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfCurrentMaxVpcs.setStatus(_A)
-class _TAtmIntfCurrentMaxVccs_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65536))
-_TAtmIntfCurrentMaxVccs_Type.__name__=_D
-_TAtmIntfCurrentMaxVccs_Object=MibTableColumn
-tAtmIntfCurrentMaxVccs=_TAtmIntfCurrentMaxVccs_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,2),_TAtmIntfCurrentMaxVccs_Type())
-tAtmIntfCurrentMaxVccs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfCurrentMaxVccs.setStatus(_A)
-_TAtmIntfTotalIngrCbrBandwidth_Type=Unsigned32
-_TAtmIntfTotalIngrCbrBandwidth_Object=MibTableColumn
-tAtmIntfTotalIngrCbrBandwidth=_TAtmIntfTotalIngrCbrBandwidth_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,3),_TAtmIntfTotalIngrCbrBandwidth_Type())
-tAtmIntfTotalIngrCbrBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfTotalIngrCbrBandwidth.setStatus(_A)
-_TAtmIntfTotalIngrRtVbrBandwidth_Type=Unsigned32
-_TAtmIntfTotalIngrRtVbrBandwidth_Object=MibTableColumn
-tAtmIntfTotalIngrRtVbrBandwidth=_TAtmIntfTotalIngrRtVbrBandwidth_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,4),_TAtmIntfTotalIngrRtVbrBandwidth_Type())
-tAtmIntfTotalIngrRtVbrBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfTotalIngrRtVbrBandwidth.setStatus(_A)
-_TAtmIntfTotalIngrNrtVbrBandwidth_Type=Unsigned32
-_TAtmIntfTotalIngrNrtVbrBandwidth_Object=MibTableColumn
-tAtmIntfTotalIngrNrtVbrBandwidth=_TAtmIntfTotalIngrNrtVbrBandwidth_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,5),_TAtmIntfTotalIngrNrtVbrBandwidth_Type())
-tAtmIntfTotalIngrNrtVbrBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfTotalIngrNrtVbrBandwidth.setStatus(_A)
-_TAtmIntfTotalIngrUbrBandwidth_Type=Unsigned32
-_TAtmIntfTotalIngrUbrBandwidth_Object=MibTableColumn
-tAtmIntfTotalIngrUbrBandwidth=_TAtmIntfTotalIngrUbrBandwidth_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,6),_TAtmIntfTotalIngrUbrBandwidth_Type())
-tAtmIntfTotalIngrUbrBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfTotalIngrUbrBandwidth.setStatus(_A)
-_TAtmIntfTotalEgrCbrBandwidth_Type=Unsigned32
-_TAtmIntfTotalEgrCbrBandwidth_Object=MibTableColumn
-tAtmIntfTotalEgrCbrBandwidth=_TAtmIntfTotalEgrCbrBandwidth_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,7),_TAtmIntfTotalEgrCbrBandwidth_Type())
-tAtmIntfTotalEgrCbrBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfTotalEgrCbrBandwidth.setStatus(_A)
-_TAtmIntfTotalEgrRtVbrBandwidth_Type=Unsigned32
-_TAtmIntfTotalEgrRtVbrBandwidth_Object=MibTableColumn
-tAtmIntfTotalEgrRtVbrBandwidth=_TAtmIntfTotalEgrRtVbrBandwidth_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,8),_TAtmIntfTotalEgrRtVbrBandwidth_Type())
-tAtmIntfTotalEgrRtVbrBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfTotalEgrRtVbrBandwidth.setStatus(_A)
-_TAtmIntfTotalEgrNrtVbrBandwidth_Type=Unsigned32
-_TAtmIntfTotalEgrNrtVbrBandwidth_Object=MibTableColumn
-tAtmIntfTotalEgrNrtVbrBandwidth=_TAtmIntfTotalEgrNrtVbrBandwidth_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,9),_TAtmIntfTotalEgrNrtVbrBandwidth_Type())
-tAtmIntfTotalEgrNrtVbrBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfTotalEgrNrtVbrBandwidth.setStatus(_A)
-_TAtmIntfTotalEgrUbrBandwidth_Type=Unsigned32
-_TAtmIntfTotalEgrUbrBandwidth_Object=MibTableColumn
-tAtmIntfTotalEgrUbrBandwidth=_TAtmIntfTotalEgrUbrBandwidth_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,10),_TAtmIntfTotalEgrUbrBandwidth_Type())
-tAtmIntfTotalEgrUbrBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfTotalEgrUbrBandwidth.setStatus(_A)
-_TAtmIntfBandwidth_Type=Unsigned32
-_TAtmIntfBandwidth_Object=MibTableColumn
-tAtmIntfBandwidth=_TAtmIntfBandwidth_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,11),_TAtmIntfBandwidth_Type())
-tAtmIntfBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfBandwidth.setStatus(_A)
-_TAtmIntfShapedBandwidth_Type=Unsigned32
-_TAtmIntfShapedBandwidth_Object=MibTableColumn
-tAtmIntfShapedBandwidth=_TAtmIntfShapedBandwidth_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,12),_TAtmIntfShapedBandwidth_Type())
-tAtmIntfShapedBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfShapedBandwidth.setStatus(_A)
-_TAtmIntfLastUnknVpi_Type=AtmVpIdentifier
-_TAtmIntfLastUnknVpi_Object=MibTableColumn
-tAtmIntfLastUnknVpi=_TAtmIntfLastUnknVpi_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,13),_TAtmIntfLastUnknVpi_Type())
-tAtmIntfLastUnknVpi.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfLastUnknVpi.setStatus(_A)
-_TAtmIntfLastUnknVci_Type=AtmVcIdentifier
-_TAtmIntfLastUnknVci_Object=MibTableColumn
-tAtmIntfLastUnknVci=_TAtmIntfLastUnknVci_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,14),_TAtmIntfLastUnknVci_Type())
-tAtmIntfLastUnknVci.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfLastUnknVci.setStatus(_A)
-class _TAtmIntfOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('lowerLayerDown',2)))
-_TAtmIntfOperStatus_Type.__name__=_D
-_TAtmIntfOperStatus_Object=MibTableColumn
-tAtmIntfOperStatus=_TAtmIntfOperStatus_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,15),_TAtmIntfOperStatus_Type())
-tAtmIntfOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfOperStatus.setStatus(_A)
-class _TAtmIntfConfVtcs_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1024))
-_TAtmIntfConfVtcs_Type.__name__=_D
-_TAtmIntfConfVtcs_Object=MibTableColumn
-tAtmIntfConfVtcs=_TAtmIntfConfVtcs_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,16),_TAtmIntfConfVtcs_Type())
-tAtmIntfConfVtcs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfConfVtcs.setStatus(_A)
-class _TAtmIntfConfIfcs_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
-_TAtmIntfConfIfcs_Type.__name__=_D
-_TAtmIntfConfIfcs_Object=MibTableColumn
-tAtmIntfConfIfcs=_TAtmIntfConfIfcs_Object((1,3,6,1,4,1,6527,3,1,2,27,2,1,1,17),_TAtmIntfConfIfcs_Type())
-tAtmIntfConfIfcs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfConfIfcs.setStatus(_A)
-_TAtmIntfStatsTable_Object=MibTable
-tAtmIntfStatsTable=_TAtmIntfStatsTable_Object((1,3,6,1,4,1,6527,3,1,2,27,2,2))
-if mibBuilder.loadTexts:tAtmIntfStatsTable.setStatus(_A)
-_TAtmIntfStatsEntry_Object=MibTableRow
-tAtmIntfStatsEntry=_TAtmIntfStatsEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,2,2,1))
-tAtmIntfStatsEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:tAtmIntfStatsEntry.setStatus(_A)
-_TAtmIntfStatsTotalCellsRxd_Type=Counter64
-_TAtmIntfStatsTotalCellsRxd_Object=MibTableColumn
-tAtmIntfStatsTotalCellsRxd=_TAtmIntfStatsTotalCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,2,1,1),_TAtmIntfStatsTotalCellsRxd_Type())
-tAtmIntfStatsTotalCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfStatsTotalCellsRxd.setStatus(_A)
-_TAtmIntfStatsTotalCellsTxd_Type=Counter64
-_TAtmIntfStatsTotalCellsTxd_Object=MibTableColumn
-tAtmIntfStatsTotalCellsTxd=_TAtmIntfStatsTotalCellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,2,1,2),_TAtmIntfStatsTotalCellsTxd_Type())
-tAtmIntfStatsTotalCellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfStatsTotalCellsTxd.setStatus(_A)
-_TAtmIntfStatsTotalBytesRxd_Type=Counter64
-_TAtmIntfStatsTotalBytesRxd_Object=MibTableColumn
-tAtmIntfStatsTotalBytesRxd=_TAtmIntfStatsTotalBytesRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,2,1,3),_TAtmIntfStatsTotalBytesRxd_Type())
-tAtmIntfStatsTotalBytesRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfStatsTotalBytesRxd.setStatus(_A)
-_TAtmIntfStatsTotalBytesTxd_Type=Counter64
-_TAtmIntfStatsTotalBytesTxd_Object=MibTableColumn
-tAtmIntfStatsTotalBytesTxd=_TAtmIntfStatsTotalBytesTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,2,1,4),_TAtmIntfStatsTotalBytesTxd_Type())
-tAtmIntfStatsTotalBytesTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfStatsTotalBytesTxd.setStatus(_A)
-_TAtmIntfStatsTotalUnknCellsDrp_Type=Counter32
-_TAtmIntfStatsTotalUnknCellsDrp_Object=MibTableColumn
-tAtmIntfStatsTotalUnknCellsDrp=_TAtmIntfStatsTotalUnknCellsDrp_Object((1,3,6,1,4,1,6527,3,1,2,27,2,2,1,5),_TAtmIntfStatsTotalUnknCellsDrp_Type())
-tAtmIntfStatsTotalUnknCellsDrp.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfStatsTotalUnknCellsDrp.setStatus(_A)
-_TAtmIntfStatsTotalHecErr_Type=Counter32
-_TAtmIntfStatsTotalHecErr_Object=MibTableColumn
-tAtmIntfStatsTotalHecErr=_TAtmIntfStatsTotalHecErr_Object((1,3,6,1,4,1,6527,3,1,2,27,2,2,1,6),_TAtmIntfStatsTotalHecErr_Type())
-tAtmIntfStatsTotalHecErr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfStatsTotalHecErr.setStatus(_J)
-_TAtmIntfStatsTotalHecErrFixed_Type=Counter32
-_TAtmIntfStatsTotalHecErrFixed_Object=MibTableColumn
-tAtmIntfStatsTotalHecErrFixed=_TAtmIntfStatsTotalHecErrFixed_Object((1,3,6,1,4,1,6527,3,1,2,27,2,2,1,7),_TAtmIntfStatsTotalHecErrFixed_Type())
-tAtmIntfStatsTotalHecErrFixed.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfStatsTotalHecErrFixed.setStatus(_J)
-_TAtmIntfAal5StatsTable_Object=MibTable
-tAtmIntfAal5StatsTable=_TAtmIntfAal5StatsTable_Object((1,3,6,1,4,1,6527,3,1,2,27,2,3))
-if mibBuilder.loadTexts:tAtmIntfAal5StatsTable.setStatus(_A)
-_TAtmIntfAal5StatsEntry_Object=MibTableRow
-tAtmIntfAal5StatsEntry=_TAtmIntfAal5StatsEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,2,3,1))
-tAtmIntfAal5StatsEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:tAtmIntfAal5StatsEntry.setStatus(_A)
-_TAtmIntfAal5StatsTotalPktsRxd_Type=Counter64
-_TAtmIntfAal5StatsTotalPktsRxd_Object=MibTableColumn
-tAtmIntfAal5StatsTotalPktsRxd=_TAtmIntfAal5StatsTotalPktsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,3,1,1),_TAtmIntfAal5StatsTotalPktsRxd_Type())
-tAtmIntfAal5StatsTotalPktsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfAal5StatsTotalPktsRxd.setStatus(_A)
-_TAtmIntfAal5StatsTotalPktsTxd_Type=Counter64
-_TAtmIntfAal5StatsTotalPktsTxd_Object=MibTableColumn
-tAtmIntfAal5StatsTotalPktsTxd=_TAtmIntfAal5StatsTotalPktsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,3,1,2),_TAtmIntfAal5StatsTotalPktsTxd_Type())
-tAtmIntfAal5StatsTotalPktsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfAal5StatsTotalPktsTxd.setStatus(_A)
-_TAtmIntfAal5StatsTotalPktsDrpRxd_Type=Counter64
-_TAtmIntfAal5StatsTotalPktsDrpRxd_Object=MibTableColumn
-tAtmIntfAal5StatsTotalPktsDrpRxd=_TAtmIntfAal5StatsTotalPktsDrpRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,3,1,3),_TAtmIntfAal5StatsTotalPktsDrpRxd_Type())
-tAtmIntfAal5StatsTotalPktsDrpRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfAal5StatsTotalPktsDrpRxd.setStatus(_A)
-_TAtmIntfAal5StatsTotalPktsDrpTxd_Type=Counter64
-_TAtmIntfAal5StatsTotalPktsDrpTxd_Object=MibTableColumn
-tAtmIntfAal5StatsTotalPktsDrpTxd=_TAtmIntfAal5StatsTotalPktsDrpTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,3,1,4),_TAtmIntfAal5StatsTotalPktsDrpTxd_Type())
-tAtmIntfAal5StatsTotalPktsDrpTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfAal5StatsTotalPktsDrpTxd.setStatus(_A)
-_TAtmIntfAal5StatsTotalCrc32Err_Type=Counter64
-_TAtmIntfAal5StatsTotalCrc32Err_Object=MibTableColumn
-tAtmIntfAal5StatsTotalCrc32Err=_TAtmIntfAal5StatsTotalCrc32Err_Object((1,3,6,1,4,1,6527,3,1,2,27,2,3,1,5),_TAtmIntfAal5StatsTotalCrc32Err_Type())
-tAtmIntfAal5StatsTotalCrc32Err.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIntfAal5StatsTotalCrc32Err.setStatus(_A)
-_TAtmIfcInfoTable_Object=MibTable
-tAtmIfcInfoTable=_TAtmIfcInfoTable_Object((1,3,6,1,4,1,6527,3,1,2,27,2,4))
-if mibBuilder.loadTexts:tAtmIfcInfoTable.setStatus(_A)
-_TAtmIfcInfoEntry_Object=MibTableRow
-tAtmIfcInfoEntry=_TAtmIfcInfoEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,2,4,1))
-tAtmIfcInfoEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:tAtmIfcInfoEntry.setStatus(_A)
-_TAtmIfcAdminStatus_Type=AtmVorXAdminStatus
-_TAtmIfcAdminStatus_Object=MibTableColumn
-tAtmIfcAdminStatus=_TAtmIfcAdminStatus_Object((1,3,6,1,4,1,6527,3,1,2,27,2,4,1,1),_TAtmIfcAdminStatus_Type())
-tAtmIfcAdminStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcAdminStatus.setStatus(_A)
-_TAtmIfcOperStatus_Type=AtmVorXOperStatus
-_TAtmIfcOperStatus_Object=MibTableColumn
-tAtmIfcOperStatus=_TAtmIfcOperStatus_Object((1,3,6,1,4,1,6527,3,1,2,27,2,4,1,2),_TAtmIfcOperStatus_Type())
-tAtmIfcOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcOperStatus.setStatus(_A)
-_TAtmIfcLastChange_Type=AtmVorXLastChange
-_TAtmIfcLastChange_Object=MibTableColumn
-tAtmIfcLastChange=_TAtmIfcLastChange_Object((1,3,6,1,4,1,6527,3,1,2,27,2,4,1,3),_TAtmIfcLastChange_Type())
-tAtmIfcLastChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcLastChange.setStatus(_A)
-_TAtmIfcReceiveTrafficDescrIndex_Type=AtmTrafficDescrParamIndex
-_TAtmIfcReceiveTrafficDescrIndex_Object=MibTableColumn
-tAtmIfcReceiveTrafficDescrIndex=_TAtmIfcReceiveTrafficDescrIndex_Object((1,3,6,1,4,1,6527,3,1,2,27,2,4,1,4),_TAtmIfcReceiveTrafficDescrIndex_Type())
-tAtmIfcReceiveTrafficDescrIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcReceiveTrafficDescrIndex.setStatus(_A)
-_TAtmIfcTransmitTrafficDescrIndex_Type=AtmTrafficDescrParamIndex
-_TAtmIfcTransmitTrafficDescrIndex_Object=MibTableColumn
-tAtmIfcTransmitTrafficDescrIndex=_TAtmIfcTransmitTrafficDescrIndex_Object((1,3,6,1,4,1,6527,3,1,2,27,2,4,1,5),_TAtmIfcTransmitTrafficDescrIndex_Type())
-tAtmIfcTransmitTrafficDescrIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcTransmitTrafficDescrIndex.setStatus(_A)
-_TAtmIfcRowStatus_Type=RowStatus
-_TAtmIfcRowStatus_Object=MibTableColumn
-tAtmIfcRowStatus=_TAtmIfcRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,27,2,4,1,6),_TAtmIfcRowStatus_Type())
-tAtmIfcRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcRowStatus.setStatus(_A)
-_TAtmIfcCastType_Type=AtmConnCastType
-_TAtmIfcCastType_Object=MibTableColumn
-tAtmIfcCastType=_TAtmIfcCastType_Object((1,3,6,1,4,1,6527,3,1,2,27,2,4,1,7),_TAtmIfcCastType_Type())
-tAtmIfcCastType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcCastType.setStatus(_A)
-_TAtmIfcConnKind_Type=AtmConnKind
-_TAtmIfcConnKind_Object=MibTableColumn
-tAtmIfcConnKind=_TAtmIfcConnKind_Object((1,3,6,1,4,1,6527,3,1,2,27,2,4,1,8),_TAtmIfcConnKind_Type())
-tAtmIfcConnKind.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcConnKind.setStatus(_A)
-_TAtmIfcInfoOwner_Type=AtmConnectionOwner
-_TAtmIfcInfoOwner_Object=MibTableColumn
-tAtmIfcInfoOwner=_TAtmIfcInfoOwner_Object((1,3,6,1,4,1,6527,3,1,2,27,2,4,1,9),_TAtmIfcInfoOwner_Type())
-tAtmIfcInfoOwner.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcInfoOwner.setStatus(_A)
-_TAtmIfcStatisticsTable_Object=MibTable
-tAtmIfcStatisticsTable=_TAtmIfcStatisticsTable_Object((1,3,6,1,4,1,6527,3,1,2,27,2,5))
-if mibBuilder.loadTexts:tAtmIfcStatisticsTable.setStatus(_A)
-_TAtmIfcStatisticsEntry_Object=MibTableRow
-tAtmIfcStatisticsEntry=_TAtmIfcStatisticsEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,2,5,1))
-tAtmIfcStatisticsEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:tAtmIfcStatisticsEntry.setStatus(_A)
-_TAtmIfcStatsTotalCellsRxd_Type=Counter64
-_TAtmIfcStatsTotalCellsRxd_Object=MibTableColumn
-tAtmIfcStatsTotalCellsRxd=_TAtmIfcStatsTotalCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,5,1,1),_TAtmIfcStatsTotalCellsRxd_Type())
-tAtmIfcStatsTotalCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcStatsTotalCellsRxd.setStatus(_A)
-_TAtmIfcStatsTotalClp0CellsRxd_Type=Counter64
-_TAtmIfcStatsTotalClp0CellsRxd_Object=MibTableColumn
-tAtmIfcStatsTotalClp0CellsRxd=_TAtmIfcStatsTotalClp0CellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,5,1,2),_TAtmIfcStatsTotalClp0CellsRxd_Type())
-tAtmIfcStatsTotalClp0CellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcStatsTotalClp0CellsRxd.setStatus(_A)
-_TAtmIfcStatsTotalCellsTxd_Type=Counter64
-_TAtmIfcStatsTotalCellsTxd_Object=MibTableColumn
-tAtmIfcStatsTotalCellsTxd=_TAtmIfcStatsTotalCellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,5,1,3),_TAtmIfcStatsTotalCellsTxd_Type())
-tAtmIfcStatsTotalCellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcStatsTotalCellsTxd.setStatus(_A)
-_TAtmIfcStatsTotalClp0CellsTxd_Type=Counter64
-_TAtmIfcStatsTotalClp0CellsTxd_Object=MibTableColumn
-tAtmIfcStatsTotalClp0CellsTxd=_TAtmIfcStatsTotalClp0CellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,5,1,4),_TAtmIfcStatsTotalClp0CellsTxd_Type())
-tAtmIfcStatsTotalClp0CellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcStatsTotalClp0CellsTxd.setStatus(_A)
-_TAtmIfcStatsTotalBytesRxd_Type=Counter64
-_TAtmIfcStatsTotalBytesRxd_Object=MibTableColumn
-tAtmIfcStatsTotalBytesRxd=_TAtmIfcStatsTotalBytesRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,5,1,5),_TAtmIfcStatsTotalBytesRxd_Type())
-tAtmIfcStatsTotalBytesRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcStatsTotalBytesRxd.setStatus(_A)
-_TAtmIfcStatsTotalBytesTxd_Type=Counter64
-_TAtmIfcStatsTotalBytesTxd_Object=MibTableColumn
-tAtmIfcStatsTotalBytesTxd=_TAtmIfcStatsTotalBytesTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,5,1,6),_TAtmIfcStatsTotalBytesTxd_Type())
-tAtmIfcStatsTotalBytesTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcStatsTotalBytesTxd.setStatus(_A)
-_TAtmIfcStatsDrpCellsRxd_Type=Counter32
-_TAtmIfcStatsDrpCellsRxd_Object=MibTableColumn
-tAtmIfcStatsDrpCellsRxd=_TAtmIfcStatsDrpCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,5,1,7),_TAtmIfcStatsDrpCellsRxd_Type())
-tAtmIfcStatsDrpCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcStatsDrpCellsRxd.setStatus(_A)
-_TAtmIfcStatsDrpClp0CellsRxd_Type=Counter32
-_TAtmIfcStatsDrpClp0CellsRxd_Object=MibTableColumn
-tAtmIfcStatsDrpClp0CellsRxd=_TAtmIfcStatsDrpClp0CellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,5,1,8),_TAtmIfcStatsDrpClp0CellsRxd_Type())
-tAtmIfcStatsDrpClp0CellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcStatsDrpClp0CellsRxd.setStatus(_A)
-_TAtmIfcStatsDrpClp0CellsTxd_Type=Counter32
-_TAtmIfcStatsDrpClp0CellsTxd_Object=MibTableColumn
-tAtmIfcStatsDrpClp0CellsTxd=_TAtmIfcStatsDrpClp0CellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,2,5,1,9),_TAtmIfcStatsDrpClp0CellsTxd_Type())
-tAtmIfcStatsDrpClp0CellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcStatsDrpClp0CellsTxd.setStatus(_A)
-_TAtmIfcStatsTagCells_Type=Counter32
-_TAtmIfcStatsTagCells_Object=MibTableColumn
-tAtmIfcStatsTagCells=_TAtmIfcStatsTagCells_Object((1,3,6,1,4,1,6527,3,1,2,27,2,5,1,10),_TAtmIfcStatsTagCells_Type())
-tAtmIfcStatsTagCells.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIfcStatsTagCells.setStatus(_A)
-_TAtmVclObjs_ObjectIdentity=ObjectIdentity
-tAtmVclObjs=_TAtmVclObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,27,3))
-_TAtmVclInfoTable_Object=MibTable
-tAtmVclInfoTable=_TAtmVclInfoTable_Object((1,3,6,1,4,1,6527,3,1,2,27,3,1))
-if mibBuilder.loadTexts:tAtmVclInfoTable.setStatus(_A)
-_TAtmVclInfoEntry_Object=MibTableRow
-tAtmVclInfoEntry=_TAtmVclInfoEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,3,1,1))
-if mibBuilder.loadTexts:tAtmVclInfoEntry.setStatus(_A)
-_TAtmVclInfoOwner_Type=AtmConnectionOwner
-_TAtmVclInfoOwner_Object=MibTableColumn
-tAtmVclInfoOwner=_TAtmVclInfoOwner_Object((1,3,6,1,4,1,6527,3,1,2,27,3,1,1,1),_TAtmVclInfoOwner_Type())
-tAtmVclInfoOwner.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVclInfoOwner.setStatus(_A)
-_TAtmVclInfoOamStatus_Type=AtmOamStatus
-_TAtmVclInfoOamStatus_Object=MibTableColumn
-tAtmVclInfoOamStatus=_TAtmVclInfoOamStatus_Object((1,3,6,1,4,1,6527,3,1,2,27,3,1,1,2),_TAtmVclInfoOamStatus_Type())
-tAtmVclInfoOamStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVclInfoOamStatus.setStatus(_A)
-_TAtmVclInfoIlmiStatus_Type=AtmIlmiStatus
-_TAtmVclInfoIlmiStatus_Object=MibTableColumn
-tAtmVclInfoIlmiStatus=_TAtmVclInfoIlmiStatus_Object((1,3,6,1,4,1,6527,3,1,2,27,3,1,1,3),_TAtmVclInfoIlmiStatus_Type())
-tAtmVclInfoIlmiStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVclInfoIlmiStatus.setStatus(_A)
-class _TAtmVclInfoRxTrafficDescrIdOvr_Type(AtmTrafficDescrParamIndex):subtypeSpec=AtmTrafficDescrParamIndex.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
-_TAtmVclInfoRxTrafficDescrIdOvr_Type.__name__=_K
-_TAtmVclInfoRxTrafficDescrIdOvr_Object=MibTableColumn
-tAtmVclInfoRxTrafficDescrIdOvr=_TAtmVclInfoRxTrafficDescrIdOvr_Object((1,3,6,1,4,1,6527,3,1,2,27,3,1,1,4),_TAtmVclInfoRxTrafficDescrIdOvr_Type())
-tAtmVclInfoRxTrafficDescrIdOvr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVclInfoRxTrafficDescrIdOvr.setStatus(_A)
-class _TAtmVclInfoTxTrafficDescrIdOvr_Type(AtmTrafficDescrParamIndex):subtypeSpec=AtmTrafficDescrParamIndex.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
-_TAtmVclInfoTxTrafficDescrIdOvr_Type.__name__=_K
-_TAtmVclInfoTxTrafficDescrIdOvr_Object=MibTableColumn
-tAtmVclInfoTxTrafficDescrIdOvr=_TAtmVclInfoTxTrafficDescrIdOvr_Object((1,3,6,1,4,1,6527,3,1,2,27,3,1,1,5),_TAtmVclInfoTxTrafficDescrIdOvr_Type())
-tAtmVclInfoTxTrafficDescrIdOvr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVclInfoTxTrafficDescrIdOvr.setStatus(_A)
-_TAtmVclStatisticsTable_Object=MibTable
-tAtmVclStatisticsTable=_TAtmVclStatisticsTable_Object((1,3,6,1,4,1,6527,3,1,2,27,3,2))
-if mibBuilder.loadTexts:tAtmVclStatisticsTable.setStatus(_A)
-_TAtmVclStatisticsEntry_Object=MibTableRow
-tAtmVclStatisticsEntry=_TAtmVclStatisticsEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,3,2,1))
-tAtmVclStatisticsEntry.setIndexNames((0,_G,_H),(0,_F,_A0),(0,_F,_z))
-if mibBuilder.loadTexts:tAtmVclStatisticsEntry.setStatus(_A)
-_TAtmVclStatsTotalCellsRxd_Type=Counter64
-_TAtmVclStatsTotalCellsRxd_Object=MibTableColumn
-tAtmVclStatsTotalCellsRxd=_TAtmVclStatsTotalCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,3,2,1,1),_TAtmVclStatsTotalCellsRxd_Type())
-tAtmVclStatsTotalCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVclStatsTotalCellsRxd.setStatus(_A)
-_TAtmVclStatsTotalCellsTxd_Type=Counter64
-_TAtmVclStatsTotalCellsTxd_Object=MibTableColumn
-tAtmVclStatsTotalCellsTxd=_TAtmVclStatsTotalCellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,3,2,1,2),_TAtmVclStatsTotalCellsTxd_Type())
-tAtmVclStatsTotalCellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVclStatsTotalCellsTxd.setStatus(_A)
-_TAtmVclStatsTotalBytesRxd_Type=Counter64
-_TAtmVclStatsTotalBytesRxd_Object=MibTableColumn
-tAtmVclStatsTotalBytesRxd=_TAtmVclStatsTotalBytesRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,3,2,1,3),_TAtmVclStatsTotalBytesRxd_Type())
-tAtmVclStatsTotalBytesRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVclStatsTotalBytesRxd.setStatus(_A)
-_TAtmVclStatsTotalBytesTxd_Type=Counter64
-_TAtmVclStatsTotalBytesTxd_Object=MibTableColumn
-tAtmVclStatsTotalBytesTxd=_TAtmVclStatsTotalBytesTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,3,2,1,4),_TAtmVclStatsTotalBytesTxd_Type())
-tAtmVclStatsTotalBytesTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVclStatsTotalBytesTxd.setStatus(_A)
-_TAtmOamVclStatisticsTable_Object=MibTable
-tAtmOamVclStatisticsTable=_TAtmOamVclStatisticsTable_Object((1,3,6,1,4,1,6527,3,1,2,27,3,3))
-if mibBuilder.loadTexts:tAtmOamVclStatisticsTable.setStatus(_A)
-_TAtmOamVclStatisticsEntry_Object=MibTableRow
-tAtmOamVclStatisticsEntry=_TAtmOamVclStatisticsEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,3,3,1))
-if mibBuilder.loadTexts:tAtmOamVclStatisticsEntry.setStatus(_A)
-_TAtmOamVclStatsAISCellsTxd_Type=Counter32
-_TAtmOamVclStatsAISCellsTxd_Object=MibTableColumn
-tAtmOamVclStatsAISCellsTxd=_TAtmOamVclStatsAISCellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,3,3,1,1),_TAtmOamVclStatsAISCellsTxd_Type())
-tAtmOamVclStatsAISCellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVclStatsAISCellsTxd.setStatus(_A)
-_TAtmOamVclStatsRDICellsTxd_Type=Counter32
-_TAtmOamVclStatsRDICellsTxd_Object=MibTableColumn
-tAtmOamVclStatsRDICellsTxd=_TAtmOamVclStatsRDICellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,3,3,1,2),_TAtmOamVclStatsRDICellsTxd_Type())
-tAtmOamVclStatsRDICellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVclStatsRDICellsTxd.setStatus(_A)
-_TAtmOamVclStatsLoopbackCellsTxd_Type=Counter32
-_TAtmOamVclStatsLoopbackCellsTxd_Object=MibTableColumn
-tAtmOamVclStatsLoopbackCellsTxd=_TAtmOamVclStatsLoopbackCellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,3,3,1,3),_TAtmOamVclStatsLoopbackCellsTxd_Type())
-tAtmOamVclStatsLoopbackCellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVclStatsLoopbackCellsTxd.setStatus(_A)
-_TAtmOamVclStatsAISCellsRxd_Type=Counter32
-_TAtmOamVclStatsAISCellsRxd_Object=MibTableColumn
-tAtmOamVclStatsAISCellsRxd=_TAtmOamVclStatsAISCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,3,3,1,4),_TAtmOamVclStatsAISCellsRxd_Type())
-tAtmOamVclStatsAISCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVclStatsAISCellsRxd.setStatus(_A)
-_TAtmOamVclStatsRDICellsRxd_Type=Counter32
-_TAtmOamVclStatsRDICellsRxd_Object=MibTableColumn
-tAtmOamVclStatsRDICellsRxd=_TAtmOamVclStatsRDICellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,3,3,1,5),_TAtmOamVclStatsRDICellsRxd_Type())
-tAtmOamVclStatsRDICellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVclStatsRDICellsRxd.setStatus(_A)
-_TAtmOamVclStatsLoopbackCellsRxd_Type=Counter32
-_TAtmOamVclStatsLoopbackCellsRxd_Object=MibTableColumn
-tAtmOamVclStatsLoopbackCellsRxd=_TAtmOamVclStatsLoopbackCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,3,3,1,6),_TAtmOamVclStatsLoopbackCellsRxd_Type())
-tAtmOamVclStatsLoopbackCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVclStatsLoopbackCellsRxd.setStatus(_A)
-_TAtmOamVclStatsCrc10Err_Type=Counter32
-_TAtmOamVclStatsCrc10Err_Object=MibTableColumn
-tAtmOamVclStatsCrc10Err=_TAtmOamVclStatsCrc10Err_Object((1,3,6,1,4,1,6527,3,1,2,27,3,3,1,7),_TAtmOamVclStatsCrc10Err_Type())
-tAtmOamVclStatsCrc10Err.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVclStatsCrc10Err.setStatus(_A)
-_TAtmOamVclStatsOtherCellsRxd_Type=Counter32
-_TAtmOamVclStatsOtherCellsRxd_Object=MibTableColumn
-tAtmOamVclStatsOtherCellsRxd=_TAtmOamVclStatsOtherCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,3,3,1,8),_TAtmOamVclStatsOtherCellsRxd_Type())
-tAtmOamVclStatsOtherCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVclStatsOtherCellsRxd.setStatus(_A)
-_TAal5VccObjs_ObjectIdentity=ObjectIdentity
-tAal5VccObjs=_TAal5VccObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,27,4))
-_TAal5VccStatisticsTable_Object=MibTable
-tAal5VccStatisticsTable=_TAal5VccStatisticsTable_Object((1,3,6,1,4,1,6527,3,1,2,27,4,1))
-if mibBuilder.loadTexts:tAal5VccStatisticsTable.setStatus(_A)
-_TAal5VccStatisticsEntry_Object=MibTableRow
-tAal5VccStatisticsEntry=_TAal5VccStatisticsEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,4,1,1))
-if mibBuilder.loadTexts:tAal5VccStatisticsEntry.setStatus(_A)
-_TAal5VccStatsPacketsRxd_Type=Counter64
-_TAal5VccStatsPacketsRxd_Object=MibTableColumn
-tAal5VccStatsPacketsRxd=_TAal5VccStatsPacketsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,4,1,1,1),_TAal5VccStatsPacketsRxd_Type())
-tAal5VccStatsPacketsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAal5VccStatsPacketsRxd.setStatus(_A)
-_TAal5VccStatsPacketsTxd_Type=Counter64
-_TAal5VccStatsPacketsTxd_Object=MibTableColumn
-tAal5VccStatsPacketsTxd=_TAal5VccStatsPacketsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,4,1,1,2),_TAal5VccStatsPacketsTxd_Type())
-tAal5VccStatsPacketsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAal5VccStatsPacketsTxd.setStatus(_A)
-_TAal5VccStatsDrpPacketsRxd_Type=Counter64
-_TAal5VccStatsDrpPacketsRxd_Object=MibTableColumn
-tAal5VccStatsDrpPacketsRxd=_TAal5VccStatsDrpPacketsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,4,1,1,3),_TAal5VccStatsDrpPacketsRxd_Type())
-tAal5VccStatsDrpPacketsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAal5VccStatsDrpPacketsRxd.setStatus(_A)
-_TAal5VccStatsDrpPacketsTxd_Type=Counter64
-_TAal5VccStatsDrpPacketsTxd_Object=MibTableColumn
-tAal5VccStatsDrpPacketsTxd=_TAal5VccStatsDrpPacketsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,4,1,1,4),_TAal5VccStatsDrpPacketsTxd_Type())
-tAal5VccStatsDrpPacketsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAal5VccStatsDrpPacketsTxd.setStatus(_A)
-_TAtmTrafficDescObjs_ObjectIdentity=ObjectIdentity
-tAtmTrafficDescObjs=_TAtmTrafficDescObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,27,5))
-_TAtmVplObjs_ObjectIdentity=ObjectIdentity
-tAtmVplObjs=_TAtmVplObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,27,6))
-_TAtmVplInfoTable_Object=MibTable
-tAtmVplInfoTable=_TAtmVplInfoTable_Object((1,3,6,1,4,1,6527,3,1,2,27,6,1))
-if mibBuilder.loadTexts:tAtmVplInfoTable.setStatus(_A)
-_TAtmVplInfoEntry_Object=MibTableRow
-tAtmVplInfoEntry=_TAtmVplInfoEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,6,1,1))
-if mibBuilder.loadTexts:tAtmVplInfoEntry.setStatus(_A)
-_TAtmVplInfoOwner_Type=AtmConnectionOwner
-_TAtmVplInfoOwner_Object=MibTableColumn
-tAtmVplInfoOwner=_TAtmVplInfoOwner_Object((1,3,6,1,4,1,6527,3,1,2,27,6,1,1,1),_TAtmVplInfoOwner_Type())
-tAtmVplInfoOwner.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVplInfoOwner.setStatus(_A)
-_TAtmVplInfoOamStatus_Type=AtmOamStatus
-_TAtmVplInfoOamStatus_Object=MibTableColumn
-tAtmVplInfoOamStatus=_TAtmVplInfoOamStatus_Object((1,3,6,1,4,1,6527,3,1,2,27,6,1,1,2),_TAtmVplInfoOamStatus_Type())
-tAtmVplInfoOamStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVplInfoOamStatus.setStatus(_A)
-_TAtmVplInfoIlmiStatus_Type=AtmIlmiStatus
-_TAtmVplInfoIlmiStatus_Object=MibTableColumn
-tAtmVplInfoIlmiStatus=_TAtmVplInfoIlmiStatus_Object((1,3,6,1,4,1,6527,3,1,2,27,6,1,1,3),_TAtmVplInfoIlmiStatus_Type())
-tAtmVplInfoIlmiStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVplInfoIlmiStatus.setStatus(_A)
-_TAtmVplStatisticsTable_Object=MibTable
-tAtmVplStatisticsTable=_TAtmVplStatisticsTable_Object((1,3,6,1,4,1,6527,3,1,2,27,6,2))
-if mibBuilder.loadTexts:tAtmVplStatisticsTable.setStatus(_A)
-_TAtmVplStatisticsEntry_Object=MibTableRow
-tAtmVplStatisticsEntry=_TAtmVplStatisticsEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,6,2,1))
-tAtmVplStatisticsEntry.setIndexNames((0,_G,_H),(0,_F,_Q))
-if mibBuilder.loadTexts:tAtmVplStatisticsEntry.setStatus(_A)
-_TAtmVplStatsTotalCellsRxd_Type=Counter64
-_TAtmVplStatsTotalCellsRxd_Object=MibTableColumn
-tAtmVplStatsTotalCellsRxd=_TAtmVplStatsTotalCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,2,1,1),_TAtmVplStatsTotalCellsRxd_Type())
-tAtmVplStatsTotalCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVplStatsTotalCellsRxd.setStatus(_A)
-_TAtmVplStatsTotalClp0CellsRxd_Type=Counter64
-_TAtmVplStatsTotalClp0CellsRxd_Object=MibTableColumn
-tAtmVplStatsTotalClp0CellsRxd=_TAtmVplStatsTotalClp0CellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,2,1,2),_TAtmVplStatsTotalClp0CellsRxd_Type())
-tAtmVplStatsTotalClp0CellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVplStatsTotalClp0CellsRxd.setStatus(_A)
-_TAtmVplStatsTotalCellsTxd_Type=Counter64
-_TAtmVplStatsTotalCellsTxd_Object=MibTableColumn
-tAtmVplStatsTotalCellsTxd=_TAtmVplStatsTotalCellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,2,1,3),_TAtmVplStatsTotalCellsTxd_Type())
-tAtmVplStatsTotalCellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVplStatsTotalCellsTxd.setStatus(_A)
-_TAtmVplStatsTotalClp0CellsTxd_Type=Counter64
-_TAtmVplStatsTotalClp0CellsTxd_Object=MibTableColumn
-tAtmVplStatsTotalClp0CellsTxd=_TAtmVplStatsTotalClp0CellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,2,1,4),_TAtmVplStatsTotalClp0CellsTxd_Type())
-tAtmVplStatsTotalClp0CellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVplStatsTotalClp0CellsTxd.setStatus(_A)
-_TAtmVplStatsTotalBytesRxd_Type=Counter64
-_TAtmVplStatsTotalBytesRxd_Object=MibTableColumn
-tAtmVplStatsTotalBytesRxd=_TAtmVplStatsTotalBytesRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,2,1,5),_TAtmVplStatsTotalBytesRxd_Type())
-tAtmVplStatsTotalBytesRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVplStatsTotalBytesRxd.setStatus(_A)
-_TAtmVplStatsTotalBytesTxd_Type=Counter64
-_TAtmVplStatsTotalBytesTxd_Object=MibTableColumn
-tAtmVplStatsTotalBytesTxd=_TAtmVplStatsTotalBytesTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,2,1,6),_TAtmVplStatsTotalBytesTxd_Type())
-tAtmVplStatsTotalBytesTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVplStatsTotalBytesTxd.setStatus(_A)
-_TAtmVplStatsDrpCellsRxd_Type=Counter32
-_TAtmVplStatsDrpCellsRxd_Object=MibTableColumn
-tAtmVplStatsDrpCellsRxd=_TAtmVplStatsDrpCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,2,1,7),_TAtmVplStatsDrpCellsRxd_Type())
-tAtmVplStatsDrpCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVplStatsDrpCellsRxd.setStatus(_A)
-_TAtmVplStatsDrpClp0CellsRxd_Type=Counter32
-_TAtmVplStatsDrpClp0CellsRxd_Object=MibTableColumn
-tAtmVplStatsDrpClp0CellsRxd=_TAtmVplStatsDrpClp0CellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,2,1,8),_TAtmVplStatsDrpClp0CellsRxd_Type())
-tAtmVplStatsDrpClp0CellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVplStatsDrpClp0CellsRxd.setStatus(_A)
-_TAtmVplStatsDrpClp0CellsTxd_Type=Counter32
-_TAtmVplStatsDrpClp0CellsTxd_Object=MibTableColumn
-tAtmVplStatsDrpClp0CellsTxd=_TAtmVplStatsDrpClp0CellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,2,1,9),_TAtmVplStatsDrpClp0CellsTxd_Type())
-tAtmVplStatsDrpClp0CellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVplStatsDrpClp0CellsTxd.setStatus(_A)
-_TAtmVplStatsTagCells_Type=Counter32
-_TAtmVplStatsTagCells_Object=MibTableColumn
-tAtmVplStatsTagCells=_TAtmVplStatsTagCells_Object((1,3,6,1,4,1,6527,3,1,2,27,6,2,1,10),_TAtmVplStatsTagCells_Type())
-tAtmVplStatsTagCells.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVplStatsTagCells.setStatus(_A)
-_TAtmOamVplStatisticsTable_Object=MibTable
-tAtmOamVplStatisticsTable=_TAtmOamVplStatisticsTable_Object((1,3,6,1,4,1,6527,3,1,2,27,6,3))
-if mibBuilder.loadTexts:tAtmOamVplStatisticsTable.setStatus(_A)
-_TAtmOamVplStatisticsEntry_Object=MibTableRow
-tAtmOamVplStatisticsEntry=_TAtmOamVplStatisticsEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,6,3,1))
-tAtmOamVplStatisticsEntry.setIndexNames((0,_G,_H),(0,_F,_Q))
-if mibBuilder.loadTexts:tAtmOamVplStatisticsEntry.setStatus(_A)
-_TAtmOamVplStatsAISCellsTxd_Type=Counter32
-_TAtmOamVplStatsAISCellsTxd_Object=MibTableColumn
-tAtmOamVplStatsAISCellsTxd=_TAtmOamVplStatsAISCellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,3,1,1),_TAtmOamVplStatsAISCellsTxd_Type())
-tAtmOamVplStatsAISCellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVplStatsAISCellsTxd.setStatus(_A)
-_TAtmOamVplStatsRDICellsTxd_Type=Counter32
-_TAtmOamVplStatsRDICellsTxd_Object=MibTableColumn
-tAtmOamVplStatsRDICellsTxd=_TAtmOamVplStatsRDICellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,3,1,2),_TAtmOamVplStatsRDICellsTxd_Type())
-tAtmOamVplStatsRDICellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVplStatsRDICellsTxd.setStatus(_A)
-_TAtmOamVplStatsLoopbackCellsTxd_Type=Counter32
-_TAtmOamVplStatsLoopbackCellsTxd_Object=MibTableColumn
-tAtmOamVplStatsLoopbackCellsTxd=_TAtmOamVplStatsLoopbackCellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,3,1,3),_TAtmOamVplStatsLoopbackCellsTxd_Type())
-tAtmOamVplStatsLoopbackCellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVplStatsLoopbackCellsTxd.setStatus(_A)
-_TAtmOamVplStatsAISCellsRxd_Type=Counter32
-_TAtmOamVplStatsAISCellsRxd_Object=MibTableColumn
-tAtmOamVplStatsAISCellsRxd=_TAtmOamVplStatsAISCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,3,1,4),_TAtmOamVplStatsAISCellsRxd_Type())
-tAtmOamVplStatsAISCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVplStatsAISCellsRxd.setStatus(_A)
-_TAtmOamVplStatsRDICellsRxd_Type=Counter32
-_TAtmOamVplStatsRDICellsRxd_Object=MibTableColumn
-tAtmOamVplStatsRDICellsRxd=_TAtmOamVplStatsRDICellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,3,1,5),_TAtmOamVplStatsRDICellsRxd_Type())
-tAtmOamVplStatsRDICellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVplStatsRDICellsRxd.setStatus(_A)
-_TAtmOamVplStatsLoopbackCellsRxd_Type=Counter32
-_TAtmOamVplStatsLoopbackCellsRxd_Object=MibTableColumn
-tAtmOamVplStatsLoopbackCellsRxd=_TAtmOamVplStatsLoopbackCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,3,1,6),_TAtmOamVplStatsLoopbackCellsRxd_Type())
-tAtmOamVplStatsLoopbackCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVplStatsLoopbackCellsRxd.setStatus(_A)
-_TAtmOamVplStatsCrc10Errors_Type=Counter32
-_TAtmOamVplStatsCrc10Errors_Object=MibTableColumn
-tAtmOamVplStatsCrc10Errors=_TAtmOamVplStatsCrc10Errors_Object((1,3,6,1,4,1,6527,3,1,2,27,6,3,1,7),_TAtmOamVplStatsCrc10Errors_Type())
-tAtmOamVplStatsCrc10Errors.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVplStatsCrc10Errors.setStatus(_A)
-_TAtmOamVplStatsOtherCellsRxd_Type=Counter32
-_TAtmOamVplStatsOtherCellsRxd_Object=MibTableColumn
-tAtmOamVplStatsOtherCellsRxd=_TAtmOamVplStatsOtherCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,6,3,1,8),_TAtmOamVplStatsOtherCellsRxd_Type())
-tAtmOamVplStatsOtherCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmOamVplStatsOtherCellsRxd.setStatus(_A)
-_TAtmVtlObjs_ObjectIdentity=ObjectIdentity
-tAtmVtlObjs=_TAtmVtlObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,27,7))
-_TAtmVtlInfoTable_Object=MibTable
-tAtmVtlInfoTable=_TAtmVtlInfoTable_Object((1,3,6,1,4,1,6527,3,1,2,27,7,1))
-if mibBuilder.loadTexts:tAtmVtlInfoTable.setStatus(_A)
-_TAtmVtlInfoEntry_Object=MibTableRow
-tAtmVtlInfoEntry=_TAtmVtlInfoEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,7,1,1))
-tAtmVtlInfoEntry.setIndexNames((0,_G,_H),(0,_B,_R),(0,_B,_S))
-if mibBuilder.loadTexts:tAtmVtlInfoEntry.setStatus(_A)
-_TAtmVtlStartVpi_Type=AtmVpIdentifier
-_TAtmVtlStartVpi_Object=MibTableColumn
-tAtmVtlStartVpi=_TAtmVtlStartVpi_Object((1,3,6,1,4,1,6527,3,1,2,27,7,1,1,1),_TAtmVtlStartVpi_Type())
-tAtmVtlStartVpi.setMaxAccess(_A9)
-if mibBuilder.loadTexts:tAtmVtlStartVpi.setStatus(_A)
-_TAtmVtlEndVpi_Type=AtmVpIdentifier
-_TAtmVtlEndVpi_Object=MibTableColumn
-tAtmVtlEndVpi=_TAtmVtlEndVpi_Object((1,3,6,1,4,1,6527,3,1,2,27,7,1,1,2),_TAtmVtlEndVpi_Type())
-tAtmVtlEndVpi.setMaxAccess(_A9)
-if mibBuilder.loadTexts:tAtmVtlEndVpi.setStatus(_A)
-_TAtmVtlAdminStatus_Type=AtmVorXAdminStatus
-_TAtmVtlAdminStatus_Object=MibTableColumn
-tAtmVtlAdminStatus=_TAtmVtlAdminStatus_Object((1,3,6,1,4,1,6527,3,1,2,27,7,1,1,3),_TAtmVtlAdminStatus_Type())
-tAtmVtlAdminStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlAdminStatus.setStatus(_A)
-_TAtmVtlOperStatus_Type=AtmVorXOperStatus
-_TAtmVtlOperStatus_Object=MibTableColumn
-tAtmVtlOperStatus=_TAtmVtlOperStatus_Object((1,3,6,1,4,1,6527,3,1,2,27,7,1,1,4),_TAtmVtlOperStatus_Type())
-tAtmVtlOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlOperStatus.setStatus(_A)
-_TAtmVtlLastChange_Type=AtmVorXLastChange
-_TAtmVtlLastChange_Object=MibTableColumn
-tAtmVtlLastChange=_TAtmVtlLastChange_Object((1,3,6,1,4,1,6527,3,1,2,27,7,1,1,5),_TAtmVtlLastChange_Type())
-tAtmVtlLastChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlLastChange.setStatus(_A)
-_TAtmVtlReceiveTrafficDescrIndex_Type=AtmTrafficDescrParamIndex
-_TAtmVtlReceiveTrafficDescrIndex_Object=MibTableColumn
-tAtmVtlReceiveTrafficDescrIndex=_TAtmVtlReceiveTrafficDescrIndex_Object((1,3,6,1,4,1,6527,3,1,2,27,7,1,1,6),_TAtmVtlReceiveTrafficDescrIndex_Type())
-tAtmVtlReceiveTrafficDescrIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlReceiveTrafficDescrIndex.setStatus(_A)
-_TAtmVtlTransmitTrafficDescrIndex_Type=AtmTrafficDescrParamIndex
-_TAtmVtlTransmitTrafficDescrIndex_Object=MibTableColumn
-tAtmVtlTransmitTrafficDescrIndex=_TAtmVtlTransmitTrafficDescrIndex_Object((1,3,6,1,4,1,6527,3,1,2,27,7,1,1,7),_TAtmVtlTransmitTrafficDescrIndex_Type())
-tAtmVtlTransmitTrafficDescrIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlTransmitTrafficDescrIndex.setStatus(_A)
-_TAtmVtlRowStatus_Type=RowStatus
-_TAtmVtlRowStatus_Object=MibTableColumn
-tAtmVtlRowStatus=_TAtmVtlRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,27,7,1,1,8),_TAtmVtlRowStatus_Type())
-tAtmVtlRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlRowStatus.setStatus(_A)
-class _TAtmVtlCastType_Type(AtmConnCastType):defaultValue=1
-_TAtmVtlCastType_Type.__name__=_A1
-_TAtmVtlCastType_Object=MibTableColumn
-tAtmVtlCastType=_TAtmVtlCastType_Object((1,3,6,1,4,1,6527,3,1,2,27,7,1,1,9),_TAtmVtlCastType_Type())
-tAtmVtlCastType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlCastType.setStatus(_A)
-_TAtmVtlConnKind_Type=AtmConnKind
-_TAtmVtlConnKind_Object=MibTableColumn
-tAtmVtlConnKind=_TAtmVtlConnKind_Object((1,3,6,1,4,1,6527,3,1,2,27,7,1,1,10),_TAtmVtlConnKind_Type())
-tAtmVtlConnKind.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlConnKind.setStatus(_A)
-_TAtmVtlInfoOwner_Type=AtmConnectionOwner
-_TAtmVtlInfoOwner_Object=MibTableColumn
-tAtmVtlInfoOwner=_TAtmVtlInfoOwner_Object((1,3,6,1,4,1,6527,3,1,2,27,7,1,1,11),_TAtmVtlInfoOwner_Type())
-tAtmVtlInfoOwner.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlInfoOwner.setStatus(_A)
-_TAtmVtlStatisticsTable_Object=MibTable
-tAtmVtlStatisticsTable=_TAtmVtlStatisticsTable_Object((1,3,6,1,4,1,6527,3,1,2,27,7,2))
-if mibBuilder.loadTexts:tAtmVtlStatisticsTable.setStatus(_A)
-_TAtmVtlStatisticsEntry_Object=MibTableRow
-tAtmVtlStatisticsEntry=_TAtmVtlStatisticsEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,7,2,1))
-tAtmVtlStatisticsEntry.setIndexNames((0,_G,_H),(0,_B,_R),(0,_B,_S))
-if mibBuilder.loadTexts:tAtmVtlStatisticsEntry.setStatus(_A)
-_TAtmVtlStatsTotalCellsRxd_Type=Counter64
-_TAtmVtlStatsTotalCellsRxd_Object=MibTableColumn
-tAtmVtlStatsTotalCellsRxd=_TAtmVtlStatsTotalCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,7,2,1,1),_TAtmVtlStatsTotalCellsRxd_Type())
-tAtmVtlStatsTotalCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlStatsTotalCellsRxd.setStatus(_A)
-_TAtmVtlStatsTotalClp0CellsRxd_Type=Counter64
-_TAtmVtlStatsTotalClp0CellsRxd_Object=MibTableColumn
-tAtmVtlStatsTotalClp0CellsRxd=_TAtmVtlStatsTotalClp0CellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,7,2,1,2),_TAtmVtlStatsTotalClp0CellsRxd_Type())
-tAtmVtlStatsTotalClp0CellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlStatsTotalClp0CellsRxd.setStatus(_A)
-_TAtmVtlStatsTotalCellsTxd_Type=Counter64
-_TAtmVtlStatsTotalCellsTxd_Object=MibTableColumn
-tAtmVtlStatsTotalCellsTxd=_TAtmVtlStatsTotalCellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,7,2,1,3),_TAtmVtlStatsTotalCellsTxd_Type())
-tAtmVtlStatsTotalCellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlStatsTotalCellsTxd.setStatus(_A)
-_TAtmVtlStatsTotalClp0CellsTxd_Type=Counter64
-_TAtmVtlStatsTotalClp0CellsTxd_Object=MibTableColumn
-tAtmVtlStatsTotalClp0CellsTxd=_TAtmVtlStatsTotalClp0CellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,7,2,1,4),_TAtmVtlStatsTotalClp0CellsTxd_Type())
-tAtmVtlStatsTotalClp0CellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlStatsTotalClp0CellsTxd.setStatus(_A)
-_TAtmVtlStatsTotalBytesRxd_Type=Counter64
-_TAtmVtlStatsTotalBytesRxd_Object=MibTableColumn
-tAtmVtlStatsTotalBytesRxd=_TAtmVtlStatsTotalBytesRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,7,2,1,5),_TAtmVtlStatsTotalBytesRxd_Type())
-tAtmVtlStatsTotalBytesRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlStatsTotalBytesRxd.setStatus(_A)
-_TAtmVtlStatsTotalBytesTxd_Type=Counter64
-_TAtmVtlStatsTotalBytesTxd_Object=MibTableColumn
-tAtmVtlStatsTotalBytesTxd=_TAtmVtlStatsTotalBytesTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,7,2,1,6),_TAtmVtlStatsTotalBytesTxd_Type())
-tAtmVtlStatsTotalBytesTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlStatsTotalBytesTxd.setStatus(_A)
-_TAtmVtlStatsDrpCellsRxd_Type=Counter32
-_TAtmVtlStatsDrpCellsRxd_Object=MibTableColumn
-tAtmVtlStatsDrpCellsRxd=_TAtmVtlStatsDrpCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,7,2,1,7),_TAtmVtlStatsDrpCellsRxd_Type())
-tAtmVtlStatsDrpCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlStatsDrpCellsRxd.setStatus(_A)
-_TAtmVtlStatsDrpClp0CellsRxd_Type=Counter32
-_TAtmVtlStatsDrpClp0CellsRxd_Object=MibTableColumn
-tAtmVtlStatsDrpClp0CellsRxd=_TAtmVtlStatsDrpClp0CellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,7,2,1,8),_TAtmVtlStatsDrpClp0CellsRxd_Type())
-tAtmVtlStatsDrpClp0CellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlStatsDrpClp0CellsRxd.setStatus(_A)
-_TAtmVtlStatsDrpClp0CellsTxd_Type=Counter32
-_TAtmVtlStatsDrpClp0CellsTxd_Object=MibTableColumn
-tAtmVtlStatsDrpClp0CellsTxd=_TAtmVtlStatsDrpClp0CellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,7,2,1,9),_TAtmVtlStatsDrpClp0CellsTxd_Type())
-tAtmVtlStatsDrpClp0CellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlStatsDrpClp0CellsTxd.setStatus(_A)
-_TAtmVtlStatsTagCells_Type=Counter32
-_TAtmVtlStatsTagCells_Object=MibTableColumn
-tAtmVtlStatsTagCells=_TAtmVtlStatsTagCells_Object((1,3,6,1,4,1,6527,3,1,2,27,7,2,1,10),_TAtmVtlStatsTagCells_Type())
-tAtmVtlStatsTagCells.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmVtlStatsTagCells.setStatus(_A)
-_TAtmCellVclObjs_ObjectIdentity=ObjectIdentity
-tAtmCellVclObjs=_TAtmCellVclObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,27,8))
-_TAtmCellVclStatisticsTable_Object=MibTable
-tAtmCellVclStatisticsTable=_TAtmCellVclStatisticsTable_Object((1,3,6,1,4,1,6527,3,1,2,27,8,1))
-if mibBuilder.loadTexts:tAtmCellVclStatisticsTable.setStatus(_A)
-_TAtmCellVclStatisticsEntry_Object=MibTableRow
-tAtmCellVclStatisticsEntry=_TAtmCellVclStatisticsEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,8,1,1))
-if mibBuilder.loadTexts:tAtmCellVclStatisticsEntry.setStatus(_A)
-_TAtmCellVclStatsClp0CellsRxd_Type=Counter64
-_TAtmCellVclStatsClp0CellsRxd_Object=MibTableColumn
-tAtmCellVclStatsClp0CellsRxd=_TAtmCellVclStatsClp0CellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,8,1,1,1),_TAtmCellVclStatsClp0CellsRxd_Type())
-tAtmCellVclStatsClp0CellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCellVclStatsClp0CellsRxd.setStatus(_A)
-_TAtmCellVclStatsClp0CellsTxd_Type=Counter64
-_TAtmCellVclStatsClp0CellsTxd_Object=MibTableColumn
-tAtmCellVclStatsClp0CellsTxd=_TAtmCellVclStatsClp0CellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,8,1,1,2),_TAtmCellVclStatsClp0CellsTxd_Type())
-tAtmCellVclStatsClp0CellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCellVclStatsClp0CellsTxd.setStatus(_A)
-_TAtmCellVclStatsDrpCellsRxd_Type=Counter32
-_TAtmCellVclStatsDrpCellsRxd_Object=MibTableColumn
-tAtmCellVclStatsDrpCellsRxd=_TAtmCellVclStatsDrpCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,8,1,1,3),_TAtmCellVclStatsDrpCellsRxd_Type())
-tAtmCellVclStatsDrpCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCellVclStatsDrpCellsRxd.setStatus(_A)
-_TAtmCellVclStatsDrpClp0CellsRxd_Type=Counter32
-_TAtmCellVclStatsDrpClp0CellsRxd_Object=MibTableColumn
-tAtmCellVclStatsDrpClp0CellsRxd=_TAtmCellVclStatsDrpClp0CellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,8,1,1,4),_TAtmCellVclStatsDrpClp0CellsRxd_Type())
-tAtmCellVclStatsDrpClp0CellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCellVclStatsDrpClp0CellsRxd.setStatus(_A)
-_TAtmCellVclStatsDrpClp0CellsTxd_Type=Counter32
-_TAtmCellVclStatsDrpClp0CellsTxd_Object=MibTableColumn
-tAtmCellVclStatsDrpClp0CellsTxd=_TAtmCellVclStatsDrpClp0CellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,8,1,1,5),_TAtmCellVclStatsDrpClp0CellsTxd_Type())
-tAtmCellVclStatsDrpClp0CellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCellVclStatsDrpClp0CellsTxd.setStatus(_A)
-_TAtmCellVclStatsTagCells_Type=Counter32
-_TAtmCellVclStatsTagCells_Object=MibTableColumn
-tAtmCellVclStatsTagCells=_TAtmCellVclStatsTagCells_Object((1,3,6,1,4,1,6527,3,1,2,27,8,1,1,6),_TAtmCellVclStatsTagCells_Type())
-tAtmCellVclStatsTagCells.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCellVclStatsTagCells.setStatus(_A)
-_TAtmSystemObjs_ObjectIdentity=ObjectIdentity
-tAtmSystemObjs=_TAtmSystemObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,27,9))
-class _TAtmSysLlid_Type(AtmLlid):defaultHexValue='01000000000000000000000000000000'
-_TAtmSysLlid_Type.__name__='AtmLlid'
-_TAtmSysLlid_Object=MibScalar
-tAtmSysLlid=_TAtmSysLlid_Object((1,3,6,1,4,1,6527,3,1,2,27,9,1),_TAtmSysLlid_Type())
-tAtmSysLlid.setMaxAccess(_N)
-if mibBuilder.loadTexts:tAtmSysLlid.setStatus(_A)
-class _TAtmSysOamRetryUp_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10))
-_TAtmSysOamRetryUp_Type.__name__=_D
-_TAtmSysOamRetryUp_Object=MibScalar
-tAtmSysOamRetryUp=_TAtmSysOamRetryUp_Object((1,3,6,1,4,1,6527,3,1,2,27,9,2),_TAtmSysOamRetryUp_Type())
-tAtmSysOamRetryUp.setMaxAccess(_N)
-if mibBuilder.loadTexts:tAtmSysOamRetryUp.setStatus(_A)
-class _TAtmSysOamRetryDown_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10))
-_TAtmSysOamRetryDown_Type.__name__=_D
-_TAtmSysOamRetryDown_Object=MibScalar
-tAtmSysOamRetryDown=_TAtmSysOamRetryDown_Object((1,3,6,1,4,1,6527,3,1,2,27,9,3),_TAtmSysOamRetryDown_Type())
-tAtmSysOamRetryDown.setMaxAccess(_N)
-if mibBuilder.loadTexts:tAtmSysOamRetryDown.setStatus(_A)
-class _TAtmSysOamLoopbackPeriod_Type(Integer32):defaultValue=10;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,40))
-_TAtmSysOamLoopbackPeriod_Type.__name__=_D
-_TAtmSysOamLoopbackPeriod_Object=MibScalar
-tAtmSysOamLoopbackPeriod=_TAtmSysOamLoopbackPeriod_Object((1,3,6,1,4,1,6527,3,1,2,27,9,4),_TAtmSysOamLoopbackPeriod_Type())
-tAtmSysOamLoopbackPeriod.setMaxAccess(_N)
-if mibBuilder.loadTexts:tAtmSysOamLoopbackPeriod.setStatus(_A)
-if mibBuilder.loadTexts:tAtmSysOamLoopbackPeriod.setUnits(_T)
-_TAtmIlmiLinkObjs_ObjectIdentity=ObjectIdentity
-tAtmIlmiLinkObjs=_TAtmIlmiLinkObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,27,10))
-_TAtmIlmiLinkTable_Object=MibTable
-tAtmIlmiLinkTable=_TAtmIlmiLinkTable_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1))
-if mibBuilder.loadTexts:tAtmIlmiLinkTable.setStatus(_A)
-_TAtmIlmiLinkEntry_Object=MibTableRow
-tAtmIlmiLinkEntry=_TAtmIlmiLinkEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1))
-tAtmIlmiLinkEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:tAtmIlmiLinkEntry.setStatus(_A)
-_TAtmIlmiLinkRowStatus_Type=RowStatus
-_TAtmIlmiLinkRowStatus_Object=MibTableColumn
-tAtmIlmiLinkRowStatus=_TAtmIlmiLinkRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,1),_TAtmIlmiLinkRowStatus_Type())
-tAtmIlmiLinkRowStatus.setMaxAccess(_I)
-if mibBuilder.loadTexts:tAtmIlmiLinkRowStatus.setStatus(_A)
-_TAtmIlmiLinkLastChanged_Type=TimeStamp
-_TAtmIlmiLinkLastChanged_Object=MibTableColumn
-tAtmIlmiLinkLastChanged=_TAtmIlmiLinkLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,2),_TAtmIlmiLinkLastChanged_Type())
-tAtmIlmiLinkLastChanged.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkLastChanged.setStatus(_A)
-class _TAtmIlmiLinkAdminStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_TAtmIlmiLinkAdminStatus_Type.__name__=_D
-_TAtmIlmiLinkAdminStatus_Object=MibTableColumn
-tAtmIlmiLinkAdminStatus=_TAtmIlmiLinkAdminStatus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,3),_TAtmIlmiLinkAdminStatus_Type())
-tAtmIlmiLinkAdminStatus.setMaxAccess(_I)
-if mibBuilder.loadTexts:tAtmIlmiLinkAdminStatus.setStatus(_A)
-class _TAtmIlmiLinkOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_TAtmIlmiLinkOperStatus_Type.__name__=_D
-_TAtmIlmiLinkOperStatus_Object=MibTableColumn
-tAtmIlmiLinkOperStatus=_TAtmIlmiLinkOperStatus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,4),_TAtmIlmiLinkOperStatus_Type())
-tAtmIlmiLinkOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkOperStatus.setStatus(_A)
-class _TAtmIlmiLinkVpi_Type(AtmVpIdentifier):defaultValue=0
-_TAtmIlmiLinkVpi_Type.__name__=_A3
-_TAtmIlmiLinkVpi_Object=MibTableColumn
-tAtmIlmiLinkVpi=_TAtmIlmiLinkVpi_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,5),_TAtmIlmiLinkVpi_Type())
-tAtmIlmiLinkVpi.setMaxAccess(_I)
-if mibBuilder.loadTexts:tAtmIlmiLinkVpi.setStatus(_A)
-class _TAtmIlmiLinkVci_Type(AtmVcIdentifier):defaultValue=16
-_TAtmIlmiLinkVci_Type.__name__=_A2
-_TAtmIlmiLinkVci_Object=MibTableColumn
-tAtmIlmiLinkVci=_TAtmIlmiLinkVci_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,6),_TAtmIlmiLinkVci_Type())
-tAtmIlmiLinkVci.setMaxAccess(_I)
-if mibBuilder.loadTexts:tAtmIlmiLinkVci.setStatus(_A)
-class _TAtmIlmiLinkFsmState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('stopped',1),('linkFailing',2),('establishing',3),('configuring',4),('retrievingNetworkPrefixes',5),('registeringNetworkPrefixes',6),('retrievingAddresses',7),('registeringAddresses',8),('verifying',9)))
-_TAtmIlmiLinkFsmState_Type.__name__=_D
-_TAtmIlmiLinkFsmState_Object=MibTableColumn
-tAtmIlmiLinkFsmState=_TAtmIlmiLinkFsmState_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,7),_TAtmIlmiLinkFsmState_Type())
-tAtmIlmiLinkFsmState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkFsmState.setStatus(_A)
-class _TAtmIlmiLinkReceiveTrafficDescrIndex_Type(AtmTrafficDescrParamIndex):defaultValue=1
-_TAtmIlmiLinkReceiveTrafficDescrIndex_Type.__name__=_K
-_TAtmIlmiLinkReceiveTrafficDescrIndex_Object=MibTableColumn
-tAtmIlmiLinkReceiveTrafficDescrIndex=_TAtmIlmiLinkReceiveTrafficDescrIndex_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,8),_TAtmIlmiLinkReceiveTrafficDescrIndex_Type())
-tAtmIlmiLinkReceiveTrafficDescrIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:tAtmIlmiLinkReceiveTrafficDescrIndex.setStatus(_A)
-class _TAtmIlmiLinkTransmitTrafficDescrIndex_Type(AtmTrafficDescrParamIndex):defaultValue=1
-_TAtmIlmiLinkTransmitTrafficDescrIndex_Type.__name__=_K
-_TAtmIlmiLinkTransmitTrafficDescrIndex_Object=MibTableColumn
-tAtmIlmiLinkTransmitTrafficDescrIndex=_TAtmIlmiLinkTransmitTrafficDescrIndex_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,9),_TAtmIlmiLinkTransmitTrafficDescrIndex_Type())
-tAtmIlmiLinkTransmitTrafficDescrIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:tAtmIlmiLinkTransmitTrafficDescrIndex.setStatus(_A)
-class _TAtmIlmiLinkEstablishConPollIntvl_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_TAtmIlmiLinkEstablishConPollIntvl_Type.__name__=_D
-_TAtmIlmiLinkEstablishConPollIntvl_Object=MibTableColumn
-tAtmIlmiLinkEstablishConPollIntvl=_TAtmIlmiLinkEstablishConPollIntvl_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,10),_TAtmIlmiLinkEstablishConPollIntvl_Type())
-tAtmIlmiLinkEstablishConPollIntvl.setMaxAccess(_I)
-if mibBuilder.loadTexts:tAtmIlmiLinkEstablishConPollIntvl.setStatus(_A)
-if mibBuilder.loadTexts:tAtmIlmiLinkEstablishConPollIntvl.setUnits(_T)
-class _TAtmIlmiLinkCheckConPollIntvl_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_TAtmIlmiLinkCheckConPollIntvl_Type.__name__=_D
-_TAtmIlmiLinkCheckConPollIntvl_Object=MibTableColumn
-tAtmIlmiLinkCheckConPollIntvl=_TAtmIlmiLinkCheckConPollIntvl_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,11),_TAtmIlmiLinkCheckConPollIntvl_Type())
-tAtmIlmiLinkCheckConPollIntvl.setMaxAccess(_I)
-if mibBuilder.loadTexts:tAtmIlmiLinkCheckConPollIntvl.setStatus(_A)
-if mibBuilder.loadTexts:tAtmIlmiLinkCheckConPollIntvl.setUnits(_T)
-class _TAtmIlmiLinkConPollInactFactor_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_TAtmIlmiLinkConPollInactFactor_Type.__name__=_D
-_TAtmIlmiLinkConPollInactFactor_Object=MibTableColumn
-tAtmIlmiLinkConPollInactFactor=_TAtmIlmiLinkConPollInactFactor_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,12),_TAtmIlmiLinkConPollInactFactor_Type())
-tAtmIlmiLinkConPollInactFactor.setMaxAccess(_I)
-if mibBuilder.loadTexts:tAtmIlmiLinkConPollInactFactor.setStatus(_A)
-_TAtmIlmiLinkUniType_Type=AtmIlmiLinkUniType
-_TAtmIlmiLinkUniType_Object=MibTableColumn
-tAtmIlmiLinkUniType=_TAtmIlmiLinkUniType_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,13),_TAtmIlmiLinkUniType_Type())
-tAtmIlmiLinkUniType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkUniType.setStatus(_A)
-_TAtmIlmiLinkDeviceType_Type=AtmIlmiLinkDeviceType
-_TAtmIlmiLinkDeviceType_Object=MibTableColumn
-tAtmIlmiLinkDeviceType=_TAtmIlmiLinkDeviceType_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,14),_TAtmIlmiLinkDeviceType_Type())
-tAtmIlmiLinkDeviceType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkDeviceType.setStatus(_A)
-class _TAtmIlmiLinkVersion_Type(AtmIlmiLinkVersion):defaultValue=2
-_TAtmIlmiLinkVersion_Type.__name__=_U
-_TAtmIlmiLinkVersion_Object=MibTableColumn
-tAtmIlmiLinkVersion=_TAtmIlmiLinkVersion_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,15),_TAtmIlmiLinkVersion_Type())
-tAtmIlmiLinkVersion.setMaxAccess(_I)
-if mibBuilder.loadTexts:tAtmIlmiLinkVersion.setStatus(_A)
-class _TAtmIlmiLinkImeType_Type(AtmIlmiLinkImeType):defaultValue=1
-_TAtmIlmiLinkImeType_Type.__name__=_AA
-_TAtmIlmiLinkImeType_Object=MibTableColumn
-tAtmIlmiLinkImeType=_TAtmIlmiLinkImeType_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,16),_TAtmIlmiLinkImeType_Type())
-tAtmIlmiLinkImeType.setMaxAccess(_I)
-if mibBuilder.loadTexts:tAtmIlmiLinkImeType.setStatus(_A)
-_TAtmIlmiLinkNegotiatedVersion_Type=AtmIlmiLinkVersion
-_TAtmIlmiLinkNegotiatedVersion_Object=MibTableColumn
-tAtmIlmiLinkNegotiatedVersion=_TAtmIlmiLinkNegotiatedVersion_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,17),_TAtmIlmiLinkNegotiatedVersion_Type())
-tAtmIlmiLinkNegotiatedVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkNegotiatedVersion.setStatus(_A)
-_TAtmIlmiLinkNegotiatedImeType_Type=AtmIlmiLinkImeType
-_TAtmIlmiLinkNegotiatedImeType_Object=MibTableColumn
-tAtmIlmiLinkNegotiatedImeType=_TAtmIlmiLinkNegotiatedImeType_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,18),_TAtmIlmiLinkNegotiatedImeType_Type())
-tAtmIlmiLinkNegotiatedImeType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkNegotiatedImeType.setStatus(_A)
-class _TAtmIlmiLinkNeighborIfIdentifier_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_TAtmIlmiLinkNeighborIfIdentifier_Type.__name__=_D
-_TAtmIlmiLinkNeighborIfIdentifier_Object=MibTableColumn
-tAtmIlmiLinkNeighborIfIdentifier=_TAtmIlmiLinkNeighborIfIdentifier_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,19),_TAtmIlmiLinkNeighborIfIdentifier_Type())
-tAtmIlmiLinkNeighborIfIdentifier.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkNeighborIfIdentifier.setStatus(_A)
-class _TAtmIlmiLinkNeighborSystemIdentifier_Type(OctetString):defaultHexValue='000000000000';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
-_TAtmIlmiLinkNeighborSystemIdentifier_Type.__name__=_s
-_TAtmIlmiLinkNeighborSystemIdentifier_Object=MibTableColumn
-tAtmIlmiLinkNeighborSystemIdentifier=_TAtmIlmiLinkNeighborSystemIdentifier_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,20),_TAtmIlmiLinkNeighborSystemIdentifier_Type())
-tAtmIlmiLinkNeighborSystemIdentifier.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkNeighborSystemIdentifier.setStatus(_A)
-class _TAtmIlmiLinkNeighborUniType_Type(AtmIlmiLinkUniType):defaultValue=0
-_TAtmIlmiLinkNeighborUniType_Type.__name__=_AB
-_TAtmIlmiLinkNeighborUniType_Object=MibTableColumn
-tAtmIlmiLinkNeighborUniType=_TAtmIlmiLinkNeighborUniType_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,21),_TAtmIlmiLinkNeighborUniType_Type())
-tAtmIlmiLinkNeighborUniType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkNeighborUniType.setStatus(_A)
-class _TAtmIlmiLinkNeighborDeviceType_Type(AtmIlmiLinkDeviceType):defaultValue=0
-_TAtmIlmiLinkNeighborDeviceType_Type.__name__=_AC
-_TAtmIlmiLinkNeighborDeviceType_Object=MibTableColumn
-tAtmIlmiLinkNeighborDeviceType=_TAtmIlmiLinkNeighborDeviceType_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,22),_TAtmIlmiLinkNeighborDeviceType_Type())
-tAtmIlmiLinkNeighborDeviceType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkNeighborDeviceType.setStatus(_A)
-class _TAtmIlmiLinkNeighborVersion_Type(AtmIlmiLinkVersion):defaultValue=0
-_TAtmIlmiLinkNeighborVersion_Type.__name__=_U
-_TAtmIlmiLinkNeighborVersion_Object=MibTableColumn
-tAtmIlmiLinkNeighborVersion=_TAtmIlmiLinkNeighborVersion_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,23),_TAtmIlmiLinkNeighborVersion_Type())
-tAtmIlmiLinkNeighborVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkNeighborVersion.setStatus(_A)
-class _TAtmIlmiLinkNeighborMaxVpcs_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4096))
-_TAtmIlmiLinkNeighborMaxVpcs_Type.__name__=_D
-_TAtmIlmiLinkNeighborMaxVpcs_Object=MibTableColumn
-tAtmIlmiLinkNeighborMaxVpcs=_TAtmIlmiLinkNeighborMaxVpcs_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,24),_TAtmIlmiLinkNeighborMaxVpcs_Type())
-tAtmIlmiLinkNeighborMaxVpcs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkNeighborMaxVpcs.setStatus(_A)
-class _TAtmIlmiLinkNeighborMaxVccs_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65536))
-_TAtmIlmiLinkNeighborMaxVccs_Type.__name__=_D
-_TAtmIlmiLinkNeighborMaxVccs_Object=MibTableColumn
-tAtmIlmiLinkNeighborMaxVccs=_TAtmIlmiLinkNeighborMaxVccs_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,25),_TAtmIlmiLinkNeighborMaxVccs_Type())
-tAtmIlmiLinkNeighborMaxVccs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkNeighborMaxVccs.setStatus(_A)
-class _TAtmIlmiLinkNeighborMaxVpiBits_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,12))
-_TAtmIlmiLinkNeighborMaxVpiBits_Type.__name__=_D
-_TAtmIlmiLinkNeighborMaxVpiBits_Object=MibTableColumn
-tAtmIlmiLinkNeighborMaxVpiBits=_TAtmIlmiLinkNeighborMaxVpiBits_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,26),_TAtmIlmiLinkNeighborMaxVpiBits_Type())
-tAtmIlmiLinkNeighborMaxVpiBits.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkNeighborMaxVpiBits.setStatus(_A)
-class _TAtmIlmiLinkNeighborMaxVciBits_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16))
-_TAtmIlmiLinkNeighborMaxVciBits_Type.__name__=_D
-_TAtmIlmiLinkNeighborMaxVciBits_Object=MibTableColumn
-tAtmIlmiLinkNeighborMaxVciBits=_TAtmIlmiLinkNeighborMaxVciBits_Object((1,3,6,1,4,1,6527,3,1,2,27,10,1,1,27),_TAtmIlmiLinkNeighborMaxVciBits_Type())
-tAtmIlmiLinkNeighborMaxVciBits.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkNeighborMaxVciBits.setStatus(_A)
-_TAtmIlmiLinkStatisticsTable_Object=MibTable
-tAtmIlmiLinkStatisticsTable=_TAtmIlmiLinkStatisticsTable_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2))
-if mibBuilder.loadTexts:tAtmIlmiLinkStatisticsTable.setStatus(_A)
-_TAtmIlmiLinkStatisticsEntry_Object=MibTableRow
-tAtmIlmiLinkStatisticsEntry=_TAtmIlmiLinkStatisticsEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1))
-tAtmIlmiLinkStatisticsEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:tAtmIlmiLinkStatisticsEntry.setStatus(_A)
-_TAtmIlmiLinkOutPdus_Type=Counter32
-_TAtmIlmiLinkOutPdus_Object=MibTableColumn
-tAtmIlmiLinkOutPdus=_TAtmIlmiLinkOutPdus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,1),_TAtmIlmiLinkOutPdus_Type())
-tAtmIlmiLinkOutPdus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkOutPdus.setStatus(_A)
-_TAtmIlmiLinkOutGetRequestPdus_Type=Counter32
-_TAtmIlmiLinkOutGetRequestPdus_Object=MibTableColumn
-tAtmIlmiLinkOutGetRequestPdus=_TAtmIlmiLinkOutGetRequestPdus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,2),_TAtmIlmiLinkOutGetRequestPdus_Type())
-tAtmIlmiLinkOutGetRequestPdus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkOutGetRequestPdus.setStatus(_A)
-_TAtmIlmiLinkOutGetNextRequestPdus_Type=Counter32
-_TAtmIlmiLinkOutGetNextRequestPdus_Object=MibTableColumn
-tAtmIlmiLinkOutGetNextRequestPdus=_TAtmIlmiLinkOutGetNextRequestPdus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,3),_TAtmIlmiLinkOutGetNextRequestPdus_Type())
-tAtmIlmiLinkOutGetNextRequestPdus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkOutGetNextRequestPdus.setStatus(_A)
-_TAtmIlmiLinkOutSetRequestPdus_Type=Counter32
-_TAtmIlmiLinkOutSetRequestPdus_Object=MibTableColumn
-tAtmIlmiLinkOutSetRequestPdus=_TAtmIlmiLinkOutSetRequestPdus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,4),_TAtmIlmiLinkOutSetRequestPdus_Type())
-tAtmIlmiLinkOutSetRequestPdus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkOutSetRequestPdus.setStatus(_A)
-_TAtmIlmiLinkOutGetResponsePdus_Type=Counter32
-_TAtmIlmiLinkOutGetResponsePdus_Object=MibTableColumn
-tAtmIlmiLinkOutGetResponsePdus=_TAtmIlmiLinkOutGetResponsePdus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,5),_TAtmIlmiLinkOutGetResponsePdus_Type())
-tAtmIlmiLinkOutGetResponsePdus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkOutGetResponsePdus.setStatus(_A)
-_TAtmIlmiLinkOutTrapPdus_Type=Counter32
-_TAtmIlmiLinkOutTrapPdus_Object=MibTableColumn
-tAtmIlmiLinkOutTrapPdus=_TAtmIlmiLinkOutTrapPdus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,6),_TAtmIlmiLinkOutTrapPdus_Type())
-tAtmIlmiLinkOutTrapPdus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkOutTrapPdus.setStatus(_A)
-_TAtmIlmiLinkOutTooBigErrors_Type=Counter32
-_TAtmIlmiLinkOutTooBigErrors_Object=MibTableColumn
-tAtmIlmiLinkOutTooBigErrors=_TAtmIlmiLinkOutTooBigErrors_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,7),_TAtmIlmiLinkOutTooBigErrors_Type())
-tAtmIlmiLinkOutTooBigErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkOutTooBigErrors.setStatus(_A)
-_TAtmIlmiLinkOutNoSuchNameErrors_Type=Counter32
-_TAtmIlmiLinkOutNoSuchNameErrors_Object=MibTableColumn
-tAtmIlmiLinkOutNoSuchNameErrors=_TAtmIlmiLinkOutNoSuchNameErrors_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,8),_TAtmIlmiLinkOutNoSuchNameErrors_Type())
-tAtmIlmiLinkOutNoSuchNameErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkOutNoSuchNameErrors.setStatus(_A)
-_TAtmIlmiLinkOutBadValueErrors_Type=Counter32
-_TAtmIlmiLinkOutBadValueErrors_Object=MibTableColumn
-tAtmIlmiLinkOutBadValueErrors=_TAtmIlmiLinkOutBadValueErrors_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,9),_TAtmIlmiLinkOutBadValueErrors_Type())
-tAtmIlmiLinkOutBadValueErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkOutBadValueErrors.setStatus(_A)
-_TAtmIlmiLinkOutReadOnlyErrors_Type=Counter32
-_TAtmIlmiLinkOutReadOnlyErrors_Object=MibTableColumn
-tAtmIlmiLinkOutReadOnlyErrors=_TAtmIlmiLinkOutReadOnlyErrors_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,10),_TAtmIlmiLinkOutReadOnlyErrors_Type())
-tAtmIlmiLinkOutReadOnlyErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkOutReadOnlyErrors.setStatus(_A)
-_TAtmIlmiLinkOutGeneralErrors_Type=Counter32
-_TAtmIlmiLinkOutGeneralErrors_Object=MibTableColumn
-tAtmIlmiLinkOutGeneralErrors=_TAtmIlmiLinkOutGeneralErrors_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,11),_TAtmIlmiLinkOutGeneralErrors_Type())
-tAtmIlmiLinkOutGeneralErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkOutGeneralErrors.setStatus(_A)
-_TAtmIlmiLinkInPdus_Type=Counter32
-_TAtmIlmiLinkInPdus_Object=MibTableColumn
-tAtmIlmiLinkInPdus=_TAtmIlmiLinkInPdus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,12),_TAtmIlmiLinkInPdus_Type())
-tAtmIlmiLinkInPdus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkInPdus.setStatus(_A)
-_TAtmIlmiLinkInGetRequestPdus_Type=Counter32
-_TAtmIlmiLinkInGetRequestPdus_Object=MibTableColumn
-tAtmIlmiLinkInGetRequestPdus=_TAtmIlmiLinkInGetRequestPdus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,13),_TAtmIlmiLinkInGetRequestPdus_Type())
-tAtmIlmiLinkInGetRequestPdus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkInGetRequestPdus.setStatus(_A)
-_TAtmIlmiLinkInGetNextRequestPdus_Type=Counter32
-_TAtmIlmiLinkInGetNextRequestPdus_Object=MibTableColumn
-tAtmIlmiLinkInGetNextRequestPdus=_TAtmIlmiLinkInGetNextRequestPdus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,14),_TAtmIlmiLinkInGetNextRequestPdus_Type())
-tAtmIlmiLinkInGetNextRequestPdus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkInGetNextRequestPdus.setStatus(_A)
-_TAtmIlmiLinkInSetRequestPdus_Type=Counter32
-_TAtmIlmiLinkInSetRequestPdus_Object=MibTableColumn
-tAtmIlmiLinkInSetRequestPdus=_TAtmIlmiLinkInSetRequestPdus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,15),_TAtmIlmiLinkInSetRequestPdus_Type())
-tAtmIlmiLinkInSetRequestPdus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkInSetRequestPdus.setStatus(_A)
-_TAtmIlmiLinkInGetResponsePdus_Type=Counter32
-_TAtmIlmiLinkInGetResponsePdus_Object=MibTableColumn
-tAtmIlmiLinkInGetResponsePdus=_TAtmIlmiLinkInGetResponsePdus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,16),_TAtmIlmiLinkInGetResponsePdus_Type())
-tAtmIlmiLinkInGetResponsePdus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkInGetResponsePdus.setStatus(_A)
-_TAtmIlmiLinkInTrapPdus_Type=Counter32
-_TAtmIlmiLinkInTrapPdus_Object=MibTableColumn
-tAtmIlmiLinkInTrapPdus=_TAtmIlmiLinkInTrapPdus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,17),_TAtmIlmiLinkInTrapPdus_Type())
-tAtmIlmiLinkInTrapPdus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkInTrapPdus.setStatus(_A)
-_TAtmIlmiLinkInTooBigErrors_Type=Counter32
-_TAtmIlmiLinkInTooBigErrors_Object=MibTableColumn
-tAtmIlmiLinkInTooBigErrors=_TAtmIlmiLinkInTooBigErrors_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,18),_TAtmIlmiLinkInTooBigErrors_Type())
-tAtmIlmiLinkInTooBigErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkInTooBigErrors.setStatus(_A)
-_TAtmIlmiLinkInNoSuchNameErrors_Type=Counter32
-_TAtmIlmiLinkInNoSuchNameErrors_Object=MibTableColumn
-tAtmIlmiLinkInNoSuchNameErrors=_TAtmIlmiLinkInNoSuchNameErrors_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,19),_TAtmIlmiLinkInNoSuchNameErrors_Type())
-tAtmIlmiLinkInNoSuchNameErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkInNoSuchNameErrors.setStatus(_A)
-_TAtmIlmiLinkInBadValueErrors_Type=Counter32
-_TAtmIlmiLinkInBadValueErrors_Object=MibTableColumn
-tAtmIlmiLinkInBadValueErrors=_TAtmIlmiLinkInBadValueErrors_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,20),_TAtmIlmiLinkInBadValueErrors_Type())
-tAtmIlmiLinkInBadValueErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkInBadValueErrors.setStatus(_A)
-_TAtmIlmiLinkInReadOnlyErrors_Type=Counter32
-_TAtmIlmiLinkInReadOnlyErrors_Object=MibTableColumn
-tAtmIlmiLinkInReadOnlyErrors=_TAtmIlmiLinkInReadOnlyErrors_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,21),_TAtmIlmiLinkInReadOnlyErrors_Type())
-tAtmIlmiLinkInReadOnlyErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkInReadOnlyErrors.setStatus(_A)
-_TAtmIlmiLinkInGeneralErrors_Type=Counter32
-_TAtmIlmiLinkInGeneralErrors_Object=MibTableColumn
-tAtmIlmiLinkInGeneralErrors=_TAtmIlmiLinkInGeneralErrors_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,22),_TAtmIlmiLinkInGeneralErrors_Type())
-tAtmIlmiLinkInGeneralErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkInGeneralErrors.setStatus(_A)
-_TAtmIlmiLinkInInvalidSnmpVersionPdus_Type=Counter32
-_TAtmIlmiLinkInInvalidSnmpVersionPdus_Object=MibTableColumn
-tAtmIlmiLinkInInvalidSnmpVersionPdus=_TAtmIlmiLinkInInvalidSnmpVersionPdus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,23),_TAtmIlmiLinkInInvalidSnmpVersionPdus_Type())
-tAtmIlmiLinkInInvalidSnmpVersionPdus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkInInvalidSnmpVersionPdus.setStatus(_A)
-_TAtmIlmiLinkInInvalidSnmpCommunityStringPdus_Type=Counter32
-_TAtmIlmiLinkInInvalidSnmpCommunityStringPdus_Object=MibTableColumn
-tAtmIlmiLinkInInvalidSnmpCommunityStringPdus=_TAtmIlmiLinkInInvalidSnmpCommunityStringPdus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,24),_TAtmIlmiLinkInInvalidSnmpCommunityStringPdus_Type())
-tAtmIlmiLinkInInvalidSnmpCommunityStringPdus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkInInvalidSnmpCommunityStringPdus.setStatus(_A)
-_TAtmIlmiLinkInInvalidSnmpFormatPdus_Type=Counter32
-_TAtmIlmiLinkInInvalidSnmpFormatPdus_Object=MibTableColumn
-tAtmIlmiLinkInInvalidSnmpFormatPdus=_TAtmIlmiLinkInInvalidSnmpFormatPdus_Object((1,3,6,1,4,1,6527,3,1,2,27,10,2,1,25),_TAtmIlmiLinkInInvalidSnmpFormatPdus_Type())
-tAtmIlmiLinkInInvalidSnmpFormatPdus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmIlmiLinkInInvalidSnmpFormatPdus.setStatus(_A)
-_TAtmTCSublayerObjs_ObjectIdentity=ObjectIdentity
-tAtmTCSublayerObjs=_TAtmTCSublayerObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,27,11))
-_TAtmTCSublayerTable_Object=MibTable
-tAtmTCSublayerTable=_TAtmTCSublayerTable_Object((1,3,6,1,4,1,6527,3,1,2,27,11,1))
-if mibBuilder.loadTexts:tAtmTCSublayerTable.setStatus(_A)
-_TAtmTCSublayerEntry_Object=MibTableRow
-tAtmTCSublayerEntry=_TAtmTCSublayerEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,11,1,1))
-if mibBuilder.loadTexts:tAtmTCSublayerEntry.setStatus(_A)
-_TAtmTCSublayerHecErrors_Type=Counter32
-_TAtmTCSublayerHecErrors_Object=MibTableColumn
-tAtmTCSublayerHecErrors=_TAtmTCSublayerHecErrors_Object((1,3,6,1,4,1,6527,3,1,2,27,11,1,1,1),_TAtmTCSublayerHecErrors_Type())
-tAtmTCSublayerHecErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmTCSublayerHecErrors.setStatus(_A)
-_TAtmTCSublayerHecErrorsFixed_Type=Counter32
-_TAtmTCSublayerHecErrorsFixed_Object=MibTableColumn
-tAtmTCSublayerHecErrorsFixed=_TAtmTCSublayerHecErrorsFixed_Object((1,3,6,1,4,1,6527,3,1,2,27,11,1,1,2),_TAtmTCSublayerHecErrorsFixed_Type())
-tAtmTCSublayerHecErrorsFixed.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmTCSublayerHecErrorsFixed.setStatus(_A)
-_TAtmCpObjs_ObjectIdentity=ObjectIdentity
-tAtmCpObjs=_TAtmCpObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,27,12))
-_TAtmCpStatisticsTable_Object=MibTable
-tAtmCpStatisticsTable=_TAtmCpStatisticsTable_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1))
-if mibBuilder.loadTexts:tAtmCpStatisticsTable.setStatus(_A)
-_TAtmCpStatisticsEntry_Object=MibTableRow
-tAtmCpStatisticsEntry=_TAtmCpStatisticsEntry_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1))
-tAtmCpStatisticsEntry.setIndexNames((0,_G,_H),(0,_A7,_A8))
-if mibBuilder.loadTexts:tAtmCpStatisticsEntry.setStatus(_A)
-_TAtmCpStatsTotalCellsRxd_Type=Counter64
-_TAtmCpStatsTotalCellsRxd_Object=MibTableColumn
-tAtmCpStatsTotalCellsRxd=_TAtmCpStatsTotalCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,1),_TAtmCpStatsTotalCellsRxd_Type())
-tAtmCpStatsTotalCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsTotalCellsRxd.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsTotalCellsRxd.setUnits(_E)
-_TAtmCpStatsTotalCellsRxdLo_Type=Counter32
-_TAtmCpStatsTotalCellsRxdLo_Object=MibTableColumn
-tAtmCpStatsTotalCellsRxdLo=_TAtmCpStatsTotalCellsRxdLo_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,2),_TAtmCpStatsTotalCellsRxdLo_Type())
-tAtmCpStatsTotalCellsRxdLo.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsTotalCellsRxdLo.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsTotalCellsRxdLo.setUnits(_E)
-_TAtmCpStatsTotalCellsRxdHi_Type=Counter32
-_TAtmCpStatsTotalCellsRxdHi_Object=MibTableColumn
-tAtmCpStatsTotalCellsRxdHi=_TAtmCpStatsTotalCellsRxdHi_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,3),_TAtmCpStatsTotalCellsRxdHi_Type())
-tAtmCpStatsTotalCellsRxdHi.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsTotalCellsRxdHi.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsTotalCellsRxdHi.setUnits(_E)
-_TAtmCpStatsTotalCellsTxd_Type=Counter64
-_TAtmCpStatsTotalCellsTxd_Object=MibTableColumn
-tAtmCpStatsTotalCellsTxd=_TAtmCpStatsTotalCellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,4),_TAtmCpStatsTotalCellsTxd_Type())
-tAtmCpStatsTotalCellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsTotalCellsTxd.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsTotalCellsTxd.setUnits(_E)
-_TAtmCpStatsTotalCellsTxdLo_Type=Counter32
-_TAtmCpStatsTotalCellsTxdLo_Object=MibTableColumn
-tAtmCpStatsTotalCellsTxdLo=_TAtmCpStatsTotalCellsTxdLo_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,5),_TAtmCpStatsTotalCellsTxdLo_Type())
-tAtmCpStatsTotalCellsTxdLo.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsTotalCellsTxdLo.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsTotalCellsTxdLo.setUnits(_E)
-_TAtmCpStatsTotalCellsTxdHi_Type=Counter32
-_TAtmCpStatsTotalCellsTxdHi_Object=MibTableColumn
-tAtmCpStatsTotalCellsTxdHi=_TAtmCpStatsTotalCellsTxdHi_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,6),_TAtmCpStatsTotalCellsTxdHi_Type())
-tAtmCpStatsTotalCellsTxdHi.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsTotalCellsTxdHi.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsTotalCellsTxdHi.setUnits(_E)
-_TAtmCpStatsClp0CellsRxd_Type=Counter64
-_TAtmCpStatsClp0CellsRxd_Object=MibTableColumn
-tAtmCpStatsClp0CellsRxd=_TAtmCpStatsClp0CellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,7),_TAtmCpStatsClp0CellsRxd_Type())
-tAtmCpStatsClp0CellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsClp0CellsRxd.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsClp0CellsRxd.setUnits(_E)
-_TAtmCpStatsClp0CellsRxdLo_Type=Counter32
-_TAtmCpStatsClp0CellsRxdLo_Object=MibTableColumn
-tAtmCpStatsClp0CellsRxdLo=_TAtmCpStatsClp0CellsRxdLo_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,8),_TAtmCpStatsClp0CellsRxdLo_Type())
-tAtmCpStatsClp0CellsRxdLo.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsClp0CellsRxdLo.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsClp0CellsRxdLo.setUnits(_E)
-_TAtmCpStatsClp0CellsRxdHi_Type=Counter32
-_TAtmCpStatsClp0CellsRxdHi_Object=MibTableColumn
-tAtmCpStatsClp0CellsRxdHi=_TAtmCpStatsClp0CellsRxdHi_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,9),_TAtmCpStatsClp0CellsRxdHi_Type())
-tAtmCpStatsClp0CellsRxdHi.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsClp0CellsRxdHi.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsClp0CellsRxdHi.setUnits(_E)
-_TAtmCpStatsClp0CellsTxd_Type=Counter64
-_TAtmCpStatsClp0CellsTxd_Object=MibTableColumn
-tAtmCpStatsClp0CellsTxd=_TAtmCpStatsClp0CellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,10),_TAtmCpStatsClp0CellsTxd_Type())
-tAtmCpStatsClp0CellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsClp0CellsTxd.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsClp0CellsTxd.setUnits(_E)
-_TAtmCpStatsClp0CellsTxdLo_Type=Counter32
-_TAtmCpStatsClp0CellsTxdLo_Object=MibTableColumn
-tAtmCpStatsClp0CellsTxdLo=_TAtmCpStatsClp0CellsTxdLo_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,11),_TAtmCpStatsClp0CellsTxdLo_Type())
-tAtmCpStatsClp0CellsTxdLo.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsClp0CellsTxdLo.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsClp0CellsTxdLo.setUnits(_E)
-_TAtmCpStatsClp0CellsTxdHi_Type=Counter32
-_TAtmCpStatsClp0CellsTxdHi_Object=MibTableColumn
-tAtmCpStatsClp0CellsTxdHi=_TAtmCpStatsClp0CellsTxdHi_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,12),_TAtmCpStatsClp0CellsTxdHi_Type())
-tAtmCpStatsClp0CellsTxdHi.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsClp0CellsTxdHi.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsClp0CellsTxdHi.setUnits(_E)
-_TAtmCpStatsDrpCellsRxd_Type=Counter32
-_TAtmCpStatsDrpCellsRxd_Object=MibTableColumn
-tAtmCpStatsDrpCellsRxd=_TAtmCpStatsDrpCellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,13),_TAtmCpStatsDrpCellsRxd_Type())
-tAtmCpStatsDrpCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsDrpCellsRxd.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsDrpCellsRxd.setUnits(_E)
-_TAtmCpStatsDrpClp0CellsRxd_Type=Counter32
-_TAtmCpStatsDrpClp0CellsRxd_Object=MibTableColumn
-tAtmCpStatsDrpClp0CellsRxd=_TAtmCpStatsDrpClp0CellsRxd_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,14),_TAtmCpStatsDrpClp0CellsRxd_Type())
-tAtmCpStatsDrpClp0CellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsDrpClp0CellsRxd.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsDrpClp0CellsRxd.setUnits(_E)
-_TAtmCpStatsDrpClp0CellsTxd_Type=Counter32
-_TAtmCpStatsDrpClp0CellsTxd_Object=MibTableColumn
-tAtmCpStatsDrpClp0CellsTxd=_TAtmCpStatsDrpClp0CellsTxd_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,15),_TAtmCpStatsDrpClp0CellsTxd_Type())
-tAtmCpStatsDrpClp0CellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsDrpClp0CellsTxd.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsDrpClp0CellsTxd.setUnits(_E)
-_TAtmCpStatsTagCells_Type=Counter32
-_TAtmCpStatsTagCells_Object=MibTableColumn
-tAtmCpStatsTagCells=_TAtmCpStatsTagCells_Object((1,3,6,1,4,1,6527,3,1,2,27,12,1,1,16),_TAtmCpStatsTagCells_Type())
-tAtmCpStatsTagCells.setMaxAccess(_C)
-if mibBuilder.loadTexts:tAtmCpStatsTagCells.setStatus(_A)
-if mibBuilder.loadTexts:tAtmCpStatsTagCells.setUnits(_E)
-_TmnxAtmNotifyPrefix_ObjectIdentity=ObjectIdentity
-tmnxAtmNotifyPrefix=_TmnxAtmNotifyPrefix_ObjectIdentity((1,3,6,1,4,1,6527,3,1,3,27))
-_TAtmNotifications_ObjectIdentity=ObjectIdentity
-tAtmNotifications=_TAtmNotifications_ObjectIdentity((1,3,6,1,4,1,6527,3,1,3,27,0))
-atmInterfaceConfEntry.registerAugmentions((_B,_AD))
+#
+# PySNMP MIB module TIMETRA-ATM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TIMETRA-ATM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:21:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+atmInterfaceTCEntry, atmInterfaceCurrentMaxVpiBits, atmVclEntry, atmVclVpi, atmInterfaceConfVccs, atmInterfaceMaxActiveVpiBits, atmInterfaceCurrentMaxVciBits, atmInterfaceConfVpcs, atmVclVci, atmVplEntry, atmInterfaceMaxActiveVciBits, atmInterfaceConfEntry, atmInterfaceDs3PlcpAlarmState, atmInterfaceTCAlarmState, atmVplVpi, aal5VccEntry = mibBuilder.importSymbols("ATM-MIB", "atmInterfaceTCEntry", "atmInterfaceCurrentMaxVpiBits", "atmVclEntry", "atmVclVpi", "atmInterfaceConfVccs", "atmInterfaceMaxActiveVpiBits", "atmInterfaceCurrentMaxVciBits", "atmInterfaceConfVpcs", "atmVclVci", "atmVplEntry", "atmInterfaceMaxActiveVciBits", "atmInterfaceConfEntry", "atmInterfaceDs3PlcpAlarmState", "atmInterfaceTCAlarmState", "atmVplVpi", "aal5VccEntry")
+AtmConnCastType, AtmConnKind, AtmVorXLastChange, AtmTrafficDescrParamIndex, AtmVpIdentifier, AtmVcIdentifier, AtmVorXOperStatus, AtmVorXAdminStatus = mibBuilder.importSymbols("ATM-TC-MIB", "AtmConnCastType", "AtmConnKind", "AtmVorXLastChange", "AtmTrafficDescrParamIndex", "AtmVpIdentifier", "AtmVcIdentifier", "AtmVorXOperStatus", "AtmVorXAdminStatus")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "RowStatus", "TextualConvention")
+tmnxMDASlotNum, tmnxCardSlotNum, tmnxChassisIndex = mibBuilder.importSymbols("TIMETRA-CHASSIS-MIB", "tmnxMDASlotNum", "tmnxCardSlotNum", "tmnxChassisIndex")
+tmnxConnProfId, = mibBuilder.importSymbols("TIMETRA-CONN-PROF-MIB", "tmnxConnProfId")
+tmnxSRConfs, tmnxSRObjs, timetraSRMIBModules, tmnxSRNotifyPrefix = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRConfs", "tmnxSRObjs", "timetraSRMIBModules", "tmnxSRNotifyPrefix")
+timetraATMMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 27))
+timetraATMMIBModule.setRevisions(('2011-02-01 00:00', '2009-02-28 00:00', '2006-03-16 00:00', '2005-08-31 00:00', '2005-01-24 00:00', '2003-10-28 00:00',))
+if mibBuilder.loadTexts: timetraATMMIBModule.setLastUpdated('201102010000Z')
+if mibBuilder.loadTexts: timetraATMMIBModule.setOrganization('Nokia')
+class AtmConnectionOwner(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("sap", 1), ("ilmi", 2))
+
+class AtmOamStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("up", 1), ("eteAis", 2), ("eteRdi", 3), ("eteAisLoc", 4))
+
+class AtmIlmiStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("undefined", 0), ("ok", 1), ("vpiOrVciRangeConflict", 2))
+
+class AtmLlid(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(16, 16)
+    fixedLength = 16
+
+class AtmIlmiLinkUniType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("undefined", 0), ("public", 1), ("private", 2))
+
+class AtmIlmiLinkDeviceType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("undefined", 0), ("user", 1), ("node", 2))
+
+class AtmIlmiLinkVersion(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
+    namedValues = NamedValues(("undefined", 0), ("version3point1", 1), ("version4point0", 2), ("version3point0", 3))
+
+class AtmIlmiLinkImeType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("userside", 1), ("networkside", 2))
+
+tAtmObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27))
+tAtmMdaObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 1))
+tAtmMdaInfoTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 1, 1), )
+if mibBuilder.loadTexts: tAtmMdaInfoTable.setStatus('obsolete')
+tAtmMdaInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 1, 1, 1), ).setIndexNames((0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"), (0, "TIMETRA-CHASSIS-MIB", "tmnxCardSlotNum"), (0, "TIMETRA-CHASSIS-MIB", "tmnxMDASlotNum"))
+if mibBuilder.loadTexts: tAtmMdaInfoEntry.setStatus('obsolete')
+tAtmMdaMaxSupportedVpcs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmMdaMaxSupportedVpcs.setStatus('obsolete')
+tAtmMdaMaxSupportedVccs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmMdaMaxSupportedVccs.setStatus('obsolete')
+tAtmMdaConfiguredVpcs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 1, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmMdaConfiguredVpcs.setStatus('obsolete')
+tAtmMdaConfiguredVccs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 1, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmMdaConfiguredVccs.setStatus('obsolete')
+tAtmIntfObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2))
+tAtmIntfConfTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1), )
+if mibBuilder.loadTexts: tAtmIntfConfTable.setStatus('current')
+tAtmIntfConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1), )
+atmInterfaceConfEntry.registerAugmentions(("TIMETRA-ATM-MIB", "tAtmIntfConfEntry"))
 tAtmIntfConfEntry.setIndexNames(*atmInterfaceConfEntry.getIndexNames())
-atmVclEntry.registerAugmentions((_B,_AE))
+if mibBuilder.loadTexts: tAtmIntfConfEntry.setStatus('current')
+tAtmIntfCurrentMaxVpcs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1024))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfCurrentMaxVpcs.setStatus('current')
+tAtmIntfCurrentMaxVccs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65536))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfCurrentMaxVccs.setStatus('current')
+tAtmIntfTotalIngrCbrBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfTotalIngrCbrBandwidth.setStatus('current')
+tAtmIntfTotalIngrRtVbrBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfTotalIngrRtVbrBandwidth.setStatus('current')
+tAtmIntfTotalIngrNrtVbrBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfTotalIngrNrtVbrBandwidth.setStatus('current')
+tAtmIntfTotalIngrUbrBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfTotalIngrUbrBandwidth.setStatus('current')
+tAtmIntfTotalEgrCbrBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfTotalEgrCbrBandwidth.setStatus('current')
+tAtmIntfTotalEgrRtVbrBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfTotalEgrRtVbrBandwidth.setStatus('current')
+tAtmIntfTotalEgrNrtVbrBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfTotalEgrNrtVbrBandwidth.setStatus('current')
+tAtmIntfTotalEgrUbrBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 10), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfTotalEgrUbrBandwidth.setStatus('current')
+tAtmIntfBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfBandwidth.setStatus('current')
+tAtmIntfShapedBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfShapedBandwidth.setStatus('current')
+tAtmIntfLastUnknVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 13), AtmVpIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfLastUnknVpi.setStatus('current')
+tAtmIntfLastUnknVci = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 14), AtmVcIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfLastUnknVci.setStatus('current')
+tAtmIntfOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("lowerLayerDown", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfOperStatus.setStatus('current')
+tAtmIntfConfVtcs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1024))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfConfVtcs.setStatus('current')
+tAtmIntfConfIfcs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 1, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfConfIfcs.setStatus('current')
+tAtmIntfStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 2), )
+if mibBuilder.loadTexts: tAtmIntfStatsTable.setStatus('current')
+tAtmIntfStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: tAtmIntfStatsEntry.setStatus('current')
+tAtmIntfStatsTotalCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 2, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfStatsTotalCellsRxd.setStatus('current')
+tAtmIntfStatsTotalCellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 2, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfStatsTotalCellsTxd.setStatus('current')
+tAtmIntfStatsTotalBytesRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 2, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfStatsTotalBytesRxd.setStatus('current')
+tAtmIntfStatsTotalBytesTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 2, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfStatsTotalBytesTxd.setStatus('current')
+tAtmIntfStatsTotalUnknCellsDrp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfStatsTotalUnknCellsDrp.setStatus('current')
+tAtmIntfStatsTotalHecErr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfStatsTotalHecErr.setStatus('obsolete')
+tAtmIntfStatsTotalHecErrFixed = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfStatsTotalHecErrFixed.setStatus('obsolete')
+tAtmIntfAal5StatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 3), )
+if mibBuilder.loadTexts: tAtmIntfAal5StatsTable.setStatus('current')
+tAtmIntfAal5StatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: tAtmIntfAal5StatsEntry.setStatus('current')
+tAtmIntfAal5StatsTotalPktsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 3, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfAal5StatsTotalPktsRxd.setStatus('current')
+tAtmIntfAal5StatsTotalPktsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 3, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfAal5StatsTotalPktsTxd.setStatus('current')
+tAtmIntfAal5StatsTotalPktsDrpRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 3, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfAal5StatsTotalPktsDrpRxd.setStatus('current')
+tAtmIntfAal5StatsTotalPktsDrpTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 3, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfAal5StatsTotalPktsDrpTxd.setStatus('current')
+tAtmIntfAal5StatsTotalCrc32Err = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 3, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIntfAal5StatsTotalCrc32Err.setStatus('current')
+tAtmIfcInfoTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 4), )
+if mibBuilder.loadTexts: tAtmIfcInfoTable.setStatus('current')
+tAtmIfcInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: tAtmIfcInfoEntry.setStatus('current')
+tAtmIfcAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 4, 1, 1), AtmVorXAdminStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcAdminStatus.setStatus('current')
+tAtmIfcOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 4, 1, 2), AtmVorXOperStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcOperStatus.setStatus('current')
+tAtmIfcLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 4, 1, 3), AtmVorXLastChange()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcLastChange.setStatus('current')
+tAtmIfcReceiveTrafficDescrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 4, 1, 4), AtmTrafficDescrParamIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcReceiveTrafficDescrIndex.setStatus('current')
+tAtmIfcTransmitTrafficDescrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 4, 1, 5), AtmTrafficDescrParamIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcTransmitTrafficDescrIndex.setStatus('current')
+tAtmIfcRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 4, 1, 6), RowStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcRowStatus.setStatus('current')
+tAtmIfcCastType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 4, 1, 7), AtmConnCastType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcCastType.setStatus('current')
+tAtmIfcConnKind = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 4, 1, 8), AtmConnKind()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcConnKind.setStatus('current')
+tAtmIfcInfoOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 4, 1, 9), AtmConnectionOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcInfoOwner.setStatus('current')
+tAtmIfcStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 5), )
+if mibBuilder.loadTexts: tAtmIfcStatisticsTable.setStatus('current')
+tAtmIfcStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: tAtmIfcStatisticsEntry.setStatus('current')
+tAtmIfcStatsTotalCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 5, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcStatsTotalCellsRxd.setStatus('current')
+tAtmIfcStatsTotalClp0CellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 5, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcStatsTotalClp0CellsRxd.setStatus('current')
+tAtmIfcStatsTotalCellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 5, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcStatsTotalCellsTxd.setStatus('current')
+tAtmIfcStatsTotalClp0CellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 5, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcStatsTotalClp0CellsTxd.setStatus('current')
+tAtmIfcStatsTotalBytesRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 5, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcStatsTotalBytesRxd.setStatus('current')
+tAtmIfcStatsTotalBytesTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 5, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcStatsTotalBytesTxd.setStatus('current')
+tAtmIfcStatsDrpCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 5, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcStatsDrpCellsRxd.setStatus('current')
+tAtmIfcStatsDrpClp0CellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 5, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcStatsDrpClp0CellsRxd.setStatus('current')
+tAtmIfcStatsDrpClp0CellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 5, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcStatsDrpClp0CellsTxd.setStatus('current')
+tAtmIfcStatsTagCells = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 2, 5, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIfcStatsTagCells.setStatus('current')
+tAtmVclObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3))
+tAtmVclInfoTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 1), )
+if mibBuilder.loadTexts: tAtmVclInfoTable.setStatus('current')
+tAtmVclInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 1, 1), )
+atmVclEntry.registerAugmentions(("TIMETRA-ATM-MIB", "tAtmVclInfoEntry"))
 tAtmVclInfoEntry.setIndexNames(*atmVclEntry.getIndexNames())
-atmVclEntry.registerAugmentions((_B,_AF))
+if mibBuilder.loadTexts: tAtmVclInfoEntry.setStatus('current')
+tAtmVclInfoOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 1, 1, 1), AtmConnectionOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVclInfoOwner.setStatus('current')
+tAtmVclInfoOamStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 1, 1, 2), AtmOamStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVclInfoOamStatus.setStatus('current')
+tAtmVclInfoIlmiStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 1, 1, 3), AtmIlmiStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVclInfoIlmiStatus.setStatus('current')
+tAtmVclInfoRxTrafficDescrIdOvr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 1, 1, 4), AtmTrafficDescrParamIndex().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVclInfoRxTrafficDescrIdOvr.setStatus('current')
+tAtmVclInfoTxTrafficDescrIdOvr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 1, 1, 5), AtmTrafficDescrParamIndex().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVclInfoTxTrafficDescrIdOvr.setStatus('current')
+tAtmVclStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 2), )
+if mibBuilder.loadTexts: tAtmVclStatisticsTable.setStatus('current')
+tAtmVclStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ATM-MIB", "atmVclVpi"), (0, "ATM-MIB", "atmVclVci"))
+if mibBuilder.loadTexts: tAtmVclStatisticsEntry.setStatus('current')
+tAtmVclStatsTotalCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 2, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVclStatsTotalCellsRxd.setStatus('current')
+tAtmVclStatsTotalCellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 2, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVclStatsTotalCellsTxd.setStatus('current')
+tAtmVclStatsTotalBytesRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 2, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVclStatsTotalBytesRxd.setStatus('current')
+tAtmVclStatsTotalBytesTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 2, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVclStatsTotalBytesTxd.setStatus('current')
+tAtmOamVclStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 3), )
+if mibBuilder.loadTexts: tAtmOamVclStatisticsTable.setStatus('current')
+tAtmOamVclStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 3, 1), )
+atmVclEntry.registerAugmentions(("TIMETRA-ATM-MIB", "tAtmOamVclStatisticsEntry"))
 tAtmOamVclStatisticsEntry.setIndexNames(*atmVclEntry.getIndexNames())
-aal5VccEntry.registerAugmentions((_B,_AG))
+if mibBuilder.loadTexts: tAtmOamVclStatisticsEntry.setStatus('current')
+tAtmOamVclStatsAISCellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 3, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVclStatsAISCellsTxd.setStatus('current')
+tAtmOamVclStatsRDICellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 3, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVclStatsRDICellsTxd.setStatus('current')
+tAtmOamVclStatsLoopbackCellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 3, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVclStatsLoopbackCellsTxd.setStatus('current')
+tAtmOamVclStatsAISCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 3, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVclStatsAISCellsRxd.setStatus('current')
+tAtmOamVclStatsRDICellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 3, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVclStatsRDICellsRxd.setStatus('current')
+tAtmOamVclStatsLoopbackCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 3, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVclStatsLoopbackCellsRxd.setStatus('current')
+tAtmOamVclStatsCrc10Err = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 3, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVclStatsCrc10Err.setStatus('current')
+tAtmOamVclStatsOtherCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 3, 3, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVclStatsOtherCellsRxd.setStatus('current')
+tAal5VccObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 4))
+tAal5VccStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 4, 1), )
+if mibBuilder.loadTexts: tAal5VccStatisticsTable.setStatus('current')
+tAal5VccStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 4, 1, 1), )
+aal5VccEntry.registerAugmentions(("TIMETRA-ATM-MIB", "tAal5VccStatisticsEntry"))
 tAal5VccStatisticsEntry.setIndexNames(*aal5VccEntry.getIndexNames())
-atmVplEntry.registerAugmentions((_B,_AH))
+if mibBuilder.loadTexts: tAal5VccStatisticsEntry.setStatus('current')
+tAal5VccStatsPacketsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 4, 1, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAal5VccStatsPacketsRxd.setStatus('current')
+tAal5VccStatsPacketsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 4, 1, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAal5VccStatsPacketsTxd.setStatus('current')
+tAal5VccStatsDrpPacketsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 4, 1, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAal5VccStatsDrpPacketsRxd.setStatus('current')
+tAal5VccStatsDrpPacketsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 4, 1, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAal5VccStatsDrpPacketsTxd.setStatus('current')
+tAtmTrafficDescObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 5))
+tAtmVplObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6))
+tAtmVplInfoTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 1), )
+if mibBuilder.loadTexts: tAtmVplInfoTable.setStatus('current')
+tAtmVplInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 1, 1), )
+atmVplEntry.registerAugmentions(("TIMETRA-ATM-MIB", "tAtmVplInfoEntry"))
 tAtmVplInfoEntry.setIndexNames(*atmVplEntry.getIndexNames())
-atmVclEntry.registerAugmentions((_B,_AI))
+if mibBuilder.loadTexts: tAtmVplInfoEntry.setStatus('current')
+tAtmVplInfoOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 1, 1, 1), AtmConnectionOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVplInfoOwner.setStatus('current')
+tAtmVplInfoOamStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 1, 1, 2), AtmOamStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVplInfoOamStatus.setStatus('current')
+tAtmVplInfoIlmiStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 1, 1, 3), AtmIlmiStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVplInfoIlmiStatus.setStatus('current')
+tAtmVplStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 2), )
+if mibBuilder.loadTexts: tAtmVplStatisticsTable.setStatus('current')
+tAtmVplStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ATM-MIB", "atmVplVpi"))
+if mibBuilder.loadTexts: tAtmVplStatisticsEntry.setStatus('current')
+tAtmVplStatsTotalCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 2, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVplStatsTotalCellsRxd.setStatus('current')
+tAtmVplStatsTotalClp0CellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 2, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVplStatsTotalClp0CellsRxd.setStatus('current')
+tAtmVplStatsTotalCellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 2, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVplStatsTotalCellsTxd.setStatus('current')
+tAtmVplStatsTotalClp0CellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 2, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVplStatsTotalClp0CellsTxd.setStatus('current')
+tAtmVplStatsTotalBytesRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 2, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVplStatsTotalBytesRxd.setStatus('current')
+tAtmVplStatsTotalBytesTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 2, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVplStatsTotalBytesTxd.setStatus('current')
+tAtmVplStatsDrpCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVplStatsDrpCellsRxd.setStatus('current')
+tAtmVplStatsDrpClp0CellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVplStatsDrpClp0CellsRxd.setStatus('current')
+tAtmVplStatsDrpClp0CellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVplStatsDrpClp0CellsTxd.setStatus('current')
+tAtmVplStatsTagCells = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVplStatsTagCells.setStatus('current')
+tAtmOamVplStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 3), )
+if mibBuilder.loadTexts: tAtmOamVplStatisticsTable.setStatus('current')
+tAtmOamVplStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ATM-MIB", "atmVplVpi"))
+if mibBuilder.loadTexts: tAtmOamVplStatisticsEntry.setStatus('current')
+tAtmOamVplStatsAISCellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 3, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVplStatsAISCellsTxd.setStatus('current')
+tAtmOamVplStatsRDICellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 3, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVplStatsRDICellsTxd.setStatus('current')
+tAtmOamVplStatsLoopbackCellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 3, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVplStatsLoopbackCellsTxd.setStatus('current')
+tAtmOamVplStatsAISCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 3, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVplStatsAISCellsRxd.setStatus('current')
+tAtmOamVplStatsRDICellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 3, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVplStatsRDICellsRxd.setStatus('current')
+tAtmOamVplStatsLoopbackCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 3, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVplStatsLoopbackCellsRxd.setStatus('current')
+tAtmOamVplStatsCrc10Errors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 3, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVplStatsCrc10Errors.setStatus('current')
+tAtmOamVplStatsOtherCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 6, 3, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmOamVplStatsOtherCellsRxd.setStatus('current')
+tAtmVtlObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7))
+tAtmVtlInfoTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 1), )
+if mibBuilder.loadTexts: tAtmVtlInfoTable.setStatus('current')
+tAtmVtlInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "TIMETRA-ATM-MIB", "tAtmVtlStartVpi"), (0, "TIMETRA-ATM-MIB", "tAtmVtlEndVpi"))
+if mibBuilder.loadTexts: tAtmVtlInfoEntry.setStatus('current')
+tAtmVtlStartVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 1, 1, 1), AtmVpIdentifier())
+if mibBuilder.loadTexts: tAtmVtlStartVpi.setStatus('current')
+tAtmVtlEndVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 1, 1, 2), AtmVpIdentifier())
+if mibBuilder.loadTexts: tAtmVtlEndVpi.setStatus('current')
+tAtmVtlAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 1, 1, 3), AtmVorXAdminStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlAdminStatus.setStatus('current')
+tAtmVtlOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 1, 1, 4), AtmVorXOperStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlOperStatus.setStatus('current')
+tAtmVtlLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 1, 1, 5), AtmVorXLastChange()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlLastChange.setStatus('current')
+tAtmVtlReceiveTrafficDescrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 1, 1, 6), AtmTrafficDescrParamIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlReceiveTrafficDescrIndex.setStatus('current')
+tAtmVtlTransmitTrafficDescrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 1, 1, 7), AtmTrafficDescrParamIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlTransmitTrafficDescrIndex.setStatus('current')
+tAtmVtlRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 1, 1, 8), RowStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlRowStatus.setStatus('current')
+tAtmVtlCastType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 1, 1, 9), AtmConnCastType().clone('p2p')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlCastType.setStatus('current')
+tAtmVtlConnKind = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 1, 1, 10), AtmConnKind()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlConnKind.setStatus('current')
+tAtmVtlInfoOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 1, 1, 11), AtmConnectionOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlInfoOwner.setStatus('current')
+tAtmVtlStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 2), )
+if mibBuilder.loadTexts: tAtmVtlStatisticsTable.setStatus('current')
+tAtmVtlStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "TIMETRA-ATM-MIB", "tAtmVtlStartVpi"), (0, "TIMETRA-ATM-MIB", "tAtmVtlEndVpi"))
+if mibBuilder.loadTexts: tAtmVtlStatisticsEntry.setStatus('current')
+tAtmVtlStatsTotalCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 2, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlStatsTotalCellsRxd.setStatus('current')
+tAtmVtlStatsTotalClp0CellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 2, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlStatsTotalClp0CellsRxd.setStatus('current')
+tAtmVtlStatsTotalCellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 2, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlStatsTotalCellsTxd.setStatus('current')
+tAtmVtlStatsTotalClp0CellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 2, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlStatsTotalClp0CellsTxd.setStatus('current')
+tAtmVtlStatsTotalBytesRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 2, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlStatsTotalBytesRxd.setStatus('current')
+tAtmVtlStatsTotalBytesTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 2, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlStatsTotalBytesTxd.setStatus('current')
+tAtmVtlStatsDrpCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlStatsDrpCellsRxd.setStatus('current')
+tAtmVtlStatsDrpClp0CellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlStatsDrpClp0CellsRxd.setStatus('current')
+tAtmVtlStatsDrpClp0CellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlStatsDrpClp0CellsTxd.setStatus('current')
+tAtmVtlStatsTagCells = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 7, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmVtlStatsTagCells.setStatus('current')
+tAtmCellVclObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 8))
+tAtmCellVclStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 8, 1), )
+if mibBuilder.loadTexts: tAtmCellVclStatisticsTable.setStatus('current')
+tAtmCellVclStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 8, 1, 1), )
+atmVclEntry.registerAugmentions(("TIMETRA-ATM-MIB", "tAtmCellVclStatisticsEntry"))
 tAtmCellVclStatisticsEntry.setIndexNames(*atmVclEntry.getIndexNames())
-atmInterfaceTCEntry.registerAugmentions((_B,_AJ))
+if mibBuilder.loadTexts: tAtmCellVclStatisticsEntry.setStatus('current')
+tAtmCellVclStatsClp0CellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 8, 1, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCellVclStatsClp0CellsRxd.setStatus('current')
+tAtmCellVclStatsClp0CellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 8, 1, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCellVclStatsClp0CellsTxd.setStatus('current')
+tAtmCellVclStatsDrpCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 8, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCellVclStatsDrpCellsRxd.setStatus('current')
+tAtmCellVclStatsDrpClp0CellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 8, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCellVclStatsDrpClp0CellsRxd.setStatus('current')
+tAtmCellVclStatsDrpClp0CellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 8, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCellVclStatsDrpClp0CellsTxd.setStatus('current')
+tAtmCellVclStatsTagCells = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 8, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCellVclStatsTagCells.setStatus('current')
+tAtmSystemObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 9))
+tAtmSysLlid = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 9, 1), AtmLlid().clone(hexValue="01000000000000000000000000000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tAtmSysLlid.setStatus('current')
+tAtmSysOamRetryUp = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 9, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10)).clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tAtmSysOamRetryUp.setStatus('current')
+tAtmSysOamRetryDown = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 9, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10)).clone(4)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tAtmSysOamRetryDown.setStatus('current')
+tAtmSysOamLoopbackPeriod = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 9, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 40)).clone(10)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tAtmSysOamLoopbackPeriod.setStatus('current')
+tAtmIlmiLinkObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10))
+tAtmIlmiLinkTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1), )
+if mibBuilder.loadTexts: tAtmIlmiLinkTable.setStatus('current')
+tAtmIlmiLinkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: tAtmIlmiLinkEntry.setStatus('current')
+tAtmIlmiLinkRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 1), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tAtmIlmiLinkRowStatus.setStatus('current')
+tAtmIlmiLinkLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 2), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkLastChanged.setStatus('current')
+tAtmIlmiLinkAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tAtmIlmiLinkAdminStatus.setStatus('current')
+tAtmIlmiLinkOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkOperStatus.setStatus('current')
+tAtmIlmiLinkVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 5), AtmVpIdentifier()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tAtmIlmiLinkVpi.setStatus('current')
+tAtmIlmiLinkVci = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 6), AtmVcIdentifier().clone(16)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tAtmIlmiLinkVci.setStatus('current')
+tAtmIlmiLinkFsmState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("stopped", 1), ("linkFailing", 2), ("establishing", 3), ("configuring", 4), ("retrievingNetworkPrefixes", 5), ("registeringNetworkPrefixes", 6), ("retrievingAddresses", 7), ("registeringAddresses", 8), ("verifying", 9)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkFsmState.setStatus('current')
+tAtmIlmiLinkReceiveTrafficDescrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 8), AtmTrafficDescrParamIndex().clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tAtmIlmiLinkReceiveTrafficDescrIndex.setStatus('current')
+tAtmIlmiLinkTransmitTrafficDescrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 9), AtmTrafficDescrParamIndex().clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tAtmIlmiLinkTransmitTrafficDescrIndex.setStatus('current')
+tAtmIlmiLinkEstablishConPollIntvl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(1)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tAtmIlmiLinkEstablishConPollIntvl.setStatus('current')
+tAtmIlmiLinkCheckConPollIntvl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(5)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tAtmIlmiLinkCheckConPollIntvl.setStatus('current')
+tAtmIlmiLinkConPollInactFactor = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(4)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tAtmIlmiLinkConPollInactFactor.setStatus('current')
+tAtmIlmiLinkUniType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 13), AtmIlmiLinkUniType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkUniType.setStatus('current')
+tAtmIlmiLinkDeviceType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 14), AtmIlmiLinkDeviceType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkDeviceType.setStatus('current')
+tAtmIlmiLinkVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 15), AtmIlmiLinkVersion().clone('version4point0')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tAtmIlmiLinkVersion.setStatus('current')
+tAtmIlmiLinkImeType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 16), AtmIlmiLinkImeType().clone('userside')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tAtmIlmiLinkImeType.setStatus('current')
+tAtmIlmiLinkNegotiatedVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 17), AtmIlmiLinkVersion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkNegotiatedVersion.setStatus('current')
+tAtmIlmiLinkNegotiatedImeType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 18), AtmIlmiLinkImeType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkNegotiatedImeType.setStatus('current')
+tAtmIlmiLinkNeighborIfIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkNeighborIfIdentifier.setStatus('current')
+tAtmIlmiLinkNeighborSystemIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 20), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6).clone(hexValue="000000000000")).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkNeighborSystemIdentifier.setStatus('current')
+tAtmIlmiLinkNeighborUniType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 21), AtmIlmiLinkUniType().clone('undefined')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkNeighborUniType.setStatus('current')
+tAtmIlmiLinkNeighborDeviceType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 22), AtmIlmiLinkDeviceType().clone('undefined')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkNeighborDeviceType.setStatus('current')
+tAtmIlmiLinkNeighborVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 23), AtmIlmiLinkVersion().clone('undefined')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkNeighborVersion.setStatus('current')
+tAtmIlmiLinkNeighborMaxVpcs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 24), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4096))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkNeighborMaxVpcs.setStatus('current')
+tAtmIlmiLinkNeighborMaxVccs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 25), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65536))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkNeighborMaxVccs.setStatus('current')
+tAtmIlmiLinkNeighborMaxVpiBits = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 26), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 12))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkNeighborMaxVpiBits.setStatus('current')
+tAtmIlmiLinkNeighborMaxVciBits = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 1, 1, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkNeighborMaxVciBits.setStatus('current')
+tAtmIlmiLinkStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2), )
+if mibBuilder.loadTexts: tAtmIlmiLinkStatisticsTable.setStatus('current')
+tAtmIlmiLinkStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: tAtmIlmiLinkStatisticsEntry.setStatus('current')
+tAtmIlmiLinkOutPdus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkOutPdus.setStatus('current')
+tAtmIlmiLinkOutGetRequestPdus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkOutGetRequestPdus.setStatus('current')
+tAtmIlmiLinkOutGetNextRequestPdus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkOutGetNextRequestPdus.setStatus('current')
+tAtmIlmiLinkOutSetRequestPdus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkOutSetRequestPdus.setStatus('current')
+tAtmIlmiLinkOutGetResponsePdus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkOutGetResponsePdus.setStatus('current')
+tAtmIlmiLinkOutTrapPdus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkOutTrapPdus.setStatus('current')
+tAtmIlmiLinkOutTooBigErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkOutTooBigErrors.setStatus('current')
+tAtmIlmiLinkOutNoSuchNameErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkOutNoSuchNameErrors.setStatus('current')
+tAtmIlmiLinkOutBadValueErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkOutBadValueErrors.setStatus('current')
+tAtmIlmiLinkOutReadOnlyErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkOutReadOnlyErrors.setStatus('current')
+tAtmIlmiLinkOutGeneralErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkOutGeneralErrors.setStatus('current')
+tAtmIlmiLinkInPdus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkInPdus.setStatus('current')
+tAtmIlmiLinkInGetRequestPdus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkInGetRequestPdus.setStatus('current')
+tAtmIlmiLinkInGetNextRequestPdus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkInGetNextRequestPdus.setStatus('current')
+tAtmIlmiLinkInSetRequestPdus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkInSetRequestPdus.setStatus('current')
+tAtmIlmiLinkInGetResponsePdus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkInGetResponsePdus.setStatus('current')
+tAtmIlmiLinkInTrapPdus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkInTrapPdus.setStatus('current')
+tAtmIlmiLinkInTooBigErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 18), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkInTooBigErrors.setStatus('current')
+tAtmIlmiLinkInNoSuchNameErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 19), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkInNoSuchNameErrors.setStatus('current')
+tAtmIlmiLinkInBadValueErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 20), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkInBadValueErrors.setStatus('current')
+tAtmIlmiLinkInReadOnlyErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 21), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkInReadOnlyErrors.setStatus('current')
+tAtmIlmiLinkInGeneralErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 22), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkInGeneralErrors.setStatus('current')
+tAtmIlmiLinkInInvalidSnmpVersionPdus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 23), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkInInvalidSnmpVersionPdus.setStatus('current')
+tAtmIlmiLinkInInvalidSnmpCommunityStringPdus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 24), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkInInvalidSnmpCommunityStringPdus.setStatus('current')
+tAtmIlmiLinkInInvalidSnmpFormatPdus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 10, 2, 1, 25), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmIlmiLinkInInvalidSnmpFormatPdus.setStatus('current')
+tAtmTCSublayerObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 11))
+tAtmTCSublayerTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 11, 1), )
+if mibBuilder.loadTexts: tAtmTCSublayerTable.setStatus('current')
+tAtmTCSublayerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 11, 1, 1), )
+atmInterfaceTCEntry.registerAugmentions(("TIMETRA-ATM-MIB", "tAtmTCSublayerEntry"))
 tAtmTCSublayerEntry.setIndexNames(*atmInterfaceTCEntry.getIndexNames())
-tmnxAtmVclInfoGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,6))
-tmnxAtmVclInfoGroup.setObjects(*((_B,_AK),(_B,_AL),(_B,_AM)))
-if mibBuilder.loadTexts:tmnxAtmVclInfoGroup.setStatus(_A)
-tmnxAtmVclStatisticsGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,7))
-tmnxAtmVclStatisticsGroup.setObjects(*((_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY)))
-if mibBuilder.loadTexts:tmnxAtmVclStatisticsGroup.setStatus(_A)
-tmnxAtmAal5VccStatisticsGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,8))
-tmnxAtmAal5VccStatisticsGroup.setObjects(*((_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac)))
-if mibBuilder.loadTexts:tmnxAtmAal5VccStatisticsGroup.setStatus(_A)
-tmnxAtmCellVclStatisticsGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,9))
-tmnxAtmCellVclStatisticsGroup.setObjects(*((_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai)))
-if mibBuilder.loadTexts:tmnxAtmCellVclStatisticsGroup.setStatus(_A)
-tmnxAtmVplInfoGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,11))
-tmnxAtmVplInfoGroup.setObjects(*((_B,_Aj),(_B,_Ak),(_B,_Al)))
-if mibBuilder.loadTexts:tmnxAtmVplInfoGroup.setStatus(_A)
-tmnxAtmVplStatisticsGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,12))
-tmnxAtmVplStatisticsGroup.setObjects(*((_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2)))
-if mibBuilder.loadTexts:tmnxAtmVplStatisticsGroup.setStatus(_A)
-tmnxAtmVtlInfoGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,13))
-tmnxAtmVtlInfoGroup.setObjects(*((_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB)))
-if mibBuilder.loadTexts:tmnxAtmVtlInfoGroup.setStatus(_A)
-tmnxAtmVtlStatisticsGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,14))
-tmnxAtmVtlStatisticsGroup.setObjects(*((_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ),(_B,_BK),(_B,_BL)))
-if mibBuilder.loadTexts:tmnxAtmVtlStatisticsGroup.setStatus(_A)
-tmnxAtmIfcInfoGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,15))
-tmnxAtmIfcInfoGroup.setObjects(*((_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_BU)))
-if mibBuilder.loadTexts:tmnxAtmIfcInfoGroup.setStatus(_A)
-tmnxAtmIfcStatisticsGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,16))
-tmnxAtmIfcStatisticsGroup.setObjects(*((_B,_BV),(_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,_Bb),(_B,_Bc),(_B,_Bd),(_B,_Be)))
-if mibBuilder.loadTexts:tmnxAtmIfcStatisticsGroup.setStatus(_A)
-tmnxAtmObsoleteV3v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,17))
-tmnxAtmObsoleteV3v0Group.setObjects(*((_B,_Bf),(_B,_Bg),(_B,_Bh),(_B,_Bi)))
-if mibBuilder.loadTexts:tmnxAtmObsoleteV3v0Group.setStatus(_A)
-tmnxAtmIlmiLinkGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,20))
-tmnxAtmIlmiLinkGroup.setObjects(*((_B,_Bj),(_B,_Bk),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Bl),(_B,_Bm),(_B,_Bn),(_B,_Bo),(_B,_Bp),(_B,_Bq),(_B,_Br),(_B,_Bs),(_B,_Bt),(_B,_Bu),(_B,_Bv),(_B,_Bw),(_B,_Bx),(_B,_By),(_B,_Bz),(_B,_B_),(_B,_C0),(_B,_C1),(_B,_C2),(_B,_C3),(_B,_C4)))
-if mibBuilder.loadTexts:tmnxAtmIlmiLinkGroup.setStatus(_A)
-tmnxAtmIlmiStatisticsGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,21))
-tmnxAtmIlmiStatisticsGroup.setObjects(*((_B,_C5),(_B,_C6),(_B,_C7),(_B,_C8),(_B,_C9),(_B,_CA),(_B,_CB),(_B,_CC),(_B,_CD),(_B,_CE),(_B,_CF),(_B,_CG),(_B,_CH),(_B,_CI),(_B,_CJ),(_B,_CK),(_B,_CL),(_B,_CM),(_B,_CN),(_B,_CO),(_B,_CP),(_B,_CQ),(_B,_CR),(_B,_CS),(_B,_CT)))
-if mibBuilder.loadTexts:tmnxAtmIlmiStatisticsGroup.setStatus(_A)
-tmnxAtmIntfConfV4v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,23))
-tmnxAtmIntfConfV4v0Group.setObjects(*((_B,_Z),(_B,_a),(_B,_CU),(_B,_CV),(_B,_CW),(_B,_CX),(_B,_CY),(_B,_CZ),(_B,_Ca),(_B,_Cb),(_B,_Cc),(_B,_Cd),(_B,_Ce),(_B,_Cf),(_B,_Cg),(_B,_Ch),(_B,_Ci)))
-if mibBuilder.loadTexts:tmnxAtmIntfConfV4v0Group.setStatus(_A)
-tmnxAtmSysConfV4v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,24))
-tmnxAtmSysConfV4v0Group.setObjects(*((_B,_Cj),(_B,_Ck),(_B,_Cl),(_B,_Cm)))
-if mibBuilder.loadTexts:tmnxAtmSysConfV4v0Group.setStatus(_A)
-tmnxAtmIntfStatsV4v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,25))
-tmnxAtmIntfStatsV4v0Group.setObjects(*((_B,_Cn),(_B,_Co),(_B,_Cp),(_B,_Cq),(_B,_Cr),(_B,_Cs),(_B,_Ct),(_B,_Cu),(_B,_Cv),(_B,_Cw)))
-if mibBuilder.loadTexts:tmnxAtmIntfStatsV4v0Group.setStatus(_A)
-tmnxAtmTCSublayerGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,26))
-tmnxAtmTCSublayerGroup.setObjects(*((_B,_Cx),(_B,_Cy)))
-if mibBuilder.loadTexts:tmnxAtmTCSublayerGroup.setStatus(_A)
-tmnxAtmObsoleteV4v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,27))
-tmnxAtmObsoleteV4v0Group.setObjects(*((_B,_Cz),(_B,_C_)))
-if mibBuilder.loadTexts:tmnxAtmObsoleteV4v0Group.setStatus(_A)
-tmnxAtmCpStatisticsGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,28))
-tmnxAtmCpStatisticsGroup.setObjects(*((_B,_D0),(_B,_D1),(_B,_D2),(_B,_D3),(_B,_D4),(_B,_D5),(_B,_D6),(_B,_D7),(_B,_D8),(_B,_D9),(_B,_DA),(_B,_DB),(_B,_DC),(_B,_DD),(_B,_DE),(_B,_DF)))
-if mibBuilder.loadTexts:tmnxAtmCpStatisticsGroup.setStatus(_A)
-tmnxAtmVclInfoGroupV9v0=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,27,2,29))
-tmnxAtmVclInfoGroupV9v0.setObjects(*((_B,_DG),(_B,_DH)))
-if mibBuilder.loadTexts:tmnxAtmVclInfoGroupV9v0.setStatus(_A)
-tAtmTcSubLayerDown=NotificationType((1,3,6,1,4,1,6527,3,1,3,27,0,1))
-tAtmTcSubLayerDown.setObjects((_F,_P))
-if mibBuilder.loadTexts:tAtmTcSubLayerDown.setStatus(_A)
-tAtmTcSubLayerClear=NotificationType((1,3,6,1,4,1,6527,3,1,3,27,0,2))
-tAtmTcSubLayerClear.setObjects((_F,_P))
-if mibBuilder.loadTexts:tAtmTcSubLayerClear.setStatus(_A)
-tAtmPlcpSubLayerDown=NotificationType((1,3,6,1,4,1,6527,3,1,3,27,0,3))
-tAtmPlcpSubLayerDown.setObjects((_F,_O))
-if mibBuilder.loadTexts:tAtmPlcpSubLayerDown.setStatus(_A)
-tAtmPlcpSubLayerClear=NotificationType((1,3,6,1,4,1,6527,3,1,3,27,0,4))
-tAtmPlcpSubLayerClear.setObjects((_F,_O))
-if mibBuilder.loadTexts:tAtmPlcpSubLayerClear.setStatus(_A)
-tAtmEpOutOfPeerVpiOrVciRange=NotificationType((1,3,6,1,4,1,6527,3,1,3,27,0,5))
-tAtmEpOutOfPeerVpiOrVciRange.setObjects(*((_F,_w),(_F,_v),(_F,_y),(_F,_x)))
-if mibBuilder.loadTexts:tAtmEpOutOfPeerVpiOrVciRange.setStatus(_A)
-tAtmMaxPeerVccsExceeded=NotificationType((1,3,6,1,4,1,6527,3,1,3,27,0,6))
-tAtmMaxPeerVccsExceeded.setObjects(*((_B,_a),(_F,_t)))
-if mibBuilder.loadTexts:tAtmMaxPeerVccsExceeded.setStatus(_A)
-tAtmMaxPeerVpcsExceeded=NotificationType((1,3,6,1,4,1,6527,3,1,3,27,0,7))
-tAtmMaxPeerVpcsExceeded.setObjects(*((_B,_Z),(_F,_u)))
-if mibBuilder.loadTexts:tAtmMaxPeerVpcsExceeded.setStatus(_A)
-tAtmIlmiLinkStatusChange=NotificationType((1,3,6,1,4,1,6527,3,1,3,27,0,8))
-tAtmIlmiLinkStatusChange.setObjects(*((_B,_V),(_B,_W),(_B,_X),(_B,_Y)))
-if mibBuilder.loadTexts:tAtmIlmiLinkStatusChange.setStatus(_A)
-tmnxAtmNotificationsR4r0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,27,2,22))
-tmnxAtmNotificationsR4r0Group.setObjects(*((_B,_DI),(_B,_DJ),(_B,_DK),(_B,_DL),(_B,_DM),(_B,_DN),(_B,_DO),(_B,_DP)))
-if mibBuilder.loadTexts:tmnxAtmNotificationsR4r0Group.setStatus(_A)
-tAtmMIBV4v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,27,1,3))
-tAtmMIBV4v0Compliance.setObjects(*((_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r)))
-if mibBuilder.loadTexts:tAtmMIBV4v0Compliance.setStatus(_J)
-tAtmMIBV9v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,27,1,4))
-tAtmMIBV9v0Compliance.setObjects(*((_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_DQ),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_DR)))
-if mibBuilder.loadTexts:tAtmMIBV9v0Compliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'AtmConnectionOwner':AtmConnectionOwner,'AtmOamStatus':AtmOamStatus,'AtmIlmiStatus':AtmIlmiStatus,'AtmLlid':AtmLlid,_AB:AtmIlmiLinkUniType,_AC:AtmIlmiLinkDeviceType,_U:AtmIlmiLinkVersion,_AA:AtmIlmiLinkImeType,'timetraATMMIBModule':timetraATMMIBModule,'tAtmMIBConformance':tAtmMIBConformance,'tmnxAtmMIBCompliances':tmnxAtmMIBCompliances,'tAtmMIBV4v0Compliance':tAtmMIBV4v0Compliance,'tAtmMIBV9v0Compliance':tAtmMIBV9v0Compliance,'tmnxAtmMIBGroups':tmnxAtmMIBGroups,_e:tmnxAtmVclInfoGroup,_f:tmnxAtmVclStatisticsGroup,_g:tmnxAtmAal5VccStatisticsGroup,_h:tmnxAtmCellVclStatisticsGroup,_i:tmnxAtmVplInfoGroup,_j:tmnxAtmVplStatisticsGroup,_k:tmnxAtmVtlInfoGroup,_l:tmnxAtmVtlStatisticsGroup,_d:tmnxAtmIfcInfoGroup,_m:tmnxAtmIfcStatisticsGroup,'tmnxAtmObsoleteV3v0Group':tmnxAtmObsoleteV3v0Group,_o:tmnxAtmIlmiLinkGroup,_p:tmnxAtmIlmiStatisticsGroup,_r:tmnxAtmNotificationsR4r0Group,_b:tmnxAtmIntfConfV4v0Group,_n:tmnxAtmSysConfV4v0Group,_c:tmnxAtmIntfStatsV4v0Group,_q:tmnxAtmTCSublayerGroup,'tmnxAtmObsoleteV4v0Group':tmnxAtmObsoleteV4v0Group,_DR:tmnxAtmCpStatisticsGroup,_DQ:tmnxAtmVclInfoGroupV9v0,'tAtmObjs':tAtmObjs,'tAtmMdaObjs':tAtmMdaObjs,'tAtmMdaInfoTable':tAtmMdaInfoTable,'tAtmMdaInfoEntry':tAtmMdaInfoEntry,_Bf:tAtmMdaMaxSupportedVpcs,_Bg:tAtmMdaMaxSupportedVccs,_Bh:tAtmMdaConfiguredVpcs,_Bi:tAtmMdaConfiguredVccs,'tAtmIntfObjs':tAtmIntfObjs,'tAtmIntfConfTable':tAtmIntfConfTable,_AD:tAtmIntfConfEntry,_Z:tAtmIntfCurrentMaxVpcs,_a:tAtmIntfCurrentMaxVccs,_CU:tAtmIntfTotalIngrCbrBandwidth,_CV:tAtmIntfTotalIngrRtVbrBandwidth,_CW:tAtmIntfTotalIngrNrtVbrBandwidth,_CX:tAtmIntfTotalIngrUbrBandwidth,_CY:tAtmIntfTotalEgrCbrBandwidth,_CZ:tAtmIntfTotalEgrRtVbrBandwidth,_Ca:tAtmIntfTotalEgrNrtVbrBandwidth,_Cb:tAtmIntfTotalEgrUbrBandwidth,_Cc:tAtmIntfBandwidth,_Cd:tAtmIntfShapedBandwidth,_Ce:tAtmIntfLastUnknVpi,_Cf:tAtmIntfLastUnknVci,_Cg:tAtmIntfOperStatus,_Ch:tAtmIntfConfVtcs,_Ci:tAtmIntfConfIfcs,'tAtmIntfStatsTable':tAtmIntfStatsTable,'tAtmIntfStatsEntry':tAtmIntfStatsEntry,_Cn:tAtmIntfStatsTotalCellsRxd,_Co:tAtmIntfStatsTotalCellsTxd,_Cp:tAtmIntfStatsTotalBytesRxd,_Cq:tAtmIntfStatsTotalBytesTxd,_Cr:tAtmIntfStatsTotalUnknCellsDrp,_Cz:tAtmIntfStatsTotalHecErr,_C_:tAtmIntfStatsTotalHecErrFixed,'tAtmIntfAal5StatsTable':tAtmIntfAal5StatsTable,'tAtmIntfAal5StatsEntry':tAtmIntfAal5StatsEntry,_Cs:tAtmIntfAal5StatsTotalPktsRxd,_Ct:tAtmIntfAal5StatsTotalPktsTxd,_Cu:tAtmIntfAal5StatsTotalPktsDrpRxd,_Cv:tAtmIntfAal5StatsTotalPktsDrpTxd,_Cw:tAtmIntfAal5StatsTotalCrc32Err,'tAtmIfcInfoTable':tAtmIfcInfoTable,'tAtmIfcInfoEntry':tAtmIfcInfoEntry,_BM:tAtmIfcAdminStatus,_BN:tAtmIfcOperStatus,_BO:tAtmIfcLastChange,_BP:tAtmIfcReceiveTrafficDescrIndex,_BQ:tAtmIfcTransmitTrafficDescrIndex,_BR:tAtmIfcRowStatus,_BS:tAtmIfcCastType,_BT:tAtmIfcConnKind,_BU:tAtmIfcInfoOwner,'tAtmIfcStatisticsTable':tAtmIfcStatisticsTable,'tAtmIfcStatisticsEntry':tAtmIfcStatisticsEntry,_BV:tAtmIfcStatsTotalCellsRxd,_BW:tAtmIfcStatsTotalClp0CellsRxd,_BX:tAtmIfcStatsTotalCellsTxd,_BY:tAtmIfcStatsTotalClp0CellsTxd,_Ba:tAtmIfcStatsTotalBytesRxd,_BZ:tAtmIfcStatsTotalBytesTxd,_Bb:tAtmIfcStatsDrpCellsRxd,_Bc:tAtmIfcStatsDrpClp0CellsRxd,_Bd:tAtmIfcStatsDrpClp0CellsTxd,_Be:tAtmIfcStatsTagCells,'tAtmVclObjs':tAtmVclObjs,'tAtmVclInfoTable':tAtmVclInfoTable,_AE:tAtmVclInfoEntry,_AK:tAtmVclInfoOwner,_AL:tAtmVclInfoOamStatus,_AM:tAtmVclInfoIlmiStatus,_DG:tAtmVclInfoRxTrafficDescrIdOvr,_DH:tAtmVclInfoTxTrafficDescrIdOvr,'tAtmVclStatisticsTable':tAtmVclStatisticsTable,'tAtmVclStatisticsEntry':tAtmVclStatisticsEntry,_AN:tAtmVclStatsTotalCellsRxd,_AO:tAtmVclStatsTotalCellsTxd,_AQ:tAtmVclStatsTotalBytesRxd,_AP:tAtmVclStatsTotalBytesTxd,'tAtmOamVclStatisticsTable':tAtmOamVclStatisticsTable,_AF:tAtmOamVclStatisticsEntry,_AR:tAtmOamVclStatsAISCellsTxd,_AS:tAtmOamVclStatsRDICellsTxd,_AT:tAtmOamVclStatsLoopbackCellsTxd,_AU:tAtmOamVclStatsAISCellsRxd,_AV:tAtmOamVclStatsRDICellsRxd,_AW:tAtmOamVclStatsLoopbackCellsRxd,_AX:tAtmOamVclStatsCrc10Err,_AY:tAtmOamVclStatsOtherCellsRxd,'tAal5VccObjs':tAal5VccObjs,'tAal5VccStatisticsTable':tAal5VccStatisticsTable,_AG:tAal5VccStatisticsEntry,_AZ:tAal5VccStatsPacketsRxd,_Aa:tAal5VccStatsPacketsTxd,_Ab:tAal5VccStatsDrpPacketsRxd,_Ac:tAal5VccStatsDrpPacketsTxd,'tAtmTrafficDescObjs':tAtmTrafficDescObjs,'tAtmVplObjs':tAtmVplObjs,'tAtmVplInfoTable':tAtmVplInfoTable,_AH:tAtmVplInfoEntry,_Aj:tAtmVplInfoOwner,_Ak:tAtmVplInfoOamStatus,_Al:tAtmVplInfoIlmiStatus,'tAtmVplStatisticsTable':tAtmVplStatisticsTable,'tAtmVplStatisticsEntry':tAtmVplStatisticsEntry,_Am:tAtmVplStatsTotalCellsRxd,_An:tAtmVplStatsTotalClp0CellsRxd,_Ao:tAtmVplStatsTotalCellsTxd,_Ap:tAtmVplStatsTotalClp0CellsTxd,_Ar:tAtmVplStatsTotalBytesRxd,_Aq:tAtmVplStatsTotalBytesTxd,_As:tAtmVplStatsDrpCellsRxd,_At:tAtmVplStatsDrpClp0CellsRxd,_Au:tAtmVplStatsDrpClp0CellsTxd,_Av:tAtmVplStatsTagCells,'tAtmOamVplStatisticsTable':tAtmOamVplStatisticsTable,'tAtmOamVplStatisticsEntry':tAtmOamVplStatisticsEntry,_Aw:tAtmOamVplStatsAISCellsTxd,_Ax:tAtmOamVplStatsRDICellsTxd,_Ay:tAtmOamVplStatsLoopbackCellsTxd,_Az:tAtmOamVplStatsAISCellsRxd,_A_:tAtmOamVplStatsRDICellsRxd,_B0:tAtmOamVplStatsLoopbackCellsRxd,_B1:tAtmOamVplStatsCrc10Errors,_B2:tAtmOamVplStatsOtherCellsRxd,'tAtmVtlObjs':tAtmVtlObjs,'tAtmVtlInfoTable':tAtmVtlInfoTable,'tAtmVtlInfoEntry':tAtmVtlInfoEntry,_R:tAtmVtlStartVpi,_S:tAtmVtlEndVpi,_B3:tAtmVtlAdminStatus,_B4:tAtmVtlOperStatus,_B5:tAtmVtlLastChange,_B6:tAtmVtlReceiveTrafficDescrIndex,_B7:tAtmVtlTransmitTrafficDescrIndex,_B8:tAtmVtlRowStatus,_B9:tAtmVtlCastType,_BA:tAtmVtlConnKind,_BB:tAtmVtlInfoOwner,'tAtmVtlStatisticsTable':tAtmVtlStatisticsTable,'tAtmVtlStatisticsEntry':tAtmVtlStatisticsEntry,_BC:tAtmVtlStatsTotalCellsRxd,_BD:tAtmVtlStatsTotalClp0CellsRxd,_BE:tAtmVtlStatsTotalCellsTxd,_BF:tAtmVtlStatsTotalClp0CellsTxd,_BH:tAtmVtlStatsTotalBytesRxd,_BG:tAtmVtlStatsTotalBytesTxd,_BI:tAtmVtlStatsDrpCellsRxd,_BJ:tAtmVtlStatsDrpClp0CellsRxd,_BK:tAtmVtlStatsDrpClp0CellsTxd,_BL:tAtmVtlStatsTagCells,'tAtmCellVclObjs':tAtmCellVclObjs,'tAtmCellVclStatisticsTable':tAtmCellVclStatisticsTable,_AI:tAtmCellVclStatisticsEntry,_Ad:tAtmCellVclStatsClp0CellsRxd,_Ae:tAtmCellVclStatsClp0CellsTxd,_Af:tAtmCellVclStatsDrpCellsRxd,_Ag:tAtmCellVclStatsDrpClp0CellsRxd,_Ah:tAtmCellVclStatsDrpClp0CellsTxd,_Ai:tAtmCellVclStatsTagCells,'tAtmSystemObjs':tAtmSystemObjs,_Cj:tAtmSysLlid,_Ck:tAtmSysOamRetryUp,_Cl:tAtmSysOamRetryDown,_Cm:tAtmSysOamLoopbackPeriod,'tAtmIlmiLinkObjs':tAtmIlmiLinkObjs,'tAtmIlmiLinkTable':tAtmIlmiLinkTable,'tAtmIlmiLinkEntry':tAtmIlmiLinkEntry,_Bj:tAtmIlmiLinkRowStatus,_Bk:tAtmIlmiLinkLastChanged,_V:tAtmIlmiLinkAdminStatus,_W:tAtmIlmiLinkOperStatus,_X:tAtmIlmiLinkVpi,_Y:tAtmIlmiLinkVci,_Bl:tAtmIlmiLinkFsmState,_Bm:tAtmIlmiLinkReceiveTrafficDescrIndex,_Bn:tAtmIlmiLinkTransmitTrafficDescrIndex,_Bo:tAtmIlmiLinkEstablishConPollIntvl,_Bp:tAtmIlmiLinkCheckConPollIntvl,_Bq:tAtmIlmiLinkConPollInactFactor,_Br:tAtmIlmiLinkUniType,_Bs:tAtmIlmiLinkDeviceType,_Bt:tAtmIlmiLinkVersion,_Bu:tAtmIlmiLinkImeType,_Bv:tAtmIlmiLinkNegotiatedVersion,_Bw:tAtmIlmiLinkNegotiatedImeType,_Bx:tAtmIlmiLinkNeighborIfIdentifier,_By:tAtmIlmiLinkNeighborSystemIdentifier,_Bz:tAtmIlmiLinkNeighborUniType,_B_:tAtmIlmiLinkNeighborDeviceType,_C0:tAtmIlmiLinkNeighborVersion,_C1:tAtmIlmiLinkNeighborMaxVpcs,_C2:tAtmIlmiLinkNeighborMaxVccs,_C3:tAtmIlmiLinkNeighborMaxVpiBits,_C4:tAtmIlmiLinkNeighborMaxVciBits,'tAtmIlmiLinkStatisticsTable':tAtmIlmiLinkStatisticsTable,'tAtmIlmiLinkStatisticsEntry':tAtmIlmiLinkStatisticsEntry,_C5:tAtmIlmiLinkOutPdus,_C6:tAtmIlmiLinkOutGetRequestPdus,_C7:tAtmIlmiLinkOutGetNextRequestPdus,_C8:tAtmIlmiLinkOutSetRequestPdus,_C9:tAtmIlmiLinkOutGetResponsePdus,_CA:tAtmIlmiLinkOutTrapPdus,_CB:tAtmIlmiLinkOutTooBigErrors,_CC:tAtmIlmiLinkOutNoSuchNameErrors,_CD:tAtmIlmiLinkOutBadValueErrors,_CE:tAtmIlmiLinkOutReadOnlyErrors,_CF:tAtmIlmiLinkOutGeneralErrors,_CG:tAtmIlmiLinkInPdus,_CH:tAtmIlmiLinkInGetRequestPdus,_CI:tAtmIlmiLinkInGetNextRequestPdus,_CJ:tAtmIlmiLinkInSetRequestPdus,_CK:tAtmIlmiLinkInGetResponsePdus,_CL:tAtmIlmiLinkInTrapPdus,_CM:tAtmIlmiLinkInTooBigErrors,_CN:tAtmIlmiLinkInNoSuchNameErrors,_CO:tAtmIlmiLinkInBadValueErrors,_CP:tAtmIlmiLinkInReadOnlyErrors,_CQ:tAtmIlmiLinkInGeneralErrors,_CR:tAtmIlmiLinkInInvalidSnmpVersionPdus,_CS:tAtmIlmiLinkInInvalidSnmpCommunityStringPdus,_CT:tAtmIlmiLinkInInvalidSnmpFormatPdus,'tAtmTCSublayerObjs':tAtmTCSublayerObjs,'tAtmTCSublayerTable':tAtmTCSublayerTable,_AJ:tAtmTCSublayerEntry,_Cx:tAtmTCSublayerHecErrors,_Cy:tAtmTCSublayerHecErrorsFixed,'tAtmCpObjs':tAtmCpObjs,'tAtmCpStatisticsTable':tAtmCpStatisticsTable,'tAtmCpStatisticsEntry':tAtmCpStatisticsEntry,_D0:tAtmCpStatsTotalCellsRxd,_D1:tAtmCpStatsTotalCellsRxdLo,_D2:tAtmCpStatsTotalCellsRxdHi,_D3:tAtmCpStatsTotalCellsTxd,_D4:tAtmCpStatsTotalCellsTxdLo,_D5:tAtmCpStatsTotalCellsTxdHi,_D6:tAtmCpStatsClp0CellsRxd,_D7:tAtmCpStatsClp0CellsRxdLo,_D8:tAtmCpStatsClp0CellsRxdHi,_D9:tAtmCpStatsClp0CellsTxd,_DA:tAtmCpStatsClp0CellsTxdLo,_DB:tAtmCpStatsClp0CellsTxdHi,_DC:tAtmCpStatsDrpCellsRxd,_DD:tAtmCpStatsDrpClp0CellsRxd,_DE:tAtmCpStatsDrpClp0CellsTxd,_DF:tAtmCpStatsTagCells,'tmnxAtmNotifyPrefix':tmnxAtmNotifyPrefix,'tAtmNotifications':tAtmNotifications,_DI:tAtmTcSubLayerDown,_DJ:tAtmTcSubLayerClear,_DK:tAtmPlcpSubLayerDown,_DL:tAtmPlcpSubLayerClear,_DM:tAtmEpOutOfPeerVpiOrVciRange,_DN:tAtmMaxPeerVccsExceeded,_DO:tAtmMaxPeerVpcsExceeded,_DP:tAtmIlmiLinkStatusChange})
+if mibBuilder.loadTexts: tAtmTCSublayerEntry.setStatus('current')
+tAtmTCSublayerHecErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 11, 1, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmTCSublayerHecErrors.setStatus('current')
+tAtmTCSublayerHecErrorsFixed = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 11, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmTCSublayerHecErrorsFixed.setStatus('current')
+tAtmCpObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12))
+tAtmCpStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1), )
+if mibBuilder.loadTexts: tAtmCpStatisticsTable.setStatus('current')
+tAtmCpStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "TIMETRA-CONN-PROF-MIB", "tmnxConnProfId"))
+if mibBuilder.loadTexts: tAtmCpStatisticsEntry.setStatus('current')
+tAtmCpStatsTotalCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 1), Counter64()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsTotalCellsRxd.setStatus('current')
+tAtmCpStatsTotalCellsRxdLo = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 2), Counter32()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsTotalCellsRxdLo.setStatus('current')
+tAtmCpStatsTotalCellsRxdHi = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 3), Counter32()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsTotalCellsRxdHi.setStatus('current')
+tAtmCpStatsTotalCellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 4), Counter64()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsTotalCellsTxd.setStatus('current')
+tAtmCpStatsTotalCellsTxdLo = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 5), Counter32()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsTotalCellsTxdLo.setStatus('current')
+tAtmCpStatsTotalCellsTxdHi = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 6), Counter32()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsTotalCellsTxdHi.setStatus('current')
+tAtmCpStatsClp0CellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 7), Counter64()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsClp0CellsRxd.setStatus('current')
+tAtmCpStatsClp0CellsRxdLo = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 8), Counter32()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsClp0CellsRxdLo.setStatus('current')
+tAtmCpStatsClp0CellsRxdHi = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 9), Counter32()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsClp0CellsRxdHi.setStatus('current')
+tAtmCpStatsClp0CellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 10), Counter64()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsClp0CellsTxd.setStatus('current')
+tAtmCpStatsClp0CellsTxdLo = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 11), Counter32()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsClp0CellsTxdLo.setStatus('current')
+tAtmCpStatsClp0CellsTxdHi = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 12), Counter32()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsClp0CellsTxdHi.setStatus('current')
+tAtmCpStatsDrpCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 13), Counter32()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsDrpCellsRxd.setStatus('current')
+tAtmCpStatsDrpClp0CellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 14), Counter32()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsDrpClp0CellsRxd.setStatus('current')
+tAtmCpStatsDrpClp0CellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 15), Counter32()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsDrpClp0CellsTxd.setStatus('current')
+tAtmCpStatsTagCells = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 27, 12, 1, 1, 16), Counter32()).setUnits('cells').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tAtmCpStatsTagCells.setStatus('current')
+tAtmMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27))
+tmnxAtmMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 1))
+tAtmMIBV4v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 1, 3)).setObjects(("TIMETRA-ATM-MIB", "tmnxAtmIntfConfV4v0Group"), ("TIMETRA-ATM-MIB", "tmnxAtmIntfStatsV4v0Group"), ("TIMETRA-ATM-MIB", "tmnxAtmIfcInfoGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmVclInfoGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmVclStatisticsGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmAal5VccStatisticsGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmCellVclStatisticsGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmVplInfoGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmVplStatisticsGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmVtlInfoGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmVtlStatisticsGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmIfcStatisticsGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmSysConfV4v0Group"), ("TIMETRA-ATM-MIB", "tmnxAtmIlmiLinkGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmIlmiStatisticsGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmTCSublayerGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmNotificationsR4r0Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tAtmMIBV4v0Compliance = tAtmMIBV4v0Compliance.setStatus('obsolete')
+tAtmMIBV9v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 1, 4)).setObjects(("TIMETRA-ATM-MIB", "tmnxAtmIntfConfV4v0Group"), ("TIMETRA-ATM-MIB", "tmnxAtmIntfStatsV4v0Group"), ("TIMETRA-ATM-MIB", "tmnxAtmIfcInfoGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmVclInfoGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmVclInfoGroupV9v0"), ("TIMETRA-ATM-MIB", "tmnxAtmVclStatisticsGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmAal5VccStatisticsGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmCellVclStatisticsGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmVplInfoGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmVplStatisticsGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmVtlInfoGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmVtlStatisticsGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmIfcStatisticsGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmSysConfV4v0Group"), ("TIMETRA-ATM-MIB", "tmnxAtmIlmiLinkGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmIlmiStatisticsGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmTCSublayerGroup"), ("TIMETRA-ATM-MIB", "tmnxAtmNotificationsR4r0Group"), ("TIMETRA-ATM-MIB", "tmnxAtmCpStatisticsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tAtmMIBV9v0Compliance = tAtmMIBV9v0Compliance.setStatus('current')
+tmnxAtmMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2))
+tmnxAtmVclInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 6)).setObjects(("TIMETRA-ATM-MIB", "tAtmVclInfoOwner"), ("TIMETRA-ATM-MIB", "tAtmVclInfoOamStatus"), ("TIMETRA-ATM-MIB", "tAtmVclInfoIlmiStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmVclInfoGroup = tmnxAtmVclInfoGroup.setStatus('current')
+tmnxAtmVclStatisticsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 7)).setObjects(("TIMETRA-ATM-MIB", "tAtmVclStatsTotalCellsRxd"), ("TIMETRA-ATM-MIB", "tAtmVclStatsTotalCellsTxd"), ("TIMETRA-ATM-MIB", "tAtmVclStatsTotalBytesTxd"), ("TIMETRA-ATM-MIB", "tAtmVclStatsTotalBytesRxd"), ("TIMETRA-ATM-MIB", "tAtmOamVclStatsAISCellsTxd"), ("TIMETRA-ATM-MIB", "tAtmOamVclStatsRDICellsTxd"), ("TIMETRA-ATM-MIB", "tAtmOamVclStatsLoopbackCellsTxd"), ("TIMETRA-ATM-MIB", "tAtmOamVclStatsAISCellsRxd"), ("TIMETRA-ATM-MIB", "tAtmOamVclStatsRDICellsRxd"), ("TIMETRA-ATM-MIB", "tAtmOamVclStatsLoopbackCellsRxd"), ("TIMETRA-ATM-MIB", "tAtmOamVclStatsCrc10Err"), ("TIMETRA-ATM-MIB", "tAtmOamVclStatsOtherCellsRxd"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmVclStatisticsGroup = tmnxAtmVclStatisticsGroup.setStatus('current')
+tmnxAtmAal5VccStatisticsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 8)).setObjects(("TIMETRA-ATM-MIB", "tAal5VccStatsPacketsRxd"), ("TIMETRA-ATM-MIB", "tAal5VccStatsPacketsTxd"), ("TIMETRA-ATM-MIB", "tAal5VccStatsDrpPacketsRxd"), ("TIMETRA-ATM-MIB", "tAal5VccStatsDrpPacketsTxd"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmAal5VccStatisticsGroup = tmnxAtmAal5VccStatisticsGroup.setStatus('current')
+tmnxAtmCellVclStatisticsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 9)).setObjects(("TIMETRA-ATM-MIB", "tAtmCellVclStatsClp0CellsRxd"), ("TIMETRA-ATM-MIB", "tAtmCellVclStatsClp0CellsTxd"), ("TIMETRA-ATM-MIB", "tAtmCellVclStatsDrpCellsRxd"), ("TIMETRA-ATM-MIB", "tAtmCellVclStatsDrpClp0CellsRxd"), ("TIMETRA-ATM-MIB", "tAtmCellVclStatsDrpClp0CellsTxd"), ("TIMETRA-ATM-MIB", "tAtmCellVclStatsTagCells"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmCellVclStatisticsGroup = tmnxAtmCellVclStatisticsGroup.setStatus('current')
+tmnxAtmVplInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 11)).setObjects(("TIMETRA-ATM-MIB", "tAtmVplInfoOwner"), ("TIMETRA-ATM-MIB", "tAtmVplInfoOamStatus"), ("TIMETRA-ATM-MIB", "tAtmVplInfoIlmiStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmVplInfoGroup = tmnxAtmVplInfoGroup.setStatus('current')
+tmnxAtmVplStatisticsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 12)).setObjects(("TIMETRA-ATM-MIB", "tAtmVplStatsTotalCellsRxd"), ("TIMETRA-ATM-MIB", "tAtmVplStatsTotalClp0CellsRxd"), ("TIMETRA-ATM-MIB", "tAtmVplStatsTotalCellsTxd"), ("TIMETRA-ATM-MIB", "tAtmVplStatsTotalClp0CellsTxd"), ("TIMETRA-ATM-MIB", "tAtmVplStatsTotalBytesTxd"), ("TIMETRA-ATM-MIB", "tAtmVplStatsTotalBytesRxd"), ("TIMETRA-ATM-MIB", "tAtmVplStatsDrpCellsRxd"), ("TIMETRA-ATM-MIB", "tAtmVplStatsDrpClp0CellsRxd"), ("TIMETRA-ATM-MIB", "tAtmVplStatsDrpClp0CellsTxd"), ("TIMETRA-ATM-MIB", "tAtmVplStatsTagCells"), ("TIMETRA-ATM-MIB", "tAtmOamVplStatsAISCellsTxd"), ("TIMETRA-ATM-MIB", "tAtmOamVplStatsRDICellsTxd"), ("TIMETRA-ATM-MIB", "tAtmOamVplStatsLoopbackCellsTxd"), ("TIMETRA-ATM-MIB", "tAtmOamVplStatsAISCellsRxd"), ("TIMETRA-ATM-MIB", "tAtmOamVplStatsRDICellsRxd"), ("TIMETRA-ATM-MIB", "tAtmOamVplStatsLoopbackCellsRxd"), ("TIMETRA-ATM-MIB", "tAtmOamVplStatsCrc10Errors"), ("TIMETRA-ATM-MIB", "tAtmOamVplStatsOtherCellsRxd"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmVplStatisticsGroup = tmnxAtmVplStatisticsGroup.setStatus('current')
+tmnxAtmVtlInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 13)).setObjects(("TIMETRA-ATM-MIB", "tAtmVtlAdminStatus"), ("TIMETRA-ATM-MIB", "tAtmVtlOperStatus"), ("TIMETRA-ATM-MIB", "tAtmVtlLastChange"), ("TIMETRA-ATM-MIB", "tAtmVtlReceiveTrafficDescrIndex"), ("TIMETRA-ATM-MIB", "tAtmVtlTransmitTrafficDescrIndex"), ("TIMETRA-ATM-MIB", "tAtmVtlRowStatus"), ("TIMETRA-ATM-MIB", "tAtmVtlCastType"), ("TIMETRA-ATM-MIB", "tAtmVtlConnKind"), ("TIMETRA-ATM-MIB", "tAtmVtlInfoOwner"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmVtlInfoGroup = tmnxAtmVtlInfoGroup.setStatus('current')
+tmnxAtmVtlStatisticsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 14)).setObjects(("TIMETRA-ATM-MIB", "tAtmVtlStatsTotalCellsRxd"), ("TIMETRA-ATM-MIB", "tAtmVtlStatsTotalClp0CellsRxd"), ("TIMETRA-ATM-MIB", "tAtmVtlStatsTotalCellsTxd"), ("TIMETRA-ATM-MIB", "tAtmVtlStatsTotalClp0CellsTxd"), ("TIMETRA-ATM-MIB", "tAtmVtlStatsTotalBytesTxd"), ("TIMETRA-ATM-MIB", "tAtmVtlStatsTotalBytesRxd"), ("TIMETRA-ATM-MIB", "tAtmVtlStatsDrpCellsRxd"), ("TIMETRA-ATM-MIB", "tAtmVtlStatsDrpClp0CellsRxd"), ("TIMETRA-ATM-MIB", "tAtmVtlStatsDrpClp0CellsTxd"), ("TIMETRA-ATM-MIB", "tAtmVtlStatsTagCells"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmVtlStatisticsGroup = tmnxAtmVtlStatisticsGroup.setStatus('current')
+tmnxAtmIfcInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 15)).setObjects(("TIMETRA-ATM-MIB", "tAtmIfcAdminStatus"), ("TIMETRA-ATM-MIB", "tAtmIfcOperStatus"), ("TIMETRA-ATM-MIB", "tAtmIfcLastChange"), ("TIMETRA-ATM-MIB", "tAtmIfcReceiveTrafficDescrIndex"), ("TIMETRA-ATM-MIB", "tAtmIfcTransmitTrafficDescrIndex"), ("TIMETRA-ATM-MIB", "tAtmIfcRowStatus"), ("TIMETRA-ATM-MIB", "tAtmIfcCastType"), ("TIMETRA-ATM-MIB", "tAtmIfcConnKind"), ("TIMETRA-ATM-MIB", "tAtmIfcInfoOwner"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmIfcInfoGroup = tmnxAtmIfcInfoGroup.setStatus('current')
+tmnxAtmIfcStatisticsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 16)).setObjects(("TIMETRA-ATM-MIB", "tAtmIfcStatsTotalCellsRxd"), ("TIMETRA-ATM-MIB", "tAtmIfcStatsTotalClp0CellsRxd"), ("TIMETRA-ATM-MIB", "tAtmIfcStatsTotalCellsTxd"), ("TIMETRA-ATM-MIB", "tAtmIfcStatsTotalClp0CellsTxd"), ("TIMETRA-ATM-MIB", "tAtmIfcStatsTotalBytesTxd"), ("TIMETRA-ATM-MIB", "tAtmIfcStatsTotalBytesRxd"), ("TIMETRA-ATM-MIB", "tAtmIfcStatsDrpCellsRxd"), ("TIMETRA-ATM-MIB", "tAtmIfcStatsDrpClp0CellsRxd"), ("TIMETRA-ATM-MIB", "tAtmIfcStatsDrpClp0CellsTxd"), ("TIMETRA-ATM-MIB", "tAtmIfcStatsTagCells"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmIfcStatisticsGroup = tmnxAtmIfcStatisticsGroup.setStatus('current')
+tmnxAtmObsoleteV3v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 17)).setObjects(("TIMETRA-ATM-MIB", "tAtmMdaMaxSupportedVpcs"), ("TIMETRA-ATM-MIB", "tAtmMdaMaxSupportedVccs"), ("TIMETRA-ATM-MIB", "tAtmMdaConfiguredVpcs"), ("TIMETRA-ATM-MIB", "tAtmMdaConfiguredVccs"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmObsoleteV3v0Group = tmnxAtmObsoleteV3v0Group.setStatus('current')
+tmnxAtmIlmiLinkGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 20)).setObjects(("TIMETRA-ATM-MIB", "tAtmIlmiLinkRowStatus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkLastChanged"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkAdminStatus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkOperStatus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkVpi"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkVci"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkFsmState"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkReceiveTrafficDescrIndex"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkTransmitTrafficDescrIndex"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkEstablishConPollIntvl"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkCheckConPollIntvl"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkConPollInactFactor"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkUniType"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkDeviceType"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkVersion"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkImeType"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkNegotiatedVersion"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkNegotiatedImeType"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkNeighborIfIdentifier"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkNeighborSystemIdentifier"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkNeighborUniType"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkNeighborDeviceType"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkNeighborVersion"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkNeighborMaxVpcs"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkNeighborMaxVccs"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkNeighborMaxVpiBits"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkNeighborMaxVciBits"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmIlmiLinkGroup = tmnxAtmIlmiLinkGroup.setStatus('current')
+tmnxAtmIlmiStatisticsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 21)).setObjects(("TIMETRA-ATM-MIB", "tAtmIlmiLinkOutPdus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkOutGetRequestPdus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkOutGetNextRequestPdus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkOutSetRequestPdus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkOutGetResponsePdus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkOutTrapPdus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkOutTooBigErrors"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkOutNoSuchNameErrors"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkOutBadValueErrors"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkOutReadOnlyErrors"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkOutGeneralErrors"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkInPdus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkInGetRequestPdus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkInGetNextRequestPdus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkInSetRequestPdus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkInGetResponsePdus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkInTrapPdus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkInTooBigErrors"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkInNoSuchNameErrors"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkInBadValueErrors"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkInReadOnlyErrors"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkInGeneralErrors"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkInInvalidSnmpVersionPdus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkInInvalidSnmpCommunityStringPdus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkInInvalidSnmpFormatPdus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmIlmiStatisticsGroup = tmnxAtmIlmiStatisticsGroup.setStatus('current')
+tmnxAtmNotificationsR4r0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 22)).setObjects(("TIMETRA-ATM-MIB", "tAtmTcSubLayerDown"), ("TIMETRA-ATM-MIB", "tAtmTcSubLayerClear"), ("TIMETRA-ATM-MIB", "tAtmPlcpSubLayerDown"), ("TIMETRA-ATM-MIB", "tAtmPlcpSubLayerClear"), ("TIMETRA-ATM-MIB", "tAtmEpOutOfPeerVpiOrVciRange"), ("TIMETRA-ATM-MIB", "tAtmMaxPeerVccsExceeded"), ("TIMETRA-ATM-MIB", "tAtmMaxPeerVpcsExceeded"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkStatusChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmNotificationsR4r0Group = tmnxAtmNotificationsR4r0Group.setStatus('current')
+tmnxAtmIntfConfV4v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 23)).setObjects(("TIMETRA-ATM-MIB", "tAtmIntfCurrentMaxVpcs"), ("TIMETRA-ATM-MIB", "tAtmIntfCurrentMaxVccs"), ("TIMETRA-ATM-MIB", "tAtmIntfTotalIngrCbrBandwidth"), ("TIMETRA-ATM-MIB", "tAtmIntfTotalIngrRtVbrBandwidth"), ("TIMETRA-ATM-MIB", "tAtmIntfTotalIngrNrtVbrBandwidth"), ("TIMETRA-ATM-MIB", "tAtmIntfTotalIngrUbrBandwidth"), ("TIMETRA-ATM-MIB", "tAtmIntfTotalEgrCbrBandwidth"), ("TIMETRA-ATM-MIB", "tAtmIntfTotalEgrRtVbrBandwidth"), ("TIMETRA-ATM-MIB", "tAtmIntfTotalEgrNrtVbrBandwidth"), ("TIMETRA-ATM-MIB", "tAtmIntfTotalEgrUbrBandwidth"), ("TIMETRA-ATM-MIB", "tAtmIntfBandwidth"), ("TIMETRA-ATM-MIB", "tAtmIntfShapedBandwidth"), ("TIMETRA-ATM-MIB", "tAtmIntfLastUnknVpi"), ("TIMETRA-ATM-MIB", "tAtmIntfLastUnknVci"), ("TIMETRA-ATM-MIB", "tAtmIntfOperStatus"), ("TIMETRA-ATM-MIB", "tAtmIntfConfVtcs"), ("TIMETRA-ATM-MIB", "tAtmIntfConfIfcs"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmIntfConfV4v0Group = tmnxAtmIntfConfV4v0Group.setStatus('current')
+tmnxAtmSysConfV4v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 24)).setObjects(("TIMETRA-ATM-MIB", "tAtmSysLlid"), ("TIMETRA-ATM-MIB", "tAtmSysOamRetryUp"), ("TIMETRA-ATM-MIB", "tAtmSysOamRetryDown"), ("TIMETRA-ATM-MIB", "tAtmSysOamLoopbackPeriod"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmSysConfV4v0Group = tmnxAtmSysConfV4v0Group.setStatus('current')
+tmnxAtmIntfStatsV4v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 25)).setObjects(("TIMETRA-ATM-MIB", "tAtmIntfStatsTotalCellsRxd"), ("TIMETRA-ATM-MIB", "tAtmIntfStatsTotalCellsTxd"), ("TIMETRA-ATM-MIB", "tAtmIntfStatsTotalBytesRxd"), ("TIMETRA-ATM-MIB", "tAtmIntfStatsTotalBytesTxd"), ("TIMETRA-ATM-MIB", "tAtmIntfStatsTotalUnknCellsDrp"), ("TIMETRA-ATM-MIB", "tAtmIntfAal5StatsTotalPktsRxd"), ("TIMETRA-ATM-MIB", "tAtmIntfAal5StatsTotalPktsTxd"), ("TIMETRA-ATM-MIB", "tAtmIntfAal5StatsTotalPktsDrpRxd"), ("TIMETRA-ATM-MIB", "tAtmIntfAal5StatsTotalPktsDrpTxd"), ("TIMETRA-ATM-MIB", "tAtmIntfAal5StatsTotalCrc32Err"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmIntfStatsV4v0Group = tmnxAtmIntfStatsV4v0Group.setStatus('current')
+tmnxAtmTCSublayerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 26)).setObjects(("TIMETRA-ATM-MIB", "tAtmTCSublayerHecErrors"), ("TIMETRA-ATM-MIB", "tAtmTCSublayerHecErrorsFixed"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmTCSublayerGroup = tmnxAtmTCSublayerGroup.setStatus('current')
+tmnxAtmObsoleteV4v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 27)).setObjects(("TIMETRA-ATM-MIB", "tAtmIntfStatsTotalHecErr"), ("TIMETRA-ATM-MIB", "tAtmIntfStatsTotalHecErrFixed"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmObsoleteV4v0Group = tmnxAtmObsoleteV4v0Group.setStatus('current')
+tmnxAtmCpStatisticsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 28)).setObjects(("TIMETRA-ATM-MIB", "tAtmCpStatsTotalCellsRxd"), ("TIMETRA-ATM-MIB", "tAtmCpStatsTotalCellsRxdLo"), ("TIMETRA-ATM-MIB", "tAtmCpStatsTotalCellsRxdHi"), ("TIMETRA-ATM-MIB", "tAtmCpStatsTotalCellsTxd"), ("TIMETRA-ATM-MIB", "tAtmCpStatsTotalCellsTxdLo"), ("TIMETRA-ATM-MIB", "tAtmCpStatsTotalCellsTxdHi"), ("TIMETRA-ATM-MIB", "tAtmCpStatsClp0CellsRxd"), ("TIMETRA-ATM-MIB", "tAtmCpStatsClp0CellsRxdLo"), ("TIMETRA-ATM-MIB", "tAtmCpStatsClp0CellsRxdHi"), ("TIMETRA-ATM-MIB", "tAtmCpStatsClp0CellsTxd"), ("TIMETRA-ATM-MIB", "tAtmCpStatsClp0CellsTxdLo"), ("TIMETRA-ATM-MIB", "tAtmCpStatsClp0CellsTxdHi"), ("TIMETRA-ATM-MIB", "tAtmCpStatsDrpCellsRxd"), ("TIMETRA-ATM-MIB", "tAtmCpStatsDrpClp0CellsRxd"), ("TIMETRA-ATM-MIB", "tAtmCpStatsDrpClp0CellsTxd"), ("TIMETRA-ATM-MIB", "tAtmCpStatsTagCells"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmCpStatisticsGroup = tmnxAtmCpStatisticsGroup.setStatus('current')
+tmnxAtmVclInfoGroupV9v0 = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 27, 2, 29)).setObjects(("TIMETRA-ATM-MIB", "tAtmVclInfoRxTrafficDescrIdOvr"), ("TIMETRA-ATM-MIB", "tAtmVclInfoTxTrafficDescrIdOvr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxAtmVclInfoGroupV9v0 = tmnxAtmVclInfoGroupV9v0.setStatus('current')
+tmnxAtmNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 27))
+tAtmNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 27, 0))
+tAtmTcSubLayerDown = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 27, 0, 1)).setObjects(("ATM-MIB", "atmInterfaceTCAlarmState"))
+if mibBuilder.loadTexts: tAtmTcSubLayerDown.setStatus('current')
+tAtmTcSubLayerClear = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 27, 0, 2)).setObjects(("ATM-MIB", "atmInterfaceTCAlarmState"))
+if mibBuilder.loadTexts: tAtmTcSubLayerClear.setStatus('current')
+tAtmPlcpSubLayerDown = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 27, 0, 3)).setObjects(("ATM-MIB", "atmInterfaceDs3PlcpAlarmState"))
+if mibBuilder.loadTexts: tAtmPlcpSubLayerDown.setStatus('current')
+tAtmPlcpSubLayerClear = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 27, 0, 4)).setObjects(("ATM-MIB", "atmInterfaceDs3PlcpAlarmState"))
+if mibBuilder.loadTexts: tAtmPlcpSubLayerClear.setStatus('current')
+tAtmEpOutOfPeerVpiOrVciRange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 27, 0, 5)).setObjects(("ATM-MIB", "atmInterfaceCurrentMaxVpiBits"), ("ATM-MIB", "atmInterfaceCurrentMaxVciBits"), ("ATM-MIB", "atmInterfaceMaxActiveVpiBits"), ("ATM-MIB", "atmInterfaceMaxActiveVciBits"))
+if mibBuilder.loadTexts: tAtmEpOutOfPeerVpiOrVciRange.setStatus('current')
+tAtmMaxPeerVccsExceeded = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 27, 0, 6)).setObjects(("TIMETRA-ATM-MIB", "tAtmIntfCurrentMaxVccs"), ("ATM-MIB", "atmInterfaceConfVccs"))
+if mibBuilder.loadTexts: tAtmMaxPeerVccsExceeded.setStatus('current')
+tAtmMaxPeerVpcsExceeded = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 27, 0, 7)).setObjects(("TIMETRA-ATM-MIB", "tAtmIntfCurrentMaxVpcs"), ("ATM-MIB", "atmInterfaceConfVpcs"))
+if mibBuilder.loadTexts: tAtmMaxPeerVpcsExceeded.setStatus('current')
+tAtmIlmiLinkStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 27, 0, 8)).setObjects(("TIMETRA-ATM-MIB", "tAtmIlmiLinkAdminStatus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkOperStatus"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkVpi"), ("TIMETRA-ATM-MIB", "tAtmIlmiLinkVci"))
+if mibBuilder.loadTexts: tAtmIlmiLinkStatusChange.setStatus('current')
+mibBuilder.exportSymbols("TIMETRA-ATM-MIB", tAtmTCSublayerObjs=tAtmTCSublayerObjs, tAtmVtlInfoEntry=tAtmVtlInfoEntry, tAtmVtlCastType=tAtmVtlCastType, tAtmIntfCurrentMaxVccs=tAtmIntfCurrentMaxVccs, tAtmCpStatisticsTable=tAtmCpStatisticsTable, tAtmIntfAal5StatsTotalPktsDrpRxd=tAtmIntfAal5StatsTotalPktsDrpRxd, tAtmVtlStatsTagCells=tAtmVtlStatsTagCells, AtmIlmiLinkVersion=AtmIlmiLinkVersion, tAtmVclStatisticsTable=tAtmVclStatisticsTable, tAtmIntfAal5StatsTotalPktsTxd=tAtmIntfAal5StatsTotalPktsTxd, tAtmIlmiLinkInNoSuchNameErrors=tAtmIlmiLinkInNoSuchNameErrors, tAtmCpStatsDrpClp0CellsTxd=tAtmCpStatsDrpClp0CellsTxd, tAtmIntfStatsTotalHecErr=tAtmIntfStatsTotalHecErr, tAtmCpStatsTotalCellsRxdHi=tAtmCpStatsTotalCellsRxdHi, tAtmOamVplStatsRDICellsRxd=tAtmOamVplStatsRDICellsRxd, tAtmIlmiLinkOutTooBigErrors=tAtmIlmiLinkOutTooBigErrors, tAtmIlmiLinkOutBadValueErrors=tAtmIlmiLinkOutBadValueErrors, tAtmIntfAal5StatsTable=tAtmIntfAal5StatsTable, tAal5VccObjs=tAal5VccObjs, tAtmVclInfoOwner=tAtmVclInfoOwner, tAtmVtlStatsTotalClp0CellsRxd=tAtmVtlStatsTotalClp0CellsRxd, tAtmVtlInfoTable=tAtmVtlInfoTable, tAtmIfcInfoEntry=tAtmIfcInfoEntry, tAtmOamVclStatsRDICellsTxd=tAtmOamVclStatsRDICellsTxd, tAtmVtlStatsDrpCellsRxd=tAtmVtlStatsDrpCellsRxd, tAtmCpStatsDrpCellsRxd=tAtmCpStatsDrpCellsRxd, tAal5VccStatsPacketsRxd=tAal5VccStatsPacketsRxd, tAtmCpStatsDrpClp0CellsRxd=tAtmCpStatsDrpClp0CellsRxd, tAtmVplInfoOamStatus=tAtmVplInfoOamStatus, tAtmCpStatsClp0CellsRxdLo=tAtmCpStatsClp0CellsRxdLo, tAtmVtlStatsTotalBytesRxd=tAtmVtlStatsTotalBytesRxd, tmnxAtmCpStatisticsGroup=tmnxAtmCpStatisticsGroup, tAtmIlmiLinkEstablishConPollIntvl=tAtmIlmiLinkEstablishConPollIntvl, tAtmIlmiLinkOutSetRequestPdus=tAtmIlmiLinkOutSetRequestPdus, tAtmIlmiLinkOutGetNextRequestPdus=tAtmIlmiLinkOutGetNextRequestPdus, tAtmIlmiLinkObjs=tAtmIlmiLinkObjs, tAtmMdaInfoEntry=tAtmMdaInfoEntry, tAtmCellVclStatsDrpCellsRxd=tAtmCellVclStatsDrpCellsRxd, tmnxAtmMIBCompliances=tmnxAtmMIBCompliances, tAtmIntfStatsTotalCellsTxd=tAtmIntfStatsTotalCellsTxd, AtmLlid=AtmLlid, AtmIlmiStatus=AtmIlmiStatus, tAtmVclStatsTotalBytesTxd=tAtmVclStatsTotalBytesTxd, tAtmCpStatsClp0CellsTxdHi=tAtmCpStatsClp0CellsTxdHi, tAtmVclStatisticsEntry=tAtmVclStatisticsEntry, tAtmOamVclStatisticsTable=tAtmOamVclStatisticsTable, tAtmIlmiLinkNeighborMaxVciBits=tAtmIlmiLinkNeighborMaxVciBits, tAtmIlmiLinkInGetRequestPdus=tAtmIlmiLinkInGetRequestPdus, tmnxAtmSysConfV4v0Group=tmnxAtmSysConfV4v0Group, tAtmVplInfoTable=tAtmVplInfoTable, tAtmIlmiLinkVersion=tAtmIlmiLinkVersion, tAtmTCSublayerHecErrorsFixed=tAtmTCSublayerHecErrorsFixed, tAtmIfcStatsTotalBytesTxd=tAtmIfcStatsTotalBytesTxd, tAtmIlmiLinkVci=tAtmIlmiLinkVci, tAtmCellVclStatsTagCells=tAtmCellVclStatsTagCells, tmnxAtmVplInfoGroup=tmnxAtmVplInfoGroup, tAtmIntfAal5StatsTotalPktsRxd=tAtmIntfAal5StatsTotalPktsRxd, tAtmIlmiLinkVpi=tAtmIlmiLinkVpi, tAtmVplStatsTotalClp0CellsTxd=tAtmVplStatsTotalClp0CellsTxd, tAtmIlmiLinkInTrapPdus=tAtmIlmiLinkInTrapPdus, tAtmMaxPeerVccsExceeded=tAtmMaxPeerVccsExceeded, tAtmIlmiLinkOutGeneralErrors=tAtmIlmiLinkOutGeneralErrors, tAal5VccStatisticsTable=tAal5VccStatisticsTable, tAtmIntfStatsTable=tAtmIntfStatsTable, tAtmIntfConfVtcs=tAtmIntfConfVtcs, tAtmIntfConfTable=tAtmIntfConfTable, tAtmVplStatisticsTable=tAtmVplStatisticsTable, tAtmOamVclStatsOtherCellsRxd=tAtmOamVclStatsOtherCellsRxd, tAtmIlmiLinkNeighborSystemIdentifier=tAtmIlmiLinkNeighborSystemIdentifier, tAtmIfcStatsDrpCellsRxd=tAtmIfcStatsDrpCellsRxd, tAtmVtlStatisticsEntry=tAtmVtlStatisticsEntry, tAtmOamVplStatsOtherCellsRxd=tAtmOamVplStatsOtherCellsRxd, tAtmIlmiLinkNeighborDeviceType=tAtmIlmiLinkNeighborDeviceType, tAtmSysOamLoopbackPeriod=tAtmSysOamLoopbackPeriod, tAtmVplStatsTotalBytesTxd=tAtmVplStatsTotalBytesTxd, tAtmIlmiLinkNeighborVersion=tAtmIlmiLinkNeighborVersion, tAtmVplInfoEntry=tAtmVplInfoEntry, tAtmCpStatsTotalCellsRxd=tAtmCpStatsTotalCellsRxd, tAtmIlmiLinkLastChanged=tAtmIlmiLinkLastChanged, tAtmVplStatsTotalCellsTxd=tAtmVplStatsTotalCellsTxd, tAtmOamVclStatsAISCellsTxd=tAtmOamVclStatsAISCellsTxd, tmnxAtmVtlInfoGroup=tmnxAtmVtlInfoGroup, tAal5VccStatsDrpPacketsTxd=tAal5VccStatsDrpPacketsTxd, tAtmIntfTotalIngrRtVbrBandwidth=tAtmIntfTotalIngrRtVbrBandwidth, tAtmIlmiLinkInGetResponsePdus=tAtmIlmiLinkInGetResponsePdus, tAtmCpStatsTotalCellsTxd=tAtmCpStatsTotalCellsTxd, tAtmIntfTotalEgrNrtVbrBandwidth=tAtmIntfTotalEgrNrtVbrBandwidth, tAtmTcSubLayerDown=tAtmTcSubLayerDown, tAtmEpOutOfPeerVpiOrVciRange=tAtmEpOutOfPeerVpiOrVciRange, tAtmPlcpSubLayerClear=tAtmPlcpSubLayerClear, tAtmIlmiLinkAdminStatus=tAtmIlmiLinkAdminStatus, tAtmIlmiLinkNeighborMaxVpiBits=tAtmIlmiLinkNeighborMaxVpiBits, tmnxAtmIntfConfV4v0Group=tmnxAtmIntfConfV4v0Group, tAtmIfcStatsTagCells=tAtmIfcStatsTagCells, tAtmIlmiLinkInSetRequestPdus=tAtmIlmiLinkInSetRequestPdus, tAtmIfcStatsTotalBytesRxd=tAtmIfcStatsTotalBytesRxd, tmnxAtmObsoleteV4v0Group=tmnxAtmObsoleteV4v0Group, tmnxAtmIlmiLinkGroup=tmnxAtmIlmiLinkGroup, tAtmMIBConformance=tAtmMIBConformance, tAtmIfcStatsTotalClp0CellsTxd=tAtmIfcStatsTotalClp0CellsTxd, tAtmIlmiLinkOutReadOnlyErrors=tAtmIlmiLinkOutReadOnlyErrors, tAtmCpStatsTotalCellsTxdLo=tAtmCpStatsTotalCellsTxdLo, tAtmVplInfoIlmiStatus=tAtmVplInfoIlmiStatus, tAtmIntfStatsTotalCellsRxd=tAtmIntfStatsTotalCellsRxd, tAtmVplStatisticsEntry=tAtmVplStatisticsEntry, tAtmOamVclStatsLoopbackCellsTxd=tAtmOamVclStatsLoopbackCellsTxd, tAtmIlmiLinkInInvalidSnmpCommunityStringPdus=tAtmIlmiLinkInInvalidSnmpCommunityStringPdus, tAtmIlmiLinkCheckConPollIntvl=tAtmIlmiLinkCheckConPollIntvl, tmnxAtmCellVclStatisticsGroup=tmnxAtmCellVclStatisticsGroup, AtmOamStatus=AtmOamStatus, tmnxAtmIfcInfoGroup=tmnxAtmIfcInfoGroup, tAtmMdaMaxSupportedVccs=tAtmMdaMaxSupportedVccs, tAtmNotifications=tAtmNotifications, tmnxAtmMIBGroups=tmnxAtmMIBGroups, tAtmIlmiLinkStatusChange=tAtmIlmiLinkStatusChange, tAtmCpStatsClp0CellsRxdHi=tAtmCpStatsClp0CellsRxdHi, tAtmIlmiLinkTransmitTrafficDescrIndex=tAtmIlmiLinkTransmitTrafficDescrIndex, tAtmObjs=tAtmObjs, tAtmIntfAal5StatsEntry=tAtmIntfAal5StatsEntry, tAtmMdaMaxSupportedVpcs=tAtmMdaMaxSupportedVpcs, AtmIlmiLinkDeviceType=AtmIlmiLinkDeviceType, tAtmIntfStatsTotalBytesTxd=tAtmIntfStatsTotalBytesTxd, tAtmIfcConnKind=tAtmIfcConnKind, tAtmMdaConfiguredVccs=tAtmMdaConfiguredVccs, tAtmIntfConfIfcs=tAtmIntfConfIfcs, tAtmTCSublayerEntry=tAtmTCSublayerEntry, tAtmCpStatsTotalCellsTxdHi=tAtmCpStatsTotalCellsTxdHi, tmnxAtmAal5VccStatisticsGroup=tmnxAtmAal5VccStatisticsGroup, tAtmIlmiLinkOutGetRequestPdus=tAtmIlmiLinkOutGetRequestPdus, tAtmVplStatsDrpCellsRxd=tAtmVplStatsDrpCellsRxd, tAtmCpObjs=tAtmCpObjs, tAtmIfcLastChange=tAtmIfcLastChange, tAtmIlmiLinkInInvalidSnmpVersionPdus=tAtmIlmiLinkInInvalidSnmpVersionPdus, tAtmVplStatsTotalCellsRxd=tAtmVplStatsTotalCellsRxd, tAtmIntfConfEntry=tAtmIntfConfEntry, tAtmVtlStatsTotalCellsTxd=tAtmVtlStatsTotalCellsTxd, tAtmIfcStatisticsTable=tAtmIfcStatisticsTable, tAtmSystemObjs=tAtmSystemObjs, tAtmIlmiLinkImeType=tAtmIlmiLinkImeType, tAtmVclStatsTotalCellsRxd=tAtmVclStatsTotalCellsRxd, tAtmIfcStatsTotalCellsTxd=tAtmIfcStatsTotalCellsTxd, tAtmOamVclStatsLoopbackCellsRxd=tAtmOamVclStatsLoopbackCellsRxd, tAtmVtlStatsDrpClp0CellsRxd=tAtmVtlStatsDrpClp0CellsRxd, tAtmIlmiLinkInGetNextRequestPdus=tAtmIlmiLinkInGetNextRequestPdus, tAtmTCSublayerHecErrors=tAtmTCSublayerHecErrors, tAtmCpStatsClp0CellsTxdLo=tAtmCpStatsClp0CellsTxdLo, tmnxAtmIntfStatsV4v0Group=tmnxAtmIntfStatsV4v0Group, tAtmIfcStatsDrpClp0CellsTxd=tAtmIfcStatsDrpClp0CellsTxd, tAtmVclInfoIlmiStatus=tAtmVclInfoIlmiStatus, tAtmMaxPeerVpcsExceeded=tAtmMaxPeerVpcsExceeded, tAtmCellVclStatisticsEntry=tAtmCellVclStatisticsEntry, tAtmIfcStatsTotalCellsRxd=tAtmIfcStatsTotalCellsRxd, tAtmVclStatsTotalCellsTxd=tAtmVclStatsTotalCellsTxd, tAtmPlcpSubLayerDown=tAtmPlcpSubLayerDown, tAtmVtlEndVpi=tAtmVtlEndVpi, tAtmMdaObjs=tAtmMdaObjs, tAtmIntfTotalIngrCbrBandwidth=tAtmIntfTotalIngrCbrBandwidth, tAtmOamVclStatsRDICellsRxd=tAtmOamVclStatsRDICellsRxd, tAtmIlmiLinkDeviceType=tAtmIlmiLinkDeviceType, tAtmIlmiLinkConPollInactFactor=tAtmIlmiLinkConPollInactFactor, tAtmVclInfoEntry=tAtmVclInfoEntry, tAtmIlmiLinkStatisticsTable=tAtmIlmiLinkStatisticsTable, tAtmIfcCastType=tAtmIfcCastType, tAtmVclStatsTotalBytesRxd=tAtmVclStatsTotalBytesRxd, tAtmOamVplStatisticsEntry=tAtmOamVplStatisticsEntry, tAal5VccStatsPacketsTxd=tAal5VccStatsPacketsTxd, tAtmVtlStatsDrpClp0CellsTxd=tAtmVtlStatsDrpClp0CellsTxd, tmnxAtmVplStatisticsGroup=tmnxAtmVplStatisticsGroup, AtmIlmiLinkImeType=AtmIlmiLinkImeType, tAtmIlmiLinkInTooBigErrors=tAtmIlmiLinkInTooBigErrors, tAtmIntfTotalEgrCbrBandwidth=tAtmIntfTotalEgrCbrBandwidth, tAtmVtlStatsTotalBytesTxd=tAtmVtlStatsTotalBytesTxd, tAtmCpStatsClp0CellsTxd=tAtmCpStatsClp0CellsTxd, tAtmCpStatsTagCells=tAtmCpStatsTagCells, tmnxAtmObsoleteV3v0Group=tmnxAtmObsoleteV3v0Group, tAtmOamVclStatisticsEntry=tAtmOamVclStatisticsEntry, tAtmIlmiLinkRowStatus=tAtmIlmiLinkRowStatus, tAtmOamVclStatsCrc10Err=tAtmOamVclStatsCrc10Err, tAtmIlmiLinkInReadOnlyErrors=tAtmIlmiLinkInReadOnlyErrors, tAtmSysLlid=tAtmSysLlid, tAtmOamVplStatsCrc10Errors=tAtmOamVplStatsCrc10Errors, tAtmVclInfoOamStatus=tAtmVclInfoOamStatus, tmnxAtmNotifyPrefix=tmnxAtmNotifyPrefix, tAtmTcSubLayerClear=tAtmTcSubLayerClear, AtmConnectionOwner=AtmConnectionOwner, tAtmOamVclStatsAISCellsRxd=tAtmOamVclStatsAISCellsRxd, tAtmIlmiLinkNegotiatedVersion=tAtmIlmiLinkNegotiatedVersion, tAtmIlmiLinkOutPdus=tAtmIlmiLinkOutPdus, tmnxAtmNotificationsR4r0Group=tmnxAtmNotificationsR4r0Group, tAtmVclInfoRxTrafficDescrIdOvr=tAtmVclInfoRxTrafficDescrIdOvr, tAtmCellVclStatsDrpClp0CellsRxd=tAtmCellVclStatsDrpClp0CellsRxd, tAtmVtlStatsTotalCellsRxd=tAtmVtlStatsTotalCellsRxd, tAtmIntfStatsTotalUnknCellsDrp=tAtmIntfStatsTotalUnknCellsDrp, tAal5VccStatisticsEntry=tAal5VccStatisticsEntry, tAtmIlmiLinkNeighborIfIdentifier=tAtmIlmiLinkNeighborIfIdentifier, tAtmIntfCurrentMaxVpcs=tAtmIntfCurrentMaxVpcs, tAtmIlmiLinkUniType=tAtmIlmiLinkUniType, tmnxAtmVclInfoGroup=tmnxAtmVclInfoGroup, tAtmIlmiLinkNeighborMaxVpcs=tAtmIlmiLinkNeighborMaxVpcs, tAtmMIBV9v0Compliance=tAtmMIBV9v0Compliance, tAtmVplStatsTagCells=tAtmVplStatsTagCells, tAtmVclInfoTxTrafficDescrIdOvr=tAtmVclInfoTxTrafficDescrIdOvr, tAtmVclObjs=tAtmVclObjs, tAtmOamVplStatsRDICellsTxd=tAtmOamVplStatsRDICellsTxd, tAtmIlmiLinkInPdus=tAtmIlmiLinkInPdus, tAtmIntfShapedBandwidth=tAtmIntfShapedBandwidth, tAtmVtlTransmitTrafficDescrIndex=tAtmVtlTransmitTrafficDescrIndex, tAtmIlmiLinkTable=tAtmIlmiLinkTable, tAtmVtlLastChange=tAtmVtlLastChange, tAtmIntfStatsEntry=tAtmIntfStatsEntry, tAtmVtlOperStatus=tAtmVtlOperStatus, tAtmMdaInfoTable=tAtmMdaInfoTable, tAtmVplStatsTotalClp0CellsRxd=tAtmVplStatsTotalClp0CellsRxd, tAtmOamVplStatsAISCellsTxd=tAtmOamVplStatsAISCellsTxd, tAtmVtlAdminStatus=tAtmVtlAdminStatus, tAtmIntfStatsTotalHecErrFixed=tAtmIntfStatsTotalHecErrFixed, tAtmVtlRowStatus=tAtmVtlRowStatus, tAtmVtlConnKind=tAtmVtlConnKind, tAtmIfcRowStatus=tAtmIfcRowStatus, tAtmCellVclStatsClp0CellsRxd=tAtmCellVclStatsClp0CellsRxd, tAtmIlmiLinkOutGetResponsePdus=tAtmIlmiLinkOutGetResponsePdus, tAtmIfcTransmitTrafficDescrIndex=tAtmIfcTransmitTrafficDescrIndex, tAtmVtlStartVpi=tAtmVtlStartVpi, tAtmIntfTotalIngrUbrBandwidth=tAtmIntfTotalIngrUbrBandwidth, tAtmVclInfoTable=tAtmVclInfoTable, tAtmIntfTotalIngrNrtVbrBandwidth=tAtmIntfTotalIngrNrtVbrBandwidth, tAtmOamVplStatsAISCellsRxd=tAtmOamVplStatsAISCellsRxd, tAtmIntfLastUnknVpi=tAtmIntfLastUnknVpi, tAtmIlmiLinkNeighborUniType=tAtmIlmiLinkNeighborUniType, tAtmIntfOperStatus=tAtmIntfOperStatus, tAtmIlmiLinkInInvalidSnmpFormatPdus=tAtmIlmiLinkInInvalidSnmpFormatPdus, timetraATMMIBModule=timetraATMMIBModule, tAtmIlmiLinkOutNoSuchNameErrors=tAtmIlmiLinkOutNoSuchNameErrors, tmnxAtmIfcStatisticsGroup=tmnxAtmIfcStatisticsGroup, tAtmVtlObjs=tAtmVtlObjs, tAtmIfcReceiveTrafficDescrIndex=tAtmIfcReceiveTrafficDescrIndex, tAtmIlmiLinkOutTrapPdus=tAtmIlmiLinkOutTrapPdus, tAtmCpStatsTotalCellsRxdLo=tAtmCpStatsTotalCellsRxdLo, tAtmVplStatsDrpClp0CellsRxd=tAtmVplStatsDrpClp0CellsRxd, tAtmCellVclObjs=tAtmCellVclObjs, tAtmIlmiLinkNegotiatedImeType=tAtmIlmiLinkNegotiatedImeType, tAtmIfcAdminStatus=tAtmIfcAdminStatus, tAtmVplInfoOwner=tAtmVplInfoOwner, tAtmCpStatisticsEntry=tAtmCpStatisticsEntry, tAtmOamVplStatsLoopbackCellsRxd=tAtmOamVplStatsLoopbackCellsRxd, tAtmSysOamRetryDown=tAtmSysOamRetryDown, tAtmVtlReceiveTrafficDescrIndex=tAtmVtlReceiveTrafficDescrIndex, tAtmCellVclStatisticsTable=tAtmCellVclStatisticsTable, tAtmIfcInfoOwner=tAtmIfcInfoOwner, tAtmIlmiLinkInGeneralErrors=tAtmIlmiLinkInGeneralErrors, AtmIlmiLinkUniType=AtmIlmiLinkUniType, tAtmIfcOperStatus=tAtmIfcOperStatus, tAtmIlmiLinkFsmState=tAtmIlmiLinkFsmState, tAtmIlmiLinkInBadValueErrors=tAtmIlmiLinkInBadValueErrors)
+mibBuilder.exportSymbols("TIMETRA-ATM-MIB", tAtmIlmiLinkEntry=tAtmIlmiLinkEntry, tAtmIfcStatsDrpClp0CellsRxd=tAtmIfcStatsDrpClp0CellsRxd, tAal5VccStatsDrpPacketsRxd=tAal5VccStatsDrpPacketsRxd, tAtmVtlStatsTotalClp0CellsTxd=tAtmVtlStatsTotalClp0CellsTxd, tmnxAtmVclStatisticsGroup=tmnxAtmVclStatisticsGroup, tmnxAtmTCSublayerGroup=tmnxAtmTCSublayerGroup, tAtmMIBV4v0Compliance=tAtmMIBV4v0Compliance, tAtmIntfTotalEgrUbrBandwidth=tAtmIntfTotalEgrUbrBandwidth, tAtmIfcStatisticsEntry=tAtmIfcStatisticsEntry, tAtmIlmiLinkOperStatus=tAtmIlmiLinkOperStatus, tAtmMdaConfiguredVpcs=tAtmMdaConfiguredVpcs, tAtmIntfAal5StatsTotalCrc32Err=tAtmIntfAal5StatsTotalCrc32Err, tAtmVplStatsTotalBytesRxd=tAtmVplStatsTotalBytesRxd, tAtmTCSublayerTable=tAtmTCSublayerTable, tAtmOamVplStatisticsTable=tAtmOamVplStatisticsTable, tAtmTrafficDescObjs=tAtmTrafficDescObjs, tAtmIfcInfoTable=tAtmIfcInfoTable, tAtmIfcStatsTotalClp0CellsRxd=tAtmIfcStatsTotalClp0CellsRxd, tAtmIlmiLinkStatisticsEntry=tAtmIlmiLinkStatisticsEntry, tAtmIntfBandwidth=tAtmIntfBandwidth, tAtmIntfStatsTotalBytesRxd=tAtmIntfStatsTotalBytesRxd, tAtmCellVclStatsDrpClp0CellsTxd=tAtmCellVclStatsDrpClp0CellsTxd, tAtmIntfAal5StatsTotalPktsDrpTxd=tAtmIntfAal5StatsTotalPktsDrpTxd, tAtmIlmiLinkReceiveTrafficDescrIndex=tAtmIlmiLinkReceiveTrafficDescrIndex, tAtmOamVplStatsLoopbackCellsTxd=tAtmOamVplStatsLoopbackCellsTxd, PYSNMP_MODULE_ID=timetraATMMIBModule, tAtmIlmiLinkNeighborMaxVccs=tAtmIlmiLinkNeighborMaxVccs, tmnxAtmVtlStatisticsGroup=tmnxAtmVtlStatisticsGroup, tmnxAtmIlmiStatisticsGroup=tmnxAtmIlmiStatisticsGroup, tAtmIntfTotalEgrRtVbrBandwidth=tAtmIntfTotalEgrRtVbrBandwidth, tAtmVplStatsDrpClp0CellsTxd=tAtmVplStatsDrpClp0CellsTxd, tmnxAtmVclInfoGroupV9v0=tmnxAtmVclInfoGroupV9v0, tAtmVtlInfoOwner=tAtmVtlInfoOwner, tAtmIntfObjs=tAtmIntfObjs, tAtmVtlStatisticsTable=tAtmVtlStatisticsTable, tAtmCpStatsClp0CellsRxd=tAtmCpStatsClp0CellsRxd, tAtmVplObjs=tAtmVplObjs, tAtmIntfLastUnknVci=tAtmIntfLastUnknVci, tAtmSysOamRetryUp=tAtmSysOamRetryUp, tAtmCellVclStatsClp0CellsTxd=tAtmCellVclStatsClp0CellsTxd)

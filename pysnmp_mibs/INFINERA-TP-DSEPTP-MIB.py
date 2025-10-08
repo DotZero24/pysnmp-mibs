@@ -1,51 +1,39 @@
-_H='dsePtpGroup'
-_G='dsePtpPmHistStatsEnable'
-_F='dsePtpProvisionedRemoteTP'
-_E='Integer32'
-_D='ifIndex'
-_C='IF-MIB'
-_B='INFINERA-TP-DSEPTP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_C,_D)
-terminationPoint,=mibBuilder.importSymbols('INFINERA-REG-MIB','terminationPoint')
-FloatTenths,InfnServiceType=mibBuilder.importSymbols('INFINERA-TC-MIB','FloatTenths','InfnServiceType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-dsePtpMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,2,22))
-if mibBuilder.loadTexts:dsePtpMIB.setRevisions(('2008-10-20 00:00',))
-_DsePtpTable_Object=MibTable
-dsePtpTable=_DsePtpTable_Object((1,3,6,1,4,1,21296,2,2,2,2,22,1))
-if mibBuilder.loadTexts:dsePtpTable.setStatus(_A)
-_DsePtpEntry_Object=MibTableRow
-dsePtpEntry=_DsePtpEntry_Object((1,3,6,1,4,1,21296,2,2,2,2,22,1,1))
-dsePtpEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:dsePtpEntry.setStatus(_A)
-_DsePtpProvisionedRemoteTP_Type=DisplayString
-_DsePtpProvisionedRemoteTP_Object=MibTableColumn
-dsePtpProvisionedRemoteTP=_DsePtpProvisionedRemoteTP_Object((1,3,6,1,4,1,21296,2,2,2,2,22,1,1,1),_DsePtpProvisionedRemoteTP_Type())
-dsePtpProvisionedRemoteTP.setMaxAccess('read-only')
-if mibBuilder.loadTexts:dsePtpProvisionedRemoteTP.setStatus(_A)
-class _DsePtpPmHistStatsEnable_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_DsePtpPmHistStatsEnable_Type.__name__=_E
-_DsePtpPmHistStatsEnable_Object=MibTableColumn
-dsePtpPmHistStatsEnable=_DsePtpPmHistStatsEnable_Object((1,3,6,1,4,1,21296,2,2,2,2,22,1,1,2),_DsePtpPmHistStatsEnable_Type())
-dsePtpPmHistStatsEnable.setMaxAccess('read-write')
-if mibBuilder.loadTexts:dsePtpPmHistStatsEnable.setStatus(_A)
-_DsePtpConformance_ObjectIdentity=ObjectIdentity
-dsePtpConformance=_DsePtpConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,22,3))
-_DsePtpCompliances_ObjectIdentity=ObjectIdentity
-dsePtpCompliances=_DsePtpCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,22,3,1))
-_DsePtpGroups_ObjectIdentity=ObjectIdentity
-dsePtpGroups=_DsePtpGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,22,3,2))
-dsePtpGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,2,22,3,2,1))
-dsePtpGroup.setObjects(*((_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:dsePtpGroup.setStatus(_A)
-dsePtpCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,2,22,3,1,1))
-dsePtpCompliance.setObjects((_B,_H))
-if mibBuilder.loadTexts:dsePtpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'dsePtpMIB':dsePtpMIB,'dsePtpTable':dsePtpTable,'dsePtpEntry':dsePtpEntry,_F:dsePtpProvisionedRemoteTP,_G:dsePtpPmHistStatsEnable,'dsePtpConformance':dsePtpConformance,'dsePtpCompliances':dsePtpCompliances,'dsePtpCompliance':dsePtpCompliance,'dsePtpGroups':dsePtpGroups,_H:dsePtpGroup})
+#
+# PySNMP MIB module INFINERA-TP-DSEPTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-DSEPTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:41 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
+InfnServiceType, FloatTenths = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnServiceType", "FloatTenths")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+dsePtpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 22))
+dsePtpMIB.setRevisions(('2008-10-20 00:00',))
+if mibBuilder.loadTexts: dsePtpMIB.setLastUpdated('200810200000Z')
+if mibBuilder.loadTexts: dsePtpMIB.setOrganization('Infinera')
+dsePtpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 22, 3))
+dsePtpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 22, 3, 1))
+dsePtpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 22, 3, 2))
+dsePtpTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 22, 1), )
+if mibBuilder.loadTexts: dsePtpTable.setStatus('current')
+dsePtpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 22, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: dsePtpEntry.setStatus('current')
+dsePtpProvisionedRemoteTP = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 22, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dsePtpProvisionedRemoteTP.setStatus('current')
+dsePtpPmHistStatsEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 22, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dsePtpPmHistStatsEnable.setStatus('current')
+dsePtpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 22, 3, 1, 1)).setObjects(("INFINERA-TP-DSEPTP-MIB", "dsePtpGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dsePtpCompliance = dsePtpCompliance.setStatus('current')
+dsePtpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 22, 3, 2, 1)).setObjects(("INFINERA-TP-DSEPTP-MIB", "dsePtpProvisionedRemoteTP"), ("INFINERA-TP-DSEPTP-MIB", "dsePtpPmHistStatsEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dsePtpGroup = dsePtpGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-TP-DSEPTP-MIB", dsePtpConformance=dsePtpConformance, dsePtpCompliance=dsePtpCompliance, dsePtpGroup=dsePtpGroup, dsePtpCompliances=dsePtpCompliances, dsePtpEntry=dsePtpEntry, dsePtpTable=dsePtpTable, dsePtpPmHistStatsEnable=dsePtpPmHistStatsEnable, PYSNMP_MODULE_ID=dsePtpMIB, dsePtpProvisionedRemoteTP=dsePtpProvisionedRemoteTP, dsePtpGroups=dsePtpGroups, dsePtpMIB=dsePtpMIB)

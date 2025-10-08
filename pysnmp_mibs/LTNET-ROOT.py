@@ -1,16 +1,18 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_LtnetRoot_ObjectIdentity=ObjectIdentity
-ltnetRoot=_LtnetRoot_ObjectIdentity((1,3,6,1,4,1,33826))
-_LtnetHFCemsTree_ObjectIdentity=ObjectIdentity
-ltnetHFCemsTree=_LtnetHFCemsTree_ObjectIdentity((1,3,6,1,4,1,33826,1))
-_OsIdent_ObjectIdentity=ObjectIdentity
-osIdent=_OsIdent_ObjectIdentity((1,3,6,1,4,1,33826,1,1))
-_LtnetSmartDeviceTree_ObjectIdentity=ObjectIdentity
-ltnetSmartDeviceTree=_LtnetSmartDeviceTree_ObjectIdentity((1,3,6,1,4,1,33826,2))
-mibBuilder.exportSymbols('LTNET-ROOT',**{'ltnetRoot':ltnetRoot,'ltnetHFCemsTree':ltnetHFCemsTree,'osIdent':osIdent,'ltnetSmartDeviceTree':ltnetSmartDeviceTree})
+#
+# PySNMP MIB module LTNET-ROOT (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cdata/LTNET-ROOT
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:41 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ltnetRoot = MibIdentifier((1, 3, 6, 1, 4, 1, 33826))
+ltnetHFCemsTree = MibIdentifier((1, 3, 6, 1, 4, 1, 33826, 1))
+osIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 33826, 1, 1))
+ltnetSmartDeviceTree = MibIdentifier((1, 3, 6, 1, 4, 1, 33826, 2))
+mibBuilder.exportSymbols("LTNET-ROOT", ltnetHFCemsTree=ltnetHFCemsTree, ltnetSmartDeviceTree=ltnetSmartDeviceTree, osIdent=osIdent, ltnetRoot=ltnetRoot)

@@ -1,141 +1,70 @@
-_Q='adGenProcessesMemStatHeapFree'
-_P='adGenProcessesProvHeapFreeThreshold'
-_O='enable'
-_N='disable'
-_M='Unsigned32'
-_L='ADTRAN-GENPROCESSES-MIB'
-_K='read-write'
-_J='Integer32'
-_I='sysName'
-_H='SNMPv2-MIB'
-_G='adTrapInformSeqNum'
-_F='ADTRAN-GENTRAPINFORM-MIB'
-_E='bytes'
-_D='read-only'
-_C='adGenSlotInfoIndex'
-_B='ADTRAN-GENSLOT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGenSlotInfoIndex,=mibBuilder.importSymbols(_B,_C)
-adTrapInformSeqNum,=mibBuilder.importSymbols(_F,_G)
-adGenProcesses,adGenProcessesID=mibBuilder.importSymbols('ADTRAN-SHARED-CND-SYSTEM-MIB','adGenProcesses','adGenProcessesID')
-InterfaceIndex,ifIndex=mibBuilder.importSymbols('IF-MIB','InterfaceIndex','ifIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-sysName,=mibBuilder.importSymbols(_H,_I)
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_J,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_M,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp')
-adGenProcessesMIB=ModuleIdentity((1,3,6,1,4,1,664,6,10000,70,22,1))
-if mibBuilder.loadTexts:adGenProcessesMIB.setRevisions(('2017-06-23 00:00','2011-09-23 00:00','2010-02-23 00:00','2010-02-22 00:00'))
-_AdGenProcessesNotifications_ObjectIdentity=ObjectIdentity
-adGenProcessesNotifications=_AdGenProcessesNotifications_ObjectIdentity((1,3,6,1,4,1,664,5,70,22,0))
-_AdGenProcessesProvisioning_ObjectIdentity=ObjectIdentity
-adGenProcessesProvisioning=_AdGenProcessesProvisioning_ObjectIdentity((1,3,6,1,4,1,664,5,70,22,1))
-_AdGenProcessesProvTable_Object=MibTable
-adGenProcessesProvTable=_AdGenProcessesProvTable_Object((1,3,6,1,4,1,664,5,70,22,1,1))
-if mibBuilder.loadTexts:adGenProcessesProvTable.setStatus(_A)
-_AdGenProcessesProvEntry_Object=MibTableRow
-adGenProcessesProvEntry=_AdGenProcessesProvEntry_Object((1,3,6,1,4,1,664,5,70,22,1,1,1))
-adGenProcessesProvEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:adGenProcessesProvEntry.setStatus(_A)
-class _AdGenProcessesProvHeapFreeThreshold_Type(Unsigned32):defaultValue=0
-_AdGenProcessesProvHeapFreeThreshold_Type.__name__=_M
-_AdGenProcessesProvHeapFreeThreshold_Object=MibTableColumn
-adGenProcessesProvHeapFreeThreshold=_AdGenProcessesProvHeapFreeThreshold_Object((1,3,6,1,4,1,664,5,70,22,1,1,1,1),_AdGenProcessesProvHeapFreeThreshold_Type())
-adGenProcessesProvHeapFreeThreshold.setMaxAccess(_K)
-if mibBuilder.loadTexts:adGenProcessesProvHeapFreeThreshold.setStatus(_A)
-if mibBuilder.loadTexts:adGenProcessesProvHeapFreeThreshold.setUnits(_E)
-class _AdGenProcessesStarvationAlarmEnable_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_N,1),(_O,2)))
-_AdGenProcessesStarvationAlarmEnable_Type.__name__=_J
-_AdGenProcessesStarvationAlarmEnable_Object=MibTableColumn
-adGenProcessesStarvationAlarmEnable=_AdGenProcessesStarvationAlarmEnable_Object((1,3,6,1,4,1,664,5,70,22,1,1,1,2),_AdGenProcessesStarvationAlarmEnable_Type())
-adGenProcessesStarvationAlarmEnable.setMaxAccess(_K)
-if mibBuilder.loadTexts:adGenProcessesStarvationAlarmEnable.setStatus(_A)
-class _AdGenProcessesDeadlockAlarmEnable_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_N,1),(_O,2)))
-_AdGenProcessesDeadlockAlarmEnable_Type.__name__=_J
-_AdGenProcessesDeadlockAlarmEnable_Object=MibTableColumn
-adGenProcessesDeadlockAlarmEnable=_AdGenProcessesDeadlockAlarmEnable_Object((1,3,6,1,4,1,664,5,70,22,1,1,1,3),_AdGenProcessesDeadlockAlarmEnable_Type())
-adGenProcessesDeadlockAlarmEnable.setMaxAccess(_K)
-if mibBuilder.loadTexts:adGenProcessesDeadlockAlarmEnable.setStatus(_A)
-_AdGenProcessesStatus_ObjectIdentity=ObjectIdentity
-adGenProcessesStatus=_AdGenProcessesStatus_ObjectIdentity((1,3,6,1,4,1,664,5,70,22,2))
-_AdGenProcessesMemStatTable_Object=MibTable
-adGenProcessesMemStatTable=_AdGenProcessesMemStatTable_Object((1,3,6,1,4,1,664,5,70,22,2,1))
-if mibBuilder.loadTexts:adGenProcessesMemStatTable.setStatus(_A)
-_AdGenProcessesMemStatEntry_Object=MibTableRow
-adGenProcessesMemStatEntry=_AdGenProcessesMemStatEntry_Object((1,3,6,1,4,1,664,5,70,22,2,1,1))
-adGenProcessesMemStatEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:adGenProcessesMemStatEntry.setStatus(_A)
-_AdGenProcessesMemStatHeapSize_Type=Unsigned32
-_AdGenProcessesMemStatHeapSize_Object=MibTableColumn
-adGenProcessesMemStatHeapSize=_AdGenProcessesMemStatHeapSize_Object((1,3,6,1,4,1,664,5,70,22,2,1,1,1),_AdGenProcessesMemStatHeapSize_Type())
-adGenProcessesMemStatHeapSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenProcessesMemStatHeapSize.setStatus(_A)
-if mibBuilder.loadTexts:adGenProcessesMemStatHeapSize.setUnits(_E)
-_AdGenProcessesMemStatHeapUsed_Type=Unsigned32
-_AdGenProcessesMemStatHeapUsed_Object=MibTableColumn
-adGenProcessesMemStatHeapUsed=_AdGenProcessesMemStatHeapUsed_Object((1,3,6,1,4,1,664,5,70,22,2,1,1,2),_AdGenProcessesMemStatHeapUsed_Type())
-adGenProcessesMemStatHeapUsed.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenProcessesMemStatHeapUsed.setStatus(_A)
-if mibBuilder.loadTexts:adGenProcessesMemStatHeapUsed.setUnits(_E)
-_AdGenProcessesMemStatHeapFree_Type=Unsigned32
-_AdGenProcessesMemStatHeapFree_Object=MibTableColumn
-adGenProcessesMemStatHeapFree=_AdGenProcessesMemStatHeapFree_Object((1,3,6,1,4,1,664,5,70,22,2,1,1,3),_AdGenProcessesMemStatHeapFree_Type())
-adGenProcessesMemStatHeapFree.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenProcessesMemStatHeapFree.setStatus(_A)
-if mibBuilder.loadTexts:adGenProcessesMemStatHeapFree.setUnits(_E)
-_AdGenProcessesMemStatBlockMgrSize_Type=Unsigned32
-_AdGenProcessesMemStatBlockMgrSize_Object=MibTableColumn
-adGenProcessesMemStatBlockMgrSize=_AdGenProcessesMemStatBlockMgrSize_Object((1,3,6,1,4,1,664,5,70,22,2,1,1,4),_AdGenProcessesMemStatBlockMgrSize_Type())
-adGenProcessesMemStatBlockMgrSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenProcessesMemStatBlockMgrSize.setStatus(_A)
-if mibBuilder.loadTexts:adGenProcessesMemStatBlockMgrSize.setUnits(_E)
-_AdGenProcessesMemStatBlockMgrUsed_Type=Unsigned32
-_AdGenProcessesMemStatBlockMgrUsed_Object=MibTableColumn
-adGenProcessesMemStatBlockMgrUsed=_AdGenProcessesMemStatBlockMgrUsed_Object((1,3,6,1,4,1,664,5,70,22,2,1,1,5),_AdGenProcessesMemStatBlockMgrUsed_Type())
-adGenProcessesMemStatBlockMgrUsed.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenProcessesMemStatBlockMgrUsed.setStatus(_A)
-if mibBuilder.loadTexts:adGenProcessesMemStatBlockMgrUsed.setUnits(_E)
-_AdGenProcessesMemStatBlockMgrFree_Type=Unsigned32
-_AdGenProcessesMemStatBlockMgrFree_Object=MibTableColumn
-adGenProcessesMemStatBlockMgrFree=_AdGenProcessesMemStatBlockMgrFree_Object((1,3,6,1,4,1,664,5,70,22,2,1,1,6),_AdGenProcessesMemStatBlockMgrFree_Type())
-adGenProcessesMemStatBlockMgrFree.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenProcessesMemStatBlockMgrFree.setStatus(_A)
-if mibBuilder.loadTexts:adGenProcessesMemStatBlockMgrFree.setUnits(_E)
-_AdGenProcessesCpuStatTable_Object=MibTable
-adGenProcessesCpuStatTable=_AdGenProcessesCpuStatTable_Object((1,3,6,1,4,1,664,5,70,22,2,2))
-if mibBuilder.loadTexts:adGenProcessesCpuStatTable.setStatus(_A)
-_AdGenProcessesCpuStatEntry_Object=MibTableRow
-adGenProcessesCpuStatEntry=_AdGenProcessesCpuStatEntry_Object((1,3,6,1,4,1,664,5,70,22,2,2,1))
-adGenProcessesCpuStatEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:adGenProcessesCpuStatEntry.setStatus(_A)
-class _AdGenProcessesCpuStatCurUtilization_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-_AdGenProcessesCpuStatCurUtilization_Type.__name__=_J
-_AdGenProcessesCpuStatCurUtilization_Object=MibTableColumn
-adGenProcessesCpuStatCurUtilization=_AdGenProcessesCpuStatCurUtilization_Object((1,3,6,1,4,1,664,5,70,22,2,2,1,1),_AdGenProcessesCpuStatCurUtilization_Type())
-adGenProcessesCpuStatCurUtilization.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenProcessesCpuStatCurUtilization.setStatus(_A)
-class _AdGenProcessesCpuStatMaxUtilization_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-_AdGenProcessesCpuStatMaxUtilization_Type.__name__=_J
-_AdGenProcessesCpuStatMaxUtilization_Object=MibTableColumn
-adGenProcessesCpuStatMaxUtilization=_AdGenProcessesCpuStatMaxUtilization_Object((1,3,6,1,4,1,664,5,70,22,2,2,1,2),_AdGenProcessesCpuStatMaxUtilization_Type())
-adGenProcessesCpuStatMaxUtilization.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenProcessesCpuStatMaxUtilization.setStatus(_A)
-adGenProcessesHeapFreeThreshCrossed=NotificationType((1,3,6,1,4,1,664,5,70,22,0,1))
-adGenProcessesHeapFreeThreshCrossed.setObjects(*((_F,_G),(_H,_I),(_B,_C),(_L,_P),(_L,_Q)))
-if mibBuilder.loadTexts:adGenProcessesHeapFreeThreshCrossed.setStatus(_A)
-adGenProcessesStarvationAlarmClr=NotificationType((1,3,6,1,4,1,664,5,70,22,0,2))
-adGenProcessesStarvationAlarmClr.setObjects(*((_F,_G),(_H,_I),(_B,_C)))
-if mibBuilder.loadTexts:adGenProcessesStarvationAlarmClr.setStatus(_A)
-adGenProcessesStarvationAlarmAct=NotificationType((1,3,6,1,4,1,664,5,70,22,0,3))
-adGenProcessesStarvationAlarmAct.setObjects(*((_F,_G),(_H,_I),(_B,_C)))
-if mibBuilder.loadTexts:adGenProcessesStarvationAlarmAct.setStatus(_A)
-adGenProcessesDeadlockAlarmClr=NotificationType((1,3,6,1,4,1,664,5,70,22,0,4))
-adGenProcessesDeadlockAlarmClr.setObjects(*((_F,_G),(_H,_I),(_B,_C)))
-if mibBuilder.loadTexts:adGenProcessesDeadlockAlarmClr.setStatus(_A)
-adGenProcessesDeadlockAlarmAct=NotificationType((1,3,6,1,4,1,664,5,70,22,0,5))
-adGenProcessesDeadlockAlarmAct.setObjects(*((_F,_G),(_H,_I),(_B,_C)))
-if mibBuilder.loadTexts:adGenProcessesDeadlockAlarmAct.setStatus(_A)
-mibBuilder.exportSymbols(_L,**{'adGenProcessesNotifications':adGenProcessesNotifications,'adGenProcessesHeapFreeThreshCrossed':adGenProcessesHeapFreeThreshCrossed,'adGenProcessesStarvationAlarmClr':adGenProcessesStarvationAlarmClr,'adGenProcessesStarvationAlarmAct':adGenProcessesStarvationAlarmAct,'adGenProcessesDeadlockAlarmClr':adGenProcessesDeadlockAlarmClr,'adGenProcessesDeadlockAlarmAct':adGenProcessesDeadlockAlarmAct,'adGenProcessesProvisioning':adGenProcessesProvisioning,'adGenProcessesProvTable':adGenProcessesProvTable,'adGenProcessesProvEntry':adGenProcessesProvEntry,_P:adGenProcessesProvHeapFreeThreshold,'adGenProcessesStarvationAlarmEnable':adGenProcessesStarvationAlarmEnable,'adGenProcessesDeadlockAlarmEnable':adGenProcessesDeadlockAlarmEnable,'adGenProcessesStatus':adGenProcessesStatus,'adGenProcessesMemStatTable':adGenProcessesMemStatTable,'adGenProcessesMemStatEntry':adGenProcessesMemStatEntry,'adGenProcessesMemStatHeapSize':adGenProcessesMemStatHeapSize,'adGenProcessesMemStatHeapUsed':adGenProcessesMemStatHeapUsed,_Q:adGenProcessesMemStatHeapFree,'adGenProcessesMemStatBlockMgrSize':adGenProcessesMemStatBlockMgrSize,'adGenProcessesMemStatBlockMgrUsed':adGenProcessesMemStatBlockMgrUsed,'adGenProcessesMemStatBlockMgrFree':adGenProcessesMemStatBlockMgrFree,'adGenProcessesCpuStatTable':adGenProcessesCpuStatTable,'adGenProcessesCpuStatEntry':adGenProcessesCpuStatEntry,'adGenProcessesCpuStatCurUtilization':adGenProcessesCpuStatCurUtilization,'adGenProcessesCpuStatMaxUtilization':adGenProcessesCpuStatMaxUtilization,'adGenProcessesMIB':adGenProcessesMIB})
+#
+# PySNMP MIB module ADTRAN-GENPROCESSES-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-GENPROCESSES-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:38 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGenSlotInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex")
+adTrapInformSeqNum, = mibBuilder.importSymbols("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum")
+adGenProcesses, adGenProcessesID = mibBuilder.importSymbols("ADTRAN-SHARED-CND-SYSTEM-MIB", "adGenProcesses", "adGenProcessesID")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "RowStatus", "TextualConvention")
+adGenProcessesMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 22, 1))
+adGenProcessesMIB.setRevisions(('2017-06-23 00:00', '2011-09-23 00:00', '2010-02-23 00:00', '2010-02-22 00:00',))
+if mibBuilder.loadTexts: adGenProcessesMIB.setLastUpdated('201706230000Z')
+if mibBuilder.loadTexts: adGenProcessesMIB.setOrganization('Adtran, Inc.')
+adGenProcessesNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 0))
+adGenProcessesProvisioning = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 1))
+adGenProcessesStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 2))
+adGenProcessesProvTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 1, 1), )
+if mibBuilder.loadTexts: adGenProcessesProvTable.setStatus('current')
+adGenProcessesProvEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 1, 1, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenProcessesProvEntry.setStatus('current')
+adGenProcessesProvHeapFreeThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 1, 1, 1, 1), Unsigned32()).setUnits('bytes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenProcessesProvHeapFreeThreshold.setStatus('current')
+adGenProcessesStarvationAlarmEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenProcessesStarvationAlarmEnable.setStatus('current')
+adGenProcessesDeadlockAlarmEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenProcessesDeadlockAlarmEnable.setStatus('current')
+adGenProcessesMemStatTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 2, 1), )
+if mibBuilder.loadTexts: adGenProcessesMemStatTable.setStatus('current')
+adGenProcessesMemStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 2, 1, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenProcessesMemStatEntry.setStatus('current')
+adGenProcessesMemStatHeapSize = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 2, 1, 1, 1), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenProcessesMemStatHeapSize.setStatus('current')
+adGenProcessesMemStatHeapUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 2, 1, 1, 2), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenProcessesMemStatHeapUsed.setStatus('current')
+adGenProcessesMemStatHeapFree = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 2, 1, 1, 3), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenProcessesMemStatHeapFree.setStatus('current')
+adGenProcessesMemStatBlockMgrSize = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 2, 1, 1, 4), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenProcessesMemStatBlockMgrSize.setStatus('current')
+adGenProcessesMemStatBlockMgrUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 2, 1, 1, 5), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenProcessesMemStatBlockMgrUsed.setStatus('current')
+adGenProcessesMemStatBlockMgrFree = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 2, 1, 1, 6), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenProcessesMemStatBlockMgrFree.setStatus('current')
+adGenProcessesCpuStatTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 2, 2), )
+if mibBuilder.loadTexts: adGenProcessesCpuStatTable.setStatus('current')
+adGenProcessesCpuStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 2, 2, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenProcessesCpuStatEntry.setStatus('current')
+adGenProcessesCpuStatCurUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenProcessesCpuStatCurUtilization.setStatus('current')
+adGenProcessesCpuStatMaxUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenProcessesCpuStatMaxUtilization.setStatus('current')
+adGenProcessesHeapFreeThreshCrossed = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 0, 1)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"), ("ADTRAN-GENPROCESSES-MIB", "adGenProcessesProvHeapFreeThreshold"), ("ADTRAN-GENPROCESSES-MIB", "adGenProcessesMemStatHeapFree"))
+if mibBuilder.loadTexts: adGenProcessesHeapFreeThreshCrossed.setStatus('current')
+adGenProcessesStarvationAlarmClr = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 0, 2)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenProcessesStarvationAlarmClr.setStatus('current')
+adGenProcessesStarvationAlarmAct = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 0, 3)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenProcessesStarvationAlarmAct.setStatus('current')
+adGenProcessesDeadlockAlarmClr = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 0, 4)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenProcessesDeadlockAlarmClr.setStatus('current')
+adGenProcessesDeadlockAlarmAct = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 70, 22, 0, 5)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenProcessesDeadlockAlarmAct.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-GENPROCESSES-MIB", adGenProcessesMemStatTable=adGenProcessesMemStatTable, adGenProcessesMemStatHeapSize=adGenProcessesMemStatHeapSize, adGenProcessesDeadlockAlarmEnable=adGenProcessesDeadlockAlarmEnable, adGenProcessesCpuStatCurUtilization=adGenProcessesCpuStatCurUtilization, adGenProcessesProvTable=adGenProcessesProvTable, adGenProcessesStarvationAlarmEnable=adGenProcessesStarvationAlarmEnable, adGenProcessesCpuStatEntry=adGenProcessesCpuStatEntry, adGenProcessesProvHeapFreeThreshold=adGenProcessesProvHeapFreeThreshold, adGenProcessesStarvationAlarmAct=adGenProcessesStarvationAlarmAct, adGenProcessesMemStatBlockMgrFree=adGenProcessesMemStatBlockMgrFree, adGenProcessesDeadlockAlarmAct=adGenProcessesDeadlockAlarmAct, adGenProcessesHeapFreeThreshCrossed=adGenProcessesHeapFreeThreshCrossed, adGenProcessesProvEntry=adGenProcessesProvEntry, adGenProcessesStarvationAlarmClr=adGenProcessesStarvationAlarmClr, adGenProcessesMemStatHeapUsed=adGenProcessesMemStatHeapUsed, adGenProcessesMemStatBlockMgrUsed=adGenProcessesMemStatBlockMgrUsed, adGenProcessesCpuStatMaxUtilization=adGenProcessesCpuStatMaxUtilization, adGenProcessesStatus=adGenProcessesStatus, adGenProcessesCpuStatTable=adGenProcessesCpuStatTable, adGenProcessesMemStatBlockMgrSize=adGenProcessesMemStatBlockMgrSize, adGenProcessesMemStatHeapFree=adGenProcessesMemStatHeapFree, adGenProcessesProvisioning=adGenProcessesProvisioning, adGenProcessesMIB=adGenProcessesMIB, adGenProcessesMemStatEntry=adGenProcessesMemStatEntry, adGenProcessesNotifications=adGenProcessesNotifications, adGenProcessesDeadlockAlarmClr=adGenProcessesDeadlockAlarmClr, PYSNMP_MODULE_ID=adGenProcessesMIB)

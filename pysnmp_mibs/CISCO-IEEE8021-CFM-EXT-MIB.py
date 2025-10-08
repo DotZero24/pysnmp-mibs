@@ -1,232 +1,112 @@
-_m='ciceCfmMacEnableGroup'
-_l='ciceCfmMipGroup'
-_k='ciceCfmMaNetGroup'
-_j='ciceCfmLtrConfigGroup'
-_i='ciceCfmInterfaceGroup'
-_h='ciceCfmGlobalObjectsGroup'
-_g='ciceCfmMacEnableRowStatus'
-_f='ciceCfmMacEnableStorageType'
-_e='ciceCfmMipRowStatus'
-_d='ciceCfmMipStorageType'
-_c='ciceCfmMipMdLevel'
-_b='ciceCfmIfState'
-_a='ciceCfmMaNetLossThreshold'
-_Z='ciceCfmMaNetCciDirection'
-_Y='ciceCfmMaNetCciEnable'
-_X='ciceCfmLtrSize'
-_W='ciceCfmLtrHoldTime'
-_V='ciceCfmLtrEnable'
-_U='ciceCfmEnableFaultAlarm'
-_T='ciceCfmLtmMulticastAddress'
-_S='ciceCfmCcMulticastAddress'
-_R='ciceCfmBrainAddress'
-_Q='ciceCfmMaxMdLevel'
-_P='ciceCfmEnable'
-_O='ciceCfmMacEnableVlanIndex'
-_N='ciceCfmMipVlanIndex'
-_M='Unsigned32'
-_L='Integer32'
-_K='dot1agCfmMdIndex'
-_J='dot1agCfmMaIndex'
-_I='not-accessible'
-_H='StorageType'
-_G='IEEE8021-CFM-MIB'
-_F='ciceCfmIfIndex'
-_E='read-only'
-_D='read-create'
-_C='read-write'
-_B='CISCO-IEEE8021-CFM-EXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-Dot1agCfmMpDirection,dot1agCfmMaIndex,dot1agCfmMdIndex=mibBuilder.importSymbols(_G,'Dot1agCfmMpDirection',_J,_K)
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-VlanId,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanId')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_L,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_M,'iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,StorageType,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus',_H,'TextualConvention','TruthValue')
-ciscoIeee8021CfmExtMIB=ModuleIdentity((1,3,6,1,4,1,9,9,679))
-if mibBuilder.loadTexts:ciscoIeee8021CfmExtMIB.setRevisions(('2008-11-13 00:00',))
-_CIeeeCfmExtMIBNotifs_ObjectIdentity=ObjectIdentity
-cIeeeCfmExtMIBNotifs=_CIeeeCfmExtMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,679,0))
-_CIeeeCfmExtMIBObjects_ObjectIdentity=ObjectIdentity
-cIeeeCfmExtMIBObjects=_CIeeeCfmExtMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,679,1))
-_CiceCfmGlobal_ObjectIdentity=ObjectIdentity
-ciceCfmGlobal=_CiceCfmGlobal_ObjectIdentity((1,3,6,1,4,1,9,9,679,1,1))
-_CiceCfmEnable_Type=TruthValue
-_CiceCfmEnable_Object=MibScalar
-ciceCfmEnable=_CiceCfmEnable_Object((1,3,6,1,4,1,9,9,679,1,1,1),_CiceCfmEnable_Type())
-ciceCfmEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciceCfmEnable.setStatus(_A)
-_CiceCfmMaxMdLevel_Type=Unsigned32
-_CiceCfmMaxMdLevel_Object=MibScalar
-ciceCfmMaxMdLevel=_CiceCfmMaxMdLevel_Object((1,3,6,1,4,1,9,9,679,1,1,2),_CiceCfmMaxMdLevel_Type())
-ciceCfmMaxMdLevel.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciceCfmMaxMdLevel.setStatus(_A)
-_CiceCfmBrainAddress_Type=MacAddress
-_CiceCfmBrainAddress_Object=MibScalar
-ciceCfmBrainAddress=_CiceCfmBrainAddress_Object((1,3,6,1,4,1,9,9,679,1,1,3),_CiceCfmBrainAddress_Type())
-ciceCfmBrainAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciceCfmBrainAddress.setStatus(_A)
-_CiceCfmCcMulticastAddress_Type=MacAddress
-_CiceCfmCcMulticastAddress_Object=MibScalar
-ciceCfmCcMulticastAddress=_CiceCfmCcMulticastAddress_Object((1,3,6,1,4,1,9,9,679,1,1,4),_CiceCfmCcMulticastAddress_Type())
-ciceCfmCcMulticastAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciceCfmCcMulticastAddress.setStatus(_A)
-_CiceCfmLtmMulticastAddress_Type=MacAddress
-_CiceCfmLtmMulticastAddress_Object=MibScalar
-ciceCfmLtmMulticastAddress=_CiceCfmLtmMulticastAddress_Object((1,3,6,1,4,1,9,9,679,1,1,5),_CiceCfmLtmMulticastAddress_Type())
-ciceCfmLtmMulticastAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciceCfmLtmMulticastAddress.setStatus(_A)
-_CiceCfmEnableFaultAlarm_Type=TruthValue
-_CiceCfmEnableFaultAlarm_Object=MibScalar
-ciceCfmEnableFaultAlarm=_CiceCfmEnableFaultAlarm_Object((1,3,6,1,4,1,9,9,679,1,1,6),_CiceCfmEnableFaultAlarm_Type())
-ciceCfmEnableFaultAlarm.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciceCfmEnableFaultAlarm.setStatus(_A)
-_CiceCfmLtr_ObjectIdentity=ObjectIdentity
-ciceCfmLtr=_CiceCfmLtr_ObjectIdentity((1,3,6,1,4,1,9,9,679,1,2))
-_CiceCfmLtrEnable_Type=TruthValue
-_CiceCfmLtrEnable_Object=MibScalar
-ciceCfmLtrEnable=_CiceCfmLtrEnable_Object((1,3,6,1,4,1,9,9,679,1,2,1),_CiceCfmLtrEnable_Type())
-ciceCfmLtrEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciceCfmLtrEnable.setStatus(_A)
-class _CiceCfmLtrHoldTime_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CiceCfmLtrHoldTime_Type.__name__=_M
-_CiceCfmLtrHoldTime_Object=MibScalar
-ciceCfmLtrHoldTime=_CiceCfmLtrHoldTime_Object((1,3,6,1,4,1,9,9,679,1,2,2),_CiceCfmLtrHoldTime_Type())
-ciceCfmLtrHoldTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciceCfmLtrHoldTime.setStatus(_A)
-if mibBuilder.loadTexts:ciceCfmLtrHoldTime.setUnits('minutes')
-_CiceCfmLtrSize_Type=Unsigned32
-_CiceCfmLtrSize_Object=MibScalar
-ciceCfmLtrSize=_CiceCfmLtrSize_Object((1,3,6,1,4,1,9,9,679,1,2,3),_CiceCfmLtrSize_Type())
-ciceCfmLtrSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciceCfmLtrSize.setStatus(_A)
-_CiceCfmMa_ObjectIdentity=ObjectIdentity
-ciceCfmMa=_CiceCfmMa_ObjectIdentity((1,3,6,1,4,1,9,9,679,1,3))
-_CiceCfmMaNetTable_Object=MibTable
-ciceCfmMaNetTable=_CiceCfmMaNetTable_Object((1,3,6,1,4,1,9,9,679,1,3,1))
-if mibBuilder.loadTexts:ciceCfmMaNetTable.setStatus(_A)
-_CiceCfmMaNetEntry_Object=MibTableRow
-ciceCfmMaNetEntry=_CiceCfmMaNetEntry_Object((1,3,6,1,4,1,9,9,679,1,3,1,1))
-ciceCfmMaNetEntry.setIndexNames((0,_G,_K),(0,_G,_J))
-if mibBuilder.loadTexts:ciceCfmMaNetEntry.setStatus(_A)
-_CiceCfmMaNetCciEnable_Type=TruthValue
-_CiceCfmMaNetCciEnable_Object=MibTableColumn
-ciceCfmMaNetCciEnable=_CiceCfmMaNetCciEnable_Object((1,3,6,1,4,1,9,9,679,1,3,1,1,1),_CiceCfmMaNetCciEnable_Type())
-ciceCfmMaNetCciEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciceCfmMaNetCciEnable.setStatus(_A)
-_CiceCfmMaNetCciDirection_Type=Dot1agCfmMpDirection
-_CiceCfmMaNetCciDirection_Object=MibTableColumn
-ciceCfmMaNetCciDirection=_CiceCfmMaNetCciDirection_Object((1,3,6,1,4,1,9,9,679,1,3,1,1,2),_CiceCfmMaNetCciDirection_Type())
-ciceCfmMaNetCciDirection.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciceCfmMaNetCciDirection.setStatus(_A)
-_CiceCfmMaNetLossThreshold_Type=Unsigned32
-_CiceCfmMaNetLossThreshold_Object=MibTableColumn
-ciceCfmMaNetLossThreshold=_CiceCfmMaNetLossThreshold_Object((1,3,6,1,4,1,9,9,679,1,3,1,1,3),_CiceCfmMaNetLossThreshold_Type())
-ciceCfmMaNetLossThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciceCfmMaNetLossThreshold.setStatus(_A)
-_CiceCfmIfObjects_ObjectIdentity=ObjectIdentity
-ciceCfmIfObjects=_CiceCfmIfObjects_ObjectIdentity((1,3,6,1,4,1,9,9,679,1,4))
-_CiceCfmInterfaceTable_Object=MibTable
-ciceCfmInterfaceTable=_CiceCfmInterfaceTable_Object((1,3,6,1,4,1,9,9,679,1,4,1))
-if mibBuilder.loadTexts:ciceCfmInterfaceTable.setStatus(_A)
-_CiceCfmInterfaceEntry_Object=MibTableRow
-ciceCfmInterfaceEntry=_CiceCfmInterfaceEntry_Object((1,3,6,1,4,1,9,9,679,1,4,1,1))
-ciceCfmInterfaceEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:ciceCfmInterfaceEntry.setStatus(_A)
-_CiceCfmIfIndex_Type=InterfaceIndex
-_CiceCfmIfIndex_Object=MibTableColumn
-ciceCfmIfIndex=_CiceCfmIfIndex_Object((1,3,6,1,4,1,9,9,679,1,4,1,1,1),_CiceCfmIfIndex_Type())
-ciceCfmIfIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:ciceCfmIfIndex.setStatus(_A)
-class _CiceCfmIfState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('enable',1),('disable',2),('transparent',3)))
-_CiceCfmIfState_Type.__name__=_L
-_CiceCfmIfState_Object=MibTableColumn
-ciceCfmIfState=_CiceCfmIfState_Object((1,3,6,1,4,1,9,9,679,1,4,1,1,2),_CiceCfmIfState_Type())
-ciceCfmIfState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciceCfmIfState.setStatus(_A)
-_CiceCfmMipTable_Object=MibTable
-ciceCfmMipTable=_CiceCfmMipTable_Object((1,3,6,1,4,1,9,9,679,1,4,2))
-if mibBuilder.loadTexts:ciceCfmMipTable.setStatus(_A)
-_CiceCfmMipEntry_Object=MibTableRow
-ciceCfmMipEntry=_CiceCfmMipEntry_Object((1,3,6,1,4,1,9,9,679,1,4,2,1))
-ciceCfmMipEntry.setIndexNames((0,_B,_F),(0,_B,_N))
-if mibBuilder.loadTexts:ciceCfmMipEntry.setStatus(_A)
-_CiceCfmMipVlanIndex_Type=VlanId
-_CiceCfmMipVlanIndex_Object=MibTableColumn
-ciceCfmMipVlanIndex=_CiceCfmMipVlanIndex_Object((1,3,6,1,4,1,9,9,679,1,4,2,1,1),_CiceCfmMipVlanIndex_Type())
-ciceCfmMipVlanIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:ciceCfmMipVlanIndex.setStatus(_A)
-_CiceCfmMipMdLevel_Type=Unsigned32
-_CiceCfmMipMdLevel_Object=MibTableColumn
-ciceCfmMipMdLevel=_CiceCfmMipMdLevel_Object((1,3,6,1,4,1,9,9,679,1,4,2,1,2),_CiceCfmMipMdLevel_Type())
-ciceCfmMipMdLevel.setMaxAccess(_D)
-if mibBuilder.loadTexts:ciceCfmMipMdLevel.setStatus(_A)
-class _CiceCfmMipStorageType_Type(StorageType):defaultValue=3
-_CiceCfmMipStorageType_Type.__name__=_H
-_CiceCfmMipStorageType_Object=MibTableColumn
-ciceCfmMipStorageType=_CiceCfmMipStorageType_Object((1,3,6,1,4,1,9,9,679,1,4,2,1,3),_CiceCfmMipStorageType_Type())
-ciceCfmMipStorageType.setMaxAccess(_D)
-if mibBuilder.loadTexts:ciceCfmMipStorageType.setStatus(_A)
-_CiceCfmMipRowStatus_Type=RowStatus
-_CiceCfmMipRowStatus_Object=MibTableColumn
-ciceCfmMipRowStatus=_CiceCfmMipRowStatus_Object((1,3,6,1,4,1,9,9,679,1,4,2,1,4),_CiceCfmMipRowStatus_Type())
-ciceCfmMipRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:ciceCfmMipRowStatus.setStatus(_A)
-_CiceCfmMacEnableIfTable_Object=MibTable
-ciceCfmMacEnableIfTable=_CiceCfmMacEnableIfTable_Object((1,3,6,1,4,1,9,9,679,1,4,3))
-if mibBuilder.loadTexts:ciceCfmMacEnableIfTable.setStatus(_A)
-_CiceCfmMacEnableIfEntry_Object=MibTableRow
-ciceCfmMacEnableIfEntry=_CiceCfmMacEnableIfEntry_Object((1,3,6,1,4,1,9,9,679,1,4,3,1))
-ciceCfmMacEnableIfEntry.setIndexNames((0,_B,_F),(0,_B,_O))
-if mibBuilder.loadTexts:ciceCfmMacEnableIfEntry.setStatus(_A)
-_CiceCfmMacEnableVlanIndex_Type=VlanId
-_CiceCfmMacEnableVlanIndex_Object=MibTableColumn
-ciceCfmMacEnableVlanIndex=_CiceCfmMacEnableVlanIndex_Object((1,3,6,1,4,1,9,9,679,1,4,3,1,1),_CiceCfmMacEnableVlanIndex_Type())
-ciceCfmMacEnableVlanIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:ciceCfmMacEnableVlanIndex.setStatus(_A)
-class _CiceCfmMacEnableStorageType_Type(StorageType):defaultValue=3
-_CiceCfmMacEnableStorageType_Type.__name__=_H
-_CiceCfmMacEnableStorageType_Object=MibTableColumn
-ciceCfmMacEnableStorageType=_CiceCfmMacEnableStorageType_Object((1,3,6,1,4,1,9,9,679,1,4,3,1,2),_CiceCfmMacEnableStorageType_Type())
-ciceCfmMacEnableStorageType.setMaxAccess(_D)
-if mibBuilder.loadTexts:ciceCfmMacEnableStorageType.setStatus(_A)
-_CiceCfmMacEnableRowStatus_Type=RowStatus
-_CiceCfmMacEnableRowStatus_Object=MibTableColumn
-ciceCfmMacEnableRowStatus=_CiceCfmMacEnableRowStatus_Object((1,3,6,1,4,1,9,9,679,1,4,3,1,3),_CiceCfmMacEnableRowStatus_Type())
-ciceCfmMacEnableRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:ciceCfmMacEnableRowStatus.setStatus(_A)
-_CiceCfmMep_ObjectIdentity=ObjectIdentity
-ciceCfmMep=_CiceCfmMep_ObjectIdentity((1,3,6,1,4,1,9,9,679,1,5))
-_CIeeeCfmExtMIBConformance_ObjectIdentity=ObjectIdentity
-cIeeeCfmExtMIBConformance=_CIeeeCfmExtMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,679,2))
-_CiceCfmMIBCompliances_ObjectIdentity=ObjectIdentity
-ciceCfmMIBCompliances=_CiceCfmMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,679,2,1))
-_CiceCfmMIBGroups_ObjectIdentity=ObjectIdentity
-ciceCfmMIBGroups=_CiceCfmMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,679,2,2))
-ciceCfmGlobalObjectsGroup=ObjectGroup((1,3,6,1,4,1,9,9,679,2,2,1))
-ciceCfmGlobalObjectsGroup.setObjects(*((_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:ciceCfmGlobalObjectsGroup.setStatus(_A)
-ciceCfmLtrConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,679,2,2,2))
-ciceCfmLtrConfigGroup.setObjects(*((_B,_V),(_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:ciceCfmLtrConfigGroup.setStatus(_A)
-ciceCfmMaNetGroup=ObjectGroup((1,3,6,1,4,1,9,9,679,2,2,3))
-ciceCfmMaNetGroup.setObjects(*((_B,_Y),(_B,_Z),(_B,_a)))
-if mibBuilder.loadTexts:ciceCfmMaNetGroup.setStatus(_A)
-ciceCfmInterfaceGroup=ObjectGroup((1,3,6,1,4,1,9,9,679,2,2,4))
-ciceCfmInterfaceGroup.setObjects((_B,_b))
-if mibBuilder.loadTexts:ciceCfmInterfaceGroup.setStatus(_A)
-ciceCfmMipGroup=ObjectGroup((1,3,6,1,4,1,9,9,679,2,2,5))
-ciceCfmMipGroup.setObjects(*((_B,_c),(_B,_d),(_B,_e)))
-if mibBuilder.loadTexts:ciceCfmMipGroup.setStatus(_A)
-ciceCfmMacEnableGroup=ObjectGroup((1,3,6,1,4,1,9,9,679,2,2,6))
-ciceCfmMacEnableGroup.setObjects(*((_B,_f),(_B,_g)))
-if mibBuilder.loadTexts:ciceCfmMacEnableGroup.setStatus(_A)
-ciceCfmMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,679,2,1,1))
-ciceCfmMIBCompliance.setObjects(*((_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m)))
-if mibBuilder.loadTexts:ciceCfmMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoIeee8021CfmExtMIB':ciscoIeee8021CfmExtMIB,'cIeeeCfmExtMIBNotifs':cIeeeCfmExtMIBNotifs,'cIeeeCfmExtMIBObjects':cIeeeCfmExtMIBObjects,'ciceCfmGlobal':ciceCfmGlobal,_P:ciceCfmEnable,_Q:ciceCfmMaxMdLevel,_R:ciceCfmBrainAddress,_S:ciceCfmCcMulticastAddress,_T:ciceCfmLtmMulticastAddress,_U:ciceCfmEnableFaultAlarm,'ciceCfmLtr':ciceCfmLtr,_V:ciceCfmLtrEnable,_W:ciceCfmLtrHoldTime,_X:ciceCfmLtrSize,'ciceCfmMa':ciceCfmMa,'ciceCfmMaNetTable':ciceCfmMaNetTable,'ciceCfmMaNetEntry':ciceCfmMaNetEntry,_Y:ciceCfmMaNetCciEnable,_Z:ciceCfmMaNetCciDirection,_a:ciceCfmMaNetLossThreshold,'ciceCfmIfObjects':ciceCfmIfObjects,'ciceCfmInterfaceTable':ciceCfmInterfaceTable,'ciceCfmInterfaceEntry':ciceCfmInterfaceEntry,_F:ciceCfmIfIndex,_b:ciceCfmIfState,'ciceCfmMipTable':ciceCfmMipTable,'ciceCfmMipEntry':ciceCfmMipEntry,_N:ciceCfmMipVlanIndex,_c:ciceCfmMipMdLevel,_d:ciceCfmMipStorageType,_e:ciceCfmMipRowStatus,'ciceCfmMacEnableIfTable':ciceCfmMacEnableIfTable,'ciceCfmMacEnableIfEntry':ciceCfmMacEnableIfEntry,_O:ciceCfmMacEnableVlanIndex,_f:ciceCfmMacEnableStorageType,_g:ciceCfmMacEnableRowStatus,'ciceCfmMep':ciceCfmMep,'cIeeeCfmExtMIBConformance':cIeeeCfmExtMIBConformance,'ciceCfmMIBCompliances':ciceCfmMIBCompliances,'ciceCfmMIBCompliance':ciceCfmMIBCompliance,'ciceCfmMIBGroups':ciceCfmMIBGroups,_h:ciceCfmGlobalObjectsGroup,_j:ciceCfmLtrConfigGroup,_k:ciceCfmMaNetGroup,_i:ciceCfmInterfaceGroup,_l:ciceCfmMipGroup,_m:ciceCfmMacEnableGroup})
+#
+# PySNMP MIB module CISCO-IEEE8021-CFM-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-IEEE8021-CFM-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:15 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+dot1agCfmMaIndex, Dot1agCfmMpDirection, dot1agCfmMdIndex = mibBuilder.importSymbols("IEEE8021-CFM-MIB", "dot1agCfmMaIndex", "Dot1agCfmMpDirection", "dot1agCfmMdIndex")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+VlanId, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention, TruthValue, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention", "TruthValue", "StorageType")
+ciscoIeee8021CfmExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 679))
+ciscoIeee8021CfmExtMIB.setRevisions(('2008-11-13 00:00',))
+if mibBuilder.loadTexts: ciscoIeee8021CfmExtMIB.setLastUpdated('200811130000Z')
+if mibBuilder.loadTexts: ciscoIeee8021CfmExtMIB.setOrganization('Cisco Systems, Inc.')
+cIeeeCfmExtMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 679, 0))
+cIeeeCfmExtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 679, 1))
+cIeeeCfmExtMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 679, 2))
+ciceCfmGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 1))
+ciceCfmLtr = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 2))
+ciceCfmMa = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 3))
+ciceCfmIfObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4))
+ciceCfmMep = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 5))
+ciceCfmEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciceCfmEnable.setStatus('current')
+ciceCfmMaxMdLevel = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciceCfmMaxMdLevel.setStatus('current')
+ciceCfmBrainAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciceCfmBrainAddress.setStatus('current')
+ciceCfmCcMulticastAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 1, 4), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciceCfmCcMulticastAddress.setStatus('current')
+ciceCfmLtmMulticastAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 1, 5), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciceCfmLtmMulticastAddress.setStatus('current')
+ciceCfmEnableFaultAlarm = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 1, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciceCfmEnableFaultAlarm.setStatus('current')
+ciceCfmLtrEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 2, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciceCfmLtrEnable.setStatus('current')
+ciceCfmLtrHoldTime = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 2, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setUnits('minutes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciceCfmLtrHoldTime.setStatus('current')
+ciceCfmLtrSize = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 2, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciceCfmLtrSize.setStatus('current')
+ciceCfmMaNetTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 3, 1), )
+if mibBuilder.loadTexts: ciceCfmMaNetTable.setStatus('current')
+ciceCfmMaNetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 3, 1, 1), ).setIndexNames((0, "IEEE8021-CFM-MIB", "dot1agCfmMdIndex"), (0, "IEEE8021-CFM-MIB", "dot1agCfmMaIndex"))
+if mibBuilder.loadTexts: ciceCfmMaNetEntry.setStatus('current')
+ciceCfmMaNetCciEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 3, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciceCfmMaNetCciEnable.setStatus('current')
+ciceCfmMaNetCciDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 3, 1, 1, 2), Dot1agCfmMpDirection()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciceCfmMaNetCciDirection.setStatus('current')
+ciceCfmMaNetLossThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 3, 1, 1, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciceCfmMaNetLossThreshold.setStatus('current')
+ciceCfmInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4, 1), )
+if mibBuilder.loadTexts: ciceCfmInterfaceTable.setStatus('current')
+ciceCfmInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4, 1, 1), ).setIndexNames((0, "CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmIfIndex"))
+if mibBuilder.loadTexts: ciceCfmInterfaceEntry.setStatus('current')
+ciceCfmIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: ciceCfmIfIndex.setStatus('current')
+ciceCfmIfState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2), ("transparent", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciceCfmIfState.setStatus('current')
+ciceCfmMipTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4, 2), )
+if mibBuilder.loadTexts: ciceCfmMipTable.setStatus('current')
+ciceCfmMipEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4, 2, 1), ).setIndexNames((0, "CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmIfIndex"), (0, "CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmMipVlanIndex"))
+if mibBuilder.loadTexts: ciceCfmMipEntry.setStatus('current')
+ciceCfmMipVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4, 2, 1, 1), VlanId())
+if mibBuilder.loadTexts: ciceCfmMipVlanIndex.setStatus('current')
+ciceCfmMipMdLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4, 2, 1, 2), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciceCfmMipMdLevel.setStatus('current')
+ciceCfmMipStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4, 2, 1, 3), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciceCfmMipStorageType.setStatus('current')
+ciceCfmMipRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciceCfmMipRowStatus.setStatus('current')
+ciceCfmMacEnableIfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4, 3), )
+if mibBuilder.loadTexts: ciceCfmMacEnableIfTable.setStatus('current')
+ciceCfmMacEnableIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4, 3, 1), ).setIndexNames((0, "CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmIfIndex"), (0, "CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmMacEnableVlanIndex"))
+if mibBuilder.loadTexts: ciceCfmMacEnableIfEntry.setStatus('current')
+ciceCfmMacEnableVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4, 3, 1, 1), VlanId())
+if mibBuilder.loadTexts: ciceCfmMacEnableVlanIndex.setStatus('current')
+ciceCfmMacEnableStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4, 3, 1, 2), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciceCfmMacEnableStorageType.setStatus('current')
+ciceCfmMacEnableRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 679, 1, 4, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciceCfmMacEnableRowStatus.setStatus('current')
+ciceCfmMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 679, 2, 1))
+ciceCfmMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 679, 2, 2))
+ciceCfmMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 679, 2, 1, 1)).setObjects(("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmGlobalObjectsGroup"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmInterfaceGroup"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmLtrConfigGroup"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmMaNetGroup"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmMipGroup"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmMacEnableGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciceCfmMIBCompliance = ciceCfmMIBCompliance.setStatus('current')
+ciceCfmGlobalObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 679, 2, 2, 1)).setObjects(("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmEnable"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmMaxMdLevel"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmBrainAddress"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmCcMulticastAddress"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmLtmMulticastAddress"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmEnableFaultAlarm"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciceCfmGlobalObjectsGroup = ciceCfmGlobalObjectsGroup.setStatus('current')
+ciceCfmLtrConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 679, 2, 2, 2)).setObjects(("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmLtrEnable"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmLtrHoldTime"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmLtrSize"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciceCfmLtrConfigGroup = ciceCfmLtrConfigGroup.setStatus('current')
+ciceCfmMaNetGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 679, 2, 2, 3)).setObjects(("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmMaNetCciEnable"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmMaNetCciDirection"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmMaNetLossThreshold"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciceCfmMaNetGroup = ciceCfmMaNetGroup.setStatus('current')
+ciceCfmInterfaceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 679, 2, 2, 4)).setObjects(("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmIfState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciceCfmInterfaceGroup = ciceCfmInterfaceGroup.setStatus('current')
+ciceCfmMipGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 679, 2, 2, 5)).setObjects(("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmMipMdLevel"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmMipStorageType"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmMipRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciceCfmMipGroup = ciceCfmMipGroup.setStatus('current')
+ciceCfmMacEnableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 679, 2, 2, 6)).setObjects(("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmMacEnableStorageType"), ("CISCO-IEEE8021-CFM-EXT-MIB", "ciceCfmMacEnableRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciceCfmMacEnableGroup = ciceCfmMacEnableGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-IEEE8021-CFM-EXT-MIB", ciceCfmLtrConfigGroup=ciceCfmLtrConfigGroup, ciceCfmLtrHoldTime=ciceCfmLtrHoldTime, ciscoIeee8021CfmExtMIB=ciscoIeee8021CfmExtMIB, cIeeeCfmExtMIBNotifs=cIeeeCfmExtMIBNotifs, ciceCfmIfIndex=ciceCfmIfIndex, ciceCfmMipVlanIndex=ciceCfmMipVlanIndex, ciceCfmMacEnableStorageType=ciceCfmMacEnableStorageType, ciceCfmGlobalObjectsGroup=ciceCfmGlobalObjectsGroup, ciceCfmLtrSize=ciceCfmLtrSize, ciceCfmMipTable=ciceCfmMipTable, ciceCfmMaxMdLevel=ciceCfmMaxMdLevel, ciceCfmMipStorageType=ciceCfmMipStorageType, ciceCfmMaNetGroup=ciceCfmMaNetGroup, ciceCfmMipGroup=ciceCfmMipGroup, ciceCfmMacEnableIfTable=ciceCfmMacEnableIfTable, ciceCfmLtmMulticastAddress=ciceCfmLtmMulticastAddress, PYSNMP_MODULE_ID=ciscoIeee8021CfmExtMIB, cIeeeCfmExtMIBConformance=cIeeeCfmExtMIBConformance, ciceCfmMa=ciceCfmMa, ciceCfmMaNetTable=ciceCfmMaNetTable, ciceCfmMaNetEntry=ciceCfmMaNetEntry, cIeeeCfmExtMIBObjects=cIeeeCfmExtMIBObjects, ciceCfmMIBGroups=ciceCfmMIBGroups, ciceCfmCcMulticastAddress=ciceCfmCcMulticastAddress, ciceCfmMipRowStatus=ciceCfmMipRowStatus, ciceCfmMep=ciceCfmMep, ciceCfmEnable=ciceCfmEnable, ciceCfmInterfaceEntry=ciceCfmInterfaceEntry, ciceCfmMacEnableVlanIndex=ciceCfmMacEnableVlanIndex, ciceCfmMIBCompliances=ciceCfmMIBCompliances, ciceCfmMIBCompliance=ciceCfmMIBCompliance, ciceCfmEnableFaultAlarm=ciceCfmEnableFaultAlarm, ciceCfmGlobal=ciceCfmGlobal, ciceCfmInterfaceTable=ciceCfmInterfaceTable, ciceCfmMacEnableGroup=ciceCfmMacEnableGroup, ciceCfmIfState=ciceCfmIfState, ciceCfmMaNetLossThreshold=ciceCfmMaNetLossThreshold, ciceCfmMacEnableIfEntry=ciceCfmMacEnableIfEntry, ciceCfmMipEntry=ciceCfmMipEntry, ciceCfmInterfaceGroup=ciceCfmInterfaceGroup, ciceCfmBrainAddress=ciceCfmBrainAddress, ciceCfmLtrEnable=ciceCfmLtrEnable, ciceCfmMaNetCciDirection=ciceCfmMaNetCciDirection, ciceCfmMacEnableRowStatus=ciceCfmMacEnableRowStatus, ciceCfmMipMdLevel=ciceCfmMipMdLevel, ciceCfmIfObjects=ciceCfmIfObjects, ciceCfmLtr=ciceCfmLtr, ciceCfmMaNetCciEnable=ciceCfmMaNetCciEnable)

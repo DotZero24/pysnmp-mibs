@@ -1,194 +1,88 @@
-_g='cvH320CallActiveGroup'
-_f='cvH320CallHistoryGroup'
-_e='cvH320CallActiveRxVideoBytes'
-_d='cvH320CallActiveRxVideoPackets'
-_c='cvH320CallActiveRxVideoCodec'
-_b='cvH320CallActiveTxVideoBytes'
-_a='cvH320CallActiveTxVideoPackets'
-_Z='cvH320CallActiveTxVideoCodec'
-_Y='cvH320CallActiveUsedBandwidth'
-_X='cvH320CallActiveH320CallType'
-_W='cvH320CallActiveIncomingConnectionId'
-_V='cvH320CallActiveConnectionId'
-_U='cvH320CallHistoryRxVideoBytes'
-_T='cvH320CallHistoryRxVideoPackets'
-_S='cvH320CallHistoryRxVideoCodec'
-_R='cvH320CallHistoryTxVideoBytes'
-_Q='cvH320CallHistoryTxVideoPackets'
-_P='cvH320CallHistoryTxVideoCodec'
-_O='cvH320CallHistoryUsedBandwidth'
-_N='cvH320CallHistoryH320CallType'
-_M='cvH320CallHistoryIncomingConnectionId'
-_L='cvH320CallHistoryConnectionId'
-_K='kilobits per second'
-_J='callActiveSetupTime'
-_I='callActiveIndex'
-_H='cCallHistoryIndex'
-_G='CISCO-DIAL-CONTROL-MIB'
-_F='Integer32'
-_E='DIAL-CONTROL-MIB'
-_D='bytes'
-_C='read-only'
-_B='CISCO-H320-DIAL-CONTROL-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-cCallHistoryIndex,=mibBuilder.importSymbols(_G,_H)
-ciscoExperiment,=mibBuilder.importSymbols('CISCO-SMI','ciscoExperiment')
-CvcGUid,CvcH320CallType,CvcVideoCoderRate=mibBuilder.importSymbols('CISCO-VOICE-COMMON-DIAL-CONTROL-MIB','CvcGUid','CvcH320CallType','CvcVideoCoderRate')
-AbsoluteCounter32,callActiveIndex,callActiveSetupTime=mibBuilder.importSymbols(_E,'AbsoluteCounter32',_I,_J)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoH320DialControlMIB=ModuleIdentity((1,3,6,1,4,1,9,10,128))
-if mibBuilder.loadTexts:ciscoH320DialControlMIB.setRevisions(('2006-02-23 00:00','2005-09-28 00:00'))
-_CiscoH320DialControlMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoH320DialControlMIBNotifs=_CiscoH320DialControlMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,10,128,0))
-_CiscoH320DialControlMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoH320DialControlMIBObjects=_CiscoH320DialControlMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,10,128,1))
-_CvH320CallHistory_ObjectIdentity=ObjectIdentity
-cvH320CallHistory=_CvH320CallHistory_ObjectIdentity((1,3,6,1,4,1,9,10,128,1,1))
-_CvH320CallHistoryTable_Object=MibTable
-cvH320CallHistoryTable=_CvH320CallHistoryTable_Object((1,3,6,1,4,1,9,10,128,1,1,1))
-if mibBuilder.loadTexts:cvH320CallHistoryTable.setStatus(_A)
-_CvH320CallHistoryEntry_Object=MibTableRow
-cvH320CallHistoryEntry=_CvH320CallHistoryEntry_Object((1,3,6,1,4,1,9,10,128,1,1,1,1))
-cvH320CallHistoryEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:cvH320CallHistoryEntry.setStatus(_A)
-_CvH320CallHistoryConnectionId_Type=CvcGUid
-_CvH320CallHistoryConnectionId_Object=MibTableColumn
-cvH320CallHistoryConnectionId=_CvH320CallHistoryConnectionId_Object((1,3,6,1,4,1,9,10,128,1,1,1,1,1),_CvH320CallHistoryConnectionId_Type())
-cvH320CallHistoryConnectionId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallHistoryConnectionId.setStatus(_A)
-_CvH320CallHistoryIncomingConnectionId_Type=CvcGUid
-_CvH320CallHistoryIncomingConnectionId_Object=MibTableColumn
-cvH320CallHistoryIncomingConnectionId=_CvH320CallHistoryIncomingConnectionId_Object((1,3,6,1,4,1,9,10,128,1,1,1,1,2),_CvH320CallHistoryIncomingConnectionId_Type())
-cvH320CallHistoryIncomingConnectionId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallHistoryIncomingConnectionId.setStatus(_A)
-_CvH320CallHistoryH320CallType_Type=CvcH320CallType
-_CvH320CallHistoryH320CallType_Object=MibTableColumn
-cvH320CallHistoryH320CallType=_CvH320CallHistoryH320CallType_Object((1,3,6,1,4,1,9,10,128,1,1,1,1,3),_CvH320CallHistoryH320CallType_Type())
-cvH320CallHistoryH320CallType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallHistoryH320CallType.setStatus(_A)
-class _CvH320CallHistoryUsedBandwidth_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000000))
-_CvH320CallHistoryUsedBandwidth_Type.__name__=_F
-_CvH320CallHistoryUsedBandwidth_Object=MibTableColumn
-cvH320CallHistoryUsedBandwidth=_CvH320CallHistoryUsedBandwidth_Object((1,3,6,1,4,1,9,10,128,1,1,1,1,4),_CvH320CallHistoryUsedBandwidth_Type())
-cvH320CallHistoryUsedBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallHistoryUsedBandwidth.setStatus(_A)
-if mibBuilder.loadTexts:cvH320CallHistoryUsedBandwidth.setUnits(_K)
-_CvH320CallHistoryTxVideoCodec_Type=CvcVideoCoderRate
-_CvH320CallHistoryTxVideoCodec_Object=MibTableColumn
-cvH320CallHistoryTxVideoCodec=_CvH320CallHistoryTxVideoCodec_Object((1,3,6,1,4,1,9,10,128,1,1,1,1,5),_CvH320CallHistoryTxVideoCodec_Type())
-cvH320CallHistoryTxVideoCodec.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallHistoryTxVideoCodec.setStatus(_A)
-_CvH320CallHistoryTxVideoPackets_Type=AbsoluteCounter32
-_CvH320CallHistoryTxVideoPackets_Object=MibTableColumn
-cvH320CallHistoryTxVideoPackets=_CvH320CallHistoryTxVideoPackets_Object((1,3,6,1,4,1,9,10,128,1,1,1,1,6),_CvH320CallHistoryTxVideoPackets_Type())
-cvH320CallHistoryTxVideoPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallHistoryTxVideoPackets.setStatus(_A)
-_CvH320CallHistoryTxVideoBytes_Type=AbsoluteCounter32
-_CvH320CallHistoryTxVideoBytes_Object=MibTableColumn
-cvH320CallHistoryTxVideoBytes=_CvH320CallHistoryTxVideoBytes_Object((1,3,6,1,4,1,9,10,128,1,1,1,1,7),_CvH320CallHistoryTxVideoBytes_Type())
-cvH320CallHistoryTxVideoBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallHistoryTxVideoBytes.setStatus(_A)
-if mibBuilder.loadTexts:cvH320CallHistoryTxVideoBytes.setUnits(_D)
-_CvH320CallHistoryRxVideoCodec_Type=CvcVideoCoderRate
-_CvH320CallHistoryRxVideoCodec_Object=MibTableColumn
-cvH320CallHistoryRxVideoCodec=_CvH320CallHistoryRxVideoCodec_Object((1,3,6,1,4,1,9,10,128,1,1,1,1,8),_CvH320CallHistoryRxVideoCodec_Type())
-cvH320CallHistoryRxVideoCodec.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallHistoryRxVideoCodec.setStatus(_A)
-_CvH320CallHistoryRxVideoPackets_Type=AbsoluteCounter32
-_CvH320CallHistoryRxVideoPackets_Object=MibTableColumn
-cvH320CallHistoryRxVideoPackets=_CvH320CallHistoryRxVideoPackets_Object((1,3,6,1,4,1,9,10,128,1,1,1,1,9),_CvH320CallHistoryRxVideoPackets_Type())
-cvH320CallHistoryRxVideoPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallHistoryRxVideoPackets.setStatus(_A)
-_CvH320CallHistoryRxVideoBytes_Type=AbsoluteCounter32
-_CvH320CallHistoryRxVideoBytes_Object=MibTableColumn
-cvH320CallHistoryRxVideoBytes=_CvH320CallHistoryRxVideoBytes_Object((1,3,6,1,4,1,9,10,128,1,1,1,1,10),_CvH320CallHistoryRxVideoBytes_Type())
-cvH320CallHistoryRxVideoBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallHistoryRxVideoBytes.setStatus(_A)
-if mibBuilder.loadTexts:cvH320CallHistoryRxVideoBytes.setUnits(_D)
-_CvH320CallActive_ObjectIdentity=ObjectIdentity
-cvH320CallActive=_CvH320CallActive_ObjectIdentity((1,3,6,1,4,1,9,10,128,1,2))
-_CvH320CallActiveTable_Object=MibTable
-cvH320CallActiveTable=_CvH320CallActiveTable_Object((1,3,6,1,4,1,9,10,128,1,2,1))
-if mibBuilder.loadTexts:cvH320CallActiveTable.setStatus(_A)
-_CvH320CallActiveEntry_Object=MibTableRow
-cvH320CallActiveEntry=_CvH320CallActiveEntry_Object((1,3,6,1,4,1,9,10,128,1,2,1,1))
-cvH320CallActiveEntry.setIndexNames((0,_E,_J),(0,_E,_I))
-if mibBuilder.loadTexts:cvH320CallActiveEntry.setStatus(_A)
-_CvH320CallActiveConnectionId_Type=CvcGUid
-_CvH320CallActiveConnectionId_Object=MibTableColumn
-cvH320CallActiveConnectionId=_CvH320CallActiveConnectionId_Object((1,3,6,1,4,1,9,10,128,1,2,1,1,1),_CvH320CallActiveConnectionId_Type())
-cvH320CallActiveConnectionId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallActiveConnectionId.setStatus(_A)
-_CvH320CallActiveIncomingConnectionId_Type=CvcGUid
-_CvH320CallActiveIncomingConnectionId_Object=MibTableColumn
-cvH320CallActiveIncomingConnectionId=_CvH320CallActiveIncomingConnectionId_Object((1,3,6,1,4,1,9,10,128,1,2,1,1,2),_CvH320CallActiveIncomingConnectionId_Type())
-cvH320CallActiveIncomingConnectionId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallActiveIncomingConnectionId.setStatus(_A)
-_CvH320CallActiveH320CallType_Type=CvcH320CallType
-_CvH320CallActiveH320CallType_Object=MibTableColumn
-cvH320CallActiveH320CallType=_CvH320CallActiveH320CallType_Object((1,3,6,1,4,1,9,10,128,1,2,1,1,3),_CvH320CallActiveH320CallType_Type())
-cvH320CallActiveH320CallType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallActiveH320CallType.setStatus(_A)
-class _CvH320CallActiveUsedBandwidth_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000000))
-_CvH320CallActiveUsedBandwidth_Type.__name__=_F
-_CvH320CallActiveUsedBandwidth_Object=MibTableColumn
-cvH320CallActiveUsedBandwidth=_CvH320CallActiveUsedBandwidth_Object((1,3,6,1,4,1,9,10,128,1,2,1,1,4),_CvH320CallActiveUsedBandwidth_Type())
-cvH320CallActiveUsedBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallActiveUsedBandwidth.setStatus(_A)
-if mibBuilder.loadTexts:cvH320CallActiveUsedBandwidth.setUnits(_K)
-_CvH320CallActiveTxVideoCodec_Type=CvcVideoCoderRate
-_CvH320CallActiveTxVideoCodec_Object=MibTableColumn
-cvH320CallActiveTxVideoCodec=_CvH320CallActiveTxVideoCodec_Object((1,3,6,1,4,1,9,10,128,1,2,1,1,5),_CvH320CallActiveTxVideoCodec_Type())
-cvH320CallActiveTxVideoCodec.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallActiveTxVideoCodec.setStatus(_A)
-_CvH320CallActiveTxVideoPackets_Type=AbsoluteCounter32
-_CvH320CallActiveTxVideoPackets_Object=MibTableColumn
-cvH320CallActiveTxVideoPackets=_CvH320CallActiveTxVideoPackets_Object((1,3,6,1,4,1,9,10,128,1,2,1,1,6),_CvH320CallActiveTxVideoPackets_Type())
-cvH320CallActiveTxVideoPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallActiveTxVideoPackets.setStatus(_A)
-_CvH320CallActiveTxVideoBytes_Type=AbsoluteCounter32
-_CvH320CallActiveTxVideoBytes_Object=MibTableColumn
-cvH320CallActiveTxVideoBytes=_CvH320CallActiveTxVideoBytes_Object((1,3,6,1,4,1,9,10,128,1,2,1,1,7),_CvH320CallActiveTxVideoBytes_Type())
-cvH320CallActiveTxVideoBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallActiveTxVideoBytes.setStatus(_A)
-if mibBuilder.loadTexts:cvH320CallActiveTxVideoBytes.setUnits(_D)
-_CvH320CallActiveRxVideoCodec_Type=CvcVideoCoderRate
-_CvH320CallActiveRxVideoCodec_Object=MibTableColumn
-cvH320CallActiveRxVideoCodec=_CvH320CallActiveRxVideoCodec_Object((1,3,6,1,4,1,9,10,128,1,2,1,1,8),_CvH320CallActiveRxVideoCodec_Type())
-cvH320CallActiveRxVideoCodec.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallActiveRxVideoCodec.setStatus(_A)
-_CvH320CallActiveRxVideoPackets_Type=AbsoluteCounter32
-_CvH320CallActiveRxVideoPackets_Object=MibTableColumn
-cvH320CallActiveRxVideoPackets=_CvH320CallActiveRxVideoPackets_Object((1,3,6,1,4,1,9,10,128,1,2,1,1,9),_CvH320CallActiveRxVideoPackets_Type())
-cvH320CallActiveRxVideoPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallActiveRxVideoPackets.setStatus(_A)
-_CvH320CallActiveRxVideoBytes_Type=AbsoluteCounter32
-_CvH320CallActiveRxVideoBytes_Object=MibTableColumn
-cvH320CallActiveRxVideoBytes=_CvH320CallActiveRxVideoBytes_Object((1,3,6,1,4,1,9,10,128,1,2,1,1,10),_CvH320CallActiveRxVideoBytes_Type())
-cvH320CallActiveRxVideoBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvH320CallActiveRxVideoBytes.setStatus(_A)
-if mibBuilder.loadTexts:cvH320CallActiveRxVideoBytes.setUnits(_D)
-_CiscoH320DialControlMIBConform_ObjectIdentity=ObjectIdentity
-ciscoH320DialControlMIBConform=_CiscoH320DialControlMIBConform_ObjectIdentity((1,3,6,1,4,1,9,10,128,2))
-_CiscoH320DialControlMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoH320DialControlMIBConformance=_CiscoH320DialControlMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,10,128,2,1))
-_CiscoH320DialControlMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoH320DialControlMIBCompliances=_CiscoH320DialControlMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,10,128,2,1,1))
-_CiscoH320DialControlMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoH320DialControlMIBGroups=_CiscoH320DialControlMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,10,128,2,1,2))
-cvH320CallHistoryGroup=ObjectGroup((1,3,6,1,4,1,9,10,128,2,1,2,1))
-cvH320CallHistoryGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:cvH320CallHistoryGroup.setStatus(_A)
-cvH320CallActiveGroup=ObjectGroup((1,3,6,1,4,1,9,10,128,2,1,2,2))
-cvH320CallActiveGroup.setObjects(*((_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e)))
-if mibBuilder.loadTexts:cvH320CallActiveGroup.setStatus(_A)
-ciscoH320DialControlMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,10,128,2,1,1,1))
-ciscoH320DialControlMIBCompliance.setObjects(*((_B,_f),(_B,_g)))
-if mibBuilder.loadTexts:ciscoH320DialControlMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoH320DialControlMIB':ciscoH320DialControlMIB,'ciscoH320DialControlMIBNotifs':ciscoH320DialControlMIBNotifs,'ciscoH320DialControlMIBObjects':ciscoH320DialControlMIBObjects,'cvH320CallHistory':cvH320CallHistory,'cvH320CallHistoryTable':cvH320CallHistoryTable,'cvH320CallHistoryEntry':cvH320CallHistoryEntry,_L:cvH320CallHistoryConnectionId,_M:cvH320CallHistoryIncomingConnectionId,_N:cvH320CallHistoryH320CallType,_O:cvH320CallHistoryUsedBandwidth,_P:cvH320CallHistoryTxVideoCodec,_Q:cvH320CallHistoryTxVideoPackets,_R:cvH320CallHistoryTxVideoBytes,_S:cvH320CallHistoryRxVideoCodec,_T:cvH320CallHistoryRxVideoPackets,_U:cvH320CallHistoryRxVideoBytes,'cvH320CallActive':cvH320CallActive,'cvH320CallActiveTable':cvH320CallActiveTable,'cvH320CallActiveEntry':cvH320CallActiveEntry,_V:cvH320CallActiveConnectionId,_W:cvH320CallActiveIncomingConnectionId,_X:cvH320CallActiveH320CallType,_Y:cvH320CallActiveUsedBandwidth,_Z:cvH320CallActiveTxVideoCodec,_a:cvH320CallActiveTxVideoPackets,_b:cvH320CallActiveTxVideoBytes,_c:cvH320CallActiveRxVideoCodec,_d:cvH320CallActiveRxVideoPackets,_e:cvH320CallActiveRxVideoBytes,'ciscoH320DialControlMIBConform':ciscoH320DialControlMIBConform,'ciscoH320DialControlMIBConformance':ciscoH320DialControlMIBConformance,'ciscoH320DialControlMIBCompliances':ciscoH320DialControlMIBCompliances,'ciscoH320DialControlMIBCompliance':ciscoH320DialControlMIBCompliance,'ciscoH320DialControlMIBGroups':ciscoH320DialControlMIBGroups,_f:cvH320CallHistoryGroup,_g:cvH320CallActiveGroup})
+#
+# PySNMP MIB module CISCO-H320-DIAL-CONTROL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-H320-DIAL-CONTROL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cCallHistoryIndex, = mibBuilder.importSymbols("CISCO-DIAL-CONTROL-MIB", "cCallHistoryIndex")
+ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
+CvcVideoCoderRate, CvcH320CallType, CvcGUid = mibBuilder.importSymbols("CISCO-VOICE-COMMON-DIAL-CONTROL-MIB", "CvcVideoCoderRate", "CvcH320CallType", "CvcGUid")
+callActiveSetupTime, callActiveIndex, AbsoluteCounter32 = mibBuilder.importSymbols("DIAL-CONTROL-MIB", "callActiveSetupTime", "callActiveIndex", "AbsoluteCounter32")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoH320DialControlMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 128))
+ciscoH320DialControlMIB.setRevisions(('2006-02-23 00:00', '2005-09-28 00:00',))
+if mibBuilder.loadTexts: ciscoH320DialControlMIB.setLastUpdated('200602230000Z')
+if mibBuilder.loadTexts: ciscoH320DialControlMIB.setOrganization('Cisco Systems, Inc.')
+ciscoH320DialControlMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 128, 0))
+ciscoH320DialControlMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 128, 1))
+ciscoH320DialControlMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 128, 2))
+cvH320CallHistory = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 1))
+cvH320CallActive = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 2))
+cvH320CallHistoryTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 1, 1), )
+if mibBuilder.loadTexts: cvH320CallHistoryTable.setStatus('current')
+cvH320CallHistoryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-DIAL-CONTROL-MIB", "cCallHistoryIndex"))
+if mibBuilder.loadTexts: cvH320CallHistoryEntry.setStatus('current')
+cvH320CallHistoryConnectionId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 1, 1, 1, 1), CvcGUid()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallHistoryConnectionId.setStatus('current')
+cvH320CallHistoryIncomingConnectionId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 1, 1, 1, 2), CvcGUid()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallHistoryIncomingConnectionId.setStatus('current')
+cvH320CallHistoryH320CallType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 1, 1, 1, 3), CvcH320CallType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallHistoryH320CallType.setStatus('current')
+cvH320CallHistoryUsedBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000000))).setUnits('kilobits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallHistoryUsedBandwidth.setStatus('current')
+cvH320CallHistoryTxVideoCodec = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 1, 1, 1, 5), CvcVideoCoderRate()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallHistoryTxVideoCodec.setStatus('current')
+cvH320CallHistoryTxVideoPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 1, 1, 1, 6), AbsoluteCounter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallHistoryTxVideoPackets.setStatus('current')
+cvH320CallHistoryTxVideoBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 1, 1, 1, 7), AbsoluteCounter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallHistoryTxVideoBytes.setStatus('current')
+cvH320CallHistoryRxVideoCodec = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 1, 1, 1, 8), CvcVideoCoderRate()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallHistoryRxVideoCodec.setStatus('current')
+cvH320CallHistoryRxVideoPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 1, 1, 1, 9), AbsoluteCounter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallHistoryRxVideoPackets.setStatus('current')
+cvH320CallHistoryRxVideoBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 1, 1, 1, 10), AbsoluteCounter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallHistoryRxVideoBytes.setStatus('current')
+cvH320CallActiveTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 2, 1), )
+if mibBuilder.loadTexts: cvH320CallActiveTable.setStatus('current')
+cvH320CallActiveEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 2, 1, 1), ).setIndexNames((0, "DIAL-CONTROL-MIB", "callActiveSetupTime"), (0, "DIAL-CONTROL-MIB", "callActiveIndex"))
+if mibBuilder.loadTexts: cvH320CallActiveEntry.setStatus('current')
+cvH320CallActiveConnectionId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 2, 1, 1, 1), CvcGUid()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallActiveConnectionId.setStatus('current')
+cvH320CallActiveIncomingConnectionId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 2, 1, 1, 2), CvcGUid()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallActiveIncomingConnectionId.setStatus('current')
+cvH320CallActiveH320CallType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 2, 1, 1, 3), CvcH320CallType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallActiveH320CallType.setStatus('current')
+cvH320CallActiveUsedBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000000))).setUnits('kilobits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallActiveUsedBandwidth.setStatus('current')
+cvH320CallActiveTxVideoCodec = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 2, 1, 1, 5), CvcVideoCoderRate()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallActiveTxVideoCodec.setStatus('current')
+cvH320CallActiveTxVideoPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 2, 1, 1, 6), AbsoluteCounter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallActiveTxVideoPackets.setStatus('current')
+cvH320CallActiveTxVideoBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 2, 1, 1, 7), AbsoluteCounter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallActiveTxVideoBytes.setStatus('current')
+cvH320CallActiveRxVideoCodec = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 2, 1, 1, 8), CvcVideoCoderRate()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallActiveRxVideoCodec.setStatus('current')
+cvH320CallActiveRxVideoPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 2, 1, 1, 9), AbsoluteCounter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallActiveRxVideoPackets.setStatus('current')
+cvH320CallActiveRxVideoBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 128, 1, 2, 1, 1, 10), AbsoluteCounter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvH320CallActiveRxVideoBytes.setStatus('current')
+ciscoH320DialControlMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 128, 2, 1))
+ciscoH320DialControlMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 128, 2, 1, 1))
+ciscoH320DialControlMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 128, 2, 1, 2))
+ciscoH320DialControlMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 128, 2, 1, 1, 1)).setObjects(("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallHistoryGroup"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallActiveGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoH320DialControlMIBCompliance = ciscoH320DialControlMIBCompliance.setStatus('current')
+cvH320CallHistoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 128, 2, 1, 2, 1)).setObjects(("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallHistoryConnectionId"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallHistoryIncomingConnectionId"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallHistoryH320CallType"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallHistoryUsedBandwidth"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallHistoryTxVideoCodec"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallHistoryTxVideoPackets"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallHistoryTxVideoBytes"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallHistoryRxVideoCodec"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallHistoryRxVideoPackets"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallHistoryRxVideoBytes"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cvH320CallHistoryGroup = cvH320CallHistoryGroup.setStatus('current')
+cvH320CallActiveGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 128, 2, 1, 2, 2)).setObjects(("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallActiveConnectionId"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallActiveIncomingConnectionId"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallActiveH320CallType"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallActiveUsedBandwidth"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallActiveTxVideoCodec"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallActiveTxVideoPackets"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallActiveTxVideoBytes"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallActiveRxVideoCodec"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallActiveRxVideoPackets"), ("CISCO-H320-DIAL-CONTROL-MIB", "cvH320CallActiveRxVideoBytes"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cvH320CallActiveGroup = cvH320CallActiveGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-H320-DIAL-CONTROL-MIB", cvH320CallActiveTxVideoBytes=cvH320CallActiveTxVideoBytes, ciscoH320DialControlMIBGroups=ciscoH320DialControlMIBGroups, PYSNMP_MODULE_ID=ciscoH320DialControlMIB, cvH320CallActiveRxVideoPackets=cvH320CallActiveRxVideoPackets, cvH320CallActiveEntry=cvH320CallActiveEntry, cvH320CallActiveRxVideoCodec=cvH320CallActiveRxVideoCodec, cvH320CallActiveGroup=cvH320CallActiveGroup, cvH320CallHistoryEntry=cvH320CallHistoryEntry, cvH320CallHistoryTable=cvH320CallHistoryTable, ciscoH320DialControlMIBObjects=ciscoH320DialControlMIBObjects, cvH320CallActiveTxVideoCodec=cvH320CallActiveTxVideoCodec, cvH320CallHistoryH320CallType=cvH320CallHistoryH320CallType, cvH320CallHistoryTxVideoCodec=cvH320CallHistoryTxVideoCodec, cvH320CallActiveH320CallType=cvH320CallActiveH320CallType, cvH320CallHistoryRxVideoCodec=cvH320CallHistoryRxVideoCodec, cvH320CallHistoryIncomingConnectionId=cvH320CallHistoryIncomingConnectionId, ciscoH320DialControlMIBCompliance=ciscoH320DialControlMIBCompliance, cvH320CallActiveIncomingConnectionId=cvH320CallActiveIncomingConnectionId, cvH320CallActiveRxVideoBytes=cvH320CallActiveRxVideoBytes, ciscoH320DialControlMIBCompliances=ciscoH320DialControlMIBCompliances, cvH320CallHistoryUsedBandwidth=cvH320CallHistoryUsedBandwidth, ciscoH320DialControlMIB=ciscoH320DialControlMIB, cvH320CallHistoryTxVideoPackets=cvH320CallHistoryTxVideoPackets, ciscoH320DialControlMIBNotifs=ciscoH320DialControlMIBNotifs, cvH320CallActive=cvH320CallActive, cvH320CallActiveTable=cvH320CallActiveTable, ciscoH320DialControlMIBConformance=ciscoH320DialControlMIBConformance, ciscoH320DialControlMIBConform=ciscoH320DialControlMIBConform, cvH320CallActiveUsedBandwidth=cvH320CallActiveUsedBandwidth, cvH320CallHistoryRxVideoPackets=cvH320CallHistoryRxVideoPackets, cvH320CallActiveTxVideoPackets=cvH320CallActiveTxVideoPackets, cvH320CallHistoryRxVideoBytes=cvH320CallHistoryRxVideoBytes, cvH320CallHistory=cvH320CallHistory, cvH320CallHistoryTxVideoBytes=cvH320CallHistoryTxVideoBytes, cvH320CallHistoryConnectionId=cvH320CallHistoryConnectionId, cvH320CallActiveConnectionId=cvH320CallActiveConnectionId, cvH320CallHistoryGroup=cvH320CallHistoryGroup)

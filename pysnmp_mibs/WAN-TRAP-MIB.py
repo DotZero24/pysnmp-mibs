@@ -1,42 +1,24 @@
-_L='NotificationType'
-_K='dsx3LineStatus'
-_J='dsx3LineIndex'
-_I='dsx3IfIndex'
-_H='dsx1LineStatus'
-_G='dsx1LineIndex'
-_F='dsx1IfIndex'
-_E='sysUpTime'
-_D='sysDescr'
-_C='RFC1407-MIB'
-_B='RFC1406-MIB'
-_A='SNMPv2-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-extremeAgent,extremenetworks=mibBuilder.importSymbols('EXTREME-BASE-MIB','extremeAgent','extremenetworks')
-dsx1IfIndex,dsx1LineIndex,dsx1LineStatus=mibBuilder.importSymbols(_B,_F,_G,_H)
-dsx3IfIndex,dsx3LineIndex,dsx3LineStatus=mibBuilder.importSymbols(_C,_I,_J,_K)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-sysDescr,sysUpTime=mibBuilder.importSymbols(_A,_D,_E)
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier',_L,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_L,'TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-wanDsx1LineStatusChange=NotificationType((1,3,6,1,4,1,1916,0,100))
-wanDsx1LineStatusChange.setObjects(*((_A,_E),(_A,_D),(_B,_G),(_B,_F),(_B,_H)))
-if mibBuilder.loadTexts:wanDsx1LineStatusChange.setStatus('')
-wanDsx1LossOfMasterClock=NotificationType((1,3,6,1,4,1,1916,0,101))
-wanDsx1LossOfMasterClock.setObjects(*((_A,_E),(_A,_D),(_B,_G),(_B,_F),(_B,_H)))
-if mibBuilder.loadTexts:wanDsx1LossOfMasterClock.setStatus('')
-wanDsx1NoLossOfMasterClock=NotificationType((1,3,6,1,4,1,1916,0,102))
-wanDsx1NoLossOfMasterClock.setObjects(*((_A,_E),(_A,_D),(_B,_G),(_B,_F),(_B,_H)))
-if mibBuilder.loadTexts:wanDsx1NoLossOfMasterClock.setStatus('')
-wanDsx3LineStatusChange=NotificationType((1,3,6,1,4,1,1916,0,103))
-wanDsx3LineStatusChange.setObjects(*((_A,_E),(_A,_D),(_C,_J),(_C,_I),(_C,_K)))
-if mibBuilder.loadTexts:wanDsx3LineStatusChange.setStatus('')
-wanDsx3LossOfMasterClock=NotificationType((1,3,6,1,4,1,1916,0,104))
-wanDsx3LossOfMasterClock.setObjects(*((_A,_E),(_A,_D),(_C,_J),(_C,_I),(_C,_K)))
-if mibBuilder.loadTexts:wanDsx3LossOfMasterClock.setStatus('')
-wanDsx3NoLossOfMasterClock=NotificationType((1,3,6,1,4,1,1916,0,105))
-wanDsx3NoLossOfMasterClock.setObjects(*((_A,_E),(_A,_D),(_C,_J),(_C,_I),(_C,_K)))
-if mibBuilder.loadTexts:wanDsx3NoLossOfMasterClock.setStatus('')
-mibBuilder.exportSymbols('WAN-TRAP-MIB',**{'wanDsx1LineStatusChange':wanDsx1LineStatusChange,'wanDsx1LossOfMasterClock':wanDsx1LossOfMasterClock,'wanDsx1NoLossOfMasterClock':wanDsx1NoLossOfMasterClock,'wanDsx3LineStatusChange':wanDsx3LineStatusChange,'wanDsx3LossOfMasterClock':wanDsx3LossOfMasterClock,'wanDsx3NoLossOfMasterClock':wanDsx3NoLossOfMasterClock})
+#
+# PySNMP MIB module WAN-TRAP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/extreme/WAN-TRAP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+extremeAgent, extremenetworks = mibBuilder.importSymbols("EXTREME-BASE-MIB", "extremeAgent", "extremenetworks")
+dsx1LineStatus, dsx1LineIndex, dsx1IfIndex = mibBuilder.importSymbols("RFC1406-MIB", "dsx1LineStatus", "dsx1LineIndex", "dsx1IfIndex")
+dsx3LineStatus, dsx3IfIndex, dsx3LineIndex = mibBuilder.importSymbols("RFC1407-MIB", "dsx3LineStatus", "dsx3IfIndex", "dsx3LineIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+sysUpTime, sysDescr = mibBuilder.importSymbols("SNMPv2-MIB", "sysUpTime", "sysDescr")
+ModuleIdentity, NotificationType, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+wanDsx1LineStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 1916) + (0,100)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"), ("RFC1406-MIB", "dsx1LineIndex"), ("RFC1406-MIB", "dsx1IfIndex"), ("RFC1406-MIB", "dsx1LineStatus"))
+wanDsx1LossOfMasterClock = NotificationType((1, 3, 6, 1, 4, 1, 1916) + (0,101)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"), ("RFC1406-MIB", "dsx1LineIndex"), ("RFC1406-MIB", "dsx1IfIndex"), ("RFC1406-MIB", "dsx1LineStatus"))
+wanDsx1NoLossOfMasterClock = NotificationType((1, 3, 6, 1, 4, 1, 1916) + (0,102)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"), ("RFC1406-MIB", "dsx1LineIndex"), ("RFC1406-MIB", "dsx1IfIndex"), ("RFC1406-MIB", "dsx1LineStatus"))
+wanDsx3LineStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 1916) + (0,103)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"), ("RFC1407-MIB", "dsx3LineIndex"), ("RFC1407-MIB", "dsx3IfIndex"), ("RFC1407-MIB", "dsx3LineStatus"))
+wanDsx3LossOfMasterClock = NotificationType((1, 3, 6, 1, 4, 1, 1916) + (0,104)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"), ("RFC1407-MIB", "dsx3LineIndex"), ("RFC1407-MIB", "dsx3IfIndex"), ("RFC1407-MIB", "dsx3LineStatus"))
+wanDsx3NoLossOfMasterClock = NotificationType((1, 3, 6, 1, 4, 1, 1916) + (0,105)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"), ("RFC1407-MIB", "dsx3LineIndex"), ("RFC1407-MIB", "dsx3IfIndex"), ("RFC1407-MIB", "dsx3LineStatus"))
+mibBuilder.exportSymbols("WAN-TRAP-MIB", wanDsx1LossOfMasterClock=wanDsx1LossOfMasterClock, wanDsx3NoLossOfMasterClock=wanDsx3NoLossOfMasterClock, wanDsx3LineStatusChange=wanDsx3LineStatusChange, wanDsx3LossOfMasterClock=wanDsx3LossOfMasterClock, wanDsx1LineStatusChange=wanDsx1LineStatusChange, wanDsx1NoLossOfMasterClock=wanDsx1NoLossOfMasterClock)

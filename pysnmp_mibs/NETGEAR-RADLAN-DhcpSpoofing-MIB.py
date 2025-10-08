@@ -1,33 +1,28 @@
-_D='read-write'
-_C='dot1qVlanIndex'
-_B='Q-BRIDGE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-rnd,=mibBuilder.importSymbols('NETGEAR-RADLAN-MIB','rnd')
-PortList,dot1qVlanIndex=mibBuilder.importSymbols(_B,'PortList',_C)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-rlDhcpSpoofing=ModuleIdentity((1,3,6,1,4,1,4526,17,113))
-if mibBuilder.loadTexts:rlDhcpSpoofing.setRevisions(('2006-05-15 00:00',))
-_RlDhcpSpoofingServerPorts_Type=PortList
-_RlDhcpSpoofingServerPorts_Object=MibScalar
-rlDhcpSpoofingServerPorts=_RlDhcpSpoofingServerPorts_Object((1,3,6,1,4,1,4526,17,113,1),_RlDhcpSpoofingServerPorts_Type())
-rlDhcpSpoofingServerPorts.setMaxAccess(_D)
-if mibBuilder.loadTexts:rlDhcpSpoofingServerPorts.setStatus(_A)
-_RlDhcpSpoofingVlanTable_Object=MibTable
-rlDhcpSpoofingVlanTable=_RlDhcpSpoofingVlanTable_Object((1,3,6,1,4,1,4526,17,113,2))
-if mibBuilder.loadTexts:rlDhcpSpoofingVlanTable.setStatus(_A)
-_RlDhcpSpoofingVlanEntry_Object=MibTableRow
-rlDhcpSpoofingVlanEntry=_RlDhcpSpoofingVlanEntry_Object((1,3,6,1,4,1,4526,17,113,2,1))
-rlDhcpSpoofingVlanEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:rlDhcpSpoofingVlanEntry.setStatus(_A)
-_RlDhcpSpoofingEnabled_Type=TruthValue
-_RlDhcpSpoofingEnabled_Object=MibTableColumn
-rlDhcpSpoofingEnabled=_RlDhcpSpoofingEnabled_Object((1,3,6,1,4,1,4526,17,113,2,1,1),_RlDhcpSpoofingEnabled_Type())
-rlDhcpSpoofingEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:rlDhcpSpoofingEnabled.setStatus(_A)
-mibBuilder.exportSymbols('NETGEAR-RADLAN-DhcpSpoofing-MIB',**{'rlDhcpSpoofing':rlDhcpSpoofing,'rlDhcpSpoofingServerPorts':rlDhcpSpoofingServerPorts,'rlDhcpSpoofingVlanTable':rlDhcpSpoofingVlanTable,'rlDhcpSpoofingVlanEntry':rlDhcpSpoofingVlanEntry,'rlDhcpSpoofingEnabled':rlDhcpSpoofingEnabled})
+#
+# PySNMP MIB module NETGEAR-RADLAN-DhcpSpoofing-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netgear/NETGEAR-RADLAN-DhcpSpoofing-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:27:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+rnd, = mibBuilder.importSymbols("NETGEAR-RADLAN-MIB", "rnd")
+PortList, dot1qVlanIndex = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList", "dot1qVlanIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+rlDhcpSpoofing = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 17, 113))
+rlDhcpSpoofing.setRevisions(('2006-05-15 00:00',))
+if mibBuilder.loadTexts: rlDhcpSpoofing.setLastUpdated('200605150000Z')
+if mibBuilder.loadTexts: rlDhcpSpoofing.setOrganization('Radlan Computer Communications Ltd.')
+rlDhcpSpoofingServerPorts = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 113, 1), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlDhcpSpoofingServerPorts.setStatus('current')
+rlDhcpSpoofingVlanTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 17, 113, 2), )
+if mibBuilder.loadTexts: rlDhcpSpoofingVlanTable.setStatus('current')
+rlDhcpSpoofingVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 17, 113, 2, 1), ).setIndexNames((0, "Q-BRIDGE-MIB", "dot1qVlanIndex"))
+if mibBuilder.loadTexts: rlDhcpSpoofingVlanEntry.setStatus('current')
+rlDhcpSpoofingEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 113, 2, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlDhcpSpoofingEnabled.setStatus('current')
+mibBuilder.exportSymbols("NETGEAR-RADLAN-DhcpSpoofing-MIB", rlDhcpSpoofing=rlDhcpSpoofing, PYSNMP_MODULE_ID=rlDhcpSpoofing, rlDhcpSpoofingEnabled=rlDhcpSpoofingEnabled, rlDhcpSpoofingVlanTable=rlDhcpSpoofingVlanTable, rlDhcpSpoofingVlanEntry=rlDhcpSpoofingVlanEntry, rlDhcpSpoofingServerPorts=rlDhcpSpoofingServerPorts)

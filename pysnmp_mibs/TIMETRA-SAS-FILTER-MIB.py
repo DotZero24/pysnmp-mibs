@@ -1,54 +1,41 @@
-_G='tIPv6FilterExtnEntry'
-_F='tIPFilterExtnEntry'
-_E='read-create'
-_D='TruthValue'
-_C='Integer32'
-_B='TIMETRA-SAS-FILTER-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InetAddressIPv6,InetAddressPrefixLength=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv6','InetAddressPrefixLength')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,Opaque,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','Opaque','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowPointer,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowPointer','RowStatus','TextualConvention','TimeStamp',_D)
-tIPFilterEntry,tIPv6FilterEntry=mibBuilder.importSymbols('TIMETRA-FILTER-MIB','tIPFilterEntry','tIPv6FilterEntry')
-timetraSRMIBModules,tmnxSRConfs,tmnxSRNotifyPrefix,tmnxSRObjs=mibBuilder.importSymbols('TIMETRA-GLOBAL-MIB','timetraSRMIBModules','tmnxSRConfs','tmnxSRNotifyPrefix','tmnxSRObjs')
-timetraSASConfs,timetraSASModules,timetraSASNotifyPrefix,timetraSASObjs=mibBuilder.importSymbols('TIMETRA-SAS-GLOBAL-MIB','timetraSASConfs','timetraSASModules','timetraSASNotifyPrefix','timetraSASObjs')
-Dot1PPriority,IpAddressPrefixLength,SdpBindId,ServiceAccessPoint,TDSCPFilterActionValue,TDSCPNameOrEmpty,TFrameType,TIpOption,TIpProtocol,TItemDescription,TNamedItem,TNamedItemOrEmpty,TTcpUdpPort,TTcpUdpPortOperator,TmnxAdminState,TmnxEncapVal,TmnxOperState,TmnxPortID,TmnxServId=mibBuilder.importSymbols('TIMETRA-TC-MIB','Dot1PPriority','IpAddressPrefixLength','SdpBindId','ServiceAccessPoint','TDSCPFilterActionValue','TDSCPNameOrEmpty','TFrameType','TIpOption','TIpProtocol','TItemDescription','TNamedItem','TNamedItemOrEmpty','TTcpUdpPort','TTcpUdpPortOperator','TmnxAdminState','TmnxEncapVal','TmnxOperState','TmnxPortID','TmnxServId')
-timetraSASFilterMIBModule=ModuleIdentity((1,3,6,1,4,1,6527,6,2,1,1,16))
-if mibBuilder.loadTexts:timetraSASFilterMIBModule.setRevisions(('1912-04-01 00:00',))
-_TmnxSASFilterObjs_ObjectIdentity=ObjectIdentity
-tmnxSASFilterObjs=_TmnxSASFilterObjs_ObjectIdentity((1,3,6,1,4,1,6527,6,2,2,2,21))
-_TSASFilterObjects_ObjectIdentity=ObjectIdentity
-tSASFilterObjects=_TSASFilterObjects_ObjectIdentity((1,3,6,1,4,1,6527,6,2,2,2,21,1))
-_TIPFilterExtnTable_Object=MibTable
-tIPFilterExtnTable=_TIPFilterExtnTable_Object((1,3,6,1,4,1,6527,6,2,2,2,21,1,1))
-if mibBuilder.loadTexts:tIPFilterExtnTable.setStatus(_A)
-_TIPFilterExtnEntry_Object=MibTableRow
-tIPFilterExtnEntry=_TIPFilterExtnEntry_Object((1,3,6,1,4,1,6527,6,2,2,2,21,1,1,1))
-if mibBuilder.loadTexts:tIPFilterExtnEntry.setStatus(_A)
-class _TFilterUseIpv6Resource_Type(TruthValue):defaultValue=2
-_TFilterUseIpv6Resource_Type.__name__=_D
-_TFilterUseIpv6Resource_Object=MibTableColumn
-tFilterUseIpv6Resource=_TFilterUseIpv6Resource_Object((1,3,6,1,4,1,6527,6,2,2,2,21,1,1,1,1),_TFilterUseIpv6Resource_Type())
-tFilterUseIpv6Resource.setMaxAccess(_E)
-if mibBuilder.loadTexts:tFilterUseIpv6Resource.setStatus(_A)
-_TIPv6FilterExtnTable_Object=MibTable
-tIPv6FilterExtnTable=_TIPv6FilterExtnTable_Object((1,3,6,1,4,1,6527,6,2,2,2,21,1,2))
-if mibBuilder.loadTexts:tIPv6FilterExtnTable.setStatus(_A)
-_TIPv6FilterExtnEntry_Object=MibTableRow
-tIPv6FilterExtnEntry=_TIPv6FilterExtnEntry_Object((1,3,6,1,4,1,6527,6,2,2,2,21,1,2,1))
-if mibBuilder.loadTexts:tIPv6FilterExtnEntry.setStatus(_A)
-class _TFilter64Bitsor128_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ipv6128',1),('ipv664',2)))
-_TFilter64Bitsor128_Type.__name__=_C
-_TFilter64Bitsor128_Object=MibTableColumn
-tFilter64Bitsor128=_TFilter64Bitsor128_Object((1,3,6,1,4,1,6527,6,2,2,2,21,1,2,1,1),_TFilter64Bitsor128_Type())
-tFilter64Bitsor128.setMaxAccess(_E)
-if mibBuilder.loadTexts:tFilter64Bitsor128.setStatus(_A)
-tIPFilterEntry.registerAugmentions((_B,_F))
+#
+# PySNMP MIB module TIMETRA-SAS-FILTER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TIMETRA-SAS-FILTER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:21:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressPrefixLength, InetAddressIPv6 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetAddressIPv6")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, Opaque, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "Opaque", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TimeStamp, RowPointer, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeStamp", "RowPointer", "RowStatus", "TruthValue", "TextualConvention")
+tIPFilterEntry, tIPv6FilterEntry = mibBuilder.importSymbols("TIMETRA-FILTER-MIB", "tIPFilterEntry", "tIPv6FilterEntry")
+tmnxSRNotifyPrefix, tmnxSRObjs, timetraSRMIBModules, tmnxSRConfs = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRNotifyPrefix", "tmnxSRObjs", "timetraSRMIBModules", "tmnxSRConfs")
+timetraSASObjs, timetraSASConfs, timetraSASModules, timetraSASNotifyPrefix = mibBuilder.importSymbols("TIMETRA-SAS-GLOBAL-MIB", "timetraSASObjs", "timetraSASConfs", "timetraSASModules", "timetraSASNotifyPrefix")
+Dot1PPriority, TTcpUdpPortOperator, TNamedItem, TmnxEncapVal, TmnxOperState, TItemDescription, TIpProtocol, IpAddressPrefixLength, TIpOption, TTcpUdpPort, TDSCPFilterActionValue, TDSCPNameOrEmpty, ServiceAccessPoint, TNamedItemOrEmpty, TFrameType, TmnxServId, SdpBindId, TmnxPortID, TmnxAdminState = mibBuilder.importSymbols("TIMETRA-TC-MIB", "Dot1PPriority", "TTcpUdpPortOperator", "TNamedItem", "TmnxEncapVal", "TmnxOperState", "TItemDescription", "TIpProtocol", "IpAddressPrefixLength", "TIpOption", "TTcpUdpPort", "TDSCPFilterActionValue", "TDSCPNameOrEmpty", "ServiceAccessPoint", "TNamedItemOrEmpty", "TFrameType", "TmnxServId", "SdpBindId", "TmnxPortID", "TmnxAdminState")
+timetraSASFilterMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 2, 1, 1, 16))
+timetraSASFilterMIBModule.setRevisions(('1912-04-01 00:00',))
+if mibBuilder.loadTexts: timetraSASFilterMIBModule.setLastUpdated('1204010000Z')
+if mibBuilder.loadTexts: timetraSASFilterMIBModule.setOrganization('Alcatel')
+tmnxSASFilterObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 21))
+tSASFilterObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 21, 1))
+tIPFilterExtnTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 21, 1, 1), )
+if mibBuilder.loadTexts: tIPFilterExtnTable.setStatus('current')
+tIPFilterExtnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 21, 1, 1, 1), )
+tIPFilterEntry.registerAugmentions(("TIMETRA-SAS-FILTER-MIB", "tIPFilterExtnEntry"))
 tIPFilterExtnEntry.setIndexNames(*tIPFilterEntry.getIndexNames())
-tIPv6FilterEntry.registerAugmentions((_B,_G))
+if mibBuilder.loadTexts: tIPFilterExtnEntry.setStatus('current')
+tFilterUseIpv6Resource = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 21, 1, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tFilterUseIpv6Resource.setStatus('current')
+tIPv6FilterExtnTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 21, 1, 2), )
+if mibBuilder.loadTexts: tIPv6FilterExtnTable.setStatus('current')
+tIPv6FilterExtnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 21, 1, 2, 1), )
+tIPv6FilterEntry.registerAugmentions(("TIMETRA-SAS-FILTER-MIB", "tIPv6FilterExtnEntry"))
 tIPv6FilterExtnEntry.setIndexNames(*tIPv6FilterEntry.getIndexNames())
-mibBuilder.exportSymbols(_B,**{'timetraSASFilterMIBModule':timetraSASFilterMIBModule,'tmnxSASFilterObjs':tmnxSASFilterObjs,'tSASFilterObjects':tSASFilterObjects,'tIPFilterExtnTable':tIPFilterExtnTable,_F:tIPFilterExtnEntry,'tFilterUseIpv6Resource':tFilterUseIpv6Resource,'tIPv6FilterExtnTable':tIPv6FilterExtnTable,_G:tIPv6FilterExtnEntry,'tFilter64Bitsor128':tFilter64Bitsor128})
+if mibBuilder.loadTexts: tIPv6FilterExtnEntry.setStatus('current')
+tFilter64Bitsor128 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 21, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ipv6128", 1), ("ipv664", 2))).clone('ipv6128')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tFilter64Bitsor128.setStatus('current')
+mibBuilder.exportSymbols("TIMETRA-SAS-FILTER-MIB", tFilter64Bitsor128=tFilter64Bitsor128, tSASFilterObjects=tSASFilterObjects, tIPFilterExtnTable=tIPFilterExtnTable, tIPv6FilterExtnEntry=tIPv6FilterExtnEntry, tFilterUseIpv6Resource=tFilterUseIpv6Resource, timetraSASFilterMIBModule=timetraSASFilterMIBModule, tIPFilterExtnEntry=tIPFilterExtnEntry, tmnxSASFilterObjs=tmnxSASFilterObjs, PYSNMP_MODULE_ID=timetraSASFilterMIBModule, tIPv6FilterExtnTable=tIPv6FilterExtnTable)

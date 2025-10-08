@@ -1,252 +1,115 @@
-_H='dot5TimerIfIndex'
-_G='dot5StatsIfIndex'
-_F='dot5IfIndex'
-_E='read-write'
-_D='RFC1231-MIB'
-_C='Integer32'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','transmission')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-class MacAddress(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
-_Dot5_ObjectIdentity=ObjectIdentity
-dot5=_Dot5_ObjectIdentity((1,3,6,1,2,1,10,9))
-_Dot5Table_Object=MibTable
-dot5Table=_Dot5Table_Object((1,3,6,1,2,1,10,9,1))
-if mibBuilder.loadTexts:dot5Table.setStatus(_A)
-_Dot5Entry_Object=MibTableRow
-dot5Entry=_Dot5Entry_Object((1,3,6,1,2,1,10,9,1,1))
-dot5Entry.setIndexNames((0,_D,_F))
-if mibBuilder.loadTexts:dot5Entry.setStatus(_A)
-_Dot5IfIndex_Type=Integer32
-_Dot5IfIndex_Object=MibTableColumn
-dot5IfIndex=_Dot5IfIndex_Object((1,3,6,1,2,1,10,9,1,1,1),_Dot5IfIndex_Type())
-dot5IfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5IfIndex.setStatus(_A)
-class _Dot5Commands_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('no-op',1),('open',2),('reset',3),('close',4)))
-_Dot5Commands_Type.__name__=_C
-_Dot5Commands_Object=MibTableColumn
-dot5Commands=_Dot5Commands_Object((1,3,6,1,2,1,10,9,1,1,2),_Dot5Commands_Type())
-dot5Commands.setMaxAccess(_E)
-if mibBuilder.loadTexts:dot5Commands.setStatus(_A)
-_Dot5RingStatus_Type=Integer32
-_Dot5RingStatus_Object=MibTableColumn
-dot5RingStatus=_Dot5RingStatus_Object((1,3,6,1,2,1,10,9,1,1,3),_Dot5RingStatus_Type())
-dot5RingStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5RingStatus.setStatus(_A)
-class _Dot5RingState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('opened',1),('closed',2),('opening',3),('closing',4),('openFailure',5),('ringFailure',6)))
-_Dot5RingState_Type.__name__=_C
-_Dot5RingState_Object=MibTableColumn
-dot5RingState=_Dot5RingState_Object((1,3,6,1,2,1,10,9,1,1,4),_Dot5RingState_Type())
-dot5RingState.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5RingState.setStatus(_A)
-class _Dot5RingOpenStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('noOpen',1),('badParam',2),('lobeFailed',3),('signalLoss',4),('insertionTimeout',5),('ringFailed',6),('beaconing',7),('duplicateMAC',8),('requestFailed',9),('removeReceived',10),('open',11)))
-_Dot5RingOpenStatus_Type.__name__=_C
-_Dot5RingOpenStatus_Object=MibTableColumn
-dot5RingOpenStatus=_Dot5RingOpenStatus_Object((1,3,6,1,2,1,10,9,1,1,5),_Dot5RingOpenStatus_Type())
-dot5RingOpenStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5RingOpenStatus.setStatus(_A)
-class _Dot5RingSpeed_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('unknown',1),('oneMegabit',2),('fourMegabit',3),('sixteenMegabit',4)))
-_Dot5RingSpeed_Type.__name__=_C
-_Dot5RingSpeed_Object=MibTableColumn
-dot5RingSpeed=_Dot5RingSpeed_Object((1,3,6,1,2,1,10,9,1,1,6),_Dot5RingSpeed_Type())
-dot5RingSpeed.setMaxAccess(_E)
-if mibBuilder.loadTexts:dot5RingSpeed.setStatus(_A)
-_Dot5UpStream_Type=MacAddress
-_Dot5UpStream_Object=MibTableColumn
-dot5UpStream=_Dot5UpStream_Object((1,3,6,1,2,1,10,9,1,1,7),_Dot5UpStream_Type())
-dot5UpStream.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5UpStream.setStatus(_A)
-class _Dot5ActMonParticipate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('true',1),('false',2)))
-_Dot5ActMonParticipate_Type.__name__=_C
-_Dot5ActMonParticipate_Object=MibTableColumn
-dot5ActMonParticipate=_Dot5ActMonParticipate_Object((1,3,6,1,2,1,10,9,1,1,8),_Dot5ActMonParticipate_Type())
-dot5ActMonParticipate.setMaxAccess(_E)
-if mibBuilder.loadTexts:dot5ActMonParticipate.setStatus(_A)
-_Dot5Functional_Type=MacAddress
-_Dot5Functional_Object=MibTableColumn
-dot5Functional=_Dot5Functional_Object((1,3,6,1,2,1,10,9,1,1,9),_Dot5Functional_Type())
-dot5Functional.setMaxAccess(_E)
-if mibBuilder.loadTexts:dot5Functional.setStatus(_A)
-_Dot5StatsTable_Object=MibTable
-dot5StatsTable=_Dot5StatsTable_Object((1,3,6,1,2,1,10,9,2))
-if mibBuilder.loadTexts:dot5StatsTable.setStatus(_A)
-_Dot5StatsEntry_Object=MibTableRow
-dot5StatsEntry=_Dot5StatsEntry_Object((1,3,6,1,2,1,10,9,2,1))
-dot5StatsEntry.setIndexNames((0,_D,_G))
-if mibBuilder.loadTexts:dot5StatsEntry.setStatus(_A)
-_Dot5StatsIfIndex_Type=Integer32
-_Dot5StatsIfIndex_Object=MibTableColumn
-dot5StatsIfIndex=_Dot5StatsIfIndex_Object((1,3,6,1,2,1,10,9,2,1,1),_Dot5StatsIfIndex_Type())
-dot5StatsIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsIfIndex.setStatus(_A)
-_Dot5StatsLineErrors_Type=Counter32
-_Dot5StatsLineErrors_Object=MibTableColumn
-dot5StatsLineErrors=_Dot5StatsLineErrors_Object((1,3,6,1,2,1,10,9,2,1,2),_Dot5StatsLineErrors_Type())
-dot5StatsLineErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsLineErrors.setStatus(_A)
-_Dot5StatsBurstErrors_Type=Counter32
-_Dot5StatsBurstErrors_Object=MibTableColumn
-dot5StatsBurstErrors=_Dot5StatsBurstErrors_Object((1,3,6,1,2,1,10,9,2,1,3),_Dot5StatsBurstErrors_Type())
-dot5StatsBurstErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsBurstErrors.setStatus(_A)
-_Dot5StatsACErrors_Type=Counter32
-_Dot5StatsACErrors_Object=MibTableColumn
-dot5StatsACErrors=_Dot5StatsACErrors_Object((1,3,6,1,2,1,10,9,2,1,4),_Dot5StatsACErrors_Type())
-dot5StatsACErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsACErrors.setStatus(_A)
-_Dot5StatsAbortTransErrors_Type=Counter32
-_Dot5StatsAbortTransErrors_Object=MibTableColumn
-dot5StatsAbortTransErrors=_Dot5StatsAbortTransErrors_Object((1,3,6,1,2,1,10,9,2,1,5),_Dot5StatsAbortTransErrors_Type())
-dot5StatsAbortTransErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsAbortTransErrors.setStatus(_A)
-_Dot5StatsInternalErrors_Type=Counter32
-_Dot5StatsInternalErrors_Object=MibTableColumn
-dot5StatsInternalErrors=_Dot5StatsInternalErrors_Object((1,3,6,1,2,1,10,9,2,1,6),_Dot5StatsInternalErrors_Type())
-dot5StatsInternalErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsInternalErrors.setStatus(_A)
-_Dot5StatsLostFrameErrors_Type=Counter32
-_Dot5StatsLostFrameErrors_Object=MibTableColumn
-dot5StatsLostFrameErrors=_Dot5StatsLostFrameErrors_Object((1,3,6,1,2,1,10,9,2,1,7),_Dot5StatsLostFrameErrors_Type())
-dot5StatsLostFrameErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsLostFrameErrors.setStatus(_A)
-_Dot5StatsReceiveCongestions_Type=Counter32
-_Dot5StatsReceiveCongestions_Object=MibTableColumn
-dot5StatsReceiveCongestions=_Dot5StatsReceiveCongestions_Object((1,3,6,1,2,1,10,9,2,1,8),_Dot5StatsReceiveCongestions_Type())
-dot5StatsReceiveCongestions.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsReceiveCongestions.setStatus(_A)
-_Dot5StatsFrameCopiedErrors_Type=Counter32
-_Dot5StatsFrameCopiedErrors_Object=MibTableColumn
-dot5StatsFrameCopiedErrors=_Dot5StatsFrameCopiedErrors_Object((1,3,6,1,2,1,10,9,2,1,9),_Dot5StatsFrameCopiedErrors_Type())
-dot5StatsFrameCopiedErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsFrameCopiedErrors.setStatus(_A)
-_Dot5StatsTokenErrors_Type=Counter32
-_Dot5StatsTokenErrors_Object=MibTableColumn
-dot5StatsTokenErrors=_Dot5StatsTokenErrors_Object((1,3,6,1,2,1,10,9,2,1,10),_Dot5StatsTokenErrors_Type())
-dot5StatsTokenErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsTokenErrors.setStatus(_A)
-_Dot5StatsSoftErrors_Type=Counter32
-_Dot5StatsSoftErrors_Object=MibTableColumn
-dot5StatsSoftErrors=_Dot5StatsSoftErrors_Object((1,3,6,1,2,1,10,9,2,1,11),_Dot5StatsSoftErrors_Type())
-dot5StatsSoftErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsSoftErrors.setStatus(_A)
-_Dot5StatsHardErrors_Type=Counter32
-_Dot5StatsHardErrors_Object=MibTableColumn
-dot5StatsHardErrors=_Dot5StatsHardErrors_Object((1,3,6,1,2,1,10,9,2,1,12),_Dot5StatsHardErrors_Type())
-dot5StatsHardErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsHardErrors.setStatus(_A)
-_Dot5StatsSignalLoss_Type=Counter32
-_Dot5StatsSignalLoss_Object=MibTableColumn
-dot5StatsSignalLoss=_Dot5StatsSignalLoss_Object((1,3,6,1,2,1,10,9,2,1,13),_Dot5StatsSignalLoss_Type())
-dot5StatsSignalLoss.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsSignalLoss.setStatus(_A)
-_Dot5StatsTransmitBeacons_Type=Counter32
-_Dot5StatsTransmitBeacons_Object=MibTableColumn
-dot5StatsTransmitBeacons=_Dot5StatsTransmitBeacons_Object((1,3,6,1,2,1,10,9,2,1,14),_Dot5StatsTransmitBeacons_Type())
-dot5StatsTransmitBeacons.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsTransmitBeacons.setStatus(_A)
-_Dot5StatsRecoverys_Type=Counter32
-_Dot5StatsRecoverys_Object=MibTableColumn
-dot5StatsRecoverys=_Dot5StatsRecoverys_Object((1,3,6,1,2,1,10,9,2,1,15),_Dot5StatsRecoverys_Type())
-dot5StatsRecoverys.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsRecoverys.setStatus(_A)
-_Dot5StatsLobeWires_Type=Counter32
-_Dot5StatsLobeWires_Object=MibTableColumn
-dot5StatsLobeWires=_Dot5StatsLobeWires_Object((1,3,6,1,2,1,10,9,2,1,16),_Dot5StatsLobeWires_Type())
-dot5StatsLobeWires.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsLobeWires.setStatus(_A)
-_Dot5StatsRemoves_Type=Counter32
-_Dot5StatsRemoves_Object=MibTableColumn
-dot5StatsRemoves=_Dot5StatsRemoves_Object((1,3,6,1,2,1,10,9,2,1,17),_Dot5StatsRemoves_Type())
-dot5StatsRemoves.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsRemoves.setStatus(_A)
-_Dot5StatsSingles_Type=Counter32
-_Dot5StatsSingles_Object=MibTableColumn
-dot5StatsSingles=_Dot5StatsSingles_Object((1,3,6,1,2,1,10,9,2,1,18),_Dot5StatsSingles_Type())
-dot5StatsSingles.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsSingles.setStatus(_A)
-_Dot5StatsFreqErrors_Type=Counter32
-_Dot5StatsFreqErrors_Object=MibTableColumn
-dot5StatsFreqErrors=_Dot5StatsFreqErrors_Object((1,3,6,1,2,1,10,9,2,1,19),_Dot5StatsFreqErrors_Type())
-dot5StatsFreqErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5StatsFreqErrors.setStatus('optional')
-_Dot5Tests_ObjectIdentity=ObjectIdentity
-dot5Tests=_Dot5Tests_ObjectIdentity((1,3,6,1,2,1,10,9,3))
-_TestInsertFunc_ObjectIdentity=ObjectIdentity
-testInsertFunc=_TestInsertFunc_ObjectIdentity((1,3,6,1,2,1,10,9,3,1))
-_Dot5ChipSets_ObjectIdentity=ObjectIdentity
-dot5ChipSets=_Dot5ChipSets_ObjectIdentity((1,3,6,1,2,1,10,9,4))
-_ChipSetIBM16_ObjectIdentity=ObjectIdentity
-chipSetIBM16=_ChipSetIBM16_ObjectIdentity((1,3,6,1,2,1,10,9,4,1))
-_ChipSetTItms380_ObjectIdentity=ObjectIdentity
-chipSetTItms380=_ChipSetTItms380_ObjectIdentity((1,3,6,1,2,1,10,9,4,2))
-_ChipSetTItms380c16_ObjectIdentity=ObjectIdentity
-chipSetTItms380c16=_ChipSetTItms380c16_ObjectIdentity((1,3,6,1,2,1,10,9,4,3))
-_Dot5TimerTable_Object=MibTable
-dot5TimerTable=_Dot5TimerTable_Object((1,3,6,1,2,1,10,9,5))
-if mibBuilder.loadTexts:dot5TimerTable.setStatus(_A)
-_Dot5TimerEntry_Object=MibTableRow
-dot5TimerEntry=_Dot5TimerEntry_Object((1,3,6,1,2,1,10,9,5,1))
-dot5TimerEntry.setIndexNames((0,_D,_H))
-if mibBuilder.loadTexts:dot5TimerEntry.setStatus(_A)
-_Dot5TimerIfIndex_Type=Integer32
-_Dot5TimerIfIndex_Object=MibTableColumn
-dot5TimerIfIndex=_Dot5TimerIfIndex_Object((1,3,6,1,2,1,10,9,5,1,1),_Dot5TimerIfIndex_Type())
-dot5TimerIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5TimerIfIndex.setStatus(_A)
-_Dot5TimerReturnRepeat_Type=Integer32
-_Dot5TimerReturnRepeat_Object=MibTableColumn
-dot5TimerReturnRepeat=_Dot5TimerReturnRepeat_Object((1,3,6,1,2,1,10,9,5,1,2),_Dot5TimerReturnRepeat_Type())
-dot5TimerReturnRepeat.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5TimerReturnRepeat.setStatus(_A)
-_Dot5TimerHolding_Type=Integer32
-_Dot5TimerHolding_Object=MibTableColumn
-dot5TimerHolding=_Dot5TimerHolding_Object((1,3,6,1,2,1,10,9,5,1,3),_Dot5TimerHolding_Type())
-dot5TimerHolding.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5TimerHolding.setStatus(_A)
-_Dot5TimerQueuePDU_Type=Integer32
-_Dot5TimerQueuePDU_Object=MibTableColumn
-dot5TimerQueuePDU=_Dot5TimerQueuePDU_Object((1,3,6,1,2,1,10,9,5,1,4),_Dot5TimerQueuePDU_Type())
-dot5TimerQueuePDU.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5TimerQueuePDU.setStatus(_A)
-_Dot5TimerValidTransmit_Type=Integer32
-_Dot5TimerValidTransmit_Object=MibTableColumn
-dot5TimerValidTransmit=_Dot5TimerValidTransmit_Object((1,3,6,1,2,1,10,9,5,1,5),_Dot5TimerValidTransmit_Type())
-dot5TimerValidTransmit.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5TimerValidTransmit.setStatus(_A)
-_Dot5TimerNoToken_Type=Integer32
-_Dot5TimerNoToken_Object=MibTableColumn
-dot5TimerNoToken=_Dot5TimerNoToken_Object((1,3,6,1,2,1,10,9,5,1,6),_Dot5TimerNoToken_Type())
-dot5TimerNoToken.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5TimerNoToken.setStatus(_A)
-_Dot5TimerActiveMon_Type=Integer32
-_Dot5TimerActiveMon_Object=MibTableColumn
-dot5TimerActiveMon=_Dot5TimerActiveMon_Object((1,3,6,1,2,1,10,9,5,1,7),_Dot5TimerActiveMon_Type())
-dot5TimerActiveMon.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5TimerActiveMon.setStatus(_A)
-_Dot5TimerStandbyMon_Type=Integer32
-_Dot5TimerStandbyMon_Object=MibTableColumn
-dot5TimerStandbyMon=_Dot5TimerStandbyMon_Object((1,3,6,1,2,1,10,9,5,1,8),_Dot5TimerStandbyMon_Type())
-dot5TimerStandbyMon.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5TimerStandbyMon.setStatus(_A)
-_Dot5TimerErrorReport_Type=Integer32
-_Dot5TimerErrorReport_Object=MibTableColumn
-dot5TimerErrorReport=_Dot5TimerErrorReport_Object((1,3,6,1,2,1,10,9,5,1,9),_Dot5TimerErrorReport_Type())
-dot5TimerErrorReport.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5TimerErrorReport.setStatus(_A)
-_Dot5TimerBeaconTransmit_Type=Integer32
-_Dot5TimerBeaconTransmit_Object=MibTableColumn
-dot5TimerBeaconTransmit=_Dot5TimerBeaconTransmit_Object((1,3,6,1,2,1,10,9,5,1,10),_Dot5TimerBeaconTransmit_Type())
-dot5TimerBeaconTransmit.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5TimerBeaconTransmit.setStatus(_A)
-_Dot5TimerBeaconReceive_Type=Integer32
-_Dot5TimerBeaconReceive_Object=MibTableColumn
-dot5TimerBeaconReceive=_Dot5TimerBeaconReceive_Object((1,3,6,1,2,1,10,9,5,1,11),_Dot5TimerBeaconReceive_Type())
-dot5TimerBeaconReceive.setMaxAccess(_B)
-if mibBuilder.loadTexts:dot5TimerBeaconReceive.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'MacAddress':MacAddress,'dot5':dot5,'dot5Table':dot5Table,'dot5Entry':dot5Entry,_F:dot5IfIndex,'dot5Commands':dot5Commands,'dot5RingStatus':dot5RingStatus,'dot5RingState':dot5RingState,'dot5RingOpenStatus':dot5RingOpenStatus,'dot5RingSpeed':dot5RingSpeed,'dot5UpStream':dot5UpStream,'dot5ActMonParticipate':dot5ActMonParticipate,'dot5Functional':dot5Functional,'dot5StatsTable':dot5StatsTable,'dot5StatsEntry':dot5StatsEntry,_G:dot5StatsIfIndex,'dot5StatsLineErrors':dot5StatsLineErrors,'dot5StatsBurstErrors':dot5StatsBurstErrors,'dot5StatsACErrors':dot5StatsACErrors,'dot5StatsAbortTransErrors':dot5StatsAbortTransErrors,'dot5StatsInternalErrors':dot5StatsInternalErrors,'dot5StatsLostFrameErrors':dot5StatsLostFrameErrors,'dot5StatsReceiveCongestions':dot5StatsReceiveCongestions,'dot5StatsFrameCopiedErrors':dot5StatsFrameCopiedErrors,'dot5StatsTokenErrors':dot5StatsTokenErrors,'dot5StatsSoftErrors':dot5StatsSoftErrors,'dot5StatsHardErrors':dot5StatsHardErrors,'dot5StatsSignalLoss':dot5StatsSignalLoss,'dot5StatsTransmitBeacons':dot5StatsTransmitBeacons,'dot5StatsRecoverys':dot5StatsRecoverys,'dot5StatsLobeWires':dot5StatsLobeWires,'dot5StatsRemoves':dot5StatsRemoves,'dot5StatsSingles':dot5StatsSingles,'dot5StatsFreqErrors':dot5StatsFreqErrors,'dot5Tests':dot5Tests,'testInsertFunc':testInsertFunc,'dot5ChipSets':dot5ChipSets,'chipSetIBM16':chipSetIBM16,'chipSetTItms380':chipSetTItms380,'chipSetTItms380c16':chipSetTItms380c16,'dot5TimerTable':dot5TimerTable,'dot5TimerEntry':dot5TimerEntry,_H:dot5TimerIfIndex,'dot5TimerReturnRepeat':dot5TimerReturnRepeat,'dot5TimerHolding':dot5TimerHolding,'dot5TimerQueuePDU':dot5TimerQueuePDU,'dot5TimerValidTransmit':dot5TimerValidTransmit,'dot5TimerNoToken':dot5TimerNoToken,'dot5TimerActiveMon':dot5TimerActiveMon,'dot5TimerStandbyMon':dot5TimerStandbyMon,'dot5TimerErrorReport':dot5TimerErrorReport,'dot5TimerBeaconTransmit':dot5TimerBeaconTransmit,'dot5TimerBeaconReceive':dot5TimerBeaconReceive})
+#
+# PySNMP MIB module RFC1231-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/RFC1231-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:26:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, transmission, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "transmission", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+dot5 = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 9))
+class MacAddress(OctetString):
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
+    fixedLength = 6
+
+dot5Table = MibTable((1, 3, 6, 1, 2, 1, 10, 9, 1), )
+if mibBuilder.loadTexts: dot5Table.setStatus('mandatory')
+dot5Entry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 9, 1, 1), ).setIndexNames((0, "RFC1231-MIB", "dot5IfIndex"))
+if mibBuilder.loadTexts: dot5Entry.setStatus('mandatory')
+dot5IfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5IfIndex.setStatus('mandatory')
+dot5Commands = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("no-op", 1), ("open", 2), ("reset", 3), ("close", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot5Commands.setStatus('mandatory')
+dot5RingStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5RingStatus.setStatus('mandatory')
+dot5RingState = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("opened", 1), ("closed", 2), ("opening", 3), ("closing", 4), ("openFailure", 5), ("ringFailure", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5RingState.setStatus('mandatory')
+dot5RingOpenStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("noOpen", 1), ("badParam", 2), ("lobeFailed", 3), ("signalLoss", 4), ("insertionTimeout", 5), ("ringFailed", 6), ("beaconing", 7), ("duplicateMAC", 8), ("requestFailed", 9), ("removeReceived", 10), ("open", 11)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5RingOpenStatus.setStatus('mandatory')
+dot5RingSpeed = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("oneMegabit", 2), ("fourMegabit", 3), ("sixteenMegabit", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot5RingSpeed.setStatus('mandatory')
+dot5UpStream = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 1, 1, 7), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5UpStream.setStatus('mandatory')
+dot5ActMonParticipate = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("true", 1), ("false", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot5ActMonParticipate.setStatus('mandatory')
+dot5Functional = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 1, 1, 9), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot5Functional.setStatus('mandatory')
+dot5StatsTable = MibTable((1, 3, 6, 1, 2, 1, 10, 9, 2), )
+if mibBuilder.loadTexts: dot5StatsTable.setStatus('mandatory')
+dot5StatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 9, 2, 1), ).setIndexNames((0, "RFC1231-MIB", "dot5StatsIfIndex"))
+if mibBuilder.loadTexts: dot5StatsEntry.setStatus('mandatory')
+dot5StatsIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsIfIndex.setStatus('mandatory')
+dot5StatsLineErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsLineErrors.setStatus('mandatory')
+dot5StatsBurstErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsBurstErrors.setStatus('mandatory')
+dot5StatsACErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsACErrors.setStatus('mandatory')
+dot5StatsAbortTransErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsAbortTransErrors.setStatus('mandatory')
+dot5StatsInternalErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsInternalErrors.setStatus('mandatory')
+dot5StatsLostFrameErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsLostFrameErrors.setStatus('mandatory')
+dot5StatsReceiveCongestions = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsReceiveCongestions.setStatus('mandatory')
+dot5StatsFrameCopiedErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsFrameCopiedErrors.setStatus('mandatory')
+dot5StatsTokenErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsTokenErrors.setStatus('mandatory')
+dot5StatsSoftErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsSoftErrors.setStatus('mandatory')
+dot5StatsHardErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsHardErrors.setStatus('mandatory')
+dot5StatsSignalLoss = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsSignalLoss.setStatus('mandatory')
+dot5StatsTransmitBeacons = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsTransmitBeacons.setStatus('mandatory')
+dot5StatsRecoverys = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsRecoverys.setStatus('mandatory')
+dot5StatsLobeWires = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsLobeWires.setStatus('mandatory')
+dot5StatsRemoves = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsRemoves.setStatus('mandatory')
+dot5StatsSingles = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 18), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsSingles.setStatus('mandatory')
+dot5StatsFreqErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 2, 1, 19), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5StatsFreqErrors.setStatus('optional')
+dot5TimerTable = MibTable((1, 3, 6, 1, 2, 1, 10, 9, 5), )
+if mibBuilder.loadTexts: dot5TimerTable.setStatus('mandatory')
+dot5TimerEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 9, 5, 1), ).setIndexNames((0, "RFC1231-MIB", "dot5TimerIfIndex"))
+if mibBuilder.loadTexts: dot5TimerEntry.setStatus('mandatory')
+dot5TimerIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 5, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5TimerIfIndex.setStatus('mandatory')
+dot5TimerReturnRepeat = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 5, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5TimerReturnRepeat.setStatus('mandatory')
+dot5TimerHolding = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 5, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5TimerHolding.setStatus('mandatory')
+dot5TimerQueuePDU = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 5, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5TimerQueuePDU.setStatus('mandatory')
+dot5TimerValidTransmit = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 5, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5TimerValidTransmit.setStatus('mandatory')
+dot5TimerNoToken = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 5, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5TimerNoToken.setStatus('mandatory')
+dot5TimerActiveMon = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 5, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5TimerActiveMon.setStatus('mandatory')
+dot5TimerStandbyMon = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 5, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5TimerStandbyMon.setStatus('mandatory')
+dot5TimerErrorReport = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 5, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5TimerErrorReport.setStatus('mandatory')
+dot5TimerBeaconTransmit = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 5, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5TimerBeaconTransmit.setStatus('mandatory')
+dot5TimerBeaconReceive = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 9, 5, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot5TimerBeaconReceive.setStatus('mandatory')
+dot5Tests = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 9, 3))
+testInsertFunc = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 9, 3, 1))
+dot5ChipSets = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 9, 4))
+chipSetIBM16 = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 9, 4, 1))
+chipSetTItms380 = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 9, 4, 2))
+chipSetTItms380c16 = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 9, 4, 3))
+mibBuilder.exportSymbols("RFC1231-MIB", dot5StatsLineErrors=dot5StatsLineErrors, dot5StatsRecoverys=dot5StatsRecoverys, dot5RingStatus=dot5RingStatus, dot5TimerStandbyMon=dot5TimerStandbyMon, dot5ChipSets=dot5ChipSets, testInsertFunc=testInsertFunc, dot5StatsIfIndex=dot5StatsIfIndex, dot5Table=dot5Table, dot5StatsTransmitBeacons=dot5StatsTransmitBeacons, dot5StatsACErrors=dot5StatsACErrors, dot5StatsTable=dot5StatsTable, dot5RingState=dot5RingState, dot5TimerNoToken=dot5TimerNoToken, dot5TimerReturnRepeat=dot5TimerReturnRepeat, dot5UpStream=dot5UpStream, dot5RingOpenStatus=dot5RingOpenStatus, dot5StatsRemoves=dot5StatsRemoves, dot5TimerBeaconReceive=dot5TimerBeaconReceive, dot5StatsFrameCopiedErrors=dot5StatsFrameCopiedErrors, dot5TimerQueuePDU=dot5TimerQueuePDU, chipSetTItms380=chipSetTItms380, dot5=dot5, dot5StatsHardErrors=dot5StatsHardErrors, dot5StatsSingles=dot5StatsSingles, dot5Functional=dot5Functional, dot5TimerActiveMon=dot5TimerActiveMon, dot5StatsLobeWires=dot5StatsLobeWires, dot5TimerHolding=dot5TimerHolding, dot5TimerEntry=dot5TimerEntry, dot5Commands=dot5Commands, dot5StatsInternalErrors=dot5StatsInternalErrors, chipSetIBM16=chipSetIBM16, chipSetTItms380c16=chipSetTItms380c16, dot5StatsBurstErrors=dot5StatsBurstErrors, MacAddress=MacAddress, dot5IfIndex=dot5IfIndex, dot5TimerIfIndex=dot5TimerIfIndex, dot5StatsLostFrameErrors=dot5StatsLostFrameErrors, dot5StatsReceiveCongestions=dot5StatsReceiveCongestions, dot5StatsSoftErrors=dot5StatsSoftErrors, dot5TimerTable=dot5TimerTable, dot5StatsTokenErrors=dot5StatsTokenErrors, dot5StatsAbortTransErrors=dot5StatsAbortTransErrors, dot5StatsSignalLoss=dot5StatsSignalLoss, dot5Tests=dot5Tests, dot5ActMonParticipate=dot5ActMonParticipate, dot5StatsFreqErrors=dot5StatsFreqErrors, dot5RingSpeed=dot5RingSpeed, dot5StatsEntry=dot5StatsEntry, dot5TimerBeaconTransmit=dot5TimerBeaconTransmit, dot5TimerErrorReport=dot5TimerErrorReport, dot5Entry=dot5Entry, dot5TimerValidTransmit=dot5TimerValidTransmit)

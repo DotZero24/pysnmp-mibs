@@ -1,403 +1,172 @@
-_AK='mbgRSC180TrapsGroup'
-_AJ='mbgRSC180ObjectsGroup'
-_AI='mbgTestNotificationTrap'
-_AH='mbgHighTempTrap'
-_AG='mbgPowerSupplyOKTrap'
-_AF='mbgPowerSupplyFailureTrap'
-_AE='mbgMasterclockSwitchoverTrap'
-_AD='mbgLeapSecondAnnouncedTrap'
-_AC='mbgSCUBootTrap'
-_AB='mbgGPSAntennaReconnectTrap'
-_AA='mbgGPSAntennaFaultyTrap'
-_A9='mbgGPSReceiverNotSyncTrap'
-_A8='mbgGPSReceiverNotRespondingTrap'
-_A7='mbgGPSNavSolvedTrap'
-_A6='mbgWarmBootTrap'
-_A5='mbgColdBootTrap'
-_A4='mbgSCUDum1'
-_A3='mbgSCUAutoManual'
-_A2='mbgSCUtimeDiff'
-_A1='mbgSCUSupl4'
-_A0='mbgSCUSupl3'
-_z='mbgSCUSupl2'
-_y='mbgSCUSupl1'
-_x='mbgSCUInp2'
-_w='mbgSCUInp1'
-_v='mbgSCUOutp16'
-_u='mbgSCUOutp15'
-_t='mbgSCUOutp14'
-_s='mbgSCUOutp13'
-_r='mbgSCUOutp12'
-_q='mbgSCUOutp11'
-_p='mbgSCUOutp10'
-_o='mbgSCUOutp9'
-_n='mbgSCUOutp8'
-_m='mbgSCUOutp7'
-_l='mbgSCUOutp6'
-_k='mbgSCUOutp5'
-_j='mbgSCUOutp4'
-_i='mbgSCUOutp3'
-_h='mbgSCUOutp2'
-_g='mbgSCUOutp1'
-_f='mbgSCUTemp'
-_e='mbgSCUPowerSupply2'
-_d='mbgSCUPowerSupply1'
-_c='mbgSCUACOMode'
-_b='mbgSCUOutputStatus'
-_a='mbgSCUSyncStatusClk2'
-_Z='mbgSCUSyncStatusClk1'
-_Y='mbgTrapIPAddress'
-_X='mbgSCULocalRemote'
-_W='mbgSCUMasterVal'
-_V='mbgSCUFirmwareRev'
-_U='mbgSCUSerialNo'
-_T='mbgSCUType'
-_S='mbgLeapSecond'
-_R='mbgGPSNavSolved'
-_Q='mbgGpsSatellitesInView'
-_P='mbgGpsSatellitesGood'
-_O='mbgGpsPosition'
-_N='mbgGpsState'
-_M='mbgClkMode'
-_L='mbgClkFirmwareRev'
-_K='mbgClkSerialNo'
-_J='mbgClkType'
-_I='notSync'
-_H='MeinbergRefClockTyp'
-_G='mbgClkTableIndex'
-_F='read-write'
-_E='notAvailable'
-_D='Integer32'
-_C='read-only'
-_B='MBG-SNMP-RSC180-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mbgSnmpRoot,=mibBuilder.importSymbols('MBG-SNMP-ROOT-MIB','mbgSnmpRoot')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-mbgRSC180=ModuleIdentity((1,3,6,1,4,1,5597,80))
-if mibBuilder.loadTexts:mbgRSC180.setRevisions(('2012-01-25 00:00','2006-01-20 00:00'))
-class MeinbergRefClockTyp(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52)));namedValues=NamedValues(*((_E,0),('gps166',1),('gps167',2),('gps167SV',3),('gps167PC',4),('gps167PCI',5),('gps163',6),('gps168PCI',7),('gps161',8),('gps169PCI',9),('tcr167PCI',10),('gps164',11),('gps170PCI',12),('pzf511',13),('gps170',14),('tcr511',15),('am511',16),('msf511',17),('grc170',18),('gps170PEX',19),('gps162',20),('ptp270PEX',21),('frc511PEX',22),('gen170',23),('tcr170PEX',24),('wwvb511',25),('mbg170',26),('jjy511',27),('pzf600',28),('tcr600',29),('gps180',30),('gln170',31),('gps180PEX',32),('tcr180PEX',33),('pzf180PEX',34),('mbg180',35),('msf600',36),('wwvb600',37),('jjy600',38),('gps180HS',39),('gps180AMC',40),('esi180',41),('cpe180',42),('lno180',43),('grc180',44),('liu',45),('dcf600HS',46),('dcf600RS',47),('mri',48),('bpe',49),('gln180pex',50),('n2x',51),('rsc180',52)))
-_MbgRefClock_ObjectIdentity=ObjectIdentity
-mbgRefClock=_MbgRefClock_ObjectIdentity((1,3,6,1,4,1,5597,80,0))
-_MbgRefClockStatus_ObjectIdentity=ObjectIdentity
-mbgRefClockStatus=_MbgRefClockStatus_ObjectIdentity((1,3,6,1,4,1,5597,80,0,0))
-_MbgRefClockTable_Object=MibTable
-mbgRefClockTable=_MbgRefClockTable_Object((1,3,6,1,4,1,5597,80,0,0,1))
-if mibBuilder.loadTexts:mbgRefClockTable.setStatus(_A)
-_MbgRefClockTableEntry_Object=MibTableRow
-mbgRefClockTableEntry=_MbgRefClockTableEntry_Object((1,3,6,1,4,1,5597,80,0,0,1,1))
-mbgRefClockTableEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:mbgRefClockTableEntry.setStatus(_A)
-_MbgClkTableIndex_Type=Unsigned32
-_MbgClkTableIndex_Object=MibTableColumn
-mbgClkTableIndex=_MbgClkTableIndex_Object((1,3,6,1,4,1,5597,80,0,0,1,1,1),_MbgClkTableIndex_Type())
-mbgClkTableIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:mbgClkTableIndex.setStatus(_A)
-class _MbgClkType_Type(MeinbergRefClockTyp):defaultValue=0
-_MbgClkType_Type.__name__=_H
-_MbgClkType_Object=MibTableColumn
-mbgClkType=_MbgClkType_Object((1,3,6,1,4,1,5597,80,0,0,1,1,2),_MbgClkType_Type())
-mbgClkType.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgClkType.setStatus(_A)
-_MbgClkSerialNo_Type=DisplayString
-_MbgClkSerialNo_Object=MibTableColumn
-mbgClkSerialNo=_MbgClkSerialNo_Object((1,3,6,1,4,1,5597,80,0,0,1,1,3),_MbgClkSerialNo_Type())
-mbgClkSerialNo.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgClkSerialNo.setStatus(_A)
-_MbgClkFirmwareRev_Type=DisplayString
-_MbgClkFirmwareRev_Object=MibTableColumn
-mbgClkFirmwareRev=_MbgClkFirmwareRev_Object((1,3,6,1,4,1,5597,80,0,0,1,1,4),_MbgClkFirmwareRev_Type())
-mbgClkFirmwareRev.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgClkFirmwareRev.setStatus(_A)
-class _MbgClkMode_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*((_E,0),('normalOperation',1),('trackingSearching',2),('antennaFaulty',3),('warmBoot',4),('coldBoot',5)))
-_MbgClkMode_Type.__name__=_D
-_MbgClkMode_Object=MibTableColumn
-mbgClkMode=_MbgClkMode_Object((1,3,6,1,4,1,5597,80,0,0,1,1,5),_MbgClkMode_Type())
-mbgClkMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgClkMode.setStatus(_A)
-class _MbgGpsState_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_E,0),('synchronized',1),('notSynchronized',2)))
-_MbgGpsState_Type.__name__=_D
-_MbgGpsState_Object=MibTableColumn
-mbgGpsState=_MbgGpsState_Object((1,3,6,1,4,1,5597,80,0,0,1,1,6),_MbgGpsState_Type())
-mbgGpsState.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgGpsState.setStatus(_A)
-_MbgGpsPosition_Type=DisplayString
-_MbgGpsPosition_Object=MibTableColumn
-mbgGpsPosition=_MbgGpsPosition_Object((1,3,6,1,4,1,5597,80,0,0,1,1,7),_MbgGpsPosition_Type())
-mbgGpsPosition.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgGpsPosition.setStatus(_A)
-_MbgGpsSatellitesGood_Type=Integer32
-_MbgGpsSatellitesGood_Object=MibTableColumn
-mbgGpsSatellitesGood=_MbgGpsSatellitesGood_Object((1,3,6,1,4,1,5597,80,0,0,1,1,8),_MbgGpsSatellitesGood_Type())
-mbgGpsSatellitesGood.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgGpsSatellitesGood.setStatus(_A)
-_MbgGpsSatellitesInView_Type=Integer32
-_MbgGpsSatellitesInView_Object=MibTableColumn
-mbgGpsSatellitesInView=_MbgGpsSatellitesInView_Object((1,3,6,1,4,1,5597,80,0,0,1,1,9),_MbgGpsSatellitesInView_Type())
-mbgGpsSatellitesInView.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgGpsSatellitesInView.setStatus(_A)
-class _MbgGPSNavSolved_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('no',0),('yes',1)))
-_MbgGPSNavSolved_Type.__name__=_D
-_MbgGPSNavSolved_Object=MibTableColumn
-mbgGPSNavSolved=_MbgGPSNavSolved_Object((1,3,6,1,4,1,5597,80,0,0,1,1,10),_MbgGPSNavSolved_Type())
-mbgGPSNavSolved.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgGPSNavSolved.setStatus(_A)
-_MbgLeapSecond_Type=DisplayString
-_MbgLeapSecond_Object=MibTableColumn
-mbgLeapSecond=_MbgLeapSecond_Object((1,3,6,1,4,1,5597,80,0,0,1,1,11),_MbgLeapSecond_Type())
-mbgLeapSecond.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgLeapSecond.setStatus(_A)
-_MbgSCU_ObjectIdentity=ObjectIdentity
-mbgSCU=_MbgSCU_ObjectIdentity((1,3,6,1,4,1,5597,80,1))
-_MbgSCUType_Type=MeinbergRefClockTyp
-_MbgSCUType_Object=MibScalar
-mbgSCUType=_MbgSCUType_Object((1,3,6,1,4,1,5597,80,1,1),_MbgSCUType_Type())
-mbgSCUType.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUType.setStatus(_A)
-_MbgSCUSerialNo_Type=DisplayString
-_MbgSCUSerialNo_Object=MibScalar
-mbgSCUSerialNo=_MbgSCUSerialNo_Object((1,3,6,1,4,1,5597,80,1,2),_MbgSCUSerialNo_Type())
-mbgSCUSerialNo.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUSerialNo.setStatus(_A)
-_MbgSCUFirmwareRev_Type=DisplayString
-_MbgSCUFirmwareRev_Object=MibScalar
-mbgSCUFirmwareRev=_MbgSCUFirmwareRev_Object((1,3,6,1,4,1,5597,80,1,3),_MbgSCUFirmwareRev_Type())
-mbgSCUFirmwareRev.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUFirmwareRev.setStatus(_A)
-class _MbgSCUMasterVal_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('noMaster',0),('clk1isMaster',1),('clk2isMaster',2)))
-_MbgSCUMasterVal_Type.__name__=_D
-_MbgSCUMasterVal_Object=MibScalar
-mbgSCUMasterVal=_MbgSCUMasterVal_Object((1,3,6,1,4,1,5597,80,1,4),_MbgSCUMasterVal_Type())
-mbgSCUMasterVal.setMaxAccess(_F)
-if mibBuilder.loadTexts:mbgSCUMasterVal.setStatus(_A)
-class _MbgSCULocalRemote_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('local',0),('remote',1)))
-_MbgSCULocalRemote_Type.__name__=_D
-_MbgSCULocalRemote_Object=MibScalar
-mbgSCULocalRemote=_MbgSCULocalRemote_Object((1,3,6,1,4,1,5597,80,1,5),_MbgSCULocalRemote_Type())
-mbgSCULocalRemote.setMaxAccess(_F)
-if mibBuilder.loadTexts:mbgSCULocalRemote.setStatus(_A)
-_MbgTrapIPAddress_Type=IpAddress
-_MbgTrapIPAddress_Object=MibScalar
-mbgTrapIPAddress=_MbgTrapIPAddress_Object((1,3,6,1,4,1,5597,80,1,6),_MbgTrapIPAddress_Type())
-mbgTrapIPAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:mbgTrapIPAddress.setStatus(_A)
-class _MbgSCUSyncStatusClk1_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),('sync',1)))
-_MbgSCUSyncStatusClk1_Type.__name__=_D
-_MbgSCUSyncStatusClk1_Object=MibScalar
-mbgSCUSyncStatusClk1=_MbgSCUSyncStatusClk1_Object((1,3,6,1,4,1,5597,80,1,7),_MbgSCUSyncStatusClk1_Type())
-mbgSCUSyncStatusClk1.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUSyncStatusClk1.setStatus(_A)
-class _MbgSCUSyncStatusClk2_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),('sync',1)))
-_MbgSCUSyncStatusClk2_Type.__name__=_D
-_MbgSCUSyncStatusClk2_Object=MibScalar
-mbgSCUSyncStatusClk2=_MbgSCUSyncStatusClk2_Object((1,3,6,1,4,1,5597,80,1,8),_MbgSCUSyncStatusClk2_Type())
-mbgSCUSyncStatusClk2.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUSyncStatusClk2.setStatus(_A)
-class _MbgSCUOutputStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('outputsDisabled',0),('outputsEnabled',1)))
-_MbgSCUOutputStatus_Type.__name__=_D
-_MbgSCUOutputStatus_Object=MibScalar
-mbgSCUOutputStatus=_MbgSCUOutputStatus_Object((1,3,6,1,4,1,5597,80,1,9),_MbgSCUOutputStatus_Type())
-mbgSCUOutputStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutputStatus.setStatus(_A)
-class _MbgSCUACOMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('acoModeOFF',0),('acoModeON',1)))
-_MbgSCUACOMode_Type.__name__=_D
-_MbgSCUACOMode_Object=MibScalar
-mbgSCUACOMode=_MbgSCUACOMode_Object((1,3,6,1,4,1,5597,80,1,10),_MbgSCUACOMode_Type())
-mbgSCUACOMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUACOMode.setStatus(_A)
-class _MbgSCUPowerSupply1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('notOK',0),('ok',1)))
-_MbgSCUPowerSupply1_Type.__name__=_D
-_MbgSCUPowerSupply1_Object=MibScalar
-mbgSCUPowerSupply1=_MbgSCUPowerSupply1_Object((1,3,6,1,4,1,5597,80,1,11),_MbgSCUPowerSupply1_Type())
-mbgSCUPowerSupply1.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUPowerSupply1.setStatus(_A)
-class _MbgSCUPowerSupply2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('notOK',0),('ok',1)))
-_MbgSCUPowerSupply2_Type.__name__=_D
-_MbgSCUPowerSupply2_Object=MibScalar
-mbgSCUPowerSupply2=_MbgSCUPowerSupply2_Object((1,3,6,1,4,1,5597,80,1,12),_MbgSCUPowerSupply2_Type())
-mbgSCUPowerSupply2.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUPowerSupply2.setStatus(_A)
-_MbgSCUTemp_Type=DisplayString
-_MbgSCUTemp_Object=MibScalar
-mbgSCUTemp=_MbgSCUTemp_Object((1,3,6,1,4,1,5597,80,1,13),_MbgSCUTemp_Type())
-mbgSCUTemp.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUTemp.setStatus(_A)
-_MbgSCUOutp1_Type=DisplayString
-_MbgSCUOutp1_Object=MibScalar
-mbgSCUOutp1=_MbgSCUOutp1_Object((1,3,6,1,4,1,5597,80,1,14),_MbgSCUOutp1_Type())
-mbgSCUOutp1.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp1.setStatus(_A)
-_MbgSCUOutp2_Type=DisplayString
-_MbgSCUOutp2_Object=MibScalar
-mbgSCUOutp2=_MbgSCUOutp2_Object((1,3,6,1,4,1,5597,80,1,15),_MbgSCUOutp2_Type())
-mbgSCUOutp2.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp2.setStatus(_A)
-_MbgSCUOutp3_Type=DisplayString
-_MbgSCUOutp3_Object=MibScalar
-mbgSCUOutp3=_MbgSCUOutp3_Object((1,3,6,1,4,1,5597,80,1,16),_MbgSCUOutp3_Type())
-mbgSCUOutp3.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp3.setStatus(_A)
-_MbgSCUOutp4_Type=DisplayString
-_MbgSCUOutp4_Object=MibScalar
-mbgSCUOutp4=_MbgSCUOutp4_Object((1,3,6,1,4,1,5597,80,1,17),_MbgSCUOutp4_Type())
-mbgSCUOutp4.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp4.setStatus(_A)
-_MbgSCUOutp5_Type=DisplayString
-_MbgSCUOutp5_Object=MibScalar
-mbgSCUOutp5=_MbgSCUOutp5_Object((1,3,6,1,4,1,5597,80,1,18),_MbgSCUOutp5_Type())
-mbgSCUOutp5.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp5.setStatus(_A)
-_MbgSCUOutp6_Type=DisplayString
-_MbgSCUOutp6_Object=MibScalar
-mbgSCUOutp6=_MbgSCUOutp6_Object((1,3,6,1,4,1,5597,80,1,19),_MbgSCUOutp6_Type())
-mbgSCUOutp6.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp6.setStatus(_A)
-_MbgSCUOutp7_Type=DisplayString
-_MbgSCUOutp7_Object=MibScalar
-mbgSCUOutp7=_MbgSCUOutp7_Object((1,3,6,1,4,1,5597,80,1,20),_MbgSCUOutp7_Type())
-mbgSCUOutp7.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp7.setStatus(_A)
-_MbgSCUOutp8_Type=DisplayString
-_MbgSCUOutp8_Object=MibScalar
-mbgSCUOutp8=_MbgSCUOutp8_Object((1,3,6,1,4,1,5597,80,1,21),_MbgSCUOutp8_Type())
-mbgSCUOutp8.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp8.setStatus(_A)
-_MbgSCUOutp9_Type=DisplayString
-_MbgSCUOutp9_Object=MibScalar
-mbgSCUOutp9=_MbgSCUOutp9_Object((1,3,6,1,4,1,5597,80,1,22),_MbgSCUOutp9_Type())
-mbgSCUOutp9.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp9.setStatus(_A)
-_MbgSCUOutp10_Type=DisplayString
-_MbgSCUOutp10_Object=MibScalar
-mbgSCUOutp10=_MbgSCUOutp10_Object((1,3,6,1,4,1,5597,80,1,23),_MbgSCUOutp10_Type())
-mbgSCUOutp10.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp10.setStatus(_A)
-_MbgSCUOutp11_Type=DisplayString
-_MbgSCUOutp11_Object=MibScalar
-mbgSCUOutp11=_MbgSCUOutp11_Object((1,3,6,1,4,1,5597,80,1,24),_MbgSCUOutp11_Type())
-mbgSCUOutp11.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp11.setStatus(_A)
-_MbgSCUOutp12_Type=DisplayString
-_MbgSCUOutp12_Object=MibScalar
-mbgSCUOutp12=_MbgSCUOutp12_Object((1,3,6,1,4,1,5597,80,1,25),_MbgSCUOutp12_Type())
-mbgSCUOutp12.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp12.setStatus(_A)
-_MbgSCUOutp13_Type=DisplayString
-_MbgSCUOutp13_Object=MibScalar
-mbgSCUOutp13=_MbgSCUOutp13_Object((1,3,6,1,4,1,5597,80,1,26),_MbgSCUOutp13_Type())
-mbgSCUOutp13.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp13.setStatus(_A)
-_MbgSCUOutp14_Type=DisplayString
-_MbgSCUOutp14_Object=MibScalar
-mbgSCUOutp14=_MbgSCUOutp14_Object((1,3,6,1,4,1,5597,80,1,27),_MbgSCUOutp14_Type())
-mbgSCUOutp14.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp14.setStatus(_A)
-_MbgSCUOutp15_Type=DisplayString
-_MbgSCUOutp15_Object=MibScalar
-mbgSCUOutp15=_MbgSCUOutp15_Object((1,3,6,1,4,1,5597,80,1,28),_MbgSCUOutp15_Type())
-mbgSCUOutp15.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp15.setStatus(_A)
-_MbgSCUOutp16_Type=DisplayString
-_MbgSCUOutp16_Object=MibScalar
-mbgSCUOutp16=_MbgSCUOutp16_Object((1,3,6,1,4,1,5597,80,1,29),_MbgSCUOutp16_Type())
-mbgSCUOutp16.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUOutp16.setStatus(_A)
-_MbgSCUInp1_Type=DisplayString
-_MbgSCUInp1_Object=MibScalar
-mbgSCUInp1=_MbgSCUInp1_Object((1,3,6,1,4,1,5597,80,1,30),_MbgSCUInp1_Type())
-mbgSCUInp1.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUInp1.setStatus(_A)
-_MbgSCUInp2_Type=DisplayString
-_MbgSCUInp2_Object=MibScalar
-mbgSCUInp2=_MbgSCUInp2_Object((1,3,6,1,4,1,5597,80,1,31),_MbgSCUInp2_Type())
-mbgSCUInp2.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUInp2.setStatus(_A)
-_MbgSCUSupl1_Type=DisplayString
-_MbgSCUSupl1_Object=MibScalar
-mbgSCUSupl1=_MbgSCUSupl1_Object((1,3,6,1,4,1,5597,80,1,32),_MbgSCUSupl1_Type())
-mbgSCUSupl1.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUSupl1.setStatus(_A)
-_MbgSCUSupl2_Type=DisplayString
-_MbgSCUSupl2_Object=MibScalar
-mbgSCUSupl2=_MbgSCUSupl2_Object((1,3,6,1,4,1,5597,80,1,33),_MbgSCUSupl2_Type())
-mbgSCUSupl2.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUSupl2.setStatus(_A)
-_MbgSCUSupl3_Type=DisplayString
-_MbgSCUSupl3_Object=MibScalar
-mbgSCUSupl3=_MbgSCUSupl3_Object((1,3,6,1,4,1,5597,80,1,34),_MbgSCUSupl3_Type())
-mbgSCUSupl3.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUSupl3.setStatus(_A)
-_MbgSCUSupl4_Type=DisplayString
-_MbgSCUSupl4_Object=MibScalar
-mbgSCUSupl4=_MbgSCUSupl4_Object((1,3,6,1,4,1,5597,80,1,35),_MbgSCUSupl4_Type())
-mbgSCUSupl4.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUSupl4.setStatus(_A)
-_MbgSCUtimeDiff_Type=DisplayString
-_MbgSCUtimeDiff_Object=MibScalar
-mbgSCUtimeDiff=_MbgSCUtimeDiff_Object((1,3,6,1,4,1,5597,80,1,36),_MbgSCUtimeDiff_Type())
-mbgSCUtimeDiff.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUtimeDiff.setStatus(_A)
-class _MbgSCUAutoManual_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('manual',0),('auto',1)))
-_MbgSCUAutoManual_Type.__name__=_D
-_MbgSCUAutoManual_Object=MibScalar
-mbgSCUAutoManual=_MbgSCUAutoManual_Object((1,3,6,1,4,1,5597,80,1,37),_MbgSCUAutoManual_Type())
-mbgSCUAutoManual.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUAutoManual.setStatus(_A)
-_MbgSCUDum1_Type=DisplayString
-_MbgSCUDum1_Object=MibScalar
-mbgSCUDum1=_MbgSCUDum1_Object((1,3,6,1,4,1,5597,80,1,38),_MbgSCUDum1_Type())
-mbgSCUDum1.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgSCUDum1.setStatus(_A)
-_MbgTrapRoot_ObjectIdentity=ObjectIdentity
-mbgTrapRoot=_MbgTrapRoot_ObjectIdentity((1,3,6,1,4,1,5597,80,2))
-_MbgTraps_ObjectIdentity=ObjectIdentity
-mbgTraps=_MbgTraps_ObjectIdentity((1,3,6,1,4,1,5597,80,2,0))
-_MbgRSC180Conformance_ObjectIdentity=ObjectIdentity
-mbgRSC180Conformance=_MbgRSC180Conformance_ObjectIdentity((1,3,6,1,4,1,5597,80,90))
-_MbgRSC180Compliances_ObjectIdentity=ObjectIdentity
-mbgRSC180Compliances=_MbgRSC180Compliances_ObjectIdentity((1,3,6,1,4,1,5597,80,90,1))
-_MbgRSC180Groups_ObjectIdentity=ObjectIdentity
-mbgRSC180Groups=_MbgRSC180Groups_ObjectIdentity((1,3,6,1,4,1,5597,80,90,2))
-mbgRSC180ObjectsGroup=ObjectGroup((1,3,6,1,4,1,5597,80,90,2,1))
-mbgRSC180ObjectsGroup.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4)))
-if mibBuilder.loadTexts:mbgRSC180ObjectsGroup.setStatus(_A)
-mbgColdBootTrap=NotificationType((1,3,6,1,4,1,5597,80,2,0,1))
-if mibBuilder.loadTexts:mbgColdBootTrap.setStatus(_A)
-mbgWarmBootTrap=NotificationType((1,3,6,1,4,1,5597,80,2,0,2))
-if mibBuilder.loadTexts:mbgWarmBootTrap.setStatus(_A)
-mbgGPSNavSolvedTrap=NotificationType((1,3,6,1,4,1,5597,80,2,0,3))
-if mibBuilder.loadTexts:mbgGPSNavSolvedTrap.setStatus(_A)
-mbgGPSReceiverNotRespondingTrap=NotificationType((1,3,6,1,4,1,5597,80,2,0,4))
-if mibBuilder.loadTexts:mbgGPSReceiverNotRespondingTrap.setStatus(_A)
-mbgGPSReceiverNotSyncTrap=NotificationType((1,3,6,1,4,1,5597,80,2,0,5))
-if mibBuilder.loadTexts:mbgGPSReceiverNotSyncTrap.setStatus(_A)
-mbgGPSAntennaFaultyTrap=NotificationType((1,3,6,1,4,1,5597,80,2,0,6))
-if mibBuilder.loadTexts:mbgGPSAntennaFaultyTrap.setStatus(_A)
-mbgGPSAntennaReconnectTrap=NotificationType((1,3,6,1,4,1,5597,80,2,0,7))
-if mibBuilder.loadTexts:mbgGPSAntennaReconnectTrap.setStatus(_A)
-mbgSCUBootTrap=NotificationType((1,3,6,1,4,1,5597,80,2,0,8))
-if mibBuilder.loadTexts:mbgSCUBootTrap.setStatus(_A)
-mbgLeapSecondAnnouncedTrap=NotificationType((1,3,6,1,4,1,5597,80,2,0,9))
-if mibBuilder.loadTexts:mbgLeapSecondAnnouncedTrap.setStatus(_A)
-mbgMasterclockSwitchoverTrap=NotificationType((1,3,6,1,4,1,5597,80,2,0,10))
-if mibBuilder.loadTexts:mbgMasterclockSwitchoverTrap.setStatus(_A)
-mbgPowerSupplyFailureTrap=NotificationType((1,3,6,1,4,1,5597,80,2,0,11))
-if mibBuilder.loadTexts:mbgPowerSupplyFailureTrap.setStatus(_A)
-mbgPowerSupplyOKTrap=NotificationType((1,3,6,1,4,1,5597,80,2,0,12))
-if mibBuilder.loadTexts:mbgPowerSupplyOKTrap.setStatus(_A)
-mbgHighTempTrap=NotificationType((1,3,6,1,4,1,5597,80,2,0,13))
-if mibBuilder.loadTexts:mbgHighTempTrap.setStatus(_A)
-mbgTestNotificationTrap=NotificationType((1,3,6,1,4,1,5597,80,2,0,99))
-if mibBuilder.loadTexts:mbgTestNotificationTrap.setStatus(_A)
-mbgRSC180TrapsGroup=NotificationGroup((1,3,6,1,4,1,5597,80,90,2,2))
-mbgRSC180TrapsGroup.setObjects(*((_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI)))
-if mibBuilder.loadTexts:mbgRSC180TrapsGroup.setStatus(_A)
-mbgRSC180Compliance=ModuleCompliance((1,3,6,1,4,1,5597,80,90,1,1))
-mbgRSC180Compliance.setObjects(*((_B,_AJ),(_B,_AK)))
-if mibBuilder.loadTexts:mbgRSC180Compliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_H:MeinbergRefClockTyp,'mbgRSC180':mbgRSC180,'mbgRefClock':mbgRefClock,'mbgRefClockStatus':mbgRefClockStatus,'mbgRefClockTable':mbgRefClockTable,'mbgRefClockTableEntry':mbgRefClockTableEntry,_G:mbgClkTableIndex,_J:mbgClkType,_K:mbgClkSerialNo,_L:mbgClkFirmwareRev,_M:mbgClkMode,_N:mbgGpsState,_O:mbgGpsPosition,_P:mbgGpsSatellitesGood,_Q:mbgGpsSatellitesInView,_R:mbgGPSNavSolved,_S:mbgLeapSecond,'mbgSCU':mbgSCU,_T:mbgSCUType,_U:mbgSCUSerialNo,_V:mbgSCUFirmwareRev,_W:mbgSCUMasterVal,_X:mbgSCULocalRemote,_Y:mbgTrapIPAddress,_Z:mbgSCUSyncStatusClk1,_a:mbgSCUSyncStatusClk2,_b:mbgSCUOutputStatus,_c:mbgSCUACOMode,_d:mbgSCUPowerSupply1,_e:mbgSCUPowerSupply2,_f:mbgSCUTemp,_g:mbgSCUOutp1,_h:mbgSCUOutp2,_i:mbgSCUOutp3,_j:mbgSCUOutp4,_k:mbgSCUOutp5,_l:mbgSCUOutp6,_m:mbgSCUOutp7,_n:mbgSCUOutp8,_o:mbgSCUOutp9,_p:mbgSCUOutp10,_q:mbgSCUOutp11,_r:mbgSCUOutp12,_s:mbgSCUOutp13,_t:mbgSCUOutp14,_u:mbgSCUOutp15,_v:mbgSCUOutp16,_w:mbgSCUInp1,_x:mbgSCUInp2,_y:mbgSCUSupl1,_z:mbgSCUSupl2,_A0:mbgSCUSupl3,_A1:mbgSCUSupl4,_A2:mbgSCUtimeDiff,_A3:mbgSCUAutoManual,_A4:mbgSCUDum1,'mbgTrapRoot':mbgTrapRoot,'mbgTraps':mbgTraps,_A5:mbgColdBootTrap,_A6:mbgWarmBootTrap,_A7:mbgGPSNavSolvedTrap,_A8:mbgGPSReceiverNotRespondingTrap,_A9:mbgGPSReceiverNotSyncTrap,_AA:mbgGPSAntennaFaultyTrap,_AB:mbgGPSAntennaReconnectTrap,_AC:mbgSCUBootTrap,_AD:mbgLeapSecondAnnouncedTrap,_AE:mbgMasterclockSwitchoverTrap,_AF:mbgPowerSupplyFailureTrap,_AG:mbgPowerSupplyOKTrap,_AH:mbgHighTempTrap,_AI:mbgTestNotificationTrap,'mbgRSC180Conformance':mbgRSC180Conformance,'mbgRSC180Compliances':mbgRSC180Compliances,'mbgRSC180Compliance':mbgRSC180Compliance,'mbgRSC180Groups':mbgRSC180Groups,_AJ:mbgRSC180ObjectsGroup,_AK:mbgRSC180TrapsGroup})
+#
+# PySNMP MIB module MBG-SNMP-RSC180-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/meinberg/MBG-SNMP-RSC180-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:34 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mbgSnmpRoot, = mibBuilder.importSymbols("MBG-SNMP-ROOT-MIB", "mbgSnmpRoot")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+mbgRSC180 = ModuleIdentity((1, 3, 6, 1, 4, 1, 5597, 80))
+mbgRSC180.setRevisions(('2012-01-25 00:00', '2006-01-20 00:00',))
+if mibBuilder.loadTexts: mbgRSC180.setLastUpdated('201201250000Z')
+if mibBuilder.loadTexts: mbgRSC180.setOrganization('www.meinberg.de')
+class MeinbergRefClockTyp(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52))
+    namedValues = NamedValues(("notAvailable", 0), ("gps166", 1), ("gps167", 2), ("gps167SV", 3), ("gps167PC", 4), ("gps167PCI", 5), ("gps163", 6), ("gps168PCI", 7), ("gps161", 8), ("gps169PCI", 9), ("tcr167PCI", 10), ("gps164", 11), ("gps170PCI", 12), ("pzf511", 13), ("gps170", 14), ("tcr511", 15), ("am511", 16), ("msf511", 17), ("grc170", 18), ("gps170PEX", 19), ("gps162", 20), ("ptp270PEX", 21), ("frc511PEX", 22), ("gen170", 23), ("tcr170PEX", 24), ("wwvb511", 25), ("mbg170", 26), ("jjy511", 27), ("pzf600", 28), ("tcr600", 29), ("gps180", 30), ("gln170", 31), ("gps180PEX", 32), ("tcr180PEX", 33), ("pzf180PEX", 34), ("mbg180", 35), ("msf600", 36), ("wwvb600", 37), ("jjy600", 38), ("gps180HS", 39), ("gps180AMC", 40), ("esi180", 41), ("cpe180", 42), ("lno180", 43), ("grc180", 44), ("liu", 45), ("dcf600HS", 46), ("dcf600RS", 47), ("mri", 48), ("bpe", 49), ("gln180pex", 50), ("n2x", 51), ("rsc180", 52))
+
+mbgRefClock = MibIdentifier((1, 3, 6, 1, 4, 1, 5597, 80, 0))
+mbgSCU = MibIdentifier((1, 3, 6, 1, 4, 1, 5597, 80, 1))
+mbgTrapRoot = MibIdentifier((1, 3, 6, 1, 4, 1, 5597, 80, 2))
+mbgRefClockStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 5597, 80, 0, 0))
+mbgRefClockTable = MibTable((1, 3, 6, 1, 4, 1, 5597, 80, 0, 0, 1), )
+if mibBuilder.loadTexts: mbgRefClockTable.setStatus('current')
+mbgRefClockTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5597, 80, 0, 0, 1, 1), ).setIndexNames((0, "MBG-SNMP-RSC180-MIB", "mbgClkTableIndex"))
+if mibBuilder.loadTexts: mbgRefClockTableEntry.setStatus('current')
+mbgClkTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5597, 80, 0, 0, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: mbgClkTableIndex.setStatus('current')
+mbgClkType = MibTableColumn((1, 3, 6, 1, 4, 1, 5597, 80, 0, 0, 1, 1, 2), MeinbergRefClockTyp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgClkType.setStatus('current')
+mbgClkSerialNo = MibTableColumn((1, 3, 6, 1, 4, 1, 5597, 80, 0, 0, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgClkSerialNo.setStatus('current')
+mbgClkFirmwareRev = MibTableColumn((1, 3, 6, 1, 4, 1, 5597, 80, 0, 0, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgClkFirmwareRev.setStatus('current')
+mbgClkMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5597, 80, 0, 0, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("notAvailable", 0), ("normalOperation", 1), ("trackingSearching", 2), ("antennaFaulty", 3), ("warmBoot", 4), ("coldBoot", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgClkMode.setStatus('current')
+mbgGpsState = MibTableColumn((1, 3, 6, 1, 4, 1, 5597, 80, 0, 0, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("notAvailable", 0), ("synchronized", 1), ("notSynchronized", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgGpsState.setStatus('current')
+mbgGpsPosition = MibTableColumn((1, 3, 6, 1, 4, 1, 5597, 80, 0, 0, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgGpsPosition.setStatus('current')
+mbgGpsSatellitesGood = MibTableColumn((1, 3, 6, 1, 4, 1, 5597, 80, 0, 0, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgGpsSatellitesGood.setStatus('current')
+mbgGpsSatellitesInView = MibTableColumn((1, 3, 6, 1, 4, 1, 5597, 80, 0, 0, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgGpsSatellitesInView.setStatus('current')
+mbgGPSNavSolved = MibTableColumn((1, 3, 6, 1, 4, 1, 5597, 80, 0, 0, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgGPSNavSolved.setStatus('current')
+mbgLeapSecond = MibTableColumn((1, 3, 6, 1, 4, 1, 5597, 80, 0, 0, 1, 1, 11), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgLeapSecond.setStatus('current')
+mbgSCUType = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 1), MeinbergRefClockTyp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUType.setStatus('current')
+mbgSCUSerialNo = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUSerialNo.setStatus('current')
+mbgSCUFirmwareRev = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUFirmwareRev.setStatus('current')
+mbgSCUMasterVal = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("noMaster", 0), ("clk1isMaster", 1), ("clk2isMaster", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mbgSCUMasterVal.setStatus('current')
+mbgSCULocalRemote = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("local", 0), ("remote", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mbgSCULocalRemote.setStatus('current')
+mbgTrapIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 6), IpAddress().clone('0.0.0.0')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mbgTrapIPAddress.setStatus('current')
+mbgSCUSyncStatusClk1 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("notSync", 0), ("sync", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUSyncStatusClk1.setStatus('current')
+mbgSCUSyncStatusClk2 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("notSync", 0), ("sync", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUSyncStatusClk2.setStatus('current')
+mbgSCUOutputStatus = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("outputsDisabled", 0), ("outputsEnabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutputStatus.setStatus('current')
+mbgSCUACOMode = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("acoModeOFF", 0), ("acoModeON", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUACOMode.setStatus('current')
+mbgSCUPowerSupply1 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("notOK", 0), ("ok", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUPowerSupply1.setStatus('current')
+mbgSCUPowerSupply2 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("notOK", 0), ("ok", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUPowerSupply2.setStatus('current')
+mbgSCUTemp = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 13), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUTemp.setStatus('current')
+mbgSCUOutp1 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 14), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp1.setStatus('current')
+mbgSCUOutp2 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 15), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp2.setStatus('current')
+mbgSCUOutp3 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 16), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp3.setStatus('current')
+mbgSCUOutp4 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 17), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp4.setStatus('current')
+mbgSCUOutp5 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 18), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp5.setStatus('current')
+mbgSCUOutp6 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 19), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp6.setStatus('current')
+mbgSCUOutp7 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 20), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp7.setStatus('current')
+mbgSCUOutp8 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 21), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp8.setStatus('current')
+mbgSCUOutp9 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 22), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp9.setStatus('current')
+mbgSCUOutp10 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 23), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp10.setStatus('current')
+mbgSCUOutp11 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 24), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp11.setStatus('current')
+mbgSCUOutp12 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 25), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp12.setStatus('current')
+mbgSCUOutp13 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 26), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp13.setStatus('current')
+mbgSCUOutp14 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 27), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp14.setStatus('current')
+mbgSCUOutp15 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 28), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp15.setStatus('current')
+mbgSCUOutp16 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 29), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUOutp16.setStatus('current')
+mbgSCUInp1 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 30), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUInp1.setStatus('current')
+mbgSCUInp2 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 31), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUInp2.setStatus('current')
+mbgSCUSupl1 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 32), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUSupl1.setStatus('current')
+mbgSCUSupl2 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 33), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUSupl2.setStatus('current')
+mbgSCUSupl3 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 34), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUSupl3.setStatus('current')
+mbgSCUSupl4 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 35), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUSupl4.setStatus('current')
+mbgSCUtimeDiff = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 36), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUtimeDiff.setStatus('current')
+mbgSCUAutoManual = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 37), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("manual", 0), ("auto", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUAutoManual.setStatus('current')
+mbgSCUDum1 = MibScalar((1, 3, 6, 1, 4, 1, 5597, 80, 1, 38), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgSCUDum1.setStatus('current')
+mbgTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 5597, 80, 2, 0))
+mbgColdBootTrap = NotificationType((1, 3, 6, 1, 4, 1, 5597, 80, 2, 0, 1))
+if mibBuilder.loadTexts: mbgColdBootTrap.setStatus('current')
+mbgWarmBootTrap = NotificationType((1, 3, 6, 1, 4, 1, 5597, 80, 2, 0, 2))
+if mibBuilder.loadTexts: mbgWarmBootTrap.setStatus('current')
+mbgGPSNavSolvedTrap = NotificationType((1, 3, 6, 1, 4, 1, 5597, 80, 2, 0, 3))
+if mibBuilder.loadTexts: mbgGPSNavSolvedTrap.setStatus('current')
+mbgGPSReceiverNotRespondingTrap = NotificationType((1, 3, 6, 1, 4, 1, 5597, 80, 2, 0, 4))
+if mibBuilder.loadTexts: mbgGPSReceiverNotRespondingTrap.setStatus('current')
+mbgGPSReceiverNotSyncTrap = NotificationType((1, 3, 6, 1, 4, 1, 5597, 80, 2, 0, 5))
+if mibBuilder.loadTexts: mbgGPSReceiverNotSyncTrap.setStatus('current')
+mbgGPSAntennaFaultyTrap = NotificationType((1, 3, 6, 1, 4, 1, 5597, 80, 2, 0, 6))
+if mibBuilder.loadTexts: mbgGPSAntennaFaultyTrap.setStatus('current')
+mbgGPSAntennaReconnectTrap = NotificationType((1, 3, 6, 1, 4, 1, 5597, 80, 2, 0, 7))
+if mibBuilder.loadTexts: mbgGPSAntennaReconnectTrap.setStatus('current')
+mbgSCUBootTrap = NotificationType((1, 3, 6, 1, 4, 1, 5597, 80, 2, 0, 8))
+if mibBuilder.loadTexts: mbgSCUBootTrap.setStatus('current')
+mbgLeapSecondAnnouncedTrap = NotificationType((1, 3, 6, 1, 4, 1, 5597, 80, 2, 0, 9))
+if mibBuilder.loadTexts: mbgLeapSecondAnnouncedTrap.setStatus('current')
+mbgMasterclockSwitchoverTrap = NotificationType((1, 3, 6, 1, 4, 1, 5597, 80, 2, 0, 10))
+if mibBuilder.loadTexts: mbgMasterclockSwitchoverTrap.setStatus('current')
+mbgPowerSupplyFailureTrap = NotificationType((1, 3, 6, 1, 4, 1, 5597, 80, 2, 0, 11))
+if mibBuilder.loadTexts: mbgPowerSupplyFailureTrap.setStatus('current')
+mbgPowerSupplyOKTrap = NotificationType((1, 3, 6, 1, 4, 1, 5597, 80, 2, 0, 12))
+if mibBuilder.loadTexts: mbgPowerSupplyOKTrap.setStatus('current')
+mbgHighTempTrap = NotificationType((1, 3, 6, 1, 4, 1, 5597, 80, 2, 0, 13))
+if mibBuilder.loadTexts: mbgHighTempTrap.setStatus('current')
+mbgTestNotificationTrap = NotificationType((1, 3, 6, 1, 4, 1, 5597, 80, 2, 0, 99))
+if mibBuilder.loadTexts: mbgTestNotificationTrap.setStatus('current')
+mbgRSC180Conformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5597, 80, 90))
+mbgRSC180Compliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5597, 80, 90, 1))
+mbgRSC180Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 5597, 80, 90, 2))
+mbgRSC180Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5597, 80, 90, 1, 1)).setObjects(("MBG-SNMP-RSC180-MIB", "mbgRSC180ObjectsGroup"), ("MBG-SNMP-RSC180-MIB", "mbgRSC180TrapsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mbgRSC180Compliance = mbgRSC180Compliance.setStatus('current')
+mbgRSC180ObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5597, 80, 90, 2, 1)).setObjects(("MBG-SNMP-RSC180-MIB", "mbgClkType"), ("MBG-SNMP-RSC180-MIB", "mbgClkSerialNo"), ("MBG-SNMP-RSC180-MIB", "mbgClkFirmwareRev"), ("MBG-SNMP-RSC180-MIB", "mbgClkMode"), ("MBG-SNMP-RSC180-MIB", "mbgGpsState"), ("MBG-SNMP-RSC180-MIB", "mbgGpsPosition"), ("MBG-SNMP-RSC180-MIB", "mbgGpsSatellitesGood"), ("MBG-SNMP-RSC180-MIB", "mbgGpsSatellitesInView"), ("MBG-SNMP-RSC180-MIB", "mbgGPSNavSolved"), ("MBG-SNMP-RSC180-MIB", "mbgLeapSecond"), ("MBG-SNMP-RSC180-MIB", "mbgSCUType"), ("MBG-SNMP-RSC180-MIB", "mbgSCUSerialNo"), ("MBG-SNMP-RSC180-MIB", "mbgSCUFirmwareRev"), ("MBG-SNMP-RSC180-MIB", "mbgSCUMasterVal"), ("MBG-SNMP-RSC180-MIB", "mbgSCULocalRemote"), ("MBG-SNMP-RSC180-MIB", "mbgTrapIPAddress"), ("MBG-SNMP-RSC180-MIB", "mbgSCUSyncStatusClk1"), ("MBG-SNMP-RSC180-MIB", "mbgSCUSyncStatusClk2"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutputStatus"), ("MBG-SNMP-RSC180-MIB", "mbgSCUACOMode"), ("MBG-SNMP-RSC180-MIB", "mbgSCUPowerSupply1"), ("MBG-SNMP-RSC180-MIB", "mbgSCUPowerSupply2"), ("MBG-SNMP-RSC180-MIB", "mbgSCUTemp"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp1"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp2"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp3"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp4"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp5"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp6"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp7"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp8"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp9"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp10"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp11"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp12"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp13"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp14"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp15"), ("MBG-SNMP-RSC180-MIB", "mbgSCUOutp16"), ("MBG-SNMP-RSC180-MIB", "mbgSCUInp1"), ("MBG-SNMP-RSC180-MIB", "mbgSCUInp2"), ("MBG-SNMP-RSC180-MIB", "mbgSCUSupl1"), ("MBG-SNMP-RSC180-MIB", "mbgSCUSupl2"), ("MBG-SNMP-RSC180-MIB", "mbgSCUSupl3"), ("MBG-SNMP-RSC180-MIB", "mbgSCUSupl4"), ("MBG-SNMP-RSC180-MIB", "mbgSCUtimeDiff"), ("MBG-SNMP-RSC180-MIB", "mbgSCUAutoManual"), ("MBG-SNMP-RSC180-MIB", "mbgSCUDum1"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mbgRSC180ObjectsGroup = mbgRSC180ObjectsGroup.setStatus('current')
+mbgRSC180TrapsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 5597, 80, 90, 2, 2)).setObjects(("MBG-SNMP-RSC180-MIB", "mbgColdBootTrap"), ("MBG-SNMP-RSC180-MIB", "mbgWarmBootTrap"), ("MBG-SNMP-RSC180-MIB", "mbgGPSNavSolvedTrap"), ("MBG-SNMP-RSC180-MIB", "mbgGPSReceiverNotRespondingTrap"), ("MBG-SNMP-RSC180-MIB", "mbgGPSReceiverNotSyncTrap"), ("MBG-SNMP-RSC180-MIB", "mbgGPSAntennaFaultyTrap"), ("MBG-SNMP-RSC180-MIB", "mbgGPSAntennaReconnectTrap"), ("MBG-SNMP-RSC180-MIB", "mbgSCUBootTrap"), ("MBG-SNMP-RSC180-MIB", "mbgLeapSecondAnnouncedTrap"), ("MBG-SNMP-RSC180-MIB", "mbgMasterclockSwitchoverTrap"), ("MBG-SNMP-RSC180-MIB", "mbgPowerSupplyFailureTrap"), ("MBG-SNMP-RSC180-MIB", "mbgPowerSupplyOKTrap"), ("MBG-SNMP-RSC180-MIB", "mbgHighTempTrap"), ("MBG-SNMP-RSC180-MIB", "mbgTestNotificationTrap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mbgRSC180TrapsGroup = mbgRSC180TrapsGroup.setStatus('current')
+mibBuilder.exportSymbols("MBG-SNMP-RSC180-MIB", mbgGPSReceiverNotRespondingTrap=mbgGPSReceiverNotRespondingTrap, PYSNMP_MODULE_ID=mbgRSC180, mbgRefClockStatus=mbgRefClockStatus, mbgSCUInp1=mbgSCUInp1, mbgClkMode=mbgClkMode, mbgSCUSupl4=mbgSCUSupl4, mbgGPSNavSolved=mbgGPSNavSolved, mbgSCUOutp2=mbgSCUOutp2, mbgSCUOutp7=mbgSCUOutp7, mbgRSC180TrapsGroup=mbgRSC180TrapsGroup, mbgRSC180Compliance=mbgRSC180Compliance, mbgSCUSupl2=mbgSCUSupl2, mbgSCUSyncStatusClk2=mbgSCUSyncStatusClk2, mbgGPSNavSolvedTrap=mbgGPSNavSolvedTrap, mbgRefClockTable=mbgRefClockTable, MeinbergRefClockTyp=MeinbergRefClockTyp, mbgSCUOutp16=mbgSCUOutp16, mbgSCUFirmwareRev=mbgSCUFirmwareRev, mbgSCUOutp9=mbgSCUOutp9, mbgSCUType=mbgSCUType, mbgSCUSupl1=mbgSCUSupl1, mbgGpsPosition=mbgGpsPosition, mbgSCUPowerSupply1=mbgSCUPowerSupply1, mbgLeapSecond=mbgLeapSecond, mbgGPSReceiverNotSyncTrap=mbgGPSReceiverNotSyncTrap, mbgSCUACOMode=mbgSCUACOMode, mbgSCUOutp1=mbgSCUOutp1, mbgRSC180Groups=mbgRSC180Groups, mbgSCUOutputStatus=mbgSCUOutputStatus, mbgSCUOutp4=mbgSCUOutp4, mbgPowerSupplyOKTrap=mbgPowerSupplyOKTrap, mbgGpsState=mbgGpsState, mbgSCUtimeDiff=mbgSCUtimeDiff, mbgSCUOutp6=mbgSCUOutp6, mbgGpsSatellitesGood=mbgGpsSatellitesGood, mbgRefClock=mbgRefClock, mbgSCUMasterVal=mbgSCUMasterVal, mbgTraps=mbgTraps, mbgSCUBootTrap=mbgSCUBootTrap, mbgSCUOutp11=mbgSCUOutp11, mbgGPSAntennaFaultyTrap=mbgGPSAntennaFaultyTrap, mbgClkTableIndex=mbgClkTableIndex, mbgWarmBootTrap=mbgWarmBootTrap, mbgSCUOutp8=mbgSCUOutp8, mbgGPSAntennaReconnectTrap=mbgGPSAntennaReconnectTrap, mbgRSC180Compliances=mbgRSC180Compliances, mbgSCUOutp3=mbgSCUOutp3, mbgSCUPowerSupply2=mbgSCUPowerSupply2, mbgTrapRoot=mbgTrapRoot, mbgSCUInp2=mbgSCUInp2, mbgSCUOutp10=mbgSCUOutp10, mbgSCUDum1=mbgSCUDum1, mbgRSC180Conformance=mbgRSC180Conformance, mbgSCUSupl3=mbgSCUSupl3, mbgSCUTemp=mbgSCUTemp, mbgSCUOutp15=mbgSCUOutp15, mbgSCU=mbgSCU, mbgLeapSecondAnnouncedTrap=mbgLeapSecondAnnouncedTrap, mbgSCUAutoManual=mbgSCUAutoManual, mbgTestNotificationTrap=mbgTestNotificationTrap, mbgRefClockTableEntry=mbgRefClockTableEntry, mbgGpsSatellitesInView=mbgGpsSatellitesInView, mbgRSC180ObjectsGroup=mbgRSC180ObjectsGroup, mbgTrapIPAddress=mbgTrapIPAddress, mbgClkType=mbgClkType, mbgClkFirmwareRev=mbgClkFirmwareRev, mbgSCUSerialNo=mbgSCUSerialNo, mbgSCUOutp14=mbgSCUOutp14, mbgMasterclockSwitchoverTrap=mbgMasterclockSwitchoverTrap, mbgRSC180=mbgRSC180, mbgSCUOutp5=mbgSCUOutp5, mbgPowerSupplyFailureTrap=mbgPowerSupplyFailureTrap, mbgSCUSyncStatusClk1=mbgSCUSyncStatusClk1, mbgClkSerialNo=mbgClkSerialNo, mbgColdBootTrap=mbgColdBootTrap, mbgSCUOutp12=mbgSCUOutp12, mbgHighTempTrap=mbgHighTempTrap, mbgSCULocalRemote=mbgSCULocalRemote, mbgSCUOutp13=mbgSCUOutp13)

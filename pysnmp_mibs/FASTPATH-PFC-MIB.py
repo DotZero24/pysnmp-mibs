@@ -1,87 +1,48 @@
-_I='read-write'
-_H='not-accessible'
-_G='Unsigned32'
-_F='agentPfcPriority'
-_E='read-only'
-_D='agentPfcIntfIndex'
-_C='Integer32'
-_B='FASTPATH-PFC-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fastPath,=mibBuilder.importSymbols('BROADCOM-REF-MIB','fastPath')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-fastPathPFC=ModuleIdentity((1,3,6,1,4,1,4413,1,1,47))
-_AgentPfcCfgGroup_ObjectIdentity=ObjectIdentity
-agentPfcCfgGroup=_AgentPfcCfgGroup_ObjectIdentity((1,3,6,1,4,1,4413,1,1,47,1))
-_AgentPfcTable_Object=MibTable
-agentPfcTable=_AgentPfcTable_Object((1,3,6,1,4,1,4413,1,1,47,1,1))
-if mibBuilder.loadTexts:agentPfcTable.setStatus(_A)
-_AgentPfcEntry_Object=MibTableRow
-agentPfcEntry=_AgentPfcEntry_Object((1,3,6,1,4,1,4413,1,1,47,1,1,1))
-agentPfcEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:agentPfcEntry.setStatus(_A)
-_AgentPfcIntfIndex_Type=InterfaceIndex
-_AgentPfcIntfIndex_Object=MibTableColumn
-agentPfcIntfIndex=_AgentPfcIntfIndex_Object((1,3,6,1,4,1,4413,1,1,47,1,1,1,1),_AgentPfcIntfIndex_Type())
-agentPfcIntfIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:agentPfcIntfIndex.setStatus(_A)
-class _AgentPfcIntfAdminMode_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_AgentPfcIntfAdminMode_Type.__name__=_C
-_AgentPfcIntfAdminMode_Object=MibTableColumn
-agentPfcIntfAdminMode=_AgentPfcIntfAdminMode_Object((1,3,6,1,4,1,4413,1,1,47,1,1,1,2),_AgentPfcIntfAdminMode_Type())
-agentPfcIntfAdminMode.setMaxAccess(_I)
-if mibBuilder.loadTexts:agentPfcIntfAdminMode.setStatus(_A)
-class _AgentPfcIntfPfcStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('active',1),('inactive',2)))
-_AgentPfcIntfPfcStatus_Type.__name__=_C
-_AgentPfcIntfPfcStatus_Object=MibTableColumn
-agentPfcIntfPfcStatus=_AgentPfcIntfPfcStatus_Object((1,3,6,1,4,1,4413,1,1,47,1,1,1,3),_AgentPfcIntfPfcStatus_Type())
-agentPfcIntfPfcStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentPfcIntfPfcStatus.setStatus(_A)
-_AgentPfcTotalIntfPfcFramesRx_Type=Unsigned32
-_AgentPfcTotalIntfPfcFramesRx_Object=MibTableColumn
-agentPfcTotalIntfPfcFramesRx=_AgentPfcTotalIntfPfcFramesRx_Object((1,3,6,1,4,1,4413,1,1,47,1,1,1,4),_AgentPfcTotalIntfPfcFramesRx_Type())
-agentPfcTotalIntfPfcFramesRx.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentPfcTotalIntfPfcFramesRx.setStatus(_A)
-_AgentPfcTotalIntfPfcFramesTx_Type=Unsigned32
-_AgentPfcTotalIntfPfcFramesTx_Object=MibTableColumn
-agentPfcTotalIntfPfcFramesTx=_AgentPfcTotalIntfPfcFramesTx_Object((1,3,6,1,4,1,4413,1,1,47,1,1,1,5),_AgentPfcTotalIntfPfcFramesTx_Type())
-agentPfcTotalIntfPfcFramesTx.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentPfcTotalIntfPfcFramesTx.setStatus(_A)
-_AgentPfcActionTable_Object=MibTable
-agentPfcActionTable=_AgentPfcActionTable_Object((1,3,6,1,4,1,4413,1,1,47,1,2))
-if mibBuilder.loadTexts:agentPfcActionTable.setStatus(_A)
-_AgentPfcActionEntry_Object=MibTableRow
-agentPfcActionEntry=_AgentPfcActionEntry_Object((1,3,6,1,4,1,4413,1,1,47,1,2,1))
-agentPfcActionEntry.setIndexNames((0,_B,_D),(0,_B,_F))
-if mibBuilder.loadTexts:agentPfcActionEntry.setStatus(_A)
-class _AgentPfcPriority_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_AgentPfcPriority_Type.__name__=_G
-_AgentPfcPriority_Object=MibTableColumn
-agentPfcPriority=_AgentPfcPriority_Object((1,3,6,1,4,1,4413,1,1,47,1,2,1,1),_AgentPfcPriority_Type())
-agentPfcPriority.setMaxAccess(_H)
-if mibBuilder.loadTexts:agentPfcPriority.setStatus(_A)
-class _AgentPfcAction_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('drop',1),('nodrop',2)))
-_AgentPfcAction_Type.__name__=_C
-_AgentPfcAction_Object=MibTableColumn
-agentPfcAction=_AgentPfcAction_Object((1,3,6,1,4,1,4413,1,1,47,1,2,1,2),_AgentPfcAction_Type())
-agentPfcAction.setMaxAccess(_I)
-if mibBuilder.loadTexts:agentPfcAction.setStatus(_A)
-_AgentPfcIntfStatsPerPriorityTable_Object=MibTable
-agentPfcIntfStatsPerPriorityTable=_AgentPfcIntfStatsPerPriorityTable_Object((1,3,6,1,4,1,4413,1,1,47,1,3))
-if mibBuilder.loadTexts:agentPfcIntfStatsPerPriorityTable.setStatus(_A)
-_AgentPfcIntfStatsPerPriorityEntry_Object=MibTableRow
-agentPfcIntfStatsPerPriorityEntry=_AgentPfcIntfStatsPerPriorityEntry_Object((1,3,6,1,4,1,4413,1,1,47,1,3,1))
-agentPfcIntfStatsPerPriorityEntry.setIndexNames((0,_B,_D),(0,_B,_F))
-if mibBuilder.loadTexts:agentPfcIntfStatsPerPriorityEntry.setStatus(_A)
-_AgentPfcIntfPfcPriorityFramesRx_Type=Unsigned32
-_AgentPfcIntfPfcPriorityFramesRx_Object=MibTableColumn
-agentPfcIntfPfcPriorityFramesRx=_AgentPfcIntfPfcPriorityFramesRx_Object((1,3,6,1,4,1,4413,1,1,47,1,3,1,1),_AgentPfcIntfPfcPriorityFramesRx_Type())
-agentPfcIntfPfcPriorityFramesRx.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentPfcIntfPfcPriorityFramesRx.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'fastPathPFC':fastPathPFC,'agentPfcCfgGroup':agentPfcCfgGroup,'agentPfcTable':agentPfcTable,'agentPfcEntry':agentPfcEntry,_D:agentPfcIntfIndex,'agentPfcIntfAdminMode':agentPfcIntfAdminMode,'agentPfcIntfPfcStatus':agentPfcIntfPfcStatus,'agentPfcTotalIntfPfcFramesRx':agentPfcTotalIntfPfcFramesRx,'agentPfcTotalIntfPfcFramesTx':agentPfcTotalIntfPfcFramesTx,'agentPfcActionTable':agentPfcActionTable,'agentPfcActionEntry':agentPfcActionEntry,_F:agentPfcPriority,'agentPfcAction':agentPfcAction,'agentPfcIntfStatsPerPriorityTable':agentPfcIntfStatsPerPriorityTable,'agentPfcIntfStatsPerPriorityEntry':agentPfcIntfStatsPerPriorityEntry,'agentPfcIntfPfcPriorityFramesRx':agentPfcIntfPfcPriorityFramesRx})
+#
+# PySNMP MIB module FASTPATH-PFC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/broadcom/FASTPATH-PFC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fastPath, = mibBuilder.importSymbols("BROADCOM-REF-MIB", "fastPath")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+fastPathPFC = ModuleIdentity((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47))
+if mibBuilder.loadTexts: fastPathPFC.setLastUpdated('200905220000Z')
+if mibBuilder.loadTexts: fastPathPFC.setOrganization('Broadcom Corporation')
+agentPfcCfgGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47, 1))
+agentPfcTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47, 1, 1), )
+if mibBuilder.loadTexts: agentPfcTable.setStatus('current')
+agentPfcEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47, 1, 1, 1), ).setIndexNames((0, "FASTPATH-PFC-MIB", "agentPfcIntfIndex"))
+if mibBuilder.loadTexts: agentPfcEntry.setStatus('current')
+agentPfcIntfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: agentPfcIntfIndex.setStatus('current')
+agentPfcIntfAdminMode = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentPfcIntfAdminMode.setStatus('current')
+agentPfcIntfPfcStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2))).clone(2)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentPfcIntfPfcStatus.setStatus('current')
+agentPfcTotalIntfPfcFramesRx = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47, 1, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentPfcTotalIntfPfcFramesRx.setStatus('current')
+agentPfcTotalIntfPfcFramesTx = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentPfcTotalIntfPfcFramesTx.setStatus('current')
+agentPfcActionTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47, 1, 2), )
+if mibBuilder.loadTexts: agentPfcActionTable.setStatus('current')
+agentPfcActionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47, 1, 2, 1), ).setIndexNames((0, "FASTPATH-PFC-MIB", "agentPfcIntfIndex"), (0, "FASTPATH-PFC-MIB", "agentPfcPriority"))
+if mibBuilder.loadTexts: agentPfcActionEntry.setStatus('current')
+agentPfcPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)))
+if mibBuilder.loadTexts: agentPfcPriority.setStatus('current')
+agentPfcAction = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("drop", 1), ("nodrop", 2))).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentPfcAction.setStatus('current')
+agentPfcIntfStatsPerPriorityTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47, 1, 3), )
+if mibBuilder.loadTexts: agentPfcIntfStatsPerPriorityTable.setStatus('current')
+agentPfcIntfStatsPerPriorityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47, 1, 3, 1), ).setIndexNames((0, "FASTPATH-PFC-MIB", "agentPfcIntfIndex"), (0, "FASTPATH-PFC-MIB", "agentPfcPriority"))
+if mibBuilder.loadTexts: agentPfcIntfStatsPerPriorityEntry.setStatus('current')
+agentPfcIntfPfcPriorityFramesRx = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 47, 1, 3, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentPfcIntfPfcPriorityFramesRx.setStatus('current')
+mibBuilder.exportSymbols("FASTPATH-PFC-MIB", agentPfcIntfIndex=agentPfcIntfIndex, agentPfcIntfAdminMode=agentPfcIntfAdminMode, agentPfcCfgGroup=agentPfcCfgGroup, agentPfcEntry=agentPfcEntry, agentPfcIntfPfcPriorityFramesRx=agentPfcIntfPfcPriorityFramesRx, agentPfcTable=agentPfcTable, agentPfcActionEntry=agentPfcActionEntry, agentPfcAction=agentPfcAction, PYSNMP_MODULE_ID=fastPathPFC, agentPfcActionTable=agentPfcActionTable, fastPathPFC=fastPathPFC, agentPfcIntfPfcStatus=agentPfcIntfPfcStatus, agentPfcTotalIntfPfcFramesTx=agentPfcTotalIntfPfcFramesTx, agentPfcIntfStatsPerPriorityTable=agentPfcIntfStatsPerPriorityTable, agentPfcPriority=agentPfcPriority, agentPfcIntfStatsPerPriorityEntry=agentPfcIntfStatsPerPriorityEntry, agentPfcTotalIntfPfcFramesRx=agentPfcTotalIntfPfcFramesRx)

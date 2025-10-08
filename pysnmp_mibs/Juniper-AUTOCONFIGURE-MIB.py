@@ -1,111 +1,67 @@
-_R='juniAutoConfGroup2'
-_Q='juniAutoConfGroup'
-_P='juniAutoConfNextLockoutTime'
-_O='juniAutoConfLockoutElapsedTime'
-_N='juniAutoConfLockoutTime'
-_M='juniAutoConfLockoutMax'
-_L='juniAutoConfLockoutMin'
-_K='juniAutoConfLockoutSupported'
-_J='obsolete'
-_I='juniAutoConfEnable'
-_H='not-accessible'
-_G='juniAutoConfEncaps'
-_F='juniAutoConfIfIndex'
-_E='read-write'
-_D='read-only'
-_C='Integer32'
-_B='Juniper-AUTOCONFIGURE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-juniMibs,=mibBuilder.importSymbols('Juniper-MIBs','juniMibs')
-JuniEnable,=mibBuilder.importSymbols('Juniper-TC','JuniEnable')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-juniAutoConfMIB=ModuleIdentity((1,3,6,1,4,1,4874,2,2,48))
-if mibBuilder.loadTexts:juniAutoConfMIB.setRevisions(('2004-07-26 19:54','2002-11-22 16:08','2002-11-22 15:24','2000-11-16 00:00'))
-class JuniAutoConfEncaps(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,17,19)));namedValues=NamedValues(*(('ip',0),('ppp',1),('pppoe',17),('bridgedEthernet',19)))
-_JuniAutoConfObjects_ObjectIdentity=ObjectIdentity
-juniAutoConfObjects=_JuniAutoConfObjects_ObjectIdentity((1,3,6,1,4,1,4874,2,2,48,1))
-_JuniAutoConf_ObjectIdentity=ObjectIdentity
-juniAutoConf=_JuniAutoConf_ObjectIdentity((1,3,6,1,4,1,4874,2,2,48,1,1))
-_JuniAutoConfTable_Object=MibTable
-juniAutoConfTable=_JuniAutoConfTable_Object((1,3,6,1,4,1,4874,2,2,48,1,1,1))
-if mibBuilder.loadTexts:juniAutoConfTable.setStatus(_A)
-_JuniAutoConfEntry_Object=MibTableRow
-juniAutoConfEntry=_JuniAutoConfEntry_Object((1,3,6,1,4,1,4874,2,2,48,1,1,1,1))
-juniAutoConfEntry.setIndexNames((0,_B,_F),(0,_B,_G))
-if mibBuilder.loadTexts:juniAutoConfEntry.setStatus(_A)
-_JuniAutoConfIfIndex_Type=InterfaceIndex
-_JuniAutoConfIfIndex_Object=MibTableColumn
-juniAutoConfIfIndex=_JuniAutoConfIfIndex_Object((1,3,6,1,4,1,4874,2,2,48,1,1,1,1,1),_JuniAutoConfIfIndex_Type())
-juniAutoConfIfIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:juniAutoConfIfIndex.setStatus(_A)
-_JuniAutoConfEncaps_Type=JuniAutoConfEncaps
-_JuniAutoConfEncaps_Object=MibTableColumn
-juniAutoConfEncaps=_JuniAutoConfEncaps_Object((1,3,6,1,4,1,4874,2,2,48,1,1,1,1,2),_JuniAutoConfEncaps_Type())
-juniAutoConfEncaps.setMaxAccess(_H)
-if mibBuilder.loadTexts:juniAutoConfEncaps.setStatus(_A)
-_JuniAutoConfEnable_Type=JuniEnable
-_JuniAutoConfEnable_Object=MibTableColumn
-juniAutoConfEnable=_JuniAutoConfEnable_Object((1,3,6,1,4,1,4874,2,2,48,1,1,1,1,3),_JuniAutoConfEnable_Type())
-juniAutoConfEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:juniAutoConfEnable.setStatus(_A)
-_JuniAutoConfLockoutSupported_Type=TruthValue
-_JuniAutoConfLockoutSupported_Object=MibTableColumn
-juniAutoConfLockoutSupported=_JuniAutoConfLockoutSupported_Object((1,3,6,1,4,1,4874,2,2,48,1,1,1,1,4),_JuniAutoConfLockoutSupported_Type())
-juniAutoConfLockoutSupported.setMaxAccess(_D)
-if mibBuilder.loadTexts:juniAutoConfLockoutSupported.setStatus(_A)
-class _JuniAutoConfLockoutMin_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,86400))
-_JuniAutoConfLockoutMin_Type.__name__=_C
-_JuniAutoConfLockoutMin_Object=MibTableColumn
-juniAutoConfLockoutMin=_JuniAutoConfLockoutMin_Object((1,3,6,1,4,1,4874,2,2,48,1,1,1,1,5),_JuniAutoConfLockoutMin_Type())
-juniAutoConfLockoutMin.setMaxAccess(_E)
-if mibBuilder.loadTexts:juniAutoConfLockoutMin.setStatus(_A)
-class _JuniAutoConfLockoutMax_Type(Integer32):defaultValue=300;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,86400))
-_JuniAutoConfLockoutMax_Type.__name__=_C
-_JuniAutoConfLockoutMax_Object=MibTableColumn
-juniAutoConfLockoutMax=_JuniAutoConfLockoutMax_Object((1,3,6,1,4,1,4874,2,2,48,1,1,1,1,6),_JuniAutoConfLockoutMax_Type())
-juniAutoConfLockoutMax.setMaxAccess(_E)
-if mibBuilder.loadTexts:juniAutoConfLockoutMax.setStatus(_A)
-class _JuniAutoConfLockoutTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,86400))
-_JuniAutoConfLockoutTime_Type.__name__=_C
-_JuniAutoConfLockoutTime_Object=MibTableColumn
-juniAutoConfLockoutTime=_JuniAutoConfLockoutTime_Object((1,3,6,1,4,1,4874,2,2,48,1,1,1,1,7),_JuniAutoConfLockoutTime_Type())
-juniAutoConfLockoutTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:juniAutoConfLockoutTime.setStatus(_A)
-class _JuniAutoConfLockoutElapsedTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,86400))
-_JuniAutoConfLockoutElapsedTime_Type.__name__=_C
-_JuniAutoConfLockoutElapsedTime_Object=MibTableColumn
-juniAutoConfLockoutElapsedTime=_JuniAutoConfLockoutElapsedTime_Object((1,3,6,1,4,1,4874,2,2,48,1,1,1,1,8),_JuniAutoConfLockoutElapsedTime_Type())
-juniAutoConfLockoutElapsedTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:juniAutoConfLockoutElapsedTime.setStatus(_A)
-class _JuniAutoConfNextLockoutTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,86400))
-_JuniAutoConfNextLockoutTime_Type.__name__=_C
-_JuniAutoConfNextLockoutTime_Object=MibTableColumn
-juniAutoConfNextLockoutTime=_JuniAutoConfNextLockoutTime_Object((1,3,6,1,4,1,4874,2,2,48,1,1,1,1,9),_JuniAutoConfNextLockoutTime_Type())
-juniAutoConfNextLockoutTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:juniAutoConfNextLockoutTime.setStatus(_A)
-_JuniAutoConfMIBConformance_ObjectIdentity=ObjectIdentity
-juniAutoConfMIBConformance=_JuniAutoConfMIBConformance_ObjectIdentity((1,3,6,1,4,1,4874,2,2,48,4))
-_JuniAutoConfMIBCompliances_ObjectIdentity=ObjectIdentity
-juniAutoConfMIBCompliances=_JuniAutoConfMIBCompliances_ObjectIdentity((1,3,6,1,4,1,4874,2,2,48,4,1))
-_JuniAutoConfMIBGroups_ObjectIdentity=ObjectIdentity
-juniAutoConfMIBGroups=_JuniAutoConfMIBGroups_ObjectIdentity((1,3,6,1,4,1,4874,2,2,48,4,2))
-juniAutoConfGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,48,4,2,1))
-juniAutoConfGroup.setObjects((_B,_I))
-if mibBuilder.loadTexts:juniAutoConfGroup.setStatus(_J)
-juniAutoConfGroup2=ObjectGroup((1,3,6,1,4,1,4874,2,2,48,4,2,2))
-juniAutoConfGroup2.setObjects(*((_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:juniAutoConfGroup2.setStatus(_A)
-juniAutoConfCompliance=ModuleCompliance((1,3,6,1,4,1,4874,2,2,48,4,1,1))
-juniAutoConfCompliance.setObjects((_B,_Q))
-if mibBuilder.loadTexts:juniAutoConfCompliance.setStatus(_J)
-juniAutoConfCompliance2=ModuleCompliance((1,3,6,1,4,1,4874,2,2,48,4,1,2))
-juniAutoConfCompliance2.setObjects((_B,_R))
-if mibBuilder.loadTexts:juniAutoConfCompliance2.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'JuniAutoConfEncaps':JuniAutoConfEncaps,'juniAutoConfMIB':juniAutoConfMIB,'juniAutoConfObjects':juniAutoConfObjects,'juniAutoConf':juniAutoConf,'juniAutoConfTable':juniAutoConfTable,'juniAutoConfEntry':juniAutoConfEntry,_F:juniAutoConfIfIndex,_G:juniAutoConfEncaps,_I:juniAutoConfEnable,_K:juniAutoConfLockoutSupported,_L:juniAutoConfLockoutMin,_M:juniAutoConfLockoutMax,_N:juniAutoConfLockoutTime,_O:juniAutoConfLockoutElapsedTime,_P:juniAutoConfNextLockoutTime,'juniAutoConfMIBConformance':juniAutoConfMIBConformance,'juniAutoConfMIBCompliances':juniAutoConfMIBCompliances,'juniAutoConfCompliance':juniAutoConfCompliance,'juniAutoConfCompliance2':juniAutoConfCompliance2,'juniAutoConfMIBGroups':juniAutoConfMIBGroups,_Q:juniAutoConfGroup,_R:juniAutoConfGroup2})
+#
+# PySNMP MIB module Juniper-AUTOCONFIGURE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/junose/Juniper-AUTOCONFIGURE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:04 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+juniMibs, = mibBuilder.importSymbols("Juniper-MIBs", "juniMibs")
+JuniEnable, = mibBuilder.importSymbols("Juniper-TC", "JuniEnable")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+juniAutoConfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48))
+juniAutoConfMIB.setRevisions(('2004-07-26 19:54', '2002-11-22 16:08', '2002-11-22 15:24', '2000-11-16 00:00',))
+if mibBuilder.loadTexts: juniAutoConfMIB.setLastUpdated('200407261954Z')
+if mibBuilder.loadTexts: juniAutoConfMIB.setOrganization('Juniper Networks')
+class JuniAutoConfEncaps(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 17, 19))
+    namedValues = NamedValues(("ip", 0), ("ppp", 1), ("pppoe", 17), ("bridgedEthernet", 19))
+
+juniAutoConfObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 1))
+juniAutoConf = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 1, 1))
+juniAutoConfTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 1, 1, 1), )
+if mibBuilder.loadTexts: juniAutoConfTable.setStatus('current')
+juniAutoConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 1, 1, 1, 1), ).setIndexNames((0, "Juniper-AUTOCONFIGURE-MIB", "juniAutoConfIfIndex"), (0, "Juniper-AUTOCONFIGURE-MIB", "juniAutoConfEncaps"))
+if mibBuilder.loadTexts: juniAutoConfEntry.setStatus('current')
+juniAutoConfIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 1, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: juniAutoConfIfIndex.setStatus('current')
+juniAutoConfEncaps = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 1, 1, 1, 1, 2), JuniAutoConfEncaps())
+if mibBuilder.loadTexts: juniAutoConfEncaps.setStatus('current')
+juniAutoConfEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 1, 1, 1, 1, 3), JuniEnable()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniAutoConfEnable.setStatus('current')
+juniAutoConfLockoutSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 1, 1, 1, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniAutoConfLockoutSupported.setStatus('current')
+juniAutoConfLockoutMin = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 86400)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniAutoConfLockoutMin.setStatus('current')
+juniAutoConfLockoutMax = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 86400)).clone(300)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniAutoConfLockoutMax.setStatus('current')
+juniAutoConfLockoutTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 86400))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniAutoConfLockoutTime.setStatus('current')
+juniAutoConfLockoutElapsedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 1, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 86400))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniAutoConfLockoutElapsedTime.setStatus('current')
+juniAutoConfNextLockoutTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 1, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 86400))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: juniAutoConfNextLockoutTime.setStatus('current')
+juniAutoConfMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 4))
+juniAutoConfMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 4, 1))
+juniAutoConfMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 4, 2))
+juniAutoConfCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 4, 1, 1)).setObjects(("Juniper-AUTOCONFIGURE-MIB", "juniAutoConfGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniAutoConfCompliance = juniAutoConfCompliance.setStatus('obsolete')
+juniAutoConfCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 4, 1, 2)).setObjects(("Juniper-AUTOCONFIGURE-MIB", "juniAutoConfGroup2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniAutoConfCompliance2 = juniAutoConfCompliance2.setStatus('current')
+juniAutoConfGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 4, 2, 1)).setObjects(("Juniper-AUTOCONFIGURE-MIB", "juniAutoConfEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniAutoConfGroup = juniAutoConfGroup.setStatus('obsolete')
+juniAutoConfGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 48, 4, 2, 2)).setObjects(("Juniper-AUTOCONFIGURE-MIB", "juniAutoConfLockoutSupported"), ("Juniper-AUTOCONFIGURE-MIB", "juniAutoConfLockoutMin"), ("Juniper-AUTOCONFIGURE-MIB", "juniAutoConfLockoutMax"), ("Juniper-AUTOCONFIGURE-MIB", "juniAutoConfLockoutTime"), ("Juniper-AUTOCONFIGURE-MIB", "juniAutoConfLockoutElapsedTime"), ("Juniper-AUTOCONFIGURE-MIB", "juniAutoConfNextLockoutTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniAutoConfGroup2 = juniAutoConfGroup2.setStatus('current')
+mibBuilder.exportSymbols("Juniper-AUTOCONFIGURE-MIB", juniAutoConfLockoutElapsedTime=juniAutoConfLockoutElapsedTime, juniAutoConfIfIndex=juniAutoConfIfIndex, juniAutoConfMIBCompliances=juniAutoConfMIBCompliances, juniAutoConfEnable=juniAutoConfEnable, juniAutoConfMIBConformance=juniAutoConfMIBConformance, juniAutoConfLockoutMin=juniAutoConfLockoutMin, PYSNMP_MODULE_ID=juniAutoConfMIB, juniAutoConfGroup=juniAutoConfGroup, juniAutoConfLockoutTime=juniAutoConfLockoutTime, juniAutoConfLockoutMax=juniAutoConfLockoutMax, juniAutoConfObjects=juniAutoConfObjects, juniAutoConfEncaps=juniAutoConfEncaps, juniAutoConfEntry=juniAutoConfEntry, juniAutoConfMIBGroups=juniAutoConfMIBGroups, juniAutoConfLockoutSupported=juniAutoConfLockoutSupported, juniAutoConf=juniAutoConf, juniAutoConfTable=juniAutoConfTable, juniAutoConfCompliance=juniAutoConfCompliance, juniAutoConfNextLockoutTime=juniAutoConfNextLockoutTime, JuniAutoConfEncaps=JuniAutoConfEncaps, juniAutoConfMIB=juniAutoConfMIB, juniAutoConfCompliance2=juniAutoConfCompliance2, juniAutoConfGroup2=juniAutoConfGroup2)

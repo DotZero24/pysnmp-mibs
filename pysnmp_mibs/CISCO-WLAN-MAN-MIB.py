@@ -1,47 +1,37 @@
-_F='cwmWirelessDeviceGroup'
-_E='cwmTelnetLoginEnabled'
-_D='cwmHttpServerEnabled'
-_C='read-write'
-_B='CISCO-WLAN-MAN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-ciscoWlanManMIB=ModuleIdentity((1,3,6,1,4,1,9,9,415))
-if mibBuilder.loadTexts:ciscoWlanManMIB.setRevisions(('2004-03-22 00:00',))
-_CiscoWlanManMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoWlanManMIBNotifs=_CiscoWlanManMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,415,0))
-_CiscoWlanManMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoWlanManMIBObjects=_CiscoWlanManMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,415,1))
-_CwmDeviceConfig_ObjectIdentity=ObjectIdentity
-cwmDeviceConfig=_CwmDeviceConfig_ObjectIdentity((1,3,6,1,4,1,9,9,415,1,1))
-_CwmHttpServerEnabled_Type=TruthValue
-_CwmHttpServerEnabled_Object=MibScalar
-cwmHttpServerEnabled=_CwmHttpServerEnabled_Object((1,3,6,1,4,1,9,9,415,1,1,1),_CwmHttpServerEnabled_Type())
-cwmHttpServerEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwmHttpServerEnabled.setStatus(_A)
-_CwmTelnetLoginEnabled_Type=TruthValue
-_CwmTelnetLoginEnabled_Object=MibScalar
-cwmTelnetLoginEnabled=_CwmTelnetLoginEnabled_Object((1,3,6,1,4,1,9,9,415,1,1,2),_CwmTelnetLoginEnabled_Type())
-cwmTelnetLoginEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:cwmTelnetLoginEnabled.setStatus(_A)
-_CwmNetworkConfig_ObjectIdentity=ObjectIdentity
-cwmNetworkConfig=_CwmNetworkConfig_ObjectIdentity((1,3,6,1,4,1,9,9,415,1,2))
-_CiscoWlanManMIBConform_ObjectIdentity=ObjectIdentity
-ciscoWlanManMIBConform=_CiscoWlanManMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,415,2))
-_CiscoWlanManMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoWlanManMIBCompliances=_CiscoWlanManMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,415,2,1))
-_CiscoWlanManMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoWlanManMIBGroups=_CiscoWlanManMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,415,2,2))
-cwmWirelessDeviceGroup=ObjectGroup((1,3,6,1,4,1,9,9,415,2,2,1))
-cwmWirelessDeviceGroup.setObjects(*((_B,_D),(_B,_E)))
-if mibBuilder.loadTexts:cwmWirelessDeviceGroup.setStatus(_A)
-ciscoWlanManMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,415,2,1,1))
-ciscoWlanManMIBCompliance.setObjects((_B,_F))
-if mibBuilder.loadTexts:ciscoWlanManMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoWlanManMIB':ciscoWlanManMIB,'ciscoWlanManMIBNotifs':ciscoWlanManMIBNotifs,'ciscoWlanManMIBObjects':ciscoWlanManMIBObjects,'cwmDeviceConfig':cwmDeviceConfig,_D:cwmHttpServerEnabled,_E:cwmTelnetLoginEnabled,'cwmNetworkConfig':cwmNetworkConfig,'ciscoWlanManMIBConform':ciscoWlanManMIBConform,'ciscoWlanManMIBCompliances':ciscoWlanManMIBCompliances,'ciscoWlanManMIBCompliance':ciscoWlanManMIBCompliance,'ciscoWlanManMIBGroups':ciscoWlanManMIBGroups,_F:cwmWirelessDeviceGroup})
+#
+# PySNMP MIB module CISCO-WLAN-MAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-WLAN-MAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:11 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ciscoWlanManMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 415))
+ciscoWlanManMIB.setRevisions(('2004-03-22 00:00',))
+if mibBuilder.loadTexts: ciscoWlanManMIB.setLastUpdated('200403220000Z')
+if mibBuilder.loadTexts: ciscoWlanManMIB.setOrganization('Cisco System Inc.')
+ciscoWlanManMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 415, 0))
+ciscoWlanManMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 415, 1))
+ciscoWlanManMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 415, 2))
+cwmDeviceConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 415, 1, 1))
+cwmNetworkConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 415, 1, 2))
+cwmHttpServerEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 415, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cwmHttpServerEnabled.setStatus('current')
+cwmTelnetLoginEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 415, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cwmTelnetLoginEnabled.setStatus('current')
+ciscoWlanManMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 415, 2, 1))
+ciscoWlanManMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 415, 2, 2))
+ciscoWlanManMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 415, 2, 1, 1)).setObjects(("CISCO-WLAN-MAN-MIB", "cwmWirelessDeviceGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWlanManMIBCompliance = ciscoWlanManMIBCompliance.setStatus('current')
+cwmWirelessDeviceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 415, 2, 2, 1)).setObjects(("CISCO-WLAN-MAN-MIB", "cwmHttpServerEnabled"), ("CISCO-WLAN-MAN-MIB", "cwmTelnetLoginEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cwmWirelessDeviceGroup = cwmWirelessDeviceGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-WLAN-MAN-MIB", ciscoWlanManMIBNotifs=ciscoWlanManMIBNotifs, cwmWirelessDeviceGroup=cwmWirelessDeviceGroup, cwmTelnetLoginEnabled=cwmTelnetLoginEnabled, ciscoWlanManMIB=ciscoWlanManMIB, PYSNMP_MODULE_ID=ciscoWlanManMIB, cwmHttpServerEnabled=cwmHttpServerEnabled, ciscoWlanManMIBCompliances=ciscoWlanManMIBCompliances, ciscoWlanManMIBGroups=ciscoWlanManMIBGroups, cwmNetworkConfig=cwmNetworkConfig, ciscoWlanManMIBObjects=ciscoWlanManMIBObjects, cwmDeviceConfig=cwmDeviceConfig, ciscoWlanManMIBConform=ciscoWlanManMIBConform, ciscoWlanManMIBCompliance=ciscoWlanManMIBCompliance)

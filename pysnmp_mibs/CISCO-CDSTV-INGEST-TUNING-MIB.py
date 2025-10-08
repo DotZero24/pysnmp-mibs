@@ -1,77 +1,46 @@
-_L='ciscoCdstvIngestTuningMIBMainObjectGroup'
-_K='cdstvServerRateStandardize'
-_J='cdstvServerSequenceEndRemove'
-_I='cdstvServerPIDStandardization'
-_H='cdstvTrickModeSpeed'
-_G='cdstvTrickModeSpeedIndex'
-_F='disabled'
-_E='enabled'
-_D='read-write'
-_C='Integer32'
-_B='CISCO-CDSTV-INGEST-TUNING-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoCdstvIngestTuningMIB=ModuleIdentity((1,3,6,1,4,1,9,9,750))
-if mibBuilder.loadTexts:ciscoCdstvIngestTuningMIB.setRevisions(('2010-06-24 00:00',))
-_CiscoCdstvIngestTuningMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoCdstvIngestTuningMIBNotifs=_CiscoCdstvIngestTuningMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,750,0))
-_CiscoCdstvIngestTuningMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoCdstvIngestTuningMIBObjects=_CiscoCdstvIngestTuningMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,750,1))
-_CdstvTrickModeSpeedTable_Object=MibTable
-cdstvTrickModeSpeedTable=_CdstvTrickModeSpeedTable_Object((1,3,6,1,4,1,9,9,750,1,1))
-if mibBuilder.loadTexts:cdstvTrickModeSpeedTable.setStatus(_A)
-_CdstvTrickModeSpeedEntry_Object=MibTableRow
-cdstvTrickModeSpeedEntry=_CdstvTrickModeSpeedEntry_Object((1,3,6,1,4,1,9,9,750,1,1,1))
-cdstvTrickModeSpeedEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:cdstvTrickModeSpeedEntry.setStatus(_A)
-_CdstvTrickModeSpeedIndex_Type=Unsigned32
-_CdstvTrickModeSpeedIndex_Object=MibTableColumn
-cdstvTrickModeSpeedIndex=_CdstvTrickModeSpeedIndex_Object((1,3,6,1,4,1,9,9,750,1,1,1,1),_CdstvTrickModeSpeedIndex_Type())
-cdstvTrickModeSpeedIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:cdstvTrickModeSpeedIndex.setStatus(_A)
-class _CdstvTrickModeSpeed_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-127,127))
-_CdstvTrickModeSpeed_Type.__name__=_C
-_CdstvTrickModeSpeed_Object=MibTableColumn
-cdstvTrickModeSpeed=_CdstvTrickModeSpeed_Object((1,3,6,1,4,1,9,9,750,1,1,1,2),_CdstvTrickModeSpeed_Type())
-cdstvTrickModeSpeed.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdstvTrickModeSpeed.setStatus(_A)
-_CdstvServerIngestMPEGSettings_ObjectIdentity=ObjectIdentity
-cdstvServerIngestMPEGSettings=_CdstvServerIngestMPEGSettings_ObjectIdentity((1,3,6,1,4,1,9,9,750,1,2))
-class _CdstvServerPIDStandardization_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_CdstvServerPIDStandardization_Type.__name__=_C
-_CdstvServerPIDStandardization_Object=MibScalar
-cdstvServerPIDStandardization=_CdstvServerPIDStandardization_Object((1,3,6,1,4,1,9,9,750,1,2,1),_CdstvServerPIDStandardization_Type())
-cdstvServerPIDStandardization.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdstvServerPIDStandardization.setStatus(_A)
-class _CdstvServerSequenceEndRemove_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_CdstvServerSequenceEndRemove_Type.__name__=_C
-_CdstvServerSequenceEndRemove_Object=MibScalar
-cdstvServerSequenceEndRemove=_CdstvServerSequenceEndRemove_Object((1,3,6,1,4,1,9,9,750,1,2,2),_CdstvServerSequenceEndRemove_Type())
-cdstvServerSequenceEndRemove.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdstvServerSequenceEndRemove.setStatus(_A)
-class _CdstvServerRateStandardize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_CdstvServerRateStandardize_Type.__name__=_C
-_CdstvServerRateStandardize_Object=MibScalar
-cdstvServerRateStandardize=_CdstvServerRateStandardize_Object((1,3,6,1,4,1,9,9,750,1,2,3),_CdstvServerRateStandardize_Type())
-cdstvServerRateStandardize.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdstvServerRateStandardize.setStatus(_A)
-_CiscoCdstvIngestTuningMIBConform_ObjectIdentity=ObjectIdentity
-ciscoCdstvIngestTuningMIBConform=_CiscoCdstvIngestTuningMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,750,2))
-_CiscoCdstvIngestTuningMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoCdstvIngestTuningMIBCompliances=_CiscoCdstvIngestTuningMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,750,2,1))
-_CiscoCdstvIngestTuningMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoCdstvIngestTuningMIBGroups=_CiscoCdstvIngestTuningMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,750,2,2))
-ciscoCdstvIngestTuningMIBMainObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,750,2,2,1))
-ciscoCdstvIngestTuningMIBMainObjectGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:ciscoCdstvIngestTuningMIBMainObjectGroup.setStatus(_A)
-ciscoCdstvIngestTuningMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,750,2,1,1))
-ciscoCdstvIngestTuningMIBCompliance.setObjects((_B,_L))
-if mibBuilder.loadTexts:ciscoCdstvIngestTuningMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoCdstvIngestTuningMIB':ciscoCdstvIngestTuningMIB,'ciscoCdstvIngestTuningMIBNotifs':ciscoCdstvIngestTuningMIBNotifs,'ciscoCdstvIngestTuningMIBObjects':ciscoCdstvIngestTuningMIBObjects,'cdstvTrickModeSpeedTable':cdstvTrickModeSpeedTable,'cdstvTrickModeSpeedEntry':cdstvTrickModeSpeedEntry,_G:cdstvTrickModeSpeedIndex,_H:cdstvTrickModeSpeed,'cdstvServerIngestMPEGSettings':cdstvServerIngestMPEGSettings,_I:cdstvServerPIDStandardization,_J:cdstvServerSequenceEndRemove,_K:cdstvServerRateStandardize,'ciscoCdstvIngestTuningMIBConform':ciscoCdstvIngestTuningMIBConform,'ciscoCdstvIngestTuningMIBCompliances':ciscoCdstvIngestTuningMIBCompliances,'ciscoCdstvIngestTuningMIBCompliance':ciscoCdstvIngestTuningMIBCompliance,'ciscoCdstvIngestTuningMIBGroups':ciscoCdstvIngestTuningMIBGroups,_L:ciscoCdstvIngestTuningMIBMainObjectGroup})
+#
+# PySNMP MIB module CISCO-CDSTV-INGEST-TUNING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-CDSTV-INGEST-TUNING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoCdstvIngestTuningMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 750))
+ciscoCdstvIngestTuningMIB.setRevisions(('2010-06-24 00:00',))
+if mibBuilder.loadTexts: ciscoCdstvIngestTuningMIB.setLastUpdated('201006240000Z')
+if mibBuilder.loadTexts: ciscoCdstvIngestTuningMIB.setOrganization('Cisco Systems, Inc.')
+ciscoCdstvIngestTuningMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 750, 0))
+ciscoCdstvIngestTuningMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 750, 1))
+ciscoCdstvIngestTuningMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 750, 2))
+ciscoCdstvIngestTuningMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 750, 2, 1))
+cdstvTrickModeSpeedTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 750, 1, 1), )
+if mibBuilder.loadTexts: cdstvTrickModeSpeedTable.setStatus('current')
+cdstvTrickModeSpeedEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 750, 1, 1, 1), ).setIndexNames((0, "CISCO-CDSTV-INGEST-TUNING-MIB", "cdstvTrickModeSpeedIndex"))
+if mibBuilder.loadTexts: cdstvTrickModeSpeedEntry.setStatus('current')
+cdstvTrickModeSpeedIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 750, 1, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: cdstvTrickModeSpeedIndex.setStatus('current')
+cdstvTrickModeSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 750, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-127, 127))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvTrickModeSpeed.setStatus('current')
+cdstvServerIngestMPEGSettings = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 750, 1, 2))
+cdstvServerPIDStandardization = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 750, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerPIDStandardization.setStatus('current')
+cdstvServerSequenceEndRemove = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 750, 1, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerSequenceEndRemove.setStatus('current')
+cdstvServerRateStandardize = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 750, 1, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerRateStandardize.setStatus('current')
+ciscoCdstvIngestTuningMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 750, 2, 2))
+ciscoCdstvIngestTuningMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 750, 2, 1, 1)).setObjects(("CISCO-CDSTV-INGEST-TUNING-MIB", "ciscoCdstvIngestTuningMIBMainObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCdstvIngestTuningMIBCompliance = ciscoCdstvIngestTuningMIBCompliance.setStatus('current')
+ciscoCdstvIngestTuningMIBMainObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 750, 2, 2, 1)).setObjects(("CISCO-CDSTV-INGEST-TUNING-MIB", "cdstvTrickModeSpeed"), ("CISCO-CDSTV-INGEST-TUNING-MIB", "cdstvServerPIDStandardization"), ("CISCO-CDSTV-INGEST-TUNING-MIB", "cdstvServerSequenceEndRemove"), ("CISCO-CDSTV-INGEST-TUNING-MIB", "cdstvServerRateStandardize"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCdstvIngestTuningMIBMainObjectGroup = ciscoCdstvIngestTuningMIBMainObjectGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-CDSTV-INGEST-TUNING-MIB", cdstvTrickModeSpeed=cdstvTrickModeSpeed, ciscoCdstvIngestTuningMIBConform=ciscoCdstvIngestTuningMIBConform, ciscoCdstvIngestTuningMIBObjects=ciscoCdstvIngestTuningMIBObjects, cdstvServerPIDStandardization=cdstvServerPIDStandardization, cdstvTrickModeSpeedTable=cdstvTrickModeSpeedTable, ciscoCdstvIngestTuningMIB=ciscoCdstvIngestTuningMIB, cdstvServerRateStandardize=cdstvServerRateStandardize, PYSNMP_MODULE_ID=ciscoCdstvIngestTuningMIB, ciscoCdstvIngestTuningMIBCompliance=ciscoCdstvIngestTuningMIBCompliance, cdstvTrickModeSpeedEntry=cdstvTrickModeSpeedEntry, cdstvServerIngestMPEGSettings=cdstvServerIngestMPEGSettings, cdstvTrickModeSpeedIndex=cdstvTrickModeSpeedIndex, ciscoCdstvIngestTuningMIBCompliances=ciscoCdstvIngestTuningMIBCompliances, ciscoCdstvIngestTuningMIBNotifs=ciscoCdstvIngestTuningMIBNotifs, ciscoCdstvIngestTuningMIBMainObjectGroup=ciscoCdstvIngestTuningMIBMainObjectGroup, ciscoCdstvIngestTuningMIBGroups=ciscoCdstvIngestTuningMIBGroups, cdstvServerSequenceEndRemove=cdstvServerSequenceEndRemove)

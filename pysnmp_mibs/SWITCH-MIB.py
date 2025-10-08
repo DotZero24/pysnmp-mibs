@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SWITCH-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/allied-old/SWITCH-MIB
-# Produced by pysmi-1.1.12 at Mon Aug  4 17:31:00 2025
-# On host macmini.vegmond.io platform Darwin version 24.5.0 by user rob
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allied-old/SWITCH-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:10 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
 # Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Unsigned32, Integer32, Gauge32, ModuleIdentity, TimeTicks, NotificationType, Counter32, Bits, IpAddress, iso, ObjectIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Unsigned32", "Integer32", "Gauge32", "ModuleIdentity", "TimeTicks", "NotificationType", "Counter32", "Bits", "IpAddress", "iso", "ObjectIdentity", "Counter64")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 pPortNumber, = mibBuilder.importSymbols("SWITCH-VLAN-MIB", "pPortNumber")
 switchProduct, = mibBuilder.importSymbols("TELESYN-ATI-TC", "switchProduct")
 switchProductMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1))
@@ -49,4 +49,4 @@ portMirrorDstAllFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 2
 if mibBuilder.loadTexts: portMirrorDstAllFrames.setStatus('current')
 portMirrorDstMarkedFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 2, 4, 1, 6), PortMirrorStatus()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: portMirrorDstMarkedFrames.setStatus('current')
-mibBuilder.exportSymbols("SWITCH-MIB", switchModelType=switchModelType, PortMirrorStatus=PortMirrorStatus, portMirrorSrcMarkedFrames=portMirrorSrcMarkedFrames, uplinkSwitchChassisType=uplinkSwitchChassisType, portMirrorEntry=portMirrorEntry, portMirrorSrcBMCastFrames=portMirrorSrcBMCastFrames, portMirrorDstMarkedFrames=portMirrorDstMarkedFrames, portMirrorProbePort=portMirrorProbePort, portMirrorSrcUcastFrames=portMirrorSrcUcastFrames, portMirrorDstAllFrames=portMirrorDstAllFrames, portMirrorTable=portMirrorTable, PYSNMP_MODULE_ID=switchProductMib, portMirrorDstEnable=portMirrorDstEnable, switchProductMib=switchProductMib, portMirrorSrcEnable=portMirrorSrcEnable, portMirrorSrcDiscardedFrames=portMirrorSrcDiscardedFrames, portMirrorGroup=portMirrorGroup)
+mibBuilder.exportSymbols("SWITCH-MIB", PortMirrorStatus=PortMirrorStatus, PYSNMP_MODULE_ID=switchProductMib, portMirrorSrcEnable=portMirrorSrcEnable, portMirrorGroup=portMirrorGroup, portMirrorDstEnable=portMirrorDstEnable, portMirrorProbePort=portMirrorProbePort, portMirrorSrcMarkedFrames=portMirrorSrcMarkedFrames, switchModelType=switchModelType, portMirrorSrcUcastFrames=portMirrorSrcUcastFrames, portMirrorSrcBMCastFrames=portMirrorSrcBMCastFrames, portMirrorSrcDiscardedFrames=portMirrorSrcDiscardedFrames, portMirrorDstAllFrames=portMirrorDstAllFrames, switchProductMib=switchProductMib, uplinkSwitchChassisType=uplinkSwitchChassisType, portMirrorEntry=portMirrorEntry, portMirrorDstMarkedFrames=portMirrorDstMarkedFrames, portMirrorTable=portMirrorTable)

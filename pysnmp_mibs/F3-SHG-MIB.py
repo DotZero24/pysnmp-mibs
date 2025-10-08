@@ -1,130 +1,74 @@
-_U='f3ShgMemberFlowPointGroup'
-_T='f3ShgMemberFlowGroup'
-_S='f3ShgMemberPortGroup'
-_R='f3ShgGroup'
-_Q='f3ShgMemberPortRowStatus'
-_P='f3ShgMemberPortStorageType'
-_O='f3ShgRowStatus'
-_N='f3ShgStorageType'
-_M='f3ShgAlias'
-_L='read-only'
-_K='f3ShgMemberPort'
-_J='not-accessible'
-_I='DisplayString'
-_H='f3ShgMemberFlowPoint'
-_G='f3ShgMemberFlow'
-_F='read-create'
-_E='f3ShgIndex'
-_D='neIndex'
-_C='CM-ENTITY-MIB'
-_B='F3-SHG-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsp150cm,=mibBuilder.importSymbols('ADVA-MIB','fsp150cm')
-neIndex,=mibBuilder.importSymbols(_C,_D)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,VariablePointer=mibBuilder.importSymbols('SNMPv2-TC',_I,'PhysAddress','RowStatus','StorageType','TextualConvention','VariablePointer')
-f3SHGMIB=ModuleIdentity((1,3,6,1,4,1,2544,1,12,27))
-if mibBuilder.loadTexts:f3SHGMIB.setRevisions(('2012-12-04 00:00',))
-_F3ShgConfigObjects_ObjectIdentity=ObjectIdentity
-f3ShgConfigObjects=_F3ShgConfigObjects_ObjectIdentity((1,3,6,1,4,1,2544,1,12,27,1))
-_F3ShgTable_Object=MibTable
-f3ShgTable=_F3ShgTable_Object((1,3,6,1,4,1,2544,1,12,27,1,1))
-if mibBuilder.loadTexts:f3ShgTable.setStatus(_A)
-_F3ShgEntry_Object=MibTableRow
-f3ShgEntry=_F3ShgEntry_Object((1,3,6,1,4,1,2544,1,12,27,1,1,1))
-f3ShgEntry.setIndexNames((0,_C,_D),(0,_B,_E))
-if mibBuilder.loadTexts:f3ShgEntry.setStatus(_A)
-_F3ShgIndex_Type=Unsigned32
-_F3ShgIndex_Object=MibTableColumn
-f3ShgIndex=_F3ShgIndex_Object((1,3,6,1,4,1,2544,1,12,27,1,1,1,1),_F3ShgIndex_Type())
-f3ShgIndex.setMaxAccess(_J)
-if mibBuilder.loadTexts:f3ShgIndex.setStatus(_A)
-class _F3ShgAlias_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_F3ShgAlias_Type.__name__=_I
-_F3ShgAlias_Object=MibTableColumn
-f3ShgAlias=_F3ShgAlias_Object((1,3,6,1,4,1,2544,1,12,27,1,1,1,2),_F3ShgAlias_Type())
-f3ShgAlias.setMaxAccess(_F)
-if mibBuilder.loadTexts:f3ShgAlias.setStatus(_A)
-_F3ShgStorageType_Type=StorageType
-_F3ShgStorageType_Object=MibTableColumn
-f3ShgStorageType=_F3ShgStorageType_Object((1,3,6,1,4,1,2544,1,12,27,1,1,1,3),_F3ShgStorageType_Type())
-f3ShgStorageType.setMaxAccess(_F)
-if mibBuilder.loadTexts:f3ShgStorageType.setStatus(_A)
-_F3ShgRowStatus_Type=RowStatus
-_F3ShgRowStatus_Object=MibTableColumn
-f3ShgRowStatus=_F3ShgRowStatus_Object((1,3,6,1,4,1,2544,1,12,27,1,1,1,4),_F3ShgRowStatus_Type())
-f3ShgRowStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:f3ShgRowStatus.setStatus(_A)
-_F3ShgMemberPortTable_Object=MibTable
-f3ShgMemberPortTable=_F3ShgMemberPortTable_Object((1,3,6,1,4,1,2544,1,12,27,1,2))
-if mibBuilder.loadTexts:f3ShgMemberPortTable.setStatus(_A)
-_F3ShgMemberPortEntry_Object=MibTableRow
-f3ShgMemberPortEntry=_F3ShgMemberPortEntry_Object((1,3,6,1,4,1,2544,1,12,27,1,2,1))
-f3ShgMemberPortEntry.setIndexNames((0,_C,_D),(0,_B,_E),(0,_B,_K))
-if mibBuilder.loadTexts:f3ShgMemberPortEntry.setStatus(_A)
-_F3ShgMemberPort_Type=VariablePointer
-_F3ShgMemberPort_Object=MibTableColumn
-f3ShgMemberPort=_F3ShgMemberPort_Object((1,3,6,1,4,1,2544,1,12,27,1,2,1,1),_F3ShgMemberPort_Type())
-f3ShgMemberPort.setMaxAccess(_J)
-if mibBuilder.loadTexts:f3ShgMemberPort.setStatus(_A)
-_F3ShgMemberPortStorageType_Type=StorageType
-_F3ShgMemberPortStorageType_Object=MibTableColumn
-f3ShgMemberPortStorageType=_F3ShgMemberPortStorageType_Object((1,3,6,1,4,1,2544,1,12,27,1,2,1,2),_F3ShgMemberPortStorageType_Type())
-f3ShgMemberPortStorageType.setMaxAccess(_F)
-if mibBuilder.loadTexts:f3ShgMemberPortStorageType.setStatus(_A)
-_F3ShgMemberPortRowStatus_Type=RowStatus
-_F3ShgMemberPortRowStatus_Object=MibTableColumn
-f3ShgMemberPortRowStatus=_F3ShgMemberPortRowStatus_Object((1,3,6,1,4,1,2544,1,12,27,1,2,1,3),_F3ShgMemberPortRowStatus_Type())
-f3ShgMemberPortRowStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:f3ShgMemberPortRowStatus.setStatus(_A)
-_F3ShgMemberFlowTable_Object=MibTable
-f3ShgMemberFlowTable=_F3ShgMemberFlowTable_Object((1,3,6,1,4,1,2544,1,12,27,1,3))
-if mibBuilder.loadTexts:f3ShgMemberFlowTable.setStatus(_A)
-_F3ShgMemberFlowEntry_Object=MibTableRow
-f3ShgMemberFlowEntry=_F3ShgMemberFlowEntry_Object((1,3,6,1,4,1,2544,1,12,27,1,3,1))
-f3ShgMemberFlowEntry.setIndexNames((0,_C,_D),(0,_B,_E),(0,_B,_G))
-if mibBuilder.loadTexts:f3ShgMemberFlowEntry.setStatus(_A)
-_F3ShgMemberFlow_Type=VariablePointer
-_F3ShgMemberFlow_Object=MibTableColumn
-f3ShgMemberFlow=_F3ShgMemberFlow_Object((1,3,6,1,4,1,2544,1,12,27,1,3,1,1),_F3ShgMemberFlow_Type())
-f3ShgMemberFlow.setMaxAccess(_L)
-if mibBuilder.loadTexts:f3ShgMemberFlow.setStatus(_A)
-_F3ShgMemberFlowPointTable_Object=MibTable
-f3ShgMemberFlowPointTable=_F3ShgMemberFlowPointTable_Object((1,3,6,1,4,1,2544,1,12,27,1,4))
-if mibBuilder.loadTexts:f3ShgMemberFlowPointTable.setStatus(_A)
-_F3ShgMemberFlowPointEntry_Object=MibTableRow
-f3ShgMemberFlowPointEntry=_F3ShgMemberFlowPointEntry_Object((1,3,6,1,4,1,2544,1,12,27,1,4,1))
-f3ShgMemberFlowPointEntry.setIndexNames((0,_C,_D),(0,_B,_E),(0,_B,_H))
-if mibBuilder.loadTexts:f3ShgMemberFlowPointEntry.setStatus(_A)
-_F3ShgMemberFlowPoint_Type=VariablePointer
-_F3ShgMemberFlowPoint_Object=MibTableColumn
-f3ShgMemberFlowPoint=_F3ShgMemberFlowPoint_Object((1,3,6,1,4,1,2544,1,12,27,1,4,1,1),_F3ShgMemberFlowPoint_Type())
-f3ShgMemberFlowPoint.setMaxAccess(_L)
-if mibBuilder.loadTexts:f3ShgMemberFlowPoint.setStatus(_A)
-_F3ShgConformance_ObjectIdentity=ObjectIdentity
-f3ShgConformance=_F3ShgConformance_ObjectIdentity((1,3,6,1,4,1,2544,1,12,27,2))
-_F3ShgCompliances_ObjectIdentity=ObjectIdentity
-f3ShgCompliances=_F3ShgCompliances_ObjectIdentity((1,3,6,1,4,1,2544,1,12,27,2,1))
-_F3ShgGroups_ObjectIdentity=ObjectIdentity
-f3ShgGroups=_F3ShgGroups_ObjectIdentity((1,3,6,1,4,1,2544,1,12,27,2,2))
-f3ShgGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,27,2,2,1))
-f3ShgGroup.setObjects(*((_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:f3ShgGroup.setStatus(_A)
-f3ShgMemberPortGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,27,2,2,2))
-f3ShgMemberPortGroup.setObjects(*((_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:f3ShgMemberPortGroup.setStatus(_A)
-f3ShgMemberFlowGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,27,2,2,3))
-f3ShgMemberFlowGroup.setObjects((_B,_G))
-if mibBuilder.loadTexts:f3ShgMemberFlowGroup.setStatus(_A)
-f3ShgMemberFlowPointGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,27,2,2,4))
-f3ShgMemberFlowPointGroup.setObjects((_B,_H))
-if mibBuilder.loadTexts:f3ShgMemberFlowPointGroup.setStatus(_A)
-f3ShgCompliance=ModuleCompliance((1,3,6,1,4,1,2544,1,12,27,2,1,1))
-f3ShgCompliance.setObjects(*((_B,_R),(_B,_S),(_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:f3ShgCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'f3SHGMIB':f3SHGMIB,'f3ShgConfigObjects':f3ShgConfigObjects,'f3ShgTable':f3ShgTable,'f3ShgEntry':f3ShgEntry,_E:f3ShgIndex,_M:f3ShgAlias,_N:f3ShgStorageType,_O:f3ShgRowStatus,'f3ShgMemberPortTable':f3ShgMemberPortTable,'f3ShgMemberPortEntry':f3ShgMemberPortEntry,_K:f3ShgMemberPort,_P:f3ShgMemberPortStorageType,_Q:f3ShgMemberPortRowStatus,'f3ShgMemberFlowTable':f3ShgMemberFlowTable,'f3ShgMemberFlowEntry':f3ShgMemberFlowEntry,_G:f3ShgMemberFlow,'f3ShgMemberFlowPointTable':f3ShgMemberFlowPointTable,'f3ShgMemberFlowPointEntry':f3ShgMemberFlowPointEntry,_H:f3ShgMemberFlowPoint,'f3ShgConformance':f3ShgConformance,'f3ShgCompliances':f3ShgCompliances,'f3ShgCompliance':f3ShgCompliance,'f3ShgGroups':f3ShgGroups,_R:f3ShgGroup,_S:f3ShgMemberPortGroup,_T:f3ShgMemberFlowGroup,_U:f3ShgMemberFlowPointGroup})
+#
+# PySNMP MIB module F3-SHG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adva/F3-SHG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:37:17 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+fsp150cm, = mibBuilder.importSymbols("ADVA-MIB", "fsp150cm")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+neIndex, = mibBuilder.importSymbols("CM-ENTITY-MIB", "neIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, VariablePointer, RowStatus, StorageType, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "VariablePointer", "RowStatus", "StorageType", "TextualConvention")
+f3SHGMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27))
+f3SHGMIB.setRevisions(('2012-12-04 00:00',))
+if mibBuilder.loadTexts: f3SHGMIB.setLastUpdated('201212040000Z')
+if mibBuilder.loadTexts: f3SHGMIB.setOrganization('ADVA Optical Networking')
+f3ShgConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1))
+f3ShgConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 2))
+f3ShgTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 1), )
+if mibBuilder.loadTexts: f3ShgTable.setStatus('current')
+f3ShgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 1, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "F3-SHG-MIB", "f3ShgIndex"))
+if mibBuilder.loadTexts: f3ShgEntry.setStatus('current')
+f3ShgIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: f3ShgIndex.setStatus('current')
+f3ShgAlias = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: f3ShgAlias.setStatus('current')
+f3ShgStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 1, 1, 3), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: f3ShgStorageType.setStatus('current')
+f3ShgRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: f3ShgRowStatus.setStatus('current')
+f3ShgMemberPortTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 2), )
+if mibBuilder.loadTexts: f3ShgMemberPortTable.setStatus('current')
+f3ShgMemberPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 2, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "F3-SHG-MIB", "f3ShgIndex"), (0, "F3-SHG-MIB", "f3ShgMemberPort"))
+if mibBuilder.loadTexts: f3ShgMemberPortEntry.setStatus('current')
+f3ShgMemberPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 2, 1, 1), VariablePointer())
+if mibBuilder.loadTexts: f3ShgMemberPort.setStatus('current')
+f3ShgMemberPortStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 2, 1, 2), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: f3ShgMemberPortStorageType.setStatus('current')
+f3ShgMemberPortRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: f3ShgMemberPortRowStatus.setStatus('current')
+f3ShgMemberFlowTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 3), )
+if mibBuilder.loadTexts: f3ShgMemberFlowTable.setStatus('current')
+f3ShgMemberFlowEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 3, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "F3-SHG-MIB", "f3ShgIndex"), (0, "F3-SHG-MIB", "f3ShgMemberFlow"))
+if mibBuilder.loadTexts: f3ShgMemberFlowEntry.setStatus('current')
+f3ShgMemberFlow = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 3, 1, 1), VariablePointer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3ShgMemberFlow.setStatus('current')
+f3ShgMemberFlowPointTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 4), )
+if mibBuilder.loadTexts: f3ShgMemberFlowPointTable.setStatus('current')
+f3ShgMemberFlowPointEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 4, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "F3-SHG-MIB", "f3ShgIndex"), (0, "F3-SHG-MIB", "f3ShgMemberFlowPoint"))
+if mibBuilder.loadTexts: f3ShgMemberFlowPointEntry.setStatus('current')
+f3ShgMemberFlowPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 1, 4, 1, 1), VariablePointer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3ShgMemberFlowPoint.setStatus('current')
+f3ShgCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 2, 1))
+f3ShgGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 2, 2))
+f3ShgCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 2, 1, 1)).setObjects(("F3-SHG-MIB", "f3ShgGroup"), ("F3-SHG-MIB", "f3ShgMemberPortGroup"), ("F3-SHG-MIB", "f3ShgMemberFlowGroup"), ("F3-SHG-MIB", "f3ShgMemberFlowPointGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    f3ShgCompliance = f3ShgCompliance.setStatus('current')
+f3ShgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 2, 2, 1)).setObjects(("F3-SHG-MIB", "f3ShgAlias"), ("F3-SHG-MIB", "f3ShgStorageType"), ("F3-SHG-MIB", "f3ShgRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    f3ShgGroup = f3ShgGroup.setStatus('current')
+f3ShgMemberPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 2, 2, 2)).setObjects(("F3-SHG-MIB", "f3ShgMemberPortStorageType"), ("F3-SHG-MIB", "f3ShgMemberPortRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    f3ShgMemberPortGroup = f3ShgMemberPortGroup.setStatus('current')
+f3ShgMemberFlowGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 2, 2, 3)).setObjects(("F3-SHG-MIB", "f3ShgMemberFlow"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    f3ShgMemberFlowGroup = f3ShgMemberFlowGroup.setStatus('current')
+f3ShgMemberFlowPointGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 2, 2, 4)).setObjects(("F3-SHG-MIB", "f3ShgMemberFlowPoint"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    f3ShgMemberFlowPointGroup = f3ShgMemberFlowPointGroup.setStatus('current')
+mibBuilder.exportSymbols("F3-SHG-MIB", f3ShgMemberFlowEntry=f3ShgMemberFlowEntry, f3ShgEntry=f3ShgEntry, f3SHGMIB=f3SHGMIB, f3ShgConformance=f3ShgConformance, f3ShgMemberPortTable=f3ShgMemberPortTable, f3ShgMemberFlowPoint=f3ShgMemberFlowPoint, f3ShgIndex=f3ShgIndex, f3ShgMemberFlowPointGroup=f3ShgMemberFlowPointGroup, PYSNMP_MODULE_ID=f3SHGMIB, f3ShgGroups=f3ShgGroups, f3ShgCompliances=f3ShgCompliances, f3ShgMemberPortRowStatus=f3ShgMemberPortRowStatus, f3ShgRowStatus=f3ShgRowStatus, f3ShgMemberFlowPointEntry=f3ShgMemberFlowPointEntry, f3ShgMemberFlowGroup=f3ShgMemberFlowGroup, f3ShgConfigObjects=f3ShgConfigObjects, f3ShgStorageType=f3ShgStorageType, f3ShgTable=f3ShgTable, f3ShgMemberPortStorageType=f3ShgMemberPortStorageType, f3ShgMemberPortEntry=f3ShgMemberPortEntry, f3ShgMemberFlow=f3ShgMemberFlow, f3ShgMemberPortGroup=f3ShgMemberPortGroup, f3ShgMemberFlowPointTable=f3ShgMemberFlowPointTable, f3ShgCompliance=f3ShgCompliance, f3ShgMemberFlowTable=f3ShgMemberFlowTable, f3ShgGroup=f3ShgGroup, f3ShgMemberPort=f3ShgMemberPort, f3ShgAlias=f3ShgAlias)

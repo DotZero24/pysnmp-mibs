@@ -1,444 +1,161 @@
-_Q='histTemp'
-_P='NotificationType'
-_O='pressAlarmInt'
-_N='press'
-_M='compValAlarmInt'
-_L='compVal'
-_K='humAlarmInt'
-_J='hum'
-_I='tempAlarmInt'
-_H='temp'
-_G='DisplayString'
-_F='messageString'
-_E='sensorName'
-_D='Integer32'
-_C='read-only'
-_B='mandatory'
-_A='T7611-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier',_P,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_P,'TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_G,'PhysAddress','TextualConvention')
-class DisplayString(OctetString):0
-_Comet_ObjectIdentity=ObjectIdentity
-comet=_Comet_ObjectIdentity((1,3,6,1,4,1,22626))
-_Products_ObjectIdentity=ObjectIdentity
-products=_Products_ObjectIdentity((1,3,6,1,4,1,22626,1))
-_T7611_ObjectIdentity=ObjectIdentity
-t7611=_T7611_ObjectIdentity((1,3,6,1,4,1,22626,1,2))
-_Values_ObjectIdentity=ObjectIdentity
-values=_Values_ObjectIdentity((1,3,6,1,4,1,22626,1,2,1))
-class _Temp_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_Temp_Type.__name__=_G
-_Temp_Object=MibScalar
-temp=_Temp_Object((1,3,6,1,4,1,22626,1,2,1,1),_Temp_Type())
-temp.setMaxAccess(_C)
-if mibBuilder.loadTexts:temp.setStatus(_B)
-class _Hum_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_Hum_Type.__name__=_G
-_Hum_Object=MibScalar
-hum=_Hum_Object((1,3,6,1,4,1,22626,1,2,1,2),_Hum_Type())
-hum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hum.setStatus(_B)
-class _CompVal_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_CompVal_Type.__name__=_G
-_CompVal_Object=MibScalar
-compVal=_CompVal_Object((1,3,6,1,4,1,22626,1,2,1,3),_CompVal_Type())
-compVal.setMaxAccess(_C)
-if mibBuilder.loadTexts:compVal.setStatus(_B)
-class _Press_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_Press_Type.__name__=_G
-_Press_Object=MibScalar
-press=_Press_Object((1,3,6,1,4,1,22626,1,2,1,4),_Press_Type())
-press.setMaxAccess(_C)
-if mibBuilder.loadTexts:press.setStatus(_B)
-class _TempAlarm_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_TempAlarm_Type.__name__=_G
-_TempAlarm_Object=MibScalar
-tempAlarm=_TempAlarm_Object((1,3,6,1,4,1,22626,1,2,1,5),_TempAlarm_Type())
-tempAlarm.setMaxAccess(_C)
-if mibBuilder.loadTexts:tempAlarm.setStatus(_B)
-class _HumAlarm_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_HumAlarm_Type.__name__=_G
-_HumAlarm_Object=MibScalar
-humAlarm=_HumAlarm_Object((1,3,6,1,4,1,22626,1,2,1,6),_HumAlarm_Type())
-humAlarm.setMaxAccess(_C)
-if mibBuilder.loadTexts:humAlarm.setStatus(_B)
-class _CompValAlarm_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_CompValAlarm_Type.__name__=_G
-_CompValAlarm_Object=MibScalar
-compValAlarm=_CompValAlarm_Object((1,3,6,1,4,1,22626,1,2,1,7),_CompValAlarm_Type())
-compValAlarm.setMaxAccess(_C)
-if mibBuilder.loadTexts:compValAlarm.setStatus(_B)
-class _PressAlarm_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_PressAlarm_Type.__name__=_G
-_PressAlarm_Object=MibScalar
-pressAlarm=_PressAlarm_Object((1,3,6,1,4,1,22626,1,2,1,8),_PressAlarm_Type())
-pressAlarm.setMaxAccess(_C)
-if mibBuilder.loadTexts:pressAlarm.setStatus(_B)
-class _TempUnit_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_TempUnit_Type.__name__=_G
-_TempUnit_Object=MibScalar
-tempUnit=_TempUnit_Object((1,3,6,1,4,1,22626,1,2,1,9),_TempUnit_Type())
-tempUnit.setMaxAccess(_C)
-if mibBuilder.loadTexts:tempUnit.setStatus(_B)
-class _HumUnit_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_HumUnit_Type.__name__=_G
-_HumUnit_Object=MibScalar
-humUnit=_HumUnit_Object((1,3,6,1,4,1,22626,1,2,1,10),_HumUnit_Type())
-humUnit.setMaxAccess(_C)
-if mibBuilder.loadTexts:humUnit.setStatus(_B)
-class _CompValUnit_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_CompValUnit_Type.__name__=_G
-_CompValUnit_Object=MibScalar
-compValUnit=_CompValUnit_Object((1,3,6,1,4,1,22626,1,2,1,11),_CompValUnit_Type())
-compValUnit.setMaxAccess(_C)
-if mibBuilder.loadTexts:compValUnit.setStatus(_B)
-class _PressUnit_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_PressUnit_Type.__name__=_G
-_PressUnit_Object=MibScalar
-pressUnit=_PressUnit_Object((1,3,6,1,4,1,22626,1,2,1,12),_PressUnit_Type())
-pressUnit.setMaxAccess(_C)
-if mibBuilder.loadTexts:pressUnit.setStatus(_B)
-class _TempMin_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_TempMin_Type.__name__=_G
-_TempMin_Object=MibScalar
-tempMin=_TempMin_Object((1,3,6,1,4,1,22626,1,2,1,13),_TempMin_Type())
-tempMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:tempMin.setStatus(_B)
-class _HumMin_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_HumMin_Type.__name__=_G
-_HumMin_Object=MibScalar
-humMin=_HumMin_Object((1,3,6,1,4,1,22626,1,2,1,14),_HumMin_Type())
-humMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:humMin.setStatus(_B)
-class _CompValMin_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_CompValMin_Type.__name__=_G
-_CompValMin_Object=MibScalar
-compValMin=_CompValMin_Object((1,3,6,1,4,1,22626,1,2,1,15),_CompValMin_Type())
-compValMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:compValMin.setStatus(_B)
-class _PressMin_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_PressMin_Type.__name__=_G
-_PressMin_Object=MibScalar
-pressMin=_PressMin_Object((1,3,6,1,4,1,22626,1,2,1,16),_PressMin_Type())
-pressMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:pressMin.setStatus(_B)
-class _TempMax_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_TempMax_Type.__name__=_G
-_TempMax_Object=MibScalar
-tempMax=_TempMax_Object((1,3,6,1,4,1,22626,1,2,1,17),_TempMax_Type())
-tempMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:tempMax.setStatus(_B)
-class _HumMax_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_HumMax_Type.__name__=_G
-_HumMax_Object=MibScalar
-humMax=_HumMax_Object((1,3,6,1,4,1,22626,1,2,1,18),_HumMax_Type())
-humMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:humMax.setStatus(_B)
-class _CompValMax_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_CompValMax_Type.__name__=_G
-_CompValMax_Object=MibScalar
-compValMax=_CompValMax_Object((1,3,6,1,4,1,22626,1,2,1,19),_CompValMax_Type())
-compValMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:compValMax.setStatus(_B)
-class _PressMax_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_PressMax_Type.__name__=_G
-_PressMax_Object=MibScalar
-pressMax=_PressMax_Object((1,3,6,1,4,1,22626,1,2,1,20),_PressMax_Type())
-pressMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:pressMax.setStatus(_B)
-__pysmi_global_ObjectIdentity=ObjectIdentity
-_pysmi_global=__pysmi_global_ObjectIdentity((1,3,6,1,4,1,22626,1,2,2))
-class _SensorName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,68))
-_SensorName_Type.__name__=_G
-_SensorName_Object=MibScalar
-sensorName=_SensorName_Object((1,3,6,1,4,1,22626,1,2,2,1),_SensorName_Type())
-sensorName.setMaxAccess(_C)
-if mibBuilder.loadTexts:sensorName.setStatus(_B)
-class _SerialNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_SerialNumber_Type.__name__=_G
-_SerialNumber_Object=MibScalar
-serialNumber=_SerialNumber_Object((1,3,6,1,4,1,22626,1,2,2,2),_SerialNumber_Type())
-serialNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:serialNumber.setStatus(_B)
-class _DeviceType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65534))
-_DeviceType_Type.__name__=_D
-_DeviceType_Object=MibScalar
-deviceType=_DeviceType_Object((1,3,6,1,4,1,22626,1,2,2,3),_DeviceType_Type())
-deviceType.setMaxAccess(_C)
-if mibBuilder.loadTexts:deviceType.setStatus(_B)
-_ValuesInt_ObjectIdentity=ObjectIdentity
-valuesInt=_ValuesInt_ObjectIdentity((1,3,6,1,4,1,22626,1,2,3))
-class _TempInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_TempInt_Type.__name__=_D
-_TempInt_Object=MibScalar
-tempInt=_TempInt_Object((1,3,6,1,4,1,22626,1,2,3,1),_TempInt_Type())
-tempInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tempInt.setStatus(_B)
-class _HumInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_HumInt_Type.__name__=_D
-_HumInt_Object=MibScalar
-humInt=_HumInt_Object((1,3,6,1,4,1,22626,1,2,3,2),_HumInt_Type())
-humInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:humInt.setStatus(_B)
-class _CompValInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_CompValInt_Type.__name__=_D
-_CompValInt_Object=MibScalar
-compValInt=_CompValInt_Object((1,3,6,1,4,1,22626,1,2,3,3),_CompValInt_Type())
-compValInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:compValInt.setStatus(_B)
-class _PressInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_PressInt_Type.__name__=_D
-_PressInt_Object=MibScalar
-pressInt=_PressInt_Object((1,3,6,1,4,1,22626,1,2,3,4),_PressInt_Type())
-pressInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:pressInt.setStatus(_B)
-class _TempAlarmInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
-_TempAlarmInt_Type.__name__=_D
-_TempAlarmInt_Object=MibScalar
-tempAlarmInt=_TempAlarmInt_Object((1,3,6,1,4,1,22626,1,2,3,5),_TempAlarmInt_Type())
-tempAlarmInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tempAlarmInt.setStatus(_B)
-class _HumAlarmInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
-_HumAlarmInt_Type.__name__=_D
-_HumAlarmInt_Object=MibScalar
-humAlarmInt=_HumAlarmInt_Object((1,3,6,1,4,1,22626,1,2,3,6),_HumAlarmInt_Type())
-humAlarmInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:humAlarmInt.setStatus(_B)
-class _CompValAlarmInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
-_CompValAlarmInt_Type.__name__=_D
-_CompValAlarmInt_Object=MibScalar
-compValAlarmInt=_CompValAlarmInt_Object((1,3,6,1,4,1,22626,1,2,3,7),_CompValAlarmInt_Type())
-compValAlarmInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:compValAlarmInt.setStatus(_B)
-class _PressAlarmInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
-_PressAlarmInt_Type.__name__=_D
-_PressAlarmInt_Object=MibScalar
-pressAlarmInt=_PressAlarmInt_Object((1,3,6,1,4,1,22626,1,2,3,8),_PressAlarmInt_Type())
-pressAlarmInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:pressAlarmInt.setStatus(_B)
-_Settings_ObjectIdentity=ObjectIdentity
-settings=_Settings_ObjectIdentity((1,3,6,1,4,1,22626,1,2,4))
-class _TempLowInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_TempLowInt_Type.__name__=_D
-_TempLowInt_Object=MibScalar
-tempLowInt=_TempLowInt_Object((1,3,6,1,4,1,22626,1,2,4,1),_TempLowInt_Type())
-tempLowInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tempLowInt.setStatus(_B)
-class _TempHighInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_TempHighInt_Type.__name__=_D
-_TempHighInt_Object=MibScalar
-tempHighInt=_TempHighInt_Object((1,3,6,1,4,1,22626,1,2,4,2),_TempHighInt_Type())
-tempHighInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tempHighInt.setStatus(_B)
-class _HumLowInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_HumLowInt_Type.__name__=_D
-_HumLowInt_Object=MibScalar
-humLowInt=_HumLowInt_Object((1,3,6,1,4,1,22626,1,2,4,3),_HumLowInt_Type())
-humLowInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:humLowInt.setStatus(_B)
-class _HumHighInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_HumHighInt_Type.__name__=_D
-_HumHighInt_Object=MibScalar
-humHighInt=_HumHighInt_Object((1,3,6,1,4,1,22626,1,2,4,4),_HumHighInt_Type())
-humHighInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:humHighInt.setStatus(_B)
-class _CompValLowInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_CompValLowInt_Type.__name__=_D
-_CompValLowInt_Object=MibScalar
-compValLowInt=_CompValLowInt_Object((1,3,6,1,4,1,22626,1,2,4,5),_CompValLowInt_Type())
-compValLowInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:compValLowInt.setStatus(_B)
-class _CompValHighInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_CompValHighInt_Type.__name__=_D
-_CompValHighInt_Object=MibScalar
-compValHighInt=_CompValHighInt_Object((1,3,6,1,4,1,22626,1,2,4,6),_CompValHighInt_Type())
-compValHighInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:compValHighInt.setStatus(_B)
-class _TempDelayInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4500))
-_TempDelayInt_Type.__name__=_D
-_TempDelayInt_Object=MibScalar
-tempDelayInt=_TempDelayInt_Object((1,3,6,1,4,1,22626,1,2,4,7),_TempDelayInt_Type())
-tempDelayInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tempDelayInt.setStatus(_B)
-class _HumDelayInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4500))
-_HumDelayInt_Type.__name__=_D
-_HumDelayInt_Object=MibScalar
-humDelayInt=_HumDelayInt_Object((1,3,6,1,4,1,22626,1,2,4,8),_HumDelayInt_Type())
-humDelayInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:humDelayInt.setStatus(_B)
-class _CompValDelayInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4500))
-_CompValDelayInt_Type.__name__=_D
-_CompValDelayInt_Object=MibScalar
-compValDelayInt=_CompValDelayInt_Object((1,3,6,1,4,1,22626,1,2,4,9),_CompValDelayInt_Type())
-compValDelayInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:compValDelayInt.setStatus(_B)
-class _TempHystInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-_TempHystInt_Type.__name__=_D
-_TempHystInt_Object=MibScalar
-tempHystInt=_TempHystInt_Object((1,3,6,1,4,1,22626,1,2,4,10),_TempHystInt_Type())
-tempHystInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tempHystInt.setStatus(_B)
-class _HumHystInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-_HumHystInt_Type.__name__=_D
-_HumHystInt_Object=MibScalar
-humHystInt=_HumHystInt_Object((1,3,6,1,4,1,22626,1,2,4,11),_HumHystInt_Type())
-humHystInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:humHystInt.setStatus(_B)
-class _CompValHystInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-_CompValHystInt_Type.__name__=_D
-_CompValHystInt_Object=MibScalar
-compValHystInt=_CompValHystInt_Object((1,3,6,1,4,1,22626,1,2,4,12),_CompValHystInt_Type())
-compValHystInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:compValHystInt.setStatus(_B)
-class _PressLowInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_PressLowInt_Type.__name__=_D
-_PressLowInt_Object=MibScalar
-pressLowInt=_PressLowInt_Object((1,3,6,1,4,1,22626,1,2,4,13),_PressLowInt_Type())
-pressLowInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:pressLowInt.setStatus(_B)
-class _PressHighInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_PressHighInt_Type.__name__=_D
-_PressHighInt_Object=MibScalar
-pressHighInt=_PressHighInt_Object((1,3,6,1,4,1,22626,1,2,4,14),_PressHighInt_Type())
-pressHighInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:pressHighInt.setStatus(_B)
-class _PressDelayInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4500))
-_PressDelayInt_Type.__name__=_D
-_PressDelayInt_Object=MibScalar
-pressDelayInt=_PressDelayInt_Object((1,3,6,1,4,1,22626,1,2,4,15),_PressDelayInt_Type())
-pressDelayInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:pressDelayInt.setStatus(_B)
-class _PressHystInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-_PressHystInt_Type.__name__=_D
-_PressHystInt_Object=MibScalar
-pressHystInt=_PressHystInt_Object((1,3,6,1,4,1,22626,1,2,4,16),_PressHystInt_Type())
-pressHystInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:pressHystInt.setStatus(_B)
-_Traps_ObjectIdentity=ObjectIdentity
-traps=_Traps_ObjectIdentity((1,3,6,1,4,1,22626,1,2,5))
-class _MessageString_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_MessageString_Type.__name__=_G
-_MessageString_Object=MibScalar
-messageString=_MessageString_Object((1,3,6,1,4,1,22626,1,2,5,1),_MessageString_Type())
-messageString.setMaxAccess(_C)
-if mibBuilder.loadTexts:messageString.setStatus(_B)
-_Tables_ObjectIdentity=ObjectIdentity
-tables=_Tables_ObjectIdentity((1,3,6,1,4,1,22626,1,2,6))
-_HistoryTable_Object=MibTable
-historyTable=_HistoryTable_Object((1,3,6,1,4,1,22626,1,2,6,1))
-if mibBuilder.loadTexts:historyTable.setStatus(_B)
-_HistoryEntry_Object=MibTableRow
-historyEntry=_HistoryEntry_Object((1,3,6,1,4,1,22626,1,2,6,1,1))
-historyEntry.setIndexNames((0,_A,_Q))
-if mibBuilder.loadTexts:historyEntry.setStatus('optional')
-class _HistTemp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_HistTemp_Type.__name__=_D
-_HistTemp_Object=MibTableColumn
-histTemp=_HistTemp_Object((1,3,6,1,4,1,22626,1,2,6,1,1,1),_HistTemp_Type())
-histTemp.setMaxAccess(_C)
-if mibBuilder.loadTexts:histTemp.setStatus(_B)
-class _HistHum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_HistHum_Type.__name__=_D
-_HistHum_Object=MibTableColumn
-histHum=_HistHum_Object((1,3,6,1,4,1,22626,1,2,6,1,1,2),_HistHum_Type())
-histHum.setMaxAccess(_C)
-if mibBuilder.loadTexts:histHum.setStatus(_B)
-class _HistCompVal_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_HistCompVal_Type.__name__=_D
-_HistCompVal_Object=MibTableColumn
-histCompVal=_HistCompVal_Object((1,3,6,1,4,1,22626,1,2,6,1,1,3),_HistCompVal_Type())
-histCompVal.setMaxAccess(_C)
-if mibBuilder.loadTexts:histCompVal.setStatus(_B)
-class _HistPress_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
-_HistPress_Type.__name__=_D
-_HistPress_Object=MibTableColumn
-histPress=_HistPress_Object((1,3,6,1,4,1,22626,1,2,6,1,1,4),_HistPress_Type())
-histPress.setMaxAccess(_C)
-if mibBuilder.loadTexts:histPress.setStatus(_B)
-trapTest=NotificationType((1,3,6,1,4,1,22626,0,0))
-trapTest.setObjects(*((_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:trapTest.setStatus('')
-trapNTPError=NotificationType((1,3,6,1,4,1,22626,0,1))
-trapNTPError.setObjects(*((_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:trapNTPError.setStatus('')
-trapEmailErrLogin=NotificationType((1,3,6,1,4,1,22626,0,2))
-trapEmailErrLogin.setObjects(*((_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:trapEmailErrLogin.setStatus('')
-trapEmailErrAuth=NotificationType((1,3,6,1,4,1,22626,0,3))
-trapEmailErrAuth.setObjects(*((_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:trapEmailErrAuth.setStatus('')
-trapEmailErrSome=NotificationType((1,3,6,1,4,1,22626,0,4))
-trapEmailErrSome.setObjects(*((_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:trapEmailErrSome.setStatus('')
-trapEmailErrSocket=NotificationType((1,3,6,1,4,1,22626,0,5))
-trapEmailErrSocket.setObjects(*((_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:trapEmailErrSocket.setStatus('')
-trapEmailErrDNS=NotificationType((1,3,6,1,4,1,22626,0,6))
-trapEmailErrDNS.setObjects(*((_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:trapEmailErrDNS.setStatus('')
-trapSOAPErrFile=NotificationType((1,3,6,1,4,1,22626,0,7))
-trapSOAPErrFile.setObjects(*((_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:trapSOAPErrFile.setStatus('')
-trapSOAPErrDNS=NotificationType((1,3,6,1,4,1,22626,0,8))
-trapSOAPErrDNS.setObjects(*((_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:trapSOAPErrDNS.setStatus('')
-trapSOAPErrSocket=NotificationType((1,3,6,1,4,1,22626,0,9))
-trapSOAPErrSocket.setObjects(*((_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:trapSOAPErrSocket.setStatus('')
-trapSOAPErrDelivery=NotificationType((1,3,6,1,4,1,22626,0,10))
-trapSOAPErrDelivery.setObjects(*((_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:trapSOAPErrDelivery.setStatus('')
-trapTempHighAlarm=NotificationType((1,3,6,1,4,1,22626,0,11))
-trapTempHighAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:trapTempHighAlarm.setStatus('')
-trapHumHighAlarm=NotificationType((1,3,6,1,4,1,22626,0,12))
-trapHumHighAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:trapHumHighAlarm.setStatus('')
-trapCompValHighAlarm=NotificationType((1,3,6,1,4,1,22626,0,13))
-trapCompValHighAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:trapCompValHighAlarm.setStatus('')
-trapPressHighAlarm=NotificationType((1,3,6,1,4,1,22626,0,14))
-trapPressHighAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:trapPressHighAlarm.setStatus('')
-trapTempLowAlarm=NotificationType((1,3,6,1,4,1,22626,0,21))
-trapTempLowAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:trapTempLowAlarm.setStatus('')
-trapHumLowAlarm=NotificationType((1,3,6,1,4,1,22626,0,22))
-trapHumLowAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:trapHumLowAlarm.setStatus('')
-trapCompValLowAlarm=NotificationType((1,3,6,1,4,1,22626,0,23))
-trapCompValLowAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:trapCompValLowAlarm.setStatus('')
-trapPressLowAlarm=NotificationType((1,3,6,1,4,1,22626,0,24))
-trapPressLowAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:trapPressLowAlarm.setStatus('')
-trapTempClrAlarm=NotificationType((1,3,6,1,4,1,22626,0,31))
-trapTempClrAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:trapTempClrAlarm.setStatus('')
-trapHumClrAlarm=NotificationType((1,3,6,1,4,1,22626,0,32))
-trapHumClrAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:trapHumClrAlarm.setStatus('')
-trapCompValClrAlarm=NotificationType((1,3,6,1,4,1,22626,0,33))
-trapCompValClrAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:trapCompValClrAlarm.setStatus('')
-trapPressClrAlarm=NotificationType((1,3,6,1,4,1,22626,0,34))
-trapPressClrAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:trapPressClrAlarm.setStatus('')
-trapTempError=NotificationType((1,3,6,1,4,1,22626,0,41))
-trapTempError.setObjects(*((_A,_E),(_A,_F),(_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:trapTempError.setStatus('')
-trapHumError=NotificationType((1,3,6,1,4,1,22626,0,42))
-trapHumError.setObjects(*((_A,_E),(_A,_F),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:trapHumError.setStatus('')
-trapCompValError=NotificationType((1,3,6,1,4,1,22626,0,43))
-trapCompValError.setObjects(*((_A,_E),(_A,_F),(_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:trapCompValError.setStatus('')
-trapPressError=NotificationType((1,3,6,1,4,1,22626,0,44))
-trapPressError.setObjects(*((_A,_E),(_A,_F),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:trapPressError.setStatus('')
-mibBuilder.exportSymbols(_A,**{_G:DisplayString,'comet':comet,'trapTest':trapTest,'trapNTPError':trapNTPError,'trapEmailErrLogin':trapEmailErrLogin,'trapEmailErrAuth':trapEmailErrAuth,'trapEmailErrSome':trapEmailErrSome,'trapEmailErrSocket':trapEmailErrSocket,'trapEmailErrDNS':trapEmailErrDNS,'trapSOAPErrFile':trapSOAPErrFile,'trapSOAPErrDNS':trapSOAPErrDNS,'trapSOAPErrSocket':trapSOAPErrSocket,'trapSOAPErrDelivery':trapSOAPErrDelivery,'trapTempHighAlarm':trapTempHighAlarm,'trapHumHighAlarm':trapHumHighAlarm,'trapCompValHighAlarm':trapCompValHighAlarm,'trapPressHighAlarm':trapPressHighAlarm,'trapTempLowAlarm':trapTempLowAlarm,'trapHumLowAlarm':trapHumLowAlarm,'trapCompValLowAlarm':trapCompValLowAlarm,'trapPressLowAlarm':trapPressLowAlarm,'trapTempClrAlarm':trapTempClrAlarm,'trapHumClrAlarm':trapHumClrAlarm,'trapCompValClrAlarm':trapCompValClrAlarm,'trapPressClrAlarm':trapPressClrAlarm,'trapTempError':trapTempError,'trapHumError':trapHumError,'trapCompValError':trapCompValError,'trapPressError':trapPressError,'products':products,'t7611':t7611,'values':values,_H:temp,_J:hum,_L:compVal,_N:press,'tempAlarm':tempAlarm,'humAlarm':humAlarm,'compValAlarm':compValAlarm,'pressAlarm':pressAlarm,'tempUnit':tempUnit,'humUnit':humUnit,'compValUnit':compValUnit,'pressUnit':pressUnit,'tempMin':tempMin,'humMin':humMin,'compValMin':compValMin,'pressMin':pressMin,'tempMax':tempMax,'humMax':humMax,'compValMax':compValMax,'pressMax':pressMax,'global':_pysmi_global,_E:sensorName,'serialNumber':serialNumber,'deviceType':deviceType,'valuesInt':valuesInt,'tempInt':tempInt,'humInt':humInt,'compValInt':compValInt,'pressInt':pressInt,_I:tempAlarmInt,_K:humAlarmInt,_M:compValAlarmInt,_O:pressAlarmInt,'settings':settings,'tempLowInt':tempLowInt,'tempHighInt':tempHighInt,'humLowInt':humLowInt,'humHighInt':humHighInt,'compValLowInt':compValLowInt,'compValHighInt':compValHighInt,'tempDelayInt':tempDelayInt,'humDelayInt':humDelayInt,'compValDelayInt':compValDelayInt,'tempHystInt':tempHystInt,'humHystInt':humHystInt,'compValHystInt':compValHystInt,'pressLowInt':pressLowInt,'pressHighInt':pressHighInt,'pressDelayInt':pressDelayInt,'pressHystInt':pressHystInt,'traps':traps,_F:messageString,'tables':tables,'historyTable':historyTable,'historyEntry':historyEntry,_Q:histTemp,'histHum':histHum,'histCompVal':histCompVal,'histPress':histPress})
+#
+# PySNMP MIB module T7611-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/comet/T7611-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:36 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+class DisplayString(OctetString):
+    pass
+
+comet = MibIdentifier((1, 3, 6, 1, 4, 1, 22626))
+products = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1))
+t7611 = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2))
+values = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1))
+pysmi_global = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 2)).setLabel("global")
+valuesInt = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3))
+settings = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4))
+traps = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 5))
+tables = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6))
+temp = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: temp.setStatus('mandatory')
+hum = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hum.setStatus('mandatory')
+compVal = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: compVal.setStatus('mandatory')
+press = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: press.setStatus('mandatory')
+tempAlarm = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tempAlarm.setStatus('mandatory')
+humAlarm = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: humAlarm.setStatus('mandatory')
+compValAlarm = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: compValAlarm.setStatus('mandatory')
+pressAlarm = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pressAlarm.setStatus('mandatory')
+tempUnit = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tempUnit.setStatus('mandatory')
+humUnit = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: humUnit.setStatus('mandatory')
+compValUnit = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: compValUnit.setStatus('mandatory')
+pressUnit = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pressUnit.setStatus('mandatory')
+tempMin = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tempMin.setStatus('mandatory')
+humMin = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: humMin.setStatus('mandatory')
+compValMin = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 15), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: compValMin.setStatus('mandatory')
+pressMin = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 16), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pressMin.setStatus('mandatory')
+tempMax = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 17), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tempMax.setStatus('mandatory')
+humMax = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: humMax.setStatus('mandatory')
+compValMax = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 19), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: compValMax.setStatus('mandatory')
+pressMax = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 20), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pressMax.setStatus('mandatory')
+sensorName = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 2, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 68))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorName.setStatus('mandatory')
+serialNumber = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: serialNumber.setStatus('mandatory')
+deviceType = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65534))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceType.setStatus('mandatory')
+tempInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tempInt.setStatus('mandatory')
+humInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: humInt.setStatus('mandatory')
+compValInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: compValInt.setStatus('mandatory')
+pressInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pressInt.setStatus('mandatory')
+tempAlarmInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tempAlarmInt.setStatus('mandatory')
+humAlarmInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: humAlarmInt.setStatus('mandatory')
+compValAlarmInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: compValAlarmInt.setStatus('mandatory')
+pressAlarmInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pressAlarmInt.setStatus('mandatory')
+tempLowInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tempLowInt.setStatus('mandatory')
+tempHighInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tempHighInt.setStatus('mandatory')
+humLowInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: humLowInt.setStatus('mandatory')
+humHighInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: humHighInt.setStatus('mandatory')
+compValLowInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: compValLowInt.setStatus('mandatory')
+compValHighInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: compValHighInt.setStatus('mandatory')
+tempDelayInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4500))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tempDelayInt.setStatus('mandatory')
+humDelayInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4500))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: humDelayInt.setStatus('mandatory')
+compValDelayInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4500))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: compValDelayInt.setStatus('mandatory')
+tempHystInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tempHystInt.setStatus('mandatory')
+humHystInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: humHystInt.setStatus('mandatory')
+compValHystInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: compValHystInt.setStatus('mandatory')
+pressLowInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pressLowInt.setStatus('mandatory')
+pressHighInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pressHighInt.setStatus('mandatory')
+pressDelayInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4500))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pressDelayInt.setStatus('mandatory')
+pressHystInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pressHystInt.setStatus('mandatory')
+messageString = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 5, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: messageString.setStatus('mandatory')
+historyTable = MibTable((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1), )
+if mibBuilder.loadTexts: historyTable.setStatus('mandatory')
+historyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1), ).setIndexNames((0, "T7611-MIB", "histTemp"))
+if mibBuilder.loadTexts: historyEntry.setStatus('optional')
+histTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: histTemp.setStatus('mandatory')
+histHum = MibTableColumn((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: histHum.setStatus('mandatory')
+histCompVal = MibTableColumn((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: histCompVal.setStatus('mandatory')
+histPress = MibTableColumn((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: histPress.setStatus('mandatory')
+trapTest = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,0)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"))
+trapNTPError = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,1)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"))
+trapEmailErrLogin = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,2)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"))
+trapEmailErrAuth = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,3)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"))
+trapEmailErrSome = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,4)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"))
+trapEmailErrSocket = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,5)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"))
+trapEmailErrDNS = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,6)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"))
+trapSOAPErrFile = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,7)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"))
+trapSOAPErrDNS = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,8)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"))
+trapSOAPErrSocket = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,9)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"))
+trapSOAPErrDelivery = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,10)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"))
+trapTempHighAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,11)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "temp"), ("T7611-MIB", "tempAlarmInt"))
+trapHumHighAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,12)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "hum"), ("T7611-MIB", "humAlarmInt"))
+trapCompValHighAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,13)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "compVal"), ("T7611-MIB", "compValAlarmInt"))
+trapPressHighAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,14)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "press"), ("T7611-MIB", "pressAlarmInt"))
+trapTempLowAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,21)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "temp"), ("T7611-MIB", "tempAlarmInt"))
+trapHumLowAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,22)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "hum"), ("T7611-MIB", "humAlarmInt"))
+trapCompValLowAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,23)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "compVal"), ("T7611-MIB", "compValAlarmInt"))
+trapPressLowAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,24)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "press"), ("T7611-MIB", "pressAlarmInt"))
+trapTempClrAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,31)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "temp"), ("T7611-MIB", "tempAlarmInt"))
+trapHumClrAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,32)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "hum"), ("T7611-MIB", "humAlarmInt"))
+trapCompValClrAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,33)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "compVal"), ("T7611-MIB", "compValAlarmInt"))
+trapPressClrAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,34)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "press"), ("T7611-MIB", "pressAlarmInt"))
+trapTempError = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,41)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "temp"), ("T7611-MIB", "tempAlarmInt"))
+trapHumError = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,42)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "hum"), ("T7611-MIB", "humAlarmInt"))
+trapCompValError = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,43)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "compVal"), ("T7611-MIB", "compValAlarmInt"))
+trapPressError = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,44)).setObjects(("T7611-MIB", "sensorName"), ("T7611-MIB", "messageString"), ("T7611-MIB", "press"), ("T7611-MIB", "pressAlarmInt"))
+mibBuilder.exportSymbols("T7611-MIB", historyTable=historyTable, press=press, humHystInt=humHystInt, comet=comet, trapEmailErrLogin=trapEmailErrLogin, trapHumHighAlarm=trapHumHighAlarm, tempHystInt=tempHystInt, trapTempClrAlarm=trapTempClrAlarm, humUnit=humUnit, compValMin=compValMin, compValInt=compValInt, pressLowInt=pressLowInt, messageString=messageString, compVal=compVal, humMax=humMax, compValLowInt=compValLowInt, histHum=histHum, trapCompValLowAlarm=trapCompValLowAlarm, trapSOAPErrDNS=trapSOAPErrDNS, trapSOAPErrSocket=trapSOAPErrSocket, compValHystInt=compValHystInt, trapTempHighAlarm=trapTempHighAlarm, compValHighInt=compValHighInt, tempDelayInt=tempDelayInt, pressHystInt=pressHystInt, trapCompValClrAlarm=trapCompValClrAlarm, DisplayString=DisplayString, temp=temp, pressAlarm=pressAlarm, trapPressHighAlarm=trapPressHighAlarm, humInt=humInt, humMin=humMin, trapSOAPErrDelivery=trapSOAPErrDelivery, serialNumber=serialNumber, sensorName=sensorName, trapHumError=trapHumError, tempMin=tempMin, trapTempError=trapTempError, traps=traps, pressHighInt=pressHighInt, humDelayInt=humDelayInt, pressAlarmInt=pressAlarmInt, trapPressLowAlarm=trapPressLowAlarm, pressMax=pressMax, deviceType=deviceType, trapEmailErrSome=trapEmailErrSome, pressDelayInt=pressDelayInt, trapTest=trapTest, tempUnit=tempUnit, histTemp=histTemp, settings=settings, trapCompValHighAlarm=trapCompValHighAlarm, valuesInt=valuesInt, humHighInt=humHighInt, tempMax=tempMax, historyEntry=historyEntry, humAlarm=humAlarm, hum=hum, humAlarmInt=humAlarmInt, trapHumClrAlarm=trapHumClrAlarm, compValAlarm=compValAlarm, compValUnit=compValUnit, trapPressError=trapPressError, t7611=t7611, trapEmailErrSocket=trapEmailErrSocket, compValMax=compValMax, pysmi_global=pysmi_global, trapHumLowAlarm=trapHumLowAlarm, pressInt=pressInt, tempLowInt=tempLowInt, trapNTPError=trapNTPError, tempAlarm=tempAlarm, trapEmailErrDNS=trapEmailErrDNS, compValAlarmInt=compValAlarmInt, trapPressClrAlarm=trapPressClrAlarm, trapEmailErrAuth=trapEmailErrAuth, tables=tables, compValDelayInt=compValDelayInt, histPress=histPress, pressMin=pressMin, tempInt=tempInt, tempAlarmInt=tempAlarmInt, values=values, humLowInt=humLowInt, pressUnit=pressUnit, tempHighInt=tempHighInt, trapCompValError=trapCompValError, trapTempLowAlarm=trapTempLowAlarm, products=products, histCompVal=histCompVal, trapSOAPErrFile=trapSOAPErrFile)

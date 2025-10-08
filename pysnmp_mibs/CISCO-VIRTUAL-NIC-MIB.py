@@ -1,188 +1,92 @@
-_a='cvnConnecteeGroup'
-_Z='cvnPinningGroup'
-_Y='cvnVethGroup'
-_X='cvnConnecteeDeviceType'
-_W='cvnConnecteeDeviceName'
-_V='cvnConnecteeMac'
-_U='cvnConnecteeType'
-_T='cvnConnecteeUuid'
-_S='cvnConnecteeName'
-_R='cvnDVSPort'
-_Q='cvnConnecteeAttachType'
-_P='cvnPinnedSubGrpId'
-_O='cvnVethStateReason'
-_N='cvnVethIfAdditionalState'
-_M='cvnVethIfProfileAlias'
-_L='cvnVethPortProfileUsed'
-_K='cvnVethHostAddr'
-_J='cvnVethHostAddrType'
-_I='cvnVethHostID'
-_H='cvnVethOwner'
-_G='cvnVethAdapter'
-_F='unknown'
-_E='cvnVethInterface'
-_D='Integer32'
-_C='read-only'
-_B='CISCO-VIRTUAL-NIC-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-ciscoVirtualNicMIB=ModuleIdentity((1,3,6,1,4,1,9,9,710))
-if mibBuilder.loadTexts:ciscoVirtualNicMIB.setRevisions(('2009-10-26 00:00',))
-_CiscoVirtualNicMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoVirtualNicMIBNotifs=_CiscoVirtualNicMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,710,0))
-_CiscoVirtualNicMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoVirtualNicMIBObjects=_CiscoVirtualNicMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,710,1))
-_CvnInterfaceObjects_ObjectIdentity=ObjectIdentity
-cvnInterfaceObjects=_CvnInterfaceObjects_ObjectIdentity((1,3,6,1,4,1,9,9,710,1,1))
-_CvnVethIfTable_Object=MibTable
-cvnVethIfTable=_CvnVethIfTable_Object((1,3,6,1,4,1,9,9,710,1,1,1))
-if mibBuilder.loadTexts:cvnVethIfTable.setStatus(_A)
-_CvnVethIfEntry_Object=MibTableRow
-cvnVethIfEntry=_CvnVethIfEntry_Object((1,3,6,1,4,1,9,9,710,1,1,1,1))
-cvnVethIfEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:cvnVethIfEntry.setStatus(_A)
-_CvnVethInterface_Type=InterfaceIndex
-_CvnVethInterface_Object=MibTableColumn
-cvnVethInterface=_CvnVethInterface_Object((1,3,6,1,4,1,9,9,710,1,1,1,1,1),_CvnVethInterface_Type())
-cvnVethInterface.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:cvnVethInterface.setStatus(_A)
-_CvnVethAdapter_Type=SnmpAdminString
-_CvnVethAdapter_Object=MibTableColumn
-cvnVethAdapter=_CvnVethAdapter_Object((1,3,6,1,4,1,9,9,710,1,1,1,1,2),_CvnVethAdapter_Type())
-cvnVethAdapter.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnVethAdapter.setStatus(_A)
-_CvnVethOwner_Type=SnmpAdminString
-_CvnVethOwner_Object=MibTableColumn
-cvnVethOwner=_CvnVethOwner_Object((1,3,6,1,4,1,9,9,710,1,1,1,1,3),_CvnVethOwner_Type())
-cvnVethOwner.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnVethOwner.setStatus(_A)
-_CvnVethHostID_Type=Unsigned32
-_CvnVethHostID_Object=MibTableColumn
-cvnVethHostID=_CvnVethHostID_Object((1,3,6,1,4,1,9,9,710,1,1,1,1,4),_CvnVethHostID_Type())
-cvnVethHostID.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnVethHostID.setStatus(_A)
-_CvnVethHostAddrType_Type=InetAddressType
-_CvnVethHostAddrType_Object=MibTableColumn
-cvnVethHostAddrType=_CvnVethHostAddrType_Object((1,3,6,1,4,1,9,9,710,1,1,1,1,5),_CvnVethHostAddrType_Type())
-cvnVethHostAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnVethHostAddrType.setStatus(_A)
-_CvnVethHostAddr_Type=InetAddress
-_CvnVethHostAddr_Object=MibTableColumn
-cvnVethHostAddr=_CvnVethHostAddr_Object((1,3,6,1,4,1,9,9,710,1,1,1,1,6),_CvnVethHostAddr_Type())
-cvnVethHostAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnVethHostAddr.setStatus(_A)
-_CvnVethPortProfileUsed_Type=SnmpAdminString
-_CvnVethPortProfileUsed_Object=MibTableColumn
-cvnVethPortProfileUsed=_CvnVethPortProfileUsed_Object((1,3,6,1,4,1,9,9,710,1,1,1,1,7),_CvnVethPortProfileUsed_Type())
-cvnVethPortProfileUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnVethPortProfileUsed.setStatus(_A)
-_CvnVethIfProfileAlias_Type=SnmpAdminString
-_CvnVethIfProfileAlias_Object=MibTableColumn
-cvnVethIfProfileAlias=_CvnVethIfProfileAlias_Object((1,3,6,1,4,1,9,9,710,1,1,1,1,8),_CvnVethIfProfileAlias_Type())
-cvnVethIfProfileAlias.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnVethIfProfileAlias.setStatus(_A)
-class _CvnVethIfAdditionalState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('none',1),('participating',2),('suspended',3),('errDisabled',4),('nonParticipating',5)))
-_CvnVethIfAdditionalState_Type.__name__=_D
-_CvnVethIfAdditionalState_Object=MibTableColumn
-cvnVethIfAdditionalState=_CvnVethIfAdditionalState_Object((1,3,6,1,4,1,9,9,710,1,1,1,1,9),_CvnVethIfAdditionalState_Type())
-cvnVethIfAdditionalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnVethIfAdditionalState.setStatus(_A)
-_CvnVethStateReason_Type=SnmpAdminString
-_CvnVethStateReason_Object=MibTableColumn
-cvnVethStateReason=_CvnVethStateReason_Object((1,3,6,1,4,1,9,9,710,1,1,1,1,10),_CvnVethStateReason_Type())
-cvnVethStateReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnVethStateReason.setStatus(_A)
-_CvnPinningTable_Object=MibTable
-cvnPinningTable=_CvnPinningTable_Object((1,3,6,1,4,1,9,9,710,1,1,2))
-if mibBuilder.loadTexts:cvnPinningTable.setStatus(_A)
-_CvnPinningEntry_Object=MibTableRow
-cvnPinningEntry=_CvnPinningEntry_Object((1,3,6,1,4,1,9,9,710,1,1,2,1))
-cvnPinningEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:cvnPinningEntry.setStatus(_A)
-class _CvnPinnedSubGrpId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_CvnPinnedSubGrpId_Type.__name__=_D
-_CvnPinnedSubGrpId_Object=MibTableColumn
-cvnPinnedSubGrpId=_CvnPinnedSubGrpId_Object((1,3,6,1,4,1,9,9,710,1,1,2,1,1),_CvnPinnedSubGrpId_Type())
-cvnPinnedSubGrpId.setMaxAccess('read-write')
-if mibBuilder.loadTexts:cvnPinnedSubGrpId.setStatus(_A)
-_CvnConnecteeObjects_ObjectIdentity=ObjectIdentity
-cvnConnecteeObjects=_CvnConnecteeObjects_ObjectIdentity((1,3,6,1,4,1,9,9,710,1,2))
-_CvnConnecteeTable_Object=MibTable
-cvnConnecteeTable=_CvnConnecteeTable_Object((1,3,6,1,4,1,9,9,710,1,2,1))
-if mibBuilder.loadTexts:cvnConnecteeTable.setStatus(_A)
-_CvnConnecteeEntry_Object=MibTableRow
-cvnConnecteeEntry=_CvnConnecteeEntry_Object((1,3,6,1,4,1,9,9,710,1,2,1,1))
-cvnConnecteeEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:cvnConnecteeEntry.setStatus(_A)
-class _CvnConnecteeAttachType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('vem',2),('niv',3)))
-_CvnConnecteeAttachType_Type.__name__=_D
-_CvnConnecteeAttachType_Object=MibTableColumn
-cvnConnecteeAttachType=_CvnConnecteeAttachType_Object((1,3,6,1,4,1,9,9,710,1,2,1,1,1),_CvnConnecteeAttachType_Type())
-cvnConnecteeAttachType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnConnecteeAttachType.setStatus(_A)
-_CvnDVSPort_Type=Unsigned32
-_CvnDVSPort_Object=MibTableColumn
-cvnDVSPort=_CvnDVSPort_Object((1,3,6,1,4,1,9,9,710,1,2,1,1,2),_CvnDVSPort_Type())
-cvnDVSPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnDVSPort.setStatus(_A)
-_CvnConnecteeName_Type=SnmpAdminString
-_CvnConnecteeName_Object=MibTableColumn
-cvnConnecteeName=_CvnConnecteeName_Object((1,3,6,1,4,1,9,9,710,1,2,1,1,3),_CvnConnecteeName_Type())
-cvnConnecteeName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnConnecteeName.setStatus(_A)
-_CvnConnecteeUuid_Type=SnmpAdminString
-_CvnConnecteeUuid_Object=MibTableColumn
-cvnConnecteeUuid=_CvnConnecteeUuid_Object((1,3,6,1,4,1,9,9,710,1,2,1,1,4),_CvnConnecteeUuid_Type())
-cvnConnecteeUuid.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnConnecteeUuid.setStatus(_A)
-class _CvnConnecteeType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_F,1),('vmwareVm',2),('vmwareHost',3)))
-_CvnConnecteeType_Type.__name__=_D
-_CvnConnecteeType_Object=MibTableColumn
-cvnConnecteeType=_CvnConnecteeType_Object((1,3,6,1,4,1,9,9,710,1,2,1,1,5),_CvnConnecteeType_Type())
-cvnConnecteeType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnConnecteeType.setStatus(_A)
-_CvnConnecteeMac_Type=MacAddress
-_CvnConnecteeMac_Object=MibTableColumn
-cvnConnecteeMac=_CvnConnecteeMac_Object((1,3,6,1,4,1,9,9,710,1,2,1,1,6),_CvnConnecteeMac_Type())
-cvnConnecteeMac.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnConnecteeMac.setStatus(_A)
-_CvnConnecteeDeviceName_Type=SnmpAdminString
-_CvnConnecteeDeviceName_Object=MibTableColumn
-cvnConnecteeDeviceName=_CvnConnecteeDeviceName_Object((1,3,6,1,4,1,9,9,710,1,2,1,1,7),_CvnConnecteeDeviceName_Type())
-cvnConnecteeDeviceName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnConnecteeDeviceName.setStatus(_A)
-class _CvnConnecteeDeviceType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_F,1),('pnic',2),('vnic',3),('vswif',4),('vmknic',5)))
-_CvnConnecteeDeviceType_Type.__name__=_D
-_CvnConnecteeDeviceType_Object=MibTableColumn
-cvnConnecteeDeviceType=_CvnConnecteeDeviceType_Object((1,3,6,1,4,1,9,9,710,1,2,1,1,8),_CvnConnecteeDeviceType_Type())
-cvnConnecteeDeviceType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvnConnecteeDeviceType.setStatus(_A)
-_CiscoVirtualNicMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoVirtualNicMIBConformance=_CiscoVirtualNicMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,710,2))
-_CiscoVirtualNicMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoVirtualNicMIBCompliances=_CiscoVirtualNicMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,710,2,1))
-_CiscoVirtualNicMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoVirtualNicMIBGroups=_CiscoVirtualNicMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,710,2,2))
-cvnVethGroup=ObjectGroup((1,3,6,1,4,1,9,9,710,2,2,1))
-cvnVethGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:cvnVethGroup.setStatus(_A)
-cvnPinningGroup=ObjectGroup((1,3,6,1,4,1,9,9,710,2,2,2))
-cvnPinningGroup.setObjects((_B,_P))
-if mibBuilder.loadTexts:cvnPinningGroup.setStatus(_A)
-cvnConnecteeGroup=ObjectGroup((1,3,6,1,4,1,9,9,710,2,2,3))
-cvnConnecteeGroup.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:cvnConnecteeGroup.setStatus(_A)
-virtualNicMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,710,2,1,1))
-virtualNicMIBCompliance.setObjects(*((_B,_Y),(_B,_Z),(_B,_a)))
-if mibBuilder.loadTexts:virtualNicMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoVirtualNicMIB':ciscoVirtualNicMIB,'ciscoVirtualNicMIBNotifs':ciscoVirtualNicMIBNotifs,'ciscoVirtualNicMIBObjects':ciscoVirtualNicMIBObjects,'cvnInterfaceObjects':cvnInterfaceObjects,'cvnVethIfTable':cvnVethIfTable,'cvnVethIfEntry':cvnVethIfEntry,_E:cvnVethInterface,_G:cvnVethAdapter,_H:cvnVethOwner,_I:cvnVethHostID,_J:cvnVethHostAddrType,_K:cvnVethHostAddr,_L:cvnVethPortProfileUsed,_M:cvnVethIfProfileAlias,_N:cvnVethIfAdditionalState,_O:cvnVethStateReason,'cvnPinningTable':cvnPinningTable,'cvnPinningEntry':cvnPinningEntry,_P:cvnPinnedSubGrpId,'cvnConnecteeObjects':cvnConnecteeObjects,'cvnConnecteeTable':cvnConnecteeTable,'cvnConnecteeEntry':cvnConnecteeEntry,_Q:cvnConnecteeAttachType,_R:cvnDVSPort,_S:cvnConnecteeName,_T:cvnConnecteeUuid,_U:cvnConnecteeType,_V:cvnConnecteeMac,_W:cvnConnecteeDeviceName,_X:cvnConnecteeDeviceType,'ciscoVirtualNicMIBConformance':ciscoVirtualNicMIBConformance,'ciscoVirtualNicMIBCompliances':ciscoVirtualNicMIBCompliances,'virtualNicMIBCompliance':virtualNicMIBCompliance,'ciscoVirtualNicMIBGroups':ciscoVirtualNicMIBGroups,_Y:cvnVethGroup,_Z:cvnPinningGroup,_a:cvnConnecteeGroup})
+#
+# PySNMP MIB module CISCO-VIRTUAL-NIC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-VIRTUAL-NIC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:18 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+ciscoVirtualNicMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 710))
+ciscoVirtualNicMIB.setRevisions(('2009-10-26 00:00',))
+if mibBuilder.loadTexts: ciscoVirtualNicMIB.setLastUpdated('200910260000Z')
+if mibBuilder.loadTexts: ciscoVirtualNicMIB.setOrganization('Cisco Systems, Inc.')
+ciscoVirtualNicMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 710, 0))
+ciscoVirtualNicMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 710, 1))
+ciscoVirtualNicMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 710, 2))
+cvnInterfaceObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1))
+cvnConnecteeObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 2))
+cvnVethIfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1, 1), )
+if mibBuilder.loadTexts: cvnVethIfTable.setStatus('current')
+cvnVethIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-VIRTUAL-NIC-MIB", "cvnVethInterface"))
+if mibBuilder.loadTexts: cvnVethIfEntry.setStatus('current')
+cvnVethInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: cvnVethInterface.setStatus('current')
+cvnVethAdapter = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnVethAdapter.setStatus('current')
+cvnVethOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnVethOwner.setStatus('current')
+cvnVethHostID = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnVethHostID.setStatus('current')
+cvnVethHostAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1, 1, 1, 5), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnVethHostAddrType.setStatus('current')
+cvnVethHostAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1, 1, 1, 6), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnVethHostAddr.setStatus('current')
+cvnVethPortProfileUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1, 1, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnVethPortProfileUsed.setStatus('current')
+cvnVethIfProfileAlias = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnVethIfProfileAlias.setStatus('current')
+cvnVethIfAdditionalState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("participating", 2), ("suspended", 3), ("errDisabled", 4), ("nonParticipating", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnVethIfAdditionalState.setStatus('current')
+cvnVethStateReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1, 1, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnVethStateReason.setStatus('current')
+cvnPinningTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1, 2), )
+if mibBuilder.loadTexts: cvnPinningTable.setStatus('current')
+cvnPinningEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1, 2, 1), ).setIndexNames((0, "CISCO-VIRTUAL-NIC-MIB", "cvnVethInterface"))
+if mibBuilder.loadTexts: cvnPinningEntry.setStatus('current')
+cvnPinnedSubGrpId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cvnPinnedSubGrpId.setStatus('current')
+cvnConnecteeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 2, 1), )
+if mibBuilder.loadTexts: cvnConnecteeTable.setStatus('current')
+cvnConnecteeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-VIRTUAL-NIC-MIB", "cvnVethInterface"))
+if mibBuilder.loadTexts: cvnConnecteeEntry.setStatus('current')
+cvnConnecteeAttachType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("vem", 2), ("niv", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnConnecteeAttachType.setStatus('current')
+cvnDVSPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 2, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnDVSPort.setStatus('current')
+cvnConnecteeName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 2, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnConnecteeName.setStatus('current')
+cvnConnecteeUuid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 2, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnConnecteeUuid.setStatus('current')
+cvnConnecteeType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("vmwareVm", 2), ("vmwareHost", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnConnecteeType.setStatus('current')
+cvnConnecteeMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 2, 1, 1, 6), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnConnecteeMac.setStatus('current')
+cvnConnecteeDeviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 2, 1, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnConnecteeDeviceName.setStatus('current')
+cvnConnecteeDeviceType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 710, 1, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 1), ("pnic", 2), ("vnic", 3), ("vswif", 4), ("vmknic", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvnConnecteeDeviceType.setStatus('current')
+ciscoVirtualNicMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 710, 2, 1))
+ciscoVirtualNicMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 710, 2, 2))
+virtualNicMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 710, 2, 1, 1)).setObjects(("CISCO-VIRTUAL-NIC-MIB", "cvnVethGroup"), ("CISCO-VIRTUAL-NIC-MIB", "cvnPinningGroup"), ("CISCO-VIRTUAL-NIC-MIB", "cvnConnecteeGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    virtualNicMIBCompliance = virtualNicMIBCompliance.setStatus('current')
+cvnVethGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 710, 2, 2, 1)).setObjects(("CISCO-VIRTUAL-NIC-MIB", "cvnVethAdapter"), ("CISCO-VIRTUAL-NIC-MIB", "cvnVethOwner"), ("CISCO-VIRTUAL-NIC-MIB", "cvnVethHostID"), ("CISCO-VIRTUAL-NIC-MIB", "cvnVethHostAddrType"), ("CISCO-VIRTUAL-NIC-MIB", "cvnVethHostAddr"), ("CISCO-VIRTUAL-NIC-MIB", "cvnVethPortProfileUsed"), ("CISCO-VIRTUAL-NIC-MIB", "cvnVethIfProfileAlias"), ("CISCO-VIRTUAL-NIC-MIB", "cvnVethIfAdditionalState"), ("CISCO-VIRTUAL-NIC-MIB", "cvnVethStateReason"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cvnVethGroup = cvnVethGroup.setStatus('current')
+cvnPinningGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 710, 2, 2, 2)).setObjects(("CISCO-VIRTUAL-NIC-MIB", "cvnPinnedSubGrpId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cvnPinningGroup = cvnPinningGroup.setStatus('current')
+cvnConnecteeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 710, 2, 2, 3)).setObjects(("CISCO-VIRTUAL-NIC-MIB", "cvnConnecteeAttachType"), ("CISCO-VIRTUAL-NIC-MIB", "cvnDVSPort"), ("CISCO-VIRTUAL-NIC-MIB", "cvnConnecteeName"), ("CISCO-VIRTUAL-NIC-MIB", "cvnConnecteeUuid"), ("CISCO-VIRTUAL-NIC-MIB", "cvnConnecteeType"), ("CISCO-VIRTUAL-NIC-MIB", "cvnConnecteeMac"), ("CISCO-VIRTUAL-NIC-MIB", "cvnConnecteeDeviceName"), ("CISCO-VIRTUAL-NIC-MIB", "cvnConnecteeDeviceType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cvnConnecteeGroup = cvnConnecteeGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-VIRTUAL-NIC-MIB", cvnDVSPort=cvnDVSPort, cvnVethHostAddr=cvnVethHostAddr, ciscoVirtualNicMIBCompliances=ciscoVirtualNicMIBCompliances, cvnConnecteeDeviceType=cvnConnecteeDeviceType, cvnVethInterface=cvnVethInterface, cvnPinnedSubGrpId=cvnPinnedSubGrpId, cvnConnecteeUuid=cvnConnecteeUuid, ciscoVirtualNicMIBNotifs=ciscoVirtualNicMIBNotifs, cvnPinningEntry=cvnPinningEntry, cvnConnecteeEntry=cvnConnecteeEntry, cvnVethStateReason=cvnVethStateReason, cvnVethIfTable=cvnVethIfTable, cvnConnecteeType=cvnConnecteeType, cvnVethPortProfileUsed=cvnVethPortProfileUsed, ciscoVirtualNicMIB=ciscoVirtualNicMIB, cvnConnecteeDeviceName=cvnConnecteeDeviceName, cvnVethGroup=cvnVethGroup, cvnVethIfAdditionalState=cvnVethIfAdditionalState, cvnConnecteeAttachType=cvnConnecteeAttachType, cvnInterfaceObjects=cvnInterfaceObjects, cvnVethOwner=cvnVethOwner, cvnVethHostID=cvnVethHostID, cvnVethHostAddrType=cvnVethHostAddrType, cvnConnecteeTable=cvnConnecteeTable, ciscoVirtualNicMIBGroups=ciscoVirtualNicMIBGroups, PYSNMP_MODULE_ID=ciscoVirtualNicMIB, cvnConnecteeName=cvnConnecteeName, cvnVethIfEntry=cvnVethIfEntry, cvnVethIfProfileAlias=cvnVethIfProfileAlias, cvnPinningGroup=cvnPinningGroup, ciscoVirtualNicMIBConformance=ciscoVirtualNicMIBConformance, ciscoVirtualNicMIBObjects=ciscoVirtualNicMIBObjects, virtualNicMIBCompliance=virtualNicMIBCompliance, cvnPinningTable=cvnPinningTable, cvnConnecteeObjects=cvnConnecteeObjects, cvnConnecteeMac=cvnConnecteeMac, cvnVethAdapter=cvnVethAdapter, cvnConnecteeGroup=cvnConnecteeGroup)

@@ -1,176 +1,80 @@
-_a='qtechSyncStatsGroup'
-_Z='qtechSyncStatsTxUnderrunErrors'
-_Y='qtechSyncStatsTxFrameTooLongErrors'
-_X='qtechSyncStatsTxClockErrors'
-_W='qtechSyncStatsTxRingFullDropsErrors'
-_V='qtechSyncStatsTxOctets'
-_U='qtechSyncStatsTxFrames'
-_T='qtechSyncStatsRxRcvrOverrunErrors'
-_S='qtechSyncStatsRxCrcErrors'
-_R='qtechSyncStatsRxAbortErrors'
-_Q='qtechSyncStatsRxFrameOctetAlignErrors'
-_P='qtechSyncStatsRxFrameTooLongErrors'
-_O='qtechSyncStatsRxDpllErrors'
-_N='qtechSyncStatsRxClockErrors'
-_M='qtechSyncStatsRxReplenFails'
-_L='qtechSyncStatsRxOctets'
-_K='qtechSyncStatsRxFrames'
-_J='qtechSyncStatsPortState'
-_I='qtechSyncStatsIfIndex'
-_H='qtechSyncStatsRowStatus'
-_G='qtechSyncStatsChannel'
-_F='qtechSyncStatsConn'
-_E='qtechSyncStatsSlot'
-_D='Integer32'
-_C='read-only'
-_B='current'
-_A='QTECH-SYNC-STATS-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-qtechMgmt,=mibBuilder.importSymbols('QTECH-SMI','qtechMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-qtechSyncStatsMIB=ModuleIdentity((1,3,6,1,4,1,27514,1,1,10,2,51))
-if mibBuilder.loadTexts:qtechSyncStatsMIB.setRevisions(('2009-05-20 14:56',))
-_QtechSyncStatsMibObjects_ObjectIdentity=ObjectIdentity
-qtechSyncStatsMibObjects=_QtechSyncStatsMibObjects_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,51,1))
-_QtechStatsSyncGlobal_ObjectIdentity=ObjectIdentity
-qtechStatsSyncGlobal=_QtechStatsSyncGlobal_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,51,1,1))
-_QtechSyncStatsTable_Object=MibTable
-qtechSyncStatsTable=_QtechSyncStatsTable_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2))
-if mibBuilder.loadTexts:qtechSyncStatsTable.setStatus(_B)
-_QtechSyncStatsEntry_Object=MibTableRow
-qtechSyncStatsEntry=_QtechSyncStatsEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1))
-qtechSyncStatsEntry.setIndexNames((0,_A,_E),(0,_A,_F),(0,_A,_G))
-if mibBuilder.loadTexts:qtechSyncStatsEntry.setStatus(_B)
-_QtechSyncStatsRowStatus_Type=RowStatus
-_QtechSyncStatsRowStatus_Object=MibTableColumn
-qtechSyncStatsRowStatus=_QtechSyncStatsRowStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,1),_QtechSyncStatsRowStatus_Type())
-qtechSyncStatsRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:qtechSyncStatsRowStatus.setStatus(_B)
-class _QtechSyncStatsSlot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_QtechSyncStatsSlot_Type.__name__=_D
-_QtechSyncStatsSlot_Object=MibTableColumn
-qtechSyncStatsSlot=_QtechSyncStatsSlot_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,2),_QtechSyncStatsSlot_Type())
-qtechSyncStatsSlot.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsSlot.setStatus(_B)
-class _QtechSyncStatsConn_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_QtechSyncStatsConn_Type.__name__=_D
-_QtechSyncStatsConn_Object=MibTableColumn
-qtechSyncStatsConn=_QtechSyncStatsConn_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,3),_QtechSyncStatsConn_Type())
-qtechSyncStatsConn.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsConn.setStatus(_B)
-class _QtechSyncStatsChannel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_QtechSyncStatsChannel_Type.__name__=_D
-_QtechSyncStatsChannel_Object=MibTableColumn
-qtechSyncStatsChannel=_QtechSyncStatsChannel_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,4),_QtechSyncStatsChannel_Type())
-qtechSyncStatsChannel.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsChannel.setStatus(_B)
-_QtechSyncStatsIfIndex_Type=InterfaceIndex
-_QtechSyncStatsIfIndex_Object=MibTableColumn
-qtechSyncStatsIfIndex=_QtechSyncStatsIfIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,5),_QtechSyncStatsIfIndex_Type())
-qtechSyncStatsIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsIfIndex.setStatus(_B)
-class _QtechSyncStatsPortState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('init',1),('running',2),('up',3),('down',4)))
-_QtechSyncStatsPortState_Type.__name__=_D
-_QtechSyncStatsPortState_Object=MibTableColumn
-qtechSyncStatsPortState=_QtechSyncStatsPortState_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,6),_QtechSyncStatsPortState_Type())
-qtechSyncStatsPortState.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsPortState.setStatus(_B)
-_QtechSyncStatsRxFrames_Type=Counter32
-_QtechSyncStatsRxFrames_Object=MibTableColumn
-qtechSyncStatsRxFrames=_QtechSyncStatsRxFrames_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,7),_QtechSyncStatsRxFrames_Type())
-qtechSyncStatsRxFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsRxFrames.setStatus(_B)
-_QtechSyncStatsRxOctets_Type=Counter32
-_QtechSyncStatsRxOctets_Object=MibTableColumn
-qtechSyncStatsRxOctets=_QtechSyncStatsRxOctets_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,8),_QtechSyncStatsRxOctets_Type())
-qtechSyncStatsRxOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsRxOctets.setStatus(_B)
-_QtechSyncStatsRxReplenFails_Type=Counter32
-_QtechSyncStatsRxReplenFails_Object=MibTableColumn
-qtechSyncStatsRxReplenFails=_QtechSyncStatsRxReplenFails_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,9),_QtechSyncStatsRxReplenFails_Type())
-qtechSyncStatsRxReplenFails.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsRxReplenFails.setStatus(_B)
-_QtechSyncStatsRxClockErrors_Type=Counter32
-_QtechSyncStatsRxClockErrors_Object=MibTableColumn
-qtechSyncStatsRxClockErrors=_QtechSyncStatsRxClockErrors_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,10),_QtechSyncStatsRxClockErrors_Type())
-qtechSyncStatsRxClockErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsRxClockErrors.setStatus(_B)
-_QtechSyncStatsRxDpllErrors_Type=Counter32
-_QtechSyncStatsRxDpllErrors_Object=MibTableColumn
-qtechSyncStatsRxDpllErrors=_QtechSyncStatsRxDpllErrors_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,11),_QtechSyncStatsRxDpllErrors_Type())
-qtechSyncStatsRxDpllErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsRxDpllErrors.setStatus(_B)
-_QtechSyncStatsRxFrameTooLongErrors_Type=Counter32
-_QtechSyncStatsRxFrameTooLongErrors_Object=MibTableColumn
-qtechSyncStatsRxFrameTooLongErrors=_QtechSyncStatsRxFrameTooLongErrors_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,12),_QtechSyncStatsRxFrameTooLongErrors_Type())
-qtechSyncStatsRxFrameTooLongErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsRxFrameTooLongErrors.setStatus(_B)
-_QtechSyncStatsRxFrameOctetAlignErrors_Type=Counter32
-_QtechSyncStatsRxFrameOctetAlignErrors_Object=MibTableColumn
-qtechSyncStatsRxFrameOctetAlignErrors=_QtechSyncStatsRxFrameOctetAlignErrors_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,13),_QtechSyncStatsRxFrameOctetAlignErrors_Type())
-qtechSyncStatsRxFrameOctetAlignErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsRxFrameOctetAlignErrors.setStatus(_B)
-_QtechSyncStatsRxAbortErrors_Type=Counter32
-_QtechSyncStatsRxAbortErrors_Object=MibTableColumn
-qtechSyncStatsRxAbortErrors=_QtechSyncStatsRxAbortErrors_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,14),_QtechSyncStatsRxAbortErrors_Type())
-qtechSyncStatsRxAbortErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsRxAbortErrors.setStatus(_B)
-_QtechSyncStatsRxCrcErrors_Type=Counter32
-_QtechSyncStatsRxCrcErrors_Object=MibTableColumn
-qtechSyncStatsRxCrcErrors=_QtechSyncStatsRxCrcErrors_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,15),_QtechSyncStatsRxCrcErrors_Type())
-qtechSyncStatsRxCrcErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsRxCrcErrors.setStatus(_B)
-_QtechSyncStatsRxRcvrOverrunErrors_Type=Counter32
-_QtechSyncStatsRxRcvrOverrunErrors_Object=MibTableColumn
-qtechSyncStatsRxRcvrOverrunErrors=_QtechSyncStatsRxRcvrOverrunErrors_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,16),_QtechSyncStatsRxRcvrOverrunErrors_Type())
-qtechSyncStatsRxRcvrOverrunErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsRxRcvrOverrunErrors.setStatus(_B)
-_QtechSyncStatsTxFrames_Type=Counter32
-_QtechSyncStatsTxFrames_Object=MibTableColumn
-qtechSyncStatsTxFrames=_QtechSyncStatsTxFrames_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,17),_QtechSyncStatsTxFrames_Type())
-qtechSyncStatsTxFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsTxFrames.setStatus(_B)
-_QtechSyncStatsTxOctets_Type=Counter32
-_QtechSyncStatsTxOctets_Object=MibTableColumn
-qtechSyncStatsTxOctets=_QtechSyncStatsTxOctets_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,18),_QtechSyncStatsTxOctets_Type())
-qtechSyncStatsTxOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsTxOctets.setStatus(_B)
-_QtechSyncStatsTxRingFullDropsErrors_Type=Counter32
-_QtechSyncStatsTxRingFullDropsErrors_Object=MibTableColumn
-qtechSyncStatsTxRingFullDropsErrors=_QtechSyncStatsTxRingFullDropsErrors_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,19),_QtechSyncStatsTxRingFullDropsErrors_Type())
-qtechSyncStatsTxRingFullDropsErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsTxRingFullDropsErrors.setStatus(_B)
-_QtechSyncStatsTxClockErrors_Type=Counter32
-_QtechSyncStatsTxClockErrors_Object=MibTableColumn
-qtechSyncStatsTxClockErrors=_QtechSyncStatsTxClockErrors_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,20),_QtechSyncStatsTxClockErrors_Type())
-qtechSyncStatsTxClockErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsTxClockErrors.setStatus(_B)
-_QtechSyncStatsTxFrameTooLongErrors_Type=Counter32
-_QtechSyncStatsTxFrameTooLongErrors_Object=MibTableColumn
-qtechSyncStatsTxFrameTooLongErrors=_QtechSyncStatsTxFrameTooLongErrors_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,21),_QtechSyncStatsTxFrameTooLongErrors_Type())
-qtechSyncStatsTxFrameTooLongErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsTxFrameTooLongErrors.setStatus(_B)
-_QtechSyncStatsTxUnderrunErrors_Type=Counter32
-_QtechSyncStatsTxUnderrunErrors_Object=MibTableColumn
-qtechSyncStatsTxUnderrunErrors=_QtechSyncStatsTxUnderrunErrors_Object((1,3,6,1,4,1,27514,1,1,10,2,51,1,2,1,22),_QtechSyncStatsTxUnderrunErrors_Type())
-qtechSyncStatsTxUnderrunErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSyncStatsTxUnderrunErrors.setStatus(_B)
-_QtechSyncStatsMibConformance_ObjectIdentity=ObjectIdentity
-qtechSyncStatsMibConformance=_QtechSyncStatsMibConformance_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,51,2))
-_QtechSyncStatsMibCompliances_ObjectIdentity=ObjectIdentity
-qtechSyncStatsMibCompliances=_QtechSyncStatsMibCompliances_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,51,2,1))
-_QtechSyncStatsMibGroups_ObjectIdentity=ObjectIdentity
-qtechSyncStatsMibGroups=_QtechSyncStatsMibGroups_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,51,2,2))
-qtechSyncStatsGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,51,2,2,1))
-qtechSyncStatsGroup.setObjects(*((_A,_H),(_A,_E),(_A,_F),(_A,_G),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z)))
-if mibBuilder.loadTexts:qtechSyncStatsGroup.setStatus(_B)
-qtechSyncStatsMibCompliance=ModuleCompliance((1,3,6,1,4,1,27514,1,1,10,2,51,2,1,1))
-qtechSyncStatsMibCompliance.setObjects((_A,_a))
-if mibBuilder.loadTexts:qtechSyncStatsMibCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'qtechSyncStatsMIB':qtechSyncStatsMIB,'qtechSyncStatsMibObjects':qtechSyncStatsMibObjects,'qtechStatsSyncGlobal':qtechStatsSyncGlobal,'qtechSyncStatsTable':qtechSyncStatsTable,'qtechSyncStatsEntry':qtechSyncStatsEntry,_H:qtechSyncStatsRowStatus,_E:qtechSyncStatsSlot,_F:qtechSyncStatsConn,_G:qtechSyncStatsChannel,_I:qtechSyncStatsIfIndex,_J:qtechSyncStatsPortState,_K:qtechSyncStatsRxFrames,_L:qtechSyncStatsRxOctets,_M:qtechSyncStatsRxReplenFails,_N:qtechSyncStatsRxClockErrors,_O:qtechSyncStatsRxDpllErrors,_P:qtechSyncStatsRxFrameTooLongErrors,_Q:qtechSyncStatsRxFrameOctetAlignErrors,_R:qtechSyncStatsRxAbortErrors,_S:qtechSyncStatsRxCrcErrors,_T:qtechSyncStatsRxRcvrOverrunErrors,_U:qtechSyncStatsTxFrames,_V:qtechSyncStatsTxOctets,_W:qtechSyncStatsTxRingFullDropsErrors,_X:qtechSyncStatsTxClockErrors,_Y:qtechSyncStatsTxFrameTooLongErrors,_Z:qtechSyncStatsTxUnderrunErrors,'qtechSyncStatsMibConformance':qtechSyncStatsMibConformance,'qtechSyncStatsMibCompliances':qtechSyncStatsMibCompliances,'qtechSyncStatsMibCompliance':qtechSyncStatsMibCompliance,'qtechSyncStatsMibGroups':qtechSyncStatsMibGroups,_a:qtechSyncStatsGroup})
+#
+# PySNMP MIB module QTECH-SYNC-STATS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-SYNC-STATS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:36 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+qtechSyncStatsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51))
+qtechSyncStatsMIB.setRevisions(('2009-05-20 14:56',))
+if mibBuilder.loadTexts: qtechSyncStatsMIB.setLastUpdated('200905201456Z')
+if mibBuilder.loadTexts: qtechSyncStatsMIB.setOrganization('Qtech Networks Co.,Ltd.')
+qtechSyncStatsMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1))
+qtechStatsSyncGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 1))
+qtechSyncStatsTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2), )
+if mibBuilder.loadTexts: qtechSyncStatsTable.setStatus('current')
+qtechSyncStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1), ).setIndexNames((0, "QTECH-SYNC-STATS-MIB", "qtechSyncStatsSlot"), (0, "QTECH-SYNC-STATS-MIB", "qtechSyncStatsConn"), (0, "QTECH-SYNC-STATS-MIB", "qtechSyncStatsChannel"))
+if mibBuilder.loadTexts: qtechSyncStatsEntry.setStatus('current')
+qtechSyncStatsRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 1), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechSyncStatsRowStatus.setStatus('current')
+qtechSyncStatsSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsSlot.setStatus('current')
+qtechSyncStatsConn = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsConn.setStatus('current')
+qtechSyncStatsChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsChannel.setStatus('current')
+qtechSyncStatsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 5), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsIfIndex.setStatus('current')
+qtechSyncStatsPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("init", 1), ("running", 2), ("up", 3), ("down", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsPortState.setStatus('current')
+qtechSyncStatsRxFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsRxFrames.setStatus('current')
+qtechSyncStatsRxOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsRxOctets.setStatus('current')
+qtechSyncStatsRxReplenFails = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsRxReplenFails.setStatus('current')
+qtechSyncStatsRxClockErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsRxClockErrors.setStatus('current')
+qtechSyncStatsRxDpllErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsRxDpllErrors.setStatus('current')
+qtechSyncStatsRxFrameTooLongErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsRxFrameTooLongErrors.setStatus('current')
+qtechSyncStatsRxFrameOctetAlignErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsRxFrameOctetAlignErrors.setStatus('current')
+qtechSyncStatsRxAbortErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsRxAbortErrors.setStatus('current')
+qtechSyncStatsRxCrcErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsRxCrcErrors.setStatus('current')
+qtechSyncStatsRxRcvrOverrunErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsRxRcvrOverrunErrors.setStatus('current')
+qtechSyncStatsTxFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsTxFrames.setStatus('current')
+qtechSyncStatsTxOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 18), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsTxOctets.setStatus('current')
+qtechSyncStatsTxRingFullDropsErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 19), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsTxRingFullDropsErrors.setStatus('current')
+qtechSyncStatsTxClockErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 20), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsTxClockErrors.setStatus('current')
+qtechSyncStatsTxFrameTooLongErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 21), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsTxFrameTooLongErrors.setStatus('current')
+qtechSyncStatsTxUnderrunErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 1, 2, 1, 22), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSyncStatsTxUnderrunErrors.setStatus('current')
+qtechSyncStatsMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 2))
+qtechSyncStatsMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 2, 1))
+qtechSyncStatsMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 2, 2))
+qtechSyncStatsMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 2, 1, 1)).setObjects(("QTECH-SYNC-STATS-MIB", "qtechSyncStatsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechSyncStatsMibCompliance = qtechSyncStatsMibCompliance.setStatus('current')
+qtechSyncStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 51, 2, 2, 1)).setObjects(("QTECH-SYNC-STATS-MIB", "qtechSyncStatsRowStatus"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsSlot"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsConn"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsChannel"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsIfIndex"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsPortState"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsRxFrames"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsRxOctets"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsRxReplenFails"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsRxClockErrors"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsRxDpllErrors"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsRxFrameTooLongErrors"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsRxFrameOctetAlignErrors"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsRxAbortErrors"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsRxCrcErrors"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsRxRcvrOverrunErrors"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsTxFrames"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsTxOctets"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsTxRingFullDropsErrors"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsTxClockErrors"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsTxFrameTooLongErrors"), ("QTECH-SYNC-STATS-MIB", "qtechSyncStatsTxUnderrunErrors"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechSyncStatsGroup = qtechSyncStatsGroup.setStatus('current')
+mibBuilder.exportSymbols("QTECH-SYNC-STATS-MIB", qtechSyncStatsTxOctets=qtechSyncStatsTxOctets, qtechSyncStatsRxDpllErrors=qtechSyncStatsRxDpllErrors, qtechSyncStatsTxFrames=qtechSyncStatsTxFrames, qtechSyncStatsRxRcvrOverrunErrors=qtechSyncStatsRxRcvrOverrunErrors, qtechSyncStatsMibGroups=qtechSyncStatsMibGroups, qtechSyncStatsEntry=qtechSyncStatsEntry, qtechSyncStatsRowStatus=qtechSyncStatsRowStatus, qtechSyncStatsGroup=qtechSyncStatsGroup, qtechSyncStatsRxFrames=qtechSyncStatsRxFrames, qtechSyncStatsMIB=qtechSyncStatsMIB, qtechSyncStatsRxCrcErrors=qtechSyncStatsRxCrcErrors, qtechSyncStatsRxReplenFails=qtechSyncStatsRxReplenFails, qtechSyncStatsTxFrameTooLongErrors=qtechSyncStatsTxFrameTooLongErrors, qtechSyncStatsRxFrameTooLongErrors=qtechSyncStatsRxFrameTooLongErrors, qtechSyncStatsRxAbortErrors=qtechSyncStatsRxAbortErrors, qtechSyncStatsRxFrameOctetAlignErrors=qtechSyncStatsRxFrameOctetAlignErrors, qtechSyncStatsTable=qtechSyncStatsTable, qtechSyncStatsChannel=qtechSyncStatsChannel, qtechSyncStatsTxClockErrors=qtechSyncStatsTxClockErrors, PYSNMP_MODULE_ID=qtechSyncStatsMIB, qtechSyncStatsMibObjects=qtechSyncStatsMibObjects, qtechSyncStatsPortState=qtechSyncStatsPortState, qtechSyncStatsIfIndex=qtechSyncStatsIfIndex, qtechSyncStatsTxUnderrunErrors=qtechSyncStatsTxUnderrunErrors, qtechSyncStatsTxRingFullDropsErrors=qtechSyncStatsTxRingFullDropsErrors, qtechSyncStatsMibConformance=qtechSyncStatsMibConformance, qtechSyncStatsSlot=qtechSyncStatsSlot, qtechSyncStatsMibCompliance=qtechSyncStatsMibCompliance, qtechSyncStatsMibCompliances=qtechSyncStatsMibCompliances, qtechSyncStatsRxClockErrors=qtechSyncStatsRxClockErrors, qtechSyncStatsConn=qtechSyncStatsConn, qtechStatsSyncGlobal=qtechStatsSyncGlobal, qtechSyncStatsRxOctets=qtechSyncStatsRxOctets)

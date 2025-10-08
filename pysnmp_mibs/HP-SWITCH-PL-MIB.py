@@ -1,59 +1,41 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-BridgeId,=mibBuilder.importSymbols('BRIDGE-MIB','BridgeId')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-sysContact,sysLocation,sysName=mibBuilder.importSymbols('SNMPv2-MIB','sysContact','sysLocation','sysName')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-_Hp_ObjectIdentity=ObjectIdentity
-hp=_Hp_ObjectIdentity((1,3,6,1,4,1,11))
-_Nm_ObjectIdentity=ObjectIdentity
-nm=_Nm_ObjectIdentity((1,3,6,1,4,1,11,2))
-_HpSystem_ObjectIdentity=ObjectIdentity
-hpSystem=_HpSystem_ObjectIdentity((1,3,6,1,4,1,11,2,3))
-_NetElement_ObjectIdentity=ObjectIdentity
-netElement=_NetElement_ObjectIdentity((1,3,6,1,4,1,11,2,3,7))
-_HpEtherSwitch_ObjectIdentity=ObjectIdentity
-hpEtherSwitch=_HpEtherSwitch_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11))
-_HpSwitchProliant_ObjectIdentity=ObjectIdentity
-hpSwitchProliant=_HpSwitchProliant_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33))
-_HpSwitchModuleBladetype2_ObjectIdentity=ObjectIdentity
-hpSwitchModuleBladetype2=_HpSwitchModuleBladetype2_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,1))
-_HpSwitchBladeType2_Products_ObjectIdentity=ObjectIdentity
-hpSwitchBladeType2_Products=_HpSwitchBladeType2_Products_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,1,1))
-_HpSwitchBladeType2_Mgmt_ObjectIdentity=ObjectIdentity
-hpSwitchBladeType2_Mgmt=_HpSwitchBladeType2_Mgmt_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,1,2))
-_HpSwitchModuleBladetype4_ObjectIdentity=ObjectIdentity
-hpSwitchModuleBladetype4=_HpSwitchModuleBladetype4_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,4))
-_HpSwitchBladeType4_Products_ObjectIdentity=ObjectIdentity
-hpSwitchBladeType4_Products=_HpSwitchBladeType4_Products_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,4,1))
-_HpSwitchBladeType4_Mgmt_ObjectIdentity=ObjectIdentity
-hpSwitchBladeType4_Mgmt=_HpSwitchBladeType4_Mgmt_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,4,2))
-_HpSwitchModuleBladetype5_ObjectIdentity=ObjectIdentity
-hpSwitchModuleBladetype5=_HpSwitchModuleBladetype5_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,5))
-_HpSwitchBladeType5_Products_ObjectIdentity=ObjectIdentity
-hpSwitchBladeType5_Products=_HpSwitchBladeType5_Products_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,5,1))
-_HpSwitchBladeType5_Mgmt_ObjectIdentity=ObjectIdentity
-hpSwitchBladeType5_Mgmt=_HpSwitchBladeType5_Mgmt_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,5,2))
-_HpSwitchModuleBladetype6_ObjectIdentity=ObjectIdentity
-hpSwitchModuleBladetype6=_HpSwitchModuleBladetype6_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,6))
-_HpSwitchBladeType6_Products_ObjectIdentity=ObjectIdentity
-hpSwitchBladeType6_Products=_HpSwitchBladeType6_Products_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,6,1))
-_HpSwitchBladeType6_Mgmt_ObjectIdentity=ObjectIdentity
-hpSwitchBladeType6_Mgmt=_HpSwitchBladeType6_Mgmt_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,6,2))
-_HpSwitchModuleBladetype7_ObjectIdentity=ObjectIdentity
-hpSwitchModuleBladetype7=_HpSwitchModuleBladetype7_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,7))
-_HpSwitchBladeType7_Products_ObjectIdentity=ObjectIdentity
-hpSwitchBladeType7_Products=_HpSwitchBladeType7_Products_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,7,1))
-_HpSwitchBladeType7_Mgmt_ObjectIdentity=ObjectIdentity
-hpSwitchBladeType7_Mgmt=_HpSwitchBladeType7_Mgmt_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,7,2))
-_HpSwitchModuleBladetype9_ObjectIdentity=ObjectIdentity
-hpSwitchModuleBladetype9=_HpSwitchModuleBladetype9_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,9))
-_HpSwitchBladeType9_Products_ObjectIdentity=ObjectIdentity
-hpSwitchBladeType9_Products=_HpSwitchBladeType9_Products_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,9,1))
-_HpSwitchBladeType9_Mgmt_ObjectIdentity=ObjectIdentity
-hpSwitchBladeType9_Mgmt=_HpSwitchBladeType9_Mgmt_ObjectIdentity((1,3,6,1,4,1,11,2,3,7,11,33,9,2))
-mibBuilder.exportSymbols('HP-SWITCH-PL-MIB',**{'hp':hp,'nm':nm,'hpSystem':hpSystem,'netElement':netElement,'hpEtherSwitch':hpEtherSwitch,'hpSwitchProliant':hpSwitchProliant,'hpSwitchModuleBladetype2':hpSwitchModuleBladetype2,'hpSwitchBladeType2-Products':hpSwitchBladeType2_Products,'hpSwitchBladeType2-Mgmt':hpSwitchBladeType2_Mgmt,'hpSwitchModuleBladetype4':hpSwitchModuleBladetype4,'hpSwitchBladeType4-Products':hpSwitchBladeType4_Products,'hpSwitchBladeType4-Mgmt':hpSwitchBladeType4_Mgmt,'hpSwitchModuleBladetype5':hpSwitchModuleBladetype5,'hpSwitchBladeType5-Products':hpSwitchBladeType5_Products,'hpSwitchBladeType5-Mgmt':hpSwitchBladeType5_Mgmt,'hpSwitchModuleBladetype6':hpSwitchModuleBladetype6,'hpSwitchBladeType6-Products':hpSwitchBladeType6_Products,'hpSwitchBladeType6-Mgmt':hpSwitchBladeType6_Mgmt,'hpSwitchModuleBladetype7':hpSwitchModuleBladetype7,'hpSwitchBladeType7-Products':hpSwitchBladeType7_Products,'hpSwitchBladeType7-Mgmt':hpSwitchBladeType7_Mgmt,'hpSwitchModuleBladetype9':hpSwitchModuleBladetype9,'hpSwitchBladeType9-Products':hpSwitchBladeType9_Products,'hpSwitchBladeType9-Mgmt':hpSwitchBladeType9_Mgmt})
+#
+# PySNMP MIB module HP-SWITCH-PL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HP-SWITCH-PL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:37 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+BridgeId, = mibBuilder.importSymbols("BRIDGE-MIB", "BridgeId")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+sysName, sysContact, sysLocation = mibBuilder.importSymbols("SNMPv2-MIB", "sysName", "sysContact", "sysLocation")
+ModuleIdentity, Counter64, enterprises, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention", "PhysAddress")
+hp = MibIdentifier((1, 3, 6, 1, 4, 1, 11))
+nm = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2))
+hpSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3))
+netElement = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7))
+hpEtherSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11))
+hpSwitchProliant = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33))
+hpSwitchModuleBladetype2 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 1))
+hpSwitchBladeType2_Products = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 1, 1)).setLabel("hpSwitchBladeType2-Products")
+hpSwitchBladeType2_Mgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 1, 2)).setLabel("hpSwitchBladeType2-Mgmt")
+hpSwitchModuleBladetype4 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 4))
+hpSwitchBladeType4_Products = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 4, 1)).setLabel("hpSwitchBladeType4-Products")
+hpSwitchBladeType4_Mgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 4, 2)).setLabel("hpSwitchBladeType4-Mgmt")
+hpSwitchModuleBladetype5 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 5))
+hpSwitchBladeType5_Products = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 5, 1)).setLabel("hpSwitchBladeType5-Products")
+hpSwitchBladeType5_Mgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 5, 2)).setLabel("hpSwitchBladeType5-Mgmt")
+hpSwitchModuleBladetype6 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 6))
+hpSwitchBladeType6_Products = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 6, 1)).setLabel("hpSwitchBladeType6-Products")
+hpSwitchBladeType6_Mgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 6, 2)).setLabel("hpSwitchBladeType6-Mgmt")
+hpSwitchModuleBladetype7 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 7))
+hpSwitchBladeType7_Products = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 7, 1)).setLabel("hpSwitchBladeType7-Products")
+hpSwitchBladeType7_Mgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 7, 2)).setLabel("hpSwitchBladeType7-Mgmt")
+hpSwitchModuleBladetype9 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 9))
+hpSwitchBladeType9_Products = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 9, 1)).setLabel("hpSwitchBladeType9-Products")
+hpSwitchBladeType9_Mgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 3, 7, 11, 33, 9, 2)).setLabel("hpSwitchBladeType9-Mgmt")
+mibBuilder.exportSymbols("HP-SWITCH-PL-MIB", hpSwitchBladeType6_Mgmt=hpSwitchBladeType6_Mgmt, hpSwitchModuleBladetype5=hpSwitchModuleBladetype5, hpSwitchBladeType5_Products=hpSwitchBladeType5_Products, hpSwitchModuleBladetype2=hpSwitchModuleBladetype2, hpSwitchModuleBladetype7=hpSwitchModuleBladetype7, hp=hp, nm=nm, hpSwitchModuleBladetype6=hpSwitchModuleBladetype6, hpSwitchBladeType7_Mgmt=hpSwitchBladeType7_Mgmt, hpSwitchBladeType7_Products=hpSwitchBladeType7_Products, hpSwitchBladeType2_Mgmt=hpSwitchBladeType2_Mgmt, hpSwitchBladeType4_Mgmt=hpSwitchBladeType4_Mgmt, hpSwitchBladeType9_Mgmt=hpSwitchBladeType9_Mgmt, hpSwitchModuleBladetype4=hpSwitchModuleBladetype4, hpSwitchModuleBladetype9=hpSwitchModuleBladetype9, hpSwitchProliant=hpSwitchProliant, netElement=netElement, hpSwitchBladeType2_Products=hpSwitchBladeType2_Products, hpSwitchBladeType5_Mgmt=hpSwitchBladeType5_Mgmt, hpSwitchBladeType6_Products=hpSwitchBladeType6_Products, hpSystem=hpSystem, hpSwitchBladeType9_Products=hpSwitchBladeType9_Products, hpEtherSwitch=hpEtherSwitch, hpSwitchBladeType4_Products=hpSwitchBladeType4_Products)

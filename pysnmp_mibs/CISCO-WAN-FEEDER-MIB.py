@@ -1,142 +1,71 @@
-_V='cwfFeederGroup2'
-_U='cwfFeederGroup'
-_T='cwfLMIType'
-_S='deprecated'
-_R='cwfFeederIfNum'
-_Q='cwfFeederRowStatus'
-_P='cwfFeederNodeAlarm'
-_O='cwfLMIOperStatus'
-_N='cwfLMIAdminStatus'
-_M='cwfModelNumber'
-_L='cwfFeederType'
-_K='cwfRemotePort'
-_J='cwfRemoteSlot'
-_I='cwfRemoteShelf'
-_H='cwfNetIP'
-_G='cwfLanIP'
-_F='cwfFeederName'
-_E='read-create'
-_D='read-only'
-_C='Integer32'
-_B='current'
-_A='CISCO-WAN-FEEDER-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoWan,=mibBuilder.importSymbols('CISCOWAN-SMI','ciscoWan')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-ciscoWanFeederMIB=ModuleIdentity((1,3,6,1,4,1,351,150,15))
-if mibBuilder.loadTexts:ciscoWanFeederMIB.setRevisions(('2003-03-27 00:00','2000-10-10 00:00','2000-04-25 00:00'))
-_CwfMIBObjects_ObjectIdentity=ObjectIdentity
-cwfMIBObjects=_CwfMIBObjects_ObjectIdentity((1,3,6,1,4,1,351,150,15,1))
-_CwfFeeder_ObjectIdentity=ObjectIdentity
-cwfFeeder=_CwfFeeder_ObjectIdentity((1,3,6,1,4,1,351,150,15,1,1))
-_CwfFeederTable_Object=MibTable
-cwfFeederTable=_CwfFeederTable_Object((1,3,6,1,4,1,351,150,15,1,1,1))
-if mibBuilder.loadTexts:cwfFeederTable.setStatus(_B)
-_CwfFeederEntry_Object=MibTableRow
-cwfFeederEntry=_CwfFeederEntry_Object((1,3,6,1,4,1,351,150,15,1,1,1,1))
-cwfFeederEntry.setIndexNames((0,_A,_R))
-if mibBuilder.loadTexts:cwfFeederEntry.setStatus(_B)
-_CwfFeederIfNum_Type=InterfaceIndex
-_CwfFeederIfNum_Object=MibTableColumn
-cwfFeederIfNum=_CwfFeederIfNum_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,1),_CwfFeederIfNum_Type())
-cwfFeederIfNum.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:cwfFeederIfNum.setStatus(_B)
-_CwfFeederName_Type=DisplayString
-_CwfFeederName_Object=MibTableColumn
-cwfFeederName=_CwfFeederName_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,2),_CwfFeederName_Type())
-cwfFeederName.setMaxAccess(_D)
-if mibBuilder.loadTexts:cwfFeederName.setStatus(_B)
-_CwfLanIP_Type=IpAddress
-_CwfLanIP_Object=MibTableColumn
-cwfLanIP=_CwfLanIP_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,3),_CwfLanIP_Type())
-cwfLanIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:cwfLanIP.setStatus(_B)
-_CwfNetIP_Type=IpAddress
-_CwfNetIP_Object=MibTableColumn
-cwfNetIP=_CwfNetIP_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,4),_CwfNetIP_Type())
-cwfNetIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:cwfNetIP.setStatus(_B)
-class _CwfRemoteShelf_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_CwfRemoteShelf_Type.__name__=_C
-_CwfRemoteShelf_Object=MibTableColumn
-cwfRemoteShelf=_CwfRemoteShelf_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,5),_CwfRemoteShelf_Type())
-cwfRemoteShelf.setMaxAccess(_D)
-if mibBuilder.loadTexts:cwfRemoteShelf.setStatus(_B)
-class _CwfRemoteSlot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_CwfRemoteSlot_Type.__name__=_C
-_CwfRemoteSlot_Object=MibTableColumn
-cwfRemoteSlot=_CwfRemoteSlot_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,6),_CwfRemoteSlot_Type())
-cwfRemoteSlot.setMaxAccess(_D)
-if mibBuilder.loadTexts:cwfRemoteSlot.setStatus(_B)
-class _CwfRemotePort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,64))
-_CwfRemotePort_Type.__name__=_C
-_CwfRemotePort_Object=MibTableColumn
-cwfRemotePort=_CwfRemotePort_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,7),_CwfRemotePort_Type())
-cwfRemotePort.setMaxAccess(_D)
-if mibBuilder.loadTexts:cwfRemotePort.setStatus(_B)
-class _CwfFeederType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12)));namedValues=NamedValues(*(('fdrIPX',1),('fdrBPX',2),('fdrIpxAF',3),('fdrBASIS',4),('fdrUNKNOWN',5),('fdrUNI',6),('fdrAPS',7),('fdrIGX',8),('fdrIgxAF',9),('fdrVSI',10),('fdrPAR',11),('fdrNON',12)))
-_CwfFeederType_Type.__name__=_C
-_CwfFeederType_Object=MibTableColumn
-cwfFeederType=_CwfFeederType_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,8),_CwfFeederType_Type())
-cwfFeederType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cwfFeederType.setStatus(_B)
-class _CwfModelNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_CwfModelNumber_Type.__name__=_C
-_CwfModelNumber_Object=MibTableColumn
-cwfModelNumber=_CwfModelNumber_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,9),_CwfModelNumber_Type())
-cwfModelNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:cwfModelNumber.setStatus(_B)
-class _CwfLMIAdminStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_CwfLMIAdminStatus_Type.__name__=_C
-_CwfLMIAdminStatus_Object=MibTableColumn
-cwfLMIAdminStatus=_CwfLMIAdminStatus_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,10),_CwfLMIAdminStatus_Type())
-cwfLMIAdminStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwfLMIAdminStatus.setStatus(_B)
-class _CwfLMIOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_CwfLMIOperStatus_Type.__name__=_C
-_CwfLMIOperStatus_Object=MibTableColumn
-cwfLMIOperStatus=_CwfLMIOperStatus_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,11),_CwfLMIOperStatus_Type())
-cwfLMIOperStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cwfLMIOperStatus.setStatus(_B)
-class _CwfFeederNodeAlarm_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('clear',1),('minor',2),('major',3),('critical',4),('unknown',5)))
-_CwfFeederNodeAlarm_Type.__name__=_C
-_CwfFeederNodeAlarm_Object=MibTableColumn
-cwfFeederNodeAlarm=_CwfFeederNodeAlarm_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,12),_CwfFeederNodeAlarm_Type())
-cwfFeederNodeAlarm.setMaxAccess(_D)
-if mibBuilder.loadTexts:cwfFeederNodeAlarm.setStatus(_B)
-_CwfFeederRowStatus_Type=RowStatus
-_CwfFeederRowStatus_Object=MibTableColumn
-cwfFeederRowStatus=_CwfFeederRowStatus_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,13),_CwfFeederRowStatus_Type())
-cwfFeederRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwfFeederRowStatus.setStatus(_B)
-class _CwfLMIType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('feeder',1),('xLMI',2)))
-_CwfLMIType_Type.__name__=_C
-_CwfLMIType_Object=MibTableColumn
-cwfLMIType=_CwfLMIType_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,14),_CwfLMIType_Type())
-cwfLMIType.setMaxAccess(_E)
-if mibBuilder.loadTexts:cwfLMIType.setStatus(_B)
-_CwfMIBConformance_ObjectIdentity=ObjectIdentity
-cwfMIBConformance=_CwfMIBConformance_ObjectIdentity((1,3,6,1,4,1,351,150,15,3))
-_CwfMIBCompliances_ObjectIdentity=ObjectIdentity
-cwfMIBCompliances=_CwfMIBCompliances_ObjectIdentity((1,3,6,1,4,1,351,150,15,3,1))
-_CwfMIBGroups_ObjectIdentity=ObjectIdentity
-cwfMIBGroups=_CwfMIBGroups_ObjectIdentity((1,3,6,1,4,1,351,150,15,3,2))
-cwfFeederGroup=ObjectGroup((1,3,6,1,4,1,351,150,15,3,2,1))
-cwfFeederGroup.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q)))
-if mibBuilder.loadTexts:cwfFeederGroup.setStatus(_S)
-cwfFeederGroup2=ObjectGroup((1,3,6,1,4,1,351,150,15,3,2,2))
-cwfFeederGroup2.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_T)))
-if mibBuilder.loadTexts:cwfFeederGroup2.setStatus(_B)
-cwfMIBCompliance=ModuleCompliance((1,3,6,1,4,1,351,150,15,3,1,1))
-cwfMIBCompliance.setObjects((_A,_U))
-if mibBuilder.loadTexts:cwfMIBCompliance.setStatus(_S)
-cwfMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,351,150,15,3,1,2))
-cwfMIBCompliance2.setObjects((_A,_V))
-if mibBuilder.loadTexts:cwfMIBCompliance2.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ciscoWanFeederMIB':ciscoWanFeederMIB,'cwfMIBObjects':cwfMIBObjects,'cwfFeeder':cwfFeeder,'cwfFeederTable':cwfFeederTable,'cwfFeederEntry':cwfFeederEntry,_R:cwfFeederIfNum,_F:cwfFeederName,_G:cwfLanIP,_H:cwfNetIP,_I:cwfRemoteShelf,_J:cwfRemoteSlot,_K:cwfRemotePort,_L:cwfFeederType,_M:cwfModelNumber,_N:cwfLMIAdminStatus,_O:cwfLMIOperStatus,_P:cwfFeederNodeAlarm,_Q:cwfFeederRowStatus,_T:cwfLMIType,'cwfMIBConformance':cwfMIBConformance,'cwfMIBCompliances':cwfMIBCompliances,'cwfMIBCompliance':cwfMIBCompliance,'cwfMIBCompliance2':cwfMIBCompliance2,'cwfMIBGroups':cwfMIBGroups,_U:cwfFeederGroup,_V:cwfFeederGroup2})
+#
+# PySNMP MIB module CISCO-WAN-FEEDER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-WAN-FEEDER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:13 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoWan, = mibBuilder.importSymbols("CISCOWAN-SMI", "ciscoWan")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ciscoWanFeederMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 351, 150, 15))
+ciscoWanFeederMIB.setRevisions(('2003-03-27 00:00', '2000-10-10 00:00', '2000-04-25 00:00',))
+if mibBuilder.loadTexts: ciscoWanFeederMIB.setLastUpdated('200303270000Z')
+if mibBuilder.loadTexts: ciscoWanFeederMIB.setOrganization('Cisco Systems, Inc.')
+cwfMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 15, 1))
+cwfFeeder = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1))
+cwfFeederTable = MibTable((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1), )
+if mibBuilder.loadTexts: cwfFeederTable.setStatus('current')
+cwfFeederEntry = MibTableRow((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-WAN-FEEDER-MIB", "cwfFeederIfNum"))
+if mibBuilder.loadTexts: cwfFeederEntry.setStatus('current')
+cwfFeederIfNum = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: cwfFeederIfNum.setStatus('current')
+cwfFeederName = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwfFeederName.setStatus('current')
+cwfLanIP = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwfLanIP.setStatus('current')
+cwfNetIP = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwfNetIP.setStatus('current')
+cwfRemoteShelf = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwfRemoteShelf.setStatus('current')
+cwfRemoteSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwfRemoteSlot.setStatus('current')
+cwfRemotePort = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwfRemotePort.setStatus('current')
+cwfFeederType = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("fdrIPX", 1), ("fdrBPX", 2), ("fdrIpxAF", 3), ("fdrBASIS", 4), ("fdrUNKNOWN", 5), ("fdrUNI", 6), ("fdrAPS", 7), ("fdrIGX", 8), ("fdrIgxAF", 9), ("fdrVSI", 10), ("fdrPAR", 11), ("fdrNON", 12)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwfFeederType.setStatus('current')
+cwfModelNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwfModelNumber.setStatus('current')
+cwfLMIAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2))).clone('up')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwfLMIAdminStatus.setStatus('current')
+cwfLMIOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwfLMIOperStatus.setStatus('current')
+cwfFeederNodeAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("clear", 1), ("minor", 2), ("major", 3), ("critical", 4), ("unknown", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cwfFeederNodeAlarm.setStatus('current')
+cwfFeederRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1, 1, 13), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwfFeederRowStatus.setStatus('current')
+cwfLMIType = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 150, 15, 1, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("feeder", 1), ("xLMI", 2))).clone('feeder')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cwfLMIType.setStatus('current')
+cwfMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 15, 3))
+cwfMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 15, 3, 1))
+cwfMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 15, 3, 2))
+cwfMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 351, 150, 15, 3, 1, 1)).setObjects(("CISCO-WAN-FEEDER-MIB", "cwfFeederGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cwfMIBCompliance = cwfMIBCompliance.setStatus('deprecated')
+cwfMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 351, 150, 15, 3, 1, 2)).setObjects(("CISCO-WAN-FEEDER-MIB", "cwfFeederGroup2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cwfMIBCompliance2 = cwfMIBCompliance2.setStatus('current')
+cwfFeederGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 15, 3, 2, 1)).setObjects(("CISCO-WAN-FEEDER-MIB", "cwfFeederName"), ("CISCO-WAN-FEEDER-MIB", "cwfLanIP"), ("CISCO-WAN-FEEDER-MIB", "cwfNetIP"), ("CISCO-WAN-FEEDER-MIB", "cwfRemoteShelf"), ("CISCO-WAN-FEEDER-MIB", "cwfRemoteSlot"), ("CISCO-WAN-FEEDER-MIB", "cwfRemotePort"), ("CISCO-WAN-FEEDER-MIB", "cwfFeederType"), ("CISCO-WAN-FEEDER-MIB", "cwfModelNumber"), ("CISCO-WAN-FEEDER-MIB", "cwfLMIAdminStatus"), ("CISCO-WAN-FEEDER-MIB", "cwfLMIOperStatus"), ("CISCO-WAN-FEEDER-MIB", "cwfFeederNodeAlarm"), ("CISCO-WAN-FEEDER-MIB", "cwfFeederRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cwfFeederGroup = cwfFeederGroup.setStatus('deprecated')
+cwfFeederGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 15, 3, 2, 2)).setObjects(("CISCO-WAN-FEEDER-MIB", "cwfFeederName"), ("CISCO-WAN-FEEDER-MIB", "cwfLanIP"), ("CISCO-WAN-FEEDER-MIB", "cwfNetIP"), ("CISCO-WAN-FEEDER-MIB", "cwfRemoteShelf"), ("CISCO-WAN-FEEDER-MIB", "cwfRemoteSlot"), ("CISCO-WAN-FEEDER-MIB", "cwfRemotePort"), ("CISCO-WAN-FEEDER-MIB", "cwfFeederType"), ("CISCO-WAN-FEEDER-MIB", "cwfModelNumber"), ("CISCO-WAN-FEEDER-MIB", "cwfLMIAdminStatus"), ("CISCO-WAN-FEEDER-MIB", "cwfLMIOperStatus"), ("CISCO-WAN-FEEDER-MIB", "cwfFeederNodeAlarm"), ("CISCO-WAN-FEEDER-MIB", "cwfFeederRowStatus"), ("CISCO-WAN-FEEDER-MIB", "cwfLMIType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cwfFeederGroup2 = cwfFeederGroup2.setStatus('current')
+mibBuilder.exportSymbols("CISCO-WAN-FEEDER-MIB", cwfFeederEntry=cwfFeederEntry, cwfFeederRowStatus=cwfFeederRowStatus, cwfRemoteShelf=cwfRemoteShelf, cwfMIBCompliances=cwfMIBCompliances, cwfMIBCompliance2=cwfMIBCompliance2, cwfRemotePort=cwfRemotePort, cwfNetIP=cwfNetIP, cwfFeederIfNum=cwfFeederIfNum, cwfRemoteSlot=cwfRemoteSlot, cwfMIBObjects=cwfMIBObjects, cwfModelNumber=cwfModelNumber, cwfFeeder=cwfFeeder, cwfMIBConformance=cwfMIBConformance, cwfFeederGroup2=cwfFeederGroup2, cwfMIBCompliance=cwfMIBCompliance, cwfLMIOperStatus=cwfLMIOperStatus, cwfFeederGroup=cwfFeederGroup, PYSNMP_MODULE_ID=ciscoWanFeederMIB, cwfLMIType=cwfLMIType, cwfMIBGroups=cwfMIBGroups, cwfFeederTable=cwfFeederTable, cwfFeederName=cwfFeederName, cwfLMIAdminStatus=cwfLMIAdminStatus, cwfFeederNodeAlarm=cwfFeederNodeAlarm, cwfFeederType=cwfFeederType, ciscoWanFeederMIB=ciscoWanFeederMIB, cwfLanIP=cwfLanIP)

@@ -1,53 +1,34 @@
-_G='not-accessible'
-_F='fsMsPwIndex2'
-_E='fsMsPwIndex1'
-_D='read-write'
-_C='Unsigned32'
-_B='SUPERMICRO-MSPW-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-PwIndexType,PwOperStatusTC=mibBuilder.importSymbols('PW-TC-STD-MIB','PwIndexType','PwOperStatusTC')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_C,'enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-fsMspwMIB=ModuleIdentity((1,3,6,1,4,1,10876,101,2,57))
-if mibBuilder.loadTexts:fsMspwMIB.setRevisions(('2012-09-05 00:00',))
-_FsMsPwConfigObjects_ObjectIdentity=ObjectIdentity
-fsMsPwConfigObjects=_FsMsPwConfigObjects_ObjectIdentity((1,3,6,1,4,1,10876,101,2,57,1))
-class _FsMsPwMaxEntries_Type(Unsigned32):defaultValue=64;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32766))
-_FsMsPwMaxEntries_Type.__name__=_C
-_FsMsPwMaxEntries_Object=MibScalar
-fsMsPwMaxEntries=_FsMsPwMaxEntries_Object((1,3,6,1,4,1,10876,101,2,57,1,1),_FsMsPwMaxEntries_Type())
-fsMsPwMaxEntries.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMsPwMaxEntries.setStatus(_A)
-_FsMsPwConfigTable_Object=MibTable
-fsMsPwConfigTable=_FsMsPwConfigTable_Object((1,3,6,1,4,1,10876,101,2,57,1,2))
-if mibBuilder.loadTexts:fsMsPwConfigTable.setStatus(_A)
-_FsMsPwConfigEntry_Object=MibTableRow
-fsMsPwConfigEntry=_FsMsPwConfigEntry_Object((1,3,6,1,4,1,10876,101,2,57,1,2,1))
-fsMsPwConfigEntry.setIndexNames((0,_B,_E),(0,_B,_F))
-if mibBuilder.loadTexts:fsMsPwConfigEntry.setStatus(_A)
-_FsMsPwIndex1_Type=PwIndexType
-_FsMsPwIndex1_Object=MibTableColumn
-fsMsPwIndex1=_FsMsPwIndex1_Object((1,3,6,1,4,1,10876,101,2,57,1,2,1,1),_FsMsPwIndex1_Type())
-fsMsPwIndex1.setMaxAccess(_G)
-if mibBuilder.loadTexts:fsMsPwIndex1.setStatus(_A)
-_FsMsPwIndex2_Type=PwIndexType
-_FsMsPwIndex2_Object=MibTableColumn
-fsMsPwIndex2=_FsMsPwIndex2_Object((1,3,6,1,4,1,10876,101,2,57,1,2,1,2),_FsMsPwIndex2_Type())
-fsMsPwIndex2.setMaxAccess(_G)
-if mibBuilder.loadTexts:fsMsPwIndex2.setStatus(_A)
-_FsMsPwOperStatus_Type=PwOperStatusTC
-_FsMsPwOperStatus_Object=MibTableColumn
-fsMsPwOperStatus=_FsMsPwOperStatus_Object((1,3,6,1,4,1,10876,101,2,57,1,2,1,3),_FsMsPwOperStatus_Type())
-fsMsPwOperStatus.setMaxAccess('read-only')
-if mibBuilder.loadTexts:fsMsPwOperStatus.setStatus(_A)
-_FsMsPwRowStatus_Type=RowStatus
-_FsMsPwRowStatus_Object=MibTableColumn
-fsMsPwRowStatus=_FsMsPwRowStatus_Object((1,3,6,1,4,1,10876,101,2,57,1,2,1,4),_FsMsPwRowStatus_Type())
-fsMsPwRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMsPwRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'fsMspwMIB':fsMspwMIB,'fsMsPwConfigObjects':fsMsPwConfigObjects,'fsMsPwMaxEntries':fsMsPwMaxEntries,'fsMsPwConfigTable':fsMsPwConfigTable,'fsMsPwConfigEntry':fsMsPwConfigEntry,_E:fsMsPwIndex1,_F:fsMsPwIndex2,'fsMsPwOperStatus':fsMsPwOperStatus,'fsMsPwRowStatus':fsMsPwRowStatus})
+#
+# PySNMP MIB module SUPERMICRO-MSPW-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-MSPW-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+PwOperStatusTC, PwIndexType = mibBuilder.importSymbols("PW-TC-STD-MIB", "PwOperStatusTC", "PwIndexType")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+fsMspwMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 2, 57))
+fsMspwMIB.setRevisions(('2012-09-05 00:00',))
+if mibBuilder.loadTexts: fsMspwMIB.setLastUpdated('201209050000Z')
+if mibBuilder.loadTexts: fsMspwMIB.setOrganization('Super Micro Computer Inc.')
+fsMsPwConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 2, 57, 1))
+fsMsPwMaxEntries = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 57, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 32766)).clone(64)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMsPwMaxEntries.setStatus('current')
+fsMsPwConfigTable = MibTable((1, 3, 6, 1, 4, 1, 10876, 101, 2, 57, 1, 2), )
+if mibBuilder.loadTexts: fsMsPwConfigTable.setStatus('current')
+fsMsPwConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10876, 101, 2, 57, 1, 2, 1), ).setIndexNames((0, "SUPERMICRO-MSPW-MIB", "fsMsPwIndex1"), (0, "SUPERMICRO-MSPW-MIB", "fsMsPwIndex2"))
+if mibBuilder.loadTexts: fsMsPwConfigEntry.setStatus('current')
+fsMsPwIndex1 = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 57, 1, 2, 1, 1), PwIndexType())
+if mibBuilder.loadTexts: fsMsPwIndex1.setStatus('current')
+fsMsPwIndex2 = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 57, 1, 2, 1, 2), PwIndexType())
+if mibBuilder.loadTexts: fsMsPwIndex2.setStatus('current')
+fsMsPwOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 57, 1, 2, 1, 3), PwOperStatusTC()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMsPwOperStatus.setStatus('current')
+fsMsPwRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 57, 1, 2, 1, 4), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMsPwRowStatus.setStatus('current')
+mibBuilder.exportSymbols("SUPERMICRO-MSPW-MIB", fsMsPwIndex1=fsMsPwIndex1, fsMsPwConfigEntry=fsMsPwConfigEntry, fsMsPwIndex2=fsMsPwIndex2, fsMsPwMaxEntries=fsMsPwMaxEntries, fsMsPwOperStatus=fsMsPwOperStatus, fsMsPwConfigObjects=fsMsPwConfigObjects, fsMspwMIB=fsMspwMIB, fsMsPwConfigTable=fsMsPwConfigTable, fsMsPwRowStatus=fsMsPwRowStatus, PYSNMP_MODULE_ID=fsMspwMIB)

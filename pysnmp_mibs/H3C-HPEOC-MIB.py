@@ -1,403 +1,172 @@
-_Q='h3cHPEOCCnuAccessIndex'
-_P='h3cHPEOCTemplateUniIndex'
-_O='gateway'
-_N='switch'
-_M='not-accessible'
-_L='h3cHPEOCBitPerSymbolIndex'
-_K='DisplayString'
-_J='h3cHPEOCTemplateIndex'
-_I='TruthValue'
-_H='read-create'
-_G='H3C-HPEOC-MIB'
-_F='ifIndex'
-_E='IF-MIB'
-_D='read-only'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','h3cCommon')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_K,'MacAddress','PhysAddress','RowStatus','TextualConvention',_I)
-h3cHPEOC=ModuleIdentity((1,3,6,1,4,1,2011,10,2,84))
-_H3cHPEOCSystem_ObjectIdentity=ObjectIdentity
-h3cHPEOCSystem=_H3cHPEOCSystem_ObjectIdentity((1,3,6,1,4,1,2011,10,2,84,1))
-class _H3cHPEOCCltVlanType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ieee8021q',1),('portbased',2)))
-_H3cHPEOCCltVlanType_Type.__name__=_C
-_H3cHPEOCCltVlanType_Object=MibScalar
-h3cHPEOCCltVlanType=_H3cHPEOCCltVlanType_Object((1,3,6,1,4,1,2011,10,2,84,1,1),_H3cHPEOCCltVlanType_Type())
-h3cHPEOCCltVlanType.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCCltVlanType.setStatus(_A)
-_H3cHPEOCCltVlanManTable_Object=MibTable
-h3cHPEOCCltVlanManTable=_H3cHPEOCCltVlanManTable_Object((1,3,6,1,4,1,2011,10,2,84,1,2))
-if mibBuilder.loadTexts:h3cHPEOCCltVlanManTable.setStatus(_A)
-_H3cHPEOCCltVlanManEntry_Object=MibTableRow
-h3cHPEOCCltVlanManEntry=_H3cHPEOCCltVlanManEntry_Object((1,3,6,1,4,1,2011,10,2,84,1,2,1))
-h3cHPEOCCltVlanManEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:h3cHPEOCCltVlanManEntry.setStatus(_A)
-class _H3cHPEOCCltEthPortType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('normal',1),('debug',2)))
-_H3cHPEOCCltEthPortType_Type.__name__=_C
-_H3cHPEOCCltEthPortType_Object=MibTableColumn
-h3cHPEOCCltEthPortType=_H3cHPEOCCltEthPortType_Object((1,3,6,1,4,1,2011,10,2,84,1,2,1,1),_H3cHPEOCCltEthPortType_Type())
-h3cHPEOCCltEthPortType.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCCltEthPortType.setStatus(_A)
-_H3cHPEOCCltSysManTable_Object=MibTable
-h3cHPEOCCltSysManTable=_H3cHPEOCCltSysManTable_Object((1,3,6,1,4,1,2011,10,2,84,1,3))
-if mibBuilder.loadTexts:h3cHPEOCCltSysManTable.setStatus(_A)
-_H3cHPEOCCltSysManEntry_Object=MibTableRow
-h3cHPEOCCltSysManEntry=_H3cHPEOCCltSysManEntry_Object((1,3,6,1,4,1,2011,10,2,84,1,3,1))
-h3cHPEOCCltSysManEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:h3cHPEOCCltSysManEntry.setStatus(_A)
-class _H3cHPEOCCltDescr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,126))
-_H3cHPEOCCltDescr_Type.__name__=_K
-_H3cHPEOCCltDescr_Object=MibTableColumn
-h3cHPEOCCltDescr=_H3cHPEOCCltDescr_Object((1,3,6,1,4,1,2011,10,2,84,1,3,1,1),_H3cHPEOCCltDescr_Type())
-h3cHPEOCCltDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCCltDescr.setStatus(_A)
-_H3cHPEOCCltFwVersion_Type=DisplayString
-_H3cHPEOCCltFwVersion_Object=MibTableColumn
-h3cHPEOCCltFwVersion=_H3cHPEOCCltFwVersion_Object((1,3,6,1,4,1,2011,10,2,84,1,3,1,2),_H3cHPEOCCltFwVersion_Type())
-h3cHPEOCCltFwVersion.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cHPEOCCltFwVersion.setStatus(_A)
-class _H3cHPEOCCltLinkState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('physicaldown',1),('linkdown',2),('linkup',3),('loopback',4)))
-_H3cHPEOCCltLinkState_Type.__name__=_C
-_H3cHPEOCCltLinkState_Object=MibTableColumn
-h3cHPEOCCltLinkState=_H3cHPEOCCltLinkState_Object((1,3,6,1,4,1,2011,10,2,84,1,3,1,3),_H3cHPEOCCltLinkState_Type())
-h3cHPEOCCltLinkState.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cHPEOCCltLinkState.setStatus(_A)
-_H3cHPEOCCnuSysManTable_Object=MibTable
-h3cHPEOCCnuSysManTable=_H3cHPEOCCnuSysManTable_Object((1,3,6,1,4,1,2011,10,2,84,1,4))
-if mibBuilder.loadTexts:h3cHPEOCCnuSysManTable.setStatus(_A)
-_H3cHPEOCCnuSysManEntry_Object=MibTableRow
-h3cHPEOCCnuSysManEntry=_H3cHPEOCCnuSysManEntry_Object((1,3,6,1,4,1,2011,10,2,84,1,4,1))
-h3cHPEOCCnuSysManEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:h3cHPEOCCnuSysManEntry.setStatus(_A)
-_H3cHPEOCCnuBcastControl_Type=TruthValue
-_H3cHPEOCCnuBcastControl_Object=MibTableColumn
-h3cHPEOCCnuBcastControl=_H3cHPEOCCnuBcastControl_Object((1,3,6,1,4,1,2011,10,2,84,1,4,1,1),_H3cHPEOCCnuBcastControl_Type())
-h3cHPEOCCnuBcastControl.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCCnuBcastControl.setStatus(_A)
-_H3cHPEOCCnuAnonymStatus_Type=TruthValue
-_H3cHPEOCCnuAnonymStatus_Object=MibTableColumn
-h3cHPEOCCnuAnonymStatus=_H3cHPEOCCnuAnonymStatus_Object((1,3,6,1,4,1,2011,10,2,84,1,4,1,2),_H3cHPEOCCnuAnonymStatus_Type())
-h3cHPEOCCnuAnonymStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cHPEOCCnuAnonymStatus.setStatus(_A)
-_H3cHPEOCCnuMacLimit_Type=Unsigned32
-_H3cHPEOCCnuMacLimit_Object=MibTableColumn
-h3cHPEOCCnuMacLimit=_H3cHPEOCCnuMacLimit_Object((1,3,6,1,4,1,2011,10,2,84,1,4,1,3),_H3cHPEOCCnuMacLimit_Type())
-h3cHPEOCCnuMacLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCCnuMacLimit.setStatus(_A)
-class _H3cHPEOCCltAutoUpgrade_Type(TruthValue):defaultValue=2
-_H3cHPEOCCltAutoUpgrade_Type.__name__=_I
-_H3cHPEOCCltAutoUpgrade_Object=MibScalar
-h3cHPEOCCltAutoUpgrade=_H3cHPEOCCltAutoUpgrade_Object((1,3,6,1,4,1,2011,10,2,84,1,5),_H3cHPEOCCltAutoUpgrade_Type())
-h3cHPEOCCltAutoUpgrade.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCCltAutoUpgrade.setStatus(_A)
-_H3cHPEOCOnLineCnuNumber_Type=Integer32
-_H3cHPEOCOnLineCnuNumber_Object=MibScalar
-h3cHPEOCOnLineCnuNumber=_H3cHPEOCOnLineCnuNumber_Object((1,3,6,1,4,1,2011,10,2,84,1,6),_H3cHPEOCOnLineCnuNumber_Type())
-h3cHPEOCOnLineCnuNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cHPEOCOnLineCnuNumber.setStatus(_A)
-_H3cHPEOCCpuMacAddress_Type=MacAddress
-_H3cHPEOCCpuMacAddress_Object=MibScalar
-h3cHPEOCCpuMacAddress=_H3cHPEOCCpuMacAddress_Object((1,3,6,1,4,1,2011,10,2,84,1,7),_H3cHPEOCCpuMacAddress_Type())
-h3cHPEOCCpuMacAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cHPEOCCpuMacAddress.setStatus(_A)
-_H3cHPEOCOffLineCnuNumber_Type=Integer32
-_H3cHPEOCOffLineCnuNumber_Object=MibScalar
-h3cHPEOCOffLineCnuNumber=_H3cHPEOCOffLineCnuNumber_Object((1,3,6,1,4,1,2011,10,2,84,1,8),_H3cHPEOCOffLineCnuNumber_Type())
-h3cHPEOCOffLineCnuNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cHPEOCOffLineCnuNumber.setStatus(_A)
-_H3cHPEOCDownLoadCNUFWResult_Type=DisplayString
-_H3cHPEOCDownLoadCNUFWResult_Object=MibScalar
-h3cHPEOCDownLoadCNUFWResult=_H3cHPEOCDownLoadCNUFWResult_Object((1,3,6,1,4,1,2011,10,2,84,1,9),_H3cHPEOCDownLoadCNUFWResult_Type())
-h3cHPEOCDownLoadCNUFWResult.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:h3cHPEOCDownLoadCNUFWResult.setStatus(_A)
-class _H3cHPEOCCltAutoUpgradeType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('flash',1),('ftp',2),('tftp',3)))
-_H3cHPEOCCltAutoUpgradeType_Type.__name__=_C
-_H3cHPEOCCltAutoUpgradeType_Object=MibScalar
-h3cHPEOCCltAutoUpgradeType=_H3cHPEOCCltAutoUpgradeType_Object((1,3,6,1,4,1,2011,10,2,84,1,10),_H3cHPEOCCltAutoUpgradeType_Type())
-h3cHPEOCCltAutoUpgradeType.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCCltAutoUpgradeType.setStatus(_A)
-_H3cHPEOCAutoUpObjects_ObjectIdentity=ObjectIdentity
-h3cHPEOCAutoUpObjects=_H3cHPEOCAutoUpObjects_ObjectIdentity((1,3,6,1,4,1,2011,10,2,84,1,11))
-_H3cHPEOCServerAddress_Type=IpAddress
-_H3cHPEOCServerAddress_Object=MibScalar
-h3cHPEOCServerAddress=_H3cHPEOCServerAddress_Object((1,3,6,1,4,1,2011,10,2,84,1,11,1),_H3cHPEOCServerAddress_Type())
-h3cHPEOCServerAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCServerAddress.setStatus(_A)
-_H3cHPEOCServerUser_Type=DisplayString
-_H3cHPEOCServerUser_Object=MibScalar
-h3cHPEOCServerUser=_H3cHPEOCServerUser_Object((1,3,6,1,4,1,2011,10,2,84,1,11,2),_H3cHPEOCServerUser_Type())
-h3cHPEOCServerUser.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCServerUser.setStatus(_A)
-_H3cHPEOCServerPassword_Type=DisplayString
-_H3cHPEOCServerPassword_Object=MibScalar
-h3cHPEOCServerPassword=_H3cHPEOCServerPassword_Object((1,3,6,1,4,1,2011,10,2,84,1,11,3),_H3cHPEOCServerPassword_Type())
-h3cHPEOCServerPassword.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCServerPassword.setStatus(_A)
-class _H3cHPEOCCltLoopbackDetect_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('false',0),('true',1)))
-_H3cHPEOCCltLoopbackDetect_Type.__name__=_C
-_H3cHPEOCCltLoopbackDetect_Object=MibScalar
-h3cHPEOCCltLoopbackDetect=_H3cHPEOCCltLoopbackDetect_Object((1,3,6,1,4,1,2011,10,2,84,1,12),_H3cHPEOCCltLoopbackDetect_Type())
-h3cHPEOCCltLoopbackDetect.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCCltLoopbackDetect.setStatus(_A)
-class _H3cHPEOCTemplateEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('false',0),('true',1)))
-_H3cHPEOCTemplateEnable_Type.__name__=_C
-_H3cHPEOCTemplateEnable_Object=MibScalar
-h3cHPEOCTemplateEnable=_H3cHPEOCTemplateEnable_Object((1,3,6,1,4,1,2011,10,2,84,1,13),_H3cHPEOCTemplateEnable_Type())
-h3cHPEOCTemplateEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateEnable.setStatus(_A)
-_H3cHPEOCCableInfo_ObjectIdentity=ObjectIdentity
-h3cHPEOCCableInfo=_H3cHPEOCCableInfo_ObjectIdentity((1,3,6,1,4,1,2011,10,2,84,2))
-_H3cHPEOCCableInfoTable_Object=MibTable
-h3cHPEOCCableInfoTable=_H3cHPEOCCableInfoTable_Object((1,3,6,1,4,1,2011,10,2,84,2,1))
-if mibBuilder.loadTexts:h3cHPEOCCableInfoTable.setStatus(_A)
-_H3cHPEOCCableInfoEntry_Object=MibTableRow
-h3cHPEOCCableInfoEntry=_H3cHPEOCCableInfoEntry_Object((1,3,6,1,4,1,2011,10,2,84,2,1,1))
-h3cHPEOCCableInfoEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:h3cHPEOCCableInfoEntry.setStatus(_A)
-_H3cHPEOCFECErrors_Type=Counter64
-_H3cHPEOCFECErrors_Object=MibTableColumn
-h3cHPEOCFECErrors=_H3cHPEOCFECErrors_Object((1,3,6,1,4,1,2011,10,2,84,2,1,1,1),_H3cHPEOCFECErrors_Type())
-h3cHPEOCFECErrors.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cHPEOCFECErrors.setStatus(_A)
-_H3cHPEOCAvgBitsPerCarrier_Type=Unsigned32
-_H3cHPEOCAvgBitsPerCarrier_Object=MibTableColumn
-h3cHPEOCAvgBitsPerCarrier=_H3cHPEOCAvgBitsPerCarrier_Object((1,3,6,1,4,1,2011,10,2,84,2,1,1,2),_H3cHPEOCAvgBitsPerCarrier_Type())
-h3cHPEOCAvgBitsPerCarrier.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cHPEOCAvgBitsPerCarrier.setStatus(_A)
-_H3cHPEOCAvgSNRPerCarrier_Type=Integer32
-_H3cHPEOCAvgSNRPerCarrier_Object=MibTableColumn
-h3cHPEOCAvgSNRPerCarrier=_H3cHPEOCAvgSNRPerCarrier_Object((1,3,6,1,4,1,2011,10,2,84,2,1,1,3),_H3cHPEOCAvgSNRPerCarrier_Type())
-h3cHPEOCAvgSNRPerCarrier.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cHPEOCAvgSNRPerCarrier.setStatus(_A)
-_H3cHPEOCAvgInPBCRCErrors_Type=Unsigned32
-_H3cHPEOCAvgInPBCRCErrors_Object=MibTableColumn
-h3cHPEOCAvgInPBCRCErrors=_H3cHPEOCAvgInPBCRCErrors_Object((1,3,6,1,4,1,2011,10,2,84,2,1,1,4),_H3cHPEOCAvgInPBCRCErrors_Type())
-h3cHPEOCAvgInPBCRCErrors.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cHPEOCAvgInPBCRCErrors.setStatus(_A)
-_H3cHPEOCInTotalPkts_Type=Counter64
-_H3cHPEOCInTotalPkts_Object=MibTableColumn
-h3cHPEOCInTotalPkts=_H3cHPEOCInTotalPkts_Object((1,3,6,1,4,1,2011,10,2,84,2,1,1,5),_H3cHPEOCInTotalPkts_Type())
-h3cHPEOCInTotalPkts.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cHPEOCInTotalPkts.setStatus(_A)
-_H3cHPEOCAvgOutPower_Type=Integer32
-_H3cHPEOCAvgOutPower_Object=MibTableColumn
-h3cHPEOCAvgOutPower=_H3cHPEOCAvgOutPower_Object((1,3,6,1,4,1,2011,10,2,84,2,1,1,6),_H3cHPEOCAvgOutPower_Type())
-h3cHPEOCAvgOutPower.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cHPEOCAvgOutPower.setStatus(_A)
-_H3cHPEOCAvgOutPBCRCErrors_Type=Unsigned32
-_H3cHPEOCAvgOutPBCRCErrors_Object=MibTableColumn
-h3cHPEOCAvgOutPBCRCErrors=_H3cHPEOCAvgOutPBCRCErrors_Object((1,3,6,1,4,1,2011,10,2,84,2,1,1,7),_H3cHPEOCAvgOutPBCRCErrors_Type())
-h3cHPEOCAvgOutPBCRCErrors.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cHPEOCAvgOutPBCRCErrors.setStatus(_A)
-_H3cHPEOCOutTotalPkts_Type=Counter64
-_H3cHPEOCOutTotalPkts_Object=MibTableColumn
-h3cHPEOCOutTotalPkts=_H3cHPEOCOutTotalPkts_Object((1,3,6,1,4,1,2011,10,2,84,2,1,1,8),_H3cHPEOCOutTotalPkts_Type())
-h3cHPEOCOutTotalPkts.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cHPEOCOutTotalPkts.setStatus(_A)
-_H3cHPEOCBitPerSymbolTable_Object=MibTable
-h3cHPEOCBitPerSymbolTable=_H3cHPEOCBitPerSymbolTable_Object((1,3,6,1,4,1,2011,10,2,84,2,2))
-if mibBuilder.loadTexts:h3cHPEOCBitPerSymbolTable.setStatus(_A)
-_H3cHPEOCBitPerSymbolEntry_Object=MibTableRow
-h3cHPEOCBitPerSymbolEntry=_H3cHPEOCBitPerSymbolEntry_Object((1,3,6,1,4,1,2011,10,2,84,2,2,1))
-h3cHPEOCBitPerSymbolEntry.setIndexNames((0,_E,_F),(0,_G,_L))
-if mibBuilder.loadTexts:h3cHPEOCBitPerSymbolEntry.setStatus(_A)
-_H3cHPEOCBitPerSymbolIndex_Type=Unsigned32
-_H3cHPEOCBitPerSymbolIndex_Object=MibTableColumn
-h3cHPEOCBitPerSymbolIndex=_H3cHPEOCBitPerSymbolIndex_Object((1,3,6,1,4,1,2011,10,2,84,2,2,1,1),_H3cHPEOCBitPerSymbolIndex_Type())
-h3cHPEOCBitPerSymbolIndex.setMaxAccess(_M)
-if mibBuilder.loadTexts:h3cHPEOCBitPerSymbolIndex.setStatus(_A)
-_H3cHPEOCBitPerSymbol_Type=OctetString
-_H3cHPEOCBitPerSymbol_Object=MibTableColumn
-h3cHPEOCBitPerSymbol=_H3cHPEOCBitPerSymbol_Object((1,3,6,1,4,1,2011,10,2,84,2,2,1,2),_H3cHPEOCBitPerSymbol_Type())
-h3cHPEOCBitPerSymbol.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cHPEOCBitPerSymbol.setStatus(_A)
-_H3cHPEOCTemplate_ObjectIdentity=ObjectIdentity
-h3cHPEOCTemplate=_H3cHPEOCTemplate_ObjectIdentity((1,3,6,1,4,1,2011,10,2,84,3))
-_H3cHPEOCTemplateGlobalTable_Object=MibTable
-h3cHPEOCTemplateGlobalTable=_H3cHPEOCTemplateGlobalTable_Object((1,3,6,1,4,1,2011,10,2,84,3,1))
-if mibBuilder.loadTexts:h3cHPEOCTemplateGlobalTable.setStatus(_A)
-_H3cHPEOCTemplateGlobalEntry_Object=MibTableRow
-h3cHPEOCTemplateGlobalEntry=_H3cHPEOCTemplateGlobalEntry_Object((1,3,6,1,4,1,2011,10,2,84,3,1,1))
-h3cHPEOCTemplateGlobalEntry.setIndexNames((0,_G,_J))
-if mibBuilder.loadTexts:h3cHPEOCTemplateGlobalEntry.setStatus(_A)
-_H3cHPEOCTemplateIndex_Type=Integer32
-_H3cHPEOCTemplateIndex_Object=MibTableColumn
-h3cHPEOCTemplateIndex=_H3cHPEOCTemplateIndex_Object((1,3,6,1,4,1,2011,10,2,84,3,1,1,1),_H3cHPEOCTemplateIndex_Type())
-h3cHPEOCTemplateIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:h3cHPEOCTemplateIndex.setStatus(_A)
-class _H3cHPEOCTemplateType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_N,1),(_O,2)))
-_H3cHPEOCTemplateType_Type.__name__=_C
-_H3cHPEOCTemplateType_Object=MibTableColumn
-h3cHPEOCTemplateType=_H3cHPEOCTemplateType_Object((1,3,6,1,4,1,2011,10,2,84,3,1,1,2),_H3cHPEOCTemplateType_Type())
-h3cHPEOCTemplateType.setMaxAccess(_H)
-if mibBuilder.loadTexts:h3cHPEOCTemplateType.setStatus(_A)
-_H3cHPEOCTemplateName_Type=DisplayString
-_H3cHPEOCTemplateName_Object=MibTableColumn
-h3cHPEOCTemplateName=_H3cHPEOCTemplateName_Object((1,3,6,1,4,1,2011,10,2,84,3,1,1,3),_H3cHPEOCTemplateName_Type())
-h3cHPEOCTemplateName.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateName.setStatus(_A)
-_H3cHPEOCTemplateDescr_Type=DisplayString
-_H3cHPEOCTemplateDescr_Object=MibTableColumn
-h3cHPEOCTemplateDescr=_H3cHPEOCTemplateDescr_Object((1,3,6,1,4,1,2011,10,2,84,3,1,1,4),_H3cHPEOCTemplateDescr_Type())
-h3cHPEOCTemplateDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateDescr.setStatus(_A)
-_H3cHPEOCTemplateCnuMaxDownBW_Type=Integer32
-_H3cHPEOCTemplateCnuMaxDownBW_Object=MibTableColumn
-h3cHPEOCTemplateCnuMaxDownBW=_H3cHPEOCTemplateCnuMaxDownBW_Object((1,3,6,1,4,1,2011,10,2,84,3,1,1,5),_H3cHPEOCTemplateCnuMaxDownBW_Type())
-h3cHPEOCTemplateCnuMaxDownBW.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateCnuMaxDownBW.setStatus(_A)
-_H3cHPEOCTemplateCnuMaxUpBW_Type=Integer32
-_H3cHPEOCTemplateCnuMaxUpBW_Object=MibTableColumn
-h3cHPEOCTemplateCnuMaxUpBW=_H3cHPEOCTemplateCnuMaxUpBW_Object((1,3,6,1,4,1,2011,10,2,84,3,1,1,6),_H3cHPEOCTemplateCnuMaxUpBW_Type())
-h3cHPEOCTemplateCnuMaxUpBW.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateCnuMaxUpBW.setStatus(_A)
-_H3cHPEOCTemplateCnuBcastControl_Type=TruthValue
-_H3cHPEOCTemplateCnuBcastControl_Object=MibTableColumn
-h3cHPEOCTemplateCnuBcastControl=_H3cHPEOCTemplateCnuBcastControl_Object((1,3,6,1,4,1,2011,10,2,84,3,1,1,7),_H3cHPEOCTemplateCnuBcastControl_Type())
-h3cHPEOCTemplateCnuBcastControl.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateCnuBcastControl.setStatus(_A)
-_H3cHPEOCTemplateCnuMacLimit_Type=Unsigned32
-_H3cHPEOCTemplateCnuMacLimit_Object=MibTableColumn
-h3cHPEOCTemplateCnuMacLimit=_H3cHPEOCTemplateCnuMacLimit_Object((1,3,6,1,4,1,2011,10,2,84,3,1,1,8),_H3cHPEOCTemplateCnuMacLimit_Type())
-h3cHPEOCTemplateCnuMacLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateCnuMacLimit.setStatus(_A)
-_H3cHPEOCTemplateCb201VlanEn_Type=TruthValue
-_H3cHPEOCTemplateCb201VlanEn_Object=MibTableColumn
-h3cHPEOCTemplateCb201VlanEn=_H3cHPEOCTemplateCb201VlanEn_Object((1,3,6,1,4,1,2011,10,2,84,3,1,1,9),_H3cHPEOCTemplateCb201VlanEn_Type())
-h3cHPEOCTemplateCb201VlanEn.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateCb201VlanEn.setStatus(_A)
-_H3cHPEOCTemplateRowStatus_Type=RowStatus
-_H3cHPEOCTemplateRowStatus_Object=MibTableColumn
-h3cHPEOCTemplateRowStatus=_H3cHPEOCTemplateRowStatus_Object((1,3,6,1,4,1,2011,10,2,84,3,1,1,10),_H3cHPEOCTemplateRowStatus_Type())
-h3cHPEOCTemplateRowStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:h3cHPEOCTemplateRowStatus.setStatus(_A)
-_H3cHPEOCTemplateSwitchTable_Object=MibTable
-h3cHPEOCTemplateSwitchTable=_H3cHPEOCTemplateSwitchTable_Object((1,3,6,1,4,1,2011,10,2,84,3,2))
-if mibBuilder.loadTexts:h3cHPEOCTemplateSwitchTable.setStatus(_A)
-_H3cHPEOCTemplateSwitchEntry_Object=MibTableRow
-h3cHPEOCTemplateSwitchEntry=_H3cHPEOCTemplateSwitchEntry_Object((1,3,6,1,4,1,2011,10,2,84,3,2,1))
-h3cHPEOCTemplateSwitchEntry.setIndexNames((0,_G,_J),(0,_G,_P))
-if mibBuilder.loadTexts:h3cHPEOCTemplateSwitchEntry.setStatus(_A)
-_H3cHPEOCTemplateUniIndex_Type=Integer32
-_H3cHPEOCTemplateUniIndex_Object=MibTableColumn
-h3cHPEOCTemplateUniIndex=_H3cHPEOCTemplateUniIndex_Object((1,3,6,1,4,1,2011,10,2,84,3,2,1,1),_H3cHPEOCTemplateUniIndex_Type())
-h3cHPEOCTemplateUniIndex.setMaxAccess(_M)
-if mibBuilder.loadTexts:h3cHPEOCTemplateUniIndex.setStatus(_A)
-class _H3cHPEOCTemplateUniSpeed_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,10,100)));namedValues=NamedValues(*(('auto',1),('s10M',10),('s100M',100)))
-_H3cHPEOCTemplateUniSpeed_Type.__name__=_C
-_H3cHPEOCTemplateUniSpeed_Object=MibTableColumn
-h3cHPEOCTemplateUniSpeed=_H3cHPEOCTemplateUniSpeed_Object((1,3,6,1,4,1,2011,10,2,84,3,2,1,2),_H3cHPEOCTemplateUniSpeed_Type())
-h3cHPEOCTemplateUniSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateUniSpeed.setStatus(_A)
-class _H3cHPEOCTemplateUniDuplex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('full',1),('half',2),('auto',3)))
-_H3cHPEOCTemplateUniDuplex_Type.__name__=_C
-_H3cHPEOCTemplateUniDuplex_Object=MibTableColumn
-h3cHPEOCTemplateUniDuplex=_H3cHPEOCTemplateUniDuplex_Object((1,3,6,1,4,1,2011,10,2,84,3,2,1,3),_H3cHPEOCTemplateUniDuplex_Type())
-h3cHPEOCTemplateUniDuplex.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateUniDuplex.setStatus(_A)
-class _H3cHPEOCTemplateUniPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_H3cHPEOCTemplateUniPriority_Type.__name__=_C
-_H3cHPEOCTemplateUniPriority_Object=MibTableColumn
-h3cHPEOCTemplateUniPriority=_H3cHPEOCTemplateUniPriority_Object((1,3,6,1,4,1,2011,10,2,84,3,2,1,4),_H3cHPEOCTemplateUniPriority_Type())
-h3cHPEOCTemplateUniPriority.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateUniPriority.setStatus(_A)
-class _H3cHPEOCTemplateUniFlowControl_Type(TruthValue):defaultValue=2
-_H3cHPEOCTemplateUniFlowControl_Type.__name__=_I
-_H3cHPEOCTemplateUniFlowControl_Object=MibTableColumn
-h3cHPEOCTemplateUniFlowControl=_H3cHPEOCTemplateUniFlowControl_Object((1,3,6,1,4,1,2011,10,2,84,3,2,1,5),_H3cHPEOCTemplateUniFlowControl_Type())
-h3cHPEOCTemplateUniFlowControl.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateUniFlowControl.setStatus(_A)
-_H3cHPEOCTemplateUniUpLineRate_Type=Unsigned32
-_H3cHPEOCTemplateUniUpLineRate_Object=MibTableColumn
-h3cHPEOCTemplateUniUpLineRate=_H3cHPEOCTemplateUniUpLineRate_Object((1,3,6,1,4,1,2011,10,2,84,3,2,1,6),_H3cHPEOCTemplateUniUpLineRate_Type())
-h3cHPEOCTemplateUniUpLineRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateUniUpLineRate.setStatus(_A)
-_H3cHPEOCTemplateUniDownLineRate_Type=Unsigned32
-_H3cHPEOCTemplateUniDownLineRate_Object=MibTableColumn
-h3cHPEOCTemplateUniDownLineRate=_H3cHPEOCTemplateUniDownLineRate_Object((1,3,6,1,4,1,2011,10,2,84,3,2,1,7),_H3cHPEOCTemplateUniDownLineRate_Type())
-h3cHPEOCTemplateUniDownLineRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateUniDownLineRate.setStatus(_A)
-class _H3cHPEOCTemplateUniAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_H3cHPEOCTemplateUniAdminStatus_Type.__name__=_C
-_H3cHPEOCTemplateUniAdminStatus_Object=MibTableColumn
-h3cHPEOCTemplateUniAdminStatus=_H3cHPEOCTemplateUniAdminStatus_Object((1,3,6,1,4,1,2011,10,2,84,3,2,1,8),_H3cHPEOCTemplateUniAdminStatus_Type())
-h3cHPEOCTemplateUniAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateUniAdminStatus.setStatus(_A)
-class _H3cHPEOCTemplateUniVLANType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('access',1),('trunk',2),('hybrid',3)))
-_H3cHPEOCTemplateUniVLANType_Type.__name__=_C
-_H3cHPEOCTemplateUniVLANType_Object=MibTableColumn
-h3cHPEOCTemplateUniVLANType=_H3cHPEOCTemplateUniVLANType_Object((1,3,6,1,4,1,2011,10,2,84,3,2,1,9),_H3cHPEOCTemplateUniVLANType_Type())
-h3cHPEOCTemplateUniVLANType.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateUniVLANType.setStatus(_A)
-class _H3cHPEOCTemplateUniPvid_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_H3cHPEOCTemplateUniPvid_Type.__name__=_C
-_H3cHPEOCTemplateUniPvid_Object=MibTableColumn
-h3cHPEOCTemplateUniPvid=_H3cHPEOCTemplateUniPvid_Object((1,3,6,1,4,1,2011,10,2,84,3,2,1,10),_H3cHPEOCTemplateUniPvid_Type())
-h3cHPEOCTemplateUniPvid.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateUniPvid.setStatus(_A)
-class _H3cHPEOCTemplateUniVlanTag_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('tagged',1),('untagged',2)))
-_H3cHPEOCTemplateUniVlanTag_Type.__name__=_C
-_H3cHPEOCTemplateUniVlanTag_Object=MibTableColumn
-h3cHPEOCTemplateUniVlanTag=_H3cHPEOCTemplateUniVlanTag_Object((1,3,6,1,4,1,2011,10,2,84,3,2,1,11),_H3cHPEOCTemplateUniVlanTag_Type())
-h3cHPEOCTemplateUniVlanTag.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCTemplateUniVlanTag.setStatus(_A)
-_H3cHPEOCCnuAccess_ObjectIdentity=ObjectIdentity
-h3cHPEOCCnuAccess=_H3cHPEOCCnuAccess_ObjectIdentity((1,3,6,1,4,1,2011,10,2,84,4))
-_H3cHPEOCCnuAccessTable_Object=MibTable
-h3cHPEOCCnuAccessTable=_H3cHPEOCCnuAccessTable_Object((1,3,6,1,4,1,2011,10,2,84,4,1))
-if mibBuilder.loadTexts:h3cHPEOCCnuAccessTable.setStatus(_A)
-_H3cHPEOCCnuAccessEntry_Object=MibTableRow
-h3cHPEOCCnuAccessEntry=_H3cHPEOCCnuAccessEntry_Object((1,3,6,1,4,1,2011,10,2,84,4,1,1))
-h3cHPEOCCnuAccessEntry.setIndexNames((0,_G,_Q))
-if mibBuilder.loadTexts:h3cHPEOCCnuAccessEntry.setStatus(_A)
-_H3cHPEOCCnuAccessIndex_Type=Integer32
-_H3cHPEOCCnuAccessIndex_Object=MibTableColumn
-h3cHPEOCCnuAccessIndex=_H3cHPEOCCnuAccessIndex_Object((1,3,6,1,4,1,2011,10,2,84,4,1,1,1),_H3cHPEOCCnuAccessIndex_Type())
-h3cHPEOCCnuAccessIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:h3cHPEOCCnuAccessIndex.setStatus(_A)
-_H3cHPEOCCnuHFID_Type=DisplayString
-_H3cHPEOCCnuHFID_Object=MibTableColumn
-h3cHPEOCCnuHFID=_H3cHPEOCCnuHFID_Object((1,3,6,1,4,1,2011,10,2,84,4,1,1,2),_H3cHPEOCCnuHFID_Type())
-h3cHPEOCCnuHFID.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCCnuHFID.setStatus(_A)
-_H3cHPEOCManuInfo_Type=DisplayString
-_H3cHPEOCManuInfo_Object=MibTableColumn
-h3cHPEOCManuInfo=_H3cHPEOCManuInfo_Object((1,3,6,1,4,1,2011,10,2,84,4,1,1,3),_H3cHPEOCManuInfo_Type())
-h3cHPEOCManuInfo.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCManuInfo.setStatus(_A)
-class _H3cHPEOCCnuType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_N,1),(_O,2)))
-_H3cHPEOCCnuType_Type.__name__=_C
-_H3cHPEOCCnuType_Object=MibTableColumn
-h3cHPEOCCnuType=_H3cHPEOCCnuType_Object((1,3,6,1,4,1,2011,10,2,84,4,1,1,4),_H3cHPEOCCnuType_Type())
-h3cHPEOCCnuType.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCCnuType.setStatus(_A)
-class _H3cHPEOCCnuSwitchType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('rtl8306e',1),('ar8236',2),('mv6061',3),('mv6031',4)))
-_H3cHPEOCCnuSwitchType_Type.__name__=_C
-_H3cHPEOCCnuSwitchType_Object=MibTableColumn
-h3cHPEOCCnuSwitchType=_H3cHPEOCCnuSwitchType_Object((1,3,6,1,4,1,2011,10,2,84,4,1,1,5),_H3cHPEOCCnuSwitchType_Type())
-h3cHPEOCCnuSwitchType.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCCnuSwitchType.setStatus(_A)
-_H3cHPEOCCnuUniNum_Type=Integer32
-_H3cHPEOCCnuUniNum_Object=MibTableColumn
-h3cHPEOCCnuUniNum=_H3cHPEOCCnuUniNum_Object((1,3,6,1,4,1,2011,10,2,84,4,1,1,6),_H3cHPEOCCnuUniNum_Type())
-h3cHPEOCCnuUniNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCCnuUniNum.setStatus(_A)
-_H3cHPEOCCnuPhy2Uni_Type=OctetString
-_H3cHPEOCCnuPhy2Uni_Object=MibTableColumn
-h3cHPEOCCnuPhy2Uni=_H3cHPEOCCnuPhy2Uni_Object((1,3,6,1,4,1,2011,10,2,84,4,1,1,7),_H3cHPEOCCnuPhy2Uni_Type())
-h3cHPEOCCnuPhy2Uni.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cHPEOCCnuPhy2Uni.setStatus(_A)
-_H3cHPEOCCnuAccessRowStatus_Type=RowStatus
-_H3cHPEOCCnuAccessRowStatus_Object=MibTableColumn
-h3cHPEOCCnuAccessRowStatus=_H3cHPEOCCnuAccessRowStatus_Object((1,3,6,1,4,1,2011,10,2,84,4,1,1,8),_H3cHPEOCCnuAccessRowStatus_Type())
-h3cHPEOCCnuAccessRowStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:h3cHPEOCCnuAccessRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_G,**{'h3cHPEOC':h3cHPEOC,'h3cHPEOCSystem':h3cHPEOCSystem,'h3cHPEOCCltVlanType':h3cHPEOCCltVlanType,'h3cHPEOCCltVlanManTable':h3cHPEOCCltVlanManTable,'h3cHPEOCCltVlanManEntry':h3cHPEOCCltVlanManEntry,'h3cHPEOCCltEthPortType':h3cHPEOCCltEthPortType,'h3cHPEOCCltSysManTable':h3cHPEOCCltSysManTable,'h3cHPEOCCltSysManEntry':h3cHPEOCCltSysManEntry,'h3cHPEOCCltDescr':h3cHPEOCCltDescr,'h3cHPEOCCltFwVersion':h3cHPEOCCltFwVersion,'h3cHPEOCCltLinkState':h3cHPEOCCltLinkState,'h3cHPEOCCnuSysManTable':h3cHPEOCCnuSysManTable,'h3cHPEOCCnuSysManEntry':h3cHPEOCCnuSysManEntry,'h3cHPEOCCnuBcastControl':h3cHPEOCCnuBcastControl,'h3cHPEOCCnuAnonymStatus':h3cHPEOCCnuAnonymStatus,'h3cHPEOCCnuMacLimit':h3cHPEOCCnuMacLimit,'h3cHPEOCCltAutoUpgrade':h3cHPEOCCltAutoUpgrade,'h3cHPEOCOnLineCnuNumber':h3cHPEOCOnLineCnuNumber,'h3cHPEOCCpuMacAddress':h3cHPEOCCpuMacAddress,'h3cHPEOCOffLineCnuNumber':h3cHPEOCOffLineCnuNumber,'h3cHPEOCDownLoadCNUFWResult':h3cHPEOCDownLoadCNUFWResult,'h3cHPEOCCltAutoUpgradeType':h3cHPEOCCltAutoUpgradeType,'h3cHPEOCAutoUpObjects':h3cHPEOCAutoUpObjects,'h3cHPEOCServerAddress':h3cHPEOCServerAddress,'h3cHPEOCServerUser':h3cHPEOCServerUser,'h3cHPEOCServerPassword':h3cHPEOCServerPassword,'h3cHPEOCCltLoopbackDetect':h3cHPEOCCltLoopbackDetect,'h3cHPEOCTemplateEnable':h3cHPEOCTemplateEnable,'h3cHPEOCCableInfo':h3cHPEOCCableInfo,'h3cHPEOCCableInfoTable':h3cHPEOCCableInfoTable,'h3cHPEOCCableInfoEntry':h3cHPEOCCableInfoEntry,'h3cHPEOCFECErrors':h3cHPEOCFECErrors,'h3cHPEOCAvgBitsPerCarrier':h3cHPEOCAvgBitsPerCarrier,'h3cHPEOCAvgSNRPerCarrier':h3cHPEOCAvgSNRPerCarrier,'h3cHPEOCAvgInPBCRCErrors':h3cHPEOCAvgInPBCRCErrors,'h3cHPEOCInTotalPkts':h3cHPEOCInTotalPkts,'h3cHPEOCAvgOutPower':h3cHPEOCAvgOutPower,'h3cHPEOCAvgOutPBCRCErrors':h3cHPEOCAvgOutPBCRCErrors,'h3cHPEOCOutTotalPkts':h3cHPEOCOutTotalPkts,'h3cHPEOCBitPerSymbolTable':h3cHPEOCBitPerSymbolTable,'h3cHPEOCBitPerSymbolEntry':h3cHPEOCBitPerSymbolEntry,_L:h3cHPEOCBitPerSymbolIndex,'h3cHPEOCBitPerSymbol':h3cHPEOCBitPerSymbol,'h3cHPEOCTemplate':h3cHPEOCTemplate,'h3cHPEOCTemplateGlobalTable':h3cHPEOCTemplateGlobalTable,'h3cHPEOCTemplateGlobalEntry':h3cHPEOCTemplateGlobalEntry,_J:h3cHPEOCTemplateIndex,'h3cHPEOCTemplateType':h3cHPEOCTemplateType,'h3cHPEOCTemplateName':h3cHPEOCTemplateName,'h3cHPEOCTemplateDescr':h3cHPEOCTemplateDescr,'h3cHPEOCTemplateCnuMaxDownBW':h3cHPEOCTemplateCnuMaxDownBW,'h3cHPEOCTemplateCnuMaxUpBW':h3cHPEOCTemplateCnuMaxUpBW,'h3cHPEOCTemplateCnuBcastControl':h3cHPEOCTemplateCnuBcastControl,'h3cHPEOCTemplateCnuMacLimit':h3cHPEOCTemplateCnuMacLimit,'h3cHPEOCTemplateCb201VlanEn':h3cHPEOCTemplateCb201VlanEn,'h3cHPEOCTemplateRowStatus':h3cHPEOCTemplateRowStatus,'h3cHPEOCTemplateSwitchTable':h3cHPEOCTemplateSwitchTable,'h3cHPEOCTemplateSwitchEntry':h3cHPEOCTemplateSwitchEntry,_P:h3cHPEOCTemplateUniIndex,'h3cHPEOCTemplateUniSpeed':h3cHPEOCTemplateUniSpeed,'h3cHPEOCTemplateUniDuplex':h3cHPEOCTemplateUniDuplex,'h3cHPEOCTemplateUniPriority':h3cHPEOCTemplateUniPriority,'h3cHPEOCTemplateUniFlowControl':h3cHPEOCTemplateUniFlowControl,'h3cHPEOCTemplateUniUpLineRate':h3cHPEOCTemplateUniUpLineRate,'h3cHPEOCTemplateUniDownLineRate':h3cHPEOCTemplateUniDownLineRate,'h3cHPEOCTemplateUniAdminStatus':h3cHPEOCTemplateUniAdminStatus,'h3cHPEOCTemplateUniVLANType':h3cHPEOCTemplateUniVLANType,'h3cHPEOCTemplateUniPvid':h3cHPEOCTemplateUniPvid,'h3cHPEOCTemplateUniVlanTag':h3cHPEOCTemplateUniVlanTag,'h3cHPEOCCnuAccess':h3cHPEOCCnuAccess,'h3cHPEOCCnuAccessTable':h3cHPEOCCnuAccessTable,'h3cHPEOCCnuAccessEntry':h3cHPEOCCnuAccessEntry,_Q:h3cHPEOCCnuAccessIndex,'h3cHPEOCCnuHFID':h3cHPEOCCnuHFID,'h3cHPEOCManuInfo':h3cHPEOCManuInfo,'h3cHPEOCCnuType':h3cHPEOCCnuType,'h3cHPEOCCnuSwitchType':h3cHPEOCCnuSwitchType,'h3cHPEOCCnuUniNum':h3cHPEOCCnuUniNum,'h3cHPEOCCnuPhy2Uni':h3cHPEOCCnuPhy2Uni,'h3cHPEOCCnuAccessRowStatus':h3cHPEOCCnuAccessRowStatus})
+#
+# PySNMP MIB module H3C-HPEOC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-HPEOC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+h3cHPEOC = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84))
+if mibBuilder.loadTexts: h3cHPEOC.setLastUpdated('200708281008Z')
+if mibBuilder.loadTexts: h3cHPEOC.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
+h3cHPEOCSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1))
+h3cHPEOCCltVlanType = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ieee8021q", 1), ("portbased", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCCltVlanType.setStatus('current')
+h3cHPEOCCltVlanManTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 2), )
+if mibBuilder.loadTexts: h3cHPEOCCltVlanManTable.setStatus('current')
+h3cHPEOCCltVlanManEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cHPEOCCltVlanManEntry.setStatus('current')
+h3cHPEOCCltEthPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("normal", 1), ("debug", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCCltEthPortType.setStatus('current')
+h3cHPEOCCltSysManTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 3), )
+if mibBuilder.loadTexts: h3cHPEOCCltSysManTable.setStatus('current')
+h3cHPEOCCltSysManEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cHPEOCCltSysManEntry.setStatus('current')
+h3cHPEOCCltDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 3, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 126))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCCltDescr.setStatus('current')
+h3cHPEOCCltFwVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 3, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cHPEOCCltFwVersion.setStatus('current')
+h3cHPEOCCltLinkState = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("physicaldown", 1), ("linkdown", 2), ("linkup", 3), ("loopback", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cHPEOCCltLinkState.setStatus('current')
+h3cHPEOCCnuSysManTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 4), )
+if mibBuilder.loadTexts: h3cHPEOCCnuSysManTable.setStatus('current')
+h3cHPEOCCnuSysManEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cHPEOCCnuSysManEntry.setStatus('current')
+h3cHPEOCCnuBcastControl = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 4, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCCnuBcastControl.setStatus('current')
+h3cHPEOCCnuAnonymStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 4, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cHPEOCCnuAnonymStatus.setStatus('current')
+h3cHPEOCCnuMacLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 4, 1, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCCnuMacLimit.setStatus('current')
+h3cHPEOCCltAutoUpgrade = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCCltAutoUpgrade.setStatus('current')
+h3cHPEOCOnLineCnuNumber = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cHPEOCOnLineCnuNumber.setStatus('current')
+h3cHPEOCCpuMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 7), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cHPEOCCpuMacAddress.setStatus('current')
+h3cHPEOCOffLineCnuNumber = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cHPEOCOffLineCnuNumber.setStatus('current')
+h3cHPEOCDownLoadCNUFWResult = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 9), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cHPEOCDownLoadCNUFWResult.setStatus('current')
+h3cHPEOCCltAutoUpgradeType = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("flash", 1), ("ftp", 2), ("tftp", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCCltAutoUpgradeType.setStatus('current')
+h3cHPEOCAutoUpObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 11))
+h3cHPEOCServerAddress = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 11, 1), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCServerAddress.setStatus('current')
+h3cHPEOCServerUser = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 11, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCServerUser.setStatus('current')
+h3cHPEOCServerPassword = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 11, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCServerPassword.setStatus('current')
+h3cHPEOCCltLoopbackDetect = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCCltLoopbackDetect.setStatus('current')
+h3cHPEOCTemplateEnable = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateEnable.setStatus('current')
+h3cHPEOCCableInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 2))
+h3cHPEOCCableInfoTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 2, 1), )
+if mibBuilder.loadTexts: h3cHPEOCCableInfoTable.setStatus('current')
+h3cHPEOCCableInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cHPEOCCableInfoEntry.setStatus('current')
+h3cHPEOCFECErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 2, 1, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cHPEOCFECErrors.setStatus('current')
+h3cHPEOCAvgBitsPerCarrier = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 2, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cHPEOCAvgBitsPerCarrier.setStatus('current')
+h3cHPEOCAvgSNRPerCarrier = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 2, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cHPEOCAvgSNRPerCarrier.setStatus('current')
+h3cHPEOCAvgInPBCRCErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 2, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cHPEOCAvgInPBCRCErrors.setStatus('current')
+h3cHPEOCInTotalPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 2, 1, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cHPEOCInTotalPkts.setStatus('current')
+h3cHPEOCAvgOutPower = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 2, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cHPEOCAvgOutPower.setStatus('current')
+h3cHPEOCAvgOutPBCRCErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 2, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cHPEOCAvgOutPBCRCErrors.setStatus('current')
+h3cHPEOCOutTotalPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 2, 1, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cHPEOCOutTotalPkts.setStatus('current')
+h3cHPEOCBitPerSymbolTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 2, 2), )
+if mibBuilder.loadTexts: h3cHPEOCBitPerSymbolTable.setStatus('current')
+h3cHPEOCBitPerSymbolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "H3C-HPEOC-MIB", "h3cHPEOCBitPerSymbolIndex"))
+if mibBuilder.loadTexts: h3cHPEOCBitPerSymbolEntry.setStatus('current')
+h3cHPEOCBitPerSymbolIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 2, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: h3cHPEOCBitPerSymbolIndex.setStatus('current')
+h3cHPEOCBitPerSymbol = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 2, 2, 1, 2), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cHPEOCBitPerSymbol.setStatus('current')
+h3cHPEOCTemplate = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3))
+h3cHPEOCTemplateGlobalTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 1), )
+if mibBuilder.loadTexts: h3cHPEOCTemplateGlobalTable.setStatus('current')
+h3cHPEOCTemplateGlobalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 1, 1), ).setIndexNames((0, "H3C-HPEOC-MIB", "h3cHPEOCTemplateIndex"))
+if mibBuilder.loadTexts: h3cHPEOCTemplateGlobalEntry.setStatus('current')
+h3cHPEOCTemplateIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 1, 1, 1), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cHPEOCTemplateIndex.setStatus('current')
+h3cHPEOCTemplateType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("switch", 1), ("gateway", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cHPEOCTemplateType.setStatus('current')
+h3cHPEOCTemplateName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateName.setStatus('current')
+h3cHPEOCTemplateDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateDescr.setStatus('current')
+h3cHPEOCTemplateCnuMaxDownBW = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateCnuMaxDownBW.setStatus('current')
+h3cHPEOCTemplateCnuMaxUpBW = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateCnuMaxUpBW.setStatus('current')
+h3cHPEOCTemplateCnuBcastControl = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 1, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateCnuBcastControl.setStatus('current')
+h3cHPEOCTemplateCnuMacLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 1, 1, 8), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateCnuMacLimit.setStatus('current')
+h3cHPEOCTemplateCb201VlanEn = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 1, 1, 9), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateCb201VlanEn.setStatus('current')
+h3cHPEOCTemplateRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 1, 1, 10), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cHPEOCTemplateRowStatus.setStatus('current')
+h3cHPEOCTemplateSwitchTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 2), )
+if mibBuilder.loadTexts: h3cHPEOCTemplateSwitchTable.setStatus('current')
+h3cHPEOCTemplateSwitchEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 2, 1), ).setIndexNames((0, "H3C-HPEOC-MIB", "h3cHPEOCTemplateIndex"), (0, "H3C-HPEOC-MIB", "h3cHPEOCTemplateUniIndex"))
+if mibBuilder.loadTexts: h3cHPEOCTemplateSwitchEntry.setStatus('current')
+h3cHPEOCTemplateUniIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 2, 1, 1), Integer32())
+if mibBuilder.loadTexts: h3cHPEOCTemplateUniIndex.setStatus('current')
+h3cHPEOCTemplateUniSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 10, 100))).clone(namedValues=NamedValues(("auto", 1), ("s10M", 10), ("s100M", 100)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateUniSpeed.setStatus('current')
+h3cHPEOCTemplateUniDuplex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("full", 1), ("half", 2), ("auto", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateUniDuplex.setStatus('current')
+h3cHPEOCTemplateUniPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateUniPriority.setStatus('current')
+h3cHPEOCTemplateUniFlowControl = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 2, 1, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateUniFlowControl.setStatus('current')
+h3cHPEOCTemplateUniUpLineRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 2, 1, 6), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateUniUpLineRate.setStatus('current')
+h3cHPEOCTemplateUniDownLineRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 2, 1, 7), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateUniDownLineRate.setStatus('current')
+h3cHPEOCTemplateUniAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateUniAdminStatus.setStatus('current')
+h3cHPEOCTemplateUniVLANType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("access", 1), ("trunk", 2), ("hybrid", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateUniVLANType.setStatus('current')
+h3cHPEOCTemplateUniPvid = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateUniPvid.setStatus('current')
+h3cHPEOCTemplateUniVlanTag = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 3, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("tagged", 1), ("untagged", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCTemplateUniVlanTag.setStatus('current')
+h3cHPEOCCnuAccess = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 4))
+h3cHPEOCCnuAccessTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 4, 1), )
+if mibBuilder.loadTexts: h3cHPEOCCnuAccessTable.setStatus('current')
+h3cHPEOCCnuAccessEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 4, 1, 1), ).setIndexNames((0, "H3C-HPEOC-MIB", "h3cHPEOCCnuAccessIndex"))
+if mibBuilder.loadTexts: h3cHPEOCCnuAccessEntry.setStatus('current')
+h3cHPEOCCnuAccessIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 4, 1, 1, 1), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cHPEOCCnuAccessIndex.setStatus('current')
+h3cHPEOCCnuHFID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 4, 1, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCCnuHFID.setStatus('current')
+h3cHPEOCManuInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 4, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCManuInfo.setStatus('current')
+h3cHPEOCCnuType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 4, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("switch", 1), ("gateway", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCCnuType.setStatus('current')
+h3cHPEOCCnuSwitchType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 4, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("rtl8306e", 1), ("ar8236", 2), ("mv6061", 3), ("mv6031", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCCnuSwitchType.setStatus('current')
+h3cHPEOCCnuUniNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 4, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCCnuUniNum.setStatus('current')
+h3cHPEOCCnuPhy2Uni = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 4, 1, 1, 7), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cHPEOCCnuPhy2Uni.setStatus('current')
+h3cHPEOCCnuAccessRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 84, 4, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cHPEOCCnuAccessRowStatus.setStatus('current')
+mibBuilder.exportSymbols("H3C-HPEOC-MIB", h3cHPEOCCnuSysManTable=h3cHPEOCCnuSysManTable, h3cHPEOCTemplateUniDownLineRate=h3cHPEOCTemplateUniDownLineRate, h3cHPEOCTemplateUniAdminStatus=h3cHPEOCTemplateUniAdminStatus, h3cHPEOCManuInfo=h3cHPEOCManuInfo, h3cHPEOCTemplateGlobalEntry=h3cHPEOCTemplateGlobalEntry, h3cHPEOCBitPerSymbolTable=h3cHPEOCBitPerSymbolTable, h3cHPEOCTemplateSwitchEntry=h3cHPEOCTemplateSwitchEntry, h3cHPEOCTemplateSwitchTable=h3cHPEOCTemplateSwitchTable, h3cHPEOCTemplateDescr=h3cHPEOCTemplateDescr, h3cHPEOCTemplateUniVLANType=h3cHPEOCTemplateUniVLANType, h3cHPEOCCltSysManEntry=h3cHPEOCCltSysManEntry, h3cHPEOCCltLinkState=h3cHPEOCCltLinkState, h3cHPEOCAvgOutPower=h3cHPEOCAvgOutPower, h3cHPEOCAvgOutPBCRCErrors=h3cHPEOCAvgOutPBCRCErrors, h3cHPEOCCnuAccessTable=h3cHPEOCCnuAccessTable, h3cHPEOCCnuAccess=h3cHPEOCCnuAccess, h3cHPEOCTemplateEnable=h3cHPEOCTemplateEnable, h3cHPEOCTemplateName=h3cHPEOCTemplateName, h3cHPEOCTemplateUniUpLineRate=h3cHPEOCTemplateUniUpLineRate, h3cHPEOCBitPerSymbolEntry=h3cHPEOCBitPerSymbolEntry, h3cHPEOCSystem=h3cHPEOCSystem, h3cHPEOCCltFwVersion=h3cHPEOCCltFwVersion, h3cHPEOCTemplate=h3cHPEOCTemplate, h3cHPEOCCnuPhy2Uni=h3cHPEOCCnuPhy2Uni, h3cHPEOCFECErrors=h3cHPEOCFECErrors, h3cHPEOCCpuMacAddress=h3cHPEOCCpuMacAddress, h3cHPEOCTemplateType=h3cHPEOCTemplateType, h3cHPEOCAvgBitsPerCarrier=h3cHPEOCAvgBitsPerCarrier, h3cHPEOCAvgSNRPerCarrier=h3cHPEOCAvgSNRPerCarrier, h3cHPEOCTemplateCnuBcastControl=h3cHPEOCTemplateCnuBcastControl, h3cHPEOCTemplateGlobalTable=h3cHPEOCTemplateGlobalTable, h3cHPEOCServerPassword=h3cHPEOCServerPassword, h3cHPEOCTemplateUniPvid=h3cHPEOCTemplateUniPvid, h3cHPEOCOffLineCnuNumber=h3cHPEOCOffLineCnuNumber, h3cHPEOCTemplateCnuMacLimit=h3cHPEOCTemplateCnuMacLimit, h3cHPEOCServerUser=h3cHPEOCServerUser, h3cHPEOCTemplateCnuMaxUpBW=h3cHPEOCTemplateCnuMaxUpBW, h3cHPEOCCltVlanType=h3cHPEOCCltVlanType, h3cHPEOCTemplateUniVlanTag=h3cHPEOCTemplateUniVlanTag, h3cHPEOCCnuMacLimit=h3cHPEOCCnuMacLimit, h3cHPEOCOnLineCnuNumber=h3cHPEOCOnLineCnuNumber, h3cHPEOCTemplateUniDuplex=h3cHPEOCTemplateUniDuplex, h3cHPEOCCltLoopbackDetect=h3cHPEOCCltLoopbackDetect, PYSNMP_MODULE_ID=h3cHPEOC, h3cHPEOCTemplateUniFlowControl=h3cHPEOCTemplateUniFlowControl, h3cHPEOCTemplateRowStatus=h3cHPEOCTemplateRowStatus, h3cHPEOCCltVlanManTable=h3cHPEOCCltVlanManTable, h3cHPEOCTemplateCnuMaxDownBW=h3cHPEOCTemplateCnuMaxDownBW, h3cHPEOCTemplateIndex=h3cHPEOCTemplateIndex, h3cHPEOCCnuAccessEntry=h3cHPEOCCnuAccessEntry, h3cHPEOCCnuHFID=h3cHPEOCCnuHFID, h3cHPEOCCnuSysManEntry=h3cHPEOCCnuSysManEntry, h3cHPEOCCnuBcastControl=h3cHPEOCCnuBcastControl, h3cHPEOCAutoUpObjects=h3cHPEOCAutoUpObjects, h3cHPEOCCnuAccessRowStatus=h3cHPEOCCnuAccessRowStatus, h3cHPEOCCnuType=h3cHPEOCCnuType, h3cHPEOCCltVlanManEntry=h3cHPEOCCltVlanManEntry, h3cHPEOCCltAutoUpgrade=h3cHPEOCCltAutoUpgrade, h3cHPEOCCnuAnonymStatus=h3cHPEOCCnuAnonymStatus, h3cHPEOCCnuAccessIndex=h3cHPEOCCnuAccessIndex, h3cHPEOCTemplateUniIndex=h3cHPEOCTemplateUniIndex, h3cHPEOCCltSysManTable=h3cHPEOCCltSysManTable, h3cHPEOCBitPerSymbol=h3cHPEOCBitPerSymbol, h3cHPEOCOutTotalPkts=h3cHPEOCOutTotalPkts, h3cHPEOCDownLoadCNUFWResult=h3cHPEOCDownLoadCNUFWResult, h3cHPEOCCltDescr=h3cHPEOCCltDescr, h3cHPEOCCltEthPortType=h3cHPEOCCltEthPortType, h3cHPEOCCnuUniNum=h3cHPEOCCnuUniNum, h3cHPEOCInTotalPkts=h3cHPEOCInTotalPkts, h3cHPEOCCableInfoEntry=h3cHPEOCCableInfoEntry, h3cHPEOCTemplateCb201VlanEn=h3cHPEOCTemplateCb201VlanEn, h3cHPEOCServerAddress=h3cHPEOCServerAddress, h3cHPEOCCableInfoTable=h3cHPEOCCableInfoTable, h3cHPEOCTemplateUniSpeed=h3cHPEOCTemplateUniSpeed, h3cHPEOCTemplateUniPriority=h3cHPEOCTemplateUniPriority, h3cHPEOCCnuSwitchType=h3cHPEOCCnuSwitchType, h3cHPEOC=h3cHPEOC, h3cHPEOCAvgInPBCRCErrors=h3cHPEOCAvgInPBCRCErrors, h3cHPEOCBitPerSymbolIndex=h3cHPEOCBitPerSymbolIndex, h3cHPEOCCltAutoUpgradeType=h3cHPEOCCltAutoUpgradeType, h3cHPEOCCableInfo=h3cHPEOCCableInfo)

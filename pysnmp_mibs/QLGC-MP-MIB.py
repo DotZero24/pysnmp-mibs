@@ -1,42 +1,41 @@
-_D='qlgcMPGroup'
-_C='qlgcMPEpromStatus'
-_B='QLGC-MP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-qlogicMgmt,=mibBuilder.importSymbols('QLOGIC-SMI','qlogicMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-qlgcMaintenancePanelModule=ModuleIdentity((1,3,6,1,4,1,3873,3,2))
-if mibBuilder.loadTexts:qlgcMaintenancePanelModule.setRevisions(('2009-09-29 00:00','2007-03-31 00:00'))
-class MPEpromStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ok',1),('alarm',2)))
-_QlgcMPNotifications_ObjectIdentity=ObjectIdentity
-qlgcMPNotifications=_QlgcMPNotifications_ObjectIdentity((1,3,6,1,4,1,3873,3,2,0))
-_QlgcMPObjects_ObjectIdentity=ObjectIdentity
-qlgcMPObjects=_QlgcMPObjects_ObjectIdentity((1,3,6,1,4,1,3873,3,2,1))
-_QlgcMPStatus_ObjectIdentity=ObjectIdentity
-qlgcMPStatus=_QlgcMPStatus_ObjectIdentity((1,3,6,1,4,1,3873,3,2,1,1))
-_QlgcMPEpromStatus_Type=MPEpromStatus
-_QlgcMPEpromStatus_Object=MibScalar
-qlgcMPEpromStatus=_QlgcMPEpromStatus_Object((1,3,6,1,4,1,3873,3,2,1,1,1),_QlgcMPEpromStatus_Type())
-qlgcMPEpromStatus.setMaxAccess('read-only')
-if mibBuilder.loadTexts:qlgcMPEpromStatus.setStatus(_A)
-_QlgcMPConformance_ObjectIdentity=ObjectIdentity
-qlgcMPConformance=_QlgcMPConformance_ObjectIdentity((1,3,6,1,4,1,3873,3,2,2))
-_QlgcMPGroups_ObjectIdentity=ObjectIdentity
-qlgcMPGroups=_QlgcMPGroups_ObjectIdentity((1,3,6,1,4,1,3873,3,2,2,1))
-_QlgcMPCompliances_ObjectIdentity=ObjectIdentity
-qlgcMPCompliances=_QlgcMPCompliances_ObjectIdentity((1,3,6,1,4,1,3873,3,2,2,2))
-qlgcMPGroup=ObjectGroup((1,3,6,1,4,1,3873,3,2,2,1,1))
-qlgcMPGroup.setObjects((_B,_C))
-if mibBuilder.loadTexts:qlgcMPGroup.setStatus(_A)
-qlgcMPStatusChange=NotificationType((1,3,6,1,4,1,3873,3,2,0,1))
-qlgcMPStatusChange.setObjects((_B,_C))
-if mibBuilder.loadTexts:qlgcMPStatusChange.setStatus(_A)
-qlgcMPComplianceV1=ModuleCompliance((1,3,6,1,4,1,3873,3,2,2,2,1))
-qlgcMPComplianceV1.setObjects((_B,_D))
-if mibBuilder.loadTexts:qlgcMPComplianceV1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'MPEpromStatus':MPEpromStatus,'qlgcMaintenancePanelModule':qlgcMaintenancePanelModule,'qlgcMPNotifications':qlgcMPNotifications,'qlgcMPStatusChange':qlgcMPStatusChange,'qlgcMPObjects':qlgcMPObjects,'qlgcMPStatus':qlgcMPStatus,_C:qlgcMPEpromStatus,'qlgcMPConformance':qlgcMPConformance,'qlgcMPGroups':qlgcMPGroups,_D:qlgcMPGroup,'qlgcMPCompliances':qlgcMPCompliances,'qlgcMPComplianceV1':qlgcMPComplianceV1})
+#
+# PySNMP MIB module QLGC-MP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/marvell/QLGC-MP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+qlogicMgmt, = mibBuilder.importSymbols("QLOGIC-SMI", "qlogicMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+qlgcMaintenancePanelModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3873, 3, 2))
+qlgcMaintenancePanelModule.setRevisions(('2009-09-29 00:00', '2007-03-31 00:00',))
+if mibBuilder.loadTexts: qlgcMaintenancePanelModule.setLastUpdated('200909290000Z')
+if mibBuilder.loadTexts: qlgcMaintenancePanelModule.setOrganization('QLogic Corp.')
+qlgcMPNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 3, 2, 0))
+qlgcMPObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 3, 2, 1))
+qlgcMPConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 3, 2, 2))
+class MPEpromStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("ok", 1), ("alarm", 2))
+
+qlgcMPStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 3, 2, 1, 1))
+qlgcMPEpromStatus = MibScalar((1, 3, 6, 1, 4, 1, 3873, 3, 2, 1, 1, 1), MPEpromStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qlgcMPEpromStatus.setStatus('current')
+qlgcMPStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 3873, 3, 2, 0, 1)).setObjects(("QLGC-MP-MIB", "qlgcMPEpromStatus"))
+if mibBuilder.loadTexts: qlgcMPStatusChange.setStatus('current')
+qlgcMPGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 3, 2, 2, 1))
+qlgcMPGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3873, 3, 2, 2, 1, 1)).setObjects(("QLGC-MP-MIB", "qlgcMPEpromStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qlgcMPGroup = qlgcMPGroup.setStatus('current')
+qlgcMPCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 3, 2, 2, 2))
+qlgcMPComplianceV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 3873, 3, 2, 2, 2, 1)).setObjects(("QLGC-MP-MIB", "qlgcMPGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qlgcMPComplianceV1 = qlgcMPComplianceV1.setStatus('current')
+mibBuilder.exportSymbols("QLGC-MP-MIB", qlgcMPGroups=qlgcMPGroups, qlgcMaintenancePanelModule=qlgcMaintenancePanelModule, MPEpromStatus=MPEpromStatus, qlgcMPGroup=qlgcMPGroup, PYSNMP_MODULE_ID=qlgcMaintenancePanelModule, qlgcMPNotifications=qlgcMPNotifications, qlgcMPEpromStatus=qlgcMPEpromStatus, qlgcMPCompliances=qlgcMPCompliances, qlgcMPStatusChange=qlgcMPStatusChange, qlgcMPComplianceV1=qlgcMPComplianceV1, qlgcMPConformance=qlgcMPConformance, qlgcMPStatus=qlgcMPStatus, qlgcMPObjects=qlgcMPObjects)

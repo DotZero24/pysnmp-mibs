@@ -1,60 +1,37 @@
-_G='read-create'
-_F='toIfIndex'
-_E='fromIfIndex'
-_D='read-write'
-_C='NORTEL-OME40G-CNXN-MIB'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-nnOme40G,=mibBuilder.importSymbols('NORTEL-OME40G-MIB','nnOme40G')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-nnOme40GConnections=ModuleIdentity((1,3,6,1,4,1,562,68,11,3,2))
-if mibBuilder.loadTexts:nnOme40GConnections.setRevisions(('2007-02-02 00:00','2008-02-07 00:00'))
-_NnCrossConnects_ObjectIdentity=ObjectIdentity
-nnCrossConnects=_NnCrossConnects_ObjectIdentity((1,3,6,1,4,1,562,68,11,3,2,1))
-_NnCrossConnectsTable_Object=MibTable
-nnCrossConnectsTable=_NnCrossConnectsTable_Object((1,3,6,1,4,1,562,68,11,3,2,1,1))
-if mibBuilder.loadTexts:nnCrossConnectsTable.setStatus(_A)
-_NnCrossConnectsEntry_Object=MibTableRow
-nnCrossConnectsEntry=_NnCrossConnectsEntry_Object((1,3,6,1,4,1,562,68,11,3,2,1,1,1))
-nnCrossConnectsEntry.setIndexNames((0,_C,_E),(0,_C,_F))
-if mibBuilder.loadTexts:nnCrossConnectsEntry.setStatus(_A)
-_FromIfIndex_Type=InterfaceIndex
-_FromIfIndex_Object=MibTableColumn
-fromIfIndex=_FromIfIndex_Object((1,3,6,1,4,1,562,68,11,3,2,1,1,1,1),_FromIfIndex_Type())
-fromIfIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:fromIfIndex.setStatus(_A)
-_ToIfIndex_Type=InterfaceIndex
-_ToIfIndex_Object=MibTableColumn
-toIfIndex=_ToIfIndex_Object((1,3,6,1,4,1,562,68,11,3,2,1,1,1,2),_ToIfIndex_Type())
-toIfIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:toIfIndex.setStatus(_A)
-class _PayloadIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_PayloadIndex_Type.__name__=_B
-_PayloadIndex_Object=MibTableColumn
-payloadIndex=_PayloadIndex_Object((1,3,6,1,4,1,562,68,11,3,2,1,1,1,3),_PayloadIndex_Type())
-payloadIndex.setMaxAccess('read-only')
-if mibBuilder.loadTexts:payloadIndex.setStatus(_A)
-_XcRowStatus_Type=RowStatus
-_XcRowStatus_Object=MibTableColumn
-xcRowStatus=_XcRowStatus_Object((1,3,6,1,4,1,562,68,11,3,2,1,1,1,4),_XcRowStatus_Type())
-xcRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:xcRowStatus.setStatus(_A)
-class _CrossConnectType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('one-way',1),('two-way',2)))
-_CrossConnectType_Type.__name__=_B
-_CrossConnectType_Object=MibTableColumn
-crossConnectType=_CrossConnectType_Object((1,3,6,1,4,1,562,68,11,3,2,1,1,1,5),_CrossConnectType_Type())
-crossConnectType.setMaxAccess(_D)
-if mibBuilder.loadTexts:crossConnectType.setStatus(_A)
-_CrossConnectName_Type=DisplayString
-_CrossConnectName_Object=MibTableColumn
-crossConnectName=_CrossConnectName_Object((1,3,6,1,4,1,562,68,11,3,2,1,1,1,6),_CrossConnectName_Type())
-crossConnectName.setMaxAccess(_D)
-if mibBuilder.loadTexts:crossConnectName.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'nnOme40GConnections':nnOme40GConnections,'nnCrossConnects':nnCrossConnects,'nnCrossConnectsTable':nnCrossConnectsTable,'nnCrossConnectsEntry':nnCrossConnectsEntry,_E:fromIfIndex,_F:toIfIndex,'payloadIndex':payloadIndex,'xcRowStatus':xcRowStatus,'crossConnectType':crossConnectType,'crossConnectName':crossConnectName})
+#
+# PySNMP MIB module NORTEL-OME40G-CNXN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/NORTEL-OME40G-CNXN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:22 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+nnOme40G, = mibBuilder.importSymbols("NORTEL-OME40G-MIB", "nnOme40G")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+nnOme40GConnections = ModuleIdentity((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 2))
+nnOme40GConnections.setRevisions(('2007-02-02 00:00', '2008-02-07 00:00',))
+if mibBuilder.loadTexts: nnOme40GConnections.setLastUpdated('200802070000Z')
+if mibBuilder.loadTexts: nnOme40GConnections.setOrganization('Nortel')
+nnCrossConnects = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 2, 1))
+nnCrossConnectsTable = MibTable((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 2, 1, 1), )
+if mibBuilder.loadTexts: nnCrossConnectsTable.setStatus('current')
+nnCrossConnectsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 2, 1, 1, 1), ).setIndexNames((0, "NORTEL-OME40G-CNXN-MIB", "fromIfIndex"), (0, "NORTEL-OME40G-CNXN-MIB", "toIfIndex"))
+if mibBuilder.loadTexts: nnCrossConnectsEntry.setStatus('current')
+fromIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 2, 1, 1, 1, 1), InterfaceIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fromIfIndex.setStatus('current')
+toIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 2, 1, 1, 1, 2), InterfaceIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: toIfIndex.setStatus('current')
+payloadIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 2, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: payloadIndex.setStatus('current')
+xcRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 2, 1, 1, 1, 4), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: xcRowStatus.setStatus('current')
+crossConnectType = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 2, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("one-way", 1), ("two-way", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: crossConnectType.setStatus('current')
+crossConnectName = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 2, 1, 1, 1, 6), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: crossConnectName.setStatus('current')
+mibBuilder.exportSymbols("NORTEL-OME40G-CNXN-MIB", crossConnectName=crossConnectName, toIfIndex=toIfIndex, nnCrossConnects=nnCrossConnects, fromIfIndex=fromIfIndex, xcRowStatus=xcRowStatus, crossConnectType=crossConnectType, PYSNMP_MODULE_ID=nnOme40GConnections, payloadIndex=payloadIndex, nnCrossConnectsEntry=nnCrossConnectsEntry, nnOme40GConnections=nnOme40GConnections, nnCrossConnectsTable=nnCrossConnectsTable)

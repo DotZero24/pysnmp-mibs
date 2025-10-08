@@ -1,83 +1,52 @@
-_L='ogdataNotificationsGroup'
-_K='ogDataMibGroup'
-_J='ogdataEventOccurred'
-_I='ogdataEventIndex'
-_H='ogdataEventState'
-_G='ogdataEventDevice'
-_F='ogdataEventSeconds'
-_E='ogdataEventBytes'
-_D='Integer32'
-_C='read-only'
-_B='current'
-_A='OG-DATA-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ogMgmt,=mibBuilder.importSymbols('OG-SMI-MIB','ogMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ogDataMib=ModuleIdentity((1,3,6,1,4,1,25049,10,17))
-if mibBuilder.loadTexts:ogDataMib.setRevisions(('2013-08-11 00:00','2011-01-30 21:10'))
-_OgDataMibNotificationPrefix_ObjectIdentity=ObjectIdentity
-ogDataMibNotificationPrefix=_OgDataMibNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,25049,10,17,2))
-_OgdataMibNotifications_ObjectIdentity=ObjectIdentity
-ogdataMibNotifications=_OgdataMibNotifications_ObjectIdentity((1,3,6,1,4,1,25049,10,17,2,0))
-_OgDataMibConformance_ObjectIdentity=ObjectIdentity
-ogDataMibConformance=_OgDataMibConformance_ObjectIdentity((1,3,6,1,4,1,25049,10,17,3))
-_OgDataMibCompliances_ObjectIdentity=ObjectIdentity
-ogDataMibCompliances=_OgDataMibCompliances_ObjectIdentity((1,3,6,1,4,1,25049,10,17,3,1))
-_OgDataMibGroups_ObjectIdentity=ObjectIdentity
-ogDataMibGroups=_OgDataMibGroups_ObjectIdentity((1,3,6,1,4,1,25049,10,17,3,2))
-_OgDataMibObjects_ObjectIdentity=ObjectIdentity
-ogDataMibObjects=_OgDataMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,10,17,10))
-_OgdataEvent_ObjectIdentity=ObjectIdentity
-ogdataEvent=_OgdataEvent_ObjectIdentity((1,3,6,1,4,1,25049,10,17,10,1))
-_OgdataEventTable_Object=MibTable
-ogdataEventTable=_OgdataEventTable_Object((1,3,6,1,4,1,25049,10,17,10,1,1))
-if mibBuilder.loadTexts:ogdataEventTable.setStatus(_B)
-_OgdataEventEntry_Object=MibTableRow
-ogdataEventEntry=_OgdataEventEntry_Object((1,3,6,1,4,1,25049,10,17,10,1,1,1))
-ogdataEventEntry.setIndexNames((0,_A,_I))
-if mibBuilder.loadTexts:ogdataEventEntry.setStatus(_B)
-class _OgdataEventIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_OgdataEventIndex_Type.__name__=_D
-_OgdataEventIndex_Object=MibTableColumn
-ogdataEventIndex=_OgdataEventIndex_Object((1,3,6,1,4,1,25049,10,17,10,1,1,1,1),_OgdataEventIndex_Type())
-ogdataEventIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:ogdataEventIndex.setStatus(_B)
-_OgdataEventBytes_Type=Integer32
-_OgdataEventBytes_Object=MibTableColumn
-ogdataEventBytes=_OgdataEventBytes_Object((1,3,6,1,4,1,25049,10,17,10,1,1,1,10),_OgdataEventBytes_Type())
-ogdataEventBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogdataEventBytes.setStatus(_B)
-_OgdataEventSeconds_Type=Integer32
-_OgdataEventSeconds_Object=MibTableColumn
-ogdataEventSeconds=_OgdataEventSeconds_Object((1,3,6,1,4,1,25049,10,17,10,1,1,1,11),_OgdataEventSeconds_Type())
-ogdataEventSeconds.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogdataEventSeconds.setStatus(_B)
-_OgdataEventDevice_Type=DisplayString
-_OgdataEventDevice_Object=MibTableColumn
-ogdataEventDevice=_OgdataEventDevice_Object((1,3,6,1,4,1,25049,10,17,10,1,1,1,12),_OgdataEventDevice_Type())
-ogdataEventDevice.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogdataEventDevice.setStatus(_B)
-class _OgdataEventState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('off',0),('on',1)))
-_OgdataEventState_Type.__name__=_D
-_OgdataEventState_Object=MibTableColumn
-ogdataEventState=_OgdataEventState_Object((1,3,6,1,4,1,25049,10,17,10,1,1,1,13),_OgdataEventState_Type())
-ogdataEventState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogdataEventState.setStatus(_B)
-ogDataMibGroup=ObjectGroup((1,3,6,1,4,1,25049,10,17,3,2,1))
-ogDataMibGroup.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:ogDataMibGroup.setStatus(_B)
-ogdataEventOccurred=NotificationType((1,3,6,1,4,1,25049,10,17,2,0,200))
-ogdataEventOccurred.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:ogdataEventOccurred.setStatus(_B)
-ogdataNotificationsGroup=NotificationGroup((1,3,6,1,4,1,25049,10,17,3,2,2))
-ogdataNotificationsGroup.setObjects((_A,_J))
-if mibBuilder.loadTexts:ogdataNotificationsGroup.setStatus(_B)
-ogDataMibCompliance=ModuleCompliance((1,3,6,1,4,1,25049,10,17,3,1,1))
-ogDataMibCompliance.setObjects(*((_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ogDataMibCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ogDataMib':ogDataMib,'ogDataMibNotificationPrefix':ogDataMibNotificationPrefix,'ogdataMibNotifications':ogdataMibNotifications,_J:ogdataEventOccurred,'ogDataMibConformance':ogDataMibConformance,'ogDataMibCompliances':ogDataMibCompliances,'ogDataMibCompliance':ogDataMibCompliance,'ogDataMibGroups':ogDataMibGroups,_K:ogDataMibGroup,_L:ogdataNotificationsGroup,'ogDataMibObjects':ogDataMibObjects,'ogdataEvent':ogdataEvent,'ogdataEventTable':ogdataEventTable,'ogdataEventEntry':ogdataEventEntry,_I:ogdataEventIndex,_E:ogdataEventBytes,_F:ogdataEventSeconds,_G:ogdataEventDevice,_H:ogdataEventState})
+#
+# PySNMP MIB module OG-DATA-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/opengear/OG-DATA-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:49 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ogMgmt, = mibBuilder.importSymbols("OG-SMI-MIB", "ogMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ogDataMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 25049, 10, 17))
+ogDataMib.setRevisions(('2013-08-11 00:00', '2011-01-30 21:10',))
+if mibBuilder.loadTexts: ogDataMib.setLastUpdated('201308110000Z')
+if mibBuilder.loadTexts: ogDataMib.setOrganization('Opengear Inc.')
+ogDataMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 10, 17, 10))
+ogdataEvent = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 10, 17, 10, 1))
+ogdataEventTable = MibTable((1, 3, 6, 1, 4, 1, 25049, 10, 17, 10, 1, 1), )
+if mibBuilder.loadTexts: ogdataEventTable.setStatus('current')
+ogdataEventEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25049, 10, 17, 10, 1, 1, 1), ).setIndexNames((0, "OG-DATA-MIB", "ogdataEventIndex"))
+if mibBuilder.loadTexts: ogdataEventEntry.setStatus('current')
+ogdataEventIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 25049, 10, 17, 10, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: ogdataEventIndex.setStatus('current')
+ogdataEventBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 25049, 10, 17, 10, 1, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogdataEventBytes.setStatus('current')
+ogdataEventSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 25049, 10, 17, 10, 1, 1, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogdataEventSeconds.setStatus('current')
+ogdataEventDevice = MibTableColumn((1, 3, 6, 1, 4, 1, 25049, 10, 17, 10, 1, 1, 1, 12), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogdataEventDevice.setStatus('current')
+ogdataEventState = MibTableColumn((1, 3, 6, 1, 4, 1, 25049, 10, 17, 10, 1, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogdataEventState.setStatus('current')
+ogDataMibNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 10, 17, 2))
+ogdataMibNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 10, 17, 2, 0))
+ogdataEventOccurred = NotificationType((1, 3, 6, 1, 4, 1, 25049, 10, 17, 2, 0, 200)).setObjects(("OG-DATA-MIB", "ogdataEventBytes"), ("OG-DATA-MIB", "ogdataEventSeconds"), ("OG-DATA-MIB", "ogdataEventDevice"), ("OG-DATA-MIB", "ogdataEventState"))
+if mibBuilder.loadTexts: ogdataEventOccurred.setStatus('current')
+ogDataMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 10, 17, 3))
+ogDataMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 10, 17, 3, 1))
+ogDataMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 10, 17, 3, 2))
+ogDataMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 25049, 10, 17, 3, 1, 1)).setObjects(("OG-DATA-MIB", "ogDataMibGroup"), ("OG-DATA-MIB", "ogdataNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ogDataMibCompliance = ogDataMibCompliance.setStatus('current')
+ogDataMibGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 25049, 10, 17, 3, 2, 1)).setObjects(("OG-DATA-MIB", "ogdataEventBytes"), ("OG-DATA-MIB", "ogdataEventSeconds"), ("OG-DATA-MIB", "ogdataEventDevice"), ("OG-DATA-MIB", "ogdataEventState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ogDataMibGroup = ogDataMibGroup.setStatus('current')
+ogdataNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 25049, 10, 17, 3, 2, 2)).setObjects(("OG-DATA-MIB", "ogdataEventOccurred"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ogdataNotificationsGroup = ogdataNotificationsGroup.setStatus('current')
+mibBuilder.exportSymbols("OG-DATA-MIB", ogdataEventState=ogdataEventState, ogDataMibCompliances=ogDataMibCompliances, ogdataEventDevice=ogdataEventDevice, ogdataEventEntry=ogdataEventEntry, ogdataNotificationsGroup=ogdataNotificationsGroup, ogdataEvent=ogdataEvent, PYSNMP_MODULE_ID=ogDataMib, ogDataMibConformance=ogDataMibConformance, ogdataEventTable=ogdataEventTable, ogDataMibGroups=ogDataMibGroups, ogDataMibGroup=ogDataMibGroup, ogdataEventIndex=ogdataEventIndex, ogDataMibObjects=ogDataMibObjects, ogDataMibCompliance=ogDataMibCompliance, ogdataEventOccurred=ogdataEventOccurred, ogdataEventSeconds=ogdataEventSeconds, ogDataMibNotificationPrefix=ogDataMibNotificationPrefix, ogdataEventBytes=ogdataEventBytes, ogDataMib=ogDataMib, ogdataMibNotifications=ogdataMibNotifications)

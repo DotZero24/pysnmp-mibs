@@ -1,392 +1,177 @@
-_J='cfprObserveObservedFsmTaskInstanceId'
-_I='cfprObserveObservedFsmStageInstanceId'
-_H='cfprObserveObservedFsmInstanceId'
-_G='cfprObserveObservedContInstanceId'
-_F='cfprObserveObservedInstanceId'
-_E='cfprObserveFilterInstanceId'
-_D='not-accessible'
-_C='CISCO-FIREPOWER-OBSERVE-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CfprManagedObjectDn,CfprManagedObjectId,ciscoFirepowerMIBObjects=mibBuilder.importSymbols('CISCO-FIREPOWER-MIB','CfprManagedObjectDn','CfprManagedObjectId','ciscoFirepowerMIBObjects')
-CfprConditionRemoteInvRslt,CfprFsmCompletion,CfprFsmFlags,CfprFsmFsmStageStatus,CfprMoMoClassId,CfprObserveObservedFsmCurrentFsm,CfprObserveObservedFsmStageName,CfprObserveObservedFsmTaskItem=mibBuilder.importSymbols('CISCO-FIREPOWER-TC-MIB','CfprConditionRemoteInvRslt','CfprFsmCompletion','CfprFsmFlags','CfprFsmFsmStageStatus','CfprMoMoClassId','CfprObserveObservedFsmCurrentFsm','CfprObserveObservedFsmStageName','CfprObserveObservedFsmTaskItem')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
-InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
-cfprObserveObjects=ModuleIdentity((1,3,6,1,4,1,9,9,826,1,57))
-_CfprObserveFilterTable_Object=MibTable
-cfprObserveFilterTable=_CfprObserveFilterTable_Object((1,3,6,1,4,1,9,9,826,1,57,1))
-if mibBuilder.loadTexts:cfprObserveFilterTable.setStatus(_A)
-_CfprObserveFilterEntry_Object=MibTableRow
-cfprObserveFilterEntry=_CfprObserveFilterEntry_Object((1,3,6,1,4,1,9,9,826,1,57,1,1))
-cfprObserveFilterEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:cfprObserveFilterEntry.setStatus(_A)
-_CfprObserveFilterInstanceId_Type=CfprManagedObjectId
-_CfprObserveFilterInstanceId_Object=MibTableColumn
-cfprObserveFilterInstanceId=_CfprObserveFilterInstanceId_Object((1,3,6,1,4,1,9,9,826,1,57,1,1,1),_CfprObserveFilterInstanceId_Type())
-cfprObserveFilterInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprObserveFilterInstanceId.setStatus(_A)
-_CfprObserveFilterDn_Type=CfprManagedObjectDn
-_CfprObserveFilterDn_Object=MibTableColumn
-cfprObserveFilterDn=_CfprObserveFilterDn_Object((1,3,6,1,4,1,9,9,826,1,57,1,1,2),_CfprObserveFilterDn_Type())
-cfprObserveFilterDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveFilterDn.setStatus(_A)
-_CfprObserveFilterRn_Type=SnmpAdminString
-_CfprObserveFilterRn_Object=MibTableColumn
-cfprObserveFilterRn=_CfprObserveFilterRn_Object((1,3,6,1,4,1,9,9,826,1,57,1,1,3),_CfprObserveFilterRn_Type())
-cfprObserveFilterRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveFilterRn.setStatus(_A)
-_CfprObserveFilterAndOperation_Type=TruthValue
-_CfprObserveFilterAndOperation_Object=MibTableColumn
-cfprObserveFilterAndOperation=_CfprObserveFilterAndOperation_Object((1,3,6,1,4,1,9,9,826,1,57,1,1,4),_CfprObserveFilterAndOperation_Type())
-cfprObserveFilterAndOperation.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveFilterAndOperation.setStatus(_A)
-_CfprObserveFilterChildClassId_Type=CfprMoMoClassId
-_CfprObserveFilterChildClassId_Object=MibTableColumn
-cfprObserveFilterChildClassId=_CfprObserveFilterChildClassId_Object((1,3,6,1,4,1,9,9,826,1,57,1,1,5),_CfprObserveFilterChildClassId_Type())
-cfprObserveFilterChildClassId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveFilterChildClassId.setStatus(_A)
-_CfprObserveFilterFilterClassId_Type=CfprMoMoClassId
-_CfprObserveFilterFilterClassId_Object=MibTableColumn
-cfprObserveFilterFilterClassId=_CfprObserveFilterFilterClassId_Object((1,3,6,1,4,1,9,9,826,1,57,1,1,6),_CfprObserveFilterFilterClassId_Type())
-cfprObserveFilterFilterClassId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveFilterFilterClassId.setStatus(_A)
-_CfprObserveFilterFilterPropId1_Type=SnmpAdminString
-_CfprObserveFilterFilterPropId1_Object=MibTableColumn
-cfprObserveFilterFilterPropId1=_CfprObserveFilterFilterPropId1_Object((1,3,6,1,4,1,9,9,826,1,57,1,1,7),_CfprObserveFilterFilterPropId1_Type())
-cfprObserveFilterFilterPropId1.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveFilterFilterPropId1.setStatus(_A)
-_CfprObserveFilterFilterPropId2_Type=SnmpAdminString
-_CfprObserveFilterFilterPropId2_Object=MibTableColumn
-cfprObserveFilterFilterPropId2=_CfprObserveFilterFilterPropId2_Object((1,3,6,1,4,1,9,9,826,1,57,1,1,8),_CfprObserveFilterFilterPropId2_Type())
-cfprObserveFilterFilterPropId2.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveFilterFilterPropId2.setStatus(_A)
-_CfprObserveFilterFilterPropId3_Type=SnmpAdminString
-_CfprObserveFilterFilterPropId3_Object=MibTableColumn
-cfprObserveFilterFilterPropId3=_CfprObserveFilterFilterPropId3_Object((1,3,6,1,4,1,9,9,826,1,57,1,1,9),_CfprObserveFilterFilterPropId3_Type())
-cfprObserveFilterFilterPropId3.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveFilterFilterPropId3.setStatus(_A)
-_CfprObserveFilterFilterPropValue1_Type=SnmpAdminString
-_CfprObserveFilterFilterPropValue1_Object=MibTableColumn
-cfprObserveFilterFilterPropValue1=_CfprObserveFilterFilterPropValue1_Object((1,3,6,1,4,1,9,9,826,1,57,1,1,10),_CfprObserveFilterFilterPropValue1_Type())
-cfprObserveFilterFilterPropValue1.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveFilterFilterPropValue1.setStatus(_A)
-_CfprObserveFilterFilterPropValue2_Type=SnmpAdminString
-_CfprObserveFilterFilterPropValue2_Object=MibTableColumn
-cfprObserveFilterFilterPropValue2=_CfprObserveFilterFilterPropValue2_Object((1,3,6,1,4,1,9,9,826,1,57,1,1,11),_CfprObserveFilterFilterPropValue2_Type())
-cfprObserveFilterFilterPropValue2.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveFilterFilterPropValue2.setStatus(_A)
-_CfprObserveFilterFilterPropValue3_Type=SnmpAdminString
-_CfprObserveFilterFilterPropValue3_Object=MibTableColumn
-cfprObserveFilterFilterPropValue3=_CfprObserveFilterFilterPropValue3_Object((1,3,6,1,4,1,9,9,826,1,57,1,1,12),_CfprObserveFilterFilterPropValue3_Type())
-cfprObserveFilterFilterPropValue3.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveFilterFilterPropValue3.setStatus(_A)
-_CfprObserveFilterHierarchical_Type=TruthValue
-_CfprObserveFilterHierarchical_Object=MibTableColumn
-cfprObserveFilterHierarchical=_CfprObserveFilterHierarchical_Object((1,3,6,1,4,1,9,9,826,1,57,1,1,13),_CfprObserveFilterHierarchical_Type())
-cfprObserveFilterHierarchical.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveFilterHierarchical.setStatus(_A)
-_CfprObserveFilterReplicateIfNoChild_Type=TruthValue
-_CfprObserveFilterReplicateIfNoChild_Object=MibTableColumn
-cfprObserveFilterReplicateIfNoChild=_CfprObserveFilterReplicateIfNoChild_Object((1,3,6,1,4,1,9,9,826,1,57,1,1,14),_CfprObserveFilterReplicateIfNoChild_Type())
-cfprObserveFilterReplicateIfNoChild.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveFilterReplicateIfNoChild.setStatus(_A)
-_CfprObserveObservedTable_Object=MibTable
-cfprObserveObservedTable=_CfprObserveObservedTable_Object((1,3,6,1,4,1,9,9,826,1,57,2))
-if mibBuilder.loadTexts:cfprObserveObservedTable.setStatus(_A)
-_CfprObserveObservedEntry_Object=MibTableRow
-cfprObserveObservedEntry=_CfprObserveObservedEntry_Object((1,3,6,1,4,1,9,9,826,1,57,2,1))
-cfprObserveObservedEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:cfprObserveObservedEntry.setStatus(_A)
-_CfprObserveObservedInstanceId_Type=CfprManagedObjectId
-_CfprObserveObservedInstanceId_Object=MibTableColumn
-cfprObserveObservedInstanceId=_CfprObserveObservedInstanceId_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,1),_CfprObserveObservedInstanceId_Type())
-cfprObserveObservedInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprObserveObservedInstanceId.setStatus(_A)
-_CfprObserveObservedDn_Type=CfprManagedObjectDn
-_CfprObserveObservedDn_Object=MibTableColumn
-cfprObserveObservedDn=_CfprObserveObservedDn_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,2),_CfprObserveObservedDn_Type())
-cfprObserveObservedDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedDn.setStatus(_A)
-_CfprObserveObservedRn_Type=SnmpAdminString
-_CfprObserveObservedRn_Object=MibTableColumn
-cfprObserveObservedRn=_CfprObserveObservedRn_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,3),_CfprObserveObservedRn_Type())
-cfprObserveObservedRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedRn.setStatus(_A)
-_CfprObserveObservedDataSrcAppType_Type=SnmpAdminString
-_CfprObserveObservedDataSrcAppType_Object=MibTableColumn
-cfprObserveObservedDataSrcAppType=_CfprObserveObservedDataSrcAppType_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,4),_CfprObserveObservedDataSrcAppType_Type())
-cfprObserveObservedDataSrcAppType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedDataSrcAppType.setStatus(_A)
-_CfprObserveObservedDataSrcSysId_Type=Gauge32
-_CfprObserveObservedDataSrcSysId_Object=MibTableColumn
-cfprObserveObservedDataSrcSysId=_CfprObserveObservedDataSrcSysId_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,5),_CfprObserveObservedDataSrcSysId_Type())
-cfprObserveObservedDataSrcSysId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedDataSrcSysId.setStatus(_A)
-_CfprObserveObservedFsmDescr_Type=SnmpAdminString
-_CfprObserveObservedFsmDescr_Object=MibTableColumn
-cfprObserveObservedFsmDescr=_CfprObserveObservedFsmDescr_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,6),_CfprObserveObservedFsmDescr_Type())
-cfprObserveObservedFsmDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmDescr.setStatus(_A)
-_CfprObserveObservedFsmPrev_Type=SnmpAdminString
-_CfprObserveObservedFsmPrev_Object=MibTableColumn
-cfprObserveObservedFsmPrev=_CfprObserveObservedFsmPrev_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,7),_CfprObserveObservedFsmPrev_Type())
-cfprObserveObservedFsmPrev.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmPrev.setStatus(_A)
-_CfprObserveObservedFsmProgr_Type=Gauge32
-_CfprObserveObservedFsmProgr_Object=MibTableColumn
-cfprObserveObservedFsmProgr=_CfprObserveObservedFsmProgr_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,8),_CfprObserveObservedFsmProgr_Type())
-cfprObserveObservedFsmProgr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmProgr.setStatus(_A)
-_CfprObserveObservedFsmRmtInvErrCode_Type=Gauge32
-_CfprObserveObservedFsmRmtInvErrCode_Object=MibTableColumn
-cfprObserveObservedFsmRmtInvErrCode=_CfprObserveObservedFsmRmtInvErrCode_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,9),_CfprObserveObservedFsmRmtInvErrCode_Type())
-cfprObserveObservedFsmRmtInvErrCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmRmtInvErrCode.setStatus(_A)
-_CfprObserveObservedFsmRmtInvErrDescr_Type=SnmpAdminString
-_CfprObserveObservedFsmRmtInvErrDescr_Object=MibTableColumn
-cfprObserveObservedFsmRmtInvErrDescr=_CfprObserveObservedFsmRmtInvErrDescr_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,10),_CfprObserveObservedFsmRmtInvErrDescr_Type())
-cfprObserveObservedFsmRmtInvErrDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmRmtInvErrDescr.setStatus(_A)
-_CfprObserveObservedFsmRmtInvRslt_Type=CfprConditionRemoteInvRslt
-_CfprObserveObservedFsmRmtInvRslt_Object=MibTableColumn
-cfprObserveObservedFsmRmtInvRslt=_CfprObserveObservedFsmRmtInvRslt_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,11),_CfprObserveObservedFsmRmtInvRslt_Type())
-cfprObserveObservedFsmRmtInvRslt.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmRmtInvRslt.setStatus(_A)
-_CfprObserveObservedFsmStageDescr_Type=SnmpAdminString
-_CfprObserveObservedFsmStageDescr_Object=MibTableColumn
-cfprObserveObservedFsmStageDescr=_CfprObserveObservedFsmStageDescr_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,12),_CfprObserveObservedFsmStageDescr_Type())
-cfprObserveObservedFsmStageDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmStageDescr.setStatus(_A)
-_CfprObserveObservedFsmStamp_Type=DateAndTime
-_CfprObserveObservedFsmStamp_Object=MibTableColumn
-cfprObserveObservedFsmStamp=_CfprObserveObservedFsmStamp_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,13),_CfprObserveObservedFsmStamp_Type())
-cfprObserveObservedFsmStamp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmStamp.setStatus(_A)
-_CfprObserveObservedFsmStatus_Type=SnmpAdminString
-_CfprObserveObservedFsmStatus_Object=MibTableColumn
-cfprObserveObservedFsmStatus=_CfprObserveObservedFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,14),_CfprObserveObservedFsmStatus_Type())
-cfprObserveObservedFsmStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmStatus.setStatus(_A)
-_CfprObserveObservedFsmTry_Type=Gauge32
-_CfprObserveObservedFsmTry_Object=MibTableColumn
-cfprObserveObservedFsmTry=_CfprObserveObservedFsmTry_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,15),_CfprObserveObservedFsmTry_Type())
-cfprObserveObservedFsmTry.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmTry.setStatus(_A)
-_CfprObserveObservedGenNum_Type=Gauge32
-_CfprObserveObservedGenNum_Object=MibTableColumn
-cfprObserveObservedGenNum=_CfprObserveObservedGenNum_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,16),_CfprObserveObservedGenNum_Type())
-cfprObserveObservedGenNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedGenNum.setStatus(_A)
-_CfprObserveObservedHierarchical_Type=TruthValue
-_CfprObserveObservedHierarchical_Object=MibTableColumn
-cfprObserveObservedHierarchical=_CfprObserveObservedHierarchical_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,17),_CfprObserveObservedHierarchical_Type())
-cfprObserveObservedHierarchical.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedHierarchical.setStatus(_A)
-_CfprObserveObservedId_Type=Gauge32
-_CfprObserveObservedId_Object=MibTableColumn
-cfprObserveObservedId=_CfprObserveObservedId_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,18),_CfprObserveObservedId_Type())
-cfprObserveObservedId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedId.setStatus(_A)
-_CfprObserveObservedIsDeleted_Type=TruthValue
-_CfprObserveObservedIsDeleted_Object=MibTableColumn
-cfprObserveObservedIsDeleted=_CfprObserveObservedIsDeleted_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,19),_CfprObserveObservedIsDeleted_Type())
-cfprObserveObservedIsDeleted.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedIsDeleted.setStatus(_A)
-_CfprObserveObservedObservedDn_Type=SnmpAdminString
-_CfprObserveObservedObservedDn_Object=MibTableColumn
-cfprObserveObservedObservedDn=_CfprObserveObservedObservedDn_Object((1,3,6,1,4,1,9,9,826,1,57,2,1,20),_CfprObserveObservedObservedDn_Type())
-cfprObserveObservedObservedDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedObservedDn.setStatus(_A)
-_CfprObserveObservedContTable_Object=MibTable
-cfprObserveObservedContTable=_CfprObserveObservedContTable_Object((1,3,6,1,4,1,9,9,826,1,57,3))
-if mibBuilder.loadTexts:cfprObserveObservedContTable.setStatus(_A)
-_CfprObserveObservedContEntry_Object=MibTableRow
-cfprObserveObservedContEntry=_CfprObserveObservedContEntry_Object((1,3,6,1,4,1,9,9,826,1,57,3,1))
-cfprObserveObservedContEntry.setIndexNames((0,_C,_G))
-if mibBuilder.loadTexts:cfprObserveObservedContEntry.setStatus(_A)
-_CfprObserveObservedContInstanceId_Type=CfprManagedObjectId
-_CfprObserveObservedContInstanceId_Object=MibTableColumn
-cfprObserveObservedContInstanceId=_CfprObserveObservedContInstanceId_Object((1,3,6,1,4,1,9,9,826,1,57,3,1,1),_CfprObserveObservedContInstanceId_Type())
-cfprObserveObservedContInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprObserveObservedContInstanceId.setStatus(_A)
-_CfprObserveObservedContDn_Type=CfprManagedObjectDn
-_CfprObserveObservedContDn_Object=MibTableColumn
-cfprObserveObservedContDn=_CfprObserveObservedContDn_Object((1,3,6,1,4,1,9,9,826,1,57,3,1,2),_CfprObserveObservedContDn_Type())
-cfprObserveObservedContDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedContDn.setStatus(_A)
-_CfprObserveObservedContRn_Type=SnmpAdminString
-_CfprObserveObservedContRn_Object=MibTableColumn
-cfprObserveObservedContRn=_CfprObserveObservedContRn_Object((1,3,6,1,4,1,9,9,826,1,57,3,1,3),_CfprObserveObservedContRn_Type())
-cfprObserveObservedContRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedContRn.setStatus(_A)
-_CfprObserveObservedContIdCount_Type=Gauge32
-_CfprObserveObservedContIdCount_Object=MibTableColumn
-cfprObserveObservedContIdCount=_CfprObserveObservedContIdCount_Object((1,3,6,1,4,1,9,9,826,1,57,3,1,4),_CfprObserveObservedContIdCount_Type())
-cfprObserveObservedContIdCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedContIdCount.setStatus(_A)
-_CfprObserveObservedFsmTable_Object=MibTable
-cfprObserveObservedFsmTable=_CfprObserveObservedFsmTable_Object((1,3,6,1,4,1,9,9,826,1,57,4))
-if mibBuilder.loadTexts:cfprObserveObservedFsmTable.setStatus(_A)
-_CfprObserveObservedFsmEntry_Object=MibTableRow
-cfprObserveObservedFsmEntry=_CfprObserveObservedFsmEntry_Object((1,3,6,1,4,1,9,9,826,1,57,4,1))
-cfprObserveObservedFsmEntry.setIndexNames((0,_C,_H))
-if mibBuilder.loadTexts:cfprObserveObservedFsmEntry.setStatus(_A)
-_CfprObserveObservedFsmInstanceId_Type=CfprManagedObjectId
-_CfprObserveObservedFsmInstanceId_Object=MibTableColumn
-cfprObserveObservedFsmInstanceId=_CfprObserveObservedFsmInstanceId_Object((1,3,6,1,4,1,9,9,826,1,57,4,1,1),_CfprObserveObservedFsmInstanceId_Type())
-cfprObserveObservedFsmInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprObserveObservedFsmInstanceId.setStatus(_A)
-_CfprObserveObservedFsmDn_Type=CfprManagedObjectDn
-_CfprObserveObservedFsmDn_Object=MibTableColumn
-cfprObserveObservedFsmDn=_CfprObserveObservedFsmDn_Object((1,3,6,1,4,1,9,9,826,1,57,4,1,2),_CfprObserveObservedFsmDn_Type())
-cfprObserveObservedFsmDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmDn.setStatus(_A)
-_CfprObserveObservedFsmRn_Type=SnmpAdminString
-_CfprObserveObservedFsmRn_Object=MibTableColumn
-cfprObserveObservedFsmRn=_CfprObserveObservedFsmRn_Object((1,3,6,1,4,1,9,9,826,1,57,4,1,3),_CfprObserveObservedFsmRn_Type())
-cfprObserveObservedFsmRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmRn.setStatus(_A)
-_CfprObserveObservedFsmCompletionTime_Type=DateAndTime
-_CfprObserveObservedFsmCompletionTime_Object=MibTableColumn
-cfprObserveObservedFsmCompletionTime=_CfprObserveObservedFsmCompletionTime_Object((1,3,6,1,4,1,9,9,826,1,57,4,1,4),_CfprObserveObservedFsmCompletionTime_Type())
-cfprObserveObservedFsmCompletionTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmCompletionTime.setStatus(_A)
-_CfprObserveObservedFsmCurrentFsm_Type=CfprObserveObservedFsmCurrentFsm
-_CfprObserveObservedFsmCurrentFsm_Object=MibTableColumn
-cfprObserveObservedFsmCurrentFsm=_CfprObserveObservedFsmCurrentFsm_Object((1,3,6,1,4,1,9,9,826,1,57,4,1,5),_CfprObserveObservedFsmCurrentFsm_Type())
-cfprObserveObservedFsmCurrentFsm.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmCurrentFsm.setStatus(_A)
-_CfprObserveObservedFsmDescrData_Type=SnmpAdminString
-_CfprObserveObservedFsmDescrData_Object=MibTableColumn
-cfprObserveObservedFsmDescrData=_CfprObserveObservedFsmDescrData_Object((1,3,6,1,4,1,9,9,826,1,57,4,1,6),_CfprObserveObservedFsmDescrData_Type())
-cfprObserveObservedFsmDescrData.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmDescrData.setStatus(_A)
-_CfprObserveObservedFsmFsmStatus_Type=CfprFsmFsmStageStatus
-_CfprObserveObservedFsmFsmStatus_Object=MibTableColumn
-cfprObserveObservedFsmFsmStatus=_CfprObserveObservedFsmFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,57,4,1,7),_CfprObserveObservedFsmFsmStatus_Type())
-cfprObserveObservedFsmFsmStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmFsmStatus.setStatus(_A)
-_CfprObserveObservedFsmProgress_Type=Gauge32
-_CfprObserveObservedFsmProgress_Object=MibTableColumn
-cfprObserveObservedFsmProgress=_CfprObserveObservedFsmProgress_Object((1,3,6,1,4,1,9,9,826,1,57,4,1,8),_CfprObserveObservedFsmProgress_Type())
-cfprObserveObservedFsmProgress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmProgress.setStatus(_A)
-_CfprObserveObservedFsmRmtErrCode_Type=Gauge32
-_CfprObserveObservedFsmRmtErrCode_Object=MibTableColumn
-cfprObserveObservedFsmRmtErrCode=_CfprObserveObservedFsmRmtErrCode_Object((1,3,6,1,4,1,9,9,826,1,57,4,1,9),_CfprObserveObservedFsmRmtErrCode_Type())
-cfprObserveObservedFsmRmtErrCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmRmtErrCode.setStatus(_A)
-_CfprObserveObservedFsmRmtErrDescr_Type=SnmpAdminString
-_CfprObserveObservedFsmRmtErrDescr_Object=MibTableColumn
-cfprObserveObservedFsmRmtErrDescr=_CfprObserveObservedFsmRmtErrDescr_Object((1,3,6,1,4,1,9,9,826,1,57,4,1,10),_CfprObserveObservedFsmRmtErrDescr_Type())
-cfprObserveObservedFsmRmtErrDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmRmtErrDescr.setStatus(_A)
-_CfprObserveObservedFsmRmtRslt_Type=CfprConditionRemoteInvRslt
-_CfprObserveObservedFsmRmtRslt_Object=MibTableColumn
-cfprObserveObservedFsmRmtRslt=_CfprObserveObservedFsmRmtRslt_Object((1,3,6,1,4,1,9,9,826,1,57,4,1,11),_CfprObserveObservedFsmRmtRslt_Type())
-cfprObserveObservedFsmRmtRslt.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmRmtRslt.setStatus(_A)
-_CfprObserveObservedFsmStageTable_Object=MibTable
-cfprObserveObservedFsmStageTable=_CfprObserveObservedFsmStageTable_Object((1,3,6,1,4,1,9,9,826,1,57,5))
-if mibBuilder.loadTexts:cfprObserveObservedFsmStageTable.setStatus(_A)
-_CfprObserveObservedFsmStageEntry_Object=MibTableRow
-cfprObserveObservedFsmStageEntry=_CfprObserveObservedFsmStageEntry_Object((1,3,6,1,4,1,9,9,826,1,57,5,1))
-cfprObserveObservedFsmStageEntry.setIndexNames((0,_C,_I))
-if mibBuilder.loadTexts:cfprObserveObservedFsmStageEntry.setStatus(_A)
-_CfprObserveObservedFsmStageInstanceId_Type=CfprManagedObjectId
-_CfprObserveObservedFsmStageInstanceId_Object=MibTableColumn
-cfprObserveObservedFsmStageInstanceId=_CfprObserveObservedFsmStageInstanceId_Object((1,3,6,1,4,1,9,9,826,1,57,5,1,1),_CfprObserveObservedFsmStageInstanceId_Type())
-cfprObserveObservedFsmStageInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprObserveObservedFsmStageInstanceId.setStatus(_A)
-_CfprObserveObservedFsmStageDn_Type=CfprManagedObjectDn
-_CfprObserveObservedFsmStageDn_Object=MibTableColumn
-cfprObserveObservedFsmStageDn=_CfprObserveObservedFsmStageDn_Object((1,3,6,1,4,1,9,9,826,1,57,5,1,2),_CfprObserveObservedFsmStageDn_Type())
-cfprObserveObservedFsmStageDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmStageDn.setStatus(_A)
-_CfprObserveObservedFsmStageRn_Type=SnmpAdminString
-_CfprObserveObservedFsmStageRn_Object=MibTableColumn
-cfprObserveObservedFsmStageRn=_CfprObserveObservedFsmStageRn_Object((1,3,6,1,4,1,9,9,826,1,57,5,1,3),_CfprObserveObservedFsmStageRn_Type())
-cfprObserveObservedFsmStageRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmStageRn.setStatus(_A)
-_CfprObserveObservedFsmStageDescrData_Type=SnmpAdminString
-_CfprObserveObservedFsmStageDescrData_Object=MibTableColumn
-cfprObserveObservedFsmStageDescrData=_CfprObserveObservedFsmStageDescrData_Object((1,3,6,1,4,1,9,9,826,1,57,5,1,4),_CfprObserveObservedFsmStageDescrData_Type())
-cfprObserveObservedFsmStageDescrData.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmStageDescrData.setStatus(_A)
-_CfprObserveObservedFsmStageLastUpdateTime_Type=DateAndTime
-_CfprObserveObservedFsmStageLastUpdateTime_Object=MibTableColumn
-cfprObserveObservedFsmStageLastUpdateTime=_CfprObserveObservedFsmStageLastUpdateTime_Object((1,3,6,1,4,1,9,9,826,1,57,5,1,5),_CfprObserveObservedFsmStageLastUpdateTime_Type())
-cfprObserveObservedFsmStageLastUpdateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmStageLastUpdateTime.setStatus(_A)
-_CfprObserveObservedFsmStageName_Type=CfprObserveObservedFsmStageName
-_CfprObserveObservedFsmStageName_Object=MibTableColumn
-cfprObserveObservedFsmStageName=_CfprObserveObservedFsmStageName_Object((1,3,6,1,4,1,9,9,826,1,57,5,1,6),_CfprObserveObservedFsmStageName_Type())
-cfprObserveObservedFsmStageName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmStageName.setStatus(_A)
-_CfprObserveObservedFsmStageOrder_Type=Gauge32
-_CfprObserveObservedFsmStageOrder_Object=MibTableColumn
-cfprObserveObservedFsmStageOrder=_CfprObserveObservedFsmStageOrder_Object((1,3,6,1,4,1,9,9,826,1,57,5,1,7),_CfprObserveObservedFsmStageOrder_Type())
-cfprObserveObservedFsmStageOrder.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmStageOrder.setStatus(_A)
-_CfprObserveObservedFsmStageRetry_Type=Gauge32
-_CfprObserveObservedFsmStageRetry_Object=MibTableColumn
-cfprObserveObservedFsmStageRetry=_CfprObserveObservedFsmStageRetry_Object((1,3,6,1,4,1,9,9,826,1,57,5,1,8),_CfprObserveObservedFsmStageRetry_Type())
-cfprObserveObservedFsmStageRetry.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmStageRetry.setStatus(_A)
-_CfprObserveObservedFsmStageStageStatus_Type=CfprFsmFsmStageStatus
-_CfprObserveObservedFsmStageStageStatus_Object=MibTableColumn
-cfprObserveObservedFsmStageStageStatus=_CfprObserveObservedFsmStageStageStatus_Object((1,3,6,1,4,1,9,9,826,1,57,5,1,9),_CfprObserveObservedFsmStageStageStatus_Type())
-cfprObserveObservedFsmStageStageStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmStageStageStatus.setStatus(_A)
-_CfprObserveObservedFsmTaskTable_Object=MibTable
-cfprObserveObservedFsmTaskTable=_CfprObserveObservedFsmTaskTable_Object((1,3,6,1,4,1,9,9,826,1,57,6))
-if mibBuilder.loadTexts:cfprObserveObservedFsmTaskTable.setStatus(_A)
-_CfprObserveObservedFsmTaskEntry_Object=MibTableRow
-cfprObserveObservedFsmTaskEntry=_CfprObserveObservedFsmTaskEntry_Object((1,3,6,1,4,1,9,9,826,1,57,6,1))
-cfprObserveObservedFsmTaskEntry.setIndexNames((0,_C,_J))
-if mibBuilder.loadTexts:cfprObserveObservedFsmTaskEntry.setStatus(_A)
-_CfprObserveObservedFsmTaskInstanceId_Type=CfprManagedObjectId
-_CfprObserveObservedFsmTaskInstanceId_Object=MibTableColumn
-cfprObserveObservedFsmTaskInstanceId=_CfprObserveObservedFsmTaskInstanceId_Object((1,3,6,1,4,1,9,9,826,1,57,6,1,1),_CfprObserveObservedFsmTaskInstanceId_Type())
-cfprObserveObservedFsmTaskInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprObserveObservedFsmTaskInstanceId.setStatus(_A)
-_CfprObserveObservedFsmTaskDn_Type=CfprManagedObjectDn
-_CfprObserveObservedFsmTaskDn_Object=MibTableColumn
-cfprObserveObservedFsmTaskDn=_CfprObserveObservedFsmTaskDn_Object((1,3,6,1,4,1,9,9,826,1,57,6,1,2),_CfprObserveObservedFsmTaskDn_Type())
-cfprObserveObservedFsmTaskDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmTaskDn.setStatus(_A)
-_CfprObserveObservedFsmTaskRn_Type=SnmpAdminString
-_CfprObserveObservedFsmTaskRn_Object=MibTableColumn
-cfprObserveObservedFsmTaskRn=_CfprObserveObservedFsmTaskRn_Object((1,3,6,1,4,1,9,9,826,1,57,6,1,3),_CfprObserveObservedFsmTaskRn_Type())
-cfprObserveObservedFsmTaskRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmTaskRn.setStatus(_A)
-_CfprObserveObservedFsmTaskCompletion_Type=CfprFsmCompletion
-_CfprObserveObservedFsmTaskCompletion_Object=MibTableColumn
-cfprObserveObservedFsmTaskCompletion=_CfprObserveObservedFsmTaskCompletion_Object((1,3,6,1,4,1,9,9,826,1,57,6,1,4),_CfprObserveObservedFsmTaskCompletion_Type())
-cfprObserveObservedFsmTaskCompletion.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmTaskCompletion.setStatus(_A)
-_CfprObserveObservedFsmTaskFlags_Type=CfprFsmFlags
-_CfprObserveObservedFsmTaskFlags_Object=MibTableColumn
-cfprObserveObservedFsmTaskFlags=_CfprObserveObservedFsmTaskFlags_Object((1,3,6,1,4,1,9,9,826,1,57,6,1,5),_CfprObserveObservedFsmTaskFlags_Type())
-cfprObserveObservedFsmTaskFlags.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmTaskFlags.setStatus(_A)
-_CfprObserveObservedFsmTaskItem_Type=CfprObserveObservedFsmTaskItem
-_CfprObserveObservedFsmTaskItem_Object=MibTableColumn
-cfprObserveObservedFsmTaskItem=_CfprObserveObservedFsmTaskItem_Object((1,3,6,1,4,1,9,9,826,1,57,6,1,6),_CfprObserveObservedFsmTaskItem_Type())
-cfprObserveObservedFsmTaskItem.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmTaskItem.setStatus(_A)
-_CfprObserveObservedFsmTaskSeqId_Type=Gauge32
-_CfprObserveObservedFsmTaskSeqId_Object=MibTableColumn
-cfprObserveObservedFsmTaskSeqId=_CfprObserveObservedFsmTaskSeqId_Object((1,3,6,1,4,1,9,9,826,1,57,6,1,7),_CfprObserveObservedFsmTaskSeqId_Type())
-cfprObserveObservedFsmTaskSeqId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprObserveObservedFsmTaskSeqId.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'cfprObserveObjects':cfprObserveObjects,'cfprObserveFilterTable':cfprObserveFilterTable,'cfprObserveFilterEntry':cfprObserveFilterEntry,_E:cfprObserveFilterInstanceId,'cfprObserveFilterDn':cfprObserveFilterDn,'cfprObserveFilterRn':cfprObserveFilterRn,'cfprObserveFilterAndOperation':cfprObserveFilterAndOperation,'cfprObserveFilterChildClassId':cfprObserveFilterChildClassId,'cfprObserveFilterFilterClassId':cfprObserveFilterFilterClassId,'cfprObserveFilterFilterPropId1':cfprObserveFilterFilterPropId1,'cfprObserveFilterFilterPropId2':cfprObserveFilterFilterPropId2,'cfprObserveFilterFilterPropId3':cfprObserveFilterFilterPropId3,'cfprObserveFilterFilterPropValue1':cfprObserveFilterFilterPropValue1,'cfprObserveFilterFilterPropValue2':cfprObserveFilterFilterPropValue2,'cfprObserveFilterFilterPropValue3':cfprObserveFilterFilterPropValue3,'cfprObserveFilterHierarchical':cfprObserveFilterHierarchical,'cfprObserveFilterReplicateIfNoChild':cfprObserveFilterReplicateIfNoChild,'cfprObserveObservedTable':cfprObserveObservedTable,'cfprObserveObservedEntry':cfprObserveObservedEntry,_F:cfprObserveObservedInstanceId,'cfprObserveObservedDn':cfprObserveObservedDn,'cfprObserveObservedRn':cfprObserveObservedRn,'cfprObserveObservedDataSrcAppType':cfprObserveObservedDataSrcAppType,'cfprObserveObservedDataSrcSysId':cfprObserveObservedDataSrcSysId,'cfprObserveObservedFsmDescr':cfprObserveObservedFsmDescr,'cfprObserveObservedFsmPrev':cfprObserveObservedFsmPrev,'cfprObserveObservedFsmProgr':cfprObserveObservedFsmProgr,'cfprObserveObservedFsmRmtInvErrCode':cfprObserveObservedFsmRmtInvErrCode,'cfprObserveObservedFsmRmtInvErrDescr':cfprObserveObservedFsmRmtInvErrDescr,'cfprObserveObservedFsmRmtInvRslt':cfprObserveObservedFsmRmtInvRslt,'cfprObserveObservedFsmStageDescr':cfprObserveObservedFsmStageDescr,'cfprObserveObservedFsmStamp':cfprObserveObservedFsmStamp,'cfprObserveObservedFsmStatus':cfprObserveObservedFsmStatus,'cfprObserveObservedFsmTry':cfprObserveObservedFsmTry,'cfprObserveObservedGenNum':cfprObserveObservedGenNum,'cfprObserveObservedHierarchical':cfprObserveObservedHierarchical,'cfprObserveObservedId':cfprObserveObservedId,'cfprObserveObservedIsDeleted':cfprObserveObservedIsDeleted,'cfprObserveObservedObservedDn':cfprObserveObservedObservedDn,'cfprObserveObservedContTable':cfprObserveObservedContTable,'cfprObserveObservedContEntry':cfprObserveObservedContEntry,_G:cfprObserveObservedContInstanceId,'cfprObserveObservedContDn':cfprObserveObservedContDn,'cfprObserveObservedContRn':cfprObserveObservedContRn,'cfprObserveObservedContIdCount':cfprObserveObservedContIdCount,'cfprObserveObservedFsmTable':cfprObserveObservedFsmTable,'cfprObserveObservedFsmEntry':cfprObserveObservedFsmEntry,_H:cfprObserveObservedFsmInstanceId,'cfprObserveObservedFsmDn':cfprObserveObservedFsmDn,'cfprObserveObservedFsmRn':cfprObserveObservedFsmRn,'cfprObserveObservedFsmCompletionTime':cfprObserveObservedFsmCompletionTime,'cfprObserveObservedFsmCurrentFsm':cfprObserveObservedFsmCurrentFsm,'cfprObserveObservedFsmDescrData':cfprObserveObservedFsmDescrData,'cfprObserveObservedFsmFsmStatus':cfprObserveObservedFsmFsmStatus,'cfprObserveObservedFsmProgress':cfprObserveObservedFsmProgress,'cfprObserveObservedFsmRmtErrCode':cfprObserveObservedFsmRmtErrCode,'cfprObserveObservedFsmRmtErrDescr':cfprObserveObservedFsmRmtErrDescr,'cfprObserveObservedFsmRmtRslt':cfprObserveObservedFsmRmtRslt,'cfprObserveObservedFsmStageTable':cfprObserveObservedFsmStageTable,'cfprObserveObservedFsmStageEntry':cfprObserveObservedFsmStageEntry,_I:cfprObserveObservedFsmStageInstanceId,'cfprObserveObservedFsmStageDn':cfprObserveObservedFsmStageDn,'cfprObserveObservedFsmStageRn':cfprObserveObservedFsmStageRn,'cfprObserveObservedFsmStageDescrData':cfprObserveObservedFsmStageDescrData,'cfprObserveObservedFsmStageLastUpdateTime':cfprObserveObservedFsmStageLastUpdateTime,'cfprObserveObservedFsmStageName':cfprObserveObservedFsmStageName,'cfprObserveObservedFsmStageOrder':cfprObserveObservedFsmStageOrder,'cfprObserveObservedFsmStageRetry':cfprObserveObservedFsmStageRetry,'cfprObserveObservedFsmStageStageStatus':cfprObserveObservedFsmStageStageStatus,'cfprObserveObservedFsmTaskTable':cfprObserveObservedFsmTaskTable,'cfprObserveObservedFsmTaskEntry':cfprObserveObservedFsmTaskEntry,_J:cfprObserveObservedFsmTaskInstanceId,'cfprObserveObservedFsmTaskDn':cfprObserveObservedFsmTaskDn,'cfprObserveObservedFsmTaskRn':cfprObserveObservedFsmTaskRn,'cfprObserveObservedFsmTaskCompletion':cfprObserveObservedFsmTaskCompletion,'cfprObserveObservedFsmTaskFlags':cfprObserveObservedFsmTaskFlags,'cfprObserveObservedFsmTaskItem':cfprObserveObservedFsmTaskItem,'cfprObserveObservedFsmTaskSeqId':cfprObserveObservedFsmTaskSeqId})
+#
+# PySNMP MIB module CISCO-FIREPOWER-OBSERVE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-FIREPOWER-OBSERVE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoFirepowerMIBObjects, CfprManagedObjectId, CfprManagedObjectDn = mibBuilder.importSymbols("CISCO-FIREPOWER-MIB", "ciscoFirepowerMIBObjects", "CfprManagedObjectId", "CfprManagedObjectDn")
+CfprObserveObservedFsmTaskItem, CfprConditionRemoteInvRslt, CfprFsmFlags, CfprFsmCompletion, CfprObserveObservedFsmStageName, CfprMoMoClassId, CfprObserveObservedFsmCurrentFsm, CfprFsmFsmStageStatus = mibBuilder.importSymbols("CISCO-FIREPOWER-TC-MIB", "CfprObserveObservedFsmTaskItem", "CfprConditionRemoteInvRslt", "CfprFsmFlags", "CfprFsmCompletion", "CfprObserveObservedFsmStageName", "CfprMoMoClassId", "CfprObserveObservedFsmCurrentFsm", "CfprFsmFsmStageStatus")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+Unsigned64, CiscoAlarmSeverity, CiscoInetAddressMask, TimeIntervalSec, CiscoNetworkAddress = mibBuilder.importSymbols("CISCO-TC", "Unsigned64", "CiscoAlarmSeverity", "CiscoInetAddressMask", "TimeIntervalSec", "CiscoNetworkAddress")
+InetAddressIPv6, InetAddressIPv4 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6", "InetAddressIPv4")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, TruthValue, DateAndTime, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "TruthValue", "DateAndTime", "RowPointer", "TextualConvention")
+cfprObserveObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57))
+if mibBuilder.loadTexts: cfprObserveObjects.setLastUpdated('202003100000Z')
+if mibBuilder.loadTexts: cfprObserveObjects.setOrganization('Cisco Systems Inc.')
+cfprObserveFilterTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1), )
+if mibBuilder.loadTexts: cfprObserveFilterTable.setStatus('current')
+cfprObserveFilterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1, 1), ).setIndexNames((0, "CISCO-FIREPOWER-OBSERVE-MIB", "cfprObserveFilterInstanceId"))
+if mibBuilder.loadTexts: cfprObserveFilterEntry.setStatus('current')
+cfprObserveFilterInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprObserveFilterInstanceId.setStatus('current')
+cfprObserveFilterDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveFilterDn.setStatus('current')
+cfprObserveFilterRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveFilterRn.setStatus('current')
+cfprObserveFilterAndOperation = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveFilterAndOperation.setStatus('current')
+cfprObserveFilterChildClassId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1, 1, 5), CfprMoMoClassId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveFilterChildClassId.setStatus('current')
+cfprObserveFilterFilterClassId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1, 1, 6), CfprMoMoClassId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveFilterFilterClassId.setStatus('current')
+cfprObserveFilterFilterPropId1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveFilterFilterPropId1.setStatus('current')
+cfprObserveFilterFilterPropId2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveFilterFilterPropId2.setStatus('current')
+cfprObserveFilterFilterPropId3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveFilterFilterPropId3.setStatus('current')
+cfprObserveFilterFilterPropValue1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveFilterFilterPropValue1.setStatus('current')
+cfprObserveFilterFilterPropValue2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveFilterFilterPropValue2.setStatus('current')
+cfprObserveFilterFilterPropValue3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveFilterFilterPropValue3.setStatus('current')
+cfprObserveFilterHierarchical = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1, 1, 13), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveFilterHierarchical.setStatus('current')
+cfprObserveFilterReplicateIfNoChild = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 1, 1, 14), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveFilterReplicateIfNoChild.setStatus('current')
+cfprObserveObservedTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2), )
+if mibBuilder.loadTexts: cfprObserveObservedTable.setStatus('current')
+cfprObserveObservedEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1), ).setIndexNames((0, "CISCO-FIREPOWER-OBSERVE-MIB", "cfprObserveObservedInstanceId"))
+if mibBuilder.loadTexts: cfprObserveObservedEntry.setStatus('current')
+cfprObserveObservedInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprObserveObservedInstanceId.setStatus('current')
+cfprObserveObservedDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedDn.setStatus('current')
+cfprObserveObservedRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedRn.setStatus('current')
+cfprObserveObservedDataSrcAppType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedDataSrcAppType.setStatus('current')
+cfprObserveObservedDataSrcSysId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedDataSrcSysId.setStatus('current')
+cfprObserveObservedFsmDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmDescr.setStatus('current')
+cfprObserveObservedFsmPrev = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmPrev.setStatus('current')
+cfprObserveObservedFsmProgr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmProgr.setStatus('current')
+cfprObserveObservedFsmRmtInvErrCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmRmtInvErrCode.setStatus('current')
+cfprObserveObservedFsmRmtInvErrDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmRmtInvErrDescr.setStatus('current')
+cfprObserveObservedFsmRmtInvRslt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 11), CfprConditionRemoteInvRslt()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmRmtInvRslt.setStatus('current')
+cfprObserveObservedFsmStageDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmStageDescr.setStatus('current')
+cfprObserveObservedFsmStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 13), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmStamp.setStatus('current')
+cfprObserveObservedFsmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 14), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmStatus.setStatus('current')
+cfprObserveObservedFsmTry = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 15), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmTry.setStatus('current')
+cfprObserveObservedGenNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 16), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedGenNum.setStatus('current')
+cfprObserveObservedHierarchical = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 17), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedHierarchical.setStatus('current')
+cfprObserveObservedId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 18), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedId.setStatus('current')
+cfprObserveObservedIsDeleted = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 19), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedIsDeleted.setStatus('current')
+cfprObserveObservedObservedDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 2, 1, 20), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedObservedDn.setStatus('current')
+cfprObserveObservedContTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 3), )
+if mibBuilder.loadTexts: cfprObserveObservedContTable.setStatus('current')
+cfprObserveObservedContEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 3, 1), ).setIndexNames((0, "CISCO-FIREPOWER-OBSERVE-MIB", "cfprObserveObservedContInstanceId"))
+if mibBuilder.loadTexts: cfprObserveObservedContEntry.setStatus('current')
+cfprObserveObservedContInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 3, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprObserveObservedContInstanceId.setStatus('current')
+cfprObserveObservedContDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 3, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedContDn.setStatus('current')
+cfprObserveObservedContRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 3, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedContRn.setStatus('current')
+cfprObserveObservedContIdCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 3, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedContIdCount.setStatus('current')
+cfprObserveObservedFsmTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 4), )
+if mibBuilder.loadTexts: cfprObserveObservedFsmTable.setStatus('current')
+cfprObserveObservedFsmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 4, 1), ).setIndexNames((0, "CISCO-FIREPOWER-OBSERVE-MIB", "cfprObserveObservedFsmInstanceId"))
+if mibBuilder.loadTexts: cfprObserveObservedFsmEntry.setStatus('current')
+cfprObserveObservedFsmInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 4, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprObserveObservedFsmInstanceId.setStatus('current')
+cfprObserveObservedFsmDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 4, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmDn.setStatus('current')
+cfprObserveObservedFsmRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 4, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmRn.setStatus('current')
+cfprObserveObservedFsmCompletionTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 4, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmCompletionTime.setStatus('current')
+cfprObserveObservedFsmCurrentFsm = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 4, 1, 5), CfprObserveObservedFsmCurrentFsm()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmCurrentFsm.setStatus('current')
+cfprObserveObservedFsmDescrData = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 4, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmDescrData.setStatus('current')
+cfprObserveObservedFsmFsmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 4, 1, 7), CfprFsmFsmStageStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmFsmStatus.setStatus('current')
+cfprObserveObservedFsmProgress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 4, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmProgress.setStatus('current')
+cfprObserveObservedFsmRmtErrCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 4, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmRmtErrCode.setStatus('current')
+cfprObserveObservedFsmRmtErrDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 4, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmRmtErrDescr.setStatus('current')
+cfprObserveObservedFsmRmtRslt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 4, 1, 11), CfprConditionRemoteInvRslt()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmRmtRslt.setStatus('current')
+cfprObserveObservedFsmStageTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 5), )
+if mibBuilder.loadTexts: cfprObserveObservedFsmStageTable.setStatus('current')
+cfprObserveObservedFsmStageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 5, 1), ).setIndexNames((0, "CISCO-FIREPOWER-OBSERVE-MIB", "cfprObserveObservedFsmStageInstanceId"))
+if mibBuilder.loadTexts: cfprObserveObservedFsmStageEntry.setStatus('current')
+cfprObserveObservedFsmStageInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 5, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprObserveObservedFsmStageInstanceId.setStatus('current')
+cfprObserveObservedFsmStageDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 5, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmStageDn.setStatus('current')
+cfprObserveObservedFsmStageRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 5, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmStageRn.setStatus('current')
+cfprObserveObservedFsmStageDescrData = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 5, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmStageDescrData.setStatus('current')
+cfprObserveObservedFsmStageLastUpdateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 5, 1, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmStageLastUpdateTime.setStatus('current')
+cfprObserveObservedFsmStageName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 5, 1, 6), CfprObserveObservedFsmStageName()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmStageName.setStatus('current')
+cfprObserveObservedFsmStageOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 5, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmStageOrder.setStatus('current')
+cfprObserveObservedFsmStageRetry = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 5, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmStageRetry.setStatus('current')
+cfprObserveObservedFsmStageStageStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 5, 1, 9), CfprFsmFsmStageStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmStageStageStatus.setStatus('current')
+cfprObserveObservedFsmTaskTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 6), )
+if mibBuilder.loadTexts: cfprObserveObservedFsmTaskTable.setStatus('current')
+cfprObserveObservedFsmTaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 6, 1), ).setIndexNames((0, "CISCO-FIREPOWER-OBSERVE-MIB", "cfprObserveObservedFsmTaskInstanceId"))
+if mibBuilder.loadTexts: cfprObserveObservedFsmTaskEntry.setStatus('current')
+cfprObserveObservedFsmTaskInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 6, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprObserveObservedFsmTaskInstanceId.setStatus('current')
+cfprObserveObservedFsmTaskDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 6, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmTaskDn.setStatus('current')
+cfprObserveObservedFsmTaskRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 6, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmTaskRn.setStatus('current')
+cfprObserveObservedFsmTaskCompletion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 6, 1, 4), CfprFsmCompletion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmTaskCompletion.setStatus('current')
+cfprObserveObservedFsmTaskFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 6, 1, 5), CfprFsmFlags()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmTaskFlags.setStatus('current')
+cfprObserveObservedFsmTaskItem = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 6, 1, 6), CfprObserveObservedFsmTaskItem()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmTaskItem.setStatus('current')
+cfprObserveObservedFsmTaskSeqId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 57, 6, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprObserveObservedFsmTaskSeqId.setStatus('current')
+mibBuilder.exportSymbols("CISCO-FIREPOWER-OBSERVE-MIB", cfprObserveObservedTable=cfprObserveObservedTable, cfprObserveObservedFsmStageName=cfprObserveObservedFsmStageName, cfprObserveObservedFsmStageEntry=cfprObserveObservedFsmStageEntry, cfprObserveFilterEntry=cfprObserveFilterEntry, cfprObserveObservedFsmDescrData=cfprObserveObservedFsmDescrData, cfprObserveObjects=cfprObserveObjects, cfprObserveObservedFsmRmtErrDescr=cfprObserveObservedFsmRmtErrDescr, cfprObserveObservedFsmStageRn=cfprObserveObservedFsmStageRn, cfprObserveObservedFsmStageLastUpdateTime=cfprObserveObservedFsmStageLastUpdateTime, cfprObserveObservedFsmRn=cfprObserveObservedFsmRn, cfprObserveFilterDn=cfprObserveFilterDn, cfprObserveObservedDn=cfprObserveObservedDn, cfprObserveObservedFsmTaskCompletion=cfprObserveObservedFsmTaskCompletion, cfprObserveFilterFilterPropValue3=cfprObserveFilterFilterPropValue3, cfprObserveObservedFsmStageDn=cfprObserveObservedFsmStageDn, cfprObserveFilterFilterPropId2=cfprObserveFilterFilterPropId2, cfprObserveObservedIsDeleted=cfprObserveObservedIsDeleted, cfprObserveObservedFsmTaskItem=cfprObserveObservedFsmTaskItem, cfprObserveObservedFsmTaskDn=cfprObserveObservedFsmTaskDn, cfprObserveObservedId=cfprObserveObservedId, cfprObserveObservedFsmRmtInvErrDescr=cfprObserveObservedFsmRmtInvErrDescr, cfprObserveFilterReplicateIfNoChild=cfprObserveFilterReplicateIfNoChild, cfprObserveFilterChildClassId=cfprObserveFilterChildClassId, cfprObserveObservedFsmProgress=cfprObserveObservedFsmProgress, cfprObserveFilterFilterPropId3=cfprObserveFilterFilterPropId3, cfprObserveObservedFsmStamp=cfprObserveObservedFsmStamp, cfprObserveObservedFsmStatus=cfprObserveObservedFsmStatus, cfprObserveObservedFsmStageOrder=cfprObserveObservedFsmStageOrder, cfprObserveObservedContRn=cfprObserveObservedContRn, cfprObserveFilterFilterPropId1=cfprObserveFilterFilterPropId1, cfprObserveObservedFsmPrev=cfprObserveObservedFsmPrev, cfprObserveObservedGenNum=cfprObserveObservedGenNum, cfprObserveObservedFsmCompletionTime=cfprObserveObservedFsmCompletionTime, cfprObserveObservedFsmTaskInstanceId=cfprObserveObservedFsmTaskInstanceId, cfprObserveObservedFsmEntry=cfprObserveObservedFsmEntry, PYSNMP_MODULE_ID=cfprObserveObjects, cfprObserveObservedFsmStageTable=cfprObserveObservedFsmStageTable, cfprObserveObservedContInstanceId=cfprObserveObservedContInstanceId, cfprObserveFilterRn=cfprObserveFilterRn, cfprObserveObservedFsmTaskRn=cfprObserveObservedFsmTaskRn, cfprObserveFilterHierarchical=cfprObserveFilterHierarchical, cfprObserveObservedFsmStageDescrData=cfprObserveObservedFsmStageDescrData, cfprObserveFilterTable=cfprObserveFilterTable, cfprObserveObservedFsmRmtInvErrCode=cfprObserveObservedFsmRmtInvErrCode, cfprObserveObservedFsmStageStageStatus=cfprObserveObservedFsmStageStageStatus, cfprObserveFilterFilterClassId=cfprObserveFilterFilterClassId, cfprObserveObservedContDn=cfprObserveObservedContDn, cfprObserveObservedFsmFsmStatus=cfprObserveObservedFsmFsmStatus, cfprObserveObservedFsmTaskSeqId=cfprObserveObservedFsmTaskSeqId, cfprObserveObservedFsmTaskFlags=cfprObserveObservedFsmTaskFlags, cfprObserveObservedFsmTable=cfprObserveObservedFsmTable, cfprObserveObservedInstanceId=cfprObserveObservedInstanceId, cfprObserveObservedFsmTry=cfprObserveObservedFsmTry, cfprObserveObservedContEntry=cfprObserveObservedContEntry, cfprObserveObservedFsmInstanceId=cfprObserveObservedFsmInstanceId, cfprObserveObservedDataSrcSysId=cfprObserveObservedDataSrcSysId, cfprObserveObservedRn=cfprObserveObservedRn, cfprObserveObservedFsmDn=cfprObserveObservedFsmDn, cfprObserveObservedHierarchical=cfprObserveObservedHierarchical, cfprObserveFilterAndOperation=cfprObserveFilterAndOperation, cfprObserveFilterFilterPropValue1=cfprObserveFilterFilterPropValue1, cfprObserveObservedFsmStageRetry=cfprObserveObservedFsmStageRetry, cfprObserveObservedFsmCurrentFsm=cfprObserveObservedFsmCurrentFsm, cfprObserveObservedFsmStageDescr=cfprObserveObservedFsmStageDescr, cfprObserveObservedEntry=cfprObserveObservedEntry, cfprObserveObservedFsmTaskEntry=cfprObserveObservedFsmTaskEntry, cfprObserveFilterFilterPropValue2=cfprObserveFilterFilterPropValue2, cfprObserveObservedFsmRmtErrCode=cfprObserveObservedFsmRmtErrCode, cfprObserveObservedFsmProgr=cfprObserveObservedFsmProgr, cfprObserveFilterInstanceId=cfprObserveFilterInstanceId, cfprObserveObservedFsmStageInstanceId=cfprObserveObservedFsmStageInstanceId, cfprObserveObservedDataSrcAppType=cfprObserveObservedDataSrcAppType, cfprObserveObservedFsmTaskTable=cfprObserveObservedFsmTaskTable, cfprObserveObservedFsmRmtRslt=cfprObserveObservedFsmRmtRslt, cfprObserveObservedContTable=cfprObserveObservedContTable, cfprObserveObservedFsmRmtInvRslt=cfprObserveObservedFsmRmtInvRslt, cfprObserveObservedObservedDn=cfprObserveObservedObservedDn, cfprObserveObservedFsmDescr=cfprObserveObservedFsmDescr, cfprObserveObservedContIdCount=cfprObserveObservedContIdCount)

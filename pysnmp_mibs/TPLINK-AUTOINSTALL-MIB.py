@@ -1,59 +1,34 @@
-_F='OctetString'
-_E='enable'
-_D='disable'
-_C='read-write'
-_B='current'
-_A='Integer32'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_A,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tplinkMgmt,=mibBuilder.importSymbols('TPLINK-MIB','tplinkMgmt')
-tplinkAutoInstallMIB=ModuleIdentity((1,3,6,1,4,1,11863,6,97))
-if mibBuilder.loadTexts:tplinkAutoInstallMIB.setRevisions(('2012-12-17 10:14',))
-_TplinkAutoInstallMIBObjects_ObjectIdentity=ObjectIdentity
-tplinkAutoInstallMIBObjects=_TplinkAutoInstallMIBObjects_ObjectIdentity((1,3,6,1,4,1,11863,6,97,1))
-_AutoInstallConfig_ObjectIdentity=ObjectIdentity
-autoInstallConfig=_AutoInstallConfig_ObjectIdentity((1,3,6,1,4,1,11863,6,97,1,1))
-class _AutoInstallStartStop_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('stop',0),('start',1)))
-_AutoInstallStartStop_Type.__name__=_A
-_AutoInstallStartStop_Object=MibScalar
-autoInstallStartStop=_AutoInstallStartStop_Object((1,3,6,1,4,1,11863,6,97,1,1,1),_AutoInstallStartStop_Type())
-autoInstallStartStop.setMaxAccess(_C)
-if mibBuilder.loadTexts:autoInstallStartStop.setStatus(_B)
-class _AutoInstallPersistentMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_AutoInstallPersistentMode_Type.__name__=_A
-_AutoInstallPersistentMode_Object=MibScalar
-autoInstallPersistentMode=_AutoInstallPersistentMode_Object((1,3,6,1,4,1,11863,6,97,1,1,2),_AutoInstallPersistentMode_Type())
-autoInstallPersistentMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:autoInstallPersistentMode.setStatus(_B)
-class _AutoInstallAutoSave_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_AutoInstallAutoSave_Type.__name__=_A
-_AutoInstallAutoSave_Object=MibScalar
-autoInstallAutoSave=_AutoInstallAutoSave_Object((1,3,6,1,4,1,11863,6,97,1,1,3),_AutoInstallAutoSave_Type())
-autoInstallAutoSave.setMaxAccess(_C)
-if mibBuilder.loadTexts:autoInstallAutoSave.setStatus(_B)
-class _AutoInstallAutoReboot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_AutoInstallAutoReboot_Type.__name__=_A
-_AutoInstallAutoReboot_Object=MibScalar
-autoInstallAutoReboot=_AutoInstallAutoReboot_Object((1,3,6,1,4,1,11863,6,97,1,1,4),_AutoInstallAutoReboot_Type())
-autoInstallAutoReboot.setMaxAccess(_C)
-if mibBuilder.loadTexts:autoInstallAutoReboot.setStatus(_B)
-class _AutoInstallRetryCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3))
-_AutoInstallRetryCount_Type.__name__=_A
-_AutoInstallRetryCount_Object=MibScalar
-autoInstallRetryCount=_AutoInstallRetryCount_Object((1,3,6,1,4,1,11863,6,97,1,1,5),_AutoInstallRetryCount_Type())
-autoInstallRetryCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:autoInstallRetryCount.setStatus(_B)
-class _AutoInstallState_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_AutoInstallState_Type.__name__=_F
-_AutoInstallState_Object=MibScalar
-autoInstallState=_AutoInstallState_Object((1,3,6,1,4,1,11863,6,97,1,1,6),_AutoInstallState_Type())
-autoInstallState.setMaxAccess('read-only')
-if mibBuilder.loadTexts:autoInstallState.setStatus(_B)
-_TplinkAutoInstallNotifications_ObjectIdentity=ObjectIdentity
-tplinkAutoInstallNotifications=_TplinkAutoInstallNotifications_ObjectIdentity((1,3,6,1,4,1,11863,6,97,2))
-mibBuilder.exportSymbols('TPLINK-AUTOINSTALL-MIB',**{'tplinkAutoInstallMIB':tplinkAutoInstallMIB,'tplinkAutoInstallMIBObjects':tplinkAutoInstallMIBObjects,'autoInstallConfig':autoInstallConfig,'autoInstallStartStop':autoInstallStartStop,'autoInstallPersistentMode':autoInstallPersistentMode,'autoInstallAutoSave':autoInstallAutoSave,'autoInstallAutoReboot':autoInstallAutoReboot,'autoInstallRetryCount':autoInstallRetryCount,'autoInstallState':autoInstallState,'tplinkAutoInstallNotifications':tplinkAutoInstallNotifications})
+#
+# PySNMP MIB module TPLINK-AUTOINSTALL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-AUTOINSTALL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:08 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
+tplinkAutoInstallMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 97))
+tplinkAutoInstallMIB.setRevisions(('2012-12-17 10:14',))
+if mibBuilder.loadTexts: tplinkAutoInstallMIB.setLastUpdated('201212171014Z')
+if mibBuilder.loadTexts: tplinkAutoInstallMIB.setOrganization('TPLINK')
+tplinkAutoInstallMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 97, 1))
+tplinkAutoInstallNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 97, 2))
+autoInstallConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 97, 1, 1))
+autoInstallStartStop = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 97, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("stop", 0), ("start", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: autoInstallStartStop.setStatus('current')
+autoInstallPersistentMode = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 97, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: autoInstallPersistentMode.setStatus('current')
+autoInstallAutoSave = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 97, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: autoInstallAutoSave.setStatus('current')
+autoInstallAutoReboot = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 97, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: autoInstallAutoReboot.setStatus('current')
+autoInstallRetryCount = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 97, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: autoInstallRetryCount.setStatus('current')
+autoInstallState = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 97, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: autoInstallState.setStatus('current')
+mibBuilder.exportSymbols("TPLINK-AUTOINSTALL-MIB", autoInstallRetryCount=autoInstallRetryCount, autoInstallAutoReboot=autoInstallAutoReboot, tplinkAutoInstallMIB=tplinkAutoInstallMIB, PYSNMP_MODULE_ID=tplinkAutoInstallMIB, autoInstallState=autoInstallState, tplinkAutoInstallNotifications=tplinkAutoInstallNotifications, autoInstallPersistentMode=autoInstallPersistentMode, autoInstallAutoSave=autoInstallAutoSave, autoInstallConfig=autoInstallConfig, autoInstallStartStop=autoInstallStartStop, tplinkAutoInstallMIBObjects=tplinkAutoInstallMIBObjects)

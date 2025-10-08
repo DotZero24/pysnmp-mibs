@@ -1,803 +1,297 @@
-_BD='ciscoGslbDnsGlobalNotifStatsGroup'
-_BC='ciscoGslbDnsGlobalRateLimitGroup'
-_BB='ciscoGslbDnsNotifGroup'
-_BA='ciscoGslbDnsNotifObjectsGroup'
-_B9='ciscoGslbDnsNotifControlGroup'
-_B8='ciscoGslbDnsRuleGroup'
-_B7='ciscoGslbDnsSourceAddGroup'
-_B6='ciscoGslbDnsDomainGroup'
-_B5='ciscoGslbDnsAnswerGroup'
-_B4='ciscoGslbDnsGlobalStatsGroup'
-_B3='ciscoGslbDnsGlobalGroup'
-_B2='ciscoGslbAnswerEventStatusChange'
-_B1='ciscoGslbDnsEventClause'
-_B0='cgdDnsClauseTrapRateLimit'
-_A_='cgdAnsTrapRateLimit'
-_Az='cgdDnsAnswerNotifEnable'
-_Ay='cgdDnsClauseNotifEnable'
-_Ax='cgdClauseRowStatus'
-_Aw='cgdClauseStorageType'
-_Av='cgdClauseHits'
-_Au='cgdClauseBalanceMethod'
-_At='cgdClauseAnsGrpName'
-_As='cgdDnsRuleRowStatus'
-_Ar='cgdDnsRuleStorageType'
-_Aq='cgdDnsRuleSuccesses'
-_Ap='cgdDnsRuleHits'
-_Ao='cgdDNSRuleDomainList'
-_An='cgdSourceAddList'
-_Am='cgdThirdClauseId'
-_Al='cgdSourceAddressRowStatus'
-_Ak='cgdSourceAddressStorageType'
-_Aj='cgdSourceAddressRate4Hr'
-_Ai='cgdSourceAddressRate30Min'
-_Ah='cgdSourceAddressRate5Min'
-_Ag='cgdSourceAddressRate1Min'
-_Af='cgdSourceAddressHits'
-_Ae='cgdSourceAddressList'
-_Ad='cgdSourceAddressPrefixLength'
-_Ac='cgdSourceAddressAddress'
-_Ab='cgdSourceAddressAddressType'
-_Aa='cgdSourceAddressListRowStatus'
-_AZ='cgdSourceAddressListStorageType'
-_AY='cgdSourceAddressListHits'
-_AX='cgdDomainRowStatus'
-_AW='cgdDomainStorageType'
-_AV='cgdDomainRate4Hr'
-_AU='cgdDomainRate30Min'
-_AT='cgdDomainRate5Min'
-_AS='cgdDomainRate1Min'
-_AR='cgdDomainHits'
-_AQ='cgdDomainList'
-_AP='cgdDomainName'
-_AO='cgdDomainListRowStatus'
-_AN='cgdDomainListStorageType'
-_AM='cgdDomainListHits'
-_AL='cgdAnswerRowStatus'
-_AK='cgdAnswerStorageType'
-_AJ='cgdAnswerRate4Hr'
-_AI='cgdAnswerRate30Min'
-_AH='cgdAnswerRate5Min'
-_AG='cgdAnswerRate1Min'
-_AF='cgdAnswerHits'
-_AE='cgdAnswerAdminState'
-_AD='cgdAnswerGrpName'
-_AC='cgdAnswerGroupRowStatus'
-_AB='cgdAnswerGroupStorageType'
-_AA='cgdAnswerGroupHits'
-_A9='cgdAnswerGroupType'
-_A8='cgdDnsPollSockErrs'
-_A7='cgdDnsTcpSrcPortErrs'
-_A6='cgdDnsUdpSrcPortErrs'
-_A5='cgdDnsQueryRatePeak'
-_A4='cgdDnsQueryRateCurrent'
-_A3='cgdProxLkupRcvdResps'
-_A2='cgdProxLkupSentReqs'
-_A1='cgdBoomServSentReqs'
-_A0='cgdNSFwdRcvdResps'
-_z='cgdNSFwdSentQueries'
-_y='cgdDnsDroppedQueries'
-_x='cgdDnsUnmatchedQueries'
-_w='cgdDnsRcvdHostAddrQueries'
-_v='cgdDnsRcvdQueries'
-_u='cgdTotalRules'
-_t='cgdTotalAnswerGroups'
-_s='cgdTotalAnswers'
-_r='cgdTotalSourceAddressLists'
-_q='cgdTotalSourceAddresses'
-_p='cgdTotalDomainLists'
-_o='cgdTotalDomains'
-_n='cgdDnsRuleName'
-_m='cgdClauseId'
-_l='cgdSourceAddressId'
-_k='cgdSourceAddressListName'
-_j='cgdDomainId'
-_i='cgdDomainListName'
-_h='cgdAnswerId'
-_g='cgdAnswerGroupName'
-_f='requests per second'
-_e='requests'
-_d='responses'
-_c='traps per minute'
-_b='read-write'
-_a='CiscoGslbAnswerAdminState'
-_Z='cgdDroppedDnsClauseNotifs'
-_Y='cgdDroppedAnsNotifs'
-_X='cgdAnswerPrevStatus'
-_W='cgdSecondClauseId'
-_V='cgdFirstClauseId'
-_U='cgdAnswerStatus'
-_T='cgdAnswerName'
-_S='cgdAnswerAddress'
-_R='cgdAnswerAddressType'
-_Q='cgdAnswerType'
-_P='errors'
-_O='TruthValue'
-_N='sysName'
-_M='SNMPv2-MIB'
-_L='InetAddressType'
-_K='queries'
-_J='Unsigned32'
-_I='not-accessible'
-_H='StorageType'
-_G='number of hits'
-_F='SnmpAdminString'
-_E='hits per second'
-_D='read-create'
-_C='read-only'
-_B='CISCO-GSLB-DNS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CiscoGslbAnswerAdminState,CiscoGslbAnswerStatus,CiscoGslbAnswerType,CiscoGslbBalanceMethod=mibBuilder.importSymbols('CISCO-GSLB-TC-MIB',_a,'CiscoGslbAnswerStatus','CiscoGslbAnswerType','CiscoGslbBalanceMethod')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-InetAddress,InetAddressDNS,InetAddressPrefixLength,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressDNS','InetAddressPrefixLength',_L)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-sysName,=mibBuilder.importSymbols(_M,_N)
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_J,'iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_H,'TextualConvention',_O)
-ciscoGslbDnsMIB=ModuleIdentity((1,3,6,1,4,1,9,9,595))
-if mibBuilder.loadTexts:ciscoGslbDnsMIB.setRevisions(('2007-04-09 00:00','2006-11-28 00:00'))
-_CiscoGslbDnsMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoGslbDnsMIBNotifs=_CiscoGslbDnsMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,595,0))
-_CiscoGslbDnsMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoGslbDnsMIBObjects=_CiscoGslbDnsMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,595,1))
-_CgdNotifControl_ObjectIdentity=ObjectIdentity
-cgdNotifControl=_CgdNotifControl_ObjectIdentity((1,3,6,1,4,1,9,9,595,1,1))
-class _CgdDnsClauseNotifEnable_Type(TruthValue):defaultValue=2
-_CgdDnsClauseNotifEnable_Type.__name__=_O
-_CgdDnsClauseNotifEnable_Object=MibScalar
-cgdDnsClauseNotifEnable=_CgdDnsClauseNotifEnable_Object((1,3,6,1,4,1,9,9,595,1,1,1),_CgdDnsClauseNotifEnable_Type())
-cgdDnsClauseNotifEnable.setMaxAccess(_b)
-if mibBuilder.loadTexts:cgdDnsClauseNotifEnable.setStatus(_A)
-class _CgdDnsAnswerNotifEnable_Type(TruthValue):defaultValue=2
-_CgdDnsAnswerNotifEnable_Type.__name__=_O
-_CgdDnsAnswerNotifEnable_Object=MibScalar
-cgdDnsAnswerNotifEnable=_CgdDnsAnswerNotifEnable_Object((1,3,6,1,4,1,9,9,595,1,1,2),_CgdDnsAnswerNotifEnable_Type())
-cgdDnsAnswerNotifEnable.setMaxAccess(_b)
-if mibBuilder.loadTexts:cgdDnsAnswerNotifEnable.setStatus(_A)
-_CgdNotifObjects_ObjectIdentity=ObjectIdentity
-cgdNotifObjects=_CgdNotifObjects_ObjectIdentity((1,3,6,1,4,1,9,9,595,1,2))
-_CgdAnswerPrevStatus_Type=CiscoGslbAnswerStatus
-_CgdAnswerPrevStatus_Object=MibScalar
-cgdAnswerPrevStatus=_CgdAnswerPrevStatus_Object((1,3,6,1,4,1,9,9,595,1,2,1),_CgdAnswerPrevStatus_Type())
-cgdAnswerPrevStatus.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:cgdAnswerPrevStatus.setStatus(_A)
-_CgdGlobal_ObjectIdentity=ObjectIdentity
-cgdGlobal=_CgdGlobal_ObjectIdentity((1,3,6,1,4,1,9,9,595,1,3))
-_CgdTotalDomains_Type=Unsigned32
-_CgdTotalDomains_Object=MibScalar
-cgdTotalDomains=_CgdTotalDomains_Object((1,3,6,1,4,1,9,9,595,1,3,1),_CgdTotalDomains_Type())
-cgdTotalDomains.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdTotalDomains.setStatus(_A)
-_CgdTotalDomainLists_Type=Unsigned32
-_CgdTotalDomainLists_Object=MibScalar
-cgdTotalDomainLists=_CgdTotalDomainLists_Object((1,3,6,1,4,1,9,9,595,1,3,2),_CgdTotalDomainLists_Type())
-cgdTotalDomainLists.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdTotalDomainLists.setStatus(_A)
-_CgdTotalSourceAddresses_Type=Unsigned32
-_CgdTotalSourceAddresses_Object=MibScalar
-cgdTotalSourceAddresses=_CgdTotalSourceAddresses_Object((1,3,6,1,4,1,9,9,595,1,3,3),_CgdTotalSourceAddresses_Type())
-cgdTotalSourceAddresses.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdTotalSourceAddresses.setStatus(_A)
-_CgdTotalSourceAddressLists_Type=Unsigned32
-_CgdTotalSourceAddressLists_Object=MibScalar
-cgdTotalSourceAddressLists=_CgdTotalSourceAddressLists_Object((1,3,6,1,4,1,9,9,595,1,3,4),_CgdTotalSourceAddressLists_Type())
-cgdTotalSourceAddressLists.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdTotalSourceAddressLists.setStatus(_A)
-_CgdTotalAnswers_Type=Unsigned32
-_CgdTotalAnswers_Object=MibScalar
-cgdTotalAnswers=_CgdTotalAnswers_Object((1,3,6,1,4,1,9,9,595,1,3,5),_CgdTotalAnswers_Type())
-cgdTotalAnswers.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdTotalAnswers.setStatus(_A)
-_CgdTotalAnswerGroups_Type=Unsigned32
-_CgdTotalAnswerGroups_Object=MibScalar
-cgdTotalAnswerGroups=_CgdTotalAnswerGroups_Object((1,3,6,1,4,1,9,9,595,1,3,6),_CgdTotalAnswerGroups_Type())
-cgdTotalAnswerGroups.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdTotalAnswerGroups.setStatus(_A)
-_CgdTotalRules_Type=Unsigned32
-_CgdTotalRules_Object=MibScalar
-cgdTotalRules=_CgdTotalRules_Object((1,3,6,1,4,1,9,9,595,1,3,7),_CgdTotalRules_Type())
-cgdTotalRules.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdTotalRules.setStatus(_A)
-class _CgdAnsTrapRateLimit_Type(Unsigned32):defaultValue=25;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CgdAnsTrapRateLimit_Type.__name__=_J
-_CgdAnsTrapRateLimit_Object=MibScalar
-cgdAnsTrapRateLimit=_CgdAnsTrapRateLimit_Object((1,3,6,1,4,1,9,9,595,1,3,8),_CgdAnsTrapRateLimit_Type())
-cgdAnsTrapRateLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdAnsTrapRateLimit.setStatus(_A)
-if mibBuilder.loadTexts:cgdAnsTrapRateLimit.setUnits(_c)
-class _CgdDnsClauseTrapRateLimit_Type(Unsigned32):defaultValue=25;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CgdDnsClauseTrapRateLimit_Type.__name__=_J
-_CgdDnsClauseTrapRateLimit_Object=MibScalar
-cgdDnsClauseTrapRateLimit=_CgdDnsClauseTrapRateLimit_Object((1,3,6,1,4,1,9,9,595,1,3,9),_CgdDnsClauseTrapRateLimit_Type())
-cgdDnsClauseTrapRateLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDnsClauseTrapRateLimit.setStatus(_A)
-if mibBuilder.loadTexts:cgdDnsClauseTrapRateLimit.setUnits(_c)
-_CgdGlobalStats_ObjectIdentity=ObjectIdentity
-cgdGlobalStats=_CgdGlobalStats_ObjectIdentity((1,3,6,1,4,1,9,9,595,1,4))
-_CgdDnsRcvdQueries_Type=Counter32
-_CgdDnsRcvdQueries_Object=MibScalar
-cgdDnsRcvdQueries=_CgdDnsRcvdQueries_Object((1,3,6,1,4,1,9,9,595,1,4,1),_CgdDnsRcvdQueries_Type())
-cgdDnsRcvdQueries.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDnsRcvdQueries.setStatus(_A)
-if mibBuilder.loadTexts:cgdDnsRcvdQueries.setUnits(_K)
-_CgdDnsRcvdHostAddrQueries_Type=Counter32
-_CgdDnsRcvdHostAddrQueries_Object=MibScalar
-cgdDnsRcvdHostAddrQueries=_CgdDnsRcvdHostAddrQueries_Object((1,3,6,1,4,1,9,9,595,1,4,2),_CgdDnsRcvdHostAddrQueries_Type())
-cgdDnsRcvdHostAddrQueries.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDnsRcvdHostAddrQueries.setStatus(_A)
-if mibBuilder.loadTexts:cgdDnsRcvdHostAddrQueries.setUnits(_K)
-_CgdDnsUnmatchedQueries_Type=Counter32
-_CgdDnsUnmatchedQueries_Object=MibScalar
-cgdDnsUnmatchedQueries=_CgdDnsUnmatchedQueries_Object((1,3,6,1,4,1,9,9,595,1,4,3),_CgdDnsUnmatchedQueries_Type())
-cgdDnsUnmatchedQueries.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDnsUnmatchedQueries.setStatus(_A)
-if mibBuilder.loadTexts:cgdDnsUnmatchedQueries.setUnits(_K)
-_CgdDnsDroppedQueries_Type=Counter32
-_CgdDnsDroppedQueries_Object=MibScalar
-cgdDnsDroppedQueries=_CgdDnsDroppedQueries_Object((1,3,6,1,4,1,9,9,595,1,4,4),_CgdDnsDroppedQueries_Type())
-cgdDnsDroppedQueries.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDnsDroppedQueries.setStatus(_A)
-if mibBuilder.loadTexts:cgdDnsDroppedQueries.setUnits(_K)
-_CgdNSFwdSentQueries_Type=Counter32
-_CgdNSFwdSentQueries_Object=MibScalar
-cgdNSFwdSentQueries=_CgdNSFwdSentQueries_Object((1,3,6,1,4,1,9,9,595,1,4,5),_CgdNSFwdSentQueries_Type())
-cgdNSFwdSentQueries.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdNSFwdSentQueries.setStatus(_A)
-if mibBuilder.loadTexts:cgdNSFwdSentQueries.setUnits(_K)
-_CgdNSFwdRcvdResps_Type=Counter32
-_CgdNSFwdRcvdResps_Object=MibScalar
-cgdNSFwdRcvdResps=_CgdNSFwdRcvdResps_Object((1,3,6,1,4,1,9,9,595,1,4,6),_CgdNSFwdRcvdResps_Type())
-cgdNSFwdRcvdResps.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdNSFwdRcvdResps.setStatus(_A)
-if mibBuilder.loadTexts:cgdNSFwdRcvdResps.setUnits(_d)
-_CgdBoomServSentReqs_Type=Counter32
-_CgdBoomServSentReqs_Object=MibScalar
-cgdBoomServSentReqs=_CgdBoomServSentReqs_Object((1,3,6,1,4,1,9,9,595,1,4,7),_CgdBoomServSentReqs_Type())
-cgdBoomServSentReqs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdBoomServSentReqs.setStatus(_A)
-if mibBuilder.loadTexts:cgdBoomServSentReqs.setUnits(_e)
-_CgdProxLkupSentReqs_Type=Counter32
-_CgdProxLkupSentReqs_Object=MibScalar
-cgdProxLkupSentReqs=_CgdProxLkupSentReqs_Object((1,3,6,1,4,1,9,9,595,1,4,8),_CgdProxLkupSentReqs_Type())
-cgdProxLkupSentReqs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdProxLkupSentReqs.setStatus(_A)
-if mibBuilder.loadTexts:cgdProxLkupSentReqs.setUnits(_e)
-_CgdProxLkupRcvdResps_Type=Counter32
-_CgdProxLkupRcvdResps_Object=MibScalar
-cgdProxLkupRcvdResps=_CgdProxLkupRcvdResps_Object((1,3,6,1,4,1,9,9,595,1,4,9),_CgdProxLkupRcvdResps_Type())
-cgdProxLkupRcvdResps.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdProxLkupRcvdResps.setStatus(_A)
-if mibBuilder.loadTexts:cgdProxLkupRcvdResps.setUnits(_d)
-_CgdDnsQueryRateCurrent_Type=Gauge32
-_CgdDnsQueryRateCurrent_Object=MibScalar
-cgdDnsQueryRateCurrent=_CgdDnsQueryRateCurrent_Object((1,3,6,1,4,1,9,9,595,1,4,10),_CgdDnsQueryRateCurrent_Type())
-cgdDnsQueryRateCurrent.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDnsQueryRateCurrent.setStatus(_A)
-if mibBuilder.loadTexts:cgdDnsQueryRateCurrent.setUnits(_f)
-_CgdDnsQueryRatePeak_Type=Unsigned32
-_CgdDnsQueryRatePeak_Object=MibScalar
-cgdDnsQueryRatePeak=_CgdDnsQueryRatePeak_Object((1,3,6,1,4,1,9,9,595,1,4,11),_CgdDnsQueryRatePeak_Type())
-cgdDnsQueryRatePeak.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDnsQueryRatePeak.setStatus(_A)
-if mibBuilder.loadTexts:cgdDnsQueryRatePeak.setUnits(_f)
-_CgdDnsUdpSrcPortErrs_Type=Counter32
-_CgdDnsUdpSrcPortErrs_Object=MibScalar
-cgdDnsUdpSrcPortErrs=_CgdDnsUdpSrcPortErrs_Object((1,3,6,1,4,1,9,9,595,1,4,12),_CgdDnsUdpSrcPortErrs_Type())
-cgdDnsUdpSrcPortErrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDnsUdpSrcPortErrs.setStatus(_A)
-if mibBuilder.loadTexts:cgdDnsUdpSrcPortErrs.setUnits(_P)
-_CgdDnsTcpSrcPortErrs_Type=Counter32
-_CgdDnsTcpSrcPortErrs_Object=MibScalar
-cgdDnsTcpSrcPortErrs=_CgdDnsTcpSrcPortErrs_Object((1,3,6,1,4,1,9,9,595,1,4,13),_CgdDnsTcpSrcPortErrs_Type())
-cgdDnsTcpSrcPortErrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDnsTcpSrcPortErrs.setStatus(_A)
-if mibBuilder.loadTexts:cgdDnsTcpSrcPortErrs.setUnits(_P)
-_CgdDnsPollSockErrs_Type=Counter32
-_CgdDnsPollSockErrs_Object=MibScalar
-cgdDnsPollSockErrs=_CgdDnsPollSockErrs_Object((1,3,6,1,4,1,9,9,595,1,4,14),_CgdDnsPollSockErrs_Type())
-cgdDnsPollSockErrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDnsPollSockErrs.setStatus(_A)
-if mibBuilder.loadTexts:cgdDnsPollSockErrs.setUnits(_P)
-_CgdDroppedAnsNotifs_Type=Unsigned32
-_CgdDroppedAnsNotifs_Object=MibScalar
-cgdDroppedAnsNotifs=_CgdDroppedAnsNotifs_Object((1,3,6,1,4,1,9,9,595,1,4,15),_CgdDroppedAnsNotifs_Type())
-cgdDroppedAnsNotifs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDroppedAnsNotifs.setStatus(_A)
-if mibBuilder.loadTexts:cgdDroppedAnsNotifs.setUnits('traps')
-_CgdDroppedDnsClauseNotifs_Type=Unsigned32
-_CgdDroppedDnsClauseNotifs_Object=MibScalar
-cgdDroppedDnsClauseNotifs=_CgdDroppedDnsClauseNotifs_Object((1,3,6,1,4,1,9,9,595,1,4,16),_CgdDroppedDnsClauseNotifs_Type())
-cgdDroppedDnsClauseNotifs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDroppedDnsClauseNotifs.setStatus(_A)
-if mibBuilder.loadTexts:cgdDroppedDnsClauseNotifs.setUnits('traps')
-_CgdAnswer_ObjectIdentity=ObjectIdentity
-cgdAnswer=_CgdAnswer_ObjectIdentity((1,3,6,1,4,1,9,9,595,1,5))
-_CgdAnswerGroupTable_Object=MibTable
-cgdAnswerGroupTable=_CgdAnswerGroupTable_Object((1,3,6,1,4,1,9,9,595,1,5,1))
-if mibBuilder.loadTexts:cgdAnswerGroupTable.setStatus(_A)
-_CgdAnswerGroupEntry_Object=MibTableRow
-cgdAnswerGroupEntry=_CgdAnswerGroupEntry_Object((1,3,6,1,4,1,9,9,595,1,5,1,1))
-cgdAnswerGroupEntry.setIndexNames((0,_B,_g))
-if mibBuilder.loadTexts:cgdAnswerGroupEntry.setStatus(_A)
-class _CgdAnswerGroupName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,80))
-_CgdAnswerGroupName_Type.__name__=_F
-_CgdAnswerGroupName_Object=MibTableColumn
-cgdAnswerGroupName=_CgdAnswerGroupName_Object((1,3,6,1,4,1,9,9,595,1,5,1,1,1),_CgdAnswerGroupName_Type())
-cgdAnswerGroupName.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgdAnswerGroupName.setStatus(_A)
-_CgdAnswerGroupType_Type=CiscoGslbAnswerType
-_CgdAnswerGroupType_Object=MibTableColumn
-cgdAnswerGroupType=_CgdAnswerGroupType_Object((1,3,6,1,4,1,9,9,595,1,5,1,1,2),_CgdAnswerGroupType_Type())
-cgdAnswerGroupType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdAnswerGroupType.setStatus(_A)
-_CgdAnswerGroupHits_Type=Counter32
-_CgdAnswerGroupHits_Object=MibTableColumn
-cgdAnswerGroupHits=_CgdAnswerGroupHits_Object((1,3,6,1,4,1,9,9,595,1,5,1,1,3),_CgdAnswerGroupHits_Type())
-cgdAnswerGroupHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdAnswerGroupHits.setStatus(_A)
-if mibBuilder.loadTexts:cgdAnswerGroupHits.setUnits(_G)
-class _CgdAnswerGroupStorageType_Type(StorageType):defaultValue=3
-_CgdAnswerGroupStorageType_Type.__name__=_H
-_CgdAnswerGroupStorageType_Object=MibTableColumn
-cgdAnswerGroupStorageType=_CgdAnswerGroupStorageType_Object((1,3,6,1,4,1,9,9,595,1,5,1,1,4),_CgdAnswerGroupStorageType_Type())
-cgdAnswerGroupStorageType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdAnswerGroupStorageType.setStatus(_A)
-_CgdAnswerGroupRowStatus_Type=RowStatus
-_CgdAnswerGroupRowStatus_Object=MibTableColumn
-cgdAnswerGroupRowStatus=_CgdAnswerGroupRowStatus_Object((1,3,6,1,4,1,9,9,595,1,5,1,1,5),_CgdAnswerGroupRowStatus_Type())
-cgdAnswerGroupRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdAnswerGroupRowStatus.setStatus(_A)
-_CgdAnswerTable_Object=MibTable
-cgdAnswerTable=_CgdAnswerTable_Object((1,3,6,1,4,1,9,9,595,1,5,2))
-if mibBuilder.loadTexts:cgdAnswerTable.setStatus(_A)
-_CgdAnswerEntry_Object=MibTableRow
-cgdAnswerEntry=_CgdAnswerEntry_Object((1,3,6,1,4,1,9,9,595,1,5,2,1))
-cgdAnswerEntry.setIndexNames((0,_B,_h))
-if mibBuilder.loadTexts:cgdAnswerEntry.setStatus(_A)
-class _CgdAnswerId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CgdAnswerId_Type.__name__=_J
-_CgdAnswerId_Object=MibTableColumn
-cgdAnswerId=_CgdAnswerId_Object((1,3,6,1,4,1,9,9,595,1,5,2,1,1),_CgdAnswerId_Type())
-cgdAnswerId.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgdAnswerId.setStatus(_A)
-_CgdAnswerType_Type=CiscoGslbAnswerType
-_CgdAnswerType_Object=MibTableColumn
-cgdAnswerType=_CgdAnswerType_Object((1,3,6,1,4,1,9,9,595,1,5,2,1,2),_CgdAnswerType_Type())
-cgdAnswerType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdAnswerType.setStatus(_A)
-class _CgdAnswerAddressType_Type(InetAddressType):defaultValue=1
-_CgdAnswerAddressType_Type.__name__=_L
-_CgdAnswerAddressType_Object=MibTableColumn
-cgdAnswerAddressType=_CgdAnswerAddressType_Object((1,3,6,1,4,1,9,9,595,1,5,2,1,3),_CgdAnswerAddressType_Type())
-cgdAnswerAddressType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdAnswerAddressType.setStatus(_A)
-_CgdAnswerAddress_Type=InetAddress
-_CgdAnswerAddress_Object=MibTableColumn
-cgdAnswerAddress=_CgdAnswerAddress_Object((1,3,6,1,4,1,9,9,595,1,5,2,1,4),_CgdAnswerAddress_Type())
-cgdAnswerAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdAnswerAddress.setStatus(_A)
-class _CgdAnswerName_Type(SnmpAdminString):defaultValue=OctetString('')
-_CgdAnswerName_Type.__name__=_F
-_CgdAnswerName_Object=MibTableColumn
-cgdAnswerName=_CgdAnswerName_Object((1,3,6,1,4,1,9,9,595,1,5,2,1,5),_CgdAnswerName_Type())
-cgdAnswerName.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdAnswerName.setStatus(_A)
-class _CgdAnswerGrpName_Type(SnmpAdminString):defaultValue=OctetString('');subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_CgdAnswerGrpName_Type.__name__=_F
-_CgdAnswerGrpName_Object=MibTableColumn
-cgdAnswerGrpName=_CgdAnswerGrpName_Object((1,3,6,1,4,1,9,9,595,1,5,2,1,6),_CgdAnswerGrpName_Type())
-cgdAnswerGrpName.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdAnswerGrpName.setStatus(_A)
-class _CgdAnswerAdminState_Type(CiscoGslbAnswerAdminState):defaultValue=2
-_CgdAnswerAdminState_Type.__name__=_a
-_CgdAnswerAdminState_Object=MibTableColumn
-cgdAnswerAdminState=_CgdAnswerAdminState_Object((1,3,6,1,4,1,9,9,595,1,5,2,1,7),_CgdAnswerAdminState_Type())
-cgdAnswerAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdAnswerAdminState.setStatus(_A)
-_CgdAnswerStatus_Type=CiscoGslbAnswerStatus
-_CgdAnswerStatus_Object=MibTableColumn
-cgdAnswerStatus=_CgdAnswerStatus_Object((1,3,6,1,4,1,9,9,595,1,5,2,1,8),_CgdAnswerStatus_Type())
-cgdAnswerStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdAnswerStatus.setStatus(_A)
-_CgdAnswerHits_Type=Counter32
-_CgdAnswerHits_Object=MibTableColumn
-cgdAnswerHits=_CgdAnswerHits_Object((1,3,6,1,4,1,9,9,595,1,5,2,1,9),_CgdAnswerHits_Type())
-cgdAnswerHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdAnswerHits.setStatus(_A)
-if mibBuilder.loadTexts:cgdAnswerHits.setUnits(_G)
-_CgdAnswerRate1Min_Type=Gauge32
-_CgdAnswerRate1Min_Object=MibTableColumn
-cgdAnswerRate1Min=_CgdAnswerRate1Min_Object((1,3,6,1,4,1,9,9,595,1,5,2,1,10),_CgdAnswerRate1Min_Type())
-cgdAnswerRate1Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdAnswerRate1Min.setStatus(_A)
-if mibBuilder.loadTexts:cgdAnswerRate1Min.setUnits(_E)
-_CgdAnswerRate5Min_Type=Gauge32
-_CgdAnswerRate5Min_Object=MibTableColumn
-cgdAnswerRate5Min=_CgdAnswerRate5Min_Object((1,3,6,1,4,1,9,9,595,1,5,2,1,11),_CgdAnswerRate5Min_Type())
-cgdAnswerRate5Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdAnswerRate5Min.setStatus(_A)
-if mibBuilder.loadTexts:cgdAnswerRate5Min.setUnits(_E)
-_CgdAnswerRate30Min_Type=Gauge32
-_CgdAnswerRate30Min_Object=MibTableColumn
-cgdAnswerRate30Min=_CgdAnswerRate30Min_Object((1,3,6,1,4,1,9,9,595,1,5,2,1,12),_CgdAnswerRate30Min_Type())
-cgdAnswerRate30Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdAnswerRate30Min.setStatus(_A)
-if mibBuilder.loadTexts:cgdAnswerRate30Min.setUnits(_E)
-_CgdAnswerRate4Hr_Type=Gauge32
-_CgdAnswerRate4Hr_Object=MibTableColumn
-cgdAnswerRate4Hr=_CgdAnswerRate4Hr_Object((1,3,6,1,4,1,9,9,595,1,5,2,1,13),_CgdAnswerRate4Hr_Type())
-cgdAnswerRate4Hr.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdAnswerRate4Hr.setStatus(_A)
-if mibBuilder.loadTexts:cgdAnswerRate4Hr.setUnits(_E)
-class _CgdAnswerStorageType_Type(StorageType):defaultValue=3
-_CgdAnswerStorageType_Type.__name__=_H
-_CgdAnswerStorageType_Object=MibTableColumn
-cgdAnswerStorageType=_CgdAnswerStorageType_Object((1,3,6,1,4,1,9,9,595,1,5,2,1,14),_CgdAnswerStorageType_Type())
-cgdAnswerStorageType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdAnswerStorageType.setStatus(_A)
-_CgdAnswerRowStatus_Type=RowStatus
-_CgdAnswerRowStatus_Object=MibTableColumn
-cgdAnswerRowStatus=_CgdAnswerRowStatus_Object((1,3,6,1,4,1,9,9,595,1,5,2,1,15),_CgdAnswerRowStatus_Type())
-cgdAnswerRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdAnswerRowStatus.setStatus(_A)
-_CgdDomain_ObjectIdentity=ObjectIdentity
-cgdDomain=_CgdDomain_ObjectIdentity((1,3,6,1,4,1,9,9,595,1,6))
-_CgdDomainListTable_Object=MibTable
-cgdDomainListTable=_CgdDomainListTable_Object((1,3,6,1,4,1,9,9,595,1,6,1))
-if mibBuilder.loadTexts:cgdDomainListTable.setStatus(_A)
-_CgdDomainListEntry_Object=MibTableRow
-cgdDomainListEntry=_CgdDomainListEntry_Object((1,3,6,1,4,1,9,9,595,1,6,1,1))
-cgdDomainListEntry.setIndexNames((0,_B,_i))
-if mibBuilder.loadTexts:cgdDomainListEntry.setStatus(_A)
-class _CgdDomainListName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,80))
-_CgdDomainListName_Type.__name__=_F
-_CgdDomainListName_Object=MibTableColumn
-cgdDomainListName=_CgdDomainListName_Object((1,3,6,1,4,1,9,9,595,1,6,1,1,1),_CgdDomainListName_Type())
-cgdDomainListName.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgdDomainListName.setStatus(_A)
-_CgdDomainListHits_Type=Counter32
-_CgdDomainListHits_Object=MibTableColumn
-cgdDomainListHits=_CgdDomainListHits_Object((1,3,6,1,4,1,9,9,595,1,6,1,1,2),_CgdDomainListHits_Type())
-cgdDomainListHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDomainListHits.setStatus(_A)
-if mibBuilder.loadTexts:cgdDomainListHits.setUnits(_G)
-class _CgdDomainListStorageType_Type(StorageType):defaultValue=3
-_CgdDomainListStorageType_Type.__name__=_H
-_CgdDomainListStorageType_Object=MibTableColumn
-cgdDomainListStorageType=_CgdDomainListStorageType_Object((1,3,6,1,4,1,9,9,595,1,6,1,1,3),_CgdDomainListStorageType_Type())
-cgdDomainListStorageType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdDomainListStorageType.setStatus(_A)
-_CgdDomainListRowStatus_Type=RowStatus
-_CgdDomainListRowStatus_Object=MibTableColumn
-cgdDomainListRowStatus=_CgdDomainListRowStatus_Object((1,3,6,1,4,1,9,9,595,1,6,1,1,4),_CgdDomainListRowStatus_Type())
-cgdDomainListRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdDomainListRowStatus.setStatus(_A)
-_CgdDomainTable_Object=MibTable
-cgdDomainTable=_CgdDomainTable_Object((1,3,6,1,4,1,9,9,595,1,6,2))
-if mibBuilder.loadTexts:cgdDomainTable.setStatus(_A)
-_CgdDomainEntry_Object=MibTableRow
-cgdDomainEntry=_CgdDomainEntry_Object((1,3,6,1,4,1,9,9,595,1,6,2,1))
-cgdDomainEntry.setIndexNames((0,_B,_j))
-if mibBuilder.loadTexts:cgdDomainEntry.setStatus(_A)
-class _CgdDomainId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CgdDomainId_Type.__name__=_J
-_CgdDomainId_Object=MibTableColumn
-cgdDomainId=_CgdDomainId_Object((1,3,6,1,4,1,9,9,595,1,6,2,1,1),_CgdDomainId_Type())
-cgdDomainId.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgdDomainId.setStatus(_A)
-_CgdDomainName_Type=InetAddressDNS
-_CgdDomainName_Object=MibTableColumn
-cgdDomainName=_CgdDomainName_Object((1,3,6,1,4,1,9,9,595,1,6,2,1,2),_CgdDomainName_Type())
-cgdDomainName.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdDomainName.setStatus(_A)
-class _CgdDomainList_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,80))
-_CgdDomainList_Type.__name__=_F
-_CgdDomainList_Object=MibTableColumn
-cgdDomainList=_CgdDomainList_Object((1,3,6,1,4,1,9,9,595,1,6,2,1,3),_CgdDomainList_Type())
-cgdDomainList.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdDomainList.setStatus(_A)
-_CgdDomainHits_Type=Counter32
-_CgdDomainHits_Object=MibTableColumn
-cgdDomainHits=_CgdDomainHits_Object((1,3,6,1,4,1,9,9,595,1,6,2,1,4),_CgdDomainHits_Type())
-cgdDomainHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDomainHits.setStatus(_A)
-if mibBuilder.loadTexts:cgdDomainHits.setUnits(_G)
-_CgdDomainRate1Min_Type=Gauge32
-_CgdDomainRate1Min_Object=MibTableColumn
-cgdDomainRate1Min=_CgdDomainRate1Min_Object((1,3,6,1,4,1,9,9,595,1,6,2,1,5),_CgdDomainRate1Min_Type())
-cgdDomainRate1Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDomainRate1Min.setStatus(_A)
-if mibBuilder.loadTexts:cgdDomainRate1Min.setUnits(_E)
-_CgdDomainRate5Min_Type=Gauge32
-_CgdDomainRate5Min_Object=MibTableColumn
-cgdDomainRate5Min=_CgdDomainRate5Min_Object((1,3,6,1,4,1,9,9,595,1,6,2,1,6),_CgdDomainRate5Min_Type())
-cgdDomainRate5Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDomainRate5Min.setStatus(_A)
-if mibBuilder.loadTexts:cgdDomainRate5Min.setUnits(_E)
-_CgdDomainRate30Min_Type=Gauge32
-_CgdDomainRate30Min_Object=MibTableColumn
-cgdDomainRate30Min=_CgdDomainRate30Min_Object((1,3,6,1,4,1,9,9,595,1,6,2,1,7),_CgdDomainRate30Min_Type())
-cgdDomainRate30Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDomainRate30Min.setStatus(_A)
-if mibBuilder.loadTexts:cgdDomainRate30Min.setUnits(_E)
-_CgdDomainRate4Hr_Type=Gauge32
-_CgdDomainRate4Hr_Object=MibTableColumn
-cgdDomainRate4Hr=_CgdDomainRate4Hr_Object((1,3,6,1,4,1,9,9,595,1,6,2,1,8),_CgdDomainRate4Hr_Type())
-cgdDomainRate4Hr.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDomainRate4Hr.setStatus(_A)
-if mibBuilder.loadTexts:cgdDomainRate4Hr.setUnits(_E)
-class _CgdDomainStorageType_Type(StorageType):defaultValue=3
-_CgdDomainStorageType_Type.__name__=_H
-_CgdDomainStorageType_Object=MibTableColumn
-cgdDomainStorageType=_CgdDomainStorageType_Object((1,3,6,1,4,1,9,9,595,1,6,2,1,9),_CgdDomainStorageType_Type())
-cgdDomainStorageType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdDomainStorageType.setStatus(_A)
-_CgdDomainRowStatus_Type=RowStatus
-_CgdDomainRowStatus_Object=MibTableColumn
-cgdDomainRowStatus=_CgdDomainRowStatus_Object((1,3,6,1,4,1,9,9,595,1,6,2,1,10),_CgdDomainRowStatus_Type())
-cgdDomainRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdDomainRowStatus.setStatus(_A)
-_CgdSourceAdd_ObjectIdentity=ObjectIdentity
-cgdSourceAdd=_CgdSourceAdd_ObjectIdentity((1,3,6,1,4,1,9,9,595,1,7))
-_CgdSourceAddressListTable_Object=MibTable
-cgdSourceAddressListTable=_CgdSourceAddressListTable_Object((1,3,6,1,4,1,9,9,595,1,7,1))
-if mibBuilder.loadTexts:cgdSourceAddressListTable.setStatus(_A)
-_CgdSourceAddressListEntry_Object=MibTableRow
-cgdSourceAddressListEntry=_CgdSourceAddressListEntry_Object((1,3,6,1,4,1,9,9,595,1,7,1,1))
-cgdSourceAddressListEntry.setIndexNames((0,_B,_k))
-if mibBuilder.loadTexts:cgdSourceAddressListEntry.setStatus(_A)
-class _CgdSourceAddressListName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,80))
-_CgdSourceAddressListName_Type.__name__=_F
-_CgdSourceAddressListName_Object=MibTableColumn
-cgdSourceAddressListName=_CgdSourceAddressListName_Object((1,3,6,1,4,1,9,9,595,1,7,1,1,1),_CgdSourceAddressListName_Type())
-cgdSourceAddressListName.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgdSourceAddressListName.setStatus(_A)
-_CgdSourceAddressListHits_Type=Counter32
-_CgdSourceAddressListHits_Object=MibTableColumn
-cgdSourceAddressListHits=_CgdSourceAddressListHits_Object((1,3,6,1,4,1,9,9,595,1,7,1,1,2),_CgdSourceAddressListHits_Type())
-cgdSourceAddressListHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdSourceAddressListHits.setStatus(_A)
-if mibBuilder.loadTexts:cgdSourceAddressListHits.setUnits(_G)
-class _CgdSourceAddressListStorageType_Type(StorageType):defaultValue=3
-_CgdSourceAddressListStorageType_Type.__name__=_H
-_CgdSourceAddressListStorageType_Object=MibTableColumn
-cgdSourceAddressListStorageType=_CgdSourceAddressListStorageType_Object((1,3,6,1,4,1,9,9,595,1,7,1,1,3),_CgdSourceAddressListStorageType_Type())
-cgdSourceAddressListStorageType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdSourceAddressListStorageType.setStatus(_A)
-_CgdSourceAddressListRowStatus_Type=RowStatus
-_CgdSourceAddressListRowStatus_Object=MibTableColumn
-cgdSourceAddressListRowStatus=_CgdSourceAddressListRowStatus_Object((1,3,6,1,4,1,9,9,595,1,7,1,1,4),_CgdSourceAddressListRowStatus_Type())
-cgdSourceAddressListRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdSourceAddressListRowStatus.setStatus(_A)
-_CgdSourceAddressTable_Object=MibTable
-cgdSourceAddressTable=_CgdSourceAddressTable_Object((1,3,6,1,4,1,9,9,595,1,7,2))
-if mibBuilder.loadTexts:cgdSourceAddressTable.setStatus(_A)
-_CgdSourceAddressEntry_Object=MibTableRow
-cgdSourceAddressEntry=_CgdSourceAddressEntry_Object((1,3,6,1,4,1,9,9,595,1,7,2,1))
-cgdSourceAddressEntry.setIndexNames((0,_B,_l))
-if mibBuilder.loadTexts:cgdSourceAddressEntry.setStatus(_A)
-class _CgdSourceAddressId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CgdSourceAddressId_Type.__name__=_J
-_CgdSourceAddressId_Object=MibTableColumn
-cgdSourceAddressId=_CgdSourceAddressId_Object((1,3,6,1,4,1,9,9,595,1,7,2,1,1),_CgdSourceAddressId_Type())
-cgdSourceAddressId.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgdSourceAddressId.setStatus(_A)
-class _CgdSourceAddressAddressType_Type(InetAddressType):defaultValue=1
-_CgdSourceAddressAddressType_Type.__name__=_L
-_CgdSourceAddressAddressType_Object=MibTableColumn
-cgdSourceAddressAddressType=_CgdSourceAddressAddressType_Object((1,3,6,1,4,1,9,9,595,1,7,2,1,2),_CgdSourceAddressAddressType_Type())
-cgdSourceAddressAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdSourceAddressAddressType.setStatus(_A)
-_CgdSourceAddressAddress_Type=InetAddress
-_CgdSourceAddressAddress_Object=MibTableColumn
-cgdSourceAddressAddress=_CgdSourceAddressAddress_Object((1,3,6,1,4,1,9,9,595,1,7,2,1,3),_CgdSourceAddressAddress_Type())
-cgdSourceAddressAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdSourceAddressAddress.setStatus(_A)
-_CgdSourceAddressPrefixLength_Type=InetAddressPrefixLength
-_CgdSourceAddressPrefixLength_Object=MibTableColumn
-cgdSourceAddressPrefixLength=_CgdSourceAddressPrefixLength_Object((1,3,6,1,4,1,9,9,595,1,7,2,1,4),_CgdSourceAddressPrefixLength_Type())
-cgdSourceAddressPrefixLength.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdSourceAddressPrefixLength.setStatus(_A)
-class _CgdSourceAddressList_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,80))
-_CgdSourceAddressList_Type.__name__=_F
-_CgdSourceAddressList_Object=MibTableColumn
-cgdSourceAddressList=_CgdSourceAddressList_Object((1,3,6,1,4,1,9,9,595,1,7,2,1,5),_CgdSourceAddressList_Type())
-cgdSourceAddressList.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdSourceAddressList.setStatus(_A)
-_CgdSourceAddressHits_Type=Counter32
-_CgdSourceAddressHits_Object=MibTableColumn
-cgdSourceAddressHits=_CgdSourceAddressHits_Object((1,3,6,1,4,1,9,9,595,1,7,2,1,6),_CgdSourceAddressHits_Type())
-cgdSourceAddressHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdSourceAddressHits.setStatus(_A)
-if mibBuilder.loadTexts:cgdSourceAddressHits.setUnits(_G)
-_CgdSourceAddressRate1Min_Type=Gauge32
-_CgdSourceAddressRate1Min_Object=MibTableColumn
-cgdSourceAddressRate1Min=_CgdSourceAddressRate1Min_Object((1,3,6,1,4,1,9,9,595,1,7,2,1,7),_CgdSourceAddressRate1Min_Type())
-cgdSourceAddressRate1Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdSourceAddressRate1Min.setStatus(_A)
-if mibBuilder.loadTexts:cgdSourceAddressRate1Min.setUnits(_E)
-_CgdSourceAddressRate5Min_Type=Gauge32
-_CgdSourceAddressRate5Min_Object=MibTableColumn
-cgdSourceAddressRate5Min=_CgdSourceAddressRate5Min_Object((1,3,6,1,4,1,9,9,595,1,7,2,1,8),_CgdSourceAddressRate5Min_Type())
-cgdSourceAddressRate5Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdSourceAddressRate5Min.setStatus(_A)
-if mibBuilder.loadTexts:cgdSourceAddressRate5Min.setUnits(_E)
-_CgdSourceAddressRate30Min_Type=Gauge32
-_CgdSourceAddressRate30Min_Object=MibTableColumn
-cgdSourceAddressRate30Min=_CgdSourceAddressRate30Min_Object((1,3,6,1,4,1,9,9,595,1,7,2,1,9),_CgdSourceAddressRate30Min_Type())
-cgdSourceAddressRate30Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdSourceAddressRate30Min.setStatus(_A)
-if mibBuilder.loadTexts:cgdSourceAddressRate30Min.setUnits(_E)
-_CgdSourceAddressRate4Hr_Type=Gauge32
-_CgdSourceAddressRate4Hr_Object=MibTableColumn
-cgdSourceAddressRate4Hr=_CgdSourceAddressRate4Hr_Object((1,3,6,1,4,1,9,9,595,1,7,2,1,10),_CgdSourceAddressRate4Hr_Type())
-cgdSourceAddressRate4Hr.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdSourceAddressRate4Hr.setStatus(_A)
-if mibBuilder.loadTexts:cgdSourceAddressRate4Hr.setUnits(_E)
-class _CgdSourceAddressStorageType_Type(StorageType):defaultValue=3
-_CgdSourceAddressStorageType_Type.__name__=_H
-_CgdSourceAddressStorageType_Object=MibTableColumn
-cgdSourceAddressStorageType=_CgdSourceAddressStorageType_Object((1,3,6,1,4,1,9,9,595,1,7,2,1,11),_CgdSourceAddressStorageType_Type())
-cgdSourceAddressStorageType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdSourceAddressStorageType.setStatus(_A)
-_CgdSourceAddressRowStatus_Type=RowStatus
-_CgdSourceAddressRowStatus_Object=MibTableColumn
-cgdSourceAddressRowStatus=_CgdSourceAddressRowStatus_Object((1,3,6,1,4,1,9,9,595,1,7,2,1,12),_CgdSourceAddressRowStatus_Type())
-cgdSourceAddressRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdSourceAddressRowStatus.setStatus(_A)
-_CgdDnsRule_ObjectIdentity=ObjectIdentity
-cgdDnsRule=_CgdDnsRule_ObjectIdentity((1,3,6,1,4,1,9,9,595,1,8))
-_CgdClauseTable_Object=MibTable
-cgdClauseTable=_CgdClauseTable_Object((1,3,6,1,4,1,9,9,595,1,8,1))
-if mibBuilder.loadTexts:cgdClauseTable.setStatus(_A)
-_CgdClauseEntry_Object=MibTableRow
-cgdClauseEntry=_CgdClauseEntry_Object((1,3,6,1,4,1,9,9,595,1,8,1,1))
-cgdClauseEntry.setIndexNames((0,_B,_m))
-if mibBuilder.loadTexts:cgdClauseEntry.setStatus(_A)
-class _CgdClauseId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CgdClauseId_Type.__name__=_J
-_CgdClauseId_Object=MibTableColumn
-cgdClauseId=_CgdClauseId_Object((1,3,6,1,4,1,9,9,595,1,8,1,1,1),_CgdClauseId_Type())
-cgdClauseId.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgdClauseId.setStatus(_A)
-_CgdClauseAnsGrpName_Type=SnmpAdminString
-_CgdClauseAnsGrpName_Object=MibTableColumn
-cgdClauseAnsGrpName=_CgdClauseAnsGrpName_Object((1,3,6,1,4,1,9,9,595,1,8,1,1,2),_CgdClauseAnsGrpName_Type())
-cgdClauseAnsGrpName.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdClauseAnsGrpName.setStatus(_A)
-_CgdClauseBalanceMethod_Type=CiscoGslbBalanceMethod
-_CgdClauseBalanceMethod_Object=MibTableColumn
-cgdClauseBalanceMethod=_CgdClauseBalanceMethod_Object((1,3,6,1,4,1,9,9,595,1,8,1,1,3),_CgdClauseBalanceMethod_Type())
-cgdClauseBalanceMethod.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdClauseBalanceMethod.setStatus(_A)
-_CgdClauseHits_Type=Counter32
-_CgdClauseHits_Object=MibTableColumn
-cgdClauseHits=_CgdClauseHits_Object((1,3,6,1,4,1,9,9,595,1,8,1,1,4),_CgdClauseHits_Type())
-cgdClauseHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdClauseHits.setStatus(_A)
-if mibBuilder.loadTexts:cgdClauseHits.setUnits(_G)
-_CgdClauseStorageType_Type=StorageType
-_CgdClauseStorageType_Object=MibTableColumn
-cgdClauseStorageType=_CgdClauseStorageType_Object((1,3,6,1,4,1,9,9,595,1,8,1,1,5),_CgdClauseStorageType_Type())
-cgdClauseStorageType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdClauseStorageType.setStatus(_A)
-_CgdClauseRowStatus_Type=RowStatus
-_CgdClauseRowStatus_Object=MibTableColumn
-cgdClauseRowStatus=_CgdClauseRowStatus_Object((1,3,6,1,4,1,9,9,595,1,8,1,1,6),_CgdClauseRowStatus_Type())
-cgdClauseRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdClauseRowStatus.setStatus(_A)
-_CgdDnsRuleTable_Object=MibTable
-cgdDnsRuleTable=_CgdDnsRuleTable_Object((1,3,6,1,4,1,9,9,595,1,8,2))
-if mibBuilder.loadTexts:cgdDnsRuleTable.setStatus(_A)
-_CgdDnsRuleEntry_Object=MibTableRow
-cgdDnsRuleEntry=_CgdDnsRuleEntry_Object((1,3,6,1,4,1,9,9,595,1,8,2,1))
-cgdDnsRuleEntry.setIndexNames((0,_B,_n))
-if mibBuilder.loadTexts:cgdDnsRuleEntry.setStatus(_A)
-class _CgdDnsRuleName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,80))
-_CgdDnsRuleName_Type.__name__=_F
-_CgdDnsRuleName_Object=MibTableColumn
-cgdDnsRuleName=_CgdDnsRuleName_Object((1,3,6,1,4,1,9,9,595,1,8,2,1,1),_CgdDnsRuleName_Type())
-cgdDnsRuleName.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgdDnsRuleName.setStatus(_A)
-_CgdFirstClauseId_Type=Unsigned32
-_CgdFirstClauseId_Object=MibTableColumn
-cgdFirstClauseId=_CgdFirstClauseId_Object((1,3,6,1,4,1,9,9,595,1,8,2,1,2),_CgdFirstClauseId_Type())
-cgdFirstClauseId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdFirstClauseId.setStatus(_A)
-_CgdSecondClauseId_Type=Unsigned32
-_CgdSecondClauseId_Object=MibTableColumn
-cgdSecondClauseId=_CgdSecondClauseId_Object((1,3,6,1,4,1,9,9,595,1,8,2,1,3),_CgdSecondClauseId_Type())
-cgdSecondClauseId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdSecondClauseId.setStatus(_A)
-_CgdThirdClauseId_Type=Unsigned32
-_CgdThirdClauseId_Object=MibTableColumn
-cgdThirdClauseId=_CgdThirdClauseId_Object((1,3,6,1,4,1,9,9,595,1,8,2,1,4),_CgdThirdClauseId_Type())
-cgdThirdClauseId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdThirdClauseId.setStatus(_A)
-_CgdSourceAddList_Type=SnmpAdminString
-_CgdSourceAddList_Object=MibTableColumn
-cgdSourceAddList=_CgdSourceAddList_Object((1,3,6,1,4,1,9,9,595,1,8,2,1,5),_CgdSourceAddList_Type())
-cgdSourceAddList.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdSourceAddList.setStatus(_A)
-_CgdDNSRuleDomainList_Type=SnmpAdminString
-_CgdDNSRuleDomainList_Object=MibTableColumn
-cgdDNSRuleDomainList=_CgdDNSRuleDomainList_Object((1,3,6,1,4,1,9,9,595,1,8,2,1,6),_CgdDNSRuleDomainList_Type())
-cgdDNSRuleDomainList.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdDNSRuleDomainList.setStatus(_A)
-_CgdDnsRuleHits_Type=Counter32
-_CgdDnsRuleHits_Object=MibTableColumn
-cgdDnsRuleHits=_CgdDnsRuleHits_Object((1,3,6,1,4,1,9,9,595,1,8,2,1,7),_CgdDnsRuleHits_Type())
-cgdDnsRuleHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDnsRuleHits.setStatus(_A)
-if mibBuilder.loadTexts:cgdDnsRuleHits.setUnits(_G)
-_CgdDnsRuleSuccesses_Type=Counter32
-_CgdDnsRuleSuccesses_Object=MibTableColumn
-cgdDnsRuleSuccesses=_CgdDnsRuleSuccesses_Object((1,3,6,1,4,1,9,9,595,1,8,2,1,8),_CgdDnsRuleSuccesses_Type())
-cgdDnsRuleSuccesses.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdDnsRuleSuccesses.setStatus(_A)
-if mibBuilder.loadTexts:cgdDnsRuleSuccesses.setUnits(_G)
-class _CgdDnsRuleStorageType_Type(StorageType):defaultValue=3
-_CgdDnsRuleStorageType_Type.__name__=_H
-_CgdDnsRuleStorageType_Object=MibTableColumn
-cgdDnsRuleStorageType=_CgdDnsRuleStorageType_Object((1,3,6,1,4,1,9,9,595,1,8,2,1,9),_CgdDnsRuleStorageType_Type())
-cgdDnsRuleStorageType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdDnsRuleStorageType.setStatus(_A)
-_CgdDnsRuleRowStatus_Type=RowStatus
-_CgdDnsRuleRowStatus_Object=MibTableColumn
-cgdDnsRuleRowStatus=_CgdDnsRuleRowStatus_Object((1,3,6,1,4,1,9,9,595,1,8,2,1,10),_CgdDnsRuleRowStatus_Type())
-cgdDnsRuleRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgdDnsRuleRowStatus.setStatus(_A)
-_CiscoGslbDnsMIBConform_ObjectIdentity=ObjectIdentity
-ciscoGslbDnsMIBConform=_CiscoGslbDnsMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,595,2))
-_CiscoGslbDnsMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoGslbDnsMIBCompliances=_CiscoGslbDnsMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,595,2,1))
-_CiscoGslbDnsMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoGslbDnsMIBGroups=_CiscoGslbDnsMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,595,2,2))
-ciscoGslbDnsGlobalGroup=ObjectGroup((1,3,6,1,4,1,9,9,595,2,2,1))
-ciscoGslbDnsGlobalGroup.setObjects(*((_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u)))
-if mibBuilder.loadTexts:ciscoGslbDnsGlobalGroup.setStatus(_A)
-ciscoGslbDnsGlobalStatsGroup=ObjectGroup((1,3,6,1,4,1,9,9,595,2,2,2))
-ciscoGslbDnsGlobalStatsGroup.setObjects(*((_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8)))
-if mibBuilder.loadTexts:ciscoGslbDnsGlobalStatsGroup.setStatus(_A)
-ciscoGslbDnsAnswerGroup=ObjectGroup((1,3,6,1,4,1,9,9,595,2,2,3))
-ciscoGslbDnsAnswerGroup.setObjects(*((_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_AD),(_B,_AE),(_B,_U),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL)))
-if mibBuilder.loadTexts:ciscoGslbDnsAnswerGroup.setStatus(_A)
-ciscoGslbDnsDomainGroup=ObjectGroup((1,3,6,1,4,1,9,9,595,2,2,4))
-ciscoGslbDnsDomainGroup.setObjects(*((_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX)))
-if mibBuilder.loadTexts:ciscoGslbDnsDomainGroup.setStatus(_A)
-ciscoGslbDnsSourceAddGroup=ObjectGroup((1,3,6,1,4,1,9,9,595,2,2,5))
-ciscoGslbDnsSourceAddGroup.setObjects(*((_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al)))
-if mibBuilder.loadTexts:ciscoGslbDnsSourceAddGroup.setStatus(_A)
-ciscoGslbDnsRuleGroup=ObjectGroup((1,3,6,1,4,1,9,9,595,2,2,6))
-ciscoGslbDnsRuleGroup.setObjects(*((_B,_V),(_B,_W),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax)))
-if mibBuilder.loadTexts:ciscoGslbDnsRuleGroup.setStatus(_A)
-ciscoGslbDnsNotifControlGroup=ObjectGroup((1,3,6,1,4,1,9,9,595,2,2,7))
-ciscoGslbDnsNotifControlGroup.setObjects(*((_B,_Ay),(_B,_Az)))
-if mibBuilder.loadTexts:ciscoGslbDnsNotifControlGroup.setStatus(_A)
-ciscoGslbDnsNotifObjectsGroup=ObjectGroup((1,3,6,1,4,1,9,9,595,2,2,8))
-ciscoGslbDnsNotifObjectsGroup.setObjects((_B,_X))
-if mibBuilder.loadTexts:ciscoGslbDnsNotifObjectsGroup.setStatus(_A)
-ciscoGslbDnsGlobalRateLimitGroup=ObjectGroup((1,3,6,1,4,1,9,9,595,2,2,10))
-ciscoGslbDnsGlobalRateLimitGroup.setObjects(*((_B,_A_),(_B,_B0)))
-if mibBuilder.loadTexts:ciscoGslbDnsGlobalRateLimitGroup.setStatus(_A)
-ciscoGslbDnsGlobalNotifStatsGroup=ObjectGroup((1,3,6,1,4,1,9,9,595,2,2,11))
-ciscoGslbDnsGlobalNotifStatsGroup.setObjects(*((_B,_Y),(_B,_Z)))
-if mibBuilder.loadTexts:ciscoGslbDnsGlobalNotifStatsGroup.setStatus(_A)
-ciscoGslbDnsEventClause=NotificationType((1,3,6,1,4,1,9,9,595,0,1))
-ciscoGslbDnsEventClause.setObjects(*((_M,_N),(_B,_V),(_B,_W),(_B,_Z)))
-if mibBuilder.loadTexts:ciscoGslbDnsEventClause.setStatus(_A)
-ciscoGslbAnswerEventStatusChange=NotificationType((1,3,6,1,4,1,9,9,595,0,2))
-ciscoGslbAnswerEventStatusChange.setObjects(*((_M,_N),(_B,_T),(_B,_Q),(_B,_R),(_B,_S),(_B,_U),(_B,_X),(_B,_Y)))
-if mibBuilder.loadTexts:ciscoGslbAnswerEventStatusChange.setStatus(_A)
-ciscoGslbDnsNotifGroup=NotificationGroup((1,3,6,1,4,1,9,9,595,2,2,9))
-ciscoGslbDnsNotifGroup.setObjects(*((_B,_B1),(_B,_B2)))
-if mibBuilder.loadTexts:ciscoGslbDnsNotifGroup.setStatus(_A)
-ciscoGslbDnsMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,595,2,1,1))
-ciscoGslbDnsMIBCompliance.setObjects(*((_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD)))
-if mibBuilder.loadTexts:ciscoGslbDnsMIBCompliance.setStatus('deprecated')
-mibBuilder.exportSymbols(_B,**{'ciscoGslbDnsMIB':ciscoGslbDnsMIB,'ciscoGslbDnsMIBNotifs':ciscoGslbDnsMIBNotifs,_B1:ciscoGslbDnsEventClause,_B2:ciscoGslbAnswerEventStatusChange,'ciscoGslbDnsMIBObjects':ciscoGslbDnsMIBObjects,'cgdNotifControl':cgdNotifControl,_Ay:cgdDnsClauseNotifEnable,_Az:cgdDnsAnswerNotifEnable,'cgdNotifObjects':cgdNotifObjects,_X:cgdAnswerPrevStatus,'cgdGlobal':cgdGlobal,_o:cgdTotalDomains,_p:cgdTotalDomainLists,_q:cgdTotalSourceAddresses,_r:cgdTotalSourceAddressLists,_s:cgdTotalAnswers,_t:cgdTotalAnswerGroups,_u:cgdTotalRules,_A_:cgdAnsTrapRateLimit,_B0:cgdDnsClauseTrapRateLimit,'cgdGlobalStats':cgdGlobalStats,_v:cgdDnsRcvdQueries,_w:cgdDnsRcvdHostAddrQueries,_x:cgdDnsUnmatchedQueries,_y:cgdDnsDroppedQueries,_z:cgdNSFwdSentQueries,_A0:cgdNSFwdRcvdResps,_A1:cgdBoomServSentReqs,_A2:cgdProxLkupSentReqs,_A3:cgdProxLkupRcvdResps,_A4:cgdDnsQueryRateCurrent,_A5:cgdDnsQueryRatePeak,_A6:cgdDnsUdpSrcPortErrs,_A7:cgdDnsTcpSrcPortErrs,_A8:cgdDnsPollSockErrs,_Y:cgdDroppedAnsNotifs,_Z:cgdDroppedDnsClauseNotifs,'cgdAnswer':cgdAnswer,'cgdAnswerGroupTable':cgdAnswerGroupTable,'cgdAnswerGroupEntry':cgdAnswerGroupEntry,_g:cgdAnswerGroupName,_A9:cgdAnswerGroupType,_AA:cgdAnswerGroupHits,_AB:cgdAnswerGroupStorageType,_AC:cgdAnswerGroupRowStatus,'cgdAnswerTable':cgdAnswerTable,'cgdAnswerEntry':cgdAnswerEntry,_h:cgdAnswerId,_Q:cgdAnswerType,_R:cgdAnswerAddressType,_S:cgdAnswerAddress,_T:cgdAnswerName,_AD:cgdAnswerGrpName,_AE:cgdAnswerAdminState,_U:cgdAnswerStatus,_AF:cgdAnswerHits,_AG:cgdAnswerRate1Min,_AH:cgdAnswerRate5Min,_AI:cgdAnswerRate30Min,_AJ:cgdAnswerRate4Hr,_AK:cgdAnswerStorageType,_AL:cgdAnswerRowStatus,'cgdDomain':cgdDomain,'cgdDomainListTable':cgdDomainListTable,'cgdDomainListEntry':cgdDomainListEntry,_i:cgdDomainListName,_AM:cgdDomainListHits,_AN:cgdDomainListStorageType,_AO:cgdDomainListRowStatus,'cgdDomainTable':cgdDomainTable,'cgdDomainEntry':cgdDomainEntry,_j:cgdDomainId,_AP:cgdDomainName,_AQ:cgdDomainList,_AR:cgdDomainHits,_AS:cgdDomainRate1Min,_AT:cgdDomainRate5Min,_AU:cgdDomainRate30Min,_AV:cgdDomainRate4Hr,_AW:cgdDomainStorageType,_AX:cgdDomainRowStatus,'cgdSourceAdd':cgdSourceAdd,'cgdSourceAddressListTable':cgdSourceAddressListTable,'cgdSourceAddressListEntry':cgdSourceAddressListEntry,_k:cgdSourceAddressListName,_AY:cgdSourceAddressListHits,_AZ:cgdSourceAddressListStorageType,_Aa:cgdSourceAddressListRowStatus,'cgdSourceAddressTable':cgdSourceAddressTable,'cgdSourceAddressEntry':cgdSourceAddressEntry,_l:cgdSourceAddressId,_Ab:cgdSourceAddressAddressType,_Ac:cgdSourceAddressAddress,_Ad:cgdSourceAddressPrefixLength,_Ae:cgdSourceAddressList,_Af:cgdSourceAddressHits,_Ag:cgdSourceAddressRate1Min,_Ah:cgdSourceAddressRate5Min,_Ai:cgdSourceAddressRate30Min,_Aj:cgdSourceAddressRate4Hr,_Ak:cgdSourceAddressStorageType,_Al:cgdSourceAddressRowStatus,'cgdDnsRule':cgdDnsRule,'cgdClauseTable':cgdClauseTable,'cgdClauseEntry':cgdClauseEntry,_m:cgdClauseId,_At:cgdClauseAnsGrpName,_Au:cgdClauseBalanceMethod,_Av:cgdClauseHits,_Aw:cgdClauseStorageType,_Ax:cgdClauseRowStatus,'cgdDnsRuleTable':cgdDnsRuleTable,'cgdDnsRuleEntry':cgdDnsRuleEntry,_n:cgdDnsRuleName,_V:cgdFirstClauseId,_W:cgdSecondClauseId,_Am:cgdThirdClauseId,_An:cgdSourceAddList,_Ao:cgdDNSRuleDomainList,_Ap:cgdDnsRuleHits,_Aq:cgdDnsRuleSuccesses,_Ar:cgdDnsRuleStorageType,_As:cgdDnsRuleRowStatus,'ciscoGslbDnsMIBConform':ciscoGslbDnsMIBConform,'ciscoGslbDnsMIBCompliances':ciscoGslbDnsMIBCompliances,'ciscoGslbDnsMIBCompliance':ciscoGslbDnsMIBCompliance,'ciscoGslbDnsMIBGroups':ciscoGslbDnsMIBGroups,_B3:ciscoGslbDnsGlobalGroup,_B4:ciscoGslbDnsGlobalStatsGroup,_B5:ciscoGslbDnsAnswerGroup,_B6:ciscoGslbDnsDomainGroup,_B7:ciscoGslbDnsSourceAddGroup,_B8:ciscoGslbDnsRuleGroup,_B9:ciscoGslbDnsNotifControlGroup,_BA:ciscoGslbDnsNotifObjectsGroup,_BB:ciscoGslbDnsNotifGroup,_BC:ciscoGslbDnsGlobalRateLimitGroup,_BD:ciscoGslbDnsGlobalNotifStatsGroup})
+#
+# PySNMP MIB module CISCO-GSLB-DNS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-GSLB-DNS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+CiscoGslbBalanceMethod, CiscoGslbAnswerAdminState, CiscoGslbAnswerType, CiscoGslbAnswerStatus = mibBuilder.importSymbols("CISCO-GSLB-TC-MIB", "CiscoGslbBalanceMethod", "CiscoGslbAnswerAdminState", "CiscoGslbAnswerType", "CiscoGslbAnswerStatus")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+InetAddressPrefixLength, InetAddressDNS, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetAddressDNS", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, StorageType, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "StorageType", "TruthValue", "TextualConvention")
+ciscoGslbDnsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 595))
+ciscoGslbDnsMIB.setRevisions(('2007-04-09 00:00', '2006-11-28 00:00',))
+if mibBuilder.loadTexts: ciscoGslbDnsMIB.setLastUpdated('200704090000Z')
+if mibBuilder.loadTexts: ciscoGslbDnsMIB.setOrganization('Cisco Systems, Inc.')
+ciscoGslbDnsMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 595, 0))
+ciscoGslbDnsMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 595, 1))
+ciscoGslbDnsMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 595, 2))
+cgdNotifControl = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 1))
+cgdNotifObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 2))
+cgdGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 3))
+cgdGlobalStats = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4))
+cgdAnswer = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5))
+cgdDomain = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6))
+cgdSourceAdd = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7))
+cgdDnsRule = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8))
+cgdTotalDomains = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 3, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdTotalDomains.setStatus('current')
+cgdTotalDomainLists = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 3, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdTotalDomainLists.setStatus('current')
+cgdTotalSourceAddresses = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 3, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdTotalSourceAddresses.setStatus('current')
+cgdTotalSourceAddressLists = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 3, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdTotalSourceAddressLists.setStatus('current')
+cgdTotalAnswers = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 3, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdTotalAnswers.setStatus('current')
+cgdTotalAnswerGroups = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 3, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdTotalAnswerGroups.setStatus('current')
+cgdTotalRules = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 3, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdTotalRules.setStatus('current')
+cgdAnsTrapRateLimit = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 3, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(25)).setUnits('traps per minute').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdAnsTrapRateLimit.setStatus('current')
+cgdDnsClauseTrapRateLimit = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 3, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(25)).setUnits('traps per minute').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDnsClauseTrapRateLimit.setStatus('current')
+cgdDnsRcvdQueries = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 1), Counter32()).setUnits('queries').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDnsRcvdQueries.setStatus('current')
+cgdDnsRcvdHostAddrQueries = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 2), Counter32()).setUnits('queries').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDnsRcvdHostAddrQueries.setStatus('current')
+cgdDnsUnmatchedQueries = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 3), Counter32()).setUnits('queries').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDnsUnmatchedQueries.setStatus('current')
+cgdDnsDroppedQueries = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 4), Counter32()).setUnits('queries').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDnsDroppedQueries.setStatus('current')
+cgdNSFwdSentQueries = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 5), Counter32()).setUnits('queries').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdNSFwdSentQueries.setStatus('current')
+cgdNSFwdRcvdResps = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 6), Counter32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdNSFwdRcvdResps.setStatus('current')
+cgdBoomServSentReqs = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 7), Counter32()).setUnits('requests').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdBoomServSentReqs.setStatus('current')
+cgdProxLkupSentReqs = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 8), Counter32()).setUnits('requests').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdProxLkupSentReqs.setStatus('current')
+cgdProxLkupRcvdResps = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 9), Counter32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdProxLkupRcvdResps.setStatus('current')
+cgdDnsQueryRateCurrent = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 10), Gauge32()).setUnits('requests per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDnsQueryRateCurrent.setStatus('current')
+cgdDnsQueryRatePeak = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 11), Unsigned32()).setUnits('requests per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDnsQueryRatePeak.setStatus('current')
+cgdDnsUdpSrcPortErrs = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 12), Counter32()).setUnits('errors').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDnsUdpSrcPortErrs.setStatus('current')
+cgdDnsTcpSrcPortErrs = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 13), Counter32()).setUnits('errors').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDnsTcpSrcPortErrs.setStatus('current')
+cgdDnsPollSockErrs = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 14), Counter32()).setUnits('errors').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDnsPollSockErrs.setStatus('current')
+cgdDroppedAnsNotifs = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 15), Unsigned32()).setUnits('traps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDroppedAnsNotifs.setStatus('current')
+cgdDroppedDnsClauseNotifs = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 4, 16), Unsigned32()).setUnits('traps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDroppedDnsClauseNotifs.setStatus('current')
+cgdAnswerGroupTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 1), )
+if mibBuilder.loadTexts: cgdAnswerGroupTable.setStatus('current')
+cgdAnswerGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 1, 1), ).setIndexNames((0, "CISCO-GSLB-DNS-MIB", "cgdAnswerGroupName"))
+if mibBuilder.loadTexts: cgdAnswerGroupEntry.setStatus('current')
+cgdAnswerGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 80)))
+if mibBuilder.loadTexts: cgdAnswerGroupName.setStatus('current')
+cgdAnswerGroupType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 1, 1, 2), CiscoGslbAnswerType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdAnswerGroupType.setStatus('current')
+cgdAnswerGroupHits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 1, 1, 3), Counter32()).setUnits('number of hits').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdAnswerGroupHits.setStatus('current')
+cgdAnswerGroupStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 1, 1, 4), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdAnswerGroupStorageType.setStatus('current')
+cgdAnswerGroupRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdAnswerGroupRowStatus.setStatus('current')
+cgdAnswerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2), )
+if mibBuilder.loadTexts: cgdAnswerTable.setStatus('current')
+cgdAnswerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1), ).setIndexNames((0, "CISCO-GSLB-DNS-MIB", "cgdAnswerId"))
+if mibBuilder.loadTexts: cgdAnswerEntry.setStatus('current')
+cgdAnswerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cgdAnswerId.setStatus('current')
+cgdAnswerType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1, 2), CiscoGslbAnswerType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdAnswerType.setStatus('current')
+cgdAnswerAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1, 3), InetAddressType().clone('ipv4')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdAnswerAddressType.setStatus('current')
+cgdAnswerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1, 4), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdAnswerAddress.setStatus('current')
+cgdAnswerName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1, 5), SnmpAdminString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdAnswerName.setStatus('current')
+cgdAnswerGrpName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1, 6), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdAnswerGrpName.setStatus('current')
+cgdAnswerAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1, 7), CiscoGslbAnswerAdminState().clone('active')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdAnswerAdminState.setStatus('current')
+cgdAnswerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1, 8), CiscoGslbAnswerStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdAnswerStatus.setStatus('current')
+cgdAnswerHits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1, 9), Counter32()).setUnits('number of hits').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdAnswerHits.setStatus('current')
+cgdAnswerRate1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1, 10), Gauge32()).setUnits('hits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdAnswerRate1Min.setStatus('current')
+cgdAnswerRate5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1, 11), Gauge32()).setUnits('hits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdAnswerRate5Min.setStatus('current')
+cgdAnswerRate30Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1, 12), Gauge32()).setUnits('hits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdAnswerRate30Min.setStatus('current')
+cgdAnswerRate4Hr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1, 13), Gauge32()).setUnits('hits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdAnswerRate4Hr.setStatus('current')
+cgdAnswerStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1, 14), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdAnswerStorageType.setStatus('current')
+cgdAnswerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 5, 2, 1, 15), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdAnswerRowStatus.setStatus('current')
+cgdDomainListTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 1), )
+if mibBuilder.loadTexts: cgdDomainListTable.setStatus('current')
+cgdDomainListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 1, 1), ).setIndexNames((0, "CISCO-GSLB-DNS-MIB", "cgdDomainListName"))
+if mibBuilder.loadTexts: cgdDomainListEntry.setStatus('current')
+cgdDomainListName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 80)))
+if mibBuilder.loadTexts: cgdDomainListName.setStatus('current')
+cgdDomainListHits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 1, 1, 2), Counter32()).setUnits('number of hits').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDomainListHits.setStatus('current')
+cgdDomainListStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 1, 1, 3), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdDomainListStorageType.setStatus('current')
+cgdDomainListRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdDomainListRowStatus.setStatus('current')
+cgdDomainTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 2), )
+if mibBuilder.loadTexts: cgdDomainTable.setStatus('current')
+cgdDomainEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 2, 1), ).setIndexNames((0, "CISCO-GSLB-DNS-MIB", "cgdDomainId"))
+if mibBuilder.loadTexts: cgdDomainEntry.setStatus('current')
+cgdDomainId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cgdDomainId.setStatus('current')
+cgdDomainName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 2, 1, 2), InetAddressDNS()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdDomainName.setStatus('current')
+cgdDomainList = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 2, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdDomainList.setStatus('current')
+cgdDomainHits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 2, 1, 4), Counter32()).setUnits('number of hits').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDomainHits.setStatus('current')
+cgdDomainRate1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 2, 1, 5), Gauge32()).setUnits('hits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDomainRate1Min.setStatus('current')
+cgdDomainRate5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 2, 1, 6), Gauge32()).setUnits('hits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDomainRate5Min.setStatus('current')
+cgdDomainRate30Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 2, 1, 7), Gauge32()).setUnits('hits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDomainRate30Min.setStatus('current')
+cgdDomainRate4Hr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 2, 1, 8), Gauge32()).setUnits('hits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDomainRate4Hr.setStatus('current')
+cgdDomainStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 2, 1, 9), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdDomainStorageType.setStatus('current')
+cgdDomainRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 6, 2, 1, 10), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdDomainRowStatus.setStatus('current')
+cgdSourceAddressListTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 1), )
+if mibBuilder.loadTexts: cgdSourceAddressListTable.setStatus('current')
+cgdSourceAddressListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 1, 1), ).setIndexNames((0, "CISCO-GSLB-DNS-MIB", "cgdSourceAddressListName"))
+if mibBuilder.loadTexts: cgdSourceAddressListEntry.setStatus('current')
+cgdSourceAddressListName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 80)))
+if mibBuilder.loadTexts: cgdSourceAddressListName.setStatus('current')
+cgdSourceAddressListHits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 1, 1, 2), Counter32()).setUnits('number of hits').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdSourceAddressListHits.setStatus('current')
+cgdSourceAddressListStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 1, 1, 3), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdSourceAddressListStorageType.setStatus('current')
+cgdSourceAddressListRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdSourceAddressListRowStatus.setStatus('current')
+cgdSourceAddressTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 2), )
+if mibBuilder.loadTexts: cgdSourceAddressTable.setStatus('current')
+cgdSourceAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 2, 1), ).setIndexNames((0, "CISCO-GSLB-DNS-MIB", "cgdSourceAddressId"))
+if mibBuilder.loadTexts: cgdSourceAddressEntry.setStatus('current')
+cgdSourceAddressId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cgdSourceAddressId.setStatus('current')
+cgdSourceAddressAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 2, 1, 2), InetAddressType().clone('ipv4')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdSourceAddressAddressType.setStatus('current')
+cgdSourceAddressAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 2, 1, 3), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdSourceAddressAddress.setStatus('current')
+cgdSourceAddressPrefixLength = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 2, 1, 4), InetAddressPrefixLength()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdSourceAddressPrefixLength.setStatus('current')
+cgdSourceAddressList = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 2, 1, 5), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 80))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdSourceAddressList.setStatus('current')
+cgdSourceAddressHits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 2, 1, 6), Counter32()).setUnits('number of hits').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdSourceAddressHits.setStatus('current')
+cgdSourceAddressRate1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 2, 1, 7), Gauge32()).setUnits('hits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdSourceAddressRate1Min.setStatus('current')
+cgdSourceAddressRate5Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 2, 1, 8), Gauge32()).setUnits('hits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdSourceAddressRate5Min.setStatus('current')
+cgdSourceAddressRate30Min = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 2, 1, 9), Gauge32()).setUnits('hits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdSourceAddressRate30Min.setStatus('current')
+cgdSourceAddressRate4Hr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 2, 1, 10), Gauge32()).setUnits('hits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdSourceAddressRate4Hr.setStatus('current')
+cgdSourceAddressStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 2, 1, 11), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdSourceAddressStorageType.setStatus('current')
+cgdSourceAddressRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 7, 2, 1, 12), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdSourceAddressRowStatus.setStatus('current')
+cgdClauseTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 1), )
+if mibBuilder.loadTexts: cgdClauseTable.setStatus('current')
+cgdClauseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 1, 1), ).setIndexNames((0, "CISCO-GSLB-DNS-MIB", "cgdClauseId"))
+if mibBuilder.loadTexts: cgdClauseEntry.setStatus('current')
+cgdClauseId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cgdClauseId.setStatus('current')
+cgdClauseAnsGrpName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 1, 1, 2), SnmpAdminString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdClauseAnsGrpName.setStatus('current')
+cgdClauseBalanceMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 1, 1, 3), CiscoGslbBalanceMethod()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdClauseBalanceMethod.setStatus('current')
+cgdClauseHits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 1, 1, 4), Counter32()).setUnits('number of hits').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdClauseHits.setStatus('current')
+cgdClauseStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 1, 1, 5), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdClauseStorageType.setStatus('current')
+cgdClauseRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdClauseRowStatus.setStatus('current')
+cgdDnsRuleTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 2), )
+if mibBuilder.loadTexts: cgdDnsRuleTable.setStatus('current')
+cgdDnsRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 2, 1), ).setIndexNames((0, "CISCO-GSLB-DNS-MIB", "cgdDnsRuleName"))
+if mibBuilder.loadTexts: cgdDnsRuleEntry.setStatus('current')
+cgdDnsRuleName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 2, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 80)))
+if mibBuilder.loadTexts: cgdDnsRuleName.setStatus('current')
+cgdFirstClauseId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 2, 1, 2), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdFirstClauseId.setStatus('current')
+cgdSecondClauseId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 2, 1, 3), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdSecondClauseId.setStatus('current')
+cgdThirdClauseId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 2, 1, 4), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdThirdClauseId.setStatus('current')
+cgdSourceAddList = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 2, 1, 5), SnmpAdminString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdSourceAddList.setStatus('current')
+cgdDNSRuleDomainList = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 2, 1, 6), SnmpAdminString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdDNSRuleDomainList.setStatus('current')
+cgdDnsRuleHits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 2, 1, 7), Counter32()).setUnits('number of hits').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDnsRuleHits.setStatus('current')
+cgdDnsRuleSuccesses = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 2, 1, 8), Counter32()).setUnits('number of hits').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdDnsRuleSuccesses.setStatus('current')
+cgdDnsRuleStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 2, 1, 9), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdDnsRuleStorageType.setStatus('current')
+cgdDnsRuleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 8, 2, 1, 10), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgdDnsRuleRowStatus.setStatus('current')
+cgdDnsClauseNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgdDnsClauseNotifEnable.setStatus('current')
+cgdDnsAnswerNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgdDnsAnswerNotifEnable.setStatus('current')
+cgdAnswerPrevStatus = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 595, 1, 2, 1), CiscoGslbAnswerStatus()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cgdAnswerPrevStatus.setStatus('current')
+ciscoGslbDnsEventClause = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 595, 0, 1)).setObjects(("SNMPv2-MIB", "sysName"), ("CISCO-GSLB-DNS-MIB", "cgdFirstClauseId"), ("CISCO-GSLB-DNS-MIB", "cgdSecondClauseId"), ("CISCO-GSLB-DNS-MIB", "cgdDroppedDnsClauseNotifs"))
+if mibBuilder.loadTexts: ciscoGslbDnsEventClause.setStatus('current')
+ciscoGslbAnswerEventStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 595, 0, 2)).setObjects(("SNMPv2-MIB", "sysName"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerName"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerType"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerAddressType"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerAddress"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerStatus"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerPrevStatus"), ("CISCO-GSLB-DNS-MIB", "cgdDroppedAnsNotifs"))
+if mibBuilder.loadTexts: ciscoGslbAnswerEventStatusChange.setStatus('current')
+ciscoGslbDnsMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 595, 2, 1))
+ciscoGslbDnsMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 595, 2, 2))
+ciscoGslbDnsMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 595, 2, 1, 1)).setObjects(("CISCO-GSLB-DNS-MIB", "ciscoGslbDnsGlobalGroup"), ("CISCO-GSLB-DNS-MIB", "ciscoGslbDnsGlobalStatsGroup"), ("CISCO-GSLB-DNS-MIB", "ciscoGslbDnsAnswerGroup"), ("CISCO-GSLB-DNS-MIB", "ciscoGslbDnsDomainGroup"), ("CISCO-GSLB-DNS-MIB", "ciscoGslbDnsSourceAddGroup"), ("CISCO-GSLB-DNS-MIB", "ciscoGslbDnsRuleGroup"), ("CISCO-GSLB-DNS-MIB", "ciscoGslbDnsNotifControlGroup"), ("CISCO-GSLB-DNS-MIB", "ciscoGslbDnsNotifObjectsGroup"), ("CISCO-GSLB-DNS-MIB", "ciscoGslbDnsNotifGroup"), ("CISCO-GSLB-DNS-MIB", "ciscoGslbDnsGlobalRateLimitGroup"), ("CISCO-GSLB-DNS-MIB", "ciscoGslbDnsGlobalNotifStatsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGslbDnsMIBCompliance = ciscoGslbDnsMIBCompliance.setStatus('deprecated')
+ciscoGslbDnsGlobalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 595, 2, 2, 1)).setObjects(("CISCO-GSLB-DNS-MIB", "cgdTotalDomains"), ("CISCO-GSLB-DNS-MIB", "cgdTotalDomainLists"), ("CISCO-GSLB-DNS-MIB", "cgdTotalSourceAddresses"), ("CISCO-GSLB-DNS-MIB", "cgdTotalSourceAddressLists"), ("CISCO-GSLB-DNS-MIB", "cgdTotalAnswers"), ("CISCO-GSLB-DNS-MIB", "cgdTotalAnswerGroups"), ("CISCO-GSLB-DNS-MIB", "cgdTotalRules"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGslbDnsGlobalGroup = ciscoGslbDnsGlobalGroup.setStatus('current')
+ciscoGslbDnsGlobalStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 595, 2, 2, 2)).setObjects(("CISCO-GSLB-DNS-MIB", "cgdDnsRcvdQueries"), ("CISCO-GSLB-DNS-MIB", "cgdDnsRcvdHostAddrQueries"), ("CISCO-GSLB-DNS-MIB", "cgdDnsUnmatchedQueries"), ("CISCO-GSLB-DNS-MIB", "cgdDnsDroppedQueries"), ("CISCO-GSLB-DNS-MIB", "cgdNSFwdSentQueries"), ("CISCO-GSLB-DNS-MIB", "cgdNSFwdRcvdResps"), ("CISCO-GSLB-DNS-MIB", "cgdBoomServSentReqs"), ("CISCO-GSLB-DNS-MIB", "cgdProxLkupSentReqs"), ("CISCO-GSLB-DNS-MIB", "cgdProxLkupRcvdResps"), ("CISCO-GSLB-DNS-MIB", "cgdDnsQueryRateCurrent"), ("CISCO-GSLB-DNS-MIB", "cgdDnsQueryRatePeak"), ("CISCO-GSLB-DNS-MIB", "cgdDnsUdpSrcPortErrs"), ("CISCO-GSLB-DNS-MIB", "cgdDnsTcpSrcPortErrs"), ("CISCO-GSLB-DNS-MIB", "cgdDnsPollSockErrs"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGslbDnsGlobalStatsGroup = ciscoGslbDnsGlobalStatsGroup.setStatus('current')
+ciscoGslbDnsAnswerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 595, 2, 2, 3)).setObjects(("CISCO-GSLB-DNS-MIB", "cgdAnswerGroupType"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerGroupHits"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerGroupStorageType"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerGroupRowStatus"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerType"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerAddressType"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerAddress"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerName"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerGrpName"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerAdminState"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerStatus"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerHits"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerRate1Min"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerRate5Min"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerRate30Min"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerRate4Hr"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerStorageType"), ("CISCO-GSLB-DNS-MIB", "cgdAnswerRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGslbDnsAnswerGroup = ciscoGslbDnsAnswerGroup.setStatus('current')
+ciscoGslbDnsDomainGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 595, 2, 2, 4)).setObjects(("CISCO-GSLB-DNS-MIB", "cgdDomainListHits"), ("CISCO-GSLB-DNS-MIB", "cgdDomainListStorageType"), ("CISCO-GSLB-DNS-MIB", "cgdDomainListRowStatus"), ("CISCO-GSLB-DNS-MIB", "cgdDomainName"), ("CISCO-GSLB-DNS-MIB", "cgdDomainList"), ("CISCO-GSLB-DNS-MIB", "cgdDomainHits"), ("CISCO-GSLB-DNS-MIB", "cgdDomainRate1Min"), ("CISCO-GSLB-DNS-MIB", "cgdDomainRate5Min"), ("CISCO-GSLB-DNS-MIB", "cgdDomainRate30Min"), ("CISCO-GSLB-DNS-MIB", "cgdDomainRate4Hr"), ("CISCO-GSLB-DNS-MIB", "cgdDomainStorageType"), ("CISCO-GSLB-DNS-MIB", "cgdDomainRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGslbDnsDomainGroup = ciscoGslbDnsDomainGroup.setStatus('current')
+ciscoGslbDnsSourceAddGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 595, 2, 2, 5)).setObjects(("CISCO-GSLB-DNS-MIB", "cgdSourceAddressListHits"), ("CISCO-GSLB-DNS-MIB", "cgdSourceAddressListStorageType"), ("CISCO-GSLB-DNS-MIB", "cgdSourceAddressListRowStatus"), ("CISCO-GSLB-DNS-MIB", "cgdSourceAddressAddressType"), ("CISCO-GSLB-DNS-MIB", "cgdSourceAddressAddress"), ("CISCO-GSLB-DNS-MIB", "cgdSourceAddressPrefixLength"), ("CISCO-GSLB-DNS-MIB", "cgdSourceAddressList"), ("CISCO-GSLB-DNS-MIB", "cgdSourceAddressHits"), ("CISCO-GSLB-DNS-MIB", "cgdSourceAddressRate1Min"), ("CISCO-GSLB-DNS-MIB", "cgdSourceAddressRate5Min"), ("CISCO-GSLB-DNS-MIB", "cgdSourceAddressRate30Min"), ("CISCO-GSLB-DNS-MIB", "cgdSourceAddressRate4Hr"), ("CISCO-GSLB-DNS-MIB", "cgdSourceAddressStorageType"), ("CISCO-GSLB-DNS-MIB", "cgdSourceAddressRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGslbDnsSourceAddGroup = ciscoGslbDnsSourceAddGroup.setStatus('current')
+ciscoGslbDnsRuleGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 595, 2, 2, 6)).setObjects(("CISCO-GSLB-DNS-MIB", "cgdFirstClauseId"), ("CISCO-GSLB-DNS-MIB", "cgdSecondClauseId"), ("CISCO-GSLB-DNS-MIB", "cgdThirdClauseId"), ("CISCO-GSLB-DNS-MIB", "cgdSourceAddList"), ("CISCO-GSLB-DNS-MIB", "cgdDNSRuleDomainList"), ("CISCO-GSLB-DNS-MIB", "cgdDnsRuleHits"), ("CISCO-GSLB-DNS-MIB", "cgdDnsRuleSuccesses"), ("CISCO-GSLB-DNS-MIB", "cgdDnsRuleStorageType"), ("CISCO-GSLB-DNS-MIB", "cgdDnsRuleRowStatus"), ("CISCO-GSLB-DNS-MIB", "cgdClauseAnsGrpName"), ("CISCO-GSLB-DNS-MIB", "cgdClauseBalanceMethod"), ("CISCO-GSLB-DNS-MIB", "cgdClauseHits"), ("CISCO-GSLB-DNS-MIB", "cgdClauseStorageType"), ("CISCO-GSLB-DNS-MIB", "cgdClauseRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGslbDnsRuleGroup = ciscoGslbDnsRuleGroup.setStatus('current')
+ciscoGslbDnsNotifControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 595, 2, 2, 7)).setObjects(("CISCO-GSLB-DNS-MIB", "cgdDnsClauseNotifEnable"), ("CISCO-GSLB-DNS-MIB", "cgdDnsAnswerNotifEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGslbDnsNotifControlGroup = ciscoGslbDnsNotifControlGroup.setStatus('current')
+ciscoGslbDnsNotifObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 595, 2, 2, 8)).setObjects(("CISCO-GSLB-DNS-MIB", "cgdAnswerPrevStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGslbDnsNotifObjectsGroup = ciscoGslbDnsNotifObjectsGroup.setStatus('current')
+ciscoGslbDnsNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 595, 2, 2, 9)).setObjects(("CISCO-GSLB-DNS-MIB", "ciscoGslbDnsEventClause"), ("CISCO-GSLB-DNS-MIB", "ciscoGslbAnswerEventStatusChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGslbDnsNotifGroup = ciscoGslbDnsNotifGroup.setStatus('current')
+ciscoGslbDnsGlobalRateLimitGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 595, 2, 2, 10)).setObjects(("CISCO-GSLB-DNS-MIB", "cgdAnsTrapRateLimit"), ("CISCO-GSLB-DNS-MIB", "cgdDnsClauseTrapRateLimit"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGslbDnsGlobalRateLimitGroup = ciscoGslbDnsGlobalRateLimitGroup.setStatus('current')
+ciscoGslbDnsGlobalNotifStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 595, 2, 2, 11)).setObjects(("CISCO-GSLB-DNS-MIB", "cgdDroppedAnsNotifs"), ("CISCO-GSLB-DNS-MIB", "cgdDroppedDnsClauseNotifs"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGslbDnsGlobalNotifStatsGroup = ciscoGslbDnsGlobalNotifStatsGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-GSLB-DNS-MIB", cgdDomainListStorageType=cgdDomainListStorageType, cgdAnswerGroupRowStatus=cgdAnswerGroupRowStatus, cgdDomain=cgdDomain, cgdDroppedDnsClauseNotifs=cgdDroppedDnsClauseNotifs, cgdDomainRate30Min=cgdDomainRate30Min, cgdAnswerGroupEntry=cgdAnswerGroupEntry, ciscoGslbDnsMIBObjects=ciscoGslbDnsMIBObjects, cgdSourceAddList=cgdSourceAddList, ciscoGslbDnsRuleGroup=ciscoGslbDnsRuleGroup, cgdDomainListRowStatus=cgdDomainListRowStatus, cgdAnswerAddressType=cgdAnswerAddressType, cgdSourceAddressId=cgdSourceAddressId, cgdClauseStorageType=cgdClauseStorageType, cgdFirstClauseId=cgdFirstClauseId, cgdDnsRuleStorageType=cgdDnsRuleStorageType, ciscoGslbDnsDomainGroup=ciscoGslbDnsDomainGroup, cgdDomainRate4Hr=cgdDomainRate4Hr, cgdAnswerGroupName=cgdAnswerGroupName, ciscoGslbDnsNotifControlGroup=ciscoGslbDnsNotifControlGroup, cgdDnsRuleHits=cgdDnsRuleHits, cgdDnsAnswerNotifEnable=cgdDnsAnswerNotifEnable, cgdSourceAddressRate5Min=cgdSourceAddressRate5Min, cgdAnswerRate1Min=cgdAnswerRate1Min, cgdDomainRowStatus=cgdDomainRowStatus, cgdAnswerAddress=cgdAnswerAddress, cgdAnswerRowStatus=cgdAnswerRowStatus, ciscoGslbDnsAnswerGroup=ciscoGslbDnsAnswerGroup, cgdAnswerName=cgdAnswerName, ciscoGslbDnsSourceAddGroup=ciscoGslbDnsSourceAddGroup, cgdAnswerRate5Min=cgdAnswerRate5Min, cgdAnswer=cgdAnswer, cgdDomainRate5Min=cgdDomainRate5Min, cgdClauseBalanceMethod=cgdClauseBalanceMethod, cgdSourceAddressRate30Min=cgdSourceAddressRate30Min, cgdAnswerStorageType=cgdAnswerStorageType, cgdClauseHits=cgdClauseHits, cgdSourceAddressEntry=cgdSourceAddressEntry, ciscoGslbDnsMIB=ciscoGslbDnsMIB, cgdSourceAddressRate1Min=cgdSourceAddressRate1Min, cgdDomainListName=cgdDomainListName, cgdAnswerGrpName=cgdAnswerGrpName, cgdDomainListHits=cgdDomainListHits, ciscoGslbDnsMIBConform=ciscoGslbDnsMIBConform, cgdDomainListTable=cgdDomainListTable, cgdDnsDroppedQueries=cgdDnsDroppedQueries, cgdDnsRuleName=cgdDnsRuleName, cgdDnsRule=cgdDnsRule, cgdDnsQueryRatePeak=cgdDnsQueryRatePeak, cgdAnswerStatus=cgdAnswerStatus, cgdDnsTcpSrcPortErrs=cgdDnsTcpSrcPortErrs, cgdDnsRuleTable=cgdDnsRuleTable, cgdAnswerEntry=cgdAnswerEntry, cgdAnswerRate30Min=cgdAnswerRate30Min, cgdSourceAddressListName=cgdSourceAddressListName, cgdAnswerGroupStorageType=cgdAnswerGroupStorageType, cgdClauseAnsGrpName=cgdClauseAnsGrpName, cgdDomainId=cgdDomainId, cgdDNSRuleDomainList=cgdDNSRuleDomainList, cgdAnsTrapRateLimit=cgdAnsTrapRateLimit, cgdTotalAnswers=cgdTotalAnswers, cgdDnsClauseNotifEnable=cgdDnsClauseNotifEnable, cgdAnswerGroupType=cgdAnswerGroupType, cgdSourceAddressStorageType=cgdSourceAddressStorageType, cgdSourceAddressRate4Hr=cgdSourceAddressRate4Hr, cgdDomainStorageType=cgdDomainStorageType, cgdDnsRuleEntry=cgdDnsRuleEntry, cgdAnswerHits=cgdAnswerHits, cgdDnsRcvdQueries=cgdDnsRcvdQueries, cgdSourceAddressAddress=cgdSourceAddressAddress, ciscoGslbDnsGlobalStatsGroup=ciscoGslbDnsGlobalStatsGroup, ciscoGslbDnsNotifGroup=ciscoGslbDnsNotifGroup, cgdNotifControl=cgdNotifControl, ciscoGslbDnsNotifObjectsGroup=ciscoGslbDnsNotifObjectsGroup, cgdTotalSourceAddresses=cgdTotalSourceAddresses, ciscoGslbDnsMIBNotifs=ciscoGslbDnsMIBNotifs, cgdDnsRcvdHostAddrQueries=cgdDnsRcvdHostAddrQueries, cgdAnswerType=cgdAnswerType, cgdSourceAddressAddressType=cgdSourceAddressAddressType, cgdDnsRuleRowStatus=cgdDnsRuleRowStatus, cgdDnsUnmatchedQueries=cgdDnsUnmatchedQueries, cgdDomainList=cgdDomainList, ciscoGslbAnswerEventStatusChange=ciscoGslbAnswerEventStatusChange, cgdSecondClauseId=cgdSecondClauseId, PYSNMP_MODULE_ID=ciscoGslbDnsMIB, cgdSourceAddressListStorageType=cgdSourceAddressListStorageType, cgdDroppedAnsNotifs=cgdDroppedAnsNotifs, cgdSourceAddressList=cgdSourceAddressList, cgdTotalAnswerGroups=cgdTotalAnswerGroups, cgdDomainTable=cgdDomainTable, cgdDnsPollSockErrs=cgdDnsPollSockErrs, cgdAnswerGroupHits=cgdAnswerGroupHits, cgdAnswerAdminState=cgdAnswerAdminState, cgdSourceAdd=cgdSourceAdd, cgdDomainHits=cgdDomainHits, cgdAnswerId=cgdAnswerId, ciscoGslbDnsGlobalRateLimitGroup=ciscoGslbDnsGlobalRateLimitGroup, cgdAnswerTable=cgdAnswerTable, ciscoGslbDnsGlobalNotifStatsGroup=ciscoGslbDnsGlobalNotifStatsGroup, cgdTotalDomainLists=cgdTotalDomainLists, cgdDomainEntry=cgdDomainEntry, cgdDomainListEntry=cgdDomainListEntry, cgdNSFwdSentQueries=cgdNSFwdSentQueries, cgdTotalRules=cgdTotalRules, cgdNSFwdRcvdResps=cgdNSFwdRcvdResps, cgdBoomServSentReqs=cgdBoomServSentReqs, cgdGlobalStats=cgdGlobalStats, cgdSourceAddressListEntry=cgdSourceAddressListEntry, cgdDnsUdpSrcPortErrs=cgdDnsUdpSrcPortErrs, cgdSourceAddressListHits=cgdSourceAddressListHits, cgdNotifObjects=cgdNotifObjects, cgdAnswerPrevStatus=cgdAnswerPrevStatus, cgdClauseId=cgdClauseId, cgdThirdClauseId=cgdThirdClauseId, cgdProxLkupSentReqs=cgdProxLkupSentReqs, cgdProxLkupRcvdResps=cgdProxLkupRcvdResps, cgdSourceAddressListRowStatus=cgdSourceAddressListRowStatus, cgdClauseTable=cgdClauseTable, ciscoGslbDnsMIBCompliances=ciscoGslbDnsMIBCompliances, cgdSourceAddressListTable=cgdSourceAddressListTable, cgdAnswerRate4Hr=cgdAnswerRate4Hr, cgdClauseEntry=cgdClauseEntry, cgdTotalDomains=cgdTotalDomains, cgdClauseRowStatus=cgdClauseRowStatus, cgdDnsQueryRateCurrent=cgdDnsQueryRateCurrent, ciscoGslbDnsMIBCompliance=ciscoGslbDnsMIBCompliance, cgdSourceAddressHits=cgdSourceAddressHits, ciscoGslbDnsGlobalGroup=ciscoGslbDnsGlobalGroup, cgdSourceAddressPrefixLength=cgdSourceAddressPrefixLength, cgdDnsRuleSuccesses=cgdDnsRuleSuccesses, cgdSourceAddressRowStatus=cgdSourceAddressRowStatus, cgdGlobal=cgdGlobal, cgdAnswerGroupTable=cgdAnswerGroupTable, cgdDnsClauseTrapRateLimit=cgdDnsClauseTrapRateLimit, ciscoGslbDnsEventClause=ciscoGslbDnsEventClause, cgdDomainName=cgdDomainName, cgdSourceAddressTable=cgdSourceAddressTable, cgdDomainRate1Min=cgdDomainRate1Min, cgdTotalSourceAddressLists=cgdTotalSourceAddressLists, ciscoGslbDnsMIBGroups=ciscoGslbDnsMIBGroups)

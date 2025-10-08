@@ -1,132 +1,91 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tmnxBasedProducts,=mibBuilder.importSymbols('TIMETRA-GLOBAL-MIB','tmnxBasedProducts')
-aluSARGlobalMIBModule=ModuleIdentity((1,3,6,1,4,1,6527,6,1,1,1,1))
-if mibBuilder.loadTexts:aluSARGlobalMIBModule.setRevisions(('2016-05-06 10:00','2013-05-06 10:00','2011-12-06 00:00','2010-12-20 00:00','2010-08-13 00:00','2009-01-23 00:00','2008-08-27 00:00','2008-06-03 00:00','2008-01-09 00:00'))
-_AluServiceAggrRouters_ObjectIdentity=ObjectIdentity
-aluServiceAggrRouters=_AluServiceAggrRouters_ObjectIdentity((1,3,6,1,4,1,6527,6,1))
-_AluSARRegistry_ObjectIdentity=ObjectIdentity
-aluSARRegistry=_AluSARRegistry_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1))
-_AluSARModules_ObjectIdentity=ObjectIdentity
-aluSARModules=_AluSARModules_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,1))
-_AluSARMIBModules_ObjectIdentity=ObjectIdentity
-aluSARMIBModules=_AluSARMIBModules_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,1,3))
-_AluSARCapabilityModule_ObjectIdentity=ObjectIdentity
-aluSARCapabilityModule=_AluSARCapabilityModule_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,1,4))
-_AluSAR7705CapModule_ObjectIdentity=ObjectIdentity
-aluSAR7705CapModule=_AluSAR7705CapModule_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,1,4,1))
-_AluSAR7705ServiceAggrRouters_ObjectIdentity=ObjectIdentity
-aluSAR7705ServiceAggrRouters=_AluSAR7705ServiceAggrRouters_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2))
-_AluSARModel7705SAR8Reg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SAR8Reg=_AluSARModel7705SAR8Reg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,1))
-if mibBuilder.loadTexts:aluSARModel7705SAR8Reg.setStatus(_A)
-_AluSARModel7705SARfReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARfReg=_AluSARModel7705SARfReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,2))
-if mibBuilder.loadTexts:aluSARModel7705SARfReg.setStatus(_A)
-_AluSARModel7705SAR18Reg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SAR18Reg=_AluSARModel7705SAR18Reg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,3))
-if mibBuilder.loadTexts:aluSARModel7705SAR18Reg.setStatus(_A)
-_AluSARModel7705SARmReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARmReg=_AluSARModel7705SARmReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,4))
-if mibBuilder.loadTexts:aluSARModel7705SARmReg.setStatus(_A)
-_AluSARModel7705SARmeReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARmeReg=_AluSARModel7705SARmeReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,5))
-if mibBuilder.loadTexts:aluSARModel7705SARmeReg.setStatus(_A)
-_AluSARModel7705SARmlAReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARmlAReg=_AluSARModel7705SARmlAReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,6))
-if mibBuilder.loadTexts:aluSARModel7705SARmlAReg.setStatus(_A)
-_AluSARModel7705SARmlBReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARmlBReg=_AluSARModel7705SARmlBReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,7))
-if mibBuilder.loadTexts:aluSARModel7705SARmlBReg.setStatus(_A)
-_AluSARModel7705SARmlCReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARmlCReg=_AluSARModel7705SARmlCReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,8))
-if mibBuilder.loadTexts:aluSARModel7705SARmlCReg.setStatus(_A)
-_AluSARModel7705SARmlDReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARmlDReg=_AluSARModel7705SARmlDReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,9))
-if mibBuilder.loadTexts:aluSARModel7705SARmlDReg.setStatus(_A)
-_AluSARModel7705SARmlEReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARmlEReg=_AluSARModel7705SARmlEReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,10))
-if mibBuilder.loadTexts:aluSARModel7705SARmlEReg.setStatus(_A)
-_AluSARModel7705SARHReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARHReg=_AluSARModel7705SARHReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,11))
-if mibBuilder.loadTexts:aluSARModel7705SARHReg.setStatus(_A)
-_AluSARModel7705SARHCReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARHCReg=_AluSARModel7705SARHCReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,12))
-if mibBuilder.loadTexts:aluSARModel7705SARHCReg.setStatus(_A)
-_AluSARModel7705SARWxAReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARWxAReg=_AluSARModel7705SARWxAReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,13))
-if mibBuilder.loadTexts:aluSARModel7705SARWxAReg.setStatus(_A)
-_AluSARModel7705SARWxBReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARWxBReg=_AluSARModel7705SARWxBReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,14))
-if mibBuilder.loadTexts:aluSARModel7705SARWxBReg.setStatus(_A)
-_AluSARModel7705SARWxCReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARWxCReg=_AluSARModel7705SARWxCReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,15))
-if mibBuilder.loadTexts:aluSARModel7705SARWxCReg.setStatus(_A)
-_AluSARModel7705SARWxDReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARWxDReg=_AluSARModel7705SARWxDReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,16))
-if mibBuilder.loadTexts:aluSARModel7705SARWxDReg.setStatus(_A)
-_AluSARModel7705SARWxEReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARWxEReg=_AluSARModel7705SARWxEReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,17))
-if mibBuilder.loadTexts:aluSARModel7705SARWxEReg.setStatus(_A)
-_AluSARModel7705SARWxFReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARWxFReg=_AluSARModel7705SARWxFReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,18))
-if mibBuilder.loadTexts:aluSARModel7705SARWxFReg.setStatus(_A)
-_AluSARModel7705SARXReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARXReg=_AluSARModel7705SARXReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,19))
-if mibBuilder.loadTexts:aluSARModel7705SARXReg.setStatus(_A)
-_AluSARModel7705SARWxGReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARWxGReg=_AluSARModel7705SARWxGReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,20))
-if mibBuilder.loadTexts:aluSARModel7705SARWxGReg.setStatus(_A)
-_AluSARModel7705SARWxHReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARWxHReg=_AluSARModel7705SARWxHReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,21))
-if mibBuilder.loadTexts:aluSARModel7705SARWxHReg.setStatus(_A)
-_AluSARModel7705SARWxIReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARWxIReg=_AluSARModel7705SARWxIReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,22))
-if mibBuilder.loadTexts:aluSARModel7705SARWxIReg.setStatus(_A)
-_AluSARModel7705TSATSReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705TSATSReg=_AluSARModel7705TSATSReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,23))
-if mibBuilder.loadTexts:aluSARModel7705TSATSReg.setStatus(_A)
-_AluSARModel7705SARmlAxReg_ObjectIdentity=ObjectIdentity
-aluSARModel7705SARmlAxReg=_AluSARModel7705SARmlAxReg_ObjectIdentity((1,3,6,1,4,1,6527,6,1,1,2,24))
-if mibBuilder.loadTexts:aluSARModel7705SARmlAxReg.setStatus(_A)
-_AluSARMIB_ObjectIdentity=ObjectIdentity
-aluSARMIB=_AluSARMIB_ObjectIdentity((1,3,6,1,4,1,6527,6,1,2))
-_AluSARConfs_ObjectIdentity=ObjectIdentity
-aluSARConfs=_AluSARConfs_ObjectIdentity((1,3,6,1,4,1,6527,6,1,2,1))
-_AluSARObjs_ObjectIdentity=ObjectIdentity
-aluSARObjs=_AluSARObjs_ObjectIdentity((1,3,6,1,4,1,6527,6,1,2,2))
-_AluSARNotifyPrefix_ObjectIdentity=ObjectIdentity
-aluSARNotifyPrefix=_AluSARNotifyPrefix_ObjectIdentity((1,3,6,1,4,1,6527,6,1,2,3))
-_AluSARProductCapability_ObjectIdentity=ObjectIdentity
-aluSARProductCapability=_AluSARProductCapability_ObjectIdentity((1,3,6,1,4,1,6527,6,1,3))
-_AluSAR7705Capability_ObjectIdentity=ObjectIdentity
-aluSAR7705Capability=_AluSAR7705Capability_ObjectIdentity((1,3,6,1,4,1,6527,6,1,3,1))
-_AluSAR7705V1v0_ObjectIdentity=ObjectIdentity
-aluSAR7705V1v0=_AluSAR7705V1v0_ObjectIdentity((1,3,6,1,4,1,6527,6,1,3,1,1))
-_AluSAR7705V1v1_ObjectIdentity=ObjectIdentity
-aluSAR7705V1v1=_AluSAR7705V1v1_ObjectIdentity((1,3,6,1,4,1,6527,6,1,3,1,2))
-_AluSAR7705V2v0_ObjectIdentity=ObjectIdentity
-aluSAR7705V2v0=_AluSAR7705V2v0_ObjectIdentity((1,3,6,1,4,1,6527,6,1,3,1,3))
-_AluSAR7705V2v1_ObjectIdentity=ObjectIdentity
-aluSAR7705V2v1=_AluSAR7705V2v1_ObjectIdentity((1,3,6,1,4,1,6527,6,1,3,1,4))
-_AluSAR7705V3v0_ObjectIdentity=ObjectIdentity
-aluSAR7705V3v0=_AluSAR7705V3v0_ObjectIdentity((1,3,6,1,4,1,6527,6,1,3,1,5))
-_AluSAR7705V4v0_ObjectIdentity=ObjectIdentity
-aluSAR7705V4v0=_AluSAR7705V4v0_ObjectIdentity((1,3,6,1,4,1,6527,6,1,3,1,6))
-_AluSAR7705V5v0_ObjectIdentity=ObjectIdentity
-aluSAR7705V5v0=_AluSAR7705V5v0_ObjectIdentity((1,3,6,1,4,1,6527,6,1,3,1,7))
-_AluSAR7705V6v0_ObjectIdentity=ObjectIdentity
-aluSAR7705V6v0=_AluSAR7705V6v0_ObjectIdentity((1,3,6,1,4,1,6527,6,1,3,1,8))
-_AluSAR7705V6v1_ObjectIdentity=ObjectIdentity
-aluSAR7705V6v1=_AluSAR7705V6v1_ObjectIdentity((1,3,6,1,4,1,6527,6,1,3,1,9))
-_AluSAR7705V7v0_ObjectIdentity=ObjectIdentity
-aluSAR7705V7v0=_AluSAR7705V7v0_ObjectIdentity((1,3,6,1,4,1,6527,6,1,3,1,10))
-_AluSAR7705V8v0_ObjectIdentity=ObjectIdentity
-aluSAR7705V8v0=_AluSAR7705V8v0_ObjectIdentity((1,3,6,1,4,1,6527,6,1,3,1,11))
-mibBuilder.exportSymbols('ALU-SAR-GLOBAL-MIB',**{'aluServiceAggrRouters':aluServiceAggrRouters,'aluSARRegistry':aluSARRegistry,'aluSARModules':aluSARModules,'aluSARGlobalMIBModule':aluSARGlobalMIBModule,'aluSARMIBModules':aluSARMIBModules,'aluSARCapabilityModule':aluSARCapabilityModule,'aluSAR7705CapModule':aluSAR7705CapModule,'aluSAR7705ServiceAggrRouters':aluSAR7705ServiceAggrRouters,'aluSARModel7705SAR8Reg':aluSARModel7705SAR8Reg,'aluSARModel7705SARfReg':aluSARModel7705SARfReg,'aluSARModel7705SAR18Reg':aluSARModel7705SAR18Reg,'aluSARModel7705SARmReg':aluSARModel7705SARmReg,'aluSARModel7705SARmeReg':aluSARModel7705SARmeReg,'aluSARModel7705SARmlAReg':aluSARModel7705SARmlAReg,'aluSARModel7705SARmlBReg':aluSARModel7705SARmlBReg,'aluSARModel7705SARmlCReg':aluSARModel7705SARmlCReg,'aluSARModel7705SARmlDReg':aluSARModel7705SARmlDReg,'aluSARModel7705SARmlEReg':aluSARModel7705SARmlEReg,'aluSARModel7705SARHReg':aluSARModel7705SARHReg,'aluSARModel7705SARHCReg':aluSARModel7705SARHCReg,'aluSARModel7705SARWxAReg':aluSARModel7705SARWxAReg,'aluSARModel7705SARWxBReg':aluSARModel7705SARWxBReg,'aluSARModel7705SARWxCReg':aluSARModel7705SARWxCReg,'aluSARModel7705SARWxDReg':aluSARModel7705SARWxDReg,'aluSARModel7705SARWxEReg':aluSARModel7705SARWxEReg,'aluSARModel7705SARWxFReg':aluSARModel7705SARWxFReg,'aluSARModel7705SARXReg':aluSARModel7705SARXReg,'aluSARModel7705SARWxGReg':aluSARModel7705SARWxGReg,'aluSARModel7705SARWxHReg':aluSARModel7705SARWxHReg,'aluSARModel7705SARWxIReg':aluSARModel7705SARWxIReg,'aluSARModel7705TSATSReg':aluSARModel7705TSATSReg,'aluSARModel7705SARmlAxReg':aluSARModel7705SARmlAxReg,'aluSARMIB':aluSARMIB,'aluSARConfs':aluSARConfs,'aluSARObjs':aluSARObjs,'aluSARNotifyPrefix':aluSARNotifyPrefix,'aluSARProductCapability':aluSARProductCapability,'aluSAR7705Capability':aluSAR7705Capability,'aluSAR7705V1v0':aluSAR7705V1v0,'aluSAR7705V1v1':aluSAR7705V1v1,'aluSAR7705V2v0':aluSAR7705V2v0,'aluSAR7705V2v1':aluSAR7705V2v1,'aluSAR7705V3v0':aluSAR7705V3v0,'aluSAR7705V4v0':aluSAR7705V4v0,'aluSAR7705V5v0':aluSAR7705V5v0,'aluSAR7705V6v0':aluSAR7705V6v0,'aluSAR7705V6v1':aluSAR7705V6v1,'aluSAR7705V7v0':aluSAR7705V7v0,'aluSAR7705V8v0':aluSAR7705V8v0})
+#
+# PySNMP MIB module ALU-SAR-GLOBAL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/ALU-SAR-GLOBAL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:22:22 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tmnxBasedProducts, = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxBasedProducts")
+aluSARGlobalMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 1, 1))
+aluSARGlobalMIBModule.setRevisions(('2016-05-06 10:00', '2013-05-06 10:00', '2011-12-06 00:00', '2010-12-20 00:00', '2010-08-13 00:00', '2009-01-23 00:00', '2008-08-27 00:00', '2008-06-03 00:00', '2008-01-09 00:00',))
+if mibBuilder.loadTexts: aluSARGlobalMIBModule.setLastUpdated('201305061000Z')
+if mibBuilder.loadTexts: aluSARGlobalMIBModule.setOrganization('Nokia')
+aluServiceAggrRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1))
+aluSARRegistry = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1))
+aluSARModules = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 1))
+aluSARMIBModules = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 1, 3))
+aluSARCapabilityModule = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 1, 4))
+aluSAR7705CapModule = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 1, 4, 1))
+aluSAR7705ServiceAggrRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2))
+aluSARModel7705SAR8Reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 1))
+if mibBuilder.loadTexts: aluSARModel7705SAR8Reg.setStatus('current')
+aluSARModel7705SARfReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 2))
+if mibBuilder.loadTexts: aluSARModel7705SARfReg.setStatus('current')
+aluSARModel7705SAR18Reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 3))
+if mibBuilder.loadTexts: aluSARModel7705SAR18Reg.setStatus('current')
+aluSARModel7705SARmReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 4))
+if mibBuilder.loadTexts: aluSARModel7705SARmReg.setStatus('current')
+aluSARModel7705SARmeReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 5))
+if mibBuilder.loadTexts: aluSARModel7705SARmeReg.setStatus('current')
+aluSARModel7705SARmlAReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 6))
+if mibBuilder.loadTexts: aluSARModel7705SARmlAReg.setStatus('current')
+aluSARModel7705SARmlBReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 7))
+if mibBuilder.loadTexts: aluSARModel7705SARmlBReg.setStatus('current')
+aluSARModel7705SARmlCReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 8))
+if mibBuilder.loadTexts: aluSARModel7705SARmlCReg.setStatus('current')
+aluSARModel7705SARmlDReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 9))
+if mibBuilder.loadTexts: aluSARModel7705SARmlDReg.setStatus('current')
+aluSARModel7705SARmlEReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 10))
+if mibBuilder.loadTexts: aluSARModel7705SARmlEReg.setStatus('current')
+aluSARModel7705SARHReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 11))
+if mibBuilder.loadTexts: aluSARModel7705SARHReg.setStatus('current')
+aluSARModel7705SARHCReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 12))
+if mibBuilder.loadTexts: aluSARModel7705SARHCReg.setStatus('current')
+aluSARModel7705SARWxAReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 13))
+if mibBuilder.loadTexts: aluSARModel7705SARWxAReg.setStatus('current')
+aluSARModel7705SARWxBReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 14))
+if mibBuilder.loadTexts: aluSARModel7705SARWxBReg.setStatus('current')
+aluSARModel7705SARWxCReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 15))
+if mibBuilder.loadTexts: aluSARModel7705SARWxCReg.setStatus('current')
+aluSARModel7705SARWxDReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 16))
+if mibBuilder.loadTexts: aluSARModel7705SARWxDReg.setStatus('current')
+aluSARModel7705SARWxEReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 17))
+if mibBuilder.loadTexts: aluSARModel7705SARWxEReg.setStatus('current')
+aluSARModel7705SARWxFReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 18))
+if mibBuilder.loadTexts: aluSARModel7705SARWxFReg.setStatus('current')
+aluSARModel7705SARXReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 19))
+if mibBuilder.loadTexts: aluSARModel7705SARXReg.setStatus('current')
+aluSARModel7705SARWxGReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 20))
+if mibBuilder.loadTexts: aluSARModel7705SARWxGReg.setStatus('current')
+aluSARModel7705SARWxHReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 21))
+if mibBuilder.loadTexts: aluSARModel7705SARWxHReg.setStatus('current')
+aluSARModel7705SARWxIReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 22))
+if mibBuilder.loadTexts: aluSARModel7705SARWxIReg.setStatus('current')
+aluSARModel7705TSATSReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 23))
+if mibBuilder.loadTexts: aluSARModel7705TSATSReg.setStatus('current')
+aluSARModel7705SARmlAxReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 2, 24))
+if mibBuilder.loadTexts: aluSARModel7705SARmlAxReg.setStatus('current')
+aluSARMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2))
+aluSARConfs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1))
+aluSARObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2))
+aluSARNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3))
+aluSARProductCapability = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 3))
+aluSAR7705Capability = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 3, 1))
+aluSAR7705V1v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 3, 1, 1))
+aluSAR7705V1v1 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 3, 1, 2))
+aluSAR7705V2v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 3, 1, 3))
+aluSAR7705V2v1 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 3, 1, 4))
+aluSAR7705V3v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 3, 1, 5))
+aluSAR7705V4v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 3, 1, 6))
+aluSAR7705V5v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 3, 1, 7))
+aluSAR7705V6v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 3, 1, 8))
+aluSAR7705V6v1 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 3, 1, 9))
+aluSAR7705V7v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 3, 1, 10))
+aluSAR7705V8v0 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 3, 1, 11))
+mibBuilder.exportSymbols("ALU-SAR-GLOBAL-MIB", aluSARModel7705SARmlBReg=aluSARModel7705SARmlBReg, aluSARMIBModules=aluSARMIBModules, aluSARModel7705SARmeReg=aluSARModel7705SARmeReg, aluSARCapabilityModule=aluSARCapabilityModule, aluServiceAggrRouters=aluServiceAggrRouters, aluSARNotifyPrefix=aluSARNotifyPrefix, aluSARModel7705SARmlDReg=aluSARModel7705SARmlDReg, aluSARModel7705SARWxAReg=aluSARModel7705SARWxAReg, aluSAR7705V4v0=aluSAR7705V4v0, aluSAR7705V1v0=aluSAR7705V1v0, aluSARModel7705SARXReg=aluSARModel7705SARXReg, aluSARModel7705SARWxIReg=aluSARModel7705SARWxIReg, aluSARGlobalMIBModule=aluSARGlobalMIBModule, aluSARModel7705SARmReg=aluSARModel7705SARmReg, aluSARModel7705SARHCReg=aluSARModel7705SARHCReg, aluSAR7705V2v1=aluSAR7705V2v1, aluSAR7705ServiceAggrRouters=aluSAR7705ServiceAggrRouters, aluSARModel7705SARWxEReg=aluSARModel7705SARWxEReg, aluSARModel7705SARmlCReg=aluSARModel7705SARmlCReg, aluSARModel7705SAR8Reg=aluSARModel7705SAR8Reg, aluSARModel7705SARWxFReg=aluSARModel7705SARWxFReg, aluSAR7705Capability=aluSAR7705Capability, aluSAR7705V5v0=aluSAR7705V5v0, aluSARModel7705SARWxDReg=aluSARModel7705SARWxDReg, aluSARProductCapability=aluSARProductCapability, aluSARModel7705SARmlAReg=aluSARModel7705SARmlAReg, aluSARConfs=aluSARConfs, aluSARRegistry=aluSARRegistry, aluSAR7705CapModule=aluSAR7705CapModule, aluSARModel7705SARWxGReg=aluSARModel7705SARWxGReg, aluSARModel7705SARfReg=aluSARModel7705SARfReg, aluSAR7705V1v1=aluSAR7705V1v1, aluSAR7705V6v1=aluSAR7705V6v1, aluSARMIB=aluSARMIB, aluSARModel7705SARmlAxReg=aluSARModel7705SARmlAxReg, aluSAR7705V7v0=aluSAR7705V7v0, aluSARModel7705SARWxBReg=aluSARModel7705SARWxBReg, aluSARModel7705TSATSReg=aluSARModel7705TSATSReg, aluSAR7705V8v0=aluSAR7705V8v0, aluSARModel7705SARmlEReg=aluSARModel7705SARmlEReg, PYSNMP_MODULE_ID=aluSARGlobalMIBModule, aluSARModules=aluSARModules, aluSARModel7705SARWxHReg=aluSARModel7705SARWxHReg, aluSAR7705V2v0=aluSAR7705V2v0, aluSARModel7705SAR18Reg=aluSARModel7705SAR18Reg, aluSARObjs=aluSARObjs, aluSARModel7705SARHReg=aluSARModel7705SARHReg, aluSARModel7705SARWxCReg=aluSARModel7705SARWxCReg, aluSAR7705V6v0=aluSAR7705V6v0, aluSAR7705V3v0=aluSAR7705V3v0)

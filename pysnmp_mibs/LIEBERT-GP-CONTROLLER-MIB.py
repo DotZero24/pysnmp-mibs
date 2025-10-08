@@ -1,39 +1,29 @@
-_B='current'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-lgpController,liebertControllerModuleReg=mibBuilder.importSymbols('LIEBERT-GP-REGISTRATION-MIB','lgpController','liebertControllerModuleReg')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-liebertControllerModule=ModuleIdentity((1,3,6,1,4,1,476,1,42,1,7,1))
-if mibBuilder.loadTexts:liebertControllerModule.setRevisions(('2008-07-02 00:00','2008-01-10 00:00','2006-02-22 00:00'))
-_LgpCtrlNumberInstalledControlModules_Type=Integer32
-_LgpCtrlNumberInstalledControlModules_Object=MibScalar
-lgpCtrlNumberInstalledControlModules=_LgpCtrlNumberInstalledControlModules_Object((1,3,6,1,4,1,476,1,42,3,6,1),_LgpCtrlNumberInstalledControlModules_Type())
-lgpCtrlNumberInstalledControlModules.setMaxAccess(_A)
-if mibBuilder.loadTexts:lgpCtrlNumberInstalledControlModules.setStatus(_B)
-_LgpCtrlNumberFailedControlModules_Type=Integer32
-_LgpCtrlNumberFailedControlModules_Object=MibScalar
-lgpCtrlNumberFailedControlModules=_LgpCtrlNumberFailedControlModules_Object((1,3,6,1,4,1,476,1,42,3,6,2),_LgpCtrlNumberFailedControlModules_Type())
-lgpCtrlNumberFailedControlModules.setMaxAccess(_A)
-if mibBuilder.loadTexts:lgpCtrlNumberFailedControlModules.setStatus(_B)
-_LgpCtrlNumberRedundantControlModules_Type=Integer32
-_LgpCtrlNumberRedundantControlModules_Object=MibScalar
-lgpCtrlNumberRedundantControlModules=_LgpCtrlNumberRedundantControlModules_Object((1,3,6,1,4,1,476,1,42,3,6,3),_LgpCtrlNumberRedundantControlModules_Type())
-lgpCtrlNumberRedundantControlModules.setMaxAccess(_A)
-if mibBuilder.loadTexts:lgpCtrlNumberRedundantControlModules.setStatus(_B)
-_LgpCtrlNumberControlModuleWarnings_Type=Integer32
-_LgpCtrlNumberControlModuleWarnings_Object=MibScalar
-lgpCtrlNumberControlModuleWarnings=_LgpCtrlNumberControlModuleWarnings_Object((1,3,6,1,4,1,476,1,42,3,6,5),_LgpCtrlNumberControlModuleWarnings_Type())
-lgpCtrlNumberControlModuleWarnings.setMaxAccess(_A)
-if mibBuilder.loadTexts:lgpCtrlNumberControlModuleWarnings.setStatus(_B)
-_LgpCtrlBoardBatteryVoltage_Type=Unsigned32
-_LgpCtrlBoardBatteryVoltage_Object=MibScalar
-lgpCtrlBoardBatteryVoltage=_LgpCtrlBoardBatteryVoltage_Object((1,3,6,1,4,1,476,1,42,3,6,6),_LgpCtrlBoardBatteryVoltage_Type())
-lgpCtrlBoardBatteryVoltage.setMaxAccess(_A)
-if mibBuilder.loadTexts:lgpCtrlBoardBatteryVoltage.setStatus(_B)
-if mibBuilder.loadTexts:lgpCtrlBoardBatteryVoltage.setUnits('.01 Volts')
-mibBuilder.exportSymbols('LIEBERT-GP-CONTROLLER-MIB',**{'liebertControllerModule':liebertControllerModule,'lgpCtrlNumberInstalledControlModules':lgpCtrlNumberInstalledControlModules,'lgpCtrlNumberFailedControlModules':lgpCtrlNumberFailedControlModules,'lgpCtrlNumberRedundantControlModules':lgpCtrlNumberRedundantControlModules,'lgpCtrlNumberControlModuleWarnings':lgpCtrlNumberControlModuleWarnings,'lgpCtrlBoardBatteryVoltage':lgpCtrlBoardBatteryVoltage})
+#
+# PySNMP MIB module LIEBERT-GP-CONTROLLER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/liebert/LIEBERT-GP-CONTROLLER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+lgpController, liebertControllerModuleReg = mibBuilder.importSymbols("LIEBERT-GP-REGISTRATION-MIB", "lgpController", "liebertControllerModuleReg")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+liebertControllerModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 7, 1))
+liebertControllerModule.setRevisions(('2008-07-02 00:00', '2008-01-10 00:00', '2006-02-22 00:00',))
+if mibBuilder.loadTexts: liebertControllerModule.setLastUpdated('200807020000Z')
+if mibBuilder.loadTexts: liebertControllerModule.setOrganization('Liebert Corporation')
+lgpCtrlNumberInstalledControlModules = MibScalar((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 6, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lgpCtrlNumberInstalledControlModules.setStatus('current')
+lgpCtrlNumberFailedControlModules = MibScalar((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 6, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lgpCtrlNumberFailedControlModules.setStatus('current')
+lgpCtrlNumberRedundantControlModules = MibScalar((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 6, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lgpCtrlNumberRedundantControlModules.setStatus('current')
+lgpCtrlNumberControlModuleWarnings = MibScalar((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 6, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lgpCtrlNumberControlModuleWarnings.setStatus('current')
+lgpCtrlBoardBatteryVoltage = MibScalar((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 6, 6), Unsigned32()).setUnits('.01 Volts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: lgpCtrlBoardBatteryVoltage.setStatus('current')
+mibBuilder.exportSymbols("LIEBERT-GP-CONTROLLER-MIB", lgpCtrlNumberFailedControlModules=lgpCtrlNumberFailedControlModules, lgpCtrlNumberRedundantControlModules=lgpCtrlNumberRedundantControlModules, lgpCtrlNumberInstalledControlModules=lgpCtrlNumberInstalledControlModules, liebertControllerModule=liebertControllerModule, lgpCtrlBoardBatteryVoltage=lgpCtrlBoardBatteryVoltage, PYSNMP_MODULE_ID=liebertControllerModule, lgpCtrlNumberControlModuleWarnings=lgpCtrlNumberControlModuleWarnings)

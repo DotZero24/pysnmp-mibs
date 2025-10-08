@@ -1,76 +1,41 @@
-_H='seconds'
-_G='disable'
-_F='enable'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fastPath,=mibBuilder.importSymbols('EdgeSwitch-REF-MIB','fastPath')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-fastPathUdld=ModuleIdentity((1,3,6,1,4,1,4413,1,1,54))
-if mibBuilder.loadTexts:fastPathUdld.setRevisions(('2008-02-24 00:00',))
-_AgentUdldMIBObjects_ObjectIdentity=ObjectIdentity
-agentUdldMIBObjects=_AgentUdldMIBObjects_ObjectIdentity((1,3,6,1,4,1,4413,1,1,54,1))
-_AgentUdldGlobal_ObjectIdentity=ObjectIdentity
-agentUdldGlobal=_AgentUdldGlobal_ObjectIdentity((1,3,6,1,4,1,4413,1,1,54,1,1))
-class _AgentUdldGlobalMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentUdldGlobalMode_Type.__name__=_B
-_AgentUdldGlobalMode_Object=MibScalar
-agentUdldGlobalMode=_AgentUdldGlobalMode_Object((1,3,6,1,4,1,4413,1,1,54,1,1,1),_AgentUdldGlobalMode_Type())
-agentUdldGlobalMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentUdldGlobalMode.setStatus(_A)
-class _AgentUdldMessageInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(7,90))
-_AgentUdldMessageInterval_Type.__name__=_B
-_AgentUdldMessageInterval_Object=MibScalar
-agentUdldMessageInterval=_AgentUdldMessageInterval_Object((1,3,6,1,4,1,4413,1,1,54,1,1,2),_AgentUdldMessageInterval_Type())
-agentUdldMessageInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentUdldMessageInterval.setStatus(_A)
-if mibBuilder.loadTexts:agentUdldMessageInterval.setUnits(_H)
-class _AgentUdldTimeoutInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,60))
-_AgentUdldTimeoutInterval_Type.__name__=_B
-_AgentUdldTimeoutInterval_Object=MibScalar
-agentUdldTimeoutInterval=_AgentUdldTimeoutInterval_Object((1,3,6,1,4,1,4413,1,1,54,1,1,3),_AgentUdldTimeoutInterval_Type())
-agentUdldTimeoutInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentUdldTimeoutInterval.setStatus(_A)
-if mibBuilder.loadTexts:agentUdldTimeoutInterval.setUnits(_H)
-class _AgentUdldReset_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('normalOperation',0),('reset',1)))
-_AgentUdldReset_Type.__name__=_B
-_AgentUdldReset_Object=MibScalar
-agentUdldReset=_AgentUdldReset_Object((1,3,6,1,4,1,4413,1,1,54,1,1,4),_AgentUdldReset_Type())
-agentUdldReset.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentUdldReset.setStatus(_A)
-_AgentUdldInterface_ObjectIdentity=ObjectIdentity
-agentUdldInterface=_AgentUdldInterface_ObjectIdentity((1,3,6,1,4,1,4413,1,1,54,1,2))
-_AgentUdldInterfaceTable_Object=MibTable
-agentUdldInterfaceTable=_AgentUdldInterfaceTable_Object((1,3,6,1,4,1,4413,1,1,54,1,2,1))
-if mibBuilder.loadTexts:agentUdldInterfaceTable.setStatus(_A)
-_AgentUdldInterfaceEntry_Object=MibTableRow
-agentUdldInterfaceEntry=_AgentUdldInterfaceEntry_Object((1,3,6,1,4,1,4413,1,1,54,1,2,1,1))
-agentUdldInterfaceEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:agentUdldInterfaceEntry.setStatus(_A)
-class _AgentUdldInterfaceOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('shutdown',1),('undetermined',2),('biDirectional',3),('notApplicable',4),('undetermined-LinkDown',5)))
-_AgentUdldInterfaceOperStatus_Type.__name__=_B
-_AgentUdldInterfaceOperStatus_Object=MibTableColumn
-agentUdldInterfaceOperStatus=_AgentUdldInterfaceOperStatus_Object((1,3,6,1,4,1,4413,1,1,54,1,2,1,1,1),_AgentUdldInterfaceOperStatus_Type())
-agentUdldInterfaceOperStatus.setMaxAccess('read-only')
-if mibBuilder.loadTexts:agentUdldInterfaceOperStatus.setStatus(_A)
-class _AgentUdldInterfaceAdminMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentUdldInterfaceAdminMode_Type.__name__=_B
-_AgentUdldInterfaceAdminMode_Object=MibTableColumn
-agentUdldInterfaceAdminMode=_AgentUdldInterfaceAdminMode_Object((1,3,6,1,4,1,4413,1,1,54,1,2,1,1,2),_AgentUdldInterfaceAdminMode_Type())
-agentUdldInterfaceAdminMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentUdldInterfaceAdminMode.setStatus(_A)
-_AgentUdldInterfaceAggresiveMode_Type=TruthValue
-_AgentUdldInterfaceAggresiveMode_Object=MibTableColumn
-agentUdldInterfaceAggresiveMode=_AgentUdldInterfaceAggresiveMode_Object((1,3,6,1,4,1,4413,1,1,54,1,2,1,1,3),_AgentUdldInterfaceAggresiveMode_Type())
-agentUdldInterfaceAggresiveMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentUdldInterfaceAggresiveMode.setStatus(_A)
-mibBuilder.exportSymbols('EdgeSwitch-UDLD-MIB',**{'fastPathUdld':fastPathUdld,'agentUdldMIBObjects':agentUdldMIBObjects,'agentUdldGlobal':agentUdldGlobal,'agentUdldGlobalMode':agentUdldGlobalMode,'agentUdldMessageInterval':agentUdldMessageInterval,'agentUdldTimeoutInterval':agentUdldTimeoutInterval,'agentUdldReset':agentUdldReset,'agentUdldInterface':agentUdldInterface,'agentUdldInterfaceTable':agentUdldInterfaceTable,'agentUdldInterfaceEntry':agentUdldInterfaceEntry,'agentUdldInterfaceOperStatus':agentUdldInterfaceOperStatus,'agentUdldInterfaceAdminMode':agentUdldInterfaceAdminMode,'agentUdldInterfaceAggresiveMode':agentUdldInterfaceAggresiveMode})
+#
+# PySNMP MIB module EdgeSwitch-UDLD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ubiquiti/EdgeSwitch-UDLD-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fastPath, = mibBuilder.importSymbols("EdgeSwitch-REF-MIB", "fastPath")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+fastPathUdld = ModuleIdentity((1, 3, 6, 1, 4, 1, 4413, 1, 1, 54))
+fastPathUdld.setRevisions(('2008-02-24 00:00',))
+if mibBuilder.loadTexts: fastPathUdld.setLastUpdated('200712030000Z')
+if mibBuilder.loadTexts: fastPathUdld.setOrganization('Broadcom Inc')
+agentUdldMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 1, 54, 1))
+agentUdldGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 1, 54, 1, 1))
+agentUdldInterface = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 1, 54, 1, 2))
+agentUdldGlobalMode = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 54, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentUdldGlobalMode.setStatus('current')
+agentUdldMessageInterval = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 54, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(7, 90))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentUdldMessageInterval.setStatus('current')
+agentUdldTimeoutInterval = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 54, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 60))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentUdldTimeoutInterval.setStatus('current')
+agentUdldReset = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 54, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("normalOperation", 0), ("reset", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentUdldReset.setStatus('current')
+agentUdldInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 54, 1, 2, 1), )
+if mibBuilder.loadTexts: agentUdldInterfaceTable.setStatus('current')
+agentUdldInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 54, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: agentUdldInterfaceEntry.setStatus('current')
+agentUdldInterfaceOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 54, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("shutdown", 1), ("undetermined", 2), ("biDirectional", 3), ("notApplicable", 4), ("undetermined-LinkDown", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentUdldInterfaceOperStatus.setStatus('current')
+agentUdldInterfaceAdminMode = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 54, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentUdldInterfaceAdminMode.setStatus('current')
+agentUdldInterfaceAggresiveMode = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 54, 1, 2, 1, 1, 3), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentUdldInterfaceAggresiveMode.setStatus('current')
+mibBuilder.exportSymbols("EdgeSwitch-UDLD-MIB", agentUdldInterfaceTable=agentUdldInterfaceTable, agentUdldInterfaceEntry=agentUdldInterfaceEntry, agentUdldInterface=agentUdldInterface, PYSNMP_MODULE_ID=fastPathUdld, agentUdldReset=agentUdldReset, agentUdldInterfaceOperStatus=agentUdldInterfaceOperStatus, agentUdldGlobal=agentUdldGlobal, agentUdldMessageInterval=agentUdldMessageInterval, agentUdldGlobalMode=agentUdldGlobalMode, fastPathUdld=fastPathUdld, agentUdldMIBObjects=agentUdldMIBObjects, agentUdldTimeoutInterval=agentUdldTimeoutInterval, agentUdldInterfaceAdminMode=agentUdldInterfaceAdminMode, agentUdldInterfaceAggresiveMode=agentUdldInterfaceAggresiveMode)

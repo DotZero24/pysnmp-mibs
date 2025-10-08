@@ -1,93 +1,50 @@
-_I='unkown'
-_H='mprSwPortNo'
-_G='mprSwSlotNo'
-_F='cE1IfIndex'
-_E='panelIndex'
-_D='Integer32'
-_C='MPPANEL-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mpMgmt,=mibBuilder.importSymbols('MAIPU-SMI','mpMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,ObjectName,ObjectSyntax,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','ObjectName','ObjectSyntax','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-mpPanelMib=ModuleIdentity((1,3,6,1,4,1,5651,3,1))
-_PanelTable_Object=MibTable
-panelTable=_PanelTable_Object((1,3,6,1,4,1,5651,3,1,1))
-if mibBuilder.loadTexts:panelTable.setStatus(_A)
-_PanelEntry_Object=MibTableRow
-panelEntry=_PanelEntry_Object((1,3,6,1,4,1,5651,3,1,1,1))
-panelEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:panelEntry.setStatus(_A)
-_PanelIndex_Type=DisplayString
-_PanelIndex_Object=MibTableColumn
-panelIndex=_PanelIndex_Object((1,3,6,1,4,1,5651,3,1,1,1,1),_PanelIndex_Type())
-panelIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:panelIndex.setStatus(_A)
-_PanelType_Type=Integer32
-_PanelType_Object=MibTableColumn
-panelType=_PanelType_Object((1,3,6,1,4,1,5651,3,1,1,1,2),_PanelType_Type())
-panelType.setMaxAccess(_B)
-if mibBuilder.loadTexts:panelType.setStatus(_A)
-_PanelIfIndex_Type=Integer32
-_PanelIfIndex_Object=MibTableColumn
-panelIfIndex=_PanelIfIndex_Object((1,3,6,1,4,1,5651,3,1,1,1,3),_PanelIfIndex_Type())
-panelIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:panelIfIndex.setStatus(_A)
-_CE1TimeslotsTable_Object=MibTable
-cE1TimeslotsTable=_CE1TimeslotsTable_Object((1,3,6,1,4,1,5651,3,1,3))
-if mibBuilder.loadTexts:cE1TimeslotsTable.setStatus(_A)
-_CE1TimeslotsEntry_Object=MibTableRow
-cE1TimeslotsEntry=_CE1TimeslotsEntry_Object((1,3,6,1,4,1,5651,3,1,3,1))
-cE1TimeslotsEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:cE1TimeslotsEntry.setStatus(_A)
-_CE1IfIndex_Type=Integer32
-_CE1IfIndex_Object=MibTableColumn
-cE1IfIndex=_CE1IfIndex_Object((1,3,6,1,4,1,5651,3,1,3,1,1),_CE1IfIndex_Type())
-cE1IfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:cE1IfIndex.setStatus(_A)
-_CE1Timeslots_Type=Integer32
-_CE1Timeslots_Object=MibTableColumn
-cE1Timeslots=_CE1Timeslots_Object((1,3,6,1,4,1,5651,3,1,3,1,2),_CE1Timeslots_Type())
-cE1Timeslots.setMaxAccess(_B)
-if mibBuilder.loadTexts:cE1Timeslots.setStatus(_A)
-_MprSwPortTable_Object=MibTable
-mprSwPortTable=_MprSwPortTable_Object((1,3,6,1,4,1,5651,3,1,10))
-if mibBuilder.loadTexts:mprSwPortTable.setStatus(_A)
-_MprSwPortEntry_Object=MibTableRow
-mprSwPortEntry=_MprSwPortEntry_Object((1,3,6,1,4,1,5651,3,1,10,1))
-mprSwPortEntry.setIndexNames((0,_C,_G),(0,_C,_H))
-if mibBuilder.loadTexts:mprSwPortEntry.setStatus(_A)
-_MprSwSlotNo_Type=Integer32
-_MprSwSlotNo_Object=MibTableColumn
-mprSwSlotNo=_MprSwSlotNo_Object((1,3,6,1,4,1,5651,3,1,10,1,1),_MprSwSlotNo_Type())
-mprSwSlotNo.setMaxAccess(_B)
-if mibBuilder.loadTexts:mprSwSlotNo.setStatus(_A)
-_MprSwPortNo_Type=Integer32
-_MprSwPortNo_Object=MibTableColumn
-mprSwPortNo=_MprSwPortNo_Object((1,3,6,1,4,1,5651,3,1,10,1,2),_MprSwPortNo_Type())
-mprSwPortNo.setMaxAccess(_B)
-if mibBuilder.loadTexts:mprSwPortNo.setStatus(_A)
-class _MprSwPortLinkStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_MprSwPortLinkStatus_Type.__name__=_D
-_MprSwPortLinkStatus_Object=MibTableColumn
-mprSwPortLinkStatus=_MprSwPortLinkStatus_Object((1,3,6,1,4,1,5651,3,1,10,1,3),_MprSwPortLinkStatus_Type())
-mprSwPortLinkStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:mprSwPortLinkStatus.setStatus(_A)
-class _MprSwPortSpeed_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_I,1),('speed10',2),('speed100',3),('speed1000',4)))
-_MprSwPortSpeed_Type.__name__=_D
-_MprSwPortSpeed_Object=MibTableColumn
-mprSwPortSpeed=_MprSwPortSpeed_Object((1,3,6,1,4,1,5651,3,1,10,1,4),_MprSwPortSpeed_Type())
-mprSwPortSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:mprSwPortSpeed.setStatus(_A)
-class _MprSwPortDeplux_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),('half',2),('full',3)))
-_MprSwPortDeplux_Type.__name__=_D
-_MprSwPortDeplux_Object=MibTableColumn
-mprSwPortDeplux=_MprSwPortDeplux_Object((1,3,6,1,4,1,5651,3,1,10,1,5),_MprSwPortDeplux_Type())
-mprSwPortDeplux.setMaxAccess(_B)
-if mibBuilder.loadTexts:mprSwPortDeplux.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'mpPanelMib':mpPanelMib,'panelTable':panelTable,'panelEntry':panelEntry,_E:panelIndex,'panelType':panelType,'panelIfIndex':panelIfIndex,'cE1TimeslotsTable':cE1TimeslotsTable,'cE1TimeslotsEntry':cE1TimeslotsEntry,_F:cE1IfIndex,'cE1Timeslots':cE1Timeslots,'mprSwPortTable':mprSwPortTable,'mprSwPortEntry':mprSwPortEntry,_G:mprSwSlotNo,_H:mprSwPortNo,'mprSwPortLinkStatus':mprSwPortLinkStatus,'mprSwPortSpeed':mprSwPortSpeed,'mprSwPortDeplux':mprSwPortDeplux})
+#
+# PySNMP MIB module MPPANEL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/maipu/MPPANEL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mpMgmt, = mibBuilder.importSymbols("MAIPU-SMI", "mpMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, ObjectSyntax, iso, MibIdentifier, ObjectName, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "ObjectSyntax", "iso", "MibIdentifier", "ObjectName", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+mpPanelMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 5651, 3, 1))
+if mibBuilder.loadTexts: mpPanelMib.setLastUpdated('0611270945Z')
+if mibBuilder.loadTexts: mpPanelMib.setOrganization('ĴͨŹɷ\u07b9˾, Maipu (Sichuan) Communication Technology Co. LTD.')
+panelTable = MibTable((1, 3, 6, 1, 4, 1, 5651, 3, 1, 1), )
+if mibBuilder.loadTexts: panelTable.setStatus('current')
+panelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 3, 1, 1, 1), ).setIndexNames((0, "MPPANEL-MIB", "panelIndex"))
+if mibBuilder.loadTexts: panelEntry.setStatus('current')
+panelIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 1, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: panelIndex.setStatus('current')
+panelType = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: panelType.setStatus('current')
+panelIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 1, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: panelIfIndex.setStatus('current')
+cE1TimeslotsTable = MibTable((1, 3, 6, 1, 4, 1, 5651, 3, 1, 3), )
+if mibBuilder.loadTexts: cE1TimeslotsTable.setStatus('current')
+cE1TimeslotsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 3, 1, 3, 1), ).setIndexNames((0, "MPPANEL-MIB", "cE1IfIndex"))
+if mibBuilder.loadTexts: cE1TimeslotsEntry.setStatus('current')
+cE1IfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 1, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cE1IfIndex.setStatus('current')
+cE1Timeslots = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 1, 3, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cE1Timeslots.setStatus('current')
+mprSwPortTable = MibTable((1, 3, 6, 1, 4, 1, 5651, 3, 1, 10), )
+if mibBuilder.loadTexts: mprSwPortTable.setStatus('current')
+mprSwPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 3, 1, 10, 1), ).setIndexNames((0, "MPPANEL-MIB", "mprSwSlotNo"), (0, "MPPANEL-MIB", "mprSwPortNo"))
+if mibBuilder.loadTexts: mprSwPortEntry.setStatus('current')
+mprSwSlotNo = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 1, 10, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mprSwSlotNo.setStatus('current')
+mprSwPortNo = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 1, 10, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mprSwPortNo.setStatus('current')
+mprSwPortLinkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 1, 10, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mprSwPortLinkStatus.setStatus('current')
+mprSwPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 1, 10, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unkown", 1), ("speed10", 2), ("speed100", 3), ("speed1000", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mprSwPortSpeed.setStatus('current')
+mprSwPortDeplux = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 1, 10, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unkown", 1), ("half", 2), ("full", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mprSwPortDeplux.setStatus('current')
+mibBuilder.exportSymbols("MPPANEL-MIB", cE1IfIndex=cE1IfIndex, mprSwSlotNo=mprSwSlotNo, mprSwPortTable=mprSwPortTable, cE1TimeslotsTable=cE1TimeslotsTable, mpPanelMib=mpPanelMib, PYSNMP_MODULE_ID=mpPanelMib, cE1Timeslots=cE1Timeslots, mprSwPortDeplux=mprSwPortDeplux, panelIfIndex=panelIfIndex, cE1TimeslotsEntry=cE1TimeslotsEntry, panelEntry=panelEntry, panelIndex=panelIndex, panelType=panelType, mprSwPortEntry=mprSwPortEntry, mprSwPortNo=mprSwPortNo, mprSwPortSpeed=mprSwPortSpeed, panelTable=panelTable, mprSwPortLinkStatus=mprSwPortLinkStatus)

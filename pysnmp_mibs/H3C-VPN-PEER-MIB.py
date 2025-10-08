@@ -1,53 +1,35 @@
-_E='h3cVpnPeerName'
-_D='H3C-VPN-PEER-MIB'
-_C='OctetString'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','h3cCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-h3cVpnPeer=ModuleIdentity((1,3,6,1,4,1,2011,10,2,165))
-if mibBuilder.loadTexts:h3cVpnPeer.setRevisions(('2016-03-09 16:00',))
-_H3cVpnPeerGroup_ObjectIdentity=ObjectIdentity
-h3cVpnPeerGroup=_H3cVpnPeerGroup_ObjectIdentity((1,3,6,1,4,1,2011,10,2,165,1))
-_H3cVpnPeerStat_ObjectIdentity=ObjectIdentity
-h3cVpnPeerStat=_H3cVpnPeerStat_ObjectIdentity((1,3,6,1,4,1,2011,10,2,165,1,1))
-_H3cVpnPeerStatTable_Object=MibTable
-h3cVpnPeerStatTable=_H3cVpnPeerStatTable_Object((1,3,6,1,4,1,2011,10,2,165,1,1,1))
-if mibBuilder.loadTexts:h3cVpnPeerStatTable.setStatus(_A)
-_H3cVpnPeerStatEntry_Object=MibTableRow
-h3cVpnPeerStatEntry=_H3cVpnPeerStatEntry_Object((1,3,6,1,4,1,2011,10,2,165,1,1,1,1))
-h3cVpnPeerStatEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:h3cVpnPeerStatEntry.setStatus(_A)
-class _H3cVpnPeerName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,31))
-_H3cVpnPeerName_Type.__name__=_C
-_H3cVpnPeerName_Object=MibTableColumn
-h3cVpnPeerName=_H3cVpnPeerName_Object((1,3,6,1,4,1,2011,10,2,165,1,1,1,1,1),_H3cVpnPeerName_Type())
-h3cVpnPeerName.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:h3cVpnPeerName.setStatus(_A)
-_H3cVpnPeerOutPassPkts_Type=Counter64
-_H3cVpnPeerOutPassPkts_Object=MibTableColumn
-h3cVpnPeerOutPassPkts=_H3cVpnPeerOutPassPkts_Object((1,3,6,1,4,1,2011,10,2,165,1,1,1,1,2),_H3cVpnPeerOutPassPkts_Type())
-h3cVpnPeerOutPassPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVpnPeerOutPassPkts.setStatus(_A)
-_H3cVpnPeerOutPassBytes_Type=Counter64
-_H3cVpnPeerOutPassBytes_Object=MibTableColumn
-h3cVpnPeerOutPassBytes=_H3cVpnPeerOutPassBytes_Object((1,3,6,1,4,1,2011,10,2,165,1,1,1,1,3),_H3cVpnPeerOutPassBytes_Type())
-h3cVpnPeerOutPassBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVpnPeerOutPassBytes.setStatus(_A)
-_H3cVpnPeerOutDropPkts_Type=Counter64
-_H3cVpnPeerOutDropPkts_Object=MibTableColumn
-h3cVpnPeerOutDropPkts=_H3cVpnPeerOutDropPkts_Object((1,3,6,1,4,1,2011,10,2,165,1,1,1,1,4),_H3cVpnPeerOutDropPkts_Type())
-h3cVpnPeerOutDropPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVpnPeerOutDropPkts.setStatus(_A)
-_H3cVpnPeerOutDropBytes_Type=Counter64
-_H3cVpnPeerOutDropBytes_Object=MibTableColumn
-h3cVpnPeerOutDropBytes=_H3cVpnPeerOutDropBytes_Object((1,3,6,1,4,1,2011,10,2,165,1,1,1,1,5),_H3cVpnPeerOutDropBytes_Type())
-h3cVpnPeerOutDropBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVpnPeerOutDropBytes.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'h3cVpnPeer':h3cVpnPeer,'h3cVpnPeerGroup':h3cVpnPeerGroup,'h3cVpnPeerStat':h3cVpnPeerStat,'h3cVpnPeerStatTable':h3cVpnPeerStatTable,'h3cVpnPeerStatEntry':h3cVpnPeerStatEntry,_E:h3cVpnPeerName,'h3cVpnPeerOutPassPkts':h3cVpnPeerOutPassPkts,'h3cVpnPeerOutPassBytes':h3cVpnPeerOutPassBytes,'h3cVpnPeerOutDropPkts':h3cVpnPeerOutDropPkts,'h3cVpnPeerOutDropBytes':h3cVpnPeerOutDropBytes})
+#
+# PySNMP MIB module H3C-VPN-PEER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-VPN-PEER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+h3cVpnPeer = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 165))
+h3cVpnPeer.setRevisions(('2016-03-09 16:00',))
+if mibBuilder.loadTexts: h3cVpnPeer.setLastUpdated('201603091600Z')
+if mibBuilder.loadTexts: h3cVpnPeer.setOrganization('Hangzhou H3C Technologies Co., Ltd.')
+h3cVpnPeerGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 165, 1))
+h3cVpnPeerStat = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 165, 1, 1))
+h3cVpnPeerStatTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 165, 1, 1, 1), )
+if mibBuilder.loadTexts: h3cVpnPeerStatTable.setStatus('current')
+h3cVpnPeerStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 165, 1, 1, 1, 1), ).setIndexNames((0, "H3C-VPN-PEER-MIB", "h3cVpnPeerName"))
+if mibBuilder.loadTexts: h3cVpnPeerStatEntry.setStatus('current')
+h3cVpnPeerName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 165, 1, 1, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 31)))
+if mibBuilder.loadTexts: h3cVpnPeerName.setStatus('current')
+h3cVpnPeerOutPassPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 165, 1, 1, 1, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVpnPeerOutPassPkts.setStatus('current')
+h3cVpnPeerOutPassBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 165, 1, 1, 1, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVpnPeerOutPassBytes.setStatus('current')
+h3cVpnPeerOutDropPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 165, 1, 1, 1, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVpnPeerOutDropPkts.setStatus('current')
+h3cVpnPeerOutDropBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 165, 1, 1, 1, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVpnPeerOutDropBytes.setStatus('current')
+mibBuilder.exportSymbols("H3C-VPN-PEER-MIB", h3cVpnPeer=h3cVpnPeer, h3cVpnPeerStatTable=h3cVpnPeerStatTable, PYSNMP_MODULE_ID=h3cVpnPeer, h3cVpnPeerStatEntry=h3cVpnPeerStatEntry, h3cVpnPeerOutDropBytes=h3cVpnPeerOutDropBytes, h3cVpnPeerName=h3cVpnPeerName, h3cVpnPeerOutPassPkts=h3cVpnPeerOutPassPkts, h3cVpnPeerGroup=h3cVpnPeerGroup, h3cVpnPeerStat=h3cVpnPeerStat, h3cVpnPeerOutPassBytes=h3cVpnPeerOutPassBytes, h3cVpnPeerOutDropPkts=h3cVpnPeerOutDropPkts)

@@ -1,6343 +1,2620 @@
-_AT='cucsStorageMiniStorageInstanceId'
-_AS='cucsStorageControllerReferenceInstanceId'
-_AR='cucsStorageSsdHealthStatsHistInstanceId'
-_AQ='cucsStorageSsdHealthStatsInstanceId'
-_AP='cucsStorageNvmeStorageInstanceId'
-_AO='cucsStorageNvmeStatsHistInstanceId'
-_AN='cucsStorageNvmeStatsInstanceId'
-_AM='cucsStorageLocalDiskFsmTaskInstanceId'
-_AL='cucsStorageLocalDiskFsmStageInstanceId'
-_AK='cucsStorageLocalDiskFsmInstanceId'
-_AJ='cucsStorageEnclosureFsmTaskInstanceId'
-_AI='cucsStorageEnclosureFsmStageInstanceId'
-_AH='cucsStorageEnclosureFsmInstanceId'
-_AG='cucsStorageVirtualDriveEpInstanceId'
-_AF='cucsStorageVirtualDriveContainerInstanceId'
-_AE='cucsStorageHddMotherBoardTempStatsHistInstanceId'
-_AD='cucsStorageHddMotherBoardTempStatsInstanceId'
-_AC='cucsStorageEnclosureLocalDiskConfigInstanceId'
-_AB='cucsStorageEmbeddedStorageInstanceId'
-_AA='cucsStorageControllerEpInstanceId'
-_A9='cucsStorageOnboardDeviceInstanceId'
-_A8='cucsStorageSasUpLinkInstanceId'
-_A7='cucsStorageSasPortDescriptorInstanceId'
-_A6='cucsStorageSasPortInstanceId'
-_A5='cucsStorageSasLinkDescriptorInstanceId'
-_A4='cucsStorageEnclosureCapInstanceId'
-_A3='cucsStorageControllerRefInstanceId'
-_A2='cucsStorageVirtualDriveRefInstanceId'
-_A1='cucsStorageVDMemberEpInstanceId'
-_A0='cucsStorageScsiLunRefInstanceId'
-_z='cucsStorageSasExpanderInstanceId'
-_y='cucsStorageLunResourceSelectionLogInstanceId'
-_x='cucsStorageLocalDiskEpInstanceId'
-_w='cucsStorageEnclosureDiskSlotEpInstanceId'
-_v='cucsStorageDiskEnvStatsHistInstanceId'
-_u='cucsStorageDiskEnvStatsInstanceId'
-_t='cucsStorageFlexFlashControllerFsmTaskInstanceId'
-_s='cucsStorageFlexFlashControllerFsmStageInstanceId'
-_r='cucsStorageFlexFlashControllerFsmInstanceId'
-_q='cucsStorageMezzFlashLifeInstanceId'
-_p='cucsStorageOperationInstanceId'
-_o='cucsStorageFlexFlashVirtualDriveInstanceId'
-_n='cucsStorageFlexFlashDriveInstanceId'
-_m='cucsStorageFlexFlashControllerInstanceId'
-_l='cucsStorageFlexFlashCardInstanceId'
-_k='cucsStorageTransportableFlashModuleInstanceId'
-_j='cucsStorageVsanRefInstanceId'
-_i='cucsStorageVirtualDriveInstanceId'
-_h='cucsStorageSystemFsmTaskInstanceId'
-_g='cucsStorageSystemFsmStageInstanceId'
-_f='cucsStorageSystemFsmInstanceId'
-_e='cucsStorageSystemInstanceId'
-_d='cucsStorageNodeEpInstanceId'
-_c='cucsStorageInitiatorInstanceId'
-_b='cucsStorageIniGroupInstanceId'
-_a='cucsStorageIScsiTargetIfInstanceId'
-_Z='cucsStorageFcTargetIfInstanceId'
-_Y='cucsStorageFcTargetEpInstanceId'
-_X='cucsStorageFcIfInstanceId'
-_W='cucsStorageEtherIfInstanceId'
-_V='cucsStorageEpUserInstanceId'
-_U='cucsStorageDomainEpInstanceId'
-_T='cucsStorageConnectionPolicyInstanceId'
-_S='cucsStorageConnectionDefInstanceId'
-_R='cucsStorageAuthKeyInstanceId'
-_Q='cucsStorageLocalDiskSlotEpInstanceId'
-_P='cucsStorageEnclosureInstanceId'
-_O='cucsStorageRaidBatteryInstanceId'
-_N='cucsStorageQualInstanceId'
-_M='cucsStorageLunDiskInstanceId'
-_L='cucsStorageLocalLunInstanceId'
-_K='cucsStorageLocalDiskPartitionInstanceId'
-_J='cucsStorageLocalDiskConfigPolicyInstanceId'
-_I='cucsStorageLocalDiskConfigDefInstanceId'
-_H='cucsStorageLocalDiskInstanceId'
-_G='cucsStorageItemInstanceId'
-_F='cucsStorageDriveInstanceId'
-_E='cucsStorageControllerInstanceId'
-_D='not-accessible'
-_C='CISCO-UNIFIED-COMPUTING-STORAGE-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
-CucsManagedObjectDn,CucsManagedObjectId,ciscoUnifiedComputingMIBObjects=mibBuilder.importSymbols('CISCO-UNIFIED-COMPUTING-MIB','CucsManagedObjectDn','CucsManagedObjectId','ciscoUnifiedComputingMIBObjects')
-CucsAaaConfigState,CucsConditionRemoteInvRslt,CucsEquipmentOperability,CucsEquipmentPowerState,CucsEquipmentPresence,CucsEquipmentSensorThresholdStatus,CucsFabricZoningState,CucsFsmCompletion,CucsFsmFlags,CucsFsmFsmStageStatus,CucsFsmLifecycle,CucsLstorageBootDevice,CucsPolicyPolicyOwner,CucsSesScsiDriveStatus,CucsStorageAccessType,CucsStorageActualWriteType,CucsStorageAdminActionTrigger,CucsStorageAdminActionType,CucsStorageAdminCtrlActionType,CucsStorageAdminState,CucsStorageAlarmType,CucsStorageBatteryType,CucsStorageBbuStatus,CucsStorageBootableType,CucsStorageCacheType,CucsStorageConfigCheckPoint,CucsStorageConfigState,CucsStorageConfiguration,CucsStorageConfiguredWriteType,CucsStorageConnectionProtocol,CucsStorageControllerControllerFlags,CucsStorageControllerFaultMonitoring,CucsStorageControllerFlags,CucsStorageControllerId,CucsStorageControllerJBODMode,CucsStorageControllerMode,CucsStorageControllerPinnedCacheStatus,CucsStorageControllerRefControllerType,CucsStorageControllerStatus,CucsStorageControllerSubType,CucsStorageControllerType,CucsStorageDeployAction,CucsStorageDiskEnvStatsHistThresholded,CucsStorageDiskEnvStatsThresholded,CucsStorageDiskRole,CucsStorageDisklessAction,CucsStorageDriveFlags,CucsStorageEnclosureAdminState,CucsStorageEnclosureAssociation,CucsStorageEnclosureDiskSlotEpAutoZoneCause,CucsStorageEnclosureDiskSlotEpOwnership,CucsStorageEnclosureFsmCurrentFsm,CucsStorageEnclosureFsmStageName,CucsStorageEnclosureFsmTaskItem,CucsStorageEpAccess,CucsStorageEpLinkState,CucsStorageEtherIfVlanType,CucsStorageExpanderState,CucsStorageFFCardHealth,CucsStorageFFCardMode,CucsStorageFFCardSizeMismatch,CucsStorageFFCardState,CucsStorageFFCardSync,CucsStorageFFCardWriteEnable,CucsStorageFFControllerHealth,CucsStorageFFControllerState,CucsStorageFFDriveRemovable,CucsStorageFFDriveState,CucsStorageFFDriveType,CucsStorageFFDriveVisible,CucsStorageFFFormatRunning,CucsStorageFFHasError,CucsStorageFFRAIDHealth,CucsStorageFFRAIDState,CucsStorageFFRWType,CucsStorageFFRaidSyncSupport,CucsStorageFFSlotENUM,CucsStorageFFType,CucsStorageFcZoningType,CucsStorageFileSystemStatus,CucsStorageFlexFlashControllerFsmCurrentFsm,CucsStorageFlexFlashControllerFsmStageName,CucsStorageFlexFlashControllerFsmTaskItem,CucsStorageFlexFlashControllerId,CucsStorageHddMotherBoardTempStatsHistThresholded,CucsStorageHddMotherBoardTempStatsThresholded,CucsStorageIOType,CucsStorageIniGroupOperProtocol,CucsStorageIniGroupOwner,CucsStorageIniGroupProtocol,CucsStorageKeyType,CucsStorageLearnCycleRequested,CucsStorageLearnMode,CucsStorageLinkSpeed,CucsStorageLocalDiskConfigFlexFlashRAIDReportingState,CucsStorageLocalDiskConfigFlexFlashState,CucsStorageLocalDiskDiscoveredPath,CucsStorageLocalDiskFsmCurrentFsm,CucsStorageLocalDiskFsmStageName,CucsStorageLocalDiskFsmTaskFlags,CucsStorageLocalDiskFsmTaskItem,CucsStorageLocalDiskMode,CucsStorageLunType,CucsStorageMiniStorageId,CucsStorageNvmeStatsHistThresholded,CucsStorageNvmeStatsThresholded,CucsStorageOnBoardMemoryPresent,CucsStorageOnboardDeviceType,CucsStorageOperState,CucsStorageOperatingModeType,CucsStorageOperationRequestType,CucsStorageOperationState,CucsStorageOperationStateType,CucsStorageOperationType,CucsStorageOptionRomBootStatus,CucsStoragePDriveStatus,CucsStoragePhysicalHolder,CucsStoragePowerState,CucsStorageProtocol,CucsStorageRaidBatteryOperabilityQualifier,CucsStorageReadType,CucsStorageSasLinkDescriptorControllerType,CucsStorageSasUpLinkControllerType,CucsStorageSelectionDecisionType,CucsStorageSelectionResultType,CucsStorageSsdHealthStatsHistThresholded,CucsStorageSsdHealthStatsThresholded,CucsStorageSupportedControllerOp,CucsStorageSupportedLocalDiskOp,CucsStorageSupportedRaidBatteryOp,CucsStorageSupportedStripSizeBitmask,CucsStorageSupportedVirtualDriveOp,CucsStorageSystemFsmCurrentFsm,CucsStorageSystemFsmStageName,CucsStorageSystemFsmTaskItem,CucsStorageTargetPath,CucsStorageTechnology,CucsStorageUnitOperState,CucsStorageVDriveState,CucsStorageVdChangeQualifierType,CucsStorageVdMemberConfigQualifierType,CucsStorageVirtualDriveRefAdminState,CucsStorageVsanRefSwitchId,CucsVnicConfigIssues=mibBuilder.importSymbols('CISCO-UNIFIED-COMPUTING-TC-MIB','CucsAaaConfigState','CucsConditionRemoteInvRslt','CucsEquipmentOperability','CucsEquipmentPowerState','CucsEquipmentPresence','CucsEquipmentSensorThresholdStatus','CucsFabricZoningState','CucsFsmCompletion','CucsFsmFlags','CucsFsmFsmStageStatus','CucsFsmLifecycle','CucsLstorageBootDevice','CucsPolicyPolicyOwner','CucsSesScsiDriveStatus','CucsStorageAccessType','CucsStorageActualWriteType','CucsStorageAdminActionTrigger','CucsStorageAdminActionType','CucsStorageAdminCtrlActionType','CucsStorageAdminState','CucsStorageAlarmType','CucsStorageBatteryType','CucsStorageBbuStatus','CucsStorageBootableType','CucsStorageCacheType','CucsStorageConfigCheckPoint','CucsStorageConfigState','CucsStorageConfiguration','CucsStorageConfiguredWriteType','CucsStorageConnectionProtocol','CucsStorageControllerControllerFlags','CucsStorageControllerFaultMonitoring','CucsStorageControllerFlags','CucsStorageControllerId','CucsStorageControllerJBODMode','CucsStorageControllerMode','CucsStorageControllerPinnedCacheStatus','CucsStorageControllerRefControllerType','CucsStorageControllerStatus','CucsStorageControllerSubType','CucsStorageControllerType','CucsStorageDeployAction','CucsStorageDiskEnvStatsHistThresholded','CucsStorageDiskEnvStatsThresholded','CucsStorageDiskRole','CucsStorageDisklessAction','CucsStorageDriveFlags','CucsStorageEnclosureAdminState','CucsStorageEnclosureAssociation','CucsStorageEnclosureDiskSlotEpAutoZoneCause','CucsStorageEnclosureDiskSlotEpOwnership','CucsStorageEnclosureFsmCurrentFsm','CucsStorageEnclosureFsmStageName','CucsStorageEnclosureFsmTaskItem','CucsStorageEpAccess','CucsStorageEpLinkState','CucsStorageEtherIfVlanType','CucsStorageExpanderState','CucsStorageFFCardHealth','CucsStorageFFCardMode','CucsStorageFFCardSizeMismatch','CucsStorageFFCardState','CucsStorageFFCardSync','CucsStorageFFCardWriteEnable','CucsStorageFFControllerHealth','CucsStorageFFControllerState','CucsStorageFFDriveRemovable','CucsStorageFFDriveState','CucsStorageFFDriveType','CucsStorageFFDriveVisible','CucsStorageFFFormatRunning','CucsStorageFFHasError','CucsStorageFFRAIDHealth','CucsStorageFFRAIDState','CucsStorageFFRWType','CucsStorageFFRaidSyncSupport','CucsStorageFFSlotENUM','CucsStorageFFType','CucsStorageFcZoningType','CucsStorageFileSystemStatus','CucsStorageFlexFlashControllerFsmCurrentFsm','CucsStorageFlexFlashControllerFsmStageName','CucsStorageFlexFlashControllerFsmTaskItem','CucsStorageFlexFlashControllerId','CucsStorageHddMotherBoardTempStatsHistThresholded','CucsStorageHddMotherBoardTempStatsThresholded','CucsStorageIOType','CucsStorageIniGroupOperProtocol','CucsStorageIniGroupOwner','CucsStorageIniGroupProtocol','CucsStorageKeyType','CucsStorageLearnCycleRequested','CucsStorageLearnMode','CucsStorageLinkSpeed','CucsStorageLocalDiskConfigFlexFlashRAIDReportingState','CucsStorageLocalDiskConfigFlexFlashState','CucsStorageLocalDiskDiscoveredPath','CucsStorageLocalDiskFsmCurrentFsm','CucsStorageLocalDiskFsmStageName','CucsStorageLocalDiskFsmTaskFlags','CucsStorageLocalDiskFsmTaskItem','CucsStorageLocalDiskMode','CucsStorageLunType','CucsStorageMiniStorageId','CucsStorageNvmeStatsHistThresholded','CucsStorageNvmeStatsThresholded','CucsStorageOnBoardMemoryPresent','CucsStorageOnboardDeviceType','CucsStorageOperState','CucsStorageOperatingModeType','CucsStorageOperationRequestType','CucsStorageOperationState','CucsStorageOperationStateType','CucsStorageOperationType','CucsStorageOptionRomBootStatus','CucsStoragePDriveStatus','CucsStoragePhysicalHolder','CucsStoragePowerState','CucsStorageProtocol','CucsStorageRaidBatteryOperabilityQualifier','CucsStorageReadType','CucsStorageSasLinkDescriptorControllerType','CucsStorageSasUpLinkControllerType','CucsStorageSelectionDecisionType','CucsStorageSelectionResultType','CucsStorageSsdHealthStatsHistThresholded','CucsStorageSsdHealthStatsThresholded','CucsStorageSupportedControllerOp','CucsStorageSupportedLocalDiskOp','CucsStorageSupportedRaidBatteryOp','CucsStorageSupportedStripSizeBitmask','CucsStorageSupportedVirtualDriveOp','CucsStorageSystemFsmCurrentFsm','CucsStorageSystemFsmStageName','CucsStorageSystemFsmTaskItem','CucsStorageTargetPath','CucsStorageTechnology','CucsStorageUnitOperState','CucsStorageVDriveState','CucsStorageVdChangeQualifierType','CucsStorageVdMemberConfigQualifierType','CucsStorageVirtualDriveRefAdminState','CucsStorageVsanRefSwitchId','CucsVnicConfigIssues')
-InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
-cucsStorageObjects=ModuleIdentity((1,3,6,1,4,1,9,9,719,1,45))
-_CucsStorageControllerTable_Object=MibTable
-cucsStorageControllerTable=_CucsStorageControllerTable_Object((1,3,6,1,4,1,9,9,719,1,45,1))
-if mibBuilder.loadTexts:cucsStorageControllerTable.setStatus(_A)
-_CucsStorageControllerEntry_Object=MibTableRow
-cucsStorageControllerEntry=_CucsStorageControllerEntry_Object((1,3,6,1,4,1,9,9,719,1,45,1,1))
-cucsStorageControllerEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:cucsStorageControllerEntry.setStatus(_A)
-_CucsStorageControllerInstanceId_Type=CucsManagedObjectId
-_CucsStorageControllerInstanceId_Object=MibTableColumn
-cucsStorageControllerInstanceId=_CucsStorageControllerInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,1),_CucsStorageControllerInstanceId_Type())
-cucsStorageControllerInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageControllerInstanceId.setStatus(_A)
-_CucsStorageControllerDn_Type=CucsManagedObjectDn
-_CucsStorageControllerDn_Object=MibTableColumn
-cucsStorageControllerDn=_CucsStorageControllerDn_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,2),_CucsStorageControllerDn_Type())
-cucsStorageControllerDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerDn.setStatus(_A)
-_CucsStorageControllerRn_Type=SnmpAdminString
-_CucsStorageControllerRn_Object=MibTableColumn
-cucsStorageControllerRn=_CucsStorageControllerRn_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,3),_CucsStorageControllerRn_Type())
-cucsStorageControllerRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerRn.setStatus(_A)
-_CucsStorageControllerId_Type=CucsStorageControllerId
-_CucsStorageControllerId_Object=MibTableColumn
-cucsStorageControllerId=_CucsStorageControllerId_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,4),_CucsStorageControllerId_Type())
-cucsStorageControllerId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerId.setStatus(_A)
-_CucsStorageControllerModel_Type=SnmpAdminString
-_CucsStorageControllerModel_Object=MibTableColumn
-cucsStorageControllerModel=_CucsStorageControllerModel_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,5),_CucsStorageControllerModel_Type())
-cucsStorageControllerModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerModel.setStatus(_A)
-_CucsStorageControllerOperState_Type=CucsEquipmentOperability
-_CucsStorageControllerOperState_Object=MibTableColumn
-cucsStorageControllerOperState=_CucsStorageControllerOperState_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,6),_CucsStorageControllerOperState_Type())
-cucsStorageControllerOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerOperState.setStatus(_A)
-_CucsStorageControllerOperability_Type=CucsEquipmentOperability
-_CucsStorageControllerOperability_Object=MibTableColumn
-cucsStorageControllerOperability=_CucsStorageControllerOperability_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,7),_CucsStorageControllerOperability_Type())
-cucsStorageControllerOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerOperability.setStatus(_A)
-_CucsStorageControllerPciAddr_Type=SnmpAdminString
-_CucsStorageControllerPciAddr_Object=MibTableColumn
-cucsStorageControllerPciAddr=_CucsStorageControllerPciAddr_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,8),_CucsStorageControllerPciAddr_Type())
-cucsStorageControllerPciAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerPciAddr.setStatus(_A)
-_CucsStorageControllerPciSlot_Type=SnmpAdminString
-_CucsStorageControllerPciSlot_Object=MibTableColumn
-cucsStorageControllerPciSlot=_CucsStorageControllerPciSlot_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,9),_CucsStorageControllerPciSlot_Type())
-cucsStorageControllerPciSlot.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerPciSlot.setStatus(_A)
-_CucsStorageControllerPerf_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageControllerPerf_Object=MibTableColumn
-cucsStorageControllerPerf=_CucsStorageControllerPerf_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,10),_CucsStorageControllerPerf_Type())
-cucsStorageControllerPerf.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerPerf.setStatus(_A)
-_CucsStorageControllerPower_Type=CucsEquipmentPowerState
-_CucsStorageControllerPower_Object=MibTableColumn
-cucsStorageControllerPower=_CucsStorageControllerPower_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,11),_CucsStorageControllerPower_Type())
-cucsStorageControllerPower.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerPower.setStatus(_A)
-_CucsStorageControllerPresence_Type=CucsEquipmentPresence
-_CucsStorageControllerPresence_Object=MibTableColumn
-cucsStorageControllerPresence=_CucsStorageControllerPresence_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,12),_CucsStorageControllerPresence_Type())
-cucsStorageControllerPresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerPresence.setStatus(_A)
-_CucsStorageControllerRevision_Type=SnmpAdminString
-_CucsStorageControllerRevision_Object=MibTableColumn
-cucsStorageControllerRevision=_CucsStorageControllerRevision_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,13),_CucsStorageControllerRevision_Type())
-cucsStorageControllerRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerRevision.setStatus(_A)
-_CucsStorageControllerSerial_Type=SnmpAdminString
-_CucsStorageControllerSerial_Object=MibTableColumn
-cucsStorageControllerSerial=_CucsStorageControllerSerial_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,14),_CucsStorageControllerSerial_Type())
-cucsStorageControllerSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerSerial.setStatus(_A)
-_CucsStorageControllerThermal_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageControllerThermal_Object=MibTableColumn
-cucsStorageControllerThermal=_CucsStorageControllerThermal_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,15),_CucsStorageControllerThermal_Type())
-cucsStorageControllerThermal.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerThermal.setStatus(_A)
-_CucsStorageControllerType_Type=CucsStorageControllerType
-_CucsStorageControllerType_Object=MibTableColumn
-cucsStorageControllerType=_CucsStorageControllerType_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,16),_CucsStorageControllerType_Type())
-cucsStorageControllerType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerType.setStatus(_A)
-_CucsStorageControllerVendor_Type=SnmpAdminString
-_CucsStorageControllerVendor_Object=MibTableColumn
-cucsStorageControllerVendor=_CucsStorageControllerVendor_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,17),_CucsStorageControllerVendor_Type())
-cucsStorageControllerVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerVendor.setStatus(_A)
-_CucsStorageControllerVoltage_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageControllerVoltage_Object=MibTableColumn
-cucsStorageControllerVoltage=_CucsStorageControllerVoltage_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,18),_CucsStorageControllerVoltage_Type())
-cucsStorageControllerVoltage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerVoltage.setStatus(_A)
-_CucsStorageControllerRaidSupport_Type=SnmpAdminString
-_CucsStorageControllerRaidSupport_Object=MibTableColumn
-cucsStorageControllerRaidSupport=_CucsStorageControllerRaidSupport_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,19),_CucsStorageControllerRaidSupport_Type())
-cucsStorageControllerRaidSupport.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerRaidSupport.setStatus(_A)
-_CucsStorageControllerFaultMonitoring_Type=CucsStorageControllerFaultMonitoring
-_CucsStorageControllerFaultMonitoring_Object=MibTableColumn
-cucsStorageControllerFaultMonitoring=_CucsStorageControllerFaultMonitoring_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,20),_CucsStorageControllerFaultMonitoring_Type())
-cucsStorageControllerFaultMonitoring.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerFaultMonitoring.setStatus(_A)
-_CucsStorageControllerHwRevision_Type=SnmpAdminString
-_CucsStorageControllerHwRevision_Object=MibTableColumn
-cucsStorageControllerHwRevision=_CucsStorageControllerHwRevision_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,21),_CucsStorageControllerHwRevision_Type())
-cucsStorageControllerHwRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerHwRevision.setStatus(_A)
-_CucsStorageControllerDeviceRaidSupport_Type=SnmpAdminString
-_CucsStorageControllerDeviceRaidSupport_Object=MibTableColumn
-cucsStorageControllerDeviceRaidSupport=_CucsStorageControllerDeviceRaidSupport_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,23),_CucsStorageControllerDeviceRaidSupport_Type())
-cucsStorageControllerDeviceRaidSupport.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerDeviceRaidSupport.setStatus(_A)
-_CucsStorageControllerOperQualifierReason_Type=SnmpAdminString
-_CucsStorageControllerOperQualifierReason_Object=MibTableColumn
-cucsStorageControllerOperQualifierReason=_CucsStorageControllerOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,24),_CucsStorageControllerOperQualifierReason_Type())
-cucsStorageControllerOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerOperQualifierReason.setStatus(_A)
-_CucsStorageControllerControllerStatus_Type=CucsStorageControllerStatus
-_CucsStorageControllerControllerStatus_Object=MibTableColumn
-cucsStorageControllerControllerStatus=_CucsStorageControllerControllerStatus_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,25),_CucsStorageControllerControllerStatus_Type())
-cucsStorageControllerControllerStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerControllerStatus.setStatus(_A)
-_CucsStorageControllerLc_Type=CucsFsmLifecycle
-_CucsStorageControllerLc_Object=MibTableColumn
-cucsStorageControllerLc=_CucsStorageControllerLc_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,26),_CucsStorageControllerLc_Type())
-cucsStorageControllerLc.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerLc.setStatus(_A)
-_CucsStorageControllerOobControllerId_Type=Gauge32
-_CucsStorageControllerOobControllerId_Object=MibTableColumn
-cucsStorageControllerOobControllerId=_CucsStorageControllerOobControllerId_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,27),_CucsStorageControllerOobControllerId_Type())
-cucsStorageControllerOobControllerId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerOobControllerId.setStatus(_A)
-_CucsStorageControllerOobInterfaceSupported_Type=TruthValue
-_CucsStorageControllerOobInterfaceSupported_Object=MibTableColumn
-cucsStorageControllerOobInterfaceSupported=_CucsStorageControllerOobInterfaceSupported_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,28),_CucsStorageControllerOobInterfaceSupported_Type())
-cucsStorageControllerOobInterfaceSupported.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerOobInterfaceSupported.setStatus(_A)
-_CucsStorageControllerRebuildRate_Type=Gauge32
-_CucsStorageControllerRebuildRate_Object=MibTableColumn
-cucsStorageControllerRebuildRate=_CucsStorageControllerRebuildRate_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,29),_CucsStorageControllerRebuildRate_Type())
-cucsStorageControllerRebuildRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerRebuildRate.setStatus(_A)
-_CucsStorageControllerLocationDn_Type=SnmpAdminString
-_CucsStorageControllerLocationDn_Object=MibTableColumn
-cucsStorageControllerLocationDn=_CucsStorageControllerLocationDn_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,30),_CucsStorageControllerLocationDn_Type())
-cucsStorageControllerLocationDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerLocationDn.setStatus(_A)
-_CucsStorageControllerPartNumber_Type=SnmpAdminString
-_CucsStorageControllerPartNumber_Object=MibTableColumn
-cucsStorageControllerPartNumber=_CucsStorageControllerPartNumber_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,31),_CucsStorageControllerPartNumber_Type())
-cucsStorageControllerPartNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerPartNumber.setStatus(_A)
-_CucsStorageControllerVid_Type=SnmpAdminString
-_CucsStorageControllerVid_Object=MibTableColumn
-cucsStorageControllerVid=_CucsStorageControllerVid_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,32),_CucsStorageControllerVid_Type())
-cucsStorageControllerVid.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerVid.setStatus(_A)
-_CucsStorageControllerAdminAction_Type=CucsStorageAdminCtrlActionType
-_CucsStorageControllerAdminAction_Object=MibTableColumn
-cucsStorageControllerAdminAction=_CucsStorageControllerAdminAction_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,33),_CucsStorageControllerAdminAction_Type())
-cucsStorageControllerAdminAction.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerAdminAction.setStatus(_A)
-_CucsStorageControllerAdminActionTrigger_Type=CucsStorageAdminActionTrigger
-_CucsStorageControllerAdminActionTrigger_Object=MibTableColumn
-cucsStorageControllerAdminActionTrigger=_CucsStorageControllerAdminActionTrigger_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,34),_CucsStorageControllerAdminActionTrigger_Type())
-cucsStorageControllerAdminActionTrigger.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerAdminActionTrigger.setStatus(_A)
-_CucsStorageControllerConfigState_Type=CucsStorageConfigState
-_CucsStorageControllerConfigState_Object=MibTableColumn
-cucsStorageControllerConfigState=_CucsStorageControllerConfigState_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,35),_CucsStorageControllerConfigState_Type())
-cucsStorageControllerConfigState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerConfigState.setStatus(_A)
-_CucsStorageControllerOpromBootStatus_Type=CucsStorageOptionRomBootStatus
-_CucsStorageControllerOpromBootStatus_Object=MibTableColumn
-cucsStorageControllerOpromBootStatus=_CucsStorageControllerOpromBootStatus_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,36),_CucsStorageControllerOpromBootStatus_Type())
-cucsStorageControllerOpromBootStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerOpromBootStatus.setStatus(_A)
-_CucsStorageControllerPciSlotRawName_Type=SnmpAdminString
-_CucsStorageControllerPciSlotRawName_Object=MibTableColumn
-cucsStorageControllerPciSlotRawName=_CucsStorageControllerPciSlotRawName_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,37),_CucsStorageControllerPciSlotRawName_Type())
-cucsStorageControllerPciSlotRawName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerPciSlotRawName.setStatus(_A)
-_CucsStorageControllerIdCount_Type=Gauge32
-_CucsStorageControllerIdCount_Object=MibTableColumn
-cucsStorageControllerIdCount=_CucsStorageControllerIdCount_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,38),_CucsStorageControllerIdCount_Type())
-cucsStorageControllerIdCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerIdCount.setStatus(_A)
-_CucsStorageControllerPinnedCacheStatus_Type=CucsStorageControllerPinnedCacheStatus
-_CucsStorageControllerPinnedCacheStatus_Object=MibTableColumn
-cucsStorageControllerPinnedCacheStatus=_CucsStorageControllerPinnedCacheStatus_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,39),_CucsStorageControllerPinnedCacheStatus_Type())
-cucsStorageControllerPinnedCacheStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerPinnedCacheStatus.setStatus(_A)
-_CucsStorageControllerMode_Type=CucsStorageControllerMode
-_CucsStorageControllerMode_Object=MibTableColumn
-cucsStorageControllerMode=_CucsStorageControllerMode_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,40),_CucsStorageControllerMode_Type())
-cucsStorageControllerMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerMode.setStatus(_A)
-_CucsStorageControllerControllerOps_Type=CucsStorageSupportedControllerOp
-_CucsStorageControllerControllerOps_Object=MibTableColumn
-cucsStorageControllerControllerOps=_CucsStorageControllerControllerOps_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,41),_CucsStorageControllerControllerOps_Type())
-cucsStorageControllerControllerOps.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerControllerOps.setStatus(_A)
-_CucsStorageControllerDefaultStripSize_Type=CucsStorageSupportedStripSizeBitmask
-_CucsStorageControllerDefaultStripSize_Object=MibTableColumn
-cucsStorageControllerDefaultStripSize=_CucsStorageControllerDefaultStripSize_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,42),_CucsStorageControllerDefaultStripSize_Type())
-cucsStorageControllerDefaultStripSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerDefaultStripSize.setStatus(_A)
-_CucsStorageControllerDiskOps_Type=CucsStorageSupportedLocalDiskOp
-_CucsStorageControllerDiskOps_Object=MibTableColumn
-cucsStorageControllerDiskOps=_CucsStorageControllerDiskOps_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,43),_CucsStorageControllerDiskOps_Type())
-cucsStorageControllerDiskOps.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerDiskOps.setStatus(_A)
-_CucsStorageControllerOnBoardMemoryPresent_Type=CucsStorageOnBoardMemoryPresent
-_CucsStorageControllerOnBoardMemoryPresent_Object=MibTableColumn
-cucsStorageControllerOnBoardMemoryPresent=_CucsStorageControllerOnBoardMemoryPresent_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,44),_CucsStorageControllerOnBoardMemoryPresent_Type())
-cucsStorageControllerOnBoardMemoryPresent.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerOnBoardMemoryPresent.setStatus(_A)
-_CucsStorageControllerOnBoardMemorySize_Type=Unsigned64
-_CucsStorageControllerOnBoardMemorySize_Object=MibTableColumn
-cucsStorageControllerOnBoardMemorySize=_CucsStorageControllerOnBoardMemorySize_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,45),_CucsStorageControllerOnBoardMemorySize_Type())
-cucsStorageControllerOnBoardMemorySize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerOnBoardMemorySize.setStatus(_A)
-_CucsStorageControllerRaidBatteryOps_Type=CucsStorageSupportedRaidBatteryOp
-_CucsStorageControllerRaidBatteryOps_Object=MibTableColumn
-cucsStorageControllerRaidBatteryOps=_CucsStorageControllerRaidBatteryOps_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,46),_CucsStorageControllerRaidBatteryOps_Type())
-cucsStorageControllerRaidBatteryOps.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerRaidBatteryOps.setStatus(_A)
-_CucsStorageControllerSubOemId_Type=Gauge32
-_CucsStorageControllerSubOemId_Object=MibTableColumn
-cucsStorageControllerSubOemId=_CucsStorageControllerSubOemId_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,47),_CucsStorageControllerSubOemId_Type())
-cucsStorageControllerSubOemId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerSubOemId.setStatus(_A)
-_CucsStorageControllerSupportedStripSizes_Type=CucsStorageSupportedStripSizeBitmask
-_CucsStorageControllerSupportedStripSizes_Object=MibTableColumn
-cucsStorageControllerSupportedStripSizes=_CucsStorageControllerSupportedStripSizes_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,48),_CucsStorageControllerSupportedStripSizes_Type())
-cucsStorageControllerSupportedStripSizes.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerSupportedStripSizes.setStatus(_A)
-_CucsStorageControllerVirtualDriveOps_Type=CucsStorageSupportedVirtualDriveOp
-_CucsStorageControllerVirtualDriveOps_Object=MibTableColumn
-cucsStorageControllerVirtualDriveOps=_CucsStorageControllerVirtualDriveOps_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,49),_CucsStorageControllerVirtualDriveOps_Type())
-cucsStorageControllerVirtualDriveOps.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerVirtualDriveOps.setStatus(_A)
-_CucsStorageControllerVariantType_Type=SnmpAdminString
-_CucsStorageControllerVariantType_Object=MibTableColumn
-cucsStorageControllerVariantType=_CucsStorageControllerVariantType_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,50),_CucsStorageControllerVariantType_Type())
-cucsStorageControllerVariantType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerVariantType.setStatus(_A)
-_CucsStorageControllerAdminSecurityKey_Type=SnmpAdminString
-_CucsStorageControllerAdminSecurityKey_Object=MibTableColumn
-cucsStorageControllerAdminSecurityKey=_CucsStorageControllerAdminSecurityKey_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,51),_CucsStorageControllerAdminSecurityKey_Type())
-cucsStorageControllerAdminSecurityKey.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerAdminSecurityKey.setStatus(_A)
-_CucsStorageControllerAssetTag_Type=SnmpAdminString
-_CucsStorageControllerAssetTag_Object=MibTableColumn
-cucsStorageControllerAssetTag=_CucsStorageControllerAssetTag_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,52),_CucsStorageControllerAssetTag_Type())
-cucsStorageControllerAssetTag.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerAssetTag.setStatus(_A)
-_CucsStorageControllerControllerFlags_Type=CucsStorageControllerControllerFlags
-_CucsStorageControllerControllerFlags_Object=MibTableColumn
-cucsStorageControllerControllerFlags=_CucsStorageControllerControllerFlags_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,53),_CucsStorageControllerControllerFlags_Type())
-cucsStorageControllerControllerFlags.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerControllerFlags.setStatus(_A)
-_CucsStorageControllerErrDescription_Type=SnmpAdminString
-_CucsStorageControllerErrDescription_Object=MibTableColumn
-cucsStorageControllerErrDescription=_CucsStorageControllerErrDescription_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,54),_CucsStorageControllerErrDescription_Type())
-cucsStorageControllerErrDescription.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerErrDescription.setStatus(_A)
-_CucsStorageControllerJbodMode_Type=CucsStorageControllerJBODMode
-_CucsStorageControllerJbodMode_Object=MibTableColumn
-cucsStorageControllerJbodMode=_CucsStorageControllerJbodMode_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,55),_CucsStorageControllerJbodMode_Type())
-cucsStorageControllerJbodMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerJbodMode.setStatus(_A)
-_CucsStorageControllerSubType_Type=CucsStorageControllerSubType
-_CucsStorageControllerSubType_Object=MibTableColumn
-cucsStorageControllerSubType=_CucsStorageControllerSubType_Object((1,3,6,1,4,1,9,9,719,1,45,1,1,56),_CucsStorageControllerSubType_Type())
-cucsStorageControllerSubType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerSubType.setStatus(_A)
-_CucsStorageDriveTable_Object=MibTable
-cucsStorageDriveTable=_CucsStorageDriveTable_Object((1,3,6,1,4,1,9,9,719,1,45,2))
-if mibBuilder.loadTexts:cucsStorageDriveTable.setStatus(_A)
-_CucsStorageDriveEntry_Object=MibTableRow
-cucsStorageDriveEntry=_CucsStorageDriveEntry_Object((1,3,6,1,4,1,9,9,719,1,45,2,1))
-cucsStorageDriveEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:cucsStorageDriveEntry.setStatus(_A)
-_CucsStorageDriveInstanceId_Type=CucsManagedObjectId
-_CucsStorageDriveInstanceId_Object=MibTableColumn
-cucsStorageDriveInstanceId=_CucsStorageDriveInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,2,1,1),_CucsStorageDriveInstanceId_Type())
-cucsStorageDriveInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageDriveInstanceId.setStatus(_A)
-_CucsStorageDriveDn_Type=CucsManagedObjectDn
-_CucsStorageDriveDn_Object=MibTableColumn
-cucsStorageDriveDn=_CucsStorageDriveDn_Object((1,3,6,1,4,1,9,9,719,1,45,2,1,2),_CucsStorageDriveDn_Type())
-cucsStorageDriveDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDriveDn.setStatus(_A)
-_CucsStorageDriveRn_Type=SnmpAdminString
-_CucsStorageDriveRn_Object=MibTableColumn
-cucsStorageDriveRn=_CucsStorageDriveRn_Object((1,3,6,1,4,1,9,9,719,1,45,2,1,3),_CucsStorageDriveRn_Type())
-cucsStorageDriveRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDriveRn.setStatus(_A)
-_CucsStorageDriveId_Type=Gauge32
-_CucsStorageDriveId_Object=MibTableColumn
-cucsStorageDriveId=_CucsStorageDriveId_Object((1,3,6,1,4,1,9,9,719,1,45,2,1,4),_CucsStorageDriveId_Type())
-cucsStorageDriveId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDriveId.setStatus(_A)
-_CucsStorageDriveModel_Type=SnmpAdminString
-_CucsStorageDriveModel_Object=MibTableColumn
-cucsStorageDriveModel=_CucsStorageDriveModel_Object((1,3,6,1,4,1,9,9,719,1,45,2,1,5),_CucsStorageDriveModel_Type())
-cucsStorageDriveModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDriveModel.setStatus(_A)
-_CucsStorageDrivePciAddr_Type=SnmpAdminString
-_CucsStorageDrivePciAddr_Object=MibTableColumn
-cucsStorageDrivePciAddr=_CucsStorageDrivePciAddr_Object((1,3,6,1,4,1,9,9,719,1,45,2,1,6),_CucsStorageDrivePciAddr_Type())
-cucsStorageDrivePciAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDrivePciAddr.setStatus(_A)
-_CucsStorageDriveRevision_Type=SnmpAdminString
-_CucsStorageDriveRevision_Object=MibTableColumn
-cucsStorageDriveRevision=_CucsStorageDriveRevision_Object((1,3,6,1,4,1,9,9,719,1,45,2,1,7),_CucsStorageDriveRevision_Type())
-cucsStorageDriveRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDriveRevision.setStatus(_A)
-_CucsStorageDriveSerial_Type=SnmpAdminString
-_CucsStorageDriveSerial_Object=MibTableColumn
-cucsStorageDriveSerial=_CucsStorageDriveSerial_Object((1,3,6,1,4,1,9,9,719,1,45,2,1,8),_CucsStorageDriveSerial_Type())
-cucsStorageDriveSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDriveSerial.setStatus(_A)
-_CucsStorageDriveVendor_Type=SnmpAdminString
-_CucsStorageDriveVendor_Object=MibTableColumn
-cucsStorageDriveVendor=_CucsStorageDriveVendor_Object((1,3,6,1,4,1,9,9,719,1,45,2,1,9),_CucsStorageDriveVendor_Type())
-cucsStorageDriveVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDriveVendor.setStatus(_A)
-_CucsStorageItemTable_Object=MibTable
-cucsStorageItemTable=_CucsStorageItemTable_Object((1,3,6,1,4,1,9,9,719,1,45,3))
-if mibBuilder.loadTexts:cucsStorageItemTable.setStatus(_A)
-_CucsStorageItemEntry_Object=MibTableRow
-cucsStorageItemEntry=_CucsStorageItemEntry_Object((1,3,6,1,4,1,9,9,719,1,45,3,1))
-cucsStorageItemEntry.setIndexNames((0,_C,_G))
-if mibBuilder.loadTexts:cucsStorageItemEntry.setStatus(_A)
-_CucsStorageItemInstanceId_Type=CucsManagedObjectId
-_CucsStorageItemInstanceId_Object=MibTableColumn
-cucsStorageItemInstanceId=_CucsStorageItemInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,3,1,1),_CucsStorageItemInstanceId_Type())
-cucsStorageItemInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageItemInstanceId.setStatus(_A)
-_CucsStorageItemDn_Type=CucsManagedObjectDn
-_CucsStorageItemDn_Object=MibTableColumn
-cucsStorageItemDn=_CucsStorageItemDn_Object((1,3,6,1,4,1,9,9,719,1,45,3,1,2),_CucsStorageItemDn_Type())
-cucsStorageItemDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageItemDn.setStatus(_A)
-_CucsStorageItemRn_Type=SnmpAdminString
-_CucsStorageItemRn_Object=MibTableColumn
-cucsStorageItemRn=_CucsStorageItemRn_Object((1,3,6,1,4,1,9,9,719,1,45,3,1,3),_CucsStorageItemRn_Type())
-cucsStorageItemRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageItemRn.setStatus(_A)
-_CucsStorageItemName_Type=SnmpAdminString
-_CucsStorageItemName_Object=MibTableColumn
-cucsStorageItemName=_CucsStorageItemName_Object((1,3,6,1,4,1,9,9,719,1,45,3,1,4),_CucsStorageItemName_Type())
-cucsStorageItemName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageItemName.setStatus(_A)
-_CucsStorageItemSize_Type=Unsigned64
-_CucsStorageItemSize_Object=MibTableColumn
-cucsStorageItemSize=_CucsStorageItemSize_Object((1,3,6,1,4,1,9,9,719,1,45,3,1,5),_CucsStorageItemSize_Type())
-cucsStorageItemSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageItemSize.setStatus(_A)
-_CucsStorageItemUsed_Type=Gauge32
-_CucsStorageItemUsed_Object=MibTableColumn
-cucsStorageItemUsed=_CucsStorageItemUsed_Object((1,3,6,1,4,1,9,9,719,1,45,3,1,6),_CucsStorageItemUsed_Type())
-cucsStorageItemUsed.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageItemUsed.setStatus(_A)
-_CucsStorageItemOperState_Type=CucsStorageFileSystemStatus
-_CucsStorageItemOperState_Object=MibTableColumn
-cucsStorageItemOperState=_CucsStorageItemOperState_Object((1,3,6,1,4,1,9,9,719,1,45,3,1,7),_CucsStorageItemOperState_Type())
-cucsStorageItemOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageItemOperState.setStatus(_A)
-_CucsStorageItemAlarmType_Type=CucsStorageAlarmType
-_CucsStorageItemAlarmType_Object=MibTableColumn
-cucsStorageItemAlarmType=_CucsStorageItemAlarmType_Object((1,3,6,1,4,1,9,9,719,1,45,3,1,13),_CucsStorageItemAlarmType_Type())
-cucsStorageItemAlarmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageItemAlarmType.setStatus(_A)
-_CucsStorageLocalDiskTable_Object=MibTable
-cucsStorageLocalDiskTable=_CucsStorageLocalDiskTable_Object((1,3,6,1,4,1,9,9,719,1,45,4))
-if mibBuilder.loadTexts:cucsStorageLocalDiskTable.setStatus(_A)
-_CucsStorageLocalDiskEntry_Object=MibTableRow
-cucsStorageLocalDiskEntry=_CucsStorageLocalDiskEntry_Object((1,3,6,1,4,1,9,9,719,1,45,4,1))
-cucsStorageLocalDiskEntry.setIndexNames((0,_C,_H))
-if mibBuilder.loadTexts:cucsStorageLocalDiskEntry.setStatus(_A)
-_CucsStorageLocalDiskInstanceId_Type=CucsManagedObjectId
-_CucsStorageLocalDiskInstanceId_Object=MibTableColumn
-cucsStorageLocalDiskInstanceId=_CucsStorageLocalDiskInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,1),_CucsStorageLocalDiskInstanceId_Type())
-cucsStorageLocalDiskInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageLocalDiskInstanceId.setStatus(_A)
-_CucsStorageLocalDiskDn_Type=CucsManagedObjectDn
-_CucsStorageLocalDiskDn_Object=MibTableColumn
-cucsStorageLocalDiskDn=_CucsStorageLocalDiskDn_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,2),_CucsStorageLocalDiskDn_Type())
-cucsStorageLocalDiskDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskDn.setStatus(_A)
-_CucsStorageLocalDiskRn_Type=SnmpAdminString
-_CucsStorageLocalDiskRn_Object=MibTableColumn
-cucsStorageLocalDiskRn=_CucsStorageLocalDiskRn_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,3),_CucsStorageLocalDiskRn_Type())
-cucsStorageLocalDiskRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskRn.setStatus(_A)
-_CucsStorageLocalDiskBlockSize_Type=Gauge32
-_CucsStorageLocalDiskBlockSize_Object=MibTableColumn
-cucsStorageLocalDiskBlockSize=_CucsStorageLocalDiskBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,4),_CucsStorageLocalDiskBlockSize_Type())
-cucsStorageLocalDiskBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskBlockSize.setStatus(_A)
-_CucsStorageLocalDiskConnectionProtocol_Type=CucsStorageConnectionProtocol
-_CucsStorageLocalDiskConnectionProtocol_Object=MibTableColumn
-cucsStorageLocalDiskConnectionProtocol=_CucsStorageLocalDiskConnectionProtocol_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,5),_CucsStorageLocalDiskConnectionProtocol_Type())
-cucsStorageLocalDiskConnectionProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConnectionProtocol.setStatus(_A)
-_CucsStorageLocalDiskId_Type=Gauge32
-_CucsStorageLocalDiskId_Object=MibTableColumn
-cucsStorageLocalDiskId=_CucsStorageLocalDiskId_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,6),_CucsStorageLocalDiskId_Type())
-cucsStorageLocalDiskId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskId.setStatus(_A)
-_CucsStorageLocalDiskModel_Type=SnmpAdminString
-_CucsStorageLocalDiskModel_Object=MibTableColumn
-cucsStorageLocalDiskModel=_CucsStorageLocalDiskModel_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,7),_CucsStorageLocalDiskModel_Type())
-cucsStorageLocalDiskModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskModel.setStatus(_A)
-_CucsStorageLocalDiskNumberOfBlocks_Type=Unsigned64
-_CucsStorageLocalDiskNumberOfBlocks_Object=MibTableColumn
-cucsStorageLocalDiskNumberOfBlocks=_CucsStorageLocalDiskNumberOfBlocks_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,8),_CucsStorageLocalDiskNumberOfBlocks_Type())
-cucsStorageLocalDiskNumberOfBlocks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskNumberOfBlocks.setStatus(_A)
-_CucsStorageLocalDiskOperability_Type=CucsEquipmentOperability
-_CucsStorageLocalDiskOperability_Object=MibTableColumn
-cucsStorageLocalDiskOperability=_CucsStorageLocalDiskOperability_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,9),_CucsStorageLocalDiskOperability_Type())
-cucsStorageLocalDiskOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskOperability.setStatus(_A)
-_CucsStorageLocalDiskPresence_Type=CucsEquipmentPresence
-_CucsStorageLocalDiskPresence_Object=MibTableColumn
-cucsStorageLocalDiskPresence=_CucsStorageLocalDiskPresence_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,10),_CucsStorageLocalDiskPresence_Type())
-cucsStorageLocalDiskPresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskPresence.setStatus(_A)
-_CucsStorageLocalDiskRevision_Type=SnmpAdminString
-_CucsStorageLocalDiskRevision_Object=MibTableColumn
-cucsStorageLocalDiskRevision=_CucsStorageLocalDiskRevision_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,11),_CucsStorageLocalDiskRevision_Type())
-cucsStorageLocalDiskRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskRevision.setStatus(_A)
-_CucsStorageLocalDiskSerial_Type=SnmpAdminString
-_CucsStorageLocalDiskSerial_Object=MibTableColumn
-cucsStorageLocalDiskSerial=_CucsStorageLocalDiskSerial_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,12),_CucsStorageLocalDiskSerial_Type())
-cucsStorageLocalDiskSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskSerial.setStatus(_A)
-_CucsStorageLocalDiskSize_Type=Unsigned64
-_CucsStorageLocalDiskSize_Object=MibTableColumn
-cucsStorageLocalDiskSize=_CucsStorageLocalDiskSize_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,13),_CucsStorageLocalDiskSize_Type())
-cucsStorageLocalDiskSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskSize.setStatus(_A)
-_CucsStorageLocalDiskVendor_Type=SnmpAdminString
-_CucsStorageLocalDiskVendor_Object=MibTableColumn
-cucsStorageLocalDiskVendor=_CucsStorageLocalDiskVendor_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,14),_CucsStorageLocalDiskVendor_Type())
-cucsStorageLocalDiskVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskVendor.setStatus(_A)
-_CucsStorageLocalDiskLc_Type=CucsFsmLifecycle
-_CucsStorageLocalDiskLc_Object=MibTableColumn
-cucsStorageLocalDiskLc=_CucsStorageLocalDiskLc_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,15),_CucsStorageLocalDiskLc_Type())
-cucsStorageLocalDiskLc.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskLc.setStatus(_A)
-_CucsStorageLocalDiskOperQualifierReason_Type=SnmpAdminString
-_CucsStorageLocalDiskOperQualifierReason_Object=MibTableColumn
-cucsStorageLocalDiskOperQualifierReason=_CucsStorageLocalDiskOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,16),_CucsStorageLocalDiskOperQualifierReason_Type())
-cucsStorageLocalDiskOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskOperQualifierReason.setStatus(_A)
-_CucsStorageLocalDiskDeviceType_Type=CucsStorageTechnology
-_CucsStorageLocalDiskDeviceType_Object=MibTableColumn
-cucsStorageLocalDiskDeviceType=_CucsStorageLocalDiskDeviceType_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,17),_CucsStorageLocalDiskDeviceType_Type())
-cucsStorageLocalDiskDeviceType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskDeviceType.setStatus(_A)
-_CucsStorageLocalDiskDiskState_Type=CucsStoragePDriveStatus
-_CucsStorageLocalDiskDiskState_Object=MibTableColumn
-cucsStorageLocalDiskDiskState=_CucsStorageLocalDiskDiskState_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,18),_CucsStorageLocalDiskDiskState_Type())
-cucsStorageLocalDiskDiskState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskDiskState.setStatus(_A)
-_CucsStorageLocalDiskLinkSpeed_Type=CucsStorageLinkSpeed
-_CucsStorageLocalDiskLinkSpeed_Object=MibTableColumn
-cucsStorageLocalDiskLinkSpeed=_CucsStorageLocalDiskLinkSpeed_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,19),_CucsStorageLocalDiskLinkSpeed_Type())
-cucsStorageLocalDiskLinkSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskLinkSpeed.setStatus(_A)
-_CucsStorageLocalDiskPowerState_Type=CucsStoragePowerState
-_CucsStorageLocalDiskPowerState_Object=MibTableColumn
-cucsStorageLocalDiskPowerState=_CucsStorageLocalDiskPowerState_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,20),_CucsStorageLocalDiskPowerState_Type())
-cucsStorageLocalDiskPowerState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskPowerState.setStatus(_A)
-_CucsStorageLocalDiskAdminAction_Type=CucsStorageAdminActionType
-_CucsStorageLocalDiskAdminAction_Object=MibTableColumn
-cucsStorageLocalDiskAdminAction=_CucsStorageLocalDiskAdminAction_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,21),_CucsStorageLocalDiskAdminAction_Type())
-cucsStorageLocalDiskAdminAction.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskAdminAction.setStatus(_A)
-_CucsStorageLocalDiskAdminActionTrigger_Type=CucsStorageAdminActionTrigger
-_CucsStorageLocalDiskAdminActionTrigger_Object=MibTableColumn
-cucsStorageLocalDiskAdminActionTrigger=_CucsStorageLocalDiskAdminActionTrigger_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,22),_CucsStorageLocalDiskAdminActionTrigger_Type())
-cucsStorageLocalDiskAdminActionTrigger.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskAdminActionTrigger.setStatus(_A)
-_CucsStorageLocalDiskBootable_Type=CucsStorageBootableType
-_CucsStorageLocalDiskBootable_Object=MibTableColumn
-cucsStorageLocalDiskBootable=_CucsStorageLocalDiskBootable_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,23),_CucsStorageLocalDiskBootable_Type())
-cucsStorageLocalDiskBootable.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskBootable.setStatus(_A)
-_CucsStorageLocalDiskConfigState_Type=CucsStorageConfigState
-_CucsStorageLocalDiskConfigState_Object=MibTableColumn
-cucsStorageLocalDiskConfigState=_CucsStorageLocalDiskConfigState_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,24),_CucsStorageLocalDiskConfigState_Type())
-cucsStorageLocalDiskConfigState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigState.setStatus(_A)
-_CucsStorageLocalDiskThermal_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageLocalDiskThermal_Object=MibTableColumn
-cucsStorageLocalDiskThermal=_CucsStorageLocalDiskThermal_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,25),_CucsStorageLocalDiskThermal_Type())
-cucsStorageLocalDiskThermal.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskThermal.setStatus(_A)
-_CucsStorageLocalDiskAdminVirtualDriveId_Type=Gauge32
-_CucsStorageLocalDiskAdminVirtualDriveId_Object=MibTableColumn
-cucsStorageLocalDiskAdminVirtualDriveId=_CucsStorageLocalDiskAdminVirtualDriveId_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,26),_CucsStorageLocalDiskAdminVirtualDriveId_Type())
-cucsStorageLocalDiskAdminVirtualDriveId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskAdminVirtualDriveId.setStatus(_A)
-_CucsStorageLocalDiskConfigCheckPoint_Type=CucsStorageConfigCheckPoint
-_CucsStorageLocalDiskConfigCheckPoint_Object=MibTableColumn
-cucsStorageLocalDiskConfigCheckPoint=_CucsStorageLocalDiskConfigCheckPoint_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,27),_CucsStorageLocalDiskConfigCheckPoint_Type())
-cucsStorageLocalDiskConfigCheckPoint.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigCheckPoint.setStatus(_A)
-_CucsStorageLocalDiskLinkState_Type=CucsStorageEpLinkState
-_CucsStorageLocalDiskLinkState_Object=MibTableColumn
-cucsStorageLocalDiskLinkState=_CucsStorageLocalDiskLinkState_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,28),_CucsStorageLocalDiskLinkState_Type())
-cucsStorageLocalDiskLinkState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskLinkState.setStatus(_A)
-_CucsStorageLocalDiskLinkStateReason_Type=SnmpAdminString
-_CucsStorageLocalDiskLinkStateReason_Object=MibTableColumn
-cucsStorageLocalDiskLinkStateReason=_CucsStorageLocalDiskLinkStateReason_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,29),_CucsStorageLocalDiskLinkStateReason_Type())
-cucsStorageLocalDiskLinkStateReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskLinkStateReason.setStatus(_A)
-_CucsStorageLocalDiskDiscoveredPath_Type=CucsStorageLocalDiskDiscoveredPath
-_CucsStorageLocalDiskDiscoveredPath_Object=MibTableColumn
-cucsStorageLocalDiskDiscoveredPath=_CucsStorageLocalDiskDiscoveredPath_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,30),_CucsStorageLocalDiskDiscoveredPath_Type())
-cucsStorageLocalDiskDiscoveredPath.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskDiscoveredPath.setStatus(_A)
-_CucsStorageLocalDiskEncAssociation_Type=CucsStorageEnclosureAssociation
-_CucsStorageLocalDiskEncAssociation_Object=MibTableColumn
-cucsStorageLocalDiskEncAssociation=_CucsStorageLocalDiskEncAssociation_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,31),_CucsStorageLocalDiskEncAssociation_Type())
-cucsStorageLocalDiskEncAssociation.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskEncAssociation.setStatus(_A)
-_CucsStorageLocalDiskPhysicalBlockSize_Type=Gauge32
-_CucsStorageLocalDiskPhysicalBlockSize_Object=MibTableColumn
-cucsStorageLocalDiskPhysicalBlockSize=_CucsStorageLocalDiskPhysicalBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,32),_CucsStorageLocalDiskPhysicalBlockSize_Type())
-cucsStorageLocalDiskPhysicalBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskPhysicalBlockSize.setStatus(_A)
-_CucsStorageLocalDiskRawSize_Type=Unsigned64
-_CucsStorageLocalDiskRawSize_Object=MibTableColumn
-cucsStorageLocalDiskRawSize=_CucsStorageLocalDiskRawSize_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,33),_CucsStorageLocalDiskRawSize_Type())
-cucsStorageLocalDiskRawSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskRawSize.setStatus(_A)
-_CucsStorageLocalDiskDeviceVersion_Type=SnmpAdminString
-_CucsStorageLocalDiskDeviceVersion_Object=MibTableColumn
-cucsStorageLocalDiskDeviceVersion=_CucsStorageLocalDiskDeviceVersion_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,34),_CucsStorageLocalDiskDeviceVersion_Type())
-cucsStorageLocalDiskDeviceVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskDeviceVersion.setStatus(_A)
-_CucsStorageLocalDiskFsmDescr_Type=SnmpAdminString
-_CucsStorageLocalDiskFsmDescr_Object=MibTableColumn
-cucsStorageLocalDiskFsmDescr=_CucsStorageLocalDiskFsmDescr_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,35),_CucsStorageLocalDiskFsmDescr_Type())
-cucsStorageLocalDiskFsmDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmDescr.setStatus(_A)
-_CucsStorageLocalDiskFsmFlags_Type=SnmpAdminString
-_CucsStorageLocalDiskFsmFlags_Object=MibTableColumn
-cucsStorageLocalDiskFsmFlags=_CucsStorageLocalDiskFsmFlags_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,36),_CucsStorageLocalDiskFsmFlags_Type())
-cucsStorageLocalDiskFsmFlags.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmFlags.setStatus(_A)
-_CucsStorageLocalDiskFsmPrev_Type=SnmpAdminString
-_CucsStorageLocalDiskFsmPrev_Object=MibTableColumn
-cucsStorageLocalDiskFsmPrev=_CucsStorageLocalDiskFsmPrev_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,37),_CucsStorageLocalDiskFsmPrev_Type())
-cucsStorageLocalDiskFsmPrev.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmPrev.setStatus(_A)
-_CucsStorageLocalDiskFsmProgr_Type=Gauge32
-_CucsStorageLocalDiskFsmProgr_Object=MibTableColumn
-cucsStorageLocalDiskFsmProgr=_CucsStorageLocalDiskFsmProgr_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,38),_CucsStorageLocalDiskFsmProgr_Type())
-cucsStorageLocalDiskFsmProgr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmProgr.setStatus(_A)
-_CucsStorageLocalDiskFsmRmtInvErrCode_Type=Gauge32
-_CucsStorageLocalDiskFsmRmtInvErrCode_Object=MibTableColumn
-cucsStorageLocalDiskFsmRmtInvErrCode=_CucsStorageLocalDiskFsmRmtInvErrCode_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,39),_CucsStorageLocalDiskFsmRmtInvErrCode_Type())
-cucsStorageLocalDiskFsmRmtInvErrCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmRmtInvErrCode.setStatus(_A)
-_CucsStorageLocalDiskFsmRmtInvErrDescr_Type=SnmpAdminString
-_CucsStorageLocalDiskFsmRmtInvErrDescr_Object=MibTableColumn
-cucsStorageLocalDiskFsmRmtInvErrDescr=_CucsStorageLocalDiskFsmRmtInvErrDescr_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,40),_CucsStorageLocalDiskFsmRmtInvErrDescr_Type())
-cucsStorageLocalDiskFsmRmtInvErrDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmRmtInvErrDescr.setStatus(_A)
-_CucsStorageLocalDiskFsmRmtInvRslt_Type=CucsConditionRemoteInvRslt
-_CucsStorageLocalDiskFsmRmtInvRslt_Object=MibTableColumn
-cucsStorageLocalDiskFsmRmtInvRslt=_CucsStorageLocalDiskFsmRmtInvRslt_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,41),_CucsStorageLocalDiskFsmRmtInvRslt_Type())
-cucsStorageLocalDiskFsmRmtInvRslt.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmRmtInvRslt.setStatus(_A)
-_CucsStorageLocalDiskFsmStageDescr_Type=SnmpAdminString
-_CucsStorageLocalDiskFsmStageDescr_Object=MibTableColumn
-cucsStorageLocalDiskFsmStageDescr=_CucsStorageLocalDiskFsmStageDescr_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,42),_CucsStorageLocalDiskFsmStageDescr_Type())
-cucsStorageLocalDiskFsmStageDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmStageDescr.setStatus(_A)
-_CucsStorageLocalDiskFsmStamp_Type=DateAndTime
-_CucsStorageLocalDiskFsmStamp_Object=MibTableColumn
-cucsStorageLocalDiskFsmStamp=_CucsStorageLocalDiskFsmStamp_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,43),_CucsStorageLocalDiskFsmStamp_Type())
-cucsStorageLocalDiskFsmStamp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmStamp.setStatus(_A)
-_CucsStorageLocalDiskFsmStatus_Type=SnmpAdminString
-_CucsStorageLocalDiskFsmStatus_Object=MibTableColumn
-cucsStorageLocalDiskFsmStatus=_CucsStorageLocalDiskFsmStatus_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,44),_CucsStorageLocalDiskFsmStatus_Type())
-cucsStorageLocalDiskFsmStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmStatus.setStatus(_A)
-_CucsStorageLocalDiskFsmTry_Type=Gauge32
-_CucsStorageLocalDiskFsmTry_Object=MibTableColumn
-cucsStorageLocalDiskFsmTry=_CucsStorageLocalDiskFsmTry_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,45),_CucsStorageLocalDiskFsmTry_Type())
-cucsStorageLocalDiskFsmTry.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmTry.setStatus(_A)
-_CucsStorageLocalDiskVariantType_Type=SnmpAdminString
-_CucsStorageLocalDiskVariantType_Object=MibTableColumn
-cucsStorageLocalDiskVariantType=_CucsStorageLocalDiskVariantType_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,46),_CucsStorageLocalDiskVariantType_Type())
-cucsStorageLocalDiskVariantType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskVariantType.setStatus(_A)
-_CucsStorageLocalDiskAdminSecurityKey_Type=SnmpAdminString
-_CucsStorageLocalDiskAdminSecurityKey_Object=MibTableColumn
-cucsStorageLocalDiskAdminSecurityKey=_CucsStorageLocalDiskAdminSecurityKey_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,47),_CucsStorageLocalDiskAdminSecurityKey_Type())
-cucsStorageLocalDiskAdminSecurityKey.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskAdminSecurityKey.setStatus(_A)
-_CucsStorageLocalDiskDriveState_Type=CucsStorageDriveFlags
-_CucsStorageLocalDiskDriveState_Object=MibTableColumn
-cucsStorageLocalDiskDriveState=_CucsStorageLocalDiskDriveState_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,48),_CucsStorageLocalDiskDriveState_Type())
-cucsStorageLocalDiskDriveState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskDriveState.setStatus(_A)
-_CucsStorageLocalDiskErrDescription_Type=SnmpAdminString
-_CucsStorageLocalDiskErrDescription_Object=MibTableColumn
-cucsStorageLocalDiskErrDescription=_CucsStorageLocalDiskErrDescription_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,49),_CucsStorageLocalDiskErrDescription_Type())
-cucsStorageLocalDiskErrDescription.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskErrDescription.setStatus(_A)
-_CucsStorageLocalDiskNegotiatedWidth_Type=Unsigned32
-_CucsStorageLocalDiskNegotiatedWidth_Object=MibTableColumn
-cucsStorageLocalDiskNegotiatedWidth=_CucsStorageLocalDiskNegotiatedWidth_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,50),_CucsStorageLocalDiskNegotiatedWidth_Type())
-cucsStorageLocalDiskNegotiatedWidth.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskNegotiatedWidth.setStatus(_A)
-_CucsStorageLocalDiskMaxWidth_Type=Unsigned32
-_CucsStorageLocalDiskMaxWidth_Object=MibTableColumn
-cucsStorageLocalDiskMaxWidth=_CucsStorageLocalDiskMaxWidth_Object((1,3,6,1,4,1,9,9,719,1,45,4,1,51),_CucsStorageLocalDiskMaxWidth_Type())
-cucsStorageLocalDiskMaxWidth.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskMaxWidth.setStatus(_A)
-_CucsStorageLocalDiskConfigDefTable_Object=MibTable
-cucsStorageLocalDiskConfigDefTable=_CucsStorageLocalDiskConfigDefTable_Object((1,3,6,1,4,1,9,9,719,1,45,5))
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigDefTable.setStatus(_A)
-_CucsStorageLocalDiskConfigDefEntry_Object=MibTableRow
-cucsStorageLocalDiskConfigDefEntry=_CucsStorageLocalDiskConfigDefEntry_Object((1,3,6,1,4,1,9,9,719,1,45,5,1))
-cucsStorageLocalDiskConfigDefEntry.setIndexNames((0,_C,_I))
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigDefEntry.setStatus(_A)
-_CucsStorageLocalDiskConfigDefInstanceId_Type=CucsManagedObjectId
-_CucsStorageLocalDiskConfigDefInstanceId_Object=MibTableColumn
-cucsStorageLocalDiskConfigDefInstanceId=_CucsStorageLocalDiskConfigDefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,5,1,1),_CucsStorageLocalDiskConfigDefInstanceId_Type())
-cucsStorageLocalDiskConfigDefInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigDefInstanceId.setStatus(_A)
-_CucsStorageLocalDiskConfigDefDn_Type=CucsManagedObjectDn
-_CucsStorageLocalDiskConfigDefDn_Object=MibTableColumn
-cucsStorageLocalDiskConfigDefDn=_CucsStorageLocalDiskConfigDefDn_Object((1,3,6,1,4,1,9,9,719,1,45,5,1,2),_CucsStorageLocalDiskConfigDefDn_Type())
-cucsStorageLocalDiskConfigDefDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigDefDn.setStatus(_A)
-_CucsStorageLocalDiskConfigDefRn_Type=SnmpAdminString
-_CucsStorageLocalDiskConfigDefRn_Object=MibTableColumn
-cucsStorageLocalDiskConfigDefRn=_CucsStorageLocalDiskConfigDefRn_Object((1,3,6,1,4,1,9,9,719,1,45,5,1,3),_CucsStorageLocalDiskConfigDefRn_Type())
-cucsStorageLocalDiskConfigDefRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigDefRn.setStatus(_A)
-_CucsStorageLocalDiskConfigDefDescr_Type=SnmpAdminString
-_CucsStorageLocalDiskConfigDefDescr_Object=MibTableColumn
-cucsStorageLocalDiskConfigDefDescr=_CucsStorageLocalDiskConfigDefDescr_Object((1,3,6,1,4,1,9,9,719,1,45,5,1,4),_CucsStorageLocalDiskConfigDefDescr_Type())
-cucsStorageLocalDiskConfigDefDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigDefDescr.setStatus(_A)
-_CucsStorageLocalDiskConfigDefIntId_Type=SnmpAdminString
-_CucsStorageLocalDiskConfigDefIntId_Object=MibTableColumn
-cucsStorageLocalDiskConfigDefIntId=_CucsStorageLocalDiskConfigDefIntId_Object((1,3,6,1,4,1,9,9,719,1,45,5,1,5),_CucsStorageLocalDiskConfigDefIntId_Type())
-cucsStorageLocalDiskConfigDefIntId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigDefIntId.setStatus(_A)
-_CucsStorageLocalDiskConfigDefMode_Type=CucsStorageLocalDiskMode
-_CucsStorageLocalDiskConfigDefMode_Object=MibTableColumn
-cucsStorageLocalDiskConfigDefMode=_CucsStorageLocalDiskConfigDefMode_Object((1,3,6,1,4,1,9,9,719,1,45,5,1,6),_CucsStorageLocalDiskConfigDefMode_Type())
-cucsStorageLocalDiskConfigDefMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigDefMode.setStatus(_A)
-_CucsStorageLocalDiskConfigDefName_Type=SnmpAdminString
-_CucsStorageLocalDiskConfigDefName_Object=MibTableColumn
-cucsStorageLocalDiskConfigDefName=_CucsStorageLocalDiskConfigDefName_Object((1,3,6,1,4,1,9,9,719,1,45,5,1,7),_CucsStorageLocalDiskConfigDefName_Type())
-cucsStorageLocalDiskConfigDefName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigDefName.setStatus(_A)
-_CucsStorageLocalDiskConfigDefProtectConfig_Type=TruthValue
-_CucsStorageLocalDiskConfigDefProtectConfig_Object=MibTableColumn
-cucsStorageLocalDiskConfigDefProtectConfig=_CucsStorageLocalDiskConfigDefProtectConfig_Object((1,3,6,1,4,1,9,9,719,1,45,5,1,8),_CucsStorageLocalDiskConfigDefProtectConfig_Type())
-cucsStorageLocalDiskConfigDefProtectConfig.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigDefProtectConfig.setStatus(_A)
-_CucsStorageLocalDiskConfigDefPolicyLevel_Type=Gauge32
-_CucsStorageLocalDiskConfigDefPolicyLevel_Object=MibTableColumn
-cucsStorageLocalDiskConfigDefPolicyLevel=_CucsStorageLocalDiskConfigDefPolicyLevel_Object((1,3,6,1,4,1,9,9,719,1,45,5,1,9),_CucsStorageLocalDiskConfigDefPolicyLevel_Type())
-cucsStorageLocalDiskConfigDefPolicyLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigDefPolicyLevel.setStatus(_A)
-_CucsStorageLocalDiskConfigDefPolicyOwner_Type=CucsPolicyPolicyOwner
-_CucsStorageLocalDiskConfigDefPolicyOwner_Object=MibTableColumn
-cucsStorageLocalDiskConfigDefPolicyOwner=_CucsStorageLocalDiskConfigDefPolicyOwner_Object((1,3,6,1,4,1,9,9,719,1,45,5,1,10),_CucsStorageLocalDiskConfigDefPolicyOwner_Type())
-cucsStorageLocalDiskConfigDefPolicyOwner.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigDefPolicyOwner.setStatus(_A)
-_CucsStorageLocalDiskConfigDefFlexFlashRAIDReportingState_Type=CucsStorageLocalDiskConfigFlexFlashRAIDReportingState
-_CucsStorageLocalDiskConfigDefFlexFlashRAIDReportingState_Object=MibTableColumn
-cucsStorageLocalDiskConfigDefFlexFlashRAIDReportingState=_CucsStorageLocalDiskConfigDefFlexFlashRAIDReportingState_Object((1,3,6,1,4,1,9,9,719,1,45,5,1,11),_CucsStorageLocalDiskConfigDefFlexFlashRAIDReportingState_Type())
-cucsStorageLocalDiskConfigDefFlexFlashRAIDReportingState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigDefFlexFlashRAIDReportingState.setStatus(_A)
-_CucsStorageLocalDiskConfigDefFlexFlashState_Type=CucsStorageLocalDiskConfigFlexFlashState
-_CucsStorageLocalDiskConfigDefFlexFlashState_Object=MibTableColumn
-cucsStorageLocalDiskConfigDefFlexFlashState=_CucsStorageLocalDiskConfigDefFlexFlashState_Object((1,3,6,1,4,1,9,9,719,1,45,5,1,12),_CucsStorageLocalDiskConfigDefFlexFlashState_Type())
-cucsStorageLocalDiskConfigDefFlexFlashState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigDefFlexFlashState.setStatus(_A)
-_CucsStorageLocalDiskConfigPolicyTable_Object=MibTable
-cucsStorageLocalDiskConfigPolicyTable=_CucsStorageLocalDiskConfigPolicyTable_Object((1,3,6,1,4,1,9,9,719,1,45,6))
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigPolicyTable.setStatus(_A)
-_CucsStorageLocalDiskConfigPolicyEntry_Object=MibTableRow
-cucsStorageLocalDiskConfigPolicyEntry=_CucsStorageLocalDiskConfigPolicyEntry_Object((1,3,6,1,4,1,9,9,719,1,45,6,1))
-cucsStorageLocalDiskConfigPolicyEntry.setIndexNames((0,_C,_J))
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigPolicyEntry.setStatus(_A)
-_CucsStorageLocalDiskConfigPolicyInstanceId_Type=CucsManagedObjectId
-_CucsStorageLocalDiskConfigPolicyInstanceId_Object=MibTableColumn
-cucsStorageLocalDiskConfigPolicyInstanceId=_CucsStorageLocalDiskConfigPolicyInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,6,1,1),_CucsStorageLocalDiskConfigPolicyInstanceId_Type())
-cucsStorageLocalDiskConfigPolicyInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigPolicyInstanceId.setStatus(_A)
-_CucsStorageLocalDiskConfigPolicyDn_Type=CucsManagedObjectDn
-_CucsStorageLocalDiskConfigPolicyDn_Object=MibTableColumn
-cucsStorageLocalDiskConfigPolicyDn=_CucsStorageLocalDiskConfigPolicyDn_Object((1,3,6,1,4,1,9,9,719,1,45,6,1,2),_CucsStorageLocalDiskConfigPolicyDn_Type())
-cucsStorageLocalDiskConfigPolicyDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigPolicyDn.setStatus(_A)
-_CucsStorageLocalDiskConfigPolicyRn_Type=SnmpAdminString
-_CucsStorageLocalDiskConfigPolicyRn_Object=MibTableColumn
-cucsStorageLocalDiskConfigPolicyRn=_CucsStorageLocalDiskConfigPolicyRn_Object((1,3,6,1,4,1,9,9,719,1,45,6,1,3),_CucsStorageLocalDiskConfigPolicyRn_Type())
-cucsStorageLocalDiskConfigPolicyRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigPolicyRn.setStatus(_A)
-_CucsStorageLocalDiskConfigPolicyDescr_Type=SnmpAdminString
-_CucsStorageLocalDiskConfigPolicyDescr_Object=MibTableColumn
-cucsStorageLocalDiskConfigPolicyDescr=_CucsStorageLocalDiskConfigPolicyDescr_Object((1,3,6,1,4,1,9,9,719,1,45,6,1,4),_CucsStorageLocalDiskConfigPolicyDescr_Type())
-cucsStorageLocalDiskConfigPolicyDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigPolicyDescr.setStatus(_A)
-_CucsStorageLocalDiskConfigPolicyIntId_Type=SnmpAdminString
-_CucsStorageLocalDiskConfigPolicyIntId_Object=MibTableColumn
-cucsStorageLocalDiskConfigPolicyIntId=_CucsStorageLocalDiskConfigPolicyIntId_Object((1,3,6,1,4,1,9,9,719,1,45,6,1,5),_CucsStorageLocalDiskConfigPolicyIntId_Type())
-cucsStorageLocalDiskConfigPolicyIntId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigPolicyIntId.setStatus(_A)
-_CucsStorageLocalDiskConfigPolicyMode_Type=CucsStorageLocalDiskMode
-_CucsStorageLocalDiskConfigPolicyMode_Object=MibTableColumn
-cucsStorageLocalDiskConfigPolicyMode=_CucsStorageLocalDiskConfigPolicyMode_Object((1,3,6,1,4,1,9,9,719,1,45,6,1,6),_CucsStorageLocalDiskConfigPolicyMode_Type())
-cucsStorageLocalDiskConfigPolicyMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigPolicyMode.setStatus(_A)
-_CucsStorageLocalDiskConfigPolicyName_Type=SnmpAdminString
-_CucsStorageLocalDiskConfigPolicyName_Object=MibTableColumn
-cucsStorageLocalDiskConfigPolicyName=_CucsStorageLocalDiskConfigPolicyName_Object((1,3,6,1,4,1,9,9,719,1,45,6,1,7),_CucsStorageLocalDiskConfigPolicyName_Type())
-cucsStorageLocalDiskConfigPolicyName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigPolicyName.setStatus(_A)
-_CucsStorageLocalDiskConfigPolicyProtectConfig_Type=TruthValue
-_CucsStorageLocalDiskConfigPolicyProtectConfig_Object=MibTableColumn
-cucsStorageLocalDiskConfigPolicyProtectConfig=_CucsStorageLocalDiskConfigPolicyProtectConfig_Object((1,3,6,1,4,1,9,9,719,1,45,6,1,8),_CucsStorageLocalDiskConfigPolicyProtectConfig_Type())
-cucsStorageLocalDiskConfigPolicyProtectConfig.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigPolicyProtectConfig.setStatus(_A)
-_CucsStorageLocalDiskConfigPolicyPolicyLevel_Type=Gauge32
-_CucsStorageLocalDiskConfigPolicyPolicyLevel_Object=MibTableColumn
-cucsStorageLocalDiskConfigPolicyPolicyLevel=_CucsStorageLocalDiskConfigPolicyPolicyLevel_Object((1,3,6,1,4,1,9,9,719,1,45,6,1,9),_CucsStorageLocalDiskConfigPolicyPolicyLevel_Type())
-cucsStorageLocalDiskConfigPolicyPolicyLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigPolicyPolicyLevel.setStatus(_A)
-_CucsStorageLocalDiskConfigPolicyPolicyOwner_Type=CucsPolicyPolicyOwner
-_CucsStorageLocalDiskConfigPolicyPolicyOwner_Object=MibTableColumn
-cucsStorageLocalDiskConfigPolicyPolicyOwner=_CucsStorageLocalDiskConfigPolicyPolicyOwner_Object((1,3,6,1,4,1,9,9,719,1,45,6,1,10),_CucsStorageLocalDiskConfigPolicyPolicyOwner_Type())
-cucsStorageLocalDiskConfigPolicyPolicyOwner.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigPolicyPolicyOwner.setStatus(_A)
-_CucsStorageLocalDiskConfigPolicyFlexFlashRAIDReportingState_Type=CucsStorageLocalDiskConfigFlexFlashRAIDReportingState
-_CucsStorageLocalDiskConfigPolicyFlexFlashRAIDReportingState_Object=MibTableColumn
-cucsStorageLocalDiskConfigPolicyFlexFlashRAIDReportingState=_CucsStorageLocalDiskConfigPolicyFlexFlashRAIDReportingState_Object((1,3,6,1,4,1,9,9,719,1,45,6,1,11),_CucsStorageLocalDiskConfigPolicyFlexFlashRAIDReportingState_Type())
-cucsStorageLocalDiskConfigPolicyFlexFlashRAIDReportingState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigPolicyFlexFlashRAIDReportingState.setStatus(_A)
-_CucsStorageLocalDiskConfigPolicyFlexFlashState_Type=CucsStorageLocalDiskConfigFlexFlashState
-_CucsStorageLocalDiskConfigPolicyFlexFlashState_Object=MibTableColumn
-cucsStorageLocalDiskConfigPolicyFlexFlashState=_CucsStorageLocalDiskConfigPolicyFlexFlashState_Object((1,3,6,1,4,1,9,9,719,1,45,6,1,12),_CucsStorageLocalDiskConfigPolicyFlexFlashState_Type())
-cucsStorageLocalDiskConfigPolicyFlexFlashState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskConfigPolicyFlexFlashState.setStatus(_A)
-_CucsStorageLocalDiskPartitionTable_Object=MibTable
-cucsStorageLocalDiskPartitionTable=_CucsStorageLocalDiskPartitionTable_Object((1,3,6,1,4,1,9,9,719,1,45,7))
-if mibBuilder.loadTexts:cucsStorageLocalDiskPartitionTable.setStatus(_A)
-_CucsStorageLocalDiskPartitionEntry_Object=MibTableRow
-cucsStorageLocalDiskPartitionEntry=_CucsStorageLocalDiskPartitionEntry_Object((1,3,6,1,4,1,9,9,719,1,45,7,1))
-cucsStorageLocalDiskPartitionEntry.setIndexNames((0,_C,_K))
-if mibBuilder.loadTexts:cucsStorageLocalDiskPartitionEntry.setStatus(_A)
-_CucsStorageLocalDiskPartitionInstanceId_Type=CucsManagedObjectId
-_CucsStorageLocalDiskPartitionInstanceId_Object=MibTableColumn
-cucsStorageLocalDiskPartitionInstanceId=_CucsStorageLocalDiskPartitionInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,7,1,1),_CucsStorageLocalDiskPartitionInstanceId_Type())
-cucsStorageLocalDiskPartitionInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageLocalDiskPartitionInstanceId.setStatus(_A)
-_CucsStorageLocalDiskPartitionDn_Type=CucsManagedObjectDn
-_CucsStorageLocalDiskPartitionDn_Object=MibTableColumn
-cucsStorageLocalDiskPartitionDn=_CucsStorageLocalDiskPartitionDn_Object((1,3,6,1,4,1,9,9,719,1,45,7,1,2),_CucsStorageLocalDiskPartitionDn_Type())
-cucsStorageLocalDiskPartitionDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskPartitionDn.setStatus(_A)
-_CucsStorageLocalDiskPartitionRn_Type=SnmpAdminString
-_CucsStorageLocalDiskPartitionRn_Object=MibTableColumn
-cucsStorageLocalDiskPartitionRn=_CucsStorageLocalDiskPartitionRn_Object((1,3,6,1,4,1,9,9,719,1,45,7,1,3),_CucsStorageLocalDiskPartitionRn_Type())
-cucsStorageLocalDiskPartitionRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskPartitionRn.setStatus(_A)
-_CucsStorageLocalDiskPartitionName_Type=SnmpAdminString
-_CucsStorageLocalDiskPartitionName_Object=MibTableColumn
-cucsStorageLocalDiskPartitionName=_CucsStorageLocalDiskPartitionName_Object((1,3,6,1,4,1,9,9,719,1,45,7,1,6),_CucsStorageLocalDiskPartitionName_Type())
-cucsStorageLocalDiskPartitionName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskPartitionName.setStatus(_A)
-_CucsStorageLocalDiskPartitionSize_Type=Unsigned64
-_CucsStorageLocalDiskPartitionSize_Object=MibTableColumn
-cucsStorageLocalDiskPartitionSize=_CucsStorageLocalDiskPartitionSize_Object((1,3,6,1,4,1,9,9,719,1,45,7,1,8),_CucsStorageLocalDiskPartitionSize_Type())
-cucsStorageLocalDiskPartitionSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskPartitionSize.setStatus(_A)
-_CucsStorageLocalDiskPartitionType_Type=Gauge32
-_CucsStorageLocalDiskPartitionType_Object=MibTableColumn
-cucsStorageLocalDiskPartitionType=_CucsStorageLocalDiskPartitionType_Object((1,3,6,1,4,1,9,9,719,1,45,7,1,9),_CucsStorageLocalDiskPartitionType_Type())
-cucsStorageLocalDiskPartitionType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskPartitionType.setStatus(_A)
-_CucsStorageLocalDiskPartitionBootable_Type=CucsStorageBootableType
-_CucsStorageLocalDiskPartitionBootable_Object=MibTableColumn
-cucsStorageLocalDiskPartitionBootable=_CucsStorageLocalDiskPartitionBootable_Object((1,3,6,1,4,1,9,9,719,1,45,7,1,12),_CucsStorageLocalDiskPartitionBootable_Type())
-cucsStorageLocalDiskPartitionBootable.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskPartitionBootable.setStatus(_A)
-_CucsStorageLocalDiskPartitionId_Type=Gauge32
-_CucsStorageLocalDiskPartitionId_Object=MibTableColumn
-cucsStorageLocalDiskPartitionId=_CucsStorageLocalDiskPartitionId_Object((1,3,6,1,4,1,9,9,719,1,45,7,1,13),_CucsStorageLocalDiskPartitionId_Type())
-cucsStorageLocalDiskPartitionId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskPartitionId.setStatus(_A)
-_CucsStorageLocalDiskPartitionPartitionEnd_Type=Unsigned64
-_CucsStorageLocalDiskPartitionPartitionEnd_Object=MibTableColumn
-cucsStorageLocalDiskPartitionPartitionEnd=_CucsStorageLocalDiskPartitionPartitionEnd_Object((1,3,6,1,4,1,9,9,719,1,45,7,1,14),_CucsStorageLocalDiskPartitionPartitionEnd_Type())
-cucsStorageLocalDiskPartitionPartitionEnd.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskPartitionPartitionEnd.setStatus(_A)
-_CucsStorageLocalDiskPartitionPartitionStart_Type=Unsigned64
-_CucsStorageLocalDiskPartitionPartitionStart_Object=MibTableColumn
-cucsStorageLocalDiskPartitionPartitionStart=_CucsStorageLocalDiskPartitionPartitionStart_Object((1,3,6,1,4,1,9,9,719,1,45,7,1,15),_CucsStorageLocalDiskPartitionPartitionStart_Type())
-cucsStorageLocalDiskPartitionPartitionStart.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskPartitionPartitionStart.setStatus(_A)
-_CucsStorageLocalDiskPartitionRawTypeDesc_Type=SnmpAdminString
-_CucsStorageLocalDiskPartitionRawTypeDesc_Object=MibTableColumn
-cucsStorageLocalDiskPartitionRawTypeDesc=_CucsStorageLocalDiskPartitionRawTypeDesc_Object((1,3,6,1,4,1,9,9,719,1,45,7,1,16),_CucsStorageLocalDiskPartitionRawTypeDesc_Type())
-cucsStorageLocalDiskPartitionRawTypeDesc.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskPartitionRawTypeDesc.setStatus(_A)
-_CucsStorageLocalLunTable_Object=MibTable
-cucsStorageLocalLunTable=_CucsStorageLocalLunTable_Object((1,3,6,1,4,1,9,9,719,1,45,8))
-if mibBuilder.loadTexts:cucsStorageLocalLunTable.setStatus(_A)
-_CucsStorageLocalLunEntry_Object=MibTableRow
-cucsStorageLocalLunEntry=_CucsStorageLocalLunEntry_Object((1,3,6,1,4,1,9,9,719,1,45,8,1))
-cucsStorageLocalLunEntry.setIndexNames((0,_C,_L))
-if mibBuilder.loadTexts:cucsStorageLocalLunEntry.setStatus(_A)
-_CucsStorageLocalLunInstanceId_Type=CucsManagedObjectId
-_CucsStorageLocalLunInstanceId_Object=MibTableColumn
-cucsStorageLocalLunInstanceId=_CucsStorageLocalLunInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,1),_CucsStorageLocalLunInstanceId_Type())
-cucsStorageLocalLunInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageLocalLunInstanceId.setStatus(_A)
-_CucsStorageLocalLunDn_Type=CucsManagedObjectDn
-_CucsStorageLocalLunDn_Object=MibTableColumn
-cucsStorageLocalLunDn=_CucsStorageLocalLunDn_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,2),_CucsStorageLocalLunDn_Type())
-cucsStorageLocalLunDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunDn.setStatus(_A)
-_CucsStorageLocalLunRn_Type=SnmpAdminString
-_CucsStorageLocalLunRn_Object=MibTableColumn
-cucsStorageLocalLunRn=_CucsStorageLocalLunRn_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,3),_CucsStorageLocalLunRn_Type())
-cucsStorageLocalLunRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunRn.setStatus(_A)
-_CucsStorageLocalLunBlockSize_Type=Gauge32
-_CucsStorageLocalLunBlockSize_Object=MibTableColumn
-cucsStorageLocalLunBlockSize=_CucsStorageLocalLunBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,4),_CucsStorageLocalLunBlockSize_Type())
-cucsStorageLocalLunBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunBlockSize.setStatus(_A)
-_CucsStorageLocalLunConnectionProtocol_Type=CucsStorageConnectionProtocol
-_CucsStorageLocalLunConnectionProtocol_Object=MibTableColumn
-cucsStorageLocalLunConnectionProtocol=_CucsStorageLocalLunConnectionProtocol_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,5),_CucsStorageLocalLunConnectionProtocol_Type())
-cucsStorageLocalLunConnectionProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunConnectionProtocol.setStatus(_A)
-_CucsStorageLocalLunId_Type=Gauge32
-_CucsStorageLocalLunId_Object=MibTableColumn
-cucsStorageLocalLunId=_CucsStorageLocalLunId_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,6),_CucsStorageLocalLunId_Type())
-cucsStorageLocalLunId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunId.setStatus(_A)
-_CucsStorageLocalLunModel_Type=SnmpAdminString
-_CucsStorageLocalLunModel_Object=MibTableColumn
-cucsStorageLocalLunModel=_CucsStorageLocalLunModel_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,7),_CucsStorageLocalLunModel_Type())
-cucsStorageLocalLunModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunModel.setStatus(_A)
-_CucsStorageLocalLunNumberOfBlocks_Type=Unsigned64
-_CucsStorageLocalLunNumberOfBlocks_Object=MibTableColumn
-cucsStorageLocalLunNumberOfBlocks=_CucsStorageLocalLunNumberOfBlocks_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,8),_CucsStorageLocalLunNumberOfBlocks_Type())
-cucsStorageLocalLunNumberOfBlocks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunNumberOfBlocks.setStatus(_A)
-_CucsStorageLocalLunOperability_Type=CucsEquipmentOperability
-_CucsStorageLocalLunOperability_Object=MibTableColumn
-cucsStorageLocalLunOperability=_CucsStorageLocalLunOperability_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,9),_CucsStorageLocalLunOperability_Type())
-cucsStorageLocalLunOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunOperability.setStatus(_A)
-_CucsStorageLocalLunPresence_Type=CucsEquipmentPresence
-_CucsStorageLocalLunPresence_Object=MibTableColumn
-cucsStorageLocalLunPresence=_CucsStorageLocalLunPresence_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,10),_CucsStorageLocalLunPresence_Type())
-cucsStorageLocalLunPresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunPresence.setStatus(_A)
-_CucsStorageLocalLunRevision_Type=SnmpAdminString
-_CucsStorageLocalLunRevision_Object=MibTableColumn
-cucsStorageLocalLunRevision=_CucsStorageLocalLunRevision_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,11),_CucsStorageLocalLunRevision_Type())
-cucsStorageLocalLunRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunRevision.setStatus(_A)
-_CucsStorageLocalLunSerial_Type=SnmpAdminString
-_CucsStorageLocalLunSerial_Object=MibTableColumn
-cucsStorageLocalLunSerial=_CucsStorageLocalLunSerial_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,12),_CucsStorageLocalLunSerial_Type())
-cucsStorageLocalLunSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunSerial.setStatus(_A)
-_CucsStorageLocalLunSize_Type=Unsigned64
-_CucsStorageLocalLunSize_Object=MibTableColumn
-cucsStorageLocalLunSize=_CucsStorageLocalLunSize_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,13),_CucsStorageLocalLunSize_Type())
-cucsStorageLocalLunSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunSize.setStatus(_A)
-_CucsStorageLocalLunType_Type=CucsStorageLunType
-_CucsStorageLocalLunType_Object=MibTableColumn
-cucsStorageLocalLunType=_CucsStorageLocalLunType_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,14),_CucsStorageLocalLunType_Type())
-cucsStorageLocalLunType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunType.setStatus(_A)
-_CucsStorageLocalLunVendor_Type=SnmpAdminString
-_CucsStorageLocalLunVendor_Object=MibTableColumn
-cucsStorageLocalLunVendor=_CucsStorageLocalLunVendor_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,15),_CucsStorageLocalLunVendor_Type())
-cucsStorageLocalLunVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunVendor.setStatus(_A)
-_CucsStorageLocalLunLc_Type=CucsFsmLifecycle
-_CucsStorageLocalLunLc_Object=MibTableColumn
-cucsStorageLocalLunLc=_CucsStorageLocalLunLc_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,16),_CucsStorageLocalLunLc_Type())
-cucsStorageLocalLunLc.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunLc.setStatus(_A)
-_CucsStorageLocalLunOperQualifierReason_Type=SnmpAdminString
-_CucsStorageLocalLunOperQualifierReason_Object=MibTableColumn
-cucsStorageLocalLunOperQualifierReason=_CucsStorageLocalLunOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,17),_CucsStorageLocalLunOperQualifierReason_Type())
-cucsStorageLocalLunOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunOperQualifierReason.setStatus(_A)
-_CucsStorageLocalLunPhysicalBlockSize_Type=Gauge32
-_CucsStorageLocalLunPhysicalBlockSize_Object=MibTableColumn
-cucsStorageLocalLunPhysicalBlockSize=_CucsStorageLocalLunPhysicalBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,8,1,18),_CucsStorageLocalLunPhysicalBlockSize_Type())
-cucsStorageLocalLunPhysicalBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalLunPhysicalBlockSize.setStatus(_A)
-_CucsStorageLunDiskTable_Object=MibTable
-cucsStorageLunDiskTable=_CucsStorageLunDiskTable_Object((1,3,6,1,4,1,9,9,719,1,45,9))
-if mibBuilder.loadTexts:cucsStorageLunDiskTable.setStatus(_A)
-_CucsStorageLunDiskEntry_Object=MibTableRow
-cucsStorageLunDiskEntry=_CucsStorageLunDiskEntry_Object((1,3,6,1,4,1,9,9,719,1,45,9,1))
-cucsStorageLunDiskEntry.setIndexNames((0,_C,_M))
-if mibBuilder.loadTexts:cucsStorageLunDiskEntry.setStatus(_A)
-_CucsStorageLunDiskInstanceId_Type=CucsManagedObjectId
-_CucsStorageLunDiskInstanceId_Object=MibTableColumn
-cucsStorageLunDiskInstanceId=_CucsStorageLunDiskInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,9,1,1),_CucsStorageLunDiskInstanceId_Type())
-cucsStorageLunDiskInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageLunDiskInstanceId.setStatus(_A)
-_CucsStorageLunDiskDn_Type=CucsManagedObjectDn
-_CucsStorageLunDiskDn_Object=MibTableColumn
-cucsStorageLunDiskDn=_CucsStorageLunDiskDn_Object((1,3,6,1,4,1,9,9,719,1,45,9,1,2),_CucsStorageLunDiskDn_Type())
-cucsStorageLunDiskDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLunDiskDn.setStatus(_A)
-_CucsStorageLunDiskRn_Type=SnmpAdminString
-_CucsStorageLunDiskRn_Object=MibTableColumn
-cucsStorageLunDiskRn=_CucsStorageLunDiskRn_Object((1,3,6,1,4,1,9,9,719,1,45,9,1,3),_CucsStorageLunDiskRn_Type())
-cucsStorageLunDiskRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLunDiskRn.setStatus(_A)
-_CucsStorageLunDiskId_Type=Gauge32
-_CucsStorageLunDiskId_Object=MibTableColumn
-cucsStorageLunDiskId=_CucsStorageLunDiskId_Object((1,3,6,1,4,1,9,9,719,1,45,9,1,4),_CucsStorageLunDiskId_Type())
-cucsStorageLunDiskId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLunDiskId.setStatus(_A)
-_CucsStorageQualTable_Object=MibTable
-cucsStorageQualTable=_CucsStorageQualTable_Object((1,3,6,1,4,1,9,9,719,1,45,10))
-if mibBuilder.loadTexts:cucsStorageQualTable.setStatus(_A)
-_CucsStorageQualEntry_Object=MibTableRow
-cucsStorageQualEntry=_CucsStorageQualEntry_Object((1,3,6,1,4,1,9,9,719,1,45,10,1))
-cucsStorageQualEntry.setIndexNames((0,_C,_N))
-if mibBuilder.loadTexts:cucsStorageQualEntry.setStatus(_A)
-_CucsStorageQualInstanceId_Type=CucsManagedObjectId
-_CucsStorageQualInstanceId_Object=MibTableColumn
-cucsStorageQualInstanceId=_CucsStorageQualInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,10,1,1),_CucsStorageQualInstanceId_Type())
-cucsStorageQualInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageQualInstanceId.setStatus(_A)
-_CucsStorageQualDn_Type=CucsManagedObjectDn
-_CucsStorageQualDn_Object=MibTableColumn
-cucsStorageQualDn=_CucsStorageQualDn_Object((1,3,6,1,4,1,9,9,719,1,45,10,1,2),_CucsStorageQualDn_Type())
-cucsStorageQualDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageQualDn.setStatus(_A)
-_CucsStorageQualRn_Type=SnmpAdminString
-_CucsStorageQualRn_Object=MibTableColumn
-cucsStorageQualRn=_CucsStorageQualRn_Object((1,3,6,1,4,1,9,9,719,1,45,10,1,3),_CucsStorageQualRn_Type())
-cucsStorageQualRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageQualRn.setStatus(_A)
-_CucsStorageQualBlockSize_Type=Gauge32
-_CucsStorageQualBlockSize_Object=MibTableColumn
-cucsStorageQualBlockSize=_CucsStorageQualBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,10,1,4),_CucsStorageQualBlockSize_Type())
-cucsStorageQualBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageQualBlockSize.setStatus(_A)
-_CucsStorageQualMaxCap_Type=Unsigned64
-_CucsStorageQualMaxCap_Object=MibTableColumn
-cucsStorageQualMaxCap=_CucsStorageQualMaxCap_Object((1,3,6,1,4,1,9,9,719,1,45,10,1,5),_CucsStorageQualMaxCap_Type())
-cucsStorageQualMaxCap.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageQualMaxCap.setStatus(_A)
-_CucsStorageQualMinCap_Type=Unsigned64
-_CucsStorageQualMinCap_Object=MibTableColumn
-cucsStorageQualMinCap=_CucsStorageQualMinCap_Object((1,3,6,1,4,1,9,9,719,1,45,10,1,6),_CucsStorageQualMinCap_Type())
-cucsStorageQualMinCap.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageQualMinCap.setStatus(_A)
-_CucsStorageQualNumberOfBlocks_Type=Unsigned64
-_CucsStorageQualNumberOfBlocks_Object=MibTableColumn
-cucsStorageQualNumberOfBlocks=_CucsStorageQualNumberOfBlocks_Object((1,3,6,1,4,1,9,9,719,1,45,10,1,7),_CucsStorageQualNumberOfBlocks_Type())
-cucsStorageQualNumberOfBlocks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageQualNumberOfBlocks.setStatus(_A)
-_CucsStorageQualPerDiskCap_Type=Unsigned64
-_CucsStorageQualPerDiskCap_Object=MibTableColumn
-cucsStorageQualPerDiskCap=_CucsStorageQualPerDiskCap_Object((1,3,6,1,4,1,9,9,719,1,45,10,1,8),_CucsStorageQualPerDiskCap_Type())
-cucsStorageQualPerDiskCap.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageQualPerDiskCap.setStatus(_A)
-_CucsStorageQualUnits_Type=Gauge32
-_CucsStorageQualUnits_Object=MibTableColumn
-cucsStorageQualUnits=_CucsStorageQualUnits_Object((1,3,6,1,4,1,9,9,719,1,45,10,1,9),_CucsStorageQualUnits_Type())
-cucsStorageQualUnits.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageQualUnits.setStatus(_A)
-_CucsStorageQualDiskless_Type=CucsStorageDisklessAction
-_CucsStorageQualDiskless_Object=MibTableColumn
-cucsStorageQualDiskless=_CucsStorageQualDiskless_Object((1,3,6,1,4,1,9,9,719,1,45,10,1,10),_CucsStorageQualDiskless_Type())
-cucsStorageQualDiskless.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageQualDiskless.setStatus(_A)
-_CucsStorageQualNumberOfFlexFlashCards_Type=Integer32
-_CucsStorageQualNumberOfFlexFlashCards_Object=MibTableColumn
-cucsStorageQualNumberOfFlexFlashCards=_CucsStorageQualNumberOfFlexFlashCards_Object((1,3,6,1,4,1,9,9,719,1,45,10,1,11),_CucsStorageQualNumberOfFlexFlashCards_Type())
-cucsStorageQualNumberOfFlexFlashCards.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageQualNumberOfFlexFlashCards.setStatus(_A)
-_CucsStorageQualDiskType_Type=CucsStorageTechnology
-_CucsStorageQualDiskType_Object=MibTableColumn
-cucsStorageQualDiskType=_CucsStorageQualDiskType_Object((1,3,6,1,4,1,9,9,719,1,45,10,1,12),_CucsStorageQualDiskType_Type())
-cucsStorageQualDiskType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageQualDiskType.setStatus(_A)
-_CucsStorageRaidBatteryTable_Object=MibTable
-cucsStorageRaidBatteryTable=_CucsStorageRaidBatteryTable_Object((1,3,6,1,4,1,9,9,719,1,45,11))
-if mibBuilder.loadTexts:cucsStorageRaidBatteryTable.setStatus(_A)
-_CucsStorageRaidBatteryEntry_Object=MibTableRow
-cucsStorageRaidBatteryEntry=_CucsStorageRaidBatteryEntry_Object((1,3,6,1,4,1,9,9,719,1,45,11,1))
-cucsStorageRaidBatteryEntry.setIndexNames((0,_C,_O))
-if mibBuilder.loadTexts:cucsStorageRaidBatteryEntry.setStatus(_A)
-_CucsStorageRaidBatteryInstanceId_Type=CucsManagedObjectId
-_CucsStorageRaidBatteryInstanceId_Object=MibTableColumn
-cucsStorageRaidBatteryInstanceId=_CucsStorageRaidBatteryInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,1),_CucsStorageRaidBatteryInstanceId_Type())
-cucsStorageRaidBatteryInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryInstanceId.setStatus(_A)
-_CucsStorageRaidBatteryDn_Type=CucsManagedObjectDn
-_CucsStorageRaidBatteryDn_Object=MibTableColumn
-cucsStorageRaidBatteryDn=_CucsStorageRaidBatteryDn_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,2),_CucsStorageRaidBatteryDn_Type())
-cucsStorageRaidBatteryDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryDn.setStatus(_A)
-_CucsStorageRaidBatteryRn_Type=SnmpAdminString
-_CucsStorageRaidBatteryRn_Object=MibTableColumn
-cucsStorageRaidBatteryRn=_CucsStorageRaidBatteryRn_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,3),_CucsStorageRaidBatteryRn_Type())
-cucsStorageRaidBatteryRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryRn.setStatus(_A)
-_CucsStorageRaidBatteryBlockSize_Type=Gauge32
-_CucsStorageRaidBatteryBlockSize_Object=MibTableColumn
-cucsStorageRaidBatteryBlockSize=_CucsStorageRaidBatteryBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,4),_CucsStorageRaidBatteryBlockSize_Type())
-cucsStorageRaidBatteryBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryBlockSize.setStatus(_A)
-_CucsStorageRaidBatteryConnectionProtocol_Type=CucsStorageConnectionProtocol
-_CucsStorageRaidBatteryConnectionProtocol_Object=MibTableColumn
-cucsStorageRaidBatteryConnectionProtocol=_CucsStorageRaidBatteryConnectionProtocol_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,5),_CucsStorageRaidBatteryConnectionProtocol_Type())
-cucsStorageRaidBatteryConnectionProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryConnectionProtocol.setStatus(_A)
-_CucsStorageRaidBatteryId_Type=Gauge32
-_CucsStorageRaidBatteryId_Object=MibTableColumn
-cucsStorageRaidBatteryId=_CucsStorageRaidBatteryId_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,6),_CucsStorageRaidBatteryId_Type())
-cucsStorageRaidBatteryId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryId.setStatus(_A)
-_CucsStorageRaidBatteryModel_Type=SnmpAdminString
-_CucsStorageRaidBatteryModel_Object=MibTableColumn
-cucsStorageRaidBatteryModel=_CucsStorageRaidBatteryModel_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,7),_CucsStorageRaidBatteryModel_Type())
-cucsStorageRaidBatteryModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryModel.setStatus(_A)
-_CucsStorageRaidBatteryNumberOfBlocks_Type=Unsigned64
-_CucsStorageRaidBatteryNumberOfBlocks_Object=MibTableColumn
-cucsStorageRaidBatteryNumberOfBlocks=_CucsStorageRaidBatteryNumberOfBlocks_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,8),_CucsStorageRaidBatteryNumberOfBlocks_Type())
-cucsStorageRaidBatteryNumberOfBlocks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryNumberOfBlocks.setStatus(_A)
-_CucsStorageRaidBatteryOperability_Type=CucsEquipmentOperability
-_CucsStorageRaidBatteryOperability_Object=MibTableColumn
-cucsStorageRaidBatteryOperability=_CucsStorageRaidBatteryOperability_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,9),_CucsStorageRaidBatteryOperability_Type())
-cucsStorageRaidBatteryOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryOperability.setStatus(_A)
-_CucsStorageRaidBatteryPresence_Type=CucsEquipmentPresence
-_CucsStorageRaidBatteryPresence_Object=MibTableColumn
-cucsStorageRaidBatteryPresence=_CucsStorageRaidBatteryPresence_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,10),_CucsStorageRaidBatteryPresence_Type())
-cucsStorageRaidBatteryPresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryPresence.setStatus(_A)
-_CucsStorageRaidBatteryRevision_Type=SnmpAdminString
-_CucsStorageRaidBatteryRevision_Object=MibTableColumn
-cucsStorageRaidBatteryRevision=_CucsStorageRaidBatteryRevision_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,11),_CucsStorageRaidBatteryRevision_Type())
-cucsStorageRaidBatteryRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryRevision.setStatus(_A)
-_CucsStorageRaidBatterySerial_Type=SnmpAdminString
-_CucsStorageRaidBatterySerial_Object=MibTableColumn
-cucsStorageRaidBatterySerial=_CucsStorageRaidBatterySerial_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,12),_CucsStorageRaidBatterySerial_Type())
-cucsStorageRaidBatterySerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatterySerial.setStatus(_A)
-_CucsStorageRaidBatterySize_Type=Unsigned64
-_CucsStorageRaidBatterySize_Object=MibTableColumn
-cucsStorageRaidBatterySize=_CucsStorageRaidBatterySize_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,13),_CucsStorageRaidBatterySize_Type())
-cucsStorageRaidBatterySize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatterySize.setStatus(_A)
-_CucsStorageRaidBatteryVendor_Type=SnmpAdminString
-_CucsStorageRaidBatteryVendor_Object=MibTableColumn
-cucsStorageRaidBatteryVendor=_CucsStorageRaidBatteryVendor_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,14),_CucsStorageRaidBatteryVendor_Type())
-cucsStorageRaidBatteryVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryVendor.setStatus(_A)
-_CucsStorageRaidBatteryOperQualifierReason_Type=SnmpAdminString
-_CucsStorageRaidBatteryOperQualifierReason_Object=MibTableColumn
-cucsStorageRaidBatteryOperQualifierReason=_CucsStorageRaidBatteryOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,15),_CucsStorageRaidBatteryOperQualifierReason_Type())
-cucsStorageRaidBatteryOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryOperQualifierReason.setStatus(_A)
-_CucsStorageRaidBatteryBatteryType_Type=CucsStorageBatteryType
-_CucsStorageRaidBatteryBatteryType_Object=MibTableColumn
-cucsStorageRaidBatteryBatteryType=_CucsStorageRaidBatteryBatteryType_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,16),_CucsStorageRaidBatteryBatteryType_Type())
-cucsStorageRaidBatteryBatteryType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryBatteryType.setStatus(_A)
-_CucsStorageRaidBatteryCapacityPercentage_Type=Gauge32
-_CucsStorageRaidBatteryCapacityPercentage_Object=MibTableColumn
-cucsStorageRaidBatteryCapacityPercentage=_CucsStorageRaidBatteryCapacityPercentage_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,17),_CucsStorageRaidBatteryCapacityPercentage_Type())
-cucsStorageRaidBatteryCapacityPercentage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryCapacityPercentage.setStatus(_A)
-_CucsStorageRaidBatteryOperabilityQualifier_Type=CucsStorageRaidBatteryOperabilityQualifier
-_CucsStorageRaidBatteryOperabilityQualifier_Object=MibTableColumn
-cucsStorageRaidBatteryOperabilityQualifier=_CucsStorageRaidBatteryOperabilityQualifier_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,18),_CucsStorageRaidBatteryOperabilityQualifier_Type())
-cucsStorageRaidBatteryOperabilityQualifier.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryOperabilityQualifier.setStatus(_A)
-_CucsStorageRaidBatteryOperabilityQualifierReason_Type=SnmpAdminString
-_CucsStorageRaidBatteryOperabilityQualifierReason_Object=MibTableColumn
-cucsStorageRaidBatteryOperabilityQualifierReason=_CucsStorageRaidBatteryOperabilityQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,19),_CucsStorageRaidBatteryOperabilityQualifierReason_Type())
-cucsStorageRaidBatteryOperabilityQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryOperabilityQualifierReason.setStatus(_A)
-_CucsStorageRaidBatteryTemperature_Type=Integer32
-_CucsStorageRaidBatteryTemperature_Object=MibTableColumn
-cucsStorageRaidBatteryTemperature=_CucsStorageRaidBatteryTemperature_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,20),_CucsStorageRaidBatteryTemperature_Type())
-cucsStorageRaidBatteryTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryTemperature.setStatus(_A)
-_CucsStorageRaidBatteryBbuStatus_Type=CucsStorageBbuStatus
-_CucsStorageRaidBatteryBbuStatus_Object=MibTableColumn
-cucsStorageRaidBatteryBbuStatus=_CucsStorageRaidBatteryBbuStatus_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,21),_CucsStorageRaidBatteryBbuStatus_Type())
-cucsStorageRaidBatteryBbuStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryBbuStatus.setStatus(_A)
-_CucsStorageRaidBatteryLc_Type=CucsFsmLifecycle
-_CucsStorageRaidBatteryLc_Object=MibTableColumn
-cucsStorageRaidBatteryLc=_CucsStorageRaidBatteryLc_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,22),_CucsStorageRaidBatteryLc_Type())
-cucsStorageRaidBatteryLc.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryLc.setStatus(_A)
-_CucsStorageRaidBatteryLearnCycleRequested_Type=CucsStorageLearnCycleRequested
-_CucsStorageRaidBatteryLearnCycleRequested_Object=MibTableColumn
-cucsStorageRaidBatteryLearnCycleRequested=_CucsStorageRaidBatteryLearnCycleRequested_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,23),_CucsStorageRaidBatteryLearnCycleRequested_Type())
-cucsStorageRaidBatteryLearnCycleRequested.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryLearnCycleRequested.setStatus(_A)
-_CucsStorageRaidBatteryLearnMode_Type=CucsStorageLearnMode
-_CucsStorageRaidBatteryLearnMode_Object=MibTableColumn
-cucsStorageRaidBatteryLearnMode=_CucsStorageRaidBatteryLearnMode_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,24),_CucsStorageRaidBatteryLearnMode_Type())
-cucsStorageRaidBatteryLearnMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryLearnMode.setStatus(_A)
-_CucsStorageRaidBatteryNextLearnCycleTs_Type=DateAndTime
-_CucsStorageRaidBatteryNextLearnCycleTs_Object=MibTableColumn
-cucsStorageRaidBatteryNextLearnCycleTs=_CucsStorageRaidBatteryNextLearnCycleTs_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,25),_CucsStorageRaidBatteryNextLearnCycleTs_Type())
-cucsStorageRaidBatteryNextLearnCycleTs.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryNextLearnCycleTs.setStatus(_A)
-_CucsStorageRaidBatteryPhysicalBlockSize_Type=Gauge32
-_CucsStorageRaidBatteryPhysicalBlockSize_Object=MibTableColumn
-cucsStorageRaidBatteryPhysicalBlockSize=_CucsStorageRaidBatteryPhysicalBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,11,1,26),_CucsStorageRaidBatteryPhysicalBlockSize_Type())
-cucsStorageRaidBatteryPhysicalBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageRaidBatteryPhysicalBlockSize.setStatus(_A)
-_CucsStorageEnclosureTable_Object=MibTable
-cucsStorageEnclosureTable=_CucsStorageEnclosureTable_Object((1,3,6,1,4,1,9,9,719,1,45,12))
-if mibBuilder.loadTexts:cucsStorageEnclosureTable.setStatus(_A)
-_CucsStorageEnclosureEntry_Object=MibTableRow
-cucsStorageEnclosureEntry=_CucsStorageEnclosureEntry_Object((1,3,6,1,4,1,9,9,719,1,45,12,1))
-cucsStorageEnclosureEntry.setIndexNames((0,_C,_P))
-if mibBuilder.loadTexts:cucsStorageEnclosureEntry.setStatus(_A)
-_CucsStorageEnclosureInstanceId_Type=CucsManagedObjectId
-_CucsStorageEnclosureInstanceId_Object=MibTableColumn
-cucsStorageEnclosureInstanceId=_CucsStorageEnclosureInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,1),_CucsStorageEnclosureInstanceId_Type())
-cucsStorageEnclosureInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageEnclosureInstanceId.setStatus(_A)
-_CucsStorageEnclosureDn_Type=CucsManagedObjectDn
-_CucsStorageEnclosureDn_Object=MibTableColumn
-cucsStorageEnclosureDn=_CucsStorageEnclosureDn_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,2),_CucsStorageEnclosureDn_Type())
-cucsStorageEnclosureDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureDn.setStatus(_A)
-_CucsStorageEnclosureRn_Type=SnmpAdminString
-_CucsStorageEnclosureRn_Object=MibTableColumn
-cucsStorageEnclosureRn=_CucsStorageEnclosureRn_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,3),_CucsStorageEnclosureRn_Type())
-cucsStorageEnclosureRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureRn.setStatus(_A)
-_CucsStorageEnclosureId_Type=Gauge32
-_CucsStorageEnclosureId_Object=MibTableColumn
-cucsStorageEnclosureId=_CucsStorageEnclosureId_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,4),_CucsStorageEnclosureId_Type())
-cucsStorageEnclosureId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureId.setStatus(_A)
-_CucsStorageEnclosureModel_Type=SnmpAdminString
-_CucsStorageEnclosureModel_Object=MibTableColumn
-cucsStorageEnclosureModel=_CucsStorageEnclosureModel_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,5),_CucsStorageEnclosureModel_Type())
-cucsStorageEnclosureModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureModel.setStatus(_A)
-_CucsStorageEnclosureNumSlots_Type=Gauge32
-_CucsStorageEnclosureNumSlots_Object=MibTableColumn
-cucsStorageEnclosureNumSlots=_CucsStorageEnclosureNumSlots_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,6),_CucsStorageEnclosureNumSlots_Type())
-cucsStorageEnclosureNumSlots.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureNumSlots.setStatus(_A)
-_CucsStorageEnclosureRevision_Type=SnmpAdminString
-_CucsStorageEnclosureRevision_Object=MibTableColumn
-cucsStorageEnclosureRevision=_CucsStorageEnclosureRevision_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,7),_CucsStorageEnclosureRevision_Type())
-cucsStorageEnclosureRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureRevision.setStatus(_A)
-_CucsStorageEnclosureSerial_Type=SnmpAdminString
-_CucsStorageEnclosureSerial_Object=MibTableColumn
-cucsStorageEnclosureSerial=_CucsStorageEnclosureSerial_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,8),_CucsStorageEnclosureSerial_Type())
-cucsStorageEnclosureSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureSerial.setStatus(_A)
-_CucsStorageEnclosureVendor_Type=SnmpAdminString
-_CucsStorageEnclosureVendor_Object=MibTableColumn
-cucsStorageEnclosureVendor=_CucsStorageEnclosureVendor_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,9),_CucsStorageEnclosureVendor_Type())
-cucsStorageEnclosureVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureVendor.setStatus(_A)
-_CucsStorageEnclosureLc_Type=CucsFsmLifecycle
-_CucsStorageEnclosureLc_Object=MibTableColumn
-cucsStorageEnclosureLc=_CucsStorageEnclosureLc_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,10),_CucsStorageEnclosureLc_Type())
-cucsStorageEnclosureLc.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLc.setStatus(_A)
-_CucsStorageEnclosureDescr_Type=SnmpAdminString
-_CucsStorageEnclosureDescr_Object=MibTableColumn
-cucsStorageEnclosureDescr=_CucsStorageEnclosureDescr_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,11),_CucsStorageEnclosureDescr_Type())
-cucsStorageEnclosureDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureDescr.setStatus(_A)
-_CucsStorageEnclosureType_Type=CucsStoragePhysicalHolder
-_CucsStorageEnclosureType_Object=MibTableColumn
-cucsStorageEnclosureType=_CucsStorageEnclosureType_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,13),_CucsStorageEnclosureType_Type())
-cucsStorageEnclosureType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureType.setStatus(_A)
-_CucsStorageEnclosureAdminState_Type=CucsStorageEnclosureAdminState
-_CucsStorageEnclosureAdminState_Object=MibTableColumn
-cucsStorageEnclosureAdminState=_CucsStorageEnclosureAdminState_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,14),_CucsStorageEnclosureAdminState_Type())
-cucsStorageEnclosureAdminState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureAdminState.setStatus(_A)
-_CucsStorageEnclosureChassisId_Type=Gauge32
-_CucsStorageEnclosureChassisId_Object=MibTableColumn
-cucsStorageEnclosureChassisId=_CucsStorageEnclosureChassisId_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,15),_CucsStorageEnclosureChassisId_Type())
-cucsStorageEnclosureChassisId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureChassisId.setStatus(_A)
-_CucsStorageEnclosureOperQualifierReason_Type=SnmpAdminString
-_CucsStorageEnclosureOperQualifierReason_Object=MibTableColumn
-cucsStorageEnclosureOperQualifierReason=_CucsStorageEnclosureOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,16),_CucsStorageEnclosureOperQualifierReason_Type())
-cucsStorageEnclosureOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureOperQualifierReason.setStatus(_A)
-_CucsStorageEnclosureOperState_Type=CucsEquipmentOperability
-_CucsStorageEnclosureOperState_Object=MibTableColumn
-cucsStorageEnclosureOperState=_CucsStorageEnclosureOperState_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,17),_CucsStorageEnclosureOperState_Type())
-cucsStorageEnclosureOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureOperState.setStatus(_A)
-_CucsStorageEnclosureOperability_Type=CucsEquipmentOperability
-_CucsStorageEnclosureOperability_Object=MibTableColumn
-cucsStorageEnclosureOperability=_CucsStorageEnclosureOperability_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,18),_CucsStorageEnclosureOperability_Type())
-cucsStorageEnclosureOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureOperability.setStatus(_A)
-_CucsStorageEnclosurePerf_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageEnclosurePerf_Object=MibTableColumn
-cucsStorageEnclosurePerf=_CucsStorageEnclosurePerf_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,19),_CucsStorageEnclosurePerf_Type())
-cucsStorageEnclosurePerf.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosurePerf.setStatus(_A)
-_CucsStorageEnclosurePower_Type=CucsEquipmentPowerState
-_CucsStorageEnclosurePower_Object=MibTableColumn
-cucsStorageEnclosurePower=_CucsStorageEnclosurePower_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,20),_CucsStorageEnclosurePower_Type())
-cucsStorageEnclosurePower.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosurePower.setStatus(_A)
-_CucsStorageEnclosurePresence_Type=CucsEquipmentPresence
-_CucsStorageEnclosurePresence_Object=MibTableColumn
-cucsStorageEnclosurePresence=_CucsStorageEnclosurePresence_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,21),_CucsStorageEnclosurePresence_Type())
-cucsStorageEnclosurePresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosurePresence.setStatus(_A)
-_CucsStorageEnclosureServerId_Type=Gauge32
-_CucsStorageEnclosureServerId_Object=MibTableColumn
-cucsStorageEnclosureServerId=_CucsStorageEnclosureServerId_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,22),_CucsStorageEnclosureServerId_Type())
-cucsStorageEnclosureServerId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureServerId.setStatus(_A)
-_CucsStorageEnclosureThermal_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageEnclosureThermal_Object=MibTableColumn
-cucsStorageEnclosureThermal=_CucsStorageEnclosureThermal_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,23),_CucsStorageEnclosureThermal_Type())
-cucsStorageEnclosureThermal.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureThermal.setStatus(_A)
-_CucsStorageEnclosureVoltage_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageEnclosureVoltage_Object=MibTableColumn
-cucsStorageEnclosureVoltage=_CucsStorageEnclosureVoltage_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,24),_CucsStorageEnclosureVoltage_Type())
-cucsStorageEnclosureVoltage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureVoltage.setStatus(_A)
-_CucsStorageEnclosureFsmDescr_Type=SnmpAdminString
-_CucsStorageEnclosureFsmDescr_Object=MibTableColumn
-cucsStorageEnclosureFsmDescr=_CucsStorageEnclosureFsmDescr_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,25),_CucsStorageEnclosureFsmDescr_Type())
-cucsStorageEnclosureFsmDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmDescr.setStatus(_A)
-_CucsStorageEnclosureFsmPrev_Type=SnmpAdminString
-_CucsStorageEnclosureFsmPrev_Object=MibTableColumn
-cucsStorageEnclosureFsmPrev=_CucsStorageEnclosureFsmPrev_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,26),_CucsStorageEnclosureFsmPrev_Type())
-cucsStorageEnclosureFsmPrev.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmPrev.setStatus(_A)
-_CucsStorageEnclosureFsmProgr_Type=Gauge32
-_CucsStorageEnclosureFsmProgr_Object=MibTableColumn
-cucsStorageEnclosureFsmProgr=_CucsStorageEnclosureFsmProgr_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,27),_CucsStorageEnclosureFsmProgr_Type())
-cucsStorageEnclosureFsmProgr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmProgr.setStatus(_A)
-_CucsStorageEnclosureFsmRmtInvErrCode_Type=Gauge32
-_CucsStorageEnclosureFsmRmtInvErrCode_Object=MibTableColumn
-cucsStorageEnclosureFsmRmtInvErrCode=_CucsStorageEnclosureFsmRmtInvErrCode_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,28),_CucsStorageEnclosureFsmRmtInvErrCode_Type())
-cucsStorageEnclosureFsmRmtInvErrCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmRmtInvErrCode.setStatus(_A)
-_CucsStorageEnclosureFsmRmtInvErrDescr_Type=SnmpAdminString
-_CucsStorageEnclosureFsmRmtInvErrDescr_Object=MibTableColumn
-cucsStorageEnclosureFsmRmtInvErrDescr=_CucsStorageEnclosureFsmRmtInvErrDescr_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,29),_CucsStorageEnclosureFsmRmtInvErrDescr_Type())
-cucsStorageEnclosureFsmRmtInvErrDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmRmtInvErrDescr.setStatus(_A)
-_CucsStorageEnclosureFsmRmtInvRslt_Type=CucsConditionRemoteInvRslt
-_CucsStorageEnclosureFsmRmtInvRslt_Object=MibTableColumn
-cucsStorageEnclosureFsmRmtInvRslt=_CucsStorageEnclosureFsmRmtInvRslt_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,30),_CucsStorageEnclosureFsmRmtInvRslt_Type())
-cucsStorageEnclosureFsmRmtInvRslt.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmRmtInvRslt.setStatus(_A)
-_CucsStorageEnclosureFsmStageDescr_Type=SnmpAdminString
-_CucsStorageEnclosureFsmStageDescr_Object=MibTableColumn
-cucsStorageEnclosureFsmStageDescr=_CucsStorageEnclosureFsmStageDescr_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,31),_CucsStorageEnclosureFsmStageDescr_Type())
-cucsStorageEnclosureFsmStageDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmStageDescr.setStatus(_A)
-_CucsStorageEnclosureFsmStamp_Type=DateAndTime
-_CucsStorageEnclosureFsmStamp_Object=MibTableColumn
-cucsStorageEnclosureFsmStamp=_CucsStorageEnclosureFsmStamp_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,32),_CucsStorageEnclosureFsmStamp_Type())
-cucsStorageEnclosureFsmStamp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmStamp.setStatus(_A)
-_CucsStorageEnclosureFsmStatus_Type=SnmpAdminString
-_CucsStorageEnclosureFsmStatus_Object=MibTableColumn
-cucsStorageEnclosureFsmStatus=_CucsStorageEnclosureFsmStatus_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,33),_CucsStorageEnclosureFsmStatus_Type())
-cucsStorageEnclosureFsmStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmStatus.setStatus(_A)
-_CucsStorageEnclosureFsmTry_Type=Gauge32
-_CucsStorageEnclosureFsmTry_Object=MibTableColumn
-cucsStorageEnclosureFsmTry=_CucsStorageEnclosureFsmTry_Object((1,3,6,1,4,1,9,9,719,1,45,12,1,34),_CucsStorageEnclosureFsmTry_Type())
-cucsStorageEnclosureFsmTry.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmTry.setStatus(_A)
-_CucsStorageLocalDiskSlotEpTable_Object=MibTable
-cucsStorageLocalDiskSlotEpTable=_CucsStorageLocalDiskSlotEpTable_Object((1,3,6,1,4,1,9,9,719,1,45,13))
-if mibBuilder.loadTexts:cucsStorageLocalDiskSlotEpTable.setStatus(_A)
-_CucsStorageLocalDiskSlotEpEntry_Object=MibTableRow
-cucsStorageLocalDiskSlotEpEntry=_CucsStorageLocalDiskSlotEpEntry_Object((1,3,6,1,4,1,9,9,719,1,45,13,1))
-cucsStorageLocalDiskSlotEpEntry.setIndexNames((0,_C,_Q))
-if mibBuilder.loadTexts:cucsStorageLocalDiskSlotEpEntry.setStatus(_A)
-_CucsStorageLocalDiskSlotEpInstanceId_Type=CucsManagedObjectId
-_CucsStorageLocalDiskSlotEpInstanceId_Object=MibTableColumn
-cucsStorageLocalDiskSlotEpInstanceId=_CucsStorageLocalDiskSlotEpInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,13,1,1),_CucsStorageLocalDiskSlotEpInstanceId_Type())
-cucsStorageLocalDiskSlotEpInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageLocalDiskSlotEpInstanceId.setStatus(_A)
-_CucsStorageLocalDiskSlotEpDn_Type=CucsManagedObjectDn
-_CucsStorageLocalDiskSlotEpDn_Object=MibTableColumn
-cucsStorageLocalDiskSlotEpDn=_CucsStorageLocalDiskSlotEpDn_Object((1,3,6,1,4,1,9,9,719,1,45,13,1,2),_CucsStorageLocalDiskSlotEpDn_Type())
-cucsStorageLocalDiskSlotEpDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskSlotEpDn.setStatus(_A)
-_CucsStorageLocalDiskSlotEpRn_Type=SnmpAdminString
-_CucsStorageLocalDiskSlotEpRn_Object=MibTableColumn
-cucsStorageLocalDiskSlotEpRn=_CucsStorageLocalDiskSlotEpRn_Object((1,3,6,1,4,1,9,9,719,1,45,13,1,3),_CucsStorageLocalDiskSlotEpRn_Type())
-cucsStorageLocalDiskSlotEpRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskSlotEpRn.setStatus(_A)
-_CucsStorageLocalDiskSlotEpConfiguration_Type=CucsStorageConfiguration
-_CucsStorageLocalDiskSlotEpConfiguration_Object=MibTableColumn
-cucsStorageLocalDiskSlotEpConfiguration=_CucsStorageLocalDiskSlotEpConfiguration_Object((1,3,6,1,4,1,9,9,719,1,45,13,1,4),_CucsStorageLocalDiskSlotEpConfiguration_Type())
-cucsStorageLocalDiskSlotEpConfiguration.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskSlotEpConfiguration.setStatus(_A)
-_CucsStorageLocalDiskSlotEpId_Type=Gauge32
-_CucsStorageLocalDiskSlotEpId_Object=MibTableColumn
-cucsStorageLocalDiskSlotEpId=_CucsStorageLocalDiskSlotEpId_Object((1,3,6,1,4,1,9,9,719,1,45,13,1,5),_CucsStorageLocalDiskSlotEpId_Type())
-cucsStorageLocalDiskSlotEpId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskSlotEpId.setStatus(_A)
-_CucsStorageLocalDiskSlotEpOperability_Type=CucsEquipmentOperability
-_CucsStorageLocalDiskSlotEpOperability_Object=MibTableColumn
-cucsStorageLocalDiskSlotEpOperability=_CucsStorageLocalDiskSlotEpOperability_Object((1,3,6,1,4,1,9,9,719,1,45,13,1,6),_CucsStorageLocalDiskSlotEpOperability_Type())
-cucsStorageLocalDiskSlotEpOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskSlotEpOperability.setStatus(_A)
-_CucsStorageLocalDiskSlotEpPeerDn_Type=SnmpAdminString
-_CucsStorageLocalDiskSlotEpPeerDn_Object=MibTableColumn
-cucsStorageLocalDiskSlotEpPeerDn=_CucsStorageLocalDiskSlotEpPeerDn_Object((1,3,6,1,4,1,9,9,719,1,45,13,1,7),_CucsStorageLocalDiskSlotEpPeerDn_Type())
-cucsStorageLocalDiskSlotEpPeerDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskSlotEpPeerDn.setStatus(_A)
-_CucsStorageLocalDiskSlotEpPresence_Type=CucsEquipmentPresence
-_CucsStorageLocalDiskSlotEpPresence_Object=MibTableColumn
-cucsStorageLocalDiskSlotEpPresence=_CucsStorageLocalDiskSlotEpPresence_Object((1,3,6,1,4,1,9,9,719,1,45,13,1,8),_CucsStorageLocalDiskSlotEpPresence_Type())
-cucsStorageLocalDiskSlotEpPresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskSlotEpPresence.setStatus(_A)
-_CucsStorageLocalDiskSlotEpOperQualifierReason_Type=SnmpAdminString
-_CucsStorageLocalDiskSlotEpOperQualifierReason_Object=MibTableColumn
-cucsStorageLocalDiskSlotEpOperQualifierReason=_CucsStorageLocalDiskSlotEpOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,13,1,9),_CucsStorageLocalDiskSlotEpOperQualifierReason_Type())
-cucsStorageLocalDiskSlotEpOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskSlotEpOperQualifierReason.setStatus(_A)
-_CucsStorageAuthKeyTable_Object=MibTable
-cucsStorageAuthKeyTable=_CucsStorageAuthKeyTable_Object((1,3,6,1,4,1,9,9,719,1,45,14))
-if mibBuilder.loadTexts:cucsStorageAuthKeyTable.setStatus(_A)
-_CucsStorageAuthKeyEntry_Object=MibTableRow
-cucsStorageAuthKeyEntry=_CucsStorageAuthKeyEntry_Object((1,3,6,1,4,1,9,9,719,1,45,14,1))
-cucsStorageAuthKeyEntry.setIndexNames((0,_C,_R))
-if mibBuilder.loadTexts:cucsStorageAuthKeyEntry.setStatus(_A)
-_CucsStorageAuthKeyInstanceId_Type=CucsManagedObjectId
-_CucsStorageAuthKeyInstanceId_Object=MibTableColumn
-cucsStorageAuthKeyInstanceId=_CucsStorageAuthKeyInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,14,1,1),_CucsStorageAuthKeyInstanceId_Type())
-cucsStorageAuthKeyInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageAuthKeyInstanceId.setStatus(_A)
-_CucsStorageAuthKeyDn_Type=CucsManagedObjectDn
-_CucsStorageAuthKeyDn_Object=MibTableColumn
-cucsStorageAuthKeyDn=_CucsStorageAuthKeyDn_Object((1,3,6,1,4,1,9,9,719,1,45,14,1,2),_CucsStorageAuthKeyDn_Type())
-cucsStorageAuthKeyDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageAuthKeyDn.setStatus(_A)
-_CucsStorageAuthKeyRn_Type=SnmpAdminString
-_CucsStorageAuthKeyRn_Object=MibTableColumn
-cucsStorageAuthKeyRn=_CucsStorageAuthKeyRn_Object((1,3,6,1,4,1,9,9,719,1,45,14,1,3),_CucsStorageAuthKeyRn_Type())
-cucsStorageAuthKeyRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageAuthKeyRn.setStatus(_A)
-_CucsStorageAuthKeyDescr_Type=SnmpAdminString
-_CucsStorageAuthKeyDescr_Object=MibTableColumn
-cucsStorageAuthKeyDescr=_CucsStorageAuthKeyDescr_Object((1,3,6,1,4,1,9,9,719,1,45,14,1,4),_CucsStorageAuthKeyDescr_Type())
-cucsStorageAuthKeyDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageAuthKeyDescr.setStatus(_A)
-_CucsStorageAuthKeyIntId_Type=SnmpAdminString
-_CucsStorageAuthKeyIntId_Object=MibTableColumn
-cucsStorageAuthKeyIntId=_CucsStorageAuthKeyIntId_Object((1,3,6,1,4,1,9,9,719,1,45,14,1,5),_CucsStorageAuthKeyIntId_Type())
-cucsStorageAuthKeyIntId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageAuthKeyIntId.setStatus(_A)
-_CucsStorageAuthKeyName_Type=SnmpAdminString
-_CucsStorageAuthKeyName_Object=MibTableColumn
-cucsStorageAuthKeyName=_CucsStorageAuthKeyName_Object((1,3,6,1,4,1,9,9,719,1,45,14,1,6),_CucsStorageAuthKeyName_Type())
-cucsStorageAuthKeyName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageAuthKeyName.setStatus(_A)
-_CucsStorageAuthKeyPassword_Type=SnmpAdminString
-_CucsStorageAuthKeyPassword_Object=MibTableColumn
-cucsStorageAuthKeyPassword=_CucsStorageAuthKeyPassword_Object((1,3,6,1,4,1,9,9,719,1,45,14,1,7),_CucsStorageAuthKeyPassword_Type())
-cucsStorageAuthKeyPassword.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageAuthKeyPassword.setStatus(_A)
-_CucsStorageAuthKeyPolicyLevel_Type=Gauge32
-_CucsStorageAuthKeyPolicyLevel_Object=MibTableColumn
-cucsStorageAuthKeyPolicyLevel=_CucsStorageAuthKeyPolicyLevel_Object((1,3,6,1,4,1,9,9,719,1,45,14,1,8),_CucsStorageAuthKeyPolicyLevel_Type())
-cucsStorageAuthKeyPolicyLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageAuthKeyPolicyLevel.setStatus(_A)
-_CucsStorageAuthKeyPolicyOwner_Type=CucsPolicyPolicyOwner
-_CucsStorageAuthKeyPolicyOwner_Object=MibTableColumn
-cucsStorageAuthKeyPolicyOwner=_CucsStorageAuthKeyPolicyOwner_Object((1,3,6,1,4,1,9,9,719,1,45,14,1,9),_CucsStorageAuthKeyPolicyOwner_Type())
-cucsStorageAuthKeyPolicyOwner.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageAuthKeyPolicyOwner.setStatus(_A)
-_CucsStorageAuthKeyType_Type=CucsStorageKeyType
-_CucsStorageAuthKeyType_Object=MibTableColumn
-cucsStorageAuthKeyType=_CucsStorageAuthKeyType_Object((1,3,6,1,4,1,9,9,719,1,45,14,1,10),_CucsStorageAuthKeyType_Type())
-cucsStorageAuthKeyType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageAuthKeyType.setStatus(_A)
-_CucsStorageAuthKeyUserId_Type=SnmpAdminString
-_CucsStorageAuthKeyUserId_Object=MibTableColumn
-cucsStorageAuthKeyUserId=_CucsStorageAuthKeyUserId_Object((1,3,6,1,4,1,9,9,719,1,45,14,1,11),_CucsStorageAuthKeyUserId_Type())
-cucsStorageAuthKeyUserId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageAuthKeyUserId.setStatus(_A)
-_CucsStorageConnectionDefTable_Object=MibTable
-cucsStorageConnectionDefTable=_CucsStorageConnectionDefTable_Object((1,3,6,1,4,1,9,9,719,1,45,15))
-if mibBuilder.loadTexts:cucsStorageConnectionDefTable.setStatus(_A)
-_CucsStorageConnectionDefEntry_Object=MibTableRow
-cucsStorageConnectionDefEntry=_CucsStorageConnectionDefEntry_Object((1,3,6,1,4,1,9,9,719,1,45,15,1))
-cucsStorageConnectionDefEntry.setIndexNames((0,_C,_S))
-if mibBuilder.loadTexts:cucsStorageConnectionDefEntry.setStatus(_A)
-_CucsStorageConnectionDefInstanceId_Type=CucsManagedObjectId
-_CucsStorageConnectionDefInstanceId_Object=MibTableColumn
-cucsStorageConnectionDefInstanceId=_CucsStorageConnectionDefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,15,1,1),_CucsStorageConnectionDefInstanceId_Type())
-cucsStorageConnectionDefInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageConnectionDefInstanceId.setStatus(_A)
-_CucsStorageConnectionDefDn_Type=CucsManagedObjectDn
-_CucsStorageConnectionDefDn_Object=MibTableColumn
-cucsStorageConnectionDefDn=_CucsStorageConnectionDefDn_Object((1,3,6,1,4,1,9,9,719,1,45,15,1,2),_CucsStorageConnectionDefDn_Type())
-cucsStorageConnectionDefDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionDefDn.setStatus(_A)
-_CucsStorageConnectionDefRn_Type=SnmpAdminString
-_CucsStorageConnectionDefRn_Object=MibTableColumn
-cucsStorageConnectionDefRn=_CucsStorageConnectionDefRn_Object((1,3,6,1,4,1,9,9,719,1,45,15,1,3),_CucsStorageConnectionDefRn_Type())
-cucsStorageConnectionDefRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionDefRn.setStatus(_A)
-_CucsStorageConnectionDefDescr_Type=SnmpAdminString
-_CucsStorageConnectionDefDescr_Object=MibTableColumn
-cucsStorageConnectionDefDescr=_CucsStorageConnectionDefDescr_Object((1,3,6,1,4,1,9,9,719,1,45,15,1,4),_CucsStorageConnectionDefDescr_Type())
-cucsStorageConnectionDefDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionDefDescr.setStatus(_A)
-_CucsStorageConnectionDefIntId_Type=SnmpAdminString
-_CucsStorageConnectionDefIntId_Object=MibTableColumn
-cucsStorageConnectionDefIntId=_CucsStorageConnectionDefIntId_Object((1,3,6,1,4,1,9,9,719,1,45,15,1,5),_CucsStorageConnectionDefIntId_Type())
-cucsStorageConnectionDefIntId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionDefIntId.setStatus(_A)
-_CucsStorageConnectionDefName_Type=SnmpAdminString
-_CucsStorageConnectionDefName_Object=MibTableColumn
-cucsStorageConnectionDefName=_CucsStorageConnectionDefName_Object((1,3,6,1,4,1,9,9,719,1,45,15,1,6),_CucsStorageConnectionDefName_Type())
-cucsStorageConnectionDefName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionDefName.setStatus(_A)
-_CucsStorageConnectionDefOperState_Type=CucsStorageOperState
-_CucsStorageConnectionDefOperState_Object=MibTableColumn
-cucsStorageConnectionDefOperState=_CucsStorageConnectionDefOperState_Object((1,3,6,1,4,1,9,9,719,1,45,15,1,7),_CucsStorageConnectionDefOperState_Type())
-cucsStorageConnectionDefOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionDefOperState.setStatus(_A)
-_CucsStorageConnectionDefPolicyLevel_Type=Gauge32
-_CucsStorageConnectionDefPolicyLevel_Object=MibTableColumn
-cucsStorageConnectionDefPolicyLevel=_CucsStorageConnectionDefPolicyLevel_Object((1,3,6,1,4,1,9,9,719,1,45,15,1,8),_CucsStorageConnectionDefPolicyLevel_Type())
-cucsStorageConnectionDefPolicyLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionDefPolicyLevel.setStatus(_A)
-_CucsStorageConnectionDefPolicyOwner_Type=CucsPolicyPolicyOwner
-_CucsStorageConnectionDefPolicyOwner_Object=MibTableColumn
-cucsStorageConnectionDefPolicyOwner=_CucsStorageConnectionDefPolicyOwner_Object((1,3,6,1,4,1,9,9,719,1,45,15,1,9),_CucsStorageConnectionDefPolicyOwner_Type())
-cucsStorageConnectionDefPolicyOwner.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionDefPolicyOwner.setStatus(_A)
-_CucsStorageConnectionDefZoningType_Type=CucsStorageFcZoningType
-_CucsStorageConnectionDefZoningType_Object=MibTableColumn
-cucsStorageConnectionDefZoningType=_CucsStorageConnectionDefZoningType_Object((1,3,6,1,4,1,9,9,719,1,45,15,1,10),_CucsStorageConnectionDefZoningType_Type())
-cucsStorageConnectionDefZoningType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionDefZoningType.setStatus(_A)
-_CucsStorageConnectionPolicyTable_Object=MibTable
-cucsStorageConnectionPolicyTable=_CucsStorageConnectionPolicyTable_Object((1,3,6,1,4,1,9,9,719,1,45,16))
-if mibBuilder.loadTexts:cucsStorageConnectionPolicyTable.setStatus(_A)
-_CucsStorageConnectionPolicyEntry_Object=MibTableRow
-cucsStorageConnectionPolicyEntry=_CucsStorageConnectionPolicyEntry_Object((1,3,6,1,4,1,9,9,719,1,45,16,1))
-cucsStorageConnectionPolicyEntry.setIndexNames((0,_C,_T))
-if mibBuilder.loadTexts:cucsStorageConnectionPolicyEntry.setStatus(_A)
-_CucsStorageConnectionPolicyInstanceId_Type=CucsManagedObjectId
-_CucsStorageConnectionPolicyInstanceId_Object=MibTableColumn
-cucsStorageConnectionPolicyInstanceId=_CucsStorageConnectionPolicyInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,16,1,1),_CucsStorageConnectionPolicyInstanceId_Type())
-cucsStorageConnectionPolicyInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageConnectionPolicyInstanceId.setStatus(_A)
-_CucsStorageConnectionPolicyDn_Type=CucsManagedObjectDn
-_CucsStorageConnectionPolicyDn_Object=MibTableColumn
-cucsStorageConnectionPolicyDn=_CucsStorageConnectionPolicyDn_Object((1,3,6,1,4,1,9,9,719,1,45,16,1,2),_CucsStorageConnectionPolicyDn_Type())
-cucsStorageConnectionPolicyDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionPolicyDn.setStatus(_A)
-_CucsStorageConnectionPolicyRn_Type=SnmpAdminString
-_CucsStorageConnectionPolicyRn_Object=MibTableColumn
-cucsStorageConnectionPolicyRn=_CucsStorageConnectionPolicyRn_Object((1,3,6,1,4,1,9,9,719,1,45,16,1,3),_CucsStorageConnectionPolicyRn_Type())
-cucsStorageConnectionPolicyRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionPolicyRn.setStatus(_A)
-_CucsStorageConnectionPolicyDescr_Type=SnmpAdminString
-_CucsStorageConnectionPolicyDescr_Object=MibTableColumn
-cucsStorageConnectionPolicyDescr=_CucsStorageConnectionPolicyDescr_Object((1,3,6,1,4,1,9,9,719,1,45,16,1,4),_CucsStorageConnectionPolicyDescr_Type())
-cucsStorageConnectionPolicyDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionPolicyDescr.setStatus(_A)
-_CucsStorageConnectionPolicyIntId_Type=SnmpAdminString
-_CucsStorageConnectionPolicyIntId_Object=MibTableColumn
-cucsStorageConnectionPolicyIntId=_CucsStorageConnectionPolicyIntId_Object((1,3,6,1,4,1,9,9,719,1,45,16,1,5),_CucsStorageConnectionPolicyIntId_Type())
-cucsStorageConnectionPolicyIntId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionPolicyIntId.setStatus(_A)
-_CucsStorageConnectionPolicyName_Type=SnmpAdminString
-_CucsStorageConnectionPolicyName_Object=MibTableColumn
-cucsStorageConnectionPolicyName=_CucsStorageConnectionPolicyName_Object((1,3,6,1,4,1,9,9,719,1,45,16,1,6),_CucsStorageConnectionPolicyName_Type())
-cucsStorageConnectionPolicyName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionPolicyName.setStatus(_A)
-_CucsStorageConnectionPolicyOperState_Type=CucsStorageOperState
-_CucsStorageConnectionPolicyOperState_Object=MibTableColumn
-cucsStorageConnectionPolicyOperState=_CucsStorageConnectionPolicyOperState_Object((1,3,6,1,4,1,9,9,719,1,45,16,1,7),_CucsStorageConnectionPolicyOperState_Type())
-cucsStorageConnectionPolicyOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionPolicyOperState.setStatus(_A)
-_CucsStorageConnectionPolicyPolicyLevel_Type=Gauge32
-_CucsStorageConnectionPolicyPolicyLevel_Object=MibTableColumn
-cucsStorageConnectionPolicyPolicyLevel=_CucsStorageConnectionPolicyPolicyLevel_Object((1,3,6,1,4,1,9,9,719,1,45,16,1,8),_CucsStorageConnectionPolicyPolicyLevel_Type())
-cucsStorageConnectionPolicyPolicyLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionPolicyPolicyLevel.setStatus(_A)
-_CucsStorageConnectionPolicyPolicyOwner_Type=CucsPolicyPolicyOwner
-_CucsStorageConnectionPolicyPolicyOwner_Object=MibTableColumn
-cucsStorageConnectionPolicyPolicyOwner=_CucsStorageConnectionPolicyPolicyOwner_Object((1,3,6,1,4,1,9,9,719,1,45,16,1,9),_CucsStorageConnectionPolicyPolicyOwner_Type())
-cucsStorageConnectionPolicyPolicyOwner.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionPolicyPolicyOwner.setStatus(_A)
-_CucsStorageConnectionPolicyZoningType_Type=CucsStorageFcZoningType
-_CucsStorageConnectionPolicyZoningType_Object=MibTableColumn
-cucsStorageConnectionPolicyZoningType=_CucsStorageConnectionPolicyZoningType_Object((1,3,6,1,4,1,9,9,719,1,45,16,1,10),_CucsStorageConnectionPolicyZoningType_Type())
-cucsStorageConnectionPolicyZoningType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageConnectionPolicyZoningType.setStatus(_A)
-_CucsStorageDomainEpTable_Object=MibTable
-cucsStorageDomainEpTable=_CucsStorageDomainEpTable_Object((1,3,6,1,4,1,9,9,719,1,45,17))
-if mibBuilder.loadTexts:cucsStorageDomainEpTable.setStatus(_A)
-_CucsStorageDomainEpEntry_Object=MibTableRow
-cucsStorageDomainEpEntry=_CucsStorageDomainEpEntry_Object((1,3,6,1,4,1,9,9,719,1,45,17,1))
-cucsStorageDomainEpEntry.setIndexNames((0,_C,_U))
-if mibBuilder.loadTexts:cucsStorageDomainEpEntry.setStatus(_A)
-_CucsStorageDomainEpInstanceId_Type=CucsManagedObjectId
-_CucsStorageDomainEpInstanceId_Object=MibTableColumn
-cucsStorageDomainEpInstanceId=_CucsStorageDomainEpInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,17,1,1),_CucsStorageDomainEpInstanceId_Type())
-cucsStorageDomainEpInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageDomainEpInstanceId.setStatus(_A)
-_CucsStorageDomainEpDn_Type=CucsManagedObjectDn
-_CucsStorageDomainEpDn_Object=MibTableColumn
-cucsStorageDomainEpDn=_CucsStorageDomainEpDn_Object((1,3,6,1,4,1,9,9,719,1,45,17,1,2),_CucsStorageDomainEpDn_Type())
-cucsStorageDomainEpDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDomainEpDn.setStatus(_A)
-_CucsStorageDomainEpRn_Type=SnmpAdminString
-_CucsStorageDomainEpRn_Object=MibTableColumn
-cucsStorageDomainEpRn=_CucsStorageDomainEpRn_Object((1,3,6,1,4,1,9,9,719,1,45,17,1,3),_CucsStorageDomainEpRn_Type())
-cucsStorageDomainEpRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDomainEpRn.setStatus(_A)
-_CucsStorageEpUserTable_Object=MibTable
-cucsStorageEpUserTable=_CucsStorageEpUserTable_Object((1,3,6,1,4,1,9,9,719,1,45,18))
-if mibBuilder.loadTexts:cucsStorageEpUserTable.setStatus(_A)
-_CucsStorageEpUserEntry_Object=MibTableRow
-cucsStorageEpUserEntry=_CucsStorageEpUserEntry_Object((1,3,6,1,4,1,9,9,719,1,45,18,1))
-cucsStorageEpUserEntry.setIndexNames((0,_C,_V))
-if mibBuilder.loadTexts:cucsStorageEpUserEntry.setStatus(_A)
-_CucsStorageEpUserInstanceId_Type=CucsManagedObjectId
-_CucsStorageEpUserInstanceId_Object=MibTableColumn
-cucsStorageEpUserInstanceId=_CucsStorageEpUserInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,18,1,1),_CucsStorageEpUserInstanceId_Type())
-cucsStorageEpUserInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageEpUserInstanceId.setStatus(_A)
-_CucsStorageEpUserDn_Type=CucsManagedObjectDn
-_CucsStorageEpUserDn_Object=MibTableColumn
-cucsStorageEpUserDn=_CucsStorageEpUserDn_Object((1,3,6,1,4,1,9,9,719,1,45,18,1,2),_CucsStorageEpUserDn_Type())
-cucsStorageEpUserDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEpUserDn.setStatus(_A)
-_CucsStorageEpUserRn_Type=SnmpAdminString
-_CucsStorageEpUserRn_Object=MibTableColumn
-cucsStorageEpUserRn=_CucsStorageEpUserRn_Object((1,3,6,1,4,1,9,9,719,1,45,18,1,3),_CucsStorageEpUserRn_Type())
-cucsStorageEpUserRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEpUserRn.setStatus(_A)
-_CucsStorageEpUserConfigState_Type=CucsAaaConfigState
-_CucsStorageEpUserConfigState_Object=MibTableColumn
-cucsStorageEpUserConfigState=_CucsStorageEpUserConfigState_Object((1,3,6,1,4,1,9,9,719,1,45,18,1,4),_CucsStorageEpUserConfigState_Type())
-cucsStorageEpUserConfigState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEpUserConfigState.setStatus(_A)
-_CucsStorageEpUserConfigStatusMessage_Type=SnmpAdminString
-_CucsStorageEpUserConfigStatusMessage_Object=MibTableColumn
-cucsStorageEpUserConfigStatusMessage=_CucsStorageEpUserConfigStatusMessage_Object((1,3,6,1,4,1,9,9,719,1,45,18,1,5),_CucsStorageEpUserConfigStatusMessage_Type())
-cucsStorageEpUserConfigStatusMessage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEpUserConfigStatusMessage.setStatus(_A)
-_CucsStorageEpUserDescr_Type=SnmpAdminString
-_CucsStorageEpUserDescr_Object=MibTableColumn
-cucsStorageEpUserDescr=_CucsStorageEpUserDescr_Object((1,3,6,1,4,1,9,9,719,1,45,18,1,6),_CucsStorageEpUserDescr_Type())
-cucsStorageEpUserDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEpUserDescr.setStatus(_A)
-_CucsStorageEpUserDomain_Type=SnmpAdminString
-_CucsStorageEpUserDomain_Object=MibTableColumn
-cucsStorageEpUserDomain=_CucsStorageEpUserDomain_Object((1,3,6,1,4,1,9,9,719,1,45,18,1,7),_CucsStorageEpUserDomain_Type())
-cucsStorageEpUserDomain.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEpUserDomain.setStatus(_A)
-_CucsStorageEpUserName_Type=SnmpAdminString
-_CucsStorageEpUserName_Object=MibTableColumn
-cucsStorageEpUserName=_CucsStorageEpUserName_Object((1,3,6,1,4,1,9,9,719,1,45,18,1,8),_CucsStorageEpUserName_Type())
-cucsStorageEpUserName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEpUserName.setStatus(_A)
-_CucsStorageEpUserPriv_Type=CucsStorageEpAccess
-_CucsStorageEpUserPriv_Object=MibTableColumn
-cucsStorageEpUserPriv=_CucsStorageEpUserPriv_Object((1,3,6,1,4,1,9,9,719,1,45,18,1,9),_CucsStorageEpUserPriv_Type())
-cucsStorageEpUserPriv.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEpUserPriv.setStatus(_A)
-_CucsStorageEpUserPwd_Type=SnmpAdminString
-_CucsStorageEpUserPwd_Object=MibTableColumn
-cucsStorageEpUserPwd=_CucsStorageEpUserPwd_Object((1,3,6,1,4,1,9,9,719,1,45,18,1,10),_CucsStorageEpUserPwd_Type())
-cucsStorageEpUserPwd.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEpUserPwd.setStatus(_A)
-_CucsStorageEpUserPwdSet_Type=TruthValue
-_CucsStorageEpUserPwdSet_Object=MibTableColumn
-cucsStorageEpUserPwdSet=_CucsStorageEpUserPwdSet_Object((1,3,6,1,4,1,9,9,719,1,45,18,1,11),_CucsStorageEpUserPwdSet_Type())
-cucsStorageEpUserPwdSet.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEpUserPwdSet.setStatus(_A)
-_CucsStorageEtherIfTable_Object=MibTable
-cucsStorageEtherIfTable=_CucsStorageEtherIfTable_Object((1,3,6,1,4,1,9,9,719,1,45,19))
-if mibBuilder.loadTexts:cucsStorageEtherIfTable.setStatus(_A)
-_CucsStorageEtherIfEntry_Object=MibTableRow
-cucsStorageEtherIfEntry=_CucsStorageEtherIfEntry_Object((1,3,6,1,4,1,9,9,719,1,45,19,1))
-cucsStorageEtherIfEntry.setIndexNames((0,_C,_W))
-if mibBuilder.loadTexts:cucsStorageEtherIfEntry.setStatus(_A)
-_CucsStorageEtherIfInstanceId_Type=CucsManagedObjectId
-_CucsStorageEtherIfInstanceId_Object=MibTableColumn
-cucsStorageEtherIfInstanceId=_CucsStorageEtherIfInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,19,1,1),_CucsStorageEtherIfInstanceId_Type())
-cucsStorageEtherIfInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageEtherIfInstanceId.setStatus(_A)
-_CucsStorageEtherIfDn_Type=CucsManagedObjectDn
-_CucsStorageEtherIfDn_Object=MibTableColumn
-cucsStorageEtherIfDn=_CucsStorageEtherIfDn_Object((1,3,6,1,4,1,9,9,719,1,45,19,1,2),_CucsStorageEtherIfDn_Type())
-cucsStorageEtherIfDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEtherIfDn.setStatus(_A)
-_CucsStorageEtherIfRn_Type=SnmpAdminString
-_CucsStorageEtherIfRn_Object=MibTableColumn
-cucsStorageEtherIfRn=_CucsStorageEtherIfRn_Object((1,3,6,1,4,1,9,9,719,1,45,19,1,3),_CucsStorageEtherIfRn_Type())
-cucsStorageEtherIfRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEtherIfRn.setStatus(_A)
-_CucsStorageEtherIfName_Type=SnmpAdminString
-_CucsStorageEtherIfName_Object=MibTableColumn
-cucsStorageEtherIfName=_CucsStorageEtherIfName_Object((1,3,6,1,4,1,9,9,719,1,45,19,1,4),_CucsStorageEtherIfName_Type())
-cucsStorageEtherIfName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEtherIfName.setStatus(_A)
-_CucsStorageEtherIfVlanType_Type=CucsStorageEtherIfVlanType
-_CucsStorageEtherIfVlanType_Object=MibTableColumn
-cucsStorageEtherIfVlanType=_CucsStorageEtherIfVlanType_Object((1,3,6,1,4,1,9,9,719,1,45,19,1,5),_CucsStorageEtherIfVlanType_Type())
-cucsStorageEtherIfVlanType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEtherIfVlanType.setStatus(_A)
-_CucsStorageFcIfTable_Object=MibTable
-cucsStorageFcIfTable=_CucsStorageFcIfTable_Object((1,3,6,1,4,1,9,9,719,1,45,20))
-if mibBuilder.loadTexts:cucsStorageFcIfTable.setStatus(_A)
-_CucsStorageFcIfEntry_Object=MibTableRow
-cucsStorageFcIfEntry=_CucsStorageFcIfEntry_Object((1,3,6,1,4,1,9,9,719,1,45,20,1))
-cucsStorageFcIfEntry.setIndexNames((0,_C,_X))
-if mibBuilder.loadTexts:cucsStorageFcIfEntry.setStatus(_A)
-_CucsStorageFcIfInstanceId_Type=CucsManagedObjectId
-_CucsStorageFcIfInstanceId_Object=MibTableColumn
-cucsStorageFcIfInstanceId=_CucsStorageFcIfInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,20,1,1),_CucsStorageFcIfInstanceId_Type())
-cucsStorageFcIfInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageFcIfInstanceId.setStatus(_A)
-_CucsStorageFcIfDn_Type=CucsManagedObjectDn
-_CucsStorageFcIfDn_Object=MibTableColumn
-cucsStorageFcIfDn=_CucsStorageFcIfDn_Object((1,3,6,1,4,1,9,9,719,1,45,20,1,2),_CucsStorageFcIfDn_Type())
-cucsStorageFcIfDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFcIfDn.setStatus(_A)
-_CucsStorageFcIfRn_Type=SnmpAdminString
-_CucsStorageFcIfRn_Object=MibTableColumn
-cucsStorageFcIfRn=_CucsStorageFcIfRn_Object((1,3,6,1,4,1,9,9,719,1,45,20,1,3),_CucsStorageFcIfRn_Type())
-cucsStorageFcIfRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFcIfRn.setStatus(_A)
-_CucsStorageFcIfName_Type=SnmpAdminString
-_CucsStorageFcIfName_Object=MibTableColumn
-cucsStorageFcIfName=_CucsStorageFcIfName_Object((1,3,6,1,4,1,9,9,719,1,45,20,1,4),_CucsStorageFcIfName_Type())
-cucsStorageFcIfName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFcIfName.setStatus(_A)
-_CucsStorageFcTargetEpTable_Object=MibTable
-cucsStorageFcTargetEpTable=_CucsStorageFcTargetEpTable_Object((1,3,6,1,4,1,9,9,719,1,45,21))
-if mibBuilder.loadTexts:cucsStorageFcTargetEpTable.setStatus(_A)
-_CucsStorageFcTargetEpEntry_Object=MibTableRow
-cucsStorageFcTargetEpEntry=_CucsStorageFcTargetEpEntry_Object((1,3,6,1,4,1,9,9,719,1,45,21,1))
-cucsStorageFcTargetEpEntry.setIndexNames((0,_C,_Y))
-if mibBuilder.loadTexts:cucsStorageFcTargetEpEntry.setStatus(_A)
-_CucsStorageFcTargetEpInstanceId_Type=CucsManagedObjectId
-_CucsStorageFcTargetEpInstanceId_Object=MibTableColumn
-cucsStorageFcTargetEpInstanceId=_CucsStorageFcTargetEpInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,21,1,1),_CucsStorageFcTargetEpInstanceId_Type())
-cucsStorageFcTargetEpInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageFcTargetEpInstanceId.setStatus(_A)
-_CucsStorageFcTargetEpDn_Type=CucsManagedObjectDn
-_CucsStorageFcTargetEpDn_Object=MibTableColumn
-cucsStorageFcTargetEpDn=_CucsStorageFcTargetEpDn_Object((1,3,6,1,4,1,9,9,719,1,45,21,1,2),_CucsStorageFcTargetEpDn_Type())
-cucsStorageFcTargetEpDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFcTargetEpDn.setStatus(_A)
-_CucsStorageFcTargetEpRn_Type=SnmpAdminString
-_CucsStorageFcTargetEpRn_Object=MibTableColumn
-cucsStorageFcTargetEpRn=_CucsStorageFcTargetEpRn_Object((1,3,6,1,4,1,9,9,719,1,45,21,1,3),_CucsStorageFcTargetEpRn_Type())
-cucsStorageFcTargetEpRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFcTargetEpRn.setStatus(_A)
-_CucsStorageFcTargetEpDescr_Type=SnmpAdminString
-_CucsStorageFcTargetEpDescr_Object=MibTableColumn
-cucsStorageFcTargetEpDescr=_CucsStorageFcTargetEpDescr_Object((1,3,6,1,4,1,9,9,719,1,45,21,1,4),_CucsStorageFcTargetEpDescr_Type())
-cucsStorageFcTargetEpDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFcTargetEpDescr.setStatus(_A)
-_CucsStorageFcTargetEpPath_Type=CucsStorageTargetPath
-_CucsStorageFcTargetEpPath_Object=MibTableColumn
-cucsStorageFcTargetEpPath=_CucsStorageFcTargetEpPath_Object((1,3,6,1,4,1,9,9,719,1,45,21,1,5),_CucsStorageFcTargetEpPath_Type())
-cucsStorageFcTargetEpPath.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFcTargetEpPath.setStatus(_A)
-_CucsStorageFcTargetEpTargetwwpn_Type=SnmpAdminString
-_CucsStorageFcTargetEpTargetwwpn_Object=MibTableColumn
-cucsStorageFcTargetEpTargetwwpn=_CucsStorageFcTargetEpTargetwwpn_Object((1,3,6,1,4,1,9,9,719,1,45,21,1,6),_CucsStorageFcTargetEpTargetwwpn_Type())
-cucsStorageFcTargetEpTargetwwpn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFcTargetEpTargetwwpn.setStatus(_A)
-_CucsStorageFcTargetIfTable_Object=MibTable
-cucsStorageFcTargetIfTable=_CucsStorageFcTargetIfTable_Object((1,3,6,1,4,1,9,9,719,1,45,22))
-if mibBuilder.loadTexts:cucsStorageFcTargetIfTable.setStatus(_A)
-_CucsStorageFcTargetIfEntry_Object=MibTableRow
-cucsStorageFcTargetIfEntry=_CucsStorageFcTargetIfEntry_Object((1,3,6,1,4,1,9,9,719,1,45,22,1))
-cucsStorageFcTargetIfEntry.setIndexNames((0,_C,_Z))
-if mibBuilder.loadTexts:cucsStorageFcTargetIfEntry.setStatus(_A)
-_CucsStorageFcTargetIfInstanceId_Type=CucsManagedObjectId
-_CucsStorageFcTargetIfInstanceId_Object=MibTableColumn
-cucsStorageFcTargetIfInstanceId=_CucsStorageFcTargetIfInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,22,1,1),_CucsStorageFcTargetIfInstanceId_Type())
-cucsStorageFcTargetIfInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageFcTargetIfInstanceId.setStatus(_A)
-_CucsStorageFcTargetIfDn_Type=CucsManagedObjectDn
-_CucsStorageFcTargetIfDn_Object=MibTableColumn
-cucsStorageFcTargetIfDn=_CucsStorageFcTargetIfDn_Object((1,3,6,1,4,1,9,9,719,1,45,22,1,2),_CucsStorageFcTargetIfDn_Type())
-cucsStorageFcTargetIfDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFcTargetIfDn.setStatus(_A)
-_CucsStorageFcTargetIfRn_Type=SnmpAdminString
-_CucsStorageFcTargetIfRn_Object=MibTableColumn
-cucsStorageFcTargetIfRn=_CucsStorageFcTargetIfRn_Object((1,3,6,1,4,1,9,9,719,1,45,22,1,3),_CucsStorageFcTargetIfRn_Type())
-cucsStorageFcTargetIfRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFcTargetIfRn.setStatus(_A)
-_CucsStorageFcTargetIfId_Type=Unsigned64
-_CucsStorageFcTargetIfId_Object=MibTableColumn
-cucsStorageFcTargetIfId=_CucsStorageFcTargetIfId_Object((1,3,6,1,4,1,9,9,719,1,45,22,1,4),_CucsStorageFcTargetIfId_Type())
-cucsStorageFcTargetIfId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFcTargetIfId.setStatus(_A)
-_CucsStorageFcTargetIfProt_Type=CucsStorageProtocol
-_CucsStorageFcTargetIfProt_Object=MibTableColumn
-cucsStorageFcTargetIfProt=_CucsStorageFcTargetIfProt_Object((1,3,6,1,4,1,9,9,719,1,45,22,1,5),_CucsStorageFcTargetIfProt_Type())
-cucsStorageFcTargetIfProt.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFcTargetIfProt.setStatus(_A)
-_CucsStorageIScsiTargetIfTable_Object=MibTable
-cucsStorageIScsiTargetIfTable=_CucsStorageIScsiTargetIfTable_Object((1,3,6,1,4,1,9,9,719,1,45,23))
-if mibBuilder.loadTexts:cucsStorageIScsiTargetIfTable.setStatus(_A)
-_CucsStorageIScsiTargetIfEntry_Object=MibTableRow
-cucsStorageIScsiTargetIfEntry=_CucsStorageIScsiTargetIfEntry_Object((1,3,6,1,4,1,9,9,719,1,45,23,1))
-cucsStorageIScsiTargetIfEntry.setIndexNames((0,_C,_a))
-if mibBuilder.loadTexts:cucsStorageIScsiTargetIfEntry.setStatus(_A)
-_CucsStorageIScsiTargetIfInstanceId_Type=CucsManagedObjectId
-_CucsStorageIScsiTargetIfInstanceId_Object=MibTableColumn
-cucsStorageIScsiTargetIfInstanceId=_CucsStorageIScsiTargetIfInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,23,1,1),_CucsStorageIScsiTargetIfInstanceId_Type())
-cucsStorageIScsiTargetIfInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageIScsiTargetIfInstanceId.setStatus(_A)
-_CucsStorageIScsiTargetIfDn_Type=CucsManagedObjectDn
-_CucsStorageIScsiTargetIfDn_Object=MibTableColumn
-cucsStorageIScsiTargetIfDn=_CucsStorageIScsiTargetIfDn_Object((1,3,6,1,4,1,9,9,719,1,45,23,1,2),_CucsStorageIScsiTargetIfDn_Type())
-cucsStorageIScsiTargetIfDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIScsiTargetIfDn.setStatus(_A)
-_CucsStorageIScsiTargetIfRn_Type=SnmpAdminString
-_CucsStorageIScsiTargetIfRn_Object=MibTableColumn
-cucsStorageIScsiTargetIfRn=_CucsStorageIScsiTargetIfRn_Object((1,3,6,1,4,1,9,9,719,1,45,23,1,3),_CucsStorageIScsiTargetIfRn_Type())
-cucsStorageIScsiTargetIfRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIScsiTargetIfRn.setStatus(_A)
-_CucsStorageIScsiTargetIfName_Type=SnmpAdminString
-_CucsStorageIScsiTargetIfName_Object=MibTableColumn
-cucsStorageIScsiTargetIfName=_CucsStorageIScsiTargetIfName_Object((1,3,6,1,4,1,9,9,719,1,45,23,1,4),_CucsStorageIScsiTargetIfName_Type())
-cucsStorageIScsiTargetIfName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIScsiTargetIfName.setStatus(_A)
-_CucsStorageIScsiTargetIfProt_Type=CucsStorageProtocol
-_CucsStorageIScsiTargetIfProt_Object=MibTableColumn
-cucsStorageIScsiTargetIfProt=_CucsStorageIScsiTargetIfProt_Object((1,3,6,1,4,1,9,9,719,1,45,23,1,5),_CucsStorageIScsiTargetIfProt_Type())
-cucsStorageIScsiTargetIfProt.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIScsiTargetIfProt.setStatus(_A)
-_CucsStorageIniGroupTable_Object=MibTable
-cucsStorageIniGroupTable=_CucsStorageIniGroupTable_Object((1,3,6,1,4,1,9,9,719,1,45,24))
-if mibBuilder.loadTexts:cucsStorageIniGroupTable.setStatus(_A)
-_CucsStorageIniGroupEntry_Object=MibTableRow
-cucsStorageIniGroupEntry=_CucsStorageIniGroupEntry_Object((1,3,6,1,4,1,9,9,719,1,45,24,1))
-cucsStorageIniGroupEntry.setIndexNames((0,_C,_b))
-if mibBuilder.loadTexts:cucsStorageIniGroupEntry.setStatus(_A)
-_CucsStorageIniGroupInstanceId_Type=CucsManagedObjectId
-_CucsStorageIniGroupInstanceId_Object=MibTableColumn
-cucsStorageIniGroupInstanceId=_CucsStorageIniGroupInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,24,1,1),_CucsStorageIniGroupInstanceId_Type())
-cucsStorageIniGroupInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageIniGroupInstanceId.setStatus(_A)
-_CucsStorageIniGroupDn_Type=CucsManagedObjectDn
-_CucsStorageIniGroupDn_Object=MibTableColumn
-cucsStorageIniGroupDn=_CucsStorageIniGroupDn_Object((1,3,6,1,4,1,9,9,719,1,45,24,1,2),_CucsStorageIniGroupDn_Type())
-cucsStorageIniGroupDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIniGroupDn.setStatus(_A)
-_CucsStorageIniGroupRn_Type=SnmpAdminString
-_CucsStorageIniGroupRn_Object=MibTableColumn
-cucsStorageIniGroupRn=_CucsStorageIniGroupRn_Object((1,3,6,1,4,1,9,9,719,1,45,24,1,3),_CucsStorageIniGroupRn_Type())
-cucsStorageIniGroupRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIniGroupRn.setStatus(_A)
-_CucsStorageIniGroupDescr_Type=SnmpAdminString
-_CucsStorageIniGroupDescr_Object=MibTableColumn
-cucsStorageIniGroupDescr=_CucsStorageIniGroupDescr_Object((1,3,6,1,4,1,9,9,719,1,45,24,1,4),_CucsStorageIniGroupDescr_Type())
-cucsStorageIniGroupDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIniGroupDescr.setStatus(_A)
-_CucsStorageIniGroupGroupPolicyName_Type=SnmpAdminString
-_CucsStorageIniGroupGroupPolicyName_Object=MibTableColumn
-cucsStorageIniGroupGroupPolicyName=_CucsStorageIniGroupGroupPolicyName_Object((1,3,6,1,4,1,9,9,719,1,45,24,1,5),_CucsStorageIniGroupGroupPolicyName_Type())
-cucsStorageIniGroupGroupPolicyName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIniGroupGroupPolicyName.setStatus(_A)
-_CucsStorageIniGroupIntId_Type=SnmpAdminString
-_CucsStorageIniGroupIntId_Object=MibTableColumn
-cucsStorageIniGroupIntId=_CucsStorageIniGroupIntId_Object((1,3,6,1,4,1,9,9,719,1,45,24,1,6),_CucsStorageIniGroupIntId_Type())
-cucsStorageIniGroupIntId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIniGroupIntId.setStatus(_A)
-_CucsStorageIniGroupName_Type=SnmpAdminString
-_CucsStorageIniGroupName_Object=MibTableColumn
-cucsStorageIniGroupName=_CucsStorageIniGroupName_Object((1,3,6,1,4,1,9,9,719,1,45,24,1,7),_CucsStorageIniGroupName_Type())
-cucsStorageIniGroupName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIniGroupName.setStatus(_A)
-_CucsStorageIniGroupOperProtocol_Type=CucsStorageIniGroupOperProtocol
-_CucsStorageIniGroupOperProtocol_Object=MibTableColumn
-cucsStorageIniGroupOperProtocol=_CucsStorageIniGroupOperProtocol_Object((1,3,6,1,4,1,9,9,719,1,45,24,1,8),_CucsStorageIniGroupOperProtocol_Type())
-cucsStorageIniGroupOperProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIniGroupOperProtocol.setStatus(_A)
-_CucsStorageIniGroupOwner_Type=CucsStorageIniGroupOwner
-_CucsStorageIniGroupOwner_Object=MibTableColumn
-cucsStorageIniGroupOwner=_CucsStorageIniGroupOwner_Object((1,3,6,1,4,1,9,9,719,1,45,24,1,9),_CucsStorageIniGroupOwner_Type())
-cucsStorageIniGroupOwner.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIniGroupOwner.setStatus(_A)
-_CucsStorageIniGroupPolicyLevel_Type=Gauge32
-_CucsStorageIniGroupPolicyLevel_Object=MibTableColumn
-cucsStorageIniGroupPolicyLevel=_CucsStorageIniGroupPolicyLevel_Object((1,3,6,1,4,1,9,9,719,1,45,24,1,10),_CucsStorageIniGroupPolicyLevel_Type())
-cucsStorageIniGroupPolicyLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIniGroupPolicyLevel.setStatus(_A)
-_CucsStorageIniGroupPolicyName_Type=SnmpAdminString
-_CucsStorageIniGroupPolicyName_Object=MibTableColumn
-cucsStorageIniGroupPolicyName=_CucsStorageIniGroupPolicyName_Object((1,3,6,1,4,1,9,9,719,1,45,24,1,11),_CucsStorageIniGroupPolicyName_Type())
-cucsStorageIniGroupPolicyName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIniGroupPolicyName.setStatus(_A)
-_CucsStorageIniGroupPolicyOwner_Type=CucsPolicyPolicyOwner
-_CucsStorageIniGroupPolicyOwner_Object=MibTableColumn
-cucsStorageIniGroupPolicyOwner=_CucsStorageIniGroupPolicyOwner_Object((1,3,6,1,4,1,9,9,719,1,45,24,1,12),_CucsStorageIniGroupPolicyOwner_Type())
-cucsStorageIniGroupPolicyOwner.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIniGroupPolicyOwner.setStatus(_A)
-_CucsStorageIniGroupProtocol_Type=CucsStorageIniGroupProtocol
-_CucsStorageIniGroupProtocol_Object=MibTableColumn
-cucsStorageIniGroupProtocol=_CucsStorageIniGroupProtocol_Object((1,3,6,1,4,1,9,9,719,1,45,24,1,13),_CucsStorageIniGroupProtocol_Type())
-cucsStorageIniGroupProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIniGroupProtocol.setStatus(_A)
-_CucsStorageIniGroupRmtDiskCfgName_Type=SnmpAdminString
-_CucsStorageIniGroupRmtDiskCfgName_Object=MibTableColumn
-cucsStorageIniGroupRmtDiskCfgName=_CucsStorageIniGroupRmtDiskCfgName_Object((1,3,6,1,4,1,9,9,719,1,45,24,1,14),_CucsStorageIniGroupRmtDiskCfgName_Type())
-cucsStorageIniGroupRmtDiskCfgName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIniGroupRmtDiskCfgName.setStatus(_A)
-_CucsStorageIniGroupOperState_Type=CucsStorageOperState
-_CucsStorageIniGroupOperState_Object=MibTableColumn
-cucsStorageIniGroupOperState=_CucsStorageIniGroupOperState_Object((1,3,6,1,4,1,9,9,719,1,45,24,1,15),_CucsStorageIniGroupOperState_Type())
-cucsStorageIniGroupOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageIniGroupOperState.setStatus(_A)
-_CucsStorageInitiatorTable_Object=MibTable
-cucsStorageInitiatorTable=_CucsStorageInitiatorTable_Object((1,3,6,1,4,1,9,9,719,1,45,25))
-if mibBuilder.loadTexts:cucsStorageInitiatorTable.setStatus(_A)
-_CucsStorageInitiatorEntry_Object=MibTableRow
-cucsStorageInitiatorEntry=_CucsStorageInitiatorEntry_Object((1,3,6,1,4,1,9,9,719,1,45,25,1))
-cucsStorageInitiatorEntry.setIndexNames((0,_C,_c))
-if mibBuilder.loadTexts:cucsStorageInitiatorEntry.setStatus(_A)
-_CucsStorageInitiatorInstanceId_Type=CucsManagedObjectId
-_CucsStorageInitiatorInstanceId_Object=MibTableColumn
-cucsStorageInitiatorInstanceId=_CucsStorageInitiatorInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,25,1,1),_CucsStorageInitiatorInstanceId_Type())
-cucsStorageInitiatorInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageInitiatorInstanceId.setStatus(_A)
-_CucsStorageInitiatorDn_Type=CucsManagedObjectDn
-_CucsStorageInitiatorDn_Object=MibTableColumn
-cucsStorageInitiatorDn=_CucsStorageInitiatorDn_Object((1,3,6,1,4,1,9,9,719,1,45,25,1,2),_CucsStorageInitiatorDn_Type())
-cucsStorageInitiatorDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageInitiatorDn.setStatus(_A)
-_CucsStorageInitiatorRn_Type=SnmpAdminString
-_CucsStorageInitiatorRn_Object=MibTableColumn
-cucsStorageInitiatorRn=_CucsStorageInitiatorRn_Object((1,3,6,1,4,1,9,9,719,1,45,25,1,3),_CucsStorageInitiatorRn_Type())
-cucsStorageInitiatorRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageInitiatorRn.setStatus(_A)
-_CucsStorageInitiatorDescr_Type=SnmpAdminString
-_CucsStorageInitiatorDescr_Object=MibTableColumn
-cucsStorageInitiatorDescr=_CucsStorageInitiatorDescr_Object((1,3,6,1,4,1,9,9,719,1,45,25,1,4),_CucsStorageInitiatorDescr_Type())
-cucsStorageInitiatorDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageInitiatorDescr.setStatus(_A)
-_CucsStorageInitiatorIntId_Type=SnmpAdminString
-_CucsStorageInitiatorIntId_Object=MibTableColumn
-cucsStorageInitiatorIntId=_CucsStorageInitiatorIntId_Object((1,3,6,1,4,1,9,9,719,1,45,25,1,5),_CucsStorageInitiatorIntId_Type())
-cucsStorageInitiatorIntId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageInitiatorIntId.setStatus(_A)
-_CucsStorageInitiatorName_Type=SnmpAdminString
-_CucsStorageInitiatorName_Object=MibTableColumn
-cucsStorageInitiatorName=_CucsStorageInitiatorName_Object((1,3,6,1,4,1,9,9,719,1,45,25,1,6),_CucsStorageInitiatorName_Type())
-cucsStorageInitiatorName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageInitiatorName.setStatus(_A)
-_CucsStorageInitiatorOperState_Type=CucsStorageOperState
-_CucsStorageInitiatorOperState_Object=MibTableColumn
-cucsStorageInitiatorOperState=_CucsStorageInitiatorOperState_Object((1,3,6,1,4,1,9,9,719,1,45,25,1,7),_CucsStorageInitiatorOperState_Type())
-cucsStorageInitiatorOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageInitiatorOperState.setStatus(_A)
-_CucsStorageInitiatorPolicyLevel_Type=Gauge32
-_CucsStorageInitiatorPolicyLevel_Object=MibTableColumn
-cucsStorageInitiatorPolicyLevel=_CucsStorageInitiatorPolicyLevel_Object((1,3,6,1,4,1,9,9,719,1,45,25,1,8),_CucsStorageInitiatorPolicyLevel_Type())
-cucsStorageInitiatorPolicyLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageInitiatorPolicyLevel.setStatus(_A)
-_CucsStorageInitiatorPolicyOwner_Type=CucsPolicyPolicyOwner
-_CucsStorageInitiatorPolicyOwner_Object=MibTableColumn
-cucsStorageInitiatorPolicyOwner=_CucsStorageInitiatorPolicyOwner_Object((1,3,6,1,4,1,9,9,719,1,45,25,1,9),_CucsStorageInitiatorPolicyOwner_Type())
-cucsStorageInitiatorPolicyOwner.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageInitiatorPolicyOwner.setStatus(_A)
-_CucsStorageInitiatorDuplicateTarget_Type=SnmpAdminString
-_CucsStorageInitiatorDuplicateTarget_Object=MibTableColumn
-cucsStorageInitiatorDuplicateTarget=_CucsStorageInitiatorDuplicateTarget_Object((1,3,6,1,4,1,9,9,719,1,45,25,1,10),_CucsStorageInitiatorDuplicateTarget_Type())
-cucsStorageInitiatorDuplicateTarget.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageInitiatorDuplicateTarget.setStatus(_A)
-_CucsStorageNodeEpTable_Object=MibTable
-cucsStorageNodeEpTable=_CucsStorageNodeEpTable_Object((1,3,6,1,4,1,9,9,719,1,45,26))
-if mibBuilder.loadTexts:cucsStorageNodeEpTable.setStatus(_A)
-_CucsStorageNodeEpEntry_Object=MibTableRow
-cucsStorageNodeEpEntry=_CucsStorageNodeEpEntry_Object((1,3,6,1,4,1,9,9,719,1,45,26,1))
-cucsStorageNodeEpEntry.setIndexNames((0,_C,_d))
-if mibBuilder.loadTexts:cucsStorageNodeEpEntry.setStatus(_A)
-_CucsStorageNodeEpInstanceId_Type=CucsManagedObjectId
-_CucsStorageNodeEpInstanceId_Object=MibTableColumn
-cucsStorageNodeEpInstanceId=_CucsStorageNodeEpInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,26,1,1),_CucsStorageNodeEpInstanceId_Type())
-cucsStorageNodeEpInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageNodeEpInstanceId.setStatus(_A)
-_CucsStorageNodeEpDn_Type=CucsManagedObjectDn
-_CucsStorageNodeEpDn_Object=MibTableColumn
-cucsStorageNodeEpDn=_CucsStorageNodeEpDn_Object((1,3,6,1,4,1,9,9,719,1,45,26,1,2),_CucsStorageNodeEpDn_Type())
-cucsStorageNodeEpDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNodeEpDn.setStatus(_A)
-_CucsStorageNodeEpRn_Type=SnmpAdminString
-_CucsStorageNodeEpRn_Object=MibTableColumn
-cucsStorageNodeEpRn=_CucsStorageNodeEpRn_Object((1,3,6,1,4,1,9,9,719,1,45,26,1,3),_CucsStorageNodeEpRn_Type())
-cucsStorageNodeEpRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNodeEpRn.setStatus(_A)
-_CucsStorageNodeEpEpDn_Type=SnmpAdminString
-_CucsStorageNodeEpEpDn_Object=MibTableColumn
-cucsStorageNodeEpEpDn=_CucsStorageNodeEpEpDn_Object((1,3,6,1,4,1,9,9,719,1,45,26,1,4),_CucsStorageNodeEpEpDn_Type())
-cucsStorageNodeEpEpDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNodeEpEpDn.setStatus(_A)
-_CucsStorageNodeEpId_Type=Gauge32
-_CucsStorageNodeEpId_Object=MibTableColumn
-cucsStorageNodeEpId=_CucsStorageNodeEpId_Object((1,3,6,1,4,1,9,9,719,1,45,26,1,5),_CucsStorageNodeEpId_Type())
-cucsStorageNodeEpId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNodeEpId.setStatus(_A)
-_CucsStorageSystemTable_Object=MibTable
-cucsStorageSystemTable=_CucsStorageSystemTable_Object((1,3,6,1,4,1,9,9,719,1,45,27))
-if mibBuilder.loadTexts:cucsStorageSystemTable.setStatus(_A)
-_CucsStorageSystemEntry_Object=MibTableRow
-cucsStorageSystemEntry=_CucsStorageSystemEntry_Object((1,3,6,1,4,1,9,9,719,1,45,27,1))
-cucsStorageSystemEntry.setIndexNames((0,_C,_e))
-if mibBuilder.loadTexts:cucsStorageSystemEntry.setStatus(_A)
-_CucsStorageSystemInstanceId_Type=CucsManagedObjectId
-_CucsStorageSystemInstanceId_Object=MibTableColumn
-cucsStorageSystemInstanceId=_CucsStorageSystemInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,27,1,1),_CucsStorageSystemInstanceId_Type())
-cucsStorageSystemInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageSystemInstanceId.setStatus(_A)
-_CucsStorageSystemDn_Type=CucsManagedObjectDn
-_CucsStorageSystemDn_Object=MibTableColumn
-cucsStorageSystemDn=_CucsStorageSystemDn_Object((1,3,6,1,4,1,9,9,719,1,45,27,1,2),_CucsStorageSystemDn_Type())
-cucsStorageSystemDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemDn.setStatus(_A)
-_CucsStorageSystemRn_Type=SnmpAdminString
-_CucsStorageSystemRn_Object=MibTableColumn
-cucsStorageSystemRn=_CucsStorageSystemRn_Object((1,3,6,1,4,1,9,9,719,1,45,27,1,3),_CucsStorageSystemRn_Type())
-cucsStorageSystemRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemRn.setStatus(_A)
-_CucsStorageSystemFsmDescr_Type=SnmpAdminString
-_CucsStorageSystemFsmDescr_Object=MibTableColumn
-cucsStorageSystemFsmDescr=_CucsStorageSystemFsmDescr_Object((1,3,6,1,4,1,9,9,719,1,45,27,1,4),_CucsStorageSystemFsmDescr_Type())
-cucsStorageSystemFsmDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmDescr.setStatus(_A)
-_CucsStorageSystemFsmPrev_Type=SnmpAdminString
-_CucsStorageSystemFsmPrev_Object=MibTableColumn
-cucsStorageSystemFsmPrev=_CucsStorageSystemFsmPrev_Object((1,3,6,1,4,1,9,9,719,1,45,27,1,5),_CucsStorageSystemFsmPrev_Type())
-cucsStorageSystemFsmPrev.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmPrev.setStatus(_A)
-_CucsStorageSystemFsmProgr_Type=Gauge32
-_CucsStorageSystemFsmProgr_Object=MibTableColumn
-cucsStorageSystemFsmProgr=_CucsStorageSystemFsmProgr_Object((1,3,6,1,4,1,9,9,719,1,45,27,1,6),_CucsStorageSystemFsmProgr_Type())
-cucsStorageSystemFsmProgr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmProgr.setStatus(_A)
-_CucsStorageSystemFsmRmtInvErrCode_Type=Gauge32
-_CucsStorageSystemFsmRmtInvErrCode_Object=MibTableColumn
-cucsStorageSystemFsmRmtInvErrCode=_CucsStorageSystemFsmRmtInvErrCode_Object((1,3,6,1,4,1,9,9,719,1,45,27,1,7),_CucsStorageSystemFsmRmtInvErrCode_Type())
-cucsStorageSystemFsmRmtInvErrCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmRmtInvErrCode.setStatus(_A)
-_CucsStorageSystemFsmRmtInvErrDescr_Type=SnmpAdminString
-_CucsStorageSystemFsmRmtInvErrDescr_Object=MibTableColumn
-cucsStorageSystemFsmRmtInvErrDescr=_CucsStorageSystemFsmRmtInvErrDescr_Object((1,3,6,1,4,1,9,9,719,1,45,27,1,8),_CucsStorageSystemFsmRmtInvErrDescr_Type())
-cucsStorageSystemFsmRmtInvErrDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmRmtInvErrDescr.setStatus(_A)
-_CucsStorageSystemFsmRmtInvRslt_Type=CucsConditionRemoteInvRslt
-_CucsStorageSystemFsmRmtInvRslt_Object=MibTableColumn
-cucsStorageSystemFsmRmtInvRslt=_CucsStorageSystemFsmRmtInvRslt_Object((1,3,6,1,4,1,9,9,719,1,45,27,1,9),_CucsStorageSystemFsmRmtInvRslt_Type())
-cucsStorageSystemFsmRmtInvRslt.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmRmtInvRslt.setStatus(_A)
-_CucsStorageSystemFsmStageDescr_Type=SnmpAdminString
-_CucsStorageSystemFsmStageDescr_Object=MibTableColumn
-cucsStorageSystemFsmStageDescr=_CucsStorageSystemFsmStageDescr_Object((1,3,6,1,4,1,9,9,719,1,45,27,1,10),_CucsStorageSystemFsmStageDescr_Type())
-cucsStorageSystemFsmStageDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmStageDescr.setStatus(_A)
-_CucsStorageSystemFsmStamp_Type=DateAndTime
-_CucsStorageSystemFsmStamp_Object=MibTableColumn
-cucsStorageSystemFsmStamp=_CucsStorageSystemFsmStamp_Object((1,3,6,1,4,1,9,9,719,1,45,27,1,11),_CucsStorageSystemFsmStamp_Type())
-cucsStorageSystemFsmStamp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmStamp.setStatus(_A)
-_CucsStorageSystemFsmStatus_Type=SnmpAdminString
-_CucsStorageSystemFsmStatus_Object=MibTableColumn
-cucsStorageSystemFsmStatus=_CucsStorageSystemFsmStatus_Object((1,3,6,1,4,1,9,9,719,1,45,27,1,12),_CucsStorageSystemFsmStatus_Type())
-cucsStorageSystemFsmStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmStatus.setStatus(_A)
-_CucsStorageSystemFsmTry_Type=Gauge32
-_CucsStorageSystemFsmTry_Object=MibTableColumn
-cucsStorageSystemFsmTry=_CucsStorageSystemFsmTry_Object((1,3,6,1,4,1,9,9,719,1,45,27,1,13),_CucsStorageSystemFsmTry_Type())
-cucsStorageSystemFsmTry.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmTry.setStatus(_A)
-_CucsStorageSystemId_Type=SnmpAdminString
-_CucsStorageSystemId_Object=MibTableColumn
-cucsStorageSystemId=_CucsStorageSystemId_Object((1,3,6,1,4,1,9,9,719,1,45,27,1,14),_CucsStorageSystemId_Type())
-cucsStorageSystemId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemId.setStatus(_A)
-_CucsStorageSystemName_Type=SnmpAdminString
-_CucsStorageSystemName_Object=MibTableColumn
-cucsStorageSystemName=_CucsStorageSystemName_Object((1,3,6,1,4,1,9,9,719,1,45,27,1,15),_CucsStorageSystemName_Type())
-cucsStorageSystemName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemName.setStatus(_A)
-_CucsStorageSystemFsmTable_Object=MibTable
-cucsStorageSystemFsmTable=_CucsStorageSystemFsmTable_Object((1,3,6,1,4,1,9,9,719,1,45,28))
-if mibBuilder.loadTexts:cucsStorageSystemFsmTable.setStatus(_A)
-_CucsStorageSystemFsmEntry_Object=MibTableRow
-cucsStorageSystemFsmEntry=_CucsStorageSystemFsmEntry_Object((1,3,6,1,4,1,9,9,719,1,45,28,1))
-cucsStorageSystemFsmEntry.setIndexNames((0,_C,_f))
-if mibBuilder.loadTexts:cucsStorageSystemFsmEntry.setStatus(_A)
-_CucsStorageSystemFsmInstanceId_Type=CucsManagedObjectId
-_CucsStorageSystemFsmInstanceId_Object=MibTableColumn
-cucsStorageSystemFsmInstanceId=_CucsStorageSystemFsmInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,28,1,1),_CucsStorageSystemFsmInstanceId_Type())
-cucsStorageSystemFsmInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageSystemFsmInstanceId.setStatus(_A)
-_CucsStorageSystemFsmDn_Type=CucsManagedObjectDn
-_CucsStorageSystemFsmDn_Object=MibTableColumn
-cucsStorageSystemFsmDn=_CucsStorageSystemFsmDn_Object((1,3,6,1,4,1,9,9,719,1,45,28,1,2),_CucsStorageSystemFsmDn_Type())
-cucsStorageSystemFsmDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmDn.setStatus(_A)
-_CucsStorageSystemFsmRn_Type=SnmpAdminString
-_CucsStorageSystemFsmRn_Object=MibTableColumn
-cucsStorageSystemFsmRn=_CucsStorageSystemFsmRn_Object((1,3,6,1,4,1,9,9,719,1,45,28,1,3),_CucsStorageSystemFsmRn_Type())
-cucsStorageSystemFsmRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmRn.setStatus(_A)
-_CucsStorageSystemFsmCompletionTime_Type=DateAndTime
-_CucsStorageSystemFsmCompletionTime_Object=MibTableColumn
-cucsStorageSystemFsmCompletionTime=_CucsStorageSystemFsmCompletionTime_Object((1,3,6,1,4,1,9,9,719,1,45,28,1,4),_CucsStorageSystemFsmCompletionTime_Type())
-cucsStorageSystemFsmCompletionTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmCompletionTime.setStatus(_A)
-_CucsStorageSystemFsmCurrentFsm_Type=CucsStorageSystemFsmCurrentFsm
-_CucsStorageSystemFsmCurrentFsm_Object=MibTableColumn
-cucsStorageSystemFsmCurrentFsm=_CucsStorageSystemFsmCurrentFsm_Object((1,3,6,1,4,1,9,9,719,1,45,28,1,5),_CucsStorageSystemFsmCurrentFsm_Type())
-cucsStorageSystemFsmCurrentFsm.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmCurrentFsm.setStatus(_A)
-_CucsStorageSystemFsmDescrData_Type=SnmpAdminString
-_CucsStorageSystemFsmDescrData_Object=MibTableColumn
-cucsStorageSystemFsmDescrData=_CucsStorageSystemFsmDescrData_Object((1,3,6,1,4,1,9,9,719,1,45,28,1,6),_CucsStorageSystemFsmDescrData_Type())
-cucsStorageSystemFsmDescrData.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmDescrData.setStatus(_A)
-_CucsStorageSystemFsmFsmStatus_Type=CucsFsmFsmStageStatus
-_CucsStorageSystemFsmFsmStatus_Object=MibTableColumn
-cucsStorageSystemFsmFsmStatus=_CucsStorageSystemFsmFsmStatus_Object((1,3,6,1,4,1,9,9,719,1,45,28,1,7),_CucsStorageSystemFsmFsmStatus_Type())
-cucsStorageSystemFsmFsmStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmFsmStatus.setStatus(_A)
-_CucsStorageSystemFsmProgress_Type=Gauge32
-_CucsStorageSystemFsmProgress_Object=MibTableColumn
-cucsStorageSystemFsmProgress=_CucsStorageSystemFsmProgress_Object((1,3,6,1,4,1,9,9,719,1,45,28,1,8),_CucsStorageSystemFsmProgress_Type())
-cucsStorageSystemFsmProgress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmProgress.setStatus(_A)
-_CucsStorageSystemFsmRmtErrCode_Type=Gauge32
-_CucsStorageSystemFsmRmtErrCode_Object=MibTableColumn
-cucsStorageSystemFsmRmtErrCode=_CucsStorageSystemFsmRmtErrCode_Object((1,3,6,1,4,1,9,9,719,1,45,28,1,9),_CucsStorageSystemFsmRmtErrCode_Type())
-cucsStorageSystemFsmRmtErrCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmRmtErrCode.setStatus(_A)
-_CucsStorageSystemFsmRmtErrDescr_Type=SnmpAdminString
-_CucsStorageSystemFsmRmtErrDescr_Object=MibTableColumn
-cucsStorageSystemFsmRmtErrDescr=_CucsStorageSystemFsmRmtErrDescr_Object((1,3,6,1,4,1,9,9,719,1,45,28,1,10),_CucsStorageSystemFsmRmtErrDescr_Type())
-cucsStorageSystemFsmRmtErrDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmRmtErrDescr.setStatus(_A)
-_CucsStorageSystemFsmRmtRslt_Type=CucsConditionRemoteInvRslt
-_CucsStorageSystemFsmRmtRslt_Object=MibTableColumn
-cucsStorageSystemFsmRmtRslt=_CucsStorageSystemFsmRmtRslt_Object((1,3,6,1,4,1,9,9,719,1,45,28,1,11),_CucsStorageSystemFsmRmtRslt_Type())
-cucsStorageSystemFsmRmtRslt.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmRmtRslt.setStatus(_A)
-_CucsStorageSystemFsmStageTable_Object=MibTable
-cucsStorageSystemFsmStageTable=_CucsStorageSystemFsmStageTable_Object((1,3,6,1,4,1,9,9,719,1,45,29))
-if mibBuilder.loadTexts:cucsStorageSystemFsmStageTable.setStatus(_A)
-_CucsStorageSystemFsmStageEntry_Object=MibTableRow
-cucsStorageSystemFsmStageEntry=_CucsStorageSystemFsmStageEntry_Object((1,3,6,1,4,1,9,9,719,1,45,29,1))
-cucsStorageSystemFsmStageEntry.setIndexNames((0,_C,_g))
-if mibBuilder.loadTexts:cucsStorageSystemFsmStageEntry.setStatus(_A)
-_CucsStorageSystemFsmStageInstanceId_Type=CucsManagedObjectId
-_CucsStorageSystemFsmStageInstanceId_Object=MibTableColumn
-cucsStorageSystemFsmStageInstanceId=_CucsStorageSystemFsmStageInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,29,1,1),_CucsStorageSystemFsmStageInstanceId_Type())
-cucsStorageSystemFsmStageInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageSystemFsmStageInstanceId.setStatus(_A)
-_CucsStorageSystemFsmStageDn_Type=CucsManagedObjectDn
-_CucsStorageSystemFsmStageDn_Object=MibTableColumn
-cucsStorageSystemFsmStageDn=_CucsStorageSystemFsmStageDn_Object((1,3,6,1,4,1,9,9,719,1,45,29,1,2),_CucsStorageSystemFsmStageDn_Type())
-cucsStorageSystemFsmStageDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmStageDn.setStatus(_A)
-_CucsStorageSystemFsmStageRn_Type=SnmpAdminString
-_CucsStorageSystemFsmStageRn_Object=MibTableColumn
-cucsStorageSystemFsmStageRn=_CucsStorageSystemFsmStageRn_Object((1,3,6,1,4,1,9,9,719,1,45,29,1,3),_CucsStorageSystemFsmStageRn_Type())
-cucsStorageSystemFsmStageRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmStageRn.setStatus(_A)
-_CucsStorageSystemFsmStageDescrData_Type=SnmpAdminString
-_CucsStorageSystemFsmStageDescrData_Object=MibTableColumn
-cucsStorageSystemFsmStageDescrData=_CucsStorageSystemFsmStageDescrData_Object((1,3,6,1,4,1,9,9,719,1,45,29,1,4),_CucsStorageSystemFsmStageDescrData_Type())
-cucsStorageSystemFsmStageDescrData.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmStageDescrData.setStatus(_A)
-_CucsStorageSystemFsmStageLastUpdateTime_Type=DateAndTime
-_CucsStorageSystemFsmStageLastUpdateTime_Object=MibTableColumn
-cucsStorageSystemFsmStageLastUpdateTime=_CucsStorageSystemFsmStageLastUpdateTime_Object((1,3,6,1,4,1,9,9,719,1,45,29,1,5),_CucsStorageSystemFsmStageLastUpdateTime_Type())
-cucsStorageSystemFsmStageLastUpdateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmStageLastUpdateTime.setStatus(_A)
-_CucsStorageSystemFsmStageName_Type=CucsStorageSystemFsmStageName
-_CucsStorageSystemFsmStageName_Object=MibTableColumn
-cucsStorageSystemFsmStageName=_CucsStorageSystemFsmStageName_Object((1,3,6,1,4,1,9,9,719,1,45,29,1,6),_CucsStorageSystemFsmStageName_Type())
-cucsStorageSystemFsmStageName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmStageName.setStatus(_A)
-_CucsStorageSystemFsmStageOrder_Type=Gauge32
-_CucsStorageSystemFsmStageOrder_Object=MibTableColumn
-cucsStorageSystemFsmStageOrder=_CucsStorageSystemFsmStageOrder_Object((1,3,6,1,4,1,9,9,719,1,45,29,1,7),_CucsStorageSystemFsmStageOrder_Type())
-cucsStorageSystemFsmStageOrder.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmStageOrder.setStatus(_A)
-_CucsStorageSystemFsmStageRetry_Type=Gauge32
-_CucsStorageSystemFsmStageRetry_Object=MibTableColumn
-cucsStorageSystemFsmStageRetry=_CucsStorageSystemFsmStageRetry_Object((1,3,6,1,4,1,9,9,719,1,45,29,1,8),_CucsStorageSystemFsmStageRetry_Type())
-cucsStorageSystemFsmStageRetry.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmStageRetry.setStatus(_A)
-_CucsStorageSystemFsmStageStageStatus_Type=CucsFsmFsmStageStatus
-_CucsStorageSystemFsmStageStageStatus_Object=MibTableColumn
-cucsStorageSystemFsmStageStageStatus=_CucsStorageSystemFsmStageStageStatus_Object((1,3,6,1,4,1,9,9,719,1,45,29,1,9),_CucsStorageSystemFsmStageStageStatus_Type())
-cucsStorageSystemFsmStageStageStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmStageStageStatus.setStatus(_A)
-_CucsStorageSystemFsmTaskTable_Object=MibTable
-cucsStorageSystemFsmTaskTable=_CucsStorageSystemFsmTaskTable_Object((1,3,6,1,4,1,9,9,719,1,45,30))
-if mibBuilder.loadTexts:cucsStorageSystemFsmTaskTable.setStatus(_A)
-_CucsStorageSystemFsmTaskEntry_Object=MibTableRow
-cucsStorageSystemFsmTaskEntry=_CucsStorageSystemFsmTaskEntry_Object((1,3,6,1,4,1,9,9,719,1,45,30,1))
-cucsStorageSystemFsmTaskEntry.setIndexNames((0,_C,_h))
-if mibBuilder.loadTexts:cucsStorageSystemFsmTaskEntry.setStatus(_A)
-_CucsStorageSystemFsmTaskInstanceId_Type=CucsManagedObjectId
-_CucsStorageSystemFsmTaskInstanceId_Object=MibTableColumn
-cucsStorageSystemFsmTaskInstanceId=_CucsStorageSystemFsmTaskInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,30,1,1),_CucsStorageSystemFsmTaskInstanceId_Type())
-cucsStorageSystemFsmTaskInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageSystemFsmTaskInstanceId.setStatus(_A)
-_CucsStorageSystemFsmTaskDn_Type=CucsManagedObjectDn
-_CucsStorageSystemFsmTaskDn_Object=MibTableColumn
-cucsStorageSystemFsmTaskDn=_CucsStorageSystemFsmTaskDn_Object((1,3,6,1,4,1,9,9,719,1,45,30,1,2),_CucsStorageSystemFsmTaskDn_Type())
-cucsStorageSystemFsmTaskDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmTaskDn.setStatus(_A)
-_CucsStorageSystemFsmTaskRn_Type=SnmpAdminString
-_CucsStorageSystemFsmTaskRn_Object=MibTableColumn
-cucsStorageSystemFsmTaskRn=_CucsStorageSystemFsmTaskRn_Object((1,3,6,1,4,1,9,9,719,1,45,30,1,3),_CucsStorageSystemFsmTaskRn_Type())
-cucsStorageSystemFsmTaskRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmTaskRn.setStatus(_A)
-_CucsStorageSystemFsmTaskCompletion_Type=CucsFsmCompletion
-_CucsStorageSystemFsmTaskCompletion_Object=MibTableColumn
-cucsStorageSystemFsmTaskCompletion=_CucsStorageSystemFsmTaskCompletion_Object((1,3,6,1,4,1,9,9,719,1,45,30,1,4),_CucsStorageSystemFsmTaskCompletion_Type())
-cucsStorageSystemFsmTaskCompletion.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmTaskCompletion.setStatus(_A)
-_CucsStorageSystemFsmTaskFlags_Type=CucsFsmFlags
-_CucsStorageSystemFsmTaskFlags_Object=MibTableColumn
-cucsStorageSystemFsmTaskFlags=_CucsStorageSystemFsmTaskFlags_Object((1,3,6,1,4,1,9,9,719,1,45,30,1,5),_CucsStorageSystemFsmTaskFlags_Type())
-cucsStorageSystemFsmTaskFlags.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmTaskFlags.setStatus(_A)
-_CucsStorageSystemFsmTaskItem_Type=CucsStorageSystemFsmTaskItem
-_CucsStorageSystemFsmTaskItem_Object=MibTableColumn
-cucsStorageSystemFsmTaskItem=_CucsStorageSystemFsmTaskItem_Object((1,3,6,1,4,1,9,9,719,1,45,30,1,6),_CucsStorageSystemFsmTaskItem_Type())
-cucsStorageSystemFsmTaskItem.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmTaskItem.setStatus(_A)
-_CucsStorageSystemFsmTaskSeqId_Type=Gauge32
-_CucsStorageSystemFsmTaskSeqId_Object=MibTableColumn
-cucsStorageSystemFsmTaskSeqId=_CucsStorageSystemFsmTaskSeqId_Object((1,3,6,1,4,1,9,9,719,1,45,30,1,7),_CucsStorageSystemFsmTaskSeqId_Type())
-cucsStorageSystemFsmTaskSeqId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSystemFsmTaskSeqId.setStatus(_A)
-_CucsStorageVirtualDriveTable_Object=MibTable
-cucsStorageVirtualDriveTable=_CucsStorageVirtualDriveTable_Object((1,3,6,1,4,1,9,9,719,1,45,31))
-if mibBuilder.loadTexts:cucsStorageVirtualDriveTable.setStatus(_A)
-_CucsStorageVirtualDriveEntry_Object=MibTableRow
-cucsStorageVirtualDriveEntry=_CucsStorageVirtualDriveEntry_Object((1,3,6,1,4,1,9,9,719,1,45,31,1))
-cucsStorageVirtualDriveEntry.setIndexNames((0,_C,_i))
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEntry.setStatus(_A)
-_CucsStorageVirtualDriveInstanceId_Type=CucsManagedObjectId
-_CucsStorageVirtualDriveInstanceId_Object=MibTableColumn
-cucsStorageVirtualDriveInstanceId=_CucsStorageVirtualDriveInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,1),_CucsStorageVirtualDriveInstanceId_Type())
-cucsStorageVirtualDriveInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveInstanceId.setStatus(_A)
-_CucsStorageVirtualDriveDn_Type=CucsManagedObjectDn
-_CucsStorageVirtualDriveDn_Object=MibTableColumn
-cucsStorageVirtualDriveDn=_CucsStorageVirtualDriveDn_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,2),_CucsStorageVirtualDriveDn_Type())
-cucsStorageVirtualDriveDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveDn.setStatus(_A)
-_CucsStorageVirtualDriveRn_Type=SnmpAdminString
-_CucsStorageVirtualDriveRn_Object=MibTableColumn
-cucsStorageVirtualDriveRn=_CucsStorageVirtualDriveRn_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,3),_CucsStorageVirtualDriveRn_Type())
-cucsStorageVirtualDriveRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRn.setStatus(_A)
-_CucsStorageVirtualDriveBlockSize_Type=Gauge32
-_CucsStorageVirtualDriveBlockSize_Object=MibTableColumn
-cucsStorageVirtualDriveBlockSize=_CucsStorageVirtualDriveBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,4),_CucsStorageVirtualDriveBlockSize_Type())
-cucsStorageVirtualDriveBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveBlockSize.setStatus(_A)
-_CucsStorageVirtualDriveConnectionProtocol_Type=CucsStorageConnectionProtocol
-_CucsStorageVirtualDriveConnectionProtocol_Object=MibTableColumn
-cucsStorageVirtualDriveConnectionProtocol=_CucsStorageVirtualDriveConnectionProtocol_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,5),_CucsStorageVirtualDriveConnectionProtocol_Type())
-cucsStorageVirtualDriveConnectionProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveConnectionProtocol.setStatus(_A)
-_CucsStorageVirtualDriveId_Type=Gauge32
-_CucsStorageVirtualDriveId_Object=MibTableColumn
-cucsStorageVirtualDriveId=_CucsStorageVirtualDriveId_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,6),_CucsStorageVirtualDriveId_Type())
-cucsStorageVirtualDriveId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveId.setStatus(_A)
-_CucsStorageVirtualDriveModel_Type=SnmpAdminString
-_CucsStorageVirtualDriveModel_Object=MibTableColumn
-cucsStorageVirtualDriveModel=_CucsStorageVirtualDriveModel_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,7),_CucsStorageVirtualDriveModel_Type())
-cucsStorageVirtualDriveModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveModel.setStatus(_A)
-_CucsStorageVirtualDriveNumberOfBlocks_Type=Unsigned64
-_CucsStorageVirtualDriveNumberOfBlocks_Object=MibTableColumn
-cucsStorageVirtualDriveNumberOfBlocks=_CucsStorageVirtualDriveNumberOfBlocks_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,8),_CucsStorageVirtualDriveNumberOfBlocks_Type())
-cucsStorageVirtualDriveNumberOfBlocks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveNumberOfBlocks.setStatus(_A)
-_CucsStorageVirtualDriveOperQualifierReason_Type=SnmpAdminString
-_CucsStorageVirtualDriveOperQualifierReason_Object=MibTableColumn
-cucsStorageVirtualDriveOperQualifierReason=_CucsStorageVirtualDriveOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,9),_CucsStorageVirtualDriveOperQualifierReason_Type())
-cucsStorageVirtualDriveOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveOperQualifierReason.setStatus(_A)
-_CucsStorageVirtualDriveOperability_Type=CucsEquipmentOperability
-_CucsStorageVirtualDriveOperability_Object=MibTableColumn
-cucsStorageVirtualDriveOperability=_CucsStorageVirtualDriveOperability_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,10),_CucsStorageVirtualDriveOperability_Type())
-cucsStorageVirtualDriveOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveOperability.setStatus(_A)
-_CucsStorageVirtualDrivePresence_Type=CucsEquipmentPresence
-_CucsStorageVirtualDrivePresence_Object=MibTableColumn
-cucsStorageVirtualDrivePresence=_CucsStorageVirtualDrivePresence_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,11),_CucsStorageVirtualDrivePresence_Type())
-cucsStorageVirtualDrivePresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDrivePresence.setStatus(_A)
-_CucsStorageVirtualDriveRevision_Type=SnmpAdminString
-_CucsStorageVirtualDriveRevision_Object=MibTableColumn
-cucsStorageVirtualDriveRevision=_CucsStorageVirtualDriveRevision_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,12),_CucsStorageVirtualDriveRevision_Type())
-cucsStorageVirtualDriveRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRevision.setStatus(_A)
-_CucsStorageVirtualDriveSerial_Type=SnmpAdminString
-_CucsStorageVirtualDriveSerial_Object=MibTableColumn
-cucsStorageVirtualDriveSerial=_CucsStorageVirtualDriveSerial_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,13),_CucsStorageVirtualDriveSerial_Type())
-cucsStorageVirtualDriveSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveSerial.setStatus(_A)
-_CucsStorageVirtualDriveSize_Type=Unsigned64
-_CucsStorageVirtualDriveSize_Object=MibTableColumn
-cucsStorageVirtualDriveSize=_CucsStorageVirtualDriveSize_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,14),_CucsStorageVirtualDriveSize_Type())
-cucsStorageVirtualDriveSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveSize.setStatus(_A)
-_CucsStorageVirtualDriveType_Type=CucsStorageLunType
-_CucsStorageVirtualDriveType_Object=MibTableColumn
-cucsStorageVirtualDriveType=_CucsStorageVirtualDriveType_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,15),_CucsStorageVirtualDriveType_Type())
-cucsStorageVirtualDriveType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveType.setStatus(_A)
-_CucsStorageVirtualDriveVendor_Type=SnmpAdminString
-_CucsStorageVirtualDriveVendor_Object=MibTableColumn
-cucsStorageVirtualDriveVendor=_CucsStorageVirtualDriveVendor_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,16),_CucsStorageVirtualDriveVendor_Type())
-cucsStorageVirtualDriveVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveVendor.setStatus(_A)
-_CucsStorageVirtualDriveAccessPolicy_Type=CucsStorageAccessType
-_CucsStorageVirtualDriveAccessPolicy_Object=MibTableColumn
-cucsStorageVirtualDriveAccessPolicy=_CucsStorageVirtualDriveAccessPolicy_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,17),_CucsStorageVirtualDriveAccessPolicy_Type())
-cucsStorageVirtualDriveAccessPolicy.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveAccessPolicy.setStatus(_A)
-_CucsStorageVirtualDriveActualWriteCachePolicy_Type=CucsStorageActualWriteType
-_CucsStorageVirtualDriveActualWriteCachePolicy_Object=MibTableColumn
-cucsStorageVirtualDriveActualWriteCachePolicy=_CucsStorageVirtualDriveActualWriteCachePolicy_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,18),_CucsStorageVirtualDriveActualWriteCachePolicy_Type())
-cucsStorageVirtualDriveActualWriteCachePolicy.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveActualWriteCachePolicy.setStatus(_A)
-_CucsStorageVirtualDriveBootable_Type=CucsStorageBootableType
-_CucsStorageVirtualDriveBootable_Object=MibTableColumn
-cucsStorageVirtualDriveBootable=_CucsStorageVirtualDriveBootable_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,19),_CucsStorageVirtualDriveBootable_Type())
-cucsStorageVirtualDriveBootable.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveBootable.setStatus(_A)
-_CucsStorageVirtualDriveConfiguredWriteCachePolicy_Type=CucsStorageConfiguredWriteType
-_CucsStorageVirtualDriveConfiguredWriteCachePolicy_Object=MibTableColumn
-cucsStorageVirtualDriveConfiguredWriteCachePolicy=_CucsStorageVirtualDriveConfiguredWriteCachePolicy_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,20),_CucsStorageVirtualDriveConfiguredWriteCachePolicy_Type())
-cucsStorageVirtualDriveConfiguredWriteCachePolicy.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveConfiguredWriteCachePolicy.setStatus(_A)
-_CucsStorageVirtualDriveDriveCache_Type=CucsStorageCacheType
-_CucsStorageVirtualDriveDriveCache_Object=MibTableColumn
-cucsStorageVirtualDriveDriveCache=_CucsStorageVirtualDriveDriveCache_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,21),_CucsStorageVirtualDriveDriveCache_Type())
-cucsStorageVirtualDriveDriveCache.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveDriveCache.setStatus(_A)
-_CucsStorageVirtualDriveDriveState_Type=CucsStorageVDriveState
-_CucsStorageVirtualDriveDriveState_Object=MibTableColumn
-cucsStorageVirtualDriveDriveState=_CucsStorageVirtualDriveDriveState_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,22),_CucsStorageVirtualDriveDriveState_Type())
-cucsStorageVirtualDriveDriveState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveDriveState.setStatus(_A)
-_CucsStorageVirtualDriveIoPolicy_Type=CucsStorageIOType
-_CucsStorageVirtualDriveIoPolicy_Object=MibTableColumn
-cucsStorageVirtualDriveIoPolicy=_CucsStorageVirtualDriveIoPolicy_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,23),_CucsStorageVirtualDriveIoPolicy_Type())
-cucsStorageVirtualDriveIoPolicy.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveIoPolicy.setStatus(_A)
-_CucsStorageVirtualDriveLc_Type=CucsFsmLifecycle
-_CucsStorageVirtualDriveLc_Object=MibTableColumn
-cucsStorageVirtualDriveLc=_CucsStorageVirtualDriveLc_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,24),_CucsStorageVirtualDriveLc_Type())
-cucsStorageVirtualDriveLc.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveLc.setStatus(_A)
-_CucsStorageVirtualDriveReadPolicy_Type=CucsStorageReadType
-_CucsStorageVirtualDriveReadPolicy_Object=MibTableColumn
-cucsStorageVirtualDriveReadPolicy=_CucsStorageVirtualDriveReadPolicy_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,25),_CucsStorageVirtualDriveReadPolicy_Type())
-cucsStorageVirtualDriveReadPolicy.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveReadPolicy.setStatus(_A)
-_CucsStorageVirtualDriveStripSize_Type=Unsigned64
-_CucsStorageVirtualDriveStripSize_Object=MibTableColumn
-cucsStorageVirtualDriveStripSize=_CucsStorageVirtualDriveStripSize_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,26),_CucsStorageVirtualDriveStripSize_Type())
-cucsStorageVirtualDriveStripSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveStripSize.setStatus(_A)
-_CucsStorageVirtualDriveAdminActionTrigger_Type=CucsStorageAdminActionTrigger
-_CucsStorageVirtualDriveAdminActionTrigger_Object=MibTableColumn
-cucsStorageVirtualDriveAdminActionTrigger=_CucsStorageVirtualDriveAdminActionTrigger_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,27),_CucsStorageVirtualDriveAdminActionTrigger_Type())
-cucsStorageVirtualDriveAdminActionTrigger.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveAdminActionTrigger.setStatus(_A)
-_CucsStorageVirtualDriveAdminName_Type=SnmpAdminString
-_CucsStorageVirtualDriveAdminName_Object=MibTableColumn
-cucsStorageVirtualDriveAdminName=_CucsStorageVirtualDriveAdminName_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,28),_CucsStorageVirtualDriveAdminName_Type())
-cucsStorageVirtualDriveAdminName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveAdminName.setStatus(_A)
-_CucsStorageVirtualDriveAdminState_Type=CucsStorageAdminState
-_CucsStorageVirtualDriveAdminState_Object=MibTableColumn
-cucsStorageVirtualDriveAdminState=_CucsStorageVirtualDriveAdminState_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,29),_CucsStorageVirtualDriveAdminState_Type())
-cucsStorageVirtualDriveAdminState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveAdminState.setStatus(_A)
-_CucsStorageVirtualDriveChangeQualifier_Type=CucsStorageVdChangeQualifierType
-_CucsStorageVirtualDriveChangeQualifier_Object=MibTableColumn
-cucsStorageVirtualDriveChangeQualifier=_CucsStorageVirtualDriveChangeQualifier_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,30),_CucsStorageVirtualDriveChangeQualifier_Type())
-cucsStorageVirtualDriveChangeQualifier.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveChangeQualifier.setStatus(_A)
-_CucsStorageVirtualDriveConfigQualifierReason_Type=SnmpAdminString
-_CucsStorageVirtualDriveConfigQualifierReason_Object=MibTableColumn
-cucsStorageVirtualDriveConfigQualifierReason=_CucsStorageVirtualDriveConfigQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,31),_CucsStorageVirtualDriveConfigQualifierReason_Type())
-cucsStorageVirtualDriveConfigQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveConfigQualifierReason.setStatus(_A)
-_CucsStorageVirtualDriveConfigState_Type=CucsStorageConfigState
-_CucsStorageVirtualDriveConfigState_Object=MibTableColumn
-cucsStorageVirtualDriveConfigState=_CucsStorageVirtualDriveConfigState_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,32),_CucsStorageVirtualDriveConfigState_Type())
-cucsStorageVirtualDriveConfigState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveConfigState.setStatus(_A)
-_CucsStorageVirtualDriveDeployAction_Type=CucsStorageDeployAction
-_CucsStorageVirtualDriveDeployAction_Object=MibTableColumn
-cucsStorageVirtualDriveDeployAction=_CucsStorageVirtualDriveDeployAction_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,33),_CucsStorageVirtualDriveDeployAction_Type())
-cucsStorageVirtualDriveDeployAction.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveDeployAction.setStatus(_A)
-_CucsStorageVirtualDriveDescr_Type=SnmpAdminString
-_CucsStorageVirtualDriveDescr_Object=MibTableColumn
-cucsStorageVirtualDriveDescr=_CucsStorageVirtualDriveDescr_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,34),_CucsStorageVirtualDriveDescr_Type())
-cucsStorageVirtualDriveDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveDescr.setStatus(_A)
-_CucsStorageVirtualDriveLocale_Type=SnmpAdminString
-_CucsStorageVirtualDriveLocale_Object=MibTableColumn
-cucsStorageVirtualDriveLocale=_CucsStorageVirtualDriveLocale_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,35),_CucsStorageVirtualDriveLocale_Type())
-cucsStorageVirtualDriveLocale.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveLocale.setStatus(_A)
-_CucsStorageVirtualDriveName_Type=SnmpAdminString
-_CucsStorageVirtualDriveName_Object=MibTableColumn
-cucsStorageVirtualDriveName=_CucsStorageVirtualDriveName_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,36),_CucsStorageVirtualDriveName_Type())
-cucsStorageVirtualDriveName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveName.setStatus(_A)
-_CucsStorageVirtualDriveOperDeviceId_Type=Gauge32
-_CucsStorageVirtualDriveOperDeviceId_Object=MibTableColumn
-cucsStorageVirtualDriveOperDeviceId=_CucsStorageVirtualDriveOperDeviceId_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,37),_CucsStorageVirtualDriveOperDeviceId_Type())
-cucsStorageVirtualDriveOperDeviceId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveOperDeviceId.setStatus(_A)
-_CucsStorageVirtualDriveOperState_Type=CucsStorageUnitOperState
-_CucsStorageVirtualDriveOperState_Object=MibTableColumn
-cucsStorageVirtualDriveOperState=_CucsStorageVirtualDriveOperState_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,38),_CucsStorageVirtualDriveOperState_Type())
-cucsStorageVirtualDriveOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveOperState.setStatus(_A)
-_CucsStorageVirtualDriveUuid_Type=SnmpAdminString
-_CucsStorageVirtualDriveUuid_Object=MibTableColumn
-cucsStorageVirtualDriveUuid=_CucsStorageVirtualDriveUuid_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,39),_CucsStorageVirtualDriveUuid_Type())
-cucsStorageVirtualDriveUuid.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveUuid.setStatus(_A)
-_CucsStorageVirtualDriveVendorUuid_Type=SnmpAdminString
-_CucsStorageVirtualDriveVendorUuid_Object=MibTableColumn
-cucsStorageVirtualDriveVendorUuid=_CucsStorageVirtualDriveVendorUuid_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,40),_CucsStorageVirtualDriveVendorUuid_Type())
-cucsStorageVirtualDriveVendorUuid.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveVendorUuid.setStatus(_A)
-_CucsStorageVirtualDriveAvailableSize_Type=Unsigned64
-_CucsStorageVirtualDriveAvailableSize_Object=MibTableColumn
-cucsStorageVirtualDriveAvailableSize=_CucsStorageVirtualDriveAvailableSize_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,41),_CucsStorageVirtualDriveAvailableSize_Type())
-cucsStorageVirtualDriveAvailableSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveAvailableSize.setStatus(_A)
-_CucsStorageVirtualDrivePnDn_Type=SnmpAdminString
-_CucsStorageVirtualDrivePnDn_Object=MibTableColumn
-cucsStorageVirtualDrivePnDn=_CucsStorageVirtualDrivePnDn_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,42),_CucsStorageVirtualDrivePnDn_Type())
-cucsStorageVirtualDrivePnDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDrivePnDn.setStatus(_A)
-_CucsStorageVirtualDriveRefDn_Type=SnmpAdminString
-_CucsStorageVirtualDriveRefDn_Object=MibTableColumn
-cucsStorageVirtualDriveRefDn=_CucsStorageVirtualDriveRefDn_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,43),_CucsStorageVirtualDriveRefDn_Type())
-cucsStorageVirtualDriveRefDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefDn.setStatus(_A)
-_CucsStorageVirtualDriveChangeId_Type=Unsigned64
-_CucsStorageVirtualDriveChangeId_Object=MibTableColumn
-cucsStorageVirtualDriveChangeId=_CucsStorageVirtualDriveChangeId_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,44),_CucsStorageVirtualDriveChangeId_Type())
-cucsStorageVirtualDriveChangeId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveChangeId.setStatus(_A)
-_CucsStorageVirtualDrivePhysicalBlockSize_Type=Gauge32
-_CucsStorageVirtualDrivePhysicalBlockSize_Object=MibTableColumn
-cucsStorageVirtualDrivePhysicalBlockSize=_CucsStorageVirtualDrivePhysicalBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,45),_CucsStorageVirtualDrivePhysicalBlockSize_Type())
-cucsStorageVirtualDrivePhysicalBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDrivePhysicalBlockSize.setStatus(_A)
-_CucsStorageVirtualDriveDriveSecurity_Type=TruthValue
-_CucsStorageVirtualDriveDriveSecurity_Object=MibTableColumn
-cucsStorageVirtualDriveDriveSecurity=_CucsStorageVirtualDriveDriveSecurity_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,46),_CucsStorageVirtualDriveDriveSecurity_Type())
-cucsStorageVirtualDriveDriveSecurity.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveDriveSecurity.setStatus(_A)
-_CucsStorageVirtualDriveSecurityFlags_Type=CucsStorageControllerFlags
-_CucsStorageVirtualDriveSecurityFlags_Object=MibTableColumn
-cucsStorageVirtualDriveSecurityFlags=_CucsStorageVirtualDriveSecurityFlags_Object((1,3,6,1,4,1,9,9,719,1,45,31,1,47),_CucsStorageVirtualDriveSecurityFlags_Type())
-cucsStorageVirtualDriveSecurityFlags.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveSecurityFlags.setStatus(_A)
-_CucsStorageVsanRefTable_Object=MibTable
-cucsStorageVsanRefTable=_CucsStorageVsanRefTable_Object((1,3,6,1,4,1,9,9,719,1,45,32))
-if mibBuilder.loadTexts:cucsStorageVsanRefTable.setStatus(_A)
-_CucsStorageVsanRefEntry_Object=MibTableRow
-cucsStorageVsanRefEntry=_CucsStorageVsanRefEntry_Object((1,3,6,1,4,1,9,9,719,1,45,32,1))
-cucsStorageVsanRefEntry.setIndexNames((0,_C,_j))
-if mibBuilder.loadTexts:cucsStorageVsanRefEntry.setStatus(_A)
-_CucsStorageVsanRefInstanceId_Type=CucsManagedObjectId
-_CucsStorageVsanRefInstanceId_Object=MibTableColumn
-cucsStorageVsanRefInstanceId=_CucsStorageVsanRefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,32,1,1),_CucsStorageVsanRefInstanceId_Type())
-cucsStorageVsanRefInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageVsanRefInstanceId.setStatus(_A)
-_CucsStorageVsanRefDn_Type=CucsManagedObjectDn
-_CucsStorageVsanRefDn_Object=MibTableColumn
-cucsStorageVsanRefDn=_CucsStorageVsanRefDn_Object((1,3,6,1,4,1,9,9,719,1,45,32,1,2),_CucsStorageVsanRefDn_Type())
-cucsStorageVsanRefDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVsanRefDn.setStatus(_A)
-_CucsStorageVsanRefRn_Type=SnmpAdminString
-_CucsStorageVsanRefRn_Object=MibTableColumn
-cucsStorageVsanRefRn=_CucsStorageVsanRefRn_Object((1,3,6,1,4,1,9,9,719,1,45,32,1,3),_CucsStorageVsanRefRn_Type())
-cucsStorageVsanRefRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVsanRefRn.setStatus(_A)
-_CucsStorageVsanRefConfigQualifier_Type=CucsVnicConfigIssues
-_CucsStorageVsanRefConfigQualifier_Object=MibTableColumn
-cucsStorageVsanRefConfigQualifier=_CucsStorageVsanRefConfigQualifier_Object((1,3,6,1,4,1,9,9,719,1,45,32,1,4),_CucsStorageVsanRefConfigQualifier_Type())
-cucsStorageVsanRefConfigQualifier.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVsanRefConfigQualifier.setStatus(_A)
-_CucsStorageVsanRefName_Type=SnmpAdminString
-_CucsStorageVsanRefName_Object=MibTableColumn
-cucsStorageVsanRefName=_CucsStorageVsanRefName_Object((1,3,6,1,4,1,9,9,719,1,45,32,1,5),_CucsStorageVsanRefName_Type())
-cucsStorageVsanRefName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVsanRefName.setStatus(_A)
-_CucsStorageVsanRefOperVnetDn_Type=SnmpAdminString
-_CucsStorageVsanRefOperVnetDn_Object=MibTableColumn
-cucsStorageVsanRefOperVnetDn=_CucsStorageVsanRefOperVnetDn_Object((1,3,6,1,4,1,9,9,719,1,45,32,1,6),_CucsStorageVsanRefOperVnetDn_Type())
-cucsStorageVsanRefOperVnetDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVsanRefOperVnetDn.setStatus(_A)
-_CucsStorageVsanRefOperVnetName_Type=SnmpAdminString
-_CucsStorageVsanRefOperVnetName_Object=MibTableColumn
-cucsStorageVsanRefOperVnetName=_CucsStorageVsanRefOperVnetName_Object((1,3,6,1,4,1,9,9,719,1,45,32,1,7),_CucsStorageVsanRefOperVnetName_Type())
-cucsStorageVsanRefOperVnetName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVsanRefOperVnetName.setStatus(_A)
-_CucsStorageVsanRefSwitchId_Type=CucsStorageVsanRefSwitchId
-_CucsStorageVsanRefSwitchId_Object=MibTableColumn
-cucsStorageVsanRefSwitchId=_CucsStorageVsanRefSwitchId_Object((1,3,6,1,4,1,9,9,719,1,45,32,1,8),_CucsStorageVsanRefSwitchId_Type())
-cucsStorageVsanRefSwitchId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVsanRefSwitchId.setStatus(_A)
-_CucsStorageVsanRefVnet_Type=Gauge32
-_CucsStorageVsanRefVnet_Object=MibTableColumn
-cucsStorageVsanRefVnet=_CucsStorageVsanRefVnet_Object((1,3,6,1,4,1,9,9,719,1,45,32,1,9),_CucsStorageVsanRefVnet_Type())
-cucsStorageVsanRefVnet.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVsanRefVnet.setStatus(_A)
-_CucsStorageVsanRefZoningState_Type=CucsFabricZoningState
-_CucsStorageVsanRefZoningState_Object=MibTableColumn
-cucsStorageVsanRefZoningState=_CucsStorageVsanRefZoningState_Object((1,3,6,1,4,1,9,9,719,1,45,32,1,10),_CucsStorageVsanRefZoningState_Type())
-cucsStorageVsanRefZoningState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVsanRefZoningState.setStatus(_A)
-_CucsStorageTransportableFlashModuleTable_Object=MibTable
-cucsStorageTransportableFlashModuleTable=_CucsStorageTransportableFlashModuleTable_Object((1,3,6,1,4,1,9,9,719,1,45,33))
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleTable.setStatus(_A)
-_CucsStorageTransportableFlashModuleEntry_Object=MibTableRow
-cucsStorageTransportableFlashModuleEntry=_CucsStorageTransportableFlashModuleEntry_Object((1,3,6,1,4,1,9,9,719,1,45,33,1))
-cucsStorageTransportableFlashModuleEntry.setIndexNames((0,_C,_k))
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleEntry.setStatus(_A)
-_CucsStorageTransportableFlashModuleInstanceId_Type=CucsManagedObjectId
-_CucsStorageTransportableFlashModuleInstanceId_Object=MibTableColumn
-cucsStorageTransportableFlashModuleInstanceId=_CucsStorageTransportableFlashModuleInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,1),_CucsStorageTransportableFlashModuleInstanceId_Type())
-cucsStorageTransportableFlashModuleInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleInstanceId.setStatus(_A)
-_CucsStorageTransportableFlashModuleDn_Type=CucsManagedObjectDn
-_CucsStorageTransportableFlashModuleDn_Object=MibTableColumn
-cucsStorageTransportableFlashModuleDn=_CucsStorageTransportableFlashModuleDn_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,2),_CucsStorageTransportableFlashModuleDn_Type())
-cucsStorageTransportableFlashModuleDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleDn.setStatus(_A)
-_CucsStorageTransportableFlashModuleRn_Type=SnmpAdminString
-_CucsStorageTransportableFlashModuleRn_Object=MibTableColumn
-cucsStorageTransportableFlashModuleRn=_CucsStorageTransportableFlashModuleRn_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,3),_CucsStorageTransportableFlashModuleRn_Type())
-cucsStorageTransportableFlashModuleRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleRn.setStatus(_A)
-_CucsStorageTransportableFlashModuleBlockSize_Type=Gauge32
-_CucsStorageTransportableFlashModuleBlockSize_Object=MibTableColumn
-cucsStorageTransportableFlashModuleBlockSize=_CucsStorageTransportableFlashModuleBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,4),_CucsStorageTransportableFlashModuleBlockSize_Type())
-cucsStorageTransportableFlashModuleBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleBlockSize.setStatus(_A)
-_CucsStorageTransportableFlashModuleConnectionProtocol_Type=CucsStorageConnectionProtocol
-_CucsStorageTransportableFlashModuleConnectionProtocol_Object=MibTableColumn
-cucsStorageTransportableFlashModuleConnectionProtocol=_CucsStorageTransportableFlashModuleConnectionProtocol_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,5),_CucsStorageTransportableFlashModuleConnectionProtocol_Type())
-cucsStorageTransportableFlashModuleConnectionProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleConnectionProtocol.setStatus(_A)
-_CucsStorageTransportableFlashModuleId_Type=Gauge32
-_CucsStorageTransportableFlashModuleId_Object=MibTableColumn
-cucsStorageTransportableFlashModuleId=_CucsStorageTransportableFlashModuleId_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,6),_CucsStorageTransportableFlashModuleId_Type())
-cucsStorageTransportableFlashModuleId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleId.setStatus(_A)
-_CucsStorageTransportableFlashModuleModel_Type=SnmpAdminString
-_CucsStorageTransportableFlashModuleModel_Object=MibTableColumn
-cucsStorageTransportableFlashModuleModel=_CucsStorageTransportableFlashModuleModel_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,7),_CucsStorageTransportableFlashModuleModel_Type())
-cucsStorageTransportableFlashModuleModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleModel.setStatus(_A)
-_CucsStorageTransportableFlashModuleNumberOfBlocks_Type=Unsigned64
-_CucsStorageTransportableFlashModuleNumberOfBlocks_Object=MibTableColumn
-cucsStorageTransportableFlashModuleNumberOfBlocks=_CucsStorageTransportableFlashModuleNumberOfBlocks_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,8),_CucsStorageTransportableFlashModuleNumberOfBlocks_Type())
-cucsStorageTransportableFlashModuleNumberOfBlocks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleNumberOfBlocks.setStatus(_A)
-_CucsStorageTransportableFlashModuleOperQualifierReason_Type=SnmpAdminString
-_CucsStorageTransportableFlashModuleOperQualifierReason_Object=MibTableColumn
-cucsStorageTransportableFlashModuleOperQualifierReason=_CucsStorageTransportableFlashModuleOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,9),_CucsStorageTransportableFlashModuleOperQualifierReason_Type())
-cucsStorageTransportableFlashModuleOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleOperQualifierReason.setStatus(_A)
-_CucsStorageTransportableFlashModuleOperability_Type=CucsEquipmentOperability
-_CucsStorageTransportableFlashModuleOperability_Object=MibTableColumn
-cucsStorageTransportableFlashModuleOperability=_CucsStorageTransportableFlashModuleOperability_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,10),_CucsStorageTransportableFlashModuleOperability_Type())
-cucsStorageTransportableFlashModuleOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleOperability.setStatus(_A)
-_CucsStorageTransportableFlashModulePresence_Type=CucsEquipmentPresence
-_CucsStorageTransportableFlashModulePresence_Object=MibTableColumn
-cucsStorageTransportableFlashModulePresence=_CucsStorageTransportableFlashModulePresence_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,11),_CucsStorageTransportableFlashModulePresence_Type())
-cucsStorageTransportableFlashModulePresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModulePresence.setStatus(_A)
-_CucsStorageTransportableFlashModuleRevision_Type=SnmpAdminString
-_CucsStorageTransportableFlashModuleRevision_Object=MibTableColumn
-cucsStorageTransportableFlashModuleRevision=_CucsStorageTransportableFlashModuleRevision_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,12),_CucsStorageTransportableFlashModuleRevision_Type())
-cucsStorageTransportableFlashModuleRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleRevision.setStatus(_A)
-_CucsStorageTransportableFlashModuleSerial_Type=SnmpAdminString
-_CucsStorageTransportableFlashModuleSerial_Object=MibTableColumn
-cucsStorageTransportableFlashModuleSerial=_CucsStorageTransportableFlashModuleSerial_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,13),_CucsStorageTransportableFlashModuleSerial_Type())
-cucsStorageTransportableFlashModuleSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleSerial.setStatus(_A)
-_CucsStorageTransportableFlashModuleSize_Type=Unsigned64
-_CucsStorageTransportableFlashModuleSize_Object=MibTableColumn
-cucsStorageTransportableFlashModuleSize=_CucsStorageTransportableFlashModuleSize_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,14),_CucsStorageTransportableFlashModuleSize_Type())
-cucsStorageTransportableFlashModuleSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleSize.setStatus(_A)
-_CucsStorageTransportableFlashModuleVendor_Type=SnmpAdminString
-_CucsStorageTransportableFlashModuleVendor_Object=MibTableColumn
-cucsStorageTransportableFlashModuleVendor=_CucsStorageTransportableFlashModuleVendor_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,15),_CucsStorageTransportableFlashModuleVendor_Type())
-cucsStorageTransportableFlashModuleVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModuleVendor.setStatus(_A)
-_CucsStorageTransportableFlashModulePhysicalBlockSize_Type=Gauge32
-_CucsStorageTransportableFlashModulePhysicalBlockSize_Object=MibTableColumn
-cucsStorageTransportableFlashModulePhysicalBlockSize=_CucsStorageTransportableFlashModulePhysicalBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,33,1,16),_CucsStorageTransportableFlashModulePhysicalBlockSize_Type())
-cucsStorageTransportableFlashModulePhysicalBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageTransportableFlashModulePhysicalBlockSize.setStatus(_A)
-_CucsStorageFlexFlashCardTable_Object=MibTable
-cucsStorageFlexFlashCardTable=_CucsStorageFlexFlashCardTable_Object((1,3,6,1,4,1,9,9,719,1,45,34))
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardTable.setStatus(_A)
-_CucsStorageFlexFlashCardEntry_Object=MibTableRow
-cucsStorageFlexFlashCardEntry=_CucsStorageFlexFlashCardEntry_Object((1,3,6,1,4,1,9,9,719,1,45,34,1))
-cucsStorageFlexFlashCardEntry.setIndexNames((0,_C,_l))
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardEntry.setStatus(_A)
-_CucsStorageFlexFlashCardInstanceId_Type=CucsManagedObjectId
-_CucsStorageFlexFlashCardInstanceId_Object=MibTableColumn
-cucsStorageFlexFlashCardInstanceId=_CucsStorageFlexFlashCardInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,1),_CucsStorageFlexFlashCardInstanceId_Type())
-cucsStorageFlexFlashCardInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardInstanceId.setStatus(_A)
-_CucsStorageFlexFlashCardDn_Type=CucsManagedObjectDn
-_CucsStorageFlexFlashCardDn_Object=MibTableColumn
-cucsStorageFlexFlashCardDn=_CucsStorageFlexFlashCardDn_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,2),_CucsStorageFlexFlashCardDn_Type())
-cucsStorageFlexFlashCardDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardDn.setStatus(_A)
-_CucsStorageFlexFlashCardRn_Type=SnmpAdminString
-_CucsStorageFlexFlashCardRn_Object=MibTableColumn
-cucsStorageFlexFlashCardRn=_CucsStorageFlexFlashCardRn_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,3),_CucsStorageFlexFlashCardRn_Type())
-cucsStorageFlexFlashCardRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardRn.setStatus(_A)
-_CucsStorageFlexFlashCardBlockSize_Type=Gauge32
-_CucsStorageFlexFlashCardBlockSize_Object=MibTableColumn
-cucsStorageFlexFlashCardBlockSize=_CucsStorageFlexFlashCardBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,4),_CucsStorageFlexFlashCardBlockSize_Type())
-cucsStorageFlexFlashCardBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardBlockSize.setStatus(_A)
-_CucsStorageFlexFlashCardCardHealth_Type=CucsStorageFFCardHealth
-_CucsStorageFlexFlashCardCardHealth_Object=MibTableColumn
-cucsStorageFlexFlashCardCardHealth=_CucsStorageFlexFlashCardCardHealth_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,5),_CucsStorageFlexFlashCardCardHealth_Type())
-cucsStorageFlexFlashCardCardHealth.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardCardHealth.setStatus(_A)
-_CucsStorageFlexFlashCardCardMode_Type=CucsStorageFFCardMode
-_CucsStorageFlexFlashCardCardMode_Object=MibTableColumn
-cucsStorageFlexFlashCardCardMode=_CucsStorageFlexFlashCardCardMode_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,6),_CucsStorageFlexFlashCardCardMode_Type())
-cucsStorageFlexFlashCardCardMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardCardMode.setStatus(_A)
-_CucsStorageFlexFlashCardCardType_Type=SnmpAdminString
-_CucsStorageFlexFlashCardCardType_Object=MibTableColumn
-cucsStorageFlexFlashCardCardType=_CucsStorageFlexFlashCardCardType_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,7),_CucsStorageFlexFlashCardCardType_Type())
-cucsStorageFlexFlashCardCardType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardCardType.setStatus(_A)
-_CucsStorageFlexFlashCardConnectionProtocol_Type=CucsStorageConnectionProtocol
-_CucsStorageFlexFlashCardConnectionProtocol_Object=MibTableColumn
-cucsStorageFlexFlashCardConnectionProtocol=_CucsStorageFlexFlashCardConnectionProtocol_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,8),_CucsStorageFlexFlashCardConnectionProtocol_Type())
-cucsStorageFlexFlashCardConnectionProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardConnectionProtocol.setStatus(_A)
-_CucsStorageFlexFlashCardControllerIndex_Type=Gauge32
-_CucsStorageFlexFlashCardControllerIndex_Object=MibTableColumn
-cucsStorageFlexFlashCardControllerIndex=_CucsStorageFlexFlashCardControllerIndex_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,9),_CucsStorageFlexFlashCardControllerIndex_Type())
-cucsStorageFlexFlashCardControllerIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardControllerIndex.setStatus(_A)
-_CucsStorageFlexFlashCardId_Type=Gauge32
-_CucsStorageFlexFlashCardId_Object=MibTableColumn
-cucsStorageFlexFlashCardId=_CucsStorageFlexFlashCardId_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,10),_CucsStorageFlexFlashCardId_Type())
-cucsStorageFlexFlashCardId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardId.setStatus(_A)
-_CucsStorageFlexFlashCardMfgDate_Type=SnmpAdminString
-_CucsStorageFlexFlashCardMfgDate_Object=MibTableColumn
-cucsStorageFlexFlashCardMfgDate=_CucsStorageFlexFlashCardMfgDate_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,11),_CucsStorageFlexFlashCardMfgDate_Type())
-cucsStorageFlexFlashCardMfgDate.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardMfgDate.setStatus(_A)
-_CucsStorageFlexFlashCardMfgId_Type=SnmpAdminString
-_CucsStorageFlexFlashCardMfgId_Object=MibTableColumn
-cucsStorageFlexFlashCardMfgId=_CucsStorageFlexFlashCardMfgId_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,12),_CucsStorageFlexFlashCardMfgId_Type())
-cucsStorageFlexFlashCardMfgId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardMfgId.setStatus(_A)
-_CucsStorageFlexFlashCardModel_Type=SnmpAdminString
-_CucsStorageFlexFlashCardModel_Object=MibTableColumn
-cucsStorageFlexFlashCardModel=_CucsStorageFlexFlashCardModel_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,13),_CucsStorageFlexFlashCardModel_Type())
-cucsStorageFlexFlashCardModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardModel.setStatus(_A)
-_CucsStorageFlexFlashCardNumberOfBlocks_Type=Unsigned64
-_CucsStorageFlexFlashCardNumberOfBlocks_Object=MibTableColumn
-cucsStorageFlexFlashCardNumberOfBlocks=_CucsStorageFlexFlashCardNumberOfBlocks_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,14),_CucsStorageFlexFlashCardNumberOfBlocks_Type())
-cucsStorageFlexFlashCardNumberOfBlocks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardNumberOfBlocks.setStatus(_A)
-_CucsStorageFlexFlashCardOemId_Type=SnmpAdminString
-_CucsStorageFlexFlashCardOemId_Object=MibTableColumn
-cucsStorageFlexFlashCardOemId=_CucsStorageFlexFlashCardOemId_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,15),_CucsStorageFlexFlashCardOemId_Type())
-cucsStorageFlexFlashCardOemId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardOemId.setStatus(_A)
-_CucsStorageFlexFlashCardOperQualifierReason_Type=SnmpAdminString
-_CucsStorageFlexFlashCardOperQualifierReason_Object=MibTableColumn
-cucsStorageFlexFlashCardOperQualifierReason=_CucsStorageFlexFlashCardOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,16),_CucsStorageFlexFlashCardOperQualifierReason_Type())
-cucsStorageFlexFlashCardOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardOperQualifierReason.setStatus(_A)
-_CucsStorageFlexFlashCardOperability_Type=CucsEquipmentOperability
-_CucsStorageFlexFlashCardOperability_Object=MibTableColumn
-cucsStorageFlexFlashCardOperability=_CucsStorageFlexFlashCardOperability_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,17),_CucsStorageFlexFlashCardOperability_Type())
-cucsStorageFlexFlashCardOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardOperability.setStatus(_A)
-_CucsStorageFlexFlashCardPresence_Type=CucsEquipmentPresence
-_CucsStorageFlexFlashCardPresence_Object=MibTableColumn
-cucsStorageFlexFlashCardPresence=_CucsStorageFlexFlashCardPresence_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,18),_CucsStorageFlexFlashCardPresence_Type())
-cucsStorageFlexFlashCardPresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardPresence.setStatus(_A)
-_CucsStorageFlexFlashCardReadIOErrorCount_Type=Gauge32
-_CucsStorageFlexFlashCardReadIOErrorCount_Object=MibTableColumn
-cucsStorageFlexFlashCardReadIOErrorCount=_CucsStorageFlexFlashCardReadIOErrorCount_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,19),_CucsStorageFlexFlashCardReadIOErrorCount_Type())
-cucsStorageFlexFlashCardReadIOErrorCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardReadIOErrorCount.setStatus(_A)
-_CucsStorageFlexFlashCardRevision_Type=SnmpAdminString
-_CucsStorageFlexFlashCardRevision_Object=MibTableColumn
-cucsStorageFlexFlashCardRevision=_CucsStorageFlexFlashCardRevision_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,20),_CucsStorageFlexFlashCardRevision_Type())
-cucsStorageFlexFlashCardRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardRevision.setStatus(_A)
-_CucsStorageFlexFlashCardSerial_Type=SnmpAdminString
-_CucsStorageFlexFlashCardSerial_Object=MibTableColumn
-cucsStorageFlexFlashCardSerial=_CucsStorageFlexFlashCardSerial_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,21),_CucsStorageFlexFlashCardSerial_Type())
-cucsStorageFlexFlashCardSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardSerial.setStatus(_A)
-_CucsStorageFlexFlashCardSize_Type=Unsigned64
-_CucsStorageFlexFlashCardSize_Object=MibTableColumn
-cucsStorageFlexFlashCardSize=_CucsStorageFlexFlashCardSize_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,22),_CucsStorageFlexFlashCardSize_Type())
-cucsStorageFlexFlashCardSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardSize.setStatus(_A)
-_CucsStorageFlexFlashCardSlotNumber_Type=Gauge32
-_CucsStorageFlexFlashCardSlotNumber_Object=MibTableColumn
-cucsStorageFlexFlashCardSlotNumber=_CucsStorageFlexFlashCardSlotNumber_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,23),_CucsStorageFlexFlashCardSlotNumber_Type())
-cucsStorageFlexFlashCardSlotNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardSlotNumber.setStatus(_A)
-_CucsStorageFlexFlashCardVendor_Type=SnmpAdminString
-_CucsStorageFlexFlashCardVendor_Object=MibTableColumn
-cucsStorageFlexFlashCardVendor=_CucsStorageFlexFlashCardVendor_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,24),_CucsStorageFlexFlashCardVendor_Type())
-cucsStorageFlexFlashCardVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardVendor.setStatus(_A)
-_CucsStorageFlexFlashCardWriteEnable_Type=CucsStorageFFCardWriteEnable
-_CucsStorageFlexFlashCardWriteEnable_Object=MibTableColumn
-cucsStorageFlexFlashCardWriteEnable=_CucsStorageFlexFlashCardWriteEnable_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,25),_CucsStorageFlexFlashCardWriteEnable_Type())
-cucsStorageFlexFlashCardWriteEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardWriteEnable.setStatus(_A)
-_CucsStorageFlexFlashCardWriteIOErrorCount_Type=Gauge32
-_CucsStorageFlexFlashCardWriteIOErrorCount_Object=MibTableColumn
-cucsStorageFlexFlashCardWriteIOErrorCount=_CucsStorageFlexFlashCardWriteIOErrorCount_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,26),_CucsStorageFlexFlashCardWriteIOErrorCount_Type())
-cucsStorageFlexFlashCardWriteIOErrorCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardWriteIOErrorCount.setStatus(_A)
-_CucsStorageFlexFlashCardCardState_Type=CucsStorageFFCardState
-_CucsStorageFlexFlashCardCardState_Object=MibTableColumn
-cucsStorageFlexFlashCardCardState=_CucsStorageFlexFlashCardCardState_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,27),_CucsStorageFlexFlashCardCardState_Type())
-cucsStorageFlexFlashCardCardState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardCardState.setStatus(_A)
-_CucsStorageFlexFlashCardCardSync_Type=CucsStorageFFCardSync
-_CucsStorageFlexFlashCardCardSync_Object=MibTableColumn
-cucsStorageFlexFlashCardCardSync=_CucsStorageFlexFlashCardCardSync_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,28),_CucsStorageFlexFlashCardCardSync_Type())
-cucsStorageFlexFlashCardCardSync.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardCardSync.setStatus(_A)
-_CucsStorageFlexFlashCardDrivesEnabled_Type=SnmpAdminString
-_CucsStorageFlexFlashCardDrivesEnabled_Object=MibTableColumn
-cucsStorageFlexFlashCardDrivesEnabled=_CucsStorageFlexFlashCardDrivesEnabled_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,29),_CucsStorageFlexFlashCardDrivesEnabled_Type())
-cucsStorageFlexFlashCardDrivesEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardDrivesEnabled.setStatus(_A)
-_CucsStorageFlexFlashCardPartitionCount_Type=Gauge32
-_CucsStorageFlexFlashCardPartitionCount_Object=MibTableColumn
-cucsStorageFlexFlashCardPartitionCount=_CucsStorageFlexFlashCardPartitionCount_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,30),_CucsStorageFlexFlashCardPartitionCount_Type())
-cucsStorageFlexFlashCardPartitionCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardPartitionCount.setStatus(_A)
-_CucsStorageFlexFlashCardReadErrorThreshold_Type=Gauge32
-_CucsStorageFlexFlashCardReadErrorThreshold_Object=MibTableColumn
-cucsStorageFlexFlashCardReadErrorThreshold=_CucsStorageFlexFlashCardReadErrorThreshold_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,31),_CucsStorageFlexFlashCardReadErrorThreshold_Type())
-cucsStorageFlexFlashCardReadErrorThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardReadErrorThreshold.setStatus(_A)
-_CucsStorageFlexFlashCardSignature_Type=SnmpAdminString
-_CucsStorageFlexFlashCardSignature_Object=MibTableColumn
-cucsStorageFlexFlashCardSignature=_CucsStorageFlexFlashCardSignature_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,32),_CucsStorageFlexFlashCardSignature_Type())
-cucsStorageFlexFlashCardSignature.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardSignature.setStatus(_A)
-_CucsStorageFlexFlashCardWriteErrorThreshold_Type=Gauge32
-_CucsStorageFlexFlashCardWriteErrorThreshold_Object=MibTableColumn
-cucsStorageFlexFlashCardWriteErrorThreshold=_CucsStorageFlexFlashCardWriteErrorThreshold_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,33),_CucsStorageFlexFlashCardWriteErrorThreshold_Type())
-cucsStorageFlexFlashCardWriteErrorThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardWriteErrorThreshold.setStatus(_A)
-_CucsStorageFlexFlashCardPhysicalBlockSize_Type=Gauge32
-_CucsStorageFlexFlashCardPhysicalBlockSize_Object=MibTableColumn
-cucsStorageFlexFlashCardPhysicalBlockSize=_CucsStorageFlexFlashCardPhysicalBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,34,1,34),_CucsStorageFlexFlashCardPhysicalBlockSize_Type())
-cucsStorageFlexFlashCardPhysicalBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashCardPhysicalBlockSize.setStatus(_A)
-_CucsStorageFlexFlashControllerTable_Object=MibTable
-cucsStorageFlexFlashControllerTable=_CucsStorageFlexFlashControllerTable_Object((1,3,6,1,4,1,9,9,719,1,45,35))
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerTable.setStatus(_A)
-_CucsStorageFlexFlashControllerEntry_Object=MibTableRow
-cucsStorageFlexFlashControllerEntry=_CucsStorageFlexFlashControllerEntry_Object((1,3,6,1,4,1,9,9,719,1,45,35,1))
-cucsStorageFlexFlashControllerEntry.setIndexNames((0,_C,_m))
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerEntry.setStatus(_A)
-_CucsStorageFlexFlashControllerInstanceId_Type=CucsManagedObjectId
-_CucsStorageFlexFlashControllerInstanceId_Object=MibTableColumn
-cucsStorageFlexFlashControllerInstanceId=_CucsStorageFlexFlashControllerInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,1),_CucsStorageFlexFlashControllerInstanceId_Type())
-cucsStorageFlexFlashControllerInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerInstanceId.setStatus(_A)
-_CucsStorageFlexFlashControllerDn_Type=CucsManagedObjectDn
-_CucsStorageFlexFlashControllerDn_Object=MibTableColumn
-cucsStorageFlexFlashControllerDn=_CucsStorageFlexFlashControllerDn_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,2),_CucsStorageFlexFlashControllerDn_Type())
-cucsStorageFlexFlashControllerDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerDn.setStatus(_A)
-_CucsStorageFlexFlashControllerRn_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerRn_Object=MibTableColumn
-cucsStorageFlexFlashControllerRn=_CucsStorageFlexFlashControllerRn_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,3),_CucsStorageFlexFlashControllerRn_Type())
-cucsStorageFlexFlashControllerRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerRn.setStatus(_A)
-_CucsStorageFlexFlashControllerControllerHealth_Type=CucsStorageFFControllerHealth
-_CucsStorageFlexFlashControllerControllerHealth_Object=MibTableColumn
-cucsStorageFlexFlashControllerControllerHealth=_CucsStorageFlexFlashControllerControllerHealth_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,4),_CucsStorageFlexFlashControllerControllerHealth_Type())
-cucsStorageFlexFlashControllerControllerHealth.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerControllerHealth.setStatus(_A)
-_CucsStorageFlexFlashControllerControllerState_Type=CucsStorageFFControllerState
-_CucsStorageFlexFlashControllerControllerState_Object=MibTableColumn
-cucsStorageFlexFlashControllerControllerState=_CucsStorageFlexFlashControllerControllerState_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,5),_CucsStorageFlexFlashControllerControllerState_Type())
-cucsStorageFlexFlashControllerControllerState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerControllerState.setStatus(_A)
-_CucsStorageFlexFlashControllerFlexFlashType_Type=CucsStorageFFType
-_CucsStorageFlexFlashControllerFlexFlashType_Object=MibTableColumn
-cucsStorageFlexFlashControllerFlexFlashType=_CucsStorageFlexFlashControllerFlexFlashType_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,6),_CucsStorageFlexFlashControllerFlexFlashType_Type())
-cucsStorageFlexFlashControllerFlexFlashType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFlexFlashType.setStatus(_A)
-_CucsStorageFlexFlashControllerId_Type=CucsStorageFlexFlashControllerId
-_CucsStorageFlexFlashControllerId_Object=MibTableColumn
-cucsStorageFlexFlashControllerId=_CucsStorageFlexFlashControllerId_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,7),_CucsStorageFlexFlashControllerId_Type())
-cucsStorageFlexFlashControllerId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerId.setStatus(_A)
-_CucsStorageFlexFlashControllerModel_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerModel_Object=MibTableColumn
-cucsStorageFlexFlashControllerModel=_CucsStorageFlexFlashControllerModel_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,8),_CucsStorageFlexFlashControllerModel_Type())
-cucsStorageFlexFlashControllerModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerModel.setStatus(_A)
-_CucsStorageFlexFlashControllerOperQualifierReason_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerOperQualifierReason_Object=MibTableColumn
-cucsStorageFlexFlashControllerOperQualifierReason=_CucsStorageFlexFlashControllerOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,9),_CucsStorageFlexFlashControllerOperQualifierReason_Type())
-cucsStorageFlexFlashControllerOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerOperQualifierReason.setStatus(_A)
-_CucsStorageFlexFlashControllerOperState_Type=CucsEquipmentOperability
-_CucsStorageFlexFlashControllerOperState_Object=MibTableColumn
-cucsStorageFlexFlashControllerOperState=_CucsStorageFlexFlashControllerOperState_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,10),_CucsStorageFlexFlashControllerOperState_Type())
-cucsStorageFlexFlashControllerOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerOperState.setStatus(_A)
-_CucsStorageFlexFlashControllerOperability_Type=CucsEquipmentOperability
-_CucsStorageFlexFlashControllerOperability_Object=MibTableColumn
-cucsStorageFlexFlashControllerOperability=_CucsStorageFlexFlashControllerOperability_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,11),_CucsStorageFlexFlashControllerOperability_Type())
-cucsStorageFlexFlashControllerOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerOperability.setStatus(_A)
-_CucsStorageFlexFlashControllerPciAddr_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerPciAddr_Object=MibTableColumn
-cucsStorageFlexFlashControllerPciAddr=_CucsStorageFlexFlashControllerPciAddr_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,12),_CucsStorageFlexFlashControllerPciAddr_Type())
-cucsStorageFlexFlashControllerPciAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerPciAddr.setStatus(_A)
-_CucsStorageFlexFlashControllerPciSlot_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerPciSlot_Object=MibTableColumn
-cucsStorageFlexFlashControllerPciSlot=_CucsStorageFlexFlashControllerPciSlot_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,13),_CucsStorageFlexFlashControllerPciSlot_Type())
-cucsStorageFlexFlashControllerPciSlot.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerPciSlot.setStatus(_A)
-_CucsStorageFlexFlashControllerPerf_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageFlexFlashControllerPerf_Object=MibTableColumn
-cucsStorageFlexFlashControllerPerf=_CucsStorageFlexFlashControllerPerf_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,14),_CucsStorageFlexFlashControllerPerf_Type())
-cucsStorageFlexFlashControllerPerf.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerPerf.setStatus(_A)
-_CucsStorageFlexFlashControllerPhysicalDriveCount_Type=Gauge32
-_CucsStorageFlexFlashControllerPhysicalDriveCount_Object=MibTableColumn
-cucsStorageFlexFlashControllerPhysicalDriveCount=_CucsStorageFlexFlashControllerPhysicalDriveCount_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,15),_CucsStorageFlexFlashControllerPhysicalDriveCount_Type())
-cucsStorageFlexFlashControllerPhysicalDriveCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerPhysicalDriveCount.setStatus(_A)
-_CucsStorageFlexFlashControllerPower_Type=CucsEquipmentPowerState
-_CucsStorageFlexFlashControllerPower_Object=MibTableColumn
-cucsStorageFlexFlashControllerPower=_CucsStorageFlexFlashControllerPower_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,16),_CucsStorageFlexFlashControllerPower_Type())
-cucsStorageFlexFlashControllerPower.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerPower.setStatus(_A)
-_CucsStorageFlexFlashControllerPresence_Type=CucsEquipmentPresence
-_CucsStorageFlexFlashControllerPresence_Object=MibTableColumn
-cucsStorageFlexFlashControllerPresence=_CucsStorageFlexFlashControllerPresence_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,17),_CucsStorageFlexFlashControllerPresence_Type())
-cucsStorageFlexFlashControllerPresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerPresence.setStatus(_A)
-_CucsStorageFlexFlashControllerPrimarySlotNumber_Type=Gauge32
-_CucsStorageFlexFlashControllerPrimarySlotNumber_Object=MibTableColumn
-cucsStorageFlexFlashControllerPrimarySlotNumber=_CucsStorageFlexFlashControllerPrimarySlotNumber_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,18),_CucsStorageFlexFlashControllerPrimarySlotNumber_Type())
-cucsStorageFlexFlashControllerPrimarySlotNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerPrimarySlotNumber.setStatus(_A)
-_CucsStorageFlexFlashControllerRaidSyncSupport_Type=CucsStorageFFRaidSyncSupport
-_CucsStorageFlexFlashControllerRaidSyncSupport_Object=MibTableColumn
-cucsStorageFlexFlashControllerRaidSyncSupport=_CucsStorageFlexFlashControllerRaidSyncSupport_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,19),_CucsStorageFlexFlashControllerRaidSyncSupport_Type())
-cucsStorageFlexFlashControllerRaidSyncSupport.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerRaidSyncSupport.setStatus(_A)
-_CucsStorageFlexFlashControllerReadErrorThreshold_Type=Gauge32
-_CucsStorageFlexFlashControllerReadErrorThreshold_Object=MibTableColumn
-cucsStorageFlexFlashControllerReadErrorThreshold=_CucsStorageFlexFlashControllerReadErrorThreshold_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,20),_CucsStorageFlexFlashControllerReadErrorThreshold_Type())
-cucsStorageFlexFlashControllerReadErrorThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerReadErrorThreshold.setStatus(_A)
-_CucsStorageFlexFlashControllerRevision_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerRevision_Object=MibTableColumn
-cucsStorageFlexFlashControllerRevision=_CucsStorageFlexFlashControllerRevision_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,21),_CucsStorageFlexFlashControllerRevision_Type())
-cucsStorageFlexFlashControllerRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerRevision.setStatus(_A)
-_CucsStorageFlexFlashControllerSerial_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerSerial_Object=MibTableColumn
-cucsStorageFlexFlashControllerSerial=_CucsStorageFlexFlashControllerSerial_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,22),_CucsStorageFlexFlashControllerSerial_Type())
-cucsStorageFlexFlashControllerSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerSerial.setStatus(_A)
-_CucsStorageFlexFlashControllerThermal_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageFlexFlashControllerThermal_Object=MibTableColumn
-cucsStorageFlexFlashControllerThermal=_CucsStorageFlexFlashControllerThermal_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,23),_CucsStorageFlexFlashControllerThermal_Type())
-cucsStorageFlexFlashControllerThermal.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerThermal.setStatus(_A)
-_CucsStorageFlexFlashControllerType_Type=CucsStorageControllerType
-_CucsStorageFlexFlashControllerType_Object=MibTableColumn
-cucsStorageFlexFlashControllerType=_CucsStorageFlexFlashControllerType_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,24),_CucsStorageFlexFlashControllerType_Type())
-cucsStorageFlexFlashControllerType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerType.setStatus(_A)
-_CucsStorageFlexFlashControllerVendor_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerVendor_Object=MibTableColumn
-cucsStorageFlexFlashControllerVendor=_CucsStorageFlexFlashControllerVendor_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,25),_CucsStorageFlexFlashControllerVendor_Type())
-cucsStorageFlexFlashControllerVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerVendor.setStatus(_A)
-_CucsStorageFlexFlashControllerVirtualDriveCount_Type=Gauge32
-_CucsStorageFlexFlashControllerVirtualDriveCount_Object=MibTableColumn
-cucsStorageFlexFlashControllerVirtualDriveCount=_CucsStorageFlexFlashControllerVirtualDriveCount_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,26),_CucsStorageFlexFlashControllerVirtualDriveCount_Type())
-cucsStorageFlexFlashControllerVirtualDriveCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerVirtualDriveCount.setStatus(_A)
-_CucsStorageFlexFlashControllerVoltage_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageFlexFlashControllerVoltage_Object=MibTableColumn
-cucsStorageFlexFlashControllerVoltage=_CucsStorageFlexFlashControllerVoltage_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,27),_CucsStorageFlexFlashControllerVoltage_Type())
-cucsStorageFlexFlashControllerVoltage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerVoltage.setStatus(_A)
-_CucsStorageFlexFlashControllerWriteErrorThreshold_Type=Gauge32
-_CucsStorageFlexFlashControllerWriteErrorThreshold_Object=MibTableColumn
-cucsStorageFlexFlashControllerWriteErrorThreshold=_CucsStorageFlexFlashControllerWriteErrorThreshold_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,28),_CucsStorageFlexFlashControllerWriteErrorThreshold_Type())
-cucsStorageFlexFlashControllerWriteErrorThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerWriteErrorThreshold.setStatus(_A)
-_CucsStorageFlexFlashControllerLocationDn_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerLocationDn_Object=MibTableColumn
-cucsStorageFlexFlashControllerLocationDn=_CucsStorageFlexFlashControllerLocationDn_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,29),_CucsStorageFlexFlashControllerLocationDn_Type())
-cucsStorageFlexFlashControllerLocationDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerLocationDn.setStatus(_A)
-_CucsStorageFlexFlashControllerAdminSlotNumber_Type=CucsStorageFFSlotENUM
-_CucsStorageFlexFlashControllerAdminSlotNumber_Object=MibTableColumn
-cucsStorageFlexFlashControllerAdminSlotNumber=_CucsStorageFlexFlashControllerAdminSlotNumber_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,30),_CucsStorageFlexFlashControllerAdminSlotNumber_Type())
-cucsStorageFlexFlashControllerAdminSlotNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerAdminSlotNumber.setStatus(_A)
-_CucsStorageFlexFlashControllerConfiguredMode_Type=CucsStorageOperatingModeType
-_CucsStorageFlexFlashControllerConfiguredMode_Object=MibTableColumn
-cucsStorageFlexFlashControllerConfiguredMode=_CucsStorageFlexFlashControllerConfiguredMode_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,31),_CucsStorageFlexFlashControllerConfiguredMode_Type())
-cucsStorageFlexFlashControllerConfiguredMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerConfiguredMode.setStatus(_A)
-_CucsStorageFlexFlashControllerFirmwareVersion_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerFirmwareVersion_Object=MibTableColumn
-cucsStorageFlexFlashControllerFirmwareVersion=_CucsStorageFlexFlashControllerFirmwareVersion_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,32),_CucsStorageFlexFlashControllerFirmwareVersion_Type())
-cucsStorageFlexFlashControllerFirmwareVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFirmwareVersion.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmDescr_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerFsmDescr_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmDescr=_CucsStorageFlexFlashControllerFsmDescr_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,33),_CucsStorageFlexFlashControllerFsmDescr_Type())
-cucsStorageFlexFlashControllerFsmDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmDescr.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmPrev_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerFsmPrev_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmPrev=_CucsStorageFlexFlashControllerFsmPrev_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,34),_CucsStorageFlexFlashControllerFsmPrev_Type())
-cucsStorageFlexFlashControllerFsmPrev.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmPrev.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmProgr_Type=Gauge32
-_CucsStorageFlexFlashControllerFsmProgr_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmProgr=_CucsStorageFlexFlashControllerFsmProgr_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,35),_CucsStorageFlexFlashControllerFsmProgr_Type())
-cucsStorageFlexFlashControllerFsmProgr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmProgr.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmRmtInvErrCode_Type=Gauge32
-_CucsStorageFlexFlashControllerFsmRmtInvErrCode_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmRmtInvErrCode=_CucsStorageFlexFlashControllerFsmRmtInvErrCode_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,36),_CucsStorageFlexFlashControllerFsmRmtInvErrCode_Type())
-cucsStorageFlexFlashControllerFsmRmtInvErrCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmRmtInvErrCode.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmRmtInvErrDescr_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerFsmRmtInvErrDescr_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmRmtInvErrDescr=_CucsStorageFlexFlashControllerFsmRmtInvErrDescr_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,37),_CucsStorageFlexFlashControllerFsmRmtInvErrDescr_Type())
-cucsStorageFlexFlashControllerFsmRmtInvErrDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmRmtInvErrDescr.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmRmtInvRslt_Type=CucsConditionRemoteInvRslt
-_CucsStorageFlexFlashControllerFsmRmtInvRslt_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmRmtInvRslt=_CucsStorageFlexFlashControllerFsmRmtInvRslt_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,38),_CucsStorageFlexFlashControllerFsmRmtInvRslt_Type())
-cucsStorageFlexFlashControllerFsmRmtInvRslt.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmRmtInvRslt.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmStageDescr_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerFsmStageDescr_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmStageDescr=_CucsStorageFlexFlashControllerFsmStageDescr_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,39),_CucsStorageFlexFlashControllerFsmStageDescr_Type())
-cucsStorageFlexFlashControllerFsmStageDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmStageDescr.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmStamp_Type=DateAndTime
-_CucsStorageFlexFlashControllerFsmStamp_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmStamp=_CucsStorageFlexFlashControllerFsmStamp_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,40),_CucsStorageFlexFlashControllerFsmStamp_Type())
-cucsStorageFlexFlashControllerFsmStamp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmStamp.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmStatus_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerFsmStatus_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmStatus=_CucsStorageFlexFlashControllerFsmStatus_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,41),_CucsStorageFlexFlashControllerFsmStatus_Type())
-cucsStorageFlexFlashControllerFsmStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmStatus.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmTry_Type=Gauge32
-_CucsStorageFlexFlashControllerFsmTry_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmTry=_CucsStorageFlexFlashControllerFsmTry_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,42),_CucsStorageFlexFlashControllerFsmTry_Type())
-cucsStorageFlexFlashControllerFsmTry.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmTry.setStatus(_A)
-_CucsStorageFlexFlashControllerHasError_Type=CucsStorageFFHasError
-_CucsStorageFlexFlashControllerHasError_Object=MibTableColumn
-cucsStorageFlexFlashControllerHasError=_CucsStorageFlexFlashControllerHasError_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,43),_CucsStorageFlexFlashControllerHasError_Type())
-cucsStorageFlexFlashControllerHasError.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerHasError.setStatus(_A)
-_CucsStorageFlexFlashControllerIsCardMismatch_Type=CucsStorageFFCardSizeMismatch
-_CucsStorageFlexFlashControllerIsCardMismatch_Object=MibTableColumn
-cucsStorageFlexFlashControllerIsCardMismatch=_CucsStorageFlexFlashControllerIsCardMismatch_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,44),_CucsStorageFlexFlashControllerIsCardMismatch_Type())
-cucsStorageFlexFlashControllerIsCardMismatch.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerIsCardMismatch.setStatus(_A)
-_CucsStorageFlexFlashControllerIsFormatFSMRunning_Type=CucsStorageFFFormatRunning
-_CucsStorageFlexFlashControllerIsFormatFSMRunning_Object=MibTableColumn
-cucsStorageFlexFlashControllerIsFormatFSMRunning=_CucsStorageFlexFlashControllerIsFormatFSMRunning_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,45),_CucsStorageFlexFlashControllerIsFormatFSMRunning_Type())
-cucsStorageFlexFlashControllerIsFormatFSMRunning.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerIsFormatFSMRunning.setStatus(_A)
-_CucsStorageFlexFlashControllerOperatingMode_Type=CucsStorageOperatingModeType
-_CucsStorageFlexFlashControllerOperatingMode_Object=MibTableColumn
-cucsStorageFlexFlashControllerOperatingMode=_CucsStorageFlexFlashControllerOperatingMode_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,46),_CucsStorageFlexFlashControllerOperatingMode_Type())
-cucsStorageFlexFlashControllerOperatingMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerOperatingMode.setStatus(_A)
-_CucsStorageFlexFlashControllerOperationRequest_Type=CucsStorageOperationRequestType
-_CucsStorageFlexFlashControllerOperationRequest_Object=MibTableColumn
-cucsStorageFlexFlashControllerOperationRequest=_CucsStorageFlexFlashControllerOperationRequest_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,47),_CucsStorageFlexFlashControllerOperationRequest_Type())
-cucsStorageFlexFlashControllerOperationRequest.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerOperationRequest.setStatus(_A)
-_CucsStorageFlexFlashControllerSubType_Type=CucsStorageControllerSubType
-_CucsStorageFlexFlashControllerSubType_Object=MibTableColumn
-cucsStorageFlexFlashControllerSubType=_CucsStorageFlexFlashControllerSubType_Object((1,3,6,1,4,1,9,9,719,1,45,35,1,48),_CucsStorageFlexFlashControllerSubType_Type())
-cucsStorageFlexFlashControllerSubType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerSubType.setStatus(_A)
-_CucsStorageFlexFlashDriveTable_Object=MibTable
-cucsStorageFlexFlashDriveTable=_CucsStorageFlexFlashDriveTable_Object((1,3,6,1,4,1,9,9,719,1,45,36))
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveTable.setStatus(_A)
-_CucsStorageFlexFlashDriveEntry_Object=MibTableRow
-cucsStorageFlexFlashDriveEntry=_CucsStorageFlexFlashDriveEntry_Object((1,3,6,1,4,1,9,9,719,1,45,36,1))
-cucsStorageFlexFlashDriveEntry.setIndexNames((0,_C,_n))
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveEntry.setStatus(_A)
-_CucsStorageFlexFlashDriveInstanceId_Type=CucsManagedObjectId
-_CucsStorageFlexFlashDriveInstanceId_Object=MibTableColumn
-cucsStorageFlexFlashDriveInstanceId=_CucsStorageFlexFlashDriveInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,1),_CucsStorageFlexFlashDriveInstanceId_Type())
-cucsStorageFlexFlashDriveInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveInstanceId.setStatus(_A)
-_CucsStorageFlexFlashDriveDn_Type=CucsManagedObjectDn
-_CucsStorageFlexFlashDriveDn_Object=MibTableColumn
-cucsStorageFlexFlashDriveDn=_CucsStorageFlexFlashDriveDn_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,2),_CucsStorageFlexFlashDriveDn_Type())
-cucsStorageFlexFlashDriveDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveDn.setStatus(_A)
-_CucsStorageFlexFlashDriveRn_Type=SnmpAdminString
-_CucsStorageFlexFlashDriveRn_Object=MibTableColumn
-cucsStorageFlexFlashDriveRn=_CucsStorageFlexFlashDriveRn_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,3),_CucsStorageFlexFlashDriveRn_Type())
-cucsStorageFlexFlashDriveRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveRn.setStatus(_A)
-_CucsStorageFlexFlashDriveBlockSize_Type=Gauge32
-_CucsStorageFlexFlashDriveBlockSize_Object=MibTableColumn
-cucsStorageFlexFlashDriveBlockSize=_CucsStorageFlexFlashDriveBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,4),_CucsStorageFlexFlashDriveBlockSize_Type())
-cucsStorageFlexFlashDriveBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveBlockSize.setStatus(_A)
-_CucsStorageFlexFlashDriveConnectionProtocol_Type=CucsStorageConnectionProtocol
-_CucsStorageFlexFlashDriveConnectionProtocol_Object=MibTableColumn
-cucsStorageFlexFlashDriveConnectionProtocol=_CucsStorageFlexFlashDriveConnectionProtocol_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,5),_CucsStorageFlexFlashDriveConnectionProtocol_Type())
-cucsStorageFlexFlashDriveConnectionProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveConnectionProtocol.setStatus(_A)
-_CucsStorageFlexFlashDriveControllerIndex_Type=Gauge32
-_CucsStorageFlexFlashDriveControllerIndex_Object=MibTableColumn
-cucsStorageFlexFlashDriveControllerIndex=_CucsStorageFlexFlashDriveControllerIndex_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,6),_CucsStorageFlexFlashDriveControllerIndex_Type())
-cucsStorageFlexFlashDriveControllerIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveControllerIndex.setStatus(_A)
-_CucsStorageFlexFlashDriveDriveState_Type=CucsStorageFFDriveState
-_CucsStorageFlexFlashDriveDriveState_Object=MibTableColumn
-cucsStorageFlexFlashDriveDriveState=_CucsStorageFlexFlashDriveDriveState_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,7),_CucsStorageFlexFlashDriveDriveState_Type())
-cucsStorageFlexFlashDriveDriveState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveDriveState.setStatus(_A)
-_CucsStorageFlexFlashDriveDriveType_Type=CucsStorageFFDriveType
-_CucsStorageFlexFlashDriveDriveType_Object=MibTableColumn
-cucsStorageFlexFlashDriveDriveType=_CucsStorageFlexFlashDriveDriveType_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,8),_CucsStorageFlexFlashDriveDriveType_Type())
-cucsStorageFlexFlashDriveDriveType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveDriveType.setStatus(_A)
-_CucsStorageFlexFlashDriveId_Type=Gauge32
-_CucsStorageFlexFlashDriveId_Object=MibTableColumn
-cucsStorageFlexFlashDriveId=_CucsStorageFlexFlashDriveId_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,9),_CucsStorageFlexFlashDriveId_Type())
-cucsStorageFlexFlashDriveId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveId.setStatus(_A)
-_CucsStorageFlexFlashDriveModel_Type=SnmpAdminString
-_CucsStorageFlexFlashDriveModel_Object=MibTableColumn
-cucsStorageFlexFlashDriveModel=_CucsStorageFlexFlashDriveModel_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,10),_CucsStorageFlexFlashDriveModel_Type())
-cucsStorageFlexFlashDriveModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveModel.setStatus(_A)
-_CucsStorageFlexFlashDriveName_Type=SnmpAdminString
-_CucsStorageFlexFlashDriveName_Object=MibTableColumn
-cucsStorageFlexFlashDriveName=_CucsStorageFlexFlashDriveName_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,11),_CucsStorageFlexFlashDriveName_Type())
-cucsStorageFlexFlashDriveName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveName.setStatus(_A)
-_CucsStorageFlexFlashDriveNumberOfBlocks_Type=Unsigned64
-_CucsStorageFlexFlashDriveNumberOfBlocks_Object=MibTableColumn
-cucsStorageFlexFlashDriveNumberOfBlocks=_CucsStorageFlexFlashDriveNumberOfBlocks_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,12),_CucsStorageFlexFlashDriveNumberOfBlocks_Type())
-cucsStorageFlexFlashDriveNumberOfBlocks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveNumberOfBlocks.setStatus(_A)
-_CucsStorageFlexFlashDriveOperQualifierReason_Type=SnmpAdminString
-_CucsStorageFlexFlashDriveOperQualifierReason_Object=MibTableColumn
-cucsStorageFlexFlashDriveOperQualifierReason=_CucsStorageFlexFlashDriveOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,13),_CucsStorageFlexFlashDriveOperQualifierReason_Type())
-cucsStorageFlexFlashDriveOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveOperQualifierReason.setStatus(_A)
-_CucsStorageFlexFlashDriveOperability_Type=CucsEquipmentOperability
-_CucsStorageFlexFlashDriveOperability_Object=MibTableColumn
-cucsStorageFlexFlashDriveOperability=_CucsStorageFlexFlashDriveOperability_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,14),_CucsStorageFlexFlashDriveOperability_Type())
-cucsStorageFlexFlashDriveOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveOperability.setStatus(_A)
-_CucsStorageFlexFlashDrivePresence_Type=CucsEquipmentPresence
-_CucsStorageFlexFlashDrivePresence_Object=MibTableColumn
-cucsStorageFlexFlashDrivePresence=_CucsStorageFlexFlashDrivePresence_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,15),_CucsStorageFlexFlashDrivePresence_Type())
-cucsStorageFlexFlashDrivePresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDrivePresence.setStatus(_A)
-_CucsStorageFlexFlashDriveRevision_Type=SnmpAdminString
-_CucsStorageFlexFlashDriveRevision_Object=MibTableColumn
-cucsStorageFlexFlashDriveRevision=_CucsStorageFlexFlashDriveRevision_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,16),_CucsStorageFlexFlashDriveRevision_Type())
-cucsStorageFlexFlashDriveRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveRevision.setStatus(_A)
-_CucsStorageFlexFlashDriveSerial_Type=SnmpAdminString
-_CucsStorageFlexFlashDriveSerial_Object=MibTableColumn
-cucsStorageFlexFlashDriveSerial=_CucsStorageFlexFlashDriveSerial_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,17),_CucsStorageFlexFlashDriveSerial_Type())
-cucsStorageFlexFlashDriveSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveSerial.setStatus(_A)
-_CucsStorageFlexFlashDriveSize_Type=Unsigned64
-_CucsStorageFlexFlashDriveSize_Object=MibTableColumn
-cucsStorageFlexFlashDriveSize=_CucsStorageFlexFlashDriveSize_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,18),_CucsStorageFlexFlashDriveSize_Type())
-cucsStorageFlexFlashDriveSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveSize.setStatus(_A)
-_CucsStorageFlexFlashDriveSlotNumber_Type=Gauge32
-_CucsStorageFlexFlashDriveSlotNumber_Object=MibTableColumn
-cucsStorageFlexFlashDriveSlotNumber=_CucsStorageFlexFlashDriveSlotNumber_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,19),_CucsStorageFlexFlashDriveSlotNumber_Type())
-cucsStorageFlexFlashDriveSlotNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveSlotNumber.setStatus(_A)
-_CucsStorageFlexFlashDriveVendor_Type=SnmpAdminString
-_CucsStorageFlexFlashDriveVendor_Object=MibTableColumn
-cucsStorageFlexFlashDriveVendor=_CucsStorageFlexFlashDriveVendor_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,20),_CucsStorageFlexFlashDriveVendor_Type())
-cucsStorageFlexFlashDriveVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveVendor.setStatus(_A)
-_CucsStorageFlexFlashDriveVisible_Type=CucsStorageFFDriveVisible
-_CucsStorageFlexFlashDriveVisible_Object=MibTableColumn
-cucsStorageFlexFlashDriveVisible=_CucsStorageFlexFlashDriveVisible_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,21),_CucsStorageFlexFlashDriveVisible_Type())
-cucsStorageFlexFlashDriveVisible.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveVisible.setStatus(_A)
-_CucsStorageFlexFlashDriveRemovable_Type=CucsStorageFFDriveRemovable
-_CucsStorageFlexFlashDriveRemovable_Object=MibTableColumn
-cucsStorageFlexFlashDriveRemovable=_CucsStorageFlexFlashDriveRemovable_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,22),_CucsStorageFlexFlashDriveRemovable_Type())
-cucsStorageFlexFlashDriveRemovable.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveRemovable.setStatus(_A)
-_CucsStorageFlexFlashDriveRWType_Type=CucsStorageFFRWType
-_CucsStorageFlexFlashDriveRWType_Object=MibTableColumn
-cucsStorageFlexFlashDriveRWType=_CucsStorageFlexFlashDriveRWType_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,23),_CucsStorageFlexFlashDriveRWType_Type())
-cucsStorageFlexFlashDriveRWType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveRWType.setStatus(_A)
-_CucsStorageFlexFlashDriveLastOperation_Type=CucsStorageOperationStateType
-_CucsStorageFlexFlashDriveLastOperation_Object=MibTableColumn
-cucsStorageFlexFlashDriveLastOperation=_CucsStorageFlexFlashDriveLastOperation_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,24),_CucsStorageFlexFlashDriveLastOperation_Type())
-cucsStorageFlexFlashDriveLastOperation.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveLastOperation.setStatus(_A)
-_CucsStorageFlexFlashDriveOperationState_Type=CucsStorageOperationStateType
-_CucsStorageFlexFlashDriveOperationState_Object=MibTableColumn
-cucsStorageFlexFlashDriveOperationState=_CucsStorageFlexFlashDriveOperationState_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,25),_CucsStorageFlexFlashDriveOperationState_Type())
-cucsStorageFlexFlashDriveOperationState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDriveOperationState.setStatus(_A)
-_CucsStorageFlexFlashDrivePhysicalBlockSize_Type=Gauge32
-_CucsStorageFlexFlashDrivePhysicalBlockSize_Object=MibTableColumn
-cucsStorageFlexFlashDrivePhysicalBlockSize=_CucsStorageFlexFlashDrivePhysicalBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,36,1,26),_CucsStorageFlexFlashDrivePhysicalBlockSize_Type())
-cucsStorageFlexFlashDrivePhysicalBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashDrivePhysicalBlockSize.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveTable_Object=MibTable
-cucsStorageFlexFlashVirtualDriveTable=_CucsStorageFlexFlashVirtualDriveTable_Object((1,3,6,1,4,1,9,9,719,1,45,37))
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveTable.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveEntry_Object=MibTableRow
-cucsStorageFlexFlashVirtualDriveEntry=_CucsStorageFlexFlashVirtualDriveEntry_Object((1,3,6,1,4,1,9,9,719,1,45,37,1))
-cucsStorageFlexFlashVirtualDriveEntry.setIndexNames((0,_C,_o))
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveEntry.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveInstanceId_Type=CucsManagedObjectId
-_CucsStorageFlexFlashVirtualDriveInstanceId_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveInstanceId=_CucsStorageFlexFlashVirtualDriveInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,1),_CucsStorageFlexFlashVirtualDriveInstanceId_Type())
-cucsStorageFlexFlashVirtualDriveInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveInstanceId.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveDn_Type=CucsManagedObjectDn
-_CucsStorageFlexFlashVirtualDriveDn_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveDn=_CucsStorageFlexFlashVirtualDriveDn_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,2),_CucsStorageFlexFlashVirtualDriveDn_Type())
-cucsStorageFlexFlashVirtualDriveDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveDn.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveRn_Type=SnmpAdminString
-_CucsStorageFlexFlashVirtualDriveRn_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveRn=_CucsStorageFlexFlashVirtualDriveRn_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,3),_CucsStorageFlexFlashVirtualDriveRn_Type())
-cucsStorageFlexFlashVirtualDriveRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveRn.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveBlockSize_Type=Gauge32
-_CucsStorageFlexFlashVirtualDriveBlockSize_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveBlockSize=_CucsStorageFlexFlashVirtualDriveBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,4),_CucsStorageFlexFlashVirtualDriveBlockSize_Type())
-cucsStorageFlexFlashVirtualDriveBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveBlockSize.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveConnectionProtocol_Type=CucsStorageConnectionProtocol
-_CucsStorageFlexFlashVirtualDriveConnectionProtocol_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveConnectionProtocol=_CucsStorageFlexFlashVirtualDriveConnectionProtocol_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,5),_CucsStorageFlexFlashVirtualDriveConnectionProtocol_Type())
-cucsStorageFlexFlashVirtualDriveConnectionProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveConnectionProtocol.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveId_Type=Gauge32
-_CucsStorageFlexFlashVirtualDriveId_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveId=_CucsStorageFlexFlashVirtualDriveId_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,6),_CucsStorageFlexFlashVirtualDriveId_Type())
-cucsStorageFlexFlashVirtualDriveId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveId.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveModel_Type=SnmpAdminString
-_CucsStorageFlexFlashVirtualDriveModel_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveModel=_CucsStorageFlexFlashVirtualDriveModel_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,7),_CucsStorageFlexFlashVirtualDriveModel_Type())
-cucsStorageFlexFlashVirtualDriveModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveModel.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveNumberOfBlocks_Type=Unsigned64
-_CucsStorageFlexFlashVirtualDriveNumberOfBlocks_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveNumberOfBlocks=_CucsStorageFlexFlashVirtualDriveNumberOfBlocks_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,8),_CucsStorageFlexFlashVirtualDriveNumberOfBlocks_Type())
-cucsStorageFlexFlashVirtualDriveNumberOfBlocks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveNumberOfBlocks.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveOperQualifierReason_Type=SnmpAdminString
-_CucsStorageFlexFlashVirtualDriveOperQualifierReason_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveOperQualifierReason=_CucsStorageFlexFlashVirtualDriveOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,9),_CucsStorageFlexFlashVirtualDriveOperQualifierReason_Type())
-cucsStorageFlexFlashVirtualDriveOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveOperQualifierReason.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveOperability_Type=CucsEquipmentOperability
-_CucsStorageFlexFlashVirtualDriveOperability_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveOperability=_CucsStorageFlexFlashVirtualDriveOperability_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,10),_CucsStorageFlexFlashVirtualDriveOperability_Type())
-cucsStorageFlexFlashVirtualDriveOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveOperability.setStatus(_A)
-_CucsStorageFlexFlashVirtualDrivePresence_Type=CucsEquipmentPresence
-_CucsStorageFlexFlashVirtualDrivePresence_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDrivePresence=_CucsStorageFlexFlashVirtualDrivePresence_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,11),_CucsStorageFlexFlashVirtualDrivePresence_Type())
-cucsStorageFlexFlashVirtualDrivePresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDrivePresence.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveRaidHealth_Type=CucsStorageFFRAIDHealth
-_CucsStorageFlexFlashVirtualDriveRaidHealth_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveRaidHealth=_CucsStorageFlexFlashVirtualDriveRaidHealth_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,12),_CucsStorageFlexFlashVirtualDriveRaidHealth_Type())
-cucsStorageFlexFlashVirtualDriveRaidHealth.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveRaidHealth.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveRaidState_Type=CucsStorageFFRAIDState
-_CucsStorageFlexFlashVirtualDriveRaidState_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveRaidState=_CucsStorageFlexFlashVirtualDriveRaidState_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,13),_CucsStorageFlexFlashVirtualDriveRaidState_Type())
-cucsStorageFlexFlashVirtualDriveRaidState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveRaidState.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveRevision_Type=SnmpAdminString
-_CucsStorageFlexFlashVirtualDriveRevision_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveRevision=_CucsStorageFlexFlashVirtualDriveRevision_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,14),_CucsStorageFlexFlashVirtualDriveRevision_Type())
-cucsStorageFlexFlashVirtualDriveRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveRevision.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveSerial_Type=SnmpAdminString
-_CucsStorageFlexFlashVirtualDriveSerial_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveSerial=_CucsStorageFlexFlashVirtualDriveSerial_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,15),_CucsStorageFlexFlashVirtualDriveSerial_Type())
-cucsStorageFlexFlashVirtualDriveSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveSerial.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveSize_Type=Unsigned64
-_CucsStorageFlexFlashVirtualDriveSize_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveSize=_CucsStorageFlexFlashVirtualDriveSize_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,16),_CucsStorageFlexFlashVirtualDriveSize_Type())
-cucsStorageFlexFlashVirtualDriveSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveSize.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveType_Type=CucsStorageLunType
-_CucsStorageFlexFlashVirtualDriveType_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveType=_CucsStorageFlexFlashVirtualDriveType_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,17),_CucsStorageFlexFlashVirtualDriveType_Type())
-cucsStorageFlexFlashVirtualDriveType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveType.setStatus(_A)
-_CucsStorageFlexFlashVirtualDriveVendor_Type=SnmpAdminString
-_CucsStorageFlexFlashVirtualDriveVendor_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDriveVendor=_CucsStorageFlexFlashVirtualDriveVendor_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,18),_CucsStorageFlexFlashVirtualDriveVendor_Type())
-cucsStorageFlexFlashVirtualDriveVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDriveVendor.setStatus(_A)
-_CucsStorageFlexFlashVirtualDrivePhysicalBlockSize_Type=Gauge32
-_CucsStorageFlexFlashVirtualDrivePhysicalBlockSize_Object=MibTableColumn
-cucsStorageFlexFlashVirtualDrivePhysicalBlockSize=_CucsStorageFlexFlashVirtualDrivePhysicalBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,37,1,19),_CucsStorageFlexFlashVirtualDrivePhysicalBlockSize_Type())
-cucsStorageFlexFlashVirtualDrivePhysicalBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashVirtualDrivePhysicalBlockSize.setStatus(_A)
-_CucsStorageOperationTable_Object=MibTable
-cucsStorageOperationTable=_CucsStorageOperationTable_Object((1,3,6,1,4,1,9,9,719,1,45,38))
-if mibBuilder.loadTexts:cucsStorageOperationTable.setStatus(_A)
-_CucsStorageOperationEntry_Object=MibTableRow
-cucsStorageOperationEntry=_CucsStorageOperationEntry_Object((1,3,6,1,4,1,9,9,719,1,45,38,1))
-cucsStorageOperationEntry.setIndexNames((0,_C,_p))
-if mibBuilder.loadTexts:cucsStorageOperationEntry.setStatus(_A)
-_CucsStorageOperationInstanceId_Type=CucsManagedObjectId
-_CucsStorageOperationInstanceId_Object=MibTableColumn
-cucsStorageOperationInstanceId=_CucsStorageOperationInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,38,1,1),_CucsStorageOperationInstanceId_Type())
-cucsStorageOperationInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageOperationInstanceId.setStatus(_A)
-_CucsStorageOperationDn_Type=CucsManagedObjectDn
-_CucsStorageOperationDn_Object=MibTableColumn
-cucsStorageOperationDn=_CucsStorageOperationDn_Object((1,3,6,1,4,1,9,9,719,1,45,38,1,2),_CucsStorageOperationDn_Type())
-cucsStorageOperationDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOperationDn.setStatus(_A)
-_CucsStorageOperationRn_Type=SnmpAdminString
-_CucsStorageOperationRn_Object=MibTableColumn
-cucsStorageOperationRn=_CucsStorageOperationRn_Object((1,3,6,1,4,1,9,9,719,1,45,38,1,3),_CucsStorageOperationRn_Type())
-cucsStorageOperationRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOperationRn.setStatus(_A)
-_CucsStorageOperationEndTime_Type=DateAndTime
-_CucsStorageOperationEndTime_Object=MibTableColumn
-cucsStorageOperationEndTime=_CucsStorageOperationEndTime_Object((1,3,6,1,4,1,9,9,719,1,45,38,1,4),_CucsStorageOperationEndTime_Type())
-cucsStorageOperationEndTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOperationEndTime.setStatus(_A)
-_CucsStorageOperationName_Type=CucsStorageOperationType
-_CucsStorageOperationName_Object=MibTableColumn
-cucsStorageOperationName=_CucsStorageOperationName_Object((1,3,6,1,4,1,9,9,719,1,45,38,1,5),_CucsStorageOperationName_Type())
-cucsStorageOperationName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOperationName.setStatus(_A)
-_CucsStorageOperationOperState_Type=CucsStorageOperationState
-_CucsStorageOperationOperState_Object=MibTableColumn
-cucsStorageOperationOperState=_CucsStorageOperationOperState_Object((1,3,6,1,4,1,9,9,719,1,45,38,1,6),_CucsStorageOperationOperState_Type())
-cucsStorageOperationOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOperationOperState.setStatus(_A)
-_CucsStorageOperationProgress_Type=Gauge32
-_CucsStorageOperationProgress_Object=MibTableColumn
-cucsStorageOperationProgress=_CucsStorageOperationProgress_Object((1,3,6,1,4,1,9,9,719,1,45,38,1,7),_CucsStorageOperationProgress_Type())
-cucsStorageOperationProgress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOperationProgress.setStatus(_A)
-_CucsStorageOperationStartTime_Type=DateAndTime
-_CucsStorageOperationStartTime_Object=MibTableColumn
-cucsStorageOperationStartTime=_CucsStorageOperationStartTime_Object((1,3,6,1,4,1,9,9,719,1,45,38,1,8),_CucsStorageOperationStartTime_Type())
-cucsStorageOperationStartTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOperationStartTime.setStatus(_A)
-_CucsStorageOperationStatusDescr_Type=SnmpAdminString
-_CucsStorageOperationStatusDescr_Object=MibTableColumn
-cucsStorageOperationStatusDescr=_CucsStorageOperationStatusDescr_Object((1,3,6,1,4,1,9,9,719,1,45,38,1,9),_CucsStorageOperationStatusDescr_Type())
-cucsStorageOperationStatusDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOperationStatusDescr.setStatus(_A)
-_CucsStorageMezzFlashLifeTable_Object=MibTable
-cucsStorageMezzFlashLifeTable=_CucsStorageMezzFlashLifeTable_Object((1,3,6,1,4,1,9,9,719,1,45,39))
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeTable.setStatus(_A)
-_CucsStorageMezzFlashLifeEntry_Object=MibTableRow
-cucsStorageMezzFlashLifeEntry=_CucsStorageMezzFlashLifeEntry_Object((1,3,6,1,4,1,9,9,719,1,45,39,1))
-cucsStorageMezzFlashLifeEntry.setIndexNames((0,_C,_q))
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeEntry.setStatus(_A)
-_CucsStorageMezzFlashLifeInstanceId_Type=CucsManagedObjectId
-_CucsStorageMezzFlashLifeInstanceId_Object=MibTableColumn
-cucsStorageMezzFlashLifeInstanceId=_CucsStorageMezzFlashLifeInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,1),_CucsStorageMezzFlashLifeInstanceId_Type())
-cucsStorageMezzFlashLifeInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeInstanceId.setStatus(_A)
-_CucsStorageMezzFlashLifeDn_Type=CucsManagedObjectDn
-_CucsStorageMezzFlashLifeDn_Object=MibTableColumn
-cucsStorageMezzFlashLifeDn=_CucsStorageMezzFlashLifeDn_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,2),_CucsStorageMezzFlashLifeDn_Type())
-cucsStorageMezzFlashLifeDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeDn.setStatus(_A)
-_CucsStorageMezzFlashLifeRn_Type=SnmpAdminString
-_CucsStorageMezzFlashLifeRn_Object=MibTableColumn
-cucsStorageMezzFlashLifeRn=_CucsStorageMezzFlashLifeRn_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,3),_CucsStorageMezzFlashLifeRn_Type())
-cucsStorageMezzFlashLifeRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeRn.setStatus(_A)
-_CucsStorageMezzFlashLifeBlockSize_Type=Gauge32
-_CucsStorageMezzFlashLifeBlockSize_Object=MibTableColumn
-cucsStorageMezzFlashLifeBlockSize=_CucsStorageMezzFlashLifeBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,4),_CucsStorageMezzFlashLifeBlockSize_Type())
-cucsStorageMezzFlashLifeBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeBlockSize.setStatus(_A)
-_CucsStorageMezzFlashLifeConnectionProtocol_Type=CucsStorageConnectionProtocol
-_CucsStorageMezzFlashLifeConnectionProtocol_Object=MibTableColumn
-cucsStorageMezzFlashLifeConnectionProtocol=_CucsStorageMezzFlashLifeConnectionProtocol_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,5),_CucsStorageMezzFlashLifeConnectionProtocol_Type())
-cucsStorageMezzFlashLifeConnectionProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeConnectionProtocol.setStatus(_A)
-_CucsStorageMezzFlashLifeFlashPercentage_Type=SnmpAdminString
-_CucsStorageMezzFlashLifeFlashPercentage_Object=MibTableColumn
-cucsStorageMezzFlashLifeFlashPercentage=_CucsStorageMezzFlashLifeFlashPercentage_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,6),_CucsStorageMezzFlashLifeFlashPercentage_Type())
-cucsStorageMezzFlashLifeFlashPercentage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeFlashPercentage.setStatus(_A)
-_CucsStorageMezzFlashLifeFlashStatus_Type=SnmpAdminString
-_CucsStorageMezzFlashLifeFlashStatus_Object=MibTableColumn
-cucsStorageMezzFlashLifeFlashStatus=_CucsStorageMezzFlashLifeFlashStatus_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,7),_CucsStorageMezzFlashLifeFlashStatus_Type())
-cucsStorageMezzFlashLifeFlashStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeFlashStatus.setStatus(_A)
-_CucsStorageMezzFlashLifeId_Type=Gauge32
-_CucsStorageMezzFlashLifeId_Object=MibTableColumn
-cucsStorageMezzFlashLifeId=_CucsStorageMezzFlashLifeId_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,8),_CucsStorageMezzFlashLifeId_Type())
-cucsStorageMezzFlashLifeId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeId.setStatus(_A)
-_CucsStorageMezzFlashLifeModel_Type=SnmpAdminString
-_CucsStorageMezzFlashLifeModel_Object=MibTableColumn
-cucsStorageMezzFlashLifeModel=_CucsStorageMezzFlashLifeModel_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,9),_CucsStorageMezzFlashLifeModel_Type())
-cucsStorageMezzFlashLifeModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeModel.setStatus(_A)
-_CucsStorageMezzFlashLifeNumberOfBlocks_Type=Unsigned64
-_CucsStorageMezzFlashLifeNumberOfBlocks_Object=MibTableColumn
-cucsStorageMezzFlashLifeNumberOfBlocks=_CucsStorageMezzFlashLifeNumberOfBlocks_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,10),_CucsStorageMezzFlashLifeNumberOfBlocks_Type())
-cucsStorageMezzFlashLifeNumberOfBlocks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeNumberOfBlocks.setStatus(_A)
-_CucsStorageMezzFlashLifeOperQualifierReason_Type=SnmpAdminString
-_CucsStorageMezzFlashLifeOperQualifierReason_Object=MibTableColumn
-cucsStorageMezzFlashLifeOperQualifierReason=_CucsStorageMezzFlashLifeOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,11),_CucsStorageMezzFlashLifeOperQualifierReason_Type())
-cucsStorageMezzFlashLifeOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeOperQualifierReason.setStatus(_A)
-_CucsStorageMezzFlashLifeOperability_Type=CucsEquipmentOperability
-_CucsStorageMezzFlashLifeOperability_Object=MibTableColumn
-cucsStorageMezzFlashLifeOperability=_CucsStorageMezzFlashLifeOperability_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,12),_CucsStorageMezzFlashLifeOperability_Type())
-cucsStorageMezzFlashLifeOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeOperability.setStatus(_A)
-_CucsStorageMezzFlashLifePresence_Type=CucsEquipmentPresence
-_CucsStorageMezzFlashLifePresence_Object=MibTableColumn
-cucsStorageMezzFlashLifePresence=_CucsStorageMezzFlashLifePresence_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,13),_CucsStorageMezzFlashLifePresence_Type())
-cucsStorageMezzFlashLifePresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifePresence.setStatus(_A)
-_CucsStorageMezzFlashLifeRevision_Type=SnmpAdminString
-_CucsStorageMezzFlashLifeRevision_Object=MibTableColumn
-cucsStorageMezzFlashLifeRevision=_CucsStorageMezzFlashLifeRevision_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,14),_CucsStorageMezzFlashLifeRevision_Type())
-cucsStorageMezzFlashLifeRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeRevision.setStatus(_A)
-_CucsStorageMezzFlashLifeSerial_Type=SnmpAdminString
-_CucsStorageMezzFlashLifeSerial_Object=MibTableColumn
-cucsStorageMezzFlashLifeSerial=_CucsStorageMezzFlashLifeSerial_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,15),_CucsStorageMezzFlashLifeSerial_Type())
-cucsStorageMezzFlashLifeSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeSerial.setStatus(_A)
-_CucsStorageMezzFlashLifeSize_Type=Unsigned64
-_CucsStorageMezzFlashLifeSize_Object=MibTableColumn
-cucsStorageMezzFlashLifeSize=_CucsStorageMezzFlashLifeSize_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,16),_CucsStorageMezzFlashLifeSize_Type())
-cucsStorageMezzFlashLifeSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeSize.setStatus(_A)
-_CucsStorageMezzFlashLifeVendor_Type=SnmpAdminString
-_CucsStorageMezzFlashLifeVendor_Object=MibTableColumn
-cucsStorageMezzFlashLifeVendor=_CucsStorageMezzFlashLifeVendor_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,17),_CucsStorageMezzFlashLifeVendor_Type())
-cucsStorageMezzFlashLifeVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifeVendor.setStatus(_A)
-_CucsStorageMezzFlashLifePhysicalBlockSize_Type=Gauge32
-_CucsStorageMezzFlashLifePhysicalBlockSize_Object=MibTableColumn
-cucsStorageMezzFlashLifePhysicalBlockSize=_CucsStorageMezzFlashLifePhysicalBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,39,1,18),_CucsStorageMezzFlashLifePhysicalBlockSize_Type())
-cucsStorageMezzFlashLifePhysicalBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMezzFlashLifePhysicalBlockSize.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmTable_Object=MibTable
-cucsStorageFlexFlashControllerFsmTable=_CucsStorageFlexFlashControllerFsmTable_Object((1,3,6,1,4,1,9,9,719,1,45,40))
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmTable.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmEntry_Object=MibTableRow
-cucsStorageFlexFlashControllerFsmEntry=_CucsStorageFlexFlashControllerFsmEntry_Object((1,3,6,1,4,1,9,9,719,1,45,40,1))
-cucsStorageFlexFlashControllerFsmEntry.setIndexNames((0,_C,_r))
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmEntry.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmInstanceId_Type=CucsManagedObjectId
-_CucsStorageFlexFlashControllerFsmInstanceId_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmInstanceId=_CucsStorageFlexFlashControllerFsmInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,40,1,1),_CucsStorageFlexFlashControllerFsmInstanceId_Type())
-cucsStorageFlexFlashControllerFsmInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmInstanceId.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmDn_Type=CucsManagedObjectDn
-_CucsStorageFlexFlashControllerFsmDn_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmDn=_CucsStorageFlexFlashControllerFsmDn_Object((1,3,6,1,4,1,9,9,719,1,45,40,1,2),_CucsStorageFlexFlashControllerFsmDn_Type())
-cucsStorageFlexFlashControllerFsmDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmDn.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmRn_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerFsmRn_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmRn=_CucsStorageFlexFlashControllerFsmRn_Object((1,3,6,1,4,1,9,9,719,1,45,40,1,3),_CucsStorageFlexFlashControllerFsmRn_Type())
-cucsStorageFlexFlashControllerFsmRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmRn.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmCompletionTime_Type=DateAndTime
-_CucsStorageFlexFlashControllerFsmCompletionTime_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmCompletionTime=_CucsStorageFlexFlashControllerFsmCompletionTime_Object((1,3,6,1,4,1,9,9,719,1,45,40,1,4),_CucsStorageFlexFlashControllerFsmCompletionTime_Type())
-cucsStorageFlexFlashControllerFsmCompletionTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmCompletionTime.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmCurrentFsm_Type=CucsStorageFlexFlashControllerFsmCurrentFsm
-_CucsStorageFlexFlashControllerFsmCurrentFsm_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmCurrentFsm=_CucsStorageFlexFlashControllerFsmCurrentFsm_Object((1,3,6,1,4,1,9,9,719,1,45,40,1,5),_CucsStorageFlexFlashControllerFsmCurrentFsm_Type())
-cucsStorageFlexFlashControllerFsmCurrentFsm.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmCurrentFsm.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmDescrData_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerFsmDescrData_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmDescrData=_CucsStorageFlexFlashControllerFsmDescrData_Object((1,3,6,1,4,1,9,9,719,1,45,40,1,6),_CucsStorageFlexFlashControllerFsmDescrData_Type())
-cucsStorageFlexFlashControllerFsmDescrData.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmDescrData.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmFsmStatus_Type=CucsFsmFsmStageStatus
-_CucsStorageFlexFlashControllerFsmFsmStatus_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmFsmStatus=_CucsStorageFlexFlashControllerFsmFsmStatus_Object((1,3,6,1,4,1,9,9,719,1,45,40,1,7),_CucsStorageFlexFlashControllerFsmFsmStatus_Type())
-cucsStorageFlexFlashControllerFsmFsmStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmFsmStatus.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmProgress_Type=Gauge32
-_CucsStorageFlexFlashControllerFsmProgress_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmProgress=_CucsStorageFlexFlashControllerFsmProgress_Object((1,3,6,1,4,1,9,9,719,1,45,40,1,8),_CucsStorageFlexFlashControllerFsmProgress_Type())
-cucsStorageFlexFlashControllerFsmProgress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmProgress.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmRmtErrCode_Type=Gauge32
-_CucsStorageFlexFlashControllerFsmRmtErrCode_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmRmtErrCode=_CucsStorageFlexFlashControllerFsmRmtErrCode_Object((1,3,6,1,4,1,9,9,719,1,45,40,1,9),_CucsStorageFlexFlashControllerFsmRmtErrCode_Type())
-cucsStorageFlexFlashControllerFsmRmtErrCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmRmtErrCode.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmRmtErrDescr_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerFsmRmtErrDescr_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmRmtErrDescr=_CucsStorageFlexFlashControllerFsmRmtErrDescr_Object((1,3,6,1,4,1,9,9,719,1,45,40,1,10),_CucsStorageFlexFlashControllerFsmRmtErrDescr_Type())
-cucsStorageFlexFlashControllerFsmRmtErrDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmRmtErrDescr.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmRmtRslt_Type=CucsConditionRemoteInvRslt
-_CucsStorageFlexFlashControllerFsmRmtRslt_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmRmtRslt=_CucsStorageFlexFlashControllerFsmRmtRslt_Object((1,3,6,1,4,1,9,9,719,1,45,40,1,11),_CucsStorageFlexFlashControllerFsmRmtRslt_Type())
-cucsStorageFlexFlashControllerFsmRmtRslt.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmRmtRslt.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmStageTable_Object=MibTable
-cucsStorageFlexFlashControllerFsmStageTable=_CucsStorageFlexFlashControllerFsmStageTable_Object((1,3,6,1,4,1,9,9,719,1,45,41))
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmStageTable.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmStageEntry_Object=MibTableRow
-cucsStorageFlexFlashControllerFsmStageEntry=_CucsStorageFlexFlashControllerFsmStageEntry_Object((1,3,6,1,4,1,9,9,719,1,45,41,1))
-cucsStorageFlexFlashControllerFsmStageEntry.setIndexNames((0,_C,_s))
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmStageEntry.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmStageInstanceId_Type=CucsManagedObjectId
-_CucsStorageFlexFlashControllerFsmStageInstanceId_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmStageInstanceId=_CucsStorageFlexFlashControllerFsmStageInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,41,1,1),_CucsStorageFlexFlashControllerFsmStageInstanceId_Type())
-cucsStorageFlexFlashControllerFsmStageInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmStageInstanceId.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmStageDn_Type=CucsManagedObjectDn
-_CucsStorageFlexFlashControllerFsmStageDn_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmStageDn=_CucsStorageFlexFlashControllerFsmStageDn_Object((1,3,6,1,4,1,9,9,719,1,45,41,1,2),_CucsStorageFlexFlashControllerFsmStageDn_Type())
-cucsStorageFlexFlashControllerFsmStageDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmStageDn.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmStageRn_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerFsmStageRn_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmStageRn=_CucsStorageFlexFlashControllerFsmStageRn_Object((1,3,6,1,4,1,9,9,719,1,45,41,1,3),_CucsStorageFlexFlashControllerFsmStageRn_Type())
-cucsStorageFlexFlashControllerFsmStageRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmStageRn.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmStageDescrData_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerFsmStageDescrData_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmStageDescrData=_CucsStorageFlexFlashControllerFsmStageDescrData_Object((1,3,6,1,4,1,9,9,719,1,45,41,1,4),_CucsStorageFlexFlashControllerFsmStageDescrData_Type())
-cucsStorageFlexFlashControllerFsmStageDescrData.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmStageDescrData.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmStageLastUpdateTime_Type=DateAndTime
-_CucsStorageFlexFlashControllerFsmStageLastUpdateTime_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmStageLastUpdateTime=_CucsStorageFlexFlashControllerFsmStageLastUpdateTime_Object((1,3,6,1,4,1,9,9,719,1,45,41,1,5),_CucsStorageFlexFlashControllerFsmStageLastUpdateTime_Type())
-cucsStorageFlexFlashControllerFsmStageLastUpdateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmStageLastUpdateTime.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmStageName_Type=CucsStorageFlexFlashControllerFsmStageName
-_CucsStorageFlexFlashControllerFsmStageName_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmStageName=_CucsStorageFlexFlashControllerFsmStageName_Object((1,3,6,1,4,1,9,9,719,1,45,41,1,6),_CucsStorageFlexFlashControllerFsmStageName_Type())
-cucsStorageFlexFlashControllerFsmStageName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmStageName.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmStageOrder_Type=Gauge32
-_CucsStorageFlexFlashControllerFsmStageOrder_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmStageOrder=_CucsStorageFlexFlashControllerFsmStageOrder_Object((1,3,6,1,4,1,9,9,719,1,45,41,1,7),_CucsStorageFlexFlashControllerFsmStageOrder_Type())
-cucsStorageFlexFlashControllerFsmStageOrder.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmStageOrder.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmStageRetry_Type=Gauge32
-_CucsStorageFlexFlashControllerFsmStageRetry_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmStageRetry=_CucsStorageFlexFlashControllerFsmStageRetry_Object((1,3,6,1,4,1,9,9,719,1,45,41,1,8),_CucsStorageFlexFlashControllerFsmStageRetry_Type())
-cucsStorageFlexFlashControllerFsmStageRetry.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmStageRetry.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmStageStageStatus_Type=CucsFsmFsmStageStatus
-_CucsStorageFlexFlashControllerFsmStageStageStatus_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmStageStageStatus=_CucsStorageFlexFlashControllerFsmStageStageStatus_Object((1,3,6,1,4,1,9,9,719,1,45,41,1,9),_CucsStorageFlexFlashControllerFsmStageStageStatus_Type())
-cucsStorageFlexFlashControllerFsmStageStageStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmStageStageStatus.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmTaskTable_Object=MibTable
-cucsStorageFlexFlashControllerFsmTaskTable=_CucsStorageFlexFlashControllerFsmTaskTable_Object((1,3,6,1,4,1,9,9,719,1,45,42))
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmTaskTable.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmTaskEntry_Object=MibTableRow
-cucsStorageFlexFlashControllerFsmTaskEntry=_CucsStorageFlexFlashControllerFsmTaskEntry_Object((1,3,6,1,4,1,9,9,719,1,45,42,1))
-cucsStorageFlexFlashControllerFsmTaskEntry.setIndexNames((0,_C,_t))
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmTaskEntry.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmTaskInstanceId_Type=CucsManagedObjectId
-_CucsStorageFlexFlashControllerFsmTaskInstanceId_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmTaskInstanceId=_CucsStorageFlexFlashControllerFsmTaskInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,42,1,1),_CucsStorageFlexFlashControllerFsmTaskInstanceId_Type())
-cucsStorageFlexFlashControllerFsmTaskInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmTaskInstanceId.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmTaskDn_Type=CucsManagedObjectDn
-_CucsStorageFlexFlashControllerFsmTaskDn_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmTaskDn=_CucsStorageFlexFlashControllerFsmTaskDn_Object((1,3,6,1,4,1,9,9,719,1,45,42,1,2),_CucsStorageFlexFlashControllerFsmTaskDn_Type())
-cucsStorageFlexFlashControllerFsmTaskDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmTaskDn.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmTaskRn_Type=SnmpAdminString
-_CucsStorageFlexFlashControllerFsmTaskRn_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmTaskRn=_CucsStorageFlexFlashControllerFsmTaskRn_Object((1,3,6,1,4,1,9,9,719,1,45,42,1,3),_CucsStorageFlexFlashControllerFsmTaskRn_Type())
-cucsStorageFlexFlashControllerFsmTaskRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmTaskRn.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmTaskCompletion_Type=CucsFsmCompletion
-_CucsStorageFlexFlashControllerFsmTaskCompletion_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmTaskCompletion=_CucsStorageFlexFlashControllerFsmTaskCompletion_Object((1,3,6,1,4,1,9,9,719,1,45,42,1,4),_CucsStorageFlexFlashControllerFsmTaskCompletion_Type())
-cucsStorageFlexFlashControllerFsmTaskCompletion.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmTaskCompletion.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmTaskFlags_Type=CucsFsmFlags
-_CucsStorageFlexFlashControllerFsmTaskFlags_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmTaskFlags=_CucsStorageFlexFlashControllerFsmTaskFlags_Object((1,3,6,1,4,1,9,9,719,1,45,42,1,5),_CucsStorageFlexFlashControllerFsmTaskFlags_Type())
-cucsStorageFlexFlashControllerFsmTaskFlags.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmTaskFlags.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmTaskItem_Type=CucsStorageFlexFlashControllerFsmTaskItem
-_CucsStorageFlexFlashControllerFsmTaskItem_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmTaskItem=_CucsStorageFlexFlashControllerFsmTaskItem_Object((1,3,6,1,4,1,9,9,719,1,45,42,1,6),_CucsStorageFlexFlashControllerFsmTaskItem_Type())
-cucsStorageFlexFlashControllerFsmTaskItem.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmTaskItem.setStatus(_A)
-_CucsStorageFlexFlashControllerFsmTaskSeqId_Type=Gauge32
-_CucsStorageFlexFlashControllerFsmTaskSeqId_Object=MibTableColumn
-cucsStorageFlexFlashControllerFsmTaskSeqId=_CucsStorageFlexFlashControllerFsmTaskSeqId_Object((1,3,6,1,4,1,9,9,719,1,45,42,1,7),_CucsStorageFlexFlashControllerFsmTaskSeqId_Type())
-cucsStorageFlexFlashControllerFsmTaskSeqId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageFlexFlashControllerFsmTaskSeqId.setStatus(_A)
-_CucsStorageDiskEnvStatsTable_Object=MibTable
-cucsStorageDiskEnvStatsTable=_CucsStorageDiskEnvStatsTable_Object((1,3,6,1,4,1,9,9,719,1,45,50))
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsTable.setStatus(_A)
-_CucsStorageDiskEnvStatsEntry_Object=MibTableRow
-cucsStorageDiskEnvStatsEntry=_CucsStorageDiskEnvStatsEntry_Object((1,3,6,1,4,1,9,9,719,1,45,50,1))
-cucsStorageDiskEnvStatsEntry.setIndexNames((0,_C,_u))
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsEntry.setStatus(_A)
-_CucsStorageDiskEnvStatsInstanceId_Type=CucsManagedObjectId
-_CucsStorageDiskEnvStatsInstanceId_Object=MibTableColumn
-cucsStorageDiskEnvStatsInstanceId=_CucsStorageDiskEnvStatsInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,1),_CucsStorageDiskEnvStatsInstanceId_Type())
-cucsStorageDiskEnvStatsInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsInstanceId.setStatus(_A)
-_CucsStorageDiskEnvStatsDn_Type=CucsManagedObjectDn
-_CucsStorageDiskEnvStatsDn_Object=MibTableColumn
-cucsStorageDiskEnvStatsDn=_CucsStorageDiskEnvStatsDn_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,2),_CucsStorageDiskEnvStatsDn_Type())
-cucsStorageDiskEnvStatsDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsDn.setStatus(_A)
-_CucsStorageDiskEnvStatsRn_Type=SnmpAdminString
-_CucsStorageDiskEnvStatsRn_Object=MibTableColumn
-cucsStorageDiskEnvStatsRn=_CucsStorageDiskEnvStatsRn_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,3),_CucsStorageDiskEnvStatsRn_Type())
-cucsStorageDiskEnvStatsRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsRn.setStatus(_A)
-_CucsStorageDiskEnvStatsIntervals_Type=Gauge32
-_CucsStorageDiskEnvStatsIntervals_Object=MibTableColumn
-cucsStorageDiskEnvStatsIntervals=_CucsStorageDiskEnvStatsIntervals_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,4),_CucsStorageDiskEnvStatsIntervals_Type())
-cucsStorageDiskEnvStatsIntervals.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsIntervals.setStatus(_A)
-_CucsStorageDiskEnvStatsSuspect_Type=TruthValue
-_CucsStorageDiskEnvStatsSuspect_Object=MibTableColumn
-cucsStorageDiskEnvStatsSuspect=_CucsStorageDiskEnvStatsSuspect_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,5),_CucsStorageDiskEnvStatsSuspect_Type())
-cucsStorageDiskEnvStatsSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsSuspect.setStatus(_A)
-_CucsStorageDiskEnvStatsTemperature_Type=Integer32
-_CucsStorageDiskEnvStatsTemperature_Object=MibTableColumn
-cucsStorageDiskEnvStatsTemperature=_CucsStorageDiskEnvStatsTemperature_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,6),_CucsStorageDiskEnvStatsTemperature_Type())
-cucsStorageDiskEnvStatsTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsTemperature.setStatus(_A)
-_CucsStorageDiskEnvStatsTemperatureAvg_Type=Integer32
-_CucsStorageDiskEnvStatsTemperatureAvg_Object=MibTableColumn
-cucsStorageDiskEnvStatsTemperatureAvg=_CucsStorageDiskEnvStatsTemperatureAvg_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,7),_CucsStorageDiskEnvStatsTemperatureAvg_Type())
-cucsStorageDiskEnvStatsTemperatureAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsTemperatureAvg.setStatus(_A)
-_CucsStorageDiskEnvStatsTemperatureMax_Type=Integer32
-_CucsStorageDiskEnvStatsTemperatureMax_Object=MibTableColumn
-cucsStorageDiskEnvStatsTemperatureMax=_CucsStorageDiskEnvStatsTemperatureMax_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,8),_CucsStorageDiskEnvStatsTemperatureMax_Type())
-cucsStorageDiskEnvStatsTemperatureMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsTemperatureMax.setStatus(_A)
-_CucsStorageDiskEnvStatsTemperatureMin_Type=Integer32
-_CucsStorageDiskEnvStatsTemperatureMin_Object=MibTableColumn
-cucsStorageDiskEnvStatsTemperatureMin=_CucsStorageDiskEnvStatsTemperatureMin_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,9),_CucsStorageDiskEnvStatsTemperatureMin_Type())
-cucsStorageDiskEnvStatsTemperatureMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsTemperatureMin.setStatus(_A)
-_CucsStorageDiskEnvStatsThresholded_Type=CucsStorageDiskEnvStatsThresholded
-_CucsStorageDiskEnvStatsThresholded_Object=MibTableColumn
-cucsStorageDiskEnvStatsThresholded=_CucsStorageDiskEnvStatsThresholded_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,10),_CucsStorageDiskEnvStatsThresholded_Type())
-cucsStorageDiskEnvStatsThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsThresholded.setStatus(_A)
-_CucsStorageDiskEnvStatsTimeCollected_Type=DateAndTime
-_CucsStorageDiskEnvStatsTimeCollected_Object=MibTableColumn
-cucsStorageDiskEnvStatsTimeCollected=_CucsStorageDiskEnvStatsTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,11),_CucsStorageDiskEnvStatsTimeCollected_Type())
-cucsStorageDiskEnvStatsTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsTimeCollected.setStatus(_A)
-_CucsStorageDiskEnvStatsUpdate_Type=Gauge32
-_CucsStorageDiskEnvStatsUpdate_Object=MibTableColumn
-cucsStorageDiskEnvStatsUpdate=_CucsStorageDiskEnvStatsUpdate_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,12),_CucsStorageDiskEnvStatsUpdate_Type())
-cucsStorageDiskEnvStatsUpdate.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsUpdate.setStatus(_A)
-_CucsStorageDiskEnvStatsWearPercentage_Type=Gauge32
-_CucsStorageDiskEnvStatsWearPercentage_Object=MibTableColumn
-cucsStorageDiskEnvStatsWearPercentage=_CucsStorageDiskEnvStatsWearPercentage_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,13),_CucsStorageDiskEnvStatsWearPercentage_Type())
-cucsStorageDiskEnvStatsWearPercentage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsWearPercentage.setStatus(_A)
-_CucsStorageDiskEnvStatsWearPercentageAvg_Type=Gauge32
-_CucsStorageDiskEnvStatsWearPercentageAvg_Object=MibTableColumn
-cucsStorageDiskEnvStatsWearPercentageAvg=_CucsStorageDiskEnvStatsWearPercentageAvg_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,14),_CucsStorageDiskEnvStatsWearPercentageAvg_Type())
-cucsStorageDiskEnvStatsWearPercentageAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsWearPercentageAvg.setStatus(_A)
-_CucsStorageDiskEnvStatsWearPercentageMax_Type=Gauge32
-_CucsStorageDiskEnvStatsWearPercentageMax_Object=MibTableColumn
-cucsStorageDiskEnvStatsWearPercentageMax=_CucsStorageDiskEnvStatsWearPercentageMax_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,15),_CucsStorageDiskEnvStatsWearPercentageMax_Type())
-cucsStorageDiskEnvStatsWearPercentageMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsWearPercentageMax.setStatus(_A)
-_CucsStorageDiskEnvStatsWearPercentageMin_Type=Gauge32
-_CucsStorageDiskEnvStatsWearPercentageMin_Object=MibTableColumn
-cucsStorageDiskEnvStatsWearPercentageMin=_CucsStorageDiskEnvStatsWearPercentageMin_Object((1,3,6,1,4,1,9,9,719,1,45,50,1,16),_CucsStorageDiskEnvStatsWearPercentageMin_Type())
-cucsStorageDiskEnvStatsWearPercentageMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsWearPercentageMin.setStatus(_A)
-_CucsStorageDiskEnvStatsHistTable_Object=MibTable
-cucsStorageDiskEnvStatsHistTable=_CucsStorageDiskEnvStatsHistTable_Object((1,3,6,1,4,1,9,9,719,1,45,51))
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistTable.setStatus(_A)
-_CucsStorageDiskEnvStatsHistEntry_Object=MibTableRow
-cucsStorageDiskEnvStatsHistEntry=_CucsStorageDiskEnvStatsHistEntry_Object((1,3,6,1,4,1,9,9,719,1,45,51,1))
-cucsStorageDiskEnvStatsHistEntry.setIndexNames((0,_C,_v))
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistEntry.setStatus(_A)
-_CucsStorageDiskEnvStatsHistInstanceId_Type=CucsManagedObjectId
-_CucsStorageDiskEnvStatsHistInstanceId_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistInstanceId=_CucsStorageDiskEnvStatsHistInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,1),_CucsStorageDiskEnvStatsHistInstanceId_Type())
-cucsStorageDiskEnvStatsHistInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistInstanceId.setStatus(_A)
-_CucsStorageDiskEnvStatsHistDn_Type=CucsManagedObjectDn
-_CucsStorageDiskEnvStatsHistDn_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistDn=_CucsStorageDiskEnvStatsHistDn_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,2),_CucsStorageDiskEnvStatsHistDn_Type())
-cucsStorageDiskEnvStatsHistDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistDn.setStatus(_A)
-_CucsStorageDiskEnvStatsHistRn_Type=SnmpAdminString
-_CucsStorageDiskEnvStatsHistRn_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistRn=_CucsStorageDiskEnvStatsHistRn_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,3),_CucsStorageDiskEnvStatsHistRn_Type())
-cucsStorageDiskEnvStatsHistRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistRn.setStatus(_A)
-_CucsStorageDiskEnvStatsHistId_Type=Unsigned64
-_CucsStorageDiskEnvStatsHistId_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistId=_CucsStorageDiskEnvStatsHistId_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,4),_CucsStorageDiskEnvStatsHistId_Type())
-cucsStorageDiskEnvStatsHistId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistId.setStatus(_A)
-_CucsStorageDiskEnvStatsHistMostRecent_Type=TruthValue
-_CucsStorageDiskEnvStatsHistMostRecent_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistMostRecent=_CucsStorageDiskEnvStatsHistMostRecent_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,5),_CucsStorageDiskEnvStatsHistMostRecent_Type())
-cucsStorageDiskEnvStatsHistMostRecent.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistMostRecent.setStatus(_A)
-_CucsStorageDiskEnvStatsHistSuspect_Type=TruthValue
-_CucsStorageDiskEnvStatsHistSuspect_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistSuspect=_CucsStorageDiskEnvStatsHistSuspect_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,6),_CucsStorageDiskEnvStatsHistSuspect_Type())
-cucsStorageDiskEnvStatsHistSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistSuspect.setStatus(_A)
-_CucsStorageDiskEnvStatsHistTemperature_Type=Integer32
-_CucsStorageDiskEnvStatsHistTemperature_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistTemperature=_CucsStorageDiskEnvStatsHistTemperature_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,7),_CucsStorageDiskEnvStatsHistTemperature_Type())
-cucsStorageDiskEnvStatsHistTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistTemperature.setStatus(_A)
-_CucsStorageDiskEnvStatsHistTemperatureAvg_Type=Integer32
-_CucsStorageDiskEnvStatsHistTemperatureAvg_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistTemperatureAvg=_CucsStorageDiskEnvStatsHistTemperatureAvg_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,8),_CucsStorageDiskEnvStatsHistTemperatureAvg_Type())
-cucsStorageDiskEnvStatsHistTemperatureAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistTemperatureAvg.setStatus(_A)
-_CucsStorageDiskEnvStatsHistTemperatureMax_Type=Integer32
-_CucsStorageDiskEnvStatsHistTemperatureMax_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistTemperatureMax=_CucsStorageDiskEnvStatsHistTemperatureMax_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,9),_CucsStorageDiskEnvStatsHistTemperatureMax_Type())
-cucsStorageDiskEnvStatsHistTemperatureMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistTemperatureMax.setStatus(_A)
-_CucsStorageDiskEnvStatsHistTemperatureMin_Type=Integer32
-_CucsStorageDiskEnvStatsHistTemperatureMin_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistTemperatureMin=_CucsStorageDiskEnvStatsHistTemperatureMin_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,10),_CucsStorageDiskEnvStatsHistTemperatureMin_Type())
-cucsStorageDiskEnvStatsHistTemperatureMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistTemperatureMin.setStatus(_A)
-_CucsStorageDiskEnvStatsHistThresholded_Type=CucsStorageDiskEnvStatsHistThresholded
-_CucsStorageDiskEnvStatsHistThresholded_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistThresholded=_CucsStorageDiskEnvStatsHistThresholded_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,11),_CucsStorageDiskEnvStatsHistThresholded_Type())
-cucsStorageDiskEnvStatsHistThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistThresholded.setStatus(_A)
-_CucsStorageDiskEnvStatsHistTimeCollected_Type=DateAndTime
-_CucsStorageDiskEnvStatsHistTimeCollected_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistTimeCollected=_CucsStorageDiskEnvStatsHistTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,12),_CucsStorageDiskEnvStatsHistTimeCollected_Type())
-cucsStorageDiskEnvStatsHistTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistTimeCollected.setStatus(_A)
-_CucsStorageDiskEnvStatsHistWearPercentage_Type=Gauge32
-_CucsStorageDiskEnvStatsHistWearPercentage_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistWearPercentage=_CucsStorageDiskEnvStatsHistWearPercentage_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,13),_CucsStorageDiskEnvStatsHistWearPercentage_Type())
-cucsStorageDiskEnvStatsHistWearPercentage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistWearPercentage.setStatus(_A)
-_CucsStorageDiskEnvStatsHistWearPercentageAvg_Type=Gauge32
-_CucsStorageDiskEnvStatsHistWearPercentageAvg_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistWearPercentageAvg=_CucsStorageDiskEnvStatsHistWearPercentageAvg_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,14),_CucsStorageDiskEnvStatsHistWearPercentageAvg_Type())
-cucsStorageDiskEnvStatsHistWearPercentageAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistWearPercentageAvg.setStatus(_A)
-_CucsStorageDiskEnvStatsHistWearPercentageMax_Type=Gauge32
-_CucsStorageDiskEnvStatsHistWearPercentageMax_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistWearPercentageMax=_CucsStorageDiskEnvStatsHistWearPercentageMax_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,15),_CucsStorageDiskEnvStatsHistWearPercentageMax_Type())
-cucsStorageDiskEnvStatsHistWearPercentageMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistWearPercentageMax.setStatus(_A)
-_CucsStorageDiskEnvStatsHistWearPercentageMin_Type=Gauge32
-_CucsStorageDiskEnvStatsHistWearPercentageMin_Object=MibTableColumn
-cucsStorageDiskEnvStatsHistWearPercentageMin=_CucsStorageDiskEnvStatsHistWearPercentageMin_Object((1,3,6,1,4,1,9,9,719,1,45,51,1,16),_CucsStorageDiskEnvStatsHistWearPercentageMin_Type())
-cucsStorageDiskEnvStatsHistWearPercentageMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageDiskEnvStatsHistWearPercentageMin.setStatus(_A)
-_CucsStorageEnclosureDiskSlotEpTable_Object=MibTable
-cucsStorageEnclosureDiskSlotEpTable=_CucsStorageEnclosureDiskSlotEpTable_Object((1,3,6,1,4,1,9,9,719,1,45,54))
-if mibBuilder.loadTexts:cucsStorageEnclosureDiskSlotEpTable.setStatus(_A)
-_CucsStorageEnclosureDiskSlotEpEntry_Object=MibTableRow
-cucsStorageEnclosureDiskSlotEpEntry=_CucsStorageEnclosureDiskSlotEpEntry_Object((1,3,6,1,4,1,9,9,719,1,45,54,1))
-cucsStorageEnclosureDiskSlotEpEntry.setIndexNames((0,_C,_w))
-if mibBuilder.loadTexts:cucsStorageEnclosureDiskSlotEpEntry.setStatus(_A)
-_CucsStorageEnclosureDiskSlotEpInstanceId_Type=CucsManagedObjectId
-_CucsStorageEnclosureDiskSlotEpInstanceId_Object=MibTableColumn
-cucsStorageEnclosureDiskSlotEpInstanceId=_CucsStorageEnclosureDiskSlotEpInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,54,1,1),_CucsStorageEnclosureDiskSlotEpInstanceId_Type())
-cucsStorageEnclosureDiskSlotEpInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageEnclosureDiskSlotEpInstanceId.setStatus(_A)
-_CucsStorageEnclosureDiskSlotEpDn_Type=CucsManagedObjectDn
-_CucsStorageEnclosureDiskSlotEpDn_Object=MibTableColumn
-cucsStorageEnclosureDiskSlotEpDn=_CucsStorageEnclosureDiskSlotEpDn_Object((1,3,6,1,4,1,9,9,719,1,45,54,1,2),_CucsStorageEnclosureDiskSlotEpDn_Type())
-cucsStorageEnclosureDiskSlotEpDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureDiskSlotEpDn.setStatus(_A)
-_CucsStorageEnclosureDiskSlotEpRn_Type=SnmpAdminString
-_CucsStorageEnclosureDiskSlotEpRn_Object=MibTableColumn
-cucsStorageEnclosureDiskSlotEpRn=_CucsStorageEnclosureDiskSlotEpRn_Object((1,3,6,1,4,1,9,9,719,1,45,54,1,3),_CucsStorageEnclosureDiskSlotEpRn_Type())
-cucsStorageEnclosureDiskSlotEpRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureDiskSlotEpRn.setStatus(_A)
-_CucsStorageEnclosureDiskSlotEpConfiguration_Type=CucsStorageConfiguration
-_CucsStorageEnclosureDiskSlotEpConfiguration_Object=MibTableColumn
-cucsStorageEnclosureDiskSlotEpConfiguration=_CucsStorageEnclosureDiskSlotEpConfiguration_Object((1,3,6,1,4,1,9,9,719,1,45,54,1,4),_CucsStorageEnclosureDiskSlotEpConfiguration_Type())
-cucsStorageEnclosureDiskSlotEpConfiguration.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureDiskSlotEpConfiguration.setStatus(_A)
-_CucsStorageEnclosureDiskSlotEpId_Type=Gauge32
-_CucsStorageEnclosureDiskSlotEpId_Object=MibTableColumn
-cucsStorageEnclosureDiskSlotEpId=_CucsStorageEnclosureDiskSlotEpId_Object((1,3,6,1,4,1,9,9,719,1,45,54,1,5),_CucsStorageEnclosureDiskSlotEpId_Type())
-cucsStorageEnclosureDiskSlotEpId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureDiskSlotEpId.setStatus(_A)
-_CucsStorageEnclosureDiskSlotEpOperQualifierReason_Type=SnmpAdminString
-_CucsStorageEnclosureDiskSlotEpOperQualifierReason_Object=MibTableColumn
-cucsStorageEnclosureDiskSlotEpOperQualifierReason=_CucsStorageEnclosureDiskSlotEpOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,54,1,6),_CucsStorageEnclosureDiskSlotEpOperQualifierReason_Type())
-cucsStorageEnclosureDiskSlotEpOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureDiskSlotEpOperQualifierReason.setStatus(_A)
-_CucsStorageEnclosureDiskSlotEpOperability_Type=CucsEquipmentOperability
-_CucsStorageEnclosureDiskSlotEpOperability_Object=MibTableColumn
-cucsStorageEnclosureDiskSlotEpOperability=_CucsStorageEnclosureDiskSlotEpOperability_Object((1,3,6,1,4,1,9,9,719,1,45,54,1,7),_CucsStorageEnclosureDiskSlotEpOperability_Type())
-cucsStorageEnclosureDiskSlotEpOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureDiskSlotEpOperability.setStatus(_A)
-_CucsStorageEnclosureDiskSlotEpPeerDn_Type=SnmpAdminString
-_CucsStorageEnclosureDiskSlotEpPeerDn_Object=MibTableColumn
-cucsStorageEnclosureDiskSlotEpPeerDn=_CucsStorageEnclosureDiskSlotEpPeerDn_Object((1,3,6,1,4,1,9,9,719,1,45,54,1,8),_CucsStorageEnclosureDiskSlotEpPeerDn_Type())
-cucsStorageEnclosureDiskSlotEpPeerDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureDiskSlotEpPeerDn.setStatus(_A)
-_CucsStorageEnclosureDiskSlotEpPresence_Type=CucsEquipmentPresence
-_CucsStorageEnclosureDiskSlotEpPresence_Object=MibTableColumn
-cucsStorageEnclosureDiskSlotEpPresence=_CucsStorageEnclosureDiskSlotEpPresence_Object((1,3,6,1,4,1,9,9,719,1,45,54,1,9),_CucsStorageEnclosureDiskSlotEpPresence_Type())
-cucsStorageEnclosureDiskSlotEpPresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureDiskSlotEpPresence.setStatus(_A)
-_CucsStorageEnclosureDiskSlotEpOwnership_Type=CucsStorageEnclosureDiskSlotEpOwnership
-_CucsStorageEnclosureDiskSlotEpOwnership_Object=MibTableColumn
-cucsStorageEnclosureDiskSlotEpOwnership=_CucsStorageEnclosureDiskSlotEpOwnership_Object((1,3,6,1,4,1,9,9,719,1,45,54,1,10),_CucsStorageEnclosureDiskSlotEpOwnership_Type())
-cucsStorageEnclosureDiskSlotEpOwnership.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureDiskSlotEpOwnership.setStatus(_A)
-_CucsStorageEnclosureDiskSlotEpAutoZoneCause_Type=CucsStorageEnclosureDiskSlotEpAutoZoneCause
-_CucsStorageEnclosureDiskSlotEpAutoZoneCause_Object=MibTableColumn
-cucsStorageEnclosureDiskSlotEpAutoZoneCause=_CucsStorageEnclosureDiskSlotEpAutoZoneCause_Object((1,3,6,1,4,1,9,9,719,1,45,54,1,11),_CucsStorageEnclosureDiskSlotEpAutoZoneCause_Type())
-cucsStorageEnclosureDiskSlotEpAutoZoneCause.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureDiskSlotEpAutoZoneCause.setStatus(_A)
-_CucsStorageEnclosureDiskSlotEpLc_Type=CucsFsmLifecycle
-_CucsStorageEnclosureDiskSlotEpLc_Object=MibTableColumn
-cucsStorageEnclosureDiskSlotEpLc=_CucsStorageEnclosureDiskSlotEpLc_Object((1,3,6,1,4,1,9,9,719,1,45,54,1,12),_CucsStorageEnclosureDiskSlotEpLc_Type())
-cucsStorageEnclosureDiskSlotEpLc.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureDiskSlotEpLc.setStatus(_A)
-_CucsStorageLocalDiskEpTable_Object=MibTable
-cucsStorageLocalDiskEpTable=_CucsStorageLocalDiskEpTable_Object((1,3,6,1,4,1,9,9,719,1,45,60))
-if mibBuilder.loadTexts:cucsStorageLocalDiskEpTable.setStatus(_A)
-_CucsStorageLocalDiskEpEntry_Object=MibTableRow
-cucsStorageLocalDiskEpEntry=_CucsStorageLocalDiskEpEntry_Object((1,3,6,1,4,1,9,9,719,1,45,60,1))
-cucsStorageLocalDiskEpEntry.setIndexNames((0,_C,_x))
-if mibBuilder.loadTexts:cucsStorageLocalDiskEpEntry.setStatus(_A)
-_CucsStorageLocalDiskEpInstanceId_Type=CucsManagedObjectId
-_CucsStorageLocalDiskEpInstanceId_Object=MibTableColumn
-cucsStorageLocalDiskEpInstanceId=_CucsStorageLocalDiskEpInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,60,1,1),_CucsStorageLocalDiskEpInstanceId_Type())
-cucsStorageLocalDiskEpInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageLocalDiskEpInstanceId.setStatus(_A)
-_CucsStorageLocalDiskEpDn_Type=CucsManagedObjectDn
-_CucsStorageLocalDiskEpDn_Object=MibTableColumn
-cucsStorageLocalDiskEpDn=_CucsStorageLocalDiskEpDn_Object((1,3,6,1,4,1,9,9,719,1,45,60,1,2),_CucsStorageLocalDiskEpDn_Type())
-cucsStorageLocalDiskEpDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskEpDn.setStatus(_A)
-_CucsStorageLocalDiskEpRn_Type=SnmpAdminString
-_CucsStorageLocalDiskEpRn_Object=MibTableColumn
-cucsStorageLocalDiskEpRn=_CucsStorageLocalDiskEpRn_Object((1,3,6,1,4,1,9,9,719,1,45,60,1,3),_CucsStorageLocalDiskEpRn_Type())
-cucsStorageLocalDiskEpRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskEpRn.setStatus(_A)
-_CucsStorageLocalDiskEpDiskDn_Type=SnmpAdminString
-_CucsStorageLocalDiskEpDiskDn_Object=MibTableColumn
-cucsStorageLocalDiskEpDiskDn=_CucsStorageLocalDiskEpDiskDn_Object((1,3,6,1,4,1,9,9,719,1,45,60,1,4),_CucsStorageLocalDiskEpDiskDn_Type())
-cucsStorageLocalDiskEpDiskDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskEpDiskDn.setStatus(_A)
-_CucsStorageLocalDiskEpEncId_Type=Gauge32
-_CucsStorageLocalDiskEpEncId_Object=MibTableColumn
-cucsStorageLocalDiskEpEncId=_CucsStorageLocalDiskEpEncId_Object((1,3,6,1,4,1,9,9,719,1,45,60,1,5),_CucsStorageLocalDiskEpEncId_Type())
-cucsStorageLocalDiskEpEncId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskEpEncId.setStatus(_A)
-_CucsStorageLocalDiskEpId_Type=Gauge32
-_CucsStorageLocalDiskEpId_Object=MibTableColumn
-cucsStorageLocalDiskEpId=_CucsStorageLocalDiskEpId_Object((1,3,6,1,4,1,9,9,719,1,45,60,1,6),_CucsStorageLocalDiskEpId_Type())
-cucsStorageLocalDiskEpId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskEpId.setStatus(_A)
-_CucsStorageLocalDiskEpModel_Type=SnmpAdminString
-_CucsStorageLocalDiskEpModel_Object=MibTableColumn
-cucsStorageLocalDiskEpModel=_CucsStorageLocalDiskEpModel_Object((1,3,6,1,4,1,9,9,719,1,45,60,1,7),_CucsStorageLocalDiskEpModel_Type())
-cucsStorageLocalDiskEpModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskEpModel.setStatus(_A)
-_CucsStorageLocalDiskEpRevision_Type=SnmpAdminString
-_CucsStorageLocalDiskEpRevision_Object=MibTableColumn
-cucsStorageLocalDiskEpRevision=_CucsStorageLocalDiskEpRevision_Object((1,3,6,1,4,1,9,9,719,1,45,60,1,8),_CucsStorageLocalDiskEpRevision_Type())
-cucsStorageLocalDiskEpRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskEpRevision.setStatus(_A)
-_CucsStorageLocalDiskEpSerial_Type=SnmpAdminString
-_CucsStorageLocalDiskEpSerial_Object=MibTableColumn
-cucsStorageLocalDiskEpSerial=_CucsStorageLocalDiskEpSerial_Object((1,3,6,1,4,1,9,9,719,1,45,60,1,9),_CucsStorageLocalDiskEpSerial_Type())
-cucsStorageLocalDiskEpSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskEpSerial.setStatus(_A)
-_CucsStorageLocalDiskEpVendor_Type=SnmpAdminString
-_CucsStorageLocalDiskEpVendor_Object=MibTableColumn
-cucsStorageLocalDiskEpVendor=_CucsStorageLocalDiskEpVendor_Object((1,3,6,1,4,1,9,9,719,1,45,60,1,10),_CucsStorageLocalDiskEpVendor_Type())
-cucsStorageLocalDiskEpVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskEpVendor.setStatus(_A)
-_CucsStorageLocalDiskEpBootable_Type=CucsStorageBootableType
-_CucsStorageLocalDiskEpBootable_Object=MibTableColumn
-cucsStorageLocalDiskEpBootable=_CucsStorageLocalDiskEpBootable_Object((1,3,6,1,4,1,9,9,719,1,45,60,1,11),_CucsStorageLocalDiskEpBootable_Type())
-cucsStorageLocalDiskEpBootable.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskEpBootable.setStatus(_A)
-_CucsStorageLocalDiskEpDiskState_Type=CucsStoragePDriveStatus
-_CucsStorageLocalDiskEpDiskState_Object=MibTableColumn
-cucsStorageLocalDiskEpDiskState=_CucsStorageLocalDiskEpDiskState_Object((1,3,6,1,4,1,9,9,719,1,45,60,1,12),_CucsStorageLocalDiskEpDiskState_Type())
-cucsStorageLocalDiskEpDiskState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskEpDiskState.setStatus(_A)
-_CucsStorageLocalDiskEpLc_Type=CucsFsmLifecycle
-_CucsStorageLocalDiskEpLc_Object=MibTableColumn
-cucsStorageLocalDiskEpLc=_CucsStorageLocalDiskEpLc_Object((1,3,6,1,4,1,9,9,719,1,45,60,1,13),_CucsStorageLocalDiskEpLc_Type())
-cucsStorageLocalDiskEpLc.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskEpLc.setStatus(_A)
-_CucsStorageLunResourceSelectionLogTable_Object=MibTable
-cucsStorageLunResourceSelectionLogTable=_CucsStorageLunResourceSelectionLogTable_Object((1,3,6,1,4,1,9,9,719,1,45,64))
-if mibBuilder.loadTexts:cucsStorageLunResourceSelectionLogTable.setStatus(_A)
-_CucsStorageLunResourceSelectionLogEntry_Object=MibTableRow
-cucsStorageLunResourceSelectionLogEntry=_CucsStorageLunResourceSelectionLogEntry_Object((1,3,6,1,4,1,9,9,719,1,45,64,1))
-cucsStorageLunResourceSelectionLogEntry.setIndexNames((0,_C,_y))
-if mibBuilder.loadTexts:cucsStorageLunResourceSelectionLogEntry.setStatus(_A)
-_CucsStorageLunResourceSelectionLogInstanceId_Type=CucsManagedObjectId
-_CucsStorageLunResourceSelectionLogInstanceId_Object=MibTableColumn
-cucsStorageLunResourceSelectionLogInstanceId=_CucsStorageLunResourceSelectionLogInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,64,1,1),_CucsStorageLunResourceSelectionLogInstanceId_Type())
-cucsStorageLunResourceSelectionLogInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageLunResourceSelectionLogInstanceId.setStatus(_A)
-_CucsStorageLunResourceSelectionLogDn_Type=CucsManagedObjectDn
-_CucsStorageLunResourceSelectionLogDn_Object=MibTableColumn
-cucsStorageLunResourceSelectionLogDn=_CucsStorageLunResourceSelectionLogDn_Object((1,3,6,1,4,1,9,9,719,1,45,64,1,2),_CucsStorageLunResourceSelectionLogDn_Type())
-cucsStorageLunResourceSelectionLogDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLunResourceSelectionLogDn.setStatus(_A)
-_CucsStorageLunResourceSelectionLogRn_Type=SnmpAdminString
-_CucsStorageLunResourceSelectionLogRn_Object=MibTableColumn
-cucsStorageLunResourceSelectionLogRn=_CucsStorageLunResourceSelectionLogRn_Object((1,3,6,1,4,1,9,9,719,1,45,64,1,3),_CucsStorageLunResourceSelectionLogRn_Type())
-cucsStorageLunResourceSelectionLogRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLunResourceSelectionLogRn.setStatus(_A)
-_CucsStorageLunResourceSelectionLogDecisionType_Type=CucsStorageSelectionDecisionType
-_CucsStorageLunResourceSelectionLogDecisionType_Object=MibTableColumn
-cucsStorageLunResourceSelectionLogDecisionType=_CucsStorageLunResourceSelectionLogDecisionType_Object((1,3,6,1,4,1,9,9,719,1,45,64,1,4),_CucsStorageLunResourceSelectionLogDecisionType_Type())
-cucsStorageLunResourceSelectionLogDecisionType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLunResourceSelectionLogDecisionType.setStatus(_A)
-_CucsStorageLunResourceSelectionLogDescr_Type=SnmpAdminString
-_CucsStorageLunResourceSelectionLogDescr_Object=MibTableColumn
-cucsStorageLunResourceSelectionLogDescr=_CucsStorageLunResourceSelectionLogDescr_Object((1,3,6,1,4,1,9,9,719,1,45,64,1,5),_CucsStorageLunResourceSelectionLogDescr_Type())
-cucsStorageLunResourceSelectionLogDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLunResourceSelectionLogDescr.setStatus(_A)
-_CucsStorageLunResourceSelectionLogOrder_Type=Gauge32
-_CucsStorageLunResourceSelectionLogOrder_Object=MibTableColumn
-cucsStorageLunResourceSelectionLogOrder=_CucsStorageLunResourceSelectionLogOrder_Object((1,3,6,1,4,1,9,9,719,1,45,64,1,6),_CucsStorageLunResourceSelectionLogOrder_Type())
-cucsStorageLunResourceSelectionLogOrder.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLunResourceSelectionLogOrder.setStatus(_A)
-_CucsStorageLunResourceSelectionLogResult_Type=CucsStorageSelectionResultType
-_CucsStorageLunResourceSelectionLogResult_Object=MibTableColumn
-cucsStorageLunResourceSelectionLogResult=_CucsStorageLunResourceSelectionLogResult_Object((1,3,6,1,4,1,9,9,719,1,45,64,1,7),_CucsStorageLunResourceSelectionLogResult_Type())
-cucsStorageLunResourceSelectionLogResult.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLunResourceSelectionLogResult.setStatus(_A)
-_CucsStorageLunResourceSelectionLogTimeStamp_Type=DateAndTime
-_CucsStorageLunResourceSelectionLogTimeStamp_Object=MibTableColumn
-cucsStorageLunResourceSelectionLogTimeStamp=_CucsStorageLunResourceSelectionLogTimeStamp_Object((1,3,6,1,4,1,9,9,719,1,45,64,1,8),_CucsStorageLunResourceSelectionLogTimeStamp_Type())
-cucsStorageLunResourceSelectionLogTimeStamp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLunResourceSelectionLogTimeStamp.setStatus(_A)
-_CucsStorageSasExpanderTable_Object=MibTable
-cucsStorageSasExpanderTable=_CucsStorageSasExpanderTable_Object((1,3,6,1,4,1,9,9,719,1,45,78))
-if mibBuilder.loadTexts:cucsStorageSasExpanderTable.setStatus(_A)
-_CucsStorageSasExpanderEntry_Object=MibTableRow
-cucsStorageSasExpanderEntry=_CucsStorageSasExpanderEntry_Object((1,3,6,1,4,1,9,9,719,1,45,78,1))
-cucsStorageSasExpanderEntry.setIndexNames((0,_C,_z))
-if mibBuilder.loadTexts:cucsStorageSasExpanderEntry.setStatus(_A)
-_CucsStorageSasExpanderInstanceId_Type=CucsManagedObjectId
-_CucsStorageSasExpanderInstanceId_Object=MibTableColumn
-cucsStorageSasExpanderInstanceId=_CucsStorageSasExpanderInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,1),_CucsStorageSasExpanderInstanceId_Type())
-cucsStorageSasExpanderInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageSasExpanderInstanceId.setStatus(_A)
-_CucsStorageSasExpanderDn_Type=CucsManagedObjectDn
-_CucsStorageSasExpanderDn_Object=MibTableColumn
-cucsStorageSasExpanderDn=_CucsStorageSasExpanderDn_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,2),_CucsStorageSasExpanderDn_Type())
-cucsStorageSasExpanderDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderDn.setStatus(_A)
-_CucsStorageSasExpanderRn_Type=SnmpAdminString
-_CucsStorageSasExpanderRn_Object=MibTableColumn
-cucsStorageSasExpanderRn=_CucsStorageSasExpanderRn_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,3),_CucsStorageSasExpanderRn_Type())
-cucsStorageSasExpanderRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderRn.setStatus(_A)
-_CucsStorageSasExpanderId_Type=Gauge32
-_CucsStorageSasExpanderId_Object=MibTableColumn
-cucsStorageSasExpanderId=_CucsStorageSasExpanderId_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,4),_CucsStorageSasExpanderId_Type())
-cucsStorageSasExpanderId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderId.setStatus(_A)
-_CucsStorageSasExpanderLocationDn_Type=SnmpAdminString
-_CucsStorageSasExpanderLocationDn_Object=MibTableColumn
-cucsStorageSasExpanderLocationDn=_CucsStorageSasExpanderLocationDn_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,5),_CucsStorageSasExpanderLocationDn_Type())
-cucsStorageSasExpanderLocationDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderLocationDn.setStatus(_A)
-_CucsStorageSasExpanderModel_Type=SnmpAdminString
-_CucsStorageSasExpanderModel_Object=MibTableColumn
-cucsStorageSasExpanderModel=_CucsStorageSasExpanderModel_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,6),_CucsStorageSasExpanderModel_Type())
-cucsStorageSasExpanderModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderModel.setStatus(_A)
-_CucsStorageSasExpanderOperQualifierReason_Type=SnmpAdminString
-_CucsStorageSasExpanderOperQualifierReason_Object=MibTableColumn
-cucsStorageSasExpanderOperQualifierReason=_CucsStorageSasExpanderOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,7),_CucsStorageSasExpanderOperQualifierReason_Type())
-cucsStorageSasExpanderOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderOperQualifierReason.setStatus(_A)
-_CucsStorageSasExpanderOperState_Type=CucsEquipmentOperability
-_CucsStorageSasExpanderOperState_Object=MibTableColumn
-cucsStorageSasExpanderOperState=_CucsStorageSasExpanderOperState_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,8),_CucsStorageSasExpanderOperState_Type())
-cucsStorageSasExpanderOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderOperState.setStatus(_A)
-_CucsStorageSasExpanderOperability_Type=CucsEquipmentOperability
-_CucsStorageSasExpanderOperability_Object=MibTableColumn
-cucsStorageSasExpanderOperability=_CucsStorageSasExpanderOperability_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,9),_CucsStorageSasExpanderOperability_Type())
-cucsStorageSasExpanderOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderOperability.setStatus(_A)
-_CucsStorageSasExpanderPerf_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageSasExpanderPerf_Object=MibTableColumn
-cucsStorageSasExpanderPerf=_CucsStorageSasExpanderPerf_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,10),_CucsStorageSasExpanderPerf_Type())
-cucsStorageSasExpanderPerf.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderPerf.setStatus(_A)
-_CucsStorageSasExpanderPower_Type=CucsEquipmentPowerState
-_CucsStorageSasExpanderPower_Object=MibTableColumn
-cucsStorageSasExpanderPower=_CucsStorageSasExpanderPower_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,11),_CucsStorageSasExpanderPower_Type())
-cucsStorageSasExpanderPower.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderPower.setStatus(_A)
-_CucsStorageSasExpanderPresence_Type=CucsEquipmentPresence
-_CucsStorageSasExpanderPresence_Object=MibTableColumn
-cucsStorageSasExpanderPresence=_CucsStorageSasExpanderPresence_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,12),_CucsStorageSasExpanderPresence_Type())
-cucsStorageSasExpanderPresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderPresence.setStatus(_A)
-_CucsStorageSasExpanderRevision_Type=SnmpAdminString
-_CucsStorageSasExpanderRevision_Object=MibTableColumn
-cucsStorageSasExpanderRevision=_CucsStorageSasExpanderRevision_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,13),_CucsStorageSasExpanderRevision_Type())
-cucsStorageSasExpanderRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderRevision.setStatus(_A)
-_CucsStorageSasExpanderSerial_Type=SnmpAdminString
-_CucsStorageSasExpanderSerial_Object=MibTableColumn
-cucsStorageSasExpanderSerial=_CucsStorageSasExpanderSerial_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,14),_CucsStorageSasExpanderSerial_Type())
-cucsStorageSasExpanderSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderSerial.setStatus(_A)
-_CucsStorageSasExpanderThermal_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageSasExpanderThermal_Object=MibTableColumn
-cucsStorageSasExpanderThermal=_CucsStorageSasExpanderThermal_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,15),_CucsStorageSasExpanderThermal_Type())
-cucsStorageSasExpanderThermal.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderThermal.setStatus(_A)
-_CucsStorageSasExpanderVendor_Type=SnmpAdminString
-_CucsStorageSasExpanderVendor_Object=MibTableColumn
-cucsStorageSasExpanderVendor=_CucsStorageSasExpanderVendor_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,16),_CucsStorageSasExpanderVendor_Type())
-cucsStorageSasExpanderVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderVendor.setStatus(_A)
-_CucsStorageSasExpanderVoltage_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageSasExpanderVoltage_Object=MibTableColumn
-cucsStorageSasExpanderVoltage=_CucsStorageSasExpanderVoltage_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,17),_CucsStorageSasExpanderVoltage_Type())
-cucsStorageSasExpanderVoltage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderVoltage.setStatus(_A)
-_CucsStorageSasExpanderExpanderState_Type=CucsStorageExpanderState
-_CucsStorageSasExpanderExpanderState_Object=MibTableColumn
-cucsStorageSasExpanderExpanderState=_CucsStorageSasExpanderExpanderState_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,19),_CucsStorageSasExpanderExpanderState_Type())
-cucsStorageSasExpanderExpanderState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderExpanderState.setStatus(_A)
-_CucsStorageSasExpanderLc_Type=CucsFsmLifecycle
-_CucsStorageSasExpanderLc_Object=MibTableColumn
-cucsStorageSasExpanderLc=_CucsStorageSasExpanderLc_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,20),_CucsStorageSasExpanderLc_Type())
-cucsStorageSasExpanderLc.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderLc.setStatus(_A)
-_CucsStorageSasExpanderUplinkState_Type=CucsStorageEpLinkState
-_CucsStorageSasExpanderUplinkState_Object=MibTableColumn
-cucsStorageSasExpanderUplinkState=_CucsStorageSasExpanderUplinkState_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,21),_CucsStorageSasExpanderUplinkState_Type())
-cucsStorageSasExpanderUplinkState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderUplinkState.setStatus(_A)
-_CucsStorageSasExpanderUplinkStateReason_Type=SnmpAdminString
-_CucsStorageSasExpanderUplinkStateReason_Object=MibTableColumn
-cucsStorageSasExpanderUplinkStateReason=_CucsStorageSasExpanderUplinkStateReason_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,22),_CucsStorageSasExpanderUplinkStateReason_Type())
-cucsStorageSasExpanderUplinkStateReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderUplinkStateReason.setStatus(_A)
-_CucsStorageSasExpanderFwRegionOne_Type=SnmpAdminString
-_CucsStorageSasExpanderFwRegionOne_Object=MibTableColumn
-cucsStorageSasExpanderFwRegionOne=_CucsStorageSasExpanderFwRegionOne_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,23),_CucsStorageSasExpanderFwRegionOne_Type())
-cucsStorageSasExpanderFwRegionOne.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderFwRegionOne.setStatus(_A)
-_CucsStorageSasExpanderFwRegionTwo_Type=SnmpAdminString
-_CucsStorageSasExpanderFwRegionTwo_Object=MibTableColumn
-cucsStorageSasExpanderFwRegionTwo=_CucsStorageSasExpanderFwRegionTwo_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,24),_CucsStorageSasExpanderFwRegionTwo_Type())
-cucsStorageSasExpanderFwRegionTwo.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderFwRegionTwo.setStatus(_A)
-_CucsStorageSasExpanderFwRunningRegion_Type=SnmpAdminString
-_CucsStorageSasExpanderFwRunningRegion_Object=MibTableColumn
-cucsStorageSasExpanderFwRunningRegion=_CucsStorageSasExpanderFwRunningRegion_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,25),_CucsStorageSasExpanderFwRunningRegion_Type())
-cucsStorageSasExpanderFwRunningRegion.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderFwRunningRegion.setStatus(_A)
-_CucsStorageSasExpanderSasAddress_Type=SnmpAdminString
-_CucsStorageSasExpanderSasAddress_Object=MibTableColumn
-cucsStorageSasExpanderSasAddress=_CucsStorageSasExpanderSasAddress_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,26),_CucsStorageSasExpanderSasAddress_Type())
-cucsStorageSasExpanderSasAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderSasAddress.setStatus(_A)
-_CucsStorageSasExpanderCurrentEPFB_Type=SnmpAdminString
-_CucsStorageSasExpanderCurrentEPFB_Object=MibTableColumn
-cucsStorageSasExpanderCurrentEPFB=_CucsStorageSasExpanderCurrentEPFB_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,27),_CucsStorageSasExpanderCurrentEPFB_Type())
-cucsStorageSasExpanderCurrentEPFB.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderCurrentEPFB.setStatus(_A)
-_CucsStorageSasExpanderElid_Type=SnmpAdminString
-_CucsStorageSasExpanderElid_Object=MibTableColumn
-cucsStorageSasExpanderElid=_CucsStorageSasExpanderElid_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,28),_CucsStorageSasExpanderElid_Type())
-cucsStorageSasExpanderElid.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderElid.setStatus(_A)
-_CucsStorageSasExpanderMfgMajorRev_Type=SnmpAdminString
-_CucsStorageSasExpanderMfgMajorRev_Object=MibTableColumn
-cucsStorageSasExpanderMfgMajorRev=_CucsStorageSasExpanderMfgMajorRev_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,29),_CucsStorageSasExpanderMfgMajorRev_Type())
-cucsStorageSasExpanderMfgMajorRev.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderMfgMajorRev.setStatus(_A)
-_CucsStorageSasExpanderMfgMinorRev_Type=SnmpAdminString
-_CucsStorageSasExpanderMfgMinorRev_Object=MibTableColumn
-cucsStorageSasExpanderMfgMinorRev=_CucsStorageSasExpanderMfgMinorRev_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,30),_CucsStorageSasExpanderMfgMinorRev_Type())
-cucsStorageSasExpanderMfgMinorRev.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderMfgMinorRev.setStatus(_A)
-_CucsStorageSasExpanderMfgPlatformId_Type=SnmpAdminString
-_CucsStorageSasExpanderMfgPlatformId_Object=MibTableColumn
-cucsStorageSasExpanderMfgPlatformId=_CucsStorageSasExpanderMfgPlatformId_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,31),_CucsStorageSasExpanderMfgPlatformId_Type())
-cucsStorageSasExpanderMfgPlatformId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderMfgPlatformId.setStatus(_A)
-_CucsStorageSasExpanderPersistedEPFB_Type=SnmpAdminString
-_CucsStorageSasExpanderPersistedEPFB_Object=MibTableColumn
-cucsStorageSasExpanderPersistedEPFB=_CucsStorageSasExpanderPersistedEPFB_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,32),_CucsStorageSasExpanderPersistedEPFB_Type())
-cucsStorageSasExpanderPersistedEPFB.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderPersistedEPFB.setStatus(_A)
-_CucsStorageSasExpanderStartSlotNum_Type=SnmpAdminString
-_CucsStorageSasExpanderStartSlotNum_Object=MibTableColumn
-cucsStorageSasExpanderStartSlotNum=_CucsStorageSasExpanderStartSlotNum_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,33),_CucsStorageSasExpanderStartSlotNum_Type())
-cucsStorageSasExpanderStartSlotNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderStartSlotNum.setStatus(_A)
-_CucsStorageSasExpanderTemperature_Type=Integer32
-_CucsStorageSasExpanderTemperature_Object=MibTableColumn
-cucsStorageSasExpanderTemperature=_CucsStorageSasExpanderTemperature_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,34),_CucsStorageSasExpanderTemperature_Type())
-cucsStorageSasExpanderTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderTemperature.setStatus(_A)
-_CucsStorageSasExpanderTotalSlots_Type=SnmpAdminString
-_CucsStorageSasExpanderTotalSlots_Object=MibTableColumn
-cucsStorageSasExpanderTotalSlots=_CucsStorageSasExpanderTotalSlots_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,35),_CucsStorageSasExpanderTotalSlots_Type())
-cucsStorageSasExpanderTotalSlots.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderTotalSlots.setStatus(_A)
-_CucsStorageSasExpanderConfigCheckPoint_Type=CucsStorageConfigCheckPoint
-_CucsStorageSasExpanderConfigCheckPoint_Object=MibTableColumn
-cucsStorageSasExpanderConfigCheckPoint=_CucsStorageSasExpanderConfigCheckPoint_Object((1,3,6,1,4,1,9,9,719,1,45,78,1,36),_CucsStorageSasExpanderConfigCheckPoint_Type())
-cucsStorageSasExpanderConfigCheckPoint.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasExpanderConfigCheckPoint.setStatus(_A)
-_CucsStorageScsiLunRefTable_Object=MibTable
-cucsStorageScsiLunRefTable=_CucsStorageScsiLunRefTable_Object((1,3,6,1,4,1,9,9,719,1,45,83))
-if mibBuilder.loadTexts:cucsStorageScsiLunRefTable.setStatus(_A)
-_CucsStorageScsiLunRefEntry_Object=MibTableRow
-cucsStorageScsiLunRefEntry=_CucsStorageScsiLunRefEntry_Object((1,3,6,1,4,1,9,9,719,1,45,83,1))
-cucsStorageScsiLunRefEntry.setIndexNames((0,_C,_A0))
-if mibBuilder.loadTexts:cucsStorageScsiLunRefEntry.setStatus(_A)
-_CucsStorageScsiLunRefInstanceId_Type=CucsManagedObjectId
-_CucsStorageScsiLunRefInstanceId_Object=MibTableColumn
-cucsStorageScsiLunRefInstanceId=_CucsStorageScsiLunRefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,83,1,1),_CucsStorageScsiLunRefInstanceId_Type())
-cucsStorageScsiLunRefInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageScsiLunRefInstanceId.setStatus(_A)
-_CucsStorageScsiLunRefDn_Type=CucsManagedObjectDn
-_CucsStorageScsiLunRefDn_Object=MibTableColumn
-cucsStorageScsiLunRefDn=_CucsStorageScsiLunRefDn_Object((1,3,6,1,4,1,9,9,719,1,45,83,1,2),_CucsStorageScsiLunRefDn_Type())
-cucsStorageScsiLunRefDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageScsiLunRefDn.setStatus(_A)
-_CucsStorageScsiLunRefRn_Type=SnmpAdminString
-_CucsStorageScsiLunRefRn_Object=MibTableColumn
-cucsStorageScsiLunRefRn=_CucsStorageScsiLunRefRn_Object((1,3,6,1,4,1,9,9,719,1,45,83,1,3),_CucsStorageScsiLunRefRn_Type())
-cucsStorageScsiLunRefRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageScsiLunRefRn.setStatus(_A)
-_CucsStorageScsiLunRefId_Type=Gauge32
-_CucsStorageScsiLunRefId_Object=MibTableColumn
-cucsStorageScsiLunRefId=_CucsStorageScsiLunRefId_Object((1,3,6,1,4,1,9,9,719,1,45,83,1,4),_CucsStorageScsiLunRefId_Type())
-cucsStorageScsiLunRefId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageScsiLunRefId.setStatus(_A)
-_CucsStorageScsiLunRefLsDn_Type=SnmpAdminString
-_CucsStorageScsiLunRefLsDn_Object=MibTableColumn
-cucsStorageScsiLunRefLsDn=_CucsStorageScsiLunRefLsDn_Object((1,3,6,1,4,1,9,9,719,1,45,83,1,5),_CucsStorageScsiLunRefLsDn_Type())
-cucsStorageScsiLunRefLsDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageScsiLunRefLsDn.setStatus(_A)
-_CucsStorageScsiLunRefLunName_Type=SnmpAdminString
-_CucsStorageScsiLunRefLunName_Object=MibTableColumn
-cucsStorageScsiLunRefLunName=_CucsStorageScsiLunRefLunName_Object((1,3,6,1,4,1,9,9,719,1,45,83,1,6),_CucsStorageScsiLunRefLunName_Type())
-cucsStorageScsiLunRefLunName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageScsiLunRefLunName.setStatus(_A)
-_CucsStorageScsiLunRefProfileDn_Type=SnmpAdminString
-_CucsStorageScsiLunRefProfileDn_Object=MibTableColumn
-cucsStorageScsiLunRefProfileDn=_CucsStorageScsiLunRefProfileDn_Object((1,3,6,1,4,1,9,9,719,1,45,83,1,7),_CucsStorageScsiLunRefProfileDn_Type())
-cucsStorageScsiLunRefProfileDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageScsiLunRefProfileDn.setStatus(_A)
-_CucsStorageScsiLunRefPnDn_Type=SnmpAdminString
-_CucsStorageScsiLunRefPnDn_Object=MibTableColumn
-cucsStorageScsiLunRefPnDn=_CucsStorageScsiLunRefPnDn_Object((1,3,6,1,4,1,9,9,719,1,45,83,1,8),_CucsStorageScsiLunRefPnDn_Type())
-cucsStorageScsiLunRefPnDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageScsiLunRefPnDn.setStatus(_A)
-_CucsStorageVDMemberEpTable_Object=MibTable
-cucsStorageVDMemberEpTable=_CucsStorageVDMemberEpTable_Object((1,3,6,1,4,1,9,9,719,1,45,90))
-if mibBuilder.loadTexts:cucsStorageVDMemberEpTable.setStatus(_A)
-_CucsStorageVDMemberEpEntry_Object=MibTableRow
-cucsStorageVDMemberEpEntry=_CucsStorageVDMemberEpEntry_Object((1,3,6,1,4,1,9,9,719,1,45,90,1))
-cucsStorageVDMemberEpEntry.setIndexNames((0,_C,_A1))
-if mibBuilder.loadTexts:cucsStorageVDMemberEpEntry.setStatus(_A)
-_CucsStorageVDMemberEpInstanceId_Type=CucsManagedObjectId
-_CucsStorageVDMemberEpInstanceId_Object=MibTableColumn
-cucsStorageVDMemberEpInstanceId=_CucsStorageVDMemberEpInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,1),_CucsStorageVDMemberEpInstanceId_Type())
-cucsStorageVDMemberEpInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpInstanceId.setStatus(_A)
-_CucsStorageVDMemberEpDn_Type=CucsManagedObjectDn
-_CucsStorageVDMemberEpDn_Object=MibTableColumn
-cucsStorageVDMemberEpDn=_CucsStorageVDMemberEpDn_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,2),_CucsStorageVDMemberEpDn_Type())
-cucsStorageVDMemberEpDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpDn.setStatus(_A)
-_CucsStorageVDMemberEpRn_Type=SnmpAdminString
-_CucsStorageVDMemberEpRn_Object=MibTableColumn
-cucsStorageVDMemberEpRn=_CucsStorageVDMemberEpRn_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,3),_CucsStorageVDMemberEpRn_Type())
-cucsStorageVDMemberEpRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpRn.setStatus(_A)
-_CucsStorageVDMemberEpConfigQual_Type=CucsStorageVdMemberConfigQualifierType
-_CucsStorageVDMemberEpConfigQual_Object=MibTableColumn
-cucsStorageVDMemberEpConfigQual=_CucsStorageVDMemberEpConfigQual_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,4),_CucsStorageVDMemberEpConfigQual_Type())
-cucsStorageVDMemberEpConfigQual.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpConfigQual.setStatus(_A)
-_CucsStorageVDMemberEpConfigQualifierReason_Type=SnmpAdminString
-_CucsStorageVDMemberEpConfigQualifierReason_Object=MibTableColumn
-cucsStorageVDMemberEpConfigQualifierReason=_CucsStorageVDMemberEpConfigQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,5),_CucsStorageVDMemberEpConfigQualifierReason_Type())
-cucsStorageVDMemberEpConfigQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpConfigQualifierReason.setStatus(_A)
-_CucsStorageVDMemberEpConfigState_Type=CucsStorageConfigState
-_CucsStorageVDMemberEpConfigState_Object=MibTableColumn
-cucsStorageVDMemberEpConfigState=_CucsStorageVDMemberEpConfigState_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,6),_CucsStorageVDMemberEpConfigState_Type())
-cucsStorageVDMemberEpConfigState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpConfigState.setStatus(_A)
-_CucsStorageVDMemberEpDeployAction_Type=CucsStorageDeployAction
-_CucsStorageVDMemberEpDeployAction_Object=MibTableColumn
-cucsStorageVDMemberEpDeployAction=_CucsStorageVDMemberEpDeployAction_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,7),_CucsStorageVDMemberEpDeployAction_Type())
-cucsStorageVDMemberEpDeployAction.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpDeployAction.setStatus(_A)
-_CucsStorageVDMemberEpDiskDn_Type=SnmpAdminString
-_CucsStorageVDMemberEpDiskDn_Object=MibTableColumn
-cucsStorageVDMemberEpDiskDn=_CucsStorageVDMemberEpDiskDn_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,8),_CucsStorageVDMemberEpDiskDn_Type())
-cucsStorageVDMemberEpDiskDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpDiskDn.setStatus(_A)
-_CucsStorageVDMemberEpId_Type=Gauge32
-_CucsStorageVDMemberEpId_Object=MibTableColumn
-cucsStorageVDMemberEpId=_CucsStorageVDMemberEpId_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,9),_CucsStorageVDMemberEpId_Type())
-cucsStorageVDMemberEpId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpId.setStatus(_A)
-_CucsStorageVDMemberEpModel_Type=SnmpAdminString
-_CucsStorageVDMemberEpModel_Object=MibTableColumn
-cucsStorageVDMemberEpModel=_CucsStorageVDMemberEpModel_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,10),_CucsStorageVDMemberEpModel_Type())
-cucsStorageVDMemberEpModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpModel.setStatus(_A)
-_CucsStorageVDMemberEpOperQualifierReason_Type=SnmpAdminString
-_CucsStorageVDMemberEpOperQualifierReason_Object=MibTableColumn
-cucsStorageVDMemberEpOperQualifierReason=_CucsStorageVDMemberEpOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,11),_CucsStorageVDMemberEpOperQualifierReason_Type())
-cucsStorageVDMemberEpOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpOperQualifierReason.setStatus(_A)
-_CucsStorageVDMemberEpOperability_Type=CucsEquipmentOperability
-_CucsStorageVDMemberEpOperability_Object=MibTableColumn
-cucsStorageVDMemberEpOperability=_CucsStorageVDMemberEpOperability_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,12),_CucsStorageVDMemberEpOperability_Type())
-cucsStorageVDMemberEpOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpOperability.setStatus(_A)
-_CucsStorageVDMemberEpPresence_Type=CucsEquipmentPresence
-_CucsStorageVDMemberEpPresence_Object=MibTableColumn
-cucsStorageVDMemberEpPresence=_CucsStorageVDMemberEpPresence_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,13),_CucsStorageVDMemberEpPresence_Type())
-cucsStorageVDMemberEpPresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpPresence.setStatus(_A)
-_CucsStorageVDMemberEpRevision_Type=SnmpAdminString
-_CucsStorageVDMemberEpRevision_Object=MibTableColumn
-cucsStorageVDMemberEpRevision=_CucsStorageVDMemberEpRevision_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,14),_CucsStorageVDMemberEpRevision_Type())
-cucsStorageVDMemberEpRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpRevision.setStatus(_A)
-_CucsStorageVDMemberEpRole_Type=CucsStorageDiskRole
-_CucsStorageVDMemberEpRole_Object=MibTableColumn
-cucsStorageVDMemberEpRole=_CucsStorageVDMemberEpRole_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,15),_CucsStorageVDMemberEpRole_Type())
-cucsStorageVDMemberEpRole.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpRole.setStatus(_A)
-_CucsStorageVDMemberEpSerial_Type=SnmpAdminString
-_CucsStorageVDMemberEpSerial_Object=MibTableColumn
-cucsStorageVDMemberEpSerial=_CucsStorageVDMemberEpSerial_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,16),_CucsStorageVDMemberEpSerial_Type())
-cucsStorageVDMemberEpSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpSerial.setStatus(_A)
-_CucsStorageVDMemberEpSpanId_Type=Gauge32
-_CucsStorageVDMemberEpSpanId_Object=MibTableColumn
-cucsStorageVDMemberEpSpanId=_CucsStorageVDMemberEpSpanId_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,17),_CucsStorageVDMemberEpSpanId_Type())
-cucsStorageVDMemberEpSpanId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpSpanId.setStatus(_A)
-_CucsStorageVDMemberEpVendor_Type=SnmpAdminString
-_CucsStorageVDMemberEpVendor_Object=MibTableColumn
-cucsStorageVDMemberEpVendor=_CucsStorageVDMemberEpVendor_Object((1,3,6,1,4,1,9,9,719,1,45,90,1,18),_CucsStorageVDMemberEpVendor_Type())
-cucsStorageVDMemberEpVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVDMemberEpVendor.setStatus(_A)
-_CucsStorageVirtualDriveRefTable_Object=MibTable
-cucsStorageVirtualDriveRefTable=_CucsStorageVirtualDriveRefTable_Object((1,3,6,1,4,1,9,9,719,1,45,91))
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefTable.setStatus(_A)
-_CucsStorageVirtualDriveRefEntry_Object=MibTableRow
-cucsStorageVirtualDriveRefEntry=_CucsStorageVirtualDriveRefEntry_Object((1,3,6,1,4,1,9,9,719,1,45,91,1))
-cucsStorageVirtualDriveRefEntry.setIndexNames((0,_C,_A2))
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefEntry.setStatus(_A)
-_CucsStorageVirtualDriveRefInstanceId_Type=CucsManagedObjectId
-_CucsStorageVirtualDriveRefInstanceId_Object=MibTableColumn
-cucsStorageVirtualDriveRefInstanceId=_CucsStorageVirtualDriveRefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,1),_CucsStorageVirtualDriveRefInstanceId_Type())
-cucsStorageVirtualDriveRefInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefInstanceId.setStatus(_A)
-_CucsStorageVirtualDriveRefDnData_Type=CucsManagedObjectDn
-_CucsStorageVirtualDriveRefDnData_Object=MibTableColumn
-cucsStorageVirtualDriveRefDnData=_CucsStorageVirtualDriveRefDnData_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,2),_CucsStorageVirtualDriveRefDnData_Type())
-cucsStorageVirtualDriveRefDnData.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefDnData.setStatus(_A)
-_CucsStorageVirtualDriveRefRn_Type=SnmpAdminString
-_CucsStorageVirtualDriveRefRn_Object=MibTableColumn
-cucsStorageVirtualDriveRefRn=_CucsStorageVirtualDriveRefRn_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,3),_CucsStorageVirtualDriveRefRn_Type())
-cucsStorageVirtualDriveRefRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefRn.setStatus(_A)
-_CucsStorageVirtualDriveRefAdminName_Type=SnmpAdminString
-_CucsStorageVirtualDriveRefAdminName_Object=MibTableColumn
-cucsStorageVirtualDriveRefAdminName=_CucsStorageVirtualDriveRefAdminName_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,4),_CucsStorageVirtualDriveRefAdminName_Type())
-cucsStorageVirtualDriveRefAdminName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefAdminName.setStatus(_A)
-_CucsStorageVirtualDriveRefAdminState_Type=CucsStorageVirtualDriveRefAdminState
-_CucsStorageVirtualDriveRefAdminState_Object=MibTableColumn
-cucsStorageVirtualDriveRefAdminState=_CucsStorageVirtualDriveRefAdminState_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,5),_CucsStorageVirtualDriveRefAdminState_Type())
-cucsStorageVirtualDriveRefAdminState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefAdminState.setStatus(_A)
-_CucsStorageVirtualDriveRefConfigState_Type=CucsStorageConfigState
-_CucsStorageVirtualDriveRefConfigState_Object=MibTableColumn
-cucsStorageVirtualDriveRefConfigState=_CucsStorageVirtualDriveRefConfigState_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,6),_CucsStorageVirtualDriveRefConfigState_Type())
-cucsStorageVirtualDriveRefConfigState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefConfigState.setStatus(_A)
-_CucsStorageVirtualDriveRefDiskSelectionOrder_Type=Gauge32
-_CucsStorageVirtualDriveRefDiskSelectionOrder_Object=MibTableColumn
-cucsStorageVirtualDriveRefDiskSelectionOrder=_CucsStorageVirtualDriveRefDiskSelectionOrder_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,7),_CucsStorageVirtualDriveRefDiskSelectionOrder_Type())
-cucsStorageVirtualDriveRefDiskSelectionOrder.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefDiskSelectionOrder.setStatus(_A)
-_CucsStorageVirtualDriveRefDiskSelectionTs_Type=DateAndTime
-_CucsStorageVirtualDriveRefDiskSelectionTs_Object=MibTableColumn
-cucsStorageVirtualDriveRefDiskSelectionTs=_CucsStorageVirtualDriveRefDiskSelectionTs_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,8),_CucsStorageVirtualDriveRefDiskSelectionTs_Type())
-cucsStorageVirtualDriveRefDiskSelectionTs.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefDiskSelectionTs.setStatus(_A)
-_CucsStorageVirtualDriveRefLunDn_Type=SnmpAdminString
-_CucsStorageVirtualDriveRefLunDn_Object=MibTableColumn
-cucsStorageVirtualDriveRefLunDn=_CucsStorageVirtualDriveRefLunDn_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,9),_CucsStorageVirtualDriveRefLunDn_Type())
-cucsStorageVirtualDriveRefLunDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefLunDn.setStatus(_A)
-_CucsStorageVirtualDriveRefLunItemDn_Type=SnmpAdminString
-_CucsStorageVirtualDriveRefLunItemDn_Object=MibTableColumn
-cucsStorageVirtualDriveRefLunItemDn=_CucsStorageVirtualDriveRefLunItemDn_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,10),_CucsStorageVirtualDriveRefLunItemDn_Type())
-cucsStorageVirtualDriveRefLunItemDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefLunItemDn.setStatus(_A)
-_CucsStorageVirtualDriveRefLunItemName_Type=SnmpAdminString
-_CucsStorageVirtualDriveRefLunItemName_Object=MibTableColumn
-cucsStorageVirtualDriveRefLunItemName=_CucsStorageVirtualDriveRefLunItemName_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,11),_CucsStorageVirtualDriveRefLunItemName_Type())
-cucsStorageVirtualDriveRefLunItemName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefLunItemName.setStatus(_A)
-_CucsStorageVirtualDriveRefLunName_Type=SnmpAdminString
-_CucsStorageVirtualDriveRefLunName_Object=MibTableColumn
-cucsStorageVirtualDriveRefLunName=_CucsStorageVirtualDriveRefLunName_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,12),_CucsStorageVirtualDriveRefLunName_Type())
-cucsStorageVirtualDriveRefLunName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefLunName.setStatus(_A)
-_CucsStorageVirtualDriveRefRaidLevel_Type=CucsStorageLunType
-_CucsStorageVirtualDriveRefRaidLevel_Object=MibTableColumn
-cucsStorageVirtualDriveRefRaidLevel=_CucsStorageVirtualDriveRefRaidLevel_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,13),_CucsStorageVirtualDriveRefRaidLevel_Type())
-cucsStorageVirtualDriveRefRaidLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefRaidLevel.setStatus(_A)
-_CucsStorageVirtualDriveRefSize_Type=Unsigned64
-_CucsStorageVirtualDriveRefSize_Object=MibTableColumn
-cucsStorageVirtualDriveRefSize=_CucsStorageVirtualDriveRefSize_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,14),_CucsStorageVirtualDriveRefSize_Type())
-cucsStorageVirtualDriveRefSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefSize.setStatus(_A)
-_CucsStorageVirtualDriveRefUuid_Type=SnmpAdminString
-_CucsStorageVirtualDriveRefUuid_Object=MibTableColumn
-cucsStorageVirtualDriveRefUuid=_CucsStorageVirtualDriveRefUuid_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,15),_CucsStorageVirtualDriveRefUuid_Type())
-cucsStorageVirtualDriveRefUuid.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefUuid.setStatus(_A)
-_CucsStorageVirtualDriveRefIsBootable_Type=CucsLstorageBootDevice
-_CucsStorageVirtualDriveRefIsBootable_Object=MibTableColumn
-cucsStorageVirtualDriveRefIsBootable=_CucsStorageVirtualDriveRefIsBootable_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,16),_CucsStorageVirtualDriveRefIsBootable_Type())
-cucsStorageVirtualDriveRefIsBootable.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefIsBootable.setStatus(_A)
-_CucsStorageVirtualDriveRefOrder_Type=Gauge32
-_CucsStorageVirtualDriveRefOrder_Object=MibTableColumn
-cucsStorageVirtualDriveRefOrder=_CucsStorageVirtualDriveRefOrder_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,17),_CucsStorageVirtualDriveRefOrder_Type())
-cucsStorageVirtualDriveRefOrder.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefOrder.setStatus(_A)
-_CucsStorageVirtualDriveRefVendorUuid_Type=SnmpAdminString
-_CucsStorageVirtualDriveRefVendorUuid_Object=MibTableColumn
-cucsStorageVirtualDriveRefVendorUuid=_CucsStorageVirtualDriveRefVendorUuid_Object((1,3,6,1,4,1,9,9,719,1,45,91,1,18),_CucsStorageVirtualDriveRefVendorUuid_Type())
-cucsStorageVirtualDriveRefVendorUuid.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveRefVendorUuid.setStatus(_A)
-_CucsStorageControllerRefTable_Object=MibTable
-cucsStorageControllerRefTable=_CucsStorageControllerRefTable_Object((1,3,6,1,4,1,9,9,719,1,45,93))
-if mibBuilder.loadTexts:cucsStorageControllerRefTable.setStatus(_A)
-_CucsStorageControllerRefEntry_Object=MibTableRow
-cucsStorageControllerRefEntry=_CucsStorageControllerRefEntry_Object((1,3,6,1,4,1,9,9,719,1,45,93,1))
-cucsStorageControllerRefEntry.setIndexNames((0,_C,_A3))
-if mibBuilder.loadTexts:cucsStorageControllerRefEntry.setStatus(_A)
-_CucsStorageControllerRefInstanceId_Type=CucsManagedObjectId
-_CucsStorageControllerRefInstanceId_Object=MibTableColumn
-cucsStorageControllerRefInstanceId=_CucsStorageControllerRefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,93,1,1),_CucsStorageControllerRefInstanceId_Type())
-cucsStorageControllerRefInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageControllerRefInstanceId.setStatus(_A)
-_CucsStorageControllerRefDn_Type=CucsManagedObjectDn
-_CucsStorageControllerRefDn_Object=MibTableColumn
-cucsStorageControllerRefDn=_CucsStorageControllerRefDn_Object((1,3,6,1,4,1,9,9,719,1,45,93,1,2),_CucsStorageControllerRefDn_Type())
-cucsStorageControllerRefDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerRefDn.setStatus(_A)
-_CucsStorageControllerRefRn_Type=SnmpAdminString
-_CucsStorageControllerRefRn_Object=MibTableColumn
-cucsStorageControllerRefRn=_CucsStorageControllerRefRn_Object((1,3,6,1,4,1,9,9,719,1,45,93,1,3),_CucsStorageControllerRefRn_Type())
-cucsStorageControllerRefRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerRefRn.setStatus(_A)
-_CucsStorageControllerRefControllerId_Type=Gauge32
-_CucsStorageControllerRefControllerId_Object=MibTableColumn
-cucsStorageControllerRefControllerId=_CucsStorageControllerRefControllerId_Object((1,3,6,1,4,1,9,9,719,1,45,93,1,4),_CucsStorageControllerRefControllerId_Type())
-cucsStorageControllerRefControllerId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerRefControllerId.setStatus(_A)
-_CucsStorageControllerRefLc_Type=CucsFsmLifecycle
-_CucsStorageControllerRefLc_Object=MibTableColumn
-cucsStorageControllerRefLc=_CucsStorageControllerRefLc_Object((1,3,6,1,4,1,9,9,719,1,45,93,1,5),_CucsStorageControllerRefLc_Type())
-cucsStorageControllerRefLc.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerRefLc.setStatus(_A)
-_CucsStorageControllerRefServerId_Type=Gauge32
-_CucsStorageControllerRefServerId_Object=MibTableColumn
-cucsStorageControllerRefServerId=_CucsStorageControllerRefServerId_Object((1,3,6,1,4,1,9,9,719,1,45,93,1,6),_CucsStorageControllerRefServerId_Type())
-cucsStorageControllerRefServerId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerRefServerId.setStatus(_A)
-_CucsStorageControllerRefControllerType_Type=CucsStorageControllerRefControllerType
-_CucsStorageControllerRefControllerType_Object=MibTableColumn
-cucsStorageControllerRefControllerType=_CucsStorageControllerRefControllerType_Object((1,3,6,1,4,1,9,9,719,1,45,93,1,7),_CucsStorageControllerRefControllerType_Type())
-cucsStorageControllerRefControllerType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerRefControllerType.setStatus(_A)
-_CucsStorageEnclosureCapTable_Object=MibTable
-cucsStorageEnclosureCapTable=_CucsStorageEnclosureCapTable_Object((1,3,6,1,4,1,9,9,719,1,45,94))
-if mibBuilder.loadTexts:cucsStorageEnclosureCapTable.setStatus(_A)
-_CucsStorageEnclosureCapEntry_Object=MibTableRow
-cucsStorageEnclosureCapEntry=_CucsStorageEnclosureCapEntry_Object((1,3,6,1,4,1,9,9,719,1,45,94,1))
-cucsStorageEnclosureCapEntry.setIndexNames((0,_C,_A4))
-if mibBuilder.loadTexts:cucsStorageEnclosureCapEntry.setStatus(_A)
-_CucsStorageEnclosureCapInstanceId_Type=CucsManagedObjectId
-_CucsStorageEnclosureCapInstanceId_Object=MibTableColumn
-cucsStorageEnclosureCapInstanceId=_CucsStorageEnclosureCapInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,94,1,1),_CucsStorageEnclosureCapInstanceId_Type())
-cucsStorageEnclosureCapInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageEnclosureCapInstanceId.setStatus(_A)
-_CucsStorageEnclosureCapDn_Type=CucsManagedObjectDn
-_CucsStorageEnclosureCapDn_Object=MibTableColumn
-cucsStorageEnclosureCapDn=_CucsStorageEnclosureCapDn_Object((1,3,6,1,4,1,9,9,719,1,45,94,1,2),_CucsStorageEnclosureCapDn_Type())
-cucsStorageEnclosureCapDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureCapDn.setStatus(_A)
-_CucsStorageEnclosureCapRn_Type=SnmpAdminString
-_CucsStorageEnclosureCapRn_Object=MibTableColumn
-cucsStorageEnclosureCapRn=_CucsStorageEnclosureCapRn_Object((1,3,6,1,4,1,9,9,719,1,45,94,1,3),_CucsStorageEnclosureCapRn_Type())
-cucsStorageEnclosureCapRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureCapRn.setStatus(_A)
-_CucsStorageEnclosureCapDescr_Type=SnmpAdminString
-_CucsStorageEnclosureCapDescr_Object=MibTableColumn
-cucsStorageEnclosureCapDescr=_CucsStorageEnclosureCapDescr_Object((1,3,6,1,4,1,9,9,719,1,45,94,1,4),_CucsStorageEnclosureCapDescr_Type())
-cucsStorageEnclosureCapDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureCapDescr.setStatus(_A)
-_CucsStorageEnclosureCapId_Type=Gauge32
-_CucsStorageEnclosureCapId_Object=MibTableColumn
-cucsStorageEnclosureCapId=_CucsStorageEnclosureCapId_Object((1,3,6,1,4,1,9,9,719,1,45,94,1,5),_CucsStorageEnclosureCapId_Type())
-cucsStorageEnclosureCapId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureCapId.setStatus(_A)
-_CucsStorageEnclosureCapNumSlots_Type=Gauge32
-_CucsStorageEnclosureCapNumSlots_Object=MibTableColumn
-cucsStorageEnclosureCapNumSlots=_CucsStorageEnclosureCapNumSlots_Object((1,3,6,1,4,1,9,9,719,1,45,94,1,6),_CucsStorageEnclosureCapNumSlots_Type())
-cucsStorageEnclosureCapNumSlots.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureCapNumSlots.setStatus(_A)
-_CucsStorageEnclosureCapType_Type=CucsStoragePhysicalHolder
-_CucsStorageEnclosureCapType_Object=MibTableColumn
-cucsStorageEnclosureCapType=_CucsStorageEnclosureCapType_Object((1,3,6,1,4,1,9,9,719,1,45,94,1,7),_CucsStorageEnclosureCapType_Type())
-cucsStorageEnclosureCapType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureCapType.setStatus(_A)
-_CucsStorageEnclosureCapDiskVariant_Type=SnmpAdminString
-_CucsStorageEnclosureCapDiskVariant_Object=MibTableColumn
-cucsStorageEnclosureCapDiskVariant=_CucsStorageEnclosureCapDiskVariant_Object((1,3,6,1,4,1,9,9,719,1,45,94,1,8),_CucsStorageEnclosureCapDiskVariant_Type())
-cucsStorageEnclosureCapDiskVariant.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureCapDiskVariant.setStatus(_A)
-_CucsStorageEnclosureCapRemovable_Type=TruthValue
-_CucsStorageEnclosureCapRemovable_Object=MibTableColumn
-cucsStorageEnclosureCapRemovable=_CucsStorageEnclosureCapRemovable_Object((1,3,6,1,4,1,9,9,719,1,45,94,1,9),_CucsStorageEnclosureCapRemovable_Type())
-cucsStorageEnclosureCapRemovable.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureCapRemovable.setStatus(_A)
-_CucsStorageSasLinkDescriptorTable_Object=MibTable
-cucsStorageSasLinkDescriptorTable=_CucsStorageSasLinkDescriptorTable_Object((1,3,6,1,4,1,9,9,719,1,45,95))
-if mibBuilder.loadTexts:cucsStorageSasLinkDescriptorTable.setStatus(_A)
-_CucsStorageSasLinkDescriptorEntry_Object=MibTableRow
-cucsStorageSasLinkDescriptorEntry=_CucsStorageSasLinkDescriptorEntry_Object((1,3,6,1,4,1,9,9,719,1,45,95,1))
-cucsStorageSasLinkDescriptorEntry.setIndexNames((0,_C,_A5))
-if mibBuilder.loadTexts:cucsStorageSasLinkDescriptorEntry.setStatus(_A)
-_CucsStorageSasLinkDescriptorInstanceId_Type=CucsManagedObjectId
-_CucsStorageSasLinkDescriptorInstanceId_Object=MibTableColumn
-cucsStorageSasLinkDescriptorInstanceId=_CucsStorageSasLinkDescriptorInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,95,1,1),_CucsStorageSasLinkDescriptorInstanceId_Type())
-cucsStorageSasLinkDescriptorInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageSasLinkDescriptorInstanceId.setStatus(_A)
-_CucsStorageSasLinkDescriptorDn_Type=CucsManagedObjectDn
-_CucsStorageSasLinkDescriptorDn_Object=MibTableColumn
-cucsStorageSasLinkDescriptorDn=_CucsStorageSasLinkDescriptorDn_Object((1,3,6,1,4,1,9,9,719,1,45,95,1,2),_CucsStorageSasLinkDescriptorDn_Type())
-cucsStorageSasLinkDescriptorDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasLinkDescriptorDn.setStatus(_A)
-_CucsStorageSasLinkDescriptorRn_Type=SnmpAdminString
-_CucsStorageSasLinkDescriptorRn_Object=MibTableColumn
-cucsStorageSasLinkDescriptorRn=_CucsStorageSasLinkDescriptorRn_Object((1,3,6,1,4,1,9,9,719,1,45,95,1,3),_CucsStorageSasLinkDescriptorRn_Type())
-cucsStorageSasLinkDescriptorRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasLinkDescriptorRn.setStatus(_A)
-_CucsStorageSasLinkDescriptorControllerId_Type=Gauge32
-_CucsStorageSasLinkDescriptorControllerId_Object=MibTableColumn
-cucsStorageSasLinkDescriptorControllerId=_CucsStorageSasLinkDescriptorControllerId_Object((1,3,6,1,4,1,9,9,719,1,45,95,1,4),_CucsStorageSasLinkDescriptorControllerId_Type())
-cucsStorageSasLinkDescriptorControllerId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasLinkDescriptorControllerId.setStatus(_A)
-_CucsStorageSasLinkDescriptorId_Type=Gauge32
-_CucsStorageSasLinkDescriptorId_Object=MibTableColumn
-cucsStorageSasLinkDescriptorId=_CucsStorageSasLinkDescriptorId_Object((1,3,6,1,4,1,9,9,719,1,45,95,1,5),_CucsStorageSasLinkDescriptorId_Type())
-cucsStorageSasLinkDescriptorId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasLinkDescriptorId.setStatus(_A)
-_CucsStorageSasLinkDescriptorLinkDescr_Type=SnmpAdminString
-_CucsStorageSasLinkDescriptorLinkDescr_Object=MibTableColumn
-cucsStorageSasLinkDescriptorLinkDescr=_CucsStorageSasLinkDescriptorLinkDescr_Object((1,3,6,1,4,1,9,9,719,1,45,95,1,6),_CucsStorageSasLinkDescriptorLinkDescr_Type())
-cucsStorageSasLinkDescriptorLinkDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasLinkDescriptorLinkDescr.setStatus(_A)
-_CucsStorageSasLinkDescriptorServerId_Type=Gauge32
-_CucsStorageSasLinkDescriptorServerId_Object=MibTableColumn
-cucsStorageSasLinkDescriptorServerId=_CucsStorageSasLinkDescriptorServerId_Object((1,3,6,1,4,1,9,9,719,1,45,95,1,7),_CucsStorageSasLinkDescriptorServerId_Type())
-cucsStorageSasLinkDescriptorServerId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasLinkDescriptorServerId.setStatus(_A)
-_CucsStorageSasLinkDescriptorControllerType_Type=CucsStorageSasLinkDescriptorControllerType
-_CucsStorageSasLinkDescriptorControllerType_Object=MibTableColumn
-cucsStorageSasLinkDescriptorControllerType=_CucsStorageSasLinkDescriptorControllerType_Object((1,3,6,1,4,1,9,9,719,1,45,95,1,8),_CucsStorageSasLinkDescriptorControllerType_Type())
-cucsStorageSasLinkDescriptorControllerType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasLinkDescriptorControllerType.setStatus(_A)
-_CucsStorageSasPortTable_Object=MibTable
-cucsStorageSasPortTable=_CucsStorageSasPortTable_Object((1,3,6,1,4,1,9,9,719,1,45,96))
-if mibBuilder.loadTexts:cucsStorageSasPortTable.setStatus(_A)
-_CucsStorageSasPortEntry_Object=MibTableRow
-cucsStorageSasPortEntry=_CucsStorageSasPortEntry_Object((1,3,6,1,4,1,9,9,719,1,45,96,1))
-cucsStorageSasPortEntry.setIndexNames((0,_C,_A6))
-if mibBuilder.loadTexts:cucsStorageSasPortEntry.setStatus(_A)
-_CucsStorageSasPortInstanceId_Type=CucsManagedObjectId
-_CucsStorageSasPortInstanceId_Object=MibTableColumn
-cucsStorageSasPortInstanceId=_CucsStorageSasPortInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,96,1,1),_CucsStorageSasPortInstanceId_Type())
-cucsStorageSasPortInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageSasPortInstanceId.setStatus(_A)
-_CucsStorageSasPortDn_Type=CucsManagedObjectDn
-_CucsStorageSasPortDn_Object=MibTableColumn
-cucsStorageSasPortDn=_CucsStorageSasPortDn_Object((1,3,6,1,4,1,9,9,719,1,45,96,1,2),_CucsStorageSasPortDn_Type())
-cucsStorageSasPortDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasPortDn.setStatus(_A)
-_CucsStorageSasPortRn_Type=SnmpAdminString
-_CucsStorageSasPortRn_Object=MibTableColumn
-cucsStorageSasPortRn=_CucsStorageSasPortRn_Object((1,3,6,1,4,1,9,9,719,1,45,96,1,3),_CucsStorageSasPortRn_Type())
-cucsStorageSasPortRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasPortRn.setStatus(_A)
-_CucsStorageSasPortAddress_Type=SnmpAdminString
-_CucsStorageSasPortAddress_Object=MibTableColumn
-cucsStorageSasPortAddress=_CucsStorageSasPortAddress_Object((1,3,6,1,4,1,9,9,719,1,45,96,1,4),_CucsStorageSasPortAddress_Type())
-cucsStorageSasPortAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasPortAddress.setStatus(_A)
-_CucsStorageSasPortEndpoint_Type=Gauge32
-_CucsStorageSasPortEndpoint_Object=MibTableColumn
-cucsStorageSasPortEndpoint=_CucsStorageSasPortEndpoint_Object((1,3,6,1,4,1,9,9,719,1,45,96,1,5),_CucsStorageSasPortEndpoint_Type())
-cucsStorageSasPortEndpoint.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasPortEndpoint.setStatus(_A)
-_CucsStorageSasPortId_Type=Gauge32
-_CucsStorageSasPortId_Object=MibTableColumn
-cucsStorageSasPortId=_CucsStorageSasPortId_Object((1,3,6,1,4,1,9,9,719,1,45,96,1,6),_CucsStorageSasPortId_Type())
-cucsStorageSasPortId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasPortId.setStatus(_A)
-_CucsStorageSasPortLc_Type=CucsFsmLifecycle
-_CucsStorageSasPortLc_Object=MibTableColumn
-cucsStorageSasPortLc=_CucsStorageSasPortLc_Object((1,3,6,1,4,1,9,9,719,1,45,96,1,7),_CucsStorageSasPortLc_Type())
-cucsStorageSasPortLc.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasPortLc.setStatus(_A)
-_CucsStorageSasPortLinkDescr_Type=SnmpAdminString
-_CucsStorageSasPortLinkDescr_Object=MibTableColumn
-cucsStorageSasPortLinkDescr=_CucsStorageSasPortLinkDescr_Object((1,3,6,1,4,1,9,9,719,1,45,96,1,8),_CucsStorageSasPortLinkDescr_Type())
-cucsStorageSasPortLinkDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasPortLinkDescr.setStatus(_A)
-_CucsStorageSasPortLinkSpeed_Type=CucsStorageLinkSpeed
-_CucsStorageSasPortLinkSpeed_Object=MibTableColumn
-cucsStorageSasPortLinkSpeed=_CucsStorageSasPortLinkSpeed_Object((1,3,6,1,4,1,9,9,719,1,45,96,1,9),_CucsStorageSasPortLinkSpeed_Type())
-cucsStorageSasPortLinkSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasPortLinkSpeed.setStatus(_A)
-_CucsStorageSasPortDescriptorTable_Object=MibTable
-cucsStorageSasPortDescriptorTable=_CucsStorageSasPortDescriptorTable_Object((1,3,6,1,4,1,9,9,719,1,45,97))
-if mibBuilder.loadTexts:cucsStorageSasPortDescriptorTable.setStatus(_A)
-_CucsStorageSasPortDescriptorEntry_Object=MibTableRow
-cucsStorageSasPortDescriptorEntry=_CucsStorageSasPortDescriptorEntry_Object((1,3,6,1,4,1,9,9,719,1,45,97,1))
-cucsStorageSasPortDescriptorEntry.setIndexNames((0,_C,_A7))
-if mibBuilder.loadTexts:cucsStorageSasPortDescriptorEntry.setStatus(_A)
-_CucsStorageSasPortDescriptorInstanceId_Type=CucsManagedObjectId
-_CucsStorageSasPortDescriptorInstanceId_Object=MibTableColumn
-cucsStorageSasPortDescriptorInstanceId=_CucsStorageSasPortDescriptorInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,97,1,1),_CucsStorageSasPortDescriptorInstanceId_Type())
-cucsStorageSasPortDescriptorInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageSasPortDescriptorInstanceId.setStatus(_A)
-_CucsStorageSasPortDescriptorDn_Type=CucsManagedObjectDn
-_CucsStorageSasPortDescriptorDn_Object=MibTableColumn
-cucsStorageSasPortDescriptorDn=_CucsStorageSasPortDescriptorDn_Object((1,3,6,1,4,1,9,9,719,1,45,97,1,2),_CucsStorageSasPortDescriptorDn_Type())
-cucsStorageSasPortDescriptorDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasPortDescriptorDn.setStatus(_A)
-_CucsStorageSasPortDescriptorRn_Type=SnmpAdminString
-_CucsStorageSasPortDescriptorRn_Object=MibTableColumn
-cucsStorageSasPortDescriptorRn=_CucsStorageSasPortDescriptorRn_Object((1,3,6,1,4,1,9,9,719,1,45,97,1,3),_CucsStorageSasPortDescriptorRn_Type())
-cucsStorageSasPortDescriptorRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasPortDescriptorRn.setStatus(_A)
-_CucsStorageSasPortDescriptorId_Type=Gauge32
-_CucsStorageSasPortDescriptorId_Object=MibTableColumn
-cucsStorageSasPortDescriptorId=_CucsStorageSasPortDescriptorId_Object((1,3,6,1,4,1,9,9,719,1,45,97,1,4),_CucsStorageSasPortDescriptorId_Type())
-cucsStorageSasPortDescriptorId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasPortDescriptorId.setStatus(_A)
-_CucsStorageSasPortDescriptorLinkDescr_Type=SnmpAdminString
-_CucsStorageSasPortDescriptorLinkDescr_Object=MibTableColumn
-cucsStorageSasPortDescriptorLinkDescr=_CucsStorageSasPortDescriptorLinkDescr_Object((1,3,6,1,4,1,9,9,719,1,45,97,1,5),_CucsStorageSasPortDescriptorLinkDescr_Type())
-cucsStorageSasPortDescriptorLinkDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasPortDescriptorLinkDescr.setStatus(_A)
-_CucsStorageSasUpLinkTable_Object=MibTable
-cucsStorageSasUpLinkTable=_CucsStorageSasUpLinkTable_Object((1,3,6,1,4,1,9,9,719,1,45,98))
-if mibBuilder.loadTexts:cucsStorageSasUpLinkTable.setStatus(_A)
-_CucsStorageSasUpLinkEntry_Object=MibTableRow
-cucsStorageSasUpLinkEntry=_CucsStorageSasUpLinkEntry_Object((1,3,6,1,4,1,9,9,719,1,45,98,1))
-cucsStorageSasUpLinkEntry.setIndexNames((0,_C,_A8))
-if mibBuilder.loadTexts:cucsStorageSasUpLinkEntry.setStatus(_A)
-_CucsStorageSasUpLinkInstanceId_Type=CucsManagedObjectId
-_CucsStorageSasUpLinkInstanceId_Object=MibTableColumn
-cucsStorageSasUpLinkInstanceId=_CucsStorageSasUpLinkInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,98,1,1),_CucsStorageSasUpLinkInstanceId_Type())
-cucsStorageSasUpLinkInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageSasUpLinkInstanceId.setStatus(_A)
-_CucsStorageSasUpLinkDn_Type=CucsManagedObjectDn
-_CucsStorageSasUpLinkDn_Object=MibTableColumn
-cucsStorageSasUpLinkDn=_CucsStorageSasUpLinkDn_Object((1,3,6,1,4,1,9,9,719,1,45,98,1,2),_CucsStorageSasUpLinkDn_Type())
-cucsStorageSasUpLinkDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasUpLinkDn.setStatus(_A)
-_CucsStorageSasUpLinkRn_Type=SnmpAdminString
-_CucsStorageSasUpLinkRn_Object=MibTableColumn
-cucsStorageSasUpLinkRn=_CucsStorageSasUpLinkRn_Object((1,3,6,1,4,1,9,9,719,1,45,98,1,3),_CucsStorageSasUpLinkRn_Type())
-cucsStorageSasUpLinkRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasUpLinkRn.setStatus(_A)
-_CucsStorageSasUpLinkControllerId_Type=Gauge32
-_CucsStorageSasUpLinkControllerId_Object=MibTableColumn
-cucsStorageSasUpLinkControllerId=_CucsStorageSasUpLinkControllerId_Object((1,3,6,1,4,1,9,9,719,1,45,98,1,4),_CucsStorageSasUpLinkControllerId_Type())
-cucsStorageSasUpLinkControllerId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasUpLinkControllerId.setStatus(_A)
-_CucsStorageSasUpLinkId_Type=Gauge32
-_CucsStorageSasUpLinkId_Object=MibTableColumn
-cucsStorageSasUpLinkId=_CucsStorageSasUpLinkId_Object((1,3,6,1,4,1,9,9,719,1,45,98,1,5),_CucsStorageSasUpLinkId_Type())
-cucsStorageSasUpLinkId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasUpLinkId.setStatus(_A)
-_CucsStorageSasUpLinkLc_Type=CucsFsmLifecycle
-_CucsStorageSasUpLinkLc_Object=MibTableColumn
-cucsStorageSasUpLinkLc=_CucsStorageSasUpLinkLc_Object((1,3,6,1,4,1,9,9,719,1,45,98,1,6),_CucsStorageSasUpLinkLc_Type())
-cucsStorageSasUpLinkLc.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasUpLinkLc.setStatus(_A)
-_CucsStorageSasUpLinkLinkDescr_Type=SnmpAdminString
-_CucsStorageSasUpLinkLinkDescr_Object=MibTableColumn
-cucsStorageSasUpLinkLinkDescr=_CucsStorageSasUpLinkLinkDescr_Object((1,3,6,1,4,1,9,9,719,1,45,98,1,7),_CucsStorageSasUpLinkLinkDescr_Type())
-cucsStorageSasUpLinkLinkDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasUpLinkLinkDescr.setStatus(_A)
-_CucsStorageSasUpLinkLinkSpeed_Type=CucsStorageLinkSpeed
-_CucsStorageSasUpLinkLinkSpeed_Object=MibTableColumn
-cucsStorageSasUpLinkLinkSpeed=_CucsStorageSasUpLinkLinkSpeed_Object((1,3,6,1,4,1,9,9,719,1,45,98,1,8),_CucsStorageSasUpLinkLinkSpeed_Type())
-cucsStorageSasUpLinkLinkSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasUpLinkLinkSpeed.setStatus(_A)
-_CucsStorageSasUpLinkServerId_Type=Gauge32
-_CucsStorageSasUpLinkServerId_Object=MibTableColumn
-cucsStorageSasUpLinkServerId=_CucsStorageSasUpLinkServerId_Object((1,3,6,1,4,1,9,9,719,1,45,98,1,9),_CucsStorageSasUpLinkServerId_Type())
-cucsStorageSasUpLinkServerId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasUpLinkServerId.setStatus(_A)
-_CucsStorageSasUpLinkControllerType_Type=CucsStorageSasUpLinkControllerType
-_CucsStorageSasUpLinkControllerType_Object=MibTableColumn
-cucsStorageSasUpLinkControllerType=_CucsStorageSasUpLinkControllerType_Object((1,3,6,1,4,1,9,9,719,1,45,98,1,10),_CucsStorageSasUpLinkControllerType_Type())
-cucsStorageSasUpLinkControllerType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSasUpLinkControllerType.setStatus(_A)
-_CucsStorageOnboardDeviceTable_Object=MibTable
-cucsStorageOnboardDeviceTable=_CucsStorageOnboardDeviceTable_Object((1,3,6,1,4,1,9,9,719,1,45,108))
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceTable.setStatus(_A)
-_CucsStorageOnboardDeviceEntry_Object=MibTableRow
-cucsStorageOnboardDeviceEntry=_CucsStorageOnboardDeviceEntry_Object((1,3,6,1,4,1,9,9,719,1,45,108,1))
-cucsStorageOnboardDeviceEntry.setIndexNames((0,_C,_A9))
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceEntry.setStatus(_A)
-_CucsStorageOnboardDeviceInstanceId_Type=CucsManagedObjectId
-_CucsStorageOnboardDeviceInstanceId_Object=MibTableColumn
-cucsStorageOnboardDeviceInstanceId=_CucsStorageOnboardDeviceInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,1),_CucsStorageOnboardDeviceInstanceId_Type())
-cucsStorageOnboardDeviceInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceInstanceId.setStatus(_A)
-_CucsStorageOnboardDeviceDn_Type=CucsManagedObjectDn
-_CucsStorageOnboardDeviceDn_Object=MibTableColumn
-cucsStorageOnboardDeviceDn=_CucsStorageOnboardDeviceDn_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,2),_CucsStorageOnboardDeviceDn_Type())
-cucsStorageOnboardDeviceDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceDn.setStatus(_A)
-_CucsStorageOnboardDeviceRn_Type=SnmpAdminString
-_CucsStorageOnboardDeviceRn_Object=MibTableColumn
-cucsStorageOnboardDeviceRn=_CucsStorageOnboardDeviceRn_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,3),_CucsStorageOnboardDeviceRn_Type())
-cucsStorageOnboardDeviceRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceRn.setStatus(_A)
-_CucsStorageOnboardDeviceBlockSize_Type=Gauge32
-_CucsStorageOnboardDeviceBlockSize_Object=MibTableColumn
-cucsStorageOnboardDeviceBlockSize=_CucsStorageOnboardDeviceBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,4),_CucsStorageOnboardDeviceBlockSize_Type())
-cucsStorageOnboardDeviceBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceBlockSize.setStatus(_A)
-_CucsStorageOnboardDeviceConfigCheckPoint_Type=CucsStorageConfigCheckPoint
-_CucsStorageOnboardDeviceConfigCheckPoint_Object=MibTableColumn
-cucsStorageOnboardDeviceConfigCheckPoint=_CucsStorageOnboardDeviceConfigCheckPoint_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,5),_CucsStorageOnboardDeviceConfigCheckPoint_Type())
-cucsStorageOnboardDeviceConfigCheckPoint.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceConfigCheckPoint.setStatus(_A)
-_CucsStorageOnboardDeviceConnectionProtocol_Type=CucsStorageConnectionProtocol
-_CucsStorageOnboardDeviceConnectionProtocol_Object=MibTableColumn
-cucsStorageOnboardDeviceConnectionProtocol=_CucsStorageOnboardDeviceConnectionProtocol_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,6),_CucsStorageOnboardDeviceConnectionProtocol_Type())
-cucsStorageOnboardDeviceConnectionProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceConnectionProtocol.setStatus(_A)
-_CucsStorageOnboardDeviceDescription_Type=SnmpAdminString
-_CucsStorageOnboardDeviceDescription_Object=MibTableColumn
-cucsStorageOnboardDeviceDescription=_CucsStorageOnboardDeviceDescription_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,7),_CucsStorageOnboardDeviceDescription_Type())
-cucsStorageOnboardDeviceDescription.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceDescription.setStatus(_A)
-_CucsStorageOnboardDeviceDeviceType_Type=CucsStorageOnboardDeviceType
-_CucsStorageOnboardDeviceDeviceType_Object=MibTableColumn
-cucsStorageOnboardDeviceDeviceType=_CucsStorageOnboardDeviceDeviceType_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,8),_CucsStorageOnboardDeviceDeviceType_Type())
-cucsStorageOnboardDeviceDeviceType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceDeviceType.setStatus(_A)
-_CucsStorageOnboardDeviceId_Type=Gauge32
-_CucsStorageOnboardDeviceId_Object=MibTableColumn
-cucsStorageOnboardDeviceId=_CucsStorageOnboardDeviceId_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,9),_CucsStorageOnboardDeviceId_Type())
-cucsStorageOnboardDeviceId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceId.setStatus(_A)
-_CucsStorageOnboardDeviceModel_Type=SnmpAdminString
-_CucsStorageOnboardDeviceModel_Object=MibTableColumn
-cucsStorageOnboardDeviceModel=_CucsStorageOnboardDeviceModel_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,10),_CucsStorageOnboardDeviceModel_Type())
-cucsStorageOnboardDeviceModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceModel.setStatus(_A)
-_CucsStorageOnboardDeviceNumberOfBlocks_Type=Unsigned64
-_CucsStorageOnboardDeviceNumberOfBlocks_Object=MibTableColumn
-cucsStorageOnboardDeviceNumberOfBlocks=_CucsStorageOnboardDeviceNumberOfBlocks_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,11),_CucsStorageOnboardDeviceNumberOfBlocks_Type())
-cucsStorageOnboardDeviceNumberOfBlocks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceNumberOfBlocks.setStatus(_A)
-_CucsStorageOnboardDeviceOperQualifierReason_Type=SnmpAdminString
-_CucsStorageOnboardDeviceOperQualifierReason_Object=MibTableColumn
-cucsStorageOnboardDeviceOperQualifierReason=_CucsStorageOnboardDeviceOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,12),_CucsStorageOnboardDeviceOperQualifierReason_Type())
-cucsStorageOnboardDeviceOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceOperQualifierReason.setStatus(_A)
-_CucsStorageOnboardDeviceOperability_Type=CucsEquipmentOperability
-_CucsStorageOnboardDeviceOperability_Object=MibTableColumn
-cucsStorageOnboardDeviceOperability=_CucsStorageOnboardDeviceOperability_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,13),_CucsStorageOnboardDeviceOperability_Type())
-cucsStorageOnboardDeviceOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceOperability.setStatus(_A)
-_CucsStorageOnboardDevicePresence_Type=CucsEquipmentPresence
-_CucsStorageOnboardDevicePresence_Object=MibTableColumn
-cucsStorageOnboardDevicePresence=_CucsStorageOnboardDevicePresence_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,14),_CucsStorageOnboardDevicePresence_Type())
-cucsStorageOnboardDevicePresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDevicePresence.setStatus(_A)
-_CucsStorageOnboardDeviceRevision_Type=SnmpAdminString
-_CucsStorageOnboardDeviceRevision_Object=MibTableColumn
-cucsStorageOnboardDeviceRevision=_CucsStorageOnboardDeviceRevision_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,15),_CucsStorageOnboardDeviceRevision_Type())
-cucsStorageOnboardDeviceRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceRevision.setStatus(_A)
-_CucsStorageOnboardDeviceSerial_Type=SnmpAdminString
-_CucsStorageOnboardDeviceSerial_Object=MibTableColumn
-cucsStorageOnboardDeviceSerial=_CucsStorageOnboardDeviceSerial_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,16),_CucsStorageOnboardDeviceSerial_Type())
-cucsStorageOnboardDeviceSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceSerial.setStatus(_A)
-_CucsStorageOnboardDeviceSize_Type=Unsigned64
-_CucsStorageOnboardDeviceSize_Object=MibTableColumn
-cucsStorageOnboardDeviceSize=_CucsStorageOnboardDeviceSize_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,17),_CucsStorageOnboardDeviceSize_Type())
-cucsStorageOnboardDeviceSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceSize.setStatus(_A)
-_CucsStorageOnboardDeviceVendor_Type=SnmpAdminString
-_CucsStorageOnboardDeviceVendor_Object=MibTableColumn
-cucsStorageOnboardDeviceVendor=_CucsStorageOnboardDeviceVendor_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,18),_CucsStorageOnboardDeviceVendor_Type())
-cucsStorageOnboardDeviceVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDeviceVendor.setStatus(_A)
-_CucsStorageOnboardDevicePhysicalBlockSize_Type=Gauge32
-_CucsStorageOnboardDevicePhysicalBlockSize_Object=MibTableColumn
-cucsStorageOnboardDevicePhysicalBlockSize=_CucsStorageOnboardDevicePhysicalBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,108,1,19),_CucsStorageOnboardDevicePhysicalBlockSize_Type())
-cucsStorageOnboardDevicePhysicalBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageOnboardDevicePhysicalBlockSize.setStatus(_A)
-_CucsStorageControllerEpTable_Object=MibTable
-cucsStorageControllerEpTable=_CucsStorageControllerEpTable_Object((1,3,6,1,4,1,9,9,719,1,45,109))
-if mibBuilder.loadTexts:cucsStorageControllerEpTable.setStatus(_A)
-_CucsStorageControllerEpEntry_Object=MibTableRow
-cucsStorageControllerEpEntry=_CucsStorageControllerEpEntry_Object((1,3,6,1,4,1,9,9,719,1,45,109,1))
-cucsStorageControllerEpEntry.setIndexNames((0,_C,_AA))
-if mibBuilder.loadTexts:cucsStorageControllerEpEntry.setStatus(_A)
-_CucsStorageControllerEpInstanceId_Type=CucsManagedObjectId
-_CucsStorageControllerEpInstanceId_Object=MibTableColumn
-cucsStorageControllerEpInstanceId=_CucsStorageControllerEpInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,109,1,1),_CucsStorageControllerEpInstanceId_Type())
-cucsStorageControllerEpInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageControllerEpInstanceId.setStatus(_A)
-_CucsStorageControllerEpDn_Type=CucsManagedObjectDn
-_CucsStorageControllerEpDn_Object=MibTableColumn
-cucsStorageControllerEpDn=_CucsStorageControllerEpDn_Object((1,3,6,1,4,1,9,9,719,1,45,109,1,2),_CucsStorageControllerEpDn_Type())
-cucsStorageControllerEpDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerEpDn.setStatus(_A)
-_CucsStorageControllerEpRn_Type=SnmpAdminString
-_CucsStorageControllerEpRn_Object=MibTableColumn
-cucsStorageControllerEpRn=_CucsStorageControllerEpRn_Object((1,3,6,1,4,1,9,9,719,1,45,109,1,3),_CucsStorageControllerEpRn_Type())
-cucsStorageControllerEpRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerEpRn.setStatus(_A)
-_CucsStorageControllerEpControllerDn_Type=SnmpAdminString
-_CucsStorageControllerEpControllerDn_Object=MibTableColumn
-cucsStorageControllerEpControllerDn=_CucsStorageControllerEpControllerDn_Object((1,3,6,1,4,1,9,9,719,1,45,109,1,4),_CucsStorageControllerEpControllerDn_Type())
-cucsStorageControllerEpControllerDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerEpControllerDn.setStatus(_A)
-_CucsStorageControllerEpId_Type=Gauge32
-_CucsStorageControllerEpId_Object=MibTableColumn
-cucsStorageControllerEpId=_CucsStorageControllerEpId_Object((1,3,6,1,4,1,9,9,719,1,45,109,1,5),_CucsStorageControllerEpId_Type())
-cucsStorageControllerEpId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerEpId.setStatus(_A)
-_CucsStorageEmbeddedStorageTable_Object=MibTable
-cucsStorageEmbeddedStorageTable=_CucsStorageEmbeddedStorageTable_Object((1,3,6,1,4,1,9,9,719,1,45,110))
-if mibBuilder.loadTexts:cucsStorageEmbeddedStorageTable.setStatus(_A)
-_CucsStorageEmbeddedStorageEntry_Object=MibTableRow
-cucsStorageEmbeddedStorageEntry=_CucsStorageEmbeddedStorageEntry_Object((1,3,6,1,4,1,9,9,719,1,45,110,1))
-cucsStorageEmbeddedStorageEntry.setIndexNames((0,_C,_AB))
-if mibBuilder.loadTexts:cucsStorageEmbeddedStorageEntry.setStatus(_A)
-_CucsStorageEmbeddedStorageInstanceId_Type=CucsManagedObjectId
-_CucsStorageEmbeddedStorageInstanceId_Object=MibTableColumn
-cucsStorageEmbeddedStorageInstanceId=_CucsStorageEmbeddedStorageInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,110,1,1),_CucsStorageEmbeddedStorageInstanceId_Type())
-cucsStorageEmbeddedStorageInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageEmbeddedStorageInstanceId.setStatus(_A)
-_CucsStorageEmbeddedStorageDn_Type=CucsManagedObjectDn
-_CucsStorageEmbeddedStorageDn_Object=MibTableColumn
-cucsStorageEmbeddedStorageDn=_CucsStorageEmbeddedStorageDn_Object((1,3,6,1,4,1,9,9,719,1,45,110,1,2),_CucsStorageEmbeddedStorageDn_Type())
-cucsStorageEmbeddedStorageDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEmbeddedStorageDn.setStatus(_A)
-_CucsStorageEmbeddedStorageRn_Type=SnmpAdminString
-_CucsStorageEmbeddedStorageRn_Object=MibTableColumn
-cucsStorageEmbeddedStorageRn=_CucsStorageEmbeddedStorageRn_Object((1,3,6,1,4,1,9,9,719,1,45,110,1,3),_CucsStorageEmbeddedStorageRn_Type())
-cucsStorageEmbeddedStorageRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEmbeddedStorageRn.setStatus(_A)
-_CucsStorageEmbeddedStorageBlockSize_Type=Gauge32
-_CucsStorageEmbeddedStorageBlockSize_Object=MibTableColumn
-cucsStorageEmbeddedStorageBlockSize=_CucsStorageEmbeddedStorageBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,110,1,4),_CucsStorageEmbeddedStorageBlockSize_Type())
-cucsStorageEmbeddedStorageBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEmbeddedStorageBlockSize.setStatus(_A)
-_CucsStorageEmbeddedStorageConnectionProtocol_Type=CucsStorageConnectionProtocol
-_CucsStorageEmbeddedStorageConnectionProtocol_Object=MibTableColumn
-cucsStorageEmbeddedStorageConnectionProtocol=_CucsStorageEmbeddedStorageConnectionProtocol_Object((1,3,6,1,4,1,9,9,719,1,45,110,1,5),_CucsStorageEmbeddedStorageConnectionProtocol_Type())
-cucsStorageEmbeddedStorageConnectionProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEmbeddedStorageConnectionProtocol.setStatus(_A)
-_CucsStorageEmbeddedStorageNumberOfBlocks_Type=Unsigned64
-_CucsStorageEmbeddedStorageNumberOfBlocks_Object=MibTableColumn
-cucsStorageEmbeddedStorageNumberOfBlocks=_CucsStorageEmbeddedStorageNumberOfBlocks_Object((1,3,6,1,4,1,9,9,719,1,45,110,1,6),_CucsStorageEmbeddedStorageNumberOfBlocks_Type())
-cucsStorageEmbeddedStorageNumberOfBlocks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEmbeddedStorageNumberOfBlocks.setStatus(_A)
-_CucsStorageEmbeddedStorageOperQualifierReason_Type=SnmpAdminString
-_CucsStorageEmbeddedStorageOperQualifierReason_Object=MibTableColumn
-cucsStorageEmbeddedStorageOperQualifierReason=_CucsStorageEmbeddedStorageOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,110,1,7),_CucsStorageEmbeddedStorageOperQualifierReason_Type())
-cucsStorageEmbeddedStorageOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEmbeddedStorageOperQualifierReason.setStatus(_A)
-_CucsStorageEmbeddedStorageOperability_Type=CucsEquipmentOperability
-_CucsStorageEmbeddedStorageOperability_Object=MibTableColumn
-cucsStorageEmbeddedStorageOperability=_CucsStorageEmbeddedStorageOperability_Object((1,3,6,1,4,1,9,9,719,1,45,110,1,8),_CucsStorageEmbeddedStorageOperability_Type())
-cucsStorageEmbeddedStorageOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEmbeddedStorageOperability.setStatus(_A)
-_CucsStorageEmbeddedStoragePhysicalBlockSize_Type=Gauge32
-_CucsStorageEmbeddedStoragePhysicalBlockSize_Object=MibTableColumn
-cucsStorageEmbeddedStoragePhysicalBlockSize=_CucsStorageEmbeddedStoragePhysicalBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,110,1,9),_CucsStorageEmbeddedStoragePhysicalBlockSize_Type())
-cucsStorageEmbeddedStoragePhysicalBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEmbeddedStoragePhysicalBlockSize.setStatus(_A)
-_CucsStorageEmbeddedStoragePresence_Type=CucsEquipmentPresence
-_CucsStorageEmbeddedStoragePresence_Object=MibTableColumn
-cucsStorageEmbeddedStoragePresence=_CucsStorageEmbeddedStoragePresence_Object((1,3,6,1,4,1,9,9,719,1,45,110,1,10),_CucsStorageEmbeddedStoragePresence_Type())
-cucsStorageEmbeddedStoragePresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEmbeddedStoragePresence.setStatus(_A)
-_CucsStorageEmbeddedStorageSize_Type=Unsigned64
-_CucsStorageEmbeddedStorageSize_Object=MibTableColumn
-cucsStorageEmbeddedStorageSize=_CucsStorageEmbeddedStorageSize_Object((1,3,6,1,4,1,9,9,719,1,45,110,1,11),_CucsStorageEmbeddedStorageSize_Type())
-cucsStorageEmbeddedStorageSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEmbeddedStorageSize.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigTable_Object=MibTable
-cucsStorageEnclosureLocalDiskConfigTable=_CucsStorageEnclosureLocalDiskConfigTable_Object((1,3,6,1,4,1,9,9,719,1,45,111))
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigTable.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigEntry_Object=MibTableRow
-cucsStorageEnclosureLocalDiskConfigEntry=_CucsStorageEnclosureLocalDiskConfigEntry_Object((1,3,6,1,4,1,9,9,719,1,45,111,1))
-cucsStorageEnclosureLocalDiskConfigEntry.setIndexNames((0,_C,_AC))
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigEntry.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigInstanceId_Type=CucsManagedObjectId
-_CucsStorageEnclosureLocalDiskConfigInstanceId_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigInstanceId=_CucsStorageEnclosureLocalDiskConfigInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,1),_CucsStorageEnclosureLocalDiskConfigInstanceId_Type())
-cucsStorageEnclosureLocalDiskConfigInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigInstanceId.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigDn_Type=CucsManagedObjectDn
-_CucsStorageEnclosureLocalDiskConfigDn_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigDn=_CucsStorageEnclosureLocalDiskConfigDn_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,2),_CucsStorageEnclosureLocalDiskConfigDn_Type())
-cucsStorageEnclosureLocalDiskConfigDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigDn.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigRn_Type=SnmpAdminString
-_CucsStorageEnclosureLocalDiskConfigRn_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigRn=_CucsStorageEnclosureLocalDiskConfigRn_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,3),_CucsStorageEnclosureLocalDiskConfigRn_Type())
-cucsStorageEnclosureLocalDiskConfigRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigRn.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigBlockSize_Type=Gauge32
-_CucsStorageEnclosureLocalDiskConfigBlockSize_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigBlockSize=_CucsStorageEnclosureLocalDiskConfigBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,4),_CucsStorageEnclosureLocalDiskConfigBlockSize_Type())
-cucsStorageEnclosureLocalDiskConfigBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigBlockSize.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigConnectionProtocol_Type=CucsStorageConnectionProtocol
-_CucsStorageEnclosureLocalDiskConfigConnectionProtocol_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigConnectionProtocol=_CucsStorageEnclosureLocalDiskConfigConnectionProtocol_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,5),_CucsStorageEnclosureLocalDiskConfigConnectionProtocol_Type())
-cucsStorageEnclosureLocalDiskConfigConnectionProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigConnectionProtocol.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigDeviceType_Type=CucsStorageTechnology
-_CucsStorageEnclosureLocalDiskConfigDeviceType_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigDeviceType=_CucsStorageEnclosureLocalDiskConfigDeviceType_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,6),_CucsStorageEnclosureLocalDiskConfigDeviceType_Type())
-cucsStorageEnclosureLocalDiskConfigDeviceType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigDeviceType.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigFirmwareVersion_Type=SnmpAdminString
-_CucsStorageEnclosureLocalDiskConfigFirmwareVersion_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigFirmwareVersion=_CucsStorageEnclosureLocalDiskConfigFirmwareVersion_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,7),_CucsStorageEnclosureLocalDiskConfigFirmwareVersion_Type())
-cucsStorageEnclosureLocalDiskConfigFirmwareVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigFirmwareVersion.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigId_Type=Gauge32
-_CucsStorageEnclosureLocalDiskConfigId_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigId=_CucsStorageEnclosureLocalDiskConfigId_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,8),_CucsStorageEnclosureLocalDiskConfigId_Type())
-cucsStorageEnclosureLocalDiskConfigId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigId.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigLinkSpeed_Type=CucsStorageLinkSpeed
-_CucsStorageEnclosureLocalDiskConfigLinkSpeed_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigLinkSpeed=_CucsStorageEnclosureLocalDiskConfigLinkSpeed_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,9),_CucsStorageEnclosureLocalDiskConfigLinkSpeed_Type())
-cucsStorageEnclosureLocalDiskConfigLinkSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigLinkSpeed.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigLinkState_Type=CucsStorageEpLinkState
-_CucsStorageEnclosureLocalDiskConfigLinkState_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigLinkState=_CucsStorageEnclosureLocalDiskConfigLinkState_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,10),_CucsStorageEnclosureLocalDiskConfigLinkState_Type())
-cucsStorageEnclosureLocalDiskConfigLinkState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigLinkState.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigLinkStateReason_Type=SnmpAdminString
-_CucsStorageEnclosureLocalDiskConfigLinkStateReason_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigLinkStateReason=_CucsStorageEnclosureLocalDiskConfigLinkStateReason_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,11),_CucsStorageEnclosureLocalDiskConfigLinkStateReason_Type())
-cucsStorageEnclosureLocalDiskConfigLinkStateReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigLinkStateReason.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigModel_Type=SnmpAdminString
-_CucsStorageEnclosureLocalDiskConfigModel_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigModel=_CucsStorageEnclosureLocalDiskConfigModel_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,12),_CucsStorageEnclosureLocalDiskConfigModel_Type())
-cucsStorageEnclosureLocalDiskConfigModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigModel.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigNumberOfBlocks_Type=Unsigned64
-_CucsStorageEnclosureLocalDiskConfigNumberOfBlocks_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigNumberOfBlocks=_CucsStorageEnclosureLocalDiskConfigNumberOfBlocks_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,13),_CucsStorageEnclosureLocalDiskConfigNumberOfBlocks_Type())
-cucsStorageEnclosureLocalDiskConfigNumberOfBlocks.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigNumberOfBlocks.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigOperQualifierReason_Type=SnmpAdminString
-_CucsStorageEnclosureLocalDiskConfigOperQualifierReason_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigOperQualifierReason=_CucsStorageEnclosureLocalDiskConfigOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,14),_CucsStorageEnclosureLocalDiskConfigOperQualifierReason_Type())
-cucsStorageEnclosureLocalDiskConfigOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigOperQualifierReason.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigOperability_Type=CucsEquipmentOperability
-_CucsStorageEnclosureLocalDiskConfigOperability_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigOperability=_CucsStorageEnclosureLocalDiskConfigOperability_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,15),_CucsStorageEnclosureLocalDiskConfigOperability_Type())
-cucsStorageEnclosureLocalDiskConfigOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigOperability.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigPhysicalBlockSize_Type=Gauge32
-_CucsStorageEnclosureLocalDiskConfigPhysicalBlockSize_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigPhysicalBlockSize=_CucsStorageEnclosureLocalDiskConfigPhysicalBlockSize_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,16),_CucsStorageEnclosureLocalDiskConfigPhysicalBlockSize_Type())
-cucsStorageEnclosureLocalDiskConfigPhysicalBlockSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigPhysicalBlockSize.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigPowerState_Type=CucsStoragePowerState
-_CucsStorageEnclosureLocalDiskConfigPowerState_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigPowerState=_CucsStorageEnclosureLocalDiskConfigPowerState_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,17),_CucsStorageEnclosureLocalDiskConfigPowerState_Type())
-cucsStorageEnclosureLocalDiskConfigPowerState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigPowerState.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigPresence_Type=CucsEquipmentPresence
-_CucsStorageEnclosureLocalDiskConfigPresence_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigPresence=_CucsStorageEnclosureLocalDiskConfigPresence_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,18),_CucsStorageEnclosureLocalDiskConfigPresence_Type())
-cucsStorageEnclosureLocalDiskConfigPresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigPresence.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigRevision_Type=SnmpAdminString
-_CucsStorageEnclosureLocalDiskConfigRevision_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigRevision=_CucsStorageEnclosureLocalDiskConfigRevision_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,19),_CucsStorageEnclosureLocalDiskConfigRevision_Type())
-cucsStorageEnclosureLocalDiskConfigRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigRevision.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigScsiDiskState_Type=CucsSesScsiDriveStatus
-_CucsStorageEnclosureLocalDiskConfigScsiDiskState_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigScsiDiskState=_CucsStorageEnclosureLocalDiskConfigScsiDiskState_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,20),_CucsStorageEnclosureLocalDiskConfigScsiDiskState_Type())
-cucsStorageEnclosureLocalDiskConfigScsiDiskState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigScsiDiskState.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigSerial_Type=SnmpAdminString
-_CucsStorageEnclosureLocalDiskConfigSerial_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigSerial=_CucsStorageEnclosureLocalDiskConfigSerial_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,21),_CucsStorageEnclosureLocalDiskConfigSerial_Type())
-cucsStorageEnclosureLocalDiskConfigSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigSerial.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigSize_Type=Unsigned64
-_CucsStorageEnclosureLocalDiskConfigSize_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigSize=_CucsStorageEnclosureLocalDiskConfigSize_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,22),_CucsStorageEnclosureLocalDiskConfigSize_Type())
-cucsStorageEnclosureLocalDiskConfigSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigSize.setStatus(_A)
-_CucsStorageEnclosureLocalDiskConfigVendor_Type=SnmpAdminString
-_CucsStorageEnclosureLocalDiskConfigVendor_Object=MibTableColumn
-cucsStorageEnclosureLocalDiskConfigVendor=_CucsStorageEnclosureLocalDiskConfigVendor_Object((1,3,6,1,4,1,9,9,719,1,45,111,1,23),_CucsStorageEnclosureLocalDiskConfigVendor_Type())
-cucsStorageEnclosureLocalDiskConfigVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureLocalDiskConfigVendor.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsTable_Object=MibTable
-cucsStorageHddMotherBoardTempStatsTable=_CucsStorageHddMotherBoardTempStatsTable_Object((1,3,6,1,4,1,9,9,719,1,45,112))
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsTable.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsEntry_Object=MibTableRow
-cucsStorageHddMotherBoardTempStatsEntry=_CucsStorageHddMotherBoardTempStatsEntry_Object((1,3,6,1,4,1,9,9,719,1,45,112,1))
-cucsStorageHddMotherBoardTempStatsEntry.setIndexNames((0,_C,_AD))
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsEntry.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsInstanceId_Type=CucsManagedObjectId
-_CucsStorageHddMotherBoardTempStatsInstanceId_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsInstanceId=_CucsStorageHddMotherBoardTempStatsInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,1),_CucsStorageHddMotherBoardTempStatsInstanceId_Type())
-cucsStorageHddMotherBoardTempStatsInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsInstanceId.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsDn_Type=CucsManagedObjectDn
-_CucsStorageHddMotherBoardTempStatsDn_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsDn=_CucsStorageHddMotherBoardTempStatsDn_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,2),_CucsStorageHddMotherBoardTempStatsDn_Type())
-cucsStorageHddMotherBoardTempStatsDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsDn.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsRn_Type=SnmpAdminString
-_CucsStorageHddMotherBoardTempStatsRn_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsRn=_CucsStorageHddMotherBoardTempStatsRn_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,3),_CucsStorageHddMotherBoardTempStatsRn_Type())
-cucsStorageHddMotherBoardTempStatsRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsRn.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsIntervals_Type=Gauge32
-_CucsStorageHddMotherBoardTempStatsIntervals_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsIntervals=_CucsStorageHddMotherBoardTempStatsIntervals_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,4),_CucsStorageHddMotherBoardTempStatsIntervals_Type())
-cucsStorageHddMotherBoardTempStatsIntervals.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsIntervals.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsLeftInletTemp_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsLeftInletTemp_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsLeftInletTemp=_CucsStorageHddMotherBoardTempStatsLeftInletTemp_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,5),_CucsStorageHddMotherBoardTempStatsLeftInletTemp_Type())
-cucsStorageHddMotherBoardTempStatsLeftInletTemp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsLeftInletTemp.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsLeftInletTempAvg_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsLeftInletTempAvg_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsLeftInletTempAvg=_CucsStorageHddMotherBoardTempStatsLeftInletTempAvg_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,6),_CucsStorageHddMotherBoardTempStatsLeftInletTempAvg_Type())
-cucsStorageHddMotherBoardTempStatsLeftInletTempAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsLeftInletTempAvg.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsLeftInletTempMax_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsLeftInletTempMax_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsLeftInletTempMax=_CucsStorageHddMotherBoardTempStatsLeftInletTempMax_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,7),_CucsStorageHddMotherBoardTempStatsLeftInletTempMax_Type())
-cucsStorageHddMotherBoardTempStatsLeftInletTempMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsLeftInletTempMax.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsLeftInletTempMin_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsLeftInletTempMin_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsLeftInletTempMin=_CucsStorageHddMotherBoardTempStatsLeftInletTempMin_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,8),_CucsStorageHddMotherBoardTempStatsLeftInletTempMin_Type())
-cucsStorageHddMotherBoardTempStatsLeftInletTempMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsLeftInletTempMin.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsLeftOutletTemp_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsLeftOutletTemp_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsLeftOutletTemp=_CucsStorageHddMotherBoardTempStatsLeftOutletTemp_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,9),_CucsStorageHddMotherBoardTempStatsLeftOutletTemp_Type())
-cucsStorageHddMotherBoardTempStatsLeftOutletTemp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsLeftOutletTemp.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsLeftOutletTempAvg_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsLeftOutletTempAvg_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsLeftOutletTempAvg=_CucsStorageHddMotherBoardTempStatsLeftOutletTempAvg_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,10),_CucsStorageHddMotherBoardTempStatsLeftOutletTempAvg_Type())
-cucsStorageHddMotherBoardTempStatsLeftOutletTempAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsLeftOutletTempAvg.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsLeftOutletTempMax_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsLeftOutletTempMax_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsLeftOutletTempMax=_CucsStorageHddMotherBoardTempStatsLeftOutletTempMax_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,11),_CucsStorageHddMotherBoardTempStatsLeftOutletTempMax_Type())
-cucsStorageHddMotherBoardTempStatsLeftOutletTempMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsLeftOutletTempMax.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsLeftOutletTempMin_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsLeftOutletTempMin_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsLeftOutletTempMin=_CucsStorageHddMotherBoardTempStatsLeftOutletTempMin_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,12),_CucsStorageHddMotherBoardTempStatsLeftOutletTempMin_Type())
-cucsStorageHddMotherBoardTempStatsLeftOutletTempMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsLeftOutletTempMin.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsRightInletTemp_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsRightInletTemp_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsRightInletTemp=_CucsStorageHddMotherBoardTempStatsRightInletTemp_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,14),_CucsStorageHddMotherBoardTempStatsRightInletTemp_Type())
-cucsStorageHddMotherBoardTempStatsRightInletTemp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsRightInletTemp.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsRightInletTempAvg_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsRightInletTempAvg_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsRightInletTempAvg=_CucsStorageHddMotherBoardTempStatsRightInletTempAvg_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,15),_CucsStorageHddMotherBoardTempStatsRightInletTempAvg_Type())
-cucsStorageHddMotherBoardTempStatsRightInletTempAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsRightInletTempAvg.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsRightInletTempMax_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsRightInletTempMax_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsRightInletTempMax=_CucsStorageHddMotherBoardTempStatsRightInletTempMax_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,16),_CucsStorageHddMotherBoardTempStatsRightInletTempMax_Type())
-cucsStorageHddMotherBoardTempStatsRightInletTempMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsRightInletTempMax.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsRightInletTempMin_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsRightInletTempMin_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsRightInletTempMin=_CucsStorageHddMotherBoardTempStatsRightInletTempMin_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,17),_CucsStorageHddMotherBoardTempStatsRightInletTempMin_Type())
-cucsStorageHddMotherBoardTempStatsRightInletTempMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsRightInletTempMin.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsRightOutletTemp_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsRightOutletTemp_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsRightOutletTemp=_CucsStorageHddMotherBoardTempStatsRightOutletTemp_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,18),_CucsStorageHddMotherBoardTempStatsRightOutletTemp_Type())
-cucsStorageHddMotherBoardTempStatsRightOutletTemp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsRightOutletTemp.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsRightOutletTempAvg_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsRightOutletTempAvg_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsRightOutletTempAvg=_CucsStorageHddMotherBoardTempStatsRightOutletTempAvg_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,19),_CucsStorageHddMotherBoardTempStatsRightOutletTempAvg_Type())
-cucsStorageHddMotherBoardTempStatsRightOutletTempAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsRightOutletTempAvg.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsRightOutletTempMax_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsRightOutletTempMax_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsRightOutletTempMax=_CucsStorageHddMotherBoardTempStatsRightOutletTempMax_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,20),_CucsStorageHddMotherBoardTempStatsRightOutletTempMax_Type())
-cucsStorageHddMotherBoardTempStatsRightOutletTempMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsRightOutletTempMax.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsRightOutletTempMin_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsRightOutletTempMin_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsRightOutletTempMin=_CucsStorageHddMotherBoardTempStatsRightOutletTempMin_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,21),_CucsStorageHddMotherBoardTempStatsRightOutletTempMin_Type())
-cucsStorageHddMotherBoardTempStatsRightOutletTempMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsRightOutletTempMin.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsSuspect_Type=TruthValue
-_CucsStorageHddMotherBoardTempStatsSuspect_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsSuspect=_CucsStorageHddMotherBoardTempStatsSuspect_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,23),_CucsStorageHddMotherBoardTempStatsSuspect_Type())
-cucsStorageHddMotherBoardTempStatsSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsSuspect.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsThresholded_Type=CucsStorageHddMotherBoardTempStatsThresholded
-_CucsStorageHddMotherBoardTempStatsThresholded_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsThresholded=_CucsStorageHddMotherBoardTempStatsThresholded_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,24),_CucsStorageHddMotherBoardTempStatsThresholded_Type())
-cucsStorageHddMotherBoardTempStatsThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsThresholded.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsTimeCollected_Type=DateAndTime
-_CucsStorageHddMotherBoardTempStatsTimeCollected_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsTimeCollected=_CucsStorageHddMotherBoardTempStatsTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,25),_CucsStorageHddMotherBoardTempStatsTimeCollected_Type())
-cucsStorageHddMotherBoardTempStatsTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsTimeCollected.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsUpdate_Type=Gauge32
-_CucsStorageHddMotherBoardTempStatsUpdate_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsUpdate=_CucsStorageHddMotherBoardTempStatsUpdate_Object((1,3,6,1,4,1,9,9,719,1,45,112,1,26),_CucsStorageHddMotherBoardTempStatsUpdate_Type())
-cucsStorageHddMotherBoardTempStatsUpdate.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsUpdate.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistTable_Object=MibTable
-cucsStorageHddMotherBoardTempStatsHistTable=_CucsStorageHddMotherBoardTempStatsHistTable_Object((1,3,6,1,4,1,9,9,719,1,45,113))
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistTable.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistEntry_Object=MibTableRow
-cucsStorageHddMotherBoardTempStatsHistEntry=_CucsStorageHddMotherBoardTempStatsHistEntry_Object((1,3,6,1,4,1,9,9,719,1,45,113,1))
-cucsStorageHddMotherBoardTempStatsHistEntry.setIndexNames((0,_C,_AE))
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistEntry.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistInstanceId_Type=CucsManagedObjectId
-_CucsStorageHddMotherBoardTempStatsHistInstanceId_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistInstanceId=_CucsStorageHddMotherBoardTempStatsHistInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,1),_CucsStorageHddMotherBoardTempStatsHistInstanceId_Type())
-cucsStorageHddMotherBoardTempStatsHistInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistInstanceId.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistDn_Type=CucsManagedObjectDn
-_CucsStorageHddMotherBoardTempStatsHistDn_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistDn=_CucsStorageHddMotherBoardTempStatsHistDn_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,2),_CucsStorageHddMotherBoardTempStatsHistDn_Type())
-cucsStorageHddMotherBoardTempStatsHistDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistDn.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistRn_Type=SnmpAdminString
-_CucsStorageHddMotherBoardTempStatsHistRn_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistRn=_CucsStorageHddMotherBoardTempStatsHistRn_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,3),_CucsStorageHddMotherBoardTempStatsHistRn_Type())
-cucsStorageHddMotherBoardTempStatsHistRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistRn.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistId_Type=Unsigned64
-_CucsStorageHddMotherBoardTempStatsHistId_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistId=_CucsStorageHddMotherBoardTempStatsHistId_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,4),_CucsStorageHddMotherBoardTempStatsHistId_Type())
-cucsStorageHddMotherBoardTempStatsHistId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistId.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistLeftInletTemp_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistLeftInletTemp_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistLeftInletTemp=_CucsStorageHddMotherBoardTempStatsHistLeftInletTemp_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,5),_CucsStorageHddMotherBoardTempStatsHistLeftInletTemp_Type())
-cucsStorageHddMotherBoardTempStatsHistLeftInletTemp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistLeftInletTemp.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistLeftInletTempAvg_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistLeftInletTempAvg_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistLeftInletTempAvg=_CucsStorageHddMotherBoardTempStatsHistLeftInletTempAvg_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,6),_CucsStorageHddMotherBoardTempStatsHistLeftInletTempAvg_Type())
-cucsStorageHddMotherBoardTempStatsHistLeftInletTempAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistLeftInletTempAvg.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistLeftInletTempMax_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistLeftInletTempMax_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistLeftInletTempMax=_CucsStorageHddMotherBoardTempStatsHistLeftInletTempMax_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,7),_CucsStorageHddMotherBoardTempStatsHistLeftInletTempMax_Type())
-cucsStorageHddMotherBoardTempStatsHistLeftInletTempMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistLeftInletTempMax.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistLeftInletTempMin_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistLeftInletTempMin_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistLeftInletTempMin=_CucsStorageHddMotherBoardTempStatsHistLeftInletTempMin_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,8),_CucsStorageHddMotherBoardTempStatsHistLeftInletTempMin_Type())
-cucsStorageHddMotherBoardTempStatsHistLeftInletTempMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistLeftInletTempMin.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistLeftOutletTemp_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistLeftOutletTemp_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistLeftOutletTemp=_CucsStorageHddMotherBoardTempStatsHistLeftOutletTemp_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,9),_CucsStorageHddMotherBoardTempStatsHistLeftOutletTemp_Type())
-cucsStorageHddMotherBoardTempStatsHistLeftOutletTemp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistLeftOutletTemp.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistLeftOutletTempAvg_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistLeftOutletTempAvg_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistLeftOutletTempAvg=_CucsStorageHddMotherBoardTempStatsHistLeftOutletTempAvg_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,10),_CucsStorageHddMotherBoardTempStatsHistLeftOutletTempAvg_Type())
-cucsStorageHddMotherBoardTempStatsHistLeftOutletTempAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistLeftOutletTempAvg.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistLeftOutletTempMax_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistLeftOutletTempMax_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMax=_CucsStorageHddMotherBoardTempStatsHistLeftOutletTempMax_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,11),_CucsStorageHddMotherBoardTempStatsHistLeftOutletTempMax_Type())
-cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMax.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistLeftOutletTempMin_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistLeftOutletTempMin_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMin=_CucsStorageHddMotherBoardTempStatsHistLeftOutletTempMin_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,12),_CucsStorageHddMotherBoardTempStatsHistLeftOutletTempMin_Type())
-cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMin.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistMostRecent_Type=TruthValue
-_CucsStorageHddMotherBoardTempStatsHistMostRecent_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistMostRecent=_CucsStorageHddMotherBoardTempStatsHistMostRecent_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,13),_CucsStorageHddMotherBoardTempStatsHistMostRecent_Type())
-cucsStorageHddMotherBoardTempStatsHistMostRecent.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistMostRecent.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistRightInletTemp_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistRightInletTemp_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistRightInletTemp=_CucsStorageHddMotherBoardTempStatsHistRightInletTemp_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,14),_CucsStorageHddMotherBoardTempStatsHistRightInletTemp_Type())
-cucsStorageHddMotherBoardTempStatsHistRightInletTemp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistRightInletTemp.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistRightInletTempAvg_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistRightInletTempAvg_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistRightInletTempAvg=_CucsStorageHddMotherBoardTempStatsHistRightInletTempAvg_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,15),_CucsStorageHddMotherBoardTempStatsHistRightInletTempAvg_Type())
-cucsStorageHddMotherBoardTempStatsHistRightInletTempAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistRightInletTempAvg.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistRightInletTempMax_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistRightInletTempMax_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistRightInletTempMax=_CucsStorageHddMotherBoardTempStatsHistRightInletTempMax_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,16),_CucsStorageHddMotherBoardTempStatsHistRightInletTempMax_Type())
-cucsStorageHddMotherBoardTempStatsHistRightInletTempMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistRightInletTempMax.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistRightInletTempMin_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistRightInletTempMin_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistRightInletTempMin=_CucsStorageHddMotherBoardTempStatsHistRightInletTempMin_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,17),_CucsStorageHddMotherBoardTempStatsHistRightInletTempMin_Type())
-cucsStorageHddMotherBoardTempStatsHistRightInletTempMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistRightInletTempMin.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistRightOutletTemp_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistRightOutletTemp_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistRightOutletTemp=_CucsStorageHddMotherBoardTempStatsHistRightOutletTemp_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,18),_CucsStorageHddMotherBoardTempStatsHistRightOutletTemp_Type())
-cucsStorageHddMotherBoardTempStatsHistRightOutletTemp.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistRightOutletTemp.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistRightOutletTempAvg_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistRightOutletTempAvg_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistRightOutletTempAvg=_CucsStorageHddMotherBoardTempStatsHistRightOutletTempAvg_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,19),_CucsStorageHddMotherBoardTempStatsHistRightOutletTempAvg_Type())
-cucsStorageHddMotherBoardTempStatsHistRightOutletTempAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistRightOutletTempAvg.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistRightOutletTempMax_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistRightOutletTempMax_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistRightOutletTempMax=_CucsStorageHddMotherBoardTempStatsHistRightOutletTempMax_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,20),_CucsStorageHddMotherBoardTempStatsHistRightOutletTempMax_Type())
-cucsStorageHddMotherBoardTempStatsHistRightOutletTempMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistRightOutletTempMax.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistRightOutletTempMin_Type=Integer32
-_CucsStorageHddMotherBoardTempStatsHistRightOutletTempMin_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistRightOutletTempMin=_CucsStorageHddMotherBoardTempStatsHistRightOutletTempMin_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,21),_CucsStorageHddMotherBoardTempStatsHistRightOutletTempMin_Type())
-cucsStorageHddMotherBoardTempStatsHistRightOutletTempMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistRightOutletTempMin.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistSuspect_Type=TruthValue
-_CucsStorageHddMotherBoardTempStatsHistSuspect_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistSuspect=_CucsStorageHddMotherBoardTempStatsHistSuspect_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,22),_CucsStorageHddMotherBoardTempStatsHistSuspect_Type())
-cucsStorageHddMotherBoardTempStatsHistSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistSuspect.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistThresholded_Type=CucsStorageHddMotherBoardTempStatsHistThresholded
-_CucsStorageHddMotherBoardTempStatsHistThresholded_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistThresholded=_CucsStorageHddMotherBoardTempStatsHistThresholded_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,23),_CucsStorageHddMotherBoardTempStatsHistThresholded_Type())
-cucsStorageHddMotherBoardTempStatsHistThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistThresholded.setStatus(_A)
-_CucsStorageHddMotherBoardTempStatsHistTimeCollected_Type=DateAndTime
-_CucsStorageHddMotherBoardTempStatsHistTimeCollected_Object=MibTableColumn
-cucsStorageHddMotherBoardTempStatsHistTimeCollected=_CucsStorageHddMotherBoardTempStatsHistTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,45,113,1,24),_CucsStorageHddMotherBoardTempStatsHistTimeCollected_Type())
-cucsStorageHddMotherBoardTempStatsHistTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageHddMotherBoardTempStatsHistTimeCollected.setStatus(_A)
-_CucsStorageVirtualDriveContainerTable_Object=MibTable
-cucsStorageVirtualDriveContainerTable=_CucsStorageVirtualDriveContainerTable_Object((1,3,6,1,4,1,9,9,719,1,45,114))
-if mibBuilder.loadTexts:cucsStorageVirtualDriveContainerTable.setStatus(_A)
-_CucsStorageVirtualDriveContainerEntry_Object=MibTableRow
-cucsStorageVirtualDriveContainerEntry=_CucsStorageVirtualDriveContainerEntry_Object((1,3,6,1,4,1,9,9,719,1,45,114,1))
-cucsStorageVirtualDriveContainerEntry.setIndexNames((0,_C,_AF))
-if mibBuilder.loadTexts:cucsStorageVirtualDriveContainerEntry.setStatus(_A)
-_CucsStorageVirtualDriveContainerInstanceId_Type=CucsManagedObjectId
-_CucsStorageVirtualDriveContainerInstanceId_Object=MibTableColumn
-cucsStorageVirtualDriveContainerInstanceId=_CucsStorageVirtualDriveContainerInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,114,1,1),_CucsStorageVirtualDriveContainerInstanceId_Type())
-cucsStorageVirtualDriveContainerInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveContainerInstanceId.setStatus(_A)
-_CucsStorageVirtualDriveContainerDn_Type=CucsManagedObjectDn
-_CucsStorageVirtualDriveContainerDn_Object=MibTableColumn
-cucsStorageVirtualDriveContainerDn=_CucsStorageVirtualDriveContainerDn_Object((1,3,6,1,4,1,9,9,719,1,45,114,1,2),_CucsStorageVirtualDriveContainerDn_Type())
-cucsStorageVirtualDriveContainerDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveContainerDn.setStatus(_A)
-_CucsStorageVirtualDriveContainerRn_Type=SnmpAdminString
-_CucsStorageVirtualDriveContainerRn_Object=MibTableColumn
-cucsStorageVirtualDriveContainerRn=_CucsStorageVirtualDriveContainerRn_Object((1,3,6,1,4,1,9,9,719,1,45,114,1,3),_CucsStorageVirtualDriveContainerRn_Type())
-cucsStorageVirtualDriveContainerRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveContainerRn.setStatus(_A)
-_CucsStorageVirtualDriveContainerId_Type=Gauge32
-_CucsStorageVirtualDriveContainerId_Object=MibTableColumn
-cucsStorageVirtualDriveContainerId=_CucsStorageVirtualDriveContainerId_Object((1,3,6,1,4,1,9,9,719,1,45,114,1,4),_CucsStorageVirtualDriveContainerId_Type())
-cucsStorageVirtualDriveContainerId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveContainerId.setStatus(_A)
-_CucsStorageVirtualDriveEpTable_Object=MibTable
-cucsStorageVirtualDriveEpTable=_CucsStorageVirtualDriveEpTable_Object((1,3,6,1,4,1,9,9,719,1,45,115))
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEpTable.setStatus(_A)
-_CucsStorageVirtualDriveEpEntry_Object=MibTableRow
-cucsStorageVirtualDriveEpEntry=_CucsStorageVirtualDriveEpEntry_Object((1,3,6,1,4,1,9,9,719,1,45,115,1))
-cucsStorageVirtualDriveEpEntry.setIndexNames((0,_C,_AG))
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEpEntry.setStatus(_A)
-_CucsStorageVirtualDriveEpInstanceId_Type=CucsManagedObjectId
-_CucsStorageVirtualDriveEpInstanceId_Object=MibTableColumn
-cucsStorageVirtualDriveEpInstanceId=_CucsStorageVirtualDriveEpInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,115,1,1),_CucsStorageVirtualDriveEpInstanceId_Type())
-cucsStorageVirtualDriveEpInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEpInstanceId.setStatus(_A)
-_CucsStorageVirtualDriveEpDn_Type=CucsManagedObjectDn
-_CucsStorageVirtualDriveEpDn_Object=MibTableColumn
-cucsStorageVirtualDriveEpDn=_CucsStorageVirtualDriveEpDn_Object((1,3,6,1,4,1,9,9,719,1,45,115,1,2),_CucsStorageVirtualDriveEpDn_Type())
-cucsStorageVirtualDriveEpDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEpDn.setStatus(_A)
-_CucsStorageVirtualDriveEpRn_Type=SnmpAdminString
-_CucsStorageVirtualDriveEpRn_Object=MibTableColumn
-cucsStorageVirtualDriveEpRn=_CucsStorageVirtualDriveEpRn_Object((1,3,6,1,4,1,9,9,719,1,45,115,1,3),_CucsStorageVirtualDriveEpRn_Type())
-cucsStorageVirtualDriveEpRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEpRn.setStatus(_A)
-_CucsStorageVirtualDriveEpBootable_Type=CucsStorageBootableType
-_CucsStorageVirtualDriveEpBootable_Object=MibTableColumn
-cucsStorageVirtualDriveEpBootable=_CucsStorageVirtualDriveEpBootable_Object((1,3,6,1,4,1,9,9,719,1,45,115,1,4),_CucsStorageVirtualDriveEpBootable_Type())
-cucsStorageVirtualDriveEpBootable.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEpBootable.setStatus(_A)
-_CucsStorageVirtualDriveEpContainerId_Type=Gauge32
-_CucsStorageVirtualDriveEpContainerId_Object=MibTableColumn
-cucsStorageVirtualDriveEpContainerId=_CucsStorageVirtualDriveEpContainerId_Object((1,3,6,1,4,1,9,9,719,1,45,115,1,5),_CucsStorageVirtualDriveEpContainerId_Type())
-cucsStorageVirtualDriveEpContainerId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEpContainerId.setStatus(_A)
-_CucsStorageVirtualDriveEpDriveState_Type=CucsStorageVDriveState
-_CucsStorageVirtualDriveEpDriveState_Object=MibTableColumn
-cucsStorageVirtualDriveEpDriveState=_CucsStorageVirtualDriveEpDriveState_Object((1,3,6,1,4,1,9,9,719,1,45,115,1,6),_CucsStorageVirtualDriveEpDriveState_Type())
-cucsStorageVirtualDriveEpDriveState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEpDriveState.setStatus(_A)
-_CucsStorageVirtualDriveEpId_Type=Gauge32
-_CucsStorageVirtualDriveEpId_Object=MibTableColumn
-cucsStorageVirtualDriveEpId=_CucsStorageVirtualDriveEpId_Object((1,3,6,1,4,1,9,9,719,1,45,115,1,7),_CucsStorageVirtualDriveEpId_Type())
-cucsStorageVirtualDriveEpId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEpId.setStatus(_A)
-_CucsStorageVirtualDriveEpLc_Type=CucsFsmLifecycle
-_CucsStorageVirtualDriveEpLc_Object=MibTableColumn
-cucsStorageVirtualDriveEpLc=_CucsStorageVirtualDriveEpLc_Object((1,3,6,1,4,1,9,9,719,1,45,115,1,8),_CucsStorageVirtualDriveEpLc_Type())
-cucsStorageVirtualDriveEpLc.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEpLc.setStatus(_A)
-_CucsStorageVirtualDriveEpName_Type=SnmpAdminString
-_CucsStorageVirtualDriveEpName_Object=MibTableColumn
-cucsStorageVirtualDriveEpName=_CucsStorageVirtualDriveEpName_Object((1,3,6,1,4,1,9,9,719,1,45,115,1,9),_CucsStorageVirtualDriveEpName_Type())
-cucsStorageVirtualDriveEpName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEpName.setStatus(_A)
-_CucsStorageVirtualDriveEpOperDeviceId_Type=Gauge32
-_CucsStorageVirtualDriveEpOperDeviceId_Object=MibTableColumn
-cucsStorageVirtualDriveEpOperDeviceId=_CucsStorageVirtualDriveEpOperDeviceId_Object((1,3,6,1,4,1,9,9,719,1,45,115,1,10),_CucsStorageVirtualDriveEpOperDeviceId_Type())
-cucsStorageVirtualDriveEpOperDeviceId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEpOperDeviceId.setStatus(_A)
-_CucsStorageVirtualDriveEpUuid_Type=SnmpAdminString
-_CucsStorageVirtualDriveEpUuid_Object=MibTableColumn
-cucsStorageVirtualDriveEpUuid=_CucsStorageVirtualDriveEpUuid_Object((1,3,6,1,4,1,9,9,719,1,45,115,1,11),_CucsStorageVirtualDriveEpUuid_Type())
-cucsStorageVirtualDriveEpUuid.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEpUuid.setStatus(_A)
-_CucsStorageVirtualDriveEpVdDn_Type=SnmpAdminString
-_CucsStorageVirtualDriveEpVdDn_Object=MibTableColumn
-cucsStorageVirtualDriveEpVdDn=_CucsStorageVirtualDriveEpVdDn_Object((1,3,6,1,4,1,9,9,719,1,45,115,1,12),_CucsStorageVirtualDriveEpVdDn_Type())
-cucsStorageVirtualDriveEpVdDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEpVdDn.setStatus(_A)
-_CucsStorageVirtualDriveEpVendorUuid_Type=SnmpAdminString
-_CucsStorageVirtualDriveEpVendorUuid_Object=MibTableColumn
-cucsStorageVirtualDriveEpVendorUuid=_CucsStorageVirtualDriveEpVendorUuid_Object((1,3,6,1,4,1,9,9,719,1,45,115,1,13),_CucsStorageVirtualDriveEpVendorUuid_Type())
-cucsStorageVirtualDriveEpVendorUuid.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageVirtualDriveEpVendorUuid.setStatus(_A)
-_CucsStorageEnclosureFsmTable_Object=MibTable
-cucsStorageEnclosureFsmTable=_CucsStorageEnclosureFsmTable_Object((1,3,6,1,4,1,9,9,719,1,45,116))
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmTable.setStatus(_A)
-_CucsStorageEnclosureFsmEntry_Object=MibTableRow
-cucsStorageEnclosureFsmEntry=_CucsStorageEnclosureFsmEntry_Object((1,3,6,1,4,1,9,9,719,1,45,116,1))
-cucsStorageEnclosureFsmEntry.setIndexNames((0,_C,_AH))
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmEntry.setStatus(_A)
-_CucsStorageEnclosureFsmInstanceId_Type=CucsManagedObjectId
-_CucsStorageEnclosureFsmInstanceId_Object=MibTableColumn
-cucsStorageEnclosureFsmInstanceId=_CucsStorageEnclosureFsmInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,116,1,1),_CucsStorageEnclosureFsmInstanceId_Type())
-cucsStorageEnclosureFsmInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmInstanceId.setStatus(_A)
-_CucsStorageEnclosureFsmDn_Type=CucsManagedObjectDn
-_CucsStorageEnclosureFsmDn_Object=MibTableColumn
-cucsStorageEnclosureFsmDn=_CucsStorageEnclosureFsmDn_Object((1,3,6,1,4,1,9,9,719,1,45,116,1,2),_CucsStorageEnclosureFsmDn_Type())
-cucsStorageEnclosureFsmDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmDn.setStatus(_A)
-_CucsStorageEnclosureFsmRn_Type=SnmpAdminString
-_CucsStorageEnclosureFsmRn_Object=MibTableColumn
-cucsStorageEnclosureFsmRn=_CucsStorageEnclosureFsmRn_Object((1,3,6,1,4,1,9,9,719,1,45,116,1,3),_CucsStorageEnclosureFsmRn_Type())
-cucsStorageEnclosureFsmRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmRn.setStatus(_A)
-_CucsStorageEnclosureFsmCompletionTime_Type=DateAndTime
-_CucsStorageEnclosureFsmCompletionTime_Object=MibTableColumn
-cucsStorageEnclosureFsmCompletionTime=_CucsStorageEnclosureFsmCompletionTime_Object((1,3,6,1,4,1,9,9,719,1,45,116,1,4),_CucsStorageEnclosureFsmCompletionTime_Type())
-cucsStorageEnclosureFsmCompletionTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmCompletionTime.setStatus(_A)
-_CucsStorageEnclosureFsmCurrentFsm_Type=CucsStorageEnclosureFsmCurrentFsm
-_CucsStorageEnclosureFsmCurrentFsm_Object=MibTableColumn
-cucsStorageEnclosureFsmCurrentFsm=_CucsStorageEnclosureFsmCurrentFsm_Object((1,3,6,1,4,1,9,9,719,1,45,116,1,5),_CucsStorageEnclosureFsmCurrentFsm_Type())
-cucsStorageEnclosureFsmCurrentFsm.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmCurrentFsm.setStatus(_A)
-_CucsStorageEnclosureFsmDescrData_Type=SnmpAdminString
-_CucsStorageEnclosureFsmDescrData_Object=MibTableColumn
-cucsStorageEnclosureFsmDescrData=_CucsStorageEnclosureFsmDescrData_Object((1,3,6,1,4,1,9,9,719,1,45,116,1,6),_CucsStorageEnclosureFsmDescrData_Type())
-cucsStorageEnclosureFsmDescrData.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmDescrData.setStatus(_A)
-_CucsStorageEnclosureFsmFsmStatus_Type=CucsFsmFsmStageStatus
-_CucsStorageEnclosureFsmFsmStatus_Object=MibTableColumn
-cucsStorageEnclosureFsmFsmStatus=_CucsStorageEnclosureFsmFsmStatus_Object((1,3,6,1,4,1,9,9,719,1,45,116,1,7),_CucsStorageEnclosureFsmFsmStatus_Type())
-cucsStorageEnclosureFsmFsmStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmFsmStatus.setStatus(_A)
-_CucsStorageEnclosureFsmProgress_Type=Gauge32
-_CucsStorageEnclosureFsmProgress_Object=MibTableColumn
-cucsStorageEnclosureFsmProgress=_CucsStorageEnclosureFsmProgress_Object((1,3,6,1,4,1,9,9,719,1,45,116,1,8),_CucsStorageEnclosureFsmProgress_Type())
-cucsStorageEnclosureFsmProgress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmProgress.setStatus(_A)
-_CucsStorageEnclosureFsmRmtErrCode_Type=Gauge32
-_CucsStorageEnclosureFsmRmtErrCode_Object=MibTableColumn
-cucsStorageEnclosureFsmRmtErrCode=_CucsStorageEnclosureFsmRmtErrCode_Object((1,3,6,1,4,1,9,9,719,1,45,116,1,9),_CucsStorageEnclosureFsmRmtErrCode_Type())
-cucsStorageEnclosureFsmRmtErrCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmRmtErrCode.setStatus(_A)
-_CucsStorageEnclosureFsmRmtErrDescr_Type=SnmpAdminString
-_CucsStorageEnclosureFsmRmtErrDescr_Object=MibTableColumn
-cucsStorageEnclosureFsmRmtErrDescr=_CucsStorageEnclosureFsmRmtErrDescr_Object((1,3,6,1,4,1,9,9,719,1,45,116,1,10),_CucsStorageEnclosureFsmRmtErrDescr_Type())
-cucsStorageEnclosureFsmRmtErrDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmRmtErrDescr.setStatus(_A)
-_CucsStorageEnclosureFsmRmtRslt_Type=CucsConditionRemoteInvRslt
-_CucsStorageEnclosureFsmRmtRslt_Object=MibTableColumn
-cucsStorageEnclosureFsmRmtRslt=_CucsStorageEnclosureFsmRmtRslt_Object((1,3,6,1,4,1,9,9,719,1,45,116,1,11),_CucsStorageEnclosureFsmRmtRslt_Type())
-cucsStorageEnclosureFsmRmtRslt.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmRmtRslt.setStatus(_A)
-_CucsStorageEnclosureFsmStageTable_Object=MibTable
-cucsStorageEnclosureFsmStageTable=_CucsStorageEnclosureFsmStageTable_Object((1,3,6,1,4,1,9,9,719,1,45,117))
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmStageTable.setStatus(_A)
-_CucsStorageEnclosureFsmStageEntry_Object=MibTableRow
-cucsStorageEnclosureFsmStageEntry=_CucsStorageEnclosureFsmStageEntry_Object((1,3,6,1,4,1,9,9,719,1,45,117,1))
-cucsStorageEnclosureFsmStageEntry.setIndexNames((0,_C,_AI))
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmStageEntry.setStatus(_A)
-_CucsStorageEnclosureFsmStageInstanceId_Type=CucsManagedObjectId
-_CucsStorageEnclosureFsmStageInstanceId_Object=MibTableColumn
-cucsStorageEnclosureFsmStageInstanceId=_CucsStorageEnclosureFsmStageInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,117,1,1),_CucsStorageEnclosureFsmStageInstanceId_Type())
-cucsStorageEnclosureFsmStageInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmStageInstanceId.setStatus(_A)
-_CucsStorageEnclosureFsmStageDn_Type=CucsManagedObjectDn
-_CucsStorageEnclosureFsmStageDn_Object=MibTableColumn
-cucsStorageEnclosureFsmStageDn=_CucsStorageEnclosureFsmStageDn_Object((1,3,6,1,4,1,9,9,719,1,45,117,1,2),_CucsStorageEnclosureFsmStageDn_Type())
-cucsStorageEnclosureFsmStageDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmStageDn.setStatus(_A)
-_CucsStorageEnclosureFsmStageRn_Type=SnmpAdminString
-_CucsStorageEnclosureFsmStageRn_Object=MibTableColumn
-cucsStorageEnclosureFsmStageRn=_CucsStorageEnclosureFsmStageRn_Object((1,3,6,1,4,1,9,9,719,1,45,117,1,3),_CucsStorageEnclosureFsmStageRn_Type())
-cucsStorageEnclosureFsmStageRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmStageRn.setStatus(_A)
-_CucsStorageEnclosureFsmStageDescrData_Type=SnmpAdminString
-_CucsStorageEnclosureFsmStageDescrData_Object=MibTableColumn
-cucsStorageEnclosureFsmStageDescrData=_CucsStorageEnclosureFsmStageDescrData_Object((1,3,6,1,4,1,9,9,719,1,45,117,1,4),_CucsStorageEnclosureFsmStageDescrData_Type())
-cucsStorageEnclosureFsmStageDescrData.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmStageDescrData.setStatus(_A)
-_CucsStorageEnclosureFsmStageLastUpdateTime_Type=DateAndTime
-_CucsStorageEnclosureFsmStageLastUpdateTime_Object=MibTableColumn
-cucsStorageEnclosureFsmStageLastUpdateTime=_CucsStorageEnclosureFsmStageLastUpdateTime_Object((1,3,6,1,4,1,9,9,719,1,45,117,1,5),_CucsStorageEnclosureFsmStageLastUpdateTime_Type())
-cucsStorageEnclosureFsmStageLastUpdateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmStageLastUpdateTime.setStatus(_A)
-_CucsStorageEnclosureFsmStageName_Type=CucsStorageEnclosureFsmStageName
-_CucsStorageEnclosureFsmStageName_Object=MibTableColumn
-cucsStorageEnclosureFsmStageName=_CucsStorageEnclosureFsmStageName_Object((1,3,6,1,4,1,9,9,719,1,45,117,1,6),_CucsStorageEnclosureFsmStageName_Type())
-cucsStorageEnclosureFsmStageName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmStageName.setStatus(_A)
-_CucsStorageEnclosureFsmStageOrder_Type=Gauge32
-_CucsStorageEnclosureFsmStageOrder_Object=MibTableColumn
-cucsStorageEnclosureFsmStageOrder=_CucsStorageEnclosureFsmStageOrder_Object((1,3,6,1,4,1,9,9,719,1,45,117,1,7),_CucsStorageEnclosureFsmStageOrder_Type())
-cucsStorageEnclosureFsmStageOrder.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmStageOrder.setStatus(_A)
-_CucsStorageEnclosureFsmStageRetry_Type=Gauge32
-_CucsStorageEnclosureFsmStageRetry_Object=MibTableColumn
-cucsStorageEnclosureFsmStageRetry=_CucsStorageEnclosureFsmStageRetry_Object((1,3,6,1,4,1,9,9,719,1,45,117,1,8),_CucsStorageEnclosureFsmStageRetry_Type())
-cucsStorageEnclosureFsmStageRetry.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmStageRetry.setStatus(_A)
-_CucsStorageEnclosureFsmStageStageStatus_Type=CucsFsmFsmStageStatus
-_CucsStorageEnclosureFsmStageStageStatus_Object=MibTableColumn
-cucsStorageEnclosureFsmStageStageStatus=_CucsStorageEnclosureFsmStageStageStatus_Object((1,3,6,1,4,1,9,9,719,1,45,117,1,9),_CucsStorageEnclosureFsmStageStageStatus_Type())
-cucsStorageEnclosureFsmStageStageStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmStageStageStatus.setStatus(_A)
-_CucsStorageEnclosureFsmTaskTable_Object=MibTable
-cucsStorageEnclosureFsmTaskTable=_CucsStorageEnclosureFsmTaskTable_Object((1,3,6,1,4,1,9,9,719,1,45,118))
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmTaskTable.setStatus(_A)
-_CucsStorageEnclosureFsmTaskEntry_Object=MibTableRow
-cucsStorageEnclosureFsmTaskEntry=_CucsStorageEnclosureFsmTaskEntry_Object((1,3,6,1,4,1,9,9,719,1,45,118,1))
-cucsStorageEnclosureFsmTaskEntry.setIndexNames((0,_C,_AJ))
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmTaskEntry.setStatus(_A)
-_CucsStorageEnclosureFsmTaskInstanceId_Type=CucsManagedObjectId
-_CucsStorageEnclosureFsmTaskInstanceId_Object=MibTableColumn
-cucsStorageEnclosureFsmTaskInstanceId=_CucsStorageEnclosureFsmTaskInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,118,1,1),_CucsStorageEnclosureFsmTaskInstanceId_Type())
-cucsStorageEnclosureFsmTaskInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmTaskInstanceId.setStatus(_A)
-_CucsStorageEnclosureFsmTaskDn_Type=CucsManagedObjectDn
-_CucsStorageEnclosureFsmTaskDn_Object=MibTableColumn
-cucsStorageEnclosureFsmTaskDn=_CucsStorageEnclosureFsmTaskDn_Object((1,3,6,1,4,1,9,9,719,1,45,118,1,2),_CucsStorageEnclosureFsmTaskDn_Type())
-cucsStorageEnclosureFsmTaskDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmTaskDn.setStatus(_A)
-_CucsStorageEnclosureFsmTaskRn_Type=SnmpAdminString
-_CucsStorageEnclosureFsmTaskRn_Object=MibTableColumn
-cucsStorageEnclosureFsmTaskRn=_CucsStorageEnclosureFsmTaskRn_Object((1,3,6,1,4,1,9,9,719,1,45,118,1,3),_CucsStorageEnclosureFsmTaskRn_Type())
-cucsStorageEnclosureFsmTaskRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmTaskRn.setStatus(_A)
-_CucsStorageEnclosureFsmTaskCompletion_Type=CucsFsmCompletion
-_CucsStorageEnclosureFsmTaskCompletion_Object=MibTableColumn
-cucsStorageEnclosureFsmTaskCompletion=_CucsStorageEnclosureFsmTaskCompletion_Object((1,3,6,1,4,1,9,9,719,1,45,118,1,4),_CucsStorageEnclosureFsmTaskCompletion_Type())
-cucsStorageEnclosureFsmTaskCompletion.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmTaskCompletion.setStatus(_A)
-_CucsStorageEnclosureFsmTaskFlags_Type=CucsFsmFlags
-_CucsStorageEnclosureFsmTaskFlags_Object=MibTableColumn
-cucsStorageEnclosureFsmTaskFlags=_CucsStorageEnclosureFsmTaskFlags_Object((1,3,6,1,4,1,9,9,719,1,45,118,1,5),_CucsStorageEnclosureFsmTaskFlags_Type())
-cucsStorageEnclosureFsmTaskFlags.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmTaskFlags.setStatus(_A)
-_CucsStorageEnclosureFsmTaskItem_Type=CucsStorageEnclosureFsmTaskItem
-_CucsStorageEnclosureFsmTaskItem_Object=MibTableColumn
-cucsStorageEnclosureFsmTaskItem=_CucsStorageEnclosureFsmTaskItem_Object((1,3,6,1,4,1,9,9,719,1,45,118,1,6),_CucsStorageEnclosureFsmTaskItem_Type())
-cucsStorageEnclosureFsmTaskItem.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmTaskItem.setStatus(_A)
-_CucsStorageEnclosureFsmTaskSeqId_Type=Gauge32
-_CucsStorageEnclosureFsmTaskSeqId_Object=MibTableColumn
-cucsStorageEnclosureFsmTaskSeqId=_CucsStorageEnclosureFsmTaskSeqId_Object((1,3,6,1,4,1,9,9,719,1,45,118,1,7),_CucsStorageEnclosureFsmTaskSeqId_Type())
-cucsStorageEnclosureFsmTaskSeqId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageEnclosureFsmTaskSeqId.setStatus(_A)
-_CucsStorageLocalDiskFsmTable_Object=MibTable
-cucsStorageLocalDiskFsmTable=_CucsStorageLocalDiskFsmTable_Object((1,3,6,1,4,1,9,9,719,1,45,119))
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmTable.setStatus(_A)
-_CucsStorageLocalDiskFsmEntry_Object=MibTableRow
-cucsStorageLocalDiskFsmEntry=_CucsStorageLocalDiskFsmEntry_Object((1,3,6,1,4,1,9,9,719,1,45,119,1))
-cucsStorageLocalDiskFsmEntry.setIndexNames((0,_C,_AK))
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmEntry.setStatus(_A)
-_CucsStorageLocalDiskFsmInstanceId_Type=CucsManagedObjectId
-_CucsStorageLocalDiskFsmInstanceId_Object=MibTableColumn
-cucsStorageLocalDiskFsmInstanceId=_CucsStorageLocalDiskFsmInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,119,1,1),_CucsStorageLocalDiskFsmInstanceId_Type())
-cucsStorageLocalDiskFsmInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmInstanceId.setStatus(_A)
-_CucsStorageLocalDiskFsmDn_Type=CucsManagedObjectDn
-_CucsStorageLocalDiskFsmDn_Object=MibTableColumn
-cucsStorageLocalDiskFsmDn=_CucsStorageLocalDiskFsmDn_Object((1,3,6,1,4,1,9,9,719,1,45,119,1,2),_CucsStorageLocalDiskFsmDn_Type())
-cucsStorageLocalDiskFsmDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmDn.setStatus(_A)
-_CucsStorageLocalDiskFsmRn_Type=SnmpAdminString
-_CucsStorageLocalDiskFsmRn_Object=MibTableColumn
-cucsStorageLocalDiskFsmRn=_CucsStorageLocalDiskFsmRn_Object((1,3,6,1,4,1,9,9,719,1,45,119,1,3),_CucsStorageLocalDiskFsmRn_Type())
-cucsStorageLocalDiskFsmRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmRn.setStatus(_A)
-_CucsStorageLocalDiskFsmCompletionTime_Type=DateAndTime
-_CucsStorageLocalDiskFsmCompletionTime_Object=MibTableColumn
-cucsStorageLocalDiskFsmCompletionTime=_CucsStorageLocalDiskFsmCompletionTime_Object((1,3,6,1,4,1,9,9,719,1,45,119,1,4),_CucsStorageLocalDiskFsmCompletionTime_Type())
-cucsStorageLocalDiskFsmCompletionTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmCompletionTime.setStatus(_A)
-_CucsStorageLocalDiskFsmCurrentFsm_Type=CucsStorageLocalDiskFsmCurrentFsm
-_CucsStorageLocalDiskFsmCurrentFsm_Object=MibTableColumn
-cucsStorageLocalDiskFsmCurrentFsm=_CucsStorageLocalDiskFsmCurrentFsm_Object((1,3,6,1,4,1,9,9,719,1,45,119,1,5),_CucsStorageLocalDiskFsmCurrentFsm_Type())
-cucsStorageLocalDiskFsmCurrentFsm.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmCurrentFsm.setStatus(_A)
-_CucsStorageLocalDiskFsmDescrData_Type=SnmpAdminString
-_CucsStorageLocalDiskFsmDescrData_Object=MibTableColumn
-cucsStorageLocalDiskFsmDescrData=_CucsStorageLocalDiskFsmDescrData_Object((1,3,6,1,4,1,9,9,719,1,45,119,1,6),_CucsStorageLocalDiskFsmDescrData_Type())
-cucsStorageLocalDiskFsmDescrData.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmDescrData.setStatus(_A)
-_CucsStorageLocalDiskFsmFsmStatus_Type=CucsFsmFsmStageStatus
-_CucsStorageLocalDiskFsmFsmStatus_Object=MibTableColumn
-cucsStorageLocalDiskFsmFsmStatus=_CucsStorageLocalDiskFsmFsmStatus_Object((1,3,6,1,4,1,9,9,719,1,45,119,1,7),_CucsStorageLocalDiskFsmFsmStatus_Type())
-cucsStorageLocalDiskFsmFsmStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmFsmStatus.setStatus(_A)
-_CucsStorageLocalDiskFsmProgress_Type=Gauge32
-_CucsStorageLocalDiskFsmProgress_Object=MibTableColumn
-cucsStorageLocalDiskFsmProgress=_CucsStorageLocalDiskFsmProgress_Object((1,3,6,1,4,1,9,9,719,1,45,119,1,8),_CucsStorageLocalDiskFsmProgress_Type())
-cucsStorageLocalDiskFsmProgress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmProgress.setStatus(_A)
-_CucsStorageLocalDiskFsmRmtErrCode_Type=Gauge32
-_CucsStorageLocalDiskFsmRmtErrCode_Object=MibTableColumn
-cucsStorageLocalDiskFsmRmtErrCode=_CucsStorageLocalDiskFsmRmtErrCode_Object((1,3,6,1,4,1,9,9,719,1,45,119,1,9),_CucsStorageLocalDiskFsmRmtErrCode_Type())
-cucsStorageLocalDiskFsmRmtErrCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmRmtErrCode.setStatus(_A)
-_CucsStorageLocalDiskFsmRmtErrDescr_Type=SnmpAdminString
-_CucsStorageLocalDiskFsmRmtErrDescr_Object=MibTableColumn
-cucsStorageLocalDiskFsmRmtErrDescr=_CucsStorageLocalDiskFsmRmtErrDescr_Object((1,3,6,1,4,1,9,9,719,1,45,119,1,10),_CucsStorageLocalDiskFsmRmtErrDescr_Type())
-cucsStorageLocalDiskFsmRmtErrDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmRmtErrDescr.setStatus(_A)
-_CucsStorageLocalDiskFsmRmtRslt_Type=CucsConditionRemoteInvRslt
-_CucsStorageLocalDiskFsmRmtRslt_Object=MibTableColumn
-cucsStorageLocalDiskFsmRmtRslt=_CucsStorageLocalDiskFsmRmtRslt_Object((1,3,6,1,4,1,9,9,719,1,45,119,1,11),_CucsStorageLocalDiskFsmRmtRslt_Type())
-cucsStorageLocalDiskFsmRmtRslt.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmRmtRslt.setStatus(_A)
-_CucsStorageLocalDiskFsmStageTable_Object=MibTable
-cucsStorageLocalDiskFsmStageTable=_CucsStorageLocalDiskFsmStageTable_Object((1,3,6,1,4,1,9,9,719,1,45,120))
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmStageTable.setStatus(_A)
-_CucsStorageLocalDiskFsmStageEntry_Object=MibTableRow
-cucsStorageLocalDiskFsmStageEntry=_CucsStorageLocalDiskFsmStageEntry_Object((1,3,6,1,4,1,9,9,719,1,45,120,1))
-cucsStorageLocalDiskFsmStageEntry.setIndexNames((0,_C,_AL))
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmStageEntry.setStatus(_A)
-_CucsStorageLocalDiskFsmStageInstanceId_Type=CucsManagedObjectId
-_CucsStorageLocalDiskFsmStageInstanceId_Object=MibTableColumn
-cucsStorageLocalDiskFsmStageInstanceId=_CucsStorageLocalDiskFsmStageInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,120,1,1),_CucsStorageLocalDiskFsmStageInstanceId_Type())
-cucsStorageLocalDiskFsmStageInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmStageInstanceId.setStatus(_A)
-_CucsStorageLocalDiskFsmStageDn_Type=CucsManagedObjectDn
-_CucsStorageLocalDiskFsmStageDn_Object=MibTableColumn
-cucsStorageLocalDiskFsmStageDn=_CucsStorageLocalDiskFsmStageDn_Object((1,3,6,1,4,1,9,9,719,1,45,120,1,2),_CucsStorageLocalDiskFsmStageDn_Type())
-cucsStorageLocalDiskFsmStageDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmStageDn.setStatus(_A)
-_CucsStorageLocalDiskFsmStageRn_Type=SnmpAdminString
-_CucsStorageLocalDiskFsmStageRn_Object=MibTableColumn
-cucsStorageLocalDiskFsmStageRn=_CucsStorageLocalDiskFsmStageRn_Object((1,3,6,1,4,1,9,9,719,1,45,120,1,3),_CucsStorageLocalDiskFsmStageRn_Type())
-cucsStorageLocalDiskFsmStageRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmStageRn.setStatus(_A)
-_CucsStorageLocalDiskFsmStageDescrData_Type=SnmpAdminString
-_CucsStorageLocalDiskFsmStageDescrData_Object=MibTableColumn
-cucsStorageLocalDiskFsmStageDescrData=_CucsStorageLocalDiskFsmStageDescrData_Object((1,3,6,1,4,1,9,9,719,1,45,120,1,4),_CucsStorageLocalDiskFsmStageDescrData_Type())
-cucsStorageLocalDiskFsmStageDescrData.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmStageDescrData.setStatus(_A)
-_CucsStorageLocalDiskFsmStageLastUpdateTime_Type=DateAndTime
-_CucsStorageLocalDiskFsmStageLastUpdateTime_Object=MibTableColumn
-cucsStorageLocalDiskFsmStageLastUpdateTime=_CucsStorageLocalDiskFsmStageLastUpdateTime_Object((1,3,6,1,4,1,9,9,719,1,45,120,1,5),_CucsStorageLocalDiskFsmStageLastUpdateTime_Type())
-cucsStorageLocalDiskFsmStageLastUpdateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmStageLastUpdateTime.setStatus(_A)
-_CucsStorageLocalDiskFsmStageName_Type=CucsStorageLocalDiskFsmStageName
-_CucsStorageLocalDiskFsmStageName_Object=MibTableColumn
-cucsStorageLocalDiskFsmStageName=_CucsStorageLocalDiskFsmStageName_Object((1,3,6,1,4,1,9,9,719,1,45,120,1,6),_CucsStorageLocalDiskFsmStageName_Type())
-cucsStorageLocalDiskFsmStageName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmStageName.setStatus(_A)
-_CucsStorageLocalDiskFsmStageOrder_Type=Gauge32
-_CucsStorageLocalDiskFsmStageOrder_Object=MibTableColumn
-cucsStorageLocalDiskFsmStageOrder=_CucsStorageLocalDiskFsmStageOrder_Object((1,3,6,1,4,1,9,9,719,1,45,120,1,7),_CucsStorageLocalDiskFsmStageOrder_Type())
-cucsStorageLocalDiskFsmStageOrder.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmStageOrder.setStatus(_A)
-_CucsStorageLocalDiskFsmStageRetry_Type=Gauge32
-_CucsStorageLocalDiskFsmStageRetry_Object=MibTableColumn
-cucsStorageLocalDiskFsmStageRetry=_CucsStorageLocalDiskFsmStageRetry_Object((1,3,6,1,4,1,9,9,719,1,45,120,1,8),_CucsStorageLocalDiskFsmStageRetry_Type())
-cucsStorageLocalDiskFsmStageRetry.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmStageRetry.setStatus(_A)
-_CucsStorageLocalDiskFsmStageStageStatus_Type=CucsFsmFsmStageStatus
-_CucsStorageLocalDiskFsmStageStageStatus_Object=MibTableColumn
-cucsStorageLocalDiskFsmStageStageStatus=_CucsStorageLocalDiskFsmStageStageStatus_Object((1,3,6,1,4,1,9,9,719,1,45,120,1,9),_CucsStorageLocalDiskFsmStageStageStatus_Type())
-cucsStorageLocalDiskFsmStageStageStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmStageStageStatus.setStatus(_A)
-_CucsStorageLocalDiskFsmTaskTable_Object=MibTable
-cucsStorageLocalDiskFsmTaskTable=_CucsStorageLocalDiskFsmTaskTable_Object((1,3,6,1,4,1,9,9,719,1,45,121))
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmTaskTable.setStatus(_A)
-_CucsStorageLocalDiskFsmTaskEntry_Object=MibTableRow
-cucsStorageLocalDiskFsmTaskEntry=_CucsStorageLocalDiskFsmTaskEntry_Object((1,3,6,1,4,1,9,9,719,1,45,121,1))
-cucsStorageLocalDiskFsmTaskEntry.setIndexNames((0,_C,_AM))
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmTaskEntry.setStatus(_A)
-_CucsStorageLocalDiskFsmTaskInstanceId_Type=CucsManagedObjectId
-_CucsStorageLocalDiskFsmTaskInstanceId_Object=MibTableColumn
-cucsStorageLocalDiskFsmTaskInstanceId=_CucsStorageLocalDiskFsmTaskInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,121,1,1),_CucsStorageLocalDiskFsmTaskInstanceId_Type())
-cucsStorageLocalDiskFsmTaskInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmTaskInstanceId.setStatus(_A)
-_CucsStorageLocalDiskFsmTaskDn_Type=CucsManagedObjectDn
-_CucsStorageLocalDiskFsmTaskDn_Object=MibTableColumn
-cucsStorageLocalDiskFsmTaskDn=_CucsStorageLocalDiskFsmTaskDn_Object((1,3,6,1,4,1,9,9,719,1,45,121,1,2),_CucsStorageLocalDiskFsmTaskDn_Type())
-cucsStorageLocalDiskFsmTaskDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmTaskDn.setStatus(_A)
-_CucsStorageLocalDiskFsmTaskRn_Type=SnmpAdminString
-_CucsStorageLocalDiskFsmTaskRn_Object=MibTableColumn
-cucsStorageLocalDiskFsmTaskRn=_CucsStorageLocalDiskFsmTaskRn_Object((1,3,6,1,4,1,9,9,719,1,45,121,1,3),_CucsStorageLocalDiskFsmTaskRn_Type())
-cucsStorageLocalDiskFsmTaskRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmTaskRn.setStatus(_A)
-_CucsStorageLocalDiskFsmTaskCompletion_Type=CucsFsmCompletion
-_CucsStorageLocalDiskFsmTaskCompletion_Object=MibTableColumn
-cucsStorageLocalDiskFsmTaskCompletion=_CucsStorageLocalDiskFsmTaskCompletion_Object((1,3,6,1,4,1,9,9,719,1,45,121,1,4),_CucsStorageLocalDiskFsmTaskCompletion_Type())
-cucsStorageLocalDiskFsmTaskCompletion.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmTaskCompletion.setStatus(_A)
-_CucsStorageLocalDiskFsmTaskFlags_Type=CucsStorageLocalDiskFsmTaskFlags
-_CucsStorageLocalDiskFsmTaskFlags_Object=MibTableColumn
-cucsStorageLocalDiskFsmTaskFlags=_CucsStorageLocalDiskFsmTaskFlags_Object((1,3,6,1,4,1,9,9,719,1,45,121,1,5),_CucsStorageLocalDiskFsmTaskFlags_Type())
-cucsStorageLocalDiskFsmTaskFlags.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmTaskFlags.setStatus(_A)
-_CucsStorageLocalDiskFsmTaskItem_Type=CucsStorageLocalDiskFsmTaskItem
-_CucsStorageLocalDiskFsmTaskItem_Object=MibTableColumn
-cucsStorageLocalDiskFsmTaskItem=_CucsStorageLocalDiskFsmTaskItem_Object((1,3,6,1,4,1,9,9,719,1,45,121,1,6),_CucsStorageLocalDiskFsmTaskItem_Type())
-cucsStorageLocalDiskFsmTaskItem.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmTaskItem.setStatus(_A)
-_CucsStorageLocalDiskFsmTaskSeqId_Type=Gauge32
-_CucsStorageLocalDiskFsmTaskSeqId_Object=MibTableColumn
-cucsStorageLocalDiskFsmTaskSeqId=_CucsStorageLocalDiskFsmTaskSeqId_Object((1,3,6,1,4,1,9,9,719,1,45,121,1,7),_CucsStorageLocalDiskFsmTaskSeqId_Type())
-cucsStorageLocalDiskFsmTaskSeqId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageLocalDiskFsmTaskSeqId.setStatus(_A)
-_CucsStorageNvmeStatsTable_Object=MibTable
-cucsStorageNvmeStatsTable=_CucsStorageNvmeStatsTable_Object((1,3,6,1,4,1,9,9,719,1,45,122))
-if mibBuilder.loadTexts:cucsStorageNvmeStatsTable.setStatus(_A)
-_CucsStorageNvmeStatsEntry_Object=MibTableRow
-cucsStorageNvmeStatsEntry=_CucsStorageNvmeStatsEntry_Object((1,3,6,1,4,1,9,9,719,1,45,122,1))
-cucsStorageNvmeStatsEntry.setIndexNames((0,_C,_AN))
-if mibBuilder.loadTexts:cucsStorageNvmeStatsEntry.setStatus(_A)
-_CucsStorageNvmeStatsInstanceId_Type=CucsManagedObjectId
-_CucsStorageNvmeStatsInstanceId_Object=MibTableColumn
-cucsStorageNvmeStatsInstanceId=_CucsStorageNvmeStatsInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,1),_CucsStorageNvmeStatsInstanceId_Type())
-cucsStorageNvmeStatsInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsInstanceId.setStatus(_A)
-_CucsStorageNvmeStatsDn_Type=CucsManagedObjectDn
-_CucsStorageNvmeStatsDn_Object=MibTableColumn
-cucsStorageNvmeStatsDn=_CucsStorageNvmeStatsDn_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,2),_CucsStorageNvmeStatsDn_Type())
-cucsStorageNvmeStatsDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsDn.setStatus(_A)
-_CucsStorageNvmeStatsRn_Type=SnmpAdminString
-_CucsStorageNvmeStatsRn_Object=MibTableColumn
-cucsStorageNvmeStatsRn=_CucsStorageNvmeStatsRn_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,3),_CucsStorageNvmeStatsRn_Type())
-cucsStorageNvmeStatsRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsRn.setStatus(_A)
-_CucsStorageNvmeStatsDriveLifeUsedPercentage_Type=Gauge32
-_CucsStorageNvmeStatsDriveLifeUsedPercentage_Object=MibTableColumn
-cucsStorageNvmeStatsDriveLifeUsedPercentage=_CucsStorageNvmeStatsDriveLifeUsedPercentage_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,4),_CucsStorageNvmeStatsDriveLifeUsedPercentage_Type())
-cucsStorageNvmeStatsDriveLifeUsedPercentage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsDriveLifeUsedPercentage.setStatus(_A)
-_CucsStorageNvmeStatsDriveLifeUsedPercentageAvg_Type=Gauge32
-_CucsStorageNvmeStatsDriveLifeUsedPercentageAvg_Object=MibTableColumn
-cucsStorageNvmeStatsDriveLifeUsedPercentageAvg=_CucsStorageNvmeStatsDriveLifeUsedPercentageAvg_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,5),_CucsStorageNvmeStatsDriveLifeUsedPercentageAvg_Type())
-cucsStorageNvmeStatsDriveLifeUsedPercentageAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsDriveLifeUsedPercentageAvg.setStatus(_A)
-_CucsStorageNvmeStatsDriveLifeUsedPercentageMax_Type=Gauge32
-_CucsStorageNvmeStatsDriveLifeUsedPercentageMax_Object=MibTableColumn
-cucsStorageNvmeStatsDriveLifeUsedPercentageMax=_CucsStorageNvmeStatsDriveLifeUsedPercentageMax_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,6),_CucsStorageNvmeStatsDriveLifeUsedPercentageMax_Type())
-cucsStorageNvmeStatsDriveLifeUsedPercentageMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsDriveLifeUsedPercentageMax.setStatus(_A)
-_CucsStorageNvmeStatsDriveLifeUsedPercentageMin_Type=Gauge32
-_CucsStorageNvmeStatsDriveLifeUsedPercentageMin_Object=MibTableColumn
-cucsStorageNvmeStatsDriveLifeUsedPercentageMin=_CucsStorageNvmeStatsDriveLifeUsedPercentageMin_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,7),_CucsStorageNvmeStatsDriveLifeUsedPercentageMin_Type())
-cucsStorageNvmeStatsDriveLifeUsedPercentageMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsDriveLifeUsedPercentageMin.setStatus(_A)
-_CucsStorageNvmeStatsIntervals_Type=Gauge32
-_CucsStorageNvmeStatsIntervals_Object=MibTableColumn
-cucsStorageNvmeStatsIntervals=_CucsStorageNvmeStatsIntervals_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,8),_CucsStorageNvmeStatsIntervals_Type())
-cucsStorageNvmeStatsIntervals.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsIntervals.setStatus(_A)
-_CucsStorageNvmeStatsSuspect_Type=TruthValue
-_CucsStorageNvmeStatsSuspect_Object=MibTableColumn
-cucsStorageNvmeStatsSuspect=_CucsStorageNvmeStatsSuspect_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,9),_CucsStorageNvmeStatsSuspect_Type())
-cucsStorageNvmeStatsSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsSuspect.setStatus(_A)
-_CucsStorageNvmeStatsTemperature_Type=Integer32
-_CucsStorageNvmeStatsTemperature_Object=MibTableColumn
-cucsStorageNvmeStatsTemperature=_CucsStorageNvmeStatsTemperature_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,10),_CucsStorageNvmeStatsTemperature_Type())
-cucsStorageNvmeStatsTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsTemperature.setStatus(_A)
-_CucsStorageNvmeStatsTemperatureAvg_Type=Integer32
-_CucsStorageNvmeStatsTemperatureAvg_Object=MibTableColumn
-cucsStorageNvmeStatsTemperatureAvg=_CucsStorageNvmeStatsTemperatureAvg_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,11),_CucsStorageNvmeStatsTemperatureAvg_Type())
-cucsStorageNvmeStatsTemperatureAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsTemperatureAvg.setStatus(_A)
-_CucsStorageNvmeStatsTemperatureMax_Type=Integer32
-_CucsStorageNvmeStatsTemperatureMax_Object=MibTableColumn
-cucsStorageNvmeStatsTemperatureMax=_CucsStorageNvmeStatsTemperatureMax_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,12),_CucsStorageNvmeStatsTemperatureMax_Type())
-cucsStorageNvmeStatsTemperatureMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsTemperatureMax.setStatus(_A)
-_CucsStorageNvmeStatsTemperatureMin_Type=Integer32
-_CucsStorageNvmeStatsTemperatureMin_Object=MibTableColumn
-cucsStorageNvmeStatsTemperatureMin=_CucsStorageNvmeStatsTemperatureMin_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,13),_CucsStorageNvmeStatsTemperatureMin_Type())
-cucsStorageNvmeStatsTemperatureMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsTemperatureMin.setStatus(_A)
-_CucsStorageNvmeStatsThresholded_Type=CucsStorageNvmeStatsThresholded
-_CucsStorageNvmeStatsThresholded_Object=MibTableColumn
-cucsStorageNvmeStatsThresholded=_CucsStorageNvmeStatsThresholded_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,14),_CucsStorageNvmeStatsThresholded_Type())
-cucsStorageNvmeStatsThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsThresholded.setStatus(_A)
-_CucsStorageNvmeStatsTimeCollected_Type=DateAndTime
-_CucsStorageNvmeStatsTimeCollected_Object=MibTableColumn
-cucsStorageNvmeStatsTimeCollected=_CucsStorageNvmeStatsTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,15),_CucsStorageNvmeStatsTimeCollected_Type())
-cucsStorageNvmeStatsTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsTimeCollected.setStatus(_A)
-_CucsStorageNvmeStatsUpdate_Type=Gauge32
-_CucsStorageNvmeStatsUpdate_Object=MibTableColumn
-cucsStorageNvmeStatsUpdate=_CucsStorageNvmeStatsUpdate_Object((1,3,6,1,4,1,9,9,719,1,45,122,1,16),_CucsStorageNvmeStatsUpdate_Type())
-cucsStorageNvmeStatsUpdate.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsUpdate.setStatus(_A)
-_CucsStorageNvmeStatsHistTable_Object=MibTable
-cucsStorageNvmeStatsHistTable=_CucsStorageNvmeStatsHistTable_Object((1,3,6,1,4,1,9,9,719,1,45,123))
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistTable.setStatus(_A)
-_CucsStorageNvmeStatsHistEntry_Object=MibTableRow
-cucsStorageNvmeStatsHistEntry=_CucsStorageNvmeStatsHistEntry_Object((1,3,6,1,4,1,9,9,719,1,45,123,1))
-cucsStorageNvmeStatsHistEntry.setIndexNames((0,_C,_AO))
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistEntry.setStatus(_A)
-_CucsStorageNvmeStatsHistInstanceId_Type=CucsManagedObjectId
-_CucsStorageNvmeStatsHistInstanceId_Object=MibTableColumn
-cucsStorageNvmeStatsHistInstanceId=_CucsStorageNvmeStatsHistInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,1),_CucsStorageNvmeStatsHistInstanceId_Type())
-cucsStorageNvmeStatsHistInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistInstanceId.setStatus(_A)
-_CucsStorageNvmeStatsHistDn_Type=CucsManagedObjectDn
-_CucsStorageNvmeStatsHistDn_Object=MibTableColumn
-cucsStorageNvmeStatsHistDn=_CucsStorageNvmeStatsHistDn_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,2),_CucsStorageNvmeStatsHistDn_Type())
-cucsStorageNvmeStatsHistDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistDn.setStatus(_A)
-_CucsStorageNvmeStatsHistRn_Type=SnmpAdminString
-_CucsStorageNvmeStatsHistRn_Object=MibTableColumn
-cucsStorageNvmeStatsHistRn=_CucsStorageNvmeStatsHistRn_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,3),_CucsStorageNvmeStatsHistRn_Type())
-cucsStorageNvmeStatsHistRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistRn.setStatus(_A)
-_CucsStorageNvmeStatsHistDriveLifeUsedPercentage_Type=Gauge32
-_CucsStorageNvmeStatsHistDriveLifeUsedPercentage_Object=MibTableColumn
-cucsStorageNvmeStatsHistDriveLifeUsedPercentage=_CucsStorageNvmeStatsHistDriveLifeUsedPercentage_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,4),_CucsStorageNvmeStatsHistDriveLifeUsedPercentage_Type())
-cucsStorageNvmeStatsHistDriveLifeUsedPercentage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistDriveLifeUsedPercentage.setStatus(_A)
-_CucsStorageNvmeStatsHistDriveLifeUsedPercentageAvg_Type=Gauge32
-_CucsStorageNvmeStatsHistDriveLifeUsedPercentageAvg_Object=MibTableColumn
-cucsStorageNvmeStatsHistDriveLifeUsedPercentageAvg=_CucsStorageNvmeStatsHistDriveLifeUsedPercentageAvg_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,5),_CucsStorageNvmeStatsHistDriveLifeUsedPercentageAvg_Type())
-cucsStorageNvmeStatsHistDriveLifeUsedPercentageAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistDriveLifeUsedPercentageAvg.setStatus(_A)
-_CucsStorageNvmeStatsHistDriveLifeUsedPercentageMax_Type=Gauge32
-_CucsStorageNvmeStatsHistDriveLifeUsedPercentageMax_Object=MibTableColumn
-cucsStorageNvmeStatsHistDriveLifeUsedPercentageMax=_CucsStorageNvmeStatsHistDriveLifeUsedPercentageMax_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,6),_CucsStorageNvmeStatsHistDriveLifeUsedPercentageMax_Type())
-cucsStorageNvmeStatsHistDriveLifeUsedPercentageMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistDriveLifeUsedPercentageMax.setStatus(_A)
-_CucsStorageNvmeStatsHistDriveLifeUsedPercentageMin_Type=Gauge32
-_CucsStorageNvmeStatsHistDriveLifeUsedPercentageMin_Object=MibTableColumn
-cucsStorageNvmeStatsHistDriveLifeUsedPercentageMin=_CucsStorageNvmeStatsHistDriveLifeUsedPercentageMin_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,7),_CucsStorageNvmeStatsHistDriveLifeUsedPercentageMin_Type())
-cucsStorageNvmeStatsHistDriveLifeUsedPercentageMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistDriveLifeUsedPercentageMin.setStatus(_A)
-_CucsStorageNvmeStatsHistId_Type=Unsigned64
-_CucsStorageNvmeStatsHistId_Object=MibTableColumn
-cucsStorageNvmeStatsHistId=_CucsStorageNvmeStatsHistId_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,8),_CucsStorageNvmeStatsHistId_Type())
-cucsStorageNvmeStatsHistId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistId.setStatus(_A)
-_CucsStorageNvmeStatsHistMostRecent_Type=TruthValue
-_CucsStorageNvmeStatsHistMostRecent_Object=MibTableColumn
-cucsStorageNvmeStatsHistMostRecent=_CucsStorageNvmeStatsHistMostRecent_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,9),_CucsStorageNvmeStatsHistMostRecent_Type())
-cucsStorageNvmeStatsHistMostRecent.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistMostRecent.setStatus(_A)
-_CucsStorageNvmeStatsHistSuspect_Type=TruthValue
-_CucsStorageNvmeStatsHistSuspect_Object=MibTableColumn
-cucsStorageNvmeStatsHistSuspect=_CucsStorageNvmeStatsHistSuspect_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,10),_CucsStorageNvmeStatsHistSuspect_Type())
-cucsStorageNvmeStatsHistSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistSuspect.setStatus(_A)
-_CucsStorageNvmeStatsHistTemperature_Type=Integer32
-_CucsStorageNvmeStatsHistTemperature_Object=MibTableColumn
-cucsStorageNvmeStatsHistTemperature=_CucsStorageNvmeStatsHistTemperature_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,11),_CucsStorageNvmeStatsHistTemperature_Type())
-cucsStorageNvmeStatsHistTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistTemperature.setStatus(_A)
-_CucsStorageNvmeStatsHistTemperatureAvg_Type=Integer32
-_CucsStorageNvmeStatsHistTemperatureAvg_Object=MibTableColumn
-cucsStorageNvmeStatsHistTemperatureAvg=_CucsStorageNvmeStatsHistTemperatureAvg_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,12),_CucsStorageNvmeStatsHistTemperatureAvg_Type())
-cucsStorageNvmeStatsHistTemperatureAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistTemperatureAvg.setStatus(_A)
-_CucsStorageNvmeStatsHistTemperatureMax_Type=Integer32
-_CucsStorageNvmeStatsHistTemperatureMax_Object=MibTableColumn
-cucsStorageNvmeStatsHistTemperatureMax=_CucsStorageNvmeStatsHistTemperatureMax_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,13),_CucsStorageNvmeStatsHistTemperatureMax_Type())
-cucsStorageNvmeStatsHistTemperatureMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistTemperatureMax.setStatus(_A)
-_CucsStorageNvmeStatsHistTemperatureMin_Type=Integer32
-_CucsStorageNvmeStatsHistTemperatureMin_Object=MibTableColumn
-cucsStorageNvmeStatsHistTemperatureMin=_CucsStorageNvmeStatsHistTemperatureMin_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,14),_CucsStorageNvmeStatsHistTemperatureMin_Type())
-cucsStorageNvmeStatsHistTemperatureMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistTemperatureMin.setStatus(_A)
-_CucsStorageNvmeStatsHistThresholded_Type=CucsStorageNvmeStatsHistThresholded
-_CucsStorageNvmeStatsHistThresholded_Object=MibTableColumn
-cucsStorageNvmeStatsHistThresholded=_CucsStorageNvmeStatsHistThresholded_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,15),_CucsStorageNvmeStatsHistThresholded_Type())
-cucsStorageNvmeStatsHistThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistThresholded.setStatus(_A)
-_CucsStorageNvmeStatsHistTimeCollected_Type=DateAndTime
-_CucsStorageNvmeStatsHistTimeCollected_Object=MibTableColumn
-cucsStorageNvmeStatsHistTimeCollected=_CucsStorageNvmeStatsHistTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,45,123,1,16),_CucsStorageNvmeStatsHistTimeCollected_Type())
-cucsStorageNvmeStatsHistTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStatsHistTimeCollected.setStatus(_A)
-_CucsStorageNvmeStorageTable_Object=MibTable
-cucsStorageNvmeStorageTable=_CucsStorageNvmeStorageTable_Object((1,3,6,1,4,1,9,9,719,1,45,124))
-if mibBuilder.loadTexts:cucsStorageNvmeStorageTable.setStatus(_A)
-_CucsStorageNvmeStorageEntry_Object=MibTableRow
-cucsStorageNvmeStorageEntry=_CucsStorageNvmeStorageEntry_Object((1,3,6,1,4,1,9,9,719,1,45,124,1))
-cucsStorageNvmeStorageEntry.setIndexNames((0,_C,_AP))
-if mibBuilder.loadTexts:cucsStorageNvmeStorageEntry.setStatus(_A)
-_CucsStorageNvmeStorageInstanceId_Type=CucsManagedObjectId
-_CucsStorageNvmeStorageInstanceId_Object=MibTableColumn
-cucsStorageNvmeStorageInstanceId=_CucsStorageNvmeStorageInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,124,1,1),_CucsStorageNvmeStorageInstanceId_Type())
-cucsStorageNvmeStorageInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageNvmeStorageInstanceId.setStatus(_A)
-_CucsStorageNvmeStorageDn_Type=CucsManagedObjectDn
-_CucsStorageNvmeStorageDn_Object=MibTableColumn
-cucsStorageNvmeStorageDn=_CucsStorageNvmeStorageDn_Object((1,3,6,1,4,1,9,9,719,1,45,124,1,2),_CucsStorageNvmeStorageDn_Type())
-cucsStorageNvmeStorageDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStorageDn.setStatus(_A)
-_CucsStorageNvmeStorageRn_Type=SnmpAdminString
-_CucsStorageNvmeStorageRn_Object=MibTableColumn
-cucsStorageNvmeStorageRn=_CucsStorageNvmeStorageRn_Object((1,3,6,1,4,1,9,9,719,1,45,124,1,3),_CucsStorageNvmeStorageRn_Type())
-cucsStorageNvmeStorageRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStorageRn.setStatus(_A)
-_CucsStorageNvmeStoragePerformanceLevel_Type=Gauge32
-_CucsStorageNvmeStoragePerformanceLevel_Object=MibTableColumn
-cucsStorageNvmeStoragePerformanceLevel=_CucsStorageNvmeStoragePerformanceLevel_Object((1,3,6,1,4,1,9,9,719,1,45,124,1,4),_CucsStorageNvmeStoragePerformanceLevel_Type())
-cucsStorageNvmeStoragePerformanceLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageNvmeStoragePerformanceLevel.setStatus(_A)
-_CucsStorageSsdHealthStatsTable_Object=MibTable
-cucsStorageSsdHealthStatsTable=_CucsStorageSsdHealthStatsTable_Object((1,3,6,1,4,1,9,9,719,1,45,125))
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsTable.setStatus(_A)
-_CucsStorageSsdHealthStatsEntry_Object=MibTableRow
-cucsStorageSsdHealthStatsEntry=_CucsStorageSsdHealthStatsEntry_Object((1,3,6,1,4,1,9,9,719,1,45,125,1))
-cucsStorageSsdHealthStatsEntry.setIndexNames((0,_C,_AQ))
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsEntry.setStatus(_A)
-_CucsStorageSsdHealthStatsInstanceId_Type=CucsManagedObjectId
-_CucsStorageSsdHealthStatsInstanceId_Object=MibTableColumn
-cucsStorageSsdHealthStatsInstanceId=_CucsStorageSsdHealthStatsInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,1),_CucsStorageSsdHealthStatsInstanceId_Type())
-cucsStorageSsdHealthStatsInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsInstanceId.setStatus(_A)
-_CucsStorageSsdHealthStatsDn_Type=CucsManagedObjectDn
-_CucsStorageSsdHealthStatsDn_Object=MibTableColumn
-cucsStorageSsdHealthStatsDn=_CucsStorageSsdHealthStatsDn_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,2),_CucsStorageSsdHealthStatsDn_Type())
-cucsStorageSsdHealthStatsDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsDn.setStatus(_A)
-_CucsStorageSsdHealthStatsRn_Type=SnmpAdminString
-_CucsStorageSsdHealthStatsRn_Object=MibTableColumn
-cucsStorageSsdHealthStatsRn=_CucsStorageSsdHealthStatsRn_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,3),_CucsStorageSsdHealthStatsRn_Type())
-cucsStorageSsdHealthStatsRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsRn.setStatus(_A)
-_CucsStorageSsdHealthStatsId_Type=Gauge32
-_CucsStorageSsdHealthStatsId_Object=MibTableColumn
-cucsStorageSsdHealthStatsId=_CucsStorageSsdHealthStatsId_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,4),_CucsStorageSsdHealthStatsId_Type())
-cucsStorageSsdHealthStatsId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsId.setStatus(_A)
-_CucsStorageSsdHealthStatsIntervals_Type=Gauge32
-_CucsStorageSsdHealthStatsIntervals_Object=MibTableColumn
-cucsStorageSsdHealthStatsIntervals=_CucsStorageSsdHealthStatsIntervals_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,5),_CucsStorageSsdHealthStatsIntervals_Type())
-cucsStorageSsdHealthStatsIntervals.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsIntervals.setStatus(_A)
-_CucsStorageSsdHealthStatsPercentageLifeLeft_Type=Gauge32
-_CucsStorageSsdHealthStatsPercentageLifeLeft_Object=MibTableColumn
-cucsStorageSsdHealthStatsPercentageLifeLeft=_CucsStorageSsdHealthStatsPercentageLifeLeft_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,6),_CucsStorageSsdHealthStatsPercentageLifeLeft_Type())
-cucsStorageSsdHealthStatsPercentageLifeLeft.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsPercentageLifeLeft.setStatus(_A)
-_CucsStorageSsdHealthStatsPercentageLifeLeftAvg_Type=Gauge32
-_CucsStorageSsdHealthStatsPercentageLifeLeftAvg_Object=MibTableColumn
-cucsStorageSsdHealthStatsPercentageLifeLeftAvg=_CucsStorageSsdHealthStatsPercentageLifeLeftAvg_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,7),_CucsStorageSsdHealthStatsPercentageLifeLeftAvg_Type())
-cucsStorageSsdHealthStatsPercentageLifeLeftAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsPercentageLifeLeftAvg.setStatus(_A)
-_CucsStorageSsdHealthStatsPercentageLifeLeftMax_Type=Gauge32
-_CucsStorageSsdHealthStatsPercentageLifeLeftMax_Object=MibTableColumn
-cucsStorageSsdHealthStatsPercentageLifeLeftMax=_CucsStorageSsdHealthStatsPercentageLifeLeftMax_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,8),_CucsStorageSsdHealthStatsPercentageLifeLeftMax_Type())
-cucsStorageSsdHealthStatsPercentageLifeLeftMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsPercentageLifeLeftMax.setStatus(_A)
-_CucsStorageSsdHealthStatsPercentageLifeLeftMin_Type=Gauge32
-_CucsStorageSsdHealthStatsPercentageLifeLeftMin_Object=MibTableColumn
-cucsStorageSsdHealthStatsPercentageLifeLeftMin=_CucsStorageSsdHealthStatsPercentageLifeLeftMin_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,9),_CucsStorageSsdHealthStatsPercentageLifeLeftMin_Type())
-cucsStorageSsdHealthStatsPercentageLifeLeftMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsPercentageLifeLeftMin.setStatus(_A)
-_CucsStorageSsdHealthStatsPowerCycleCount_Type=Unsigned64
-_CucsStorageSsdHealthStatsPowerCycleCount_Object=MibTableColumn
-cucsStorageSsdHealthStatsPowerCycleCount=_CucsStorageSsdHealthStatsPowerCycleCount_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,10),_CucsStorageSsdHealthStatsPowerCycleCount_Type())
-cucsStorageSsdHealthStatsPowerCycleCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsPowerCycleCount.setStatus(_A)
-_CucsStorageSsdHealthStatsPowerCycleCountAvg_Type=Unsigned64
-_CucsStorageSsdHealthStatsPowerCycleCountAvg_Object=MibTableColumn
-cucsStorageSsdHealthStatsPowerCycleCountAvg=_CucsStorageSsdHealthStatsPowerCycleCountAvg_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,11),_CucsStorageSsdHealthStatsPowerCycleCountAvg_Type())
-cucsStorageSsdHealthStatsPowerCycleCountAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsPowerCycleCountAvg.setStatus(_A)
-_CucsStorageSsdHealthStatsPowerCycleCountMax_Type=Unsigned64
-_CucsStorageSsdHealthStatsPowerCycleCountMax_Object=MibTableColumn
-cucsStorageSsdHealthStatsPowerCycleCountMax=_CucsStorageSsdHealthStatsPowerCycleCountMax_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,12),_CucsStorageSsdHealthStatsPowerCycleCountMax_Type())
-cucsStorageSsdHealthStatsPowerCycleCountMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsPowerCycleCountMax.setStatus(_A)
-_CucsStorageSsdHealthStatsPowerCycleCountMin_Type=Unsigned64
-_CucsStorageSsdHealthStatsPowerCycleCountMin_Object=MibTableColumn
-cucsStorageSsdHealthStatsPowerCycleCountMin=_CucsStorageSsdHealthStatsPowerCycleCountMin_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,13),_CucsStorageSsdHealthStatsPowerCycleCountMin_Type())
-cucsStorageSsdHealthStatsPowerCycleCountMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsPowerCycleCountMin.setStatus(_A)
-_CucsStorageSsdHealthStatsPowerOnHours_Type=Unsigned64
-_CucsStorageSsdHealthStatsPowerOnHours_Object=MibTableColumn
-cucsStorageSsdHealthStatsPowerOnHours=_CucsStorageSsdHealthStatsPowerOnHours_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,14),_CucsStorageSsdHealthStatsPowerOnHours_Type())
-cucsStorageSsdHealthStatsPowerOnHours.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsPowerOnHours.setStatus(_A)
-_CucsStorageSsdHealthStatsPowerOnHoursAvg_Type=Unsigned64
-_CucsStorageSsdHealthStatsPowerOnHoursAvg_Object=MibTableColumn
-cucsStorageSsdHealthStatsPowerOnHoursAvg=_CucsStorageSsdHealthStatsPowerOnHoursAvg_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,15),_CucsStorageSsdHealthStatsPowerOnHoursAvg_Type())
-cucsStorageSsdHealthStatsPowerOnHoursAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsPowerOnHoursAvg.setStatus(_A)
-_CucsStorageSsdHealthStatsPowerOnHoursMax_Type=Unsigned64
-_CucsStorageSsdHealthStatsPowerOnHoursMax_Object=MibTableColumn
-cucsStorageSsdHealthStatsPowerOnHoursMax=_CucsStorageSsdHealthStatsPowerOnHoursMax_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,16),_CucsStorageSsdHealthStatsPowerOnHoursMax_Type())
-cucsStorageSsdHealthStatsPowerOnHoursMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsPowerOnHoursMax.setStatus(_A)
-_CucsStorageSsdHealthStatsPowerOnHoursMin_Type=Unsigned64
-_CucsStorageSsdHealthStatsPowerOnHoursMin_Object=MibTableColumn
-cucsStorageSsdHealthStatsPowerOnHoursMin=_CucsStorageSsdHealthStatsPowerOnHoursMin_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,17),_CucsStorageSsdHealthStatsPowerOnHoursMin_Type())
-cucsStorageSsdHealthStatsPowerOnHoursMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsPowerOnHoursMin.setStatus(_A)
-_CucsStorageSsdHealthStatsSuspect_Type=TruthValue
-_CucsStorageSsdHealthStatsSuspect_Object=MibTableColumn
-cucsStorageSsdHealthStatsSuspect=_CucsStorageSsdHealthStatsSuspect_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,18),_CucsStorageSsdHealthStatsSuspect_Type())
-cucsStorageSsdHealthStatsSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsSuspect.setStatus(_A)
-_CucsStorageSsdHealthStatsThresholded_Type=CucsStorageSsdHealthStatsThresholded
-_CucsStorageSsdHealthStatsThresholded_Object=MibTableColumn
-cucsStorageSsdHealthStatsThresholded=_CucsStorageSsdHealthStatsThresholded_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,19),_CucsStorageSsdHealthStatsThresholded_Type())
-cucsStorageSsdHealthStatsThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsThresholded.setStatus(_A)
-_CucsStorageSsdHealthStatsTimeCollected_Type=DateAndTime
-_CucsStorageSsdHealthStatsTimeCollected_Object=MibTableColumn
-cucsStorageSsdHealthStatsTimeCollected=_CucsStorageSsdHealthStatsTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,20),_CucsStorageSsdHealthStatsTimeCollected_Type())
-cucsStorageSsdHealthStatsTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsTimeCollected.setStatus(_A)
-_CucsStorageSsdHealthStatsUpdate_Type=Gauge32
-_CucsStorageSsdHealthStatsUpdate_Object=MibTableColumn
-cucsStorageSsdHealthStatsUpdate=_CucsStorageSsdHealthStatsUpdate_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,21),_CucsStorageSsdHealthStatsUpdate_Type())
-cucsStorageSsdHealthStatsUpdate.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsUpdate.setStatus(_A)
-_CucsStorageSsdHealthStatsWearStatusInDays_Type=Unsigned64
-_CucsStorageSsdHealthStatsWearStatusInDays_Object=MibTableColumn
-cucsStorageSsdHealthStatsWearStatusInDays=_CucsStorageSsdHealthStatsWearStatusInDays_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,22),_CucsStorageSsdHealthStatsWearStatusInDays_Type())
-cucsStorageSsdHealthStatsWearStatusInDays.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsWearStatusInDays.setStatus(_A)
-_CucsStorageSsdHealthStatsWearStatusInDaysAvg_Type=Unsigned64
-_CucsStorageSsdHealthStatsWearStatusInDaysAvg_Object=MibTableColumn
-cucsStorageSsdHealthStatsWearStatusInDaysAvg=_CucsStorageSsdHealthStatsWearStatusInDaysAvg_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,23),_CucsStorageSsdHealthStatsWearStatusInDaysAvg_Type())
-cucsStorageSsdHealthStatsWearStatusInDaysAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsWearStatusInDaysAvg.setStatus(_A)
-_CucsStorageSsdHealthStatsWearStatusInDaysMax_Type=Unsigned64
-_CucsStorageSsdHealthStatsWearStatusInDaysMax_Object=MibTableColumn
-cucsStorageSsdHealthStatsWearStatusInDaysMax=_CucsStorageSsdHealthStatsWearStatusInDaysMax_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,24),_CucsStorageSsdHealthStatsWearStatusInDaysMax_Type())
-cucsStorageSsdHealthStatsWearStatusInDaysMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsWearStatusInDaysMax.setStatus(_A)
-_CucsStorageSsdHealthStatsWearStatusInDaysMin_Type=Unsigned64
-_CucsStorageSsdHealthStatsWearStatusInDaysMin_Object=MibTableColumn
-cucsStorageSsdHealthStatsWearStatusInDaysMin=_CucsStorageSsdHealthStatsWearStatusInDaysMin_Object((1,3,6,1,4,1,9,9,719,1,45,125,1,25),_CucsStorageSsdHealthStatsWearStatusInDaysMin_Type())
-cucsStorageSsdHealthStatsWearStatusInDaysMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsWearStatusInDaysMin.setStatus(_A)
-_CucsStorageSsdHealthStatsHistTable_Object=MibTable
-cucsStorageSsdHealthStatsHistTable=_CucsStorageSsdHealthStatsHistTable_Object((1,3,6,1,4,1,9,9,719,1,45,126))
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistTable.setStatus(_A)
-_CucsStorageSsdHealthStatsHistEntry_Object=MibTableRow
-cucsStorageSsdHealthStatsHistEntry=_CucsStorageSsdHealthStatsHistEntry_Object((1,3,6,1,4,1,9,9,719,1,45,126,1))
-cucsStorageSsdHealthStatsHistEntry.setIndexNames((0,_C,_AR))
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistEntry.setStatus(_A)
-_CucsStorageSsdHealthStatsHistInstanceId_Type=CucsManagedObjectId
-_CucsStorageSsdHealthStatsHistInstanceId_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistInstanceId=_CucsStorageSsdHealthStatsHistInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,1),_CucsStorageSsdHealthStatsHistInstanceId_Type())
-cucsStorageSsdHealthStatsHistInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistInstanceId.setStatus(_A)
-_CucsStorageSsdHealthStatsHistDn_Type=CucsManagedObjectDn
-_CucsStorageSsdHealthStatsHistDn_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistDn=_CucsStorageSsdHealthStatsHistDn_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,2),_CucsStorageSsdHealthStatsHistDn_Type())
-cucsStorageSsdHealthStatsHistDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistDn.setStatus(_A)
-_CucsStorageSsdHealthStatsHistRn_Type=SnmpAdminString
-_CucsStorageSsdHealthStatsHistRn_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistRn=_CucsStorageSsdHealthStatsHistRn_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,3),_CucsStorageSsdHealthStatsHistRn_Type())
-cucsStorageSsdHealthStatsHistRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistRn.setStatus(_A)
-_CucsStorageSsdHealthStatsHistId_Type=Unsigned64
-_CucsStorageSsdHealthStatsHistId_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistId=_CucsStorageSsdHealthStatsHistId_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,4),_CucsStorageSsdHealthStatsHistId_Type())
-cucsStorageSsdHealthStatsHistId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistId.setStatus(_A)
-_CucsStorageSsdHealthStatsHistMostRecent_Type=TruthValue
-_CucsStorageSsdHealthStatsHistMostRecent_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistMostRecent=_CucsStorageSsdHealthStatsHistMostRecent_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,5),_CucsStorageSsdHealthStatsHistMostRecent_Type())
-cucsStorageSsdHealthStatsHistMostRecent.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistMostRecent.setStatus(_A)
-_CucsStorageSsdHealthStatsHistPercentageLifeLeft_Type=Gauge32
-_CucsStorageSsdHealthStatsHistPercentageLifeLeft_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistPercentageLifeLeft=_CucsStorageSsdHealthStatsHistPercentageLifeLeft_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,6),_CucsStorageSsdHealthStatsHistPercentageLifeLeft_Type())
-cucsStorageSsdHealthStatsHistPercentageLifeLeft.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistPercentageLifeLeft.setStatus(_A)
-_CucsStorageSsdHealthStatsHistPercentageLifeLeftAvg_Type=Gauge32
-_CucsStorageSsdHealthStatsHistPercentageLifeLeftAvg_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistPercentageLifeLeftAvg=_CucsStorageSsdHealthStatsHistPercentageLifeLeftAvg_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,7),_CucsStorageSsdHealthStatsHistPercentageLifeLeftAvg_Type())
-cucsStorageSsdHealthStatsHistPercentageLifeLeftAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistPercentageLifeLeftAvg.setStatus(_A)
-_CucsStorageSsdHealthStatsHistPercentageLifeLeftMax_Type=Gauge32
-_CucsStorageSsdHealthStatsHistPercentageLifeLeftMax_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistPercentageLifeLeftMax=_CucsStorageSsdHealthStatsHistPercentageLifeLeftMax_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,8),_CucsStorageSsdHealthStatsHistPercentageLifeLeftMax_Type())
-cucsStorageSsdHealthStatsHistPercentageLifeLeftMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistPercentageLifeLeftMax.setStatus(_A)
-_CucsStorageSsdHealthStatsHistPercentageLifeLeftMin_Type=Gauge32
-_CucsStorageSsdHealthStatsHistPercentageLifeLeftMin_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistPercentageLifeLeftMin=_CucsStorageSsdHealthStatsHistPercentageLifeLeftMin_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,9),_CucsStorageSsdHealthStatsHistPercentageLifeLeftMin_Type())
-cucsStorageSsdHealthStatsHistPercentageLifeLeftMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistPercentageLifeLeftMin.setStatus(_A)
-_CucsStorageSsdHealthStatsHistPowerCycleCount_Type=Unsigned64
-_CucsStorageSsdHealthStatsHistPowerCycleCount_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistPowerCycleCount=_CucsStorageSsdHealthStatsHistPowerCycleCount_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,10),_CucsStorageSsdHealthStatsHistPowerCycleCount_Type())
-cucsStorageSsdHealthStatsHistPowerCycleCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistPowerCycleCount.setStatus(_A)
-_CucsStorageSsdHealthStatsHistPowerCycleCountAvg_Type=Unsigned64
-_CucsStorageSsdHealthStatsHistPowerCycleCountAvg_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistPowerCycleCountAvg=_CucsStorageSsdHealthStatsHistPowerCycleCountAvg_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,11),_CucsStorageSsdHealthStatsHistPowerCycleCountAvg_Type())
-cucsStorageSsdHealthStatsHistPowerCycleCountAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistPowerCycleCountAvg.setStatus(_A)
-_CucsStorageSsdHealthStatsHistPowerCycleCountMax_Type=Unsigned64
-_CucsStorageSsdHealthStatsHistPowerCycleCountMax_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistPowerCycleCountMax=_CucsStorageSsdHealthStatsHistPowerCycleCountMax_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,12),_CucsStorageSsdHealthStatsHistPowerCycleCountMax_Type())
-cucsStorageSsdHealthStatsHistPowerCycleCountMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistPowerCycleCountMax.setStatus(_A)
-_CucsStorageSsdHealthStatsHistPowerCycleCountMin_Type=Unsigned64
-_CucsStorageSsdHealthStatsHistPowerCycleCountMin_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistPowerCycleCountMin=_CucsStorageSsdHealthStatsHistPowerCycleCountMin_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,13),_CucsStorageSsdHealthStatsHistPowerCycleCountMin_Type())
-cucsStorageSsdHealthStatsHistPowerCycleCountMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistPowerCycleCountMin.setStatus(_A)
-_CucsStorageSsdHealthStatsHistPowerOnHours_Type=Unsigned64
-_CucsStorageSsdHealthStatsHistPowerOnHours_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistPowerOnHours=_CucsStorageSsdHealthStatsHistPowerOnHours_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,14),_CucsStorageSsdHealthStatsHistPowerOnHours_Type())
-cucsStorageSsdHealthStatsHistPowerOnHours.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistPowerOnHours.setStatus(_A)
-_CucsStorageSsdHealthStatsHistPowerOnHoursAvg_Type=Unsigned64
-_CucsStorageSsdHealthStatsHistPowerOnHoursAvg_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistPowerOnHoursAvg=_CucsStorageSsdHealthStatsHistPowerOnHoursAvg_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,15),_CucsStorageSsdHealthStatsHistPowerOnHoursAvg_Type())
-cucsStorageSsdHealthStatsHistPowerOnHoursAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistPowerOnHoursAvg.setStatus(_A)
-_CucsStorageSsdHealthStatsHistPowerOnHoursMax_Type=Unsigned64
-_CucsStorageSsdHealthStatsHistPowerOnHoursMax_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistPowerOnHoursMax=_CucsStorageSsdHealthStatsHistPowerOnHoursMax_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,16),_CucsStorageSsdHealthStatsHistPowerOnHoursMax_Type())
-cucsStorageSsdHealthStatsHistPowerOnHoursMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistPowerOnHoursMax.setStatus(_A)
-_CucsStorageSsdHealthStatsHistPowerOnHoursMin_Type=Unsigned64
-_CucsStorageSsdHealthStatsHistPowerOnHoursMin_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistPowerOnHoursMin=_CucsStorageSsdHealthStatsHistPowerOnHoursMin_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,17),_CucsStorageSsdHealthStatsHistPowerOnHoursMin_Type())
-cucsStorageSsdHealthStatsHistPowerOnHoursMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistPowerOnHoursMin.setStatus(_A)
-_CucsStorageSsdHealthStatsHistSuspect_Type=TruthValue
-_CucsStorageSsdHealthStatsHistSuspect_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistSuspect=_CucsStorageSsdHealthStatsHistSuspect_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,18),_CucsStorageSsdHealthStatsHistSuspect_Type())
-cucsStorageSsdHealthStatsHistSuspect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistSuspect.setStatus(_A)
-_CucsStorageSsdHealthStatsHistThresholded_Type=CucsStorageSsdHealthStatsHistThresholded
-_CucsStorageSsdHealthStatsHistThresholded_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistThresholded=_CucsStorageSsdHealthStatsHistThresholded_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,19),_CucsStorageSsdHealthStatsHistThresholded_Type())
-cucsStorageSsdHealthStatsHistThresholded.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistThresholded.setStatus(_A)
-_CucsStorageSsdHealthStatsHistTimeCollected_Type=DateAndTime
-_CucsStorageSsdHealthStatsHistTimeCollected_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistTimeCollected=_CucsStorageSsdHealthStatsHistTimeCollected_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,20),_CucsStorageSsdHealthStatsHistTimeCollected_Type())
-cucsStorageSsdHealthStatsHistTimeCollected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistTimeCollected.setStatus(_A)
-_CucsStorageSsdHealthStatsHistWearStatusInDays_Type=Unsigned64
-_CucsStorageSsdHealthStatsHistWearStatusInDays_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistWearStatusInDays=_CucsStorageSsdHealthStatsHistWearStatusInDays_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,21),_CucsStorageSsdHealthStatsHistWearStatusInDays_Type())
-cucsStorageSsdHealthStatsHistWearStatusInDays.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistWearStatusInDays.setStatus(_A)
-_CucsStorageSsdHealthStatsHistWearStatusInDaysAvg_Type=Unsigned64
-_CucsStorageSsdHealthStatsHistWearStatusInDaysAvg_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistWearStatusInDaysAvg=_CucsStorageSsdHealthStatsHistWearStatusInDaysAvg_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,22),_CucsStorageSsdHealthStatsHistWearStatusInDaysAvg_Type())
-cucsStorageSsdHealthStatsHistWearStatusInDaysAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistWearStatusInDaysAvg.setStatus(_A)
-_CucsStorageSsdHealthStatsHistWearStatusInDaysMax_Type=Unsigned64
-_CucsStorageSsdHealthStatsHistWearStatusInDaysMax_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistWearStatusInDaysMax=_CucsStorageSsdHealthStatsHistWearStatusInDaysMax_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,23),_CucsStorageSsdHealthStatsHistWearStatusInDaysMax_Type())
-cucsStorageSsdHealthStatsHistWearStatusInDaysMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistWearStatusInDaysMax.setStatus(_A)
-_CucsStorageSsdHealthStatsHistWearStatusInDaysMin_Type=Unsigned64
-_CucsStorageSsdHealthStatsHistWearStatusInDaysMin_Object=MibTableColumn
-cucsStorageSsdHealthStatsHistWearStatusInDaysMin=_CucsStorageSsdHealthStatsHistWearStatusInDaysMin_Object((1,3,6,1,4,1,9,9,719,1,45,126,1,24),_CucsStorageSsdHealthStatsHistWearStatusInDaysMin_Type())
-cucsStorageSsdHealthStatsHistWearStatusInDaysMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageSsdHealthStatsHistWearStatusInDaysMin.setStatus(_A)
-_CucsStorageControllerReferenceTable_Object=MibTable
-cucsStorageControllerReferenceTable=_CucsStorageControllerReferenceTable_Object((1,3,6,1,4,1,9,9,719,1,45,129))
-if mibBuilder.loadTexts:cucsStorageControllerReferenceTable.setStatus(_A)
-_CucsStorageControllerReferenceEntry_Object=MibTableRow
-cucsStorageControllerReferenceEntry=_CucsStorageControllerReferenceEntry_Object((1,3,6,1,4,1,9,9,719,1,45,129,1))
-cucsStorageControllerReferenceEntry.setIndexNames((0,_C,_AS))
-if mibBuilder.loadTexts:cucsStorageControllerReferenceEntry.setStatus(_A)
-_CucsStorageControllerReferenceInstanceId_Type=CucsManagedObjectId
-_CucsStorageControllerReferenceInstanceId_Object=MibTableColumn
-cucsStorageControllerReferenceInstanceId=_CucsStorageControllerReferenceInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,129,1,1),_CucsStorageControllerReferenceInstanceId_Type())
-cucsStorageControllerReferenceInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageControllerReferenceInstanceId.setStatus(_A)
-_CucsStorageControllerReferenceDn_Type=CucsManagedObjectDn
-_CucsStorageControllerReferenceDn_Object=MibTableColumn
-cucsStorageControllerReferenceDn=_CucsStorageControllerReferenceDn_Object((1,3,6,1,4,1,9,9,719,1,45,129,1,2),_CucsStorageControllerReferenceDn_Type())
-cucsStorageControllerReferenceDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerReferenceDn.setStatus(_A)
-_CucsStorageControllerReferenceRn_Type=SnmpAdminString
-_CucsStorageControllerReferenceRn_Object=MibTableColumn
-cucsStorageControllerReferenceRn=_CucsStorageControllerReferenceRn_Object((1,3,6,1,4,1,9,9,719,1,45,129,1,3),_CucsStorageControllerReferenceRn_Type())
-cucsStorageControllerReferenceRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerReferenceRn.setStatus(_A)
-_CucsStorageControllerReferenceControllerId_Type=Gauge32
-_CucsStorageControllerReferenceControllerId_Object=MibTableColumn
-cucsStorageControllerReferenceControllerId=_CucsStorageControllerReferenceControllerId_Object((1,3,6,1,4,1,9,9,719,1,45,129,1,4),_CucsStorageControllerReferenceControllerId_Type())
-cucsStorageControllerReferenceControllerId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerReferenceControllerId.setStatus(_A)
-_CucsStorageControllerReferenceControllerType_Type=CucsStorageControllerType
-_CucsStorageControllerReferenceControllerType_Object=MibTableColumn
-cucsStorageControllerReferenceControllerType=_CucsStorageControllerReferenceControllerType_Object((1,3,6,1,4,1,9,9,719,1,45,129,1,5),_CucsStorageControllerReferenceControllerType_Type())
-cucsStorageControllerReferenceControllerType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerReferenceControllerType.setStatus(_A)
-_CucsStorageControllerReferenceReferencedRn_Type=SnmpAdminString
-_CucsStorageControllerReferenceReferencedRn_Object=MibTableColumn
-cucsStorageControllerReferenceReferencedRn=_CucsStorageControllerReferenceReferencedRn_Object((1,3,6,1,4,1,9,9,719,1,45,129,1,6),_CucsStorageControllerReferenceReferencedRn_Type())
-cucsStorageControllerReferenceReferencedRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageControllerReferenceReferencedRn.setStatus(_A)
-_CucsStorageMiniStorageTable_Object=MibTable
-cucsStorageMiniStorageTable=_CucsStorageMiniStorageTable_Object((1,3,6,1,4,1,9,9,719,1,45,130))
-if mibBuilder.loadTexts:cucsStorageMiniStorageTable.setStatus(_A)
-_CucsStorageMiniStorageEntry_Object=MibTableRow
-cucsStorageMiniStorageEntry=_CucsStorageMiniStorageEntry_Object((1,3,6,1,4,1,9,9,719,1,45,130,1))
-cucsStorageMiniStorageEntry.setIndexNames((0,_C,_AT))
-if mibBuilder.loadTexts:cucsStorageMiniStorageEntry.setStatus(_A)
-_CucsStorageMiniStorageInstanceId_Type=CucsManagedObjectId
-_CucsStorageMiniStorageInstanceId_Object=MibTableColumn
-cucsStorageMiniStorageInstanceId=_CucsStorageMiniStorageInstanceId_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,1),_CucsStorageMiniStorageInstanceId_Type())
-cucsStorageMiniStorageInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsStorageMiniStorageInstanceId.setStatus(_A)
-_CucsStorageMiniStorageDn_Type=CucsManagedObjectDn
-_CucsStorageMiniStorageDn_Object=MibTableColumn
-cucsStorageMiniStorageDn=_CucsStorageMiniStorageDn_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,2),_CucsStorageMiniStorageDn_Type())
-cucsStorageMiniStorageDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageDn.setStatus(_A)
-_CucsStorageMiniStorageRn_Type=SnmpAdminString
-_CucsStorageMiniStorageRn_Object=MibTableColumn
-cucsStorageMiniStorageRn=_CucsStorageMiniStorageRn_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,3),_CucsStorageMiniStorageRn_Type())
-cucsStorageMiniStorageRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageRn.setStatus(_A)
-_CucsStorageMiniStorageAssetTag_Type=SnmpAdminString
-_CucsStorageMiniStorageAssetTag_Object=MibTableColumn
-cucsStorageMiniStorageAssetTag=_CucsStorageMiniStorageAssetTag_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,4),_CucsStorageMiniStorageAssetTag_Type())
-cucsStorageMiniStorageAssetTag.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageAssetTag.setStatus(_A)
-_CucsStorageMiniStorageId_Type=CucsStorageMiniStorageId
-_CucsStorageMiniStorageId_Object=MibTableColumn
-cucsStorageMiniStorageId=_CucsStorageMiniStorageId_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,5),_CucsStorageMiniStorageId_Type())
-cucsStorageMiniStorageId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageId.setStatus(_A)
-_CucsStorageMiniStorageLocationDn_Type=SnmpAdminString
-_CucsStorageMiniStorageLocationDn_Object=MibTableColumn
-cucsStorageMiniStorageLocationDn=_CucsStorageMiniStorageLocationDn_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,6),_CucsStorageMiniStorageLocationDn_Type())
-cucsStorageMiniStorageLocationDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageLocationDn.setStatus(_A)
-_CucsStorageMiniStorageModel_Type=SnmpAdminString
-_CucsStorageMiniStorageModel_Object=MibTableColumn
-cucsStorageMiniStorageModel=_CucsStorageMiniStorageModel_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,7),_CucsStorageMiniStorageModel_Type())
-cucsStorageMiniStorageModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageModel.setStatus(_A)
-_CucsStorageMiniStorageOperQualifierReason_Type=SnmpAdminString
-_CucsStorageMiniStorageOperQualifierReason_Object=MibTableColumn
-cucsStorageMiniStorageOperQualifierReason=_CucsStorageMiniStorageOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,8),_CucsStorageMiniStorageOperQualifierReason_Type())
-cucsStorageMiniStorageOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageOperQualifierReason.setStatus(_A)
-_CucsStorageMiniStorageOperState_Type=CucsEquipmentOperability
-_CucsStorageMiniStorageOperState_Object=MibTableColumn
-cucsStorageMiniStorageOperState=_CucsStorageMiniStorageOperState_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,9),_CucsStorageMiniStorageOperState_Type())
-cucsStorageMiniStorageOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageOperState.setStatus(_A)
-_CucsStorageMiniStorageOperability_Type=CucsEquipmentOperability
-_CucsStorageMiniStorageOperability_Object=MibTableColumn
-cucsStorageMiniStorageOperability=_CucsStorageMiniStorageOperability_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,10),_CucsStorageMiniStorageOperability_Type())
-cucsStorageMiniStorageOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageOperability.setStatus(_A)
-_CucsStorageMiniStoragePartNumber_Type=SnmpAdminString
-_CucsStorageMiniStoragePartNumber_Object=MibTableColumn
-cucsStorageMiniStoragePartNumber=_CucsStorageMiniStoragePartNumber_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,11),_CucsStorageMiniStoragePartNumber_Type())
-cucsStorageMiniStoragePartNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStoragePartNumber.setStatus(_A)
-_CucsStorageMiniStoragePciAddr_Type=SnmpAdminString
-_CucsStorageMiniStoragePciAddr_Object=MibTableColumn
-cucsStorageMiniStoragePciAddr=_CucsStorageMiniStoragePciAddr_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,12),_CucsStorageMiniStoragePciAddr_Type())
-cucsStorageMiniStoragePciAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStoragePciAddr.setStatus(_A)
-_CucsStorageMiniStoragePciSlot_Type=SnmpAdminString
-_CucsStorageMiniStoragePciSlot_Object=MibTableColumn
-cucsStorageMiniStoragePciSlot=_CucsStorageMiniStoragePciSlot_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,13),_CucsStorageMiniStoragePciSlot_Type())
-cucsStorageMiniStoragePciSlot.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStoragePciSlot.setStatus(_A)
-_CucsStorageMiniStoragePerf_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageMiniStoragePerf_Object=MibTableColumn
-cucsStorageMiniStoragePerf=_CucsStorageMiniStoragePerf_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,14),_CucsStorageMiniStoragePerf_Type())
-cucsStorageMiniStoragePerf.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStoragePerf.setStatus(_A)
-_CucsStorageMiniStoragePower_Type=CucsEquipmentPowerState
-_CucsStorageMiniStoragePower_Object=MibTableColumn
-cucsStorageMiniStoragePower=_CucsStorageMiniStoragePower_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,15),_CucsStorageMiniStoragePower_Type())
-cucsStorageMiniStoragePower.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStoragePower.setStatus(_A)
-_CucsStorageMiniStoragePresence_Type=CucsEquipmentPresence
-_CucsStorageMiniStoragePresence_Object=MibTableColumn
-cucsStorageMiniStoragePresence=_CucsStorageMiniStoragePresence_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,16),_CucsStorageMiniStoragePresence_Type())
-cucsStorageMiniStoragePresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStoragePresence.setStatus(_A)
-_CucsStorageMiniStorageRevision_Type=SnmpAdminString
-_CucsStorageMiniStorageRevision_Object=MibTableColumn
-cucsStorageMiniStorageRevision=_CucsStorageMiniStorageRevision_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,17),_CucsStorageMiniStorageRevision_Type())
-cucsStorageMiniStorageRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageRevision.setStatus(_A)
-_CucsStorageMiniStorageSerial_Type=SnmpAdminString
-_CucsStorageMiniStorageSerial_Object=MibTableColumn
-cucsStorageMiniStorageSerial=_CucsStorageMiniStorageSerial_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,18),_CucsStorageMiniStorageSerial_Type())
-cucsStorageMiniStorageSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageSerial.setStatus(_A)
-_CucsStorageMiniStorageSubType_Type=CucsStorageControllerSubType
-_CucsStorageMiniStorageSubType_Object=MibTableColumn
-cucsStorageMiniStorageSubType=_CucsStorageMiniStorageSubType_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,19),_CucsStorageMiniStorageSubType_Type())
-cucsStorageMiniStorageSubType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageSubType.setStatus(_A)
-_CucsStorageMiniStorageThermal_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageMiniStorageThermal_Object=MibTableColumn
-cucsStorageMiniStorageThermal=_CucsStorageMiniStorageThermal_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,20),_CucsStorageMiniStorageThermal_Type())
-cucsStorageMiniStorageThermal.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageThermal.setStatus(_A)
-_CucsStorageMiniStorageType_Type=CucsStorageControllerType
-_CucsStorageMiniStorageType_Object=MibTableColumn
-cucsStorageMiniStorageType=_CucsStorageMiniStorageType_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,21),_CucsStorageMiniStorageType_Type())
-cucsStorageMiniStorageType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageType.setStatus(_A)
-_CucsStorageMiniStorageVendor_Type=SnmpAdminString
-_CucsStorageMiniStorageVendor_Object=MibTableColumn
-cucsStorageMiniStorageVendor=_CucsStorageMiniStorageVendor_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,22),_CucsStorageMiniStorageVendor_Type())
-cucsStorageMiniStorageVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageVendor.setStatus(_A)
-_CucsStorageMiniStorageVid_Type=SnmpAdminString
-_CucsStorageMiniStorageVid_Object=MibTableColumn
-cucsStorageMiniStorageVid=_CucsStorageMiniStorageVid_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,23),_CucsStorageMiniStorageVid_Type())
-cucsStorageMiniStorageVid.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageVid.setStatus(_A)
-_CucsStorageMiniStorageVoltage_Type=CucsEquipmentSensorThresholdStatus
-_CucsStorageMiniStorageVoltage_Object=MibTableColumn
-cucsStorageMiniStorageVoltage=_CucsStorageMiniStorageVoltage_Object((1,3,6,1,4,1,9,9,719,1,45,130,1,24),_CucsStorageMiniStorageVoltage_Type())
-cucsStorageMiniStorageVoltage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsStorageMiniStorageVoltage.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'cucsStorageObjects':cucsStorageObjects,'cucsStorageControllerTable':cucsStorageControllerTable,'cucsStorageControllerEntry':cucsStorageControllerEntry,_E:cucsStorageControllerInstanceId,'cucsStorageControllerDn':cucsStorageControllerDn,'cucsStorageControllerRn':cucsStorageControllerRn,'cucsStorageControllerId':cucsStorageControllerId,'cucsStorageControllerModel':cucsStorageControllerModel,'cucsStorageControllerOperState':cucsStorageControllerOperState,'cucsStorageControllerOperability':cucsStorageControllerOperability,'cucsStorageControllerPciAddr':cucsStorageControllerPciAddr,'cucsStorageControllerPciSlot':cucsStorageControllerPciSlot,'cucsStorageControllerPerf':cucsStorageControllerPerf,'cucsStorageControllerPower':cucsStorageControllerPower,'cucsStorageControllerPresence':cucsStorageControllerPresence,'cucsStorageControllerRevision':cucsStorageControllerRevision,'cucsStorageControllerSerial':cucsStorageControllerSerial,'cucsStorageControllerThermal':cucsStorageControllerThermal,'cucsStorageControllerType':cucsStorageControllerType,'cucsStorageControllerVendor':cucsStorageControllerVendor,'cucsStorageControllerVoltage':cucsStorageControllerVoltage,'cucsStorageControllerRaidSupport':cucsStorageControllerRaidSupport,'cucsStorageControllerFaultMonitoring':cucsStorageControllerFaultMonitoring,'cucsStorageControllerHwRevision':cucsStorageControllerHwRevision,'cucsStorageControllerDeviceRaidSupport':cucsStorageControllerDeviceRaidSupport,'cucsStorageControllerOperQualifierReason':cucsStorageControllerOperQualifierReason,'cucsStorageControllerControllerStatus':cucsStorageControllerControllerStatus,'cucsStorageControllerLc':cucsStorageControllerLc,'cucsStorageControllerOobControllerId':cucsStorageControllerOobControllerId,'cucsStorageControllerOobInterfaceSupported':cucsStorageControllerOobInterfaceSupported,'cucsStorageControllerRebuildRate':cucsStorageControllerRebuildRate,'cucsStorageControllerLocationDn':cucsStorageControllerLocationDn,'cucsStorageControllerPartNumber':cucsStorageControllerPartNumber,'cucsStorageControllerVid':cucsStorageControllerVid,'cucsStorageControllerAdminAction':cucsStorageControllerAdminAction,'cucsStorageControllerAdminActionTrigger':cucsStorageControllerAdminActionTrigger,'cucsStorageControllerConfigState':cucsStorageControllerConfigState,'cucsStorageControllerOpromBootStatus':cucsStorageControllerOpromBootStatus,'cucsStorageControllerPciSlotRawName':cucsStorageControllerPciSlotRawName,'cucsStorageControllerIdCount':cucsStorageControllerIdCount,'cucsStorageControllerPinnedCacheStatus':cucsStorageControllerPinnedCacheStatus,'cucsStorageControllerMode':cucsStorageControllerMode,'cucsStorageControllerControllerOps':cucsStorageControllerControllerOps,'cucsStorageControllerDefaultStripSize':cucsStorageControllerDefaultStripSize,'cucsStorageControllerDiskOps':cucsStorageControllerDiskOps,'cucsStorageControllerOnBoardMemoryPresent':cucsStorageControllerOnBoardMemoryPresent,'cucsStorageControllerOnBoardMemorySize':cucsStorageControllerOnBoardMemorySize,'cucsStorageControllerRaidBatteryOps':cucsStorageControllerRaidBatteryOps,'cucsStorageControllerSubOemId':cucsStorageControllerSubOemId,'cucsStorageControllerSupportedStripSizes':cucsStorageControllerSupportedStripSizes,'cucsStorageControllerVirtualDriveOps':cucsStorageControllerVirtualDriveOps,'cucsStorageControllerVariantType':cucsStorageControllerVariantType,'cucsStorageControllerAdminSecurityKey':cucsStorageControllerAdminSecurityKey,'cucsStorageControllerAssetTag':cucsStorageControllerAssetTag,'cucsStorageControllerControllerFlags':cucsStorageControllerControllerFlags,'cucsStorageControllerErrDescription':cucsStorageControllerErrDescription,'cucsStorageControllerJbodMode':cucsStorageControllerJbodMode,'cucsStorageControllerSubType':cucsStorageControllerSubType,'cucsStorageDriveTable':cucsStorageDriveTable,'cucsStorageDriveEntry':cucsStorageDriveEntry,_F:cucsStorageDriveInstanceId,'cucsStorageDriveDn':cucsStorageDriveDn,'cucsStorageDriveRn':cucsStorageDriveRn,'cucsStorageDriveId':cucsStorageDriveId,'cucsStorageDriveModel':cucsStorageDriveModel,'cucsStorageDrivePciAddr':cucsStorageDrivePciAddr,'cucsStorageDriveRevision':cucsStorageDriveRevision,'cucsStorageDriveSerial':cucsStorageDriveSerial,'cucsStorageDriveVendor':cucsStorageDriveVendor,'cucsStorageItemTable':cucsStorageItemTable,'cucsStorageItemEntry':cucsStorageItemEntry,_G:cucsStorageItemInstanceId,'cucsStorageItemDn':cucsStorageItemDn,'cucsStorageItemRn':cucsStorageItemRn,'cucsStorageItemName':cucsStorageItemName,'cucsStorageItemSize':cucsStorageItemSize,'cucsStorageItemUsed':cucsStorageItemUsed,'cucsStorageItemOperState':cucsStorageItemOperState,'cucsStorageItemAlarmType':cucsStorageItemAlarmType,'cucsStorageLocalDiskTable':cucsStorageLocalDiskTable,'cucsStorageLocalDiskEntry':cucsStorageLocalDiskEntry,_H:cucsStorageLocalDiskInstanceId,'cucsStorageLocalDiskDn':cucsStorageLocalDiskDn,'cucsStorageLocalDiskRn':cucsStorageLocalDiskRn,'cucsStorageLocalDiskBlockSize':cucsStorageLocalDiskBlockSize,'cucsStorageLocalDiskConnectionProtocol':cucsStorageLocalDiskConnectionProtocol,'cucsStorageLocalDiskId':cucsStorageLocalDiskId,'cucsStorageLocalDiskModel':cucsStorageLocalDiskModel,'cucsStorageLocalDiskNumberOfBlocks':cucsStorageLocalDiskNumberOfBlocks,'cucsStorageLocalDiskOperability':cucsStorageLocalDiskOperability,'cucsStorageLocalDiskPresence':cucsStorageLocalDiskPresence,'cucsStorageLocalDiskRevision':cucsStorageLocalDiskRevision,'cucsStorageLocalDiskSerial':cucsStorageLocalDiskSerial,'cucsStorageLocalDiskSize':cucsStorageLocalDiskSize,'cucsStorageLocalDiskVendor':cucsStorageLocalDiskVendor,'cucsStorageLocalDiskLc':cucsStorageLocalDiskLc,'cucsStorageLocalDiskOperQualifierReason':cucsStorageLocalDiskOperQualifierReason,'cucsStorageLocalDiskDeviceType':cucsStorageLocalDiskDeviceType,'cucsStorageLocalDiskDiskState':cucsStorageLocalDiskDiskState,'cucsStorageLocalDiskLinkSpeed':cucsStorageLocalDiskLinkSpeed,'cucsStorageLocalDiskPowerState':cucsStorageLocalDiskPowerState,'cucsStorageLocalDiskAdminAction':cucsStorageLocalDiskAdminAction,'cucsStorageLocalDiskAdminActionTrigger':cucsStorageLocalDiskAdminActionTrigger,'cucsStorageLocalDiskBootable':cucsStorageLocalDiskBootable,'cucsStorageLocalDiskConfigState':cucsStorageLocalDiskConfigState,'cucsStorageLocalDiskThermal':cucsStorageLocalDiskThermal,'cucsStorageLocalDiskAdminVirtualDriveId':cucsStorageLocalDiskAdminVirtualDriveId,'cucsStorageLocalDiskConfigCheckPoint':cucsStorageLocalDiskConfigCheckPoint,'cucsStorageLocalDiskLinkState':cucsStorageLocalDiskLinkState,'cucsStorageLocalDiskLinkStateReason':cucsStorageLocalDiskLinkStateReason,'cucsStorageLocalDiskDiscoveredPath':cucsStorageLocalDiskDiscoveredPath,'cucsStorageLocalDiskEncAssociation':cucsStorageLocalDiskEncAssociation,'cucsStorageLocalDiskPhysicalBlockSize':cucsStorageLocalDiskPhysicalBlockSize,'cucsStorageLocalDiskRawSize':cucsStorageLocalDiskRawSize,'cucsStorageLocalDiskDeviceVersion':cucsStorageLocalDiskDeviceVersion,'cucsStorageLocalDiskFsmDescr':cucsStorageLocalDiskFsmDescr,'cucsStorageLocalDiskFsmFlags':cucsStorageLocalDiskFsmFlags,'cucsStorageLocalDiskFsmPrev':cucsStorageLocalDiskFsmPrev,'cucsStorageLocalDiskFsmProgr':cucsStorageLocalDiskFsmProgr,'cucsStorageLocalDiskFsmRmtInvErrCode':cucsStorageLocalDiskFsmRmtInvErrCode,'cucsStorageLocalDiskFsmRmtInvErrDescr':cucsStorageLocalDiskFsmRmtInvErrDescr,'cucsStorageLocalDiskFsmRmtInvRslt':cucsStorageLocalDiskFsmRmtInvRslt,'cucsStorageLocalDiskFsmStageDescr':cucsStorageLocalDiskFsmStageDescr,'cucsStorageLocalDiskFsmStamp':cucsStorageLocalDiskFsmStamp,'cucsStorageLocalDiskFsmStatus':cucsStorageLocalDiskFsmStatus,'cucsStorageLocalDiskFsmTry':cucsStorageLocalDiskFsmTry,'cucsStorageLocalDiskVariantType':cucsStorageLocalDiskVariantType,'cucsStorageLocalDiskAdminSecurityKey':cucsStorageLocalDiskAdminSecurityKey,'cucsStorageLocalDiskDriveState':cucsStorageLocalDiskDriveState,'cucsStorageLocalDiskErrDescription':cucsStorageLocalDiskErrDescription,'cucsStorageLocalDiskNegotiatedWidth':cucsStorageLocalDiskNegotiatedWidth,'cucsStorageLocalDiskMaxWidth':cucsStorageLocalDiskMaxWidth,'cucsStorageLocalDiskConfigDefTable':cucsStorageLocalDiskConfigDefTable,'cucsStorageLocalDiskConfigDefEntry':cucsStorageLocalDiskConfigDefEntry,_I:cucsStorageLocalDiskConfigDefInstanceId,'cucsStorageLocalDiskConfigDefDn':cucsStorageLocalDiskConfigDefDn,'cucsStorageLocalDiskConfigDefRn':cucsStorageLocalDiskConfigDefRn,'cucsStorageLocalDiskConfigDefDescr':cucsStorageLocalDiskConfigDefDescr,'cucsStorageLocalDiskConfigDefIntId':cucsStorageLocalDiskConfigDefIntId,'cucsStorageLocalDiskConfigDefMode':cucsStorageLocalDiskConfigDefMode,'cucsStorageLocalDiskConfigDefName':cucsStorageLocalDiskConfigDefName,'cucsStorageLocalDiskConfigDefProtectConfig':cucsStorageLocalDiskConfigDefProtectConfig,'cucsStorageLocalDiskConfigDefPolicyLevel':cucsStorageLocalDiskConfigDefPolicyLevel,'cucsStorageLocalDiskConfigDefPolicyOwner':cucsStorageLocalDiskConfigDefPolicyOwner,'cucsStorageLocalDiskConfigDefFlexFlashRAIDReportingState':cucsStorageLocalDiskConfigDefFlexFlashRAIDReportingState,'cucsStorageLocalDiskConfigDefFlexFlashState':cucsStorageLocalDiskConfigDefFlexFlashState,'cucsStorageLocalDiskConfigPolicyTable':cucsStorageLocalDiskConfigPolicyTable,'cucsStorageLocalDiskConfigPolicyEntry':cucsStorageLocalDiskConfigPolicyEntry,_J:cucsStorageLocalDiskConfigPolicyInstanceId,'cucsStorageLocalDiskConfigPolicyDn':cucsStorageLocalDiskConfigPolicyDn,'cucsStorageLocalDiskConfigPolicyRn':cucsStorageLocalDiskConfigPolicyRn,'cucsStorageLocalDiskConfigPolicyDescr':cucsStorageLocalDiskConfigPolicyDescr,'cucsStorageLocalDiskConfigPolicyIntId':cucsStorageLocalDiskConfigPolicyIntId,'cucsStorageLocalDiskConfigPolicyMode':cucsStorageLocalDiskConfigPolicyMode,'cucsStorageLocalDiskConfigPolicyName':cucsStorageLocalDiskConfigPolicyName,'cucsStorageLocalDiskConfigPolicyProtectConfig':cucsStorageLocalDiskConfigPolicyProtectConfig,'cucsStorageLocalDiskConfigPolicyPolicyLevel':cucsStorageLocalDiskConfigPolicyPolicyLevel,'cucsStorageLocalDiskConfigPolicyPolicyOwner':cucsStorageLocalDiskConfigPolicyPolicyOwner,'cucsStorageLocalDiskConfigPolicyFlexFlashRAIDReportingState':cucsStorageLocalDiskConfigPolicyFlexFlashRAIDReportingState,'cucsStorageLocalDiskConfigPolicyFlexFlashState':cucsStorageLocalDiskConfigPolicyFlexFlashState,'cucsStorageLocalDiskPartitionTable':cucsStorageLocalDiskPartitionTable,'cucsStorageLocalDiskPartitionEntry':cucsStorageLocalDiskPartitionEntry,_K:cucsStorageLocalDiskPartitionInstanceId,'cucsStorageLocalDiskPartitionDn':cucsStorageLocalDiskPartitionDn,'cucsStorageLocalDiskPartitionRn':cucsStorageLocalDiskPartitionRn,'cucsStorageLocalDiskPartitionName':cucsStorageLocalDiskPartitionName,'cucsStorageLocalDiskPartitionSize':cucsStorageLocalDiskPartitionSize,'cucsStorageLocalDiskPartitionType':cucsStorageLocalDiskPartitionType,'cucsStorageLocalDiskPartitionBootable':cucsStorageLocalDiskPartitionBootable,'cucsStorageLocalDiskPartitionId':cucsStorageLocalDiskPartitionId,'cucsStorageLocalDiskPartitionPartitionEnd':cucsStorageLocalDiskPartitionPartitionEnd,'cucsStorageLocalDiskPartitionPartitionStart':cucsStorageLocalDiskPartitionPartitionStart,'cucsStorageLocalDiskPartitionRawTypeDesc':cucsStorageLocalDiskPartitionRawTypeDesc,'cucsStorageLocalLunTable':cucsStorageLocalLunTable,'cucsStorageLocalLunEntry':cucsStorageLocalLunEntry,_L:cucsStorageLocalLunInstanceId,'cucsStorageLocalLunDn':cucsStorageLocalLunDn,'cucsStorageLocalLunRn':cucsStorageLocalLunRn,'cucsStorageLocalLunBlockSize':cucsStorageLocalLunBlockSize,'cucsStorageLocalLunConnectionProtocol':cucsStorageLocalLunConnectionProtocol,'cucsStorageLocalLunId':cucsStorageLocalLunId,'cucsStorageLocalLunModel':cucsStorageLocalLunModel,'cucsStorageLocalLunNumberOfBlocks':cucsStorageLocalLunNumberOfBlocks,'cucsStorageLocalLunOperability':cucsStorageLocalLunOperability,'cucsStorageLocalLunPresence':cucsStorageLocalLunPresence,'cucsStorageLocalLunRevision':cucsStorageLocalLunRevision,'cucsStorageLocalLunSerial':cucsStorageLocalLunSerial,'cucsStorageLocalLunSize':cucsStorageLocalLunSize,'cucsStorageLocalLunType':cucsStorageLocalLunType,'cucsStorageLocalLunVendor':cucsStorageLocalLunVendor,'cucsStorageLocalLunLc':cucsStorageLocalLunLc,'cucsStorageLocalLunOperQualifierReason':cucsStorageLocalLunOperQualifierReason,'cucsStorageLocalLunPhysicalBlockSize':cucsStorageLocalLunPhysicalBlockSize,'cucsStorageLunDiskTable':cucsStorageLunDiskTable,'cucsStorageLunDiskEntry':cucsStorageLunDiskEntry,_M:cucsStorageLunDiskInstanceId,'cucsStorageLunDiskDn':cucsStorageLunDiskDn,'cucsStorageLunDiskRn':cucsStorageLunDiskRn,'cucsStorageLunDiskId':cucsStorageLunDiskId,'cucsStorageQualTable':cucsStorageQualTable,'cucsStorageQualEntry':cucsStorageQualEntry,_N:cucsStorageQualInstanceId,'cucsStorageQualDn':cucsStorageQualDn,'cucsStorageQualRn':cucsStorageQualRn,'cucsStorageQualBlockSize':cucsStorageQualBlockSize,'cucsStorageQualMaxCap':cucsStorageQualMaxCap,'cucsStorageQualMinCap':cucsStorageQualMinCap,'cucsStorageQualNumberOfBlocks':cucsStorageQualNumberOfBlocks,'cucsStorageQualPerDiskCap':cucsStorageQualPerDiskCap,'cucsStorageQualUnits':cucsStorageQualUnits,'cucsStorageQualDiskless':cucsStorageQualDiskless,'cucsStorageQualNumberOfFlexFlashCards':cucsStorageQualNumberOfFlexFlashCards,'cucsStorageQualDiskType':cucsStorageQualDiskType,'cucsStorageRaidBatteryTable':cucsStorageRaidBatteryTable,'cucsStorageRaidBatteryEntry':cucsStorageRaidBatteryEntry,_O:cucsStorageRaidBatteryInstanceId,'cucsStorageRaidBatteryDn':cucsStorageRaidBatteryDn,'cucsStorageRaidBatteryRn':cucsStorageRaidBatteryRn,'cucsStorageRaidBatteryBlockSize':cucsStorageRaidBatteryBlockSize,'cucsStorageRaidBatteryConnectionProtocol':cucsStorageRaidBatteryConnectionProtocol,'cucsStorageRaidBatteryId':cucsStorageRaidBatteryId,'cucsStorageRaidBatteryModel':cucsStorageRaidBatteryModel,'cucsStorageRaidBatteryNumberOfBlocks':cucsStorageRaidBatteryNumberOfBlocks,'cucsStorageRaidBatteryOperability':cucsStorageRaidBatteryOperability,'cucsStorageRaidBatteryPresence':cucsStorageRaidBatteryPresence,'cucsStorageRaidBatteryRevision':cucsStorageRaidBatteryRevision,'cucsStorageRaidBatterySerial':cucsStorageRaidBatterySerial,'cucsStorageRaidBatterySize':cucsStorageRaidBatterySize,'cucsStorageRaidBatteryVendor':cucsStorageRaidBatteryVendor,'cucsStorageRaidBatteryOperQualifierReason':cucsStorageRaidBatteryOperQualifierReason,'cucsStorageRaidBatteryBatteryType':cucsStorageRaidBatteryBatteryType,'cucsStorageRaidBatteryCapacityPercentage':cucsStorageRaidBatteryCapacityPercentage,'cucsStorageRaidBatteryOperabilityQualifier':cucsStorageRaidBatteryOperabilityQualifier,'cucsStorageRaidBatteryOperabilityQualifierReason':cucsStorageRaidBatteryOperabilityQualifierReason,'cucsStorageRaidBatteryTemperature':cucsStorageRaidBatteryTemperature,'cucsStorageRaidBatteryBbuStatus':cucsStorageRaidBatteryBbuStatus,'cucsStorageRaidBatteryLc':cucsStorageRaidBatteryLc,'cucsStorageRaidBatteryLearnCycleRequested':cucsStorageRaidBatteryLearnCycleRequested,'cucsStorageRaidBatteryLearnMode':cucsStorageRaidBatteryLearnMode,'cucsStorageRaidBatteryNextLearnCycleTs':cucsStorageRaidBatteryNextLearnCycleTs,'cucsStorageRaidBatteryPhysicalBlockSize':cucsStorageRaidBatteryPhysicalBlockSize,'cucsStorageEnclosureTable':cucsStorageEnclosureTable,'cucsStorageEnclosureEntry':cucsStorageEnclosureEntry,_P:cucsStorageEnclosureInstanceId,'cucsStorageEnclosureDn':cucsStorageEnclosureDn,'cucsStorageEnclosureRn':cucsStorageEnclosureRn,'cucsStorageEnclosureId':cucsStorageEnclosureId,'cucsStorageEnclosureModel':cucsStorageEnclosureModel,'cucsStorageEnclosureNumSlots':cucsStorageEnclosureNumSlots,'cucsStorageEnclosureRevision':cucsStorageEnclosureRevision,'cucsStorageEnclosureSerial':cucsStorageEnclosureSerial,'cucsStorageEnclosureVendor':cucsStorageEnclosureVendor,'cucsStorageEnclosureLc':cucsStorageEnclosureLc,'cucsStorageEnclosureDescr':cucsStorageEnclosureDescr,'cucsStorageEnclosureType':cucsStorageEnclosureType,'cucsStorageEnclosureAdminState':cucsStorageEnclosureAdminState,'cucsStorageEnclosureChassisId':cucsStorageEnclosureChassisId,'cucsStorageEnclosureOperQualifierReason':cucsStorageEnclosureOperQualifierReason,'cucsStorageEnclosureOperState':cucsStorageEnclosureOperState,'cucsStorageEnclosureOperability':cucsStorageEnclosureOperability,'cucsStorageEnclosurePerf':cucsStorageEnclosurePerf,'cucsStorageEnclosurePower':cucsStorageEnclosurePower,'cucsStorageEnclosurePresence':cucsStorageEnclosurePresence,'cucsStorageEnclosureServerId':cucsStorageEnclosureServerId,'cucsStorageEnclosureThermal':cucsStorageEnclosureThermal,'cucsStorageEnclosureVoltage':cucsStorageEnclosureVoltage,'cucsStorageEnclosureFsmDescr':cucsStorageEnclosureFsmDescr,'cucsStorageEnclosureFsmPrev':cucsStorageEnclosureFsmPrev,'cucsStorageEnclosureFsmProgr':cucsStorageEnclosureFsmProgr,'cucsStorageEnclosureFsmRmtInvErrCode':cucsStorageEnclosureFsmRmtInvErrCode,'cucsStorageEnclosureFsmRmtInvErrDescr':cucsStorageEnclosureFsmRmtInvErrDescr,'cucsStorageEnclosureFsmRmtInvRslt':cucsStorageEnclosureFsmRmtInvRslt,'cucsStorageEnclosureFsmStageDescr':cucsStorageEnclosureFsmStageDescr,'cucsStorageEnclosureFsmStamp':cucsStorageEnclosureFsmStamp,'cucsStorageEnclosureFsmStatus':cucsStorageEnclosureFsmStatus,'cucsStorageEnclosureFsmTry':cucsStorageEnclosureFsmTry,'cucsStorageLocalDiskSlotEpTable':cucsStorageLocalDiskSlotEpTable,'cucsStorageLocalDiskSlotEpEntry':cucsStorageLocalDiskSlotEpEntry,_Q:cucsStorageLocalDiskSlotEpInstanceId,'cucsStorageLocalDiskSlotEpDn':cucsStorageLocalDiskSlotEpDn,'cucsStorageLocalDiskSlotEpRn':cucsStorageLocalDiskSlotEpRn,'cucsStorageLocalDiskSlotEpConfiguration':cucsStorageLocalDiskSlotEpConfiguration,'cucsStorageLocalDiskSlotEpId':cucsStorageLocalDiskSlotEpId,'cucsStorageLocalDiskSlotEpOperability':cucsStorageLocalDiskSlotEpOperability,'cucsStorageLocalDiskSlotEpPeerDn':cucsStorageLocalDiskSlotEpPeerDn,'cucsStorageLocalDiskSlotEpPresence':cucsStorageLocalDiskSlotEpPresence,'cucsStorageLocalDiskSlotEpOperQualifierReason':cucsStorageLocalDiskSlotEpOperQualifierReason,'cucsStorageAuthKeyTable':cucsStorageAuthKeyTable,'cucsStorageAuthKeyEntry':cucsStorageAuthKeyEntry,_R:cucsStorageAuthKeyInstanceId,'cucsStorageAuthKeyDn':cucsStorageAuthKeyDn,'cucsStorageAuthKeyRn':cucsStorageAuthKeyRn,'cucsStorageAuthKeyDescr':cucsStorageAuthKeyDescr,'cucsStorageAuthKeyIntId':cucsStorageAuthKeyIntId,'cucsStorageAuthKeyName':cucsStorageAuthKeyName,'cucsStorageAuthKeyPassword':cucsStorageAuthKeyPassword,'cucsStorageAuthKeyPolicyLevel':cucsStorageAuthKeyPolicyLevel,'cucsStorageAuthKeyPolicyOwner':cucsStorageAuthKeyPolicyOwner,'cucsStorageAuthKeyType':cucsStorageAuthKeyType,'cucsStorageAuthKeyUserId':cucsStorageAuthKeyUserId,'cucsStorageConnectionDefTable':cucsStorageConnectionDefTable,'cucsStorageConnectionDefEntry':cucsStorageConnectionDefEntry,_S:cucsStorageConnectionDefInstanceId,'cucsStorageConnectionDefDn':cucsStorageConnectionDefDn,'cucsStorageConnectionDefRn':cucsStorageConnectionDefRn,'cucsStorageConnectionDefDescr':cucsStorageConnectionDefDescr,'cucsStorageConnectionDefIntId':cucsStorageConnectionDefIntId,'cucsStorageConnectionDefName':cucsStorageConnectionDefName,'cucsStorageConnectionDefOperState':cucsStorageConnectionDefOperState,'cucsStorageConnectionDefPolicyLevel':cucsStorageConnectionDefPolicyLevel,'cucsStorageConnectionDefPolicyOwner':cucsStorageConnectionDefPolicyOwner,'cucsStorageConnectionDefZoningType':cucsStorageConnectionDefZoningType,'cucsStorageConnectionPolicyTable':cucsStorageConnectionPolicyTable,'cucsStorageConnectionPolicyEntry':cucsStorageConnectionPolicyEntry,_T:cucsStorageConnectionPolicyInstanceId,'cucsStorageConnectionPolicyDn':cucsStorageConnectionPolicyDn,'cucsStorageConnectionPolicyRn':cucsStorageConnectionPolicyRn,'cucsStorageConnectionPolicyDescr':cucsStorageConnectionPolicyDescr,'cucsStorageConnectionPolicyIntId':cucsStorageConnectionPolicyIntId,'cucsStorageConnectionPolicyName':cucsStorageConnectionPolicyName,'cucsStorageConnectionPolicyOperState':cucsStorageConnectionPolicyOperState,'cucsStorageConnectionPolicyPolicyLevel':cucsStorageConnectionPolicyPolicyLevel,'cucsStorageConnectionPolicyPolicyOwner':cucsStorageConnectionPolicyPolicyOwner,'cucsStorageConnectionPolicyZoningType':cucsStorageConnectionPolicyZoningType,'cucsStorageDomainEpTable':cucsStorageDomainEpTable,'cucsStorageDomainEpEntry':cucsStorageDomainEpEntry,_U:cucsStorageDomainEpInstanceId,'cucsStorageDomainEpDn':cucsStorageDomainEpDn,'cucsStorageDomainEpRn':cucsStorageDomainEpRn,'cucsStorageEpUserTable':cucsStorageEpUserTable,'cucsStorageEpUserEntry':cucsStorageEpUserEntry,_V:cucsStorageEpUserInstanceId,'cucsStorageEpUserDn':cucsStorageEpUserDn,'cucsStorageEpUserRn':cucsStorageEpUserRn,'cucsStorageEpUserConfigState':cucsStorageEpUserConfigState,'cucsStorageEpUserConfigStatusMessage':cucsStorageEpUserConfigStatusMessage,'cucsStorageEpUserDescr':cucsStorageEpUserDescr,'cucsStorageEpUserDomain':cucsStorageEpUserDomain,'cucsStorageEpUserName':cucsStorageEpUserName,'cucsStorageEpUserPriv':cucsStorageEpUserPriv,'cucsStorageEpUserPwd':cucsStorageEpUserPwd,'cucsStorageEpUserPwdSet':cucsStorageEpUserPwdSet,'cucsStorageEtherIfTable':cucsStorageEtherIfTable,'cucsStorageEtherIfEntry':cucsStorageEtherIfEntry,_W:cucsStorageEtherIfInstanceId,'cucsStorageEtherIfDn':cucsStorageEtherIfDn,'cucsStorageEtherIfRn':cucsStorageEtherIfRn,'cucsStorageEtherIfName':cucsStorageEtherIfName,'cucsStorageEtherIfVlanType':cucsStorageEtherIfVlanType,'cucsStorageFcIfTable':cucsStorageFcIfTable,'cucsStorageFcIfEntry':cucsStorageFcIfEntry,_X:cucsStorageFcIfInstanceId,'cucsStorageFcIfDn':cucsStorageFcIfDn,'cucsStorageFcIfRn':cucsStorageFcIfRn,'cucsStorageFcIfName':cucsStorageFcIfName,'cucsStorageFcTargetEpTable':cucsStorageFcTargetEpTable,'cucsStorageFcTargetEpEntry':cucsStorageFcTargetEpEntry,_Y:cucsStorageFcTargetEpInstanceId,'cucsStorageFcTargetEpDn':cucsStorageFcTargetEpDn,'cucsStorageFcTargetEpRn':cucsStorageFcTargetEpRn,'cucsStorageFcTargetEpDescr':cucsStorageFcTargetEpDescr,'cucsStorageFcTargetEpPath':cucsStorageFcTargetEpPath,'cucsStorageFcTargetEpTargetwwpn':cucsStorageFcTargetEpTargetwwpn,'cucsStorageFcTargetIfTable':cucsStorageFcTargetIfTable,'cucsStorageFcTargetIfEntry':cucsStorageFcTargetIfEntry,_Z:cucsStorageFcTargetIfInstanceId,'cucsStorageFcTargetIfDn':cucsStorageFcTargetIfDn,'cucsStorageFcTargetIfRn':cucsStorageFcTargetIfRn,'cucsStorageFcTargetIfId':cucsStorageFcTargetIfId,'cucsStorageFcTargetIfProt':cucsStorageFcTargetIfProt,'cucsStorageIScsiTargetIfTable':cucsStorageIScsiTargetIfTable,'cucsStorageIScsiTargetIfEntry':cucsStorageIScsiTargetIfEntry,_a:cucsStorageIScsiTargetIfInstanceId,'cucsStorageIScsiTargetIfDn':cucsStorageIScsiTargetIfDn,'cucsStorageIScsiTargetIfRn':cucsStorageIScsiTargetIfRn,'cucsStorageIScsiTargetIfName':cucsStorageIScsiTargetIfName,'cucsStorageIScsiTargetIfProt':cucsStorageIScsiTargetIfProt,'cucsStorageIniGroupTable':cucsStorageIniGroupTable,'cucsStorageIniGroupEntry':cucsStorageIniGroupEntry,_b:cucsStorageIniGroupInstanceId,'cucsStorageIniGroupDn':cucsStorageIniGroupDn,'cucsStorageIniGroupRn':cucsStorageIniGroupRn,'cucsStorageIniGroupDescr':cucsStorageIniGroupDescr,'cucsStorageIniGroupGroupPolicyName':cucsStorageIniGroupGroupPolicyName,'cucsStorageIniGroupIntId':cucsStorageIniGroupIntId,'cucsStorageIniGroupName':cucsStorageIniGroupName,'cucsStorageIniGroupOperProtocol':cucsStorageIniGroupOperProtocol,'cucsStorageIniGroupOwner':cucsStorageIniGroupOwner,'cucsStorageIniGroupPolicyLevel':cucsStorageIniGroupPolicyLevel,'cucsStorageIniGroupPolicyName':cucsStorageIniGroupPolicyName,'cucsStorageIniGroupPolicyOwner':cucsStorageIniGroupPolicyOwner,'cucsStorageIniGroupProtocol':cucsStorageIniGroupProtocol,'cucsStorageIniGroupRmtDiskCfgName':cucsStorageIniGroupRmtDiskCfgName,'cucsStorageIniGroupOperState':cucsStorageIniGroupOperState,'cucsStorageInitiatorTable':cucsStorageInitiatorTable,'cucsStorageInitiatorEntry':cucsStorageInitiatorEntry,_c:cucsStorageInitiatorInstanceId,'cucsStorageInitiatorDn':cucsStorageInitiatorDn,'cucsStorageInitiatorRn':cucsStorageInitiatorRn,'cucsStorageInitiatorDescr':cucsStorageInitiatorDescr,'cucsStorageInitiatorIntId':cucsStorageInitiatorIntId,'cucsStorageInitiatorName':cucsStorageInitiatorName,'cucsStorageInitiatorOperState':cucsStorageInitiatorOperState,'cucsStorageInitiatorPolicyLevel':cucsStorageInitiatorPolicyLevel,'cucsStorageInitiatorPolicyOwner':cucsStorageInitiatorPolicyOwner,'cucsStorageInitiatorDuplicateTarget':cucsStorageInitiatorDuplicateTarget,'cucsStorageNodeEpTable':cucsStorageNodeEpTable,'cucsStorageNodeEpEntry':cucsStorageNodeEpEntry,_d:cucsStorageNodeEpInstanceId,'cucsStorageNodeEpDn':cucsStorageNodeEpDn,'cucsStorageNodeEpRn':cucsStorageNodeEpRn,'cucsStorageNodeEpEpDn':cucsStorageNodeEpEpDn,'cucsStorageNodeEpId':cucsStorageNodeEpId,'cucsStorageSystemTable':cucsStorageSystemTable,'cucsStorageSystemEntry':cucsStorageSystemEntry,_e:cucsStorageSystemInstanceId,'cucsStorageSystemDn':cucsStorageSystemDn,'cucsStorageSystemRn':cucsStorageSystemRn,'cucsStorageSystemFsmDescr':cucsStorageSystemFsmDescr,'cucsStorageSystemFsmPrev':cucsStorageSystemFsmPrev,'cucsStorageSystemFsmProgr':cucsStorageSystemFsmProgr,'cucsStorageSystemFsmRmtInvErrCode':cucsStorageSystemFsmRmtInvErrCode,'cucsStorageSystemFsmRmtInvErrDescr':cucsStorageSystemFsmRmtInvErrDescr,'cucsStorageSystemFsmRmtInvRslt':cucsStorageSystemFsmRmtInvRslt,'cucsStorageSystemFsmStageDescr':cucsStorageSystemFsmStageDescr,'cucsStorageSystemFsmStamp':cucsStorageSystemFsmStamp,'cucsStorageSystemFsmStatus':cucsStorageSystemFsmStatus,'cucsStorageSystemFsmTry':cucsStorageSystemFsmTry,'cucsStorageSystemId':cucsStorageSystemId,'cucsStorageSystemName':cucsStorageSystemName,'cucsStorageSystemFsmTable':cucsStorageSystemFsmTable,'cucsStorageSystemFsmEntry':cucsStorageSystemFsmEntry,_f:cucsStorageSystemFsmInstanceId,'cucsStorageSystemFsmDn':cucsStorageSystemFsmDn,'cucsStorageSystemFsmRn':cucsStorageSystemFsmRn,'cucsStorageSystemFsmCompletionTime':cucsStorageSystemFsmCompletionTime,'cucsStorageSystemFsmCurrentFsm':cucsStorageSystemFsmCurrentFsm,'cucsStorageSystemFsmDescrData':cucsStorageSystemFsmDescrData,'cucsStorageSystemFsmFsmStatus':cucsStorageSystemFsmFsmStatus,'cucsStorageSystemFsmProgress':cucsStorageSystemFsmProgress,'cucsStorageSystemFsmRmtErrCode':cucsStorageSystemFsmRmtErrCode,'cucsStorageSystemFsmRmtErrDescr':cucsStorageSystemFsmRmtErrDescr,'cucsStorageSystemFsmRmtRslt':cucsStorageSystemFsmRmtRslt,'cucsStorageSystemFsmStageTable':cucsStorageSystemFsmStageTable,'cucsStorageSystemFsmStageEntry':cucsStorageSystemFsmStageEntry,_g:cucsStorageSystemFsmStageInstanceId,'cucsStorageSystemFsmStageDn':cucsStorageSystemFsmStageDn,'cucsStorageSystemFsmStageRn':cucsStorageSystemFsmStageRn,'cucsStorageSystemFsmStageDescrData':cucsStorageSystemFsmStageDescrData,'cucsStorageSystemFsmStageLastUpdateTime':cucsStorageSystemFsmStageLastUpdateTime,'cucsStorageSystemFsmStageName':cucsStorageSystemFsmStageName,'cucsStorageSystemFsmStageOrder':cucsStorageSystemFsmStageOrder,'cucsStorageSystemFsmStageRetry':cucsStorageSystemFsmStageRetry,'cucsStorageSystemFsmStageStageStatus':cucsStorageSystemFsmStageStageStatus,'cucsStorageSystemFsmTaskTable':cucsStorageSystemFsmTaskTable,'cucsStorageSystemFsmTaskEntry':cucsStorageSystemFsmTaskEntry,_h:cucsStorageSystemFsmTaskInstanceId,'cucsStorageSystemFsmTaskDn':cucsStorageSystemFsmTaskDn,'cucsStorageSystemFsmTaskRn':cucsStorageSystemFsmTaskRn,'cucsStorageSystemFsmTaskCompletion':cucsStorageSystemFsmTaskCompletion,'cucsStorageSystemFsmTaskFlags':cucsStorageSystemFsmTaskFlags,'cucsStorageSystemFsmTaskItem':cucsStorageSystemFsmTaskItem,'cucsStorageSystemFsmTaskSeqId':cucsStorageSystemFsmTaskSeqId,'cucsStorageVirtualDriveTable':cucsStorageVirtualDriveTable,'cucsStorageVirtualDriveEntry':cucsStorageVirtualDriveEntry,_i:cucsStorageVirtualDriveInstanceId,'cucsStorageVirtualDriveDn':cucsStorageVirtualDriveDn,'cucsStorageVirtualDriveRn':cucsStorageVirtualDriveRn,'cucsStorageVirtualDriveBlockSize':cucsStorageVirtualDriveBlockSize,'cucsStorageVirtualDriveConnectionProtocol':cucsStorageVirtualDriveConnectionProtocol,'cucsStorageVirtualDriveId':cucsStorageVirtualDriveId,'cucsStorageVirtualDriveModel':cucsStorageVirtualDriveModel,'cucsStorageVirtualDriveNumberOfBlocks':cucsStorageVirtualDriveNumberOfBlocks,'cucsStorageVirtualDriveOperQualifierReason':cucsStorageVirtualDriveOperQualifierReason,'cucsStorageVirtualDriveOperability':cucsStorageVirtualDriveOperability,'cucsStorageVirtualDrivePresence':cucsStorageVirtualDrivePresence,'cucsStorageVirtualDriveRevision':cucsStorageVirtualDriveRevision,'cucsStorageVirtualDriveSerial':cucsStorageVirtualDriveSerial,'cucsStorageVirtualDriveSize':cucsStorageVirtualDriveSize,'cucsStorageVirtualDriveType':cucsStorageVirtualDriveType,'cucsStorageVirtualDriveVendor':cucsStorageVirtualDriveVendor,'cucsStorageVirtualDriveAccessPolicy':cucsStorageVirtualDriveAccessPolicy,'cucsStorageVirtualDriveActualWriteCachePolicy':cucsStorageVirtualDriveActualWriteCachePolicy,'cucsStorageVirtualDriveBootable':cucsStorageVirtualDriveBootable,'cucsStorageVirtualDriveConfiguredWriteCachePolicy':cucsStorageVirtualDriveConfiguredWriteCachePolicy,'cucsStorageVirtualDriveDriveCache':cucsStorageVirtualDriveDriveCache,'cucsStorageVirtualDriveDriveState':cucsStorageVirtualDriveDriveState,'cucsStorageVirtualDriveIoPolicy':cucsStorageVirtualDriveIoPolicy,'cucsStorageVirtualDriveLc':cucsStorageVirtualDriveLc,'cucsStorageVirtualDriveReadPolicy':cucsStorageVirtualDriveReadPolicy,'cucsStorageVirtualDriveStripSize':cucsStorageVirtualDriveStripSize,'cucsStorageVirtualDriveAdminActionTrigger':cucsStorageVirtualDriveAdminActionTrigger,'cucsStorageVirtualDriveAdminName':cucsStorageVirtualDriveAdminName,'cucsStorageVirtualDriveAdminState':cucsStorageVirtualDriveAdminState,'cucsStorageVirtualDriveChangeQualifier':cucsStorageVirtualDriveChangeQualifier,'cucsStorageVirtualDriveConfigQualifierReason':cucsStorageVirtualDriveConfigQualifierReason,'cucsStorageVirtualDriveConfigState':cucsStorageVirtualDriveConfigState,'cucsStorageVirtualDriveDeployAction':cucsStorageVirtualDriveDeployAction,'cucsStorageVirtualDriveDescr':cucsStorageVirtualDriveDescr,'cucsStorageVirtualDriveLocale':cucsStorageVirtualDriveLocale,'cucsStorageVirtualDriveName':cucsStorageVirtualDriveName,'cucsStorageVirtualDriveOperDeviceId':cucsStorageVirtualDriveOperDeviceId,'cucsStorageVirtualDriveOperState':cucsStorageVirtualDriveOperState,'cucsStorageVirtualDriveUuid':cucsStorageVirtualDriveUuid,'cucsStorageVirtualDriveVendorUuid':cucsStorageVirtualDriveVendorUuid,'cucsStorageVirtualDriveAvailableSize':cucsStorageVirtualDriveAvailableSize,'cucsStorageVirtualDrivePnDn':cucsStorageVirtualDrivePnDn,'cucsStorageVirtualDriveRefDn':cucsStorageVirtualDriveRefDn,'cucsStorageVirtualDriveChangeId':cucsStorageVirtualDriveChangeId,'cucsStorageVirtualDrivePhysicalBlockSize':cucsStorageVirtualDrivePhysicalBlockSize,'cucsStorageVirtualDriveDriveSecurity':cucsStorageVirtualDriveDriveSecurity,'cucsStorageVirtualDriveSecurityFlags':cucsStorageVirtualDriveSecurityFlags,'cucsStorageVsanRefTable':cucsStorageVsanRefTable,'cucsStorageVsanRefEntry':cucsStorageVsanRefEntry,_j:cucsStorageVsanRefInstanceId,'cucsStorageVsanRefDn':cucsStorageVsanRefDn,'cucsStorageVsanRefRn':cucsStorageVsanRefRn,'cucsStorageVsanRefConfigQualifier':cucsStorageVsanRefConfigQualifier,'cucsStorageVsanRefName':cucsStorageVsanRefName,'cucsStorageVsanRefOperVnetDn':cucsStorageVsanRefOperVnetDn,'cucsStorageVsanRefOperVnetName':cucsStorageVsanRefOperVnetName,'cucsStorageVsanRefSwitchId':cucsStorageVsanRefSwitchId,'cucsStorageVsanRefVnet':cucsStorageVsanRefVnet,'cucsStorageVsanRefZoningState':cucsStorageVsanRefZoningState,'cucsStorageTransportableFlashModuleTable':cucsStorageTransportableFlashModuleTable,'cucsStorageTransportableFlashModuleEntry':cucsStorageTransportableFlashModuleEntry,_k:cucsStorageTransportableFlashModuleInstanceId,'cucsStorageTransportableFlashModuleDn':cucsStorageTransportableFlashModuleDn,'cucsStorageTransportableFlashModuleRn':cucsStorageTransportableFlashModuleRn,'cucsStorageTransportableFlashModuleBlockSize':cucsStorageTransportableFlashModuleBlockSize,'cucsStorageTransportableFlashModuleConnectionProtocol':cucsStorageTransportableFlashModuleConnectionProtocol,'cucsStorageTransportableFlashModuleId':cucsStorageTransportableFlashModuleId,'cucsStorageTransportableFlashModuleModel':cucsStorageTransportableFlashModuleModel,'cucsStorageTransportableFlashModuleNumberOfBlocks':cucsStorageTransportableFlashModuleNumberOfBlocks,'cucsStorageTransportableFlashModuleOperQualifierReason':cucsStorageTransportableFlashModuleOperQualifierReason,'cucsStorageTransportableFlashModuleOperability':cucsStorageTransportableFlashModuleOperability,'cucsStorageTransportableFlashModulePresence':cucsStorageTransportableFlashModulePresence,'cucsStorageTransportableFlashModuleRevision':cucsStorageTransportableFlashModuleRevision,'cucsStorageTransportableFlashModuleSerial':cucsStorageTransportableFlashModuleSerial,'cucsStorageTransportableFlashModuleSize':cucsStorageTransportableFlashModuleSize,'cucsStorageTransportableFlashModuleVendor':cucsStorageTransportableFlashModuleVendor,'cucsStorageTransportableFlashModulePhysicalBlockSize':cucsStorageTransportableFlashModulePhysicalBlockSize,'cucsStorageFlexFlashCardTable':cucsStorageFlexFlashCardTable,'cucsStorageFlexFlashCardEntry':cucsStorageFlexFlashCardEntry,_l:cucsStorageFlexFlashCardInstanceId,'cucsStorageFlexFlashCardDn':cucsStorageFlexFlashCardDn,'cucsStorageFlexFlashCardRn':cucsStorageFlexFlashCardRn,'cucsStorageFlexFlashCardBlockSize':cucsStorageFlexFlashCardBlockSize,'cucsStorageFlexFlashCardCardHealth':cucsStorageFlexFlashCardCardHealth,'cucsStorageFlexFlashCardCardMode':cucsStorageFlexFlashCardCardMode,'cucsStorageFlexFlashCardCardType':cucsStorageFlexFlashCardCardType,'cucsStorageFlexFlashCardConnectionProtocol':cucsStorageFlexFlashCardConnectionProtocol,'cucsStorageFlexFlashCardControllerIndex':cucsStorageFlexFlashCardControllerIndex,'cucsStorageFlexFlashCardId':cucsStorageFlexFlashCardId,'cucsStorageFlexFlashCardMfgDate':cucsStorageFlexFlashCardMfgDate,'cucsStorageFlexFlashCardMfgId':cucsStorageFlexFlashCardMfgId,'cucsStorageFlexFlashCardModel':cucsStorageFlexFlashCardModel,'cucsStorageFlexFlashCardNumberOfBlocks':cucsStorageFlexFlashCardNumberOfBlocks,'cucsStorageFlexFlashCardOemId':cucsStorageFlexFlashCardOemId,'cucsStorageFlexFlashCardOperQualifierReason':cucsStorageFlexFlashCardOperQualifierReason,'cucsStorageFlexFlashCardOperability':cucsStorageFlexFlashCardOperability,'cucsStorageFlexFlashCardPresence':cucsStorageFlexFlashCardPresence,'cucsStorageFlexFlashCardReadIOErrorCount':cucsStorageFlexFlashCardReadIOErrorCount,'cucsStorageFlexFlashCardRevision':cucsStorageFlexFlashCardRevision,'cucsStorageFlexFlashCardSerial':cucsStorageFlexFlashCardSerial,'cucsStorageFlexFlashCardSize':cucsStorageFlexFlashCardSize,'cucsStorageFlexFlashCardSlotNumber':cucsStorageFlexFlashCardSlotNumber,'cucsStorageFlexFlashCardVendor':cucsStorageFlexFlashCardVendor,'cucsStorageFlexFlashCardWriteEnable':cucsStorageFlexFlashCardWriteEnable,'cucsStorageFlexFlashCardWriteIOErrorCount':cucsStorageFlexFlashCardWriteIOErrorCount,'cucsStorageFlexFlashCardCardState':cucsStorageFlexFlashCardCardState,'cucsStorageFlexFlashCardCardSync':cucsStorageFlexFlashCardCardSync,'cucsStorageFlexFlashCardDrivesEnabled':cucsStorageFlexFlashCardDrivesEnabled,'cucsStorageFlexFlashCardPartitionCount':cucsStorageFlexFlashCardPartitionCount,'cucsStorageFlexFlashCardReadErrorThreshold':cucsStorageFlexFlashCardReadErrorThreshold,'cucsStorageFlexFlashCardSignature':cucsStorageFlexFlashCardSignature,'cucsStorageFlexFlashCardWriteErrorThreshold':cucsStorageFlexFlashCardWriteErrorThreshold,'cucsStorageFlexFlashCardPhysicalBlockSize':cucsStorageFlexFlashCardPhysicalBlockSize,'cucsStorageFlexFlashControllerTable':cucsStorageFlexFlashControllerTable,'cucsStorageFlexFlashControllerEntry':cucsStorageFlexFlashControllerEntry,_m:cucsStorageFlexFlashControllerInstanceId,'cucsStorageFlexFlashControllerDn':cucsStorageFlexFlashControllerDn,'cucsStorageFlexFlashControllerRn':cucsStorageFlexFlashControllerRn,'cucsStorageFlexFlashControllerControllerHealth':cucsStorageFlexFlashControllerControllerHealth,'cucsStorageFlexFlashControllerControllerState':cucsStorageFlexFlashControllerControllerState,'cucsStorageFlexFlashControllerFlexFlashType':cucsStorageFlexFlashControllerFlexFlashType,'cucsStorageFlexFlashControllerId':cucsStorageFlexFlashControllerId,'cucsStorageFlexFlashControllerModel':cucsStorageFlexFlashControllerModel,'cucsStorageFlexFlashControllerOperQualifierReason':cucsStorageFlexFlashControllerOperQualifierReason,'cucsStorageFlexFlashControllerOperState':cucsStorageFlexFlashControllerOperState,'cucsStorageFlexFlashControllerOperability':cucsStorageFlexFlashControllerOperability,'cucsStorageFlexFlashControllerPciAddr':cucsStorageFlexFlashControllerPciAddr,'cucsStorageFlexFlashControllerPciSlot':cucsStorageFlexFlashControllerPciSlot,'cucsStorageFlexFlashControllerPerf':cucsStorageFlexFlashControllerPerf,'cucsStorageFlexFlashControllerPhysicalDriveCount':cucsStorageFlexFlashControllerPhysicalDriveCount,'cucsStorageFlexFlashControllerPower':cucsStorageFlexFlashControllerPower,'cucsStorageFlexFlashControllerPresence':cucsStorageFlexFlashControllerPresence,'cucsStorageFlexFlashControllerPrimarySlotNumber':cucsStorageFlexFlashControllerPrimarySlotNumber,'cucsStorageFlexFlashControllerRaidSyncSupport':cucsStorageFlexFlashControllerRaidSyncSupport,'cucsStorageFlexFlashControllerReadErrorThreshold':cucsStorageFlexFlashControllerReadErrorThreshold,'cucsStorageFlexFlashControllerRevision':cucsStorageFlexFlashControllerRevision,'cucsStorageFlexFlashControllerSerial':cucsStorageFlexFlashControllerSerial,'cucsStorageFlexFlashControllerThermal':cucsStorageFlexFlashControllerThermal,'cucsStorageFlexFlashControllerType':cucsStorageFlexFlashControllerType,'cucsStorageFlexFlashControllerVendor':cucsStorageFlexFlashControllerVendor,'cucsStorageFlexFlashControllerVirtualDriveCount':cucsStorageFlexFlashControllerVirtualDriveCount,'cucsStorageFlexFlashControllerVoltage':cucsStorageFlexFlashControllerVoltage,'cucsStorageFlexFlashControllerWriteErrorThreshold':cucsStorageFlexFlashControllerWriteErrorThreshold,'cucsStorageFlexFlashControllerLocationDn':cucsStorageFlexFlashControllerLocationDn,'cucsStorageFlexFlashControllerAdminSlotNumber':cucsStorageFlexFlashControllerAdminSlotNumber,'cucsStorageFlexFlashControllerConfiguredMode':cucsStorageFlexFlashControllerConfiguredMode,'cucsStorageFlexFlashControllerFirmwareVersion':cucsStorageFlexFlashControllerFirmwareVersion,'cucsStorageFlexFlashControllerFsmDescr':cucsStorageFlexFlashControllerFsmDescr,'cucsStorageFlexFlashControllerFsmPrev':cucsStorageFlexFlashControllerFsmPrev,'cucsStorageFlexFlashControllerFsmProgr':cucsStorageFlexFlashControllerFsmProgr,'cucsStorageFlexFlashControllerFsmRmtInvErrCode':cucsStorageFlexFlashControllerFsmRmtInvErrCode,'cucsStorageFlexFlashControllerFsmRmtInvErrDescr':cucsStorageFlexFlashControllerFsmRmtInvErrDescr,'cucsStorageFlexFlashControllerFsmRmtInvRslt':cucsStorageFlexFlashControllerFsmRmtInvRslt,'cucsStorageFlexFlashControllerFsmStageDescr':cucsStorageFlexFlashControllerFsmStageDescr,'cucsStorageFlexFlashControllerFsmStamp':cucsStorageFlexFlashControllerFsmStamp,'cucsStorageFlexFlashControllerFsmStatus':cucsStorageFlexFlashControllerFsmStatus,'cucsStorageFlexFlashControllerFsmTry':cucsStorageFlexFlashControllerFsmTry,'cucsStorageFlexFlashControllerHasError':cucsStorageFlexFlashControllerHasError,'cucsStorageFlexFlashControllerIsCardMismatch':cucsStorageFlexFlashControllerIsCardMismatch,'cucsStorageFlexFlashControllerIsFormatFSMRunning':cucsStorageFlexFlashControllerIsFormatFSMRunning,'cucsStorageFlexFlashControllerOperatingMode':cucsStorageFlexFlashControllerOperatingMode,'cucsStorageFlexFlashControllerOperationRequest':cucsStorageFlexFlashControllerOperationRequest,'cucsStorageFlexFlashControllerSubType':cucsStorageFlexFlashControllerSubType,'cucsStorageFlexFlashDriveTable':cucsStorageFlexFlashDriveTable,'cucsStorageFlexFlashDriveEntry':cucsStorageFlexFlashDriveEntry,_n:cucsStorageFlexFlashDriveInstanceId,'cucsStorageFlexFlashDriveDn':cucsStorageFlexFlashDriveDn,'cucsStorageFlexFlashDriveRn':cucsStorageFlexFlashDriveRn,'cucsStorageFlexFlashDriveBlockSize':cucsStorageFlexFlashDriveBlockSize,'cucsStorageFlexFlashDriveConnectionProtocol':cucsStorageFlexFlashDriveConnectionProtocol,'cucsStorageFlexFlashDriveControllerIndex':cucsStorageFlexFlashDriveControllerIndex,'cucsStorageFlexFlashDriveDriveState':cucsStorageFlexFlashDriveDriveState,'cucsStorageFlexFlashDriveDriveType':cucsStorageFlexFlashDriveDriveType,'cucsStorageFlexFlashDriveId':cucsStorageFlexFlashDriveId,'cucsStorageFlexFlashDriveModel':cucsStorageFlexFlashDriveModel,'cucsStorageFlexFlashDriveName':cucsStorageFlexFlashDriveName,'cucsStorageFlexFlashDriveNumberOfBlocks':cucsStorageFlexFlashDriveNumberOfBlocks,'cucsStorageFlexFlashDriveOperQualifierReason':cucsStorageFlexFlashDriveOperQualifierReason,'cucsStorageFlexFlashDriveOperability':cucsStorageFlexFlashDriveOperability,'cucsStorageFlexFlashDrivePresence':cucsStorageFlexFlashDrivePresence,'cucsStorageFlexFlashDriveRevision':cucsStorageFlexFlashDriveRevision,'cucsStorageFlexFlashDriveSerial':cucsStorageFlexFlashDriveSerial,'cucsStorageFlexFlashDriveSize':cucsStorageFlexFlashDriveSize,'cucsStorageFlexFlashDriveSlotNumber':cucsStorageFlexFlashDriveSlotNumber,'cucsStorageFlexFlashDriveVendor':cucsStorageFlexFlashDriveVendor,'cucsStorageFlexFlashDriveVisible':cucsStorageFlexFlashDriveVisible,'cucsStorageFlexFlashDriveRemovable':cucsStorageFlexFlashDriveRemovable,'cucsStorageFlexFlashDriveRWType':cucsStorageFlexFlashDriveRWType,'cucsStorageFlexFlashDriveLastOperation':cucsStorageFlexFlashDriveLastOperation,'cucsStorageFlexFlashDriveOperationState':cucsStorageFlexFlashDriveOperationState,'cucsStorageFlexFlashDrivePhysicalBlockSize':cucsStorageFlexFlashDrivePhysicalBlockSize,'cucsStorageFlexFlashVirtualDriveTable':cucsStorageFlexFlashVirtualDriveTable,'cucsStorageFlexFlashVirtualDriveEntry':cucsStorageFlexFlashVirtualDriveEntry,_o:cucsStorageFlexFlashVirtualDriveInstanceId,'cucsStorageFlexFlashVirtualDriveDn':cucsStorageFlexFlashVirtualDriveDn,'cucsStorageFlexFlashVirtualDriveRn':cucsStorageFlexFlashVirtualDriveRn,'cucsStorageFlexFlashVirtualDriveBlockSize':cucsStorageFlexFlashVirtualDriveBlockSize,'cucsStorageFlexFlashVirtualDriveConnectionProtocol':cucsStorageFlexFlashVirtualDriveConnectionProtocol,'cucsStorageFlexFlashVirtualDriveId':cucsStorageFlexFlashVirtualDriveId,'cucsStorageFlexFlashVirtualDriveModel':cucsStorageFlexFlashVirtualDriveModel,'cucsStorageFlexFlashVirtualDriveNumberOfBlocks':cucsStorageFlexFlashVirtualDriveNumberOfBlocks,'cucsStorageFlexFlashVirtualDriveOperQualifierReason':cucsStorageFlexFlashVirtualDriveOperQualifierReason,'cucsStorageFlexFlashVirtualDriveOperability':cucsStorageFlexFlashVirtualDriveOperability,'cucsStorageFlexFlashVirtualDrivePresence':cucsStorageFlexFlashVirtualDrivePresence,'cucsStorageFlexFlashVirtualDriveRaidHealth':cucsStorageFlexFlashVirtualDriveRaidHealth,'cucsStorageFlexFlashVirtualDriveRaidState':cucsStorageFlexFlashVirtualDriveRaidState,'cucsStorageFlexFlashVirtualDriveRevision':cucsStorageFlexFlashVirtualDriveRevision,'cucsStorageFlexFlashVirtualDriveSerial':cucsStorageFlexFlashVirtualDriveSerial,'cucsStorageFlexFlashVirtualDriveSize':cucsStorageFlexFlashVirtualDriveSize,'cucsStorageFlexFlashVirtualDriveType':cucsStorageFlexFlashVirtualDriveType,'cucsStorageFlexFlashVirtualDriveVendor':cucsStorageFlexFlashVirtualDriveVendor,'cucsStorageFlexFlashVirtualDrivePhysicalBlockSize':cucsStorageFlexFlashVirtualDrivePhysicalBlockSize,'cucsStorageOperationTable':cucsStorageOperationTable,'cucsStorageOperationEntry':cucsStorageOperationEntry,_p:cucsStorageOperationInstanceId,'cucsStorageOperationDn':cucsStorageOperationDn,'cucsStorageOperationRn':cucsStorageOperationRn,'cucsStorageOperationEndTime':cucsStorageOperationEndTime,'cucsStorageOperationName':cucsStorageOperationName,'cucsStorageOperationOperState':cucsStorageOperationOperState,'cucsStorageOperationProgress':cucsStorageOperationProgress,'cucsStorageOperationStartTime':cucsStorageOperationStartTime,'cucsStorageOperationStatusDescr':cucsStorageOperationStatusDescr,'cucsStorageMezzFlashLifeTable':cucsStorageMezzFlashLifeTable,'cucsStorageMezzFlashLifeEntry':cucsStorageMezzFlashLifeEntry,_q:cucsStorageMezzFlashLifeInstanceId,'cucsStorageMezzFlashLifeDn':cucsStorageMezzFlashLifeDn,'cucsStorageMezzFlashLifeRn':cucsStorageMezzFlashLifeRn,'cucsStorageMezzFlashLifeBlockSize':cucsStorageMezzFlashLifeBlockSize,'cucsStorageMezzFlashLifeConnectionProtocol':cucsStorageMezzFlashLifeConnectionProtocol,'cucsStorageMezzFlashLifeFlashPercentage':cucsStorageMezzFlashLifeFlashPercentage,'cucsStorageMezzFlashLifeFlashStatus':cucsStorageMezzFlashLifeFlashStatus,'cucsStorageMezzFlashLifeId':cucsStorageMezzFlashLifeId,'cucsStorageMezzFlashLifeModel':cucsStorageMezzFlashLifeModel,'cucsStorageMezzFlashLifeNumberOfBlocks':cucsStorageMezzFlashLifeNumberOfBlocks,'cucsStorageMezzFlashLifeOperQualifierReason':cucsStorageMezzFlashLifeOperQualifierReason,'cucsStorageMezzFlashLifeOperability':cucsStorageMezzFlashLifeOperability,'cucsStorageMezzFlashLifePresence':cucsStorageMezzFlashLifePresence,'cucsStorageMezzFlashLifeRevision':cucsStorageMezzFlashLifeRevision,'cucsStorageMezzFlashLifeSerial':cucsStorageMezzFlashLifeSerial,'cucsStorageMezzFlashLifeSize':cucsStorageMezzFlashLifeSize,'cucsStorageMezzFlashLifeVendor':cucsStorageMezzFlashLifeVendor,'cucsStorageMezzFlashLifePhysicalBlockSize':cucsStorageMezzFlashLifePhysicalBlockSize,'cucsStorageFlexFlashControllerFsmTable':cucsStorageFlexFlashControllerFsmTable,'cucsStorageFlexFlashControllerFsmEntry':cucsStorageFlexFlashControllerFsmEntry,_r:cucsStorageFlexFlashControllerFsmInstanceId,'cucsStorageFlexFlashControllerFsmDn':cucsStorageFlexFlashControllerFsmDn,'cucsStorageFlexFlashControllerFsmRn':cucsStorageFlexFlashControllerFsmRn,'cucsStorageFlexFlashControllerFsmCompletionTime':cucsStorageFlexFlashControllerFsmCompletionTime,'cucsStorageFlexFlashControllerFsmCurrentFsm':cucsStorageFlexFlashControllerFsmCurrentFsm,'cucsStorageFlexFlashControllerFsmDescrData':cucsStorageFlexFlashControllerFsmDescrData,'cucsStorageFlexFlashControllerFsmFsmStatus':cucsStorageFlexFlashControllerFsmFsmStatus,'cucsStorageFlexFlashControllerFsmProgress':cucsStorageFlexFlashControllerFsmProgress,'cucsStorageFlexFlashControllerFsmRmtErrCode':cucsStorageFlexFlashControllerFsmRmtErrCode,'cucsStorageFlexFlashControllerFsmRmtErrDescr':cucsStorageFlexFlashControllerFsmRmtErrDescr,'cucsStorageFlexFlashControllerFsmRmtRslt':cucsStorageFlexFlashControllerFsmRmtRslt,'cucsStorageFlexFlashControllerFsmStageTable':cucsStorageFlexFlashControllerFsmStageTable,'cucsStorageFlexFlashControllerFsmStageEntry':cucsStorageFlexFlashControllerFsmStageEntry,_s:cucsStorageFlexFlashControllerFsmStageInstanceId,'cucsStorageFlexFlashControllerFsmStageDn':cucsStorageFlexFlashControllerFsmStageDn,'cucsStorageFlexFlashControllerFsmStageRn':cucsStorageFlexFlashControllerFsmStageRn,'cucsStorageFlexFlashControllerFsmStageDescrData':cucsStorageFlexFlashControllerFsmStageDescrData,'cucsStorageFlexFlashControllerFsmStageLastUpdateTime':cucsStorageFlexFlashControllerFsmStageLastUpdateTime,'cucsStorageFlexFlashControllerFsmStageName':cucsStorageFlexFlashControllerFsmStageName,'cucsStorageFlexFlashControllerFsmStageOrder':cucsStorageFlexFlashControllerFsmStageOrder,'cucsStorageFlexFlashControllerFsmStageRetry':cucsStorageFlexFlashControllerFsmStageRetry,'cucsStorageFlexFlashControllerFsmStageStageStatus':cucsStorageFlexFlashControllerFsmStageStageStatus,'cucsStorageFlexFlashControllerFsmTaskTable':cucsStorageFlexFlashControllerFsmTaskTable,'cucsStorageFlexFlashControllerFsmTaskEntry':cucsStorageFlexFlashControllerFsmTaskEntry,_t:cucsStorageFlexFlashControllerFsmTaskInstanceId,'cucsStorageFlexFlashControllerFsmTaskDn':cucsStorageFlexFlashControllerFsmTaskDn,'cucsStorageFlexFlashControllerFsmTaskRn':cucsStorageFlexFlashControllerFsmTaskRn,'cucsStorageFlexFlashControllerFsmTaskCompletion':cucsStorageFlexFlashControllerFsmTaskCompletion,'cucsStorageFlexFlashControllerFsmTaskFlags':cucsStorageFlexFlashControllerFsmTaskFlags,'cucsStorageFlexFlashControllerFsmTaskItem':cucsStorageFlexFlashControllerFsmTaskItem,'cucsStorageFlexFlashControllerFsmTaskSeqId':cucsStorageFlexFlashControllerFsmTaskSeqId,'cucsStorageDiskEnvStatsTable':cucsStorageDiskEnvStatsTable,'cucsStorageDiskEnvStatsEntry':cucsStorageDiskEnvStatsEntry,_u:cucsStorageDiskEnvStatsInstanceId,'cucsStorageDiskEnvStatsDn':cucsStorageDiskEnvStatsDn,'cucsStorageDiskEnvStatsRn':cucsStorageDiskEnvStatsRn,'cucsStorageDiskEnvStatsIntervals':cucsStorageDiskEnvStatsIntervals,'cucsStorageDiskEnvStatsSuspect':cucsStorageDiskEnvStatsSuspect,'cucsStorageDiskEnvStatsTemperature':cucsStorageDiskEnvStatsTemperature,'cucsStorageDiskEnvStatsTemperatureAvg':cucsStorageDiskEnvStatsTemperatureAvg,'cucsStorageDiskEnvStatsTemperatureMax':cucsStorageDiskEnvStatsTemperatureMax,'cucsStorageDiskEnvStatsTemperatureMin':cucsStorageDiskEnvStatsTemperatureMin,'cucsStorageDiskEnvStatsThresholded':cucsStorageDiskEnvStatsThresholded,'cucsStorageDiskEnvStatsTimeCollected':cucsStorageDiskEnvStatsTimeCollected,'cucsStorageDiskEnvStatsUpdate':cucsStorageDiskEnvStatsUpdate,'cucsStorageDiskEnvStatsWearPercentage':cucsStorageDiskEnvStatsWearPercentage,'cucsStorageDiskEnvStatsWearPercentageAvg':cucsStorageDiskEnvStatsWearPercentageAvg,'cucsStorageDiskEnvStatsWearPercentageMax':cucsStorageDiskEnvStatsWearPercentageMax,'cucsStorageDiskEnvStatsWearPercentageMin':cucsStorageDiskEnvStatsWearPercentageMin,'cucsStorageDiskEnvStatsHistTable':cucsStorageDiskEnvStatsHistTable,'cucsStorageDiskEnvStatsHistEntry':cucsStorageDiskEnvStatsHistEntry,_v:cucsStorageDiskEnvStatsHistInstanceId,'cucsStorageDiskEnvStatsHistDn':cucsStorageDiskEnvStatsHistDn,'cucsStorageDiskEnvStatsHistRn':cucsStorageDiskEnvStatsHistRn,'cucsStorageDiskEnvStatsHistId':cucsStorageDiskEnvStatsHistId,'cucsStorageDiskEnvStatsHistMostRecent':cucsStorageDiskEnvStatsHistMostRecent,'cucsStorageDiskEnvStatsHistSuspect':cucsStorageDiskEnvStatsHistSuspect,'cucsStorageDiskEnvStatsHistTemperature':cucsStorageDiskEnvStatsHistTemperature,'cucsStorageDiskEnvStatsHistTemperatureAvg':cucsStorageDiskEnvStatsHistTemperatureAvg,'cucsStorageDiskEnvStatsHistTemperatureMax':cucsStorageDiskEnvStatsHistTemperatureMax,'cucsStorageDiskEnvStatsHistTemperatureMin':cucsStorageDiskEnvStatsHistTemperatureMin,'cucsStorageDiskEnvStatsHistThresholded':cucsStorageDiskEnvStatsHistThresholded,'cucsStorageDiskEnvStatsHistTimeCollected':cucsStorageDiskEnvStatsHistTimeCollected,'cucsStorageDiskEnvStatsHistWearPercentage':cucsStorageDiskEnvStatsHistWearPercentage,'cucsStorageDiskEnvStatsHistWearPercentageAvg':cucsStorageDiskEnvStatsHistWearPercentageAvg,'cucsStorageDiskEnvStatsHistWearPercentageMax':cucsStorageDiskEnvStatsHistWearPercentageMax,'cucsStorageDiskEnvStatsHistWearPercentageMin':cucsStorageDiskEnvStatsHistWearPercentageMin,'cucsStorageEnclosureDiskSlotEpTable':cucsStorageEnclosureDiskSlotEpTable,'cucsStorageEnclosureDiskSlotEpEntry':cucsStorageEnclosureDiskSlotEpEntry,_w:cucsStorageEnclosureDiskSlotEpInstanceId,'cucsStorageEnclosureDiskSlotEpDn':cucsStorageEnclosureDiskSlotEpDn,'cucsStorageEnclosureDiskSlotEpRn':cucsStorageEnclosureDiskSlotEpRn,'cucsStorageEnclosureDiskSlotEpConfiguration':cucsStorageEnclosureDiskSlotEpConfiguration,'cucsStorageEnclosureDiskSlotEpId':cucsStorageEnclosureDiskSlotEpId,'cucsStorageEnclosureDiskSlotEpOperQualifierReason':cucsStorageEnclosureDiskSlotEpOperQualifierReason,'cucsStorageEnclosureDiskSlotEpOperability':cucsStorageEnclosureDiskSlotEpOperability,'cucsStorageEnclosureDiskSlotEpPeerDn':cucsStorageEnclosureDiskSlotEpPeerDn,'cucsStorageEnclosureDiskSlotEpPresence':cucsStorageEnclosureDiskSlotEpPresence,'cucsStorageEnclosureDiskSlotEpOwnership':cucsStorageEnclosureDiskSlotEpOwnership,'cucsStorageEnclosureDiskSlotEpAutoZoneCause':cucsStorageEnclosureDiskSlotEpAutoZoneCause,'cucsStorageEnclosureDiskSlotEpLc':cucsStorageEnclosureDiskSlotEpLc,'cucsStorageLocalDiskEpTable':cucsStorageLocalDiskEpTable,'cucsStorageLocalDiskEpEntry':cucsStorageLocalDiskEpEntry,_x:cucsStorageLocalDiskEpInstanceId,'cucsStorageLocalDiskEpDn':cucsStorageLocalDiskEpDn,'cucsStorageLocalDiskEpRn':cucsStorageLocalDiskEpRn,'cucsStorageLocalDiskEpDiskDn':cucsStorageLocalDiskEpDiskDn,'cucsStorageLocalDiskEpEncId':cucsStorageLocalDiskEpEncId,'cucsStorageLocalDiskEpId':cucsStorageLocalDiskEpId,'cucsStorageLocalDiskEpModel':cucsStorageLocalDiskEpModel,'cucsStorageLocalDiskEpRevision':cucsStorageLocalDiskEpRevision,'cucsStorageLocalDiskEpSerial':cucsStorageLocalDiskEpSerial,'cucsStorageLocalDiskEpVendor':cucsStorageLocalDiskEpVendor,'cucsStorageLocalDiskEpBootable':cucsStorageLocalDiskEpBootable,'cucsStorageLocalDiskEpDiskState':cucsStorageLocalDiskEpDiskState,'cucsStorageLocalDiskEpLc':cucsStorageLocalDiskEpLc,'cucsStorageLunResourceSelectionLogTable':cucsStorageLunResourceSelectionLogTable,'cucsStorageLunResourceSelectionLogEntry':cucsStorageLunResourceSelectionLogEntry,_y:cucsStorageLunResourceSelectionLogInstanceId,'cucsStorageLunResourceSelectionLogDn':cucsStorageLunResourceSelectionLogDn,'cucsStorageLunResourceSelectionLogRn':cucsStorageLunResourceSelectionLogRn,'cucsStorageLunResourceSelectionLogDecisionType':cucsStorageLunResourceSelectionLogDecisionType,'cucsStorageLunResourceSelectionLogDescr':cucsStorageLunResourceSelectionLogDescr,'cucsStorageLunResourceSelectionLogOrder':cucsStorageLunResourceSelectionLogOrder,'cucsStorageLunResourceSelectionLogResult':cucsStorageLunResourceSelectionLogResult,'cucsStorageLunResourceSelectionLogTimeStamp':cucsStorageLunResourceSelectionLogTimeStamp,'cucsStorageSasExpanderTable':cucsStorageSasExpanderTable,'cucsStorageSasExpanderEntry':cucsStorageSasExpanderEntry,_z:cucsStorageSasExpanderInstanceId,'cucsStorageSasExpanderDn':cucsStorageSasExpanderDn,'cucsStorageSasExpanderRn':cucsStorageSasExpanderRn,'cucsStorageSasExpanderId':cucsStorageSasExpanderId,'cucsStorageSasExpanderLocationDn':cucsStorageSasExpanderLocationDn,'cucsStorageSasExpanderModel':cucsStorageSasExpanderModel,'cucsStorageSasExpanderOperQualifierReason':cucsStorageSasExpanderOperQualifierReason,'cucsStorageSasExpanderOperState':cucsStorageSasExpanderOperState,'cucsStorageSasExpanderOperability':cucsStorageSasExpanderOperability,'cucsStorageSasExpanderPerf':cucsStorageSasExpanderPerf,'cucsStorageSasExpanderPower':cucsStorageSasExpanderPower,'cucsStorageSasExpanderPresence':cucsStorageSasExpanderPresence,'cucsStorageSasExpanderRevision':cucsStorageSasExpanderRevision,'cucsStorageSasExpanderSerial':cucsStorageSasExpanderSerial,'cucsStorageSasExpanderThermal':cucsStorageSasExpanderThermal,'cucsStorageSasExpanderVendor':cucsStorageSasExpanderVendor,'cucsStorageSasExpanderVoltage':cucsStorageSasExpanderVoltage,'cucsStorageSasExpanderExpanderState':cucsStorageSasExpanderExpanderState,'cucsStorageSasExpanderLc':cucsStorageSasExpanderLc,'cucsStorageSasExpanderUplinkState':cucsStorageSasExpanderUplinkState,'cucsStorageSasExpanderUplinkStateReason':cucsStorageSasExpanderUplinkStateReason,'cucsStorageSasExpanderFwRegionOne':cucsStorageSasExpanderFwRegionOne,'cucsStorageSasExpanderFwRegionTwo':cucsStorageSasExpanderFwRegionTwo,'cucsStorageSasExpanderFwRunningRegion':cucsStorageSasExpanderFwRunningRegion,'cucsStorageSasExpanderSasAddress':cucsStorageSasExpanderSasAddress,'cucsStorageSasExpanderCurrentEPFB':cucsStorageSasExpanderCurrentEPFB,'cucsStorageSasExpanderElid':cucsStorageSasExpanderElid,'cucsStorageSasExpanderMfgMajorRev':cucsStorageSasExpanderMfgMajorRev,'cucsStorageSasExpanderMfgMinorRev':cucsStorageSasExpanderMfgMinorRev,'cucsStorageSasExpanderMfgPlatformId':cucsStorageSasExpanderMfgPlatformId,'cucsStorageSasExpanderPersistedEPFB':cucsStorageSasExpanderPersistedEPFB,'cucsStorageSasExpanderStartSlotNum':cucsStorageSasExpanderStartSlotNum,'cucsStorageSasExpanderTemperature':cucsStorageSasExpanderTemperature,'cucsStorageSasExpanderTotalSlots':cucsStorageSasExpanderTotalSlots,'cucsStorageSasExpanderConfigCheckPoint':cucsStorageSasExpanderConfigCheckPoint,'cucsStorageScsiLunRefTable':cucsStorageScsiLunRefTable,'cucsStorageScsiLunRefEntry':cucsStorageScsiLunRefEntry,_A0:cucsStorageScsiLunRefInstanceId,'cucsStorageScsiLunRefDn':cucsStorageScsiLunRefDn,'cucsStorageScsiLunRefRn':cucsStorageScsiLunRefRn,'cucsStorageScsiLunRefId':cucsStorageScsiLunRefId,'cucsStorageScsiLunRefLsDn':cucsStorageScsiLunRefLsDn,'cucsStorageScsiLunRefLunName':cucsStorageScsiLunRefLunName,'cucsStorageScsiLunRefProfileDn':cucsStorageScsiLunRefProfileDn,'cucsStorageScsiLunRefPnDn':cucsStorageScsiLunRefPnDn,'cucsStorageVDMemberEpTable':cucsStorageVDMemberEpTable,'cucsStorageVDMemberEpEntry':cucsStorageVDMemberEpEntry,_A1:cucsStorageVDMemberEpInstanceId,'cucsStorageVDMemberEpDn':cucsStorageVDMemberEpDn,'cucsStorageVDMemberEpRn':cucsStorageVDMemberEpRn,'cucsStorageVDMemberEpConfigQual':cucsStorageVDMemberEpConfigQual,'cucsStorageVDMemberEpConfigQualifierReason':cucsStorageVDMemberEpConfigQualifierReason,'cucsStorageVDMemberEpConfigState':cucsStorageVDMemberEpConfigState,'cucsStorageVDMemberEpDeployAction':cucsStorageVDMemberEpDeployAction,'cucsStorageVDMemberEpDiskDn':cucsStorageVDMemberEpDiskDn,'cucsStorageVDMemberEpId':cucsStorageVDMemberEpId,'cucsStorageVDMemberEpModel':cucsStorageVDMemberEpModel,'cucsStorageVDMemberEpOperQualifierReason':cucsStorageVDMemberEpOperQualifierReason,'cucsStorageVDMemberEpOperability':cucsStorageVDMemberEpOperability,'cucsStorageVDMemberEpPresence':cucsStorageVDMemberEpPresence,'cucsStorageVDMemberEpRevision':cucsStorageVDMemberEpRevision,'cucsStorageVDMemberEpRole':cucsStorageVDMemberEpRole,'cucsStorageVDMemberEpSerial':cucsStorageVDMemberEpSerial,'cucsStorageVDMemberEpSpanId':cucsStorageVDMemberEpSpanId,'cucsStorageVDMemberEpVendor':cucsStorageVDMemberEpVendor,'cucsStorageVirtualDriveRefTable':cucsStorageVirtualDriveRefTable,'cucsStorageVirtualDriveRefEntry':cucsStorageVirtualDriveRefEntry,_A2:cucsStorageVirtualDriveRefInstanceId,'cucsStorageVirtualDriveRefDnData':cucsStorageVirtualDriveRefDnData,'cucsStorageVirtualDriveRefRn':cucsStorageVirtualDriveRefRn,'cucsStorageVirtualDriveRefAdminName':cucsStorageVirtualDriveRefAdminName,'cucsStorageVirtualDriveRefAdminState':cucsStorageVirtualDriveRefAdminState,'cucsStorageVirtualDriveRefConfigState':cucsStorageVirtualDriveRefConfigState,'cucsStorageVirtualDriveRefDiskSelectionOrder':cucsStorageVirtualDriveRefDiskSelectionOrder,'cucsStorageVirtualDriveRefDiskSelectionTs':cucsStorageVirtualDriveRefDiskSelectionTs,'cucsStorageVirtualDriveRefLunDn':cucsStorageVirtualDriveRefLunDn,'cucsStorageVirtualDriveRefLunItemDn':cucsStorageVirtualDriveRefLunItemDn,'cucsStorageVirtualDriveRefLunItemName':cucsStorageVirtualDriveRefLunItemName,'cucsStorageVirtualDriveRefLunName':cucsStorageVirtualDriveRefLunName,'cucsStorageVirtualDriveRefRaidLevel':cucsStorageVirtualDriveRefRaidLevel,'cucsStorageVirtualDriveRefSize':cucsStorageVirtualDriveRefSize,'cucsStorageVirtualDriveRefUuid':cucsStorageVirtualDriveRefUuid,'cucsStorageVirtualDriveRefIsBootable':cucsStorageVirtualDriveRefIsBootable,'cucsStorageVirtualDriveRefOrder':cucsStorageVirtualDriveRefOrder,'cucsStorageVirtualDriveRefVendorUuid':cucsStorageVirtualDriveRefVendorUuid,'cucsStorageControllerRefTable':cucsStorageControllerRefTable,'cucsStorageControllerRefEntry':cucsStorageControllerRefEntry,_A3:cucsStorageControllerRefInstanceId,'cucsStorageControllerRefDn':cucsStorageControllerRefDn,'cucsStorageControllerRefRn':cucsStorageControllerRefRn,'cucsStorageControllerRefControllerId':cucsStorageControllerRefControllerId,'cucsStorageControllerRefLc':cucsStorageControllerRefLc,'cucsStorageControllerRefServerId':cucsStorageControllerRefServerId,'cucsStorageControllerRefControllerType':cucsStorageControllerRefControllerType,'cucsStorageEnclosureCapTable':cucsStorageEnclosureCapTable,'cucsStorageEnclosureCapEntry':cucsStorageEnclosureCapEntry,_A4:cucsStorageEnclosureCapInstanceId,'cucsStorageEnclosureCapDn':cucsStorageEnclosureCapDn,'cucsStorageEnclosureCapRn':cucsStorageEnclosureCapRn,'cucsStorageEnclosureCapDescr':cucsStorageEnclosureCapDescr,'cucsStorageEnclosureCapId':cucsStorageEnclosureCapId,'cucsStorageEnclosureCapNumSlots':cucsStorageEnclosureCapNumSlots,'cucsStorageEnclosureCapType':cucsStorageEnclosureCapType,'cucsStorageEnclosureCapDiskVariant':cucsStorageEnclosureCapDiskVariant,'cucsStorageEnclosureCapRemovable':cucsStorageEnclosureCapRemovable,'cucsStorageSasLinkDescriptorTable':cucsStorageSasLinkDescriptorTable,'cucsStorageSasLinkDescriptorEntry':cucsStorageSasLinkDescriptorEntry,_A5:cucsStorageSasLinkDescriptorInstanceId,'cucsStorageSasLinkDescriptorDn':cucsStorageSasLinkDescriptorDn,'cucsStorageSasLinkDescriptorRn':cucsStorageSasLinkDescriptorRn,'cucsStorageSasLinkDescriptorControllerId':cucsStorageSasLinkDescriptorControllerId,'cucsStorageSasLinkDescriptorId':cucsStorageSasLinkDescriptorId,'cucsStorageSasLinkDescriptorLinkDescr':cucsStorageSasLinkDescriptorLinkDescr,'cucsStorageSasLinkDescriptorServerId':cucsStorageSasLinkDescriptorServerId,'cucsStorageSasLinkDescriptorControllerType':cucsStorageSasLinkDescriptorControllerType,'cucsStorageSasPortTable':cucsStorageSasPortTable,'cucsStorageSasPortEntry':cucsStorageSasPortEntry,_A6:cucsStorageSasPortInstanceId,'cucsStorageSasPortDn':cucsStorageSasPortDn,'cucsStorageSasPortRn':cucsStorageSasPortRn,'cucsStorageSasPortAddress':cucsStorageSasPortAddress,'cucsStorageSasPortEndpoint':cucsStorageSasPortEndpoint,'cucsStorageSasPortId':cucsStorageSasPortId,'cucsStorageSasPortLc':cucsStorageSasPortLc,'cucsStorageSasPortLinkDescr':cucsStorageSasPortLinkDescr,'cucsStorageSasPortLinkSpeed':cucsStorageSasPortLinkSpeed,'cucsStorageSasPortDescriptorTable':cucsStorageSasPortDescriptorTable,'cucsStorageSasPortDescriptorEntry':cucsStorageSasPortDescriptorEntry,_A7:cucsStorageSasPortDescriptorInstanceId,'cucsStorageSasPortDescriptorDn':cucsStorageSasPortDescriptorDn,'cucsStorageSasPortDescriptorRn':cucsStorageSasPortDescriptorRn,'cucsStorageSasPortDescriptorId':cucsStorageSasPortDescriptorId,'cucsStorageSasPortDescriptorLinkDescr':cucsStorageSasPortDescriptorLinkDescr,'cucsStorageSasUpLinkTable':cucsStorageSasUpLinkTable,'cucsStorageSasUpLinkEntry':cucsStorageSasUpLinkEntry,_A8:cucsStorageSasUpLinkInstanceId,'cucsStorageSasUpLinkDn':cucsStorageSasUpLinkDn,'cucsStorageSasUpLinkRn':cucsStorageSasUpLinkRn,'cucsStorageSasUpLinkControllerId':cucsStorageSasUpLinkControllerId,'cucsStorageSasUpLinkId':cucsStorageSasUpLinkId,'cucsStorageSasUpLinkLc':cucsStorageSasUpLinkLc,'cucsStorageSasUpLinkLinkDescr':cucsStorageSasUpLinkLinkDescr,'cucsStorageSasUpLinkLinkSpeed':cucsStorageSasUpLinkLinkSpeed,'cucsStorageSasUpLinkServerId':cucsStorageSasUpLinkServerId,'cucsStorageSasUpLinkControllerType':cucsStorageSasUpLinkControllerType,'cucsStorageOnboardDeviceTable':cucsStorageOnboardDeviceTable,'cucsStorageOnboardDeviceEntry':cucsStorageOnboardDeviceEntry,_A9:cucsStorageOnboardDeviceInstanceId,'cucsStorageOnboardDeviceDn':cucsStorageOnboardDeviceDn,'cucsStorageOnboardDeviceRn':cucsStorageOnboardDeviceRn,'cucsStorageOnboardDeviceBlockSize':cucsStorageOnboardDeviceBlockSize,'cucsStorageOnboardDeviceConfigCheckPoint':cucsStorageOnboardDeviceConfigCheckPoint,'cucsStorageOnboardDeviceConnectionProtocol':cucsStorageOnboardDeviceConnectionProtocol,'cucsStorageOnboardDeviceDescription':cucsStorageOnboardDeviceDescription,'cucsStorageOnboardDeviceDeviceType':cucsStorageOnboardDeviceDeviceType,'cucsStorageOnboardDeviceId':cucsStorageOnboardDeviceId,'cucsStorageOnboardDeviceModel':cucsStorageOnboardDeviceModel,'cucsStorageOnboardDeviceNumberOfBlocks':cucsStorageOnboardDeviceNumberOfBlocks,'cucsStorageOnboardDeviceOperQualifierReason':cucsStorageOnboardDeviceOperQualifierReason,'cucsStorageOnboardDeviceOperability':cucsStorageOnboardDeviceOperability,'cucsStorageOnboardDevicePresence':cucsStorageOnboardDevicePresence,'cucsStorageOnboardDeviceRevision':cucsStorageOnboardDeviceRevision,'cucsStorageOnboardDeviceSerial':cucsStorageOnboardDeviceSerial,'cucsStorageOnboardDeviceSize':cucsStorageOnboardDeviceSize,'cucsStorageOnboardDeviceVendor':cucsStorageOnboardDeviceVendor,'cucsStorageOnboardDevicePhysicalBlockSize':cucsStorageOnboardDevicePhysicalBlockSize,'cucsStorageControllerEpTable':cucsStorageControllerEpTable,'cucsStorageControllerEpEntry':cucsStorageControllerEpEntry,_AA:cucsStorageControllerEpInstanceId,'cucsStorageControllerEpDn':cucsStorageControllerEpDn,'cucsStorageControllerEpRn':cucsStorageControllerEpRn,'cucsStorageControllerEpControllerDn':cucsStorageControllerEpControllerDn,'cucsStorageControllerEpId':cucsStorageControllerEpId,'cucsStorageEmbeddedStorageTable':cucsStorageEmbeddedStorageTable,'cucsStorageEmbeddedStorageEntry':cucsStorageEmbeddedStorageEntry,_AB:cucsStorageEmbeddedStorageInstanceId,'cucsStorageEmbeddedStorageDn':cucsStorageEmbeddedStorageDn,'cucsStorageEmbeddedStorageRn':cucsStorageEmbeddedStorageRn,'cucsStorageEmbeddedStorageBlockSize':cucsStorageEmbeddedStorageBlockSize,'cucsStorageEmbeddedStorageConnectionProtocol':cucsStorageEmbeddedStorageConnectionProtocol,'cucsStorageEmbeddedStorageNumberOfBlocks':cucsStorageEmbeddedStorageNumberOfBlocks,'cucsStorageEmbeddedStorageOperQualifierReason':cucsStorageEmbeddedStorageOperQualifierReason,'cucsStorageEmbeddedStorageOperability':cucsStorageEmbeddedStorageOperability,'cucsStorageEmbeddedStoragePhysicalBlockSize':cucsStorageEmbeddedStoragePhysicalBlockSize,'cucsStorageEmbeddedStoragePresence':cucsStorageEmbeddedStoragePresence,'cucsStorageEmbeddedStorageSize':cucsStorageEmbeddedStorageSize,'cucsStorageEnclosureLocalDiskConfigTable':cucsStorageEnclosureLocalDiskConfigTable,'cucsStorageEnclosureLocalDiskConfigEntry':cucsStorageEnclosureLocalDiskConfigEntry,_AC:cucsStorageEnclosureLocalDiskConfigInstanceId,'cucsStorageEnclosureLocalDiskConfigDn':cucsStorageEnclosureLocalDiskConfigDn,'cucsStorageEnclosureLocalDiskConfigRn':cucsStorageEnclosureLocalDiskConfigRn,'cucsStorageEnclosureLocalDiskConfigBlockSize':cucsStorageEnclosureLocalDiskConfigBlockSize,'cucsStorageEnclosureLocalDiskConfigConnectionProtocol':cucsStorageEnclosureLocalDiskConfigConnectionProtocol,'cucsStorageEnclosureLocalDiskConfigDeviceType':cucsStorageEnclosureLocalDiskConfigDeviceType,'cucsStorageEnclosureLocalDiskConfigFirmwareVersion':cucsStorageEnclosureLocalDiskConfigFirmwareVersion,'cucsStorageEnclosureLocalDiskConfigId':cucsStorageEnclosureLocalDiskConfigId,'cucsStorageEnclosureLocalDiskConfigLinkSpeed':cucsStorageEnclosureLocalDiskConfigLinkSpeed,'cucsStorageEnclosureLocalDiskConfigLinkState':cucsStorageEnclosureLocalDiskConfigLinkState,'cucsStorageEnclosureLocalDiskConfigLinkStateReason':cucsStorageEnclosureLocalDiskConfigLinkStateReason,'cucsStorageEnclosureLocalDiskConfigModel':cucsStorageEnclosureLocalDiskConfigModel,'cucsStorageEnclosureLocalDiskConfigNumberOfBlocks':cucsStorageEnclosureLocalDiskConfigNumberOfBlocks,'cucsStorageEnclosureLocalDiskConfigOperQualifierReason':cucsStorageEnclosureLocalDiskConfigOperQualifierReason,'cucsStorageEnclosureLocalDiskConfigOperability':cucsStorageEnclosureLocalDiskConfigOperability,'cucsStorageEnclosureLocalDiskConfigPhysicalBlockSize':cucsStorageEnclosureLocalDiskConfigPhysicalBlockSize,'cucsStorageEnclosureLocalDiskConfigPowerState':cucsStorageEnclosureLocalDiskConfigPowerState,'cucsStorageEnclosureLocalDiskConfigPresence':cucsStorageEnclosureLocalDiskConfigPresence,'cucsStorageEnclosureLocalDiskConfigRevision':cucsStorageEnclosureLocalDiskConfigRevision,'cucsStorageEnclosureLocalDiskConfigScsiDiskState':cucsStorageEnclosureLocalDiskConfigScsiDiskState,'cucsStorageEnclosureLocalDiskConfigSerial':cucsStorageEnclosureLocalDiskConfigSerial,'cucsStorageEnclosureLocalDiskConfigSize':cucsStorageEnclosureLocalDiskConfigSize,'cucsStorageEnclosureLocalDiskConfigVendor':cucsStorageEnclosureLocalDiskConfigVendor,'cucsStorageHddMotherBoardTempStatsTable':cucsStorageHddMotherBoardTempStatsTable,'cucsStorageHddMotherBoardTempStatsEntry':cucsStorageHddMotherBoardTempStatsEntry,_AD:cucsStorageHddMotherBoardTempStatsInstanceId,'cucsStorageHddMotherBoardTempStatsDn':cucsStorageHddMotherBoardTempStatsDn,'cucsStorageHddMotherBoardTempStatsRn':cucsStorageHddMotherBoardTempStatsRn,'cucsStorageHddMotherBoardTempStatsIntervals':cucsStorageHddMotherBoardTempStatsIntervals,'cucsStorageHddMotherBoardTempStatsLeftInletTemp':cucsStorageHddMotherBoardTempStatsLeftInletTemp,'cucsStorageHddMotherBoardTempStatsLeftInletTempAvg':cucsStorageHddMotherBoardTempStatsLeftInletTempAvg,'cucsStorageHddMotherBoardTempStatsLeftInletTempMax':cucsStorageHddMotherBoardTempStatsLeftInletTempMax,'cucsStorageHddMotherBoardTempStatsLeftInletTempMin':cucsStorageHddMotherBoardTempStatsLeftInletTempMin,'cucsStorageHddMotherBoardTempStatsLeftOutletTemp':cucsStorageHddMotherBoardTempStatsLeftOutletTemp,'cucsStorageHddMotherBoardTempStatsLeftOutletTempAvg':cucsStorageHddMotherBoardTempStatsLeftOutletTempAvg,'cucsStorageHddMotherBoardTempStatsLeftOutletTempMax':cucsStorageHddMotherBoardTempStatsLeftOutletTempMax,'cucsStorageHddMotherBoardTempStatsLeftOutletTempMin':cucsStorageHddMotherBoardTempStatsLeftOutletTempMin,'cucsStorageHddMotherBoardTempStatsRightInletTemp':cucsStorageHddMotherBoardTempStatsRightInletTemp,'cucsStorageHddMotherBoardTempStatsRightInletTempAvg':cucsStorageHddMotherBoardTempStatsRightInletTempAvg,'cucsStorageHddMotherBoardTempStatsRightInletTempMax':cucsStorageHddMotherBoardTempStatsRightInletTempMax,'cucsStorageHddMotherBoardTempStatsRightInletTempMin':cucsStorageHddMotherBoardTempStatsRightInletTempMin,'cucsStorageHddMotherBoardTempStatsRightOutletTemp':cucsStorageHddMotherBoardTempStatsRightOutletTemp,'cucsStorageHddMotherBoardTempStatsRightOutletTempAvg':cucsStorageHddMotherBoardTempStatsRightOutletTempAvg,'cucsStorageHddMotherBoardTempStatsRightOutletTempMax':cucsStorageHddMotherBoardTempStatsRightOutletTempMax,'cucsStorageHddMotherBoardTempStatsRightOutletTempMin':cucsStorageHddMotherBoardTempStatsRightOutletTempMin,'cucsStorageHddMotherBoardTempStatsSuspect':cucsStorageHddMotherBoardTempStatsSuspect,'cucsStorageHddMotherBoardTempStatsThresholded':cucsStorageHddMotherBoardTempStatsThresholded,'cucsStorageHddMotherBoardTempStatsTimeCollected':cucsStorageHddMotherBoardTempStatsTimeCollected,'cucsStorageHddMotherBoardTempStatsUpdate':cucsStorageHddMotherBoardTempStatsUpdate,'cucsStorageHddMotherBoardTempStatsHistTable':cucsStorageHddMotherBoardTempStatsHistTable,'cucsStorageHddMotherBoardTempStatsHistEntry':cucsStorageHddMotherBoardTempStatsHistEntry,_AE:cucsStorageHddMotherBoardTempStatsHistInstanceId,'cucsStorageHddMotherBoardTempStatsHistDn':cucsStorageHddMotherBoardTempStatsHistDn,'cucsStorageHddMotherBoardTempStatsHistRn':cucsStorageHddMotherBoardTempStatsHistRn,'cucsStorageHddMotherBoardTempStatsHistId':cucsStorageHddMotherBoardTempStatsHistId,'cucsStorageHddMotherBoardTempStatsHistLeftInletTemp':cucsStorageHddMotherBoardTempStatsHistLeftInletTemp,'cucsStorageHddMotherBoardTempStatsHistLeftInletTempAvg':cucsStorageHddMotherBoardTempStatsHistLeftInletTempAvg,'cucsStorageHddMotherBoardTempStatsHistLeftInletTempMax':cucsStorageHddMotherBoardTempStatsHistLeftInletTempMax,'cucsStorageHddMotherBoardTempStatsHistLeftInletTempMin':cucsStorageHddMotherBoardTempStatsHistLeftInletTempMin,'cucsStorageHddMotherBoardTempStatsHistLeftOutletTemp':cucsStorageHddMotherBoardTempStatsHistLeftOutletTemp,'cucsStorageHddMotherBoardTempStatsHistLeftOutletTempAvg':cucsStorageHddMotherBoardTempStatsHistLeftOutletTempAvg,'cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMax':cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMax,'cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMin':cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMin,'cucsStorageHddMotherBoardTempStatsHistMostRecent':cucsStorageHddMotherBoardTempStatsHistMostRecent,'cucsStorageHddMotherBoardTempStatsHistRightInletTemp':cucsStorageHddMotherBoardTempStatsHistRightInletTemp,'cucsStorageHddMotherBoardTempStatsHistRightInletTempAvg':cucsStorageHddMotherBoardTempStatsHistRightInletTempAvg,'cucsStorageHddMotherBoardTempStatsHistRightInletTempMax':cucsStorageHddMotherBoardTempStatsHistRightInletTempMax,'cucsStorageHddMotherBoardTempStatsHistRightInletTempMin':cucsStorageHddMotherBoardTempStatsHistRightInletTempMin,'cucsStorageHddMotherBoardTempStatsHistRightOutletTemp':cucsStorageHddMotherBoardTempStatsHistRightOutletTemp,'cucsStorageHddMotherBoardTempStatsHistRightOutletTempAvg':cucsStorageHddMotherBoardTempStatsHistRightOutletTempAvg,'cucsStorageHddMotherBoardTempStatsHistRightOutletTempMax':cucsStorageHddMotherBoardTempStatsHistRightOutletTempMax,'cucsStorageHddMotherBoardTempStatsHistRightOutletTempMin':cucsStorageHddMotherBoardTempStatsHistRightOutletTempMin,'cucsStorageHddMotherBoardTempStatsHistSuspect':cucsStorageHddMotherBoardTempStatsHistSuspect,'cucsStorageHddMotherBoardTempStatsHistThresholded':cucsStorageHddMotherBoardTempStatsHistThresholded,'cucsStorageHddMotherBoardTempStatsHistTimeCollected':cucsStorageHddMotherBoardTempStatsHistTimeCollected,'cucsStorageVirtualDriveContainerTable':cucsStorageVirtualDriveContainerTable,'cucsStorageVirtualDriveContainerEntry':cucsStorageVirtualDriveContainerEntry,_AF:cucsStorageVirtualDriveContainerInstanceId,'cucsStorageVirtualDriveContainerDn':cucsStorageVirtualDriveContainerDn,'cucsStorageVirtualDriveContainerRn':cucsStorageVirtualDriveContainerRn,'cucsStorageVirtualDriveContainerId':cucsStorageVirtualDriveContainerId,'cucsStorageVirtualDriveEpTable':cucsStorageVirtualDriveEpTable,'cucsStorageVirtualDriveEpEntry':cucsStorageVirtualDriveEpEntry,_AG:cucsStorageVirtualDriveEpInstanceId,'cucsStorageVirtualDriveEpDn':cucsStorageVirtualDriveEpDn,'cucsStorageVirtualDriveEpRn':cucsStorageVirtualDriveEpRn,'cucsStorageVirtualDriveEpBootable':cucsStorageVirtualDriveEpBootable,'cucsStorageVirtualDriveEpContainerId':cucsStorageVirtualDriveEpContainerId,'cucsStorageVirtualDriveEpDriveState':cucsStorageVirtualDriveEpDriveState,'cucsStorageVirtualDriveEpId':cucsStorageVirtualDriveEpId,'cucsStorageVirtualDriveEpLc':cucsStorageVirtualDriveEpLc,'cucsStorageVirtualDriveEpName':cucsStorageVirtualDriveEpName,'cucsStorageVirtualDriveEpOperDeviceId':cucsStorageVirtualDriveEpOperDeviceId,'cucsStorageVirtualDriveEpUuid':cucsStorageVirtualDriveEpUuid,'cucsStorageVirtualDriveEpVdDn':cucsStorageVirtualDriveEpVdDn,'cucsStorageVirtualDriveEpVendorUuid':cucsStorageVirtualDriveEpVendorUuid,'cucsStorageEnclosureFsmTable':cucsStorageEnclosureFsmTable,'cucsStorageEnclosureFsmEntry':cucsStorageEnclosureFsmEntry,_AH:cucsStorageEnclosureFsmInstanceId,'cucsStorageEnclosureFsmDn':cucsStorageEnclosureFsmDn,'cucsStorageEnclosureFsmRn':cucsStorageEnclosureFsmRn,'cucsStorageEnclosureFsmCompletionTime':cucsStorageEnclosureFsmCompletionTime,'cucsStorageEnclosureFsmCurrentFsm':cucsStorageEnclosureFsmCurrentFsm,'cucsStorageEnclosureFsmDescrData':cucsStorageEnclosureFsmDescrData,'cucsStorageEnclosureFsmFsmStatus':cucsStorageEnclosureFsmFsmStatus,'cucsStorageEnclosureFsmProgress':cucsStorageEnclosureFsmProgress,'cucsStorageEnclosureFsmRmtErrCode':cucsStorageEnclosureFsmRmtErrCode,'cucsStorageEnclosureFsmRmtErrDescr':cucsStorageEnclosureFsmRmtErrDescr,'cucsStorageEnclosureFsmRmtRslt':cucsStorageEnclosureFsmRmtRslt,'cucsStorageEnclosureFsmStageTable':cucsStorageEnclosureFsmStageTable,'cucsStorageEnclosureFsmStageEntry':cucsStorageEnclosureFsmStageEntry,_AI:cucsStorageEnclosureFsmStageInstanceId,'cucsStorageEnclosureFsmStageDn':cucsStorageEnclosureFsmStageDn,'cucsStorageEnclosureFsmStageRn':cucsStorageEnclosureFsmStageRn,'cucsStorageEnclosureFsmStageDescrData':cucsStorageEnclosureFsmStageDescrData,'cucsStorageEnclosureFsmStageLastUpdateTime':cucsStorageEnclosureFsmStageLastUpdateTime,'cucsStorageEnclosureFsmStageName':cucsStorageEnclosureFsmStageName,'cucsStorageEnclosureFsmStageOrder':cucsStorageEnclosureFsmStageOrder,'cucsStorageEnclosureFsmStageRetry':cucsStorageEnclosureFsmStageRetry,'cucsStorageEnclosureFsmStageStageStatus':cucsStorageEnclosureFsmStageStageStatus,'cucsStorageEnclosureFsmTaskTable':cucsStorageEnclosureFsmTaskTable,'cucsStorageEnclosureFsmTaskEntry':cucsStorageEnclosureFsmTaskEntry,_AJ:cucsStorageEnclosureFsmTaskInstanceId,'cucsStorageEnclosureFsmTaskDn':cucsStorageEnclosureFsmTaskDn,'cucsStorageEnclosureFsmTaskRn':cucsStorageEnclosureFsmTaskRn,'cucsStorageEnclosureFsmTaskCompletion':cucsStorageEnclosureFsmTaskCompletion,'cucsStorageEnclosureFsmTaskFlags':cucsStorageEnclosureFsmTaskFlags,'cucsStorageEnclosureFsmTaskItem':cucsStorageEnclosureFsmTaskItem,'cucsStorageEnclosureFsmTaskSeqId':cucsStorageEnclosureFsmTaskSeqId,'cucsStorageLocalDiskFsmTable':cucsStorageLocalDiskFsmTable,'cucsStorageLocalDiskFsmEntry':cucsStorageLocalDiskFsmEntry,_AK:cucsStorageLocalDiskFsmInstanceId,'cucsStorageLocalDiskFsmDn':cucsStorageLocalDiskFsmDn,'cucsStorageLocalDiskFsmRn':cucsStorageLocalDiskFsmRn,'cucsStorageLocalDiskFsmCompletionTime':cucsStorageLocalDiskFsmCompletionTime,'cucsStorageLocalDiskFsmCurrentFsm':cucsStorageLocalDiskFsmCurrentFsm,'cucsStorageLocalDiskFsmDescrData':cucsStorageLocalDiskFsmDescrData,'cucsStorageLocalDiskFsmFsmStatus':cucsStorageLocalDiskFsmFsmStatus,'cucsStorageLocalDiskFsmProgress':cucsStorageLocalDiskFsmProgress,'cucsStorageLocalDiskFsmRmtErrCode':cucsStorageLocalDiskFsmRmtErrCode,'cucsStorageLocalDiskFsmRmtErrDescr':cucsStorageLocalDiskFsmRmtErrDescr,'cucsStorageLocalDiskFsmRmtRslt':cucsStorageLocalDiskFsmRmtRslt,'cucsStorageLocalDiskFsmStageTable':cucsStorageLocalDiskFsmStageTable,'cucsStorageLocalDiskFsmStageEntry':cucsStorageLocalDiskFsmStageEntry,_AL:cucsStorageLocalDiskFsmStageInstanceId,'cucsStorageLocalDiskFsmStageDn':cucsStorageLocalDiskFsmStageDn,'cucsStorageLocalDiskFsmStageRn':cucsStorageLocalDiskFsmStageRn,'cucsStorageLocalDiskFsmStageDescrData':cucsStorageLocalDiskFsmStageDescrData,'cucsStorageLocalDiskFsmStageLastUpdateTime':cucsStorageLocalDiskFsmStageLastUpdateTime,'cucsStorageLocalDiskFsmStageName':cucsStorageLocalDiskFsmStageName,'cucsStorageLocalDiskFsmStageOrder':cucsStorageLocalDiskFsmStageOrder,'cucsStorageLocalDiskFsmStageRetry':cucsStorageLocalDiskFsmStageRetry,'cucsStorageLocalDiskFsmStageStageStatus':cucsStorageLocalDiskFsmStageStageStatus,'cucsStorageLocalDiskFsmTaskTable':cucsStorageLocalDiskFsmTaskTable,'cucsStorageLocalDiskFsmTaskEntry':cucsStorageLocalDiskFsmTaskEntry,_AM:cucsStorageLocalDiskFsmTaskInstanceId,'cucsStorageLocalDiskFsmTaskDn':cucsStorageLocalDiskFsmTaskDn,'cucsStorageLocalDiskFsmTaskRn':cucsStorageLocalDiskFsmTaskRn,'cucsStorageLocalDiskFsmTaskCompletion':cucsStorageLocalDiskFsmTaskCompletion,'cucsStorageLocalDiskFsmTaskFlags':cucsStorageLocalDiskFsmTaskFlags,'cucsStorageLocalDiskFsmTaskItem':cucsStorageLocalDiskFsmTaskItem,'cucsStorageLocalDiskFsmTaskSeqId':cucsStorageLocalDiskFsmTaskSeqId,'cucsStorageNvmeStatsTable':cucsStorageNvmeStatsTable,'cucsStorageNvmeStatsEntry':cucsStorageNvmeStatsEntry,_AN:cucsStorageNvmeStatsInstanceId,'cucsStorageNvmeStatsDn':cucsStorageNvmeStatsDn,'cucsStorageNvmeStatsRn':cucsStorageNvmeStatsRn,'cucsStorageNvmeStatsDriveLifeUsedPercentage':cucsStorageNvmeStatsDriveLifeUsedPercentage,'cucsStorageNvmeStatsDriveLifeUsedPercentageAvg':cucsStorageNvmeStatsDriveLifeUsedPercentageAvg,'cucsStorageNvmeStatsDriveLifeUsedPercentageMax':cucsStorageNvmeStatsDriveLifeUsedPercentageMax,'cucsStorageNvmeStatsDriveLifeUsedPercentageMin':cucsStorageNvmeStatsDriveLifeUsedPercentageMin,'cucsStorageNvmeStatsIntervals':cucsStorageNvmeStatsIntervals,'cucsStorageNvmeStatsSuspect':cucsStorageNvmeStatsSuspect,'cucsStorageNvmeStatsTemperature':cucsStorageNvmeStatsTemperature,'cucsStorageNvmeStatsTemperatureAvg':cucsStorageNvmeStatsTemperatureAvg,'cucsStorageNvmeStatsTemperatureMax':cucsStorageNvmeStatsTemperatureMax,'cucsStorageNvmeStatsTemperatureMin':cucsStorageNvmeStatsTemperatureMin,'cucsStorageNvmeStatsThresholded':cucsStorageNvmeStatsThresholded,'cucsStorageNvmeStatsTimeCollected':cucsStorageNvmeStatsTimeCollected,'cucsStorageNvmeStatsUpdate':cucsStorageNvmeStatsUpdate,'cucsStorageNvmeStatsHistTable':cucsStorageNvmeStatsHistTable,'cucsStorageNvmeStatsHistEntry':cucsStorageNvmeStatsHistEntry,_AO:cucsStorageNvmeStatsHistInstanceId,'cucsStorageNvmeStatsHistDn':cucsStorageNvmeStatsHistDn,'cucsStorageNvmeStatsHistRn':cucsStorageNvmeStatsHistRn,'cucsStorageNvmeStatsHistDriveLifeUsedPercentage':cucsStorageNvmeStatsHistDriveLifeUsedPercentage,'cucsStorageNvmeStatsHistDriveLifeUsedPercentageAvg':cucsStorageNvmeStatsHistDriveLifeUsedPercentageAvg,'cucsStorageNvmeStatsHistDriveLifeUsedPercentageMax':cucsStorageNvmeStatsHistDriveLifeUsedPercentageMax,'cucsStorageNvmeStatsHistDriveLifeUsedPercentageMin':cucsStorageNvmeStatsHistDriveLifeUsedPercentageMin,'cucsStorageNvmeStatsHistId':cucsStorageNvmeStatsHistId,'cucsStorageNvmeStatsHistMostRecent':cucsStorageNvmeStatsHistMostRecent,'cucsStorageNvmeStatsHistSuspect':cucsStorageNvmeStatsHistSuspect,'cucsStorageNvmeStatsHistTemperature':cucsStorageNvmeStatsHistTemperature,'cucsStorageNvmeStatsHistTemperatureAvg':cucsStorageNvmeStatsHistTemperatureAvg,'cucsStorageNvmeStatsHistTemperatureMax':cucsStorageNvmeStatsHistTemperatureMax,'cucsStorageNvmeStatsHistTemperatureMin':cucsStorageNvmeStatsHistTemperatureMin,'cucsStorageNvmeStatsHistThresholded':cucsStorageNvmeStatsHistThresholded,'cucsStorageNvmeStatsHistTimeCollected':cucsStorageNvmeStatsHistTimeCollected,'cucsStorageNvmeStorageTable':cucsStorageNvmeStorageTable,'cucsStorageNvmeStorageEntry':cucsStorageNvmeStorageEntry,_AP:cucsStorageNvmeStorageInstanceId,'cucsStorageNvmeStorageDn':cucsStorageNvmeStorageDn,'cucsStorageNvmeStorageRn':cucsStorageNvmeStorageRn,'cucsStorageNvmeStoragePerformanceLevel':cucsStorageNvmeStoragePerformanceLevel,'cucsStorageSsdHealthStatsTable':cucsStorageSsdHealthStatsTable,'cucsStorageSsdHealthStatsEntry':cucsStorageSsdHealthStatsEntry,_AQ:cucsStorageSsdHealthStatsInstanceId,'cucsStorageSsdHealthStatsDn':cucsStorageSsdHealthStatsDn,'cucsStorageSsdHealthStatsRn':cucsStorageSsdHealthStatsRn,'cucsStorageSsdHealthStatsId':cucsStorageSsdHealthStatsId,'cucsStorageSsdHealthStatsIntervals':cucsStorageSsdHealthStatsIntervals,'cucsStorageSsdHealthStatsPercentageLifeLeft':cucsStorageSsdHealthStatsPercentageLifeLeft,'cucsStorageSsdHealthStatsPercentageLifeLeftAvg':cucsStorageSsdHealthStatsPercentageLifeLeftAvg,'cucsStorageSsdHealthStatsPercentageLifeLeftMax':cucsStorageSsdHealthStatsPercentageLifeLeftMax,'cucsStorageSsdHealthStatsPercentageLifeLeftMin':cucsStorageSsdHealthStatsPercentageLifeLeftMin,'cucsStorageSsdHealthStatsPowerCycleCount':cucsStorageSsdHealthStatsPowerCycleCount,'cucsStorageSsdHealthStatsPowerCycleCountAvg':cucsStorageSsdHealthStatsPowerCycleCountAvg,'cucsStorageSsdHealthStatsPowerCycleCountMax':cucsStorageSsdHealthStatsPowerCycleCountMax,'cucsStorageSsdHealthStatsPowerCycleCountMin':cucsStorageSsdHealthStatsPowerCycleCountMin,'cucsStorageSsdHealthStatsPowerOnHours':cucsStorageSsdHealthStatsPowerOnHours,'cucsStorageSsdHealthStatsPowerOnHoursAvg':cucsStorageSsdHealthStatsPowerOnHoursAvg,'cucsStorageSsdHealthStatsPowerOnHoursMax':cucsStorageSsdHealthStatsPowerOnHoursMax,'cucsStorageSsdHealthStatsPowerOnHoursMin':cucsStorageSsdHealthStatsPowerOnHoursMin,'cucsStorageSsdHealthStatsSuspect':cucsStorageSsdHealthStatsSuspect,'cucsStorageSsdHealthStatsThresholded':cucsStorageSsdHealthStatsThresholded,'cucsStorageSsdHealthStatsTimeCollected':cucsStorageSsdHealthStatsTimeCollected,'cucsStorageSsdHealthStatsUpdate':cucsStorageSsdHealthStatsUpdate,'cucsStorageSsdHealthStatsWearStatusInDays':cucsStorageSsdHealthStatsWearStatusInDays,'cucsStorageSsdHealthStatsWearStatusInDaysAvg':cucsStorageSsdHealthStatsWearStatusInDaysAvg,'cucsStorageSsdHealthStatsWearStatusInDaysMax':cucsStorageSsdHealthStatsWearStatusInDaysMax,'cucsStorageSsdHealthStatsWearStatusInDaysMin':cucsStorageSsdHealthStatsWearStatusInDaysMin,'cucsStorageSsdHealthStatsHistTable':cucsStorageSsdHealthStatsHistTable,'cucsStorageSsdHealthStatsHistEntry':cucsStorageSsdHealthStatsHistEntry,_AR:cucsStorageSsdHealthStatsHistInstanceId,'cucsStorageSsdHealthStatsHistDn':cucsStorageSsdHealthStatsHistDn,'cucsStorageSsdHealthStatsHistRn':cucsStorageSsdHealthStatsHistRn,'cucsStorageSsdHealthStatsHistId':cucsStorageSsdHealthStatsHistId,'cucsStorageSsdHealthStatsHistMostRecent':cucsStorageSsdHealthStatsHistMostRecent,'cucsStorageSsdHealthStatsHistPercentageLifeLeft':cucsStorageSsdHealthStatsHistPercentageLifeLeft,'cucsStorageSsdHealthStatsHistPercentageLifeLeftAvg':cucsStorageSsdHealthStatsHistPercentageLifeLeftAvg,'cucsStorageSsdHealthStatsHistPercentageLifeLeftMax':cucsStorageSsdHealthStatsHistPercentageLifeLeftMax,'cucsStorageSsdHealthStatsHistPercentageLifeLeftMin':cucsStorageSsdHealthStatsHistPercentageLifeLeftMin,'cucsStorageSsdHealthStatsHistPowerCycleCount':cucsStorageSsdHealthStatsHistPowerCycleCount,'cucsStorageSsdHealthStatsHistPowerCycleCountAvg':cucsStorageSsdHealthStatsHistPowerCycleCountAvg,'cucsStorageSsdHealthStatsHistPowerCycleCountMax':cucsStorageSsdHealthStatsHistPowerCycleCountMax,'cucsStorageSsdHealthStatsHistPowerCycleCountMin':cucsStorageSsdHealthStatsHistPowerCycleCountMin,'cucsStorageSsdHealthStatsHistPowerOnHours':cucsStorageSsdHealthStatsHistPowerOnHours,'cucsStorageSsdHealthStatsHistPowerOnHoursAvg':cucsStorageSsdHealthStatsHistPowerOnHoursAvg,'cucsStorageSsdHealthStatsHistPowerOnHoursMax':cucsStorageSsdHealthStatsHistPowerOnHoursMax,'cucsStorageSsdHealthStatsHistPowerOnHoursMin':cucsStorageSsdHealthStatsHistPowerOnHoursMin,'cucsStorageSsdHealthStatsHistSuspect':cucsStorageSsdHealthStatsHistSuspect,'cucsStorageSsdHealthStatsHistThresholded':cucsStorageSsdHealthStatsHistThresholded,'cucsStorageSsdHealthStatsHistTimeCollected':cucsStorageSsdHealthStatsHistTimeCollected,'cucsStorageSsdHealthStatsHistWearStatusInDays':cucsStorageSsdHealthStatsHistWearStatusInDays,'cucsStorageSsdHealthStatsHistWearStatusInDaysAvg':cucsStorageSsdHealthStatsHistWearStatusInDaysAvg,'cucsStorageSsdHealthStatsHistWearStatusInDaysMax':cucsStorageSsdHealthStatsHistWearStatusInDaysMax,'cucsStorageSsdHealthStatsHistWearStatusInDaysMin':cucsStorageSsdHealthStatsHistWearStatusInDaysMin,'cucsStorageControllerReferenceTable':cucsStorageControllerReferenceTable,'cucsStorageControllerReferenceEntry':cucsStorageControllerReferenceEntry,_AS:cucsStorageControllerReferenceInstanceId,'cucsStorageControllerReferenceDn':cucsStorageControllerReferenceDn,'cucsStorageControllerReferenceRn':cucsStorageControllerReferenceRn,'cucsStorageControllerReferenceControllerId':cucsStorageControllerReferenceControllerId,'cucsStorageControllerReferenceControllerType':cucsStorageControllerReferenceControllerType,'cucsStorageControllerReferenceReferencedRn':cucsStorageControllerReferenceReferencedRn,'cucsStorageMiniStorageTable':cucsStorageMiniStorageTable,'cucsStorageMiniStorageEntry':cucsStorageMiniStorageEntry,_AT:cucsStorageMiniStorageInstanceId,'cucsStorageMiniStorageDn':cucsStorageMiniStorageDn,'cucsStorageMiniStorageRn':cucsStorageMiniStorageRn,'cucsStorageMiniStorageAssetTag':cucsStorageMiniStorageAssetTag,'cucsStorageMiniStorageId':cucsStorageMiniStorageId,'cucsStorageMiniStorageLocationDn':cucsStorageMiniStorageLocationDn,'cucsStorageMiniStorageModel':cucsStorageMiniStorageModel,'cucsStorageMiniStorageOperQualifierReason':cucsStorageMiniStorageOperQualifierReason,'cucsStorageMiniStorageOperState':cucsStorageMiniStorageOperState,'cucsStorageMiniStorageOperability':cucsStorageMiniStorageOperability,'cucsStorageMiniStoragePartNumber':cucsStorageMiniStoragePartNumber,'cucsStorageMiniStoragePciAddr':cucsStorageMiniStoragePciAddr,'cucsStorageMiniStoragePciSlot':cucsStorageMiniStoragePciSlot,'cucsStorageMiniStoragePerf':cucsStorageMiniStoragePerf,'cucsStorageMiniStoragePower':cucsStorageMiniStoragePower,'cucsStorageMiniStoragePresence':cucsStorageMiniStoragePresence,'cucsStorageMiniStorageRevision':cucsStorageMiniStorageRevision,'cucsStorageMiniStorageSerial':cucsStorageMiniStorageSerial,'cucsStorageMiniStorageSubType':cucsStorageMiniStorageSubType,'cucsStorageMiniStorageThermal':cucsStorageMiniStorageThermal,'cucsStorageMiniStorageType':cucsStorageMiniStorageType,'cucsStorageMiniStorageVendor':cucsStorageMiniStorageVendor,'cucsStorageMiniStorageVid':cucsStorageMiniStorageVid,'cucsStorageMiniStorageVoltage':cucsStorageMiniStorageVoltage})
+#
+# PySNMP MIB module CISCO-UNIFIED-COMPUTING-STORAGE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-UNIFIED-COMPUTING-STORAGE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:17 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+Unsigned64, CiscoAlarmSeverity, CiscoInetAddressMask, TimeIntervalSec, CiscoNetworkAddress = mibBuilder.importSymbols("CISCO-TC", "Unsigned64", "CiscoAlarmSeverity", "CiscoInetAddressMask", "TimeIntervalSec", "CiscoNetworkAddress")
+CucsManagedObjectId, ciscoUnifiedComputingMIBObjects, CucsManagedObjectDn = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-MIB", "CucsManagedObjectId", "ciscoUnifiedComputingMIBObjects", "CucsManagedObjectDn")
+CucsStorageSystemFsmTaskItem, CucsVnicConfigIssues, CucsStorageOperationStateType, CucsStorageFFType, CucsStorageVDriveState, CucsStorageEnclosureFsmCurrentFsm, CucsStorageEnclosureAdminState, CucsStorageControllerRefControllerType, CucsStorageEpLinkState, CucsStorageSupportedStripSizeBitmask, CucsStorageLearnMode, CucsStorageFFCardWriteEnable, CucsStorageIOType, CucsStorageEnclosureDiskSlotEpOwnership, CucsEquipmentPresence, CucsStorageLocalDiskFsmTaskItem, CucsStorageAdminState, CucsStorageEpAccess, CucsStorageFlexFlashControllerId, CucsStorageOnboardDeviceType, CucsStorageLearnCycleRequested, CucsStorageIniGroupProtocol, CucsStorageReadType, CucsStorageOptionRomBootStatus, CucsStorageOperState, CucsStorageFFCardHealth, CucsStorageConfigCheckPoint, CucsStorageControllerId, CucsStorageMiniStorageId, CucsStorageVsanRefSwitchId, CucsStorageAlarmType, CucsStorageHddMotherBoardTempStatsHistThresholded, CucsStorageOperationType, CucsStorageSupportedRaidBatteryOp, CucsStorageAdminActionTrigger, CucsStorageDisklessAction, CucsEquipmentSensorThresholdStatus, CucsStorageUnitOperState, CucsStorageLocalDiskFsmTaskFlags, CucsStorageFFCardSizeMismatch, CucsStorageIniGroupOwner, CucsStorageExpanderState, CucsStorageFlexFlashControllerFsmTaskItem, CucsStorageFlexFlashControllerFsmStageName, CucsPolicyPolicyOwner, CucsStorageEnclosureAssociation, CucsStorageControllerFaultMonitoring, CucsStorageSsdHealthStatsHistThresholded, CucsStorageFFControllerHealth, CucsStorageLocalDiskConfigFlexFlashState, CucsStorageOperationState, CucsStorageSasLinkDescriptorControllerType, CucsStorageFFFormatRunning, CucsStorageFileSystemStatus, CucsStorageLunType, CucsStorageLocalDiskConfigFlexFlashRAIDReportingState, CucsStorageDeployAction, CucsStorageBatteryType, CucsStorageFFRWType, CucsFsmFsmStageStatus, CucsStorageSupportedControllerOp, CucsStorageFFCardState, CucsStorageFFHasError, CucsStorageTargetPath, CucsStorageFFSlotENUM, CucsStorageFFRAIDHealth, CucsStoragePDriveStatus, CucsStorageLocalDiskMode, CucsStorageNvmeStatsHistThresholded, CucsStorageFlexFlashControllerFsmCurrentFsm, CucsConditionRemoteInvRslt, CucsStoragePhysicalHolder, CucsEquipmentOperability, CucsStorageNvmeStatsThresholded, CucsStorageSupportedLocalDiskOp, CucsStorageControllerJBODMode, CucsFsmLifecycle, CucsStorageRaidBatteryOperabilityQualifier, CucsSesScsiDriveStatus, CucsStorageConfiguration, CucsStorageDiskEnvStatsThresholded, CucsStorageControllerPinnedCacheStatus, CucsStorageSsdHealthStatsThresholded, CucsStorageLocalDiskDiscoveredPath, CucsStorageDiskRole, CucsStorageEnclosureDiskSlotEpAutoZoneCause, CucsStorageFFDriveState, CucsStorageCacheType, CucsStorageIniGroupOperProtocol, CucsStorageSelectionDecisionType, CucsStorageBootableType, CucsStorageControllerSubType, CucsStorageSupportedVirtualDriveOp, CucsStorageFFCardMode, CucsStorageLocalDiskFsmCurrentFsm, CucsStorageAdminActionType, CucsStorageVirtualDriveRefAdminState, CucsStorageHddMotherBoardTempStatsThresholded, CucsStorageAdminCtrlActionType, CucsStorageVdMemberConfigQualifierType, CucsStorageActualWriteType, CucsStorageFFDriveRemovable, CucsStorageConfiguredWriteType, CucsStorageControllerFlags, CucsStorageSasUpLinkControllerType, CucsStorageControllerStatus, CucsStorageBbuStatus, CucsStorageControllerType, CucsStorageOperatingModeType, CucsStorageVdChangeQualifierType, CucsStorageConnectionProtocol, CucsStorageLinkSpeed, CucsStorageSystemFsmCurrentFsm, CucsStorageOnBoardMemoryPresent, CucsStorageProtocol, CucsFabricZoningState, CucsFsmCompletion, CucsFsmFlags, CucsStorageKeyType, CucsStorageFFDriveType, CucsStorageSystemFsmStageName, CucsStorageFcZoningType, CucsStorageSelectionResultType, CucsStorageTechnology, CucsStorageFFControllerState, CucsStorageDriveFlags, CucsStorageFFCardSync, CucsStorageAccessType, CucsStorageEnclosureFsmStageName, CucsStorageFFRAIDState, CucsStorageLocalDiskFsmStageName, CucsStorageConfigState, CucsStorageFFDriveVisible, CucsStorageControllerControllerFlags, CucsStorageOperationRequestType, CucsStorageControllerMode, CucsLstorageBootDevice, CucsStorageDiskEnvStatsHistThresholded, CucsStorageEnclosureFsmTaskItem, CucsStoragePowerState, CucsAaaConfigState, CucsEquipmentPowerState, CucsStorageFFRaidSyncSupport, CucsStorageEtherIfVlanType = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-TC-MIB", "CucsStorageSystemFsmTaskItem", "CucsVnicConfigIssues", "CucsStorageOperationStateType", "CucsStorageFFType", "CucsStorageVDriveState", "CucsStorageEnclosureFsmCurrentFsm", "CucsStorageEnclosureAdminState", "CucsStorageControllerRefControllerType", "CucsStorageEpLinkState", "CucsStorageSupportedStripSizeBitmask", "CucsStorageLearnMode", "CucsStorageFFCardWriteEnable", "CucsStorageIOType", "CucsStorageEnclosureDiskSlotEpOwnership", "CucsEquipmentPresence", "CucsStorageLocalDiskFsmTaskItem", "CucsStorageAdminState", "CucsStorageEpAccess", "CucsStorageFlexFlashControllerId", "CucsStorageOnboardDeviceType", "CucsStorageLearnCycleRequested", "CucsStorageIniGroupProtocol", "CucsStorageReadType", "CucsStorageOptionRomBootStatus", "CucsStorageOperState", "CucsStorageFFCardHealth", "CucsStorageConfigCheckPoint", "CucsStorageControllerId", "CucsStorageMiniStorageId", "CucsStorageVsanRefSwitchId", "CucsStorageAlarmType", "CucsStorageHddMotherBoardTempStatsHistThresholded", "CucsStorageOperationType", "CucsStorageSupportedRaidBatteryOp", "CucsStorageAdminActionTrigger", "CucsStorageDisklessAction", "CucsEquipmentSensorThresholdStatus", "CucsStorageUnitOperState", "CucsStorageLocalDiskFsmTaskFlags", "CucsStorageFFCardSizeMismatch", "CucsStorageIniGroupOwner", "CucsStorageExpanderState", "CucsStorageFlexFlashControllerFsmTaskItem", "CucsStorageFlexFlashControllerFsmStageName", "CucsPolicyPolicyOwner", "CucsStorageEnclosureAssociation", "CucsStorageControllerFaultMonitoring", "CucsStorageSsdHealthStatsHistThresholded", "CucsStorageFFControllerHealth", "CucsStorageLocalDiskConfigFlexFlashState", "CucsStorageOperationState", "CucsStorageSasLinkDescriptorControllerType", "CucsStorageFFFormatRunning", "CucsStorageFileSystemStatus", "CucsStorageLunType", "CucsStorageLocalDiskConfigFlexFlashRAIDReportingState", "CucsStorageDeployAction", "CucsStorageBatteryType", "CucsStorageFFRWType", "CucsFsmFsmStageStatus", "CucsStorageSupportedControllerOp", "CucsStorageFFCardState", "CucsStorageFFHasError", "CucsStorageTargetPath", "CucsStorageFFSlotENUM", "CucsStorageFFRAIDHealth", "CucsStoragePDriveStatus", "CucsStorageLocalDiskMode", "CucsStorageNvmeStatsHistThresholded", "CucsStorageFlexFlashControllerFsmCurrentFsm", "CucsConditionRemoteInvRslt", "CucsStoragePhysicalHolder", "CucsEquipmentOperability", "CucsStorageNvmeStatsThresholded", "CucsStorageSupportedLocalDiskOp", "CucsStorageControllerJBODMode", "CucsFsmLifecycle", "CucsStorageRaidBatteryOperabilityQualifier", "CucsSesScsiDriveStatus", "CucsStorageConfiguration", "CucsStorageDiskEnvStatsThresholded", "CucsStorageControllerPinnedCacheStatus", "CucsStorageSsdHealthStatsThresholded", "CucsStorageLocalDiskDiscoveredPath", "CucsStorageDiskRole", "CucsStorageEnclosureDiskSlotEpAutoZoneCause", "CucsStorageFFDriveState", "CucsStorageCacheType", "CucsStorageIniGroupOperProtocol", "CucsStorageSelectionDecisionType", "CucsStorageBootableType", "CucsStorageControllerSubType", "CucsStorageSupportedVirtualDriveOp", "CucsStorageFFCardMode", "CucsStorageLocalDiskFsmCurrentFsm", "CucsStorageAdminActionType", "CucsStorageVirtualDriveRefAdminState", "CucsStorageHddMotherBoardTempStatsThresholded", "CucsStorageAdminCtrlActionType", "CucsStorageVdMemberConfigQualifierType", "CucsStorageActualWriteType", "CucsStorageFFDriveRemovable", "CucsStorageConfiguredWriteType", "CucsStorageControllerFlags", "CucsStorageSasUpLinkControllerType", "CucsStorageControllerStatus", "CucsStorageBbuStatus", "CucsStorageControllerType", "CucsStorageOperatingModeType", "CucsStorageVdChangeQualifierType", "CucsStorageConnectionProtocol", "CucsStorageLinkSpeed", "CucsStorageSystemFsmCurrentFsm", "CucsStorageOnBoardMemoryPresent", "CucsStorageProtocol", "CucsFabricZoningState", "CucsFsmCompletion", "CucsFsmFlags", "CucsStorageKeyType", "CucsStorageFFDriveType", "CucsStorageSystemFsmStageName", "CucsStorageFcZoningType", "CucsStorageSelectionResultType", "CucsStorageTechnology", "CucsStorageFFControllerState", "CucsStorageDriveFlags", "CucsStorageFFCardSync", "CucsStorageAccessType", "CucsStorageEnclosureFsmStageName", "CucsStorageFFRAIDState", "CucsStorageLocalDiskFsmStageName", "CucsStorageConfigState", "CucsStorageFFDriveVisible", "CucsStorageControllerControllerFlags", "CucsStorageOperationRequestType", "CucsStorageControllerMode", "CucsLstorageBootDevice", "CucsStorageDiskEnvStatsHistThresholded", "CucsStorageEnclosureFsmTaskItem", "CucsStoragePowerState", "CucsAaaConfigState", "CucsEquipmentPowerState", "CucsStorageFFRaidSyncSupport", "CucsStorageEtherIfVlanType")
+InetAddressIPv6, InetAddressIPv4 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6", "InetAddressIPv4")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, TruthValue, DateAndTime, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "TruthValue", "DateAndTime", "RowPointer", "TextualConvention")
+cucsStorageObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45))
+if mibBuilder.loadTexts: cucsStorageObjects.setLastUpdated('201807260000Z')
+if mibBuilder.loadTexts: cucsStorageObjects.setOrganization('Cisco Systems Inc.')
+cucsStorageAuthKeyTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 14), )
+if mibBuilder.loadTexts: cucsStorageAuthKeyTable.setStatus('current')
+cucsStorageAuthKeyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 14, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageAuthKeyInstanceId"))
+if mibBuilder.loadTexts: cucsStorageAuthKeyEntry.setStatus('current')
+cucsStorageAuthKeyInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 14, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageAuthKeyInstanceId.setStatus('current')
+cucsStorageAuthKeyDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 14, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageAuthKeyDn.setStatus('current')
+cucsStorageAuthKeyRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 14, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageAuthKeyRn.setStatus('current')
+cucsStorageAuthKeyDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 14, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageAuthKeyDescr.setStatus('current')
+cucsStorageAuthKeyIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 14, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageAuthKeyIntId.setStatus('current')
+cucsStorageAuthKeyName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 14, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageAuthKeyName.setStatus('current')
+cucsStorageAuthKeyPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 14, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageAuthKeyPassword.setStatus('current')
+cucsStorageAuthKeyPolicyLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 14, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageAuthKeyPolicyLevel.setStatus('current')
+cucsStorageAuthKeyPolicyOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 14, 1, 9), CucsPolicyPolicyOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageAuthKeyPolicyOwner.setStatus('current')
+cucsStorageAuthKeyType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 14, 1, 10), CucsStorageKeyType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageAuthKeyType.setStatus('current')
+cucsStorageAuthKeyUserId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 14, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageAuthKeyUserId.setStatus('current')
+cucsStorageConnectionDefTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 15), )
+if mibBuilder.loadTexts: cucsStorageConnectionDefTable.setStatus('current')
+cucsStorageConnectionDefEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 15, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageConnectionDefInstanceId"))
+if mibBuilder.loadTexts: cucsStorageConnectionDefEntry.setStatus('current')
+cucsStorageConnectionDefInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 15, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageConnectionDefInstanceId.setStatus('current')
+cucsStorageConnectionDefDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 15, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionDefDn.setStatus('current')
+cucsStorageConnectionDefRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 15, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionDefRn.setStatus('current')
+cucsStorageConnectionDefDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 15, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionDefDescr.setStatus('current')
+cucsStorageConnectionDefIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 15, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionDefIntId.setStatus('current')
+cucsStorageConnectionDefName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 15, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionDefName.setStatus('current')
+cucsStorageConnectionDefOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 15, 1, 7), CucsStorageOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionDefOperState.setStatus('current')
+cucsStorageConnectionDefPolicyLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 15, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionDefPolicyLevel.setStatus('current')
+cucsStorageConnectionDefPolicyOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 15, 1, 9), CucsPolicyPolicyOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionDefPolicyOwner.setStatus('current')
+cucsStorageConnectionDefZoningType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 15, 1, 10), CucsStorageFcZoningType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionDefZoningType.setStatus('current')
+cucsStorageConnectionPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 16), )
+if mibBuilder.loadTexts: cucsStorageConnectionPolicyTable.setStatus('current')
+cucsStorageConnectionPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 16, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageConnectionPolicyInstanceId"))
+if mibBuilder.loadTexts: cucsStorageConnectionPolicyEntry.setStatus('current')
+cucsStorageConnectionPolicyInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 16, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageConnectionPolicyInstanceId.setStatus('current')
+cucsStorageConnectionPolicyDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 16, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionPolicyDn.setStatus('current')
+cucsStorageConnectionPolicyRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 16, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionPolicyRn.setStatus('current')
+cucsStorageConnectionPolicyDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 16, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionPolicyDescr.setStatus('current')
+cucsStorageConnectionPolicyIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 16, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionPolicyIntId.setStatus('current')
+cucsStorageConnectionPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 16, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionPolicyName.setStatus('current')
+cucsStorageConnectionPolicyOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 16, 1, 7), CucsStorageOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionPolicyOperState.setStatus('current')
+cucsStorageConnectionPolicyPolicyLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 16, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionPolicyPolicyLevel.setStatus('current')
+cucsStorageConnectionPolicyPolicyOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 16, 1, 9), CucsPolicyPolicyOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionPolicyPolicyOwner.setStatus('current')
+cucsStorageConnectionPolicyZoningType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 16, 1, 10), CucsStorageFcZoningType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageConnectionPolicyZoningType.setStatus('current')
+cucsStorageControllerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1), )
+if mibBuilder.loadTexts: cucsStorageControllerTable.setStatus('current')
+cucsStorageControllerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageControllerInstanceId"))
+if mibBuilder.loadTexts: cucsStorageControllerEntry.setStatus('current')
+cucsStorageControllerInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageControllerInstanceId.setStatus('current')
+cucsStorageControllerDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerDn.setStatus('current')
+cucsStorageControllerRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerRn.setStatus('current')
+cucsStorageControllerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 4), CucsStorageControllerId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerId.setStatus('current')
+cucsStorageControllerModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerModel.setStatus('current')
+cucsStorageControllerOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 6), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerOperState.setStatus('current')
+cucsStorageControllerOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 7), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerOperability.setStatus('current')
+cucsStorageControllerPciAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerPciAddr.setStatus('current')
+cucsStorageControllerPciSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerPciSlot.setStatus('current')
+cucsStorageControllerPerf = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 10), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerPerf.setStatus('current')
+cucsStorageControllerPower = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 11), CucsEquipmentPowerState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerPower.setStatus('current')
+cucsStorageControllerPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 12), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerPresence.setStatus('current')
+cucsStorageControllerRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 13), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerRevision.setStatus('current')
+cucsStorageControllerSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 14), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerSerial.setStatus('current')
+cucsStorageControllerThermal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 15), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerThermal.setStatus('current')
+cucsStorageControllerType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 16), CucsStorageControllerType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerType.setStatus('current')
+cucsStorageControllerVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 17), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerVendor.setStatus('current')
+cucsStorageControllerVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 18), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerVoltage.setStatus('current')
+cucsStorageControllerRaidSupport = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 19), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerRaidSupport.setStatus('current')
+cucsStorageControllerFaultMonitoring = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 20), CucsStorageControllerFaultMonitoring()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerFaultMonitoring.setStatus('current')
+cucsStorageControllerHwRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 21), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerHwRevision.setStatus('current')
+cucsStorageControllerDeviceRaidSupport = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 23), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerDeviceRaidSupport.setStatus('current')
+cucsStorageControllerOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 24), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerOperQualifierReason.setStatus('current')
+cucsStorageControllerControllerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 25), CucsStorageControllerStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerControllerStatus.setStatus('current')
+cucsStorageControllerLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 26), CucsFsmLifecycle()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerLc.setStatus('current')
+cucsStorageControllerOobControllerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 27), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerOobControllerId.setStatus('current')
+cucsStorageControllerOobInterfaceSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 28), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerOobInterfaceSupported.setStatus('current')
+cucsStorageControllerRebuildRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 29), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerRebuildRate.setStatus('current')
+cucsStorageControllerLocationDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 30), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerLocationDn.setStatus('current')
+cucsStorageControllerPartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 31), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerPartNumber.setStatus('current')
+cucsStorageControllerVid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 32), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerVid.setStatus('current')
+cucsStorageControllerAdminAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 33), CucsStorageAdminCtrlActionType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerAdminAction.setStatus('current')
+cucsStorageControllerAdminActionTrigger = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 34), CucsStorageAdminActionTrigger()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerAdminActionTrigger.setStatus('current')
+cucsStorageControllerConfigState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 35), CucsStorageConfigState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerConfigState.setStatus('current')
+cucsStorageControllerOpromBootStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 36), CucsStorageOptionRomBootStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerOpromBootStatus.setStatus('current')
+cucsStorageControllerPciSlotRawName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 37), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerPciSlotRawName.setStatus('current')
+cucsStorageControllerIdCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 38), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerIdCount.setStatus('current')
+cucsStorageControllerPinnedCacheStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 39), CucsStorageControllerPinnedCacheStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerPinnedCacheStatus.setStatus('current')
+cucsStorageControllerMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 40), CucsStorageControllerMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerMode.setStatus('current')
+cucsStorageControllerControllerOps = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 41), CucsStorageSupportedControllerOp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerControllerOps.setStatus('current')
+cucsStorageControllerDefaultStripSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 42), CucsStorageSupportedStripSizeBitmask()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerDefaultStripSize.setStatus('current')
+cucsStorageControllerDiskOps = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 43), CucsStorageSupportedLocalDiskOp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerDiskOps.setStatus('current')
+cucsStorageControllerOnBoardMemoryPresent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 44), CucsStorageOnBoardMemoryPresent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerOnBoardMemoryPresent.setStatus('current')
+cucsStorageControllerOnBoardMemorySize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 45), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerOnBoardMemorySize.setStatus('current')
+cucsStorageControllerRaidBatteryOps = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 46), CucsStorageSupportedRaidBatteryOp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerRaidBatteryOps.setStatus('current')
+cucsStorageControllerSubOemId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 47), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerSubOemId.setStatus('current')
+cucsStorageControllerSupportedStripSizes = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 48), CucsStorageSupportedStripSizeBitmask()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerSupportedStripSizes.setStatus('current')
+cucsStorageControllerVirtualDriveOps = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 49), CucsStorageSupportedVirtualDriveOp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerVirtualDriveOps.setStatus('current')
+cucsStorageControllerVariantType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 50), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerVariantType.setStatus('current')
+cucsStorageControllerAdminSecurityKey = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 51), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerAdminSecurityKey.setStatus('current')
+cucsStorageControllerAssetTag = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 52), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerAssetTag.setStatus('current')
+cucsStorageControllerControllerFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 53), CucsStorageControllerControllerFlags()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerControllerFlags.setStatus('current')
+cucsStorageControllerErrDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 54), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerErrDescription.setStatus('current')
+cucsStorageControllerJbodMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 55), CucsStorageControllerJBODMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerJbodMode.setStatus('current')
+cucsStorageControllerSubType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 1, 1, 56), CucsStorageControllerSubType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerSubType.setStatus('current')
+cucsStorageControllerEpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 109), )
+if mibBuilder.loadTexts: cucsStorageControllerEpTable.setStatus('current')
+cucsStorageControllerEpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 109, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageControllerEpInstanceId"))
+if mibBuilder.loadTexts: cucsStorageControllerEpEntry.setStatus('current')
+cucsStorageControllerEpInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 109, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageControllerEpInstanceId.setStatus('current')
+cucsStorageControllerEpDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 109, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerEpDn.setStatus('current')
+cucsStorageControllerEpRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 109, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerEpRn.setStatus('current')
+cucsStorageControllerEpControllerDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 109, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerEpControllerDn.setStatus('current')
+cucsStorageControllerEpId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 109, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerEpId.setStatus('current')
+cucsStorageControllerRefTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 93), )
+if mibBuilder.loadTexts: cucsStorageControllerRefTable.setStatus('current')
+cucsStorageControllerRefEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 93, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageControllerRefInstanceId"))
+if mibBuilder.loadTexts: cucsStorageControllerRefEntry.setStatus('current')
+cucsStorageControllerRefInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 93, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageControllerRefInstanceId.setStatus('current')
+cucsStorageControllerRefDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 93, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerRefDn.setStatus('current')
+cucsStorageControllerRefRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 93, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerRefRn.setStatus('current')
+cucsStorageControllerRefControllerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 93, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerRefControllerId.setStatus('current')
+cucsStorageControllerRefLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 93, 1, 5), CucsFsmLifecycle()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerRefLc.setStatus('current')
+cucsStorageControllerRefServerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 93, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerRefServerId.setStatus('current')
+cucsStorageControllerRefControllerType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 93, 1, 7), CucsStorageControllerRefControllerType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerRefControllerType.setStatus('current')
+cucsStorageControllerReferenceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 129), )
+if mibBuilder.loadTexts: cucsStorageControllerReferenceTable.setStatus('current')
+cucsStorageControllerReferenceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 129, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageControllerReferenceInstanceId"))
+if mibBuilder.loadTexts: cucsStorageControllerReferenceEntry.setStatus('current')
+cucsStorageControllerReferenceInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 129, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageControllerReferenceInstanceId.setStatus('current')
+cucsStorageControllerReferenceDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 129, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerReferenceDn.setStatus('current')
+cucsStorageControllerReferenceRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 129, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerReferenceRn.setStatus('current')
+cucsStorageControllerReferenceControllerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 129, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerReferenceControllerId.setStatus('current')
+cucsStorageControllerReferenceControllerType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 129, 1, 5), CucsStorageControllerType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerReferenceControllerType.setStatus('current')
+cucsStorageControllerReferenceReferencedRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 129, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageControllerReferenceReferencedRn.setStatus('current')
+cucsStorageDiskEnvStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50), )
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsTable.setStatus('current')
+cucsStorageDiskEnvStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageDiskEnvStatsInstanceId"))
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsEntry.setStatus('current')
+cucsStorageDiskEnvStatsInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsInstanceId.setStatus('current')
+cucsStorageDiskEnvStatsDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsDn.setStatus('current')
+cucsStorageDiskEnvStatsRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsRn.setStatus('current')
+cucsStorageDiskEnvStatsIntervals = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsIntervals.setStatus('current')
+cucsStorageDiskEnvStatsSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsSuspect.setStatus('current')
+cucsStorageDiskEnvStatsTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsTemperature.setStatus('current')
+cucsStorageDiskEnvStatsTemperatureAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsTemperatureAvg.setStatus('current')
+cucsStorageDiskEnvStatsTemperatureMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsTemperatureMax.setStatus('current')
+cucsStorageDiskEnvStatsTemperatureMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsTemperatureMin.setStatus('current')
+cucsStorageDiskEnvStatsThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 10), CucsStorageDiskEnvStatsThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsThresholded.setStatus('current')
+cucsStorageDiskEnvStatsTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 11), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsTimeCollected.setStatus('current')
+cucsStorageDiskEnvStatsUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 12), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsUpdate.setStatus('current')
+cucsStorageDiskEnvStatsWearPercentage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 13), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsWearPercentage.setStatus('current')
+cucsStorageDiskEnvStatsWearPercentageAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 14), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsWearPercentageAvg.setStatus('current')
+cucsStorageDiskEnvStatsWearPercentageMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 15), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsWearPercentageMax.setStatus('current')
+cucsStorageDiskEnvStatsWearPercentageMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 50, 1, 16), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsWearPercentageMin.setStatus('current')
+cucsStorageDiskEnvStatsHistTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51), )
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistTable.setStatus('current')
+cucsStorageDiskEnvStatsHistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageDiskEnvStatsHistInstanceId"))
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistEntry.setStatus('current')
+cucsStorageDiskEnvStatsHistInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistInstanceId.setStatus('current')
+cucsStorageDiskEnvStatsHistDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistDn.setStatus('current')
+cucsStorageDiskEnvStatsHistRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistRn.setStatus('current')
+cucsStorageDiskEnvStatsHistId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 4), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistId.setStatus('current')
+cucsStorageDiskEnvStatsHistMostRecent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistMostRecent.setStatus('current')
+cucsStorageDiskEnvStatsHistSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 6), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistSuspect.setStatus('current')
+cucsStorageDiskEnvStatsHistTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistTemperature.setStatus('current')
+cucsStorageDiskEnvStatsHistTemperatureAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistTemperatureAvg.setStatus('current')
+cucsStorageDiskEnvStatsHistTemperatureMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistTemperatureMax.setStatus('current')
+cucsStorageDiskEnvStatsHistTemperatureMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistTemperatureMin.setStatus('current')
+cucsStorageDiskEnvStatsHistThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 11), CucsStorageDiskEnvStatsHistThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistThresholded.setStatus('current')
+cucsStorageDiskEnvStatsHistTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 12), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistTimeCollected.setStatus('current')
+cucsStorageDiskEnvStatsHistWearPercentage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 13), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistWearPercentage.setStatus('current')
+cucsStorageDiskEnvStatsHistWearPercentageAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 14), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistWearPercentageAvg.setStatus('current')
+cucsStorageDiskEnvStatsHistWearPercentageMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 15), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistWearPercentageMax.setStatus('current')
+cucsStorageDiskEnvStatsHistWearPercentageMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 51, 1, 16), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDiskEnvStatsHistWearPercentageMin.setStatus('current')
+cucsStorageDomainEpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 17), )
+if mibBuilder.loadTexts: cucsStorageDomainEpTable.setStatus('current')
+cucsStorageDomainEpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 17, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageDomainEpInstanceId"))
+if mibBuilder.loadTexts: cucsStorageDomainEpEntry.setStatus('current')
+cucsStorageDomainEpInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 17, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageDomainEpInstanceId.setStatus('current')
+cucsStorageDomainEpDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 17, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDomainEpDn.setStatus('current')
+cucsStorageDomainEpRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 17, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDomainEpRn.setStatus('current')
+cucsStorageDriveTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 2), )
+if mibBuilder.loadTexts: cucsStorageDriveTable.setStatus('current')
+cucsStorageDriveEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 2, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageDriveInstanceId"))
+if mibBuilder.loadTexts: cucsStorageDriveEntry.setStatus('current')
+cucsStorageDriveInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 2, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageDriveInstanceId.setStatus('current')
+cucsStorageDriveDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 2, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDriveDn.setStatus('current')
+cucsStorageDriveRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDriveRn.setStatus('current')
+cucsStorageDriveId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 2, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDriveId.setStatus('current')
+cucsStorageDriveModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 2, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDriveModel.setStatus('current')
+cucsStorageDrivePciAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 2, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDrivePciAddr.setStatus('current')
+cucsStorageDriveRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 2, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDriveRevision.setStatus('current')
+cucsStorageDriveSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 2, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDriveSerial.setStatus('current')
+cucsStorageDriveVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 2, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageDriveVendor.setStatus('current')
+cucsStorageEmbeddedStorageTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 110), )
+if mibBuilder.loadTexts: cucsStorageEmbeddedStorageTable.setStatus('current')
+cucsStorageEmbeddedStorageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 110, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageEmbeddedStorageInstanceId"))
+if mibBuilder.loadTexts: cucsStorageEmbeddedStorageEntry.setStatus('current')
+cucsStorageEmbeddedStorageInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 110, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageEmbeddedStorageInstanceId.setStatus('current')
+cucsStorageEmbeddedStorageDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 110, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEmbeddedStorageDn.setStatus('current')
+cucsStorageEmbeddedStorageRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 110, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEmbeddedStorageRn.setStatus('current')
+cucsStorageEmbeddedStorageBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 110, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEmbeddedStorageBlockSize.setStatus('current')
+cucsStorageEmbeddedStorageConnectionProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 110, 1, 5), CucsStorageConnectionProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEmbeddedStorageConnectionProtocol.setStatus('current')
+cucsStorageEmbeddedStorageNumberOfBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 110, 1, 6), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEmbeddedStorageNumberOfBlocks.setStatus('current')
+cucsStorageEmbeddedStorageOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 110, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEmbeddedStorageOperQualifierReason.setStatus('current')
+cucsStorageEmbeddedStorageOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 110, 1, 8), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEmbeddedStorageOperability.setStatus('current')
+cucsStorageEmbeddedStoragePhysicalBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 110, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEmbeddedStoragePhysicalBlockSize.setStatus('current')
+cucsStorageEmbeddedStoragePresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 110, 1, 10), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEmbeddedStoragePresence.setStatus('current')
+cucsStorageEmbeddedStorageSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 110, 1, 11), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEmbeddedStorageSize.setStatus('current')
+cucsStorageEnclosureTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12), )
+if mibBuilder.loadTexts: cucsStorageEnclosureTable.setStatus('current')
+cucsStorageEnclosureEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageEnclosureInstanceId"))
+if mibBuilder.loadTexts: cucsStorageEnclosureEntry.setStatus('current')
+cucsStorageEnclosureInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageEnclosureInstanceId.setStatus('current')
+cucsStorageEnclosureDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureDn.setStatus('current')
+cucsStorageEnclosureRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureRn.setStatus('current')
+cucsStorageEnclosureId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureId.setStatus('current')
+cucsStorageEnclosureModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureModel.setStatus('current')
+cucsStorageEnclosureNumSlots = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureNumSlots.setStatus('current')
+cucsStorageEnclosureRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureRevision.setStatus('current')
+cucsStorageEnclosureSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureSerial.setStatus('current')
+cucsStorageEnclosureVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureVendor.setStatus('current')
+cucsStorageEnclosureLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 10), CucsFsmLifecycle()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLc.setStatus('current')
+cucsStorageEnclosureDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureDescr.setStatus('current')
+cucsStorageEnclosureType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 13), CucsStoragePhysicalHolder()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureType.setStatus('current')
+cucsStorageEnclosureAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 14), CucsStorageEnclosureAdminState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureAdminState.setStatus('current')
+cucsStorageEnclosureChassisId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 15), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureChassisId.setStatus('current')
+cucsStorageEnclosureOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 16), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureOperQualifierReason.setStatus('current')
+cucsStorageEnclosureOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 17), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureOperState.setStatus('current')
+cucsStorageEnclosureOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 18), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureOperability.setStatus('current')
+cucsStorageEnclosurePerf = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 19), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosurePerf.setStatus('current')
+cucsStorageEnclosurePower = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 20), CucsEquipmentPowerState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosurePower.setStatus('current')
+cucsStorageEnclosurePresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 21), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosurePresence.setStatus('current')
+cucsStorageEnclosureServerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 22), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureServerId.setStatus('current')
+cucsStorageEnclosureThermal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 23), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureThermal.setStatus('current')
+cucsStorageEnclosureVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 24), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureVoltage.setStatus('current')
+cucsStorageEnclosureFsmDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 25), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmDescr.setStatus('current')
+cucsStorageEnclosureFsmPrev = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 26), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmPrev.setStatus('current')
+cucsStorageEnclosureFsmProgr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 27), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmProgr.setStatus('current')
+cucsStorageEnclosureFsmRmtInvErrCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 28), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmRmtInvErrCode.setStatus('current')
+cucsStorageEnclosureFsmRmtInvErrDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 29), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmRmtInvErrDescr.setStatus('current')
+cucsStorageEnclosureFsmRmtInvRslt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 30), CucsConditionRemoteInvRslt()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmRmtInvRslt.setStatus('current')
+cucsStorageEnclosureFsmStageDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 31), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmStageDescr.setStatus('current')
+cucsStorageEnclosureFsmStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 32), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmStamp.setStatus('current')
+cucsStorageEnclosureFsmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 33), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmStatus.setStatus('current')
+cucsStorageEnclosureFsmTry = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 12, 1, 34), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmTry.setStatus('current')
+cucsStorageEnclosureCapTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 94), )
+if mibBuilder.loadTexts: cucsStorageEnclosureCapTable.setStatus('current')
+cucsStorageEnclosureCapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 94, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageEnclosureCapInstanceId"))
+if mibBuilder.loadTexts: cucsStorageEnclosureCapEntry.setStatus('current')
+cucsStorageEnclosureCapInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 94, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageEnclosureCapInstanceId.setStatus('current')
+cucsStorageEnclosureCapDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 94, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureCapDn.setStatus('current')
+cucsStorageEnclosureCapRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 94, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureCapRn.setStatus('current')
+cucsStorageEnclosureCapDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 94, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureCapDescr.setStatus('current')
+cucsStorageEnclosureCapId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 94, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureCapId.setStatus('current')
+cucsStorageEnclosureCapNumSlots = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 94, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureCapNumSlots.setStatus('current')
+cucsStorageEnclosureCapType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 94, 1, 7), CucsStoragePhysicalHolder()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureCapType.setStatus('current')
+cucsStorageEnclosureCapDiskVariant = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 94, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureCapDiskVariant.setStatus('current')
+cucsStorageEnclosureCapRemovable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 94, 1, 9), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureCapRemovable.setStatus('current')
+cucsStorageEnclosureDiskSlotEpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 54), )
+if mibBuilder.loadTexts: cucsStorageEnclosureDiskSlotEpTable.setStatus('current')
+cucsStorageEnclosureDiskSlotEpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 54, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageEnclosureDiskSlotEpInstanceId"))
+if mibBuilder.loadTexts: cucsStorageEnclosureDiskSlotEpEntry.setStatus('current')
+cucsStorageEnclosureDiskSlotEpInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 54, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageEnclosureDiskSlotEpInstanceId.setStatus('current')
+cucsStorageEnclosureDiskSlotEpDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 54, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureDiskSlotEpDn.setStatus('current')
+cucsStorageEnclosureDiskSlotEpRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 54, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureDiskSlotEpRn.setStatus('current')
+cucsStorageEnclosureDiskSlotEpConfiguration = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 54, 1, 4), CucsStorageConfiguration()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureDiskSlotEpConfiguration.setStatus('current')
+cucsStorageEnclosureDiskSlotEpId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 54, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureDiskSlotEpId.setStatus('current')
+cucsStorageEnclosureDiskSlotEpOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 54, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureDiskSlotEpOperQualifierReason.setStatus('current')
+cucsStorageEnclosureDiskSlotEpOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 54, 1, 7), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureDiskSlotEpOperability.setStatus('current')
+cucsStorageEnclosureDiskSlotEpPeerDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 54, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureDiskSlotEpPeerDn.setStatus('current')
+cucsStorageEnclosureDiskSlotEpPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 54, 1, 9), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureDiskSlotEpPresence.setStatus('current')
+cucsStorageEnclosureDiskSlotEpOwnership = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 54, 1, 10), CucsStorageEnclosureDiskSlotEpOwnership()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureDiskSlotEpOwnership.setStatus('current')
+cucsStorageEnclosureDiskSlotEpAutoZoneCause = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 54, 1, 11), CucsStorageEnclosureDiskSlotEpAutoZoneCause()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureDiskSlotEpAutoZoneCause.setStatus('current')
+cucsStorageEnclosureDiskSlotEpLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 54, 1, 12), CucsFsmLifecycle()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureDiskSlotEpLc.setStatus('current')
+cucsStorageEnclosureFsmTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 116), )
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmTable.setStatus('current')
+cucsStorageEnclosureFsmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 116, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageEnclosureFsmInstanceId"))
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmEntry.setStatus('current')
+cucsStorageEnclosureFsmInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 116, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmInstanceId.setStatus('current')
+cucsStorageEnclosureFsmDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 116, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmDn.setStatus('current')
+cucsStorageEnclosureFsmRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 116, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmRn.setStatus('current')
+cucsStorageEnclosureFsmCompletionTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 116, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmCompletionTime.setStatus('current')
+cucsStorageEnclosureFsmCurrentFsm = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 116, 1, 5), CucsStorageEnclosureFsmCurrentFsm()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmCurrentFsm.setStatus('current')
+cucsStorageEnclosureFsmDescrData = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 116, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmDescrData.setStatus('current')
+cucsStorageEnclosureFsmFsmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 116, 1, 7), CucsFsmFsmStageStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmFsmStatus.setStatus('current')
+cucsStorageEnclosureFsmProgress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 116, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmProgress.setStatus('current')
+cucsStorageEnclosureFsmRmtErrCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 116, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmRmtErrCode.setStatus('current')
+cucsStorageEnclosureFsmRmtErrDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 116, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmRmtErrDescr.setStatus('current')
+cucsStorageEnclosureFsmRmtRslt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 116, 1, 11), CucsConditionRemoteInvRslt()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmRmtRslt.setStatus('current')
+cucsStorageEnclosureFsmStageTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 117), )
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmStageTable.setStatus('current')
+cucsStorageEnclosureFsmStageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 117, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageEnclosureFsmStageInstanceId"))
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmStageEntry.setStatus('current')
+cucsStorageEnclosureFsmStageInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 117, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmStageInstanceId.setStatus('current')
+cucsStorageEnclosureFsmStageDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 117, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmStageDn.setStatus('current')
+cucsStorageEnclosureFsmStageRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 117, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmStageRn.setStatus('current')
+cucsStorageEnclosureFsmStageDescrData = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 117, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmStageDescrData.setStatus('current')
+cucsStorageEnclosureFsmStageLastUpdateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 117, 1, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmStageLastUpdateTime.setStatus('current')
+cucsStorageEnclosureFsmStageName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 117, 1, 6), CucsStorageEnclosureFsmStageName()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmStageName.setStatus('current')
+cucsStorageEnclosureFsmStageOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 117, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmStageOrder.setStatus('current')
+cucsStorageEnclosureFsmStageRetry = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 117, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmStageRetry.setStatus('current')
+cucsStorageEnclosureFsmStageStageStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 117, 1, 9), CucsFsmFsmStageStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmStageStageStatus.setStatus('current')
+cucsStorageEnclosureFsmTaskTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 118), )
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmTaskTable.setStatus('current')
+cucsStorageEnclosureFsmTaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 118, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageEnclosureFsmTaskInstanceId"))
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmTaskEntry.setStatus('current')
+cucsStorageEnclosureFsmTaskInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 118, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmTaskInstanceId.setStatus('current')
+cucsStorageEnclosureFsmTaskDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 118, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmTaskDn.setStatus('current')
+cucsStorageEnclosureFsmTaskRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 118, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmTaskRn.setStatus('current')
+cucsStorageEnclosureFsmTaskCompletion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 118, 1, 4), CucsFsmCompletion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmTaskCompletion.setStatus('current')
+cucsStorageEnclosureFsmTaskFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 118, 1, 5), CucsFsmFlags()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmTaskFlags.setStatus('current')
+cucsStorageEnclosureFsmTaskItem = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 118, 1, 6), CucsStorageEnclosureFsmTaskItem()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmTaskItem.setStatus('current')
+cucsStorageEnclosureFsmTaskSeqId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 118, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureFsmTaskSeqId.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111), )
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigTable.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageEnclosureLocalDiskConfigInstanceId"))
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigEntry.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigInstanceId.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigDn.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigRn.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigBlockSize.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigConnectionProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 5), CucsStorageConnectionProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigConnectionProtocol.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigDeviceType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 6), CucsStorageTechnology()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigDeviceType.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigFirmwareVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigFirmwareVersion.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigId.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigLinkSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 9), CucsStorageLinkSpeed()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigLinkSpeed.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigLinkState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 10), CucsStorageEpLinkState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigLinkState.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigLinkStateReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigLinkStateReason.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigModel.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigNumberOfBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 13), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigNumberOfBlocks.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 14), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigOperQualifierReason.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 15), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigOperability.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigPhysicalBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 16), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigPhysicalBlockSize.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigPowerState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 17), CucsStoragePowerState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigPowerState.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 18), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigPresence.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 19), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigRevision.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigScsiDiskState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 20), CucsSesScsiDriveStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigScsiDiskState.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 21), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigSerial.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 22), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigSize.setStatus('current')
+cucsStorageEnclosureLocalDiskConfigVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 111, 1, 23), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEnclosureLocalDiskConfigVendor.setStatus('current')
+cucsStorageEpUserTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 18), )
+if mibBuilder.loadTexts: cucsStorageEpUserTable.setStatus('current')
+cucsStorageEpUserEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 18, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageEpUserInstanceId"))
+if mibBuilder.loadTexts: cucsStorageEpUserEntry.setStatus('current')
+cucsStorageEpUserInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 18, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageEpUserInstanceId.setStatus('current')
+cucsStorageEpUserDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 18, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEpUserDn.setStatus('current')
+cucsStorageEpUserRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 18, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEpUserRn.setStatus('current')
+cucsStorageEpUserConfigState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 18, 1, 4), CucsAaaConfigState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEpUserConfigState.setStatus('current')
+cucsStorageEpUserConfigStatusMessage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 18, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEpUserConfigStatusMessage.setStatus('current')
+cucsStorageEpUserDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 18, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEpUserDescr.setStatus('current')
+cucsStorageEpUserDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 18, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEpUserDomain.setStatus('current')
+cucsStorageEpUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 18, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEpUserName.setStatus('current')
+cucsStorageEpUserPriv = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 18, 1, 9), CucsStorageEpAccess()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEpUserPriv.setStatus('current')
+cucsStorageEpUserPwd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 18, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEpUserPwd.setStatus('current')
+cucsStorageEpUserPwdSet = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 18, 1, 11), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEpUserPwdSet.setStatus('current')
+cucsStorageEtherIfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 19), )
+if mibBuilder.loadTexts: cucsStorageEtherIfTable.setStatus('current')
+cucsStorageEtherIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 19, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageEtherIfInstanceId"))
+if mibBuilder.loadTexts: cucsStorageEtherIfEntry.setStatus('current')
+cucsStorageEtherIfInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 19, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageEtherIfInstanceId.setStatus('current')
+cucsStorageEtherIfDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 19, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEtherIfDn.setStatus('current')
+cucsStorageEtherIfRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 19, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEtherIfRn.setStatus('current')
+cucsStorageEtherIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 19, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEtherIfName.setStatus('current')
+cucsStorageEtherIfVlanType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 19, 1, 5), CucsStorageEtherIfVlanType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageEtherIfVlanType.setStatus('current')
+cucsStorageFcIfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 20), )
+if mibBuilder.loadTexts: cucsStorageFcIfTable.setStatus('current')
+cucsStorageFcIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 20, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageFcIfInstanceId"))
+if mibBuilder.loadTexts: cucsStorageFcIfEntry.setStatus('current')
+cucsStorageFcIfInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 20, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageFcIfInstanceId.setStatus('current')
+cucsStorageFcIfDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 20, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFcIfDn.setStatus('current')
+cucsStorageFcIfRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 20, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFcIfRn.setStatus('current')
+cucsStorageFcIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 20, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFcIfName.setStatus('current')
+cucsStorageFcTargetEpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 21), )
+if mibBuilder.loadTexts: cucsStorageFcTargetEpTable.setStatus('current')
+cucsStorageFcTargetEpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 21, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageFcTargetEpInstanceId"))
+if mibBuilder.loadTexts: cucsStorageFcTargetEpEntry.setStatus('current')
+cucsStorageFcTargetEpInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 21, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageFcTargetEpInstanceId.setStatus('current')
+cucsStorageFcTargetEpDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 21, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFcTargetEpDn.setStatus('current')
+cucsStorageFcTargetEpRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 21, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFcTargetEpRn.setStatus('current')
+cucsStorageFcTargetEpDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 21, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFcTargetEpDescr.setStatus('current')
+cucsStorageFcTargetEpPath = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 21, 1, 5), CucsStorageTargetPath()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFcTargetEpPath.setStatus('current')
+cucsStorageFcTargetEpTargetwwpn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 21, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFcTargetEpTargetwwpn.setStatus('current')
+cucsStorageFcTargetIfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 22), )
+if mibBuilder.loadTexts: cucsStorageFcTargetIfTable.setStatus('current')
+cucsStorageFcTargetIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 22, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageFcTargetIfInstanceId"))
+if mibBuilder.loadTexts: cucsStorageFcTargetIfEntry.setStatus('current')
+cucsStorageFcTargetIfInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 22, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageFcTargetIfInstanceId.setStatus('current')
+cucsStorageFcTargetIfDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 22, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFcTargetIfDn.setStatus('current')
+cucsStorageFcTargetIfRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 22, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFcTargetIfRn.setStatus('current')
+cucsStorageFcTargetIfId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 22, 1, 4), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFcTargetIfId.setStatus('current')
+cucsStorageFcTargetIfProt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 22, 1, 5), CucsStorageProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFcTargetIfProt.setStatus('current')
+cucsStorageFlexFlashCardTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34), )
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardTable.setStatus('current')
+cucsStorageFlexFlashCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageFlexFlashCardInstanceId"))
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardEntry.setStatus('current')
+cucsStorageFlexFlashCardInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardInstanceId.setStatus('current')
+cucsStorageFlexFlashCardDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardDn.setStatus('current')
+cucsStorageFlexFlashCardRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardRn.setStatus('current')
+cucsStorageFlexFlashCardBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardBlockSize.setStatus('current')
+cucsStorageFlexFlashCardCardHealth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 5), CucsStorageFFCardHealth()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardCardHealth.setStatus('current')
+cucsStorageFlexFlashCardCardMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 6), CucsStorageFFCardMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardCardMode.setStatus('current')
+cucsStorageFlexFlashCardCardType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardCardType.setStatus('current')
+cucsStorageFlexFlashCardConnectionProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 8), CucsStorageConnectionProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardConnectionProtocol.setStatus('current')
+cucsStorageFlexFlashCardControllerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardControllerIndex.setStatus('current')
+cucsStorageFlexFlashCardId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 10), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardId.setStatus('current')
+cucsStorageFlexFlashCardMfgDate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardMfgDate.setStatus('current')
+cucsStorageFlexFlashCardMfgId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardMfgId.setStatus('current')
+cucsStorageFlexFlashCardModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 13), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardModel.setStatus('current')
+cucsStorageFlexFlashCardNumberOfBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 14), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardNumberOfBlocks.setStatus('current')
+cucsStorageFlexFlashCardOemId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 15), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardOemId.setStatus('current')
+cucsStorageFlexFlashCardOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 16), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardOperQualifierReason.setStatus('current')
+cucsStorageFlexFlashCardOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 17), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardOperability.setStatus('current')
+cucsStorageFlexFlashCardPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 18), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardPresence.setStatus('current')
+cucsStorageFlexFlashCardReadIOErrorCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 19), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardReadIOErrorCount.setStatus('current')
+cucsStorageFlexFlashCardRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 20), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardRevision.setStatus('current')
+cucsStorageFlexFlashCardSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 21), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardSerial.setStatus('current')
+cucsStorageFlexFlashCardSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 22), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardSize.setStatus('current')
+cucsStorageFlexFlashCardSlotNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 23), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardSlotNumber.setStatus('current')
+cucsStorageFlexFlashCardVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 24), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardVendor.setStatus('current')
+cucsStorageFlexFlashCardWriteEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 25), CucsStorageFFCardWriteEnable()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardWriteEnable.setStatus('current')
+cucsStorageFlexFlashCardWriteIOErrorCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 26), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardWriteIOErrorCount.setStatus('current')
+cucsStorageFlexFlashCardCardState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 27), CucsStorageFFCardState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardCardState.setStatus('current')
+cucsStorageFlexFlashCardCardSync = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 28), CucsStorageFFCardSync()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardCardSync.setStatus('current')
+cucsStorageFlexFlashCardDrivesEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 29), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardDrivesEnabled.setStatus('current')
+cucsStorageFlexFlashCardPartitionCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 30), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardPartitionCount.setStatus('current')
+cucsStorageFlexFlashCardReadErrorThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 31), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardReadErrorThreshold.setStatus('current')
+cucsStorageFlexFlashCardSignature = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 32), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardSignature.setStatus('current')
+cucsStorageFlexFlashCardWriteErrorThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 33), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardWriteErrorThreshold.setStatus('current')
+cucsStorageFlexFlashCardPhysicalBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 34, 1, 34), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashCardPhysicalBlockSize.setStatus('current')
+cucsStorageFlexFlashControllerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35), )
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerTable.setStatus('current')
+cucsStorageFlexFlashControllerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageFlexFlashControllerInstanceId"))
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerEntry.setStatus('current')
+cucsStorageFlexFlashControllerInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerInstanceId.setStatus('current')
+cucsStorageFlexFlashControllerDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerDn.setStatus('current')
+cucsStorageFlexFlashControllerRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerRn.setStatus('current')
+cucsStorageFlexFlashControllerControllerHealth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 4), CucsStorageFFControllerHealth()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerControllerHealth.setStatus('current')
+cucsStorageFlexFlashControllerControllerState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 5), CucsStorageFFControllerState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerControllerState.setStatus('current')
+cucsStorageFlexFlashControllerFlexFlashType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 6), CucsStorageFFType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFlexFlashType.setStatus('current')
+cucsStorageFlexFlashControllerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 7), CucsStorageFlexFlashControllerId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerId.setStatus('current')
+cucsStorageFlexFlashControllerModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerModel.setStatus('current')
+cucsStorageFlexFlashControllerOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerOperQualifierReason.setStatus('current')
+cucsStorageFlexFlashControllerOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 10), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerOperState.setStatus('current')
+cucsStorageFlexFlashControllerOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 11), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerOperability.setStatus('current')
+cucsStorageFlexFlashControllerPciAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerPciAddr.setStatus('current')
+cucsStorageFlexFlashControllerPciSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 13), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerPciSlot.setStatus('current')
+cucsStorageFlexFlashControllerPerf = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 14), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerPerf.setStatus('current')
+cucsStorageFlexFlashControllerPhysicalDriveCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 15), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerPhysicalDriveCount.setStatus('current')
+cucsStorageFlexFlashControllerPower = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 16), CucsEquipmentPowerState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerPower.setStatus('current')
+cucsStorageFlexFlashControllerPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 17), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerPresence.setStatus('current')
+cucsStorageFlexFlashControllerPrimarySlotNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 18), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerPrimarySlotNumber.setStatus('current')
+cucsStorageFlexFlashControllerRaidSyncSupport = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 19), CucsStorageFFRaidSyncSupport()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerRaidSyncSupport.setStatus('current')
+cucsStorageFlexFlashControllerReadErrorThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 20), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerReadErrorThreshold.setStatus('current')
+cucsStorageFlexFlashControllerRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 21), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerRevision.setStatus('current')
+cucsStorageFlexFlashControllerSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 22), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerSerial.setStatus('current')
+cucsStorageFlexFlashControllerThermal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 23), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerThermal.setStatus('current')
+cucsStorageFlexFlashControllerType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 24), CucsStorageControllerType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerType.setStatus('current')
+cucsStorageFlexFlashControllerVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 25), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerVendor.setStatus('current')
+cucsStorageFlexFlashControllerVirtualDriveCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 26), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerVirtualDriveCount.setStatus('current')
+cucsStorageFlexFlashControllerVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 27), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerVoltage.setStatus('current')
+cucsStorageFlexFlashControllerWriteErrorThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 28), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerWriteErrorThreshold.setStatus('current')
+cucsStorageFlexFlashControllerLocationDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 29), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerLocationDn.setStatus('current')
+cucsStorageFlexFlashControllerAdminSlotNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 30), CucsStorageFFSlotENUM()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerAdminSlotNumber.setStatus('current')
+cucsStorageFlexFlashControllerConfiguredMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 31), CucsStorageOperatingModeType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerConfiguredMode.setStatus('current')
+cucsStorageFlexFlashControllerFirmwareVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 32), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFirmwareVersion.setStatus('current')
+cucsStorageFlexFlashControllerFsmDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 33), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmDescr.setStatus('current')
+cucsStorageFlexFlashControllerFsmPrev = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 34), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmPrev.setStatus('current')
+cucsStorageFlexFlashControllerFsmProgr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 35), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmProgr.setStatus('current')
+cucsStorageFlexFlashControllerFsmRmtInvErrCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 36), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmRmtInvErrCode.setStatus('current')
+cucsStorageFlexFlashControllerFsmRmtInvErrDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 37), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmRmtInvErrDescr.setStatus('current')
+cucsStorageFlexFlashControllerFsmRmtInvRslt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 38), CucsConditionRemoteInvRslt()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmRmtInvRslt.setStatus('current')
+cucsStorageFlexFlashControllerFsmStageDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 39), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmStageDescr.setStatus('current')
+cucsStorageFlexFlashControllerFsmStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 40), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmStamp.setStatus('current')
+cucsStorageFlexFlashControllerFsmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 41), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmStatus.setStatus('current')
+cucsStorageFlexFlashControllerFsmTry = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 42), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmTry.setStatus('current')
+cucsStorageFlexFlashControllerHasError = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 43), CucsStorageFFHasError()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerHasError.setStatus('current')
+cucsStorageFlexFlashControllerIsCardMismatch = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 44), CucsStorageFFCardSizeMismatch()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerIsCardMismatch.setStatus('current')
+cucsStorageFlexFlashControllerIsFormatFSMRunning = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 45), CucsStorageFFFormatRunning()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerIsFormatFSMRunning.setStatus('current')
+cucsStorageFlexFlashControllerOperatingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 46), CucsStorageOperatingModeType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerOperatingMode.setStatus('current')
+cucsStorageFlexFlashControllerOperationRequest = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 47), CucsStorageOperationRequestType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerOperationRequest.setStatus('current')
+cucsStorageFlexFlashControllerSubType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 35, 1, 48), CucsStorageControllerSubType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerSubType.setStatus('current')
+cucsStorageFlexFlashControllerFsmTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 40), )
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmTable.setStatus('current')
+cucsStorageFlexFlashControllerFsmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 40, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageFlexFlashControllerFsmInstanceId"))
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmEntry.setStatus('current')
+cucsStorageFlexFlashControllerFsmInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 40, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmInstanceId.setStatus('current')
+cucsStorageFlexFlashControllerFsmDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 40, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmDn.setStatus('current')
+cucsStorageFlexFlashControllerFsmRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 40, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmRn.setStatus('current')
+cucsStorageFlexFlashControllerFsmCompletionTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 40, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmCompletionTime.setStatus('current')
+cucsStorageFlexFlashControllerFsmCurrentFsm = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 40, 1, 5), CucsStorageFlexFlashControllerFsmCurrentFsm()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmCurrentFsm.setStatus('current')
+cucsStorageFlexFlashControllerFsmDescrData = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 40, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmDescrData.setStatus('current')
+cucsStorageFlexFlashControllerFsmFsmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 40, 1, 7), CucsFsmFsmStageStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmFsmStatus.setStatus('current')
+cucsStorageFlexFlashControllerFsmProgress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 40, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmProgress.setStatus('current')
+cucsStorageFlexFlashControllerFsmRmtErrCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 40, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmRmtErrCode.setStatus('current')
+cucsStorageFlexFlashControllerFsmRmtErrDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 40, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmRmtErrDescr.setStatus('current')
+cucsStorageFlexFlashControllerFsmRmtRslt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 40, 1, 11), CucsConditionRemoteInvRslt()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmRmtRslt.setStatus('current')
+cucsStorageFlexFlashControllerFsmStageTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 41), )
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmStageTable.setStatus('current')
+cucsStorageFlexFlashControllerFsmStageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 41, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageFlexFlashControllerFsmStageInstanceId"))
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmStageEntry.setStatus('current')
+cucsStorageFlexFlashControllerFsmStageInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 41, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmStageInstanceId.setStatus('current')
+cucsStorageFlexFlashControllerFsmStageDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 41, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmStageDn.setStatus('current')
+cucsStorageFlexFlashControllerFsmStageRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 41, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmStageRn.setStatus('current')
+cucsStorageFlexFlashControllerFsmStageDescrData = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 41, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmStageDescrData.setStatus('current')
+cucsStorageFlexFlashControllerFsmStageLastUpdateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 41, 1, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmStageLastUpdateTime.setStatus('current')
+cucsStorageFlexFlashControllerFsmStageName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 41, 1, 6), CucsStorageFlexFlashControllerFsmStageName()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmStageName.setStatus('current')
+cucsStorageFlexFlashControllerFsmStageOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 41, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmStageOrder.setStatus('current')
+cucsStorageFlexFlashControllerFsmStageRetry = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 41, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmStageRetry.setStatus('current')
+cucsStorageFlexFlashControllerFsmStageStageStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 41, 1, 9), CucsFsmFsmStageStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmStageStageStatus.setStatus('current')
+cucsStorageFlexFlashControllerFsmTaskTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 42), )
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmTaskTable.setStatus('current')
+cucsStorageFlexFlashControllerFsmTaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 42, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageFlexFlashControllerFsmTaskInstanceId"))
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmTaskEntry.setStatus('current')
+cucsStorageFlexFlashControllerFsmTaskInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 42, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmTaskInstanceId.setStatus('current')
+cucsStorageFlexFlashControllerFsmTaskDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 42, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmTaskDn.setStatus('current')
+cucsStorageFlexFlashControllerFsmTaskRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 42, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmTaskRn.setStatus('current')
+cucsStorageFlexFlashControllerFsmTaskCompletion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 42, 1, 4), CucsFsmCompletion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmTaskCompletion.setStatus('current')
+cucsStorageFlexFlashControllerFsmTaskFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 42, 1, 5), CucsFsmFlags()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmTaskFlags.setStatus('current')
+cucsStorageFlexFlashControllerFsmTaskItem = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 42, 1, 6), CucsStorageFlexFlashControllerFsmTaskItem()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmTaskItem.setStatus('current')
+cucsStorageFlexFlashControllerFsmTaskSeqId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 42, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashControllerFsmTaskSeqId.setStatus('current')
+cucsStorageFlexFlashDriveTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36), )
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveTable.setStatus('current')
+cucsStorageFlexFlashDriveEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageFlexFlashDriveInstanceId"))
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveEntry.setStatus('current')
+cucsStorageFlexFlashDriveInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveInstanceId.setStatus('current')
+cucsStorageFlexFlashDriveDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveDn.setStatus('current')
+cucsStorageFlexFlashDriveRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveRn.setStatus('current')
+cucsStorageFlexFlashDriveBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveBlockSize.setStatus('current')
+cucsStorageFlexFlashDriveConnectionProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 5), CucsStorageConnectionProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveConnectionProtocol.setStatus('current')
+cucsStorageFlexFlashDriveControllerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveControllerIndex.setStatus('current')
+cucsStorageFlexFlashDriveDriveState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 7), CucsStorageFFDriveState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveDriveState.setStatus('current')
+cucsStorageFlexFlashDriveDriveType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 8), CucsStorageFFDriveType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveDriveType.setStatus('current')
+cucsStorageFlexFlashDriveId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveId.setStatus('current')
+cucsStorageFlexFlashDriveModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveModel.setStatus('current')
+cucsStorageFlexFlashDriveName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveName.setStatus('current')
+cucsStorageFlexFlashDriveNumberOfBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 12), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveNumberOfBlocks.setStatus('current')
+cucsStorageFlexFlashDriveOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 13), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveOperQualifierReason.setStatus('current')
+cucsStorageFlexFlashDriveOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 14), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveOperability.setStatus('current')
+cucsStorageFlexFlashDrivePresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 15), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDrivePresence.setStatus('current')
+cucsStorageFlexFlashDriveRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 16), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveRevision.setStatus('current')
+cucsStorageFlexFlashDriveSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 17), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveSerial.setStatus('current')
+cucsStorageFlexFlashDriveSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 18), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveSize.setStatus('current')
+cucsStorageFlexFlashDriveSlotNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 19), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveSlotNumber.setStatus('current')
+cucsStorageFlexFlashDriveVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 20), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveVendor.setStatus('current')
+cucsStorageFlexFlashDriveVisible = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 21), CucsStorageFFDriveVisible()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveVisible.setStatus('current')
+cucsStorageFlexFlashDriveRemovable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 22), CucsStorageFFDriveRemovable()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveRemovable.setStatus('current')
+cucsStorageFlexFlashDriveRWType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 23), CucsStorageFFRWType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveRWType.setStatus('current')
+cucsStorageFlexFlashDriveLastOperation = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 24), CucsStorageOperationStateType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveLastOperation.setStatus('current')
+cucsStorageFlexFlashDriveOperationState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 25), CucsStorageOperationStateType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDriveOperationState.setStatus('current')
+cucsStorageFlexFlashDrivePhysicalBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 36, 1, 26), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashDrivePhysicalBlockSize.setStatus('current')
+cucsStorageFlexFlashVirtualDriveTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37), )
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveTable.setStatus('current')
+cucsStorageFlexFlashVirtualDriveEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageFlexFlashVirtualDriveInstanceId"))
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveEntry.setStatus('current')
+cucsStorageFlexFlashVirtualDriveInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveInstanceId.setStatus('current')
+cucsStorageFlexFlashVirtualDriveDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveDn.setStatus('current')
+cucsStorageFlexFlashVirtualDriveRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveRn.setStatus('current')
+cucsStorageFlexFlashVirtualDriveBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveBlockSize.setStatus('current')
+cucsStorageFlexFlashVirtualDriveConnectionProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 5), CucsStorageConnectionProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveConnectionProtocol.setStatus('current')
+cucsStorageFlexFlashVirtualDriveId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveId.setStatus('current')
+cucsStorageFlexFlashVirtualDriveModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveModel.setStatus('current')
+cucsStorageFlexFlashVirtualDriveNumberOfBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 8), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveNumberOfBlocks.setStatus('current')
+cucsStorageFlexFlashVirtualDriveOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveOperQualifierReason.setStatus('current')
+cucsStorageFlexFlashVirtualDriveOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 10), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveOperability.setStatus('current')
+cucsStorageFlexFlashVirtualDrivePresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 11), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDrivePresence.setStatus('current')
+cucsStorageFlexFlashVirtualDriveRaidHealth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 12), CucsStorageFFRAIDHealth()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveRaidHealth.setStatus('current')
+cucsStorageFlexFlashVirtualDriveRaidState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 13), CucsStorageFFRAIDState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveRaidState.setStatus('current')
+cucsStorageFlexFlashVirtualDriveRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 14), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveRevision.setStatus('current')
+cucsStorageFlexFlashVirtualDriveSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 15), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveSerial.setStatus('current')
+cucsStorageFlexFlashVirtualDriveSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 16), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveSize.setStatus('current')
+cucsStorageFlexFlashVirtualDriveType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 17), CucsStorageLunType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveType.setStatus('current')
+cucsStorageFlexFlashVirtualDriveVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 18), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDriveVendor.setStatus('current')
+cucsStorageFlexFlashVirtualDrivePhysicalBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 37, 1, 19), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageFlexFlashVirtualDrivePhysicalBlockSize.setStatus('current')
+cucsStorageHddMotherBoardTempStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112), )
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsTable.setStatus('current')
+cucsStorageHddMotherBoardTempStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageHddMotherBoardTempStatsInstanceId"))
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsEntry.setStatus('current')
+cucsStorageHddMotherBoardTempStatsInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsInstanceId.setStatus('current')
+cucsStorageHddMotherBoardTempStatsDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsDn.setStatus('current')
+cucsStorageHddMotherBoardTempStatsRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsRn.setStatus('current')
+cucsStorageHddMotherBoardTempStatsIntervals = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsIntervals.setStatus('current')
+cucsStorageHddMotherBoardTempStatsLeftInletTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsLeftInletTemp.setStatus('current')
+cucsStorageHddMotherBoardTempStatsLeftInletTempAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsLeftInletTempAvg.setStatus('current')
+cucsStorageHddMotherBoardTempStatsLeftInletTempMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsLeftInletTempMax.setStatus('current')
+cucsStorageHddMotherBoardTempStatsLeftInletTempMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsLeftInletTempMin.setStatus('current')
+cucsStorageHddMotherBoardTempStatsLeftOutletTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsLeftOutletTemp.setStatus('current')
+cucsStorageHddMotherBoardTempStatsLeftOutletTempAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsLeftOutletTempAvg.setStatus('current')
+cucsStorageHddMotherBoardTempStatsLeftOutletTempMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsLeftOutletTempMax.setStatus('current')
+cucsStorageHddMotherBoardTempStatsLeftOutletTempMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsLeftOutletTempMin.setStatus('current')
+cucsStorageHddMotherBoardTempStatsRightInletTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsRightInletTemp.setStatus('current')
+cucsStorageHddMotherBoardTempStatsRightInletTempAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsRightInletTempAvg.setStatus('current')
+cucsStorageHddMotherBoardTempStatsRightInletTempMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 16), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsRightInletTempMax.setStatus('current')
+cucsStorageHddMotherBoardTempStatsRightInletTempMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsRightInletTempMin.setStatus('current')
+cucsStorageHddMotherBoardTempStatsRightOutletTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 18), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsRightOutletTemp.setStatus('current')
+cucsStorageHddMotherBoardTempStatsRightOutletTempAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 19), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsRightOutletTempAvg.setStatus('current')
+cucsStorageHddMotherBoardTempStatsRightOutletTempMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 20), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsRightOutletTempMax.setStatus('current')
+cucsStorageHddMotherBoardTempStatsRightOutletTempMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 21), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsRightOutletTempMin.setStatus('current')
+cucsStorageHddMotherBoardTempStatsSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 23), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsSuspect.setStatus('current')
+cucsStorageHddMotherBoardTempStatsThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 24), CucsStorageHddMotherBoardTempStatsThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsThresholded.setStatus('current')
+cucsStorageHddMotherBoardTempStatsTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 25), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsTimeCollected.setStatus('current')
+cucsStorageHddMotherBoardTempStatsUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 112, 1, 26), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsUpdate.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113), )
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistTable.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageHddMotherBoardTempStatsHistInstanceId"))
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistEntry.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistInstanceId.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistDn.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistRn.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 4), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistId.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistLeftInletTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistLeftInletTemp.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistLeftInletTempAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistLeftInletTempAvg.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistLeftInletTempMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistLeftInletTempMax.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistLeftInletTempMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistLeftInletTempMin.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistLeftOutletTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistLeftOutletTemp.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistLeftOutletTempAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistLeftOutletTempAvg.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMax.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMin.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistMostRecent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 13), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistMostRecent.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistRightInletTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistRightInletTemp.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistRightInletTempAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistRightInletTempAvg.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistRightInletTempMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 16), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistRightInletTempMax.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistRightInletTempMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistRightInletTempMin.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistRightOutletTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 18), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistRightOutletTemp.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistRightOutletTempAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 19), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistRightOutletTempAvg.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistRightOutletTempMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 20), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistRightOutletTempMax.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistRightOutletTempMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 21), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistRightOutletTempMin.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 22), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistSuspect.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 23), CucsStorageHddMotherBoardTempStatsHistThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistThresholded.setStatus('current')
+cucsStorageHddMotherBoardTempStatsHistTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 113, 1, 24), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageHddMotherBoardTempStatsHistTimeCollected.setStatus('current')
+cucsStorageIScsiTargetIfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 23), )
+if mibBuilder.loadTexts: cucsStorageIScsiTargetIfTable.setStatus('current')
+cucsStorageIScsiTargetIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 23, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageIScsiTargetIfInstanceId"))
+if mibBuilder.loadTexts: cucsStorageIScsiTargetIfEntry.setStatus('current')
+cucsStorageIScsiTargetIfInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 23, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageIScsiTargetIfInstanceId.setStatus('current')
+cucsStorageIScsiTargetIfDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 23, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIScsiTargetIfDn.setStatus('current')
+cucsStorageIScsiTargetIfRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 23, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIScsiTargetIfRn.setStatus('current')
+cucsStorageIScsiTargetIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 23, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIScsiTargetIfName.setStatus('current')
+cucsStorageIScsiTargetIfProt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 23, 1, 5), CucsStorageProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIScsiTargetIfProt.setStatus('current')
+cucsStorageIniGroupTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24), )
+if mibBuilder.loadTexts: cucsStorageIniGroupTable.setStatus('current')
+cucsStorageIniGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageIniGroupInstanceId"))
+if mibBuilder.loadTexts: cucsStorageIniGroupEntry.setStatus('current')
+cucsStorageIniGroupInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageIniGroupInstanceId.setStatus('current')
+cucsStorageIniGroupDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIniGroupDn.setStatus('current')
+cucsStorageIniGroupRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIniGroupRn.setStatus('current')
+cucsStorageIniGroupDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIniGroupDescr.setStatus('current')
+cucsStorageIniGroupGroupPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIniGroupGroupPolicyName.setStatus('current')
+cucsStorageIniGroupIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIniGroupIntId.setStatus('current')
+cucsStorageIniGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIniGroupName.setStatus('current')
+cucsStorageIniGroupOperProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1, 8), CucsStorageIniGroupOperProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIniGroupOperProtocol.setStatus('current')
+cucsStorageIniGroupOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1, 9), CucsStorageIniGroupOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIniGroupOwner.setStatus('current')
+cucsStorageIniGroupPolicyLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1, 10), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIniGroupPolicyLevel.setStatus('current')
+cucsStorageIniGroupPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIniGroupPolicyName.setStatus('current')
+cucsStorageIniGroupPolicyOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1, 12), CucsPolicyPolicyOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIniGroupPolicyOwner.setStatus('current')
+cucsStorageIniGroupProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1, 13), CucsStorageIniGroupProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIniGroupProtocol.setStatus('current')
+cucsStorageIniGroupRmtDiskCfgName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1, 14), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIniGroupRmtDiskCfgName.setStatus('current')
+cucsStorageIniGroupOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 24, 1, 15), CucsStorageOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageIniGroupOperState.setStatus('current')
+cucsStorageInitiatorTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 25), )
+if mibBuilder.loadTexts: cucsStorageInitiatorTable.setStatus('current')
+cucsStorageInitiatorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 25, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageInitiatorInstanceId"))
+if mibBuilder.loadTexts: cucsStorageInitiatorEntry.setStatus('current')
+cucsStorageInitiatorInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 25, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageInitiatorInstanceId.setStatus('current')
+cucsStorageInitiatorDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 25, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageInitiatorDn.setStatus('current')
+cucsStorageInitiatorRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 25, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageInitiatorRn.setStatus('current')
+cucsStorageInitiatorDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 25, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageInitiatorDescr.setStatus('current')
+cucsStorageInitiatorIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 25, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageInitiatorIntId.setStatus('current')
+cucsStorageInitiatorName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 25, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageInitiatorName.setStatus('current')
+cucsStorageInitiatorOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 25, 1, 7), CucsStorageOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageInitiatorOperState.setStatus('current')
+cucsStorageInitiatorPolicyLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 25, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageInitiatorPolicyLevel.setStatus('current')
+cucsStorageInitiatorPolicyOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 25, 1, 9), CucsPolicyPolicyOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageInitiatorPolicyOwner.setStatus('current')
+cucsStorageInitiatorDuplicateTarget = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 25, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageInitiatorDuplicateTarget.setStatus('current')
+cucsStorageItemTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 3), )
+if mibBuilder.loadTexts: cucsStorageItemTable.setStatus('current')
+cucsStorageItemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 3, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageItemInstanceId"))
+if mibBuilder.loadTexts: cucsStorageItemEntry.setStatus('current')
+cucsStorageItemInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 3, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageItemInstanceId.setStatus('current')
+cucsStorageItemDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 3, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageItemDn.setStatus('current')
+cucsStorageItemRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 3, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageItemRn.setStatus('current')
+cucsStorageItemName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 3, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageItemName.setStatus('current')
+cucsStorageItemSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 3, 1, 5), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageItemSize.setStatus('current')
+cucsStorageItemUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 3, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageItemUsed.setStatus('current')
+cucsStorageItemOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 3, 1, 7), CucsStorageFileSystemStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageItemOperState.setStatus('current')
+cucsStorageItemAlarmType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 3, 1, 13), CucsStorageAlarmType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageItemAlarmType.setStatus('current')
+cucsStorageLocalDiskTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4), )
+if mibBuilder.loadTexts: cucsStorageLocalDiskTable.setStatus('current')
+cucsStorageLocalDiskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageLocalDiskInstanceId"))
+if mibBuilder.loadTexts: cucsStorageLocalDiskEntry.setStatus('current')
+cucsStorageLocalDiskInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageLocalDiskInstanceId.setStatus('current')
+cucsStorageLocalDiskDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskDn.setStatus('current')
+cucsStorageLocalDiskRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskRn.setStatus('current')
+cucsStorageLocalDiskBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskBlockSize.setStatus('current')
+cucsStorageLocalDiskConnectionProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 5), CucsStorageConnectionProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConnectionProtocol.setStatus('current')
+cucsStorageLocalDiskId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskId.setStatus('current')
+cucsStorageLocalDiskModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskModel.setStatus('current')
+cucsStorageLocalDiskNumberOfBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 8), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskNumberOfBlocks.setStatus('current')
+cucsStorageLocalDiskOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 9), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskOperability.setStatus('current')
+cucsStorageLocalDiskPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 10), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskPresence.setStatus('current')
+cucsStorageLocalDiskRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskRevision.setStatus('current')
+cucsStorageLocalDiskSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskSerial.setStatus('current')
+cucsStorageLocalDiskSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 13), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskSize.setStatus('current')
+cucsStorageLocalDiskVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 14), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskVendor.setStatus('current')
+cucsStorageLocalDiskLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 15), CucsFsmLifecycle()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskLc.setStatus('current')
+cucsStorageLocalDiskOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 16), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskOperQualifierReason.setStatus('current')
+cucsStorageLocalDiskDeviceType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 17), CucsStorageTechnology()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskDeviceType.setStatus('current')
+cucsStorageLocalDiskDiskState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 18), CucsStoragePDriveStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskDiskState.setStatus('current')
+cucsStorageLocalDiskLinkSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 19), CucsStorageLinkSpeed()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskLinkSpeed.setStatus('current')
+cucsStorageLocalDiskPowerState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 20), CucsStoragePowerState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskPowerState.setStatus('current')
+cucsStorageLocalDiskAdminAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 21), CucsStorageAdminActionType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskAdminAction.setStatus('current')
+cucsStorageLocalDiskAdminActionTrigger = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 22), CucsStorageAdminActionTrigger()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskAdminActionTrigger.setStatus('current')
+cucsStorageLocalDiskBootable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 23), CucsStorageBootableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskBootable.setStatus('current')
+cucsStorageLocalDiskConfigState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 24), CucsStorageConfigState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigState.setStatus('current')
+cucsStorageLocalDiskThermal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 25), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskThermal.setStatus('current')
+cucsStorageLocalDiskAdminVirtualDriveId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 26), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskAdminVirtualDriveId.setStatus('current')
+cucsStorageLocalDiskConfigCheckPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 27), CucsStorageConfigCheckPoint()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigCheckPoint.setStatus('current')
+cucsStorageLocalDiskLinkState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 28), CucsStorageEpLinkState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskLinkState.setStatus('current')
+cucsStorageLocalDiskLinkStateReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 29), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskLinkStateReason.setStatus('current')
+cucsStorageLocalDiskDiscoveredPath = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 30), CucsStorageLocalDiskDiscoveredPath()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskDiscoveredPath.setStatus('current')
+cucsStorageLocalDiskEncAssociation = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 31), CucsStorageEnclosureAssociation()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskEncAssociation.setStatus('current')
+cucsStorageLocalDiskPhysicalBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 32), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskPhysicalBlockSize.setStatus('current')
+cucsStorageLocalDiskRawSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 33), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskRawSize.setStatus('current')
+cucsStorageLocalDiskDeviceVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 34), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskDeviceVersion.setStatus('current')
+cucsStorageLocalDiskFsmDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 35), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmDescr.setStatus('current')
+cucsStorageLocalDiskFsmFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 36), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmFlags.setStatus('current')
+cucsStorageLocalDiskFsmPrev = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 37), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmPrev.setStatus('current')
+cucsStorageLocalDiskFsmProgr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 38), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmProgr.setStatus('current')
+cucsStorageLocalDiskFsmRmtInvErrCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 39), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmRmtInvErrCode.setStatus('current')
+cucsStorageLocalDiskFsmRmtInvErrDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 40), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmRmtInvErrDescr.setStatus('current')
+cucsStorageLocalDiskFsmRmtInvRslt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 41), CucsConditionRemoteInvRslt()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmRmtInvRslt.setStatus('current')
+cucsStorageLocalDiskFsmStageDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 42), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmStageDescr.setStatus('current')
+cucsStorageLocalDiskFsmStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 43), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmStamp.setStatus('current')
+cucsStorageLocalDiskFsmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 44), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmStatus.setStatus('current')
+cucsStorageLocalDiskFsmTry = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 45), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmTry.setStatus('current')
+cucsStorageLocalDiskVariantType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 46), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskVariantType.setStatus('current')
+cucsStorageLocalDiskAdminSecurityKey = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 47), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskAdminSecurityKey.setStatus('current')
+cucsStorageLocalDiskDriveState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 48), CucsStorageDriveFlags()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskDriveState.setStatus('current')
+cucsStorageLocalDiskErrDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 49), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskErrDescription.setStatus('current')
+cucsStorageLocalDiskNegotiatedWidth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 50), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskNegotiatedWidth.setStatus('current')
+cucsStorageLocalDiskMaxWidth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 4, 1, 51), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskMaxWidth.setStatus('current')
+cucsStorageLocalDiskConfigDefTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 5), )
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigDefTable.setStatus('current')
+cucsStorageLocalDiskConfigDefEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 5, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageLocalDiskConfigDefInstanceId"))
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigDefEntry.setStatus('current')
+cucsStorageLocalDiskConfigDefInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 5, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigDefInstanceId.setStatus('current')
+cucsStorageLocalDiskConfigDefDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 5, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigDefDn.setStatus('current')
+cucsStorageLocalDiskConfigDefRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 5, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigDefRn.setStatus('current')
+cucsStorageLocalDiskConfigDefDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 5, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigDefDescr.setStatus('current')
+cucsStorageLocalDiskConfigDefIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 5, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigDefIntId.setStatus('current')
+cucsStorageLocalDiskConfigDefMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 5, 1, 6), CucsStorageLocalDiskMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigDefMode.setStatus('current')
+cucsStorageLocalDiskConfigDefName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 5, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigDefName.setStatus('current')
+cucsStorageLocalDiskConfigDefProtectConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 5, 1, 8), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigDefProtectConfig.setStatus('current')
+cucsStorageLocalDiskConfigDefPolicyLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 5, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigDefPolicyLevel.setStatus('current')
+cucsStorageLocalDiskConfigDefPolicyOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 5, 1, 10), CucsPolicyPolicyOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigDefPolicyOwner.setStatus('current')
+cucsStorageLocalDiskConfigDefFlexFlashRAIDReportingState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 5, 1, 11), CucsStorageLocalDiskConfigFlexFlashRAIDReportingState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigDefFlexFlashRAIDReportingState.setStatus('current')
+cucsStorageLocalDiskConfigDefFlexFlashState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 5, 1, 12), CucsStorageLocalDiskConfigFlexFlashState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigDefFlexFlashState.setStatus('current')
+cucsStorageLocalDiskConfigPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 6), )
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigPolicyTable.setStatus('current')
+cucsStorageLocalDiskConfigPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 6, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageLocalDiskConfigPolicyInstanceId"))
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigPolicyEntry.setStatus('current')
+cucsStorageLocalDiskConfigPolicyInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 6, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigPolicyInstanceId.setStatus('current')
+cucsStorageLocalDiskConfigPolicyDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 6, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigPolicyDn.setStatus('current')
+cucsStorageLocalDiskConfigPolicyRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 6, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigPolicyRn.setStatus('current')
+cucsStorageLocalDiskConfigPolicyDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 6, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigPolicyDescr.setStatus('current')
+cucsStorageLocalDiskConfigPolicyIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 6, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigPolicyIntId.setStatus('current')
+cucsStorageLocalDiskConfigPolicyMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 6, 1, 6), CucsStorageLocalDiskMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigPolicyMode.setStatus('current')
+cucsStorageLocalDiskConfigPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 6, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigPolicyName.setStatus('current')
+cucsStorageLocalDiskConfigPolicyProtectConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 6, 1, 8), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigPolicyProtectConfig.setStatus('current')
+cucsStorageLocalDiskConfigPolicyPolicyLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 6, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigPolicyPolicyLevel.setStatus('current')
+cucsStorageLocalDiskConfigPolicyPolicyOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 6, 1, 10), CucsPolicyPolicyOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigPolicyPolicyOwner.setStatus('current')
+cucsStorageLocalDiskConfigPolicyFlexFlashRAIDReportingState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 6, 1, 11), CucsStorageLocalDiskConfigFlexFlashRAIDReportingState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigPolicyFlexFlashRAIDReportingState.setStatus('current')
+cucsStorageLocalDiskConfigPolicyFlexFlashState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 6, 1, 12), CucsStorageLocalDiskConfigFlexFlashState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskConfigPolicyFlexFlashState.setStatus('current')
+cucsStorageLocalDiskEpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 60), )
+if mibBuilder.loadTexts: cucsStorageLocalDiskEpTable.setStatus('current')
+cucsStorageLocalDiskEpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 60, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageLocalDiskEpInstanceId"))
+if mibBuilder.loadTexts: cucsStorageLocalDiskEpEntry.setStatus('current')
+cucsStorageLocalDiskEpInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 60, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageLocalDiskEpInstanceId.setStatus('current')
+cucsStorageLocalDiskEpDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 60, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskEpDn.setStatus('current')
+cucsStorageLocalDiskEpRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 60, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskEpRn.setStatus('current')
+cucsStorageLocalDiskEpDiskDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 60, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskEpDiskDn.setStatus('current')
+cucsStorageLocalDiskEpEncId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 60, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskEpEncId.setStatus('current')
+cucsStorageLocalDiskEpId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 60, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskEpId.setStatus('current')
+cucsStorageLocalDiskEpModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 60, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskEpModel.setStatus('current')
+cucsStorageLocalDiskEpRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 60, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskEpRevision.setStatus('current')
+cucsStorageLocalDiskEpSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 60, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskEpSerial.setStatus('current')
+cucsStorageLocalDiskEpVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 60, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskEpVendor.setStatus('current')
+cucsStorageLocalDiskEpBootable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 60, 1, 11), CucsStorageBootableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskEpBootable.setStatus('current')
+cucsStorageLocalDiskEpDiskState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 60, 1, 12), CucsStoragePDriveStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskEpDiskState.setStatus('current')
+cucsStorageLocalDiskEpLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 60, 1, 13), CucsFsmLifecycle()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskEpLc.setStatus('current')
+cucsStorageLocalDiskFsmTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 119), )
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmTable.setStatus('current')
+cucsStorageLocalDiskFsmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 119, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageLocalDiskFsmInstanceId"))
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmEntry.setStatus('current')
+cucsStorageLocalDiskFsmInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 119, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmInstanceId.setStatus('current')
+cucsStorageLocalDiskFsmDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 119, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmDn.setStatus('current')
+cucsStorageLocalDiskFsmRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 119, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmRn.setStatus('current')
+cucsStorageLocalDiskFsmCompletionTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 119, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmCompletionTime.setStatus('current')
+cucsStorageLocalDiskFsmCurrentFsm = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 119, 1, 5), CucsStorageLocalDiskFsmCurrentFsm()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmCurrentFsm.setStatus('current')
+cucsStorageLocalDiskFsmDescrData = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 119, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmDescrData.setStatus('current')
+cucsStorageLocalDiskFsmFsmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 119, 1, 7), CucsFsmFsmStageStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmFsmStatus.setStatus('current')
+cucsStorageLocalDiskFsmProgress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 119, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmProgress.setStatus('current')
+cucsStorageLocalDiskFsmRmtErrCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 119, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmRmtErrCode.setStatus('current')
+cucsStorageLocalDiskFsmRmtErrDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 119, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmRmtErrDescr.setStatus('current')
+cucsStorageLocalDiskFsmRmtRslt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 119, 1, 11), CucsConditionRemoteInvRslt()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmRmtRslt.setStatus('current')
+cucsStorageLocalDiskFsmStageTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 120), )
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmStageTable.setStatus('current')
+cucsStorageLocalDiskFsmStageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 120, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageLocalDiskFsmStageInstanceId"))
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmStageEntry.setStatus('current')
+cucsStorageLocalDiskFsmStageInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 120, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmStageInstanceId.setStatus('current')
+cucsStorageLocalDiskFsmStageDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 120, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmStageDn.setStatus('current')
+cucsStorageLocalDiskFsmStageRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 120, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmStageRn.setStatus('current')
+cucsStorageLocalDiskFsmStageDescrData = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 120, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmStageDescrData.setStatus('current')
+cucsStorageLocalDiskFsmStageLastUpdateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 120, 1, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmStageLastUpdateTime.setStatus('current')
+cucsStorageLocalDiskFsmStageName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 120, 1, 6), CucsStorageLocalDiskFsmStageName()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmStageName.setStatus('current')
+cucsStorageLocalDiskFsmStageOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 120, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmStageOrder.setStatus('current')
+cucsStorageLocalDiskFsmStageRetry = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 120, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmStageRetry.setStatus('current')
+cucsStorageLocalDiskFsmStageStageStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 120, 1, 9), CucsFsmFsmStageStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmStageStageStatus.setStatus('current')
+cucsStorageLocalDiskFsmTaskTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 121), )
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmTaskTable.setStatus('current')
+cucsStorageLocalDiskFsmTaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 121, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageLocalDiskFsmTaskInstanceId"))
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmTaskEntry.setStatus('current')
+cucsStorageLocalDiskFsmTaskInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 121, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmTaskInstanceId.setStatus('current')
+cucsStorageLocalDiskFsmTaskDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 121, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmTaskDn.setStatus('current')
+cucsStorageLocalDiskFsmTaskRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 121, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmTaskRn.setStatus('current')
+cucsStorageLocalDiskFsmTaskCompletion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 121, 1, 4), CucsFsmCompletion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmTaskCompletion.setStatus('current')
+cucsStorageLocalDiskFsmTaskFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 121, 1, 5), CucsStorageLocalDiskFsmTaskFlags()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmTaskFlags.setStatus('current')
+cucsStorageLocalDiskFsmTaskItem = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 121, 1, 6), CucsStorageLocalDiskFsmTaskItem()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmTaskItem.setStatus('current')
+cucsStorageLocalDiskFsmTaskSeqId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 121, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskFsmTaskSeqId.setStatus('current')
+cucsStorageLocalDiskPartitionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 7), )
+if mibBuilder.loadTexts: cucsStorageLocalDiskPartitionTable.setStatus('current')
+cucsStorageLocalDiskPartitionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 7, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageLocalDiskPartitionInstanceId"))
+if mibBuilder.loadTexts: cucsStorageLocalDiskPartitionEntry.setStatus('current')
+cucsStorageLocalDiskPartitionInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 7, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageLocalDiskPartitionInstanceId.setStatus('current')
+cucsStorageLocalDiskPartitionDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 7, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskPartitionDn.setStatus('current')
+cucsStorageLocalDiskPartitionRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 7, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskPartitionRn.setStatus('current')
+cucsStorageLocalDiskPartitionName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 7, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskPartitionName.setStatus('current')
+cucsStorageLocalDiskPartitionSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 7, 1, 8), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskPartitionSize.setStatus('current')
+cucsStorageLocalDiskPartitionType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 7, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskPartitionType.setStatus('current')
+cucsStorageLocalDiskPartitionBootable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 7, 1, 12), CucsStorageBootableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskPartitionBootable.setStatus('current')
+cucsStorageLocalDiskPartitionId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 7, 1, 13), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskPartitionId.setStatus('current')
+cucsStorageLocalDiskPartitionPartitionEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 7, 1, 14), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskPartitionPartitionEnd.setStatus('current')
+cucsStorageLocalDiskPartitionPartitionStart = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 7, 1, 15), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskPartitionPartitionStart.setStatus('current')
+cucsStorageLocalDiskPartitionRawTypeDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 7, 1, 16), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskPartitionRawTypeDesc.setStatus('current')
+cucsStorageLocalDiskSlotEpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 13), )
+if mibBuilder.loadTexts: cucsStorageLocalDiskSlotEpTable.setStatus('current')
+cucsStorageLocalDiskSlotEpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 13, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageLocalDiskSlotEpInstanceId"))
+if mibBuilder.loadTexts: cucsStorageLocalDiskSlotEpEntry.setStatus('current')
+cucsStorageLocalDiskSlotEpInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 13, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageLocalDiskSlotEpInstanceId.setStatus('current')
+cucsStorageLocalDiskSlotEpDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 13, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskSlotEpDn.setStatus('current')
+cucsStorageLocalDiskSlotEpRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 13, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskSlotEpRn.setStatus('current')
+cucsStorageLocalDiskSlotEpConfiguration = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 13, 1, 4), CucsStorageConfiguration()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskSlotEpConfiguration.setStatus('current')
+cucsStorageLocalDiskSlotEpId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 13, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskSlotEpId.setStatus('current')
+cucsStorageLocalDiskSlotEpOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 13, 1, 6), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskSlotEpOperability.setStatus('current')
+cucsStorageLocalDiskSlotEpPeerDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 13, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskSlotEpPeerDn.setStatus('current')
+cucsStorageLocalDiskSlotEpPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 13, 1, 8), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskSlotEpPresence.setStatus('current')
+cucsStorageLocalDiskSlotEpOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 13, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalDiskSlotEpOperQualifierReason.setStatus('current')
+cucsStorageLocalLunTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8), )
+if mibBuilder.loadTexts: cucsStorageLocalLunTable.setStatus('current')
+cucsStorageLocalLunEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageLocalLunInstanceId"))
+if mibBuilder.loadTexts: cucsStorageLocalLunEntry.setStatus('current')
+cucsStorageLocalLunInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageLocalLunInstanceId.setStatus('current')
+cucsStorageLocalLunDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunDn.setStatus('current')
+cucsStorageLocalLunRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunRn.setStatus('current')
+cucsStorageLocalLunBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunBlockSize.setStatus('current')
+cucsStorageLocalLunConnectionProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 5), CucsStorageConnectionProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunConnectionProtocol.setStatus('current')
+cucsStorageLocalLunId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunId.setStatus('current')
+cucsStorageLocalLunModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunModel.setStatus('current')
+cucsStorageLocalLunNumberOfBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 8), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunNumberOfBlocks.setStatus('current')
+cucsStorageLocalLunOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 9), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunOperability.setStatus('current')
+cucsStorageLocalLunPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 10), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunPresence.setStatus('current')
+cucsStorageLocalLunRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunRevision.setStatus('current')
+cucsStorageLocalLunSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunSerial.setStatus('current')
+cucsStorageLocalLunSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 13), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunSize.setStatus('current')
+cucsStorageLocalLunType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 14), CucsStorageLunType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunType.setStatus('current')
+cucsStorageLocalLunVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 15), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunVendor.setStatus('current')
+cucsStorageLocalLunLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 16), CucsFsmLifecycle()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunLc.setStatus('current')
+cucsStorageLocalLunOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 17), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunOperQualifierReason.setStatus('current')
+cucsStorageLocalLunPhysicalBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 8, 1, 18), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLocalLunPhysicalBlockSize.setStatus('current')
+cucsStorageLunDiskTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 9), )
+if mibBuilder.loadTexts: cucsStorageLunDiskTable.setStatus('current')
+cucsStorageLunDiskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 9, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageLunDiskInstanceId"))
+if mibBuilder.loadTexts: cucsStorageLunDiskEntry.setStatus('current')
+cucsStorageLunDiskInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 9, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageLunDiskInstanceId.setStatus('current')
+cucsStorageLunDiskDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 9, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLunDiskDn.setStatus('current')
+cucsStorageLunDiskRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 9, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLunDiskRn.setStatus('current')
+cucsStorageLunDiskId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 9, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLunDiskId.setStatus('current')
+cucsStorageLunResourceSelectionLogTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 64), )
+if mibBuilder.loadTexts: cucsStorageLunResourceSelectionLogTable.setStatus('current')
+cucsStorageLunResourceSelectionLogEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 64, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageLunResourceSelectionLogInstanceId"))
+if mibBuilder.loadTexts: cucsStorageLunResourceSelectionLogEntry.setStatus('current')
+cucsStorageLunResourceSelectionLogInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 64, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageLunResourceSelectionLogInstanceId.setStatus('current')
+cucsStorageLunResourceSelectionLogDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 64, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLunResourceSelectionLogDn.setStatus('current')
+cucsStorageLunResourceSelectionLogRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 64, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLunResourceSelectionLogRn.setStatus('current')
+cucsStorageLunResourceSelectionLogDecisionType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 64, 1, 4), CucsStorageSelectionDecisionType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLunResourceSelectionLogDecisionType.setStatus('current')
+cucsStorageLunResourceSelectionLogDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 64, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLunResourceSelectionLogDescr.setStatus('current')
+cucsStorageLunResourceSelectionLogOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 64, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLunResourceSelectionLogOrder.setStatus('current')
+cucsStorageLunResourceSelectionLogResult = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 64, 1, 7), CucsStorageSelectionResultType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLunResourceSelectionLogResult.setStatus('current')
+cucsStorageLunResourceSelectionLogTimeStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 64, 1, 8), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageLunResourceSelectionLogTimeStamp.setStatus('current')
+cucsStorageMezzFlashLifeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39), )
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeTable.setStatus('current')
+cucsStorageMezzFlashLifeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageMezzFlashLifeInstanceId"))
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeEntry.setStatus('current')
+cucsStorageMezzFlashLifeInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeInstanceId.setStatus('current')
+cucsStorageMezzFlashLifeDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeDn.setStatus('current')
+cucsStorageMezzFlashLifeRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeRn.setStatus('current')
+cucsStorageMezzFlashLifeBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeBlockSize.setStatus('current')
+cucsStorageMezzFlashLifeConnectionProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 5), CucsStorageConnectionProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeConnectionProtocol.setStatus('current')
+cucsStorageMezzFlashLifeFlashPercentage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeFlashPercentage.setStatus('current')
+cucsStorageMezzFlashLifeFlashStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeFlashStatus.setStatus('current')
+cucsStorageMezzFlashLifeId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeId.setStatus('current')
+cucsStorageMezzFlashLifeModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeModel.setStatus('current')
+cucsStorageMezzFlashLifeNumberOfBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 10), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeNumberOfBlocks.setStatus('current')
+cucsStorageMezzFlashLifeOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeOperQualifierReason.setStatus('current')
+cucsStorageMezzFlashLifeOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 12), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeOperability.setStatus('current')
+cucsStorageMezzFlashLifePresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 13), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifePresence.setStatus('current')
+cucsStorageMezzFlashLifeRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 14), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeRevision.setStatus('current')
+cucsStorageMezzFlashLifeSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 15), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeSerial.setStatus('current')
+cucsStorageMezzFlashLifeSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 16), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeSize.setStatus('current')
+cucsStorageMezzFlashLifeVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 17), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifeVendor.setStatus('current')
+cucsStorageMezzFlashLifePhysicalBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 39, 1, 18), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMezzFlashLifePhysicalBlockSize.setStatus('current')
+cucsStorageMiniStorageTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130), )
+if mibBuilder.loadTexts: cucsStorageMiniStorageTable.setStatus('current')
+cucsStorageMiniStorageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageMiniStorageInstanceId"))
+if mibBuilder.loadTexts: cucsStorageMiniStorageEntry.setStatus('current')
+cucsStorageMiniStorageInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageMiniStorageInstanceId.setStatus('current')
+cucsStorageMiniStorageDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageDn.setStatus('current')
+cucsStorageMiniStorageRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageRn.setStatus('current')
+cucsStorageMiniStorageAssetTag = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageAssetTag.setStatus('current')
+cucsStorageMiniStorageId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 5), CucsStorageMiniStorageId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageId.setStatus('current')
+cucsStorageMiniStorageLocationDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageLocationDn.setStatus('current')
+cucsStorageMiniStorageModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageModel.setStatus('current')
+cucsStorageMiniStorageOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageOperQualifierReason.setStatus('current')
+cucsStorageMiniStorageOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 9), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageOperState.setStatus('current')
+cucsStorageMiniStorageOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 10), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageOperability.setStatus('current')
+cucsStorageMiniStoragePartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStoragePartNumber.setStatus('current')
+cucsStorageMiniStoragePciAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStoragePciAddr.setStatus('current')
+cucsStorageMiniStoragePciSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 13), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStoragePciSlot.setStatus('current')
+cucsStorageMiniStoragePerf = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 14), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStoragePerf.setStatus('current')
+cucsStorageMiniStoragePower = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 15), CucsEquipmentPowerState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStoragePower.setStatus('current')
+cucsStorageMiniStoragePresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 16), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStoragePresence.setStatus('current')
+cucsStorageMiniStorageRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 17), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageRevision.setStatus('current')
+cucsStorageMiniStorageSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 18), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageSerial.setStatus('current')
+cucsStorageMiniStorageSubType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 19), CucsStorageControllerSubType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageSubType.setStatus('current')
+cucsStorageMiniStorageThermal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 20), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageThermal.setStatus('current')
+cucsStorageMiniStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 21), CucsStorageControllerType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageType.setStatus('current')
+cucsStorageMiniStorageVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 22), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageVendor.setStatus('current')
+cucsStorageMiniStorageVid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 23), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageVid.setStatus('current')
+cucsStorageMiniStorageVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 130, 1, 24), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageMiniStorageVoltage.setStatus('current')
+cucsStorageNodeEpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 26), )
+if mibBuilder.loadTexts: cucsStorageNodeEpTable.setStatus('current')
+cucsStorageNodeEpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 26, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageNodeEpInstanceId"))
+if mibBuilder.loadTexts: cucsStorageNodeEpEntry.setStatus('current')
+cucsStorageNodeEpInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 26, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageNodeEpInstanceId.setStatus('current')
+cucsStorageNodeEpDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 26, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNodeEpDn.setStatus('current')
+cucsStorageNodeEpRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 26, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNodeEpRn.setStatus('current')
+cucsStorageNodeEpEpDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 26, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNodeEpEpDn.setStatus('current')
+cucsStorageNodeEpId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 26, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNodeEpId.setStatus('current')
+cucsStorageNvmeStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122), )
+if mibBuilder.loadTexts: cucsStorageNvmeStatsTable.setStatus('current')
+cucsStorageNvmeStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageNvmeStatsInstanceId"))
+if mibBuilder.loadTexts: cucsStorageNvmeStatsEntry.setStatus('current')
+cucsStorageNvmeStatsInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageNvmeStatsInstanceId.setStatus('current')
+cucsStorageNvmeStatsDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsDn.setStatus('current')
+cucsStorageNvmeStatsRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsRn.setStatus('current')
+cucsStorageNvmeStatsDriveLifeUsedPercentage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsDriveLifeUsedPercentage.setStatus('current')
+cucsStorageNvmeStatsDriveLifeUsedPercentageAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsDriveLifeUsedPercentageAvg.setStatus('current')
+cucsStorageNvmeStatsDriveLifeUsedPercentageMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsDriveLifeUsedPercentageMax.setStatus('current')
+cucsStorageNvmeStatsDriveLifeUsedPercentageMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsDriveLifeUsedPercentageMin.setStatus('current')
+cucsStorageNvmeStatsIntervals = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsIntervals.setStatus('current')
+cucsStorageNvmeStatsSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 9), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsSuspect.setStatus('current')
+cucsStorageNvmeStatsTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsTemperature.setStatus('current')
+cucsStorageNvmeStatsTemperatureAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsTemperatureAvg.setStatus('current')
+cucsStorageNvmeStatsTemperatureMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsTemperatureMax.setStatus('current')
+cucsStorageNvmeStatsTemperatureMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsTemperatureMin.setStatus('current')
+cucsStorageNvmeStatsThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 14), CucsStorageNvmeStatsThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsThresholded.setStatus('current')
+cucsStorageNvmeStatsTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 15), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsTimeCollected.setStatus('current')
+cucsStorageNvmeStatsUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 122, 1, 16), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsUpdate.setStatus('current')
+cucsStorageNvmeStatsHistTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123), )
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistTable.setStatus('current')
+cucsStorageNvmeStatsHistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageNvmeStatsHistInstanceId"))
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistEntry.setStatus('current')
+cucsStorageNvmeStatsHistInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistInstanceId.setStatus('current')
+cucsStorageNvmeStatsHistDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistDn.setStatus('current')
+cucsStorageNvmeStatsHistRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistRn.setStatus('current')
+cucsStorageNvmeStatsHistDriveLifeUsedPercentage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistDriveLifeUsedPercentage.setStatus('current')
+cucsStorageNvmeStatsHistDriveLifeUsedPercentageAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistDriveLifeUsedPercentageAvg.setStatus('current')
+cucsStorageNvmeStatsHistDriveLifeUsedPercentageMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistDriveLifeUsedPercentageMax.setStatus('current')
+cucsStorageNvmeStatsHistDriveLifeUsedPercentageMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistDriveLifeUsedPercentageMin.setStatus('current')
+cucsStorageNvmeStatsHistId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 8), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistId.setStatus('current')
+cucsStorageNvmeStatsHistMostRecent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 9), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistMostRecent.setStatus('current')
+cucsStorageNvmeStatsHistSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 10), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistSuspect.setStatus('current')
+cucsStorageNvmeStatsHistTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistTemperature.setStatus('current')
+cucsStorageNvmeStatsHistTemperatureAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistTemperatureAvg.setStatus('current')
+cucsStorageNvmeStatsHistTemperatureMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistTemperatureMax.setStatus('current')
+cucsStorageNvmeStatsHistTemperatureMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistTemperatureMin.setStatus('current')
+cucsStorageNvmeStatsHistThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 15), CucsStorageNvmeStatsHistThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistThresholded.setStatus('current')
+cucsStorageNvmeStatsHistTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 123, 1, 16), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStatsHistTimeCollected.setStatus('current')
+cucsStorageNvmeStorageTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 124), )
+if mibBuilder.loadTexts: cucsStorageNvmeStorageTable.setStatus('current')
+cucsStorageNvmeStorageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 124, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageNvmeStorageInstanceId"))
+if mibBuilder.loadTexts: cucsStorageNvmeStorageEntry.setStatus('current')
+cucsStorageNvmeStorageInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 124, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageNvmeStorageInstanceId.setStatus('current')
+cucsStorageNvmeStorageDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 124, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStorageDn.setStatus('current')
+cucsStorageNvmeStorageRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 124, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStorageRn.setStatus('current')
+cucsStorageNvmeStoragePerformanceLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 124, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageNvmeStoragePerformanceLevel.setStatus('current')
+cucsStorageOnboardDeviceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108), )
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceTable.setStatus('current')
+cucsStorageOnboardDeviceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageOnboardDeviceInstanceId"))
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceEntry.setStatus('current')
+cucsStorageOnboardDeviceInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceInstanceId.setStatus('current')
+cucsStorageOnboardDeviceDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceDn.setStatus('current')
+cucsStorageOnboardDeviceRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceRn.setStatus('current')
+cucsStorageOnboardDeviceBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceBlockSize.setStatus('current')
+cucsStorageOnboardDeviceConfigCheckPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 5), CucsStorageConfigCheckPoint()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceConfigCheckPoint.setStatus('current')
+cucsStorageOnboardDeviceConnectionProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 6), CucsStorageConnectionProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceConnectionProtocol.setStatus('current')
+cucsStorageOnboardDeviceDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceDescription.setStatus('current')
+cucsStorageOnboardDeviceDeviceType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 8), CucsStorageOnboardDeviceType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceDeviceType.setStatus('current')
+cucsStorageOnboardDeviceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceId.setStatus('current')
+cucsStorageOnboardDeviceModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceModel.setStatus('current')
+cucsStorageOnboardDeviceNumberOfBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 11), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceNumberOfBlocks.setStatus('current')
+cucsStorageOnboardDeviceOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceOperQualifierReason.setStatus('current')
+cucsStorageOnboardDeviceOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 13), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceOperability.setStatus('current')
+cucsStorageOnboardDevicePresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 14), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDevicePresence.setStatus('current')
+cucsStorageOnboardDeviceRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 15), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceRevision.setStatus('current')
+cucsStorageOnboardDeviceSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 16), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceSerial.setStatus('current')
+cucsStorageOnboardDeviceSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 17), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceSize.setStatus('current')
+cucsStorageOnboardDeviceVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 18), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDeviceVendor.setStatus('current')
+cucsStorageOnboardDevicePhysicalBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 108, 1, 19), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOnboardDevicePhysicalBlockSize.setStatus('current')
+cucsStorageOperationTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 38), )
+if mibBuilder.loadTexts: cucsStorageOperationTable.setStatus('current')
+cucsStorageOperationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 38, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageOperationInstanceId"))
+if mibBuilder.loadTexts: cucsStorageOperationEntry.setStatus('current')
+cucsStorageOperationInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 38, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageOperationInstanceId.setStatus('current')
+cucsStorageOperationDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 38, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOperationDn.setStatus('current')
+cucsStorageOperationRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 38, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOperationRn.setStatus('current')
+cucsStorageOperationEndTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 38, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOperationEndTime.setStatus('current')
+cucsStorageOperationName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 38, 1, 5), CucsStorageOperationType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOperationName.setStatus('current')
+cucsStorageOperationOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 38, 1, 6), CucsStorageOperationState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOperationOperState.setStatus('current')
+cucsStorageOperationProgress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 38, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOperationProgress.setStatus('current')
+cucsStorageOperationStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 38, 1, 8), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOperationStartTime.setStatus('current')
+cucsStorageOperationStatusDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 38, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageOperationStatusDescr.setStatus('current')
+cucsStorageQualTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 10), )
+if mibBuilder.loadTexts: cucsStorageQualTable.setStatus('current')
+cucsStorageQualEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 10, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageQualInstanceId"))
+if mibBuilder.loadTexts: cucsStorageQualEntry.setStatus('current')
+cucsStorageQualInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 10, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageQualInstanceId.setStatus('current')
+cucsStorageQualDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 10, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageQualDn.setStatus('current')
+cucsStorageQualRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 10, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageQualRn.setStatus('current')
+cucsStorageQualBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 10, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageQualBlockSize.setStatus('current')
+cucsStorageQualMaxCap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 10, 1, 5), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageQualMaxCap.setStatus('current')
+cucsStorageQualMinCap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 10, 1, 6), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageQualMinCap.setStatus('current')
+cucsStorageQualNumberOfBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 10, 1, 7), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageQualNumberOfBlocks.setStatus('current')
+cucsStorageQualPerDiskCap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 10, 1, 8), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageQualPerDiskCap.setStatus('current')
+cucsStorageQualUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 10, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageQualUnits.setStatus('current')
+cucsStorageQualDiskless = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 10, 1, 10), CucsStorageDisklessAction()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageQualDiskless.setStatus('current')
+cucsStorageQualNumberOfFlexFlashCards = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 10, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageQualNumberOfFlexFlashCards.setStatus('current')
+cucsStorageQualDiskType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 10, 1, 12), CucsStorageTechnology()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageQualDiskType.setStatus('current')
+cucsStorageRaidBatteryTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11), )
+if mibBuilder.loadTexts: cucsStorageRaidBatteryTable.setStatus('current')
+cucsStorageRaidBatteryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageRaidBatteryInstanceId"))
+if mibBuilder.loadTexts: cucsStorageRaidBatteryEntry.setStatus('current')
+cucsStorageRaidBatteryInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageRaidBatteryInstanceId.setStatus('current')
+cucsStorageRaidBatteryDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryDn.setStatus('current')
+cucsStorageRaidBatteryRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryRn.setStatus('current')
+cucsStorageRaidBatteryBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryBlockSize.setStatus('current')
+cucsStorageRaidBatteryConnectionProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 5), CucsStorageConnectionProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryConnectionProtocol.setStatus('current')
+cucsStorageRaidBatteryId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryId.setStatus('current')
+cucsStorageRaidBatteryModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryModel.setStatus('current')
+cucsStorageRaidBatteryNumberOfBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 8), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryNumberOfBlocks.setStatus('current')
+cucsStorageRaidBatteryOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 9), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryOperability.setStatus('current')
+cucsStorageRaidBatteryPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 10), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryPresence.setStatus('current')
+cucsStorageRaidBatteryRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryRevision.setStatus('current')
+cucsStorageRaidBatterySerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatterySerial.setStatus('current')
+cucsStorageRaidBatterySize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 13), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatterySize.setStatus('current')
+cucsStorageRaidBatteryVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 14), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryVendor.setStatus('current')
+cucsStorageRaidBatteryOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 15), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryOperQualifierReason.setStatus('current')
+cucsStorageRaidBatteryBatteryType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 16), CucsStorageBatteryType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryBatteryType.setStatus('current')
+cucsStorageRaidBatteryCapacityPercentage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 17), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryCapacityPercentage.setStatus('current')
+cucsStorageRaidBatteryOperabilityQualifier = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 18), CucsStorageRaidBatteryOperabilityQualifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryOperabilityQualifier.setStatus('current')
+cucsStorageRaidBatteryOperabilityQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 19), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryOperabilityQualifierReason.setStatus('current')
+cucsStorageRaidBatteryTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 20), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryTemperature.setStatus('current')
+cucsStorageRaidBatteryBbuStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 21), CucsStorageBbuStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryBbuStatus.setStatus('current')
+cucsStorageRaidBatteryLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 22), CucsFsmLifecycle()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryLc.setStatus('current')
+cucsStorageRaidBatteryLearnCycleRequested = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 23), CucsStorageLearnCycleRequested()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryLearnCycleRequested.setStatus('current')
+cucsStorageRaidBatteryLearnMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 24), CucsStorageLearnMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryLearnMode.setStatus('current')
+cucsStorageRaidBatteryNextLearnCycleTs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 25), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryNextLearnCycleTs.setStatus('current')
+cucsStorageRaidBatteryPhysicalBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 11, 1, 26), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageRaidBatteryPhysicalBlockSize.setStatus('current')
+cucsStorageSasExpanderTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78), )
+if mibBuilder.loadTexts: cucsStorageSasExpanderTable.setStatus('current')
+cucsStorageSasExpanderEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageSasExpanderInstanceId"))
+if mibBuilder.loadTexts: cucsStorageSasExpanderEntry.setStatus('current')
+cucsStorageSasExpanderInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageSasExpanderInstanceId.setStatus('current')
+cucsStorageSasExpanderDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderDn.setStatus('current')
+cucsStorageSasExpanderRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderRn.setStatus('current')
+cucsStorageSasExpanderId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderId.setStatus('current')
+cucsStorageSasExpanderLocationDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderLocationDn.setStatus('current')
+cucsStorageSasExpanderModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderModel.setStatus('current')
+cucsStorageSasExpanderOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderOperQualifierReason.setStatus('current')
+cucsStorageSasExpanderOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 8), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderOperState.setStatus('current')
+cucsStorageSasExpanderOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 9), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderOperability.setStatus('current')
+cucsStorageSasExpanderPerf = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 10), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderPerf.setStatus('current')
+cucsStorageSasExpanderPower = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 11), CucsEquipmentPowerState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderPower.setStatus('current')
+cucsStorageSasExpanderPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 12), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderPresence.setStatus('current')
+cucsStorageSasExpanderRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 13), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderRevision.setStatus('current')
+cucsStorageSasExpanderSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 14), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderSerial.setStatus('current')
+cucsStorageSasExpanderThermal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 15), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderThermal.setStatus('current')
+cucsStorageSasExpanderVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 16), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderVendor.setStatus('current')
+cucsStorageSasExpanderVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 17), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderVoltage.setStatus('current')
+cucsStorageSasExpanderExpanderState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 19), CucsStorageExpanderState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderExpanderState.setStatus('current')
+cucsStorageSasExpanderLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 20), CucsFsmLifecycle()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderLc.setStatus('current')
+cucsStorageSasExpanderUplinkState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 21), CucsStorageEpLinkState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderUplinkState.setStatus('current')
+cucsStorageSasExpanderUplinkStateReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 22), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderUplinkStateReason.setStatus('current')
+cucsStorageSasExpanderFwRegionOne = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 23), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderFwRegionOne.setStatus('current')
+cucsStorageSasExpanderFwRegionTwo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 24), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderFwRegionTwo.setStatus('current')
+cucsStorageSasExpanderFwRunningRegion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 25), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderFwRunningRegion.setStatus('current')
+cucsStorageSasExpanderSasAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 26), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderSasAddress.setStatus('current')
+cucsStorageSasExpanderCurrentEPFB = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 27), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderCurrentEPFB.setStatus('current')
+cucsStorageSasExpanderElid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 28), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderElid.setStatus('current')
+cucsStorageSasExpanderMfgMajorRev = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 29), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderMfgMajorRev.setStatus('current')
+cucsStorageSasExpanderMfgMinorRev = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 30), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderMfgMinorRev.setStatus('current')
+cucsStorageSasExpanderMfgPlatformId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 31), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderMfgPlatformId.setStatus('current')
+cucsStorageSasExpanderPersistedEPFB = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 32), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderPersistedEPFB.setStatus('current')
+cucsStorageSasExpanderStartSlotNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 33), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderStartSlotNum.setStatus('current')
+cucsStorageSasExpanderTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 34), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderTemperature.setStatus('current')
+cucsStorageSasExpanderTotalSlots = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 35), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderTotalSlots.setStatus('current')
+cucsStorageSasExpanderConfigCheckPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 78, 1, 36), CucsStorageConfigCheckPoint()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasExpanderConfigCheckPoint.setStatus('current')
+cucsStorageSasLinkDescriptorTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 95), )
+if mibBuilder.loadTexts: cucsStorageSasLinkDescriptorTable.setStatus('current')
+cucsStorageSasLinkDescriptorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 95, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageSasLinkDescriptorInstanceId"))
+if mibBuilder.loadTexts: cucsStorageSasLinkDescriptorEntry.setStatus('current')
+cucsStorageSasLinkDescriptorInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 95, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageSasLinkDescriptorInstanceId.setStatus('current')
+cucsStorageSasLinkDescriptorDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 95, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasLinkDescriptorDn.setStatus('current')
+cucsStorageSasLinkDescriptorRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 95, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasLinkDescriptorRn.setStatus('current')
+cucsStorageSasLinkDescriptorControllerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 95, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasLinkDescriptorControllerId.setStatus('current')
+cucsStorageSasLinkDescriptorId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 95, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasLinkDescriptorId.setStatus('current')
+cucsStorageSasLinkDescriptorLinkDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 95, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasLinkDescriptorLinkDescr.setStatus('current')
+cucsStorageSasLinkDescriptorServerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 95, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasLinkDescriptorServerId.setStatus('current')
+cucsStorageSasLinkDescriptorControllerType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 95, 1, 8), CucsStorageSasLinkDescriptorControllerType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasLinkDescriptorControllerType.setStatus('current')
+cucsStorageSasPortTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 96), )
+if mibBuilder.loadTexts: cucsStorageSasPortTable.setStatus('current')
+cucsStorageSasPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 96, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageSasPortInstanceId"))
+if mibBuilder.loadTexts: cucsStorageSasPortEntry.setStatus('current')
+cucsStorageSasPortInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 96, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageSasPortInstanceId.setStatus('current')
+cucsStorageSasPortDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 96, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasPortDn.setStatus('current')
+cucsStorageSasPortRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 96, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasPortRn.setStatus('current')
+cucsStorageSasPortAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 96, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasPortAddress.setStatus('current')
+cucsStorageSasPortEndpoint = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 96, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasPortEndpoint.setStatus('current')
+cucsStorageSasPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 96, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasPortId.setStatus('current')
+cucsStorageSasPortLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 96, 1, 7), CucsFsmLifecycle()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasPortLc.setStatus('current')
+cucsStorageSasPortLinkDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 96, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasPortLinkDescr.setStatus('current')
+cucsStorageSasPortLinkSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 96, 1, 9), CucsStorageLinkSpeed()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasPortLinkSpeed.setStatus('current')
+cucsStorageSasPortDescriptorTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 97), )
+if mibBuilder.loadTexts: cucsStorageSasPortDescriptorTable.setStatus('current')
+cucsStorageSasPortDescriptorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 97, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageSasPortDescriptorInstanceId"))
+if mibBuilder.loadTexts: cucsStorageSasPortDescriptorEntry.setStatus('current')
+cucsStorageSasPortDescriptorInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 97, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageSasPortDescriptorInstanceId.setStatus('current')
+cucsStorageSasPortDescriptorDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 97, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasPortDescriptorDn.setStatus('current')
+cucsStorageSasPortDescriptorRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 97, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasPortDescriptorRn.setStatus('current')
+cucsStorageSasPortDescriptorId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 97, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasPortDescriptorId.setStatus('current')
+cucsStorageSasPortDescriptorLinkDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 97, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasPortDescriptorLinkDescr.setStatus('current')
+cucsStorageSasUpLinkTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 98), )
+if mibBuilder.loadTexts: cucsStorageSasUpLinkTable.setStatus('current')
+cucsStorageSasUpLinkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 98, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageSasUpLinkInstanceId"))
+if mibBuilder.loadTexts: cucsStorageSasUpLinkEntry.setStatus('current')
+cucsStorageSasUpLinkInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 98, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageSasUpLinkInstanceId.setStatus('current')
+cucsStorageSasUpLinkDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 98, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasUpLinkDn.setStatus('current')
+cucsStorageSasUpLinkRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 98, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasUpLinkRn.setStatus('current')
+cucsStorageSasUpLinkControllerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 98, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasUpLinkControllerId.setStatus('current')
+cucsStorageSasUpLinkId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 98, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasUpLinkId.setStatus('current')
+cucsStorageSasUpLinkLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 98, 1, 6), CucsFsmLifecycle()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasUpLinkLc.setStatus('current')
+cucsStorageSasUpLinkLinkDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 98, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasUpLinkLinkDescr.setStatus('current')
+cucsStorageSasUpLinkLinkSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 98, 1, 8), CucsStorageLinkSpeed()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasUpLinkLinkSpeed.setStatus('current')
+cucsStorageSasUpLinkServerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 98, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasUpLinkServerId.setStatus('current')
+cucsStorageSasUpLinkControllerType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 98, 1, 10), CucsStorageSasUpLinkControllerType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSasUpLinkControllerType.setStatus('current')
+cucsStorageScsiLunRefTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 83), )
+if mibBuilder.loadTexts: cucsStorageScsiLunRefTable.setStatus('current')
+cucsStorageScsiLunRefEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 83, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageScsiLunRefInstanceId"))
+if mibBuilder.loadTexts: cucsStorageScsiLunRefEntry.setStatus('current')
+cucsStorageScsiLunRefInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 83, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageScsiLunRefInstanceId.setStatus('current')
+cucsStorageScsiLunRefDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 83, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageScsiLunRefDn.setStatus('current')
+cucsStorageScsiLunRefRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 83, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageScsiLunRefRn.setStatus('current')
+cucsStorageScsiLunRefId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 83, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageScsiLunRefId.setStatus('current')
+cucsStorageScsiLunRefLsDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 83, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageScsiLunRefLsDn.setStatus('current')
+cucsStorageScsiLunRefLunName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 83, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageScsiLunRefLunName.setStatus('current')
+cucsStorageScsiLunRefProfileDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 83, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageScsiLunRefProfileDn.setStatus('current')
+cucsStorageScsiLunRefPnDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 83, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageScsiLunRefPnDn.setStatus('current')
+cucsStorageSsdHealthStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125), )
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsTable.setStatus('current')
+cucsStorageSsdHealthStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageSsdHealthStatsInstanceId"))
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsEntry.setStatus('current')
+cucsStorageSsdHealthStatsInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsInstanceId.setStatus('current')
+cucsStorageSsdHealthStatsDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsDn.setStatus('current')
+cucsStorageSsdHealthStatsRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsRn.setStatus('current')
+cucsStorageSsdHealthStatsId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsId.setStatus('current')
+cucsStorageSsdHealthStatsIntervals = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsIntervals.setStatus('current')
+cucsStorageSsdHealthStatsPercentageLifeLeft = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsPercentageLifeLeft.setStatus('current')
+cucsStorageSsdHealthStatsPercentageLifeLeftAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsPercentageLifeLeftAvg.setStatus('current')
+cucsStorageSsdHealthStatsPercentageLifeLeftMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsPercentageLifeLeftMax.setStatus('current')
+cucsStorageSsdHealthStatsPercentageLifeLeftMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsPercentageLifeLeftMin.setStatus('current')
+cucsStorageSsdHealthStatsPowerCycleCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 10), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsPowerCycleCount.setStatus('current')
+cucsStorageSsdHealthStatsPowerCycleCountAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 11), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsPowerCycleCountAvg.setStatus('current')
+cucsStorageSsdHealthStatsPowerCycleCountMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 12), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsPowerCycleCountMax.setStatus('current')
+cucsStorageSsdHealthStatsPowerCycleCountMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 13), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsPowerCycleCountMin.setStatus('current')
+cucsStorageSsdHealthStatsPowerOnHours = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 14), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsPowerOnHours.setStatus('current')
+cucsStorageSsdHealthStatsPowerOnHoursAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 15), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsPowerOnHoursAvg.setStatus('current')
+cucsStorageSsdHealthStatsPowerOnHoursMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 16), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsPowerOnHoursMax.setStatus('current')
+cucsStorageSsdHealthStatsPowerOnHoursMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 17), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsPowerOnHoursMin.setStatus('current')
+cucsStorageSsdHealthStatsSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 18), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsSuspect.setStatus('current')
+cucsStorageSsdHealthStatsThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 19), CucsStorageSsdHealthStatsThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsThresholded.setStatus('current')
+cucsStorageSsdHealthStatsTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 20), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsTimeCollected.setStatus('current')
+cucsStorageSsdHealthStatsUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 21), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsUpdate.setStatus('current')
+cucsStorageSsdHealthStatsWearStatusInDays = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 22), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsWearStatusInDays.setStatus('current')
+cucsStorageSsdHealthStatsWearStatusInDaysAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 23), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsWearStatusInDaysAvg.setStatus('current')
+cucsStorageSsdHealthStatsWearStatusInDaysMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 24), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsWearStatusInDaysMax.setStatus('current')
+cucsStorageSsdHealthStatsWearStatusInDaysMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 125, 1, 25), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsWearStatusInDaysMin.setStatus('current')
+cucsStorageSsdHealthStatsHistTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126), )
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistTable.setStatus('current')
+cucsStorageSsdHealthStatsHistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageSsdHealthStatsHistInstanceId"))
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistEntry.setStatus('current')
+cucsStorageSsdHealthStatsHistInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistInstanceId.setStatus('current')
+cucsStorageSsdHealthStatsHistDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistDn.setStatus('current')
+cucsStorageSsdHealthStatsHistRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistRn.setStatus('current')
+cucsStorageSsdHealthStatsHistId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 4), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistId.setStatus('current')
+cucsStorageSsdHealthStatsHistMostRecent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistMostRecent.setStatus('current')
+cucsStorageSsdHealthStatsHistPercentageLifeLeft = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistPercentageLifeLeft.setStatus('current')
+cucsStorageSsdHealthStatsHistPercentageLifeLeftAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistPercentageLifeLeftAvg.setStatus('current')
+cucsStorageSsdHealthStatsHistPercentageLifeLeftMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistPercentageLifeLeftMax.setStatus('current')
+cucsStorageSsdHealthStatsHistPercentageLifeLeftMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistPercentageLifeLeftMin.setStatus('current')
+cucsStorageSsdHealthStatsHistPowerCycleCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 10), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistPowerCycleCount.setStatus('current')
+cucsStorageSsdHealthStatsHistPowerCycleCountAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 11), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistPowerCycleCountAvg.setStatus('current')
+cucsStorageSsdHealthStatsHistPowerCycleCountMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 12), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistPowerCycleCountMax.setStatus('current')
+cucsStorageSsdHealthStatsHistPowerCycleCountMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 13), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistPowerCycleCountMin.setStatus('current')
+cucsStorageSsdHealthStatsHistPowerOnHours = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 14), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistPowerOnHours.setStatus('current')
+cucsStorageSsdHealthStatsHistPowerOnHoursAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 15), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistPowerOnHoursAvg.setStatus('current')
+cucsStorageSsdHealthStatsHistPowerOnHoursMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 16), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistPowerOnHoursMax.setStatus('current')
+cucsStorageSsdHealthStatsHistPowerOnHoursMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 17), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistPowerOnHoursMin.setStatus('current')
+cucsStorageSsdHealthStatsHistSuspect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 18), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistSuspect.setStatus('current')
+cucsStorageSsdHealthStatsHistThresholded = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 19), CucsStorageSsdHealthStatsHistThresholded()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistThresholded.setStatus('current')
+cucsStorageSsdHealthStatsHistTimeCollected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 20), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistTimeCollected.setStatus('current')
+cucsStorageSsdHealthStatsHistWearStatusInDays = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 21), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistWearStatusInDays.setStatus('current')
+cucsStorageSsdHealthStatsHistWearStatusInDaysAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 22), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistWearStatusInDaysAvg.setStatus('current')
+cucsStorageSsdHealthStatsHistWearStatusInDaysMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 23), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistWearStatusInDaysMax.setStatus('current')
+cucsStorageSsdHealthStatsHistWearStatusInDaysMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 126, 1, 24), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSsdHealthStatsHistWearStatusInDaysMin.setStatus('current')
+cucsStorageSystemTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27), )
+if mibBuilder.loadTexts: cucsStorageSystemTable.setStatus('current')
+cucsStorageSystemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageSystemInstanceId"))
+if mibBuilder.loadTexts: cucsStorageSystemEntry.setStatus('current')
+cucsStorageSystemInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageSystemInstanceId.setStatus('current')
+cucsStorageSystemDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemDn.setStatus('current')
+cucsStorageSystemRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemRn.setStatus('current')
+cucsStorageSystemFsmDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmDescr.setStatus('current')
+cucsStorageSystemFsmPrev = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmPrev.setStatus('current')
+cucsStorageSystemFsmProgr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmProgr.setStatus('current')
+cucsStorageSystemFsmRmtInvErrCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmRmtInvErrCode.setStatus('current')
+cucsStorageSystemFsmRmtInvErrDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmRmtInvErrDescr.setStatus('current')
+cucsStorageSystemFsmRmtInvRslt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1, 9), CucsConditionRemoteInvRslt()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmRmtInvRslt.setStatus('current')
+cucsStorageSystemFsmStageDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmStageDescr.setStatus('current')
+cucsStorageSystemFsmStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1, 11), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmStamp.setStatus('current')
+cucsStorageSystemFsmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmStatus.setStatus('current')
+cucsStorageSystemFsmTry = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1, 13), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmTry.setStatus('current')
+cucsStorageSystemId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1, 14), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemId.setStatus('current')
+cucsStorageSystemName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 27, 1, 15), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemName.setStatus('current')
+cucsStorageSystemFsmTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 28), )
+if mibBuilder.loadTexts: cucsStorageSystemFsmTable.setStatus('current')
+cucsStorageSystemFsmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 28, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageSystemFsmInstanceId"))
+if mibBuilder.loadTexts: cucsStorageSystemFsmEntry.setStatus('current')
+cucsStorageSystemFsmInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 28, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageSystemFsmInstanceId.setStatus('current')
+cucsStorageSystemFsmDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 28, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmDn.setStatus('current')
+cucsStorageSystemFsmRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 28, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmRn.setStatus('current')
+cucsStorageSystemFsmCompletionTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 28, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmCompletionTime.setStatus('current')
+cucsStorageSystemFsmCurrentFsm = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 28, 1, 5), CucsStorageSystemFsmCurrentFsm()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmCurrentFsm.setStatus('current')
+cucsStorageSystemFsmDescrData = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 28, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmDescrData.setStatus('current')
+cucsStorageSystemFsmFsmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 28, 1, 7), CucsFsmFsmStageStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmFsmStatus.setStatus('current')
+cucsStorageSystemFsmProgress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 28, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmProgress.setStatus('current')
+cucsStorageSystemFsmRmtErrCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 28, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmRmtErrCode.setStatus('current')
+cucsStorageSystemFsmRmtErrDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 28, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmRmtErrDescr.setStatus('current')
+cucsStorageSystemFsmRmtRslt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 28, 1, 11), CucsConditionRemoteInvRslt()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmRmtRslt.setStatus('current')
+cucsStorageSystemFsmStageTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 29), )
+if mibBuilder.loadTexts: cucsStorageSystemFsmStageTable.setStatus('current')
+cucsStorageSystemFsmStageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 29, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageSystemFsmStageInstanceId"))
+if mibBuilder.loadTexts: cucsStorageSystemFsmStageEntry.setStatus('current')
+cucsStorageSystemFsmStageInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 29, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageSystemFsmStageInstanceId.setStatus('current')
+cucsStorageSystemFsmStageDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 29, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmStageDn.setStatus('current')
+cucsStorageSystemFsmStageRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 29, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmStageRn.setStatus('current')
+cucsStorageSystemFsmStageDescrData = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 29, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmStageDescrData.setStatus('current')
+cucsStorageSystemFsmStageLastUpdateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 29, 1, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmStageLastUpdateTime.setStatus('current')
+cucsStorageSystemFsmStageName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 29, 1, 6), CucsStorageSystemFsmStageName()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmStageName.setStatus('current')
+cucsStorageSystemFsmStageOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 29, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmStageOrder.setStatus('current')
+cucsStorageSystemFsmStageRetry = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 29, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmStageRetry.setStatus('current')
+cucsStorageSystemFsmStageStageStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 29, 1, 9), CucsFsmFsmStageStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmStageStageStatus.setStatus('current')
+cucsStorageSystemFsmTaskTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 30), )
+if mibBuilder.loadTexts: cucsStorageSystemFsmTaskTable.setStatus('current')
+cucsStorageSystemFsmTaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 30, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageSystemFsmTaskInstanceId"))
+if mibBuilder.loadTexts: cucsStorageSystemFsmTaskEntry.setStatus('current')
+cucsStorageSystemFsmTaskInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 30, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageSystemFsmTaskInstanceId.setStatus('current')
+cucsStorageSystemFsmTaskDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 30, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmTaskDn.setStatus('current')
+cucsStorageSystemFsmTaskRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 30, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmTaskRn.setStatus('current')
+cucsStorageSystemFsmTaskCompletion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 30, 1, 4), CucsFsmCompletion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmTaskCompletion.setStatus('current')
+cucsStorageSystemFsmTaskFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 30, 1, 5), CucsFsmFlags()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmTaskFlags.setStatus('current')
+cucsStorageSystemFsmTaskItem = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 30, 1, 6), CucsStorageSystemFsmTaskItem()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmTaskItem.setStatus('current')
+cucsStorageSystemFsmTaskSeqId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 30, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageSystemFsmTaskSeqId.setStatus('current')
+cucsStorageTransportableFlashModuleTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33), )
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleTable.setStatus('current')
+cucsStorageTransportableFlashModuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageTransportableFlashModuleInstanceId"))
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleEntry.setStatus('current')
+cucsStorageTransportableFlashModuleInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleInstanceId.setStatus('current')
+cucsStorageTransportableFlashModuleDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleDn.setStatus('current')
+cucsStorageTransportableFlashModuleRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleRn.setStatus('current')
+cucsStorageTransportableFlashModuleBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleBlockSize.setStatus('current')
+cucsStorageTransportableFlashModuleConnectionProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 5), CucsStorageConnectionProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleConnectionProtocol.setStatus('current')
+cucsStorageTransportableFlashModuleId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleId.setStatus('current')
+cucsStorageTransportableFlashModuleModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleModel.setStatus('current')
+cucsStorageTransportableFlashModuleNumberOfBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 8), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleNumberOfBlocks.setStatus('current')
+cucsStorageTransportableFlashModuleOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleOperQualifierReason.setStatus('current')
+cucsStorageTransportableFlashModuleOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 10), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleOperability.setStatus('current')
+cucsStorageTransportableFlashModulePresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 11), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModulePresence.setStatus('current')
+cucsStorageTransportableFlashModuleRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleRevision.setStatus('current')
+cucsStorageTransportableFlashModuleSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 13), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleSerial.setStatus('current')
+cucsStorageTransportableFlashModuleSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 14), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleSize.setStatus('current')
+cucsStorageTransportableFlashModuleVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 15), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModuleVendor.setStatus('current')
+cucsStorageTransportableFlashModulePhysicalBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 33, 1, 16), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageTransportableFlashModulePhysicalBlockSize.setStatus('current')
+cucsStorageVDMemberEpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90), )
+if mibBuilder.loadTexts: cucsStorageVDMemberEpTable.setStatus('current')
+cucsStorageVDMemberEpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageVDMemberEpInstanceId"))
+if mibBuilder.loadTexts: cucsStorageVDMemberEpEntry.setStatus('current')
+cucsStorageVDMemberEpInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageVDMemberEpInstanceId.setStatus('current')
+cucsStorageVDMemberEpDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpDn.setStatus('current')
+cucsStorageVDMemberEpRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpRn.setStatus('current')
+cucsStorageVDMemberEpConfigQual = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 4), CucsStorageVdMemberConfigQualifierType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpConfigQual.setStatus('current')
+cucsStorageVDMemberEpConfigQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpConfigQualifierReason.setStatus('current')
+cucsStorageVDMemberEpConfigState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 6), CucsStorageConfigState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpConfigState.setStatus('current')
+cucsStorageVDMemberEpDeployAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 7), CucsStorageDeployAction()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpDeployAction.setStatus('current')
+cucsStorageVDMemberEpDiskDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpDiskDn.setStatus('current')
+cucsStorageVDMemberEpId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpId.setStatus('current')
+cucsStorageVDMemberEpModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpModel.setStatus('current')
+cucsStorageVDMemberEpOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpOperQualifierReason.setStatus('current')
+cucsStorageVDMemberEpOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 12), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpOperability.setStatus('current')
+cucsStorageVDMemberEpPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 13), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpPresence.setStatus('current')
+cucsStorageVDMemberEpRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 14), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpRevision.setStatus('current')
+cucsStorageVDMemberEpRole = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 15), CucsStorageDiskRole()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpRole.setStatus('current')
+cucsStorageVDMemberEpSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 16), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpSerial.setStatus('current')
+cucsStorageVDMemberEpSpanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 17), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpSpanId.setStatus('current')
+cucsStorageVDMemberEpVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 90, 1, 18), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVDMemberEpVendor.setStatus('current')
+cucsStorageVirtualDriveTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31), )
+if mibBuilder.loadTexts: cucsStorageVirtualDriveTable.setStatus('current')
+cucsStorageVirtualDriveEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageVirtualDriveInstanceId"))
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEntry.setStatus('current')
+cucsStorageVirtualDriveInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageVirtualDriveInstanceId.setStatus('current')
+cucsStorageVirtualDriveDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveDn.setStatus('current')
+cucsStorageVirtualDriveRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRn.setStatus('current')
+cucsStorageVirtualDriveBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveBlockSize.setStatus('current')
+cucsStorageVirtualDriveConnectionProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 5), CucsStorageConnectionProtocol()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveConnectionProtocol.setStatus('current')
+cucsStorageVirtualDriveId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveId.setStatus('current')
+cucsStorageVirtualDriveModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveModel.setStatus('current')
+cucsStorageVirtualDriveNumberOfBlocks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 8), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveNumberOfBlocks.setStatus('current')
+cucsStorageVirtualDriveOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveOperQualifierReason.setStatus('current')
+cucsStorageVirtualDriveOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 10), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveOperability.setStatus('current')
+cucsStorageVirtualDrivePresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 11), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDrivePresence.setStatus('current')
+cucsStorageVirtualDriveRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRevision.setStatus('current')
+cucsStorageVirtualDriveSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 13), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveSerial.setStatus('current')
+cucsStorageVirtualDriveSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 14), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveSize.setStatus('current')
+cucsStorageVirtualDriveType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 15), CucsStorageLunType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveType.setStatus('current')
+cucsStorageVirtualDriveVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 16), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveVendor.setStatus('current')
+cucsStorageVirtualDriveAccessPolicy = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 17), CucsStorageAccessType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveAccessPolicy.setStatus('current')
+cucsStorageVirtualDriveActualWriteCachePolicy = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 18), CucsStorageActualWriteType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveActualWriteCachePolicy.setStatus('current')
+cucsStorageVirtualDriveBootable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 19), CucsStorageBootableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveBootable.setStatus('current')
+cucsStorageVirtualDriveConfiguredWriteCachePolicy = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 20), CucsStorageConfiguredWriteType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveConfiguredWriteCachePolicy.setStatus('current')
+cucsStorageVirtualDriveDriveCache = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 21), CucsStorageCacheType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveDriveCache.setStatus('current')
+cucsStorageVirtualDriveDriveState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 22), CucsStorageVDriveState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveDriveState.setStatus('current')
+cucsStorageVirtualDriveIoPolicy = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 23), CucsStorageIOType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveIoPolicy.setStatus('current')
+cucsStorageVirtualDriveLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 24), CucsFsmLifecycle()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveLc.setStatus('current')
+cucsStorageVirtualDriveReadPolicy = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 25), CucsStorageReadType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveReadPolicy.setStatus('current')
+cucsStorageVirtualDriveStripSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 26), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveStripSize.setStatus('current')
+cucsStorageVirtualDriveAdminActionTrigger = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 27), CucsStorageAdminActionTrigger()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveAdminActionTrigger.setStatus('current')
+cucsStorageVirtualDriveAdminName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 28), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveAdminName.setStatus('current')
+cucsStorageVirtualDriveAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 29), CucsStorageAdminState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveAdminState.setStatus('current')
+cucsStorageVirtualDriveChangeQualifier = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 30), CucsStorageVdChangeQualifierType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveChangeQualifier.setStatus('current')
+cucsStorageVirtualDriveConfigQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 31), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveConfigQualifierReason.setStatus('current')
+cucsStorageVirtualDriveConfigState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 32), CucsStorageConfigState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveConfigState.setStatus('current')
+cucsStorageVirtualDriveDeployAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 33), CucsStorageDeployAction()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveDeployAction.setStatus('current')
+cucsStorageVirtualDriveDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 34), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveDescr.setStatus('current')
+cucsStorageVirtualDriveLocale = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 35), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveLocale.setStatus('current')
+cucsStorageVirtualDriveName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 36), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveName.setStatus('current')
+cucsStorageVirtualDriveOperDeviceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 37), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveOperDeviceId.setStatus('current')
+cucsStorageVirtualDriveOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 38), CucsStorageUnitOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveOperState.setStatus('current')
+cucsStorageVirtualDriveUuid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 39), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveUuid.setStatus('current')
+cucsStorageVirtualDriveVendorUuid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 40), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveVendorUuid.setStatus('current')
+cucsStorageVirtualDriveAvailableSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 41), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveAvailableSize.setStatus('current')
+cucsStorageVirtualDrivePnDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 42), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDrivePnDn.setStatus('current')
+cucsStorageVirtualDriveRefDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 43), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefDn.setStatus('current')
+cucsStorageVirtualDriveChangeId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 44), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveChangeId.setStatus('current')
+cucsStorageVirtualDrivePhysicalBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 45), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDrivePhysicalBlockSize.setStatus('current')
+cucsStorageVirtualDriveDriveSecurity = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 46), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveDriveSecurity.setStatus('current')
+cucsStorageVirtualDriveSecurityFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 31, 1, 47), CucsStorageControllerFlags()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveSecurityFlags.setStatus('current')
+cucsStorageVirtualDriveContainerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 114), )
+if mibBuilder.loadTexts: cucsStorageVirtualDriveContainerTable.setStatus('current')
+cucsStorageVirtualDriveContainerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 114, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageVirtualDriveContainerInstanceId"))
+if mibBuilder.loadTexts: cucsStorageVirtualDriveContainerEntry.setStatus('current')
+cucsStorageVirtualDriveContainerInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 114, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageVirtualDriveContainerInstanceId.setStatus('current')
+cucsStorageVirtualDriveContainerDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 114, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveContainerDn.setStatus('current')
+cucsStorageVirtualDriveContainerRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 114, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveContainerRn.setStatus('current')
+cucsStorageVirtualDriveContainerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 114, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveContainerId.setStatus('current')
+cucsStorageVirtualDriveEpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 115), )
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEpTable.setStatus('current')
+cucsStorageVirtualDriveEpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 115, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageVirtualDriveEpInstanceId"))
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEpEntry.setStatus('current')
+cucsStorageVirtualDriveEpInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 115, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEpInstanceId.setStatus('current')
+cucsStorageVirtualDriveEpDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 115, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEpDn.setStatus('current')
+cucsStorageVirtualDriveEpRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 115, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEpRn.setStatus('current')
+cucsStorageVirtualDriveEpBootable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 115, 1, 4), CucsStorageBootableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEpBootable.setStatus('current')
+cucsStorageVirtualDriveEpContainerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 115, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEpContainerId.setStatus('current')
+cucsStorageVirtualDriveEpDriveState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 115, 1, 6), CucsStorageVDriveState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEpDriveState.setStatus('current')
+cucsStorageVirtualDriveEpId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 115, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEpId.setStatus('current')
+cucsStorageVirtualDriveEpLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 115, 1, 8), CucsFsmLifecycle()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEpLc.setStatus('current')
+cucsStorageVirtualDriveEpName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 115, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEpName.setStatus('current')
+cucsStorageVirtualDriveEpOperDeviceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 115, 1, 10), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEpOperDeviceId.setStatus('current')
+cucsStorageVirtualDriveEpUuid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 115, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEpUuid.setStatus('current')
+cucsStorageVirtualDriveEpVdDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 115, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEpVdDn.setStatus('current')
+cucsStorageVirtualDriveEpVendorUuid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 115, 1, 13), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveEpVendorUuid.setStatus('current')
+cucsStorageVirtualDriveRefTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91), )
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefTable.setStatus('current')
+cucsStorageVirtualDriveRefEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageVirtualDriveRefInstanceId"))
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefEntry.setStatus('current')
+cucsStorageVirtualDriveRefInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefInstanceId.setStatus('current')
+cucsStorageVirtualDriveRefDnData = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefDnData.setStatus('current')
+cucsStorageVirtualDriveRefRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefRn.setStatus('current')
+cucsStorageVirtualDriveRefAdminName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefAdminName.setStatus('current')
+cucsStorageVirtualDriveRefAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 5), CucsStorageVirtualDriveRefAdminState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefAdminState.setStatus('current')
+cucsStorageVirtualDriveRefConfigState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 6), CucsStorageConfigState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefConfigState.setStatus('current')
+cucsStorageVirtualDriveRefDiskSelectionOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefDiskSelectionOrder.setStatus('current')
+cucsStorageVirtualDriveRefDiskSelectionTs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 8), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefDiskSelectionTs.setStatus('current')
+cucsStorageVirtualDriveRefLunDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefLunDn.setStatus('current')
+cucsStorageVirtualDriveRefLunItemDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefLunItemDn.setStatus('current')
+cucsStorageVirtualDriveRefLunItemName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefLunItemName.setStatus('current')
+cucsStorageVirtualDriveRefLunName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefLunName.setStatus('current')
+cucsStorageVirtualDriveRefRaidLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 13), CucsStorageLunType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefRaidLevel.setStatus('current')
+cucsStorageVirtualDriveRefSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 14), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefSize.setStatus('current')
+cucsStorageVirtualDriveRefUuid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 15), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefUuid.setStatus('current')
+cucsStorageVirtualDriveRefIsBootable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 16), CucsLstorageBootDevice()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefIsBootable.setStatus('current')
+cucsStorageVirtualDriveRefOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 17), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefOrder.setStatus('current')
+cucsStorageVirtualDriveRefVendorUuid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 91, 1, 18), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVirtualDriveRefVendorUuid.setStatus('current')
+cucsStorageVsanRefTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 32), )
+if mibBuilder.loadTexts: cucsStorageVsanRefTable.setStatus('current')
+cucsStorageVsanRefEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 32, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-STORAGE-MIB", "cucsStorageVsanRefInstanceId"))
+if mibBuilder.loadTexts: cucsStorageVsanRefEntry.setStatus('current')
+cucsStorageVsanRefInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 32, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsStorageVsanRefInstanceId.setStatus('current')
+cucsStorageVsanRefDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 32, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVsanRefDn.setStatus('current')
+cucsStorageVsanRefRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 32, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVsanRefRn.setStatus('current')
+cucsStorageVsanRefConfigQualifier = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 32, 1, 4), CucsVnicConfigIssues()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVsanRefConfigQualifier.setStatus('current')
+cucsStorageVsanRefName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 32, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVsanRefName.setStatus('current')
+cucsStorageVsanRefOperVnetDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 32, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVsanRefOperVnetDn.setStatus('current')
+cucsStorageVsanRefOperVnetName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 32, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVsanRefOperVnetName.setStatus('current')
+cucsStorageVsanRefSwitchId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 32, 1, 8), CucsStorageVsanRefSwitchId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVsanRefSwitchId.setStatus('current')
+cucsStorageVsanRefVnet = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 32, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVsanRefVnet.setStatus('current')
+cucsStorageVsanRefZoningState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 45, 32, 1, 10), CucsFabricZoningState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsStorageVsanRefZoningState.setStatus('current')
+mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-STORAGE-MIB", cucsStorageVirtualDriveContainerId=cucsStorageVirtualDriveContainerId, cucsStorageQualMaxCap=cucsStorageQualMaxCap, cucsStorageLocalDiskFsmRmtInvRslt=cucsStorageLocalDiskFsmRmtInvRslt, cucsStorageEnclosureDescr=cucsStorageEnclosureDescr, cucsStorageSasExpanderTemperature=cucsStorageSasExpanderTemperature, cucsStorageLocalDiskEpBootable=cucsStorageLocalDiskEpBootable, cucsStorageVirtualDriveRefEntry=cucsStorageVirtualDriveRefEntry, cucsStorageLocalDiskFsmDescr=cucsStorageLocalDiskFsmDescr, cucsStorageEnclosureAdminState=cucsStorageEnclosureAdminState, cucsStorageSsdHealthStatsHistPowerOnHoursMin=cucsStorageSsdHealthStatsHistPowerOnHoursMin, cucsStorageLocalDiskConfigDefRn=cucsStorageLocalDiskConfigDefRn, cucsStorageEnclosureLocalDiskConfigLinkSpeed=cucsStorageEnclosureLocalDiskConfigLinkSpeed, cucsStorageLocalDiskTable=cucsStorageLocalDiskTable, cucsStorageTransportableFlashModuleNumberOfBlocks=cucsStorageTransportableFlashModuleNumberOfBlocks, cucsStorageNvmeStatsHistTemperatureAvg=cucsStorageNvmeStatsHistTemperatureAvg, cucsStorageSsdHealthStatsPercentageLifeLeft=cucsStorageSsdHealthStatsPercentageLifeLeft, cucsStorageNvmeStatsIntervals=cucsStorageNvmeStatsIntervals, cucsStorageEnclosureLocalDiskConfigSize=cucsStorageEnclosureLocalDiskConfigSize, cucsStorageEnclosureDiskSlotEpOperability=cucsStorageEnclosureDiskSlotEpOperability, cucsStorageMiniStorageId=cucsStorageMiniStorageId, cucsStorageTransportableFlashModuleEntry=cucsStorageTransportableFlashModuleEntry, cucsStorageLocalDiskAdminVirtualDriveId=cucsStorageLocalDiskAdminVirtualDriveId, cucsStorageMezzFlashLifeVendor=cucsStorageMezzFlashLifeVendor, cucsStorageVirtualDriveUuid=cucsStorageVirtualDriveUuid, cucsStorageHddMotherBoardTempStatsHistId=cucsStorageHddMotherBoardTempStatsHistId, cucsStorageVirtualDriveRefDnData=cucsStorageVirtualDriveRefDnData, cucsStorageEnclosureFsmTaskRn=cucsStorageEnclosureFsmTaskRn, cucsStorageNvmeStatsHistTimeCollected=cucsStorageNvmeStatsHistTimeCollected, cucsStorageControllerPciSlot=cucsStorageControllerPciSlot, cucsStorageFlexFlashCardDn=cucsStorageFlexFlashCardDn, cucsStorageTransportableFlashModuleModel=cucsStorageTransportableFlashModuleModel, cucsStorageSystemFsmRn=cucsStorageSystemFsmRn, cucsStorageLocalDiskEpEncId=cucsStorageLocalDiskEpEncId, cucsStorageMezzFlashLifeFlashStatus=cucsStorageMezzFlashLifeFlashStatus, cucsStorageQualMinCap=cucsStorageQualMinCap, cucsStorageSasExpanderDn=cucsStorageSasExpanderDn, cucsStorageTransportableFlashModuleOperQualifierReason=cucsStorageTransportableFlashModuleOperQualifierReason, cucsStorageLocalDiskPresence=cucsStorageLocalDiskPresence, cucsStorageFlexFlashControllerFsmStageDn=cucsStorageFlexFlashControllerFsmStageDn, cucsStorageFlexFlashCardMfgId=cucsStorageFlexFlashCardMfgId, cucsStorageEmbeddedStorageTable=cucsStorageEmbeddedStorageTable, cucsStorageVsanRefConfigQualifier=cucsStorageVsanRefConfigQualifier, cucsStorageHddMotherBoardTempStatsLeftOutletTempMax=cucsStorageHddMotherBoardTempStatsLeftOutletTempMax, cucsStorageIniGroupDescr=cucsStorageIniGroupDescr, cucsStorageHddMotherBoardTempStatsHistInstanceId=cucsStorageHddMotherBoardTempStatsHistInstanceId, cucsStorageEpUserPriv=cucsStorageEpUserPriv, cucsStorageSystemName=cucsStorageSystemName, cucsStorageFlexFlashControllerFsmCompletionTime=cucsStorageFlexFlashControllerFsmCompletionTime, cucsStorageSasExpanderVendor=cucsStorageSasExpanderVendor, cucsStorageSasExpanderPersistedEPFB=cucsStorageSasExpanderPersistedEPFB, cucsStorageRaidBatteryLc=cucsStorageRaidBatteryLc, cucsStorageDiskEnvStatsWearPercentageMax=cucsStorageDiskEnvStatsWearPercentageMax, cucsStorageFlexFlashDriveNumberOfBlocks=cucsStorageFlexFlashDriveNumberOfBlocks, cucsStorageFlexFlashDriveVendor=cucsStorageFlexFlashDriveVendor, cucsStorageFlexFlashControllerFsmStageStageStatus=cucsStorageFlexFlashControllerFsmStageStageStatus, cucsStorageFcTargetEpDn=cucsStorageFcTargetEpDn, cucsStorageVirtualDriveRefDn=cucsStorageVirtualDriveRefDn, cucsStorageDiskEnvStatsTemperatureMin=cucsStorageDiskEnvStatsTemperatureMin, cucsStorageInitiatorPolicyOwner=cucsStorageInitiatorPolicyOwner, cucsStorageSasUpLinkControllerId=cucsStorageSasUpLinkControllerId, cucsStorageEnclosureOperQualifierReason=cucsStorageEnclosureOperQualifierReason, cucsStorageLocalDiskEncAssociation=cucsStorageLocalDiskEncAssociation, cucsStorageSsdHealthStatsHistPowerCycleCountMax=cucsStorageSsdHealthStatsHistPowerCycleCountMax, cucsStorageVDMemberEpSerial=cucsStorageVDMemberEpSerial, cucsStorageRaidBatteryOperabilityQualifier=cucsStorageRaidBatteryOperabilityQualifier, cucsStorageEnclosureLocalDiskConfigRn=cucsStorageEnclosureLocalDiskConfigRn, cucsStorageFlexFlashVirtualDriveOperability=cucsStorageFlexFlashVirtualDriveOperability, cucsStorageItemName=cucsStorageItemName, cucsStorageLocalLunBlockSize=cucsStorageLocalLunBlockSize, cucsStorageVDMemberEpModel=cucsStorageVDMemberEpModel, cucsStorageDiskEnvStatsTable=cucsStorageDiskEnvStatsTable, cucsStorageScsiLunRefId=cucsStorageScsiLunRefId, cucsStorageEnclosureFsmDn=cucsStorageEnclosureFsmDn, cucsStorageFlexFlashControllerRevision=cucsStorageFlexFlashControllerRevision, cucsStorageLocalDiskModel=cucsStorageLocalDiskModel, cucsStorageFlexFlashVirtualDriveNumberOfBlocks=cucsStorageFlexFlashVirtualDriveNumberOfBlocks, cucsStorageDiskEnvStatsHistWearPercentageMax=cucsStorageDiskEnvStatsHistWearPercentageMax, cucsStorageSasExpanderVoltage=cucsStorageSasExpanderVoltage, cucsStorageFlexFlashControllerVirtualDriveCount=cucsStorageFlexFlashControllerVirtualDriveCount, cucsStorageConnectionDefInstanceId=cucsStorageConnectionDefInstanceId, cucsStorageLocalDiskConfigPolicyDescr=cucsStorageLocalDiskConfigPolicyDescr, cucsStorageLocalDiskPartitionInstanceId=cucsStorageLocalDiskPartitionInstanceId, cucsStorageLocalDiskConfigPolicyIntId=cucsStorageLocalDiskConfigPolicyIntId, cucsStorageOnboardDeviceDeviceType=cucsStorageOnboardDeviceDeviceType, cucsStorageHddMotherBoardTempStatsLeftOutletTempMin=cucsStorageHddMotherBoardTempStatsLeftOutletTempMin, cucsStorageVsanRefVnet=cucsStorageVsanRefVnet, cucsStorageRaidBatteryConnectionProtocol=cucsStorageRaidBatteryConnectionProtocol, cucsStorageFlexFlashControllerOperationRequest=cucsStorageFlexFlashControllerOperationRequest, cucsStorageFlexFlashDriveOperQualifierReason=cucsStorageFlexFlashDriveOperQualifierReason, cucsStorageVirtualDriveBlockSize=cucsStorageVirtualDriveBlockSize, cucsStorageVirtualDriveEpDriveState=cucsStorageVirtualDriveEpDriveState, cucsStorageSsdHealthStatsHistSuspect=cucsStorageSsdHealthStatsHistSuspect, cucsStorageFlexFlashCardVendor=cucsStorageFlexFlashCardVendor, cucsStorageLocalDiskFsmStageRetry=cucsStorageLocalDiskFsmStageRetry, cucsStorageSsdHealthStatsPowerCycleCountMin=cucsStorageSsdHealthStatsPowerCycleCountMin, cucsStorageSystemEntry=cucsStorageSystemEntry, cucsStorageEnclosureCapRn=cucsStorageEnclosureCapRn, cucsStorageNvmeStatsDriveLifeUsedPercentageAvg=cucsStorageNvmeStatsDriveLifeUsedPercentageAvg, cucsStorageSystemFsmCompletionTime=cucsStorageSystemFsmCompletionTime, cucsStorageEnclosureNumSlots=cucsStorageEnclosureNumSlots, cucsStorageControllerVariantType=cucsStorageControllerVariantType, cucsStorageOnboardDeviceConnectionProtocol=cucsStorageOnboardDeviceConnectionProtocol, cucsStorageControllerSubOemId=cucsStorageControllerSubOemId, cucsStorageAuthKeyDescr=cucsStorageAuthKeyDescr, cucsStorageQualPerDiskCap=cucsStorageQualPerDiskCap, cucsStorageFlexFlashVirtualDriveRevision=cucsStorageFlexFlashVirtualDriveRevision, cucsStorageLocalDiskFsmProgress=cucsStorageLocalDiskFsmProgress, cucsStorageLocalDiskConfigDefInstanceId=cucsStorageLocalDiskConfigDefInstanceId, cucsStorageEnclosureFsmTable=cucsStorageEnclosureFsmTable, cucsStorageSsdHealthStatsHistPowerOnHoursAvg=cucsStorageSsdHealthStatsHistPowerOnHoursAvg, cucsStorageIScsiTargetIfProt=cucsStorageIScsiTargetIfProt, cucsStorageEnclosureFsmStageEntry=cucsStorageEnclosureFsmStageEntry, cucsStorageRaidBatteryBbuStatus=cucsStorageRaidBatteryBbuStatus, cucsStorageFlexFlashControllerFlexFlashType=cucsStorageFlexFlashControllerFlexFlashType, cucsStorageEnclosureFsmTaskDn=cucsStorageEnclosureFsmTaskDn, cucsStorageLocalDiskVariantType=cucsStorageLocalDiskVariantType, cucsStorageConnectionDefDescr=cucsStorageConnectionDefDescr, cucsStorageFlexFlashDriveRn=cucsStorageFlexFlashDriveRn, cucsStorageFlexFlashControllerFsmCurrentFsm=cucsStorageFlexFlashControllerFsmCurrentFsm, cucsStorageVirtualDriveEpUuid=cucsStorageVirtualDriveEpUuid, cucsStorageEnclosureFsmTaskCompletion=cucsStorageEnclosureFsmTaskCompletion, cucsStorageRaidBatteryRn=cucsStorageRaidBatteryRn, cucsStorageVirtualDriveConfigState=cucsStorageVirtualDriveConfigState, cucsStorageFlexFlashControllerConfiguredMode=cucsStorageFlexFlashControllerConfiguredMode, cucsStorageLocalDiskBlockSize=cucsStorageLocalDiskBlockSize, cucsStorageFlexFlashCardSize=cucsStorageFlexFlashCardSize, cucsStorageQualEntry=cucsStorageQualEntry, cucsStorageEnclosureLocalDiskConfigSerial=cucsStorageEnclosureLocalDiskConfigSerial, cucsStorageFcTargetEpInstanceId=cucsStorageFcTargetEpInstanceId, cucsStorageLocalDiskFsmDn=cucsStorageLocalDiskFsmDn, cucsStorageEnclosureCapDiskVariant=cucsStorageEnclosureCapDiskVariant, cucsStorageLocalDiskId=cucsStorageLocalDiskId, cucsStorageHddMotherBoardTempStatsSuspect=cucsStorageHddMotherBoardTempStatsSuspect, cucsStorageInitiatorOperState=cucsStorageInitiatorOperState, cucsStorageEnclosureRevision=cucsStorageEnclosureRevision, cucsStorageFlexFlashVirtualDriveVendor=cucsStorageFlexFlashVirtualDriveVendor, cucsStorageFlexFlashCardWriteErrorThreshold=cucsStorageFlexFlashCardWriteErrorThreshold, cucsStorageConnectionDefPolicyOwner=cucsStorageConnectionDefPolicyOwner, cucsStorageFlexFlashDrivePhysicalBlockSize=cucsStorageFlexFlashDrivePhysicalBlockSize, cucsStorageLocalDiskEpDiskState=cucsStorageLocalDiskEpDiskState, cucsStorageLocalDiskFsmRn=cucsStorageLocalDiskFsmRn, cucsStorageSystemFsmRmtErrDescr=cucsStorageSystemFsmRmtErrDescr, cucsStorageNvmeStatsHistDriveLifeUsedPercentage=cucsStorageNvmeStatsHistDriveLifeUsedPercentage, cucsStorageVirtualDriveEpLc=cucsStorageVirtualDriveEpLc, cucsStorageAuthKeyType=cucsStorageAuthKeyType, cucsStorageInitiatorDuplicateTarget=cucsStorageInitiatorDuplicateTarget, cucsStorageEmbeddedStorageEntry=cucsStorageEmbeddedStorageEntry, cucsStorageTransportableFlashModuleDn=cucsStorageTransportableFlashModuleDn, cucsStorageFlexFlashControllerFsmStatus=cucsStorageFlexFlashControllerFsmStatus, cucsStorageLocalDiskInstanceId=cucsStorageLocalDiskInstanceId, cucsStorageRaidBatteryPresence=cucsStorageRaidBatteryPresence, cucsStorageVirtualDriveOperQualifierReason=cucsStorageVirtualDriveOperQualifierReason, cucsStorageSasPortDescriptorTable=cucsStorageSasPortDescriptorTable, cucsStorageLocalDiskConfigDefProtectConfig=cucsStorageLocalDiskConfigDefProtectConfig, cucsStorageVirtualDriveModel=cucsStorageVirtualDriveModel, cucsStorageDiskEnvStatsHistInstanceId=cucsStorageDiskEnvStatsHistInstanceId, cucsStorageEnclosureDiskSlotEpTable=cucsStorageEnclosureDiskSlotEpTable, cucsStorageLocalDiskConfigDefTable=cucsStorageLocalDiskConfigDefTable, cucsStorageHddMotherBoardTempStatsHistRn=cucsStorageHddMotherBoardTempStatsHistRn, cucsStorageFlexFlashControllerFsmDn=cucsStorageFlexFlashControllerFsmDn, cucsStorageTransportableFlashModuleConnectionProtocol=cucsStorageTransportableFlashModuleConnectionProtocol, cucsStorageAuthKeyInstanceId=cucsStorageAuthKeyInstanceId, cucsStorageControllerReferenceControllerType=cucsStorageControllerReferenceControllerType, cucsStorageVirtualDriveContainerRn=cucsStorageVirtualDriveContainerRn, cucsStorageVirtualDriveRefLunDn=cucsStorageVirtualDriveRefLunDn, cucsStorageRaidBatteryTable=cucsStorageRaidBatteryTable, cucsStorageRaidBatteryRevision=cucsStorageRaidBatteryRevision, cucsStorageScsiLunRefPnDn=cucsStorageScsiLunRefPnDn, cucsStorageIniGroupName=cucsStorageIniGroupName, cucsStorageIScsiTargetIfEntry=cucsStorageIScsiTargetIfEntry, cucsStorageHddMotherBoardTempStatsLeftInletTempAvg=cucsStorageHddMotherBoardTempStatsLeftInletTempAvg, cucsStorageLocalDiskConfigPolicyInstanceId=cucsStorageLocalDiskConfigPolicyInstanceId, cucsStorageSasExpanderFwRegionOne=cucsStorageSasExpanderFwRegionOne, cucsStorageSasExpanderId=cucsStorageSasExpanderId, cucsStorageLocalDiskDn=cucsStorageLocalDiskDn, cucsStorageControllerOnBoardMemoryPresent=cucsStorageControllerOnBoardMemoryPresent, cucsStorageLocalDiskPartitionTable=cucsStorageLocalDiskPartitionTable, cucsStorageHddMotherBoardTempStatsHistRightInletTempAvg=cucsStorageHddMotherBoardTempStatsHistRightInletTempAvg, cucsStorageSasPortDn=cucsStorageSasPortDn, cucsStorageEtherIfTable=cucsStorageEtherIfTable, cucsStorageDiskEnvStatsHistWearPercentageMin=cucsStorageDiskEnvStatsHistWearPercentageMin, cucsStorageAuthKeyName=cucsStorageAuthKeyName, cucsStorageHddMotherBoardTempStatsLeftOutletTemp=cucsStorageHddMotherBoardTempStatsLeftOutletTemp, cucsStorageSystemFsmRmtInvErrDescr=cucsStorageSystemFsmRmtInvErrDescr, cucsStorageAuthKeyEntry=cucsStorageAuthKeyEntry, cucsStorageVirtualDriveRevision=cucsStorageVirtualDriveRevision, cucsStorageInitiatorName=cucsStorageInitiatorName, cucsStorageVirtualDriveLocale=cucsStorageVirtualDriveLocale, cucsStorageSasExpanderUplinkStateReason=cucsStorageSasExpanderUplinkStateReason, cucsStorageEnclosureDiskSlotEpOwnership=cucsStorageEnclosureDiskSlotEpOwnership, cucsStorageLocalDiskSlotEpEntry=cucsStorageLocalDiskSlotEpEntry, cucsStorageEpUserName=cucsStorageEpUserName, cucsStorageNvmeStatsTemperatureAvg=cucsStorageNvmeStatsTemperatureAvg, cucsStorageRaidBatteryModel=cucsStorageRaidBatteryModel, cucsStorageHddMotherBoardTempStatsDn=cucsStorageHddMotherBoardTempStatsDn, cucsStorageHddMotherBoardTempStatsRightInletTempMax=cucsStorageHddMotherBoardTempStatsRightInletTempMax, cucsStorageVirtualDriveEntry=cucsStorageVirtualDriveEntry, cucsStorageControllerEpRn=cucsStorageControllerEpRn, cucsStorageOperationDn=cucsStorageOperationDn, cucsStorageSasLinkDescriptorControllerType=cucsStorageSasLinkDescriptorControllerType, cucsStorageControllerPresence=cucsStorageControllerPresence, cucsStorageEnclosureFsmStageRetry=cucsStorageEnclosureFsmStageRetry, cucsStorageSasExpanderFwRunningRegion=cucsStorageSasExpanderFwRunningRegion, cucsStorageNodeEpDn=cucsStorageNodeEpDn, cucsStorageControllerDiskOps=cucsStorageControllerDiskOps, cucsStorageEnclosureFsmDescrData=cucsStorageEnclosureFsmDescrData, cucsStorageVirtualDriveRefOrder=cucsStorageVirtualDriveRefOrder, cucsStorageDiskEnvStatsTemperature=cucsStorageDiskEnvStatsTemperature, cucsStorageRaidBatteryEntry=cucsStorageRaidBatteryEntry, cucsStorageEnclosureLocalDiskConfigPresence=cucsStorageEnclosureLocalDiskConfigPresence, cucsStorageLocalDiskFsmStageDescrData=cucsStorageLocalDiskFsmStageDescrData, cucsStorageVsanRefSwitchId=cucsStorageVsanRefSwitchId, cucsStorageDiskEnvStatsHistTable=cucsStorageDiskEnvStatsHistTable, cucsStorageFlexFlashControllerPower=cucsStorageFlexFlashControllerPower, cucsStorageFlexFlashVirtualDriveOperQualifierReason=cucsStorageFlexFlashVirtualDriveOperQualifierReason, cucsStorageLocalDiskConfigPolicyRn=cucsStorageLocalDiskConfigPolicyRn, cucsStorageScsiLunRefEntry=cucsStorageScsiLunRefEntry, cucsStorageFlexFlashDriveOperationState=cucsStorageFlexFlashDriveOperationState, cucsStorageLocalDiskFsmCompletionTime=cucsStorageLocalDiskFsmCompletionTime, cucsStorageFlexFlashCardOperability=cucsStorageFlexFlashCardOperability, cucsStorageEnclosureTable=cucsStorageEnclosureTable, cucsStorageFlexFlashCardCardHealth=cucsStorageFlexFlashCardCardHealth, cucsStorageFlexFlashControllerPrimarySlotNumber=cucsStorageFlexFlashControllerPrimarySlotNumber, cucsStorageAuthKeyPassword=cucsStorageAuthKeyPassword, cucsStorageLunResourceSelectionLogInstanceId=cucsStorageLunResourceSelectionLogInstanceId, cucsStorageFlexFlashControllerFsmStageRn=cucsStorageFlexFlashControllerFsmStageRn, cucsStorageFlexFlashCardSignature=cucsStorageFlexFlashCardSignature, cucsStorageFlexFlashControllerFsmTaskItem=cucsStorageFlexFlashControllerFsmTaskItem, cucsStorageEpUserConfigStatusMessage=cucsStorageEpUserConfigStatusMessage, cucsStorageEnclosureLocalDiskConfigVendor=cucsStorageEnclosureLocalDiskConfigVendor, cucsStorageNvmeStatsHistTemperatureMax=cucsStorageNvmeStatsHistTemperatureMax, cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMax=cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMax, cucsStorageLocalDiskSlotEpPeerDn=cucsStorageLocalDiskSlotEpPeerDn, cucsStorageFlexFlashDriveId=cucsStorageFlexFlashDriveId, cucsStorageFlexFlashCardTable=cucsStorageFlexFlashCardTable, cucsStorageNvmeStatsHistMostRecent=cucsStorageNvmeStatsHistMostRecent, cucsStorageFlexFlashCardInstanceId=cucsStorageFlexFlashCardInstanceId, cucsStorageQualDiskType=cucsStorageQualDiskType, cucsStorageFcTargetEpEntry=cucsStorageFcTargetEpEntry, cucsStorageHddMotherBoardTempStatsHistLeftInletTempMax=cucsStorageHddMotherBoardTempStatsHistLeftInletTempMax, cucsStorageNvmeStatsSuspect=cucsStorageNvmeStatsSuspect, cucsStorageIScsiTargetIfName=cucsStorageIScsiTargetIfName, cucsStorageEnclosureFsmTaskSeqId=cucsStorageEnclosureFsmTaskSeqId, cucsStorageRaidBatteryNumberOfBlocks=cucsStorageRaidBatteryNumberOfBlocks, cucsStorageDiskEnvStatsTimeCollected=cucsStorageDiskEnvStatsTimeCollected, cucsStorageDomainEpInstanceId=cucsStorageDomainEpInstanceId, cucsStorageVirtualDriveConfigQualifierReason=cucsStorageVirtualDriveConfigQualifierReason, cucsStorageControllerMode=cucsStorageControllerMode, cucsStorageLocalDiskEpDiskDn=cucsStorageLocalDiskEpDiskDn, cucsStorageControllerTable=cucsStorageControllerTable, cucsStorageSsdHealthStatsPowerCycleCountAvg=cucsStorageSsdHealthStatsPowerCycleCountAvg, cucsStorageVirtualDriveRefLunName=cucsStorageVirtualDriveRefLunName, cucsStorageDiskEnvStatsHistWearPercentageAvg=cucsStorageDiskEnvStatsHistWearPercentageAvg, cucsStorageEpUserDomain=cucsStorageEpUserDomain)
+mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-STORAGE-MIB", cucsStorageControllerRefControllerType=cucsStorageControllerRefControllerType, cucsStorageLunResourceSelectionLogDn=cucsStorageLunResourceSelectionLogDn, cucsStorageLocalLunVendor=cucsStorageLocalLunVendor, cucsStorageRaidBatteryLearnMode=cucsStorageRaidBatteryLearnMode, cucsStorageControllerOobControllerId=cucsStorageControllerOobControllerId, cucsStorageEmbeddedStoragePresence=cucsStorageEmbeddedStoragePresence, cucsStorageScsiLunRefRn=cucsStorageScsiLunRefRn, cucsStorageSasPortDescriptorRn=cucsStorageSasPortDescriptorRn, cucsStorageEnclosureLocalDiskConfigScsiDiskState=cucsStorageEnclosureLocalDiskConfigScsiDiskState, cucsStorageLocalDiskFsmPrev=cucsStorageLocalDiskFsmPrev, cucsStorageSsdHealthStatsHistEntry=cucsStorageSsdHealthStatsHistEntry, cucsStorageEmbeddedStorageConnectionProtocol=cucsStorageEmbeddedStorageConnectionProtocol, cucsStorageHddMotherBoardTempStatsRightOutletTempMin=cucsStorageHddMotherBoardTempStatsRightOutletTempMin, cucsStorageItemDn=cucsStorageItemDn, cucsStorageLocalDiskFsmTaskTable=cucsStorageLocalDiskFsmTaskTable, cucsStorageScsiLunRefLsDn=cucsStorageScsiLunRefLsDn, cucsStorageHddMotherBoardTempStatsHistThresholded=cucsStorageHddMotherBoardTempStatsHistThresholded, cucsStorageSasPortDescriptorDn=cucsStorageSasPortDescriptorDn, cucsStorageSystemFsmRmtInvErrCode=cucsStorageSystemFsmRmtInvErrCode, cucsStorageVirtualDriveEpId=cucsStorageVirtualDriveEpId, cucsStorageFlexFlashControllerFsmStageInstanceId=cucsStorageFlexFlashControllerFsmStageInstanceId, cucsStorageFlexFlashCardEntry=cucsStorageFlexFlashCardEntry, cucsStorageEpUserPwdSet=cucsStorageEpUserPwdSet, cucsStorageHddMotherBoardTempStatsHistRightInletTemp=cucsStorageHddMotherBoardTempStatsHistRightInletTemp, cucsStorageEnclosureLocalDiskConfigNumberOfBlocks=cucsStorageEnclosureLocalDiskConfigNumberOfBlocks, cucsStorageScsiLunRefInstanceId=cucsStorageScsiLunRefInstanceId, cucsStorageLocalDiskFsmRmtInvErrCode=cucsStorageLocalDiskFsmRmtInvErrCode, cucsStorageSystemDn=cucsStorageSystemDn, cucsStorageLocalLunDn=cucsStorageLocalLunDn, cucsStorageVirtualDriveEpBootable=cucsStorageVirtualDriveEpBootable, cucsStorageControllerControllerStatus=cucsStorageControllerControllerStatus, cucsStorageDiskEnvStatsHistTemperature=cucsStorageDiskEnvStatsHistTemperature, cucsStorageMezzFlashLifeInstanceId=cucsStorageMezzFlashLifeInstanceId, cucsStorageHddMotherBoardTempStatsHistLeftOutletTempAvg=cucsStorageHddMotherBoardTempStatsHistLeftOutletTempAvg, cucsStorageEmbeddedStoragePhysicalBlockSize=cucsStorageEmbeddedStoragePhysicalBlockSize, cucsStorageLocalDiskConfigPolicyFlexFlashState=cucsStorageLocalDiskConfigPolicyFlexFlashState, cucsStorageEnclosureFsmRmtInvErrDescr=cucsStorageEnclosureFsmRmtInvErrDescr, cucsStorageFlexFlashCardMfgDate=cucsStorageFlexFlashCardMfgDate, cucsStorageEnclosureDiskSlotEpPeerDn=cucsStorageEnclosureDiskSlotEpPeerDn, cucsStorageFlexFlashControllerFsmRmtInvRslt=cucsStorageFlexFlashControllerFsmRmtInvRslt, cucsStorageVirtualDriveType=cucsStorageVirtualDriveType, cucsStorageControllerAdminAction=cucsStorageControllerAdminAction, cucsStorageDiskEnvStatsWearPercentageMin=cucsStorageDiskEnvStatsWearPercentageMin, cucsStorageEnclosureChassisId=cucsStorageEnclosureChassisId, cucsStorageDiskEnvStatsDn=cucsStorageDiskEnvStatsDn, cucsStorageHddMotherBoardTempStatsRightOutletTempMax=cucsStorageHddMotherBoardTempStatsRightOutletTempMax, cucsStorageMiniStoragePower=cucsStorageMiniStoragePower, cucsStorageVirtualDriveInstanceId=cucsStorageVirtualDriveInstanceId, cucsStorageHddMotherBoardTempStatsHistRightOutletTemp=cucsStorageHddMotherBoardTempStatsHistRightOutletTemp, cucsStorageHddMotherBoardTempStatsHistLeftInletTempMin=cucsStorageHddMotherBoardTempStatsHistLeftInletTempMin, cucsStorageVirtualDriveOperability=cucsStorageVirtualDriveOperability, cucsStorageEnclosureFsmStageInstanceId=cucsStorageEnclosureFsmStageInstanceId, cucsStorageLunResourceSelectionLogRn=cucsStorageLunResourceSelectionLogRn, cucsStorageNvmeStatsHistInstanceId=cucsStorageNvmeStatsHistInstanceId, cucsStorageNvmeStatsHistSuspect=cucsStorageNvmeStatsHistSuspect, cucsStorageLocalDiskFsmStageStageStatus=cucsStorageLocalDiskFsmStageStageStatus, cucsStorageEnclosureFsmStageDescr=cucsStorageEnclosureFsmStageDescr, cucsStorageInitiatorTable=cucsStorageInitiatorTable, cucsStorageFlexFlashVirtualDriveBlockSize=cucsStorageFlexFlashVirtualDriveBlockSize, cucsStorageFlexFlashControllerLocationDn=cucsStorageFlexFlashControllerLocationDn, cucsStorageEpUserDescr=cucsStorageEpUserDescr, cucsStorageLocalDiskFsmStageDn=cucsStorageLocalDiskFsmStageDn, cucsStorageDiskEnvStatsHistTemperatureMax=cucsStorageDiskEnvStatsHistTemperatureMax, cucsStorageSsdHealthStatsRn=cucsStorageSsdHealthStatsRn, cucsStorageFlexFlashControllerOperState=cucsStorageFlexFlashControllerOperState, cucsStorageLocalDiskConfigPolicyName=cucsStorageLocalDiskConfigPolicyName, cucsStorageInitiatorDn=cucsStorageInitiatorDn, cucsStorageFlexFlashControllerIsFormatFSMRunning=cucsStorageFlexFlashControllerIsFormatFSMRunning, cucsStorageLocalDiskFsmStageOrder=cucsStorageLocalDiskFsmStageOrder, cucsStorageLocalDiskConfigPolicyPolicyOwner=cucsStorageLocalDiskConfigPolicyPolicyOwner, cucsStorageLocalDiskEpInstanceId=cucsStorageLocalDiskEpInstanceId, cucsStorageVirtualDriveEpDn=cucsStorageVirtualDriveEpDn, cucsStorageOperationTable=cucsStorageOperationTable, cucsStorageVirtualDriveConnectionProtocol=cucsStorageVirtualDriveConnectionProtocol, cucsStorageFlexFlashDriveModel=cucsStorageFlexFlashDriveModel, cucsStorageIScsiTargetIfTable=cucsStorageIScsiTargetIfTable, cucsStorageVirtualDriveAvailableSize=cucsStorageVirtualDriveAvailableSize, cucsStorageSystemFsmEntry=cucsStorageSystemFsmEntry, cucsStorageNvmeStatsTable=cucsStorageNvmeStatsTable, cucsStorageHddMotherBoardTempStatsHistTimeCollected=cucsStorageHddMotherBoardTempStatsHistTimeCollected, cucsStorageNvmeStatsHistTable=cucsStorageNvmeStatsHistTable, cucsStorageLocalDiskConfigDefDescr=cucsStorageLocalDiskConfigDefDescr, cucsStorageSystemFsmRmtInvRslt=cucsStorageSystemFsmRmtInvRslt, cucsStorageVirtualDriveRefTable=cucsStorageVirtualDriveRefTable, cucsStorageEnclosureLocalDiskConfigOperQualifierReason=cucsStorageEnclosureLocalDiskConfigOperQualifierReason, cucsStorageSystemFsmTry=cucsStorageSystemFsmTry, cucsStorageIScsiTargetIfInstanceId=cucsStorageIScsiTargetIfInstanceId, cucsStorageMiniStorageThermal=cucsStorageMiniStorageThermal, cucsStorageLocalDiskFsmStageName=cucsStorageLocalDiskFsmStageName, cucsStorageVDMemberEpInstanceId=cucsStorageVDMemberEpInstanceId, cucsStorageItemAlarmType=cucsStorageItemAlarmType, cucsStorageFlexFlashDriveSlotNumber=cucsStorageFlexFlashDriveSlotNumber, cucsStorageConnectionPolicyDescr=cucsStorageConnectionPolicyDescr, cucsStorageSasLinkDescriptorTable=cucsStorageSasLinkDescriptorTable, cucsStorageSasPortDescriptorId=cucsStorageSasPortDescriptorId, cucsStorageFlexFlashControllerFsmStageEntry=cucsStorageFlexFlashControllerFsmStageEntry, cucsStorageLocalDiskAdminAction=cucsStorageLocalDiskAdminAction, cucsStorageOnboardDeviceOperability=cucsStorageOnboardDeviceOperability, cucsStorageLocalDiskPartitionBootable=cucsStorageLocalDiskPartitionBootable, cucsStorageVirtualDriveStripSize=cucsStorageVirtualDriveStripSize, cucsStorageEnclosureDiskSlotEpDn=cucsStorageEnclosureDiskSlotEpDn, cucsStorageControllerPciSlotRawName=cucsStorageControllerPciSlotRawName, cucsStorageFlexFlashCardConnectionProtocol=cucsStorageFlexFlashCardConnectionProtocol, cucsStorageMezzFlashLifeOperQualifierReason=cucsStorageMezzFlashLifeOperQualifierReason, cucsStorageFlexFlashVirtualDrivePhysicalBlockSize=cucsStorageFlexFlashVirtualDrivePhysicalBlockSize, cucsStorageNvmeStorageInstanceId=cucsStorageNvmeStorageInstanceId, cucsStorageLocalDiskErrDescription=cucsStorageLocalDiskErrDescription, cucsStorageVsanRefEntry=cucsStorageVsanRefEntry, cucsStorageSsdHealthStatsHistPercentageLifeLeftMin=cucsStorageSsdHealthStatsHistPercentageLifeLeftMin, cucsStorageFcTargetEpRn=cucsStorageFcTargetEpRn, cucsStorageDiskEnvStatsSuspect=cucsStorageDiskEnvStatsSuspect, cucsStorageControllerConfigState=cucsStorageControllerConfigState, cucsStorageSasExpanderExpanderState=cucsStorageSasExpanderExpanderState, cucsStorageFlexFlashDriveDn=cucsStorageFlexFlashDriveDn, cucsStorageEnclosureVoltage=cucsStorageEnclosureVoltage, cucsStorageIniGroupPolicyOwner=cucsStorageIniGroupPolicyOwner, cucsStorageControllerVid=cucsStorageControllerVid, cucsStorageDiskEnvStatsHistEntry=cucsStorageDiskEnvStatsHistEntry, cucsStorageIniGroupOperProtocol=cucsStorageIniGroupOperProtocol, cucsStorageEnclosureLocalDiskConfigConnectionProtocol=cucsStorageEnclosureLocalDiskConfigConnectionProtocol, cucsStorageFlexFlashControllerDn=cucsStorageFlexFlashControllerDn, cucsStorageFcTargetEpTargetwwpn=cucsStorageFcTargetEpTargetwwpn, cucsStorageControllerPartNumber=cucsStorageControllerPartNumber, cucsStorageItemTable=cucsStorageItemTable, cucsStorageLocalDiskPartitionDn=cucsStorageLocalDiskPartitionDn, cucsStorageFlexFlashDriveSerial=cucsStorageFlexFlashDriveSerial, cucsStorageIniGroupTable=cucsStorageIniGroupTable, cucsStorageSasExpanderInstanceId=cucsStorageSasExpanderInstanceId, cucsStorageMiniStorageInstanceId=cucsStorageMiniStorageInstanceId, cucsStorageHddMotherBoardTempStatsHistLeftInletTemp=cucsStorageHddMotherBoardTempStatsHistLeftInletTemp, cucsStorageSystemFsmStageStageStatus=cucsStorageSystemFsmStageStageStatus, cucsStorageVirtualDriveDeployAction=cucsStorageVirtualDriveDeployAction, cucsStorageHddMotherBoardTempStatsHistTable=cucsStorageHddMotherBoardTempStatsHistTable, cucsStorageDiskEnvStatsHistRn=cucsStorageDiskEnvStatsHistRn, cucsStorageEnclosureFsmStageRn=cucsStorageEnclosureFsmStageRn, cucsStorageControllerRaidSupport=cucsStorageControllerRaidSupport, cucsStorageLocalDiskConfigDefFlexFlashState=cucsStorageLocalDiskConfigDefFlexFlashState, cucsStorageSasExpanderRevision=cucsStorageSasExpanderRevision, cucsStorageLocalDiskDiskState=cucsStorageLocalDiskDiskState, cucsStorageSasPortTable=cucsStorageSasPortTable, cucsStorageFcTargetIfDn=cucsStorageFcTargetIfDn, cucsStorageSsdHealthStatsThresholded=cucsStorageSsdHealthStatsThresholded, cucsStorageFlexFlashDrivePresence=cucsStorageFlexFlashDrivePresence, cucsStorageEnclosureDiskSlotEpEntry=cucsStorageEnclosureDiskSlotEpEntry, cucsStorageNvmeStatsTemperatureMin=cucsStorageNvmeStatsTemperatureMin, cucsStorageOnboardDeviceTable=cucsStorageOnboardDeviceTable, cucsStorageOnboardDeviceSerial=cucsStorageOnboardDeviceSerial, cucsStorageControllerReferenceDn=cucsStorageControllerReferenceDn, cucsStorageSsdHealthStatsPowerOnHoursMax=cucsStorageSsdHealthStatsPowerOnHoursMax, cucsStorageEnclosureLocalDiskConfigEntry=cucsStorageEnclosureLocalDiskConfigEntry, cucsStorageSasExpanderCurrentEPFB=cucsStorageSasExpanderCurrentEPFB, cucsStorageEtherIfEntry=cucsStorageEtherIfEntry, cucsStorageInitiatorIntId=cucsStorageInitiatorIntId, cucsStorageQualNumberOfFlexFlashCards=cucsStorageQualNumberOfFlexFlashCards, cucsStorageHddMotherBoardTempStatsLeftInletTemp=cucsStorageHddMotherBoardTempStatsLeftInletTemp, cucsStorageLocalDiskConfigPolicyTable=cucsStorageLocalDiskConfigPolicyTable, cucsStorageSasUpLinkDn=cucsStorageSasUpLinkDn, cucsStorageTransportableFlashModuleId=cucsStorageTransportableFlashModuleId, cucsStorageNvmeStatsHistThresholded=cucsStorageNvmeStatsHistThresholded, cucsStorageIniGroupIntId=cucsStorageIniGroupIntId, cucsStorageVsanRefInstanceId=cucsStorageVsanRefInstanceId, cucsStorageConnectionDefName=cucsStorageConnectionDefName, cucsStorageVsanRefOperVnetName=cucsStorageVsanRefOperVnetName, cucsStorageLocalDiskFsmFlags=cucsStorageLocalDiskFsmFlags, cucsStorageControllerEpDn=cucsStorageControllerEpDn, cucsStorageControllerAdminActionTrigger=cucsStorageControllerAdminActionTrigger, cucsStorageNvmeStatsHistRn=cucsStorageNvmeStatsHistRn, cucsStorageLocalDiskDiscoveredPath=cucsStorageLocalDiskDiscoveredPath, cucsStorageVirtualDriveAdminName=cucsStorageVirtualDriveAdminName, cucsStorageEnclosureDiskSlotEpPresence=cucsStorageEnclosureDiskSlotEpPresence, cucsStorageLocalLunOperQualifierReason=cucsStorageLocalLunOperQualifierReason, cucsStorageDrivePciAddr=cucsStorageDrivePciAddr, cucsStorageEnclosureCapTable=cucsStorageEnclosureCapTable, cucsStorageVDMemberEpId=cucsStorageVDMemberEpId, cucsStorageDriveDn=cucsStorageDriveDn, cucsStorageSsdHealthStatsWearStatusInDaysAvg=cucsStorageSsdHealthStatsWearStatusInDaysAvg, cucsStorageControllerInstanceId=cucsStorageControllerInstanceId, cucsStorageSasPortLinkDescr=cucsStorageSasPortLinkDescr, cucsStorageSsdHealthStatsHistMostRecent=cucsStorageSsdHealthStatsHistMostRecent, cucsStorageLocalLunInstanceId=cucsStorageLocalLunInstanceId, cucsStorageMiniStorageLocationDn=cucsStorageMiniStorageLocationDn, cucsStorageLocalDiskDeviceVersion=cucsStorageLocalDiskDeviceVersion, cucsStorageQualDn=cucsStorageQualDn, cucsStorageDiskEnvStatsRn=cucsStorageDiskEnvStatsRn, cucsStorageFcTargetIfRn=cucsStorageFcTargetIfRn, cucsStorageControllerRefControllerId=cucsStorageControllerRefControllerId, cucsStorageLocalLunEntry=cucsStorageLocalLunEntry, cucsStorageEnclosureFsmInstanceId=cucsStorageEnclosureFsmInstanceId, cucsStorageOnboardDevicePresence=cucsStorageOnboardDevicePresence, cucsStorageEnclosurePower=cucsStorageEnclosurePower, cucsStorageNodeEpEpDn=cucsStorageNodeEpEpDn, cucsStorageHddMotherBoardTempStatsHistRightOutletTempAvg=cucsStorageHddMotherBoardTempStatsHistRightOutletTempAvg, cucsStorageMiniStorageRevision=cucsStorageMiniStorageRevision, cucsStorageHddMotherBoardTempStatsRightInletTemp=cucsStorageHddMotherBoardTempStatsRightInletTemp, cucsStorageControllerRebuildRate=cucsStorageControllerRebuildRate, cucsStorageDiskEnvStatsUpdate=cucsStorageDiskEnvStatsUpdate, cucsStorageControllerPower=cucsStorageControllerPower, cucsStorageEtherIfVlanType=cucsStorageEtherIfVlanType, cucsStorageVirtualDriveRefDiskSelectionOrder=cucsStorageVirtualDriveRefDiskSelectionOrder, cucsStorageTransportableFlashModulePhysicalBlockSize=cucsStorageTransportableFlashModulePhysicalBlockSize, cucsStorageDriveRn=cucsStorageDriveRn, cucsStorageSystemFsmTable=cucsStorageSystemFsmTable, cucsStorageEnclosureCapInstanceId=cucsStorageEnclosureCapInstanceId, cucsStorageSystemFsmRmtRslt=cucsStorageSystemFsmRmtRslt, cucsStorageControllerReferenceRn=cucsStorageControllerReferenceRn, cucsStorageControllerHwRevision=cucsStorageControllerHwRevision, cucsStorageLunDiskDn=cucsStorageLunDiskDn, cucsStorageControllerErrDescription=cucsStorageControllerErrDescription, cucsStorageFcTargetIfTable=cucsStorageFcTargetIfTable, cucsStorageEnclosureLocalDiskConfigLinkState=cucsStorageEnclosureLocalDiskConfigLinkState, cucsStorageHddMotherBoardTempStatsHistRightOutletTempMax=cucsStorageHddMotherBoardTempStatsHistRightOutletTempMax, cucsStorageHddMotherBoardTempStatsRn=cucsStorageHddMotherBoardTempStatsRn, cucsStorageSsdHealthStatsHistPowerCycleCount=cucsStorageSsdHealthStatsHistPowerCycleCount, cucsStorageVirtualDriveDn=cucsStorageVirtualDriveDn, cucsStorageLocalDiskSlotEpId=cucsStorageLocalDiskSlotEpId, cucsStorageLocalDiskFsmStageRn=cucsStorageLocalDiskFsmStageRn, cucsStorageLocalDiskEpEntry=cucsStorageLocalDiskEpEntry, cucsStorageFlexFlashControllerFsmTaskSeqId=cucsStorageFlexFlashControllerFsmTaskSeqId, cucsStorageEnclosureDiskSlotEpOperQualifierReason=cucsStorageEnclosureDiskSlotEpOperQualifierReason, cucsStorageVDMemberEpRevision=cucsStorageVDMemberEpRevision, cucsStorageSsdHealthStatsWearStatusInDaysMin=cucsStorageSsdHealthStatsWearStatusInDaysMin, cucsStorageAuthKeyRn=cucsStorageAuthKeyRn, cucsStorageControllerSubType=cucsStorageControllerSubType, cucsStorageOnboardDeviceConfigCheckPoint=cucsStorageOnboardDeviceConfigCheckPoint, cucsStorageLocalDiskRawSize=cucsStorageLocalDiskRawSize, cucsStorageFlexFlashControllerPciAddr=cucsStorageFlexFlashControllerPciAddr, cucsStorageDriveId=cucsStorageDriveId, cucsStorageFlexFlashVirtualDriveInstanceId=cucsStorageFlexFlashVirtualDriveInstanceId, cucsStorageEnclosureFsmRn=cucsStorageEnclosureFsmRn, cucsStorageFlexFlashControllerFsmStageDescr=cucsStorageFlexFlashControllerFsmStageDescr, cucsStorageOnboardDeviceInstanceId=cucsStorageOnboardDeviceInstanceId, cucsStorageVirtualDriveId=cucsStorageVirtualDriveId, cucsStorageTransportableFlashModuleRevision=cucsStorageTransportableFlashModuleRevision, cucsStorageLocalDiskConfigPolicyProtectConfig=cucsStorageLocalDiskConfigPolicyProtectConfig, cucsStorageEnclosureCapId=cucsStorageEnclosureCapId, cucsStorageDiskEnvStatsWearPercentage=cucsStorageDiskEnvStatsWearPercentage, cucsStorageNodeEpEntry=cucsStorageNodeEpEntry, cucsStorageMiniStorageOperState=cucsStorageMiniStorageOperState, cucsStorageEmbeddedStorageSize=cucsStorageEmbeddedStorageSize, cucsStorageVirtualDriveContainerDn=cucsStorageVirtualDriveContainerDn, cucsStorageDiskEnvStatsHistMostRecent=cucsStorageDiskEnvStatsHistMostRecent, cucsStorageFlexFlashControllerId=cucsStorageFlexFlashControllerId, cucsStorageEnclosureLocalDiskConfigBlockSize=cucsStorageEnclosureLocalDiskConfigBlockSize, cucsStorageVirtualDriveAdminActionTrigger=cucsStorageVirtualDriveAdminActionTrigger, cucsStorageIniGroupRmtDiskCfgName=cucsStorageIniGroupRmtDiskCfgName, cucsStorageConnectionPolicyOperState=cucsStorageConnectionPolicyOperState, cucsStorageControllerModel=cucsStorageControllerModel, cucsStorageVDMemberEpEntry=cucsStorageVDMemberEpEntry, cucsStorageAuthKeyIntId=cucsStorageAuthKeyIntId, cucsStorageEmbeddedStorageDn=cucsStorageEmbeddedStorageDn, cucsStorageEnclosureFsmTry=cucsStorageEnclosureFsmTry, cucsStorageConnectionDefOperState=cucsStorageConnectionDefOperState, cucsStorageConnectionDefZoningType=cucsStorageConnectionDefZoningType, cucsStorageEpUserRn=cucsStorageEpUserRn)
+mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-STORAGE-MIB", cucsStorageHddMotherBoardTempStatsHistDn=cucsStorageHddMotherBoardTempStatsHistDn, cucsStorageSystemFsmTaskEntry=cucsStorageSystemFsmTaskEntry, cucsStorageSystemFsmStageLastUpdateTime=cucsStorageSystemFsmStageLastUpdateTime, cucsStorageEnclosureFsmTaskInstanceId=cucsStorageEnclosureFsmTaskInstanceId, cucsStorageDriveSerial=cucsStorageDriveSerial, cucsStorageFlexFlashDriveConnectionProtocol=cucsStorageFlexFlashDriveConnectionProtocol, cucsStorageOperationProgress=cucsStorageOperationProgress, cucsStorageEmbeddedStorageOperQualifierReason=cucsStorageEmbeddedStorageOperQualifierReason, cucsStorageDiskEnvStatsInstanceId=cucsStorageDiskEnvStatsInstanceId, cucsStorageSasExpanderMfgMajorRev=cucsStorageSasExpanderMfgMajorRev, cucsStorageEnclosureOperability=cucsStorageEnclosureOperability, cucsStorageSystemFsmStageRetry=cucsStorageSystemFsmStageRetry, cucsStorageVirtualDriveRefAdminName=cucsStorageVirtualDriveRefAdminName, cucsStorageLocalDiskEpTable=cucsStorageLocalDiskEpTable, cucsStorageSasExpanderEntry=cucsStorageSasExpanderEntry, cucsStorageLocalDiskFsmTaskEntry=cucsStorageLocalDiskFsmTaskEntry, cucsStorageHddMotherBoardTempStatsRightOutletTemp=cucsStorageHddMotherBoardTempStatsRightOutletTemp, cucsStorageMezzFlashLifeModel=cucsStorageMezzFlashLifeModel, cucsStorageControllerRn=cucsStorageControllerRn, cucsStorageVDMemberEpDeployAction=cucsStorageVDMemberEpDeployAction, cucsStorageSystemFsmStageInstanceId=cucsStorageSystemFsmStageInstanceId, cucsStorageItemOperState=cucsStorageItemOperState, cucsStorageLocalDiskPartitionEntry=cucsStorageLocalDiskPartitionEntry, cucsStorageRaidBatteryOperQualifierReason=cucsStorageRaidBatteryOperQualifierReason, cucsStorageSystemId=cucsStorageSystemId, cucsStorageSasExpanderOperability=cucsStorageSasExpanderOperability, cucsStorageEnclosureLocalDiskConfigLinkStateReason=cucsStorageEnclosureLocalDiskConfigLinkStateReason, cucsStorageIniGroupOperState=cucsStorageIniGroupOperState, cucsStorageLocalDiskFsmTable=cucsStorageLocalDiskFsmTable, cucsStorageFlexFlashDriveDriveState=cucsStorageFlexFlashDriveDriveState, cucsStorageLocalDiskLinkSpeed=cucsStorageLocalDiskLinkSpeed, cucsStorageMiniStorageOperability=cucsStorageMiniStorageOperability, cucsStorageMiniStorageVoltage=cucsStorageMiniStorageVoltage, cucsStorageFlexFlashControllerInstanceId=cucsStorageFlexFlashControllerInstanceId, cucsStorageFlexFlashCardControllerIndex=cucsStorageFlexFlashCardControllerIndex, cucsStorageLunResourceSelectionLogDescr=cucsStorageLunResourceSelectionLogDescr, cucsStorageLocalLunNumberOfBlocks=cucsStorageLocalLunNumberOfBlocks, cucsStorageFlexFlashControllerThermal=cucsStorageFlexFlashControllerThermal, cucsStorageTransportableFlashModuleOperability=cucsStorageTransportableFlashModuleOperability, cucsStorageFlexFlashDriveBlockSize=cucsStorageFlexFlashDriveBlockSize, cucsStorageFcTargetIfInstanceId=cucsStorageFcTargetIfInstanceId, cucsStorageControllerOpromBootStatus=cucsStorageControllerOpromBootStatus, cucsStorageControllerRefDn=cucsStorageControllerRefDn, cucsStorageLocalDiskPartitionRawTypeDesc=cucsStorageLocalDiskPartitionRawTypeDesc, cucsStorageLocalDiskVendor=cucsStorageLocalDiskVendor, cucsStorageLocalDiskConfigPolicyEntry=cucsStorageLocalDiskConfigPolicyEntry, cucsStorageEnclosureFsmStatus=cucsStorageEnclosureFsmStatus, cucsStorageVirtualDriveContainerEntry=cucsStorageVirtualDriveContainerEntry, cucsStorageDiskEnvStatsHistWearPercentage=cucsStorageDiskEnvStatsHistWearPercentage, cucsStorageFlexFlashDriveLastOperation=cucsStorageFlexFlashDriveLastOperation, cucsStorageNvmeStoragePerformanceLevel=cucsStorageNvmeStoragePerformanceLevel, cucsStorageFlexFlashControllerType=cucsStorageFlexFlashControllerType, cucsStorageFlexFlashControllerFsmInstanceId=cucsStorageFlexFlashControllerFsmInstanceId, cucsStorageEnclosureCapType=cucsStorageEnclosureCapType, cucsStorageVirtualDriveRefLunItemName=cucsStorageVirtualDriveRefLunItemName, cucsStorageControllerPinnedCacheStatus=cucsStorageControllerPinnedCacheStatus, cucsStorageControllerVendor=cucsStorageControllerVendor, cucsStorageLocalDiskOperQualifierReason=cucsStorageLocalDiskOperQualifierReason, cucsStorageVirtualDrivePresence=cucsStorageVirtualDrivePresence, cucsStorageVirtualDrivePnDn=cucsStorageVirtualDrivePnDn, cucsStorageControllerReferenceReferencedRn=cucsStorageControllerReferenceReferencedRn, cucsStorageFlexFlashControllerFsmTaskDn=cucsStorageFlexFlashControllerFsmTaskDn, cucsStorageNvmeStatsDn=cucsStorageNvmeStatsDn, cucsStorageSasExpanderOperQualifierReason=cucsStorageSasExpanderOperQualifierReason, cucsStorageFlexFlashDriveRevision=cucsStorageFlexFlashDriveRevision, cucsStorageNvmeStorageEntry=cucsStorageNvmeStorageEntry, cucsStorageOnboardDeviceRevision=cucsStorageOnboardDeviceRevision, cucsStorageEnclosureFsmPrev=cucsStorageEnclosureFsmPrev, cucsStorageFlexFlashControllerReadErrorThreshold=cucsStorageFlexFlashControllerReadErrorThreshold, cucsStorageHddMotherBoardTempStatsIntervals=cucsStorageHddMotherBoardTempStatsIntervals, cucsStorageEnclosureFsmTaskFlags=cucsStorageEnclosureFsmTaskFlags, cucsStorageFlexFlashControllerFsmRmtErrDescr=cucsStorageFlexFlashControllerFsmRmtErrDescr, cucsStorageMezzFlashLifeBlockSize=cucsStorageMezzFlashLifeBlockSize, cucsStorageVDMemberEpDiskDn=cucsStorageVDMemberEpDiskDn, cucsStorageSystemFsmTaskCompletion=cucsStorageSystemFsmTaskCompletion, cucsStorageScsiLunRefLunName=cucsStorageScsiLunRefLunName, cucsStorageEnclosureFsmCompletionTime=cucsStorageEnclosureFsmCompletionTime, cucsStorageLocalDiskFsmTaskItem=cucsStorageLocalDiskFsmTaskItem, cucsStorageSsdHealthStatsHistPowerOnHours=cucsStorageSsdHealthStatsHistPowerOnHours, cucsStorageSsdHealthStatsPowerOnHoursAvg=cucsStorageSsdHealthStatsPowerOnHoursAvg, cucsStorageControllerVoltage=cucsStorageControllerVoltage, cucsStorageLocalDiskSlotEpDn=cucsStorageLocalDiskSlotEpDn, cucsStorageLocalDiskFsmStageDescr=cucsStorageLocalDiskFsmStageDescr, cucsStorageLocalDiskConfigPolicyDn=cucsStorageLocalDiskConfigPolicyDn, cucsStorageEnclosureFsmStageName=cucsStorageEnclosureFsmStageName, cucsStorageEnclosureLocalDiskConfigRevision=cucsStorageEnclosureLocalDiskConfigRevision, cucsStorageSasExpanderPerf=cucsStorageSasExpanderPerf, cucsStorageFlexFlashControllerOperatingMode=cucsStorageFlexFlashControllerOperatingMode, cucsStorageVirtualDriveRefConfigState=cucsStorageVirtualDriveRefConfigState, cucsStorageLunResourceSelectionLogOrder=cucsStorageLunResourceSelectionLogOrder, cucsStorageRaidBatteryVendor=cucsStorageRaidBatteryVendor, cucsStorageTransportableFlashModuleSerial=cucsStorageTransportableFlashModuleSerial, cucsStorageFlexFlashDriveRWType=cucsStorageFlexFlashDriveRWType, cucsStorageFlexFlashVirtualDriveTable=cucsStorageFlexFlashVirtualDriveTable, cucsStorageLocalLunPhysicalBlockSize=cucsStorageLocalLunPhysicalBlockSize, cucsStorageNvmeStatsHistDriveLifeUsedPercentageMax=cucsStorageNvmeStatsHistDriveLifeUsedPercentageMax, cucsStorageLocalDiskFsmStamp=cucsStorageLocalDiskFsmStamp, cucsStorageFlexFlashControllerFsmRmtInvErrDescr=cucsStorageFlexFlashControllerFsmRmtInvErrDescr, cucsStorageTransportableFlashModulePresence=cucsStorageTransportableFlashModulePresence, cucsStorageFlexFlashControllerFsmStageRetry=cucsStorageFlexFlashControllerFsmStageRetry, cucsStorageFlexFlashCardReadErrorThreshold=cucsStorageFlexFlashCardReadErrorThreshold, cucsStorageFlexFlashCardOperQualifierReason=cucsStorageFlexFlashCardOperQualifierReason, cucsStorageNvmeStatsEntry=cucsStorageNvmeStatsEntry, cucsStorageHddMotherBoardTempStatsRightInletTempMin=cucsStorageHddMotherBoardTempStatsRightInletTempMin, cucsStorageFlexFlashDriveRemovable=cucsStorageFlexFlashDriveRemovable, cucsStorageLocalDiskConfigDefMode=cucsStorageLocalDiskConfigDefMode, cucsStorageRaidBatteryBatteryType=cucsStorageRaidBatteryBatteryType, cucsStorageMezzFlashLifeSerial=cucsStorageMezzFlashLifeSerial, cucsStorageSsdHealthStatsHistDn=cucsStorageSsdHealthStatsHistDn, cucsStorageLocalLunConnectionProtocol=cucsStorageLocalLunConnectionProtocol, cucsStorageSsdHealthStatsHistRn=cucsStorageSsdHealthStatsHistRn, cucsStorageLocalLunModel=cucsStorageLocalLunModel, cucsStorageEnclosurePresence=cucsStorageEnclosurePresence, cucsStorageLocalDiskFsmProgr=cucsStorageLocalDiskFsmProgr, cucsStorageSsdHealthStatsIntervals=cucsStorageSsdHealthStatsIntervals, cucsStorageSsdHealthStatsHistPercentageLifeLeft=cucsStorageSsdHealthStatsHistPercentageLifeLeft, cucsStorageLocalDiskBootable=cucsStorageLocalDiskBootable, cucsStorageTransportableFlashModuleVendor=cucsStorageTransportableFlashModuleVendor, cucsStorageVDMemberEpConfigQual=cucsStorageVDMemberEpConfigQual, cucsStorageSsdHealthStatsUpdate=cucsStorageSsdHealthStatsUpdate, cucsStorageEnclosureLocalDiskConfigId=cucsStorageEnclosureLocalDiskConfigId, cucsStorageEnclosureLocalDiskConfigPowerState=cucsStorageEnclosureLocalDiskConfigPowerState, cucsStorageRaidBatteryDn=cucsStorageRaidBatteryDn, cucsStorageSystemFsmStageEntry=cucsStorageSystemFsmStageEntry, cucsStorageFlexFlashCardWriteEnable=cucsStorageFlexFlashCardWriteEnable, cucsStorageEnclosureLocalDiskConfigTable=cucsStorageEnclosureLocalDiskConfigTable, cucsStorageFlexFlashVirtualDriveType=cucsStorageFlexFlashVirtualDriveType, cucsStorageDiskEnvStatsTemperatureMax=cucsStorageDiskEnvStatsTemperatureMax, cucsStorageLocalDiskSlotEpConfiguration=cucsStorageLocalDiskSlotEpConfiguration, cucsStorageLocalDiskPartitionPartitionStart=cucsStorageLocalDiskPartitionPartitionStart, cucsStorageEnclosureFsmDescr=cucsStorageEnclosureFsmDescr, cucsStorageHddMotherBoardTempStatsHistMostRecent=cucsStorageHddMotherBoardTempStatsHistMostRecent, cucsStorageLocalDiskFsmTaskInstanceId=cucsStorageLocalDiskFsmTaskInstanceId, cucsStorageFlexFlashControllerRaidSyncSupport=cucsStorageFlexFlashControllerRaidSyncSupport, cucsStorageHddMotherBoardTempStatsTimeCollected=cucsStorageHddMotherBoardTempStatsTimeCollected, cucsStorageFlexFlashVirtualDriveDn=cucsStorageFlexFlashVirtualDriveDn, cucsStorageSsdHealthStatsTable=cucsStorageSsdHealthStatsTable, cucsStorageVirtualDriveRefIsBootable=cucsStorageVirtualDriveRefIsBootable, cucsStorageFlexFlashDriveDriveType=cucsStorageFlexFlashDriveDriveType, cucsStorageEnclosureDiskSlotEpAutoZoneCause=cucsStorageEnclosureDiskSlotEpAutoZoneCause, cucsStorageControllerSupportedStripSizes=cucsStorageControllerSupportedStripSizes, cucsStorageSasExpanderRn=cucsStorageSasExpanderRn, cucsStorageEtherIfRn=cucsStorageEtherIfRn, cucsStorageQualRn=cucsStorageQualRn, cucsStorageFlexFlashControllerRn=cucsStorageFlexFlashControllerRn, cucsStorageSasExpanderTable=cucsStorageSasExpanderTable, cucsStorageLocalDiskFsmStatus=cucsStorageLocalDiskFsmStatus, cucsStorageEnclosureLocalDiskConfigFirmwareVersion=cucsStorageEnclosureLocalDiskConfigFirmwareVersion, cucsStorageSystemFsmDn=cucsStorageSystemFsmDn, cucsStorageVirtualDriveNumberOfBlocks=cucsStorageVirtualDriveNumberOfBlocks, cucsStorageHddMotherBoardTempStatsHistLeftOutletTemp=cucsStorageHddMotherBoardTempStatsHistLeftOutletTemp, cucsStorageMiniStorageAssetTag=cucsStorageMiniStorageAssetTag, cucsStorageEnclosureFsmRmtErrCode=cucsStorageEnclosureFsmRmtErrCode, cucsStorageEnclosureCapEntry=cucsStorageEnclosureCapEntry, cucsStorageOnboardDeviceEntry=cucsStorageOnboardDeviceEntry, cucsStorageOnboardDeviceOperQualifierReason=cucsStorageOnboardDeviceOperQualifierReason, cucsStorageConnectionDefTable=cucsStorageConnectionDefTable, cucsStorageSystemFsmStamp=cucsStorageSystemFsmStamp, cucsStorageConnectionPolicyTable=cucsStorageConnectionPolicyTable, cucsStorageVsanRefName=cucsStorageVsanRefName, cucsStorageFlexFlashDriveOperability=cucsStorageFlexFlashDriveOperability, cucsStorageIniGroupDn=cucsStorageIniGroupDn, cucsStorageControllerRefServerId=cucsStorageControllerRefServerId, cucsStorageLocalDiskConnectionProtocol=cucsStorageLocalDiskConnectionProtocol, cucsStorageVirtualDriveRefInstanceId=cucsStorageVirtualDriveRefInstanceId, cucsStorageEpUserTable=cucsStorageEpUserTable, cucsStorageFcIfTable=cucsStorageFcIfTable, cucsStorageSasExpanderTotalSlots=cucsStorageSasExpanderTotalSlots, cucsStorageLocalDiskEpLc=cucsStorageLocalDiskEpLc, cucsStorageIniGroupPolicyName=cucsStorageIniGroupPolicyName, cucsStorageLocalDiskEpModel=cucsStorageLocalDiskEpModel, cucsStorageMezzFlashLifePhysicalBlockSize=cucsStorageMezzFlashLifePhysicalBlockSize, cucsStorageConnectionPolicyPolicyOwner=cucsStorageConnectionPolicyPolicyOwner, cucsStorageControllerEpId=cucsStorageControllerEpId, cucsStorageLunResourceSelectionLogDecisionType=cucsStorageLunResourceSelectionLogDecisionType, cucsStorageControllerReferenceTable=cucsStorageControllerReferenceTable, cucsStorageLocalDiskFsmTaskFlags=cucsStorageLocalDiskFsmTaskFlags, cucsStorageFlexFlashControllerFsmStageOrder=cucsStorageFlexFlashControllerFsmStageOrder, cucsStorageMiniStoragePerf=cucsStorageMiniStoragePerf, cucsStorageEnclosureFsmEntry=cucsStorageEnclosureFsmEntry, cucsStorageVirtualDriveRefVendorUuid=cucsStorageVirtualDriveRefVendorUuid, cucsStorageLocalDiskFsmCurrentFsm=cucsStorageLocalDiskFsmCurrentFsm, cucsStorageDiskEnvStatsHistTimeCollected=cucsStorageDiskEnvStatsHistTimeCollected, cucsStorageSasUpLinkRn=cucsStorageSasUpLinkRn, cucsStorageLocalLunOperability=cucsStorageLocalLunOperability, cucsStorageEnclosureCapDescr=cucsStorageEnclosureCapDescr, cucsStorageSasUpLinkLc=cucsStorageSasUpLinkLc, cucsStorageConnectionPolicyEntry=cucsStorageConnectionPolicyEntry, cucsStorageIniGroupPolicyLevel=cucsStorageIniGroupPolicyLevel, cucsStorageSasUpLinkTable=cucsStorageSasUpLinkTable, cucsStorageEpUserInstanceId=cucsStorageEpUserInstanceId, cucsStorageSsdHealthStatsPowerCycleCount=cucsStorageSsdHealthStatsPowerCycleCount, cucsStorageQualNumberOfBlocks=cucsStorageQualNumberOfBlocks, cucsStorageSasPortEntry=cucsStorageSasPortEntry, cucsStorageSsdHealthStatsEntry=cucsStorageSsdHealthStatsEntry, cucsStorageLocalDiskPartitionSize=cucsStorageLocalDiskPartitionSize, cucsStorageMiniStorageVendor=cucsStorageMiniStorageVendor, cucsStorageOperationOperState=cucsStorageOperationOperState, cucsStorageConnectionDefEntry=cucsStorageConnectionDefEntry, cucsStorageEnclosureLocalDiskConfigPhysicalBlockSize=cucsStorageEnclosureLocalDiskConfigPhysicalBlockSize, cucsStorageFlexFlashCardPartitionCount=cucsStorageFlexFlashCardPartitionCount, cucsStorageEnclosureServerId=cucsStorageEnclosureServerId, cucsStorageLocalDiskFsmFsmStatus=cucsStorageLocalDiskFsmFsmStatus, cucsStorageHddMotherBoardTempStatsUpdate=cucsStorageHddMotherBoardTempStatsUpdate, cucsStorageFlexFlashControllerFsmTable=cucsStorageFlexFlashControllerFsmTable, cucsStorageSystemFsmTaskItem=cucsStorageSystemFsmTaskItem, cucsStorageVirtualDriveChangeQualifier=cucsStorageVirtualDriveChangeQualifier, cucsStorageLunDiskId=cucsStorageLunDiskId, cucsStorageTransportableFlashModuleInstanceId=cucsStorageTransportableFlashModuleInstanceId, cucsStorageSsdHealthStatsDn=cucsStorageSsdHealthStatsDn, cucsStorageEpUserPwd=cucsStorageEpUserPwd, cucsStorageLocalDiskConfigDefName=cucsStorageLocalDiskConfigDefName, cucsStorageVDMemberEpRole=cucsStorageVDMemberEpRole, cucsStorageLocalDiskFsmTaskDn=cucsStorageLocalDiskFsmTaskDn, cucsStorageSasExpanderLc=cucsStorageSasExpanderLc, cucsStorageControllerOperState=cucsStorageControllerOperState, cucsStorageFcTargetIfEntry=cucsStorageFcTargetIfEntry, cucsStorageEnclosureDiskSlotEpInstanceId=cucsStorageEnclosureDiskSlotEpInstanceId, cucsStorageNvmeStatsDriveLifeUsedPercentageMax=cucsStorageNvmeStatsDriveLifeUsedPercentageMax, cucsStorageSsdHealthStatsHistPercentageLifeLeftMax=cucsStorageSsdHealthStatsHistPercentageLifeLeftMax, cucsStorageNvmeStatsThresholded=cucsStorageNvmeStatsThresholded, cucsStorageLocalDiskConfigDefPolicyOwner=cucsStorageLocalDiskConfigDefPolicyOwner, cucsStorageEnclosureModel=cucsStorageEnclosureModel, cucsStorageLocalDiskConfigPolicyMode=cucsStorageLocalDiskConfigPolicyMode, cucsStorageSystemFsmStageDescrData=cucsStorageSystemFsmStageDescrData, cucsStorageLocalLunPresence=cucsStorageLocalLunPresence, cucsStorageFlexFlashCardOemId=cucsStorageFlexFlashCardOemId, cucsStorageRaidBatterySize=cucsStorageRaidBatterySize, cucsStorageSasExpanderPresence=cucsStorageSasExpanderPresence, cucsStorageNvmeStatsHistDn=cucsStorageNvmeStatsHistDn, cucsStorageSasExpanderLocationDn=cucsStorageSasExpanderLocationDn, cucsStorageVsanRefOperVnetDn=cucsStorageVsanRefOperVnetDn, cucsStorageFlexFlashVirtualDriveSerial=cucsStorageFlexFlashVirtualDriveSerial, cucsStorageSasPortDescriptorEntry=cucsStorageSasPortDescriptorEntry, cucsStorageLocalDiskEpVendor=cucsStorageLocalDiskEpVendor, cucsStorageLocalDiskFsmDescrData=cucsStorageLocalDiskFsmDescrData, cucsStorageDriveVendor=cucsStorageDriveVendor, cucsStorageVirtualDriveBootable=cucsStorageVirtualDriveBootable, cucsStorageLocalDiskFsmInstanceId=cucsStorageLocalDiskFsmInstanceId, cucsStorageControllerAdminSecurityKey=cucsStorageControllerAdminSecurityKey, cucsStorageMiniStorageType=cucsStorageMiniStorageType, cucsStorageIniGroupOwner=cucsStorageIniGroupOwner, cucsStorageFcIfEntry=cucsStorageFcIfEntry, cucsStorageSasExpanderStartSlotNum=cucsStorageSasExpanderStartSlotNum, cucsStorageEnclosureFsmStageDn=cucsStorageEnclosureFsmStageDn, cucsStorageRaidBatteryCapacityPercentage=cucsStorageRaidBatteryCapacityPercentage, cucsStorageSasPortRn=cucsStorageSasPortRn, cucsStorageFlexFlashControllerFirmwareVersion=cucsStorageFlexFlashControllerFirmwareVersion, cucsStorageFlexFlashDriveName=cucsStorageFlexFlashDriveName, cucsStorageSasUpLinkId=cucsStorageSasUpLinkId, cucsStorageDiskEnvStatsEntry=cucsStorageDiskEnvStatsEntry, cucsStorageFlexFlashDriveInstanceId=cucsStorageFlexFlashDriveInstanceId, cucsStorageHddMotherBoardTempStatsHistRightInletTempMin=cucsStorageHddMotherBoardTempStatsHistRightInletTempMin, cucsStorageEnclosureSerial=cucsStorageEnclosureSerial)
+mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-STORAGE-MIB", cucsStorageEnclosureFsmProgr=cucsStorageEnclosureFsmProgr, cucsStorageSasLinkDescriptorControllerId=cucsStorageSasLinkDescriptorControllerId, cucsStorageFlexFlashCardWriteIOErrorCount=cucsStorageFlexFlashCardWriteIOErrorCount, cucsStorageRaidBatteryOperabilityQualifierReason=cucsStorageRaidBatteryOperabilityQualifierReason, cucsStorageSasPortId=cucsStorageSasPortId, cucsStorageVirtualDriveRefSize=cucsStorageVirtualDriveRefSize, cucsStorageFcTargetIfProt=cucsStorageFcTargetIfProt, cucsStorageFlexFlashControllerFsmDescrData=cucsStorageFlexFlashControllerFsmDescrData, cucsStorageVirtualDriveDriveState=cucsStorageVirtualDriveDriveState, cucsStorageOnboardDeviceId=cucsStorageOnboardDeviceId, cucsStorageMezzFlashLifeSize=cucsStorageMezzFlashLifeSize, cucsStorageFcTargetIfId=cucsStorageFcTargetIfId, cucsStorageNvmeStorageRn=cucsStorageNvmeStorageRn, cucsStorageFlexFlashControllerTable=cucsStorageFlexFlashControllerTable, cucsStorageSystemFsmStageTable=cucsStorageSystemFsmStageTable, cucsStorageFlexFlashCardCardSync=cucsStorageFlexFlashCardCardSync, cucsStorageEtherIfInstanceId=cucsStorageEtherIfInstanceId, cucsStorageLocalDiskFsmStageTable=cucsStorageLocalDiskFsmStageTable, cucsStorageFlexFlashDriveSize=cucsStorageFlexFlashDriveSize, cucsStorageControllerOperQualifierReason=cucsStorageControllerOperQualifierReason, cucsStorageHddMotherBoardTempStatsLeftOutletTempAvg=cucsStorageHddMotherBoardTempStatsLeftOutletTempAvg, cucsStorageVirtualDriveVendor=cucsStorageVirtualDriveVendor, cucsStorageConnectionPolicyRn=cucsStorageConnectionPolicyRn, cucsStorageLocalDiskRevision=cucsStorageLocalDiskRevision, cucsStorageLunResourceSelectionLogTable=cucsStorageLunResourceSelectionLogTable, cucsStorageFlexFlashDriveControllerIndex=cucsStorageFlexFlashDriveControllerIndex, cucsStorageFlexFlashControllerFsmTaskCompletion=cucsStorageFlexFlashControllerFsmTaskCompletion, cucsStorageMezzFlashLifeFlashPercentage=cucsStorageMezzFlashLifeFlashPercentage, cucsStorageVDMemberEpConfigQualifierReason=cucsStorageVDMemberEpConfigQualifierReason, cucsStorageEnclosureDiskSlotEpConfiguration=cucsStorageEnclosureDiskSlotEpConfiguration, cucsStorageEmbeddedStorageNumberOfBlocks=cucsStorageEmbeddedStorageNumberOfBlocks, cucsStorageInitiatorPolicyLevel=cucsStorageInitiatorPolicyLevel, cucsStorageFlexFlashControllerVoltage=cucsStorageFlexFlashControllerVoltage, cucsStorageSasExpanderThermal=cucsStorageSasExpanderThermal, cucsStorageSasLinkDescriptorLinkDescr=cucsStorageSasLinkDescriptorLinkDescr, cucsStorageEmbeddedStorageOperability=cucsStorageEmbeddedStorageOperability, cucsStorageNvmeStatsHistDriveLifeUsedPercentageMin=cucsStorageNvmeStatsHistDriveLifeUsedPercentageMin, cucsStorageSasExpanderPower=cucsStorageSasExpanderPower, cucsStorageQualTable=cucsStorageQualTable, cucsStorageNvmeStatsTimeCollected=cucsStorageNvmeStatsTimeCollected, cucsStorageFlexFlashControllerPhysicalDriveCount=cucsStorageFlexFlashControllerPhysicalDriveCount, cucsStorageSsdHealthStatsHistPowerCycleCountMin=cucsStorageSsdHealthStatsHistPowerCycleCountMin, cucsStorageEpUserEntry=cucsStorageEpUserEntry, cucsStorageFlexFlashVirtualDriveEntry=cucsStorageFlexFlashVirtualDriveEntry, cucsStorageAuthKeyTable=cucsStorageAuthKeyTable, cucsStorageVirtualDriveConfiguredWriteCachePolicy=cucsStorageVirtualDriveConfiguredWriteCachePolicy, cucsStorageEnclosureLocalDiskConfigDeviceType=cucsStorageEnclosureLocalDiskConfigDeviceType, cucsStorageQualDiskless=cucsStorageQualDiskless, cucsStorageSasPortEndpoint=cucsStorageSasPortEndpoint, cucsStorageOperationEndTime=cucsStorageOperationEndTime, cucsStorageDiskEnvStatsHistSuspect=cucsStorageDiskEnvStatsHistSuspect, cucsStorageConnectionDefIntId=cucsStorageConnectionDefIntId, cucsStorageDiskEnvStatsHistThresholded=cucsStorageDiskEnvStatsHistThresholded, cucsStorageFlexFlashCardCardType=cucsStorageFlexFlashCardCardType, cucsStorageLocalDiskFsmRmtInvErrDescr=cucsStorageLocalDiskFsmRmtInvErrDescr, cucsStorageControllerSerial=cucsStorageControllerSerial, cucsStorageFlexFlashControllerFsmStamp=cucsStorageFlexFlashControllerFsmStamp, cucsStorageMiniStorageRn=cucsStorageMiniStorageRn, cucsStorageVirtualDriveSecurityFlags=cucsStorageVirtualDriveSecurityFlags, cucsStorageSsdHealthStatsPowerOnHours=cucsStorageSsdHealthStatsPowerOnHours, cucsStorageFlexFlashCardRn=cucsStorageFlexFlashCardRn, cucsStorageVirtualDrivePhysicalBlockSize=cucsStorageVirtualDrivePhysicalBlockSize, cucsStorageControllerDeviceRaidSupport=cucsStorageControllerDeviceRaidSupport, cucsStorageHddMotherBoardTempStatsThresholded=cucsStorageHddMotherBoardTempStatsThresholded, cucsStorageFlexFlashControllerSerial=cucsStorageFlexFlashControllerSerial, cucsStorageVirtualDriveActualWriteCachePolicy=cucsStorageVirtualDriveActualWriteCachePolicy, cucsStorageDiskEnvStatsHistTemperatureMin=cucsStorageDiskEnvStatsHistTemperatureMin, cucsStorageFlexFlashControllerFsmStageLastUpdateTime=cucsStorageFlexFlashControllerFsmStageLastUpdateTime, cucsStorageEnclosureLocalDiskConfigDn=cucsStorageEnclosureLocalDiskConfigDn, cucsStorageEnclosureInstanceId=cucsStorageEnclosureInstanceId, cucsStorageLocalDiskFsmRmtErrDescr=cucsStorageLocalDiskFsmRmtErrDescr, cucsStorageOperationEntry=cucsStorageOperationEntry, cucsStorageLunResourceSelectionLogEntry=cucsStorageLunResourceSelectionLogEntry, cucsStorageFlexFlashControllerPciSlot=cucsStorageFlexFlashControllerPciSlot, cucsStorageLocalDiskNumberOfBlocks=cucsStorageLocalDiskNumberOfBlocks, cucsStorageEtherIfDn=cucsStorageEtherIfDn, cucsStorageSsdHealthStatsPowerOnHoursMin=cucsStorageSsdHealthStatsPowerOnHoursMin, cucsStorageRaidBatterySerial=cucsStorageRaidBatterySerial, cucsStorageMiniStorageVid=cucsStorageMiniStorageVid, cucsStorageLocalDiskSlotEpPresence=cucsStorageLocalDiskSlotEpPresence, cucsStorageEnclosureFsmCurrentFsm=cucsStorageEnclosureFsmCurrentFsm, cucsStorageFcTargetEpPath=cucsStorageFcTargetEpPath, cucsStorageVirtualDriveRefLunItemDn=cucsStorageVirtualDriveRefLunItemDn, cucsStorageVDMemberEpVendor=cucsStorageVDMemberEpVendor, cucsStorageEmbeddedStorageInstanceId=cucsStorageEmbeddedStorageInstanceId, cucsStorageEnclosureFsmStageLastUpdateTime=cucsStorageEnclosureFsmStageLastUpdateTime, cucsStorageSsdHealthStatsId=cucsStorageSsdHealthStatsId, cucsStorageSasExpanderUplinkState=cucsStorageSasExpanderUplinkState, cucsStorageControllerEpEntry=cucsStorageControllerEpEntry, cucsStorageSsdHealthStatsHistTimeCollected=cucsStorageSsdHealthStatsHistTimeCollected, cucsStorageVirtualDriveSize=cucsStorageVirtualDriveSize, cucsStorageSystemFsmTaskInstanceId=cucsStorageSystemFsmTaskInstanceId, cucsStorageFlexFlashCardCardState=cucsStorageFlexFlashCardCardState, cucsStorageHddMotherBoardTempStatsHistRightInletTempMax=cucsStorageHddMotherBoardTempStatsHistRightInletTempMax, cucsStorageFlexFlashControllerFsmRmtInvErrCode=cucsStorageFlexFlashControllerFsmRmtInvErrCode, cucsStorageFlexFlashCardId=cucsStorageFlexFlashCardId, cucsStorageControllerEpTable=cucsStorageControllerEpTable, cucsStorageMezzFlashLifeNumberOfBlocks=cucsStorageMezzFlashLifeNumberOfBlocks, cucsStorageFlexFlashControllerFsmRmtRslt=cucsStorageFlexFlashControllerFsmRmtRslt, cucsStorageControllerRevision=cucsStorageControllerRevision, cucsStorageEnclosureFsmStageDescrData=cucsStorageEnclosureFsmStageDescrData, cucsStorageSsdHealthStatsPowerCycleCountMax=cucsStorageSsdHealthStatsPowerCycleCountMax, cucsStorageControllerThermal=cucsStorageControllerThermal, cucsStorageVirtualDriveOperState=cucsStorageVirtualDriveOperState, cucsStorageSystemFsmTaskFlags=cucsStorageSystemFsmTaskFlags, cucsStorageVirtualDriveEpName=cucsStorageVirtualDriveEpName, cucsStorageSsdHealthStatsWearStatusInDaysMax=cucsStorageSsdHealthStatsWearStatusInDaysMax, cucsStorageIniGroupGroupPolicyName=cucsStorageIniGroupGroupPolicyName, cucsStorageOnboardDeviceDn=cucsStorageOnboardDeviceDn, cucsStorageControllerPciAddr=cucsStorageControllerPciAddr, cucsStorageNvmeStatsHistDriveLifeUsedPercentageAvg=cucsStorageNvmeStatsHistDriveLifeUsedPercentageAvg, cucsStorageHddMotherBoardTempStatsLeftInletTempMin=cucsStorageHddMotherBoardTempStatsLeftInletTempMin, cucsStorageSystemFsmTaskSeqId=cucsStorageSystemFsmTaskSeqId, cucsStorageFlexFlashCardPresence=cucsStorageFlexFlashCardPresence, cucsStorageLocalDiskLc=cucsStorageLocalDiskLc, cucsStorageSsdHealthStatsSuspect=cucsStorageSsdHealthStatsSuspect, cucsStorageLocalDiskEpId=cucsStorageLocalDiskEpId, cucsStorageDiskEnvStatsIntervals=cucsStorageDiskEnvStatsIntervals, cucsStorageFlexFlashControllerFsmFsmStatus=cucsStorageFlexFlashControllerFsmFsmStatus, cucsStorageSystemFsmProgr=cucsStorageSystemFsmProgr, cucsStorageFlexFlashControllerFsmRn=cucsStorageFlexFlashControllerFsmRn, cucsStorageVirtualDriveIoPolicy=cucsStorageVirtualDriveIoPolicy, cucsStorageVirtualDriveDriveCache=cucsStorageVirtualDriveDriveCache, cucsStorageFlexFlashVirtualDriveSize=cucsStorageFlexFlashVirtualDriveSize, cucsStorageVirtualDriveDescr=cucsStorageVirtualDriveDescr, cucsStorageSasExpanderConfigCheckPoint=cucsStorageSasExpanderConfigCheckPoint, cucsStorageSasUpLinkInstanceId=cucsStorageSasUpLinkInstanceId, cucsStorageVDMemberEpDn=cucsStorageVDMemberEpDn, cucsStorageLocalDiskConfigDefEntry=cucsStorageLocalDiskConfigDefEntry, cucsStorageVirtualDriveReadPolicy=cucsStorageVirtualDriveReadPolicy, cucsStorageFlexFlashCardDrivesEnabled=cucsStorageFlexFlashCardDrivesEnabled, cucsStorageSystemFsmTaskRn=cucsStorageSystemFsmTaskRn, cucsStorageFlexFlashControllerFsmProgr=cucsStorageFlexFlashControllerFsmProgr, cucsStorageNvmeStatsTemperature=cucsStorageNvmeStatsTemperature, cucsStorageItemUsed=cucsStorageItemUsed, cucsStorageLocalDiskSlotEpOperQualifierReason=cucsStorageLocalDiskSlotEpOperQualifierReason, cucsStorageControllerVirtualDriveOps=cucsStorageControllerVirtualDriveOps, cucsStorageControllerRefRn=cucsStorageControllerRefRn, cucsStorageScsiLunRefTable=cucsStorageScsiLunRefTable, cucsStorageLocalDiskOperability=cucsStorageLocalDiskOperability, cucsStorageItemInstanceId=cucsStorageItemInstanceId, cucsStorageSystemFsmRmtErrCode=cucsStorageSystemFsmRmtErrCode, cucsStorageSasExpanderFwRegionTwo=cucsStorageSasExpanderFwRegionTwo, cucsStorageSsdHealthStatsPercentageLifeLeftAvg=cucsStorageSsdHealthStatsPercentageLifeLeftAvg, cucsStorageHddMotherBoardTempStatsRightOutletTempAvg=cucsStorageHddMotherBoardTempStatsRightOutletTempAvg, cucsStorageHddMotherBoardTempStatsTable=cucsStorageHddMotherBoardTempStatsTable, cucsStorageMiniStoragePciAddr=cucsStorageMiniStoragePciAddr, cucsStorageMezzFlashLifeId=cucsStorageMezzFlashLifeId, cucsStorageDiskEnvStatsHistId=cucsStorageDiskEnvStatsHistId, cucsStorageSystemFsmTaskDn=cucsStorageSystemFsmTaskDn, cucsStorageSsdHealthStatsHistWearStatusInDaysAvg=cucsStorageSsdHealthStatsHistWearStatusInDaysAvg, cucsStorageSsdHealthStatsHistPowerCycleCountAvg=cucsStorageSsdHealthStatsHistPowerCycleCountAvg, cucsStorageVirtualDriveTable=cucsStorageVirtualDriveTable, cucsStorageLocalDiskPartitionName=cucsStorageLocalDiskPartitionName, cucsStorageVirtualDriveDriveSecurity=cucsStorageVirtualDriveDriveSecurity, cucsStorageLocalDiskAdminSecurityKey=cucsStorageLocalDiskAdminSecurityKey, cucsStorageFlexFlashControllerHasError=cucsStorageFlexFlashControllerHasError, cucsStorageOnboardDeviceSize=cucsStorageOnboardDeviceSize, cucsStorageDriveRevision=cucsStorageDriveRevision, cucsStorageDomainEpTable=cucsStorageDomainEpTable, cucsStorageControllerId=cucsStorageControllerId, cucsStorageControllerReferenceInstanceId=cucsStorageControllerReferenceInstanceId, cucsStorageLocalDiskEpDn=cucsStorageLocalDiskEpDn, cucsStorageOnboardDeviceNumberOfBlocks=cucsStorageOnboardDeviceNumberOfBlocks, cucsStorageLocalDiskConfigDefIntId=cucsStorageLocalDiskConfigDefIntId, cucsStorageSystemTable=cucsStorageSystemTable, cucsStorageEmbeddedStorageRn=cucsStorageEmbeddedStorageRn, cucsStorageEnclosureLocalDiskConfigInstanceId=cucsStorageEnclosureLocalDiskConfigInstanceId, cucsStorageVirtualDriveEpRn=cucsStorageVirtualDriveEpRn, cucsStorageHddMotherBoardTempStatsHistLeftInletTempAvg=cucsStorageHddMotherBoardTempStatsHistLeftInletTempAvg, cucsStorageSasLinkDescriptorInstanceId=cucsStorageSasLinkDescriptorInstanceId, cucsStorageMezzFlashLifeDn=cucsStorageMezzFlashLifeDn, cucsStorageFlexFlashControllerFsmPrev=cucsStorageFlexFlashControllerFsmPrev, cucsStorageInitiatorDescr=cucsStorageInitiatorDescr, cucsStorageControllerJbodMode=cucsStorageControllerJbodMode, cucsStorageControllerReferenceControllerId=cucsStorageControllerReferenceControllerId, cucsStorageEnclosureFsmStageOrder=cucsStorageEnclosureFsmStageOrder, cucsStorageEnclosureFsmTaskItem=cucsStorageEnclosureFsmTaskItem, cucsStorageFlexFlashCardModel=cucsStorageFlexFlashCardModel, cucsStorageEnclosureFsmRmtErrDescr=cucsStorageEnclosureFsmRmtErrDescr, cucsStorageOnboardDeviceDescription=cucsStorageOnboardDeviceDescription, cucsStorageVirtualDriveEpVdDn=cucsStorageVirtualDriveEpVdDn, cucsStorageFlexFlashControllerFsmTaskRn=cucsStorageFlexFlashControllerFsmTaskRn, cucsStorageVDMemberEpSpanId=cucsStorageVDMemberEpSpanId, cucsStorageLunDiskEntry=cucsStorageLunDiskEntry, cucsStorageFcIfRn=cucsStorageFcIfRn, cucsStorageVirtualDriveRefUuid=cucsStorageVirtualDriveRefUuid, cucsStorageFlexFlashControllerSubType=cucsStorageFlexFlashControllerSubType, cucsStorageFlexFlashControllerFsmStageTable=cucsStorageFlexFlashControllerFsmStageTable, cucsStorageSasLinkDescriptorEntry=cucsStorageSasLinkDescriptorEntry, cucsStorageSasUpLinkLinkDescr=cucsStorageSasUpLinkLinkDescr, cucsStorageVsanRefZoningState=cucsStorageVsanRefZoningState, cucsStorageLocalDiskMaxWidth=cucsStorageLocalDiskMaxWidth, cucsStorageFlexFlashControllerModel=cucsStorageFlexFlashControllerModel, cucsStorageSystemFsmProgress=cucsStorageSystemFsmProgress, cucsStorageControllerEpControllerDn=cucsStorageControllerEpControllerDn, cucsStorageLocalDiskEpSerial=cucsStorageLocalDiskEpSerial, cucsStorageScsiLunRefDn=cucsStorageScsiLunRefDn, cucsStorageEnclosureFsmRmtInvRslt=cucsStorageEnclosureFsmRmtInvRslt, cucsStorageLocalDiskPartitionType=cucsStorageLocalDiskPartitionType, cucsStorageLunDiskTable=cucsStorageLunDiskTable, cucsStorageNvmeStatsDriveLifeUsedPercentageMin=cucsStorageNvmeStatsDriveLifeUsedPercentageMin, cucsStorageDriveInstanceId=cucsStorageDriveInstanceId, cucsStorageFlexFlashControllerOperQualifierReason=cucsStorageFlexFlashControllerOperQualifierReason, cucsStorageVirtualDriveOperDeviceId=cucsStorageVirtualDriveOperDeviceId, cucsStorageRaidBatteryPhysicalBlockSize=cucsStorageRaidBatteryPhysicalBlockSize, cucsStorageVirtualDriveEpOperDeviceId=cucsStorageVirtualDriveEpOperDeviceId, cucsStorageConnectionPolicyZoningType=cucsStorageConnectionPolicyZoningType, cucsStorageEnclosureFsmRmtInvErrCode=cucsStorageEnclosureFsmRmtInvErrCode, cucsStorageFlexFlashCardCardMode=cucsStorageFlexFlashCardCardMode, cucsStorageSasUpLinkControllerType=cucsStorageSasUpLinkControllerType, cucsStorageLocalLunLc=cucsStorageLocalLunLc, cucsStorageEnclosureRn=cucsStorageEnclosureRn, cucsStorageLocalDiskLinkStateReason=cucsStorageLocalDiskLinkStateReason, cucsStorageMiniStorageEntry=cucsStorageMiniStorageEntry, cucsStorageVirtualDriveRn=cucsStorageVirtualDriveRn, cucsStorageNvmeStorageDn=cucsStorageNvmeStorageDn, cucsStorageEmbeddedStorageBlockSize=cucsStorageEmbeddedStorageBlockSize, cucsStorageLocalDiskNegotiatedWidth=cucsStorageLocalDiskNegotiatedWidth, cucsStorageNvmeStatsUpdate=cucsStorageNvmeStatsUpdate, cucsStorageFlexFlashControllerFsmTry=cucsStorageFlexFlashControllerFsmTry, cucsStorageOperationStartTime=cucsStorageOperationStartTime, cucsStorageMiniStoragePresence=cucsStorageMiniStoragePresence, cucsStorageScsiLunRefProfileDn=cucsStorageScsiLunRefProfileDn, cucsStorageDomainEpEntry=cucsStorageDomainEpEntry, cucsStorageVirtualDriveRefRaidLevel=cucsStorageVirtualDriveRefRaidLevel, cucsStorageVirtualDriveChangeId=cucsStorageVirtualDriveChangeId, cucsStorageOperationName=cucsStorageOperationName, cucsStorageLunDiskInstanceId=cucsStorageLunDiskInstanceId, cucsStorageFlexFlashVirtualDriveRn=cucsStorageFlexFlashVirtualDriveRn, cucsStorageSasLinkDescriptorDn=cucsStorageSasLinkDescriptorDn, cucsStorageFlexFlashControllerControllerState=cucsStorageFlexFlashControllerControllerState, cucsStorageHddMotherBoardTempStatsHistRightOutletTempMin=cucsStorageHddMotherBoardTempStatsHistRightOutletTempMin, cucsStorageMezzFlashLifeTable=cucsStorageMezzFlashLifeTable, cucsStorageRaidBatteryNextLearnCycleTs=cucsStorageRaidBatteryNextLearnCycleTs, cucsStorageLocalDiskSlotEpOperability=cucsStorageLocalDiskSlotEpOperability, cucsStorageHddMotherBoardTempStatsHistEntry=cucsStorageHddMotherBoardTempStatsHistEntry, cucsStorageSystemFsmStageRn=cucsStorageSystemFsmStageRn, cucsStorageSasExpanderSerial=cucsStorageSasExpanderSerial, cucsStorageSsdHealthStatsHistPowerOnHoursMax=cucsStorageSsdHealthStatsHistPowerOnHoursMax, cucsStorageHddMotherBoardTempStatsLeftInletTempMax=cucsStorageHddMotherBoardTempStatsLeftInletTempMax, cucsStorageFlexFlashControllerEntry=cucsStorageFlexFlashControllerEntry, cucsStorageLocalDiskAdminActionTrigger=cucsStorageLocalDiskAdminActionTrigger, cucsStorageNodeEpTable=cucsStorageNodeEpTable, cucsStorageItemRn=cucsStorageItemRn, cucsStorageSsdHealthStatsWearStatusInDays=cucsStorageSsdHealthStatsWearStatusInDays, cucsStorageOperationStatusDescr=cucsStorageOperationStatusDescr, cucsStorageLocalLunSerial=cucsStorageLocalLunSerial, cucsStorageDomainEpRn=cucsStorageDomainEpRn, cucsStorageRaidBatteryTemperature=cucsStorageRaidBatteryTemperature, cucsStorageLocalDiskRn=cucsStorageLocalDiskRn, cucsStorageOnboardDeviceVendor=cucsStorageOnboardDeviceVendor, cucsStorageSystemFsmTaskTable=cucsStorageSystemFsmTaskTable, cucsStorageSasExpanderElid=cucsStorageSasExpanderElid)
+mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-STORAGE-MIB", cucsStorageEnclosureVendor=cucsStorageEnclosureVendor, cucsStorageFlexFlashControllerFsmTaskFlags=cucsStorageFlexFlashControllerFsmTaskFlags, cucsStorageEnclosureFsmRmtRslt=cucsStorageEnclosureFsmRmtRslt, cucsStorageLocalDiskFsmRmtRslt=cucsStorageLocalDiskFsmRmtRslt, cucsStorageConnectionPolicyName=cucsStorageConnectionPolicyName, cucsStorageVsanRefDn=cucsStorageVsanRefDn, cucsStorageDriveModel=cucsStorageDriveModel, cucsStorageSsdHealthStatsPercentageLifeLeftMin=cucsStorageSsdHealthStatsPercentageLifeLeftMin, cucsStorageVirtualDriveContainerTable=cucsStorageVirtualDriveContainerTable, cucsStorageEnclosureLc=cucsStorageEnclosureLc, cucsStorageMiniStorageTable=cucsStorageMiniStorageTable, cucsStorageControllerOobInterfaceSupported=cucsStorageControllerOobInterfaceSupported, cucsStorageSystemFsmInstanceId=cucsStorageSystemFsmInstanceId, cucsStorageEnclosureLocalDiskConfigModel=cucsStorageEnclosureLocalDiskConfigModel, cucsStorageLocalDiskDeviceType=cucsStorageLocalDiskDeviceType, cucsStorageSsdHealthStatsHistId=cucsStorageSsdHealthStatsHistId, cucsStorageSasUpLinkLinkSpeed=cucsStorageSasUpLinkLinkSpeed, cucsStorageMezzFlashLifeRevision=cucsStorageMezzFlashLifeRevision, cucsStorageRaidBatteryInstanceId=cucsStorageRaidBatteryInstanceId, cucsStorageLocalDiskConfigCheckPoint=cucsStorageLocalDiskConfigCheckPoint, cucsStorageFcTargetEpDescr=cucsStorageFcTargetEpDescr, cucsStorageSystemFsmStageOrder=cucsStorageSystemFsmStageOrder, cucsStorageOnboardDeviceModel=cucsStorageOnboardDeviceModel, cucsStorageSasLinkDescriptorRn=cucsStorageSasLinkDescriptorRn, cucsStorageDiskEnvStatsTemperatureAvg=cucsStorageDiskEnvStatsTemperatureAvg, cucsStorageSystemRn=cucsStorageSystemRn, cucsStorageDriveTable=cucsStorageDriveTable, cucsStorageEnclosureFsmTaskEntry=cucsStorageEnclosureFsmTaskEntry, cucsStorageConnectionDefRn=cucsStorageConnectionDefRn, cucsStorageSystemFsmStageDn=cucsStorageSystemFsmStageDn, cucsStorageMiniStoragePartNumber=cucsStorageMiniStoragePartNumber, cucsStorageLocalDiskConfigState=cucsStorageLocalDiskConfigState, cucsStorageFlexFlashControllerFsmStageDescrData=cucsStorageFlexFlashControllerFsmStageDescrData, cucsStorageSasPortInstanceId=cucsStorageSasPortInstanceId, cucsStorageVDMemberEpTable=cucsStorageVDMemberEpTable, cucsStorageSasExpanderMfgMinorRev=cucsStorageSasExpanderMfgMinorRev, cucsStorageOnboardDeviceBlockSize=cucsStorageOnboardDeviceBlockSize, cucsStorageNvmeStatsHistId=cucsStorageNvmeStatsHistId, cucsStorageSsdHealthStatsHistPercentageLifeLeftAvg=cucsStorageSsdHealthStatsHistPercentageLifeLeftAvg, cucsStorageSystemFsmCurrentFsm=cucsStorageSystemFsmCurrentFsm, cucsStorageDriveEntry=cucsStorageDriveEntry, cucsStorageMiniStorageSerial=cucsStorageMiniStorageSerial, cucsStorageIniGroupEntry=cucsStorageIniGroupEntry, cucsStorageSsdHealthStatsInstanceId=cucsStorageSsdHealthStatsInstanceId, cucsStorageVDMemberEpOperQualifierReason=cucsStorageVDMemberEpOperQualifierReason, cucsStorageEtherIfName=cucsStorageEtherIfName, cucsStorageLocalDiskFsmTaskCompletion=cucsStorageLocalDiskFsmTaskCompletion, cucsStorageControllerOperability=cucsStorageControllerOperability, cucsStorageControllerReferenceEntry=cucsStorageControllerReferenceEntry, cucsStorageEnclosureCapNumSlots=cucsStorageEnclosureCapNumSlots, cucsStorageFlexFlashCardSerial=cucsStorageFlexFlashCardSerial, cucsStorageMezzFlashLifeEntry=cucsStorageMezzFlashLifeEntry, cucsStorageFlexFlashControllerFsmTaskEntry=cucsStorageFlexFlashControllerFsmTaskEntry, cucsStorageFcIfInstanceId=cucsStorageFcIfInstanceId, cucsStorageSasPortAddress=cucsStorageSasPortAddress, cucsStorageControllerPerf=cucsStorageControllerPerf, cucsStorageEnclosureEntry=cucsStorageEnclosureEntry, cucsStorageSystemFsmStageDescr=cucsStorageSystemFsmStageDescr, cucsStorageRaidBatteryId=cucsStorageRaidBatteryId, cucsStorageSasPortDescriptorInstanceId=cucsStorageSasPortDescriptorInstanceId, cucsStorageLocalDiskSlotEpInstanceId=cucsStorageLocalDiskSlotEpInstanceId, cucsStorageSasLinkDescriptorServerId=cucsStorageSasLinkDescriptorServerId, cucsStorageHddMotherBoardTempStatsInstanceId=cucsStorageHddMotherBoardTempStatsInstanceId, cucsStorageRaidBatteryOperability=cucsStorageRaidBatteryOperability, cucsStorageNvmeStorageTable=cucsStorageNvmeStorageTable, cucsStorageSsdHealthStatsHistWearStatusInDays=cucsStorageSsdHealthStatsHistWearStatusInDays, cucsStorageSystemInstanceId=cucsStorageSystemInstanceId, cucsStorageSasPortDescriptorLinkDescr=cucsStorageSasPortDescriptorLinkDescr, cucsStorageSystemFsmFsmStatus=cucsStorageSystemFsmFsmStatus, cucsStorageEnclosureFsmFsmStatus=cucsStorageEnclosureFsmFsmStatus, cucsStorageFlexFlashControllerIsCardMismatch=cucsStorageFlexFlashControllerIsCardMismatch, cucsStorageLocalDiskFsmEntry=cucsStorageLocalDiskFsmEntry, cucsStorageInitiatorInstanceId=cucsStorageInitiatorInstanceId, cucsStorageFlexFlashCardPhysicalBlockSize=cucsStorageFlexFlashCardPhysicalBlockSize, cucsStorageVirtualDriveEpVendorUuid=cucsStorageVirtualDriveEpVendorUuid, cucsStorageFlexFlashVirtualDriveModel=cucsStorageFlexFlashVirtualDriveModel, cucsStorageMiniStorageDn=cucsStorageMiniStorageDn, cucsStorageMezzFlashLifeConnectionProtocol=cucsStorageMezzFlashLifeConnectionProtocol, cucsStorageSsdHealthStatsHistWearStatusInDaysMin=cucsStorageSsdHealthStatsHistWearStatusInDaysMin, cucsStorageEpUserDn=cucsStorageEpUserDn, cucsStorageIniGroupInstanceId=cucsStorageIniGroupInstanceId, cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMin=cucsStorageHddMotherBoardTempStatsHistLeftOutletTempMin, cucsStorageEnclosureFsmStageStageStatus=cucsStorageEnclosureFsmStageStageStatus, cucsStorageLocalLunSize=cucsStorageLocalLunSize, cucsStorageEnclosureId=cucsStorageEnclosureId, cucsStorageNvmeStatsHistTemperatureMin=cucsStorageNvmeStatsHistTemperatureMin, cucsStorageControllerOnBoardMemorySize=cucsStorageControllerOnBoardMemorySize, cucsStorageControllerAssetTag=cucsStorageControllerAssetTag, cucsStorageLocalDiskConfigDefFlexFlashRAIDReportingState=cucsStorageLocalDiskConfigDefFlexFlashRAIDReportingState, cucsStorageVirtualDriveAccessPolicy=cucsStorageVirtualDriveAccessPolicy, cucsStorageNodeEpRn=cucsStorageNodeEpRn, cucsStorageConnectionPolicyInstanceId=cucsStorageConnectionPolicyInstanceId, cucsStorageFlexFlashControllerVendor=cucsStorageFlexFlashControllerVendor, cucsStorageVDMemberEpConfigState=cucsStorageVDMemberEpConfigState, cucsStorageFlexFlashControllerFsmEntry=cucsStorageFlexFlashControllerFsmEntry, cucsStorageFlexFlashVirtualDriveRaidHealth=cucsStorageFlexFlashVirtualDriveRaidHealth, cucsStorageLocalDiskEpRn=cucsStorageLocalDiskEpRn, cucsStorageFlexFlashDriveEntry=cucsStorageFlexFlashDriveEntry, cucsStorageLocalDiskSerial=cucsStorageLocalDiskSerial, cucsStorageSsdHealthStatsHistInstanceId=cucsStorageSsdHealthStatsHistInstanceId, cucsStorageFcIfName=cucsStorageFcIfName, cucsStorageQualBlockSize=cucsStorageQualBlockSize, cucsStorageIniGroupProtocol=cucsStorageIniGroupProtocol, cucsStorageLocalDiskFsmStageEntry=cucsStorageLocalDiskFsmStageEntry, cucsStorageSsdHealthStatsTimeCollected=cucsStorageSsdHealthStatsTimeCollected, cucsStorageLocalDiskFsmTaskRn=cucsStorageLocalDiskFsmTaskRn, cucsStorageMiniStorageModel=cucsStorageMiniStorageModel, cucsStorageLunResourceSelectionLogResult=cucsStorageLunResourceSelectionLogResult, cucsStorageConnectionDefDn=cucsStorageConnectionDefDn, cucsStorageVirtualDriveLc=cucsStorageVirtualDriveLc, cucsStorageControllerDn=cucsStorageControllerDn, cucsStorageMezzFlashLifeOperability=cucsStorageMezzFlashLifeOperability, cucsStorageControllerFaultMonitoring=cucsStorageControllerFaultMonitoring, cucsStorageLocalLunId=cucsStorageLocalLunId, cucsStorageControllerControllerFlags=cucsStorageControllerControllerFlags, cucsStorageVirtualDriveSerial=cucsStorageVirtualDriveSerial, cucsStorageVirtualDriveRefAdminState=cucsStorageVirtualDriveRefAdminState, cucsStorageAuthKeyPolicyLevel=cucsStorageAuthKeyPolicyLevel, cucsStorageLocalLunType=cucsStorageLocalLunType, cucsStorageLocalDiskPowerState=cucsStorageLocalDiskPowerState, cucsStorageLocalDiskFsmStageLastUpdateTime=cucsStorageLocalDiskFsmStageLastUpdateTime, cucsStorageOnboardDevicePhysicalBlockSize=cucsStorageOnboardDevicePhysicalBlockSize, cucsStorageVirtualDriveEpInstanceId=cucsStorageVirtualDriveEpInstanceId, cucsStorageNvmeStatsInstanceId=cucsStorageNvmeStatsInstanceId, cucsStorageFlexFlashVirtualDriveRaidState=cucsStorageFlexFlashVirtualDriveRaidState, cucsStorageItemEntry=cucsStorageItemEntry, cucsStorageSasExpanderOperState=cucsStorageSasExpanderOperState, cucsStorageNodeEpInstanceId=cucsStorageNodeEpInstanceId, cucsStorageVirtualDriveContainerInstanceId=cucsStorageVirtualDriveContainerInstanceId, cucsStorageRaidBatteryLearnCycleRequested=cucsStorageRaidBatteryLearnCycleRequested, PYSNMP_MODULE_ID=cucsStorageObjects, cucsStorageEnclosureOperState=cucsStorageEnclosureOperState, cucsStorageDomainEpDn=cucsStorageDomainEpDn, cucsStorageTransportableFlashModuleRn=cucsStorageTransportableFlashModuleRn, cucsStorageNvmeStatsHistEntry=cucsStorageNvmeStatsHistEntry, cucsStorageVirtualDriveAdminState=cucsStorageVirtualDriveAdminState, cucsStorageFlexFlashControllerOperability=cucsStorageFlexFlashControllerOperability, cucsStorageNvmeStatsHistTemperature=cucsStorageNvmeStatsHistTemperature, cucsStorageSasUpLinkEntry=cucsStorageSasUpLinkEntry, cucsStorageLocalLunRn=cucsStorageLocalLunRn, cucsStorageFlexFlashCardBlockSize=cucsStorageFlexFlashCardBlockSize, cucsStorageVsanRefRn=cucsStorageVsanRefRn, cucsStorageHddMotherBoardTempStatsEntry=cucsStorageHddMotherBoardTempStatsEntry, cucsStorageFlexFlashVirtualDriveId=cucsStorageFlexFlashVirtualDriveId, cucsStorageFlexFlashControllerFsmRmtErrCode=cucsStorageFlexFlashControllerFsmRmtErrCode, cucsStorageVDMemberEpOperability=cucsStorageVDMemberEpOperability, cucsStorageLocalDiskSlotEpRn=cucsStorageLocalDiskSlotEpRn, cucsStorageFlexFlashVirtualDriveConnectionProtocol=cucsStorageFlexFlashVirtualDriveConnectionProtocol, cucsStorageSsdHealthStatsHistWearStatusInDaysMax=cucsStorageSsdHealthStatsHistWearStatusInDaysMax, cucsStorageInitiatorRn=cucsStorageInitiatorRn, cucsStorageEnclosureCapDn=cucsStorageEnclosureCapDn, cucsStorageControllerRefTable=cucsStorageControllerRefTable, cucsStorageQualUnits=cucsStorageQualUnits, cucsStorageLocalDiskPartitionId=cucsStorageLocalDiskPartitionId, cucsStorageAuthKeyDn=cucsStorageAuthKeyDn, cucsStorageControllerDefaultStripSize=cucsStorageControllerDefaultStripSize, cucsStorageMezzFlashLifePresence=cucsStorageMezzFlashLifePresence, cucsStorageSystemFsmPrev=cucsStorageSystemFsmPrev, cucsStorageSasExpanderModel=cucsStorageSasExpanderModel, cucsStorageSasPortLc=cucsStorageSasPortLc, cucsStorageAuthKeyPolicyOwner=cucsStorageAuthKeyPolicyOwner, cucsStorageTransportableFlashModuleBlockSize=cucsStorageTransportableFlashModuleBlockSize, cucsStorageEnclosureDiskSlotEpId=cucsStorageEnclosureDiskSlotEpId, cucsStorageConnectionDefPolicyLevel=cucsStorageConnectionDefPolicyLevel, cucsStorageVsanRefTable=cucsStorageVsanRefTable, cucsStorageVirtualDriveRefRn=cucsStorageVirtualDriveRefRn, cucsStorageFlexFlashControllerPerf=cucsStorageFlexFlashControllerPerf, cucsStorageFlexFlashControllerFsmTaskInstanceId=cucsStorageFlexFlashControllerFsmTaskInstanceId, cucsStorageEnclosureFsmProgress=cucsStorageEnclosureFsmProgress, cucsStorageFlexFlashControllerPresence=cucsStorageFlexFlashControllerPresence, cucsStorageLocalDiskEpRevision=cucsStorageLocalDiskEpRevision, cucsStorageFlexFlashCardReadIOErrorCount=cucsStorageFlexFlashCardReadIOErrorCount, cucsStorageEnclosureFsmStageTable=cucsStorageEnclosureFsmStageTable, cucsStorageHddMotherBoardTempStatsHistSuspect=cucsStorageHddMotherBoardTempStatsHistSuspect, cucsStorageSystemFsmStatus=cucsStorageSystemFsmStatus, cucsStorageLocalDiskSlotEpTable=cucsStorageLocalDiskSlotEpTable, cucsStorageSasUpLinkServerId=cucsStorageSasUpLinkServerId, cucsStorageVirtualDriveEpEntry=cucsStorageVirtualDriveEpEntry, cucsStorageLocalDiskDriveState=cucsStorageLocalDiskDriveState, cucsStorageEnclosureDn=cucsStorageEnclosureDn, cucsStorageInitiatorEntry=cucsStorageInitiatorEntry, cucsStorageNvmeStatsRn=cucsStorageNvmeStatsRn, cucsStorageFlexFlashControllerWriteErrorThreshold=cucsStorageFlexFlashControllerWriteErrorThreshold, cucsStorageLocalDiskConfigPolicyPolicyLevel=cucsStorageLocalDiskConfigPolicyPolicyLevel, cucsStorageFlexFlashControllerAdminSlotNumber=cucsStorageFlexFlashControllerAdminSlotNumber, cucsStorageControllerLocationDn=cucsStorageControllerLocationDn, cucsStorageControllerRefInstanceId=cucsStorageControllerRefInstanceId, cucsStorageFlexFlashCardRevision=cucsStorageFlexFlashCardRevision, cucsStorageControllerEntry=cucsStorageControllerEntry, cucsStorageControllerRefLc=cucsStorageControllerRefLc, cucsStorageTransportableFlashModuleTable=cucsStorageTransportableFlashModuleTable, cucsStorageIniGroupRn=cucsStorageIniGroupRn, cucsStorageFlexFlashControllerFsmTaskTable=cucsStorageFlexFlashControllerFsmTaskTable, cucsStorageDiskEnvStatsThresholded=cucsStorageDiskEnvStatsThresholded, cucsStorageOnboardDeviceRn=cucsStorageOnboardDeviceRn, cucsStorageEnclosureThermal=cucsStorageEnclosureThermal, cucsStorageSasLinkDescriptorId=cucsStorageSasLinkDescriptorId, cucsStorageTransportableFlashModuleSize=cucsStorageTransportableFlashModuleSize, cucsStorageSystemFsmDescr=cucsStorageSystemFsmDescr, cucsStorageFlexFlashControllerFsmDescr=cucsStorageFlexFlashControllerFsmDescr, cucsStorageNvmeStatsTemperatureMax=cucsStorageNvmeStatsTemperatureMax, cucsStorageFlexFlashControllerFsmStageName=cucsStorageFlexFlashControllerFsmStageName, cucsStorageEnclosureFsmStamp=cucsStorageEnclosureFsmStamp, cucsStorageConnectionPolicyPolicyLevel=cucsStorageConnectionPolicyPolicyLevel, cucsStorageFlexFlashVirtualDrivePresence=cucsStorageFlexFlashVirtualDrivePresence, cucsStorageNvmeStatsDriveLifeUsedPercentage=cucsStorageNvmeStatsDriveLifeUsedPercentage, cucsStorageVirtualDriveEpContainerId=cucsStorageVirtualDriveEpContainerId, cucsStorageSsdHealthStatsPercentageLifeLeftMax=cucsStorageSsdHealthStatsPercentageLifeLeftMax, cucsStorageItemSize=cucsStorageItemSize, cucsStorageNodeEpId=cucsStorageNodeEpId, cucsStorageSsdHealthStatsHistThresholded=cucsStorageSsdHealthStatsHistThresholded, cucsStorageConnectionPolicyDn=cucsStorageConnectionPolicyDn, cucsStorageVDMemberEpPresence=cucsStorageVDMemberEpPresence, cucsStorageLunDiskRn=cucsStorageLunDiskRn, cucsStorageLocalDiskPartitionRn=cucsStorageLocalDiskPartitionRn, cucsStorageLocalDiskFsmTaskSeqId=cucsStorageLocalDiskFsmTaskSeqId, cucsStorageVDMemberEpRn=cucsStorageVDMemberEpRn, cucsStorageSasPortLinkSpeed=cucsStorageSasPortLinkSpeed, cucsStorageLocalLunTable=cucsStorageLocalLunTable, cucsStorageVirtualDriveName=cucsStorageVirtualDriveName, cucsStorageQualInstanceId=cucsStorageQualInstanceId, cucsStorageLocalLunRevision=cucsStorageLocalLunRevision, cucsStorageVirtualDriveVendorUuid=cucsStorageVirtualDriveVendorUuid, cucsStorageControllerRefEntry=cucsStorageControllerRefEntry, cucsStorageDiskEnvStatsHistDn=cucsStorageDiskEnvStatsHistDn, cucsStorageFcIfDn=cucsStorageFcIfDn, cucsStorageLocalDiskSize=cucsStorageLocalDiskSize, cucsStorageLocalDiskThermal=cucsStorageLocalDiskThermal, cucsStorageLocalDiskFsmTry=cucsStorageLocalDiskFsmTry, cucsStorageMiniStoragePciSlot=cucsStorageMiniStoragePciSlot, cucsStorageObjects=cucsStorageObjects, cucsStorageEnclosureDiskSlotEpRn=cucsStorageEnclosureDiskSlotEpRn, cucsStorageFcTargetEpTable=cucsStorageFcTargetEpTable, cucsStorageLocalDiskLinkState=cucsStorageLocalDiskLinkState, cucsStorageLocalDiskConfigDefPolicyLevel=cucsStorageLocalDiskConfigDefPolicyLevel, cucsStorageLocalDiskFsmRmtErrCode=cucsStorageLocalDiskFsmRmtErrCode, cucsStorageLocalDiskEntry=cucsStorageLocalDiskEntry, cucsStorageVirtualDriveRefDiskSelectionTs=cucsStorageVirtualDriveRefDiskSelectionTs, cucsStorageLocalDiskPartitionPartitionEnd=cucsStorageLocalDiskPartitionPartitionEnd, cucsStorageMiniStorageSubType=cucsStorageMiniStorageSubType, cucsStorageLocalDiskConfigDefDn=cucsStorageLocalDiskConfigDefDn, cucsStorageEnclosureCapRemovable=cucsStorageEnclosureCapRemovable, cucsStorageVirtualDriveEpTable=cucsStorageVirtualDriveEpTable, cucsStorageEnclosureLocalDiskConfigOperability=cucsStorageEnclosureLocalDiskConfigOperability, cucsStorageMiniStorageOperQualifierReason=cucsStorageMiniStorageOperQualifierReason, cucsStorageFlexFlashDriveTable=cucsStorageFlexFlashDriveTable, cucsStorageControllerControllerOps=cucsStorageControllerControllerOps, cucsStorageControllerEpInstanceId=cucsStorageControllerEpInstanceId, cucsStorageConnectionPolicyIntId=cucsStorageConnectionPolicyIntId, cucsStorageIScsiTargetIfRn=cucsStorageIScsiTargetIfRn, cucsStorageMezzFlashLifeRn=cucsStorageMezzFlashLifeRn, cucsStorageOperationInstanceId=cucsStorageOperationInstanceId, cucsStorageLunResourceSelectionLogTimeStamp=cucsStorageLunResourceSelectionLogTimeStamp, cucsStorageSsdHealthStatsHistTable=cucsStorageSsdHealthStatsHistTable)
+mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-STORAGE-MIB", cucsStorageFlexFlashCardNumberOfBlocks=cucsStorageFlexFlashCardNumberOfBlocks, cucsStorageEnclosureFsmTaskTable=cucsStorageEnclosureFsmTaskTable, cucsStorageSasExpanderSasAddress=cucsStorageSasExpanderSasAddress, cucsStorageEnclosurePerf=cucsStorageEnclosurePerf, cucsStorageFlexFlashDriveVisible=cucsStorageFlexFlashDriveVisible, cucsStorageLocalDiskFsmStageInstanceId=cucsStorageLocalDiskFsmStageInstanceId, cucsStorageControllerLc=cucsStorageControllerLc, cucsStorageLocalDiskConfigPolicyFlexFlashRAIDReportingState=cucsStorageLocalDiskConfigPolicyFlexFlashRAIDReportingState, cucsStorageFlexFlashControllerControllerHealth=cucsStorageFlexFlashControllerControllerHealth, cucsStorageHddMotherBoardTempStatsRightInletTempAvg=cucsStorageHddMotherBoardTempStatsRightInletTempAvg, cucsStorageEpUserConfigState=cucsStorageEpUserConfigState, cucsStorageAuthKeyUserId=cucsStorageAuthKeyUserId, cucsStorageOperationRn=cucsStorageOperationRn, cucsStorageControllerRaidBatteryOps=cucsStorageControllerRaidBatteryOps, cucsStorageSystemFsmDescrData=cucsStorageSystemFsmDescrData, cucsStorageControllerIdCount=cucsStorageControllerIdCount, cucsStorageEnclosureDiskSlotEpLc=cucsStorageEnclosureDiskSlotEpLc, cucsStorageEnclosureType=cucsStorageEnclosureType, cucsStorageFlexFlashCardSlotNumber=cucsStorageFlexFlashCardSlotNumber, cucsStorageFlexFlashControllerFsmProgress=cucsStorageFlexFlashControllerFsmProgress, cucsStorageIScsiTargetIfDn=cucsStorageIScsiTargetIfDn, cucsStorageControllerType=cucsStorageControllerType, cucsStorageRaidBatteryBlockSize=cucsStorageRaidBatteryBlockSize, cucsStorageDiskEnvStatsWearPercentageAvg=cucsStorageDiskEnvStatsWearPercentageAvg, cucsStorageLocalDiskPhysicalBlockSize=cucsStorageLocalDiskPhysicalBlockSize, cucsStorageSasExpanderMfgPlatformId=cucsStorageSasExpanderMfgPlatformId, cucsStorageSystemFsmStageName=cucsStorageSystemFsmStageName, cucsStorageDiskEnvStatsHistTemperatureAvg=cucsStorageDiskEnvStatsHistTemperatureAvg)

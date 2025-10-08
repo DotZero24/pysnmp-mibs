@@ -1,214 +1,88 @@
-_i='cyanBtmObjectGroup'
-_h='cyanBtmType'
-_g='cyanBtmSecServState'
-_f='cyanBtmPartNumber'
-_e='cyanBtmOwner'
-_d='cyanBtmOssLabel'
-_c='cyanBtmOperStateQual'
-_b='cyanBtmOperState'
-_a='cyanBtmOidClass'
-_Z='cyanBtmName'
-_Y='cyanBtmMinor'
-_X='cyanBtmMfgSerialNumber'
-_W='cyanBtmMfgRevision'
-_V='cyanBtmMfgPartNumber'
-_U='cyanBtmMfgModuleId'
-_T='cyanBtmMfgEciCode'
-_S='cyanBtmMfgCleiCode'
-_R='cyanBtmMajor'
-_Q='cyanBtmMacBlockSize'
-_P='cyanBtmIdentifier'
-_O='cyanBtmDescription'
-_N='cyanBtmCritical'
-_M='cyanBtmBaseMacAddress'
-_L='cyanBtmAutoinserviceSoakTimeSec'
-_K='cyanBtmAudible'
-_J='cyanBtmAssetTag'
-_I='cyanBtmAdminState'
-_H='not-accessible'
-_G='cyanBtmBtmId'
-_F='cyanBtmShelfId'
-_E='Unsigned32'
-_D='DisplayString'
-_C='read-only'
-_B='CYAN-BTM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CyanTypeTc,cyanEntityModules=mibBuilder.importSymbols('CYAN-MIB','CyanTypeTc','cyanEntityModules')
-CyanAdminStateTc,CyanOpStateQualTc,CyanOpStateTc,CyanRelayTc,CyanSecServiceStateTc=mibBuilder.importSymbols('CYAN-TC-MIB','CyanAdminStateTc','CyanOpStateQualTc','CyanOpStateTc','CyanRelayTc','CyanSecServiceStateTc')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention')
-cyanBtmModule=ModuleIdentity((1,3,6,1,4,1,28533,5,30,60))
-if mibBuilder.loadTexts:cyanBtmModule.setRevisions(('2014-12-07 05:45',))
-_CyanBtmMibObjects_ObjectIdentity=ObjectIdentity
-cyanBtmMibObjects=_CyanBtmMibObjects_ObjectIdentity((1,3,6,1,4,1,28533,5,30,60,1))
-_CyanBtmTable_Object=MibTable
-cyanBtmTable=_CyanBtmTable_Object((1,3,6,1,4,1,28533,5,30,60,1,1))
-if mibBuilder.loadTexts:cyanBtmTable.setStatus(_A)
-_CyanBtmEntry_Object=MibTableRow
-cyanBtmEntry=_CyanBtmEntry_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1))
-cyanBtmEntry.setIndexNames((0,_B,_F),(0,_B,_G))
-if mibBuilder.loadTexts:cyanBtmEntry.setStatus(_A)
-class _CyanBtmShelfId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_CyanBtmShelfId_Type.__name__=_E
-_CyanBtmShelfId_Object=MibTableColumn
-cyanBtmShelfId=_CyanBtmShelfId_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,1),_CyanBtmShelfId_Type())
-cyanBtmShelfId.setMaxAccess(_H)
-if mibBuilder.loadTexts:cyanBtmShelfId.setStatus(_A)
-_CyanBtmBtmId_Type=Unsigned32
-_CyanBtmBtmId_Object=MibTableColumn
-cyanBtmBtmId=_CyanBtmBtmId_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,2),_CyanBtmBtmId_Type())
-cyanBtmBtmId.setMaxAccess(_H)
-if mibBuilder.loadTexts:cyanBtmBtmId.setStatus(_A)
-_CyanBtmAdminState_Type=CyanAdminStateTc
-_CyanBtmAdminState_Object=MibTableColumn
-cyanBtmAdminState=_CyanBtmAdminState_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,3),_CyanBtmAdminState_Type())
-cyanBtmAdminState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmAdminState.setStatus(_A)
-class _CyanBtmAssetTag_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,124))
-_CyanBtmAssetTag_Type.__name__=_D
-_CyanBtmAssetTag_Object=MibTableColumn
-cyanBtmAssetTag=_CyanBtmAssetTag_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,4),_CyanBtmAssetTag_Type())
-cyanBtmAssetTag.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmAssetTag.setStatus(_A)
-_CyanBtmAudible_Type=CyanRelayTc
-_CyanBtmAudible_Object=MibTableColumn
-cyanBtmAudible=_CyanBtmAudible_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,5),_CyanBtmAudible_Type())
-cyanBtmAudible.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmAudible.setStatus(_A)
-_CyanBtmAutoinserviceSoakTimeSec_Type=Integer32
-_CyanBtmAutoinserviceSoakTimeSec_Object=MibTableColumn
-cyanBtmAutoinserviceSoakTimeSec=_CyanBtmAutoinserviceSoakTimeSec_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,6),_CyanBtmAutoinserviceSoakTimeSec_Type())
-cyanBtmAutoinserviceSoakTimeSec.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmAutoinserviceSoakTimeSec.setStatus(_A)
-_CyanBtmBaseMacAddress_Type=DisplayString
-_CyanBtmBaseMacAddress_Object=MibTableColumn
-cyanBtmBaseMacAddress=_CyanBtmBaseMacAddress_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,7),_CyanBtmBaseMacAddress_Type())
-cyanBtmBaseMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmBaseMacAddress.setStatus(_A)
-_CyanBtmCritical_Type=CyanRelayTc
-_CyanBtmCritical_Object=MibTableColumn
-cyanBtmCritical=_CyanBtmCritical_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,8),_CyanBtmCritical_Type())
-cyanBtmCritical.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmCritical.setStatus(_A)
-class _CyanBtmDescription_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CyanBtmDescription_Type.__name__=_D
-_CyanBtmDescription_Object=MibTableColumn
-cyanBtmDescription=_CyanBtmDescription_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,9),_CyanBtmDescription_Type())
-cyanBtmDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmDescription.setStatus(_A)
-_CyanBtmIdentifier_Type=DisplayString
-_CyanBtmIdentifier_Object=MibTableColumn
-cyanBtmIdentifier=_CyanBtmIdentifier_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,10),_CyanBtmIdentifier_Type())
-cyanBtmIdentifier.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmIdentifier.setStatus(_A)
-class _CyanBtmMacBlockSize_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_CyanBtmMacBlockSize_Type.__name__=_E
-_CyanBtmMacBlockSize_Object=MibTableColumn
-cyanBtmMacBlockSize=_CyanBtmMacBlockSize_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,11),_CyanBtmMacBlockSize_Type())
-cyanBtmMacBlockSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmMacBlockSize.setStatus(_A)
-_CyanBtmMajor_Type=CyanRelayTc
-_CyanBtmMajor_Object=MibTableColumn
-cyanBtmMajor=_CyanBtmMajor_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,12),_CyanBtmMajor_Type())
-cyanBtmMajor.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmMajor.setStatus(_A)
-class _CyanBtmMfgCleiCode_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,10))
-_CyanBtmMfgCleiCode_Type.__name__=_D
-_CyanBtmMfgCleiCode_Object=MibTableColumn
-cyanBtmMfgCleiCode=_CyanBtmMfgCleiCode_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,13),_CyanBtmMfgCleiCode_Type())
-cyanBtmMfgCleiCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmMfgCleiCode.setStatus(_A)
-class _CyanBtmMfgEciCode_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,6))
-_CyanBtmMfgEciCode_Type.__name__=_D
-_CyanBtmMfgEciCode_Object=MibTableColumn
-cyanBtmMfgEciCode=_CyanBtmMfgEciCode_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,14),_CyanBtmMfgEciCode_Type())
-cyanBtmMfgEciCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmMfgEciCode.setStatus(_A)
-_CyanBtmMfgModuleId_Type=Unsigned32
-_CyanBtmMfgModuleId_Object=MibTableColumn
-cyanBtmMfgModuleId=_CyanBtmMfgModuleId_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,15),_CyanBtmMfgModuleId_Type())
-cyanBtmMfgModuleId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmMfgModuleId.setStatus(_A)
-class _CyanBtmMfgPartNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_CyanBtmMfgPartNumber_Type.__name__=_D
-_CyanBtmMfgPartNumber_Object=MibTableColumn
-cyanBtmMfgPartNumber=_CyanBtmMfgPartNumber_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,16),_CyanBtmMfgPartNumber_Type())
-cyanBtmMfgPartNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmMfgPartNumber.setStatus(_A)
-class _CyanBtmMfgRevision_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,4))
-_CyanBtmMfgRevision_Type.__name__=_D
-_CyanBtmMfgRevision_Object=MibTableColumn
-cyanBtmMfgRevision=_CyanBtmMfgRevision_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,17),_CyanBtmMfgRevision_Type())
-cyanBtmMfgRevision.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmMfgRevision.setStatus(_A)
-class _CyanBtmMfgSerialNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_CyanBtmMfgSerialNumber_Type.__name__=_D
-_CyanBtmMfgSerialNumber_Object=MibTableColumn
-cyanBtmMfgSerialNumber=_CyanBtmMfgSerialNumber_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,18),_CyanBtmMfgSerialNumber_Type())
-cyanBtmMfgSerialNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmMfgSerialNumber.setStatus(_A)
-_CyanBtmMinor_Type=CyanRelayTc
-_CyanBtmMinor_Object=MibTableColumn
-cyanBtmMinor=_CyanBtmMinor_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,19),_CyanBtmMinor_Type())
-cyanBtmMinor.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmMinor.setStatus(_A)
-_CyanBtmName_Type=DisplayString
-_CyanBtmName_Object=MibTableColumn
-cyanBtmName=_CyanBtmName_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,20),_CyanBtmName_Type())
-cyanBtmName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmName.setStatus(_A)
-_CyanBtmOidClass_Type=DisplayString
-_CyanBtmOidClass_Object=MibTableColumn
-cyanBtmOidClass=_CyanBtmOidClass_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,21),_CyanBtmOidClass_Type())
-cyanBtmOidClass.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmOidClass.setStatus(_A)
-_CyanBtmOperState_Type=CyanOpStateTc
-_CyanBtmOperState_Object=MibTableColumn
-cyanBtmOperState=_CyanBtmOperState_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,22),_CyanBtmOperState_Type())
-cyanBtmOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmOperState.setStatus(_A)
-_CyanBtmOperStateQual_Type=CyanOpStateQualTc
-_CyanBtmOperStateQual_Object=MibTableColumn
-cyanBtmOperStateQual=_CyanBtmOperStateQual_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,23),_CyanBtmOperStateQual_Type())
-cyanBtmOperStateQual.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmOperStateQual.setStatus(_A)
-class _CyanBtmOssLabel_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_CyanBtmOssLabel_Type.__name__=_D
-_CyanBtmOssLabel_Object=MibTableColumn
-cyanBtmOssLabel=_CyanBtmOssLabel_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,24),_CyanBtmOssLabel_Type())
-cyanBtmOssLabel.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmOssLabel.setStatus(_A)
-class _CyanBtmOwner_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_CyanBtmOwner_Type.__name__=_D
-_CyanBtmOwner_Object=MibTableColumn
-cyanBtmOwner=_CyanBtmOwner_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,25),_CyanBtmOwner_Type())
-cyanBtmOwner.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmOwner.setStatus(_A)
-class _CyanBtmPartNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,11))
-_CyanBtmPartNumber_Type.__name__=_D
-_CyanBtmPartNumber_Object=MibTableColumn
-cyanBtmPartNumber=_CyanBtmPartNumber_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,26),_CyanBtmPartNumber_Type())
-cyanBtmPartNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmPartNumber.setStatus(_A)
-_CyanBtmSecServState_Type=CyanSecServiceStateTc
-_CyanBtmSecServState_Object=MibTableColumn
-cyanBtmSecServState=_CyanBtmSecServState_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,27),_CyanBtmSecServState_Type())
-cyanBtmSecServState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmSecServState.setStatus(_A)
-_CyanBtmType_Type=CyanTypeTc
-_CyanBtmType_Object=MibTableColumn
-cyanBtmType=_CyanBtmType_Object((1,3,6,1,4,1,28533,5,30,60,1,1,1,28),_CyanBtmType_Type())
-cyanBtmType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cyanBtmType.setStatus(_A)
-cyanBtmObjectGroup=ObjectGroup((1,3,6,1,4,1,28533,5,30,60,20))
-cyanBtmObjectGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h)))
-if mibBuilder.loadTexts:cyanBtmObjectGroup.setStatus(_A)
-cyanBtmCompliance=ModuleCompliance((1,3,6,1,4,1,28533,5,30,60,30))
-cyanBtmCompliance.setObjects((_B,_i))
-if mibBuilder.loadTexts:cyanBtmCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'cyanBtmModule':cyanBtmModule,'cyanBtmMibObjects':cyanBtmMibObjects,'cyanBtmTable':cyanBtmTable,'cyanBtmEntry':cyanBtmEntry,_F:cyanBtmShelfId,_G:cyanBtmBtmId,_I:cyanBtmAdminState,_J:cyanBtmAssetTag,_K:cyanBtmAudible,_L:cyanBtmAutoinserviceSoakTimeSec,_M:cyanBtmBaseMacAddress,_N:cyanBtmCritical,_O:cyanBtmDescription,_P:cyanBtmIdentifier,_Q:cyanBtmMacBlockSize,_R:cyanBtmMajor,_S:cyanBtmMfgCleiCode,_T:cyanBtmMfgEciCode,_U:cyanBtmMfgModuleId,_V:cyanBtmMfgPartNumber,_W:cyanBtmMfgRevision,_X:cyanBtmMfgSerialNumber,_Y:cyanBtmMinor,_Z:cyanBtmName,_a:cyanBtmOidClass,_b:cyanBtmOperState,_c:cyanBtmOperStateQual,_d:cyanBtmOssLabel,_e:cyanBtmOwner,_f:cyanBtmPartNumber,_g:cyanBtmSecServState,_h:cyanBtmType,_i:cyanBtmObjectGroup,'cyanBtmCompliance':cyanBtmCompliance})
+#
+# PySNMP MIB module CYAN-BTM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cyan/CYAN-BTM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:12 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+CyanTypeTc, cyanEntityModules = mibBuilder.importSymbols("CYAN-MIB", "CyanTypeTc", "cyanEntityModules")
+CyanAdminStateTc, CyanRelayTc, CyanOpStateQualTc, CyanSecServiceStateTc, CyanOpStateTc = mibBuilder.importSymbols("CYAN-TC-MIB", "CyanAdminStateTc", "CyanRelayTc", "CyanOpStateQualTc", "CyanSecServiceStateTc", "CyanOpStateTc")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+cyanBtmModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60))
+cyanBtmModule.setRevisions(('2014-12-07 05:45',))
+if mibBuilder.loadTexts: cyanBtmModule.setLastUpdated('201412070545Z')
+if mibBuilder.loadTexts: cyanBtmModule.setOrganization('Cyan, Inc.')
+cyanBtmMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1))
+cyanBtmTable = MibTable((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1), )
+if mibBuilder.loadTexts: cyanBtmTable.setStatus('current')
+cyanBtmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1), ).setIndexNames((0, "CYAN-BTM-MIB", "cyanBtmShelfId"), (0, "CYAN-BTM-MIB", "cyanBtmBtmId"))
+if mibBuilder.loadTexts: cyanBtmEntry.setStatus('current')
+cyanBtmShelfId = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)))
+if mibBuilder.loadTexts: cyanBtmShelfId.setStatus('current')
+cyanBtmBtmId = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 2), Unsigned32())
+if mibBuilder.loadTexts: cyanBtmBtmId.setStatus('current')
+cyanBtmAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 3), CyanAdminStateTc()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmAdminState.setStatus('current')
+cyanBtmAssetTag = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 124))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmAssetTag.setStatus('current')
+cyanBtmAudible = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 5), CyanRelayTc()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmAudible.setStatus('current')
+cyanBtmAutoinserviceSoakTimeSec = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmAutoinserviceSoakTimeSec.setStatus('current')
+cyanBtmBaseMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmBaseMacAddress.setStatus('current')
+cyanBtmCritical = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 8), CyanRelayTc()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmCritical.setStatus('current')
+cyanBtmDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmDescription.setStatus('current')
+cyanBtmIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmIdentifier.setStatus('current')
+cyanBtmMacBlockSize = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmMacBlockSize.setStatus('current')
+cyanBtmMajor = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 12), CyanRelayTc()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmMajor.setStatus('current')
+cyanBtmMfgCleiCode = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmMfgCleiCode.setStatus('current')
+cyanBtmMfgEciCode = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 6))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmMfgEciCode.setStatus('current')
+cyanBtmMfgModuleId = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 15), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmMfgModuleId.setStatus('current')
+cyanBtmMfgPartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 16), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmMfgPartNumber.setStatus('current')
+cyanBtmMfgRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 17), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 4))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmMfgRevision.setStatus('current')
+cyanBtmMfgSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmMfgSerialNumber.setStatus('current')
+cyanBtmMinor = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 19), CyanRelayTc()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmMinor.setStatus('current')
+cyanBtmName = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 20), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmName.setStatus('current')
+cyanBtmOidClass = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 21), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmOidClass.setStatus('current')
+cyanBtmOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 22), CyanOpStateTc()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmOperState.setStatus('current')
+cyanBtmOperStateQual = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 23), CyanOpStateQualTc()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmOperStateQual.setStatus('current')
+cyanBtmOssLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 24), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmOssLabel.setStatus('current')
+cyanBtmOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 25), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmOwner.setStatus('current')
+cyanBtmPartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 26), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 11))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmPartNumber.setStatus('current')
+cyanBtmSecServState = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 27), CyanSecServiceStateTc()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmSecServState.setStatus('current')
+cyanBtmType = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 1, 1, 1, 28), CyanTypeTc()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cyanBtmType.setStatus('current')
+cyanBtmObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 20)).setObjects(("CYAN-BTM-MIB", "cyanBtmAdminState"), ("CYAN-BTM-MIB", "cyanBtmAssetTag"), ("CYAN-BTM-MIB", "cyanBtmAudible"), ("CYAN-BTM-MIB", "cyanBtmAutoinserviceSoakTimeSec"), ("CYAN-BTM-MIB", "cyanBtmBaseMacAddress"), ("CYAN-BTM-MIB", "cyanBtmCritical"), ("CYAN-BTM-MIB", "cyanBtmDescription"), ("CYAN-BTM-MIB", "cyanBtmIdentifier"), ("CYAN-BTM-MIB", "cyanBtmMacBlockSize"), ("CYAN-BTM-MIB", "cyanBtmMajor"), ("CYAN-BTM-MIB", "cyanBtmMfgCleiCode"), ("CYAN-BTM-MIB", "cyanBtmMfgEciCode"), ("CYAN-BTM-MIB", "cyanBtmMfgModuleId"), ("CYAN-BTM-MIB", "cyanBtmMfgPartNumber"), ("CYAN-BTM-MIB", "cyanBtmMfgRevision"), ("CYAN-BTM-MIB", "cyanBtmMfgSerialNumber"), ("CYAN-BTM-MIB", "cyanBtmMinor"), ("CYAN-BTM-MIB", "cyanBtmName"), ("CYAN-BTM-MIB", "cyanBtmOidClass"), ("CYAN-BTM-MIB", "cyanBtmOperState"), ("CYAN-BTM-MIB", "cyanBtmOperStateQual"), ("CYAN-BTM-MIB", "cyanBtmOssLabel"), ("CYAN-BTM-MIB", "cyanBtmOwner"), ("CYAN-BTM-MIB", "cyanBtmPartNumber"), ("CYAN-BTM-MIB", "cyanBtmSecServState"), ("CYAN-BTM-MIB", "cyanBtmType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cyanBtmObjectGroup = cyanBtmObjectGroup.setStatus('current')
+cyanBtmCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 28533, 5, 30, 60, 30)).setObjects(("CYAN-BTM-MIB", "cyanBtmObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cyanBtmCompliance = cyanBtmCompliance.setStatus('current')
+mibBuilder.exportSymbols("CYAN-BTM-MIB", cyanBtmMfgRevision=cyanBtmMfgRevision, cyanBtmOwner=cyanBtmOwner, cyanBtmMfgEciCode=cyanBtmMfgEciCode, cyanBtmName=cyanBtmName, cyanBtmOperState=cyanBtmOperState, cyanBtmModule=cyanBtmModule, cyanBtmOssLabel=cyanBtmOssLabel, cyanBtmMfgCleiCode=cyanBtmMfgCleiCode, cyanBtmShelfId=cyanBtmShelfId, cyanBtmBaseMacAddress=cyanBtmBaseMacAddress, cyanBtmAutoinserviceSoakTimeSec=cyanBtmAutoinserviceSoakTimeSec, cyanBtmMajor=cyanBtmMajor, cyanBtmMfgModuleId=cyanBtmMfgModuleId, cyanBtmSecServState=cyanBtmSecServState, cyanBtmTable=cyanBtmTable, cyanBtmBtmId=cyanBtmBtmId, cyanBtmMfgPartNumber=cyanBtmMfgPartNumber, cyanBtmCritical=cyanBtmCritical, cyanBtmMinor=cyanBtmMinor, cyanBtmAssetTag=cyanBtmAssetTag, cyanBtmAdminState=cyanBtmAdminState, cyanBtmDescription=cyanBtmDescription, cyanBtmEntry=cyanBtmEntry, cyanBtmObjectGroup=cyanBtmObjectGroup, cyanBtmOperStateQual=cyanBtmOperStateQual, cyanBtmIdentifier=cyanBtmIdentifier, cyanBtmPartNumber=cyanBtmPartNumber, cyanBtmOidClass=cyanBtmOidClass, cyanBtmCompliance=cyanBtmCompliance, cyanBtmType=cyanBtmType, PYSNMP_MODULE_ID=cyanBtmModule, cyanBtmAudible=cyanBtmAudible, cyanBtmMacBlockSize=cyanBtmMacBlockSize, cyanBtmMfgSerialNumber=cyanBtmMfgSerialNumber, cyanBtmMibObjects=cyanBtmMibObjects)

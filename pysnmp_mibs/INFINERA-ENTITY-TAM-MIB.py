@@ -1,55 +1,40 @@
-_I='tamGroup'
-_H='tamRowStatus'
-_G='tamProvEqptType'
-_F='tamMoId'
-_E='entLPPhysicalIndex'
-_D='ENTITY-MIB'
-_C='read-create'
-_B='INFINERA-ENTITY-TAM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-entLPPhysicalIndex,=mibBuilder.importSymbols(_D,_E)
-equipment,=mibBuilder.importSymbols('INFINERA-REG-MIB','equipment')
-InfnEqptType,=mibBuilder.importSymbols('INFINERA-TC-MIB','InfnEqptType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-tamMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,1,7))
-_TamTable_Object=MibTable
-tamTable=_TamTable_Object((1,3,6,1,4,1,21296,2,2,2,1,7,1))
-if mibBuilder.loadTexts:tamTable.setStatus(_A)
-_TamEntry_Object=MibTableRow
-tamEntry=_TamEntry_Object((1,3,6,1,4,1,21296,2,2,2,1,7,1,1))
-tamEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:tamEntry.setStatus(_A)
-_TamMoId_Type=DisplayString
-_TamMoId_Object=MibTableColumn
-tamMoId=_TamMoId_Object((1,3,6,1,4,1,21296,2,2,2,1,7,1,1,1),_TamMoId_Type())
-tamMoId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tamMoId.setStatus(_A)
-_TamProvEqptType_Type=InfnEqptType
-_TamProvEqptType_Object=MibTableColumn
-tamProvEqptType=_TamProvEqptType_Object((1,3,6,1,4,1,21296,2,2,2,1,7,1,1,2),_TamProvEqptType_Type())
-tamProvEqptType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tamProvEqptType.setStatus(_A)
-_TamRowStatus_Type=RowStatus
-_TamRowStatus_Object=MibTableColumn
-tamRowStatus=_TamRowStatus_Object((1,3,6,1,4,1,21296,2,2,2,1,7,1,1,3),_TamRowStatus_Type())
-tamRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tamRowStatus.setStatus(_A)
-_TamConformance_ObjectIdentity=ObjectIdentity
-tamConformance=_TamConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,7,3))
-_TamCompliances_ObjectIdentity=ObjectIdentity
-tamCompliances=_TamCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,7,3,1))
-_TamGroups_ObjectIdentity=ObjectIdentity
-tamGroups=_TamGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,7,3,2))
-tamGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,1,7,3,2,1))
-tamGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:tamGroup.setStatus(_A)
-tamCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,1,7,3,1,1))
-tamCompliance.setObjects((_B,_I))
-if mibBuilder.loadTexts:tamCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'tamMIB':tamMIB,'tamTable':tamTable,'tamEntry':tamEntry,_F:tamMoId,_G:tamProvEqptType,_H:tamRowStatus,'tamConformance':tamConformance,'tamCompliances':tamCompliances,'tamCompliance':tamCompliance,'tamGroups':tamGroups,_I:tamGroup})
+#
+# PySNMP MIB module INFINERA-ENTITY-TAM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-ENTITY-TAM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:53 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+entLPPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entLPPhysicalIndex")
+equipment, = mibBuilder.importSymbols("INFINERA-REG-MIB", "equipment")
+InfnEqptType, = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnEqptType")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+tamMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 7))
+if mibBuilder.loadTexts: tamMIB.setLastUpdated('200810200000Z')
+if mibBuilder.loadTexts: tamMIB.setOrganization('INFINERA')
+tamConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 7, 3))
+tamCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 7, 3, 1))
+tamGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 7, 3, 2))
+tamTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 7, 1), )
+if mibBuilder.loadTexts: tamTable.setStatus('current')
+tamEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 7, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entLPPhysicalIndex"))
+if mibBuilder.loadTexts: tamEntry.setStatus('current')
+tamMoId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 7, 1, 1, 1), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tamMoId.setStatus('current')
+tamProvEqptType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 7, 1, 1, 2), InfnEqptType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tamProvEqptType.setStatus('current')
+tamRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 7, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tamRowStatus.setStatus('current')
+tamCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 7, 3, 1, 1)).setObjects(("INFINERA-ENTITY-TAM-MIB", "tamGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tamCompliance = tamCompliance.setStatus('current')
+tamGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 7, 3, 2, 1)).setObjects(("INFINERA-ENTITY-TAM-MIB", "tamMoId"), ("INFINERA-ENTITY-TAM-MIB", "tamProvEqptType"), ("INFINERA-ENTITY-TAM-MIB", "tamRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tamGroup = tamGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-ENTITY-TAM-MIB", tamTable=tamTable, tamCompliances=tamCompliances, tamEntry=tamEntry, tamGroups=tamGroups, tamConformance=tamConformance, tamRowStatus=tamRowStatus, tamGroup=tamGroup, tamProvEqptType=tamProvEqptType, tamMIB=tamMIB, tamCompliance=tamCompliance, tamMoId=tamMoId, PYSNMP_MODULE_ID=tamMIB)

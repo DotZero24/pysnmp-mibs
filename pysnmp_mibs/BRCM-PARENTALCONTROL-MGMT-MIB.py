@@ -1,65 +1,38 @@
-_D='OctetString'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-cableDataMgmtMIBObjects,=mibBuilder.importSymbols('BRCM-CABLEDATA-MGMT-MIB','cableDataMgmtMIBObjects')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention','TruthValue')
-parentalControlMgmt=ModuleIdentity((1,3,6,1,4,1,4413,2,2,2,1,8))
-if mibBuilder.loadTexts:parentalControlMgmt.setRevisions(('2007-02-05 00:00','2003-07-30 00:00','2003-04-17 00:00','2003-04-04 00:00'))
-_PctlService_ObjectIdentity=ObjectIdentity
-pctlService=_PctlService_ObjectIdentity((1,3,6,1,4,1,4413,2,2,2,1,8,1))
-_PctlSubscriptionURL_Type=DisplayString
-_PctlSubscriptionURL_Object=MibScalar
-pctlSubscriptionURL=_PctlSubscriptionURL_Object((1,3,6,1,4,1,4413,2,2,2,1,8,1,1),_PctlSubscriptionURL_Type())
-pctlSubscriptionURL.setMaxAccess(_B)
-if mibBuilder.loadTexts:pctlSubscriptionURL.setStatus(_A)
-class _PctlServiceModel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('none',0),('cerberianCMR',1),('cerberianADR',2),('rulespace',3)))
-_PctlServiceModel_Type.__name__=_C
-_PctlServiceModel_Object=MibScalar
-pctlServiceModel=_PctlServiceModel_Object((1,3,6,1,4,1,4413,2,2,2,1,8,1,2),_PctlServiceModel_Type())
-pctlServiceModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:pctlServiceModel.setStatus(_A)
-_PctlServicePrimaryURL_Type=DisplayString
-_PctlServicePrimaryURL_Object=MibScalar
-pctlServicePrimaryURL=_PctlServicePrimaryURL_Object((1,3,6,1,4,1,4413,2,2,2,1,8,1,3),_PctlServicePrimaryURL_Type())
-pctlServicePrimaryURL.setMaxAccess(_B)
-if mibBuilder.loadTexts:pctlServicePrimaryURL.setStatus(_A)
-_PctlServiceSecondaryURL_Type=DisplayString
-_PctlServiceSecondaryURL_Object=MibScalar
-pctlServiceSecondaryURL=_PctlServiceSecondaryURL_Object((1,3,6,1,4,1,4413,2,2,2,1,8,1,4),_PctlServiceSecondaryURL_Type())
-pctlServiceSecondaryURL.setMaxAccess(_B)
-if mibBuilder.loadTexts:pctlServiceSecondaryURL.setStatus(_A)
-_PctlLicenseKey_Type=OctetString
-_PctlLicenseKey_Object=MibScalar
-pctlLicenseKey=_PctlLicenseKey_Object((1,3,6,1,4,1,4413,2,2,2,1,8,1,5),_PctlLicenseKey_Type())
-pctlLicenseKey.setMaxAccess(_B)
-if mibBuilder.loadTexts:pctlLicenseKey.setStatus(_A)
-_PctlLicenseExpiration_Type=DateAndTime
-_PctlLicenseExpiration_Object=MibScalar
-pctlLicenseExpiration=_PctlLicenseExpiration_Object((1,3,6,1,4,1,4413,2,2,2,1,8,1,6),_PctlLicenseExpiration_Type())
-pctlLicenseExpiration.setMaxAccess(_B)
-if mibBuilder.loadTexts:pctlLicenseExpiration.setStatus(_A)
-_PctlServiceSubscribeNow_Type=TruthValue
-_PctlServiceSubscribeNow_Object=MibScalar
-pctlServiceSubscribeNow=_PctlServiceSubscribeNow_Object((1,3,6,1,4,1,4413,2,2,2,1,8,1,7),_PctlServiceSubscribeNow_Type())
-pctlServiceSubscribeNow.setMaxAccess(_B)
-if mibBuilder.loadTexts:pctlServiceSubscribeNow.setStatus(_A)
-class _PctlServiceSubscriptionStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7)));namedValues=NamedValues(*(('notAttempted',0),('readyToSubscribe',1),('subscribedServiceNotStarted',2),('subscribedEstablishingService',3),('subscribedServiceRunning',4),('subscribedServiceError',5),('subscriptionFailed',6),('subscriptionExpired',7)))
-_PctlServiceSubscriptionStatus_Type.__name__=_C
-_PctlServiceSubscriptionStatus_Object=MibScalar
-pctlServiceSubscriptionStatus=_PctlServiceSubscriptionStatus_Object((1,3,6,1,4,1,4413,2,2,2,1,8,1,8),_PctlServiceSubscriptionStatus_Type())
-pctlServiceSubscriptionStatus.setMaxAccess('read-only')
-if mibBuilder.loadTexts:pctlServiceSubscriptionStatus.setStatus(_A)
-class _PctlCategoryList_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
-_PctlCategoryList_Type.__name__=_D
-_PctlCategoryList_Object=MibScalar
-pctlCategoryList=_PctlCategoryList_Object((1,3,6,1,4,1,4413,2,2,2,1,8,1,9),_PctlCategoryList_Type())
-pctlCategoryList.setMaxAccess(_B)
-if mibBuilder.loadTexts:pctlCategoryList.setStatus(_A)
-mibBuilder.exportSymbols('BRCM-PARENTALCONTROL-MGMT-MIB',**{'parentalControlMgmt':parentalControlMgmt,'pctlService':pctlService,'pctlSubscriptionURL':pctlSubscriptionURL,'pctlServiceModel':pctlServiceModel,'pctlServicePrimaryURL':pctlServicePrimaryURL,'pctlServiceSecondaryURL':pctlServiceSecondaryURL,'pctlLicenseKey':pctlLicenseKey,'pctlLicenseExpiration':pctlLicenseExpiration,'pctlServiceSubscribeNow':pctlServiceSubscribeNow,'pctlServiceSubscriptionStatus':pctlServiceSubscriptionStatus,'pctlCategoryList':pctlCategoryList})
+#
+# PySNMP MIB module BRCM-PARENTALCONTROL-MGMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/broadcom/BRCM-PARENTALCONTROL-MGMT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cableDataMgmtMIBObjects, = mibBuilder.importSymbols("BRCM-CABLEDATA-MGMT-MIB", "cableDataMgmtMIBObjects")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "DateAndTime", "TextualConvention")
+parentalControlMgmt = ModuleIdentity((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 8))
+parentalControlMgmt.setRevisions(('2007-02-05 00:00', '2003-07-30 00:00', '2003-04-17 00:00', '2003-04-04 00:00',))
+if mibBuilder.loadTexts: parentalControlMgmt.setLastUpdated('200702050000Z')
+if mibBuilder.loadTexts: parentalControlMgmt.setOrganization('Broadcom Corporation')
+pctlService = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 8, 1))
+pctlSubscriptionURL = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 8, 1, 1), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pctlSubscriptionURL.setStatus('current')
+pctlServiceModel = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 8, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("none", 0), ("cerberianCMR", 1), ("cerberianADR", 2), ("rulespace", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pctlServiceModel.setStatus('current')
+pctlServicePrimaryURL = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 8, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pctlServicePrimaryURL.setStatus('current')
+pctlServiceSecondaryURL = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 8, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pctlServiceSecondaryURL.setStatus('current')
+pctlLicenseKey = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 8, 1, 5), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pctlLicenseKey.setStatus('current')
+pctlLicenseExpiration = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 8, 1, 6), DateAndTime()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pctlLicenseExpiration.setStatus('current')
+pctlServiceSubscribeNow = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 8, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pctlServiceSubscribeNow.setStatus('current')
+pctlServiceSubscriptionStatus = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 8, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("notAttempted", 0), ("readyToSubscribe", 1), ("subscribedServiceNotStarted", 2), ("subscribedEstablishingService", 3), ("subscribedServiceRunning", 4), ("subscribedServiceError", 5), ("subscriptionFailed", 6), ("subscriptionExpired", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pctlServiceSubscriptionStatus.setStatus('current')
+pctlCategoryList = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 8, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 1024))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pctlCategoryList.setStatus('current')
+mibBuilder.exportSymbols("BRCM-PARENTALCONTROL-MGMT-MIB", pctlLicenseKey=pctlLicenseKey, pctlService=pctlService, PYSNMP_MODULE_ID=parentalControlMgmt, parentalControlMgmt=parentalControlMgmt, pctlServiceSubscribeNow=pctlServiceSubscribeNow, pctlLicenseExpiration=pctlLicenseExpiration, pctlServiceModel=pctlServiceModel, pctlServiceSubscriptionStatus=pctlServiceSubscriptionStatus, pctlServicePrimaryURL=pctlServicePrimaryURL, pctlSubscriptionURL=pctlSubscriptionURL, pctlCategoryList=pctlCategoryList, pctlServiceSecondaryURL=pctlServiceSecondaryURL)

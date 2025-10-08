@@ -1,144 +1,71 @@
-_U='apSLBUntrustedEndpointCapacityThresholdClearTrap'
-_T='apSLBUntrustedEndpointCapacityThresholdTrap'
-_S='apSLBEndpointCapacityThresholdClearTrap'
-_R='apSLBEndpointCapacityThresholdTrap'
-_Q='apSLBStatsTrustedEndpointsCurrent'
-_P='apSLBStatsEndpointsDenied'
-_O='apSLBUntrustedEndpointCapacityLowerThresh'
-_N='apSLBUntrustedEndpointCapacityUpperThresh'
-_M='apSLBUntrustedEndpointCapacity'
-_L='apSLBStatsUntrustedEndpointsAgedOut'
-_K='apSLBStatsUntrustedEndpointsDenied'
-_J='apSLBStatsUntrustedEndpointsCurrent'
-_I='apSLBEndpointCapacityLowerThresh'
-_H='apSLBEndpointCapacityUpperThresh'
-_G='apSLBEndpointCapacity'
-_F='apSLBStatsEndpointsCurrent'
-_E='Unsigned32'
-_D='endpoints'
-_C='read-only'
-_B='current'
-_A='APSLB-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-acmepacketMgmt,=mibBuilder.importSymbols('ACMEPACKET-SMI','acmepacketMgmt')
-InetAddress,InetAddressPrefixLength,InetAddressType,InetVersion,InetZoneIndex=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressPrefixLength','InetAddressType','InetVersion','InetZoneIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-apSLBModule=ModuleIdentity((1,3,6,1,4,1,9148,3,11))
-_ApSLBMIBObjects_ObjectIdentity=ObjectIdentity
-apSLBMIBObjects=_ApSLBMIBObjects_ObjectIdentity((1,3,6,1,4,1,9148,3,11,1))
-_ApSLBMIBGeneralObjects_ObjectIdentity=ObjectIdentity
-apSLBMIBGeneralObjects=_ApSLBMIBGeneralObjects_ObjectIdentity((1,3,6,1,4,1,9148,3,11,1,1))
-_ApSLBStatsEndpointsCurrent_Type=Unsigned32
-_ApSLBStatsEndpointsCurrent_Object=MibScalar
-apSLBStatsEndpointsCurrent=_ApSLBStatsEndpointsCurrent_Object((1,3,6,1,4,1,9148,3,11,1,1,1),_ApSLBStatsEndpointsCurrent_Type())
-apSLBStatsEndpointsCurrent.setMaxAccess(_C)
-if mibBuilder.loadTexts:apSLBStatsEndpointsCurrent.setStatus(_B)
-if mibBuilder.loadTexts:apSLBStatsEndpointsCurrent.setUnits(_D)
-_ApSLBStatsEndpointsDenied_Type=Unsigned32
-_ApSLBStatsEndpointsDenied_Object=MibScalar
-apSLBStatsEndpointsDenied=_ApSLBStatsEndpointsDenied_Object((1,3,6,1,4,1,9148,3,11,1,1,2),_ApSLBStatsEndpointsDenied_Type())
-apSLBStatsEndpointsDenied.setMaxAccess(_C)
-if mibBuilder.loadTexts:apSLBStatsEndpointsDenied.setStatus(_B)
-if mibBuilder.loadTexts:apSLBStatsEndpointsDenied.setUnits(_D)
-_ApSLBEndpointCapacity_Type=Unsigned32
-_ApSLBEndpointCapacity_Object=MibScalar
-apSLBEndpointCapacity=_ApSLBEndpointCapacity_Object((1,3,6,1,4,1,9148,3,11,1,1,3),_ApSLBEndpointCapacity_Type())
-apSLBEndpointCapacity.setMaxAccess(_C)
-if mibBuilder.loadTexts:apSLBEndpointCapacity.setStatus(_B)
-if mibBuilder.loadTexts:apSLBEndpointCapacity.setUnits(_D)
-class _ApSLBEndpointCapacityUpperThresh_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_ApSLBEndpointCapacityUpperThresh_Type.__name__=_E
-_ApSLBEndpointCapacityUpperThresh_Object=MibScalar
-apSLBEndpointCapacityUpperThresh=_ApSLBEndpointCapacityUpperThresh_Object((1,3,6,1,4,1,9148,3,11,1,1,4),_ApSLBEndpointCapacityUpperThresh_Type())
-apSLBEndpointCapacityUpperThresh.setMaxAccess(_C)
-if mibBuilder.loadTexts:apSLBEndpointCapacityUpperThresh.setStatus(_B)
-class _ApSLBEndpointCapacityLowerThresh_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_ApSLBEndpointCapacityLowerThresh_Type.__name__=_E
-_ApSLBEndpointCapacityLowerThresh_Object=MibScalar
-apSLBEndpointCapacityLowerThresh=_ApSLBEndpointCapacityLowerThresh_Object((1,3,6,1,4,1,9148,3,11,1,1,5),_ApSLBEndpointCapacityLowerThresh_Type())
-apSLBEndpointCapacityLowerThresh.setMaxAccess(_C)
-if mibBuilder.loadTexts:apSLBEndpointCapacityLowerThresh.setStatus(_B)
-_ApSLBStatsUntrustedEndpointsCurrent_Type=Unsigned32
-_ApSLBStatsUntrustedEndpointsCurrent_Object=MibScalar
-apSLBStatsUntrustedEndpointsCurrent=_ApSLBStatsUntrustedEndpointsCurrent_Object((1,3,6,1,4,1,9148,3,11,1,1,6),_ApSLBStatsUntrustedEndpointsCurrent_Type())
-apSLBStatsUntrustedEndpointsCurrent.setMaxAccess(_C)
-if mibBuilder.loadTexts:apSLBStatsUntrustedEndpointsCurrent.setStatus(_B)
-if mibBuilder.loadTexts:apSLBStatsUntrustedEndpointsCurrent.setUnits(_D)
-_ApSLBStatsTrustedEndpointsCurrent_Type=Unsigned32
-_ApSLBStatsTrustedEndpointsCurrent_Object=MibScalar
-apSLBStatsTrustedEndpointsCurrent=_ApSLBStatsTrustedEndpointsCurrent_Object((1,3,6,1,4,1,9148,3,11,1,1,7),_ApSLBStatsTrustedEndpointsCurrent_Type())
-apSLBStatsTrustedEndpointsCurrent.setMaxAccess(_C)
-if mibBuilder.loadTexts:apSLBStatsTrustedEndpointsCurrent.setStatus(_B)
-if mibBuilder.loadTexts:apSLBStatsTrustedEndpointsCurrent.setUnits(_D)
-_ApSLBStatsUntrustedEndpointsDenied_Type=Unsigned32
-_ApSLBStatsUntrustedEndpointsDenied_Object=MibScalar
-apSLBStatsUntrustedEndpointsDenied=_ApSLBStatsUntrustedEndpointsDenied_Object((1,3,6,1,4,1,9148,3,11,1,1,8),_ApSLBStatsUntrustedEndpointsDenied_Type())
-apSLBStatsUntrustedEndpointsDenied.setMaxAccess(_C)
-if mibBuilder.loadTexts:apSLBStatsUntrustedEndpointsDenied.setStatus(_B)
-if mibBuilder.loadTexts:apSLBStatsUntrustedEndpointsDenied.setUnits(_D)
-_ApSLBStatsUntrustedEndpointsAgedOut_Type=Unsigned32
-_ApSLBStatsUntrustedEndpointsAgedOut_Object=MibScalar
-apSLBStatsUntrustedEndpointsAgedOut=_ApSLBStatsUntrustedEndpointsAgedOut_Object((1,3,6,1,4,1,9148,3,11,1,1,9),_ApSLBStatsUntrustedEndpointsAgedOut_Type())
-apSLBStatsUntrustedEndpointsAgedOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:apSLBStatsUntrustedEndpointsAgedOut.setStatus(_B)
-if mibBuilder.loadTexts:apSLBStatsUntrustedEndpointsAgedOut.setUnits(_D)
-_ApSLBUntrustedEndpointCapacity_Type=Unsigned32
-_ApSLBUntrustedEndpointCapacity_Object=MibScalar
-apSLBUntrustedEndpointCapacity=_ApSLBUntrustedEndpointCapacity_Object((1,3,6,1,4,1,9148,3,11,1,1,10),_ApSLBUntrustedEndpointCapacity_Type())
-apSLBUntrustedEndpointCapacity.setMaxAccess(_C)
-if mibBuilder.loadTexts:apSLBUntrustedEndpointCapacity.setStatus(_B)
-if mibBuilder.loadTexts:apSLBUntrustedEndpointCapacity.setUnits(_D)
-class _ApSLBUntrustedEndpointCapacityUpperThresh_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_ApSLBUntrustedEndpointCapacityUpperThresh_Type.__name__=_E
-_ApSLBUntrustedEndpointCapacityUpperThresh_Object=MibScalar
-apSLBUntrustedEndpointCapacityUpperThresh=_ApSLBUntrustedEndpointCapacityUpperThresh_Object((1,3,6,1,4,1,9148,3,11,1,1,11),_ApSLBUntrustedEndpointCapacityUpperThresh_Type())
-apSLBUntrustedEndpointCapacityUpperThresh.setMaxAccess(_C)
-if mibBuilder.loadTexts:apSLBUntrustedEndpointCapacityUpperThresh.setStatus(_B)
-class _ApSLBUntrustedEndpointCapacityLowerThresh_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_ApSLBUntrustedEndpointCapacityLowerThresh_Type.__name__=_E
-_ApSLBUntrustedEndpointCapacityLowerThresh_Object=MibScalar
-apSLBUntrustedEndpointCapacityLowerThresh=_ApSLBUntrustedEndpointCapacityLowerThresh_Object((1,3,6,1,4,1,9148,3,11,1,1,12),_ApSLBUntrustedEndpointCapacityLowerThresh_Type())
-apSLBUntrustedEndpointCapacityLowerThresh.setMaxAccess(_C)
-if mibBuilder.loadTexts:apSLBUntrustedEndpointCapacityLowerThresh.setStatus(_B)
-_ApSLBNotificationObjects_ObjectIdentity=ObjectIdentity
-apSLBNotificationObjects=_ApSLBNotificationObjects_ObjectIdentity((1,3,6,1,4,1,9148,3,11,2))
-_ApSLBNotificationPrefix_ObjectIdentity=ObjectIdentity
-apSLBNotificationPrefix=_ApSLBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,9148,3,11,3))
-_ApSLBNotifications_ObjectIdentity=ObjectIdentity
-apSLBNotifications=_ApSLBNotifications_ObjectIdentity((1,3,6,1,4,1,9148,3,11,3,0))
-_ApSLBConformance_ObjectIdentity=ObjectIdentity
-apSLBConformance=_ApSLBConformance_ObjectIdentity((1,3,6,1,4,1,9148,3,11,4))
-_ApSLBGroups_ObjectIdentity=ObjectIdentity
-apSLBGroups=_ApSLBGroups_ObjectIdentity((1,3,6,1,4,1,9148,3,11,4,1))
-_ApSLBNotificationGroups_ObjectIdentity=ObjectIdentity
-apSLBNotificationGroups=_ApSLBNotificationGroups_ObjectIdentity((1,3,6,1,4,1,9148,3,11,4,2))
-apSLBEndpointCapacityGroup=ObjectGroup((1,3,6,1,4,1,9148,3,11,4,1,1))
-apSLBEndpointCapacityGroup.setObjects(*((_A,_F),(_A,_P),(_A,_G),(_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:apSLBEndpointCapacityGroup.setStatus(_B)
-apSLBUntrustedEndpointCapacityGroup=ObjectGroup((1,3,6,1,4,1,9148,3,11,4,1,2))
-apSLBUntrustedEndpointCapacityGroup.setObjects(*((_A,_J),(_A,_Q),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:apSLBUntrustedEndpointCapacityGroup.setStatus(_B)
-apSLBEndpointCapacityThresholdTrap=NotificationType((1,3,6,1,4,1,9148,3,11,3,0,1))
-apSLBEndpointCapacityThresholdTrap.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:apSLBEndpointCapacityThresholdTrap.setStatus(_B)
-apSLBEndpointCapacityThresholdClearTrap=NotificationType((1,3,6,1,4,1,9148,3,11,3,0,2))
-apSLBEndpointCapacityThresholdClearTrap.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:apSLBEndpointCapacityThresholdClearTrap.setStatus(_B)
-apSLBUntrustedEndpointCapacityThresholdTrap=NotificationType((1,3,6,1,4,1,9148,3,11,3,0,3))
-apSLBUntrustedEndpointCapacityThresholdTrap.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:apSLBUntrustedEndpointCapacityThresholdTrap.setStatus(_B)
-apSLBUntrustedEndpointCapacityThresholdClearTrap=NotificationType((1,3,6,1,4,1,9148,3,11,3,0,4))
-apSLBUntrustedEndpointCapacityThresholdClearTrap.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:apSLBUntrustedEndpointCapacityThresholdClearTrap.setStatus(_B)
-apSLBEndpointCapacityNotificationsGroup=NotificationGroup((1,3,6,1,4,1,9148,3,11,4,2,1))
-apSLBEndpointCapacityNotificationsGroup.setObjects(*((_A,_R),(_A,_S)))
-if mibBuilder.loadTexts:apSLBEndpointCapacityNotificationsGroup.setStatus(_B)
-apSLBUntrustedEndpointCapacityNotificationsGroup=NotificationGroup((1,3,6,1,4,1,9148,3,11,4,2,2))
-apSLBUntrustedEndpointCapacityNotificationsGroup.setObjects(*((_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:apSLBUntrustedEndpointCapacityNotificationsGroup.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'apSLBModule':apSLBModule,'apSLBMIBObjects':apSLBMIBObjects,'apSLBMIBGeneralObjects':apSLBMIBGeneralObjects,_F:apSLBStatsEndpointsCurrent,_P:apSLBStatsEndpointsDenied,_G:apSLBEndpointCapacity,_H:apSLBEndpointCapacityUpperThresh,_I:apSLBEndpointCapacityLowerThresh,_J:apSLBStatsUntrustedEndpointsCurrent,_Q:apSLBStatsTrustedEndpointsCurrent,_K:apSLBStatsUntrustedEndpointsDenied,_L:apSLBStatsUntrustedEndpointsAgedOut,_M:apSLBUntrustedEndpointCapacity,_N:apSLBUntrustedEndpointCapacityUpperThresh,_O:apSLBUntrustedEndpointCapacityLowerThresh,'apSLBNotificationObjects':apSLBNotificationObjects,'apSLBNotificationPrefix':apSLBNotificationPrefix,'apSLBNotifications':apSLBNotifications,_R:apSLBEndpointCapacityThresholdTrap,_S:apSLBEndpointCapacityThresholdClearTrap,_T:apSLBUntrustedEndpointCapacityThresholdTrap,_U:apSLBUntrustedEndpointCapacityThresholdClearTrap,'apSLBConformance':apSLBConformance,'apSLBGroups':apSLBGroups,'apSLBEndpointCapacityGroup':apSLBEndpointCapacityGroup,'apSLBUntrustedEndpointCapacityGroup':apSLBUntrustedEndpointCapacityGroup,'apSLBNotificationGroups':apSLBNotificationGroups,'apSLBEndpointCapacityNotificationsGroup':apSLBEndpointCapacityNotificationsGroup,'apSLBUntrustedEndpointCapacityNotificationsGroup':apSLBUntrustedEndpointCapacityNotificationsGroup})
+#
+# PySNMP MIB module APSLB-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/acme/APSLB-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+acmepacketMgmt, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacketMgmt")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressPrefixLength, InetAddressType, InetZoneIndex, InetAddress, InetVersion = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetAddressType", "InetZoneIndex", "InetAddress", "InetVersion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+apSLBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 3, 11))
+if mibBuilder.loadTexts: apSLBModule.setLastUpdated('201103090000Z')
+if mibBuilder.loadTexts: apSLBModule.setOrganization('Acme Packet, Inc')
+apSLBMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 11, 1))
+apSLBNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 11, 2))
+apSLBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 11, 3))
+apSLBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 11, 4))
+apSLBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 11, 3, 0))
+apSLBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 11, 4, 1))
+apSLBNotificationGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 11, 4, 2))
+apSLBMIBGeneralObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 11, 1, 1))
+apSLBStatsEndpointsCurrent = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 11, 1, 1, 1), Unsigned32()).setUnits('endpoints').setMaxAccess("readonly")
+if mibBuilder.loadTexts: apSLBStatsEndpointsCurrent.setStatus('current')
+apSLBStatsEndpointsDenied = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 11, 1, 1, 2), Unsigned32()).setUnits('endpoints').setMaxAccess("readonly")
+if mibBuilder.loadTexts: apSLBStatsEndpointsDenied.setStatus('current')
+apSLBEndpointCapacity = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 11, 1, 1, 3), Unsigned32()).setUnits('endpoints').setMaxAccess("readonly")
+if mibBuilder.loadTexts: apSLBEndpointCapacity.setStatus('current')
+apSLBEndpointCapacityUpperThresh = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 11, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: apSLBEndpointCapacityUpperThresh.setStatus('current')
+apSLBEndpointCapacityLowerThresh = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 11, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: apSLBEndpointCapacityLowerThresh.setStatus('current')
+apSLBStatsUntrustedEndpointsCurrent = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 11, 1, 1, 6), Unsigned32()).setUnits('endpoints').setMaxAccess("readonly")
+if mibBuilder.loadTexts: apSLBStatsUntrustedEndpointsCurrent.setStatus('current')
+apSLBStatsTrustedEndpointsCurrent = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 11, 1, 1, 7), Unsigned32()).setUnits('endpoints').setMaxAccess("readonly")
+if mibBuilder.loadTexts: apSLBStatsTrustedEndpointsCurrent.setStatus('current')
+apSLBStatsUntrustedEndpointsDenied = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 11, 1, 1, 8), Unsigned32()).setUnits('endpoints').setMaxAccess("readonly")
+if mibBuilder.loadTexts: apSLBStatsUntrustedEndpointsDenied.setStatus('current')
+apSLBStatsUntrustedEndpointsAgedOut = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 11, 1, 1, 9), Unsigned32()).setUnits('endpoints').setMaxAccess("readonly")
+if mibBuilder.loadTexts: apSLBStatsUntrustedEndpointsAgedOut.setStatus('current')
+apSLBUntrustedEndpointCapacity = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 11, 1, 1, 10), Unsigned32()).setUnits('endpoints').setMaxAccess("readonly")
+if mibBuilder.loadTexts: apSLBUntrustedEndpointCapacity.setStatus('current')
+apSLBUntrustedEndpointCapacityUpperThresh = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 11, 1, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: apSLBUntrustedEndpointCapacityUpperThresh.setStatus('current')
+apSLBUntrustedEndpointCapacityLowerThresh = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 11, 1, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: apSLBUntrustedEndpointCapacityLowerThresh.setStatus('current')
+apSLBEndpointCapacityThresholdTrap = NotificationType((1, 3, 6, 1, 4, 1, 9148, 3, 11, 3, 0, 1)).setObjects(("APSLB-MIB", "apSLBStatsEndpointsCurrent"), ("APSLB-MIB", "apSLBEndpointCapacity"), ("APSLB-MIB", "apSLBEndpointCapacityUpperThresh"), ("APSLB-MIB", "apSLBEndpointCapacityLowerThresh"))
+if mibBuilder.loadTexts: apSLBEndpointCapacityThresholdTrap.setStatus('current')
+apSLBEndpointCapacityThresholdClearTrap = NotificationType((1, 3, 6, 1, 4, 1, 9148, 3, 11, 3, 0, 2)).setObjects(("APSLB-MIB", "apSLBStatsEndpointsCurrent"), ("APSLB-MIB", "apSLBEndpointCapacity"), ("APSLB-MIB", "apSLBEndpointCapacityUpperThresh"), ("APSLB-MIB", "apSLBEndpointCapacityLowerThresh"))
+if mibBuilder.loadTexts: apSLBEndpointCapacityThresholdClearTrap.setStatus('current')
+apSLBUntrustedEndpointCapacityThresholdTrap = NotificationType((1, 3, 6, 1, 4, 1, 9148, 3, 11, 3, 0, 3)).setObjects(("APSLB-MIB", "apSLBStatsUntrustedEndpointsCurrent"), ("APSLB-MIB", "apSLBStatsUntrustedEndpointsDenied"), ("APSLB-MIB", "apSLBStatsUntrustedEndpointsAgedOut"), ("APSLB-MIB", "apSLBUntrustedEndpointCapacity"), ("APSLB-MIB", "apSLBUntrustedEndpointCapacityUpperThresh"), ("APSLB-MIB", "apSLBUntrustedEndpointCapacityLowerThresh"))
+if mibBuilder.loadTexts: apSLBUntrustedEndpointCapacityThresholdTrap.setStatus('current')
+apSLBUntrustedEndpointCapacityThresholdClearTrap = NotificationType((1, 3, 6, 1, 4, 1, 9148, 3, 11, 3, 0, 4)).setObjects(("APSLB-MIB", "apSLBStatsUntrustedEndpointsCurrent"), ("APSLB-MIB", "apSLBStatsUntrustedEndpointsDenied"), ("APSLB-MIB", "apSLBStatsUntrustedEndpointsAgedOut"), ("APSLB-MIB", "apSLBUntrustedEndpointCapacity"), ("APSLB-MIB", "apSLBUntrustedEndpointCapacityUpperThresh"), ("APSLB-MIB", "apSLBUntrustedEndpointCapacityLowerThresh"))
+if mibBuilder.loadTexts: apSLBUntrustedEndpointCapacityThresholdClearTrap.setStatus('current')
+apSLBEndpointCapacityGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9148, 3, 11, 4, 1, 1)).setObjects(("APSLB-MIB", "apSLBStatsEndpointsCurrent"), ("APSLB-MIB", "apSLBStatsEndpointsDenied"), ("APSLB-MIB", "apSLBEndpointCapacity"), ("APSLB-MIB", "apSLBEndpointCapacityUpperThresh"), ("APSLB-MIB", "apSLBEndpointCapacityLowerThresh"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSLBEndpointCapacityGroup = apSLBEndpointCapacityGroup.setStatus('current')
+apSLBUntrustedEndpointCapacityGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9148, 3, 11, 4, 1, 2)).setObjects(("APSLB-MIB", "apSLBStatsUntrustedEndpointsCurrent"), ("APSLB-MIB", "apSLBStatsTrustedEndpointsCurrent"), ("APSLB-MIB", "apSLBStatsUntrustedEndpointsDenied"), ("APSLB-MIB", "apSLBStatsUntrustedEndpointsAgedOut"), ("APSLB-MIB", "apSLBUntrustedEndpointCapacity"), ("APSLB-MIB", "apSLBUntrustedEndpointCapacityUpperThresh"), ("APSLB-MIB", "apSLBUntrustedEndpointCapacityLowerThresh"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSLBUntrustedEndpointCapacityGroup = apSLBUntrustedEndpointCapacityGroup.setStatus('current')
+apSLBEndpointCapacityNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9148, 3, 11, 4, 2, 1)).setObjects(("APSLB-MIB", "apSLBEndpointCapacityThresholdTrap"), ("APSLB-MIB", "apSLBEndpointCapacityThresholdClearTrap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSLBEndpointCapacityNotificationsGroup = apSLBEndpointCapacityNotificationsGroup.setStatus('current')
+apSLBUntrustedEndpointCapacityNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9148, 3, 11, 4, 2, 2)).setObjects(("APSLB-MIB", "apSLBUntrustedEndpointCapacityThresholdTrap"), ("APSLB-MIB", "apSLBUntrustedEndpointCapacityThresholdClearTrap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSLBUntrustedEndpointCapacityNotificationsGroup = apSLBUntrustedEndpointCapacityNotificationsGroup.setStatus('current')
+mibBuilder.exportSymbols("APSLB-MIB", apSLBStatsEndpointsDenied=apSLBStatsEndpointsDenied, apSLBModule=apSLBModule, apSLBUntrustedEndpointCapacityLowerThresh=apSLBUntrustedEndpointCapacityLowerThresh, apSLBNotificationObjects=apSLBNotificationObjects, apSLBConformance=apSLBConformance, apSLBEndpointCapacityThresholdTrap=apSLBEndpointCapacityThresholdTrap, apSLBUntrustedEndpointCapacityGroup=apSLBUntrustedEndpointCapacityGroup, apSLBUntrustedEndpointCapacityThresholdTrap=apSLBUntrustedEndpointCapacityThresholdTrap, PYSNMP_MODULE_ID=apSLBModule, apSLBEndpointCapacityNotificationsGroup=apSLBEndpointCapacityNotificationsGroup, apSLBNotificationGroups=apSLBNotificationGroups, apSLBEndpointCapacity=apSLBEndpointCapacity, apSLBStatsTrustedEndpointsCurrent=apSLBStatsTrustedEndpointsCurrent, apSLBMIBGeneralObjects=apSLBMIBGeneralObjects, apSLBStatsUntrustedEndpointsAgedOut=apSLBStatsUntrustedEndpointsAgedOut, apSLBEndpointCapacityThresholdClearTrap=apSLBEndpointCapacityThresholdClearTrap, apSLBStatsEndpointsCurrent=apSLBStatsEndpointsCurrent, apSLBStatsUntrustedEndpointsCurrent=apSLBStatsUntrustedEndpointsCurrent, apSLBEndpointCapacityGroup=apSLBEndpointCapacityGroup, apSLBNotificationPrefix=apSLBNotificationPrefix, apSLBGroups=apSLBGroups, apSLBUntrustedEndpointCapacityThresholdClearTrap=apSLBUntrustedEndpointCapacityThresholdClearTrap, apSLBEndpointCapacityLowerThresh=apSLBEndpointCapacityLowerThresh, apSLBMIBObjects=apSLBMIBObjects, apSLBNotifications=apSLBNotifications, apSLBEndpointCapacityUpperThresh=apSLBEndpointCapacityUpperThresh, apSLBUntrustedEndpointCapacityNotificationsGroup=apSLBUntrustedEndpointCapacityNotificationsGroup, apSLBUntrustedEndpointCapacity=apSLBUntrustedEndpointCapacity, apSLBUntrustedEndpointCapacityUpperThresh=apSLBUntrustedEndpointCapacityUpperThresh, apSLBStatsUntrustedEndpointsDenied=apSLBStatsUntrustedEndpointsDenied)

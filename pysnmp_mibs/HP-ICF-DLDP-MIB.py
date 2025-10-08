@@ -1,232 +1,109 @@
-_k='hpicfDldpNotificationGroup'
-_j='hpicfDldpStatsGroup'
-_i='hpicfDldpNeighborGroup'
-_h='hpicfDldpPortGroup'
-_g='hpicfDldpScalarsGroup'
-_f='hpicfDldpTrapBidLink'
-_e='hpicfDldpTrapUniLink'
-_d='hpicfDldpStatClear'
-_c='hpicfDldpAuthFailedPackets'
-_b='hpicfDldpRxInvalidPackets'
-_a='hpicfDldpRxValidPackets'
-_Z='hpicfDldpTxPackets'
-_Y='hpicfDldpRxPackets'
-_X='hpicfDldpNeighborAgingTime'
-_W='hpicfDldpNeighborStatus'
-_V='hpicfDldpNeighborPortIndex'
-_U='hpicfDldpNeighborBridgeMac'
-_T='hpicfDldpPortLinkStatus'
-_S='hpicfDldpPortOperStatus'
-_R='hpicfDldpPortEnable'
-_Q='hpicfDldpDelayDownInterval'
-_P='hpicfDldpUniShutdown'
-_O='hpicfDldpAuthPasswordEncrypted'
-_N='hpicfDldpAuthPassword'
-_M='hpicfDldpAuthMode'
-_L='hpicfDldpInterval'
-_K='hpicfDldpGlobalEnable'
-_J='hpicfDldpNeighborPortId'
-_I='OctetString'
-_H='unknown'
-_G='ifIndex'
-_F='IF-MIB'
-_E='read-write'
-_D='Integer32'
-_C='read-only'
-_B='HP-ICF-DLDP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_I,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpSwitch,=mibBuilder.importSymbols('HP-ICF-OID','hpSwitch')
-ifIndex,=mibBuilder.importSymbols(_F,_G)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TruthValue')
-hpicfDldpMIB=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,5,1,108))
-if mibBuilder.loadTexts:hpicfDldpMIB.setRevisions(('2014-03-07 00:00',))
-_HpicfDldpNotifications_ObjectIdentity=ObjectIdentity
-hpicfDldpNotifications=_HpicfDldpNotifications_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,108,0))
-_HpicfDldpConfigurationObjects_ObjectIdentity=ObjectIdentity
-hpicfDldpConfigurationObjects=_HpicfDldpConfigurationObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,108,1))
-_HpicfDldpScalars_ObjectIdentity=ObjectIdentity
-hpicfDldpScalars=_HpicfDldpScalars_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,108,1,1))
-_HpicfDldpGlobalEnable_Type=TruthValue
-_HpicfDldpGlobalEnable_Object=MibScalar
-hpicfDldpGlobalEnable=_HpicfDldpGlobalEnable_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,1,1),_HpicfDldpGlobalEnable_Type())
-hpicfDldpGlobalEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfDldpGlobalEnable.setStatus(_A)
-class _HpicfDldpInterval_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_HpicfDldpInterval_Type.__name__=_D
-_HpicfDldpInterval_Object=MibScalar
-hpicfDldpInterval=_HpicfDldpInterval_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,1,2),_HpicfDldpInterval_Type())
-hpicfDldpInterval.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfDldpInterval.setStatus(_A)
-class _HpicfDldpAuthMode_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_H,1),('none',2),('simple',3),('md5',4)))
-_HpicfDldpAuthMode_Type.__name__=_D
-_HpicfDldpAuthMode_Object=MibScalar
-hpicfDldpAuthMode=_HpicfDldpAuthMode_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,1,3),_HpicfDldpAuthMode_Type())
-hpicfDldpAuthMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfDldpAuthMode.setStatus(_A)
-class _HpicfDldpAuthPassword_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_HpicfDldpAuthPassword_Type.__name__=_I
-_HpicfDldpAuthPassword_Object=MibScalar
-hpicfDldpAuthPassword=_HpicfDldpAuthPassword_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,1,4),_HpicfDldpAuthPassword_Type())
-hpicfDldpAuthPassword.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfDldpAuthPassword.setStatus(_A)
-class _HpicfDldpAuthPasswordEncrypted_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_HpicfDldpAuthPasswordEncrypted_Type.__name__=_I
-_HpicfDldpAuthPasswordEncrypted_Object=MibScalar
-hpicfDldpAuthPasswordEncrypted=_HpicfDldpAuthPasswordEncrypted_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,1,5),_HpicfDldpAuthPasswordEncrypted_Type())
-hpicfDldpAuthPasswordEncrypted.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfDldpAuthPasswordEncrypted.setStatus(_A)
-class _HpicfDldpUniShutdown_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_H,1),('auto',2),('manual',3)))
-_HpicfDldpUniShutdown_Type.__name__=_D
-_HpicfDldpUniShutdown_Object=MibScalar
-hpicfDldpUniShutdown=_HpicfDldpUniShutdown_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,1,6),_HpicfDldpUniShutdown_Type())
-hpicfDldpUniShutdown.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfDldpUniShutdown.setStatus(_A)
-class _HpicfDldpDelayDownInterval_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_HpicfDldpDelayDownInterval_Type.__name__=_D
-_HpicfDldpDelayDownInterval_Object=MibScalar
-hpicfDldpDelayDownInterval=_HpicfDldpDelayDownInterval_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,1,7),_HpicfDldpDelayDownInterval_Type())
-hpicfDldpDelayDownInterval.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfDldpDelayDownInterval.setStatus(_A)
-_HpicfDldpPortConfigTable_Object=MibTable
-hpicfDldpPortConfigTable=_HpicfDldpPortConfigTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,2))
-if mibBuilder.loadTexts:hpicfDldpPortConfigTable.setStatus(_A)
-_HpicfDldpPortConfigEntry_Object=MibTableRow
-hpicfDldpPortConfigEntry=_HpicfDldpPortConfigEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,2,1))
-hpicfDldpPortConfigEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:hpicfDldpPortConfigEntry.setStatus(_A)
-_HpicfDldpPortEnable_Type=TruthValue
-_HpicfDldpPortEnable_Object=MibTableColumn
-hpicfDldpPortEnable=_HpicfDldpPortEnable_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,2,1,1),_HpicfDldpPortEnable_Type())
-hpicfDldpPortEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfDldpPortEnable.setStatus(_A)
-_HpicfDldpPortStatusTable_Object=MibTable
-hpicfDldpPortStatusTable=_HpicfDldpPortStatusTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,3))
-if mibBuilder.loadTexts:hpicfDldpPortStatusTable.setStatus(_A)
-_HpicfDldpPortStatusEntry_Object=MibTableRow
-hpicfDldpPortStatusEntry=_HpicfDldpPortStatusEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,3,1))
-hpicfDldpPortStatusEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:hpicfDldpPortStatusEntry.setStatus(_A)
-class _HpicfDldpPortOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_H,1),('initial',2),('inactive',3),('unidirectional',4),('bidirectional',5)))
-_HpicfDldpPortOperStatus_Type.__name__=_D
-_HpicfDldpPortOperStatus_Object=MibTableColumn
-hpicfDldpPortOperStatus=_HpicfDldpPortOperStatus_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,3,1,1),_HpicfDldpPortOperStatus_Type())
-hpicfDldpPortOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDldpPortOperStatus.setStatus(_A)
-class _HpicfDldpPortLinkStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_H,1),('down',2),('up',3)))
-_HpicfDldpPortLinkStatus_Type.__name__=_D
-_HpicfDldpPortLinkStatus_Object=MibTableColumn
-hpicfDldpPortLinkStatus=_HpicfDldpPortLinkStatus_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,3,1,2),_HpicfDldpPortLinkStatus_Type())
-hpicfDldpPortLinkStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDldpPortLinkStatus.setStatus(_A)
-_HpicfDldpPortStatTable_Object=MibTable
-hpicfDldpPortStatTable=_HpicfDldpPortStatTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,4))
-if mibBuilder.loadTexts:hpicfDldpPortStatTable.setStatus(_A)
-_HpicfDldpPortStatEntry_Object=MibTableRow
-hpicfDldpPortStatEntry=_HpicfDldpPortStatEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,4,1))
-hpicfDldpPortStatEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:hpicfDldpPortStatEntry.setStatus(_A)
-_HpicfDldpRxPackets_Type=Counter64
-_HpicfDldpRxPackets_Object=MibTableColumn
-hpicfDldpRxPackets=_HpicfDldpRxPackets_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,4,1,1),_HpicfDldpRxPackets_Type())
-hpicfDldpRxPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDldpRxPackets.setStatus(_A)
-_HpicfDldpTxPackets_Type=Counter64
-_HpicfDldpTxPackets_Object=MibTableColumn
-hpicfDldpTxPackets=_HpicfDldpTxPackets_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,4,1,2),_HpicfDldpTxPackets_Type())
-hpicfDldpTxPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDldpTxPackets.setStatus(_A)
-_HpicfDldpRxValidPackets_Type=Counter64
-_HpicfDldpRxValidPackets_Object=MibTableColumn
-hpicfDldpRxValidPackets=_HpicfDldpRxValidPackets_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,4,1,3),_HpicfDldpRxValidPackets_Type())
-hpicfDldpRxValidPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDldpRxValidPackets.setStatus(_A)
-_HpicfDldpRxInvalidPackets_Type=Counter64
-_HpicfDldpRxInvalidPackets_Object=MibTableColumn
-hpicfDldpRxInvalidPackets=_HpicfDldpRxInvalidPackets_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,4,1,4),_HpicfDldpRxInvalidPackets_Type())
-hpicfDldpRxInvalidPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDldpRxInvalidPackets.setStatus(_A)
-_HpicfDldpAuthFailedPackets_Type=Counter64
-_HpicfDldpAuthFailedPackets_Object=MibTableColumn
-hpicfDldpAuthFailedPackets=_HpicfDldpAuthFailedPackets_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,4,1,5),_HpicfDldpAuthFailedPackets_Type())
-hpicfDldpAuthFailedPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDldpAuthFailedPackets.setStatus(_A)
-_HpicfDldpStatClear_Type=TruthValue
-_HpicfDldpStatClear_Object=MibTableColumn
-hpicfDldpStatClear=_HpicfDldpStatClear_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,4,1,6),_HpicfDldpStatClear_Type())
-hpicfDldpStatClear.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfDldpStatClear.setStatus(_A)
-_HpicfDldpNeighborTable_Object=MibTable
-hpicfDldpNeighborTable=_HpicfDldpNeighborTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,5))
-if mibBuilder.loadTexts:hpicfDldpNeighborTable.setStatus(_A)
-_HpicfDldpNeighborEntry_Object=MibTableRow
-hpicfDldpNeighborEntry=_HpicfDldpNeighborEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,5,1))
-hpicfDldpNeighborEntry.setIndexNames((0,_F,_G),(0,_B,_J))
-if mibBuilder.loadTexts:hpicfDldpNeighborEntry.setStatus(_A)
-class _HpicfDldpNeighborPortId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_HpicfDldpNeighborPortId_Type.__name__=_D
-_HpicfDldpNeighborPortId_Object=MibTableColumn
-hpicfDldpNeighborPortId=_HpicfDldpNeighborPortId_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,5,1,1),_HpicfDldpNeighborPortId_Type())
-hpicfDldpNeighborPortId.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:hpicfDldpNeighborPortId.setStatus(_A)
-_HpicfDldpNeighborBridgeMac_Type=MacAddress
-_HpicfDldpNeighborBridgeMac_Object=MibTableColumn
-hpicfDldpNeighborBridgeMac=_HpicfDldpNeighborBridgeMac_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,5,1,2),_HpicfDldpNeighborBridgeMac_Type())
-hpicfDldpNeighborBridgeMac.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDldpNeighborBridgeMac.setStatus(_A)
-_HpicfDldpNeighborPortIndex_Type=Integer32
-_HpicfDldpNeighborPortIndex_Object=MibTableColumn
-hpicfDldpNeighborPortIndex=_HpicfDldpNeighborPortIndex_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,5,1,3),_HpicfDldpNeighborPortIndex_Type())
-hpicfDldpNeighborPortIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDldpNeighborPortIndex.setStatus(_A)
-class _HpicfDldpNeighborStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_H,1),('unconfirmed',2),('confirmed',3)))
-_HpicfDldpNeighborStatus_Type.__name__=_D
-_HpicfDldpNeighborStatus_Object=MibTableColumn
-hpicfDldpNeighborStatus=_HpicfDldpNeighborStatus_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,5,1,4),_HpicfDldpNeighborStatus_Type())
-hpicfDldpNeighborStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDldpNeighborStatus.setStatus(_A)
-_HpicfDldpNeighborAgingTime_Type=Integer32
-_HpicfDldpNeighborAgingTime_Object=MibTableColumn
-hpicfDldpNeighborAgingTime=_HpicfDldpNeighborAgingTime_Object((1,3,6,1,4,1,11,2,14,11,5,1,108,1,5,1,5),_HpicfDldpNeighborAgingTime_Type())
-hpicfDldpNeighborAgingTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfDldpNeighborAgingTime.setStatus(_A)
-_HpicfDldpStatisticsObjects_ObjectIdentity=ObjectIdentity
-hpicfDldpStatisticsObjects=_HpicfDldpStatisticsObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,108,2))
-_HpicfDldpScalarStats_ObjectIdentity=ObjectIdentity
-hpicfDldpScalarStats=_HpicfDldpScalarStats_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,108,2,1))
-_HpicfDldpConformance_ObjectIdentity=ObjectIdentity
-hpicfDldpConformance=_HpicfDldpConformance_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,108,3))
-_HpicfDldpCompliances_ObjectIdentity=ObjectIdentity
-hpicfDldpCompliances=_HpicfDldpCompliances_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,108,3,1))
-_HpicfDldpGroups_ObjectIdentity=ObjectIdentity
-hpicfDldpGroups=_HpicfDldpGroups_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,108,3,2))
-hpicfDldpScalarsGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,108,3,2,1))
-hpicfDldpScalarsGroup.setObjects(*((_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:hpicfDldpScalarsGroup.setStatus(_A)
-hpicfDldpPortGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,108,3,2,2))
-hpicfDldpPortGroup.setObjects(*((_B,_R),(_B,_S),(_B,_T)))
-if mibBuilder.loadTexts:hpicfDldpPortGroup.setStatus(_A)
-hpicfDldpNeighborGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,108,3,2,3))
-hpicfDldpNeighborGroup.setObjects(*((_B,_U),(_B,_V),(_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:hpicfDldpNeighborGroup.setStatus(_A)
-hpicfDldpStatsGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,108,3,2,4))
-hpicfDldpStatsGroup.setObjects(*((_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d)))
-if mibBuilder.loadTexts:hpicfDldpStatsGroup.setStatus(_A)
-hpicfDldpTrapUniLink=NotificationType((1,3,6,1,4,1,11,2,14,11,5,1,108,0,1))
-hpicfDldpTrapUniLink.setObjects((_F,_G))
-if mibBuilder.loadTexts:hpicfDldpTrapUniLink.setStatus(_A)
-hpicfDldpTrapBidLink=NotificationType((1,3,6,1,4,1,11,2,14,11,5,1,108,0,2))
-hpicfDldpTrapBidLink.setObjects((_F,_G))
-if mibBuilder.loadTexts:hpicfDldpTrapBidLink.setStatus(_A)
-hpicfDldpNotificationGroup=NotificationGroup((1,3,6,1,4,1,11,2,14,11,5,1,108,3,2,5))
-hpicfDldpNotificationGroup.setObjects(*((_B,_e),(_B,_f)))
-if mibBuilder.loadTexts:hpicfDldpNotificationGroup.setStatus(_A)
-hpicfDldpCompliance=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,108,3,1,1))
-hpicfDldpCompliance.setObjects(*((_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k)))
-if mibBuilder.loadTexts:hpicfDldpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'hpicfDldpMIB':hpicfDldpMIB,'hpicfDldpNotifications':hpicfDldpNotifications,_e:hpicfDldpTrapUniLink,_f:hpicfDldpTrapBidLink,'hpicfDldpConfigurationObjects':hpicfDldpConfigurationObjects,'hpicfDldpScalars':hpicfDldpScalars,_K:hpicfDldpGlobalEnable,_L:hpicfDldpInterval,_M:hpicfDldpAuthMode,_N:hpicfDldpAuthPassword,_O:hpicfDldpAuthPasswordEncrypted,_P:hpicfDldpUniShutdown,_Q:hpicfDldpDelayDownInterval,'hpicfDldpPortConfigTable':hpicfDldpPortConfigTable,'hpicfDldpPortConfigEntry':hpicfDldpPortConfigEntry,_R:hpicfDldpPortEnable,'hpicfDldpPortStatusTable':hpicfDldpPortStatusTable,'hpicfDldpPortStatusEntry':hpicfDldpPortStatusEntry,_S:hpicfDldpPortOperStatus,_T:hpicfDldpPortLinkStatus,'hpicfDldpPortStatTable':hpicfDldpPortStatTable,'hpicfDldpPortStatEntry':hpicfDldpPortStatEntry,_Y:hpicfDldpRxPackets,_Z:hpicfDldpTxPackets,_a:hpicfDldpRxValidPackets,_b:hpicfDldpRxInvalidPackets,_c:hpicfDldpAuthFailedPackets,_d:hpicfDldpStatClear,'hpicfDldpNeighborTable':hpicfDldpNeighborTable,'hpicfDldpNeighborEntry':hpicfDldpNeighborEntry,_J:hpicfDldpNeighborPortId,_U:hpicfDldpNeighborBridgeMac,_V:hpicfDldpNeighborPortIndex,_W:hpicfDldpNeighborStatus,_X:hpicfDldpNeighborAgingTime,'hpicfDldpStatisticsObjects':hpicfDldpStatisticsObjects,'hpicfDldpScalarStats':hpicfDldpScalarStats,'hpicfDldpConformance':hpicfDldpConformance,'hpicfDldpCompliances':hpicfDldpCompliances,'hpicfDldpCompliance':hpicfDldpCompliance,'hpicfDldpGroups':hpicfDldpGroups,_g:hpicfDldpScalarsGroup,_h:hpicfDldpPortGroup,_i:hpicfDldpNeighborGroup,_j:hpicfDldpStatsGroup,_k:hpicfDldpNotificationGroup})
+#
+# PySNMP MIB module HP-ICF-DLDP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HP-ICF-DLDP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:10 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+TruthValue, MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "DisplayString", "TextualConvention")
+hpicfDldpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108))
+hpicfDldpMIB.setRevisions(('2014-03-07 00:00',))
+if mibBuilder.loadTexts: hpicfDldpMIB.setLastUpdated('201403070000Z')
+if mibBuilder.loadTexts: hpicfDldpMIB.setOrganization('HP Networking')
+hpicfDldpNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 0))
+hpicfDldpConfigurationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1))
+hpicfDldpStatisticsObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 2))
+hpicfDldpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 3))
+hpicfDldpScalars = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 1))
+hpicfDldpScalarStats = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 2, 1))
+hpicfDldpGlobalEnable = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfDldpGlobalEnable.setStatus('current')
+hpicfDldpInterval = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfDldpInterval.setStatus('current')
+hpicfDldpAuthMode = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("none", 2), ("simple", 3), ("md5", 4))).clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfDldpAuthMode.setStatus('current')
+hpicfDldpAuthPassword = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfDldpAuthPassword.setStatus('current')
+hpicfDldpAuthPasswordEncrypted = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfDldpAuthPasswordEncrypted.setStatus('current')
+hpicfDldpUniShutdown = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("auto", 2), ("manual", 3))).clone('auto')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfDldpUniShutdown.setStatus('current')
+hpicfDldpDelayDownInterval = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfDldpDelayDownInterval.setStatus('current')
+hpicfDldpPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 2), )
+if mibBuilder.loadTexts: hpicfDldpPortConfigTable.setStatus('current')
+hpicfDldpPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hpicfDldpPortConfigEntry.setStatus('current')
+hpicfDldpPortEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 2, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfDldpPortEnable.setStatus('current')
+hpicfDldpPortStatusTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 3), )
+if mibBuilder.loadTexts: hpicfDldpPortStatusTable.setStatus('current')
+hpicfDldpPortStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hpicfDldpPortStatusEntry.setStatus('current')
+hpicfDldpPortOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 1), ("initial", 2), ("inactive", 3), ("unidirectional", 4), ("bidirectional", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfDldpPortOperStatus.setStatus('current')
+hpicfDldpPortLinkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("down", 2), ("up", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfDldpPortLinkStatus.setStatus('current')
+hpicfDldpPortStatTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 4), )
+if mibBuilder.loadTexts: hpicfDldpPortStatTable.setStatus('current')
+hpicfDldpPortStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hpicfDldpPortStatEntry.setStatus('current')
+hpicfDldpRxPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 4, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfDldpRxPackets.setStatus('current')
+hpicfDldpTxPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 4, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfDldpTxPackets.setStatus('current')
+hpicfDldpRxValidPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 4, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfDldpRxValidPackets.setStatus('current')
+hpicfDldpRxInvalidPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 4, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfDldpRxInvalidPackets.setStatus('current')
+hpicfDldpAuthFailedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 4, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfDldpAuthFailedPackets.setStatus('current')
+hpicfDldpStatClear = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 4, 1, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfDldpStatClear.setStatus('current')
+hpicfDldpNeighborTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 5), )
+if mibBuilder.loadTexts: hpicfDldpNeighborTable.setStatus('current')
+hpicfDldpNeighborEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "HP-ICF-DLDP-MIB", "hpicfDldpNeighborPortId"))
+if mibBuilder.loadTexts: hpicfDldpNeighborEntry.setStatus('current')
+hpicfDldpNeighborPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: hpicfDldpNeighborPortId.setStatus('current')
+hpicfDldpNeighborBridgeMac = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 5, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfDldpNeighborBridgeMac.setStatus('current')
+hpicfDldpNeighborPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 5, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfDldpNeighborPortIndex.setStatus('current')
+hpicfDldpNeighborStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 5, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("unconfirmed", 2), ("confirmed", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfDldpNeighborStatus.setStatus('current')
+hpicfDldpNeighborAgingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 1, 5, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfDldpNeighborAgingTime.setStatus('current')
+hpicfDldpTrapUniLink = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 0, 1)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hpicfDldpTrapUniLink.setStatus('current')
+hpicfDldpTrapBidLink = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 0, 2)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hpicfDldpTrapBidLink.setStatus('current')
+hpicfDldpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 3, 1))
+hpicfDldpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 3, 2))
+hpicfDldpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 3, 1, 1)).setObjects(("HP-ICF-DLDP-MIB", "hpicfDldpScalarsGroup"), ("HP-ICF-DLDP-MIB", "hpicfDldpPortGroup"), ("HP-ICF-DLDP-MIB", "hpicfDldpNeighborGroup"), ("HP-ICF-DLDP-MIB", "hpicfDldpStatsGroup"), ("HP-ICF-DLDP-MIB", "hpicfDldpNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfDldpCompliance = hpicfDldpCompliance.setStatus('current')
+hpicfDldpScalarsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 3, 2, 1)).setObjects(("HP-ICF-DLDP-MIB", "hpicfDldpGlobalEnable"), ("HP-ICF-DLDP-MIB", "hpicfDldpInterval"), ("HP-ICF-DLDP-MIB", "hpicfDldpAuthMode"), ("HP-ICF-DLDP-MIB", "hpicfDldpAuthPassword"), ("HP-ICF-DLDP-MIB", "hpicfDldpAuthPasswordEncrypted"), ("HP-ICF-DLDP-MIB", "hpicfDldpUniShutdown"), ("HP-ICF-DLDP-MIB", "hpicfDldpDelayDownInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfDldpScalarsGroup = hpicfDldpScalarsGroup.setStatus('current')
+hpicfDldpPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 3, 2, 2)).setObjects(("HP-ICF-DLDP-MIB", "hpicfDldpPortEnable"), ("HP-ICF-DLDP-MIB", "hpicfDldpPortOperStatus"), ("HP-ICF-DLDP-MIB", "hpicfDldpPortLinkStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfDldpPortGroup = hpicfDldpPortGroup.setStatus('current')
+hpicfDldpNeighborGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 3, 2, 3)).setObjects(("HP-ICF-DLDP-MIB", "hpicfDldpNeighborBridgeMac"), ("HP-ICF-DLDP-MIB", "hpicfDldpNeighborPortIndex"), ("HP-ICF-DLDP-MIB", "hpicfDldpNeighborStatus"), ("HP-ICF-DLDP-MIB", "hpicfDldpNeighborAgingTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfDldpNeighborGroup = hpicfDldpNeighborGroup.setStatus('current')
+hpicfDldpStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 3, 2, 4)).setObjects(("HP-ICF-DLDP-MIB", "hpicfDldpRxPackets"), ("HP-ICF-DLDP-MIB", "hpicfDldpTxPackets"), ("HP-ICF-DLDP-MIB", "hpicfDldpRxValidPackets"), ("HP-ICF-DLDP-MIB", "hpicfDldpRxInvalidPackets"), ("HP-ICF-DLDP-MIB", "hpicfDldpAuthFailedPackets"), ("HP-ICF-DLDP-MIB", "hpicfDldpStatClear"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfDldpStatsGroup = hpicfDldpStatsGroup.setStatus('current')
+hpicfDldpNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 108, 3, 2, 5)).setObjects(("HP-ICF-DLDP-MIB", "hpicfDldpTrapUniLink"), ("HP-ICF-DLDP-MIB", "hpicfDldpTrapBidLink"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfDldpNotificationGroup = hpicfDldpNotificationGroup.setStatus('current')
+mibBuilder.exportSymbols("HP-ICF-DLDP-MIB", hpicfDldpAuthMode=hpicfDldpAuthMode, hpicfDldpCompliances=hpicfDldpCompliances, hpicfDldpRxPackets=hpicfDldpRxPackets, hpicfDldpAuthPassword=hpicfDldpAuthPassword, hpicfDldpPortConfigEntry=hpicfDldpPortConfigEntry, hpicfDldpPortStatTable=hpicfDldpPortStatTable, hpicfDldpRxInvalidPackets=hpicfDldpRxInvalidPackets, hpicfDldpNeighborBridgeMac=hpicfDldpNeighborBridgeMac, hpicfDldpGlobalEnable=hpicfDldpGlobalEnable, hpicfDldpUniShutdown=hpicfDldpUniShutdown, hpicfDldpScalars=hpicfDldpScalars, PYSNMP_MODULE_ID=hpicfDldpMIB, hpicfDldpStatsGroup=hpicfDldpStatsGroup, hpicfDldpAuthFailedPackets=hpicfDldpAuthFailedPackets, hpicfDldpPortStatEntry=hpicfDldpPortStatEntry, hpicfDldpMIB=hpicfDldpMIB, hpicfDldpStatisticsObjects=hpicfDldpStatisticsObjects, hpicfDldpPortLinkStatus=hpicfDldpPortLinkStatus, hpicfDldpTxPackets=hpicfDldpTxPackets, hpicfDldpNotificationGroup=hpicfDldpNotificationGroup, hpicfDldpNeighborPortIndex=hpicfDldpNeighborPortIndex, hpicfDldpConformance=hpicfDldpConformance, hpicfDldpTrapUniLink=hpicfDldpTrapUniLink, hpicfDldpDelayDownInterval=hpicfDldpDelayDownInterval, hpicfDldpScalarStats=hpicfDldpScalarStats, hpicfDldpPortEnable=hpicfDldpPortEnable, hpicfDldpConfigurationObjects=hpicfDldpConfigurationObjects, hpicfDldpNotifications=hpicfDldpNotifications, hpicfDldpPortStatusEntry=hpicfDldpPortStatusEntry, hpicfDldpNeighborGroup=hpicfDldpNeighborGroup, hpicfDldpInterval=hpicfDldpInterval, hpicfDldpTrapBidLink=hpicfDldpTrapBidLink, hpicfDldpCompliance=hpicfDldpCompliance, hpicfDldpStatClear=hpicfDldpStatClear, hpicfDldpAuthPasswordEncrypted=hpicfDldpAuthPasswordEncrypted, hpicfDldpNeighborTable=hpicfDldpNeighborTable, hpicfDldpPortConfigTable=hpicfDldpPortConfigTable, hpicfDldpPortStatusTable=hpicfDldpPortStatusTable, hpicfDldpScalarsGroup=hpicfDldpScalarsGroup, hpicfDldpRxValidPackets=hpicfDldpRxValidPackets, hpicfDldpPortGroup=hpicfDldpPortGroup, hpicfDldpNeighborPortId=hpicfDldpNeighborPortId, hpicfDldpGroups=hpicfDldpGroups, hpicfDldpNeighborEntry=hpicfDldpNeighborEntry, hpicfDldpPortOperStatus=hpicfDldpPortOperStatus, hpicfDldpNeighborAgingTime=hpicfDldpNeighborAgingTime, hpicfDldpNeighborStatus=hpicfDldpNeighborStatus)

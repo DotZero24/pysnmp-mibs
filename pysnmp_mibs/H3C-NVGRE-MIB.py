@@ -1,147 +1,75 @@
-_K='h3cNvgreStaticMacAddr'
-_J='h3cNvgreMacAddr'
-_I='Integer32'
-_H='h3cNvgreVsiIndex'
-_G='h3cNvgreTunnelID'
-_F='h3cNvgreID'
-_E='not-accessible'
-_D='read-create'
-_C='read-only'
-_B='H3C-NVGRE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','h3cCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention')
-h3cNvgre=ModuleIdentity((1,3,6,1,4,1,2011,10,2,156))
-if mibBuilder.loadTexts:h3cNvgre.setRevisions(('2014-03-11 09:00',))
-_H3cNvgreObjects_ObjectIdentity=ObjectIdentity
-h3cNvgreObjects=_H3cNvgreObjects_ObjectIdentity((1,3,6,1,4,1,2011,10,2,156,1))
-_H3cNvgreScalarGroup_ObjectIdentity=ObjectIdentity
-h3cNvgreScalarGroup=_H3cNvgreScalarGroup_ObjectIdentity((1,3,6,1,4,1,2011,10,2,156,1,1))
-_H3cNvgreNextNvgreID_Type=Unsigned32
-_H3cNvgreNextNvgreID_Object=MibScalar
-h3cNvgreNextNvgreID=_H3cNvgreNextNvgreID_Object((1,3,6,1,4,1,2011,10,2,156,1,1,1),_H3cNvgreNextNvgreID_Type())
-h3cNvgreNextNvgreID.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cNvgreNextNvgreID.setStatus(_A)
-_H3cNvgreConfigured_Type=Unsigned32
-_H3cNvgreConfigured_Object=MibScalar
-h3cNvgreConfigured=_H3cNvgreConfigured_Object((1,3,6,1,4,1,2011,10,2,156,1,1,2),_H3cNvgreConfigured_Type())
-h3cNvgreConfigured.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cNvgreConfigured.setStatus(_A)
-_H3cNvgreTable_Object=MibTable
-h3cNvgreTable=_H3cNvgreTable_Object((1,3,6,1,4,1,2011,10,2,156,1,2))
-if mibBuilder.loadTexts:h3cNvgreTable.setStatus(_A)
-_H3cNvgreEntry_Object=MibTableRow
-h3cNvgreEntry=_H3cNvgreEntry_Object((1,3,6,1,4,1,2011,10,2,156,1,2,1))
-h3cNvgreEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:h3cNvgreEntry.setStatus(_A)
-_H3cNvgreID_Type=Unsigned32
-_H3cNvgreID_Object=MibTableColumn
-h3cNvgreID=_H3cNvgreID_Object((1,3,6,1,4,1,2011,10,2,156,1,2,1,1),_H3cNvgreID_Type())
-h3cNvgreID.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cNvgreID.setStatus(_A)
-_H3cNvgreVsiIndex_Type=Unsigned32
-_H3cNvgreVsiIndex_Object=MibTableColumn
-h3cNvgreVsiIndex=_H3cNvgreVsiIndex_Object((1,3,6,1,4,1,2011,10,2,156,1,2,1,2),_H3cNvgreVsiIndex_Type())
-h3cNvgreVsiIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cNvgreVsiIndex.setStatus(_A)
-_H3cNvgreRemoteMacCount_Type=Unsigned32
-_H3cNvgreRemoteMacCount_Object=MibTableColumn
-h3cNvgreRemoteMacCount=_H3cNvgreRemoteMacCount_Object((1,3,6,1,4,1,2011,10,2,156,1,2,1,3),_H3cNvgreRemoteMacCount_Type())
-h3cNvgreRemoteMacCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cNvgreRemoteMacCount.setStatus(_A)
-_H3cNvgreRowStatus_Type=RowStatus
-_H3cNvgreRowStatus_Object=MibTableColumn
-h3cNvgreRowStatus=_H3cNvgreRowStatus_Object((1,3,6,1,4,1,2011,10,2,156,1,2,1,4),_H3cNvgreRowStatus_Type())
-h3cNvgreRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cNvgreRowStatus.setStatus(_A)
-_H3cNvgreTunnelTable_Object=MibTable
-h3cNvgreTunnelTable=_H3cNvgreTunnelTable_Object((1,3,6,1,4,1,2011,10,2,156,1,3))
-if mibBuilder.loadTexts:h3cNvgreTunnelTable.setStatus(_A)
-_H3cNvgreTunnelEntry_Object=MibTableRow
-h3cNvgreTunnelEntry=_H3cNvgreTunnelEntry_Object((1,3,6,1,4,1,2011,10,2,156,1,3,1))
-h3cNvgreTunnelEntry.setIndexNames((0,_B,_F),(0,_B,_G))
-if mibBuilder.loadTexts:h3cNvgreTunnelEntry.setStatus(_A)
-_H3cNvgreTunnelID_Type=Unsigned32
-_H3cNvgreTunnelID_Object=MibTableColumn
-h3cNvgreTunnelID=_H3cNvgreTunnelID_Object((1,3,6,1,4,1,2011,10,2,156,1,3,1,1),_H3cNvgreTunnelID_Type())
-h3cNvgreTunnelID.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cNvgreTunnelID.setStatus(_A)
-_H3cNvgreTunnelRowStatus_Type=RowStatus
-_H3cNvgreTunnelRowStatus_Object=MibTableColumn
-h3cNvgreTunnelRowStatus=_H3cNvgreTunnelRowStatus_Object((1,3,6,1,4,1,2011,10,2,156,1,3,1,2),_H3cNvgreTunnelRowStatus_Type())
-h3cNvgreTunnelRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cNvgreTunnelRowStatus.setStatus(_A)
-_H3cNvgreTunnelOctets_Type=Counter64
-_H3cNvgreTunnelOctets_Object=MibTableColumn
-h3cNvgreTunnelOctets=_H3cNvgreTunnelOctets_Object((1,3,6,1,4,1,2011,10,2,156,1,3,1,3),_H3cNvgreTunnelOctets_Type())
-h3cNvgreTunnelOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cNvgreTunnelOctets.setStatus(_A)
-_H3cNvgreTunnelPackets_Type=Counter64
-_H3cNvgreTunnelPackets_Object=MibTableColumn
-h3cNvgreTunnelPackets=_H3cNvgreTunnelPackets_Object((1,3,6,1,4,1,2011,10,2,156,1,3,1,4),_H3cNvgreTunnelPackets_Type())
-h3cNvgreTunnelPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cNvgreTunnelPackets.setStatus(_A)
-_H3cNvgreTunnelBoundTable_Object=MibTable
-h3cNvgreTunnelBoundTable=_H3cNvgreTunnelBoundTable_Object((1,3,6,1,4,1,2011,10,2,156,1,4))
-if mibBuilder.loadTexts:h3cNvgreTunnelBoundTable.setStatus(_A)
-_H3cNvgreTunnelBoundEntry_Object=MibTableRow
-h3cNvgreTunnelBoundEntry=_H3cNvgreTunnelBoundEntry_Object((1,3,6,1,4,1,2011,10,2,156,1,4,1))
-h3cNvgreTunnelBoundEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:h3cNvgreTunnelBoundEntry.setStatus(_A)
-_H3cNvgreTunnelBoundNvgreNum_Type=Unsigned32
-_H3cNvgreTunnelBoundNvgreNum_Object=MibTableColumn
-h3cNvgreTunnelBoundNvgreNum=_H3cNvgreTunnelBoundNvgreNum_Object((1,3,6,1,4,1,2011,10,2,156,1,4,1,1),_H3cNvgreTunnelBoundNvgreNum_Type())
-h3cNvgreTunnelBoundNvgreNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cNvgreTunnelBoundNvgreNum.setStatus(_A)
-_H3cNvgreMacTable_Object=MibTable
-h3cNvgreMacTable=_H3cNvgreMacTable_Object((1,3,6,1,4,1,2011,10,2,156,1,5))
-if mibBuilder.loadTexts:h3cNvgreMacTable.setStatus(_A)
-_H3cNvgreMacEntry_Object=MibTableRow
-h3cNvgreMacEntry=_H3cNvgreMacEntry_Object((1,3,6,1,4,1,2011,10,2,156,1,5,1))
-h3cNvgreMacEntry.setIndexNames((0,_B,_H),(0,_B,_J))
-if mibBuilder.loadTexts:h3cNvgreMacEntry.setStatus(_A)
-_H3cNvgreMacAddr_Type=MacAddress
-_H3cNvgreMacAddr_Object=MibTableColumn
-h3cNvgreMacAddr=_H3cNvgreMacAddr_Object((1,3,6,1,4,1,2011,10,2,156,1,5,1,1),_H3cNvgreMacAddr_Type())
-h3cNvgreMacAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cNvgreMacAddr.setStatus(_A)
-_H3cNvgreMacTunnelID_Type=Unsigned32
-_H3cNvgreMacTunnelID_Object=MibTableColumn
-h3cNvgreMacTunnelID=_H3cNvgreMacTunnelID_Object((1,3,6,1,4,1,2011,10,2,156,1,5,1,2),_H3cNvgreMacTunnelID_Type())
-h3cNvgreMacTunnelID.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cNvgreMacTunnelID.setStatus(_A)
-class _H3cNvgreMacType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('selfLearned',1),('staticConfigured',2),('protocolLearned',3)))
-_H3cNvgreMacType_Type.__name__=_I
-_H3cNvgreMacType_Object=MibTableColumn
-h3cNvgreMacType=_H3cNvgreMacType_Object((1,3,6,1,4,1,2011,10,2,156,1,5,1,3),_H3cNvgreMacType_Type())
-h3cNvgreMacType.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cNvgreMacType.setStatus(_A)
-_H3cNvgreStaticMacTable_Object=MibTable
-h3cNvgreStaticMacTable=_H3cNvgreStaticMacTable_Object((1,3,6,1,4,1,2011,10,2,156,1,6))
-if mibBuilder.loadTexts:h3cNvgreStaticMacTable.setStatus(_A)
-_H3cNvgreStaticMacEntry_Object=MibTableRow
-h3cNvgreStaticMacEntry=_H3cNvgreStaticMacEntry_Object((1,3,6,1,4,1,2011,10,2,156,1,6,1))
-h3cNvgreStaticMacEntry.setIndexNames((0,_B,_H),(0,_B,_K))
-if mibBuilder.loadTexts:h3cNvgreStaticMacEntry.setStatus(_A)
-_H3cNvgreStaticMacAddr_Type=MacAddress
-_H3cNvgreStaticMacAddr_Object=MibTableColumn
-h3cNvgreStaticMacAddr=_H3cNvgreStaticMacAddr_Object((1,3,6,1,4,1,2011,10,2,156,1,6,1,1),_H3cNvgreStaticMacAddr_Type())
-h3cNvgreStaticMacAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cNvgreStaticMacAddr.setStatus(_A)
-_H3cNvgreStaticMacTunnelID_Type=Unsigned32
-_H3cNvgreStaticMacTunnelID_Object=MibTableColumn
-h3cNvgreStaticMacTunnelID=_H3cNvgreStaticMacTunnelID_Object((1,3,6,1,4,1,2011,10,2,156,1,6,1,2),_H3cNvgreStaticMacTunnelID_Type())
-h3cNvgreStaticMacTunnelID.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cNvgreStaticMacTunnelID.setStatus(_A)
-_H3cNvgreStaticMacRowStatus_Type=RowStatus
-_H3cNvgreStaticMacRowStatus_Object=MibTableColumn
-h3cNvgreStaticMacRowStatus=_H3cNvgreStaticMacRowStatus_Object((1,3,6,1,4,1,2011,10,2,156,1,6,1,3),_H3cNvgreStaticMacRowStatus_Type())
-h3cNvgreStaticMacRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cNvgreStaticMacRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'h3cNvgre':h3cNvgre,'h3cNvgreObjects':h3cNvgreObjects,'h3cNvgreScalarGroup':h3cNvgreScalarGroup,'h3cNvgreNextNvgreID':h3cNvgreNextNvgreID,'h3cNvgreConfigured':h3cNvgreConfigured,'h3cNvgreTable':h3cNvgreTable,'h3cNvgreEntry':h3cNvgreEntry,_F:h3cNvgreID,_H:h3cNvgreVsiIndex,'h3cNvgreRemoteMacCount':h3cNvgreRemoteMacCount,'h3cNvgreRowStatus':h3cNvgreRowStatus,'h3cNvgreTunnelTable':h3cNvgreTunnelTable,'h3cNvgreTunnelEntry':h3cNvgreTunnelEntry,_G:h3cNvgreTunnelID,'h3cNvgreTunnelRowStatus':h3cNvgreTunnelRowStatus,'h3cNvgreTunnelOctets':h3cNvgreTunnelOctets,'h3cNvgreTunnelPackets':h3cNvgreTunnelPackets,'h3cNvgreTunnelBoundTable':h3cNvgreTunnelBoundTable,'h3cNvgreTunnelBoundEntry':h3cNvgreTunnelBoundEntry,'h3cNvgreTunnelBoundNvgreNum':h3cNvgreTunnelBoundNvgreNum,'h3cNvgreMacTable':h3cNvgreMacTable,'h3cNvgreMacEntry':h3cNvgreMacEntry,_J:h3cNvgreMacAddr,'h3cNvgreMacTunnelID':h3cNvgreMacTunnelID,'h3cNvgreMacType':h3cNvgreMacType,'h3cNvgreStaticMacTable':h3cNvgreStaticMacTable,'h3cNvgreStaticMacEntry':h3cNvgreStaticMacEntry,_K:h3cNvgreStaticMacAddr,'h3cNvgreStaticMacTunnelID':h3cNvgreStaticMacTunnelID,'h3cNvgreStaticMacRowStatus':h3cNvgreStaticMacRowStatus})
+#
+# PySNMP MIB module H3C-NVGRE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-NVGRE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:20 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+h3cNvgre = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156))
+h3cNvgre.setRevisions(('2014-03-11 09:00',))
+if mibBuilder.loadTexts: h3cNvgre.setLastUpdated('201403110900Z')
+if mibBuilder.loadTexts: h3cNvgre.setOrganization('Hangzhou H3C Technologies Co., Ltd.')
+h3cNvgreObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1))
+h3cNvgreScalarGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 1))
+h3cNvgreNextNvgreID = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cNvgreNextNvgreID.setStatus('current')
+h3cNvgreConfigured = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cNvgreConfigured.setStatus('current')
+h3cNvgreTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 2), )
+if mibBuilder.loadTexts: h3cNvgreTable.setStatus('current')
+h3cNvgreEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 2, 1), ).setIndexNames((0, "H3C-NVGRE-MIB", "h3cNvgreID"))
+if mibBuilder.loadTexts: h3cNvgreEntry.setStatus('current')
+h3cNvgreID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: h3cNvgreID.setStatus('current')
+h3cNvgreVsiIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 2, 1, 2), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cNvgreVsiIndex.setStatus('current')
+h3cNvgreRemoteMacCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cNvgreRemoteMacCount.setStatus('current')
+h3cNvgreRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cNvgreRowStatus.setStatus('current')
+h3cNvgreTunnelTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 3), )
+if mibBuilder.loadTexts: h3cNvgreTunnelTable.setStatus('current')
+h3cNvgreTunnelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 3, 1), ).setIndexNames((0, "H3C-NVGRE-MIB", "h3cNvgreID"), (0, "H3C-NVGRE-MIB", "h3cNvgreTunnelID"))
+if mibBuilder.loadTexts: h3cNvgreTunnelEntry.setStatus('current')
+h3cNvgreTunnelID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 3, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: h3cNvgreTunnelID.setStatus('current')
+h3cNvgreTunnelRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cNvgreTunnelRowStatus.setStatus('current')
+h3cNvgreTunnelOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 3, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cNvgreTunnelOctets.setStatus('current')
+h3cNvgreTunnelPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 3, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cNvgreTunnelPackets.setStatus('current')
+h3cNvgreTunnelBoundTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 4), )
+if mibBuilder.loadTexts: h3cNvgreTunnelBoundTable.setStatus('current')
+h3cNvgreTunnelBoundEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 4, 1), ).setIndexNames((0, "H3C-NVGRE-MIB", "h3cNvgreTunnelID"))
+if mibBuilder.loadTexts: h3cNvgreTunnelBoundEntry.setStatus('current')
+h3cNvgreTunnelBoundNvgreNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 4, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cNvgreTunnelBoundNvgreNum.setStatus('current')
+h3cNvgreMacTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 5), )
+if mibBuilder.loadTexts: h3cNvgreMacTable.setStatus('current')
+h3cNvgreMacEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 5, 1), ).setIndexNames((0, "H3C-NVGRE-MIB", "h3cNvgreVsiIndex"), (0, "H3C-NVGRE-MIB", "h3cNvgreMacAddr"))
+if mibBuilder.loadTexts: h3cNvgreMacEntry.setStatus('current')
+h3cNvgreMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 5, 1, 1), MacAddress())
+if mibBuilder.loadTexts: h3cNvgreMacAddr.setStatus('current')
+h3cNvgreMacTunnelID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 5, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cNvgreMacTunnelID.setStatus('current')
+h3cNvgreMacType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("selfLearned", 1), ("staticConfigured", 2), ("protocolLearned", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cNvgreMacType.setStatus('current')
+h3cNvgreStaticMacTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 6), )
+if mibBuilder.loadTexts: h3cNvgreStaticMacTable.setStatus('current')
+h3cNvgreStaticMacEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 6, 1), ).setIndexNames((0, "H3C-NVGRE-MIB", "h3cNvgreVsiIndex"), (0, "H3C-NVGRE-MIB", "h3cNvgreStaticMacAddr"))
+if mibBuilder.loadTexts: h3cNvgreStaticMacEntry.setStatus('current')
+h3cNvgreStaticMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 6, 1, 1), MacAddress())
+if mibBuilder.loadTexts: h3cNvgreStaticMacAddr.setStatus('current')
+h3cNvgreStaticMacTunnelID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 6, 1, 2), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cNvgreStaticMacTunnelID.setStatus('current')
+h3cNvgreStaticMacRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 156, 1, 6, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cNvgreStaticMacRowStatus.setStatus('current')
+mibBuilder.exportSymbols("H3C-NVGRE-MIB", h3cNvgreMacEntry=h3cNvgreMacEntry, h3cNvgreStaticMacEntry=h3cNvgreStaticMacEntry, h3cNvgreTunnelBoundTable=h3cNvgreTunnelBoundTable, h3cNvgreNextNvgreID=h3cNvgreNextNvgreID, h3cNvgreTunnelOctets=h3cNvgreTunnelOctets, PYSNMP_MODULE_ID=h3cNvgre, h3cNvgreTunnelID=h3cNvgreTunnelID, h3cNvgreStaticMacAddr=h3cNvgreStaticMacAddr, h3cNvgreStaticMacRowStatus=h3cNvgreStaticMacRowStatus, h3cNvgreMacTable=h3cNvgreMacTable, h3cNvgreRowStatus=h3cNvgreRowStatus, h3cNvgreMacType=h3cNvgreMacType, h3cNvgreMacAddr=h3cNvgreMacAddr, h3cNvgreObjects=h3cNvgreObjects, h3cNvgreTunnelBoundNvgreNum=h3cNvgreTunnelBoundNvgreNum, h3cNvgreVsiIndex=h3cNvgreVsiIndex, h3cNvgreTunnelTable=h3cNvgreTunnelTable, h3cNvgreStaticMacTable=h3cNvgreStaticMacTable, h3cNvgreTunnelRowStatus=h3cNvgreTunnelRowStatus, h3cNvgreConfigured=h3cNvgreConfigured, h3cNvgreScalarGroup=h3cNvgreScalarGroup, h3cNvgreStaticMacTunnelID=h3cNvgreStaticMacTunnelID, h3cNvgre=h3cNvgre, h3cNvgreTable=h3cNvgreTable, h3cNvgreTunnelEntry=h3cNvgreTunnelEntry, h3cNvgreTunnelPackets=h3cNvgreTunnelPackets, h3cNvgreMacTunnelID=h3cNvgreMacTunnelID, h3cNvgreRemoteMacCount=h3cNvgreRemoteMacCount, h3cNvgreID=h3cNvgreID, h3cNvgreEntry=h3cNvgreEntry, h3cNvgreTunnelBoundEntry=h3cNvgreTunnelBoundEntry)

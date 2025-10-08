@@ -1,178 +1,86 @@
-_A9='ospfTrapEventGroup'
-_A8='ospfVirtNbrRestartHelperStatusChange'
-_A7='ospfNbrRestartHelperStatusChange'
-_A6='ospfRestartStatusChange'
-_A5='ospfNssaTranslatorStatusChange'
-_A4='ospfIfStateChange'
-_A3='ospfLsdbApproachingOverflow'
-_A2='ospfLsdbOverflow'
-_A1='ospfMaxAgeLsa'
-_A0='ospfOriginateLsa'
-_z='ospfVirtIfTxRetransmit'
-_y='ospfTxRetransmit'
-_x='ospfVirtIfRxBadPacket'
-_w='ospfIfRxBadPacket'
-_v='ospfVirtIfAuthFailure'
-_u='ospfIfAuthFailure'
-_t='ospfVirtIfConfigError'
-_s='ospfIfConfigError'
-_r='ospfVirtNbrStateChange'
-_q='ospfNbrStateChange'
-_p='ospfVirtIfStateChange'
-_o='ospfSetTrap'
-_n='ospfVirtNbrState'
-_m='ospfVirtNbrRestartHelperStatus'
-_l='ospfVirtNbrRestartHelperExitReason'
-_k='ospfVirtNbrRestartHelperAge'
-_j='ospfVirtIfState'
-_i='ospfRestartStatus'
-_h='ospfRestartInterval'
-_g='ospfRestartExitReason'
-_f='ospfNbrState'
-_e='ospfNbrRestartHelperStatus'
-_d='ospfNbrRestartHelperExitReason'
-_c='ospfNbrRestartHelperAge'
-_b='ospfIfState'
-_a='ospfAreaNssaTranslatorState'
-_Z='ospfAreaId'
-_Y='OctetString'
-_X='read-only'
-_W='Integer32'
-_V='ospfVirtNbrRtrId'
-_U='ospfVirtNbrArea'
-_T='ospfNbrIpAddr'
-_S='ospfNbrAddressLessIndex'
-_R='ospfLsdbAreaId'
-_Q='ospfExtLsdbLimit'
-_P='ospfTrapControlGroup'
-_O='ospfNbrRtrId'
-_N='ospfPacketSrc'
-_M='ospfLsdbType'
-_L='ospfLsdbRouterId'
-_K='ospfLsdbLsid'
-_J='ospfConfigErrorType'
-_I='ospfVirtIfNeighbor'
-_H='ospfVirtIfAreaId'
-_G='ospfIfIpAddress'
-_F='ospfAddressLessIf'
-_E='ospfPacketType'
-_D='ospfRouterId'
-_C='current'
-_B='OSPF-TRAP-MIB'
-_A='OSPF-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_Y,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ospf,ospfAddressLessIf,ospfAreaId,ospfAreaNssaTranslatorState,ospfExtLsdbLimit,ospfIfIpAddress,ospfIfState,ospfLsdbAreaId,ospfLsdbLsid,ospfLsdbRouterId,ospfLsdbType,ospfNbrAddressLessIndex,ospfNbrIpAddr,ospfNbrRestartHelperAge,ospfNbrRestartHelperExitReason,ospfNbrRestartHelperStatus,ospfNbrRtrId,ospfNbrState,ospfRestartExitReason,ospfRestartInterval,ospfRestartStatus,ospfRouterId,ospfVirtIfAreaId,ospfVirtIfNeighbor,ospfVirtIfState,ospfVirtNbrArea,ospfVirtNbrRestartHelperAge,ospfVirtNbrRestartHelperExitReason,ospfVirtNbrRestartHelperStatus,ospfVirtNbrRtrId,ospfVirtNbrState=mibBuilder.importSymbols(_A,'ospf',_F,_Z,_a,_Q,_G,_b,_R,_K,_L,_M,_S,_T,_c,_d,_e,_O,_f,_g,_h,_i,_D,_H,_I,_j,_U,_k,_l,_m,_V,_n)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_W,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ospfTrap=ModuleIdentity((1,3,6,1,2,1,14,16))
-if mibBuilder.loadTexts:ospfTrap.setRevisions(('2006-11-10 00:00','1995-01-20 12:25'))
-_OspfTrapControl_ObjectIdentity=ObjectIdentity
-ospfTrapControl=_OspfTrapControl_ObjectIdentity((1,3,6,1,2,1,14,16,1))
-class _OspfSetTrap_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
-_OspfSetTrap_Type.__name__=_Y
-_OspfSetTrap_Object=MibScalar
-ospfSetTrap=_OspfSetTrap_Object((1,3,6,1,2,1,14,16,1,1),_OspfSetTrap_Type())
-ospfSetTrap.setMaxAccess('read-write')
-if mibBuilder.loadTexts:ospfSetTrap.setStatus(_C)
-class _OspfConfigErrorType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13)));namedValues=NamedValues(*(('badVersion',1),('areaMismatch',2),('unknownNbmaNbr',3),('unknownVirtualNbr',4),('authTypeMismatch',5),('authFailure',6),('netMaskMismatch',7),('helloIntervalMismatch',8),('deadIntervalMismatch',9),('optionMismatch',10),('mtuMismatch',11),('duplicateRouterId',12),('noError',13)))
-_OspfConfigErrorType_Type.__name__=_W
-_OspfConfigErrorType_Object=MibScalar
-ospfConfigErrorType=_OspfConfigErrorType_Object((1,3,6,1,2,1,14,16,1,2),_OspfConfigErrorType_Type())
-ospfConfigErrorType.setMaxAccess(_X)
-if mibBuilder.loadTexts:ospfConfigErrorType.setStatus(_C)
-class _OspfPacketType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('hello',1),('dbDescript',2),('lsReq',3),('lsUpdate',4),('lsAck',5),('nullPacket',6)))
-_OspfPacketType_Type.__name__=_W
-_OspfPacketType_Object=MibScalar
-ospfPacketType=_OspfPacketType_Object((1,3,6,1,2,1,14,16,1,3),_OspfPacketType_Type())
-ospfPacketType.setMaxAccess(_X)
-if mibBuilder.loadTexts:ospfPacketType.setStatus(_C)
-_OspfPacketSrc_Type=IpAddress
-_OspfPacketSrc_Object=MibScalar
-ospfPacketSrc=_OspfPacketSrc_Object((1,3,6,1,2,1,14,16,1,4),_OspfPacketSrc_Type())
-ospfPacketSrc.setMaxAccess(_X)
-if mibBuilder.loadTexts:ospfPacketSrc.setStatus(_C)
-_OspfTraps_ObjectIdentity=ObjectIdentity
-ospfTraps=_OspfTraps_ObjectIdentity((1,3,6,1,2,1,14,16,2))
-_OspfTrapConformance_ObjectIdentity=ObjectIdentity
-ospfTrapConformance=_OspfTrapConformance_ObjectIdentity((1,3,6,1,2,1,14,16,3))
-_OspfTrapGroups_ObjectIdentity=ObjectIdentity
-ospfTrapGroups=_OspfTrapGroups_ObjectIdentity((1,3,6,1,2,1,14,16,3,1))
-_OspfTrapCompliances_ObjectIdentity=ObjectIdentity
-ospfTrapCompliances=_OspfTrapCompliances_ObjectIdentity((1,3,6,1,2,1,14,16,3,2))
-ospfTrapControlGroup=ObjectGroup((1,3,6,1,2,1,14,16,3,1,1))
-ospfTrapControlGroup.setObjects(*((_B,_o),(_B,_J),(_B,_E),(_B,_N)))
-if mibBuilder.loadTexts:ospfTrapControlGroup.setStatus(_C)
-ospfVirtIfStateChange=NotificationType((1,3,6,1,2,1,14,16,2,1))
-ospfVirtIfStateChange.setObjects(*((_A,_D),(_A,_H),(_A,_I),(_A,_j)))
-if mibBuilder.loadTexts:ospfVirtIfStateChange.setStatus(_C)
-ospfNbrStateChange=NotificationType((1,3,6,1,2,1,14,16,2,2))
-ospfNbrStateChange.setObjects(*((_A,_D),(_A,_T),(_A,_S),(_A,_O),(_A,_f)))
-if mibBuilder.loadTexts:ospfNbrStateChange.setStatus(_C)
-ospfVirtNbrStateChange=NotificationType((1,3,6,1,2,1,14,16,2,3))
-ospfVirtNbrStateChange.setObjects(*((_A,_D),(_A,_U),(_A,_V),(_A,_n)))
-if mibBuilder.loadTexts:ospfVirtNbrStateChange.setStatus(_C)
-ospfIfConfigError=NotificationType((1,3,6,1,2,1,14,16,2,4))
-ospfIfConfigError.setObjects(*((_A,_D),(_A,_G),(_A,_F),(_B,_N),(_B,_J),(_B,_E)))
-if mibBuilder.loadTexts:ospfIfConfigError.setStatus(_C)
-ospfVirtIfConfigError=NotificationType((1,3,6,1,2,1,14,16,2,5))
-ospfVirtIfConfigError.setObjects(*((_A,_D),(_A,_H),(_A,_I),(_B,_J),(_B,_E)))
-if mibBuilder.loadTexts:ospfVirtIfConfigError.setStatus(_C)
-ospfIfAuthFailure=NotificationType((1,3,6,1,2,1,14,16,2,6))
-ospfIfAuthFailure.setObjects(*((_A,_D),(_A,_G),(_A,_F),(_B,_N),(_B,_J),(_B,_E)))
-if mibBuilder.loadTexts:ospfIfAuthFailure.setStatus(_C)
-ospfVirtIfAuthFailure=NotificationType((1,3,6,1,2,1,14,16,2,7))
-ospfVirtIfAuthFailure.setObjects(*((_A,_D),(_A,_H),(_A,_I),(_B,_J),(_B,_E)))
-if mibBuilder.loadTexts:ospfVirtIfAuthFailure.setStatus(_C)
-ospfIfRxBadPacket=NotificationType((1,3,6,1,2,1,14,16,2,8))
-ospfIfRxBadPacket.setObjects(*((_A,_D),(_A,_G),(_A,_F),(_B,_N),(_B,_E)))
-if mibBuilder.loadTexts:ospfIfRxBadPacket.setStatus(_C)
-ospfVirtIfRxBadPacket=NotificationType((1,3,6,1,2,1,14,16,2,9))
-ospfVirtIfRxBadPacket.setObjects(*((_A,_D),(_A,_H),(_A,_I),(_B,_E)))
-if mibBuilder.loadTexts:ospfVirtIfRxBadPacket.setStatus(_C)
-ospfTxRetransmit=NotificationType((1,3,6,1,2,1,14,16,2,10))
-ospfTxRetransmit.setObjects(*((_A,_D),(_A,_G),(_A,_F),(_A,_O),(_B,_E),(_A,_M),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ospfTxRetransmit.setStatus(_C)
-ospfVirtIfTxRetransmit=NotificationType((1,3,6,1,2,1,14,16,2,11))
-ospfVirtIfTxRetransmit.setObjects(*((_A,_D),(_A,_H),(_A,_I),(_B,_E),(_A,_M),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ospfVirtIfTxRetransmit.setStatus(_C)
-ospfOriginateLsa=NotificationType((1,3,6,1,2,1,14,16,2,12))
-ospfOriginateLsa.setObjects(*((_A,_D),(_A,_R),(_A,_M),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ospfOriginateLsa.setStatus(_C)
-ospfMaxAgeLsa=NotificationType((1,3,6,1,2,1,14,16,2,13))
-ospfMaxAgeLsa.setObjects(*((_A,_D),(_A,_R),(_A,_M),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ospfMaxAgeLsa.setStatus(_C)
-ospfLsdbOverflow=NotificationType((1,3,6,1,2,1,14,16,2,14))
-ospfLsdbOverflow.setObjects(*((_A,_D),(_A,_Q)))
-if mibBuilder.loadTexts:ospfLsdbOverflow.setStatus(_C)
-ospfLsdbApproachingOverflow=NotificationType((1,3,6,1,2,1,14,16,2,15))
-ospfLsdbApproachingOverflow.setObjects(*((_A,_D),(_A,_Q)))
-if mibBuilder.loadTexts:ospfLsdbApproachingOverflow.setStatus(_C)
-ospfIfStateChange=NotificationType((1,3,6,1,2,1,14,16,2,16))
-ospfIfStateChange.setObjects(*((_A,_D),(_A,_G),(_A,_F),(_A,_b)))
-if mibBuilder.loadTexts:ospfIfStateChange.setStatus(_C)
-ospfNssaTranslatorStatusChange=NotificationType((1,3,6,1,2,1,14,16,2,17))
-ospfNssaTranslatorStatusChange.setObjects(*((_A,_D),(_A,_Z),(_A,_a)))
-if mibBuilder.loadTexts:ospfNssaTranslatorStatusChange.setStatus(_C)
-ospfRestartStatusChange=NotificationType((1,3,6,1,2,1,14,16,2,18))
-ospfRestartStatusChange.setObjects(*((_A,_D),(_A,_i),(_A,_h),(_A,_g)))
-if mibBuilder.loadTexts:ospfRestartStatusChange.setStatus(_C)
-ospfNbrRestartHelperStatusChange=NotificationType((1,3,6,1,2,1,14,16,2,19))
-ospfNbrRestartHelperStatusChange.setObjects(*((_A,_D),(_A,_T),(_A,_S),(_A,_O),(_A,_e),(_A,_c),(_A,_d)))
-if mibBuilder.loadTexts:ospfNbrRestartHelperStatusChange.setStatus(_C)
-ospfVirtNbrRestartHelperStatusChange=NotificationType((1,3,6,1,2,1,14,16,2,20))
-ospfVirtNbrRestartHelperStatusChange.setObjects(*((_A,_D),(_A,_U),(_A,_V),(_A,_m),(_A,_k),(_A,_l)))
-if mibBuilder.loadTexts:ospfVirtNbrRestartHelperStatusChange.setStatus(_C)
-ospfTrapEventGroup=NotificationGroup((1,3,6,1,2,1,14,16,3,1,2))
-ospfTrapEventGroup.setObjects(*((_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8)))
-if mibBuilder.loadTexts:ospfTrapEventGroup.setStatus(_C)
-ospfTrapCompliance=ModuleCompliance((1,3,6,1,2,1,14,16,3,2,1))
-ospfTrapCompliance.setObjects(*((_B,_P),(_B,_P)))
-if mibBuilder.loadTexts:ospfTrapCompliance.setStatus('obsolete')
-ospfTrapCompliance2=ModuleCompliance((1,3,6,1,2,1,14,16,3,2,2))
-ospfTrapCompliance2.setObjects(*((_B,_P),(_B,_A9)))
-if mibBuilder.loadTexts:ospfTrapCompliance2.setStatus(_C)
-mibBuilder.exportSymbols(_B,**{'ospfTrap':ospfTrap,'ospfTrapControl':ospfTrapControl,_o:ospfSetTrap,_J:ospfConfigErrorType,_E:ospfPacketType,_N:ospfPacketSrc,'ospfTraps':ospfTraps,_p:ospfVirtIfStateChange,_q:ospfNbrStateChange,_r:ospfVirtNbrStateChange,_s:ospfIfConfigError,_t:ospfVirtIfConfigError,_u:ospfIfAuthFailure,_v:ospfVirtIfAuthFailure,_w:ospfIfRxBadPacket,_x:ospfVirtIfRxBadPacket,_y:ospfTxRetransmit,_z:ospfVirtIfTxRetransmit,_A0:ospfOriginateLsa,_A1:ospfMaxAgeLsa,_A2:ospfLsdbOverflow,_A3:ospfLsdbApproachingOverflow,_A4:ospfIfStateChange,_A5:ospfNssaTranslatorStatusChange,_A6:ospfRestartStatusChange,_A7:ospfNbrRestartHelperStatusChange,_A8:ospfVirtNbrRestartHelperStatusChange,'ospfTrapConformance':ospfTrapConformance,'ospfTrapGroups':ospfTrapGroups,_P:ospfTrapControlGroup,_A9:ospfTrapEventGroup,'ospfTrapCompliances':ospfTrapCompliances,'ospfTrapCompliance':ospfTrapCompliance,'ospfTrapCompliance2':ospfTrapCompliance2})
+#
+# PySNMP MIB module OSPF-TRAP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/OSPF-TRAP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:27:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ospfIfState, ospf, ospfNbrRestartHelperExitReason, ospfLsdbLsid, ospfVirtNbrArea, ospfAreaNssaTranslatorState, ospfRestartInterval, ospfVirtIfState, ospfExtLsdbLimit, ospfVirtNbrRtrId, ospfRestartExitReason, ospfLsdbRouterId, ospfVirtIfNeighbor, ospfVirtIfAreaId, ospfRestartStatus, ospfRouterId, ospfVirtNbrRestartHelperExitReason, ospfLsdbType, ospfNbrRestartHelperAge, ospfNbrIpAddr, ospfNbrAddressLessIndex, ospfNbrState, ospfAddressLessIf, ospfNbrRestartHelperStatus, ospfNbrRtrId, ospfIfIpAddress, ospfAreaId, ospfVirtNbrRestartHelperStatus, ospfLsdbAreaId, ospfVirtNbrRestartHelperAge, ospfVirtNbrState = mibBuilder.importSymbols("OSPF-MIB", "ospfIfState", "ospf", "ospfNbrRestartHelperExitReason", "ospfLsdbLsid", "ospfVirtNbrArea", "ospfAreaNssaTranslatorState", "ospfRestartInterval", "ospfVirtIfState", "ospfExtLsdbLimit", "ospfVirtNbrRtrId", "ospfRestartExitReason", "ospfLsdbRouterId", "ospfVirtIfNeighbor", "ospfVirtIfAreaId", "ospfRestartStatus", "ospfRouterId", "ospfVirtNbrRestartHelperExitReason", "ospfLsdbType", "ospfNbrRestartHelperAge", "ospfNbrIpAddr", "ospfNbrAddressLessIndex", "ospfNbrState", "ospfAddressLessIf", "ospfNbrRestartHelperStatus", "ospfNbrRtrId", "ospfIfIpAddress", "ospfAreaId", "ospfVirtNbrRestartHelperStatus", "ospfLsdbAreaId", "ospfVirtNbrRestartHelperAge", "ospfVirtNbrState")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ospfTrap = ModuleIdentity((1, 3, 6, 1, 2, 1, 14, 16))
+ospfTrap.setRevisions(('2006-11-10 00:00', '1995-01-20 12:25',))
+if mibBuilder.loadTexts: ospfTrap.setLastUpdated('200611100000Z')
+if mibBuilder.loadTexts: ospfTrap.setOrganization('IETF OSPF Working Group')
+ospfTrapControl = MibIdentifier((1, 3, 6, 1, 2, 1, 14, 16, 1))
+ospfTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 14, 16, 2))
+ospfSetTrap = MibScalar((1, 3, 6, 1, 2, 1, 14, 16, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ospfSetTrap.setStatus('current')
+ospfConfigErrorType = MibScalar((1, 3, 6, 1, 2, 1, 14, 16, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13))).clone(namedValues=NamedValues(("badVersion", 1), ("areaMismatch", 2), ("unknownNbmaNbr", 3), ("unknownVirtualNbr", 4), ("authTypeMismatch", 5), ("authFailure", 6), ("netMaskMismatch", 7), ("helloIntervalMismatch", 8), ("deadIntervalMismatch", 9), ("optionMismatch", 10), ("mtuMismatch", 11), ("duplicateRouterId", 12), ("noError", 13)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ospfConfigErrorType.setStatus('current')
+ospfPacketType = MibScalar((1, 3, 6, 1, 2, 1, 14, 16, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("hello", 1), ("dbDescript", 2), ("lsReq", 3), ("lsUpdate", 4), ("lsAck", 5), ("nullPacket", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ospfPacketType.setStatus('current')
+ospfPacketSrc = MibScalar((1, 3, 6, 1, 2, 1, 14, 16, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ospfPacketSrc.setStatus('current')
+ospfVirtIfStateChange = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 1)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfVirtIfAreaId"), ("OSPF-MIB", "ospfVirtIfNeighbor"), ("OSPF-MIB", "ospfVirtIfState"))
+if mibBuilder.loadTexts: ospfVirtIfStateChange.setStatus('current')
+ospfNbrStateChange = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 2)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfNbrIpAddr"), ("OSPF-MIB", "ospfNbrAddressLessIndex"), ("OSPF-MIB", "ospfNbrRtrId"), ("OSPF-MIB", "ospfNbrState"))
+if mibBuilder.loadTexts: ospfNbrStateChange.setStatus('current')
+ospfVirtNbrStateChange = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 3)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfVirtNbrArea"), ("OSPF-MIB", "ospfVirtNbrRtrId"), ("OSPF-MIB", "ospfVirtNbrState"))
+if mibBuilder.loadTexts: ospfVirtNbrStateChange.setStatus('current')
+ospfIfConfigError = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 4)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfIfIpAddress"), ("OSPF-MIB", "ospfAddressLessIf"), ("OSPF-TRAP-MIB", "ospfPacketSrc"), ("OSPF-TRAP-MIB", "ospfConfigErrorType"), ("OSPF-TRAP-MIB", "ospfPacketType"))
+if mibBuilder.loadTexts: ospfIfConfigError.setStatus('current')
+ospfVirtIfConfigError = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 5)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfVirtIfAreaId"), ("OSPF-MIB", "ospfVirtIfNeighbor"), ("OSPF-TRAP-MIB", "ospfConfigErrorType"), ("OSPF-TRAP-MIB", "ospfPacketType"))
+if mibBuilder.loadTexts: ospfVirtIfConfigError.setStatus('current')
+ospfIfAuthFailure = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 6)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfIfIpAddress"), ("OSPF-MIB", "ospfAddressLessIf"), ("OSPF-TRAP-MIB", "ospfPacketSrc"), ("OSPF-TRAP-MIB", "ospfConfigErrorType"), ("OSPF-TRAP-MIB", "ospfPacketType"))
+if mibBuilder.loadTexts: ospfIfAuthFailure.setStatus('current')
+ospfVirtIfAuthFailure = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 7)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfVirtIfAreaId"), ("OSPF-MIB", "ospfVirtIfNeighbor"), ("OSPF-TRAP-MIB", "ospfConfigErrorType"), ("OSPF-TRAP-MIB", "ospfPacketType"))
+if mibBuilder.loadTexts: ospfVirtIfAuthFailure.setStatus('current')
+ospfIfRxBadPacket = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 8)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfIfIpAddress"), ("OSPF-MIB", "ospfAddressLessIf"), ("OSPF-TRAP-MIB", "ospfPacketSrc"), ("OSPF-TRAP-MIB", "ospfPacketType"))
+if mibBuilder.loadTexts: ospfIfRxBadPacket.setStatus('current')
+ospfVirtIfRxBadPacket = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 9)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfVirtIfAreaId"), ("OSPF-MIB", "ospfVirtIfNeighbor"), ("OSPF-TRAP-MIB", "ospfPacketType"))
+if mibBuilder.loadTexts: ospfVirtIfRxBadPacket.setStatus('current')
+ospfTxRetransmit = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 10)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfIfIpAddress"), ("OSPF-MIB", "ospfAddressLessIf"), ("OSPF-MIB", "ospfNbrRtrId"), ("OSPF-TRAP-MIB", "ospfPacketType"), ("OSPF-MIB", "ospfLsdbType"), ("OSPF-MIB", "ospfLsdbLsid"), ("OSPF-MIB", "ospfLsdbRouterId"))
+if mibBuilder.loadTexts: ospfTxRetransmit.setStatus('current')
+ospfVirtIfTxRetransmit = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 11)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfVirtIfAreaId"), ("OSPF-MIB", "ospfVirtIfNeighbor"), ("OSPF-TRAP-MIB", "ospfPacketType"), ("OSPF-MIB", "ospfLsdbType"), ("OSPF-MIB", "ospfLsdbLsid"), ("OSPF-MIB", "ospfLsdbRouterId"))
+if mibBuilder.loadTexts: ospfVirtIfTxRetransmit.setStatus('current')
+ospfOriginateLsa = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 12)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfLsdbAreaId"), ("OSPF-MIB", "ospfLsdbType"), ("OSPF-MIB", "ospfLsdbLsid"), ("OSPF-MIB", "ospfLsdbRouterId"))
+if mibBuilder.loadTexts: ospfOriginateLsa.setStatus('current')
+ospfMaxAgeLsa = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 13)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfLsdbAreaId"), ("OSPF-MIB", "ospfLsdbType"), ("OSPF-MIB", "ospfLsdbLsid"), ("OSPF-MIB", "ospfLsdbRouterId"))
+if mibBuilder.loadTexts: ospfMaxAgeLsa.setStatus('current')
+ospfLsdbOverflow = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 14)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfExtLsdbLimit"))
+if mibBuilder.loadTexts: ospfLsdbOverflow.setStatus('current')
+ospfLsdbApproachingOverflow = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 15)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfExtLsdbLimit"))
+if mibBuilder.loadTexts: ospfLsdbApproachingOverflow.setStatus('current')
+ospfIfStateChange = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 16)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfIfIpAddress"), ("OSPF-MIB", "ospfAddressLessIf"), ("OSPF-MIB", "ospfIfState"))
+if mibBuilder.loadTexts: ospfIfStateChange.setStatus('current')
+ospfNssaTranslatorStatusChange = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 17)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfAreaId"), ("OSPF-MIB", "ospfAreaNssaTranslatorState"))
+if mibBuilder.loadTexts: ospfNssaTranslatorStatusChange.setStatus('current')
+ospfRestartStatusChange = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 18)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfRestartStatus"), ("OSPF-MIB", "ospfRestartInterval"), ("OSPF-MIB", "ospfRestartExitReason"))
+if mibBuilder.loadTexts: ospfRestartStatusChange.setStatus('current')
+ospfNbrRestartHelperStatusChange = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 19)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfNbrIpAddr"), ("OSPF-MIB", "ospfNbrAddressLessIndex"), ("OSPF-MIB", "ospfNbrRtrId"), ("OSPF-MIB", "ospfNbrRestartHelperStatus"), ("OSPF-MIB", "ospfNbrRestartHelperAge"), ("OSPF-MIB", "ospfNbrRestartHelperExitReason"))
+if mibBuilder.loadTexts: ospfNbrRestartHelperStatusChange.setStatus('current')
+ospfVirtNbrRestartHelperStatusChange = NotificationType((1, 3, 6, 1, 2, 1, 14, 16, 2, 20)).setObjects(("OSPF-MIB", "ospfRouterId"), ("OSPF-MIB", "ospfVirtNbrArea"), ("OSPF-MIB", "ospfVirtNbrRtrId"), ("OSPF-MIB", "ospfVirtNbrRestartHelperStatus"), ("OSPF-MIB", "ospfVirtNbrRestartHelperAge"), ("OSPF-MIB", "ospfVirtNbrRestartHelperExitReason"))
+if mibBuilder.loadTexts: ospfVirtNbrRestartHelperStatusChange.setStatus('current')
+ospfTrapConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 14, 16, 3))
+ospfTrapGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 14, 16, 3, 1))
+ospfTrapCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 14, 16, 3, 2))
+ospfTrapCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 14, 16, 3, 2, 1)).setObjects(("OSPF-TRAP-MIB", "ospfTrapControlGroup"), ("OSPF-TRAP-MIB", "ospfTrapControlGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ospfTrapCompliance = ospfTrapCompliance.setStatus('obsolete')
+ospfTrapCompliance2 = ModuleCompliance((1, 3, 6, 1, 2, 1, 14, 16, 3, 2, 2)).setObjects(("OSPF-TRAP-MIB", "ospfTrapControlGroup"), ("OSPF-TRAP-MIB", "ospfTrapEventGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ospfTrapCompliance2 = ospfTrapCompliance2.setStatus('current')
+ospfTrapControlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 14, 16, 3, 1, 1)).setObjects(("OSPF-TRAP-MIB", "ospfSetTrap"), ("OSPF-TRAP-MIB", "ospfConfigErrorType"), ("OSPF-TRAP-MIB", "ospfPacketType"), ("OSPF-TRAP-MIB", "ospfPacketSrc"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ospfTrapControlGroup = ospfTrapControlGroup.setStatus('current')
+ospfTrapEventGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 14, 16, 3, 1, 2)).setObjects(("OSPF-TRAP-MIB", "ospfVirtIfStateChange"), ("OSPF-TRAP-MIB", "ospfNbrStateChange"), ("OSPF-TRAP-MIB", "ospfVirtNbrStateChange"), ("OSPF-TRAP-MIB", "ospfIfConfigError"), ("OSPF-TRAP-MIB", "ospfVirtIfConfigError"), ("OSPF-TRAP-MIB", "ospfIfAuthFailure"), ("OSPF-TRAP-MIB", "ospfVirtIfAuthFailure"), ("OSPF-TRAP-MIB", "ospfIfRxBadPacket"), ("OSPF-TRAP-MIB", "ospfVirtIfRxBadPacket"), ("OSPF-TRAP-MIB", "ospfTxRetransmit"), ("OSPF-TRAP-MIB", "ospfVirtIfTxRetransmit"), ("OSPF-TRAP-MIB", "ospfOriginateLsa"), ("OSPF-TRAP-MIB", "ospfMaxAgeLsa"), ("OSPF-TRAP-MIB", "ospfLsdbOverflow"), ("OSPF-TRAP-MIB", "ospfLsdbApproachingOverflow"), ("OSPF-TRAP-MIB", "ospfIfStateChange"), ("OSPF-TRAP-MIB", "ospfNssaTranslatorStatusChange"), ("OSPF-TRAP-MIB", "ospfRestartStatusChange"), ("OSPF-TRAP-MIB", "ospfNbrRestartHelperStatusChange"), ("OSPF-TRAP-MIB", "ospfVirtNbrRestartHelperStatusChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ospfTrapEventGroup = ospfTrapEventGroup.setStatus('current')
+mibBuilder.exportSymbols("OSPF-TRAP-MIB", ospfMaxAgeLsa=ospfMaxAgeLsa, ospfIfAuthFailure=ospfIfAuthFailure, ospfPacketSrc=ospfPacketSrc, ospfRestartStatusChange=ospfRestartStatusChange, ospfNbrRestartHelperStatusChange=ospfNbrRestartHelperStatusChange, ospfVirtNbrStateChange=ospfVirtNbrStateChange, ospfVirtIfConfigError=ospfVirtIfConfigError, ospfVirtIfAuthFailure=ospfVirtIfAuthFailure, ospfTrap=ospfTrap, ospfIfConfigError=ospfIfConfigError, ospfLsdbApproachingOverflow=ospfLsdbApproachingOverflow, ospfTrapControl=ospfTrapControl, ospfOriginateLsa=ospfOriginateLsa, ospfTrapCompliances=ospfTrapCompliances, ospfTrapGroups=ospfTrapGroups, ospfTrapCompliance=ospfTrapCompliance, ospfSetTrap=ospfSetTrap, ospfVirtIfStateChange=ospfVirtIfStateChange, ospfPacketType=ospfPacketType, ospfLsdbOverflow=ospfLsdbOverflow, ospfTrapCompliance2=ospfTrapCompliance2, ospfTxRetransmit=ospfTxRetransmit, ospfTrapEventGroup=ospfTrapEventGroup, ospfIfRxBadPacket=ospfIfRxBadPacket, ospfVirtIfRxBadPacket=ospfVirtIfRxBadPacket, ospfVirtNbrRestartHelperStatusChange=ospfVirtNbrRestartHelperStatusChange, ospfTraps=ospfTraps, ospfTrapControlGroup=ospfTrapControlGroup, PYSNMP_MODULE_ID=ospfTrap, ospfIfStateChange=ospfIfStateChange, ospfNbrStateChange=ospfNbrStateChange, ospfTrapConformance=ospfTrapConformance, ospfVirtIfTxRetransmit=ospfVirtIfTxRetransmit, ospfNssaTranslatorStatusChange=ospfNssaTranslatorStatusChange, ospfConfigErrorType=ospfConfigErrorType)

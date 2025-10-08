@@ -1,108 +1,58 @@
-_Q='alAlarmFallingTrap'
-_P='alAlarmRisingTrap'
-_O='alTrapCounter'
-_N='alTcaId'
-_M='alSourceId'
-_L='alCardId'
-_K='alAlarmType'
-_J='alDeviceIp'
-_I='Integer32'
-_H='alIndex'
-_G='alTimestamp'
-_F='alDescription'
-_E='alSeverity'
-_D='read-only'
-_C='not-accessible'
-_B='current'
-_A='ALLOT-NX-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-alRegMIB,=mibBuilder.importSymbols('ALLOT-MIB','alRegMIB')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-alNXMIB=ModuleIdentity((1,3,6,1,4,1,2603,10))
-if mibBuilder.loadTexts:alNXMIB.setRevisions(('2008-12-10 10:00',))
-_AlEvents_ObjectIdentity=ObjectIdentity
-alEvents=_AlEvents_ObjectIdentity((1,3,6,1,4,1,2603,10,0))
-_AlObjects_ObjectIdentity=ObjectIdentity
-alObjects=_AlObjects_ObjectIdentity((1,3,6,1,4,1,2603,10,2))
-_AlAlarmTable_Object=MibTable
-alAlarmTable=_AlAlarmTable_Object((1,3,6,1,4,1,2603,10,2,1))
-if mibBuilder.loadTexts:alAlarmTable.setStatus(_B)
-_AlEntry_Object=MibTableRow
-alEntry=_AlEntry_Object((1,3,6,1,4,1,2603,10,2,1,1))
-alEntry.setIndexNames((0,_A,_J),(0,_A,_K),(0,_A,_L),(0,_A,_M),(0,_A,_N))
-if mibBuilder.loadTexts:alEntry.setStatus(_B)
-_AlDeviceIp_Type=IpAddress
-_AlDeviceIp_Object=MibTableColumn
-alDeviceIp=_AlDeviceIp_Object((1,3,6,1,4,1,2603,10,2,1,1,1),_AlDeviceIp_Type())
-alDeviceIp.setMaxAccess(_C)
-if mibBuilder.loadTexts:alDeviceIp.setStatus(_B)
-_AlAlarmType_Type=Unsigned32
-_AlAlarmType_Object=MibTableColumn
-alAlarmType=_AlAlarmType_Object((1,3,6,1,4,1,2603,10,2,1,1,2),_AlAlarmType_Type())
-alAlarmType.setMaxAccess(_C)
-if mibBuilder.loadTexts:alAlarmType.setStatus(_B)
-_AlCardId_Type=Unsigned32
-_AlCardId_Object=MibTableColumn
-alCardId=_AlCardId_Object((1,3,6,1,4,1,2603,10,2,1,1,3),_AlCardId_Type())
-alCardId.setMaxAccess(_C)
-if mibBuilder.loadTexts:alCardId.setStatus(_B)
-_AlSourceId_Type=Unsigned32
-_AlSourceId_Object=MibTableColumn
-alSourceId=_AlSourceId_Object((1,3,6,1,4,1,2603,10,2,1,1,4),_AlSourceId_Type())
-alSourceId.setMaxAccess(_C)
-if mibBuilder.loadTexts:alSourceId.setStatus(_B)
-_AlTcaId_Type=Unsigned32
-_AlTcaId_Object=MibTableColumn
-alTcaId=_AlTcaId_Object((1,3,6,1,4,1,2603,10,2,1,1,5),_AlTcaId_Type())
-alTcaId.setMaxAccess(_C)
-if mibBuilder.loadTexts:alTcaId.setStatus(_B)
-class _AlSeverity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*(('unknown',0),('cleared',1),('indeterminate',2),('critical',3),('major',4),('minor',5),('warning',6)))
-_AlSeverity_Type.__name__=_I
-_AlSeverity_Object=MibTableColumn
-alSeverity=_AlSeverity_Object((1,3,6,1,4,1,2603,10,2,1,1,6),_AlSeverity_Type())
-alSeverity.setMaxAccess(_D)
-if mibBuilder.loadTexts:alSeverity.setStatus(_B)
-_AlDescription_Type=OctetString
-_AlDescription_Object=MibTableColumn
-alDescription=_AlDescription_Object((1,3,6,1,4,1,2603,10,2,1,1,7),_AlDescription_Type())
-alDescription.setMaxAccess(_D)
-if mibBuilder.loadTexts:alDescription.setStatus(_B)
-_AlTimestamp_Type=Counter64
-_AlTimestamp_Object=MibTableColumn
-alTimestamp=_AlTimestamp_Object((1,3,6,1,4,1,2603,10,2,1,1,8),_AlTimestamp_Type())
-alTimestamp.setMaxAccess(_D)
-if mibBuilder.loadTexts:alTimestamp.setStatus(_B)
-_AlIndex_Type=OctetString
-_AlIndex_Object=MibTableColumn
-alIndex=_AlIndex_Object((1,3,6,1,4,1,2603,10,2,1,1,9),_AlIndex_Type())
-alIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:alIndex.setStatus(_B)
-_AlTrapCounter_Type=Counter32
-_AlTrapCounter_Object=MibScalar
-alTrapCounter=_AlTrapCounter_Object((1,3,6,1,4,1,2603,10,2,2),_AlTrapCounter_Type())
-alTrapCounter.setMaxAccess(_D)
-if mibBuilder.loadTexts:alTrapCounter.setStatus(_B)
-_AlConf_ObjectIdentity=ObjectIdentity
-alConf=_AlConf_ObjectIdentity((1,3,6,1,4,1,2603,10,3))
-_AlGroups_ObjectIdentity=ObjectIdentity
-alGroups=_AlGroups_ObjectIdentity((1,3,6,1,4,1,2603,10,3,1))
-_AlCompls_ObjectIdentity=ObjectIdentity
-alCompls=_AlCompls_ObjectIdentity((1,3,6,1,4,1,2603,10,3,2))
-alBasicGroup=ObjectGroup((1,3,6,1,4,1,2603,10,3,1,1))
-alBasicGroup.setObjects(*((_A,_E),(_A,_F),(_A,_O),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:alBasicGroup.setStatus(_B)
-alAlarmRisingTrap=NotificationType((1,3,6,1,4,1,2603,10,0,1))
-alAlarmRisingTrap.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:alAlarmRisingTrap.setStatus(_B)
-alAlarmFallingTrap=NotificationType((1,3,6,1,4,1,2603,10,0,2))
-alAlarmFallingTrap.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:alAlarmFallingTrap.setStatus(_B)
-alBasicEvents=NotificationGroup((1,3,6,1,4,1,2603,10,3,1,2))
-alBasicEvents.setObjects(*((_A,_P),(_A,_Q)))
-if mibBuilder.loadTexts:alBasicEvents.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'alNXMIB':alNXMIB,'alEvents':alEvents,_P:alAlarmRisingTrap,_Q:alAlarmFallingTrap,'alObjects':alObjects,'alAlarmTable':alAlarmTable,'alEntry':alEntry,_J:alDeviceIp,_K:alAlarmType,_L:alCardId,_M:alSourceId,_N:alTcaId,_E:alSeverity,_F:alDescription,_G:alTimestamp,_H:alIndex,_O:alTrapCounter,'alConf':alConf,'alGroups':alGroups,'alBasicGroup':alBasicGroup,'alBasicEvents':alBasicEvents,'alCompls':alCompls})
+#
+# PySNMP MIB module ALLOT-NX-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allot/ALLOT-NX-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:47 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+alRegMIB, = mibBuilder.importSymbols("ALLOT-MIB", "alRegMIB")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+alNXMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2603, 10))
+alNXMIB.setRevisions(('2008-12-10 10:00',))
+if mibBuilder.loadTexts: alNXMIB.setLastUpdated('200811090915Z')
+if mibBuilder.loadTexts: alNXMIB.setOrganization('Allot communication Ltd')
+alEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 2603, 10, 0))
+alObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2603, 10, 2))
+alAlarmTable = MibTable((1, 3, 6, 1, 4, 1, 2603, 10, 2, 1), )
+if mibBuilder.loadTexts: alAlarmTable.setStatus('current')
+alEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2603, 10, 2, 1, 1), ).setIndexNames((0, "ALLOT-NX-MIB", "alDeviceIp"), (0, "ALLOT-NX-MIB", "alAlarmType"), (0, "ALLOT-NX-MIB", "alCardId"), (0, "ALLOT-NX-MIB", "alSourceId"), (0, "ALLOT-NX-MIB", "alTcaId"))
+if mibBuilder.loadTexts: alEntry.setStatus('current')
+alDeviceIp = MibTableColumn((1, 3, 6, 1, 4, 1, 2603, 10, 2, 1, 1, 1), IpAddress())
+if mibBuilder.loadTexts: alDeviceIp.setStatus('current')
+alCardId = MibTableColumn((1, 3, 6, 1, 4, 1, 2603, 10, 2, 1, 1, 3), Unsigned32())
+if mibBuilder.loadTexts: alCardId.setStatus('current')
+alAlarmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2603, 10, 2, 1, 1, 2), Unsigned32())
+if mibBuilder.loadTexts: alAlarmType.setStatus('current')
+alSourceId = MibTableColumn((1, 3, 6, 1, 4, 1, 2603, 10, 2, 1, 1, 4), Unsigned32())
+if mibBuilder.loadTexts: alSourceId.setStatus('current')
+alTcaId = MibTableColumn((1, 3, 6, 1, 4, 1, 2603, 10, 2, 1, 1, 5), Unsigned32())
+if mibBuilder.loadTexts: alTcaId.setStatus('current')
+alSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 2603, 10, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("unknown", 0), ("cleared", 1), ("indeterminate", 2), ("critical", 3), ("major", 4), ("minor", 5), ("warning", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alSeverity.setStatus('current')
+alDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 2603, 10, 2, 1, 1, 7), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alDescription.setStatus('current')
+alTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 2603, 10, 2, 1, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alTimestamp.setStatus('current')
+alIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2603, 10, 2, 1, 1, 9), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alIndex.setStatus('current')
+alTrapCounter = MibScalar((1, 3, 6, 1, 4, 1, 2603, 10, 2, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alTrapCounter.setStatus('current')
+alConf = MibIdentifier((1, 3, 6, 1, 4, 1, 2603, 10, 3))
+alGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2603, 10, 3, 1))
+alCompls = MibIdentifier((1, 3, 6, 1, 4, 1, 2603, 10, 3, 2))
+alAlarmRisingTrap = NotificationType((1, 3, 6, 1, 4, 1, 2603, 10, 0, 1)).setObjects(("ALLOT-NX-MIB", "alSeverity"), ("ALLOT-NX-MIB", "alDescription"), ("ALLOT-NX-MIB", "alTimestamp"), ("ALLOT-NX-MIB", "alIndex"))
+if mibBuilder.loadTexts: alAlarmRisingTrap.setStatus('current')
+alAlarmFallingTrap = NotificationType((1, 3, 6, 1, 4, 1, 2603, 10, 0, 2)).setObjects(("ALLOT-NX-MIB", "alSeverity"), ("ALLOT-NX-MIB", "alDescription"), ("ALLOT-NX-MIB", "alTimestamp"), ("ALLOT-NX-MIB", "alIndex"))
+if mibBuilder.loadTexts: alAlarmFallingTrap.setStatus('current')
+alBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2603, 10, 3, 1, 1)).setObjects(("ALLOT-NX-MIB", "alSeverity"), ("ALLOT-NX-MIB", "alDescription"), ("ALLOT-NX-MIB", "alTrapCounter"), ("ALLOT-NX-MIB", "alTimestamp"), ("ALLOT-NX-MIB", "alIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alBasicGroup = alBasicGroup.setStatus('current')
+alBasicEvents = NotificationGroup((1, 3, 6, 1, 4, 1, 2603, 10, 3, 1, 2)).setObjects(("ALLOT-NX-MIB", "alAlarmRisingTrap"), ("ALLOT-NX-MIB", "alAlarmFallingTrap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alBasicEvents = alBasicEvents.setStatus('current')
+mibBuilder.exportSymbols("ALLOT-NX-MIB", alTcaId=alTcaId, alDescription=alDescription, alAlarmFallingTrap=alAlarmFallingTrap, alConf=alConf, alCardId=alCardId, alObjects=alObjects, alBasicGroup=alBasicGroup, alAlarmRisingTrap=alAlarmRisingTrap, alSourceId=alSourceId, PYSNMP_MODULE_ID=alNXMIB, alAlarmType=alAlarmType, alCompls=alCompls, alIndex=alIndex, alTimestamp=alTimestamp, alTrapCounter=alTrapCounter, alEntry=alEntry, alBasicEvents=alBasicEvents, alDeviceIp=alDeviceIp, alSeverity=alSeverity, alNXMIB=alNXMIB, alGroups=alGroups, alAlarmTable=alAlarmTable, alEvents=alEvents)

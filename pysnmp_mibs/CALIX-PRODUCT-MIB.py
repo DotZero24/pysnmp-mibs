@@ -1,123 +1,93 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-calixManagement,calixModules,calixProducts,calixRegistrations=mibBuilder.importSymbols('CALIX-SMI','calixManagement','calixModules','calixProducts','calixRegistrations')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-calixProduct=ModuleIdentity((1,3,6,1,4,1,6321,1,1,1))
-if mibBuilder.loadTexts:calixProduct.setRevisions(('2009-12-10 00:00','2007-06-28 00:00','2000-08-31 00:26'))
-_C7_ObjectIdentity=ObjectIdentity
-c7=_C7_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1))
-if mibBuilder.loadTexts:c7.setStatus(_A)
-_C7ShelfAssembly_ObjectIdentity=ObjectIdentity
-c7ShelfAssembly=_C7ShelfAssembly_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,1))
-if mibBuilder.loadTexts:c7ShelfAssembly.setStatus(_A)
-_C7Backplane_ObjectIdentity=ObjectIdentity
-c7Backplane=_C7Backplane_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,2))
-if mibBuilder.loadTexts:c7Backplane.setStatus(_A)
-_C7Slot_ObjectIdentity=ObjectIdentity
-c7Slot=_C7Slot_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,3))
-if mibBuilder.loadTexts:c7Slot.setStatus(_A)
-_C7Card_ObjectIdentity=ObjectIdentity
-c7Card=_C7Card_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4))
-if mibBuilder.loadTexts:c7Card.setStatus(_A)
-_Amp_ObjectIdentity=ObjectIdentity
-amp=_Amp_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,1))
-if mibBuilder.loadTexts:amp.setStatus(_A)
-_Mta_ObjectIdentity=ObjectIdentity
-mta=_Mta_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,2))
-if mibBuilder.loadTexts:mta.setStatus(_A)
-_RapOc_ObjectIdentity=ObjectIdentity
-rapOc=_RapOc_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,3))
-if mibBuilder.loadTexts:rapOc.setStatus(_A)
-_RapDs3_ObjectIdentity=ObjectIdentity
-rapDs3=_RapDs3_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,4))
-if mibBuilder.loadTexts:rapDs3.setStatus(_A)
-_Rpots24_ObjectIdentity=ObjectIdentity
-rpots24=_Rpots24_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,5))
-if mibBuilder.loadTexts:rpots24.setStatus(_A)
-_Adsl24_ObjectIdentity=ObjectIdentity
-adsl24=_Adsl24_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,6))
-if mibBuilder.loadTexts:adsl24.setStatus(_A)
-_Ds1x12_ObjectIdentity=ObjectIdentity
-ds1x12=_Ds1x12_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,7))
-if mibBuilder.loadTexts:ds1x12.setStatus(_A)
-_Ds3x12s_ObjectIdentity=ObjectIdentity
-ds3x12s=_Ds3x12s_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,8))
-if mibBuilder.loadTexts:ds3x12s.setStatus(_A)
-_Ds3x12p_ObjectIdentity=ObjectIdentity
-ds3x12p=_Ds3x12p_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,9))
-if mibBuilder.loadTexts:ds3x12p.setStatus(_A)
-_Oc3x4ir_ObjectIdentity=ObjectIdentity
-oc3x4ir=_Oc3x4ir_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,10))
-if mibBuilder.loadTexts:oc3x4ir.setStatus(_A)
-_Oc12x4ir_ObjectIdentity=ObjectIdentity
-oc12x4ir=_Oc12x4ir_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,11))
-if mibBuilder.loadTexts:oc12x4ir.setStatus(_A)
-_Oc48x1lr_ObjectIdentity=ObjectIdentity
-oc48x1lr=_Oc48x1lr_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,12))
-if mibBuilder.loadTexts:oc48x1lr.setStatus(_A)
-_Fta_ObjectIdentity=ObjectIdentity
-fta=_Fta_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,13))
-if mibBuilder.loadTexts:fta.setStatus(_A)
-_Dfta_ObjectIdentity=ObjectIdentity
-dfta=_Dfta_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,14))
-if mibBuilder.loadTexts:dfta.setStatus(_A)
-_Mspa_ObjectIdentity=ObjectIdentity
-mspa=_Mspa_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,15))
-if mibBuilder.loadTexts:mspa.setStatus(_A)
-_Mspb_ObjectIdentity=ObjectIdentity
-mspb=_Mspb_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,4,16))
-if mibBuilder.loadTexts:mspb.setStatus(_A)
-_C7Port_ObjectIdentity=ObjectIdentity
-c7Port=_C7Port_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,5))
-if mibBuilder.loadTexts:c7Port.setStatus(_A)
-_Ds0_ObjectIdentity=ObjectIdentity
-ds0=_Ds0_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,5,1))
-if mibBuilder.loadTexts:ds0.setStatus(_A)
-_C7Ds1_ObjectIdentity=ObjectIdentity
-c7Ds1=_C7Ds1_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,5,2))
-if mibBuilder.loadTexts:c7Ds1.setStatus(_A)
-_C7Ds3_ObjectIdentity=ObjectIdentity
-c7Ds3=_C7Ds3_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,5,3))
-if mibBuilder.loadTexts:c7Ds3.setStatus(_A)
-_Adsl_ObjectIdentity=ObjectIdentity
-adsl=_Adsl_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,5,4))
-if mibBuilder.loadTexts:adsl.setStatus(_A)
-_Oc3_ObjectIdentity=ObjectIdentity
-oc3=_Oc3_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,5,5))
-if mibBuilder.loadTexts:oc3.setStatus(_A)
-_Oc12_ObjectIdentity=ObjectIdentity
-oc12=_Oc12_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,5,6))
-if mibBuilder.loadTexts:oc12.setStatus(_A)
-_Oc48_ObjectIdentity=ObjectIdentity
-oc48=_Oc48_ObjectIdentity((1,3,6,1,4,1,6321,1,2,1,5,7))
-if mibBuilder.loadTexts:oc48.setStatus(_A)
-_E7_ObjectIdentity=ObjectIdentity
-e7=_E7_ObjectIdentity((1,3,6,1,4,1,6321,1,2,2))
-if mibBuilder.loadTexts:e7.setStatus(_A)
-_E7Modules_ObjectIdentity=ObjectIdentity
-e7Modules=_E7Modules_ObjectIdentity((1,3,6,1,4,1,6321,1,2,2,1))
-if mibBuilder.loadTexts:e7Modules.setStatus(_A)
-_E7Devices_ObjectIdentity=ObjectIdentity
-e7Devices=_E7Devices_ObjectIdentity((1,3,6,1,4,1,6321,1,2,2,5))
-if mibBuilder.loadTexts:e7Devices.setStatus(_A)
-_E5x312_ObjectIdentity=ObjectIdentity
-e5x312=_E5x312_ObjectIdentity((1,3,6,1,4,1,6321,1,2,2,5,1))
-if mibBuilder.loadTexts:e5x312.setStatus(_A)
-_E5x400_ObjectIdentity=ObjectIdentity
-e5x400=_E5x400_ObjectIdentity((1,3,6,1,4,1,6321,1,2,2,5,2))
-if mibBuilder.loadTexts:e5x400.setStatus(_A)
-_E7x2_ObjectIdentity=ObjectIdentity
-e7x2=_E7x2_ObjectIdentity((1,3,6,1,4,1,6321,1,2,2,5,3))
-if mibBuilder.loadTexts:e7x2.setStatus(_A)
-_E7x20_ObjectIdentity=ObjectIdentity
-e7x20=_E7x20_ObjectIdentity((1,3,6,1,4,1,6321,1,2,2,5,4))
-if mibBuilder.loadTexts:e7x20.setStatus(_A)
-_E5x100_ObjectIdentity=ObjectIdentity
-e5x100=_E5x100_ObjectIdentity((1,3,6,1,4,1,6321,1,2,3))
-if mibBuilder.loadTexts:e5x100.setStatus(_A)
-mibBuilder.exportSymbols('CALIX-PRODUCT-MIB',**{'calixProduct':calixProduct,'c7':c7,'c7ShelfAssembly':c7ShelfAssembly,'c7Backplane':c7Backplane,'c7Slot':c7Slot,'c7Card':c7Card,'amp':amp,'mta':mta,'rapOc':rapOc,'rapDs3':rapDs3,'rpots24':rpots24,'adsl24':adsl24,'ds1x12':ds1x12,'ds3x12s':ds3x12s,'ds3x12p':ds3x12p,'oc3x4ir':oc3x4ir,'oc12x4ir':oc12x4ir,'oc48x1lr':oc48x1lr,'fta':fta,'dfta':dfta,'mspa':mspa,'mspb':mspb,'c7Port':c7Port,'ds0':ds0,'c7Ds1':c7Ds1,'c7Ds3':c7Ds3,'adsl':adsl,'oc3':oc3,'oc12':oc12,'oc48':oc48,'e7':e7,'e7Modules':e7Modules,'e7Devices':e7Devices,'e5x312':e5x312,'e5x400':e5x400,'e7x2':e7x2,'e7x20':e7x20,'e5x100':e5x100})
+#
+# PySNMP MIB module CALIX-PRODUCT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/calix/CALIX-PRODUCT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+calixProducts, calixRegistrations, calixManagement, calixModules = mibBuilder.importSymbols("CALIX-SMI", "calixProducts", "calixRegistrations", "calixManagement", "calixModules")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+calixProduct = ModuleIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 1, 1))
+calixProduct.setRevisions(('2009-12-10 00:00', '2007-06-28 00:00', '2000-08-31 00:26',))
+if mibBuilder.loadTexts: calixProduct.setLastUpdated('200706280000Z')
+if mibBuilder.loadTexts: calixProduct.setOrganization('Calix Networks, Inc.')
+c7 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1))
+if mibBuilder.loadTexts: c7.setStatus('current')
+e7 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 2))
+if mibBuilder.loadTexts: e7.setStatus('current')
+e7Modules = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 2, 1))
+if mibBuilder.loadTexts: e7Modules.setStatus('current')
+e7Devices = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 2, 5))
+if mibBuilder.loadTexts: e7Devices.setStatus('current')
+e5x312 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 2, 5, 1))
+if mibBuilder.loadTexts: e5x312.setStatus('current')
+e5x400 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 2, 5, 2))
+if mibBuilder.loadTexts: e5x400.setStatus('current')
+e7x2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 2, 5, 3))
+if mibBuilder.loadTexts: e7x2.setStatus('current')
+e7x20 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 2, 5, 4))
+if mibBuilder.loadTexts: e7x20.setStatus('current')
+e5x100 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 3))
+if mibBuilder.loadTexts: e5x100.setStatus('current')
+c7ShelfAssembly = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 1))
+if mibBuilder.loadTexts: c7ShelfAssembly.setStatus('current')
+c7Backplane = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 2))
+if mibBuilder.loadTexts: c7Backplane.setStatus('current')
+c7Slot = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 3))
+if mibBuilder.loadTexts: c7Slot.setStatus('current')
+c7Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4))
+if mibBuilder.loadTexts: c7Card.setStatus('current')
+c7Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 5))
+if mibBuilder.loadTexts: c7Port.setStatus('current')
+amp = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 1))
+if mibBuilder.loadTexts: amp.setStatus('current')
+mta = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 2))
+if mibBuilder.loadTexts: mta.setStatus('current')
+rapOc = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 3))
+if mibBuilder.loadTexts: rapOc.setStatus('current')
+rapDs3 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 4))
+if mibBuilder.loadTexts: rapDs3.setStatus('current')
+rpots24 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 5))
+if mibBuilder.loadTexts: rpots24.setStatus('current')
+adsl24 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 6))
+if mibBuilder.loadTexts: adsl24.setStatus('current')
+ds1x12 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 7))
+if mibBuilder.loadTexts: ds1x12.setStatus('current')
+ds3x12s = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 8))
+if mibBuilder.loadTexts: ds3x12s.setStatus('current')
+ds3x12p = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 9))
+if mibBuilder.loadTexts: ds3x12p.setStatus('current')
+oc3x4ir = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 10))
+if mibBuilder.loadTexts: oc3x4ir.setStatus('current')
+oc12x4ir = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 11))
+if mibBuilder.loadTexts: oc12x4ir.setStatus('current')
+oc48x1lr = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 12))
+if mibBuilder.loadTexts: oc48x1lr.setStatus('current')
+fta = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 13))
+if mibBuilder.loadTexts: fta.setStatus('current')
+dfta = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 14))
+if mibBuilder.loadTexts: dfta.setStatus('current')
+mspa = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 15))
+if mibBuilder.loadTexts: mspa.setStatus('current')
+mspb = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 4, 16))
+if mibBuilder.loadTexts: mspb.setStatus('current')
+ds0 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 5, 1))
+if mibBuilder.loadTexts: ds0.setStatus('current')
+c7Ds1 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 5, 2))
+if mibBuilder.loadTexts: c7Ds1.setStatus('current')
+c7Ds3 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 5, 3))
+if mibBuilder.loadTexts: c7Ds3.setStatus('current')
+adsl = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 5, 4))
+if mibBuilder.loadTexts: adsl.setStatus('current')
+oc3 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 5, 5))
+if mibBuilder.loadTexts: oc3.setStatus('current')
+oc12 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 5, 6))
+if mibBuilder.loadTexts: oc12.setStatus('current')
+oc48 = ObjectIdentity((1, 3, 6, 1, 4, 1, 6321, 1, 2, 1, 5, 7))
+if mibBuilder.loadTexts: oc48.setStatus('current')
+mibBuilder.exportSymbols("CALIX-PRODUCT-MIB", PYSNMP_MODULE_ID=calixProduct, e7Modules=e7Modules, c7ShelfAssembly=c7ShelfAssembly, amp=amp, rpots24=rpots24, c7Backplane=c7Backplane, c7Port=c7Port, c7=c7, adsl24=adsl24, oc48=oc48, e7=e7, e7Devices=e7Devices, fta=fta, c7Ds3=c7Ds3, adsl=adsl, oc12x4ir=oc12x4ir, e5x100=e5x100, e7x2=e7x2, mspa=mspa, e5x312=e5x312, ds3x12s=ds3x12s, e7x20=e7x20, ds3x12p=ds3x12p, mta=mta, oc3x4ir=oc3x4ir, dfta=dfta, c7Slot=c7Slot, oc48x1lr=oc48x1lr, oc3=oc3, ds1x12=ds1x12, ds0=ds0, calixProduct=calixProduct, c7Ds1=c7Ds1, rapOc=rapOc, c7Card=c7Card, mspb=mspb, e5x400=e5x400, rapDs3=rapDs3, oc12=oc12)

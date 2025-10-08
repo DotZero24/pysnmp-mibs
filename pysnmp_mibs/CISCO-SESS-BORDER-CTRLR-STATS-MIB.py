@@ -1,656 +1,246 @@
-_Al='csbSIPMthdRCCurrentStatsGroup'
-_Ak='csbSIPMthdRCHistoryStatsGroup'
-_Aj='csbSIPMthdHistoryStatsGroup'
-_Ai='csbSIPMthdCurrentStatsGroup'
-_Ah='csbRfBillRealmStatsGroup'
-_Ag='csbRadiusStatsGroup'
-_Af='csbSIPMthdRCHistoryStatsRespOut'
-_Ae='csbSIPMthdRCHistoryStatsRespIn'
-_Ad='csbSIPMthdRCHistoryStatsMethodName'
-_Ac='csbSIPMthdRCCurrentStatsRespOut'
-_Ab='csbSIPMthdRCCurrentStatsRespIn'
-_Aa='csbSIPMthdRCCurrentStatsMethodName'
-_AZ='csbSIPMthdHistoryStatsResp6xxOut'
-_AY='csbSIPMthdHistoryStatsResp6xxIn'
-_AX='csbSIPMthdHistoryStatsResp5xxOut'
-_AW='csbSIPMthdHistoryStatsResp5xxIn'
-_AV='csbSIPMthdHistoryStatsResp4xxOut'
-_AU='csbSIPMthdHistoryStatsResp4xxIn'
-_AT='csbSIPMthdHistoryStatsResp3xxOut'
-_AS='csbSIPMthdHistoryStatsResp3xxIn'
-_AR='csbSIPMthdHistoryStatsResp2xxOut'
-_AQ='csbSIPMthdHistoryStatsResp2xxIn'
-_AP='csbSIPMthdHistoryStatsResp1xxOut'
-_AO='csbSIPMthdHistoryStatsResp1xxIn'
-_AN='csbSIPMthdHistoryStatsReqOut'
-_AM='csbSIPMthdHistoryStatsReqIn'
-_AL='csbSIPMthdHistoryStatsMethodName'
-_AK='csbSIPMthdCurrentStatsResp6xxOut'
-_AJ='csbSIPMthdCurrentStatsResp6xxIn'
-_AI='csbSIPMthdCurrentStatsResp5xxOut'
-_AH='csbSIPMthdCurrentStatsResp5xxIn'
-_AG='csbSIPMthdCurrentStatsResp4xxOut'
-_AF='csbSIPMthdCurrentStatsResp4xxIn'
-_AE='csbSIPMthdCurrentStatsResp3xxOut'
-_AD='csbSIPMthdCurrentStatsResp3xxIn'
-_AC='csbSIPMthdCurrentStatsResp2xxOut'
-_AB='csbSIPMthdCurrentStatsResp2xxIn'
-_AA='csbSIPMthdCurrentStatsResp1xxOut'
-_A9='csbSIPMthdCurrentStatsResp1xxIn'
-_A8='csbSIPMthdCurrentStatsReqOut'
-_A7='csbSIPMthdCurrentStatsReqIn'
-_A6='csbSIPMthdCurrentStatsMethodName'
-_A5='csbRfBillRealmStatsFailEventAcrs'
-_A4='csbRfBillRealmStatsFailStopAcrs'
-_A3='csbRfBillRealmStatsFailInterimAcrs'
-_A2='csbRfBillRealmStatsFailStartAcrs'
-_A1='csbRfBillRealmStatsSuccEventAcrs'
-_A0='csbRfBillRealmStatsSuccStopAcrs'
-_z='csbRfBillRealmStatsSuccInterimAcrs'
-_y='csbRfBillRealmStatsSuccStartAcrs'
-_x='csbRfBillRealmStatsTotalEventAcrs'
-_w='csbRfBillRealmStatsTotalStopAcrs'
-_v='csbRfBillRealmStatsTotalInterimAcrs'
-_u='csbRfBillRealmStatsTotalStartAcrs'
-_t='csbRadiusStatsDropped'
-_s='csbRadiusStatsUnknownType'
-_r='csbRadiusStatsTimeouts'
-_q='csbRadiusStatsPending'
-_p='csbRadiusStatsBadAuths'
-_o='csbRadiusStatsMalformedRsps'
-_n='csbRadiusStatsActRsps'
-_m='csbRadiusStatsActRetrans'
-_l='csbRadiusStatsActReqs'
-_k='csbRadiusStatsAcsChalls'
-_j='csbRadiusStatsAcsRejects'
-_i='csbRadiusStatsAcsAccpts'
-_h='csbRadiusStatsAcsRtrns'
-_g='csbRadiusStatsAcsReqs'
-_f='csbRadiusStatsSrvrName'
-_e='csbRadiusStatsClientType'
-_d='csbRadiusStatsClientName'
-_c='csbSIPMthdRCHistoryStatsInterval'
-_b='csbSIPMthdRCHistoryStatsRespCode'
-_a='csbSIPMthdRCHistoryStatsMethod'
-_Z='csbSIPMthdRCCurrentStatsInterval'
-_Y='csbSIPMthdRCCurrentStatsRespCode'
-_X='csbSIPMthdRCCurrentStatsMethod'
-_W='csbSIPMthdHistoryStatsInterval'
-_V='csbSIPMthdHistoryStatsMethod'
-_U='csbSIPMthdCurrentStatsInterval'
-_T='csbSIPMthdCurrentStatsMethod'
-_S='csbRfBillRealmStatsIndex'
-_R='csbRadiusStatsEntIndex'
-_Q='Unsigned32'
-_P='csbSIPMthdRCHistoryStatsAdjName'
-_O='csbSIPMthdRCCurrentStatsAdjName'
-_N='csbSIPMthdHistoryStatsAdjName'
-_M='csbSIPMthdCurrentStatsAdjName'
-_L='csbRfBillRealmStatsRealmName'
-_K='requests'
-_J='csbCallStatsServiceIndex'
-_I='csbCallStatsInstanceIndex'
-_H='ACRs'
-_G='not-accessible'
-_F='packets'
-_E='CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB'
-_D='responses'
-_C='read-only'
-_B='CISCO-SESS-BORDER-CTRLR-STATS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CiscoSbcPeriodicStatsInterval,csbCallStatsInstanceIndex,csbCallStatsServiceIndex=mibBuilder.importSymbols(_E,'CiscoSbcPeriodicStatsInterval',_I,_J)
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_Q,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoSbcStatsMIB=ModuleIdentity((1,3,6,1,4,1,9,9,757))
-if mibBuilder.loadTexts:ciscoSbcStatsMIB.setRevisions(('2010-09-15 00:00',))
-class CiscoSbcSIPMethod(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14)));namedValues=NamedValues(*(('unknown',1),('ack',2),('bye',3),('cancel',4),('info',5),('invite',6),('message',7),('notify',8),('options',9),('prack',10),('refer',11),('register',12),('subscribe',13),('update',14)))
-class CiscoSbcRadiusClientType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('authentication',1),('accounting',2)))
-_CiscoSbcStatsMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoSbcStatsMIBNotifs=_CiscoSbcStatsMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,757,0))
-_CiscoSbcStatsMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoSbcStatsMIBObjects=_CiscoSbcStatsMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,757,1))
-_CsbRadiusStatsTable_Object=MibTable
-csbRadiusStatsTable=_CsbRadiusStatsTable_Object((1,3,6,1,4,1,9,9,757,1,1))
-if mibBuilder.loadTexts:csbRadiusStatsTable.setStatus(_A)
-_CsbRadiusStatsEntry_Object=MibTableRow
-csbRadiusStatsEntry=_CsbRadiusStatsEntry_Object((1,3,6,1,4,1,9,9,757,1,1,1))
-csbRadiusStatsEntry.setIndexNames((0,_E,_I),(0,_E,_J),(0,_B,_R))
-if mibBuilder.loadTexts:csbRadiusStatsEntry.setStatus(_A)
-_CsbRadiusStatsEntIndex_Type=Unsigned32
-_CsbRadiusStatsEntIndex_Object=MibTableColumn
-csbRadiusStatsEntIndex=_CsbRadiusStatsEntIndex_Object((1,3,6,1,4,1,9,9,757,1,1,1,1),_CsbRadiusStatsEntIndex_Type())
-csbRadiusStatsEntIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:csbRadiusStatsEntIndex.setStatus(_A)
-_CsbRadiusStatsClientName_Type=SnmpAdminString
-_CsbRadiusStatsClientName_Object=MibTableColumn
-csbRadiusStatsClientName=_CsbRadiusStatsClientName_Object((1,3,6,1,4,1,9,9,757,1,1,1,2),_CsbRadiusStatsClientName_Type())
-csbRadiusStatsClientName.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsClientName.setStatus(_A)
-_CsbRadiusStatsClientType_Type=CiscoSbcRadiusClientType
-_CsbRadiusStatsClientType_Object=MibTableColumn
-csbRadiusStatsClientType=_CsbRadiusStatsClientType_Object((1,3,6,1,4,1,9,9,757,1,1,1,3),_CsbRadiusStatsClientType_Type())
-csbRadiusStatsClientType.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsClientType.setStatus(_A)
-_CsbRadiusStatsSrvrName_Type=SnmpAdminString
-_CsbRadiusStatsSrvrName_Object=MibTableColumn
-csbRadiusStatsSrvrName=_CsbRadiusStatsSrvrName_Object((1,3,6,1,4,1,9,9,757,1,1,1,4),_CsbRadiusStatsSrvrName_Type())
-csbRadiusStatsSrvrName.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsSrvrName.setStatus(_A)
-_CsbRadiusStatsAcsReqs_Type=Counter64
-_CsbRadiusStatsAcsReqs_Object=MibTableColumn
-csbRadiusStatsAcsReqs=_CsbRadiusStatsAcsReqs_Object((1,3,6,1,4,1,9,9,757,1,1,1,5),_CsbRadiusStatsAcsReqs_Type())
-csbRadiusStatsAcsReqs.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsAcsReqs.setStatus(_A)
-if mibBuilder.loadTexts:csbRadiusStatsAcsReqs.setUnits(_F)
-_CsbRadiusStatsAcsRtrns_Type=Counter64
-_CsbRadiusStatsAcsRtrns_Object=MibTableColumn
-csbRadiusStatsAcsRtrns=_CsbRadiusStatsAcsRtrns_Object((1,3,6,1,4,1,9,9,757,1,1,1,6),_CsbRadiusStatsAcsRtrns_Type())
-csbRadiusStatsAcsRtrns.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsAcsRtrns.setStatus(_A)
-if mibBuilder.loadTexts:csbRadiusStatsAcsRtrns.setUnits(_F)
-_CsbRadiusStatsAcsAccpts_Type=Counter64
-_CsbRadiusStatsAcsAccpts_Object=MibTableColumn
-csbRadiusStatsAcsAccpts=_CsbRadiusStatsAcsAccpts_Object((1,3,6,1,4,1,9,9,757,1,1,1,7),_CsbRadiusStatsAcsAccpts_Type())
-csbRadiusStatsAcsAccpts.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsAcsAccpts.setStatus(_A)
-_CsbRadiusStatsAcsRejects_Type=Counter64
-_CsbRadiusStatsAcsRejects_Object=MibTableColumn
-csbRadiusStatsAcsRejects=_CsbRadiusStatsAcsRejects_Object((1,3,6,1,4,1,9,9,757,1,1,1,8),_CsbRadiusStatsAcsRejects_Type())
-csbRadiusStatsAcsRejects.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsAcsRejects.setStatus(_A)
-if mibBuilder.loadTexts:csbRadiusStatsAcsRejects.setUnits(_F)
-_CsbRadiusStatsAcsChalls_Type=Counter64
-_CsbRadiusStatsAcsChalls_Object=MibTableColumn
-csbRadiusStatsAcsChalls=_CsbRadiusStatsAcsChalls_Object((1,3,6,1,4,1,9,9,757,1,1,1,9),_CsbRadiusStatsAcsChalls_Type())
-csbRadiusStatsAcsChalls.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsAcsChalls.setStatus(_A)
-if mibBuilder.loadTexts:csbRadiusStatsAcsChalls.setUnits(_F)
-_CsbRadiusStatsActReqs_Type=Counter64
-_CsbRadiusStatsActReqs_Object=MibTableColumn
-csbRadiusStatsActReqs=_CsbRadiusStatsActReqs_Object((1,3,6,1,4,1,9,9,757,1,1,1,10),_CsbRadiusStatsActReqs_Type())
-csbRadiusStatsActReqs.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsActReqs.setStatus(_A)
-if mibBuilder.loadTexts:csbRadiusStatsActReqs.setUnits(_F)
-_CsbRadiusStatsActRetrans_Type=Counter64
-_CsbRadiusStatsActRetrans_Object=MibTableColumn
-csbRadiusStatsActRetrans=_CsbRadiusStatsActRetrans_Object((1,3,6,1,4,1,9,9,757,1,1,1,11),_CsbRadiusStatsActRetrans_Type())
-csbRadiusStatsActRetrans.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsActRetrans.setStatus(_A)
-if mibBuilder.loadTexts:csbRadiusStatsActRetrans.setUnits(_F)
-_CsbRadiusStatsActRsps_Type=Counter64
-_CsbRadiusStatsActRsps_Object=MibTableColumn
-csbRadiusStatsActRsps=_CsbRadiusStatsActRsps_Object((1,3,6,1,4,1,9,9,757,1,1,1,12),_CsbRadiusStatsActRsps_Type())
-csbRadiusStatsActRsps.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsActRsps.setStatus(_A)
-if mibBuilder.loadTexts:csbRadiusStatsActRsps.setUnits(_F)
-_CsbRadiusStatsMalformedRsps_Type=Counter64
-_CsbRadiusStatsMalformedRsps_Object=MibTableColumn
-csbRadiusStatsMalformedRsps=_CsbRadiusStatsMalformedRsps_Object((1,3,6,1,4,1,9,9,757,1,1,1,13),_CsbRadiusStatsMalformedRsps_Type())
-csbRadiusStatsMalformedRsps.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsMalformedRsps.setStatus(_A)
-if mibBuilder.loadTexts:csbRadiusStatsMalformedRsps.setUnits(_F)
-_CsbRadiusStatsBadAuths_Type=Counter64
-_CsbRadiusStatsBadAuths_Object=MibTableColumn
-csbRadiusStatsBadAuths=_CsbRadiusStatsBadAuths_Object((1,3,6,1,4,1,9,9,757,1,1,1,14),_CsbRadiusStatsBadAuths_Type())
-csbRadiusStatsBadAuths.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsBadAuths.setStatus(_A)
-if mibBuilder.loadTexts:csbRadiusStatsBadAuths.setUnits(_F)
-_CsbRadiusStatsPending_Type=Gauge32
-_CsbRadiusStatsPending_Object=MibTableColumn
-csbRadiusStatsPending=_CsbRadiusStatsPending_Object((1,3,6,1,4,1,9,9,757,1,1,1,15),_CsbRadiusStatsPending_Type())
-csbRadiusStatsPending.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsPending.setStatus(_A)
-if mibBuilder.loadTexts:csbRadiusStatsPending.setUnits(_F)
-_CsbRadiusStatsTimeouts_Type=Counter64
-_CsbRadiusStatsTimeouts_Object=MibTableColumn
-csbRadiusStatsTimeouts=_CsbRadiusStatsTimeouts_Object((1,3,6,1,4,1,9,9,757,1,1,1,16),_CsbRadiusStatsTimeouts_Type())
-csbRadiusStatsTimeouts.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsTimeouts.setStatus(_A)
-if mibBuilder.loadTexts:csbRadiusStatsTimeouts.setUnits(_F)
-_CsbRadiusStatsUnknownType_Type=Counter64
-_CsbRadiusStatsUnknownType_Object=MibTableColumn
-csbRadiusStatsUnknownType=_CsbRadiusStatsUnknownType_Object((1,3,6,1,4,1,9,9,757,1,1,1,17),_CsbRadiusStatsUnknownType_Type())
-csbRadiusStatsUnknownType.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsUnknownType.setStatus(_A)
-if mibBuilder.loadTexts:csbRadiusStatsUnknownType.setUnits(_F)
-_CsbRadiusStatsDropped_Type=Counter64
-_CsbRadiusStatsDropped_Object=MibTableColumn
-csbRadiusStatsDropped=_CsbRadiusStatsDropped_Object((1,3,6,1,4,1,9,9,757,1,1,1,18),_CsbRadiusStatsDropped_Type())
-csbRadiusStatsDropped.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRadiusStatsDropped.setStatus(_A)
-if mibBuilder.loadTexts:csbRadiusStatsDropped.setUnits(_F)
-_CsbRfBillRealmStatsTable_Object=MibTable
-csbRfBillRealmStatsTable=_CsbRfBillRealmStatsTable_Object((1,3,6,1,4,1,9,9,757,1,2))
-if mibBuilder.loadTexts:csbRfBillRealmStatsTable.setStatus(_A)
-_CsbRfBillRealmStatsEntry_Object=MibTableRow
-csbRfBillRealmStatsEntry=_CsbRfBillRealmStatsEntry_Object((1,3,6,1,4,1,9,9,757,1,2,1))
-csbRfBillRealmStatsEntry.setIndexNames((0,_E,_I),(0,_E,_J),(0,_B,_S),(0,_B,_L))
-if mibBuilder.loadTexts:csbRfBillRealmStatsEntry.setStatus(_A)
-class _CsbRfBillRealmStatsIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,31))
-_CsbRfBillRealmStatsIndex_Type.__name__=_Q
-_CsbRfBillRealmStatsIndex_Object=MibTableColumn
-csbRfBillRealmStatsIndex=_CsbRfBillRealmStatsIndex_Object((1,3,6,1,4,1,9,9,757,1,2,1,1),_CsbRfBillRealmStatsIndex_Type())
-csbRfBillRealmStatsIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:csbRfBillRealmStatsIndex.setStatus(_A)
-_CsbRfBillRealmStatsRealmName_Type=SnmpAdminString
-_CsbRfBillRealmStatsRealmName_Object=MibTableColumn
-csbRfBillRealmStatsRealmName=_CsbRfBillRealmStatsRealmName_Object((1,3,6,1,4,1,9,9,757,1,2,1,2),_CsbRfBillRealmStatsRealmName_Type())
-csbRfBillRealmStatsRealmName.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRfBillRealmStatsRealmName.setStatus(_A)
-_CsbRfBillRealmStatsTotalStartAcrs_Type=Unsigned32
-_CsbRfBillRealmStatsTotalStartAcrs_Object=MibTableColumn
-csbRfBillRealmStatsTotalStartAcrs=_CsbRfBillRealmStatsTotalStartAcrs_Object((1,3,6,1,4,1,9,9,757,1,2,1,3),_CsbRfBillRealmStatsTotalStartAcrs_Type())
-csbRfBillRealmStatsTotalStartAcrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRfBillRealmStatsTotalStartAcrs.setStatus(_A)
-if mibBuilder.loadTexts:csbRfBillRealmStatsTotalStartAcrs.setUnits(_H)
-_CsbRfBillRealmStatsTotalInterimAcrs_Type=Unsigned32
-_CsbRfBillRealmStatsTotalInterimAcrs_Object=MibTableColumn
-csbRfBillRealmStatsTotalInterimAcrs=_CsbRfBillRealmStatsTotalInterimAcrs_Object((1,3,6,1,4,1,9,9,757,1,2,1,4),_CsbRfBillRealmStatsTotalInterimAcrs_Type())
-csbRfBillRealmStatsTotalInterimAcrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRfBillRealmStatsTotalInterimAcrs.setStatus(_A)
-if mibBuilder.loadTexts:csbRfBillRealmStatsTotalInterimAcrs.setUnits(_H)
-_CsbRfBillRealmStatsTotalStopAcrs_Type=Unsigned32
-_CsbRfBillRealmStatsTotalStopAcrs_Object=MibTableColumn
-csbRfBillRealmStatsTotalStopAcrs=_CsbRfBillRealmStatsTotalStopAcrs_Object((1,3,6,1,4,1,9,9,757,1,2,1,5),_CsbRfBillRealmStatsTotalStopAcrs_Type())
-csbRfBillRealmStatsTotalStopAcrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRfBillRealmStatsTotalStopAcrs.setStatus(_A)
-if mibBuilder.loadTexts:csbRfBillRealmStatsTotalStopAcrs.setUnits(_H)
-_CsbRfBillRealmStatsTotalEventAcrs_Type=Unsigned32
-_CsbRfBillRealmStatsTotalEventAcrs_Object=MibTableColumn
-csbRfBillRealmStatsTotalEventAcrs=_CsbRfBillRealmStatsTotalEventAcrs_Object((1,3,6,1,4,1,9,9,757,1,2,1,6),_CsbRfBillRealmStatsTotalEventAcrs_Type())
-csbRfBillRealmStatsTotalEventAcrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRfBillRealmStatsTotalEventAcrs.setStatus(_A)
-if mibBuilder.loadTexts:csbRfBillRealmStatsTotalEventAcrs.setUnits(_H)
-_CsbRfBillRealmStatsSuccStartAcrs_Type=Unsigned32
-_CsbRfBillRealmStatsSuccStartAcrs_Object=MibTableColumn
-csbRfBillRealmStatsSuccStartAcrs=_CsbRfBillRealmStatsSuccStartAcrs_Object((1,3,6,1,4,1,9,9,757,1,2,1,7),_CsbRfBillRealmStatsSuccStartAcrs_Type())
-csbRfBillRealmStatsSuccStartAcrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRfBillRealmStatsSuccStartAcrs.setStatus(_A)
-if mibBuilder.loadTexts:csbRfBillRealmStatsSuccStartAcrs.setUnits(_H)
-_CsbRfBillRealmStatsSuccInterimAcrs_Type=Unsigned32
-_CsbRfBillRealmStatsSuccInterimAcrs_Object=MibTableColumn
-csbRfBillRealmStatsSuccInterimAcrs=_CsbRfBillRealmStatsSuccInterimAcrs_Object((1,3,6,1,4,1,9,9,757,1,2,1,8),_CsbRfBillRealmStatsSuccInterimAcrs_Type())
-csbRfBillRealmStatsSuccInterimAcrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRfBillRealmStatsSuccInterimAcrs.setStatus(_A)
-if mibBuilder.loadTexts:csbRfBillRealmStatsSuccInterimAcrs.setUnits(_H)
-_CsbRfBillRealmStatsSuccStopAcrs_Type=Unsigned32
-_CsbRfBillRealmStatsSuccStopAcrs_Object=MibTableColumn
-csbRfBillRealmStatsSuccStopAcrs=_CsbRfBillRealmStatsSuccStopAcrs_Object((1,3,6,1,4,1,9,9,757,1,2,1,9),_CsbRfBillRealmStatsSuccStopAcrs_Type())
-csbRfBillRealmStatsSuccStopAcrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRfBillRealmStatsSuccStopAcrs.setStatus(_A)
-if mibBuilder.loadTexts:csbRfBillRealmStatsSuccStopAcrs.setUnits(_H)
-_CsbRfBillRealmStatsSuccEventAcrs_Type=Unsigned32
-_CsbRfBillRealmStatsSuccEventAcrs_Object=MibTableColumn
-csbRfBillRealmStatsSuccEventAcrs=_CsbRfBillRealmStatsSuccEventAcrs_Object((1,3,6,1,4,1,9,9,757,1,2,1,10),_CsbRfBillRealmStatsSuccEventAcrs_Type())
-csbRfBillRealmStatsSuccEventAcrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRfBillRealmStatsSuccEventAcrs.setStatus(_A)
-if mibBuilder.loadTexts:csbRfBillRealmStatsSuccEventAcrs.setUnits(_H)
-_CsbRfBillRealmStatsFailStartAcrs_Type=Unsigned32
-_CsbRfBillRealmStatsFailStartAcrs_Object=MibTableColumn
-csbRfBillRealmStatsFailStartAcrs=_CsbRfBillRealmStatsFailStartAcrs_Object((1,3,6,1,4,1,9,9,757,1,2,1,11),_CsbRfBillRealmStatsFailStartAcrs_Type())
-csbRfBillRealmStatsFailStartAcrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRfBillRealmStatsFailStartAcrs.setStatus(_A)
-if mibBuilder.loadTexts:csbRfBillRealmStatsFailStartAcrs.setUnits(_H)
-_CsbRfBillRealmStatsFailInterimAcrs_Type=Unsigned32
-_CsbRfBillRealmStatsFailInterimAcrs_Object=MibTableColumn
-csbRfBillRealmStatsFailInterimAcrs=_CsbRfBillRealmStatsFailInterimAcrs_Object((1,3,6,1,4,1,9,9,757,1,2,1,12),_CsbRfBillRealmStatsFailInterimAcrs_Type())
-csbRfBillRealmStatsFailInterimAcrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRfBillRealmStatsFailInterimAcrs.setStatus(_A)
-if mibBuilder.loadTexts:csbRfBillRealmStatsFailInterimAcrs.setUnits(_H)
-_CsbRfBillRealmStatsFailStopAcrs_Type=Unsigned32
-_CsbRfBillRealmStatsFailStopAcrs_Object=MibTableColumn
-csbRfBillRealmStatsFailStopAcrs=_CsbRfBillRealmStatsFailStopAcrs_Object((1,3,6,1,4,1,9,9,757,1,2,1,13),_CsbRfBillRealmStatsFailStopAcrs_Type())
-csbRfBillRealmStatsFailStopAcrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRfBillRealmStatsFailStopAcrs.setStatus(_A)
-if mibBuilder.loadTexts:csbRfBillRealmStatsFailStopAcrs.setUnits(_H)
-_CsbRfBillRealmStatsFailEventAcrs_Type=Unsigned32
-_CsbRfBillRealmStatsFailEventAcrs_Object=MibTableColumn
-csbRfBillRealmStatsFailEventAcrs=_CsbRfBillRealmStatsFailEventAcrs_Object((1,3,6,1,4,1,9,9,757,1,2,1,14),_CsbRfBillRealmStatsFailEventAcrs_Type())
-csbRfBillRealmStatsFailEventAcrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbRfBillRealmStatsFailEventAcrs.setStatus(_A)
-if mibBuilder.loadTexts:csbRfBillRealmStatsFailEventAcrs.setUnits(_H)
-_CsbSIPMthdCurrentStatsTable_Object=MibTable
-csbSIPMthdCurrentStatsTable=_CsbSIPMthdCurrentStatsTable_Object((1,3,6,1,4,1,9,9,757,1,3))
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsTable.setStatus(_A)
-_CsbSIPMthdCurrentStatsEntry_Object=MibTableRow
-csbSIPMthdCurrentStatsEntry=_CsbSIPMthdCurrentStatsEntry_Object((1,3,6,1,4,1,9,9,757,1,3,1))
-csbSIPMthdCurrentStatsEntry.setIndexNames((0,_E,_I),(0,_E,_J),(0,_B,_M),(0,_B,_T),(0,_B,_U))
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsEntry.setStatus(_A)
-_CsbSIPMthdCurrentStatsAdjName_Type=SnmpAdminString
-_CsbSIPMthdCurrentStatsAdjName_Object=MibTableColumn
-csbSIPMthdCurrentStatsAdjName=_CsbSIPMthdCurrentStatsAdjName_Object((1,3,6,1,4,1,9,9,757,1,3,1,1),_CsbSIPMthdCurrentStatsAdjName_Type())
-csbSIPMthdCurrentStatsAdjName.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsAdjName.setStatus(_A)
-_CsbSIPMthdCurrentStatsMethod_Type=CiscoSbcSIPMethod
-_CsbSIPMthdCurrentStatsMethod_Object=MibTableColumn
-csbSIPMthdCurrentStatsMethod=_CsbSIPMthdCurrentStatsMethod_Object((1,3,6,1,4,1,9,9,757,1,3,1,2),_CsbSIPMthdCurrentStatsMethod_Type())
-csbSIPMthdCurrentStatsMethod.setMaxAccess(_G)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsMethod.setStatus(_A)
-_CsbSIPMthdCurrentStatsInterval_Type=CiscoSbcPeriodicStatsInterval
-_CsbSIPMthdCurrentStatsInterval_Object=MibTableColumn
-csbSIPMthdCurrentStatsInterval=_CsbSIPMthdCurrentStatsInterval_Object((1,3,6,1,4,1,9,9,757,1,3,1,3),_CsbSIPMthdCurrentStatsInterval_Type())
-csbSIPMthdCurrentStatsInterval.setMaxAccess(_G)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsInterval.setStatus(_A)
-_CsbSIPMthdCurrentStatsMethodName_Type=SnmpAdminString
-_CsbSIPMthdCurrentStatsMethodName_Object=MibTableColumn
-csbSIPMthdCurrentStatsMethodName=_CsbSIPMthdCurrentStatsMethodName_Object((1,3,6,1,4,1,9,9,757,1,3,1,4),_CsbSIPMthdCurrentStatsMethodName_Type())
-csbSIPMthdCurrentStatsMethodName.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsMethodName.setStatus(_A)
-_CsbSIPMthdCurrentStatsReqIn_Type=Gauge32
-_CsbSIPMthdCurrentStatsReqIn_Object=MibTableColumn
-csbSIPMthdCurrentStatsReqIn=_CsbSIPMthdCurrentStatsReqIn_Object((1,3,6,1,4,1,9,9,757,1,3,1,5),_CsbSIPMthdCurrentStatsReqIn_Type())
-csbSIPMthdCurrentStatsReqIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsReqIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsReqIn.setUnits(_K)
-_CsbSIPMthdCurrentStatsReqOut_Type=Gauge32
-_CsbSIPMthdCurrentStatsReqOut_Object=MibTableColumn
-csbSIPMthdCurrentStatsReqOut=_CsbSIPMthdCurrentStatsReqOut_Object((1,3,6,1,4,1,9,9,757,1,3,1,6),_CsbSIPMthdCurrentStatsReqOut_Type())
-csbSIPMthdCurrentStatsReqOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsReqOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsReqOut.setUnits(_K)
-_CsbSIPMthdCurrentStatsResp1xxIn_Type=Gauge32
-_CsbSIPMthdCurrentStatsResp1xxIn_Object=MibTableColumn
-csbSIPMthdCurrentStatsResp1xxIn=_CsbSIPMthdCurrentStatsResp1xxIn_Object((1,3,6,1,4,1,9,9,757,1,3,1,7),_CsbSIPMthdCurrentStatsResp1xxIn_Type())
-csbSIPMthdCurrentStatsResp1xxIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp1xxIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp1xxIn.setUnits(_D)
-_CsbSIPMthdCurrentStatsResp1xxOut_Type=Gauge32
-_CsbSIPMthdCurrentStatsResp1xxOut_Object=MibTableColumn
-csbSIPMthdCurrentStatsResp1xxOut=_CsbSIPMthdCurrentStatsResp1xxOut_Object((1,3,6,1,4,1,9,9,757,1,3,1,8),_CsbSIPMthdCurrentStatsResp1xxOut_Type())
-csbSIPMthdCurrentStatsResp1xxOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp1xxOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp1xxOut.setUnits(_D)
-_CsbSIPMthdCurrentStatsResp2xxIn_Type=Gauge32
-_CsbSIPMthdCurrentStatsResp2xxIn_Object=MibTableColumn
-csbSIPMthdCurrentStatsResp2xxIn=_CsbSIPMthdCurrentStatsResp2xxIn_Object((1,3,6,1,4,1,9,9,757,1,3,1,9),_CsbSIPMthdCurrentStatsResp2xxIn_Type())
-csbSIPMthdCurrentStatsResp2xxIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp2xxIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp2xxIn.setUnits(_D)
-_CsbSIPMthdCurrentStatsResp2xxOut_Type=Gauge32
-_CsbSIPMthdCurrentStatsResp2xxOut_Object=MibTableColumn
-csbSIPMthdCurrentStatsResp2xxOut=_CsbSIPMthdCurrentStatsResp2xxOut_Object((1,3,6,1,4,1,9,9,757,1,3,1,10),_CsbSIPMthdCurrentStatsResp2xxOut_Type())
-csbSIPMthdCurrentStatsResp2xxOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp2xxOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp2xxOut.setUnits(_D)
-_CsbSIPMthdCurrentStatsResp3xxIn_Type=Gauge32
-_CsbSIPMthdCurrentStatsResp3xxIn_Object=MibTableColumn
-csbSIPMthdCurrentStatsResp3xxIn=_CsbSIPMthdCurrentStatsResp3xxIn_Object((1,3,6,1,4,1,9,9,757,1,3,1,11),_CsbSIPMthdCurrentStatsResp3xxIn_Type())
-csbSIPMthdCurrentStatsResp3xxIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp3xxIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp3xxIn.setUnits(_D)
-_CsbSIPMthdCurrentStatsResp3xxOut_Type=Gauge32
-_CsbSIPMthdCurrentStatsResp3xxOut_Object=MibTableColumn
-csbSIPMthdCurrentStatsResp3xxOut=_CsbSIPMthdCurrentStatsResp3xxOut_Object((1,3,6,1,4,1,9,9,757,1,3,1,12),_CsbSIPMthdCurrentStatsResp3xxOut_Type())
-csbSIPMthdCurrentStatsResp3xxOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp3xxOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp3xxOut.setUnits(_D)
-_CsbSIPMthdCurrentStatsResp4xxIn_Type=Gauge32
-_CsbSIPMthdCurrentStatsResp4xxIn_Object=MibTableColumn
-csbSIPMthdCurrentStatsResp4xxIn=_CsbSIPMthdCurrentStatsResp4xxIn_Object((1,3,6,1,4,1,9,9,757,1,3,1,13),_CsbSIPMthdCurrentStatsResp4xxIn_Type())
-csbSIPMthdCurrentStatsResp4xxIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp4xxIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp4xxIn.setUnits(_D)
-_CsbSIPMthdCurrentStatsResp4xxOut_Type=Gauge32
-_CsbSIPMthdCurrentStatsResp4xxOut_Object=MibTableColumn
-csbSIPMthdCurrentStatsResp4xxOut=_CsbSIPMthdCurrentStatsResp4xxOut_Object((1,3,6,1,4,1,9,9,757,1,3,1,14),_CsbSIPMthdCurrentStatsResp4xxOut_Type())
-csbSIPMthdCurrentStatsResp4xxOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp4xxOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp4xxOut.setUnits(_D)
-_CsbSIPMthdCurrentStatsResp5xxIn_Type=Gauge32
-_CsbSIPMthdCurrentStatsResp5xxIn_Object=MibTableColumn
-csbSIPMthdCurrentStatsResp5xxIn=_CsbSIPMthdCurrentStatsResp5xxIn_Object((1,3,6,1,4,1,9,9,757,1,3,1,15),_CsbSIPMthdCurrentStatsResp5xxIn_Type())
-csbSIPMthdCurrentStatsResp5xxIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp5xxIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp5xxIn.setUnits(_D)
-_CsbSIPMthdCurrentStatsResp5xxOut_Type=Gauge32
-_CsbSIPMthdCurrentStatsResp5xxOut_Object=MibTableColumn
-csbSIPMthdCurrentStatsResp5xxOut=_CsbSIPMthdCurrentStatsResp5xxOut_Object((1,3,6,1,4,1,9,9,757,1,3,1,16),_CsbSIPMthdCurrentStatsResp5xxOut_Type())
-csbSIPMthdCurrentStatsResp5xxOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp5xxOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp5xxOut.setUnits(_D)
-_CsbSIPMthdCurrentStatsResp6xxIn_Type=Gauge32
-_CsbSIPMthdCurrentStatsResp6xxIn_Object=MibTableColumn
-csbSIPMthdCurrentStatsResp6xxIn=_CsbSIPMthdCurrentStatsResp6xxIn_Object((1,3,6,1,4,1,9,9,757,1,3,1,17),_CsbSIPMthdCurrentStatsResp6xxIn_Type())
-csbSIPMthdCurrentStatsResp6xxIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp6xxIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp6xxIn.setUnits(_D)
-_CsbSIPMthdCurrentStatsResp6xxOut_Type=Gauge32
-_CsbSIPMthdCurrentStatsResp6xxOut_Object=MibTableColumn
-csbSIPMthdCurrentStatsResp6xxOut=_CsbSIPMthdCurrentStatsResp6xxOut_Object((1,3,6,1,4,1,9,9,757,1,3,1,18),_CsbSIPMthdCurrentStatsResp6xxOut_Type())
-csbSIPMthdCurrentStatsResp6xxOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp6xxOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsResp6xxOut.setUnits(_D)
-_CsbSIPMthdHistoryStatsTable_Object=MibTable
-csbSIPMthdHistoryStatsTable=_CsbSIPMthdHistoryStatsTable_Object((1,3,6,1,4,1,9,9,757,1,4))
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsTable.setStatus(_A)
-_CsbSIPMthdHistoryStatsEntry_Object=MibTableRow
-csbSIPMthdHistoryStatsEntry=_CsbSIPMthdHistoryStatsEntry_Object((1,3,6,1,4,1,9,9,757,1,4,1))
-csbSIPMthdHistoryStatsEntry.setIndexNames((0,_E,_I),(0,_E,_J),(0,_B,_N),(0,_B,_V),(0,_B,_W))
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsEntry.setStatus(_A)
-_CsbSIPMthdHistoryStatsAdjName_Type=SnmpAdminString
-_CsbSIPMthdHistoryStatsAdjName_Object=MibTableColumn
-csbSIPMthdHistoryStatsAdjName=_CsbSIPMthdHistoryStatsAdjName_Object((1,3,6,1,4,1,9,9,757,1,4,1,1),_CsbSIPMthdHistoryStatsAdjName_Type())
-csbSIPMthdHistoryStatsAdjName.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsAdjName.setStatus(_A)
-_CsbSIPMthdHistoryStatsMethod_Type=CiscoSbcSIPMethod
-_CsbSIPMthdHistoryStatsMethod_Object=MibTableColumn
-csbSIPMthdHistoryStatsMethod=_CsbSIPMthdHistoryStatsMethod_Object((1,3,6,1,4,1,9,9,757,1,4,1,2),_CsbSIPMthdHistoryStatsMethod_Type())
-csbSIPMthdHistoryStatsMethod.setMaxAccess(_G)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsMethod.setStatus(_A)
-_CsbSIPMthdHistoryStatsInterval_Type=CiscoSbcPeriodicStatsInterval
-_CsbSIPMthdHistoryStatsInterval_Object=MibTableColumn
-csbSIPMthdHistoryStatsInterval=_CsbSIPMthdHistoryStatsInterval_Object((1,3,6,1,4,1,9,9,757,1,4,1,3),_CsbSIPMthdHistoryStatsInterval_Type())
-csbSIPMthdHistoryStatsInterval.setMaxAccess(_G)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsInterval.setStatus(_A)
-_CsbSIPMthdHistoryStatsMethodName_Type=SnmpAdminString
-_CsbSIPMthdHistoryStatsMethodName_Object=MibTableColumn
-csbSIPMthdHistoryStatsMethodName=_CsbSIPMthdHistoryStatsMethodName_Object((1,3,6,1,4,1,9,9,757,1,4,1,4),_CsbSIPMthdHistoryStatsMethodName_Type())
-csbSIPMthdHistoryStatsMethodName.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsMethodName.setStatus(_A)
-_CsbSIPMthdHistoryStatsReqIn_Type=Gauge32
-_CsbSIPMthdHistoryStatsReqIn_Object=MibTableColumn
-csbSIPMthdHistoryStatsReqIn=_CsbSIPMthdHistoryStatsReqIn_Object((1,3,6,1,4,1,9,9,757,1,4,1,5),_CsbSIPMthdHistoryStatsReqIn_Type())
-csbSIPMthdHistoryStatsReqIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsReqIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsReqIn.setUnits(_K)
-_CsbSIPMthdHistoryStatsReqOut_Type=Gauge32
-_CsbSIPMthdHistoryStatsReqOut_Object=MibTableColumn
-csbSIPMthdHistoryStatsReqOut=_CsbSIPMthdHistoryStatsReqOut_Object((1,3,6,1,4,1,9,9,757,1,4,1,6),_CsbSIPMthdHistoryStatsReqOut_Type())
-csbSIPMthdHistoryStatsReqOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsReqOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsReqOut.setUnits(_K)
-_CsbSIPMthdHistoryStatsResp1xxIn_Type=Gauge32
-_CsbSIPMthdHistoryStatsResp1xxIn_Object=MibTableColumn
-csbSIPMthdHistoryStatsResp1xxIn=_CsbSIPMthdHistoryStatsResp1xxIn_Object((1,3,6,1,4,1,9,9,757,1,4,1,7),_CsbSIPMthdHistoryStatsResp1xxIn_Type())
-csbSIPMthdHistoryStatsResp1xxIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp1xxIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp1xxIn.setUnits(_D)
-_CsbSIPMthdHistoryStatsResp1xxOut_Type=Gauge32
-_CsbSIPMthdHistoryStatsResp1xxOut_Object=MibTableColumn
-csbSIPMthdHistoryStatsResp1xxOut=_CsbSIPMthdHistoryStatsResp1xxOut_Object((1,3,6,1,4,1,9,9,757,1,4,1,8),_CsbSIPMthdHistoryStatsResp1xxOut_Type())
-csbSIPMthdHistoryStatsResp1xxOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp1xxOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp1xxOut.setUnits(_D)
-_CsbSIPMthdHistoryStatsResp2xxIn_Type=Gauge32
-_CsbSIPMthdHistoryStatsResp2xxIn_Object=MibTableColumn
-csbSIPMthdHistoryStatsResp2xxIn=_CsbSIPMthdHistoryStatsResp2xxIn_Object((1,3,6,1,4,1,9,9,757,1,4,1,9),_CsbSIPMthdHistoryStatsResp2xxIn_Type())
-csbSIPMthdHistoryStatsResp2xxIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp2xxIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp2xxIn.setUnits(_D)
-_CsbSIPMthdHistoryStatsResp2xxOut_Type=Gauge32
-_CsbSIPMthdHistoryStatsResp2xxOut_Object=MibTableColumn
-csbSIPMthdHistoryStatsResp2xxOut=_CsbSIPMthdHistoryStatsResp2xxOut_Object((1,3,6,1,4,1,9,9,757,1,4,1,10),_CsbSIPMthdHistoryStatsResp2xxOut_Type())
-csbSIPMthdHistoryStatsResp2xxOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp2xxOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp2xxOut.setUnits(_D)
-_CsbSIPMthdHistoryStatsResp3xxIn_Type=Gauge32
-_CsbSIPMthdHistoryStatsResp3xxIn_Object=MibTableColumn
-csbSIPMthdHistoryStatsResp3xxIn=_CsbSIPMthdHistoryStatsResp3xxIn_Object((1,3,6,1,4,1,9,9,757,1,4,1,11),_CsbSIPMthdHistoryStatsResp3xxIn_Type())
-csbSIPMthdHistoryStatsResp3xxIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp3xxIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp3xxIn.setUnits(_D)
-_CsbSIPMthdHistoryStatsResp3xxOut_Type=Gauge32
-_CsbSIPMthdHistoryStatsResp3xxOut_Object=MibTableColumn
-csbSIPMthdHistoryStatsResp3xxOut=_CsbSIPMthdHistoryStatsResp3xxOut_Object((1,3,6,1,4,1,9,9,757,1,4,1,12),_CsbSIPMthdHistoryStatsResp3xxOut_Type())
-csbSIPMthdHistoryStatsResp3xxOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp3xxOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp3xxOut.setUnits(_D)
-_CsbSIPMthdHistoryStatsResp4xxIn_Type=Gauge32
-_CsbSIPMthdHistoryStatsResp4xxIn_Object=MibTableColumn
-csbSIPMthdHistoryStatsResp4xxIn=_CsbSIPMthdHistoryStatsResp4xxIn_Object((1,3,6,1,4,1,9,9,757,1,4,1,13),_CsbSIPMthdHistoryStatsResp4xxIn_Type())
-csbSIPMthdHistoryStatsResp4xxIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp4xxIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp4xxIn.setUnits(_D)
-_CsbSIPMthdHistoryStatsResp4xxOut_Type=Gauge32
-_CsbSIPMthdHistoryStatsResp4xxOut_Object=MibTableColumn
-csbSIPMthdHistoryStatsResp4xxOut=_CsbSIPMthdHistoryStatsResp4xxOut_Object((1,3,6,1,4,1,9,9,757,1,4,1,14),_CsbSIPMthdHistoryStatsResp4xxOut_Type())
-csbSIPMthdHistoryStatsResp4xxOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp4xxOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp4xxOut.setUnits(_D)
-_CsbSIPMthdHistoryStatsResp5xxIn_Type=Gauge32
-_CsbSIPMthdHistoryStatsResp5xxIn_Object=MibTableColumn
-csbSIPMthdHistoryStatsResp5xxIn=_CsbSIPMthdHistoryStatsResp5xxIn_Object((1,3,6,1,4,1,9,9,757,1,4,1,15),_CsbSIPMthdHistoryStatsResp5xxIn_Type())
-csbSIPMthdHistoryStatsResp5xxIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp5xxIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp5xxIn.setUnits(_D)
-_CsbSIPMthdHistoryStatsResp5xxOut_Type=Gauge32
-_CsbSIPMthdHistoryStatsResp5xxOut_Object=MibTableColumn
-csbSIPMthdHistoryStatsResp5xxOut=_CsbSIPMthdHistoryStatsResp5xxOut_Object((1,3,6,1,4,1,9,9,757,1,4,1,16),_CsbSIPMthdHistoryStatsResp5xxOut_Type())
-csbSIPMthdHistoryStatsResp5xxOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp5xxOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp5xxOut.setUnits(_D)
-_CsbSIPMthdHistoryStatsResp6xxIn_Type=Gauge32
-_CsbSIPMthdHistoryStatsResp6xxIn_Object=MibTableColumn
-csbSIPMthdHistoryStatsResp6xxIn=_CsbSIPMthdHistoryStatsResp6xxIn_Object((1,3,6,1,4,1,9,9,757,1,4,1,17),_CsbSIPMthdHistoryStatsResp6xxIn_Type())
-csbSIPMthdHistoryStatsResp6xxIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp6xxIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp6xxIn.setUnits(_D)
-_CsbSIPMthdHistoryStatsResp6xxOut_Type=Gauge32
-_CsbSIPMthdHistoryStatsResp6xxOut_Object=MibTableColumn
-csbSIPMthdHistoryStatsResp6xxOut=_CsbSIPMthdHistoryStatsResp6xxOut_Object((1,3,6,1,4,1,9,9,757,1,4,1,18),_CsbSIPMthdHistoryStatsResp6xxOut_Type())
-csbSIPMthdHistoryStatsResp6xxOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp6xxOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsResp6xxOut.setUnits(_D)
-_CsbSIPMthdRCCurrentStatsTable_Object=MibTable
-csbSIPMthdRCCurrentStatsTable=_CsbSIPMthdRCCurrentStatsTable_Object((1,3,6,1,4,1,9,9,757,1,5))
-if mibBuilder.loadTexts:csbSIPMthdRCCurrentStatsTable.setStatus(_A)
-_CsbSIPMthdRCCurrentStatsEntry_Object=MibTableRow
-csbSIPMthdRCCurrentStatsEntry=_CsbSIPMthdRCCurrentStatsEntry_Object((1,3,6,1,4,1,9,9,757,1,5,1))
-csbSIPMthdRCCurrentStatsEntry.setIndexNames((0,_E,_I),(0,_E,_J),(0,_B,_O),(0,_B,_X),(0,_B,_Y),(0,_B,_Z))
-if mibBuilder.loadTexts:csbSIPMthdRCCurrentStatsEntry.setStatus(_A)
-_CsbSIPMthdRCCurrentStatsAdjName_Type=SnmpAdminString
-_CsbSIPMthdRCCurrentStatsAdjName_Object=MibTableColumn
-csbSIPMthdRCCurrentStatsAdjName=_CsbSIPMthdRCCurrentStatsAdjName_Object((1,3,6,1,4,1,9,9,757,1,5,1,1),_CsbSIPMthdRCCurrentStatsAdjName_Type())
-csbSIPMthdRCCurrentStatsAdjName.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdRCCurrentStatsAdjName.setStatus(_A)
-_CsbSIPMthdRCCurrentStatsMethod_Type=CiscoSbcSIPMethod
-_CsbSIPMthdRCCurrentStatsMethod_Object=MibTableColumn
-csbSIPMthdRCCurrentStatsMethod=_CsbSIPMthdRCCurrentStatsMethod_Object((1,3,6,1,4,1,9,9,757,1,5,1,2),_CsbSIPMthdRCCurrentStatsMethod_Type())
-csbSIPMthdRCCurrentStatsMethod.setMaxAccess(_G)
-if mibBuilder.loadTexts:csbSIPMthdRCCurrentStatsMethod.setStatus(_A)
-_CsbSIPMthdRCCurrentStatsRespCode_Type=Unsigned32
-_CsbSIPMthdRCCurrentStatsRespCode_Object=MibTableColumn
-csbSIPMthdRCCurrentStatsRespCode=_CsbSIPMthdRCCurrentStatsRespCode_Object((1,3,6,1,4,1,9,9,757,1,5,1,3),_CsbSIPMthdRCCurrentStatsRespCode_Type())
-csbSIPMthdRCCurrentStatsRespCode.setMaxAccess(_G)
-if mibBuilder.loadTexts:csbSIPMthdRCCurrentStatsRespCode.setStatus(_A)
-_CsbSIPMthdRCCurrentStatsInterval_Type=CiscoSbcPeriodicStatsInterval
-_CsbSIPMthdRCCurrentStatsInterval_Object=MibTableColumn
-csbSIPMthdRCCurrentStatsInterval=_CsbSIPMthdRCCurrentStatsInterval_Object((1,3,6,1,4,1,9,9,757,1,5,1,4),_CsbSIPMthdRCCurrentStatsInterval_Type())
-csbSIPMthdRCCurrentStatsInterval.setMaxAccess(_G)
-if mibBuilder.loadTexts:csbSIPMthdRCCurrentStatsInterval.setStatus(_A)
-_CsbSIPMthdRCCurrentStatsMethodName_Type=SnmpAdminString
-_CsbSIPMthdRCCurrentStatsMethodName_Object=MibTableColumn
-csbSIPMthdRCCurrentStatsMethodName=_CsbSIPMthdRCCurrentStatsMethodName_Object((1,3,6,1,4,1,9,9,757,1,5,1,5),_CsbSIPMthdRCCurrentStatsMethodName_Type())
-csbSIPMthdRCCurrentStatsMethodName.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdRCCurrentStatsMethodName.setStatus(_A)
-_CsbSIPMthdRCCurrentStatsRespIn_Type=Gauge32
-_CsbSIPMthdRCCurrentStatsRespIn_Object=MibTableColumn
-csbSIPMthdRCCurrentStatsRespIn=_CsbSIPMthdRCCurrentStatsRespIn_Object((1,3,6,1,4,1,9,9,757,1,5,1,6),_CsbSIPMthdRCCurrentStatsRespIn_Type())
-csbSIPMthdRCCurrentStatsRespIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdRCCurrentStatsRespIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdRCCurrentStatsRespIn.setUnits(_D)
-_CsbSIPMthdRCCurrentStatsRespOut_Type=Gauge32
-_CsbSIPMthdRCCurrentStatsRespOut_Object=MibTableColumn
-csbSIPMthdRCCurrentStatsRespOut=_CsbSIPMthdRCCurrentStatsRespOut_Object((1,3,6,1,4,1,9,9,757,1,5,1,7),_CsbSIPMthdRCCurrentStatsRespOut_Type())
-csbSIPMthdRCCurrentStatsRespOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdRCCurrentStatsRespOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdRCCurrentStatsRespOut.setUnits(_D)
-_CsbSIPMthdRCHistoryStatsTable_Object=MibTable
-csbSIPMthdRCHistoryStatsTable=_CsbSIPMthdRCHistoryStatsTable_Object((1,3,6,1,4,1,9,9,757,1,6))
-if mibBuilder.loadTexts:csbSIPMthdRCHistoryStatsTable.setStatus(_A)
-_CsbSIPMthdRCHistoryStatsEntry_Object=MibTableRow
-csbSIPMthdRCHistoryStatsEntry=_CsbSIPMthdRCHistoryStatsEntry_Object((1,3,6,1,4,1,9,9,757,1,6,1))
-csbSIPMthdRCHistoryStatsEntry.setIndexNames((0,_E,_I),(0,_E,_J),(0,_B,_P),(0,_B,_a),(0,_B,_b),(0,_B,_c))
-if mibBuilder.loadTexts:csbSIPMthdRCHistoryStatsEntry.setStatus(_A)
-_CsbSIPMthdRCHistoryStatsAdjName_Type=SnmpAdminString
-_CsbSIPMthdRCHistoryStatsAdjName_Object=MibTableColumn
-csbSIPMthdRCHistoryStatsAdjName=_CsbSIPMthdRCHistoryStatsAdjName_Object((1,3,6,1,4,1,9,9,757,1,6,1,1),_CsbSIPMthdRCHistoryStatsAdjName_Type())
-csbSIPMthdRCHistoryStatsAdjName.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdRCHistoryStatsAdjName.setStatus(_A)
-_CsbSIPMthdRCHistoryStatsMethod_Type=CiscoSbcSIPMethod
-_CsbSIPMthdRCHistoryStatsMethod_Object=MibTableColumn
-csbSIPMthdRCHistoryStatsMethod=_CsbSIPMthdRCHistoryStatsMethod_Object((1,3,6,1,4,1,9,9,757,1,6,1,2),_CsbSIPMthdRCHistoryStatsMethod_Type())
-csbSIPMthdRCHistoryStatsMethod.setMaxAccess(_G)
-if mibBuilder.loadTexts:csbSIPMthdRCHistoryStatsMethod.setStatus(_A)
-_CsbSIPMthdRCHistoryStatsMethodName_Type=SnmpAdminString
-_CsbSIPMthdRCHistoryStatsMethodName_Object=MibTableColumn
-csbSIPMthdRCHistoryStatsMethodName=_CsbSIPMthdRCHistoryStatsMethodName_Object((1,3,6,1,4,1,9,9,757,1,6,1,3),_CsbSIPMthdRCHistoryStatsMethodName_Type())
-csbSIPMthdRCHistoryStatsMethodName.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdRCHistoryStatsMethodName.setStatus(_A)
-_CsbSIPMthdRCHistoryStatsRespCode_Type=Unsigned32
-_CsbSIPMthdRCHistoryStatsRespCode_Object=MibTableColumn
-csbSIPMthdRCHistoryStatsRespCode=_CsbSIPMthdRCHistoryStatsRespCode_Object((1,3,6,1,4,1,9,9,757,1,6,1,4),_CsbSIPMthdRCHistoryStatsRespCode_Type())
-csbSIPMthdRCHistoryStatsRespCode.setMaxAccess(_G)
-if mibBuilder.loadTexts:csbSIPMthdRCHistoryStatsRespCode.setStatus(_A)
-_CsbSIPMthdRCHistoryStatsInterval_Type=CiscoSbcPeriodicStatsInterval
-_CsbSIPMthdRCHistoryStatsInterval_Object=MibTableColumn
-csbSIPMthdRCHistoryStatsInterval=_CsbSIPMthdRCHistoryStatsInterval_Object((1,3,6,1,4,1,9,9,757,1,6,1,5),_CsbSIPMthdRCHistoryStatsInterval_Type())
-csbSIPMthdRCHistoryStatsInterval.setMaxAccess(_G)
-if mibBuilder.loadTexts:csbSIPMthdRCHistoryStatsInterval.setStatus(_A)
-_CsbSIPMthdRCHistoryStatsRespIn_Type=Gauge32
-_CsbSIPMthdRCHistoryStatsRespIn_Object=MibTableColumn
-csbSIPMthdRCHistoryStatsRespIn=_CsbSIPMthdRCHistoryStatsRespIn_Object((1,3,6,1,4,1,9,9,757,1,6,1,6),_CsbSIPMthdRCHistoryStatsRespIn_Type())
-csbSIPMthdRCHistoryStatsRespIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdRCHistoryStatsRespIn.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdRCHistoryStatsRespIn.setUnits(_D)
-_CsbSIPMthdRCHistoryStatsRespOut_Type=Gauge32
-_CsbSIPMthdRCHistoryStatsRespOut_Object=MibTableColumn
-csbSIPMthdRCHistoryStatsRespOut=_CsbSIPMthdRCHistoryStatsRespOut_Object((1,3,6,1,4,1,9,9,757,1,6,1,7),_CsbSIPMthdRCHistoryStatsRespOut_Type())
-csbSIPMthdRCHistoryStatsRespOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:csbSIPMthdRCHistoryStatsRespOut.setStatus(_A)
-if mibBuilder.loadTexts:csbSIPMthdRCHistoryStatsRespOut.setUnits(_D)
-_CiscoSbcStatsMIBConform_ObjectIdentity=ObjectIdentity
-ciscoSbcStatsMIBConform=_CiscoSbcStatsMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,757,2))
-_CsbStatsMIBCompliances_ObjectIdentity=ObjectIdentity
-csbStatsMIBCompliances=_CsbStatsMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,757,2,1))
-_CsbStatsMIBGroups_ObjectIdentity=ObjectIdentity
-csbStatsMIBGroups=_CsbStatsMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,757,2,2))
-csbRadiusStatsGroup=ObjectGroup((1,3,6,1,4,1,9,9,757,2,2,1))
-csbRadiusStatsGroup.setObjects(*((_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t)))
-if mibBuilder.loadTexts:csbRadiusStatsGroup.setStatus(_A)
-csbRfBillRealmStatsGroup=ObjectGroup((1,3,6,1,4,1,9,9,757,2,2,2))
-csbRfBillRealmStatsGroup.setObjects(*((_B,_L),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5)))
-if mibBuilder.loadTexts:csbRfBillRealmStatsGroup.setStatus(_A)
-csbSIPMthdCurrentStatsGroup=ObjectGroup((1,3,6,1,4,1,9,9,757,2,2,3))
-csbSIPMthdCurrentStatsGroup.setObjects(*((_B,_M),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK)))
-if mibBuilder.loadTexts:csbSIPMthdCurrentStatsGroup.setStatus(_A)
-csbSIPMthdHistoryStatsGroup=ObjectGroup((1,3,6,1,4,1,9,9,757,2,2,4))
-csbSIPMthdHistoryStatsGroup.setObjects(*((_B,_N),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ)))
-if mibBuilder.loadTexts:csbSIPMthdHistoryStatsGroup.setStatus(_A)
-csbSIPMthdRCCurrentStatsGroup=ObjectGroup((1,3,6,1,4,1,9,9,757,2,2,5))
-csbSIPMthdRCCurrentStatsGroup.setObjects(*((_B,_O),(_B,_Aa),(_B,_Ab),(_B,_Ac)))
-if mibBuilder.loadTexts:csbSIPMthdRCCurrentStatsGroup.setStatus(_A)
-csbSIPMthdRCHistoryStatsGroup=ObjectGroup((1,3,6,1,4,1,9,9,757,2,2,6))
-csbSIPMthdRCHistoryStatsGroup.setObjects(*((_B,_P),(_B,_Ad),(_B,_Ae),(_B,_Af)))
-if mibBuilder.loadTexts:csbSIPMthdRCHistoryStatsGroup.setStatus(_A)
-csbStatsMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,757,2,1,1))
-csbStatsMIBCompliance.setObjects(*((_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al)))
-if mibBuilder.loadTexts:csbStatsMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CiscoSbcSIPMethod':CiscoSbcSIPMethod,'CiscoSbcRadiusClientType':CiscoSbcRadiusClientType,'ciscoSbcStatsMIB':ciscoSbcStatsMIB,'ciscoSbcStatsMIBNotifs':ciscoSbcStatsMIBNotifs,'ciscoSbcStatsMIBObjects':ciscoSbcStatsMIBObjects,'csbRadiusStatsTable':csbRadiusStatsTable,'csbRadiusStatsEntry':csbRadiusStatsEntry,_R:csbRadiusStatsEntIndex,_d:csbRadiusStatsClientName,_e:csbRadiusStatsClientType,_f:csbRadiusStatsSrvrName,_g:csbRadiusStatsAcsReqs,_h:csbRadiusStatsAcsRtrns,_i:csbRadiusStatsAcsAccpts,_j:csbRadiusStatsAcsRejects,_k:csbRadiusStatsAcsChalls,_l:csbRadiusStatsActReqs,_m:csbRadiusStatsActRetrans,_n:csbRadiusStatsActRsps,_o:csbRadiusStatsMalformedRsps,_p:csbRadiusStatsBadAuths,_q:csbRadiusStatsPending,_r:csbRadiusStatsTimeouts,_s:csbRadiusStatsUnknownType,_t:csbRadiusStatsDropped,'csbRfBillRealmStatsTable':csbRfBillRealmStatsTable,'csbRfBillRealmStatsEntry':csbRfBillRealmStatsEntry,_S:csbRfBillRealmStatsIndex,_L:csbRfBillRealmStatsRealmName,_u:csbRfBillRealmStatsTotalStartAcrs,_v:csbRfBillRealmStatsTotalInterimAcrs,_w:csbRfBillRealmStatsTotalStopAcrs,_x:csbRfBillRealmStatsTotalEventAcrs,_y:csbRfBillRealmStatsSuccStartAcrs,_z:csbRfBillRealmStatsSuccInterimAcrs,_A0:csbRfBillRealmStatsSuccStopAcrs,_A1:csbRfBillRealmStatsSuccEventAcrs,_A2:csbRfBillRealmStatsFailStartAcrs,_A3:csbRfBillRealmStatsFailInterimAcrs,_A4:csbRfBillRealmStatsFailStopAcrs,_A5:csbRfBillRealmStatsFailEventAcrs,'csbSIPMthdCurrentStatsTable':csbSIPMthdCurrentStatsTable,'csbSIPMthdCurrentStatsEntry':csbSIPMthdCurrentStatsEntry,_M:csbSIPMthdCurrentStatsAdjName,_T:csbSIPMthdCurrentStatsMethod,_U:csbSIPMthdCurrentStatsInterval,_A6:csbSIPMthdCurrentStatsMethodName,_A7:csbSIPMthdCurrentStatsReqIn,_A8:csbSIPMthdCurrentStatsReqOut,_A9:csbSIPMthdCurrentStatsResp1xxIn,_AA:csbSIPMthdCurrentStatsResp1xxOut,_AB:csbSIPMthdCurrentStatsResp2xxIn,_AC:csbSIPMthdCurrentStatsResp2xxOut,_AD:csbSIPMthdCurrentStatsResp3xxIn,_AE:csbSIPMthdCurrentStatsResp3xxOut,_AF:csbSIPMthdCurrentStatsResp4xxIn,_AG:csbSIPMthdCurrentStatsResp4xxOut,_AH:csbSIPMthdCurrentStatsResp5xxIn,_AI:csbSIPMthdCurrentStatsResp5xxOut,_AJ:csbSIPMthdCurrentStatsResp6xxIn,_AK:csbSIPMthdCurrentStatsResp6xxOut,'csbSIPMthdHistoryStatsTable':csbSIPMthdHistoryStatsTable,'csbSIPMthdHistoryStatsEntry':csbSIPMthdHistoryStatsEntry,_N:csbSIPMthdHistoryStatsAdjName,_V:csbSIPMthdHistoryStatsMethod,_W:csbSIPMthdHistoryStatsInterval,_AL:csbSIPMthdHistoryStatsMethodName,_AM:csbSIPMthdHistoryStatsReqIn,_AN:csbSIPMthdHistoryStatsReqOut,_AO:csbSIPMthdHistoryStatsResp1xxIn,_AP:csbSIPMthdHistoryStatsResp1xxOut,_AQ:csbSIPMthdHistoryStatsResp2xxIn,_AR:csbSIPMthdHistoryStatsResp2xxOut,_AS:csbSIPMthdHistoryStatsResp3xxIn,_AT:csbSIPMthdHistoryStatsResp3xxOut,_AU:csbSIPMthdHistoryStatsResp4xxIn,_AV:csbSIPMthdHistoryStatsResp4xxOut,_AW:csbSIPMthdHistoryStatsResp5xxIn,_AX:csbSIPMthdHistoryStatsResp5xxOut,_AY:csbSIPMthdHistoryStatsResp6xxIn,_AZ:csbSIPMthdHistoryStatsResp6xxOut,'csbSIPMthdRCCurrentStatsTable':csbSIPMthdRCCurrentStatsTable,'csbSIPMthdRCCurrentStatsEntry':csbSIPMthdRCCurrentStatsEntry,_O:csbSIPMthdRCCurrentStatsAdjName,_X:csbSIPMthdRCCurrentStatsMethod,_Y:csbSIPMthdRCCurrentStatsRespCode,_Z:csbSIPMthdRCCurrentStatsInterval,_Aa:csbSIPMthdRCCurrentStatsMethodName,_Ab:csbSIPMthdRCCurrentStatsRespIn,_Ac:csbSIPMthdRCCurrentStatsRespOut,'csbSIPMthdRCHistoryStatsTable':csbSIPMthdRCHistoryStatsTable,'csbSIPMthdRCHistoryStatsEntry':csbSIPMthdRCHistoryStatsEntry,_P:csbSIPMthdRCHistoryStatsAdjName,_a:csbSIPMthdRCHistoryStatsMethod,_Ad:csbSIPMthdRCHistoryStatsMethodName,_b:csbSIPMthdRCHistoryStatsRespCode,_c:csbSIPMthdRCHistoryStatsInterval,_Ae:csbSIPMthdRCHistoryStatsRespIn,_Af:csbSIPMthdRCHistoryStatsRespOut,'ciscoSbcStatsMIBConform':ciscoSbcStatsMIBConform,'csbStatsMIBCompliances':csbStatsMIBCompliances,'csbStatsMIBCompliance':csbStatsMIBCompliance,'csbStatsMIBGroups':csbStatsMIBGroups,_Ag:csbRadiusStatsGroup,_Ah:csbRfBillRealmStatsGroup,_Ai:csbSIPMthdCurrentStatsGroup,_Aj:csbSIPMthdHistoryStatsGroup,_Al:csbSIPMthdRCCurrentStatsGroup,_Ak:csbSIPMthdRCHistoryStatsGroup})
+#
+# PySNMP MIB module CISCO-SESS-BORDER-CTRLR-STATS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-SESS-BORDER-CTRLR-STATS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:33 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+csbCallStatsInstanceIndex, CiscoSbcPeriodicStatsInterval, csbCallStatsServiceIndex = mibBuilder.importSymbols("CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB", "csbCallStatsInstanceIndex", "CiscoSbcPeriodicStatsInterval", "csbCallStatsServiceIndex")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoSbcStatsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 757))
+ciscoSbcStatsMIB.setRevisions(('2010-09-15 00:00',))
+if mibBuilder.loadTexts: ciscoSbcStatsMIB.setLastUpdated('201009150000Z')
+if mibBuilder.loadTexts: ciscoSbcStatsMIB.setOrganization('Cisco Systems, Inc.')
+class CiscoSbcSIPMethod(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
+    namedValues = NamedValues(("unknown", 1), ("ack", 2), ("bye", 3), ("cancel", 4), ("info", 5), ("invite", 6), ("message", 7), ("notify", 8), ("options", 9), ("prack", 10), ("refer", 11), ("register", 12), ("subscribe", 13), ("update", 14))
+
+class CiscoSbcRadiusClientType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("authentication", 1), ("accounting", 2))
+
+ciscoSbcStatsMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 757, 0))
+ciscoSbcStatsMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 757, 1))
+ciscoSbcStatsMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 757, 2))
+csbRadiusStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1), )
+if mibBuilder.loadTexts: csbRadiusStatsTable.setStatus('current')
+csbRadiusStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1), ).setIndexNames((0, "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB", "csbCallStatsInstanceIndex"), (0, "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB", "csbCallStatsServiceIndex"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsEntIndex"))
+if mibBuilder.loadTexts: csbRadiusStatsEntry.setStatus('current')
+csbRadiusStatsEntIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: csbRadiusStatsEntIndex.setStatus('current')
+csbRadiusStatsClientName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsClientName.setStatus('current')
+csbRadiusStatsClientType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 3), CiscoSbcRadiusClientType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsClientType.setStatus('current')
+csbRadiusStatsSrvrName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsSrvrName.setStatus('current')
+csbRadiusStatsAcsReqs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 5), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsAcsReqs.setStatus('current')
+csbRadiusStatsAcsRtrns = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 6), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsAcsRtrns.setStatus('current')
+csbRadiusStatsAcsAccpts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsAcsAccpts.setStatus('current')
+csbRadiusStatsAcsRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 8), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsAcsRejects.setStatus('current')
+csbRadiusStatsAcsChalls = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 9), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsAcsChalls.setStatus('current')
+csbRadiusStatsActReqs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 10), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsActReqs.setStatus('current')
+csbRadiusStatsActRetrans = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 11), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsActRetrans.setStatus('current')
+csbRadiusStatsActRsps = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 12), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsActRsps.setStatus('current')
+csbRadiusStatsMalformedRsps = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 13), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsMalformedRsps.setStatus('current')
+csbRadiusStatsBadAuths = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 14), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsBadAuths.setStatus('current')
+csbRadiusStatsPending = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 15), Gauge32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsPending.setStatus('current')
+csbRadiusStatsTimeouts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 16), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsTimeouts.setStatus('current')
+csbRadiusStatsUnknownType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 17), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsUnknownType.setStatus('current')
+csbRadiusStatsDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 1, 1, 18), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRadiusStatsDropped.setStatus('current')
+csbRfBillRealmStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2), )
+if mibBuilder.loadTexts: csbRfBillRealmStatsTable.setStatus('current')
+csbRfBillRealmStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2, 1), ).setIndexNames((0, "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB", "csbCallStatsInstanceIndex"), (0, "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB", "csbCallStatsServiceIndex"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsIndex"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsRealmName"))
+if mibBuilder.loadTexts: csbRfBillRealmStatsEntry.setStatus('current')
+csbRfBillRealmStatsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 31)))
+if mibBuilder.loadTexts: csbRfBillRealmStatsIndex.setStatus('current')
+csbRfBillRealmStatsRealmName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRfBillRealmStatsRealmName.setStatus('current')
+csbRfBillRealmStatsTotalStartAcrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2, 1, 3), Unsigned32()).setUnits('ACRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRfBillRealmStatsTotalStartAcrs.setStatus('current')
+csbRfBillRealmStatsTotalInterimAcrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2, 1, 4), Unsigned32()).setUnits('ACRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRfBillRealmStatsTotalInterimAcrs.setStatus('current')
+csbRfBillRealmStatsTotalStopAcrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2, 1, 5), Unsigned32()).setUnits('ACRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRfBillRealmStatsTotalStopAcrs.setStatus('current')
+csbRfBillRealmStatsTotalEventAcrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2, 1, 6), Unsigned32()).setUnits('ACRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRfBillRealmStatsTotalEventAcrs.setStatus('current')
+csbRfBillRealmStatsSuccStartAcrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2, 1, 7), Unsigned32()).setUnits('ACRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRfBillRealmStatsSuccStartAcrs.setStatus('current')
+csbRfBillRealmStatsSuccInterimAcrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2, 1, 8), Unsigned32()).setUnits('ACRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRfBillRealmStatsSuccInterimAcrs.setStatus('current')
+csbRfBillRealmStatsSuccStopAcrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2, 1, 9), Unsigned32()).setUnits('ACRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRfBillRealmStatsSuccStopAcrs.setStatus('current')
+csbRfBillRealmStatsSuccEventAcrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2, 1, 10), Unsigned32()).setUnits('ACRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRfBillRealmStatsSuccEventAcrs.setStatus('current')
+csbRfBillRealmStatsFailStartAcrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2, 1, 11), Unsigned32()).setUnits('ACRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRfBillRealmStatsFailStartAcrs.setStatus('current')
+csbRfBillRealmStatsFailInterimAcrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2, 1, 12), Unsigned32()).setUnits('ACRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRfBillRealmStatsFailInterimAcrs.setStatus('current')
+csbRfBillRealmStatsFailStopAcrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2, 1, 13), Unsigned32()).setUnits('ACRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRfBillRealmStatsFailStopAcrs.setStatus('current')
+csbRfBillRealmStatsFailEventAcrs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 2, 1, 14), Unsigned32()).setUnits('ACRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbRfBillRealmStatsFailEventAcrs.setStatus('current')
+csbSIPMthdCurrentStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3), )
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsTable.setStatus('current')
+csbSIPMthdCurrentStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1), ).setIndexNames((0, "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB", "csbCallStatsInstanceIndex"), (0, "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB", "csbCallStatsServiceIndex"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsAdjName"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsMethod"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsInterval"))
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsEntry.setStatus('current')
+csbSIPMthdCurrentStatsAdjName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsAdjName.setStatus('current')
+csbSIPMthdCurrentStatsMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 2), CiscoSbcSIPMethod())
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsMethod.setStatus('current')
+csbSIPMthdCurrentStatsInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 3), CiscoSbcPeriodicStatsInterval())
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsInterval.setStatus('current')
+csbSIPMthdCurrentStatsMethodName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsMethodName.setStatus('current')
+csbSIPMthdCurrentStatsReqIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 5), Gauge32()).setUnits('requests').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsReqIn.setStatus('current')
+csbSIPMthdCurrentStatsReqOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 6), Gauge32()).setUnits('requests').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsReqOut.setStatus('current')
+csbSIPMthdCurrentStatsResp1xxIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 7), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsResp1xxIn.setStatus('current')
+csbSIPMthdCurrentStatsResp1xxOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 8), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsResp1xxOut.setStatus('current')
+csbSIPMthdCurrentStatsResp2xxIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 9), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsResp2xxIn.setStatus('current')
+csbSIPMthdCurrentStatsResp2xxOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 10), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsResp2xxOut.setStatus('current')
+csbSIPMthdCurrentStatsResp3xxIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 11), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsResp3xxIn.setStatus('current')
+csbSIPMthdCurrentStatsResp3xxOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 12), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsResp3xxOut.setStatus('current')
+csbSIPMthdCurrentStatsResp4xxIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 13), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsResp4xxIn.setStatus('current')
+csbSIPMthdCurrentStatsResp4xxOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 14), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsResp4xxOut.setStatus('current')
+csbSIPMthdCurrentStatsResp5xxIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 15), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsResp5xxIn.setStatus('current')
+csbSIPMthdCurrentStatsResp5xxOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 16), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsResp5xxOut.setStatus('current')
+csbSIPMthdCurrentStatsResp6xxIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 17), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsResp6xxIn.setStatus('current')
+csbSIPMthdCurrentStatsResp6xxOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 3, 1, 18), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdCurrentStatsResp6xxOut.setStatus('current')
+csbSIPMthdHistoryStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4), )
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsTable.setStatus('current')
+csbSIPMthdHistoryStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1), ).setIndexNames((0, "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB", "csbCallStatsInstanceIndex"), (0, "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB", "csbCallStatsServiceIndex"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsAdjName"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsMethod"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsInterval"))
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsEntry.setStatus('current')
+csbSIPMthdHistoryStatsAdjName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsAdjName.setStatus('current')
+csbSIPMthdHistoryStatsMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 2), CiscoSbcSIPMethod())
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsMethod.setStatus('current')
+csbSIPMthdHistoryStatsInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 3), CiscoSbcPeriodicStatsInterval())
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsInterval.setStatus('current')
+csbSIPMthdHistoryStatsMethodName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsMethodName.setStatus('current')
+csbSIPMthdHistoryStatsReqIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 5), Gauge32()).setUnits('requests').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsReqIn.setStatus('current')
+csbSIPMthdHistoryStatsReqOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 6), Gauge32()).setUnits('requests').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsReqOut.setStatus('current')
+csbSIPMthdHistoryStatsResp1xxIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 7), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsResp1xxIn.setStatus('current')
+csbSIPMthdHistoryStatsResp1xxOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 8), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsResp1xxOut.setStatus('current')
+csbSIPMthdHistoryStatsResp2xxIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 9), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsResp2xxIn.setStatus('current')
+csbSIPMthdHistoryStatsResp2xxOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 10), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsResp2xxOut.setStatus('current')
+csbSIPMthdHistoryStatsResp3xxIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 11), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsResp3xxIn.setStatus('current')
+csbSIPMthdHistoryStatsResp3xxOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 12), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsResp3xxOut.setStatus('current')
+csbSIPMthdHistoryStatsResp4xxIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 13), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsResp4xxIn.setStatus('current')
+csbSIPMthdHistoryStatsResp4xxOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 14), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsResp4xxOut.setStatus('current')
+csbSIPMthdHistoryStatsResp5xxIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 15), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsResp5xxIn.setStatus('current')
+csbSIPMthdHistoryStatsResp5xxOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 16), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsResp5xxOut.setStatus('current')
+csbSIPMthdHistoryStatsResp6xxIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 17), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsResp6xxIn.setStatus('current')
+csbSIPMthdHistoryStatsResp6xxOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 4, 1, 18), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdHistoryStatsResp6xxOut.setStatus('current')
+csbSIPMthdRCCurrentStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 5), )
+if mibBuilder.loadTexts: csbSIPMthdRCCurrentStatsTable.setStatus('current')
+csbSIPMthdRCCurrentStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 5, 1), ).setIndexNames((0, "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB", "csbCallStatsInstanceIndex"), (0, "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB", "csbCallStatsServiceIndex"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCCurrentStatsAdjName"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCCurrentStatsMethod"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCCurrentStatsRespCode"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCCurrentStatsInterval"))
+if mibBuilder.loadTexts: csbSIPMthdRCCurrentStatsEntry.setStatus('current')
+csbSIPMthdRCCurrentStatsAdjName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 5, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdRCCurrentStatsAdjName.setStatus('current')
+csbSIPMthdRCCurrentStatsMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 5, 1, 2), CiscoSbcSIPMethod())
+if mibBuilder.loadTexts: csbSIPMthdRCCurrentStatsMethod.setStatus('current')
+csbSIPMthdRCCurrentStatsRespCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 5, 1, 3), Unsigned32())
+if mibBuilder.loadTexts: csbSIPMthdRCCurrentStatsRespCode.setStatus('current')
+csbSIPMthdRCCurrentStatsInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 5, 1, 4), CiscoSbcPeriodicStatsInterval())
+if mibBuilder.loadTexts: csbSIPMthdRCCurrentStatsInterval.setStatus('current')
+csbSIPMthdRCCurrentStatsMethodName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 5, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdRCCurrentStatsMethodName.setStatus('current')
+csbSIPMthdRCCurrentStatsRespIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 5, 1, 6), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdRCCurrentStatsRespIn.setStatus('current')
+csbSIPMthdRCCurrentStatsRespOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 5, 1, 7), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdRCCurrentStatsRespOut.setStatus('current')
+csbSIPMthdRCHistoryStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 6), )
+if mibBuilder.loadTexts: csbSIPMthdRCHistoryStatsTable.setStatus('current')
+csbSIPMthdRCHistoryStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 6, 1), ).setIndexNames((0, "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB", "csbCallStatsInstanceIndex"), (0, "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB", "csbCallStatsServiceIndex"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCHistoryStatsAdjName"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCHistoryStatsMethod"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCHistoryStatsRespCode"), (0, "CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCHistoryStatsInterval"))
+if mibBuilder.loadTexts: csbSIPMthdRCHistoryStatsEntry.setStatus('current')
+csbSIPMthdRCHistoryStatsAdjName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 6, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdRCHistoryStatsAdjName.setStatus('current')
+csbSIPMthdRCHistoryStatsMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 6, 1, 2), CiscoSbcSIPMethod())
+if mibBuilder.loadTexts: csbSIPMthdRCHistoryStatsMethod.setStatus('current')
+csbSIPMthdRCHistoryStatsMethodName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 6, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdRCHistoryStatsMethodName.setStatus('current')
+csbSIPMthdRCHistoryStatsRespCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 6, 1, 4), Unsigned32())
+if mibBuilder.loadTexts: csbSIPMthdRCHistoryStatsRespCode.setStatus('current')
+csbSIPMthdRCHistoryStatsInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 6, 1, 5), CiscoSbcPeriodicStatsInterval())
+if mibBuilder.loadTexts: csbSIPMthdRCHistoryStatsInterval.setStatus('current')
+csbSIPMthdRCHistoryStatsRespIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 6, 1, 6), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdRCHistoryStatsRespIn.setStatus('current')
+csbSIPMthdRCHistoryStatsRespOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 757, 1, 6, 1, 7), Gauge32()).setUnits('responses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: csbSIPMthdRCHistoryStatsRespOut.setStatus('current')
+csbStatsMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 757, 2, 1))
+csbStatsMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 757, 2, 2))
+csbStatsMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 757, 2, 1, 1)).setObjects(("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsGroup"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsGroup"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsGroup"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsGroup"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCHistoryStatsGroup"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCCurrentStatsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    csbStatsMIBCompliance = csbStatsMIBCompliance.setStatus('current')
+csbRadiusStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 757, 2, 2, 1)).setObjects(("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsClientName"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsClientType"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsSrvrName"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsAcsReqs"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsAcsRtrns"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsAcsAccpts"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsAcsRejects"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsAcsChalls"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsActReqs"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsActRetrans"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsActRsps"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsMalformedRsps"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsBadAuths"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsPending"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsTimeouts"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsUnknownType"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRadiusStatsDropped"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    csbRadiusStatsGroup = csbRadiusStatsGroup.setStatus('current')
+csbRfBillRealmStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 757, 2, 2, 2)).setObjects(("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsRealmName"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsTotalStartAcrs"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsTotalInterimAcrs"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsTotalStopAcrs"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsTotalEventAcrs"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsSuccStartAcrs"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsSuccInterimAcrs"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsSuccStopAcrs"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsSuccEventAcrs"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsFailStartAcrs"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsFailInterimAcrs"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsFailStopAcrs"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbRfBillRealmStatsFailEventAcrs"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    csbRfBillRealmStatsGroup = csbRfBillRealmStatsGroup.setStatus('current')
+csbSIPMthdCurrentStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 757, 2, 2, 3)).setObjects(("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsAdjName"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsMethodName"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsReqIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsReqOut"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsResp1xxIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsResp1xxOut"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsResp2xxIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsResp2xxOut"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsResp3xxIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsResp3xxOut"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsResp4xxIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsResp4xxOut"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsResp5xxIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsResp5xxOut"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsResp6xxIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdCurrentStatsResp6xxOut"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    csbSIPMthdCurrentStatsGroup = csbSIPMthdCurrentStatsGroup.setStatus('current')
+csbSIPMthdHistoryStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 757, 2, 2, 4)).setObjects(("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsAdjName"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsMethodName"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsReqIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsReqOut"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsResp1xxIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsResp1xxOut"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsResp2xxIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsResp2xxOut"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsResp3xxIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsResp3xxOut"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsResp4xxIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsResp4xxOut"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsResp5xxIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsResp5xxOut"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsResp6xxIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdHistoryStatsResp6xxOut"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    csbSIPMthdHistoryStatsGroup = csbSIPMthdHistoryStatsGroup.setStatus('current')
+csbSIPMthdRCCurrentStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 757, 2, 2, 5)).setObjects(("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCCurrentStatsAdjName"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCCurrentStatsMethodName"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCCurrentStatsRespIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCCurrentStatsRespOut"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    csbSIPMthdRCCurrentStatsGroup = csbSIPMthdRCCurrentStatsGroup.setStatus('current')
+csbSIPMthdRCHistoryStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 757, 2, 2, 6)).setObjects(("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCHistoryStatsAdjName"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCHistoryStatsMethodName"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCHistoryStatsRespIn"), ("CISCO-SESS-BORDER-CTRLR-STATS-MIB", "csbSIPMthdRCHistoryStatsRespOut"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    csbSIPMthdRCHistoryStatsGroup = csbSIPMthdRCHistoryStatsGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-SESS-BORDER-CTRLR-STATS-MIB", csbSIPMthdRCCurrentStatsRespOut=csbSIPMthdRCCurrentStatsRespOut, csbRadiusStatsAcsReqs=csbRadiusStatsAcsReqs, csbSIPMthdCurrentStatsMethod=csbSIPMthdCurrentStatsMethod, csbSIPMthdHistoryStatsReqOut=csbSIPMthdHistoryStatsReqOut, csbSIPMthdHistoryStatsMethodName=csbSIPMthdHistoryStatsMethodName, csbSIPMthdHistoryStatsResp5xxOut=csbSIPMthdHistoryStatsResp5xxOut, csbRfBillRealmStatsGroup=csbRfBillRealmStatsGroup, csbSIPMthdHistoryStatsEntry=csbSIPMthdHistoryStatsEntry, csbSIPMthdCurrentStatsMethodName=csbSIPMthdCurrentStatsMethodName, csbSIPMthdHistoryStatsAdjName=csbSIPMthdHistoryStatsAdjName, csbRadiusStatsEntry=csbRadiusStatsEntry, csbRfBillRealmStatsRealmName=csbRfBillRealmStatsRealmName, csbSIPMthdRCCurrentStatsEntry=csbSIPMthdRCCurrentStatsEntry, csbSIPMthdHistoryStatsResp1xxIn=csbSIPMthdHistoryStatsResp1xxIn, csbSIPMthdRCHistoryStatsRespIn=csbSIPMthdRCHistoryStatsRespIn, csbSIPMthdRCCurrentStatsRespIn=csbSIPMthdRCCurrentStatsRespIn, CiscoSbcSIPMethod=CiscoSbcSIPMethod, csbRadiusStatsAcsAccpts=csbRadiusStatsAcsAccpts, csbSIPMthdHistoryStatsResp2xxOut=csbSIPMthdHistoryStatsResp2xxOut, csbSIPMthdHistoryStatsInterval=csbSIPMthdHistoryStatsInterval, csbSIPMthdRCHistoryStatsEntry=csbSIPMthdRCHistoryStatsEntry, csbStatsMIBCompliances=csbStatsMIBCompliances, csbSIPMthdCurrentStatsResp1xxIn=csbSIPMthdCurrentStatsResp1xxIn, csbRfBillRealmStatsSuccEventAcrs=csbRfBillRealmStatsSuccEventAcrs, csbSIPMthdHistoryStatsResp3xxOut=csbSIPMthdHistoryStatsResp3xxOut, csbRfBillRealmStatsFailEventAcrs=csbRfBillRealmStatsFailEventAcrs, csbSIPMthdHistoryStatsTable=csbSIPMthdHistoryStatsTable, csbRadiusStatsTable=csbRadiusStatsTable, csbSIPMthdCurrentStatsResp5xxIn=csbSIPMthdCurrentStatsResp5xxIn, csbSIPMthdRCHistoryStatsInterval=csbSIPMthdRCHistoryStatsInterval, csbRfBillRealmStatsEntry=csbRfBillRealmStatsEntry, csbSIPMthdCurrentStatsResp4xxOut=csbSIPMthdCurrentStatsResp4xxOut, csbSIPMthdHistoryStatsResp3xxIn=csbSIPMthdHistoryStatsResp3xxIn, csbRadiusStatsBadAuths=csbRadiusStatsBadAuths, csbSIPMthdHistoryStatsResp4xxIn=csbSIPMthdHistoryStatsResp4xxIn, csbSIPMthdHistoryStatsResp2xxIn=csbSIPMthdHistoryStatsResp2xxIn, csbRadiusStatsAcsRtrns=csbRadiusStatsAcsRtrns, csbRfBillRealmStatsTotalStartAcrs=csbRfBillRealmStatsTotalStartAcrs, csbSIPMthdRCCurrentStatsAdjName=csbSIPMthdRCCurrentStatsAdjName, csbRfBillRealmStatsSuccStopAcrs=csbRfBillRealmStatsSuccStopAcrs, ciscoSbcStatsMIBConform=ciscoSbcStatsMIBConform, PYSNMP_MODULE_ID=ciscoSbcStatsMIB, csbSIPMthdCurrentStatsTable=csbSIPMthdCurrentStatsTable, csbRadiusStatsUnknownType=csbRadiusStatsUnknownType, csbRadiusStatsClientType=csbRadiusStatsClientType, csbSIPMthdHistoryStatsResp1xxOut=csbSIPMthdHistoryStatsResp1xxOut, csbSIPMthdRCHistoryStatsGroup=csbSIPMthdRCHistoryStatsGroup, csbRfBillRealmStatsSuccStartAcrs=csbRfBillRealmStatsSuccStartAcrs, csbRfBillRealmStatsTotalStopAcrs=csbRfBillRealmStatsTotalStopAcrs, csbRadiusStatsClientName=csbRadiusStatsClientName, csbSIPMthdCurrentStatsReqIn=csbSIPMthdCurrentStatsReqIn, csbSIPMthdHistoryStatsResp4xxOut=csbSIPMthdHistoryStatsResp4xxOut, csbRadiusStatsPending=csbRadiusStatsPending, csbStatsMIBGroups=csbStatsMIBGroups, csbSIPMthdCurrentStatsResp5xxOut=csbSIPMthdCurrentStatsResp5xxOut, csbRfBillRealmStatsTotalEventAcrs=csbRfBillRealmStatsTotalEventAcrs, csbSIPMthdHistoryStatsReqIn=csbSIPMthdHistoryStatsReqIn, csbRadiusStatsTimeouts=csbRadiusStatsTimeouts, ciscoSbcStatsMIBObjects=ciscoSbcStatsMIBObjects, csbSIPMthdRCCurrentStatsRespCode=csbSIPMthdRCCurrentStatsRespCode, csbSIPMthdCurrentStatsResp2xxOut=csbSIPMthdCurrentStatsResp2xxOut, csbSIPMthdRCHistoryStatsRespCode=csbSIPMthdRCHistoryStatsRespCode, csbSIPMthdCurrentStatsAdjName=csbSIPMthdCurrentStatsAdjName, csbRfBillRealmStatsSuccInterimAcrs=csbRfBillRealmStatsSuccInterimAcrs, csbRadiusStatsActRetrans=csbRadiusStatsActRetrans, csbRadiusStatsAcsRejects=csbRadiusStatsAcsRejects, csbRfBillRealmStatsTable=csbRfBillRealmStatsTable, csbSIPMthdCurrentStatsResp6xxIn=csbSIPMthdCurrentStatsResp6xxIn, csbSIPMthdHistoryStatsResp5xxIn=csbSIPMthdHistoryStatsResp5xxIn, csbSIPMthdHistoryStatsResp6xxIn=csbSIPMthdHistoryStatsResp6xxIn, csbSIPMthdCurrentStatsResp1xxOut=csbSIPMthdCurrentStatsResp1xxOut, csbSIPMthdCurrentStatsResp3xxIn=csbSIPMthdCurrentStatsResp3xxIn, csbSIPMthdCurrentStatsResp6xxOut=csbSIPMthdCurrentStatsResp6xxOut, CiscoSbcRadiusClientType=CiscoSbcRadiusClientType, csbSIPMthdCurrentStatsResp3xxOut=csbSIPMthdCurrentStatsResp3xxOut, csbSIPMthdRCCurrentStatsMethod=csbSIPMthdRCCurrentStatsMethod, csbRfBillRealmStatsFailStopAcrs=csbRfBillRealmStatsFailStopAcrs, csbSIPMthdCurrentStatsReqOut=csbSIPMthdCurrentStatsReqOut, csbSIPMthdRCCurrentStatsGroup=csbSIPMthdRCCurrentStatsGroup, csbRadiusStatsMalformedRsps=csbRadiusStatsMalformedRsps, csbSIPMthdCurrentStatsResp2xxIn=csbSIPMthdCurrentStatsResp2xxIn, csbRadiusStatsEntIndex=csbRadiusStatsEntIndex, csbSIPMthdCurrentStatsEntry=csbSIPMthdCurrentStatsEntry, csbRfBillRealmStatsFailStartAcrs=csbRfBillRealmStatsFailStartAcrs, csbSIPMthdRCCurrentStatsTable=csbSIPMthdRCCurrentStatsTable, csbRfBillRealmStatsFailInterimAcrs=csbRfBillRealmStatsFailInterimAcrs, csbRadiusStatsGroup=csbRadiusStatsGroup, csbSIPMthdRCHistoryStatsMethod=csbSIPMthdRCHistoryStatsMethod, csbRadiusStatsActRsps=csbRadiusStatsActRsps, csbSIPMthdRCHistoryStatsMethodName=csbSIPMthdRCHistoryStatsMethodName, csbSIPMthdHistoryStatsMethod=csbSIPMthdHistoryStatsMethod, csbRadiusStatsActReqs=csbRadiusStatsActReqs, csbSIPMthdRCHistoryStatsAdjName=csbSIPMthdRCHistoryStatsAdjName, csbSIPMthdCurrentStatsGroup=csbSIPMthdCurrentStatsGroup, ciscoSbcStatsMIBNotifs=ciscoSbcStatsMIBNotifs, csbRadiusStatsSrvrName=csbRadiusStatsSrvrName, csbSIPMthdCurrentStatsInterval=csbSIPMthdCurrentStatsInterval, csbRadiusStatsDropped=csbRadiusStatsDropped, csbStatsMIBCompliance=csbStatsMIBCompliance, csbSIPMthdCurrentStatsResp4xxIn=csbSIPMthdCurrentStatsResp4xxIn, csbSIPMthdHistoryStatsGroup=csbSIPMthdHistoryStatsGroup, csbRadiusStatsAcsChalls=csbRadiusStatsAcsChalls, csbSIPMthdHistoryStatsResp6xxOut=csbSIPMthdHistoryStatsResp6xxOut, csbRfBillRealmStatsIndex=csbRfBillRealmStatsIndex, csbSIPMthdRCCurrentStatsInterval=csbSIPMthdRCCurrentStatsInterval, csbSIPMthdRCHistoryStatsTable=csbSIPMthdRCHistoryStatsTable, csbSIPMthdRCCurrentStatsMethodName=csbSIPMthdRCCurrentStatsMethodName, csbSIPMthdRCHistoryStatsRespOut=csbSIPMthdRCHistoryStatsRespOut, csbRfBillRealmStatsTotalInterimAcrs=csbRfBillRealmStatsTotalInterimAcrs, ciscoSbcStatsMIB=ciscoSbcStatsMIB)

@@ -1,299 +1,129 @@
-_W='enabled'
-_V='disabled'
-_U='h3cEvbVSIVlanId'
-_T='h3cEvbVSIMac'
-_S='h3cEvbGroupID'
-_R='h3cEvbManagerIndex'
-_Q='h3cEvbVSILocalID'
-_P='h3cEvbSBPPortNumber'
-_O='h3cEvbPortNumber'
-_N='unknown'
-_M='OctetString'
-_L='h3cFlex10PortNumber'
-_K='h3cEvbSchannelID'
-_J='Bits'
-_I='TruthValue'
-_H='Unsigned32'
-_G='read-write'
-_F='Integer32'
-_E='read-create'
-_D='not-accessible'
-_C='read-only'
-_B='H3C-EVB-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_M,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','h3cCommon')
-IEEE8021BridgePortNumber,=mibBuilder.importSymbols('IEEE8021-TC-MIB','IEEE8021BridgePortNumber')
-InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB','InterfaceIndexOrZero')
-VlanIndex,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI',_J,'Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_H,'iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention',_I)
-h3cEvb=ModuleIdentity((1,3,6,1,4,1,2011,10,2,134))
-if mibBuilder.loadTexts:h3cEvb.setRevisions(('2012-12-21 12:00',))
-_H3cEvbSysObjects_ObjectIdentity=ObjectIdentity
-h3cEvbSysObjects=_H3cEvbSysObjects_ObjectIdentity((1,3,6,1,4,1,2011,10,2,134,1))
-class _H3cEvbSetResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_N,1),('processing',2),('success',3),('failed',4)))
-_H3cEvbSetResult_Type.__name__=_F
-_H3cEvbSetResult_Object=MibScalar
-h3cEvbSetResult=_H3cEvbSetResult_Object((1,3,6,1,4,1,2011,10,2,134,1,1),_H3cEvbSetResult_Type())
-h3cEvbSetResult.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cEvbSetResult.setStatus(_A)
-_H3cEvbDefaultManagerTable_Object=MibTable
-h3cEvbDefaultManagerTable=_H3cEvbDefaultManagerTable_Object((1,3,6,1,4,1,2011,10,2,134,1,2))
-if mibBuilder.loadTexts:h3cEvbDefaultManagerTable.setStatus(_A)
-_H3cEvbDefaultManagerEntry_Object=MibTableRow
-h3cEvbDefaultManagerEntry=_H3cEvbDefaultManagerEntry_Object((1,3,6,1,4,1,2011,10,2,134,1,2,1))
-h3cEvbDefaultManagerEntry.setIndexNames((0,_B,_R))
-if mibBuilder.loadTexts:h3cEvbDefaultManagerEntry.setStatus(_A)
-_H3cEvbManagerIndex_Type=Unsigned32
-_H3cEvbManagerIndex_Object=MibTableColumn
-h3cEvbManagerIndex=_H3cEvbManagerIndex_Object((1,3,6,1,4,1,2011,10,2,134,1,2,1,1),_H3cEvbManagerIndex_Type())
-h3cEvbManagerIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cEvbManagerIndex.setStatus(_A)
-class _H3cEvbManagerType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('ipv4',1),('ipv6',2),('name',3),('local',4)))
-_H3cEvbManagerType_Type.__name__=_F
-_H3cEvbManagerType_Object=MibTableColumn
-h3cEvbManagerType=_H3cEvbManagerType_Object((1,3,6,1,4,1,2011,10,2,134,1,2,1,2),_H3cEvbManagerType_Type())
-h3cEvbManagerType.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cEvbManagerType.setStatus(_A)
-class _H3cEvbManagerID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_H3cEvbManagerID_Type.__name__=_M
-_H3cEvbManagerID_Object=MibTableColumn
-h3cEvbManagerID=_H3cEvbManagerID_Object((1,3,6,1,4,1,2011,10,2,134,1,2,1,3),_H3cEvbManagerID_Type())
-h3cEvbManagerID.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cEvbManagerID.setStatus(_A)
-class _H3cEvbManagerPort_Type(Unsigned32):defaultValue=8080;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_H3cEvbManagerPort_Type.__name__=_H
-_H3cEvbManagerPort_Object=MibTableColumn
-h3cEvbManagerPort=_H3cEvbManagerPort_Object((1,3,6,1,4,1,2011,10,2,134,1,2,1,4),_H3cEvbManagerPort_Type())
-h3cEvbManagerPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cEvbManagerPort.setStatus(_A)
-_H3cEvbManagerRowStatus_Type=RowStatus
-_H3cEvbManagerRowStatus_Object=MibTableColumn
-h3cEvbManagerRowStatus=_H3cEvbManagerRowStatus_Object((1,3,6,1,4,1,2011,10,2,134,1,2,1,5),_H3cEvbManagerRowStatus_Type())
-h3cEvbManagerRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cEvbManagerRowStatus.setStatus(_A)
-_H3cEvbPortObjects_ObjectIdentity=ObjectIdentity
-h3cEvbPortObjects=_H3cEvbPortObjects_ObjectIdentity((1,3,6,1,4,1,2011,10,2,134,2))
-_H3cEvbPortConfigTable_Object=MibTable
-h3cEvbPortConfigTable=_H3cEvbPortConfigTable_Object((1,3,6,1,4,1,2011,10,2,134,2,1))
-if mibBuilder.loadTexts:h3cEvbPortConfigTable.setStatus(_A)
-_H3cEvbPortConfigEntry_Object=MibTableRow
-h3cEvbPortConfigEntry=_H3cEvbPortConfigEntry_Object((1,3,6,1,4,1,2011,10,2,134,2,1,1))
-h3cEvbPortConfigEntry.setIndexNames((0,_B,_O))
-if mibBuilder.loadTexts:h3cEvbPortConfigEntry.setStatus(_A)
-_H3cEvbPortNumber_Type=IEEE8021BridgePortNumber
-_H3cEvbPortNumber_Object=MibTableColumn
-h3cEvbPortNumber=_H3cEvbPortNumber_Object((1,3,6,1,4,1,2011,10,2,134,2,1,1,1),_H3cEvbPortNumber_Type())
-h3cEvbPortNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cEvbPortNumber.setStatus(_A)
-class _H3cEvbRWD_Type(Unsigned32):defaultValue=20;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(15,31))
-_H3cEvbRWD_Type.__name__=_H
-_H3cEvbRWD_Object=MibTableColumn
-h3cEvbRWD=_H3cEvbRWD_Object((1,3,6,1,4,1,2011,10,2,134,2,1,1,2),_H3cEvbRWD_Type())
-h3cEvbRWD.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cEvbRWD.setStatus(_A)
-class _H3cEvbRKA_Type(Unsigned32):defaultValue=20;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(14,31))
-_H3cEvbRKA_Type.__name__=_H
-_H3cEvbRKA_Object=MibTableColumn
-h3cEvbRKA=_H3cEvbRKA_Object((1,3,6,1,4,1,2011,10,2,134,2,1,1,3),_H3cEvbRKA_Type())
-h3cEvbRKA.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cEvbRKA.setStatus(_A)
-_H3cEvbSchannelConfigTable_Object=MibTable
-h3cEvbSchannelConfigTable=_H3cEvbSchannelConfigTable_Object((1,3,6,1,4,1,2011,10,2,134,2,2))
-if mibBuilder.loadTexts:h3cEvbSchannelConfigTable.setStatus(_A)
-_H3cEvbSchannelConfigEntry_Object=MibTableRow
-h3cEvbSchannelConfigEntry=_H3cEvbSchannelConfigEntry_Object((1,3,6,1,4,1,2011,10,2,134,2,2,1))
-h3cEvbSchannelConfigEntry.setIndexNames((0,_B,_O),(0,_B,_K))
-if mibBuilder.loadTexts:h3cEvbSchannelConfigEntry.setStatus(_A)
-_H3cEvbSchannelID_Type=Unsigned32
-_H3cEvbSchannelID_Object=MibTableColumn
-h3cEvbSchannelID=_H3cEvbSchannelID_Object((1,3,6,1,4,1,2011,10,2,134,2,2,1,1),_H3cEvbSchannelID_Type())
-h3cEvbSchannelID.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cEvbSchannelID.setStatus(_A)
-class _H3cEvbSchannelSVLAN_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4094))
-_H3cEvbSchannelSVLAN_Type.__name__=_H
-_H3cEvbSchannelSVLAN_Object=MibTableColumn
-h3cEvbSchannelSVLAN=_H3cEvbSchannelSVLAN_Object((1,3,6,1,4,1,2011,10,2,134,2,2,1,2),_H3cEvbSchannelSVLAN_Type())
-h3cEvbSchannelSVLAN.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cEvbSchannelSVLAN.setStatus(_A)
-class _H3cEvbMacLearningStatus_Type(TruthValue):defaultValue=1
-_H3cEvbMacLearningStatus_Type.__name__=_I
-_H3cEvbMacLearningStatus_Object=MibTableColumn
-h3cEvbMacLearningStatus=_H3cEvbMacLearningStatus_Object((1,3,6,1,4,1,2011,10,2,134,2,2,1,3),_H3cEvbMacLearningStatus_Type())
-h3cEvbMacLearningStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cEvbMacLearningStatus.setStatus(_A)
-class _H3cEvbRRStatus_Type(TruthValue):defaultValue=2
-_H3cEvbRRStatus_Type.__name__=_I
-_H3cEvbRRStatus_Object=MibTableColumn
-h3cEvbRRStatus=_H3cEvbRRStatus_Object((1,3,6,1,4,1,2011,10,2,134,2,2,1,4),_H3cEvbRRStatus_Type())
-h3cEvbRRStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cEvbRRStatus.setStatus(_A)
-_H3cEvbSchannelRowStatus_Type=RowStatus
-_H3cEvbSchannelRowStatus_Object=MibTableColumn
-h3cEvbSchannelRowStatus=_H3cEvbSchannelRowStatus_Object((1,3,6,1,4,1,2011,10,2,134,2,2,1,5),_H3cEvbSchannelRowStatus_Type())
-h3cEvbSchannelRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cEvbSchannelRowStatus.setStatus(_A)
-_H3cEvbVSIConfigTable_Object=MibTable
-h3cEvbVSIConfigTable=_H3cEvbVSIConfigTable_Object((1,3,6,1,4,1,2011,10,2,134,2,3))
-if mibBuilder.loadTexts:h3cEvbVSIConfigTable.setStatus(_A)
-_H3cEvbVSIConfigEntry_Object=MibTableRow
-h3cEvbVSIConfigEntry=_H3cEvbVSIConfigEntry_Object((1,3,6,1,4,1,2011,10,2,134,2,3,1))
-h3cEvbVSIConfigEntry.setIndexNames((0,_B,_P),(0,_B,_Q))
-if mibBuilder.loadTexts:h3cEvbVSIConfigEntry.setStatus(_A)
-_H3cEvbSBPPortNumber_Type=IEEE8021BridgePortNumber
-_H3cEvbSBPPortNumber_Object=MibTableColumn
-h3cEvbSBPPortNumber=_H3cEvbSBPPortNumber_Object((1,3,6,1,4,1,2011,10,2,134,2,3,1,1),_H3cEvbSBPPortNumber_Type())
-h3cEvbSBPPortNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cEvbSBPPortNumber.setStatus(_A)
-_H3cEvbVSILocalID_Type=Unsigned32
-_H3cEvbVSILocalID_Object=MibTableColumn
-h3cEvbVSILocalID=_H3cEvbVSILocalID_Object((1,3,6,1,4,1,2011,10,2,134,2,3,1,2),_H3cEvbVSILocalID_Type())
-h3cEvbVSILocalID.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cEvbVSILocalID.setStatus(_A)
-class _H3cEvbVSICommand_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('preAssociate',1),('preAssociateWithRsrcReservation',2),('associate',3),('deAssociate',4)))
-_H3cEvbVSICommand_Type.__name__=_F
-_H3cEvbVSICommand_Object=MibTableColumn
-h3cEvbVSICommand=_H3cEvbVSICommand_Object((1,3,6,1,4,1,2011,10,2,134,2,3,1,3),_H3cEvbVSICommand_Type())
-h3cEvbVSICommand.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cEvbVSICommand.setStatus(_A)
-_H3cEvbVSIIfIndex_Type=InterfaceIndexOrZero
-_H3cEvbVSIIfIndex_Object=MibTableColumn
-h3cEvbVSIIfIndex=_H3cEvbVSIIfIndex_Object((1,3,6,1,4,1,2011,10,2,134,2,3,1,4),_H3cEvbVSIIfIndex_Type())
-h3cEvbVSIIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cEvbVSIIfIndex.setStatus(_A)
-class _H3cEvbVSIIsActive_Type(TruthValue):defaultValue=2
-_H3cEvbVSIIsActive_Type.__name__=_I
-_H3cEvbVSIIsActive_Object=MibTableColumn
-h3cEvbVSIIsActive=_H3cEvbVSIIsActive_Object((1,3,6,1,4,1,2011,10,2,134,2,3,1,5),_H3cEvbVSIIsActive_Type())
-h3cEvbVSIIsActive.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cEvbVSIIsActive.setStatus(_A)
-_H3cEvbVSIRowStatus_Type=RowStatus
-_H3cEvbVSIRowStatus_Object=MibTableColumn
-h3cEvbVSIRowStatus=_H3cEvbVSIRowStatus_Object((1,3,6,1,4,1,2011,10,2,134,2,3,1,6),_H3cEvbVSIRowStatus_Type())
-h3cEvbVSIRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cEvbVSIRowStatus.setStatus(_A)
-_H3cEvbVSIFilterConfigTable_Object=MibTable
-h3cEvbVSIFilterConfigTable=_H3cEvbVSIFilterConfigTable_Object((1,3,6,1,4,1,2011,10,2,134,2,4))
-if mibBuilder.loadTexts:h3cEvbVSIFilterConfigTable.setStatus(_A)
-_H3cEvbVSIFilterConfigEntry_Object=MibTableRow
-h3cEvbVSIFilterConfigEntry=_H3cEvbVSIFilterConfigEntry_Object((1,3,6,1,4,1,2011,10,2,134,2,4,1))
-h3cEvbVSIFilterConfigEntry.setIndexNames((0,_B,_P),(0,_B,_Q),(0,_B,_S),(0,_B,_T),(0,_B,_U))
-if mibBuilder.loadTexts:h3cEvbVSIFilterConfigEntry.setStatus(_A)
-_H3cEvbGroupID_Type=Unsigned32
-_H3cEvbGroupID_Object=MibTableColumn
-h3cEvbGroupID=_H3cEvbGroupID_Object((1,3,6,1,4,1,2011,10,2,134,2,4,1,1),_H3cEvbGroupID_Type())
-h3cEvbGroupID.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cEvbGroupID.setStatus(_A)
-_H3cEvbVSIMac_Type=MacAddress
-_H3cEvbVSIMac_Object=MibTableColumn
-h3cEvbVSIMac=_H3cEvbVSIMac_Object((1,3,6,1,4,1,2011,10,2,134,2,4,1,2),_H3cEvbVSIMac_Type())
-h3cEvbVSIMac.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cEvbVSIMac.setStatus(_A)
-_H3cEvbVSIVlanId_Type=VlanIndex
-_H3cEvbVSIVlanId_Object=MibTableColumn
-h3cEvbVSIVlanId=_H3cEvbVSIVlanId_Object((1,3,6,1,4,1,2011,10,2,134,2,4,1,3),_H3cEvbVSIVlanId_Type())
-h3cEvbVSIVlanId.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cEvbVSIVlanId.setStatus(_A)
-_H3cEvbVSIFilterRowStatus_Type=RowStatus
-_H3cEvbVSIFilterRowStatus_Object=MibTableColumn
-h3cEvbVSIFilterRowStatus=_H3cEvbVSIFilterRowStatus_Object((1,3,6,1,4,1,2011,10,2,134,2,4,1,4),_H3cEvbVSIFilterRowStatus_Type())
-h3cEvbVSIFilterRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cEvbVSIFilterRowStatus.setStatus(_A)
-_H3cFlex10Objects_ObjectIdentity=ObjectIdentity
-h3cFlex10Objects=_H3cFlex10Objects_ObjectIdentity((1,3,6,1,4,1,2011,10,2,134,3))
-_H3cFlex10PortConfigTable_Object=MibTable
-h3cFlex10PortConfigTable=_H3cFlex10PortConfigTable_Object((1,3,6,1,4,1,2011,10,2,134,3,1))
-if mibBuilder.loadTexts:h3cFlex10PortConfigTable.setStatus(_A)
-_H3cFlex10PortConfigEntry_Object=MibTableRow
-h3cFlex10PortConfigEntry=_H3cFlex10PortConfigEntry_Object((1,3,6,1,4,1,2011,10,2,134,3,1,1))
-h3cFlex10PortConfigEntry.setIndexNames((0,_B,_L))
-if mibBuilder.loadTexts:h3cFlex10PortConfigEntry.setStatus(_A)
-_H3cFlex10PortNumber_Type=IEEE8021BridgePortNumber
-_H3cFlex10PortNumber_Object=MibTableColumn
-h3cFlex10PortNumber=_H3cFlex10PortNumber_Object((1,3,6,1,4,1,2011,10,2,134,3,1,1,1),_H3cFlex10PortNumber_Type())
-h3cFlex10PortNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cFlex10PortNumber.setStatus(_A)
-class _H3cFlex10PortEnableStatus_Type(TruthValue):defaultValue=2
-_H3cFlex10PortEnableStatus_Type.__name__=_I
-_H3cFlex10PortEnableStatus_Object=MibTableColumn
-h3cFlex10PortEnableStatus=_H3cFlex10PortEnableStatus_Object((1,3,6,1,4,1,2011,10,2,134,3,1,1,2),_H3cFlex10PortEnableStatus_Type())
-h3cFlex10PortEnableStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cFlex10PortEnableStatus.setStatus(_A)
-_H3cFlex10RemoteSchannelTable_Object=MibTable
-h3cFlex10RemoteSchannelTable=_H3cFlex10RemoteSchannelTable_Object((1,3,6,1,4,1,2011,10,2,134,3,2))
-if mibBuilder.loadTexts:h3cFlex10RemoteSchannelTable.setStatus(_A)
-_H3cFlex10RemoteSchannelEntry_Object=MibTableRow
-h3cFlex10RemoteSchannelEntry=_H3cFlex10RemoteSchannelEntry_Object((1,3,6,1,4,1,2011,10,2,134,3,2,1))
-h3cFlex10RemoteSchannelEntry.setIndexNames((0,_B,_L),(0,_B,_K))
-if mibBuilder.loadTexts:h3cFlex10RemoteSchannelEntry.setStatus(_A)
-class _H3cFlex10RemSchDesFormat_Type(Bits):namedValues=NamedValues(*(('format0',0),('format1',1)))
-_H3cFlex10RemSchDesFormat_Type.__name__=_J
-_H3cFlex10RemSchDesFormat_Object=MibTableColumn
-h3cFlex10RemSchDesFormat=_H3cFlex10RemSchDesFormat_Object((1,3,6,1,4,1,2011,10,2,134,3,2,1,1),_H3cFlex10RemSchDesFormat_Type())
-h3cFlex10RemSchDesFormat.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFlex10RemSchDesFormat.setStatus(_A)
-_H3cFlex10RemSchTerminationType_Type=Integer32
-_H3cFlex10RemSchTerminationType_Object=MibTableColumn
-h3cFlex10RemSchTerminationType=_H3cFlex10RemSchTerminationType_Object((1,3,6,1,4,1,2011,10,2,134,3,2,1,2),_H3cFlex10RemSchTerminationType_Type())
-h3cFlex10RemSchTerminationType.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFlex10RemSchTerminationType.setStatus(_A)
-class _H3cFlex10RemSchTerminationCap_Type(Bits):namedValues=NamedValues(*(('ethernet',0),('fCOE',1),('iSCSI',2),('roCEE',3)))
-_H3cFlex10RemSchTerminationCap_Type.__name__=_J
-_H3cFlex10RemSchTerminationCap_Object=MibTableColumn
-h3cFlex10RemSchTerminationCap=_H3cFlex10RemSchTerminationCap_Object((1,3,6,1,4,1,2011,10,2,134,3,2,1,3),_H3cFlex10RemSchTerminationCap_Type())
-h3cFlex10RemSchTerminationCap.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFlex10RemSchTerminationCap.setStatus(_A)
-class _H3cFlex10RemSchTrafficClass_Type(Bits):namedValues=NamedValues(*(('class0',0),('class1',1),('class2',2),('class3',3),('class4',4),('class5',5),('class6',6),('class7',7)))
-_H3cFlex10RemSchTrafficClass_Type.__name__=_J
-_H3cFlex10RemSchTrafficClass_Object=MibTableColumn
-h3cFlex10RemSchTrafficClass=_H3cFlex10RemSchTrafficClass_Object((1,3,6,1,4,1,2011,10,2,134,3,2,1,4),_H3cFlex10RemSchTrafficClass_Type())
-h3cFlex10RemSchTrafficClass.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFlex10RemSchTrafficClass.setStatus(_A)
-_H3cFlex10RemSchCir_Type=Integer32
-_H3cFlex10RemSchCir_Object=MibTableColumn
-h3cFlex10RemSchCir=_H3cFlex10RemSchCir_Object((1,3,6,1,4,1,2011,10,2,134,3,2,1,5),_H3cFlex10RemSchCir_Type())
-h3cFlex10RemSchCir.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFlex10RemSchCir.setStatus(_A)
-if mibBuilder.loadTexts:h3cFlex10RemSchCir.setUnits('mbps')
-_H3cFlex10RemSchPir_Type=Integer32
-_H3cFlex10RemSchPir_Object=MibTableColumn
-h3cFlex10RemSchPir=_H3cFlex10RemSchPir_Object((1,3,6,1,4,1,2011,10,2,134,3,2,1,6),_H3cFlex10RemSchPir_Type())
-h3cFlex10RemSchPir.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFlex10RemSchPir.setStatus(_A)
-if mibBuilder.loadTexts:h3cFlex10RemSchPir.setUnits('mbps')
-class _H3cFlex10RemSchConnectionID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_H3cFlex10RemSchConnectionID_Type.__name__=_M
-_H3cFlex10RemSchConnectionID_Object=MibTableColumn
-h3cFlex10RemSchConnectionID=_H3cFlex10RemSchConnectionID_Object((1,3,6,1,4,1,2011,10,2,134,3,2,1,7),_H3cFlex10RemSchConnectionID_Type())
-h3cFlex10RemSchConnectionID.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFlex10RemSchConnectionID.setStatus(_A)
-_H3cFlex10SchannelLinkCtlTable_Object=MibTable
-h3cFlex10SchannelLinkCtlTable=_H3cFlex10SchannelLinkCtlTable_Object((1,3,6,1,4,1,2011,10,2,134,3,3))
-if mibBuilder.loadTexts:h3cFlex10SchannelLinkCtlTable.setStatus(_A)
-_H3cFlex10SchannelLinkCtlEntry_Object=MibTableRow
-h3cFlex10SchannelLinkCtlEntry=_H3cFlex10SchannelLinkCtlEntry_Object((1,3,6,1,4,1,2011,10,2,134,3,3,1))
-h3cFlex10SchannelLinkCtlEntry.setIndexNames((0,_B,_L),(0,_B,_K))
-if mibBuilder.loadTexts:h3cFlex10SchannelLinkCtlEntry.setStatus(_A)
-_H3cFlex10SchannelSVID_Type=VlanIndex
-_H3cFlex10SchannelSVID_Object=MibTableColumn
-h3cFlex10SchannelSVID=_H3cFlex10SchannelSVID_Object((1,3,6,1,4,1,2011,10,2,134,3,3,1,1),_H3cFlex10SchannelSVID_Type())
-h3cFlex10SchannelSVID.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFlex10SchannelSVID.setStatus(_A)
-class _H3cFlex10SchannelLocalStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_N,1),(_V,2),(_W,3)))
-_H3cFlex10SchannelLocalStatus_Type.__name__=_F
-_H3cFlex10SchannelLocalStatus_Object=MibTableColumn
-h3cFlex10SchannelLocalStatus=_H3cFlex10SchannelLocalStatus_Object((1,3,6,1,4,1,2011,10,2,134,3,3,1,2),_H3cFlex10SchannelLocalStatus_Type())
-h3cFlex10SchannelLocalStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFlex10SchannelLocalStatus.setStatus(_A)
-class _H3cFlex10SchannelRemoteStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_N,1),(_V,2),(_W,3)))
-_H3cFlex10SchannelRemoteStatus_Type.__name__=_F
-_H3cFlex10SchannelRemoteStatus_Object=MibTableColumn
-h3cFlex10SchannelRemoteStatus=_H3cFlex10SchannelRemoteStatus_Object((1,3,6,1,4,1,2011,10,2,134,3,3,1,3),_H3cFlex10SchannelRemoteStatus_Type())
-h3cFlex10SchannelRemoteStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cFlex10SchannelRemoteStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'h3cEvb':h3cEvb,'h3cEvbSysObjects':h3cEvbSysObjects,'h3cEvbSetResult':h3cEvbSetResult,'h3cEvbDefaultManagerTable':h3cEvbDefaultManagerTable,'h3cEvbDefaultManagerEntry':h3cEvbDefaultManagerEntry,_R:h3cEvbManagerIndex,'h3cEvbManagerType':h3cEvbManagerType,'h3cEvbManagerID':h3cEvbManagerID,'h3cEvbManagerPort':h3cEvbManagerPort,'h3cEvbManagerRowStatus':h3cEvbManagerRowStatus,'h3cEvbPortObjects':h3cEvbPortObjects,'h3cEvbPortConfigTable':h3cEvbPortConfigTable,'h3cEvbPortConfigEntry':h3cEvbPortConfigEntry,_O:h3cEvbPortNumber,'h3cEvbRWD':h3cEvbRWD,'h3cEvbRKA':h3cEvbRKA,'h3cEvbSchannelConfigTable':h3cEvbSchannelConfigTable,'h3cEvbSchannelConfigEntry':h3cEvbSchannelConfigEntry,_K:h3cEvbSchannelID,'h3cEvbSchannelSVLAN':h3cEvbSchannelSVLAN,'h3cEvbMacLearningStatus':h3cEvbMacLearningStatus,'h3cEvbRRStatus':h3cEvbRRStatus,'h3cEvbSchannelRowStatus':h3cEvbSchannelRowStatus,'h3cEvbVSIConfigTable':h3cEvbVSIConfigTable,'h3cEvbVSIConfigEntry':h3cEvbVSIConfigEntry,_P:h3cEvbSBPPortNumber,_Q:h3cEvbVSILocalID,'h3cEvbVSICommand':h3cEvbVSICommand,'h3cEvbVSIIfIndex':h3cEvbVSIIfIndex,'h3cEvbVSIIsActive':h3cEvbVSIIsActive,'h3cEvbVSIRowStatus':h3cEvbVSIRowStatus,'h3cEvbVSIFilterConfigTable':h3cEvbVSIFilterConfigTable,'h3cEvbVSIFilterConfigEntry':h3cEvbVSIFilterConfigEntry,_S:h3cEvbGroupID,_T:h3cEvbVSIMac,_U:h3cEvbVSIVlanId,'h3cEvbVSIFilterRowStatus':h3cEvbVSIFilterRowStatus,'h3cFlex10Objects':h3cFlex10Objects,'h3cFlex10PortConfigTable':h3cFlex10PortConfigTable,'h3cFlex10PortConfigEntry':h3cFlex10PortConfigEntry,_L:h3cFlex10PortNumber,'h3cFlex10PortEnableStatus':h3cFlex10PortEnableStatus,'h3cFlex10RemoteSchannelTable':h3cFlex10RemoteSchannelTable,'h3cFlex10RemoteSchannelEntry':h3cFlex10RemoteSchannelEntry,'h3cFlex10RemSchDesFormat':h3cFlex10RemSchDesFormat,'h3cFlex10RemSchTerminationType':h3cFlex10RemSchTerminationType,'h3cFlex10RemSchTerminationCap':h3cFlex10RemSchTerminationCap,'h3cFlex10RemSchTrafficClass':h3cFlex10RemSchTrafficClass,'h3cFlex10RemSchCir':h3cFlex10RemSchCir,'h3cFlex10RemSchPir':h3cFlex10RemSchPir,'h3cFlex10RemSchConnectionID':h3cFlex10RemSchConnectionID,'h3cFlex10SchannelLinkCtlTable':h3cFlex10SchannelLinkCtlTable,'h3cFlex10SchannelLinkCtlEntry':h3cFlex10SchannelLinkCtlEntry,'h3cFlex10SchannelSVID':h3cFlex10SchannelSVID,'h3cFlex10SchannelLocalStatus':h3cFlex10SchannelLocalStatus,'h3cFlex10SchannelRemoteStatus':h3cFlex10SchannelRemoteStatus})
+#
+# PySNMP MIB module H3C-EVB-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-EVB-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:23 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
+IEEE8021BridgePortNumber, = mibBuilder.importSymbols("IEEE8021-TC-MIB", "IEEE8021BridgePortNumber")
+InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
+VlanIndex, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+h3cEvb = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134))
+h3cEvb.setRevisions(('2012-12-21 12:00',))
+if mibBuilder.loadTexts: h3cEvb.setLastUpdated('201212211200Z')
+if mibBuilder.loadTexts: h3cEvb.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
+h3cEvbSysObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 1))
+h3cEvbPortObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2))
+h3cFlex10Objects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3))
+h3cEvbSetResult = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("processing", 2), ("success", 3), ("failed", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cEvbSetResult.setStatus('current')
+h3cEvbDefaultManagerTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 1, 2), )
+if mibBuilder.loadTexts: h3cEvbDefaultManagerTable.setStatus('current')
+h3cEvbDefaultManagerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 1, 2, 1), ).setIndexNames((0, "H3C-EVB-MIB", "h3cEvbManagerIndex"))
+if mibBuilder.loadTexts: h3cEvbDefaultManagerEntry.setStatus('current')
+h3cEvbManagerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 1, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: h3cEvbManagerIndex.setStatus('current')
+h3cEvbManagerType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("ipv4", 1), ("ipv6", 2), ("name", 3), ("local", 4)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cEvbManagerType.setStatus('current')
+h3cEvbManagerID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 1, 2, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cEvbManagerID.setStatus('current')
+h3cEvbManagerPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 1, 2, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(8080)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cEvbManagerPort.setStatus('current')
+h3cEvbManagerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 1, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cEvbManagerRowStatus.setStatus('current')
+h3cEvbPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 1), )
+if mibBuilder.loadTexts: h3cEvbPortConfigTable.setStatus('current')
+h3cEvbPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 1, 1), ).setIndexNames((0, "H3C-EVB-MIB", "h3cEvbPortNumber"))
+if mibBuilder.loadTexts: h3cEvbPortConfigEntry.setStatus('current')
+h3cEvbPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 1, 1, 1), IEEE8021BridgePortNumber())
+if mibBuilder.loadTexts: h3cEvbPortNumber.setStatus('current')
+h3cEvbRWD = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(15, 31)).clone(20)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cEvbRWD.setStatus('current')
+h3cEvbRKA = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(14, 31)).clone(20)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cEvbRKA.setStatus('current')
+h3cEvbSchannelConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 2), )
+if mibBuilder.loadTexts: h3cEvbSchannelConfigTable.setStatus('current')
+h3cEvbSchannelConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 2, 1), ).setIndexNames((0, "H3C-EVB-MIB", "h3cEvbPortNumber"), (0, "H3C-EVB-MIB", "h3cEvbSchannelID"))
+if mibBuilder.loadTexts: h3cEvbSchannelConfigEntry.setStatus('current')
+h3cEvbSchannelID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: h3cEvbSchannelID.setStatus('current')
+h3cEvbSchannelSVLAN = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cEvbSchannelSVLAN.setStatus('current')
+h3cEvbMacLearningStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 2, 1, 3), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cEvbMacLearningStatus.setStatus('current')
+h3cEvbRRStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 2, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cEvbRRStatus.setStatus('current')
+h3cEvbSchannelRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cEvbSchannelRowStatus.setStatus('current')
+h3cEvbVSIConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 3), )
+if mibBuilder.loadTexts: h3cEvbVSIConfigTable.setStatus('current')
+h3cEvbVSIConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 3, 1), ).setIndexNames((0, "H3C-EVB-MIB", "h3cEvbSBPPortNumber"), (0, "H3C-EVB-MIB", "h3cEvbVSILocalID"))
+if mibBuilder.loadTexts: h3cEvbVSIConfigEntry.setStatus('current')
+h3cEvbSBPPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 3, 1, 1), IEEE8021BridgePortNumber())
+if mibBuilder.loadTexts: h3cEvbSBPPortNumber.setStatus('current')
+h3cEvbVSILocalID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 3, 1, 2), Unsigned32())
+if mibBuilder.loadTexts: h3cEvbVSILocalID.setStatus('current')
+h3cEvbVSICommand = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("preAssociate", 1), ("preAssociateWithRsrcReservation", 2), ("associate", 3), ("deAssociate", 4)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cEvbVSICommand.setStatus('current')
+h3cEvbVSIIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 3, 1, 4), InterfaceIndexOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cEvbVSIIfIndex.setStatus('current')
+h3cEvbVSIIsActive = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 3, 1, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cEvbVSIIsActive.setStatus('current')
+h3cEvbVSIRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 3, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cEvbVSIRowStatus.setStatus('current')
+h3cEvbVSIFilterConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 4), )
+if mibBuilder.loadTexts: h3cEvbVSIFilterConfigTable.setStatus('current')
+h3cEvbVSIFilterConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 4, 1), ).setIndexNames((0, "H3C-EVB-MIB", "h3cEvbSBPPortNumber"), (0, "H3C-EVB-MIB", "h3cEvbVSILocalID"), (0, "H3C-EVB-MIB", "h3cEvbGroupID"), (0, "H3C-EVB-MIB", "h3cEvbVSIMac"), (0, "H3C-EVB-MIB", "h3cEvbVSIVlanId"))
+if mibBuilder.loadTexts: h3cEvbVSIFilterConfigEntry.setStatus('current')
+h3cEvbGroupID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 4, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: h3cEvbGroupID.setStatus('current')
+h3cEvbVSIMac = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 4, 1, 2), MacAddress())
+if mibBuilder.loadTexts: h3cEvbVSIMac.setStatus('current')
+h3cEvbVSIVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 4, 1, 3), VlanIndex())
+if mibBuilder.loadTexts: h3cEvbVSIVlanId.setStatus('current')
+h3cEvbVSIFilterRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 2, 4, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cEvbVSIFilterRowStatus.setStatus('current')
+h3cFlex10PortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 1), )
+if mibBuilder.loadTexts: h3cFlex10PortConfigTable.setStatus('current')
+h3cFlex10PortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 1, 1), ).setIndexNames((0, "H3C-EVB-MIB", "h3cFlex10PortNumber"))
+if mibBuilder.loadTexts: h3cFlex10PortConfigEntry.setStatus('current')
+h3cFlex10PortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 1, 1, 1), IEEE8021BridgePortNumber())
+if mibBuilder.loadTexts: h3cFlex10PortNumber.setStatus('current')
+h3cFlex10PortEnableStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cFlex10PortEnableStatus.setStatus('current')
+h3cFlex10RemoteSchannelTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 2), )
+if mibBuilder.loadTexts: h3cFlex10RemoteSchannelTable.setStatus('current')
+h3cFlex10RemoteSchannelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 2, 1), ).setIndexNames((0, "H3C-EVB-MIB", "h3cFlex10PortNumber"), (0, "H3C-EVB-MIB", "h3cEvbSchannelID"))
+if mibBuilder.loadTexts: h3cFlex10RemoteSchannelEntry.setStatus('current')
+h3cFlex10RemSchDesFormat = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 2, 1, 1), Bits().clone(namedValues=NamedValues(("format0", 0), ("format1", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFlex10RemSchDesFormat.setStatus('current')
+h3cFlex10RemSchTerminationType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFlex10RemSchTerminationType.setStatus('current')
+h3cFlex10RemSchTerminationCap = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 2, 1, 3), Bits().clone(namedValues=NamedValues(("ethernet", 0), ("fCOE", 1), ("iSCSI", 2), ("roCEE", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFlex10RemSchTerminationCap.setStatus('current')
+h3cFlex10RemSchTrafficClass = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 2, 1, 4), Bits().clone(namedValues=NamedValues(("class0", 0), ("class1", 1), ("class2", 2), ("class3", 3), ("class4", 4), ("class5", 5), ("class6", 6), ("class7", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFlex10RemSchTrafficClass.setStatus('current')
+h3cFlex10RemSchCir = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 2, 1, 5), Integer32()).setUnits('mbps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFlex10RemSchCir.setStatus('current')
+h3cFlex10RemSchPir = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 2, 1, 6), Integer32()).setUnits('mbps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFlex10RemSchPir.setStatus('current')
+h3cFlex10RemSchConnectionID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 2, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFlex10RemSchConnectionID.setStatus('current')
+h3cFlex10SchannelLinkCtlTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 3), )
+if mibBuilder.loadTexts: h3cFlex10SchannelLinkCtlTable.setStatus('current')
+h3cFlex10SchannelLinkCtlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 3, 1), ).setIndexNames((0, "H3C-EVB-MIB", "h3cFlex10PortNumber"), (0, "H3C-EVB-MIB", "h3cEvbSchannelID"))
+if mibBuilder.loadTexts: h3cFlex10SchannelLinkCtlEntry.setStatus('current')
+h3cFlex10SchannelSVID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 3, 1, 1), VlanIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFlex10SchannelSVID.setStatus('current')
+h3cFlex10SchannelLocalStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFlex10SchannelLocalStatus.setStatus('current')
+h3cFlex10SchannelRemoteStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 134, 3, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFlex10SchannelRemoteStatus.setStatus('current')
+mibBuilder.exportSymbols("H3C-EVB-MIB", h3cFlex10RemoteSchannelEntry=h3cFlex10RemoteSchannelEntry, h3cEvbManagerPort=h3cEvbManagerPort, PYSNMP_MODULE_ID=h3cEvb, h3cEvbPortConfigTable=h3cEvbPortConfigTable, h3cEvbVSIFilterConfigEntry=h3cEvbVSIFilterConfigEntry, h3cFlex10Objects=h3cFlex10Objects, h3cEvbVSIMac=h3cEvbVSIMac, h3cFlex10SchannelRemoteStatus=h3cFlex10SchannelRemoteStatus, h3cFlex10PortNumber=h3cFlex10PortNumber, h3cEvbSchannelConfigTable=h3cEvbSchannelConfigTable, h3cEvbVSILocalID=h3cEvbVSILocalID, h3cEvbVSIFilterConfigTable=h3cEvbVSIFilterConfigTable, h3cEvbPortObjects=h3cEvbPortObjects, h3cEvbSchannelSVLAN=h3cEvbSchannelSVLAN, h3cEvbVSIConfigEntry=h3cEvbVSIConfigEntry, h3cEvbVSIVlanId=h3cEvbVSIVlanId, h3cFlex10RemSchTrafficClass=h3cFlex10RemSchTrafficClass, h3cEvbVSIFilterRowStatus=h3cEvbVSIFilterRowStatus, h3cEvbPortConfigEntry=h3cEvbPortConfigEntry, h3cEvbVSIConfigTable=h3cEvbVSIConfigTable, h3cEvbSBPPortNumber=h3cEvbSBPPortNumber, h3cEvbSchannelRowStatus=h3cEvbSchannelRowStatus, h3cEvbSchannelConfigEntry=h3cEvbSchannelConfigEntry, h3cEvbManagerRowStatus=h3cEvbManagerRowStatus, h3cEvbSchannelID=h3cEvbSchannelID, h3cFlex10RemoteSchannelTable=h3cFlex10RemoteSchannelTable, h3cEvbVSIRowStatus=h3cEvbVSIRowStatus, h3cEvbManagerIndex=h3cEvbManagerIndex, h3cFlex10SchannelSVID=h3cFlex10SchannelSVID, h3cEvbManagerID=h3cEvbManagerID, h3cFlex10PortConfigTable=h3cFlex10PortConfigTable, h3cEvbVSICommand=h3cEvbVSICommand, h3cEvbRKA=h3cEvbRKA, h3cFlex10RemSchCir=h3cFlex10RemSchCir, h3cEvbVSIIfIndex=h3cEvbVSIIfIndex, h3cFlex10SchannelLocalStatus=h3cFlex10SchannelLocalStatus, h3cEvbSysObjects=h3cEvbSysObjects, h3cFlex10RemSchTerminationCap=h3cFlex10RemSchTerminationCap, h3cFlex10RemSchTerminationType=h3cFlex10RemSchTerminationType, h3cFlex10RemSchDesFormat=h3cFlex10RemSchDesFormat, h3cFlex10SchannelLinkCtlTable=h3cFlex10SchannelLinkCtlTable, h3cEvbVSIIsActive=h3cEvbVSIIsActive, h3cFlex10PortConfigEntry=h3cFlex10PortConfigEntry, h3cEvbSetResult=h3cEvbSetResult, h3cEvb=h3cEvb, h3cEvbDefaultManagerTable=h3cEvbDefaultManagerTable, h3cEvbDefaultManagerEntry=h3cEvbDefaultManagerEntry, h3cEvbGroupID=h3cEvbGroupID, h3cFlex10PortEnableStatus=h3cFlex10PortEnableStatus, h3cFlex10SchannelLinkCtlEntry=h3cFlex10SchannelLinkCtlEntry, h3cEvbRWD=h3cEvbRWD, h3cEvbMacLearningStatus=h3cEvbMacLearningStatus, h3cEvbManagerType=h3cEvbManagerType, h3cFlex10RemSchPir=h3cFlex10RemSchPir, h3cEvbRRStatus=h3cEvbRRStatus, h3cFlex10RemSchConnectionID=h3cFlex10RemSchConnectionID, h3cEvbPortNumber=h3cEvbPortNumber)

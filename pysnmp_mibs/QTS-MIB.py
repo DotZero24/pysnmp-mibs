@@ -1,280 +1,119 @@
-_M='eventErrorMsg'
-_L='eventWarningMsg'
-_K='eventInformMsg'
-_J='unlimited'
-_I='sysFanIndex'
-_H='NotificationType'
-_G='DisplayString'
-_F='QTS-MIB'
-_E='yes'
-_D='no'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier',_H,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_H,'TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_G,'PhysAddress','TextualConvention')
-class DisplayString(OctetString):0
-_QNAP_ObjectIdentity=ObjectIdentity
-QNAP=_QNAP_ObjectIdentity((1,3,6,1,4,1,55062))
-_QTS_ObjectIdentity=ObjectIdentity
-QTS=_QTS_ObjectIdentity((1,3,6,1,4,1,55062,1))
-_System_ObjectIdentity=ObjectIdentity
-system=_System_ObjectIdentity((1,3,6,1,4,1,55062,1,12))
-_SystemEventMsg_ObjectIdentity=ObjectIdentity
-systemEventMsg=_SystemEventMsg_ObjectIdentity((1,3,6,1,4,1,55062,1,12,1))
-_EventInformMsg_Type=DisplayString
-_EventInformMsg_Object=MibScalar
-eventInformMsg=_EventInformMsg_Object((1,3,6,1,4,1,55062,1,12,1,101),_EventInformMsg_Type())
-eventInformMsg.setMaxAccess(_B)
-if mibBuilder.loadTexts:eventInformMsg.setStatus(_A)
-_EventWarningMsg_Type=DisplayString
-_EventWarningMsg_Object=MibScalar
-eventWarningMsg=_EventWarningMsg_Object((1,3,6,1,4,1,55062,1,12,1,102),_EventWarningMsg_Type())
-eventWarningMsg.setMaxAccess(_B)
-if mibBuilder.loadTexts:eventWarningMsg.setStatus(_A)
-_EventErrorMsg_Type=DisplayString
-_EventErrorMsg_Object=MibScalar
-eventErrorMsg=_EventErrorMsg_Object((1,3,6,1,4,1,55062,1,12,1,103),_EventErrorMsg_Type())
-eventErrorMsg.setMaxAccess(_B)
-if mibBuilder.loadTexts:eventErrorMsg.setStatus(_A)
-_SystemTraps_ObjectIdentity=ObjectIdentity
-systemTraps=_SystemTraps_ObjectIdentity((1,3,6,1,4,1,55062,1,12,2))
-_SystemModel_Type=DisplayString
-_SystemModel_Object=MibScalar
-systemModel=_SystemModel_Object((1,3,6,1,4,1,55062,1,12,3),_SystemModel_Type())
-systemModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:systemModel.setStatus(_A)
-_Hostname_Type=DisplayString
-_Hostname_Object=MibScalar
-hostname=_Hostname_Object((1,3,6,1,4,1,55062,1,12,4),_Hostname_Type())
-hostname.setMaxAccess(_B)
-if mibBuilder.loadTexts:hostname.setStatus(_A)
-class _SerialNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_SerialNumber_Type.__name__=_G
-_SerialNumber_Object=MibScalar
-serialNumber=_SerialNumber_Object((1,3,6,1,4,1,55062,1,12,5),_SerialNumber_Type())
-serialNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:serialNumber.setStatus(_A)
-_FirmwareVersion_Type=DisplayString
-_FirmwareVersion_Object=MibScalar
-firmwareVersion=_FirmwareVersion_Object((1,3,6,1,4,1,55062,1,12,6),_FirmwareVersion_Type())
-firmwareVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:firmwareVersion.setStatus(_A)
-_FirmwareUpgradeAvailable_Type=Integer32
-_FirmwareUpgradeAvailable_Object=MibScalar
-firmwareUpgradeAvailable=_FirmwareUpgradeAvailable_Object((1,3,6,1,4,1,55062,1,12,7),_FirmwareUpgradeAvailable_Type())
-firmwareUpgradeAvailable.setMaxAccess(_B)
-if mibBuilder.loadTexts:firmwareUpgradeAvailable.setStatus(_A)
-_SysFanNumber_Type=Integer32
-_SysFanNumber_Object=MibScalar
-sysFanNumber=_SysFanNumber_Object((1,3,6,1,4,1,55062,1,12,8),_SysFanNumber_Type())
-sysFanNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:sysFanNumber.setStatus(_A)
-_SystemFanTable_Object=MibTable
-systemFanTable=_SystemFanTable_Object((1,3,6,1,4,1,55062,1,12,9))
-if mibBuilder.loadTexts:systemFanTable.setStatus(_A)
-_SysFanEntry_Object=MibTableRow
-sysFanEntry=_SysFanEntry_Object((1,3,6,1,4,1,55062,1,12,9,1))
-sysFanEntry.setIndexNames((0,_F,_I))
-if mibBuilder.loadTexts:sysFanEntry.setStatus(_A)
-_SysFanIndex_Type=Integer32
-_SysFanIndex_Object=MibTableColumn
-sysFanIndex=_SysFanIndex_Object((1,3,6,1,4,1,55062,1,12,9,1,1),_SysFanIndex_Type())
-sysFanIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:sysFanIndex.setStatus(_A)
-class _SysFanDescr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_SysFanDescr_Type.__name__=_G
-_SysFanDescr_Object=MibTableColumn
-sysFanDescr=_SysFanDescr_Object((1,3,6,1,4,1,55062,1,12,9,1,2),_SysFanDescr_Type())
-sysFanDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:sysFanDescr.setStatus(_A)
-_SysFanSpeed_Type=Integer32
-_SysFanSpeed_Object=MibTableColumn
-sysFanSpeed=_SysFanSpeed_Object((1,3,6,1,4,1,55062,1,12,9,1,3),_SysFanSpeed_Type())
-sysFanSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:sysFanSpeed.setStatus(_A)
-_CpuTemperature_Type=Integer32
-_CpuTemperature_Object=MibScalar
-cpuTemperature=_CpuTemperature_Object((1,3,6,1,4,1,55062,1,12,10),_CpuTemperature_Type())
-cpuTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpuTemperature.setStatus(_A)
-_SystemTemperature_Type=Integer32
-_SystemTemperature_Object=MibScalar
-systemTemperature=_SystemTemperature_Object((1,3,6,1,4,1,55062,1,12,11),_SystemTemperature_Type())
-systemTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:systemTemperature.setStatus(_A)
-_SystemCPU_Usage_Type=Integer32
-_SystemCPU_Usage_Object=MibScalar
-systemCPU_Usage=_SystemCPU_Usage_Object((1,3,6,1,4,1,55062,1,12,12),_SystemCPU_Usage_Type())
-systemCPU_Usage.setMaxAccess(_B)
-if mibBuilder.loadTexts:systemCPU_Usage.setStatus(_A)
-_SystemTotalMem_Type=Counter64
-_SystemTotalMem_Object=MibScalar
-systemTotalMem=_SystemTotalMem_Object((1,3,6,1,4,1,55062,1,12,13),_SystemTotalMem_Type())
-systemTotalMem.setMaxAccess(_B)
-if mibBuilder.loadTexts:systemTotalMem.setStatus(_A)
-_SystemFreeMem_Type=Counter64
-_SystemFreeMem_Object=MibScalar
-systemFreeMem=_SystemFreeMem_Object((1,3,6,1,4,1,55062,1,12,14),_SystemFreeMem_Type())
-systemFreeMem.setMaxAccess(_B)
-if mibBuilder.loadTexts:systemFreeMem.setStatus(_A)
-_SystemAvailableMem_Type=Counter64
-_SystemAvailableMem_Object=MibScalar
-systemAvailableMem=_SystemAvailableMem_Object((1,3,6,1,4,1,55062,1,12,15),_SystemAvailableMem_Type())
-systemAvailableMem.setMaxAccess(_B)
-if mibBuilder.loadTexts:systemAvailableMem.setStatus(_A)
-_SystemUsedMemory_Type=Counter64
-_SystemUsedMemory_Object=MibScalar
-systemUsedMemory=_SystemUsedMemory_Object((1,3,6,1,4,1,55062,1,12,16),_SystemUsedMemory_Type())
-systemUsedMemory.setMaxAccess(_B)
-if mibBuilder.loadTexts:systemUsedMemory.setStatus(_A)
-_SystemCacheMemory_Type=Counter64
-_SystemCacheMemory_Object=MibScalar
-systemCacheMemory=_SystemCacheMemory_Object((1,3,6,1,4,1,55062,1,12,17),_SystemCacheMemory_Type())
-systemCacheMemory.setMaxAccess(_B)
-if mibBuilder.loadTexts:systemCacheMemory.setStatus(_A)
-_SystemBufferMemory_Type=Counter64
-_SystemBufferMemory_Object=MibScalar
-systemBufferMemory=_SystemBufferMemory_Object((1,3,6,1,4,1,55062,1,12,18),_SystemBufferMemory_Type())
-systemBufferMemory.setMaxAccess(_B)
-if mibBuilder.loadTexts:systemBufferMemory.setStatus(_A)
-class _SysPowerStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,0)));namedValues=NamedValues(*(('failed',-1),('ok',0)))
-_SysPowerStatus_Type.__name__=_C
-_SysPowerStatus_Object=MibScalar
-sysPowerStatus=_SysPowerStatus_Object((1,3,6,1,4,1,55062,1,12,19),_SysPowerStatus_Type())
-sysPowerStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:sysPowerStatus.setStatus(_A)
-_SysUPSStatus_Type=Integer32
-_SysUPSStatus_Object=MibScalar
-sysUPSStatus=_SysUPSStatus_Object((1,3,6,1,4,1,55062,1,12,20),_SysUPSStatus_Type())
-sysUPSStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:sysUPSStatus.setStatus(_A)
-_SysUptime_Type=TimeTicks
-_SysUptime_Object=MibScalar
-sysUptime=_SysUptime_Object((1,3,6,1,4,1,55062,1,12,21),_SysUptime_Type())
-sysUptime.setMaxAccess(_B)
-if mibBuilder.loadTexts:sysUptime.setStatus(_A)
-_Services_ObjectIdentity=ObjectIdentity
-services=_Services_ObjectIdentity((1,3,6,1,4,1,55062,1,14))
-class _NfsV2V3IsEnabled_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_NfsV2V3IsEnabled_Type.__name__=_C
-_NfsV2V3IsEnabled_Object=MibScalar
-nfsV2V3IsEnabled=_NfsV2V3IsEnabled_Object((1,3,6,1,4,1,55062,1,14,1),_NfsV2V3IsEnabled_Type())
-nfsV2V3IsEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:nfsV2V3IsEnabled.setStatus(_A)
-class _NfsV4IsEnabled_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_NfsV4IsEnabled_Type.__name__=_C
-_NfsV4IsEnabled_Object=MibScalar
-nfsV4IsEnabled=_NfsV4IsEnabled_Object((1,3,6,1,4,1,55062,1,14,2),_NfsV4IsEnabled_Type())
-nfsV4IsEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:nfsV4IsEnabled.setStatus(_A)
-_HttpPort_Type=Integer32
-_HttpPort_Object=MibScalar
-httpPort=_HttpPort_Object((1,3,6,1,4,1,55062,1,14,3),_HttpPort_Type())
-httpPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:httpPort.setStatus(_A)
-_HttpsPort_Type=Integer32
-_HttpsPort_Object=MibScalar
-httpsPort=_HttpsPort_Object((1,3,6,1,4,1,55062,1,14,4),_HttpsPort_Type())
-httpsPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:httpsPort.setStatus(_A)
-class _SshIsEnabled_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_SshIsEnabled_Type.__name__=_C
-_SshIsEnabled_Object=MibScalar
-sshIsEnabled=_SshIsEnabled_Object((1,3,6,1,4,1,55062,1,14,5),_SshIsEnabled_Type())
-sshIsEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshIsEnabled.setStatus(_A)
-class _SshSFTPEnabled_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_SshSFTPEnabled_Type.__name__=_C
-_SshSFTPEnabled_Object=MibScalar
-sshSFTPEnabled=_SshSFTPEnabled_Object((1,3,6,1,4,1,55062,1,14,6),_SshSFTPEnabled_Type())
-sshSFTPEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshSFTPEnabled.setStatus(_A)
-_SshPortNumber_Type=Integer32
-_SshPortNumber_Object=MibScalar
-sshPortNumber=_SshPortNumber_Object((1,3,6,1,4,1,55062,1,14,7),_SshPortNumber_Type())
-sshPortNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshPortNumber.setStatus(_A)
-class _TelnetIsEnabled_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_TelnetIsEnabled_Type.__name__=_C
-_TelnetIsEnabled_Object=MibScalar
-telnetIsEnabled=_TelnetIsEnabled_Object((1,3,6,1,4,1,55062,1,14,8),_TelnetIsEnabled_Type())
-telnetIsEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:telnetIsEnabled.setStatus(_A)
-_TelnetPortNumber_Type=Integer32
-_TelnetPortNumber_Object=MibScalar
-telnetPortNumber=_TelnetPortNumber_Object((1,3,6,1,4,1,55062,1,14,9),_TelnetPortNumber_Type())
-telnetPortNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:telnetPortNumber.setStatus(_A)
-class _FtpEnabled_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_FtpEnabled_Type.__name__=_C
-_FtpEnabled_Object=MibScalar
-ftpEnabled=_FtpEnabled_Object((1,3,6,1,4,1,55062,1,14,10),_FtpEnabled_Type())
-ftpEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:ftpEnabled.setStatus(_A)
-class _FtpProtocolStandardEnabled_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_FtpProtocolStandardEnabled_Type.__name__=_C
-_FtpProtocolStandardEnabled_Object=MibScalar
-ftpProtocolStandardEnabled=_FtpProtocolStandardEnabled_Object((1,3,6,1,4,1,55062,1,14,11),_FtpProtocolStandardEnabled_Type())
-ftpProtocolStandardEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:ftpProtocolStandardEnabled.setStatus(_A)
-class _FtpProtocolSSL_TLSEnabled_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_FtpProtocolSSL_TLSEnabled_Type.__name__=_C
-_FtpProtocolSSL_TLSEnabled_Object=MibScalar
-ftpProtocolSSL_TLSEnabled=_FtpProtocolSSL_TLSEnabled_Object((1,3,6,1,4,1,55062,1,14,12),_FtpProtocolSSL_TLSEnabled_Type())
-ftpProtocolSSL_TLSEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:ftpProtocolSSL_TLSEnabled.setStatus(_A)
-_FtpPortNumber_Type=Integer32
-_FtpPortNumber_Object=MibScalar
-ftpPortNumber=_FtpPortNumber_Object((1,3,6,1,4,1,55062,1,14,13),_FtpPortNumber_Type())
-ftpPortNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:ftpPortNumber.setStatus(_A)
-class _FtpUnicodeSupportEnabled_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_FtpUnicodeSupportEnabled_Type.__name__=_C
-_FtpUnicodeSupportEnabled_Object=MibScalar
-ftpUnicodeSupportEnabled=_FtpUnicodeSupportEnabled_Object((1,3,6,1,4,1,55062,1,14,14),_FtpUnicodeSupportEnabled_Type())
-ftpUnicodeSupportEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:ftpUnicodeSupportEnabled.setStatus(_A)
-class _FtpAnnonymousaccessEnabled_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_FtpAnnonymousaccessEnabled_Type.__name__=_C
-_FtpAnnonymousaccessEnabled_Object=MibScalar
-ftpAnnonymousaccessEnabled=_FtpAnnonymousaccessEnabled_Object((1,3,6,1,4,1,55062,1,14,15),_FtpAnnonymousaccessEnabled_Type())
-ftpAnnonymousaccessEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:ftpAnnonymousaccessEnabled.setStatus(_A)
-_FtpMaxConnectionsAllowed_Type=Integer32
-_FtpMaxConnectionsAllowed_Object=MibScalar
-ftpMaxConnectionsAllowed=_FtpMaxConnectionsAllowed_Object((1,3,6,1,4,1,55062,1,14,16),_FtpMaxConnectionsAllowed_Type())
-ftpMaxConnectionsAllowed.setMaxAccess(_B)
-if mibBuilder.loadTexts:ftpMaxConnectionsAllowed.setStatus(_A)
-_FtpMaxConnectionsPerAccount_Type=Integer32
-_FtpMaxConnectionsPerAccount_Object=MibScalar
-ftpMaxConnectionsPerAccount=_FtpMaxConnectionsPerAccount_Object((1,3,6,1,4,1,55062,1,14,17),_FtpMaxConnectionsPerAccount_Type())
-ftpMaxConnectionsPerAccount.setMaxAccess(_B)
-if mibBuilder.loadTexts:ftpMaxConnectionsPerAccount.setStatus(_A)
-class _FtpMaxUploadRate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues((_J,0))
-_FtpMaxUploadRate_Type.__name__=_C
-_FtpMaxUploadRate_Object=MibScalar
-ftpMaxUploadRate=_FtpMaxUploadRate_Object((1,3,6,1,4,1,55062,1,14,18),_FtpMaxUploadRate_Type())
-ftpMaxUploadRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:ftpMaxUploadRate.setStatus(_A)
-class _FtpMaxDownloadRate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues((_J,0))
-_FtpMaxDownloadRate_Type.__name__=_C
-_FtpMaxDownloadRate_Object=MibScalar
-ftpMaxDownloadRate=_FtpMaxDownloadRate_Object((1,3,6,1,4,1,55062,1,14,19),_FtpMaxDownloadRate_Type())
-ftpMaxDownloadRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:ftpMaxDownloadRate.setStatus(_A)
-eventInform=NotificationType((1,3,6,1,4,1,55062,1,12,2,1))
-eventInform.setObjects((_F,_K))
-if mibBuilder.loadTexts:eventInform.setStatus(_A)
-eventWarning=NotificationType((1,3,6,1,4,1,55062,1,12,2,2))
-eventWarning.setObjects((_F,_L))
-if mibBuilder.loadTexts:eventWarning.setStatus(_A)
-eventError=NotificationType((1,3,6,1,4,1,55062,1,12,2,4))
-eventError.setObjects((_F,_M))
-if mibBuilder.loadTexts:eventError.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{_G:DisplayString,'QNAP':QNAP,'QTS':QTS,'system':system,'systemEventMsg':systemEventMsg,_K:eventInformMsg,_L:eventWarningMsg,_M:eventErrorMsg,'systemTraps':systemTraps,'eventInform':eventInform,'eventWarning':eventWarning,'eventError':eventError,'systemModel':systemModel,'hostname':hostname,'serialNumber':serialNumber,'firmwareVersion':firmwareVersion,'firmwareUpgradeAvailable':firmwareUpgradeAvailable,'sysFanNumber':sysFanNumber,'systemFanTable':systemFanTable,'sysFanEntry':sysFanEntry,_I:sysFanIndex,'sysFanDescr':sysFanDescr,'sysFanSpeed':sysFanSpeed,'cpuTemperature':cpuTemperature,'systemTemperature':systemTemperature,'systemCPU-Usage':systemCPU_Usage,'systemTotalMem':systemTotalMem,'systemFreeMem':systemFreeMem,'systemAvailableMem':systemAvailableMem,'systemUsedMemory':systemUsedMemory,'systemCacheMemory':systemCacheMemory,'systemBufferMemory':systemBufferMemory,'sysPowerStatus':sysPowerStatus,'sysUPSStatus':sysUPSStatus,'sysUptime':sysUptime,'services':services,'nfsV2V3IsEnabled':nfsV2V3IsEnabled,'nfsV4IsEnabled':nfsV4IsEnabled,'httpPort':httpPort,'httpsPort':httpsPort,'sshIsEnabled':sshIsEnabled,'sshSFTPEnabled':sshSFTPEnabled,'sshPortNumber':sshPortNumber,'telnetIsEnabled':telnetIsEnabled,'telnetPortNumber':telnetPortNumber,'ftpEnabled':ftpEnabled,'ftpProtocolStandardEnabled':ftpProtocolStandardEnabled,'ftpProtocolSSL-TLSEnabled':ftpProtocolSSL_TLSEnabled,'ftpPortNumber':ftpPortNumber,'ftpUnicodeSupportEnabled':ftpUnicodeSupportEnabled,'ftpAnnonymousaccessEnabled':ftpAnnonymousaccessEnabled,'ftpMaxConnectionsAllowed':ftpMaxConnectionsAllowed,'ftpMaxConnectionsPerAccount':ftpMaxConnectionsPerAccount,'ftpMaxUploadRate':ftpMaxUploadRate,'ftpMaxDownloadRate':ftpMaxDownloadRate})
+#
+# PySNMP MIB module QTS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qnap/QTS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Integer32, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Integer32", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+class DisplayString(OctetString):
+    pass
+
+QNAP = MibIdentifier((1, 3, 6, 1, 4, 1, 55062))
+QTS = MibIdentifier((1, 3, 6, 1, 4, 1, 55062, 1))
+system = MibIdentifier((1, 3, 6, 1, 4, 1, 55062, 1, 12))
+systemEventMsg = MibIdentifier((1, 3, 6, 1, 4, 1, 55062, 1, 12, 1))
+eventInformMsg = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 1, 101), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eventInformMsg.setStatus('current')
+eventWarningMsg = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 1, 102), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eventWarningMsg.setStatus('current')
+eventErrorMsg = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 1, 103), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eventErrorMsg.setStatus('current')
+systemTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 55062, 1, 12, 2))
+eventInform = NotificationType((1, 3, 6, 1, 4, 1, 55062, 1, 12, 2, 1)).setObjects(("QTS-MIB", "eventInformMsg"))
+if mibBuilder.loadTexts: eventInform.setStatus('current')
+eventWarning = NotificationType((1, 3, 6, 1, 4, 1, 55062, 1, 12, 2, 2)).setObjects(("QTS-MIB", "eventWarningMsg"))
+if mibBuilder.loadTexts: eventWarning.setStatus('current')
+eventError = NotificationType((1, 3, 6, 1, 4, 1, 55062, 1, 12, 2, 4)).setObjects(("QTS-MIB", "eventErrorMsg"))
+if mibBuilder.loadTexts: eventError.setStatus('current')
+systemModel = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: systemModel.setStatus('current')
+hostname = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hostname.setStatus('current')
+serialNumber = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: serialNumber.setStatus('current')
+firmwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: firmwareVersion.setStatus('current')
+firmwareUpgradeAvailable = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: firmwareUpgradeAvailable.setStatus('current')
+sysFanNumber = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysFanNumber.setStatus('current')
+systemFanTable = MibTable((1, 3, 6, 1, 4, 1, 55062, 1, 12, 9), )
+if mibBuilder.loadTexts: systemFanTable.setStatus('current')
+sysFanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 55062, 1, 12, 9, 1), ).setIndexNames((0, "QTS-MIB", "sysFanIndex"))
+if mibBuilder.loadTexts: sysFanEntry.setStatus('current')
+sysFanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 55062, 1, 12, 9, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysFanIndex.setStatus('current')
+sysFanDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 55062, 1, 12, 9, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysFanDescr.setStatus('current')
+sysFanSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 55062, 1, 12, 9, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysFanSpeed.setStatus('current')
+cpuTemperature = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpuTemperature.setStatus('current')
+systemTemperature = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: systemTemperature.setStatus('current')
+systemCPU_Usage = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 12), Integer32()).setLabel("systemCPU-Usage").setMaxAccess("readonly")
+if mibBuilder.loadTexts: systemCPU_Usage.setStatus('current')
+systemTotalMem = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 13), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: systemTotalMem.setStatus('current')
+systemFreeMem = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 14), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: systemFreeMem.setStatus('current')
+systemAvailableMem = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 15), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: systemAvailableMem.setStatus('current')
+systemUsedMemory = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 16), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: systemUsedMemory.setStatus('current')
+systemCacheMemory = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 17), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: systemCacheMemory.setStatus('current')
+systemBufferMemory = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 18), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: systemBufferMemory.setStatus('current')
+sysPowerStatus = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 0))).clone(namedValues=NamedValues(("failed", -1), ("ok", 0)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysPowerStatus.setStatus('current')
+sysUPSStatus = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 20), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysUPSStatus.setStatus('current')
+sysUptime = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 12, 21), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysUptime.setStatus('current')
+services = MibIdentifier((1, 3, 6, 1, 4, 1, 55062, 1, 14))
+nfsV2V3IsEnabled = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nfsV2V3IsEnabled.setStatus('current')
+nfsV4IsEnabled = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nfsV4IsEnabled.setStatus('current')
+httpPort = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: httpPort.setStatus('current')
+httpsPort = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: httpsPort.setStatus('current')
+sshIsEnabled = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshIsEnabled.setStatus('current')
+sshSFTPEnabled = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshSFTPEnabled.setStatus('current')
+sshPortNumber = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sshPortNumber.setStatus('current')
+telnetIsEnabled = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: telnetIsEnabled.setStatus('current')
+telnetPortNumber = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: telnetPortNumber.setStatus('current')
+ftpEnabled = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ftpEnabled.setStatus('current')
+ftpProtocolStandardEnabled = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ftpProtocolStandardEnabled.setStatus('current')
+ftpProtocolSSL_TLSEnabled = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setLabel("ftpProtocolSSL-TLSEnabled").setMaxAccess("readonly")
+if mibBuilder.loadTexts: ftpProtocolSSL_TLSEnabled.setStatus('current')
+ftpPortNumber = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ftpPortNumber.setStatus('current')
+ftpUnicodeSupportEnabled = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ftpUnicodeSupportEnabled.setStatus('current')
+ftpAnnonymousaccessEnabled = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ftpAnnonymousaccessEnabled.setStatus('current')
+ftpMaxConnectionsAllowed = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 16), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ftpMaxConnectionsAllowed.setStatus('current')
+ftpMaxConnectionsPerAccount = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ftpMaxConnectionsPerAccount.setStatus('current')
+ftpMaxUploadRate = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("unlimited", 0)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ftpMaxUploadRate.setStatus('current')
+ftpMaxDownloadRate = MibScalar((1, 3, 6, 1, 4, 1, 55062, 1, 14, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("unlimited", 0)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ftpMaxDownloadRate.setStatus('current')
+mibBuilder.exportSymbols("QTS-MIB", ftpPortNumber=ftpPortNumber, ftpMaxConnectionsPerAccount=ftpMaxConnectionsPerAccount, eventWarning=eventWarning, cpuTemperature=cpuTemperature, systemCacheMemory=systemCacheMemory, httpsPort=httpsPort, eventWarningMsg=eventWarningMsg, sshPortNumber=sshPortNumber, sysFanSpeed=sysFanSpeed, systemUsedMemory=systemUsedMemory, services=services, sysPowerStatus=sysPowerStatus, systemTotalMem=systemTotalMem, serialNumber=serialNumber, sysFanNumber=sysFanNumber, systemFreeMem=systemFreeMem, nfsV4IsEnabled=nfsV4IsEnabled, sshSFTPEnabled=sshSFTPEnabled, ftpAnnonymousaccessEnabled=ftpAnnonymousaccessEnabled, ftpMaxUploadRate=ftpMaxUploadRate, systemBufferMemory=systemBufferMemory, ftpProtocolSSL_TLSEnabled=ftpProtocolSSL_TLSEnabled, ftpEnabled=ftpEnabled, eventErrorMsg=eventErrorMsg, telnetIsEnabled=telnetIsEnabled, eventError=eventError, telnetPortNumber=telnetPortNumber, sshIsEnabled=sshIsEnabled, eventInformMsg=eventInformMsg, systemCPU_Usage=systemCPU_Usage, systemFanTable=systemFanTable, sysFanIndex=sysFanIndex, systemEventMsg=systemEventMsg, QNAP=QNAP, systemTemperature=systemTemperature, ftpMaxConnectionsAllowed=ftpMaxConnectionsAllowed, system=system, sysFanEntry=sysFanEntry, systemTraps=systemTraps, ftpMaxDownloadRate=ftpMaxDownloadRate, systemAvailableMem=systemAvailableMem, QTS=QTS, httpPort=httpPort, hostname=hostname, sysUptime=sysUptime, sysUPSStatus=sysUPSStatus, ftpUnicodeSupportEnabled=ftpUnicodeSupportEnabled, eventInform=eventInform, firmwareUpgradeAvailable=firmwareUpgradeAvailable, ftpProtocolStandardEnabled=ftpProtocolStandardEnabled, DisplayString=DisplayString, firmwareVersion=firmwareVersion, sysFanDescr=sysFanDescr, systemModel=systemModel, nfsV2V3IsEnabled=nfsV2V3IsEnabled)

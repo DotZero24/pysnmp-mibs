@@ -1,123 +1,62 @@
-_E='mwPacketCaptureProfileTableIndex'
-_D='MERU-CONFIG-PACKETCAPTURE-MIB'
-_C='DisplayString'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-Ipv6Address,=mibBuilder.importSymbols('IPV6-TC','Ipv6Address')
-mwConfiguration,=mibBuilder.importSymbols('MERU-SMI','mwConfiguration')
-MwlEnableDisableOption,MwlEncapsulationType,MwlOnOffSwitch,MwlPacketCaptureMode,MwlRateLimitMode,MwlRxTxOption=mibBuilder.importSymbols('MERU-TC','MwlEnableDisableOption','MwlEncapsulationType','MwlOnOffSwitch','MwlPacketCaptureMode','MwlRateLimitMode','MwlRxTxOption')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_C,'MacAddress','PhysAddress','RowStatus','TextualConvention','TimeInterval','TimeStamp','TruthValue')
-mwConfigPacketCapture=ModuleIdentity((1,3,6,1,4,1,15983,1,1,4,17))
-_MwPacketCaptureProfileTable_Object=MibTable
-mwPacketCaptureProfileTable=_MwPacketCaptureProfileTable_Object((1,3,6,1,4,1,15983,1,1,4,17,1))
-if mibBuilder.loadTexts:mwPacketCaptureProfileTable.setStatus(_A)
-_MwPacketCaptureProfileEntry_Object=MibTableRow
-mwPacketCaptureProfileEntry=_MwPacketCaptureProfileEntry_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1))
-mwPacketCaptureProfileEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:mwPacketCaptureProfileEntry.setStatus(_A)
-_MwPacketCaptureProfileTableIndex_Type=Integer32
-_MwPacketCaptureProfileTableIndex_Object=MibTableColumn
-mwPacketCaptureProfileTableIndex=_MwPacketCaptureProfileTableIndex_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,1),_MwPacketCaptureProfileTableIndex_Type())
-mwPacketCaptureProfileTableIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:mwPacketCaptureProfileTableIndex.setStatus(_A)
-class _MwPacketCaptureProfileName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_MwPacketCaptureProfileName_Type.__name__=_C
-_MwPacketCaptureProfileName_Object=MibTableColumn
-mwPacketCaptureProfileName=_MwPacketCaptureProfileName_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,2),_MwPacketCaptureProfileName_Type())
-mwPacketCaptureProfileName.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileName.setStatus(_A)
-_MwPacketCaptureProfileStatus_Type=MwlEnableDisableOption
-_MwPacketCaptureProfileStatus_Object=MibTableColumn
-mwPacketCaptureProfileStatus=_MwPacketCaptureProfileStatus_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,3),_MwPacketCaptureProfileStatus_Type())
-mwPacketCaptureProfileStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileStatus.setStatus(_A)
-_MwPacketCaptureProfileConnectivityMode_Type=MwlPacketCaptureMode
-_MwPacketCaptureProfileConnectivityMode_Object=MibTableColumn
-mwPacketCaptureProfileConnectivityMode=_MwPacketCaptureProfileConnectivityMode_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,4),_MwPacketCaptureProfileConnectivityMode_Type())
-mwPacketCaptureProfileConnectivityMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileConnectivityMode.setStatus(_A)
-_MwPacketCaptureProfileDestinationIp_Type=IpAddress
-_MwPacketCaptureProfileDestinationIp_Object=MibTableColumn
-mwPacketCaptureProfileDestinationIp=_MwPacketCaptureProfileDestinationIp_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,5),_MwPacketCaptureProfileDestinationIp_Type())
-mwPacketCaptureProfileDestinationIp.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileDestinationIp.setStatus(_A)
-_MwPacketCaptureProfileUDPPort_Type=Unsigned32
-_MwPacketCaptureProfileUDPPort_Object=MibTableColumn
-mwPacketCaptureProfileUDPPort=_MwPacketCaptureProfileUDPPort_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,6),_MwPacketCaptureProfileUDPPort_Type())
-mwPacketCaptureProfileUDPPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileUDPPort.setStatus(_A)
-_MwPacketCaptureProfileDestinationMac_Type=MacAddress
-_MwPacketCaptureProfileDestinationMac_Object=MibTableColumn
-mwPacketCaptureProfileDestinationMac=_MwPacketCaptureProfileDestinationMac_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,7),_MwPacketCaptureProfileDestinationMac_Type())
-mwPacketCaptureProfileDestinationMac.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileDestinationMac.setStatus(_A)
-_MwPacketCaptureProfileRxTx_Type=MwlRxTxOption
-_MwPacketCaptureProfileRxTx_Object=MibTableColumn
-mwPacketCaptureProfileRxTx=_MwPacketCaptureProfileRxTx_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,8),_MwPacketCaptureProfileRxTx_Type())
-mwPacketCaptureProfileRxTx.setMaxAccess('read-only')
-if mibBuilder.loadTexts:mwPacketCaptureProfileRxTx.setStatus(_A)
-_MwPacketCaptureProfileRateLimitMode_Type=MwlRateLimitMode
-_MwPacketCaptureProfileRateLimitMode_Object=MibTableColumn
-mwPacketCaptureProfileRateLimitMode=_MwPacketCaptureProfileRateLimitMode_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,9),_MwPacketCaptureProfileRateLimitMode_Type())
-mwPacketCaptureProfileRateLimitMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileRateLimitMode.setStatus(_A)
-_MwPacketCaptureProfileTokenBucketRate_Type=Unsigned32
-_MwPacketCaptureProfileTokenBucketRate_Object=MibTableColumn
-mwPacketCaptureProfileTokenBucketRate=_MwPacketCaptureProfileTokenBucketRate_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,10),_MwPacketCaptureProfileTokenBucketRate_Type())
-mwPacketCaptureProfileTokenBucketRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileTokenBucketRate.setStatus(_A)
-_MwPacketCaptureProfileTokenBucketSize_Type=Unsigned32
-_MwPacketCaptureProfileTokenBucketSize_Object=MibTableColumn
-mwPacketCaptureProfileTokenBucketSize=_MwPacketCaptureProfileTokenBucketSize_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,11),_MwPacketCaptureProfileTokenBucketSize_Type())
-mwPacketCaptureProfileTokenBucketSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileTokenBucketSize.setStatus(_A)
-class _MwPacketCaptureProfileApList_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1000))
-_MwPacketCaptureProfileApList_Type.__name__=_C
-_MwPacketCaptureProfileApList_Object=MibTableColumn
-mwPacketCaptureProfileApList=_MwPacketCaptureProfileApList_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,12),_MwPacketCaptureProfileApList_Type())
-mwPacketCaptureProfileApList.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileApList.setStatus(_A)
-class _MwPacketCaptureProfileFilter_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_MwPacketCaptureProfileFilter_Type.__name__=_C
-_MwPacketCaptureProfileFilter_Object=MibTableColumn
-mwPacketCaptureProfileFilter=_MwPacketCaptureProfileFilter_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,13),_MwPacketCaptureProfileFilter_Type())
-mwPacketCaptureProfileFilter.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileFilter.setStatus(_A)
-class _MwPacketCaptureProfileInterfaceList_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_MwPacketCaptureProfileInterfaceList_Type.__name__=_C
-_MwPacketCaptureProfileInterfaceList_Object=MibTableColumn
-mwPacketCaptureProfileInterfaceList=_MwPacketCaptureProfileInterfaceList_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,14),_MwPacketCaptureProfileInterfaceList_Type())
-mwPacketCaptureProfileInterfaceList.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileInterfaceList.setStatus(_A)
-_MwPacketCaptureProfilePacketTruncationLength_Type=Unsigned32
-_MwPacketCaptureProfilePacketTruncationLength_Object=MibTableColumn
-mwPacketCaptureProfilePacketTruncationLength=_MwPacketCaptureProfilePacketTruncationLength_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,15),_MwPacketCaptureProfilePacketTruncationLength_Type())
-mwPacketCaptureProfilePacketTruncationLength.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfilePacketTruncationLength.setStatus(_A)
-_MwPacketCaptureProfileRateLimiting_Type=MwlOnOffSwitch
-_MwPacketCaptureProfileRateLimiting_Object=MibTableColumn
-mwPacketCaptureProfileRateLimiting=_MwPacketCaptureProfileRateLimiting_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,16),_MwPacketCaptureProfileRateLimiting_Type())
-mwPacketCaptureProfileRateLimiting.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileRateLimiting.setStatus(_A)
-_MwPacketCaptureProfileCaptureSiblingFrames_Type=MwlOnOffSwitch
-_MwPacketCaptureProfileCaptureSiblingFrames_Object=MibTableColumn
-mwPacketCaptureProfileCaptureSiblingFrames=_MwPacketCaptureProfileCaptureSiblingFrames_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,17),_MwPacketCaptureProfileCaptureSiblingFrames_Type())
-mwPacketCaptureProfileCaptureSiblingFrames.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileCaptureSiblingFrames.setStatus(_A)
-_MwPacketCaptureProfileEncapsulation_Type=MwlEncapsulationType
-_MwPacketCaptureProfileEncapsulation_Object=MibTableColumn
-mwPacketCaptureProfileEncapsulation=_MwPacketCaptureProfileEncapsulation_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,18),_MwPacketCaptureProfileEncapsulation_Type())
-mwPacketCaptureProfileEncapsulation.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileEncapsulation.setStatus(_A)
-_MwPacketCaptureProfileRowStatus_Type=RowStatus
-_MwPacketCaptureProfileRowStatus_Object=MibTableColumn
-mwPacketCaptureProfileRowStatus=_MwPacketCaptureProfileRowStatus_Object((1,3,6,1,4,1,15983,1,1,4,17,1,1,19),_MwPacketCaptureProfileRowStatus_Type())
-mwPacketCaptureProfileRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwPacketCaptureProfileRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'mwConfigPacketCapture':mwConfigPacketCapture,'mwPacketCaptureProfileTable':mwPacketCaptureProfileTable,'mwPacketCaptureProfileEntry':mwPacketCaptureProfileEntry,_E:mwPacketCaptureProfileTableIndex,'mwPacketCaptureProfileName':mwPacketCaptureProfileName,'mwPacketCaptureProfileStatus':mwPacketCaptureProfileStatus,'mwPacketCaptureProfileConnectivityMode':mwPacketCaptureProfileConnectivityMode,'mwPacketCaptureProfileDestinationIp':mwPacketCaptureProfileDestinationIp,'mwPacketCaptureProfileUDPPort':mwPacketCaptureProfileUDPPort,'mwPacketCaptureProfileDestinationMac':mwPacketCaptureProfileDestinationMac,'mwPacketCaptureProfileRxTx':mwPacketCaptureProfileRxTx,'mwPacketCaptureProfileRateLimitMode':mwPacketCaptureProfileRateLimitMode,'mwPacketCaptureProfileTokenBucketRate':mwPacketCaptureProfileTokenBucketRate,'mwPacketCaptureProfileTokenBucketSize':mwPacketCaptureProfileTokenBucketSize,'mwPacketCaptureProfileApList':mwPacketCaptureProfileApList,'mwPacketCaptureProfileFilter':mwPacketCaptureProfileFilter,'mwPacketCaptureProfileInterfaceList':mwPacketCaptureProfileInterfaceList,'mwPacketCaptureProfilePacketTruncationLength':mwPacketCaptureProfilePacketTruncationLength,'mwPacketCaptureProfileRateLimiting':mwPacketCaptureProfileRateLimiting,'mwPacketCaptureProfileCaptureSiblingFrames':mwPacketCaptureProfileCaptureSiblingFrames,'mwPacketCaptureProfileEncapsulation':mwPacketCaptureProfileEncapsulation,'mwPacketCaptureProfileRowStatus':mwPacketCaptureProfileRowStatus})
+#
+# PySNMP MIB module MERU-CONFIG-PACKETCAPTURE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/meru/MERU-CONFIG-PACKETCAPTURE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+Ipv6Address, = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address")
+mwConfiguration, = mibBuilder.importSymbols("MERU-SMI", "mwConfiguration")
+MwlPacketCaptureMode, MwlRxTxOption, MwlRateLimitMode, MwlEncapsulationType, MwlEnableDisableOption, MwlOnOffSwitch = mibBuilder.importSymbols("MERU-TC", "MwlPacketCaptureMode", "MwlRxTxOption", "MwlRateLimitMode", "MwlEncapsulationType", "MwlEnableDisableOption", "MwlOnOffSwitch")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Integer32, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+mwConfigPacketCapture = ModuleIdentity((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17))
+if mibBuilder.loadTexts: mwConfigPacketCapture.setLastUpdated('200506050000Z')
+if mibBuilder.loadTexts: mwConfigPacketCapture.setOrganization('Meru Networks')
+mwPacketCaptureProfileTable = MibTable((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1), )
+if mibBuilder.loadTexts: mwPacketCaptureProfileTable.setStatus('current')
+mwPacketCaptureProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1), ).setIndexNames((0, "MERU-CONFIG-PACKETCAPTURE-MIB", "mwPacketCaptureProfileTableIndex"))
+if mibBuilder.loadTexts: mwPacketCaptureProfileEntry.setStatus('current')
+mwPacketCaptureProfileTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: mwPacketCaptureProfileTableIndex.setStatus('current')
+mwPacketCaptureProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileName.setStatus('current')
+mwPacketCaptureProfileStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 3), MwlEnableDisableOption()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileStatus.setStatus('current')
+mwPacketCaptureProfileConnectivityMode = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 4), MwlPacketCaptureMode()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileConnectivityMode.setStatus('current')
+mwPacketCaptureProfileDestinationIp = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 5), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileDestinationIp.setStatus('current')
+mwPacketCaptureProfileUDPPort = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 6), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileUDPPort.setStatus('current')
+mwPacketCaptureProfileDestinationMac = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 7), MacAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileDestinationMac.setStatus('current')
+mwPacketCaptureProfileRxTx = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 8), MwlRxTxOption()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mwPacketCaptureProfileRxTx.setStatus('current')
+mwPacketCaptureProfileRateLimitMode = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 9), MwlRateLimitMode()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileRateLimitMode.setStatus('current')
+mwPacketCaptureProfileTokenBucketRate = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 10), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileTokenBucketRate.setStatus('current')
+mwPacketCaptureProfileTokenBucketSize = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 11), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileTokenBucketSize.setStatus('current')
+mwPacketCaptureProfileApList = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 1000))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileApList.setStatus('current')
+mwPacketCaptureProfileFilter = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileFilter.setStatus('current')
+mwPacketCaptureProfileInterfaceList = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileInterfaceList.setStatus('current')
+mwPacketCaptureProfilePacketTruncationLength = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 15), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfilePacketTruncationLength.setStatus('current')
+mwPacketCaptureProfileRateLimiting = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 16), MwlOnOffSwitch()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileRateLimiting.setStatus('current')
+mwPacketCaptureProfileCaptureSiblingFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 17), MwlOnOffSwitch()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileCaptureSiblingFrames.setStatus('current')
+mwPacketCaptureProfileEncapsulation = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 18), MwlEncapsulationType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileEncapsulation.setStatus('current')
+mwPacketCaptureProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 17, 1, 1, 19), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwPacketCaptureProfileRowStatus.setStatus('current')
+mibBuilder.exportSymbols("MERU-CONFIG-PACKETCAPTURE-MIB", mwPacketCaptureProfileRateLimitMode=mwPacketCaptureProfileRateLimitMode, mwPacketCaptureProfileCaptureSiblingFrames=mwPacketCaptureProfileCaptureSiblingFrames, mwPacketCaptureProfileDestinationIp=mwPacketCaptureProfileDestinationIp, mwPacketCaptureProfileTokenBucketSize=mwPacketCaptureProfileTokenBucketSize, mwPacketCaptureProfileTableIndex=mwPacketCaptureProfileTableIndex, mwPacketCaptureProfileDestinationMac=mwPacketCaptureProfileDestinationMac, mwPacketCaptureProfileFilter=mwPacketCaptureProfileFilter, mwPacketCaptureProfileEncapsulation=mwPacketCaptureProfileEncapsulation, mwPacketCaptureProfileInterfaceList=mwPacketCaptureProfileInterfaceList, mwPacketCaptureProfileRateLimiting=mwPacketCaptureProfileRateLimiting, mwPacketCaptureProfileTokenBucketRate=mwPacketCaptureProfileTokenBucketRate, mwPacketCaptureProfileApList=mwPacketCaptureProfileApList, mwPacketCaptureProfileRowStatus=mwPacketCaptureProfileRowStatus, mwPacketCaptureProfileRxTx=mwPacketCaptureProfileRxTx, mwPacketCaptureProfileStatus=mwPacketCaptureProfileStatus, mwPacketCaptureProfileUDPPort=mwPacketCaptureProfileUDPPort, mwPacketCaptureProfileEntry=mwPacketCaptureProfileEntry, mwPacketCaptureProfileName=mwPacketCaptureProfileName, mwPacketCaptureProfilePacketTruncationLength=mwPacketCaptureProfilePacketTruncationLength, mwPacketCaptureProfileConnectivityMode=mwPacketCaptureProfileConnectivityMode, PYSNMP_MODULE_ID=mwConfigPacketCapture, mwConfigPacketCapture=mwConfigPacketCapture, mwPacketCaptureProfileTable=mwPacketCaptureProfileTable)

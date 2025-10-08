@@ -1,4570 +1,1814 @@
-_Je='nteOsa5421CardGroup'
-_Jd='nteOsa5420CardGroup'
-_Jc='geGE8SCryptoConnectorCardGroup'
-_Jb='nteXg210CCardGroup'
-_Ja='nteSh1PcsCardGroup'
-_JZ='neLLDPParamsGroup'
-_JY='nteXg210CardGroup'
-_JX='nteGe206VCardGroup'
-_JW='nteGe206FCardGroup'
-_JV='nteGe201NonSyncECardGroup'
-_JU='nteGe201SyncECardGroup'
-_JT='nteGe206CardGroup'
-_JS='hubshelfGroup'
-_JR='commonEntityGroup'
-_JQ='cmEntityObjectGroup'
-_JP='ethernetNTEGE114GCardSwitchPortAction'
-_JO='ethernetNTEGE114GCardSwitchPortActionPort'
-_JN='ethernetNTEGE114GCardFineGrainedPmInterval'
-_JM='ethernetNTEGE114GCardRestartAction'
-_JL='ethernetNTEGE114GCardSnmpDyingGaspEnabled'
-_JK='ethernetNTEGE114GCardTemperature'
-_JJ='ethernetNTEGE114GCardVoltage'
-_JI='ethernetNTEGE114GCardSecondaryState'
-_JH='ethernetNTEGE114GCardOperationalState'
-_JG='ethernetNTEGE114GCardAdminState'
-_JF='ethernetNTEGE114GCardEntityIndex'
-_JE='ethernetNTEOSA5421CardFineGrainedPmInterval'
-_JD='ethernetNTEOSA5421CardRestartAction'
-_JC='ethernetNTEOSA5421CardSnmpDyingGaspEnabled'
-_JB='ethernetNTEOSA5421CardTemperature'
-_JA='ethernetNTEOSA5421CardVoltage'
-_J9='ethernetNTEOSA5421CardSecondaryState'
-_J8='ethernetNTEOSA5421CardOperationalState'
-_J7='ethernetNTEOSA5421CardAdminState'
-_J6='ethernetNTEOSA5421CardEntityIndex'
-_J5='ethernetNTEOSA5420CardFineGrainedPmInterval'
-_J4='ethernetNTEOSA5420CardRestartAction'
-_J3='ethernetNTEOSA5420CardSnmpDyingGaspEnabled'
-_J2='ethernetNTEOSA5420CardTemperature'
-_J1='ethernetNTEOSA5420CardVoltage'
-_J0='ethernetNTEOSA5420CardSecondaryState'
-_I_='ethernetNTEOSA5420CardOperationalState'
-_Iz='ethernetNTEOSA5420CardAdminState'
-_Iy='ethernetNTEOSA5420CardEntityIndex'
-_Ix='ethernetGE8SCryptoConnectorCardRowStatus'
-_Iw='ethernetGE8SCryptoConnectorCardStorageType'
-_Iv='ethernetGE8SCryptoConnectorCardRestartAction'
-_Iu='ethernetGE8SCryptoConnectorCardTemperature'
-_It='ethernetGE8SCryptoConnectorCardVoltage'
-_Is='ethernetGE8SCryptoConnectorCardSecondaryState'
-_Ir='ethernetGE8SCryptoConnectorCardOperationalState'
-_Iq='ethernetGE8SCryptoConnectorCardAdminState'
-_Ip='ethernetGE8SCryptoConnectorCardEntityIndex'
-_Io='ethernetNTEXG210CCardFineGrainedPmInterval'
-_In='ethernetNTEXG210CCardRestartAction'
-_Im='ethernetNTEXG210CCardSnmpDyingGaspEnabled'
-_Il='ethernetNTEXG210CCardTemperature'
-_Ik='ethernetNTEXG210CCardVoltage'
-_Ij='ethernetNTEXG210CCardSecondaryState'
-_Ii='ethernetNTEXG210CCardOperationalState'
-_Ih='ethernetNTEXG210CCardAdminState'
-_Ig='ethernetNTEXG210CCardEntityIndex'
-_If='ethernetNTEGE112ProHCardSwitchPortAction'
-_Ie='ethernetNTEGE112ProHCardSwitchPortActionPort'
-_Id='ethernetNTEGE112ProHCardFineGrainedPmInterval'
-_Ic='ethernetNTEGE112ProHCardRestartAction'
-_Ib='ethernetNTEGE112ProHCardSnmpDyingGaspEnabled'
-_Ia='ethernetNTEGE112ProHCardTemperature'
-_IZ='ethernetNTEGE112ProHCardVoltage'
-_IY='ethernetNTEGE112ProHCardSecondaryState'
-_IX='ethernetNTEGE112ProHCardOperationalState'
-_IW='ethernetNTEGE112ProHCardAdminState'
-_IV='ethernetNTEGE112ProHCardEntityIndex'
-_IU='ethernetNTEGE114ProHECardSwitchPortAction'
-_IT='ethernetNTEGE114ProHECardSwitchPortActionPort'
-_IS='ethernetNTEGE114ProHECardFineGrainedPmInterval'
-_IR='ethernetNTEGE114ProHECardRestartAction'
-_IQ='ethernetNTEGE114ProHECardSnmpDyingGaspEnabled'
-_IP='ethernetNTEGE114ProHECardTemperature'
-_IO='ethernetNTEGE114ProHECardVoltage'
-_IN='ethernetNTEGE114ProHECardSecondaryState'
-_IM='ethernetNTEGE114ProHECardOperationalState'
-_IL='ethernetNTEGE114ProHECardAdminState'
-_IK='ethernetNTEGE114ProHECardEntityIndex'
-_IJ='ethernetNTEGE114ProCSHCardSwitchPortAction'
-_II='ethernetNTEGE114ProCSHCardSwitchPortActionPort'
-_IH='ethernetNTEGE114ProCSHCardFineGrainedPmInterval'
-_IG='ethernetNTEGE114ProCSHCardRestartAction'
-_IF='ethernetNTEGE114ProCSHCardSnmpDyingGaspEnabled'
-_IE='ethernetNTEGE114ProCSHCardTemperature'
-_ID='ethernetNTEGE114ProCSHCardVoltage'
-_IC='ethernetNTEGE114ProCSHCardSecondaryState'
-_IB='ethernetNTEGE114ProCSHCardOperationalState'
-_IA='ethernetNTEGE114ProCSHCardAdminState'
-_I9='ethernetNTEGE114ProCSHCardEntityIndex'
-_I8='ethernetNTEGE114ProSHCardSwitchPortAction'
-_I7='ethernetNTEGE114ProSHCardSwitchPortActionPort'
-_I6='ethernetNTEGE114ProSHCardFineGrainedPmInterval'
-_I5='ethernetNTEGE114ProSHCardRestartAction'
-_I4='ethernetNTEGE114ProSHCardSnmpDyingGaspEnabled'
-_I3='ethernetNTEGE114ProSHCardTemperature'
-_I2='ethernetNTEGE114ProSHCardVoltage'
-_I1='ethernetNTEGE114ProSHCardSecondaryState'
-_I0='ethernetNTEGE114ProSHCardOperationalState'
-_H_='ethernetNTEGE114ProSHCardAdminState'
-_Hz='ethernetNTEGE114ProSHCardEntityIndex'
-_Hy='ethernetNTEGE114ProCCardSwitchPortAction'
-_Hx='ethernetNTEGE114ProCCardSwitchPortActionPort'
-_Hw='ethernetNTEGE114ProCCardFineGrainedPmInterval'
-_Hv='ethernetNTEGE114ProCCardRestartAction'
-_Hu='ethernetNTEGE114ProCCardSnmpDyingGaspEnabled'
-_Ht='ethernetNTEGE114ProCCardTemperature'
-_Hs='ethernetNTEGE114ProCCardVoltage'
-_Hr='ethernetNTEGE114ProCCardSecondaryState'
-_Hq='ethernetNTEGE114ProCCardOperationalState'
-_Hp='ethernetNTEGE114ProCCardAdminState'
-_Ho='ethernetNTEGE114ProCCardEntityIndex'
-_Hn='ethernetNTEGE114ProCardSwitchPortAction'
-_Hm='ethernetNTEGE114ProCardSwitchPortActionPort'
-_Hl='ethernetNTEGE114ProCardFineGrainedPmInterval'
-_Hk='ethernetNTEGE114ProCardRestartAction'
-_Hj='ethernetNTEGE114ProCardSnmpDyingGaspEnabled'
-_Hi='ethernetNTEGE114ProCardTemperature'
-_Hh='ethernetNTEGE114ProCardVoltage'
-_Hg='ethernetNTEGE114ProCardSecondaryState'
-_Hf='ethernetNTEGE114ProCardOperationalState'
-_He='ethernetNTEGE114ProCardAdminState'
-_Hd='ethernetNTEGE114ProCardEntityIndex'
-_Hc='ethernetNTEGE112ProMCardSwitchPortAction'
-_Hb='ethernetNTEGE112ProMCardSwitchPortActionPort'
-_Ha='ethernetNTEGE112ProMCardFineGrainedPmInterval'
-_HZ='ethernetNTEGE112ProMCardRestartAction'
-_HY='ethernetNTEGE112ProMCardSnmpDyingGaspEnabled'
-_HX='ethernetNTEGE112ProMCardTemperature'
-_HW='ethernetNTEGE112ProMCardVoltage'
-_HV='ethernetNTEGE112ProMCardSecondaryState'
-_HU='ethernetNTEGE112ProMCardOperationalState'
-_HT='ethernetNTEGE112ProMCardAdminState'
-_HS='ethernetNTEGE112ProMCardEntityIndex'
-_HR='ethernetNTEGE112ProCardSwitchPortAction'
-_HQ='ethernetNTEGE112ProCardSwitchPortActionPort'
-_HP='ethernetNTEGE112ProCardFineGrainedPmInterval'
-_HO='ethernetNTEGE112ProCardRestartAction'
-_HN='ethernetNTEGE112ProCardSnmpDyingGaspEnabled'
-_HM='ethernetNTEGE112ProCardTemperature'
-_HL='ethernetNTEGE112ProCardVoltage'
-_HK='ethernetNTEGE112ProCardSecondaryState'
-_HJ='ethernetNTEGE112ProCardOperationalState'
-_HI='ethernetNTEGE112ProCardAdminState'
-_HH='ethernetNTEGE112ProCardEntityIndex'
-_HG='ethernetNTEOSA5411CardFineGrainedPmInterval'
-_HF='ethernetNTEOSA5411CardRestartAction'
-_HE='ethernetNTEOSA5411CardSnmpDyingGaspEnabled'
-_HD='ethernetNTEOSA5411CardTemperature'
-_HC='ethernetNTEOSA5411CardVoltage'
-_HB='ethernetNTEOSA5411CardSecondaryState'
-_HA='ethernetNTEOSA5411CardOperationalState'
-_H9='ethernetNTEOSA5411CardAdminState'
-_H8='ethernetNTEOSA5411CardEntityIndex'
-_H7='ethernetNTESH1PCSCardFineGrainedPmInterval'
-_H6='ethernetNTESH1PCSCardRestartAction'
-_H5='ethernetNTESH1PCSCardSnmpDyingGaspEnabled'
-_H4='ethernetNTESH1PCSCardTemperature'
-_H3='ethernetNTESH1PCSCardVoltage'
-_H2='ethernetNTESH1PCSCardSecondaryState'
-_H1='ethernetNTESH1PCSCardOperationalState'
-_H0='ethernetNTESH1PCSCardAdminState'
-_G_='ethernetNTESH1PCSCardEntityIndex'
-_Gz='neLLDPParamsLLDPEnableAction'
-_Gy='ethernetGE8ECCCardRowStatus'
-_Gx='ethernetGE8ECCCardStorageType'
-_Gw='ethernetGE8ECCCardRestartAction'
-_Gv='ethernetGE8ECCCardTemperature'
-_Gu='ethernetGE8ECCCardVoltage'
-_Gt='ethernetGE8ECCCardSecondaryState'
-_Gs='ethernetGE8ECCCardOperationalState'
-_Gr='ethernetGE8ECCCardAdminState'
-_Gq='ethernetGE8ECCCardEntityIndex'
-_Gp='ethernetNTEGE114SCardSwitchPortAction'
-_Go='ethernetNTEGE114SCardSwitchPortActionPort'
-_Gn='ethernetNTEGE114SCardFineGrainedPmInterval'
-_Gm='ethernetNTEGE114SCardRestartAction'
-_Gl='ethernetNTEGE114SCardSnmpDyingGaspEnabled'
-_Gk='ethernetNTEGE114SCardTemperature'
-_Gj='ethernetNTEGE114SCardVoltage'
-_Gi='ethernetNTEGE114SCardSecondaryState'
-_Gh='ethernetNTEGE114SCardOperationalState'
-_Gg='ethernetNTEGE114SCardAdminState'
-_Gf='ethernetNTEGE114SCardEntityIndex'
-_Ge='ethernetNTEGE114SHCardSwitchPortAction'
-_Gd='ethernetNTEGE114SHCardSwitchPortActionPort'
-_Gc='ethernetNTEGE114SHCardFineGrainedPmInterval'
-_Gb='ethernetNTEGE114SHCardRestartAction'
-_Ga='ethernetNTEGE114SHCardSnmpDyingGaspEnabled'
-_GZ='ethernetNTEGE114SHCardTemperature'
-_GY='ethernetNTEGE114SHCardVoltage'
-_GX='ethernetNTEGE114SHCardSecondaryState'
-_GW='ethernetNTEGE114SHCardOperationalState'
-_GV='ethernetNTEGE114SHCardAdminState'
-_GU='ethernetNTEGE114SHCardEntityIndex'
-_GT='ethernetFE36ECard8023azEnabled'
-_GS='ethernetFE36ECardForceOffLineAction'
-_GR='ethernetFE36ECardRowStatus'
-_GQ='ethernetFE36ECardStorageType'
-_GP='ethernetFE36ECardRestartAction'
-_GO='ethernetFE36ECardTemperature'
-_GN='ethernetFE36ECardSecondaryState'
-_GM='ethernetFE36ECardOperationalState'
-_GL='ethernetFE36ECardAdminState'
-_GK='ethernetFE36ECardEntityIndex'
-_GJ='ethernetNTEGE114PHCardSwitchPortAction'
-_GI='ethernetNTEGE114PHCardSwitchPortActionPort'
-_GH='ethernetNTEGE114PHCardFineGrainedPmInterval'
-_GG='ethernetNTEGE114PHCardRestartAction'
-_GF='ethernetNTEGE114PHCardSnmpDyingGaspEnabled'
-_GE='ethernetNTEGE114PHCardTemperature'
-_GD='ethernetNTEGE114PHCardVoltage'
-_GC='ethernetNTEGE114PHCardSecondaryState'
-_GB='ethernetNTEGE114PHCardOperationalState'
-_GA='ethernetNTEGE114PHCardAdminState'
-_G9='ethernetNTEGE114PHCardEntityIndex'
-_G8='ethernetNTEGE114HCardSwitchPortAction'
-_G7='ethernetNTEGE114HCardSwitchPortActionPort'
-_G6='ethernetNTEGE114HCardFineGrainedPmInterval'
-_G5='ethernetNTEGE114HCardRestartAction'
-_G4='ethernetNTEGE114HCardSnmpDyingGaspEnabled'
-_G3='ethernetNTEGE114HCardTemperature'
-_G2='ethernetNTEGE114HCardVoltage'
-_G1='ethernetNTEGE114HCardSecondaryState'
-_G0='ethernetNTEGE114HCardOperationalState'
-_F_='ethernetNTEGE114HCardAdminState'
-_Fz='ethernetNTEGE114HCardEntityIndex'
-_Fy='ethernetGE8SCCCardRowStatus'
-_Fx='ethernetGE8SCCCardStorageType'
-_Fw='ethernetGE8SCCCardRestartAction'
-_Fv='ethernetGE8SCCCardTemperature'
-_Fu='ethernetGE8SCCCardVoltage'
-_Ft='ethernetGE8SCCCardSecondaryState'
-_Fs='ethernetGE8SCCCardOperationalState'
-_Fr='ethernetGE8SCCCardAdminState'
-_Fq='ethernetGE8SCCCardEntityIndex'
-_Fp='ethernetGE4SCCCardVoltage'
-_Fo='ethernetGE4SCCCardSecondaryState'
-_Fn='ethernetGE4SCCCardOperationalState'
-_Fm='ethernetGE4SCCCardAdminState'
-_Fl='ethernetGE4SCCCardEntityIndex'
-_Fk='ethernetGE4ECCCardVoltage'
-_Fj='ethernetGE4ECCCardSecondaryState'
-_Fi='ethernetGE4ECCCardOperationalState'
-_Fh='ethernetGE4ECCCardAdminState'
-_Fg='ethernetGE4ECCCardEntityIndex'
-_Ff='ethernetXG1SCCCardRowStatus'
-_Fe='ethernetXG1SCCCardStorageType'
-_Fd='ethernetXG1SCCCardRestartAction'
-_Fc='ethernetXG1SCCCardTemperature'
-_Fb='ethernetXG1SCCCardVoltage'
-_Fa='ethernetXG1SCCCardSecondaryState'
-_FZ='ethernetXG1SCCCardOperationalState'
-_FY='ethernetXG1SCCCardAdminState'
-_FX='ethernetXG1SCCCardEntityIndex'
-_FW='ethernetXG1XCCCardRowStatus'
-_FV='ethernetXG1XCCCardStorageType'
-_FU='ethernetXG1XCCCardRestartAction'
-_FT='ethernetXG1XCCCardTemperature'
-_FS='ethernetXG1XCCCardVoltage'
-_FR='ethernetXG1XCCCardSecondaryState'
-_FQ='ethernetXG1XCCCardOperationalState'
-_FP='ethernetXG1XCCCardAdminState'
-_FO='ethernetXG1XCCCardEntityIndex'
-_FN='ethernetNTEGESyncProbeCardFineGrainedPmInterval'
-_FM='ethernetNTEGESyncProbeCardRestartAction'
-_FL='ethernetNTEGESyncProbeCardSnmpDyingGaspEnabled'
-_FK='ethernetNTEGESyncProbeCardTemperature'
-_FJ='ethernetNTEGESyncProbeCardVoltage'
-_FI='ethernetNTEGESyncProbeCardSecondaryState'
-_FH='ethernetNTEGESyncProbeCardOperationalState'
-_FG='ethernetNTEGESyncProbeCardAdminState'
-_FF='ethernetNTEGESyncProbeCardEntityIndex'
-_FE='ethernetNTET3204CardMode'
-_FD='ethernetNTET3204CardFineGrainedPmInterval'
-_FC='ethernetNTET3204CardRestartAction'
-_FB='ethernetNTET3204CardSnmpDyingGaspEnabled'
-_FA='ethernetNTET3204CardTemperature'
-_F9='ethernetNTET3204CardVoltage'
-_F8='ethernetNTET3204CardSecondaryState'
-_F7='ethernetNTET3204CardOperationalState'
-_F6='ethernetNTET3204CardAdminState'
-_F5='ethernetNTET3204CardEntityIndex'
-_F4='ethernetNTET1804CardMode'
-_F3='ethernetNTET1804CardFineGrainedPmInterval'
-_F2='ethernetNTET1804CardRestartAction'
-_F1='ethernetNTET1804CardSnmpDyingGaspEnabled'
-_F0='ethernetNTET1804CardTemperature'
-_E_='ethernetNTET1804CardVoltage'
-_Ez='ethernetNTET1804CardSecondaryState'
-_Ey='ethernetNTET1804CardOperationalState'
-_Ex='ethernetNTET1804CardAdminState'
-_Ew='ethernetNTET1804CardEntityIndex'
-_Ev='pseudoWireE1T1CardPSNEncapsulation'
-_Eu='pseudoWireE1T1CardRowStatus'
-_Et='pseudoWireE1T1CardStorageType'
-_Es='pseudoWireE1T1CardRestartAction'
-_Er='pseudoWireE1T1CardTemperature'
-_Eq='pseudoWireE1T1CardVoltage'
-_Ep='pseudoWireE1T1CardMode'
-_Eo='pseudoWireE1T1CardIpAddress'
-_En='pseudoWireE1T1CardSecondaryState'
-_Em='pseudoWireE1T1CardOperationalState'
-_El='pseudoWireE1T1CardAdminState'
-_Ek='pseudoWireE1T1CardEntityIndex'
-_Ej='pseudoWireOcnStmCardFreqSource'
-_Ei='pseudoWireOcnStmCardFreqSourceType'
-_Eh='pseudoWireOcnStmCardPSNEncapsulation'
-_Eg='pseudoWireOcnStmCardRowStatus'
-_Ef='pseudoWireOcnStmCardStorageType'
-_Ee='pseudoWireOcnStmCardRestartAction'
-_Ed='pseudoWireOcnStmCardTemperature'
-_Ec='pseudoWireOcnStmCardVoltage'
-_Eb='pseudoWireOcnStmCardMode'
-_Ea='pseudoWireOcnStmCardIpAddress'
-_EZ='pseudoWireOcnStmCardSecondaryState'
-_EY='pseudoWireOcnStmCardOperationalState'
-_EX='pseudoWireOcnStmCardAdminState'
-_EW='pseudoWireOcnStmCardEntityIndex'
-_EV='ethernetNTEXG210CardFineGrainedPmInterval'
-_EU='ethernetNTEXG210CardRestartAction'
-_ET='ethernetNTEXG210CardSnmpDyingGaspEnabled'
-_ES='ethernetNTEXG210CardTemperature'
-_ER='ethernetNTEXG210CardVoltage'
-_EQ='ethernetNTEXG210CardSecondaryState'
-_EP='ethernetNTEXG210CardOperationalState'
-_EO='ethernetNTEXG210CardAdminState'
-_EN='ethernetNTEXG210CardEntityIndex'
-_EM='ethernetNTEGE206VCardFineGrainedPmInterval'
-_EL='ethernetNTEGE206VCardRestartAction'
-_EK='ethernetNTEGE206VCardSnmpDyingGaspEnabled'
-_EJ='ethernetNTEGE206VCardTemperature'
-_EI='ethernetNTEGE206VCardVoltage'
-_EH='ethernetNTEGE206VCardSecondaryState'
-_EG='ethernetNTEGE206VCardOperationalState'
-_EF='ethernetNTEGE206VCardAdminState'
-_EE='ethernetNTEGE206VCardEntityIndex'
-_ED='ethernetNTEGE206FCardFineGrainedPmInterval'
-_EC='ethernetNTEGE201CardFineGrainedPmInterval'
-_EB='ethernetNTEGE201SyncECardFineGrainedPmInterval'
-_EA='ethernetNTEGE206CardFineGrainedPmInterval'
-_E9='ethernetNTECardRowStatus'
-_E8='ethernetNTECardStorageType'
-_E7='ethernetNTECardRestartAction'
-_E6='ethernetNTECardSnmpDyingGaspEnabled'
-_E5='ethernetNTECardTemperature'
-_E4='ethernetNTECardVoltage'
-_E3='ethernetNTECardSecondaryState'
-_E2='ethernetNTECardOperationalState'
-_E1='ethernetNTECardAdminState'
-_E0='ethernetNTECardEntityIndex'
-_D_='scuTRowStatus'
-_Dz='scuTStorageType'
-_Dy='scuTRestartAction'
-_Dx='scuTTemperature'
-_Dw='scuTVoltage'
-_Dv='scuTSecondaryState'
-_Du='scuTOperationalState'
-_Dt='scuTAdminState'
-_Ds='scuTEntityIndex'
-_Dr='ethernetNTUCardRestartAction'
-_Dq='ethernetNTUCardSnmpDyingGaspEnabled'
-_Dp='nemiFlashSerialNum'
-_Do='nemiFlashFirmwareRev'
-_Dn='nemiFlashModelNum'
-_Dm='scuFlashSerialNum'
-_Dl='scuFlashFirmwareRev'
-_Dk='scuFlashModelNum'
-_Dj='fanRowStatus'
-_Di='fanStorageType'
-_Dh='neFineGrainedPmInterval'
-_Dg='neAutoProvMode'
-_Df='ethernet10x1GHighPerCardForceOffLineAction'
-_De='ethernet10x1GHighPerCardRowStatus'
-_Dd='ethernet10x1GHighPerCardStorageType'
-_Dc='ethernet10x1GHighPerCardRestartAction'
-_Db='ethernet10x1GHighPerCardSnmpDyingGaspEnabled'
-_Da='ethernet10x1GHighPerCardTemperature'
-_DZ='ethernet10x1GHighPerCardSecondaryState'
-_DY='ethernet10x1GHighPerCardOperationalState'
-_DX='ethernet10x1GHighPerCardAdminState'
-_DW='ethernet10x1GHighPerCardEntityIndex'
-_DV='f3UsbHostPhysicalAddress'
-_DU='f3UsbHostSecondaryState'
-_DT='f3UsbHostMfgSite'
-_DS='f3UsbHostMfgDate'
-_DR='f3UsbHostMfgName'
-_DQ='f3UsbHostSerialNum'
-_DP='f3UsbHostSwRev'
-_DO='f3UsbHostHwRev'
-_DN='f3UsbHostPartNumber'
-_DM='f3UsbHostCLEICode'
-_DL='f3UsbHostFormatVersion'
-_DK='f3UsbHostUnitName'
-_DJ='f3UsbHostEntityIndex'
-_DI='stiRowStatus'
-_DH='stiStorageType'
-_DG='stiTemperature'
-_DF='stiSecondaryState'
-_DE='stiOperationalState'
-_DD='stiAdminState'
-_DC='stiEntityIndex'
-_DB='amiRestartAction'
-_DA='amiTemperature'
-_D9='amiSecondaryState'
-_D8='amiOperationalState'
-_D7='amiAdminState'
-_D6='amiEntityIndex'
-_D5='stuCardForceOffLineAction'
-_D4='stuCardRowStatus'
-_D3='stuCardStorageType'
-_D2='stuCardRestartAction'
-_D1='stuCardTemperature'
-_D0='stuCardSecondaryState'
-_C_='stuCardOperationalState'
-_Cz='stuCardAdminState'
-_Cy='stuCardEntityIndex'
-_Cx='ethernetSWFCardForceOffLineAction'
-_Cw='ethernetSWFCardRowStatus'
-_Cv='ethernetSWFCardStorageType'
-_Cu='ethernetSWFCardRestartAction'
-_Ct='ethernetSWFCardTemperature'
-_Cs='ethernetSWFCardSecondaryState'
-_Cr='ethernetSWFCardOperationalState'
-_Cq='ethernetSWFCardAdminState'
-_Cp='ethernetSWFCardEntityIndex'
-_Co='ethernet10x1GCardForceOffLineAction'
-_Cn='ethernet10x1GCardRowStatus'
-_Cm='ethernet10x1GCardStorageType'
-_Cl='ethernet10x1GCardRestartAction'
-_Ck='ethernet10x1GCardSnmpDyingGaspEnabled'
-_Cj='ethernet10x1GCardTemperature'
-_Ci='ethernet10x1GCardSecondaryState'
-_Ch='ethernet10x1GCardOperationalState'
-_Cg='ethernet10x1GCardAdminState'
-_Cf='ethernet10x1GCardEntityIndex'
-_Ce='ethernet1x10GCardForceOffLineAction'
-_Cd='ethernet1x10GCardRowStatus'
-_Cc='ethernet1x10GCardStorageType'
-_Cb='ethernet1x10GCardRestartAction'
-_Ca='ethernet1x10GCardSnmpDyingGaspEnabled'
-_CZ='ethernet1x10GCardTemperature'
-_CY='ethernet1x10GCardSecondaryState'
-_CX='ethernet1x10GCardOperationalState'
-_CW='ethernet1x10GCardAdminState'
-_CV='ethernet1x10GCardEntityIndex'
-_CU='pseudoWireE3CardRestartAction'
-_CT='pseudoWireE3CardTimeOfDay'
-_CS='pseudoWireE3CardMgmtVlanId'
-_CR='pseudoWireE3CardDhcpEnabled'
-_CQ='pseudoWireE3CardIpGateway'
-_CP='pseudoWireE3CardIpNetmask'
-_CO='pseudoWireE3CardIpAddress'
-_CN='pseudoWireE3CardSecondaryState'
-_CM='pseudoWireE3CardOperationalState'
-_CL='pseudoWireE3CardAdminState'
-_CK='pseudoWireE3CardEntityIndex'
-_CJ='ethernetNTEGE101CardRestartAction'
-_CI='ethernetNTEGE101CardSnmpDyingGaspEnabled'
-_CH='ethernetNTEGE101CardTemperature'
-_CG='ethernetNTEGE101CardVoltage'
-_CF='ethernetNTEGE101CardSecondaryState'
-_CE='ethernetNTEGE101CardOperationalState'
-_CD='ethernetNTEGE101CardAdminState'
-_CC='ethernetNTEGE101CardEntityIndex'
-_CB='nemiForceOffLineAction'
-_CA='psuRowStatus'
-_C9='psuStorageType'
-_C8='psuOutputCurrent'
-_C7='psuTemperature'
-_C6='psuOutputVoltage'
-_C5='networkElementLLDPParamsEntry'
-_C4='not-applicable'
-_C3='aggregation'
-_C2='onerackunit'
-_C1='ethernetGE4ECCCardRowStatus'
-_C0='ethernetGE4ECCCardStorageType'
-_B_='ethernetGE4ECCCardRestartAction'
-_Bz='ethernetGE4ECCCardTemperature'
-_By='ethernet1x10GHighPerCardForceOffLineAction'
-_Bx='ethernet1x10GHighPerCardRowStatus'
-_Bw='ethernet1x10GHighPerCardStorageType'
-_Bv='ethernet1x10GHighPerCardRestartAction'
-_Bu='ethernet1x10GHighPerCardSnmpDyingGaspEnabled'
-_Bt='ethernet1x10GHighPerCardTemperature'
-_Bs='ethernet1x10GHighPerCardSecondaryState'
-_Br='ethernet1x10GHighPerCardOperationalState'
-_Bq='ethernet1x10GHighPerCardAdminState'
-_Bp='ethernet1x10GHighPerCardEntityIndex'
-_Bo='ethernetOverOCSTMCardMode'
-_Bn='ethernetOverOCSTMCardForceOffLineAction'
-_Bm='ethernetOverOCSTMCardRowStatus'
-_Bl='ethernetOverOCSTMCardStorageType'
-_Bk='ethernetOverOCSTMCardRestartAction'
-_Bj='ethernetOverOCSTMCardSnmpDyingGaspEnabled'
-_Bi='ethernetOverOCSTMCardTemperature'
-_Bh='ethernetOverOCSTMCardSecondaryState'
-_Bg='ethernetOverOCSTMCardOperationalState'
-_Bf='ethernetOverOCSTMCardAdminState'
-_Be='ethernetOverOCSTMCardEntityIndex'
-_Bd='ethernetNTEGE114CardSwitchPortAction'
-_Bc='ethernetNTEGE114CardSwitchPortActionPort'
-_Bb='ethernetNTEGE114CardFineGrainedPmInterval'
-_Ba='ethernetNTEGE114CardRestartAction'
-_BZ='ethernetNTEGE114CardSnmpDyingGaspEnabled'
-_BY='ethernetNTEGE114CardTemperature'
-_BX='ethernetNTEGE114CardVoltage'
-_BW='ethernetNTEGE114CardSecondaryState'
-_BV='ethernetNTEGE114CardOperationalState'
-_BU='ethernetNTEGE114CardAdminState'
-_BT='ethernetNTEGE114CardEntityIndex'
-_BS='ethernetNTEGE112CardSwitchPortAction'
-_BR='ethernetNTEGE112CardSwitchPortActionPort'
-_BQ='ethernetNTEGE112CardFineGrainedPmInterval'
-_BP='ethernetNTEGE112CardRestartAction'
-_BO='ethernetNTEGE112CardSnmpDyingGaspEnabled'
-_BN='ethernetNTEGE112CardTemperature'
-_BM='ethernetNTEGE112CardVoltage'
-_BL='ethernetNTEGE112CardSecondaryState'
-_BK='ethernetNTEGE112CardOperationalState'
-_BJ='ethernetNTEGE112CardAdminState'
-_BI='ethernetNTEGE112CardEntityIndex'
-_BH='ethernetNTEGE206FCardRestartAction'
-_BG='ethernetNTEGE206FCardSnmpDyingGaspEnabled'
-_BF='ethernetNTEGE206FCardTemperature'
-_BE='ethernetNTEGE206FCardVoltage'
-_BD='ethernetNTEGE206FCardSecondaryState'
-_BC='ethernetNTEGE206FCardOperationalState'
-_BB='ethernetNTEGE206FCardAdminState'
-_BA='ethernetNTEGE206FCardEntityIndex'
-_B9='ethernetNTEGE201CardRestartAction'
-_B8='ethernetNTEGE201CardSnmpDyingGaspEnabled'
-_B7='ethernetNTEGE201CardTemperature'
-_B6='ethernetNTEGE201CardVoltage'
-_B5='ethernetNTEGE201CardSecondaryState'
-_B4='ethernetNTEGE201CardOperationalState'
-_B3='ethernetNTEGE201CardAdminState'
-_B2='ethernetNTEGE201CardEntityIndex'
-_B1='ethernetNTEGE201SyncECardRestartAction'
-_B0='ethernetNTEGE201SyncECardSnmpDyingGaspEnabled'
-_A_='ethernetNTEGE201SyncECardTemperature'
-_Az='ethernetNTEGE201SyncECardVoltage'
-_Ay='ethernetNTEGE201SyncECardSecondaryState'
-_Ax='ethernetNTEGE201SyncECardOperationalState'
-_Aw='ethernetNTEGE201SyncECardAdminState'
-_Av='ethernetNTEGE201SyncECardEntityIndex'
-_Au='ethernetNTEGE206CardRestartAction'
-_At='ethernetNTEGE206CardSnmpDyingGaspEnabled'
-_As='ethernetNTEGE206CardTemperature'
-_Ar='ethernetNTEGE206CardVoltage'
-_Aq='ethernetNTEGE206CardSecondaryState'
-_Ap='ethernetNTEGE206CardOperationalState'
-_Ao='ethernetNTEGE206CardAdminState'
-_An='ethernetNTEGE206CardEntityIndex'
-_Am='ethernetCPMRCardLLFModeAction'
-_Al='ethernetCPMRCardLLFMode'
-_Ak='ethernetCPMRCardPsuType'
-_Aj='ethernetCPMRCardFAN2State'
-_Ai='ethernetCPMRCardFAN1State'
-_Ah='ethernetCPMRCardPSU2State'
-_Ag='ethernetCPMRCardPSU1State'
-_Af='ethernetCPMRCardRestartAction'
-_Ae='ethernetCPMRCardTemperature'
-_Ad='ethernetCPMRCardVoltage'
-_Ac='ethernetCPMRCardSecondaryState'
-_Ab='ethernetCPMRCardOperationalState'
-_Aa='ethernetCPMRCardAdminState'
-_AZ='ethernetCPMRCardEntityIndex'
-_AY='ethernetNTUCardRowStatus'
-_AX='ethernetNTUCardStorageType'
-_AW='ethernetNTUCardTemperature'
-_AV='ethernetNTUCardVoltage'
-_AU='ethernetNTUCardSecondaryState'
-_AT='ethernetNTUCardOperationalState'
-_AS='ethernetNTUCardAdminState'
-_AR='ethernetNTUCardEntityIndex'
-_AQ='nemiRowStatus'
-_AP='nemiStorageType'
-_AO='nemiRestartAction'
-_AN='nemiTemperature'
-_AM='nemiVoltage'
-_AL='nemiSecondaryState'
-_AK='nemiOperationalState'
-_AJ='nemiAdminState'
-_AI='nemiEntityIndex'
-_AH='scuRowStatus'
-_AG='scuStorageType'
-_AF='scuRestartAction'
-_AE='scuTemperature'
-_AD='scuVoltage'
-_AC='scuSecondaryState'
-_AB='scuOperationalState'
-_AA='scuAdminState'
-_A9='scuEntityIndex'
-_A8='fanSecondaryState'
-_A7='fanOperationalState'
-_A6='fanAdminState'
-_A5='fanEntityIndex'
-_A4='psuSecondaryState'
-_A3='psuOperationalState'
-_A2='psuAdminState'
-_A1='psuType'
-_A0='psuEntityIndex'
-_z='slotCardPhysicalAddress'
-_y='slotSecondaryState'
-_x='slotCardMfgSite'
-_w='slotCardMfgDate'
-_v='slotCardMfgName'
-_u='slotCardSerialNum'
-_t='slotCardSwRev'
-_s='slotCardHwRev'
-_r='slotCardPartNumber'
-_q='slotCardCLEICode'
-_p='slotCardFormatVersion'
-_o='slotCardUnitName'
-_n='slotCardType'
-_m='slotType'
-_l='slotEntityIndex'
-_k='shelfOscillatorType'
-_j='shelfMfgSite'
-_i='shelfSecondaryState'
-_h='shelfOperationalState'
-_g='shelfAdminState'
-_f='shelfAction'
-_e='shelfbackplaneSerialNo'
-_d='shelfbackplaneDOM'
-_c='shelfbackplaneRev'
-_b='shelfType'
-_a='shelfEntityIndex'
-_Z='neRowStatus'
-_Y='neStorageType'
-_X='neProvAction'
-_W='neFromPort'
-_V='neAccepted'
-_U='neCmdPromptPrefix'
-_T='neDescription'
-_S='neLocation'
-_R='neContact'
-_Q='neType'
-_P='neName'
-_O='f3UsbHostIndex'
-_N='ethernetGE4SCCCardRowStatus'
-_M='ethernetGE4SCCCardStorageType'
-_L='ethernetGE4SCCCardRestartAction'
-_K='ethernetGE4SCCCardTemperature'
-_J='obsolete'
-_I='DisplayString'
-_H='slotIndex'
-_G='shelfIndex'
-_F='neIndex'
-_E='read-create'
-_D='read-write'
-_C='read-only'
-_B='current'
-_A='CM-ENTITY-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsp150cm,=mibBuilder.importSymbols('ADVA-MIB','fsp150cm')
-AdminState,CmPmIntervalType,OperationalState,RestartType,SecondaryState,TDMFrequencySourceType,VlanId=mibBuilder.importSymbols('CM-COMMON-MIB','AdminState','CmPmIntervalType','OperationalState','RestartType','SecondaryState','TDMFrequencySourceType','VlanId')
-CmAutoProvMode,=mibBuilder.importSymbols('CM-SYSTEM-MIB','CmAutoProvMode')
-PhysicalIndex,=mibBuilder.importSymbols('ENTITY-MIB','PhysicalIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TruthValue,VariablePointer=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_I,'PhysAddress','RowStatus','StorageType','TextualConvention','TruthValue','VariablePointer')
-cmEntityMIB=ModuleIdentity((1,3,6,1,4,1,2544,1,12,3))
-if mibBuilder.loadTexts:cmEntityMIB.setRevisions(('2015-05-19 00:00',))
-class NeProvAction(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('accept',1),('decline',2)))
-class NetworkElementType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35)));namedValues=NamedValues(*((_C2,1),('hubshelf',2),('cle',3),(_C3,4),('cpmr',5),('ccge101',6),('ccge206',7),('ccge201',8),('ccge201se',9),('ccge206f',10),('ccge112',11),('ccge114',12),('ccge206v',13),('ccxg210',14),('cct1804',15),('cct3204',16),('ccsyncprobe',17),('ccge114h',18),('ccge114ph',19),('ccge114sh',20),('ccge114s',21),('sh1pcs',22),('ccosa5411',23),('ccge112pro',24),('ccge112proM',25),('ccge114pro',26),('ccge114proC',27),('ccge114proSH',28),('ccge114proCSH',29),('ccge114proHE',30),('ccge112proH',31),('ccxg210c',32),('ccosa5420',33),('ccosa5421',34),('ccge114g',35)))
-class SlotType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*(('scu',1),('psu',2),('fan',3),('generic',4),('lag',5),('nemi',6),('stu',7),('swf-140g',8),('ami',9),('sti',10)))
-class ShelfType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35)));namedValues=NamedValues(*((_C2,1),('hubshelf',2),('cle',3),(_C3,4),('cpmr',5),('onerackunit-ge101',6),('onerackunit-ge206',7),('onerackunit-ge201',8),('onerackunit-ge201se',9),('onerackunit-ge206f',10),('onerackunit-ge112',11),('onerackunit-ge114',12),('onerackunit-ge206v',13),('onerackunit-xg210',14),('onerackunit-t1804',15),('onerackunit-t3204',16),('onerackunit-syncprobe',17),('onerackunit-ge114h',18),('onerackunit-ge114ph',19),('onerackunit-ge114sh',20),('onerackunit-ge114s',21),('onerackunit-sh1pcs',22),('onerackunit-osa5411',23),('onerackunitGe112Pro',24),('ge112ProM',25),('onerackunitGe114Pro',26),('onerackunitGe114ProC',27),('onerackunitGe114ProSH',28),('onerackunitGe114ProCSH',29),('onerackunitGe114ProHE',30),('onerackunitGe112ProH',31),('onerackunit-xg210c',32),('onerackunit-osa5420',33),('onerackunit-osa5421',34),('onerackunit-ge114g',35)))
-class ShelfAction(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('initiateLampTest',1),('initiateACO',2),('coldRestart',3)))
-class PsuType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('unknown',0),('ac',1),('dc',2)))
-class CardType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61)));namedValues=NamedValues(*(('none',1),('psu',2),('fan',3),('nemi',4),('scu',5),('eth-10-100-1000-ntu',6),('eth-cpmr',7),('eth-ge-101',8),('eth-ge-206',9),('eth-ge-201',10),('eth-ge-201se',11),('eth-10-100-1000-nte',12),('scu-t',13),('eth-ge-206f',14),('eth-xg-1x',15),('swf-140g',16),('stu',17),('eth-ge-10s',18),('ami',19),('sti',20),('eth-ge-112',21),('eth-ge-114',22),('eth-ge-206v',23),('eth-ge-4e-cc',24),('eth-ge-4s-cc',25),('eth-xg-210',26),('eth-xg-1x-cc',27),('eth-xg-1s-cc',28),('stm1-4-et',29),('pwe3-ocnstm',30),('pwe3-e1t1',31),('eth-xg-1x-h',32),('eth-ge-10s-h',33),('eth-t1804',34),('eth-t3204',35),('eth-ge-syncprobe',36),('eth-ge-8s-cc',37),('eth-ge-114h',38),('eth-ge-114ph',39),('eth-fe-36e',40),('eth-ge-114sh',41),('eth-ge-114s',42),('sti-h',43),('stu-h',44),('eth-ge-8e-cc',45),('eth-sh1pcs',46),('eth-osa5411',47),('ethGe112Pro',48),('ethGe112ProM',49),('ethGe114Pro',50),('ethGe114ProC',51),('ethGe114ProSH',52),('ethGe114ProCSH',53),('ethGe114ProHE',54),('ethGe112ProH',55),('eth-xg-210c',56),('eth-ge-8sc-cc',57),('eth-osa5420',58),('eth-osa5421',59),('bits-x16',60),('eth-ge-114g',61)))
-class CmCPMRLinkLossFwdMode(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('llfmode-none',1),('llfmode-acc2acc',2),('llfmode-net2acc',3),('llfmode-both',4)))
-class PWE3OCNSTMCardMode(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('stm4',1),('oc12',2),('stm1',3),('oc3',4)))
-class PWE3E1T1CardMode(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('t1-16',1),('e1-16',2)))
-class PSNEncapsulationMode(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ethernet',1),('mpls',2)))
-class LLDPEnableAction(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('notApplicable',0),('enableLLDP',1),('disableLLDP',2),('enableLLDPTxOnly',3),('enableLLDPRxOnly',4)))
-class SwitchPortAction(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_C4,0),('switch',1)))
-class PortCarrierType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_C4,0),('t1',1),('e1',2),('t3',3),('e3',4),('oc3',5),('oc12',6),('stm1',7),('stm4',8)))
-_CmEntityObjects_ObjectIdentity=ObjectIdentity
-cmEntityObjects=_CmEntityObjects_ObjectIdentity((1,3,6,1,4,1,2544,1,12,3,1))
-_NetworkElementTable_Object=MibTable
-networkElementTable=_NetworkElementTable_Object((1,3,6,1,4,1,2544,1,12,3,1,1))
-if mibBuilder.loadTexts:networkElementTable.setStatus(_B)
-_NetworkElementEntry_Object=MibTableRow
-networkElementEntry=_NetworkElementEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,1,1))
-networkElementEntry.setIndexNames((0,_A,_F))
-if mibBuilder.loadTexts:networkElementEntry.setStatus(_B)
-_NeIndex_Type=Integer32
-_NeIndex_Object=MibTableColumn
-neIndex=_NeIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,1,1,1),_NeIndex_Type())
-neIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:neIndex.setStatus(_B)
-class _NeName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_NeName_Type.__name__=_I
-_NeName_Object=MibTableColumn
-neName=_NeName_Object((1,3,6,1,4,1,2544,1,12,3,1,1,1,2),_NeName_Type())
-neName.setMaxAccess(_E)
-if mibBuilder.loadTexts:neName.setStatus(_B)
-_NeType_Type=NetworkElementType
-_NeType_Object=MibTableColumn
-neType=_NeType_Object((1,3,6,1,4,1,2544,1,12,3,1,1,1,3),_NeType_Type())
-neType.setMaxAccess(_E)
-if mibBuilder.loadTexts:neType.setStatus(_B)
-class _NeContact_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_NeContact_Type.__name__=_I
-_NeContact_Object=MibTableColumn
-neContact=_NeContact_Object((1,3,6,1,4,1,2544,1,12,3,1,1,1,4),_NeContact_Type())
-neContact.setMaxAccess(_E)
-if mibBuilder.loadTexts:neContact.setStatus(_B)
-class _NeLocation_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_NeLocation_Type.__name__=_I
-_NeLocation_Object=MibTableColumn
-neLocation=_NeLocation_Object((1,3,6,1,4,1,2544,1,12,3,1,1,1,5),_NeLocation_Type())
-neLocation.setMaxAccess(_E)
-if mibBuilder.loadTexts:neLocation.setStatus(_B)
-class _NeDescription_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_NeDescription_Type.__name__=_I
-_NeDescription_Object=MibTableColumn
-neDescription=_NeDescription_Object((1,3,6,1,4,1,2544,1,12,3,1,1,1,6),_NeDescription_Type())
-neDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:neDescription.setStatus(_B)
-class _NeCmdPromptPrefix_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_NeCmdPromptPrefix_Type.__name__=_I
-_NeCmdPromptPrefix_Object=MibTableColumn
-neCmdPromptPrefix=_NeCmdPromptPrefix_Object((1,3,6,1,4,1,2544,1,12,3,1,1,1,7),_NeCmdPromptPrefix_Type())
-neCmdPromptPrefix.setMaxAccess(_E)
-if mibBuilder.loadTexts:neCmdPromptPrefix.setStatus(_B)
-_NeAccepted_Type=TruthValue
-_NeAccepted_Object=MibTableColumn
-neAccepted=_NeAccepted_Object((1,3,6,1,4,1,2544,1,12,3,1,1,1,8),_NeAccepted_Type())
-neAccepted.setMaxAccess(_C)
-if mibBuilder.loadTexts:neAccepted.setStatus(_B)
-_NeFromPort_Type=VariablePointer
-_NeFromPort_Object=MibTableColumn
-neFromPort=_NeFromPort_Object((1,3,6,1,4,1,2544,1,12,3,1,1,1,9),_NeFromPort_Type())
-neFromPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:neFromPort.setStatus(_B)
-_NeProvAction_Type=NeProvAction
-_NeProvAction_Object=MibTableColumn
-neProvAction=_NeProvAction_Object((1,3,6,1,4,1,2544,1,12,3,1,1,1,10),_NeProvAction_Type())
-neProvAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:neProvAction.setStatus(_B)
-_NeStorageType_Type=StorageType
-_NeStorageType_Object=MibTableColumn
-neStorageType=_NeStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,1,1,11),_NeStorageType_Type())
-neStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:neStorageType.setStatus(_B)
-_NeRowStatus_Type=RowStatus
-_NeRowStatus_Object=MibTableColumn
-neRowStatus=_NeRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,1,1,12),_NeRowStatus_Type())
-neRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:neRowStatus.setStatus(_B)
-_NeAutoProvMode_Type=CmAutoProvMode
-_NeAutoProvMode_Object=MibTableColumn
-neAutoProvMode=_NeAutoProvMode_Object((1,3,6,1,4,1,2544,1,12,3,1,1,1,13),_NeAutoProvMode_Type())
-neAutoProvMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:neAutoProvMode.setStatus(_B)
-_NeFineGrainedPmInterval_Type=CmPmIntervalType
-_NeFineGrainedPmInterval_Object=MibTableColumn
-neFineGrainedPmInterval=_NeFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,1,1,14),_NeFineGrainedPmInterval_Type())
-neFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:neFineGrainedPmInterval.setStatus(_B)
-_ShelfTable_Object=MibTable
-shelfTable=_ShelfTable_Object((1,3,6,1,4,1,2544,1,12,3,1,2))
-if mibBuilder.loadTexts:shelfTable.setStatus(_B)
-_ShelfEntry_Object=MibTableRow
-shelfEntry=_ShelfEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,2,1))
-shelfEntry.setIndexNames((0,_A,_F),(0,_A,_G))
-if mibBuilder.loadTexts:shelfEntry.setStatus(_B)
-_ShelfIndex_Type=Integer32
-_ShelfIndex_Object=MibTableColumn
-shelfIndex=_ShelfIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,2,1,1),_ShelfIndex_Type())
-shelfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:shelfIndex.setStatus(_B)
-_ShelfEntityIndex_Type=PhysicalIndex
-_ShelfEntityIndex_Object=MibTableColumn
-shelfEntityIndex=_ShelfEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,2,1,2),_ShelfEntityIndex_Type())
-shelfEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:shelfEntityIndex.setStatus(_B)
-_ShelfType_Type=ShelfType
-_ShelfType_Object=MibTableColumn
-shelfType=_ShelfType_Object((1,3,6,1,4,1,2544,1,12,3,1,2,1,3),_ShelfType_Type())
-shelfType.setMaxAccess(_D)
-if mibBuilder.loadTexts:shelfType.setStatus(_B)
-class _ShelfbackplaneRev_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_ShelfbackplaneRev_Type.__name__=_I
-_ShelfbackplaneRev_Object=MibTableColumn
-shelfbackplaneRev=_ShelfbackplaneRev_Object((1,3,6,1,4,1,2544,1,12,3,1,2,1,4),_ShelfbackplaneRev_Type())
-shelfbackplaneRev.setMaxAccess(_C)
-if mibBuilder.loadTexts:shelfbackplaneRev.setStatus(_B)
-_ShelfbackplaneDOM_Type=DateAndTime
-_ShelfbackplaneDOM_Object=MibTableColumn
-shelfbackplaneDOM=_ShelfbackplaneDOM_Object((1,3,6,1,4,1,2544,1,12,3,1,2,1,5),_ShelfbackplaneDOM_Type())
-shelfbackplaneDOM.setMaxAccess(_C)
-if mibBuilder.loadTexts:shelfbackplaneDOM.setStatus(_B)
-class _ShelfbackplaneSerialNo_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_ShelfbackplaneSerialNo_Type.__name__=_I
-_ShelfbackplaneSerialNo_Object=MibTableColumn
-shelfbackplaneSerialNo=_ShelfbackplaneSerialNo_Object((1,3,6,1,4,1,2544,1,12,3,1,2,1,6),_ShelfbackplaneSerialNo_Type())
-shelfbackplaneSerialNo.setMaxAccess(_C)
-if mibBuilder.loadTexts:shelfbackplaneSerialNo.setStatus(_B)
-_ShelfAction_Type=ShelfAction
-_ShelfAction_Object=MibTableColumn
-shelfAction=_ShelfAction_Object((1,3,6,1,4,1,2544,1,12,3,1,2,1,7),_ShelfAction_Type())
-shelfAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:shelfAction.setStatus(_B)
-_ShelfAdminState_Type=AdminState
-_ShelfAdminState_Object=MibTableColumn
-shelfAdminState=_ShelfAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,2,1,8),_ShelfAdminState_Type())
-shelfAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:shelfAdminState.setStatus(_B)
-_ShelfOperationalState_Type=OperationalState
-_ShelfOperationalState_Object=MibTableColumn
-shelfOperationalState=_ShelfOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,2,1,9),_ShelfOperationalState_Type())
-shelfOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:shelfOperationalState.setStatus(_B)
-_ShelfSecondaryState_Type=SecondaryState
-_ShelfSecondaryState_Object=MibTableColumn
-shelfSecondaryState=_ShelfSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,2,1,10),_ShelfSecondaryState_Type())
-shelfSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:shelfSecondaryState.setStatus(_B)
-class _ShelfMfgSite_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_ShelfMfgSite_Type.__name__=_I
-_ShelfMfgSite_Object=MibTableColumn
-shelfMfgSite=_ShelfMfgSite_Object((1,3,6,1,4,1,2544,1,12,3,1,2,1,11),_ShelfMfgSite_Type())
-shelfMfgSite.setMaxAccess(_C)
-if mibBuilder.loadTexts:shelfMfgSite.setStatus(_B)
-class _ShelfOscillatorType_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_ShelfOscillatorType_Type.__name__=_I
-_ShelfOscillatorType_Object=MibTableColumn
-shelfOscillatorType=_ShelfOscillatorType_Object((1,3,6,1,4,1,2544,1,12,3,1,2,1,12),_ShelfOscillatorType_Type())
-shelfOscillatorType.setMaxAccess(_C)
-if mibBuilder.loadTexts:shelfOscillatorType.setStatus(_B)
-_SlotTable_Object=MibTable
-slotTable=_SlotTable_Object((1,3,6,1,4,1,2544,1,12,3,1,3))
-if mibBuilder.loadTexts:slotTable.setStatus(_B)
-_SlotEntry_Object=MibTableRow
-slotEntry=_SlotEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1))
-slotEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:slotEntry.setStatus(_B)
-_SlotIndex_Type=Integer32
-_SlotIndex_Object=MibTableColumn
-slotIndex=_SlotIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,1),_SlotIndex_Type())
-slotIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotIndex.setStatus(_B)
-_SlotEntityIndex_Type=PhysicalIndex
-_SlotEntityIndex_Object=MibTableColumn
-slotEntityIndex=_SlotEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,2),_SlotEntityIndex_Type())
-slotEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotEntityIndex.setStatus(_B)
-_SlotType_Type=SlotType
-_SlotType_Object=MibTableColumn
-slotType=_SlotType_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,3),_SlotType_Type())
-slotType.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotType.setStatus(_B)
-_SlotCardType_Type=CardType
-_SlotCardType_Object=MibTableColumn
-slotCardType=_SlotCardType_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,4),_SlotCardType_Type())
-slotCardType.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotCardType.setStatus(_B)
-class _SlotCardUnitName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_SlotCardUnitName_Type.__name__=_I
-_SlotCardUnitName_Object=MibTableColumn
-slotCardUnitName=_SlotCardUnitName_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,5),_SlotCardUnitName_Type())
-slotCardUnitName.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotCardUnitName.setStatus(_B)
-class _SlotCardFormatVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_SlotCardFormatVersion_Type.__name__=_I
-_SlotCardFormatVersion_Object=MibTableColumn
-slotCardFormatVersion=_SlotCardFormatVersion_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,6),_SlotCardFormatVersion_Type())
-slotCardFormatVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotCardFormatVersion.setStatus(_B)
-class _SlotCardCLEICode_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_SlotCardCLEICode_Type.__name__=_I
-_SlotCardCLEICode_Object=MibTableColumn
-slotCardCLEICode=_SlotCardCLEICode_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,7),_SlotCardCLEICode_Type())
-slotCardCLEICode.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotCardCLEICode.setStatus(_B)
-class _SlotCardPartNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_SlotCardPartNumber_Type.__name__=_I
-_SlotCardPartNumber_Object=MibTableColumn
-slotCardPartNumber=_SlotCardPartNumber_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,8),_SlotCardPartNumber_Type())
-slotCardPartNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotCardPartNumber.setStatus(_B)
-class _SlotCardHwRev_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_SlotCardHwRev_Type.__name__=_I
-_SlotCardHwRev_Object=MibTableColumn
-slotCardHwRev=_SlotCardHwRev_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,9),_SlotCardHwRev_Type())
-slotCardHwRev.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotCardHwRev.setStatus(_B)
-class _SlotCardSwRev_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_SlotCardSwRev_Type.__name__=_I
-_SlotCardSwRev_Object=MibTableColumn
-slotCardSwRev=_SlotCardSwRev_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,10),_SlotCardSwRev_Type())
-slotCardSwRev.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotCardSwRev.setStatus(_B)
-class _SlotCardSerialNum_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_SlotCardSerialNum_Type.__name__=_I
-_SlotCardSerialNum_Object=MibTableColumn
-slotCardSerialNum=_SlotCardSerialNum_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,11),_SlotCardSerialNum_Type())
-slotCardSerialNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotCardSerialNum.setStatus(_B)
-class _SlotCardMfgName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_SlotCardMfgName_Type.__name__=_I
-_SlotCardMfgName_Object=MibTableColumn
-slotCardMfgName=_SlotCardMfgName_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,12),_SlotCardMfgName_Type())
-slotCardMfgName.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotCardMfgName.setStatus(_B)
-_SlotCardMfgDate_Type=DateAndTime
-_SlotCardMfgDate_Object=MibTableColumn
-slotCardMfgDate=_SlotCardMfgDate_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,13),_SlotCardMfgDate_Type())
-slotCardMfgDate.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotCardMfgDate.setStatus(_B)
-class _SlotCardMfgSite_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_SlotCardMfgSite_Type.__name__=_I
-_SlotCardMfgSite_Object=MibTableColumn
-slotCardMfgSite=_SlotCardMfgSite_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,14),_SlotCardMfgSite_Type())
-slotCardMfgSite.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotCardMfgSite.setStatus(_B)
-_SlotSecondaryState_Type=SecondaryState
-_SlotSecondaryState_Object=MibTableColumn
-slotSecondaryState=_SlotSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,15),_SlotSecondaryState_Type())
-slotSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotSecondaryState.setStatus(_B)
-class _SlotCardPhysicalAddress_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_SlotCardPhysicalAddress_Type.__name__=_I
-_SlotCardPhysicalAddress_Object=MibTableColumn
-slotCardPhysicalAddress=_SlotCardPhysicalAddress_Object((1,3,6,1,4,1,2544,1,12,3,1,3,1,16),_SlotCardPhysicalAddress_Type())
-slotCardPhysicalAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:slotCardPhysicalAddress.setStatus(_B)
-_PsuTable_Object=MibTable
-psuTable=_PsuTable_Object((1,3,6,1,4,1,2544,1,12,3,1,4))
-if mibBuilder.loadTexts:psuTable.setStatus(_B)
-_PsuEntry_Object=MibTableRow
-psuEntry=_PsuEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,4,1))
-psuEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:psuEntry.setStatus(_B)
-_PsuEntityIndex_Type=PhysicalIndex
-_PsuEntityIndex_Object=MibTableColumn
-psuEntityIndex=_PsuEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,4,1,1),_PsuEntityIndex_Type())
-psuEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:psuEntityIndex.setStatus(_B)
-_PsuType_Type=PsuType
-_PsuType_Object=MibTableColumn
-psuType=_PsuType_Object((1,3,6,1,4,1,2544,1,12,3,1,4,1,2),_PsuType_Type())
-psuType.setMaxAccess(_C)
-if mibBuilder.loadTexts:psuType.setStatus(_B)
-_PsuAdminState_Type=AdminState
-_PsuAdminState_Object=MibTableColumn
-psuAdminState=_PsuAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,4,1,3),_PsuAdminState_Type())
-psuAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:psuAdminState.setStatus(_B)
-_PsuOperationalState_Type=OperationalState
-_PsuOperationalState_Object=MibTableColumn
-psuOperationalState=_PsuOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,4,1,4),_PsuOperationalState_Type())
-psuOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:psuOperationalState.setStatus(_B)
-_PsuSecondaryState_Type=SecondaryState
-_PsuSecondaryState_Object=MibTableColumn
-psuSecondaryState=_PsuSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,4,1,5),_PsuSecondaryState_Type())
-psuSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:psuSecondaryState.setStatus(_B)
-_PsuOutputVoltage_Type=Integer32
-_PsuOutputVoltage_Object=MibTableColumn
-psuOutputVoltage=_PsuOutputVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,4,1,6),_PsuOutputVoltage_Type())
-psuOutputVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:psuOutputVoltage.setStatus(_B)
-_PsuTemperature_Type=Integer32
-_PsuTemperature_Object=MibTableColumn
-psuTemperature=_PsuTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,4,1,7),_PsuTemperature_Type())
-psuTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:psuTemperature.setStatus(_B)
-_PsuOutputCurrent_Type=Integer32
-_PsuOutputCurrent_Object=MibTableColumn
-psuOutputCurrent=_PsuOutputCurrent_Object((1,3,6,1,4,1,2544,1,12,3,1,4,1,8),_PsuOutputCurrent_Type())
-psuOutputCurrent.setMaxAccess(_C)
-if mibBuilder.loadTexts:psuOutputCurrent.setStatus(_B)
-_PsuStorageType_Type=StorageType
-_PsuStorageType_Object=MibTableColumn
-psuStorageType=_PsuStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,4,1,9),_PsuStorageType_Type())
-psuStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:psuStorageType.setStatus(_B)
-_PsuRowStatus_Type=RowStatus
-_PsuRowStatus_Object=MibTableColumn
-psuRowStatus=_PsuRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,4,1,10),_PsuRowStatus_Type())
-psuRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:psuRowStatus.setStatus(_B)
-_FanTable_Object=MibTable
-fanTable=_FanTable_Object((1,3,6,1,4,1,2544,1,12,3,1,5))
-if mibBuilder.loadTexts:fanTable.setStatus(_B)
-_FanEntry_Object=MibTableRow
-fanEntry=_FanEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,5,1))
-fanEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:fanEntry.setStatus(_B)
-_FanEntityIndex_Type=PhysicalIndex
-_FanEntityIndex_Object=MibTableColumn
-fanEntityIndex=_FanEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,5,1,1),_FanEntityIndex_Type())
-fanEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:fanEntityIndex.setStatus(_B)
-_FanAdminState_Type=AdminState
-_FanAdminState_Object=MibTableColumn
-fanAdminState=_FanAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,5,1,2),_FanAdminState_Type())
-fanAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:fanAdminState.setStatus(_B)
-_FanOperationalState_Type=OperationalState
-_FanOperationalState_Object=MibTableColumn
-fanOperationalState=_FanOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,5,1,3),_FanOperationalState_Type())
-fanOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:fanOperationalState.setStatus(_B)
-_FanSecondaryState_Type=SecondaryState
-_FanSecondaryState_Object=MibTableColumn
-fanSecondaryState=_FanSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,5,1,4),_FanSecondaryState_Type())
-fanSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:fanSecondaryState.setStatus(_B)
-_FanStorageType_Type=StorageType
-_FanStorageType_Object=MibTableColumn
-fanStorageType=_FanStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,5,1,5),_FanStorageType_Type())
-fanStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:fanStorageType.setStatus(_B)
-_FanRowStatus_Type=RowStatus
-_FanRowStatus_Object=MibTableColumn
-fanRowStatus=_FanRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,5,1,6),_FanRowStatus_Type())
-fanRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:fanRowStatus.setStatus(_B)
-_ScuTable_Object=MibTable
-scuTable=_ScuTable_Object((1,3,6,1,4,1,2544,1,12,3,1,6))
-if mibBuilder.loadTexts:scuTable.setStatus(_B)
-_ScuEntry_Object=MibTableRow
-scuEntry=_ScuEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,6,1))
-scuEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:scuEntry.setStatus(_B)
-_ScuEntityIndex_Type=PhysicalIndex
-_ScuEntityIndex_Object=MibTableColumn
-scuEntityIndex=_ScuEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,6,1,1),_ScuEntityIndex_Type())
-scuEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:scuEntityIndex.setStatus(_B)
-_ScuAdminState_Type=AdminState
-_ScuAdminState_Object=MibTableColumn
-scuAdminState=_ScuAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,6,1,2),_ScuAdminState_Type())
-scuAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:scuAdminState.setStatus(_B)
-_ScuOperationalState_Type=OperationalState
-_ScuOperationalState_Object=MibTableColumn
-scuOperationalState=_ScuOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,6,1,3),_ScuOperationalState_Type())
-scuOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:scuOperationalState.setStatus(_B)
-_ScuSecondaryState_Type=SecondaryState
-_ScuSecondaryState_Object=MibTableColumn
-scuSecondaryState=_ScuSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,6,1,4),_ScuSecondaryState_Type())
-scuSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:scuSecondaryState.setStatus(_B)
-_ScuVoltage_Type=Integer32
-_ScuVoltage_Object=MibTableColumn
-scuVoltage=_ScuVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,6,1,5),_ScuVoltage_Type())
-scuVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:scuVoltage.setStatus(_B)
-_ScuTemperature_Type=Integer32
-_ScuTemperature_Object=MibTableColumn
-scuTemperature=_ScuTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,6,1,6),_ScuTemperature_Type())
-scuTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:scuTemperature.setStatus(_B)
-_ScuRestartAction_Type=RestartType
-_ScuRestartAction_Object=MibTableColumn
-scuRestartAction=_ScuRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,6,1,7),_ScuRestartAction_Type())
-scuRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:scuRestartAction.setStatus(_B)
-_ScuStorageType_Type=StorageType
-_ScuStorageType_Object=MibTableColumn
-scuStorageType=_ScuStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,6,1,8),_ScuStorageType_Type())
-scuStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:scuStorageType.setStatus(_B)
-_ScuRowStatus_Type=RowStatus
-_ScuRowStatus_Object=MibTableColumn
-scuRowStatus=_ScuRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,6,1,9),_ScuRowStatus_Type())
-scuRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:scuRowStatus.setStatus(_B)
-_ScuFlashModelNum_Type=DisplayString
-_ScuFlashModelNum_Object=MibTableColumn
-scuFlashModelNum=_ScuFlashModelNum_Object((1,3,6,1,4,1,2544,1,12,3,1,6,1,10),_ScuFlashModelNum_Type())
-scuFlashModelNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:scuFlashModelNum.setStatus(_B)
-_ScuFlashFirmwareRev_Type=DisplayString
-_ScuFlashFirmwareRev_Object=MibTableColumn
-scuFlashFirmwareRev=_ScuFlashFirmwareRev_Object((1,3,6,1,4,1,2544,1,12,3,1,6,1,11),_ScuFlashFirmwareRev_Type())
-scuFlashFirmwareRev.setMaxAccess(_C)
-if mibBuilder.loadTexts:scuFlashFirmwareRev.setStatus(_B)
-_ScuFlashSerialNum_Type=DisplayString
-_ScuFlashSerialNum_Object=MibTableColumn
-scuFlashSerialNum=_ScuFlashSerialNum_Object((1,3,6,1,4,1,2544,1,12,3,1,6,1,12),_ScuFlashSerialNum_Type())
-scuFlashSerialNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:scuFlashSerialNum.setStatus(_B)
-_NemiTable_Object=MibTable
-nemiTable=_NemiTable_Object((1,3,6,1,4,1,2544,1,12,3,1,7))
-if mibBuilder.loadTexts:nemiTable.setStatus(_B)
-_NemiEntry_Object=MibTableRow
-nemiEntry=_NemiEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,7,1))
-nemiEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:nemiEntry.setStatus(_B)
-_NemiEntityIndex_Type=PhysicalIndex
-_NemiEntityIndex_Object=MibTableColumn
-nemiEntityIndex=_NemiEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,7,1,1),_NemiEntityIndex_Type())
-nemiEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:nemiEntityIndex.setStatus(_B)
-_NemiAdminState_Type=AdminState
-_NemiAdminState_Object=MibTableColumn
-nemiAdminState=_NemiAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,7,1,2),_NemiAdminState_Type())
-nemiAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:nemiAdminState.setStatus(_B)
-_NemiOperationalState_Type=OperationalState
-_NemiOperationalState_Object=MibTableColumn
-nemiOperationalState=_NemiOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,7,1,3),_NemiOperationalState_Type())
-nemiOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:nemiOperationalState.setStatus(_B)
-_NemiSecondaryState_Type=SecondaryState
-_NemiSecondaryState_Object=MibTableColumn
-nemiSecondaryState=_NemiSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,7,1,4),_NemiSecondaryState_Type())
-nemiSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:nemiSecondaryState.setStatus(_B)
-_NemiVoltage_Type=Integer32
-_NemiVoltage_Object=MibTableColumn
-nemiVoltage=_NemiVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,7,1,5),_NemiVoltage_Type())
-nemiVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:nemiVoltage.setStatus(_B)
-_NemiTemperature_Type=Integer32
-_NemiTemperature_Object=MibTableColumn
-nemiTemperature=_NemiTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,7,1,6),_NemiTemperature_Type())
-nemiTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:nemiTemperature.setStatus(_B)
-_NemiRestartAction_Type=RestartType
-_NemiRestartAction_Object=MibTableColumn
-nemiRestartAction=_NemiRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,7,1,7),_NemiRestartAction_Type())
-nemiRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:nemiRestartAction.setStatus(_B)
-_NemiStorageType_Type=StorageType
-_NemiStorageType_Object=MibTableColumn
-nemiStorageType=_NemiStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,7,1,8),_NemiStorageType_Type())
-nemiStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:nemiStorageType.setStatus(_B)
-_NemiRowStatus_Type=RowStatus
-_NemiRowStatus_Object=MibTableColumn
-nemiRowStatus=_NemiRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,7,1,9),_NemiRowStatus_Type())
-nemiRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:nemiRowStatus.setStatus(_B)
-_NemiForceOffLineAction_Type=TruthValue
-_NemiForceOffLineAction_Object=MibTableColumn
-nemiForceOffLineAction=_NemiForceOffLineAction_Object((1,3,6,1,4,1,2544,1,12,3,1,7,1,10),_NemiForceOffLineAction_Type())
-nemiForceOffLineAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:nemiForceOffLineAction.setStatus(_B)
-_NemiFlashModelNum_Type=DisplayString
-_NemiFlashModelNum_Object=MibTableColumn
-nemiFlashModelNum=_NemiFlashModelNum_Object((1,3,6,1,4,1,2544,1,12,3,1,7,1,11),_NemiFlashModelNum_Type())
-nemiFlashModelNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:nemiFlashModelNum.setStatus(_B)
-_NemiFlashFirmwareRev_Type=DisplayString
-_NemiFlashFirmwareRev_Object=MibTableColumn
-nemiFlashFirmwareRev=_NemiFlashFirmwareRev_Object((1,3,6,1,4,1,2544,1,12,3,1,7,1,12),_NemiFlashFirmwareRev_Type())
-nemiFlashFirmwareRev.setMaxAccess(_C)
-if mibBuilder.loadTexts:nemiFlashFirmwareRev.setStatus(_B)
-_NemiFlashSerialNum_Type=DisplayString
-_NemiFlashSerialNum_Object=MibTableColumn
-nemiFlashSerialNum=_NemiFlashSerialNum_Object((1,3,6,1,4,1,2544,1,12,3,1,7,1,13),_NemiFlashSerialNum_Type())
-nemiFlashSerialNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:nemiFlashSerialNum.setStatus(_B)
-_EthernetNTUCardTable_Object=MibTable
-ethernetNTUCardTable=_EthernetNTUCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,8))
-if mibBuilder.loadTexts:ethernetNTUCardTable.setStatus(_B)
-_EthernetNTUCardEntry_Object=MibTableRow
-ethernetNTUCardEntry=_EthernetNTUCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,8,1))
-ethernetNTUCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTUCardEntry.setStatus(_B)
-_EthernetNTUCardEntityIndex_Type=PhysicalIndex
-_EthernetNTUCardEntityIndex_Object=MibTableColumn
-ethernetNTUCardEntityIndex=_EthernetNTUCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,8,1,1),_EthernetNTUCardEntityIndex_Type())
-ethernetNTUCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTUCardEntityIndex.setStatus(_B)
-_EthernetNTUCardAdminState_Type=AdminState
-_EthernetNTUCardAdminState_Object=MibTableColumn
-ethernetNTUCardAdminState=_EthernetNTUCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,8,1,2),_EthernetNTUCardAdminState_Type())
-ethernetNTUCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTUCardAdminState.setStatus(_B)
-_EthernetNTUCardOperationalState_Type=OperationalState
-_EthernetNTUCardOperationalState_Object=MibTableColumn
-ethernetNTUCardOperationalState=_EthernetNTUCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,8,1,3),_EthernetNTUCardOperationalState_Type())
-ethernetNTUCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTUCardOperationalState.setStatus(_B)
-_EthernetNTUCardSecondaryState_Type=SecondaryState
-_EthernetNTUCardSecondaryState_Object=MibTableColumn
-ethernetNTUCardSecondaryState=_EthernetNTUCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,8,1,4),_EthernetNTUCardSecondaryState_Type())
-ethernetNTUCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTUCardSecondaryState.setStatus(_B)
-_EthernetNTUCardVoltage_Type=Integer32
-_EthernetNTUCardVoltage_Object=MibTableColumn
-ethernetNTUCardVoltage=_EthernetNTUCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,8,1,5),_EthernetNTUCardVoltage_Type())
-ethernetNTUCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTUCardVoltage.setStatus(_B)
-_EthernetNTUCardTemperature_Type=Integer32
-_EthernetNTUCardTemperature_Object=MibTableColumn
-ethernetNTUCardTemperature=_EthernetNTUCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,8,1,6),_EthernetNTUCardTemperature_Type())
-ethernetNTUCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTUCardTemperature.setStatus(_B)
-_EthernetNTUCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTUCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTUCardSnmpDyingGaspEnabled=_EthernetNTUCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,8,1,7),_EthernetNTUCardSnmpDyingGaspEnabled_Type())
-ethernetNTUCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTUCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTUCardRestartAction_Type=RestartType
-_EthernetNTUCardRestartAction_Object=MibTableColumn
-ethernetNTUCardRestartAction=_EthernetNTUCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,8,1,8),_EthernetNTUCardRestartAction_Type())
-ethernetNTUCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTUCardRestartAction.setStatus(_B)
-_EthernetNTUCardStorageType_Type=StorageType
-_EthernetNTUCardStorageType_Object=MibTableColumn
-ethernetNTUCardStorageType=_EthernetNTUCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,8,1,9),_EthernetNTUCardStorageType_Type())
-ethernetNTUCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTUCardStorageType.setStatus(_B)
-_EthernetNTUCardRowStatus_Type=RowStatus
-_EthernetNTUCardRowStatus_Object=MibTableColumn
-ethernetNTUCardRowStatus=_EthernetNTUCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,8,1,10),_EthernetNTUCardRowStatus_Type())
-ethernetNTUCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTUCardRowStatus.setStatus(_B)
-_EthernetCPMRCardTable_Object=MibTable
-ethernetCPMRCardTable=_EthernetCPMRCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,9))
-if mibBuilder.loadTexts:ethernetCPMRCardTable.setStatus(_B)
-_EthernetCPMRCardEntry_Object=MibTableRow
-ethernetCPMRCardEntry=_EthernetCPMRCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,9,1))
-ethernetCPMRCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetCPMRCardEntry.setStatus(_B)
-_EthernetCPMRCardEntityIndex_Type=PhysicalIndex
-_EthernetCPMRCardEntityIndex_Object=MibTableColumn
-ethernetCPMRCardEntityIndex=_EthernetCPMRCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,9,1,1),_EthernetCPMRCardEntityIndex_Type())
-ethernetCPMRCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetCPMRCardEntityIndex.setStatus(_B)
-_EthernetCPMRCardAdminState_Type=AdminState
-_EthernetCPMRCardAdminState_Object=MibTableColumn
-ethernetCPMRCardAdminState=_EthernetCPMRCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,9,1,2),_EthernetCPMRCardAdminState_Type())
-ethernetCPMRCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetCPMRCardAdminState.setStatus(_B)
-_EthernetCPMRCardOperationalState_Type=OperationalState
-_EthernetCPMRCardOperationalState_Object=MibTableColumn
-ethernetCPMRCardOperationalState=_EthernetCPMRCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,9,1,3),_EthernetCPMRCardOperationalState_Type())
-ethernetCPMRCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetCPMRCardOperationalState.setStatus(_B)
-_EthernetCPMRCardSecondaryState_Type=SecondaryState
-_EthernetCPMRCardSecondaryState_Object=MibTableColumn
-ethernetCPMRCardSecondaryState=_EthernetCPMRCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,9,1,4),_EthernetCPMRCardSecondaryState_Type())
-ethernetCPMRCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetCPMRCardSecondaryState.setStatus(_B)
-_EthernetCPMRCardVoltage_Type=Integer32
-_EthernetCPMRCardVoltage_Object=MibTableColumn
-ethernetCPMRCardVoltage=_EthernetCPMRCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,9,1,5),_EthernetCPMRCardVoltage_Type())
-ethernetCPMRCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetCPMRCardVoltage.setStatus(_B)
-_EthernetCPMRCardTemperature_Type=Integer32
-_EthernetCPMRCardTemperature_Object=MibTableColumn
-ethernetCPMRCardTemperature=_EthernetCPMRCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,9,1,6),_EthernetCPMRCardTemperature_Type())
-ethernetCPMRCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetCPMRCardTemperature.setStatus(_B)
-_EthernetCPMRCardRestartAction_Type=RestartType
-_EthernetCPMRCardRestartAction_Object=MibTableColumn
-ethernetCPMRCardRestartAction=_EthernetCPMRCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,9,1,7),_EthernetCPMRCardRestartAction_Type())
-ethernetCPMRCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetCPMRCardRestartAction.setStatus(_B)
-_EthernetCPMRCardPSU1State_Type=OperationalState
-_EthernetCPMRCardPSU1State_Object=MibTableColumn
-ethernetCPMRCardPSU1State=_EthernetCPMRCardPSU1State_Object((1,3,6,1,4,1,2544,1,12,3,1,9,1,8),_EthernetCPMRCardPSU1State_Type())
-ethernetCPMRCardPSU1State.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetCPMRCardPSU1State.setStatus(_B)
-_EthernetCPMRCardPSU2State_Type=OperationalState
-_EthernetCPMRCardPSU2State_Object=MibTableColumn
-ethernetCPMRCardPSU2State=_EthernetCPMRCardPSU2State_Object((1,3,6,1,4,1,2544,1,12,3,1,9,1,9),_EthernetCPMRCardPSU2State_Type())
-ethernetCPMRCardPSU2State.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetCPMRCardPSU2State.setStatus(_B)
-_EthernetCPMRCardFAN1State_Type=OperationalState
-_EthernetCPMRCardFAN1State_Object=MibTableColumn
-ethernetCPMRCardFAN1State=_EthernetCPMRCardFAN1State_Object((1,3,6,1,4,1,2544,1,12,3,1,9,1,10),_EthernetCPMRCardFAN1State_Type())
-ethernetCPMRCardFAN1State.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetCPMRCardFAN1State.setStatus(_B)
-_EthernetCPMRCardFAN2State_Type=OperationalState
-_EthernetCPMRCardFAN2State_Object=MibTableColumn
-ethernetCPMRCardFAN2State=_EthernetCPMRCardFAN2State_Object((1,3,6,1,4,1,2544,1,12,3,1,9,1,11),_EthernetCPMRCardFAN2State_Type())
-ethernetCPMRCardFAN2State.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetCPMRCardFAN2State.setStatus(_B)
-_EthernetCPMRCardPsuType_Type=PsuType
-_EthernetCPMRCardPsuType_Object=MibTableColumn
-ethernetCPMRCardPsuType=_EthernetCPMRCardPsuType_Object((1,3,6,1,4,1,2544,1,12,3,1,9,1,12),_EthernetCPMRCardPsuType_Type())
-ethernetCPMRCardPsuType.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetCPMRCardPsuType.setStatus(_B)
-_EthernetCPMRCardLLFMode_Type=CmCPMRLinkLossFwdMode
-_EthernetCPMRCardLLFMode_Object=MibTableColumn
-ethernetCPMRCardLLFMode=_EthernetCPMRCardLLFMode_Object((1,3,6,1,4,1,2544,1,12,3,1,9,1,13),_EthernetCPMRCardLLFMode_Type())
-ethernetCPMRCardLLFMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetCPMRCardLLFMode.setStatus(_B)
-_EthernetCPMRCardLLFModeAction_Type=CmCPMRLinkLossFwdMode
-_EthernetCPMRCardLLFModeAction_Object=MibTableColumn
-ethernetCPMRCardLLFModeAction=_EthernetCPMRCardLLFModeAction_Object((1,3,6,1,4,1,2544,1,12,3,1,9,1,14),_EthernetCPMRCardLLFModeAction_Type())
-ethernetCPMRCardLLFModeAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetCPMRCardLLFModeAction.setStatus(_B)
-_EthernetNTEGE101CardTable_Object=MibTable
-ethernetNTEGE101CardTable=_EthernetNTEGE101CardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,10))
-if mibBuilder.loadTexts:ethernetNTEGE101CardTable.setStatus(_B)
-_EthernetNTEGE101CardEntry_Object=MibTableRow
-ethernetNTEGE101CardEntry=_EthernetNTEGE101CardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,10,1))
-ethernetNTEGE101CardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE101CardEntry.setStatus(_B)
-_EthernetNTEGE101CardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE101CardEntityIndex_Object=MibTableColumn
-ethernetNTEGE101CardEntityIndex=_EthernetNTEGE101CardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,10,1,1),_EthernetNTEGE101CardEntityIndex_Type())
-ethernetNTEGE101CardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE101CardEntityIndex.setStatus(_B)
-_EthernetNTEGE101CardAdminState_Type=AdminState
-_EthernetNTEGE101CardAdminState_Object=MibTableColumn
-ethernetNTEGE101CardAdminState=_EthernetNTEGE101CardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,10,1,2),_EthernetNTEGE101CardAdminState_Type())
-ethernetNTEGE101CardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE101CardAdminState.setStatus(_B)
-_EthernetNTEGE101CardOperationalState_Type=OperationalState
-_EthernetNTEGE101CardOperationalState_Object=MibTableColumn
-ethernetNTEGE101CardOperationalState=_EthernetNTEGE101CardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,10,1,3),_EthernetNTEGE101CardOperationalState_Type())
-ethernetNTEGE101CardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE101CardOperationalState.setStatus(_B)
-_EthernetNTEGE101CardSecondaryState_Type=SecondaryState
-_EthernetNTEGE101CardSecondaryState_Object=MibTableColumn
-ethernetNTEGE101CardSecondaryState=_EthernetNTEGE101CardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,10,1,4),_EthernetNTEGE101CardSecondaryState_Type())
-ethernetNTEGE101CardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE101CardSecondaryState.setStatus(_B)
-_EthernetNTEGE101CardVoltage_Type=Integer32
-_EthernetNTEGE101CardVoltage_Object=MibTableColumn
-ethernetNTEGE101CardVoltage=_EthernetNTEGE101CardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,10,1,5),_EthernetNTEGE101CardVoltage_Type())
-ethernetNTEGE101CardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE101CardVoltage.setStatus(_B)
-_EthernetNTEGE101CardTemperature_Type=Integer32
-_EthernetNTEGE101CardTemperature_Object=MibTableColumn
-ethernetNTEGE101CardTemperature=_EthernetNTEGE101CardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,10,1,6),_EthernetNTEGE101CardTemperature_Type())
-ethernetNTEGE101CardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE101CardTemperature.setStatus(_B)
-_EthernetNTEGE101CardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE101CardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE101CardSnmpDyingGaspEnabled=_EthernetNTEGE101CardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,10,1,7),_EthernetNTEGE101CardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE101CardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE101CardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE101CardRestartAction_Type=RestartType
-_EthernetNTEGE101CardRestartAction_Object=MibTableColumn
-ethernetNTEGE101CardRestartAction=_EthernetNTEGE101CardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,10,1,8),_EthernetNTEGE101CardRestartAction_Type())
-ethernetNTEGE101CardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE101CardRestartAction.setStatus(_B)
-_EthernetNTEGE206CardTable_Object=MibTable
-ethernetNTEGE206CardTable=_EthernetNTEGE206CardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,11))
-if mibBuilder.loadTexts:ethernetNTEGE206CardTable.setStatus(_B)
-_EthernetNTEGE206CardEntry_Object=MibTableRow
-ethernetNTEGE206CardEntry=_EthernetNTEGE206CardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,11,1))
-ethernetNTEGE206CardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE206CardEntry.setStatus(_B)
-_EthernetNTEGE206CardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE206CardEntityIndex_Object=MibTableColumn
-ethernetNTEGE206CardEntityIndex=_EthernetNTEGE206CardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,11,1,1),_EthernetNTEGE206CardEntityIndex_Type())
-ethernetNTEGE206CardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE206CardEntityIndex.setStatus(_B)
-_EthernetNTEGE206CardAdminState_Type=AdminState
-_EthernetNTEGE206CardAdminState_Object=MibTableColumn
-ethernetNTEGE206CardAdminState=_EthernetNTEGE206CardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,11,1,2),_EthernetNTEGE206CardAdminState_Type())
-ethernetNTEGE206CardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE206CardAdminState.setStatus(_B)
-_EthernetNTEGE206CardOperationalState_Type=OperationalState
-_EthernetNTEGE206CardOperationalState_Object=MibTableColumn
-ethernetNTEGE206CardOperationalState=_EthernetNTEGE206CardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,11,1,3),_EthernetNTEGE206CardOperationalState_Type())
-ethernetNTEGE206CardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE206CardOperationalState.setStatus(_B)
-_EthernetNTEGE206CardSecondaryState_Type=SecondaryState
-_EthernetNTEGE206CardSecondaryState_Object=MibTableColumn
-ethernetNTEGE206CardSecondaryState=_EthernetNTEGE206CardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,11,1,4),_EthernetNTEGE206CardSecondaryState_Type())
-ethernetNTEGE206CardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE206CardSecondaryState.setStatus(_B)
-_EthernetNTEGE206CardVoltage_Type=Integer32
-_EthernetNTEGE206CardVoltage_Object=MibTableColumn
-ethernetNTEGE206CardVoltage=_EthernetNTEGE206CardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,11,1,5),_EthernetNTEGE206CardVoltage_Type())
-ethernetNTEGE206CardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE206CardVoltage.setStatus(_B)
-_EthernetNTEGE206CardTemperature_Type=Integer32
-_EthernetNTEGE206CardTemperature_Object=MibTableColumn
-ethernetNTEGE206CardTemperature=_EthernetNTEGE206CardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,11,1,6),_EthernetNTEGE206CardTemperature_Type())
-ethernetNTEGE206CardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE206CardTemperature.setStatus(_B)
-_EthernetNTEGE206CardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE206CardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE206CardSnmpDyingGaspEnabled=_EthernetNTEGE206CardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,11,1,7),_EthernetNTEGE206CardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE206CardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE206CardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE206CardRestartAction_Type=RestartType
-_EthernetNTEGE206CardRestartAction_Object=MibTableColumn
-ethernetNTEGE206CardRestartAction=_EthernetNTEGE206CardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,11,1,8),_EthernetNTEGE206CardRestartAction_Type())
-ethernetNTEGE206CardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE206CardRestartAction.setStatus(_B)
-_EthernetNTEGE206CardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE206CardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE206CardFineGrainedPmInterval=_EthernetNTEGE206CardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,11,1,9),_EthernetNTEGE206CardFineGrainedPmInterval_Type())
-ethernetNTEGE206CardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE206CardFineGrainedPmInterval.setStatus(_B)
-_PseudoWireE3CardTable_Object=MibTable
-pseudoWireE3CardTable=_PseudoWireE3CardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,12))
-if mibBuilder.loadTexts:pseudoWireE3CardTable.setStatus(_J)
-_PseudoWireE3CardEntry_Object=MibTableRow
-pseudoWireE3CardEntry=_PseudoWireE3CardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,12,1))
-pseudoWireE3CardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:pseudoWireE3CardEntry.setStatus(_J)
-_PseudoWireE3CardEntityIndex_Type=PhysicalIndex
-_PseudoWireE3CardEntityIndex_Object=MibTableColumn
-pseudoWireE3CardEntityIndex=_PseudoWireE3CardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,12,1,1),_PseudoWireE3CardEntityIndex_Type())
-pseudoWireE3CardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:pseudoWireE3CardEntityIndex.setStatus(_J)
-_PseudoWireE3CardAdminState_Type=AdminState
-_PseudoWireE3CardAdminState_Object=MibTableColumn
-pseudoWireE3CardAdminState=_PseudoWireE3CardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,12,1,2),_PseudoWireE3CardAdminState_Type())
-pseudoWireE3CardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireE3CardAdminState.setStatus(_J)
-_PseudoWireE3CardOperationalState_Type=OperationalState
-_PseudoWireE3CardOperationalState_Object=MibTableColumn
-pseudoWireE3CardOperationalState=_PseudoWireE3CardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,12,1,3),_PseudoWireE3CardOperationalState_Type())
-pseudoWireE3CardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:pseudoWireE3CardOperationalState.setStatus(_J)
-_PseudoWireE3CardSecondaryState_Type=SecondaryState
-_PseudoWireE3CardSecondaryState_Object=MibTableColumn
-pseudoWireE3CardSecondaryState=_PseudoWireE3CardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,12,1,4),_PseudoWireE3CardSecondaryState_Type())
-pseudoWireE3CardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:pseudoWireE3CardSecondaryState.setStatus(_J)
-_PseudoWireE3CardIpAddress_Type=IpAddress
-_PseudoWireE3CardIpAddress_Object=MibTableColumn
-pseudoWireE3CardIpAddress=_PseudoWireE3CardIpAddress_Object((1,3,6,1,4,1,2544,1,12,3,1,12,1,5),_PseudoWireE3CardIpAddress_Type())
-pseudoWireE3CardIpAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireE3CardIpAddress.setStatus(_J)
-_PseudoWireE3CardIpNetmask_Type=IpAddress
-_PseudoWireE3CardIpNetmask_Object=MibTableColumn
-pseudoWireE3CardIpNetmask=_PseudoWireE3CardIpNetmask_Object((1,3,6,1,4,1,2544,1,12,3,1,12,1,6),_PseudoWireE3CardIpNetmask_Type())
-pseudoWireE3CardIpNetmask.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireE3CardIpNetmask.setStatus(_J)
-_PseudoWireE3CardIpGateway_Type=IpAddress
-_PseudoWireE3CardIpGateway_Object=MibTableColumn
-pseudoWireE3CardIpGateway=_PseudoWireE3CardIpGateway_Object((1,3,6,1,4,1,2544,1,12,3,1,12,1,7),_PseudoWireE3CardIpGateway_Type())
-pseudoWireE3CardIpGateway.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireE3CardIpGateway.setStatus(_J)
-_PseudoWireE3CardDhcpEnabled_Type=TruthValue
-_PseudoWireE3CardDhcpEnabled_Object=MibTableColumn
-pseudoWireE3CardDhcpEnabled=_PseudoWireE3CardDhcpEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,12,1,8),_PseudoWireE3CardDhcpEnabled_Type())
-pseudoWireE3CardDhcpEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireE3CardDhcpEnabled.setStatus(_J)
-_PseudoWireE3CardMgmtVlanId_Type=VlanId
-_PseudoWireE3CardMgmtVlanId_Object=MibTableColumn
-pseudoWireE3CardMgmtVlanId=_PseudoWireE3CardMgmtVlanId_Object((1,3,6,1,4,1,2544,1,12,3,1,12,1,9),_PseudoWireE3CardMgmtVlanId_Type())
-pseudoWireE3CardMgmtVlanId.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireE3CardMgmtVlanId.setStatus(_J)
-_PseudoWireE3CardTimeOfDay_Type=DateAndTime
-_PseudoWireE3CardTimeOfDay_Object=MibTableColumn
-pseudoWireE3CardTimeOfDay=_PseudoWireE3CardTimeOfDay_Object((1,3,6,1,4,1,2544,1,12,3,1,12,1,10),_PseudoWireE3CardTimeOfDay_Type())
-pseudoWireE3CardTimeOfDay.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireE3CardTimeOfDay.setStatus(_J)
-_PseudoWireE3CardRestartAction_Type=RestartType
-_PseudoWireE3CardRestartAction_Object=MibTableColumn
-pseudoWireE3CardRestartAction=_PseudoWireE3CardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,12,1,11),_PseudoWireE3CardRestartAction_Type())
-pseudoWireE3CardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireE3CardRestartAction.setStatus(_J)
-_ScuTTable_Object=MibTable
-scuTTable=_ScuTTable_Object((1,3,6,1,4,1,2544,1,12,3,1,13))
-if mibBuilder.loadTexts:scuTTable.setStatus(_B)
-_ScuTEntry_Object=MibTableRow
-scuTEntry=_ScuTEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,13,1))
-scuTEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:scuTEntry.setStatus(_B)
-_ScuTEntityIndex_Type=PhysicalIndex
-_ScuTEntityIndex_Object=MibTableColumn
-scuTEntityIndex=_ScuTEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,13,1,1),_ScuTEntityIndex_Type())
-scuTEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:scuTEntityIndex.setStatus(_B)
-_ScuTAdminState_Type=AdminState
-_ScuTAdminState_Object=MibTableColumn
-scuTAdminState=_ScuTAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,13,1,2),_ScuTAdminState_Type())
-scuTAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:scuTAdminState.setStatus(_B)
-_ScuTOperationalState_Type=OperationalState
-_ScuTOperationalState_Object=MibTableColumn
-scuTOperationalState=_ScuTOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,13,1,3),_ScuTOperationalState_Type())
-scuTOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:scuTOperationalState.setStatus(_B)
-_ScuTSecondaryState_Type=SecondaryState
-_ScuTSecondaryState_Object=MibTableColumn
-scuTSecondaryState=_ScuTSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,13,1,4),_ScuTSecondaryState_Type())
-scuTSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:scuTSecondaryState.setStatus(_B)
-_ScuTVoltage_Type=Integer32
-_ScuTVoltage_Object=MibTableColumn
-scuTVoltage=_ScuTVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,13,1,5),_ScuTVoltage_Type())
-scuTVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:scuTVoltage.setStatus(_B)
-_ScuTTemperature_Type=Integer32
-_ScuTTemperature_Object=MibTableColumn
-scuTTemperature=_ScuTTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,13,1,6),_ScuTTemperature_Type())
-scuTTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:scuTTemperature.setStatus(_B)
-_ScuTRestartAction_Type=RestartType
-_ScuTRestartAction_Object=MibTableColumn
-scuTRestartAction=_ScuTRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,13,1,7),_ScuTRestartAction_Type())
-scuTRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:scuTRestartAction.setStatus(_B)
-_ScuTStorageType_Type=StorageType
-_ScuTStorageType_Object=MibTableColumn
-scuTStorageType=_ScuTStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,13,1,8),_ScuTStorageType_Type())
-scuTStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:scuTStorageType.setStatus(_B)
-_ScuTRowStatus_Type=RowStatus
-_ScuTRowStatus_Object=MibTableColumn
-scuTRowStatus=_ScuTRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,13,1,9),_ScuTRowStatus_Type())
-scuTRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:scuTRowStatus.setStatus(_B)
-_EthernetNTECardTable_Object=MibTable
-ethernetNTECardTable=_EthernetNTECardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,14))
-if mibBuilder.loadTexts:ethernetNTECardTable.setStatus(_B)
-_EthernetNTECardEntry_Object=MibTableRow
-ethernetNTECardEntry=_EthernetNTECardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,14,1))
-ethernetNTECardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTECardEntry.setStatus(_B)
-_EthernetNTECardEntityIndex_Type=PhysicalIndex
-_EthernetNTECardEntityIndex_Object=MibTableColumn
-ethernetNTECardEntityIndex=_EthernetNTECardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,14,1,1),_EthernetNTECardEntityIndex_Type())
-ethernetNTECardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTECardEntityIndex.setStatus(_B)
-_EthernetNTECardAdminState_Type=AdminState
-_EthernetNTECardAdminState_Object=MibTableColumn
-ethernetNTECardAdminState=_EthernetNTECardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,14,1,2),_EthernetNTECardAdminState_Type())
-ethernetNTECardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTECardAdminState.setStatus(_B)
-_EthernetNTECardOperationalState_Type=OperationalState
-_EthernetNTECardOperationalState_Object=MibTableColumn
-ethernetNTECardOperationalState=_EthernetNTECardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,14,1,3),_EthernetNTECardOperationalState_Type())
-ethernetNTECardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTECardOperationalState.setStatus(_B)
-_EthernetNTECardSecondaryState_Type=SecondaryState
-_EthernetNTECardSecondaryState_Object=MibTableColumn
-ethernetNTECardSecondaryState=_EthernetNTECardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,14,1,4),_EthernetNTECardSecondaryState_Type())
-ethernetNTECardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTECardSecondaryState.setStatus(_B)
-_EthernetNTECardVoltage_Type=Integer32
-_EthernetNTECardVoltage_Object=MibTableColumn
-ethernetNTECardVoltage=_EthernetNTECardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,14,1,5),_EthernetNTECardVoltage_Type())
-ethernetNTECardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTECardVoltage.setStatus(_B)
-_EthernetNTECardTemperature_Type=Integer32
-_EthernetNTECardTemperature_Object=MibTableColumn
-ethernetNTECardTemperature=_EthernetNTECardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,14,1,6),_EthernetNTECardTemperature_Type())
-ethernetNTECardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTECardTemperature.setStatus(_B)
-_EthernetNTECardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTECardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTECardSnmpDyingGaspEnabled=_EthernetNTECardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,14,1,7),_EthernetNTECardSnmpDyingGaspEnabled_Type())
-ethernetNTECardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTECardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTECardRestartAction_Type=RestartType
-_EthernetNTECardRestartAction_Object=MibTableColumn
-ethernetNTECardRestartAction=_EthernetNTECardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,14,1,8),_EthernetNTECardRestartAction_Type())
-ethernetNTECardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTECardRestartAction.setStatus(_B)
-_EthernetNTECardStorageType_Type=StorageType
-_EthernetNTECardStorageType_Object=MibTableColumn
-ethernetNTECardStorageType=_EthernetNTECardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,14,1,9),_EthernetNTECardStorageType_Type())
-ethernetNTECardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTECardStorageType.setStatus(_B)
-_EthernetNTECardRowStatus_Type=RowStatus
-_EthernetNTECardRowStatus_Object=MibTableColumn
-ethernetNTECardRowStatus=_EthernetNTECardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,14,1,10),_EthernetNTECardRowStatus_Type())
-ethernetNTECardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTECardRowStatus.setStatus(_B)
-_EthernetNTEGE201CardTable_Object=MibTable
-ethernetNTEGE201CardTable=_EthernetNTEGE201CardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,15))
-if mibBuilder.loadTexts:ethernetNTEGE201CardTable.setStatus(_B)
-_EthernetNTEGE201CardEntry_Object=MibTableRow
-ethernetNTEGE201CardEntry=_EthernetNTEGE201CardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,15,1))
-ethernetNTEGE201CardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE201CardEntry.setStatus(_B)
-_EthernetNTEGE201CardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE201CardEntityIndex_Object=MibTableColumn
-ethernetNTEGE201CardEntityIndex=_EthernetNTEGE201CardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,15,1,1),_EthernetNTEGE201CardEntityIndex_Type())
-ethernetNTEGE201CardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE201CardEntityIndex.setStatus(_B)
-_EthernetNTEGE201CardAdminState_Type=AdminState
-_EthernetNTEGE201CardAdminState_Object=MibTableColumn
-ethernetNTEGE201CardAdminState=_EthernetNTEGE201CardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,15,1,2),_EthernetNTEGE201CardAdminState_Type())
-ethernetNTEGE201CardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE201CardAdminState.setStatus(_B)
-_EthernetNTEGE201CardOperationalState_Type=OperationalState
-_EthernetNTEGE201CardOperationalState_Object=MibTableColumn
-ethernetNTEGE201CardOperationalState=_EthernetNTEGE201CardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,15,1,3),_EthernetNTEGE201CardOperationalState_Type())
-ethernetNTEGE201CardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE201CardOperationalState.setStatus(_B)
-_EthernetNTEGE201CardSecondaryState_Type=SecondaryState
-_EthernetNTEGE201CardSecondaryState_Object=MibTableColumn
-ethernetNTEGE201CardSecondaryState=_EthernetNTEGE201CardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,15,1,4),_EthernetNTEGE201CardSecondaryState_Type())
-ethernetNTEGE201CardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE201CardSecondaryState.setStatus(_B)
-_EthernetNTEGE201CardVoltage_Type=Integer32
-_EthernetNTEGE201CardVoltage_Object=MibTableColumn
-ethernetNTEGE201CardVoltage=_EthernetNTEGE201CardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,15,1,5),_EthernetNTEGE201CardVoltage_Type())
-ethernetNTEGE201CardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE201CardVoltage.setStatus(_B)
-_EthernetNTEGE201CardTemperature_Type=Integer32
-_EthernetNTEGE201CardTemperature_Object=MibTableColumn
-ethernetNTEGE201CardTemperature=_EthernetNTEGE201CardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,15,1,6),_EthernetNTEGE201CardTemperature_Type())
-ethernetNTEGE201CardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE201CardTemperature.setStatus(_B)
-_EthernetNTEGE201CardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE201CardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE201CardSnmpDyingGaspEnabled=_EthernetNTEGE201CardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,15,1,7),_EthernetNTEGE201CardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE201CardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE201CardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE201CardRestartAction_Type=RestartType
-_EthernetNTEGE201CardRestartAction_Object=MibTableColumn
-ethernetNTEGE201CardRestartAction=_EthernetNTEGE201CardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,15,1,8),_EthernetNTEGE201CardRestartAction_Type())
-ethernetNTEGE201CardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE201CardRestartAction.setStatus(_B)
-_EthernetNTEGE201CardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE201CardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE201CardFineGrainedPmInterval=_EthernetNTEGE201CardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,15,1,9),_EthernetNTEGE201CardFineGrainedPmInterval_Type())
-ethernetNTEGE201CardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE201CardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE201SyncECardTable_Object=MibTable
-ethernetNTEGE201SyncECardTable=_EthernetNTEGE201SyncECardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,16))
-if mibBuilder.loadTexts:ethernetNTEGE201SyncECardTable.setStatus(_B)
-_EthernetNTEGE201SyncECardEntry_Object=MibTableRow
-ethernetNTEGE201SyncECardEntry=_EthernetNTEGE201SyncECardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,16,1))
-ethernetNTEGE201SyncECardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE201SyncECardEntry.setStatus(_B)
-_EthernetNTEGE201SyncECardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE201SyncECardEntityIndex_Object=MibTableColumn
-ethernetNTEGE201SyncECardEntityIndex=_EthernetNTEGE201SyncECardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,16,1,1),_EthernetNTEGE201SyncECardEntityIndex_Type())
-ethernetNTEGE201SyncECardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE201SyncECardEntityIndex.setStatus(_B)
-_EthernetNTEGE201SyncECardAdminState_Type=AdminState
-_EthernetNTEGE201SyncECardAdminState_Object=MibTableColumn
-ethernetNTEGE201SyncECardAdminState=_EthernetNTEGE201SyncECardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,16,1,2),_EthernetNTEGE201SyncECardAdminState_Type())
-ethernetNTEGE201SyncECardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE201SyncECardAdminState.setStatus(_B)
-_EthernetNTEGE201SyncECardOperationalState_Type=OperationalState
-_EthernetNTEGE201SyncECardOperationalState_Object=MibTableColumn
-ethernetNTEGE201SyncECardOperationalState=_EthernetNTEGE201SyncECardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,16,1,3),_EthernetNTEGE201SyncECardOperationalState_Type())
-ethernetNTEGE201SyncECardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE201SyncECardOperationalState.setStatus(_B)
-_EthernetNTEGE201SyncECardSecondaryState_Type=SecondaryState
-_EthernetNTEGE201SyncECardSecondaryState_Object=MibTableColumn
-ethernetNTEGE201SyncECardSecondaryState=_EthernetNTEGE201SyncECardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,16,1,4),_EthernetNTEGE201SyncECardSecondaryState_Type())
-ethernetNTEGE201SyncECardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE201SyncECardSecondaryState.setStatus(_B)
-_EthernetNTEGE201SyncECardVoltage_Type=Integer32
-_EthernetNTEGE201SyncECardVoltage_Object=MibTableColumn
-ethernetNTEGE201SyncECardVoltage=_EthernetNTEGE201SyncECardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,16,1,5),_EthernetNTEGE201SyncECardVoltage_Type())
-ethernetNTEGE201SyncECardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE201SyncECardVoltage.setStatus(_B)
-_EthernetNTEGE201SyncECardTemperature_Type=Integer32
-_EthernetNTEGE201SyncECardTemperature_Object=MibTableColumn
-ethernetNTEGE201SyncECardTemperature=_EthernetNTEGE201SyncECardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,16,1,6),_EthernetNTEGE201SyncECardTemperature_Type())
-ethernetNTEGE201SyncECardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE201SyncECardTemperature.setStatus(_B)
-_EthernetNTEGE201SyncECardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE201SyncECardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE201SyncECardSnmpDyingGaspEnabled=_EthernetNTEGE201SyncECardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,16,1,7),_EthernetNTEGE201SyncECardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE201SyncECardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE201SyncECardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE201SyncECardRestartAction_Type=RestartType
-_EthernetNTEGE201SyncECardRestartAction_Object=MibTableColumn
-ethernetNTEGE201SyncECardRestartAction=_EthernetNTEGE201SyncECardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,16,1,8),_EthernetNTEGE201SyncECardRestartAction_Type())
-ethernetNTEGE201SyncECardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE201SyncECardRestartAction.setStatus(_B)
-_EthernetNTEGE201SyncECardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE201SyncECardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE201SyncECardFineGrainedPmInterval=_EthernetNTEGE201SyncECardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,16,1,9),_EthernetNTEGE201SyncECardFineGrainedPmInterval_Type())
-ethernetNTEGE201SyncECardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE201SyncECardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE206FCardTable_Object=MibTable
-ethernetNTEGE206FCardTable=_EthernetNTEGE206FCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,17))
-if mibBuilder.loadTexts:ethernetNTEGE206FCardTable.setStatus(_B)
-_EthernetNTEGE206FCardEntry_Object=MibTableRow
-ethernetNTEGE206FCardEntry=_EthernetNTEGE206FCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,17,1))
-ethernetNTEGE206FCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE206FCardEntry.setStatus(_B)
-_EthernetNTEGE206FCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE206FCardEntityIndex_Object=MibTableColumn
-ethernetNTEGE206FCardEntityIndex=_EthernetNTEGE206FCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,17,1,1),_EthernetNTEGE206FCardEntityIndex_Type())
-ethernetNTEGE206FCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE206FCardEntityIndex.setStatus(_B)
-_EthernetNTEGE206FCardAdminState_Type=AdminState
-_EthernetNTEGE206FCardAdminState_Object=MibTableColumn
-ethernetNTEGE206FCardAdminState=_EthernetNTEGE206FCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,17,1,2),_EthernetNTEGE206FCardAdminState_Type())
-ethernetNTEGE206FCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE206FCardAdminState.setStatus(_B)
-_EthernetNTEGE206FCardOperationalState_Type=OperationalState
-_EthernetNTEGE206FCardOperationalState_Object=MibTableColumn
-ethernetNTEGE206FCardOperationalState=_EthernetNTEGE206FCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,17,1,3),_EthernetNTEGE206FCardOperationalState_Type())
-ethernetNTEGE206FCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE206FCardOperationalState.setStatus(_B)
-_EthernetNTEGE206FCardSecondaryState_Type=SecondaryState
-_EthernetNTEGE206FCardSecondaryState_Object=MibTableColumn
-ethernetNTEGE206FCardSecondaryState=_EthernetNTEGE206FCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,17,1,4),_EthernetNTEGE206FCardSecondaryState_Type())
-ethernetNTEGE206FCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE206FCardSecondaryState.setStatus(_B)
-_EthernetNTEGE206FCardVoltage_Type=Integer32
-_EthernetNTEGE206FCardVoltage_Object=MibTableColumn
-ethernetNTEGE206FCardVoltage=_EthernetNTEGE206FCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,17,1,5),_EthernetNTEGE206FCardVoltage_Type())
-ethernetNTEGE206FCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE206FCardVoltage.setStatus(_B)
-_EthernetNTEGE206FCardTemperature_Type=Integer32
-_EthernetNTEGE206FCardTemperature_Object=MibTableColumn
-ethernetNTEGE206FCardTemperature=_EthernetNTEGE206FCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,17,1,6),_EthernetNTEGE206FCardTemperature_Type())
-ethernetNTEGE206FCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE206FCardTemperature.setStatus(_B)
-_EthernetNTEGE206FCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE206FCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE206FCardSnmpDyingGaspEnabled=_EthernetNTEGE206FCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,17,1,7),_EthernetNTEGE206FCardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE206FCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE206FCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE206FCardRestartAction_Type=RestartType
-_EthernetNTEGE206FCardRestartAction_Object=MibTableColumn
-ethernetNTEGE206FCardRestartAction=_EthernetNTEGE206FCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,17,1,8),_EthernetNTEGE206FCardRestartAction_Type())
-ethernetNTEGE206FCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE206FCardRestartAction.setStatus(_B)
-_EthernetNTEGE206FCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE206FCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE206FCardFineGrainedPmInterval=_EthernetNTEGE206FCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,17,1,9),_EthernetNTEGE206FCardFineGrainedPmInterval_Type())
-ethernetNTEGE206FCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE206FCardFineGrainedPmInterval.setStatus(_B)
-_Ethernet1x10GCardTable_Object=MibTable
-ethernet1x10GCardTable=_Ethernet1x10GCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,18))
-if mibBuilder.loadTexts:ethernet1x10GCardTable.setStatus(_B)
-_Ethernet1x10GCardEntry_Object=MibTableRow
-ethernet1x10GCardEntry=_Ethernet1x10GCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,18,1))
-ethernet1x10GCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernet1x10GCardEntry.setStatus(_B)
-_Ethernet1x10GCardEntityIndex_Type=PhysicalIndex
-_Ethernet1x10GCardEntityIndex_Object=MibTableColumn
-ethernet1x10GCardEntityIndex=_Ethernet1x10GCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,18,1,1),_Ethernet1x10GCardEntityIndex_Type())
-ethernet1x10GCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet1x10GCardEntityIndex.setStatus(_B)
-_Ethernet1x10GCardAdminState_Type=AdminState
-_Ethernet1x10GCardAdminState_Object=MibTableColumn
-ethernet1x10GCardAdminState=_Ethernet1x10GCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,18,1,2),_Ethernet1x10GCardAdminState_Type())
-ethernet1x10GCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet1x10GCardAdminState.setStatus(_B)
-_Ethernet1x10GCardOperationalState_Type=OperationalState
-_Ethernet1x10GCardOperationalState_Object=MibTableColumn
-ethernet1x10GCardOperationalState=_Ethernet1x10GCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,18,1,3),_Ethernet1x10GCardOperationalState_Type())
-ethernet1x10GCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet1x10GCardOperationalState.setStatus(_B)
-_Ethernet1x10GCardSecondaryState_Type=SecondaryState
-_Ethernet1x10GCardSecondaryState_Object=MibTableColumn
-ethernet1x10GCardSecondaryState=_Ethernet1x10GCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,18,1,4),_Ethernet1x10GCardSecondaryState_Type())
-ethernet1x10GCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet1x10GCardSecondaryState.setStatus(_B)
-_Ethernet1x10GCardTemperature_Type=Integer32
-_Ethernet1x10GCardTemperature_Object=MibTableColumn
-ethernet1x10GCardTemperature=_Ethernet1x10GCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,18,1,5),_Ethernet1x10GCardTemperature_Type())
-ethernet1x10GCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet1x10GCardTemperature.setStatus(_B)
-_Ethernet1x10GCardSnmpDyingGaspEnabled_Type=TruthValue
-_Ethernet1x10GCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernet1x10GCardSnmpDyingGaspEnabled=_Ethernet1x10GCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,18,1,6),_Ethernet1x10GCardSnmpDyingGaspEnabled_Type())
-ethernet1x10GCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet1x10GCardSnmpDyingGaspEnabled.setStatus(_B)
-_Ethernet1x10GCardRestartAction_Type=RestartType
-_Ethernet1x10GCardRestartAction_Object=MibTableColumn
-ethernet1x10GCardRestartAction=_Ethernet1x10GCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,18,1,7),_Ethernet1x10GCardRestartAction_Type())
-ethernet1x10GCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet1x10GCardRestartAction.setStatus(_B)
-_Ethernet1x10GCardStorageType_Type=StorageType
-_Ethernet1x10GCardStorageType_Object=MibTableColumn
-ethernet1x10GCardStorageType=_Ethernet1x10GCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,18,1,8),_Ethernet1x10GCardStorageType_Type())
-ethernet1x10GCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernet1x10GCardStorageType.setStatus(_B)
-_Ethernet1x10GCardRowStatus_Type=RowStatus
-_Ethernet1x10GCardRowStatus_Object=MibTableColumn
-ethernet1x10GCardRowStatus=_Ethernet1x10GCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,18,1,9),_Ethernet1x10GCardRowStatus_Type())
-ethernet1x10GCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernet1x10GCardRowStatus.setStatus(_B)
-_Ethernet1x10GCardForceOffLineAction_Type=TruthValue
-_Ethernet1x10GCardForceOffLineAction_Object=MibTableColumn
-ethernet1x10GCardForceOffLineAction=_Ethernet1x10GCardForceOffLineAction_Object((1,3,6,1,4,1,2544,1,12,3,1,18,1,10),_Ethernet1x10GCardForceOffLineAction_Type())
-ethernet1x10GCardForceOffLineAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet1x10GCardForceOffLineAction.setStatus(_B)
-_Ethernet10x1GCardTable_Object=MibTable
-ethernet10x1GCardTable=_Ethernet10x1GCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,19))
-if mibBuilder.loadTexts:ethernet10x1GCardTable.setStatus(_B)
-_Ethernet10x1GCardEntry_Object=MibTableRow
-ethernet10x1GCardEntry=_Ethernet10x1GCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,19,1))
-ethernet10x1GCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernet10x1GCardEntry.setStatus(_B)
-_Ethernet10x1GCardEntityIndex_Type=PhysicalIndex
-_Ethernet10x1GCardEntityIndex_Object=MibTableColumn
-ethernet10x1GCardEntityIndex=_Ethernet10x1GCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,19,1,1),_Ethernet10x1GCardEntityIndex_Type())
-ethernet10x1GCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet10x1GCardEntityIndex.setStatus(_B)
-_Ethernet10x1GCardAdminState_Type=AdminState
-_Ethernet10x1GCardAdminState_Object=MibTableColumn
-ethernet10x1GCardAdminState=_Ethernet10x1GCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,19,1,2),_Ethernet10x1GCardAdminState_Type())
-ethernet10x1GCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet10x1GCardAdminState.setStatus(_B)
-_Ethernet10x1GCardOperationalState_Type=OperationalState
-_Ethernet10x1GCardOperationalState_Object=MibTableColumn
-ethernet10x1GCardOperationalState=_Ethernet10x1GCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,19,1,3),_Ethernet10x1GCardOperationalState_Type())
-ethernet10x1GCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet10x1GCardOperationalState.setStatus(_B)
-_Ethernet10x1GCardSecondaryState_Type=SecondaryState
-_Ethernet10x1GCardSecondaryState_Object=MibTableColumn
-ethernet10x1GCardSecondaryState=_Ethernet10x1GCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,19,1,4),_Ethernet10x1GCardSecondaryState_Type())
-ethernet10x1GCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet10x1GCardSecondaryState.setStatus(_B)
-_Ethernet10x1GCardTemperature_Type=Integer32
-_Ethernet10x1GCardTemperature_Object=MibTableColumn
-ethernet10x1GCardTemperature=_Ethernet10x1GCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,19,1,5),_Ethernet10x1GCardTemperature_Type())
-ethernet10x1GCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet10x1GCardTemperature.setStatus(_B)
-_Ethernet10x1GCardSnmpDyingGaspEnabled_Type=TruthValue
-_Ethernet10x1GCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernet10x1GCardSnmpDyingGaspEnabled=_Ethernet10x1GCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,19,1,6),_Ethernet10x1GCardSnmpDyingGaspEnabled_Type())
-ethernet10x1GCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet10x1GCardSnmpDyingGaspEnabled.setStatus(_B)
-_Ethernet10x1GCardRestartAction_Type=RestartType
-_Ethernet10x1GCardRestartAction_Object=MibTableColumn
-ethernet10x1GCardRestartAction=_Ethernet10x1GCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,19,1,7),_Ethernet10x1GCardRestartAction_Type())
-ethernet10x1GCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet10x1GCardRestartAction.setStatus(_B)
-_Ethernet10x1GCardStorageType_Type=StorageType
-_Ethernet10x1GCardStorageType_Object=MibTableColumn
-ethernet10x1GCardStorageType=_Ethernet10x1GCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,19,1,8),_Ethernet10x1GCardStorageType_Type())
-ethernet10x1GCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernet10x1GCardStorageType.setStatus(_B)
-_Ethernet10x1GCardRowStatus_Type=RowStatus
-_Ethernet10x1GCardRowStatus_Object=MibTableColumn
-ethernet10x1GCardRowStatus=_Ethernet10x1GCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,19,1,9),_Ethernet10x1GCardRowStatus_Type())
-ethernet10x1GCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernet10x1GCardRowStatus.setStatus(_B)
-_Ethernet10x1GCardForceOffLineAction_Type=TruthValue
-_Ethernet10x1GCardForceOffLineAction_Object=MibTableColumn
-ethernet10x1GCardForceOffLineAction=_Ethernet10x1GCardForceOffLineAction_Object((1,3,6,1,4,1,2544,1,12,3,1,19,1,10),_Ethernet10x1GCardForceOffLineAction_Type())
-ethernet10x1GCardForceOffLineAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet10x1GCardForceOffLineAction.setStatus(_B)
-_EthernetSWFCardTable_Object=MibTable
-ethernetSWFCardTable=_EthernetSWFCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,20))
-if mibBuilder.loadTexts:ethernetSWFCardTable.setStatus(_B)
-_EthernetSWFCardEntry_Object=MibTableRow
-ethernetSWFCardEntry=_EthernetSWFCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,20,1))
-ethernetSWFCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetSWFCardEntry.setStatus(_B)
-_EthernetSWFCardEntityIndex_Type=PhysicalIndex
-_EthernetSWFCardEntityIndex_Object=MibTableColumn
-ethernetSWFCardEntityIndex=_EthernetSWFCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,20,1,1),_EthernetSWFCardEntityIndex_Type())
-ethernetSWFCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetSWFCardEntityIndex.setStatus(_B)
-_EthernetSWFCardAdminState_Type=AdminState
-_EthernetSWFCardAdminState_Object=MibTableColumn
-ethernetSWFCardAdminState=_EthernetSWFCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,20,1,2),_EthernetSWFCardAdminState_Type())
-ethernetSWFCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetSWFCardAdminState.setStatus(_B)
-_EthernetSWFCardOperationalState_Type=OperationalState
-_EthernetSWFCardOperationalState_Object=MibTableColumn
-ethernetSWFCardOperationalState=_EthernetSWFCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,20,1,3),_EthernetSWFCardOperationalState_Type())
-ethernetSWFCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetSWFCardOperationalState.setStatus(_B)
-_EthernetSWFCardSecondaryState_Type=SecondaryState
-_EthernetSWFCardSecondaryState_Object=MibTableColumn
-ethernetSWFCardSecondaryState=_EthernetSWFCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,20,1,4),_EthernetSWFCardSecondaryState_Type())
-ethernetSWFCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetSWFCardSecondaryState.setStatus(_B)
-_EthernetSWFCardTemperature_Type=Integer32
-_EthernetSWFCardTemperature_Object=MibTableColumn
-ethernetSWFCardTemperature=_EthernetSWFCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,20,1,5),_EthernetSWFCardTemperature_Type())
-ethernetSWFCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetSWFCardTemperature.setStatus(_B)
-_EthernetSWFCardRestartAction_Type=RestartType
-_EthernetSWFCardRestartAction_Object=MibTableColumn
-ethernetSWFCardRestartAction=_EthernetSWFCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,20,1,6),_EthernetSWFCardRestartAction_Type())
-ethernetSWFCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetSWFCardRestartAction.setStatus(_B)
-_EthernetSWFCardStorageType_Type=StorageType
-_EthernetSWFCardStorageType_Object=MibTableColumn
-ethernetSWFCardStorageType=_EthernetSWFCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,20,1,7),_EthernetSWFCardStorageType_Type())
-ethernetSWFCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetSWFCardStorageType.setStatus(_B)
-_EthernetSWFCardRowStatus_Type=RowStatus
-_EthernetSWFCardRowStatus_Object=MibTableColumn
-ethernetSWFCardRowStatus=_EthernetSWFCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,20,1,8),_EthernetSWFCardRowStatus_Type())
-ethernetSWFCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetSWFCardRowStatus.setStatus(_B)
-_EthernetSWFCardForceOffLineAction_Type=TruthValue
-_EthernetSWFCardForceOffLineAction_Object=MibTableColumn
-ethernetSWFCardForceOffLineAction=_EthernetSWFCardForceOffLineAction_Object((1,3,6,1,4,1,2544,1,12,3,1,20,1,9),_EthernetSWFCardForceOffLineAction_Type())
-ethernetSWFCardForceOffLineAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetSWFCardForceOffLineAction.setStatus(_B)
-_StuCardTable_Object=MibTable
-stuCardTable=_StuCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,21))
-if mibBuilder.loadTexts:stuCardTable.setStatus(_B)
-_StuCardEntry_Object=MibTableRow
-stuCardEntry=_StuCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,21,1))
-stuCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:stuCardEntry.setStatus(_B)
-_StuCardEntityIndex_Type=PhysicalIndex
-_StuCardEntityIndex_Object=MibTableColumn
-stuCardEntityIndex=_StuCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,21,1,1),_StuCardEntityIndex_Type())
-stuCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:stuCardEntityIndex.setStatus(_B)
-_StuCardAdminState_Type=AdminState
-_StuCardAdminState_Object=MibTableColumn
-stuCardAdminState=_StuCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,21,1,2),_StuCardAdminState_Type())
-stuCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:stuCardAdminState.setStatus(_B)
-_StuCardOperationalState_Type=OperationalState
-_StuCardOperationalState_Object=MibTableColumn
-stuCardOperationalState=_StuCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,21,1,3),_StuCardOperationalState_Type())
-stuCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:stuCardOperationalState.setStatus(_B)
-_StuCardSecondaryState_Type=SecondaryState
-_StuCardSecondaryState_Object=MibTableColumn
-stuCardSecondaryState=_StuCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,21,1,4),_StuCardSecondaryState_Type())
-stuCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:stuCardSecondaryState.setStatus(_B)
-_StuCardTemperature_Type=Integer32
-_StuCardTemperature_Object=MibTableColumn
-stuCardTemperature=_StuCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,21,1,5),_StuCardTemperature_Type())
-stuCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:stuCardTemperature.setStatus(_B)
-_StuCardRestartAction_Type=RestartType
-_StuCardRestartAction_Object=MibTableColumn
-stuCardRestartAction=_StuCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,21,1,6),_StuCardRestartAction_Type())
-stuCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:stuCardRestartAction.setStatus(_B)
-_StuCardStorageType_Type=StorageType
-_StuCardStorageType_Object=MibTableColumn
-stuCardStorageType=_StuCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,21,1,7),_StuCardStorageType_Type())
-stuCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:stuCardStorageType.setStatus(_B)
-_StuCardRowStatus_Type=RowStatus
-_StuCardRowStatus_Object=MibTableColumn
-stuCardRowStatus=_StuCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,21,1,8),_StuCardRowStatus_Type())
-stuCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:stuCardRowStatus.setStatus(_B)
-_StuCardForceOffLineAction_Type=TruthValue
-_StuCardForceOffLineAction_Object=MibTableColumn
-stuCardForceOffLineAction=_StuCardForceOffLineAction_Object((1,3,6,1,4,1,2544,1,12,3,1,21,1,9),_StuCardForceOffLineAction_Type())
-stuCardForceOffLineAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:stuCardForceOffLineAction.setStatus(_B)
-_AmiTable_Object=MibTable
-amiTable=_AmiTable_Object((1,3,6,1,4,1,2544,1,12,3,1,22))
-if mibBuilder.loadTexts:amiTable.setStatus(_B)
-_AmiEntry_Object=MibTableRow
-amiEntry=_AmiEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,22,1))
-amiEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:amiEntry.setStatus(_B)
-_AmiEntityIndex_Type=PhysicalIndex
-_AmiEntityIndex_Object=MibTableColumn
-amiEntityIndex=_AmiEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,22,1,1),_AmiEntityIndex_Type())
-amiEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:amiEntityIndex.setStatus(_B)
-_AmiAdminState_Type=AdminState
-_AmiAdminState_Object=MibTableColumn
-amiAdminState=_AmiAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,22,1,2),_AmiAdminState_Type())
-amiAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:amiAdminState.setStatus(_B)
-_AmiOperationalState_Type=OperationalState
-_AmiOperationalState_Object=MibTableColumn
-amiOperationalState=_AmiOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,22,1,3),_AmiOperationalState_Type())
-amiOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:amiOperationalState.setStatus(_B)
-_AmiSecondaryState_Type=SecondaryState
-_AmiSecondaryState_Object=MibTableColumn
-amiSecondaryState=_AmiSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,22,1,4),_AmiSecondaryState_Type())
-amiSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:amiSecondaryState.setStatus(_B)
-_AmiTemperature_Type=Integer32
-_AmiTemperature_Object=MibTableColumn
-amiTemperature=_AmiTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,22,1,5),_AmiTemperature_Type())
-amiTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:amiTemperature.setStatus(_B)
-_AmiRestartAction_Type=RestartType
-_AmiRestartAction_Object=MibTableColumn
-amiRestartAction=_AmiRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,22,1,6),_AmiRestartAction_Type())
-amiRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:amiRestartAction.setStatus(_B)
-_StiTable_Object=MibTable
-stiTable=_StiTable_Object((1,3,6,1,4,1,2544,1,12,3,1,23))
-if mibBuilder.loadTexts:stiTable.setStatus(_B)
-_StiEntry_Object=MibTableRow
-stiEntry=_StiEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,23,1))
-stiEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:stiEntry.setStatus(_B)
-_StiEntityIndex_Type=PhysicalIndex
-_StiEntityIndex_Object=MibTableColumn
-stiEntityIndex=_StiEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,23,1,1),_StiEntityIndex_Type())
-stiEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:stiEntityIndex.setStatus(_B)
-_StiAdminState_Type=AdminState
-_StiAdminState_Object=MibTableColumn
-stiAdminState=_StiAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,23,1,2),_StiAdminState_Type())
-stiAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:stiAdminState.setStatus(_B)
-_StiOperationalState_Type=OperationalState
-_StiOperationalState_Object=MibTableColumn
-stiOperationalState=_StiOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,23,1,3),_StiOperationalState_Type())
-stiOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:stiOperationalState.setStatus(_B)
-_StiSecondaryState_Type=SecondaryState
-_StiSecondaryState_Object=MibTableColumn
-stiSecondaryState=_StiSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,23,1,4),_StiSecondaryState_Type())
-stiSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:stiSecondaryState.setStatus(_B)
-_StiTemperature_Type=Integer32
-_StiTemperature_Object=MibTableColumn
-stiTemperature=_StiTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,23,1,5),_StiTemperature_Type())
-stiTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:stiTemperature.setStatus(_B)
-_StiStorageType_Type=StorageType
-_StiStorageType_Object=MibTableColumn
-stiStorageType=_StiStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,23,1,6),_StiStorageType_Type())
-stiStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiStorageType.setStatus(_B)
-_StiRowStatus_Type=RowStatus
-_StiRowStatus_Object=MibTableColumn
-stiRowStatus=_StiRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,23,1,7),_StiRowStatus_Type())
-stiRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiRowStatus.setStatus(_B)
-_F3UsbHostTable_Object=MibTable
-f3UsbHostTable=_F3UsbHostTable_Object((1,3,6,1,4,1,2544,1,12,3,1,24))
-if mibBuilder.loadTexts:f3UsbHostTable.setStatus(_B)
-_F3UsbHostEntry_Object=MibTableRow
-f3UsbHostEntry=_F3UsbHostEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,24,1))
-f3UsbHostEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H),(0,_A,_O))
-if mibBuilder.loadTexts:f3UsbHostEntry.setStatus(_B)
-_F3UsbHostIndex_Type=PhysicalIndex
-_F3UsbHostIndex_Object=MibTableColumn
-f3UsbHostIndex=_F3UsbHostIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,24,1,1),_F3UsbHostIndex_Type())
-f3UsbHostIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3UsbHostIndex.setStatus(_B)
-_F3UsbHostEntityIndex_Type=PhysicalIndex
-_F3UsbHostEntityIndex_Object=MibTableColumn
-f3UsbHostEntityIndex=_F3UsbHostEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,24,1,2),_F3UsbHostEntityIndex_Type())
-f3UsbHostEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3UsbHostEntityIndex.setStatus(_B)
-_F3UsbHostUnitName_Type=DisplayString
-_F3UsbHostUnitName_Object=MibTableColumn
-f3UsbHostUnitName=_F3UsbHostUnitName_Object((1,3,6,1,4,1,2544,1,12,3,1,24,1,3),_F3UsbHostUnitName_Type())
-f3UsbHostUnitName.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3UsbHostUnitName.setStatus(_B)
-_F3UsbHostFormatVersion_Type=DisplayString
-_F3UsbHostFormatVersion_Object=MibTableColumn
-f3UsbHostFormatVersion=_F3UsbHostFormatVersion_Object((1,3,6,1,4,1,2544,1,12,3,1,24,1,4),_F3UsbHostFormatVersion_Type())
-f3UsbHostFormatVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3UsbHostFormatVersion.setStatus(_B)
-_F3UsbHostCLEICode_Type=DisplayString
-_F3UsbHostCLEICode_Object=MibTableColumn
-f3UsbHostCLEICode=_F3UsbHostCLEICode_Object((1,3,6,1,4,1,2544,1,12,3,1,24,1,5),_F3UsbHostCLEICode_Type())
-f3UsbHostCLEICode.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3UsbHostCLEICode.setStatus(_B)
-_F3UsbHostPartNumber_Type=DisplayString
-_F3UsbHostPartNumber_Object=MibTableColumn
-f3UsbHostPartNumber=_F3UsbHostPartNumber_Object((1,3,6,1,4,1,2544,1,12,3,1,24,1,6),_F3UsbHostPartNumber_Type())
-f3UsbHostPartNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3UsbHostPartNumber.setStatus(_B)
-_F3UsbHostHwRev_Type=DisplayString
-_F3UsbHostHwRev_Object=MibTableColumn
-f3UsbHostHwRev=_F3UsbHostHwRev_Object((1,3,6,1,4,1,2544,1,12,3,1,24,1,7),_F3UsbHostHwRev_Type())
-f3UsbHostHwRev.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3UsbHostHwRev.setStatus(_B)
-_F3UsbHostSwRev_Type=DisplayString
-_F3UsbHostSwRev_Object=MibTableColumn
-f3UsbHostSwRev=_F3UsbHostSwRev_Object((1,3,6,1,4,1,2544,1,12,3,1,24,1,8),_F3UsbHostSwRev_Type())
-f3UsbHostSwRev.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3UsbHostSwRev.setStatus(_B)
-_F3UsbHostSerialNum_Type=DisplayString
-_F3UsbHostSerialNum_Object=MibTableColumn
-f3UsbHostSerialNum=_F3UsbHostSerialNum_Object((1,3,6,1,4,1,2544,1,12,3,1,24,1,9),_F3UsbHostSerialNum_Type())
-f3UsbHostSerialNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3UsbHostSerialNum.setStatus(_B)
-_F3UsbHostMfgName_Type=DisplayString
-_F3UsbHostMfgName_Object=MibTableColumn
-f3UsbHostMfgName=_F3UsbHostMfgName_Object((1,3,6,1,4,1,2544,1,12,3,1,24,1,10),_F3UsbHostMfgName_Type())
-f3UsbHostMfgName.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3UsbHostMfgName.setStatus(_B)
-_F3UsbHostMfgDate_Type=DateAndTime
-_F3UsbHostMfgDate_Object=MibTableColumn
-f3UsbHostMfgDate=_F3UsbHostMfgDate_Object((1,3,6,1,4,1,2544,1,12,3,1,24,1,11),_F3UsbHostMfgDate_Type())
-f3UsbHostMfgDate.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3UsbHostMfgDate.setStatus(_B)
-_F3UsbHostMfgSite_Type=DisplayString
-_F3UsbHostMfgSite_Object=MibTableColumn
-f3UsbHostMfgSite=_F3UsbHostMfgSite_Object((1,3,6,1,4,1,2544,1,12,3,1,24,1,12),_F3UsbHostMfgSite_Type())
-f3UsbHostMfgSite.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3UsbHostMfgSite.setStatus(_B)
-_F3UsbHostSecondaryState_Type=SecondaryState
-_F3UsbHostSecondaryState_Object=MibTableColumn
-f3UsbHostSecondaryState=_F3UsbHostSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,24,1,13),_F3UsbHostSecondaryState_Type())
-f3UsbHostSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3UsbHostSecondaryState.setStatus(_B)
-_F3UsbHostPhysicalAddress_Type=DisplayString
-_F3UsbHostPhysicalAddress_Object=MibTableColumn
-f3UsbHostPhysicalAddress=_F3UsbHostPhysicalAddress_Object((1,3,6,1,4,1,2544,1,12,3,1,24,1,14),_F3UsbHostPhysicalAddress_Type())
-f3UsbHostPhysicalAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3UsbHostPhysicalAddress.setStatus(_B)
-_EthernetNTEGE112CardTable_Object=MibTable
-ethernetNTEGE112CardTable=_EthernetNTEGE112CardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,25))
-if mibBuilder.loadTexts:ethernetNTEGE112CardTable.setStatus(_B)
-_EthernetNTEGE112CardEntry_Object=MibTableRow
-ethernetNTEGE112CardEntry=_EthernetNTEGE112CardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,25,1))
-ethernetNTEGE112CardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE112CardEntry.setStatus(_B)
-_EthernetNTEGE112CardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE112CardEntityIndex_Object=MibTableColumn
-ethernetNTEGE112CardEntityIndex=_EthernetNTEGE112CardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,25,1,1),_EthernetNTEGE112CardEntityIndex_Type())
-ethernetNTEGE112CardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112CardEntityIndex.setStatus(_B)
-_EthernetNTEGE112CardAdminState_Type=AdminState
-_EthernetNTEGE112CardAdminState_Object=MibTableColumn
-ethernetNTEGE112CardAdminState=_EthernetNTEGE112CardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,25,1,2),_EthernetNTEGE112CardAdminState_Type())
-ethernetNTEGE112CardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112CardAdminState.setStatus(_B)
-_EthernetNTEGE112CardOperationalState_Type=OperationalState
-_EthernetNTEGE112CardOperationalState_Object=MibTableColumn
-ethernetNTEGE112CardOperationalState=_EthernetNTEGE112CardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,25,1,3),_EthernetNTEGE112CardOperationalState_Type())
-ethernetNTEGE112CardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112CardOperationalState.setStatus(_B)
-_EthernetNTEGE112CardSecondaryState_Type=SecondaryState
-_EthernetNTEGE112CardSecondaryState_Object=MibTableColumn
-ethernetNTEGE112CardSecondaryState=_EthernetNTEGE112CardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,25,1,4),_EthernetNTEGE112CardSecondaryState_Type())
-ethernetNTEGE112CardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112CardSecondaryState.setStatus(_B)
-_EthernetNTEGE112CardVoltage_Type=Integer32
-_EthernetNTEGE112CardVoltage_Object=MibTableColumn
-ethernetNTEGE112CardVoltage=_EthernetNTEGE112CardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,25,1,5),_EthernetNTEGE112CardVoltage_Type())
-ethernetNTEGE112CardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112CardVoltage.setStatus(_B)
-_EthernetNTEGE112CardTemperature_Type=Integer32
-_EthernetNTEGE112CardTemperature_Object=MibTableColumn
-ethernetNTEGE112CardTemperature=_EthernetNTEGE112CardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,25,1,6),_EthernetNTEGE112CardTemperature_Type())
-ethernetNTEGE112CardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112CardTemperature.setStatus(_B)
-_EthernetNTEGE112CardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE112CardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE112CardSnmpDyingGaspEnabled=_EthernetNTEGE112CardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,25,1,7),_EthernetNTEGE112CardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE112CardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112CardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE112CardRestartAction_Type=RestartType
-_EthernetNTEGE112CardRestartAction_Object=MibTableColumn
-ethernetNTEGE112CardRestartAction=_EthernetNTEGE112CardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,25,1,8),_EthernetNTEGE112CardRestartAction_Type())
-ethernetNTEGE112CardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112CardRestartAction.setStatus(_B)
-_EthernetNTEGE112CardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE112CardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE112CardFineGrainedPmInterval=_EthernetNTEGE112CardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,25,1,9),_EthernetNTEGE112CardFineGrainedPmInterval_Type())
-ethernetNTEGE112CardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112CardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE112CardSwitchPortActionPort_Type=VariablePointer
-_EthernetNTEGE112CardSwitchPortActionPort_Object=MibTableColumn
-ethernetNTEGE112CardSwitchPortActionPort=_EthernetNTEGE112CardSwitchPortActionPort_Object((1,3,6,1,4,1,2544,1,12,3,1,25,1,10),_EthernetNTEGE112CardSwitchPortActionPort_Type())
-ethernetNTEGE112CardSwitchPortActionPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTEGE112CardSwitchPortActionPort.setStatus(_B)
-_EthernetNTEGE112CardSwitchPortAction_Type=SwitchPortAction
-_EthernetNTEGE112CardSwitchPortAction_Object=MibTableColumn
-ethernetNTEGE112CardSwitchPortAction=_EthernetNTEGE112CardSwitchPortAction_Object((1,3,6,1,4,1,2544,1,12,3,1,25,1,11),_EthernetNTEGE112CardSwitchPortAction_Type())
-ethernetNTEGE112CardSwitchPortAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112CardSwitchPortAction.setStatus(_B)
-_EthernetNTEGE114CardTable_Object=MibTable
-ethernetNTEGE114CardTable=_EthernetNTEGE114CardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,26))
-if mibBuilder.loadTexts:ethernetNTEGE114CardTable.setStatus(_B)
-_EthernetNTEGE114CardEntry_Object=MibTableRow
-ethernetNTEGE114CardEntry=_EthernetNTEGE114CardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,26,1))
-ethernetNTEGE114CardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE114CardEntry.setStatus(_B)
-_EthernetNTEGE114CardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE114CardEntityIndex_Object=MibTableColumn
-ethernetNTEGE114CardEntityIndex=_EthernetNTEGE114CardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,26,1,1),_EthernetNTEGE114CardEntityIndex_Type())
-ethernetNTEGE114CardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114CardEntityIndex.setStatus(_B)
-_EthernetNTEGE114CardAdminState_Type=AdminState
-_EthernetNTEGE114CardAdminState_Object=MibTableColumn
-ethernetNTEGE114CardAdminState=_EthernetNTEGE114CardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,26,1,2),_EthernetNTEGE114CardAdminState_Type())
-ethernetNTEGE114CardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114CardAdminState.setStatus(_B)
-_EthernetNTEGE114CardOperationalState_Type=OperationalState
-_EthernetNTEGE114CardOperationalState_Object=MibTableColumn
-ethernetNTEGE114CardOperationalState=_EthernetNTEGE114CardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,26,1,3),_EthernetNTEGE114CardOperationalState_Type())
-ethernetNTEGE114CardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114CardOperationalState.setStatus(_B)
-_EthernetNTEGE114CardSecondaryState_Type=SecondaryState
-_EthernetNTEGE114CardSecondaryState_Object=MibTableColumn
-ethernetNTEGE114CardSecondaryState=_EthernetNTEGE114CardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,26,1,4),_EthernetNTEGE114CardSecondaryState_Type())
-ethernetNTEGE114CardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114CardSecondaryState.setStatus(_B)
-_EthernetNTEGE114CardVoltage_Type=Integer32
-_EthernetNTEGE114CardVoltage_Object=MibTableColumn
-ethernetNTEGE114CardVoltage=_EthernetNTEGE114CardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,26,1,5),_EthernetNTEGE114CardVoltage_Type())
-ethernetNTEGE114CardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114CardVoltage.setStatus(_B)
-_EthernetNTEGE114CardTemperature_Type=Integer32
-_EthernetNTEGE114CardTemperature_Object=MibTableColumn
-ethernetNTEGE114CardTemperature=_EthernetNTEGE114CardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,26,1,6),_EthernetNTEGE114CardTemperature_Type())
-ethernetNTEGE114CardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114CardTemperature.setStatus(_B)
-_EthernetNTEGE114CardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE114CardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE114CardSnmpDyingGaspEnabled=_EthernetNTEGE114CardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,26,1,7),_EthernetNTEGE114CardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE114CardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114CardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE114CardRestartAction_Type=RestartType
-_EthernetNTEGE114CardRestartAction_Object=MibTableColumn
-ethernetNTEGE114CardRestartAction=_EthernetNTEGE114CardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,26,1,8),_EthernetNTEGE114CardRestartAction_Type())
-ethernetNTEGE114CardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114CardRestartAction.setStatus(_B)
-_EthernetNTEGE114CardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE114CardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE114CardFineGrainedPmInterval=_EthernetNTEGE114CardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,26,1,9),_EthernetNTEGE114CardFineGrainedPmInterval_Type())
-ethernetNTEGE114CardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114CardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE114CardSwitchPortActionPort_Type=VariablePointer
-_EthernetNTEGE114CardSwitchPortActionPort_Object=MibTableColumn
-ethernetNTEGE114CardSwitchPortActionPort=_EthernetNTEGE114CardSwitchPortActionPort_Object((1,3,6,1,4,1,2544,1,12,3,1,26,1,10),_EthernetNTEGE114CardSwitchPortActionPort_Type())
-ethernetNTEGE114CardSwitchPortActionPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTEGE114CardSwitchPortActionPort.setStatus(_B)
-_EthernetNTEGE114CardSwitchPortAction_Type=SwitchPortAction
-_EthernetNTEGE114CardSwitchPortAction_Object=MibTableColumn
-ethernetNTEGE114CardSwitchPortAction=_EthernetNTEGE114CardSwitchPortAction_Object((1,3,6,1,4,1,2544,1,12,3,1,26,1,11),_EthernetNTEGE114CardSwitchPortAction_Type())
-ethernetNTEGE114CardSwitchPortAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114CardSwitchPortAction.setStatus(_B)
-_EthernetNTEGE206VCardTable_Object=MibTable
-ethernetNTEGE206VCardTable=_EthernetNTEGE206VCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,27))
-if mibBuilder.loadTexts:ethernetNTEGE206VCardTable.setStatus(_B)
-_EthernetNTEGE206VCardEntry_Object=MibTableRow
-ethernetNTEGE206VCardEntry=_EthernetNTEGE206VCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,27,1))
-ethernetNTEGE206VCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE206VCardEntry.setStatus(_B)
-_EthernetNTEGE206VCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE206VCardEntityIndex_Object=MibTableColumn
-ethernetNTEGE206VCardEntityIndex=_EthernetNTEGE206VCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,27,1,1),_EthernetNTEGE206VCardEntityIndex_Type())
-ethernetNTEGE206VCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE206VCardEntityIndex.setStatus(_B)
-_EthernetNTEGE206VCardAdminState_Type=AdminState
-_EthernetNTEGE206VCardAdminState_Object=MibTableColumn
-ethernetNTEGE206VCardAdminState=_EthernetNTEGE206VCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,27,1,2),_EthernetNTEGE206VCardAdminState_Type())
-ethernetNTEGE206VCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE206VCardAdminState.setStatus(_B)
-_EthernetNTEGE206VCardOperationalState_Type=OperationalState
-_EthernetNTEGE206VCardOperationalState_Object=MibTableColumn
-ethernetNTEGE206VCardOperationalState=_EthernetNTEGE206VCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,27,1,3),_EthernetNTEGE206VCardOperationalState_Type())
-ethernetNTEGE206VCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE206VCardOperationalState.setStatus(_B)
-_EthernetNTEGE206VCardSecondaryState_Type=SecondaryState
-_EthernetNTEGE206VCardSecondaryState_Object=MibTableColumn
-ethernetNTEGE206VCardSecondaryState=_EthernetNTEGE206VCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,27,1,4),_EthernetNTEGE206VCardSecondaryState_Type())
-ethernetNTEGE206VCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE206VCardSecondaryState.setStatus(_B)
-_EthernetNTEGE206VCardVoltage_Type=Integer32
-_EthernetNTEGE206VCardVoltage_Object=MibTableColumn
-ethernetNTEGE206VCardVoltage=_EthernetNTEGE206VCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,27,1,5),_EthernetNTEGE206VCardVoltage_Type())
-ethernetNTEGE206VCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE206VCardVoltage.setStatus(_B)
-_EthernetNTEGE206VCardTemperature_Type=Integer32
-_EthernetNTEGE206VCardTemperature_Object=MibTableColumn
-ethernetNTEGE206VCardTemperature=_EthernetNTEGE206VCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,27,1,6),_EthernetNTEGE206VCardTemperature_Type())
-ethernetNTEGE206VCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE206VCardTemperature.setStatus(_B)
-_EthernetNTEGE206VCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE206VCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE206VCardSnmpDyingGaspEnabled=_EthernetNTEGE206VCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,27,1,7),_EthernetNTEGE206VCardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE206VCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE206VCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE206VCardRestartAction_Type=RestartType
-_EthernetNTEGE206VCardRestartAction_Object=MibTableColumn
-ethernetNTEGE206VCardRestartAction=_EthernetNTEGE206VCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,27,1,8),_EthernetNTEGE206VCardRestartAction_Type())
-ethernetNTEGE206VCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE206VCardRestartAction.setStatus(_B)
-_EthernetNTEGE206VCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE206VCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE206VCardFineGrainedPmInterval=_EthernetNTEGE206VCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,27,1,9),_EthernetNTEGE206VCardFineGrainedPmInterval_Type())
-ethernetNTEGE206VCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE206VCardFineGrainedPmInterval.setStatus(_B)
-_EthernetGE4SCCCardTable_Object=MibTable
-ethernetGE4SCCCardTable=_EthernetGE4SCCCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,28))
-if mibBuilder.loadTexts:ethernetGE4SCCCardTable.setStatus(_B)
-_EthernetGE4SCCCardEntry_Object=MibTableRow
-ethernetGE4SCCCardEntry=_EthernetGE4SCCCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,28,1))
-ethernetGE4SCCCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetGE4SCCCardEntry.setStatus(_B)
-_EthernetGE4SCCCardEntityIndex_Type=PhysicalIndex
-_EthernetGE4SCCCardEntityIndex_Object=MibTableColumn
-ethernetGE4SCCCardEntityIndex=_EthernetGE4SCCCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,28,1,1),_EthernetGE4SCCCardEntityIndex_Type())
-ethernetGE4SCCCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE4SCCCardEntityIndex.setStatus(_B)
-_EthernetGE4SCCCardAdminState_Type=AdminState
-_EthernetGE4SCCCardAdminState_Object=MibTableColumn
-ethernetGE4SCCCardAdminState=_EthernetGE4SCCCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,28,1,2),_EthernetGE4SCCCardAdminState_Type())
-ethernetGE4SCCCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetGE4SCCCardAdminState.setStatus(_B)
-_EthernetGE4SCCCardOperationalState_Type=OperationalState
-_EthernetGE4SCCCardOperationalState_Object=MibTableColumn
-ethernetGE4SCCCardOperationalState=_EthernetGE4SCCCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,28,1,3),_EthernetGE4SCCCardOperationalState_Type())
-ethernetGE4SCCCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE4SCCCardOperationalState.setStatus(_B)
-_EthernetGE4SCCCardSecondaryState_Type=SecondaryState
-_EthernetGE4SCCCardSecondaryState_Object=MibTableColumn
-ethernetGE4SCCCardSecondaryState=_EthernetGE4SCCCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,28,1,4),_EthernetGE4SCCCardSecondaryState_Type())
-ethernetGE4SCCCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE4SCCCardSecondaryState.setStatus(_B)
-_EthernetGE4SCCCardVoltage_Type=Integer32
-_EthernetGE4SCCCardVoltage_Object=MibTableColumn
-ethernetGE4SCCCardVoltage=_EthernetGE4SCCCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,28,1,5),_EthernetGE4SCCCardVoltage_Type())
-ethernetGE4SCCCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE4SCCCardVoltage.setStatus(_B)
-_EthernetGE4SCCCardTemperature_Type=Integer32
-_EthernetGE4SCCCardTemperature_Object=MibTableColumn
-ethernetGE4SCCCardTemperature=_EthernetGE4SCCCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,28,1,6),_EthernetGE4SCCCardTemperature_Type())
-ethernetGE4SCCCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE4SCCCardTemperature.setStatus(_B)
-_EthernetGE4SCCCardRestartAction_Type=RestartType
-_EthernetGE4SCCCardRestartAction_Object=MibTableColumn
-ethernetGE4SCCCardRestartAction=_EthernetGE4SCCCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,28,1,7),_EthernetGE4SCCCardRestartAction_Type())
-ethernetGE4SCCCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetGE4SCCCardRestartAction.setStatus(_B)
-_EthernetGE4SCCCardStorageType_Type=StorageType
-_EthernetGE4SCCCardStorageType_Object=MibTableColumn
-ethernetGE4SCCCardStorageType=_EthernetGE4SCCCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,28,1,8),_EthernetGE4SCCCardStorageType_Type())
-ethernetGE4SCCCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetGE4SCCCardStorageType.setStatus(_B)
-_EthernetGE4SCCCardRowStatus_Type=RowStatus
-_EthernetGE4SCCCardRowStatus_Object=MibTableColumn
-ethernetGE4SCCCardRowStatus=_EthernetGE4SCCCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,28,1,9),_EthernetGE4SCCCardRowStatus_Type())
-ethernetGE4SCCCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetGE4SCCCardRowStatus.setStatus(_B)
-_EthernetGE4ECCCardTable_Object=MibTable
-ethernetGE4ECCCardTable=_EthernetGE4ECCCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,29))
-if mibBuilder.loadTexts:ethernetGE4ECCCardTable.setStatus(_B)
-_EthernetGE4ECCCardEntry_Object=MibTableRow
-ethernetGE4ECCCardEntry=_EthernetGE4ECCCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,29,1))
-ethernetGE4ECCCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetGE4ECCCardEntry.setStatus(_B)
-_EthernetGE4ECCCardEntityIndex_Type=PhysicalIndex
-_EthernetGE4ECCCardEntityIndex_Object=MibTableColumn
-ethernetGE4ECCCardEntityIndex=_EthernetGE4ECCCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,29,1,1),_EthernetGE4ECCCardEntityIndex_Type())
-ethernetGE4ECCCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE4ECCCardEntityIndex.setStatus(_B)
-_EthernetGE4ECCCardAdminState_Type=AdminState
-_EthernetGE4ECCCardAdminState_Object=MibTableColumn
-ethernetGE4ECCCardAdminState=_EthernetGE4ECCCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,29,1,2),_EthernetGE4ECCCardAdminState_Type())
-ethernetGE4ECCCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetGE4ECCCardAdminState.setStatus(_B)
-_EthernetGE4ECCCardOperationalState_Type=OperationalState
-_EthernetGE4ECCCardOperationalState_Object=MibTableColumn
-ethernetGE4ECCCardOperationalState=_EthernetGE4ECCCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,29,1,3),_EthernetGE4ECCCardOperationalState_Type())
-ethernetGE4ECCCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE4ECCCardOperationalState.setStatus(_B)
-_EthernetGE4ECCCardSecondaryState_Type=SecondaryState
-_EthernetGE4ECCCardSecondaryState_Object=MibTableColumn
-ethernetGE4ECCCardSecondaryState=_EthernetGE4ECCCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,29,1,4),_EthernetGE4ECCCardSecondaryState_Type())
-ethernetGE4ECCCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE4ECCCardSecondaryState.setStatus(_B)
-_EthernetGE4ECCCardVoltage_Type=Integer32
-_EthernetGE4ECCCardVoltage_Object=MibTableColumn
-ethernetGE4ECCCardVoltage=_EthernetGE4ECCCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,29,1,5),_EthernetGE4ECCCardVoltage_Type())
-ethernetGE4ECCCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE4ECCCardVoltage.setStatus(_B)
-_EthernetGE4ECCCardTemperature_Type=Integer32
-_EthernetGE4ECCCardTemperature_Object=MibTableColumn
-ethernetGE4ECCCardTemperature=_EthernetGE4ECCCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,29,1,6),_EthernetGE4ECCCardTemperature_Type())
-ethernetGE4ECCCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE4ECCCardTemperature.setStatus(_B)
-_EthernetGE4ECCCardRestartAction_Type=RestartType
-_EthernetGE4ECCCardRestartAction_Object=MibTableColumn
-ethernetGE4ECCCardRestartAction=_EthernetGE4ECCCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,29,1,7),_EthernetGE4ECCCardRestartAction_Type())
-ethernetGE4ECCCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetGE4ECCCardRestartAction.setStatus(_B)
-_EthernetGE4ECCCardStorageType_Type=StorageType
-_EthernetGE4ECCCardStorageType_Object=MibTableColumn
-ethernetGE4ECCCardStorageType=_EthernetGE4ECCCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,29,1,8),_EthernetGE4ECCCardStorageType_Type())
-ethernetGE4ECCCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetGE4ECCCardStorageType.setStatus(_B)
-_EthernetGE4ECCCardRowStatus_Type=RowStatus
-_EthernetGE4ECCCardRowStatus_Object=MibTableColumn
-ethernetGE4ECCCardRowStatus=_EthernetGE4ECCCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,29,1,9),_EthernetGE4ECCCardRowStatus_Type())
-ethernetGE4ECCCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetGE4ECCCardRowStatus.setStatus(_B)
-_EthernetNTEXG210CardTable_Object=MibTable
-ethernetNTEXG210CardTable=_EthernetNTEXG210CardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,30))
-if mibBuilder.loadTexts:ethernetNTEXG210CardTable.setStatus(_B)
-_EthernetNTEXG210CardEntry_Object=MibTableRow
-ethernetNTEXG210CardEntry=_EthernetNTEXG210CardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,30,1))
-ethernetNTEXG210CardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEXG210CardEntry.setStatus(_B)
-_EthernetNTEXG210CardEntityIndex_Type=PhysicalIndex
-_EthernetNTEXG210CardEntityIndex_Object=MibTableColumn
-ethernetNTEXG210CardEntityIndex=_EthernetNTEXG210CardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,30,1,1),_EthernetNTEXG210CardEntityIndex_Type())
-ethernetNTEXG210CardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEXG210CardEntityIndex.setStatus(_B)
-_EthernetNTEXG210CardAdminState_Type=AdminState
-_EthernetNTEXG210CardAdminState_Object=MibTableColumn
-ethernetNTEXG210CardAdminState=_EthernetNTEXG210CardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,30,1,2),_EthernetNTEXG210CardAdminState_Type())
-ethernetNTEXG210CardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEXG210CardAdminState.setStatus(_B)
-_EthernetNTEXG210CardOperationalState_Type=OperationalState
-_EthernetNTEXG210CardOperationalState_Object=MibTableColumn
-ethernetNTEXG210CardOperationalState=_EthernetNTEXG210CardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,30,1,3),_EthernetNTEXG210CardOperationalState_Type())
-ethernetNTEXG210CardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEXG210CardOperationalState.setStatus(_B)
-_EthernetNTEXG210CardSecondaryState_Type=SecondaryState
-_EthernetNTEXG210CardSecondaryState_Object=MibTableColumn
-ethernetNTEXG210CardSecondaryState=_EthernetNTEXG210CardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,30,1,4),_EthernetNTEXG210CardSecondaryState_Type())
-ethernetNTEXG210CardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEXG210CardSecondaryState.setStatus(_B)
-_EthernetNTEXG210CardVoltage_Type=Integer32
-_EthernetNTEXG210CardVoltage_Object=MibTableColumn
-ethernetNTEXG210CardVoltage=_EthernetNTEXG210CardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,30,1,5),_EthernetNTEXG210CardVoltage_Type())
-ethernetNTEXG210CardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEXG210CardVoltage.setStatus(_B)
-_EthernetNTEXG210CardTemperature_Type=Integer32
-_EthernetNTEXG210CardTemperature_Object=MibTableColumn
-ethernetNTEXG210CardTemperature=_EthernetNTEXG210CardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,30,1,6),_EthernetNTEXG210CardTemperature_Type())
-ethernetNTEXG210CardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEXG210CardTemperature.setStatus(_B)
-_EthernetNTEXG210CardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEXG210CardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEXG210CardSnmpDyingGaspEnabled=_EthernetNTEXG210CardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,30,1,7),_EthernetNTEXG210CardSnmpDyingGaspEnabled_Type())
-ethernetNTEXG210CardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEXG210CardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEXG210CardRestartAction_Type=RestartType
-_EthernetNTEXG210CardRestartAction_Object=MibTableColumn
-ethernetNTEXG210CardRestartAction=_EthernetNTEXG210CardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,30,1,8),_EthernetNTEXG210CardRestartAction_Type())
-ethernetNTEXG210CardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEXG210CardRestartAction.setStatus(_B)
-_EthernetNTEXG210CardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEXG210CardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEXG210CardFineGrainedPmInterval=_EthernetNTEXG210CardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,30,1,9),_EthernetNTEXG210CardFineGrainedPmInterval_Type())
-ethernetNTEXG210CardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEXG210CardFineGrainedPmInterval.setStatus(_B)
-_EthernetXG1XCCCardTable_Object=MibTable
-ethernetXG1XCCCardTable=_EthernetXG1XCCCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,31))
-if mibBuilder.loadTexts:ethernetXG1XCCCardTable.setStatus(_B)
-_EthernetXG1XCCCardEntry_Object=MibTableRow
-ethernetXG1XCCCardEntry=_EthernetXG1XCCCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,31,1))
-ethernetXG1XCCCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetXG1XCCCardEntry.setStatus(_B)
-_EthernetXG1XCCCardEntityIndex_Type=PhysicalIndex
-_EthernetXG1XCCCardEntityIndex_Object=MibTableColumn
-ethernetXG1XCCCardEntityIndex=_EthernetXG1XCCCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,31,1,1),_EthernetXG1XCCCardEntityIndex_Type())
-ethernetXG1XCCCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetXG1XCCCardEntityIndex.setStatus(_B)
-_EthernetXG1XCCCardAdminState_Type=AdminState
-_EthernetXG1XCCCardAdminState_Object=MibTableColumn
-ethernetXG1XCCCardAdminState=_EthernetXG1XCCCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,31,1,2),_EthernetXG1XCCCardAdminState_Type())
-ethernetXG1XCCCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetXG1XCCCardAdminState.setStatus(_B)
-_EthernetXG1XCCCardOperationalState_Type=OperationalState
-_EthernetXG1XCCCardOperationalState_Object=MibTableColumn
-ethernetXG1XCCCardOperationalState=_EthernetXG1XCCCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,31,1,3),_EthernetXG1XCCCardOperationalState_Type())
-ethernetXG1XCCCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetXG1XCCCardOperationalState.setStatus(_B)
-_EthernetXG1XCCCardSecondaryState_Type=SecondaryState
-_EthernetXG1XCCCardSecondaryState_Object=MibTableColumn
-ethernetXG1XCCCardSecondaryState=_EthernetXG1XCCCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,31,1,4),_EthernetXG1XCCCardSecondaryState_Type())
-ethernetXG1XCCCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetXG1XCCCardSecondaryState.setStatus(_B)
-_EthernetXG1XCCCardVoltage_Type=Integer32
-_EthernetXG1XCCCardVoltage_Object=MibTableColumn
-ethernetXG1XCCCardVoltage=_EthernetXG1XCCCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,31,1,5),_EthernetXG1XCCCardVoltage_Type())
-ethernetXG1XCCCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetXG1XCCCardVoltage.setStatus(_B)
-_EthernetXG1XCCCardTemperature_Type=Integer32
-_EthernetXG1XCCCardTemperature_Object=MibTableColumn
-ethernetXG1XCCCardTemperature=_EthernetXG1XCCCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,31,1,6),_EthernetXG1XCCCardTemperature_Type())
-ethernetXG1XCCCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetXG1XCCCardTemperature.setStatus(_B)
-_EthernetXG1XCCCardRestartAction_Type=RestartType
-_EthernetXG1XCCCardRestartAction_Object=MibTableColumn
-ethernetXG1XCCCardRestartAction=_EthernetXG1XCCCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,31,1,7),_EthernetXG1XCCCardRestartAction_Type())
-ethernetXG1XCCCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetXG1XCCCardRestartAction.setStatus(_B)
-_EthernetXG1XCCCardStorageType_Type=StorageType
-_EthernetXG1XCCCardStorageType_Object=MibTableColumn
-ethernetXG1XCCCardStorageType=_EthernetXG1XCCCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,31,1,8),_EthernetXG1XCCCardStorageType_Type())
-ethernetXG1XCCCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetXG1XCCCardStorageType.setStatus(_B)
-_EthernetXG1XCCCardRowStatus_Type=RowStatus
-_EthernetXG1XCCCardRowStatus_Object=MibTableColumn
-ethernetXG1XCCCardRowStatus=_EthernetXG1XCCCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,31,1,9),_EthernetXG1XCCCardRowStatus_Type())
-ethernetXG1XCCCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetXG1XCCCardRowStatus.setStatus(_B)
-_EthernetXG1SCCCardTable_Object=MibTable
-ethernetXG1SCCCardTable=_EthernetXG1SCCCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,32))
-if mibBuilder.loadTexts:ethernetXG1SCCCardTable.setStatus(_B)
-_EthernetXG1SCCCardEntry_Object=MibTableRow
-ethernetXG1SCCCardEntry=_EthernetXG1SCCCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,32,1))
-ethernetXG1SCCCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetXG1SCCCardEntry.setStatus(_B)
-_EthernetXG1SCCCardEntityIndex_Type=PhysicalIndex
-_EthernetXG1SCCCardEntityIndex_Object=MibTableColumn
-ethernetXG1SCCCardEntityIndex=_EthernetXG1SCCCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,32,1,1),_EthernetXG1SCCCardEntityIndex_Type())
-ethernetXG1SCCCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetXG1SCCCardEntityIndex.setStatus(_B)
-_EthernetXG1SCCCardAdminState_Type=AdminState
-_EthernetXG1SCCCardAdminState_Object=MibTableColumn
-ethernetXG1SCCCardAdminState=_EthernetXG1SCCCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,32,1,2),_EthernetXG1SCCCardAdminState_Type())
-ethernetXG1SCCCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetXG1SCCCardAdminState.setStatus(_B)
-_EthernetXG1SCCCardOperationalState_Type=OperationalState
-_EthernetXG1SCCCardOperationalState_Object=MibTableColumn
-ethernetXG1SCCCardOperationalState=_EthernetXG1SCCCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,32,1,3),_EthernetXG1SCCCardOperationalState_Type())
-ethernetXG1SCCCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetXG1SCCCardOperationalState.setStatus(_B)
-_EthernetXG1SCCCardSecondaryState_Type=SecondaryState
-_EthernetXG1SCCCardSecondaryState_Object=MibTableColumn
-ethernetXG1SCCCardSecondaryState=_EthernetXG1SCCCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,32,1,4),_EthernetXG1SCCCardSecondaryState_Type())
-ethernetXG1SCCCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetXG1SCCCardSecondaryState.setStatus(_B)
-_EthernetXG1SCCCardVoltage_Type=Integer32
-_EthernetXG1SCCCardVoltage_Object=MibTableColumn
-ethernetXG1SCCCardVoltage=_EthernetXG1SCCCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,32,1,5),_EthernetXG1SCCCardVoltage_Type())
-ethernetXG1SCCCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetXG1SCCCardVoltage.setStatus(_B)
-_EthernetXG1SCCCardTemperature_Type=Integer32
-_EthernetXG1SCCCardTemperature_Object=MibTableColumn
-ethernetXG1SCCCardTemperature=_EthernetXG1SCCCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,32,1,6),_EthernetXG1SCCCardTemperature_Type())
-ethernetXG1SCCCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetXG1SCCCardTemperature.setStatus(_B)
-_EthernetXG1SCCCardRestartAction_Type=RestartType
-_EthernetXG1SCCCardRestartAction_Object=MibTableColumn
-ethernetXG1SCCCardRestartAction=_EthernetXG1SCCCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,32,1,7),_EthernetXG1SCCCardRestartAction_Type())
-ethernetXG1SCCCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetXG1SCCCardRestartAction.setStatus(_B)
-_EthernetXG1SCCCardStorageType_Type=StorageType
-_EthernetXG1SCCCardStorageType_Object=MibTableColumn
-ethernetXG1SCCCardStorageType=_EthernetXG1SCCCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,32,1,8),_EthernetXG1SCCCardStorageType_Type())
-ethernetXG1SCCCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetXG1SCCCardStorageType.setStatus(_B)
-_EthernetXG1SCCCardRowStatus_Type=RowStatus
-_EthernetXG1SCCCardRowStatus_Object=MibTableColumn
-ethernetXG1SCCCardRowStatus=_EthernetXG1SCCCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,32,1,9),_EthernetXG1SCCCardRowStatus_Type())
-ethernetXG1SCCCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetXG1SCCCardRowStatus.setStatus(_B)
-_EthernetOverOCSTMCardTable_Object=MibTable
-ethernetOverOCSTMCardTable=_EthernetOverOCSTMCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,33))
-if mibBuilder.loadTexts:ethernetOverOCSTMCardTable.setStatus(_B)
-_EthernetOverOCSTMCardEntry_Object=MibTableRow
-ethernetOverOCSTMCardEntry=_EthernetOverOCSTMCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,33,1))
-ethernetOverOCSTMCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetOverOCSTMCardEntry.setStatus(_B)
-_EthernetOverOCSTMCardEntityIndex_Type=PhysicalIndex
-_EthernetOverOCSTMCardEntityIndex_Object=MibTableColumn
-ethernetOverOCSTMCardEntityIndex=_EthernetOverOCSTMCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,33,1,1),_EthernetOverOCSTMCardEntityIndex_Type())
-ethernetOverOCSTMCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetOverOCSTMCardEntityIndex.setStatus(_B)
-_EthernetOverOCSTMCardAdminState_Type=AdminState
-_EthernetOverOCSTMCardAdminState_Object=MibTableColumn
-ethernetOverOCSTMCardAdminState=_EthernetOverOCSTMCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,33,1,2),_EthernetOverOCSTMCardAdminState_Type())
-ethernetOverOCSTMCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetOverOCSTMCardAdminState.setStatus(_B)
-_EthernetOverOCSTMCardOperationalState_Type=OperationalState
-_EthernetOverOCSTMCardOperationalState_Object=MibTableColumn
-ethernetOverOCSTMCardOperationalState=_EthernetOverOCSTMCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,33,1,3),_EthernetOverOCSTMCardOperationalState_Type())
-ethernetOverOCSTMCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetOverOCSTMCardOperationalState.setStatus(_B)
-_EthernetOverOCSTMCardSecondaryState_Type=SecondaryState
-_EthernetOverOCSTMCardSecondaryState_Object=MibTableColumn
-ethernetOverOCSTMCardSecondaryState=_EthernetOverOCSTMCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,33,1,4),_EthernetOverOCSTMCardSecondaryState_Type())
-ethernetOverOCSTMCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetOverOCSTMCardSecondaryState.setStatus(_B)
-_EthernetOverOCSTMCardTemperature_Type=Integer32
-_EthernetOverOCSTMCardTemperature_Object=MibTableColumn
-ethernetOverOCSTMCardTemperature=_EthernetOverOCSTMCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,33,1,5),_EthernetOverOCSTMCardTemperature_Type())
-ethernetOverOCSTMCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetOverOCSTMCardTemperature.setStatus(_B)
-_EthernetOverOCSTMCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetOverOCSTMCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetOverOCSTMCardSnmpDyingGaspEnabled=_EthernetOverOCSTMCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,33,1,6),_EthernetOverOCSTMCardSnmpDyingGaspEnabled_Type())
-ethernetOverOCSTMCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetOverOCSTMCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetOverOCSTMCardRestartAction_Type=RestartType
-_EthernetOverOCSTMCardRestartAction_Object=MibTableColumn
-ethernetOverOCSTMCardRestartAction=_EthernetOverOCSTMCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,33,1,7),_EthernetOverOCSTMCardRestartAction_Type())
-ethernetOverOCSTMCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetOverOCSTMCardRestartAction.setStatus(_B)
-_EthernetOverOCSTMCardStorageType_Type=StorageType
-_EthernetOverOCSTMCardStorageType_Object=MibTableColumn
-ethernetOverOCSTMCardStorageType=_EthernetOverOCSTMCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,33,1,8),_EthernetOverOCSTMCardStorageType_Type())
-ethernetOverOCSTMCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetOverOCSTMCardStorageType.setStatus(_B)
-_EthernetOverOCSTMCardRowStatus_Type=RowStatus
-_EthernetOverOCSTMCardRowStatus_Object=MibTableColumn
-ethernetOverOCSTMCardRowStatus=_EthernetOverOCSTMCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,33,1,9),_EthernetOverOCSTMCardRowStatus_Type())
-ethernetOverOCSTMCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetOverOCSTMCardRowStatus.setStatus(_B)
-_EthernetOverOCSTMCardForceOffLineAction_Type=TruthValue
-_EthernetOverOCSTMCardForceOffLineAction_Object=MibTableColumn
-ethernetOverOCSTMCardForceOffLineAction=_EthernetOverOCSTMCardForceOffLineAction_Object((1,3,6,1,4,1,2544,1,12,3,1,33,1,10),_EthernetOverOCSTMCardForceOffLineAction_Type())
-ethernetOverOCSTMCardForceOffLineAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetOverOCSTMCardForceOffLineAction.setStatus(_B)
-_EthernetOverOCSTMCardMode_Type=PortCarrierType
-_EthernetOverOCSTMCardMode_Object=MibTableColumn
-ethernetOverOCSTMCardMode=_EthernetOverOCSTMCardMode_Object((1,3,6,1,4,1,2544,1,12,3,1,33,1,11),_EthernetOverOCSTMCardMode_Type())
-ethernetOverOCSTMCardMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetOverOCSTMCardMode.setStatus(_B)
-_PseudoWireOcnStmCardTable_Object=MibTable
-pseudoWireOcnStmCardTable=_PseudoWireOcnStmCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,34))
-if mibBuilder.loadTexts:pseudoWireOcnStmCardTable.setStatus(_B)
-_PseudoWireOcnStmCardEntry_Object=MibTableRow
-pseudoWireOcnStmCardEntry=_PseudoWireOcnStmCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1))
-pseudoWireOcnStmCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:pseudoWireOcnStmCardEntry.setStatus(_B)
-_PseudoWireOcnStmCardEntityIndex_Type=PhysicalIndex
-_PseudoWireOcnStmCardEntityIndex_Object=MibTableColumn
-pseudoWireOcnStmCardEntityIndex=_PseudoWireOcnStmCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1,1),_PseudoWireOcnStmCardEntityIndex_Type())
-pseudoWireOcnStmCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:pseudoWireOcnStmCardEntityIndex.setStatus(_B)
-_PseudoWireOcnStmCardAdminState_Type=AdminState
-_PseudoWireOcnStmCardAdminState_Object=MibTableColumn
-pseudoWireOcnStmCardAdminState=_PseudoWireOcnStmCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1,2),_PseudoWireOcnStmCardAdminState_Type())
-pseudoWireOcnStmCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireOcnStmCardAdminState.setStatus(_B)
-_PseudoWireOcnStmCardOperationalState_Type=OperationalState
-_PseudoWireOcnStmCardOperationalState_Object=MibTableColumn
-pseudoWireOcnStmCardOperationalState=_PseudoWireOcnStmCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1,3),_PseudoWireOcnStmCardOperationalState_Type())
-pseudoWireOcnStmCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:pseudoWireOcnStmCardOperationalState.setStatus(_B)
-_PseudoWireOcnStmCardSecondaryState_Type=SecondaryState
-_PseudoWireOcnStmCardSecondaryState_Object=MibTableColumn
-pseudoWireOcnStmCardSecondaryState=_PseudoWireOcnStmCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1,4),_PseudoWireOcnStmCardSecondaryState_Type())
-pseudoWireOcnStmCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:pseudoWireOcnStmCardSecondaryState.setStatus(_B)
-_PseudoWireOcnStmCardIpAddress_Type=IpAddress
-_PseudoWireOcnStmCardIpAddress_Object=MibTableColumn
-pseudoWireOcnStmCardIpAddress=_PseudoWireOcnStmCardIpAddress_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1,5),_PseudoWireOcnStmCardIpAddress_Type())
-pseudoWireOcnStmCardIpAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireOcnStmCardIpAddress.setStatus(_B)
-_PseudoWireOcnStmCardMode_Type=PWE3OCNSTMCardMode
-_PseudoWireOcnStmCardMode_Object=MibTableColumn
-pseudoWireOcnStmCardMode=_PseudoWireOcnStmCardMode_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1,6),_PseudoWireOcnStmCardMode_Type())
-pseudoWireOcnStmCardMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireOcnStmCardMode.setStatus(_B)
-_PseudoWireOcnStmCardVoltage_Type=Integer32
-_PseudoWireOcnStmCardVoltage_Object=MibTableColumn
-pseudoWireOcnStmCardVoltage=_PseudoWireOcnStmCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1,7),_PseudoWireOcnStmCardVoltage_Type())
-pseudoWireOcnStmCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:pseudoWireOcnStmCardVoltage.setStatus(_B)
-_PseudoWireOcnStmCardTemperature_Type=Integer32
-_PseudoWireOcnStmCardTemperature_Object=MibTableColumn
-pseudoWireOcnStmCardTemperature=_PseudoWireOcnStmCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1,8),_PseudoWireOcnStmCardTemperature_Type())
-pseudoWireOcnStmCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:pseudoWireOcnStmCardTemperature.setStatus(_B)
-_PseudoWireOcnStmCardRestartAction_Type=RestartType
-_PseudoWireOcnStmCardRestartAction_Object=MibTableColumn
-pseudoWireOcnStmCardRestartAction=_PseudoWireOcnStmCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1,9),_PseudoWireOcnStmCardRestartAction_Type())
-pseudoWireOcnStmCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireOcnStmCardRestartAction.setStatus(_B)
-_PseudoWireOcnStmCardStorageType_Type=StorageType
-_PseudoWireOcnStmCardStorageType_Object=MibTableColumn
-pseudoWireOcnStmCardStorageType=_PseudoWireOcnStmCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1,10),_PseudoWireOcnStmCardStorageType_Type())
-pseudoWireOcnStmCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:pseudoWireOcnStmCardStorageType.setStatus(_B)
-_PseudoWireOcnStmCardRowStatus_Type=RowStatus
-_PseudoWireOcnStmCardRowStatus_Object=MibTableColumn
-pseudoWireOcnStmCardRowStatus=_PseudoWireOcnStmCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1,11),_PseudoWireOcnStmCardRowStatus_Type())
-pseudoWireOcnStmCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:pseudoWireOcnStmCardRowStatus.setStatus(_B)
-_PseudoWireOcnStmCardPSNEncapsulation_Type=PSNEncapsulationMode
-_PseudoWireOcnStmCardPSNEncapsulation_Object=MibTableColumn
-pseudoWireOcnStmCardPSNEncapsulation=_PseudoWireOcnStmCardPSNEncapsulation_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1,12),_PseudoWireOcnStmCardPSNEncapsulation_Type())
-pseudoWireOcnStmCardPSNEncapsulation.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireOcnStmCardPSNEncapsulation.setStatus(_B)
-_PseudoWireOcnStmCardFreqSourceType_Type=TDMFrequencySourceType
-_PseudoWireOcnStmCardFreqSourceType_Object=MibTableColumn
-pseudoWireOcnStmCardFreqSourceType=_PseudoWireOcnStmCardFreqSourceType_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1,13),_PseudoWireOcnStmCardFreqSourceType_Type())
-pseudoWireOcnStmCardFreqSourceType.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireOcnStmCardFreqSourceType.setStatus(_B)
-_PseudoWireOcnStmCardFreqSource_Type=VariablePointer
-_PseudoWireOcnStmCardFreqSource_Object=MibTableColumn
-pseudoWireOcnStmCardFreqSource=_PseudoWireOcnStmCardFreqSource_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1,14),_PseudoWireOcnStmCardFreqSource_Type())
-pseudoWireOcnStmCardFreqSource.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireOcnStmCardFreqSource.setStatus(_B)
-_PseudoWireOcnStmCardForceOffLineAction_Type=TruthValue
-_PseudoWireOcnStmCardForceOffLineAction_Object=MibTableColumn
-pseudoWireOcnStmCardForceOffLineAction=_PseudoWireOcnStmCardForceOffLineAction_Object((1,3,6,1,4,1,2544,1,12,3,1,34,1,15),_PseudoWireOcnStmCardForceOffLineAction_Type())
-pseudoWireOcnStmCardForceOffLineAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireOcnStmCardForceOffLineAction.setStatus(_B)
-_PseudoWireE1T1CardTable_Object=MibTable
-pseudoWireE1T1CardTable=_PseudoWireE1T1CardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,35))
-if mibBuilder.loadTexts:pseudoWireE1T1CardTable.setStatus(_B)
-_PseudoWireE1T1CardEntry_Object=MibTableRow
-pseudoWireE1T1CardEntry=_PseudoWireE1T1CardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,35,1))
-pseudoWireE1T1CardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:pseudoWireE1T1CardEntry.setStatus(_B)
-_PseudoWireE1T1CardEntityIndex_Type=PhysicalIndex
-_PseudoWireE1T1CardEntityIndex_Object=MibTableColumn
-pseudoWireE1T1CardEntityIndex=_PseudoWireE1T1CardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,35,1,1),_PseudoWireE1T1CardEntityIndex_Type())
-pseudoWireE1T1CardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:pseudoWireE1T1CardEntityIndex.setStatus(_B)
-_PseudoWireE1T1CardAdminState_Type=AdminState
-_PseudoWireE1T1CardAdminState_Object=MibTableColumn
-pseudoWireE1T1CardAdminState=_PseudoWireE1T1CardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,35,1,2),_PseudoWireE1T1CardAdminState_Type())
-pseudoWireE1T1CardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireE1T1CardAdminState.setStatus(_B)
-_PseudoWireE1T1CardOperationalState_Type=OperationalState
-_PseudoWireE1T1CardOperationalState_Object=MibTableColumn
-pseudoWireE1T1CardOperationalState=_PseudoWireE1T1CardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,35,1,3),_PseudoWireE1T1CardOperationalState_Type())
-pseudoWireE1T1CardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:pseudoWireE1T1CardOperationalState.setStatus(_B)
-_PseudoWireE1T1CardSecondaryState_Type=SecondaryState
-_PseudoWireE1T1CardSecondaryState_Object=MibTableColumn
-pseudoWireE1T1CardSecondaryState=_PseudoWireE1T1CardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,35,1,4),_PseudoWireE1T1CardSecondaryState_Type())
-pseudoWireE1T1CardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:pseudoWireE1T1CardSecondaryState.setStatus(_B)
-_PseudoWireE1T1CardIpAddress_Type=IpAddress
-_PseudoWireE1T1CardIpAddress_Object=MibTableColumn
-pseudoWireE1T1CardIpAddress=_PseudoWireE1T1CardIpAddress_Object((1,3,6,1,4,1,2544,1,12,3,1,35,1,5),_PseudoWireE1T1CardIpAddress_Type())
-pseudoWireE1T1CardIpAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireE1T1CardIpAddress.setStatus(_B)
-_PseudoWireE1T1CardMode_Type=PWE3E1T1CardMode
-_PseudoWireE1T1CardMode_Object=MibTableColumn
-pseudoWireE1T1CardMode=_PseudoWireE1T1CardMode_Object((1,3,6,1,4,1,2544,1,12,3,1,35,1,6),_PseudoWireE1T1CardMode_Type())
-pseudoWireE1T1CardMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireE1T1CardMode.setStatus(_B)
-_PseudoWireE1T1CardVoltage_Type=Integer32
-_PseudoWireE1T1CardVoltage_Object=MibTableColumn
-pseudoWireE1T1CardVoltage=_PseudoWireE1T1CardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,35,1,7),_PseudoWireE1T1CardVoltage_Type())
-pseudoWireE1T1CardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:pseudoWireE1T1CardVoltage.setStatus(_B)
-_PseudoWireE1T1CardTemperature_Type=Integer32
-_PseudoWireE1T1CardTemperature_Object=MibTableColumn
-pseudoWireE1T1CardTemperature=_PseudoWireE1T1CardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,35,1,8),_PseudoWireE1T1CardTemperature_Type())
-pseudoWireE1T1CardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:pseudoWireE1T1CardTemperature.setStatus(_B)
-_PseudoWireE1T1CardRestartAction_Type=RestartType
-_PseudoWireE1T1CardRestartAction_Object=MibTableColumn
-pseudoWireE1T1CardRestartAction=_PseudoWireE1T1CardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,35,1,9),_PseudoWireE1T1CardRestartAction_Type())
-pseudoWireE1T1CardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireE1T1CardRestartAction.setStatus(_B)
-_PseudoWireE1T1CardStorageType_Type=StorageType
-_PseudoWireE1T1CardStorageType_Object=MibTableColumn
-pseudoWireE1T1CardStorageType=_PseudoWireE1T1CardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,35,1,10),_PseudoWireE1T1CardStorageType_Type())
-pseudoWireE1T1CardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:pseudoWireE1T1CardStorageType.setStatus(_B)
-_PseudoWireE1T1CardRowStatus_Type=RowStatus
-_PseudoWireE1T1CardRowStatus_Object=MibTableColumn
-pseudoWireE1T1CardRowStatus=_PseudoWireE1T1CardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,35,1,11),_PseudoWireE1T1CardRowStatus_Type())
-pseudoWireE1T1CardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:pseudoWireE1T1CardRowStatus.setStatus(_B)
-_PseudoWireE1T1CardPSNEncapsulation_Type=PSNEncapsulationMode
-_PseudoWireE1T1CardPSNEncapsulation_Object=MibTableColumn
-pseudoWireE1T1CardPSNEncapsulation=_PseudoWireE1T1CardPSNEncapsulation_Object((1,3,6,1,4,1,2544,1,12,3,1,35,1,12),_PseudoWireE1T1CardPSNEncapsulation_Type())
-pseudoWireE1T1CardPSNEncapsulation.setMaxAccess(_D)
-if mibBuilder.loadTexts:pseudoWireE1T1CardPSNEncapsulation.setStatus(_B)
-_Ethernet1x10GHighPerCardTable_Object=MibTable
-ethernet1x10GHighPerCardTable=_Ethernet1x10GHighPerCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,36))
-if mibBuilder.loadTexts:ethernet1x10GHighPerCardTable.setStatus(_B)
-_Ethernet1x10GHighPerCardEntry_Object=MibTableRow
-ethernet1x10GHighPerCardEntry=_Ethernet1x10GHighPerCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,36,1))
-ethernet1x10GHighPerCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernet1x10GHighPerCardEntry.setStatus(_B)
-_Ethernet1x10GHighPerCardEntityIndex_Type=PhysicalIndex
-_Ethernet1x10GHighPerCardEntityIndex_Object=MibTableColumn
-ethernet1x10GHighPerCardEntityIndex=_Ethernet1x10GHighPerCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,36,1,1),_Ethernet1x10GHighPerCardEntityIndex_Type())
-ethernet1x10GHighPerCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet1x10GHighPerCardEntityIndex.setStatus(_B)
-_Ethernet1x10GHighPerCardAdminState_Type=AdminState
-_Ethernet1x10GHighPerCardAdminState_Object=MibTableColumn
-ethernet1x10GHighPerCardAdminState=_Ethernet1x10GHighPerCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,36,1,2),_Ethernet1x10GHighPerCardAdminState_Type())
-ethernet1x10GHighPerCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet1x10GHighPerCardAdminState.setStatus(_B)
-_Ethernet1x10GHighPerCardOperationalState_Type=OperationalState
-_Ethernet1x10GHighPerCardOperationalState_Object=MibTableColumn
-ethernet1x10GHighPerCardOperationalState=_Ethernet1x10GHighPerCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,36,1,3),_Ethernet1x10GHighPerCardOperationalState_Type())
-ethernet1x10GHighPerCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet1x10GHighPerCardOperationalState.setStatus(_B)
-_Ethernet1x10GHighPerCardSecondaryState_Type=SecondaryState
-_Ethernet1x10GHighPerCardSecondaryState_Object=MibTableColumn
-ethernet1x10GHighPerCardSecondaryState=_Ethernet1x10GHighPerCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,36,1,4),_Ethernet1x10GHighPerCardSecondaryState_Type())
-ethernet1x10GHighPerCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet1x10GHighPerCardSecondaryState.setStatus(_B)
-_Ethernet1x10GHighPerCardTemperature_Type=Integer32
-_Ethernet1x10GHighPerCardTemperature_Object=MibTableColumn
-ethernet1x10GHighPerCardTemperature=_Ethernet1x10GHighPerCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,36,1,5),_Ethernet1x10GHighPerCardTemperature_Type())
-ethernet1x10GHighPerCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet1x10GHighPerCardTemperature.setStatus(_B)
-_Ethernet1x10GHighPerCardSnmpDyingGaspEnabled_Type=TruthValue
-_Ethernet1x10GHighPerCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernet1x10GHighPerCardSnmpDyingGaspEnabled=_Ethernet1x10GHighPerCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,36,1,6),_Ethernet1x10GHighPerCardSnmpDyingGaspEnabled_Type())
-ethernet1x10GHighPerCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet1x10GHighPerCardSnmpDyingGaspEnabled.setStatus(_B)
-_Ethernet1x10GHighPerCardRestartAction_Type=RestartType
-_Ethernet1x10GHighPerCardRestartAction_Object=MibTableColumn
-ethernet1x10GHighPerCardRestartAction=_Ethernet1x10GHighPerCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,36,1,7),_Ethernet1x10GHighPerCardRestartAction_Type())
-ethernet1x10GHighPerCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet1x10GHighPerCardRestartAction.setStatus(_B)
-_Ethernet1x10GHighPerCardStorageType_Type=StorageType
-_Ethernet1x10GHighPerCardStorageType_Object=MibTableColumn
-ethernet1x10GHighPerCardStorageType=_Ethernet1x10GHighPerCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,36,1,8),_Ethernet1x10GHighPerCardStorageType_Type())
-ethernet1x10GHighPerCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernet1x10GHighPerCardStorageType.setStatus(_B)
-_Ethernet1x10GHighPerCardRowStatus_Type=RowStatus
-_Ethernet1x10GHighPerCardRowStatus_Object=MibTableColumn
-ethernet1x10GHighPerCardRowStatus=_Ethernet1x10GHighPerCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,36,1,9),_Ethernet1x10GHighPerCardRowStatus_Type())
-ethernet1x10GHighPerCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernet1x10GHighPerCardRowStatus.setStatus(_B)
-_Ethernet1x10GHighPerCardForceOffLineAction_Type=TruthValue
-_Ethernet1x10GHighPerCardForceOffLineAction_Object=MibTableColumn
-ethernet1x10GHighPerCardForceOffLineAction=_Ethernet1x10GHighPerCardForceOffLineAction_Object((1,3,6,1,4,1,2544,1,12,3,1,36,1,10),_Ethernet1x10GHighPerCardForceOffLineAction_Type())
-ethernet1x10GHighPerCardForceOffLineAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet1x10GHighPerCardForceOffLineAction.setStatus(_B)
-_Ethernet10x1GHighPerCardTable_Object=MibTable
-ethernet10x1GHighPerCardTable=_Ethernet10x1GHighPerCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,37))
-if mibBuilder.loadTexts:ethernet10x1GHighPerCardTable.setStatus(_B)
-_Ethernet10x1GHighPerCardEntry_Object=MibTableRow
-ethernet10x1GHighPerCardEntry=_Ethernet10x1GHighPerCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,37,1))
-ethernet10x1GHighPerCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernet10x1GHighPerCardEntry.setStatus(_B)
-_Ethernet10x1GHighPerCardEntityIndex_Type=PhysicalIndex
-_Ethernet10x1GHighPerCardEntityIndex_Object=MibTableColumn
-ethernet10x1GHighPerCardEntityIndex=_Ethernet10x1GHighPerCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,37,1,1),_Ethernet10x1GHighPerCardEntityIndex_Type())
-ethernet10x1GHighPerCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet10x1GHighPerCardEntityIndex.setStatus(_B)
-_Ethernet10x1GHighPerCardAdminState_Type=AdminState
-_Ethernet10x1GHighPerCardAdminState_Object=MibTableColumn
-ethernet10x1GHighPerCardAdminState=_Ethernet10x1GHighPerCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,37,1,2),_Ethernet10x1GHighPerCardAdminState_Type())
-ethernet10x1GHighPerCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet10x1GHighPerCardAdminState.setStatus(_B)
-_Ethernet10x1GHighPerCardOperationalState_Type=OperationalState
-_Ethernet10x1GHighPerCardOperationalState_Object=MibTableColumn
-ethernet10x1GHighPerCardOperationalState=_Ethernet10x1GHighPerCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,37,1,3),_Ethernet10x1GHighPerCardOperationalState_Type())
-ethernet10x1GHighPerCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet10x1GHighPerCardOperationalState.setStatus(_B)
-_Ethernet10x1GHighPerCardSecondaryState_Type=SecondaryState
-_Ethernet10x1GHighPerCardSecondaryState_Object=MibTableColumn
-ethernet10x1GHighPerCardSecondaryState=_Ethernet10x1GHighPerCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,37,1,4),_Ethernet10x1GHighPerCardSecondaryState_Type())
-ethernet10x1GHighPerCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet10x1GHighPerCardSecondaryState.setStatus(_B)
-_Ethernet10x1GHighPerCardTemperature_Type=Integer32
-_Ethernet10x1GHighPerCardTemperature_Object=MibTableColumn
-ethernet10x1GHighPerCardTemperature=_Ethernet10x1GHighPerCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,37,1,5),_Ethernet10x1GHighPerCardTemperature_Type())
-ethernet10x1GHighPerCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernet10x1GHighPerCardTemperature.setStatus(_B)
-_Ethernet10x1GHighPerCardSnmpDyingGaspEnabled_Type=TruthValue
-_Ethernet10x1GHighPerCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernet10x1GHighPerCardSnmpDyingGaspEnabled=_Ethernet10x1GHighPerCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,37,1,6),_Ethernet10x1GHighPerCardSnmpDyingGaspEnabled_Type())
-ethernet10x1GHighPerCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet10x1GHighPerCardSnmpDyingGaspEnabled.setStatus(_B)
-_Ethernet10x1GHighPerCardRestartAction_Type=RestartType
-_Ethernet10x1GHighPerCardRestartAction_Object=MibTableColumn
-ethernet10x1GHighPerCardRestartAction=_Ethernet10x1GHighPerCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,37,1,7),_Ethernet10x1GHighPerCardRestartAction_Type())
-ethernet10x1GHighPerCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet10x1GHighPerCardRestartAction.setStatus(_B)
-_Ethernet10x1GHighPerCardStorageType_Type=StorageType
-_Ethernet10x1GHighPerCardStorageType_Object=MibTableColumn
-ethernet10x1GHighPerCardStorageType=_Ethernet10x1GHighPerCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,37,1,8),_Ethernet10x1GHighPerCardStorageType_Type())
-ethernet10x1GHighPerCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernet10x1GHighPerCardStorageType.setStatus(_B)
-_Ethernet10x1GHighPerCardRowStatus_Type=RowStatus
-_Ethernet10x1GHighPerCardRowStatus_Object=MibTableColumn
-ethernet10x1GHighPerCardRowStatus=_Ethernet10x1GHighPerCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,37,1,9),_Ethernet10x1GHighPerCardRowStatus_Type())
-ethernet10x1GHighPerCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernet10x1GHighPerCardRowStatus.setStatus(_B)
-_Ethernet10x1GHighPerCardForceOffLineAction_Type=TruthValue
-_Ethernet10x1GHighPerCardForceOffLineAction_Object=MibTableColumn
-ethernet10x1GHighPerCardForceOffLineAction=_Ethernet10x1GHighPerCardForceOffLineAction_Object((1,3,6,1,4,1,2544,1,12,3,1,37,1,10),_Ethernet10x1GHighPerCardForceOffLineAction_Type())
-ethernet10x1GHighPerCardForceOffLineAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernet10x1GHighPerCardForceOffLineAction.setStatus(_B)
-_EthernetNTET1804CardTable_Object=MibTable
-ethernetNTET1804CardTable=_EthernetNTET1804CardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,38))
-if mibBuilder.loadTexts:ethernetNTET1804CardTable.setStatus(_B)
-_EthernetNTET1804CardEntry_Object=MibTableRow
-ethernetNTET1804CardEntry=_EthernetNTET1804CardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,38,1))
-ethernetNTET1804CardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTET1804CardEntry.setStatus(_B)
-_EthernetNTET1804CardEntityIndex_Type=PhysicalIndex
-_EthernetNTET1804CardEntityIndex_Object=MibTableColumn
-ethernetNTET1804CardEntityIndex=_EthernetNTET1804CardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,38,1,1),_EthernetNTET1804CardEntityIndex_Type())
-ethernetNTET1804CardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTET1804CardEntityIndex.setStatus(_B)
-_EthernetNTET1804CardAdminState_Type=AdminState
-_EthernetNTET1804CardAdminState_Object=MibTableColumn
-ethernetNTET1804CardAdminState=_EthernetNTET1804CardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,38,1,2),_EthernetNTET1804CardAdminState_Type())
-ethernetNTET1804CardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTET1804CardAdminState.setStatus(_B)
-_EthernetNTET1804CardOperationalState_Type=OperationalState
-_EthernetNTET1804CardOperationalState_Object=MibTableColumn
-ethernetNTET1804CardOperationalState=_EthernetNTET1804CardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,38,1,3),_EthernetNTET1804CardOperationalState_Type())
-ethernetNTET1804CardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTET1804CardOperationalState.setStatus(_B)
-_EthernetNTET1804CardSecondaryState_Type=SecondaryState
-_EthernetNTET1804CardSecondaryState_Object=MibTableColumn
-ethernetNTET1804CardSecondaryState=_EthernetNTET1804CardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,38,1,4),_EthernetNTET1804CardSecondaryState_Type())
-ethernetNTET1804CardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTET1804CardSecondaryState.setStatus(_B)
-_EthernetNTET1804CardVoltage_Type=Integer32
-_EthernetNTET1804CardVoltage_Object=MibTableColumn
-ethernetNTET1804CardVoltage=_EthernetNTET1804CardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,38,1,5),_EthernetNTET1804CardVoltage_Type())
-ethernetNTET1804CardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTET1804CardVoltage.setStatus(_B)
-_EthernetNTET1804CardTemperature_Type=Integer32
-_EthernetNTET1804CardTemperature_Object=MibTableColumn
-ethernetNTET1804CardTemperature=_EthernetNTET1804CardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,38,1,6),_EthernetNTET1804CardTemperature_Type())
-ethernetNTET1804CardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTET1804CardTemperature.setStatus(_B)
-_EthernetNTET1804CardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTET1804CardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTET1804CardSnmpDyingGaspEnabled=_EthernetNTET1804CardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,38,1,7),_EthernetNTET1804CardSnmpDyingGaspEnabled_Type())
-ethernetNTET1804CardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTET1804CardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTET1804CardRestartAction_Type=RestartType
-_EthernetNTET1804CardRestartAction_Object=MibTableColumn
-ethernetNTET1804CardRestartAction=_EthernetNTET1804CardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,38,1,8),_EthernetNTET1804CardRestartAction_Type())
-ethernetNTET1804CardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTET1804CardRestartAction.setStatus(_B)
-_EthernetNTET1804CardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTET1804CardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTET1804CardFineGrainedPmInterval=_EthernetNTET1804CardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,38,1,9),_EthernetNTET1804CardFineGrainedPmInterval_Type())
-ethernetNTET1804CardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTET1804CardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTET1804CardMode_Type=PortCarrierType
-_EthernetNTET1804CardMode_Object=MibTableColumn
-ethernetNTET1804CardMode=_EthernetNTET1804CardMode_Object((1,3,6,1,4,1,2544,1,12,3,1,38,1,10),_EthernetNTET1804CardMode_Type())
-ethernetNTET1804CardMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTET1804CardMode.setStatus(_B)
-_EthernetNTET3204CardTable_Object=MibTable
-ethernetNTET3204CardTable=_EthernetNTET3204CardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,39))
-if mibBuilder.loadTexts:ethernetNTET3204CardTable.setStatus(_B)
-_EthernetNTET3204CardEntry_Object=MibTableRow
-ethernetNTET3204CardEntry=_EthernetNTET3204CardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,39,1))
-ethernetNTET3204CardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTET3204CardEntry.setStatus(_B)
-_EthernetNTET3204CardEntityIndex_Type=PhysicalIndex
-_EthernetNTET3204CardEntityIndex_Object=MibTableColumn
-ethernetNTET3204CardEntityIndex=_EthernetNTET3204CardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,39,1,1),_EthernetNTET3204CardEntityIndex_Type())
-ethernetNTET3204CardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTET3204CardEntityIndex.setStatus(_B)
-_EthernetNTET3204CardAdminState_Type=AdminState
-_EthernetNTET3204CardAdminState_Object=MibTableColumn
-ethernetNTET3204CardAdminState=_EthernetNTET3204CardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,39,1,2),_EthernetNTET3204CardAdminState_Type())
-ethernetNTET3204CardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTET3204CardAdminState.setStatus(_B)
-_EthernetNTET3204CardOperationalState_Type=OperationalState
-_EthernetNTET3204CardOperationalState_Object=MibTableColumn
-ethernetNTET3204CardOperationalState=_EthernetNTET3204CardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,39,1,3),_EthernetNTET3204CardOperationalState_Type())
-ethernetNTET3204CardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTET3204CardOperationalState.setStatus(_B)
-_EthernetNTET3204CardSecondaryState_Type=SecondaryState
-_EthernetNTET3204CardSecondaryState_Object=MibTableColumn
-ethernetNTET3204CardSecondaryState=_EthernetNTET3204CardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,39,1,4),_EthernetNTET3204CardSecondaryState_Type())
-ethernetNTET3204CardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTET3204CardSecondaryState.setStatus(_B)
-_EthernetNTET3204CardVoltage_Type=Integer32
-_EthernetNTET3204CardVoltage_Object=MibTableColumn
-ethernetNTET3204CardVoltage=_EthernetNTET3204CardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,39,1,5),_EthernetNTET3204CardVoltage_Type())
-ethernetNTET3204CardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTET3204CardVoltage.setStatus(_B)
-_EthernetNTET3204CardTemperature_Type=Integer32
-_EthernetNTET3204CardTemperature_Object=MibTableColumn
-ethernetNTET3204CardTemperature=_EthernetNTET3204CardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,39,1,6),_EthernetNTET3204CardTemperature_Type())
-ethernetNTET3204CardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTET3204CardTemperature.setStatus(_B)
-_EthernetNTET3204CardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTET3204CardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTET3204CardSnmpDyingGaspEnabled=_EthernetNTET3204CardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,39,1,7),_EthernetNTET3204CardSnmpDyingGaspEnabled_Type())
-ethernetNTET3204CardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTET3204CardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTET3204CardRestartAction_Type=RestartType
-_EthernetNTET3204CardRestartAction_Object=MibTableColumn
-ethernetNTET3204CardRestartAction=_EthernetNTET3204CardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,39,1,8),_EthernetNTET3204CardRestartAction_Type())
-ethernetNTET3204CardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTET3204CardRestartAction.setStatus(_B)
-_EthernetNTET3204CardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTET3204CardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTET3204CardFineGrainedPmInterval=_EthernetNTET3204CardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,39,1,9),_EthernetNTET3204CardFineGrainedPmInterval_Type())
-ethernetNTET3204CardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTET3204CardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTET3204CardMode_Type=PortCarrierType
-_EthernetNTET3204CardMode_Object=MibTableColumn
-ethernetNTET3204CardMode=_EthernetNTET3204CardMode_Object((1,3,6,1,4,1,2544,1,12,3,1,39,1,10),_EthernetNTET3204CardMode_Type())
-ethernetNTET3204CardMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTET3204CardMode.setStatus(_B)
-_EthernetNTEGESyncProbeCardTable_Object=MibTable
-ethernetNTEGESyncProbeCardTable=_EthernetNTEGESyncProbeCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,40))
-if mibBuilder.loadTexts:ethernetNTEGESyncProbeCardTable.setStatus(_B)
-_EthernetNTEGESyncProbeCardEntry_Object=MibTableRow
-ethernetNTEGESyncProbeCardEntry=_EthernetNTEGESyncProbeCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,40,1))
-ethernetNTEGESyncProbeCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGESyncProbeCardEntry.setStatus(_B)
-_EthernetNTEGESyncProbeCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGESyncProbeCardEntityIndex_Object=MibTableColumn
-ethernetNTEGESyncProbeCardEntityIndex=_EthernetNTEGESyncProbeCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,40,1,1),_EthernetNTEGESyncProbeCardEntityIndex_Type())
-ethernetNTEGESyncProbeCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGESyncProbeCardEntityIndex.setStatus(_B)
-_EthernetNTEGESyncProbeCardAdminState_Type=AdminState
-_EthernetNTEGESyncProbeCardAdminState_Object=MibTableColumn
-ethernetNTEGESyncProbeCardAdminState=_EthernetNTEGESyncProbeCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,40,1,2),_EthernetNTEGESyncProbeCardAdminState_Type())
-ethernetNTEGESyncProbeCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGESyncProbeCardAdminState.setStatus(_B)
-_EthernetNTEGESyncProbeCardOperationalState_Type=OperationalState
-_EthernetNTEGESyncProbeCardOperationalState_Object=MibTableColumn
-ethernetNTEGESyncProbeCardOperationalState=_EthernetNTEGESyncProbeCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,40,1,3),_EthernetNTEGESyncProbeCardOperationalState_Type())
-ethernetNTEGESyncProbeCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGESyncProbeCardOperationalState.setStatus(_B)
-_EthernetNTEGESyncProbeCardSecondaryState_Type=SecondaryState
-_EthernetNTEGESyncProbeCardSecondaryState_Object=MibTableColumn
-ethernetNTEGESyncProbeCardSecondaryState=_EthernetNTEGESyncProbeCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,40,1,4),_EthernetNTEGESyncProbeCardSecondaryState_Type())
-ethernetNTEGESyncProbeCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGESyncProbeCardSecondaryState.setStatus(_B)
-_EthernetNTEGESyncProbeCardVoltage_Type=Integer32
-_EthernetNTEGESyncProbeCardVoltage_Object=MibTableColumn
-ethernetNTEGESyncProbeCardVoltage=_EthernetNTEGESyncProbeCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,40,1,5),_EthernetNTEGESyncProbeCardVoltage_Type())
-ethernetNTEGESyncProbeCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGESyncProbeCardVoltage.setStatus(_B)
-_EthernetNTEGESyncProbeCardTemperature_Type=Integer32
-_EthernetNTEGESyncProbeCardTemperature_Object=MibTableColumn
-ethernetNTEGESyncProbeCardTemperature=_EthernetNTEGESyncProbeCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,40,1,6),_EthernetNTEGESyncProbeCardTemperature_Type())
-ethernetNTEGESyncProbeCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGESyncProbeCardTemperature.setStatus(_B)
-_EthernetNTEGESyncProbeCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGESyncProbeCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGESyncProbeCardSnmpDyingGaspEnabled=_EthernetNTEGESyncProbeCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,40,1,7),_EthernetNTEGESyncProbeCardSnmpDyingGaspEnabled_Type())
-ethernetNTEGESyncProbeCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGESyncProbeCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGESyncProbeCardRestartAction_Type=RestartType
-_EthernetNTEGESyncProbeCardRestartAction_Object=MibTableColumn
-ethernetNTEGESyncProbeCardRestartAction=_EthernetNTEGESyncProbeCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,40,1,8),_EthernetNTEGESyncProbeCardRestartAction_Type())
-ethernetNTEGESyncProbeCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGESyncProbeCardRestartAction.setStatus(_B)
-_EthernetNTEGESyncProbeCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGESyncProbeCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGESyncProbeCardFineGrainedPmInterval=_EthernetNTEGESyncProbeCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,40,1,9),_EthernetNTEGESyncProbeCardFineGrainedPmInterval_Type())
-ethernetNTEGESyncProbeCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGESyncProbeCardFineGrainedPmInterval.setStatus(_B)
-_EthernetGE8SCCCardTable_Object=MibTable
-ethernetGE8SCCCardTable=_EthernetGE8SCCCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,41))
-if mibBuilder.loadTexts:ethernetGE8SCCCardTable.setStatus(_B)
-_EthernetGE8SCCCardEntry_Object=MibTableRow
-ethernetGE8SCCCardEntry=_EthernetGE8SCCCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,41,1))
-ethernetGE8SCCCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetGE8SCCCardEntry.setStatus(_B)
-_EthernetGE8SCCCardEntityIndex_Type=PhysicalIndex
-_EthernetGE8SCCCardEntityIndex_Object=MibTableColumn
-ethernetGE8SCCCardEntityIndex=_EthernetGE8SCCCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,41,1,1),_EthernetGE8SCCCardEntityIndex_Type())
-ethernetGE8SCCCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE8SCCCardEntityIndex.setStatus(_B)
-_EthernetGE8SCCCardAdminState_Type=AdminState
-_EthernetGE8SCCCardAdminState_Object=MibTableColumn
-ethernetGE8SCCCardAdminState=_EthernetGE8SCCCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,41,1,2),_EthernetGE8SCCCardAdminState_Type())
-ethernetGE8SCCCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetGE8SCCCardAdminState.setStatus(_B)
-_EthernetGE8SCCCardOperationalState_Type=OperationalState
-_EthernetGE8SCCCardOperationalState_Object=MibTableColumn
-ethernetGE8SCCCardOperationalState=_EthernetGE8SCCCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,41,1,3),_EthernetGE8SCCCardOperationalState_Type())
-ethernetGE8SCCCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE8SCCCardOperationalState.setStatus(_B)
-_EthernetGE8SCCCardSecondaryState_Type=SecondaryState
-_EthernetGE8SCCCardSecondaryState_Object=MibTableColumn
-ethernetGE8SCCCardSecondaryState=_EthernetGE8SCCCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,41,1,4),_EthernetGE8SCCCardSecondaryState_Type())
-ethernetGE8SCCCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE8SCCCardSecondaryState.setStatus(_B)
-_EthernetGE8SCCCardVoltage_Type=Integer32
-_EthernetGE8SCCCardVoltage_Object=MibTableColumn
-ethernetGE8SCCCardVoltage=_EthernetGE8SCCCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,41,1,5),_EthernetGE8SCCCardVoltage_Type())
-ethernetGE8SCCCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE8SCCCardVoltage.setStatus(_B)
-_EthernetGE8SCCCardTemperature_Type=Integer32
-_EthernetGE8SCCCardTemperature_Object=MibTableColumn
-ethernetGE8SCCCardTemperature=_EthernetGE8SCCCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,41,1,6),_EthernetGE8SCCCardTemperature_Type())
-ethernetGE8SCCCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE8SCCCardTemperature.setStatus(_B)
-_EthernetGE8SCCCardRestartAction_Type=RestartType
-_EthernetGE8SCCCardRestartAction_Object=MibTableColumn
-ethernetGE8SCCCardRestartAction=_EthernetGE8SCCCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,41,1,7),_EthernetGE8SCCCardRestartAction_Type())
-ethernetGE8SCCCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetGE8SCCCardRestartAction.setStatus(_B)
-_EthernetGE8SCCCardStorageType_Type=StorageType
-_EthernetGE8SCCCardStorageType_Object=MibTableColumn
-ethernetGE8SCCCardStorageType=_EthernetGE8SCCCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,41,1,8),_EthernetGE8SCCCardStorageType_Type())
-ethernetGE8SCCCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetGE8SCCCardStorageType.setStatus(_B)
-_EthernetGE8SCCCardRowStatus_Type=RowStatus
-_EthernetGE8SCCCardRowStatus_Object=MibTableColumn
-ethernetGE8SCCCardRowStatus=_EthernetGE8SCCCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,41,1,9),_EthernetGE8SCCCardRowStatus_Type())
-ethernetGE8SCCCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetGE8SCCCardRowStatus.setStatus(_B)
-_EthernetNTEGE114HCardTable_Object=MibTable
-ethernetNTEGE114HCardTable=_EthernetNTEGE114HCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,42))
-if mibBuilder.loadTexts:ethernetNTEGE114HCardTable.setStatus(_B)
-_EthernetNTEGE114HCardEntry_Object=MibTableRow
-ethernetNTEGE114HCardEntry=_EthernetNTEGE114HCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,42,1))
-ethernetNTEGE114HCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE114HCardEntry.setStatus(_B)
-_EthernetNTEGE114HCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE114HCardEntityIndex_Object=MibTableColumn
-ethernetNTEGE114HCardEntityIndex=_EthernetNTEGE114HCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,42,1,1),_EthernetNTEGE114HCardEntityIndex_Type())
-ethernetNTEGE114HCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114HCardEntityIndex.setStatus(_B)
-_EthernetNTEGE114HCardAdminState_Type=AdminState
-_EthernetNTEGE114HCardAdminState_Object=MibTableColumn
-ethernetNTEGE114HCardAdminState=_EthernetNTEGE114HCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,42,1,2),_EthernetNTEGE114HCardAdminState_Type())
-ethernetNTEGE114HCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114HCardAdminState.setStatus(_B)
-_EthernetNTEGE114HCardOperationalState_Type=OperationalState
-_EthernetNTEGE114HCardOperationalState_Object=MibTableColumn
-ethernetNTEGE114HCardOperationalState=_EthernetNTEGE114HCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,42,1,3),_EthernetNTEGE114HCardOperationalState_Type())
-ethernetNTEGE114HCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114HCardOperationalState.setStatus(_B)
-_EthernetNTEGE114HCardSecondaryState_Type=SecondaryState
-_EthernetNTEGE114HCardSecondaryState_Object=MibTableColumn
-ethernetNTEGE114HCardSecondaryState=_EthernetNTEGE114HCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,42,1,4),_EthernetNTEGE114HCardSecondaryState_Type())
-ethernetNTEGE114HCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114HCardSecondaryState.setStatus(_B)
-_EthernetNTEGE114HCardVoltage_Type=Integer32
-_EthernetNTEGE114HCardVoltage_Object=MibTableColumn
-ethernetNTEGE114HCardVoltage=_EthernetNTEGE114HCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,42,1,5),_EthernetNTEGE114HCardVoltage_Type())
-ethernetNTEGE114HCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114HCardVoltage.setStatus(_B)
-_EthernetNTEGE114HCardTemperature_Type=Integer32
-_EthernetNTEGE114HCardTemperature_Object=MibTableColumn
-ethernetNTEGE114HCardTemperature=_EthernetNTEGE114HCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,42,1,6),_EthernetNTEGE114HCardTemperature_Type())
-ethernetNTEGE114HCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114HCardTemperature.setStatus(_B)
-_EthernetNTEGE114HCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE114HCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE114HCardSnmpDyingGaspEnabled=_EthernetNTEGE114HCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,42,1,7),_EthernetNTEGE114HCardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE114HCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114HCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE114HCardRestartAction_Type=RestartType
-_EthernetNTEGE114HCardRestartAction_Object=MibTableColumn
-ethernetNTEGE114HCardRestartAction=_EthernetNTEGE114HCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,42,1,8),_EthernetNTEGE114HCardRestartAction_Type())
-ethernetNTEGE114HCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114HCardRestartAction.setStatus(_B)
-_EthernetNTEGE114HCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE114HCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE114HCardFineGrainedPmInterval=_EthernetNTEGE114HCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,42,1,9),_EthernetNTEGE114HCardFineGrainedPmInterval_Type())
-ethernetNTEGE114HCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114HCardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE114HCardSwitchPortActionPort_Type=VariablePointer
-_EthernetNTEGE114HCardSwitchPortActionPort_Object=MibTableColumn
-ethernetNTEGE114HCardSwitchPortActionPort=_EthernetNTEGE114HCardSwitchPortActionPort_Object((1,3,6,1,4,1,2544,1,12,3,1,42,1,10),_EthernetNTEGE114HCardSwitchPortActionPort_Type())
-ethernetNTEGE114HCardSwitchPortActionPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTEGE114HCardSwitchPortActionPort.setStatus(_B)
-_EthernetNTEGE114HCardSwitchPortAction_Type=SwitchPortAction
-_EthernetNTEGE114HCardSwitchPortAction_Object=MibTableColumn
-ethernetNTEGE114HCardSwitchPortAction=_EthernetNTEGE114HCardSwitchPortAction_Object((1,3,6,1,4,1,2544,1,12,3,1,42,1,11),_EthernetNTEGE114HCardSwitchPortAction_Type())
-ethernetNTEGE114HCardSwitchPortAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114HCardSwitchPortAction.setStatus(_B)
-_EthernetNTEGE114PHCardTable_Object=MibTable
-ethernetNTEGE114PHCardTable=_EthernetNTEGE114PHCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,43))
-if mibBuilder.loadTexts:ethernetNTEGE114PHCardTable.setStatus(_B)
-_EthernetNTEGE114PHCardEntry_Object=MibTableRow
-ethernetNTEGE114PHCardEntry=_EthernetNTEGE114PHCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,43,1))
-ethernetNTEGE114PHCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE114PHCardEntry.setStatus(_B)
-_EthernetNTEGE114PHCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE114PHCardEntityIndex_Object=MibTableColumn
-ethernetNTEGE114PHCardEntityIndex=_EthernetNTEGE114PHCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,43,1,1),_EthernetNTEGE114PHCardEntityIndex_Type())
-ethernetNTEGE114PHCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114PHCardEntityIndex.setStatus(_B)
-_EthernetNTEGE114PHCardAdminState_Type=AdminState
-_EthernetNTEGE114PHCardAdminState_Object=MibTableColumn
-ethernetNTEGE114PHCardAdminState=_EthernetNTEGE114PHCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,43,1,2),_EthernetNTEGE114PHCardAdminState_Type())
-ethernetNTEGE114PHCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114PHCardAdminState.setStatus(_B)
-_EthernetNTEGE114PHCardOperationalState_Type=OperationalState
-_EthernetNTEGE114PHCardOperationalState_Object=MibTableColumn
-ethernetNTEGE114PHCardOperationalState=_EthernetNTEGE114PHCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,43,1,3),_EthernetNTEGE114PHCardOperationalState_Type())
-ethernetNTEGE114PHCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114PHCardOperationalState.setStatus(_B)
-_EthernetNTEGE114PHCardSecondaryState_Type=SecondaryState
-_EthernetNTEGE114PHCardSecondaryState_Object=MibTableColumn
-ethernetNTEGE114PHCardSecondaryState=_EthernetNTEGE114PHCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,43,1,4),_EthernetNTEGE114PHCardSecondaryState_Type())
-ethernetNTEGE114PHCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114PHCardSecondaryState.setStatus(_B)
-_EthernetNTEGE114PHCardVoltage_Type=Integer32
-_EthernetNTEGE114PHCardVoltage_Object=MibTableColumn
-ethernetNTEGE114PHCardVoltage=_EthernetNTEGE114PHCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,43,1,5),_EthernetNTEGE114PHCardVoltage_Type())
-ethernetNTEGE114PHCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114PHCardVoltage.setStatus(_B)
-_EthernetNTEGE114PHCardTemperature_Type=Integer32
-_EthernetNTEGE114PHCardTemperature_Object=MibTableColumn
-ethernetNTEGE114PHCardTemperature=_EthernetNTEGE114PHCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,43,1,6),_EthernetNTEGE114PHCardTemperature_Type())
-ethernetNTEGE114PHCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114PHCardTemperature.setStatus(_B)
-_EthernetNTEGE114PHCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE114PHCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE114PHCardSnmpDyingGaspEnabled=_EthernetNTEGE114PHCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,43,1,7),_EthernetNTEGE114PHCardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE114PHCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114PHCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE114PHCardRestartAction_Type=RestartType
-_EthernetNTEGE114PHCardRestartAction_Object=MibTableColumn
-ethernetNTEGE114PHCardRestartAction=_EthernetNTEGE114PHCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,43,1,8),_EthernetNTEGE114PHCardRestartAction_Type())
-ethernetNTEGE114PHCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114PHCardRestartAction.setStatus(_B)
-_EthernetNTEGE114PHCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE114PHCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE114PHCardFineGrainedPmInterval=_EthernetNTEGE114PHCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,43,1,9),_EthernetNTEGE114PHCardFineGrainedPmInterval_Type())
-ethernetNTEGE114PHCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114PHCardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE114PHCardSwitchPortActionPort_Type=VariablePointer
-_EthernetNTEGE114PHCardSwitchPortActionPort_Object=MibTableColumn
-ethernetNTEGE114PHCardSwitchPortActionPort=_EthernetNTEGE114PHCardSwitchPortActionPort_Object((1,3,6,1,4,1,2544,1,12,3,1,43,1,10),_EthernetNTEGE114PHCardSwitchPortActionPort_Type())
-ethernetNTEGE114PHCardSwitchPortActionPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTEGE114PHCardSwitchPortActionPort.setStatus(_B)
-_EthernetNTEGE114PHCardSwitchPortAction_Type=SwitchPortAction
-_EthernetNTEGE114PHCardSwitchPortAction_Object=MibTableColumn
-ethernetNTEGE114PHCardSwitchPortAction=_EthernetNTEGE114PHCardSwitchPortAction_Object((1,3,6,1,4,1,2544,1,12,3,1,43,1,11),_EthernetNTEGE114PHCardSwitchPortAction_Type())
-ethernetNTEGE114PHCardSwitchPortAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114PHCardSwitchPortAction.setStatus(_B)
-_EthernetFE36ECardTable_Object=MibTable
-ethernetFE36ECardTable=_EthernetFE36ECardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,44))
-if mibBuilder.loadTexts:ethernetFE36ECardTable.setStatus(_B)
-_EthernetFE36ECardEntry_Object=MibTableRow
-ethernetFE36ECardEntry=_EthernetFE36ECardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,44,1))
-ethernetFE36ECardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetFE36ECardEntry.setStatus(_B)
-_EthernetFE36ECardEntityIndex_Type=PhysicalIndex
-_EthernetFE36ECardEntityIndex_Object=MibTableColumn
-ethernetFE36ECardEntityIndex=_EthernetFE36ECardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,44,1,1),_EthernetFE36ECardEntityIndex_Type())
-ethernetFE36ECardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetFE36ECardEntityIndex.setStatus(_B)
-_EthernetFE36ECardAdminState_Type=AdminState
-_EthernetFE36ECardAdminState_Object=MibTableColumn
-ethernetFE36ECardAdminState=_EthernetFE36ECardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,44,1,2),_EthernetFE36ECardAdminState_Type())
-ethernetFE36ECardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetFE36ECardAdminState.setStatus(_B)
-_EthernetFE36ECardOperationalState_Type=OperationalState
-_EthernetFE36ECardOperationalState_Object=MibTableColumn
-ethernetFE36ECardOperationalState=_EthernetFE36ECardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,44,1,3),_EthernetFE36ECardOperationalState_Type())
-ethernetFE36ECardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetFE36ECardOperationalState.setStatus(_B)
-_EthernetFE36ECardSecondaryState_Type=SecondaryState
-_EthernetFE36ECardSecondaryState_Object=MibTableColumn
-ethernetFE36ECardSecondaryState=_EthernetFE36ECardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,44,1,4),_EthernetFE36ECardSecondaryState_Type())
-ethernetFE36ECardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetFE36ECardSecondaryState.setStatus(_B)
-_EthernetFE36ECardTemperature_Type=Integer32
-_EthernetFE36ECardTemperature_Object=MibTableColumn
-ethernetFE36ECardTemperature=_EthernetFE36ECardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,44,1,5),_EthernetFE36ECardTemperature_Type())
-ethernetFE36ECardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetFE36ECardTemperature.setStatus(_B)
-_EthernetFE36ECardRestartAction_Type=RestartType
-_EthernetFE36ECardRestartAction_Object=MibTableColumn
-ethernetFE36ECardRestartAction=_EthernetFE36ECardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,44,1,6),_EthernetFE36ECardRestartAction_Type())
-ethernetFE36ECardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetFE36ECardRestartAction.setStatus(_B)
-_EthernetFE36ECardStorageType_Type=StorageType
-_EthernetFE36ECardStorageType_Object=MibTableColumn
-ethernetFE36ECardStorageType=_EthernetFE36ECardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,44,1,7),_EthernetFE36ECardStorageType_Type())
-ethernetFE36ECardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetFE36ECardStorageType.setStatus(_B)
-_EthernetFE36ECardRowStatus_Type=RowStatus
-_EthernetFE36ECardRowStatus_Object=MibTableColumn
-ethernetFE36ECardRowStatus=_EthernetFE36ECardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,44,1,8),_EthernetFE36ECardRowStatus_Type())
-ethernetFE36ECardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetFE36ECardRowStatus.setStatus(_B)
-_EthernetFE36ECardForceOffLineAction_Type=TruthValue
-_EthernetFE36ECardForceOffLineAction_Object=MibTableColumn
-ethernetFE36ECardForceOffLineAction=_EthernetFE36ECardForceOffLineAction_Object((1,3,6,1,4,1,2544,1,12,3,1,44,1,9),_EthernetFE36ECardForceOffLineAction_Type())
-ethernetFE36ECardForceOffLineAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetFE36ECardForceOffLineAction.setStatus(_B)
-_EthernetFE36ECard8023azEnabled_Type=TruthValue
-_EthernetFE36ECard8023azEnabled_Object=MibTableColumn
-ethernetFE36ECard8023azEnabled=_EthernetFE36ECard8023azEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,44,1,10),_EthernetFE36ECard8023azEnabled_Type())
-ethernetFE36ECard8023azEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetFE36ECard8023azEnabled.setStatus(_B)
-_EthernetNTEGE114SHCardTable_Object=MibTable
-ethernetNTEGE114SHCardTable=_EthernetNTEGE114SHCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,45))
-if mibBuilder.loadTexts:ethernetNTEGE114SHCardTable.setStatus(_B)
-_EthernetNTEGE114SHCardEntry_Object=MibTableRow
-ethernetNTEGE114SHCardEntry=_EthernetNTEGE114SHCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,45,1))
-ethernetNTEGE114SHCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE114SHCardEntry.setStatus(_B)
-_EthernetNTEGE114SHCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE114SHCardEntityIndex_Object=MibTableColumn
-ethernetNTEGE114SHCardEntityIndex=_EthernetNTEGE114SHCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,45,1,1),_EthernetNTEGE114SHCardEntityIndex_Type())
-ethernetNTEGE114SHCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114SHCardEntityIndex.setStatus(_B)
-_EthernetNTEGE114SHCardAdminState_Type=AdminState
-_EthernetNTEGE114SHCardAdminState_Object=MibTableColumn
-ethernetNTEGE114SHCardAdminState=_EthernetNTEGE114SHCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,45,1,2),_EthernetNTEGE114SHCardAdminState_Type())
-ethernetNTEGE114SHCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114SHCardAdminState.setStatus(_B)
-_EthernetNTEGE114SHCardOperationalState_Type=OperationalState
-_EthernetNTEGE114SHCardOperationalState_Object=MibTableColumn
-ethernetNTEGE114SHCardOperationalState=_EthernetNTEGE114SHCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,45,1,3),_EthernetNTEGE114SHCardOperationalState_Type())
-ethernetNTEGE114SHCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114SHCardOperationalState.setStatus(_B)
-_EthernetNTEGE114SHCardSecondaryState_Type=SecondaryState
-_EthernetNTEGE114SHCardSecondaryState_Object=MibTableColumn
-ethernetNTEGE114SHCardSecondaryState=_EthernetNTEGE114SHCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,45,1,4),_EthernetNTEGE114SHCardSecondaryState_Type())
-ethernetNTEGE114SHCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114SHCardSecondaryState.setStatus(_B)
-_EthernetNTEGE114SHCardVoltage_Type=Integer32
-_EthernetNTEGE114SHCardVoltage_Object=MibTableColumn
-ethernetNTEGE114SHCardVoltage=_EthernetNTEGE114SHCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,45,1,5),_EthernetNTEGE114SHCardVoltage_Type())
-ethernetNTEGE114SHCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114SHCardVoltage.setStatus(_B)
-_EthernetNTEGE114SHCardTemperature_Type=Integer32
-_EthernetNTEGE114SHCardTemperature_Object=MibTableColumn
-ethernetNTEGE114SHCardTemperature=_EthernetNTEGE114SHCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,45,1,6),_EthernetNTEGE114SHCardTemperature_Type())
-ethernetNTEGE114SHCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114SHCardTemperature.setStatus(_B)
-_EthernetNTEGE114SHCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE114SHCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE114SHCardSnmpDyingGaspEnabled=_EthernetNTEGE114SHCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,45,1,7),_EthernetNTEGE114SHCardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE114SHCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114SHCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE114SHCardRestartAction_Type=RestartType
-_EthernetNTEGE114SHCardRestartAction_Object=MibTableColumn
-ethernetNTEGE114SHCardRestartAction=_EthernetNTEGE114SHCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,45,1,8),_EthernetNTEGE114SHCardRestartAction_Type())
-ethernetNTEGE114SHCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114SHCardRestartAction.setStatus(_B)
-_EthernetNTEGE114SHCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE114SHCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE114SHCardFineGrainedPmInterval=_EthernetNTEGE114SHCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,45,1,9),_EthernetNTEGE114SHCardFineGrainedPmInterval_Type())
-ethernetNTEGE114SHCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114SHCardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE114SHCardSwitchPortActionPort_Type=VariablePointer
-_EthernetNTEGE114SHCardSwitchPortActionPort_Object=MibTableColumn
-ethernetNTEGE114SHCardSwitchPortActionPort=_EthernetNTEGE114SHCardSwitchPortActionPort_Object((1,3,6,1,4,1,2544,1,12,3,1,45,1,10),_EthernetNTEGE114SHCardSwitchPortActionPort_Type())
-ethernetNTEGE114SHCardSwitchPortActionPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTEGE114SHCardSwitchPortActionPort.setStatus(_B)
-_EthernetNTEGE114SHCardSwitchPortAction_Type=SwitchPortAction
-_EthernetNTEGE114SHCardSwitchPortAction_Object=MibTableColumn
-ethernetNTEGE114SHCardSwitchPortAction=_EthernetNTEGE114SHCardSwitchPortAction_Object((1,3,6,1,4,1,2544,1,12,3,1,45,1,11),_EthernetNTEGE114SHCardSwitchPortAction_Type())
-ethernetNTEGE114SHCardSwitchPortAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114SHCardSwitchPortAction.setStatus(_B)
-_EthernetNTEGE114SCardTable_Object=MibTable
-ethernetNTEGE114SCardTable=_EthernetNTEGE114SCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,46))
-if mibBuilder.loadTexts:ethernetNTEGE114SCardTable.setStatus(_B)
-_EthernetNTEGE114SCardEntry_Object=MibTableRow
-ethernetNTEGE114SCardEntry=_EthernetNTEGE114SCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,46,1))
-ethernetNTEGE114SCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE114SCardEntry.setStatus(_B)
-_EthernetNTEGE114SCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE114SCardEntityIndex_Object=MibTableColumn
-ethernetNTEGE114SCardEntityIndex=_EthernetNTEGE114SCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,46,1,1),_EthernetNTEGE114SCardEntityIndex_Type())
-ethernetNTEGE114SCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114SCardEntityIndex.setStatus(_B)
-_EthernetNTEGE114SCardAdminState_Type=AdminState
-_EthernetNTEGE114SCardAdminState_Object=MibTableColumn
-ethernetNTEGE114SCardAdminState=_EthernetNTEGE114SCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,46,1,2),_EthernetNTEGE114SCardAdminState_Type())
-ethernetNTEGE114SCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114SCardAdminState.setStatus(_B)
-_EthernetNTEGE114SCardOperationalState_Type=OperationalState
-_EthernetNTEGE114SCardOperationalState_Object=MibTableColumn
-ethernetNTEGE114SCardOperationalState=_EthernetNTEGE114SCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,46,1,3),_EthernetNTEGE114SCardOperationalState_Type())
-ethernetNTEGE114SCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114SCardOperationalState.setStatus(_B)
-_EthernetNTEGE114SCardSecondaryState_Type=SecondaryState
-_EthernetNTEGE114SCardSecondaryState_Object=MibTableColumn
-ethernetNTEGE114SCardSecondaryState=_EthernetNTEGE114SCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,46,1,4),_EthernetNTEGE114SCardSecondaryState_Type())
-ethernetNTEGE114SCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114SCardSecondaryState.setStatus(_B)
-_EthernetNTEGE114SCardVoltage_Type=Integer32
-_EthernetNTEGE114SCardVoltage_Object=MibTableColumn
-ethernetNTEGE114SCardVoltage=_EthernetNTEGE114SCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,46,1,5),_EthernetNTEGE114SCardVoltage_Type())
-ethernetNTEGE114SCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114SCardVoltage.setStatus(_B)
-_EthernetNTEGE114SCardTemperature_Type=Integer32
-_EthernetNTEGE114SCardTemperature_Object=MibTableColumn
-ethernetNTEGE114SCardTemperature=_EthernetNTEGE114SCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,46,1,6),_EthernetNTEGE114SCardTemperature_Type())
-ethernetNTEGE114SCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114SCardTemperature.setStatus(_B)
-_EthernetNTEGE114SCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE114SCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE114SCardSnmpDyingGaspEnabled=_EthernetNTEGE114SCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,46,1,7),_EthernetNTEGE114SCardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE114SCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114SCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE114SCardRestartAction_Type=RestartType
-_EthernetNTEGE114SCardRestartAction_Object=MibTableColumn
-ethernetNTEGE114SCardRestartAction=_EthernetNTEGE114SCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,46,1,8),_EthernetNTEGE114SCardRestartAction_Type())
-ethernetNTEGE114SCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114SCardRestartAction.setStatus(_B)
-_EthernetNTEGE114SCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE114SCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE114SCardFineGrainedPmInterval=_EthernetNTEGE114SCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,46,1,9),_EthernetNTEGE114SCardFineGrainedPmInterval_Type())
-ethernetNTEGE114SCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114SCardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE114SCardSwitchPortActionPort_Type=VariablePointer
-_EthernetNTEGE114SCardSwitchPortActionPort_Object=MibTableColumn
-ethernetNTEGE114SCardSwitchPortActionPort=_EthernetNTEGE114SCardSwitchPortActionPort_Object((1,3,6,1,4,1,2544,1,12,3,1,46,1,10),_EthernetNTEGE114SCardSwitchPortActionPort_Type())
-ethernetNTEGE114SCardSwitchPortActionPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTEGE114SCardSwitchPortActionPort.setStatus(_B)
-_EthernetNTEGE114SCardSwitchPortAction_Type=SwitchPortAction
-_EthernetNTEGE114SCardSwitchPortAction_Object=MibTableColumn
-ethernetNTEGE114SCardSwitchPortAction=_EthernetNTEGE114SCardSwitchPortAction_Object((1,3,6,1,4,1,2544,1,12,3,1,46,1,11),_EthernetNTEGE114SCardSwitchPortAction_Type())
-ethernetNTEGE114SCardSwitchPortAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114SCardSwitchPortAction.setStatus(_B)
-_StuHighPerCardTable_Object=MibTable
-stuHighPerCardTable=_StuHighPerCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,47))
-if mibBuilder.loadTexts:stuHighPerCardTable.setStatus(_B)
-_StuHighPerCardEntry_Object=MibTableRow
-stuHighPerCardEntry=_StuHighPerCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,47,1))
-stuHighPerCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:stuHighPerCardEntry.setStatus(_B)
-_StuHighPerCardEntityIndex_Type=PhysicalIndex
-_StuHighPerCardEntityIndex_Object=MibTableColumn
-stuHighPerCardEntityIndex=_StuHighPerCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,47,1,1),_StuHighPerCardEntityIndex_Type())
-stuHighPerCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:stuHighPerCardEntityIndex.setStatus(_B)
-_StuHighPerCardAdminState_Type=AdminState
-_StuHighPerCardAdminState_Object=MibTableColumn
-stuHighPerCardAdminState=_StuHighPerCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,47,1,2),_StuHighPerCardAdminState_Type())
-stuHighPerCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:stuHighPerCardAdminState.setStatus(_B)
-_StuHighPerCardOperationalState_Type=OperationalState
-_StuHighPerCardOperationalState_Object=MibTableColumn
-stuHighPerCardOperationalState=_StuHighPerCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,47,1,3),_StuHighPerCardOperationalState_Type())
-stuHighPerCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:stuHighPerCardOperationalState.setStatus(_B)
-_StuHighPerCardSecondaryState_Type=SecondaryState
-_StuHighPerCardSecondaryState_Object=MibTableColumn
-stuHighPerCardSecondaryState=_StuHighPerCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,47,1,4),_StuHighPerCardSecondaryState_Type())
-stuHighPerCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:stuHighPerCardSecondaryState.setStatus(_B)
-_StuHighPerCardTemperature_Type=Integer32
-_StuHighPerCardTemperature_Object=MibTableColumn
-stuHighPerCardTemperature=_StuHighPerCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,47,1,5),_StuHighPerCardTemperature_Type())
-stuHighPerCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:stuHighPerCardTemperature.setStatus(_B)
-_StuHighPerCardRestartAction_Type=RestartType
-_StuHighPerCardRestartAction_Object=MibTableColumn
-stuHighPerCardRestartAction=_StuHighPerCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,47,1,6),_StuHighPerCardRestartAction_Type())
-stuHighPerCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:stuHighPerCardRestartAction.setStatus(_B)
-_StuHighPerCardStorageType_Type=StorageType
-_StuHighPerCardStorageType_Object=MibTableColumn
-stuHighPerCardStorageType=_StuHighPerCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,47,1,7),_StuHighPerCardStorageType_Type())
-stuHighPerCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:stuHighPerCardStorageType.setStatus(_B)
-_StuHighPerCardRowStatus_Type=RowStatus
-_StuHighPerCardRowStatus_Object=MibTableColumn
-stuHighPerCardRowStatus=_StuHighPerCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,47,1,8),_StuHighPerCardRowStatus_Type())
-stuHighPerCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:stuHighPerCardRowStatus.setStatus(_B)
-_StuHighPerCardForceOffLineAction_Type=TruthValue
-_StuHighPerCardForceOffLineAction_Object=MibTableColumn
-stuHighPerCardForceOffLineAction=_StuHighPerCardForceOffLineAction_Object((1,3,6,1,4,1,2544,1,12,3,1,47,1,9),_StuHighPerCardForceOffLineAction_Type())
-stuHighPerCardForceOffLineAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:stuHighPerCardForceOffLineAction.setStatus(_B)
-_StiHighPerTable_Object=MibTable
-stiHighPerTable=_StiHighPerTable_Object((1,3,6,1,4,1,2544,1,12,3,1,48))
-if mibBuilder.loadTexts:stiHighPerTable.setStatus(_B)
-_StiHighPerEntry_Object=MibTableRow
-stiHighPerEntry=_StiHighPerEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,48,1))
-stiHighPerEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:stiHighPerEntry.setStatus(_B)
-_StiHighPerEntityIndex_Type=PhysicalIndex
-_StiHighPerEntityIndex_Object=MibTableColumn
-stiHighPerEntityIndex=_StiHighPerEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,48,1,1),_StiHighPerEntityIndex_Type())
-stiHighPerEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:stiHighPerEntityIndex.setStatus(_B)
-_StiHighPerAdminState_Type=AdminState
-_StiHighPerAdminState_Object=MibTableColumn
-stiHighPerAdminState=_StiHighPerAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,48,1,2),_StiHighPerAdminState_Type())
-stiHighPerAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:stiHighPerAdminState.setStatus(_B)
-_StiHighPerOperationalState_Type=OperationalState
-_StiHighPerOperationalState_Object=MibTableColumn
-stiHighPerOperationalState=_StiHighPerOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,48,1,3),_StiHighPerOperationalState_Type())
-stiHighPerOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:stiHighPerOperationalState.setStatus(_B)
-_StiHighPerSecondaryState_Type=SecondaryState
-_StiHighPerSecondaryState_Object=MibTableColumn
-stiHighPerSecondaryState=_StiHighPerSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,48,1,4),_StiHighPerSecondaryState_Type())
-stiHighPerSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:stiHighPerSecondaryState.setStatus(_B)
-_StiHighPerTemperature_Type=Integer32
-_StiHighPerTemperature_Object=MibTableColumn
-stiHighPerTemperature=_StiHighPerTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,48,1,5),_StiHighPerTemperature_Type())
-stiHighPerTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:stiHighPerTemperature.setStatus(_B)
-_StiHighPerStorageType_Type=StorageType
-_StiHighPerStorageType_Object=MibTableColumn
-stiHighPerStorageType=_StiHighPerStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,48,1,6),_StiHighPerStorageType_Type())
-stiHighPerStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiHighPerStorageType.setStatus(_B)
-_StiHighPerRowStatus_Type=RowStatus
-_StiHighPerRowStatus_Object=MibTableColumn
-stiHighPerRowStatus=_StiHighPerRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,48,1,7),_StiHighPerRowStatus_Type())
-stiHighPerRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:stiHighPerRowStatus.setStatus(_B)
-_EthernetGE8ECCCardTable_Object=MibTable
-ethernetGE8ECCCardTable=_EthernetGE8ECCCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,49))
-if mibBuilder.loadTexts:ethernetGE8ECCCardTable.setStatus(_B)
-_EthernetGE8ECCCardEntry_Object=MibTableRow
-ethernetGE8ECCCardEntry=_EthernetGE8ECCCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,49,1))
-ethernetGE8ECCCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetGE8ECCCardEntry.setStatus(_B)
-_EthernetGE8ECCCardEntityIndex_Type=PhysicalIndex
-_EthernetGE8ECCCardEntityIndex_Object=MibTableColumn
-ethernetGE8ECCCardEntityIndex=_EthernetGE8ECCCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,49,1,1),_EthernetGE8ECCCardEntityIndex_Type())
-ethernetGE8ECCCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE8ECCCardEntityIndex.setStatus(_B)
-_EthernetGE8ECCCardAdminState_Type=AdminState
-_EthernetGE8ECCCardAdminState_Object=MibTableColumn
-ethernetGE8ECCCardAdminState=_EthernetGE8ECCCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,49,1,2),_EthernetGE8ECCCardAdminState_Type())
-ethernetGE8ECCCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetGE8ECCCardAdminState.setStatus(_B)
-_EthernetGE8ECCCardOperationalState_Type=OperationalState
-_EthernetGE8ECCCardOperationalState_Object=MibTableColumn
-ethernetGE8ECCCardOperationalState=_EthernetGE8ECCCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,49,1,3),_EthernetGE8ECCCardOperationalState_Type())
-ethernetGE8ECCCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE8ECCCardOperationalState.setStatus(_B)
-_EthernetGE8ECCCardSecondaryState_Type=SecondaryState
-_EthernetGE8ECCCardSecondaryState_Object=MibTableColumn
-ethernetGE8ECCCardSecondaryState=_EthernetGE8ECCCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,49,1,4),_EthernetGE8ECCCardSecondaryState_Type())
-ethernetGE8ECCCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE8ECCCardSecondaryState.setStatus(_B)
-_EthernetGE8ECCCardVoltage_Type=Integer32
-_EthernetGE8ECCCardVoltage_Object=MibTableColumn
-ethernetGE8ECCCardVoltage=_EthernetGE8ECCCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,49,1,5),_EthernetGE8ECCCardVoltage_Type())
-ethernetGE8ECCCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE8ECCCardVoltage.setStatus(_B)
-_EthernetGE8ECCCardTemperature_Type=Integer32
-_EthernetGE8ECCCardTemperature_Object=MibTableColumn
-ethernetGE8ECCCardTemperature=_EthernetGE8ECCCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,49,1,6),_EthernetGE8ECCCardTemperature_Type())
-ethernetGE8ECCCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE8ECCCardTemperature.setStatus(_B)
-_EthernetGE8ECCCardRestartAction_Type=RestartType
-_EthernetGE8ECCCardRestartAction_Object=MibTableColumn
-ethernetGE8ECCCardRestartAction=_EthernetGE8ECCCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,49,1,7),_EthernetGE8ECCCardRestartAction_Type())
-ethernetGE8ECCCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetGE8ECCCardRestartAction.setStatus(_B)
-_EthernetGE8ECCCardStorageType_Type=StorageType
-_EthernetGE8ECCCardStorageType_Object=MibTableColumn
-ethernetGE8ECCCardStorageType=_EthernetGE8ECCCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,49,1,8),_EthernetGE8ECCCardStorageType_Type())
-ethernetGE8ECCCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetGE8ECCCardStorageType.setStatus(_B)
-_EthernetGE8ECCCardRowStatus_Type=RowStatus
-_EthernetGE8ECCCardRowStatus_Object=MibTableColumn
-ethernetGE8ECCCardRowStatus=_EthernetGE8ECCCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,49,1,9),_EthernetGE8ECCCardRowStatus_Type())
-ethernetGE8ECCCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetGE8ECCCardRowStatus.setStatus(_B)
-_NetworkElementLLDPParamsTable_Object=MibTable
-networkElementLLDPParamsTable=_NetworkElementLLDPParamsTable_Object((1,3,6,1,4,1,2544,1,12,3,1,50))
-if mibBuilder.loadTexts:networkElementLLDPParamsTable.setStatus(_B)
-_NetworkElementLLDPParamsEntry_Object=MibTableRow
-networkElementLLDPParamsEntry=_NetworkElementLLDPParamsEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,50,1))
-if mibBuilder.loadTexts:networkElementLLDPParamsEntry.setStatus(_B)
-_NeLLDPParamsLLDPEnableAction_Type=LLDPEnableAction
-_NeLLDPParamsLLDPEnableAction_Object=MibTableColumn
-neLLDPParamsLLDPEnableAction=_NeLLDPParamsLLDPEnableAction_Object((1,3,6,1,4,1,2544,1,12,3,1,50,1,1),_NeLLDPParamsLLDPEnableAction_Type())
-neLLDPParamsLLDPEnableAction.setMaxAccess(_E)
-if mibBuilder.loadTexts:neLLDPParamsLLDPEnableAction.setStatus(_B)
-_EthernetNTESH1PCSCardTable_Object=MibTable
-ethernetNTESH1PCSCardTable=_EthernetNTESH1PCSCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,51))
-if mibBuilder.loadTexts:ethernetNTESH1PCSCardTable.setStatus(_B)
-_EthernetNTESH1PCSCardEntry_Object=MibTableRow
-ethernetNTESH1PCSCardEntry=_EthernetNTESH1PCSCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,51,1))
-ethernetNTESH1PCSCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTESH1PCSCardEntry.setStatus(_B)
-_EthernetNTESH1PCSCardEntityIndex_Type=PhysicalIndex
-_EthernetNTESH1PCSCardEntityIndex_Object=MibTableColumn
-ethernetNTESH1PCSCardEntityIndex=_EthernetNTESH1PCSCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,51,1,1),_EthernetNTESH1PCSCardEntityIndex_Type())
-ethernetNTESH1PCSCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTESH1PCSCardEntityIndex.setStatus(_B)
-_EthernetNTESH1PCSCardAdminState_Type=AdminState
-_EthernetNTESH1PCSCardAdminState_Object=MibTableColumn
-ethernetNTESH1PCSCardAdminState=_EthernetNTESH1PCSCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,51,1,2),_EthernetNTESH1PCSCardAdminState_Type())
-ethernetNTESH1PCSCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTESH1PCSCardAdminState.setStatus(_B)
-_EthernetNTESH1PCSCardOperationalState_Type=OperationalState
-_EthernetNTESH1PCSCardOperationalState_Object=MibTableColumn
-ethernetNTESH1PCSCardOperationalState=_EthernetNTESH1PCSCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,51,1,3),_EthernetNTESH1PCSCardOperationalState_Type())
-ethernetNTESH1PCSCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTESH1PCSCardOperationalState.setStatus(_B)
-_EthernetNTESH1PCSCardSecondaryState_Type=SecondaryState
-_EthernetNTESH1PCSCardSecondaryState_Object=MibTableColumn
-ethernetNTESH1PCSCardSecondaryState=_EthernetNTESH1PCSCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,51,1,4),_EthernetNTESH1PCSCardSecondaryState_Type())
-ethernetNTESH1PCSCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTESH1PCSCardSecondaryState.setStatus(_B)
-_EthernetNTESH1PCSCardVoltage_Type=Integer32
-_EthernetNTESH1PCSCardVoltage_Object=MibTableColumn
-ethernetNTESH1PCSCardVoltage=_EthernetNTESH1PCSCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,51,1,5),_EthernetNTESH1PCSCardVoltage_Type())
-ethernetNTESH1PCSCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTESH1PCSCardVoltage.setStatus(_B)
-_EthernetNTESH1PCSCardTemperature_Type=Integer32
-_EthernetNTESH1PCSCardTemperature_Object=MibTableColumn
-ethernetNTESH1PCSCardTemperature=_EthernetNTESH1PCSCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,51,1,6),_EthernetNTESH1PCSCardTemperature_Type())
-ethernetNTESH1PCSCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTESH1PCSCardTemperature.setStatus(_B)
-_EthernetNTESH1PCSCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTESH1PCSCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTESH1PCSCardSnmpDyingGaspEnabled=_EthernetNTESH1PCSCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,51,1,7),_EthernetNTESH1PCSCardSnmpDyingGaspEnabled_Type())
-ethernetNTESH1PCSCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTESH1PCSCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTESH1PCSCardRestartAction_Type=RestartType
-_EthernetNTESH1PCSCardRestartAction_Object=MibTableColumn
-ethernetNTESH1PCSCardRestartAction=_EthernetNTESH1PCSCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,51,1,8),_EthernetNTESH1PCSCardRestartAction_Type())
-ethernetNTESH1PCSCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTESH1PCSCardRestartAction.setStatus(_B)
-_EthernetNTESH1PCSCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTESH1PCSCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTESH1PCSCardFineGrainedPmInterval=_EthernetNTESH1PCSCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,51,1,9),_EthernetNTESH1PCSCardFineGrainedPmInterval_Type())
-ethernetNTESH1PCSCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTESH1PCSCardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEOSA5411CardTable_Object=MibTable
-ethernetNTEOSA5411CardTable=_EthernetNTEOSA5411CardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,52))
-if mibBuilder.loadTexts:ethernetNTEOSA5411CardTable.setStatus(_B)
-_EthernetNTEOSA5411CardEntry_Object=MibTableRow
-ethernetNTEOSA5411CardEntry=_EthernetNTEOSA5411CardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,52,1))
-ethernetNTEOSA5411CardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEOSA5411CardEntry.setStatus(_B)
-_EthernetNTEOSA5411CardEntityIndex_Type=PhysicalIndex
-_EthernetNTEOSA5411CardEntityIndex_Object=MibTableColumn
-ethernetNTEOSA5411CardEntityIndex=_EthernetNTEOSA5411CardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,52,1,1),_EthernetNTEOSA5411CardEntityIndex_Type())
-ethernetNTEOSA5411CardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEOSA5411CardEntityIndex.setStatus(_B)
-_EthernetNTEOSA5411CardAdminState_Type=AdminState
-_EthernetNTEOSA5411CardAdminState_Object=MibTableColumn
-ethernetNTEOSA5411CardAdminState=_EthernetNTEOSA5411CardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,52,1,2),_EthernetNTEOSA5411CardAdminState_Type())
-ethernetNTEOSA5411CardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEOSA5411CardAdminState.setStatus(_B)
-_EthernetNTEOSA5411CardOperationalState_Type=OperationalState
-_EthernetNTEOSA5411CardOperationalState_Object=MibTableColumn
-ethernetNTEOSA5411CardOperationalState=_EthernetNTEOSA5411CardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,52,1,3),_EthernetNTEOSA5411CardOperationalState_Type())
-ethernetNTEOSA5411CardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEOSA5411CardOperationalState.setStatus(_B)
-_EthernetNTEOSA5411CardSecondaryState_Type=SecondaryState
-_EthernetNTEOSA5411CardSecondaryState_Object=MibTableColumn
-ethernetNTEOSA5411CardSecondaryState=_EthernetNTEOSA5411CardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,52,1,4),_EthernetNTEOSA5411CardSecondaryState_Type())
-ethernetNTEOSA5411CardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEOSA5411CardSecondaryState.setStatus(_B)
-_EthernetNTEOSA5411CardVoltage_Type=Integer32
-_EthernetNTEOSA5411CardVoltage_Object=MibTableColumn
-ethernetNTEOSA5411CardVoltage=_EthernetNTEOSA5411CardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,52,1,5),_EthernetNTEOSA5411CardVoltage_Type())
-ethernetNTEOSA5411CardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEOSA5411CardVoltage.setStatus(_B)
-_EthernetNTEOSA5411CardTemperature_Type=Integer32
-_EthernetNTEOSA5411CardTemperature_Object=MibTableColumn
-ethernetNTEOSA5411CardTemperature=_EthernetNTEOSA5411CardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,52,1,6),_EthernetNTEOSA5411CardTemperature_Type())
-ethernetNTEOSA5411CardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEOSA5411CardTemperature.setStatus(_B)
-_EthernetNTEOSA5411CardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEOSA5411CardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEOSA5411CardSnmpDyingGaspEnabled=_EthernetNTEOSA5411CardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,52,1,7),_EthernetNTEOSA5411CardSnmpDyingGaspEnabled_Type())
-ethernetNTEOSA5411CardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEOSA5411CardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEOSA5411CardRestartAction_Type=RestartType
-_EthernetNTEOSA5411CardRestartAction_Object=MibTableColumn
-ethernetNTEOSA5411CardRestartAction=_EthernetNTEOSA5411CardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,52,1,8),_EthernetNTEOSA5411CardRestartAction_Type())
-ethernetNTEOSA5411CardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEOSA5411CardRestartAction.setStatus(_B)
-_EthernetNTEOSA5411CardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEOSA5411CardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEOSA5411CardFineGrainedPmInterval=_EthernetNTEOSA5411CardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,52,1,9),_EthernetNTEOSA5411CardFineGrainedPmInterval_Type())
-ethernetNTEOSA5411CardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEOSA5411CardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE112ProCardTable_Object=MibTable
-ethernetNTEGE112ProCardTable=_EthernetNTEGE112ProCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,53))
-if mibBuilder.loadTexts:ethernetNTEGE112ProCardTable.setStatus(_B)
-_EthernetNTEGE112ProCardEntry_Object=MibTableRow
-ethernetNTEGE112ProCardEntry=_EthernetNTEGE112ProCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,53,1))
-ethernetNTEGE112ProCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE112ProCardEntry.setStatus(_B)
-_EthernetNTEGE112ProCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE112ProCardEntityIndex_Object=MibTableColumn
-ethernetNTEGE112ProCardEntityIndex=_EthernetNTEGE112ProCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,53,1,1),_EthernetNTEGE112ProCardEntityIndex_Type())
-ethernetNTEGE112ProCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112ProCardEntityIndex.setStatus(_B)
-_EthernetNTEGE112ProCardAdminState_Type=AdminState
-_EthernetNTEGE112ProCardAdminState_Object=MibTableColumn
-ethernetNTEGE112ProCardAdminState=_EthernetNTEGE112ProCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,53,1,2),_EthernetNTEGE112ProCardAdminState_Type())
-ethernetNTEGE112ProCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112ProCardAdminState.setStatus(_B)
-_EthernetNTEGE112ProCardOperationalState_Type=OperationalState
-_EthernetNTEGE112ProCardOperationalState_Object=MibTableColumn
-ethernetNTEGE112ProCardOperationalState=_EthernetNTEGE112ProCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,53,1,3),_EthernetNTEGE112ProCardOperationalState_Type())
-ethernetNTEGE112ProCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112ProCardOperationalState.setStatus(_B)
-_EthernetNTEGE112ProCardSecondaryState_Type=SecondaryState
-_EthernetNTEGE112ProCardSecondaryState_Object=MibTableColumn
-ethernetNTEGE112ProCardSecondaryState=_EthernetNTEGE112ProCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,53,1,4),_EthernetNTEGE112ProCardSecondaryState_Type())
-ethernetNTEGE112ProCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112ProCardSecondaryState.setStatus(_B)
-_EthernetNTEGE112ProCardVoltage_Type=Integer32
-_EthernetNTEGE112ProCardVoltage_Object=MibTableColumn
-ethernetNTEGE112ProCardVoltage=_EthernetNTEGE112ProCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,53,1,5),_EthernetNTEGE112ProCardVoltage_Type())
-ethernetNTEGE112ProCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112ProCardVoltage.setStatus(_B)
-_EthernetNTEGE112ProCardTemperature_Type=Integer32
-_EthernetNTEGE112ProCardTemperature_Object=MibTableColumn
-ethernetNTEGE112ProCardTemperature=_EthernetNTEGE112ProCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,53,1,6),_EthernetNTEGE112ProCardTemperature_Type())
-ethernetNTEGE112ProCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112ProCardTemperature.setStatus(_B)
-_EthernetNTEGE112ProCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE112ProCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE112ProCardSnmpDyingGaspEnabled=_EthernetNTEGE112ProCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,53,1,7),_EthernetNTEGE112ProCardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE112ProCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112ProCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE112ProCardRestartAction_Type=RestartType
-_EthernetNTEGE112ProCardRestartAction_Object=MibTableColumn
-ethernetNTEGE112ProCardRestartAction=_EthernetNTEGE112ProCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,53,1,8),_EthernetNTEGE112ProCardRestartAction_Type())
-ethernetNTEGE112ProCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112ProCardRestartAction.setStatus(_B)
-_EthernetNTEGE112ProCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE112ProCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE112ProCardFineGrainedPmInterval=_EthernetNTEGE112ProCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,53,1,9),_EthernetNTEGE112ProCardFineGrainedPmInterval_Type())
-ethernetNTEGE112ProCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112ProCardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE112ProCardSwitchPortActionPort_Type=VariablePointer
-_EthernetNTEGE112ProCardSwitchPortActionPort_Object=MibTableColumn
-ethernetNTEGE112ProCardSwitchPortActionPort=_EthernetNTEGE112ProCardSwitchPortActionPort_Object((1,3,6,1,4,1,2544,1,12,3,1,53,1,10),_EthernetNTEGE112ProCardSwitchPortActionPort_Type())
-ethernetNTEGE112ProCardSwitchPortActionPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTEGE112ProCardSwitchPortActionPort.setStatus(_B)
-_EthernetNTEGE112ProCardSwitchPortAction_Type=SwitchPortAction
-_EthernetNTEGE112ProCardSwitchPortAction_Object=MibTableColumn
-ethernetNTEGE112ProCardSwitchPortAction=_EthernetNTEGE112ProCardSwitchPortAction_Object((1,3,6,1,4,1,2544,1,12,3,1,53,1,11),_EthernetNTEGE112ProCardSwitchPortAction_Type())
-ethernetNTEGE112ProCardSwitchPortAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112ProCardSwitchPortAction.setStatus(_B)
-_EthernetNTEGE112ProMCardTable_Object=MibTable
-ethernetNTEGE112ProMCardTable=_EthernetNTEGE112ProMCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,54))
-if mibBuilder.loadTexts:ethernetNTEGE112ProMCardTable.setStatus(_B)
-_EthernetNTEGE112ProMCardEntry_Object=MibTableRow
-ethernetNTEGE112ProMCardEntry=_EthernetNTEGE112ProMCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,54,1))
-ethernetNTEGE112ProMCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE112ProMCardEntry.setStatus(_B)
-_EthernetNTEGE112ProMCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE112ProMCardEntityIndex_Object=MibTableColumn
-ethernetNTEGE112ProMCardEntityIndex=_EthernetNTEGE112ProMCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,54,1,1),_EthernetNTEGE112ProMCardEntityIndex_Type())
-ethernetNTEGE112ProMCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112ProMCardEntityIndex.setStatus(_B)
-_EthernetNTEGE112ProMCardAdminState_Type=AdminState
-_EthernetNTEGE112ProMCardAdminState_Object=MibTableColumn
-ethernetNTEGE112ProMCardAdminState=_EthernetNTEGE112ProMCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,54,1,2),_EthernetNTEGE112ProMCardAdminState_Type())
-ethernetNTEGE112ProMCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112ProMCardAdminState.setStatus(_B)
-_EthernetNTEGE112ProMCardOperationalState_Type=OperationalState
-_EthernetNTEGE112ProMCardOperationalState_Object=MibTableColumn
-ethernetNTEGE112ProMCardOperationalState=_EthernetNTEGE112ProMCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,54,1,3),_EthernetNTEGE112ProMCardOperationalState_Type())
-ethernetNTEGE112ProMCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112ProMCardOperationalState.setStatus(_B)
-_EthernetNTEGE112ProMCardSecondaryState_Type=SecondaryState
-_EthernetNTEGE112ProMCardSecondaryState_Object=MibTableColumn
-ethernetNTEGE112ProMCardSecondaryState=_EthernetNTEGE112ProMCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,54,1,4),_EthernetNTEGE112ProMCardSecondaryState_Type())
-ethernetNTEGE112ProMCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112ProMCardSecondaryState.setStatus(_B)
-_EthernetNTEGE112ProMCardVoltage_Type=Integer32
-_EthernetNTEGE112ProMCardVoltage_Object=MibTableColumn
-ethernetNTEGE112ProMCardVoltage=_EthernetNTEGE112ProMCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,54,1,5),_EthernetNTEGE112ProMCardVoltage_Type())
-ethernetNTEGE112ProMCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112ProMCardVoltage.setStatus(_B)
-_EthernetNTEGE112ProMCardTemperature_Type=Integer32
-_EthernetNTEGE112ProMCardTemperature_Object=MibTableColumn
-ethernetNTEGE112ProMCardTemperature=_EthernetNTEGE112ProMCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,54,1,6),_EthernetNTEGE112ProMCardTemperature_Type())
-ethernetNTEGE112ProMCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112ProMCardTemperature.setStatus(_B)
-_EthernetNTEGE112ProMCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE112ProMCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE112ProMCardSnmpDyingGaspEnabled=_EthernetNTEGE112ProMCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,54,1,7),_EthernetNTEGE112ProMCardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE112ProMCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112ProMCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE112ProMCardRestartAction_Type=RestartType
-_EthernetNTEGE112ProMCardRestartAction_Object=MibTableColumn
-ethernetNTEGE112ProMCardRestartAction=_EthernetNTEGE112ProMCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,54,1,8),_EthernetNTEGE112ProMCardRestartAction_Type())
-ethernetNTEGE112ProMCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112ProMCardRestartAction.setStatus(_B)
-_EthernetNTEGE112ProMCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE112ProMCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE112ProMCardFineGrainedPmInterval=_EthernetNTEGE112ProMCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,54,1,9),_EthernetNTEGE112ProMCardFineGrainedPmInterval_Type())
-ethernetNTEGE112ProMCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112ProMCardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE112ProMCardSwitchPortActionPort_Type=VariablePointer
-_EthernetNTEGE112ProMCardSwitchPortActionPort_Object=MibTableColumn
-ethernetNTEGE112ProMCardSwitchPortActionPort=_EthernetNTEGE112ProMCardSwitchPortActionPort_Object((1,3,6,1,4,1,2544,1,12,3,1,54,1,10),_EthernetNTEGE112ProMCardSwitchPortActionPort_Type())
-ethernetNTEGE112ProMCardSwitchPortActionPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTEGE112ProMCardSwitchPortActionPort.setStatus(_B)
-_EthernetNTEGE112ProMCardSwitchPortAction_Type=SwitchPortAction
-_EthernetNTEGE112ProMCardSwitchPortAction_Object=MibTableColumn
-ethernetNTEGE112ProMCardSwitchPortAction=_EthernetNTEGE112ProMCardSwitchPortAction_Object((1,3,6,1,4,1,2544,1,12,3,1,54,1,11),_EthernetNTEGE112ProMCardSwitchPortAction_Type())
-ethernetNTEGE112ProMCardSwitchPortAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112ProMCardSwitchPortAction.setStatus(_B)
-_EthernetNTEXG210CCardTable_Object=MibTable
-ethernetNTEXG210CCardTable=_EthernetNTEXG210CCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,55))
-if mibBuilder.loadTexts:ethernetNTEXG210CCardTable.setStatus(_B)
-_EthernetNTEXG210CCardEntry_Object=MibTableRow
-ethernetNTEXG210CCardEntry=_EthernetNTEXG210CCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,55,1))
-ethernetNTEXG210CCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEXG210CCardEntry.setStatus(_B)
-_EthernetNTEXG210CCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEXG210CCardEntityIndex_Object=MibTableColumn
-ethernetNTEXG210CCardEntityIndex=_EthernetNTEXG210CCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,55,1,1),_EthernetNTEXG210CCardEntityIndex_Type())
-ethernetNTEXG210CCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEXG210CCardEntityIndex.setStatus(_B)
-_EthernetNTEXG210CCardAdminState_Type=AdminState
-_EthernetNTEXG210CCardAdminState_Object=MibTableColumn
-ethernetNTEXG210CCardAdminState=_EthernetNTEXG210CCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,55,1,2),_EthernetNTEXG210CCardAdminState_Type())
-ethernetNTEXG210CCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEXG210CCardAdminState.setStatus(_B)
-_EthernetNTEXG210CCardOperationalState_Type=OperationalState
-_EthernetNTEXG210CCardOperationalState_Object=MibTableColumn
-ethernetNTEXG210CCardOperationalState=_EthernetNTEXG210CCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,55,1,3),_EthernetNTEXG210CCardOperationalState_Type())
-ethernetNTEXG210CCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEXG210CCardOperationalState.setStatus(_B)
-_EthernetNTEXG210CCardSecondaryState_Type=SecondaryState
-_EthernetNTEXG210CCardSecondaryState_Object=MibTableColumn
-ethernetNTEXG210CCardSecondaryState=_EthernetNTEXG210CCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,55,1,4),_EthernetNTEXG210CCardSecondaryState_Type())
-ethernetNTEXG210CCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEXG210CCardSecondaryState.setStatus(_B)
-_EthernetNTEXG210CCardVoltage_Type=Integer32
-_EthernetNTEXG210CCardVoltage_Object=MibTableColumn
-ethernetNTEXG210CCardVoltage=_EthernetNTEXG210CCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,55,1,5),_EthernetNTEXG210CCardVoltage_Type())
-ethernetNTEXG210CCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEXG210CCardVoltage.setStatus(_B)
-_EthernetNTEXG210CCardTemperature_Type=Integer32
-_EthernetNTEXG210CCardTemperature_Object=MibTableColumn
-ethernetNTEXG210CCardTemperature=_EthernetNTEXG210CCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,55,1,6),_EthernetNTEXG210CCardTemperature_Type())
-ethernetNTEXG210CCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEXG210CCardTemperature.setStatus(_B)
-_EthernetNTEXG210CCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEXG210CCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEXG210CCardSnmpDyingGaspEnabled=_EthernetNTEXG210CCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,55,1,7),_EthernetNTEXG210CCardSnmpDyingGaspEnabled_Type())
-ethernetNTEXG210CCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEXG210CCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEXG210CCardRestartAction_Type=RestartType
-_EthernetNTEXG210CCardRestartAction_Object=MibTableColumn
-ethernetNTEXG210CCardRestartAction=_EthernetNTEXG210CCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,55,1,8),_EthernetNTEXG210CCardRestartAction_Type())
-ethernetNTEXG210CCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEXG210CCardRestartAction.setStatus(_B)
-_EthernetNTEXG210CCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEXG210CCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEXG210CCardFineGrainedPmInterval=_EthernetNTEXG210CCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,55,1,9),_EthernetNTEXG210CCardFineGrainedPmInterval_Type())
-ethernetNTEXG210CCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEXG210CCardFineGrainedPmInterval.setStatus(_B)
-_EthernetGE8SCryptoConnectorCardTable_Object=MibTable
-ethernetGE8SCryptoConnectorCardTable=_EthernetGE8SCryptoConnectorCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,56))
-if mibBuilder.loadTexts:ethernetGE8SCryptoConnectorCardTable.setStatus(_B)
-_EthernetGE8SCryptoConnectorCardEntry_Object=MibTableRow
-ethernetGE8SCryptoConnectorCardEntry=_EthernetGE8SCryptoConnectorCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,56,1))
-ethernetGE8SCryptoConnectorCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetGE8SCryptoConnectorCardEntry.setStatus(_B)
-_EthernetGE8SCryptoConnectorCardEntityIndex_Type=PhysicalIndex
-_EthernetGE8SCryptoConnectorCardEntityIndex_Object=MibTableColumn
-ethernetGE8SCryptoConnectorCardEntityIndex=_EthernetGE8SCryptoConnectorCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,56,1,1),_EthernetGE8SCryptoConnectorCardEntityIndex_Type())
-ethernetGE8SCryptoConnectorCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE8SCryptoConnectorCardEntityIndex.setStatus(_B)
-_EthernetGE8SCryptoConnectorCardAdminState_Type=AdminState
-_EthernetGE8SCryptoConnectorCardAdminState_Object=MibTableColumn
-ethernetGE8SCryptoConnectorCardAdminState=_EthernetGE8SCryptoConnectorCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,56,1,2),_EthernetGE8SCryptoConnectorCardAdminState_Type())
-ethernetGE8SCryptoConnectorCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetGE8SCryptoConnectorCardAdminState.setStatus(_B)
-_EthernetGE8SCryptoConnectorCardOperationalState_Type=OperationalState
-_EthernetGE8SCryptoConnectorCardOperationalState_Object=MibTableColumn
-ethernetGE8SCryptoConnectorCardOperationalState=_EthernetGE8SCryptoConnectorCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,56,1,3),_EthernetGE8SCryptoConnectorCardOperationalState_Type())
-ethernetGE8SCryptoConnectorCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE8SCryptoConnectorCardOperationalState.setStatus(_B)
-_EthernetGE8SCryptoConnectorCardSecondaryState_Type=SecondaryState
-_EthernetGE8SCryptoConnectorCardSecondaryState_Object=MibTableColumn
-ethernetGE8SCryptoConnectorCardSecondaryState=_EthernetGE8SCryptoConnectorCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,56,1,4),_EthernetGE8SCryptoConnectorCardSecondaryState_Type())
-ethernetGE8SCryptoConnectorCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE8SCryptoConnectorCardSecondaryState.setStatus(_B)
-_EthernetGE8SCryptoConnectorCardVoltage_Type=Integer32
-_EthernetGE8SCryptoConnectorCardVoltage_Object=MibTableColumn
-ethernetGE8SCryptoConnectorCardVoltage=_EthernetGE8SCryptoConnectorCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,56,1,5),_EthernetGE8SCryptoConnectorCardVoltage_Type())
-ethernetGE8SCryptoConnectorCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE8SCryptoConnectorCardVoltage.setStatus(_B)
-_EthernetGE8SCryptoConnectorCardTemperature_Type=Integer32
-_EthernetGE8SCryptoConnectorCardTemperature_Object=MibTableColumn
-ethernetGE8SCryptoConnectorCardTemperature=_EthernetGE8SCryptoConnectorCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,56,1,6),_EthernetGE8SCryptoConnectorCardTemperature_Type())
-ethernetGE8SCryptoConnectorCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetGE8SCryptoConnectorCardTemperature.setStatus(_B)
-_EthernetGE8SCryptoConnectorCardRestartAction_Type=RestartType
-_EthernetGE8SCryptoConnectorCardRestartAction_Object=MibTableColumn
-ethernetGE8SCryptoConnectorCardRestartAction=_EthernetGE8SCryptoConnectorCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,56,1,7),_EthernetGE8SCryptoConnectorCardRestartAction_Type())
-ethernetGE8SCryptoConnectorCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetGE8SCryptoConnectorCardRestartAction.setStatus(_B)
-_EthernetGE8SCryptoConnectorCardStorageType_Type=StorageType
-_EthernetGE8SCryptoConnectorCardStorageType_Object=MibTableColumn
-ethernetGE8SCryptoConnectorCardStorageType=_EthernetGE8SCryptoConnectorCardStorageType_Object((1,3,6,1,4,1,2544,1,12,3,1,56,1,8),_EthernetGE8SCryptoConnectorCardStorageType_Type())
-ethernetGE8SCryptoConnectorCardStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetGE8SCryptoConnectorCardStorageType.setStatus(_B)
-_EthernetGE8SCryptoConnectorCardRowStatus_Type=RowStatus
-_EthernetGE8SCryptoConnectorCardRowStatus_Object=MibTableColumn
-ethernetGE8SCryptoConnectorCardRowStatus=_EthernetGE8SCryptoConnectorCardRowStatus_Object((1,3,6,1,4,1,2544,1,12,3,1,56,1,9),_EthernetGE8SCryptoConnectorCardRowStatus_Type())
-ethernetGE8SCryptoConnectorCardRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetGE8SCryptoConnectorCardRowStatus.setStatus(_B)
-_EthernetNTEGE114ProCardTable_Object=MibTable
-ethernetNTEGE114ProCardTable=_EthernetNTEGE114ProCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,57))
-if mibBuilder.loadTexts:ethernetNTEGE114ProCardTable.setStatus(_B)
-_EthernetNTEGE114ProCardEntry_Object=MibTableRow
-ethernetNTEGE114ProCardEntry=_EthernetNTEGE114ProCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,57,1))
-ethernetNTEGE114ProCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE114ProCardEntry.setStatus(_B)
-_EthernetNTEGE114ProCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE114ProCardEntityIndex_Object=MibTableColumn
-ethernetNTEGE114ProCardEntityIndex=_EthernetNTEGE114ProCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,57,1,1),_EthernetNTEGE114ProCardEntityIndex_Type())
-ethernetNTEGE114ProCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCardEntityIndex.setStatus(_B)
-_EthernetNTEGE114ProCardAdminState_Type=AdminState
-_EthernetNTEGE114ProCardAdminState_Object=MibTableColumn
-ethernetNTEGE114ProCardAdminState=_EthernetNTEGE114ProCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,57,1,2),_EthernetNTEGE114ProCardAdminState_Type())
-ethernetNTEGE114ProCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCardAdminState.setStatus(_B)
-_EthernetNTEGE114ProCardOperationalState_Type=OperationalState
-_EthernetNTEGE114ProCardOperationalState_Object=MibTableColumn
-ethernetNTEGE114ProCardOperationalState=_EthernetNTEGE114ProCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,57,1,3),_EthernetNTEGE114ProCardOperationalState_Type())
-ethernetNTEGE114ProCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCardOperationalState.setStatus(_B)
-_EthernetNTEGE114ProCardSecondaryState_Type=SecondaryState
-_EthernetNTEGE114ProCardSecondaryState_Object=MibTableColumn
-ethernetNTEGE114ProCardSecondaryState=_EthernetNTEGE114ProCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,57,1,4),_EthernetNTEGE114ProCardSecondaryState_Type())
-ethernetNTEGE114ProCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCardSecondaryState.setStatus(_B)
-_EthernetNTEGE114ProCardVoltage_Type=Integer32
-_EthernetNTEGE114ProCardVoltage_Object=MibTableColumn
-ethernetNTEGE114ProCardVoltage=_EthernetNTEGE114ProCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,57,1,5),_EthernetNTEGE114ProCardVoltage_Type())
-ethernetNTEGE114ProCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCardVoltage.setStatus(_B)
-_EthernetNTEGE114ProCardTemperature_Type=Integer32
-_EthernetNTEGE114ProCardTemperature_Object=MibTableColumn
-ethernetNTEGE114ProCardTemperature=_EthernetNTEGE114ProCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,57,1,6),_EthernetNTEGE114ProCardTemperature_Type())
-ethernetNTEGE114ProCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCardTemperature.setStatus(_B)
-_EthernetNTEGE114ProCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE114ProCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE114ProCardSnmpDyingGaspEnabled=_EthernetNTEGE114ProCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,57,1,7),_EthernetNTEGE114ProCardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE114ProCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE114ProCardRestartAction_Type=RestartType
-_EthernetNTEGE114ProCardRestartAction_Object=MibTableColumn
-ethernetNTEGE114ProCardRestartAction=_EthernetNTEGE114ProCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,57,1,8),_EthernetNTEGE114ProCardRestartAction_Type())
-ethernetNTEGE114ProCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCardRestartAction.setStatus(_B)
-_EthernetNTEGE114ProCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE114ProCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE114ProCardFineGrainedPmInterval=_EthernetNTEGE114ProCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,57,1,9),_EthernetNTEGE114ProCardFineGrainedPmInterval_Type())
-ethernetNTEGE114ProCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE114ProCardSwitchPortActionPort_Type=VariablePointer
-_EthernetNTEGE114ProCardSwitchPortActionPort_Object=MibTableColumn
-ethernetNTEGE114ProCardSwitchPortActionPort=_EthernetNTEGE114ProCardSwitchPortActionPort_Object((1,3,6,1,4,1,2544,1,12,3,1,57,1,10),_EthernetNTEGE114ProCardSwitchPortActionPort_Type())
-ethernetNTEGE114ProCardSwitchPortActionPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCardSwitchPortActionPort.setStatus(_B)
-_EthernetNTEGE114ProCardSwitchPortAction_Type=SwitchPortAction
-_EthernetNTEGE114ProCardSwitchPortAction_Object=MibTableColumn
-ethernetNTEGE114ProCardSwitchPortAction=_EthernetNTEGE114ProCardSwitchPortAction_Object((1,3,6,1,4,1,2544,1,12,3,1,57,1,11),_EthernetNTEGE114ProCardSwitchPortAction_Type())
-ethernetNTEGE114ProCardSwitchPortAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCardSwitchPortAction.setStatus(_B)
-_EthernetNTEGE114ProCCardTable_Object=MibTable
-ethernetNTEGE114ProCCardTable=_EthernetNTEGE114ProCCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,58))
-if mibBuilder.loadTexts:ethernetNTEGE114ProCCardTable.setStatus(_B)
-_EthernetNTEGE114ProCCardEntry_Object=MibTableRow
-ethernetNTEGE114ProCCardEntry=_EthernetNTEGE114ProCCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,58,1))
-ethernetNTEGE114ProCCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE114ProCCardEntry.setStatus(_B)
-_EthernetNTEGE114ProCCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE114ProCCardEntityIndex_Object=MibTableColumn
-ethernetNTEGE114ProCCardEntityIndex=_EthernetNTEGE114ProCCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,58,1,1),_EthernetNTEGE114ProCCardEntityIndex_Type())
-ethernetNTEGE114ProCCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCCardEntityIndex.setStatus(_B)
-_EthernetNTEGE114ProCCardAdminState_Type=AdminState
-_EthernetNTEGE114ProCCardAdminState_Object=MibTableColumn
-ethernetNTEGE114ProCCardAdminState=_EthernetNTEGE114ProCCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,58,1,2),_EthernetNTEGE114ProCCardAdminState_Type())
-ethernetNTEGE114ProCCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCCardAdminState.setStatus(_B)
-_EthernetNTEGE114ProCCardOperationalState_Type=OperationalState
-_EthernetNTEGE114ProCCardOperationalState_Object=MibTableColumn
-ethernetNTEGE114ProCCardOperationalState=_EthernetNTEGE114ProCCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,58,1,3),_EthernetNTEGE114ProCCardOperationalState_Type())
-ethernetNTEGE114ProCCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCCardOperationalState.setStatus(_B)
-_EthernetNTEGE114ProCCardSecondaryState_Type=SecondaryState
-_EthernetNTEGE114ProCCardSecondaryState_Object=MibTableColumn
-ethernetNTEGE114ProCCardSecondaryState=_EthernetNTEGE114ProCCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,58,1,4),_EthernetNTEGE114ProCCardSecondaryState_Type())
-ethernetNTEGE114ProCCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCCardSecondaryState.setStatus(_B)
-_EthernetNTEGE114ProCCardVoltage_Type=Integer32
-_EthernetNTEGE114ProCCardVoltage_Object=MibTableColumn
-ethernetNTEGE114ProCCardVoltage=_EthernetNTEGE114ProCCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,58,1,5),_EthernetNTEGE114ProCCardVoltage_Type())
-ethernetNTEGE114ProCCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCCardVoltage.setStatus(_B)
-_EthernetNTEGE114ProCCardTemperature_Type=Integer32
-_EthernetNTEGE114ProCCardTemperature_Object=MibTableColumn
-ethernetNTEGE114ProCCardTemperature=_EthernetNTEGE114ProCCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,58,1,6),_EthernetNTEGE114ProCCardTemperature_Type())
-ethernetNTEGE114ProCCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCCardTemperature.setStatus(_B)
-_EthernetNTEGE114ProCCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE114ProCCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE114ProCCardSnmpDyingGaspEnabled=_EthernetNTEGE114ProCCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,58,1,7),_EthernetNTEGE114ProCCardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE114ProCCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE114ProCCardRestartAction_Type=RestartType
-_EthernetNTEGE114ProCCardRestartAction_Object=MibTableColumn
-ethernetNTEGE114ProCCardRestartAction=_EthernetNTEGE114ProCCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,58,1,8),_EthernetNTEGE114ProCCardRestartAction_Type())
-ethernetNTEGE114ProCCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCCardRestartAction.setStatus(_B)
-_EthernetNTEGE114ProCCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE114ProCCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE114ProCCardFineGrainedPmInterval=_EthernetNTEGE114ProCCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,58,1,9),_EthernetNTEGE114ProCCardFineGrainedPmInterval_Type())
-ethernetNTEGE114ProCCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCCardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE114ProCCardSwitchPortActionPort_Type=VariablePointer
-_EthernetNTEGE114ProCCardSwitchPortActionPort_Object=MibTableColumn
-ethernetNTEGE114ProCCardSwitchPortActionPort=_EthernetNTEGE114ProCCardSwitchPortActionPort_Object((1,3,6,1,4,1,2544,1,12,3,1,58,1,10),_EthernetNTEGE114ProCCardSwitchPortActionPort_Type())
-ethernetNTEGE114ProCCardSwitchPortActionPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCCardSwitchPortActionPort.setStatus(_B)
-_EthernetNTEGE114ProCCardSwitchPortAction_Type=SwitchPortAction
-_EthernetNTEGE114ProCCardSwitchPortAction_Object=MibTableColumn
-ethernetNTEGE114ProCCardSwitchPortAction=_EthernetNTEGE114ProCCardSwitchPortAction_Object((1,3,6,1,4,1,2544,1,12,3,1,58,1,11),_EthernetNTEGE114ProCCardSwitchPortAction_Type())
-ethernetNTEGE114ProCCardSwitchPortAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCCardSwitchPortAction.setStatus(_B)
-_EthernetNTEGE114ProSHCardTable_Object=MibTable
-ethernetNTEGE114ProSHCardTable=_EthernetNTEGE114ProSHCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,59))
-if mibBuilder.loadTexts:ethernetNTEGE114ProSHCardTable.setStatus(_B)
-_EthernetNTEGE114ProSHCardEntry_Object=MibTableRow
-ethernetNTEGE114ProSHCardEntry=_EthernetNTEGE114ProSHCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,59,1))
-ethernetNTEGE114ProSHCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE114ProSHCardEntry.setStatus(_B)
-_EthernetNTEGE114ProSHCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE114ProSHCardEntityIndex_Object=MibTableColumn
-ethernetNTEGE114ProSHCardEntityIndex=_EthernetNTEGE114ProSHCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,59,1,1),_EthernetNTEGE114ProSHCardEntityIndex_Type())
-ethernetNTEGE114ProSHCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProSHCardEntityIndex.setStatus(_B)
-_EthernetNTEGE114ProSHCardAdminState_Type=AdminState
-_EthernetNTEGE114ProSHCardAdminState_Object=MibTableColumn
-ethernetNTEGE114ProSHCardAdminState=_EthernetNTEGE114ProSHCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,59,1,2),_EthernetNTEGE114ProSHCardAdminState_Type())
-ethernetNTEGE114ProSHCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProSHCardAdminState.setStatus(_B)
-_EthernetNTEGE114ProSHCardOperationalState_Type=OperationalState
-_EthernetNTEGE114ProSHCardOperationalState_Object=MibTableColumn
-ethernetNTEGE114ProSHCardOperationalState=_EthernetNTEGE114ProSHCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,59,1,3),_EthernetNTEGE114ProSHCardOperationalState_Type())
-ethernetNTEGE114ProSHCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProSHCardOperationalState.setStatus(_B)
-_EthernetNTEGE114ProSHCardSecondaryState_Type=SecondaryState
-_EthernetNTEGE114ProSHCardSecondaryState_Object=MibTableColumn
-ethernetNTEGE114ProSHCardSecondaryState=_EthernetNTEGE114ProSHCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,59,1,4),_EthernetNTEGE114ProSHCardSecondaryState_Type())
-ethernetNTEGE114ProSHCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProSHCardSecondaryState.setStatus(_B)
-_EthernetNTEGE114ProSHCardVoltage_Type=Integer32
-_EthernetNTEGE114ProSHCardVoltage_Object=MibTableColumn
-ethernetNTEGE114ProSHCardVoltage=_EthernetNTEGE114ProSHCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,59,1,5),_EthernetNTEGE114ProSHCardVoltage_Type())
-ethernetNTEGE114ProSHCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProSHCardVoltage.setStatus(_B)
-_EthernetNTEGE114ProSHCardTemperature_Type=Integer32
-_EthernetNTEGE114ProSHCardTemperature_Object=MibTableColumn
-ethernetNTEGE114ProSHCardTemperature=_EthernetNTEGE114ProSHCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,59,1,6),_EthernetNTEGE114ProSHCardTemperature_Type())
-ethernetNTEGE114ProSHCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProSHCardTemperature.setStatus(_B)
-_EthernetNTEGE114ProSHCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE114ProSHCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE114ProSHCardSnmpDyingGaspEnabled=_EthernetNTEGE114ProSHCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,59,1,7),_EthernetNTEGE114ProSHCardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE114ProSHCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProSHCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE114ProSHCardRestartAction_Type=RestartType
-_EthernetNTEGE114ProSHCardRestartAction_Object=MibTableColumn
-ethernetNTEGE114ProSHCardRestartAction=_EthernetNTEGE114ProSHCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,59,1,8),_EthernetNTEGE114ProSHCardRestartAction_Type())
-ethernetNTEGE114ProSHCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProSHCardRestartAction.setStatus(_B)
-_EthernetNTEGE114ProSHCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE114ProSHCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE114ProSHCardFineGrainedPmInterval=_EthernetNTEGE114ProSHCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,59,1,9),_EthernetNTEGE114ProSHCardFineGrainedPmInterval_Type())
-ethernetNTEGE114ProSHCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProSHCardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE114ProSHCardSwitchPortActionPort_Type=VariablePointer
-_EthernetNTEGE114ProSHCardSwitchPortActionPort_Object=MibTableColumn
-ethernetNTEGE114ProSHCardSwitchPortActionPort=_EthernetNTEGE114ProSHCardSwitchPortActionPort_Object((1,3,6,1,4,1,2544,1,12,3,1,59,1,10),_EthernetNTEGE114ProSHCardSwitchPortActionPort_Type())
-ethernetNTEGE114ProSHCardSwitchPortActionPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTEGE114ProSHCardSwitchPortActionPort.setStatus(_B)
-_EthernetNTEGE114ProSHCardSwitchPortAction_Type=SwitchPortAction
-_EthernetNTEGE114ProSHCardSwitchPortAction_Object=MibTableColumn
-ethernetNTEGE114ProSHCardSwitchPortAction=_EthernetNTEGE114ProSHCardSwitchPortAction_Object((1,3,6,1,4,1,2544,1,12,3,1,59,1,11),_EthernetNTEGE114ProSHCardSwitchPortAction_Type())
-ethernetNTEGE114ProSHCardSwitchPortAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProSHCardSwitchPortAction.setStatus(_B)
-_EthernetNTEGE114ProCSHCardTable_Object=MibTable
-ethernetNTEGE114ProCSHCardTable=_EthernetNTEGE114ProCSHCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,60))
-if mibBuilder.loadTexts:ethernetNTEGE114ProCSHCardTable.setStatus(_B)
-_EthernetNTEGE114ProCSHCardEntry_Object=MibTableRow
-ethernetNTEGE114ProCSHCardEntry=_EthernetNTEGE114ProCSHCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,60,1))
-ethernetNTEGE114ProCSHCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE114ProCSHCardEntry.setStatus(_B)
-_EthernetNTEGE114ProCSHCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE114ProCSHCardEntityIndex_Object=MibTableColumn
-ethernetNTEGE114ProCSHCardEntityIndex=_EthernetNTEGE114ProCSHCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,60,1,1),_EthernetNTEGE114ProCSHCardEntityIndex_Type())
-ethernetNTEGE114ProCSHCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCSHCardEntityIndex.setStatus(_B)
-_EthernetNTEGE114ProCSHCardAdminState_Type=AdminState
-_EthernetNTEGE114ProCSHCardAdminState_Object=MibTableColumn
-ethernetNTEGE114ProCSHCardAdminState=_EthernetNTEGE114ProCSHCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,60,1,2),_EthernetNTEGE114ProCSHCardAdminState_Type())
-ethernetNTEGE114ProCSHCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCSHCardAdminState.setStatus(_B)
-_EthernetNTEGE114ProCSHCardOperationalState_Type=OperationalState
-_EthernetNTEGE114ProCSHCardOperationalState_Object=MibTableColumn
-ethernetNTEGE114ProCSHCardOperationalState=_EthernetNTEGE114ProCSHCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,60,1,3),_EthernetNTEGE114ProCSHCardOperationalState_Type())
-ethernetNTEGE114ProCSHCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCSHCardOperationalState.setStatus(_B)
-_EthernetNTEGE114ProCSHCardSecondaryState_Type=SecondaryState
-_EthernetNTEGE114ProCSHCardSecondaryState_Object=MibTableColumn
-ethernetNTEGE114ProCSHCardSecondaryState=_EthernetNTEGE114ProCSHCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,60,1,4),_EthernetNTEGE114ProCSHCardSecondaryState_Type())
-ethernetNTEGE114ProCSHCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCSHCardSecondaryState.setStatus(_B)
-_EthernetNTEGE114ProCSHCardVoltage_Type=Integer32
-_EthernetNTEGE114ProCSHCardVoltage_Object=MibTableColumn
-ethernetNTEGE114ProCSHCardVoltage=_EthernetNTEGE114ProCSHCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,60,1,5),_EthernetNTEGE114ProCSHCardVoltage_Type())
-ethernetNTEGE114ProCSHCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCSHCardVoltage.setStatus(_B)
-_EthernetNTEGE114ProCSHCardTemperature_Type=Integer32
-_EthernetNTEGE114ProCSHCardTemperature_Object=MibTableColumn
-ethernetNTEGE114ProCSHCardTemperature=_EthernetNTEGE114ProCSHCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,60,1,6),_EthernetNTEGE114ProCSHCardTemperature_Type())
-ethernetNTEGE114ProCSHCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCSHCardTemperature.setStatus(_B)
-_EthernetNTEGE114ProCSHCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE114ProCSHCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE114ProCSHCardSnmpDyingGaspEnabled=_EthernetNTEGE114ProCSHCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,60,1,7),_EthernetNTEGE114ProCSHCardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE114ProCSHCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCSHCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE114ProCSHCardRestartAction_Type=RestartType
-_EthernetNTEGE114ProCSHCardRestartAction_Object=MibTableColumn
-ethernetNTEGE114ProCSHCardRestartAction=_EthernetNTEGE114ProCSHCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,60,1,8),_EthernetNTEGE114ProCSHCardRestartAction_Type())
-ethernetNTEGE114ProCSHCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCSHCardRestartAction.setStatus(_B)
-_EthernetNTEGE114ProCSHCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE114ProCSHCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE114ProCSHCardFineGrainedPmInterval=_EthernetNTEGE114ProCSHCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,60,1,9),_EthernetNTEGE114ProCSHCardFineGrainedPmInterval_Type())
-ethernetNTEGE114ProCSHCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCSHCardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE114ProCSHCardSwitchPortActionPort_Type=VariablePointer
-_EthernetNTEGE114ProCSHCardSwitchPortActionPort_Object=MibTableColumn
-ethernetNTEGE114ProCSHCardSwitchPortActionPort=_EthernetNTEGE114ProCSHCardSwitchPortActionPort_Object((1,3,6,1,4,1,2544,1,12,3,1,60,1,10),_EthernetNTEGE114ProCSHCardSwitchPortActionPort_Type())
-ethernetNTEGE114ProCSHCardSwitchPortActionPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCSHCardSwitchPortActionPort.setStatus(_B)
-_EthernetNTEGE114ProCSHCardSwitchPortAction_Type=SwitchPortAction
-_EthernetNTEGE114ProCSHCardSwitchPortAction_Object=MibTableColumn
-ethernetNTEGE114ProCSHCardSwitchPortAction=_EthernetNTEGE114ProCSHCardSwitchPortAction_Object((1,3,6,1,4,1,2544,1,12,3,1,60,1,11),_EthernetNTEGE114ProCSHCardSwitchPortAction_Type())
-ethernetNTEGE114ProCSHCardSwitchPortAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProCSHCardSwitchPortAction.setStatus(_B)
-_EthernetNTEGE114ProHECardTable_Object=MibTable
-ethernetNTEGE114ProHECardTable=_EthernetNTEGE114ProHECardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,61))
-if mibBuilder.loadTexts:ethernetNTEGE114ProHECardTable.setStatus(_B)
-_EthernetNTEGE114ProHECardEntry_Object=MibTableRow
-ethernetNTEGE114ProHECardEntry=_EthernetNTEGE114ProHECardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,61,1))
-ethernetNTEGE114ProHECardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE114ProHECardEntry.setStatus(_B)
-_EthernetNTEGE114ProHECardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE114ProHECardEntityIndex_Object=MibTableColumn
-ethernetNTEGE114ProHECardEntityIndex=_EthernetNTEGE114ProHECardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,61,1,1),_EthernetNTEGE114ProHECardEntityIndex_Type())
-ethernetNTEGE114ProHECardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProHECardEntityIndex.setStatus(_B)
-_EthernetNTEGE114ProHECardAdminState_Type=AdminState
-_EthernetNTEGE114ProHECardAdminState_Object=MibTableColumn
-ethernetNTEGE114ProHECardAdminState=_EthernetNTEGE114ProHECardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,61,1,2),_EthernetNTEGE114ProHECardAdminState_Type())
-ethernetNTEGE114ProHECardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProHECardAdminState.setStatus(_B)
-_EthernetNTEGE114ProHECardOperationalState_Type=OperationalState
-_EthernetNTEGE114ProHECardOperationalState_Object=MibTableColumn
-ethernetNTEGE114ProHECardOperationalState=_EthernetNTEGE114ProHECardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,61,1,3),_EthernetNTEGE114ProHECardOperationalState_Type())
-ethernetNTEGE114ProHECardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProHECardOperationalState.setStatus(_B)
-_EthernetNTEGE114ProHECardSecondaryState_Type=SecondaryState
-_EthernetNTEGE114ProHECardSecondaryState_Object=MibTableColumn
-ethernetNTEGE114ProHECardSecondaryState=_EthernetNTEGE114ProHECardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,61,1,4),_EthernetNTEGE114ProHECardSecondaryState_Type())
-ethernetNTEGE114ProHECardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProHECardSecondaryState.setStatus(_B)
-_EthernetNTEGE114ProHECardVoltage_Type=Integer32
-_EthernetNTEGE114ProHECardVoltage_Object=MibTableColumn
-ethernetNTEGE114ProHECardVoltage=_EthernetNTEGE114ProHECardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,61,1,5),_EthernetNTEGE114ProHECardVoltage_Type())
-ethernetNTEGE114ProHECardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProHECardVoltage.setStatus(_B)
-_EthernetNTEGE114ProHECardTemperature_Type=Integer32
-_EthernetNTEGE114ProHECardTemperature_Object=MibTableColumn
-ethernetNTEGE114ProHECardTemperature=_EthernetNTEGE114ProHECardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,61,1,6),_EthernetNTEGE114ProHECardTemperature_Type())
-ethernetNTEGE114ProHECardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114ProHECardTemperature.setStatus(_B)
-_EthernetNTEGE114ProHECardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE114ProHECardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE114ProHECardSnmpDyingGaspEnabled=_EthernetNTEGE114ProHECardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,61,1,7),_EthernetNTEGE114ProHECardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE114ProHECardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProHECardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE114ProHECardRestartAction_Type=RestartType
-_EthernetNTEGE114ProHECardRestartAction_Object=MibTableColumn
-ethernetNTEGE114ProHECardRestartAction=_EthernetNTEGE114ProHECardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,61,1,8),_EthernetNTEGE114ProHECardRestartAction_Type())
-ethernetNTEGE114ProHECardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProHECardRestartAction.setStatus(_B)
-_EthernetNTEGE114ProHECardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE114ProHECardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE114ProHECardFineGrainedPmInterval=_EthernetNTEGE114ProHECardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,61,1,9),_EthernetNTEGE114ProHECardFineGrainedPmInterval_Type())
-ethernetNTEGE114ProHECardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProHECardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE114ProHECardSwitchPortActionPort_Type=VariablePointer
-_EthernetNTEGE114ProHECardSwitchPortActionPort_Object=MibTableColumn
-ethernetNTEGE114ProHECardSwitchPortActionPort=_EthernetNTEGE114ProHECardSwitchPortActionPort_Object((1,3,6,1,4,1,2544,1,12,3,1,61,1,10),_EthernetNTEGE114ProHECardSwitchPortActionPort_Type())
-ethernetNTEGE114ProHECardSwitchPortActionPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTEGE114ProHECardSwitchPortActionPort.setStatus(_B)
-_EthernetNTEGE114ProHECardSwitchPortAction_Type=SwitchPortAction
-_EthernetNTEGE114ProHECardSwitchPortAction_Object=MibTableColumn
-ethernetNTEGE114ProHECardSwitchPortAction=_EthernetNTEGE114ProHECardSwitchPortAction_Object((1,3,6,1,4,1,2544,1,12,3,1,61,1,11),_EthernetNTEGE114ProHECardSwitchPortAction_Type())
-ethernetNTEGE114ProHECardSwitchPortAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114ProHECardSwitchPortAction.setStatus(_B)
-_EthernetNTEGE112ProHCardTable_Object=MibTable
-ethernetNTEGE112ProHCardTable=_EthernetNTEGE112ProHCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,62))
-if mibBuilder.loadTexts:ethernetNTEGE112ProHCardTable.setStatus(_B)
-_EthernetNTEGE112ProHCardEntry_Object=MibTableRow
-ethernetNTEGE112ProHCardEntry=_EthernetNTEGE112ProHCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,62,1))
-ethernetNTEGE112ProHCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE112ProHCardEntry.setStatus(_B)
-_EthernetNTEGE112ProHCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE112ProHCardEntityIndex_Object=MibTableColumn
-ethernetNTEGE112ProHCardEntityIndex=_EthernetNTEGE112ProHCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,62,1,1),_EthernetNTEGE112ProHCardEntityIndex_Type())
-ethernetNTEGE112ProHCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112ProHCardEntityIndex.setStatus(_B)
-_EthernetNTEGE112ProHCardAdminState_Type=AdminState
-_EthernetNTEGE112ProHCardAdminState_Object=MibTableColumn
-ethernetNTEGE112ProHCardAdminState=_EthernetNTEGE112ProHCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,62,1,2),_EthernetNTEGE112ProHCardAdminState_Type())
-ethernetNTEGE112ProHCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112ProHCardAdminState.setStatus(_B)
-_EthernetNTEGE112ProHCardOperationalState_Type=OperationalState
-_EthernetNTEGE112ProHCardOperationalState_Object=MibTableColumn
-ethernetNTEGE112ProHCardOperationalState=_EthernetNTEGE112ProHCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,62,1,3),_EthernetNTEGE112ProHCardOperationalState_Type())
-ethernetNTEGE112ProHCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112ProHCardOperationalState.setStatus(_B)
-_EthernetNTEGE112ProHCardSecondaryState_Type=SecondaryState
-_EthernetNTEGE112ProHCardSecondaryState_Object=MibTableColumn
-ethernetNTEGE112ProHCardSecondaryState=_EthernetNTEGE112ProHCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,62,1,4),_EthernetNTEGE112ProHCardSecondaryState_Type())
-ethernetNTEGE112ProHCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112ProHCardSecondaryState.setStatus(_B)
-_EthernetNTEGE112ProHCardVoltage_Type=Integer32
-_EthernetNTEGE112ProHCardVoltage_Object=MibTableColumn
-ethernetNTEGE112ProHCardVoltage=_EthernetNTEGE112ProHCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,62,1,5),_EthernetNTEGE112ProHCardVoltage_Type())
-ethernetNTEGE112ProHCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112ProHCardVoltage.setStatus(_B)
-_EthernetNTEGE112ProHCardTemperature_Type=Integer32
-_EthernetNTEGE112ProHCardTemperature_Object=MibTableColumn
-ethernetNTEGE112ProHCardTemperature=_EthernetNTEGE112ProHCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,62,1,6),_EthernetNTEGE112ProHCardTemperature_Type())
-ethernetNTEGE112ProHCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE112ProHCardTemperature.setStatus(_B)
-_EthernetNTEGE112ProHCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE112ProHCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE112ProHCardSnmpDyingGaspEnabled=_EthernetNTEGE112ProHCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,62,1,7),_EthernetNTEGE112ProHCardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE112ProHCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112ProHCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE112ProHCardRestartAction_Type=RestartType
-_EthernetNTEGE112ProHCardRestartAction_Object=MibTableColumn
-ethernetNTEGE112ProHCardRestartAction=_EthernetNTEGE112ProHCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,62,1,8),_EthernetNTEGE112ProHCardRestartAction_Type())
-ethernetNTEGE112ProHCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112ProHCardRestartAction.setStatus(_B)
-_EthernetNTEGE112ProHCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE112ProHCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE112ProHCardFineGrainedPmInterval=_EthernetNTEGE112ProHCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,62,1,9),_EthernetNTEGE112ProHCardFineGrainedPmInterval_Type())
-ethernetNTEGE112ProHCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112ProHCardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE112ProHCardSwitchPortActionPort_Type=VariablePointer
-_EthernetNTEGE112ProHCardSwitchPortActionPort_Object=MibTableColumn
-ethernetNTEGE112ProHCardSwitchPortActionPort=_EthernetNTEGE112ProHCardSwitchPortActionPort_Object((1,3,6,1,4,1,2544,1,12,3,1,62,1,10),_EthernetNTEGE112ProHCardSwitchPortActionPort_Type())
-ethernetNTEGE112ProHCardSwitchPortActionPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTEGE112ProHCardSwitchPortActionPort.setStatus(_B)
-_EthernetNTEGE112ProHCardSwitchPortAction_Type=SwitchPortAction
-_EthernetNTEGE112ProHCardSwitchPortAction_Object=MibTableColumn
-ethernetNTEGE112ProHCardSwitchPortAction=_EthernetNTEGE112ProHCardSwitchPortAction_Object((1,3,6,1,4,1,2544,1,12,3,1,62,1,11),_EthernetNTEGE112ProHCardSwitchPortAction_Type())
-ethernetNTEGE112ProHCardSwitchPortAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE112ProHCardSwitchPortAction.setStatus(_B)
-_EthernetNTEOSA5420CardTable_Object=MibTable
-ethernetNTEOSA5420CardTable=_EthernetNTEOSA5420CardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,63))
-if mibBuilder.loadTexts:ethernetNTEOSA5420CardTable.setStatus(_B)
-_EthernetNTEOSA5420CardEntry_Object=MibTableRow
-ethernetNTEOSA5420CardEntry=_EthernetNTEOSA5420CardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,63,1))
-ethernetNTEOSA5420CardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEOSA5420CardEntry.setStatus(_B)
-_EthernetNTEOSA5420CardEntityIndex_Type=PhysicalIndex
-_EthernetNTEOSA5420CardEntityIndex_Object=MibTableColumn
-ethernetNTEOSA5420CardEntityIndex=_EthernetNTEOSA5420CardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,63,1,1),_EthernetNTEOSA5420CardEntityIndex_Type())
-ethernetNTEOSA5420CardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEOSA5420CardEntityIndex.setStatus(_B)
-_EthernetNTEOSA5420CardAdminState_Type=AdminState
-_EthernetNTEOSA5420CardAdminState_Object=MibTableColumn
-ethernetNTEOSA5420CardAdminState=_EthernetNTEOSA5420CardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,63,1,2),_EthernetNTEOSA5420CardAdminState_Type())
-ethernetNTEOSA5420CardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEOSA5420CardAdminState.setStatus(_B)
-_EthernetNTEOSA5420CardOperationalState_Type=OperationalState
-_EthernetNTEOSA5420CardOperationalState_Object=MibTableColumn
-ethernetNTEOSA5420CardOperationalState=_EthernetNTEOSA5420CardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,63,1,3),_EthernetNTEOSA5420CardOperationalState_Type())
-ethernetNTEOSA5420CardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEOSA5420CardOperationalState.setStatus(_B)
-_EthernetNTEOSA5420CardSecondaryState_Type=SecondaryState
-_EthernetNTEOSA5420CardSecondaryState_Object=MibTableColumn
-ethernetNTEOSA5420CardSecondaryState=_EthernetNTEOSA5420CardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,63,1,4),_EthernetNTEOSA5420CardSecondaryState_Type())
-ethernetNTEOSA5420CardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEOSA5420CardSecondaryState.setStatus(_B)
-_EthernetNTEOSA5420CardVoltage_Type=Integer32
-_EthernetNTEOSA5420CardVoltage_Object=MibTableColumn
-ethernetNTEOSA5420CardVoltage=_EthernetNTEOSA5420CardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,63,1,5),_EthernetNTEOSA5420CardVoltage_Type())
-ethernetNTEOSA5420CardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEOSA5420CardVoltage.setStatus(_B)
-_EthernetNTEOSA5420CardTemperature_Type=Integer32
-_EthernetNTEOSA5420CardTemperature_Object=MibTableColumn
-ethernetNTEOSA5420CardTemperature=_EthernetNTEOSA5420CardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,63,1,6),_EthernetNTEOSA5420CardTemperature_Type())
-ethernetNTEOSA5420CardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEOSA5420CardTemperature.setStatus(_B)
-_EthernetNTEOSA5420CardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEOSA5420CardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEOSA5420CardSnmpDyingGaspEnabled=_EthernetNTEOSA5420CardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,63,1,7),_EthernetNTEOSA5420CardSnmpDyingGaspEnabled_Type())
-ethernetNTEOSA5420CardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEOSA5420CardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEOSA5420CardRestartAction_Type=RestartType
-_EthernetNTEOSA5420CardRestartAction_Object=MibTableColumn
-ethernetNTEOSA5420CardRestartAction=_EthernetNTEOSA5420CardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,63,1,8),_EthernetNTEOSA5420CardRestartAction_Type())
-ethernetNTEOSA5420CardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEOSA5420CardRestartAction.setStatus(_B)
-_EthernetNTEOSA5420CardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEOSA5420CardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEOSA5420CardFineGrainedPmInterval=_EthernetNTEOSA5420CardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,63,1,9),_EthernetNTEOSA5420CardFineGrainedPmInterval_Type())
-ethernetNTEOSA5420CardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEOSA5420CardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEOSA5421CardTable_Object=MibTable
-ethernetNTEOSA5421CardTable=_EthernetNTEOSA5421CardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,64))
-if mibBuilder.loadTexts:ethernetNTEOSA5421CardTable.setStatus(_B)
-_EthernetNTEOSA5421CardEntry_Object=MibTableRow
-ethernetNTEOSA5421CardEntry=_EthernetNTEOSA5421CardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,64,1))
-ethernetNTEOSA5421CardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEOSA5421CardEntry.setStatus(_B)
-_EthernetNTEOSA5421CardEntityIndex_Type=PhysicalIndex
-_EthernetNTEOSA5421CardEntityIndex_Object=MibTableColumn
-ethernetNTEOSA5421CardEntityIndex=_EthernetNTEOSA5421CardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,64,1,1),_EthernetNTEOSA5421CardEntityIndex_Type())
-ethernetNTEOSA5421CardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEOSA5421CardEntityIndex.setStatus(_B)
-_EthernetNTEOSA5421CardAdminState_Type=AdminState
-_EthernetNTEOSA5421CardAdminState_Object=MibTableColumn
-ethernetNTEOSA5421CardAdminState=_EthernetNTEOSA5421CardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,64,1,2),_EthernetNTEOSA5421CardAdminState_Type())
-ethernetNTEOSA5421CardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEOSA5421CardAdminState.setStatus(_B)
-_EthernetNTEOSA5421CardOperationalState_Type=OperationalState
-_EthernetNTEOSA5421CardOperationalState_Object=MibTableColumn
-ethernetNTEOSA5421CardOperationalState=_EthernetNTEOSA5421CardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,64,1,3),_EthernetNTEOSA5421CardOperationalState_Type())
-ethernetNTEOSA5421CardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEOSA5421CardOperationalState.setStatus(_B)
-_EthernetNTEOSA5421CardSecondaryState_Type=SecondaryState
-_EthernetNTEOSA5421CardSecondaryState_Object=MibTableColumn
-ethernetNTEOSA5421CardSecondaryState=_EthernetNTEOSA5421CardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,64,1,4),_EthernetNTEOSA5421CardSecondaryState_Type())
-ethernetNTEOSA5421CardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEOSA5421CardSecondaryState.setStatus(_B)
-_EthernetNTEOSA5421CardVoltage_Type=Integer32
-_EthernetNTEOSA5421CardVoltage_Object=MibTableColumn
-ethernetNTEOSA5421CardVoltage=_EthernetNTEOSA5421CardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,64,1,5),_EthernetNTEOSA5421CardVoltage_Type())
-ethernetNTEOSA5421CardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEOSA5421CardVoltage.setStatus(_B)
-_EthernetNTEOSA5421CardTemperature_Type=Integer32
-_EthernetNTEOSA5421CardTemperature_Object=MibTableColumn
-ethernetNTEOSA5421CardTemperature=_EthernetNTEOSA5421CardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,64,1,6),_EthernetNTEOSA5421CardTemperature_Type())
-ethernetNTEOSA5421CardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEOSA5421CardTemperature.setStatus(_B)
-_EthernetNTEOSA5421CardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEOSA5421CardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEOSA5421CardSnmpDyingGaspEnabled=_EthernetNTEOSA5421CardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,64,1,7),_EthernetNTEOSA5421CardSnmpDyingGaspEnabled_Type())
-ethernetNTEOSA5421CardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEOSA5421CardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEOSA5421CardRestartAction_Type=RestartType
-_EthernetNTEOSA5421CardRestartAction_Object=MibTableColumn
-ethernetNTEOSA5421CardRestartAction=_EthernetNTEOSA5421CardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,64,1,8),_EthernetNTEOSA5421CardRestartAction_Type())
-ethernetNTEOSA5421CardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEOSA5421CardRestartAction.setStatus(_B)
-_EthernetNTEOSA5421CardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEOSA5421CardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEOSA5421CardFineGrainedPmInterval=_EthernetNTEOSA5421CardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,64,1,9),_EthernetNTEOSA5421CardFineGrainedPmInterval_Type())
-ethernetNTEOSA5421CardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEOSA5421CardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE114GCardTable_Object=MibTable
-ethernetNTEGE114GCardTable=_EthernetNTEGE114GCardTable_Object((1,3,6,1,4,1,2544,1,12,3,1,65))
-if mibBuilder.loadTexts:ethernetNTEGE114GCardTable.setStatus(_B)
-_EthernetNTEGE114GCardEntry_Object=MibTableRow
-ethernetNTEGE114GCardEntry=_EthernetNTEGE114GCardEntry_Object((1,3,6,1,4,1,2544,1,12,3,1,65,1))
-ethernetNTEGE114GCardEntry.setIndexNames((0,_A,_F),(0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:ethernetNTEGE114GCardEntry.setStatus(_B)
-_EthernetNTEGE114GCardEntityIndex_Type=PhysicalIndex
-_EthernetNTEGE114GCardEntityIndex_Object=MibTableColumn
-ethernetNTEGE114GCardEntityIndex=_EthernetNTEGE114GCardEntityIndex_Object((1,3,6,1,4,1,2544,1,12,3,1,65,1,1),_EthernetNTEGE114GCardEntityIndex_Type())
-ethernetNTEGE114GCardEntityIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114GCardEntityIndex.setStatus(_B)
-_EthernetNTEGE114GCardAdminState_Type=AdminState
-_EthernetNTEGE114GCardAdminState_Object=MibTableColumn
-ethernetNTEGE114GCardAdminState=_EthernetNTEGE114GCardAdminState_Object((1,3,6,1,4,1,2544,1,12,3,1,65,1,2),_EthernetNTEGE114GCardAdminState_Type())
-ethernetNTEGE114GCardAdminState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114GCardAdminState.setStatus(_B)
-_EthernetNTEGE114GCardOperationalState_Type=OperationalState
-_EthernetNTEGE114GCardOperationalState_Object=MibTableColumn
-ethernetNTEGE114GCardOperationalState=_EthernetNTEGE114GCardOperationalState_Object((1,3,6,1,4,1,2544,1,12,3,1,65,1,3),_EthernetNTEGE114GCardOperationalState_Type())
-ethernetNTEGE114GCardOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114GCardOperationalState.setStatus(_B)
-_EthernetNTEGE114GCardSecondaryState_Type=SecondaryState
-_EthernetNTEGE114GCardSecondaryState_Object=MibTableColumn
-ethernetNTEGE114GCardSecondaryState=_EthernetNTEGE114GCardSecondaryState_Object((1,3,6,1,4,1,2544,1,12,3,1,65,1,4),_EthernetNTEGE114GCardSecondaryState_Type())
-ethernetNTEGE114GCardSecondaryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114GCardSecondaryState.setStatus(_B)
-_EthernetNTEGE114GCardVoltage_Type=Integer32
-_EthernetNTEGE114GCardVoltage_Object=MibTableColumn
-ethernetNTEGE114GCardVoltage=_EthernetNTEGE114GCardVoltage_Object((1,3,6,1,4,1,2544,1,12,3,1,65,1,5),_EthernetNTEGE114GCardVoltage_Type())
-ethernetNTEGE114GCardVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114GCardVoltage.setStatus(_B)
-_EthernetNTEGE114GCardTemperature_Type=Integer32
-_EthernetNTEGE114GCardTemperature_Object=MibTableColumn
-ethernetNTEGE114GCardTemperature=_EthernetNTEGE114GCardTemperature_Object((1,3,6,1,4,1,2544,1,12,3,1,65,1,6),_EthernetNTEGE114GCardTemperature_Type())
-ethernetNTEGE114GCardTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethernetNTEGE114GCardTemperature.setStatus(_B)
-_EthernetNTEGE114GCardSnmpDyingGaspEnabled_Type=TruthValue
-_EthernetNTEGE114GCardSnmpDyingGaspEnabled_Object=MibTableColumn
-ethernetNTEGE114GCardSnmpDyingGaspEnabled=_EthernetNTEGE114GCardSnmpDyingGaspEnabled_Object((1,3,6,1,4,1,2544,1,12,3,1,65,1,7),_EthernetNTEGE114GCardSnmpDyingGaspEnabled_Type())
-ethernetNTEGE114GCardSnmpDyingGaspEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114GCardSnmpDyingGaspEnabled.setStatus(_B)
-_EthernetNTEGE114GCardRestartAction_Type=RestartType
-_EthernetNTEGE114GCardRestartAction_Object=MibTableColumn
-ethernetNTEGE114GCardRestartAction=_EthernetNTEGE114GCardRestartAction_Object((1,3,6,1,4,1,2544,1,12,3,1,65,1,8),_EthernetNTEGE114GCardRestartAction_Type())
-ethernetNTEGE114GCardRestartAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114GCardRestartAction.setStatus(_B)
-_EthernetNTEGE114GCardFineGrainedPmInterval_Type=CmPmIntervalType
-_EthernetNTEGE114GCardFineGrainedPmInterval_Object=MibTableColumn
-ethernetNTEGE114GCardFineGrainedPmInterval=_EthernetNTEGE114GCardFineGrainedPmInterval_Object((1,3,6,1,4,1,2544,1,12,3,1,65,1,9),_EthernetNTEGE114GCardFineGrainedPmInterval_Type())
-ethernetNTEGE114GCardFineGrainedPmInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114GCardFineGrainedPmInterval.setStatus(_B)
-_EthernetNTEGE114GCardSwitchPortActionPort_Type=VariablePointer
-_EthernetNTEGE114GCardSwitchPortActionPort_Object=MibTableColumn
-ethernetNTEGE114GCardSwitchPortActionPort=_EthernetNTEGE114GCardSwitchPortActionPort_Object((1,3,6,1,4,1,2544,1,12,3,1,65,1,10),_EthernetNTEGE114GCardSwitchPortActionPort_Type())
-ethernetNTEGE114GCardSwitchPortActionPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethernetNTEGE114GCardSwitchPortActionPort.setStatus(_B)
-_EthernetNTEGE114GCardSwitchPortAction_Type=SwitchPortAction
-_EthernetNTEGE114GCardSwitchPortAction_Object=MibTableColumn
-ethernetNTEGE114GCardSwitchPortAction=_EthernetNTEGE114GCardSwitchPortAction_Object((1,3,6,1,4,1,2544,1,12,3,1,65,1,11),_EthernetNTEGE114GCardSwitchPortAction_Type())
-ethernetNTEGE114GCardSwitchPortAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethernetNTEGE114GCardSwitchPortAction.setStatus(_B)
-_CmEntityConformance_ObjectIdentity=ObjectIdentity
-cmEntityConformance=_CmEntityConformance_ObjectIdentity((1,3,6,1,4,1,2544,1,12,3,2))
-_CmEntityCompliances_ObjectIdentity=ObjectIdentity
-cmEntityCompliances=_CmEntityCompliances_ObjectIdentity((1,3,6,1,4,1,2544,1,12,3,2,1))
-_CmEntityGroups_ObjectIdentity=ObjectIdentity
-cmEntityGroups=_CmEntityGroups_ObjectIdentity((1,3,6,1,4,1,2544,1,12,3,2,2))
-networkElementEntry.registerAugmentions((_A,_C5))
+#
+# PySNMP MIB module CM-ENTITY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adva/CM-ENTITY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:37:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+fsp150cm, = mibBuilder.importSymbols("ADVA-MIB", "fsp150cm")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+AdminState, TDMFrequencySourceType, VlanId, SecondaryState, RestartType, CmPmIntervalType, OperationalState = mibBuilder.importSymbols("CM-COMMON-MIB", "AdminState", "TDMFrequencySourceType", "VlanId", "SecondaryState", "RestartType", "CmPmIntervalType", "OperationalState")
+CmAutoProvMode, = mibBuilder.importSymbols("CM-SYSTEM-MIB", "CmAutoProvMode")
+PhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "PhysicalIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, VariablePointer, RowStatus, TextualConvention, DateAndTime, TruthValue, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "VariablePointer", "RowStatus", "TextualConvention", "DateAndTime", "TruthValue", "StorageType")
+cmEntityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3))
+cmEntityMIB.setRevisions(('2015-05-19 00:00',))
+if mibBuilder.loadTexts: cmEntityMIB.setLastUpdated('201505190000Z')
+if mibBuilder.loadTexts: cmEntityMIB.setOrganization('ADVA Optical Networking')
+cmEntityObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1))
+cmEntityConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2))
+class NeProvAction(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("accept", 1), ("decline", 2))
+
+class NetworkElementType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35))
+    namedValues = NamedValues(("onerackunit", 1), ("hubshelf", 2), ("cle", 3), ("aggregation", 4), ("cpmr", 5), ("ccge101", 6), ("ccge206", 7), ("ccge201", 8), ("ccge201se", 9), ("ccge206f", 10), ("ccge112", 11), ("ccge114", 12), ("ccge206v", 13), ("ccxg210", 14), ("cct1804", 15), ("cct3204", 16), ("ccsyncprobe", 17), ("ccge114h", 18), ("ccge114ph", 19), ("ccge114sh", 20), ("ccge114s", 21), ("sh1pcs", 22), ("ccosa5411", 23), ("ccge112pro", 24), ("ccge112proM", 25), ("ccge114pro", 26), ("ccge114proC", 27), ("ccge114proSH", 28), ("ccge114proCSH", 29), ("ccge114proHE", 30), ("ccge112proH", 31), ("ccxg210c", 32), ("ccosa5420", 33), ("ccosa5421", 34), ("ccge114g", 35))
+
+class SlotType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+    namedValues = NamedValues(("scu", 1), ("psu", 2), ("fan", 3), ("generic", 4), ("lag", 5), ("nemi", 6), ("stu", 7), ("swf-140g", 8), ("ami", 9), ("sti", 10))
+
+class ShelfType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35))
+    namedValues = NamedValues(("onerackunit", 1), ("hubshelf", 2), ("cle", 3), ("aggregation", 4), ("cpmr", 5), ("onerackunit-ge101", 6), ("onerackunit-ge206", 7), ("onerackunit-ge201", 8), ("onerackunit-ge201se", 9), ("onerackunit-ge206f", 10), ("onerackunit-ge112", 11), ("onerackunit-ge114", 12), ("onerackunit-ge206v", 13), ("onerackunit-xg210", 14), ("onerackunit-t1804", 15), ("onerackunit-t3204", 16), ("onerackunit-syncprobe", 17), ("onerackunit-ge114h", 18), ("onerackunit-ge114ph", 19), ("onerackunit-ge114sh", 20), ("onerackunit-ge114s", 21), ("onerackunit-sh1pcs", 22), ("onerackunit-osa5411", 23), ("onerackunitGe112Pro", 24), ("ge112ProM", 25), ("onerackunitGe114Pro", 26), ("onerackunitGe114ProC", 27), ("onerackunitGe114ProSH", 28), ("onerackunitGe114ProCSH", 29), ("onerackunitGe114ProHE", 30), ("onerackunitGe112ProH", 31), ("onerackunit-xg210c", 32), ("onerackunit-osa5420", 33), ("onerackunit-osa5421", 34), ("onerackunit-ge114g", 35))
+
+class ShelfAction(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("initiateLampTest", 1), ("initiateACO", 2), ("coldRestart", 3))
+
+class PsuType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("unknown", 0), ("ac", 1), ("dc", 2))
+
+class CardType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61))
+    namedValues = NamedValues(("none", 1), ("psu", 2), ("fan", 3), ("nemi", 4), ("scu", 5), ("eth-10-100-1000-ntu", 6), ("eth-cpmr", 7), ("eth-ge-101", 8), ("eth-ge-206", 9), ("eth-ge-201", 10), ("eth-ge-201se", 11), ("eth-10-100-1000-nte", 12), ("scu-t", 13), ("eth-ge-206f", 14), ("eth-xg-1x", 15), ("swf-140g", 16), ("stu", 17), ("eth-ge-10s", 18), ("ami", 19), ("sti", 20), ("eth-ge-112", 21), ("eth-ge-114", 22), ("eth-ge-206v", 23), ("eth-ge-4e-cc", 24), ("eth-ge-4s-cc", 25), ("eth-xg-210", 26), ("eth-xg-1x-cc", 27), ("eth-xg-1s-cc", 28), ("stm1-4-et", 29), ("pwe3-ocnstm", 30), ("pwe3-e1t1", 31), ("eth-xg-1x-h", 32), ("eth-ge-10s-h", 33), ("eth-t1804", 34), ("eth-t3204", 35), ("eth-ge-syncprobe", 36), ("eth-ge-8s-cc", 37), ("eth-ge-114h", 38), ("eth-ge-114ph", 39), ("eth-fe-36e", 40), ("eth-ge-114sh", 41), ("eth-ge-114s", 42), ("sti-h", 43), ("stu-h", 44), ("eth-ge-8e-cc", 45), ("eth-sh1pcs", 46), ("eth-osa5411", 47), ("ethGe112Pro", 48), ("ethGe112ProM", 49), ("ethGe114Pro", 50), ("ethGe114ProC", 51), ("ethGe114ProSH", 52), ("ethGe114ProCSH", 53), ("ethGe114ProHE", 54), ("ethGe112ProH", 55), ("eth-xg-210c", 56), ("eth-ge-8sc-cc", 57), ("eth-osa5420", 58), ("eth-osa5421", 59), ("bits-x16", 60), ("eth-ge-114g", 61))
+
+class CmCPMRLinkLossFwdMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("llfmode-none", 1), ("llfmode-acc2acc", 2), ("llfmode-net2acc", 3), ("llfmode-both", 4))
+
+class PWE3OCNSTMCardMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("stm4", 1), ("oc12", 2), ("stm1", 3), ("oc3", 4))
+
+class PWE3E1T1CardMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("t1-16", 1), ("e1-16", 2))
+
+class PSNEncapsulationMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("ethernet", 1), ("mpls", 2))
+
+class LLDPEnableAction(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
+    namedValues = NamedValues(("notApplicable", 0), ("enableLLDP", 1), ("disableLLDP", 2), ("enableLLDPTxOnly", 3), ("enableLLDPRxOnly", 4))
+
+networkElementTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1), )
+if mibBuilder.loadTexts: networkElementTable.setStatus('current')
+networkElementEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"))
+if mibBuilder.loadTexts: networkElementEntry.setStatus('current')
+neIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: neIndex.setStatus('current')
+neName = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: neName.setStatus('current')
+neType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1, 1, 3), NetworkElementType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: neType.setStatus('current')
+neContact = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: neContact.setStatus('current')
+neLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: neLocation.setStatus('current')
+neDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: neDescription.setStatus('current')
+neCmdPromptPrefix = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: neCmdPromptPrefix.setStatus('current')
+neAccepted = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1, 1, 8), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: neAccepted.setStatus('current')
+neFromPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1, 1, 9), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: neFromPort.setStatus('current')
+neProvAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1, 1, 10), NeProvAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: neProvAction.setStatus('current')
+neStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1, 1, 11), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: neStorageType.setStatus('current')
+neRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1, 1, 12), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: neRowStatus.setStatus('current')
+neAutoProvMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1, 1, 13), CmAutoProvMode()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: neAutoProvMode.setStatus('current')
+neFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 1, 1, 14), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: neFineGrainedPmInterval.setStatus('current')
+shelfTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 2), )
+if mibBuilder.loadTexts: shelfTable.setStatus('current')
+shelfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 2, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"))
+if mibBuilder.loadTexts: shelfEntry.setStatus('current')
+shelfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: shelfIndex.setStatus('current')
+shelfEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 2, 1, 2), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: shelfEntityIndex.setStatus('current')
+shelfType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 2, 1, 3), ShelfType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: shelfType.setStatus('current')
+shelfbackplaneRev = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: shelfbackplaneRev.setStatus('current')
+shelfbackplaneDOM = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 2, 1, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: shelfbackplaneDOM.setStatus('current')
+shelfbackplaneSerialNo = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: shelfbackplaneSerialNo.setStatus('current')
+shelfAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 2, 1, 7), ShelfAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: shelfAction.setStatus('current')
+shelfAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 2, 1, 8), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: shelfAdminState.setStatus('current')
+shelfOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 2, 1, 9), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: shelfOperationalState.setStatus('current')
+shelfSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 2, 1, 10), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: shelfSecondaryState.setStatus('current')
+shelfMfgSite = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 2, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: shelfMfgSite.setStatus('current')
+shelfOscillatorType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 2, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: shelfOscillatorType.setStatus('current')
+slotTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3), )
+if mibBuilder.loadTexts: slotTable.setStatus('current')
+slotEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: slotEntry.setStatus('current')
+slotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotIndex.setStatus('current')
+slotEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 2), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotEntityIndex.setStatus('current')
+slotType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 3), SlotType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotType.setStatus('current')
+slotCardType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 4), CardType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotCardType.setStatus('current')
+slotCardUnitName = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotCardUnitName.setStatus('current')
+slotCardFormatVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotCardFormatVersion.setStatus('current')
+slotCardCLEICode = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotCardCLEICode.setStatus('current')
+slotCardPartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotCardPartNumber.setStatus('current')
+slotCardHwRev = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotCardHwRev.setStatus('current')
+slotCardSwRev = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotCardSwRev.setStatus('current')
+slotCardSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotCardSerialNum.setStatus('current')
+slotCardMfgName = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotCardMfgName.setStatus('current')
+slotCardMfgDate = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 13), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotCardMfgDate.setStatus('current')
+slotCardMfgSite = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotCardMfgSite.setStatus('current')
+slotSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 15), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotSecondaryState.setStatus('current')
+slotCardPhysicalAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 3, 1, 16), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slotCardPhysicalAddress.setStatus('current')
+psuTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 4), )
+if mibBuilder.loadTexts: psuTable.setStatus('current')
+psuEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 4, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: psuEntry.setStatus('current')
+psuEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 4, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: psuEntityIndex.setStatus('current')
+psuType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 4, 1, 2), PsuType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: psuType.setStatus('current')
+psuAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 4, 1, 3), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: psuAdminState.setStatus('current')
+psuOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 4, 1, 4), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: psuOperationalState.setStatus('current')
+psuSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 4, 1, 5), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: psuSecondaryState.setStatus('current')
+psuOutputVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 4, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: psuOutputVoltage.setStatus('current')
+psuTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 4, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: psuTemperature.setStatus('current')
+psuOutputCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 4, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: psuOutputCurrent.setStatus('current')
+psuStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 4, 1, 9), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: psuStorageType.setStatus('current')
+psuRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 4, 1, 10), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: psuRowStatus.setStatus('current')
+fanTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 5), )
+if mibBuilder.loadTexts: fanTable.setStatus('current')
+fanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 5, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: fanEntry.setStatus('current')
+fanEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 5, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fanEntityIndex.setStatus('current')
+fanAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 5, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fanAdminState.setStatus('current')
+fanOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 5, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fanOperationalState.setStatus('current')
+fanSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 5, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fanSecondaryState.setStatus('current')
+fanStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 5, 1, 5), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fanStorageType.setStatus('current')
+fanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 5, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fanRowStatus.setStatus('current')
+scuTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 6), )
+if mibBuilder.loadTexts: scuTable.setStatus('current')
+scuEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 6, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: scuEntry.setStatus('current')
+scuEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 6, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scuEntityIndex.setStatus('current')
+scuAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 6, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: scuAdminState.setStatus('current')
+scuOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 6, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scuOperationalState.setStatus('current')
+scuSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 6, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scuSecondaryState.setStatus('current')
+scuVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 6, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scuVoltage.setStatus('current')
+scuTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 6, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scuTemperature.setStatus('current')
+scuRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 6, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: scuRestartAction.setStatus('current')
+scuStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 6, 1, 8), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: scuStorageType.setStatus('current')
+scuRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 6, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: scuRowStatus.setStatus('current')
+scuFlashModelNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 6, 1, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scuFlashModelNum.setStatus('current')
+scuFlashFirmwareRev = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 6, 1, 11), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scuFlashFirmwareRev.setStatus('current')
+scuFlashSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 6, 1, 12), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scuFlashSerialNum.setStatus('current')
+nemiTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 7), )
+if mibBuilder.loadTexts: nemiTable.setStatus('current')
+nemiEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 7, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: nemiEntry.setStatus('current')
+nemiEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 7, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nemiEntityIndex.setStatus('current')
+nemiAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 7, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nemiAdminState.setStatus('current')
+nemiOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 7, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nemiOperationalState.setStatus('current')
+nemiSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 7, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nemiSecondaryState.setStatus('current')
+nemiVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 7, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nemiVoltage.setStatus('current')
+nemiTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 7, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nemiTemperature.setStatus('current')
+nemiRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 7, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nemiRestartAction.setStatus('current')
+nemiStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 7, 1, 8), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: nemiStorageType.setStatus('current')
+nemiRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 7, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: nemiRowStatus.setStatus('current')
+nemiForceOffLineAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 7, 1, 10), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nemiForceOffLineAction.setStatus('current')
+nemiFlashModelNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 7, 1, 11), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nemiFlashModelNum.setStatus('current')
+nemiFlashFirmwareRev = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 7, 1, 12), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nemiFlashFirmwareRev.setStatus('current')
+nemiFlashSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 7, 1, 13), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nemiFlashSerialNum.setStatus('current')
+ethernetNTUCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 8), )
+if mibBuilder.loadTexts: ethernetNTUCardTable.setStatus('current')
+ethernetNTUCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 8, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTUCardEntry.setStatus('current')
+ethernetNTUCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 8, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTUCardEntityIndex.setStatus('current')
+ethernetNTUCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 8, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTUCardAdminState.setStatus('current')
+ethernetNTUCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 8, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTUCardOperationalState.setStatus('current')
+ethernetNTUCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 8, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTUCardSecondaryState.setStatus('current')
+ethernetNTUCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 8, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTUCardVoltage.setStatus('current')
+ethernetNTUCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 8, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTUCardTemperature.setStatus('current')
+ethernetNTUCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 8, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTUCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTUCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 8, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTUCardRestartAction.setStatus('current')
+ethernetNTUCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 8, 1, 9), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTUCardStorageType.setStatus('current')
+ethernetNTUCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 8, 1, 10), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTUCardRowStatus.setStatus('current')
+ethernetCPMRCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9), )
+if mibBuilder.loadTexts: ethernetCPMRCardTable.setStatus('current')
+ethernetCPMRCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetCPMRCardEntry.setStatus('current')
+ethernetCPMRCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetCPMRCardEntityIndex.setStatus('current')
+ethernetCPMRCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetCPMRCardAdminState.setStatus('current')
+ethernetCPMRCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetCPMRCardOperationalState.setStatus('current')
+ethernetCPMRCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetCPMRCardSecondaryState.setStatus('current')
+ethernetCPMRCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetCPMRCardVoltage.setStatus('current')
+ethernetCPMRCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetCPMRCardTemperature.setStatus('current')
+ethernetCPMRCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetCPMRCardRestartAction.setStatus('current')
+ethernetCPMRCardPSU1State = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9, 1, 8), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetCPMRCardPSU1State.setStatus('current')
+ethernetCPMRCardPSU2State = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9, 1, 9), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetCPMRCardPSU2State.setStatus('current')
+ethernetCPMRCardFAN1State = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9, 1, 10), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetCPMRCardFAN1State.setStatus('current')
+ethernetCPMRCardFAN2State = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9, 1, 11), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetCPMRCardFAN2State.setStatus('current')
+ethernetCPMRCardPsuType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9, 1, 12), PsuType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetCPMRCardPsuType.setStatus('current')
+ethernetCPMRCardLLFMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9, 1, 13), CmCPMRLinkLossFwdMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetCPMRCardLLFMode.setStatus('current')
+ethernetCPMRCardLLFModeAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 9, 1, 14), CmCPMRLinkLossFwdMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetCPMRCardLLFModeAction.setStatus('current')
+ethernetNTEGE101CardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 10), )
+if mibBuilder.loadTexts: ethernetNTEGE101CardTable.setStatus('current')
+ethernetNTEGE101CardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 10, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE101CardEntry.setStatus('current')
+ethernetNTEGE101CardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 10, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE101CardEntityIndex.setStatus('current')
+ethernetNTEGE101CardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 10, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE101CardAdminState.setStatus('current')
+ethernetNTEGE101CardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 10, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE101CardOperationalState.setStatus('current')
+ethernetNTEGE101CardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 10, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE101CardSecondaryState.setStatus('current')
+ethernetNTEGE101CardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 10, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE101CardVoltage.setStatus('current')
+ethernetNTEGE101CardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 10, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE101CardTemperature.setStatus('current')
+ethernetNTEGE101CardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 10, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE101CardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE101CardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 10, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE101CardRestartAction.setStatus('current')
+ethernetNTEGE206CardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 11), )
+if mibBuilder.loadTexts: ethernetNTEGE206CardTable.setStatus('current')
+ethernetNTEGE206CardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 11, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE206CardEntry.setStatus('current')
+ethernetNTEGE206CardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 11, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE206CardEntityIndex.setStatus('current')
+ethernetNTEGE206CardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 11, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE206CardAdminState.setStatus('current')
+ethernetNTEGE206CardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 11, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE206CardOperationalState.setStatus('current')
+ethernetNTEGE206CardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 11, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE206CardSecondaryState.setStatus('current')
+ethernetNTEGE206CardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 11, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE206CardVoltage.setStatus('current')
+ethernetNTEGE206CardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 11, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE206CardTemperature.setStatus('current')
+ethernetNTEGE206CardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 11, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE206CardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE206CardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 11, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE206CardRestartAction.setStatus('current')
+ethernetNTEGE206CardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 11, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE206CardFineGrainedPmInterval.setStatus('current')
+pseudoWireE3CardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 12), )
+if mibBuilder.loadTexts: pseudoWireE3CardTable.setStatus('obsolete')
+pseudoWireE3CardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 12, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: pseudoWireE3CardEntry.setStatus('obsolete')
+pseudoWireE3CardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 12, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pseudoWireE3CardEntityIndex.setStatus('obsolete')
+pseudoWireE3CardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 12, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireE3CardAdminState.setStatus('obsolete')
+pseudoWireE3CardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 12, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pseudoWireE3CardOperationalState.setStatus('obsolete')
+pseudoWireE3CardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 12, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pseudoWireE3CardSecondaryState.setStatus('obsolete')
+pseudoWireE3CardIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 12, 1, 5), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireE3CardIpAddress.setStatus('obsolete')
+pseudoWireE3CardIpNetmask = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 12, 1, 6), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireE3CardIpNetmask.setStatus('obsolete')
+pseudoWireE3CardIpGateway = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 12, 1, 7), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireE3CardIpGateway.setStatus('obsolete')
+pseudoWireE3CardDhcpEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 12, 1, 8), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireE3CardDhcpEnabled.setStatus('obsolete')
+pseudoWireE3CardMgmtVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 12, 1, 9), VlanId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireE3CardMgmtVlanId.setStatus('obsolete')
+pseudoWireE3CardTimeOfDay = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 12, 1, 10), DateAndTime()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireE3CardTimeOfDay.setStatus('obsolete')
+pseudoWireE3CardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 12, 1, 11), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireE3CardRestartAction.setStatus('obsolete')
+scuTTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 13), )
+if mibBuilder.loadTexts: scuTTable.setStatus('current')
+scuTEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 13, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: scuTEntry.setStatus('current')
+scuTEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 13, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scuTEntityIndex.setStatus('current')
+scuTAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 13, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: scuTAdminState.setStatus('current')
+scuTOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 13, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scuTOperationalState.setStatus('current')
+scuTSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 13, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scuTSecondaryState.setStatus('current')
+scuTVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 13, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scuTVoltage.setStatus('current')
+scuTTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 13, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scuTTemperature.setStatus('current')
+scuTRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 13, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: scuTRestartAction.setStatus('current')
+scuTStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 13, 1, 8), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: scuTStorageType.setStatus('current')
+scuTRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 13, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: scuTRowStatus.setStatus('current')
+ethernetNTECardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 14), )
+if mibBuilder.loadTexts: ethernetNTECardTable.setStatus('current')
+ethernetNTECardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 14, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTECardEntry.setStatus('current')
+ethernetNTECardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 14, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTECardEntityIndex.setStatus('current')
+ethernetNTECardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 14, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTECardAdminState.setStatus('current')
+ethernetNTECardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 14, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTECardOperationalState.setStatus('current')
+ethernetNTECardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 14, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTECardSecondaryState.setStatus('current')
+ethernetNTECardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 14, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTECardVoltage.setStatus('current')
+ethernetNTECardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 14, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTECardTemperature.setStatus('current')
+ethernetNTECardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 14, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTECardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTECardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 14, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTECardRestartAction.setStatus('current')
+ethernetNTECardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 14, 1, 9), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTECardStorageType.setStatus('current')
+ethernetNTECardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 14, 1, 10), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTECardRowStatus.setStatus('current')
+ethernetNTEGE201CardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 15), )
+if mibBuilder.loadTexts: ethernetNTEGE201CardTable.setStatus('current')
+ethernetNTEGE201CardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 15, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE201CardEntry.setStatus('current')
+ethernetNTEGE201CardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 15, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE201CardEntityIndex.setStatus('current')
+ethernetNTEGE201CardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 15, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE201CardAdminState.setStatus('current')
+ethernetNTEGE201CardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 15, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE201CardOperationalState.setStatus('current')
+ethernetNTEGE201CardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 15, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE201CardSecondaryState.setStatus('current')
+ethernetNTEGE201CardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 15, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE201CardVoltage.setStatus('current')
+ethernetNTEGE201CardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 15, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE201CardTemperature.setStatus('current')
+ethernetNTEGE201CardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 15, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE201CardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE201CardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 15, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE201CardRestartAction.setStatus('current')
+ethernetNTEGE201CardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 15, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE201CardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE201SyncECardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 16), )
+if mibBuilder.loadTexts: ethernetNTEGE201SyncECardTable.setStatus('current')
+ethernetNTEGE201SyncECardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 16, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE201SyncECardEntry.setStatus('current')
+ethernetNTEGE201SyncECardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 16, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE201SyncECardEntityIndex.setStatus('current')
+ethernetNTEGE201SyncECardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 16, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE201SyncECardAdminState.setStatus('current')
+ethernetNTEGE201SyncECardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 16, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE201SyncECardOperationalState.setStatus('current')
+ethernetNTEGE201SyncECardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 16, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE201SyncECardSecondaryState.setStatus('current')
+ethernetNTEGE201SyncECardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 16, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE201SyncECardVoltage.setStatus('current')
+ethernetNTEGE201SyncECardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 16, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE201SyncECardTemperature.setStatus('current')
+ethernetNTEGE201SyncECardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 16, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE201SyncECardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE201SyncECardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 16, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE201SyncECardRestartAction.setStatus('current')
+ethernetNTEGE201SyncECardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 16, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE201SyncECardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE206FCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 17), )
+if mibBuilder.loadTexts: ethernetNTEGE206FCardTable.setStatus('current')
+ethernetNTEGE206FCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 17, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE206FCardEntry.setStatus('current')
+ethernetNTEGE206FCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 17, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE206FCardEntityIndex.setStatus('current')
+ethernetNTEGE206FCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 17, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE206FCardAdminState.setStatus('current')
+ethernetNTEGE206FCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 17, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE206FCardOperationalState.setStatus('current')
+ethernetNTEGE206FCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 17, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE206FCardSecondaryState.setStatus('current')
+ethernetNTEGE206FCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 17, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE206FCardVoltage.setStatus('current')
+ethernetNTEGE206FCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 17, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE206FCardTemperature.setStatus('current')
+ethernetNTEGE206FCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 17, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE206FCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE206FCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 17, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE206FCardRestartAction.setStatus('current')
+ethernetNTEGE206FCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 17, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE206FCardFineGrainedPmInterval.setStatus('current')
+ethernet1x10GCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 18), )
+if mibBuilder.loadTexts: ethernet1x10GCardTable.setStatus('current')
+ethernet1x10GCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 18, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernet1x10GCardEntry.setStatus('current')
+ethernet1x10GCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 18, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet1x10GCardEntityIndex.setStatus('current')
+ethernet1x10GCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 18, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet1x10GCardAdminState.setStatus('current')
+ethernet1x10GCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 18, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet1x10GCardOperationalState.setStatus('current')
+ethernet1x10GCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 18, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet1x10GCardSecondaryState.setStatus('current')
+ethernet1x10GCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 18, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet1x10GCardTemperature.setStatus('current')
+ethernet1x10GCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 18, 1, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet1x10GCardSnmpDyingGaspEnabled.setStatus('current')
+ethernet1x10GCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 18, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet1x10GCardRestartAction.setStatus('current')
+ethernet1x10GCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 18, 1, 8), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernet1x10GCardStorageType.setStatus('current')
+ethernet1x10GCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 18, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernet1x10GCardRowStatus.setStatus('current')
+ethernet1x10GCardForceOffLineAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 18, 1, 10), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet1x10GCardForceOffLineAction.setStatus('current')
+ethernet10x1GCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 19), )
+if mibBuilder.loadTexts: ethernet10x1GCardTable.setStatus('current')
+ethernet10x1GCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 19, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernet10x1GCardEntry.setStatus('current')
+ethernet10x1GCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 19, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet10x1GCardEntityIndex.setStatus('current')
+ethernet10x1GCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 19, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet10x1GCardAdminState.setStatus('current')
+ethernet10x1GCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 19, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet10x1GCardOperationalState.setStatus('current')
+ethernet10x1GCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 19, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet10x1GCardSecondaryState.setStatus('current')
+ethernet10x1GCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 19, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet10x1GCardTemperature.setStatus('current')
+ethernet10x1GCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 19, 1, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet10x1GCardSnmpDyingGaspEnabled.setStatus('current')
+ethernet10x1GCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 19, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet10x1GCardRestartAction.setStatus('current')
+ethernet10x1GCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 19, 1, 8), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernet10x1GCardStorageType.setStatus('current')
+ethernet10x1GCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 19, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernet10x1GCardRowStatus.setStatus('current')
+ethernet10x1GCardForceOffLineAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 19, 1, 10), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet10x1GCardForceOffLineAction.setStatus('current')
+ethernetSWFCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 20), )
+if mibBuilder.loadTexts: ethernetSWFCardTable.setStatus('current')
+ethernetSWFCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 20, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetSWFCardEntry.setStatus('current')
+ethernetSWFCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 20, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetSWFCardEntityIndex.setStatus('current')
+ethernetSWFCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 20, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetSWFCardAdminState.setStatus('current')
+ethernetSWFCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 20, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetSWFCardOperationalState.setStatus('current')
+ethernetSWFCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 20, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetSWFCardSecondaryState.setStatus('current')
+ethernetSWFCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 20, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetSWFCardTemperature.setStatus('current')
+ethernetSWFCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 20, 1, 6), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetSWFCardRestartAction.setStatus('current')
+ethernetSWFCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 20, 1, 7), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetSWFCardStorageType.setStatus('current')
+ethernetSWFCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 20, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetSWFCardRowStatus.setStatus('current')
+ethernetSWFCardForceOffLineAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 20, 1, 9), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetSWFCardForceOffLineAction.setStatus('current')
+stuCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 21), )
+if mibBuilder.loadTexts: stuCardTable.setStatus('current')
+stuCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 21, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: stuCardEntry.setStatus('current')
+stuCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 21, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stuCardEntityIndex.setStatus('current')
+stuCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 21, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: stuCardAdminState.setStatus('current')
+stuCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 21, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stuCardOperationalState.setStatus('current')
+stuCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 21, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stuCardSecondaryState.setStatus('current')
+stuCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 21, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stuCardTemperature.setStatus('current')
+stuCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 21, 1, 6), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: stuCardRestartAction.setStatus('current')
+stuCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 21, 1, 7), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stuCardStorageType.setStatus('current')
+stuCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 21, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stuCardRowStatus.setStatus('current')
+stuCardForceOffLineAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 21, 1, 9), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: stuCardForceOffLineAction.setStatus('current')
+amiTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 22), )
+if mibBuilder.loadTexts: amiTable.setStatus('current')
+amiEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 22, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: amiEntry.setStatus('current')
+amiEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 22, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: amiEntityIndex.setStatus('current')
+amiAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 22, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: amiAdminState.setStatus('current')
+amiOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 22, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: amiOperationalState.setStatus('current')
+amiSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 22, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: amiSecondaryState.setStatus('current')
+amiTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 22, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: amiTemperature.setStatus('current')
+amiRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 22, 1, 6), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: amiRestartAction.setStatus('current')
+stiTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 23), )
+if mibBuilder.loadTexts: stiTable.setStatus('current')
+stiEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 23, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: stiEntry.setStatus('current')
+stiEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 23, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stiEntityIndex.setStatus('current')
+stiAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 23, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: stiAdminState.setStatus('current')
+stiOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 23, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stiOperationalState.setStatus('current')
+stiSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 23, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stiSecondaryState.setStatus('current')
+stiTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 23, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stiTemperature.setStatus('current')
+stiStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 23, 1, 6), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiStorageType.setStatus('current')
+stiRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 23, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiRowStatus.setStatus('current')
+f3UsbHostTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24), )
+if mibBuilder.loadTexts: f3UsbHostTable.setStatus('current')
+f3UsbHostEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"), (0, "CM-ENTITY-MIB", "f3UsbHostIndex"))
+if mibBuilder.loadTexts: f3UsbHostEntry.setStatus('current')
+f3UsbHostIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3UsbHostIndex.setStatus('current')
+f3UsbHostEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24, 1, 2), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3UsbHostEntityIndex.setStatus('current')
+f3UsbHostUnitName = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3UsbHostUnitName.setStatus('current')
+f3UsbHostFormatVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3UsbHostFormatVersion.setStatus('current')
+f3UsbHostCLEICode = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3UsbHostCLEICode.setStatus('current')
+f3UsbHostPartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3UsbHostPartNumber.setStatus('current')
+f3UsbHostHwRev = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3UsbHostHwRev.setStatus('current')
+f3UsbHostSwRev = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24, 1, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3UsbHostSwRev.setStatus('current')
+f3UsbHostSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24, 1, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3UsbHostSerialNum.setStatus('current')
+f3UsbHostMfgName = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24, 1, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3UsbHostMfgName.setStatus('current')
+f3UsbHostMfgDate = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24, 1, 11), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3UsbHostMfgDate.setStatus('current')
+f3UsbHostMfgSite = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24, 1, 12), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3UsbHostMfgSite.setStatus('current')
+f3UsbHostSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24, 1, 13), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3UsbHostSecondaryState.setStatus('current')
+f3UsbHostPhysicalAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 24, 1, 14), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3UsbHostPhysicalAddress.setStatus('current')
+ethernetNTEGE112CardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 25), )
+if mibBuilder.loadTexts: ethernetNTEGE112CardTable.setStatus('current')
+ethernetNTEGE112CardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 25, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE112CardEntry.setStatus('current')
+class SwitchPortAction(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
+    namedValues = NamedValues(("not-applicable", 0), ("switch", 1))
+
+ethernetNTEGE112CardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 25, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112CardEntityIndex.setStatus('current')
+ethernetNTEGE112CardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 25, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112CardAdminState.setStatus('current')
+ethernetNTEGE112CardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 25, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112CardOperationalState.setStatus('current')
+ethernetNTEGE112CardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 25, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112CardSecondaryState.setStatus('current')
+ethernetNTEGE112CardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 25, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112CardVoltage.setStatus('current')
+ethernetNTEGE112CardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 25, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112CardTemperature.setStatus('current')
+ethernetNTEGE112CardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 25, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112CardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE112CardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 25, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112CardRestartAction.setStatus('current')
+ethernetNTEGE112CardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 25, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112CardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE112CardSwitchPortActionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 25, 1, 10), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTEGE112CardSwitchPortActionPort.setStatus('current')
+ethernetNTEGE112CardSwitchPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 25, 1, 11), SwitchPortAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112CardSwitchPortAction.setStatus('current')
+ethernetNTEGE114CardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 26), )
+if mibBuilder.loadTexts: ethernetNTEGE114CardTable.setStatus('current')
+ethernetNTEGE114CardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 26, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE114CardEntry.setStatus('current')
+ethernetNTEGE114CardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 26, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114CardEntityIndex.setStatus('current')
+ethernetNTEGE114CardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 26, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114CardAdminState.setStatus('current')
+ethernetNTEGE114CardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 26, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114CardOperationalState.setStatus('current')
+ethernetNTEGE114CardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 26, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114CardSecondaryState.setStatus('current')
+ethernetNTEGE114CardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 26, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114CardVoltage.setStatus('current')
+ethernetNTEGE114CardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 26, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114CardTemperature.setStatus('current')
+ethernetNTEGE114CardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 26, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114CardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE114CardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 26, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114CardRestartAction.setStatus('current')
+ethernetNTEGE114CardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 26, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114CardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE114CardSwitchPortActionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 26, 1, 10), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTEGE114CardSwitchPortActionPort.setStatus('current')
+ethernetNTEGE114CardSwitchPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 26, 1, 11), SwitchPortAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114CardSwitchPortAction.setStatus('current')
+ethernetNTEGE206VCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 27), )
+if mibBuilder.loadTexts: ethernetNTEGE206VCardTable.setStatus('current')
+ethernetNTEGE206VCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 27, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE206VCardEntry.setStatus('current')
+ethernetNTEGE206VCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 27, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE206VCardEntityIndex.setStatus('current')
+ethernetNTEGE206VCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 27, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE206VCardAdminState.setStatus('current')
+ethernetNTEGE206VCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 27, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE206VCardOperationalState.setStatus('current')
+ethernetNTEGE206VCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 27, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE206VCardSecondaryState.setStatus('current')
+ethernetNTEGE206VCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 27, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE206VCardVoltage.setStatus('current')
+ethernetNTEGE206VCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 27, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE206VCardTemperature.setStatus('current')
+ethernetNTEGE206VCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 27, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE206VCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE206VCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 27, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE206VCardRestartAction.setStatus('current')
+ethernetNTEGE206VCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 27, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE206VCardFineGrainedPmInterval.setStatus('current')
+ethernetGE4SCCCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 28), )
+if mibBuilder.loadTexts: ethernetGE4SCCCardTable.setStatus('current')
+ethernetGE4SCCCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 28, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetGE4SCCCardEntry.setStatus('current')
+ethernetGE4SCCCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 28, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE4SCCCardEntityIndex.setStatus('current')
+ethernetGE4SCCCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 28, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetGE4SCCCardAdminState.setStatus('current')
+ethernetGE4SCCCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 28, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE4SCCCardOperationalState.setStatus('current')
+ethernetGE4SCCCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 28, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE4SCCCardSecondaryState.setStatus('current')
+ethernetGE4SCCCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 28, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE4SCCCardVoltage.setStatus('current')
+ethernetGE4SCCCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 28, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE4SCCCardTemperature.setStatus('current')
+ethernetGE4SCCCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 28, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetGE4SCCCardRestartAction.setStatus('current')
+ethernetGE4SCCCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 28, 1, 8), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetGE4SCCCardStorageType.setStatus('current')
+ethernetGE4SCCCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 28, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetGE4SCCCardRowStatus.setStatus('current')
+ethernetGE4ECCCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 29), )
+if mibBuilder.loadTexts: ethernetGE4ECCCardTable.setStatus('current')
+ethernetGE4ECCCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 29, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetGE4ECCCardEntry.setStatus('current')
+ethernetGE4ECCCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 29, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE4ECCCardEntityIndex.setStatus('current')
+ethernetGE4ECCCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 29, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetGE4ECCCardAdminState.setStatus('current')
+ethernetGE4ECCCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 29, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE4ECCCardOperationalState.setStatus('current')
+ethernetGE4ECCCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 29, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE4ECCCardSecondaryState.setStatus('current')
+ethernetGE4ECCCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 29, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE4ECCCardVoltage.setStatus('current')
+ethernetGE4ECCCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 29, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE4ECCCardTemperature.setStatus('current')
+ethernetGE4ECCCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 29, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetGE4ECCCardRestartAction.setStatus('current')
+ethernetGE4ECCCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 29, 1, 8), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetGE4ECCCardStorageType.setStatus('current')
+ethernetGE4ECCCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 29, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetGE4ECCCardRowStatus.setStatus('current')
+ethernetNTEXG210CardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 30), )
+if mibBuilder.loadTexts: ethernetNTEXG210CardTable.setStatus('current')
+ethernetNTEXG210CardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 30, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEXG210CardEntry.setStatus('current')
+ethernetNTEXG210CardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 30, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEXG210CardEntityIndex.setStatus('current')
+ethernetNTEXG210CardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 30, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEXG210CardAdminState.setStatus('current')
+ethernetNTEXG210CardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 30, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEXG210CardOperationalState.setStatus('current')
+ethernetNTEXG210CardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 30, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEXG210CardSecondaryState.setStatus('current')
+ethernetNTEXG210CardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 30, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEXG210CardVoltage.setStatus('current')
+ethernetNTEXG210CardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 30, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEXG210CardTemperature.setStatus('current')
+ethernetNTEXG210CardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 30, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEXG210CardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEXG210CardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 30, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEXG210CardRestartAction.setStatus('current')
+ethernetNTEXG210CardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 30, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEXG210CardFineGrainedPmInterval.setStatus('current')
+ethernetXG1XCCCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 31), )
+if mibBuilder.loadTexts: ethernetXG1XCCCardTable.setStatus('current')
+ethernetXG1XCCCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 31, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetXG1XCCCardEntry.setStatus('current')
+ethernetXG1XCCCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 31, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetXG1XCCCardEntityIndex.setStatus('current')
+ethernetXG1XCCCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 31, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetXG1XCCCardAdminState.setStatus('current')
+ethernetXG1XCCCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 31, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetXG1XCCCardOperationalState.setStatus('current')
+ethernetXG1XCCCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 31, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetXG1XCCCardSecondaryState.setStatus('current')
+ethernetXG1XCCCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 31, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetXG1XCCCardVoltage.setStatus('current')
+ethernetXG1XCCCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 31, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetXG1XCCCardTemperature.setStatus('current')
+ethernetXG1XCCCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 31, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetXG1XCCCardRestartAction.setStatus('current')
+ethernetXG1XCCCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 31, 1, 8), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetXG1XCCCardStorageType.setStatus('current')
+ethernetXG1XCCCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 31, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetXG1XCCCardRowStatus.setStatus('current')
+ethernetXG1SCCCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 32), )
+if mibBuilder.loadTexts: ethernetXG1SCCCardTable.setStatus('current')
+ethernetXG1SCCCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 32, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetXG1SCCCardEntry.setStatus('current')
+ethernetXG1SCCCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 32, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetXG1SCCCardEntityIndex.setStatus('current')
+ethernetXG1SCCCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 32, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetXG1SCCCardAdminState.setStatus('current')
+ethernetXG1SCCCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 32, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetXG1SCCCardOperationalState.setStatus('current')
+ethernetXG1SCCCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 32, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetXG1SCCCardSecondaryState.setStatus('current')
+ethernetXG1SCCCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 32, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetXG1SCCCardVoltage.setStatus('current')
+ethernetXG1SCCCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 32, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetXG1SCCCardTemperature.setStatus('current')
+ethernetXG1SCCCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 32, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetXG1SCCCardRestartAction.setStatus('current')
+ethernetXG1SCCCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 32, 1, 8), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetXG1SCCCardStorageType.setStatus('current')
+ethernetXG1SCCCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 32, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetXG1SCCCardRowStatus.setStatus('current')
+class PortCarrierType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))
+    namedValues = NamedValues(("not-applicable", 0), ("t1", 1), ("e1", 2), ("t3", 3), ("e3", 4), ("oc3", 5), ("oc12", 6), ("stm1", 7), ("stm4", 8))
+
+ethernetOverOCSTMCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 33), )
+if mibBuilder.loadTexts: ethernetOverOCSTMCardTable.setStatus('current')
+ethernetOverOCSTMCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 33, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetOverOCSTMCardEntry.setStatus('current')
+ethernetOverOCSTMCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 33, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOverOCSTMCardEntityIndex.setStatus('current')
+ethernetOverOCSTMCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 33, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetOverOCSTMCardAdminState.setStatus('current')
+ethernetOverOCSTMCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 33, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOverOCSTMCardOperationalState.setStatus('current')
+ethernetOverOCSTMCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 33, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOverOCSTMCardSecondaryState.setStatus('current')
+ethernetOverOCSTMCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 33, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOverOCSTMCardTemperature.setStatus('current')
+ethernetOverOCSTMCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 33, 1, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetOverOCSTMCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetOverOCSTMCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 33, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetOverOCSTMCardRestartAction.setStatus('current')
+ethernetOverOCSTMCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 33, 1, 8), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetOverOCSTMCardStorageType.setStatus('current')
+ethernetOverOCSTMCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 33, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetOverOCSTMCardRowStatus.setStatus('current')
+ethernetOverOCSTMCardForceOffLineAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 33, 1, 10), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetOverOCSTMCardForceOffLineAction.setStatus('current')
+ethernetOverOCSTMCardMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 33, 1, 11), PortCarrierType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetOverOCSTMCardMode.setStatus('current')
+pseudoWireOcnStmCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34), )
+if mibBuilder.loadTexts: pseudoWireOcnStmCardTable.setStatus('current')
+pseudoWireOcnStmCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: pseudoWireOcnStmCardEntry.setStatus('current')
+pseudoWireOcnStmCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pseudoWireOcnStmCardEntityIndex.setStatus('current')
+pseudoWireOcnStmCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireOcnStmCardAdminState.setStatus('current')
+pseudoWireOcnStmCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pseudoWireOcnStmCardOperationalState.setStatus('current')
+pseudoWireOcnStmCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pseudoWireOcnStmCardSecondaryState.setStatus('current')
+pseudoWireOcnStmCardIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1, 5), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireOcnStmCardIpAddress.setStatus('current')
+pseudoWireOcnStmCardMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1, 6), PWE3OCNSTMCardMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireOcnStmCardMode.setStatus('current')
+pseudoWireOcnStmCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pseudoWireOcnStmCardVoltage.setStatus('current')
+pseudoWireOcnStmCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pseudoWireOcnStmCardTemperature.setStatus('current')
+pseudoWireOcnStmCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1, 9), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireOcnStmCardRestartAction.setStatus('current')
+pseudoWireOcnStmCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1, 10), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: pseudoWireOcnStmCardStorageType.setStatus('current')
+pseudoWireOcnStmCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1, 11), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: pseudoWireOcnStmCardRowStatus.setStatus('current')
+pseudoWireOcnStmCardPSNEncapsulation = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1, 12), PSNEncapsulationMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireOcnStmCardPSNEncapsulation.setStatus('current')
+pseudoWireOcnStmCardFreqSourceType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1, 13), TDMFrequencySourceType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireOcnStmCardFreqSourceType.setStatus('current')
+pseudoWireOcnStmCardFreqSource = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1, 14), VariablePointer()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireOcnStmCardFreqSource.setStatus('current')
+pseudoWireOcnStmCardForceOffLineAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 34, 1, 15), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireOcnStmCardForceOffLineAction.setStatus('current')
+pseudoWireE1T1CardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 35), )
+if mibBuilder.loadTexts: pseudoWireE1T1CardTable.setStatus('current')
+pseudoWireE1T1CardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 35, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: pseudoWireE1T1CardEntry.setStatus('current')
+pseudoWireE1T1CardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 35, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pseudoWireE1T1CardEntityIndex.setStatus('current')
+pseudoWireE1T1CardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 35, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireE1T1CardAdminState.setStatus('current')
+pseudoWireE1T1CardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 35, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pseudoWireE1T1CardOperationalState.setStatus('current')
+pseudoWireE1T1CardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 35, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pseudoWireE1T1CardSecondaryState.setStatus('current')
+pseudoWireE1T1CardIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 35, 1, 5), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireE1T1CardIpAddress.setStatus('current')
+pseudoWireE1T1CardMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 35, 1, 6), PWE3E1T1CardMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireE1T1CardMode.setStatus('current')
+pseudoWireE1T1CardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 35, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pseudoWireE1T1CardVoltage.setStatus('current')
+pseudoWireE1T1CardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 35, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pseudoWireE1T1CardTemperature.setStatus('current')
+pseudoWireE1T1CardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 35, 1, 9), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireE1T1CardRestartAction.setStatus('current')
+pseudoWireE1T1CardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 35, 1, 10), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: pseudoWireE1T1CardStorageType.setStatus('current')
+pseudoWireE1T1CardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 35, 1, 11), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: pseudoWireE1T1CardRowStatus.setStatus('current')
+pseudoWireE1T1CardPSNEncapsulation = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 35, 1, 12), PSNEncapsulationMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pseudoWireE1T1CardPSNEncapsulation.setStatus('current')
+ethernet1x10GHighPerCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 36), )
+if mibBuilder.loadTexts: ethernet1x10GHighPerCardTable.setStatus('current')
+ethernet1x10GHighPerCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 36, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernet1x10GHighPerCardEntry.setStatus('current')
+ethernet1x10GHighPerCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 36, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet1x10GHighPerCardEntityIndex.setStatus('current')
+ethernet1x10GHighPerCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 36, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet1x10GHighPerCardAdminState.setStatus('current')
+ethernet1x10GHighPerCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 36, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet1x10GHighPerCardOperationalState.setStatus('current')
+ethernet1x10GHighPerCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 36, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet1x10GHighPerCardSecondaryState.setStatus('current')
+ethernet1x10GHighPerCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 36, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet1x10GHighPerCardTemperature.setStatus('current')
+ethernet1x10GHighPerCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 36, 1, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet1x10GHighPerCardSnmpDyingGaspEnabled.setStatus('current')
+ethernet1x10GHighPerCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 36, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet1x10GHighPerCardRestartAction.setStatus('current')
+ethernet1x10GHighPerCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 36, 1, 8), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernet1x10GHighPerCardStorageType.setStatus('current')
+ethernet1x10GHighPerCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 36, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernet1x10GHighPerCardRowStatus.setStatus('current')
+ethernet1x10GHighPerCardForceOffLineAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 36, 1, 10), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet1x10GHighPerCardForceOffLineAction.setStatus('current')
+ethernet10x1GHighPerCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 37), )
+if mibBuilder.loadTexts: ethernet10x1GHighPerCardTable.setStatus('current')
+ethernet10x1GHighPerCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 37, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernet10x1GHighPerCardEntry.setStatus('current')
+ethernet10x1GHighPerCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 37, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet10x1GHighPerCardEntityIndex.setStatus('current')
+ethernet10x1GHighPerCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 37, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet10x1GHighPerCardAdminState.setStatus('current')
+ethernet10x1GHighPerCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 37, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet10x1GHighPerCardOperationalState.setStatus('current')
+ethernet10x1GHighPerCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 37, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet10x1GHighPerCardSecondaryState.setStatus('current')
+ethernet10x1GHighPerCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 37, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernet10x1GHighPerCardTemperature.setStatus('current')
+ethernet10x1GHighPerCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 37, 1, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet10x1GHighPerCardSnmpDyingGaspEnabled.setStatus('current')
+ethernet10x1GHighPerCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 37, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet10x1GHighPerCardRestartAction.setStatus('current')
+ethernet10x1GHighPerCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 37, 1, 8), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernet10x1GHighPerCardStorageType.setStatus('current')
+ethernet10x1GHighPerCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 37, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernet10x1GHighPerCardRowStatus.setStatus('current')
+ethernet10x1GHighPerCardForceOffLineAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 37, 1, 10), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernet10x1GHighPerCardForceOffLineAction.setStatus('current')
+ethernetNTET1804CardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 38), )
+if mibBuilder.loadTexts: ethernetNTET1804CardTable.setStatus('current')
+ethernetNTET1804CardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 38, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTET1804CardEntry.setStatus('current')
+ethernetNTET1804CardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 38, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTET1804CardEntityIndex.setStatus('current')
+ethernetNTET1804CardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 38, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTET1804CardAdminState.setStatus('current')
+ethernetNTET1804CardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 38, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTET1804CardOperationalState.setStatus('current')
+ethernetNTET1804CardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 38, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTET1804CardSecondaryState.setStatus('current')
+ethernetNTET1804CardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 38, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTET1804CardVoltage.setStatus('current')
+ethernetNTET1804CardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 38, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTET1804CardTemperature.setStatus('current')
+ethernetNTET1804CardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 38, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTET1804CardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTET1804CardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 38, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTET1804CardRestartAction.setStatus('current')
+ethernetNTET1804CardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 38, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTET1804CardFineGrainedPmInterval.setStatus('current')
+ethernetNTET1804CardMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 38, 1, 10), PortCarrierType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTET1804CardMode.setStatus('current')
+ethernetNTET3204CardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 39), )
+if mibBuilder.loadTexts: ethernetNTET3204CardTable.setStatus('current')
+ethernetNTET3204CardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 39, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTET3204CardEntry.setStatus('current')
+ethernetNTET3204CardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 39, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTET3204CardEntityIndex.setStatus('current')
+ethernetNTET3204CardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 39, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTET3204CardAdminState.setStatus('current')
+ethernetNTET3204CardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 39, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTET3204CardOperationalState.setStatus('current')
+ethernetNTET3204CardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 39, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTET3204CardSecondaryState.setStatus('current')
+ethernetNTET3204CardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 39, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTET3204CardVoltage.setStatus('current')
+ethernetNTET3204CardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 39, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTET3204CardTemperature.setStatus('current')
+ethernetNTET3204CardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 39, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTET3204CardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTET3204CardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 39, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTET3204CardRestartAction.setStatus('current')
+ethernetNTET3204CardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 39, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTET3204CardFineGrainedPmInterval.setStatus('current')
+ethernetNTET3204CardMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 39, 1, 10), PortCarrierType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTET3204CardMode.setStatus('current')
+ethernetNTEGESyncProbeCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 40), )
+if mibBuilder.loadTexts: ethernetNTEGESyncProbeCardTable.setStatus('current')
+ethernetNTEGESyncProbeCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 40, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGESyncProbeCardEntry.setStatus('current')
+ethernetNTEGESyncProbeCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 40, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGESyncProbeCardEntityIndex.setStatus('current')
+ethernetNTEGESyncProbeCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 40, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGESyncProbeCardAdminState.setStatus('current')
+ethernetNTEGESyncProbeCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 40, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGESyncProbeCardOperationalState.setStatus('current')
+ethernetNTEGESyncProbeCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 40, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGESyncProbeCardSecondaryState.setStatus('current')
+ethernetNTEGESyncProbeCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 40, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGESyncProbeCardVoltage.setStatus('current')
+ethernetNTEGESyncProbeCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 40, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGESyncProbeCardTemperature.setStatus('current')
+ethernetNTEGESyncProbeCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 40, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGESyncProbeCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGESyncProbeCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 40, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGESyncProbeCardRestartAction.setStatus('current')
+ethernetNTEGESyncProbeCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 40, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGESyncProbeCardFineGrainedPmInterval.setStatus('current')
+ethernetGE8SCCCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 41), )
+if mibBuilder.loadTexts: ethernetGE8SCCCardTable.setStatus('current')
+ethernetGE8SCCCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 41, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetGE8SCCCardEntry.setStatus('current')
+ethernetGE8SCCCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 41, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE8SCCCardEntityIndex.setStatus('current')
+ethernetGE8SCCCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 41, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetGE8SCCCardAdminState.setStatus('current')
+ethernetGE8SCCCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 41, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE8SCCCardOperationalState.setStatus('current')
+ethernetGE8SCCCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 41, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE8SCCCardSecondaryState.setStatus('current')
+ethernetGE8SCCCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 41, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE8SCCCardVoltage.setStatus('current')
+ethernetGE8SCCCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 41, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE8SCCCardTemperature.setStatus('current')
+ethernetGE8SCCCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 41, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetGE8SCCCardRestartAction.setStatus('current')
+ethernetGE8SCCCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 41, 1, 8), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetGE8SCCCardStorageType.setStatus('current')
+ethernetGE8SCCCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 41, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetGE8SCCCardRowStatus.setStatus('current')
+ethernetNTEGE114HCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 42), )
+if mibBuilder.loadTexts: ethernetNTEGE114HCardTable.setStatus('current')
+ethernetNTEGE114HCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 42, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE114HCardEntry.setStatus('current')
+ethernetNTEGE114HCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 42, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114HCardEntityIndex.setStatus('current')
+ethernetNTEGE114HCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 42, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114HCardAdminState.setStatus('current')
+ethernetNTEGE114HCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 42, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114HCardOperationalState.setStatus('current')
+ethernetNTEGE114HCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 42, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114HCardSecondaryState.setStatus('current')
+ethernetNTEGE114HCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 42, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114HCardVoltage.setStatus('current')
+ethernetNTEGE114HCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 42, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114HCardTemperature.setStatus('current')
+ethernetNTEGE114HCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 42, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114HCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE114HCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 42, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114HCardRestartAction.setStatus('current')
+ethernetNTEGE114HCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 42, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114HCardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE114HCardSwitchPortActionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 42, 1, 10), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTEGE114HCardSwitchPortActionPort.setStatus('current')
+ethernetNTEGE114HCardSwitchPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 42, 1, 11), SwitchPortAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114HCardSwitchPortAction.setStatus('current')
+ethernetNTEGE114PHCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 43), )
+if mibBuilder.loadTexts: ethernetNTEGE114PHCardTable.setStatus('current')
+ethernetNTEGE114PHCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 43, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE114PHCardEntry.setStatus('current')
+ethernetNTEGE114PHCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 43, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114PHCardEntityIndex.setStatus('current')
+ethernetNTEGE114PHCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 43, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114PHCardAdminState.setStatus('current')
+ethernetNTEGE114PHCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 43, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114PHCardOperationalState.setStatus('current')
+ethernetNTEGE114PHCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 43, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114PHCardSecondaryState.setStatus('current')
+ethernetNTEGE114PHCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 43, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114PHCardVoltage.setStatus('current')
+ethernetNTEGE114PHCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 43, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114PHCardTemperature.setStatus('current')
+ethernetNTEGE114PHCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 43, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114PHCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE114PHCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 43, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114PHCardRestartAction.setStatus('current')
+ethernetNTEGE114PHCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 43, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114PHCardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE114PHCardSwitchPortActionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 43, 1, 10), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTEGE114PHCardSwitchPortActionPort.setStatus('current')
+ethernetNTEGE114PHCardSwitchPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 43, 1, 11), SwitchPortAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114PHCardSwitchPortAction.setStatus('current')
+ethernetFE36ECardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 44), )
+if mibBuilder.loadTexts: ethernetFE36ECardTable.setStatus('current')
+ethernetFE36ECardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 44, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetFE36ECardEntry.setStatus('current')
+ethernetFE36ECardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 44, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetFE36ECardEntityIndex.setStatus('current')
+ethernetFE36ECardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 44, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetFE36ECardAdminState.setStatus('current')
+ethernetFE36ECardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 44, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetFE36ECardOperationalState.setStatus('current')
+ethernetFE36ECardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 44, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetFE36ECardSecondaryState.setStatus('current')
+ethernetFE36ECardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 44, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetFE36ECardTemperature.setStatus('current')
+ethernetFE36ECardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 44, 1, 6), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetFE36ECardRestartAction.setStatus('current')
+ethernetFE36ECardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 44, 1, 7), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetFE36ECardStorageType.setStatus('current')
+ethernetFE36ECardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 44, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetFE36ECardRowStatus.setStatus('current')
+ethernetFE36ECardForceOffLineAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 44, 1, 9), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetFE36ECardForceOffLineAction.setStatus('current')
+ethernetFE36ECard8023azEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 44, 1, 10), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetFE36ECard8023azEnabled.setStatus('current')
+ethernetNTEGE114SHCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 45), )
+if mibBuilder.loadTexts: ethernetNTEGE114SHCardTable.setStatus('current')
+ethernetNTEGE114SHCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 45, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE114SHCardEntry.setStatus('current')
+ethernetNTEGE114SHCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 45, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114SHCardEntityIndex.setStatus('current')
+ethernetNTEGE114SHCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 45, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114SHCardAdminState.setStatus('current')
+ethernetNTEGE114SHCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 45, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114SHCardOperationalState.setStatus('current')
+ethernetNTEGE114SHCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 45, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114SHCardSecondaryState.setStatus('current')
+ethernetNTEGE114SHCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 45, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114SHCardVoltage.setStatus('current')
+ethernetNTEGE114SHCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 45, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114SHCardTemperature.setStatus('current')
+ethernetNTEGE114SHCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 45, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114SHCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE114SHCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 45, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114SHCardRestartAction.setStatus('current')
+ethernetNTEGE114SHCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 45, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114SHCardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE114SHCardSwitchPortActionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 45, 1, 10), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTEGE114SHCardSwitchPortActionPort.setStatus('current')
+ethernetNTEGE114SHCardSwitchPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 45, 1, 11), SwitchPortAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114SHCardSwitchPortAction.setStatus('current')
+ethernetNTEGE114SCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 46), )
+if mibBuilder.loadTexts: ethernetNTEGE114SCardTable.setStatus('current')
+ethernetNTEGE114SCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 46, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE114SCardEntry.setStatus('current')
+ethernetNTEGE114SCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 46, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114SCardEntityIndex.setStatus('current')
+ethernetNTEGE114SCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 46, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114SCardAdminState.setStatus('current')
+ethernetNTEGE114SCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 46, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114SCardOperationalState.setStatus('current')
+ethernetNTEGE114SCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 46, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114SCardSecondaryState.setStatus('current')
+ethernetNTEGE114SCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 46, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114SCardVoltage.setStatus('current')
+ethernetNTEGE114SCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 46, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114SCardTemperature.setStatus('current')
+ethernetNTEGE114SCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 46, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114SCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE114SCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 46, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114SCardRestartAction.setStatus('current')
+ethernetNTEGE114SCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 46, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114SCardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE114SCardSwitchPortActionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 46, 1, 10), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTEGE114SCardSwitchPortActionPort.setStatus('current')
+ethernetNTEGE114SCardSwitchPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 46, 1, 11), SwitchPortAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114SCardSwitchPortAction.setStatus('current')
+stuHighPerCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 47), )
+if mibBuilder.loadTexts: stuHighPerCardTable.setStatus('current')
+stuHighPerCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 47, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: stuHighPerCardEntry.setStatus('current')
+stuHighPerCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 47, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stuHighPerCardEntityIndex.setStatus('current')
+stuHighPerCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 47, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: stuHighPerCardAdminState.setStatus('current')
+stuHighPerCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 47, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stuHighPerCardOperationalState.setStatus('current')
+stuHighPerCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 47, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stuHighPerCardSecondaryState.setStatus('current')
+stuHighPerCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 47, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stuHighPerCardTemperature.setStatus('current')
+stuHighPerCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 47, 1, 6), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: stuHighPerCardRestartAction.setStatus('current')
+stuHighPerCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 47, 1, 7), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stuHighPerCardStorageType.setStatus('current')
+stuHighPerCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 47, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stuHighPerCardRowStatus.setStatus('current')
+stuHighPerCardForceOffLineAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 47, 1, 9), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: stuHighPerCardForceOffLineAction.setStatus('current')
+stiHighPerTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 48), )
+if mibBuilder.loadTexts: stiHighPerTable.setStatus('current')
+stiHighPerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 48, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: stiHighPerEntry.setStatus('current')
+stiHighPerEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 48, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stiHighPerEntityIndex.setStatus('current')
+stiHighPerAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 48, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: stiHighPerAdminState.setStatus('current')
+stiHighPerOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 48, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stiHighPerOperationalState.setStatus('current')
+stiHighPerSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 48, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stiHighPerSecondaryState.setStatus('current')
+stiHighPerTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 48, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stiHighPerTemperature.setStatus('current')
+stiHighPerStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 48, 1, 6), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiHighPerStorageType.setStatus('current')
+stiHighPerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 48, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: stiHighPerRowStatus.setStatus('current')
+ethernetGE8ECCCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 49), )
+if mibBuilder.loadTexts: ethernetGE8ECCCardTable.setStatus('current')
+ethernetGE8ECCCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 49, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetGE8ECCCardEntry.setStatus('current')
+ethernetGE8ECCCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 49, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE8ECCCardEntityIndex.setStatus('current')
+ethernetGE8ECCCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 49, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetGE8ECCCardAdminState.setStatus('current')
+ethernetGE8ECCCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 49, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE8ECCCardOperationalState.setStatus('current')
+ethernetGE8ECCCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 49, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE8ECCCardSecondaryState.setStatus('current')
+ethernetGE8ECCCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 49, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE8ECCCardVoltage.setStatus('current')
+ethernetGE8ECCCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 49, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE8ECCCardTemperature.setStatus('current')
+ethernetGE8ECCCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 49, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetGE8ECCCardRestartAction.setStatus('current')
+ethernetGE8ECCCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 49, 1, 8), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetGE8ECCCardStorageType.setStatus('current')
+ethernetGE8ECCCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 49, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetGE8ECCCardRowStatus.setStatus('current')
+networkElementLLDPParamsTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 50), )
+if mibBuilder.loadTexts: networkElementLLDPParamsTable.setStatus('current')
+networkElementLLDPParamsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 50, 1), )
+networkElementEntry.registerAugmentions(("CM-ENTITY-MIB", "networkElementLLDPParamsEntry"))
 networkElementLLDPParamsEntry.setIndexNames(*networkElementEntry.getIndexNames())
-cmEntityObjectGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,1))
-cmEntityObjectGroup.setObjects(*((_A,_F),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_G),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_H),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_C6),(_A,_C7),(_A,_C8),(_A,_C9),(_A,_CA),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_CB),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_CC),(_A,_CD),(_A,_CE),(_A,_CF),(_A,_CG),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_CK),(_A,_CL),(_A,_CM),(_A,_CN),(_A,_CO),(_A,_CP),(_A,_CQ),(_A,_CR),(_A,_CS),(_A,_CT),(_A,_CU),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BE),(_A,_BF),(_A,_BG),(_A,_BH),(_A,_CV),(_A,_CW),(_A,_CX),(_A,_CY),(_A,_CZ),(_A,_Ca),(_A,_Cb),(_A,_Cc),(_A,_Cd),(_A,_Ce),(_A,_Cf),(_A,_Cg),(_A,_Ch),(_A,_Ci),(_A,_Cj),(_A,_Ck),(_A,_Cl),(_A,_Cm),(_A,_Cn),(_A,_Co),(_A,_Cp),(_A,_Cq),(_A,_Cr),(_A,_Cs),(_A,_Ct),(_A,_Cu),(_A,_Cv),(_A,_Cw),(_A,_Cx),(_A,_Cy),(_A,_Cz),(_A,_C_),(_A,_D0),(_A,_D1),(_A,_D2),(_A,_D3),(_A,_D4),(_A,_D5),(_A,_D6),(_A,_D7),(_A,_D8),(_A,_D9),(_A,_DA),(_A,_DB),(_A,_DC),(_A,_DD),(_A,_DE),(_A,_DF),(_A,_DG),(_A,_DH),(_A,_DI),(_A,_O),(_A,_DJ),(_A,_DK),(_A,_DL),(_A,_DM),(_A,_DN),(_A,_DO),(_A,_DP),(_A,_DQ),(_A,_DR),(_A,_DS),(_A,_DT),(_A,_DU),(_A,_DV),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_BQ),(_A,_BR),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By),(_A,_DW),(_A,_DX),(_A,_DY),(_A,_DZ),(_A,_Da),(_A,_Db),(_A,_Dc),(_A,_Dd),(_A,_De),(_A,_Df)))
-if mibBuilder.loadTexts:cmEntityObjectGroup.setStatus('deprecated')
-commonEntityGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,2))
-commonEntityGroup.setObjects(*((_A,_F),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_Dg),(_A,_Dh),(_A,_G),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_H),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z)))
-if mibBuilder.loadTexts:commonEntityGroup.setStatus(_B)
-psuGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,3))
-psuGroup.setObjects(*((_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4)))
-if mibBuilder.loadTexts:psuGroup.setStatus(_B)
-fanGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,4))
-fanGroup.setObjects(*((_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_Di),(_A,_Dj)))
-if mibBuilder.loadTexts:fanGroup.setStatus(_B)
-hubshelfGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,5))
-hubshelfGroup.setObjects(*((_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_Dk),(_A,_Dl),(_A,_Dm),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_Dn),(_A,_Do),(_A,_Dp),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_Dq),(_A,_Dr),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_Ds),(_A,_Dt),(_A,_Du),(_A,_Dv),(_A,_Dw),(_A,_Dx),(_A,_Dy),(_A,_Dz),(_A,_D_),(_A,_E0),(_A,_E1),(_A,_E2),(_A,_E3),(_A,_E4),(_A,_E5),(_A,_E6),(_A,_E7),(_A,_E8),(_A,_E9)))
-if mibBuilder.loadTexts:hubshelfGroup.setStatus(_B)
-nteGe206CardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,6))
-nteGe206CardGroup.setObjects(*((_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_EA)))
-if mibBuilder.loadTexts:nteGe206CardGroup.setStatus(_B)
-nteGe201SyncECardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,7))
-nteGe201SyncECardGroup.setObjects(*((_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_EB)))
-if mibBuilder.loadTexts:nteGe201SyncECardGroup.setStatus(_B)
-nteGe201NonSyncECardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,8))
-nteGe201NonSyncECardGroup.setObjects(*((_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_EC)))
-if mibBuilder.loadTexts:nteGe201NonSyncECardGroup.setStatus(_B)
-nteGe206FCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,9))
-nteGe206FCardGroup.setObjects(*((_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BE),(_A,_BF),(_A,_BG),(_A,_BH),(_A,_ED)))
-if mibBuilder.loadTexts:nteGe206FCardGroup.setStatus(_B)
-nteGe112CardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,10))
-nteGe112CardGroup.setObjects(*((_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_BQ),(_A,_BR),(_A,_BS)))
-if mibBuilder.loadTexts:nteGe112CardGroup.setStatus(_B)
-nteGe114CardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,11))
-nteGe114CardGroup.setObjects(*((_A,_BT),(_A,_BU),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd)))
-if mibBuilder.loadTexts:nteGe114CardGroup.setStatus(_B)
-nteGe206VCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,12))
-nteGe206VCardGroup.setObjects(*((_A,_EE),(_A,_EF),(_A,_EG),(_A,_EH),(_A,_EI),(_A,_EJ),(_A,_EK),(_A,_EL),(_A,_EM)))
-if mibBuilder.loadTexts:nteGe206VCardGroup.setStatus(_B)
-nteXg210CardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,13))
-nteXg210CardGroup.setObjects(*((_A,_EN),(_A,_EO),(_A,_EP),(_A,_EQ),(_A,_ER),(_A,_ES),(_A,_ET),(_A,_EU),(_A,_EV)))
-if mibBuilder.loadTexts:nteXg210CardGroup.setStatus(_B)
-pseudoWireCardOcnStmCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,14))
-pseudoWireCardOcnStmCardGroup.setObjects(*((_A,_EW),(_A,_EX),(_A,_EY),(_A,_EZ),(_A,_Ea),(_A,_Eb),(_A,_Ec),(_A,_Ed),(_A,_Ee),(_A,_Ef),(_A,_Eg),(_A,_Eh),(_A,_Ei),(_A,_Ej)))
-if mibBuilder.loadTexts:pseudoWireCardOcnStmCardGroup.setStatus(_B)
-pseudoWireCardE1T1CardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,15))
-pseudoWireCardE1T1CardGroup.setObjects(*((_A,_Ek),(_A,_El),(_A,_Em),(_A,_En),(_A,_Eo),(_A,_Ep),(_A,_Eq),(_A,_Er),(_A,_Es),(_A,_Et),(_A,_Eu),(_A,_Ev)))
-if mibBuilder.loadTexts:pseudoWireCardE1T1CardGroup.setStatus(_B)
-nteT1804CardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,16))
-nteT1804CardGroup.setObjects(*((_A,_Ew),(_A,_Ex),(_A,_Ey),(_A,_Ez),(_A,_E_),(_A,_F0),(_A,_F1),(_A,_F2),(_A,_F3),(_A,_F4)))
-if mibBuilder.loadTexts:nteT1804CardGroup.setStatus(_B)
-nteT3204CardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,17))
-nteT3204CardGroup.setObjects(*((_A,_F5),(_A,_F6),(_A,_F7),(_A,_F8),(_A,_F9),(_A,_FA),(_A,_FB),(_A,_FC),(_A,_FD),(_A,_FE),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1)))
-if mibBuilder.loadTexts:nteT3204CardGroup.setStatus(_B)
-nteGeSyncProbeCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,18))
-nteGeSyncProbeCardGroup.setObjects(*((_A,_FF),(_A,_FG),(_A,_FH),(_A,_FI),(_A,_FJ),(_A,_FK),(_A,_FL),(_A,_FM),(_A,_FN),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:nteGeSyncProbeCardGroup.setStatus(_B)
-xg1XCCCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,19))
-xg1XCCCardGroup.setObjects(*((_A,_FO),(_A,_FP),(_A,_FQ),(_A,_FR),(_A,_FS),(_A,_FT),(_A,_FU),(_A,_FV),(_A,_FW)))
-if mibBuilder.loadTexts:xg1XCCCardGroup.setStatus(_B)
-xg1SCCCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,20))
-xg1SCCCardGroup.setObjects(*((_A,_FX),(_A,_FY),(_A,_FZ),(_A,_Fa),(_A,_Fb),(_A,_Fc),(_A,_Fd),(_A,_Fe),(_A,_Ff)))
-if mibBuilder.loadTexts:xg1SCCCardGroup.setStatus(_B)
-ge4ECCCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,21))
-ge4ECCCardGroup.setObjects(*((_A,_Fg),(_A,_Fh),(_A,_Fi),(_A,_Fj),(_A,_Fk),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1)))
-if mibBuilder.loadTexts:ge4ECCCardGroup.setStatus(_B)
-ge4SCCCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,22))
-ge4SCCCardGroup.setObjects(*((_A,_Fl),(_A,_Fm),(_A,_Fn),(_A,_Fo),(_A,_Fp),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:ge4SCCCardGroup.setStatus(_B)
-ge8SCCCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,23))
-ge8SCCCardGroup.setObjects(*((_A,_Fq),(_A,_Fr),(_A,_Fs),(_A,_Ft),(_A,_Fu),(_A,_Fv),(_A,_Fw),(_A,_Fx),(_A,_Fy)))
-if mibBuilder.loadTexts:ge8SCCCardGroup.setStatus(_B)
-nteGe114HCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,24))
-nteGe114HCardGroup.setObjects(*((_A,_Fz),(_A,_F_),(_A,_G0),(_A,_G1),(_A,_G2),(_A,_G3),(_A,_G4),(_A,_G5),(_A,_G6),(_A,_G7),(_A,_G8)))
-if mibBuilder.loadTexts:nteGe114HCardGroup.setStatus(_B)
-nteGe114PHCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,25))
-nteGe114PHCardGroup.setObjects(*((_A,_G9),(_A,_GA),(_A,_GB),(_A,_GC),(_A,_GD),(_A,_GE),(_A,_GF),(_A,_GG),(_A,_GH),(_A,_GI),(_A,_GJ)))
-if mibBuilder.loadTexts:nteGe114PHCardGroup.setStatus(_B)
-ethernetOverOCSTMCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,26))
-ethernetOverOCSTMCardGroup.setObjects(*((_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo)))
-if mibBuilder.loadTexts:ethernetOverOCSTMCardGroup.setStatus(_B)
-ethernet1x10GHighPerCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,27))
-ethernet1x10GHighPerCardGroup.setObjects(*((_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By)))
-if mibBuilder.loadTexts:ethernet1x10GHighPerCardGroup.setStatus(_B)
-ethernetFE36ECardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,28))
-ethernetFE36ECardGroup.setObjects(*((_A,_GK),(_A,_GL),(_A,_GM),(_A,_GN),(_A,_GO),(_A,_GP),(_A,_GQ),(_A,_GR),(_A,_GS),(_A,_GT)))
-if mibBuilder.loadTexts:ethernetFE36ECardGroup.setStatus(_B)
-nteGe114SHCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,29))
-nteGe114SHCardGroup.setObjects(*((_A,_GU),(_A,_GV),(_A,_GW),(_A,_GX),(_A,_GY),(_A,_GZ),(_A,_Ga),(_A,_Gb),(_A,_Gc),(_A,_Gd),(_A,_Ge)))
-if mibBuilder.loadTexts:nteGe114SHCardGroup.setStatus(_B)
-nteGe114SCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,30))
-nteGe114SCardGroup.setObjects(*((_A,_Gf),(_A,_Gg),(_A,_Gh),(_A,_Gi),(_A,_Gj),(_A,_Gk),(_A,_Gl),(_A,_Gm),(_A,_Gn),(_A,_Go),(_A,_Gp)))
-if mibBuilder.loadTexts:nteGe114SCardGroup.setStatus(_B)
-ge8ECCCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,31))
-ge8ECCCardGroup.setObjects(*((_A,_Gq),(_A,_Gr),(_A,_Gs),(_A,_Gt),(_A,_Gu),(_A,_Gv),(_A,_Gw),(_A,_Gx),(_A,_Gy)))
-if mibBuilder.loadTexts:ge8ECCCardGroup.setStatus(_B)
-neLLDPParamsGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,32))
-neLLDPParamsGroup.setObjects((_A,_Gz))
-if mibBuilder.loadTexts:neLLDPParamsGroup.setStatus(_B)
-nteSh1PcsCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,33))
-nteSh1PcsCardGroup.setObjects(*((_A,_G_),(_A,_H0),(_A,_H1),(_A,_H2),(_A,_H3),(_A,_H4),(_A,_H5),(_A,_H6),(_A,_H7)))
-if mibBuilder.loadTexts:nteSh1PcsCardGroup.setStatus(_B)
-nteOsa5411CardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,34))
-nteOsa5411CardGroup.setObjects(*((_A,_H8),(_A,_H9),(_A,_HA),(_A,_HB),(_A,_HC),(_A,_HD),(_A,_HE),(_A,_HF),(_A,_HG),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:nteOsa5411CardGroup.setStatus(_B)
-nteGe112ProCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,35))
-nteGe112ProCardGroup.setObjects(*((_A,_HH),(_A,_HI),(_A,_HJ),(_A,_HK),(_A,_HL),(_A,_HM),(_A,_HN),(_A,_HO),(_A,_HP),(_A,_HQ),(_A,_HR)))
-if mibBuilder.loadTexts:nteGe112ProCardGroup.setStatus(_B)
-nteGe112ProMCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,36))
-nteGe112ProMCardGroup.setObjects(*((_A,_HS),(_A,_HT),(_A,_HU),(_A,_HV),(_A,_HW),(_A,_HX),(_A,_HY),(_A,_HZ),(_A,_Ha),(_A,_Hb),(_A,_Hc)))
-if mibBuilder.loadTexts:nteGe112ProMCardGroup.setStatus(_B)
-nteGe114ProCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,37))
-nteGe114ProCardGroup.setObjects(*((_A,_Hd),(_A,_He),(_A,_Hf),(_A,_Hg),(_A,_Hh),(_A,_Hi),(_A,_Hj),(_A,_Hk),(_A,_Hl),(_A,_Hm),(_A,_Hn)))
-if mibBuilder.loadTexts:nteGe114ProCardGroup.setStatus(_B)
-nteGe114ProCCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,38))
-nteGe114ProCCardGroup.setObjects(*((_A,_Ho),(_A,_Hp),(_A,_Hq),(_A,_Hr),(_A,_Hs),(_A,_Ht),(_A,_Hu),(_A,_Hv),(_A,_Hw),(_A,_Hx),(_A,_Hy)))
-if mibBuilder.loadTexts:nteGe114ProCCardGroup.setStatus(_B)
-nteGe114ProSHCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,39))
-nteGe114ProSHCardGroup.setObjects(*((_A,_Hz),(_A,_H_),(_A,_I0),(_A,_I1),(_A,_I2),(_A,_I3),(_A,_I4),(_A,_I5),(_A,_I6),(_A,_I7),(_A,_I8)))
-if mibBuilder.loadTexts:nteGe114ProSHCardGroup.setStatus(_B)
-nteGe114ProCSHCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,40))
-nteGe114ProCSHCardGroup.setObjects(*((_A,_I9),(_A,_IA),(_A,_IB),(_A,_IC),(_A,_ID),(_A,_IE),(_A,_IF),(_A,_IG),(_A,_IH),(_A,_II),(_A,_IJ)))
-if mibBuilder.loadTexts:nteGe114ProCSHCardGroup.setStatus(_B)
-nteGe114ProHECardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,41))
-nteGe114ProHECardGroup.setObjects(*((_A,_IK),(_A,_IL),(_A,_IM),(_A,_IN),(_A,_IO),(_A,_IP),(_A,_IQ),(_A,_IR),(_A,_IS),(_A,_IT),(_A,_IU)))
-if mibBuilder.loadTexts:nteGe114ProHECardGroup.setStatus(_B)
-nteGe112ProHCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,42))
-nteGe112ProHCardGroup.setObjects(*((_A,_IV),(_A,_IW),(_A,_IX),(_A,_IY),(_A,_IZ),(_A,_Ia),(_A,_Ib),(_A,_Ic),(_A,_Id),(_A,_Ie),(_A,_If)))
-if mibBuilder.loadTexts:nteGe112ProHCardGroup.setStatus(_B)
-nteXg210CCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,43))
-nteXg210CCardGroup.setObjects(*((_A,_Ig),(_A,_Ih),(_A,_Ii),(_A,_Ij),(_A,_Ik),(_A,_Il),(_A,_Im),(_A,_In),(_A,_Io)))
-if mibBuilder.loadTexts:nteXg210CCardGroup.setStatus(_B)
-geGE8SCryptoConnectorCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,44))
-geGE8SCryptoConnectorCardGroup.setObjects(*((_A,_Ip),(_A,_Iq),(_A,_Ir),(_A,_Is),(_A,_It),(_A,_Iu),(_A,_Iv),(_A,_Iw),(_A,_Ix)))
-if mibBuilder.loadTexts:geGE8SCryptoConnectorCardGroup.setStatus(_B)
-nteOsa5420CardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,45))
-nteOsa5420CardGroup.setObjects(*((_A,_Iy),(_A,_Iz),(_A,_I_),(_A,_J0),(_A,_J1),(_A,_J2),(_A,_J3),(_A,_J4),(_A,_J5),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:nteOsa5420CardGroup.setStatus(_B)
-nteOsa5421CardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,46))
-nteOsa5421CardGroup.setObjects(*((_A,_J6),(_A,_J7),(_A,_J8),(_A,_J9),(_A,_JA),(_A,_JB),(_A,_JC),(_A,_JD),(_A,_JE),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:nteOsa5421CardGroup.setStatus(_B)
-nteGe114GCardGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,3,2,2,47))
-nteGe114GCardGroup.setObjects(*((_A,_JF),(_A,_JG),(_A,_JH),(_A,_JI),(_A,_JJ),(_A,_JK),(_A,_JL),(_A,_JM),(_A,_JN),(_A,_JO),(_A,_JP)))
-if mibBuilder.loadTexts:nteGe114GCardGroup.setStatus(_B)
-cmEntityCompliance=ModuleCompliance((1,3,6,1,4,1,2544,1,12,3,2,1,1))
-cmEntityCompliance.setObjects(*((_A,_JQ),(_A,_JR),(_A,'psuGroup'),(_A,'fanGroup'),(_A,_JS),(_A,_JT),(_A,_JU),(_A,_JV),(_A,_JW),(_A,_JX),(_A,_JY),(_A,_JZ),(_A,_Ja),(_A,_Jb),(_A,_Jc),(_A,_Jd),(_A,_Je)))
-if mibBuilder.loadTexts:cmEntityCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'NeProvAction':NeProvAction,'NetworkElementType':NetworkElementType,'SlotType':SlotType,'ShelfType':ShelfType,'ShelfAction':ShelfAction,'PsuType':PsuType,'CardType':CardType,'CmCPMRLinkLossFwdMode':CmCPMRLinkLossFwdMode,'PWE3OCNSTMCardMode':PWE3OCNSTMCardMode,'PWE3E1T1CardMode':PWE3E1T1CardMode,'PSNEncapsulationMode':PSNEncapsulationMode,'LLDPEnableAction':LLDPEnableAction,'SwitchPortAction':SwitchPortAction,'PortCarrierType':PortCarrierType,'cmEntityMIB':cmEntityMIB,'cmEntityObjects':cmEntityObjects,'networkElementTable':networkElementTable,'networkElementEntry':networkElementEntry,_F:neIndex,_P:neName,_Q:neType,_R:neContact,_S:neLocation,_T:neDescription,_U:neCmdPromptPrefix,_V:neAccepted,_W:neFromPort,_X:neProvAction,_Y:neStorageType,_Z:neRowStatus,_Dg:neAutoProvMode,_Dh:neFineGrainedPmInterval,'shelfTable':shelfTable,'shelfEntry':shelfEntry,_G:shelfIndex,_a:shelfEntityIndex,_b:shelfType,_c:shelfbackplaneRev,_d:shelfbackplaneDOM,_e:shelfbackplaneSerialNo,_f:shelfAction,_g:shelfAdminState,_h:shelfOperationalState,_i:shelfSecondaryState,_j:shelfMfgSite,_k:shelfOscillatorType,'slotTable':slotTable,'slotEntry':slotEntry,_H:slotIndex,_l:slotEntityIndex,_m:slotType,_n:slotCardType,_o:slotCardUnitName,_p:slotCardFormatVersion,_q:slotCardCLEICode,_r:slotCardPartNumber,_s:slotCardHwRev,_t:slotCardSwRev,_u:slotCardSerialNum,_v:slotCardMfgName,_w:slotCardMfgDate,_x:slotCardMfgSite,_y:slotSecondaryState,_z:slotCardPhysicalAddress,'psuTable':psuTable,'psuEntry':psuEntry,_A0:psuEntityIndex,_A1:psuType,_A2:psuAdminState,_A3:psuOperationalState,_A4:psuSecondaryState,_C6:psuOutputVoltage,_C7:psuTemperature,_C8:psuOutputCurrent,_C9:psuStorageType,_CA:psuRowStatus,'fanTable':fanTable,'fanEntry':fanEntry,_A5:fanEntityIndex,_A6:fanAdminState,_A7:fanOperationalState,_A8:fanSecondaryState,_Di:fanStorageType,_Dj:fanRowStatus,'scuTable':scuTable,'scuEntry':scuEntry,_A9:scuEntityIndex,_AA:scuAdminState,_AB:scuOperationalState,_AC:scuSecondaryState,_AD:scuVoltage,_AE:scuTemperature,_AF:scuRestartAction,_AG:scuStorageType,_AH:scuRowStatus,_Dk:scuFlashModelNum,_Dl:scuFlashFirmwareRev,_Dm:scuFlashSerialNum,'nemiTable':nemiTable,'nemiEntry':nemiEntry,_AI:nemiEntityIndex,_AJ:nemiAdminState,_AK:nemiOperationalState,_AL:nemiSecondaryState,_AM:nemiVoltage,_AN:nemiTemperature,_AO:nemiRestartAction,_AP:nemiStorageType,_AQ:nemiRowStatus,_CB:nemiForceOffLineAction,_Dn:nemiFlashModelNum,_Do:nemiFlashFirmwareRev,_Dp:nemiFlashSerialNum,'ethernetNTUCardTable':ethernetNTUCardTable,'ethernetNTUCardEntry':ethernetNTUCardEntry,_AR:ethernetNTUCardEntityIndex,_AS:ethernetNTUCardAdminState,_AT:ethernetNTUCardOperationalState,_AU:ethernetNTUCardSecondaryState,_AV:ethernetNTUCardVoltage,_AW:ethernetNTUCardTemperature,_Dq:ethernetNTUCardSnmpDyingGaspEnabled,_Dr:ethernetNTUCardRestartAction,_AX:ethernetNTUCardStorageType,_AY:ethernetNTUCardRowStatus,'ethernetCPMRCardTable':ethernetCPMRCardTable,'ethernetCPMRCardEntry':ethernetCPMRCardEntry,_AZ:ethernetCPMRCardEntityIndex,_Aa:ethernetCPMRCardAdminState,_Ab:ethernetCPMRCardOperationalState,_Ac:ethernetCPMRCardSecondaryState,_Ad:ethernetCPMRCardVoltage,_Ae:ethernetCPMRCardTemperature,_Af:ethernetCPMRCardRestartAction,_Ag:ethernetCPMRCardPSU1State,_Ah:ethernetCPMRCardPSU2State,_Ai:ethernetCPMRCardFAN1State,_Aj:ethernetCPMRCardFAN2State,_Ak:ethernetCPMRCardPsuType,_Al:ethernetCPMRCardLLFMode,_Am:ethernetCPMRCardLLFModeAction,'ethernetNTEGE101CardTable':ethernetNTEGE101CardTable,'ethernetNTEGE101CardEntry':ethernetNTEGE101CardEntry,_CC:ethernetNTEGE101CardEntityIndex,_CD:ethernetNTEGE101CardAdminState,_CE:ethernetNTEGE101CardOperationalState,_CF:ethernetNTEGE101CardSecondaryState,_CG:ethernetNTEGE101CardVoltage,_CH:ethernetNTEGE101CardTemperature,_CI:ethernetNTEGE101CardSnmpDyingGaspEnabled,_CJ:ethernetNTEGE101CardRestartAction,'ethernetNTEGE206CardTable':ethernetNTEGE206CardTable,'ethernetNTEGE206CardEntry':ethernetNTEGE206CardEntry,_An:ethernetNTEGE206CardEntityIndex,_Ao:ethernetNTEGE206CardAdminState,_Ap:ethernetNTEGE206CardOperationalState,_Aq:ethernetNTEGE206CardSecondaryState,_Ar:ethernetNTEGE206CardVoltage,_As:ethernetNTEGE206CardTemperature,_At:ethernetNTEGE206CardSnmpDyingGaspEnabled,_Au:ethernetNTEGE206CardRestartAction,_EA:ethernetNTEGE206CardFineGrainedPmInterval,'pseudoWireE3CardTable':pseudoWireE3CardTable,'pseudoWireE3CardEntry':pseudoWireE3CardEntry,_CK:pseudoWireE3CardEntityIndex,_CL:pseudoWireE3CardAdminState,_CM:pseudoWireE3CardOperationalState,_CN:pseudoWireE3CardSecondaryState,_CO:pseudoWireE3CardIpAddress,_CP:pseudoWireE3CardIpNetmask,_CQ:pseudoWireE3CardIpGateway,_CR:pseudoWireE3CardDhcpEnabled,_CS:pseudoWireE3CardMgmtVlanId,_CT:pseudoWireE3CardTimeOfDay,_CU:pseudoWireE3CardRestartAction,'scuTTable':scuTTable,'scuTEntry':scuTEntry,_Ds:scuTEntityIndex,_Dt:scuTAdminState,_Du:scuTOperationalState,_Dv:scuTSecondaryState,_Dw:scuTVoltage,_Dx:scuTTemperature,_Dy:scuTRestartAction,_Dz:scuTStorageType,_D_:scuTRowStatus,'ethernetNTECardTable':ethernetNTECardTable,'ethernetNTECardEntry':ethernetNTECardEntry,_E0:ethernetNTECardEntityIndex,_E1:ethernetNTECardAdminState,_E2:ethernetNTECardOperationalState,_E3:ethernetNTECardSecondaryState,_E4:ethernetNTECardVoltage,_E5:ethernetNTECardTemperature,_E6:ethernetNTECardSnmpDyingGaspEnabled,_E7:ethernetNTECardRestartAction,_E8:ethernetNTECardStorageType,_E9:ethernetNTECardRowStatus,'ethernetNTEGE201CardTable':ethernetNTEGE201CardTable,'ethernetNTEGE201CardEntry':ethernetNTEGE201CardEntry,_B2:ethernetNTEGE201CardEntityIndex,_B3:ethernetNTEGE201CardAdminState,_B4:ethernetNTEGE201CardOperationalState,_B5:ethernetNTEGE201CardSecondaryState,_B6:ethernetNTEGE201CardVoltage,_B7:ethernetNTEGE201CardTemperature,_B8:ethernetNTEGE201CardSnmpDyingGaspEnabled,_B9:ethernetNTEGE201CardRestartAction,_EC:ethernetNTEGE201CardFineGrainedPmInterval,'ethernetNTEGE201SyncECardTable':ethernetNTEGE201SyncECardTable,'ethernetNTEGE201SyncECardEntry':ethernetNTEGE201SyncECardEntry,_Av:ethernetNTEGE201SyncECardEntityIndex,_Aw:ethernetNTEGE201SyncECardAdminState,_Ax:ethernetNTEGE201SyncECardOperationalState,_Ay:ethernetNTEGE201SyncECardSecondaryState,_Az:ethernetNTEGE201SyncECardVoltage,_A_:ethernetNTEGE201SyncECardTemperature,_B0:ethernetNTEGE201SyncECardSnmpDyingGaspEnabled,_B1:ethernetNTEGE201SyncECardRestartAction,_EB:ethernetNTEGE201SyncECardFineGrainedPmInterval,'ethernetNTEGE206FCardTable':ethernetNTEGE206FCardTable,'ethernetNTEGE206FCardEntry':ethernetNTEGE206FCardEntry,_BA:ethernetNTEGE206FCardEntityIndex,_BB:ethernetNTEGE206FCardAdminState,_BC:ethernetNTEGE206FCardOperationalState,_BD:ethernetNTEGE206FCardSecondaryState,_BE:ethernetNTEGE206FCardVoltage,_BF:ethernetNTEGE206FCardTemperature,_BG:ethernetNTEGE206FCardSnmpDyingGaspEnabled,_BH:ethernetNTEGE206FCardRestartAction,_ED:ethernetNTEGE206FCardFineGrainedPmInterval,'ethernet1x10GCardTable':ethernet1x10GCardTable,'ethernet1x10GCardEntry':ethernet1x10GCardEntry,_CV:ethernet1x10GCardEntityIndex,_CW:ethernet1x10GCardAdminState,_CX:ethernet1x10GCardOperationalState,_CY:ethernet1x10GCardSecondaryState,_CZ:ethernet1x10GCardTemperature,_Ca:ethernet1x10GCardSnmpDyingGaspEnabled,_Cb:ethernet1x10GCardRestartAction,_Cc:ethernet1x10GCardStorageType,_Cd:ethernet1x10GCardRowStatus,_Ce:ethernet1x10GCardForceOffLineAction,'ethernet10x1GCardTable':ethernet10x1GCardTable,'ethernet10x1GCardEntry':ethernet10x1GCardEntry,_Cf:ethernet10x1GCardEntityIndex,_Cg:ethernet10x1GCardAdminState,_Ch:ethernet10x1GCardOperationalState,_Ci:ethernet10x1GCardSecondaryState,_Cj:ethernet10x1GCardTemperature,_Ck:ethernet10x1GCardSnmpDyingGaspEnabled,_Cl:ethernet10x1GCardRestartAction,_Cm:ethernet10x1GCardStorageType,_Cn:ethernet10x1GCardRowStatus,_Co:ethernet10x1GCardForceOffLineAction,'ethernetSWFCardTable':ethernetSWFCardTable,'ethernetSWFCardEntry':ethernetSWFCardEntry,_Cp:ethernetSWFCardEntityIndex,_Cq:ethernetSWFCardAdminState,_Cr:ethernetSWFCardOperationalState,_Cs:ethernetSWFCardSecondaryState,_Ct:ethernetSWFCardTemperature,_Cu:ethernetSWFCardRestartAction,_Cv:ethernetSWFCardStorageType,_Cw:ethernetSWFCardRowStatus,_Cx:ethernetSWFCardForceOffLineAction,'stuCardTable':stuCardTable,'stuCardEntry':stuCardEntry,_Cy:stuCardEntityIndex,_Cz:stuCardAdminState,_C_:stuCardOperationalState,_D0:stuCardSecondaryState,_D1:stuCardTemperature,_D2:stuCardRestartAction,_D3:stuCardStorageType,_D4:stuCardRowStatus,_D5:stuCardForceOffLineAction,'amiTable':amiTable,'amiEntry':amiEntry,_D6:amiEntityIndex,_D7:amiAdminState,_D8:amiOperationalState,_D9:amiSecondaryState,_DA:amiTemperature,_DB:amiRestartAction,'stiTable':stiTable,'stiEntry':stiEntry,_DC:stiEntityIndex,_DD:stiAdminState,_DE:stiOperationalState,_DF:stiSecondaryState,_DG:stiTemperature,_DH:stiStorageType,_DI:stiRowStatus,'f3UsbHostTable':f3UsbHostTable,'f3UsbHostEntry':f3UsbHostEntry,_O:f3UsbHostIndex,_DJ:f3UsbHostEntityIndex,_DK:f3UsbHostUnitName,_DL:f3UsbHostFormatVersion,_DM:f3UsbHostCLEICode,_DN:f3UsbHostPartNumber,_DO:f3UsbHostHwRev,_DP:f3UsbHostSwRev,_DQ:f3UsbHostSerialNum,_DR:f3UsbHostMfgName,_DS:f3UsbHostMfgDate,_DT:f3UsbHostMfgSite,_DU:f3UsbHostSecondaryState,_DV:f3UsbHostPhysicalAddress,'ethernetNTEGE112CardTable':ethernetNTEGE112CardTable,'ethernetNTEGE112CardEntry':ethernetNTEGE112CardEntry,_BI:ethernetNTEGE112CardEntityIndex,_BJ:ethernetNTEGE112CardAdminState,_BK:ethernetNTEGE112CardOperationalState,_BL:ethernetNTEGE112CardSecondaryState,_BM:ethernetNTEGE112CardVoltage,_BN:ethernetNTEGE112CardTemperature,_BO:ethernetNTEGE112CardSnmpDyingGaspEnabled,_BP:ethernetNTEGE112CardRestartAction,_BQ:ethernetNTEGE112CardFineGrainedPmInterval,_BR:ethernetNTEGE112CardSwitchPortActionPort,_BS:ethernetNTEGE112CardSwitchPortAction,'ethernetNTEGE114CardTable':ethernetNTEGE114CardTable,'ethernetNTEGE114CardEntry':ethernetNTEGE114CardEntry,_BT:ethernetNTEGE114CardEntityIndex,_BU:ethernetNTEGE114CardAdminState,_BV:ethernetNTEGE114CardOperationalState,_BW:ethernetNTEGE114CardSecondaryState,_BX:ethernetNTEGE114CardVoltage,_BY:ethernetNTEGE114CardTemperature,_BZ:ethernetNTEGE114CardSnmpDyingGaspEnabled,_Ba:ethernetNTEGE114CardRestartAction,_Bb:ethernetNTEGE114CardFineGrainedPmInterval,_Bc:ethernetNTEGE114CardSwitchPortActionPort,_Bd:ethernetNTEGE114CardSwitchPortAction,'ethernetNTEGE206VCardTable':ethernetNTEGE206VCardTable,'ethernetNTEGE206VCardEntry':ethernetNTEGE206VCardEntry,_EE:ethernetNTEGE206VCardEntityIndex,_EF:ethernetNTEGE206VCardAdminState,_EG:ethernetNTEGE206VCardOperationalState,_EH:ethernetNTEGE206VCardSecondaryState,_EI:ethernetNTEGE206VCardVoltage,_EJ:ethernetNTEGE206VCardTemperature,_EK:ethernetNTEGE206VCardSnmpDyingGaspEnabled,_EL:ethernetNTEGE206VCardRestartAction,_EM:ethernetNTEGE206VCardFineGrainedPmInterval,'ethernetGE4SCCCardTable':ethernetGE4SCCCardTable,'ethernetGE4SCCCardEntry':ethernetGE4SCCCardEntry,_Fl:ethernetGE4SCCCardEntityIndex,_Fm:ethernetGE4SCCCardAdminState,_Fn:ethernetGE4SCCCardOperationalState,_Fo:ethernetGE4SCCCardSecondaryState,_Fp:ethernetGE4SCCCardVoltage,_K:ethernetGE4SCCCardTemperature,_L:ethernetGE4SCCCardRestartAction,_M:ethernetGE4SCCCardStorageType,_N:ethernetGE4SCCCardRowStatus,'ethernetGE4ECCCardTable':ethernetGE4ECCCardTable,'ethernetGE4ECCCardEntry':ethernetGE4ECCCardEntry,_Fg:ethernetGE4ECCCardEntityIndex,_Fh:ethernetGE4ECCCardAdminState,_Fi:ethernetGE4ECCCardOperationalState,_Fj:ethernetGE4ECCCardSecondaryState,_Fk:ethernetGE4ECCCardVoltage,_Bz:ethernetGE4ECCCardTemperature,_B_:ethernetGE4ECCCardRestartAction,_C0:ethernetGE4ECCCardStorageType,_C1:ethernetGE4ECCCardRowStatus,'ethernetNTEXG210CardTable':ethernetNTEXG210CardTable,'ethernetNTEXG210CardEntry':ethernetNTEXG210CardEntry,_EN:ethernetNTEXG210CardEntityIndex,_EO:ethernetNTEXG210CardAdminState,_EP:ethernetNTEXG210CardOperationalState,_EQ:ethernetNTEXG210CardSecondaryState,_ER:ethernetNTEXG210CardVoltage,_ES:ethernetNTEXG210CardTemperature,_ET:ethernetNTEXG210CardSnmpDyingGaspEnabled,_EU:ethernetNTEXG210CardRestartAction,_EV:ethernetNTEXG210CardFineGrainedPmInterval,'ethernetXG1XCCCardTable':ethernetXG1XCCCardTable,'ethernetXG1XCCCardEntry':ethernetXG1XCCCardEntry,_FO:ethernetXG1XCCCardEntityIndex,_FP:ethernetXG1XCCCardAdminState,_FQ:ethernetXG1XCCCardOperationalState,_FR:ethernetXG1XCCCardSecondaryState,_FS:ethernetXG1XCCCardVoltage,_FT:ethernetXG1XCCCardTemperature,_FU:ethernetXG1XCCCardRestartAction,_FV:ethernetXG1XCCCardStorageType,_FW:ethernetXG1XCCCardRowStatus,'ethernetXG1SCCCardTable':ethernetXG1SCCCardTable,'ethernetXG1SCCCardEntry':ethernetXG1SCCCardEntry,_FX:ethernetXG1SCCCardEntityIndex,_FY:ethernetXG1SCCCardAdminState,_FZ:ethernetXG1SCCCardOperationalState,_Fa:ethernetXG1SCCCardSecondaryState,_Fb:ethernetXG1SCCCardVoltage,_Fc:ethernetXG1SCCCardTemperature,_Fd:ethernetXG1SCCCardRestartAction,_Fe:ethernetXG1SCCCardStorageType,_Ff:ethernetXG1SCCCardRowStatus,'ethernetOverOCSTMCardTable':ethernetOverOCSTMCardTable,'ethernetOverOCSTMCardEntry':ethernetOverOCSTMCardEntry,_Be:ethernetOverOCSTMCardEntityIndex,_Bf:ethernetOverOCSTMCardAdminState,_Bg:ethernetOverOCSTMCardOperationalState,_Bh:ethernetOverOCSTMCardSecondaryState,_Bi:ethernetOverOCSTMCardTemperature,_Bj:ethernetOverOCSTMCardSnmpDyingGaspEnabled,_Bk:ethernetOverOCSTMCardRestartAction,_Bl:ethernetOverOCSTMCardStorageType,_Bm:ethernetOverOCSTMCardRowStatus,_Bn:ethernetOverOCSTMCardForceOffLineAction,_Bo:ethernetOverOCSTMCardMode,'pseudoWireOcnStmCardTable':pseudoWireOcnStmCardTable,'pseudoWireOcnStmCardEntry':pseudoWireOcnStmCardEntry,_EW:pseudoWireOcnStmCardEntityIndex,_EX:pseudoWireOcnStmCardAdminState,_EY:pseudoWireOcnStmCardOperationalState,_EZ:pseudoWireOcnStmCardSecondaryState,_Ea:pseudoWireOcnStmCardIpAddress,_Eb:pseudoWireOcnStmCardMode,_Ec:pseudoWireOcnStmCardVoltage,_Ed:pseudoWireOcnStmCardTemperature,_Ee:pseudoWireOcnStmCardRestartAction,_Ef:pseudoWireOcnStmCardStorageType,_Eg:pseudoWireOcnStmCardRowStatus,_Eh:pseudoWireOcnStmCardPSNEncapsulation,_Ei:pseudoWireOcnStmCardFreqSourceType,_Ej:pseudoWireOcnStmCardFreqSource,'pseudoWireOcnStmCardForceOffLineAction':pseudoWireOcnStmCardForceOffLineAction,'pseudoWireE1T1CardTable':pseudoWireE1T1CardTable,'pseudoWireE1T1CardEntry':pseudoWireE1T1CardEntry,_Ek:pseudoWireE1T1CardEntityIndex,_El:pseudoWireE1T1CardAdminState,_Em:pseudoWireE1T1CardOperationalState,_En:pseudoWireE1T1CardSecondaryState,_Eo:pseudoWireE1T1CardIpAddress,_Ep:pseudoWireE1T1CardMode,_Eq:pseudoWireE1T1CardVoltage,_Er:pseudoWireE1T1CardTemperature,_Es:pseudoWireE1T1CardRestartAction,_Et:pseudoWireE1T1CardStorageType,_Eu:pseudoWireE1T1CardRowStatus,_Ev:pseudoWireE1T1CardPSNEncapsulation,'ethernet1x10GHighPerCardTable':ethernet1x10GHighPerCardTable,'ethernet1x10GHighPerCardEntry':ethernet1x10GHighPerCardEntry,_Bp:ethernet1x10GHighPerCardEntityIndex,_Bq:ethernet1x10GHighPerCardAdminState,_Br:ethernet1x10GHighPerCardOperationalState,_Bs:ethernet1x10GHighPerCardSecondaryState,_Bt:ethernet1x10GHighPerCardTemperature,_Bu:ethernet1x10GHighPerCardSnmpDyingGaspEnabled,_Bv:ethernet1x10GHighPerCardRestartAction,_Bw:ethernet1x10GHighPerCardStorageType,_Bx:ethernet1x10GHighPerCardRowStatus,_By:ethernet1x10GHighPerCardForceOffLineAction,'ethernet10x1GHighPerCardTable':ethernet10x1GHighPerCardTable,'ethernet10x1GHighPerCardEntry':ethernet10x1GHighPerCardEntry,_DW:ethernet10x1GHighPerCardEntityIndex,_DX:ethernet10x1GHighPerCardAdminState,_DY:ethernet10x1GHighPerCardOperationalState,_DZ:ethernet10x1GHighPerCardSecondaryState,_Da:ethernet10x1GHighPerCardTemperature,_Db:ethernet10x1GHighPerCardSnmpDyingGaspEnabled,_Dc:ethernet10x1GHighPerCardRestartAction,_Dd:ethernet10x1GHighPerCardStorageType,_De:ethernet10x1GHighPerCardRowStatus,_Df:ethernet10x1GHighPerCardForceOffLineAction,'ethernetNTET1804CardTable':ethernetNTET1804CardTable,'ethernetNTET1804CardEntry':ethernetNTET1804CardEntry,_Ew:ethernetNTET1804CardEntityIndex,_Ex:ethernetNTET1804CardAdminState,_Ey:ethernetNTET1804CardOperationalState,_Ez:ethernetNTET1804CardSecondaryState,_E_:ethernetNTET1804CardVoltage,_F0:ethernetNTET1804CardTemperature,_F1:ethernetNTET1804CardSnmpDyingGaspEnabled,_F2:ethernetNTET1804CardRestartAction,_F3:ethernetNTET1804CardFineGrainedPmInterval,_F4:ethernetNTET1804CardMode,'ethernetNTET3204CardTable':ethernetNTET3204CardTable,'ethernetNTET3204CardEntry':ethernetNTET3204CardEntry,_F5:ethernetNTET3204CardEntityIndex,_F6:ethernetNTET3204CardAdminState,_F7:ethernetNTET3204CardOperationalState,_F8:ethernetNTET3204CardSecondaryState,_F9:ethernetNTET3204CardVoltage,_FA:ethernetNTET3204CardTemperature,_FB:ethernetNTET3204CardSnmpDyingGaspEnabled,_FC:ethernetNTET3204CardRestartAction,_FD:ethernetNTET3204CardFineGrainedPmInterval,_FE:ethernetNTET3204CardMode,'ethernetNTEGESyncProbeCardTable':ethernetNTEGESyncProbeCardTable,'ethernetNTEGESyncProbeCardEntry':ethernetNTEGESyncProbeCardEntry,_FF:ethernetNTEGESyncProbeCardEntityIndex,_FG:ethernetNTEGESyncProbeCardAdminState,_FH:ethernetNTEGESyncProbeCardOperationalState,_FI:ethernetNTEGESyncProbeCardSecondaryState,_FJ:ethernetNTEGESyncProbeCardVoltage,_FK:ethernetNTEGESyncProbeCardTemperature,_FL:ethernetNTEGESyncProbeCardSnmpDyingGaspEnabled,_FM:ethernetNTEGESyncProbeCardRestartAction,_FN:ethernetNTEGESyncProbeCardFineGrainedPmInterval,'ethernetGE8SCCCardTable':ethernetGE8SCCCardTable,'ethernetGE8SCCCardEntry':ethernetGE8SCCCardEntry,_Fq:ethernetGE8SCCCardEntityIndex,_Fr:ethernetGE8SCCCardAdminState,_Fs:ethernetGE8SCCCardOperationalState,_Ft:ethernetGE8SCCCardSecondaryState,_Fu:ethernetGE8SCCCardVoltage,_Fv:ethernetGE8SCCCardTemperature,_Fw:ethernetGE8SCCCardRestartAction,_Fx:ethernetGE8SCCCardStorageType,_Fy:ethernetGE8SCCCardRowStatus,'ethernetNTEGE114HCardTable':ethernetNTEGE114HCardTable,'ethernetNTEGE114HCardEntry':ethernetNTEGE114HCardEntry,_Fz:ethernetNTEGE114HCardEntityIndex,_F_:ethernetNTEGE114HCardAdminState,_G0:ethernetNTEGE114HCardOperationalState,_G1:ethernetNTEGE114HCardSecondaryState,_G2:ethernetNTEGE114HCardVoltage,_G3:ethernetNTEGE114HCardTemperature,_G4:ethernetNTEGE114HCardSnmpDyingGaspEnabled,_G5:ethernetNTEGE114HCardRestartAction,_G6:ethernetNTEGE114HCardFineGrainedPmInterval,_G7:ethernetNTEGE114HCardSwitchPortActionPort,_G8:ethernetNTEGE114HCardSwitchPortAction,'ethernetNTEGE114PHCardTable':ethernetNTEGE114PHCardTable,'ethernetNTEGE114PHCardEntry':ethernetNTEGE114PHCardEntry,_G9:ethernetNTEGE114PHCardEntityIndex,_GA:ethernetNTEGE114PHCardAdminState,_GB:ethernetNTEGE114PHCardOperationalState,_GC:ethernetNTEGE114PHCardSecondaryState,_GD:ethernetNTEGE114PHCardVoltage,_GE:ethernetNTEGE114PHCardTemperature,_GF:ethernetNTEGE114PHCardSnmpDyingGaspEnabled,_GG:ethernetNTEGE114PHCardRestartAction,_GH:ethernetNTEGE114PHCardFineGrainedPmInterval,_GI:ethernetNTEGE114PHCardSwitchPortActionPort,_GJ:ethernetNTEGE114PHCardSwitchPortAction,'ethernetFE36ECardTable':ethernetFE36ECardTable,'ethernetFE36ECardEntry':ethernetFE36ECardEntry,_GK:ethernetFE36ECardEntityIndex,_GL:ethernetFE36ECardAdminState,_GM:ethernetFE36ECardOperationalState,_GN:ethernetFE36ECardSecondaryState,_GO:ethernetFE36ECardTemperature,_GP:ethernetFE36ECardRestartAction,_GQ:ethernetFE36ECardStorageType,_GR:ethernetFE36ECardRowStatus,_GS:ethernetFE36ECardForceOffLineAction,_GT:ethernetFE36ECard8023azEnabled,'ethernetNTEGE114SHCardTable':ethernetNTEGE114SHCardTable,'ethernetNTEGE114SHCardEntry':ethernetNTEGE114SHCardEntry,_GU:ethernetNTEGE114SHCardEntityIndex,_GV:ethernetNTEGE114SHCardAdminState,_GW:ethernetNTEGE114SHCardOperationalState,_GX:ethernetNTEGE114SHCardSecondaryState,_GY:ethernetNTEGE114SHCardVoltage,_GZ:ethernetNTEGE114SHCardTemperature,_Ga:ethernetNTEGE114SHCardSnmpDyingGaspEnabled,_Gb:ethernetNTEGE114SHCardRestartAction,_Gc:ethernetNTEGE114SHCardFineGrainedPmInterval,_Gd:ethernetNTEGE114SHCardSwitchPortActionPort,_Ge:ethernetNTEGE114SHCardSwitchPortAction,'ethernetNTEGE114SCardTable':ethernetNTEGE114SCardTable,'ethernetNTEGE114SCardEntry':ethernetNTEGE114SCardEntry,_Gf:ethernetNTEGE114SCardEntityIndex,_Gg:ethernetNTEGE114SCardAdminState,_Gh:ethernetNTEGE114SCardOperationalState,_Gi:ethernetNTEGE114SCardSecondaryState,_Gj:ethernetNTEGE114SCardVoltage,_Gk:ethernetNTEGE114SCardTemperature,_Gl:ethernetNTEGE114SCardSnmpDyingGaspEnabled,_Gm:ethernetNTEGE114SCardRestartAction,_Gn:ethernetNTEGE114SCardFineGrainedPmInterval,_Go:ethernetNTEGE114SCardSwitchPortActionPort,_Gp:ethernetNTEGE114SCardSwitchPortAction,'stuHighPerCardTable':stuHighPerCardTable,'stuHighPerCardEntry':stuHighPerCardEntry,'stuHighPerCardEntityIndex':stuHighPerCardEntityIndex,'stuHighPerCardAdminState':stuHighPerCardAdminState,'stuHighPerCardOperationalState':stuHighPerCardOperationalState,'stuHighPerCardSecondaryState':stuHighPerCardSecondaryState,'stuHighPerCardTemperature':stuHighPerCardTemperature,'stuHighPerCardRestartAction':stuHighPerCardRestartAction,'stuHighPerCardStorageType':stuHighPerCardStorageType,'stuHighPerCardRowStatus':stuHighPerCardRowStatus,'stuHighPerCardForceOffLineAction':stuHighPerCardForceOffLineAction,'stiHighPerTable':stiHighPerTable,'stiHighPerEntry':stiHighPerEntry,'stiHighPerEntityIndex':stiHighPerEntityIndex,'stiHighPerAdminState':stiHighPerAdminState,'stiHighPerOperationalState':stiHighPerOperationalState,'stiHighPerSecondaryState':stiHighPerSecondaryState,'stiHighPerTemperature':stiHighPerTemperature,'stiHighPerStorageType':stiHighPerStorageType,'stiHighPerRowStatus':stiHighPerRowStatus,'ethernetGE8ECCCardTable':ethernetGE8ECCCardTable,'ethernetGE8ECCCardEntry':ethernetGE8ECCCardEntry,_Gq:ethernetGE8ECCCardEntityIndex,_Gr:ethernetGE8ECCCardAdminState,_Gs:ethernetGE8ECCCardOperationalState,_Gt:ethernetGE8ECCCardSecondaryState,_Gu:ethernetGE8ECCCardVoltage,_Gv:ethernetGE8ECCCardTemperature,_Gw:ethernetGE8ECCCardRestartAction,_Gx:ethernetGE8ECCCardStorageType,_Gy:ethernetGE8ECCCardRowStatus,'networkElementLLDPParamsTable':networkElementLLDPParamsTable,_C5:networkElementLLDPParamsEntry,_Gz:neLLDPParamsLLDPEnableAction,'ethernetNTESH1PCSCardTable':ethernetNTESH1PCSCardTable,'ethernetNTESH1PCSCardEntry':ethernetNTESH1PCSCardEntry,_G_:ethernetNTESH1PCSCardEntityIndex,_H0:ethernetNTESH1PCSCardAdminState,_H1:ethernetNTESH1PCSCardOperationalState,_H2:ethernetNTESH1PCSCardSecondaryState,_H3:ethernetNTESH1PCSCardVoltage,_H4:ethernetNTESH1PCSCardTemperature,_H5:ethernetNTESH1PCSCardSnmpDyingGaspEnabled,_H6:ethernetNTESH1PCSCardRestartAction,_H7:ethernetNTESH1PCSCardFineGrainedPmInterval,'ethernetNTEOSA5411CardTable':ethernetNTEOSA5411CardTable,'ethernetNTEOSA5411CardEntry':ethernetNTEOSA5411CardEntry,_H8:ethernetNTEOSA5411CardEntityIndex,_H9:ethernetNTEOSA5411CardAdminState,_HA:ethernetNTEOSA5411CardOperationalState,_HB:ethernetNTEOSA5411CardSecondaryState,_HC:ethernetNTEOSA5411CardVoltage,_HD:ethernetNTEOSA5411CardTemperature,_HE:ethernetNTEOSA5411CardSnmpDyingGaspEnabled,_HF:ethernetNTEOSA5411CardRestartAction,_HG:ethernetNTEOSA5411CardFineGrainedPmInterval,'ethernetNTEGE112ProCardTable':ethernetNTEGE112ProCardTable,'ethernetNTEGE112ProCardEntry':ethernetNTEGE112ProCardEntry,_HH:ethernetNTEGE112ProCardEntityIndex,_HI:ethernetNTEGE112ProCardAdminState,_HJ:ethernetNTEGE112ProCardOperationalState,_HK:ethernetNTEGE112ProCardSecondaryState,_HL:ethernetNTEGE112ProCardVoltage,_HM:ethernetNTEGE112ProCardTemperature,_HN:ethernetNTEGE112ProCardSnmpDyingGaspEnabled,_HO:ethernetNTEGE112ProCardRestartAction,_HP:ethernetNTEGE112ProCardFineGrainedPmInterval,_HQ:ethernetNTEGE112ProCardSwitchPortActionPort,_HR:ethernetNTEGE112ProCardSwitchPortAction,'ethernetNTEGE112ProMCardTable':ethernetNTEGE112ProMCardTable,'ethernetNTEGE112ProMCardEntry':ethernetNTEGE112ProMCardEntry,_HS:ethernetNTEGE112ProMCardEntityIndex,_HT:ethernetNTEGE112ProMCardAdminState,_HU:ethernetNTEGE112ProMCardOperationalState,_HV:ethernetNTEGE112ProMCardSecondaryState,_HW:ethernetNTEGE112ProMCardVoltage,_HX:ethernetNTEGE112ProMCardTemperature,_HY:ethernetNTEGE112ProMCardSnmpDyingGaspEnabled,_HZ:ethernetNTEGE112ProMCardRestartAction,_Ha:ethernetNTEGE112ProMCardFineGrainedPmInterval,_Hb:ethernetNTEGE112ProMCardSwitchPortActionPort,_Hc:ethernetNTEGE112ProMCardSwitchPortAction,'ethernetNTEXG210CCardTable':ethernetNTEXG210CCardTable,'ethernetNTEXG210CCardEntry':ethernetNTEXG210CCardEntry,_Ig:ethernetNTEXG210CCardEntityIndex,_Ih:ethernetNTEXG210CCardAdminState,_Ii:ethernetNTEXG210CCardOperationalState,_Ij:ethernetNTEXG210CCardSecondaryState,_Ik:ethernetNTEXG210CCardVoltage,_Il:ethernetNTEXG210CCardTemperature,_Im:ethernetNTEXG210CCardSnmpDyingGaspEnabled,_In:ethernetNTEXG210CCardRestartAction,_Io:ethernetNTEXG210CCardFineGrainedPmInterval,'ethernetGE8SCryptoConnectorCardTable':ethernetGE8SCryptoConnectorCardTable,'ethernetGE8SCryptoConnectorCardEntry':ethernetGE8SCryptoConnectorCardEntry,_Ip:ethernetGE8SCryptoConnectorCardEntityIndex,_Iq:ethernetGE8SCryptoConnectorCardAdminState,_Ir:ethernetGE8SCryptoConnectorCardOperationalState,_Is:ethernetGE8SCryptoConnectorCardSecondaryState,_It:ethernetGE8SCryptoConnectorCardVoltage,_Iu:ethernetGE8SCryptoConnectorCardTemperature,_Iv:ethernetGE8SCryptoConnectorCardRestartAction,_Iw:ethernetGE8SCryptoConnectorCardStorageType,_Ix:ethernetGE8SCryptoConnectorCardRowStatus,'ethernetNTEGE114ProCardTable':ethernetNTEGE114ProCardTable,'ethernetNTEGE114ProCardEntry':ethernetNTEGE114ProCardEntry,_Hd:ethernetNTEGE114ProCardEntityIndex,_He:ethernetNTEGE114ProCardAdminState,_Hf:ethernetNTEGE114ProCardOperationalState,_Hg:ethernetNTEGE114ProCardSecondaryState,_Hh:ethernetNTEGE114ProCardVoltage,_Hi:ethernetNTEGE114ProCardTemperature,_Hj:ethernetNTEGE114ProCardSnmpDyingGaspEnabled,_Hk:ethernetNTEGE114ProCardRestartAction,_Hl:ethernetNTEGE114ProCardFineGrainedPmInterval,_Hm:ethernetNTEGE114ProCardSwitchPortActionPort,_Hn:ethernetNTEGE114ProCardSwitchPortAction,'ethernetNTEGE114ProCCardTable':ethernetNTEGE114ProCCardTable,'ethernetNTEGE114ProCCardEntry':ethernetNTEGE114ProCCardEntry,_Ho:ethernetNTEGE114ProCCardEntityIndex,_Hp:ethernetNTEGE114ProCCardAdminState,_Hq:ethernetNTEGE114ProCCardOperationalState,_Hr:ethernetNTEGE114ProCCardSecondaryState,_Hs:ethernetNTEGE114ProCCardVoltage,_Ht:ethernetNTEGE114ProCCardTemperature,_Hu:ethernetNTEGE114ProCCardSnmpDyingGaspEnabled,_Hv:ethernetNTEGE114ProCCardRestartAction,_Hw:ethernetNTEGE114ProCCardFineGrainedPmInterval,_Hx:ethernetNTEGE114ProCCardSwitchPortActionPort,_Hy:ethernetNTEGE114ProCCardSwitchPortAction,'ethernetNTEGE114ProSHCardTable':ethernetNTEGE114ProSHCardTable,'ethernetNTEGE114ProSHCardEntry':ethernetNTEGE114ProSHCardEntry,_Hz:ethernetNTEGE114ProSHCardEntityIndex,_H_:ethernetNTEGE114ProSHCardAdminState,_I0:ethernetNTEGE114ProSHCardOperationalState,_I1:ethernetNTEGE114ProSHCardSecondaryState,_I2:ethernetNTEGE114ProSHCardVoltage,_I3:ethernetNTEGE114ProSHCardTemperature,_I4:ethernetNTEGE114ProSHCardSnmpDyingGaspEnabled,_I5:ethernetNTEGE114ProSHCardRestartAction,_I6:ethernetNTEGE114ProSHCardFineGrainedPmInterval,_I7:ethernetNTEGE114ProSHCardSwitchPortActionPort,_I8:ethernetNTEGE114ProSHCardSwitchPortAction,'ethernetNTEGE114ProCSHCardTable':ethernetNTEGE114ProCSHCardTable,'ethernetNTEGE114ProCSHCardEntry':ethernetNTEGE114ProCSHCardEntry,_I9:ethernetNTEGE114ProCSHCardEntityIndex,_IA:ethernetNTEGE114ProCSHCardAdminState,_IB:ethernetNTEGE114ProCSHCardOperationalState,_IC:ethernetNTEGE114ProCSHCardSecondaryState,_ID:ethernetNTEGE114ProCSHCardVoltage,_IE:ethernetNTEGE114ProCSHCardTemperature,_IF:ethernetNTEGE114ProCSHCardSnmpDyingGaspEnabled,_IG:ethernetNTEGE114ProCSHCardRestartAction,_IH:ethernetNTEGE114ProCSHCardFineGrainedPmInterval,_II:ethernetNTEGE114ProCSHCardSwitchPortActionPort,_IJ:ethernetNTEGE114ProCSHCardSwitchPortAction,'ethernetNTEGE114ProHECardTable':ethernetNTEGE114ProHECardTable,'ethernetNTEGE114ProHECardEntry':ethernetNTEGE114ProHECardEntry,_IK:ethernetNTEGE114ProHECardEntityIndex,_IL:ethernetNTEGE114ProHECardAdminState,_IM:ethernetNTEGE114ProHECardOperationalState,_IN:ethernetNTEGE114ProHECardSecondaryState,_IO:ethernetNTEGE114ProHECardVoltage,_IP:ethernetNTEGE114ProHECardTemperature,_IQ:ethernetNTEGE114ProHECardSnmpDyingGaspEnabled,_IR:ethernetNTEGE114ProHECardRestartAction,_IS:ethernetNTEGE114ProHECardFineGrainedPmInterval,_IT:ethernetNTEGE114ProHECardSwitchPortActionPort,_IU:ethernetNTEGE114ProHECardSwitchPortAction,'ethernetNTEGE112ProHCardTable':ethernetNTEGE112ProHCardTable,'ethernetNTEGE112ProHCardEntry':ethernetNTEGE112ProHCardEntry,_IV:ethernetNTEGE112ProHCardEntityIndex,_IW:ethernetNTEGE112ProHCardAdminState,_IX:ethernetNTEGE112ProHCardOperationalState,_IY:ethernetNTEGE112ProHCardSecondaryState,_IZ:ethernetNTEGE112ProHCardVoltage,_Ia:ethernetNTEGE112ProHCardTemperature,_Ib:ethernetNTEGE112ProHCardSnmpDyingGaspEnabled,_Ic:ethernetNTEGE112ProHCardRestartAction,_Id:ethernetNTEGE112ProHCardFineGrainedPmInterval,_Ie:ethernetNTEGE112ProHCardSwitchPortActionPort,_If:ethernetNTEGE112ProHCardSwitchPortAction,'ethernetNTEOSA5420CardTable':ethernetNTEOSA5420CardTable,'ethernetNTEOSA5420CardEntry':ethernetNTEOSA5420CardEntry,_Iy:ethernetNTEOSA5420CardEntityIndex,_Iz:ethernetNTEOSA5420CardAdminState,_I_:ethernetNTEOSA5420CardOperationalState,_J0:ethernetNTEOSA5420CardSecondaryState,_J1:ethernetNTEOSA5420CardVoltage,_J2:ethernetNTEOSA5420CardTemperature,_J3:ethernetNTEOSA5420CardSnmpDyingGaspEnabled,_J4:ethernetNTEOSA5420CardRestartAction,_J5:ethernetNTEOSA5420CardFineGrainedPmInterval,'ethernetNTEOSA5421CardTable':ethernetNTEOSA5421CardTable,'ethernetNTEOSA5421CardEntry':ethernetNTEOSA5421CardEntry,_J6:ethernetNTEOSA5421CardEntityIndex,_J7:ethernetNTEOSA5421CardAdminState,_J8:ethernetNTEOSA5421CardOperationalState,_J9:ethernetNTEOSA5421CardSecondaryState,_JA:ethernetNTEOSA5421CardVoltage,_JB:ethernetNTEOSA5421CardTemperature,_JC:ethernetNTEOSA5421CardSnmpDyingGaspEnabled,_JD:ethernetNTEOSA5421CardRestartAction,_JE:ethernetNTEOSA5421CardFineGrainedPmInterval,'ethernetNTEGE114GCardTable':ethernetNTEGE114GCardTable,'ethernetNTEGE114GCardEntry':ethernetNTEGE114GCardEntry,_JF:ethernetNTEGE114GCardEntityIndex,_JG:ethernetNTEGE114GCardAdminState,_JH:ethernetNTEGE114GCardOperationalState,_JI:ethernetNTEGE114GCardSecondaryState,_JJ:ethernetNTEGE114GCardVoltage,_JK:ethernetNTEGE114GCardTemperature,_JL:ethernetNTEGE114GCardSnmpDyingGaspEnabled,_JM:ethernetNTEGE114GCardRestartAction,_JN:ethernetNTEGE114GCardFineGrainedPmInterval,_JO:ethernetNTEGE114GCardSwitchPortActionPort,_JP:ethernetNTEGE114GCardSwitchPortAction,'cmEntityConformance':cmEntityConformance,'cmEntityCompliances':cmEntityCompliances,'cmEntityCompliance':cmEntityCompliance,'cmEntityGroups':cmEntityGroups,_JQ:cmEntityObjectGroup,_JR:commonEntityGroup,'psuGroup':psuGroup,'fanGroup':fanGroup,_JS:hubshelfGroup,_JT:nteGe206CardGroup,_JU:nteGe201SyncECardGroup,_JV:nteGe201NonSyncECardGroup,_JW:nteGe206FCardGroup,'nteGe112CardGroup':nteGe112CardGroup,'nteGe114CardGroup':nteGe114CardGroup,_JX:nteGe206VCardGroup,_JY:nteXg210CardGroup,'pseudoWireCardOcnStmCardGroup':pseudoWireCardOcnStmCardGroup,'pseudoWireCardE1T1CardGroup':pseudoWireCardE1T1CardGroup,'nteT1804CardGroup':nteT1804CardGroup,'nteT3204CardGroup':nteT3204CardGroup,'nteGeSyncProbeCardGroup':nteGeSyncProbeCardGroup,'xg1XCCCardGroup':xg1XCCCardGroup,'xg1SCCCardGroup':xg1SCCCardGroup,'ge4ECCCardGroup':ge4ECCCardGroup,'ge4SCCCardGroup':ge4SCCCardGroup,'ge8SCCCardGroup':ge8SCCCardGroup,'nteGe114HCardGroup':nteGe114HCardGroup,'nteGe114PHCardGroup':nteGe114PHCardGroup,'ethernetOverOCSTMCardGroup':ethernetOverOCSTMCardGroup,'ethernet1x10GHighPerCardGroup':ethernet1x10GHighPerCardGroup,'ethernetFE36ECardGroup':ethernetFE36ECardGroup,'nteGe114SHCardGroup':nteGe114SHCardGroup,'nteGe114SCardGroup':nteGe114SCardGroup,'ge8ECCCardGroup':ge8ECCCardGroup,_JZ:neLLDPParamsGroup,_Ja:nteSh1PcsCardGroup,'nteOsa5411CardGroup':nteOsa5411CardGroup,'nteGe112ProCardGroup':nteGe112ProCardGroup,'nteGe112ProMCardGroup':nteGe112ProMCardGroup,'nteGe114ProCardGroup':nteGe114ProCardGroup,'nteGe114ProCCardGroup':nteGe114ProCCardGroup,'nteGe114ProSHCardGroup':nteGe114ProSHCardGroup,'nteGe114ProCSHCardGroup':nteGe114ProCSHCardGroup,'nteGe114ProHECardGroup':nteGe114ProHECardGroup,'nteGe112ProHCardGroup':nteGe112ProHCardGroup,_Jb:nteXg210CCardGroup,_Jc:geGE8SCryptoConnectorCardGroup,_Jd:nteOsa5420CardGroup,_Je:nteOsa5421CardGroup,'nteGe114GCardGroup':nteGe114GCardGroup})
+if mibBuilder.loadTexts: networkElementLLDPParamsEntry.setStatus('current')
+neLLDPParamsLLDPEnableAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 50, 1, 1), LLDPEnableAction()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: neLLDPParamsLLDPEnableAction.setStatus('current')
+ethernetNTESH1PCSCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 51), )
+if mibBuilder.loadTexts: ethernetNTESH1PCSCardTable.setStatus('current')
+ethernetNTESH1PCSCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 51, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTESH1PCSCardEntry.setStatus('current')
+ethernetNTESH1PCSCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 51, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTESH1PCSCardEntityIndex.setStatus('current')
+ethernetNTESH1PCSCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 51, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTESH1PCSCardAdminState.setStatus('current')
+ethernetNTESH1PCSCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 51, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTESH1PCSCardOperationalState.setStatus('current')
+ethernetNTESH1PCSCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 51, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTESH1PCSCardSecondaryState.setStatus('current')
+ethernetNTESH1PCSCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 51, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTESH1PCSCardVoltage.setStatus('current')
+ethernetNTESH1PCSCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 51, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTESH1PCSCardTemperature.setStatus('current')
+ethernetNTESH1PCSCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 51, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTESH1PCSCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTESH1PCSCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 51, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTESH1PCSCardRestartAction.setStatus('current')
+ethernetNTESH1PCSCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 51, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTESH1PCSCardFineGrainedPmInterval.setStatus('current')
+ethernetNTEOSA5411CardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 52), )
+if mibBuilder.loadTexts: ethernetNTEOSA5411CardTable.setStatus('current')
+ethernetNTEOSA5411CardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 52, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEOSA5411CardEntry.setStatus('current')
+ethernetNTEOSA5411CardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 52, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEOSA5411CardEntityIndex.setStatus('current')
+ethernetNTEOSA5411CardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 52, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEOSA5411CardAdminState.setStatus('current')
+ethernetNTEOSA5411CardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 52, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEOSA5411CardOperationalState.setStatus('current')
+ethernetNTEOSA5411CardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 52, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEOSA5411CardSecondaryState.setStatus('current')
+ethernetNTEOSA5411CardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 52, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEOSA5411CardVoltage.setStatus('current')
+ethernetNTEOSA5411CardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 52, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEOSA5411CardTemperature.setStatus('current')
+ethernetNTEOSA5411CardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 52, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEOSA5411CardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEOSA5411CardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 52, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEOSA5411CardRestartAction.setStatus('current')
+ethernetNTEOSA5411CardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 52, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEOSA5411CardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE112ProCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 53), )
+if mibBuilder.loadTexts: ethernetNTEGE112ProCardTable.setStatus('current')
+ethernetNTEGE112ProCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 53, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE112ProCardEntry.setStatus('current')
+ethernetNTEGE112ProCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 53, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112ProCardEntityIndex.setStatus('current')
+ethernetNTEGE112ProCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 53, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112ProCardAdminState.setStatus('current')
+ethernetNTEGE112ProCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 53, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112ProCardOperationalState.setStatus('current')
+ethernetNTEGE112ProCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 53, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112ProCardSecondaryState.setStatus('current')
+ethernetNTEGE112ProCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 53, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112ProCardVoltage.setStatus('current')
+ethernetNTEGE112ProCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 53, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112ProCardTemperature.setStatus('current')
+ethernetNTEGE112ProCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 53, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112ProCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE112ProCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 53, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112ProCardRestartAction.setStatus('current')
+ethernetNTEGE112ProCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 53, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112ProCardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE112ProCardSwitchPortActionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 53, 1, 10), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTEGE112ProCardSwitchPortActionPort.setStatus('current')
+ethernetNTEGE112ProCardSwitchPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 53, 1, 11), SwitchPortAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112ProCardSwitchPortAction.setStatus('current')
+ethernetNTEGE112ProMCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 54), )
+if mibBuilder.loadTexts: ethernetNTEGE112ProMCardTable.setStatus('current')
+ethernetNTEGE112ProMCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 54, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE112ProMCardEntry.setStatus('current')
+ethernetNTEGE112ProMCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 54, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112ProMCardEntityIndex.setStatus('current')
+ethernetNTEGE112ProMCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 54, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112ProMCardAdminState.setStatus('current')
+ethernetNTEGE112ProMCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 54, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112ProMCardOperationalState.setStatus('current')
+ethernetNTEGE112ProMCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 54, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112ProMCardSecondaryState.setStatus('current')
+ethernetNTEGE112ProMCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 54, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112ProMCardVoltage.setStatus('current')
+ethernetNTEGE112ProMCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 54, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112ProMCardTemperature.setStatus('current')
+ethernetNTEGE112ProMCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 54, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112ProMCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE112ProMCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 54, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112ProMCardRestartAction.setStatus('current')
+ethernetNTEGE112ProMCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 54, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112ProMCardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE112ProMCardSwitchPortActionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 54, 1, 10), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTEGE112ProMCardSwitchPortActionPort.setStatus('current')
+ethernetNTEGE112ProMCardSwitchPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 54, 1, 11), SwitchPortAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112ProMCardSwitchPortAction.setStatus('current')
+ethernetNTEXG210CCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 55), )
+if mibBuilder.loadTexts: ethernetNTEXG210CCardTable.setStatus('current')
+ethernetNTEXG210CCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 55, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEXG210CCardEntry.setStatus('current')
+ethernetNTEXG210CCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 55, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEXG210CCardEntityIndex.setStatus('current')
+ethernetNTEXG210CCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 55, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEXG210CCardAdminState.setStatus('current')
+ethernetNTEXG210CCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 55, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEXG210CCardOperationalState.setStatus('current')
+ethernetNTEXG210CCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 55, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEXG210CCardSecondaryState.setStatus('current')
+ethernetNTEXG210CCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 55, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEXG210CCardVoltage.setStatus('current')
+ethernetNTEXG210CCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 55, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEXG210CCardTemperature.setStatus('current')
+ethernetNTEXG210CCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 55, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEXG210CCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEXG210CCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 55, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEXG210CCardRestartAction.setStatus('current')
+ethernetNTEXG210CCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 55, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEXG210CCardFineGrainedPmInterval.setStatus('current')
+ethernetGE8SCryptoConnectorCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 56), )
+if mibBuilder.loadTexts: ethernetGE8SCryptoConnectorCardTable.setStatus('current')
+ethernetGE8SCryptoConnectorCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 56, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetGE8SCryptoConnectorCardEntry.setStatus('current')
+ethernetGE8SCryptoConnectorCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 56, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE8SCryptoConnectorCardEntityIndex.setStatus('current')
+ethernetGE8SCryptoConnectorCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 56, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetGE8SCryptoConnectorCardAdminState.setStatus('current')
+ethernetGE8SCryptoConnectorCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 56, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE8SCryptoConnectorCardOperationalState.setStatus('current')
+ethernetGE8SCryptoConnectorCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 56, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE8SCryptoConnectorCardSecondaryState.setStatus('current')
+ethernetGE8SCryptoConnectorCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 56, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE8SCryptoConnectorCardVoltage.setStatus('current')
+ethernetGE8SCryptoConnectorCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 56, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetGE8SCryptoConnectorCardTemperature.setStatus('current')
+ethernetGE8SCryptoConnectorCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 56, 1, 7), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetGE8SCryptoConnectorCardRestartAction.setStatus('current')
+ethernetGE8SCryptoConnectorCardStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 56, 1, 8), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetGE8SCryptoConnectorCardStorageType.setStatus('current')
+ethernetGE8SCryptoConnectorCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 56, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetGE8SCryptoConnectorCardRowStatus.setStatus('current')
+ethernetNTEGE114ProCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 57), )
+if mibBuilder.loadTexts: ethernetNTEGE114ProCardTable.setStatus('current')
+ethernetNTEGE114ProCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 57, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE114ProCardEntry.setStatus('current')
+ethernetNTEGE114ProCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 57, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCardEntityIndex.setStatus('current')
+ethernetNTEGE114ProCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 57, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCardAdminState.setStatus('current')
+ethernetNTEGE114ProCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 57, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCardOperationalState.setStatus('current')
+ethernetNTEGE114ProCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 57, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCardSecondaryState.setStatus('current')
+ethernetNTEGE114ProCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 57, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCardVoltage.setStatus('current')
+ethernetNTEGE114ProCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 57, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCardTemperature.setStatus('current')
+ethernetNTEGE114ProCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 57, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE114ProCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 57, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCardRestartAction.setStatus('current')
+ethernetNTEGE114ProCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 57, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE114ProCardSwitchPortActionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 57, 1, 10), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCardSwitchPortActionPort.setStatus('current')
+ethernetNTEGE114ProCardSwitchPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 57, 1, 11), SwitchPortAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCardSwitchPortAction.setStatus('current')
+ethernetNTEGE114ProCCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 58), )
+if mibBuilder.loadTexts: ethernetNTEGE114ProCCardTable.setStatus('current')
+ethernetNTEGE114ProCCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 58, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE114ProCCardEntry.setStatus('current')
+ethernetNTEGE114ProCCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 58, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCCardEntityIndex.setStatus('current')
+ethernetNTEGE114ProCCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 58, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCCardAdminState.setStatus('current')
+ethernetNTEGE114ProCCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 58, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCCardOperationalState.setStatus('current')
+ethernetNTEGE114ProCCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 58, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCCardSecondaryState.setStatus('current')
+ethernetNTEGE114ProCCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 58, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCCardVoltage.setStatus('current')
+ethernetNTEGE114ProCCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 58, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCCardTemperature.setStatus('current')
+ethernetNTEGE114ProCCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 58, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE114ProCCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 58, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCCardRestartAction.setStatus('current')
+ethernetNTEGE114ProCCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 58, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCCardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE114ProCCardSwitchPortActionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 58, 1, 10), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCCardSwitchPortActionPort.setStatus('current')
+ethernetNTEGE114ProCCardSwitchPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 58, 1, 11), SwitchPortAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCCardSwitchPortAction.setStatus('current')
+ethernetNTEGE114ProSHCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 59), )
+if mibBuilder.loadTexts: ethernetNTEGE114ProSHCardTable.setStatus('current')
+ethernetNTEGE114ProSHCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 59, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE114ProSHCardEntry.setStatus('current')
+ethernetNTEGE114ProSHCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 59, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProSHCardEntityIndex.setStatus('current')
+ethernetNTEGE114ProSHCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 59, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProSHCardAdminState.setStatus('current')
+ethernetNTEGE114ProSHCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 59, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProSHCardOperationalState.setStatus('current')
+ethernetNTEGE114ProSHCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 59, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProSHCardSecondaryState.setStatus('current')
+ethernetNTEGE114ProSHCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 59, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProSHCardVoltage.setStatus('current')
+ethernetNTEGE114ProSHCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 59, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProSHCardTemperature.setStatus('current')
+ethernetNTEGE114ProSHCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 59, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProSHCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE114ProSHCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 59, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProSHCardRestartAction.setStatus('current')
+ethernetNTEGE114ProSHCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 59, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProSHCardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE114ProSHCardSwitchPortActionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 59, 1, 10), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTEGE114ProSHCardSwitchPortActionPort.setStatus('current')
+ethernetNTEGE114ProSHCardSwitchPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 59, 1, 11), SwitchPortAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProSHCardSwitchPortAction.setStatus('current')
+ethernetNTEGE114ProCSHCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 60), )
+if mibBuilder.loadTexts: ethernetNTEGE114ProCSHCardTable.setStatus('current')
+ethernetNTEGE114ProCSHCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 60, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE114ProCSHCardEntry.setStatus('current')
+ethernetNTEGE114ProCSHCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 60, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCSHCardEntityIndex.setStatus('current')
+ethernetNTEGE114ProCSHCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 60, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCSHCardAdminState.setStatus('current')
+ethernetNTEGE114ProCSHCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 60, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCSHCardOperationalState.setStatus('current')
+ethernetNTEGE114ProCSHCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 60, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCSHCardSecondaryState.setStatus('current')
+ethernetNTEGE114ProCSHCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 60, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCSHCardVoltage.setStatus('current')
+ethernetNTEGE114ProCSHCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 60, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCSHCardTemperature.setStatus('current')
+ethernetNTEGE114ProCSHCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 60, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCSHCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE114ProCSHCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 60, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCSHCardRestartAction.setStatus('current')
+ethernetNTEGE114ProCSHCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 60, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCSHCardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE114ProCSHCardSwitchPortActionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 60, 1, 10), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCSHCardSwitchPortActionPort.setStatus('current')
+ethernetNTEGE114ProCSHCardSwitchPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 60, 1, 11), SwitchPortAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProCSHCardSwitchPortAction.setStatus('current')
+ethernetNTEGE114ProHECardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 61), )
+if mibBuilder.loadTexts: ethernetNTEGE114ProHECardTable.setStatus('current')
+ethernetNTEGE114ProHECardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 61, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE114ProHECardEntry.setStatus('current')
+ethernetNTEGE114ProHECardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 61, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProHECardEntityIndex.setStatus('current')
+ethernetNTEGE114ProHECardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 61, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProHECardAdminState.setStatus('current')
+ethernetNTEGE114ProHECardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 61, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProHECardOperationalState.setStatus('current')
+ethernetNTEGE114ProHECardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 61, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProHECardSecondaryState.setStatus('current')
+ethernetNTEGE114ProHECardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 61, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProHECardVoltage.setStatus('current')
+ethernetNTEGE114ProHECardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 61, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114ProHECardTemperature.setStatus('current')
+ethernetNTEGE114ProHECardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 61, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProHECardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE114ProHECardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 61, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProHECardRestartAction.setStatus('current')
+ethernetNTEGE114ProHECardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 61, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProHECardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE114ProHECardSwitchPortActionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 61, 1, 10), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTEGE114ProHECardSwitchPortActionPort.setStatus('current')
+ethernetNTEGE114ProHECardSwitchPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 61, 1, 11), SwitchPortAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114ProHECardSwitchPortAction.setStatus('current')
+ethernetNTEGE112ProHCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 62), )
+if mibBuilder.loadTexts: ethernetNTEGE112ProHCardTable.setStatus('current')
+ethernetNTEGE112ProHCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 62, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE112ProHCardEntry.setStatus('current')
+ethernetNTEGE112ProHCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 62, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112ProHCardEntityIndex.setStatus('current')
+ethernetNTEGE112ProHCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 62, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112ProHCardAdminState.setStatus('current')
+ethernetNTEGE112ProHCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 62, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112ProHCardOperationalState.setStatus('current')
+ethernetNTEGE112ProHCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 62, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112ProHCardSecondaryState.setStatus('current')
+ethernetNTEGE112ProHCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 62, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112ProHCardVoltage.setStatus('current')
+ethernetNTEGE112ProHCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 62, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE112ProHCardTemperature.setStatus('current')
+ethernetNTEGE112ProHCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 62, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112ProHCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE112ProHCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 62, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112ProHCardRestartAction.setStatus('current')
+ethernetNTEGE112ProHCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 62, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112ProHCardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE112ProHCardSwitchPortActionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 62, 1, 10), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTEGE112ProHCardSwitchPortActionPort.setStatus('current')
+ethernetNTEGE112ProHCardSwitchPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 62, 1, 11), SwitchPortAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE112ProHCardSwitchPortAction.setStatus('current')
+ethernetNTEOSA5420CardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 63), )
+if mibBuilder.loadTexts: ethernetNTEOSA5420CardTable.setStatus('current')
+ethernetNTEOSA5420CardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 63, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEOSA5420CardEntry.setStatus('current')
+ethernetNTEOSA5420CardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 63, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEOSA5420CardEntityIndex.setStatus('current')
+ethernetNTEOSA5420CardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 63, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEOSA5420CardAdminState.setStatus('current')
+ethernetNTEOSA5420CardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 63, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEOSA5420CardOperationalState.setStatus('current')
+ethernetNTEOSA5420CardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 63, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEOSA5420CardSecondaryState.setStatus('current')
+ethernetNTEOSA5420CardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 63, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEOSA5420CardVoltage.setStatus('current')
+ethernetNTEOSA5420CardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 63, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEOSA5420CardTemperature.setStatus('current')
+ethernetNTEOSA5420CardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 63, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEOSA5420CardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEOSA5420CardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 63, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEOSA5420CardRestartAction.setStatus('current')
+ethernetNTEOSA5420CardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 63, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEOSA5420CardFineGrainedPmInterval.setStatus('current')
+ethernetNTEOSA5421CardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 64), )
+if mibBuilder.loadTexts: ethernetNTEOSA5421CardTable.setStatus('current')
+ethernetNTEOSA5421CardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 64, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEOSA5421CardEntry.setStatus('current')
+ethernetNTEOSA5421CardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 64, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEOSA5421CardEntityIndex.setStatus('current')
+ethernetNTEOSA5421CardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 64, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEOSA5421CardAdminState.setStatus('current')
+ethernetNTEOSA5421CardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 64, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEOSA5421CardOperationalState.setStatus('current')
+ethernetNTEOSA5421CardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 64, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEOSA5421CardSecondaryState.setStatus('current')
+ethernetNTEOSA5421CardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 64, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEOSA5421CardVoltage.setStatus('current')
+ethernetNTEOSA5421CardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 64, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEOSA5421CardTemperature.setStatus('current')
+ethernetNTEOSA5421CardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 64, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEOSA5421CardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEOSA5421CardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 64, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEOSA5421CardRestartAction.setStatus('current')
+ethernetNTEOSA5421CardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 64, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEOSA5421CardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE114GCardTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 65), )
+if mibBuilder.loadTexts: ethernetNTEGE114GCardTable.setStatus('current')
+ethernetNTEGE114GCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 65, 1), ).setIndexNames((0, "CM-ENTITY-MIB", "neIndex"), (0, "CM-ENTITY-MIB", "shelfIndex"), (0, "CM-ENTITY-MIB", "slotIndex"))
+if mibBuilder.loadTexts: ethernetNTEGE114GCardEntry.setStatus('current')
+ethernetNTEGE114GCardEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 65, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114GCardEntityIndex.setStatus('current')
+ethernetNTEGE114GCardAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 65, 1, 2), AdminState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114GCardAdminState.setStatus('current')
+ethernetNTEGE114GCardOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 65, 1, 3), OperationalState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114GCardOperationalState.setStatus('current')
+ethernetNTEGE114GCardSecondaryState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 65, 1, 4), SecondaryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114GCardSecondaryState.setStatus('current')
+ethernetNTEGE114GCardVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 65, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114GCardVoltage.setStatus('current')
+ethernetNTEGE114GCardTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 65, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetNTEGE114GCardTemperature.setStatus('current')
+ethernetNTEGE114GCardSnmpDyingGaspEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 65, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114GCardSnmpDyingGaspEnabled.setStatus('current')
+ethernetNTEGE114GCardRestartAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 65, 1, 8), RestartType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114GCardRestartAction.setStatus('current')
+ethernetNTEGE114GCardFineGrainedPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 65, 1, 9), CmPmIntervalType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114GCardFineGrainedPmInterval.setStatus('current')
+ethernetNTEGE114GCardSwitchPortActionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 65, 1, 10), VariablePointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ethernetNTEGE114GCardSwitchPortActionPort.setStatus('current')
+ethernetNTEGE114GCardSwitchPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 1, 65, 1, 11), SwitchPortAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetNTEGE114GCardSwitchPortAction.setStatus('current')
+cmEntityCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 1))
+cmEntityGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2))
+cmEntityCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 1, 1)).setObjects(("CM-ENTITY-MIB", "cmEntityObjectGroup"), ("CM-ENTITY-MIB", "commonEntityGroup"), ("CM-ENTITY-MIB", "psuGroup"), ("CM-ENTITY-MIB", "fanGroup"), ("CM-ENTITY-MIB", "hubshelfGroup"), ("CM-ENTITY-MIB", "nteGe206CardGroup"), ("CM-ENTITY-MIB", "nteGe201SyncECardGroup"), ("CM-ENTITY-MIB", "nteGe201NonSyncECardGroup"), ("CM-ENTITY-MIB", "nteGe206FCardGroup"), ("CM-ENTITY-MIB", "nteGe206VCardGroup"), ("CM-ENTITY-MIB", "nteXg210CardGroup"), ("CM-ENTITY-MIB", "neLLDPParamsGroup"), ("CM-ENTITY-MIB", "nteSh1PcsCardGroup"), ("CM-ENTITY-MIB", "nteXg210CCardGroup"), ("CM-ENTITY-MIB", "geGE8SCryptoConnectorCardGroup"), ("CM-ENTITY-MIB", "nteOsa5420CardGroup"), ("CM-ENTITY-MIB", "nteOsa5421CardGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmEntityCompliance = cmEntityCompliance.setStatus('current')
+cmEntityObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 1))
+for _cmEntityObjectGroup_obj in [[("CM-ENTITY-MIB", "neIndex"), ("CM-ENTITY-MIB", "neName"), ("CM-ENTITY-MIB", "neType"), ("CM-ENTITY-MIB", "neContact"), ("CM-ENTITY-MIB", "neLocation"), ("CM-ENTITY-MIB", "neDescription"), ("CM-ENTITY-MIB", "neCmdPromptPrefix"), ("CM-ENTITY-MIB", "neAccepted"), ("CM-ENTITY-MIB", "neFromPort"), ("CM-ENTITY-MIB", "neProvAction"), ("CM-ENTITY-MIB", "neStorageType"), ("CM-ENTITY-MIB", "neRowStatus"), ("CM-ENTITY-MIB", "shelfIndex"), ("CM-ENTITY-MIB", "shelfEntityIndex"), ("CM-ENTITY-MIB", "shelfType"), ("CM-ENTITY-MIB", "shelfbackplaneRev"), ("CM-ENTITY-MIB", "shelfbackplaneDOM"), ("CM-ENTITY-MIB", "shelfbackplaneSerialNo"), ("CM-ENTITY-MIB", "shelfAction"), ("CM-ENTITY-MIB", "shelfAdminState"), ("CM-ENTITY-MIB", "shelfOperationalState"), ("CM-ENTITY-MIB", "shelfSecondaryState"), ("CM-ENTITY-MIB", "shelfMfgSite"), ("CM-ENTITY-MIB", "shelfOscillatorType"), ("CM-ENTITY-MIB", "slotIndex"), ("CM-ENTITY-MIB", "slotEntityIndex"), ("CM-ENTITY-MIB", "slotType"), ("CM-ENTITY-MIB", "slotCardType"), ("CM-ENTITY-MIB", "slotCardUnitName"), ("CM-ENTITY-MIB", "slotCardFormatVersion"), ("CM-ENTITY-MIB", "slotCardCLEICode"), ("CM-ENTITY-MIB", "slotCardPartNumber"), ("CM-ENTITY-MIB", "slotCardHwRev"), ("CM-ENTITY-MIB", "slotCardSwRev"), ("CM-ENTITY-MIB", "slotCardSerialNum"), ("CM-ENTITY-MIB", "slotCardMfgName"), ("CM-ENTITY-MIB", "slotCardMfgDate"), ("CM-ENTITY-MIB", "slotCardMfgSite"), ("CM-ENTITY-MIB", "slotSecondaryState"), ("CM-ENTITY-MIB", "slotCardPhysicalAddress"), ("CM-ENTITY-MIB", "psuEntityIndex"), ("CM-ENTITY-MIB", "psuType"), ("CM-ENTITY-MIB", "psuAdminState"), ("CM-ENTITY-MIB", "psuOperationalState"), ("CM-ENTITY-MIB", "psuSecondaryState"), ("CM-ENTITY-MIB", "psuOutputVoltage"), ("CM-ENTITY-MIB", "psuTemperature"), ("CM-ENTITY-MIB", "psuOutputCurrent"), ("CM-ENTITY-MIB", "psuStorageType"), ("CM-ENTITY-MIB", "psuRowStatus"), ("CM-ENTITY-MIB", "fanEntityIndex"), ("CM-ENTITY-MIB", "fanAdminState"), ("CM-ENTITY-MIB", "fanOperationalState"), ("CM-ENTITY-MIB", "fanSecondaryState"), ("CM-ENTITY-MIB", "scuEntityIndex"), ("CM-ENTITY-MIB", "scuAdminState"), ("CM-ENTITY-MIB", "scuOperationalState"), ("CM-ENTITY-MIB", "scuSecondaryState"), ("CM-ENTITY-MIB", "scuVoltage"), ("CM-ENTITY-MIB", "scuTemperature"), ("CM-ENTITY-MIB", "scuRestartAction"), ("CM-ENTITY-MIB", "scuStorageType"), ("CM-ENTITY-MIB", "scuRowStatus"), ("CM-ENTITY-MIB", "nemiEntityIndex"), ("CM-ENTITY-MIB", "nemiAdminState"), ("CM-ENTITY-MIB", "nemiOperationalState"), ("CM-ENTITY-MIB", "nemiSecondaryState"), ("CM-ENTITY-MIB", "nemiVoltage"), ("CM-ENTITY-MIB", "nemiTemperature"), ("CM-ENTITY-MIB", "nemiRestartAction"), ("CM-ENTITY-MIB", "nemiStorageType"), ("CM-ENTITY-MIB", "nemiRowStatus"), ("CM-ENTITY-MIB", "nemiForceOffLineAction"), ("CM-ENTITY-MIB", "ethernetNTUCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTUCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTUCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTUCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTUCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTUCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTUCardStorageType"), ("CM-ENTITY-MIB", "ethernetNTUCardRowStatus"), ("CM-ENTITY-MIB", "ethernetCPMRCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetCPMRCardAdminState"), ("CM-ENTITY-MIB", "ethernetCPMRCardOperationalState"), ("CM-ENTITY-MIB", "ethernetCPMRCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetCPMRCardVoltage"), ("CM-ENTITY-MIB", "ethernetCPMRCardTemperature"), ("CM-ENTITY-MIB", "ethernetCPMRCardRestartAction"), ("CM-ENTITY-MIB", "ethernetCPMRCardPSU1State"), ("CM-ENTITY-MIB", "ethernetCPMRCardPSU2State"), ("CM-ENTITY-MIB", "ethernetCPMRCardFAN1State"), ("CM-ENTITY-MIB", "ethernetCPMRCardFAN2State"), ("CM-ENTITY-MIB", "ethernetCPMRCardPsuType"), ("CM-ENTITY-MIB", "ethernetCPMRCardLLFMode"), ("CM-ENTITY-MIB", "ethernetCPMRCardLLFModeAction"), ("CM-ENTITY-MIB", "ethernetNTEGE101CardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE101CardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE101CardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE101CardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE101CardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE101CardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE101CardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE101CardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardRestartAction"), ("CM-ENTITY-MIB", "pseudoWireE3CardEntityIndex"), ("CM-ENTITY-MIB", "pseudoWireE3CardAdminState"), ("CM-ENTITY-MIB", "pseudoWireE3CardOperationalState"), ("CM-ENTITY-MIB", "pseudoWireE3CardSecondaryState"), ("CM-ENTITY-MIB", "pseudoWireE3CardIpAddress"), ("CM-ENTITY-MIB", "pseudoWireE3CardIpNetmask"), ("CM-ENTITY-MIB", "pseudoWireE3CardIpGateway"), ("CM-ENTITY-MIB", "pseudoWireE3CardDhcpEnabled"), ("CM-ENTITY-MIB", "pseudoWireE3CardMgmtVlanId"), ("CM-ENTITY-MIB", "pseudoWireE3CardTimeOfDay"), ("CM-ENTITY-MIB", "pseudoWireE3CardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardRestartAction"), ("CM-ENTITY-MIB", "ethernet1x10GCardEntityIndex"), ("CM-ENTITY-MIB", "ethernet1x10GCardAdminState"), ("CM-ENTITY-MIB", "ethernet1x10GCardOperationalState"), ("CM-ENTITY-MIB", "ethernet1x10GCardSecondaryState"), ("CM-ENTITY-MIB", "ethernet1x10GCardTemperature"), ("CM-ENTITY-MIB", "ethernet1x10GCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernet1x10GCardRestartAction"), ("CM-ENTITY-MIB", "ethernet1x10GCardStorageType"), ("CM-ENTITY-MIB", "ethernet1x10GCardRowStatus"), ("CM-ENTITY-MIB", "ethernet1x10GCardForceOffLineAction"), ("CM-ENTITY-MIB", "ethernet10x1GCardEntityIndex"), ("CM-ENTITY-MIB", "ethernet10x1GCardAdminState"), ("CM-ENTITY-MIB", "ethernet10x1GCardOperationalState"), ("CM-ENTITY-MIB", "ethernet10x1GCardSecondaryState"), ("CM-ENTITY-MIB", "ethernet10x1GCardTemperature"), ("CM-ENTITY-MIB", "ethernet10x1GCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernet10x1GCardRestartAction"), ("CM-ENTITY-MIB", "ethernet10x1GCardStorageType"), ("CM-ENTITY-MIB", "ethernet10x1GCardRowStatus"), ("CM-ENTITY-MIB", "ethernet10x1GCardForceOffLineAction"), ("CM-ENTITY-MIB", "ethernetSWFCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetSWFCardAdminState"), ("CM-ENTITY-MIB", "ethernetSWFCardOperationalState"), ("CM-ENTITY-MIB", "ethernetSWFCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetSWFCardTemperature"), ("CM-ENTITY-MIB", "ethernetSWFCardRestartAction"), ("CM-ENTITY-MIB", "ethernetSWFCardStorageType"), ("CM-ENTITY-MIB", "ethernetSWFCardRowStatus"), ("CM-ENTITY-MIB", "ethernetSWFCardForceOffLineAction"), ("CM-ENTITY-MIB", "stuCardEntityIndex"), ("CM-ENTITY-MIB", "stuCardAdminState"), ("CM-ENTITY-MIB", "stuCardOperationalState"), ("CM-ENTITY-MIB", "stuCardSecondaryState"), ("CM-ENTITY-MIB", "stuCardTemperature"), ("CM-ENTITY-MIB", "stuCardRestartAction"), ("CM-ENTITY-MIB", "stuCardStorageType"), ("CM-ENTITY-MIB", "stuCardRowStatus"), ("CM-ENTITY-MIB", "stuCardForceOffLineAction"), ("CM-ENTITY-MIB", "amiEntityIndex"), ("CM-ENTITY-MIB", "amiAdminState"), ("CM-ENTITY-MIB", "amiOperationalState"), ("CM-ENTITY-MIB", "amiSecondaryState"), ("CM-ENTITY-MIB", "amiTemperature"), ("CM-ENTITY-MIB", "amiRestartAction"), ("CM-ENTITY-MIB", "stiEntityIndex"), ("CM-ENTITY-MIB", "stiAdminState"), ("CM-ENTITY-MIB", "stiOperationalState"), ("CM-ENTITY-MIB", "stiSecondaryState"), ("CM-ENTITY-MIB", "stiTemperature"), ("CM-ENTITY-MIB", "stiStorageType"), ("CM-ENTITY-MIB", "stiRowStatus"), ("CM-ENTITY-MIB", "f3UsbHostIndex"), ("CM-ENTITY-MIB", "f3UsbHostEntityIndex"), ("CM-ENTITY-MIB", "f3UsbHostUnitName"), ("CM-ENTITY-MIB", "f3UsbHostFormatVersion"), ("CM-ENTITY-MIB", "f3UsbHostCLEICode"), ("CM-ENTITY-MIB", "f3UsbHostPartNumber"), ("CM-ENTITY-MIB", "f3UsbHostHwRev"), ("CM-ENTITY-MIB", "f3UsbHostSwRev"), ("CM-ENTITY-MIB", "f3UsbHostSerialNum"), ("CM-ENTITY-MIB", "f3UsbHostMfgName"), ("CM-ENTITY-MIB", "f3UsbHostMfgDate"), ("CM-ENTITY-MIB", "f3UsbHostMfgSite"), ("CM-ENTITY-MIB", "f3UsbHostSecondaryState"), ("CM-ENTITY-MIB", "f3UsbHostPhysicalAddress"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardSwitchPortAction"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardSwitchPortAction"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardAdminState"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardOperationalState"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardTemperature"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardRestartAction"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardStorageType"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardRowStatus"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardForceOffLineAction"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardMode"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardEntityIndex"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardAdminState"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardOperationalState"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardSecondaryState"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardTemperature"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardRestartAction"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardStorageType"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardRowStatus"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardForceOffLineAction"), ("CM-ENTITY-MIB", "ethernet10x1GHighPerCardEntityIndex")], [("CM-ENTITY-MIB", "ethernet10x1GHighPerCardAdminState"), ("CM-ENTITY-MIB", "ethernet10x1GHighPerCardOperationalState"), ("CM-ENTITY-MIB", "ethernet10x1GHighPerCardSecondaryState"), ("CM-ENTITY-MIB", "ethernet10x1GHighPerCardTemperature"), ("CM-ENTITY-MIB", "ethernet10x1GHighPerCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernet10x1GHighPerCardRestartAction"), ("CM-ENTITY-MIB", "ethernet10x1GHighPerCardStorageType"), ("CM-ENTITY-MIB", "ethernet10x1GHighPerCardRowStatus"), ("CM-ENTITY-MIB", "ethernet10x1GHighPerCardForceOffLineAction")]]:
+    if getattr(mibBuilder, 'version', 0) < (4, 4, 2):
+        # WARNING: leading objects get lost here!
+        cmEntityObjectGroup = cmEntityObjectGroup.setObjects(*_cmEntityObjectGroup_obj)
+    else:
+        cmEntityObjectGroup = cmEntityObjectGroup.setObjects(*_cmEntityObjectGroup_obj, **dict(append=True))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmEntityObjectGroup = cmEntityObjectGroup.setStatus('deprecated')
+commonEntityGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 2)).setObjects(("CM-ENTITY-MIB", "neIndex"), ("CM-ENTITY-MIB", "neName"), ("CM-ENTITY-MIB", "neType"), ("CM-ENTITY-MIB", "neContact"), ("CM-ENTITY-MIB", "neLocation"), ("CM-ENTITY-MIB", "neDescription"), ("CM-ENTITY-MIB", "neCmdPromptPrefix"), ("CM-ENTITY-MIB", "neAccepted"), ("CM-ENTITY-MIB", "neFromPort"), ("CM-ENTITY-MIB", "neProvAction"), ("CM-ENTITY-MIB", "neStorageType"), ("CM-ENTITY-MIB", "neRowStatus"), ("CM-ENTITY-MIB", "neAutoProvMode"), ("CM-ENTITY-MIB", "neFineGrainedPmInterval"), ("CM-ENTITY-MIB", "shelfIndex"), ("CM-ENTITY-MIB", "shelfEntityIndex"), ("CM-ENTITY-MIB", "shelfType"), ("CM-ENTITY-MIB", "shelfbackplaneRev"), ("CM-ENTITY-MIB", "shelfbackplaneDOM"), ("CM-ENTITY-MIB", "shelfbackplaneSerialNo"), ("CM-ENTITY-MIB", "shelfAction"), ("CM-ENTITY-MIB", "shelfAdminState"), ("CM-ENTITY-MIB", "shelfOperationalState"), ("CM-ENTITY-MIB", "shelfSecondaryState"), ("CM-ENTITY-MIB", "shelfMfgSite"), ("CM-ENTITY-MIB", "shelfOscillatorType"), ("CM-ENTITY-MIB", "slotIndex"), ("CM-ENTITY-MIB", "slotEntityIndex"), ("CM-ENTITY-MIB", "slotType"), ("CM-ENTITY-MIB", "slotCardType"), ("CM-ENTITY-MIB", "slotCardUnitName"), ("CM-ENTITY-MIB", "slotCardFormatVersion"), ("CM-ENTITY-MIB", "slotCardCLEICode"), ("CM-ENTITY-MIB", "slotCardPartNumber"), ("CM-ENTITY-MIB", "slotCardHwRev"), ("CM-ENTITY-MIB", "slotCardSwRev"), ("CM-ENTITY-MIB", "slotCardSerialNum"), ("CM-ENTITY-MIB", "slotCardMfgName"), ("CM-ENTITY-MIB", "slotCardMfgDate"), ("CM-ENTITY-MIB", "slotCardMfgSite"), ("CM-ENTITY-MIB", "slotSecondaryState"), ("CM-ENTITY-MIB", "slotCardPhysicalAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    commonEntityGroup = commonEntityGroup.setStatus('current')
+psuGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 3)).setObjects(("CM-ENTITY-MIB", "psuEntityIndex"), ("CM-ENTITY-MIB", "psuType"), ("CM-ENTITY-MIB", "psuAdminState"), ("CM-ENTITY-MIB", "psuOperationalState"), ("CM-ENTITY-MIB", "psuSecondaryState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    psuGroup = psuGroup.setStatus('current')
+fanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 4)).setObjects(("CM-ENTITY-MIB", "fanEntityIndex"), ("CM-ENTITY-MIB", "fanAdminState"), ("CM-ENTITY-MIB", "fanOperationalState"), ("CM-ENTITY-MIB", "fanSecondaryState"), ("CM-ENTITY-MIB", "fanStorageType"), ("CM-ENTITY-MIB", "fanRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fanGroup = fanGroup.setStatus('current')
+hubshelfGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 5)).setObjects(("CM-ENTITY-MIB", "scuEntityIndex"), ("CM-ENTITY-MIB", "scuAdminState"), ("CM-ENTITY-MIB", "scuOperationalState"), ("CM-ENTITY-MIB", "scuSecondaryState"), ("CM-ENTITY-MIB", "scuVoltage"), ("CM-ENTITY-MIB", "scuTemperature"), ("CM-ENTITY-MIB", "scuRestartAction"), ("CM-ENTITY-MIB", "scuStorageType"), ("CM-ENTITY-MIB", "scuRowStatus"), ("CM-ENTITY-MIB", "scuFlashModelNum"), ("CM-ENTITY-MIB", "scuFlashFirmwareRev"), ("CM-ENTITY-MIB", "scuFlashSerialNum"), ("CM-ENTITY-MIB", "nemiEntityIndex"), ("CM-ENTITY-MIB", "nemiAdminState"), ("CM-ENTITY-MIB", "nemiOperationalState"), ("CM-ENTITY-MIB", "nemiSecondaryState"), ("CM-ENTITY-MIB", "nemiVoltage"), ("CM-ENTITY-MIB", "nemiTemperature"), ("CM-ENTITY-MIB", "nemiRestartAction"), ("CM-ENTITY-MIB", "nemiStorageType"), ("CM-ENTITY-MIB", "nemiRowStatus"), ("CM-ENTITY-MIB", "nemiFlashModelNum"), ("CM-ENTITY-MIB", "nemiFlashFirmwareRev"), ("CM-ENTITY-MIB", "nemiFlashSerialNum"), ("CM-ENTITY-MIB", "ethernetNTUCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTUCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTUCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTUCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTUCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTUCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTUCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTUCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTUCardStorageType"), ("CM-ENTITY-MIB", "ethernetNTUCardRowStatus"), ("CM-ENTITY-MIB", "ethernetCPMRCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetCPMRCardAdminState"), ("CM-ENTITY-MIB", "ethernetCPMRCardOperationalState"), ("CM-ENTITY-MIB", "ethernetCPMRCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetCPMRCardVoltage"), ("CM-ENTITY-MIB", "ethernetCPMRCardTemperature"), ("CM-ENTITY-MIB", "ethernetCPMRCardRestartAction"), ("CM-ENTITY-MIB", "ethernetCPMRCardPSU1State"), ("CM-ENTITY-MIB", "ethernetCPMRCardPSU2State"), ("CM-ENTITY-MIB", "ethernetCPMRCardFAN1State"), ("CM-ENTITY-MIB", "ethernetCPMRCardFAN2State"), ("CM-ENTITY-MIB", "ethernetCPMRCardPsuType"), ("CM-ENTITY-MIB", "ethernetCPMRCardLLFMode"), ("CM-ENTITY-MIB", "ethernetCPMRCardLLFModeAction"), ("CM-ENTITY-MIB", "scuTEntityIndex"), ("CM-ENTITY-MIB", "scuTAdminState"), ("CM-ENTITY-MIB", "scuTOperationalState"), ("CM-ENTITY-MIB", "scuTSecondaryState"), ("CM-ENTITY-MIB", "scuTVoltage"), ("CM-ENTITY-MIB", "scuTTemperature"), ("CM-ENTITY-MIB", "scuTRestartAction"), ("CM-ENTITY-MIB", "scuTStorageType"), ("CM-ENTITY-MIB", "scuTRowStatus"), ("CM-ENTITY-MIB", "ethernetNTECardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTECardAdminState"), ("CM-ENTITY-MIB", "ethernetNTECardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTECardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTECardVoltage"), ("CM-ENTITY-MIB", "ethernetNTECardTemperature"), ("CM-ENTITY-MIB", "ethernetNTECardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTECardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTECardStorageType"), ("CM-ENTITY-MIB", "ethernetNTECardRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hubshelfGroup = hubshelfGroup.setStatus('current')
+nteGe206CardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 6)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE206CardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE206CardFineGrainedPmInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe206CardGroup = nteGe206CardGroup.setStatus('current')
+nteGe201SyncECardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 7)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE201SyncECardFineGrainedPmInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe201SyncECardGroup = nteGe201SyncECardGroup.setStatus('current')
+nteGe201NonSyncECardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 8)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE201CardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE201CardFineGrainedPmInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe201NonSyncECardGroup = nteGe201NonSyncECardGroup.setStatus('current')
+nteGe206FCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 9)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE206FCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE206FCardFineGrainedPmInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe206FCardGroup = nteGe206FCardGroup.setStatus('current')
+nteGe112CardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 10)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE112CardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE112CardSwitchPortAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe112CardGroup = nteGe112CardGroup.setStatus('current')
+nteGe114CardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 11)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE114CardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE114CardSwitchPortAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe114CardGroup = nteGe114CardGroup.setStatus('current')
+nteGe206VCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 12)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE206VCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE206VCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE206VCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE206VCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE206VCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE206VCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE206VCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE206VCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE206VCardFineGrainedPmInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe206VCardGroup = nteGe206VCardGroup.setStatus('current')
+nteXg210CardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 13)).setObjects(("CM-ENTITY-MIB", "ethernetNTEXG210CardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEXG210CardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEXG210CardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEXG210CardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEXG210CardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEXG210CardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEXG210CardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEXG210CardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEXG210CardFineGrainedPmInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteXg210CardGroup = nteXg210CardGroup.setStatus('current')
+pseudoWireCardOcnStmCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 14)).setObjects(("CM-ENTITY-MIB", "pseudoWireOcnStmCardEntityIndex"), ("CM-ENTITY-MIB", "pseudoWireOcnStmCardAdminState"), ("CM-ENTITY-MIB", "pseudoWireOcnStmCardOperationalState"), ("CM-ENTITY-MIB", "pseudoWireOcnStmCardSecondaryState"), ("CM-ENTITY-MIB", "pseudoWireOcnStmCardIpAddress"), ("CM-ENTITY-MIB", "pseudoWireOcnStmCardMode"), ("CM-ENTITY-MIB", "pseudoWireOcnStmCardVoltage"), ("CM-ENTITY-MIB", "pseudoWireOcnStmCardTemperature"), ("CM-ENTITY-MIB", "pseudoWireOcnStmCardRestartAction"), ("CM-ENTITY-MIB", "pseudoWireOcnStmCardStorageType"), ("CM-ENTITY-MIB", "pseudoWireOcnStmCardRowStatus"), ("CM-ENTITY-MIB", "pseudoWireOcnStmCardPSNEncapsulation"), ("CM-ENTITY-MIB", "pseudoWireOcnStmCardFreqSourceType"), ("CM-ENTITY-MIB", "pseudoWireOcnStmCardFreqSource"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pseudoWireCardOcnStmCardGroup = pseudoWireCardOcnStmCardGroup.setStatus('current')
+pseudoWireCardE1T1CardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 15)).setObjects(("CM-ENTITY-MIB", "pseudoWireE1T1CardEntityIndex"), ("CM-ENTITY-MIB", "pseudoWireE1T1CardAdminState"), ("CM-ENTITY-MIB", "pseudoWireE1T1CardOperationalState"), ("CM-ENTITY-MIB", "pseudoWireE1T1CardSecondaryState"), ("CM-ENTITY-MIB", "pseudoWireE1T1CardIpAddress"), ("CM-ENTITY-MIB", "pseudoWireE1T1CardMode"), ("CM-ENTITY-MIB", "pseudoWireE1T1CardVoltage"), ("CM-ENTITY-MIB", "pseudoWireE1T1CardTemperature"), ("CM-ENTITY-MIB", "pseudoWireE1T1CardRestartAction"), ("CM-ENTITY-MIB", "pseudoWireE1T1CardStorageType"), ("CM-ENTITY-MIB", "pseudoWireE1T1CardRowStatus"), ("CM-ENTITY-MIB", "pseudoWireE1T1CardPSNEncapsulation"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pseudoWireCardE1T1CardGroup = pseudoWireCardE1T1CardGroup.setStatus('current')
+nteT1804CardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 16)).setObjects(("CM-ENTITY-MIB", "ethernetNTET1804CardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTET1804CardAdminState"), ("CM-ENTITY-MIB", "ethernetNTET1804CardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTET1804CardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTET1804CardVoltage"), ("CM-ENTITY-MIB", "ethernetNTET1804CardTemperature"), ("CM-ENTITY-MIB", "ethernetNTET1804CardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTET1804CardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTET1804CardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTET1804CardMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteT1804CardGroup = nteT1804CardGroup.setStatus('current')
+nteT3204CardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 17)).setObjects(("CM-ENTITY-MIB", "ethernetNTET3204CardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTET3204CardAdminState"), ("CM-ENTITY-MIB", "ethernetNTET3204CardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTET3204CardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTET3204CardVoltage"), ("CM-ENTITY-MIB", "ethernetNTET3204CardTemperature"), ("CM-ENTITY-MIB", "ethernetNTET3204CardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTET3204CardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTET3204CardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTET3204CardMode"), ("CM-ENTITY-MIB", "ethernetGE4ECCCardTemperature"), ("CM-ENTITY-MIB", "ethernetGE4ECCCardRestartAction"), ("CM-ENTITY-MIB", "ethernetGE4ECCCardStorageType"), ("CM-ENTITY-MIB", "ethernetGE4ECCCardRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteT3204CardGroup = nteT3204CardGroup.setStatus('current')
+nteGeSyncProbeCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 18)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGESyncProbeCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGESyncProbeCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGESyncProbeCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGESyncProbeCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGESyncProbeCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGESyncProbeCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGESyncProbeCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGESyncProbeCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGESyncProbeCardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardTemperature"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardRestartAction"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardStorageType"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGeSyncProbeCardGroup = nteGeSyncProbeCardGroup.setStatus('current')
+xg1XCCCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 19)).setObjects(("CM-ENTITY-MIB", "ethernetXG1XCCCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetXG1XCCCardAdminState"), ("CM-ENTITY-MIB", "ethernetXG1XCCCardOperationalState"), ("CM-ENTITY-MIB", "ethernetXG1XCCCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetXG1XCCCardVoltage"), ("CM-ENTITY-MIB", "ethernetXG1XCCCardTemperature"), ("CM-ENTITY-MIB", "ethernetXG1XCCCardRestartAction"), ("CM-ENTITY-MIB", "ethernetXG1XCCCardStorageType"), ("CM-ENTITY-MIB", "ethernetXG1XCCCardRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    xg1XCCCardGroup = xg1XCCCardGroup.setStatus('current')
+xg1SCCCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 20)).setObjects(("CM-ENTITY-MIB", "ethernetXG1SCCCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetXG1SCCCardAdminState"), ("CM-ENTITY-MIB", "ethernetXG1SCCCardOperationalState"), ("CM-ENTITY-MIB", "ethernetXG1SCCCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetXG1SCCCardVoltage"), ("CM-ENTITY-MIB", "ethernetXG1SCCCardTemperature"), ("CM-ENTITY-MIB", "ethernetXG1SCCCardRestartAction"), ("CM-ENTITY-MIB", "ethernetXG1SCCCardStorageType"), ("CM-ENTITY-MIB", "ethernetXG1SCCCardRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    xg1SCCCardGroup = xg1SCCCardGroup.setStatus('current')
+ge4ECCCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 21)).setObjects(("CM-ENTITY-MIB", "ethernetGE4ECCCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetGE4ECCCardAdminState"), ("CM-ENTITY-MIB", "ethernetGE4ECCCardOperationalState"), ("CM-ENTITY-MIB", "ethernetGE4ECCCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetGE4ECCCardVoltage"), ("CM-ENTITY-MIB", "ethernetGE4ECCCardTemperature"), ("CM-ENTITY-MIB", "ethernetGE4ECCCardRestartAction"), ("CM-ENTITY-MIB", "ethernetGE4ECCCardStorageType"), ("CM-ENTITY-MIB", "ethernetGE4ECCCardRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ge4ECCCardGroup = ge4ECCCardGroup.setStatus('current')
+ge4SCCCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 22)).setObjects(("CM-ENTITY-MIB", "ethernetGE4SCCCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardAdminState"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardOperationalState"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardVoltage"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardTemperature"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardRestartAction"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardStorageType"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ge4SCCCardGroup = ge4SCCCardGroup.setStatus('current')
+ge8SCCCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 23)).setObjects(("CM-ENTITY-MIB", "ethernetGE8SCCCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetGE8SCCCardAdminState"), ("CM-ENTITY-MIB", "ethernetGE8SCCCardOperationalState"), ("CM-ENTITY-MIB", "ethernetGE8SCCCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetGE8SCCCardVoltage"), ("CM-ENTITY-MIB", "ethernetGE8SCCCardTemperature"), ("CM-ENTITY-MIB", "ethernetGE8SCCCardRestartAction"), ("CM-ENTITY-MIB", "ethernetGE8SCCCardStorageType"), ("CM-ENTITY-MIB", "ethernetGE8SCCCardRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ge8SCCCardGroup = ge8SCCCardGroup.setStatus('current')
+nteGe114HCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 24)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE114HCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE114HCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE114HCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE114HCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE114HCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE114HCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE114HCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE114HCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE114HCardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE114HCardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE114HCardSwitchPortAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe114HCardGroup = nteGe114HCardGroup.setStatus('current')
+nteGe114PHCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 25)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE114PHCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE114PHCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE114PHCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE114PHCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE114PHCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE114PHCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE114PHCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE114PHCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE114PHCardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE114PHCardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE114PHCardSwitchPortAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe114PHCardGroup = nteGe114PHCardGroup.setStatus('current')
+ethernetOverOCSTMCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 26)).setObjects(("CM-ENTITY-MIB", "ethernetOverOCSTMCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardAdminState"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardOperationalState"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardTemperature"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardRestartAction"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardStorageType"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardRowStatus"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardForceOffLineAction"), ("CM-ENTITY-MIB", "ethernetOverOCSTMCardMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ethernetOverOCSTMCardGroup = ethernetOverOCSTMCardGroup.setStatus('current')
+ethernet1x10GHighPerCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 27)).setObjects(("CM-ENTITY-MIB", "ethernet1x10GHighPerCardEntityIndex"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardAdminState"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardOperationalState"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardSecondaryState"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardTemperature"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardRestartAction"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardStorageType"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardRowStatus"), ("CM-ENTITY-MIB", "ethernet1x10GHighPerCardForceOffLineAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ethernet1x10GHighPerCardGroup = ethernet1x10GHighPerCardGroup.setStatus('current')
+ethernetFE36ECardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 28)).setObjects(("CM-ENTITY-MIB", "ethernetFE36ECardEntityIndex"), ("CM-ENTITY-MIB", "ethernetFE36ECardAdminState"), ("CM-ENTITY-MIB", "ethernetFE36ECardOperationalState"), ("CM-ENTITY-MIB", "ethernetFE36ECardSecondaryState"), ("CM-ENTITY-MIB", "ethernetFE36ECardTemperature"), ("CM-ENTITY-MIB", "ethernetFE36ECardRestartAction"), ("CM-ENTITY-MIB", "ethernetFE36ECardStorageType"), ("CM-ENTITY-MIB", "ethernetFE36ECardRowStatus"), ("CM-ENTITY-MIB", "ethernetFE36ECardForceOffLineAction"), ("CM-ENTITY-MIB", "ethernetFE36ECard8023azEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ethernetFE36ECardGroup = ethernetFE36ECardGroup.setStatus('current')
+nteGe114SHCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 29)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE114SHCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE114SHCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE114SHCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE114SHCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE114SHCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE114SHCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE114SHCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE114SHCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE114SHCardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE114SHCardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE114SHCardSwitchPortAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe114SHCardGroup = nteGe114SHCardGroup.setStatus('current')
+nteGe114SCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 30)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE114SCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE114SCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE114SCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE114SCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE114SCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE114SCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE114SCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE114SCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE114SCardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE114SCardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE114SCardSwitchPortAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe114SCardGroup = nteGe114SCardGroup.setStatus('current')
+ge8ECCCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 31)).setObjects(("CM-ENTITY-MIB", "ethernetGE8ECCCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetGE8ECCCardAdminState"), ("CM-ENTITY-MIB", "ethernetGE8ECCCardOperationalState"), ("CM-ENTITY-MIB", "ethernetGE8ECCCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetGE8ECCCardVoltage"), ("CM-ENTITY-MIB", "ethernetGE8ECCCardTemperature"), ("CM-ENTITY-MIB", "ethernetGE8ECCCardRestartAction"), ("CM-ENTITY-MIB", "ethernetGE8ECCCardStorageType"), ("CM-ENTITY-MIB", "ethernetGE8ECCCardRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ge8ECCCardGroup = ge8ECCCardGroup.setStatus('current')
+neLLDPParamsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 32)).setObjects(("CM-ENTITY-MIB", "neLLDPParamsLLDPEnableAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    neLLDPParamsGroup = neLLDPParamsGroup.setStatus('current')
+nteSh1PcsCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 33)).setObjects(("CM-ENTITY-MIB", "ethernetNTESH1PCSCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTESH1PCSCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTESH1PCSCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTESH1PCSCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTESH1PCSCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTESH1PCSCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTESH1PCSCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTESH1PCSCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTESH1PCSCardFineGrainedPmInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteSh1PcsCardGroup = nteSh1PcsCardGroup.setStatus('current')
+nteOsa5411CardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 34)).setObjects(("CM-ENTITY-MIB", "ethernetNTEOSA5411CardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEOSA5411CardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEOSA5411CardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEOSA5411CardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEOSA5411CardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEOSA5411CardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEOSA5411CardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEOSA5411CardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEOSA5411CardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardTemperature"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardRestartAction"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardStorageType"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteOsa5411CardGroup = nteOsa5411CardGroup.setStatus('current')
+nteGe112ProCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 35)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE112ProCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProCardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProCardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProCardSwitchPortAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe112ProCardGroup = nteGe112ProCardGroup.setStatus('current')
+nteGe112ProMCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 36)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE112ProMCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProMCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProMCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProMCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProMCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProMCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProMCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProMCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProMCardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProMCardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProMCardSwitchPortAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe112ProMCardGroup = nteGe112ProMCardGroup.setStatus('current')
+nteGe114ProCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 37)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE114ProCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCardSwitchPortAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe114ProCardGroup = nteGe114ProCardGroup.setStatus('current')
+nteGe114ProCCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 38)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE114ProCCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCCardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCCardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCCardSwitchPortAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe114ProCCardGroup = nteGe114ProCCardGroup.setStatus('current')
+nteGe114ProSHCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 39)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE114ProSHCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProSHCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProSHCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProSHCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProSHCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProSHCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProSHCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProSHCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProSHCardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProSHCardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProSHCardSwitchPortAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe114ProSHCardGroup = nteGe114ProSHCardGroup.setStatus('current')
+nteGe114ProCSHCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 40)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE114ProCSHCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCSHCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCSHCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCSHCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCSHCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCSHCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCSHCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCSHCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCSHCardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCSHCardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProCSHCardSwitchPortAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe114ProCSHCardGroup = nteGe114ProCSHCardGroup.setStatus('current')
+nteGe114ProHECardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 41)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE114ProHECardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProHECardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProHECardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProHECardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProHECardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProHECardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProHECardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProHECardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProHECardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProHECardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE114ProHECardSwitchPortAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe114ProHECardGroup = nteGe114ProHECardGroup.setStatus('current')
+nteGe112ProHCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 42)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE112ProHCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProHCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProHCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProHCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProHCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProHCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProHCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProHCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProHCardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProHCardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE112ProHCardSwitchPortAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe112ProHCardGroup = nteGe112ProHCardGroup.setStatus('current')
+nteXg210CCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 43)).setObjects(("CM-ENTITY-MIB", "ethernetNTEXG210CCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEXG210CCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEXG210CCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEXG210CCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEXG210CCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEXG210CCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEXG210CCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEXG210CCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEXG210CCardFineGrainedPmInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteXg210CCardGroup = nteXg210CCardGroup.setStatus('current')
+geGE8SCryptoConnectorCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 44)).setObjects(("CM-ENTITY-MIB", "ethernetGE8SCryptoConnectorCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetGE8SCryptoConnectorCardAdminState"), ("CM-ENTITY-MIB", "ethernetGE8SCryptoConnectorCardOperationalState"), ("CM-ENTITY-MIB", "ethernetGE8SCryptoConnectorCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetGE8SCryptoConnectorCardVoltage"), ("CM-ENTITY-MIB", "ethernetGE8SCryptoConnectorCardTemperature"), ("CM-ENTITY-MIB", "ethernetGE8SCryptoConnectorCardRestartAction"), ("CM-ENTITY-MIB", "ethernetGE8SCryptoConnectorCardStorageType"), ("CM-ENTITY-MIB", "ethernetGE8SCryptoConnectorCardRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    geGE8SCryptoConnectorCardGroup = geGE8SCryptoConnectorCardGroup.setStatus('current')
+nteOsa5420CardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 45)).setObjects(("CM-ENTITY-MIB", "ethernetNTEOSA5420CardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEOSA5420CardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEOSA5420CardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEOSA5420CardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEOSA5420CardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEOSA5420CardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEOSA5420CardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEOSA5420CardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEOSA5420CardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardTemperature"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardRestartAction"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardStorageType"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteOsa5420CardGroup = nteOsa5420CardGroup.setStatus('current')
+nteOsa5421CardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 46)).setObjects(("CM-ENTITY-MIB", "ethernetNTEOSA5421CardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEOSA5421CardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEOSA5421CardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEOSA5421CardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEOSA5421CardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEOSA5421CardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEOSA5421CardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEOSA5421CardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEOSA5421CardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardTemperature"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardRestartAction"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardStorageType"), ("CM-ENTITY-MIB", "ethernetGE4SCCCardRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteOsa5421CardGroup = nteOsa5421CardGroup.setStatus('current')
+nteGe114GCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 3, 2, 2, 47)).setObjects(("CM-ENTITY-MIB", "ethernetNTEGE114GCardEntityIndex"), ("CM-ENTITY-MIB", "ethernetNTEGE114GCardAdminState"), ("CM-ENTITY-MIB", "ethernetNTEGE114GCardOperationalState"), ("CM-ENTITY-MIB", "ethernetNTEGE114GCardSecondaryState"), ("CM-ENTITY-MIB", "ethernetNTEGE114GCardVoltage"), ("CM-ENTITY-MIB", "ethernetNTEGE114GCardTemperature"), ("CM-ENTITY-MIB", "ethernetNTEGE114GCardSnmpDyingGaspEnabled"), ("CM-ENTITY-MIB", "ethernetNTEGE114GCardRestartAction"), ("CM-ENTITY-MIB", "ethernetNTEGE114GCardFineGrainedPmInterval"), ("CM-ENTITY-MIB", "ethernetNTEGE114GCardSwitchPortActionPort"), ("CM-ENTITY-MIB", "ethernetNTEGE114GCardSwitchPortAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nteGe114GCardGroup = nteGe114GCardGroup.setStatus('current')
+mibBuilder.exportSymbols("CM-ENTITY-MIB", stuHighPerCardSecondaryState=stuHighPerCardSecondaryState, ethernetOverOCSTMCardEntityIndex=ethernetOverOCSTMCardEntityIndex, ethernetNTEOSA5411CardOperationalState=ethernetNTEOSA5411CardOperationalState, ethernetGE4SCCCardStorageType=ethernetGE4SCCCardStorageType, psuEntry=psuEntry, ethernetNTEGE114ProCCardSwitchPortActionPort=ethernetNTEGE114ProCCardSwitchPortActionPort, ethernetNTEXG210CCardSecondaryState=ethernetNTEXG210CCardSecondaryState, ethernet1x10GCardRestartAction=ethernet1x10GCardRestartAction, ethernetNTEGE112ProCardTable=ethernetNTEGE112ProCardTable, hubshelfGroup=hubshelfGroup, pseudoWireE1T1CardEntry=pseudoWireE1T1CardEntry, shelfSecondaryState=shelfSecondaryState, fanGroup=fanGroup, ethernetNTEGE201SyncECardRestartAction=ethernetNTEGE201SyncECardRestartAction, ethernetNTEGE114PHCardSecondaryState=ethernetNTEGE114PHCardSecondaryState, ethernetNTEXG210CCardRestartAction=ethernetNTEXG210CCardRestartAction, ethernetFE36ECardGroup=ethernetFE36ECardGroup, ethernet10x1GCardSnmpDyingGaspEnabled=ethernet10x1GCardSnmpDyingGaspEnabled, ethernet10x1GHighPerCardStorageType=ethernet10x1GHighPerCardStorageType, ethernetNTEGE112ProMCardAdminState=ethernetNTEGE112ProMCardAdminState, ethernetNTET1804CardMode=ethernetNTET1804CardMode, ethernetXG1XCCCardTemperature=ethernetXG1XCCCardTemperature, ethernet10x1GCardForceOffLineAction=ethernet10x1GCardForceOffLineAction, pseudoWireOcnStmCardSecondaryState=pseudoWireOcnStmCardSecondaryState, ethernetNTEGE114ProSHCardEntry=ethernetNTEGE114ProSHCardEntry, stuHighPerCardEntityIndex=stuHighPerCardEntityIndex, nteGe114PHCardGroup=nteGe114PHCardGroup, ethernetNTEGE112ProCardSwitchPortActionPort=ethernetNTEGE112ProCardSwitchPortActionPort, ethernetNTEGE114ProSHCardSecondaryState=ethernetNTEGE114ProSHCardSecondaryState, ethernetNTEOSA5420CardEntry=ethernetNTEOSA5420CardEntry, ethernetGE8SCryptoConnectorCardEntry=ethernetGE8SCryptoConnectorCardEntry, ethernetNTESH1PCSCardVoltage=ethernetNTESH1PCSCardVoltage, ethernetNTEGE114ProHECardSwitchPortActionPort=ethernetNTEGE114ProHECardSwitchPortActionPort, ethernet10x1GCardEntry=ethernet10x1GCardEntry, ethernetNTEGE112CardEntityIndex=ethernetNTEGE112CardEntityIndex, ethernetXG1XCCCardEntityIndex=ethernetXG1XCCCardEntityIndex, ethernetNTEXG210CCardEntityIndex=ethernetNTEXG210CCardEntityIndex, ethernetNTESH1PCSCardAdminState=ethernetNTESH1PCSCardAdminState, f3UsbHostMfgSite=f3UsbHostMfgSite, pseudoWireCardOcnStmCardGroup=pseudoWireCardOcnStmCardGroup, pseudoWireE3CardDhcpEnabled=pseudoWireE3CardDhcpEnabled, ethernetNTEGE206VCardAdminState=ethernetNTEGE206VCardAdminState, nteT3204CardGroup=nteT3204CardGroup, ethernetNTEGE114ProCCardRestartAction=ethernetNTEGE114ProCCardRestartAction, ethernetNTEXG210CCardSnmpDyingGaspEnabled=ethernetNTEXG210CCardSnmpDyingGaspEnabled, ethernetNTEGE114HCardEntry=ethernetNTEGE114HCardEntry, slotIndex=slotIndex, ethernetNTEGE206VCardEntityIndex=ethernetNTEGE206VCardEntityIndex, ethernetNTEGE114HCardSwitchPortAction=ethernetNTEGE114HCardSwitchPortAction, shelfAdminState=shelfAdminState, scuStorageType=scuStorageType, ethernetNTUCardTable=ethernetNTUCardTable, pseudoWireE3CardMgmtVlanId=pseudoWireE3CardMgmtVlanId, f3UsbHostIndex=f3UsbHostIndex, ethernetNTEGE112CardOperationalState=ethernetNTEGE112CardOperationalState, ethernetNTEGE114ProCardSwitchPortActionPort=ethernetNTEGE114ProCardSwitchPortActionPort, ethernetNTEGE114GCardTable=ethernetNTEGE114GCardTable, stuCardAdminState=stuCardAdminState, ethernetGE8SCCCardSecondaryState=ethernetGE8SCCCardSecondaryState, ethernet10x1GHighPerCardTemperature=ethernet10x1GHighPerCardTemperature, pseudoWireE3CardTimeOfDay=pseudoWireE3CardTimeOfDay, ethernetNTEOSA5421CardTemperature=ethernetNTEOSA5421CardTemperature, ethernetNTECardVoltage=ethernetNTECardVoltage, ethernetOverOCSTMCardOperationalState=ethernetOverOCSTMCardOperationalState, ethernetNTEGE112CardSnmpDyingGaspEnabled=ethernetNTEGE112CardSnmpDyingGaspEnabled, f3UsbHostSecondaryState=f3UsbHostSecondaryState, pseudoWireE3CardSecondaryState=pseudoWireE3CardSecondaryState, ethernetNTEOSA5421CardEntry=ethernetNTEOSA5421CardEntry, ethernetNTEGE114GCardSnmpDyingGaspEnabled=ethernetNTEGE114GCardSnmpDyingGaspEnabled, ethernetNTEGE112CardEntry=ethernetNTEGE112CardEntry, ethernetNTESH1PCSCardEntityIndex=ethernetNTESH1PCSCardEntityIndex, ethernetNTEGE114ProSHCardSwitchPortAction=ethernetNTEGE114ProSHCardSwitchPortAction, ethernet1x10GCardEntityIndex=ethernet1x10GCardEntityIndex, ethernetFE36ECardStorageType=ethernetFE36ECardStorageType, ethernetNTUCardEntityIndex=ethernetNTUCardEntityIndex, scuTAdminState=scuTAdminState, ethernetNTEGE114ProCardTable=ethernetNTEGE114ProCardTable, ethernetCPMRCardSecondaryState=ethernetCPMRCardSecondaryState, ethernet1x10GCardTable=ethernet1x10GCardTable, shelfIndex=shelfIndex, ethernetNTUCardVoltage=ethernetNTUCardVoltage, ethernet10x1GCardOperationalState=ethernet10x1GCardOperationalState, psuType=psuType, ethernetNTEGE114SHCardSecondaryState=ethernetNTEGE114SHCardSecondaryState, ethernetNTEGE114PHCardSwitchPortAction=ethernetNTEGE114PHCardSwitchPortAction, pseudoWireE3CardTable=pseudoWireE3CardTable, nteGe114SHCardGroup=nteGe114SHCardGroup, ethernetXG1XCCCardStorageType=ethernetXG1XCCCardStorageType, ethernet1x10GCardRowStatus=ethernet1x10GCardRowStatus, ethernetNTEGE114ProCCardEntry=ethernetNTEGE114ProCCardEntry, fanRowStatus=fanRowStatus, ethernet1x10GHighPerCardForceOffLineAction=ethernet1x10GHighPerCardForceOffLineAction, ge8ECCCardGroup=ge8ECCCardGroup, pseudoWireCardE1T1CardGroup=pseudoWireCardE1T1CardGroup, ethernetNTEGE114ProCardEntry=ethernetNTEGE114ProCardEntry, ethernetNTEGE114ProCSHCardOperationalState=ethernetNTEGE114ProCSHCardOperationalState, ethernetNTEGE112CardVoltage=ethernetNTEGE112CardVoltage, ethernetNTEGE112CardTemperature=ethernetNTEGE112CardTemperature, ethernetNTEGE114PHCardSwitchPortActionPort=ethernetNTEGE114PHCardSwitchPortActionPort, ethernetNTEGE206CardRestartAction=ethernetNTEGE206CardRestartAction, ethernetNTEGE112ProMCardVoltage=ethernetNTEGE112ProMCardVoltage, ethernetNTEXG210CCardFineGrainedPmInterval=ethernetNTEXG210CCardFineGrainedPmInterval, ethernetCPMRCardVoltage=ethernetCPMRCardVoltage, stiTemperature=stiTemperature, ethernetNTET1804CardEntry=ethernetNTET1804CardEntry, stuHighPerCardStorageType=stuHighPerCardStorageType, ethernetNTEGE112ProHCardEntry=ethernetNTEGE112ProHCardEntry, neName=neName, pseudoWireE1T1CardPSNEncapsulation=pseudoWireE1T1CardPSNEncapsulation, ethernetGE8SCCCardRestartAction=ethernetGE8SCCCardRestartAction, ethernet1x10GHighPerCardStorageType=ethernet1x10GHighPerCardStorageType, nemiForceOffLineAction=nemiForceOffLineAction, ethernetNTEGE201SyncECardAdminState=ethernetNTEGE201SyncECardAdminState, ethernetNTEXG210CardEntry=ethernetNTEXG210CardEntry, ethernetNTEGE114SHCardFineGrainedPmInterval=ethernetNTEGE114SHCardFineGrainedPmInterval, ethernetGE8SCCCardEntityIndex=ethernetGE8SCCCardEntityIndex, ethernetOverOCSTMCardEntry=ethernetOverOCSTMCardEntry, ethernetNTEGE206FCardAdminState=ethernetNTEGE206FCardAdminState, pseudoWireE1T1CardMode=pseudoWireE1T1CardMode, ethernetNTEGE201SyncECardSnmpDyingGaspEnabled=ethernetNTEGE201SyncECardSnmpDyingGaspEnabled, stuCardForceOffLineAction=stuCardForceOffLineAction, slotSecondaryState=slotSecondaryState, pseudoWireE1T1CardAdminState=pseudoWireE1T1CardAdminState, ethernetNTEGE206CardOperationalState=ethernetNTEGE206CardOperationalState, scuVoltage=scuVoltage, ethernetNTEGE114ProCCardSnmpDyingGaspEnabled=ethernetNTEGE114ProCCardSnmpDyingGaspEnabled, stiEntry=stiEntry, ethernetFE36ECardRestartAction=ethernetFE36ECardRestartAction, ethernetNTESH1PCSCardSecondaryState=ethernetNTESH1PCSCardSecondaryState, nteGe112ProCardGroup=nteGe112ProCardGroup, ethernetNTESH1PCSCardFineGrainedPmInterval=ethernetNTESH1PCSCardFineGrainedPmInterval, PWE3OCNSTMCardMode=PWE3OCNSTMCardMode, scuTRestartAction=scuTRestartAction, ethernetGE8SCCCardRowStatus=ethernetGE8SCCCardRowStatus, nteGe114ProHECardGroup=nteGe114ProHECardGroup, stiHighPerRowStatus=stiHighPerRowStatus, shelfbackplaneSerialNo=shelfbackplaneSerialNo, ethernetNTET3204CardSnmpDyingGaspEnabled=ethernetNTET3204CardSnmpDyingGaspEnabled, ethernetNTEGE101CardEntityIndex=ethernetNTEGE101CardEntityIndex, ethernetFE36ECardEntityIndex=ethernetFE36ECardEntityIndex, ethernetXG1SCCCardRestartAction=ethernetXG1SCCCardRestartAction, cmEntityCompliance=cmEntityCompliance, pseudoWireE3CardAdminState=pseudoWireE3CardAdminState, ethernetNTEGE114CardAdminState=ethernetNTEGE114CardAdminState, nteSh1PcsCardGroup=nteSh1PcsCardGroup, ethernetNTEGE114SHCardSnmpDyingGaspEnabled=ethernetNTEGE114SHCardSnmpDyingGaspEnabled, ethernetNTEGE114ProSHCardOperationalState=ethernetNTEGE114ProSHCardOperationalState, ethernetNTEOSA5420CardRestartAction=ethernetNTEOSA5420CardRestartAction, ethernetNTEGE114ProCardTemperature=ethernetNTEGE114ProCardTemperature, ethernetNTEGE112ProCardAdminState=ethernetNTEGE112ProCardAdminState, ethernetNTEGE114CardSwitchPortActionPort=ethernetNTEGE114CardSwitchPortActionPort, ethernetNTEGE114ProCSHCardEntry=ethernetNTEGE114ProCSHCardEntry, ethernetNTEGE114PHCardEntry=ethernetNTEGE114PHCardEntry, shelfType=shelfType, ethernetNTEOSA5420CardTable=ethernetNTEOSA5420CardTable, ethernetNTEGE112CardRestartAction=ethernetNTEGE112CardRestartAction, fanTable=fanTable, stuHighPerCardAdminState=stuHighPerCardAdminState, shelfbackplaneRev=shelfbackplaneRev, ethernetNTEGE114SHCardEntry=ethernetNTEGE114SHCardEntry, ethernetNTEGE114ProHECardSecondaryState=ethernetNTEGE114ProHECardSecondaryState, ethernetFE36ECardTemperature=ethernetFE36ECardTemperature, ethernetNTEGE114ProCCardTable=ethernetNTEGE114ProCCardTable, PsuType=PsuType, ethernetNTEGE206VCardTemperature=ethernetNTEGE206VCardTemperature, stiHighPerOperationalState=stiHighPerOperationalState, ethernet1x10GHighPerCardRowStatus=ethernet1x10GHighPerCardRowStatus, ethernetNTEGE112ProMCardSwitchPortAction=ethernetNTEGE112ProMCardSwitchPortAction, ethernetNTEGE114GCardVoltage=ethernetNTEGE114GCardVoltage, cmEntityGroups=cmEntityGroups, ethernetGE4ECCCardTemperature=ethernetGE4ECCCardTemperature, ethernetNTEGE114GCardSwitchPortActionPort=ethernetNTEGE114GCardSwitchPortActionPort, ethernetGE8SCCCardAdminState=ethernetGE8SCCCardAdminState, networkElementLLDPParamsEntry=networkElementLLDPParamsEntry, ethernetNTEGE101CardAdminState=ethernetNTEGE101CardAdminState, ethernetGE4SCCCardOperationalState=ethernetGE4SCCCardOperationalState, ethernetNTEXG210CCardOperationalState=ethernetNTEXG210CCardOperationalState, networkElementEntry=networkElementEntry, ethernet1x10GCardAdminState=ethernet1x10GCardAdminState, ethernetGE8SCCCardOperationalState=ethernetGE8SCCCardOperationalState, pseudoWireE3CardRestartAction=pseudoWireE3CardRestartAction, ethernetNTUCardSnmpDyingGaspEnabled=ethernetNTUCardSnmpDyingGaspEnabled, ethernetNTEGE112ProMCardSnmpDyingGaspEnabled=ethernetNTEGE112ProMCardSnmpDyingGaspEnabled, ethernetNTEGE206FCardEntityIndex=ethernetNTEGE206FCardEntityIndex, stiHighPerEntry=stiHighPerEntry, nteGe114ProCCardGroup=nteGe114ProCCardGroup, stuCardSecondaryState=stuCardSecondaryState, ethernetNTEGE114SCardEntry=ethernetNTEGE114SCardEntry, ethernetNTEGE114PHCardEntityIndex=ethernetNTEGE114PHCardEntityIndex, ethernetNTEGE114ProCCardAdminState=ethernetNTEGE114ProCCardAdminState, ethernetNTEGE206VCardTable=ethernetNTEGE206VCardTable, ethernetCPMRCardFAN2State=ethernetCPMRCardFAN2State, ethernetNTEGE114SHCardTable=ethernetNTEGE114SHCardTable, ethernetNTEGE114SHCardAdminState=ethernetNTEGE114SHCardAdminState, ethernetNTEGE114ProSHCardEntityIndex=ethernetNTEGE114ProSHCardEntityIndex, ethernetNTEGE112ProCardFineGrainedPmInterval=ethernetNTEGE112ProCardFineGrainedPmInterval, stuHighPerCardTable=stuHighPerCardTable, ethernetNTEGESyncProbeCardEntry=ethernetNTEGESyncProbeCardEntry, ethernetNTEGE206FCardVoltage=ethernetNTEGE206FCardVoltage, ShelfType=ShelfType, ethernetGE4ECCCardEntityIndex=ethernetGE4ECCCardEntityIndex, psuSecondaryState=psuSecondaryState, ethernetNTEGE206CardVoltage=ethernetNTEGE206CardVoltage, ethernet1x10GCardEntry=ethernet1x10GCardEntry, pseudoWireOcnStmCardOperationalState=pseudoWireOcnStmCardOperationalState, nteOsa5421CardGroup=nteOsa5421CardGroup, ethernetNTUCardOperationalState=ethernetNTUCardOperationalState, ethernetGE4ECCCardOperationalState=ethernetGE4ECCCardOperationalState, ethernetNTEGE114ProCSHCardFineGrainedPmInterval=ethernetNTEGE114ProCSHCardFineGrainedPmInterval, ethernetNTEGE201CardSecondaryState=ethernetNTEGE201CardSecondaryState, shelfOperationalState=shelfOperationalState, ethernetGE8SCryptoConnectorCardAdminState=ethernetGE8SCryptoConnectorCardAdminState, ethernetXG1SCCCardTable=ethernetXG1SCCCardTable, pseudoWireE1T1CardIpAddress=pseudoWireE1T1CardIpAddress, ethernetNTEGE101CardTable=ethernetNTEGE101CardTable, ethernetGE4ECCCardSecondaryState=ethernetGE4ECCCardSecondaryState, ethernetNTEGE206FCardTemperature=ethernetNTEGE206FCardTemperature, scuTTable=scuTTable, ethernetNTEGE201CardTemperature=ethernetNTEGE201CardTemperature, ethernetNTEGE101CardRestartAction=ethernetNTEGE101CardRestartAction, ethernetNTEGE114CardEntry=ethernetNTEGE114CardEntry, ethernetNTEGE114HCardSecondaryState=ethernetNTEGE114HCardSecondaryState, ethernetNTEGE201CardOperationalState=ethernetNTEGE201CardOperationalState, ethernetNTET3204CardVoltage=ethernetNTET3204CardVoltage, ethernetFE36ECardSecondaryState=ethernetFE36ECardSecondaryState, ethernetNTEOSA5421CardRestartAction=ethernetNTEOSA5421CardRestartAction, nteOsa5411CardGroup=nteOsa5411CardGroup, pseudoWireOcnStmCardRowStatus=pseudoWireOcnStmCardRowStatus, ethernetGE4ECCCardEntry=ethernetGE4ECCCardEntry, ethernet10x1GCardEntityIndex=ethernet10x1GCardEntityIndex, nemiTable=nemiTable, ethernetNTEGE206CardSecondaryState=ethernetNTEGE206CardSecondaryState, ShelfAction=ShelfAction, stuCardTemperature=stuCardTemperature, ethernetNTEGE114ProSHCardRestartAction=ethernetNTEGE114ProSHCardRestartAction, ethernetNTEGE114ProCSHCardTemperature=ethernetNTEGE114ProCSHCardTemperature, PYSNMP_MODULE_ID=cmEntityMIB, ethernetNTEGE112ProCardEntry=ethernetNTEGE112ProCardEntry, ethernetNTET1804CardTable=ethernetNTET1804CardTable, slotCardMfgSite=slotCardMfgSite, ethernetGE8SCryptoConnectorCardStorageType=ethernetGE8SCryptoConnectorCardStorageType, ethernet10x1GCardTable=ethernet10x1GCardTable, ethernet1x10GCardForceOffLineAction=ethernet1x10GCardForceOffLineAction, ethernetNTEGE206CardTemperature=ethernetNTEGE206CardTemperature, ethernetNTEGESyncProbeCardAdminState=ethernetNTEGESyncProbeCardAdminState, ethernetNTEGE112ProMCardTemperature=ethernetNTEGE112ProMCardTemperature, ethernetSWFCardRestartAction=ethernetSWFCardRestartAction, ethernetNTEGE114ProCSHCardSwitchPortAction=ethernetNTEGE114ProCSHCardSwitchPortAction, ethernetNTEGE114SHCardVoltage=ethernetNTEGE114SHCardVoltage, ethernetGE4SCCCardEntry=ethernetGE4SCCCardEntry, nemiAdminState=nemiAdminState, neCmdPromptPrefix=neCmdPromptPrefix, ethernetGE8ECCCardRowStatus=ethernetGE8ECCCardRowStatus, ethernetNTECardOperationalState=ethernetNTECardOperationalState)
+mibBuilder.exportSymbols("CM-ENTITY-MIB", ethernetNTEGE206VCardEntry=ethernetNTEGE206VCardEntry, cmEntityObjects=cmEntityObjects, ethernetNTUCardAdminState=ethernetNTUCardAdminState, pseudoWireOcnStmCardIpAddress=pseudoWireOcnStmCardIpAddress, amiSecondaryState=amiSecondaryState, ethernetNTEGE114SHCardSwitchPortActionPort=ethernetNTEGE114SHCardSwitchPortActionPort, ethernet1x10GHighPerCardGroup=ethernet1x10GHighPerCardGroup, xg1SCCCardGroup=xg1SCCCardGroup, ethernetNTEGE114ProSHCardVoltage=ethernetNTEGE114ProSHCardVoltage, ethernetOverOCSTMCardTemperature=ethernetOverOCSTMCardTemperature, scuEntry=scuEntry, stiTable=stiTable, ethernetNTEGE112ProHCardSwitchPortAction=ethernetNTEGE112ProHCardSwitchPortAction, ethernetNTEGE114HCardFineGrainedPmInterval=ethernetNTEGE114HCardFineGrainedPmInterval, ethernetGE8ECCCardEntry=ethernetGE8ECCCardEntry, ethernetNTEGE206FCardSnmpDyingGaspEnabled=ethernetNTEGE206FCardSnmpDyingGaspEnabled, stiHighPerStorageType=stiHighPerStorageType, ethernetNTUCardRowStatus=ethernetNTUCardRowStatus, ethernet1x10GCardStorageType=ethernet1x10GCardStorageType, f3UsbHostTable=f3UsbHostTable, ethernetNTET3204CardMode=ethernetNTET3204CardMode, ethernetNTEGE114SHCardTemperature=ethernetNTEGE114SHCardTemperature, pseudoWireOcnStmCardStorageType=pseudoWireOcnStmCardStorageType, ethernetGE8SCryptoConnectorCardRowStatus=ethernetGE8SCryptoConnectorCardRowStatus, ethernetNTEGE114ProCardSwitchPortAction=ethernetNTEGE114ProCardSwitchPortAction, ethernetNTEGE114ProHECardEntry=ethernetNTEGE114ProHECardEntry, nteGe201NonSyncECardGroup=nteGe201NonSyncECardGroup, ethernetGE4SCCCardVoltage=ethernetGE4SCCCardVoltage, ethernetNTEGE201SyncECardEntityIndex=ethernetNTEGE201SyncECardEntityIndex, ethernetNTEGE206FCardSecondaryState=ethernetNTEGE206FCardSecondaryState, fanEntry=fanEntry, ethernetXG1SCCCardVoltage=ethernetXG1SCCCardVoltage, nteGe114SCardGroup=nteGe114SCardGroup, neLocation=neLocation, ethernetNTEGE112CardFineGrainedPmInterval=ethernetNTEGE112CardFineGrainedPmInterval, xg1XCCCardGroup=xg1XCCCardGroup, ethernet1x10GHighPerCardRestartAction=ethernet1x10GHighPerCardRestartAction, nemiEntityIndex=nemiEntityIndex, ethernetFE36ECard8023azEnabled=ethernetFE36ECard8023azEnabled, stuHighPerCardOperationalState=stuHighPerCardOperationalState, ethernetNTEOSA5421CardSecondaryState=ethernetNTEOSA5421CardSecondaryState, ethernet10x1GHighPerCardEntry=ethernet10x1GHighPerCardEntry, ethernetNTEXG210CardEntityIndex=ethernetNTEXG210CardEntityIndex, slotEntry=slotEntry, stuCardRestartAction=stuCardRestartAction, ethernet1x10GHighPerCardAdminState=ethernet1x10GHighPerCardAdminState, ethernetNTEGE114CardTable=ethernetNTEGE114CardTable, ethernetNTET1804CardRestartAction=ethernetNTET1804CardRestartAction, shelfMfgSite=shelfMfgSite, ethernetNTEGE114SCardEntityIndex=ethernetNTEGE114SCardEntityIndex, nteGe206VCardGroup=nteGe206VCardGroup, f3UsbHostEntry=f3UsbHostEntry, ethernetNTEXG210CCardEntry=ethernetNTEXG210CCardEntry, neType=neType, stuHighPerCardTemperature=stuHighPerCardTemperature, stuHighPerCardRowStatus=stuHighPerCardRowStatus, ethernetGE8SCCCardStorageType=ethernetGE8SCCCardStorageType, CmCPMRLinkLossFwdMode=CmCPMRLinkLossFwdMode, ethernetNTEGE114ProHECardRestartAction=ethernetNTEGE114ProHECardRestartAction, nteXg210CardGroup=nteXg210CardGroup, ethernetNTEGE114ProHECardSwitchPortAction=ethernetNTEGE114ProHECardSwitchPortAction, pseudoWireOcnStmCardTable=pseudoWireOcnStmCardTable, pseudoWireE3CardOperationalState=pseudoWireE3CardOperationalState, ethernetNTECardEntityIndex=ethernetNTECardEntityIndex, ethernetGE8ECCCardEntityIndex=ethernetGE8ECCCardEntityIndex, nteXg210CCardGroup=nteXg210CCardGroup, ethernetNTET3204CardTemperature=ethernetNTET3204CardTemperature, ethernetCPMRCardTable=ethernetCPMRCardTable, ge4ECCCardGroup=ge4ECCCardGroup, amiEntityIndex=amiEntityIndex, ethernetNTEGE101CardSnmpDyingGaspEnabled=ethernetNTEGE101CardSnmpDyingGaspEnabled, ethernetNTEGE201CardEntityIndex=ethernetNTEGE201CardEntityIndex, ethernetOverOCSTMCardSecondaryState=ethernetOverOCSTMCardSecondaryState, ethernetNTEGE201CardFineGrainedPmInterval=ethernetNTEGE201CardFineGrainedPmInterval, f3UsbHostEntityIndex=f3UsbHostEntityIndex, ethernetGE8SCryptoConnectorCardVoltage=ethernetGE8SCryptoConnectorCardVoltage, ethernetNTEGE114SCardVoltage=ethernetNTEGE114SCardVoltage, ethernetGE8SCryptoConnectorCardEntityIndex=ethernetGE8SCryptoConnectorCardEntityIndex, ethernetNTEGE112ProHCardEntityIndex=ethernetNTEGE112ProHCardEntityIndex, f3UsbHostMfgName=f3UsbHostMfgName, pseudoWireE1T1CardSecondaryState=pseudoWireE1T1CardSecondaryState, ethernetOverOCSTMCardMode=ethernetOverOCSTMCardMode, stiEntityIndex=stiEntityIndex, nteT1804CardGroup=nteT1804CardGroup, SwitchPortAction=SwitchPortAction, nteGe112CardGroup=nteGe112CardGroup, slotCardPhysicalAddress=slotCardPhysicalAddress, ethernet1x10GHighPerCardTable=ethernet1x10GHighPerCardTable, ethernetNTEGE112ProHCardTable=ethernetNTEGE112ProHCardTable, psuOutputVoltage=psuOutputVoltage, stiHighPerTemperature=stiHighPerTemperature, ethernetNTEGE114SHCardOperationalState=ethernetNTEGE114SHCardOperationalState, ethernetNTEOSA5421CardFineGrainedPmInterval=ethernetNTEOSA5421CardFineGrainedPmInterval, ethernetNTET1804CardAdminState=ethernetNTET1804CardAdminState, stuCardOperationalState=stuCardOperationalState, ethernetNTEXG210CardVoltage=ethernetNTEXG210CardVoltage, nemiOperationalState=nemiOperationalState, ethernetNTEGE114GCardFineGrainedPmInterval=ethernetNTEGE114GCardFineGrainedPmInterval, shelfbackplaneDOM=shelfbackplaneDOM, ethernetXG1SCCCardSecondaryState=ethernetXG1SCCCardSecondaryState, ethernetNTEGE112ProHCardVoltage=ethernetNTEGE112ProHCardVoltage, f3UsbHostFormatVersion=f3UsbHostFormatVersion, ethernetNTEGE114CardFineGrainedPmInterval=ethernetNTEGE114CardFineGrainedPmInterval, ethernetNTEXG210CCardVoltage=ethernetNTEXG210CCardVoltage, ethernetSWFCardOperationalState=ethernetSWFCardOperationalState, ethernetSWFCardAdminState=ethernetSWFCardAdminState, ethernetNTEGE114PHCardSnmpDyingGaspEnabled=ethernetNTEGE114PHCardSnmpDyingGaspEnabled, ethernetCPMRCardEntry=ethernetCPMRCardEntry, pseudoWireOcnStmCardForceOffLineAction=pseudoWireOcnStmCardForceOffLineAction, shelfOscillatorType=shelfOscillatorType, amiRestartAction=amiRestartAction, ethernetXG1SCCCardAdminState=ethernetXG1SCCCardAdminState, ethernetNTET1804CardSnmpDyingGaspEnabled=ethernetNTET1804CardSnmpDyingGaspEnabled, ethernetNTEGE114ProCardRestartAction=ethernetNTEGE114ProCardRestartAction, ethernetNTEGE112ProHCardAdminState=ethernetNTEGE112ProHCardAdminState, ethernetNTEGE114GCardRestartAction=ethernetNTEGE114GCardRestartAction, ethernetNTESH1PCSCardEntry=ethernetNTESH1PCSCardEntry, ethernetNTEOSA5411CardTemperature=ethernetNTEOSA5411CardTemperature, ethernetNTEGE114GCardTemperature=ethernetNTEGE114GCardTemperature, ethernetNTEGE114ProHECardFineGrainedPmInterval=ethernetNTEGE114ProHECardFineGrainedPmInterval, ethernetSWFCardTable=ethernetSWFCardTable, amiTable=amiTable, scuTemperature=scuTemperature, ethernetNTET3204CardAdminState=ethernetNTET3204CardAdminState, networkElementLLDPParamsTable=networkElementLLDPParamsTable, slotCardPartNumber=slotCardPartNumber, ethernetNTEOSA5411CardAdminState=ethernetNTEOSA5411CardAdminState, ethernetNTEOSA5420CardEntityIndex=ethernetNTEOSA5420CardEntityIndex, ethernetNTEOSA5420CardAdminState=ethernetNTEOSA5420CardAdminState, ethernetNTEOSA5411CardEntry=ethernetNTEOSA5411CardEntry, neLLDPParamsLLDPEnableAction=neLLDPParamsLLDPEnableAction, ethernetNTEGE114ProCSHCardEntityIndex=ethernetNTEGE114ProCSHCardEntityIndex, ethernetNTECardStorageType=ethernetNTECardStorageType, ethernetFE36ECardTable=ethernetFE36ECardTable, ethernetNTEGE114ProCardAdminState=ethernetNTEGE114ProCardAdminState, ethernetNTEGE114ProCardOperationalState=ethernetNTEGE114ProCardOperationalState, ethernetNTEGE114HCardVoltage=ethernetNTEGE114HCardVoltage, ethernetNTEGE114ProCardVoltage=ethernetNTEGE114ProCardVoltage, slotCardMfgName=slotCardMfgName, ethernetOverOCSTMCardTable=ethernetOverOCSTMCardTable, stiAdminState=stiAdminState, stiStorageType=stiStorageType, neIndex=neIndex, psuEntityIndex=psuEntityIndex, ethernetSWFCardSecondaryState=ethernetSWFCardSecondaryState, ethernetXG1SCCCardOperationalState=ethernetXG1SCCCardOperationalState, ethernetNTEGE114SCardTable=ethernetNTEGE114SCardTable, ethernetNTEGE114ProCSHCardTable=ethernetNTEGE114ProCSHCardTable, stuCardEntityIndex=stuCardEntityIndex, ethernetNTEOSA5420CardSecondaryState=ethernetNTEOSA5420CardSecondaryState, ethernetNTEGE201SyncECardFineGrainedPmInterval=ethernetNTEGE201SyncECardFineGrainedPmInterval, pseudoWireE1T1CardEntityIndex=pseudoWireE1T1CardEntityIndex, ethernetNTEGE206FCardTable=ethernetNTEGE206FCardTable, shelfEntry=shelfEntry, ethernetNTUCardSecondaryState=ethernetNTUCardSecondaryState, ethernetNTEGE114ProCCardEntityIndex=ethernetNTEGE114ProCCardEntityIndex, ethernetGE8ECCCardTemperature=ethernetGE8ECCCardTemperature, ethernetNTEGE114HCardSwitchPortActionPort=ethernetNTEGE114HCardSwitchPortActionPort, ethernetNTEOSA5420CardTemperature=ethernetNTEOSA5420CardTemperature, ethernetNTEGE206FCardEntry=ethernetNTEGE206FCardEntry, nemiFlashFirmwareRev=nemiFlashFirmwareRev, ethernetNTEGE114ProCSHCardVoltage=ethernetNTEGE114ProCSHCardVoltage, ethernetNTEGE114SCardTemperature=ethernetNTEGE114SCardTemperature, ethernetNTEGE114GCardOperationalState=ethernetNTEGE114GCardOperationalState, stiHighPerTable=stiHighPerTable, pseudoWireE3CardEntityIndex=pseudoWireE3CardEntityIndex, CardType=CardType, cmEntityMIB=cmEntityMIB, stiOperationalState=stiOperationalState, slotTable=slotTable, ethernetNTECardRowStatus=ethernetNTECardRowStatus, ethernetNTECardSecondaryState=ethernetNTECardSecondaryState, slotCardSwRev=slotCardSwRev, ethernetOverOCSTMCardGroup=ethernetOverOCSTMCardGroup, ethernetNTEGE201CardEntry=ethernetNTEGE201CardEntry, nteGe201SyncECardGroup=nteGe201SyncECardGroup, ethernetNTEGE114ProHECardTable=ethernetNTEGE114ProHECardTable, geGE8SCryptoConnectorCardGroup=geGE8SCryptoConnectorCardGroup, ethernetNTEGE114PHCardTemperature=ethernetNTEGE114PHCardTemperature, ethernetNTET1804CardOperationalState=ethernetNTET1804CardOperationalState, ethernetNTEGE112ProMCardSecondaryState=ethernetNTEGE112ProMCardSecondaryState, ethernetNTEGE114ProCCardFineGrainedPmInterval=ethernetNTEGE114ProCCardFineGrainedPmInterval, ethernetNTUCardEntry=ethernetNTUCardEntry, fanAdminState=fanAdminState, ethernetGE4SCCCardRowStatus=ethernetGE4SCCCardRowStatus, ethernetNTEGE114ProCCardSwitchPortAction=ethernetNTEGE114ProCCardSwitchPortAction, ethernetNTESH1PCSCardRestartAction=ethernetNTESH1PCSCardRestartAction, ethernetNTEGE112ProHCardRestartAction=ethernetNTEGE112ProHCardRestartAction, ethernetXG1SCCCardStorageType=ethernetXG1SCCCardStorageType, ethernetNTEGE114HCardSnmpDyingGaspEnabled=ethernetNTEGE114HCardSnmpDyingGaspEnabled, ethernetNTEGE114ProSHCardAdminState=ethernetNTEGE114ProSHCardAdminState, ethernetXG1XCCCardRestartAction=ethernetXG1XCCCardRestartAction, ethernetNTEGE114CardTemperature=ethernetNTEGE114CardTemperature, ethernetNTEGE114GCardEntityIndex=ethernetNTEGE114GCardEntityIndex, pseudoWireE3CardIpAddress=pseudoWireE3CardIpAddress, ethernetNTEGE114CardSwitchPortAction=ethernetNTEGE114CardSwitchPortAction, neFineGrainedPmInterval=neFineGrainedPmInterval, ethernetNTEOSA5421CardAdminState=ethernetNTEOSA5421CardAdminState, ethernetNTEGE112ProMCardFineGrainedPmInterval=ethernetNTEGE112ProMCardFineGrainedPmInterval, ethernetNTEGE114SCardSwitchPortAction=ethernetNTEGE114SCardSwitchPortAction, ethernetNTEGE112ProCardTemperature=ethernetNTEGE112ProCardTemperature, ethernetNTEGE114ProCSHCardRestartAction=ethernetNTEGE114ProCSHCardRestartAction, ethernetXG1SCCCardEntityIndex=ethernetXG1SCCCardEntityIndex, ethernetNTEGE114ProHECardAdminState=ethernetNTEGE114ProHECardAdminState, ethernetNTEGE112ProCardVoltage=ethernetNTEGE112ProCardVoltage, ethernetNTEGE114GCardAdminState=ethernetNTEGE114GCardAdminState, neDescription=neDescription, ethernetNTEGE206FCardOperationalState=ethernetNTEGE206FCardOperationalState, nteGe114ProCardGroup=nteGe114ProCardGroup, ethernetNTEGE114ProSHCardSnmpDyingGaspEnabled=ethernetNTEGE114ProSHCardSnmpDyingGaspEnabled, ethernetNTEGE114ProCSHCardSnmpDyingGaspEnabled=ethernetNTEGE114ProCSHCardSnmpDyingGaspEnabled, nteOsa5420CardGroup=nteOsa5420CardGroup, neLLDPParamsGroup=neLLDPParamsGroup, ethernetNTEXG210CCardAdminState=ethernetNTEXG210CCardAdminState, ethernet10x1GHighPerCardSnmpDyingGaspEnabled=ethernet10x1GHighPerCardSnmpDyingGaspEnabled, ethernetGE4SCCCardTemperature=ethernetGE4SCCCardTemperature, ethernetNTEGE101CardSecondaryState=ethernetNTEGE101CardSecondaryState, ethernetOverOCSTMCardRowStatus=ethernetOverOCSTMCardRowStatus, scuOperationalState=scuOperationalState, f3UsbHostCLEICode=f3UsbHostCLEICode, ethernetNTEGE114ProSHCardTemperature=ethernetNTEGE114ProSHCardTemperature, ethernetSWFCardStorageType=ethernetSWFCardStorageType, stiRowStatus=stiRowStatus, ethernetNTUCardTemperature=ethernetNTUCardTemperature, pseudoWireOcnStmCardFreqSourceType=pseudoWireOcnStmCardFreqSourceType, ethernetNTEGESyncProbeCardRestartAction=ethernetNTEGESyncProbeCardRestartAction, nteGeSyncProbeCardGroup=nteGeSyncProbeCardGroup, ethernetNTEGE201CardTable=ethernetNTEGE201CardTable, ethernetNTEGE114ProHECardSnmpDyingGaspEnabled=ethernetNTEGE114ProHECardSnmpDyingGaspEnabled, scuAdminState=scuAdminState, scuRowStatus=scuRowStatus, ge4SCCCardGroup=ge4SCCCardGroup, psuOperationalState=psuOperationalState, ethernetNTECardEntry=ethernetNTECardEntry, scuFlashFirmwareRev=scuFlashFirmwareRev, ethernet10x1GCardAdminState=ethernet10x1GCardAdminState, ethernetOverOCSTMCardRestartAction=ethernetOverOCSTMCardRestartAction, stiHighPerAdminState=stiHighPerAdminState, nemiRowStatus=nemiRowStatus, ethernetNTET1804CardFineGrainedPmInterval=ethernetNTET1804CardFineGrainedPmInterval, ethernetNTEGE114SHCardRestartAction=ethernetNTEGE114SHCardRestartAction, ethernetNTEGE114ProCSHCardAdminState=ethernetNTEGE114ProCSHCardAdminState, ethernetNTET3204CardTable=ethernetNTET3204CardTable, ethernetNTEGE112ProHCardOperationalState=ethernetNTEGE112ProHCardOperationalState, ethernetNTESH1PCSCardOperationalState=ethernetNTESH1PCSCardOperationalState, ethernetNTEGE114SHCardSwitchPortAction=ethernetNTEGE114SHCardSwitchPortAction, ethernetCPMRCardAdminState=ethernetCPMRCardAdminState, ethernet10x1GHighPerCardAdminState=ethernet10x1GHighPerCardAdminState, pseudoWireOcnStmCardTemperature=pseudoWireOcnStmCardTemperature, ethernetNTEXG210CardAdminState=ethernetNTEXG210CardAdminState, pseudoWireOcnStmCardPSNEncapsulation=pseudoWireOcnStmCardPSNEncapsulation, ethernetNTEXG210CardTable=ethernetNTEXG210CardTable, ethernetNTEGE206CardEntityIndex=ethernetNTEGE206CardEntityIndex, commonEntityGroup=commonEntityGroup)
+mibBuilder.exportSymbols("CM-ENTITY-MIB", scuTOperationalState=scuTOperationalState, cmEntityConformance=cmEntityConformance, networkElementTable=networkElementTable, fanOperationalState=fanOperationalState, stuHighPerCardEntry=stuHighPerCardEntry, ethernetNTEGE101CardEntry=ethernetNTEGE101CardEntry, nteGe206CardGroup=nteGe206CardGroup, ethernetGE4ECCCardStorageType=ethernetGE4ECCCardStorageType, slotCardCLEICode=slotCardCLEICode, scuTEntityIndex=scuTEntityIndex, amiOperationalState=amiOperationalState, ethernetNTEGE114SCardSwitchPortActionPort=ethernetNTEGE114SCardSwitchPortActionPort, ethernetCPMRCardPSU2State=ethernetCPMRCardPSU2State, ethernetNTEXG210CardTemperature=ethernetNTEXG210CardTemperature, ethernetNTEGE114PHCardOperationalState=ethernetNTEGE114PHCardOperationalState, amiAdminState=amiAdminState, ethernetFE36ECardAdminState=ethernetFE36ECardAdminState, fanSecondaryState=fanSecondaryState, ethernetNTEGE112ProCardRestartAction=ethernetNTEGE112ProCardRestartAction, ethernetNTEGE201SyncECardSecondaryState=ethernetNTEGE201SyncECardSecondaryState, ethernetGE4ECCCardRestartAction=ethernetGE4ECCCardRestartAction, slotCardMfgDate=slotCardMfgDate, ethernetNTEGE114HCardEntityIndex=ethernetNTEGE114HCardEntityIndex, ethernetNTEGE101CardVoltage=ethernetNTEGE101CardVoltage, ethernetFE36ECardForceOffLineAction=ethernetFE36ECardForceOffLineAction, ethernetNTEGE114ProSHCardSwitchPortActionPort=ethernetNTEGE114ProSHCardSwitchPortActionPort, ethernetXG1XCCCardVoltage=ethernetXG1XCCCardVoltage, ethernetNTEGE114ProCardEntityIndex=ethernetNTEGE114ProCardEntityIndex, scuEntityIndex=scuEntityIndex, pseudoWireOcnStmCardRestartAction=pseudoWireOcnStmCardRestartAction, pseudoWireE1T1CardTable=pseudoWireE1T1CardTable, ethernetNTEGE101CardTemperature=ethernetNTEGE101CardTemperature, ethernetNTEGE206VCardSnmpDyingGaspEnabled=ethernetNTEGE206VCardSnmpDyingGaspEnabled, ethernetGE8SCryptoConnectorCardTable=ethernetGE8SCryptoConnectorCardTable, nemiVoltage=nemiVoltage, ethernetNTEXG210CCardTable=ethernetNTEXG210CCardTable, neStorageType=neStorageType, ethernetNTEGE206CardSnmpDyingGaspEnabled=ethernetNTEGE206CardSnmpDyingGaspEnabled, ethernetCPMRCardOperationalState=ethernetCPMRCardOperationalState, psuAdminState=psuAdminState, ethernetGE8SCCCardEntry=ethernetGE8SCCCardEntry, ethernetNTEOSA5420CardFineGrainedPmInterval=ethernetNTEOSA5420CardFineGrainedPmInterval, ethernetNTEGE112ProCardSnmpDyingGaspEnabled=ethernetNTEGE112ProCardSnmpDyingGaspEnabled, ethernetGE4SCCCardAdminState=ethernetGE4SCCCardAdminState, ethernetGE8SCryptoConnectorCardSecondaryState=ethernetGE8SCryptoConnectorCardSecondaryState, ethernetNTUCardRestartAction=ethernetNTUCardRestartAction, scuTable=scuTable, ethernetNTUCardStorageType=ethernetNTUCardStorageType, ethernetNTEXG210CardSecondaryState=ethernetNTEXG210CardSecondaryState, ethernetNTEOSA5411CardSnmpDyingGaspEnabled=ethernetNTEOSA5411CardSnmpDyingGaspEnabled, nteGe112ProHCardGroup=nteGe112ProHCardGroup, psuStorageType=psuStorageType, pseudoWireE1T1CardStorageType=pseudoWireE1T1CardStorageType, stuCardRowStatus=stuCardRowStatus, ethernetNTEGE112CardSecondaryState=ethernetNTEGE112CardSecondaryState, ethernetGE8SCCCardVoltage=ethernetGE8SCCCardVoltage, ethernetNTEGE112ProHCardSecondaryState=ethernetNTEGE112ProHCardSecondaryState, ethernetCPMRCardEntityIndex=ethernetCPMRCardEntityIndex, ethernetXG1XCCCardEntry=ethernetXG1XCCCardEntry, ethernetGE8ECCCardVoltage=ethernetGE8ECCCardVoltage, ethernetNTEGESyncProbeCardSnmpDyingGaspEnabled=ethernetNTEGESyncProbeCardSnmpDyingGaspEnabled, ethernet10x1GHighPerCardRowStatus=ethernet10x1GHighPerCardRowStatus, ethernetGE8ECCCardTable=ethernetGE8ECCCardTable, ethernetNTEGE114ProCCardSecondaryState=ethernetNTEGE114ProCCardSecondaryState, psuTable=psuTable, ethernetNTEGE201SyncECardOperationalState=ethernetNTEGE201SyncECardOperationalState, ethernetNTEOSA5420CardOperationalState=ethernetNTEOSA5420CardOperationalState, scuSecondaryState=scuSecondaryState, ethernetNTESH1PCSCardTemperature=ethernetNTESH1PCSCardTemperature, ethernetNTECardRestartAction=ethernetNTECardRestartAction, ethernetNTEGE201CardVoltage=ethernetNTEGE201CardVoltage, ethernetCPMRCardRestartAction=ethernetCPMRCardRestartAction, SlotType=SlotType, ethernetNTEGE114SCardRestartAction=ethernetNTEGE114SCardRestartAction, ethernetNTEGE114GCardSecondaryState=ethernetNTEGE114GCardSecondaryState, ethernetNTECardSnmpDyingGaspEnabled=ethernetNTECardSnmpDyingGaspEnabled, ethernetFE36ECardRowStatus=ethernetFE36ECardRowStatus, ethernetNTEOSA5421CardEntityIndex=ethernetNTEOSA5421CardEntityIndex, ethernetGE4ECCCardVoltage=ethernetGE4ECCCardVoltage, ethernetNTEOSA5420CardSnmpDyingGaspEnabled=ethernetNTEOSA5420CardSnmpDyingGaspEnabled, pseudoWireE1T1CardTemperature=pseudoWireE1T1CardTemperature, scuTStorageType=scuTStorageType, f3UsbHostHwRev=f3UsbHostHwRev, ethernetNTEGE206FCardFineGrainedPmInterval=ethernetNTEGE206FCardFineGrainedPmInterval, ethernetNTEGE114PHCardTable=ethernetNTEGE114PHCardTable, cmEntityCompliances=cmEntityCompliances, ethernetNTEGE114ProCardSnmpDyingGaspEnabled=ethernetNTEGE114ProCardSnmpDyingGaspEnabled, ethernetNTEOSA5421CardTable=ethernetNTEOSA5421CardTable, ethernetNTEGESyncProbeCardFineGrainedPmInterval=ethernetNTEGESyncProbeCardFineGrainedPmInterval, ethernetNTEGE112ProHCardTemperature=ethernetNTEGE112ProHCardTemperature, ethernetNTEGE101CardOperationalState=ethernetNTEGE101CardOperationalState, ethernetSWFCardForceOffLineAction=ethernetSWFCardForceOffLineAction, stiHighPerSecondaryState=stiHighPerSecondaryState, ethernetNTEOSA5411CardSecondaryState=ethernetNTEOSA5411CardSecondaryState, NeProvAction=NeProvAction, slotType=slotType, ethernetXG1SCCCardEntry=ethernetXG1SCCCardEntry, scuTVoltage=scuTVoltage, ethernetNTEGE114HCardRestartAction=ethernetNTEGE114HCardRestartAction, ethernetNTEGE201SyncECardVoltage=ethernetNTEGE201SyncECardVoltage, psuGroup=psuGroup, ethernet1x10GCardSecondaryState=ethernet1x10GCardSecondaryState, LLDPEnableAction=LLDPEnableAction, ethernetXG1XCCCardAdminState=ethernetXG1XCCCardAdminState, ethernetNTEGE114ProCSHCardSecondaryState=ethernetNTEGE114ProCSHCardSecondaryState, ethernetNTEXG210CardSnmpDyingGaspEnabled=ethernetNTEXG210CardSnmpDyingGaspEnabled, scuRestartAction=scuRestartAction, ethernetNTEXG210CardOperationalState=ethernetNTEXG210CardOperationalState, nemiStorageType=nemiStorageType, amiEntry=amiEntry, ethernetNTEGE206VCardSecondaryState=ethernetNTEGE206VCardSecondaryState, pseudoWireOcnStmCardFreqSource=pseudoWireOcnStmCardFreqSource, ethernetNTEGE114CardOperationalState=ethernetNTEGE114CardOperationalState, slotCardHwRev=slotCardHwRev, ethernetNTEGE114PHCardAdminState=ethernetNTEGE114PHCardAdminState, ethernetNTEGE201SyncECardEntry=ethernetNTEGE201SyncECardEntry, fanEntityIndex=fanEntityIndex, ethernetNTEOSA5421CardVoltage=ethernetNTEOSA5421CardVoltage, ethernetCPMRCardPSU1State=ethernetCPMRCardPSU1State, ethernetNTEGE206CardTable=ethernetNTEGE206CardTable, ethernetNTEGE114ProCardSecondaryState=ethernetNTEGE114ProCardSecondaryState, cmEntityObjectGroup=cmEntityObjectGroup, neRowStatus=neRowStatus, ethernetNTET1804CardSecondaryState=ethernetNTET1804CardSecondaryState, ethernetNTEGE114PHCardRestartAction=ethernetNTEGE114PHCardRestartAction, ethernetNTET3204CardFineGrainedPmInterval=ethernetNTET3204CardFineGrainedPmInterval, slotEntityIndex=slotEntityIndex, ethernet1x10GHighPerCardSecondaryState=ethernet1x10GHighPerCardSecondaryState, ethernetSWFCardEntry=ethernetSWFCardEntry, ethernet10x1GHighPerCardTable=ethernet10x1GHighPerCardTable, ethernetNTEGE201SyncECardTemperature=ethernetNTEGE201SyncECardTemperature, stuHighPerCardForceOffLineAction=stuHighPerCardForceOffLineAction, ethernetXG1XCCCardRowStatus=ethernetXG1XCCCardRowStatus, ethernetNTEGE112ProCardSwitchPortAction=ethernetNTEGE112ProCardSwitchPortAction, nteGe114ProCSHCardGroup=nteGe114ProCSHCardGroup, slotCardSerialNum=slotCardSerialNum, psuRowStatus=psuRowStatus, ethernetNTEGE114CardSecondaryState=ethernetNTEGE114CardSecondaryState, pseudoWireE1T1CardRowStatus=pseudoWireE1T1CardRowStatus, ethernetNTEXG210CardRestartAction=ethernetNTEXG210CardRestartAction, PWE3E1T1CardMode=PWE3E1T1CardMode, ethernetNTEGE201CardAdminState=ethernetNTEGE201CardAdminState, ethernetNTEOSA5411CardVoltage=ethernetNTEOSA5411CardVoltage, ethernetXG1XCCCardTable=ethernetXG1XCCCardTable, f3UsbHostUnitName=f3UsbHostUnitName, fanStorageType=fanStorageType, ethernetNTEGE114SCardSecondaryState=ethernetNTEGE114SCardSecondaryState, ethernetNTEGE112ProCardOperationalState=ethernetNTEGE112ProCardOperationalState, scuTSecondaryState=scuTSecondaryState, ethernetNTEGE112ProMCardTable=ethernetNTEGE112ProMCardTable, ethernetNTEGE114SCardAdminState=ethernetNTEGE114SCardAdminState, ethernetNTEGE112CardSwitchPortActionPort=ethernetNTEGE112CardSwitchPortActionPort, scuFlashModelNum=scuFlashModelNum, ethernetNTEGE114ProHECardTemperature=ethernetNTEGE114ProHECardTemperature, ethernetNTET3204CardEntry=ethernetNTET3204CardEntry, ethernetNTEGE114HCardAdminState=ethernetNTEGE114HCardAdminState, ethernetNTEGE114HCardOperationalState=ethernetNTEGE114HCardOperationalState, ethernetNTESH1PCSCardTable=ethernetNTESH1PCSCardTable, neAccepted=neAccepted, stiSecondaryState=stiSecondaryState, ethernetGE4SCCCardRestartAction=ethernetGE4SCCCardRestartAction, pseudoWireE3CardEntry=pseudoWireE3CardEntry, ethernetNTEGE112CardTable=ethernetNTEGE112CardTable, psuOutputCurrent=psuOutputCurrent, ethernetNTET3204CardEntityIndex=ethernetNTET3204CardEntityIndex, ethernetNTEGE114SCardSnmpDyingGaspEnabled=ethernetNTEGE114SCardSnmpDyingGaspEnabled, pseudoWireOcnStmCardMode=pseudoWireOcnStmCardMode, ethernetNTEOSA5421CardSnmpDyingGaspEnabled=ethernetNTEOSA5421CardSnmpDyingGaspEnabled, f3UsbHostMfgDate=f3UsbHostMfgDate, ethernetFE36ECardOperationalState=ethernetFE36ECardOperationalState, neAutoProvMode=neAutoProvMode, ethernetNTEGE112ProMCardOperationalState=ethernetNTEGE112ProMCardOperationalState, ethernetSWFCardTemperature=ethernetSWFCardTemperature, ethernet1x10GHighPerCardOperationalState=ethernet1x10GHighPerCardOperationalState, ethernetNTEGE114ProCSHCardSwitchPortActionPort=ethernetNTEGE114ProCSHCardSwitchPortActionPort, ethernetNTEGE112ProHCardSnmpDyingGaspEnabled=ethernetNTEGE112ProHCardSnmpDyingGaspEnabled, ethernetNTET3204CardRestartAction=ethernetNTET3204CardRestartAction, ethernetNTEGE206CardFineGrainedPmInterval=ethernetNTEGE206CardFineGrainedPmInterval, ethernetNTEGE112ProMCardEntityIndex=ethernetNTEGE112ProMCardEntityIndex, ethernetNTEGE114ProHECardOperationalState=ethernetNTEGE114ProHECardOperationalState, ethernetXG1SCCCardTemperature=ethernetXG1SCCCardTemperature, ethernetGE8SCryptoConnectorCardOperationalState=ethernetGE8SCryptoConnectorCardOperationalState, ethernet1x10GHighPerCardEntityIndex=ethernet1x10GHighPerCardEntityIndex, NetworkElementType=NetworkElementType, stuHighPerCardRestartAction=stuHighPerCardRestartAction, amiTemperature=amiTemperature, ethernetNTECardTable=ethernetNTECardTable, ethernetGE4ECCCardRowStatus=ethernetGE4ECCCardRowStatus, ethernetNTEGE112ProMCardEntry=ethernetNTEGE112ProMCardEntry, ethernetGE8SCryptoConnectorCardTemperature=ethernetGE8SCryptoConnectorCardTemperature, nemiFlashSerialNum=nemiFlashSerialNum, neContact=neContact, ethernetNTEGE114SCardOperationalState=ethernetNTEGE114SCardOperationalState, shelfEntityIndex=shelfEntityIndex, ethernet1x10GHighPerCardTemperature=ethernet1x10GHighPerCardTemperature, neProvAction=neProvAction, pseudoWireE1T1CardOperationalState=pseudoWireE1T1CardOperationalState, ethernetNTEGE206VCardVoltage=ethernetNTEGE206VCardVoltage, slotCardFormatVersion=slotCardFormatVersion, f3UsbHostSwRev=f3UsbHostSwRev, ethernetNTEGE114HCardTemperature=ethernetNTEGE114HCardTemperature, ethernetNTEGESyncProbeCardSecondaryState=ethernetNTEGESyncProbeCardSecondaryState, ethernetNTEGE114ProSHCardTable=ethernetNTEGE114ProSHCardTable, ethernetOverOCSTMCardAdminState=ethernetOverOCSTMCardAdminState, shelfTable=shelfTable, f3UsbHostPhysicalAddress=f3UsbHostPhysicalAddress, ethernetNTEGE114PHCardVoltage=ethernetNTEGE114PHCardVoltage, ethernetNTEGE112ProCardSecondaryState=ethernetNTEGE112ProCardSecondaryState, ge8SCCCardGroup=ge8SCCCardGroup, scuTTemperature=scuTTemperature, ethernetNTET1804CardVoltage=ethernetNTET1804CardVoltage, pseudoWireOcnStmCardAdminState=pseudoWireOcnStmCardAdminState, ethernetGE4ECCCardAdminState=ethernetGE4ECCCardAdminState, ethernetNTEGE201CardRestartAction=ethernetNTEGE201CardRestartAction, ethernet1x10GCardSnmpDyingGaspEnabled=ethernet1x10GCardSnmpDyingGaspEnabled, ethernetNTEOSA5411CardEntityIndex=ethernetNTEOSA5411CardEntityIndex, ethernetGE8SCryptoConnectorCardRestartAction=ethernetGE8SCryptoConnectorCardRestartAction, ethernetNTEOSA5411CardTable=ethernetNTEOSA5411CardTable, ethernetNTEGE114ProSHCardFineGrainedPmInterval=ethernetNTEGE114ProSHCardFineGrainedPmInterval, ethernet1x10GHighPerCardEntry=ethernet1x10GHighPerCardEntry, stuCardStorageType=stuCardStorageType, slotCardType=slotCardType, ethernetNTET3204CardOperationalState=ethernetNTET3204CardOperationalState, ethernetGE8ECCCardRestartAction=ethernetGE8ECCCardRestartAction, ethernetNTEOSA5421CardOperationalState=ethernetNTEOSA5421CardOperationalState, nemiTemperature=nemiTemperature, ethernetGE8SCCCardTable=ethernetGE8SCCCardTable, ethernetXG1SCCCardRowStatus=ethernetXG1SCCCardRowStatus, ethernetNTEOSA5420CardVoltage=ethernetNTEOSA5420CardVoltage, pseudoWireE1T1CardVoltage=pseudoWireE1T1CardVoltage, ethernetNTEGE114GCardSwitchPortAction=ethernetNTEGE114GCardSwitchPortAction, f3UsbHostSerialNum=f3UsbHostSerialNum, psuTemperature=psuTemperature, nemiRestartAction=nemiRestartAction, ethernetGE4SCCCardTable=ethernetGE4SCCCardTable, ethernet10x1GHighPerCardEntityIndex=ethernet10x1GHighPerCardEntityIndex, ethernetNTEGE206FCardRestartAction=ethernetNTEGE206FCardRestartAction, ethernet10x1GCardRowStatus=ethernet10x1GCardRowStatus, ethernetNTEGE114ProCardFineGrainedPmInterval=ethernetNTEGE114ProCardFineGrainedPmInterval, ethernetNTEGE206VCardOperationalState=ethernetNTEGE206VCardOperationalState, ethernetNTET1804CardTemperature=ethernetNTET1804CardTemperature, ethernetNTEGE114PHCardFineGrainedPmInterval=ethernetNTEGE114PHCardFineGrainedPmInterval, shelfAction=shelfAction, ethernetNTEGE112ProMCardSwitchPortActionPort=ethernetNTEGE112ProMCardSwitchPortActionPort, ethernet1x10GHighPerCardSnmpDyingGaspEnabled=ethernet1x10GHighPerCardSnmpDyingGaspEnabled, ethernetNTEGE114CardRestartAction=ethernetNTEGE114CardRestartAction, ethernetCPMRCardFAN1State=ethernetCPMRCardFAN1State, stiHighPerEntityIndex=stiHighPerEntityIndex, nemiEntry=nemiEntry, ethernetCPMRCardLLFModeAction=ethernetCPMRCardLLFModeAction, pseudoWireOcnStmCardVoltage=pseudoWireOcnStmCardVoltage, ethernetNTEXG210CCardTemperature=ethernetNTEXG210CCardTemperature, nteGe114HCardGroup=nteGe114HCardGroup, pseudoWireOcnStmCardEntry=pseudoWireOcnStmCardEntry)
+mibBuilder.exportSymbols("CM-ENTITY-MIB", ethernetNTEOSA5411CardRestartAction=ethernetNTEOSA5411CardRestartAction, ethernetXG1XCCCardOperationalState=ethernetXG1XCCCardOperationalState, slotCardUnitName=slotCardUnitName, ethernetNTET1804CardEntityIndex=ethernetNTET1804CardEntityIndex, ethernetNTEGE114ProCCardOperationalState=ethernetNTEGE114ProCCardOperationalState, pseudoWireE3CardIpGateway=pseudoWireE3CardIpGateway, scuTRowStatus=scuTRowStatus, ethernetGE8ECCCardStorageType=ethernetGE8ECCCardStorageType, nemiFlashModelNum=nemiFlashModelNum, ethernetGE8SCCCardTemperature=ethernetGE8SCCCardTemperature, PSNEncapsulationMode=PSNEncapsulationMode, ethernet10x1GHighPerCardSecondaryState=ethernet10x1GHighPerCardSecondaryState, ethernet10x1GCardTemperature=ethernet10x1GCardTemperature, nemiSecondaryState=nemiSecondaryState, nteGe206FCardGroup=nteGe206FCardGroup, ethernet10x1GCardSecondaryState=ethernet10x1GCardSecondaryState, ethernetNTEGESyncProbeCardTemperature=ethernetNTEGESyncProbeCardTemperature, scuFlashSerialNum=scuFlashSerialNum, ethernetNTEGE114ProCCardTemperature=ethernetNTEGE114ProCCardTemperature, ethernetNTEGE206CardEntry=ethernetNTEGE206CardEntry, ethernetGE8ECCCardAdminState=ethernetGE8ECCCardAdminState, ethernetSWFCardRowStatus=ethernetSWFCardRowStatus, ethernetNTEGE114CardEntityIndex=ethernetNTEGE114CardEntityIndex, ethernetNTEGE114ProHECardVoltage=ethernetNTEGE114ProHECardVoltage, nteGe112ProMCardGroup=nteGe112ProMCardGroup, ethernetNTEGE206VCardFineGrainedPmInterval=ethernetNTEGE206VCardFineGrainedPmInterval, ethernet1x10GCardOperationalState=ethernet1x10GCardOperationalState, ethernetNTEGE206VCardRestartAction=ethernetNTEGE206VCardRestartAction, ethernetNTEGE114CardVoltage=ethernetNTEGE114CardVoltage, ethernetGE8ECCCardOperationalState=ethernetGE8ECCCardOperationalState, ethernetNTEGE114SCardFineGrainedPmInterval=ethernetNTEGE114SCardFineGrainedPmInterval, stuCardTable=stuCardTable, ethernetOverOCSTMCardSnmpDyingGaspEnabled=ethernetOverOCSTMCardSnmpDyingGaspEnabled, ethernetNTEGE112ProMCardRestartAction=ethernetNTEGE112ProMCardRestartAction, ethernetGE8ECCCardSecondaryState=ethernetGE8ECCCardSecondaryState, ethernetNTEGE112CardAdminState=ethernetNTEGE112CardAdminState, ethernetNTEGESyncProbeCardEntityIndex=ethernetNTEGESyncProbeCardEntityIndex, ethernetNTECardTemperature=ethernetNTECardTemperature, ethernetNTECardAdminState=ethernetNTECardAdminState, ethernetNTEGE114SHCardEntityIndex=ethernetNTEGE114SHCardEntityIndex, ethernetCPMRCardTemperature=ethernetCPMRCardTemperature, pseudoWireE3CardIpNetmask=pseudoWireE3CardIpNetmask, ethernet10x1GHighPerCardRestartAction=ethernet10x1GHighPerCardRestartAction, ethernet10x1GHighPerCardForceOffLineAction=ethernet10x1GHighPerCardForceOffLineAction, ethernet1x10GCardTemperature=ethernet1x10GCardTemperature, ethernetNTEGE114ProCCardVoltage=ethernetNTEGE114ProCCardVoltage, ethernetNTEXG210CardFineGrainedPmInterval=ethernetNTEXG210CardFineGrainedPmInterval, ethernetNTEGE201SyncECardTable=ethernetNTEGE201SyncECardTable, ethernetNTEGE114HCardTable=ethernetNTEGE114HCardTable, ethernetNTEGE206CardAdminState=ethernetNTEGE206CardAdminState, pseudoWireE1T1CardRestartAction=pseudoWireE1T1CardRestartAction, ethernetCPMRCardPsuType=ethernetCPMRCardPsuType, scuTEntry=scuTEntry, ethernetNTET3204CardSecondaryState=ethernetNTET3204CardSecondaryState, ethernetGE4SCCCardEntityIndex=ethernetGE4SCCCardEntityIndex, ethernetNTEOSA5411CardFineGrainedPmInterval=ethernetNTEOSA5411CardFineGrainedPmInterval, ethernet10x1GCardRestartAction=ethernet10x1GCardRestartAction, ethernetOverOCSTMCardStorageType=ethernetOverOCSTMCardStorageType, ethernetNTEGESyncProbeCardVoltage=ethernetNTEGESyncProbeCardVoltage, ethernetSWFCardEntityIndex=ethernetSWFCardEntityIndex, ethernet10x1GHighPerCardOperationalState=ethernet10x1GHighPerCardOperationalState, ethernetNTEGESyncProbeCardTable=ethernetNTEGESyncProbeCardTable, ethernetXG1XCCCardSecondaryState=ethernetXG1XCCCardSecondaryState, ethernetNTEGE114ProHECardEntityIndex=ethernetNTEGE114ProHECardEntityIndex, nteGe114CardGroup=nteGe114CardGroup, ethernetFE36ECardEntry=ethernetFE36ECardEntry, ethernetNTEGE114GCardEntry=ethernetNTEGE114GCardEntry, pseudoWireOcnStmCardEntityIndex=pseudoWireOcnStmCardEntityIndex, ethernetNTEGESyncProbeCardOperationalState=ethernetNTEGESyncProbeCardOperationalState, ethernetNTEGE112ProCardEntityIndex=ethernetNTEGE112ProCardEntityIndex, ethernetNTEGE112CardSwitchPortAction=ethernetNTEGE112CardSwitchPortAction, neFromPort=neFromPort, ethernetGE4SCCCardSecondaryState=ethernetGE4SCCCardSecondaryState, nteGe114ProSHCardGroup=nteGe114ProSHCardGroup, f3UsbHostPartNumber=f3UsbHostPartNumber, ethernet10x1GCardStorageType=ethernet10x1GCardStorageType, ethernetNTEGE112ProHCardFineGrainedPmInterval=ethernetNTEGE112ProHCardFineGrainedPmInterval, ethernetNTEGE201CardSnmpDyingGaspEnabled=ethernetNTEGE201CardSnmpDyingGaspEnabled, ethernetOverOCSTMCardForceOffLineAction=ethernetOverOCSTMCardForceOffLineAction, ethernetGE4ECCCardTable=ethernetGE4ECCCardTable, stuCardEntry=stuCardEntry, ethernetNTEGE112ProHCardSwitchPortActionPort=ethernetNTEGE112ProHCardSwitchPortActionPort, ethernetCPMRCardLLFMode=ethernetCPMRCardLLFMode, ethernetNTEGE114CardSnmpDyingGaspEnabled=ethernetNTEGE114CardSnmpDyingGaspEnabled, ethernetNTESH1PCSCardSnmpDyingGaspEnabled=ethernetNTESH1PCSCardSnmpDyingGaspEnabled, nteGe114GCardGroup=nteGe114GCardGroup, PortCarrierType=PortCarrierType)

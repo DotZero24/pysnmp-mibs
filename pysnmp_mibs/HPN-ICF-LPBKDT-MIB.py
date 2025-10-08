@@ -1,42 +1,34 @@
-_F='hpnicfLpbkdtVlanID'
-_E='HPN-ICF-LPBKDT-MIB'
-_D='current'
-_C='ifIndex'
-_B='ifDescr'
-_A='IF-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpnicfCommon,=mibBuilder.importSymbols('HPN-ICF-OID-MIB','hpnicfCommon')
-ifDescr,ifIndex=mibBuilder.importSymbols(_A,_B,_C)
-VlanId,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanId')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hpnicfLpbkdt=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,15,2,95))
-if mibBuilder.loadTexts:hpnicfLpbkdt.setRevisions(('2009-03-30 17:41','2008-09-27 15:04'))
-_HpnicfLpbkdtNotifications_ObjectIdentity=ObjectIdentity
-hpnicfLpbkdtNotifications=_HpnicfLpbkdtNotifications_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,95,1))
-_HpnicfLpbkdtTrapPrefix_ObjectIdentity=ObjectIdentity
-hpnicfLpbkdtTrapPrefix=_HpnicfLpbkdtTrapPrefix_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,95,1,0))
-_HpnicfLpbkdtObjects_ObjectIdentity=ObjectIdentity
-hpnicfLpbkdtObjects=_HpnicfLpbkdtObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,95,2))
-_HpnicfLpbkdtVlanID_Type=VlanId
-_HpnicfLpbkdtVlanID_Object=MibScalar
-hpnicfLpbkdtVlanID=_HpnicfLpbkdtVlanID_Object((1,3,6,1,4,1,11,2,14,11,15,2,95,2,1),_HpnicfLpbkdtVlanID_Type())
-hpnicfLpbkdtVlanID.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:hpnicfLpbkdtVlanID.setStatus(_D)
-hpnicfLpbkdtTrapLoopbacked=NotificationType((1,3,6,1,4,1,11,2,14,11,15,2,95,1,0,1))
-hpnicfLpbkdtTrapLoopbacked.setObjects(*((_A,_C),(_A,_B)))
-if mibBuilder.loadTexts:hpnicfLpbkdtTrapLoopbacked.setStatus(_D)
-hpnicfLpbkdtTrapRecovered=NotificationType((1,3,6,1,4,1,11,2,14,11,15,2,95,1,0,2))
-hpnicfLpbkdtTrapRecovered.setObjects(*((_A,_C),(_A,_B)))
-if mibBuilder.loadTexts:hpnicfLpbkdtTrapRecovered.setStatus(_D)
-hpnicfLpbkdtTrapPerVlanLoopbacked=NotificationType((1,3,6,1,4,1,11,2,14,11,15,2,95,1,0,3))
-hpnicfLpbkdtTrapPerVlanLoopbacked.setObjects(*((_A,_C),(_A,_B),(_E,_F)))
-if mibBuilder.loadTexts:hpnicfLpbkdtTrapPerVlanLoopbacked.setStatus(_D)
-hpnicfLpbkdtTrapPerVlanRecovered=NotificationType((1,3,6,1,4,1,11,2,14,11,15,2,95,1,0,4))
-hpnicfLpbkdtTrapPerVlanRecovered.setObjects(*((_A,_C),(_A,_B),(_E,_F)))
-if mibBuilder.loadTexts:hpnicfLpbkdtTrapPerVlanRecovered.setStatus(_D)
-mibBuilder.exportSymbols(_E,**{'hpnicfLpbkdt':hpnicfLpbkdt,'hpnicfLpbkdtNotifications':hpnicfLpbkdtNotifications,'hpnicfLpbkdtTrapPrefix':hpnicfLpbkdtTrapPrefix,'hpnicfLpbkdtTrapLoopbacked':hpnicfLpbkdtTrapLoopbacked,'hpnicfLpbkdtTrapRecovered':hpnicfLpbkdtTrapRecovered,'hpnicfLpbkdtTrapPerVlanLoopbacked':hpnicfLpbkdtTrapPerVlanLoopbacked,'hpnicfLpbkdtTrapPerVlanRecovered':hpnicfLpbkdtTrapPerVlanRecovered,'hpnicfLpbkdtObjects':hpnicfLpbkdtObjects,_F:hpnicfLpbkdtVlanID})
+#
+# PySNMP MIB module HPN-ICF-LPBKDT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-LPBKDT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:06 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
+ifIndex, ifDescr = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifDescr")
+VlanId, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hpnicfLpbkdt = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 95))
+hpnicfLpbkdt.setRevisions(('2009-03-30 17:41', '2008-09-27 15:04',))
+if mibBuilder.loadTexts: hpnicfLpbkdt.setLastUpdated('200903301741Z')
+if mibBuilder.loadTexts: hpnicfLpbkdt.setOrganization('')
+hpnicfLpbkdtNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 95, 1))
+hpnicfLpbkdtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 95, 2))
+hpnicfLpbkdtTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 95, 1, 0))
+hpnicfLpbkdtTrapLoopbacked = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 95, 1, 0, 1)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"))
+if mibBuilder.loadTexts: hpnicfLpbkdtTrapLoopbacked.setStatus('current')
+hpnicfLpbkdtTrapRecovered = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 95, 1, 0, 2)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"))
+if mibBuilder.loadTexts: hpnicfLpbkdtTrapRecovered.setStatus('current')
+hpnicfLpbkdtTrapPerVlanLoopbacked = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 95, 1, 0, 3)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"), ("HPN-ICF-LPBKDT-MIB", "hpnicfLpbkdtVlanID"))
+if mibBuilder.loadTexts: hpnicfLpbkdtTrapPerVlanLoopbacked.setStatus('current')
+hpnicfLpbkdtTrapPerVlanRecovered = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 95, 1, 0, 4)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"), ("HPN-ICF-LPBKDT-MIB", "hpnicfLpbkdtVlanID"))
+if mibBuilder.loadTexts: hpnicfLpbkdtTrapPerVlanRecovered.setStatus('current')
+hpnicfLpbkdtVlanID = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 95, 2, 1), VlanId()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: hpnicfLpbkdtVlanID.setStatus('current')
+mibBuilder.exportSymbols("HPN-ICF-LPBKDT-MIB", hpnicfLpbkdtTrapPerVlanRecovered=hpnicfLpbkdtTrapPerVlanRecovered, hpnicfLpbkdt=hpnicfLpbkdt, hpnicfLpbkdtObjects=hpnicfLpbkdtObjects, PYSNMP_MODULE_ID=hpnicfLpbkdt, hpnicfLpbkdtTrapRecovered=hpnicfLpbkdtTrapRecovered, hpnicfLpbkdtTrapLoopbacked=hpnicfLpbkdtTrapLoopbacked, hpnicfLpbkdtNotifications=hpnicfLpbkdtNotifications, hpnicfLpbkdtVlanID=hpnicfLpbkdtVlanID, hpnicfLpbkdtTrapPerVlanLoopbacked=hpnicfLpbkdtTrapPerVlanLoopbacked, hpnicfLpbkdtTrapPrefix=hpnicfLpbkdtTrapPrefix)

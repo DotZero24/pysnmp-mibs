@@ -1,167 +1,75 @@
-_a='hwDHCPRelayStatisticsReset'
-_Z='hwDHCPRelayNakPktNum'
-_Y='hwDHCPRelayAckPktNum'
-_X='hwDHCPRelayOfferPktNum'
-_W='hwDHCPRelayInformPktNum'
-_V='hwDHCPRelayReleasePktNum'
-_U='hwDHCPRelayDeclinePktNum'
-_T='hwDHCPRelayRequestPktNum'
-_S='hwDHCPRelayDiscoverPktNum'
-_R='hwDHCPRTxClientBroPktNum'
-_Q='hwDHCPRTxClientUniPktNum'
-_P='hwDHCPRTxClientPktNum'
-_O='hwDHCPRRxClientPktNum'
-_N='hwDHCPRTxServerPktNum'
-_M='hwDHCPRRxServerPktNum'
-_L='hwDHCPRRxBadPktNum'
-_K='hwDHCPRelayCycleStatus'
-_J='hwDHCPRSelectAllocateMode'
-_I='hwDHCPRIPRowStatus'
-_H='read-write'
-_G='hwDHCPRIPAddr'
-_F='ifIndex'
-_E='IF-MIB'
-_D='Integer32'
-_C='read-only'
-_B='A3COM-HUAWEI-DHCPR-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-huaweiMgmt,hwDhcp=mibBuilder.importSymbols('A3COM-HUAWEI-OID-MIB','huaweiMgmt','hwDhcp')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-hwDHCPRelayMib=ModuleIdentity((1,3,6,1,4,1,43,45,1,5,7,1))
-if mibBuilder.loadTexts:hwDHCPRelayMib.setRevisions(('2003-02-12 00:00',))
-_HwDHCPRelayMibObject_ObjectIdentity=ObjectIdentity
-hwDHCPRelayMibObject=_HwDHCPRelayMibObject_ObjectIdentity((1,3,6,1,4,1,43,45,1,5,7,1,1))
-_HwDHCPRIPTable_Object=MibTable
-hwDHCPRIPTable=_HwDHCPRIPTable_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,1))
-if mibBuilder.loadTexts:hwDHCPRIPTable.setStatus(_A)
-_HwDHCPRIPEntry_Object=MibTableRow
-hwDHCPRIPEntry=_HwDHCPRIPEntry_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,1,1))
-hwDHCPRIPEntry.setIndexNames((0,_E,_F),(0,_B,_G))
-if mibBuilder.loadTexts:hwDHCPRIPEntry.setStatus(_A)
-_HwDHCPRIPAddr_Type=IpAddress
-_HwDHCPRIPAddr_Object=MibTableColumn
-hwDHCPRIPAddr=_HwDHCPRIPAddr_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,1,1,1),_HwDHCPRIPAddr_Type())
-hwDHCPRIPAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRIPAddr.setStatus(_A)
-_HwDHCPRIPRowStatus_Type=RowStatus
-_HwDHCPRIPRowStatus_Object=MibTableColumn
-hwDHCPRIPRowStatus=_HwDHCPRIPRowStatus_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,1,1,2),_HwDHCPRIPRowStatus_Type())
-hwDHCPRIPRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:hwDHCPRIPRowStatus.setStatus(_A)
-_HwDHCPRSeletAllocateModeTable_Object=MibTable
-hwDHCPRSeletAllocateModeTable=_HwDHCPRSeletAllocateModeTable_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,2))
-if mibBuilder.loadTexts:hwDHCPRSeletAllocateModeTable.setStatus(_A)
-_HwDHCPRSeletAllocateModeEntry_Object=MibTableRow
-hwDHCPRSeletAllocateModeEntry=_HwDHCPRSeletAllocateModeEntry_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,2,1))
-hwDHCPRSeletAllocateModeEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:hwDHCPRSeletAllocateModeEntry.setStatus(_A)
-class _HwDHCPRSelectAllocateMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('global',0),('interface',1),('relay',2)))
-_HwDHCPRSelectAllocateMode_Type.__name__=_D
-_HwDHCPRSelectAllocateMode_Object=MibTableColumn
-hwDHCPRSelectAllocateMode=_HwDHCPRSelectAllocateMode_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,2,1,1),_HwDHCPRSelectAllocateMode_Type())
-hwDHCPRSelectAllocateMode.setMaxAccess(_H)
-if mibBuilder.loadTexts:hwDHCPRSelectAllocateMode.setStatus(_A)
-class _HwDHCPRelayCycleStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('on',0),('off',1)))
-_HwDHCPRelayCycleStatus_Type.__name__=_D
-_HwDHCPRelayCycleStatus_Object=MibScalar
-hwDHCPRelayCycleStatus=_HwDHCPRelayCycleStatus_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,3),_HwDHCPRelayCycleStatus_Type())
-hwDHCPRelayCycleStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:hwDHCPRelayCycleStatus.setStatus(_A)
-_HwDHCPRRxBadPktNum_Type=Integer32
-_HwDHCPRRxBadPktNum_Object=MibScalar
-hwDHCPRRxBadPktNum=_HwDHCPRRxBadPktNum_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,4),_HwDHCPRRxBadPktNum_Type())
-hwDHCPRRxBadPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRRxBadPktNum.setStatus(_A)
-_HwDHCPRRxServerPktNum_Type=Integer32
-_HwDHCPRRxServerPktNum_Object=MibScalar
-hwDHCPRRxServerPktNum=_HwDHCPRRxServerPktNum_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,5),_HwDHCPRRxServerPktNum_Type())
-hwDHCPRRxServerPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRRxServerPktNum.setStatus(_A)
-_HwDHCPRTxServerPktNum_Type=Integer32
-_HwDHCPRTxServerPktNum_Object=MibScalar
-hwDHCPRTxServerPktNum=_HwDHCPRTxServerPktNum_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,6),_HwDHCPRTxServerPktNum_Type())
-hwDHCPRTxServerPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRTxServerPktNum.setStatus(_A)
-_HwDHCPRRxClientPktNum_Type=Integer32
-_HwDHCPRRxClientPktNum_Object=MibScalar
-hwDHCPRRxClientPktNum=_HwDHCPRRxClientPktNum_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,7),_HwDHCPRRxClientPktNum_Type())
-hwDHCPRRxClientPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRRxClientPktNum.setStatus(_A)
-_HwDHCPRTxClientPktNum_Type=Integer32
-_HwDHCPRTxClientPktNum_Object=MibScalar
-hwDHCPRTxClientPktNum=_HwDHCPRTxClientPktNum_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,8),_HwDHCPRTxClientPktNum_Type())
-hwDHCPRTxClientPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRTxClientPktNum.setStatus(_A)
-_HwDHCPRTxClientUniPktNum_Type=Integer32
-_HwDHCPRTxClientUniPktNum_Object=MibScalar
-hwDHCPRTxClientUniPktNum=_HwDHCPRTxClientUniPktNum_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,9),_HwDHCPRTxClientUniPktNum_Type())
-hwDHCPRTxClientUniPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRTxClientUniPktNum.setStatus(_A)
-_HwDHCPRTxClientBroPktNum_Type=Integer32
-_HwDHCPRTxClientBroPktNum_Object=MibScalar
-hwDHCPRTxClientBroPktNum=_HwDHCPRTxClientBroPktNum_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,10),_HwDHCPRTxClientBroPktNum_Type())
-hwDHCPRTxClientBroPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRTxClientBroPktNum.setStatus(_A)
-_HwDHCPRelayDiscoverPktNum_Type=Integer32
-_HwDHCPRelayDiscoverPktNum_Object=MibScalar
-hwDHCPRelayDiscoverPktNum=_HwDHCPRelayDiscoverPktNum_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,11),_HwDHCPRelayDiscoverPktNum_Type())
-hwDHCPRelayDiscoverPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRelayDiscoverPktNum.setStatus(_A)
-_HwDHCPRelayRequestPktNum_Type=Integer32
-_HwDHCPRelayRequestPktNum_Object=MibScalar
-hwDHCPRelayRequestPktNum=_HwDHCPRelayRequestPktNum_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,12),_HwDHCPRelayRequestPktNum_Type())
-hwDHCPRelayRequestPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRelayRequestPktNum.setStatus(_A)
-_HwDHCPRelayDeclinePktNum_Type=Integer32
-_HwDHCPRelayDeclinePktNum_Object=MibScalar
-hwDHCPRelayDeclinePktNum=_HwDHCPRelayDeclinePktNum_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,13),_HwDHCPRelayDeclinePktNum_Type())
-hwDHCPRelayDeclinePktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRelayDeclinePktNum.setStatus(_A)
-_HwDHCPRelayReleasePktNum_Type=Integer32
-_HwDHCPRelayReleasePktNum_Object=MibScalar
-hwDHCPRelayReleasePktNum=_HwDHCPRelayReleasePktNum_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,14),_HwDHCPRelayReleasePktNum_Type())
-hwDHCPRelayReleasePktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRelayReleasePktNum.setStatus(_A)
-_HwDHCPRelayInformPktNum_Type=Integer32
-_HwDHCPRelayInformPktNum_Object=MibScalar
-hwDHCPRelayInformPktNum=_HwDHCPRelayInformPktNum_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,15),_HwDHCPRelayInformPktNum_Type())
-hwDHCPRelayInformPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRelayInformPktNum.setStatus(_A)
-_HwDHCPRelayOfferPktNum_Type=Integer32
-_HwDHCPRelayOfferPktNum_Object=MibScalar
-hwDHCPRelayOfferPktNum=_HwDHCPRelayOfferPktNum_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,16),_HwDHCPRelayOfferPktNum_Type())
-hwDHCPRelayOfferPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRelayOfferPktNum.setStatus(_A)
-_HwDHCPRelayAckPktNum_Type=Integer32
-_HwDHCPRelayAckPktNum_Object=MibScalar
-hwDHCPRelayAckPktNum=_HwDHCPRelayAckPktNum_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,17),_HwDHCPRelayAckPktNum_Type())
-hwDHCPRelayAckPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRelayAckPktNum.setStatus(_A)
-_HwDHCPRelayNakPktNum_Type=Integer32
-_HwDHCPRelayNakPktNum_Object=MibScalar
-hwDHCPRelayNakPktNum=_HwDHCPRelayNakPktNum_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,18),_HwDHCPRelayNakPktNum_Type())
-hwDHCPRelayNakPktNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwDHCPRelayNakPktNum.setStatus(_A)
-class _HwDHCPRelayStatisticsReset_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('invalid',0),('reset',1)))
-_HwDHCPRelayStatisticsReset_Type.__name__=_D
-_HwDHCPRelayStatisticsReset_Object=MibScalar
-hwDHCPRelayStatisticsReset=_HwDHCPRelayStatisticsReset_Object((1,3,6,1,4,1,43,45,1,5,7,1,1,19),_HwDHCPRelayStatisticsReset_Type())
-hwDHCPRelayStatisticsReset.setMaxAccess(_H)
-if mibBuilder.loadTexts:hwDHCPRelayStatisticsReset.setStatus(_A)
-_HwDHCPRelayMIBConformance_ObjectIdentity=ObjectIdentity
-hwDHCPRelayMIBConformance=_HwDHCPRelayMIBConformance_ObjectIdentity((1,3,6,1,4,1,43,45,1,5,7,1,2))
-_HwDHCPRelayMIBCompliances_ObjectIdentity=ObjectIdentity
-hwDHCPRelayMIBCompliances=_HwDHCPRelayMIBCompliances_ObjectIdentity((1,3,6,1,4,1,43,45,1,5,7,1,2,1))
-_HwDHCPRelayMIBGroups_ObjectIdentity=ObjectIdentity
-hwDHCPRelayMIBGroups=_HwDHCPRelayMIBGroups_ObjectIdentity((1,3,6,1,4,1,43,45,1,5,7,1,2,2))
-hwDHCPRelayMIBGroup=ObjectGroup((1,3,6,1,4,1,43,45,1,5,7,1,2,2,1))
-hwDHCPRelayMIBGroup.setObjects(*((_B,_G),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a)))
-if mibBuilder.loadTexts:hwDHCPRelayMIBGroup.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'hwDHCPRelayMib':hwDHCPRelayMib,'hwDHCPRelayMibObject':hwDHCPRelayMibObject,'hwDHCPRIPTable':hwDHCPRIPTable,'hwDHCPRIPEntry':hwDHCPRIPEntry,_G:hwDHCPRIPAddr,_I:hwDHCPRIPRowStatus,'hwDHCPRSeletAllocateModeTable':hwDHCPRSeletAllocateModeTable,'hwDHCPRSeletAllocateModeEntry':hwDHCPRSeletAllocateModeEntry,_J:hwDHCPRSelectAllocateMode,_K:hwDHCPRelayCycleStatus,_L:hwDHCPRRxBadPktNum,_M:hwDHCPRRxServerPktNum,_N:hwDHCPRTxServerPktNum,_O:hwDHCPRRxClientPktNum,_P:hwDHCPRTxClientPktNum,_Q:hwDHCPRTxClientUniPktNum,_R:hwDHCPRTxClientBroPktNum,_S:hwDHCPRelayDiscoverPktNum,_T:hwDHCPRelayRequestPktNum,_U:hwDHCPRelayDeclinePktNum,_V:hwDHCPRelayReleasePktNum,_W:hwDHCPRelayInformPktNum,_X:hwDHCPRelayOfferPktNum,_Y:hwDHCPRelayAckPktNum,_Z:hwDHCPRelayNakPktNum,_a:hwDHCPRelayStatisticsReset,'hwDHCPRelayMIBConformance':hwDHCPRelayMIBConformance,'hwDHCPRelayMIBCompliances':hwDHCPRelayMIBCompliances,'hwDHCPRelayMIBGroups':hwDHCPRelayMIBGroups,'hwDHCPRelayMIBGroup':hwDHCPRelayMIBGroup})
+#
+# PySNMP MIB module A3COM-HUAWEI-DHCPR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-DHCPR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+huaweiMgmt, hwDhcp = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "huaweiMgmt", "hwDhcp")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+hwDHCPRelayMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1))
+hwDHCPRelayMib.setRevisions(('2003-02-12 00:00',))
+if mibBuilder.loadTexts: hwDHCPRelayMib.setLastUpdated('200303010000Z')
+if mibBuilder.loadTexts: hwDHCPRelayMib.setOrganization('Huawei Technologies co., Ltd.')
+hwDHCPRelayMibObject = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1))
+hwDHCPRIPTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 1), )
+if mibBuilder.loadTexts: hwDHCPRIPTable.setStatus('current')
+hwDHCPRIPEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRIPAddr"))
+if mibBuilder.loadTexts: hwDHCPRIPEntry.setStatus('current')
+hwDHCPRIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 1, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRIPAddr.setStatus('current')
+hwDHCPRIPRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hwDHCPRIPRowStatus.setStatus('current')
+hwDHCPRSeletAllocateModeTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 2), )
+if mibBuilder.loadTexts: hwDHCPRSeletAllocateModeTable.setStatus('current')
+hwDHCPRSeletAllocateModeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hwDHCPRSeletAllocateModeEntry.setStatus('current')
+hwDHCPRSelectAllocateMode = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("global", 0), ("interface", 1), ("relay", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwDHCPRSelectAllocateMode.setStatus('current')
+hwDHCPRelayCycleStatus = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("on", 0), ("off", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwDHCPRelayCycleStatus.setStatus('current')
+hwDHCPRRxBadPktNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRRxBadPktNum.setStatus('current')
+hwDHCPRRxServerPktNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRRxServerPktNum.setStatus('current')
+hwDHCPRTxServerPktNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRTxServerPktNum.setStatus('current')
+hwDHCPRRxClientPktNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRRxClientPktNum.setStatus('current')
+hwDHCPRTxClientPktNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRTxClientPktNum.setStatus('current')
+hwDHCPRTxClientUniPktNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRTxClientUniPktNum.setStatus('current')
+hwDHCPRTxClientBroPktNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRTxClientBroPktNum.setStatus('current')
+hwDHCPRelayDiscoverPktNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRelayDiscoverPktNum.setStatus('current')
+hwDHCPRelayRequestPktNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRelayRequestPktNum.setStatus('current')
+hwDHCPRelayDeclinePktNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRelayDeclinePktNum.setStatus('current')
+hwDHCPRelayReleasePktNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRelayReleasePktNum.setStatus('current')
+hwDHCPRelayInformPktNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRelayInformPktNum.setStatus('current')
+hwDHCPRelayOfferPktNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 16), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRelayOfferPktNum.setStatus('current')
+hwDHCPRelayAckPktNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRelayAckPktNum.setStatus('current')
+hwDHCPRelayNakPktNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 18), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwDHCPRelayNakPktNum.setStatus('current')
+hwDHCPRelayStatisticsReset = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("invalid", 0), ("reset", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwDHCPRelayStatisticsReset.setStatus('current')
+hwDHCPRelayMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 2))
+hwDHCPRelayMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 2, 1))
+hwDHCPRelayMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 2, 2))
+hwDHCPRelayMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 43, 45, 1, 5, 7, 1, 2, 2, 1)).setObjects(("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRIPAddr"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRIPRowStatus"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRSelectAllocateMode"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRelayCycleStatus"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRRxBadPktNum"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRRxServerPktNum"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRTxServerPktNum"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRRxClientPktNum"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRTxClientPktNum"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRTxClientUniPktNum"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRTxClientBroPktNum"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRelayDiscoverPktNum"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRelayRequestPktNum"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRelayDeclinePktNum"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRelayReleasePktNum"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRelayInformPktNum"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRelayOfferPktNum"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRelayAckPktNum"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRelayNakPktNum"), ("A3COM-HUAWEI-DHCPR-MIB", "hwDHCPRelayStatisticsReset"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hwDHCPRelayMIBGroup = hwDHCPRelayMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("A3COM-HUAWEI-DHCPR-MIB", hwDHCPRRxClientPktNum=hwDHCPRRxClientPktNum, hwDHCPRIPAddr=hwDHCPRIPAddr, hwDHCPRIPRowStatus=hwDHCPRIPRowStatus, hwDHCPRelayStatisticsReset=hwDHCPRelayStatisticsReset, hwDHCPRelayDiscoverPktNum=hwDHCPRelayDiscoverPktNum, hwDHCPRelayMIBGroup=hwDHCPRelayMIBGroup, hwDHCPRelayAckPktNum=hwDHCPRelayAckPktNum, hwDHCPRTxClientBroPktNum=hwDHCPRTxClientBroPktNum, hwDHCPRRxBadPktNum=hwDHCPRRxBadPktNum, hwDHCPRelayMib=hwDHCPRelayMib, hwDHCPRelayNakPktNum=hwDHCPRelayNakPktNum, hwDHCPRelayMIBConformance=hwDHCPRelayMIBConformance, hwDHCPRelayMibObject=hwDHCPRelayMibObject, PYSNMP_MODULE_ID=hwDHCPRelayMib, hwDHCPRelayDeclinePktNum=hwDHCPRelayDeclinePktNum, hwDHCPRelayCycleStatus=hwDHCPRelayCycleStatus, hwDHCPRSelectAllocateMode=hwDHCPRSelectAllocateMode, hwDHCPRelayMIBCompliances=hwDHCPRelayMIBCompliances, hwDHCPRTxServerPktNum=hwDHCPRTxServerPktNum, hwDHCPRelayInformPktNum=hwDHCPRelayInformPktNum, hwDHCPRIPEntry=hwDHCPRIPEntry, hwDHCPRelayMIBGroups=hwDHCPRelayMIBGroups, hwDHCPRelayRequestPktNum=hwDHCPRelayRequestPktNum, hwDHCPRelayReleasePktNum=hwDHCPRelayReleasePktNum, hwDHCPRelayOfferPktNum=hwDHCPRelayOfferPktNum, hwDHCPRSeletAllocateModeTable=hwDHCPRSeletAllocateModeTable, hwDHCPRRxServerPktNum=hwDHCPRRxServerPktNum, hwDHCPRTxClientPktNum=hwDHCPRTxClientPktNum, hwDHCPRIPTable=hwDHCPRIPTable, hwDHCPRTxClientUniPktNum=hwDHCPRTxClientUniPktNum, hwDHCPRSeletAllocateModeEntry=hwDHCPRSeletAllocateModeEntry)

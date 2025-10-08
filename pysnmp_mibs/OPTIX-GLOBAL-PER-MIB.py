@@ -1,40 +1,31 @@
-_B='current'
-_A='read-write'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-MOD2Type,PerformanceEventType,ValidflagType=mibBuilder.importSymbols('OPTIX-GLOBAL-TC-MIB','MOD2Type','PerformanceEventType','ValidflagType')
-optixCommonGlobal,=mibBuilder.importSymbols('OPTIX-OID-MIB','optixCommonGlobal')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
-optixGlobalPER=ModuleIdentity((1,3,6,1,4,1,2011,2,25,3,40,20))
-if mibBuilder.loadTexts:optixGlobalPER.setRevisions(('2008-05-24 00:00',))
-_PerMonitorTime_ObjectIdentity=ObjectIdentity
-perMonitorTime=_PerMonitorTime_ObjectIdentity((1,3,6,1,4,1,2011,2,25,3,40,20,10))
-_Per15mMonitorTime_ObjectIdentity=ObjectIdentity
-per15mMonitorTime=_Per15mMonitorTime_ObjectIdentity((1,3,6,1,4,1,2011,2,25,3,40,20,10,10))
-_Per15mMonitorStartTime_Type=DateAndTime
-_Per15mMonitorStartTime_Object=MibScalar
-per15mMonitorStartTime=_Per15mMonitorStartTime_Object((1,3,6,1,4,1,2011,2,25,3,40,20,10,10,10),_Per15mMonitorStartTime_Type())
-per15mMonitorStartTime.setMaxAccess(_A)
-if mibBuilder.loadTexts:per15mMonitorStartTime.setStatus(_B)
-_Per15mMonitorEndTime_Type=DateAndTime
-_Per15mMonitorEndTime_Object=MibScalar
-per15mMonitorEndTime=_Per15mMonitorEndTime_Object((1,3,6,1,4,1,2011,2,25,3,40,20,10,10,20),_Per15mMonitorEndTime_Type())
-per15mMonitorEndTime.setMaxAccess(_A)
-if mibBuilder.loadTexts:per15mMonitorEndTime.setStatus(_B)
-_Per24hMonitorTime_ObjectIdentity=ObjectIdentity
-per24hMonitorTime=_Per24hMonitorTime_ObjectIdentity((1,3,6,1,4,1,2011,2,25,3,40,20,10,20))
-_Per24hMonitorStartTime_Type=DateAndTime
-_Per24hMonitorStartTime_Object=MibScalar
-per24hMonitorStartTime=_Per24hMonitorStartTime_Object((1,3,6,1,4,1,2011,2,25,3,40,20,10,20,10),_Per24hMonitorStartTime_Type())
-per24hMonitorStartTime.setMaxAccess(_A)
-if mibBuilder.loadTexts:per24hMonitorStartTime.setStatus(_B)
-_Per24hMonitorEndTime_Type=DateAndTime
-_Per24hMonitorEndTime_Object=MibScalar
-per24hMonitorEndTime=_Per24hMonitorEndTime_Object((1,3,6,1,4,1,2011,2,25,3,40,20,10,20,20),_Per24hMonitorEndTime_Type())
-per24hMonitorEndTime.setMaxAccess(_A)
-if mibBuilder.loadTexts:per24hMonitorEndTime.setStatus(_B)
-mibBuilder.exportSymbols('OPTIX-GLOBAL-PER-MIB',**{'optixGlobalPER':optixGlobalPER,'perMonitorTime':perMonitorTime,'per15mMonitorTime':per15mMonitorTime,'per15mMonitorStartTime':per15mMonitorStartTime,'per15mMonitorEndTime':per15mMonitorEndTime,'per24hMonitorTime':per24hMonitorTime,'per24hMonitorStartTime':per24hMonitorStartTime,'per24hMonitorEndTime':per24hMonitorEndTime})
+#
+# PySNMP MIB module OPTIX-GLOBAL-PER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/huawei/OPTIX-GLOBAL-PER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+PerformanceEventType, ValidflagType, MOD2Type = mibBuilder.importSymbols("OPTIX-GLOBAL-TC-MIB", "PerformanceEventType", "ValidflagType", "MOD2Type")
+optixCommonGlobal, = mibBuilder.importSymbols("OPTIX-OID-MIB", "optixCommonGlobal")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+optixGlobalPER = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 20))
+optixGlobalPER.setRevisions(('2008-05-24 00:00',))
+if mibBuilder.loadTexts: optixGlobalPER.setLastUpdated('200805240000Z')
+if mibBuilder.loadTexts: optixGlobalPER.setOrganization('Huawei Technologies co.,Ltd.')
+perMonitorTime = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 20, 10))
+per15mMonitorTime = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 20, 10, 10))
+per15mMonitorStartTime = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 20, 10, 10, 10), DateAndTime()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: per15mMonitorStartTime.setStatus('current')
+per15mMonitorEndTime = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 20, 10, 10, 20), DateAndTime()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: per15mMonitorEndTime.setStatus('current')
+per24hMonitorTime = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 20, 10, 20))
+per24hMonitorStartTime = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 20, 10, 20, 10), DateAndTime()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: per24hMonitorStartTime.setStatus('current')
+per24hMonitorEndTime = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 20, 10, 20, 20), DateAndTime()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: per24hMonitorEndTime.setStatus('current')
+mibBuilder.exportSymbols("OPTIX-GLOBAL-PER-MIB", PYSNMP_MODULE_ID=optixGlobalPER, per15mMonitorTime=per15mMonitorTime, per15mMonitorStartTime=per15mMonitorStartTime, per24hMonitorTime=per24hMonitorTime, per24hMonitorStartTime=per24hMonitorStartTime, perMonitorTime=perMonitorTime, per24hMonitorEndTime=per24hMonitorEndTime, optixGlobalPER=optixGlobalPER, per15mMonitorEndTime=per15mMonitorEndTime)

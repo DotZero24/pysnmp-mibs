@@ -1,64 +1,40 @@
-_J='synologyiSCSITargetGroup'
-_I='iSCSITargetConnectionStatus'
-_H='iSCSITargetIQN'
-_G='iSCSITargetName'
-_F='iSCSITargetInfoIndex'
-_E='Integer32'
-_D='read-only'
-_C='OctetString'
-_B='SYNOLOGY-ISCSITarget-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-synologyiSCSITarget=ModuleIdentity((1,3,6,1,4,1,6574,110))
-_Synology_ObjectIdentity=ObjectIdentity
-synology=_Synology_ObjectIdentity((1,3,6,1,4,1,6574))
-_ISCSITargetTable_Object=MibTable
-iSCSITargetTable=_ISCSITargetTable_Object((1,3,6,1,4,1,6574,110,1))
-if mibBuilder.loadTexts:iSCSITargetTable.setStatus(_A)
-_ISCSITargetEntry_Object=MibTableRow
-iSCSITargetEntry=_ISCSITargetEntry_Object((1,3,6,1,4,1,6574,110,1,1))
-iSCSITargetEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:iSCSITargetEntry.setStatus(_A)
-class _ISCSITargetInfoIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_ISCSITargetInfoIndex_Type.__name__=_E
-_ISCSITargetInfoIndex_Object=MibTableColumn
-iSCSITargetInfoIndex=_ISCSITargetInfoIndex_Object((1,3,6,1,4,1,6574,110,1,1,1),_ISCSITargetInfoIndex_Type())
-iSCSITargetInfoIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:iSCSITargetInfoIndex.setStatus(_A)
-class _ISCSITargetName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_ISCSITargetName_Type.__name__=_C
-_ISCSITargetName_Object=MibTableColumn
-iSCSITargetName=_ISCSITargetName_Object((1,3,6,1,4,1,6574,110,1,1,2),_ISCSITargetName_Type())
-iSCSITargetName.setMaxAccess(_D)
-if mibBuilder.loadTexts:iSCSITargetName.setStatus(_A)
-class _ISCSITargetIQN_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_ISCSITargetIQN_Type.__name__=_C
-_ISCSITargetIQN_Object=MibTableColumn
-iSCSITargetIQN=_ISCSITargetIQN_Object((1,3,6,1,4,1,6574,110,1,1,3),_ISCSITargetIQN_Type())
-iSCSITargetIQN.setMaxAccess(_D)
-if mibBuilder.loadTexts:iSCSITargetIQN.setStatus(_A)
-class _ISCSITargetConnectionStatus_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,4096))
-_ISCSITargetConnectionStatus_Type.__name__=_C
-_ISCSITargetConnectionStatus_Object=MibTableColumn
-iSCSITargetConnectionStatus=_ISCSITargetConnectionStatus_Object((1,3,6,1,4,1,6574,110,1,1,4),_ISCSITargetConnectionStatus_Type())
-iSCSITargetConnectionStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:iSCSITargetConnectionStatus.setStatus(_A)
-_SynologyiSCSITargetConformance_ObjectIdentity=ObjectIdentity
-synologyiSCSITargetConformance=_SynologyiSCSITargetConformance_ObjectIdentity((1,3,6,1,4,1,6574,110,2))
-_SynologyiSCSITargetCompliances_ObjectIdentity=ObjectIdentity
-synologyiSCSITargetCompliances=_SynologyiSCSITargetCompliances_ObjectIdentity((1,3,6,1,4,1,6574,110,2,1))
-_SynologyiSCSITargetGroups_ObjectIdentity=ObjectIdentity
-synologyiSCSITargetGroups=_SynologyiSCSITargetGroups_ObjectIdentity((1,3,6,1,4,1,6574,110,2,2))
-synologyiSCSITargetGroup=ObjectGroup((1,3,6,1,4,1,6574,110,2,2,1))
-synologyiSCSITargetGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:synologyiSCSITargetGroup.setStatus(_A)
-synologyiSCSITargetCompliance=ModuleCompliance((1,3,6,1,4,1,6574,110,2,1,1))
-synologyiSCSITargetCompliance.setObjects((_B,_J))
-if mibBuilder.loadTexts:synologyiSCSITargetCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'synology':synology,'synologyiSCSITarget':synologyiSCSITarget,'iSCSITargetTable':iSCSITargetTable,'iSCSITargetEntry':iSCSITargetEntry,_F:iSCSITargetInfoIndex,_G:iSCSITargetName,_H:iSCSITargetIQN,_I:iSCSITargetConnectionStatus,'synologyiSCSITargetConformance':synologyiSCSITargetConformance,'synologyiSCSITargetCompliances':synologyiSCSITargetCompliances,'synologyiSCSITargetCompliance':synologyiSCSITargetCompliance,'synologyiSCSITargetGroups':synologyiSCSITargetGroups,_J:synologyiSCSITargetGroup})
+#
+# PySNMP MIB module SYNOLOGY-ISCSITarget-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/synology/SYNOLOGY-ISCSITarget-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+synologyiSCSITarget = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 110))
+if mibBuilder.loadTexts: synologyiSCSITarget.setLastUpdated('202004150000Z')
+if mibBuilder.loadTexts: synologyiSCSITarget.setOrganization('www.synology.com')
+synology = MibIdentifier((1, 3, 6, 1, 4, 1, 6574))
+iSCSITargetTable = MibTable((1, 3, 6, 1, 4, 1, 6574, 110, 1), )
+if mibBuilder.loadTexts: iSCSITargetTable.setStatus('current')
+iSCSITargetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6574, 110, 1, 1), ).setIndexNames((0, "SYNOLOGY-ISCSITarget-MIB", "iSCSITargetInfoIndex"))
+if mibBuilder.loadTexts: iSCSITargetEntry.setStatus('current')
+iSCSITargetInfoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 110, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: iSCSITargetInfoIndex.setStatus('current')
+iSCSITargetName = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 110, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: iSCSITargetName.setStatus('current')
+iSCSITargetIQN = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 110, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: iSCSITargetIQN.setStatus('current')
+iSCSITargetConnectionStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 110, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 4096))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: iSCSITargetConnectionStatus.setStatus('current')
+synologyiSCSITargetConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 110, 2))
+synologyiSCSITargetCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 110, 2, 1))
+synologyiSCSITargetGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 110, 2, 2))
+synologyiSCSITargetCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6574, 110, 2, 1, 1)).setObjects(("SYNOLOGY-ISCSITarget-MIB", "synologyiSCSITargetGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    synologyiSCSITargetCompliance = synologyiSCSITargetCompliance.setStatus('current')
+synologyiSCSITargetGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 110, 2, 2, 1)).setObjects(("SYNOLOGY-ISCSITarget-MIB", "iSCSITargetName"), ("SYNOLOGY-ISCSITarget-MIB", "iSCSITargetIQN"), ("SYNOLOGY-ISCSITarget-MIB", "iSCSITargetConnectionStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    synologyiSCSITargetGroup = synologyiSCSITargetGroup.setStatus('current')
+mibBuilder.exportSymbols("SYNOLOGY-ISCSITarget-MIB", iSCSITargetIQN=iSCSITargetIQN, synologyiSCSITargetGroup=synologyiSCSITargetGroup, iSCSITargetName=iSCSITargetName, synologyiSCSITargetConformance=synologyiSCSITargetConformance, iSCSITargetEntry=iSCSITargetEntry, iSCSITargetInfoIndex=iSCSITargetInfoIndex, synologyiSCSITargetCompliances=synologyiSCSITargetCompliances, PYSNMP_MODULE_ID=synologyiSCSITarget, synologyiSCSITargetCompliance=synologyiSCSITargetCompliance, iSCSITargetConnectionStatus=iSCSITargetConnectionStatus, synologyiSCSITargetGroups=synologyiSCSITargetGroups, synologyiSCSITarget=synologyiSCSITarget, synology=synology, iSCSITargetTable=iSCSITargetTable)

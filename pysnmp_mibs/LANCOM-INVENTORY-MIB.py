@@ -1,552 +1,238 @@
-_A9='agentInventoryCardUnsupported'
-_A8='agentInventoryCardMismatch'
-_A7='agentInventoryCardDescription'
-_A6='agentInventoryCardModelIdentifier'
-_A5='agentInventoryCardType'
-_A4='agentInventorySlotCapabilities'
-_A3='agentInventorySlotAdminMode'
-_A2='agentInventorySlotPowerMode'
-_A1='agentInventorySlotStatus'
-_A0='agentInventoryUnitDeleteSTK'
-_z='agentInventoryUnitActivateSTK'
-_y='agentInventoryUnitImage2Version'
-_x='agentInventoryUnitImage1Version'
-_w='agentInventoryUnitRowStatus'
-_v='agentInventoryUnitReplicateSTK'
-_u='agentInventoryUnitDescription'
-_t='agentInventoryUnitUpTime'
-_s='agentInventoryUnitDetectedCodeInFlashVer'
-_r='agentInventoryUnitDetectedCodeVer'
-_q='agentInventoryUnitStatus'
-_p='agentInventoryUnitAdminMgmtPref'
-_o='agentInventoryUnitHWMgmtPref'
-_n='agentInventoryUnitMgmtAdmin'
-_m='agentInventoryUnitType'
-_l='agentInventoryUnitAssignNumber'
-_k='agentInventorySupportedUnitExpectedCodeVer'
-_j='agentInventorySupportedUnitDescription'
-_i='agentInventorySupportedUnitModelIdentifier'
-_h='ethernet'
-_g='agentInventoryStackPortIndex'
-_f='agentInventoryComponentIndex'
-_e='image2'
-_d='image1'
-_c='finishedWithError'
-_b='finishedWithSuccess'
-_a='notInProgress'
-_Z='fastPathInventoryUnitGroup'
-_Y='fastPathInventorySlotGroup'
-_X='agentInventoryStackPortTag'
-_W='agentInventoryStackPortUnit'
-_V='agentInventorySlotConfiguredCardType'
-_U='agentInventoryUnitSTKname'
-_T='agentInventoryCardIndex'
-_S='agentInventorySupportedUnitIndex'
-_R='inProgress'
-_Q='agentInventoryStackUnitNumber'
-_P='agentInventorySlotInsertedCardType'
-_O='Unsigned32'
-_N='fastPathInventoryCardGroup'
-_M='agentInventorySlotNumber'
-_L='DisplayString'
-_K='read-create'
-_J='agentInventoryUnitNumber'
-_I='obsolete'
-_H='not-accessible'
-_G='disable'
-_F='enable'
-_E='read-write'
-_D='Integer32'
-_C='read-only'
-_B='LANCOM-INVENTORY-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fastPath,=mibBuilder.importSymbols('LANCOM-REF-MIB','fastPath')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_O,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_L,'PhysAddress','RowStatus','TextualConvention')
-fastPathInventory=ModuleIdentity((1,3,6,1,4,1,2356,16,1,13))
-if mibBuilder.loadTexts:fastPathInventory.setRevisions(('2018-12-12 22:10','2013-10-15 00:00','2011-01-26 00:00','2007-05-23 00:00','2004-10-28 20:37','2003-05-26 19:30','2019-09-03 19:30','2019-09-24 19:30'))
-class AgentInventoryUnitPreference(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('disabled',0),('unsassigned',1),('assigned',2)))
-class AgentInventoryUnitType(TextualConvention,Unsigned32):status=_A;displayHint='x'
-class AgentInventoryCardType(TextualConvention,Unsigned32):status=_A;displayHint='x'
-_AgentInventoryTraps_ObjectIdentity=ObjectIdentity
-agentInventoryTraps=_AgentInventoryTraps_ObjectIdentity((1,3,6,1,4,1,2356,16,1,13,0))
-_AgentInventoryStackGroup_ObjectIdentity=ObjectIdentity
-agentInventoryStackGroup=_AgentInventoryStackGroup_ObjectIdentity((1,3,6,1,4,1,2356,16,1,13,1))
-class _AgentInventoryStackReplicateSTK_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentInventoryStackReplicateSTK_Type.__name__=_D
-_AgentInventoryStackReplicateSTK_Object=MibScalar
-agentInventoryStackReplicateSTK=_AgentInventoryStackReplicateSTK_Object((1,3,6,1,4,1,2356,16,1,13,1,1),_AgentInventoryStackReplicateSTK_Type())
-agentInventoryStackReplicateSTK.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventoryStackReplicateSTK.setStatus(_A)
-class _AgentInventoryStackReload_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentInventoryStackReload_Type.__name__=_D
-_AgentInventoryStackReload_Object=MibScalar
-agentInventoryStackReload=_AgentInventoryStackReload_Object((1,3,6,1,4,1,2356,16,1,13,1,2),_AgentInventoryStackReload_Type())
-agentInventoryStackReload.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventoryStackReload.setStatus(_A)
-_AgentInventoryStackMaxUnitNumber_Type=Unsigned32
-_AgentInventoryStackMaxUnitNumber_Object=MibScalar
-agentInventoryStackMaxUnitNumber=_AgentInventoryStackMaxUnitNumber_Object((1,3,6,1,4,1,2356,16,1,13,1,3),_AgentInventoryStackMaxUnitNumber_Type())
-agentInventoryStackMaxUnitNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryStackMaxUnitNumber.setStatus(_A)
-class _AgentInventoryStackReplicateSTKStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_R,1),(_a,2),(_b,3),(_c,4)))
-_AgentInventoryStackReplicateSTKStatus_Type.__name__=_D
-_AgentInventoryStackReplicateSTKStatus_Object=MibScalar
-agentInventoryStackReplicateSTKStatus=_AgentInventoryStackReplicateSTKStatus_Object((1,3,6,1,4,1,2356,16,1,13,1,4),_AgentInventoryStackReplicateSTKStatus_Type())
-agentInventoryStackReplicateSTKStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryStackReplicateSTKStatus.setStatus(_A)
-class _AgentInventoryStackSTKname_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('unconfigured',1),(_d,2),(_e,3)))
-_AgentInventoryStackSTKname_Type.__name__=_D
-_AgentInventoryStackSTKname_Object=MibScalar
-agentInventoryStackSTKname=_AgentInventoryStackSTKname_Object((1,3,6,1,4,1,2356,16,1,13,1,5),_AgentInventoryStackSTKname_Type())
-agentInventoryStackSTKname.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventoryStackSTKname.setStatus(_A)
-class _AgentInventoryStackActivateSTK_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentInventoryStackActivateSTK_Type.__name__=_D
-_AgentInventoryStackActivateSTK_Object=MibScalar
-agentInventoryStackActivateSTK=_AgentInventoryStackActivateSTK_Object((1,3,6,1,4,1,2356,16,1,13,1,6),_AgentInventoryStackActivateSTK_Type())
-agentInventoryStackActivateSTK.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventoryStackActivateSTK.setStatus(_A)
-class _AgentInventoryStackDeleteSTK_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentInventoryStackDeleteSTK_Type.__name__=_D
-_AgentInventoryStackDeleteSTK_Object=MibScalar
-agentInventoryStackDeleteSTK=_AgentInventoryStackDeleteSTK_Object((1,3,6,1,4,1,2356,16,1,13,1,7),_AgentInventoryStackDeleteSTK_Type())
-agentInventoryStackDeleteSTK.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventoryStackDeleteSTK.setStatus(_A)
-_AgentInventoryUnitGroup_ObjectIdentity=ObjectIdentity
-agentInventoryUnitGroup=_AgentInventoryUnitGroup_ObjectIdentity((1,3,6,1,4,1,2356,16,1,13,2))
-_AgentInventorySupportedUnitTable_Object=MibTable
-agentInventorySupportedUnitTable=_AgentInventorySupportedUnitTable_Object((1,3,6,1,4,1,2356,16,1,13,2,1))
-if mibBuilder.loadTexts:agentInventorySupportedUnitTable.setStatus(_A)
-_AgentInventorySupportedUnitEntry_Object=MibTableRow
-agentInventorySupportedUnitEntry=_AgentInventorySupportedUnitEntry_Object((1,3,6,1,4,1,2356,16,1,13,2,1,1))
-agentInventorySupportedUnitEntry.setIndexNames((0,_B,_S))
-if mibBuilder.loadTexts:agentInventorySupportedUnitEntry.setStatus(_A)
-class _AgentInventorySupportedUnitIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_AgentInventorySupportedUnitIndex_Type.__name__=_O
-_AgentInventorySupportedUnitIndex_Object=MibTableColumn
-agentInventorySupportedUnitIndex=_AgentInventorySupportedUnitIndex_Object((1,3,6,1,4,1,2356,16,1,13,2,1,1,1),_AgentInventorySupportedUnitIndex_Type())
-agentInventorySupportedUnitIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:agentInventorySupportedUnitIndex.setStatus(_A)
-_AgentInventorySupportedUnitModelIdentifier_Type=DisplayString
-_AgentInventorySupportedUnitModelIdentifier_Object=MibTableColumn
-agentInventorySupportedUnitModelIdentifier=_AgentInventorySupportedUnitModelIdentifier_Object((1,3,6,1,4,1,2356,16,1,13,2,1,1,4),_AgentInventorySupportedUnitModelIdentifier_Type())
-agentInventorySupportedUnitModelIdentifier.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventorySupportedUnitModelIdentifier.setStatus(_A)
-class _AgentInventorySupportedUnitDescription_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_AgentInventorySupportedUnitDescription_Type.__name__=_L
-_AgentInventorySupportedUnitDescription_Object=MibTableColumn
-agentInventorySupportedUnitDescription=_AgentInventorySupportedUnitDescription_Object((1,3,6,1,4,1,2356,16,1,13,2,1,1,5),_AgentInventorySupportedUnitDescription_Type())
-agentInventorySupportedUnitDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventorySupportedUnitDescription.setStatus(_A)
-_AgentInventorySupportedUnitExpectedCodeVer_Type=DisplayString
-_AgentInventorySupportedUnitExpectedCodeVer_Object=MibTableColumn
-agentInventorySupportedUnitExpectedCodeVer=_AgentInventorySupportedUnitExpectedCodeVer_Object((1,3,6,1,4,1,2356,16,1,13,2,1,1,6),_AgentInventorySupportedUnitExpectedCodeVer_Type())
-agentInventorySupportedUnitExpectedCodeVer.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventorySupportedUnitExpectedCodeVer.setStatus(_I)
-_AgentInventoryUnitTable_Object=MibTable
-agentInventoryUnitTable=_AgentInventoryUnitTable_Object((1,3,6,1,4,1,2356,16,1,13,2,2))
-if mibBuilder.loadTexts:agentInventoryUnitTable.setStatus(_A)
-_AgentInventoryUnitEntry_Object=MibTableRow
-agentInventoryUnitEntry=_AgentInventoryUnitEntry_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1))
-agentInventoryUnitEntry.setIndexNames((0,_B,_J))
-if mibBuilder.loadTexts:agentInventoryUnitEntry.setStatus(_A)
-_AgentInventoryUnitNumber_Type=Unsigned32
-_AgentInventoryUnitNumber_Object=MibTableColumn
-agentInventoryUnitNumber=_AgentInventoryUnitNumber_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,1),_AgentInventoryUnitNumber_Type())
-agentInventoryUnitNumber.setMaxAccess(_H)
-if mibBuilder.loadTexts:agentInventoryUnitNumber.setStatus(_A)
-_AgentInventoryUnitAssignNumber_Type=Unsigned32
-_AgentInventoryUnitAssignNumber_Object=MibTableColumn
-agentInventoryUnitAssignNumber=_AgentInventoryUnitAssignNumber_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,2),_AgentInventoryUnitAssignNumber_Type())
-agentInventoryUnitAssignNumber.setMaxAccess(_K)
-if mibBuilder.loadTexts:agentInventoryUnitAssignNumber.setStatus(_A)
-_AgentInventoryUnitType_Type=AgentInventoryUnitType
-_AgentInventoryUnitType_Object=MibTableColumn
-agentInventoryUnitType=_AgentInventoryUnitType_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,3),_AgentInventoryUnitType_Type())
-agentInventoryUnitType.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryUnitType.setStatus(_A)
-_AgentInventoryUnitSupportedUnitIndex_Type=Unsigned32
-_AgentInventoryUnitSupportedUnitIndex_Object=MibTableColumn
-agentInventoryUnitSupportedUnitIndex=_AgentInventoryUnitSupportedUnitIndex_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,4),_AgentInventoryUnitSupportedUnitIndex_Type())
-agentInventoryUnitSupportedUnitIndex.setMaxAccess(_K)
-if mibBuilder.loadTexts:agentInventoryUnitSupportedUnitIndex.setStatus(_A)
-class _AgentInventoryUnitMgmtAdmin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('mgmtUnit',1),('stackUnit',2),('mgmtUnassigned',3)))
-_AgentInventoryUnitMgmtAdmin_Type.__name__=_D
-_AgentInventoryUnitMgmtAdmin_Object=MibTableColumn
-agentInventoryUnitMgmtAdmin=_AgentInventoryUnitMgmtAdmin_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,6),_AgentInventoryUnitMgmtAdmin_Type())
-agentInventoryUnitMgmtAdmin.setMaxAccess(_K)
-if mibBuilder.loadTexts:agentInventoryUnitMgmtAdmin.setStatus(_A)
-_AgentInventoryUnitHWMgmtPref_Type=AgentInventoryUnitPreference
-_AgentInventoryUnitHWMgmtPref_Object=MibTableColumn
-agentInventoryUnitHWMgmtPref=_AgentInventoryUnitHWMgmtPref_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,7),_AgentInventoryUnitHWMgmtPref_Type())
-agentInventoryUnitHWMgmtPref.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryUnitHWMgmtPref.setStatus(_I)
-class _AgentInventoryUnitHWMgmtPrefValue_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,15))
-_AgentInventoryUnitHWMgmtPrefValue_Type.__name__=_O
-_AgentInventoryUnitHWMgmtPrefValue_Object=MibTableColumn
-agentInventoryUnitHWMgmtPrefValue=_AgentInventoryUnitHWMgmtPrefValue_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,8),_AgentInventoryUnitHWMgmtPrefValue_Type())
-agentInventoryUnitHWMgmtPrefValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryUnitHWMgmtPrefValue.setStatus(_I)
-_AgentInventoryUnitAdminMgmtPref_Type=AgentInventoryUnitPreference
-_AgentInventoryUnitAdminMgmtPref_Object=MibTableColumn
-agentInventoryUnitAdminMgmtPref=_AgentInventoryUnitAdminMgmtPref_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,9),_AgentInventoryUnitAdminMgmtPref_Type())
-agentInventoryUnitAdminMgmtPref.setMaxAccess(_K)
-if mibBuilder.loadTexts:agentInventoryUnitAdminMgmtPref.setStatus(_I)
-class _AgentInventoryUnitAdminMgmtPrefValue_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,15))
-_AgentInventoryUnitAdminMgmtPrefValue_Type.__name__=_O
-_AgentInventoryUnitAdminMgmtPrefValue_Object=MibTableColumn
-agentInventoryUnitAdminMgmtPrefValue=_AgentInventoryUnitAdminMgmtPrefValue_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,10),_AgentInventoryUnitAdminMgmtPrefValue_Type())
-agentInventoryUnitAdminMgmtPrefValue.setMaxAccess(_K)
-if mibBuilder.loadTexts:agentInventoryUnitAdminMgmtPrefValue.setStatus(_I)
-class _AgentInventoryUnitStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('ok',1),('unsupported',2),('codeMismatch',3),('configMismatch',4),('sdmMismatch',5),('notPresent',6),('codeUpdate',7)))
-_AgentInventoryUnitStatus_Type.__name__=_D
-_AgentInventoryUnitStatus_Object=MibTableColumn
-agentInventoryUnitStatus=_AgentInventoryUnitStatus_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,11),_AgentInventoryUnitStatus_Type())
-agentInventoryUnitStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryUnitStatus.setStatus(_A)
-_AgentInventoryUnitDetectedCodeVer_Type=DisplayString
-_AgentInventoryUnitDetectedCodeVer_Object=MibTableColumn
-agentInventoryUnitDetectedCodeVer=_AgentInventoryUnitDetectedCodeVer_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,12),_AgentInventoryUnitDetectedCodeVer_Type())
-agentInventoryUnitDetectedCodeVer.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryUnitDetectedCodeVer.setStatus(_A)
-_AgentInventoryUnitDetectedCodeInFlashVer_Type=DisplayString
-_AgentInventoryUnitDetectedCodeInFlashVer_Object=MibTableColumn
-agentInventoryUnitDetectedCodeInFlashVer=_AgentInventoryUnitDetectedCodeInFlashVer_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,13),_AgentInventoryUnitDetectedCodeInFlashVer_Type())
-agentInventoryUnitDetectedCodeInFlashVer.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryUnitDetectedCodeInFlashVer.setStatus(_A)
-_AgentInventoryUnitUpTime_Type=TimeTicks
-_AgentInventoryUnitUpTime_Object=MibTableColumn
-agentInventoryUnitUpTime=_AgentInventoryUnitUpTime_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,14),_AgentInventoryUnitUpTime_Type())
-agentInventoryUnitUpTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryUnitUpTime.setStatus(_A)
-class _AgentInventoryUnitDescription_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_AgentInventoryUnitDescription_Type.__name__=_L
-_AgentInventoryUnitDescription_Object=MibTableColumn
-agentInventoryUnitDescription=_AgentInventoryUnitDescription_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,15),_AgentInventoryUnitDescription_Type())
-agentInventoryUnitDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryUnitDescription.setStatus(_A)
-class _AgentInventoryUnitReplicateSTK_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentInventoryUnitReplicateSTK_Type.__name__=_D
-_AgentInventoryUnitReplicateSTK_Object=MibTableColumn
-agentInventoryUnitReplicateSTK=_AgentInventoryUnitReplicateSTK_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,16),_AgentInventoryUnitReplicateSTK_Type())
-agentInventoryUnitReplicateSTK.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventoryUnitReplicateSTK.setStatus(_A)
-class _AgentInventoryUnitReload_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentInventoryUnitReload_Type.__name__=_D
-_AgentInventoryUnitReload_Object=MibTableColumn
-agentInventoryUnitReload=_AgentInventoryUnitReload_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,17),_AgentInventoryUnitReload_Type())
-agentInventoryUnitReload.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventoryUnitReload.setStatus(_A)
-_AgentInventoryUnitRowStatus_Type=RowStatus
-_AgentInventoryUnitRowStatus_Object=MibTableColumn
-agentInventoryUnitRowStatus=_AgentInventoryUnitRowStatus_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,18),_AgentInventoryUnitRowStatus_Type())
-agentInventoryUnitRowStatus.setMaxAccess(_K)
-if mibBuilder.loadTexts:agentInventoryUnitRowStatus.setStatus(_A)
-_AgentInventoryUnitSerialNumber_Type=DisplayString
-_AgentInventoryUnitSerialNumber_Object=MibTableColumn
-agentInventoryUnitSerialNumber=_AgentInventoryUnitSerialNumber_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,19),_AgentInventoryUnitSerialNumber_Type())
-agentInventoryUnitSerialNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryUnitSerialNumber.setStatus(_A)
-class _AgentInventoryUnitImage1Version_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_AgentInventoryUnitImage1Version_Type.__name__=_L
-_AgentInventoryUnitImage1Version_Object=MibTableColumn
-agentInventoryUnitImage1Version=_AgentInventoryUnitImage1Version_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,20),_AgentInventoryUnitImage1Version_Type())
-agentInventoryUnitImage1Version.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryUnitImage1Version.setStatus(_A)
-class _AgentInventoryUnitImage2Version_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_AgentInventoryUnitImage2Version_Type.__name__=_L
-_AgentInventoryUnitImage2Version_Object=MibTableColumn
-agentInventoryUnitImage2Version=_AgentInventoryUnitImage2Version_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,21),_AgentInventoryUnitImage2Version_Type())
-agentInventoryUnitImage2Version.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryUnitImage2Version.setStatus(_A)
-class _AgentInventoryUnitSTKname_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3)));namedValues=NamedValues(*((_d,2),(_e,3)))
-_AgentInventoryUnitSTKname_Type.__name__=_D
-_AgentInventoryUnitSTKname_Object=MibTableColumn
-agentInventoryUnitSTKname=_AgentInventoryUnitSTKname_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,22),_AgentInventoryUnitSTKname_Type())
-agentInventoryUnitSTKname.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventoryUnitSTKname.setStatus(_A)
-class _AgentInventoryUnitActivateSTK_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentInventoryUnitActivateSTK_Type.__name__=_D
-_AgentInventoryUnitActivateSTK_Object=MibTableColumn
-agentInventoryUnitActivateSTK=_AgentInventoryUnitActivateSTK_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,23),_AgentInventoryUnitActivateSTK_Type())
-agentInventoryUnitActivateSTK.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventoryUnitActivateSTK.setStatus(_A)
-class _AgentInventoryUnitDeleteSTK_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentInventoryUnitDeleteSTK_Type.__name__=_D
-_AgentInventoryUnitDeleteSTK_Object=MibTableColumn
-agentInventoryUnitDeleteSTK=_AgentInventoryUnitDeleteSTK_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,24),_AgentInventoryUnitDeleteSTK_Type())
-agentInventoryUnitDeleteSTK.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventoryUnitDeleteSTK.setStatus(_A)
-class _AgentInventoryUnitReplicateSTKStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_R,1),(_a,2),(_b,3),(_c,4)))
-_AgentInventoryUnitReplicateSTKStatus_Type.__name__=_D
-_AgentInventoryUnitReplicateSTKStatus_Object=MibTableColumn
-agentInventoryUnitReplicateSTKStatus=_AgentInventoryUnitReplicateSTKStatus_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,25),_AgentInventoryUnitReplicateSTKStatus_Type())
-agentInventoryUnitReplicateSTKStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryUnitReplicateSTKStatus.setStatus(_A)
-class _AgentInventoryUnitStandby_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('unassigned',1),('standby-opr',2),('standby-cfg',3)))
-_AgentInventoryUnitStandby_Type.__name__=_D
-_AgentInventoryUnitStandby_Object=MibTableColumn
-agentInventoryUnitStandby=_AgentInventoryUnitStandby_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,26),_AgentInventoryUnitStandby_Type())
-agentInventoryUnitStandby.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventoryUnitStandby.setStatus(_A)
-class _AgentInventoryUnitSFSTransferStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('noAction',1),(_R,2)))
-_AgentInventoryUnitSFSTransferStatus_Type.__name__=_D
-_AgentInventoryUnitSFSTransferStatus_Object=MibTableColumn
-agentInventoryUnitSFSTransferStatus=_AgentInventoryUnitSFSTransferStatus_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,27),_AgentInventoryUnitSFSTransferStatus_Type())
-agentInventoryUnitSFSTransferStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryUnitSFSTransferStatus.setStatus(_A)
-class _AgentInventoryUnitSFSLastAttemptStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('none',1),('success',2),('failure',3),('min-bootcode-version-not-present',4)))
-_AgentInventoryUnitSFSLastAttemptStatus_Type.__name__=_D
-_AgentInventoryUnitSFSLastAttemptStatus_Object=MibTableColumn
-agentInventoryUnitSFSLastAttemptStatus=_AgentInventoryUnitSFSLastAttemptStatus_Object((1,3,6,1,4,1,2356,16,1,13,2,2,1,28),_AgentInventoryUnitSFSLastAttemptStatus_Type())
-agentInventoryUnitSFSLastAttemptStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryUnitSFSLastAttemptStatus.setStatus(_A)
-_AgentInventorySlotGroup_ObjectIdentity=ObjectIdentity
-agentInventorySlotGroup=_AgentInventorySlotGroup_ObjectIdentity((1,3,6,1,4,1,2356,16,1,13,3))
-_AgentInventorySlotTable_Object=MibTable
-agentInventorySlotTable=_AgentInventorySlotTable_Object((1,3,6,1,4,1,2356,16,1,13,3,1))
-if mibBuilder.loadTexts:agentInventorySlotTable.setStatus(_A)
-_AgentInventorySlotEntry_Object=MibTableRow
-agentInventorySlotEntry=_AgentInventorySlotEntry_Object((1,3,6,1,4,1,2356,16,1,13,3,1,1))
-agentInventorySlotEntry.setIndexNames((0,_B,_J),(0,_B,_M))
-if mibBuilder.loadTexts:agentInventorySlotEntry.setStatus(_A)
-_AgentInventorySlotNumber_Type=Unsigned32
-_AgentInventorySlotNumber_Object=MibTableColumn
-agentInventorySlotNumber=_AgentInventorySlotNumber_Object((1,3,6,1,4,1,2356,16,1,13,3,1,1,1),_AgentInventorySlotNumber_Type())
-agentInventorySlotNumber.setMaxAccess(_H)
-if mibBuilder.loadTexts:agentInventorySlotNumber.setStatus(_A)
-class _AgentInventorySlotStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('empty',1),('full',2),('error',3)))
-_AgentInventorySlotStatus_Type.__name__=_D
-_AgentInventorySlotStatus_Object=MibTableColumn
-agentInventorySlotStatus=_AgentInventorySlotStatus_Object((1,3,6,1,4,1,2356,16,1,13,3,1,1,3),_AgentInventorySlotStatus_Type())
-agentInventorySlotStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventorySlotStatus.setStatus(_A)
-class _AgentInventorySlotPowerMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentInventorySlotPowerMode_Type.__name__=_D
-_AgentInventorySlotPowerMode_Object=MibTableColumn
-agentInventorySlotPowerMode=_AgentInventorySlotPowerMode_Object((1,3,6,1,4,1,2356,16,1,13,3,1,1,4),_AgentInventorySlotPowerMode_Type())
-agentInventorySlotPowerMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventorySlotPowerMode.setStatus(_A)
-class _AgentInventorySlotAdminMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentInventorySlotAdminMode_Type.__name__=_D
-_AgentInventorySlotAdminMode_Object=MibTableColumn
-agentInventorySlotAdminMode=_AgentInventorySlotAdminMode_Object((1,3,6,1,4,1,2356,16,1,13,3,1,1,5),_AgentInventorySlotAdminMode_Type())
-agentInventorySlotAdminMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventorySlotAdminMode.setStatus(_A)
-_AgentInventorySlotInsertedCardType_Type=AgentInventoryCardType
-_AgentInventorySlotInsertedCardType_Object=MibTableColumn
-agentInventorySlotInsertedCardType=_AgentInventorySlotInsertedCardType_Object((1,3,6,1,4,1,2356,16,1,13,3,1,1,6),_AgentInventorySlotInsertedCardType_Type())
-agentInventorySlotInsertedCardType.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventorySlotInsertedCardType.setStatus(_A)
-_AgentInventorySlotConfiguredCardType_Type=AgentInventoryCardType
-_AgentInventorySlotConfiguredCardType_Object=MibTableColumn
-agentInventorySlotConfiguredCardType=_AgentInventorySlotConfiguredCardType_Object((1,3,6,1,4,1,2356,16,1,13,3,1,1,7),_AgentInventorySlotConfiguredCardType_Type())
-agentInventorySlotConfiguredCardType.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventorySlotConfiguredCardType.setStatus(_A)
-class _AgentInventorySlotCapabilities_Type(Bits):namedValues=NamedValues(*(('pluggable',0),('power-down',1)))
-_AgentInventorySlotCapabilities_Type.__name__='Bits'
-_AgentInventorySlotCapabilities_Object=MibTableColumn
-agentInventorySlotCapabilities=_AgentInventorySlotCapabilities_Object((1,3,6,1,4,1,2356,16,1,13,3,1,1,8),_AgentInventorySlotCapabilities_Type())
-agentInventorySlotCapabilities.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventorySlotCapabilities.setStatus(_A)
-_AgentInventoryCardGroup_ObjectIdentity=ObjectIdentity
-agentInventoryCardGroup=_AgentInventoryCardGroup_ObjectIdentity((1,3,6,1,4,1,2356,16,1,13,4))
-_AgentInventoryCardTypeTable_Object=MibTable
-agentInventoryCardTypeTable=_AgentInventoryCardTypeTable_Object((1,3,6,1,4,1,2356,16,1,13,4,1))
-if mibBuilder.loadTexts:agentInventoryCardTypeTable.setStatus(_A)
-_AgentInventoryCardTypeEntry_Object=MibTableRow
-agentInventoryCardTypeEntry=_AgentInventoryCardTypeEntry_Object((1,3,6,1,4,1,2356,16,1,13,4,1,1))
-agentInventoryCardTypeEntry.setIndexNames((0,_B,_T))
-if mibBuilder.loadTexts:agentInventoryCardTypeEntry.setStatus(_A)
-_AgentInventoryCardIndex_Type=Unsigned32
-_AgentInventoryCardIndex_Object=MibTableColumn
-agentInventoryCardIndex=_AgentInventoryCardIndex_Object((1,3,6,1,4,1,2356,16,1,13,4,1,1,1),_AgentInventoryCardIndex_Type())
-agentInventoryCardIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:agentInventoryCardIndex.setStatus(_A)
-_AgentInventoryCardType_Type=AgentInventoryCardType
-_AgentInventoryCardType_Object=MibTableColumn
-agentInventoryCardType=_AgentInventoryCardType_Object((1,3,6,1,4,1,2356,16,1,13,4,1,1,2),_AgentInventoryCardType_Type())
-agentInventoryCardType.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryCardType.setStatus(_A)
-_AgentInventoryCardModelIdentifier_Type=DisplayString
-_AgentInventoryCardModelIdentifier_Object=MibTableColumn
-agentInventoryCardModelIdentifier=_AgentInventoryCardModelIdentifier_Object((1,3,6,1,4,1,2356,16,1,13,4,1,1,3),_AgentInventoryCardModelIdentifier_Type())
-agentInventoryCardModelIdentifier.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryCardModelIdentifier.setStatus(_A)
-_AgentInventoryCardDescription_Type=DisplayString
-_AgentInventoryCardDescription_Object=MibTableColumn
-agentInventoryCardDescription=_AgentInventoryCardDescription_Object((1,3,6,1,4,1,2356,16,1,13,4,1,1,4),_AgentInventoryCardDescription_Type())
-agentInventoryCardDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryCardDescription.setStatus(_A)
-_AgentInventoryComponentGroup_ObjectIdentity=ObjectIdentity
-agentInventoryComponentGroup=_AgentInventoryComponentGroup_ObjectIdentity((1,3,6,1,4,1,2356,16,1,13,5))
-_AgentInventoryComponentTable_Object=MibTable
-agentInventoryComponentTable=_AgentInventoryComponentTable_Object((1,3,6,1,4,1,2356,16,1,13,5,1))
-if mibBuilder.loadTexts:agentInventoryComponentTable.setStatus(_A)
-_AgentInventoryComponentEntry_Object=MibTableRow
-agentInventoryComponentEntry=_AgentInventoryComponentEntry_Object((1,3,6,1,4,1,2356,16,1,13,5,1,1))
-agentInventoryComponentEntry.setIndexNames((0,_B,_f))
-if mibBuilder.loadTexts:agentInventoryComponentEntry.setStatus(_A)
-_AgentInventoryComponentIndex_Type=Unsigned32
-_AgentInventoryComponentIndex_Object=MibTableColumn
-agentInventoryComponentIndex=_AgentInventoryComponentIndex_Object((1,3,6,1,4,1,2356,16,1,13,5,1,1,1),_AgentInventoryComponentIndex_Type())
-agentInventoryComponentIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:agentInventoryComponentIndex.setStatus(_A)
-_AgentInventoryComponentMnemonic_Type=DisplayString
-_AgentInventoryComponentMnemonic_Object=MibTableColumn
-agentInventoryComponentMnemonic=_AgentInventoryComponentMnemonic_Object((1,3,6,1,4,1,2356,16,1,13,5,1,1,2),_AgentInventoryComponentMnemonic_Type())
-agentInventoryComponentMnemonic.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryComponentMnemonic.setStatus(_A)
-_AgentInventoryComponentName_Type=DisplayString
-_AgentInventoryComponentName_Object=MibTableColumn
-agentInventoryComponentName=_AgentInventoryComponentName_Object((1,3,6,1,4,1,2356,16,1,13,5,1,1,3),_AgentInventoryComponentName_Type())
-agentInventoryComponentName.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryComponentName.setStatus(_A)
-_FastPathInventoryConformance_ObjectIdentity=ObjectIdentity
-fastPathInventoryConformance=_FastPathInventoryConformance_ObjectIdentity((1,3,6,1,4,1,2356,16,1,13,6))
-_FastPathInventoryCompliances_ObjectIdentity=ObjectIdentity
-fastPathInventoryCompliances=_FastPathInventoryCompliances_ObjectIdentity((1,3,6,1,4,1,2356,16,1,13,6,1))
-_FastPathInventoryGroups_ObjectIdentity=ObjectIdentity
-fastPathInventoryGroups=_FastPathInventoryGroups_ObjectIdentity((1,3,6,1,4,1,2356,16,1,13,6,2))
-_AgentInventoryStackPortGroup_ObjectIdentity=ObjectIdentity
-agentInventoryStackPortGroup=_AgentInventoryStackPortGroup_ObjectIdentity((1,3,6,1,4,1,2356,16,1,13,7))
-class _AgentInventoryStackPortIpTelephonyQOSSupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentInventoryStackPortIpTelephonyQOSSupport_Type.__name__=_D
-_AgentInventoryStackPortIpTelephonyQOSSupport_Object=MibScalar
-agentInventoryStackPortIpTelephonyQOSSupport=_AgentInventoryStackPortIpTelephonyQOSSupport_Object((1,3,6,1,4,1,2356,16,1,13,7,1),_AgentInventoryStackPortIpTelephonyQOSSupport_Type())
-agentInventoryStackPortIpTelephonyQOSSupport.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventoryStackPortIpTelephonyQOSSupport.setStatus(_A)
-_AgentInventoryStackPortTable_Object=MibTable
-agentInventoryStackPortTable=_AgentInventoryStackPortTable_Object((1,3,6,1,4,1,2356,16,1,13,7,2))
-if mibBuilder.loadTexts:agentInventoryStackPortTable.setStatus(_A)
-_AgentInventoryStackPortEntry_Object=MibTableRow
-agentInventoryStackPortEntry=_AgentInventoryStackPortEntry_Object((1,3,6,1,4,1,2356,16,1,13,7,2,1))
-agentInventoryStackPortEntry.setIndexNames((0,_B,_g))
-if mibBuilder.loadTexts:agentInventoryStackPortEntry.setStatus(_A)
-_AgentInventoryStackPortIndex_Type=Unsigned32
-_AgentInventoryStackPortIndex_Object=MibTableColumn
-agentInventoryStackPortIndex=_AgentInventoryStackPortIndex_Object((1,3,6,1,4,1,2356,16,1,13,7,2,1,1),_AgentInventoryStackPortIndex_Type())
-agentInventoryStackPortIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:agentInventoryStackPortIndex.setStatus(_A)
-_AgentInventoryStackPortUnit_Type=Unsigned32
-_AgentInventoryStackPortUnit_Object=MibTableColumn
-agentInventoryStackPortUnit=_AgentInventoryStackPortUnit_Object((1,3,6,1,4,1,2356,16,1,13,7,2,1,2),_AgentInventoryStackPortUnit_Type())
-agentInventoryStackPortUnit.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryStackPortUnit.setStatus(_A)
-_AgentInventoryStackPortTag_Type=DisplayString
-_AgentInventoryStackPortTag_Object=MibTableColumn
-agentInventoryStackPortTag=_AgentInventoryStackPortTag_Object((1,3,6,1,4,1,2356,16,1,13,7,2,1,3),_AgentInventoryStackPortTag_Type())
-agentInventoryStackPortTag.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryStackPortTag.setStatus(_A)
-class _AgentInventoryStackPortConfiguredStackMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('stack',1),(_h,2)))
-_AgentInventoryStackPortConfiguredStackMode_Type.__name__=_D
-_AgentInventoryStackPortConfiguredStackMode_Object=MibTableColumn
-agentInventoryStackPortConfiguredStackMode=_AgentInventoryStackPortConfiguredStackMode_Object((1,3,6,1,4,1,2356,16,1,13,7,2,1,4),_AgentInventoryStackPortConfiguredStackMode_Type())
-agentInventoryStackPortConfiguredStackMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventoryStackPortConfiguredStackMode.setStatus(_A)
-class _AgentInventoryStackPortRunningStackMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('stack',1),(_h,2)))
-_AgentInventoryStackPortRunningStackMode_Type.__name__=_D
-_AgentInventoryStackPortRunningStackMode_Object=MibTableColumn
-agentInventoryStackPortRunningStackMode=_AgentInventoryStackPortRunningStackMode_Object((1,3,6,1,4,1,2356,16,1,13,7,2,1,5),_AgentInventoryStackPortRunningStackMode_Type())
-agentInventoryStackPortRunningStackMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryStackPortRunningStackMode.setStatus(_A)
-class _AgentInventoryStackPortLinkStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_AgentInventoryStackPortLinkStatus_Type.__name__=_D
-_AgentInventoryStackPortLinkStatus_Object=MibTableColumn
-agentInventoryStackPortLinkStatus=_AgentInventoryStackPortLinkStatus_Object((1,3,6,1,4,1,2356,16,1,13,7,2,1,6),_AgentInventoryStackPortLinkStatus_Type())
-agentInventoryStackPortLinkStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryStackPortLinkStatus.setStatus(_A)
-_AgentInventoryStackPortLinkSpeed_Type=Gauge32
-_AgentInventoryStackPortLinkSpeed_Object=MibTableColumn
-agentInventoryStackPortLinkSpeed=_AgentInventoryStackPortLinkSpeed_Object((1,3,6,1,4,1,2356,16,1,13,7,2,1,7),_AgentInventoryStackPortLinkSpeed_Type())
-agentInventoryStackPortLinkSpeed.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryStackPortLinkSpeed.setStatus(_A)
-_AgentInventoryStackPortDataRate_Type=Counter32
-_AgentInventoryStackPortDataRate_Object=MibTableColumn
-agentInventoryStackPortDataRate=_AgentInventoryStackPortDataRate_Object((1,3,6,1,4,1,2356,16,1,13,7,2,1,8),_AgentInventoryStackPortDataRate_Type())
-agentInventoryStackPortDataRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryStackPortDataRate.setStatus(_A)
-_AgentInventoryStackPortErrorRate_Type=Counter32
-_AgentInventoryStackPortErrorRate_Object=MibTableColumn
-agentInventoryStackPortErrorRate=_AgentInventoryStackPortErrorRate_Object((1,3,6,1,4,1,2356,16,1,13,7,2,1,9),_AgentInventoryStackPortErrorRate_Type())
-agentInventoryStackPortErrorRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryStackPortErrorRate.setStatus(_A)
-_AgentInventoryStackPortTotalErrors_Type=Counter32
-_AgentInventoryStackPortTotalErrors_Object=MibTableColumn
-agentInventoryStackPortTotalErrors=_AgentInventoryStackPortTotalErrors_Object((1,3,6,1,4,1,2356,16,1,13,7,2,1,10),_AgentInventoryStackPortTotalErrors_Type())
-agentInventoryStackPortTotalErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentInventoryStackPortTotalErrors.setStatus(_A)
-_AgentInventorySFSGroup_ObjectIdentity=ObjectIdentity
-agentInventorySFSGroup=_AgentInventorySFSGroup_ObjectIdentity((1,3,6,1,4,1,2356,16,1,13,8))
-_AgentInventoryStackUnitNumber_Type=Unsigned32
-_AgentInventoryStackUnitNumber_Object=MibScalar
-agentInventoryStackUnitNumber=_AgentInventoryStackUnitNumber_Object((1,3,6,1,4,1,2356,16,1,13,8,1),_AgentInventoryStackUnitNumber_Type())
-agentInventoryStackUnitNumber.setMaxAccess(_H)
-if mibBuilder.loadTexts:agentInventoryStackUnitNumber.setStatus(_A)
-class _AgentInventorySFS_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentInventorySFS_Type.__name__=_D
-_AgentInventorySFS_Object=MibScalar
-agentInventorySFS=_AgentInventorySFS_Object((1,3,6,1,4,1,2356,16,1,13,8,2),_AgentInventorySFS_Type())
-agentInventorySFS.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventorySFS.setStatus(_A)
-class _AgentInventorySFSAllowDowngrade_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentInventorySFSAllowDowngrade_Type.__name__=_D
-_AgentInventorySFSAllowDowngrade_Object=MibScalar
-agentInventorySFSAllowDowngrade=_AgentInventorySFSAllowDowngrade_Object((1,3,6,1,4,1,2356,16,1,13,8,3),_AgentInventorySFSAllowDowngrade_Type())
-agentInventorySFSAllowDowngrade.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventorySFSAllowDowngrade.setStatus(_A)
-class _AgentInventorySFSTrap_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentInventorySFSTrap_Type.__name__=_D
-_AgentInventorySFSTrap_Object=MibScalar
-agentInventorySFSTrap=_AgentInventorySFSTrap_Object((1,3,6,1,4,1,2356,16,1,13,8,4),_AgentInventorySFSTrap_Type())
-agentInventorySFSTrap.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentInventorySFSTrap.setStatus(_A)
-fastPathInventorySupportedUnitGroup=ObjectGroup((1,3,6,1,4,1,2356,16,1,13,6,2,1))
-fastPathInventorySupportedUnitGroup.setObjects(*((_B,_S),(_B,_i),(_B,_j),(_B,_k)))
-if mibBuilder.loadTexts:fastPathInventorySupportedUnitGroup.setStatus(_A)
-fastPathInventoryUnitGroup=ObjectGroup((1,3,6,1,4,1,2356,16,1,13,6,2,2))
-fastPathInventoryUnitGroup.setObjects(*((_B,_J),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_U),(_B,_z),(_B,_A0),(_B,_U)))
-if mibBuilder.loadTexts:fastPathInventoryUnitGroup.setStatus(_A)
-fastPathInventorySlotGroup=ObjectGroup((1,3,6,1,4,1,2356,16,1,13,6,2,3))
-fastPathInventorySlotGroup.setObjects(*((_B,_M),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_P),(_B,_V),(_B,_A4)))
-if mibBuilder.loadTexts:fastPathInventorySlotGroup.setStatus(_A)
-fastPathInventoryCardGroup=ObjectGroup((1,3,6,1,4,1,2356,16,1,13,6,2,4))
-fastPathInventoryCardGroup.setObjects(*((_B,_T),(_B,_A5),(_B,_A6),(_B,_A7)))
-if mibBuilder.loadTexts:fastPathInventoryCardGroup.setStatus(_A)
-agentInventoryCardMismatch=NotificationType((1,3,6,1,4,1,2356,16,1,13,0,1))
-agentInventoryCardMismatch.setObjects(*((_B,_J),(_B,_M),(_B,_P),(_B,_V)))
-if mibBuilder.loadTexts:agentInventoryCardMismatch.setStatus(_A)
-agentInventoryCardUnsupported=NotificationType((1,3,6,1,4,1,2356,16,1,13,0,2))
-agentInventoryCardUnsupported.setObjects(*((_B,_J),(_B,_M),(_B,_P)))
-if mibBuilder.loadTexts:agentInventoryCardUnsupported.setStatus(_A)
-agentInventoryStackPortLinkUp=NotificationType((1,3,6,1,4,1,2356,16,1,13,0,3))
-agentInventoryStackPortLinkUp.setObjects(*((_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:agentInventoryStackPortLinkUp.setStatus(_A)
-agentInventoryStackPortLinkDown=NotificationType((1,3,6,1,4,1,2356,16,1,13,0,4))
-agentInventoryStackPortLinkDown.setObjects(*((_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:agentInventoryStackPortLinkDown.setStatus(_A)
-agentInventorySFSStart=NotificationType((1,3,6,1,4,1,2356,16,1,13,0,5))
-agentInventorySFSStart.setObjects((_B,_Q))
-if mibBuilder.loadTexts:agentInventorySFSStart.setStatus(_A)
-agentInventorySFSComplete=NotificationType((1,3,6,1,4,1,2356,16,1,13,0,6))
-agentInventorySFSComplete.setObjects((_B,_Q))
-if mibBuilder.loadTexts:agentInventorySFSComplete.setStatus(_A)
-agentInventorySFSFail=NotificationType((1,3,6,1,4,1,2356,16,1,13,0,7))
-agentInventorySFSFail.setObjects((_B,_Q))
-if mibBuilder.loadTexts:agentInventorySFSFail.setStatus(_A)
-fastPathInventoryNotificationsGroup=NotificationGroup((1,3,6,1,4,1,2356,16,1,13,6,2,5))
-fastPathInventoryNotificationsGroup.setObjects(*((_B,_A8),(_B,_A9)))
-if mibBuilder.loadTexts:fastPathInventoryNotificationsGroup.setStatus(_A)
-fastPathInventoryCompliance=ModuleCompliance((1,3,6,1,4,1,2356,16,1,13,6,1,1))
-fastPathInventoryCompliance.setObjects(*((_B,_Y),(_B,_N),(_B,_N),(_B,_Z)))
-if mibBuilder.loadTexts:fastPathInventoryCompliance.setStatus(_I)
-fastPathInventoryCompliance2=ModuleCompliance((1,3,6,1,4,1,2356,16,1,13,6,1,2))
-fastPathInventoryCompliance2.setObjects(*((_B,_Y),(_B,_N),(_B,_N),(_B,_Z)))
-if mibBuilder.loadTexts:fastPathInventoryCompliance2.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'AgentInventoryUnitPreference':AgentInventoryUnitPreference,'AgentInventoryUnitType':AgentInventoryUnitType,'AgentInventoryCardType':AgentInventoryCardType,'fastPathInventory':fastPathInventory,'agentInventoryTraps':agentInventoryTraps,_A8:agentInventoryCardMismatch,_A9:agentInventoryCardUnsupported,'agentInventoryStackPortLinkUp':agentInventoryStackPortLinkUp,'agentInventoryStackPortLinkDown':agentInventoryStackPortLinkDown,'agentInventorySFSStart':agentInventorySFSStart,'agentInventorySFSComplete':agentInventorySFSComplete,'agentInventorySFSFail':agentInventorySFSFail,'agentInventoryStackGroup':agentInventoryStackGroup,'agentInventoryStackReplicateSTK':agentInventoryStackReplicateSTK,'agentInventoryStackReload':agentInventoryStackReload,'agentInventoryStackMaxUnitNumber':agentInventoryStackMaxUnitNumber,'agentInventoryStackReplicateSTKStatus':agentInventoryStackReplicateSTKStatus,'agentInventoryStackSTKname':agentInventoryStackSTKname,'agentInventoryStackActivateSTK':agentInventoryStackActivateSTK,'agentInventoryStackDeleteSTK':agentInventoryStackDeleteSTK,'agentInventoryUnitGroup':agentInventoryUnitGroup,'agentInventorySupportedUnitTable':agentInventorySupportedUnitTable,'agentInventorySupportedUnitEntry':agentInventorySupportedUnitEntry,_S:agentInventorySupportedUnitIndex,_i:agentInventorySupportedUnitModelIdentifier,_j:agentInventorySupportedUnitDescription,_k:agentInventorySupportedUnitExpectedCodeVer,'agentInventoryUnitTable':agentInventoryUnitTable,'agentInventoryUnitEntry':agentInventoryUnitEntry,_J:agentInventoryUnitNumber,_l:agentInventoryUnitAssignNumber,_m:agentInventoryUnitType,'agentInventoryUnitSupportedUnitIndex':agentInventoryUnitSupportedUnitIndex,_n:agentInventoryUnitMgmtAdmin,_o:agentInventoryUnitHWMgmtPref,'agentInventoryUnitHWMgmtPrefValue':agentInventoryUnitHWMgmtPrefValue,_p:agentInventoryUnitAdminMgmtPref,'agentInventoryUnitAdminMgmtPrefValue':agentInventoryUnitAdminMgmtPrefValue,_q:agentInventoryUnitStatus,_r:agentInventoryUnitDetectedCodeVer,_s:agentInventoryUnitDetectedCodeInFlashVer,_t:agentInventoryUnitUpTime,_u:agentInventoryUnitDescription,_v:agentInventoryUnitReplicateSTK,'agentInventoryUnitReload':agentInventoryUnitReload,_w:agentInventoryUnitRowStatus,'agentInventoryUnitSerialNumber':agentInventoryUnitSerialNumber,_x:agentInventoryUnitImage1Version,_y:agentInventoryUnitImage2Version,_U:agentInventoryUnitSTKname,_z:agentInventoryUnitActivateSTK,_A0:agentInventoryUnitDeleteSTK,'agentInventoryUnitReplicateSTKStatus':agentInventoryUnitReplicateSTKStatus,'agentInventoryUnitStandby':agentInventoryUnitStandby,'agentInventoryUnitSFSTransferStatus':agentInventoryUnitSFSTransferStatus,'agentInventoryUnitSFSLastAttemptStatus':agentInventoryUnitSFSLastAttemptStatus,'agentInventorySlotGroup':agentInventorySlotGroup,'agentInventorySlotTable':agentInventorySlotTable,'agentInventorySlotEntry':agentInventorySlotEntry,_M:agentInventorySlotNumber,_A1:agentInventorySlotStatus,_A2:agentInventorySlotPowerMode,_A3:agentInventorySlotAdminMode,_P:agentInventorySlotInsertedCardType,_V:agentInventorySlotConfiguredCardType,_A4:agentInventorySlotCapabilities,'agentInventoryCardGroup':agentInventoryCardGroup,'agentInventoryCardTypeTable':agentInventoryCardTypeTable,'agentInventoryCardTypeEntry':agentInventoryCardTypeEntry,_T:agentInventoryCardIndex,_A5:agentInventoryCardType,_A6:agentInventoryCardModelIdentifier,_A7:agentInventoryCardDescription,'agentInventoryComponentGroup':agentInventoryComponentGroup,'agentInventoryComponentTable':agentInventoryComponentTable,'agentInventoryComponentEntry':agentInventoryComponentEntry,_f:agentInventoryComponentIndex,'agentInventoryComponentMnemonic':agentInventoryComponentMnemonic,'agentInventoryComponentName':agentInventoryComponentName,'fastPathInventoryConformance':fastPathInventoryConformance,'fastPathInventoryCompliances':fastPathInventoryCompliances,'fastPathInventoryCompliance':fastPathInventoryCompliance,'fastPathInventoryCompliance2':fastPathInventoryCompliance2,'fastPathInventoryGroups':fastPathInventoryGroups,'fastPathInventorySupportedUnitGroup':fastPathInventorySupportedUnitGroup,_Z:fastPathInventoryUnitGroup,_Y:fastPathInventorySlotGroup,_N:fastPathInventoryCardGroup,'fastPathInventoryNotificationsGroup':fastPathInventoryNotificationsGroup,'agentInventoryStackPortGroup':agentInventoryStackPortGroup,'agentInventoryStackPortIpTelephonyQOSSupport':agentInventoryStackPortIpTelephonyQOSSupport,'agentInventoryStackPortTable':agentInventoryStackPortTable,'agentInventoryStackPortEntry':agentInventoryStackPortEntry,_g:agentInventoryStackPortIndex,_W:agentInventoryStackPortUnit,_X:agentInventoryStackPortTag,'agentInventoryStackPortConfiguredStackMode':agentInventoryStackPortConfiguredStackMode,'agentInventoryStackPortRunningStackMode':agentInventoryStackPortRunningStackMode,'agentInventoryStackPortLinkStatus':agentInventoryStackPortLinkStatus,'agentInventoryStackPortLinkSpeed':agentInventoryStackPortLinkSpeed,'agentInventoryStackPortDataRate':agentInventoryStackPortDataRate,'agentInventoryStackPortErrorRate':agentInventoryStackPortErrorRate,'agentInventoryStackPortTotalErrors':agentInventoryStackPortTotalErrors,'agentInventorySFSGroup':agentInventorySFSGroup,_Q:agentInventoryStackUnitNumber,'agentInventorySFS':agentInventorySFS,'agentInventorySFSAllowDowngrade':agentInventorySFSAllowDowngrade,'agentInventorySFSTrap':agentInventorySFSTrap})
+#
+# PySNMP MIB module LANCOM-INVENTORY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/lancom/LANCOM-INVENTORY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:41 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fastPath, = mibBuilder.importSymbols("LANCOM-REF-MIB", "fastPath")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+fastPathInventory = ModuleIdentity((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13))
+fastPathInventory.setRevisions(('2018-12-12 22:10', '2013-10-15 00:00', '2011-01-26 00:00', '2007-05-23 00:00', '2004-10-28 20:37', '2003-05-26 19:30', '2019-09-03 19:30', '2019-09-24 19:30',))
+if mibBuilder.loadTexts: fastPathInventory.setLastUpdated('201812122210Z')
+if mibBuilder.loadTexts: fastPathInventory.setOrganization('Broadcom ')
+class AgentInventoryUnitPreference(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("disabled", 0), ("unsassigned", 1), ("assigned", 2))
+
+class AgentInventoryUnitType(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'x'
+
+class AgentInventoryCardType(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'x'
+
+agentInventoryStackGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 1))
+agentInventoryStackReplicateSTK = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventoryStackReplicateSTK.setStatus('current')
+agentInventoryStackReload = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventoryStackReload.setStatus('current')
+agentInventoryStackMaxUnitNumber = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryStackMaxUnitNumber.setStatus('current')
+agentInventoryStackReplicateSTKStatus = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("inProgress", 1), ("notInProgress", 2), ("finishedWithSuccess", 3), ("finishedWithError", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryStackReplicateSTKStatus.setStatus('current')
+agentInventoryStackSTKname = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unconfigured", 1), ("image1", 2), ("image2", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventoryStackSTKname.setStatus('current')
+agentInventoryStackActivateSTK = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventoryStackActivateSTK.setStatus('current')
+agentInventoryStackDeleteSTK = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventoryStackDeleteSTK.setStatus('current')
+agentInventoryUnitGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2))
+agentInventorySupportedUnitTable = MibTable((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 1), )
+if mibBuilder.loadTexts: agentInventorySupportedUnitTable.setStatus('current')
+agentInventorySupportedUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 1, 1), ).setIndexNames((0, "LANCOM-INVENTORY-MIB", "agentInventorySupportedUnitIndex"))
+if mibBuilder.loadTexts: agentInventorySupportedUnitEntry.setStatus('current')
+agentInventorySupportedUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)))
+if mibBuilder.loadTexts: agentInventorySupportedUnitIndex.setStatus('current')
+agentInventorySupportedUnitModelIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventorySupportedUnitModelIdentifier.setStatus('current')
+agentInventorySupportedUnitDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventorySupportedUnitDescription.setStatus('current')
+agentInventorySupportedUnitExpectedCodeVer = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventorySupportedUnitExpectedCodeVer.setStatus('obsolete')
+agentInventoryUnitTable = MibTable((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2), )
+if mibBuilder.loadTexts: agentInventoryUnitTable.setStatus('current')
+agentInventoryUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1), ).setIndexNames((0, "LANCOM-INVENTORY-MIB", "agentInventoryUnitNumber"))
+if mibBuilder.loadTexts: agentInventoryUnitEntry.setStatus('current')
+agentInventoryUnitNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: agentInventoryUnitNumber.setStatus('current')
+agentInventoryUnitAssignNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 2), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentInventoryUnitAssignNumber.setStatus('current')
+agentInventoryUnitType = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 3), AgentInventoryUnitType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryUnitType.setStatus('current')
+agentInventoryUnitSupportedUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 4), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentInventoryUnitSupportedUnitIndex.setStatus('current')
+agentInventoryUnitMgmtAdmin = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mgmtUnit", 1), ("stackUnit", 2), ("mgmtUnassigned", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentInventoryUnitMgmtAdmin.setStatus('current')
+agentInventoryUnitHWMgmtPref = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 7), AgentInventoryUnitPreference()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryUnitHWMgmtPref.setStatus('obsolete')
+agentInventoryUnitHWMgmtPrefValue = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 8), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 15), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryUnitHWMgmtPrefValue.setStatus('obsolete')
+agentInventoryUnitAdminMgmtPref = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 9), AgentInventoryUnitPreference()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentInventoryUnitAdminMgmtPref.setStatus('obsolete')
+agentInventoryUnitAdminMgmtPrefValue = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 10), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 15), ))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentInventoryUnitAdminMgmtPrefValue.setStatus('obsolete')
+agentInventoryUnitStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("ok", 1), ("unsupported", 2), ("codeMismatch", 3), ("configMismatch", 4), ("sdmMismatch", 5), ("notPresent", 6), ("codeUpdate", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryUnitStatus.setStatus('current')
+agentInventoryUnitDetectedCodeVer = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 12), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryUnitDetectedCodeVer.setStatus('current')
+agentInventoryUnitDetectedCodeInFlashVer = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 13), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryUnitDetectedCodeInFlashVer.setStatus('current')
+agentInventoryUnitUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 14), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryUnitUpTime.setStatus('current')
+agentInventoryUnitDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 15), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryUnitDescription.setStatus('current')
+agentInventoryUnitReplicateSTK = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventoryUnitReplicateSTK.setStatus('current')
+agentInventoryUnitReload = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventoryUnitReload.setStatus('current')
+agentInventoryUnitRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 18), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentInventoryUnitRowStatus.setStatus('current')
+agentInventoryUnitSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 19), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryUnitSerialNumber.setStatus('current')
+agentInventoryUnitImage1Version = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 20), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryUnitImage1Version.setStatus('current')
+agentInventoryUnitImage2Version = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 21), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryUnitImage2Version.setStatus('current')
+agentInventoryUnitSTKname = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("image1", 2), ("image2", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventoryUnitSTKname.setStatus('current')
+agentInventoryUnitActivateSTK = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventoryUnitActivateSTK.setStatus('current')
+agentInventoryUnitDeleteSTK = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventoryUnitDeleteSTK.setStatus('current')
+agentInventoryUnitReplicateSTKStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("inProgress", 1), ("notInProgress", 2), ("finishedWithSuccess", 3), ("finishedWithError", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryUnitReplicateSTKStatus.setStatus('current')
+agentInventoryUnitStandby = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 26), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unassigned", 1), ("standby-opr", 2), ("standby-cfg", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventoryUnitStandby.setStatus('current')
+agentInventoryUnitSFSTransferStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noAction", 1), ("inProgress", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryUnitSFSTransferStatus.setStatus('current')
+agentInventoryUnitSFSLastAttemptStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 2, 2, 1, 28), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("success", 2), ("failure", 3), ("min-bootcode-version-not-present", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryUnitSFSLastAttemptStatus.setStatus('current')
+agentInventorySlotGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 3))
+agentInventorySlotTable = MibTable((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 3, 1), )
+if mibBuilder.loadTexts: agentInventorySlotTable.setStatus('current')
+agentInventorySlotEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 3, 1, 1), ).setIndexNames((0, "LANCOM-INVENTORY-MIB", "agentInventoryUnitNumber"), (0, "LANCOM-INVENTORY-MIB", "agentInventorySlotNumber"))
+if mibBuilder.loadTexts: agentInventorySlotEntry.setStatus('current')
+agentInventorySlotNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 3, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: agentInventorySlotNumber.setStatus('current')
+agentInventorySlotStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("empty", 1), ("full", 2), ("error", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventorySlotStatus.setStatus('current')
+agentInventorySlotPowerMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventorySlotPowerMode.setStatus('current')
+agentInventorySlotAdminMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventorySlotAdminMode.setStatus('current')
+agentInventorySlotInsertedCardType = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 3, 1, 1, 6), AgentInventoryCardType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventorySlotInsertedCardType.setStatus('current')
+agentInventorySlotConfiguredCardType = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 3, 1, 1, 7), AgentInventoryCardType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventorySlotConfiguredCardType.setStatus('current')
+agentInventorySlotCapabilities = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 3, 1, 1, 8), Bits().clone(namedValues=NamedValues(("pluggable", 0), ("power-down", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventorySlotCapabilities.setStatus('current')
+agentInventoryCardGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 4))
+agentInventoryCardTypeTable = MibTable((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 4, 1), )
+if mibBuilder.loadTexts: agentInventoryCardTypeTable.setStatus('current')
+agentInventoryCardTypeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 4, 1, 1), ).setIndexNames((0, "LANCOM-INVENTORY-MIB", "agentInventoryCardIndex"))
+if mibBuilder.loadTexts: agentInventoryCardTypeEntry.setStatus('current')
+agentInventoryCardIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 4, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: agentInventoryCardIndex.setStatus('current')
+agentInventoryCardType = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 4, 1, 1, 2), AgentInventoryCardType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryCardType.setStatus('current')
+agentInventoryCardModelIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 4, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryCardModelIdentifier.setStatus('current')
+agentInventoryCardDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 4, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryCardDescription.setStatus('current')
+agentInventoryComponentGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 5))
+agentInventoryComponentTable = MibTable((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 5, 1), )
+if mibBuilder.loadTexts: agentInventoryComponentTable.setStatus('current')
+agentInventoryComponentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 5, 1, 1), ).setIndexNames((0, "LANCOM-INVENTORY-MIB", "agentInventoryComponentIndex"))
+if mibBuilder.loadTexts: agentInventoryComponentEntry.setStatus('current')
+agentInventoryComponentIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 5, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: agentInventoryComponentIndex.setStatus('current')
+agentInventoryComponentMnemonic = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 5, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryComponentMnemonic.setStatus('current')
+agentInventoryComponentName = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 5, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryComponentName.setStatus('current')
+agentInventoryStackPortGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 7))
+agentInventoryStackPortIpTelephonyQOSSupport = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 7, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventoryStackPortIpTelephonyQOSSupport.setStatus('current')
+agentInventorySFSGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 8))
+agentInventoryStackUnitNumber = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 8, 1), Unsigned32())
+if mibBuilder.loadTexts: agentInventoryStackUnitNumber.setStatus('current')
+agentInventorySFS = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 8, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventorySFS.setStatus('current')
+agentInventorySFSAllowDowngrade = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 8, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventorySFSAllowDowngrade.setStatus('current')
+agentInventorySFSTrap = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 8, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventorySFSTrap.setStatus('current')
+agentInventoryStackPortTable = MibTable((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 7, 2), )
+if mibBuilder.loadTexts: agentInventoryStackPortTable.setStatus('current')
+agentInventoryStackPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 7, 2, 1), ).setIndexNames((0, "LANCOM-INVENTORY-MIB", "agentInventoryStackPortIndex"))
+if mibBuilder.loadTexts: agentInventoryStackPortEntry.setStatus('current')
+agentInventoryStackPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 7, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: agentInventoryStackPortIndex.setStatus('current')
+agentInventoryStackPortUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 7, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryStackPortUnit.setStatus('current')
+agentInventoryStackPortTag = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 7, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryStackPortTag.setStatus('current')
+agentInventoryStackPortConfiguredStackMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 7, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("stack", 1), ("ethernet", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentInventoryStackPortConfiguredStackMode.setStatus('current')
+agentInventoryStackPortRunningStackMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 7, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("stack", 1), ("ethernet", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryStackPortRunningStackMode.setStatus('current')
+agentInventoryStackPortLinkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 7, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryStackPortLinkStatus.setStatus('current')
+agentInventoryStackPortLinkSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 7, 2, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryStackPortLinkSpeed.setStatus('current')
+agentInventoryStackPortDataRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 7, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryStackPortDataRate.setStatus('current')
+agentInventoryStackPortErrorRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 7, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryStackPortErrorRate.setStatus('current')
+agentInventoryStackPortTotalErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 7, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentInventoryStackPortTotalErrors.setStatus('current')
+agentInventoryTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 0))
+agentInventoryCardMismatch = NotificationType((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 0, 1)).setObjects(("LANCOM-INVENTORY-MIB", "agentInventoryUnitNumber"), ("LANCOM-INVENTORY-MIB", "agentInventorySlotNumber"), ("LANCOM-INVENTORY-MIB", "agentInventorySlotInsertedCardType"), ("LANCOM-INVENTORY-MIB", "agentInventorySlotConfiguredCardType"))
+if mibBuilder.loadTexts: agentInventoryCardMismatch.setStatus('current')
+agentInventoryCardUnsupported = NotificationType((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 0, 2)).setObjects(("LANCOM-INVENTORY-MIB", "agentInventoryUnitNumber"), ("LANCOM-INVENTORY-MIB", "agentInventorySlotNumber"), ("LANCOM-INVENTORY-MIB", "agentInventorySlotInsertedCardType"))
+if mibBuilder.loadTexts: agentInventoryCardUnsupported.setStatus('current')
+agentInventoryStackPortLinkUp = NotificationType((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 0, 3)).setObjects(("LANCOM-INVENTORY-MIB", "agentInventoryStackPortUnit"), ("LANCOM-INVENTORY-MIB", "agentInventoryStackPortTag"))
+if mibBuilder.loadTexts: agentInventoryStackPortLinkUp.setStatus('current')
+agentInventoryStackPortLinkDown = NotificationType((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 0, 4)).setObjects(("LANCOM-INVENTORY-MIB", "agentInventoryStackPortUnit"), ("LANCOM-INVENTORY-MIB", "agentInventoryStackPortTag"))
+if mibBuilder.loadTexts: agentInventoryStackPortLinkDown.setStatus('current')
+agentInventorySFSStart = NotificationType((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 0, 5)).setObjects(("LANCOM-INVENTORY-MIB", "agentInventoryStackUnitNumber"))
+if mibBuilder.loadTexts: agentInventorySFSStart.setStatus('current')
+agentInventorySFSComplete = NotificationType((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 0, 6)).setObjects(("LANCOM-INVENTORY-MIB", "agentInventoryStackUnitNumber"))
+if mibBuilder.loadTexts: agentInventorySFSComplete.setStatus('current')
+agentInventorySFSFail = NotificationType((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 0, 7)).setObjects(("LANCOM-INVENTORY-MIB", "agentInventoryStackUnitNumber"))
+if mibBuilder.loadTexts: agentInventorySFSFail.setStatus('current')
+fastPathInventoryConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 6))
+fastPathInventoryCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 6, 1))
+fastPathInventoryGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 6, 2))
+fastPathInventoryCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 6, 1, 1)).setObjects(("LANCOM-INVENTORY-MIB", "fastPathInventorySlotGroup"), ("LANCOM-INVENTORY-MIB", "fastPathInventoryCardGroup"), ("LANCOM-INVENTORY-MIB", "fastPathInventoryCardGroup"), ("LANCOM-INVENTORY-MIB", "fastPathInventoryUnitGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fastPathInventoryCompliance = fastPathInventoryCompliance.setStatus('obsolete')
+fastPathInventoryCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 6, 1, 2)).setObjects(("LANCOM-INVENTORY-MIB", "fastPathInventorySlotGroup"), ("LANCOM-INVENTORY-MIB", "fastPathInventoryCardGroup"), ("LANCOM-INVENTORY-MIB", "fastPathInventoryCardGroup"), ("LANCOM-INVENTORY-MIB", "fastPathInventoryUnitGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fastPathInventoryCompliance2 = fastPathInventoryCompliance2.setStatus('current')
+fastPathInventorySupportedUnitGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 6, 2, 1)).setObjects(("LANCOM-INVENTORY-MIB", "agentInventorySupportedUnitIndex"), ("LANCOM-INVENTORY-MIB", "agentInventorySupportedUnitModelIdentifier"), ("LANCOM-INVENTORY-MIB", "agentInventorySupportedUnitDescription"), ("LANCOM-INVENTORY-MIB", "agentInventorySupportedUnitExpectedCodeVer"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fastPathInventorySupportedUnitGroup = fastPathInventorySupportedUnitGroup.setStatus('current')
+fastPathInventoryUnitGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 6, 2, 2)).setObjects(("LANCOM-INVENTORY-MIB", "agentInventoryUnitNumber"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitAssignNumber"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitType"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitMgmtAdmin"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitHWMgmtPref"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitAdminMgmtPref"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitStatus"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitDetectedCodeVer"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitDetectedCodeInFlashVer"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitUpTime"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitDescription"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitReplicateSTK"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitRowStatus"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitImage1Version"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitImage2Version"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitSTKname"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitActivateSTK"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitDeleteSTK"), ("LANCOM-INVENTORY-MIB", "agentInventoryUnitSTKname"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fastPathInventoryUnitGroup = fastPathInventoryUnitGroup.setStatus('current')
+fastPathInventorySlotGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 6, 2, 3)).setObjects(("LANCOM-INVENTORY-MIB", "agentInventorySlotNumber"), ("LANCOM-INVENTORY-MIB", "agentInventorySlotStatus"), ("LANCOM-INVENTORY-MIB", "agentInventorySlotPowerMode"), ("LANCOM-INVENTORY-MIB", "agentInventorySlotAdminMode"), ("LANCOM-INVENTORY-MIB", "agentInventorySlotInsertedCardType"), ("LANCOM-INVENTORY-MIB", "agentInventorySlotConfiguredCardType"), ("LANCOM-INVENTORY-MIB", "agentInventorySlotCapabilities"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fastPathInventorySlotGroup = fastPathInventorySlotGroup.setStatus('current')
+fastPathInventoryCardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 6, 2, 4)).setObjects(("LANCOM-INVENTORY-MIB", "agentInventoryCardIndex"), ("LANCOM-INVENTORY-MIB", "agentInventoryCardType"), ("LANCOM-INVENTORY-MIB", "agentInventoryCardModelIdentifier"), ("LANCOM-INVENTORY-MIB", "agentInventoryCardDescription"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fastPathInventoryCardGroup = fastPathInventoryCardGroup.setStatus('current')
+fastPathInventoryNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 2356, 16, 1, 13, 6, 2, 5)).setObjects(("LANCOM-INVENTORY-MIB", "agentInventoryCardMismatch"), ("LANCOM-INVENTORY-MIB", "agentInventoryCardUnsupported"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fastPathInventoryNotificationsGroup = fastPathInventoryNotificationsGroup.setStatus('current')
+mibBuilder.exportSymbols("LANCOM-INVENTORY-MIB", agentInventorySupportedUnitExpectedCodeVer=agentInventorySupportedUnitExpectedCodeVer, agentInventorySlotStatus=agentInventorySlotStatus, agentInventoryComponentGroup=agentInventoryComponentGroup, agentInventoryUnitAdminMgmtPref=agentInventoryUnitAdminMgmtPref, agentInventoryUnitRowStatus=agentInventoryUnitRowStatus, agentInventoryUnitAdminMgmtPrefValue=agentInventoryUnitAdminMgmtPrefValue, agentInventoryUnitImage2Version=agentInventoryUnitImage2Version, agentInventoryUnitDetectedCodeInFlashVer=agentInventoryUnitDetectedCodeInFlashVer, agentInventoryUnitReload=agentInventoryUnitReload, agentInventorySlotGroup=agentInventorySlotGroup, agentInventoryCardGroup=agentInventoryCardGroup, agentInventorySFS=agentInventorySFS, agentInventorySupportedUnitModelIdentifier=agentInventorySupportedUnitModelIdentifier, agentInventoryStackPortConfiguredStackMode=agentInventoryStackPortConfiguredStackMode, agentInventorySlotTable=agentInventorySlotTable, agentInventoryStackReplicateSTK=agentInventoryStackReplicateSTK, PYSNMP_MODULE_ID=fastPathInventory, agentInventoryStackPortEntry=agentInventoryStackPortEntry, agentInventoryUnitDetectedCodeVer=agentInventoryUnitDetectedCodeVer, agentInventoryComponentTable=agentInventoryComponentTable, agentInventoryCardIndex=agentInventoryCardIndex, agentInventoryStackPortLinkStatus=agentInventoryStackPortLinkStatus, agentInventoryUnitAssignNumber=agentInventoryUnitAssignNumber, agentInventoryUnitDescription=agentInventoryUnitDescription, agentInventoryUnitMgmtAdmin=agentInventoryUnitMgmtAdmin, agentInventoryStackPortErrorRate=agentInventoryStackPortErrorRate, agentInventoryStackPortLinkDown=agentInventoryStackPortLinkDown, agentInventoryUnitSerialNumber=agentInventoryUnitSerialNumber, agentInventoryUnitHWMgmtPref=agentInventoryUnitHWMgmtPref, agentInventoryUnitSTKname=agentInventoryUnitSTKname, agentInventoryComponentName=agentInventoryComponentName, agentInventoryStackPortTable=agentInventoryStackPortTable, agentInventoryUnitHWMgmtPrefValue=agentInventoryUnitHWMgmtPrefValue, fastPathInventoryGroups=fastPathInventoryGroups, AgentInventoryUnitType=AgentInventoryUnitType, agentInventoryStackPortRunningStackMode=agentInventoryStackPortRunningStackMode, agentInventorySupportedUnitDescription=agentInventorySupportedUnitDescription, agentInventoryStackUnitNumber=agentInventoryStackUnitNumber, agentInventoryUnitActivateSTK=agentInventoryUnitActivateSTK, agentInventoryStackPortIndex=agentInventoryStackPortIndex, agentInventorySFSTrap=agentInventorySFSTrap, agentInventorySFSStart=agentInventorySFSStart, agentInventorySFSGroup=agentInventorySFSGroup, agentInventoryCardType=agentInventoryCardType, AgentInventoryCardType=AgentInventoryCardType, fastPathInventoryUnitGroup=fastPathInventoryUnitGroup, agentInventoryTraps=agentInventoryTraps, agentInventoryStackPortIpTelephonyQOSSupport=agentInventoryStackPortIpTelephonyQOSSupport, agentInventoryUnitUpTime=agentInventoryUnitUpTime, agentInventoryUnitSFSTransferStatus=agentInventoryUnitSFSTransferStatus, agentInventoryStackPortLinkUp=agentInventoryStackPortLinkUp, agentInventorySlotCapabilities=agentInventorySlotCapabilities, agentInventoryComponentEntry=agentInventoryComponentEntry, agentInventorySFSAllowDowngrade=agentInventorySFSAllowDowngrade, agentInventoryComponentIndex=agentInventoryComponentIndex, agentInventorySFSFail=agentInventorySFSFail, fastPathInventory=fastPathInventory, agentInventoryComponentMnemonic=agentInventoryComponentMnemonic, agentInventoryUnitSFSLastAttemptStatus=agentInventoryUnitSFSLastAttemptStatus, agentInventoryUnitEntry=agentInventoryUnitEntry, agentInventoryStackGroup=agentInventoryStackGroup, agentInventoryCardUnsupported=agentInventoryCardUnsupported, agentInventorySlotEntry=agentInventorySlotEntry, agentInventoryCardTypeTable=agentInventoryCardTypeTable, agentInventoryUnitReplicateSTK=agentInventoryUnitReplicateSTK, agentInventoryStackPortLinkSpeed=agentInventoryStackPortLinkSpeed, agentInventoryCardModelIdentifier=agentInventoryCardModelIdentifier, fastPathInventoryCompliances=fastPathInventoryCompliances, agentInventoryUnitType=agentInventoryUnitType, fastPathInventoryCompliance=fastPathInventoryCompliance, agentInventoryStackReplicateSTKStatus=agentInventoryStackReplicateSTKStatus, agentInventorySupportedUnitEntry=agentInventorySupportedUnitEntry, agentInventoryUnitReplicateSTKStatus=agentInventoryUnitReplicateSTKStatus, agentInventoryStackMaxUnitNumber=agentInventoryStackMaxUnitNumber, agentInventoryStackActivateSTK=agentInventoryStackActivateSTK, agentInventoryStackPortTotalErrors=agentInventoryStackPortTotalErrors, agentInventoryStackPortDataRate=agentInventoryStackPortDataRate, fastPathInventoryCardGroup=fastPathInventoryCardGroup, agentInventoryUnitImage1Version=agentInventoryUnitImage1Version, agentInventoryUnitStandby=agentInventoryUnitStandby, fastPathInventorySlotGroup=fastPathInventorySlotGroup, fastPathInventorySupportedUnitGroup=fastPathInventorySupportedUnitGroup, agentInventorySFSComplete=agentInventorySFSComplete, agentInventorySlotConfiguredCardType=agentInventorySlotConfiguredCardType, agentInventorySupportedUnitIndex=agentInventorySupportedUnitIndex, agentInventoryStackPortUnit=agentInventoryStackPortUnit, agentInventorySlotAdminMode=agentInventorySlotAdminMode, agentInventorySupportedUnitTable=agentInventorySupportedUnitTable, fastPathInventoryNotificationsGroup=fastPathInventoryNotificationsGroup, fastPathInventoryCompliance2=fastPathInventoryCompliance2, agentInventoryCardTypeEntry=agentInventoryCardTypeEntry, agentInventoryCardMismatch=agentInventoryCardMismatch, agentInventoryStackDeleteSTK=agentInventoryStackDeleteSTK, agentInventorySlotNumber=agentInventorySlotNumber, agentInventoryUnitNumber=agentInventoryUnitNumber, agentInventoryUnitDeleteSTK=agentInventoryUnitDeleteSTK, agentInventoryStackPortGroup=agentInventoryStackPortGroup, agentInventoryStackPortTag=agentInventoryStackPortTag, fastPathInventoryConformance=fastPathInventoryConformance, agentInventoryUnitGroup=agentInventoryUnitGroup, agentInventoryUnitStatus=agentInventoryUnitStatus, agentInventorySlotPowerMode=agentInventorySlotPowerMode, agentInventorySlotInsertedCardType=agentInventorySlotInsertedCardType, agentInventoryStackReload=agentInventoryStackReload, agentInventoryStackSTKname=agentInventoryStackSTKname, agentInventoryUnitSupportedUnitIndex=agentInventoryUnitSupportedUnitIndex, AgentInventoryUnitPreference=AgentInventoryUnitPreference, agentInventoryUnitTable=agentInventoryUnitTable, agentInventoryCardDescription=agentInventoryCardDescription)

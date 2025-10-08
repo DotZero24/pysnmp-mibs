@@ -1,57 +1,44 @@
-_F='tBgpPeerNgUseSvcRoutes'
-_E='bgp4PathAttrExtnEntry'
-_D='tBgpPeerNgParamsExtnEntry'
-_C='TruthValue'
-_B='TIMETRA-SAS-BGP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-bgp4PathAttrEntry,=mibBuilder.importSymbols('BGP4-MIB','bgp4PathAttrEntry')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TestAndIncr,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TestAndIncr','TimeStamp',_C)
-tBgpPeerNgParamsEntry,=mibBuilder.importSymbols('TIMETRA-BGP-MIB','tBgpPeerNgParamsEntry')
-timetraSASConfs,timetraSASModules,timetraSASNotifyPrefix,timetraSASObjs=mibBuilder.importSymbols('TIMETRA-SAS-GLOBAL-MIB','timetraSASConfs','timetraSASModules','timetraSASNotifyPrefix','timetraSASObjs')
-timetraSASBgpMIBModule=ModuleIdentity((1,3,6,1,4,1,6527,6,2,1,1,15))
-if mibBuilder.loadTexts:timetraSASBgpMIBModule.setRevisions(('1913-11-01 00:00',))
-_TmnxSASBgpConformance_ObjectIdentity=ObjectIdentity
-tmnxSASBgpConformance=_TmnxSASBgpConformance_ObjectIdentity((1,3,6,1,4,1,6527,6,2,2,1,14))
-_TmnxSASBgpGroups_ObjectIdentity=ObjectIdentity
-tmnxSASBgpGroups=_TmnxSASBgpGroups_ObjectIdentity((1,3,6,1,4,1,6527,6,2,2,1,14,1))
-_TmnxSASBgpObjects_ObjectIdentity=ObjectIdentity
-tmnxSASBgpObjects=_TmnxSASBgpObjects_ObjectIdentity((1,3,6,1,4,1,6527,6,2,2,2,18))
-_TBgpSASPeerObjects_ObjectIdentity=ObjectIdentity
-tBgpSASPeerObjects=_TBgpSASPeerObjects_ObjectIdentity((1,3,6,1,4,1,6527,6,2,2,2,18,1))
-_TBgpPeerNgParamsExtnTable_Object=MibTable
-tBgpPeerNgParamsExtnTable=_TBgpPeerNgParamsExtnTable_Object((1,3,6,1,4,1,6527,6,2,2,2,18,1,10))
-if mibBuilder.loadTexts:tBgpPeerNgParamsExtnTable.setStatus(_A)
-_TBgpPeerNgParamsExtnEntry_Object=MibTableRow
-tBgpPeerNgParamsExtnEntry=_TBgpPeerNgParamsExtnEntry_Object((1,3,6,1,4,1,6527,6,2,2,2,18,1,10,1))
-if mibBuilder.loadTexts:tBgpPeerNgParamsExtnEntry.setStatus(_A)
-class _TBgpPeerNgUseSvcRoutes_Type(TruthValue):defaultValue=2
-_TBgpPeerNgUseSvcRoutes_Type.__name__=_C
-_TBgpPeerNgUseSvcRoutes_Object=MibTableColumn
-tBgpPeerNgUseSvcRoutes=_TBgpPeerNgUseSvcRoutes_Object((1,3,6,1,4,1,6527,6,2,2,2,18,1,10,1,1),_TBgpPeerNgUseSvcRoutes_Type())
-tBgpPeerNgUseSvcRoutes.setMaxAccess('read-create')
-if mibBuilder.loadTexts:tBgpPeerNgUseSvcRoutes.setStatus(_A)
-_Bgp4PathAttrExtnTable_Object=MibTable
-bgp4PathAttrExtnTable=_Bgp4PathAttrExtnTable_Object((1,3,6,1,4,1,6527,6,2,2,2,18,1,11))
-if mibBuilder.loadTexts:bgp4PathAttrExtnTable.setStatus(_A)
-_Bgp4PathAttrExtnEntry_Object=MibTableRow
-bgp4PathAttrExtnEntry=_Bgp4PathAttrExtnEntry_Object((1,3,6,1,4,1,6527,6,2,2,2,18,1,11,1))
-if mibBuilder.loadTexts:bgp4PathAttrExtnEntry.setStatus(_A)
-_Bgp4PathUseSvcRoutesOpt_Type=TruthValue
-_Bgp4PathUseSvcRoutesOpt_Object=MibTableColumn
-bgp4PathUseSvcRoutesOpt=_Bgp4PathUseSvcRoutesOpt_Object((1,3,6,1,4,1,6527,6,2,2,2,18,1,11,1,1),_Bgp4PathUseSvcRoutesOpt_Type())
-bgp4PathUseSvcRoutesOpt.setMaxAccess('read-only')
-if mibBuilder.loadTexts:bgp4PathUseSvcRoutesOpt.setStatus(_A)
-tBgpPeerNgParamsEntry.registerAugmentions((_B,_D))
+#
+# PySNMP MIB module TIMETRA-SAS-BGP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TIMETRA-SAS-BGP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:18:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+bgp4PathAttrEntry, = mibBuilder.importSymbols("BGP4-MIB", "bgp4PathAttrEntry")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, RowStatus, TestAndIncr, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "TestAndIncr", "TruthValue", "TextualConvention")
+tBgpPeerNgParamsEntry, = mibBuilder.importSymbols("TIMETRA-BGP-MIB", "tBgpPeerNgParamsEntry")
+timetraSASObjs, timetraSASConfs, timetraSASModules, timetraSASNotifyPrefix = mibBuilder.importSymbols("TIMETRA-SAS-GLOBAL-MIB", "timetraSASObjs", "timetraSASConfs", "timetraSASModules", "timetraSASNotifyPrefix")
+timetraSASBgpMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 2, 1, 1, 15))
+timetraSASBgpMIBModule.setRevisions(('1913-11-01 00:00',))
+if mibBuilder.loadTexts: timetraSASBgpMIBModule.setLastUpdated('201102010000Z')
+if mibBuilder.loadTexts: timetraSASBgpMIBModule.setOrganization('Alcatel-Lucent')
+tmnxSASBgpObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 18))
+tBgpSASPeerObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 18, 1))
+tmnxSASBgpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 1, 14))
+tmnxSASBgpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 1, 14, 1))
+tBgpPeerNgParamsExtnTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 18, 1, 10), )
+if mibBuilder.loadTexts: tBgpPeerNgParamsExtnTable.setStatus('current')
+tBgpPeerNgParamsExtnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 18, 1, 10, 1), )
+tBgpPeerNgParamsEntry.registerAugmentions(("TIMETRA-SAS-BGP-MIB", "tBgpPeerNgParamsExtnEntry"))
 tBgpPeerNgParamsExtnEntry.setIndexNames(*tBgpPeerNgParamsEntry.getIndexNames())
-bgp4PathAttrEntry.registerAugmentions((_B,_E))
+if mibBuilder.loadTexts: tBgpPeerNgParamsExtnEntry.setStatus('current')
+tBgpPeerNgUseSvcRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 18, 1, 10, 1, 1), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tBgpPeerNgUseSvcRoutes.setStatus('current')
+bgp4PathAttrExtnTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 18, 1, 11), )
+if mibBuilder.loadTexts: bgp4PathAttrExtnTable.setStatus('current')
+bgp4PathAttrExtnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 18, 1, 11, 1), )
+bgp4PathAttrEntry.registerAugmentions(("TIMETRA-SAS-BGP-MIB", "bgp4PathAttrExtnEntry"))
 bgp4PathAttrExtnEntry.setIndexNames(*bgp4PathAttrEntry.getIndexNames())
-tmnxSASBgpGlobalV7v0Group=ObjectGroup((1,3,6,1,4,1,6527,6,2,2,1,14,1,1))
-tmnxSASBgpGlobalV7v0Group.setObjects((_B,_F))
-if mibBuilder.loadTexts:tmnxSASBgpGlobalV7v0Group.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'timetraSASBgpMIBModule':timetraSASBgpMIBModule,'tmnxSASBgpConformance':tmnxSASBgpConformance,'tmnxSASBgpGroups':tmnxSASBgpGroups,'tmnxSASBgpGlobalV7v0Group':tmnxSASBgpGlobalV7v0Group,'tmnxSASBgpObjects':tmnxSASBgpObjects,'tBgpSASPeerObjects':tBgpSASPeerObjects,'tBgpPeerNgParamsExtnTable':tBgpPeerNgParamsExtnTable,_D:tBgpPeerNgParamsExtnEntry,_F:tBgpPeerNgUseSvcRoutes,'bgp4PathAttrExtnTable':bgp4PathAttrExtnTable,_E:bgp4PathAttrExtnEntry,'bgp4PathUseSvcRoutesOpt':bgp4PathUseSvcRoutesOpt})
+if mibBuilder.loadTexts: bgp4PathAttrExtnEntry.setStatus('current')
+bgp4PathUseSvcRoutesOpt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 18, 1, 11, 1, 1), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bgp4PathUseSvcRoutesOpt.setStatus('current')
+tmnxSASBgpGlobalV7v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 1, 14, 1, 1)).setObjects(("TIMETRA-SAS-BGP-MIB", "tBgpPeerNgUseSvcRoutes"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxSASBgpGlobalV7v0Group = tmnxSASBgpGlobalV7v0Group.setStatus('current')
+mibBuilder.exportSymbols("TIMETRA-SAS-BGP-MIB", tBgpPeerNgUseSvcRoutes=tBgpPeerNgUseSvcRoutes, tBgpPeerNgParamsExtnEntry=tBgpPeerNgParamsExtnEntry, bgp4PathAttrExtnTable=bgp4PathAttrExtnTable, tBgpPeerNgParamsExtnTable=tBgpPeerNgParamsExtnTable, tmnxSASBgpGlobalV7v0Group=tmnxSASBgpGlobalV7v0Group, tmnxSASBgpObjects=tmnxSASBgpObjects, tmnxSASBgpConformance=tmnxSASBgpConformance, PYSNMP_MODULE_ID=timetraSASBgpMIBModule, tmnxSASBgpGroups=tmnxSASBgpGroups, bgp4PathAttrExtnEntry=bgp4PathAttrExtnEntry, bgp4PathUseSvcRoutesOpt=bgp4PathUseSvcRoutesOpt, tBgpSASPeerObjects=tBgpSASPeerObjects, timetraSASBgpMIBModule=timetraSASBgpMIBModule)

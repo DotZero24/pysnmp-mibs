@@ -1,188 +1,95 @@
-_f='heOpAmpOutputTableGroup'
-_e='heOpAmpLaserTableGroup'
-_d='heOpAmpInputTableGroup'
-_c='heOpAmpUnitTableGroup'
-_b='heOpAmpOutputMandatoryGroup'
-_a='heOpAmpInputMandatoryGroup'
-_Z='heOpAmpUnitMandatoryGroup'
-_Y='heOpAmpOutputGainType'
-_X='heOpAmpGainPerWavelength'
-_W='heOpAmpSetOpticalOutputPower'
-_V='heOpAmpLaserType'
-_U='heOpAmpLaserTECCurrent'
-_T='heOpAmpLaserOutputPower'
-_S='heOpAmpLaserBiasCurrent'
-_R='heOpAmpLaserTemp'
-_Q='heOpAmpUnitOnOffControl'
-_P='heOpAmpOutputIndex'
-_O='1.0 mA'
-_N='heOpAmpLaserIndex'
-_M='heOpAmpInputIndex'
-_L='Integer32'
-_K='heOpAmpOutputPower'
-_J='heOpAmpInputPower'
-_I='heOpAmpUnitOutputStatus'
-_H='not-accessible'
-_G='read-write'
-_F='0.1 dBm'
-_E='entPhysicalIndex'
-_D='ENTITY-MIB'
-_C='read-only'
-_B='SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-entPhysicalIndex,=mibBuilder.importSymbols(_D,_E)
-heOpticalAmplifierGroup,=mibBuilder.importSymbols('SCTE-HMS-HE-OPTICS-MIB','heOpticalAmplifierGroup')
-HeLaserType,HeMilliAmp,HeOnOffControl,HeOnOffStatus,HeTenthCentigrade,HeTenthdB,HeTenthdBm=mibBuilder.importSymbols('SCTE-HMS-HEADENDIDENT-MIB','HeLaserType','HeMilliAmp','HeOnOffControl','HeOnOffStatus','HeTenthCentigrade','HeTenthdB','HeTenthdBm')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_L,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-heOpticalAmplifierMIB=ModuleIdentity((1,3,6,1,4,1,5591,1,11,1,3,1))
-_HeOpAmpMIBObjects_ObjectIdentity=ObjectIdentity
-heOpAmpMIBObjects=_HeOpAmpMIBObjects_ObjectIdentity((1,3,6,1,4,1,5591,1,11,1,3,1,1))
-_HeOpAmpUnitTable_Object=MibTable
-heOpAmpUnitTable=_HeOpAmpUnitTable_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,1))
-if mibBuilder.loadTexts:heOpAmpUnitTable.setStatus(_A)
-_HeOpAmpUnitEntry_Object=MibTableRow
-heOpAmpUnitEntry=_HeOpAmpUnitEntry_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,1,1))
-heOpAmpUnitEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:heOpAmpUnitEntry.setStatus(_A)
-_HeOpAmpUnitOutputStatus_Type=HeOnOffStatus
-_HeOpAmpUnitOutputStatus_Object=MibTableColumn
-heOpAmpUnitOutputStatus=_HeOpAmpUnitOutputStatus_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,1,1,1),_HeOpAmpUnitOutputStatus_Type())
-heOpAmpUnitOutputStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:heOpAmpUnitOutputStatus.setStatus(_A)
-_HeOpAmpUnitOnOffControl_Type=HeOnOffControl
-_HeOpAmpUnitOnOffControl_Object=MibTableColumn
-heOpAmpUnitOnOffControl=_HeOpAmpUnitOnOffControl_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,1,1,2),_HeOpAmpUnitOnOffControl_Type())
-heOpAmpUnitOnOffControl.setMaxAccess(_G)
-if mibBuilder.loadTexts:heOpAmpUnitOnOffControl.setStatus(_A)
-_HeOpAmpInputTable_Object=MibTable
-heOpAmpInputTable=_HeOpAmpInputTable_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,2))
-if mibBuilder.loadTexts:heOpAmpInputTable.setStatus(_A)
-_HeOpAmpInputEntry_Object=MibTableRow
-heOpAmpInputEntry=_HeOpAmpInputEntry_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,2,1))
-heOpAmpInputEntry.setIndexNames((0,_D,_E),(0,_B,_M))
-if mibBuilder.loadTexts:heOpAmpInputEntry.setStatus(_A)
-_HeOpAmpInputIndex_Type=Unsigned32
-_HeOpAmpInputIndex_Object=MibTableColumn
-heOpAmpInputIndex=_HeOpAmpInputIndex_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,2,1,1),_HeOpAmpInputIndex_Type())
-heOpAmpInputIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:heOpAmpInputIndex.setStatus(_A)
-_HeOpAmpInputPower_Type=HeTenthdBm
-_HeOpAmpInputPower_Object=MibTableColumn
-heOpAmpInputPower=_HeOpAmpInputPower_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,2,1,2),_HeOpAmpInputPower_Type())
-heOpAmpInputPower.setMaxAccess(_C)
-if mibBuilder.loadTexts:heOpAmpInputPower.setStatus(_A)
-if mibBuilder.loadTexts:heOpAmpInputPower.setUnits(_F)
-_HeOpAmpLaserTable_Object=MibTable
-heOpAmpLaserTable=_HeOpAmpLaserTable_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,3))
-if mibBuilder.loadTexts:heOpAmpLaserTable.setStatus(_A)
-_HeOpAmpLaserEntry_Object=MibTableRow
-heOpAmpLaserEntry=_HeOpAmpLaserEntry_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,3,1))
-heOpAmpLaserEntry.setIndexNames((0,_D,_E),(0,_B,_N))
-if mibBuilder.loadTexts:heOpAmpLaserEntry.setStatus(_A)
-_HeOpAmpLaserIndex_Type=Unsigned32
-_HeOpAmpLaserIndex_Object=MibTableColumn
-heOpAmpLaserIndex=_HeOpAmpLaserIndex_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,3,1,1),_HeOpAmpLaserIndex_Type())
-heOpAmpLaserIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:heOpAmpLaserIndex.setStatus(_A)
-_HeOpAmpLaserTemp_Type=HeTenthCentigrade
-_HeOpAmpLaserTemp_Object=MibTableColumn
-heOpAmpLaserTemp=_HeOpAmpLaserTemp_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,3,1,2),_HeOpAmpLaserTemp_Type())
-heOpAmpLaserTemp.setMaxAccess(_C)
-if mibBuilder.loadTexts:heOpAmpLaserTemp.setStatus(_A)
-if mibBuilder.loadTexts:heOpAmpLaserTemp.setUnits('0.1 degrees Celsius')
-_HeOpAmpLaserBiasCurrent_Type=HeMilliAmp
-_HeOpAmpLaserBiasCurrent_Object=MibTableColumn
-heOpAmpLaserBiasCurrent=_HeOpAmpLaserBiasCurrent_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,3,1,3),_HeOpAmpLaserBiasCurrent_Type())
-heOpAmpLaserBiasCurrent.setMaxAccess(_C)
-if mibBuilder.loadTexts:heOpAmpLaserBiasCurrent.setStatus(_A)
-if mibBuilder.loadTexts:heOpAmpLaserBiasCurrent.setUnits(_O)
-_HeOpAmpLaserOutputPower_Type=HeTenthdBm
-_HeOpAmpLaserOutputPower_Object=MibTableColumn
-heOpAmpLaserOutputPower=_HeOpAmpLaserOutputPower_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,3,1,4),_HeOpAmpLaserOutputPower_Type())
-heOpAmpLaserOutputPower.setMaxAccess(_C)
-if mibBuilder.loadTexts:heOpAmpLaserOutputPower.setStatus(_A)
-if mibBuilder.loadTexts:heOpAmpLaserOutputPower.setUnits(_F)
-_HeOpAmpLaserTECCurrent_Type=HeMilliAmp
-_HeOpAmpLaserTECCurrent_Object=MibTableColumn
-heOpAmpLaserTECCurrent=_HeOpAmpLaserTECCurrent_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,3,1,5),_HeOpAmpLaserTECCurrent_Type())
-heOpAmpLaserTECCurrent.setMaxAccess(_C)
-if mibBuilder.loadTexts:heOpAmpLaserTECCurrent.setStatus(_A)
-if mibBuilder.loadTexts:heOpAmpLaserTECCurrent.setUnits(_O)
-_HeOpAmpLaserType_Type=HeLaserType
-_HeOpAmpLaserType_Object=MibTableColumn
-heOpAmpLaserType=_HeOpAmpLaserType_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,3,1,6),_HeOpAmpLaserType_Type())
-heOpAmpLaserType.setMaxAccess(_C)
-if mibBuilder.loadTexts:heOpAmpLaserType.setStatus(_A)
-_HeOpAmpOutputTable_Object=MibTable
-heOpAmpOutputTable=_HeOpAmpOutputTable_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,4))
-if mibBuilder.loadTexts:heOpAmpOutputTable.setStatus(_A)
-_HeOpAmpOutputEntry_Object=MibTableRow
-heOpAmpOutputEntry=_HeOpAmpOutputEntry_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,4,1))
-heOpAmpOutputEntry.setIndexNames((0,_D,_E),(0,_B,_P))
-if mibBuilder.loadTexts:heOpAmpOutputEntry.setStatus(_A)
-_HeOpAmpOutputIndex_Type=Unsigned32
-_HeOpAmpOutputIndex_Object=MibTableColumn
-heOpAmpOutputIndex=_HeOpAmpOutputIndex_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,4,1,1),_HeOpAmpOutputIndex_Type())
-heOpAmpOutputIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:heOpAmpOutputIndex.setStatus(_A)
-_HeOpAmpSetOpticalOutputPower_Type=HeTenthdBm
-_HeOpAmpSetOpticalOutputPower_Object=MibTableColumn
-heOpAmpSetOpticalOutputPower=_HeOpAmpSetOpticalOutputPower_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,4,1,2),_HeOpAmpSetOpticalOutputPower_Type())
-heOpAmpSetOpticalOutputPower.setMaxAccess(_G)
-if mibBuilder.loadTexts:heOpAmpSetOpticalOutputPower.setStatus(_A)
-if mibBuilder.loadTexts:heOpAmpSetOpticalOutputPower.setUnits(_F)
-_HeOpAmpGainPerWavelength_Type=HeTenthdB
-_HeOpAmpGainPerWavelength_Object=MibTableColumn
-heOpAmpGainPerWavelength=_HeOpAmpGainPerWavelength_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,4,1,3),_HeOpAmpGainPerWavelength_Type())
-heOpAmpGainPerWavelength.setMaxAccess(_G)
-if mibBuilder.loadTexts:heOpAmpGainPerWavelength.setStatus(_A)
-if mibBuilder.loadTexts:heOpAmpGainPerWavelength.setUnits(_F)
-_HeOpAmpOutputPower_Type=HeTenthdBm
-_HeOpAmpOutputPower_Object=MibTableColumn
-heOpAmpOutputPower=_HeOpAmpOutputPower_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,4,1,4),_HeOpAmpOutputPower_Type())
-heOpAmpOutputPower.setMaxAccess(_C)
-if mibBuilder.loadTexts:heOpAmpOutputPower.setStatus(_A)
-if mibBuilder.loadTexts:heOpAmpOutputPower.setUnits(_F)
-class _HeOpAmpOutputGainType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('constantPower',1),('constantGain',2)))
-_HeOpAmpOutputGainType_Type.__name__=_L
-_HeOpAmpOutputGainType_Object=MibTableColumn
-heOpAmpOutputGainType=_HeOpAmpOutputGainType_Object((1,3,6,1,4,1,5591,1,11,1,3,1,1,4,1,5),_HeOpAmpOutputGainType_Type())
-heOpAmpOutputGainType.setMaxAccess(_G)
-if mibBuilder.loadTexts:heOpAmpOutputGainType.setStatus(_A)
-_HeOpAmpMIBConformance_ObjectIdentity=ObjectIdentity
-heOpAmpMIBConformance=_HeOpAmpMIBConformance_ObjectIdentity((1,3,6,1,4,1,5591,1,11,1,3,1,2))
-_HeOpAmpMIBCompliances_ObjectIdentity=ObjectIdentity
-heOpAmpMIBCompliances=_HeOpAmpMIBCompliances_ObjectIdentity((1,3,6,1,4,1,5591,1,11,1,3,1,2,1))
-_HeOpAmpMIBGroups_ObjectIdentity=ObjectIdentity
-heOpAmpMIBGroups=_HeOpAmpMIBGroups_ObjectIdentity((1,3,6,1,4,1,5591,1,11,1,3,1,2,2))
-heOpAmpUnitMandatoryGroup=ObjectGroup((1,3,6,1,4,1,5591,1,11,1,3,1,2,2,1))
-heOpAmpUnitMandatoryGroup.setObjects((_B,_I))
-if mibBuilder.loadTexts:heOpAmpUnitMandatoryGroup.setStatus(_A)
-heOpAmpInputMandatoryGroup=ObjectGroup((1,3,6,1,4,1,5591,1,11,1,3,1,2,2,2))
-heOpAmpInputMandatoryGroup.setObjects((_B,_J))
-if mibBuilder.loadTexts:heOpAmpInputMandatoryGroup.setStatus(_A)
-heOpAmpOutputMandatoryGroup=ObjectGroup((1,3,6,1,4,1,5591,1,11,1,3,1,2,2,3))
-heOpAmpOutputMandatoryGroup.setObjects((_B,_K))
-if mibBuilder.loadTexts:heOpAmpOutputMandatoryGroup.setStatus(_A)
-heOpAmpUnitTableGroup=ObjectGroup((1,3,6,1,4,1,5591,1,11,1,3,1,2,2,4))
-heOpAmpUnitTableGroup.setObjects(*((_B,_I),(_B,_Q)))
-if mibBuilder.loadTexts:heOpAmpUnitTableGroup.setStatus(_A)
-heOpAmpInputTableGroup=ObjectGroup((1,3,6,1,4,1,5591,1,11,1,3,1,2,2,5))
-heOpAmpInputTableGroup.setObjects((_B,_J))
-if mibBuilder.loadTexts:heOpAmpInputTableGroup.setStatus(_A)
-heOpAmpLaserTableGroup=ObjectGroup((1,3,6,1,4,1,5591,1,11,1,3,1,2,2,6))
-heOpAmpLaserTableGroup.setObjects(*((_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:heOpAmpLaserTableGroup.setStatus(_A)
-heOpAmpOutputTableGroup=ObjectGroup((1,3,6,1,4,1,5591,1,11,1,3,1,2,2,7))
-heOpAmpOutputTableGroup.setObjects(*((_B,_W),(_B,_X),(_B,_K),(_B,_Y)))
-if mibBuilder.loadTexts:heOpAmpOutputTableGroup.setStatus(_A)
-heOpAmpCompliance=ModuleCompliance((1,3,6,1,4,1,5591,1,11,1,3,1,2,1,1))
-heOpAmpCompliance.setObjects(*((_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f)))
-if mibBuilder.loadTexts:heOpAmpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'heOpticalAmplifierMIB':heOpticalAmplifierMIB,'heOpAmpMIBObjects':heOpAmpMIBObjects,'heOpAmpUnitTable':heOpAmpUnitTable,'heOpAmpUnitEntry':heOpAmpUnitEntry,_I:heOpAmpUnitOutputStatus,_Q:heOpAmpUnitOnOffControl,'heOpAmpInputTable':heOpAmpInputTable,'heOpAmpInputEntry':heOpAmpInputEntry,_M:heOpAmpInputIndex,_J:heOpAmpInputPower,'heOpAmpLaserTable':heOpAmpLaserTable,'heOpAmpLaserEntry':heOpAmpLaserEntry,_N:heOpAmpLaserIndex,_R:heOpAmpLaserTemp,_S:heOpAmpLaserBiasCurrent,_T:heOpAmpLaserOutputPower,_U:heOpAmpLaserTECCurrent,_V:heOpAmpLaserType,'heOpAmpOutputTable':heOpAmpOutputTable,'heOpAmpOutputEntry':heOpAmpOutputEntry,_P:heOpAmpOutputIndex,_W:heOpAmpSetOpticalOutputPower,_X:heOpAmpGainPerWavelength,_K:heOpAmpOutputPower,_Y:heOpAmpOutputGainType,'heOpAmpMIBConformance':heOpAmpMIBConformance,'heOpAmpMIBCompliances':heOpAmpMIBCompliances,'heOpAmpCompliance':heOpAmpCompliance,'heOpAmpMIBGroups':heOpAmpMIBGroups,_Z:heOpAmpUnitMandatoryGroup,_a:heOpAmpInputMandatoryGroup,_b:heOpAmpOutputMandatoryGroup,_c:heOpAmpUnitTableGroup,_d:heOpAmpInputTableGroup,_e:heOpAmpLaserTableGroup,_f:heOpAmpOutputTableGroup})
+#
+# PySNMP MIB module SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/scte/SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:40 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+heOpticalAmplifierGroup, = mibBuilder.importSymbols("SCTE-HMS-HE-OPTICS-MIB", "heOpticalAmplifierGroup")
+HeTenthCentigrade, HeLaserType, HeOnOffStatus, HeTenthdB, HeTenthdBm, HeMilliAmp, HeOnOffControl = mibBuilder.importSymbols("SCTE-HMS-HEADENDIDENT-MIB", "HeTenthCentigrade", "HeLaserType", "HeOnOffStatus", "HeTenthdB", "HeTenthdBm", "HeMilliAmp", "HeOnOffControl")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+heOpticalAmplifierMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1))
+if mibBuilder.loadTexts: heOpticalAmplifierMIB.setLastUpdated('200312100000Z')
+if mibBuilder.loadTexts: heOpticalAmplifierMIB.setOrganization('SCTE HMS Working Group')
+heOpAmpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1))
+heOpAmpUnitTable = MibTable((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 1), )
+if mibBuilder.loadTexts: heOpAmpUnitTable.setStatus('current')
+heOpAmpUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: heOpAmpUnitEntry.setStatus('current')
+heOpAmpUnitOutputStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 1, 1, 1), HeOnOffStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: heOpAmpUnitOutputStatus.setStatus('current')
+heOpAmpUnitOnOffControl = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 1, 1, 2), HeOnOffControl()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: heOpAmpUnitOnOffControl.setStatus('current')
+heOpAmpInputTable = MibTable((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 2), )
+if mibBuilder.loadTexts: heOpAmpInputTable.setStatus('current')
+heOpAmpInputEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpInputIndex"))
+if mibBuilder.loadTexts: heOpAmpInputEntry.setStatus('current')
+heOpAmpInputIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: heOpAmpInputIndex.setStatus('current')
+heOpAmpInputPower = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 2, 1, 2), HeTenthdBm()).setUnits('0.1 dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: heOpAmpInputPower.setStatus('current')
+heOpAmpLaserTable = MibTable((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 3), )
+if mibBuilder.loadTexts: heOpAmpLaserTable.setStatus('current')
+heOpAmpLaserEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 3, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpLaserIndex"))
+if mibBuilder.loadTexts: heOpAmpLaserEntry.setStatus('current')
+heOpAmpLaserIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 3, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: heOpAmpLaserIndex.setStatus('current')
+heOpAmpLaserTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 3, 1, 2), HeTenthCentigrade()).setUnits('0.1 degrees Celsius').setMaxAccess("readonly")
+if mibBuilder.loadTexts: heOpAmpLaserTemp.setStatus('current')
+heOpAmpLaserBiasCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 3, 1, 3), HeMilliAmp()).setUnits('1.0 mA').setMaxAccess("readonly")
+if mibBuilder.loadTexts: heOpAmpLaserBiasCurrent.setStatus('current')
+heOpAmpLaserOutputPower = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 3, 1, 4), HeTenthdBm()).setUnits('0.1 dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: heOpAmpLaserOutputPower.setStatus('current')
+heOpAmpLaserTECCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 3, 1, 5), HeMilliAmp()).setUnits('1.0 mA').setMaxAccess("readonly")
+if mibBuilder.loadTexts: heOpAmpLaserTECCurrent.setStatus('current')
+heOpAmpLaserType = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 3, 1, 6), HeLaserType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: heOpAmpLaserType.setStatus('current')
+heOpAmpOutputTable = MibTable((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 4), )
+if mibBuilder.loadTexts: heOpAmpOutputTable.setStatus('current')
+heOpAmpOutputEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 4, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpOutputIndex"))
+if mibBuilder.loadTexts: heOpAmpOutputEntry.setStatus('current')
+heOpAmpOutputIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 4, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: heOpAmpOutputIndex.setStatus('current')
+heOpAmpSetOpticalOutputPower = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 4, 1, 2), HeTenthdBm()).setUnits('0.1 dBm').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: heOpAmpSetOpticalOutputPower.setStatus('current')
+heOpAmpGainPerWavelength = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 4, 1, 3), HeTenthdB()).setUnits('0.1 dBm').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: heOpAmpGainPerWavelength.setStatus('current')
+heOpAmpOutputPower = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 4, 1, 4), HeTenthdBm()).setUnits('0.1 dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: heOpAmpOutputPower.setStatus('current')
+heOpAmpOutputGainType = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("constantPower", 1), ("constantGain", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: heOpAmpOutputGainType.setStatus('current')
+heOpAmpMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 2))
+heOpAmpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 2, 1))
+heOpAmpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 2, 2))
+heOpAmpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 2, 1, 1)).setObjects(("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpUnitMandatoryGroup"), ("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpInputMandatoryGroup"), ("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpOutputMandatoryGroup"), ("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpUnitTableGroup"), ("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpInputTableGroup"), ("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpLaserTableGroup"), ("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpOutputTableGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    heOpAmpCompliance = heOpAmpCompliance.setStatus('current')
+heOpAmpUnitMandatoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 2, 2, 1)).setObjects(("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpUnitOutputStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    heOpAmpUnitMandatoryGroup = heOpAmpUnitMandatoryGroup.setStatus('current')
+heOpAmpInputMandatoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 2, 2, 2)).setObjects(("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpInputPower"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    heOpAmpInputMandatoryGroup = heOpAmpInputMandatoryGroup.setStatus('current')
+heOpAmpOutputMandatoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 2, 2, 3)).setObjects(("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpOutputPower"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    heOpAmpOutputMandatoryGroup = heOpAmpOutputMandatoryGroup.setStatus('current')
+heOpAmpUnitTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 2, 2, 4)).setObjects(("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpUnitOutputStatus"), ("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpUnitOnOffControl"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    heOpAmpUnitTableGroup = heOpAmpUnitTableGroup.setStatus('current')
+heOpAmpInputTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 2, 2, 5)).setObjects(("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpInputPower"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    heOpAmpInputTableGroup = heOpAmpInputTableGroup.setStatus('current')
+heOpAmpLaserTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 2, 2, 6)).setObjects(("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpLaserTemp"), ("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpLaserBiasCurrent"), ("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpLaserOutputPower"), ("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpLaserTECCurrent"), ("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpLaserType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    heOpAmpLaserTableGroup = heOpAmpLaserTableGroup.setStatus('current')
+heOpAmpOutputTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5591, 1, 11, 1, 3, 1, 2, 2, 7)).setObjects(("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpSetOpticalOutputPower"), ("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpGainPerWavelength"), ("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpOutputPower"), ("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", "heOpAmpOutputGainType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    heOpAmpOutputTableGroup = heOpAmpOutputTableGroup.setStatus('current')
+mibBuilder.exportSymbols("SCTE-HMS-HE-OPTICAL-AMPLIFIER-MIB", heOpAmpOutputPower=heOpAmpOutputPower, heOpAmpLaserEntry=heOpAmpLaserEntry, heOpAmpLaserOutputPower=heOpAmpLaserOutputPower, heOpAmpOutputMandatoryGroup=heOpAmpOutputMandatoryGroup, heOpAmpLaserType=heOpAmpLaserType, heOpAmpSetOpticalOutputPower=heOpAmpSetOpticalOutputPower, heOpAmpMIBCompliances=heOpAmpMIBCompliances, heOpAmpUnitMandatoryGroup=heOpAmpUnitMandatoryGroup, heOpAmpUnitEntry=heOpAmpUnitEntry, heOpAmpOutputGainType=heOpAmpOutputGainType, heOpAmpLaserTable=heOpAmpLaserTable, heOpAmpInputIndex=heOpAmpInputIndex, heOpAmpLaserTemp=heOpAmpLaserTemp, heOpAmpInputMandatoryGroup=heOpAmpInputMandatoryGroup, heOpAmpUnitTableGroup=heOpAmpUnitTableGroup, heOpAmpOutputTable=heOpAmpOutputTable, heOpAmpInputPower=heOpAmpInputPower, heOpAmpUnitOnOffControl=heOpAmpUnitOnOffControl, heOpAmpLaserIndex=heOpAmpLaserIndex, heOpAmpInputEntry=heOpAmpInputEntry, heOpAmpMIBObjects=heOpAmpMIBObjects, heOpticalAmplifierMIB=heOpticalAmplifierMIB, heOpAmpMIBConformance=heOpAmpMIBConformance, heOpAmpOutputTableGroup=heOpAmpOutputTableGroup, heOpAmpCompliance=heOpAmpCompliance, heOpAmpOutputEntry=heOpAmpOutputEntry, heOpAmpLaserBiasCurrent=heOpAmpLaserBiasCurrent, heOpAmpInputTable=heOpAmpInputTable, heOpAmpLaserTableGroup=heOpAmpLaserTableGroup, heOpAmpLaserTECCurrent=heOpAmpLaserTECCurrent, heOpAmpMIBGroups=heOpAmpMIBGroups, PYSNMP_MODULE_ID=heOpticalAmplifierMIB, heOpAmpInputTableGroup=heOpAmpInputTableGroup, heOpAmpUnitTable=heOpAmpUnitTable, heOpAmpOutputIndex=heOpAmpOutputIndex, heOpAmpUnitOutputStatus=heOpAmpUnitOutputStatus, heOpAmpGainPerWavelength=heOpAmpGainPerWavelength)

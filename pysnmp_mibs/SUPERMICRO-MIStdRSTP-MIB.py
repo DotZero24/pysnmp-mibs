@@ -1,110 +1,63 @@
-_P='fsRstpPortGroup'
-_O='fsRstpBridgeGroup'
-_N='fsDot1dStpPortOperPointToPoint'
-_M='fsDot1dStpPortAdminPointToPoint'
-_L='fsDot1dStpPortOperEdgePort'
-_K='fsDot1dStpPortAdminEdgePort'
-_J='fsDot1dStpPortProtocolMigration'
-_I='fsDot1dStpTxHoldCount'
-_H='fsDot1dStpVersion'
-_G='fsDot1dStpExtPortEntry'
-_F='fsDot1dStpExtEntry'
-_E='read-only'
-_D='Integer32'
-_C='read-write'
-_B='SUPERMICRO-MIStdRSTP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-BridgeId,Timeout,fsDot1dBridge,fsDot1dStp,fsDot1dStpEntry,fsDot1dStpPortEntry=mibBuilder.importSymbols('SUPERMICRO-MIStdBRIDGE-MIB','BridgeId','Timeout','fsDot1dBridge','fsDot1dStp','fsDot1dStpEntry','fsDot1dStpPortEntry')
-fsRstpMIB=ModuleIdentity((1,3,6,1,4,1,10876,101,1,116,11))
-if mibBuilder.loadTexts:fsRstpMIB.setRevisions(('2012-09-05 00:00',))
-_FsDot1dStpExtTable_Object=MibTable
-fsDot1dStpExtTable=_FsDot1dStpExtTable_Object((1,3,6,1,4,1,10876,101,1,116,2,3))
-if mibBuilder.loadTexts:fsDot1dStpExtTable.setStatus(_A)
-_FsDot1dStpExtEntry_Object=MibTableRow
-fsDot1dStpExtEntry=_FsDot1dStpExtEntry_Object((1,3,6,1,4,1,10876,101,1,116,2,3,1))
-if mibBuilder.loadTexts:fsDot1dStpExtEntry.setStatus(_A)
-class _FsDot1dStpVersion_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,2)));namedValues=NamedValues(*(('stpCompatible',0),('rstp',2)))
-_FsDot1dStpVersion_Type.__name__=_D
-_FsDot1dStpVersion_Object=MibTableColumn
-fsDot1dStpVersion=_FsDot1dStpVersion_Object((1,3,6,1,4,1,10876,101,1,116,2,3,1,1),_FsDot1dStpVersion_Type())
-fsDot1dStpVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsDot1dStpVersion.setStatus(_A)
-class _FsDot1dStpTxHoldCount_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_FsDot1dStpTxHoldCount_Type.__name__=_D
-_FsDot1dStpTxHoldCount_Object=MibTableColumn
-fsDot1dStpTxHoldCount=_FsDot1dStpTxHoldCount_Object((1,3,6,1,4,1,10876,101,1,116,2,3,1,2),_FsDot1dStpTxHoldCount_Type())
-fsDot1dStpTxHoldCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsDot1dStpTxHoldCount.setStatus(_A)
-class _FsDot1dStpPathCostDefault_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('stp8021d1998',1),('stp8021t2001',2)))
-_FsDot1dStpPathCostDefault_Type.__name__=_D
-_FsDot1dStpPathCostDefault_Object=MibTableColumn
-fsDot1dStpPathCostDefault=_FsDot1dStpPathCostDefault_Object((1,3,6,1,4,1,10876,101,1,116,2,3,1,3),_FsDot1dStpPathCostDefault_Type())
-fsDot1dStpPathCostDefault.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsDot1dStpPathCostDefault.setStatus('obsolete')
-_FsDot1dStpExtPortTable_Object=MibTable
-fsDot1dStpExtPortTable=_FsDot1dStpExtPortTable_Object((1,3,6,1,4,1,10876,101,1,116,2,4))
-if mibBuilder.loadTexts:fsDot1dStpExtPortTable.setStatus(_A)
-_FsDot1dStpExtPortEntry_Object=MibTableRow
-fsDot1dStpExtPortEntry=_FsDot1dStpExtPortEntry_Object((1,3,6,1,4,1,10876,101,1,116,2,4,1))
-if mibBuilder.loadTexts:fsDot1dStpExtPortEntry.setStatus(_A)
-_FsDot1dStpPortProtocolMigration_Type=TruthValue
-_FsDot1dStpPortProtocolMigration_Object=MibTableColumn
-fsDot1dStpPortProtocolMigration=_FsDot1dStpPortProtocolMigration_Object((1,3,6,1,4,1,10876,101,1,116,2,4,1,1),_FsDot1dStpPortProtocolMigration_Type())
-fsDot1dStpPortProtocolMigration.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsDot1dStpPortProtocolMigration.setStatus(_A)
-_FsDot1dStpPortAdminEdgePort_Type=TruthValue
-_FsDot1dStpPortAdminEdgePort_Object=MibTableColumn
-fsDot1dStpPortAdminEdgePort=_FsDot1dStpPortAdminEdgePort_Object((1,3,6,1,4,1,10876,101,1,116,2,4,1,2),_FsDot1dStpPortAdminEdgePort_Type())
-fsDot1dStpPortAdminEdgePort.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsDot1dStpPortAdminEdgePort.setStatus(_A)
-_FsDot1dStpPortOperEdgePort_Type=TruthValue
-_FsDot1dStpPortOperEdgePort_Object=MibTableColumn
-fsDot1dStpPortOperEdgePort=_FsDot1dStpPortOperEdgePort_Object((1,3,6,1,4,1,10876,101,1,116,2,4,1,3),_FsDot1dStpPortOperEdgePort_Type())
-fsDot1dStpPortOperEdgePort.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsDot1dStpPortOperEdgePort.setStatus(_A)
-class _FsDot1dStpPortAdminPointToPoint_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('forceTrue',0),('forceFalse',1),('auto',2)))
-_FsDot1dStpPortAdminPointToPoint_Type.__name__=_D
-_FsDot1dStpPortAdminPointToPoint_Object=MibTableColumn
-fsDot1dStpPortAdminPointToPoint=_FsDot1dStpPortAdminPointToPoint_Object((1,3,6,1,4,1,10876,101,1,116,2,4,1,4),_FsDot1dStpPortAdminPointToPoint_Type())
-fsDot1dStpPortAdminPointToPoint.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsDot1dStpPortAdminPointToPoint.setStatus(_A)
-_FsDot1dStpPortOperPointToPoint_Type=TruthValue
-_FsDot1dStpPortOperPointToPoint_Object=MibTableColumn
-fsDot1dStpPortOperPointToPoint=_FsDot1dStpPortOperPointToPoint_Object((1,3,6,1,4,1,10876,101,1,116,2,4,1,5),_FsDot1dStpPortOperPointToPoint_Type())
-fsDot1dStpPortOperPointToPoint.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsDot1dStpPortOperPointToPoint.setStatus(_A)
-class _FsDot1dStpPortAdminPathCost_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,200000000))
-_FsDot1dStpPortAdminPathCost_Type.__name__=_D
-_FsDot1dStpPortAdminPathCost_Object=MibTableColumn
-fsDot1dStpPortAdminPathCost=_FsDot1dStpPortAdminPathCost_Object((1,3,6,1,4,1,10876,101,1,116,2,4,1,6),_FsDot1dStpPortAdminPathCost_Type())
-fsDot1dStpPortAdminPathCost.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsDot1dStpPortAdminPathCost.setStatus(_A)
-_FsRstpMIBObjects_ObjectIdentity=ObjectIdentity
-fsRstpMIBObjects=_FsRstpMIBObjects_ObjectIdentity((1,3,6,1,4,1,10876,101,1,116,11,1))
-_FsRstpConformance_ObjectIdentity=ObjectIdentity
-fsRstpConformance=_FsRstpConformance_ObjectIdentity((1,3,6,1,4,1,10876,101,1,116,11,2))
-_FsRstpGroups_ObjectIdentity=ObjectIdentity
-fsRstpGroups=_FsRstpGroups_ObjectIdentity((1,3,6,1,4,1,10876,101,1,116,11,2,1))
-_FsRstpCompliances_ObjectIdentity=ObjectIdentity
-fsRstpCompliances=_FsRstpCompliances_ObjectIdentity((1,3,6,1,4,1,10876,101,1,116,11,2,2))
-fsDot1dStpEntry.registerAugmentions((_B,_F))
+#
+# PySNMP MIB module SUPERMICRO-MIStdRSTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-MIStdRSTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:06 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+fsDot1dBridge, fsDot1dStpEntry, fsDot1dStpPortEntry, fsDot1dStp, Timeout, BridgeId = mibBuilder.importSymbols("SUPERMICRO-MIStdBRIDGE-MIB", "fsDot1dBridge", "fsDot1dStpEntry", "fsDot1dStpPortEntry", "fsDot1dStp", "Timeout", "BridgeId")
+fsRstpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 11))
+fsRstpMIB.setRevisions(('2012-09-05 00:00',))
+if mibBuilder.loadTexts: fsRstpMIB.setLastUpdated('201209050000Z')
+if mibBuilder.loadTexts: fsRstpMIB.setOrganization('Super Micro Computer Inc.')
+fsRstpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 11, 1))
+fsDot1dStpExtTable = MibTable((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 2, 3), )
+if mibBuilder.loadTexts: fsDot1dStpExtTable.setStatus('current')
+fsDot1dStpExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 2, 3, 1), )
+fsDot1dStpEntry.registerAugmentions(("SUPERMICRO-MIStdRSTP-MIB", "fsDot1dStpExtEntry"))
 fsDot1dStpExtEntry.setIndexNames(*fsDot1dStpEntry.getIndexNames())
-fsDot1dStpPortEntry.registerAugmentions((_B,_G))
+if mibBuilder.loadTexts: fsDot1dStpExtEntry.setStatus('current')
+fsDot1dStpVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 2))).clone(namedValues=NamedValues(("stpCompatible", 0), ("rstp", 2))).clone('rstp')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsDot1dStpVersion.setStatus('current')
+fsDot1dStpTxHoldCount = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsDot1dStpTxHoldCount.setStatus('current')
+fsDot1dStpPathCostDefault = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 2, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("stp8021d1998", 1), ("stp8021t2001", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsDot1dStpPathCostDefault.setStatus('obsolete')
+fsDot1dStpExtPortTable = MibTable((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 2, 4), )
+if mibBuilder.loadTexts: fsDot1dStpExtPortTable.setStatus('current')
+fsDot1dStpExtPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 2, 4, 1), )
+fsDot1dStpPortEntry.registerAugmentions(("SUPERMICRO-MIStdRSTP-MIB", "fsDot1dStpExtPortEntry"))
 fsDot1dStpExtPortEntry.setIndexNames(*fsDot1dStpPortEntry.getIndexNames())
-fsRstpBridgeGroup=ObjectGroup((1,3,6,1,4,1,10876,101,1,116,11,2,1,1))
-fsRstpBridgeGroup.setObjects(*((_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:fsRstpBridgeGroup.setStatus(_A)
-fsRstpPortGroup=ObjectGroup((1,3,6,1,4,1,10876,101,1,116,11,2,1,2))
-fsRstpPortGroup.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:fsRstpPortGroup.setStatus(_A)
-fsRstpCompliance=ModuleCompliance((1,3,6,1,4,1,10876,101,1,116,11,2,2,1))
-fsRstpCompliance.setObjects(*((_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:fsRstpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'fsDot1dStpExtTable':fsDot1dStpExtTable,_F:fsDot1dStpExtEntry,_H:fsDot1dStpVersion,_I:fsDot1dStpTxHoldCount,'fsDot1dStpPathCostDefault':fsDot1dStpPathCostDefault,'fsDot1dStpExtPortTable':fsDot1dStpExtPortTable,_G:fsDot1dStpExtPortEntry,_J:fsDot1dStpPortProtocolMigration,_K:fsDot1dStpPortAdminEdgePort,_L:fsDot1dStpPortOperEdgePort,_M:fsDot1dStpPortAdminPointToPoint,_N:fsDot1dStpPortOperPointToPoint,'fsDot1dStpPortAdminPathCost':fsDot1dStpPortAdminPathCost,'fsRstpMIB':fsRstpMIB,'fsRstpMIBObjects':fsRstpMIBObjects,'fsRstpConformance':fsRstpConformance,'fsRstpGroups':fsRstpGroups,_O:fsRstpBridgeGroup,_P:fsRstpPortGroup,'fsRstpCompliances':fsRstpCompliances,'fsRstpCompliance':fsRstpCompliance})
+if mibBuilder.loadTexts: fsDot1dStpExtPortEntry.setStatus('current')
+fsDot1dStpPortProtocolMigration = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 2, 4, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsDot1dStpPortProtocolMigration.setStatus('current')
+fsDot1dStpPortAdminEdgePort = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 2, 4, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsDot1dStpPortAdminEdgePort.setStatus('current')
+fsDot1dStpPortOperEdgePort = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 2, 4, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsDot1dStpPortOperEdgePort.setStatus('current')
+fsDot1dStpPortAdminPointToPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 2, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("forceTrue", 0), ("forceFalse", 1), ("auto", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsDot1dStpPortAdminPointToPoint.setStatus('current')
+fsDot1dStpPortOperPointToPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 2, 4, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsDot1dStpPortOperPointToPoint.setStatus('current')
+fsDot1dStpPortAdminPathCost = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 2, 4, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 200000000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsDot1dStpPortAdminPathCost.setStatus('current')
+fsRstpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 11, 2))
+fsRstpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 11, 2, 1))
+fsRstpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 11, 2, 2))
+fsRstpBridgeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 11, 2, 1, 1)).setObjects(("SUPERMICRO-MIStdRSTP-MIB", "fsDot1dStpVersion"), ("SUPERMICRO-MIStdRSTP-MIB", "fsDot1dStpTxHoldCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsRstpBridgeGroup = fsRstpBridgeGroup.setStatus('current')
+fsRstpPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 11, 2, 1, 2)).setObjects(("SUPERMICRO-MIStdRSTP-MIB", "fsDot1dStpPortProtocolMigration"), ("SUPERMICRO-MIStdRSTP-MIB", "fsDot1dStpPortAdminEdgePort"), ("SUPERMICRO-MIStdRSTP-MIB", "fsDot1dStpPortOperEdgePort"), ("SUPERMICRO-MIStdRSTP-MIB", "fsDot1dStpPortAdminPointToPoint"), ("SUPERMICRO-MIStdRSTP-MIB", "fsDot1dStpPortOperPointToPoint"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsRstpPortGroup = fsRstpPortGroup.setStatus('current')
+fsRstpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 10876, 101, 1, 116, 11, 2, 2, 1)).setObjects(("SUPERMICRO-MIStdRSTP-MIB", "fsRstpBridgeGroup"), ("SUPERMICRO-MIStdRSTP-MIB", "fsRstpPortGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsRstpCompliance = fsRstpCompliance.setStatus('current')
+mibBuilder.exportSymbols("SUPERMICRO-MIStdRSTP-MIB", fsDot1dStpPortOperPointToPoint=fsDot1dStpPortOperPointToPoint, fsRstpMIB=fsRstpMIB, fsRstpConformance=fsRstpConformance, fsDot1dStpPathCostDefault=fsDot1dStpPathCostDefault, fsDot1dStpTxHoldCount=fsDot1dStpTxHoldCount, fsDot1dStpExtPortEntry=fsDot1dStpExtPortEntry, fsDot1dStpExtPortTable=fsDot1dStpExtPortTable, fsRstpPortGroup=fsRstpPortGroup, fsRstpMIBObjects=fsRstpMIBObjects, fsRstpCompliances=fsRstpCompliances, fsRstpBridgeGroup=fsRstpBridgeGroup, fsDot1dStpPortAdminPointToPoint=fsDot1dStpPortAdminPointToPoint, PYSNMP_MODULE_ID=fsRstpMIB, fsDot1dStpExtEntry=fsDot1dStpExtEntry, fsDot1dStpPortOperEdgePort=fsDot1dStpPortOperEdgePort, fsDot1dStpExtTable=fsDot1dStpExtTable, fsDot1dStpPortProtocolMigration=fsDot1dStpPortProtocolMigration, fsDot1dStpPortAdminEdgePort=fsDot1dStpPortAdminEdgePort, fsRstpCompliance=fsRstpCompliance, fsDot1dStpPortAdminPathCost=fsDot1dStpPortAdminPathCost, fsRstpGroups=fsRstpGroups, fsDot1dStpVersion=fsDot1dStpVersion)

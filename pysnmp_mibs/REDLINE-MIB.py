@@ -1,39 +1,36 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-redline=ModuleIdentity((1,3,6,1,4,1,10728))
-if mibBuilder.loadTexts:redline.setRevisions(('2005-06-08 17:50','2001-11-08 00:00','2001-08-12 00:00','2002-03-13 00:00'))
-_RedlineProducts_ObjectIdentity=ObjectIdentity
-redlineProducts=_RedlineProducts_ObjectIdentity((1,3,6,1,4,1,10728,1))
-if mibBuilder.loadTexts:redlineProducts.setStatus(_A)
-_RedlineMgmt_ObjectIdentity=ObjectIdentity
-redlineMgmt=_RedlineMgmt_ObjectIdentity((1,3,6,1,4,1,10728,2))
-if mibBuilder.loadTexts:redlineMgmt.setStatus(_A)
-_RedlineSystem_ObjectIdentity=ObjectIdentity
-redlineSystem=_RedlineSystem_ObjectIdentity((1,3,6,1,4,1,10728,2,1))
-_RedlineTransmission_ObjectIdentity=ObjectIdentity
-redlineTransmission=_RedlineTransmission_ObjectIdentity((1,3,6,1,4,1,10728,2,10))
-_RedlineExperiment_ObjectIdentity=ObjectIdentity
-redlineExperiment=_RedlineExperiment_ObjectIdentity((1,3,6,1,4,1,10728,3))
-if mibBuilder.loadTexts:redlineExperiment.setStatus(_A)
-_RedlineAdmin_ObjectIdentity=ObjectIdentity
-redlineAdmin=_RedlineAdmin_ObjectIdentity((1,3,6,1,4,1,10728,4))
-if mibBuilder.loadTexts:redlineAdmin.setStatus(_A)
-_RedlineModules_ObjectIdentity=ObjectIdentity
-redlineModules=_RedlineModules_ObjectIdentity((1,3,6,1,4,1,10728,5))
-if mibBuilder.loadTexts:redlineModules.setStatus(_A)
-_RedlinePartners_ObjectIdentity=ObjectIdentity
-redlinePartners=_RedlinePartners_ObjectIdentity((1,3,6,1,4,1,10728,6))
-if mibBuilder.loadTexts:redlinePartners.setStatus(_A)
-_RedlineOtherEnterpises_ObjectIdentity=ObjectIdentity
-redlineOtherEnterpises=_RedlineOtherEnterpises_ObjectIdentity((1,3,6,1,4,1,10728,7))
-if mibBuilder.loadTexts:redlineOtherEnterpises.setStatus(_A)
-_RedlineAgentCapability_ObjectIdentity=ObjectIdentity
-redlineAgentCapability=_RedlineAgentCapability_ObjectIdentity((1,3,6,1,4,1,10728,8))
-if mibBuilder.loadTexts:redlineAgentCapability.setStatus(_A)
-mibBuilder.exportSymbols('REDLINE-MIB',**{'redline':redline,'redlineProducts':redlineProducts,'redlineMgmt':redlineMgmt,'redlineSystem':redlineSystem,'redlineTransmission':redlineTransmission,'redlineExperiment':redlineExperiment,'redlineAdmin':redlineAdmin,'redlineModules':redlineModules,'redlinePartners':redlinePartners,'redlineOtherEnterpises':redlineOtherEnterpises,'redlineAgentCapability':redlineAgentCapability})
+#
+# PySNMP MIB module REDLINE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/redline/REDLINE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+redline = ModuleIdentity((1, 3, 6, 1, 4, 1, 10728))
+redline.setRevisions(('2005-06-08 17:50', '2001-11-08 00:00', '2001-08-12 00:00', '2002-03-13 00:00',))
+if mibBuilder.loadTexts: redline.setLastUpdated('200506081750Z')
+if mibBuilder.loadTexts: redline.setOrganization('Redline Communications Inc.')
+redlineProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 10728, 1))
+if mibBuilder.loadTexts: redlineProducts.setStatus('current')
+redlineMgmt = ObjectIdentity((1, 3, 6, 1, 4, 1, 10728, 2))
+if mibBuilder.loadTexts: redlineMgmt.setStatus('current')
+redlineSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 10728, 2, 1))
+redlineTransmission = MibIdentifier((1, 3, 6, 1, 4, 1, 10728, 2, 10))
+redlineExperiment = ObjectIdentity((1, 3, 6, 1, 4, 1, 10728, 3))
+if mibBuilder.loadTexts: redlineExperiment.setStatus('current')
+redlineAdmin = ObjectIdentity((1, 3, 6, 1, 4, 1, 10728, 4))
+if mibBuilder.loadTexts: redlineAdmin.setStatus('current')
+redlineModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 10728, 5))
+if mibBuilder.loadTexts: redlineModules.setStatus('current')
+redlinePartners = ObjectIdentity((1, 3, 6, 1, 4, 1, 10728, 6))
+if mibBuilder.loadTexts: redlinePartners.setStatus('current')
+redlineOtherEnterpises = ObjectIdentity((1, 3, 6, 1, 4, 1, 10728, 7))
+if mibBuilder.loadTexts: redlineOtherEnterpises.setStatus('current')
+redlineAgentCapability = ObjectIdentity((1, 3, 6, 1, 4, 1, 10728, 8))
+if mibBuilder.loadTexts: redlineAgentCapability.setStatus('current')
+mibBuilder.exportSymbols("REDLINE-MIB", redlineMgmt=redlineMgmt, redlineTransmission=redlineTransmission, redlineProducts=redlineProducts, redlineModules=redlineModules, redline=redline, redlineSystem=redlineSystem, redlineExperiment=redlineExperiment, PYSNMP_MODULE_ID=redline, redlineOtherEnterpises=redlineOtherEnterpises, redlineAgentCapability=redlineAgentCapability, redlineAdmin=redlineAdmin, redlinePartners=redlinePartners)

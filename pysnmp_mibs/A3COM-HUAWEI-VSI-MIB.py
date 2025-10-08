@@ -1,127 +1,61 @@
-_J='h3cVsiXconnectEvcSrvInstId'
-_I='h3cVsiXconnectIfIndex'
-_H='ethernet'
-_G='h3cVsiIndex'
-_F='not-accessible'
-_E='OctetString'
-_D='A3COM-HUAWEI-VSI-MIB'
-_C='Integer32'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('A3COM-HUAWEI-OID-MIB','h3cCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-h3cVsi=ModuleIdentity((1,3,6,1,4,1,43,45,1,10,2,105))
-if mibBuilder.loadTexts:h3cVsi.setRevisions(('2009-08-08 10:00',))
-_H3cVsiObjects_ObjectIdentity=ObjectIdentity
-h3cVsiObjects=_H3cVsiObjects_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,105,1))
-_H3cVsiScalarGroup_ObjectIdentity=ObjectIdentity
-h3cVsiScalarGroup=_H3cVsiScalarGroup_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,105,1,1))
-_H3cVsiNextAvailableVsiIndex_Type=Unsigned32
-_H3cVsiNextAvailableVsiIndex_Object=MibScalar
-h3cVsiNextAvailableVsiIndex=_H3cVsiNextAvailableVsiIndex_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,1,1),_H3cVsiNextAvailableVsiIndex_Type())
-h3cVsiNextAvailableVsiIndex.setMaxAccess('read-only')
-if mibBuilder.loadTexts:h3cVsiNextAvailableVsiIndex.setStatus(_A)
-_H3cVsiTable_Object=MibTable
-h3cVsiTable=_H3cVsiTable_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,2))
-if mibBuilder.loadTexts:h3cVsiTable.setStatus(_A)
-_H3cVsiEntry_Object=MibTableRow
-h3cVsiEntry=_H3cVsiEntry_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,2,1))
-h3cVsiEntry.setIndexNames((0,_D,_G))
-if mibBuilder.loadTexts:h3cVsiEntry.setStatus(_A)
-_H3cVsiIndex_Type=Unsigned32
-_H3cVsiIndex_Object=MibTableColumn
-h3cVsiIndex=_H3cVsiIndex_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,2,1,1),_H3cVsiIndex_Type())
-h3cVsiIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:h3cVsiIndex.setStatus(_A)
-class _H3cVsiName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,31))
-_H3cVsiName_Type.__name__=_E
-_H3cVsiName_Object=MibTableColumn
-h3cVsiName=_H3cVsiName_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,2,1,2),_H3cVsiName_Type())
-h3cVsiName.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVsiName.setStatus(_A)
-class _H3cVsiMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('martini',1),('minm',2),('martiniAndMinm',3),('kompella',4),('kompellaAndMinm',5)))
-_H3cVsiMode_Type.__name__=_C
-_H3cVsiMode_Object=MibTableColumn
-h3cVsiMode=_H3cVsiMode_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,2,1,3),_H3cVsiMode_Type())
-h3cVsiMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVsiMode.setStatus(_A)
-_H3cMinmIsid_Type=Integer32
-_H3cMinmIsid_Object=MibTableColumn
-h3cMinmIsid=_H3cMinmIsid_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,2,1,4),_H3cMinmIsid_Type())
-h3cMinmIsid.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cMinmIsid.setStatus(_A)
-_H3cVsiId_Type=Unsigned32
-_H3cVsiId_Object=MibTableColumn
-h3cVsiId=_H3cVsiId_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,2,1,5),_H3cVsiId_Type())
-h3cVsiId.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVsiId.setStatus(_A)
-class _H3cVsiTransMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('vlan',1),(_H,2)))
-_H3cVsiTransMode_Type.__name__=_C
-_H3cVsiTransMode_Object=MibTableColumn
-h3cVsiTransMode=_H3cVsiTransMode_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,2,1,6),_H3cVsiTransMode_Type())
-h3cVsiTransMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVsiTransMode.setStatus(_A)
-class _H3cVsiEnableHubSpoke_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('disable',1),('enable',2)))
-_H3cVsiEnableHubSpoke_Type.__name__=_C
-_H3cVsiEnableHubSpoke_Object=MibTableColumn
-h3cVsiEnableHubSpoke=_H3cVsiEnableHubSpoke_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,2,1,7),_H3cVsiEnableHubSpoke_Type())
-h3cVsiEnableHubSpoke.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVsiEnableHubSpoke.setStatus(_A)
-class _H3cVsiAdminState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('adminUp',1),('adminDown',2)))
-_H3cVsiAdminState_Type.__name__=_C
-_H3cVsiAdminState_Object=MibTableColumn
-h3cVsiAdminState=_H3cVsiAdminState_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,2,1,8),_H3cVsiAdminState_Type())
-h3cVsiAdminState.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVsiAdminState.setStatus(_A)
-_H3cVsiRowStatus_Type=RowStatus
-_H3cVsiRowStatus_Object=MibTableColumn
-h3cVsiRowStatus=_H3cVsiRowStatus_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,2,1,9),_H3cVsiRowStatus_Type())
-h3cVsiRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVsiRowStatus.setStatus(_A)
-_H3cVsiXconnectTable_Object=MibTable
-h3cVsiXconnectTable=_H3cVsiXconnectTable_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,3))
-if mibBuilder.loadTexts:h3cVsiXconnectTable.setStatus(_A)
-_H3cVsiXconnectEntry_Object=MibTableRow
-h3cVsiXconnectEntry=_H3cVsiXconnectEntry_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,3,1))
-h3cVsiXconnectEntry.setIndexNames((0,_D,_I),(0,_D,_J))
-if mibBuilder.loadTexts:h3cVsiXconnectEntry.setStatus(_A)
-_H3cVsiXconnectIfIndex_Type=Unsigned32
-_H3cVsiXconnectIfIndex_Object=MibTableColumn
-h3cVsiXconnectIfIndex=_H3cVsiXconnectIfIndex_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,3,1,1),_H3cVsiXconnectIfIndex_Type())
-h3cVsiXconnectIfIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:h3cVsiXconnectIfIndex.setStatus(_A)
-_H3cVsiXconnectEvcSrvInstId_Type=Unsigned32
-_H3cVsiXconnectEvcSrvInstId_Object=MibTableColumn
-h3cVsiXconnectEvcSrvInstId=_H3cVsiXconnectEvcSrvInstId_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,3,1,2),_H3cVsiXconnectEvcSrvInstId_Type())
-h3cVsiXconnectEvcSrvInstId.setMaxAccess(_F)
-if mibBuilder.loadTexts:h3cVsiXconnectEvcSrvInstId.setStatus(_A)
-class _H3cVsiXconnectVsiName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,31))
-_H3cVsiXconnectVsiName_Type.__name__=_E
-_H3cVsiXconnectVsiName_Object=MibTableColumn
-h3cVsiXconnectVsiName=_H3cVsiXconnectVsiName_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,3,1,3),_H3cVsiXconnectVsiName_Type())
-h3cVsiXconnectVsiName.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVsiXconnectVsiName.setStatus(_A)
-class _H3cVsiXconnectAccessMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('vlan',1),(_H,2)))
-_H3cVsiXconnectAccessMode_Type.__name__=_C
-_H3cVsiXconnectAccessMode_Object=MibTableColumn
-h3cVsiXconnectAccessMode=_H3cVsiXconnectAccessMode_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,3,1,4),_H3cVsiXconnectAccessMode_Type())
-h3cVsiXconnectAccessMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVsiXconnectAccessMode.setStatus(_A)
-class _H3cVsiXconnectHubSpoke_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('hub',2),('spoke',3)))
-_H3cVsiXconnectHubSpoke_Type.__name__=_C
-_H3cVsiXconnectHubSpoke_Object=MibTableColumn
-h3cVsiXconnectHubSpoke=_H3cVsiXconnectHubSpoke_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,3,1,5),_H3cVsiXconnectHubSpoke_Type())
-h3cVsiXconnectHubSpoke.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVsiXconnectHubSpoke.setStatus(_A)
-_H3cVsiXconnectRowStatus_Type=RowStatus
-_H3cVsiXconnectRowStatus_Object=MibTableColumn
-h3cVsiXconnectRowStatus=_H3cVsiXconnectRowStatus_Object((1,3,6,1,4,1,43,45,1,10,2,105,1,3,1,6),_H3cVsiXconnectRowStatus_Type())
-h3cVsiXconnectRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVsiXconnectRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'h3cVsi':h3cVsi,'h3cVsiObjects':h3cVsiObjects,'h3cVsiScalarGroup':h3cVsiScalarGroup,'h3cVsiNextAvailableVsiIndex':h3cVsiNextAvailableVsiIndex,'h3cVsiTable':h3cVsiTable,'h3cVsiEntry':h3cVsiEntry,_G:h3cVsiIndex,'h3cVsiName':h3cVsiName,'h3cVsiMode':h3cVsiMode,'h3cMinmIsid':h3cMinmIsid,'h3cVsiId':h3cVsiId,'h3cVsiTransMode':h3cVsiTransMode,'h3cVsiEnableHubSpoke':h3cVsiEnableHubSpoke,'h3cVsiAdminState':h3cVsiAdminState,'h3cVsiRowStatus':h3cVsiRowStatus,'h3cVsiXconnectTable':h3cVsiXconnectTable,'h3cVsiXconnectEntry':h3cVsiXconnectEntry,_I:h3cVsiXconnectIfIndex,_J:h3cVsiXconnectEvcSrvInstId,'h3cVsiXconnectVsiName':h3cVsiXconnectVsiName,'h3cVsiXconnectAccessMode':h3cVsiXconnectAccessMode,'h3cVsiXconnectHubSpoke':h3cVsiXconnectHubSpoke,'h3cVsiXconnectRowStatus':h3cVsiXconnectRowStatus})
+#
+# PySNMP MIB module A3COM-HUAWEI-VSI-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-VSI-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+h3cVsi = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105))
+h3cVsi.setRevisions(('2009-08-08 10:00',))
+if mibBuilder.loadTexts: h3cVsi.setLastUpdated('200908081000Z')
+if mibBuilder.loadTexts: h3cVsi.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
+h3cVsiObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1))
+h3cVsiScalarGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 1))
+h3cVsiNextAvailableVsiIndex = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVsiNextAvailableVsiIndex.setStatus('current')
+h3cVsiTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 2), )
+if mibBuilder.loadTexts: h3cVsiTable.setStatus('current')
+h3cVsiEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 2, 1), ).setIndexNames((0, "A3COM-HUAWEI-VSI-MIB", "h3cVsiIndex"))
+if mibBuilder.loadTexts: h3cVsiEntry.setStatus('current')
+h3cVsiIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: h3cVsiIndex.setStatus('current')
+h3cVsiName = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cVsiName.setStatus('current')
+h3cVsiMode = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("martini", 1), ("minm", 2), ("martiniAndMinm", 3), ("kompella", 4), ("kompellaAndMinm", 5)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cVsiMode.setStatus('current')
+h3cMinmIsid = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 2, 1, 4), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cMinmIsid.setStatus('current')
+h3cVsiId = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 2, 1, 5), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cVsiId.setStatus('current')
+h3cVsiTransMode = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vlan", 1), ("ethernet", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cVsiTransMode.setStatus('current')
+h3cVsiEnableHubSpoke = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cVsiEnableHubSpoke.setStatus('current')
+h3cVsiAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("adminUp", 1), ("adminDown", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cVsiAdminState.setStatus('current')
+h3cVsiRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 2, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cVsiRowStatus.setStatus('current')
+h3cVsiXconnectTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 3), )
+if mibBuilder.loadTexts: h3cVsiXconnectTable.setStatus('current')
+h3cVsiXconnectEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 3, 1), ).setIndexNames((0, "A3COM-HUAWEI-VSI-MIB", "h3cVsiXconnectIfIndex"), (0, "A3COM-HUAWEI-VSI-MIB", "h3cVsiXconnectEvcSrvInstId"))
+if mibBuilder.loadTexts: h3cVsiXconnectEntry.setStatus('current')
+h3cVsiXconnectIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 3, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: h3cVsiXconnectIfIndex.setStatus('current')
+h3cVsiXconnectEvcSrvInstId = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 3, 1, 2), Unsigned32())
+if mibBuilder.loadTexts: h3cVsiXconnectEvcSrvInstId.setStatus('current')
+h3cVsiXconnectVsiName = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 3, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cVsiXconnectVsiName.setStatus('current')
+h3cVsiXconnectAccessMode = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vlan", 1), ("ethernet", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cVsiXconnectAccessMode.setStatus('current')
+h3cVsiXconnectHubSpoke = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("hub", 2), ("spoke", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cVsiXconnectHubSpoke.setStatus('current')
+h3cVsiXconnectRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 105, 1, 3, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cVsiXconnectRowStatus.setStatus('current')
+mibBuilder.exportSymbols("A3COM-HUAWEI-VSI-MIB", h3cVsiXconnectVsiName=h3cVsiXconnectVsiName, h3cVsiXconnectEntry=h3cVsiXconnectEntry, h3cVsiId=h3cVsiId, h3cVsiIndex=h3cVsiIndex, h3cVsiEnableHubSpoke=h3cVsiEnableHubSpoke, h3cVsiTransMode=h3cVsiTransMode, h3cVsiNextAvailableVsiIndex=h3cVsiNextAvailableVsiIndex, PYSNMP_MODULE_ID=h3cVsi, h3cVsiMode=h3cVsiMode, h3cVsiName=h3cVsiName, h3cVsiXconnectEvcSrvInstId=h3cVsiXconnectEvcSrvInstId, h3cVsiXconnectAccessMode=h3cVsiXconnectAccessMode, h3cVsiAdminState=h3cVsiAdminState, h3cVsiScalarGroup=h3cVsiScalarGroup, h3cVsiEntry=h3cVsiEntry, h3cVsiXconnectRowStatus=h3cVsiXconnectRowStatus, h3cVsiXconnectHubSpoke=h3cVsiXconnectHubSpoke, h3cVsiTable=h3cVsiTable, h3cVsiXconnectIfIndex=h3cVsiXconnectIfIndex, h3cVsi=h3cVsi, h3cVsiObjects=h3cVsiObjects, h3cVsiRowStatus=h3cVsiRowStatus, h3cVsiXconnectTable=h3cVsiXconnectTable, h3cMinmIsid=h3cMinmIsid)

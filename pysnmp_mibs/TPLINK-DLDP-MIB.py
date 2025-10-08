@@ -1,79 +1,43 @@
-_H='tpDldpPortId'
-_G='TPLINK-DLDP-MIB'
-_F='enable'
-_E='disable'
-_D='read-only'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tplinkMgmt,=mibBuilder.importSymbols('TPLINK-MIB','tplinkMgmt')
-tplinkDldpMIB=ModuleIdentity((1,3,6,1,4,1,11863,6,58))
-if mibBuilder.loadTexts:tplinkDldpMIB.setRevisions(('2013-07-03 00:00',))
-_TplinkDldpMIBObjects_ObjectIdentity=ObjectIdentity
-tplinkDldpMIBObjects=_TplinkDldpMIBObjects_ObjectIdentity((1,3,6,1,4,1,11863,6,58,1))
-class _TpDldpEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_E,0),(_F,1)))
-_TpDldpEnable_Type.__name__=_B
-_TpDldpEnable_Object=MibScalar
-tpDldpEnable=_TpDldpEnable_Object((1,3,6,1,4,1,11863,6,58,1,1),_TpDldpEnable_Type())
-tpDldpEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:tpDldpEnable.setStatus(_A)
-class _TpDldpInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,30))
-_TpDldpInterval_Type.__name__=_B
-_TpDldpInterval_Object=MibScalar
-tpDldpInterval=_TpDldpInterval_Object((1,3,6,1,4,1,11863,6,58,1,2),_TpDldpInterval_Type())
-tpDldpInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:tpDldpInterval.setStatus(_A)
-class _TpDldpShutmode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('auto',0),('manual',1)))
-_TpDldpShutmode_Type.__name__=_B
-_TpDldpShutmode_Object=MibScalar
-tpDldpShutmode=_TpDldpShutmode_Object((1,3,6,1,4,1,11863,6,58,1,3),_TpDldpShutmode_Type())
-tpDldpShutmode.setMaxAccess(_C)
-if mibBuilder.loadTexts:tpDldpShutmode.setStatus(_A)
-_TpDldpCtrlTable_Object=MibTable
-tpDldpCtrlTable=_TpDldpCtrlTable_Object((1,3,6,1,4,1,11863,6,58,1,4))
-if mibBuilder.loadTexts:tpDldpCtrlTable.setStatus(_A)
-_TpDldpCtrlEntry_Object=MibTableRow
-tpDldpCtrlEntry=_TpDldpCtrlEntry_Object((1,3,6,1,4,1,11863,6,58,1,4,1))
-tpDldpCtrlEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:tpDldpCtrlEntry.setStatus(_A)
-_TpDldpPortId_Type=Integer32
-_TpDldpPortId_Object=MibTableColumn
-tpDldpPortId=_TpDldpPortId_Object((1,3,6,1,4,1,11863,6,58,1,4,1,1),_TpDldpPortId_Type())
-tpDldpPortId.setMaxAccess(_D)
-if mibBuilder.loadTexts:tpDldpPortId.setStatus(_A)
-class _TpDldpState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_E,0),(_F,1)))
-_TpDldpState_Type.__name__=_B
-_TpDldpState_Object=MibTableColumn
-tpDldpState=_TpDldpState_Object((1,3,6,1,4,1,11863,6,58,1,4,1,2),_TpDldpState_Type())
-tpDldpState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tpDldpState.setStatus(_A)
-class _TpDldpProtocolState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*(('initial',0),('inactive',1),('active',2),('probe',3),('adver',4),(_E,5)))
-_TpDldpProtocolState_Type.__name__=_B
-_TpDldpProtocolState_Object=MibTableColumn
-tpDldpProtocolState=_TpDldpProtocolState_Object((1,3,6,1,4,1,11863,6,58,1,4,1,3),_TpDldpProtocolState_Type())
-tpDldpProtocolState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tpDldpProtocolState.setStatus(_A)
-class _TpDldpLinkState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('link-down',0),('link-up',1)))
-_TpDldpLinkState_Type.__name__=_B
-_TpDldpLinkState_Object=MibTableColumn
-tpDldpLinkState=_TpDldpLinkState_Object((1,3,6,1,4,1,11863,6,58,1,4,1,4),_TpDldpLinkState_Type())
-tpDldpLinkState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tpDldpLinkState.setStatus(_A)
-class _TpDldpNeighborState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('unknown',0),('unidirectional',1),('bidirectional',2),('aging',3),('notAccess',4)))
-_TpDldpNeighborState_Type.__name__=_B
-_TpDldpNeighborState_Object=MibTableColumn
-tpDldpNeighborState=_TpDldpNeighborState_Object((1,3,6,1,4,1,11863,6,58,1,4,1,5),_TpDldpNeighborState_Type())
-tpDldpNeighborState.setMaxAccess(_D)
-if mibBuilder.loadTexts:tpDldpNeighborState.setStatus(_A)
-_TplinkDldpNotifications_ObjectIdentity=ObjectIdentity
-tplinkDldpNotifications=_TplinkDldpNotifications_ObjectIdentity((1,3,6,1,4,1,11863,6,58,2))
-tpDldpDetectUnidirectionalNeighor=NotificationType((1,3,6,1,4,1,11863,6,58,2,1))
-if mibBuilder.loadTexts:tpDldpDetectUnidirectionalNeighor.setStatus(_A)
-mibBuilder.exportSymbols(_G,**{'tplinkDldpMIB':tplinkDldpMIB,'tplinkDldpMIBObjects':tplinkDldpMIBObjects,'tpDldpEnable':tpDldpEnable,'tpDldpInterval':tpDldpInterval,'tpDldpShutmode':tpDldpShutmode,'tpDldpCtrlTable':tpDldpCtrlTable,'tpDldpCtrlEntry':tpDldpCtrlEntry,_H:tpDldpPortId,'tpDldpState':tpDldpState,'tpDldpProtocolState':tpDldpProtocolState,'tpDldpLinkState':tpDldpLinkState,'tpDldpNeighborState':tpDldpNeighborState,'tplinkDldpNotifications':tplinkDldpNotifications,'tpDldpDetectUnidirectionalNeighor':tpDldpDetectUnidirectionalNeighor})
+#
+# PySNMP MIB module TPLINK-DLDP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-DLDP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
+tplinkDldpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 58))
+tplinkDldpMIB.setRevisions(('2013-07-03 00:00',))
+if mibBuilder.loadTexts: tplinkDldpMIB.setLastUpdated('201307030000Z')
+if mibBuilder.loadTexts: tplinkDldpMIB.setOrganization('TP-LINK')
+tplinkDldpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 58, 1))
+tplinkDldpNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 58, 2))
+tpDldpEnable = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 58, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpDldpEnable.setStatus('current')
+tpDldpInterval = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 58, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 30))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpDldpInterval.setStatus('current')
+tpDldpShutmode = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 58, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("auto", 0), ("manual", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpDldpShutmode.setStatus('current')
+tpDldpCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 58, 1, 4), )
+if mibBuilder.loadTexts: tpDldpCtrlTable.setStatus('current')
+tpDldpCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 58, 1, 4, 1), ).setIndexNames((0, "TPLINK-DLDP-MIB", "tpDldpPortId"))
+if mibBuilder.loadTexts: tpDldpCtrlEntry.setStatus('current')
+tpDldpPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 58, 1, 4, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpDldpPortId.setStatus('current')
+tpDldpState = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 58, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpDldpState.setStatus('current')
+tpDldpProtocolState = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 58, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("initial", 0), ("inactive", 1), ("active", 2), ("probe", 3), ("adver", 4), ("disable", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpDldpProtocolState.setStatus('current')
+tpDldpLinkState = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 58, 1, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("link-down", 0), ("link-up", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpDldpLinkState.setStatus('current')
+tpDldpNeighborState = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 58, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 0), ("unidirectional", 1), ("bidirectional", 2), ("aging", 3), ("notAccess", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpDldpNeighborState.setStatus('current')
+tpDldpDetectUnidirectionalNeighor = NotificationType((1, 3, 6, 1, 4, 1, 11863, 6, 58, 2, 1))
+if mibBuilder.loadTexts: tpDldpDetectUnidirectionalNeighor.setStatus('current')
+mibBuilder.exportSymbols("TPLINK-DLDP-MIB", tpDldpCtrlTable=tpDldpCtrlTable, tpDldpCtrlEntry=tpDldpCtrlEntry, tpDldpDetectUnidirectionalNeighor=tpDldpDetectUnidirectionalNeighor, tpDldpShutmode=tpDldpShutmode, tplinkDldpMIBObjects=tplinkDldpMIBObjects, tpDldpProtocolState=tpDldpProtocolState, tplinkDldpNotifications=tplinkDldpNotifications, tplinkDldpMIB=tplinkDldpMIB, tpDldpInterval=tpDldpInterval, tpDldpPortId=tpDldpPortId, tpDldpEnable=tpDldpEnable, PYSNMP_MODULE_ID=tplinkDldpMIB, tpDldpState=tpDldpState, tpDldpLinkState=tpDldpLinkState, tpDldpNeighborState=tpDldpNeighborState)

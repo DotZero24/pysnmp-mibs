@@ -1,55 +1,35 @@
-_L='read-write'
-_K='wwpPortType'
-_J='wwpPortOperStatus'
-_I='wwpPortName'
-_H='wwpPortId'
-_G='wwpPortAdminStatus'
-_F='TruthValue'
-_E='sysName'
-_D='sysLocation'
-_C='current'
-_B='SNMPv2-MIB'
-_A='WWP-EXT-BRIDGE-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-sysLocation,sysName=mibBuilder.importSymbols(_B,_D,_E)
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention',_F)
-wwpPortAdminStatus,wwpPortId,wwpPortName,wwpPortOperStatus,wwpPortType=mibBuilder.importSymbols(_A,_G,_H,_I,_J,_K)
-wwpModules,=mibBuilder.importSymbols('WWP-SMI','wwpModules')
-wwpExtBridgeTrapMIB=ModuleIdentity((1,3,6,1,4,1,6141,2,41))
-if mibBuilder.loadTexts:wwpExtBridgeTrapMIB.setRevisions(('2002-10-27 17:00',))
-_WwpExtBridgeTrapMIBObjects_ObjectIdentity=ObjectIdentity
-wwpExtBridgeTrapMIBObjects=_WwpExtBridgeTrapMIBObjects_ObjectIdentity((1,3,6,1,4,1,6141,2,41,1))
-class _WwpStndLinkUpDownTrapsEnable_Type(TruthValue):defaultValue=1
-_WwpStndLinkUpDownTrapsEnable_Type.__name__=_F
-_WwpStndLinkUpDownTrapsEnable_Object=MibScalar
-wwpStndLinkUpDownTrapsEnable=_WwpStndLinkUpDownTrapsEnable_Object((1,3,6,1,4,1,6141,2,41,1,1),_WwpStndLinkUpDownTrapsEnable_Type())
-wwpStndLinkUpDownTrapsEnable.setMaxAccess(_L)
-if mibBuilder.loadTexts:wwpStndLinkUpDownTrapsEnable.setStatus(_C)
-class _WwpLinkUpDownTrapsEnable_Type(TruthValue):defaultValue=2
-_WwpLinkUpDownTrapsEnable_Type.__name__=_F
-_WwpLinkUpDownTrapsEnable_Object=MibScalar
-wwpLinkUpDownTrapsEnable=_WwpLinkUpDownTrapsEnable_Object((1,3,6,1,4,1,6141,2,41,1,2),_WwpLinkUpDownTrapsEnable_Type())
-wwpLinkUpDownTrapsEnable.setMaxAccess(_L)
-if mibBuilder.loadTexts:wwpLinkUpDownTrapsEnable.setStatus(_C)
-_WwpExtBridgeTrapMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
-wwpExtBridgeTrapMIBNotificationPrefix=_WwpExtBridgeTrapMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,6141,2,41,2))
-_WwpExtBridgeTrapMIBNotifications_ObjectIdentity=ObjectIdentity
-wwpExtBridgeTrapMIBNotifications=_WwpExtBridgeTrapMIBNotifications_ObjectIdentity((1,3,6,1,4,1,6141,2,41,2,0))
-_WwpExtBridgeTrapMIBConformance_ObjectIdentity=ObjectIdentity
-wwpExtBridgeTrapMIBConformance=_WwpExtBridgeTrapMIBConformance_ObjectIdentity((1,3,6,1,4,1,6141,2,41,3))
-_WwpExtBridgeTrapMIBCompliances_ObjectIdentity=ObjectIdentity
-wwpExtBridgeTrapMIBCompliances=_WwpExtBridgeTrapMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6141,2,41,3,1))
-_WwpExtBridgeTrapMIBGroups_ObjectIdentity=ObjectIdentity
-wwpExtBridgeTrapMIBGroups=_WwpExtBridgeTrapMIBGroups_ObjectIdentity((1,3,6,1,4,1,6141,2,41,3,2))
-wwpLinkUp=NotificationType((1,3,6,1,4,1,6141,2,41,2,0,1))
-wwpLinkUp.setObjects(*((_B,_E),(_B,_D),(_A,_H),(_A,_I),(_A,_K),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:wwpLinkUp.setStatus(_C)
-wwpLinkDown=NotificationType((1,3,6,1,4,1,6141,2,41,2,0,2))
-wwpLinkDown.setObjects(*((_B,_E),(_B,_D),(_A,_H),(_A,_K),(_A,_I),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:wwpLinkDown.setStatus(_C)
-mibBuilder.exportSymbols('WWP-EXT-BRIDGE-TRAP-MIB',**{'wwpExtBridgeTrapMIB':wwpExtBridgeTrapMIB,'wwpExtBridgeTrapMIBObjects':wwpExtBridgeTrapMIBObjects,'wwpStndLinkUpDownTrapsEnable':wwpStndLinkUpDownTrapsEnable,'wwpLinkUpDownTrapsEnable':wwpLinkUpDownTrapsEnable,'wwpExtBridgeTrapMIBNotificationPrefix':wwpExtBridgeTrapMIBNotificationPrefix,'wwpExtBridgeTrapMIBNotifications':wwpExtBridgeTrapMIBNotifications,'wwpLinkUp':wwpLinkUp,'wwpLinkDown':wwpLinkDown,'wwpExtBridgeTrapMIBConformance':wwpExtBridgeTrapMIBConformance,'wwpExtBridgeTrapMIBCompliances':wwpExtBridgeTrapMIBCompliances,'wwpExtBridgeTrapMIBGroups':wwpExtBridgeTrapMIBGroups})
+#
+# PySNMP MIB module WWP-EXT-BRIDGE-TRAP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/WWP-EXT-BRIDGE-TRAP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:15 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+sysName, sysLocation = mibBuilder.importSymbols("SNMPv2-MIB", "sysName", "sysLocation")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+wwpPortOperStatus, wwpPortName, wwpPortAdminStatus, wwpPortType, wwpPortId = mibBuilder.importSymbols("WWP-EXT-BRIDGE-MIB", "wwpPortOperStatus", "wwpPortName", "wwpPortAdminStatus", "wwpPortType", "wwpPortId")
+wwpModules, = mibBuilder.importSymbols("WWP-SMI", "wwpModules")
+wwpExtBridgeTrapMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 41))
+wwpExtBridgeTrapMIB.setRevisions(('2002-10-27 17:00',))
+if mibBuilder.loadTexts: wwpExtBridgeTrapMIB.setLastUpdated('200210271700Z')
+if mibBuilder.loadTexts: wwpExtBridgeTrapMIB.setOrganization('Ciena, Inc')
+wwpExtBridgeTrapMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 41, 1))
+wwpExtBridgeTrapMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 41, 2))
+wwpExtBridgeTrapMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 41, 2, 0))
+wwpExtBridgeTrapMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 41, 3))
+wwpExtBridgeTrapMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 41, 3, 1))
+wwpExtBridgeTrapMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 41, 3, 2))
+wwpStndLinkUpDownTrapsEnable = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 41, 1, 1), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpStndLinkUpDownTrapsEnable.setStatus('current')
+wwpLinkUpDownTrapsEnable = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 41, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpLinkUpDownTrapsEnable.setStatus('current')
+wwpLinkUp = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 41, 2, 0, 1)).setObjects(("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("WWP-EXT-BRIDGE-MIB", "wwpPortId"), ("WWP-EXT-BRIDGE-MIB", "wwpPortName"), ("WWP-EXT-BRIDGE-MIB", "wwpPortType"), ("WWP-EXT-BRIDGE-MIB", "wwpPortAdminStatus"), ("WWP-EXT-BRIDGE-MIB", "wwpPortOperStatus"))
+if mibBuilder.loadTexts: wwpLinkUp.setStatus('current')
+wwpLinkDown = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 41, 2, 0, 2)).setObjects(("SNMPv2-MIB", "sysName"), ("SNMPv2-MIB", "sysLocation"), ("WWP-EXT-BRIDGE-MIB", "wwpPortId"), ("WWP-EXT-BRIDGE-MIB", "wwpPortType"), ("WWP-EXT-BRIDGE-MIB", "wwpPortName"), ("WWP-EXT-BRIDGE-MIB", "wwpPortAdminStatus"), ("WWP-EXT-BRIDGE-MIB", "wwpPortOperStatus"))
+if mibBuilder.loadTexts: wwpLinkDown.setStatus('current')
+mibBuilder.exportSymbols("WWP-EXT-BRIDGE-TRAP-MIB", wwpExtBridgeTrapMIBGroups=wwpExtBridgeTrapMIBGroups, wwpExtBridgeTrapMIBNotificationPrefix=wwpExtBridgeTrapMIBNotificationPrefix, wwpExtBridgeTrapMIBConformance=wwpExtBridgeTrapMIBConformance, wwpExtBridgeTrapMIBObjects=wwpExtBridgeTrapMIBObjects, wwpLinkUpDownTrapsEnable=wwpLinkUpDownTrapsEnable, wwpExtBridgeTrapMIBNotifications=wwpExtBridgeTrapMIBNotifications, wwpLinkUp=wwpLinkUp, wwpLinkDown=wwpLinkDown, wwpStndLinkUpDownTrapsEnable=wwpStndLinkUpDownTrapsEnable, wwpExtBridgeTrapMIB=wwpExtBridgeTrapMIB, wwpExtBridgeTrapMIBCompliances=wwpExtBridgeTrapMIBCompliances, PYSNMP_MODULE_ID=wwpExtBridgeTrapMIB)

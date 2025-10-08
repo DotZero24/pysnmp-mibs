@@ -1,60 +1,42 @@
-_H='fsLicenseMIBGroup'
-_G='fsLicenseValue'
-_F='fsLicenseString'
-_E='fsShowLicense'
-_D='fsLicenseIndex'
-_C='read-only'
-_B='FS-LICENSE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsMgmt,=mibBuilder.importSymbols('FS-SMI','fsMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-fsLicenseMIB=ModuleIdentity((1,3,6,1,4,1,52642,1,1,10,2,57))
-if mibBuilder.loadTexts:fsLicenseMIB.setRevisions(('2009-09-18 00:00',))
-_FsLicenseMIBObjects_ObjectIdentity=ObjectIdentity
-fsLicenseMIBObjects=_FsLicenseMIBObjects_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,57,1))
-_FsShowLicense_Type=Integer32
-_FsShowLicense_Object=MibScalar
-fsShowLicense=_FsShowLicense_Object((1,3,6,1,4,1,52642,1,1,10,2,57,1,1),_FsShowLicense_Type())
-fsShowLicense.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsShowLicense.setStatus(_A)
-_FsLicenseTable_Object=MibTable
-fsLicenseTable=_FsLicenseTable_Object((1,3,6,1,4,1,52642,1,1,10,2,57,1,2))
-if mibBuilder.loadTexts:fsLicenseTable.setStatus(_A)
-_FsLicenseEntry_Object=MibTableRow
-fsLicenseEntry=_FsLicenseEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,57,1,2,1))
-fsLicenseEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:fsLicenseEntry.setStatus(_A)
-_FsLicenseIndex_Type=Integer32
-_FsLicenseIndex_Object=MibTableColumn
-fsLicenseIndex=_FsLicenseIndex_Object((1,3,6,1,4,1,52642,1,1,10,2,57,1,2,1,1),_FsLicenseIndex_Type())
-fsLicenseIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:fsLicenseIndex.setStatus(_A)
-_FsLicenseString_Type=DisplayString
-_FsLicenseString_Object=MibTableColumn
-fsLicenseString=_FsLicenseString_Object((1,3,6,1,4,1,52642,1,1,10,2,57,1,2,1,2),_FsLicenseString_Type())
-fsLicenseString.setMaxAccess('read-write')
-if mibBuilder.loadTexts:fsLicenseString.setStatus(_A)
-_FsLicenseValue_Type=Integer32
-_FsLicenseValue_Object=MibTableColumn
-fsLicenseValue=_FsLicenseValue_Object((1,3,6,1,4,1,52642,1,1,10,2,57,1,2,1,3),_FsLicenseValue_Type())
-fsLicenseValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsLicenseValue.setStatus(_A)
-_FsLicenseMIBConformance_ObjectIdentity=ObjectIdentity
-fsLicenseMIBConformance=_FsLicenseMIBConformance_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,57,2))
-_FsLicenseMIBCompliances_ObjectIdentity=ObjectIdentity
-fsLicenseMIBCompliances=_FsLicenseMIBCompliances_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,57,2,1))
-_FsLicenseMIBGroups_ObjectIdentity=ObjectIdentity
-fsLicenseMIBGroups=_FsLicenseMIBGroups_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,57,2,2))
-fsLicenseMIBGroup=ObjectGroup((1,3,6,1,4,1,52642,1,1,10,2,57,2,2,1))
-fsLicenseMIBGroup.setObjects(*((_B,_E),(_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:fsLicenseMIBGroup.setStatus(_A)
-fsLicenseMIBCompliance=ModuleCompliance((1,3,6,1,4,1,52642,1,1,10,2,57,2,1,1))
-fsLicenseMIBCompliance.setObjects((_B,_H))
-if mibBuilder.loadTexts:fsLicenseMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'fsLicenseMIB':fsLicenseMIB,'fsLicenseMIBObjects':fsLicenseMIBObjects,_E:fsShowLicense,'fsLicenseTable':fsLicenseTable,'fsLicenseEntry':fsLicenseEntry,_D:fsLicenseIndex,_F:fsLicenseString,_G:fsLicenseValue,'fsLicenseMIBConformance':fsLicenseMIBConformance,'fsLicenseMIBCompliances':fsLicenseMIBCompliances,'fsLicenseMIBCompliance':fsLicenseMIBCompliance,'fsLicenseMIBGroups':fsLicenseMIBGroups,_H:fsLicenseMIBGroup})
+#
+# PySNMP MIB module FS-LICENSE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-LICENSE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+fsLicenseMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 57))
+fsLicenseMIB.setRevisions(('2009-09-18 00:00',))
+if mibBuilder.loadTexts: fsLicenseMIB.setLastUpdated('200909180000Z')
+if mibBuilder.loadTexts: fsLicenseMIB.setOrganization('FS.COM Inc..')
+fsLicenseMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 57, 1))
+fsShowLicense = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 57, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsShowLicense.setStatus('current')
+fsLicenseTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 57, 1, 2), )
+if mibBuilder.loadTexts: fsLicenseTable.setStatus('current')
+fsLicenseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 57, 1, 2, 1), ).setIndexNames((0, "FS-LICENSE-MIB", "fsLicenseIndex"))
+if mibBuilder.loadTexts: fsLicenseEntry.setStatus('current')
+fsLicenseIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 57, 1, 2, 1, 1), Integer32())
+if mibBuilder.loadTexts: fsLicenseIndex.setStatus('current')
+fsLicenseString = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 57, 1, 2, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsLicenseString.setStatus('current')
+fsLicenseValue = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 57, 1, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsLicenseValue.setStatus('current')
+fsLicenseMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 57, 2))
+fsLicenseMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 57, 2, 1))
+fsLicenseMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 57, 2, 2))
+fsLicenseMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 57, 2, 1, 1)).setObjects(("FS-LICENSE-MIB", "fsLicenseMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsLicenseMIBCompliance = fsLicenseMIBCompliance.setStatus('current')
+fsLicenseMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 57, 2, 2, 1)).setObjects(("FS-LICENSE-MIB", "fsShowLicense"), ("FS-LICENSE-MIB", "fsLicenseString"), ("FS-LICENSE-MIB", "fsLicenseValue"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsLicenseMIBGroup = fsLicenseMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("FS-LICENSE-MIB", PYSNMP_MODULE_ID=fsLicenseMIB, fsLicenseValue=fsLicenseValue, fsLicenseMIBCompliances=fsLicenseMIBCompliances, fsLicenseEntry=fsLicenseEntry, fsLicenseString=fsLicenseString, fsLicenseMIB=fsLicenseMIB, fsLicenseMIBCompliance=fsLicenseMIBCompliance, fsLicenseMIBObjects=fsLicenseMIBObjects, fsShowLicense=fsShowLicense, fsLicenseMIBGroups=fsLicenseMIBGroups, fsLicenseTable=fsLicenseTable, fsLicenseMIBConformance=fsLicenseMIBConformance, fsLicenseIndex=fsLicenseIndex, fsLicenseMIBGroup=fsLicenseMIBGroup)

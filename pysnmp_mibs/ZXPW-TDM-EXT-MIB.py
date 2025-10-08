@@ -1,121 +1,62 @@
-_J='zxPwTDMExtSlot'
-_I='zxPwTDMExtShelf'
-_H='zxPwTDMExtRack'
-_G='zxPwIndex'
-_F='ZXPW-STD-MIB'
-_E='not-accessible'
-_D='ZXPW-TDM-EXT-MIB'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-zxPwCTDM,=mibBuilder.importSymbols('ZTE-MASTER-MIB','zxPwCTDM')
-IANAPwTypeTC,=mibBuilder.importSymbols('ZX-PWE3-MIB','IANAPwTypeTC')
-zxPwIndex,=mibBuilder.importSymbols(_F,_G)
-zxPwTDMExtMIB=ModuleIdentity((1,3,6,1,4,1,3902,1015,1013,2,1,11))
-class PwTDMCfgIndex(TextualConvention,Unsigned32):status=_A
-_ZxPwTDMExtObjects_ObjectIdentity=ObjectIdentity
-zxPwTDMExtObjects=_ZxPwTDMExtObjects_ObjectIdentity((1,3,6,1,4,1,3902,1015,1013,2,1,11,1))
-_ZxPwTDMExtCardTable_Object=MibTable
-zxPwTDMExtCardTable=_ZxPwTDMExtCardTable_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,1))
-if mibBuilder.loadTexts:zxPwTDMExtCardTable.setStatus(_A)
-_ZxPwTDMExtCardEntry_Object=MibTableRow
-zxPwTDMExtCardEntry=_ZxPwTDMExtCardEntry_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,1,1))
-zxPwTDMExtCardEntry.setIndexNames((0,_D,_H),(0,_D,_I),(0,_D,_J))
-if mibBuilder.loadTexts:zxPwTDMExtCardEntry.setStatus(_A)
-_ZxPwTDMExtRack_Type=Integer32
-_ZxPwTDMExtRack_Object=MibTableColumn
-zxPwTDMExtRack=_ZxPwTDMExtRack_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,1,1,1),_ZxPwTDMExtRack_Type())
-zxPwTDMExtRack.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxPwTDMExtRack.setStatus(_A)
-_ZxPwTDMExtShelf_Type=Integer32
-_ZxPwTDMExtShelf_Object=MibTableColumn
-zxPwTDMExtShelf=_ZxPwTDMExtShelf_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,1,1,2),_ZxPwTDMExtShelf_Type())
-zxPwTDMExtShelf.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxPwTDMExtShelf.setStatus(_A)
-_ZxPwTDMExtSlot_Type=Integer32
-_ZxPwTDMExtSlot_Object=MibTableColumn
-zxPwTDMExtSlot=_ZxPwTDMExtSlot_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,1,1,3),_ZxPwTDMExtSlot_Type())
-zxPwTDMExtSlot.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxPwTDMExtSlot.setStatus(_A)
-class _ZxPwTDMExtTDMType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,9)));namedValues=NamedValues(*(('udt',1),('sdtMaster',2),('sdtSlave',3),('unconfigured',9)))
-_ZxPwTDMExtTDMType_Type.__name__=_C
-_ZxPwTDMExtTDMType_Object=MibTableColumn
-zxPwTDMExtTDMType=_ZxPwTDMExtTDMType_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,1,1,4),_ZxPwTDMExtTDMType_Type())
-zxPwTDMExtTDMType.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwTDMExtTDMType.setStatus(_A)
-class _ZxPwTDMExtTransmitClockSource_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('loopTiming',1),('localTiming',2),('throughTiming',3),('adaptive',4),('enhancedAdaptive',5),('differential',6),('lineTiming',7),('wanderOptimalAdaptive',8)))
-_ZxPwTDMExtTransmitClockSource_Type.__name__=_C
-_ZxPwTDMExtTransmitClockSource_Object=MibTableColumn
-zxPwTDMExtTransmitClockSource=_ZxPwTDMExtTransmitClockSource_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,1,1,5),_ZxPwTDMExtTransmitClockSource_Type())
-zxPwTDMExtTransmitClockSource.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwTDMExtTransmitClockSource.setStatus(_A)
-class _ZxPwTDMExtPrimaryClock_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_ZxPwTDMExtPrimaryClock_Type.__name__=_C
-_ZxPwTDMExtPrimaryClock_Object=MibTableColumn
-zxPwTDMExtPrimaryClock=_ZxPwTDMExtPrimaryClock_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,1,1,6),_ZxPwTDMExtPrimaryClock_Type())
-zxPwTDMExtPrimaryClock.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwTDMExtPrimaryClock.setStatus(_A)
-class _ZxPwTDMExtSecondaryClock_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_ZxPwTDMExtSecondaryClock_Type.__name__=_C
-_ZxPwTDMExtSecondaryClock_Object=MibTableColumn
-zxPwTDMExtSecondaryClock=_ZxPwTDMExtSecondaryClock_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,1,1,7),_ZxPwTDMExtSecondaryClock_Type())
-zxPwTDMExtSecondaryClock.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwTDMExtSecondaryClock.setStatus(_A)
-_ZxPwTDMExtPwType_Type=IANAPwTypeTC
-_ZxPwTDMExtPwType_Object=MibTableColumn
-zxPwTDMExtPwType=_ZxPwTDMExtPwType_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,1,1,8),_ZxPwTDMExtPwType_Type())
-zxPwTDMExtPwType.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwTDMExtPwType.setStatus(_A)
-class _ZxPwTDMExtReferenceClockSource_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('packet',1),('line',2)))
-_ZxPwTDMExtReferenceClockSource_Type.__name__=_C
-_ZxPwTDMExtReferenceClockSource_Object=MibTableColumn
-zxPwTDMExtReferenceClockSource=_ZxPwTDMExtReferenceClockSource_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,1,1,9),_ZxPwTDMExtReferenceClockSource_Type())
-zxPwTDMExtReferenceClockSource.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwTDMExtReferenceClockSource.setStatus(_A)
-class _ZxPwTDMExtServiceClockSource_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('internalClock',1),('e1Clock',2)))
-_ZxPwTDMExtServiceClockSource_Type.__name__=_C
-_ZxPwTDMExtServiceClockSource_Object=MibTableColumn
-zxPwTDMExtServiceClockSource=_ZxPwTDMExtServiceClockSource_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,1,1,10),_ZxPwTDMExtServiceClockSource_Type())
-zxPwTDMExtServiceClockSource.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwTDMExtServiceClockSource.setStatus(_A)
-_ZxPwTDMExtServiceClockE1No_Type=Integer32
-_ZxPwTDMExtServiceClockE1No_Object=MibTableColumn
-zxPwTDMExtServiceClockE1No=_ZxPwTDMExtServiceClockE1No_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,1,1,11),_ZxPwTDMExtServiceClockE1No_Type())
-zxPwTDMExtServiceClockE1No.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwTDMExtServiceClockE1No.setStatus(_A)
-_ZxPwTDMExtTable_Object=MibTable
-zxPwTDMExtTable=_ZxPwTDMExtTable_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,2))
-if mibBuilder.loadTexts:zxPwTDMExtTable.setStatus(_A)
-_ZxPwTDMExtEntry_Object=MibTableRow
-zxPwTDMExtEntry=_ZxPwTDMExtEntry_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,2,1))
-zxPwTDMExtEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:zxPwTDMExtEntry.setStatus(_A)
-_ZxPwTDMExtHWNo_Type=Integer32
-_ZxPwTDMExtHWNo_Object=MibTableColumn
-zxPwTDMExtHWNo=_ZxPwTDMExtHWNo_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,2,1,1),_ZxPwTDMExtHWNo_Type())
-zxPwTDMExtHWNo.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwTDMExtHWNo.setStatus(_A)
-_ZxPwTDMExtTSList_Type=DisplayString
-_ZxPwTDMExtTSList_Object=MibTableColumn
-zxPwTDMExtTSList=_ZxPwTDMExtTSList_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,2,1,2),_ZxPwTDMExtTSList_Type())
-zxPwTDMExtTSList.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwTDMExtTSList.setStatus(_A)
-_ZxPwExtGenTDMCfgIndex_Type=PwTDMCfgIndex
-_ZxPwExtGenTDMCfgIndex_Object=MibTableColumn
-zxPwExtGenTDMCfgIndex=_ZxPwExtGenTDMCfgIndex_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,2,1,3),_ZxPwExtGenTDMCfgIndex_Type())
-zxPwExtGenTDMCfgIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwExtGenTDMCfgIndex.setStatus(_A)
-class _ZxPwTDMExtFramesPerPacket_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,20))
-_ZxPwTDMExtFramesPerPacket_Type.__name__=_C
-_ZxPwTDMExtFramesPerPacket_Object=MibTableColumn
-zxPwTDMExtFramesPerPacket=_ZxPwTDMExtFramesPerPacket_Object((1,3,6,1,4,1,3902,1015,1013,2,1,11,1,2,1,4),_ZxPwTDMExtFramesPerPacket_Type())
-zxPwTDMExtFramesPerPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxPwTDMExtFramesPerPacket.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'PwTDMCfgIndex':PwTDMCfgIndex,'zxPwTDMExtMIB':zxPwTDMExtMIB,'zxPwTDMExtObjects':zxPwTDMExtObjects,'zxPwTDMExtCardTable':zxPwTDMExtCardTable,'zxPwTDMExtCardEntry':zxPwTDMExtCardEntry,_H:zxPwTDMExtRack,_I:zxPwTDMExtShelf,_J:zxPwTDMExtSlot,'zxPwTDMExtTDMType':zxPwTDMExtTDMType,'zxPwTDMExtTransmitClockSource':zxPwTDMExtTransmitClockSource,'zxPwTDMExtPrimaryClock':zxPwTDMExtPrimaryClock,'zxPwTDMExtSecondaryClock':zxPwTDMExtSecondaryClock,'zxPwTDMExtPwType':zxPwTDMExtPwType,'zxPwTDMExtReferenceClockSource':zxPwTDMExtReferenceClockSource,'zxPwTDMExtServiceClockSource':zxPwTDMExtServiceClockSource,'zxPwTDMExtServiceClockE1No':zxPwTDMExtServiceClockE1No,'zxPwTDMExtTable':zxPwTDMExtTable,'zxPwTDMExtEntry':zxPwTDMExtEntry,'zxPwTDMExtHWNo':zxPwTDMExtHWNo,'zxPwTDMExtTSList':zxPwTDMExtTSList,'zxPwExtGenTDMCfgIndex':zxPwExtGenTDMCfgIndex,'zxPwTDMExtFramesPerPacket':zxPwTDMExtFramesPerPacket})
+#
+# PySNMP MIB module ZXPW-TDM-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZXPW-TDM-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+zxPwCTDM, = mibBuilder.importSymbols("ZTE-MASTER-MIB", "zxPwCTDM")
+IANAPwTypeTC, = mibBuilder.importSymbols("ZX-PWE3-MIB", "IANAPwTypeTC")
+zxPwIndex, = mibBuilder.importSymbols("ZXPW-STD-MIB", "zxPwIndex")
+zxPwTDMExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11))
+if mibBuilder.loadTexts: zxPwTDMExtMIB.setLastUpdated('200812090000Z')
+if mibBuilder.loadTexts: zxPwTDMExtMIB.setOrganization('Zhongxing Telcom Co. Ltd.')
+class PwTDMCfgIndex(TextualConvention, Unsigned32):
+    status = 'current'
+
+zxPwTDMExtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1))
+zxPwTDMExtCardTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 1), )
+if mibBuilder.loadTexts: zxPwTDMExtCardTable.setStatus('current')
+zxPwTDMExtCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 1, 1), ).setIndexNames((0, "ZXPW-TDM-EXT-MIB", "zxPwTDMExtRack"), (0, "ZXPW-TDM-EXT-MIB", "zxPwTDMExtShelf"), (0, "ZXPW-TDM-EXT-MIB", "zxPwTDMExtSlot"))
+if mibBuilder.loadTexts: zxPwTDMExtCardEntry.setStatus('current')
+zxPwTDMExtRack = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: zxPwTDMExtRack.setStatus('current')
+zxPwTDMExtShelf = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 1, 1, 2), Integer32())
+if mibBuilder.loadTexts: zxPwTDMExtShelf.setStatus('current')
+zxPwTDMExtSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 1, 1, 3), Integer32())
+if mibBuilder.loadTexts: zxPwTDMExtSlot.setStatus('current')
+zxPwTDMExtTDMType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 9))).clone(namedValues=NamedValues(("udt", 1), ("sdtMaster", 2), ("sdtSlave", 3), ("unconfigured", 9)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxPwTDMExtTDMType.setStatus('current')
+zxPwTDMExtTransmitClockSource = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("loopTiming", 1), ("localTiming", 2), ("throughTiming", 3), ("adaptive", 4), ("enhancedAdaptive", 5), ("differential", 6), ("lineTiming", 7), ("wanderOptimalAdaptive", 8)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxPwTDMExtTransmitClockSource.setStatus('current')
+zxPwTDMExtPrimaryClock = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxPwTDMExtPrimaryClock.setStatus('current')
+zxPwTDMExtSecondaryClock = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)).clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxPwTDMExtSecondaryClock.setStatus('current')
+zxPwTDMExtPwType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 1, 1, 8), IANAPwTypeTC()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxPwTDMExtPwType.setStatus('current')
+zxPwTDMExtReferenceClockSource = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("packet", 1), ("line", 2))).clone('packet')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxPwTDMExtReferenceClockSource.setStatus('current')
+zxPwTDMExtServiceClockSource = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("internalClock", 1), ("e1Clock", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxPwTDMExtServiceClockSource.setStatus('current')
+zxPwTDMExtServiceClockE1No = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 1, 1, 11), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxPwTDMExtServiceClockE1No.setStatus('current')
+zxPwTDMExtTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 2), )
+if mibBuilder.loadTexts: zxPwTDMExtTable.setStatus('current')
+zxPwTDMExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 2, 1), ).setIndexNames((0, "ZXPW-STD-MIB", "zxPwIndex"))
+if mibBuilder.loadTexts: zxPwTDMExtEntry.setStatus('current')
+zxPwTDMExtHWNo = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 2, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxPwTDMExtHWNo.setStatus('current')
+zxPwTDMExtTSList = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 2, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxPwTDMExtTSList.setStatus('current')
+zxPwExtGenTDMCfgIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 2, 1, 3), PwTDMCfgIndex()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxPwExtGenTDMCfgIndex.setStatus('current')
+zxPwTDMExtFramesPerPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1013, 2, 1, 11, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 20)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxPwTDMExtFramesPerPacket.setStatus('current')
+mibBuilder.exportSymbols("ZXPW-TDM-EXT-MIB", zxPwTDMExtServiceClockSource=zxPwTDMExtServiceClockSource, zxPwTDMExtRack=zxPwTDMExtRack, zxPwTDMExtTransmitClockSource=zxPwTDMExtTransmitClockSource, zxPwExtGenTDMCfgIndex=zxPwExtGenTDMCfgIndex, zxPwTDMExtSlot=zxPwTDMExtSlot, zxPwTDMExtSecondaryClock=zxPwTDMExtSecondaryClock, zxPwTDMExtTSList=zxPwTDMExtTSList, zxPwTDMExtReferenceClockSource=zxPwTDMExtReferenceClockSource, zxPwTDMExtPwType=zxPwTDMExtPwType, zxPwTDMExtTable=zxPwTDMExtTable, zxPwTDMExtObjects=zxPwTDMExtObjects, zxPwTDMExtServiceClockE1No=zxPwTDMExtServiceClockE1No, zxPwTDMExtCardEntry=zxPwTDMExtCardEntry, zxPwTDMExtHWNo=zxPwTDMExtHWNo, zxPwTDMExtFramesPerPacket=zxPwTDMExtFramesPerPacket, zxPwTDMExtCardTable=zxPwTDMExtCardTable, zxPwTDMExtShelf=zxPwTDMExtShelf, PYSNMP_MODULE_ID=zxPwTDMExtMIB, zxPwTDMExtEntry=zxPwTDMExtEntry, zxPwTDMExtPrimaryClock=zxPwTDMExtPrimaryClock, zxPwTDMExtMIB=zxPwTDMExtMIB, zxPwTDMExtTDMType=zxPwTDMExtTDMType, PwTDMCfgIndex=PwTDMCfgIndex)

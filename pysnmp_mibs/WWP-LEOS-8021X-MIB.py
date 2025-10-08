@@ -1,105 +1,55 @@
-_H='wwpLeos8021xSuppPort'
-_G='read-only'
-_F='wwpLeos8021xPort'
-_E='WWP-LEOS-8021X-MIB'
-_D='DisplayString'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention','TruthValue')
-wwpModulesLeos,=mibBuilder.importSymbols('WWP-SMI','wwpModulesLeos')
-wwpLeos8021xMibModule=ModuleIdentity((1,3,6,1,4,1,6141,2,60,401))
-if mibBuilder.loadTexts:wwpLeos8021xMibModule.setRevisions(('2005-08-28 19:35',))
-_WwpLeos8021xMIB_ObjectIdentity=ObjectIdentity
-wwpLeos8021xMIB=_WwpLeos8021xMIB_ObjectIdentity((1,3,6,1,4,1,6141,2,60,401,1))
-_WwpLeos8021xConf_ObjectIdentity=ObjectIdentity
-wwpLeos8021xConf=_WwpLeos8021xConf_ObjectIdentity((1,3,6,1,4,1,6141,2,60,401,1,1))
-_WwpLeos8021xGroups_ObjectIdentity=ObjectIdentity
-wwpLeos8021xGroups=_WwpLeos8021xGroups_ObjectIdentity((1,3,6,1,4,1,6141,2,60,401,1,1,1))
-_WwpLeos8021xCompls_ObjectIdentity=ObjectIdentity
-wwpLeos8021xCompls=_WwpLeos8021xCompls_ObjectIdentity((1,3,6,1,4,1,6141,2,60,401,1,1,2))
-_WwpLeos8021xObjs_ObjectIdentity=ObjectIdentity
-wwpLeos8021xObjs=_WwpLeos8021xObjs_ObjectIdentity((1,3,6,1,4,1,6141,2,60,401,1,2))
-_WwpLeos8021xPortTable_Object=MibTable
-wwpLeos8021xPortTable=_WwpLeos8021xPortTable_Object((1,3,6,1,4,1,6141,2,60,401,1,2,1))
-if mibBuilder.loadTexts:wwpLeos8021xPortTable.setStatus(_A)
-_WwpLeos8021xPortEntry_Object=MibTableRow
-wwpLeos8021xPortEntry=_WwpLeos8021xPortEntry_Object((1,3,6,1,4,1,6141,2,60,401,1,2,1,1))
-wwpLeos8021xPortEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:wwpLeos8021xPortEntry.setStatus(_A)
-class _WwpLeos8021xPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000))
-_WwpLeos8021xPort_Type.__name__=_C
-_WwpLeos8021xPort_Object=MibTableColumn
-wwpLeos8021xPort=_WwpLeos8021xPort_Object((1,3,6,1,4,1,6141,2,60,401,1,2,1,1,1),_WwpLeos8021xPort_Type())
-wwpLeos8021xPort.setMaxAccess(_G)
-if mibBuilder.loadTexts:wwpLeos8021xPort.setStatus(_A)
-class _WwpLeos8021xRole_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('none',1),('supplicant',2),('authenticator',3),('both',4)))
-_WwpLeos8021xRole_Type.__name__=_C
-_WwpLeos8021xRole_Object=MibTableColumn
-wwpLeos8021xRole=_WwpLeos8021xRole_Object((1,3,6,1,4,1,6141,2,60,401,1,2,1,1,2),_WwpLeos8021xRole_Type())
-wwpLeos8021xRole.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeos8021xRole.setStatus(_A)
-_WwpLeos8021xAuthPortStatsClear_Type=TruthValue
-_WwpLeos8021xAuthPortStatsClear_Object=MibTableColumn
-wwpLeos8021xAuthPortStatsClear=_WwpLeos8021xAuthPortStatsClear_Object((1,3,6,1,4,1,6141,2,60,401,1,2,1,1,3),_WwpLeos8021xAuthPortStatsClear_Type())
-wwpLeos8021xAuthPortStatsClear.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeos8021xAuthPortStatsClear.setStatus(_A)
-_WwpLeos8021xSuppTable_Object=MibTable
-wwpLeos8021xSuppTable=_WwpLeos8021xSuppTable_Object((1,3,6,1,4,1,6141,2,60,401,1,2,2))
-if mibBuilder.loadTexts:wwpLeos8021xSuppTable.setStatus(_A)
-_WwpLeos8021xSuppEntry_Object=MibTableRow
-wwpLeos8021xSuppEntry=_WwpLeos8021xSuppEntry_Object((1,3,6,1,4,1,6141,2,60,401,1,2,2,1))
-wwpLeos8021xSuppEntry.setIndexNames((0,_E,_H))
-if mibBuilder.loadTexts:wwpLeos8021xSuppEntry.setStatus(_A)
-class _WwpLeos8021xSuppPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000))
-_WwpLeos8021xSuppPort_Type.__name__=_C
-_WwpLeos8021xSuppPort_Object=MibTableColumn
-wwpLeos8021xSuppPort=_WwpLeos8021xSuppPort_Object((1,3,6,1,4,1,6141,2,60,401,1,2,2,1,1),_WwpLeos8021xSuppPort_Type())
-wwpLeos8021xSuppPort.setMaxAccess(_G)
-if mibBuilder.loadTexts:wwpLeos8021xSuppPort.setStatus(_A)
-class _WwpLeos8021xSuppUserName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_WwpLeos8021xSuppUserName_Type.__name__=_D
-_WwpLeos8021xSuppUserName_Object=MibTableColumn
-wwpLeos8021xSuppUserName=_WwpLeos8021xSuppUserName_Object((1,3,6,1,4,1,6141,2,60,401,1,2,2,1,2),_WwpLeos8021xSuppUserName_Type())
-wwpLeos8021xSuppUserName.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeos8021xSuppUserName.setStatus(_A)
-class _WwpLeos8021xSuppPassword_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_WwpLeos8021xSuppPassword_Type.__name__=_D
-_WwpLeos8021xSuppPassword_Object=MibTableColumn
-wwpLeos8021xSuppPassword=_WwpLeos8021xSuppPassword_Object((1,3,6,1,4,1,6141,2,60,401,1,2,2,1,3),_WwpLeos8021xSuppPassword_Type())
-wwpLeos8021xSuppPassword.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeos8021xSuppPassword.setStatus(_A)
-_WwpLeos8021xSuppPortStatsClear_Type=TruthValue
-_WwpLeos8021xSuppPortStatsClear_Object=MibTableColumn
-wwpLeos8021xSuppPortStatsClear=_WwpLeos8021xSuppPortStatsClear_Object((1,3,6,1,4,1,6141,2,60,401,1,2,2,1,5),_WwpLeos8021xSuppPortStatsClear_Type())
-wwpLeos8021xSuppPortStatsClear.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeos8021xSuppPortStatsClear.setStatus(_A)
-class _WwpLeos8021xSuppEAPMethod_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('eapMd5',1))
-_WwpLeos8021xSuppEAPMethod_Type.__name__=_C
-_WwpLeos8021xSuppEAPMethod_Object=MibTableColumn
-wwpLeos8021xSuppEAPMethod=_WwpLeos8021xSuppEAPMethod_Object((1,3,6,1,4,1,6141,2,60,401,1,2,2,1,10),_WwpLeos8021xSuppEAPMethod_Type())
-wwpLeos8021xSuppEAPMethod.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeos8021xSuppEAPMethod.setStatus(_A)
-_WwpLeos8021xGlobalAttrs_ObjectIdentity=ObjectIdentity
-wwpLeos8021xGlobalAttrs=_WwpLeos8021xGlobalAttrs_ObjectIdentity((1,3,6,1,4,1,6141,2,60,401,1,2,3))
-_WwpLeos8021xAuthStatsClear_Type=TruthValue
-_WwpLeos8021xAuthStatsClear_Object=MibScalar
-wwpLeos8021xAuthStatsClear=_WwpLeos8021xAuthStatsClear_Object((1,3,6,1,4,1,6141,2,60,401,1,2,3,1),_WwpLeos8021xAuthStatsClear_Type())
-wwpLeos8021xAuthStatsClear.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeos8021xAuthStatsClear.setStatus(_A)
-_WwpLeos8021xSuppStatsClear_Type=TruthValue
-_WwpLeos8021xSuppStatsClear_Object=MibScalar
-wwpLeos8021xSuppStatsClear=_WwpLeos8021xSuppStatsClear_Object((1,3,6,1,4,1,6141,2,60,401,1,2,3,2),_WwpLeos8021xSuppStatsClear_Type())
-wwpLeos8021xSuppStatsClear.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeos8021xSuppStatsClear.setStatus(_A)
-_WwpLeos8021xEvents_ObjectIdentity=ObjectIdentity
-wwpLeos8021xEvents=_WwpLeos8021xEvents_ObjectIdentity((1,3,6,1,4,1,6141,2,60,401,1,3))
-_WwpLeos8021xEventsV2_ObjectIdentity=ObjectIdentity
-wwpLeos8021xEventsV2=_WwpLeos8021xEventsV2_ObjectIdentity((1,3,6,1,4,1,6141,2,60,401,1,3,0))
-mibBuilder.exportSymbols(_E,**{'wwpLeos8021xMibModule':wwpLeos8021xMibModule,'wwpLeos8021xMIB':wwpLeos8021xMIB,'wwpLeos8021xConf':wwpLeos8021xConf,'wwpLeos8021xGroups':wwpLeos8021xGroups,'wwpLeos8021xCompls':wwpLeos8021xCompls,'wwpLeos8021xObjs':wwpLeos8021xObjs,'wwpLeos8021xPortTable':wwpLeos8021xPortTable,'wwpLeos8021xPortEntry':wwpLeos8021xPortEntry,_F:wwpLeos8021xPort,'wwpLeos8021xRole':wwpLeos8021xRole,'wwpLeos8021xAuthPortStatsClear':wwpLeos8021xAuthPortStatsClear,'wwpLeos8021xSuppTable':wwpLeos8021xSuppTable,'wwpLeos8021xSuppEntry':wwpLeos8021xSuppEntry,_H:wwpLeos8021xSuppPort,'wwpLeos8021xSuppUserName':wwpLeos8021xSuppUserName,'wwpLeos8021xSuppPassword':wwpLeos8021xSuppPassword,'wwpLeos8021xSuppPortStatsClear':wwpLeos8021xSuppPortStatsClear,'wwpLeos8021xSuppEAPMethod':wwpLeos8021xSuppEAPMethod,'wwpLeos8021xGlobalAttrs':wwpLeos8021xGlobalAttrs,'wwpLeos8021xAuthStatsClear':wwpLeos8021xAuthStatsClear,'wwpLeos8021xSuppStatsClear':wwpLeos8021xSuppStatsClear,'wwpLeos8021xEvents':wwpLeos8021xEvents,'wwpLeos8021xEventsV2':wwpLeos8021xEventsV2})
+#
+# PySNMP MIB module WWP-LEOS-8021X-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/WWP-LEOS-8021X-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+wwpModulesLeos, = mibBuilder.importSymbols("WWP-SMI", "wwpModulesLeos")
+wwpLeos8021xMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401))
+wwpLeos8021xMibModule.setRevisions(('2005-08-28 19:35',))
+if mibBuilder.loadTexts: wwpLeos8021xMibModule.setLastUpdated('200508281935Z')
+if mibBuilder.loadTexts: wwpLeos8021xMibModule.setOrganization('Ciena, Inc')
+wwpLeos8021xMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1))
+wwpLeos8021xConf = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 1))
+wwpLeos8021xGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 1, 1))
+wwpLeos8021xCompls = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 1, 2))
+wwpLeos8021xObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2))
+wwpLeos8021xPortTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 1), )
+if mibBuilder.loadTexts: wwpLeos8021xPortTable.setStatus('current')
+wwpLeos8021xPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 1, 1), ).setIndexNames((0, "WWP-LEOS-8021X-MIB", "wwpLeos8021xPort"))
+if mibBuilder.loadTexts: wwpLeos8021xPortEntry.setStatus('current')
+wwpLeos8021xPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeos8021xPort.setStatus('current')
+wwpLeos8021xRole = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("supplicant", 2), ("authenticator", 3), ("both", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpLeos8021xRole.setStatus('current')
+wwpLeos8021xAuthPortStatsClear = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 1, 1, 3), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpLeos8021xAuthPortStatsClear.setStatus('current')
+wwpLeos8021xEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 3))
+wwpLeos8021xEventsV2 = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 3, 0))
+wwpLeos8021xSuppTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 2), )
+if mibBuilder.loadTexts: wwpLeos8021xSuppTable.setStatus('current')
+wwpLeos8021xSuppEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 2, 1), ).setIndexNames((0, "WWP-LEOS-8021X-MIB", "wwpLeos8021xSuppPort"))
+if mibBuilder.loadTexts: wwpLeos8021xSuppEntry.setStatus('current')
+wwpLeos8021xSuppPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeos8021xSuppPort.setStatus('current')
+wwpLeos8021xSuppUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpLeos8021xSuppUserName.setStatus('current')
+wwpLeos8021xSuppPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpLeos8021xSuppPassword.setStatus('current')
+wwpLeos8021xSuppPortStatsClear = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 2, 1, 5), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpLeos8021xSuppPortStatsClear.setStatus('current')
+wwpLeos8021xSuppEAPMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("eapMd5", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpLeos8021xSuppEAPMethod.setStatus('current')
+wwpLeos8021xGlobalAttrs = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 3))
+wwpLeos8021xAuthStatsClear = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 3, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpLeos8021xAuthStatsClear.setStatus('current')
+wwpLeos8021xSuppStatsClear = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 401, 1, 2, 3, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpLeos8021xSuppStatsClear.setStatus('current')
+mibBuilder.exportSymbols("WWP-LEOS-8021X-MIB", wwpLeos8021xEvents=wwpLeos8021xEvents, wwpLeos8021xGroups=wwpLeos8021xGroups, wwpLeos8021xPortEntry=wwpLeos8021xPortEntry, wwpLeos8021xSuppPortStatsClear=wwpLeos8021xSuppPortStatsClear, wwpLeos8021xRole=wwpLeos8021xRole, wwpLeos8021xCompls=wwpLeos8021xCompls, wwpLeos8021xGlobalAttrs=wwpLeos8021xGlobalAttrs, wwpLeos8021xSuppUserName=wwpLeos8021xSuppUserName, wwpLeos8021xMIB=wwpLeos8021xMIB, wwpLeos8021xSuppTable=wwpLeos8021xSuppTable, wwpLeos8021xConf=wwpLeos8021xConf, wwpLeos8021xSuppPort=wwpLeos8021xSuppPort, wwpLeos8021xAuthStatsClear=wwpLeos8021xAuthStatsClear, wwpLeos8021xMibModule=wwpLeos8021xMibModule, wwpLeos8021xSuppPassword=wwpLeos8021xSuppPassword, wwpLeos8021xSuppEntry=wwpLeos8021xSuppEntry, wwpLeos8021xPortTable=wwpLeos8021xPortTable, wwpLeos8021xEventsV2=wwpLeos8021xEventsV2, wwpLeos8021xAuthPortStatsClear=wwpLeos8021xAuthPortStatsClear, PYSNMP_MODULE_ID=wwpLeos8021xMibModule, wwpLeos8021xObjs=wwpLeos8021xObjs, wwpLeos8021xSuppEAPMethod=wwpLeos8021xSuppEAPMethod, wwpLeos8021xPort=wwpLeos8021xPort, wwpLeos8021xSuppStatsClear=wwpLeos8021xSuppStatsClear)

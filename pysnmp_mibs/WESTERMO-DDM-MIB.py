@@ -1,85 +1,49 @@
-_L='ddmPortGroup'
-_K='ddmPortRxPower'
-_J='ddmPortTxPower'
-_I='ddmPortBiasCurrent'
-_H='ddmPortTemperature'
-_G='ddmPortVoltage'
-_F='ddmPortIfName'
-_E='ddmPortIfIndex'
-_D='read-only'
-_C='Integer32'
-_B='WESTERMO-DDM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-common,=mibBuilder.importSymbols('WESTERMO-OID-MIB','common')
-ddmMIB=ModuleIdentity((1,3,6,1,4,1,16177,2,2))
-if mibBuilder.loadTexts:ddmMIB.setRevisions(('2017-12-05 00:00',))
-_DdmObjects_ObjectIdentity=ObjectIdentity
-ddmObjects=_DdmObjects_ObjectIdentity((1,3,6,1,4,1,16177,2,2,1))
-_DdmPortTable_Object=MibTable
-ddmPortTable=_DdmPortTable_Object((1,3,6,1,4,1,16177,2,2,1,1))
-if mibBuilder.loadTexts:ddmPortTable.setStatus(_A)
-_DdmPortEntry_Object=MibTableRow
-ddmPortEntry=_DdmPortEntry_Object((1,3,6,1,4,1,16177,2,2,1,1,1))
-ddmPortEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:ddmPortEntry.setStatus(_A)
-_DdmPortIfIndex_Type=InterfaceIndex
-_DdmPortIfIndex_Object=MibTableColumn
-ddmPortIfIndex=_DdmPortIfIndex_Object((1,3,6,1,4,1,16177,2,2,1,1,1,1),_DdmPortIfIndex_Type())
-ddmPortIfIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:ddmPortIfIndex.setStatus(_A)
-_DdmPortIfName_Type=DisplayString
-_DdmPortIfName_Object=MibTableColumn
-ddmPortIfName=_DdmPortIfName_Object((1,3,6,1,4,1,16177,2,2,1,1,1,2),_DdmPortIfName_Type())
-ddmPortIfName.setMaxAccess(_D)
-if mibBuilder.loadTexts:ddmPortIfName.setStatus(_A)
-class _DdmPortVoltage_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,6550))
-_DdmPortVoltage_Type.__name__=_C
-_DdmPortVoltage_Object=MibTableColumn
-ddmPortVoltage=_DdmPortVoltage_Object((1,3,6,1,4,1,16177,2,2,1,1,1,3),_DdmPortVoltage_Type())
-ddmPortVoltage.setMaxAccess(_D)
-if mibBuilder.loadTexts:ddmPortVoltage.setStatus(_A)
-class _DdmPortTemperature_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-128,128))
-_DdmPortTemperature_Type.__name__=_C
-_DdmPortTemperature_Object=MibTableColumn
-ddmPortTemperature=_DdmPortTemperature_Object((1,3,6,1,4,1,16177,2,2,1,1,1,4),_DdmPortTemperature_Type())
-ddmPortTemperature.setMaxAccess(_D)
-if mibBuilder.loadTexts:ddmPortTemperature.setStatus(_A)
-class _DdmPortBiasCurrent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,131))
-_DdmPortBiasCurrent_Type.__name__=_C
-_DdmPortBiasCurrent_Object=MibTableColumn
-ddmPortBiasCurrent=_DdmPortBiasCurrent_Object((1,3,6,1,4,1,16177,2,2,1,1,1,5),_DdmPortBiasCurrent_Type())
-ddmPortBiasCurrent.setMaxAccess(_D)
-if mibBuilder.loadTexts:ddmPortBiasCurrent.setStatus(_A)
-class _DdmPortTxPower_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-4000,820))
-_DdmPortTxPower_Type.__name__=_C
-_DdmPortTxPower_Object=MibTableColumn
-ddmPortTxPower=_DdmPortTxPower_Object((1,3,6,1,4,1,16177,2,2,1,1,1,6),_DdmPortTxPower_Type())
-ddmPortTxPower.setMaxAccess(_D)
-if mibBuilder.loadTexts:ddmPortTxPower.setStatus(_A)
-class _DdmPortRxPower_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-4000,820))
-_DdmPortRxPower_Type.__name__=_C
-_DdmPortRxPower_Object=MibTableColumn
-ddmPortRxPower=_DdmPortRxPower_Object((1,3,6,1,4,1,16177,2,2,1,1,1,7),_DdmPortRxPower_Type())
-ddmPortRxPower.setMaxAccess(_D)
-if mibBuilder.loadTexts:ddmPortRxPower.setStatus(_A)
-_DdmConformance_ObjectIdentity=ObjectIdentity
-ddmConformance=_DdmConformance_ObjectIdentity((1,3,6,1,4,1,16177,2,2,2))
-_DdmGroups_ObjectIdentity=ObjectIdentity
-ddmGroups=_DdmGroups_ObjectIdentity((1,3,6,1,4,1,16177,2,2,2,1))
-_DdmCompliances_ObjectIdentity=ObjectIdentity
-ddmCompliances=_DdmCompliances_ObjectIdentity((1,3,6,1,4,1,16177,2,2,2,2))
-ddmPortGroup=ObjectGroup((1,3,6,1,4,1,16177,2,2,2,1,1))
-ddmPortGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:ddmPortGroup.setStatus(_A)
-ddmCompliance=ModuleCompliance((1,3,6,1,4,1,16177,2,2,2,2,1))
-ddmCompliance.setObjects((_B,_L))
-if mibBuilder.loadTexts:ddmCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ddmMIB':ddmMIB,'ddmObjects':ddmObjects,'ddmPortTable':ddmPortTable,'ddmPortEntry':ddmPortEntry,_E:ddmPortIfIndex,_F:ddmPortIfName,_G:ddmPortVoltage,_H:ddmPortTemperature,_I:ddmPortBiasCurrent,_J:ddmPortTxPower,_K:ddmPortRxPower,'ddmConformance':ddmConformance,'ddmGroups':ddmGroups,_L:ddmPortGroup,'ddmCompliances':ddmCompliances,'ddmCompliance':ddmCompliance})
+#
+# PySNMP MIB module WESTERMO-DDM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/westermo/WESTERMO-DDM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+common, = mibBuilder.importSymbols("WESTERMO-OID-MIB", "common")
+ddmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 16177, 2, 2))
+ddmMIB.setRevisions(('2017-12-05 00:00',))
+if mibBuilder.loadTexts: ddmMIB.setLastUpdated('201712050000Z')
+if mibBuilder.loadTexts: ddmMIB.setOrganization('Westermo Teleindustri AB')
+ddmObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 16177, 2, 2, 1))
+ddmConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 16177, 2, 2, 2))
+ddmPortTable = MibTable((1, 3, 6, 1, 4, 1, 16177, 2, 2, 1, 1), )
+if mibBuilder.loadTexts: ddmPortTable.setStatus('current')
+ddmPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 16177, 2, 2, 1, 1, 1), ).setIndexNames((0, "WESTERMO-DDM-MIB", "ddmPortIfIndex"))
+if mibBuilder.loadTexts: ddmPortEntry.setStatus('current')
+ddmPortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 16177, 2, 2, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: ddmPortIfIndex.setStatus('current')
+ddmPortIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 16177, 2, 2, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ddmPortIfName.setStatus('current')
+ddmPortVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 16177, 2, 2, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 6550))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ddmPortVoltage.setStatus('current')
+ddmPortTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 16177, 2, 2, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-128, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ddmPortTemperature.setStatus('current')
+ddmPortBiasCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 16177, 2, 2, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 131))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ddmPortBiasCurrent.setStatus('current')
+ddmPortTxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 16177, 2, 2, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-4000, 820))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ddmPortTxPower.setStatus('current')
+ddmPortRxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 16177, 2, 2, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-4000, 820))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ddmPortRxPower.setStatus('current')
+ddmGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 16177, 2, 2, 2, 1))
+ddmCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 16177, 2, 2, 2, 2))
+ddmPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 16177, 2, 2, 2, 1, 1)).setObjects(("WESTERMO-DDM-MIB", "ddmPortIfName"), ("WESTERMO-DDM-MIB", "ddmPortVoltage"), ("WESTERMO-DDM-MIB", "ddmPortTemperature"), ("WESTERMO-DDM-MIB", "ddmPortBiasCurrent"), ("WESTERMO-DDM-MIB", "ddmPortTxPower"), ("WESTERMO-DDM-MIB", "ddmPortRxPower"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ddmPortGroup = ddmPortGroup.setStatus('current')
+ddmCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 16177, 2, 2, 2, 2, 1)).setObjects(("WESTERMO-DDM-MIB", "ddmPortGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ddmCompliance = ddmCompliance.setStatus('current')
+mibBuilder.exportSymbols("WESTERMO-DDM-MIB", ddmPortIfIndex=ddmPortIfIndex, ddmPortBiasCurrent=ddmPortBiasCurrent, ddmMIB=ddmMIB, ddmGroups=ddmGroups, ddmPortIfName=ddmPortIfName, ddmPortGroup=ddmPortGroup, ddmPortVoltage=ddmPortVoltage, PYSNMP_MODULE_ID=ddmMIB, ddmPortTable=ddmPortTable, ddmPortRxPower=ddmPortRxPower, ddmPortEntry=ddmPortEntry, ddmCompliances=ddmCompliances, ddmConformance=ddmConformance, ddmCompliance=ddmCompliance, ddmObjects=ddmObjects, ddmPortTxPower=ddmPortTxPower, ddmPortTemperature=ddmPortTemperature)

@@ -1,102 +1,62 @@
-_O='ntcNotifConfGrpRepV1Standard'
-_N='ntcNotifConfGrpFldV1Standard'
-_M='ntcNotifAlReport'
-_L='ntcNotifFldAlarmStatus'
-_K='ntcNotifFldDescription'
-_J='ntcNotifFldObjectId'
-_I='ntcNotifFldObjectName'
-_H='ntcNotifFldFunctionId'
-_G='ntcNotifFldFunctionName'
-_F='ntcNotifFldDevice'
-_E='ntcNotifFldSeverity'
-_D='ntcNotifFldSeqNbr'
-_C='accessible-for-notify'
-_B='current'
-_A='NEWTEC-NOTIFICATION-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ntcEvent,=mibBuilder.importSymbols('NEWTEC-MAIN-MIB','ntcEvent')
-NtcAlarmState,=mibBuilder.importSymbols('NEWTEC-TC-MIB','NtcAlarmState')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ntcNotification=ModuleIdentity((1,3,6,1,4,1,5835,5,3,2))
-if mibBuilder.loadTexts:ntcNotification.setRevisions(('2012-06-28 12:00','2012-05-16 12:35'))
-_NtcNotifObjects_ObjectIdentity=ObjectIdentity
-ntcNotifObjects=_NtcNotifObjects_ObjectIdentity((1,3,6,1,4,1,5835,5,3,2,1))
-if mibBuilder.loadTexts:ntcNotifObjects.setStatus(_B)
-_NtcNotifReportList_ObjectIdentity=ObjectIdentity
-ntcNotifReportList=_NtcNotifReportList_ObjectIdentity((1,3,6,1,4,1,5835,5,3,2,1,0))
-if mibBuilder.loadTexts:ntcNotifReportList.setStatus(_B)
-_NtcNotifField_ObjectIdentity=ObjectIdentity
-ntcNotifField=_NtcNotifField_ObjectIdentity((1,3,6,1,4,1,5835,5,3,2,1,1))
-if mibBuilder.loadTexts:ntcNotifField.setStatus(_B)
-_NtcNotifFldSeqNbr_Type=Counter32
-_NtcNotifFldSeqNbr_Object=MibScalar
-ntcNotifFldSeqNbr=_NtcNotifFldSeqNbr_Object((1,3,6,1,4,1,5835,5,3,2,1,1,1),_NtcNotifFldSeqNbr_Type())
-ntcNotifFldSeqNbr.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcNotifFldSeqNbr.setStatus(_B)
-_NtcNotifFldSeverity_Type=DisplayString
-_NtcNotifFldSeverity_Object=MibScalar
-ntcNotifFldSeverity=_NtcNotifFldSeverity_Object((1,3,6,1,4,1,5835,5,3,2,1,1,2),_NtcNotifFldSeverity_Type())
-ntcNotifFldSeverity.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcNotifFldSeverity.setStatus(_B)
-_NtcNotifFldDevice_Type=DisplayString
-_NtcNotifFldDevice_Object=MibScalar
-ntcNotifFldDevice=_NtcNotifFldDevice_Object((1,3,6,1,4,1,5835,5,3,2,1,1,3),_NtcNotifFldDevice_Type())
-ntcNotifFldDevice.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcNotifFldDevice.setStatus(_B)
-_NtcNotifFldFunctionName_Type=DisplayString
-_NtcNotifFldFunctionName_Object=MibScalar
-ntcNotifFldFunctionName=_NtcNotifFldFunctionName_Object((1,3,6,1,4,1,5835,5,3,2,1,1,4),_NtcNotifFldFunctionName_Type())
-ntcNotifFldFunctionName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcNotifFldFunctionName.setStatus(_B)
-_NtcNotifFldFunctionId_Type=ObjectIdentifier
-_NtcNotifFldFunctionId_Object=MibScalar
-ntcNotifFldFunctionId=_NtcNotifFldFunctionId_Object((1,3,6,1,4,1,5835,5,3,2,1,1,5),_NtcNotifFldFunctionId_Type())
-ntcNotifFldFunctionId.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcNotifFldFunctionId.setStatus(_B)
-_NtcNotifFldObjectName_Type=DisplayString
-_NtcNotifFldObjectName_Object=MibScalar
-ntcNotifFldObjectName=_NtcNotifFldObjectName_Object((1,3,6,1,4,1,5835,5,3,2,1,1,6),_NtcNotifFldObjectName_Type())
-ntcNotifFldObjectName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcNotifFldObjectName.setStatus(_B)
-_NtcNotifFldObjectId_Type=ObjectIdentifier
-_NtcNotifFldObjectId_Object=MibScalar
-ntcNotifFldObjectId=_NtcNotifFldObjectId_Object((1,3,6,1,4,1,5835,5,3,2,1,1,7),_NtcNotifFldObjectId_Type())
-ntcNotifFldObjectId.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcNotifFldObjectId.setStatus(_B)
-_NtcNotifFldDescription_Type=DisplayString
-_NtcNotifFldDescription_Object=MibScalar
-ntcNotifFldDescription=_NtcNotifFldDescription_Object((1,3,6,1,4,1,5835,5,3,2,1,1,8),_NtcNotifFldDescription_Type())
-ntcNotifFldDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcNotifFldDescription.setStatus(_B)
-_NtcNotifFldAlarmStatus_Type=NtcAlarmState
-_NtcNotifFldAlarmStatus_Object=MibScalar
-ntcNotifFldAlarmStatus=_NtcNotifFldAlarmStatus_Object((1,3,6,1,4,1,5835,5,3,2,1,1,9),_NtcNotifFldAlarmStatus_Type())
-ntcNotifFldAlarmStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcNotifFldAlarmStatus.setStatus(_B)
-_NtcNotifConformance_ObjectIdentity=ObjectIdentity
-ntcNotifConformance=_NtcNotifConformance_ObjectIdentity((1,3,6,1,4,1,5835,5,3,2,2))
-if mibBuilder.loadTexts:ntcNotifConformance.setStatus(_B)
-_NtcNotifConfGroup_ObjectIdentity=ObjectIdentity
-ntcNotifConfGroup=_NtcNotifConfGroup_ObjectIdentity((1,3,6,1,4,1,5835,5,3,2,2,1))
-if mibBuilder.loadTexts:ntcNotifConfGroup.setStatus(_B)
-_NtcNotifConfCompliance_ObjectIdentity=ObjectIdentity
-ntcNotifConfCompliance=_NtcNotifConfCompliance_ObjectIdentity((1,3,6,1,4,1,5835,5,3,2,2,2))
-if mibBuilder.loadTexts:ntcNotifConfCompliance.setStatus(_B)
-ntcNotifConfGrpFldV1Standard=ObjectGroup((1,3,6,1,4,1,5835,5,3,2,2,1,1))
-ntcNotifConfGrpFldV1Standard.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ntcNotifConfGrpFldV1Standard.setStatus(_B)
-ntcNotifAlReport=NotificationType((1,3,6,1,4,1,5835,5,3,2,1,0,1))
-ntcNotifAlReport.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ntcNotifAlReport.setStatus(_B)
-ntcNotifConfGrpRepV1Standard=NotificationGroup((1,3,6,1,4,1,5835,5,3,2,2,1,2))
-ntcNotifConfGrpRepV1Standard.setObjects((_A,_M))
-if mibBuilder.loadTexts:ntcNotifConfGrpRepV1Standard.setStatus(_B)
-ntcNotifConfCompV1Standard=ModuleCompliance((1,3,6,1,4,1,5835,5,3,2,2,2,1))
-ntcNotifConfCompV1Standard.setObjects(*((_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:ntcNotifConfCompV1Standard.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ntcNotification':ntcNotification,'ntcNotifObjects':ntcNotifObjects,'ntcNotifReportList':ntcNotifReportList,_M:ntcNotifAlReport,'ntcNotifField':ntcNotifField,_D:ntcNotifFldSeqNbr,_E:ntcNotifFldSeverity,_F:ntcNotifFldDevice,_G:ntcNotifFldFunctionName,_H:ntcNotifFldFunctionId,_I:ntcNotifFldObjectName,_J:ntcNotifFldObjectId,_K:ntcNotifFldDescription,_L:ntcNotifFldAlarmStatus,'ntcNotifConformance':ntcNotifConformance,'ntcNotifConfGroup':ntcNotifConfGroup,_N:ntcNotifConfGrpFldV1Standard,_O:ntcNotifConfGrpRepV1Standard,'ntcNotifConfCompliance':ntcNotifConfCompliance,'ntcNotifConfCompV1Standard':ntcNotifConfCompV1Standard})
+#
+# PySNMP MIB module NEWTEC-NOTIFICATION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/newtec/NEWTEC-NOTIFICATION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ntcEvent, = mibBuilder.importSymbols("NEWTEC-MAIN-MIB", "ntcEvent")
+NtcAlarmState, = mibBuilder.importSymbols("NEWTEC-TC-MIB", "NtcAlarmState")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ntcNotification = ModuleIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2))
+ntcNotification.setRevisions(('2012-06-28 12:00', '2012-05-16 12:35',))
+if mibBuilder.loadTexts: ntcNotification.setLastUpdated('201206281200Z')
+if mibBuilder.loadTexts: ntcNotification.setOrganization('Newtec Cy')
+ntcNotifObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 1))
+if mibBuilder.loadTexts: ntcNotifObjects.setStatus('current')
+ntcNotifConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 2))
+if mibBuilder.loadTexts: ntcNotifConformance.setStatus('current')
+ntcNotifReportList = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 1, 0))
+if mibBuilder.loadTexts: ntcNotifReportList.setStatus('current')
+ntcNotifField = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 1, 1))
+if mibBuilder.loadTexts: ntcNotifField.setStatus('current')
+ntcNotifConfGroup = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 2, 1))
+if mibBuilder.loadTexts: ntcNotifConfGroup.setStatus('current')
+ntcNotifConfCompliance = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 2, 2))
+if mibBuilder.loadTexts: ntcNotifConfCompliance.setStatus('current')
+ntcNotifFldSeqNbr = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 1, 1, 1), Counter32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ntcNotifFldSeqNbr.setStatus('current')
+ntcNotifFldSeverity = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 1, 1, 2), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ntcNotifFldSeverity.setStatus('current')
+ntcNotifFldDevice = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 1, 1, 3), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ntcNotifFldDevice.setStatus('current')
+ntcNotifFldFunctionName = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 1, 1, 4), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ntcNotifFldFunctionName.setStatus('current')
+ntcNotifFldFunctionId = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 1, 1, 5), ObjectIdentifier()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ntcNotifFldFunctionId.setStatus('current')
+ntcNotifFldObjectName = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 1, 1, 6), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ntcNotifFldObjectName.setStatus('current')
+ntcNotifFldObjectId = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 1, 1, 7), ObjectIdentifier()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ntcNotifFldObjectId.setStatus('current')
+ntcNotifFldDescription = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 1, 1, 8), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ntcNotifFldDescription.setStatus('current')
+ntcNotifFldAlarmStatus = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 1, 1, 9), NtcAlarmState()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ntcNotifFldAlarmStatus.setStatus('current')
+ntcNotifAlReport = NotificationType((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 1, 0, 1)).setObjects(("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldSeqNbr"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldSeverity"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldDevice"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldFunctionName"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldFunctionId"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldObjectName"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldObjectId"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldDescription"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldAlarmStatus"))
+if mibBuilder.loadTexts: ntcNotifAlReport.setStatus('current')
+ntcNotifConfGrpFldV1Standard = ObjectGroup((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 2, 1, 1)).setObjects(("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldSeqNbr"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldSeverity"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldDevice"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldFunctionName"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldFunctionId"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldObjectName"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldObjectId"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldDescription"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifFldAlarmStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ntcNotifConfGrpFldV1Standard = ntcNotifConfGrpFldV1Standard.setStatus('current')
+ntcNotifConfGrpRepV1Standard = NotificationGroup((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 2, 1, 2)).setObjects(("NEWTEC-NOTIFICATION-MIB", "ntcNotifAlReport"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ntcNotifConfGrpRepV1Standard = ntcNotifConfGrpRepV1Standard.setStatus('current')
+ntcNotifConfCompV1Standard = ModuleCompliance((1, 3, 6, 1, 4, 1, 5835, 5, 3, 2, 2, 2, 1)).setObjects(("NEWTEC-NOTIFICATION-MIB", "ntcNotifConfGrpFldV1Standard"), ("NEWTEC-NOTIFICATION-MIB", "ntcNotifConfGrpRepV1Standard"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ntcNotifConfCompV1Standard = ntcNotifConfCompV1Standard.setStatus('current')
+mibBuilder.exportSymbols("NEWTEC-NOTIFICATION-MIB", ntcNotifReportList=ntcNotifReportList, ntcNotifConfGrpFldV1Standard=ntcNotifConfGrpFldV1Standard, ntcNotifConformance=ntcNotifConformance, ntcNotifFldSeverity=ntcNotifFldSeverity, ntcNotifFldAlarmStatus=ntcNotifFldAlarmStatus, ntcNotifFldFunctionId=ntcNotifFldFunctionId, ntcNotifObjects=ntcNotifObjects, ntcNotifConfGrpRepV1Standard=ntcNotifConfGrpRepV1Standard, ntcNotifFldObjectName=ntcNotifFldObjectName, ntcNotifAlReport=ntcNotifAlReport, ntcNotifFldSeqNbr=ntcNotifFldSeqNbr, PYSNMP_MODULE_ID=ntcNotification, ntcNotifConfCompV1Standard=ntcNotifConfCompV1Standard, ntcNotification=ntcNotification, ntcNotifConfCompliance=ntcNotifConfCompliance, ntcNotifConfGroup=ntcNotifConfGroup, ntcNotifFldDescription=ntcNotifFldDescription, ntcNotifFldDevice=ntcNotifFldDevice, ntcNotifField=ntcNotifField, ntcNotifFldFunctionName=ntcNotifFldFunctionName, ntcNotifFldObjectId=ntcNotifFldObjectId)

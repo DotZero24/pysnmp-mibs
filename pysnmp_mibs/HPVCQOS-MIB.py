@@ -1,198 +1,103 @@
-_R='vcQoSGroup'
-_Q='vcQoSDscpMap'
-_P='vcQoSDot1pMap'
-_O='vcQoSClassificationMap'
-_N='vcQoSTrafficClass'
-_M='vcQoSTrafficClassConfig'
-_L='vcQoSIfQoSConfig'
-_K='vcQoSDscpMapDscpValue'
-_J='vcQoSDot1pMapPrioValue'
-_I='vcQoSTrafficClassId'
-_H='ifIndex'
-_G='IF-MIB'
-_F='vcQoSTrafficClassConfigIndex'
-_E='vcQoSClassificationMapIndex'
-_D='Integer32'
-_C='HPVCQOS-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-virtualConnect,=mibBuilder.importSymbols('HPVCMODULE-MIB','virtualConnect')
-ifIndex,=mibBuilder.importSymbols(_G,_H)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso','mib-2')
-DisplayString,PhysAddress,RowPointer,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowPointer','TextualConvention','TruthValue')
-vcQoSMIB=ModuleIdentity((1,3,6,1,4,1,11,5,7,5,2,5))
-if mibBuilder.loadTexts:vcQoSMIB.setRevisions(('2016-03-21 00:00','2015-01-07 00:00','2012-04-25 00:00'))
-class VcQoSConfigType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('unknown',1),('passthrough',2),('customFCoE',3),('customNoFCoE',4)))
-_VcQoSMIBObjects_ObjectIdentity=ObjectIdentity
-vcQoSMIBObjects=_VcQoSMIBObjects_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,2,5,1))
-_VcQoSConfigType_Type=VcQoSConfigType
-_VcQoSConfigType_Object=MibScalar
-vcQoSConfigType=_VcQoSConfigType_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,1),_VcQoSConfigType_Type())
-vcQoSConfigType.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSConfigType.setStatus(_A)
-_VcQoSIfQoSConfig_ObjectIdentity=ObjectIdentity
-vcQoSIfQoSConfig=_VcQoSIfQoSConfig_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,2,5,1,2))
-_VcQoSIfQoSConfigTable_Object=MibTable
-vcQoSIfQoSConfigTable=_VcQoSIfQoSConfigTable_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,2,1))
-if mibBuilder.loadTexts:vcQoSIfQoSConfigTable.setStatus(_A)
-_VcQoSIfQoSConfigEntry_Object=MibTableRow
-vcQoSIfQoSConfigEntry=_VcQoSIfQoSConfigEntry_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,2,1,1))
-vcQoSIfQoSConfigEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:vcQoSIfQoSConfigEntry.setStatus(_A)
-_VcQoSIfQoSTrafficClassConfigIndex_Type=Integer32
-_VcQoSIfQoSTrafficClassConfigIndex_Object=MibTableColumn
-vcQoSIfQoSTrafficClassConfigIndex=_VcQoSIfQoSTrafficClassConfigIndex_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,2,1,1,1),_VcQoSIfQoSTrafficClassConfigIndex_Type())
-vcQoSIfQoSTrafficClassConfigIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSIfQoSTrafficClassConfigIndex.setStatus(_A)
-_VcQoSIfQoSClassificationMapIndex_Type=Integer32
-_VcQoSIfQoSClassificationMapIndex_Object=MibTableColumn
-vcQoSIfQoSClassificationMapIndex=_VcQoSIfQoSClassificationMapIndex_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,2,1,1,2),_VcQoSIfQoSClassificationMapIndex_Type())
-vcQoSIfQoSClassificationMapIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSIfQoSClassificationMapIndex.setStatus(_A)
-_VcQoSTrafficClassConfig_ObjectIdentity=ObjectIdentity
-vcQoSTrafficClassConfig=_VcQoSTrafficClassConfig_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,2,5,1,3))
-_VcQoSTrafficClassConfigTable_Object=MibTable
-vcQoSTrafficClassConfigTable=_VcQoSTrafficClassConfigTable_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,3,1))
-if mibBuilder.loadTexts:vcQoSTrafficClassConfigTable.setStatus(_A)
-_VcQoSTrafficClassConfigEntry_Object=MibTableRow
-vcQoSTrafficClassConfigEntry=_VcQoSTrafficClassConfigEntry_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,3,1,1))
-vcQoSTrafficClassConfigEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:vcQoSTrafficClassConfigEntry.setStatus(_A)
-_VcQoSTrafficClassConfigIndex_Type=Integer32
-_VcQoSTrafficClassConfigIndex_Object=MibTableColumn
-vcQoSTrafficClassConfigIndex=_VcQoSTrafficClassConfigIndex_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,3,1,1,1),_VcQoSTrafficClassConfigIndex_Type())
-vcQoSTrafficClassConfigIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSTrafficClassConfigIndex.setStatus(_A)
-_VcQoSTrafficClassConfigName_Type=SnmpAdminString
-_VcQoSTrafficClassConfigName_Object=MibTableColumn
-vcQoSTrafficClassConfigName=_VcQoSTrafficClassConfigName_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,3,1,1,2),_VcQoSTrafficClassConfigName_Type())
-vcQoSTrafficClassConfigName.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSTrafficClassConfigName.setStatus(_A)
-_VcQoSTrafficClass_ObjectIdentity=ObjectIdentity
-vcQoSTrafficClass=_VcQoSTrafficClass_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,2,5,1,4))
-_VcQoSTrafficClassTable_Object=MibTable
-vcQoSTrafficClassTable=_VcQoSTrafficClassTable_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,4,1))
-if mibBuilder.loadTexts:vcQoSTrafficClassTable.setStatus(_A)
-_VcQoSTrafficClassEntry_Object=MibTableRow
-vcQoSTrafficClassEntry=_VcQoSTrafficClassEntry_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,4,1,1))
-vcQoSTrafficClassEntry.setIndexNames((0,_C,_F),(0,_C,_I))
-if mibBuilder.loadTexts:vcQoSTrafficClassEntry.setStatus(_A)
-class _VcQoSTrafficClassId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_VcQoSTrafficClassId_Type.__name__=_D
-_VcQoSTrafficClassId_Object=MibTableColumn
-vcQoSTrafficClassId=_VcQoSTrafficClassId_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,4,1,1,1),_VcQoSTrafficClassId_Type())
-vcQoSTrafficClassId.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSTrafficClassId.setStatus(_A)
-_VcQoSTrafficClassName_Type=SnmpAdminString
-_VcQoSTrafficClassName_Object=MibTableColumn
-vcQoSTrafficClassName=_VcQoSTrafficClassName_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,4,1,1,2),_VcQoSTrafficClassName_Type())
-vcQoSTrafficClassName.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSTrafficClassName.setStatus(_A)
-_VcQoSTrafficClassRealTime_Type=TruthValue
-_VcQoSTrafficClassRealTime_Object=MibTableColumn
-vcQoSTrafficClassRealTime=_VcQoSTrafficClassRealTime_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,4,1,1,3),_VcQoSTrafficClassRealTime_Type())
-vcQoSTrafficClassRealTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSTrafficClassRealTime.setStatus(_A)
-class _VcQoSTrafficClassShare_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_VcQoSTrafficClassShare_Type.__name__=_D
-_VcQoSTrafficClassShare_Object=MibTableColumn
-vcQoSTrafficClassShare=_VcQoSTrafficClassShare_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,4,1,1,4),_VcQoSTrafficClassShare_Type())
-vcQoSTrafficClassShare.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSTrafficClassShare.setStatus(_A)
-class _VcQoSTrafficClassMaxShare_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_VcQoSTrafficClassMaxShare_Type.__name__=_D
-_VcQoSTrafficClassMaxShare_Object=MibTableColumn
-vcQoSTrafficClassMaxShare=_VcQoSTrafficClassMaxShare_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,4,1,1,5),_VcQoSTrafficClassMaxShare_Type())
-vcQoSTrafficClassMaxShare.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSTrafficClassMaxShare.setStatus(_A)
-class _VcQoSTrafficClassEgressDot1pPrio_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_VcQoSTrafficClassEgressDot1pPrio_Type.__name__=_D
-_VcQoSTrafficClassEgressDot1pPrio_Object=MibTableColumn
-vcQoSTrafficClassEgressDot1pPrio=_VcQoSTrafficClassEgressDot1pPrio_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,4,1,1,6),_VcQoSTrafficClassEgressDot1pPrio_Type())
-vcQoSTrafficClassEgressDot1pPrio.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSTrafficClassEgressDot1pPrio.setStatus(_A)
-_VcQoSTrafficClassEnabled_Type=TruthValue
-_VcQoSTrafficClassEnabled_Object=MibTableColumn
-vcQoSTrafficClassEnabled=_VcQoSTrafficClassEnabled_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,4,1,1,7),_VcQoSTrafficClassEnabled_Type())
-vcQoSTrafficClassEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSTrafficClassEnabled.setStatus(_A)
-_VcQoSClassificationMap_ObjectIdentity=ObjectIdentity
-vcQoSClassificationMap=_VcQoSClassificationMap_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,2,5,1,5))
-_VcQoSClassificationMapTable_Object=MibTable
-vcQoSClassificationMapTable=_VcQoSClassificationMapTable_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,5,1))
-if mibBuilder.loadTexts:vcQoSClassificationMapTable.setStatus(_A)
-_VcQoSClassificationMapEntry_Object=MibTableRow
-vcQoSClassificationMapEntry=_VcQoSClassificationMapEntry_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,5,1,1))
-vcQoSClassificationMapEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:vcQoSClassificationMapEntry.setStatus(_A)
-_VcQoSClassificationMapIndex_Type=Integer32
-_VcQoSClassificationMapIndex_Object=MibTableColumn
-vcQoSClassificationMapIndex=_VcQoSClassificationMapIndex_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,5,1,1,1),_VcQoSClassificationMapIndex_Type())
-vcQoSClassificationMapIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSClassificationMapIndex.setStatus(_A)
-_VcQoSClassificationMapName_Type=SnmpAdminString
-_VcQoSClassificationMapName_Object=MibTableColumn
-vcQoSClassificationMapName=_VcQoSClassificationMapName_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,5,1,1,2),_VcQoSClassificationMapName_Type())
-vcQoSClassificationMapName.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSClassificationMapName.setStatus(_A)
-_VcQoSDot1pMap_ObjectIdentity=ObjectIdentity
-vcQoSDot1pMap=_VcQoSDot1pMap_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,2,5,1,6))
-_VcQoSDot1pMapTable_Object=MibTable
-vcQoSDot1pMapTable=_VcQoSDot1pMapTable_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,6,1))
-if mibBuilder.loadTexts:vcQoSDot1pMapTable.setStatus(_A)
-_VcQoSDot1pMapEntry_Object=MibTableRow
-vcQoSDot1pMapEntry=_VcQoSDot1pMapEntry_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,6,1,1))
-vcQoSDot1pMapEntry.setIndexNames((0,_C,_E),(0,_C,_J))
-if mibBuilder.loadTexts:vcQoSDot1pMapEntry.setStatus(_A)
-class _VcQoSDot1pMapPrioValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_VcQoSDot1pMapPrioValue_Type.__name__=_D
-_VcQoSDot1pMapPrioValue_Object=MibTableColumn
-vcQoSDot1pMapPrioValue=_VcQoSDot1pMapPrioValue_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,6,1,1,1),_VcQoSDot1pMapPrioValue_Type())
-vcQoSDot1pMapPrioValue.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSDot1pMapPrioValue.setStatus(_A)
-class _VcQoSDot1pMapTrafficClassId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_VcQoSDot1pMapTrafficClassId_Type.__name__=_D
-_VcQoSDot1pMapTrafficClassId_Object=MibTableColumn
-vcQoSDot1pMapTrafficClassId=_VcQoSDot1pMapTrafficClassId_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,6,1,1,2),_VcQoSDot1pMapTrafficClassId_Type())
-vcQoSDot1pMapTrafficClassId.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSDot1pMapTrafficClassId.setStatus(_A)
-_VcQoSDscpMap_ObjectIdentity=ObjectIdentity
-vcQoSDscpMap=_VcQoSDscpMap_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,2,5,1,7))
-_VcQoSDscpMapTable_Object=MibTable
-vcQoSDscpMapTable=_VcQoSDscpMapTable_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,7,1))
-if mibBuilder.loadTexts:vcQoSDscpMapTable.setStatus(_A)
-_VcQoSDscpMapEntry_Object=MibTableRow
-vcQoSDscpMapEntry=_VcQoSDscpMapEntry_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,7,1,1))
-vcQoSDscpMapEntry.setIndexNames((0,_C,_E),(0,_C,_K))
-if mibBuilder.loadTexts:vcQoSDscpMapEntry.setStatus(_A)
-class _VcQoSDscpMapDscpValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,63))
-_VcQoSDscpMapDscpValue_Type.__name__=_D
-_VcQoSDscpMapDscpValue_Object=MibTableColumn
-vcQoSDscpMapDscpValue=_VcQoSDscpMapDscpValue_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,7,1,1,1),_VcQoSDscpMapDscpValue_Type())
-vcQoSDscpMapDscpValue.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSDscpMapDscpValue.setStatus(_A)
-class _VcQoSDscpMapTrafficClassId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_VcQoSDscpMapTrafficClassId_Type.__name__=_D
-_VcQoSDscpMapTrafficClassId_Object=MibTableColumn
-vcQoSDscpMapTrafficClassId=_VcQoSDscpMapTrafficClassId_Object((1,3,6,1,4,1,11,5,7,5,2,5,1,7,1,1,2),_VcQoSDscpMapTrafficClassId_Type())
-vcQoSDscpMapTrafficClassId.setMaxAccess(_B)
-if mibBuilder.loadTexts:vcQoSDscpMapTrafficClassId.setStatus(_A)
-_VcQoSMIBConformance_ObjectIdentity=ObjectIdentity
-vcQoSMIBConformance=_VcQoSMIBConformance_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,2,5,2))
-_VcQoSMIBCompliances_ObjectIdentity=ObjectIdentity
-vcQoSMIBCompliances=_VcQoSMIBCompliances_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,2,5,2,1))
-_VcQoSMIBGroups_ObjectIdentity=ObjectIdentity
-vcQoSMIBGroups=_VcQoSMIBGroups_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,2,5,2,2))
-vcQoSGroup=ObjectGroup((1,3,6,1,4,1,11,5,7,5,2,5,2,2,1))
-vcQoSGroup.setObjects(*((_C,_L),(_C,_M),(_C,_N),(_C,_O),(_C,_P),(_C,_Q)))
-if mibBuilder.loadTexts:vcQoSGroup.setStatus(_A)
-vcQoSMIBCompliance=ModuleCompliance((1,3,6,1,4,1,11,5,7,5,2,5,2,1,1))
-vcQoSMIBCompliance.setObjects((_C,_R))
-if mibBuilder.loadTexts:vcQoSMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'VcQoSConfigType':VcQoSConfigType,'vcQoSMIB':vcQoSMIB,'vcQoSMIBObjects':vcQoSMIBObjects,'vcQoSConfigType':vcQoSConfigType,_L:vcQoSIfQoSConfig,'vcQoSIfQoSConfigTable':vcQoSIfQoSConfigTable,'vcQoSIfQoSConfigEntry':vcQoSIfQoSConfigEntry,'vcQoSIfQoSTrafficClassConfigIndex':vcQoSIfQoSTrafficClassConfigIndex,'vcQoSIfQoSClassificationMapIndex':vcQoSIfQoSClassificationMapIndex,_M:vcQoSTrafficClassConfig,'vcQoSTrafficClassConfigTable':vcQoSTrafficClassConfigTable,'vcQoSTrafficClassConfigEntry':vcQoSTrafficClassConfigEntry,_F:vcQoSTrafficClassConfigIndex,'vcQoSTrafficClassConfigName':vcQoSTrafficClassConfigName,_N:vcQoSTrafficClass,'vcQoSTrafficClassTable':vcQoSTrafficClassTable,'vcQoSTrafficClassEntry':vcQoSTrafficClassEntry,_I:vcQoSTrafficClassId,'vcQoSTrafficClassName':vcQoSTrafficClassName,'vcQoSTrafficClassRealTime':vcQoSTrafficClassRealTime,'vcQoSTrafficClassShare':vcQoSTrafficClassShare,'vcQoSTrafficClassMaxShare':vcQoSTrafficClassMaxShare,'vcQoSTrafficClassEgressDot1pPrio':vcQoSTrafficClassEgressDot1pPrio,'vcQoSTrafficClassEnabled':vcQoSTrafficClassEnabled,_O:vcQoSClassificationMap,'vcQoSClassificationMapTable':vcQoSClassificationMapTable,'vcQoSClassificationMapEntry':vcQoSClassificationMapEntry,_E:vcQoSClassificationMapIndex,'vcQoSClassificationMapName':vcQoSClassificationMapName,_P:vcQoSDot1pMap,'vcQoSDot1pMapTable':vcQoSDot1pMapTable,'vcQoSDot1pMapEntry':vcQoSDot1pMapEntry,_J:vcQoSDot1pMapPrioValue,'vcQoSDot1pMapTrafficClassId':vcQoSDot1pMapTrafficClassId,_Q:vcQoSDscpMap,'vcQoSDscpMapTable':vcQoSDscpMapTable,'vcQoSDscpMapEntry':vcQoSDscpMapEntry,_K:vcQoSDscpMapDscpValue,'vcQoSDscpMapTrafficClassId':vcQoSDscpMapTrafficClassId,'vcQoSMIBConformance':vcQoSMIBConformance,'vcQoSMIBCompliances':vcQoSMIBCompliances,'vcQoSMIBCompliance':vcQoSMIBCompliance,'vcQoSMIBGroups':vcQoSMIBGroups,_R:vcQoSGroup})
+#
+# PySNMP MIB module HPVCQOS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPVCQOS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:42 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+virtualConnect, = mibBuilder.importSymbols("HPVCMODULE-MIB", "virtualConnect")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, TimeTicks, MibIdentifier, Integer32, Bits, mib_2, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "TimeTicks", "MibIdentifier", "Integer32", "Bits", "mib-2", "IpAddress")
+RowPointer, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowPointer", "DisplayString", "TruthValue", "TextualConvention")
+vcQoSMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5))
+vcQoSMIB.setRevisions(('2016-03-21 00:00', '2015-01-07 00:00', '2012-04-25 00:00',))
+if mibBuilder.loadTexts: vcQoSMIB.setLastUpdated('201603210000Z')
+if mibBuilder.loadTexts: vcQoSMIB.setOrganization('Hewlett Packard Enterprise')
+vcQoSMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1))
+vcQoSIfQoSConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 2))
+vcQoSTrafficClassConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 3))
+vcQoSTrafficClass = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 4))
+vcQoSClassificationMap = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 5))
+vcQoSDot1pMap = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 6))
+vcQoSDscpMap = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 7))
+class VcQoSConfigType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("unknown", 1), ("passthrough", 2), ("customFCoE", 3), ("customNoFCoE", 4))
+
+vcQoSConfigType = MibScalar((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 1), VcQoSConfigType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSConfigType.setStatus('current')
+vcQoSIfQoSConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 2, 1), )
+if mibBuilder.loadTexts: vcQoSIfQoSConfigTable.setStatus('current')
+vcQoSIfQoSConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: vcQoSIfQoSConfigEntry.setStatus('current')
+vcQoSIfQoSTrafficClassConfigIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSIfQoSTrafficClassConfigIndex.setStatus('current')
+vcQoSIfQoSClassificationMapIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 2, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSIfQoSClassificationMapIndex.setStatus('current')
+vcQoSTrafficClassConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 3, 1), )
+if mibBuilder.loadTexts: vcQoSTrafficClassConfigTable.setStatus('current')
+vcQoSTrafficClassConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 3, 1, 1), ).setIndexNames((0, "HPVCQOS-MIB", "vcQoSTrafficClassConfigIndex"))
+if mibBuilder.loadTexts: vcQoSTrafficClassConfigEntry.setStatus('current')
+vcQoSTrafficClassConfigIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 3, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSTrafficClassConfigIndex.setStatus('current')
+vcQoSTrafficClassConfigName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 3, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSTrafficClassConfigName.setStatus('current')
+vcQoSTrafficClassTable = MibTable((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 4, 1), )
+if mibBuilder.loadTexts: vcQoSTrafficClassTable.setStatus('current')
+vcQoSTrafficClassEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 4, 1, 1), ).setIndexNames((0, "HPVCQOS-MIB", "vcQoSTrafficClassConfigIndex"), (0, "HPVCQOS-MIB", "vcQoSTrafficClassId"))
+if mibBuilder.loadTexts: vcQoSTrafficClassEntry.setStatus('current')
+vcQoSTrafficClassId = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSTrafficClassId.setStatus('current')
+vcQoSTrafficClassName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 4, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSTrafficClassName.setStatus('current')
+vcQoSTrafficClassRealTime = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 4, 1, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSTrafficClassRealTime.setStatus('current')
+vcQoSTrafficClassShare = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 4, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSTrafficClassShare.setStatus('current')
+vcQoSTrafficClassMaxShare = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 4, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSTrafficClassMaxShare.setStatus('current')
+vcQoSTrafficClassEgressDot1pPrio = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 4, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSTrafficClassEgressDot1pPrio.setStatus('current')
+vcQoSTrafficClassEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 4, 1, 1, 7), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSTrafficClassEnabled.setStatus('current')
+vcQoSClassificationMapTable = MibTable((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 5, 1), )
+if mibBuilder.loadTexts: vcQoSClassificationMapTable.setStatus('current')
+vcQoSClassificationMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 5, 1, 1), ).setIndexNames((0, "HPVCQOS-MIB", "vcQoSClassificationMapIndex"))
+if mibBuilder.loadTexts: vcQoSClassificationMapEntry.setStatus('current')
+vcQoSClassificationMapIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 5, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSClassificationMapIndex.setStatus('current')
+vcQoSClassificationMapName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 5, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSClassificationMapName.setStatus('current')
+vcQoSDot1pMapTable = MibTable((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 6, 1), )
+if mibBuilder.loadTexts: vcQoSDot1pMapTable.setStatus('current')
+vcQoSDot1pMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 6, 1, 1), ).setIndexNames((0, "HPVCQOS-MIB", "vcQoSClassificationMapIndex"), (0, "HPVCQOS-MIB", "vcQoSDot1pMapPrioValue"))
+if mibBuilder.loadTexts: vcQoSDot1pMapEntry.setStatus('current')
+vcQoSDot1pMapPrioValue = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 6, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSDot1pMapPrioValue.setStatus('current')
+vcQoSDot1pMapTrafficClassId = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 6, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSDot1pMapTrafficClassId.setStatus('current')
+vcQoSDscpMapTable = MibTable((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 7, 1), )
+if mibBuilder.loadTexts: vcQoSDscpMapTable.setStatus('current')
+vcQoSDscpMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 7, 1, 1), ).setIndexNames((0, "HPVCQOS-MIB", "vcQoSClassificationMapIndex"), (0, "HPVCQOS-MIB", "vcQoSDscpMapDscpValue"))
+if mibBuilder.loadTexts: vcQoSDscpMapEntry.setStatus('current')
+vcQoSDscpMapDscpValue = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 7, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSDscpMapDscpValue.setStatus('current')
+vcQoSDscpMapTrafficClassId = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 1, 7, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vcQoSDscpMapTrafficClassId.setStatus('current')
+vcQoSMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 2))
+vcQoSMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 2, 1))
+vcQoSMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 2, 2))
+vcQoSMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 2, 1, 1)).setObjects(("HPVCQOS-MIB", "vcQoSGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    vcQoSMIBCompliance = vcQoSMIBCompliance.setStatus('current')
+vcQoSGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 2, 5, 2, 2, 1)).setObjects(("HPVCQOS-MIB", "vcQoSIfQoSConfig"), ("HPVCQOS-MIB", "vcQoSTrafficClassConfig"), ("HPVCQOS-MIB", "vcQoSTrafficClass"), ("HPVCQOS-MIB", "vcQoSClassificationMap"), ("HPVCQOS-MIB", "vcQoSDot1pMap"), ("HPVCQOS-MIB", "vcQoSDscpMap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    vcQoSGroup = vcQoSGroup.setStatus('current')
+mibBuilder.exportSymbols("HPVCQOS-MIB", vcQoSClassificationMapTable=vcQoSClassificationMapTable, vcQoSClassificationMapIndex=vcQoSClassificationMapIndex, vcQoSClassificationMapName=vcQoSClassificationMapName, vcQoSTrafficClassShare=vcQoSTrafficClassShare, vcQoSTrafficClass=vcQoSTrafficClass, vcQoSTrafficClassConfigEntry=vcQoSTrafficClassConfigEntry, vcQoSDscpMapTrafficClassId=vcQoSDscpMapTrafficClassId, vcQoSTrafficClassEgressDot1pPrio=vcQoSTrafficClassEgressDot1pPrio, vcQoSMIBConformance=vcQoSMIBConformance, vcQoSClassificationMapEntry=vcQoSClassificationMapEntry, vcQoSTrafficClassConfigName=vcQoSTrafficClassConfigName, vcQoSMIB=vcQoSMIB, vcQoSMIBCompliance=vcQoSMIBCompliance, vcQoSIfQoSClassificationMapIndex=vcQoSIfQoSClassificationMapIndex, VcQoSConfigType=VcQoSConfigType, vcQoSDscpMapTable=vcQoSDscpMapTable, vcQoSIfQoSTrafficClassConfigIndex=vcQoSIfQoSTrafficClassConfigIndex, vcQoSTrafficClassConfigIndex=vcQoSTrafficClassConfigIndex, vcQoSIfQoSConfig=vcQoSIfQoSConfig, vcQoSDot1pMapPrioValue=vcQoSDot1pMapPrioValue, vcQoSTrafficClassId=vcQoSTrafficClassId, vcQoSDot1pMap=vcQoSDot1pMap, vcQoSClassificationMap=vcQoSClassificationMap, vcQoSMIBCompliances=vcQoSMIBCompliances, vcQoSTrafficClassEntry=vcQoSTrafficClassEntry, vcQoSMIBGroups=vcQoSMIBGroups, vcQoSMIBObjects=vcQoSMIBObjects, vcQoSTrafficClassConfigTable=vcQoSTrafficClassConfigTable, vcQoSTrafficClassMaxShare=vcQoSTrafficClassMaxShare, vcQoSTrafficClassRealTime=vcQoSTrafficClassRealTime, vcQoSGroup=vcQoSGroup, vcQoSTrafficClassTable=vcQoSTrafficClassTable, vcQoSTrafficClassName=vcQoSTrafficClassName, vcQoSIfQoSConfigTable=vcQoSIfQoSConfigTable, vcQoSDot1pMapTable=vcQoSDot1pMapTable, vcQoSDot1pMapTrafficClassId=vcQoSDot1pMapTrafficClassId, vcQoSTrafficClassConfig=vcQoSTrafficClassConfig, vcQoSIfQoSConfigEntry=vcQoSIfQoSConfigEntry, vcQoSConfigType=vcQoSConfigType, vcQoSDscpMap=vcQoSDscpMap, vcQoSDscpMapDscpValue=vcQoSDscpMapDscpValue, vcQoSDot1pMapEntry=vcQoSDot1pMapEntry, vcQoSDscpMapEntry=vcQoSDscpMapEntry, PYSNMP_MODULE_ID=vcQoSMIB, vcQoSTrafficClassEnabled=vcQoSTrafficClassEnabled)

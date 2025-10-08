@@ -1,58 +1,39 @@
-_G='NotificationType'
-_F='taLastCheck'
-_E='taTemperature'
-_D='taDeviceIndex'
-_C='read-only'
-_B='current'
-_A='TEMPERATUREALERT-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier',_G,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_G,'TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-taMIB=ModuleIdentity((1,3,6,1,4,1,27297))
-if mibBuilder.loadTexts:taMIB.setRevisions(('1918-10-23 12:00','1906-10-31 12:00'))
-_TaTraps_ObjectIdentity=ObjectIdentity
-taTraps=_TaTraps_ObjectIdentity((1,3,6,1,4,1,27297,0))
-_TaService_ObjectIdentity=ObjectIdentity
-taService=_TaService_ObjectIdentity((1,3,6,1,4,1,27297,1))
-_TaDeviceIndex_Type=DisplayString
-_TaDeviceIndex_Object=MibScalar
-taDeviceIndex=_TaDeviceIndex_Object((1,3,6,1,4,1,27297,1,1),_TaDeviceIndex_Type())
-taDeviceIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:taDeviceIndex.setStatus(_B)
-_TaTemperature_Type=DisplayString
-_TaTemperature_Object=MibScalar
-taTemperature=_TaTemperature_Object((1,3,6,1,4,1,27297,1,2),_TaTemperature_Type())
-taTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:taTemperature.setStatus(_B)
-_TaLastCheck_Type=DisplayString
-_TaLastCheck_Object=MibScalar
-taLastCheck=_TaLastCheck_Object((1,3,6,1,4,1,27297,1,3),_TaLastCheck_Type())
-taLastCheck.setMaxAccess(_C)
-if mibBuilder.loadTexts:taLastCheck.setStatus(_B)
-_TaWifi_ObjectIdentity=ObjectIdentity
-taWifi=_TaWifi_ObjectIdentity((1,3,6,1,4,1,27297,2))
-_TaTemperatureTable_ObjectIdentity=ObjectIdentity
-taTemperatureTable=_TaTemperatureTable_ObjectIdentity((1,3,6,1,4,1,27297,2,7))
-_TaTemperatureEntry_ObjectIdentity=ObjectIdentity
-taTemperatureEntry=_TaTemperatureEntry_ObjectIdentity((1,3,6,1,4,1,27297,2,7,1))
-_TaTemperaturePort_Type=DisplayString
-_TaTemperaturePort_Object=MibScalar
-taTemperaturePort=_TaTemperaturePort_Object((1,3,6,1,4,1,27297,2,7,1,7),_TaTemperaturePort_Type())
-taTemperaturePort.setMaxAccess(_C)
-if mibBuilder.loadTexts:taTemperaturePort.setStatus(_B)
-taNormal=NotificationType((1,3,6,1,4,1,27297,0,1))
-taNormal.setObjects(*((_A,_D),(_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:taNormal.setStatus(_B)
-taHighAlarm=NotificationType((1,3,6,1,4,1,27297,0,2))
-taHighAlarm.setObjects(*((_A,_D),(_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:taHighAlarm.setStatus(_B)
-taLowAlarm=NotificationType((1,3,6,1,4,1,27297,0,3))
-taLowAlarm.setObjects(*((_A,_D),(_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:taLowAlarm.setStatus(_B)
-taShutdown=NotificationType((1,3,6,1,4,1,27297,0,4))
-if mibBuilder.loadTexts:taShutdown.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'taMIB':taMIB,'taTraps':taTraps,'taNormal':taNormal,'taHighAlarm':taHighAlarm,'taLowAlarm':taLowAlarm,'taShutdown':taShutdown,'taService':taService,_D:taDeviceIndex,_E:taTemperature,_F:taLastCheck,'taWifi':taWifi,'taTemperatureTable':taTemperatureTable,'taTemperatureEntry':taTemperatureEntry,'taTemperaturePort':taTemperaturePort})
+#
+# PySNMP MIB module TEMPERATUREALERT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tempalert/TEMPERATUREALERT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:03 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+taMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27297))
+taMIB.setRevisions(('1918-10-23 12:00', '1906-10-31 12:00',))
+if mibBuilder.loadTexts: taMIB.setLastUpdated('1810231200Z')
+if mibBuilder.loadTexts: taMIB.setOrganization('Temperature@lert')
+taTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 27297, 0))
+taService = MibIdentifier((1, 3, 6, 1, 4, 1, 27297, 1))
+taWifi = MibIdentifier((1, 3, 6, 1, 4, 1, 27297, 2))
+taDeviceIndex = MibScalar((1, 3, 6, 1, 4, 1, 27297, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: taDeviceIndex.setStatus('current')
+taTemperature = MibScalar((1, 3, 6, 1, 4, 1, 27297, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: taTemperature.setStatus('current')
+taLastCheck = MibScalar((1, 3, 6, 1, 4, 1, 27297, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: taLastCheck.setStatus('current')
+taTemperatureTable = MibIdentifier((1, 3, 6, 1, 4, 1, 27297, 2, 7))
+taTemperatureEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 27297, 2, 7, 1))
+taTemperaturePort = MibScalar((1, 3, 6, 1, 4, 1, 27297, 2, 7, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: taTemperaturePort.setStatus('current')
+taNormal = NotificationType((1, 3, 6, 1, 4, 1, 27297, 0, 1)).setObjects(("TEMPERATUREALERT-MIB", "taDeviceIndex"), ("TEMPERATUREALERT-MIB", "taTemperature"), ("TEMPERATUREALERT-MIB", "taLastCheck"))
+if mibBuilder.loadTexts: taNormal.setStatus('current')
+taHighAlarm = NotificationType((1, 3, 6, 1, 4, 1, 27297, 0, 2)).setObjects(("TEMPERATUREALERT-MIB", "taDeviceIndex"), ("TEMPERATUREALERT-MIB", "taTemperature"), ("TEMPERATUREALERT-MIB", "taLastCheck"))
+if mibBuilder.loadTexts: taHighAlarm.setStatus('current')
+taLowAlarm = NotificationType((1, 3, 6, 1, 4, 1, 27297, 0, 3)).setObjects(("TEMPERATUREALERT-MIB", "taDeviceIndex"), ("TEMPERATUREALERT-MIB", "taTemperature"), ("TEMPERATUREALERT-MIB", "taLastCheck"))
+if mibBuilder.loadTexts: taLowAlarm.setStatus('current')
+taShutdown = NotificationType((1, 3, 6, 1, 4, 1, 27297, 0, 4))
+if mibBuilder.loadTexts: taShutdown.setStatus('current')
+mibBuilder.exportSymbols("TEMPERATUREALERT-MIB", taNormal=taNormal, taTemperatureEntry=taTemperatureEntry, PYSNMP_MODULE_ID=taMIB, taTemperatureTable=taTemperatureTable, taDeviceIndex=taDeviceIndex, taTemperaturePort=taTemperaturePort, taService=taService, taWifi=taWifi, taHighAlarm=taHighAlarm, taTemperature=taTemperature, taTraps=taTraps, taMIB=taMIB, taLastCheck=taLastCheck, taLowAlarm=taLowAlarm, taShutdown=taShutdown)

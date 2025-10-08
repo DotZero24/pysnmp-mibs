@@ -1,36 +1,32 @@
-_E='mxInteropGroupVer1'
-_D='mxInteropHttpUAHeaderConfig'
-_C='OctetString'
-_B='MX-INTEROP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mediatrixExperimental,=mibBuilder.importSymbols('MX-SMI','mediatrixExperimental')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-mxInteropMIB=ModuleIdentity((1,3,6,1,4,1,4935,99,3))
-if mibBuilder.loadTexts:mxInteropMIB.setRevisions(('1911-01-21 00:00',))
-_MxInteropMIBObjects_ObjectIdentity=ObjectIdentity
-mxInteropMIBObjects=_MxInteropMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,99,3,1))
-class _MxInteropHttpUAHeaderConfig_Type(OctetString):defaultValue=OctetString('%product%');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_MxInteropHttpUAHeaderConfig_Type.__name__=_C
-_MxInteropHttpUAHeaderConfig_Object=MibScalar
-mxInteropHttpUAHeaderConfig=_MxInteropHttpUAHeaderConfig_Object((1,3,6,1,4,1,4935,99,3,1,10),_MxInteropHttpUAHeaderConfig_Type())
-mxInteropHttpUAHeaderConfig.setMaxAccess('read-write')
-if mibBuilder.loadTexts:mxInteropHttpUAHeaderConfig.setStatus(_A)
-_MxInteropConformance_ObjectIdentity=ObjectIdentity
-mxInteropConformance=_MxInteropConformance_ObjectIdentity((1,3,6,1,4,1,4935,99,3,2))
-_MxInteropCompliances_ObjectIdentity=ObjectIdentity
-mxInteropCompliances=_MxInteropCompliances_ObjectIdentity((1,3,6,1,4,1,4935,99,3,2,1))
-_MxInteropGroups_ObjectIdentity=ObjectIdentity
-mxInteropGroups=_MxInteropGroups_ObjectIdentity((1,3,6,1,4,1,4935,99,3,2,2))
-mxInteropGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,99,3,2,2,5))
-mxInteropGroupVer1.setObjects((_B,_D))
-if mibBuilder.loadTexts:mxInteropGroupVer1.setStatus(_A)
-mxInteropBasicComplVer1=ModuleCompliance((1,3,6,1,4,1,4935,99,3,2,1,1))
-mxInteropBasicComplVer1.setObjects((_B,_E))
-if mibBuilder.loadTexts:mxInteropBasicComplVer1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'mxInteropMIB':mxInteropMIB,'mxInteropMIBObjects':mxInteropMIBObjects,_D:mxInteropHttpUAHeaderConfig,'mxInteropConformance':mxInteropConformance,'mxInteropCompliances':mxInteropCompliances,'mxInteropBasicComplVer1':mxInteropBasicComplVer1,'mxInteropGroups':mxInteropGroups,_E:mxInteropGroupVer1})
+#
+# PySNMP MIB module MX-INTEROP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-INTEROP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:05 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mediatrixExperimental, = mibBuilder.importSymbols("MX-SMI", "mediatrixExperimental")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+mxInteropMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 99, 3))
+mxInteropMIB.setRevisions(('1911-01-21 00:00',))
+if mibBuilder.loadTexts: mxInteropMIB.setLastUpdated('1101210000Z')
+if mibBuilder.loadTexts: mxInteropMIB.setOrganization('Media5 Corporation')
+mxInteropMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 3, 1))
+mxInteropConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 3, 2))
+mxInteropHttpUAHeaderConfig = MibScalar((1, 3, 6, 1, 4, 1, 4935, 99, 3, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255)).clone('%product%')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mxInteropHttpUAHeaderConfig.setStatus('current')
+mxInteropCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 3, 2, 1))
+mxInteropBasicComplVer1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4935, 99, 3, 2, 1, 1)).setObjects(("MX-INTEROP-MIB", "mxInteropGroupVer1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mxInteropBasicComplVer1 = mxInteropBasicComplVer1.setStatus('current')
+mxInteropGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 3, 2, 2))
+mxInteropGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 99, 3, 2, 2, 5)).setObjects(("MX-INTEROP-MIB", "mxInteropHttpUAHeaderConfig"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mxInteropGroupVer1 = mxInteropGroupVer1.setStatus('current')
+mibBuilder.exportSymbols("MX-INTEROP-MIB", mxInteropGroups=mxInteropGroups, PYSNMP_MODULE_ID=mxInteropMIB, mxInteropCompliances=mxInteropCompliances, mxInteropBasicComplVer1=mxInteropBasicComplVer1, mxInteropConformance=mxInteropConformance, mxInteropHttpUAHeaderConfig=mxInteropHttpUAHeaderConfig, mxInteropMIB=mxInteropMIB, mxInteropGroupVer1=mxInteropGroupVer1, mxInteropMIBObjects=mxInteropMIBObjects)

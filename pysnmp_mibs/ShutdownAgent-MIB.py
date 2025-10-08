@@ -1,137 +1,56 @@
-_I='NotificationType'
-_H='DisplayString'
-_G='disable'
-_F='enable'
-_E='second'
-_D='read-only'
-_C='Integer32'
-_B='read-write'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier',_I,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_I,'TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_H,'PhysAddress','TextualConvention')
-_Delta_ObjectIdentity=ObjectIdentity
-delta=_Delta_ObjectIdentity((1,3,6,1,4,1,2254))
-_Ups_ObjectIdentity=ObjectIdentity
-ups=_Ups_ObjectIdentity((1,3,6,1,4,1,2254,2))
-_Shutdownagent_ObjectIdentity=ObjectIdentity
-shutdownagent=_Shutdownagent_ObjectIdentity((1,3,6,1,4,1,2254,2,200))
-_DagentMonitor_ObjectIdentity=ObjectIdentity
-dagentMonitor=_DagentMonitor_ObjectIdentity((1,3,6,1,4,1,2254,2,200,1))
-class _DagentOSVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_DagentOSVersion_Type.__name__=_H
-_DagentOSVersion_Object=MibScalar
-dagentOSVersion=_DagentOSVersion_Object((1,3,6,1,4,1,2254,2,200,1,1),_DagentOSVersion_Type())
-dagentOSVersion.setMaxAccess(_D)
-if mibBuilder.loadTexts:dagentOSVersion.setStatus(_A)
-class _DagentSoftwareVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_DagentSoftwareVersion_Type.__name__=_H
-_DagentSoftwareVersion_Object=MibScalar
-dagentSoftwareVersion=_DagentSoftwareVersion_Object((1,3,6,1,4,1,2254,2,200,1,2),_DagentSoftwareVersion_Type())
-dagentSoftwareVersion.setMaxAccess(_D)
-if mibBuilder.loadTexts:dagentSoftwareVersion.setStatus(_A)
-class _DagentIsOSCountdown_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('yes',1),('no',2)))
-_DagentIsOSCountdown_Type.__name__=_C
-_DagentIsOSCountdown_Object=MibScalar
-dagentIsOSCountdown=_DagentIsOSCountdown_Object((1,3,6,1,4,1,2254,2,200,1,3),_DagentIsOSCountdown_Type())
-dagentIsOSCountdown.setMaxAccess(_D)
-if mibBuilder.loadTexts:dagentIsOSCountdown.setStatus(_A)
-_DagentOSCountdown_Type=Integer32
-_DagentOSCountdown_Object=MibScalar
-dagentOSCountdown=_DagentOSCountdown_Object((1,3,6,1,4,1,2254,2,200,1,4),_DagentOSCountdown_Type())
-dagentOSCountdown.setMaxAccess(_D)
-if mibBuilder.loadTexts:dagentOSCountdown.setStatus(_A)
-if mibBuilder.loadTexts:dagentOSCountdown.setUnits(_E)
-class _DagentShutdownReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('none',1),('power_fail',2),('battery_low',3),('overload',4),('on_bypass',5),('smart_shutdown',6)))
-_DagentShutdownReason_Type.__name__=_C
-_DagentShutdownReason_Object=MibScalar
-dagentShutdownReason=_DagentShutdownReason_Object((1,3,6,1,4,1,2254,2,200,1,5),_DagentShutdownReason_Type())
-dagentShutdownReason.setMaxAccess(_D)
-if mibBuilder.loadTexts:dagentShutdownReason.setStatus(_A)
-class _DagentHostName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_DagentHostName_Type.__name__=_H
-_DagentHostName_Object=MibScalar
-dagentHostName=_DagentHostName_Object((1,3,6,1,4,1,2254,2,200,1,6),_DagentHostName_Type())
-dagentHostName.setMaxAccess(_D)
-if mibBuilder.loadTexts:dagentHostName.setStatus(_A)
-_DagentConfigure_ObjectIdentity=ObjectIdentity
-dagentConfigure=_DagentConfigure_ObjectIdentity((1,3,6,1,4,1,2254,2,200,2))
-class _DagentSetShutdownType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('shutdown',1),('power_off',2),('hibernate',3)))
-_DagentSetShutdownType_Type.__name__=_C
-_DagentSetShutdownType_Object=MibScalar
-dagentSetShutdownType=_DagentSetShutdownType_Object((1,3,6,1,4,1,2254,2,200,2,1),_DagentSetShutdownType_Type())
-dagentSetShutdownType.setMaxAccess(_B)
-if mibBuilder.loadTexts:dagentSetShutdownType.setStatus(_A)
-class _DagentSetEnablePowerFail_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_DagentSetEnablePowerFail_Type.__name__=_C
-_DagentSetEnablePowerFail_Object=MibScalar
-dagentSetEnablePowerFail=_DagentSetEnablePowerFail_Object((1,3,6,1,4,1,2254,2,200,2,2),_DagentSetEnablePowerFail_Type())
-dagentSetEnablePowerFail.setMaxAccess(_B)
-if mibBuilder.loadTexts:dagentSetEnablePowerFail.setStatus(_A)
-_DagentSetOSDelayPowerFail_Type=Integer32
-_DagentSetOSDelayPowerFail_Object=MibScalar
-dagentSetOSDelayPowerFail=_DagentSetOSDelayPowerFail_Object((1,3,6,1,4,1,2254,2,200,2,3),_DagentSetOSDelayPowerFail_Type())
-dagentSetOSDelayPowerFail.setMaxAccess(_B)
-if mibBuilder.loadTexts:dagentSetOSDelayPowerFail.setStatus(_A)
-if mibBuilder.loadTexts:dagentSetOSDelayPowerFail.setUnits(_E)
-class _DagentSetEnableBatteryLow_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_DagentSetEnableBatteryLow_Type.__name__=_C
-_DagentSetEnableBatteryLow_Object=MibScalar
-dagentSetEnableBatteryLow=_DagentSetEnableBatteryLow_Object((1,3,6,1,4,1,2254,2,200,2,4),_DagentSetEnableBatteryLow_Type())
-dagentSetEnableBatteryLow.setMaxAccess(_B)
-if mibBuilder.loadTexts:dagentSetEnableBatteryLow.setStatus(_A)
-_DagentSetOSDelayBatteryLow_Type=Integer32
-_DagentSetOSDelayBatteryLow_Object=MibScalar
-dagentSetOSDelayBatteryLow=_DagentSetOSDelayBatteryLow_Object((1,3,6,1,4,1,2254,2,200,2,5),_DagentSetOSDelayBatteryLow_Type())
-dagentSetOSDelayBatteryLow.setMaxAccess(_B)
-if mibBuilder.loadTexts:dagentSetOSDelayBatteryLow.setStatus(_A)
-if mibBuilder.loadTexts:dagentSetOSDelayBatteryLow.setUnits(_E)
-class _DagentSetEnableOverload_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_DagentSetEnableOverload_Type.__name__=_C
-_DagentSetEnableOverload_Object=MibScalar
-dagentSetEnableOverload=_DagentSetEnableOverload_Object((1,3,6,1,4,1,2254,2,200,2,6),_DagentSetEnableOverload_Type())
-dagentSetEnableOverload.setMaxAccess(_B)
-if mibBuilder.loadTexts:dagentSetEnableOverload.setStatus(_A)
-_DagentSetOSDelayOverload_Type=Integer32
-_DagentSetOSDelayOverload_Object=MibScalar
-dagentSetOSDelayOverload=_DagentSetOSDelayOverload_Object((1,3,6,1,4,1,2254,2,200,2,7),_DagentSetOSDelayOverload_Type())
-dagentSetOSDelayOverload.setMaxAccess(_B)
-if mibBuilder.loadTexts:dagentSetOSDelayOverload.setStatus(_A)
-if mibBuilder.loadTexts:dagentSetOSDelayOverload.setUnits(_E)
-class _DagentSetEnableBypass_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_DagentSetEnableBypass_Type.__name__=_C
-_DagentSetEnableBypass_Object=MibScalar
-dagentSetEnableBypass=_DagentSetEnableBypass_Object((1,3,6,1,4,1,2254,2,200,2,8),_DagentSetEnableBypass_Type())
-dagentSetEnableBypass.setMaxAccess(_B)
-if mibBuilder.loadTexts:dagentSetEnableBypass.setStatus(_A)
-_DagentSetOSDelayBypass_Type=Integer32
-_DagentSetOSDelayBypass_Object=MibScalar
-dagentSetOSDelayBypass=_DagentSetOSDelayBypass_Object((1,3,6,1,4,1,2254,2,200,2,9),_DagentSetOSDelayBypass_Type())
-dagentSetOSDelayBypass.setMaxAccess(_B)
-if mibBuilder.loadTexts:dagentSetOSDelayBypass.setStatus(_A)
-if mibBuilder.loadTexts:dagentSetOSDelayBypass.setUnits(_E)
-class _DagentSetEnableSmartShutdown_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_DagentSetEnableSmartShutdown_Type.__name__=_C
-_DagentSetEnableSmartShutdown_Object=MibScalar
-dagentSetEnableSmartShutdown=_DagentSetEnableSmartShutdown_Object((1,3,6,1,4,1,2254,2,200,2,10),_DagentSetEnableSmartShutdown_Type())
-dagentSetEnableSmartShutdown.setMaxAccess(_B)
-if mibBuilder.loadTexts:dagentSetEnableSmartShutdown.setStatus(_A)
-_DagentSetOSDelaySmartShutdown_Type=Integer32
-_DagentSetOSDelaySmartShutdown_Object=MibScalar
-dagentSetOSDelaySmartShutdown=_DagentSetOSDelaySmartShutdown_Object((1,3,6,1,4,1,2254,2,200,2,11),_DagentSetOSDelaySmartShutdown_Type())
-dagentSetOSDelaySmartShutdown.setMaxAccess(_B)
-if mibBuilder.loadTexts:dagentSetOSDelaySmartShutdown.setStatus(_A)
-if mibBuilder.loadTexts:dagentSetOSDelaySmartShutdown.setUnits(_E)
-_DagentControl_ObjectIdentity=ObjectIdentity
-dagentControl=_DagentControl_ObjectIdentity((1,3,6,1,4,1,2254,2,200,3))
-class _DagentCancelShutdown_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('cancel',1),('resume',2)))
-_DagentCancelShutdown_Type.__name__=_C
-_DagentCancelShutdown_Object=MibScalar
-dagentCancelShutdown=_DagentCancelShutdown_Object((1,3,6,1,4,1,2254,2,200,3,1),_DagentCancelShutdown_Type())
-dagentCancelShutdown.setMaxAccess(_B)
-if mibBuilder.loadTexts:dagentCancelShutdown.setStatus(_A)
-mibBuilder.exportSymbols('ShutdownAgent-MIB',**{'delta':delta,'ups':ups,'shutdownagent':shutdownagent,'dagentMonitor':dagentMonitor,'dagentOSVersion':dagentOSVersion,'dagentSoftwareVersion':dagentSoftwareVersion,'dagentIsOSCountdown':dagentIsOSCountdown,'dagentOSCountdown':dagentOSCountdown,'dagentShutdownReason':dagentShutdownReason,'dagentHostName':dagentHostName,'dagentConfigure':dagentConfigure,'dagentSetShutdownType':dagentSetShutdownType,'dagentSetEnablePowerFail':dagentSetEnablePowerFail,'dagentSetOSDelayPowerFail':dagentSetOSDelayPowerFail,'dagentSetEnableBatteryLow':dagentSetEnableBatteryLow,'dagentSetOSDelayBatteryLow':dagentSetOSDelayBatteryLow,'dagentSetEnableOverload':dagentSetEnableOverload,'dagentSetOSDelayOverload':dagentSetOSDelayOverload,'dagentSetEnableBypass':dagentSetEnableBypass,'dagentSetOSDelayBypass':dagentSetOSDelayBypass,'dagentSetEnableSmartShutdown':dagentSetEnableSmartShutdown,'dagentSetOSDelaySmartShutdown':dagentSetOSDelaySmartShutdown,'dagentControl':dagentControl,'dagentCancelShutdown':dagentCancelShutdown})
+#
+# PySNMP MIB module ShutdownAgent-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/delta/ShutdownAgent-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+delta = MibIdentifier((1, 3, 6, 1, 4, 1, 2254))
+ups = MibIdentifier((1, 3, 6, 1, 4, 1, 2254, 2))
+shutdownagent = MibIdentifier((1, 3, 6, 1, 4, 1, 2254, 2, 200))
+dagentMonitor = MibIdentifier((1, 3, 6, 1, 4, 1, 2254, 2, 200, 1))
+dagentConfigure = MibIdentifier((1, 3, 6, 1, 4, 1, 2254, 2, 200, 2))
+dagentControl = MibIdentifier((1, 3, 6, 1, 4, 1, 2254, 2, 200, 3))
+dagentOSVersion = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dagentOSVersion.setStatus('mandatory')
+dagentSoftwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dagentSoftwareVersion.setStatus('mandatory')
+dagentIsOSCountdown = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("yes", 1), ("no", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dagentIsOSCountdown.setStatus('mandatory')
+dagentOSCountdown = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 1, 4), Integer32()).setUnits('second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: dagentOSCountdown.setStatus('mandatory')
+dagentShutdownReason = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("none", 1), ("power_fail", 2), ("battery_low", 3), ("overload", 4), ("on_bypass", 5), ("smart_shutdown", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dagentShutdownReason.setStatus('mandatory')
+dagentHostName = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dagentHostName.setStatus('mandatory')
+dagentSetShutdownType = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("shutdown", 1), ("power_off", 2), ("hibernate", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dagentSetShutdownType.setStatus('mandatory')
+dagentSetEnablePowerFail = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dagentSetEnablePowerFail.setStatus('mandatory')
+dagentSetOSDelayPowerFail = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 2, 3), Integer32()).setUnits('second').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dagentSetOSDelayPowerFail.setStatus('mandatory')
+dagentSetEnableBatteryLow = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 2, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dagentSetEnableBatteryLow.setStatus('mandatory')
+dagentSetOSDelayBatteryLow = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 2, 5), Integer32()).setUnits('second').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dagentSetOSDelayBatteryLow.setStatus('mandatory')
+dagentSetEnableOverload = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 2, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dagentSetEnableOverload.setStatus('mandatory')
+dagentSetOSDelayOverload = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 2, 7), Integer32()).setUnits('second').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dagentSetOSDelayOverload.setStatus('mandatory')
+dagentSetEnableBypass = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 2, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dagentSetEnableBypass.setStatus('mandatory')
+dagentSetOSDelayBypass = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 2, 9), Integer32()).setUnits('second').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dagentSetOSDelayBypass.setStatus('mandatory')
+dagentSetEnableSmartShutdown = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 2, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dagentSetEnableSmartShutdown.setStatus('mandatory')
+dagentSetOSDelaySmartShutdown = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 2, 11), Integer32()).setUnits('second').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dagentSetOSDelaySmartShutdown.setStatus('mandatory')
+dagentCancelShutdown = MibScalar((1, 3, 6, 1, 4, 1, 2254, 2, 200, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("cancel", 1), ("resume", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dagentCancelShutdown.setStatus('mandatory')
+mibBuilder.exportSymbols("ShutdownAgent-MIB", dagentShutdownReason=dagentShutdownReason, dagentSetShutdownType=dagentSetShutdownType, dagentSetEnableSmartShutdown=dagentSetEnableSmartShutdown, dagentSetEnableOverload=dagentSetEnableOverload, dagentControl=dagentControl, delta=delta, dagentSetOSDelaySmartShutdown=dagentSetOSDelaySmartShutdown, dagentSetEnablePowerFail=dagentSetEnablePowerFail, ups=ups, dagentSetOSDelayPowerFail=dagentSetOSDelayPowerFail, dagentSoftwareVersion=dagentSoftwareVersion, dagentSetEnableBatteryLow=dagentSetEnableBatteryLow, dagentOSVersion=dagentOSVersion, dagentOSCountdown=dagentOSCountdown, dagentConfigure=dagentConfigure, dagentSetOSDelayBatteryLow=dagentSetOSDelayBatteryLow, dagentSetOSDelayOverload=dagentSetOSDelayOverload, dagentSetOSDelayBypass=dagentSetOSDelayBypass, dagentIsOSCountdown=dagentIsOSCountdown, dagentHostName=dagentHostName, dagentMonitor=dagentMonitor, dagentSetEnableBypass=dagentSetEnableBypass, dagentCancelShutdown=dagentCancelShutdown, shutdownagent=shutdownagent)

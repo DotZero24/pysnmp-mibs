@@ -1,158 +1,75 @@
-_Z='vCGPmRealGroup'
-_Y='vCGPmRealDifferentialDelay20'
-_X='vCGPmRealDifferentialDelay19'
-_W='vCGPmRealDifferentialDelay18'
-_V='vCGPmRealDifferentialDelay17'
-_U='vCGPmRealDifferentialDelay16'
-_T='vCGPmRealDifferentialDelay15'
-_S='vCGPmRealDifferentialDelay14'
-_R='vCGPmRealDifferentialDelay13'
-_Q='vCGPmRealDifferentialDelay12'
-_P='vCGPmRealDifferentialDelay11'
-_O='vCGPmRealDifferentialDelay10'
-_N='vCGPmRealDifferentialDelay9'
-_M='vCGPmRealDifferentialDelay8'
-_L='vCGPmRealDifferentialDelay7'
-_K='vCGPmRealDifferentialDelay6'
-_J='vCGPmRealDifferentialDelay5'
-_I='vCGPmRealDifferentialDelay4'
-_H='vCGPmRealDifferentialDelay3'
-_G='vCGPmRealDifferentialDelay2'
-_F='vCGPmRealDifferentialDelay1'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-only'
-_B='INFINERA-PM-VCG-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-perfMon,=mibBuilder.importSymbols('INFINERA-REG-MIB','perfMon')
-FloatHundredths,=mibBuilder.importSymbols('INFINERA-TC-MIB','FloatHundredths')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-vCGPmMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,3,16))
-if mibBuilder.loadTexts:vCGPmMIB.setRevisions(('2008-10-20 00:00',))
-_VCGPmRealTable_Object=MibTable
-vCGPmRealTable=_VCGPmRealTable_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1))
-if mibBuilder.loadTexts:vCGPmRealTable.setStatus(_A)
-_VCGPmRealEntry_Object=MibTableRow
-vCGPmRealEntry=_VCGPmRealEntry_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1))
-vCGPmRealEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:vCGPmRealEntry.setStatus(_A)
-_VCGPmRealDifferentialDelay1_Type=FloatHundredths
-_VCGPmRealDifferentialDelay1_Object=MibTableColumn
-vCGPmRealDifferentialDelay1=_VCGPmRealDifferentialDelay1_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,1),_VCGPmRealDifferentialDelay1_Type())
-vCGPmRealDifferentialDelay1.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay1.setStatus(_A)
-_VCGPmRealDifferentialDelay2_Type=FloatHundredths
-_VCGPmRealDifferentialDelay2_Object=MibTableColumn
-vCGPmRealDifferentialDelay2=_VCGPmRealDifferentialDelay2_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,2),_VCGPmRealDifferentialDelay2_Type())
-vCGPmRealDifferentialDelay2.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay2.setStatus(_A)
-_VCGPmRealDifferentialDelay3_Type=FloatHundredths
-_VCGPmRealDifferentialDelay3_Object=MibTableColumn
-vCGPmRealDifferentialDelay3=_VCGPmRealDifferentialDelay3_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,3),_VCGPmRealDifferentialDelay3_Type())
-vCGPmRealDifferentialDelay3.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay3.setStatus(_A)
-_VCGPmRealDifferentialDelay4_Type=FloatHundredths
-_VCGPmRealDifferentialDelay4_Object=MibTableColumn
-vCGPmRealDifferentialDelay4=_VCGPmRealDifferentialDelay4_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,4),_VCGPmRealDifferentialDelay4_Type())
-vCGPmRealDifferentialDelay4.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay4.setStatus(_A)
-_VCGPmRealDifferentialDelay5_Type=FloatHundredths
-_VCGPmRealDifferentialDelay5_Object=MibTableColumn
-vCGPmRealDifferentialDelay5=_VCGPmRealDifferentialDelay5_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,5),_VCGPmRealDifferentialDelay5_Type())
-vCGPmRealDifferentialDelay5.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay5.setStatus(_A)
-_VCGPmRealDifferentialDelay6_Type=FloatHundredths
-_VCGPmRealDifferentialDelay6_Object=MibTableColumn
-vCGPmRealDifferentialDelay6=_VCGPmRealDifferentialDelay6_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,6),_VCGPmRealDifferentialDelay6_Type())
-vCGPmRealDifferentialDelay6.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay6.setStatus(_A)
-_VCGPmRealDifferentialDelay7_Type=FloatHundredths
-_VCGPmRealDifferentialDelay7_Object=MibTableColumn
-vCGPmRealDifferentialDelay7=_VCGPmRealDifferentialDelay7_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,7),_VCGPmRealDifferentialDelay7_Type())
-vCGPmRealDifferentialDelay7.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay7.setStatus(_A)
-_VCGPmRealDifferentialDelay8_Type=FloatHundredths
-_VCGPmRealDifferentialDelay8_Object=MibTableColumn
-vCGPmRealDifferentialDelay8=_VCGPmRealDifferentialDelay8_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,8),_VCGPmRealDifferentialDelay8_Type())
-vCGPmRealDifferentialDelay8.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay8.setStatus(_A)
-_VCGPmRealDifferentialDelay9_Type=FloatHundredths
-_VCGPmRealDifferentialDelay9_Object=MibTableColumn
-vCGPmRealDifferentialDelay9=_VCGPmRealDifferentialDelay9_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,9),_VCGPmRealDifferentialDelay9_Type())
-vCGPmRealDifferentialDelay9.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay9.setStatus(_A)
-_VCGPmRealDifferentialDelay10_Type=FloatHundredths
-_VCGPmRealDifferentialDelay10_Object=MibTableColumn
-vCGPmRealDifferentialDelay10=_VCGPmRealDifferentialDelay10_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,10),_VCGPmRealDifferentialDelay10_Type())
-vCGPmRealDifferentialDelay10.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay10.setStatus(_A)
-_VCGPmRealDifferentialDelay11_Type=FloatHundredths
-_VCGPmRealDifferentialDelay11_Object=MibTableColumn
-vCGPmRealDifferentialDelay11=_VCGPmRealDifferentialDelay11_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,11),_VCGPmRealDifferentialDelay11_Type())
-vCGPmRealDifferentialDelay11.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay11.setStatus(_A)
-_VCGPmRealDifferentialDelay12_Type=FloatHundredths
-_VCGPmRealDifferentialDelay12_Object=MibTableColumn
-vCGPmRealDifferentialDelay12=_VCGPmRealDifferentialDelay12_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,12),_VCGPmRealDifferentialDelay12_Type())
-vCGPmRealDifferentialDelay12.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay12.setStatus(_A)
-_VCGPmRealDifferentialDelay13_Type=FloatHundredths
-_VCGPmRealDifferentialDelay13_Object=MibTableColumn
-vCGPmRealDifferentialDelay13=_VCGPmRealDifferentialDelay13_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,13),_VCGPmRealDifferentialDelay13_Type())
-vCGPmRealDifferentialDelay13.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay13.setStatus(_A)
-_VCGPmRealDifferentialDelay14_Type=FloatHundredths
-_VCGPmRealDifferentialDelay14_Object=MibTableColumn
-vCGPmRealDifferentialDelay14=_VCGPmRealDifferentialDelay14_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,14),_VCGPmRealDifferentialDelay14_Type())
-vCGPmRealDifferentialDelay14.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay14.setStatus(_A)
-_VCGPmRealDifferentialDelay15_Type=FloatHundredths
-_VCGPmRealDifferentialDelay15_Object=MibTableColumn
-vCGPmRealDifferentialDelay15=_VCGPmRealDifferentialDelay15_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,15),_VCGPmRealDifferentialDelay15_Type())
-vCGPmRealDifferentialDelay15.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay15.setStatus(_A)
-_VCGPmRealDifferentialDelay16_Type=FloatHundredths
-_VCGPmRealDifferentialDelay16_Object=MibTableColumn
-vCGPmRealDifferentialDelay16=_VCGPmRealDifferentialDelay16_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,16),_VCGPmRealDifferentialDelay16_Type())
-vCGPmRealDifferentialDelay16.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay16.setStatus(_A)
-_VCGPmRealDifferentialDelay17_Type=FloatHundredths
-_VCGPmRealDifferentialDelay17_Object=MibTableColumn
-vCGPmRealDifferentialDelay17=_VCGPmRealDifferentialDelay17_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,17),_VCGPmRealDifferentialDelay17_Type())
-vCGPmRealDifferentialDelay17.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay17.setStatus(_A)
-_VCGPmRealDifferentialDelay18_Type=FloatHundredths
-_VCGPmRealDifferentialDelay18_Object=MibTableColumn
-vCGPmRealDifferentialDelay18=_VCGPmRealDifferentialDelay18_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,18),_VCGPmRealDifferentialDelay18_Type())
-vCGPmRealDifferentialDelay18.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay18.setStatus(_A)
-_VCGPmRealDifferentialDelay19_Type=FloatHundredths
-_VCGPmRealDifferentialDelay19_Object=MibTableColumn
-vCGPmRealDifferentialDelay19=_VCGPmRealDifferentialDelay19_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,19),_VCGPmRealDifferentialDelay19_Type())
-vCGPmRealDifferentialDelay19.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay19.setStatus(_A)
-_VCGPmRealDifferentialDelay20_Type=FloatHundredths
-_VCGPmRealDifferentialDelay20_Object=MibTableColumn
-vCGPmRealDifferentialDelay20=_VCGPmRealDifferentialDelay20_Object((1,3,6,1,4,1,21296,2,2,2,3,16,1,1,20),_VCGPmRealDifferentialDelay20_Type())
-vCGPmRealDifferentialDelay20.setMaxAccess(_C)
-if mibBuilder.loadTexts:vCGPmRealDifferentialDelay20.setStatus(_A)
-_VCGPmConformance_ObjectIdentity=ObjectIdentity
-vCGPmConformance=_VCGPmConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,3,16,3))
-_VCGPmCompliances_ObjectIdentity=ObjectIdentity
-vCGPmCompliances=_VCGPmCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,3,16,3,1))
-_VCGPmGroups_ObjectIdentity=ObjectIdentity
-vCGPmGroups=_VCGPmGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,3,16,3,2))
-vCGPmRealGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,3,16,3,2,1))
-vCGPmRealGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y)))
-if mibBuilder.loadTexts:vCGPmRealGroup.setStatus(_A)
-vCGPmRealCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,3,16,3,1,1))
-vCGPmRealCompliance.setObjects((_B,_Z))
-if mibBuilder.loadTexts:vCGPmRealCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'vCGPmMIB':vCGPmMIB,'vCGPmRealTable':vCGPmRealTable,'vCGPmRealEntry':vCGPmRealEntry,_F:vCGPmRealDifferentialDelay1,_G:vCGPmRealDifferentialDelay2,_H:vCGPmRealDifferentialDelay3,_I:vCGPmRealDifferentialDelay4,_J:vCGPmRealDifferentialDelay5,_K:vCGPmRealDifferentialDelay6,_L:vCGPmRealDifferentialDelay7,_M:vCGPmRealDifferentialDelay8,_N:vCGPmRealDifferentialDelay9,_O:vCGPmRealDifferentialDelay10,_P:vCGPmRealDifferentialDelay11,_Q:vCGPmRealDifferentialDelay12,_R:vCGPmRealDifferentialDelay13,_S:vCGPmRealDifferentialDelay14,_T:vCGPmRealDifferentialDelay15,_U:vCGPmRealDifferentialDelay16,_V:vCGPmRealDifferentialDelay17,_W:vCGPmRealDifferentialDelay18,_X:vCGPmRealDifferentialDelay19,_Y:vCGPmRealDifferentialDelay20,'vCGPmConformance':vCGPmConformance,'vCGPmCompliances':vCGPmCompliances,'vCGPmRealCompliance':vCGPmRealCompliance,'vCGPmGroups':vCGPmGroups,_Z:vCGPmRealGroup})
+#
+# PySNMP MIB module INFINERA-PM-VCG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-PM-VCG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+perfMon, = mibBuilder.importSymbols("INFINERA-REG-MIB", "perfMon")
+FloatHundredths, = mibBuilder.importSymbols("INFINERA-TC-MIB", "FloatHundredths")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+vCGPmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16))
+vCGPmMIB.setRevisions(('2008-10-20 00:00',))
+if mibBuilder.loadTexts: vCGPmMIB.setLastUpdated('200810200000Z')
+if mibBuilder.loadTexts: vCGPmMIB.setOrganization('Infinera')
+vCGPmRealTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1), )
+if mibBuilder.loadTexts: vCGPmRealTable.setStatus('current')
+vCGPmRealEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: vCGPmRealEntry.setStatus('current')
+vCGPmRealDifferentialDelay1 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 1), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay1.setStatus('current')
+vCGPmRealDifferentialDelay2 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 2), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay2.setStatus('current')
+vCGPmRealDifferentialDelay3 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 3), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay3.setStatus('current')
+vCGPmRealDifferentialDelay4 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 4), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay4.setStatus('current')
+vCGPmRealDifferentialDelay5 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 5), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay5.setStatus('current')
+vCGPmRealDifferentialDelay6 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 6), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay6.setStatus('current')
+vCGPmRealDifferentialDelay7 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 7), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay7.setStatus('current')
+vCGPmRealDifferentialDelay8 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 8), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay8.setStatus('current')
+vCGPmRealDifferentialDelay9 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 9), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay9.setStatus('current')
+vCGPmRealDifferentialDelay10 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 10), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay10.setStatus('current')
+vCGPmRealDifferentialDelay11 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 11), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay11.setStatus('current')
+vCGPmRealDifferentialDelay12 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 12), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay12.setStatus('current')
+vCGPmRealDifferentialDelay13 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 13), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay13.setStatus('current')
+vCGPmRealDifferentialDelay14 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 14), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay14.setStatus('current')
+vCGPmRealDifferentialDelay15 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 15), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay15.setStatus('current')
+vCGPmRealDifferentialDelay16 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 16), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay16.setStatus('current')
+vCGPmRealDifferentialDelay17 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 17), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay17.setStatus('current')
+vCGPmRealDifferentialDelay18 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 18), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay18.setStatus('current')
+vCGPmRealDifferentialDelay19 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 19), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay19.setStatus('current')
+vCGPmRealDifferentialDelay20 = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 1, 1, 20), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vCGPmRealDifferentialDelay20.setStatus('current')
+vCGPmConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 3))
+vCGPmCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 3, 1))
+vCGPmGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 3, 2))
+vCGPmRealCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 3, 1, 1)).setObjects(("INFINERA-PM-VCG-MIB", "vCGPmRealGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    vCGPmRealCompliance = vCGPmRealCompliance.setStatus('current')
+vCGPmRealGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 16, 3, 2, 1)).setObjects(("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay1"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay2"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay3"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay4"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay5"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay6"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay7"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay8"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay9"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay10"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay11"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay12"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay13"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay14"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay15"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay16"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay17"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay18"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay19"), ("INFINERA-PM-VCG-MIB", "vCGPmRealDifferentialDelay20"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    vCGPmRealGroup = vCGPmRealGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-PM-VCG-MIB", vCGPmRealDifferentialDelay12=vCGPmRealDifferentialDelay12, vCGPmRealDifferentialDelay19=vCGPmRealDifferentialDelay19, vCGPmCompliances=vCGPmCompliances, vCGPmRealGroup=vCGPmRealGroup, vCGPmRealDifferentialDelay14=vCGPmRealDifferentialDelay14, vCGPmRealCompliance=vCGPmRealCompliance, vCGPmMIB=vCGPmMIB, vCGPmRealDifferentialDelay18=vCGPmRealDifferentialDelay18, vCGPmRealDifferentialDelay8=vCGPmRealDifferentialDelay8, vCGPmRealDifferentialDelay20=vCGPmRealDifferentialDelay20, vCGPmGroups=vCGPmGroups, vCGPmRealDifferentialDelay6=vCGPmRealDifferentialDelay6, vCGPmRealDifferentialDelay10=vCGPmRealDifferentialDelay10, vCGPmRealDifferentialDelay11=vCGPmRealDifferentialDelay11, vCGPmRealEntry=vCGPmRealEntry, vCGPmRealDifferentialDelay3=vCGPmRealDifferentialDelay3, vCGPmRealDifferentialDelay13=vCGPmRealDifferentialDelay13, vCGPmRealDifferentialDelay16=vCGPmRealDifferentialDelay16, vCGPmRealDifferentialDelay15=vCGPmRealDifferentialDelay15, vCGPmConformance=vCGPmConformance, vCGPmRealTable=vCGPmRealTable, vCGPmRealDifferentialDelay1=vCGPmRealDifferentialDelay1, vCGPmRealDifferentialDelay5=vCGPmRealDifferentialDelay5, vCGPmRealDifferentialDelay9=vCGPmRealDifferentialDelay9, vCGPmRealDifferentialDelay2=vCGPmRealDifferentialDelay2, PYSNMP_MODULE_ID=vCGPmMIB, vCGPmRealDifferentialDelay17=vCGPmRealDifferentialDelay17, vCGPmRealDifferentialDelay7=vCGPmRealDifferentialDelay7, vCGPmRealDifferentialDelay4=vCGPmRealDifferentialDelay4)

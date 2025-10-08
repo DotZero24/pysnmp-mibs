@@ -1,315 +1,141 @@
-_O='sysName'
-_N='SNMPv2-MIB'
-_M='ifDescr'
-_L='adTrapInformSeqNum'
-_K='ADTRAN-GENTRAPINFORM-MIB'
-_J='adGenSlotInfoIndex'
-_I='ADTRAN-GENSLOT-MIB'
-_H='TruthValue'
-_G='DisplayString'
-_F='Integer32'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-only'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGenSlotInfoIndex,=mibBuilder.importSymbols(_I,_J)
-adTrapInformSeqNum,=mibBuilder.importSymbols(_K,_L)
-adGenSubtendedHost,adGenSubtendedHostID=mibBuilder.importSymbols('ADTRAN-SHARED-CND-SYSTEM-MIB','adGenSubtendedHost','adGenSubtendedHostID')
-AdGenTrapVersion,=mibBuilder.importSymbols('ADTRAN-SHARED-CND-SYSTEM-TC-MIB','AdGenTrapVersion')
-InterfaceIndex,ifDescr,ifIndex=mibBuilder.importSymbols(_D,'InterfaceIndex',_M,_E)
-InetAddressIPv4,InetAddressIPv6,InetAddressPrefixLength=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6','InetAddressPrefixLength')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-sysName,=mibBuilder.importSymbols(_N,_O)
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_G,'MacAddress','PhysAddress','TextualConvention',_H)
-adGenSubtendedHostMIB=ModuleIdentity((1,3,6,1,4,1,664,6,10000,70,12,1))
-if mibBuilder.loadTexts:adGenSubtendedHostMIB.setRevisions(('2015-08-21 00:00','2015-05-27 00:00','2015-03-06 00:00','2014-05-16 00:00','2009-03-09 00:00'))
-_AdGenSubtendedHostProvisioning_ObjectIdentity=ObjectIdentity
-adGenSubtendedHostProvisioning=_AdGenSubtendedHostProvisioning_ObjectIdentity((1,3,6,1,4,1,664,5,70,12,1))
-_AdGenSubHostProvMgmtTable_Object=MibTable
-adGenSubHostProvMgmtTable=_AdGenSubHostProvMgmtTable_Object((1,3,6,1,4,1,664,5,70,12,1,1))
-if mibBuilder.loadTexts:adGenSubHostProvMgmtTable.setStatus(_A)
-_AdGenSubHostProvMgmtEntry_Object=MibTableRow
-adGenSubHostProvMgmtEntry=_AdGenSubHostProvMgmtEntry_Object((1,3,6,1,4,1,664,5,70,12,1,1,1))
-adGenSubHostProvMgmtEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:adGenSubHostProvMgmtEntry.setStatus(_A)
-_AdGenSubHostProvMgmtIpAddress_Type=IpAddress
-_AdGenSubHostProvMgmtIpAddress_Object=MibTableColumn
-adGenSubHostProvMgmtIpAddress=_AdGenSubHostProvMgmtIpAddress_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,1),_AdGenSubHostProvMgmtIpAddress_Type())
-adGenSubHostProvMgmtIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtIpAddress.setStatus(_A)
-_AdGenSubHostProvMgmtIpSubnetMask_Type=IpAddress
-_AdGenSubHostProvMgmtIpSubnetMask_Object=MibTableColumn
-adGenSubHostProvMgmtIpSubnetMask=_AdGenSubHostProvMgmtIpSubnetMask_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,2),_AdGenSubHostProvMgmtIpSubnetMask_Type())
-adGenSubHostProvMgmtIpSubnetMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtIpSubnetMask.setStatus(_A)
-_AdGenSubHostProvMgmtIpGateway_Type=IpAddress
-_AdGenSubHostProvMgmtIpGateway_Object=MibTableColumn
-adGenSubHostProvMgmtIpGateway=_AdGenSubHostProvMgmtIpGateway_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,3),_AdGenSubHostProvMgmtIpGateway_Type())
-adGenSubHostProvMgmtIpGateway.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtIpGateway.setStatus(_A)
-_AdGenSubHostProvMgmtIpVlan_Type=Integer32
-_AdGenSubHostProvMgmtIpVlan_Object=MibTableColumn
-adGenSubHostProvMgmtIpVlan=_AdGenSubHostProvMgmtIpVlan_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,4),_AdGenSubHostProvMgmtIpVlan_Type())
-adGenSubHostProvMgmtIpVlan.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtIpVlan.setStatus(_A)
-_AdGenSubHostProvMgmtTftpServer_Type=IpAddress
-_AdGenSubHostProvMgmtTftpServer_Object=MibTableColumn
-adGenSubHostProvMgmtTftpServer=_AdGenSubHostProvMgmtTftpServer_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,5),_AdGenSubHostProvMgmtTftpServer_Type())
-adGenSubHostProvMgmtTftpServer.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtTftpServer.setStatus(_A)
-_AdGenSubHostProvMgmtSnmpWriteCommunity_Type=DisplayString
-_AdGenSubHostProvMgmtSnmpWriteCommunity_Object=MibTableColumn
-adGenSubHostProvMgmtSnmpWriteCommunity=_AdGenSubHostProvMgmtSnmpWriteCommunity_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,6),_AdGenSubHostProvMgmtSnmpWriteCommunity_Type())
-adGenSubHostProvMgmtSnmpWriteCommunity.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtSnmpWriteCommunity.setStatus(_A)
-_AdGenSubHostProvMgmtSnmpReadCommunity_Type=DisplayString
-_AdGenSubHostProvMgmtSnmpReadCommunity_Object=MibTableColumn
-adGenSubHostProvMgmtSnmpReadCommunity=_AdGenSubHostProvMgmtSnmpReadCommunity_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,7),_AdGenSubHostProvMgmtSnmpReadCommunity_Type())
-adGenSubHostProvMgmtSnmpReadCommunity.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtSnmpReadCommunity.setStatus(_A)
-_AdGenSubHostProvMgmtSysName_Type=DisplayString
-_AdGenSubHostProvMgmtSysName_Object=MibTableColumn
-adGenSubHostProvMgmtSysName=_AdGenSubHostProvMgmtSysName_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,8),_AdGenSubHostProvMgmtSysName_Type())
-adGenSubHostProvMgmtSysName.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtSysName.setStatus(_A)
-_AdGenSubHostProvMgmtPriority_Type=Integer32
-_AdGenSubHostProvMgmtPriority_Object=MibTableColumn
-adGenSubHostProvMgmtPriority=_AdGenSubHostProvMgmtPriority_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,9),_AdGenSubHostProvMgmtPriority_Type())
-adGenSubHostProvMgmtPriority.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtPriority.setStatus(_A)
-class _AdGenSubHostProvMgmtIpAssignMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('dynamic',1),('static',2)))
-_AdGenSubHostProvMgmtIpAssignMode_Type.__name__=_F
-_AdGenSubHostProvMgmtIpAssignMode_Object=MibTableColumn
-adGenSubHostProvMgmtIpAssignMode=_AdGenSubHostProvMgmtIpAssignMode_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,10),_AdGenSubHostProvMgmtIpAssignMode_Type())
-adGenSubHostProvMgmtIpAssignMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtIpAssignMode.setStatus(_A)
-class _AdGenSubHostProvMgmtSync_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('resync',1),('reset',2)))
-_AdGenSubHostProvMgmtSync_Type.__name__=_F
-_AdGenSubHostProvMgmtSync_Object=MibTableColumn
-adGenSubHostProvMgmtSync=_AdGenSubHostProvMgmtSync_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,11),_AdGenSubHostProvMgmtSync_Type())
-adGenSubHostProvMgmtSync.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtSync.setStatus(_A)
-_AdGenSubHostProvMgmtSnmpSysLocation_Type=DisplayString
-_AdGenSubHostProvMgmtSnmpSysLocation_Object=MibTableColumn
-adGenSubHostProvMgmtSnmpSysLocation=_AdGenSubHostProvMgmtSnmpSysLocation_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,12),_AdGenSubHostProvMgmtSnmpSysLocation_Type())
-adGenSubHostProvMgmtSnmpSysLocation.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtSnmpSysLocation.setStatus(_A)
-_AdGenSubHostProvMgmtEzProvHostOneIpAddress_Type=IpAddress
-_AdGenSubHostProvMgmtEzProvHostOneIpAddress_Object=MibTableColumn
-adGenSubHostProvMgmtEzProvHostOneIpAddress=_AdGenSubHostProvMgmtEzProvHostOneIpAddress_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,13),_AdGenSubHostProvMgmtEzProvHostOneIpAddress_Type())
-adGenSubHostProvMgmtEzProvHostOneIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtEzProvHostOneIpAddress.setStatus(_A)
-_AdGenSubHostProvMgmtEzProvHostOneTrapVersion_Type=AdGenTrapVersion
-_AdGenSubHostProvMgmtEzProvHostOneTrapVersion_Object=MibTableColumn
-adGenSubHostProvMgmtEzProvHostOneTrapVersion=_AdGenSubHostProvMgmtEzProvHostOneTrapVersion_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,14),_AdGenSubHostProvMgmtEzProvHostOneTrapVersion_Type())
-adGenSubHostProvMgmtEzProvHostOneTrapVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtEzProvHostOneTrapVersion.setStatus(_A)
-_AdGenSubHostProvMgmtEzProvHostTwoIpAddress_Type=IpAddress
-_AdGenSubHostProvMgmtEzProvHostTwoIpAddress_Object=MibTableColumn
-adGenSubHostProvMgmtEzProvHostTwoIpAddress=_AdGenSubHostProvMgmtEzProvHostTwoIpAddress_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,15),_AdGenSubHostProvMgmtEzProvHostTwoIpAddress_Type())
-adGenSubHostProvMgmtEzProvHostTwoIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtEzProvHostTwoIpAddress.setStatus(_A)
-_AdGenSubHostProvMgmtEzProvHostTwoTrapVersion_Type=AdGenTrapVersion
-_AdGenSubHostProvMgmtEzProvHostTwoTrapVersion_Object=MibTableColumn
-adGenSubHostProvMgmtEzProvHostTwoTrapVersion=_AdGenSubHostProvMgmtEzProvHostTwoTrapVersion_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,16),_AdGenSubHostProvMgmtEzProvHostTwoTrapVersion_Type())
-adGenSubHostProvMgmtEzProvHostTwoTrapVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtEzProvHostTwoTrapVersion.setStatus(_A)
-_AdGenSubHostProvMgmtEzProvEnabled_Type=TruthValue
-_AdGenSubHostProvMgmtEzProvEnabled_Object=MibTableColumn
-adGenSubHostProvMgmtEzProvEnabled=_AdGenSubHostProvMgmtEzProvEnabled_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,17),_AdGenSubHostProvMgmtEzProvEnabled_Type())
-adGenSubHostProvMgmtEzProvEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtEzProvEnabled.setStatus(_A)
-_AdGenSubHostProvMgmtIpv6AddressPrefixLength_Type=InetAddressPrefixLength
-_AdGenSubHostProvMgmtIpv6AddressPrefixLength_Object=MibTableColumn
-adGenSubHostProvMgmtIpv6AddressPrefixLength=_AdGenSubHostProvMgmtIpv6AddressPrefixLength_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,18),_AdGenSubHostProvMgmtIpv6AddressPrefixLength_Type())
-adGenSubHostProvMgmtIpv6AddressPrefixLength.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtIpv6AddressPrefixLength.setStatus(_A)
-_AdGenSubHostProvMgmtIpv6AddressEui64_Type=TruthValue
-_AdGenSubHostProvMgmtIpv6AddressEui64_Object=MibTableColumn
-adGenSubHostProvMgmtIpv6AddressEui64=_AdGenSubHostProvMgmtIpv6AddressEui64_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,19),_AdGenSubHostProvMgmtIpv6AddressEui64_Type())
-adGenSubHostProvMgmtIpv6AddressEui64.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtIpv6AddressEui64.setStatus(_A)
-_AdGenSubHostProvMgmtIpv6Address_Type=InetAddressIPv6
-_AdGenSubHostProvMgmtIpv6Address_Object=MibTableColumn
-adGenSubHostProvMgmtIpv6Address=_AdGenSubHostProvMgmtIpv6Address_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,20),_AdGenSubHostProvMgmtIpv6Address_Type())
-adGenSubHostProvMgmtIpv6Address.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtIpv6Address.setStatus(_A)
-_AdGenSubHostProvMgmtIpv6AddressLinkLocal_Type=InetAddressIPv6
-_AdGenSubHostProvMgmtIpv6AddressLinkLocal_Object=MibTableColumn
-adGenSubHostProvMgmtIpv6AddressLinkLocal=_AdGenSubHostProvMgmtIpv6AddressLinkLocal_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,21),_AdGenSubHostProvMgmtIpv6AddressLinkLocal_Type())
-adGenSubHostProvMgmtIpv6AddressLinkLocal.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtIpv6AddressLinkLocal.setStatus(_A)
-class _AdGenSubHostProvMgmtAutoConfigMode_Type(TruthValue):defaultValue=2
-_AdGenSubHostProvMgmtAutoConfigMode_Type.__name__=_H
-_AdGenSubHostProvMgmtAutoConfigMode_Object=MibTableColumn
-adGenSubHostProvMgmtAutoConfigMode=_AdGenSubHostProvMgmtAutoConfigMode_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,22),_AdGenSubHostProvMgmtAutoConfigMode_Type())
-adGenSubHostProvMgmtAutoConfigMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtAutoConfigMode.setStatus(_A)
-class _AdGenSubHostProvMgmtAutoConfigFilename_Type(DisplayString):defaultValue=OctetString('')
-_AdGenSubHostProvMgmtAutoConfigFilename_Type.__name__=_G
-_AdGenSubHostProvMgmtAutoConfigFilename_Object=MibTableColumn
-adGenSubHostProvMgmtAutoConfigFilename=_AdGenSubHostProvMgmtAutoConfigFilename_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,23),_AdGenSubHostProvMgmtAutoConfigFilename_Type())
-adGenSubHostProvMgmtAutoConfigFilename.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtAutoConfigFilename.setStatus(_A)
-class _AdGenSubHostProvMgmtAutoConfigGroupName_Type(DisplayString):defaultValue=OctetString('')
-_AdGenSubHostProvMgmtAutoConfigGroupName_Type.__name__=_G
-_AdGenSubHostProvMgmtAutoConfigGroupName_Object=MibTableColumn
-adGenSubHostProvMgmtAutoConfigGroupName=_AdGenSubHostProvMgmtAutoConfigGroupName_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,24),_AdGenSubHostProvMgmtAutoConfigGroupName_Type())
-adGenSubHostProvMgmtAutoConfigGroupName.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtAutoConfigGroupName.setStatus(_A)
-_AdGenSubHostProvMgmtAutoConfigHostIpv4_Type=InetAddressIPv4
-_AdGenSubHostProvMgmtAutoConfigHostIpv4_Object=MibTableColumn
-adGenSubHostProvMgmtAutoConfigHostIpv4=_AdGenSubHostProvMgmtAutoConfigHostIpv4_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,25),_AdGenSubHostProvMgmtAutoConfigHostIpv4_Type())
-adGenSubHostProvMgmtAutoConfigHostIpv4.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtAutoConfigHostIpv4.setStatus(_A)
-_AdGenSubHostProvMgmtAutoConfigHostIpv6_Type=InetAddressIPv6
-_AdGenSubHostProvMgmtAutoConfigHostIpv6_Object=MibTableColumn
-adGenSubHostProvMgmtAutoConfigHostIpv6=_AdGenSubHostProvMgmtAutoConfigHostIpv6_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,26),_AdGenSubHostProvMgmtAutoConfigHostIpv6_Type())
-adGenSubHostProvMgmtAutoConfigHostIpv6.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtAutoConfigHostIpv6.setStatus(_A)
-class _AdGenSubHostProvMgmtLastErrorString_Type(DisplayString):defaultValue=OctetString('')
-_AdGenSubHostProvMgmtLastErrorString_Type.__name__=_G
-_AdGenSubHostProvMgmtLastErrorString_Object=MibTableColumn
-adGenSubHostProvMgmtLastErrorString=_AdGenSubHostProvMgmtLastErrorString_Object((1,3,6,1,4,1,664,5,70,12,1,1,1,27),_AdGenSubHostProvMgmtLastErrorString_Type())
-adGenSubHostProvMgmtLastErrorString.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostProvMgmtLastErrorString.setStatus(_A)
-_AdGenSubHostProvIfTable_Object=MibTable
-adGenSubHostProvIfTable=_AdGenSubHostProvIfTable_Object((1,3,6,1,4,1,664,5,70,12,1,2))
-if mibBuilder.loadTexts:adGenSubHostProvIfTable.setStatus(_A)
-_AdGenSubHostProvIfEntry_Object=MibTableRow
-adGenSubHostProvIfEntry=_AdGenSubHostProvIfEntry_Object((1,3,6,1,4,1,664,5,70,12,1,2,1))
-adGenSubHostProvIfEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:adGenSubHostProvIfEntry.setStatus(_A)
-class _AdGenSubHostProvIfMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('disabled',1),('listener',2),('sender',3)))
-_AdGenSubHostProvIfMode_Type.__name__=_F
-_AdGenSubHostProvIfMode_Object=MibTableColumn
-adGenSubHostProvIfMode=_AdGenSubHostProvIfMode_Object((1,3,6,1,4,1,664,5,70,12,1,2,1,1),_AdGenSubHostProvIfMode_Type())
-adGenSubHostProvIfMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvIfMode.setStatus(_A)
-class _AdGenSubHostProvIfAutoDiscoveryMode_Type(TruthValue):defaultValue=2
-_AdGenSubHostProvIfAutoDiscoveryMode_Type.__name__=_H
-_AdGenSubHostProvIfAutoDiscoveryMode_Object=MibTableColumn
-adGenSubHostProvIfAutoDiscoveryMode=_AdGenSubHostProvIfAutoDiscoveryMode_Object((1,3,6,1,4,1,664,5,70,12,1,2,1,2),_AdGenSubHostProvIfAutoDiscoveryMode_Type())
-adGenSubHostProvIfAutoDiscoveryMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvIfAutoDiscoveryMode.setStatus(_A)
-class _AdGenSubHostProvIfAutoDiscoveryAck_Type(TruthValue):defaultValue=2
-_AdGenSubHostProvIfAutoDiscoveryAck_Type.__name__=_H
-_AdGenSubHostProvIfAutoDiscoveryAck_Object=MibTableColumn
-adGenSubHostProvIfAutoDiscoveryAck=_AdGenSubHostProvIfAutoDiscoveryAck_Object((1,3,6,1,4,1,664,5,70,12,1,2,1,3),_AdGenSubHostProvIfAutoDiscoveryAck_Type())
-adGenSubHostProvIfAutoDiscoveryAck.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubHostProvIfAutoDiscoveryAck.setStatus(_A)
-_AdGenSubtendedHostStatus_ObjectIdentity=ObjectIdentity
-adGenSubtendedHostStatus=_AdGenSubtendedHostStatus_ObjectIdentity((1,3,6,1,4,1,664,5,70,12,2))
-_AdGenSubHostStatTable_Object=MibTable
-adGenSubHostStatTable=_AdGenSubHostStatTable_Object((1,3,6,1,4,1,664,5,70,12,2,1))
-if mibBuilder.loadTexts:adGenSubHostStatTable.setStatus(_A)
-_AdGenSubHostStatEntry_Object=MibTableRow
-adGenSubHostStatEntry=_AdGenSubHostStatEntry_Object((1,3,6,1,4,1,664,5,70,12,2,1,1))
-adGenSubHostStatEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:adGenSubHostStatEntry.setStatus(_A)
-_AdGenSubHostStatMacAddress_Type=MacAddress
-_AdGenSubHostStatMacAddress_Object=MibTableColumn
-adGenSubHostStatMacAddress=_AdGenSubHostStatMacAddress_Object((1,3,6,1,4,1,664,5,70,12,2,1,1,1),_AdGenSubHostStatMacAddress_Type())
-adGenSubHostStatMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatMacAddress.setStatus(_A)
-_AdGenSubHostStatIpAddress_Type=IpAddress
-_AdGenSubHostStatIpAddress_Object=MibTableColumn
-adGenSubHostStatIpAddress=_AdGenSubHostStatIpAddress_Object((1,3,6,1,4,1,664,5,70,12,2,1,1,2),_AdGenSubHostStatIpAddress_Type())
-adGenSubHostStatIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatIpAddress.setStatus(_A)
-_AdGenSubHostStatGateway_Type=IpAddress
-_AdGenSubHostStatGateway_Object=MibTableColumn
-adGenSubHostStatGateway=_AdGenSubHostStatGateway_Object((1,3,6,1,4,1,664,5,70,12,2,1,1,3),_AdGenSubHostStatGateway_Type())
-adGenSubHostStatGateway.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatGateway.setStatus(_A)
-_AdGenSubHostStatProvSync_Type=DisplayString
-_AdGenSubHostStatProvSync_Object=MibTableColumn
-adGenSubHostStatProvSync=_AdGenSubHostStatProvSync_Object((1,3,6,1,4,1,664,5,70,12,2,1,1,4),_AdGenSubHostStatProvSync_Type())
-adGenSubHostStatProvSync.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatProvSync.setStatus(_A)
-_AdGenSubHostStatIpSubnetMask_Type=IpAddress
-_AdGenSubHostStatIpSubnetMask_Object=MibTableColumn
-adGenSubHostStatIpSubnetMask=_AdGenSubHostStatIpSubnetMask_Object((1,3,6,1,4,1,664,5,70,12,2,1,1,5),_AdGenSubHostStatIpSubnetMask_Type())
-adGenSubHostStatIpSubnetMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatIpSubnetMask.setStatus(_A)
-_AdGenSubHostStatIpv6AddressPrefixLength_Type=InetAddressPrefixLength
-_AdGenSubHostStatIpv6AddressPrefixLength_Object=MibTableColumn
-adGenSubHostStatIpv6AddressPrefixLength=_AdGenSubHostStatIpv6AddressPrefixLength_Object((1,3,6,1,4,1,664,5,70,12,2,1,1,6),_AdGenSubHostStatIpv6AddressPrefixLength_Type())
-adGenSubHostStatIpv6AddressPrefixLength.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatIpv6AddressPrefixLength.setStatus(_A)
-_AdGenSubHostStatIpv6AddressEui64_Type=TruthValue
-_AdGenSubHostStatIpv6AddressEui64_Object=MibTableColumn
-adGenSubHostStatIpv6AddressEui64=_AdGenSubHostStatIpv6AddressEui64_Object((1,3,6,1,4,1,664,5,70,12,2,1,1,7),_AdGenSubHostStatIpv6AddressEui64_Type())
-adGenSubHostStatIpv6AddressEui64.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatIpv6AddressEui64.setStatus(_A)
-_AdGenSubHostStatIpv6Address_Type=InetAddressIPv6
-_AdGenSubHostStatIpv6Address_Object=MibTableColumn
-adGenSubHostStatIpv6Address=_AdGenSubHostStatIpv6Address_Object((1,3,6,1,4,1,664,5,70,12,2,1,1,8),_AdGenSubHostStatIpv6Address_Type())
-adGenSubHostStatIpv6Address.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatIpv6Address.setStatus(_A)
-_AdGenSubHostStatIpv6AddressLinkLocal_Type=InetAddressIPv6
-_AdGenSubHostStatIpv6AddressLinkLocal_Object=MibTableColumn
-adGenSubHostStatIpv6AddressLinkLocal=_AdGenSubHostStatIpv6AddressLinkLocal_Object((1,3,6,1,4,1,664,5,70,12,2,1,1,9),_AdGenSubHostStatIpv6AddressLinkLocal_Type())
-adGenSubHostStatIpv6AddressLinkLocal.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatIpv6AddressLinkLocal.setStatus(_A)
-_AdGenSubHostStatAutoConfigMode_Type=TruthValue
-_AdGenSubHostStatAutoConfigMode_Object=MibTableColumn
-adGenSubHostStatAutoConfigMode=_AdGenSubHostStatAutoConfigMode_Object((1,3,6,1,4,1,664,5,70,12,2,1,1,10),_AdGenSubHostStatAutoConfigMode_Type())
-adGenSubHostStatAutoConfigMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatAutoConfigMode.setStatus(_A)
-_AdGenSubHostStatAutoConfigFilename_Type=DisplayString
-_AdGenSubHostStatAutoConfigFilename_Object=MibTableColumn
-adGenSubHostStatAutoConfigFilename=_AdGenSubHostStatAutoConfigFilename_Object((1,3,6,1,4,1,664,5,70,12,2,1,1,11),_AdGenSubHostStatAutoConfigFilename_Type())
-adGenSubHostStatAutoConfigFilename.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatAutoConfigFilename.setStatus(_A)
-_AdGenSubHostStatAutoConfigGroupName_Type=DisplayString
-_AdGenSubHostStatAutoConfigGroupName_Object=MibTableColumn
-adGenSubHostStatAutoConfigGroupName=_AdGenSubHostStatAutoConfigGroupName_Object((1,3,6,1,4,1,664,5,70,12,2,1,1,12),_AdGenSubHostStatAutoConfigGroupName_Type())
-adGenSubHostStatAutoConfigGroupName.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatAutoConfigGroupName.setStatus(_A)
-_AdGenSubHostStatAutoConfigHostIpv4_Type=InetAddressIPv4
-_AdGenSubHostStatAutoConfigHostIpv4_Object=MibTableColumn
-adGenSubHostStatAutoConfigHostIpv4=_AdGenSubHostStatAutoConfigHostIpv4_Object((1,3,6,1,4,1,664,5,70,12,2,1,1,13),_AdGenSubHostStatAutoConfigHostIpv4_Type())
-adGenSubHostStatAutoConfigHostIpv4.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatAutoConfigHostIpv4.setStatus(_A)
-_AdGenSubHostStatAutoConfigHostIpv6_Type=InetAddressIPv6
-_AdGenSubHostStatAutoConfigHostIpv6_Object=MibTableColumn
-adGenSubHostStatAutoConfigHostIpv6=_AdGenSubHostStatAutoConfigHostIpv6_Object((1,3,6,1,4,1,664,5,70,12,2,1,1,14),_AdGenSubHostStatAutoConfigHostIpv6_Type())
-adGenSubHostStatAutoConfigHostIpv6.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatAutoConfigHostIpv6.setStatus(_A)
-_AdGenSubHostStatFarEndTable_Object=MibTable
-adGenSubHostStatFarEndTable=_AdGenSubHostStatFarEndTable_Object((1,3,6,1,4,1,664,5,70,12,2,2))
-if mibBuilder.loadTexts:adGenSubHostStatFarEndTable.setStatus(_A)
-_AdGenSubHostStatFarEndEntry_Object=MibTableRow
-adGenSubHostStatFarEndEntry=_AdGenSubHostStatFarEndEntry_Object((1,3,6,1,4,1,664,5,70,12,2,2,1))
-adGenSubHostStatFarEndEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:adGenSubHostStatFarEndEntry.setStatus(_A)
-_AdGenSubHostStatFarEndIfIndex_Type=InterfaceIndex
-_AdGenSubHostStatFarEndIfIndex_Object=MibTableColumn
-adGenSubHostStatFarEndIfIndex=_AdGenSubHostStatFarEndIfIndex_Object((1,3,6,1,4,1,664,5,70,12,2,2,1,1),_AdGenSubHostStatFarEndIfIndex_Type())
-adGenSubHostStatFarEndIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatFarEndIfIndex.setStatus(_A)
-_AdGenSubHostStatFarEndIpAddress_Type=IpAddress
-_AdGenSubHostStatFarEndIpAddress_Object=MibTableColumn
-adGenSubHostStatFarEndIpAddress=_AdGenSubHostStatFarEndIpAddress_Object((1,3,6,1,4,1,664,5,70,12,2,2,1,2),_AdGenSubHostStatFarEndIpAddress_Type())
-adGenSubHostStatFarEndIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatFarEndIpAddress.setStatus(_A)
-_AdGenSubHostStatFarEndSysName_Type=DisplayString
-_AdGenSubHostStatFarEndSysName_Object=MibTableColumn
-adGenSubHostStatFarEndSysName=_AdGenSubHostStatFarEndSysName_Object((1,3,6,1,4,1,664,5,70,12,2,2,1,3),_AdGenSubHostStatFarEndSysName_Type())
-adGenSubHostStatFarEndSysName.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSubHostStatFarEndSysName.setStatus(_A)
-_AdGenSubtendedHostNotificationsPrefix_ObjectIdentity=ObjectIdentity
-adGenSubtendedHostNotificationsPrefix=_AdGenSubtendedHostNotificationsPrefix_ObjectIdentity((1,3,6,1,4,1,664,5,70,12,3))
-_AdGenSubtendedHostNotifications_ObjectIdentity=ObjectIdentity
-adGenSubtendedHostNotifications=_AdGenSubtendedHostNotifications_ObjectIdentity((1,3,6,1,4,1,664,5,70,12,3,0))
-adGenSubHostProvIfAutoDiscoveryAlm=NotificationType((1,3,6,1,4,1,664,5,70,12,3,0,1))
-adGenSubHostProvIfAutoDiscoveryAlm.setObjects(*((_K,_L),(_N,_O),(_I,_J),(_D,_M),(_D,_E)))
-if mibBuilder.loadTexts:adGenSubHostProvIfAutoDiscoveryAlm.setStatus(_A)
-mibBuilder.exportSymbols('ADTRAN-GENSUBTENDEDHOST-MIB',**{'adGenSubtendedHostProvisioning':adGenSubtendedHostProvisioning,'adGenSubHostProvMgmtTable':adGenSubHostProvMgmtTable,'adGenSubHostProvMgmtEntry':adGenSubHostProvMgmtEntry,'adGenSubHostProvMgmtIpAddress':adGenSubHostProvMgmtIpAddress,'adGenSubHostProvMgmtIpSubnetMask':adGenSubHostProvMgmtIpSubnetMask,'adGenSubHostProvMgmtIpGateway':adGenSubHostProvMgmtIpGateway,'adGenSubHostProvMgmtIpVlan':adGenSubHostProvMgmtIpVlan,'adGenSubHostProvMgmtTftpServer':adGenSubHostProvMgmtTftpServer,'adGenSubHostProvMgmtSnmpWriteCommunity':adGenSubHostProvMgmtSnmpWriteCommunity,'adGenSubHostProvMgmtSnmpReadCommunity':adGenSubHostProvMgmtSnmpReadCommunity,'adGenSubHostProvMgmtSysName':adGenSubHostProvMgmtSysName,'adGenSubHostProvMgmtPriority':adGenSubHostProvMgmtPriority,'adGenSubHostProvMgmtIpAssignMode':adGenSubHostProvMgmtIpAssignMode,'adGenSubHostProvMgmtSync':adGenSubHostProvMgmtSync,'adGenSubHostProvMgmtSnmpSysLocation':adGenSubHostProvMgmtSnmpSysLocation,'adGenSubHostProvMgmtEzProvHostOneIpAddress':adGenSubHostProvMgmtEzProvHostOneIpAddress,'adGenSubHostProvMgmtEzProvHostOneTrapVersion':adGenSubHostProvMgmtEzProvHostOneTrapVersion,'adGenSubHostProvMgmtEzProvHostTwoIpAddress':adGenSubHostProvMgmtEzProvHostTwoIpAddress,'adGenSubHostProvMgmtEzProvHostTwoTrapVersion':adGenSubHostProvMgmtEzProvHostTwoTrapVersion,'adGenSubHostProvMgmtEzProvEnabled':adGenSubHostProvMgmtEzProvEnabled,'adGenSubHostProvMgmtIpv6AddressPrefixLength':adGenSubHostProvMgmtIpv6AddressPrefixLength,'adGenSubHostProvMgmtIpv6AddressEui64':adGenSubHostProvMgmtIpv6AddressEui64,'adGenSubHostProvMgmtIpv6Address':adGenSubHostProvMgmtIpv6Address,'adGenSubHostProvMgmtIpv6AddressLinkLocal':adGenSubHostProvMgmtIpv6AddressLinkLocal,'adGenSubHostProvMgmtAutoConfigMode':adGenSubHostProvMgmtAutoConfigMode,'adGenSubHostProvMgmtAutoConfigFilename':adGenSubHostProvMgmtAutoConfigFilename,'adGenSubHostProvMgmtAutoConfigGroupName':adGenSubHostProvMgmtAutoConfigGroupName,'adGenSubHostProvMgmtAutoConfigHostIpv4':adGenSubHostProvMgmtAutoConfigHostIpv4,'adGenSubHostProvMgmtAutoConfigHostIpv6':adGenSubHostProvMgmtAutoConfigHostIpv6,'adGenSubHostProvMgmtLastErrorString':adGenSubHostProvMgmtLastErrorString,'adGenSubHostProvIfTable':adGenSubHostProvIfTable,'adGenSubHostProvIfEntry':adGenSubHostProvIfEntry,'adGenSubHostProvIfMode':adGenSubHostProvIfMode,'adGenSubHostProvIfAutoDiscoveryMode':adGenSubHostProvIfAutoDiscoveryMode,'adGenSubHostProvIfAutoDiscoveryAck':adGenSubHostProvIfAutoDiscoveryAck,'adGenSubtendedHostStatus':adGenSubtendedHostStatus,'adGenSubHostStatTable':adGenSubHostStatTable,'adGenSubHostStatEntry':adGenSubHostStatEntry,'adGenSubHostStatMacAddress':adGenSubHostStatMacAddress,'adGenSubHostStatIpAddress':adGenSubHostStatIpAddress,'adGenSubHostStatGateway':adGenSubHostStatGateway,'adGenSubHostStatProvSync':adGenSubHostStatProvSync,'adGenSubHostStatIpSubnetMask':adGenSubHostStatIpSubnetMask,'adGenSubHostStatIpv6AddressPrefixLength':adGenSubHostStatIpv6AddressPrefixLength,'adGenSubHostStatIpv6AddressEui64':adGenSubHostStatIpv6AddressEui64,'adGenSubHostStatIpv6Address':adGenSubHostStatIpv6Address,'adGenSubHostStatIpv6AddressLinkLocal':adGenSubHostStatIpv6AddressLinkLocal,'adGenSubHostStatAutoConfigMode':adGenSubHostStatAutoConfigMode,'adGenSubHostStatAutoConfigFilename':adGenSubHostStatAutoConfigFilename,'adGenSubHostStatAutoConfigGroupName':adGenSubHostStatAutoConfigGroupName,'adGenSubHostStatAutoConfigHostIpv4':adGenSubHostStatAutoConfigHostIpv4,'adGenSubHostStatAutoConfigHostIpv6':adGenSubHostStatAutoConfigHostIpv6,'adGenSubHostStatFarEndTable':adGenSubHostStatFarEndTable,'adGenSubHostStatFarEndEntry':adGenSubHostStatFarEndEntry,'adGenSubHostStatFarEndIfIndex':adGenSubHostStatFarEndIfIndex,'adGenSubHostStatFarEndIpAddress':adGenSubHostStatFarEndIpAddress,'adGenSubHostStatFarEndSysName':adGenSubHostStatFarEndSysName,'adGenSubtendedHostNotificationsPrefix':adGenSubtendedHostNotificationsPrefix,'adGenSubtendedHostNotifications':adGenSubtendedHostNotifications,'adGenSubHostProvIfAutoDiscoveryAlm':adGenSubHostProvIfAutoDiscoveryAlm,'adGenSubtendedHostMIB':adGenSubtendedHostMIB})
+#
+# PySNMP MIB module ADTRAN-GENSUBTENDEDHOST-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-GENSUBTENDEDHOST-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:10 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGenSlotInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex")
+adTrapInformSeqNum, = mibBuilder.importSymbols("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum")
+adGenSubtendedHostID, adGenSubtendedHost = mibBuilder.importSymbols("ADTRAN-SHARED-CND-SYSTEM-MIB", "adGenSubtendedHostID", "adGenSubtendedHost")
+AdGenTrapVersion, = mibBuilder.importSymbols("ADTRAN-SHARED-CND-SYSTEM-TC-MIB", "AdGenTrapVersion")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, ifDescr, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifDescr", "InterfaceIndex")
+InetAddressPrefixLength, InetAddressIPv6, InetAddressIPv4 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetAddressIPv6", "InetAddressIPv4")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TruthValue, DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "MacAddress", "TextualConvention")
+adGenSubtendedHostMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 12, 1))
+adGenSubtendedHostMIB.setRevisions(('2015-08-21 00:00', '2015-05-27 00:00', '2015-03-06 00:00', '2014-05-16 00:00', '2009-03-09 00:00',))
+if mibBuilder.loadTexts: adGenSubtendedHostMIB.setLastUpdated('201508210000Z')
+if mibBuilder.loadTexts: adGenSubtendedHostMIB.setOrganization('Adtran, Inc.')
+adGenSubtendedHostProvisioning = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1))
+adGenSubtendedHostStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2))
+adGenSubtendedHostNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 3))
+adGenSubtendedHostNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 3, 0))
+adGenSubHostProvMgmtTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1), )
+if mibBuilder.loadTexts: adGenSubHostProvMgmtTable.setStatus('current')
+adGenSubHostProvMgmtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: adGenSubHostProvMgmtEntry.setStatus('current')
+adGenSubHostProvMgmtIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 1), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtIpAddress.setStatus('current')
+adGenSubHostProvMgmtIpSubnetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtIpSubnetMask.setStatus('current')
+adGenSubHostProvMgmtIpGateway = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtIpGateway.setStatus('current')
+adGenSubHostProvMgmtIpVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtIpVlan.setStatus('current')
+adGenSubHostProvMgmtTftpServer = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 5), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtTftpServer.setStatus('current')
+adGenSubHostProvMgmtSnmpWriteCommunity = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 6), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtSnmpWriteCommunity.setStatus('current')
+adGenSubHostProvMgmtSnmpReadCommunity = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 7), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtSnmpReadCommunity.setStatus('current')
+adGenSubHostProvMgmtSysName = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 8), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtSysName.setStatus('current')
+adGenSubHostProvMgmtPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 9), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtPriority.setStatus('current')
+adGenSubHostProvMgmtIpAssignMode = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("dynamic", 1), ("static", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtIpAssignMode.setStatus('current')
+adGenSubHostProvMgmtSync = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("resync", 1), ("reset", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtSync.setStatus('current')
+adGenSubHostProvMgmtSnmpSysLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 12), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtSnmpSysLocation.setStatus('current')
+adGenSubHostProvMgmtEzProvHostOneIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 13), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtEzProvHostOneIpAddress.setStatus('current')
+adGenSubHostProvMgmtEzProvHostOneTrapVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 14), AdGenTrapVersion()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtEzProvHostOneTrapVersion.setStatus('current')
+adGenSubHostProvMgmtEzProvHostTwoIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 15), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtEzProvHostTwoIpAddress.setStatus('current')
+adGenSubHostProvMgmtEzProvHostTwoTrapVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 16), AdGenTrapVersion()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtEzProvHostTwoTrapVersion.setStatus('current')
+adGenSubHostProvMgmtEzProvEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 17), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtEzProvEnabled.setStatus('current')
+adGenSubHostProvMgmtIpv6AddressPrefixLength = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 18), InetAddressPrefixLength()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtIpv6AddressPrefixLength.setStatus('current')
+adGenSubHostProvMgmtIpv6AddressEui64 = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 19), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtIpv6AddressEui64.setStatus('current')
+adGenSubHostProvMgmtIpv6Address = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 20), InetAddressIPv6()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtIpv6Address.setStatus('current')
+adGenSubHostProvMgmtIpv6AddressLinkLocal = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 21), InetAddressIPv6()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtIpv6AddressLinkLocal.setStatus('current')
+adGenSubHostProvMgmtAutoConfigMode = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 22), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtAutoConfigMode.setStatus('current')
+adGenSubHostProvMgmtAutoConfigFilename = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 23), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtAutoConfigFilename.setStatus('current')
+adGenSubHostProvMgmtAutoConfigGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 24), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtAutoConfigGroupName.setStatus('current')
+adGenSubHostProvMgmtAutoConfigHostIpv4 = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 25), InetAddressIPv4()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtAutoConfigHostIpv4.setStatus('current')
+adGenSubHostProvMgmtAutoConfigHostIpv6 = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 26), InetAddressIPv6()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtAutoConfigHostIpv6.setStatus('current')
+adGenSubHostProvMgmtLastErrorString = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 1, 1, 27), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostProvMgmtLastErrorString.setStatus('current')
+adGenSubHostProvIfTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 2), )
+if mibBuilder.loadTexts: adGenSubHostProvIfTable.setStatus('current')
+adGenSubHostProvIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: adGenSubHostProvIfEntry.setStatus('current')
+adGenSubHostProvIfMode = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("disabled", 1), ("listener", 2), ("sender", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvIfMode.setStatus('current')
+adGenSubHostProvIfAutoDiscoveryMode = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 2, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvIfAutoDiscoveryMode.setStatus('current')
+adGenSubHostProvIfAutoDiscoveryAck = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 1, 2, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSubHostProvIfAutoDiscoveryAck.setStatus('current')
+adGenSubHostStatTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1), )
+if mibBuilder.loadTexts: adGenSubHostStatTable.setStatus('current')
+adGenSubHostStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: adGenSubHostStatEntry.setStatus('current')
+adGenSubHostStatMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1, 1, 1), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatMacAddress.setStatus('current')
+adGenSubHostStatIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatIpAddress.setStatus('current')
+adGenSubHostStatGateway = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatGateway.setStatus('current')
+adGenSubHostStatProvSync = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatProvSync.setStatus('current')
+adGenSubHostStatIpSubnetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1, 1, 5), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatIpSubnetMask.setStatus('current')
+adGenSubHostStatIpv6AddressPrefixLength = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1, 1, 6), InetAddressPrefixLength()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatIpv6AddressPrefixLength.setStatus('current')
+adGenSubHostStatIpv6AddressEui64 = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1, 1, 7), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatIpv6AddressEui64.setStatus('current')
+adGenSubHostStatIpv6Address = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1, 1, 8), InetAddressIPv6()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatIpv6Address.setStatus('current')
+adGenSubHostStatIpv6AddressLinkLocal = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1, 1, 9), InetAddressIPv6()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatIpv6AddressLinkLocal.setStatus('current')
+adGenSubHostStatAutoConfigMode = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1, 1, 10), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatAutoConfigMode.setStatus('current')
+adGenSubHostStatAutoConfigFilename = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1, 1, 11), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatAutoConfigFilename.setStatus('current')
+adGenSubHostStatAutoConfigGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1, 1, 12), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatAutoConfigGroupName.setStatus('current')
+adGenSubHostStatAutoConfigHostIpv4 = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1, 1, 13), InetAddressIPv4()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatAutoConfigHostIpv4.setStatus('current')
+adGenSubHostStatAutoConfigHostIpv6 = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 1, 1, 14), InetAddressIPv6()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatAutoConfigHostIpv6.setStatus('current')
+adGenSubHostStatFarEndTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 2), )
+if mibBuilder.loadTexts: adGenSubHostStatFarEndTable.setStatus('current')
+adGenSubHostStatFarEndEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: adGenSubHostStatFarEndEntry.setStatus('current')
+adGenSubHostStatFarEndIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 2, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatFarEndIfIndex.setStatus('current')
+adGenSubHostStatFarEndIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatFarEndIpAddress.setStatus('current')
+adGenSubHostStatFarEndSysName = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 2, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubHostStatFarEndSysName.setStatus('current')
+adGenSubHostProvIfAutoDiscoveryAlm = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 70, 12, 3, 0, 1)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"), ("IF-MIB", "ifDescr"), ("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: adGenSubHostProvIfAutoDiscoveryAlm.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-GENSUBTENDEDHOST-MIB", adGenSubHostStatIpSubnetMask=adGenSubHostStatIpSubnetMask, adGenSubHostProvMgmtSnmpSysLocation=adGenSubHostProvMgmtSnmpSysLocation, adGenSubtendedHostProvisioning=adGenSubtendedHostProvisioning, PYSNMP_MODULE_ID=adGenSubtendedHostMIB, adGenSubHostStatGateway=adGenSubHostStatGateway, adGenSubHostProvMgmtIpv6Address=adGenSubHostProvMgmtIpv6Address, adGenSubHostProvMgmtIpv6AddressPrefixLength=adGenSubHostProvMgmtIpv6AddressPrefixLength, adGenSubHostStatFarEndEntry=adGenSubHostStatFarEndEntry, adGenSubHostProvIfTable=adGenSubHostProvIfTable, adGenSubHostProvMgmtAutoConfigHostIpv6=adGenSubHostProvMgmtAutoConfigHostIpv6, adGenSubHostStatAutoConfigHostIpv4=adGenSubHostStatAutoConfigHostIpv4, adGenSubHostProvMgmtSnmpReadCommunity=adGenSubHostProvMgmtSnmpReadCommunity, adGenSubHostStatFarEndTable=adGenSubHostStatFarEndTable, adGenSubHostStatEntry=adGenSubHostStatEntry, adGenSubHostProvMgmtIpAddress=adGenSubHostProvMgmtIpAddress, adGenSubHostStatAutoConfigGroupName=adGenSubHostStatAutoConfigGroupName, adGenSubHostProvIfAutoDiscoveryMode=adGenSubHostProvIfAutoDiscoveryMode, adGenSubHostStatIpv6AddressEui64=adGenSubHostStatIpv6AddressEui64, adGenSubHostProvMgmtEzProvHostTwoTrapVersion=adGenSubHostProvMgmtEzProvHostTwoTrapVersion, adGenSubHostStatAutoConfigMode=adGenSubHostStatAutoConfigMode, adGenSubHostProvMgmtIpVlan=adGenSubHostProvMgmtIpVlan, adGenSubtendedHostNotifications=adGenSubtendedHostNotifications, adGenSubHostProvMgmtIpGateway=adGenSubHostProvMgmtIpGateway, adGenSubHostStatProvSync=adGenSubHostStatProvSync, adGenSubHostStatFarEndIpAddress=adGenSubHostStatFarEndIpAddress, adGenSubHostProvMgmtIpAssignMode=adGenSubHostProvMgmtIpAssignMode, adGenSubHostProvMgmtEzProvEnabled=adGenSubHostProvMgmtEzProvEnabled, adGenSubHostProvMgmtIpv6AddressLinkLocal=adGenSubHostProvMgmtIpv6AddressLinkLocal, adGenSubHostProvMgmtAutoConfigHostIpv4=adGenSubHostProvMgmtAutoConfigHostIpv4, adGenSubHostProvIfMode=adGenSubHostProvIfMode, adGenSubHostStatAutoConfigFilename=adGenSubHostStatAutoConfigFilename, adGenSubHostProvMgmtAutoConfigMode=adGenSubHostProvMgmtAutoConfigMode, adGenSubtendedHostStatus=adGenSubtendedHostStatus, adGenSubHostProvMgmtEzProvHostTwoIpAddress=adGenSubHostProvMgmtEzProvHostTwoIpAddress, adGenSubtendedHostNotificationsPrefix=adGenSubtendedHostNotificationsPrefix, adGenSubHostProvIfAutoDiscoveryAck=adGenSubHostProvIfAutoDiscoveryAck, adGenSubHostStatAutoConfigHostIpv6=adGenSubHostStatAutoConfigHostIpv6, adGenSubHostStatMacAddress=adGenSubHostStatMacAddress, adGenSubtendedHostMIB=adGenSubtendedHostMIB, adGenSubHostStatIpv6AddressLinkLocal=adGenSubHostStatIpv6AddressLinkLocal, adGenSubHostProvMgmtSync=adGenSubHostProvMgmtSync, adGenSubHostProvMgmtEntry=adGenSubHostProvMgmtEntry, adGenSubHostProvMgmtTable=adGenSubHostProvMgmtTable, adGenSubHostProvIfAutoDiscoveryAlm=adGenSubHostProvIfAutoDiscoveryAlm, adGenSubHostProvMgmtEzProvHostOneIpAddress=adGenSubHostProvMgmtEzProvHostOneIpAddress, adGenSubHostProvMgmtPriority=adGenSubHostProvMgmtPriority, adGenSubHostProvMgmtSysName=adGenSubHostProvMgmtSysName, adGenSubHostProvMgmtAutoConfigFilename=adGenSubHostProvMgmtAutoConfigFilename, adGenSubHostStatIpAddress=adGenSubHostStatIpAddress, adGenSubHostStatTable=adGenSubHostStatTable, adGenSubHostProvMgmtAutoConfigGroupName=adGenSubHostProvMgmtAutoConfigGroupName, adGenSubHostProvMgmtLastErrorString=adGenSubHostProvMgmtLastErrorString, adGenSubHostStatIpv6Address=adGenSubHostStatIpv6Address, adGenSubHostProvMgmtEzProvHostOneTrapVersion=adGenSubHostProvMgmtEzProvHostOneTrapVersion, adGenSubHostProvMgmtSnmpWriteCommunity=adGenSubHostProvMgmtSnmpWriteCommunity, adGenSubHostStatIpv6AddressPrefixLength=adGenSubHostStatIpv6AddressPrefixLength, adGenSubHostStatFarEndIfIndex=adGenSubHostStatFarEndIfIndex, adGenSubHostProvMgmtIpv6AddressEui64=adGenSubHostProvMgmtIpv6AddressEui64, adGenSubHostProvMgmtIpSubnetMask=adGenSubHostProvMgmtIpSubnetMask, adGenSubHostProvIfEntry=adGenSubHostProvIfEntry, adGenSubHostStatFarEndSysName=adGenSubHostStatFarEndSysName, adGenSubHostProvMgmtTftpServer=adGenSubHostProvMgmtTftpServer)

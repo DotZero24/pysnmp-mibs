@@ -1,103 +1,53 @@
-_E='TruthValue'
-_D='Integer32'
-_C='read-only'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hmManagement,=mibBuilder.importSymbols('HIRSCHMANN-MGMT-MIB','hmManagement')
-InetAddress,InetAddressPrefixLength,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressPrefixLength','InetAddressType')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention',_E)
-hmMgmtDiscoveryGroup=ModuleIdentity((1,3,6,1,4,1,248,16,100))
-if mibBuilder.loadTexts:hmMgmtDiscoveryGroup.setRevisions(('2014-07-07 12:00',))
-_HmMgmtDiscoveryStatusGroup_ObjectIdentity=ObjectIdentity
-hmMgmtDiscoveryStatusGroup=_HmMgmtDiscoveryStatusGroup_ObjectIdentity((1,3,6,1,4,1,248,16,100,1))
-class _HmMgmtDiscMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_B,1),(_C,2)))
-_HmMgmtDiscMode_Type.__name__=_D
-_HmMgmtDiscMode_Object=MibScalar
-hmMgmtDiscMode=_HmMgmtDiscMode_Object((1,3,6,1,4,1,248,16,100,1,1),_HmMgmtDiscMode_Type())
-hmMgmtDiscMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:hmMgmtDiscMode.setStatus(_A)
-_HmMgmtDiscMacAddr_Type=MacAddress
-_HmMgmtDiscMacAddr_Object=MibScalar
-hmMgmtDiscMacAddr=_HmMgmtDiscMacAddr_Object((1,3,6,1,4,1,248,16,100,1,2),_HmMgmtDiscMacAddr_Type())
-hmMgmtDiscMacAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:hmMgmtDiscMacAddr.setStatus(_A)
-class _HmMgmtDiscIpIntfType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('loopback-intf',1),('router-intf',2),('mgmt-intf',3)))
-_HmMgmtDiscIpIntfType_Type.__name__=_D
-_HmMgmtDiscIpIntfType_Object=MibScalar
-hmMgmtDiscIpIntfType=_HmMgmtDiscIpIntfType_Object((1,3,6,1,4,1,248,16,100,1,3),_HmMgmtDiscIpIntfType_Type())
-hmMgmtDiscIpIntfType.setMaxAccess(_C)
-if mibBuilder.loadTexts:hmMgmtDiscIpIntfType.setStatus(_A)
-_HmMgmtDiscSwVersion_Type=SnmpAdminString
-_HmMgmtDiscSwVersion_Object=MibScalar
-hmMgmtDiscSwVersion=_HmMgmtDiscSwVersion_Object((1,3,6,1,4,1,248,16,100,1,4),_HmMgmtDiscSwVersion_Type())
-hmMgmtDiscSwVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:hmMgmtDiscSwVersion.setStatus(_A)
-_HmMgmtDiscProductDescr_Type=SnmpAdminString
-_HmMgmtDiscProductDescr_Object=MibScalar
-hmMgmtDiscProductDescr=_HmMgmtDiscProductDescr_Object((1,3,6,1,4,1,248,16,100,1,5),_HmMgmtDiscProductDescr_Type())
-hmMgmtDiscProductDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:hmMgmtDiscProductDescr.setStatus(_A)
-class _HmMgmtDiscForcePasswordChange_Type(TruthValue):defaultValue=1
-_HmMgmtDiscForcePasswordChange_Type.__name__=_E
-_HmMgmtDiscForcePasswordChange_Object=MibScalar
-hmMgmtDiscForcePasswordChange=_HmMgmtDiscForcePasswordChange_Object((1,3,6,1,4,1,248,16,100,1,10),_HmMgmtDiscForcePasswordChange_Type())
-hmMgmtDiscForcePasswordChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:hmMgmtDiscForcePasswordChange.setStatus(_A)
-_HmMgmtDiscoveryCfgGroup_ObjectIdentity=ObjectIdentity
-hmMgmtDiscoveryCfgGroup=_HmMgmtDiscoveryCfgGroup_ObjectIdentity((1,3,6,1,4,1,248,16,100,2))
-_HmMgmtDiscCfgUUID_Type=OctetString
-_HmMgmtDiscCfgUUID_Object=MibScalar
-hmMgmtDiscCfgUUID=_HmMgmtDiscCfgUUID_Object((1,3,6,1,4,1,248,16,100,2,1),_HmMgmtDiscCfgUUID_Type())
-hmMgmtDiscCfgUUID.setMaxAccess(_B)
-if mibBuilder.loadTexts:hmMgmtDiscCfgUUID.setStatus(_A)
-class _HmMgmtDiscCfgProto_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('bootp',2),('dhcp',3)))
-_HmMgmtDiscCfgProto_Type.__name__=_D
-_HmMgmtDiscCfgProto_Object=MibScalar
-hmMgmtDiscCfgProto=_HmMgmtDiscCfgProto_Object((1,3,6,1,4,1,248,16,100,2,2),_HmMgmtDiscCfgProto_Type())
-hmMgmtDiscCfgProto.setMaxAccess(_B)
-if mibBuilder.loadTexts:hmMgmtDiscCfgProto.setStatus(_A)
-_HmMgmtDiscCfgIPAddrType_Type=InetAddressType
-_HmMgmtDiscCfgIPAddrType_Object=MibScalar
-hmMgmtDiscCfgIPAddrType=_HmMgmtDiscCfgIPAddrType_Object((1,3,6,1,4,1,248,16,100,2,3),_HmMgmtDiscCfgIPAddrType_Type())
-hmMgmtDiscCfgIPAddrType.setMaxAccess(_B)
-if mibBuilder.loadTexts:hmMgmtDiscCfgIPAddrType.setStatus(_A)
-_HmMgmtDiscCfgIPAddr_Type=InetAddress
-_HmMgmtDiscCfgIPAddr_Object=MibScalar
-hmMgmtDiscCfgIPAddr=_HmMgmtDiscCfgIPAddr_Object((1,3,6,1,4,1,248,16,100,2,4),_HmMgmtDiscCfgIPAddr_Type())
-hmMgmtDiscCfgIPAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:hmMgmtDiscCfgIPAddr.setStatus(_A)
-_HmMgmtDiscCfgPrefLen_Type=InetAddressPrefixLength
-_HmMgmtDiscCfgPrefLen_Object=MibScalar
-hmMgmtDiscCfgPrefLen=_HmMgmtDiscCfgPrefLen_Object((1,3,6,1,4,1,248,16,100,2,5),_HmMgmtDiscCfgPrefLen_Type())
-hmMgmtDiscCfgPrefLen.setMaxAccess(_B)
-if mibBuilder.loadTexts:hmMgmtDiscCfgPrefLen.setStatus(_A)
-_HmMgmtDiscCfgGwIPAddrType_Type=InetAddressType
-_HmMgmtDiscCfgGwIPAddrType_Object=MibScalar
-hmMgmtDiscCfgGwIPAddrType=_HmMgmtDiscCfgGwIPAddrType_Object((1,3,6,1,4,1,248,16,100,2,6),_HmMgmtDiscCfgGwIPAddrType_Type())
-hmMgmtDiscCfgGwIPAddrType.setMaxAccess(_B)
-if mibBuilder.loadTexts:hmMgmtDiscCfgGwIPAddrType.setStatus(_A)
-_HmMgmtDiscCfgGwIPAddr_Type=InetAddress
-_HmMgmtDiscCfgGwIPAddr_Object=MibScalar
-hmMgmtDiscCfgGwIPAddr=_HmMgmtDiscCfgGwIPAddr_Object((1,3,6,1,4,1,248,16,100,2,7),_HmMgmtDiscCfgGwIPAddr_Type())
-hmMgmtDiscCfgGwIPAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:hmMgmtDiscCfgGwIPAddr.setStatus(_A)
-class _HmMgmtDiscCfgAction_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('other',1),('activate',2)))
-_HmMgmtDiscCfgAction_Type.__name__=_D
-_HmMgmtDiscCfgAction_Object=MibScalar
-hmMgmtDiscCfgAction=_HmMgmtDiscCfgAction_Object((1,3,6,1,4,1,248,16,100,2,8),_HmMgmtDiscCfgAction_Type())
-hmMgmtDiscCfgAction.setMaxAccess(_B)
-if mibBuilder.loadTexts:hmMgmtDiscCfgAction.setStatus(_A)
-class _HmMgmtDiscCfgBlinking_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_HmMgmtDiscCfgBlinking_Type.__name__=_D
-_HmMgmtDiscCfgBlinking_Object=MibScalar
-hmMgmtDiscCfgBlinking=_HmMgmtDiscCfgBlinking_Object((1,3,6,1,4,1,248,16,100,2,9),_HmMgmtDiscCfgBlinking_Type())
-hmMgmtDiscCfgBlinking.setMaxAccess(_B)
-if mibBuilder.loadTexts:hmMgmtDiscCfgBlinking.setStatus(_A)
-mibBuilder.exportSymbols('HIRSCHMANN-DISCOVERY-MGMT-MIB',**{'hmMgmtDiscoveryGroup':hmMgmtDiscoveryGroup,'hmMgmtDiscoveryStatusGroup':hmMgmtDiscoveryStatusGroup,'hmMgmtDiscMode':hmMgmtDiscMode,'hmMgmtDiscMacAddr':hmMgmtDiscMacAddr,'hmMgmtDiscIpIntfType':hmMgmtDiscIpIntfType,'hmMgmtDiscSwVersion':hmMgmtDiscSwVersion,'hmMgmtDiscProductDescr':hmMgmtDiscProductDescr,'hmMgmtDiscForcePasswordChange':hmMgmtDiscForcePasswordChange,'hmMgmtDiscoveryCfgGroup':hmMgmtDiscoveryCfgGroup,'hmMgmtDiscCfgUUID':hmMgmtDiscCfgUUID,'hmMgmtDiscCfgProto':hmMgmtDiscCfgProto,'hmMgmtDiscCfgIPAddrType':hmMgmtDiscCfgIPAddrType,'hmMgmtDiscCfgIPAddr':hmMgmtDiscCfgIPAddr,'hmMgmtDiscCfgPrefLen':hmMgmtDiscCfgPrefLen,'hmMgmtDiscCfgGwIPAddrType':hmMgmtDiscCfgGwIPAddrType,'hmMgmtDiscCfgGwIPAddr':hmMgmtDiscCfgGwIPAddr,'hmMgmtDiscCfgAction':hmMgmtDiscCfgAction,'hmMgmtDiscCfgBlinking':hmMgmtDiscCfgBlinking})
+#
+# PySNMP MIB module HIRSCHMANN-DISCOVERY-MGMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/HIRSCHMANN-DISCOVERY-MGMT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:04 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hmManagement, = mibBuilder.importSymbols("HIRSCHMANN-MGMT-MIB", "hmManagement")
+InetAddressPrefixLength, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TruthValue, MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "DisplayString", "TextualConvention")
+hmMgmtDiscoveryGroup = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 16, 100))
+hmMgmtDiscoveryGroup.setRevisions(('2014-07-07 12:00',))
+if mibBuilder.loadTexts: hmMgmtDiscoveryGroup.setLastUpdated('201407071200Z')
+if mibBuilder.loadTexts: hmMgmtDiscoveryGroup.setOrganization('Hirschmann Automation and Control GmbH')
+hmMgmtDiscoveryStatusGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 16, 100, 1))
+hmMgmtDiscoveryCfgGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 16, 100, 2))
+hmMgmtDiscMode = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("read-write", 1), ("read-only", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmMgmtDiscMode.setStatus('current')
+hmMgmtDiscMacAddr = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmMgmtDiscMacAddr.setStatus('current')
+hmMgmtDiscIpIntfType = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("loopback-intf", 1), ("router-intf", 2), ("mgmt-intf", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmMgmtDiscIpIntfType.setStatus('current')
+hmMgmtDiscSwVersion = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmMgmtDiscSwVersion.setStatus('current')
+hmMgmtDiscProductDescr = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmMgmtDiscProductDescr.setStatus('current')
+hmMgmtDiscForcePasswordChange = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 1, 10), TruthValue().clone('true')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmMgmtDiscForcePasswordChange.setStatus('current')
+hmMgmtDiscCfgUUID = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 2, 1), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hmMgmtDiscCfgUUID.setStatus('current')
+hmMgmtDiscCfgProto = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("bootp", 2), ("dhcp", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hmMgmtDiscCfgProto.setStatus('current')
+hmMgmtDiscCfgIPAddrType = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 2, 3), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hmMgmtDiscCfgIPAddrType.setStatus('current')
+hmMgmtDiscCfgIPAddr = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 2, 4), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hmMgmtDiscCfgIPAddr.setStatus('current')
+hmMgmtDiscCfgPrefLen = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 2, 5), InetAddressPrefixLength()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hmMgmtDiscCfgPrefLen.setStatus('current')
+hmMgmtDiscCfgGwIPAddrType = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 2, 6), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hmMgmtDiscCfgGwIPAddrType.setStatus('current')
+hmMgmtDiscCfgGwIPAddr = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 2, 7), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hmMgmtDiscCfgGwIPAddr.setStatus('current')
+hmMgmtDiscCfgAction = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 2, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("other", 1), ("activate", 2))).clone('other')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hmMgmtDiscCfgAction.setStatus('current')
+hmMgmtDiscCfgBlinking = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 2, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hmMgmtDiscCfgBlinking.setStatus('current')
+mibBuilder.exportSymbols("HIRSCHMANN-DISCOVERY-MGMT-MIB", hmMgmtDiscCfgIPAddr=hmMgmtDiscCfgIPAddr, hmMgmtDiscCfgGwIPAddrType=hmMgmtDiscCfgGwIPAddrType, hmMgmtDiscCfgProto=hmMgmtDiscCfgProto, hmMgmtDiscCfgIPAddrType=hmMgmtDiscCfgIPAddrType, hmMgmtDiscoveryStatusGroup=hmMgmtDiscoveryStatusGroup, hmMgmtDiscCfgPrefLen=hmMgmtDiscCfgPrefLen, PYSNMP_MODULE_ID=hmMgmtDiscoveryGroup, hmMgmtDiscCfgUUID=hmMgmtDiscCfgUUID, hmMgmtDiscCfgGwIPAddr=hmMgmtDiscCfgGwIPAddr, hmMgmtDiscSwVersion=hmMgmtDiscSwVersion, hmMgmtDiscCfgAction=hmMgmtDiscCfgAction, hmMgmtDiscIpIntfType=hmMgmtDiscIpIntfType, hmMgmtDiscoveryGroup=hmMgmtDiscoveryGroup, hmMgmtDiscProductDescr=hmMgmtDiscProductDescr, hmMgmtDiscCfgBlinking=hmMgmtDiscCfgBlinking, hmMgmtDiscMacAddr=hmMgmtDiscMacAddr, hmMgmtDiscForcePasswordChange=hmMgmtDiscForcePasswordChange, hmMgmtDiscoveryCfgGroup=hmMgmtDiscoveryCfgGroup, hmMgmtDiscMode=hmMgmtDiscMode)

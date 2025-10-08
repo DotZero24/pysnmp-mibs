@@ -1,157 +1,72 @@
-_P='fsMIOspfExtRouteTOS'
-_O='fsMIOspfExtRouteMask'
-_N='fsMIOspfExtRouteDest'
-_M='fsMIOspfBRRouteDestType'
-_L='fsMIOspfBRRouteIpNextHop'
-_K='fsMIOspfBRRouteIpTos'
-_J='fsMIOspfBRRouteIpAddrMask'
-_I='fsMIOspfBRRouteIpAddr'
-_H='read-only'
-_G='fsMIStdOspfContextId'
-_F='ARICENT-MISTDOSPF-MIB'
-_E='read-create'
-_D='not-accessible'
-_C='Integer32'
-_B='ARICENT-OSPFMI-TEST-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-BigMetric,TOSType,fsMIStdOspfContextId=mibBuilder.importSymbols(_F,'BigMetric','TOSType',_G)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-fsMIOspfTestGroup=ModuleIdentity((1,3,6,1,4,1,2076,147))
-if mibBuilder.loadTexts:fsMIOspfTestGroup.setRevisions(('2012-09-05 00:00',))
-_FsMIOspfBRRouteTable_Object=MibTable
-fsMIOspfBRRouteTable=_FsMIOspfBRRouteTable_Object((1,3,6,1,4,1,2076,147,1))
-if mibBuilder.loadTexts:fsMIOspfBRRouteTable.setStatus(_A)
-_FsMIOspfBRRouteEntry_Object=MibTableRow
-fsMIOspfBRRouteEntry=_FsMIOspfBRRouteEntry_Object((1,3,6,1,4,1,2076,147,1,1))
-fsMIOspfBRRouteEntry.setIndexNames((0,_F,_G),(0,_B,_I),(0,_B,_J),(0,_B,_K),(0,_B,_L),(0,_B,_M))
-if mibBuilder.loadTexts:fsMIOspfBRRouteEntry.setStatus(_A)
-_FsMIOspfBRRouteIpAddr_Type=IpAddress
-_FsMIOspfBRRouteIpAddr_Object=MibTableColumn
-fsMIOspfBRRouteIpAddr=_FsMIOspfBRRouteIpAddr_Object((1,3,6,1,4,1,2076,147,1,1,1),_FsMIOspfBRRouteIpAddr_Type())
-fsMIOspfBRRouteIpAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMIOspfBRRouteIpAddr.setStatus(_A)
-_FsMIOspfBRRouteIpAddrMask_Type=IpAddress
-_FsMIOspfBRRouteIpAddrMask_Object=MibTableColumn
-fsMIOspfBRRouteIpAddrMask=_FsMIOspfBRRouteIpAddrMask_Object((1,3,6,1,4,1,2076,147,1,1,2),_FsMIOspfBRRouteIpAddrMask_Type())
-fsMIOspfBRRouteIpAddrMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMIOspfBRRouteIpAddrMask.setStatus(_A)
-_FsMIOspfBRRouteIpTos_Type=Unsigned32
-_FsMIOspfBRRouteIpTos_Object=MibTableColumn
-fsMIOspfBRRouteIpTos=_FsMIOspfBRRouteIpTos_Object((1,3,6,1,4,1,2076,147,1,1,3),_FsMIOspfBRRouteIpTos_Type())
-fsMIOspfBRRouteIpTos.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMIOspfBRRouteIpTos.setStatus(_A)
-_FsMIOspfBRRouteIpNextHop_Type=IpAddress
-_FsMIOspfBRRouteIpNextHop_Object=MibTableColumn
-fsMIOspfBRRouteIpNextHop=_FsMIOspfBRRouteIpNextHop_Object((1,3,6,1,4,1,2076,147,1,1,4),_FsMIOspfBRRouteIpNextHop_Type())
-fsMIOspfBRRouteIpNextHop.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMIOspfBRRouteIpNextHop.setStatus(_A)
-class _FsMIOspfBRRouteDestType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3)));namedValues=NamedValues(*(('areaBorder',2),('asBoundary',3)))
-_FsMIOspfBRRouteDestType_Type.__name__=_C
-_FsMIOspfBRRouteDestType_Object=MibTableColumn
-fsMIOspfBRRouteDestType=_FsMIOspfBRRouteDestType_Object((1,3,6,1,4,1,2076,147,1,1,5),_FsMIOspfBRRouteDestType_Type())
-fsMIOspfBRRouteDestType.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMIOspfBRRouteDestType.setStatus(_A)
-class _FsMIOspfBRRouteType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('intraArea',1),('interArea',2)))
-_FsMIOspfBRRouteType_Type.__name__=_C
-_FsMIOspfBRRouteType_Object=MibTableColumn
-fsMIOspfBRRouteType=_FsMIOspfBRRouteType_Object((1,3,6,1,4,1,2076,147,1,1,6),_FsMIOspfBRRouteType_Type())
-fsMIOspfBRRouteType.setMaxAccess(_H)
-if mibBuilder.loadTexts:fsMIOspfBRRouteType.setStatus(_A)
-_FsMIOspfBRRouteAreaId_Type=IpAddress
-_FsMIOspfBRRouteAreaId_Object=MibTableColumn
-fsMIOspfBRRouteAreaId=_FsMIOspfBRRouteAreaId_Object((1,3,6,1,4,1,2076,147,1,1,7),_FsMIOspfBRRouteAreaId_Type())
-fsMIOspfBRRouteAreaId.setMaxAccess(_H)
-if mibBuilder.loadTexts:fsMIOspfBRRouteAreaId.setStatus(_A)
-_FsMIOspfBRRouteCost_Type=BigMetric
-_FsMIOspfBRRouteCost_Object=MibTableColumn
-fsMIOspfBRRouteCost=_FsMIOspfBRRouteCost_Object((1,3,6,1,4,1,2076,147,1,1,8),_FsMIOspfBRRouteCost_Type())
-fsMIOspfBRRouteCost.setMaxAccess(_H)
-if mibBuilder.loadTexts:fsMIOspfBRRouteCost.setStatus(_A)
-class _FsMIOspfBRRouteInterfaceIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsMIOspfBRRouteInterfaceIndex_Type.__name__=_C
-_FsMIOspfBRRouteInterfaceIndex_Object=MibTableColumn
-fsMIOspfBRRouteInterfaceIndex=_FsMIOspfBRRouteInterfaceIndex_Object((1,3,6,1,4,1,2076,147,1,1,9),_FsMIOspfBRRouteInterfaceIndex_Type())
-fsMIOspfBRRouteInterfaceIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:fsMIOspfBRRouteInterfaceIndex.setStatus(_A)
-_FsMIOspfExtRouteTable_Object=MibTable
-fsMIOspfExtRouteTable=_FsMIOspfExtRouteTable_Object((1,3,6,1,4,1,2076,147,2))
-if mibBuilder.loadTexts:fsMIOspfExtRouteTable.setStatus(_A)
-_FsMIOspfExtRouteEntry_Object=MibTableRow
-fsMIOspfExtRouteEntry=_FsMIOspfExtRouteEntry_Object((1,3,6,1,4,1,2076,147,2,1))
-fsMIOspfExtRouteEntry.setIndexNames((0,_F,_G),(0,_B,_N),(0,_B,_O),(0,_B,_P))
-if mibBuilder.loadTexts:fsMIOspfExtRouteEntry.setStatus(_A)
-_FsMIOspfExtRouteDest_Type=IpAddress
-_FsMIOspfExtRouteDest_Object=MibTableColumn
-fsMIOspfExtRouteDest=_FsMIOspfExtRouteDest_Object((1,3,6,1,4,1,2076,147,2,1,1),_FsMIOspfExtRouteDest_Type())
-fsMIOspfExtRouteDest.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMIOspfExtRouteDest.setStatus(_A)
-_FsMIOspfExtRouteMask_Type=IpAddress
-_FsMIOspfExtRouteMask_Object=MibTableColumn
-fsMIOspfExtRouteMask=_FsMIOspfExtRouteMask_Object((1,3,6,1,4,1,2076,147,2,1,2),_FsMIOspfExtRouteMask_Type())
-fsMIOspfExtRouteMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMIOspfExtRouteMask.setStatus(_A)
-_FsMIOspfExtRouteTOS_Type=TOSType
-_FsMIOspfExtRouteTOS_Object=MibTableColumn
-fsMIOspfExtRouteTOS=_FsMIOspfExtRouteTOS_Object((1,3,6,1,4,1,2076,147,2,1,3),_FsMIOspfExtRouteTOS_Type())
-fsMIOspfExtRouteTOS.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMIOspfExtRouteTOS.setStatus(_A)
-_FsMIOspfExtRouteMetric_Type=BigMetric
-_FsMIOspfExtRouteMetric_Object=MibTableColumn
-fsMIOspfExtRouteMetric=_FsMIOspfExtRouteMetric_Object((1,3,6,1,4,1,2076,147,2,1,4),_FsMIOspfExtRouteMetric_Type())
-fsMIOspfExtRouteMetric.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsMIOspfExtRouteMetric.setStatus(_A)
-class _FsMIOspfExtRouteMetricType_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('asexttype1',1),('asexttype2',2)))
-_FsMIOspfExtRouteMetricType_Type.__name__=_C
-_FsMIOspfExtRouteMetricType_Object=MibTableColumn
-fsMIOspfExtRouteMetricType=_FsMIOspfExtRouteMetricType_Object((1,3,6,1,4,1,2076,147,2,1,5),_FsMIOspfExtRouteMetricType_Type())
-fsMIOspfExtRouteMetricType.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsMIOspfExtRouteMetricType.setStatus(_A)
-class _FsMIOspfExtRouteTag_Type(Integer32):defaultValue=0
-_FsMIOspfExtRouteTag_Type.__name__=_C
-_FsMIOspfExtRouteTag_Object=MibTableColumn
-fsMIOspfExtRouteTag=_FsMIOspfExtRouteTag_Object((1,3,6,1,4,1,2076,147,2,1,6),_FsMIOspfExtRouteTag_Type())
-fsMIOspfExtRouteTag.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsMIOspfExtRouteTag.setStatus(_A)
-_FsMIOspfExtRouteFwdAdr_Type=IpAddress
-_FsMIOspfExtRouteFwdAdr_Object=MibTableColumn
-fsMIOspfExtRouteFwdAdr=_FsMIOspfExtRouteFwdAdr_Object((1,3,6,1,4,1,2076,147,2,1,7),_FsMIOspfExtRouteFwdAdr_Type())
-fsMIOspfExtRouteFwdAdr.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsMIOspfExtRouteFwdAdr.setStatus(_A)
-class _FsMIOspfExtRouteIfIndex_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsMIOspfExtRouteIfIndex_Type.__name__=_C
-_FsMIOspfExtRouteIfIndex_Object=MibTableColumn
-fsMIOspfExtRouteIfIndex=_FsMIOspfExtRouteIfIndex_Object((1,3,6,1,4,1,2076,147,2,1,8),_FsMIOspfExtRouteIfIndex_Type())
-fsMIOspfExtRouteIfIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsMIOspfExtRouteIfIndex.setStatus(_A)
-_FsMIOspfExtRouteNextHop_Type=IpAddress
-_FsMIOspfExtRouteNextHop_Object=MibTableColumn
-fsMIOspfExtRouteNextHop=_FsMIOspfExtRouteNextHop_Object((1,3,6,1,4,1,2076,147,2,1,9),_FsMIOspfExtRouteNextHop_Type())
-fsMIOspfExtRouteNextHop.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsMIOspfExtRouteNextHop.setStatus(_A)
-_FsMIOspfExtRouteStatus_Type=RowStatus
-_FsMIOspfExtRouteStatus_Object=MibTableColumn
-fsMIOspfExtRouteStatus=_FsMIOspfExtRouteStatus_Object((1,3,6,1,4,1,2076,147,2,1,10),_FsMIOspfExtRouteStatus_Type())
-fsMIOspfExtRouteStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsMIOspfExtRouteStatus.setStatus(_A)
-_FsMIOspfGrTestGroup_ObjectIdentity=ObjectIdentity
-fsMIOspfGrTestGroup=_FsMIOspfGrTestGroup_ObjectIdentity((1,3,6,1,4,1,2076,147,100))
-_FsMIOspfGrTable_Object=MibTable
-fsMIOspfGrTable=_FsMIOspfGrTable_Object((1,3,6,1,4,1,2076,147,100,2))
-if mibBuilder.loadTexts:fsMIOspfGrTable.setStatus(_A)
-_FsMIOspfGrEntry_Object=MibTableRow
-fsMIOspfGrEntry=_FsMIOspfGrEntry_Object((1,3,6,1,4,1,2076,147,100,2,1))
-fsMIOspfGrEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:fsMIOspfGrEntry.setStatus(_A)
-class _FsMIOspfGrShutdown_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('none',1),('unplanned',2)))
-_FsMIOspfGrShutdown_Type.__name__=_C
-_FsMIOspfGrShutdown_Object=MibTableColumn
-fsMIOspfGrShutdown=_FsMIOspfGrShutdown_Object((1,3,6,1,4,1,2076,147,100,2,1,1),_FsMIOspfGrShutdown_Type())
-fsMIOspfGrShutdown.setMaxAccess('read-write')
-if mibBuilder.loadTexts:fsMIOspfGrShutdown.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'fsMIOspfTestGroup':fsMIOspfTestGroup,'fsMIOspfBRRouteTable':fsMIOspfBRRouteTable,'fsMIOspfBRRouteEntry':fsMIOspfBRRouteEntry,_I:fsMIOspfBRRouteIpAddr,_J:fsMIOspfBRRouteIpAddrMask,_K:fsMIOspfBRRouteIpTos,_L:fsMIOspfBRRouteIpNextHop,_M:fsMIOspfBRRouteDestType,'fsMIOspfBRRouteType':fsMIOspfBRRouteType,'fsMIOspfBRRouteAreaId':fsMIOspfBRRouteAreaId,'fsMIOspfBRRouteCost':fsMIOspfBRRouteCost,'fsMIOspfBRRouteInterfaceIndex':fsMIOspfBRRouteInterfaceIndex,'fsMIOspfExtRouteTable':fsMIOspfExtRouteTable,'fsMIOspfExtRouteEntry':fsMIOspfExtRouteEntry,_N:fsMIOspfExtRouteDest,_O:fsMIOspfExtRouteMask,_P:fsMIOspfExtRouteTOS,'fsMIOspfExtRouteMetric':fsMIOspfExtRouteMetric,'fsMIOspfExtRouteMetricType':fsMIOspfExtRouteMetricType,'fsMIOspfExtRouteTag':fsMIOspfExtRouteTag,'fsMIOspfExtRouteFwdAdr':fsMIOspfExtRouteFwdAdr,'fsMIOspfExtRouteIfIndex':fsMIOspfExtRouteIfIndex,'fsMIOspfExtRouteNextHop':fsMIOspfExtRouteNextHop,'fsMIOspfExtRouteStatus':fsMIOspfExtRouteStatus,'fsMIOspfGrTestGroup':fsMIOspfGrTestGroup,'fsMIOspfGrTable':fsMIOspfGrTable,'fsMIOspfGrEntry':fsMIOspfGrEntry,'fsMIOspfGrShutdown':fsMIOspfGrShutdown})
+#
+# PySNMP MIB module ARICENT-OSPFMI-TEST-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aricent/ARICENT-OSPFMI-TEST-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:32:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+TOSType, fsMIStdOspfContextId, BigMetric = mibBuilder.importSymbols("ARICENT-MISTDOSPF-MIB", "TOSType", "fsMIStdOspfContextId", "BigMetric")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+fsMIOspfTestGroup = ModuleIdentity((1, 3, 6, 1, 4, 1, 2076, 147))
+fsMIOspfTestGroup.setRevisions(('2012-09-05 00:00',))
+if mibBuilder.loadTexts: fsMIOspfTestGroup.setLastUpdated('201209050000Z')
+if mibBuilder.loadTexts: fsMIOspfTestGroup.setOrganization('ARICENT COMMUNICATIONS SOFTWARE')
+fsMIOspfGrTestGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2076, 147, 100))
+fsMIOspfBRRouteTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 147, 1), )
+if mibBuilder.loadTexts: fsMIOspfBRRouteTable.setStatus('current')
+fsMIOspfBRRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 147, 1, 1), ).setIndexNames((0, "ARICENT-MISTDOSPF-MIB", "fsMIStdOspfContextId"), (0, "ARICENT-OSPFMI-TEST-MIB", "fsMIOspfBRRouteIpAddr"), (0, "ARICENT-OSPFMI-TEST-MIB", "fsMIOspfBRRouteIpAddrMask"), (0, "ARICENT-OSPFMI-TEST-MIB", "fsMIOspfBRRouteIpTos"), (0, "ARICENT-OSPFMI-TEST-MIB", "fsMIOspfBRRouteIpNextHop"), (0, "ARICENT-OSPFMI-TEST-MIB", "fsMIOspfBRRouteDestType"))
+if mibBuilder.loadTexts: fsMIOspfBRRouteEntry.setStatus('current')
+fsMIOspfBRRouteIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 1, 1, 1), IpAddress())
+if mibBuilder.loadTexts: fsMIOspfBRRouteIpAddr.setStatus('current')
+fsMIOspfBRRouteIpAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 1, 1, 2), IpAddress())
+if mibBuilder.loadTexts: fsMIOspfBRRouteIpAddrMask.setStatus('current')
+fsMIOspfBRRouteIpTos = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 1, 1, 3), Unsigned32())
+if mibBuilder.loadTexts: fsMIOspfBRRouteIpTos.setStatus('current')
+fsMIOspfBRRouteIpNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 1, 1, 4), IpAddress())
+if mibBuilder.loadTexts: fsMIOspfBRRouteIpNextHop.setStatus('current')
+fsMIOspfBRRouteDestType = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("areaBorder", 2), ("asBoundary", 3))))
+if mibBuilder.loadTexts: fsMIOspfBRRouteDestType.setStatus('current')
+fsMIOspfBRRouteType = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("intraArea", 1), ("interArea", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIOspfBRRouteType.setStatus('current')
+fsMIOspfBRRouteAreaId = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 1, 1, 7), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIOspfBRRouteAreaId.setStatus('current')
+fsMIOspfBRRouteCost = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 1, 1, 8), BigMetric()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIOspfBRRouteCost.setStatus('current')
+fsMIOspfBRRouteInterfaceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIOspfBRRouteInterfaceIndex.setStatus('current')
+fsMIOspfExtRouteTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 147, 2), )
+if mibBuilder.loadTexts: fsMIOspfExtRouteTable.setStatus('current')
+fsMIOspfExtRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 147, 2, 1), ).setIndexNames((0, "ARICENT-MISTDOSPF-MIB", "fsMIStdOspfContextId"), (0, "ARICENT-OSPFMI-TEST-MIB", "fsMIOspfExtRouteDest"), (0, "ARICENT-OSPFMI-TEST-MIB", "fsMIOspfExtRouteMask"), (0, "ARICENT-OSPFMI-TEST-MIB", "fsMIOspfExtRouteTOS"))
+if mibBuilder.loadTexts: fsMIOspfExtRouteEntry.setStatus('current')
+fsMIOspfExtRouteDest = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 2, 1, 1), IpAddress())
+if mibBuilder.loadTexts: fsMIOspfExtRouteDest.setStatus('current')
+fsMIOspfExtRouteMask = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 2, 1, 2), IpAddress())
+if mibBuilder.loadTexts: fsMIOspfExtRouteMask.setStatus('current')
+fsMIOspfExtRouteTOS = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 2, 1, 3), TOSType())
+if mibBuilder.loadTexts: fsMIOspfExtRouteTOS.setStatus('current')
+fsMIOspfExtRouteMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 2, 1, 4), BigMetric()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsMIOspfExtRouteMetric.setStatus('current')
+fsMIOspfExtRouteMetricType = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("asexttype1", 1), ("asexttype2", 2))).clone('asexttype2')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsMIOspfExtRouteMetricType.setStatus('current')
+fsMIOspfExtRouteTag = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 2, 1, 6), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsMIOspfExtRouteTag.setStatus('current')
+fsMIOspfExtRouteFwdAdr = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 2, 1, 7), IpAddress().clone(hexValue="0000")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsMIOspfExtRouteFwdAdr.setStatus('current')
+fsMIOspfExtRouteIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsMIOspfExtRouteIfIndex.setStatus('current')
+fsMIOspfExtRouteNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 2, 1, 9), IpAddress().clone(hexValue="0000")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsMIOspfExtRouteNextHop.setStatus('current')
+fsMIOspfExtRouteStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 2, 1, 10), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsMIOspfExtRouteStatus.setStatus('current')
+fsMIOspfGrTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 147, 100, 2), )
+if mibBuilder.loadTexts: fsMIOspfGrTable.setStatus('current')
+fsMIOspfGrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 147, 100, 2, 1), ).setIndexNames((0, "ARICENT-MISTDOSPF-MIB", "fsMIStdOspfContextId"))
+if mibBuilder.loadTexts: fsMIOspfGrEntry.setStatus('current')
+fsMIOspfGrShutdown = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 147, 100, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("unplanned", 2))).clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIOspfGrShutdown.setStatus('current')
+mibBuilder.exportSymbols("ARICENT-OSPFMI-TEST-MIB", PYSNMP_MODULE_ID=fsMIOspfTestGroup, fsMIOspfExtRouteEntry=fsMIOspfExtRouteEntry, fsMIOspfExtRouteNextHop=fsMIOspfExtRouteNextHop, fsMIOspfBRRouteIpNextHop=fsMIOspfBRRouteIpNextHop, fsMIOspfBRRouteInterfaceIndex=fsMIOspfBRRouteInterfaceIndex, fsMIOspfExtRouteTag=fsMIOspfExtRouteTag, fsMIOspfBRRouteType=fsMIOspfBRRouteType, fsMIOspfBRRouteAreaId=fsMIOspfBRRouteAreaId, fsMIOspfExtRouteDest=fsMIOspfExtRouteDest, fsMIOspfBRRouteEntry=fsMIOspfBRRouteEntry, fsMIOspfGrTable=fsMIOspfGrTable, fsMIOspfExtRouteTOS=fsMIOspfExtRouteTOS, fsMIOspfBRRouteCost=fsMIOspfBRRouteCost, fsMIOspfBRRouteIpAddrMask=fsMIOspfBRRouteIpAddrMask, fsMIOspfExtRouteStatus=fsMIOspfExtRouteStatus, fsMIOspfExtRouteMetricType=fsMIOspfExtRouteMetricType, fsMIOspfExtRouteIfIndex=fsMIOspfExtRouteIfIndex, fsMIOspfExtRouteTable=fsMIOspfExtRouteTable, fsMIOspfExtRouteFwdAdr=fsMIOspfExtRouteFwdAdr, fsMIOspfBRRouteIpTos=fsMIOspfBRRouteIpTos, fsMIOspfGrEntry=fsMIOspfGrEntry, fsMIOspfBRRouteIpAddr=fsMIOspfBRRouteIpAddr, fsMIOspfTestGroup=fsMIOspfTestGroup, fsMIOspfBRRouteTable=fsMIOspfBRRouteTable, fsMIOspfGrShutdown=fsMIOspfGrShutdown, fsMIOspfExtRouteMetric=fsMIOspfExtRouteMetric, fsMIOspfGrTestGroup=fsMIOspfGrTestGroup, fsMIOspfExtRouteMask=fsMIOspfExtRouteMask, fsMIOspfBRRouteDestType=fsMIOspfBRRouteDestType)

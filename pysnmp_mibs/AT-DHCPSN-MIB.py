@@ -1,132 +1,62 @@
-_S='atArpsecVioType'
-_R='atArpsecVid'
-_Q='atArpsecSrcMac'
-_P='atArpsecClientIP'
-_O='atDhcpsnVioType'
-_N='atDhcpsnChaddr'
-_M='atDhcpsnSiaddr'
-_L='atDhcpsnGiaddr'
-_K='atDhcpsnYiaddr'
-_J='atDhcpsnCiaddr'
-_I='atDhcpsnOpcode'
-_H='atDhcpsnSmac'
-_G='atDhcpsnVid'
-_F='atArpsecIfIndex'
-_E='atDhcpsnIfIndex'
-_D='Integer32'
-_C='read-only'
-_B='AT-DHCPSN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-modules,=mibBuilder.importSymbols('AT-SMI-MIB','modules')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-atDhcpsn=ModuleIdentity((1,3,6,1,4,1,207,8,4,4,4,537))
-if mibBuilder.loadTexts:atDhcpsn.setRevisions(('2010-09-07 00:00','2010-06-14 04:45','2010-02-09 01:30','2009-12-10 01:30'))
-_AtDhcpsnEvents_ObjectIdentity=ObjectIdentity
-atDhcpsnEvents=_AtDhcpsnEvents_ObjectIdentity((1,3,6,1,4,1,207,8,4,4,4,537,0))
-_AtDhcpsnVariablesTable_Object=MibTable
-atDhcpsnVariablesTable=_AtDhcpsnVariablesTable_Object((1,3,6,1,4,1,207,8,4,4,4,537,1))
-if mibBuilder.loadTexts:atDhcpsnVariablesTable.setStatus(_A)
-_AtDhcpsnVariablesEntry_Object=MibTableRow
-atDhcpsnVariablesEntry=_AtDhcpsnVariablesEntry_Object((1,3,6,1,4,1,207,8,4,4,4,537,1,1))
-atDhcpsnVariablesEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:atDhcpsnVariablesEntry.setStatus(_A)
-class _AtDhcpsnIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_AtDhcpsnIfIndex_Type.__name__=_D
-_AtDhcpsnIfIndex_Object=MibTableColumn
-atDhcpsnIfIndex=_AtDhcpsnIfIndex_Object((1,3,6,1,4,1,207,8,4,4,4,537,1,1,1),_AtDhcpsnIfIndex_Type())
-atDhcpsnIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:atDhcpsnIfIndex.setStatus(_A)
-_AtDhcpsnVid_Type=Integer32
-_AtDhcpsnVid_Object=MibTableColumn
-atDhcpsnVid=_AtDhcpsnVid_Object((1,3,6,1,4,1,207,8,4,4,4,537,1,1,2),_AtDhcpsnVid_Type())
-atDhcpsnVid.setMaxAccess(_C)
-if mibBuilder.loadTexts:atDhcpsnVid.setStatus(_A)
-_AtDhcpsnSmac_Type=DisplayString
-_AtDhcpsnSmac_Object=MibTableColumn
-atDhcpsnSmac=_AtDhcpsnSmac_Object((1,3,6,1,4,1,207,8,4,4,4,537,1,1,3),_AtDhcpsnSmac_Type())
-atDhcpsnSmac.setMaxAccess(_C)
-if mibBuilder.loadTexts:atDhcpsnSmac.setStatus(_A)
-class _AtDhcpsnOpcode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('bootpRequest',1),('bootpReply',2)))
-_AtDhcpsnOpcode_Type.__name__=_D
-_AtDhcpsnOpcode_Object=MibTableColumn
-atDhcpsnOpcode=_AtDhcpsnOpcode_Object((1,3,6,1,4,1,207,8,4,4,4,537,1,1,4),_AtDhcpsnOpcode_Type())
-atDhcpsnOpcode.setMaxAccess(_C)
-if mibBuilder.loadTexts:atDhcpsnOpcode.setStatus(_A)
-_AtDhcpsnCiaddr_Type=IpAddress
-_AtDhcpsnCiaddr_Object=MibTableColumn
-atDhcpsnCiaddr=_AtDhcpsnCiaddr_Object((1,3,6,1,4,1,207,8,4,4,4,537,1,1,5),_AtDhcpsnCiaddr_Type())
-atDhcpsnCiaddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:atDhcpsnCiaddr.setStatus(_A)
-_AtDhcpsnYiaddr_Type=IpAddress
-_AtDhcpsnYiaddr_Object=MibTableColumn
-atDhcpsnYiaddr=_AtDhcpsnYiaddr_Object((1,3,6,1,4,1,207,8,4,4,4,537,1,1,6),_AtDhcpsnYiaddr_Type())
-atDhcpsnYiaddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:atDhcpsnYiaddr.setStatus(_A)
-_AtDhcpsnGiaddr_Type=IpAddress
-_AtDhcpsnGiaddr_Object=MibTableColumn
-atDhcpsnGiaddr=_AtDhcpsnGiaddr_Object((1,3,6,1,4,1,207,8,4,4,4,537,1,1,7),_AtDhcpsnGiaddr_Type())
-atDhcpsnGiaddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:atDhcpsnGiaddr.setStatus(_A)
-_AtDhcpsnSiaddr_Type=IpAddress
-_AtDhcpsnSiaddr_Object=MibTableColumn
-atDhcpsnSiaddr=_AtDhcpsnSiaddr_Object((1,3,6,1,4,1,207,8,4,4,4,537,1,1,8),_AtDhcpsnSiaddr_Type())
-atDhcpsnSiaddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:atDhcpsnSiaddr.setStatus(_A)
-_AtDhcpsnChaddr_Type=DisplayString
-_AtDhcpsnChaddr_Object=MibTableColumn
-atDhcpsnChaddr=_AtDhcpsnChaddr_Object((1,3,6,1,4,1,207,8,4,4,4,537,1,1,9),_AtDhcpsnChaddr_Type())
-atDhcpsnChaddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:atDhcpsnChaddr.setStatus(_A)
-class _AtDhcpsnVioType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13)));namedValues=NamedValues(*(('invalidBootp',1),('invalidDhcpAck',2),('invalidDhcpRelDec',3),('invalidIp',4),('maxBindExceeded',5),('opt82InsertErr',6),('opt82RxInvalid',7),('opt82RxUntrusted',8),('opt82TxUntrusted',9),('replyRxUntrusted',10),('srcMacChaddrMismatch',11),('staticEntryExisted',12),('dbAddErr',13)))
-_AtDhcpsnVioType_Type.__name__=_D
-_AtDhcpsnVioType_Object=MibTableColumn
-atDhcpsnVioType=_AtDhcpsnVioType_Object((1,3,6,1,4,1,207,8,4,4,4,537,1,1,10),_AtDhcpsnVioType_Type())
-atDhcpsnVioType.setMaxAccess(_C)
-if mibBuilder.loadTexts:atDhcpsnVioType.setStatus(_A)
-_AtArpsecVariablesTable_Object=MibTable
-atArpsecVariablesTable=_AtArpsecVariablesTable_Object((1,3,6,1,4,1,207,8,4,4,4,537,2))
-if mibBuilder.loadTexts:atArpsecVariablesTable.setStatus(_A)
-_AtArpsecVariablesEntry_Object=MibTableRow
-atArpsecVariablesEntry=_AtArpsecVariablesEntry_Object((1,3,6,1,4,1,207,8,4,4,4,537,2,1))
-atArpsecVariablesEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:atArpsecVariablesEntry.setStatus(_A)
-class _AtArpsecIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_AtArpsecIfIndex_Type.__name__=_D
-_AtArpsecIfIndex_Object=MibTableColumn
-atArpsecIfIndex=_AtArpsecIfIndex_Object((1,3,6,1,4,1,207,8,4,4,4,537,2,1,1),_AtArpsecIfIndex_Type())
-atArpsecIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:atArpsecIfIndex.setStatus(_A)
-_AtArpsecClientIP_Type=IpAddress
-_AtArpsecClientIP_Object=MibTableColumn
-atArpsecClientIP=_AtArpsecClientIP_Object((1,3,6,1,4,1,207,8,4,4,4,537,2,1,2),_AtArpsecClientIP_Type())
-atArpsecClientIP.setMaxAccess(_C)
-if mibBuilder.loadTexts:atArpsecClientIP.setStatus(_A)
-_AtArpsecSrcMac_Type=DisplayString
-_AtArpsecSrcMac_Object=MibTableColumn
-atArpsecSrcMac=_AtArpsecSrcMac_Object((1,3,6,1,4,1,207,8,4,4,4,537,2,1,3),_AtArpsecSrcMac_Type())
-atArpsecSrcMac.setMaxAccess(_C)
-if mibBuilder.loadTexts:atArpsecSrcMac.setStatus(_A)
-_AtArpsecVid_Type=Integer32
-_AtArpsecVid_Object=MibTableColumn
-atArpsecVid=_AtArpsecVid_Object((1,3,6,1,4,1,207,8,4,4,4,537,2,1,4),_AtArpsecVid_Type())
-atArpsecVid.setMaxAccess(_C)
-if mibBuilder.loadTexts:atArpsecVid.setStatus(_A)
-class _AtArpsecVioType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('srcIpNotFound',1),('badVLAN',2),('badPort',3),('srcIpNotAllocated',4)))
-_AtArpsecVioType_Type.__name__=_D
-_AtArpsecVioType_Object=MibTableColumn
-atArpsecVioType=_AtArpsecVioType_Object((1,3,6,1,4,1,207,8,4,4,4,537,2,1,5),_AtArpsecVioType_Type())
-atArpsecVioType.setMaxAccess(_C)
-if mibBuilder.loadTexts:atArpsecVioType.setStatus(_A)
-atDhcpsnTrap=NotificationType((1,3,6,1,4,1,207,8,4,4,4,537,0,1))
-atDhcpsnTrap.setObjects(*((_B,_E),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:atDhcpsnTrap.setStatus(_A)
-atArpsecTrap=NotificationType((1,3,6,1,4,1,207,8,4,4,4,537,0,2))
-atArpsecTrap.setObjects(*((_B,_F),(_B,_P),(_B,_Q),(_B,_R),(_B,_S)))
-if mibBuilder.loadTexts:atArpsecTrap.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'atDhcpsn':atDhcpsn,'atDhcpsnEvents':atDhcpsnEvents,'atDhcpsnTrap':atDhcpsnTrap,'atArpsecTrap':atArpsecTrap,'atDhcpsnVariablesTable':atDhcpsnVariablesTable,'atDhcpsnVariablesEntry':atDhcpsnVariablesEntry,_E:atDhcpsnIfIndex,_G:atDhcpsnVid,_H:atDhcpsnSmac,_I:atDhcpsnOpcode,_J:atDhcpsnCiaddr,_K:atDhcpsnYiaddr,_L:atDhcpsnGiaddr,_M:atDhcpsnSiaddr,_N:atDhcpsnChaddr,_O:atDhcpsnVioType,'atArpsecVariablesTable':atArpsecVariablesTable,'atArpsecVariablesEntry':atArpsecVariablesEntry,_F:atArpsecIfIndex,_P:atArpsecClientIP,_Q:atArpsecSrcMac,_R:atArpsecVid,_S:atArpsecVioType})
+#
+# PySNMP MIB module AT-DHCPSN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allied/AT-DHCPSN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+atDhcpsn = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537))
+atDhcpsn.setRevisions(('2010-09-07 00:00', '2010-06-14 04:45', '2010-02-09 01:30', '2009-12-10 01:30',))
+if mibBuilder.loadTexts: atDhcpsn.setLastUpdated('201009070000Z')
+if mibBuilder.loadTexts: atDhcpsn.setOrganization('Allied Telesis, Inc')
+atDhcpsnEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 0))
+atDhcpsnTrap = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 0, 1)).setObjects(("AT-DHCPSN-MIB", "atDhcpsnIfIndex"), ("AT-DHCPSN-MIB", "atDhcpsnVid"), ("AT-DHCPSN-MIB", "atDhcpsnSmac"), ("AT-DHCPSN-MIB", "atDhcpsnOpcode"), ("AT-DHCPSN-MIB", "atDhcpsnCiaddr"), ("AT-DHCPSN-MIB", "atDhcpsnYiaddr"), ("AT-DHCPSN-MIB", "atDhcpsnGiaddr"), ("AT-DHCPSN-MIB", "atDhcpsnSiaddr"), ("AT-DHCPSN-MIB", "atDhcpsnChaddr"), ("AT-DHCPSN-MIB", "atDhcpsnVioType"))
+if mibBuilder.loadTexts: atDhcpsnTrap.setStatus('current')
+atArpsecTrap = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 0, 2)).setObjects(("AT-DHCPSN-MIB", "atArpsecIfIndex"), ("AT-DHCPSN-MIB", "atArpsecClientIP"), ("AT-DHCPSN-MIB", "atArpsecSrcMac"), ("AT-DHCPSN-MIB", "atArpsecVid"), ("AT-DHCPSN-MIB", "atArpsecVioType"))
+if mibBuilder.loadTexts: atArpsecTrap.setStatus('current')
+atDhcpsnVariablesTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 1), )
+if mibBuilder.loadTexts: atDhcpsnVariablesTable.setStatus('current')
+atDhcpsnVariablesEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 1, 1), ).setIndexNames((0, "AT-DHCPSN-MIB", "atDhcpsnIfIndex"))
+if mibBuilder.loadTexts: atDhcpsnVariablesEntry.setStatus('current')
+atDhcpsnIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atDhcpsnIfIndex.setStatus('current')
+atDhcpsnVid = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atDhcpsnVid.setStatus('current')
+atDhcpsnSmac = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atDhcpsnSmac.setStatus('current')
+atDhcpsnOpcode = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("bootpRequest", 1), ("bootpReply", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atDhcpsnOpcode.setStatus('current')
+atDhcpsnCiaddr = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 1, 1, 5), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atDhcpsnCiaddr.setStatus('current')
+atDhcpsnYiaddr = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 1, 1, 6), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atDhcpsnYiaddr.setStatus('current')
+atDhcpsnGiaddr = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 1, 1, 7), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atDhcpsnGiaddr.setStatus('current')
+atDhcpsnSiaddr = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 1, 1, 8), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atDhcpsnSiaddr.setStatus('current')
+atDhcpsnChaddr = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 1, 1, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atDhcpsnChaddr.setStatus('current')
+atDhcpsnVioType = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13))).clone(namedValues=NamedValues(("invalidBootp", 1), ("invalidDhcpAck", 2), ("invalidDhcpRelDec", 3), ("invalidIp", 4), ("maxBindExceeded", 5), ("opt82InsertErr", 6), ("opt82RxInvalid", 7), ("opt82RxUntrusted", 8), ("opt82TxUntrusted", 9), ("replyRxUntrusted", 10), ("srcMacChaddrMismatch", 11), ("staticEntryExisted", 12), ("dbAddErr", 13)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atDhcpsnVioType.setStatus('current')
+atArpsecVariablesTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 2), )
+if mibBuilder.loadTexts: atArpsecVariablesTable.setStatus('current')
+atArpsecVariablesEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 2, 1), ).setIndexNames((0, "AT-DHCPSN-MIB", "atArpsecIfIndex"))
+if mibBuilder.loadTexts: atArpsecVariablesEntry.setStatus('current')
+atArpsecIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atArpsecIfIndex.setStatus('current')
+atArpsecClientIP = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atArpsecClientIP.setStatus('current')
+atArpsecSrcMac = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atArpsecSrcMac.setStatus('current')
+atArpsecVid = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atArpsecVid.setStatus('current')
+atArpsecVioType = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("srcIpNotFound", 1), ("badVLAN", 2), ("badPort", 3), ("srcIpNotAllocated", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atArpsecVioType.setStatus('current')
+mibBuilder.exportSymbols("AT-DHCPSN-MIB", atDhcpsnSmac=atDhcpsnSmac, atDhcpsnVariablesEntry=atDhcpsnVariablesEntry, atArpsecVid=atArpsecVid, atDhcpsnChaddr=atDhcpsnChaddr, atArpsecVariablesTable=atArpsecVariablesTable, atDhcpsnCiaddr=atDhcpsnCiaddr, atDhcpsnGiaddr=atDhcpsnGiaddr, atDhcpsn=atDhcpsn, atDhcpsnVioType=atDhcpsnVioType, atDhcpsnIfIndex=atDhcpsnIfIndex, atDhcpsnYiaddr=atDhcpsnYiaddr, atDhcpsnVid=atDhcpsnVid, atDhcpsnOpcode=atDhcpsnOpcode, atArpsecTrap=atArpsecTrap, atDhcpsnTrap=atDhcpsnTrap, PYSNMP_MODULE_ID=atDhcpsn, atArpsecVariablesEntry=atArpsecVariablesEntry, atArpsecVioType=atArpsecVioType, atDhcpsnSiaddr=atDhcpsnSiaddr, atArpsecIfIndex=atArpsecIfIndex, atArpsecClientIP=atArpsecClientIP, atDhcpsnVariablesTable=atDhcpsnVariablesTable, atArpsecSrcMac=atArpsecSrcMac, atDhcpsnEvents=atDhcpsnEvents)

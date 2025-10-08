@@ -1,39 +1,28 @@
-_C='DisplayString'
-_B='current'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-device,=mibBuilder.importSymbols('ANIROOT-MIB','device')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_C,'MacAddress','PhysAddress','TextualConvention')
-aniDevBase=ModuleIdentity((1,3,6,1,4,1,4325,2,1))
-class _AniDevProductName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_AniDevProductName_Type.__name__=_C
-_AniDevProductName_Object=MibScalar
-aniDevProductName=_AniDevProductName_Object((1,3,6,1,4,1,4325,2,1,1),_AniDevProductName_Type())
-aniDevProductName.setMaxAccess(_A)
-if mibBuilder.loadTexts:aniDevProductName.setStatus(_B)
-_AniDevLanIpAddr_Type=IpAddress
-_AniDevLanIpAddr_Object=MibScalar
-aniDevLanIpAddr=_AniDevLanIpAddr_Object((1,3,6,1,4,1,4325,2,1,2),_AniDevLanIpAddr_Type())
-aniDevLanIpAddr.setMaxAccess(_A)
-if mibBuilder.loadTexts:aniDevLanIpAddr.setStatus(_B)
-_AniDevLanSubnetMask_Type=IpAddress
-_AniDevLanSubnetMask_Object=MibScalar
-aniDevLanSubnetMask=_AniDevLanSubnetMask_Object((1,3,6,1,4,1,4325,2,1,3),_AniDevLanSubnetMask_Type())
-aniDevLanSubnetMask.setMaxAccess(_A)
-if mibBuilder.loadTexts:aniDevLanSubnetMask.setStatus(_B)
-_AniDevDefaultGateway_Type=IpAddress
-_AniDevDefaultGateway_Object=MibScalar
-aniDevDefaultGateway=_AniDevDefaultGateway_Object((1,3,6,1,4,1,4325,2,1,4),_AniDevDefaultGateway_Type())
-aniDevDefaultGateway.setMaxAccess(_A)
-if mibBuilder.loadTexts:aniDevDefaultGateway.setStatus(_B)
-_AniDevMacAddr_Type=MacAddress
-_AniDevMacAddr_Object=MibScalar
-aniDevMacAddr=_AniDevMacAddr_Object((1,3,6,1,4,1,4325,2,1,5),_AniDevMacAddr_Type())
-aniDevMacAddr.setMaxAccess(_A)
-if mibBuilder.loadTexts:aniDevMacAddr.setStatus(_B)
-mibBuilder.exportSymbols('DEVBASE-MIB',**{'aniDevBase':aniDevBase,'aniDevProductName':aniDevProductName,'aniDevLanIpAddr':aniDevLanIpAddr,'aniDevLanSubnetMask':aniDevLanSubnetMask,'aniDevDefaultGateway':aniDevDefaultGateway,'aniDevMacAddr':aniDevMacAddr})
+#
+# PySNMP MIB module DEVBASE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aperto/DEVBASE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+device, = mibBuilder.importSymbols("ANIROOT-MIB", "device")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+aniDevBase = ModuleIdentity((1, 3, 6, 1, 4, 1, 4325, 2, 1))
+if mibBuilder.loadTexts: aniDevBase.setLastUpdated('0105091130Z')
+if mibBuilder.loadTexts: aniDevBase.setOrganization('Aperto Networks')
+aniDevProductName = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aniDevProductName.setStatus('current')
+aniDevLanIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aniDevLanIpAddr.setStatus('current')
+aniDevLanSubnetMask = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aniDevLanSubnetMask.setStatus('current')
+aniDevDefaultGateway = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aniDevDefaultGateway.setStatus('current')
+aniDevMacAddr = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 1, 5), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aniDevMacAddr.setStatus('current')
+mibBuilder.exportSymbols("DEVBASE-MIB", aniDevDefaultGateway=aniDevDefaultGateway, PYSNMP_MODULE_ID=aniDevBase, aniDevBase=aniDevBase, aniDevMacAddr=aniDevMacAddr, aniDevLanSubnetMask=aniDevLanSubnetMask, aniDevProductName=aniDevProductName, aniDevLanIpAddr=aniDevLanIpAddr)

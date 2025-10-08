@@ -1,341 +1,141 @@
-_AB='learnedPortSecurityL2MacAddressGroup'
-_AA='learnedPortSecurityTrapObjectsGroup'
-_A9='learnedPortSecurityTrapsGroup'
-_A8='learnedPortSecurityGlobGroup'
-_A7='learnedPortSecurityMacAddressGroup'
-_A6='learnedPortSecurityGroup'
-_A5='lpsLearnMac'
-_A4='lpsPortUpAfterLearningWindowExpiredTrap'
-_A3='lpsViolationTrap'
-_A2='lpsMacAddressRowStatus'
-_A1='lpsL2MacAddressRowStatus'
-_A0='lpsL2MacAddressLearnType'
-_z='lpsLearningWindowPseudoMacMove'
-_y='lpsLearningWindowLearnAsStatic'
-_x='lpsLearningWindowBootupStatus'
-_w='lpsLearningWindowNoAging'
-_v='lpsConvertToStatic'
-_u='lpsLearningWindowTimeWithStaticConversion'
-_t='lpsLearningWindowTime'
-_s='lpsMacAddressLearnType'
-_r='lpsLearnTrapThreshold'
-_q='lpsViolatingMac'
-_p='lpsMaxFilteredMacNum'
-_o='lpsRelease'
-_n='lpsOperStatus'
-_m='lpsAdminStatus'
-_l='lpsHiMacRange'
-_k='lpsLoMacRange'
-_j='lpsMaxMacNum'
-_i='lpsViolationOption'
-_h='not-accessible'
-_g='lpsL2MacAddress'
-_f='lpsL2VlanId'
-_e='dynamic'
-_d='configured'
-_c='locked'
-_b='000000000000'
-_a='DisplayString'
-_Z='lpsTrapViolationType'
-_Y='lpsTrapViolatingMac'
-_X='lpsTrapSwitchIpAddr'
-_W='lpsTrapBridgeMac'
-_V='lpsRowStatus'
-_U='lpsMacAddress'
-_T='lpsTrapSwitchVlan'
-_S='MacAddress'
-_R='ifIndex'
-_Q='IF-MIB'
-_P='systemServicesTime'
-_O='systemServicesDate'
-_N='lpsTrapSwitchSlice'
-_M='lpsTrapSwitchPort'
-_L='lpsTrapSwitchName'
-_K='disable'
-_J='enable'
-_I='deprecated'
-_H='read-only'
-_G='read-write'
-_F='ALCATEL-IND1-SYSTEM-MIB'
-_E='accessible-for-notify'
-_D='read-create'
-_C='Integer32'
-_B='current'
-_A='ALCATEL-IND1-LPS-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-softentIND1MacAddress,sourceLearningTraps=mibBuilder.importSymbols('ALCATEL-IND1-BASE','softentIND1MacAddress','sourceLearningTraps')
-systemServicesDate,systemServicesTime=mibBuilder.importSymbols(_F,_O,_P)
-ifIndex,=mibBuilder.importSymbols(_Q,_R)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_a,_S,'PhysAddress','RowStatus','TextualConvention')
-alcatelIND1LearnedPortSecurityMIB=ModuleIdentity((1,3,6,1,4,1,6486,800,1,2,1,8,2))
-if mibBuilder.loadTexts:alcatelIND1LearnedPortSecurityMIB.setRevisions(('2007-04-03 00:00',))
-_AlcatelIND1LearnedPortSecurityMIBObjects_ObjectIdentity=ObjectIdentity
-alcatelIND1LearnedPortSecurityMIBObjects=_AlcatelIND1LearnedPortSecurityMIBObjects_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,8,2,1))
-if mibBuilder.loadTexts:alcatelIND1LearnedPortSecurityMIBObjects.setStatus(_B)
-_LearnedPortSecurityTable_Object=MibTable
-learnedPortSecurityTable=_LearnedPortSecurityTable_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,1))
-if mibBuilder.loadTexts:learnedPortSecurityTable.setStatus(_B)
-_LearnedPortSecurityEntry_Object=MibTableRow
-learnedPortSecurityEntry=_LearnedPortSecurityEntry_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,1,1))
-learnedPortSecurityEntry.setIndexNames((0,_Q,_R))
-if mibBuilder.loadTexts:learnedPortSecurityEntry.setStatus(_B)
-class _LpsViolationOption_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('restrict',1),('shutdown',2),('discard',3)))
-_LpsViolationOption_Type.__name__=_C
-_LpsViolationOption_Object=MibTableColumn
-lpsViolationOption=_LpsViolationOption_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,1,1,1),_LpsViolationOption_Type())
-lpsViolationOption.setMaxAccess(_D)
-if mibBuilder.loadTexts:lpsViolationOption.setStatus(_B)
-class _LpsMaxMacNum_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000))
-_LpsMaxMacNum_Type.__name__=_C
-_LpsMaxMacNum_Object=MibTableColumn
-lpsMaxMacNum=_LpsMaxMacNum_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,1,1,2),_LpsMaxMacNum_Type())
-lpsMaxMacNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:lpsMaxMacNum.setStatus(_B)
-class _LpsLoMacRange_Type(MacAddress):defaultHexValue=_b
-_LpsLoMacRange_Type.__name__=_S
-_LpsLoMacRange_Object=MibTableColumn
-lpsLoMacRange=_LpsLoMacRange_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,1,1,3),_LpsLoMacRange_Type())
-lpsLoMacRange.setMaxAccess(_D)
-if mibBuilder.loadTexts:lpsLoMacRange.setStatus(_B)
-class _LpsHiMacRange_Type(MacAddress):defaultHexValue='ffffffffffff'
-_LpsHiMacRange_Type.__name__=_S
-_LpsHiMacRange_Object=MibTableColumn
-lpsHiMacRange=_LpsHiMacRange_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,1,1,4),_LpsHiMacRange_Type())
-lpsHiMacRange.setMaxAccess(_D)
-if mibBuilder.loadTexts:lpsHiMacRange.setStatus(_B)
-class _LpsAdminStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('up',1),('down',2),(_c,3)))
-_LpsAdminStatus_Type.__name__=_C
-_LpsAdminStatus_Object=MibTableColumn
-lpsAdminStatus=_LpsAdminStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,1,1,5),_LpsAdminStatus_Type())
-lpsAdminStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:lpsAdminStatus.setStatus(_B)
-class _LpsOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('up',1),('down',2),('securityViolated',3),(_c,4)))
-_LpsOperStatus_Type.__name__=_C
-_LpsOperStatus_Object=MibTableColumn
-lpsOperStatus=_LpsOperStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,1,1,6),_LpsOperStatus_Type())
-lpsOperStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:lpsOperStatus.setStatus(_B)
-_LpsRowStatus_Type=RowStatus
-_LpsRowStatus_Object=MibTableColumn
-lpsRowStatus=_LpsRowStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,1,1,7),_LpsRowStatus_Type())
-lpsRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:lpsRowStatus.setStatus(_B)
-class _LpsRelease_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('release',1))
-_LpsRelease_Type.__name__=_C
-_LpsRelease_Object=MibTableColumn
-lpsRelease=_LpsRelease_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,1,1,8),_LpsRelease_Type())
-lpsRelease.setMaxAccess(_D)
-if mibBuilder.loadTexts:lpsRelease.setStatus(_B)
-class _LpsMaxFilteredMacNum_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_LpsMaxFilteredMacNum_Type.__name__=_C
-_LpsMaxFilteredMacNum_Object=MibTableColumn
-lpsMaxFilteredMacNum=_LpsMaxFilteredMacNum_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,1,1,9),_LpsMaxFilteredMacNum_Type())
-lpsMaxFilteredMacNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:lpsMaxFilteredMacNum.setStatus(_B)
-class _LpsLearnTrapThreshold_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
-_LpsLearnTrapThreshold_Type.__name__=_C
-_LpsLearnTrapThreshold_Object=MibTableColumn
-lpsLearnTrapThreshold=_LpsLearnTrapThreshold_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,1,1,10),_LpsLearnTrapThreshold_Type())
-lpsLearnTrapThreshold.setMaxAccess(_D)
-if mibBuilder.loadTexts:lpsLearnTrapThreshold.setStatus(_B)
-class _LpsViolatingMac_Type(MacAddress):defaultHexValue=_b
-_LpsViolatingMac_Type.__name__=_S
-_LpsViolatingMac_Object=MibTableColumn
-lpsViolatingMac=_LpsViolatingMac_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,1,1,11),_LpsViolatingMac_Type())
-lpsViolatingMac.setMaxAccess(_H)
-if mibBuilder.loadTexts:lpsViolatingMac.setStatus(_B)
-_LearnedPortSecurityMacAddressTable_Object=MibTable
-learnedPortSecurityMacAddressTable=_LearnedPortSecurityMacAddressTable_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,2))
-if mibBuilder.loadTexts:learnedPortSecurityMacAddressTable.setStatus(_I)
-_LearnedPortSecurityMacAddressEntry_Object=MibTableRow
-learnedPortSecurityMacAddressEntry=_LearnedPortSecurityMacAddressEntry_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,2,1))
-learnedPortSecurityMacAddressEntry.setIndexNames((0,_Q,_R),(0,_A,_U))
-if mibBuilder.loadTexts:learnedPortSecurityMacAddressEntry.setStatus(_I)
-_LpsMacAddress_Type=MacAddress
-_LpsMacAddress_Object=MibTableColumn
-lpsMacAddress=_LpsMacAddress_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,2,1,1),_LpsMacAddress_Type())
-lpsMacAddress.setMaxAccess(_H)
-if mibBuilder.loadTexts:lpsMacAddress.setStatus(_I)
-class _LpsMacAddressLearnType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_d,1),(_e,2)))
-_LpsMacAddressLearnType_Type.__name__=_C
-_LpsMacAddressLearnType_Object=MibTableColumn
-lpsMacAddressLearnType=_LpsMacAddressLearnType_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,2,1,2),_LpsMacAddressLearnType_Type())
-lpsMacAddressLearnType.setMaxAccess(_H)
-if mibBuilder.loadTexts:lpsMacAddressLearnType.setStatus(_I)
-_LpsMacAddressRowStatus_Type=RowStatus
-_LpsMacAddressRowStatus_Object=MibTableColumn
-lpsMacAddressRowStatus=_LpsMacAddressRowStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,2,1,3),_LpsMacAddressRowStatus_Type())
-lpsMacAddressRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:lpsMacAddressRowStatus.setStatus(_I)
-_LearnedPortSecurityGlobalGroup_ObjectIdentity=ObjectIdentity
-learnedPortSecurityGlobalGroup=_LearnedPortSecurityGlobalGroup_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,3))
-class _LpsLearningWindowTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_LpsLearningWindowTime_Type.__name__=_C
-_LpsLearningWindowTime_Object=MibScalar
-lpsLearningWindowTime=_LpsLearningWindowTime_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,3,1),_LpsLearningWindowTime_Type())
-lpsLearningWindowTime.setMaxAccess(_G)
-if mibBuilder.loadTexts:lpsLearningWindowTime.setStatus(_B)
-class _LpsLearningWindowTimeWithStaticConversion_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_J,1),(_K,2)))
-_LpsLearningWindowTimeWithStaticConversion_Type.__name__=_C
-_LpsLearningWindowTimeWithStaticConversion_Object=MibScalar
-lpsLearningWindowTimeWithStaticConversion=_LpsLearningWindowTimeWithStaticConversion_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,3,2),_LpsLearningWindowTimeWithStaticConversion_Type())
-lpsLearningWindowTimeWithStaticConversion.setMaxAccess(_G)
-if mibBuilder.loadTexts:lpsLearningWindowTimeWithStaticConversion.setStatus(_B)
-class _LpsConvertToStatic_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1001,17000))
-_LpsConvertToStatic_Type.__name__=_C
-_LpsConvertToStatic_Object=MibScalar
-lpsConvertToStatic=_LpsConvertToStatic_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,3,3),_LpsConvertToStatic_Type())
-lpsConvertToStatic.setMaxAccess(_G)
-if mibBuilder.loadTexts:lpsConvertToStatic.setStatus(_B)
-class _LpsLearningWindowNoAging_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_J,1),(_K,2)))
-_LpsLearningWindowNoAging_Type.__name__=_C
-_LpsLearningWindowNoAging_Object=MibScalar
-lpsLearningWindowNoAging=_LpsLearningWindowNoAging_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,3,4),_LpsLearningWindowNoAging_Type())
-lpsLearningWindowNoAging.setMaxAccess(_G)
-if mibBuilder.loadTexts:lpsLearningWindowNoAging.setStatus(_B)
-class _LpsLearningWindowBootupStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_J,1),(_K,2)))
-_LpsLearningWindowBootupStatus_Type.__name__=_C
-_LpsLearningWindowBootupStatus_Object=MibScalar
-lpsLearningWindowBootupStatus=_LpsLearningWindowBootupStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,3,5),_LpsLearningWindowBootupStatus_Type())
-lpsLearningWindowBootupStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:lpsLearningWindowBootupStatus.setStatus(_B)
-class _LpsLearningWindowExpiryStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_J,1),(_K,2)))
-_LpsLearningWindowExpiryStatus_Type.__name__=_C
-_LpsLearningWindowExpiryStatus_Object=MibScalar
-lpsLearningWindowExpiryStatus=_LpsLearningWindowExpiryStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,3,6),_LpsLearningWindowExpiryStatus_Type())
-lpsLearningWindowExpiryStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:lpsLearningWindowExpiryStatus.setStatus(_B)
-class _LpsLearningWindowLearnAsStatic_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_J,1),(_K,2)))
-_LpsLearningWindowLearnAsStatic_Type.__name__=_C
-_LpsLearningWindowLearnAsStatic_Object=MibScalar
-lpsLearningWindowLearnAsStatic=_LpsLearningWindowLearnAsStatic_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,3,7),_LpsLearningWindowLearnAsStatic_Type())
-lpsLearningWindowLearnAsStatic.setMaxAccess(_G)
-if mibBuilder.loadTexts:lpsLearningWindowLearnAsStatic.setStatus(_B)
-class _LpsLearningWindowPseudoMacMove_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_J,1),(_K,2)))
-_LpsLearningWindowPseudoMacMove_Type.__name__=_C
-_LpsLearningWindowPseudoMacMove_Object=MibScalar
-lpsLearningWindowPseudoMacMove=_LpsLearningWindowPseudoMacMove_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,3,8),_LpsLearningWindowPseudoMacMove_Type())
-lpsLearningWindowPseudoMacMove.setMaxAccess(_G)
-if mibBuilder.loadTexts:lpsLearningWindowPseudoMacMove.setStatus(_B)
-_LearnedPortSecurityL2MacAddressTable_Object=MibTable
-learnedPortSecurityL2MacAddressTable=_LearnedPortSecurityL2MacAddressTable_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,4))
-if mibBuilder.loadTexts:learnedPortSecurityL2MacAddressTable.setStatus(_B)
-_LearnedPortSecurityL2MacAddressEntry_Object=MibTableRow
-learnedPortSecurityL2MacAddressEntry=_LearnedPortSecurityL2MacAddressEntry_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,4,1))
-learnedPortSecurityL2MacAddressEntry.setIndexNames((0,_Q,_R),(0,_A,_f),(0,_A,_g))
-if mibBuilder.loadTexts:learnedPortSecurityL2MacAddressEntry.setStatus(_B)
-class _LpsL2VlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4094))
-_LpsL2VlanId_Type.__name__=_C
-_LpsL2VlanId_Object=MibTableColumn
-lpsL2VlanId=_LpsL2VlanId_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,4,1,1),_LpsL2VlanId_Type())
-lpsL2VlanId.setMaxAccess(_h)
-if mibBuilder.loadTexts:lpsL2VlanId.setStatus(_B)
-_LpsL2MacAddress_Type=MacAddress
-_LpsL2MacAddress_Object=MibTableColumn
-lpsL2MacAddress=_LpsL2MacAddress_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,4,1,2),_LpsL2MacAddress_Type())
-lpsL2MacAddress.setMaxAccess(_h)
-if mibBuilder.loadTexts:lpsL2MacAddress.setStatus(_B)
-class _LpsL2MacAddressLearnType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_d,1),(_e,2),('filtered',3),('quarantined',4)))
-_LpsL2MacAddressLearnType_Type.__name__=_C
-_LpsL2MacAddressLearnType_Object=MibTableColumn
-lpsL2MacAddressLearnType=_LpsL2MacAddressLearnType_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,4,1,3),_LpsL2MacAddressLearnType_Type())
-lpsL2MacAddressLearnType.setMaxAccess(_H)
-if mibBuilder.loadTexts:lpsL2MacAddressLearnType.setStatus(_B)
-_LpsL2MacAddressRowStatus_Type=RowStatus
-_LpsL2MacAddressRowStatus_Object=MibTableColumn
-lpsL2MacAddressRowStatus=_LpsL2MacAddressRowStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,8,2,1,4,1,4),_LpsL2MacAddressRowStatus_Type())
-lpsL2MacAddressRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:lpsL2MacAddressRowStatus.setStatus(_B)
-_AlcatelIND1LearnedPortSecurityMIBConformance_ObjectIdentity=ObjectIdentity
-alcatelIND1LearnedPortSecurityMIBConformance=_AlcatelIND1LearnedPortSecurityMIBConformance_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,8,2,2))
-if mibBuilder.loadTexts:alcatelIND1LearnedPortSecurityMIBConformance.setStatus(_B)
-_AlcatelIND1LearnedPortSecurityMIBGroups_ObjectIdentity=ObjectIdentity
-alcatelIND1LearnedPortSecurityMIBGroups=_AlcatelIND1LearnedPortSecurityMIBGroups_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,8,2,2,1))
-if mibBuilder.loadTexts:alcatelIND1LearnedPortSecurityMIBGroups.setStatus(_B)
-_AlcatelIND1LearnedPortSecurityMIBCompliances_ObjectIdentity=ObjectIdentity
-alcatelIND1LearnedPortSecurityMIBCompliances=_AlcatelIND1LearnedPortSecurityMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,8,2,2,2))
-if mibBuilder.loadTexts:alcatelIND1LearnedPortSecurityMIBCompliances.setStatus(_B)
-_LpsTraps_ObjectIdentity=ObjectIdentity
-lpsTraps=_LpsTraps_ObjectIdentity((1,3,6,1,4,1,6486,800,1,3,2,9,0,2))
-_LpsTrapsDesc_ObjectIdentity=ObjectIdentity
-lpsTrapsDesc=_LpsTrapsDesc_ObjectIdentity((1,3,6,1,4,1,6486,800,1,3,2,9,0,2,1))
-_LpsTrapsObj_ObjectIdentity=ObjectIdentity
-lpsTrapsObj=_LpsTrapsObj_ObjectIdentity((1,3,6,1,4,1,6486,800,1,3,2,9,0,2,2))
-class _LpsTrapSwitchName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_LpsTrapSwitchName_Type.__name__=_a
-_LpsTrapSwitchName_Object=MibScalar
-lpsTrapSwitchName=_LpsTrapSwitchName_Object((1,3,6,1,4,1,6486,800,1,3,2,9,0,2,2,1),_LpsTrapSwitchName_Type())
-lpsTrapSwitchName.setMaxAccess(_E)
-if mibBuilder.loadTexts:lpsTrapSwitchName.setStatus(_B)
-_LpsTrapSwitchIpAddr_Type=IpAddress
-_LpsTrapSwitchIpAddr_Object=MibScalar
-lpsTrapSwitchIpAddr=_LpsTrapSwitchIpAddr_Object((1,3,6,1,4,1,6486,800,1,3,2,9,0,2,2,2),_LpsTrapSwitchIpAddr_Type())
-lpsTrapSwitchIpAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:lpsTrapSwitchIpAddr.setStatus(_B)
-_LpsTrapSwitchSlice_Type=Integer32
-_LpsTrapSwitchSlice_Object=MibScalar
-lpsTrapSwitchSlice=_LpsTrapSwitchSlice_Object((1,3,6,1,4,1,6486,800,1,3,2,9,0,2,2,3),_LpsTrapSwitchSlice_Type())
-lpsTrapSwitchSlice.setMaxAccess(_E)
-if mibBuilder.loadTexts:lpsTrapSwitchSlice.setStatus(_B)
-_LpsTrapSwitchPort_Type=Integer32
-_LpsTrapSwitchPort_Object=MibScalar
-lpsTrapSwitchPort=_LpsTrapSwitchPort_Object((1,3,6,1,4,1,6486,800,1,3,2,9,0,2,2,4),_LpsTrapSwitchPort_Type())
-lpsTrapSwitchPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:lpsTrapSwitchPort.setStatus(_B)
-_LpsTrapViolatingMac_Type=MacAddress
-_LpsTrapViolatingMac_Object=MibScalar
-lpsTrapViolatingMac=_LpsTrapViolatingMac_Object((1,3,6,1,4,1,6486,800,1,3,2,9,0,2,2,5),_LpsTrapViolatingMac_Type())
-lpsTrapViolatingMac.setMaxAccess(_E)
-if mibBuilder.loadTexts:lpsTrapViolatingMac.setStatus(_B)
-class _LpsTrapViolationType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('learnWindowExpired',1),('macOutOfRange',2),('macsLearnLimitReached',3)))
-_LpsTrapViolationType_Type.__name__=_C
-_LpsTrapViolationType_Object=MibScalar
-lpsTrapViolationType=_LpsTrapViolationType_Object((1,3,6,1,4,1,6486,800,1,3,2,9,0,2,2,6),_LpsTrapViolationType_Type())
-lpsTrapViolationType.setMaxAccess(_E)
-if mibBuilder.loadTexts:lpsTrapViolationType.setStatus(_B)
-_LpsTrapSwitchVlan_Type=Integer32
-_LpsTrapSwitchVlan_Object=MibScalar
-lpsTrapSwitchVlan=_LpsTrapSwitchVlan_Object((1,3,6,1,4,1,6486,800,1,3,2,9,0,2,2,7),_LpsTrapSwitchVlan_Type())
-lpsTrapSwitchVlan.setMaxAccess(_E)
-if mibBuilder.loadTexts:lpsTrapSwitchVlan.setStatus(_B)
-_LpsTrapBridgeMac_Type=Integer32
-_LpsTrapBridgeMac_Object=MibScalar
-lpsTrapBridgeMac=_LpsTrapBridgeMac_Object((1,3,6,1,4,1,6486,800,1,3,2,9,0,2,2,8),_LpsTrapBridgeMac_Type())
-lpsTrapBridgeMac.setMaxAccess(_E)
-if mibBuilder.loadTexts:lpsTrapBridgeMac.setStatus(_B)
-learnedPortSecurityGroup=ObjectGroup((1,3,6,1,4,1,6486,800,1,2,1,8,2,2,1,1))
-learnedPortSecurityGroup.setObjects(*((_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_V),(_A,_o),(_A,_p),(_A,_q),(_A,_r)))
-if mibBuilder.loadTexts:learnedPortSecurityGroup.setStatus(_B)
-learnedPortSecurityMacAddressGroup=ObjectGroup((1,3,6,1,4,1,6486,800,1,2,1,8,2,2,1,2))
-learnedPortSecurityMacAddressGroup.setObjects(*((_A,_U),(_A,_s),(_A,_V)))
-if mibBuilder.loadTexts:learnedPortSecurityMacAddressGroup.setStatus(_I)
-learnedPortSecurityGlobGroup=ObjectGroup((1,3,6,1,4,1,6486,800,1,2,1,8,2,2,1,3))
-learnedPortSecurityGlobGroup.setObjects(*((_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z)))
-if mibBuilder.loadTexts:learnedPortSecurityGlobGroup.setStatus(_B)
-learnedPortSecurityL2MacAddressGroup=ObjectGroup((1,3,6,1,4,1,6486,800,1,2,1,8,2,2,1,5))
-learnedPortSecurityL2MacAddressGroup.setObjects(*((_A,_A0),(_A,_A1),(_A,_A2)))
-if mibBuilder.loadTexts:learnedPortSecurityL2MacAddressGroup.setStatus(_B)
-learnedPortSecurityTrapObjectsGroup=ObjectGroup((1,3,6,1,4,1,6486,800,1,2,1,8,2,2,1,6))
-learnedPortSecurityTrapObjectsGroup.setObjects(*((_A,_W),(_A,_X),(_A,_L),(_A,_M),(_A,_N),(_A,_T),(_A,_Y),(_A,_Z)))
-if mibBuilder.loadTexts:learnedPortSecurityTrapObjectsGroup.setStatus(_B)
-lpsViolationTrap=NotificationType((1,3,6,1,4,1,6486,800,1,3,2,9,0,2,1,0,1))
-lpsViolationTrap.setObjects(*((_A,_L),(_A,_X),(_A,_N),(_A,_M),(_A,_Y),(_A,_Z),(_F,_O),(_F,_P),(_A,_T)))
-if mibBuilder.loadTexts:lpsViolationTrap.setStatus(_B)
-lpsPortUpAfterLearningWindowExpiredTrap=NotificationType((1,3,6,1,4,1,6486,800,1,3,2,9,0,2,1,0,2))
-lpsPortUpAfterLearningWindowExpiredTrap.setObjects(*((_A,_L),(_A,_N),(_A,_M),(_F,_O),(_F,_P)))
-if mibBuilder.loadTexts:lpsPortUpAfterLearningWindowExpiredTrap.setStatus(_B)
-lpsLearnMac=NotificationType((1,3,6,1,4,1,6486,800,1,3,2,9,0,2,1,0,3))
-lpsLearnMac.setObjects(*((_A,_L),(_A,_N),(_A,_M),(_A,_T),(_F,_O),(_F,_P),(_A,_W)))
-if mibBuilder.loadTexts:lpsLearnMac.setStatus(_B)
-learnedPortSecurityTrapsGroup=NotificationGroup((1,3,6,1,4,1,6486,800,1,2,1,8,2,2,1,4))
-learnedPortSecurityTrapsGroup.setObjects(*((_A,_A3),(_A,_A4),(_A,_A5)))
-if mibBuilder.loadTexts:learnedPortSecurityTrapsGroup.setStatus(_B)
-alcatelIND1LearnedPortSecurityMIBCompliance=ModuleCompliance((1,3,6,1,4,1,6486,800,1,2,1,8,2,2,2,1))
-alcatelIND1LearnedPortSecurityMIBCompliance.setObjects(*((_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB)))
-if mibBuilder.loadTexts:alcatelIND1LearnedPortSecurityMIBCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'alcatelIND1LearnedPortSecurityMIB':alcatelIND1LearnedPortSecurityMIB,'alcatelIND1LearnedPortSecurityMIBObjects':alcatelIND1LearnedPortSecurityMIBObjects,'learnedPortSecurityTable':learnedPortSecurityTable,'learnedPortSecurityEntry':learnedPortSecurityEntry,_i:lpsViolationOption,_j:lpsMaxMacNum,_k:lpsLoMacRange,_l:lpsHiMacRange,_m:lpsAdminStatus,_n:lpsOperStatus,_V:lpsRowStatus,_o:lpsRelease,_p:lpsMaxFilteredMacNum,_r:lpsLearnTrapThreshold,_q:lpsViolatingMac,'learnedPortSecurityMacAddressTable':learnedPortSecurityMacAddressTable,'learnedPortSecurityMacAddressEntry':learnedPortSecurityMacAddressEntry,_U:lpsMacAddress,_s:lpsMacAddressLearnType,_A2:lpsMacAddressRowStatus,'learnedPortSecurityGlobalGroup':learnedPortSecurityGlobalGroup,_t:lpsLearningWindowTime,_u:lpsLearningWindowTimeWithStaticConversion,_v:lpsConvertToStatic,_w:lpsLearningWindowNoAging,_x:lpsLearningWindowBootupStatus,'lpsLearningWindowExpiryStatus':lpsLearningWindowExpiryStatus,_y:lpsLearningWindowLearnAsStatic,_z:lpsLearningWindowPseudoMacMove,'learnedPortSecurityL2MacAddressTable':learnedPortSecurityL2MacAddressTable,'learnedPortSecurityL2MacAddressEntry':learnedPortSecurityL2MacAddressEntry,_f:lpsL2VlanId,_g:lpsL2MacAddress,_A0:lpsL2MacAddressLearnType,_A1:lpsL2MacAddressRowStatus,'alcatelIND1LearnedPortSecurityMIBConformance':alcatelIND1LearnedPortSecurityMIBConformance,'alcatelIND1LearnedPortSecurityMIBGroups':alcatelIND1LearnedPortSecurityMIBGroups,_A6:learnedPortSecurityGroup,_A7:learnedPortSecurityMacAddressGroup,_A8:learnedPortSecurityGlobGroup,_A9:learnedPortSecurityTrapsGroup,_AB:learnedPortSecurityL2MacAddressGroup,_AA:learnedPortSecurityTrapObjectsGroup,'alcatelIND1LearnedPortSecurityMIBCompliances':alcatelIND1LearnedPortSecurityMIBCompliances,'alcatelIND1LearnedPortSecurityMIBCompliance':alcatelIND1LearnedPortSecurityMIBCompliance,'lpsTraps':lpsTraps,'lpsTrapsDesc':lpsTrapsDesc,_A3:lpsViolationTrap,_A4:lpsPortUpAfterLearningWindowExpiredTrap,_A5:lpsLearnMac,'lpsTrapsObj':lpsTrapsObj,_L:lpsTrapSwitchName,_X:lpsTrapSwitchIpAddr,_N:lpsTrapSwitchSlice,_M:lpsTrapSwitchPort,_Y:lpsTrapViolatingMac,_Z:lpsTrapViolationType,_T:lpsTrapSwitchVlan,_W:lpsTrapBridgeMac})
+#
+# PySNMP MIB module ALCATEL-IND1-LPS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel/ALCATEL-IND1-LPS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:10 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+sourceLearningTraps, softentIND1MacAddress = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "sourceLearningTraps", "softentIND1MacAddress")
+systemServicesTime, systemServicesDate = mibBuilder.importSymbols("ALCATEL-IND1-SYSTEM-MIB", "systemServicesTime", "systemServicesDate")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+alcatelIND1LearnedPortSecurityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2))
+alcatelIND1LearnedPortSecurityMIB.setRevisions(('2007-04-03 00:00',))
+if mibBuilder.loadTexts: alcatelIND1LearnedPortSecurityMIB.setLastUpdated('200704030000Z')
+if mibBuilder.loadTexts: alcatelIND1LearnedPortSecurityMIB.setOrganization('Alcatel-Lucent, Enterprise Solutions Division')
+alcatelIND1LearnedPortSecurityMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1))
+if mibBuilder.loadTexts: alcatelIND1LearnedPortSecurityMIBObjects.setStatus('current')
+alcatelIND1LearnedPortSecurityMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 2))
+if mibBuilder.loadTexts: alcatelIND1LearnedPortSecurityMIBConformance.setStatus('current')
+alcatelIND1LearnedPortSecurityMIBGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 2, 1))
+if mibBuilder.loadTexts: alcatelIND1LearnedPortSecurityMIBGroups.setStatus('current')
+alcatelIND1LearnedPortSecurityMIBCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 2, 2))
+if mibBuilder.loadTexts: alcatelIND1LearnedPortSecurityMIBCompliances.setStatus('current')
+learnedPortSecurityTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 1), )
+if mibBuilder.loadTexts: learnedPortSecurityTable.setStatus('current')
+learnedPortSecurityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: learnedPortSecurityEntry.setStatus('current')
+lpsViolationOption = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("restrict", 1), ("shutdown", 2), ("discard", 3))).clone('restrict')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lpsViolationOption.setStatus('current')
+lpsMaxMacNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000)).clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lpsMaxMacNum.setStatus('current')
+lpsLoMacRange = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 1, 1, 3), MacAddress().clone(hexValue="000000000000")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lpsLoMacRange.setStatus('current')
+lpsHiMacRange = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 1, 1, 4), MacAddress().clone(hexValue="ffffffffffff")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lpsHiMacRange.setStatus('current')
+lpsAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("locked", 3))).clone('up')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lpsAdminStatus.setStatus('current')
+lpsOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("securityViolated", 3), ("locked", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lpsOperStatus.setStatus('current')
+lpsRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lpsRowStatus.setStatus('current')
+lpsRelease = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("release", 1)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lpsRelease.setStatus('current')
+lpsMaxFilteredMacNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100)).clone(5)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lpsMaxFilteredMacNum.setStatus('current')
+lpsLearnTrapThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000)).clone(5)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lpsLearnTrapThreshold.setStatus('current')
+lpsViolatingMac = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 1, 1, 11), MacAddress().clone(hexValue="000000000000")).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lpsViolatingMac.setStatus('current')
+learnedPortSecurityMacAddressTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 2), )
+if mibBuilder.loadTexts: learnedPortSecurityMacAddressTable.setStatus('deprecated')
+learnedPortSecurityMacAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ALCATEL-IND1-LPS-MIB", "lpsMacAddress"))
+if mibBuilder.loadTexts: learnedPortSecurityMacAddressEntry.setStatus('deprecated')
+lpsMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 2, 1, 1), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lpsMacAddress.setStatus('deprecated')
+lpsMacAddressLearnType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("configured", 1), ("dynamic", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lpsMacAddressLearnType.setStatus('deprecated')
+lpsMacAddressRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lpsMacAddressRowStatus.setStatus('deprecated')
+learnedPortSecurityGlobalGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 3))
+lpsLearningWindowTime = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 3, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lpsLearningWindowTime.setStatus('current')
+lpsLearningWindowTimeWithStaticConversion = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lpsLearningWindowTimeWithStaticConversion.setStatus('current')
+lpsConvertToStatic = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 3, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1001, 17000), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lpsConvertToStatic.setStatus('current')
+lpsLearningWindowNoAging = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 3, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lpsLearningWindowNoAging.setStatus('current')
+lpsLearningWindowBootupStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 3, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lpsLearningWindowBootupStatus.setStatus('current')
+lpsLearningWindowExpiryStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 3, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lpsLearningWindowExpiryStatus.setStatus('current')
+lpsLearningWindowLearnAsStatic = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 3, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lpsLearningWindowLearnAsStatic.setStatus('current')
+lpsLearningWindowPseudoMacMove = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 3, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lpsLearningWindowPseudoMacMove.setStatus('current')
+learnedPortSecurityL2MacAddressTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 4), )
+if mibBuilder.loadTexts: learnedPortSecurityL2MacAddressTable.setStatus('current')
+learnedPortSecurityL2MacAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ALCATEL-IND1-LPS-MIB", "lpsL2VlanId"), (0, "ALCATEL-IND1-LPS-MIB", "lpsL2MacAddress"))
+if mibBuilder.loadTexts: learnedPortSecurityL2MacAddressEntry.setStatus('current')
+lpsL2VlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094)))
+if mibBuilder.loadTexts: lpsL2VlanId.setStatus('current')
+lpsL2MacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 4, 1, 2), MacAddress())
+if mibBuilder.loadTexts: lpsL2MacAddress.setStatus('current')
+lpsL2MacAddressLearnType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("configured", 1), ("dynamic", 2), ("filtered", 3), ("quarantined", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lpsL2MacAddressLearnType.setStatus('current')
+lpsL2MacAddressRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 1, 4, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lpsL2MacAddressRowStatus.setStatus('current')
+lpsTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 9, 0, 2))
+lpsTrapsDesc = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 9, 0, 2, 1))
+lpsTrapsObj = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 9, 0, 2, 2))
+lpsViolationTrap = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 9, 0, 2, 1, 0, 1)).setObjects(("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchName"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchIpAddr"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchSlice"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchPort"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapViolatingMac"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapViolationType"), ("ALCATEL-IND1-SYSTEM-MIB", "systemServicesDate"), ("ALCATEL-IND1-SYSTEM-MIB", "systemServicesTime"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchVlan"))
+if mibBuilder.loadTexts: lpsViolationTrap.setStatus('current')
+lpsPortUpAfterLearningWindowExpiredTrap = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 9, 0, 2, 1, 0, 2)).setObjects(("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchName"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchSlice"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchPort"), ("ALCATEL-IND1-SYSTEM-MIB", "systemServicesDate"), ("ALCATEL-IND1-SYSTEM-MIB", "systemServicesTime"))
+if mibBuilder.loadTexts: lpsPortUpAfterLearningWindowExpiredTrap.setStatus('current')
+lpsLearnMac = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 9, 0, 2, 1, 0, 3)).setObjects(("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchName"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchSlice"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchPort"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchVlan"), ("ALCATEL-IND1-SYSTEM-MIB", "systemServicesDate"), ("ALCATEL-IND1-SYSTEM-MIB", "systemServicesTime"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapBridgeMac"))
+if mibBuilder.loadTexts: lpsLearnMac.setStatus('current')
+lpsTrapSwitchName = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 9, 0, 2, 2, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: lpsTrapSwitchName.setStatus('current')
+lpsTrapSwitchIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 9, 0, 2, 2, 2), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: lpsTrapSwitchIpAddr.setStatus('current')
+lpsTrapSwitchSlice = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 9, 0, 2, 2, 3), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: lpsTrapSwitchSlice.setStatus('current')
+lpsTrapSwitchPort = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 9, 0, 2, 2, 4), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: lpsTrapSwitchPort.setStatus('current')
+lpsTrapViolatingMac = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 9, 0, 2, 2, 5), MacAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: lpsTrapViolatingMac.setStatus('current')
+lpsTrapViolationType = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 9, 0, 2, 2, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("learnWindowExpired", 1), ("macOutOfRange", 2), ("macsLearnLimitReached", 3)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: lpsTrapViolationType.setStatus('current')
+lpsTrapSwitchVlan = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 9, 0, 2, 2, 7), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: lpsTrapSwitchVlan.setStatus('current')
+lpsTrapBridgeMac = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 9, 0, 2, 2, 8), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: lpsTrapBridgeMac.setStatus('current')
+alcatelIND1LearnedPortSecurityMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 2, 2, 1)).setObjects(("ALCATEL-IND1-LPS-MIB", "learnedPortSecurityGroup"), ("ALCATEL-IND1-LPS-MIB", "learnedPortSecurityMacAddressGroup"), ("ALCATEL-IND1-LPS-MIB", "learnedPortSecurityGlobGroup"), ("ALCATEL-IND1-LPS-MIB", "learnedPortSecurityTrapsGroup"), ("ALCATEL-IND1-LPS-MIB", "learnedPortSecurityTrapObjectsGroup"), ("ALCATEL-IND1-LPS-MIB", "learnedPortSecurityL2MacAddressGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alcatelIND1LearnedPortSecurityMIBCompliance = alcatelIND1LearnedPortSecurityMIBCompliance.setStatus('current')
+learnedPortSecurityGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 2, 1, 1)).setObjects(("ALCATEL-IND1-LPS-MIB", "lpsViolationOption"), ("ALCATEL-IND1-LPS-MIB", "lpsMaxMacNum"), ("ALCATEL-IND1-LPS-MIB", "lpsLoMacRange"), ("ALCATEL-IND1-LPS-MIB", "lpsHiMacRange"), ("ALCATEL-IND1-LPS-MIB", "lpsAdminStatus"), ("ALCATEL-IND1-LPS-MIB", "lpsOperStatus"), ("ALCATEL-IND1-LPS-MIB", "lpsRowStatus"), ("ALCATEL-IND1-LPS-MIB", "lpsRelease"), ("ALCATEL-IND1-LPS-MIB", "lpsMaxFilteredMacNum"), ("ALCATEL-IND1-LPS-MIB", "lpsViolatingMac"), ("ALCATEL-IND1-LPS-MIB", "lpsLearnTrapThreshold"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    learnedPortSecurityGroup = learnedPortSecurityGroup.setStatus('current')
+learnedPortSecurityMacAddressGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 2, 1, 2)).setObjects(("ALCATEL-IND1-LPS-MIB", "lpsMacAddress"), ("ALCATEL-IND1-LPS-MIB", "lpsMacAddressLearnType"), ("ALCATEL-IND1-LPS-MIB", "lpsRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    learnedPortSecurityMacAddressGroup = learnedPortSecurityMacAddressGroup.setStatus('deprecated')
+learnedPortSecurityGlobGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 2, 1, 3)).setObjects(("ALCATEL-IND1-LPS-MIB", "lpsLearningWindowTime"), ("ALCATEL-IND1-LPS-MIB", "lpsLearningWindowTimeWithStaticConversion"), ("ALCATEL-IND1-LPS-MIB", "lpsConvertToStatic"), ("ALCATEL-IND1-LPS-MIB", "lpsLearningWindowNoAging"), ("ALCATEL-IND1-LPS-MIB", "lpsLearningWindowBootupStatus"), ("ALCATEL-IND1-LPS-MIB", "lpsLearningWindowLearnAsStatic"), ("ALCATEL-IND1-LPS-MIB", "lpsLearningWindowPseudoMacMove"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    learnedPortSecurityGlobGroup = learnedPortSecurityGlobGroup.setStatus('current')
+learnedPortSecurityTrapsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 2, 1, 4)).setObjects(("ALCATEL-IND1-LPS-MIB", "lpsViolationTrap"), ("ALCATEL-IND1-LPS-MIB", "lpsPortUpAfterLearningWindowExpiredTrap"), ("ALCATEL-IND1-LPS-MIB", "lpsLearnMac"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    learnedPortSecurityTrapsGroup = learnedPortSecurityTrapsGroup.setStatus('current')
+learnedPortSecurityL2MacAddressGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 2, 1, 5)).setObjects(("ALCATEL-IND1-LPS-MIB", "lpsL2MacAddressLearnType"), ("ALCATEL-IND1-LPS-MIB", "lpsL2MacAddressRowStatus"), ("ALCATEL-IND1-LPS-MIB", "lpsMacAddressRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    learnedPortSecurityL2MacAddressGroup = learnedPortSecurityL2MacAddressGroup.setStatus('current')
+learnedPortSecurityTrapObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 8, 2, 2, 1, 6)).setObjects(("ALCATEL-IND1-LPS-MIB", "lpsTrapBridgeMac"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchIpAddr"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchName"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchPort"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchSlice"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapSwitchVlan"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapViolatingMac"), ("ALCATEL-IND1-LPS-MIB", "lpsTrapViolationType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    learnedPortSecurityTrapObjectsGroup = learnedPortSecurityTrapObjectsGroup.setStatus('current')
+mibBuilder.exportSymbols("ALCATEL-IND1-LPS-MIB", lpsMacAddressLearnType=lpsMacAddressLearnType, PYSNMP_MODULE_ID=alcatelIND1LearnedPortSecurityMIB, lpsTrapSwitchIpAddr=lpsTrapSwitchIpAddr, lpsL2VlanId=lpsL2VlanId, lpsViolatingMac=lpsViolatingMac, lpsL2MacAddressLearnType=lpsL2MacAddressLearnType, lpsTrapBridgeMac=lpsTrapBridgeMac, learnedPortSecurityL2MacAddressGroup=learnedPortSecurityL2MacAddressGroup, lpsAdminStatus=lpsAdminStatus, learnedPortSecurityTrapsGroup=learnedPortSecurityTrapsGroup, lpsMacAddressRowStatus=lpsMacAddressRowStatus, lpsConvertToStatic=lpsConvertToStatic, lpsMaxFilteredMacNum=lpsMaxFilteredMacNum, lpsLearningWindowBootupStatus=lpsLearningWindowBootupStatus, lpsTrapSwitchSlice=lpsTrapSwitchSlice, alcatelIND1LearnedPortSecurityMIBCompliance=alcatelIND1LearnedPortSecurityMIBCompliance, alcatelIND1LearnedPortSecurityMIBGroups=alcatelIND1LearnedPortSecurityMIBGroups, learnedPortSecurityEntry=learnedPortSecurityEntry, lpsMaxMacNum=lpsMaxMacNum, learnedPortSecurityGlobGroup=learnedPortSecurityGlobGroup, learnedPortSecurityGroup=learnedPortSecurityGroup, alcatelIND1LearnedPortSecurityMIBObjects=alcatelIND1LearnedPortSecurityMIBObjects, learnedPortSecurityTable=learnedPortSecurityTable, lpsRelease=lpsRelease, lpsViolationOption=lpsViolationOption, lpsLearnTrapThreshold=lpsLearnTrapThreshold, learnedPortSecurityL2MacAddressEntry=learnedPortSecurityL2MacAddressEntry, learnedPortSecurityGlobalGroup=learnedPortSecurityGlobalGroup, lpsL2MacAddressRowStatus=lpsL2MacAddressRowStatus, lpsTrapSwitchName=lpsTrapSwitchName, alcatelIND1LearnedPortSecurityMIB=alcatelIND1LearnedPortSecurityMIB, learnedPortSecurityL2MacAddressTable=learnedPortSecurityL2MacAddressTable, lpsL2MacAddress=lpsL2MacAddress, lpsTrapViolatingMac=lpsTrapViolatingMac, lpsMacAddress=lpsMacAddress, alcatelIND1LearnedPortSecurityMIBCompliances=alcatelIND1LearnedPortSecurityMIBCompliances, lpsHiMacRange=lpsHiMacRange, alcatelIND1LearnedPortSecurityMIBConformance=alcatelIND1LearnedPortSecurityMIBConformance, lpsViolationTrap=lpsViolationTrap, lpsLearningWindowExpiryStatus=lpsLearningWindowExpiryStatus, lpsTrapViolationType=lpsTrapViolationType, learnedPortSecurityMacAddressGroup=learnedPortSecurityMacAddressGroup, lpsTraps=lpsTraps, lpsRowStatus=lpsRowStatus, lpsLearningWindowPseudoMacMove=lpsLearningWindowPseudoMacMove, lpsTrapsDesc=lpsTrapsDesc, lpsOperStatus=lpsOperStatus, lpsLearningWindowLearnAsStatic=lpsLearningWindowLearnAsStatic, lpsTrapsObj=lpsTrapsObj, lpsLoMacRange=lpsLoMacRange, lpsTrapSwitchPort=lpsTrapSwitchPort, lpsTrapSwitchVlan=lpsTrapSwitchVlan, learnedPortSecurityTrapObjectsGroup=learnedPortSecurityTrapObjectsGroup, learnedPortSecurityMacAddressEntry=learnedPortSecurityMacAddressEntry, lpsLearningWindowTime=lpsLearningWindowTime, learnedPortSecurityMacAddressTable=learnedPortSecurityMacAddressTable, lpsLearningWindowTimeWithStaticConversion=lpsLearningWindowTimeWithStaticConversion, lpsLearnMac=lpsLearnMac, lpsLearningWindowNoAging=lpsLearningWindowNoAging, lpsPortUpAfterLearningWindowExpiredTrap=lpsPortUpAfterLearningWindowExpiredTrap)

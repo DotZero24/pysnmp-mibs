@@ -1,75 +1,43 @@
-_K='redundancyFanStatus'
-_J='redundancyPowerPreviousStatus'
-_I='redundancyPowerStatus'
-_H='redundancyFanID'
-_G='fail'
-_F='normal'
-_E='redundancyPowerID'
-_D='Integer32'
-_C='read-only'
-_B='HUAWEI-REDUNDANCY-POWER-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mlsr,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','mlsr')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-redundancyPower=ModuleIdentity((1,3,6,1,4,1,2011,2,33,4))
-_RedundancyPowerTable_Object=MibTable
-redundancyPowerTable=_RedundancyPowerTable_Object((1,3,6,1,4,1,2011,2,33,4,1))
-if mibBuilder.loadTexts:redundancyPowerTable.setStatus(_A)
-_RedundancyPowerEntry_Object=MibTableRow
-redundancyPowerEntry=_RedundancyPowerEntry_Object((1,3,6,1,4,1,2011,2,33,4,1,1))
-redundancyPowerEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:redundancyPowerEntry.setStatus(_A)
-_RedundancyPowerID_Type=Integer32
-_RedundancyPowerID_Object=MibTableColumn
-redundancyPowerID=_RedundancyPowerID_Object((1,3,6,1,4,1,2011,2,33,4,1,1,1),_RedundancyPowerID_Type())
-redundancyPowerID.setMaxAccess(_C)
-if mibBuilder.loadTexts:redundancyPowerID.setStatus(_A)
-class _RedundancyPowerStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('space',1),(_F,2),(_G,3)))
-_RedundancyPowerStatus_Type.__name__=_D
-_RedundancyPowerStatus_Object=MibTableColumn
-redundancyPowerStatus=_RedundancyPowerStatus_Object((1,3,6,1,4,1,2011,2,33,4,1,1,2),_RedundancyPowerStatus_Type())
-redundancyPowerStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:redundancyPowerStatus.setStatus(_A)
-class _RedundancyPowerPreviousStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('space',1),(_F,2),(_G,3)))
-_RedundancyPowerPreviousStatus_Type.__name__=_D
-_RedundancyPowerPreviousStatus_Object=MibTableColumn
-redundancyPowerPreviousStatus=_RedundancyPowerPreviousStatus_Object((1,3,6,1,4,1,2011,2,33,4,1,1,3),_RedundancyPowerPreviousStatus_Type())
-redundancyPowerPreviousStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:redundancyPowerPreviousStatus.setStatus(_A)
-_PowerTraps_ObjectIdentity=ObjectIdentity
-powerTraps=_PowerTraps_ObjectIdentity((1,3,6,1,4,1,2011,2,33,4,2))
-_RedundancyFan_ObjectIdentity=ObjectIdentity
-redundancyFan=_RedundancyFan_ObjectIdentity((1,3,6,1,4,1,2011,2,33,5))
-_RedundancyFanTable_Object=MibTable
-redundancyFanTable=_RedundancyFanTable_Object((1,3,6,1,4,1,2011,2,33,5,1))
-if mibBuilder.loadTexts:redundancyFanTable.setStatus(_A)
-_RedundancyFanEntry_Object=MibTableRow
-redundancyFanEntry=_RedundancyFanEntry_Object((1,3,6,1,4,1,2011,2,33,5,1,1))
-redundancyFanEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:redundancyFanEntry.setStatus(_A)
-_RedundancyFanID_Type=Integer32
-_RedundancyFanID_Object=MibTableColumn
-redundancyFanID=_RedundancyFanID_Object((1,3,6,1,4,1,2011,2,33,5,1,1,1),_RedundancyFanID_Type())
-redundancyFanID.setMaxAccess(_C)
-if mibBuilder.loadTexts:redundancyFanID.setStatus(_A)
-class _RedundancyFanStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_RedundancyFanStatus_Type.__name__=_D
-_RedundancyFanStatus_Object=MibTableColumn
-redundancyFanStatus=_RedundancyFanStatus_Object((1,3,6,1,4,1,2011,2,33,5,1,1,2),_RedundancyFanStatus_Type())
-redundancyFanStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:redundancyFanStatus.setStatus(_A)
-_FanTraps_ObjectIdentity=ObjectIdentity
-fanTraps=_FanTraps_ObjectIdentity((1,3,6,1,4,1,2011,2,33,5,2))
-powerStatusChangedTrap=NotificationType((1,3,6,1,4,1,2011,2,33,4,2,1))
-powerStatusChangedTrap.setObjects(*((_B,_E),(_B,_I),(_B,_J)))
-if mibBuilder.loadTexts:powerStatusChangedTrap.setStatus(_A)
-fanStatusChangedTrap=NotificationType((1,3,6,1,4,1,2011,2,33,5,2,1))
-fanStatusChangedTrap.setObjects(*((_B,_H),(_B,_K)))
-if mibBuilder.loadTexts:fanStatusChangedTrap.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'redundancyPower':redundancyPower,'redundancyPowerTable':redundancyPowerTable,'redundancyPowerEntry':redundancyPowerEntry,_E:redundancyPowerID,_I:redundancyPowerStatus,_J:redundancyPowerPreviousStatus,'powerTraps':powerTraps,'powerStatusChangedTrap':powerStatusChangedTrap,'redundancyFan':redundancyFan,'redundancyFanTable':redundancyFanTable,'redundancyFanEntry':redundancyFanEntry,_H:redundancyFanID,_K:redundancyFanStatus,'fanTraps':fanTraps,'fanStatusChangedTrap':fanStatusChangedTrap})
+#
+# PySNMP MIB module HUAWEI-REDUNDANCY-POWER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/HUAWEI-REDUNDANCY-POWER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:26 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mlsr, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "mlsr")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+redundancyPower = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 2, 33, 4))
+if mibBuilder.loadTexts: redundancyPower.setLastUpdated('200112200000Z')
+if mibBuilder.loadTexts: redundancyPower.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
+redundancyFan = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 33, 5))
+redundancyPowerTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 2, 33, 4, 1), )
+if mibBuilder.loadTexts: redundancyPowerTable.setStatus('current')
+redundancyPowerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 2, 33, 4, 1, 1), ).setIndexNames((0, "HUAWEI-REDUNDANCY-POWER-MIB", "redundancyPowerID"))
+if mibBuilder.loadTexts: redundancyPowerEntry.setStatus('current')
+redundancyPowerID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 33, 4, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: redundancyPowerID.setStatus('current')
+redundancyPowerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 33, 4, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("space", 1), ("normal", 2), ("fail", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: redundancyPowerStatus.setStatus('current')
+redundancyPowerPreviousStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 33, 4, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("space", 1), ("normal", 2), ("fail", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: redundancyPowerPreviousStatus.setStatus('current')
+redundancyFanTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 2, 33, 5, 1), )
+if mibBuilder.loadTexts: redundancyFanTable.setStatus('current')
+redundancyFanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 2, 33, 5, 1, 1), ).setIndexNames((0, "HUAWEI-REDUNDANCY-POWER-MIB", "redundancyFanID"))
+if mibBuilder.loadTexts: redundancyFanEntry.setStatus('current')
+redundancyFanID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 33, 5, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: redundancyFanID.setStatus('current')
+redundancyFanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 33, 5, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("normal", 1), ("fail", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: redundancyFanStatus.setStatus('current')
+powerTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 33, 4, 2))
+powerStatusChangedTrap = NotificationType((1, 3, 6, 1, 4, 1, 2011, 2, 33, 4, 2, 1)).setObjects(("HUAWEI-REDUNDANCY-POWER-MIB", "redundancyPowerID"), ("HUAWEI-REDUNDANCY-POWER-MIB", "redundancyPowerStatus"), ("HUAWEI-REDUNDANCY-POWER-MIB", "redundancyPowerPreviousStatus"))
+if mibBuilder.loadTexts: powerStatusChangedTrap.setStatus('current')
+fanTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 33, 5, 2))
+fanStatusChangedTrap = NotificationType((1, 3, 6, 1, 4, 1, 2011, 2, 33, 5, 2, 1)).setObjects(("HUAWEI-REDUNDANCY-POWER-MIB", "redundancyFanID"), ("HUAWEI-REDUNDANCY-POWER-MIB", "redundancyFanStatus"))
+if mibBuilder.loadTexts: fanStatusChangedTrap.setStatus('current')
+mibBuilder.exportSymbols("HUAWEI-REDUNDANCY-POWER-MIB", redundancyPowerPreviousStatus=redundancyPowerPreviousStatus, redundancyFanID=redundancyFanID, redundancyFanStatus=redundancyFanStatus, redundancyPowerEntry=redundancyPowerEntry, redundancyPowerID=redundancyPowerID, powerTraps=powerTraps, redundancyFanTable=redundancyFanTable, redundancyFan=redundancyFan, redundancyPower=redundancyPower, fanStatusChangedTrap=fanStatusChangedTrap, redundancyPowerStatus=redundancyPowerStatus, powerStatusChangedTrap=powerStatusChangedTrap, PYSNMP_MODULE_ID=redundancyPower, redundancyFanEntry=redundancyFanEntry, redundancyPowerTable=redundancyPowerTable, fanTraps=fanTraps)

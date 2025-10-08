@@ -1,1517 +1,621 @@
-_C_='ciscoGspNotificationsGroupSup3'
-_Cz='ciscoGspLinkTableEntryGroupSup1'
-_Cy='ciscoGspLinkGroup'
-_Cx='ciscoGspRxCongestionChange'
-_Cw='ciscoGspUPUTransmitted'
-_Cv='ciscoGspUPUReceived'
-_Cu='ciscoGspIsolation'
-_Ct='ciscoGspLinkSentUtilChange'
-_Cs='ciscoGspLinkRcvdUtilChange'
-_Cr='ciscoGspCongestionChange'
-_Cq='ciscoGspLinkStateChange'
-_Cp='ciscoGspLinksetStateChange'
-_Co='cgspInstSccpWrrOption'
-_Cn='cgspInstSccpWrrOpcShift'
-_Cm='cgspUPUNotifEnabled'
-_Cl='cgspInstSIUPUTransmitted'
-_Ck='cgspInstSIUPUReceived'
-_Cj='cgspUPUNotifWindowTime'
-_Ci='cgspLinkQ752T2E19'
-_Ch='cgspLinkQ752T2E17'
-_Cg='cgspLinkQ752T2E11'
-_Cf='cgspLinkQ752T1E12Errors'
-_Ce='cgspLinkQ752T1E12'
-_Cd='cgspIsolationNotifEnabled'
-_Cc='cgspLinkSctpAssociationId'
-_Cb='cgspLinkUtilNotifEnabled'
-_Ca='cgspCongestionNotifEnabled'
-_CZ='cgspLnkStateChangeNotifEnabled'
-_CY='cgspLsStateChangeNotifEnabled'
-_CX='cgspLinkUtilEndTimestamp'
-_CW='cgspLinkUtilSent'
-_CV='cgspLinkUtilRcvd'
-_CU='cgspLinkRemoteIpAddrRowStatus'
-_CT='cgspLinkRemoteIpAddress'
-_CS='cgspLinkRemoteIpAddrType'
-_CR='cgspLinkTimerRowStatus'
-_CQ='cgspLinkTimerValue'
-_CP='cgspLinkSctpAssociation'
-_CO='cgspLinksetTimerRowStatus'
-_CN='cgspLinksetTimerValue'
-_CM='cgspLinksetRowStatus'
-_CL='cgspLinksetAdjacentInst'
-_CK='cgspLinksetProfileName'
-_CJ='cgspLinksetRotateSlsShift'
-_CI='cgspLinksetRotateSlsEnable'
-_CH='cgspLinksetDescription'
-_CG='cgspLinksetActPriority'
-_CF='cgspLinksetDurationOutService'
-_CE='cgspLinksetDurationInService'
-_CD='cgspLinksetNumLinks'
-_CC='cgspLinksetAccountingGtt'
-_CB='cgspLinksetAccountingMtp3'
-_CA='cgspLinksetOutboundAcl'
-_C9='cgspLinksetInboundAcl'
-_C8='cgspLinksetAdjacentPointCode'
-_C7='cgspLinksetSourcePointCode'
-_C6='cgspPointCodeRowStatus'
-_C5='cgspPointCodeDisplay'
-_C4='cgspPointCodeType'
-_C3='cgspInstTimerRowStatus'
-_C2='cgspInstTimerValue'
-_C1='cgspInstRowStatus'
-_C0='cgspInstRouteTableName'
-_B_='cgspInstNumber'
-_Bz='cgspInstSummaryRoutingException'
-_By='cgspInstDistSccpUnseq'
-_Bx='cgspInstFastRestart'
-_Bw='cgspInstCongestionsLevels'
-_Bv='cgspInstTFR'
-_Bu='cgspInstVariant'
-_Bt='cgspInstNetworkIndicator'
-_Bs='cgspProfileTimerRowStatus'
-_Br='cgspProfileTimerValue'
-_Bq='cgspProfileRowStatus'
-_Bp='cgspProfileMtp2SendQueueDepth'
-_Bo='cgspProfileMtp2BundleTimer'
-_Bn='cgspProfileVariant'
-_Bm='cgspPlanCapacityDefault'
-_Bl='cgspUtilAbateDelta'
-_Bk='cgspUtilThreshold'
-_Bj='cgspUtilSampleInterval'
-_Bi='accessible-for-notify'
-_Bh='cgspLinkUtilIndex'
-_Bg='cgspLinkRemoteIpAddrNumber'
-_Bf='cgspLinkTimerNumber'
-_Be='cgspLinksetTimerNumber'
-_Bd='unavailable'
-_Bc='available'
-_Bb='cgspPointCodeBin'
-_Ba='cgspPointCodeNi'
-_BZ='cgspMtp3SI'
-_BY='cgspInstTimerNumber'
-_BX='cgspProfileTimerNumber'
-_BW='cgspProfileName'
-_BV='CgspSampleInterval'
-_BU='ciscoGspInstSccpWrrGroup'
-_BT='cgspLinkRxCongestionState'
-_BS='cgspLinkRowStatus'
-_BR='cgspLinkL2BytesSent'
-_BQ='cgspLinkUtilThresholdSent'
-_BP='cgspLinkPlanCapacitySent'
-_BO='cgspLinkL2BytesRcvd'
-_BN='cgspLinkUtilThresholdRcvd'
-_BM='cgspLinkPlanCapacityRcvd'
-_BL='cgspLinkOMSURMFailCounts'
-_BK='cgspLinkOMSURMCounts'
-_BJ='cgspLinkOMAERMFailCounts'
-_BI='cgspLinkOMAERMCounts'
-_BH='cgspLinkMtp2T07Counts'
-_BG='cgspLinkMtp2T06Counts'
-_BF='cgspLinkMtp2T05Counts'
-_BE='cgspLinkMtp2T04Counts'
-_BD='cgspLinkMtp2T03Counts'
-_BC='cgspLinkMtp2T02Counts'
-_BB='cgspLinkMtp2T01Counts'
-_BA='cgspLinkTransmittedSIBs'
-_B9='cgspLinkReceivedSIBs'
-_B8='cgspLinkTcbcState'
-_B7='cgspLinkTcocRemoteBSNT'
-_B6='cgspLinkTcocLocalBSNT'
-_B5='cgspLinkTcocState'
-_B4='cgspLinkTsrcState'
-_B3='cgspLinkLsacState'
-_B2='cgspLinkProtocolDetails'
-_B1='cgspLinkReceivedLSSUs'
-_B0='cgspLinkTransmittedLSSUs'
-_A_='cgspLinkDroppedPkts'
-_Az='cgspLinkQosClass'
-_Ay='cgspLinkRemotePeerPort'
-_Ax='cgspLinkLocalPeerPort'
-_Aw='cgspLinkQ752T3E11L3'
-_Av='cgspLinkQ752T3E11L2'
-_Au='cgspLinkQ752T3E11L1'
-_At='cgspLinkQ752T3E10L3'
-_As='cgspLinkQ752T3E10L2'
-_Ar='cgspLinkQ752T3E10L1'
-_Aq='cgspLinkQ752T3E7'
-_Ap='cgspLinkQ752T3E6'
-_Ao='cgspLinkQ752T3E5'
-_An='cgspLinkQ752T3E4'
-_Am='cgspLinkQ752T3E3'
-_Al='cgspLinkQ752T3E2Bytes'
-_Ak='cgspLinkQ752T3E2Packets'
-_Aj='cgspLinkQ752T3E1'
-_Ai='cgspLinkQ752T2E18'
-_Ah='cgspLinkQ752T2E16'
-_Ag='cgspLinkQ752T2E15'
-_Af='cgspLinkQ752T2E10'
-_Ae='cgspLinkQ752T2E9'
-_Ad='cgspLinkQ752T2E7'
-_Ac='cgspLinkQ752T2E6'
-_Ab='cgspLinkQ752T2E5'
-_Aa='cgspLinkQ752T2E1'
-_AZ='cgspLinkQ752T1E11'
-_AY='cgspLinkQ752T1E10'
-_AX='cgspLinkQ752T1E9'
-_AW='cgspLinkQ752T1E8'
-_AV='cgspLinkQ752T1E7'
-_AU='cgspLinkQ752T1E5'
-_AT='cgspLinkQ752T1E3'
-_AS='cgspLinkQ752T1E2'
-_AR='cgspLinkQ752T1E1'
-_AQ='cgspLinkSigLinkTest'
-_AP='cgspLinkCongestionOnset3'
-_AO='cgspLinkCongestionOnset2'
-_AN='cgspLinkCongestionOnset1'
-_AM='cgspLinkCongestionAbate3'
-_AL='cgspLinkCongestionAbate2'
-_AK='cgspLinkCongestionAbate1'
-_AJ='cgspLinkXmitQueueDepthHighRT'
-_AI='cgspLinkXmitQueueDepthHigh'
-_AH='cgspLinkXmitQueueDepth'
-_AG='cgspLinkifIndex'
-_AF='cgspLinkType'
-_AE='cgspLinkDescription'
-_AD='cgspLinksetDisplayName'
-_AC='cgspLinksetState'
-_AB='cgspInstDescription'
-_AA='cgspInstDisplayName'
-_A9='Packets'
-_A8='bytes'
-_A7='bits per second'
-_A6='failed'
-_A5='ciscoGspNotificationsGroupSup2'
-_A4='ciscoGspNotificationsEnableGroupSup2'
-_A3='ciscoGspNotificationsInfoGroup'
-_A2='ciscoGspInstUPUGroup'
-_A1='ciscoGspScalarsGroupSup1'
-_A0='ciscoGspLinkGroupSup1'
-_z='cgspIntervalUPUs'
-_y='cgspUPUIntervalDuration'
-_x='cgspInstUserPartDisplay'
-_w='cgspLinkTestResult'
-_v='cgspLinkUtilStateSent'
-_u='cgspLinkUtilizationSent'
-_t='cgspLinkUtilStateRcvd'
-_s='cgspLinkUtilizationRcvd'
-_r='cgspLinkCongestionState'
-_q='cgspLinkReason'
-_p='cgspLinkState'
-_o='undefined'
-_n='packets'
-_m='milliseconds'
-_l='ciscoGspNotificationsGroupSup1'
-_k='ciscoGspNotificationsEnableGroupSup1'
-_j='cgspLinkSlc'
-_i='CgspPercentThreshold'
-_h='ciscoGspLinkGroupRev1'
-_g='ciscoGspNotificationsGroup'
-_f='ciscoGspNotificationsEnableGroup'
-_e='ciscoGspLinkUtilGroup'
-_d='ciscoGspLinkRemoteIpGroup'
-_c='ciscoGspLinkTimerGroup'
-_b='ciscoGspLinksetTimerGroup'
-_a='ciscoGspLinksetGroup'
-_Z='ciscoGspPointCodeGroup'
-_Y='ciscoGspInstTimerGroup'
-_X='ciscoGspInstanceGroup'
-_W='ciscoGspProfileGroup'
-_V='ciscoGspScalarsGroup'
-_U='deprecated'
-_T='cgspLinksetName'
-_S='SnmpAdminString'
-_R='cgspLinkDisplayName'
-_Q='cgspLinksetAdjacentDisplayPC'
-_P='cgspLinksetSourceDisplayPC'
-_O='percent'
-_N='cgspEventSequenceNumber'
-_M='cgspCLLICode'
-_L='Integer32'
-_K='cgspInstNetwork'
-_J='seconds'
-_I='read-write'
-_H='not-accessible'
-_G='TruthValue'
-_F='Unsigned32'
-_E='occurrences'
-_D='read-create'
-_C='read-only'
-_B='current'
-_A='CISCO-ITP-GSP-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CItpTcAclId,CItpTcCLLI,CItpTcDisplayPC,CItpTcInstanceNumber,CItpTcLinkSLC,CItpTcLinkType,CItpTcLinksetId,CItpTcNetworkIndicator,CItpTcNetworkName,CItpTcPointCode,CItpTcPointCodeType,CItpTcQos,CItpTcRouteTableName,CItpTcServiceIndicator=mibBuilder.importSymbols('CISCO-ITP-TC-MIB','CItpTcAclId','CItpTcCLLI','CItpTcDisplayPC','CItpTcInstanceNumber','CItpTcLinkSLC','CItpTcLinkType','CItpTcLinksetId','CItpTcNetworkIndicator','CItpTcNetworkName','CItpTcPointCode','CItpTcPointCodeType','CItpTcQos','CItpTcRouteTableName','CItpTcServiceIndicator')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB','InterfaceIndexOrZero')
-InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType','InetPortNumber')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_S)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_L,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp',_G)
-ciscoGspMIB=ModuleIdentity((1,3,6,1,4,1,9,9,336))
-if mibBuilder.loadTexts:ciscoGspMIB.setRevisions(('2009-12-31 00:00','2009-09-12 00:00','2009-05-25 00:00','2008-05-07 00:00','2005-10-21 00:00','2005-02-24 00:00','2003-07-16 00:00','2003-03-03 00:00'))
-class CgspSequenceNumber(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-class CgspSampleInterval(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,3600))
-class CgspPercentThreshold(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-class CgspLinkTestResults(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('noErrors',0),('undefinedOpc',1),('incorrectOpc',2),('undefinedSlc',3),('incorrectSlc',4),('incorrectNi',5),('badPattern',6),('nonAdjacent',7),(_A6,8)))
-class CgspLinkUtilization(TextualConvention,Gauge32):status=_B;subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,999))
-class CgspLinkCapacity(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(56000,2147483647))
-class CgspProfileName(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,19))
-class CgspLinkUtilizationState(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('unMonitored',0),('underThreshold',1),('overThreshold',2)))
-class CgspTimerNumbers(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45)));namedValues=NamedValues(*(('timerMtp3T01',1),('timerMtp3T02',2),('timerMtp3T03',3),('timerMtp3T04',4),('timerMtp3T05',5),('timerMtp3T06',6),('timerMtp3T07',7),('timerMtp3T08',8),('timerMtp3T09',9),('timerMtp3T10',10),('timerMtp3T11',11),('timerMtp3T12',12),('timerMtp3T13',13),('timerMtp3T14',14),('timerMtp3T15',15),('timerMtp3T16',16),('timerMtp3T17',17),('timerMtp3T18',18),('timerMtp3T19',19),('timerMtp3T20',20),('timerMtp3T21',21),('timerMtp3T22',22),('timerMtp3T23',23),('timerMtp3T24',24),('timerMtp3T25',25),('timerMtp3T26',26),('timerMtp3T27',27),('timerMtp3T28',28),('timerMtp3T29',29),('timerMtp3T30',30),('timerMtp3T31',31),('timerMtp3T32',32),('timerMtp3T33',33),('timerMtp3T34',34),('timerLinkTest',35),('timerLinkMessag1',36),('timerLinkActRetry',37),('timerMtp2T01',38),('timerMtp2T02',39),('timerMtp2T03',40),('timerMtp2T04N',41),('timerMtp2T04E',42),('timerMtp2T05',43),('timerMtp2T06',44),('timerMtp2T07',45)))
-class CgspTimerValue(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,4294967295))
-class CgspSS7Variant(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*(('unknown',0),('ansi',1),('itu',2),('china',3),('ntt',4),('ttc',5)))
-class CgspDisplayInstanceUserPart(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,40))
-class CItpTcSccpWrrOption(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('sls',0),('cgpaSls',1),('opcSls',2),('opc',3)))
-_CiscoGspMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoGspMIBNotifs=_CiscoGspMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,336,0))
-_CiscoGspMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoGspMIBObjects=_CiscoGspMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,336,1))
-_CgspScalars_ObjectIdentity=ObjectIdentity
-cgspScalars=_CgspScalars_ObjectIdentity((1,3,6,1,4,1,9,9,336,1,1))
-_CgspCLLICode_Type=CItpTcCLLI
-_CgspCLLICode_Object=MibScalar
-cgspCLLICode=_CgspCLLICode_Object((1,3,6,1,4,1,9,9,336,1,1,1),_CgspCLLICode_Type())
-cgspCLLICode.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgspCLLICode.setStatus(_B)
-class _CgspUtilSampleInterval_Type(CgspSampleInterval):defaultValue=300
-_CgspUtilSampleInterval_Type.__name__=_BV
-_CgspUtilSampleInterval_Object=MibScalar
-cgspUtilSampleInterval=_CgspUtilSampleInterval_Object((1,3,6,1,4,1,9,9,336,1,1,2),_CgspUtilSampleInterval_Type())
-cgspUtilSampleInterval.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgspUtilSampleInterval.setStatus(_B)
-if mibBuilder.loadTexts:cgspUtilSampleInterval.setUnits(_J)
-class _CgspUtilThreshold_Type(CgspPercentThreshold):defaultValue=40
-_CgspUtilThreshold_Type.__name__=_i
-_CgspUtilThreshold_Object=MibScalar
-cgspUtilThreshold=_CgspUtilThreshold_Object((1,3,6,1,4,1,9,9,336,1,1,3),_CgspUtilThreshold_Type())
-cgspUtilThreshold.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgspUtilThreshold.setStatus(_B)
-if mibBuilder.loadTexts:cgspUtilThreshold.setUnits(_O)
-class _CgspUtilAbateDelta_Type(CgspPercentThreshold):defaultValue=0
-_CgspUtilAbateDelta_Type.__name__=_i
-_CgspUtilAbateDelta_Object=MibScalar
-cgspUtilAbateDelta=_CgspUtilAbateDelta_Object((1,3,6,1,4,1,9,9,336,1,1,4),_CgspUtilAbateDelta_Type())
-cgspUtilAbateDelta.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgspUtilAbateDelta.setStatus(_B)
-if mibBuilder.loadTexts:cgspUtilAbateDelta.setUnits(_O)
-_CgspPlanCapacityDefault_Type=CgspLinkCapacity
-_CgspPlanCapacityDefault_Object=MibScalar
-cgspPlanCapacityDefault=_CgspPlanCapacityDefault_Object((1,3,6,1,4,1,9,9,336,1,1,5),_CgspPlanCapacityDefault_Type())
-cgspPlanCapacityDefault.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgspPlanCapacityDefault.setStatus(_B)
-if mibBuilder.loadTexts:cgspPlanCapacityDefault.setUnits(_A7)
-_CgspEventSequenceNumber_Type=Counter32
-_CgspEventSequenceNumber_Object=MibScalar
-cgspEventSequenceNumber=_CgspEventSequenceNumber_Object((1,3,6,1,4,1,9,9,336,1,1,6),_CgspEventSequenceNumber_Type())
-cgspEventSequenceNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspEventSequenceNumber.setStatus(_B)
-if mibBuilder.loadTexts:cgspEventSequenceNumber.setUnits('events')
-class _CgspUPUNotifWindowTime_Type(Integer32):defaultValue=900;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,86400))
-_CgspUPUNotifWindowTime_Type.__name__=_L
-_CgspUPUNotifWindowTime_Object=MibScalar
-cgspUPUNotifWindowTime=_CgspUPUNotifWindowTime_Object((1,3,6,1,4,1,9,9,336,1,1,7),_CgspUPUNotifWindowTime_Type())
-cgspUPUNotifWindowTime.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgspUPUNotifWindowTime.setStatus(_B)
-if mibBuilder.loadTexts:cgspUPUNotifWindowTime.setUnits(_J)
-_CgspProfile_ObjectIdentity=ObjectIdentity
-cgspProfile=_CgspProfile_ObjectIdentity((1,3,6,1,4,1,9,9,336,1,2))
-_CgspProfileTable_Object=MibTable
-cgspProfileTable=_CgspProfileTable_Object((1,3,6,1,4,1,9,9,336,1,2,1))
-if mibBuilder.loadTexts:cgspProfileTable.setStatus(_B)
-_CgspProfileTableEntry_Object=MibTableRow
-cgspProfileTableEntry=_CgspProfileTableEntry_Object((1,3,6,1,4,1,9,9,336,1,2,1,1))
-cgspProfileTableEntry.setIndexNames((0,_A,_BW))
-if mibBuilder.loadTexts:cgspProfileTableEntry.setStatus(_B)
-_CgspProfileName_Type=CgspProfileName
-_CgspProfileName_Object=MibTableColumn
-cgspProfileName=_CgspProfileName_Object((1,3,6,1,4,1,9,9,336,1,2,1,1,1),_CgspProfileName_Type())
-cgspProfileName.setMaxAccess(_H)
-if mibBuilder.loadTexts:cgspProfileName.setStatus(_B)
-_CgspProfileVariant_Type=CgspSS7Variant
-_CgspProfileVariant_Object=MibTableColumn
-cgspProfileVariant=_CgspProfileVariant_Object((1,3,6,1,4,1,9,9,336,1,2,1,1,2),_CgspProfileVariant_Type())
-cgspProfileVariant.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspProfileVariant.setStatus(_B)
-class _CgspProfileMtp2BundleTimer_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(5,10000))
-_CgspProfileMtp2BundleTimer_Type.__name__=_L
-_CgspProfileMtp2BundleTimer_Object=MibTableColumn
-cgspProfileMtp2BundleTimer=_CgspProfileMtp2BundleTimer_Object((1,3,6,1,4,1,9,9,336,1,2,1,1,3),_CgspProfileMtp2BundleTimer_Type())
-cgspProfileMtp2BundleTimer.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspProfileMtp2BundleTimer.setStatus(_B)
-class _CgspProfileMtp2SendQueueDepth_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(25,32000))
-_CgspProfileMtp2SendQueueDepth_Type.__name__=_L
-_CgspProfileMtp2SendQueueDepth_Object=MibTableColumn
-cgspProfileMtp2SendQueueDepth=_CgspProfileMtp2SendQueueDepth_Object((1,3,6,1,4,1,9,9,336,1,2,1,1,4),_CgspProfileMtp2SendQueueDepth_Type())
-cgspProfileMtp2SendQueueDepth.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspProfileMtp2SendQueueDepth.setStatus(_B)
-_CgspProfileRowStatus_Type=RowStatus
-_CgspProfileRowStatus_Object=MibTableColumn
-cgspProfileRowStatus=_CgspProfileRowStatus_Object((1,3,6,1,4,1,9,9,336,1,2,1,1,5),_CgspProfileRowStatus_Type())
-cgspProfileRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspProfileRowStatus.setStatus(_B)
-_CgspProfileTimerTable_Object=MibTable
-cgspProfileTimerTable=_CgspProfileTimerTable_Object((1,3,6,1,4,1,9,9,336,1,2,2))
-if mibBuilder.loadTexts:cgspProfileTimerTable.setStatus(_B)
-_CgspProfileTimerTableEntry_Object=MibTableRow
-cgspProfileTimerTableEntry=_CgspProfileTimerTableEntry_Object((1,3,6,1,4,1,9,9,336,1,2,2,1))
-cgspProfileTimerTableEntry.setIndexNames((0,_A,_K),(0,_A,_BX))
-if mibBuilder.loadTexts:cgspProfileTimerTableEntry.setStatus(_B)
-_CgspProfileTimerNumber_Type=CgspTimerNumbers
-_CgspProfileTimerNumber_Object=MibTableColumn
-cgspProfileTimerNumber=_CgspProfileTimerNumber_Object((1,3,6,1,4,1,9,9,336,1,2,2,1,1),_CgspProfileTimerNumber_Type())
-cgspProfileTimerNumber.setMaxAccess(_H)
-if mibBuilder.loadTexts:cgspProfileTimerNumber.setStatus(_B)
-_CgspProfileTimerValue_Type=CgspTimerValue
-_CgspProfileTimerValue_Object=MibTableColumn
-cgspProfileTimerValue=_CgspProfileTimerValue_Object((1,3,6,1,4,1,9,9,336,1,2,2,1,2),_CgspProfileTimerValue_Type())
-cgspProfileTimerValue.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspProfileTimerValue.setStatus(_B)
-if mibBuilder.loadTexts:cgspProfileTimerValue.setUnits(_m)
-_CgspProfileTimerRowStatus_Type=RowStatus
-_CgspProfileTimerRowStatus_Object=MibTableColumn
-cgspProfileTimerRowStatus=_CgspProfileTimerRowStatus_Object((1,3,6,1,4,1,9,9,336,1,2,2,1,3),_CgspProfileTimerRowStatus_Type())
-cgspProfileTimerRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspProfileTimerRowStatus.setStatus(_B)
-_CgspInstance_ObjectIdentity=ObjectIdentity
-cgspInstance=_CgspInstance_ObjectIdentity((1,3,6,1,4,1,9,9,336,1,3))
-_CgspInstanceTable_Object=MibTable
-cgspInstanceTable=_CgspInstanceTable_Object((1,3,6,1,4,1,9,9,336,1,3,1))
-if mibBuilder.loadTexts:cgspInstanceTable.setStatus(_B)
-_CgspInstanceTableEntry_Object=MibTableRow
-cgspInstanceTableEntry=_CgspInstanceTableEntry_Object((1,3,6,1,4,1,9,9,336,1,3,1,1))
-cgspInstanceTableEntry.setIndexNames((0,_A,_K))
-if mibBuilder.loadTexts:cgspInstanceTableEntry.setStatus(_B)
-_CgspInstNetwork_Type=CItpTcNetworkName
-_CgspInstNetwork_Object=MibTableColumn
-cgspInstNetwork=_CgspInstNetwork_Object((1,3,6,1,4,1,9,9,336,1,3,1,1,1),_CgspInstNetwork_Type())
-cgspInstNetwork.setMaxAccess(_H)
-if mibBuilder.loadTexts:cgspInstNetwork.setStatus(_B)
-_CgspInstNetworkIndicator_Type=CItpTcNetworkIndicator
-_CgspInstNetworkIndicator_Object=MibTableColumn
-cgspInstNetworkIndicator=_CgspInstNetworkIndicator_Object((1,3,6,1,4,1,9,9,336,1,3,1,1,2),_CgspInstNetworkIndicator_Type())
-cgspInstNetworkIndicator.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspInstNetworkIndicator.setStatus(_B)
-_CgspInstVariant_Type=CgspSS7Variant
-_CgspInstVariant_Object=MibTableColumn
-cgspInstVariant=_CgspInstVariant_Object((1,3,6,1,4,1,9,9,336,1,3,1,1,3),_CgspInstVariant_Type())
-cgspInstVariant.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspInstVariant.setStatus(_B)
-class _CgspInstDisplayName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,30))
-_CgspInstDisplayName_Type.__name__=_S
-_CgspInstDisplayName_Object=MibTableColumn
-cgspInstDisplayName=_CgspInstDisplayName_Object((1,3,6,1,4,1,9,9,336,1,3,1,1,4),_CgspInstDisplayName_Type())
-cgspInstDisplayName.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspInstDisplayName.setStatus(_B)
-class _CgspInstDescription_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,254))
-_CgspInstDescription_Type.__name__=_S
-_CgspInstDescription_Object=MibTableColumn
-cgspInstDescription=_CgspInstDescription_Object((1,3,6,1,4,1,9,9,336,1,3,1,1,5),_CgspInstDescription_Type())
-cgspInstDescription.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspInstDescription.setStatus(_B)
-class _CgspInstTFR_Type(TruthValue):defaultValue=2
-_CgspInstTFR_Type.__name__=_G
-_CgspInstTFR_Object=MibTableColumn
-cgspInstTFR=_CgspInstTFR_Object((1,3,6,1,4,1,9,9,336,1,3,1,1,6),_CgspInstTFR_Type())
-cgspInstTFR.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspInstTFR.setStatus(_B)
-class _CgspInstCongestionsLevels_Type(TruthValue):defaultValue=2
-_CgspInstCongestionsLevels_Type.__name__=_G
-_CgspInstCongestionsLevels_Object=MibTableColumn
-cgspInstCongestionsLevels=_CgspInstCongestionsLevels_Object((1,3,6,1,4,1,9,9,336,1,3,1,1,7),_CgspInstCongestionsLevels_Type())
-cgspInstCongestionsLevels.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspInstCongestionsLevels.setStatus(_B)
-class _CgspInstFastRestart_Type(TruthValue):defaultValue=2
-_CgspInstFastRestart_Type.__name__=_G
-_CgspInstFastRestart_Object=MibTableColumn
-cgspInstFastRestart=_CgspInstFastRestart_Object((1,3,6,1,4,1,9,9,336,1,3,1,1,8),_CgspInstFastRestart_Type())
-cgspInstFastRestart.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspInstFastRestart.setStatus(_B)
-class _CgspInstDistSccpUnseq_Type(TruthValue):defaultValue=2
-_CgspInstDistSccpUnseq_Type.__name__=_G
-_CgspInstDistSccpUnseq_Object=MibTableColumn
-cgspInstDistSccpUnseq=_CgspInstDistSccpUnseq_Object((1,3,6,1,4,1,9,9,336,1,3,1,1,9),_CgspInstDistSccpUnseq_Type())
-cgspInstDistSccpUnseq.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspInstDistSccpUnseq.setStatus(_B)
-class _CgspInstSummaryRoutingException_Type(TruthValue):defaultValue=1
-_CgspInstSummaryRoutingException_Type.__name__=_G
-_CgspInstSummaryRoutingException_Object=MibTableColumn
-cgspInstSummaryRoutingException=_CgspInstSummaryRoutingException_Object((1,3,6,1,4,1,9,9,336,1,3,1,1,10),_CgspInstSummaryRoutingException_Type())
-cgspInstSummaryRoutingException.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspInstSummaryRoutingException.setStatus(_B)
-_CgspInstNumber_Type=CItpTcInstanceNumber
-_CgspInstNumber_Object=MibTableColumn
-cgspInstNumber=_CgspInstNumber_Object((1,3,6,1,4,1,9,9,336,1,3,1,1,11),_CgspInstNumber_Type())
-cgspInstNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspInstNumber.setStatus(_B)
-_CgspInstRouteTableName_Type=CItpTcRouteTableName
-_CgspInstRouteTableName_Object=MibTableColumn
-cgspInstRouteTableName=_CgspInstRouteTableName_Object((1,3,6,1,4,1,9,9,336,1,3,1,1,12),_CgspInstRouteTableName_Type())
-cgspInstRouteTableName.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspInstRouteTableName.setStatus(_B)
-_CgspInstRowStatus_Type=RowStatus
-_CgspInstRowStatus_Object=MibTableColumn
-cgspInstRowStatus=_CgspInstRowStatus_Object((1,3,6,1,4,1,9,9,336,1,3,1,1,13),_CgspInstRowStatus_Type())
-cgspInstRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspInstRowStatus.setStatus(_B)
-class _CgspInstSccpWrrOpcShift_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,8))
-_CgspInstSccpWrrOpcShift_Type.__name__=_F
-_CgspInstSccpWrrOpcShift_Object=MibTableColumn
-cgspInstSccpWrrOpcShift=_CgspInstSccpWrrOpcShift_Object((1,3,6,1,4,1,9,9,336,1,3,1,1,14),_CgspInstSccpWrrOpcShift_Type())
-cgspInstSccpWrrOpcShift.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspInstSccpWrrOpcShift.setStatus(_B)
-_CgspInstSccpWrrOption_Type=CItpTcSccpWrrOption
-_CgspInstSccpWrrOption_Object=MibTableColumn
-cgspInstSccpWrrOption=_CgspInstSccpWrrOption_Object((1,3,6,1,4,1,9,9,336,1,3,1,1,15),_CgspInstSccpWrrOption_Type())
-cgspInstSccpWrrOption.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspInstSccpWrrOption.setStatus(_B)
-_CgspInstTimerTable_Object=MibTable
-cgspInstTimerTable=_CgspInstTimerTable_Object((1,3,6,1,4,1,9,9,336,1,3,2))
-if mibBuilder.loadTexts:cgspInstTimerTable.setStatus(_B)
-_CgspInstTimerTableEntry_Object=MibTableRow
-cgspInstTimerTableEntry=_CgspInstTimerTableEntry_Object((1,3,6,1,4,1,9,9,336,1,3,2,1))
-cgspInstTimerTableEntry.setIndexNames((0,_A,_K),(0,_A,_BY))
-if mibBuilder.loadTexts:cgspInstTimerTableEntry.setStatus(_B)
-_CgspInstTimerNumber_Type=CgspTimerNumbers
-_CgspInstTimerNumber_Object=MibTableColumn
-cgspInstTimerNumber=_CgspInstTimerNumber_Object((1,3,6,1,4,1,9,9,336,1,3,2,1,1),_CgspInstTimerNumber_Type())
-cgspInstTimerNumber.setMaxAccess(_H)
-if mibBuilder.loadTexts:cgspInstTimerNumber.setStatus(_B)
-_CgspInstTimerValue_Type=CgspTimerValue
-_CgspInstTimerValue_Object=MibTableColumn
-cgspInstTimerValue=_CgspInstTimerValue_Object((1,3,6,1,4,1,9,9,336,1,3,2,1,2),_CgspInstTimerValue_Type())
-cgspInstTimerValue.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspInstTimerValue.setStatus(_B)
-if mibBuilder.loadTexts:cgspInstTimerValue.setUnits(_m)
-_CgspInstTimerRowStatus_Type=RowStatus
-_CgspInstTimerRowStatus_Object=MibTableColumn
-cgspInstTimerRowStatus=_CgspInstTimerRowStatus_Object((1,3,6,1,4,1,9,9,336,1,3,2,1,3),_CgspInstTimerRowStatus_Type())
-cgspInstTimerRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspInstTimerRowStatus.setStatus(_B)
-_CgspInstUPUTable_Object=MibTable
-cgspInstUPUTable=_CgspInstUPUTable_Object((1,3,6,1,4,1,9,9,336,1,3,3))
-if mibBuilder.loadTexts:cgspInstUPUTable.setStatus(_B)
-_CgspInstUPUTableEntry_Object=MibTableRow
-cgspInstUPUTableEntry=_CgspInstUPUTableEntry_Object((1,3,6,1,4,1,9,9,336,1,3,3,1))
-cgspInstUPUTableEntry.setIndexNames((0,_A,_K),(0,_A,_BZ))
-if mibBuilder.loadTexts:cgspInstUPUTableEntry.setStatus(_B)
-_CgspMtp3SI_Type=CItpTcServiceIndicator
-_CgspMtp3SI_Object=MibTableColumn
-cgspMtp3SI=_CgspMtp3SI_Object((1,3,6,1,4,1,9,9,336,1,3,3,1,1),_CgspMtp3SI_Type())
-cgspMtp3SI.setMaxAccess(_H)
-if mibBuilder.loadTexts:cgspMtp3SI.setStatus(_B)
-_CgspInstSIUPUReceived_Type=Counter32
-_CgspInstSIUPUReceived_Object=MibTableColumn
-cgspInstSIUPUReceived=_CgspInstSIUPUReceived_Object((1,3,6,1,4,1,9,9,336,1,3,3,1,2),_CgspInstSIUPUReceived_Type())
-cgspInstSIUPUReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspInstSIUPUReceived.setStatus(_B)
-if mibBuilder.loadTexts:cgspInstSIUPUReceived.setUnits('MSUs')
-_CgspInstSIUPUTransmitted_Type=Counter32
-_CgspInstSIUPUTransmitted_Object=MibTableColumn
-cgspInstSIUPUTransmitted=_CgspInstSIUPUTransmitted_Object((1,3,6,1,4,1,9,9,336,1,3,3,1,3),_CgspInstSIUPUTransmitted_Type())
-cgspInstSIUPUTransmitted.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspInstSIUPUTransmitted.setStatus(_B)
-if mibBuilder.loadTexts:cgspInstSIUPUTransmitted.setUnits('MSUs')
-_CgspInstUserPartDisplay_Type=CgspDisplayInstanceUserPart
-_CgspInstUserPartDisplay_Object=MibTableColumn
-cgspInstUserPartDisplay=_CgspInstUserPartDisplay_Object((1,3,6,1,4,1,9,9,336,1,3,3,1,4),_CgspInstUserPartDisplay_Type())
-cgspInstUserPartDisplay.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspInstUserPartDisplay.setStatus(_B)
-_CgspPointCode_ObjectIdentity=ObjectIdentity
-cgspPointCode=_CgspPointCode_ObjectIdentity((1,3,6,1,4,1,9,9,336,1,4))
-_CgspPointCodeTable_Object=MibTable
-cgspPointCodeTable=_CgspPointCodeTable_Object((1,3,6,1,4,1,9,9,336,1,4,1))
-if mibBuilder.loadTexts:cgspPointCodeTable.setStatus(_B)
-_CgspPointCodeTableEntry_Object=MibTableRow
-cgspPointCodeTableEntry=_CgspPointCodeTableEntry_Object((1,3,6,1,4,1,9,9,336,1,4,1,1))
-cgspPointCodeTableEntry.setIndexNames((0,_A,_K),(0,_A,_Ba),(0,_A,_Bb))
-if mibBuilder.loadTexts:cgspPointCodeTableEntry.setStatus(_B)
-_CgspPointCodeNi_Type=CItpTcNetworkIndicator
-_CgspPointCodeNi_Object=MibTableColumn
-cgspPointCodeNi=_CgspPointCodeNi_Object((1,3,6,1,4,1,9,9,336,1,4,1,1,1),_CgspPointCodeNi_Type())
-cgspPointCodeNi.setMaxAccess(_H)
-if mibBuilder.loadTexts:cgspPointCodeNi.setStatus(_B)
-_CgspPointCodeBin_Type=CItpTcPointCode
-_CgspPointCodeBin_Object=MibTableColumn
-cgspPointCodeBin=_CgspPointCodeBin_Object((1,3,6,1,4,1,9,9,336,1,4,1,1,2),_CgspPointCodeBin_Type())
-cgspPointCodeBin.setMaxAccess(_H)
-if mibBuilder.loadTexts:cgspPointCodeBin.setStatus(_B)
-_CgspPointCodeType_Type=CItpTcPointCodeType
-_CgspPointCodeType_Object=MibTableColumn
-cgspPointCodeType=_CgspPointCodeType_Object((1,3,6,1,4,1,9,9,336,1,4,1,1,3),_CgspPointCodeType_Type())
-cgspPointCodeType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspPointCodeType.setStatus(_B)
-_CgspPointCodeDisplay_Type=CItpTcDisplayPC
-_CgspPointCodeDisplay_Object=MibTableColumn
-cgspPointCodeDisplay=_CgspPointCodeDisplay_Object((1,3,6,1,4,1,9,9,336,1,4,1,1,4),_CgspPointCodeDisplay_Type())
-cgspPointCodeDisplay.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspPointCodeDisplay.setStatus(_B)
-_CgspPointCodeRowStatus_Type=RowStatus
-_CgspPointCodeRowStatus_Object=MibTableColumn
-cgspPointCodeRowStatus=_CgspPointCodeRowStatus_Object((1,3,6,1,4,1,9,9,336,1,4,1,1,5),_CgspPointCodeRowStatus_Type())
-cgspPointCodeRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspPointCodeRowStatus.setStatus(_B)
-_CgspLinkset_ObjectIdentity=ObjectIdentity
-cgspLinkset=_CgspLinkset_ObjectIdentity((1,3,6,1,4,1,9,9,336,1,5))
-_CgspLinksetTable_Object=MibTable
-cgspLinksetTable=_CgspLinksetTable_Object((1,3,6,1,4,1,9,9,336,1,5,1))
-if mibBuilder.loadTexts:cgspLinksetTable.setStatus(_B)
-_CgspLinksetTableEntry_Object=MibTableRow
-cgspLinksetTableEntry=_CgspLinksetTableEntry_Object((1,3,6,1,4,1,9,9,336,1,5,1,1))
-cgspLinksetTableEntry.setIndexNames((0,_A,_K),(0,_A,_T))
-if mibBuilder.loadTexts:cgspLinksetTableEntry.setStatus(_B)
-_CgspLinksetName_Type=CItpTcLinksetId
-_CgspLinksetName_Object=MibTableColumn
-cgspLinksetName=_CgspLinksetName_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,1),_CgspLinksetName_Type())
-cgspLinksetName.setMaxAccess(_H)
-if mibBuilder.loadTexts:cgspLinksetName.setStatus(_B)
-_CgspLinksetSourcePointCode_Type=CItpTcPointCode
-_CgspLinksetSourcePointCode_Object=MibTableColumn
-cgspLinksetSourcePointCode=_CgspLinksetSourcePointCode_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,2),_CgspLinksetSourcePointCode_Type())
-cgspLinksetSourcePointCode.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinksetSourcePointCode.setStatus(_B)
-_CgspLinksetSourceDisplayPC_Type=CItpTcDisplayPC
-_CgspLinksetSourceDisplayPC_Object=MibTableColumn
-cgspLinksetSourceDisplayPC=_CgspLinksetSourceDisplayPC_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,3),_CgspLinksetSourceDisplayPC_Type())
-cgspLinksetSourceDisplayPC.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinksetSourceDisplayPC.setStatus(_B)
-_CgspLinksetAdjacentPointCode_Type=CItpTcPointCode
-_CgspLinksetAdjacentPointCode_Object=MibTableColumn
-cgspLinksetAdjacentPointCode=_CgspLinksetAdjacentPointCode_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,4),_CgspLinksetAdjacentPointCode_Type())
-cgspLinksetAdjacentPointCode.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinksetAdjacentPointCode.setStatus(_B)
-_CgspLinksetAdjacentDisplayPC_Type=CItpTcDisplayPC
-_CgspLinksetAdjacentDisplayPC_Object=MibTableColumn
-cgspLinksetAdjacentDisplayPC=_CgspLinksetAdjacentDisplayPC_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,5),_CgspLinksetAdjacentDisplayPC_Type())
-cgspLinksetAdjacentDisplayPC.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinksetAdjacentDisplayPC.setStatus(_B)
-class _CgspLinksetState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_Bc,1),('shutdown',2),(_Bd,3)))
-_CgspLinksetState_Type.__name__=_L
-_CgspLinksetState_Object=MibTableColumn
-cgspLinksetState=_CgspLinksetState_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,6),_CgspLinksetState_Type())
-cgspLinksetState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinksetState.setStatus(_B)
-_CgspLinksetInboundAcl_Type=CItpTcAclId
-_CgspLinksetInboundAcl_Object=MibTableColumn
-cgspLinksetInboundAcl=_CgspLinksetInboundAcl_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,7),_CgspLinksetInboundAcl_Type())
-cgspLinksetInboundAcl.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinksetInboundAcl.setStatus(_B)
-_CgspLinksetOutboundAcl_Type=CItpTcAclId
-_CgspLinksetOutboundAcl_Object=MibTableColumn
-cgspLinksetOutboundAcl=_CgspLinksetOutboundAcl_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,8),_CgspLinksetOutboundAcl_Type())
-cgspLinksetOutboundAcl.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinksetOutboundAcl.setStatus(_B)
-class _CgspLinksetAccountingMtp3_Type(TruthValue):defaultValue=2
-_CgspLinksetAccountingMtp3_Type.__name__=_G
-_CgspLinksetAccountingMtp3_Object=MibTableColumn
-cgspLinksetAccountingMtp3=_CgspLinksetAccountingMtp3_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,9),_CgspLinksetAccountingMtp3_Type())
-cgspLinksetAccountingMtp3.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinksetAccountingMtp3.setStatus(_B)
-class _CgspLinksetAccountingGtt_Type(TruthValue):defaultValue=2
-_CgspLinksetAccountingGtt_Type.__name__=_G
-_CgspLinksetAccountingGtt_Object=MibTableColumn
-cgspLinksetAccountingGtt=_CgspLinksetAccountingGtt_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,10),_CgspLinksetAccountingGtt_Type())
-cgspLinksetAccountingGtt.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinksetAccountingGtt.setStatus(_B)
-_CgspLinksetNumLinks_Type=Unsigned32
-_CgspLinksetNumLinks_Object=MibTableColumn
-cgspLinksetNumLinks=_CgspLinksetNumLinks_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,11),_CgspLinksetNumLinks_Type())
-cgspLinksetNumLinks.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinksetNumLinks.setStatus(_B)
-_CgspLinksetDurationInService_Type=Counter32
-_CgspLinksetDurationInService_Object=MibTableColumn
-cgspLinksetDurationInService=_CgspLinksetDurationInService_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,12),_CgspLinksetDurationInService_Type())
-cgspLinksetDurationInService.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinksetDurationInService.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinksetDurationInService.setUnits(_J)
-_CgspLinksetDurationOutService_Type=Counter32
-_CgspLinksetDurationOutService_Object=MibTableColumn
-cgspLinksetDurationOutService=_CgspLinksetDurationOutService_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,13),_CgspLinksetDurationOutService_Type())
-cgspLinksetDurationOutService.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinksetDurationOutService.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinksetDurationOutService.setUnits(_J)
-class _CgspLinksetActPriority_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_CgspLinksetActPriority_Type.__name__=_F
-_CgspLinksetActPriority_Object=MibTableColumn
-cgspLinksetActPriority=_CgspLinksetActPriority_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,14),_CgspLinksetActPriority_Type())
-cgspLinksetActPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinksetActPriority.setStatus(_B)
-class _CgspLinksetDisplayName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,30))
-_CgspLinksetDisplayName_Type.__name__=_S
-_CgspLinksetDisplayName_Object=MibTableColumn
-cgspLinksetDisplayName=_CgspLinksetDisplayName_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,15),_CgspLinksetDisplayName_Type())
-cgspLinksetDisplayName.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinksetDisplayName.setStatus(_B)
-class _CgspLinksetDescription_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,254))
-_CgspLinksetDescription_Type.__name__=_S
-_CgspLinksetDescription_Object=MibTableColumn
-cgspLinksetDescription=_CgspLinksetDescription_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,16),_CgspLinksetDescription_Type())
-cgspLinksetDescription.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinksetDescription.setStatus(_B)
-_CgspLinksetRotateSlsEnable_Type=TruthValue
-_CgspLinksetRotateSlsEnable_Object=MibTableColumn
-cgspLinksetRotateSlsEnable=_CgspLinksetRotateSlsEnable_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,17),_CgspLinksetRotateSlsEnable_Type())
-cgspLinksetRotateSlsEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinksetRotateSlsEnable.setStatus(_B)
-class _CgspLinksetRotateSlsShift_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3))
-_CgspLinksetRotateSlsShift_Type.__name__=_F
-_CgspLinksetRotateSlsShift_Object=MibTableColumn
-cgspLinksetRotateSlsShift=_CgspLinksetRotateSlsShift_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,18),_CgspLinksetRotateSlsShift_Type())
-cgspLinksetRotateSlsShift.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinksetRotateSlsShift.setStatus(_B)
-_CgspLinksetProfileName_Type=CgspProfileName
-_CgspLinksetProfileName_Object=MibTableColumn
-cgspLinksetProfileName=_CgspLinksetProfileName_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,19),_CgspLinksetProfileName_Type())
-cgspLinksetProfileName.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinksetProfileName.setStatus(_B)
-_CgspLinksetAdjacentInst_Type=CItpTcNetworkName
-_CgspLinksetAdjacentInst_Object=MibTableColumn
-cgspLinksetAdjacentInst=_CgspLinksetAdjacentInst_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,20),_CgspLinksetAdjacentInst_Type())
-cgspLinksetAdjacentInst.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinksetAdjacentInst.setStatus(_B)
-_CgspLinksetRowStatus_Type=RowStatus
-_CgspLinksetRowStatus_Object=MibTableColumn
-cgspLinksetRowStatus=_CgspLinksetRowStatus_Object((1,3,6,1,4,1,9,9,336,1,5,1,1,21),_CgspLinksetRowStatus_Type())
-cgspLinksetRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinksetRowStatus.setStatus(_B)
-_CgspLinksetTimerTable_Object=MibTable
-cgspLinksetTimerTable=_CgspLinksetTimerTable_Object((1,3,6,1,4,1,9,9,336,1,5,2))
-if mibBuilder.loadTexts:cgspLinksetTimerTable.setStatus(_B)
-_CgspLinksetTimerTableEntry_Object=MibTableRow
-cgspLinksetTimerTableEntry=_CgspLinksetTimerTableEntry_Object((1,3,6,1,4,1,9,9,336,1,5,2,1))
-cgspLinksetTimerTableEntry.setIndexNames((0,_A,_K),(0,_A,_T),(0,_A,_Be))
-if mibBuilder.loadTexts:cgspLinksetTimerTableEntry.setStatus(_B)
-_CgspLinksetTimerNumber_Type=CgspTimerNumbers
-_CgspLinksetTimerNumber_Object=MibTableColumn
-cgspLinksetTimerNumber=_CgspLinksetTimerNumber_Object((1,3,6,1,4,1,9,9,336,1,5,2,1,1),_CgspLinksetTimerNumber_Type())
-cgspLinksetTimerNumber.setMaxAccess(_H)
-if mibBuilder.loadTexts:cgspLinksetTimerNumber.setStatus(_B)
-_CgspLinksetTimerValue_Type=CgspTimerValue
-_CgspLinksetTimerValue_Object=MibTableColumn
-cgspLinksetTimerValue=_CgspLinksetTimerValue_Object((1,3,6,1,4,1,9,9,336,1,5,2,1,2),_CgspLinksetTimerValue_Type())
-cgspLinksetTimerValue.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinksetTimerValue.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinksetTimerValue.setUnits(_m)
-_CgspLinksetTimerRowStatus_Type=RowStatus
-_CgspLinksetTimerRowStatus_Object=MibTableColumn
-cgspLinksetTimerRowStatus=_CgspLinksetTimerRowStatus_Object((1,3,6,1,4,1,9,9,336,1,5,2,1,3),_CgspLinksetTimerRowStatus_Type())
-cgspLinksetTimerRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinksetTimerRowStatus.setStatus(_B)
-_CgspLink_ObjectIdentity=ObjectIdentity
-cgspLink=_CgspLink_ObjectIdentity((1,3,6,1,4,1,9,9,336,1,6))
-_CgspLinkTable_Object=MibTable
-cgspLinkTable=_CgspLinkTable_Object((1,3,6,1,4,1,9,9,336,1,6,1))
-if mibBuilder.loadTexts:cgspLinkTable.setStatus(_B)
-_CgspLinkTableEntry_Object=MibTableRow
-cgspLinkTableEntry=_CgspLinkTableEntry_Object((1,3,6,1,4,1,9,9,336,1,6,1,1))
-cgspLinkTableEntry.setIndexNames((0,_A,_K),(0,_A,_T),(0,_A,_j))
-if mibBuilder.loadTexts:cgspLinkTableEntry.setStatus(_B)
-_CgspLinkSlc_Type=CItpTcLinkSLC
-_CgspLinkSlc_Object=MibTableColumn
-cgspLinkSlc=_CgspLinkSlc_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,1),_CgspLinkSlc_Type())
-cgspLinkSlc.setMaxAccess(_H)
-if mibBuilder.loadTexts:cgspLinkSlc.setStatus(_B)
-class _CgspLinkDescription_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,254))
-_CgspLinkDescription_Type.__name__=_S
-_CgspLinkDescription_Object=MibTableColumn
-cgspLinkDescription=_CgspLinkDescription_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,2),_CgspLinkDescription_Type())
-cgspLinkDescription.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkDescription.setStatus(_B)
-class _CgspLinkState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_Bc,1),(_A6,2),('shutdown',3),(_Bd,4)))
-_CgspLinkState_Type.__name__=_L
-_CgspLinkState_Object=MibTableColumn
-cgspLinkState=_CgspLinkState_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,3),_CgspLinkState_Type())
-cgspLinkState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkState.setStatus(_B)
-class _CgspLinkReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35)));namedValues=NamedValues(*(('unknown',0),('changeOverInProgress',1),('mgmtDisconnectRequest',2),('linkAlignmentLost',3),('connectionLost',4),('localDisconnect',5),('remoteDisconnect',6),('suermFailure',7),('t1Timeout',8),('t2Timeout',9),('t3Timeout',10),('t6Timeout',11),('t7Timeout',12),('provingFailure',13),('protocolErrorBsn',14),('protocolErrorFib',15),('protocolErrorSin',16),('protocolErrorLssu',17),('peerNotReady',18),('communicationLost',19),('noListenPosted',20),('bufferNotAvailable',21),('cardRemoved',22),('cardInserted',23),('falseLinkCongestion',24),('configDownload',25),('localInhibit',26),('localUninhibit',27),('remoteInhibit',28),('remoteUninhibit',29),('localBlocked',30),('localUnBlocked',31),('remoteBlocked',32),('remoteUnblocked',33),('linkRestored',34),('linkTestFailure',35)))
-_CgspLinkReason_Type.__name__=_L
-_CgspLinkReason_Object=MibTableColumn
-cgspLinkReason=_CgspLinkReason_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,4),_CgspLinkReason_Type())
-cgspLinkReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkReason.setStatus(_B)
-_CgspLinkType_Type=CItpTcLinkType
-_CgspLinkType_Object=MibTableColumn
-cgspLinkType=_CgspLinkType_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,5),_CgspLinkType_Type())
-cgspLinkType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkType.setStatus(_B)
-_CgspLinkifIndex_Type=InterfaceIndexOrZero
-_CgspLinkifIndex_Object=MibTableColumn
-cgspLinkifIndex=_CgspLinkifIndex_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,6),_CgspLinkifIndex_Type())
-cgspLinkifIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkifIndex.setStatus(_B)
-class _CgspLinkSctpAssociation_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CgspLinkSctpAssociation_Type.__name__=_F
-_CgspLinkSctpAssociation_Object=MibTableColumn
-cgspLinkSctpAssociation=_CgspLinkSctpAssociation_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,7),_CgspLinkSctpAssociation_Type())
-cgspLinkSctpAssociation.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkSctpAssociation.setStatus(_U)
-_CgspLinkXmitQueueDepth_Type=Gauge32
-_CgspLinkXmitQueueDepth_Object=MibTableColumn
-cgspLinkXmitQueueDepth=_CgspLinkXmitQueueDepth_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,8),_CgspLinkXmitQueueDepth_Type())
-cgspLinkXmitQueueDepth.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkXmitQueueDepth.setStatus(_B)
-_CgspLinkXmitQueueDepthHigh_Type=Unsigned32
-_CgspLinkXmitQueueDepthHigh_Object=MibTableColumn
-cgspLinkXmitQueueDepthHigh=_CgspLinkXmitQueueDepthHigh_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,9),_CgspLinkXmitQueueDepthHigh_Type())
-cgspLinkXmitQueueDepthHigh.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkXmitQueueDepthHigh.setStatus(_B)
-_CgspLinkXmitQueueDepthHighRT_Type=TimeStamp
-_CgspLinkXmitQueueDepthHighRT_Object=MibTableColumn
-cgspLinkXmitQueueDepthHighRT=_CgspLinkXmitQueueDepthHighRT_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,10),_CgspLinkXmitQueueDepthHighRT_Type())
-cgspLinkXmitQueueDepthHighRT.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkXmitQueueDepthHighRT.setStatus(_B)
-class _CgspLinkCongestionState_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3))
-_CgspLinkCongestionState_Type.__name__=_F
-_CgspLinkCongestionState_Object=MibTableColumn
-cgspLinkCongestionState=_CgspLinkCongestionState_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,11),_CgspLinkCongestionState_Type())
-cgspLinkCongestionState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkCongestionState.setStatus(_B)
-class _CgspLinkCongestionAbate1_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CgspLinkCongestionAbate1_Type.__name__=_F
-_CgspLinkCongestionAbate1_Object=MibTableColumn
-cgspLinkCongestionAbate1=_CgspLinkCongestionAbate1_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,12),_CgspLinkCongestionAbate1_Type())
-cgspLinkCongestionAbate1.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkCongestionAbate1.setStatus(_B)
-class _CgspLinkCongestionAbate2_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CgspLinkCongestionAbate2_Type.__name__=_F
-_CgspLinkCongestionAbate2_Object=MibTableColumn
-cgspLinkCongestionAbate2=_CgspLinkCongestionAbate2_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,13),_CgspLinkCongestionAbate2_Type())
-cgspLinkCongestionAbate2.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkCongestionAbate2.setStatus(_B)
-class _CgspLinkCongestionAbate3_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CgspLinkCongestionAbate3_Type.__name__=_F
-_CgspLinkCongestionAbate3_Object=MibTableColumn
-cgspLinkCongestionAbate3=_CgspLinkCongestionAbate3_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,14),_CgspLinkCongestionAbate3_Type())
-cgspLinkCongestionAbate3.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkCongestionAbate3.setStatus(_B)
-class _CgspLinkCongestionOnset1_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CgspLinkCongestionOnset1_Type.__name__=_F
-_CgspLinkCongestionOnset1_Object=MibTableColumn
-cgspLinkCongestionOnset1=_CgspLinkCongestionOnset1_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,15),_CgspLinkCongestionOnset1_Type())
-cgspLinkCongestionOnset1.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkCongestionOnset1.setStatus(_B)
-class _CgspLinkCongestionOnset2_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CgspLinkCongestionOnset2_Type.__name__=_F
-_CgspLinkCongestionOnset2_Object=MibTableColumn
-cgspLinkCongestionOnset2=_CgspLinkCongestionOnset2_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,16),_CgspLinkCongestionOnset2_Type())
-cgspLinkCongestionOnset2.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkCongestionOnset2.setStatus(_B)
-class _CgspLinkCongestionOnset3_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CgspLinkCongestionOnset3_Type.__name__=_F
-_CgspLinkCongestionOnset3_Object=MibTableColumn
-cgspLinkCongestionOnset3=_CgspLinkCongestionOnset3_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,17),_CgspLinkCongestionOnset3_Type())
-cgspLinkCongestionOnset3.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkCongestionOnset3.setStatus(_B)
-class _CgspLinkSigLinkTest_Type(TruthValue):defaultValue=1
-_CgspLinkSigLinkTest_Type.__name__=_G
-_CgspLinkSigLinkTest_Object=MibTableColumn
-cgspLinkSigLinkTest=_CgspLinkSigLinkTest_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,18),_CgspLinkSigLinkTest_Type())
-cgspLinkSigLinkTest.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkSigLinkTest.setStatus(_B)
-_CgspLinkQ752T1E1_Type=Counter32
-_CgspLinkQ752T1E1_Object=MibTableColumn
-cgspLinkQ752T1E1=_CgspLinkQ752T1E1_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,19),_CgspLinkQ752T1E1_Type())
-cgspLinkQ752T1E1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T1E1.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T1E1.setUnits(_J)
-_CgspLinkQ752T1E2_Type=Counter32
-_CgspLinkQ752T1E2_Object=MibTableColumn
-cgspLinkQ752T1E2=_CgspLinkQ752T1E2_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,20),_CgspLinkQ752T1E2_Type())
-cgspLinkQ752T1E2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T1E2.setStatus(_B)
-_CgspLinkQ752T1E3_Type=Counter32
-_CgspLinkQ752T1E3_Object=MibTableColumn
-cgspLinkQ752T1E3=_CgspLinkQ752T1E3_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,21),_CgspLinkQ752T1E3_Type())
-cgspLinkQ752T1E3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T1E3.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T1E3.setUnits(_E)
-_CgspLinkQ752T1E5_Type=Counter32
-_CgspLinkQ752T1E5_Object=MibTableColumn
-cgspLinkQ752T1E5=_CgspLinkQ752T1E5_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,22),_CgspLinkQ752T1E5_Type())
-cgspLinkQ752T1E5.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T1E5.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T1E5.setUnits(_E)
-_CgspLinkQ752T1E7_Type=Counter32
-_CgspLinkQ752T1E7_Object=MibTableColumn
-cgspLinkQ752T1E7=_CgspLinkQ752T1E7_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,23),_CgspLinkQ752T1E7_Type())
-cgspLinkQ752T1E7.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T1E7.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T1E7.setUnits(_E)
-_CgspLinkQ752T1E8_Type=Counter32
-_CgspLinkQ752T1E8_Object=MibTableColumn
-cgspLinkQ752T1E8=_CgspLinkQ752T1E8_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,24),_CgspLinkQ752T1E8_Type())
-cgspLinkQ752T1E8.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T1E8.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T1E8.setUnits(_E)
-_CgspLinkQ752T1E9_Type=Counter32
-_CgspLinkQ752T1E9_Object=MibTableColumn
-cgspLinkQ752T1E9=_CgspLinkQ752T1E9_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,25),_CgspLinkQ752T1E9_Type())
-cgspLinkQ752T1E9.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T1E9.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T1E9.setUnits('negative acknowledgements')
-_CgspLinkQ752T1E10_Type=Counter32
-_CgspLinkQ752T1E10_Object=MibTableColumn
-cgspLinkQ752T1E10=_CgspLinkQ752T1E10_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,26),_CgspLinkQ752T1E10_Type())
-cgspLinkQ752T1E10.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T1E10.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T1E10.setUnits(_E)
-_CgspLinkQ752T1E11_Type=Counter32
-_CgspLinkQ752T1E11_Object=MibTableColumn
-cgspLinkQ752T1E11=_CgspLinkQ752T1E11_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,27),_CgspLinkQ752T1E11_Type())
-cgspLinkQ752T1E11.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T1E11.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T1E11.setUnits(_E)
-_CgspLinkQ752T2E1_Type=Counter32
-_CgspLinkQ752T2E1_Object=MibTableColumn
-cgspLinkQ752T2E1=_CgspLinkQ752T2E1_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,28),_CgspLinkQ752T2E1_Type())
-cgspLinkQ752T2E1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T2E1.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T2E1.setUnits(_J)
-_CgspLinkQ752T2E5_Type=Counter32
-_CgspLinkQ752T2E5_Object=MibTableColumn
-cgspLinkQ752T2E5=_CgspLinkQ752T2E5_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,29),_CgspLinkQ752T2E5_Type())
-cgspLinkQ752T2E5.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T2E5.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T2E5.setUnits(_J)
-_CgspLinkQ752T2E6_Type=Counter32
-_CgspLinkQ752T2E6_Object=MibTableColumn
-cgspLinkQ752T2E6=_CgspLinkQ752T2E6_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,30),_CgspLinkQ752T2E6_Type())
-cgspLinkQ752T2E6.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T2E6.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T2E6.setUnits(_J)
-_CgspLinkQ752T2E7_Type=Counter32
-_CgspLinkQ752T2E7_Object=MibTableColumn
-cgspLinkQ752T2E7=_CgspLinkQ752T2E7_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,31),_CgspLinkQ752T2E7_Type())
-cgspLinkQ752T2E7.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T2E7.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T2E7.setUnits(_J)
-_CgspLinkQ752T2E9_Type=Counter32
-_CgspLinkQ752T2E9_Object=MibTableColumn
-cgspLinkQ752T2E9=_CgspLinkQ752T2E9_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,32),_CgspLinkQ752T2E9_Type())
-cgspLinkQ752T2E9.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T2E9.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T2E9.setUnits(_J)
-_CgspLinkQ752T2E10_Type=Counter32
-_CgspLinkQ752T2E10_Object=MibTableColumn
-cgspLinkQ752T2E10=_CgspLinkQ752T2E10_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,33),_CgspLinkQ752T2E10_Type())
-cgspLinkQ752T2E10.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T2E10.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T2E10.setUnits(_E)
-_CgspLinkQ752T2E15_Type=Counter32
-_CgspLinkQ752T2E15_Object=MibTableColumn
-cgspLinkQ752T2E15=_CgspLinkQ752T2E15_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,34),_CgspLinkQ752T2E15_Type())
-cgspLinkQ752T2E15.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T2E15.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T2E15.setUnits(_E)
-_CgspLinkQ752T2E16_Type=Counter32
-_CgspLinkQ752T2E16_Object=MibTableColumn
-cgspLinkQ752T2E16=_CgspLinkQ752T2E16_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,35),_CgspLinkQ752T2E16_Type())
-cgspLinkQ752T2E16.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T2E16.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T2E16.setUnits(_E)
-_CgspLinkQ752T2E18_Type=Counter32
-_CgspLinkQ752T2E18_Object=MibTableColumn
-cgspLinkQ752T2E18=_CgspLinkQ752T2E18_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,36),_CgspLinkQ752T2E18_Type())
-cgspLinkQ752T2E18.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T2E18.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T2E18.setUnits(_E)
-_CgspLinkQ752T3E1_Type=Counter32
-_CgspLinkQ752T3E1_Object=MibTableColumn
-cgspLinkQ752T3E1=_CgspLinkQ752T3E1_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,37),_CgspLinkQ752T3E1_Type())
-cgspLinkQ752T3E1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T3E1.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T3E1.setUnits(_A8)
-_CgspLinkQ752T3E2Bytes_Type=Counter32
-_CgspLinkQ752T3E2Bytes_Object=MibTableColumn
-cgspLinkQ752T3E2Bytes=_CgspLinkQ752T3E2Bytes_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,38),_CgspLinkQ752T3E2Bytes_Type())
-cgspLinkQ752T3E2Bytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T3E2Bytes.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T3E2Bytes.setUnits(_A8)
-_CgspLinkQ752T3E2Packets_Type=Counter32
-_CgspLinkQ752T3E2Packets_Object=MibTableColumn
-cgspLinkQ752T3E2Packets=_CgspLinkQ752T3E2Packets_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,39),_CgspLinkQ752T3E2Packets_Type())
-cgspLinkQ752T3E2Packets.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T3E2Packets.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T3E2Packets.setUnits(_n)
-_CgspLinkQ752T3E3_Type=Counter32
-_CgspLinkQ752T3E3_Object=MibTableColumn
-cgspLinkQ752T3E3=_CgspLinkQ752T3E3_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,40),_CgspLinkQ752T3E3_Type())
-cgspLinkQ752T3E3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T3E3.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T3E3.setUnits(_n)
-_CgspLinkQ752T3E4_Type=Counter32
-_CgspLinkQ752T3E4_Object=MibTableColumn
-cgspLinkQ752T3E4=_CgspLinkQ752T3E4_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,41),_CgspLinkQ752T3E4_Type())
-cgspLinkQ752T3E4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T3E4.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T3E4.setUnits(_A8)
-_CgspLinkQ752T3E5_Type=Counter32
-_CgspLinkQ752T3E5_Object=MibTableColumn
-cgspLinkQ752T3E5=_CgspLinkQ752T3E5_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,42),_CgspLinkQ752T3E5_Type())
-cgspLinkQ752T3E5.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T3E5.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T3E5.setUnits(_n)
-_CgspLinkQ752T3E6_Type=Counter32
-_CgspLinkQ752T3E6_Object=MibTableColumn
-cgspLinkQ752T3E6=_CgspLinkQ752T3E6_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,43),_CgspLinkQ752T3E6_Type())
-cgspLinkQ752T3E6.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T3E6.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T3E6.setUnits('events')
-_CgspLinkQ752T3E7_Type=Counter32
-_CgspLinkQ752T3E7_Object=MibTableColumn
-cgspLinkQ752T3E7=_CgspLinkQ752T3E7_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,44),_CgspLinkQ752T3E7_Type())
-cgspLinkQ752T3E7.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T3E7.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T3E7.setUnits(_J)
-_CgspLinkQ752T3E10L1_Type=Counter32
-_CgspLinkQ752T3E10L1_Object=MibTableColumn
-cgspLinkQ752T3E10L1=_CgspLinkQ752T3E10L1_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,45),_CgspLinkQ752T3E10L1_Type())
-cgspLinkQ752T3E10L1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T3E10L1.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T3E10L1.setUnits(_A9)
-_CgspLinkQ752T3E10L2_Type=Counter32
-_CgspLinkQ752T3E10L2_Object=MibTableColumn
-cgspLinkQ752T3E10L2=_CgspLinkQ752T3E10L2_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,46),_CgspLinkQ752T3E10L2_Type())
-cgspLinkQ752T3E10L2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T3E10L2.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T3E10L2.setUnits(_A9)
-_CgspLinkQ752T3E10L3_Type=Counter32
-_CgspLinkQ752T3E10L3_Object=MibTableColumn
-cgspLinkQ752T3E10L3=_CgspLinkQ752T3E10L3_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,47),_CgspLinkQ752T3E10L3_Type())
-cgspLinkQ752T3E10L3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T3E10L3.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T3E10L3.setUnits(_A9)
-_CgspLinkQ752T3E11L1_Type=Counter32
-_CgspLinkQ752T3E11L1_Object=MibTableColumn
-cgspLinkQ752T3E11L1=_CgspLinkQ752T3E11L1_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,48),_CgspLinkQ752T3E11L1_Type())
-cgspLinkQ752T3E11L1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T3E11L1.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T3E11L1.setUnits(_E)
-_CgspLinkQ752T3E11L2_Type=Counter32
-_CgspLinkQ752T3E11L2_Object=MibTableColumn
-cgspLinkQ752T3E11L2=_CgspLinkQ752T3E11L2_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,49),_CgspLinkQ752T3E11L2_Type())
-cgspLinkQ752T3E11L2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T3E11L2.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T3E11L2.setUnits(_E)
-_CgspLinkQ752T3E11L3_Type=Counter32
-_CgspLinkQ752T3E11L3_Object=MibTableColumn
-cgspLinkQ752T3E11L3=_CgspLinkQ752T3E11L3_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,50),_CgspLinkQ752T3E11L3_Type())
-cgspLinkQ752T3E11L3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T3E11L3.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T3E11L3.setUnits(_E)
-_CgspLinkLocalPeerPort_Type=InetPortNumber
-_CgspLinkLocalPeerPort_Object=MibTableColumn
-cgspLinkLocalPeerPort=_CgspLinkLocalPeerPort_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,51),_CgspLinkLocalPeerPort_Type())
-cgspLinkLocalPeerPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkLocalPeerPort.setStatus(_B)
-_CgspLinkRemotePeerPort_Type=InetPortNumber
-_CgspLinkRemotePeerPort_Object=MibTableColumn
-cgspLinkRemotePeerPort=_CgspLinkRemotePeerPort_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,52),_CgspLinkRemotePeerPort_Type())
-cgspLinkRemotePeerPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkRemotePeerPort.setStatus(_B)
-_CgspLinkQosClass_Type=CItpTcQos
-_CgspLinkQosClass_Object=MibTableColumn
-cgspLinkQosClass=_CgspLinkQosClass_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,53),_CgspLinkQosClass_Type())
-cgspLinkQosClass.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkQosClass.setStatus(_B)
-class _CgspLinkDisplayName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,30))
-_CgspLinkDisplayName_Type.__name__=_S
-_CgspLinkDisplayName_Object=MibTableColumn
-cgspLinkDisplayName=_CgspLinkDisplayName_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,54),_CgspLinkDisplayName_Type())
-cgspLinkDisplayName.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkDisplayName.setStatus(_B)
-_CgspLinkDroppedPkts_Type=Counter32
-_CgspLinkDroppedPkts_Object=MibTableColumn
-cgspLinkDroppedPkts=_CgspLinkDroppedPkts_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,55),_CgspLinkDroppedPkts_Type())
-cgspLinkDroppedPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkDroppedPkts.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkDroppedPkts.setUnits(_n)
-_CgspLinkTransmittedLSSUs_Type=Counter32
-_CgspLinkTransmittedLSSUs_Object=MibTableColumn
-cgspLinkTransmittedLSSUs=_CgspLinkTransmittedLSSUs_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,56),_CgspLinkTransmittedLSSUs_Type())
-cgspLinkTransmittedLSSUs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkTransmittedLSSUs.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkTransmittedLSSUs.setUnits('LSSU')
-_CgspLinkReceivedLSSUs_Type=Counter32
-_CgspLinkReceivedLSSUs_Object=MibTableColumn
-cgspLinkReceivedLSSUs=_CgspLinkReceivedLSSUs_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,57),_CgspLinkReceivedLSSUs_Type())
-cgspLinkReceivedLSSUs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkReceivedLSSUs.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkReceivedLSSUs.setUnits('LSSU')
-class _CgspLinkProtocolDetails_Type(Bits):namedValues=NamedValues(*(('tcbcBuffering',0),('tcocBuffering',1),('tlacAdjacentSpRestarting',2),('tlacEmergencyCoInProgress',3),('tlacChangebackInProgress',4),('tlacChangeoverInProgress',5),('tlacChangeoverFailed',6),('tlacInhibitRetry',7),('tlacManagementRequest',8),('tlacSpRestarting',9),('tsrcChangeOverComplete',10),('tsrcAdjacentSpRestart',11),('tlacLocalInhibit',12),('tlacRemoteInhibit',13),('tlacLocalBlocked',14),('tlacRemoteBlocked',15)))
-_CgspLinkProtocolDetails_Type.__name__='Bits'
-_CgspLinkProtocolDetails_Object=MibTableColumn
-cgspLinkProtocolDetails=_CgspLinkProtocolDetails_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,58),_CgspLinkProtocolDetails_Type())
-cgspLinkProtocolDetails.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkProtocolDetails.setStatus(_B)
-class _CgspLinkLsacState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_o,1),('inactive',2),('active',3),('activatingRestoring',4),(_A6,5),('actT17wait',6),('actAnsiWaitDeloaded',7),('actItuWaitStmReady',8)))
-_CgspLinkLsacState_Type.__name__=_L
-_CgspLinkLsacState_Object=MibTableColumn
-cgspLinkLsacState=_CgspLinkLsacState_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,59),_CgspLinkLsacState_Type())
-cgspLinkLsacState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkLsacState.setStatus(_B)
-class _CgspLinkTsrcState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_o,1),('idle',2),('wait5',3)))
-_CgspLinkTsrcState_Type.__name__=_L
-_CgspLinkTsrcState_Object=MibTableColumn
-cgspLinkTsrcState=_CgspLinkTsrcState_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,60),_CgspLinkTsrcState_Type())
-cgspLinkTsrcState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkTsrcState.setStatus(_B)
-class _CgspLinkTcocState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_o,1),('idle',2),('wait2',3),('waitForAck',4),('retrieving',5),('wait5',6),('wait7',7),('wait8',8)))
-_CgspLinkTcocState_Type.__name__=_L
-_CgspLinkTcocState_Object=MibTableColumn
-cgspLinkTcocState=_CgspLinkTcocState_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,61),_CgspLinkTcocState_Type())
-cgspLinkTcocState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkTcocState.setStatus(_B)
-_CgspLinkTcocLocalBSNT_Type=CgspSequenceNumber
-_CgspLinkTcocLocalBSNT_Object=MibTableColumn
-cgspLinkTcocLocalBSNT=_CgspLinkTcocLocalBSNT_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,62),_CgspLinkTcocLocalBSNT_Type())
-cgspLinkTcocLocalBSNT.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkTcocLocalBSNT.setStatus(_B)
-_CgspLinkTcocRemoteBSNT_Type=CgspSequenceNumber
-_CgspLinkTcocRemoteBSNT_Object=MibTableColumn
-cgspLinkTcocRemoteBSNT=_CgspLinkTcocRemoteBSNT_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,63),_CgspLinkTcocRemoteBSNT_Type())
-cgspLinkTcocRemoteBSNT.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkTcocRemoteBSNT.setStatus(_B)
-class _CgspLinkTcbcState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_o,1),('idle',2),('firstAttempt',3),('secondAttempt',4),('timeControlledDiversion',5)))
-_CgspLinkTcbcState_Type.__name__=_L
-_CgspLinkTcbcState_Object=MibTableColumn
-cgspLinkTcbcState=_CgspLinkTcbcState_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,64),_CgspLinkTcbcState_Type())
-cgspLinkTcbcState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkTcbcState.setStatus(_B)
-_CgspLinkReceivedSIBs_Type=Counter32
-_CgspLinkReceivedSIBs_Object=MibTableColumn
-cgspLinkReceivedSIBs=_CgspLinkReceivedSIBs_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,65),_CgspLinkReceivedSIBs_Type())
-cgspLinkReceivedSIBs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkReceivedSIBs.setStatus(_B)
-_CgspLinkTransmittedSIBs_Type=Counter32
-_CgspLinkTransmittedSIBs_Object=MibTableColumn
-cgspLinkTransmittedSIBs=_CgspLinkTransmittedSIBs_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,66),_CgspLinkTransmittedSIBs_Type())
-cgspLinkTransmittedSIBs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkTransmittedSIBs.setStatus(_B)
-_CgspLinkMtp2T01Counts_Type=Counter32
-_CgspLinkMtp2T01Counts_Object=MibTableColumn
-cgspLinkMtp2T01Counts=_CgspLinkMtp2T01Counts_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,67),_CgspLinkMtp2T01Counts_Type())
-cgspLinkMtp2T01Counts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkMtp2T01Counts.setStatus(_B)
-_CgspLinkMtp2T02Counts_Type=Counter32
-_CgspLinkMtp2T02Counts_Object=MibTableColumn
-cgspLinkMtp2T02Counts=_CgspLinkMtp2T02Counts_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,68),_CgspLinkMtp2T02Counts_Type())
-cgspLinkMtp2T02Counts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkMtp2T02Counts.setStatus(_B)
-_CgspLinkMtp2T03Counts_Type=Counter32
-_CgspLinkMtp2T03Counts_Object=MibTableColumn
-cgspLinkMtp2T03Counts=_CgspLinkMtp2T03Counts_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,69),_CgspLinkMtp2T03Counts_Type())
-cgspLinkMtp2T03Counts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkMtp2T03Counts.setStatus(_B)
-_CgspLinkMtp2T04Counts_Type=Counter32
-_CgspLinkMtp2T04Counts_Object=MibTableColumn
-cgspLinkMtp2T04Counts=_CgspLinkMtp2T04Counts_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,70),_CgspLinkMtp2T04Counts_Type())
-cgspLinkMtp2T04Counts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkMtp2T04Counts.setStatus(_B)
-_CgspLinkMtp2T05Counts_Type=Counter32
-_CgspLinkMtp2T05Counts_Object=MibTableColumn
-cgspLinkMtp2T05Counts=_CgspLinkMtp2T05Counts_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,71),_CgspLinkMtp2T05Counts_Type())
-cgspLinkMtp2T05Counts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkMtp2T05Counts.setStatus(_B)
-_CgspLinkMtp2T06Counts_Type=Counter32
-_CgspLinkMtp2T06Counts_Object=MibTableColumn
-cgspLinkMtp2T06Counts=_CgspLinkMtp2T06Counts_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,72),_CgspLinkMtp2T06Counts_Type())
-cgspLinkMtp2T06Counts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkMtp2T06Counts.setStatus(_B)
-_CgspLinkMtp2T07Counts_Type=Counter32
-_CgspLinkMtp2T07Counts_Object=MibTableColumn
-cgspLinkMtp2T07Counts=_CgspLinkMtp2T07Counts_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,73),_CgspLinkMtp2T07Counts_Type())
-cgspLinkMtp2T07Counts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkMtp2T07Counts.setStatus(_B)
-_CgspLinkOMAERMCounts_Type=Counter32
-_CgspLinkOMAERMCounts_Object=MibTableColumn
-cgspLinkOMAERMCounts=_CgspLinkOMAERMCounts_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,74),_CgspLinkOMAERMCounts_Type())
-cgspLinkOMAERMCounts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkOMAERMCounts.setStatus(_B)
-_CgspLinkOMAERMFailCounts_Type=Counter32
-_CgspLinkOMAERMFailCounts_Object=MibTableColumn
-cgspLinkOMAERMFailCounts=_CgspLinkOMAERMFailCounts_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,75),_CgspLinkOMAERMFailCounts_Type())
-cgspLinkOMAERMFailCounts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkOMAERMFailCounts.setStatus(_B)
-_CgspLinkOMSURMCounts_Type=Counter32
-_CgspLinkOMSURMCounts_Object=MibTableColumn
-cgspLinkOMSURMCounts=_CgspLinkOMSURMCounts_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,76),_CgspLinkOMSURMCounts_Type())
-cgspLinkOMSURMCounts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkOMSURMCounts.setStatus(_B)
-_CgspLinkOMSURMFailCounts_Type=Counter32
-_CgspLinkOMSURMFailCounts_Object=MibTableColumn
-cgspLinkOMSURMFailCounts=_CgspLinkOMSURMFailCounts_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,77),_CgspLinkOMSURMFailCounts_Type())
-cgspLinkOMSURMFailCounts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkOMSURMFailCounts.setStatus(_B)
-_CgspLinkPlanCapacityRcvd_Type=CgspLinkCapacity
-_CgspLinkPlanCapacityRcvd_Object=MibTableColumn
-cgspLinkPlanCapacityRcvd=_CgspLinkPlanCapacityRcvd_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,78),_CgspLinkPlanCapacityRcvd_Type())
-cgspLinkPlanCapacityRcvd.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkPlanCapacityRcvd.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkPlanCapacityRcvd.setUnits(_A7)
-class _CgspLinkUtilThresholdRcvd_Type(CgspPercentThreshold):defaultValue=0
-_CgspLinkUtilThresholdRcvd_Type.__name__=_i
-_CgspLinkUtilThresholdRcvd_Object=MibTableColumn
-cgspLinkUtilThresholdRcvd=_CgspLinkUtilThresholdRcvd_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,79),_CgspLinkUtilThresholdRcvd_Type())
-cgspLinkUtilThresholdRcvd.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkUtilThresholdRcvd.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkUtilThresholdRcvd.setUnits(_O)
-_CgspLinkUtilizationRcvd_Type=CgspLinkUtilization
-_CgspLinkUtilizationRcvd_Object=MibTableColumn
-cgspLinkUtilizationRcvd=_CgspLinkUtilizationRcvd_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,80),_CgspLinkUtilizationRcvd_Type())
-cgspLinkUtilizationRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkUtilizationRcvd.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkUtilizationRcvd.setUnits(_O)
-_CgspLinkUtilStateRcvd_Type=CgspLinkUtilizationState
-_CgspLinkUtilStateRcvd_Object=MibTableColumn
-cgspLinkUtilStateRcvd=_CgspLinkUtilStateRcvd_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,81),_CgspLinkUtilStateRcvd_Type())
-cgspLinkUtilStateRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkUtilStateRcvd.setStatus(_B)
-_CgspLinkL2BytesRcvd_Type=Counter32
-_CgspLinkL2BytesRcvd_Object=MibTableColumn
-cgspLinkL2BytesRcvd=_CgspLinkL2BytesRcvd_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,82),_CgspLinkL2BytesRcvd_Type())
-cgspLinkL2BytesRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkL2BytesRcvd.setStatus(_B)
-_CgspLinkPlanCapacitySent_Type=CgspLinkCapacity
-_CgspLinkPlanCapacitySent_Object=MibTableColumn
-cgspLinkPlanCapacitySent=_CgspLinkPlanCapacitySent_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,83),_CgspLinkPlanCapacitySent_Type())
-cgspLinkPlanCapacitySent.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkPlanCapacitySent.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkPlanCapacitySent.setUnits(_A7)
-class _CgspLinkUtilThresholdSent_Type(CgspPercentThreshold):defaultValue=0
-_CgspLinkUtilThresholdSent_Type.__name__=_i
-_CgspLinkUtilThresholdSent_Object=MibTableColumn
-cgspLinkUtilThresholdSent=_CgspLinkUtilThresholdSent_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,84),_CgspLinkUtilThresholdSent_Type())
-cgspLinkUtilThresholdSent.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkUtilThresholdSent.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkUtilThresholdSent.setUnits(_O)
-_CgspLinkUtilizationSent_Type=CgspLinkUtilization
-_CgspLinkUtilizationSent_Object=MibTableColumn
-cgspLinkUtilizationSent=_CgspLinkUtilizationSent_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,85),_CgspLinkUtilizationSent_Type())
-cgspLinkUtilizationSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkUtilizationSent.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkUtilizationSent.setUnits(_O)
-_CgspLinkUtilStateSent_Type=CgspLinkUtilizationState
-_CgspLinkUtilStateSent_Object=MibTableColumn
-cgspLinkUtilStateSent=_CgspLinkUtilStateSent_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,86),_CgspLinkUtilStateSent_Type())
-cgspLinkUtilStateSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkUtilStateSent.setStatus(_B)
-_CgspLinkL2BytesSent_Type=Counter32
-_CgspLinkL2BytesSent_Object=MibTableColumn
-cgspLinkL2BytesSent=_CgspLinkL2BytesSent_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,87),_CgspLinkL2BytesSent_Type())
-cgspLinkL2BytesSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkL2BytesSent.setStatus(_B)
-_CgspLinkTestResult_Type=CgspLinkTestResults
-_CgspLinkTestResult_Object=MibTableColumn
-cgspLinkTestResult=_CgspLinkTestResult_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,88),_CgspLinkTestResult_Type())
-cgspLinkTestResult.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkTestResult.setStatus(_B)
-_CgspLinkRowStatus_Type=RowStatus
-_CgspLinkRowStatus_Object=MibTableColumn
-cgspLinkRowStatus=_CgspLinkRowStatus_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,89),_CgspLinkRowStatus_Type())
-cgspLinkRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkRowStatus.setStatus(_B)
-_CgspLinkSctpAssociationId_Type=Unsigned32
-_CgspLinkSctpAssociationId_Object=MibTableColumn
-cgspLinkSctpAssociationId=_CgspLinkSctpAssociationId_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,90),_CgspLinkSctpAssociationId_Type())
-cgspLinkSctpAssociationId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkSctpAssociationId.setStatus(_B)
-_CgspLinkQ752T1E12_Type=Counter32
-_CgspLinkQ752T1E12_Object=MibTableColumn
-cgspLinkQ752T1E12=_CgspLinkQ752T1E12_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,91),_CgspLinkQ752T1E12_Type())
-cgspLinkQ752T1E12.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T1E12.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T1E12.setUnits(_E)
-_CgspLinkQ752T1E12Errors_Type=Counter32
-_CgspLinkQ752T1E12Errors_Object=MibTableColumn
-cgspLinkQ752T1E12Errors=_CgspLinkQ752T1E12Errors_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,92),_CgspLinkQ752T1E12Errors_Type())
-cgspLinkQ752T1E12Errors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T1E12Errors.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T1E12Errors.setUnits(_E)
-_CgspLinkQ752T2E11_Type=Counter32
-_CgspLinkQ752T2E11_Object=MibTableColumn
-cgspLinkQ752T2E11=_CgspLinkQ752T2E11_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,93),_CgspLinkQ752T2E11_Type())
-cgspLinkQ752T2E11.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T2E11.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T2E11.setUnits(_E)
-_CgspLinkQ752T2E17_Type=Counter32
-_CgspLinkQ752T2E17_Object=MibTableColumn
-cgspLinkQ752T2E17=_CgspLinkQ752T2E17_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,94),_CgspLinkQ752T2E17_Type())
-cgspLinkQ752T2E17.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T2E17.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T2E17.setUnits(_E)
-_CgspLinkQ752T2E19_Type=Counter32
-_CgspLinkQ752T2E19_Object=MibTableColumn
-cgspLinkQ752T2E19=_CgspLinkQ752T2E19_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,95),_CgspLinkQ752T2E19_Type())
-cgspLinkQ752T2E19.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkQ752T2E19.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkQ752T2E19.setUnits(_E)
-class _CgspLinkRxCongestionState_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
-_CgspLinkRxCongestionState_Type.__name__=_F
-_CgspLinkRxCongestionState_Object=MibTableColumn
-cgspLinkRxCongestionState=_CgspLinkRxCongestionState_Object((1,3,6,1,4,1,9,9,336,1,6,1,1,96),_CgspLinkRxCongestionState_Type())
-cgspLinkRxCongestionState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkRxCongestionState.setStatus(_B)
-_CgspLinkTimerTable_Object=MibTable
-cgspLinkTimerTable=_CgspLinkTimerTable_Object((1,3,6,1,4,1,9,9,336,1,6,2))
-if mibBuilder.loadTexts:cgspLinkTimerTable.setStatus(_B)
-_CgspLinkTimerTableEntry_Object=MibTableRow
-cgspLinkTimerTableEntry=_CgspLinkTimerTableEntry_Object((1,3,6,1,4,1,9,9,336,1,6,2,1))
-cgspLinkTimerTableEntry.setIndexNames((0,_A,_K),(0,_A,_T),(0,_A,_j),(0,_A,_Bf))
-if mibBuilder.loadTexts:cgspLinkTimerTableEntry.setStatus(_B)
-_CgspLinkTimerNumber_Type=CgspTimerNumbers
-_CgspLinkTimerNumber_Object=MibTableColumn
-cgspLinkTimerNumber=_CgspLinkTimerNumber_Object((1,3,6,1,4,1,9,9,336,1,6,2,1,1),_CgspLinkTimerNumber_Type())
-cgspLinkTimerNumber.setMaxAccess(_H)
-if mibBuilder.loadTexts:cgspLinkTimerNumber.setStatus(_B)
-_CgspLinkTimerValue_Type=CgspTimerValue
-_CgspLinkTimerValue_Object=MibTableColumn
-cgspLinkTimerValue=_CgspLinkTimerValue_Object((1,3,6,1,4,1,9,9,336,1,6,2,1,2),_CgspLinkTimerValue_Type())
-cgspLinkTimerValue.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkTimerValue.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkTimerValue.setUnits(_m)
-_CgspLinkTimerRowStatus_Type=RowStatus
-_CgspLinkTimerRowStatus_Object=MibTableColumn
-cgspLinkTimerRowStatus=_CgspLinkTimerRowStatus_Object((1,3,6,1,4,1,9,9,336,1,6,2,1,3),_CgspLinkTimerRowStatus_Type())
-cgspLinkTimerRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkTimerRowStatus.setStatus(_B)
-_CgspLinkRemoteIpAddrTable_Object=MibTable
-cgspLinkRemoteIpAddrTable=_CgspLinkRemoteIpAddrTable_Object((1,3,6,1,4,1,9,9,336,1,6,3))
-if mibBuilder.loadTexts:cgspLinkRemoteIpAddrTable.setStatus(_B)
-_CgspLinkRemoteIpAddrTableEntry_Object=MibTableRow
-cgspLinkRemoteIpAddrTableEntry=_CgspLinkRemoteIpAddrTableEntry_Object((1,3,6,1,4,1,9,9,336,1,6,3,1))
-cgspLinkRemoteIpAddrTableEntry.setIndexNames((0,_A,_K),(0,_A,_T),(0,_A,_j),(0,_A,_Bg))
-if mibBuilder.loadTexts:cgspLinkRemoteIpAddrTableEntry.setStatus(_B)
-class _CgspLinkRemoteIpAddrNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CgspLinkRemoteIpAddrNumber_Type.__name__=_F
-_CgspLinkRemoteIpAddrNumber_Object=MibTableColumn
-cgspLinkRemoteIpAddrNumber=_CgspLinkRemoteIpAddrNumber_Object((1,3,6,1,4,1,9,9,336,1,6,3,1,1),_CgspLinkRemoteIpAddrNumber_Type())
-cgspLinkRemoteIpAddrNumber.setMaxAccess(_H)
-if mibBuilder.loadTexts:cgspLinkRemoteIpAddrNumber.setStatus(_B)
-_CgspLinkRemoteIpAddrType_Type=InetAddressType
-_CgspLinkRemoteIpAddrType_Object=MibTableColumn
-cgspLinkRemoteIpAddrType=_CgspLinkRemoteIpAddrType_Object((1,3,6,1,4,1,9,9,336,1,6,3,1,2),_CgspLinkRemoteIpAddrType_Type())
-cgspLinkRemoteIpAddrType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkRemoteIpAddrType.setStatus(_B)
-_CgspLinkRemoteIpAddress_Type=InetAddress
-_CgspLinkRemoteIpAddress_Object=MibTableColumn
-cgspLinkRemoteIpAddress=_CgspLinkRemoteIpAddress_Object((1,3,6,1,4,1,9,9,336,1,6,3,1,3),_CgspLinkRemoteIpAddress_Type())
-cgspLinkRemoteIpAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkRemoteIpAddress.setStatus(_B)
-_CgspLinkRemoteIpAddrRowStatus_Type=RowStatus
-_CgspLinkRemoteIpAddrRowStatus_Object=MibTableColumn
-cgspLinkRemoteIpAddrRowStatus=_CgspLinkRemoteIpAddrRowStatus_Object((1,3,6,1,4,1,9,9,336,1,6,3,1,4),_CgspLinkRemoteIpAddrRowStatus_Type())
-cgspLinkRemoteIpAddrRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cgspLinkRemoteIpAddrRowStatus.setStatus(_B)
-_CgspLinkUtilTable_Object=MibTable
-cgspLinkUtilTable=_CgspLinkUtilTable_Object((1,3,6,1,4,1,9,9,336,1,6,4))
-if mibBuilder.loadTexts:cgspLinkUtilTable.setStatus(_B)
-_CgspLinkUtilTableEntry_Object=MibTableRow
-cgspLinkUtilTableEntry=_CgspLinkUtilTableEntry_Object((1,3,6,1,4,1,9,9,336,1,6,4,1))
-cgspLinkUtilTableEntry.setIndexNames((0,_A,_K),(0,_A,_T),(0,_A,_j),(0,_A,_Bh))
-if mibBuilder.loadTexts:cgspLinkUtilTableEntry.setStatus(_B)
-class _CgspLinkUtilIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,60))
-_CgspLinkUtilIndex_Type.__name__=_F
-_CgspLinkUtilIndex_Object=MibTableColumn
-cgspLinkUtilIndex=_CgspLinkUtilIndex_Object((1,3,6,1,4,1,9,9,336,1,6,4,1,1),_CgspLinkUtilIndex_Type())
-cgspLinkUtilIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:cgspLinkUtilIndex.setStatus(_B)
-_CgspLinkUtilRcvd_Type=CgspLinkUtilization
-_CgspLinkUtilRcvd_Object=MibTableColumn
-cgspLinkUtilRcvd=_CgspLinkUtilRcvd_Object((1,3,6,1,4,1,9,9,336,1,6,4,1,2),_CgspLinkUtilRcvd_Type())
-cgspLinkUtilRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkUtilRcvd.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkUtilRcvd.setUnits(_O)
-_CgspLinkUtilSent_Type=CgspLinkUtilization
-_CgspLinkUtilSent_Object=MibTableColumn
-cgspLinkUtilSent=_CgspLinkUtilSent_Object((1,3,6,1,4,1,9,9,336,1,6,4,1,3),_CgspLinkUtilSent_Type())
-cgspLinkUtilSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkUtilSent.setStatus(_B)
-if mibBuilder.loadTexts:cgspLinkUtilSent.setUnits(_O)
-_CgspLinkUtilEndTimestamp_Type=TimeStamp
-_CgspLinkUtilEndTimestamp_Object=MibTableColumn
-cgspLinkUtilEndTimestamp=_CgspLinkUtilEndTimestamp_Object((1,3,6,1,4,1,9,9,336,1,6,4,1,4),_CgspLinkUtilEndTimestamp_Type())
-cgspLinkUtilEndTimestamp.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgspLinkUtilEndTimestamp.setStatus(_B)
-_CgspNotificationsEnable_ObjectIdentity=ObjectIdentity
-cgspNotificationsEnable=_CgspNotificationsEnable_ObjectIdentity((1,3,6,1,4,1,9,9,336,1,7))
-class _CgspLsStateChangeNotifEnabled_Type(TruthValue):defaultValue=2
-_CgspLsStateChangeNotifEnabled_Type.__name__=_G
-_CgspLsStateChangeNotifEnabled_Object=MibScalar
-cgspLsStateChangeNotifEnabled=_CgspLsStateChangeNotifEnabled_Object((1,3,6,1,4,1,9,9,336,1,7,1),_CgspLsStateChangeNotifEnabled_Type())
-cgspLsStateChangeNotifEnabled.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgspLsStateChangeNotifEnabled.setStatus(_B)
-class _CgspLnkStateChangeNotifEnabled_Type(TruthValue):defaultValue=2
-_CgspLnkStateChangeNotifEnabled_Type.__name__=_G
-_CgspLnkStateChangeNotifEnabled_Object=MibScalar
-cgspLnkStateChangeNotifEnabled=_CgspLnkStateChangeNotifEnabled_Object((1,3,6,1,4,1,9,9,336,1,7,2),_CgspLnkStateChangeNotifEnabled_Type())
-cgspLnkStateChangeNotifEnabled.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgspLnkStateChangeNotifEnabled.setStatus(_B)
-class _CgspCongestionNotifEnabled_Type(TruthValue):defaultValue=2
-_CgspCongestionNotifEnabled_Type.__name__=_G
-_CgspCongestionNotifEnabled_Object=MibScalar
-cgspCongestionNotifEnabled=_CgspCongestionNotifEnabled_Object((1,3,6,1,4,1,9,9,336,1,7,3),_CgspCongestionNotifEnabled_Type())
-cgspCongestionNotifEnabled.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgspCongestionNotifEnabled.setStatus(_B)
-class _CgspLinkUtilNotifEnabled_Type(TruthValue):defaultValue=2
-_CgspLinkUtilNotifEnabled_Type.__name__=_G
-_CgspLinkUtilNotifEnabled_Object=MibScalar
-cgspLinkUtilNotifEnabled=_CgspLinkUtilNotifEnabled_Object((1,3,6,1,4,1,9,9,336,1,7,4),_CgspLinkUtilNotifEnabled_Type())
-cgspLinkUtilNotifEnabled.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgspLinkUtilNotifEnabled.setStatus(_B)
-class _CgspIsolationNotifEnabled_Type(TruthValue):defaultValue=2
-_CgspIsolationNotifEnabled_Type.__name__=_G
-_CgspIsolationNotifEnabled_Object=MibScalar
-cgspIsolationNotifEnabled=_CgspIsolationNotifEnabled_Object((1,3,6,1,4,1,9,9,336,1,7,5),_CgspIsolationNotifEnabled_Type())
-cgspIsolationNotifEnabled.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgspIsolationNotifEnabled.setStatus(_B)
-class _CgspUPUNotifEnabled_Type(TruthValue):defaultValue=2
-_CgspUPUNotifEnabled_Type.__name__=_G
-_CgspUPUNotifEnabled_Object=MibScalar
-cgspUPUNotifEnabled=_CgspUPUNotifEnabled_Object((1,3,6,1,4,1,9,9,336,1,7,6),_CgspUPUNotifEnabled_Type())
-cgspUPUNotifEnabled.setMaxAccess(_I)
-if mibBuilder.loadTexts:cgspUPUNotifEnabled.setStatus(_B)
-_CgspNotificationsInfo_ObjectIdentity=ObjectIdentity
-cgspNotificationsInfo=_CgspNotificationsInfo_ObjectIdentity((1,3,6,1,4,1,9,9,336,1,8))
-_CgspUPUIntervalDuration_Type=Unsigned32
-_CgspUPUIntervalDuration_Object=MibScalar
-cgspUPUIntervalDuration=_CgspUPUIntervalDuration_Object((1,3,6,1,4,1,9,9,336,1,8,1),_CgspUPUIntervalDuration_Type())
-cgspUPUIntervalDuration.setMaxAccess(_Bi)
-if mibBuilder.loadTexts:cgspUPUIntervalDuration.setStatus(_B)
-if mibBuilder.loadTexts:cgspUPUIntervalDuration.setUnits(_J)
-_CgspIntervalUPUs_Type=Unsigned32
-_CgspIntervalUPUs_Object=MibScalar
-cgspIntervalUPUs=_CgspIntervalUPUs_Object((1,3,6,1,4,1,9,9,336,1,8,2),_CgspIntervalUPUs_Type())
-cgspIntervalUPUs.setMaxAccess(_Bi)
-if mibBuilder.loadTexts:cgspIntervalUPUs.setStatus(_B)
-if mibBuilder.loadTexts:cgspIntervalUPUs.setUnits('MSUs')
-_CiscoGspMIBConform_ObjectIdentity=ObjectIdentity
-ciscoGspMIBConform=_CiscoGspMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,336,2))
-_CiscoGspMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoGspMIBCompliances=_CiscoGspMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,336,2,1))
-_CiscoGspMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoGspMIBGroups=_CiscoGspMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,336,2,2))
-ciscoGspScalarsGroup=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,1))
-ciscoGspScalarsGroup.setObjects(*((_A,_M),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_N)))
-if mibBuilder.loadTexts:ciscoGspScalarsGroup.setStatus(_B)
-ciscoGspProfileGroup=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,2))
-ciscoGspProfileGroup.setObjects(*((_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs)))
-if mibBuilder.loadTexts:ciscoGspProfileGroup.setStatus(_B)
-ciscoGspInstanceGroup=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,3))
-ciscoGspInstanceGroup.setObjects(*((_A,_Bt),(_A,_Bu),(_A,_AA),(_A,_AB),(_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1)))
-if mibBuilder.loadTexts:ciscoGspInstanceGroup.setStatus(_B)
-ciscoGspInstTimerGroup=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,4))
-ciscoGspInstTimerGroup.setObjects(*((_A,_C2),(_A,_C3)))
-if mibBuilder.loadTexts:ciscoGspInstTimerGroup.setStatus(_B)
-ciscoGspPointCodeGroup=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,5))
-ciscoGspPointCodeGroup.setObjects(*((_A,_C4),(_A,_C5),(_A,_C6)))
-if mibBuilder.loadTexts:ciscoGspPointCodeGroup.setStatus(_B)
-ciscoGspLinksetGroup=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,6))
-ciscoGspLinksetGroup.setObjects(*((_A,_C7),(_A,_P),(_A,_C8),(_A,_Q),(_A,_AC),(_A,_C9),(_A,_CA),(_A,_CB),(_A,_CC),(_A,_CD),(_A,_CE),(_A,_CF),(_A,_CG),(_A,_AD),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM)))
-if mibBuilder.loadTexts:ciscoGspLinksetGroup.setStatus(_B)
-ciscoGspLinksetTimerGroup=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,7))
-ciscoGspLinksetTimerGroup.setObjects(*((_A,_CN),(_A,_CO)))
-if mibBuilder.loadTexts:ciscoGspLinksetTimerGroup.setStatus(_B)
-ciscoGspLinkGroup=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,8))
-ciscoGspLinkGroup.setObjects(*((_A,_AE),(_A,_p),(_A,_q),(_A,_AF),(_A,_AG),(_A,_CP),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_r),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_R),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BE),(_A,_BF),(_A,_BG),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_s),(_A,_t),(_A,_BO),(_A,_BP),(_A,_BQ),(_A,_u),(_A,_v),(_A,_BR),(_A,_w),(_A,_BS)))
-if mibBuilder.loadTexts:ciscoGspLinkGroup.setStatus(_U)
-ciscoGspLinkTimerGroup=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,9))
-ciscoGspLinkTimerGroup.setObjects(*((_A,_CQ),(_A,_CR)))
-if mibBuilder.loadTexts:ciscoGspLinkTimerGroup.setStatus(_B)
-ciscoGspLinkRemoteIpGroup=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,10))
-ciscoGspLinkRemoteIpGroup.setObjects(*((_A,_CS),(_A,_CT),(_A,_CU)))
-if mibBuilder.loadTexts:ciscoGspLinkRemoteIpGroup.setStatus(_B)
-ciscoGspLinkUtilGroup=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,11))
-ciscoGspLinkUtilGroup.setObjects(*((_A,_CV),(_A,_CW),(_A,_CX)))
-if mibBuilder.loadTexts:ciscoGspLinkUtilGroup.setStatus(_B)
-ciscoGspNotificationsEnableGroup=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,12))
-ciscoGspNotificationsEnableGroup.setObjects(*((_A,_CY),(_A,_CZ),(_A,_Ca),(_A,_Cb)))
-if mibBuilder.loadTexts:ciscoGspNotificationsEnableGroup.setStatus(_B)
-ciscoGspLinkGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,14))
-ciscoGspLinkGroupRev1.setObjects(*((_A,_AE),(_A,_p),(_A,_q),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_r),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_R),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BE),(_A,_BF),(_A,_BG),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_s),(_A,_t),(_A,_BO),(_A,_BP),(_A,_BQ),(_A,_u),(_A,_v),(_A,_BR),(_A,_w),(_A,_BS),(_A,_Cc)))
-if mibBuilder.loadTexts:ciscoGspLinkGroupRev1.setStatus(_B)
-ciscoGspNotificationsEnableGroupSup1=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,15))
-ciscoGspNotificationsEnableGroupSup1.setObjects((_A,_Cd))
-if mibBuilder.loadTexts:ciscoGspNotificationsEnableGroupSup1.setStatus(_B)
-ciscoGspLinkGroupSup1=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,17))
-ciscoGspLinkGroupSup1.setObjects(*((_A,_Ce),(_A,_Cf),(_A,_Cg),(_A,_Ch),(_A,_Ci)))
-if mibBuilder.loadTexts:ciscoGspLinkGroupSup1.setStatus(_B)
-ciscoGspScalarsGroupSup1=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,18))
-ciscoGspScalarsGroupSup1.setObjects((_A,_Cj))
-if mibBuilder.loadTexts:ciscoGspScalarsGroupSup1.setStatus(_B)
-ciscoGspInstUPUGroup=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,20))
-ciscoGspInstUPUGroup.setObjects(*((_A,_Ck),(_A,_Cl),(_A,_x)))
-if mibBuilder.loadTexts:ciscoGspInstUPUGroup.setStatus(_B)
-ciscoGspNotificationsInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,21))
-ciscoGspNotificationsInfoGroup.setObjects(*((_A,_y),(_A,_z)))
-if mibBuilder.loadTexts:ciscoGspNotificationsInfoGroup.setStatus(_B)
-ciscoGspNotificationsEnableGroupSup2=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,22))
-ciscoGspNotificationsEnableGroupSup2.setObjects((_A,_Cm))
-if mibBuilder.loadTexts:ciscoGspNotificationsEnableGroupSup2.setStatus(_B)
-ciscoGspInstSccpWrrGroup=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,24))
-ciscoGspInstSccpWrrGroup.setObjects(*((_A,_Cn),(_A,_Co)))
-if mibBuilder.loadTexts:ciscoGspInstSccpWrrGroup.setStatus(_B)
-ciscoGspLinkTableEntryGroupSup1=ObjectGroup((1,3,6,1,4,1,9,9,336,2,2,25))
-ciscoGspLinkTableEntryGroupSup1.setObjects((_A,_BT))
-if mibBuilder.loadTexts:ciscoGspLinkTableEntryGroupSup1.setStatus(_B)
-ciscoGspLinksetStateChange=NotificationType((1,3,6,1,4,1,9,9,336,0,1))
-ciscoGspLinksetStateChange.setObjects(*((_A,_N),(_A,_M),(_A,_AD),(_A,_P),(_A,_Q),(_A,_AC)))
-if mibBuilder.loadTexts:ciscoGspLinksetStateChange.setStatus(_B)
-ciscoGspLinkStateChange=NotificationType((1,3,6,1,4,1,9,9,336,0,2))
-ciscoGspLinkStateChange.setObjects(*((_A,_N),(_A,_M),(_A,_P),(_A,_Q),(_A,_R),(_A,_p),(_A,_q),(_A,_w)))
-if mibBuilder.loadTexts:ciscoGspLinkStateChange.setStatus(_B)
-ciscoGspCongestionChange=NotificationType((1,3,6,1,4,1,9,9,336,0,3))
-ciscoGspCongestionChange.setObjects(*((_A,_N),(_A,_M),(_A,_P),(_A,_Q),(_A,_R),(_A,_r)))
-if mibBuilder.loadTexts:ciscoGspCongestionChange.setStatus(_B)
-ciscoGspLinkRcvdUtilChange=NotificationType((1,3,6,1,4,1,9,9,336,0,4))
-ciscoGspLinkRcvdUtilChange.setObjects(*((_A,_N),(_A,_M),(_A,_P),(_A,_Q),(_A,_R),(_A,_t),(_A,_s)))
-if mibBuilder.loadTexts:ciscoGspLinkRcvdUtilChange.setStatus(_B)
-ciscoGspLinkSentUtilChange=NotificationType((1,3,6,1,4,1,9,9,336,0,5))
-ciscoGspLinkSentUtilChange.setObjects(*((_A,_N),(_A,_M),(_A,_P),(_A,_Q),(_A,_R),(_A,_v),(_A,_u)))
-if mibBuilder.loadTexts:ciscoGspLinkSentUtilChange.setStatus(_B)
-ciscoGspIsolation=NotificationType((1,3,6,1,4,1,9,9,336,0,6))
-ciscoGspIsolation.setObjects(*((_A,_N),(_A,_M),(_A,_AA),(_A,_AB)))
-if mibBuilder.loadTexts:ciscoGspIsolation.setStatus(_B)
-ciscoGspUPUReceived=NotificationType((1,3,6,1,4,1,9,9,336,0,8))
-ciscoGspUPUReceived.setObjects(*((_A,_N),(_A,_M),(_A,_x),(_A,_y),(_A,_z)))
-if mibBuilder.loadTexts:ciscoGspUPUReceived.setStatus(_B)
-ciscoGspUPUTransmitted=NotificationType((1,3,6,1,4,1,9,9,336,0,9))
-ciscoGspUPUTransmitted.setObjects(*((_A,_N),(_A,_M),(_A,_x),(_A,_y),(_A,_z)))
-if mibBuilder.loadTexts:ciscoGspUPUTransmitted.setStatus(_B)
-ciscoGspRxCongestionChange=NotificationType((1,3,6,1,4,1,9,9,336,0,10))
-ciscoGspRxCongestionChange.setObjects(*((_A,_N),(_A,_M),(_A,_P),(_A,_Q),(_A,_R),(_A,_BT)))
-if mibBuilder.loadTexts:ciscoGspRxCongestionChange.setStatus(_B)
-ciscoGspNotificationsGroup=NotificationGroup((1,3,6,1,4,1,9,9,336,2,2,13))
-ciscoGspNotificationsGroup.setObjects(*((_A,_Cp),(_A,_Cq),(_A,_Cr),(_A,_Cs),(_A,_Ct)))
-if mibBuilder.loadTexts:ciscoGspNotificationsGroup.setStatus(_B)
-ciscoGspNotificationsGroupSup1=NotificationGroup((1,3,6,1,4,1,9,9,336,2,2,16))
-ciscoGspNotificationsGroupSup1.setObjects((_A,_Cu))
-if mibBuilder.loadTexts:ciscoGspNotificationsGroupSup1.setStatus(_B)
-ciscoGspNotificationsGroupSup2=NotificationGroup((1,3,6,1,4,1,9,9,336,2,2,23))
-ciscoGspNotificationsGroupSup2.setObjects(*((_A,_Cv),(_A,_Cw)))
-if mibBuilder.loadTexts:ciscoGspNotificationsGroupSup2.setStatus(_B)
-ciscoGspNotificationsGroupSup3=NotificationGroup((1,3,6,1,4,1,9,9,336,2,2,26))
-ciscoGspNotificationsGroupSup3.setObjects((_A,_Cx))
-if mibBuilder.loadTexts:ciscoGspNotificationsGroupSup3.setStatus(_B)
-ciscoGspMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,336,2,1,1))
-ciscoGspMIBCompliance.setObjects(*((_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_Cy),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g)))
-if mibBuilder.loadTexts:ciscoGspMIBCompliance.setStatus(_U)
-ciscoGspMIBComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,9,336,2,1,2))
-ciscoGspMIBComplianceRev1.setObjects(*((_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h)))
-if mibBuilder.loadTexts:ciscoGspMIBComplianceRev1.setStatus(_U)
-ciscoGspMIBComplianceRev2=ModuleCompliance((1,3,6,1,4,1,9,9,336,2,1,3))
-ciscoGspMIBComplianceRev2.setObjects(*((_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_k),(_A,_l)))
-if mibBuilder.loadTexts:ciscoGspMIBComplianceRev2.setStatus(_U)
-ciscoGspMIBComplianceRev3=ModuleCompliance((1,3,6,1,4,1,9,9,336,2,1,4))
-ciscoGspMIBComplianceRev3.setObjects(*((_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_k),(_A,_l),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5)))
-if mibBuilder.loadTexts:ciscoGspMIBComplianceRev3.setStatus(_U)
-ciscoGspMIBComplianceRev4=ModuleCompliance((1,3,6,1,4,1,9,9,336,2,1,5))
-ciscoGspMIBComplianceRev4.setObjects(*((_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_k),(_A,_l),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_BU)))
-if mibBuilder.loadTexts:ciscoGspMIBComplianceRev4.setStatus(_U)
-ciscoGspMIBComplianceRev5=ModuleCompliance((1,3,6,1,4,1,9,9,336,2,1,6))
-ciscoGspMIBComplianceRev5.setObjects(*((_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_k),(_A,_l),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_BU),(_A,_Cz),(_A,_C_)))
-if mibBuilder.loadTexts:ciscoGspMIBComplianceRev5.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'CgspSequenceNumber':CgspSequenceNumber,_BV:CgspSampleInterval,_i:CgspPercentThreshold,'CgspLinkTestResults':CgspLinkTestResults,'CgspLinkUtilization':CgspLinkUtilization,'CgspLinkCapacity':CgspLinkCapacity,'CgspProfileName':CgspProfileName,'CgspLinkUtilizationState':CgspLinkUtilizationState,'CgspTimerNumbers':CgspTimerNumbers,'CgspTimerValue':CgspTimerValue,'CgspSS7Variant':CgspSS7Variant,'CgspDisplayInstanceUserPart':CgspDisplayInstanceUserPart,'CItpTcSccpWrrOption':CItpTcSccpWrrOption,'ciscoGspMIB':ciscoGspMIB,'ciscoGspMIBNotifs':ciscoGspMIBNotifs,_Cp:ciscoGspLinksetStateChange,_Cq:ciscoGspLinkStateChange,_Cr:ciscoGspCongestionChange,_Cs:ciscoGspLinkRcvdUtilChange,_Ct:ciscoGspLinkSentUtilChange,_Cu:ciscoGspIsolation,_Cv:ciscoGspUPUReceived,_Cw:ciscoGspUPUTransmitted,_Cx:ciscoGspRxCongestionChange,'ciscoGspMIBObjects':ciscoGspMIBObjects,'cgspScalars':cgspScalars,_M:cgspCLLICode,_Bj:cgspUtilSampleInterval,_Bk:cgspUtilThreshold,_Bl:cgspUtilAbateDelta,_Bm:cgspPlanCapacityDefault,_N:cgspEventSequenceNumber,_Cj:cgspUPUNotifWindowTime,'cgspProfile':cgspProfile,'cgspProfileTable':cgspProfileTable,'cgspProfileTableEntry':cgspProfileTableEntry,_BW:cgspProfileName,_Bn:cgspProfileVariant,_Bo:cgspProfileMtp2BundleTimer,_Bp:cgspProfileMtp2SendQueueDepth,_Bq:cgspProfileRowStatus,'cgspProfileTimerTable':cgspProfileTimerTable,'cgspProfileTimerTableEntry':cgspProfileTimerTableEntry,_BX:cgspProfileTimerNumber,_Br:cgspProfileTimerValue,_Bs:cgspProfileTimerRowStatus,'cgspInstance':cgspInstance,'cgspInstanceTable':cgspInstanceTable,'cgspInstanceTableEntry':cgspInstanceTableEntry,_K:cgspInstNetwork,_Bt:cgspInstNetworkIndicator,_Bu:cgspInstVariant,_AA:cgspInstDisplayName,_AB:cgspInstDescription,_Bv:cgspInstTFR,_Bw:cgspInstCongestionsLevels,_Bx:cgspInstFastRestart,_By:cgspInstDistSccpUnseq,_Bz:cgspInstSummaryRoutingException,_B_:cgspInstNumber,_C0:cgspInstRouteTableName,_C1:cgspInstRowStatus,_Cn:cgspInstSccpWrrOpcShift,_Co:cgspInstSccpWrrOption,'cgspInstTimerTable':cgspInstTimerTable,'cgspInstTimerTableEntry':cgspInstTimerTableEntry,_BY:cgspInstTimerNumber,_C2:cgspInstTimerValue,_C3:cgspInstTimerRowStatus,'cgspInstUPUTable':cgspInstUPUTable,'cgspInstUPUTableEntry':cgspInstUPUTableEntry,_BZ:cgspMtp3SI,_Ck:cgspInstSIUPUReceived,_Cl:cgspInstSIUPUTransmitted,_x:cgspInstUserPartDisplay,'cgspPointCode':cgspPointCode,'cgspPointCodeTable':cgspPointCodeTable,'cgspPointCodeTableEntry':cgspPointCodeTableEntry,_Ba:cgspPointCodeNi,_Bb:cgspPointCodeBin,_C4:cgspPointCodeType,_C5:cgspPointCodeDisplay,_C6:cgspPointCodeRowStatus,'cgspLinkset':cgspLinkset,'cgspLinksetTable':cgspLinksetTable,'cgspLinksetTableEntry':cgspLinksetTableEntry,_T:cgspLinksetName,_C7:cgspLinksetSourcePointCode,_P:cgspLinksetSourceDisplayPC,_C8:cgspLinksetAdjacentPointCode,_Q:cgspLinksetAdjacentDisplayPC,_AC:cgspLinksetState,_C9:cgspLinksetInboundAcl,_CA:cgspLinksetOutboundAcl,_CB:cgspLinksetAccountingMtp3,_CC:cgspLinksetAccountingGtt,_CD:cgspLinksetNumLinks,_CE:cgspLinksetDurationInService,_CF:cgspLinksetDurationOutService,_CG:cgspLinksetActPriority,_AD:cgspLinksetDisplayName,_CH:cgspLinksetDescription,_CI:cgspLinksetRotateSlsEnable,_CJ:cgspLinksetRotateSlsShift,_CK:cgspLinksetProfileName,_CL:cgspLinksetAdjacentInst,_CM:cgspLinksetRowStatus,'cgspLinksetTimerTable':cgspLinksetTimerTable,'cgspLinksetTimerTableEntry':cgspLinksetTimerTableEntry,_Be:cgspLinksetTimerNumber,_CN:cgspLinksetTimerValue,_CO:cgspLinksetTimerRowStatus,'cgspLink':cgspLink,'cgspLinkTable':cgspLinkTable,'cgspLinkTableEntry':cgspLinkTableEntry,_j:cgspLinkSlc,_AE:cgspLinkDescription,_p:cgspLinkState,_q:cgspLinkReason,_AF:cgspLinkType,_AG:cgspLinkifIndex,_CP:cgspLinkSctpAssociation,_AH:cgspLinkXmitQueueDepth,_AI:cgspLinkXmitQueueDepthHigh,_AJ:cgspLinkXmitQueueDepthHighRT,_r:cgspLinkCongestionState,_AK:cgspLinkCongestionAbate1,_AL:cgspLinkCongestionAbate2,_AM:cgspLinkCongestionAbate3,_AN:cgspLinkCongestionOnset1,_AO:cgspLinkCongestionOnset2,_AP:cgspLinkCongestionOnset3,_AQ:cgspLinkSigLinkTest,_AR:cgspLinkQ752T1E1,_AS:cgspLinkQ752T1E2,_AT:cgspLinkQ752T1E3,_AU:cgspLinkQ752T1E5,_AV:cgspLinkQ752T1E7,_AW:cgspLinkQ752T1E8,_AX:cgspLinkQ752T1E9,_AY:cgspLinkQ752T1E10,_AZ:cgspLinkQ752T1E11,_Aa:cgspLinkQ752T2E1,_Ab:cgspLinkQ752T2E5,_Ac:cgspLinkQ752T2E6,_Ad:cgspLinkQ752T2E7,_Ae:cgspLinkQ752T2E9,_Af:cgspLinkQ752T2E10,_Ag:cgspLinkQ752T2E15,_Ah:cgspLinkQ752T2E16,_Ai:cgspLinkQ752T2E18,_Aj:cgspLinkQ752T3E1,_Al:cgspLinkQ752T3E2Bytes,_Ak:cgspLinkQ752T3E2Packets,_Am:cgspLinkQ752T3E3,_An:cgspLinkQ752T3E4,_Ao:cgspLinkQ752T3E5,_Ap:cgspLinkQ752T3E6,_Aq:cgspLinkQ752T3E7,_Ar:cgspLinkQ752T3E10L1,_As:cgspLinkQ752T3E10L2,_At:cgspLinkQ752T3E10L3,_Au:cgspLinkQ752T3E11L1,_Av:cgspLinkQ752T3E11L2,_Aw:cgspLinkQ752T3E11L3,_Ax:cgspLinkLocalPeerPort,_Ay:cgspLinkRemotePeerPort,_Az:cgspLinkQosClass,_R:cgspLinkDisplayName,_A_:cgspLinkDroppedPkts,_B0:cgspLinkTransmittedLSSUs,_B1:cgspLinkReceivedLSSUs,_B2:cgspLinkProtocolDetails,_B3:cgspLinkLsacState,_B4:cgspLinkTsrcState,_B5:cgspLinkTcocState,_B6:cgspLinkTcocLocalBSNT,_B7:cgspLinkTcocRemoteBSNT,_B8:cgspLinkTcbcState,_B9:cgspLinkReceivedSIBs,_BA:cgspLinkTransmittedSIBs,_BB:cgspLinkMtp2T01Counts,_BC:cgspLinkMtp2T02Counts,_BD:cgspLinkMtp2T03Counts,_BE:cgspLinkMtp2T04Counts,_BF:cgspLinkMtp2T05Counts,_BG:cgspLinkMtp2T06Counts,_BH:cgspLinkMtp2T07Counts,_BI:cgspLinkOMAERMCounts,_BJ:cgspLinkOMAERMFailCounts,_BK:cgspLinkOMSURMCounts,_BL:cgspLinkOMSURMFailCounts,_BM:cgspLinkPlanCapacityRcvd,_BN:cgspLinkUtilThresholdRcvd,_s:cgspLinkUtilizationRcvd,_t:cgspLinkUtilStateRcvd,_BO:cgspLinkL2BytesRcvd,_BP:cgspLinkPlanCapacitySent,_BQ:cgspLinkUtilThresholdSent,_u:cgspLinkUtilizationSent,_v:cgspLinkUtilStateSent,_BR:cgspLinkL2BytesSent,_w:cgspLinkTestResult,_BS:cgspLinkRowStatus,_Cc:cgspLinkSctpAssociationId,_Ce:cgspLinkQ752T1E12,_Cf:cgspLinkQ752T1E12Errors,_Cg:cgspLinkQ752T2E11,_Ch:cgspLinkQ752T2E17,_Ci:cgspLinkQ752T2E19,_BT:cgspLinkRxCongestionState,'cgspLinkTimerTable':cgspLinkTimerTable,'cgspLinkTimerTableEntry':cgspLinkTimerTableEntry,_Bf:cgspLinkTimerNumber,_CQ:cgspLinkTimerValue,_CR:cgspLinkTimerRowStatus,'cgspLinkRemoteIpAddrTable':cgspLinkRemoteIpAddrTable,'cgspLinkRemoteIpAddrTableEntry':cgspLinkRemoteIpAddrTableEntry,_Bg:cgspLinkRemoteIpAddrNumber,_CS:cgspLinkRemoteIpAddrType,_CT:cgspLinkRemoteIpAddress,_CU:cgspLinkRemoteIpAddrRowStatus,'cgspLinkUtilTable':cgspLinkUtilTable,'cgspLinkUtilTableEntry':cgspLinkUtilTableEntry,_Bh:cgspLinkUtilIndex,_CV:cgspLinkUtilRcvd,_CW:cgspLinkUtilSent,_CX:cgspLinkUtilEndTimestamp,'cgspNotificationsEnable':cgspNotificationsEnable,_CY:cgspLsStateChangeNotifEnabled,_CZ:cgspLnkStateChangeNotifEnabled,_Ca:cgspCongestionNotifEnabled,_Cb:cgspLinkUtilNotifEnabled,_Cd:cgspIsolationNotifEnabled,_Cm:cgspUPUNotifEnabled,'cgspNotificationsInfo':cgspNotificationsInfo,_y:cgspUPUIntervalDuration,_z:cgspIntervalUPUs,'ciscoGspMIBConform':ciscoGspMIBConform,'ciscoGspMIBCompliances':ciscoGspMIBCompliances,'ciscoGspMIBCompliance':ciscoGspMIBCompliance,'ciscoGspMIBComplianceRev1':ciscoGspMIBComplianceRev1,'ciscoGspMIBComplianceRev2':ciscoGspMIBComplianceRev2,'ciscoGspMIBComplianceRev3':ciscoGspMIBComplianceRev3,'ciscoGspMIBComplianceRev4':ciscoGspMIBComplianceRev4,'ciscoGspMIBComplianceRev5':ciscoGspMIBComplianceRev5,'ciscoGspMIBGroups':ciscoGspMIBGroups,_V:ciscoGspScalarsGroup,_W:ciscoGspProfileGroup,_X:ciscoGspInstanceGroup,_Y:ciscoGspInstTimerGroup,_Z:ciscoGspPointCodeGroup,_a:ciscoGspLinksetGroup,_b:ciscoGspLinksetTimerGroup,_Cy:ciscoGspLinkGroup,_c:ciscoGspLinkTimerGroup,_d:ciscoGspLinkRemoteIpGroup,_e:ciscoGspLinkUtilGroup,_f:ciscoGspNotificationsEnableGroup,_g:ciscoGspNotificationsGroup,_h:ciscoGspLinkGroupRev1,_k:ciscoGspNotificationsEnableGroupSup1,_l:ciscoGspNotificationsGroupSup1,_A0:ciscoGspLinkGroupSup1,_A1:ciscoGspScalarsGroupSup1,_A2:ciscoGspInstUPUGroup,_A3:ciscoGspNotificationsInfoGroup,_A4:ciscoGspNotificationsEnableGroupSup2,_A5:ciscoGspNotificationsGroupSup2,_BU:ciscoGspInstSccpWrrGroup,_Cz:ciscoGspLinkTableEntryGroupSup1,_C_:ciscoGspNotificationsGroupSup3})
+#
+# PySNMP MIB module CISCO-ITP-GSP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-ITP-GSP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:23 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+CItpTcPointCode, CItpTcCLLI, CItpTcInstanceNumber, CItpTcPointCodeType, CItpTcQos, CItpTcNetworkIndicator, CItpTcLinksetId, CItpTcLinkType, CItpTcDisplayPC, CItpTcServiceIndicator, CItpTcRouteTableName, CItpTcLinkSLC, CItpTcNetworkName, CItpTcAclId = mibBuilder.importSymbols("CISCO-ITP-TC-MIB", "CItpTcPointCode", "CItpTcCLLI", "CItpTcInstanceNumber", "CItpTcPointCodeType", "CItpTcQos", "CItpTcNetworkIndicator", "CItpTcLinksetId", "CItpTcLinkType", "CItpTcDisplayPC", "CItpTcServiceIndicator", "CItpTcRouteTableName", "CItpTcLinkSLC", "CItpTcNetworkName", "CItpTcAclId")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
+InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "TruthValue", "TextualConvention")
+ciscoGspMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 336))
+ciscoGspMIB.setRevisions(('2009-12-31 00:00', '2009-09-12 00:00', '2009-05-25 00:00', '2008-05-07 00:00', '2005-10-21 00:00', '2005-02-24 00:00', '2003-07-16 00:00', '2003-03-03 00:00',))
+if mibBuilder.loadTexts: ciscoGspMIB.setLastUpdated('201003050000Z')
+if mibBuilder.loadTexts: ciscoGspMIB.setOrganization('Cisco Systems, Inc.')
+ciscoGspMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 336, 0))
+ciscoGspMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 336, 1))
+ciscoGspMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 336, 2))
+cgspScalars = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 1))
+cgspProfile = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 2))
+cgspInstance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3))
+cgspPointCode = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 4))
+cgspLinkset = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5))
+cgspLink = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6))
+cgspNotificationsEnable = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 7))
+cgspNotificationsInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 8))
+class CgspSequenceNumber(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 65535)
+
+class CgspSampleInterval(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(60, 3600)
+
+class CgspPercentThreshold(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 100)
+
+class CgspLinkTestResults(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))
+    namedValues = NamedValues(("noErrors", 0), ("undefinedOpc", 1), ("incorrectOpc", 2), ("undefinedSlc", 3), ("incorrectSlc", 4), ("incorrectNi", 5), ("badPattern", 6), ("nonAdjacent", 7), ("failed", 8))
+
+class CgspLinkUtilization(TextualConvention, Gauge32):
+    status = 'current'
+    subtypeSpec = Gauge32.subtypeSpec + ValueRangeConstraint(0, 999)
+
+class CgspLinkCapacity(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(56000, 2147483647), )
+class CgspProfileName(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 19)
+
+class CgspLinkUtilizationState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("unMonitored", 0), ("underThreshold", 1), ("overThreshold", 2))
+
+class CgspTimerNumbers(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45))
+    namedValues = NamedValues(("timerMtp3T01", 1), ("timerMtp3T02", 2), ("timerMtp3T03", 3), ("timerMtp3T04", 4), ("timerMtp3T05", 5), ("timerMtp3T06", 6), ("timerMtp3T07", 7), ("timerMtp3T08", 8), ("timerMtp3T09", 9), ("timerMtp3T10", 10), ("timerMtp3T11", 11), ("timerMtp3T12", 12), ("timerMtp3T13", 13), ("timerMtp3T14", 14), ("timerMtp3T15", 15), ("timerMtp3T16", 16), ("timerMtp3T17", 17), ("timerMtp3T18", 18), ("timerMtp3T19", 19), ("timerMtp3T20", 20), ("timerMtp3T21", 21), ("timerMtp3T22", 22), ("timerMtp3T23", 23), ("timerMtp3T24", 24), ("timerMtp3T25", 25), ("timerMtp3T26", 26), ("timerMtp3T27", 27), ("timerMtp3T28", 28), ("timerMtp3T29", 29), ("timerMtp3T30", 30), ("timerMtp3T31", 31), ("timerMtp3T32", 32), ("timerMtp3T33", 33), ("timerMtp3T34", 34), ("timerLinkTest", 35), ("timerLinkMessag1", 36), ("timerLinkActRetry", 37), ("timerMtp2T01", 38), ("timerMtp2T02", 39), ("timerMtp2T03", 40), ("timerMtp2T04N", 41), ("timerMtp2T04E", 42), ("timerMtp2T05", 43), ("timerMtp2T06", 44), ("timerMtp2T07", 45))
+
+class CgspTimerValue(TextualConvention, Unsigned32):
+    reference = 'ITU Q.703 Signalling Link. ANSI T1.111.3 Telecommunications - signalling system No. 7 (SS7)-Message Transfer Part (MTP).'
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 4294967295), )
+class CgspSS7Variant(TextualConvention, Integer32):
+    reference = 'GF 001-9001 - Technical Specifications of Signalling System No. 7 for National Telephone Network of China.'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))
+    namedValues = NamedValues(("unknown", 0), ("ansi", 1), ("itu", 2), ("china", 3), ("ntt", 4), ("ttc", 5))
+
+class CgspDisplayInstanceUserPart(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 40)
+
+class CItpTcSccpWrrOption(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
+    namedValues = NamedValues(("sls", 0), ("cgpaSls", 1), ("opcSls", 2), ("opc", 3))
+
+cgspCLLICode = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 1, 1), CItpTcCLLI()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgspCLLICode.setStatus('current')
+cgspUtilSampleInterval = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 1, 2), CgspSampleInterval().clone(300)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgspUtilSampleInterval.setStatus('current')
+cgspUtilThreshold = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 1, 3), CgspPercentThreshold().clone(40)).setUnits('percent').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgspUtilThreshold.setStatus('current')
+cgspUtilAbateDelta = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 1, 4), CgspPercentThreshold()).setUnits('percent').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgspUtilAbateDelta.setStatus('current')
+cgspPlanCapacityDefault = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 1, 5), CgspLinkCapacity()).setUnits('bits per second').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgspPlanCapacityDefault.setStatus('current')
+cgspEventSequenceNumber = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 1, 6), Counter32()).setUnits('events').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspEventSequenceNumber.setStatus('current')
+cgspUPUNotifWindowTime = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 86400)).clone(900)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgspUPUNotifWindowTime.setStatus('current')
+cgspProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 2, 1), )
+if mibBuilder.loadTexts: cgspProfileTable.setStatus('current')
+cgspProfileTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-ITP-GSP-MIB", "cgspProfileName"))
+if mibBuilder.loadTexts: cgspProfileTableEntry.setStatus('current')
+cgspProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 2, 1, 1, 1), CgspProfileName())
+if mibBuilder.loadTexts: cgspProfileName.setStatus('current')
+cgspProfileVariant = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 2, 1, 1, 2), CgspSS7Variant()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspProfileVariant.setStatus('current')
+cgspProfileMtp2BundleTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(5, 10000), ))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspProfileMtp2BundleTimer.setStatus('current')
+cgspProfileMtp2SendQueueDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(25, 32000))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspProfileMtp2SendQueueDepth.setStatus('current')
+cgspProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 2, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspProfileRowStatus.setStatus('current')
+cgspProfileTimerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 2, 2), )
+if mibBuilder.loadTexts: cgspProfileTimerTable.setStatus('current')
+cgspProfileTimerTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 2, 2, 1), ).setIndexNames((0, "CISCO-ITP-GSP-MIB", "cgspInstNetwork"), (0, "CISCO-ITP-GSP-MIB", "cgspProfileTimerNumber"))
+if mibBuilder.loadTexts: cgspProfileTimerTableEntry.setStatus('current')
+cgspProfileTimerNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 2, 2, 1, 1), CgspTimerNumbers())
+if mibBuilder.loadTexts: cgspProfileTimerNumber.setStatus('current')
+cgspProfileTimerValue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 2, 2, 1, 2), CgspTimerValue()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspProfileTimerValue.setStatus('current')
+cgspProfileTimerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 2, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspProfileTimerRowStatus.setStatus('current')
+cgspInstanceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1), )
+if mibBuilder.loadTexts: cgspInstanceTable.setStatus('current')
+cgspInstanceTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1), ).setIndexNames((0, "CISCO-ITP-GSP-MIB", "cgspInstNetwork"))
+if mibBuilder.loadTexts: cgspInstanceTableEntry.setStatus('current')
+cgspInstNetwork = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1, 1), CItpTcNetworkName())
+if mibBuilder.loadTexts: cgspInstNetwork.setStatus('current')
+cgspInstNetworkIndicator = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1, 2), CItpTcNetworkIndicator()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspInstNetworkIndicator.setStatus('current')
+cgspInstVariant = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1, 3), CgspSS7Variant()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspInstVariant.setStatus('current')
+cgspInstDisplayName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspInstDisplayName.setStatus('current')
+cgspInstDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1, 5), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 254))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspInstDescription.setStatus('current')
+cgspInstTFR = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1, 6), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspInstTFR.setStatus('current')
+cgspInstCongestionsLevels = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1, 7), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspInstCongestionsLevels.setStatus('current')
+cgspInstFastRestart = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1, 8), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspInstFastRestart.setStatus('current')
+cgspInstDistSccpUnseq = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1, 9), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspInstDistSccpUnseq.setStatus('current')
+cgspInstSummaryRoutingException = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1, 10), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspInstSummaryRoutingException.setStatus('current')
+cgspInstNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1, 11), CItpTcInstanceNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspInstNumber.setStatus('current')
+cgspInstRouteTableName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1, 12), CItpTcRouteTableName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspInstRouteTableName.setStatus('current')
+cgspInstRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1, 13), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspInstRowStatus.setStatus('current')
+cgspInstSccpWrrOpcShift = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 8))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspInstSccpWrrOpcShift.setStatus('current')
+cgspInstSccpWrrOption = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 1, 1, 15), CItpTcSccpWrrOption()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspInstSccpWrrOption.setStatus('current')
+cgspInstTimerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 2), )
+if mibBuilder.loadTexts: cgspInstTimerTable.setStatus('current')
+cgspInstTimerTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 2, 1), ).setIndexNames((0, "CISCO-ITP-GSP-MIB", "cgspInstNetwork"), (0, "CISCO-ITP-GSP-MIB", "cgspInstTimerNumber"))
+if mibBuilder.loadTexts: cgspInstTimerTableEntry.setStatus('current')
+cgspInstTimerNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 2, 1, 1), CgspTimerNumbers())
+if mibBuilder.loadTexts: cgspInstTimerNumber.setStatus('current')
+cgspInstTimerValue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 2, 1, 2), CgspTimerValue()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspInstTimerValue.setStatus('current')
+cgspInstTimerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspInstTimerRowStatus.setStatus('current')
+cgspInstUPUTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 3), )
+if mibBuilder.loadTexts: cgspInstUPUTable.setStatus('current')
+cgspInstUPUTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 3, 1), ).setIndexNames((0, "CISCO-ITP-GSP-MIB", "cgspInstNetwork"), (0, "CISCO-ITP-GSP-MIB", "cgspMtp3SI"))
+if mibBuilder.loadTexts: cgspInstUPUTableEntry.setStatus('current')
+cgspMtp3SI = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 3, 1, 1), CItpTcServiceIndicator())
+if mibBuilder.loadTexts: cgspMtp3SI.setStatus('current')
+cgspInstSIUPUReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 3, 1, 2), Counter32()).setUnits('MSUs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspInstSIUPUReceived.setStatus('current')
+cgspInstSIUPUTransmitted = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 3, 1, 3), Counter32()).setUnits('MSUs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspInstSIUPUTransmitted.setStatus('current')
+cgspInstUserPartDisplay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 3, 3, 1, 4), CgspDisplayInstanceUserPart()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspInstUserPartDisplay.setStatus('current')
+cgspPointCodeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 4, 1), )
+if mibBuilder.loadTexts: cgspPointCodeTable.setStatus('current')
+cgspPointCodeTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 4, 1, 1), ).setIndexNames((0, "CISCO-ITP-GSP-MIB", "cgspInstNetwork"), (0, "CISCO-ITP-GSP-MIB", "cgspPointCodeNi"), (0, "CISCO-ITP-GSP-MIB", "cgspPointCodeBin"))
+if mibBuilder.loadTexts: cgspPointCodeTableEntry.setStatus('current')
+cgspPointCodeNi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 4, 1, 1, 1), CItpTcNetworkIndicator())
+if mibBuilder.loadTexts: cgspPointCodeNi.setStatus('current')
+cgspPointCodeBin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 4, 1, 1, 2), CItpTcPointCode())
+if mibBuilder.loadTexts: cgspPointCodeBin.setStatus('current')
+cgspPointCodeType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 4, 1, 1, 3), CItpTcPointCodeType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspPointCodeType.setStatus('current')
+cgspPointCodeDisplay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 4, 1, 1, 4), CItpTcDisplayPC()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspPointCodeDisplay.setStatus('current')
+cgspPointCodeRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 4, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspPointCodeRowStatus.setStatus('current')
+cgspLinksetTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1), )
+if mibBuilder.loadTexts: cgspLinksetTable.setStatus('current')
+cgspLinksetTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1), ).setIndexNames((0, "CISCO-ITP-GSP-MIB", "cgspInstNetwork"), (0, "CISCO-ITP-GSP-MIB", "cgspLinksetName"))
+if mibBuilder.loadTexts: cgspLinksetTableEntry.setStatus('current')
+cgspLinksetName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 1), CItpTcLinksetId())
+if mibBuilder.loadTexts: cgspLinksetName.setStatus('current')
+cgspLinksetSourcePointCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 2), CItpTcPointCode()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinksetSourcePointCode.setStatus('current')
+cgspLinksetSourceDisplayPC = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 3), CItpTcDisplayPC()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinksetSourceDisplayPC.setStatus('current')
+cgspLinksetAdjacentPointCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 4), CItpTcPointCode()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinksetAdjacentPointCode.setStatus('current')
+cgspLinksetAdjacentDisplayPC = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 5), CItpTcDisplayPC()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinksetAdjacentDisplayPC.setStatus('current')
+cgspLinksetState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("available", 1), ("shutdown", 2), ("unavailable", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinksetState.setStatus('current')
+cgspLinksetInboundAcl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 7), CItpTcAclId()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinksetInboundAcl.setStatus('current')
+cgspLinksetOutboundAcl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 8), CItpTcAclId()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinksetOutboundAcl.setStatus('current')
+cgspLinksetAccountingMtp3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 9), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinksetAccountingMtp3.setStatus('current')
+cgspLinksetAccountingGtt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 10), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinksetAccountingGtt.setStatus('current')
+cgspLinksetNumLinks = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinksetNumLinks.setStatus('current')
+cgspLinksetDurationInService = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 12), Counter32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinksetDurationInService.setStatus('current')
+cgspLinksetDurationOutService = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 13), Counter32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinksetDurationOutService.setStatus('current')
+cgspLinksetActPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinksetActPriority.setStatus('current')
+cgspLinksetDisplayName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 15), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinksetDisplayName.setStatus('current')
+cgspLinksetDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 16), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 254))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinksetDescription.setStatus('current')
+cgspLinksetRotateSlsEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 17), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinksetRotateSlsEnable.setStatus('current')
+cgspLinksetRotateSlsShift = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 18), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinksetRotateSlsShift.setStatus('current')
+cgspLinksetProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 19), CgspProfileName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinksetProfileName.setStatus('current')
+cgspLinksetAdjacentInst = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 20), CItpTcNetworkName()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinksetAdjacentInst.setStatus('current')
+cgspLinksetRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 1, 1, 21), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinksetRowStatus.setStatus('current')
+cgspLinksetTimerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 2), )
+if mibBuilder.loadTexts: cgspLinksetTimerTable.setStatus('current')
+cgspLinksetTimerTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 2, 1), ).setIndexNames((0, "CISCO-ITP-GSP-MIB", "cgspInstNetwork"), (0, "CISCO-ITP-GSP-MIB", "cgspLinksetName"), (0, "CISCO-ITP-GSP-MIB", "cgspLinksetTimerNumber"))
+if mibBuilder.loadTexts: cgspLinksetTimerTableEntry.setStatus('current')
+cgspLinksetTimerNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 2, 1, 1), CgspTimerNumbers())
+if mibBuilder.loadTexts: cgspLinksetTimerNumber.setStatus('current')
+cgspLinksetTimerValue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 2, 1, 2), CgspTimerValue()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinksetTimerValue.setStatus('current')
+cgspLinksetTimerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 5, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinksetTimerRowStatus.setStatus('current')
+cgspLinkTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1), )
+if mibBuilder.loadTexts: cgspLinkTable.setStatus('current')
+cgspLinkTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1), ).setIndexNames((0, "CISCO-ITP-GSP-MIB", "cgspInstNetwork"), (0, "CISCO-ITP-GSP-MIB", "cgspLinksetName"), (0, "CISCO-ITP-GSP-MIB", "cgspLinkSlc"))
+if mibBuilder.loadTexts: cgspLinkTableEntry.setStatus('current')
+cgspLinkSlc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 1), CItpTcLinkSLC())
+if mibBuilder.loadTexts: cgspLinkSlc.setStatus('current')
+cgspLinkDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 254))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkDescription.setStatus('current')
+cgspLinkState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("available", 1), ("failed", 2), ("shutdown", 3), ("unavailable", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkState.setStatus('current')
+cgspLinkReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35))).clone(namedValues=NamedValues(("unknown", 0), ("changeOverInProgress", 1), ("mgmtDisconnectRequest", 2), ("linkAlignmentLost", 3), ("connectionLost", 4), ("localDisconnect", 5), ("remoteDisconnect", 6), ("suermFailure", 7), ("t1Timeout", 8), ("t2Timeout", 9), ("t3Timeout", 10), ("t6Timeout", 11), ("t7Timeout", 12), ("provingFailure", 13), ("protocolErrorBsn", 14), ("protocolErrorFib", 15), ("protocolErrorSin", 16), ("protocolErrorLssu", 17), ("peerNotReady", 18), ("communicationLost", 19), ("noListenPosted", 20), ("bufferNotAvailable", 21), ("cardRemoved", 22), ("cardInserted", 23), ("falseLinkCongestion", 24), ("configDownload", 25), ("localInhibit", 26), ("localUninhibit", 27), ("remoteInhibit", 28), ("remoteUninhibit", 29), ("localBlocked", 30), ("localUnBlocked", 31), ("remoteBlocked", 32), ("remoteUnblocked", 33), ("linkRestored", 34), ("linkTestFailure", 35)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkReason.setStatus('current')
+cgspLinkType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 5), CItpTcLinkType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkType.setStatus('current')
+cgspLinkifIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 6), InterfaceIndexOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkifIndex.setStatus('current')
+cgspLinkSctpAssociation = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkSctpAssociation.setStatus('deprecated')
+cgspLinkXmitQueueDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkXmitQueueDepth.setStatus('current')
+cgspLinkXmitQueueDepthHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 9), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkXmitQueueDepthHigh.setStatus('current')
+cgspLinkXmitQueueDepthHighRT = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 10), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkXmitQueueDepthHighRT.setStatus('current')
+cgspLinkCongestionState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkCongestionState.setStatus('current')
+cgspLinkCongestionAbate1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkCongestionAbate1.setStatus('current')
+cgspLinkCongestionAbate2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkCongestionAbate2.setStatus('current')
+cgspLinkCongestionAbate3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkCongestionAbate3.setStatus('current')
+cgspLinkCongestionOnset1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkCongestionOnset1.setStatus('current')
+cgspLinkCongestionOnset2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 16), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkCongestionOnset2.setStatus('current')
+cgspLinkCongestionOnset3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 17), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkCongestionOnset3.setStatus('current')
+cgspLinkSigLinkTest = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 18), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkSigLinkTest.setStatus('current')
+cgspLinkQ752T1E1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 19), Counter32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T1E1.setStatus('current')
+cgspLinkQ752T1E2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 20), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T1E2.setStatus('current')
+cgspLinkQ752T1E3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 21), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T1E3.setStatus('current')
+cgspLinkQ752T1E5 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 22), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T1E5.setStatus('current')
+cgspLinkQ752T1E7 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 23), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T1E7.setStatus('current')
+cgspLinkQ752T1E8 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 24), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T1E8.setStatus('current')
+cgspLinkQ752T1E9 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 25), Counter32()).setUnits('negative acknowledgements').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T1E9.setStatus('current')
+cgspLinkQ752T1E10 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 26), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T1E10.setStatus('current')
+cgspLinkQ752T1E11 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 27), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T1E11.setStatus('current')
+cgspLinkQ752T2E1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 28), Counter32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T2E1.setStatus('current')
+cgspLinkQ752T2E5 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 29), Counter32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T2E5.setStatus('current')
+cgspLinkQ752T2E6 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 30), Counter32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T2E6.setStatus('current')
+cgspLinkQ752T2E7 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 31), Counter32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T2E7.setStatus('current')
+cgspLinkQ752T2E9 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 32), Counter32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T2E9.setStatus('current')
+cgspLinkQ752T2E10 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 33), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T2E10.setStatus('current')
+cgspLinkQ752T2E15 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 34), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T2E15.setStatus('current')
+cgspLinkQ752T2E16 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 35), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T2E16.setStatus('current')
+cgspLinkQ752T2E18 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 36), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T2E18.setStatus('current')
+cgspLinkQ752T3E1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 37), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T3E1.setStatus('current')
+cgspLinkQ752T3E2Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 38), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T3E2Bytes.setStatus('current')
+cgspLinkQ752T3E2Packets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 39), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T3E2Packets.setStatus('current')
+cgspLinkQ752T3E3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 40), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T3E3.setStatus('current')
+cgspLinkQ752T3E4 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 41), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T3E4.setStatus('current')
+cgspLinkQ752T3E5 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 42), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T3E5.setStatus('current')
+cgspLinkQ752T3E6 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 43), Counter32()).setUnits('events').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T3E6.setStatus('current')
+cgspLinkQ752T3E7 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 44), Counter32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T3E7.setStatus('current')
+cgspLinkQ752T3E10L1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 45), Counter32()).setUnits('Packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T3E10L1.setStatus('current')
+cgspLinkQ752T3E10L2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 46), Counter32()).setUnits('Packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T3E10L2.setStatus('current')
+cgspLinkQ752T3E10L3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 47), Counter32()).setUnits('Packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T3E10L3.setStatus('current')
+cgspLinkQ752T3E11L1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 48), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T3E11L1.setStatus('current')
+cgspLinkQ752T3E11L2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 49), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T3E11L2.setStatus('current')
+cgspLinkQ752T3E11L3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 50), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T3E11L3.setStatus('current')
+cgspLinkLocalPeerPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 51), InetPortNumber()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkLocalPeerPort.setStatus('current')
+cgspLinkRemotePeerPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 52), InetPortNumber()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkRemotePeerPort.setStatus('current')
+cgspLinkQosClass = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 53), CItpTcQos()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkQosClass.setStatus('current')
+cgspLinkDisplayName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 54), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkDisplayName.setStatus('current')
+cgspLinkDroppedPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 55), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkDroppedPkts.setStatus('current')
+cgspLinkTransmittedLSSUs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 56), Counter32()).setUnits('LSSU').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkTransmittedLSSUs.setStatus('current')
+cgspLinkReceivedLSSUs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 57), Counter32()).setUnits('LSSU').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkReceivedLSSUs.setStatus('current')
+cgspLinkProtocolDetails = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 58), Bits().clone(namedValues=NamedValues(("tcbcBuffering", 0), ("tcocBuffering", 1), ("tlacAdjacentSpRestarting", 2), ("tlacEmergencyCoInProgress", 3), ("tlacChangebackInProgress", 4), ("tlacChangeoverInProgress", 5), ("tlacChangeoverFailed", 6), ("tlacInhibitRetry", 7), ("tlacManagementRequest", 8), ("tlacSpRestarting", 9), ("tsrcChangeOverComplete", 10), ("tsrcAdjacentSpRestart", 11), ("tlacLocalInhibit", 12), ("tlacRemoteInhibit", 13), ("tlacLocalBlocked", 14), ("tlacRemoteBlocked", 15)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkProtocolDetails.setStatus('current')
+cgspLinkLsacState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 59), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("undefined", 1), ("inactive", 2), ("active", 3), ("activatingRestoring", 4), ("failed", 5), ("actT17wait", 6), ("actAnsiWaitDeloaded", 7), ("actItuWaitStmReady", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkLsacState.setStatus('current')
+cgspLinkTsrcState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 60), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("undefined", 1), ("idle", 2), ("wait5", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkTsrcState.setStatus('current')
+cgspLinkTcocState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 61), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("undefined", 1), ("idle", 2), ("wait2", 3), ("waitForAck", 4), ("retrieving", 5), ("wait5", 6), ("wait7", 7), ("wait8", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkTcocState.setStatus('current')
+cgspLinkTcocLocalBSNT = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 62), CgspSequenceNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkTcocLocalBSNT.setStatus('current')
+cgspLinkTcocRemoteBSNT = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 63), CgspSequenceNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkTcocRemoteBSNT.setStatus('current')
+cgspLinkTcbcState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 64), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("undefined", 1), ("idle", 2), ("firstAttempt", 3), ("secondAttempt", 4), ("timeControlledDiversion", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkTcbcState.setStatus('current')
+cgspLinkReceivedSIBs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 65), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkReceivedSIBs.setStatus('current')
+cgspLinkTransmittedSIBs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 66), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkTransmittedSIBs.setStatus('current')
+cgspLinkMtp2T01Counts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 67), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkMtp2T01Counts.setStatus('current')
+cgspLinkMtp2T02Counts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 68), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkMtp2T02Counts.setStatus('current')
+cgspLinkMtp2T03Counts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 69), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkMtp2T03Counts.setStatus('current')
+cgspLinkMtp2T04Counts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 70), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkMtp2T04Counts.setStatus('current')
+cgspLinkMtp2T05Counts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 71), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkMtp2T05Counts.setStatus('current')
+cgspLinkMtp2T06Counts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 72), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkMtp2T06Counts.setStatus('current')
+cgspLinkMtp2T07Counts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 73), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkMtp2T07Counts.setStatus('current')
+cgspLinkOMAERMCounts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 74), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkOMAERMCounts.setStatus('current')
+cgspLinkOMAERMFailCounts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 75), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkOMAERMFailCounts.setStatus('current')
+cgspLinkOMSURMCounts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 76), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkOMSURMCounts.setStatus('current')
+cgspLinkOMSURMFailCounts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 77), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkOMSURMFailCounts.setStatus('current')
+cgspLinkPlanCapacityRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 78), CgspLinkCapacity()).setUnits('bits per second').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkPlanCapacityRcvd.setStatus('current')
+cgspLinkUtilThresholdRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 79), CgspPercentThreshold()).setUnits('percent').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkUtilThresholdRcvd.setStatus('current')
+cgspLinkUtilizationRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 80), CgspLinkUtilization()).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkUtilizationRcvd.setStatus('current')
+cgspLinkUtilStateRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 81), CgspLinkUtilizationState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkUtilStateRcvd.setStatus('current')
+cgspLinkL2BytesRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 82), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkL2BytesRcvd.setStatus('current')
+cgspLinkPlanCapacitySent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 83), CgspLinkCapacity()).setUnits('bits per second').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkPlanCapacitySent.setStatus('current')
+cgspLinkUtilThresholdSent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 84), CgspPercentThreshold()).setUnits('percent').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkUtilThresholdSent.setStatus('current')
+cgspLinkUtilizationSent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 85), CgspLinkUtilization()).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkUtilizationSent.setStatus('current')
+cgspLinkUtilStateSent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 86), CgspLinkUtilizationState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkUtilStateSent.setStatus('current')
+cgspLinkL2BytesSent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 87), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkL2BytesSent.setStatus('current')
+cgspLinkTestResult = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 88), CgspLinkTestResults()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkTestResult.setStatus('current')
+cgspLinkRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 89), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkRowStatus.setStatus('current')
+cgspLinkSctpAssociationId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 90), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkSctpAssociationId.setStatus('current')
+cgspLinkQ752T1E12 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 91), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T1E12.setStatus('current')
+cgspLinkQ752T1E12Errors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 92), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T1E12Errors.setStatus('current')
+cgspLinkQ752T2E11 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 93), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T2E11.setStatus('current')
+cgspLinkQ752T2E17 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 94), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T2E17.setStatus('current')
+cgspLinkQ752T2E19 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 95), Counter32()).setUnits('occurrences').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkQ752T2E19.setStatus('current')
+cgspLinkRxCongestionState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 1, 1, 96), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkRxCongestionState.setStatus('current')
+cgspLinkTimerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 2), )
+if mibBuilder.loadTexts: cgspLinkTimerTable.setStatus('current')
+cgspLinkTimerTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 2, 1), ).setIndexNames((0, "CISCO-ITP-GSP-MIB", "cgspInstNetwork"), (0, "CISCO-ITP-GSP-MIB", "cgspLinksetName"), (0, "CISCO-ITP-GSP-MIB", "cgspLinkSlc"), (0, "CISCO-ITP-GSP-MIB", "cgspLinkTimerNumber"))
+if mibBuilder.loadTexts: cgspLinkTimerTableEntry.setStatus('current')
+cgspLinkTimerNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 2, 1, 1), CgspTimerNumbers())
+if mibBuilder.loadTexts: cgspLinkTimerNumber.setStatus('current')
+cgspLinkTimerValue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 2, 1, 2), CgspTimerValue()).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkTimerValue.setStatus('current')
+cgspLinkTimerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkTimerRowStatus.setStatus('current')
+cgspLinkRemoteIpAddrTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 3), )
+if mibBuilder.loadTexts: cgspLinkRemoteIpAddrTable.setStatus('current')
+cgspLinkRemoteIpAddrTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 3, 1), ).setIndexNames((0, "CISCO-ITP-GSP-MIB", "cgspInstNetwork"), (0, "CISCO-ITP-GSP-MIB", "cgspLinksetName"), (0, "CISCO-ITP-GSP-MIB", "cgspLinkSlc"), (0, "CISCO-ITP-GSP-MIB", "cgspLinkRemoteIpAddrNumber"))
+if mibBuilder.loadTexts: cgspLinkRemoteIpAddrTableEntry.setStatus('current')
+cgspLinkRemoteIpAddrNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
+if mibBuilder.loadTexts: cgspLinkRemoteIpAddrNumber.setStatus('current')
+cgspLinkRemoteIpAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 3, 1, 2), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkRemoteIpAddrType.setStatus('current')
+cgspLinkRemoteIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 3, 1, 3), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkRemoteIpAddress.setStatus('current')
+cgspLinkRemoteIpAddrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgspLinkRemoteIpAddrRowStatus.setStatus('current')
+cgspLinkUtilTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 4), )
+if mibBuilder.loadTexts: cgspLinkUtilTable.setStatus('current')
+cgspLinkUtilTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 4, 1), ).setIndexNames((0, "CISCO-ITP-GSP-MIB", "cgspInstNetwork"), (0, "CISCO-ITP-GSP-MIB", "cgspLinksetName"), (0, "CISCO-ITP-GSP-MIB", "cgspLinkSlc"), (0, "CISCO-ITP-GSP-MIB", "cgspLinkUtilIndex"))
+if mibBuilder.loadTexts: cgspLinkUtilTableEntry.setStatus('current')
+cgspLinkUtilIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 4, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 60)))
+if mibBuilder.loadTexts: cgspLinkUtilIndex.setStatus('current')
+cgspLinkUtilRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 4, 1, 2), CgspLinkUtilization()).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkUtilRcvd.setStatus('current')
+cgspLinkUtilSent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 4, 1, 3), CgspLinkUtilization()).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkUtilSent.setStatus('current')
+cgspLinkUtilEndTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 6, 4, 1, 4), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgspLinkUtilEndTimestamp.setStatus('current')
+cgspLsStateChangeNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 7, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgspLsStateChangeNotifEnabled.setStatus('current')
+cgspLnkStateChangeNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 7, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgspLnkStateChangeNotifEnabled.setStatus('current')
+cgspCongestionNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 7, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgspCongestionNotifEnabled.setStatus('current')
+cgspLinkUtilNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 7, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgspLinkUtilNotifEnabled.setStatus('current')
+cgspIsolationNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 7, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgspIsolationNotifEnabled.setStatus('current')
+cgspUPUNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 7, 6), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgspUPUNotifEnabled.setStatus('current')
+cgspUPUIntervalDuration = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 8, 1), Unsigned32()).setUnits('seconds').setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cgspUPUIntervalDuration.setStatus('current')
+cgspIntervalUPUs = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 336, 1, 8, 2), Unsigned32()).setUnits('MSUs').setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cgspIntervalUPUs.setStatus('current')
+ciscoGspLinksetStateChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 336, 0, 1)).setObjects(("CISCO-ITP-GSP-MIB", "cgspEventSequenceNumber"), ("CISCO-ITP-GSP-MIB", "cgspCLLICode"), ("CISCO-ITP-GSP-MIB", "cgspLinksetDisplayName"), ("CISCO-ITP-GSP-MIB", "cgspLinksetSourceDisplayPC"), ("CISCO-ITP-GSP-MIB", "cgspLinksetAdjacentDisplayPC"), ("CISCO-ITP-GSP-MIB", "cgspLinksetState"))
+if mibBuilder.loadTexts: ciscoGspLinksetStateChange.setStatus('current')
+ciscoGspLinkStateChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 336, 0, 2)).setObjects(("CISCO-ITP-GSP-MIB", "cgspEventSequenceNumber"), ("CISCO-ITP-GSP-MIB", "cgspCLLICode"), ("CISCO-ITP-GSP-MIB", "cgspLinksetSourceDisplayPC"), ("CISCO-ITP-GSP-MIB", "cgspLinksetAdjacentDisplayPC"), ("CISCO-ITP-GSP-MIB", "cgspLinkDisplayName"), ("CISCO-ITP-GSP-MIB", "cgspLinkState"), ("CISCO-ITP-GSP-MIB", "cgspLinkReason"), ("CISCO-ITP-GSP-MIB", "cgspLinkTestResult"))
+if mibBuilder.loadTexts: ciscoGspLinkStateChange.setStatus('current')
+ciscoGspCongestionChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 336, 0, 3)).setObjects(("CISCO-ITP-GSP-MIB", "cgspEventSequenceNumber"), ("CISCO-ITP-GSP-MIB", "cgspCLLICode"), ("CISCO-ITP-GSP-MIB", "cgspLinksetSourceDisplayPC"), ("CISCO-ITP-GSP-MIB", "cgspLinksetAdjacentDisplayPC"), ("CISCO-ITP-GSP-MIB", "cgspLinkDisplayName"), ("CISCO-ITP-GSP-MIB", "cgspLinkCongestionState"))
+if mibBuilder.loadTexts: ciscoGspCongestionChange.setStatus('current')
+ciscoGspLinkRcvdUtilChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 336, 0, 4)).setObjects(("CISCO-ITP-GSP-MIB", "cgspEventSequenceNumber"), ("CISCO-ITP-GSP-MIB", "cgspCLLICode"), ("CISCO-ITP-GSP-MIB", "cgspLinksetSourceDisplayPC"), ("CISCO-ITP-GSP-MIB", "cgspLinksetAdjacentDisplayPC"), ("CISCO-ITP-GSP-MIB", "cgspLinkDisplayName"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilStateRcvd"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilizationRcvd"))
+if mibBuilder.loadTexts: ciscoGspLinkRcvdUtilChange.setStatus('current')
+ciscoGspLinkSentUtilChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 336, 0, 5)).setObjects(("CISCO-ITP-GSP-MIB", "cgspEventSequenceNumber"), ("CISCO-ITP-GSP-MIB", "cgspCLLICode"), ("CISCO-ITP-GSP-MIB", "cgspLinksetSourceDisplayPC"), ("CISCO-ITP-GSP-MIB", "cgspLinksetAdjacentDisplayPC"), ("CISCO-ITP-GSP-MIB", "cgspLinkDisplayName"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilStateSent"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilizationSent"))
+if mibBuilder.loadTexts: ciscoGspLinkSentUtilChange.setStatus('current')
+ciscoGspIsolation = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 336, 0, 6)).setObjects(("CISCO-ITP-GSP-MIB", "cgspEventSequenceNumber"), ("CISCO-ITP-GSP-MIB", "cgspCLLICode"), ("CISCO-ITP-GSP-MIB", "cgspInstDisplayName"), ("CISCO-ITP-GSP-MIB", "cgspInstDescription"))
+if mibBuilder.loadTexts: ciscoGspIsolation.setStatus('current')
+ciscoGspUPUReceived = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 336, 0, 8)).setObjects(("CISCO-ITP-GSP-MIB", "cgspEventSequenceNumber"), ("CISCO-ITP-GSP-MIB", "cgspCLLICode"), ("CISCO-ITP-GSP-MIB", "cgspInstUserPartDisplay"), ("CISCO-ITP-GSP-MIB", "cgspUPUIntervalDuration"), ("CISCO-ITP-GSP-MIB", "cgspIntervalUPUs"))
+if mibBuilder.loadTexts: ciscoGspUPUReceived.setStatus('current')
+ciscoGspUPUTransmitted = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 336, 0, 9)).setObjects(("CISCO-ITP-GSP-MIB", "cgspEventSequenceNumber"), ("CISCO-ITP-GSP-MIB", "cgspCLLICode"), ("CISCO-ITP-GSP-MIB", "cgspInstUserPartDisplay"), ("CISCO-ITP-GSP-MIB", "cgspUPUIntervalDuration"), ("CISCO-ITP-GSP-MIB", "cgspIntervalUPUs"))
+if mibBuilder.loadTexts: ciscoGspUPUTransmitted.setStatus('current')
+ciscoGspRxCongestionChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 336, 0, 10)).setObjects(("CISCO-ITP-GSP-MIB", "cgspEventSequenceNumber"), ("CISCO-ITP-GSP-MIB", "cgspCLLICode"), ("CISCO-ITP-GSP-MIB", "cgspLinksetSourceDisplayPC"), ("CISCO-ITP-GSP-MIB", "cgspLinksetAdjacentDisplayPC"), ("CISCO-ITP-GSP-MIB", "cgspLinkDisplayName"), ("CISCO-ITP-GSP-MIB", "cgspLinkRxCongestionState"))
+if mibBuilder.loadTexts: ciscoGspRxCongestionChange.setStatus('current')
+ciscoGspMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 1))
+ciscoGspMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2))
+ciscoGspMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 1, 1)).setObjects(("CISCO-ITP-GSP-MIB", "ciscoGspScalarsGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspProfileGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstanceGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspPointCodeGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinksetGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinksetTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkRemoteIpGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkUtilGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsEnableGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspMIBCompliance = ciscoGspMIBCompliance.setStatus('deprecated')
+ciscoGspMIBComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 1, 2)).setObjects(("CISCO-ITP-GSP-MIB", "ciscoGspScalarsGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspProfileGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstanceGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspPointCodeGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinksetGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinksetTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkRemoteIpGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkUtilGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsEnableGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkGroupRev1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspMIBComplianceRev1 = ciscoGspMIBComplianceRev1.setStatus('deprecated')
+ciscoGspMIBComplianceRev2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 1, 3)).setObjects(("CISCO-ITP-GSP-MIB", "ciscoGspScalarsGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspProfileGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstanceGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspPointCodeGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinksetGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinksetTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkRemoteIpGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkUtilGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsEnableGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkGroupRev1"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsEnableGroupSup1"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsGroupSup1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspMIBComplianceRev2 = ciscoGspMIBComplianceRev2.setStatus('deprecated')
+ciscoGspMIBComplianceRev3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 1, 4)).setObjects(("CISCO-ITP-GSP-MIB", "ciscoGspScalarsGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspProfileGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstanceGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspPointCodeGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinksetGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinksetTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkRemoteIpGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkUtilGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsEnableGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkGroupRev1"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsEnableGroupSup1"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsGroupSup1"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkGroupSup1"), ("CISCO-ITP-GSP-MIB", "ciscoGspScalarsGroupSup1"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstUPUGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsInfoGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsEnableGroupSup2"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsGroupSup2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspMIBComplianceRev3 = ciscoGspMIBComplianceRev3.setStatus('deprecated')
+ciscoGspMIBComplianceRev4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 1, 5)).setObjects(("CISCO-ITP-GSP-MIB", "ciscoGspScalarsGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspProfileGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstanceGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspPointCodeGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinksetGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinksetTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkRemoteIpGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkUtilGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsEnableGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkGroupRev1"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsEnableGroupSup1"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsGroupSup1"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkGroupSup1"), ("CISCO-ITP-GSP-MIB", "ciscoGspScalarsGroupSup1"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstUPUGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsInfoGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsEnableGroupSup2"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsGroupSup2"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstSccpWrrGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspMIBComplianceRev4 = ciscoGspMIBComplianceRev4.setStatus('deprecated')
+ciscoGspMIBComplianceRev5 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 1, 6)).setObjects(("CISCO-ITP-GSP-MIB", "ciscoGspScalarsGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspProfileGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstanceGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspPointCodeGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinksetGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinksetTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkTimerGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkRemoteIpGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkUtilGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsEnableGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkGroupRev1"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsEnableGroupSup1"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsGroupSup1"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkGroupSup1"), ("CISCO-ITP-GSP-MIB", "ciscoGspScalarsGroupSup1"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstUPUGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsInfoGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsEnableGroupSup2"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsGroupSup2"), ("CISCO-ITP-GSP-MIB", "ciscoGspInstSccpWrrGroup"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkTableEntryGroupSup1"), ("CISCO-ITP-GSP-MIB", "ciscoGspNotificationsGroupSup3"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspMIBComplianceRev5 = ciscoGspMIBComplianceRev5.setStatus('current')
+ciscoGspScalarsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 1)).setObjects(("CISCO-ITP-GSP-MIB", "cgspCLLICode"), ("CISCO-ITP-GSP-MIB", "cgspUtilSampleInterval"), ("CISCO-ITP-GSP-MIB", "cgspUtilThreshold"), ("CISCO-ITP-GSP-MIB", "cgspUtilAbateDelta"), ("CISCO-ITP-GSP-MIB", "cgspPlanCapacityDefault"), ("CISCO-ITP-GSP-MIB", "cgspEventSequenceNumber"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspScalarsGroup = ciscoGspScalarsGroup.setStatus('current')
+ciscoGspProfileGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 2)).setObjects(("CISCO-ITP-GSP-MIB", "cgspProfileVariant"), ("CISCO-ITP-GSP-MIB", "cgspProfileMtp2BundleTimer"), ("CISCO-ITP-GSP-MIB", "cgspProfileMtp2SendQueueDepth"), ("CISCO-ITP-GSP-MIB", "cgspProfileRowStatus"), ("CISCO-ITP-GSP-MIB", "cgspProfileTimerValue"), ("CISCO-ITP-GSP-MIB", "cgspProfileTimerRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspProfileGroup = ciscoGspProfileGroup.setStatus('current')
+ciscoGspInstanceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 3)).setObjects(("CISCO-ITP-GSP-MIB", "cgspInstNetworkIndicator"), ("CISCO-ITP-GSP-MIB", "cgspInstVariant"), ("CISCO-ITP-GSP-MIB", "cgspInstDisplayName"), ("CISCO-ITP-GSP-MIB", "cgspInstDescription"), ("CISCO-ITP-GSP-MIB", "cgspInstTFR"), ("CISCO-ITP-GSP-MIB", "cgspInstCongestionsLevels"), ("CISCO-ITP-GSP-MIB", "cgspInstFastRestart"), ("CISCO-ITP-GSP-MIB", "cgspInstDistSccpUnseq"), ("CISCO-ITP-GSP-MIB", "cgspInstSummaryRoutingException"), ("CISCO-ITP-GSP-MIB", "cgspInstNumber"), ("CISCO-ITP-GSP-MIB", "cgspInstRouteTableName"), ("CISCO-ITP-GSP-MIB", "cgspInstRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspInstanceGroup = ciscoGspInstanceGroup.setStatus('current')
+ciscoGspInstTimerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 4)).setObjects(("CISCO-ITP-GSP-MIB", "cgspInstTimerValue"), ("CISCO-ITP-GSP-MIB", "cgspInstTimerRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspInstTimerGroup = ciscoGspInstTimerGroup.setStatus('current')
+ciscoGspPointCodeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 5)).setObjects(("CISCO-ITP-GSP-MIB", "cgspPointCodeType"), ("CISCO-ITP-GSP-MIB", "cgspPointCodeDisplay"), ("CISCO-ITP-GSP-MIB", "cgspPointCodeRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspPointCodeGroup = ciscoGspPointCodeGroup.setStatus('current')
+ciscoGspLinksetGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 6)).setObjects(("CISCO-ITP-GSP-MIB", "cgspLinksetSourcePointCode"), ("CISCO-ITP-GSP-MIB", "cgspLinksetSourceDisplayPC"), ("CISCO-ITP-GSP-MIB", "cgspLinksetAdjacentPointCode"), ("CISCO-ITP-GSP-MIB", "cgspLinksetAdjacentDisplayPC"), ("CISCO-ITP-GSP-MIB", "cgspLinksetState"), ("CISCO-ITP-GSP-MIB", "cgspLinksetInboundAcl"), ("CISCO-ITP-GSP-MIB", "cgspLinksetOutboundAcl"), ("CISCO-ITP-GSP-MIB", "cgspLinksetAccountingMtp3"), ("CISCO-ITP-GSP-MIB", "cgspLinksetAccountingGtt"), ("CISCO-ITP-GSP-MIB", "cgspLinksetNumLinks"), ("CISCO-ITP-GSP-MIB", "cgspLinksetDurationInService"), ("CISCO-ITP-GSP-MIB", "cgspLinksetDurationOutService"), ("CISCO-ITP-GSP-MIB", "cgspLinksetActPriority"), ("CISCO-ITP-GSP-MIB", "cgspLinksetDisplayName"), ("CISCO-ITP-GSP-MIB", "cgspLinksetDescription"), ("CISCO-ITP-GSP-MIB", "cgspLinksetRotateSlsEnable"), ("CISCO-ITP-GSP-MIB", "cgspLinksetRotateSlsShift"), ("CISCO-ITP-GSP-MIB", "cgspLinksetProfileName"), ("CISCO-ITP-GSP-MIB", "cgspLinksetAdjacentInst"), ("CISCO-ITP-GSP-MIB", "cgspLinksetRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspLinksetGroup = ciscoGspLinksetGroup.setStatus('current')
+ciscoGspLinksetTimerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 7)).setObjects(("CISCO-ITP-GSP-MIB", "cgspLinksetTimerValue"), ("CISCO-ITP-GSP-MIB", "cgspLinksetTimerRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspLinksetTimerGroup = ciscoGspLinksetTimerGroup.setStatus('current')
+ciscoGspLinkGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 8)).setObjects(("CISCO-ITP-GSP-MIB", "cgspLinkDescription"), ("CISCO-ITP-GSP-MIB", "cgspLinkState"), ("CISCO-ITP-GSP-MIB", "cgspLinkReason"), ("CISCO-ITP-GSP-MIB", "cgspLinkType"), ("CISCO-ITP-GSP-MIB", "cgspLinkifIndex"), ("CISCO-ITP-GSP-MIB", "cgspLinkSctpAssociation"), ("CISCO-ITP-GSP-MIB", "cgspLinkXmitQueueDepth"), ("CISCO-ITP-GSP-MIB", "cgspLinkXmitQueueDepthHigh"), ("CISCO-ITP-GSP-MIB", "cgspLinkXmitQueueDepthHighRT"), ("CISCO-ITP-GSP-MIB", "cgspLinkCongestionState"), ("CISCO-ITP-GSP-MIB", "cgspLinkCongestionAbate1"), ("CISCO-ITP-GSP-MIB", "cgspLinkCongestionAbate2"), ("CISCO-ITP-GSP-MIB", "cgspLinkCongestionAbate3"), ("CISCO-ITP-GSP-MIB", "cgspLinkCongestionOnset1"), ("CISCO-ITP-GSP-MIB", "cgspLinkCongestionOnset2"), ("CISCO-ITP-GSP-MIB", "cgspLinkCongestionOnset3"), ("CISCO-ITP-GSP-MIB", "cgspLinkSigLinkTest"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E1"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E2"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E3"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E5"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E7"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E8"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E9"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E10"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E11"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E1"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E5"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E6"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E7"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E9"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E10"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E15"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E16"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E18"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E1"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E2Packets"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E2Bytes"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E3"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E4"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E5"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E6"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E7"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E10L1"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E10L2"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E10L3"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E11L1"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E11L2"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E11L3"), ("CISCO-ITP-GSP-MIB", "cgspLinkLocalPeerPort"), ("CISCO-ITP-GSP-MIB", "cgspLinkRemotePeerPort"), ("CISCO-ITP-GSP-MIB", "cgspLinkQosClass"), ("CISCO-ITP-GSP-MIB", "cgspLinkDisplayName"), ("CISCO-ITP-GSP-MIB", "cgspLinkDroppedPkts"), ("CISCO-ITP-GSP-MIB", "cgspLinkTransmittedLSSUs"), ("CISCO-ITP-GSP-MIB", "cgspLinkReceivedLSSUs"), ("CISCO-ITP-GSP-MIB", "cgspLinkProtocolDetails"), ("CISCO-ITP-GSP-MIB", "cgspLinkLsacState"), ("CISCO-ITP-GSP-MIB", "cgspLinkTsrcState"), ("CISCO-ITP-GSP-MIB", "cgspLinkTcocState"), ("CISCO-ITP-GSP-MIB", "cgspLinkTcocLocalBSNT"), ("CISCO-ITP-GSP-MIB", "cgspLinkTcocRemoteBSNT"), ("CISCO-ITP-GSP-MIB", "cgspLinkTcbcState"), ("CISCO-ITP-GSP-MIB", "cgspLinkReceivedSIBs"), ("CISCO-ITP-GSP-MIB", "cgspLinkTransmittedSIBs"), ("CISCO-ITP-GSP-MIB", "cgspLinkMtp2T01Counts"), ("CISCO-ITP-GSP-MIB", "cgspLinkMtp2T02Counts"), ("CISCO-ITP-GSP-MIB", "cgspLinkMtp2T03Counts"), ("CISCO-ITP-GSP-MIB", "cgspLinkMtp2T04Counts"), ("CISCO-ITP-GSP-MIB", "cgspLinkMtp2T05Counts"), ("CISCO-ITP-GSP-MIB", "cgspLinkMtp2T06Counts"), ("CISCO-ITP-GSP-MIB", "cgspLinkMtp2T07Counts"), ("CISCO-ITP-GSP-MIB", "cgspLinkOMAERMCounts"), ("CISCO-ITP-GSP-MIB", "cgspLinkOMAERMFailCounts"), ("CISCO-ITP-GSP-MIB", "cgspLinkOMSURMCounts"), ("CISCO-ITP-GSP-MIB", "cgspLinkOMSURMFailCounts"), ("CISCO-ITP-GSP-MIB", "cgspLinkPlanCapacityRcvd"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilThresholdRcvd"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilizationRcvd"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilStateRcvd"), ("CISCO-ITP-GSP-MIB", "cgspLinkL2BytesRcvd"), ("CISCO-ITP-GSP-MIB", "cgspLinkPlanCapacitySent"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilThresholdSent"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilizationSent"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilStateSent"), ("CISCO-ITP-GSP-MIB", "cgspLinkL2BytesSent"), ("CISCO-ITP-GSP-MIB", "cgspLinkTestResult"), ("CISCO-ITP-GSP-MIB", "cgspLinkRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspLinkGroup = ciscoGspLinkGroup.setStatus('deprecated')
+ciscoGspLinkTimerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 9)).setObjects(("CISCO-ITP-GSP-MIB", "cgspLinkTimerValue"), ("CISCO-ITP-GSP-MIB", "cgspLinkTimerRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspLinkTimerGroup = ciscoGspLinkTimerGroup.setStatus('current')
+ciscoGspLinkRemoteIpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 10)).setObjects(("CISCO-ITP-GSP-MIB", "cgspLinkRemoteIpAddrType"), ("CISCO-ITP-GSP-MIB", "cgspLinkRemoteIpAddress"), ("CISCO-ITP-GSP-MIB", "cgspLinkRemoteIpAddrRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspLinkRemoteIpGroup = ciscoGspLinkRemoteIpGroup.setStatus('current')
+ciscoGspLinkUtilGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 11)).setObjects(("CISCO-ITP-GSP-MIB", "cgspLinkUtilRcvd"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilSent"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilEndTimestamp"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspLinkUtilGroup = ciscoGspLinkUtilGroup.setStatus('current')
+ciscoGspNotificationsEnableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 12)).setObjects(("CISCO-ITP-GSP-MIB", "cgspLsStateChangeNotifEnabled"), ("CISCO-ITP-GSP-MIB", "cgspLnkStateChangeNotifEnabled"), ("CISCO-ITP-GSP-MIB", "cgspCongestionNotifEnabled"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilNotifEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspNotificationsEnableGroup = ciscoGspNotificationsEnableGroup.setStatus('current')
+ciscoGspNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 13)).setObjects(("CISCO-ITP-GSP-MIB", "ciscoGspLinksetStateChange"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkStateChange"), ("CISCO-ITP-GSP-MIB", "ciscoGspCongestionChange"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkRcvdUtilChange"), ("CISCO-ITP-GSP-MIB", "ciscoGspLinkSentUtilChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspNotificationsGroup = ciscoGspNotificationsGroup.setStatus('current')
+ciscoGspLinkGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 14)).setObjects(("CISCO-ITP-GSP-MIB", "cgspLinkDescription"), ("CISCO-ITP-GSP-MIB", "cgspLinkState"), ("CISCO-ITP-GSP-MIB", "cgspLinkReason"), ("CISCO-ITP-GSP-MIB", "cgspLinkType"), ("CISCO-ITP-GSP-MIB", "cgspLinkifIndex"), ("CISCO-ITP-GSP-MIB", "cgspLinkXmitQueueDepth"), ("CISCO-ITP-GSP-MIB", "cgspLinkXmitQueueDepthHigh"), ("CISCO-ITP-GSP-MIB", "cgspLinkXmitQueueDepthHighRT"), ("CISCO-ITP-GSP-MIB", "cgspLinkCongestionState"), ("CISCO-ITP-GSP-MIB", "cgspLinkCongestionAbate1"), ("CISCO-ITP-GSP-MIB", "cgspLinkCongestionAbate2"), ("CISCO-ITP-GSP-MIB", "cgspLinkCongestionAbate3"), ("CISCO-ITP-GSP-MIB", "cgspLinkCongestionOnset1"), ("CISCO-ITP-GSP-MIB", "cgspLinkCongestionOnset2"), ("CISCO-ITP-GSP-MIB", "cgspLinkCongestionOnset3"), ("CISCO-ITP-GSP-MIB", "cgspLinkSigLinkTest"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E1"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E2"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E3"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E5"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E7"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E8"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E9"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E10"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E11"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E1"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E5"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E6"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E7"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E9"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E10"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E15"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E16"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E18"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E1"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E2Packets"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E2Bytes"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E3"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E4"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E5"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E6"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E7"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E10L1"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E10L2"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E10L3"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E11L1"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E11L2"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T3E11L3"), ("CISCO-ITP-GSP-MIB", "cgspLinkLocalPeerPort"), ("CISCO-ITP-GSP-MIB", "cgspLinkRemotePeerPort"), ("CISCO-ITP-GSP-MIB", "cgspLinkQosClass"), ("CISCO-ITP-GSP-MIB", "cgspLinkDisplayName"), ("CISCO-ITP-GSP-MIB", "cgspLinkDroppedPkts"), ("CISCO-ITP-GSP-MIB", "cgspLinkTransmittedLSSUs"), ("CISCO-ITP-GSP-MIB", "cgspLinkReceivedLSSUs"), ("CISCO-ITP-GSP-MIB", "cgspLinkProtocolDetails"), ("CISCO-ITP-GSP-MIB", "cgspLinkLsacState"), ("CISCO-ITP-GSP-MIB", "cgspLinkTsrcState"), ("CISCO-ITP-GSP-MIB", "cgspLinkTcocState"), ("CISCO-ITP-GSP-MIB", "cgspLinkTcocLocalBSNT"), ("CISCO-ITP-GSP-MIB", "cgspLinkTcocRemoteBSNT"), ("CISCO-ITP-GSP-MIB", "cgspLinkTcbcState"), ("CISCO-ITP-GSP-MIB", "cgspLinkReceivedSIBs"), ("CISCO-ITP-GSP-MIB", "cgspLinkTransmittedSIBs"), ("CISCO-ITP-GSP-MIB", "cgspLinkMtp2T01Counts"), ("CISCO-ITP-GSP-MIB", "cgspLinkMtp2T02Counts"), ("CISCO-ITP-GSP-MIB", "cgspLinkMtp2T03Counts"), ("CISCO-ITP-GSP-MIB", "cgspLinkMtp2T04Counts"), ("CISCO-ITP-GSP-MIB", "cgspLinkMtp2T05Counts"), ("CISCO-ITP-GSP-MIB", "cgspLinkMtp2T06Counts"), ("CISCO-ITP-GSP-MIB", "cgspLinkMtp2T07Counts"), ("CISCO-ITP-GSP-MIB", "cgspLinkOMAERMCounts"), ("CISCO-ITP-GSP-MIB", "cgspLinkOMAERMFailCounts"), ("CISCO-ITP-GSP-MIB", "cgspLinkOMSURMCounts"), ("CISCO-ITP-GSP-MIB", "cgspLinkOMSURMFailCounts"), ("CISCO-ITP-GSP-MIB", "cgspLinkPlanCapacityRcvd"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilThresholdRcvd"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilizationRcvd"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilStateRcvd"), ("CISCO-ITP-GSP-MIB", "cgspLinkL2BytesRcvd"), ("CISCO-ITP-GSP-MIB", "cgspLinkPlanCapacitySent"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilThresholdSent"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilizationSent"), ("CISCO-ITP-GSP-MIB", "cgspLinkUtilStateSent"), ("CISCO-ITP-GSP-MIB", "cgspLinkL2BytesSent"), ("CISCO-ITP-GSP-MIB", "cgspLinkTestResult"), ("CISCO-ITP-GSP-MIB", "cgspLinkRowStatus"), ("CISCO-ITP-GSP-MIB", "cgspLinkSctpAssociationId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspLinkGroupRev1 = ciscoGspLinkGroupRev1.setStatus('current')
+ciscoGspNotificationsEnableGroupSup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 15)).setObjects(("CISCO-ITP-GSP-MIB", "cgspIsolationNotifEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspNotificationsEnableGroupSup1 = ciscoGspNotificationsEnableGroupSup1.setStatus('current')
+ciscoGspNotificationsGroupSup1 = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 16)).setObjects(("CISCO-ITP-GSP-MIB", "ciscoGspIsolation"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspNotificationsGroupSup1 = ciscoGspNotificationsGroupSup1.setStatus('current')
+ciscoGspLinkGroupSup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 17)).setObjects(("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E12"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T1E12Errors"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E11"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E17"), ("CISCO-ITP-GSP-MIB", "cgspLinkQ752T2E19"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspLinkGroupSup1 = ciscoGspLinkGroupSup1.setStatus('current')
+ciscoGspScalarsGroupSup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 18)).setObjects(("CISCO-ITP-GSP-MIB", "cgspUPUNotifWindowTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspScalarsGroupSup1 = ciscoGspScalarsGroupSup1.setStatus('current')
+ciscoGspInstUPUGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 20)).setObjects(("CISCO-ITP-GSP-MIB", "cgspInstSIUPUReceived"), ("CISCO-ITP-GSP-MIB", "cgspInstSIUPUTransmitted"), ("CISCO-ITP-GSP-MIB", "cgspInstUserPartDisplay"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspInstUPUGroup = ciscoGspInstUPUGroup.setStatus('current')
+ciscoGspNotificationsInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 21)).setObjects(("CISCO-ITP-GSP-MIB", "cgspUPUIntervalDuration"), ("CISCO-ITP-GSP-MIB", "cgspIntervalUPUs"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspNotificationsInfoGroup = ciscoGspNotificationsInfoGroup.setStatus('current')
+ciscoGspNotificationsEnableGroupSup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 22)).setObjects(("CISCO-ITP-GSP-MIB", "cgspUPUNotifEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspNotificationsEnableGroupSup2 = ciscoGspNotificationsEnableGroupSup2.setStatus('current')
+ciscoGspNotificationsGroupSup2 = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 23)).setObjects(("CISCO-ITP-GSP-MIB", "ciscoGspUPUReceived"), ("CISCO-ITP-GSP-MIB", "ciscoGspUPUTransmitted"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspNotificationsGroupSup2 = ciscoGspNotificationsGroupSup2.setStatus('current')
+ciscoGspInstSccpWrrGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 24)).setObjects(("CISCO-ITP-GSP-MIB", "cgspInstSccpWrrOpcShift"), ("CISCO-ITP-GSP-MIB", "cgspInstSccpWrrOption"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspInstSccpWrrGroup = ciscoGspInstSccpWrrGroup.setStatus('current')
+ciscoGspLinkTableEntryGroupSup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 25)).setObjects(("CISCO-ITP-GSP-MIB", "cgspLinkRxCongestionState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspLinkTableEntryGroupSup1 = ciscoGspLinkTableEntryGroupSup1.setStatus('current')
+ciscoGspNotificationsGroupSup3 = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 336, 2, 2, 26)).setObjects(("CISCO-ITP-GSP-MIB", "ciscoGspRxCongestionChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGspNotificationsGroupSup3 = ciscoGspNotificationsGroupSup3.setStatus('current')
+mibBuilder.exportSymbols("CISCO-ITP-GSP-MIB", ciscoGspScalarsGroup=ciscoGspScalarsGroup, cgspLinkQ752T3E10L1=cgspLinkQ752T3E10L1, cgspLinksetInboundAcl=cgspLinksetInboundAcl, ciscoGspMIBGroups=ciscoGspMIBGroups, cgspLinkType=cgspLinkType, ciscoGspNotificationsGroupSup2=ciscoGspNotificationsGroupSup2, ciscoGspMIBObjects=ciscoGspMIBObjects, ciscoGspNotificationsEnableGroup=ciscoGspNotificationsEnableGroup, cgspInstFastRestart=cgspInstFastRestart, cgspInstNetworkIndicator=cgspInstNetworkIndicator, cgspLinkUtilNotifEnabled=cgspLinkUtilNotifEnabled, cgspProfileTimerRowStatus=cgspProfileTimerRowStatus, cgspInstVariant=cgspInstVariant, cgspInstRouteTableName=cgspInstRouteTableName, cgspLinkUtilizationRcvd=cgspLinkUtilizationRcvd, cgspLinkPlanCapacitySent=cgspLinkPlanCapacitySent, cgspInstUPUTableEntry=cgspInstUPUTableEntry, ciscoGspNotificationsGroupSup3=ciscoGspNotificationsGroupSup3, cgspLinksetRotateSlsEnable=cgspLinksetRotateSlsEnable, cgspLinkUtilRcvd=cgspLinkUtilRcvd, cgspLinkSctpAssociation=cgspLinkSctpAssociation, cgspLinkMtp2T05Counts=cgspLinkMtp2T05Counts, cgspInstSccpWrrOpcShift=cgspInstSccpWrrOpcShift, cgspLinksetDurationInService=cgspLinksetDurationInService, cgspInstNetwork=cgspInstNetwork, cgspProfile=cgspProfile, cgspLsStateChangeNotifEnabled=cgspLsStateChangeNotifEnabled, ciscoGspInstanceGroup=ciscoGspInstanceGroup, cgspLinkTcocLocalBSNT=cgspLinkTcocLocalBSNT, cgspLinkSctpAssociationId=cgspLinkSctpAssociationId, cgspLinksetAdjacentPointCode=cgspLinksetAdjacentPointCode, cgspLinkQ752T2E7=cgspLinkQ752T2E7, cgspLinkTcbcState=cgspLinkTcbcState, cgspInstSccpWrrOption=cgspInstSccpWrrOption, cgspLinkSigLinkTest=cgspLinkSigLinkTest, cgspInstTimerValue=cgspInstTimerValue, cgspLinksetSourcePointCode=cgspLinksetSourcePointCode, cgspLinkTable=cgspLinkTable, cgspLinkQ752T1E10=cgspLinkQ752T1E10, cgspLinkUtilizationSent=cgspLinkUtilizationSent, cgspCongestionNotifEnabled=cgspCongestionNotifEnabled, ciscoGspCongestionChange=ciscoGspCongestionChange, cgspLinkUtilSent=cgspLinkUtilSent, cgspLinkReceivedLSSUs=cgspLinkReceivedLSSUs, cgspProfileTimerNumber=cgspProfileTimerNumber, cgspPlanCapacityDefault=cgspPlanCapacityDefault, ciscoGspMIBCompliances=ciscoGspMIBCompliances, cgspLinkQ752T3E11L3=cgspLinkQ752T3E11L3, ciscoGspUPUTransmitted=ciscoGspUPUTransmitted, cgspInstSIUPUTransmitted=cgspInstSIUPUTransmitted, cgspLinkRxCongestionState=cgspLinkRxCongestionState, ciscoGspLinksetTimerGroup=ciscoGspLinksetTimerGroup, cgspLinkTimerTable=cgspLinkTimerTable, cgspUPUNotifEnabled=cgspUPUNotifEnabled, cgspLinksetRotateSlsShift=cgspLinksetRotateSlsShift, cgspLinkMtp2T02Counts=cgspLinkMtp2T02Counts, cgspLinkCongestionOnset3=cgspLinkCongestionOnset3, cgspLinkQ752T3E10L3=cgspLinkQ752T3E10L3, cgspProfileTimerTable=cgspProfileTimerTable, cgspUPUIntervalDuration=cgspUPUIntervalDuration, ciscoGspNotificationsGroup=ciscoGspNotificationsGroup, ciscoGspLinkSentUtilChange=ciscoGspLinkSentUtilChange, cgspInstSIUPUReceived=cgspInstSIUPUReceived, cgspLinkRemoteIpAddrTableEntry=cgspLinkRemoteIpAddrTableEntry, cgspInstanceTableEntry=cgspInstanceTableEntry, ciscoGspLinkTimerGroup=ciscoGspLinkTimerGroup, cgspLinkQ752T2E10=cgspLinkQ752T2E10, cgspPointCodeType=cgspPointCodeType, cgspLinkTimerNumber=cgspLinkTimerNumber, cgspLinkPlanCapacityRcvd=cgspLinkPlanCapacityRcvd, cgspLinksetTimerValue=cgspLinksetTimerValue, CgspDisplayInstanceUserPart=CgspDisplayInstanceUserPart, cgspLinkCongestionAbate3=cgspLinkCongestionAbate3, cgspInstUserPartDisplay=cgspInstUserPartDisplay, cgspInstNumber=cgspInstNumber, cgspLinksetTimerTableEntry=cgspLinksetTimerTableEntry, cgspLinkOMSURMCounts=cgspLinkOMSURMCounts, cgspLinkXmitQueueDepth=cgspLinkXmitQueueDepth, cgspLinkQ752T3E11L2=cgspLinkQ752T3E11L2, ciscoGspRxCongestionChange=ciscoGspRxCongestionChange, cgspProfileTableEntry=cgspProfileTableEntry, ciscoGspProfileGroup=ciscoGspProfileGroup, cgspLinksetDescription=cgspLinksetDescription, ciscoGspLinksetStateChange=ciscoGspLinksetStateChange, cgspInstDistSccpUnseq=cgspInstDistSccpUnseq, cgspLinkUtilIndex=cgspLinkUtilIndex, cgspLinksetAdjacentInst=cgspLinksetAdjacentInst, cgspLinkReason=cgspLinkReason, cgspLink=cgspLink, cgspLinkQ752T3E2Bytes=cgspLinkQ752T3E2Bytes, cgspLinkQ752T1E12Errors=cgspLinkQ752T1E12Errors, cgspLinksetDisplayName=cgspLinksetDisplayName, cgspLinkRemotePeerPort=cgspLinkRemotePeerPort, cgspLinkQ752T1E9=cgspLinkQ752T1E9, ciscoGspNotificationsEnableGroupSup2=ciscoGspNotificationsEnableGroupSup2, cgspInstTimerRowStatus=cgspInstTimerRowStatus, cgspLinkTimerValue=cgspLinkTimerValue, ciscoGspInstUPUGroup=ciscoGspInstUPUGroup, cgspLinkQ752T2E6=cgspLinkQ752T2E6, cgspInstTimerTableEntry=cgspInstTimerTableEntry, cgspProfileTimerValue=cgspProfileTimerValue, CgspSS7Variant=CgspSS7Variant, cgspLinksetSourceDisplayPC=cgspLinksetSourceDisplayPC, cgspLinkQ752T3E3=cgspLinkQ752T3E3, cgspLinkQ752T2E16=cgspLinkQ752T2E16, cgspUtilThreshold=cgspUtilThreshold, cgspLinkRowStatus=cgspLinkRowStatus, cgspLinkRemoteIpAddrNumber=cgspLinkRemoteIpAddrNumber, cgspLinksetAccountingMtp3=cgspLinksetAccountingMtp3, CgspProfileName=CgspProfileName, cgspLinkset=cgspLinkset, cgspInstTFR=cgspInstTFR, ciscoGspLinkTableEntryGroupSup1=ciscoGspLinkTableEntryGroupSup1, cgspPointCodeDisplay=cgspPointCodeDisplay, cgspLinkReceivedSIBs=cgspLinkReceivedSIBs, cgspLinkCongestionAbate1=cgspLinkCongestionAbate1, cgspLinksetAccountingGtt=cgspLinksetAccountingGtt, cgspLinkLsacState=cgspLinkLsacState, cgspLinkMtp2T07Counts=cgspLinkMtp2T07Counts, cgspProfileTable=cgspProfileTable, cgspLinkQ752T2E17=cgspLinkQ752T2E17, CgspLinkUtilizationState=CgspLinkUtilizationState, cgspLinksetTimerRowStatus=cgspLinksetTimerRowStatus, cgspLinkXmitQueueDepthHighRT=cgspLinkXmitQueueDepthHighRT, cgspLinkTimerRowStatus=cgspLinkTimerRowStatus, cgspPointCodeRowStatus=cgspPointCodeRowStatus, cgspLinkQ752T3E6=cgspLinkQ752T3E6, cgspLinkDroppedPkts=cgspLinkDroppedPkts, cgspLinkSlc=cgspLinkSlc, cgspLinksetNumLinks=cgspLinksetNumLinks, ciscoGspLinkRemoteIpGroup=ciscoGspLinkRemoteIpGroup, ciscoGspLinkUtilGroup=ciscoGspLinkUtilGroup, cgspLinkQ752T2E18=cgspLinkQ752T2E18, cgspLinkTimerTableEntry=cgspLinkTimerTableEntry, cgspInstance=cgspInstance, cgspLinkQ752T2E11=cgspLinkQ752T2E11, CgspLinkTestResults=CgspLinkTestResults, ciscoGspMIBComplianceRev5=ciscoGspMIBComplianceRev5, cgspLinkUtilStateRcvd=cgspLinkUtilStateRcvd, cgspInstSummaryRoutingException=cgspInstSummaryRoutingException, cgspLinkDisplayName=cgspLinkDisplayName, ciscoGspLinkStateChange=ciscoGspLinkStateChange, ciscoGspMIBComplianceRev2=ciscoGspMIBComplianceRev2, cgspLinksetName=cgspLinksetName, ciscoGspNotificationsEnableGroupSup1=ciscoGspNotificationsEnableGroupSup1, cgspLinksetTable=cgspLinksetTable, CItpTcSccpWrrOption=CItpTcSccpWrrOption, cgspLinkQ752T1E7=cgspLinkQ752T1E7, cgspLinkUtilTableEntry=cgspLinkUtilTableEntry, cgspLinksetActPriority=cgspLinksetActPriority, cgspLinkQ752T3E10L2=cgspLinkQ752T3E10L2, CgspTimerNumbers=CgspTimerNumbers, cgspLinkOMAERMFailCounts=cgspLinkOMAERMFailCounts, cgspLinkQ752T3E4=cgspLinkQ752T3E4, cgspProfileMtp2BundleTimer=cgspProfileMtp2BundleTimer, cgspLinksetTimerNumber=cgspLinksetTimerNumber, cgspLinkOMSURMFailCounts=cgspLinkOMSURMFailCounts, cgspPointCodeNi=cgspPointCodeNi, cgspLinkRemoteIpAddress=cgspLinkRemoteIpAddress, cgspProfileTimerTableEntry=cgspProfileTimerTableEntry, CgspTimerValue=CgspTimerValue, cgspLinkDescription=cgspLinkDescription, cgspLinkUtilStateSent=cgspLinkUtilStateSent, cgspLinkQ752T2E19=cgspLinkQ752T2E19, cgspInstDescription=cgspInstDescription, cgspLinkTableEntry=cgspLinkTableEntry, cgspLnkStateChangeNotifEnabled=cgspLnkStateChangeNotifEnabled, cgspMtp3SI=cgspMtp3SI, ciscoGspUPUReceived=ciscoGspUPUReceived, cgspLinkXmitQueueDepthHigh=cgspLinkXmitQueueDepthHigh, cgspIsolationNotifEnabled=cgspIsolationNotifEnabled, cgspLinkState=cgspLinkState, ciscoGspMIBCompliance=ciscoGspMIBCompliance, cgspInstDisplayName=cgspInstDisplayName, cgspLinkQ752T1E2=cgspLinkQ752T1E2, cgspLinkTransmittedLSSUs=cgspLinkTransmittedLSSUs, cgspLinksetRowStatus=cgspLinksetRowStatus, cgspProfileName=cgspProfileName, cgspLinkLocalPeerPort=cgspLinkLocalPeerPort, cgspLinkQ752T2E15=cgspLinkQ752T2E15, cgspLinkQ752T1E1=cgspLinkQ752T1E1, cgspLinkMtp2T03Counts=cgspLinkMtp2T03Counts, cgspIntervalUPUs=cgspIntervalUPUs, cgspLinkQ752T1E12=cgspLinkQ752T1E12, cgspLinksetAdjacentDisplayPC=cgspLinksetAdjacentDisplayPC, ciscoGspInstTimerGroup=ciscoGspInstTimerGroup, cgspLinksetDurationOutService=cgspLinksetDurationOutService, cgspProfileRowStatus=cgspProfileRowStatus, cgspLinkTransmittedSIBs=cgspLinkTransmittedSIBs, cgspLinkMtp2T06Counts=cgspLinkMtp2T06Counts, ciscoGspInstSccpWrrGroup=ciscoGspInstSccpWrrGroup, ciscoGspMIBComplianceRev1=ciscoGspMIBComplianceRev1, cgspLinkQ752T2E1=cgspLinkQ752T2E1, cgspLinkQ752T1E5=cgspLinkQ752T1E5, CgspSampleInterval=CgspSampleInterval, cgspPointCodeTable=cgspPointCodeTable, ciscoGspMIBConform=ciscoGspMIBConform, cgspLinkL2BytesSent=cgspLinkL2BytesSent, cgspLinkQ752T3E5=cgspLinkQ752T3E5, cgspLinksetOutboundAcl=cgspLinksetOutboundAcl, cgspEventSequenceNumber=cgspEventSequenceNumber, cgspLinkTcocState=cgspLinkTcocState, cgspLinkRemoteIpAddrType=cgspLinkRemoteIpAddrType, cgspNotificationsInfo=cgspNotificationsInfo, cgspInstanceTable=cgspInstanceTable, cgspLinkQ752T1E3=cgspLinkQ752T1E3, cgspLinkRemoteIpAddrRowStatus=cgspLinkRemoteIpAddrRowStatus, cgspLinkQ752T3E1=cgspLinkQ752T3E1, cgspUPUNotifWindowTime=cgspUPUNotifWindowTime, CgspLinkUtilization=CgspLinkUtilization, ciscoGspLinkRcvdUtilChange=ciscoGspLinkRcvdUtilChange, cgspLinkCongestionOnset1=cgspLinkCongestionOnset1, cgspProfileMtp2SendQueueDepth=cgspProfileMtp2SendQueueDepth, cgspLinkQ752T3E2Packets=cgspLinkQ752T3E2Packets, CgspLinkCapacity=CgspLinkCapacity, cgspCLLICode=cgspCLLICode, ciscoGspPointCodeGroup=ciscoGspPointCodeGroup, cgspLinkMtp2T01Counts=cgspLinkMtp2T01Counts, ciscoGspLinksetGroup=ciscoGspLinksetGroup, cgspLinkUtilThresholdRcvd=cgspLinkUtilThresholdRcvd, cgspLinksetTableEntry=cgspLinksetTableEntry, cgspLinksetState=cgspLinksetState, cgspLinkifIndex=cgspLinkifIndex, cgspInstCongestionsLevels=cgspInstCongestionsLevels, cgspLinkOMAERMCounts=cgspLinkOMAERMCounts, cgspLinkCongestionAbate2=cgspLinkCongestionAbate2, cgspScalars=cgspScalars, cgspLinkL2BytesRcvd=cgspLinkL2BytesRcvd, cgspLinkUtilTable=cgspLinkUtilTable, cgspLinkUtilThresholdSent=cgspLinkUtilThresholdSent, cgspPointCodeBin=cgspPointCodeBin, cgspLinksetTimerTable=cgspLinksetTimerTable, cgspLinkQ752T2E9=cgspLinkQ752T2E9, ciscoGspScalarsGroupSup1=ciscoGspScalarsGroupSup1, CgspPercentThreshold=CgspPercentThreshold, ciscoGspMIBNotifs=ciscoGspMIBNotifs, cgspLinkTcocRemoteBSNT=cgspLinkTcocRemoteBSNT, ciscoGspIsolation=ciscoGspIsolation, CgspSequenceNumber=CgspSequenceNumber, ciscoGspMIBComplianceRev3=ciscoGspMIBComplianceRev3, cgspLinkCongestionOnset2=cgspLinkCongestionOnset2, cgspLinkQosClass=cgspLinkQosClass, cgspLinkProtocolDetails=cgspLinkProtocolDetails, cgspLinkTestResult=cgspLinkTestResult, cgspProfileVariant=cgspProfileVariant, ciscoGspLinkGroup=ciscoGspLinkGroup, ciscoGspNotificationsGroupSup1=ciscoGspNotificationsGroupSup1, cgspLinkQ752T1E11=cgspLinkQ752T1E11, cgspPointCodeTableEntry=cgspPointCodeTableEntry, cgspLinkQ752T1E8=cgspLinkQ752T1E8, cgspLinkMtp2T04Counts=cgspLinkMtp2T04Counts, cgspLinkQ752T3E11L1=cgspLinkQ752T3E11L1, cgspLinkQ752T2E5=cgspLinkQ752T2E5, cgspLinkTsrcState=cgspLinkTsrcState)
+mibBuilder.exportSymbols("CISCO-ITP-GSP-MIB", cgspLinkUtilEndTimestamp=cgspLinkUtilEndTimestamp, ciscoGspMIBComplianceRev4=ciscoGspMIBComplianceRev4, cgspLinkRemoteIpAddrTable=cgspLinkRemoteIpAddrTable, cgspLinkQ752T3E7=cgspLinkQ752T3E7, cgspUtilSampleInterval=cgspUtilSampleInterval, ciscoGspLinkGroupRev1=ciscoGspLinkGroupRev1, ciscoGspNotificationsInfoGroup=ciscoGspNotificationsInfoGroup, cgspInstRowStatus=cgspInstRowStatus, cgspUtilAbateDelta=cgspUtilAbateDelta, cgspInstTimerTable=cgspInstTimerTable, cgspLinksetProfileName=cgspLinksetProfileName, cgspInstTimerNumber=cgspInstTimerNumber, cgspLinkCongestionState=cgspLinkCongestionState, ciscoGspMIB=ciscoGspMIB, PYSNMP_MODULE_ID=ciscoGspMIB, ciscoGspLinkGroupSup1=ciscoGspLinkGroupSup1, cgspPointCode=cgspPointCode, cgspInstUPUTable=cgspInstUPUTable, cgspNotificationsEnable=cgspNotificationsEnable)

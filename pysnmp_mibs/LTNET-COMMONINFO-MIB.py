@@ -1,63 +1,34 @@
-_E='optional'
-_D='OctetString'
-_C='Integer32'
-_B='mandatory'
-_A='read-write'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ltnetRoot,=mibBuilder.importSymbols('LTNET-ROOT','ltnetRoot')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_LtnetCommonInfoGroup_ObjectIdentity=ObjectIdentity
-ltnetCommonInfoGroup=_LtnetCommonInfoGroup_ObjectIdentity((1,3,6,1,4,1,33826,3))
-_LtnetIpSimpleInfo_ObjectIdentity=ObjectIdentity
-ltnetIpSimpleInfo=_LtnetIpSimpleInfo_ObjectIdentity((1,3,6,1,4,1,33826,3,1))
-_LtnetIpNetAddress_Type=IpAddress
-_LtnetIpNetAddress_Object=MibScalar
-ltnetIpNetAddress=_LtnetIpNetAddress_Object((1,3,6,1,4,1,33826,3,1,1),_LtnetIpNetAddress_Type())
-ltnetIpNetAddress.setMaxAccess(_A)
-if mibBuilder.loadTexts:ltnetIpNetAddress.setStatus(_B)
-class _LtnetIpMask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,31))
-_LtnetIpMask_Type.__name__=_C
-_LtnetIpMask_Object=MibScalar
-ltnetIpMask=_LtnetIpMask_Object((1,3,6,1,4,1,33826,3,1,2),_LtnetIpMask_Type())
-ltnetIpMask.setMaxAccess(_A)
-if mibBuilder.loadTexts:ltnetIpMask.setStatus(_B)
-_LtnetIpDefaultGateway_Type=IpAddress
-_LtnetIpDefaultGateway_Object=MibScalar
-ltnetIpDefaultGateway=_LtnetIpDefaultGateway_Object((1,3,6,1,4,1,33826,3,1,3),_LtnetIpDefaultGateway_Type())
-ltnetIpDefaultGateway.setMaxAccess(_A)
-if mibBuilder.loadTexts:ltnetIpDefaultGateway.setStatus(_B)
-_LtnetIpDns_Type=IpAddress
-_LtnetIpDns_Object=MibScalar
-ltnetIpDns=_LtnetIpDns_Object((1,3,6,1,4,1,33826,3,1,4),_LtnetIpDns_Type())
-ltnetIpDns.setMaxAccess(_A)
-if mibBuilder.loadTexts:ltnetIpDns.setStatus(_E)
-_LtnetIpPhysicalAddress_Type=OctetString
-_LtnetIpPhysicalAddress_Object=MibScalar
-ltnetIpPhysicalAddress=_LtnetIpPhysicalAddress_Object((1,3,6,1,4,1,33826,3,1,5),_LtnetIpPhysicalAddress_Type())
-ltnetIpPhysicalAddress.setMaxAccess('read-only')
-if mibBuilder.loadTexts:ltnetIpPhysicalAddress.setStatus(_B)
-_LtnetSubJoinedInfo_ObjectIdentity=ObjectIdentity
-ltnetSubJoinedInfo=_LtnetSubJoinedInfo_ObjectIdentity((1,3,6,1,4,1,33826,3,4))
-class _LtnetCommIdentifyNum_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,10))
-_LtnetCommIdentifyNum_Type.__name__=_D
-_LtnetCommIdentifyNum_Object=MibScalar
-ltnetCommIdentifyNum=_LtnetCommIdentifyNum_Object((1,3,6,1,4,1,33826,3,4,1),_LtnetCommIdentifyNum_Type())
-ltnetCommIdentifyNum.setMaxAccess(_A)
-if mibBuilder.loadTexts:ltnetCommIdentifyNum.setStatus(_E)
-_LtnetCommonTime_Type=Integer32
-_LtnetCommonTime_Object=MibScalar
-ltnetCommonTime=_LtnetCommonTime_Object((1,3,6,1,4,1,33826,3,4,2),_LtnetCommonTime_Type())
-ltnetCommonTime.setMaxAccess(_A)
-if mibBuilder.loadTexts:ltnetCommonTime.setStatus(_B)
-class _LtnetAlarmDelayTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,600))
-_LtnetAlarmDelayTime_Type.__name__=_C
-_LtnetAlarmDelayTime_Object=MibScalar
-ltnetAlarmDelayTime=_LtnetAlarmDelayTime_Object((1,3,6,1,4,1,33826,3,4,3),_LtnetAlarmDelayTime_Type())
-ltnetAlarmDelayTime.setMaxAccess(_A)
-if mibBuilder.loadTexts:ltnetAlarmDelayTime.setStatus(_B)
-mibBuilder.exportSymbols('LTNET-COMMONINFO-MIB',**{'ltnetCommonInfoGroup':ltnetCommonInfoGroup,'ltnetIpSimpleInfo':ltnetIpSimpleInfo,'ltnetIpNetAddress':ltnetIpNetAddress,'ltnetIpMask':ltnetIpMask,'ltnetIpDefaultGateway':ltnetIpDefaultGateway,'ltnetIpDns':ltnetIpDns,'ltnetIpPhysicalAddress':ltnetIpPhysicalAddress,'ltnetSubJoinedInfo':ltnetSubJoinedInfo,'ltnetCommIdentifyNum':ltnetCommIdentifyNum,'ltnetCommonTime':ltnetCommonTime,'ltnetAlarmDelayTime':ltnetAlarmDelayTime})
+#
+# PySNMP MIB module LTNET-COMMONINFO-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cdata/LTNET-COMMONINFO-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:41 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ltnetRoot, = mibBuilder.importSymbols("LTNET-ROOT", "ltnetRoot")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ltnetCommonInfoGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 33826, 3))
+ltnetIpSimpleInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 33826, 3, 1))
+ltnetSubJoinedInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 33826, 3, 4))
+ltnetIpNetAddress = MibScalar((1, 3, 6, 1, 4, 1, 33826, 3, 1, 1), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ltnetIpNetAddress.setStatus('mandatory')
+ltnetIpMask = MibScalar((1, 3, 6, 1, 4, 1, 33826, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ltnetIpMask.setStatus('mandatory')
+ltnetIpDefaultGateway = MibScalar((1, 3, 6, 1, 4, 1, 33826, 3, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ltnetIpDefaultGateway.setStatus('mandatory')
+ltnetIpDns = MibScalar((1, 3, 6, 1, 4, 1, 33826, 3, 1, 4), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ltnetIpDns.setStatus('optional')
+ltnetIpPhysicalAddress = MibScalar((1, 3, 6, 1, 4, 1, 33826, 3, 1, 5), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ltnetIpPhysicalAddress.setStatus('mandatory')
+ltnetCommIdentifyNum = MibScalar((1, 3, 6, 1, 4, 1, 33826, 3, 4, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 10))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ltnetCommIdentifyNum.setStatus('optional')
+ltnetCommonTime = MibScalar((1, 3, 6, 1, 4, 1, 33826, 3, 4, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ltnetCommonTime.setStatus('mandatory')
+ltnetAlarmDelayTime = MibScalar((1, 3, 6, 1, 4, 1, 33826, 3, 4, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 600))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ltnetAlarmDelayTime.setStatus('mandatory')
+mibBuilder.exportSymbols("LTNET-COMMONINFO-MIB", ltnetCommonInfoGroup=ltnetCommonInfoGroup, ltnetIpMask=ltnetIpMask, ltnetIpSimpleInfo=ltnetIpSimpleInfo, ltnetSubJoinedInfo=ltnetSubJoinedInfo, ltnetIpDefaultGateway=ltnetIpDefaultGateway, ltnetAlarmDelayTime=ltnetAlarmDelayTime, ltnetIpDns=ltnetIpDns, ltnetIpNetAddress=ltnetIpNetAddress, ltnetCommIdentifyNum=ltnetCommIdentifyNum, ltnetIpPhysicalAddress=ltnetIpPhysicalAddress, ltnetCommonTime=ltnetCommonTime)

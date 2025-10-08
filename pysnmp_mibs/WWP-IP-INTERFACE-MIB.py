@@ -1,106 +1,60 @@
-_L='wwpIpInterfaceSubnet'
-_K='wwpIpInterfaceIpAddr'
-_J='wwpIpInterfaceName'
-_I='wwpIpExtInterfaceEntry'
-_H='wwpIpInterfaceIndex'
-_G='TruthValue'
-_F='DisplayString'
-_E='read-only'
-_D='Integer32'
-_C='read-write'
-_B='WWP-IP-INTERFACE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_F,'MacAddress','PhysAddress','TextualConvention',_G)
-wwpModules,=mibBuilder.importSymbols('WWP-SMI','wwpModules')
-wwpIpInterfaceMIB=ModuleIdentity((1,3,6,1,4,1,6141,2,17))
-if mibBuilder.loadTexts:wwpIpInterfaceMIB.setRevisions(('2003-05-02 00:00','2001-04-03 17:00'))
-class VlanId(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_WwpIpInterfaceMIBObjects_ObjectIdentity=ObjectIdentity
-wwpIpInterfaceMIBObjects=_WwpIpInterfaceMIBObjects_ObjectIdentity((1,3,6,1,4,1,6141,2,17,1))
-_WwpIpInterface_ObjectIdentity=ObjectIdentity
-wwpIpInterface=_WwpIpInterface_ObjectIdentity((1,3,6,1,4,1,6141,2,17,1,1))
-_WwpIpInterfaceTable_Object=MibTable
-wwpIpInterfaceTable=_WwpIpInterfaceTable_Object((1,3,6,1,4,1,6141,2,17,1,1,1))
-if mibBuilder.loadTexts:wwpIpInterfaceTable.setStatus(_A)
-_WwpIpInterfaceEntry_Object=MibTableRow
-wwpIpInterfaceEntry=_WwpIpInterfaceEntry_Object((1,3,6,1,4,1,6141,2,17,1,1,1,1))
-wwpIpInterfaceEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:wwpIpInterfaceEntry.setStatus(_A)
-class _WwpIpInterfaceIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4096))
-_WwpIpInterfaceIndex_Type.__name__=_D
-_WwpIpInterfaceIndex_Object=MibTableColumn
-wwpIpInterfaceIndex=_WwpIpInterfaceIndex_Object((1,3,6,1,4,1,6141,2,17,1,1,1,1,1),_WwpIpInterfaceIndex_Type())
-wwpIpInterfaceIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:wwpIpInterfaceIndex.setStatus(_A)
-class _WwpIpInterfaceName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_WwpIpInterfaceName_Type.__name__=_F
-_WwpIpInterfaceName_Object=MibTableColumn
-wwpIpInterfaceName=_WwpIpInterfaceName_Object((1,3,6,1,4,1,6141,2,17,1,1,1,1,2),_WwpIpInterfaceName_Type())
-wwpIpInterfaceName.setMaxAccess(_E)
-if mibBuilder.loadTexts:wwpIpInterfaceName.setStatus(_A)
-_WwpIpInterfaceIpAddr_Type=IpAddress
-_WwpIpInterfaceIpAddr_Object=MibTableColumn
-wwpIpInterfaceIpAddr=_WwpIpInterfaceIpAddr_Object((1,3,6,1,4,1,6141,2,17,1,1,1,1,3),_WwpIpInterfaceIpAddr_Type())
-wwpIpInterfaceIpAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:wwpIpInterfaceIpAddr.setStatus(_A)
-_WwpIpInterfaceSubnet_Type=IpAddress
-_WwpIpInterfaceSubnet_Object=MibTableColumn
-wwpIpInterfaceSubnet=_WwpIpInterfaceSubnet_Object((1,3,6,1,4,1,6141,2,17,1,1,1,1,4),_WwpIpInterfaceSubnet_Type())
-wwpIpInterfaceSubnet.setMaxAccess(_C)
-if mibBuilder.loadTexts:wwpIpInterfaceSubnet.setStatus(_A)
-class _WwpIpInterfaceIfIndexXref_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4096))
-_WwpIpInterfaceIfIndexXref_Type.__name__=_D
-_WwpIpInterfaceIfIndexXref_Object=MibTableColumn
-wwpIpInterfaceIfIndexXref=_WwpIpInterfaceIfIndexXref_Object((1,3,6,1,4,1,6141,2,17,1,1,1,1,5),_WwpIpInterfaceIfIndexXref_Type())
-wwpIpInterfaceIfIndexXref.setMaxAccess(_E)
-if mibBuilder.loadTexts:wwpIpInterfaceIfIndexXref.setStatus(_A)
-_WwpIpExtInterfaceTable_Object=MibTable
-wwpIpExtInterfaceTable=_WwpIpExtInterfaceTable_Object((1,3,6,1,4,1,6141,2,17,1,1,2))
-if mibBuilder.loadTexts:wwpIpExtInterfaceTable.setStatus(_A)
-_WwpIpExtInterfaceEntry_Object=MibTableRow
-wwpIpExtInterfaceEntry=_WwpIpExtInterfaceEntry_Object((1,3,6,1,4,1,6141,2,17,1,1,2,1))
-if mibBuilder.loadTexts:wwpIpExtInterfaceEntry.setStatus(_A)
-_WwpIpInterfaceEnable_Type=TruthValue
-_WwpIpInterfaceEnable_Object=MibTableColumn
-wwpIpInterfaceEnable=_WwpIpInterfaceEnable_Object((1,3,6,1,4,1,6141,2,17,1,1,2,1,1),_WwpIpInterfaceEnable_Type())
-wwpIpInterfaceEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:wwpIpInterfaceEnable.setStatus(_A)
-_WwpIpInterfaceVlanId_Type=VlanId
-_WwpIpInterfaceVlanId_Object=MibTableColumn
-wwpIpInterfaceVlanId=_WwpIpInterfaceVlanId_Object((1,3,6,1,4,1,6141,2,17,1,1,2,1,2),_WwpIpInterfaceVlanId_Type())
-wwpIpInterfaceVlanId.setMaxAccess(_C)
-if mibBuilder.loadTexts:wwpIpInterfaceVlanId.setStatus(_A)
-class _WwpIpInterfaceMgmtPktPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_WwpIpInterfaceMgmtPktPriority_Type.__name__=_D
-_WwpIpInterfaceMgmtPktPriority_Object=MibTableColumn
-wwpIpInterfaceMgmtPktPriority=_WwpIpInterfaceMgmtPktPriority_Object((1,3,6,1,4,1,6141,2,17,1,1,2,1,3),_WwpIpInterfaceMgmtPktPriority_Type())
-wwpIpInterfaceMgmtPktPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:wwpIpInterfaceMgmtPktPriority.setStatus(_A)
-class _WwpIpInterfaceAddrNotifEnabled_Type(TruthValue):defaultValue=1
-_WwpIpInterfaceAddrNotifEnabled_Type.__name__=_G
-_WwpIpInterfaceAddrNotifEnabled_Object=MibScalar
-wwpIpInterfaceAddrNotifEnabled=_WwpIpInterfaceAddrNotifEnabled_Object((1,3,6,1,4,1,6141,2,17,1,1,3),_WwpIpInterfaceAddrNotifEnabled_Type())
-wwpIpInterfaceAddrNotifEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:wwpIpInterfaceAddrNotifEnabled.setStatus(_A)
-_WwpIpInterfaceMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
-wwpIpInterfaceMIBNotificationPrefix=_WwpIpInterfaceMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,6141,2,17,2))
-_WwpIpInterfaceMIBNotifications_ObjectIdentity=ObjectIdentity
-wwpIpInterfaceMIBNotifications=_WwpIpInterfaceMIBNotifications_ObjectIdentity((1,3,6,1,4,1,6141,2,17,2,0))
-_WwpIpInterfaceMIBConformance_ObjectIdentity=ObjectIdentity
-wwpIpInterfaceMIBConformance=_WwpIpInterfaceMIBConformance_ObjectIdentity((1,3,6,1,4,1,6141,2,17,3))
-_WwpIpInterfaceMIBCompliances_ObjectIdentity=ObjectIdentity
-wwpIpInterfaceMIBCompliances=_WwpIpInterfaceMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6141,2,17,3,1))
-_WwpIpInterfaceMIBGroups_ObjectIdentity=ObjectIdentity
-wwpIpInterfaceMIBGroups=_WwpIpInterfaceMIBGroups_ObjectIdentity((1,3,6,1,4,1,6141,2,17,3,2))
-wwpIpInterfaceEntry.registerAugmentions((_B,_I))
+#
+# PySNMP MIB module WWP-IP-INTERFACE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/WWP-IP-INTERFACE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:01 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "DateAndTime", "TruthValue", "TextualConvention")
+wwpModules, = mibBuilder.importSymbols("WWP-SMI", "wwpModules")
+wwpIpInterfaceMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 17))
+wwpIpInterfaceMIB.setRevisions(('2003-05-02 00:00', '2001-04-03 17:00',))
+if mibBuilder.loadTexts: wwpIpInterfaceMIB.setLastUpdated('200104031700Z')
+if mibBuilder.loadTexts: wwpIpInterfaceMIB.setOrganization('World Wide Packets, Inc')
+class VlanId(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 4094)
+
+wwpIpInterfaceMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 17, 1))
+wwpIpInterface = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 17, 1, 1))
+wwpIpInterfaceMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 17, 2))
+wwpIpInterfaceMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 17, 2, 0))
+wwpIpInterfaceMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 17, 3))
+wwpIpInterfaceMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 17, 3, 1))
+wwpIpInterfaceMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 17, 3, 2))
+wwpIpInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 17, 1, 1, 1), )
+if mibBuilder.loadTexts: wwpIpInterfaceTable.setStatus('current')
+wwpIpInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 17, 1, 1, 1, 1), ).setIndexNames((0, "WWP-IP-INTERFACE-MIB", "wwpIpInterfaceIndex"))
+if mibBuilder.loadTexts: wwpIpInterfaceEntry.setStatus('current')
+wwpIpInterfaceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 17, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4096))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpIpInterfaceIndex.setStatus('current')
+wwpIpInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 17, 1, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpIpInterfaceName.setStatus('current')
+wwpIpInterfaceIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 17, 1, 1, 1, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpIpInterfaceIpAddr.setStatus('current')
+wwpIpInterfaceSubnet = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 17, 1, 1, 1, 1, 4), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpIpInterfaceSubnet.setStatus('current')
+wwpIpInterfaceIfIndexXref = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 17, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4096))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpIpInterfaceIfIndexXref.setStatus('current')
+wwpIpExtInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 17, 1, 1, 2), )
+if mibBuilder.loadTexts: wwpIpExtInterfaceTable.setStatus('current')
+wwpIpExtInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 17, 1, 1, 2, 1), )
+wwpIpInterfaceEntry.registerAugmentions(("WWP-IP-INTERFACE-MIB", "wwpIpExtInterfaceEntry"))
 wwpIpExtInterfaceEntry.setIndexNames(*wwpIpInterfaceEntry.getIndexNames())
-wwpIpInterfaceAddrChgNotification=NotificationType((1,3,6,1,4,1,6141,2,17,2,0,1))
-wwpIpInterfaceAddrChgNotification.setObjects(*((_B,_J),(_B,_K),(_B,_L)))
-if mibBuilder.loadTexts:wwpIpInterfaceAddrChgNotification.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'VlanId':VlanId,'wwpIpInterfaceMIB':wwpIpInterfaceMIB,'wwpIpInterfaceMIBObjects':wwpIpInterfaceMIBObjects,'wwpIpInterface':wwpIpInterface,'wwpIpInterfaceTable':wwpIpInterfaceTable,'wwpIpInterfaceEntry':wwpIpInterfaceEntry,_H:wwpIpInterfaceIndex,_J:wwpIpInterfaceName,_K:wwpIpInterfaceIpAddr,_L:wwpIpInterfaceSubnet,'wwpIpInterfaceIfIndexXref':wwpIpInterfaceIfIndexXref,'wwpIpExtInterfaceTable':wwpIpExtInterfaceTable,_I:wwpIpExtInterfaceEntry,'wwpIpInterfaceEnable':wwpIpInterfaceEnable,'wwpIpInterfaceVlanId':wwpIpInterfaceVlanId,'wwpIpInterfaceMgmtPktPriority':wwpIpInterfaceMgmtPktPriority,'wwpIpInterfaceAddrNotifEnabled':wwpIpInterfaceAddrNotifEnabled,'wwpIpInterfaceMIBNotificationPrefix':wwpIpInterfaceMIBNotificationPrefix,'wwpIpInterfaceMIBNotifications':wwpIpInterfaceMIBNotifications,'wwpIpInterfaceAddrChgNotification':wwpIpInterfaceAddrChgNotification,'wwpIpInterfaceMIBConformance':wwpIpInterfaceMIBConformance,'wwpIpInterfaceMIBCompliances':wwpIpInterfaceMIBCompliances,'wwpIpInterfaceMIBGroups':wwpIpInterfaceMIBGroups})
+if mibBuilder.loadTexts: wwpIpExtInterfaceEntry.setStatus('current')
+wwpIpInterfaceEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 17, 1, 1, 2, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpIpInterfaceEnable.setStatus('current')
+wwpIpInterfaceVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 17, 1, 1, 2, 1, 2), VlanId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpIpInterfaceVlanId.setStatus('current')
+wwpIpInterfaceMgmtPktPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 17, 1, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpIpInterfaceMgmtPktPriority.setStatus('current')
+wwpIpInterfaceAddrNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 17, 1, 1, 3), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpIpInterfaceAddrNotifEnabled.setStatus('current')
+wwpIpInterfaceAddrChgNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 17, 2, 0, 1)).setObjects(("WWP-IP-INTERFACE-MIB", "wwpIpInterfaceName"), ("WWP-IP-INTERFACE-MIB", "wwpIpInterfaceIpAddr"), ("WWP-IP-INTERFACE-MIB", "wwpIpInterfaceSubnet"))
+if mibBuilder.loadTexts: wwpIpInterfaceAddrChgNotification.setStatus('current')
+mibBuilder.exportSymbols("WWP-IP-INTERFACE-MIB", wwpIpInterfaceMIBConformance=wwpIpInterfaceMIBConformance, wwpIpInterfaceName=wwpIpInterfaceName, wwpIpInterfaceMIBNotificationPrefix=wwpIpInterfaceMIBNotificationPrefix, PYSNMP_MODULE_ID=wwpIpInterfaceMIB, wwpIpInterfaceEntry=wwpIpInterfaceEntry, wwpIpInterfaceMIBGroups=wwpIpInterfaceMIBGroups, wwpIpExtInterfaceTable=wwpIpExtInterfaceTable, wwpIpInterfaceEnable=wwpIpInterfaceEnable, wwpIpInterfaceIpAddr=wwpIpInterfaceIpAddr, wwpIpInterfaceMIBCompliances=wwpIpInterfaceMIBCompliances, wwpIpInterfaceMgmtPktPriority=wwpIpInterfaceMgmtPktPriority, wwpIpInterface=wwpIpInterface, wwpIpInterfaceMIB=wwpIpInterfaceMIB, wwpIpInterfaceMIBNotifications=wwpIpInterfaceMIBNotifications, wwpIpInterfaceAddrNotifEnabled=wwpIpInterfaceAddrNotifEnabled, wwpIpInterfaceTable=wwpIpInterfaceTable, wwpIpInterfaceSubnet=wwpIpInterfaceSubnet, wwpIpInterfaceVlanId=wwpIpInterfaceVlanId, wwpIpInterfaceIndex=wwpIpInterfaceIndex, wwpIpInterfaceIfIndexXref=wwpIpInterfaceIfIndexXref, wwpIpInterfaceAddrChgNotification=wwpIpInterfaceAddrChgNotification, wwpIpInterfaceMIBObjects=wwpIpInterfaceMIBObjects, VlanId=VlanId, wwpIpExtInterfaceEntry=wwpIpExtInterfaceEntry)

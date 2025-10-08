@@ -1,74 +1,43 @@
-_G='mandatory'
-_F='read-only'
-_E='DisplayString'
-_D='NotificationType'
-_C='systemTemperature'
-_B='problemCause'
-_A='ZyXEL-COE-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier',_D,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_D,'TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_E,'PhysAddress','TextualConvention')
-class DisplayString(OctetString):0
-_Zyxel_ObjectIdentity=ObjectIdentity
-zyxel=_Zyxel_ObjectIdentity((1,3,6,1,4,1,890))
-_Products_ObjectIdentity=ObjectIdentity
-products=_Products_ObjectIdentity((1,3,6,1,4,1,890,1))
-_Prestige_ObjectIdentity=ObjectIdentity
-prestige=_Prestige_ObjectIdentity((1,3,6,1,4,1,890,1,2))
-_Mtu_ObjectIdentity=ObjectIdentity
-mtu=_Mtu_ObjectIdentity((1,3,6,1,4,1,890,1,3))
-_Aes_100_ObjectIdentity=ObjectIdentity
-aes_100=_Aes_100_ObjectIdentity((1,3,6,1,4,1,890,1,3,1))
-_Pes_100_ObjectIdentity=ObjectIdentity
-pes_100=_Pes_100_ObjectIdentity((1,3,6,1,4,1,890,1,3,2))
-_Ves_100_ObjectIdentity=ObjectIdentity
-ves_100=_Ves_100_ObjectIdentity((1,3,6,1,4,1,890,1,3,3))
-_Shes_100_ObjectIdentity=ObjectIdentity
-shes_100=_Shes_100_ObjectIdentity((1,3,6,1,4,1,890,1,3,4))
-_P1600_ObjectIdentity=ObjectIdentity
-p1600=_P1600_ObjectIdentity((1,3,6,1,4,1,890,1,3,5))
-_P1400_ObjectIdentity=ObjectIdentity
-p1400=_P1400_ObjectIdentity((1,3,6,1,4,1,890,1,3,6))
-_P2100_ObjectIdentity=ObjectIdentity
-p2100=_P2100_ObjectIdentity((1,3,6,1,4,1,890,1,3,7))
-_Aes_100_1_ObjectIdentity=ObjectIdentity
-aes_100_1=_Aes_100_1_ObjectIdentity((1,3,6,1,4,1,890,1,3,8))
-_Dslam_ObjectIdentity=ObjectIdentity
-dslam=_Dslam_ObjectIdentity((1,3,6,1,4,1,890,1,4))
-_Zysam_1000_ObjectIdentity=ObjectIdentity
-zysam_1000=_Zysam_1000_ObjectIdentity((1,3,6,1,4,1,890,1,4,1))
-_Zysam_1100_ObjectIdentity=ObjectIdentity
-zysam_1100=_Zysam_1100_ObjectIdentity((1,3,6,1,4,1,890,1,4,2))
-_Zysam_1200_ObjectIdentity=ObjectIdentity
-zysam_1200=_Zysam_1200_ObjectIdentity((1,3,6,1,4,1,890,1,4,3))
-_Zysam_2000_ObjectIdentity=ObjectIdentity
-zysam_2000=_Zysam_2000_ObjectIdentity((1,3,6,1,4,1,890,1,4,4))
-_SystemTraps_ObjectIdentity=ObjectIdentity
-systemTraps=_SystemTraps_ObjectIdentity((1,3,6,1,4,1,890,1,999))
-_ProblemCause_Type=DisplayString
-_ProblemCause_Object=MibScalar
-problemCause=_ProblemCause_Object((1,3,6,1,4,1,890,1,999,1),_ProblemCause_Type())
-problemCause.setMaxAccess(_F)
-if mibBuilder.loadTexts:problemCause.setStatus(_G)
-_SystemTemperature_Type=DisplayString
-_SystemTemperature_Object=MibScalar
-systemTemperature=_SystemTemperature_Object((1,3,6,1,4,1,890,1,999,2),_SystemTemperature_Type())
-systemTemperature.setMaxAccess(_F)
-if mibBuilder.loadTexts:systemTemperature.setStatus(_G)
-reboot=NotificationType((1,3,6,1,4,1,890,0,1))
-reboot.setObjects((_A,_B))
-if mibBuilder.loadTexts:reboot.setStatus('')
-systemShutdown=NotificationType((1,3,6,1,4,1,890,0,2))
-systemShutdown.setObjects((_A,_B))
-if mibBuilder.loadTexts:systemShutdown.setStatus('')
-overheat=NotificationType((1,3,6,1,4,1,890,0,3))
-overheat.setObjects((_A,_C))
-if mibBuilder.loadTexts:overheat.setStatus('')
-overheatOver=NotificationType((1,3,6,1,4,1,890,0,4))
-overheatOver.setObjects((_A,_C))
-if mibBuilder.loadTexts:overheatOver.setStatus('')
-mibBuilder.exportSymbols(_A,**{_E:DisplayString,'zyxel':zyxel,'reboot':reboot,'systemShutdown':systemShutdown,'overheat':overheat,'overheatOver':overheatOver,'products':products,'prestige':prestige,'mtu':mtu,'aes-100':aes_100,'pes-100':pes_100,'ves-100':ves_100,'shes-100':shes_100,'p1600':p1600,'p1400':p1400,'p2100':p2100,'aes-100-1':aes_100_1,'dslam':dslam,'zysam-1000':zysam_1000,'zysam-1100':zysam_1100,'zysam-1200':zysam_1200,'zysam-2000':zysam_2000,'systemTraps':systemTraps,_B:problemCause,_C:systemTemperature})
+#
+# PySNMP MIB module ZyXEL-COE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZyXEL-COE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:09 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "PhysAddress")
+class DisplayString(OctetString):
+    pass
+
+zyxel = MibIdentifier((1, 3, 6, 1, 4, 1, 890))
+products = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1))
+prestige = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 2))
+mtu = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 3))
+dslam = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 4))
+systemTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 999))
+aes_100 = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 3, 1)).setLabel("aes-100")
+pes_100 = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 3, 2)).setLabel("pes-100")
+ves_100 = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 3, 3)).setLabel("ves-100")
+shes_100 = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 3, 4)).setLabel("shes-100")
+p1600 = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 3, 5))
+p1400 = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 3, 6))
+p2100 = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 3, 7))
+aes_100_1 = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 3, 8)).setLabel("aes-100-1")
+zysam_1000 = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 4, 1)).setLabel("zysam-1000")
+zysam_1100 = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 4, 2)).setLabel("zysam-1100")
+zysam_1200 = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 4, 3)).setLabel("zysam-1200")
+zysam_2000 = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 4, 4)).setLabel("zysam-2000")
+problemCause = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 999, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: problemCause.setStatus('mandatory')
+systemTemperature = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 999, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: systemTemperature.setStatus('mandatory')
+reboot = NotificationType((1, 3, 6, 1, 4, 1, 890) + (0,1)).setObjects(("ZyXEL-COE-MIB", "problemCause"))
+systemShutdown = NotificationType((1, 3, 6, 1, 4, 1, 890) + (0,2)).setObjects(("ZyXEL-COE-MIB", "problemCause"))
+overheat = NotificationType((1, 3, 6, 1, 4, 1, 890) + (0,3)).setObjects(("ZyXEL-COE-MIB", "systemTemperature"))
+overheatOver = NotificationType((1, 3, 6, 1, 4, 1, 890) + (0,4)).setObjects(("ZyXEL-COE-MIB", "systemTemperature"))
+mibBuilder.exportSymbols("ZyXEL-COE-MIB", dslam=dslam, p1400=p1400, p2100=p2100, aes_100=aes_100, shes_100=shes_100, overheatOver=overheatOver, zysam_1200=zysam_1200, aes_100_1=aes_100_1, p1600=p1600, reboot=reboot, overheat=overheat, ves_100=ves_100, problemCause=problemCause, systemTraps=systemTraps, pes_100=pes_100, systemShutdown=systemShutdown, zyxel=zyxel, zysam_1000=zysam_1000, products=products, prestige=prestige, zysam_1100=zysam_1100, DisplayString=DisplayString, systemTemperature=systemTemperature, mtu=mtu, zysam_2000=zysam_2000)

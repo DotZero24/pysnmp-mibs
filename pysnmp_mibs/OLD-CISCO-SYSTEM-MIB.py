@@ -1,127 +1,60 @@
-_E='Integer32'
-_D='obsolete'
-_C='write-only'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-local,=mibBuilder.importSymbols('CISCO-SMI','local')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Lsystem_ObjectIdentity=ObjectIdentity
-lsystem=_Lsystem_ObjectIdentity((1,3,6,1,4,1,9,2,1))
-_RomId_Type=DisplayString
-_RomId_Object=MibScalar
-romId=_RomId_Object((1,3,6,1,4,1,9,2,1,1),_RomId_Type())
-romId.setMaxAccess(_B)
-if mibBuilder.loadTexts:romId.setStatus(_A)
-_WhyReload_Type=DisplayString
-_WhyReload_Object=MibScalar
-whyReload=_WhyReload_Object((1,3,6,1,4,1,9,2,1,2),_WhyReload_Type())
-whyReload.setMaxAccess(_B)
-if mibBuilder.loadTexts:whyReload.setStatus(_A)
-_HostName_Type=DisplayString
-_HostName_Object=MibScalar
-hostName=_HostName_Object((1,3,6,1,4,1,9,2,1,3),_HostName_Type())
-hostName.setMaxAccess(_B)
-if mibBuilder.loadTexts:hostName.setStatus(_A)
-_DomainName_Type=DisplayString
-_DomainName_Object=MibScalar
-domainName=_DomainName_Object((1,3,6,1,4,1,9,2,1,4),_DomainName_Type())
-domainName.setMaxAccess(_B)
-if mibBuilder.loadTexts:domainName.setStatus(_A)
-_AuthAddr_Type=IpAddress
-_AuthAddr_Object=MibScalar
-authAddr=_AuthAddr_Object((1,3,6,1,4,1,9,2,1,5),_AuthAddr_Type())
-authAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:authAddr.setStatus(_A)
-_BootHost_Type=IpAddress
-_BootHost_Object=MibScalar
-bootHost=_BootHost_Object((1,3,6,1,4,1,9,2,1,6),_BootHost_Type())
-bootHost.setMaxAccess(_B)
-if mibBuilder.loadTexts:bootHost.setStatus(_A)
-_NetConfigAddr_Type=IpAddress
-_NetConfigAddr_Object=MibScalar
-netConfigAddr=_NetConfigAddr_Object((1,3,6,1,4,1,9,2,1,48),_NetConfigAddr_Type())
-netConfigAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:netConfigAddr.setStatus(_A)
-_NetConfigName_Type=DisplayString
-_NetConfigName_Object=MibScalar
-netConfigName=_NetConfigName_Object((1,3,6,1,4,1,9,2,1,49),_NetConfigName_Type())
-netConfigName.setMaxAccess(_B)
-if mibBuilder.loadTexts:netConfigName.setStatus(_A)
-_NetConfigSet_Type=DisplayString
-_NetConfigSet_Object=MibScalar
-netConfigSet=_NetConfigSet_Object((1,3,6,1,4,1,9,2,1,50),_NetConfigSet_Type())
-netConfigSet.setMaxAccess(_C)
-if mibBuilder.loadTexts:netConfigSet.setStatus(_A)
-_HostConfigAddr_Type=IpAddress
-_HostConfigAddr_Object=MibScalar
-hostConfigAddr=_HostConfigAddr_Object((1,3,6,1,4,1,9,2,1,51),_HostConfigAddr_Type())
-hostConfigAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:hostConfigAddr.setStatus(_D)
-_HostConfigName_Type=DisplayString
-_HostConfigName_Object=MibScalar
-hostConfigName=_HostConfigName_Object((1,3,6,1,4,1,9,2,1,52),_HostConfigName_Type())
-hostConfigName.setMaxAccess(_B)
-if mibBuilder.loadTexts:hostConfigName.setStatus(_D)
-_HostConfigSet_Type=DisplayString
-_HostConfigSet_Object=MibScalar
-hostConfigSet=_HostConfigSet_Object((1,3,6,1,4,1,9,2,1,53),_HostConfigSet_Type())
-hostConfigSet.setMaxAccess(_C)
-if mibBuilder.loadTexts:hostConfigSet.setStatus(_D)
-_WriteMem_Type=Integer32
-_WriteMem_Object=MibScalar
-writeMem=_WriteMem_Object((1,3,6,1,4,1,9,2,1,54),_WriteMem_Type())
-writeMem.setMaxAccess(_C)
-if mibBuilder.loadTexts:writeMem.setStatus(_A)
-_WriteNet_Type=DisplayString
-_WriteNet_Object=MibScalar
-writeNet=_WriteNet_Object((1,3,6,1,4,1,9,2,1,55),_WriteNet_Type())
-writeNet.setMaxAccess(_C)
-if mibBuilder.loadTexts:writeNet.setStatus(_A)
-_CiscoContactInfo_Type=DisplayString
-_CiscoContactInfo_Object=MibScalar
-ciscoContactInfo=_CiscoContactInfo_Object((1,3,6,1,4,1,9,2,1,61),_CiscoContactInfo_Type())
-ciscoContactInfo.setMaxAccess(_B)
-if mibBuilder.loadTexts:ciscoContactInfo.setStatus(_A)
-_NetConfigProto_Type=Integer32
-_NetConfigProto_Object=MibScalar
-netConfigProto=_NetConfigProto_Object((1,3,6,1,4,1,9,2,1,70),_NetConfigProto_Type())
-netConfigProto.setMaxAccess(_B)
-if mibBuilder.loadTexts:netConfigProto.setStatus(_A)
-_HostConfigProto_Type=Integer32
-_HostConfigProto_Object=MibScalar
-hostConfigProto=_HostConfigProto_Object((1,3,6,1,4,1,9,2,1,71),_HostConfigProto_Type())
-hostConfigProto.setMaxAccess(_B)
-if mibBuilder.loadTexts:hostConfigProto.setStatus(_A)
-_SysConfigAddr_Type=IpAddress
-_SysConfigAddr_Object=MibScalar
-sysConfigAddr=_SysConfigAddr_Object((1,3,6,1,4,1,9,2,1,72),_SysConfigAddr_Type())
-sysConfigAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:sysConfigAddr.setStatus(_A)
-_SysConfigName_Type=DisplayString
-_SysConfigName_Object=MibScalar
-sysConfigName=_SysConfigName_Object((1,3,6,1,4,1,9,2,1,73),_SysConfigName_Type())
-sysConfigName.setMaxAccess(_B)
-if mibBuilder.loadTexts:sysConfigName.setStatus(_A)
-class _SysConfigProto_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('tftp',1),('rom',2),('flash',3)))
-_SysConfigProto_Type.__name__=_E
-_SysConfigProto_Object=MibScalar
-sysConfigProto=_SysConfigProto_Object((1,3,6,1,4,1,9,2,1,74),_SysConfigProto_Type())
-sysConfigProto.setMaxAccess(_B)
-if mibBuilder.loadTexts:sysConfigProto.setStatus(_A)
-_SysClearARP_Type=Integer32
-_SysClearARP_Object=MibScalar
-sysClearARP=_SysClearARP_Object((1,3,6,1,4,1,9,2,1,75),_SysClearARP_Type())
-sysClearARP.setMaxAccess(_C)
-if mibBuilder.loadTexts:sysClearARP.setStatus(_A)
-_SysClearInt_Type=Integer32
-_SysClearInt_Object=MibScalar
-sysClearInt=_SysClearInt_Object((1,3,6,1,4,1,9,2,1,76),_SysClearInt_Type())
-sysClearInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:sysClearInt.setStatus(_A)
-mibBuilder.exportSymbols('OLD-CISCO-SYSTEM-MIB',**{'lsystem':lsystem,'romId':romId,'whyReload':whyReload,'hostName':hostName,'domainName':domainName,'authAddr':authAddr,'bootHost':bootHost,'netConfigAddr':netConfigAddr,'netConfigName':netConfigName,'netConfigSet':netConfigSet,'hostConfigAddr':hostConfigAddr,'hostConfigName':hostConfigName,'hostConfigSet':hostConfigSet,'writeMem':writeMem,'writeNet':writeNet,'ciscoContactInfo':ciscoContactInfo,'netConfigProto':netConfigProto,'hostConfigProto':hostConfigProto,'sysConfigAddr':sysConfigAddr,'sysConfigName':sysConfigName,'sysConfigProto':sysConfigProto,'sysClearARP':sysClearARP,'sysClearInt':sysClearInt})
+#
+# PySNMP MIB module OLD-CISCO-SYSTEM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/OLD-CISCO-SYSTEM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:22 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+local, = mibBuilder.importSymbols("CISCO-SMI", "local")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+lsystem = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 2, 1))
+romId = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: romId.setStatus('mandatory')
+whyReload = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: whyReload.setStatus('mandatory')
+hostName = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hostName.setStatus('mandatory')
+domainName = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: domainName.setStatus('mandatory')
+authAddr = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 5), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: authAddr.setStatus('mandatory')
+bootHost = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 6), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bootHost.setStatus('mandatory')
+netConfigAddr = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 48), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: netConfigAddr.setStatus('mandatory')
+netConfigName = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 49), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: netConfigName.setStatus('mandatory')
+netConfigSet = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 50), DisplayString()).setMaxAccess("writeonly")
+if mibBuilder.loadTexts: netConfigSet.setStatus('mandatory')
+hostConfigAddr = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 51), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hostConfigAddr.setStatus('obsolete')
+hostConfigName = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 52), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hostConfigName.setStatus('obsolete')
+hostConfigSet = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 53), DisplayString()).setMaxAccess("writeonly")
+if mibBuilder.loadTexts: hostConfigSet.setStatus('obsolete')
+writeMem = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 54), Integer32()).setMaxAccess("writeonly")
+if mibBuilder.loadTexts: writeMem.setStatus('mandatory')
+writeNet = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 55), DisplayString()).setMaxAccess("writeonly")
+if mibBuilder.loadTexts: writeNet.setStatus('mandatory')
+ciscoContactInfo = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 61), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoContactInfo.setStatus('mandatory')
+netConfigProto = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 70), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: netConfigProto.setStatus('mandatory')
+hostConfigProto = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 71), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hostConfigProto.setStatus('mandatory')
+sysConfigAddr = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 72), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysConfigAddr.setStatus('mandatory')
+sysConfigName = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 73), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysConfigName.setStatus('mandatory')
+sysConfigProto = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 74), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("tftp", 1), ("rom", 2), ("flash", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysConfigProto.setStatus('mandatory')
+sysClearARP = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 75), Integer32()).setMaxAccess("writeonly")
+if mibBuilder.loadTexts: sysClearARP.setStatus('mandatory')
+sysClearInt = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 1, 76), Integer32()).setMaxAccess("writeonly")
+if mibBuilder.loadTexts: sysClearInt.setStatus('mandatory')
+mibBuilder.exportSymbols("OLD-CISCO-SYSTEM-MIB", authAddr=authAddr, ciscoContactInfo=ciscoContactInfo, netConfigAddr=netConfigAddr, hostConfigSet=hostConfigSet, bootHost=bootHost, lsystem=lsystem, hostConfigProto=hostConfigProto, netConfigSet=netConfigSet, netConfigProto=netConfigProto, domainName=domainName, whyReload=whyReload, hostName=hostName, sysConfigProto=sysConfigProto, writeMem=writeMem, hostConfigAddr=hostConfigAddr, romId=romId, sysConfigName=sysConfigName, sysClearARP=sysClearARP, sysConfigAddr=sysConfigAddr, writeNet=writeNet, sysClearInt=sysClearInt, netConfigName=netConfigName, hostConfigName=hostConfigName)

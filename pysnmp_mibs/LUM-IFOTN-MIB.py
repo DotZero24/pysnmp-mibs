@@ -1,482 +1,220 @@
-_AO='ifOtnOpuGroupV4'
-_AN='ifOtnOpuGroupV2'
-_AM='ifOtnOpuGroupV1'
-_AL='ifOtnOduGroupV1'
-_AK='ifOtnOtuGroupV1'
-_AJ='ifOtnOpuConnOduIndex'
-_AI='ifOtnGeneralIfOtnTpStateLastChangeTime'
-_AH='ifOtnGeneralIfOtnTpConfigLastChangeTime'
-_AG='ifOtnGeneralIfOtnTpTableSize'
-_AF='ifOtnOtuUpPortId'
-_AE='ifOtnTpTribSlotView'
-_AD='ifOtnTpTribSlotMask'
-_AC='ifOtnOduParentOduIndex'
-_AB='ifOtnOduType'
-_AA='ifOtnGeneralGroupV2'
-_A9='ifOtnTpGroupV1'
-_A8='ifOtnOtuGroupV2'
-_A7='ifOtnOpuLossOfOpuMultiFrameIdentifier'
-_A6='ifOtnTpRxSignalStatus'
-_A5='ifOtnTpTxSignalStatus'
-_A4='ifOtnTpRxMultiplexStructureIdentifierMismatch'
-_A3='ifOtnTpTribPortId'
-_A2='ifOtnTpUsedTribSlots'
-_A1='ifOtnTpConnIfBasicIfIndex'
-_A0='ifOtnTpName'
-_z='ifOtnOduRxSignalStatus'
-_y='ifOtnOduTxSignalStatus'
-_x='ifOtnOduUsedTcms'
-_w='ifOtnOduGcc2Terminated'
-_v='ifOtnOduGcc1Terminated'
-_u='ifOtnOduConnIfBasicIfIndex'
-_t='ifOtnOduName'
-_s='ifOtnGeneralIfOtnOpuStateLastChangeTime'
-_r='ifOtnGeneralIfOtnOpuConfigLastChangeTime'
-_q='ifOtnGeneralIfOtnOpuTableSize'
-_p='ifOtnGeneralIfOtnOduStateLastChangeTime'
-_o='ifOtnGeneralIfOtnOduConfigLastChangeTime'
-_n='ifOtnGeneralIfOtnOduTableSize'
-_m='ifOtnGeneralIfOtnOtuStateLastChangeTime'
-_l='ifOtnGeneralIfOtnOtuConfigLastChangeTime'
-_k='ifOtnGeneralIfOtnOtuTableSize'
-_j='ifOtnGeneralStateLastChangeTime'
-_i='ifOtnGeneralConfigLastChangeTime'
-_h='read-write'
-_g='DisplayString'
-_f='Integer32'
-_e='TruthValueWithNA'
-_d='ifOtnTpGroupV2'
-_c='ifOtnOtuGroupV3'
-_b='ifOtnOpuGroupV3'
-_a='ifOtnOpuTxPayloadMismatch'
-_Z='ifOtnOpuRxPayloadMismatch'
-_Y='ifOtnOtuLossOfMultiframe'
-_X='ifOtnOtuRxAlarmIndicationSignal'
-_W='ifOtnOtuLossOfFrame'
-_V='ifOtnOtuRxSignalStatus'
-_U='ifOtnOtuTxSignalStatus'
-_T='ifOtnOtuConnIfBasicIfIndex'
-_S='ifOtnOtuName'
-_R='ifOtnTpIndex'
-_Q='ifOtnOduIndex'
-_P='ifOtnGeneralGroupV1'
-_O='ifOtnOpuTxClientSignalFail'
-_N='ifOtnOpuTxClientMaintenanceIndication'
-_M='ifOtnOpuRxSignalStatus'
-_L='ifOtnOpuTxSignalStatus'
-_K='ifOtnOpuConnIfBasicIfIndex'
-_J='ifOtnOpuName'
-_I='ifOtnOtuIndex'
-_H='Unsigned32WithNA'
-_G='ifOtnOduGroupV2'
-_F='ifOtnOpuIndex'
-_E='read-create'
-_D='deprecated'
-_C='read-only'
-_B='current'
-_A='LUM-IFOTN-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-lumIfOtnMIB,lumModules=mibBuilder.importSymbols('LUM-REG','lumIfOtnMIB','lumModules')
-CommandString,FaultStatusWithNA,MgmtNameString,SignalStatusWithNA,TruthValueWithNA,Unsigned32WithNA=mibBuilder.importSymbols('LUM-TC','CommandString','FaultStatusWithNA','MgmtNameString','SignalStatusWithNA',_e,_H)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_f,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_g,'PhysAddress','TextualConvention')
-lumIfOtnMIBModule=ModuleIdentity((1,3,6,1,4,1,8708,1,1,50))
-if mibBuilder.loadTexts:lumIfOtnMIBModule.setRevisions(('2018-06-29 00:00','2017-12-15 00:00','2017-06-15 00:00','2016-11-30 00:00','2015-01-23 00:00','2014-09-30 00:00','2014-05-16 00:00','2013-11-15 00:00','2013-05-01 00:00'))
-_LumIfOtnConfs_ObjectIdentity=ObjectIdentity
-lumIfOtnConfs=_LumIfOtnConfs_ObjectIdentity((1,3,6,1,4,1,8708,2,50,1))
-_LumIfOtnGroups_ObjectIdentity=ObjectIdentity
-lumIfOtnGroups=_LumIfOtnGroups_ObjectIdentity((1,3,6,1,4,1,8708,2,50,1,1))
-_LumIfOtnCompl_ObjectIdentity=ObjectIdentity
-lumIfOtnCompl=_LumIfOtnCompl_ObjectIdentity((1,3,6,1,4,1,8708,2,50,1,2))
-_LumIfOtnMIBObjects_ObjectIdentity=ObjectIdentity
-lumIfOtnMIBObjects=_LumIfOtnMIBObjects_ObjectIdentity((1,3,6,1,4,1,8708,2,50,2))
-_IfOtnGeneral_ObjectIdentity=ObjectIdentity
-ifOtnGeneral=_IfOtnGeneral_ObjectIdentity((1,3,6,1,4,1,8708,2,50,2,1))
-_IfOtnGeneralConfigLastChangeTime_Type=DateAndTime
-_IfOtnGeneralConfigLastChangeTime_Object=MibScalar
-ifOtnGeneralConfigLastChangeTime=_IfOtnGeneralConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,50,2,1,1),_IfOtnGeneralConfigLastChangeTime_Type())
-ifOtnGeneralConfigLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnGeneralConfigLastChangeTime.setStatus(_B)
-_IfOtnGeneralStateLastChangeTime_Type=DateAndTime
-_IfOtnGeneralStateLastChangeTime_Object=MibScalar
-ifOtnGeneralStateLastChangeTime=_IfOtnGeneralStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,50,2,1,2),_IfOtnGeneralStateLastChangeTime_Type())
-ifOtnGeneralStateLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnGeneralStateLastChangeTime.setStatus(_B)
-_IfOtnGeneralIfOtnOtuTableSize_Type=Unsigned32
-_IfOtnGeneralIfOtnOtuTableSize_Object=MibScalar
-ifOtnGeneralIfOtnOtuTableSize=_IfOtnGeneralIfOtnOtuTableSize_Object((1,3,6,1,4,1,8708,2,50,2,1,3),_IfOtnGeneralIfOtnOtuTableSize_Type())
-ifOtnGeneralIfOtnOtuTableSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnGeneralIfOtnOtuTableSize.setStatus(_B)
-_IfOtnGeneralIfOtnOtuConfigLastChangeTime_Type=DateAndTime
-_IfOtnGeneralIfOtnOtuConfigLastChangeTime_Object=MibScalar
-ifOtnGeneralIfOtnOtuConfigLastChangeTime=_IfOtnGeneralIfOtnOtuConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,50,2,1,4),_IfOtnGeneralIfOtnOtuConfigLastChangeTime_Type())
-ifOtnGeneralIfOtnOtuConfigLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnGeneralIfOtnOtuConfigLastChangeTime.setStatus(_B)
-_IfOtnGeneralIfOtnOtuStateLastChangeTime_Type=DateAndTime
-_IfOtnGeneralIfOtnOtuStateLastChangeTime_Object=MibScalar
-ifOtnGeneralIfOtnOtuStateLastChangeTime=_IfOtnGeneralIfOtnOtuStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,50,2,1,5),_IfOtnGeneralIfOtnOtuStateLastChangeTime_Type())
-ifOtnGeneralIfOtnOtuStateLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnGeneralIfOtnOtuStateLastChangeTime.setStatus(_B)
-_IfOtnGeneralIfOtnOduTableSize_Type=Unsigned32
-_IfOtnGeneralIfOtnOduTableSize_Object=MibScalar
-ifOtnGeneralIfOtnOduTableSize=_IfOtnGeneralIfOtnOduTableSize_Object((1,3,6,1,4,1,8708,2,50,2,1,6),_IfOtnGeneralIfOtnOduTableSize_Type())
-ifOtnGeneralIfOtnOduTableSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnGeneralIfOtnOduTableSize.setStatus(_B)
-_IfOtnGeneralIfOtnOduConfigLastChangeTime_Type=DateAndTime
-_IfOtnGeneralIfOtnOduConfigLastChangeTime_Object=MibScalar
-ifOtnGeneralIfOtnOduConfigLastChangeTime=_IfOtnGeneralIfOtnOduConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,50,2,1,7),_IfOtnGeneralIfOtnOduConfigLastChangeTime_Type())
-ifOtnGeneralIfOtnOduConfigLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnGeneralIfOtnOduConfigLastChangeTime.setStatus(_B)
-_IfOtnGeneralIfOtnOduStateLastChangeTime_Type=DateAndTime
-_IfOtnGeneralIfOtnOduStateLastChangeTime_Object=MibScalar
-ifOtnGeneralIfOtnOduStateLastChangeTime=_IfOtnGeneralIfOtnOduStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,50,2,1,8),_IfOtnGeneralIfOtnOduStateLastChangeTime_Type())
-ifOtnGeneralIfOtnOduStateLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnGeneralIfOtnOduStateLastChangeTime.setStatus(_B)
-_IfOtnGeneralIfOtnOpuTableSize_Type=Unsigned32
-_IfOtnGeneralIfOtnOpuTableSize_Object=MibScalar
-ifOtnGeneralIfOtnOpuTableSize=_IfOtnGeneralIfOtnOpuTableSize_Object((1,3,6,1,4,1,8708,2,50,2,1,9),_IfOtnGeneralIfOtnOpuTableSize_Type())
-ifOtnGeneralIfOtnOpuTableSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnGeneralIfOtnOpuTableSize.setStatus(_B)
-_IfOtnGeneralIfOtnOpuConfigLastChangeTime_Type=DateAndTime
-_IfOtnGeneralIfOtnOpuConfigLastChangeTime_Object=MibScalar
-ifOtnGeneralIfOtnOpuConfigLastChangeTime=_IfOtnGeneralIfOtnOpuConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,50,2,1,10),_IfOtnGeneralIfOtnOpuConfigLastChangeTime_Type())
-ifOtnGeneralIfOtnOpuConfigLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnGeneralIfOtnOpuConfigLastChangeTime.setStatus(_B)
-_IfOtnGeneralIfOtnOpuStateLastChangeTime_Type=DateAndTime
-_IfOtnGeneralIfOtnOpuStateLastChangeTime_Object=MibScalar
-ifOtnGeneralIfOtnOpuStateLastChangeTime=_IfOtnGeneralIfOtnOpuStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,50,2,1,11),_IfOtnGeneralIfOtnOpuStateLastChangeTime_Type())
-ifOtnGeneralIfOtnOpuStateLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnGeneralIfOtnOpuStateLastChangeTime.setStatus(_B)
-_IfOtnGeneralIfOtnTpTableSize_Type=Unsigned32
-_IfOtnGeneralIfOtnTpTableSize_Object=MibScalar
-ifOtnGeneralIfOtnTpTableSize=_IfOtnGeneralIfOtnTpTableSize_Object((1,3,6,1,4,1,8708,2,50,2,1,12),_IfOtnGeneralIfOtnTpTableSize_Type())
-ifOtnGeneralIfOtnTpTableSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnGeneralIfOtnTpTableSize.setStatus(_B)
-_IfOtnGeneralIfOtnTpConfigLastChangeTime_Type=DateAndTime
-_IfOtnGeneralIfOtnTpConfigLastChangeTime_Object=MibScalar
-ifOtnGeneralIfOtnTpConfigLastChangeTime=_IfOtnGeneralIfOtnTpConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,50,2,1,13),_IfOtnGeneralIfOtnTpConfigLastChangeTime_Type())
-ifOtnGeneralIfOtnTpConfigLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnGeneralIfOtnTpConfigLastChangeTime.setStatus(_B)
-_IfOtnGeneralIfOtnTpStateLastChangeTime_Type=DateAndTime
-_IfOtnGeneralIfOtnTpStateLastChangeTime_Object=MibScalar
-ifOtnGeneralIfOtnTpStateLastChangeTime=_IfOtnGeneralIfOtnTpStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,50,2,1,14),_IfOtnGeneralIfOtnTpStateLastChangeTime_Type())
-ifOtnGeneralIfOtnTpStateLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnGeneralIfOtnTpStateLastChangeTime.setStatus(_B)
-_IfOtnOtuList_ObjectIdentity=ObjectIdentity
-ifOtnOtuList=_IfOtnOtuList_ObjectIdentity((1,3,6,1,4,1,8708,2,50,2,2))
-_IfOtnOtuTable_Object=MibTable
-ifOtnOtuTable=_IfOtnOtuTable_Object((1,3,6,1,4,1,8708,2,50,2,2,1))
-if mibBuilder.loadTexts:ifOtnOtuTable.setStatus(_B)
-_IfOtnOtuEntry_Object=MibTableRow
-ifOtnOtuEntry=_IfOtnOtuEntry_Object((1,3,6,1,4,1,8708,2,50,2,2,1,1))
-ifOtnOtuEntry.setIndexNames((0,_A,_I))
-if mibBuilder.loadTexts:ifOtnOtuEntry.setStatus(_B)
-_IfOtnOtuIndex_Type=Unsigned32
-_IfOtnOtuIndex_Object=MibTableColumn
-ifOtnOtuIndex=_IfOtnOtuIndex_Object((1,3,6,1,4,1,8708,2,50,2,2,1,1,1),_IfOtnOtuIndex_Type())
-ifOtnOtuIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOtuIndex.setStatus(_B)
-_IfOtnOtuName_Type=MgmtNameString
-_IfOtnOtuName_Object=MibTableColumn
-ifOtnOtuName=_IfOtnOtuName_Object((1,3,6,1,4,1,8708,2,50,2,2,1,1,2),_IfOtnOtuName_Type())
-ifOtnOtuName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOtuName.setStatus(_B)
-_IfOtnOtuConnIfBasicIfIndex_Type=Unsigned32WithNA
-_IfOtnOtuConnIfBasicIfIndex_Object=MibTableColumn
-ifOtnOtuConnIfBasicIfIndex=_IfOtnOtuConnIfBasicIfIndex_Object((1,3,6,1,4,1,8708,2,50,2,2,1,1,3),_IfOtnOtuConnIfBasicIfIndex_Type())
-ifOtnOtuConnIfBasicIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOtuConnIfBasicIfIndex.setStatus(_B)
-_IfOtnOtuTxSignalStatus_Type=SignalStatusWithNA
-_IfOtnOtuTxSignalStatus_Object=MibTableColumn
-ifOtnOtuTxSignalStatus=_IfOtnOtuTxSignalStatus_Object((1,3,6,1,4,1,8708,2,50,2,2,1,1,4),_IfOtnOtuTxSignalStatus_Type())
-ifOtnOtuTxSignalStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOtuTxSignalStatus.setStatus(_B)
-_IfOtnOtuRxSignalStatus_Type=SignalStatusWithNA
-_IfOtnOtuRxSignalStatus_Object=MibTableColumn
-ifOtnOtuRxSignalStatus=_IfOtnOtuRxSignalStatus_Object((1,3,6,1,4,1,8708,2,50,2,2,1,1,5),_IfOtnOtuRxSignalStatus_Type())
-ifOtnOtuRxSignalStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOtuRxSignalStatus.setStatus(_B)
-_IfOtnOtuLossOfFrame_Type=FaultStatusWithNA
-_IfOtnOtuLossOfFrame_Object=MibTableColumn
-ifOtnOtuLossOfFrame=_IfOtnOtuLossOfFrame_Object((1,3,6,1,4,1,8708,2,50,2,2,1,1,6),_IfOtnOtuLossOfFrame_Type())
-ifOtnOtuLossOfFrame.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOtuLossOfFrame.setStatus(_B)
-_IfOtnOtuRxAlarmIndicationSignal_Type=FaultStatusWithNA
-_IfOtnOtuRxAlarmIndicationSignal_Object=MibTableColumn
-ifOtnOtuRxAlarmIndicationSignal=_IfOtnOtuRxAlarmIndicationSignal_Object((1,3,6,1,4,1,8708,2,50,2,2,1,1,7),_IfOtnOtuRxAlarmIndicationSignal_Type())
-ifOtnOtuRxAlarmIndicationSignal.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOtuRxAlarmIndicationSignal.setStatus(_B)
-_IfOtnOtuLossOfMultiframe_Type=FaultStatusWithNA
-_IfOtnOtuLossOfMultiframe_Object=MibTableColumn
-ifOtnOtuLossOfMultiframe=_IfOtnOtuLossOfMultiframe_Object((1,3,6,1,4,1,8708,2,50,2,2,1,1,8),_IfOtnOtuLossOfMultiframe_Type())
-ifOtnOtuLossOfMultiframe.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOtuLossOfMultiframe.setStatus(_B)
-class _IfOtnOtuUpPortId_Type(Integer32):defaultValue=-1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_IfOtnOtuUpPortId_Type.__name__=_f
-_IfOtnOtuUpPortId_Object=MibTableColumn
-ifOtnOtuUpPortId=_IfOtnOtuUpPortId_Object((1,3,6,1,4,1,8708,2,50,2,2,1,1,9),_IfOtnOtuUpPortId_Type())
-ifOtnOtuUpPortId.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOtuUpPortId.setStatus(_B)
-_IfOtnOduList_ObjectIdentity=ObjectIdentity
-ifOtnOduList=_IfOtnOduList_ObjectIdentity((1,3,6,1,4,1,8708,2,50,2,3))
-_IfOtnOduTable_Object=MibTable
-ifOtnOduTable=_IfOtnOduTable_Object((1,3,6,1,4,1,8708,2,50,2,3,1))
-if mibBuilder.loadTexts:ifOtnOduTable.setStatus(_B)
-_IfOtnOduEntry_Object=MibTableRow
-ifOtnOduEntry=_IfOtnOduEntry_Object((1,3,6,1,4,1,8708,2,50,2,3,1,1))
-ifOtnOduEntry.setIndexNames((0,_A,_Q))
-if mibBuilder.loadTexts:ifOtnOduEntry.setStatus(_B)
-_IfOtnOduIndex_Type=Unsigned32
-_IfOtnOduIndex_Object=MibTableColumn
-ifOtnOduIndex=_IfOtnOduIndex_Object((1,3,6,1,4,1,8708,2,50,2,3,1,1,1),_IfOtnOduIndex_Type())
-ifOtnOduIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOduIndex.setStatus(_B)
-_IfOtnOduName_Type=MgmtNameString
-_IfOtnOduName_Object=MibTableColumn
-ifOtnOduName=_IfOtnOduName_Object((1,3,6,1,4,1,8708,2,50,2,3,1,1,2),_IfOtnOduName_Type())
-ifOtnOduName.setMaxAccess(_E)
-if mibBuilder.loadTexts:ifOtnOduName.setStatus(_B)
-_IfOtnOduConnIfBasicIfIndex_Type=Unsigned32WithNA
-_IfOtnOduConnIfBasicIfIndex_Object=MibTableColumn
-ifOtnOduConnIfBasicIfIndex=_IfOtnOduConnIfBasicIfIndex_Object((1,3,6,1,4,1,8708,2,50,2,3,1,1,3),_IfOtnOduConnIfBasicIfIndex_Type())
-ifOtnOduConnIfBasicIfIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:ifOtnOduConnIfBasicIfIndex.setStatus(_B)
-class _IfOtnOduGcc1Terminated_Type(TruthValueWithNA):defaultValue=1
-_IfOtnOduGcc1Terminated_Type.__name__=_e
-_IfOtnOduGcc1Terminated_Object=MibTableColumn
-ifOtnOduGcc1Terminated=_IfOtnOduGcc1Terminated_Object((1,3,6,1,4,1,8708,2,50,2,3,1,1,4),_IfOtnOduGcc1Terminated_Type())
-ifOtnOduGcc1Terminated.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOduGcc1Terminated.setStatus(_B)
-class _IfOtnOduGcc2Terminated_Type(TruthValueWithNA):defaultValue=1
-_IfOtnOduGcc2Terminated_Type.__name__=_e
-_IfOtnOduGcc2Terminated_Object=MibTableColumn
-ifOtnOduGcc2Terminated=_IfOtnOduGcc2Terminated_Object((1,3,6,1,4,1,8708,2,50,2,3,1,1,5),_IfOtnOduGcc2Terminated_Type())
-ifOtnOduGcc2Terminated.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOduGcc2Terminated.setStatus(_B)
-class _IfOtnOduUsedTcms_Type(Unsigned32WithNA):defaultValue=0
-_IfOtnOduUsedTcms_Type.__name__=_H
-_IfOtnOduUsedTcms_Object=MibTableColumn
-ifOtnOduUsedTcms=_IfOtnOduUsedTcms_Object((1,3,6,1,4,1,8708,2,50,2,3,1,1,6),_IfOtnOduUsedTcms_Type())
-ifOtnOduUsedTcms.setMaxAccess(_h)
-if mibBuilder.loadTexts:ifOtnOduUsedTcms.setStatus(_B)
-_IfOtnOduTxSignalStatus_Type=SignalStatusWithNA
-_IfOtnOduTxSignalStatus_Object=MibTableColumn
-ifOtnOduTxSignalStatus=_IfOtnOduTxSignalStatus_Object((1,3,6,1,4,1,8708,2,50,2,3,1,1,7),_IfOtnOduTxSignalStatus_Type())
-ifOtnOduTxSignalStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOduTxSignalStatus.setStatus(_B)
-_IfOtnOduRxSignalStatus_Type=SignalStatusWithNA
-_IfOtnOduRxSignalStatus_Object=MibTableColumn
-ifOtnOduRxSignalStatus=_IfOtnOduRxSignalStatus_Object((1,3,6,1,4,1,8708,2,50,2,3,1,1,8),_IfOtnOduRxSignalStatus_Type())
-ifOtnOduRxSignalStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOduRxSignalStatus.setStatus(_B)
-class _IfOtnOduType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,2147483647)));namedValues=NamedValues(*(('unused',1),('odu0',2),('odu1',3),('odu2',4),('odu3',5),('odu4',6),('oduFlex',7),('oduJ2',8),('odu2e',9),('notApplicable',2147483647)))
-_IfOtnOduType_Type.__name__=_f
-_IfOtnOduType_Object=MibTableColumn
-ifOtnOduType=_IfOtnOduType_Object((1,3,6,1,4,1,8708,2,50,2,3,1,1,9),_IfOtnOduType_Type())
-ifOtnOduType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ifOtnOduType.setStatus(_B)
-class _IfOtnOduParentOduIndex_Type(Unsigned32WithNA):defaultValue=2147483647
-_IfOtnOduParentOduIndex_Type.__name__=_H
-_IfOtnOduParentOduIndex_Object=MibTableColumn
-ifOtnOduParentOduIndex=_IfOtnOduParentOduIndex_Object((1,3,6,1,4,1,8708,2,50,2,3,1,1,10),_IfOtnOduParentOduIndex_Type())
-ifOtnOduParentOduIndex.setMaxAccess(_h)
-if mibBuilder.loadTexts:ifOtnOduParentOduIndex.setStatus(_B)
-_IfOtnOpuList_ObjectIdentity=ObjectIdentity
-ifOtnOpuList=_IfOtnOpuList_ObjectIdentity((1,3,6,1,4,1,8708,2,50,2,4))
-_IfOtnOpuTable_Object=MibTable
-ifOtnOpuTable=_IfOtnOpuTable_Object((1,3,6,1,4,1,8708,2,50,2,4,1))
-if mibBuilder.loadTexts:ifOtnOpuTable.setStatus(_B)
-_IfOtnOpuEntry_Object=MibTableRow
-ifOtnOpuEntry=_IfOtnOpuEntry_Object((1,3,6,1,4,1,8708,2,50,2,4,1,1))
-ifOtnOpuEntry.setIndexNames((0,_A,_F))
-if mibBuilder.loadTexts:ifOtnOpuEntry.setStatus(_B)
-_IfOtnOpuIndex_Type=Unsigned32
-_IfOtnOpuIndex_Object=MibTableColumn
-ifOtnOpuIndex=_IfOtnOpuIndex_Object((1,3,6,1,4,1,8708,2,50,2,4,1,1,1),_IfOtnOpuIndex_Type())
-ifOtnOpuIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOpuIndex.setStatus(_B)
-_IfOtnOpuName_Type=MgmtNameString
-_IfOtnOpuName_Object=MibTableColumn
-ifOtnOpuName=_IfOtnOpuName_Object((1,3,6,1,4,1,8708,2,50,2,4,1,1,2),_IfOtnOpuName_Type())
-ifOtnOpuName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOpuName.setStatus(_B)
-_IfOtnOpuConnIfBasicIfIndex_Type=Unsigned32WithNA
-_IfOtnOpuConnIfBasicIfIndex_Object=MibTableColumn
-ifOtnOpuConnIfBasicIfIndex=_IfOtnOpuConnIfBasicIfIndex_Object((1,3,6,1,4,1,8708,2,50,2,4,1,1,3),_IfOtnOpuConnIfBasicIfIndex_Type())
-ifOtnOpuConnIfBasicIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOpuConnIfBasicIfIndex.setStatus(_B)
-_IfOtnOpuTxSignalStatus_Type=SignalStatusWithNA
-_IfOtnOpuTxSignalStatus_Object=MibTableColumn
-ifOtnOpuTxSignalStatus=_IfOtnOpuTxSignalStatus_Object((1,3,6,1,4,1,8708,2,50,2,4,1,1,4),_IfOtnOpuTxSignalStatus_Type())
-ifOtnOpuTxSignalStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOpuTxSignalStatus.setStatus(_B)
-_IfOtnOpuRxSignalStatus_Type=SignalStatusWithNA
-_IfOtnOpuRxSignalStatus_Object=MibTableColumn
-ifOtnOpuRxSignalStatus=_IfOtnOpuRxSignalStatus_Object((1,3,6,1,4,1,8708,2,50,2,4,1,1,5),_IfOtnOpuRxSignalStatus_Type())
-ifOtnOpuRxSignalStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOpuRxSignalStatus.setStatus(_B)
-_IfOtnOpuTxClientMaintenanceIndication_Type=FaultStatusWithNA
-_IfOtnOpuTxClientMaintenanceIndication_Object=MibTableColumn
-ifOtnOpuTxClientMaintenanceIndication=_IfOtnOpuTxClientMaintenanceIndication_Object((1,3,6,1,4,1,8708,2,50,2,4,1,1,6),_IfOtnOpuTxClientMaintenanceIndication_Type())
-ifOtnOpuTxClientMaintenanceIndication.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOpuTxClientMaintenanceIndication.setStatus(_B)
-_IfOtnOpuTxClientSignalFail_Type=FaultStatusWithNA
-_IfOtnOpuTxClientSignalFail_Object=MibTableColumn
-ifOtnOpuTxClientSignalFail=_IfOtnOpuTxClientSignalFail_Object((1,3,6,1,4,1,8708,2,50,2,4,1,1,7),_IfOtnOpuTxClientSignalFail_Type())
-ifOtnOpuTxClientSignalFail.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOpuTxClientSignalFail.setStatus(_B)
-_IfOtnOpuRxPayloadMismatch_Type=FaultStatusWithNA
-_IfOtnOpuRxPayloadMismatch_Object=MibTableColumn
-ifOtnOpuRxPayloadMismatch=_IfOtnOpuRxPayloadMismatch_Object((1,3,6,1,4,1,8708,2,50,2,4,1,1,8),_IfOtnOpuRxPayloadMismatch_Type())
-ifOtnOpuRxPayloadMismatch.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOpuRxPayloadMismatch.setStatus(_B)
-_IfOtnOpuTxPayloadMismatch_Type=FaultStatusWithNA
-_IfOtnOpuTxPayloadMismatch_Object=MibTableColumn
-ifOtnOpuTxPayloadMismatch=_IfOtnOpuTxPayloadMismatch_Object((1,3,6,1,4,1,8708,2,50,2,4,1,1,9),_IfOtnOpuTxPayloadMismatch_Type())
-ifOtnOpuTxPayloadMismatch.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOpuTxPayloadMismatch.setStatus(_B)
-_IfOtnOpuLossOfOpuMultiFrameIdentifier_Type=FaultStatusWithNA
-_IfOtnOpuLossOfOpuMultiFrameIdentifier_Object=MibTableColumn
-ifOtnOpuLossOfOpuMultiFrameIdentifier=_IfOtnOpuLossOfOpuMultiFrameIdentifier_Object((1,3,6,1,4,1,8708,2,50,2,4,1,1,10),_IfOtnOpuLossOfOpuMultiFrameIdentifier_Type())
-ifOtnOpuLossOfOpuMultiFrameIdentifier.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOpuLossOfOpuMultiFrameIdentifier.setStatus(_B)
-_IfOtnOpuRxClientMaintenanceIndication_Type=FaultStatusWithNA
-_IfOtnOpuRxClientMaintenanceIndication_Object=MibTableColumn
-ifOtnOpuRxClientMaintenanceIndication=_IfOtnOpuRxClientMaintenanceIndication_Object((1,3,6,1,4,1,8708,2,50,2,4,1,1,11),_IfOtnOpuRxClientMaintenanceIndication_Type())
-ifOtnOpuRxClientMaintenanceIndication.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOpuRxClientMaintenanceIndication.setStatus(_B)
-_IfOtnOpuConnOduIndex_Type=Unsigned32WithNA
-_IfOtnOpuConnOduIndex_Object=MibTableColumn
-ifOtnOpuConnOduIndex=_IfOtnOpuConnOduIndex_Object((1,3,6,1,4,1,8708,2,50,2,4,1,1,12),_IfOtnOpuConnOduIndex_Type())
-ifOtnOpuConnOduIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnOpuConnOduIndex.setStatus(_B)
-_IfOtnTpList_ObjectIdentity=ObjectIdentity
-ifOtnTpList=_IfOtnTpList_ObjectIdentity((1,3,6,1,4,1,8708,2,50,2,5))
-_IfOtnTpTable_Object=MibTable
-ifOtnTpTable=_IfOtnTpTable_Object((1,3,6,1,4,1,8708,2,50,2,5,1))
-if mibBuilder.loadTexts:ifOtnTpTable.setStatus(_B)
-_IfOtnTpEntry_Object=MibTableRow
-ifOtnTpEntry=_IfOtnTpEntry_Object((1,3,6,1,4,1,8708,2,50,2,5,1,1))
-ifOtnTpEntry.setIndexNames((0,_A,_R))
-if mibBuilder.loadTexts:ifOtnTpEntry.setStatus(_B)
-_IfOtnTpIndex_Type=Unsigned32
-_IfOtnTpIndex_Object=MibTableColumn
-ifOtnTpIndex=_IfOtnTpIndex_Object((1,3,6,1,4,1,8708,2,50,2,5,1,1,1),_IfOtnTpIndex_Type())
-ifOtnTpIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnTpIndex.setStatus(_B)
-_IfOtnTpName_Type=MgmtNameString
-_IfOtnTpName_Object=MibTableColumn
-ifOtnTpName=_IfOtnTpName_Object((1,3,6,1,4,1,8708,2,50,2,5,1,1,2),_IfOtnTpName_Type())
-ifOtnTpName.setMaxAccess(_E)
-if mibBuilder.loadTexts:ifOtnTpName.setStatus(_B)
-_IfOtnTpConnIfBasicIfIndex_Type=Unsigned32WithNA
-_IfOtnTpConnIfBasicIfIndex_Object=MibTableColumn
-ifOtnTpConnIfBasicIfIndex=_IfOtnTpConnIfBasicIfIndex_Object((1,3,6,1,4,1,8708,2,50,2,5,1,1,3),_IfOtnTpConnIfBasicIfIndex_Type())
-ifOtnTpConnIfBasicIfIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:ifOtnTpConnIfBasicIfIndex.setStatus(_B)
-_IfOtnTpUsedTribSlots_Type=Unsigned32WithNA
-_IfOtnTpUsedTribSlots_Object=MibTableColumn
-ifOtnTpUsedTribSlots=_IfOtnTpUsedTribSlots_Object((1,3,6,1,4,1,8708,2,50,2,5,1,1,4),_IfOtnTpUsedTribSlots_Type())
-ifOtnTpUsedTribSlots.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnTpUsedTribSlots.setStatus(_B)
-class _IfOtnTpTribPortId_Type(Unsigned32WithNA):defaultValue=2147483647
-_IfOtnTpTribPortId_Type.__name__=_H
-_IfOtnTpTribPortId_Object=MibTableColumn
-ifOtnTpTribPortId=_IfOtnTpTribPortId_Object((1,3,6,1,4,1,8708,2,50,2,5,1,1,5),_IfOtnTpTribPortId_Type())
-ifOtnTpTribPortId.setMaxAccess(_E)
-if mibBuilder.loadTexts:ifOtnTpTribPortId.setStatus(_B)
-_IfOtnTpRxMultiplexStructureIdentifierMismatch_Type=FaultStatusWithNA
-_IfOtnTpRxMultiplexStructureIdentifierMismatch_Object=MibTableColumn
-ifOtnTpRxMultiplexStructureIdentifierMismatch=_IfOtnTpRxMultiplexStructureIdentifierMismatch_Object((1,3,6,1,4,1,8708,2,50,2,5,1,1,6),_IfOtnTpRxMultiplexStructureIdentifierMismatch_Type())
-ifOtnTpRxMultiplexStructureIdentifierMismatch.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnTpRxMultiplexStructureIdentifierMismatch.setStatus(_B)
-_IfOtnTpTxSignalStatus_Type=SignalStatusWithNA
-_IfOtnTpTxSignalStatus_Object=MibTableColumn
-ifOtnTpTxSignalStatus=_IfOtnTpTxSignalStatus_Object((1,3,6,1,4,1,8708,2,50,2,5,1,1,7),_IfOtnTpTxSignalStatus_Type())
-ifOtnTpTxSignalStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnTpTxSignalStatus.setStatus(_B)
-_IfOtnTpRxSignalStatus_Type=SignalStatusWithNA
-_IfOtnTpRxSignalStatus_Object=MibTableColumn
-ifOtnTpRxSignalStatus=_IfOtnTpRxSignalStatus_Object((1,3,6,1,4,1,8708,2,50,2,5,1,1,8),_IfOtnTpRxSignalStatus_Type())
-ifOtnTpRxSignalStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnTpRxSignalStatus.setStatus(_B)
-class _IfOtnTpXcRefOduIndex_Type(Unsigned32WithNA):defaultValue=2147483647
-_IfOtnTpXcRefOduIndex_Type.__name__=_H
-_IfOtnTpXcRefOduIndex_Object=MibTableColumn
-ifOtnTpXcRefOduIndex=_IfOtnTpXcRefOduIndex_Object((1,3,6,1,4,1,8708,2,50,2,5,1,1,9),_IfOtnTpXcRefOduIndex_Type())
-ifOtnTpXcRefOduIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:ifOtnTpXcRefOduIndex.setStatus(_B)
-class _IfOtnTpTribSlotMask_Type(DisplayString):defaultValue=OctetString('')
-_IfOtnTpTribSlotMask_Type.__name__=_g
-_IfOtnTpTribSlotMask_Object=MibTableColumn
-ifOtnTpTribSlotMask=_IfOtnTpTribSlotMask_Object((1,3,6,1,4,1,8708,2,50,2,5,1,1,10),_IfOtnTpTribSlotMask_Type())
-ifOtnTpTribSlotMask.setMaxAccess(_h)
-if mibBuilder.loadTexts:ifOtnTpTribSlotMask.setStatus(_B)
-class _IfOtnTpTribSlotView_Type(DisplayString):defaultValue=OctetString('')
-_IfOtnTpTribSlotView_Type.__name__=_g
-_IfOtnTpTribSlotView_Object=MibTableColumn
-ifOtnTpTribSlotView=_IfOtnTpTribSlotView_Object((1,3,6,1,4,1,8708,2,50,2,5,1,1,11),_IfOtnTpTribSlotView_Type())
-ifOtnTpTribSlotView.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifOtnTpTribSlotView.setStatus(_B)
-ifOtnGeneralGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,50,1,1,1))
-ifOtnGeneralGroupV1.setObjects(*((_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s)))
-if mibBuilder.loadTexts:ifOtnGeneralGroupV1.setStatus(_D)
-ifOtnOtuGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,50,1,1,2))
-ifOtnOtuGroupV1.setObjects(*((_A,_I),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y)))
-if mibBuilder.loadTexts:ifOtnOtuGroupV1.setStatus(_D)
-ifOtnOduGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,50,1,1,3))
-ifOtnOduGroupV1.setObjects(*((_A,_Q),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z)))
-if mibBuilder.loadTexts:ifOtnOduGroupV1.setStatus(_D)
-ifOtnOpuGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,50,1,1,4))
-ifOtnOpuGroupV1.setObjects(*((_A,_F),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:ifOtnOpuGroupV1.setStatus(_D)
-ifOtnTpGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,50,1,1,5))
-ifOtnTpGroupV1.setObjects(*((_A,_R),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6)))
-if mibBuilder.loadTexts:ifOtnTpGroupV1.setStatus(_B)
-ifOtnOpuGroupV2=ObjectGroup((1,3,6,1,4,1,8708,2,50,1,1,6))
-ifOtnOpuGroupV2.setObjects(*((_A,_F),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_Z),(_A,_a)))
-if mibBuilder.loadTexts:ifOtnOpuGroupV2.setStatus(_D)
-ifOtnOduGroupV2=ObjectGroup((1,3,6,1,4,1,8708,2,50,1,1,7))
-ifOtnOduGroupV2.setObjects(*((_A,_Q),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_AB),(_A,_AC)))
-if mibBuilder.loadTexts:ifOtnOduGroupV2.setStatus(_B)
-ifOtnOtuGroupV2=ObjectGroup((1,3,6,1,4,1,8708,2,50,1,1,8))
-ifOtnOtuGroupV2.setObjects(*((_A,_I),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y)))
-if mibBuilder.loadTexts:ifOtnOtuGroupV2.setStatus(_D)
-ifOtnOpuGroupV3=ObjectGroup((1,3,6,1,4,1,8708,2,50,1,1,9))
-ifOtnOpuGroupV3.setObjects(*((_A,_F),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_Z),(_A,_a),(_A,_A7)))
-if mibBuilder.loadTexts:ifOtnOpuGroupV3.setStatus(_D)
-ifOtnTpGroupV2=ObjectGroup((1,3,6,1,4,1,8708,2,50,1,1,10))
-ifOtnTpGroupV2.setObjects(*((_A,_R),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_AD),(_A,_AE)))
-if mibBuilder.loadTexts:ifOtnTpGroupV2.setStatus(_B)
-ifOtnOtuGroupV3=ObjectGroup((1,3,6,1,4,1,8708,2,50,1,1,11))
-ifOtnOtuGroupV3.setObjects(*((_A,_I),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_AF)))
-if mibBuilder.loadTexts:ifOtnOtuGroupV3.setStatus(_B)
-ifOtnGeneralGroupV2=ObjectGroup((1,3,6,1,4,1,8708,2,50,1,1,12))
-ifOtnGeneralGroupV2.setObjects(*((_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_AG),(_A,_AH),(_A,_AI)))
-if mibBuilder.loadTexts:ifOtnGeneralGroupV2.setStatus(_B)
-ifOtnOpuGroupV4=ObjectGroup((1,3,6,1,4,1,8708,2,50,1,1,13))
-ifOtnOpuGroupV4.setObjects(*((_A,_F),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_Z),(_A,_a),(_A,_A7),(_A,_AJ)))
-if mibBuilder.loadTexts:ifOtnOpuGroupV4.setStatus(_B)
-lumIfOtnComplV1=ModuleCompliance((1,3,6,1,4,1,8708,2,50,1,2,1))
-lumIfOtnComplV1.setObjects(*((_A,_P),(_A,_AK),(_A,_AL),(_A,_AM)))
-if mibBuilder.loadTexts:lumIfOtnComplV1.setStatus(_D)
-lumIfOtnComplV2=ModuleCompliance((1,3,6,1,4,1,8708,2,50,1,2,2))
-lumIfOtnComplV2.setObjects(*((_A,_P),(_A,_A8),(_A,_G),(_A,_AN),(_A,_A9)))
-if mibBuilder.loadTexts:lumIfOtnComplV2.setStatus(_D)
-lumIfOtnComplV3=ModuleCompliance((1,3,6,1,4,1,8708,2,50,1,2,3))
-lumIfOtnComplV3.setObjects(*((_A,_P),(_A,_A8),(_A,_G),(_A,_b),(_A,_A9)))
-if mibBuilder.loadTexts:lumIfOtnComplV3.setStatus(_D)
-lumIfOtnComplV4=ModuleCompliance((1,3,6,1,4,1,8708,2,50,1,2,4))
-lumIfOtnComplV4.setObjects(*((_A,_P),(_A,_c),(_A,_G),(_A,_b),(_A,_d)))
-if mibBuilder.loadTexts:lumIfOtnComplV4.setStatus(_D)
-lumIfOtnComplV5=ModuleCompliance((1,3,6,1,4,1,8708,2,50,1,2,5))
-lumIfOtnComplV5.setObjects(*((_A,_AA),(_A,_c),(_A,_G),(_A,_b),(_A,_d)))
-if mibBuilder.loadTexts:lumIfOtnComplV5.setStatus(_D)
-lumIfOtnComplV6=ModuleCompliance((1,3,6,1,4,1,8708,2,50,1,2,6))
-lumIfOtnComplV6.setObjects(*((_A,_AA),(_A,_c),(_A,_G),(_A,_AO),(_A,_d)))
-if mibBuilder.loadTexts:lumIfOtnComplV6.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'lumIfOtnMIBModule':lumIfOtnMIBModule,'lumIfOtnConfs':lumIfOtnConfs,'lumIfOtnGroups':lumIfOtnGroups,_P:ifOtnGeneralGroupV1,_AK:ifOtnOtuGroupV1,_AL:ifOtnOduGroupV1,_AM:ifOtnOpuGroupV1,_A9:ifOtnTpGroupV1,_AN:ifOtnOpuGroupV2,_G:ifOtnOduGroupV2,_A8:ifOtnOtuGroupV2,_b:ifOtnOpuGroupV3,_d:ifOtnTpGroupV2,_c:ifOtnOtuGroupV3,_AA:ifOtnGeneralGroupV2,_AO:ifOtnOpuGroupV4,'lumIfOtnCompl':lumIfOtnCompl,'lumIfOtnComplV1':lumIfOtnComplV1,'lumIfOtnComplV2':lumIfOtnComplV2,'lumIfOtnComplV3':lumIfOtnComplV3,'lumIfOtnComplV4':lumIfOtnComplV4,'lumIfOtnComplV5':lumIfOtnComplV5,'lumIfOtnComplV6':lumIfOtnComplV6,'lumIfOtnMIBObjects':lumIfOtnMIBObjects,'ifOtnGeneral':ifOtnGeneral,_i:ifOtnGeneralConfigLastChangeTime,_j:ifOtnGeneralStateLastChangeTime,_k:ifOtnGeneralIfOtnOtuTableSize,_l:ifOtnGeneralIfOtnOtuConfigLastChangeTime,_m:ifOtnGeneralIfOtnOtuStateLastChangeTime,_n:ifOtnGeneralIfOtnOduTableSize,_o:ifOtnGeneralIfOtnOduConfigLastChangeTime,_p:ifOtnGeneralIfOtnOduStateLastChangeTime,_q:ifOtnGeneralIfOtnOpuTableSize,_r:ifOtnGeneralIfOtnOpuConfigLastChangeTime,_s:ifOtnGeneralIfOtnOpuStateLastChangeTime,_AG:ifOtnGeneralIfOtnTpTableSize,_AH:ifOtnGeneralIfOtnTpConfigLastChangeTime,_AI:ifOtnGeneralIfOtnTpStateLastChangeTime,'ifOtnOtuList':ifOtnOtuList,'ifOtnOtuTable':ifOtnOtuTable,'ifOtnOtuEntry':ifOtnOtuEntry,_I:ifOtnOtuIndex,_S:ifOtnOtuName,_T:ifOtnOtuConnIfBasicIfIndex,_U:ifOtnOtuTxSignalStatus,_V:ifOtnOtuRxSignalStatus,_W:ifOtnOtuLossOfFrame,_X:ifOtnOtuRxAlarmIndicationSignal,_Y:ifOtnOtuLossOfMultiframe,_AF:ifOtnOtuUpPortId,'ifOtnOduList':ifOtnOduList,'ifOtnOduTable':ifOtnOduTable,'ifOtnOduEntry':ifOtnOduEntry,_Q:ifOtnOduIndex,_t:ifOtnOduName,_u:ifOtnOduConnIfBasicIfIndex,_v:ifOtnOduGcc1Terminated,_w:ifOtnOduGcc2Terminated,_x:ifOtnOduUsedTcms,_y:ifOtnOduTxSignalStatus,_z:ifOtnOduRxSignalStatus,_AB:ifOtnOduType,_AC:ifOtnOduParentOduIndex,'ifOtnOpuList':ifOtnOpuList,'ifOtnOpuTable':ifOtnOpuTable,'ifOtnOpuEntry':ifOtnOpuEntry,_F:ifOtnOpuIndex,_J:ifOtnOpuName,_K:ifOtnOpuConnIfBasicIfIndex,_L:ifOtnOpuTxSignalStatus,_M:ifOtnOpuRxSignalStatus,_N:ifOtnOpuTxClientMaintenanceIndication,_O:ifOtnOpuTxClientSignalFail,_Z:ifOtnOpuRxPayloadMismatch,_a:ifOtnOpuTxPayloadMismatch,_A7:ifOtnOpuLossOfOpuMultiFrameIdentifier,'ifOtnOpuRxClientMaintenanceIndication':ifOtnOpuRxClientMaintenanceIndication,_AJ:ifOtnOpuConnOduIndex,'ifOtnTpList':ifOtnTpList,'ifOtnTpTable':ifOtnTpTable,'ifOtnTpEntry':ifOtnTpEntry,_R:ifOtnTpIndex,_A0:ifOtnTpName,_A1:ifOtnTpConnIfBasicIfIndex,_A2:ifOtnTpUsedTribSlots,_A3:ifOtnTpTribPortId,_A4:ifOtnTpRxMultiplexStructureIdentifierMismatch,_A5:ifOtnTpTxSignalStatus,_A6:ifOtnTpRxSignalStatus,'ifOtnTpXcRefOduIndex':ifOtnTpXcRefOduIndex,_AD:ifOtnTpTribSlotMask,_AE:ifOtnTpTribSlotView})
+#
+# PySNMP MIB module LUM-IFOTN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/LUM-IFOTN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:20 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+lumModules, lumIfOtnMIB = mibBuilder.importSymbols("LUM-REG", "lumModules", "lumIfOtnMIB")
+Unsigned32WithNA, CommandString, MgmtNameString, FaultStatusWithNA, SignalStatusWithNA, TruthValueWithNA = mibBuilder.importSymbols("LUM-TC", "Unsigned32WithNA", "CommandString", "MgmtNameString", "FaultStatusWithNA", "SignalStatusWithNA", "TruthValueWithNA")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+lumIfOtnMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 8708, 1, 1, 50))
+lumIfOtnMIBModule.setRevisions(('2018-06-29 00:00', '2017-12-15 00:00', '2017-06-15 00:00', '2016-11-30 00:00', '2015-01-23 00:00', '2014-09-30 00:00', '2014-05-16 00:00', '2013-11-15 00:00', '2013-05-01 00:00',))
+if mibBuilder.loadTexts: lumIfOtnMIBModule.setLastUpdated('201806290000Z')
+if mibBuilder.loadTexts: lumIfOtnMIBModule.setOrganization('Infinera Corporation')
+lumIfOtnConfs = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1))
+lumIfOtnGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 1))
+lumIfOtnCompl = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 2))
+lumIfOtnMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2))
+ifOtnGeneral = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 1))
+ifOtnOtuList = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 2))
+ifOtnOduList = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 3))
+ifOtnOpuList = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 4))
+ifOtnTpList = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 5))
+ifOtnGeneralConfigLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 1, 1), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnGeneralConfigLastChangeTime.setStatus('current')
+ifOtnGeneralStateLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 1, 2), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnGeneralStateLastChangeTime.setStatus('current')
+ifOtnGeneralIfOtnOtuTableSize = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnGeneralIfOtnOtuTableSize.setStatus('current')
+ifOtnGeneralIfOtnOtuConfigLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnGeneralIfOtnOtuConfigLastChangeTime.setStatus('current')
+ifOtnGeneralIfOtnOtuStateLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 1, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnGeneralIfOtnOtuStateLastChangeTime.setStatus('current')
+ifOtnGeneralIfOtnOduTableSize = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnGeneralIfOtnOduTableSize.setStatus('current')
+ifOtnGeneralIfOtnOduConfigLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 1, 7), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnGeneralIfOtnOduConfigLastChangeTime.setStatus('current')
+ifOtnGeneralIfOtnOduStateLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 1, 8), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnGeneralIfOtnOduStateLastChangeTime.setStatus('current')
+ifOtnGeneralIfOtnOpuTableSize = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 1, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnGeneralIfOtnOpuTableSize.setStatus('current')
+ifOtnGeneralIfOtnOpuConfigLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 1, 10), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnGeneralIfOtnOpuConfigLastChangeTime.setStatus('current')
+ifOtnGeneralIfOtnOpuStateLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 1, 11), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnGeneralIfOtnOpuStateLastChangeTime.setStatus('current')
+ifOtnGeneralIfOtnTpTableSize = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnGeneralIfOtnTpTableSize.setStatus('current')
+ifOtnGeneralIfOtnTpConfigLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 1, 13), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnGeneralIfOtnTpConfigLastChangeTime.setStatus('current')
+ifOtnGeneralIfOtnTpStateLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 1, 14), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnGeneralIfOtnTpStateLastChangeTime.setStatus('current')
+ifOtnOtuTable = MibTable((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 2, 1), )
+if mibBuilder.loadTexts: ifOtnOtuTable.setStatus('current')
+ifOtnOtuEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 2, 1, 1), ).setIndexNames((0, "LUM-IFOTN-MIB", "ifOtnOtuIndex"))
+if mibBuilder.loadTexts: ifOtnOtuEntry.setStatus('current')
+ifOtnOtuIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 2, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOtuIndex.setStatus('current')
+ifOtnOtuName = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 2, 1, 1, 2), MgmtNameString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOtuName.setStatus('current')
+ifOtnOtuConnIfBasicIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 2, 1, 1, 3), Unsigned32WithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOtuConnIfBasicIfIndex.setStatus('current')
+ifOtnOtuTxSignalStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 2, 1, 1, 4), SignalStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOtuTxSignalStatus.setStatus('current')
+ifOtnOtuRxSignalStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 2, 1, 1, 5), SignalStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOtuRxSignalStatus.setStatus('current')
+ifOtnOtuLossOfFrame = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 2, 1, 1, 6), FaultStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOtuLossOfFrame.setStatus('current')
+ifOtnOtuRxAlarmIndicationSignal = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 2, 1, 1, 7), FaultStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOtuRxAlarmIndicationSignal.setStatus('current')
+ifOtnOtuLossOfMultiframe = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 2, 1, 1, 8), FaultStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOtuLossOfMultiframe.setStatus('current')
+ifOtnOtuUpPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647)).clone(-1)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOtuUpPortId.setStatus('current')
+ifOtnOduTable = MibTable((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 3, 1), )
+if mibBuilder.loadTexts: ifOtnOduTable.setStatus('current')
+ifOtnOduEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 3, 1, 1), ).setIndexNames((0, "LUM-IFOTN-MIB", "ifOtnOduIndex"))
+if mibBuilder.loadTexts: ifOtnOduEntry.setStatus('current')
+ifOtnOduIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 3, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOduIndex.setStatus('current')
+ifOtnOduName = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 3, 1, 1, 2), MgmtNameString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ifOtnOduName.setStatus('current')
+ifOtnOduConnIfBasicIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 3, 1, 1, 3), Unsigned32WithNA()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ifOtnOduConnIfBasicIfIndex.setStatus('current')
+ifOtnOduGcc1Terminated = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 3, 1, 1, 4), TruthValueWithNA().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOduGcc1Terminated.setStatus('current')
+ifOtnOduGcc2Terminated = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 3, 1, 1, 5), TruthValueWithNA().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOduGcc2Terminated.setStatus('current')
+ifOtnOduUsedTcms = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 3, 1, 1, 6), Unsigned32WithNA()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ifOtnOduUsedTcms.setStatus('current')
+ifOtnOduTxSignalStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 3, 1, 1, 7), SignalStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOduTxSignalStatus.setStatus('current')
+ifOtnOduRxSignalStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 3, 1, 1, 8), SignalStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOduRxSignalStatus.setStatus('current')
+ifOtnOduType = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 3, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 2147483647))).clone(namedValues=NamedValues(("unused", 1), ("odu0", 2), ("odu1", 3), ("odu2", 4), ("odu3", 5), ("odu4", 6), ("oduFlex", 7), ("oduJ2", 8), ("odu2e", 9), ("notApplicable", 2147483647))).clone('unused')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ifOtnOduType.setStatus('current')
+ifOtnOduParentOduIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 3, 1, 1, 10), Unsigned32WithNA().clone(2147483647)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ifOtnOduParentOduIndex.setStatus('current')
+ifOtnOpuTable = MibTable((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 4, 1), )
+if mibBuilder.loadTexts: ifOtnOpuTable.setStatus('current')
+ifOtnOpuEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 4, 1, 1), ).setIndexNames((0, "LUM-IFOTN-MIB", "ifOtnOpuIndex"))
+if mibBuilder.loadTexts: ifOtnOpuEntry.setStatus('current')
+ifOtnOpuIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 4, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOpuIndex.setStatus('current')
+ifOtnOpuName = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 4, 1, 1, 2), MgmtNameString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOpuName.setStatus('current')
+ifOtnOpuConnIfBasicIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 4, 1, 1, 3), Unsigned32WithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOpuConnIfBasicIfIndex.setStatus('current')
+ifOtnOpuTxSignalStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 4, 1, 1, 4), SignalStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOpuTxSignalStatus.setStatus('current')
+ifOtnOpuRxSignalStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 4, 1, 1, 5), SignalStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOpuRxSignalStatus.setStatus('current')
+ifOtnOpuTxClientMaintenanceIndication = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 4, 1, 1, 6), FaultStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOpuTxClientMaintenanceIndication.setStatus('current')
+ifOtnOpuTxClientSignalFail = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 4, 1, 1, 7), FaultStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOpuTxClientSignalFail.setStatus('current')
+ifOtnOpuRxPayloadMismatch = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 4, 1, 1, 8), FaultStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOpuRxPayloadMismatch.setStatus('current')
+ifOtnOpuTxPayloadMismatch = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 4, 1, 1, 9), FaultStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOpuTxPayloadMismatch.setStatus('current')
+ifOtnOpuLossOfOpuMultiFrameIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 4, 1, 1, 10), FaultStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOpuLossOfOpuMultiFrameIdentifier.setStatus('current')
+ifOtnOpuRxClientMaintenanceIndication = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 4, 1, 1, 11), FaultStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOpuRxClientMaintenanceIndication.setStatus('current')
+ifOtnOpuConnOduIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 4, 1, 1, 12), Unsigned32WithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnOpuConnOduIndex.setStatus('current')
+ifOtnTpTable = MibTable((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 5, 1), )
+if mibBuilder.loadTexts: ifOtnTpTable.setStatus('current')
+ifOtnTpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 5, 1, 1), ).setIndexNames((0, "LUM-IFOTN-MIB", "ifOtnTpIndex"))
+if mibBuilder.loadTexts: ifOtnTpEntry.setStatus('current')
+ifOtnTpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 5, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnTpIndex.setStatus('current')
+ifOtnTpName = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 5, 1, 1, 2), MgmtNameString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ifOtnTpName.setStatus('current')
+ifOtnTpConnIfBasicIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 5, 1, 1, 3), Unsigned32WithNA()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ifOtnTpConnIfBasicIfIndex.setStatus('current')
+ifOtnTpUsedTribSlots = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 5, 1, 1, 4), Unsigned32WithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnTpUsedTribSlots.setStatus('current')
+ifOtnTpTribPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 5, 1, 1, 5), Unsigned32WithNA().clone(2147483647)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ifOtnTpTribPortId.setStatus('current')
+ifOtnTpRxMultiplexStructureIdentifierMismatch = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 5, 1, 1, 6), FaultStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnTpRxMultiplexStructureIdentifierMismatch.setStatus('current')
+ifOtnTpTxSignalStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 5, 1, 1, 7), SignalStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnTpTxSignalStatus.setStatus('current')
+ifOtnTpRxSignalStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 5, 1, 1, 8), SignalStatusWithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnTpRxSignalStatus.setStatus('current')
+ifOtnTpXcRefOduIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 5, 1, 1, 9), Unsigned32WithNA().clone(2147483647)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ifOtnTpXcRefOduIndex.setStatus('current')
+ifOtnTpTribSlotMask = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 5, 1, 1, 10), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ifOtnTpTribSlotMask.setStatus('current')
+ifOtnTpTribSlotView = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 50, 2, 5, 1, 1, 11), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifOtnTpTribSlotView.setStatus('current')
+ifOtnGeneralGroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 1, 1)).setObjects(("LUM-IFOTN-MIB", "ifOtnGeneralConfigLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralStateLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOtuTableSize"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOtuConfigLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOtuStateLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOduTableSize"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOduConfigLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOduStateLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOpuTableSize"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOpuConfigLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOpuStateLastChangeTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifOtnGeneralGroupV1 = ifOtnGeneralGroupV1.setStatus('deprecated')
+ifOtnOtuGroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 1, 2)).setObjects(("LUM-IFOTN-MIB", "ifOtnOtuIndex"), ("LUM-IFOTN-MIB", "ifOtnOtuName"), ("LUM-IFOTN-MIB", "ifOtnOtuConnIfBasicIfIndex"), ("LUM-IFOTN-MIB", "ifOtnOtuTxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOtuRxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOtuLossOfFrame"), ("LUM-IFOTN-MIB", "ifOtnOtuRxAlarmIndicationSignal"), ("LUM-IFOTN-MIB", "ifOtnOtuLossOfMultiframe"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifOtnOtuGroupV1 = ifOtnOtuGroupV1.setStatus('deprecated')
+ifOtnOduGroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 1, 3)).setObjects(("LUM-IFOTN-MIB", "ifOtnOduIndex"), ("LUM-IFOTN-MIB", "ifOtnOduName"), ("LUM-IFOTN-MIB", "ifOtnOduConnIfBasicIfIndex"), ("LUM-IFOTN-MIB", "ifOtnOduGcc1Terminated"), ("LUM-IFOTN-MIB", "ifOtnOduGcc2Terminated"), ("LUM-IFOTN-MIB", "ifOtnOduUsedTcms"), ("LUM-IFOTN-MIB", "ifOtnOduTxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOduRxSignalStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifOtnOduGroupV1 = ifOtnOduGroupV1.setStatus('deprecated')
+ifOtnOpuGroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 1, 4)).setObjects(("LUM-IFOTN-MIB", "ifOtnOpuIndex"), ("LUM-IFOTN-MIB", "ifOtnOpuName"), ("LUM-IFOTN-MIB", "ifOtnOpuConnIfBasicIfIndex"), ("LUM-IFOTN-MIB", "ifOtnOpuTxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOpuRxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOpuTxClientMaintenanceIndication"), ("LUM-IFOTN-MIB", "ifOtnOpuTxClientSignalFail"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifOtnOpuGroupV1 = ifOtnOpuGroupV1.setStatus('deprecated')
+ifOtnTpGroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 1, 5)).setObjects(("LUM-IFOTN-MIB", "ifOtnTpIndex"), ("LUM-IFOTN-MIB", "ifOtnTpName"), ("LUM-IFOTN-MIB", "ifOtnTpConnIfBasicIfIndex"), ("LUM-IFOTN-MIB", "ifOtnTpUsedTribSlots"), ("LUM-IFOTN-MIB", "ifOtnTpTribPortId"), ("LUM-IFOTN-MIB", "ifOtnTpRxMultiplexStructureIdentifierMismatch"), ("LUM-IFOTN-MIB", "ifOtnTpTxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnTpRxSignalStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifOtnTpGroupV1 = ifOtnTpGroupV1.setStatus('current')
+ifOtnOpuGroupV2 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 1, 6)).setObjects(("LUM-IFOTN-MIB", "ifOtnOpuIndex"), ("LUM-IFOTN-MIB", "ifOtnOpuName"), ("LUM-IFOTN-MIB", "ifOtnOpuConnIfBasicIfIndex"), ("LUM-IFOTN-MIB", "ifOtnOpuTxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOpuRxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOpuTxClientMaintenanceIndication"), ("LUM-IFOTN-MIB", "ifOtnOpuTxClientSignalFail"), ("LUM-IFOTN-MIB", "ifOtnOpuRxPayloadMismatch"), ("LUM-IFOTN-MIB", "ifOtnOpuTxPayloadMismatch"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifOtnOpuGroupV2 = ifOtnOpuGroupV2.setStatus('deprecated')
+ifOtnOduGroupV2 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 1, 7)).setObjects(("LUM-IFOTN-MIB", "ifOtnOduIndex"), ("LUM-IFOTN-MIB", "ifOtnOduName"), ("LUM-IFOTN-MIB", "ifOtnOduConnIfBasicIfIndex"), ("LUM-IFOTN-MIB", "ifOtnOduGcc1Terminated"), ("LUM-IFOTN-MIB", "ifOtnOduGcc2Terminated"), ("LUM-IFOTN-MIB", "ifOtnOduUsedTcms"), ("LUM-IFOTN-MIB", "ifOtnOduTxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOduRxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOduType"), ("LUM-IFOTN-MIB", "ifOtnOduParentOduIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifOtnOduGroupV2 = ifOtnOduGroupV2.setStatus('current')
+ifOtnOtuGroupV2 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 1, 8)).setObjects(("LUM-IFOTN-MIB", "ifOtnOtuIndex"), ("LUM-IFOTN-MIB", "ifOtnOtuName"), ("LUM-IFOTN-MIB", "ifOtnOtuConnIfBasicIfIndex"), ("LUM-IFOTN-MIB", "ifOtnOtuTxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOtuRxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOtuLossOfFrame"), ("LUM-IFOTN-MIB", "ifOtnOtuRxAlarmIndicationSignal"), ("LUM-IFOTN-MIB", "ifOtnOtuLossOfMultiframe"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifOtnOtuGroupV2 = ifOtnOtuGroupV2.setStatus('deprecated')
+ifOtnOpuGroupV3 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 1, 9)).setObjects(("LUM-IFOTN-MIB", "ifOtnOpuIndex"), ("LUM-IFOTN-MIB", "ifOtnOpuName"), ("LUM-IFOTN-MIB", "ifOtnOpuConnIfBasicIfIndex"), ("LUM-IFOTN-MIB", "ifOtnOpuTxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOpuRxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOpuTxClientMaintenanceIndication"), ("LUM-IFOTN-MIB", "ifOtnOpuTxClientSignalFail"), ("LUM-IFOTN-MIB", "ifOtnOpuRxPayloadMismatch"), ("LUM-IFOTN-MIB", "ifOtnOpuTxPayloadMismatch"), ("LUM-IFOTN-MIB", "ifOtnOpuLossOfOpuMultiFrameIdentifier"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifOtnOpuGroupV3 = ifOtnOpuGroupV3.setStatus('deprecated')
+ifOtnTpGroupV2 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 1, 10)).setObjects(("LUM-IFOTN-MIB", "ifOtnTpIndex"), ("LUM-IFOTN-MIB", "ifOtnTpName"), ("LUM-IFOTN-MIB", "ifOtnTpConnIfBasicIfIndex"), ("LUM-IFOTN-MIB", "ifOtnTpUsedTribSlots"), ("LUM-IFOTN-MIB", "ifOtnTpTribPortId"), ("LUM-IFOTN-MIB", "ifOtnTpRxMultiplexStructureIdentifierMismatch"), ("LUM-IFOTN-MIB", "ifOtnTpTxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnTpRxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnTpTribSlotMask"), ("LUM-IFOTN-MIB", "ifOtnTpTribSlotView"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifOtnTpGroupV2 = ifOtnTpGroupV2.setStatus('current')
+ifOtnOtuGroupV3 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 1, 11)).setObjects(("LUM-IFOTN-MIB", "ifOtnOtuIndex"), ("LUM-IFOTN-MIB", "ifOtnOtuName"), ("LUM-IFOTN-MIB", "ifOtnOtuConnIfBasicIfIndex"), ("LUM-IFOTN-MIB", "ifOtnOtuTxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOtuRxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOtuLossOfFrame"), ("LUM-IFOTN-MIB", "ifOtnOtuRxAlarmIndicationSignal"), ("LUM-IFOTN-MIB", "ifOtnOtuLossOfMultiframe"), ("LUM-IFOTN-MIB", "ifOtnOtuUpPortId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifOtnOtuGroupV3 = ifOtnOtuGroupV3.setStatus('current')
+ifOtnGeneralGroupV2 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 1, 12)).setObjects(("LUM-IFOTN-MIB", "ifOtnGeneralConfigLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralStateLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOtuTableSize"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOtuConfigLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOtuStateLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOduTableSize"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOduConfigLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOduStateLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOpuTableSize"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOpuConfigLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnOpuStateLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnTpTableSize"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnTpConfigLastChangeTime"), ("LUM-IFOTN-MIB", "ifOtnGeneralIfOtnTpStateLastChangeTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifOtnGeneralGroupV2 = ifOtnGeneralGroupV2.setStatus('current')
+ifOtnOpuGroupV4 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 1, 13)).setObjects(("LUM-IFOTN-MIB", "ifOtnOpuIndex"), ("LUM-IFOTN-MIB", "ifOtnOpuName"), ("LUM-IFOTN-MIB", "ifOtnOpuConnIfBasicIfIndex"), ("LUM-IFOTN-MIB", "ifOtnOpuTxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOpuRxSignalStatus"), ("LUM-IFOTN-MIB", "ifOtnOpuTxClientMaintenanceIndication"), ("LUM-IFOTN-MIB", "ifOtnOpuTxClientSignalFail"), ("LUM-IFOTN-MIB", "ifOtnOpuRxPayloadMismatch"), ("LUM-IFOTN-MIB", "ifOtnOpuTxPayloadMismatch"), ("LUM-IFOTN-MIB", "ifOtnOpuLossOfOpuMultiFrameIdentifier"), ("LUM-IFOTN-MIB", "ifOtnOpuConnOduIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifOtnOpuGroupV4 = ifOtnOpuGroupV4.setStatus('current')
+lumIfOtnComplV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 2, 1)).setObjects(("LUM-IFOTN-MIB", "ifOtnGeneralGroupV1"), ("LUM-IFOTN-MIB", "ifOtnOtuGroupV1"), ("LUM-IFOTN-MIB", "ifOtnOduGroupV1"), ("LUM-IFOTN-MIB", "ifOtnOpuGroupV1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lumIfOtnComplV1 = lumIfOtnComplV1.setStatus('deprecated')
+lumIfOtnComplV2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 2, 2)).setObjects(("LUM-IFOTN-MIB", "ifOtnGeneralGroupV1"), ("LUM-IFOTN-MIB", "ifOtnOtuGroupV2"), ("LUM-IFOTN-MIB", "ifOtnOduGroupV2"), ("LUM-IFOTN-MIB", "ifOtnOpuGroupV2"), ("LUM-IFOTN-MIB", "ifOtnTpGroupV1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lumIfOtnComplV2 = lumIfOtnComplV2.setStatus('deprecated')
+lumIfOtnComplV3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 2, 3)).setObjects(("LUM-IFOTN-MIB", "ifOtnGeneralGroupV1"), ("LUM-IFOTN-MIB", "ifOtnOtuGroupV2"), ("LUM-IFOTN-MIB", "ifOtnOduGroupV2"), ("LUM-IFOTN-MIB", "ifOtnOpuGroupV3"), ("LUM-IFOTN-MIB", "ifOtnTpGroupV1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lumIfOtnComplV3 = lumIfOtnComplV3.setStatus('deprecated')
+lumIfOtnComplV4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 2, 4)).setObjects(("LUM-IFOTN-MIB", "ifOtnGeneralGroupV1"), ("LUM-IFOTN-MIB", "ifOtnOtuGroupV3"), ("LUM-IFOTN-MIB", "ifOtnOduGroupV2"), ("LUM-IFOTN-MIB", "ifOtnOpuGroupV3"), ("LUM-IFOTN-MIB", "ifOtnTpGroupV2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lumIfOtnComplV4 = lumIfOtnComplV4.setStatus('deprecated')
+lumIfOtnComplV5 = ModuleCompliance((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 2, 5)).setObjects(("LUM-IFOTN-MIB", "ifOtnGeneralGroupV2"), ("LUM-IFOTN-MIB", "ifOtnOtuGroupV3"), ("LUM-IFOTN-MIB", "ifOtnOduGroupV2"), ("LUM-IFOTN-MIB", "ifOtnOpuGroupV3"), ("LUM-IFOTN-MIB", "ifOtnTpGroupV2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lumIfOtnComplV5 = lumIfOtnComplV5.setStatus('deprecated')
+lumIfOtnComplV6 = ModuleCompliance((1, 3, 6, 1, 4, 1, 8708, 2, 50, 1, 2, 6)).setObjects(("LUM-IFOTN-MIB", "ifOtnGeneralGroupV2"), ("LUM-IFOTN-MIB", "ifOtnOtuGroupV3"), ("LUM-IFOTN-MIB", "ifOtnOduGroupV2"), ("LUM-IFOTN-MIB", "ifOtnOpuGroupV4"), ("LUM-IFOTN-MIB", "ifOtnTpGroupV2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lumIfOtnComplV6 = lumIfOtnComplV6.setStatus('current')
+mibBuilder.exportSymbols("LUM-IFOTN-MIB", PYSNMP_MODULE_ID=lumIfOtnMIBModule, ifOtnTpConnIfBasicIfIndex=ifOtnTpConnIfBasicIfIndex, lumIfOtnConfs=lumIfOtnConfs, ifOtnOduParentOduIndex=ifOtnOduParentOduIndex, ifOtnOpuTable=ifOtnOpuTable, ifOtnGeneralIfOtnTpTableSize=ifOtnGeneralIfOtnTpTableSize, ifOtnOduTxSignalStatus=ifOtnOduTxSignalStatus, ifOtnOpuConnOduIndex=ifOtnOpuConnOduIndex, ifOtnOtuConnIfBasicIfIndex=ifOtnOtuConnIfBasicIfIndex, ifOtnOpuList=ifOtnOpuList, ifOtnTpRxMultiplexStructureIdentifierMismatch=ifOtnTpRxMultiplexStructureIdentifierMismatch, ifOtnOduTable=ifOtnOduTable, ifOtnGeneralGroupV1=ifOtnGeneralGroupV1, ifOtnTpName=ifOtnTpName, lumIfOtnCompl=lumIfOtnCompl, ifOtnOtuLossOfMultiframe=ifOtnOtuLossOfMultiframe, ifOtnGeneralConfigLastChangeTime=ifOtnGeneralConfigLastChangeTime, ifOtnTpIndex=ifOtnTpIndex, ifOtnOpuGroupV2=ifOtnOpuGroupV2, ifOtnGeneralIfOtnOduTableSize=ifOtnGeneralIfOtnOduTableSize, ifOtnOpuTxClientMaintenanceIndication=ifOtnOpuTxClientMaintenanceIndication, lumIfOtnMIBObjects=lumIfOtnMIBObjects, ifOtnGeneralStateLastChangeTime=ifOtnGeneralStateLastChangeTime, ifOtnGeneralIfOtnOduConfigLastChangeTime=ifOtnGeneralIfOtnOduConfigLastChangeTime, ifOtnOduUsedTcms=ifOtnOduUsedTcms, ifOtnOpuTxClientSignalFail=ifOtnOpuTxClientSignalFail, ifOtnTpGroupV2=ifOtnTpGroupV2, lumIfOtnComplV1=lumIfOtnComplV1, lumIfOtnComplV2=lumIfOtnComplV2, ifOtnOpuName=ifOtnOpuName, ifOtnOduRxSignalStatus=ifOtnOduRxSignalStatus, lumIfOtnGroups=lumIfOtnGroups, ifOtnGeneralIfOtnTpStateLastChangeTime=ifOtnGeneralIfOtnTpStateLastChangeTime, ifOtnGeneralIfOtnOtuStateLastChangeTime=ifOtnGeneralIfOtnOtuStateLastChangeTime, ifOtnTpTxSignalStatus=ifOtnTpTxSignalStatus, ifOtnOtuIndex=ifOtnOtuIndex, ifOtnOduName=ifOtnOduName, ifOtnOpuTxSignalStatus=ifOtnOpuTxSignalStatus, ifOtnGeneralIfOtnOpuStateLastChangeTime=ifOtnGeneralIfOtnOpuStateLastChangeTime, ifOtnTpUsedTribSlots=ifOtnTpUsedTribSlots, ifOtnGeneralGroupV2=ifOtnGeneralGroupV2, ifOtnOtuRxAlarmIndicationSignal=ifOtnOtuRxAlarmIndicationSignal, ifOtnOtuGroupV3=ifOtnOtuGroupV3, lumIfOtnComplV4=lumIfOtnComplV4, ifOtnOduList=ifOtnOduList, ifOtnGeneralIfOtnOpuConfigLastChangeTime=ifOtnGeneralIfOtnOpuConfigLastChangeTime, ifOtnOtuLossOfFrame=ifOtnOtuLossOfFrame, ifOtnGeneralIfOtnOpuTableSize=ifOtnGeneralIfOtnOpuTableSize, ifOtnOpuIndex=ifOtnOpuIndex, ifOtnGeneralIfOtnOduStateLastChangeTime=ifOtnGeneralIfOtnOduStateLastChangeTime, ifOtnOpuGroupV3=ifOtnOpuGroupV3, ifOtnOpuTxPayloadMismatch=ifOtnOpuTxPayloadMismatch, ifOtnOtuTxSignalStatus=ifOtnOtuTxSignalStatus, ifOtnOpuRxSignalStatus=ifOtnOpuRxSignalStatus, ifOtnTpXcRefOduIndex=ifOtnTpXcRefOduIndex, ifOtnGeneralIfOtnOtuTableSize=ifOtnGeneralIfOtnOtuTableSize, ifOtnTpTable=ifOtnTpTable, ifOtnTpTribSlotMask=ifOtnTpTribSlotMask, ifOtnOduGroupV2=ifOtnOduGroupV2, ifOtnGeneral=ifOtnGeneral, ifOtnTpGroupV1=ifOtnTpGroupV1, ifOtnOduIndex=ifOtnOduIndex, ifOtnTpRxSignalStatus=ifOtnTpRxSignalStatus, ifOtnOduType=ifOtnOduType, ifOtnOtuTable=ifOtnOtuTable, ifOtnOpuGroupV4=ifOtnOpuGroupV4, ifOtnTpList=ifOtnTpList, ifOtnOpuLossOfOpuMultiFrameIdentifier=ifOtnOpuLossOfOpuMultiFrameIdentifier, ifOtnGeneralIfOtnTpConfigLastChangeTime=ifOtnGeneralIfOtnTpConfigLastChangeTime, ifOtnOtuGroupV1=ifOtnOtuGroupV1, ifOtnOtuName=ifOtnOtuName, ifOtnOpuRxClientMaintenanceIndication=ifOtnOpuRxClientMaintenanceIndication, ifOtnOduGcc2Terminated=ifOtnOduGcc2Terminated, ifOtnTpTribSlotView=ifOtnTpTribSlotView, ifOtnOduGroupV1=ifOtnOduGroupV1, lumIfOtnComplV6=lumIfOtnComplV6, lumIfOtnComplV3=lumIfOtnComplV3, lumIfOtnMIBModule=lumIfOtnMIBModule, ifOtnOduEntry=ifOtnOduEntry, ifOtnTpEntry=ifOtnTpEntry, ifOtnOduGcc1Terminated=ifOtnOduGcc1Terminated, ifOtnOpuEntry=ifOtnOpuEntry, ifOtnGeneralIfOtnOtuConfigLastChangeTime=ifOtnGeneralIfOtnOtuConfigLastChangeTime, ifOtnOtuGroupV2=ifOtnOtuGroupV2, ifOtnOpuGroupV1=ifOtnOpuGroupV1, ifOtnTpTribPortId=ifOtnTpTribPortId, ifOtnOpuRxPayloadMismatch=ifOtnOpuRxPayloadMismatch, ifOtnOtuRxSignalStatus=ifOtnOtuRxSignalStatus, lumIfOtnComplV5=lumIfOtnComplV5, ifOtnOtuEntry=ifOtnOtuEntry, ifOtnOduConnIfBasicIfIndex=ifOtnOduConnIfBasicIfIndex, ifOtnOtuList=ifOtnOtuList, ifOtnOtuUpPortId=ifOtnOtuUpPortId, ifOtnOpuConnIfBasicIfIndex=ifOtnOpuConnIfBasicIfIndex)

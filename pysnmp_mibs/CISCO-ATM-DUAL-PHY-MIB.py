@@ -1,120 +1,64 @@
-_R='ciscoAtmDualPhyMIBGroup'
-_Q='cadpStatAdminActivePhy'
-_P='cadpStatUncorrectableHCSErrors'
-_O='cadpStatCorrectableHCSErrors'
-_N='cadpStatPathFEBErrors'
-_M='cadpStatPathBIP8Errors'
-_L='cadpStatLineFEBErrors'
-_K='cadpStatLineBIP824Errors'
-_J='cadpStatSectionBIP8Errors'
-_I='cadpStatActive'
-_H='cadpStatFarEndReceiveFailure'
-_G='cadpStatLossOfSignal'
-_F='ifIndex'
-_E='IF-MIB'
-_D='cadpStatOperActivePhy'
-_C='read-only'
-_B='CISCO-ATM-DUAL-PHY-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-InterfaceIndexOrZero,=mibBuilder.importSymbols('CISCO-TC','InterfaceIndexOrZero')
-InterfaceIndex,ifIndex=mibBuilder.importSymbols(_E,'InterfaceIndex',_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-ciscoAtmDualPhyMIB=ModuleIdentity((1,3,6,1,4,1,9,9,60))
-_CiscoAtmDualPhyMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoAtmDualPhyMIBObjects=_CiscoAtmDualPhyMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,60,1))
-_CadpStatistics_ObjectIdentity=ObjectIdentity
-cadpStatistics=_CadpStatistics_ObjectIdentity((1,3,6,1,4,1,9,9,60,1,1))
-_CadpStatTable_Object=MibTable
-cadpStatTable=_CadpStatTable_Object((1,3,6,1,4,1,9,9,60,1,1,1))
-if mibBuilder.loadTexts:cadpStatTable.setStatus(_A)
-_CadpStatEntry_Object=MibTableRow
-cadpStatEntry=_CadpStatEntry_Object((1,3,6,1,4,1,9,9,60,1,1,1,1))
-cadpStatEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:cadpStatEntry.setStatus(_A)
-_CadpStatLossOfSignal_Type=TruthValue
-_CadpStatLossOfSignal_Object=MibTableColumn
-cadpStatLossOfSignal=_CadpStatLossOfSignal_Object((1,3,6,1,4,1,9,9,60,1,1,1,1,1),_CadpStatLossOfSignal_Type())
-cadpStatLossOfSignal.setMaxAccess(_C)
-if mibBuilder.loadTexts:cadpStatLossOfSignal.setStatus(_A)
-_CadpStatFarEndReceiveFailure_Type=TruthValue
-_CadpStatFarEndReceiveFailure_Object=MibTableColumn
-cadpStatFarEndReceiveFailure=_CadpStatFarEndReceiveFailure_Object((1,3,6,1,4,1,9,9,60,1,1,1,1,2),_CadpStatFarEndReceiveFailure_Type())
-cadpStatFarEndReceiveFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:cadpStatFarEndReceiveFailure.setStatus(_A)
-_CadpStatActive_Type=TruthValue
-_CadpStatActive_Object=MibTableColumn
-cadpStatActive=_CadpStatActive_Object((1,3,6,1,4,1,9,9,60,1,1,1,1,5),_CadpStatActive_Type())
-cadpStatActive.setMaxAccess(_C)
-if mibBuilder.loadTexts:cadpStatActive.setStatus(_A)
-_CadpStatSectionBIP8Errors_Type=Counter32
-_CadpStatSectionBIP8Errors_Object=MibTableColumn
-cadpStatSectionBIP8Errors=_CadpStatSectionBIP8Errors_Object((1,3,6,1,4,1,9,9,60,1,1,1,1,6),_CadpStatSectionBIP8Errors_Type())
-cadpStatSectionBIP8Errors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cadpStatSectionBIP8Errors.setStatus(_A)
-_CadpStatLineBIP824Errors_Type=Counter32
-_CadpStatLineBIP824Errors_Object=MibTableColumn
-cadpStatLineBIP824Errors=_CadpStatLineBIP824Errors_Object((1,3,6,1,4,1,9,9,60,1,1,1,1,7),_CadpStatLineBIP824Errors_Type())
-cadpStatLineBIP824Errors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cadpStatLineBIP824Errors.setStatus(_A)
-_CadpStatLineFEBErrors_Type=Counter32
-_CadpStatLineFEBErrors_Object=MibTableColumn
-cadpStatLineFEBErrors=_CadpStatLineFEBErrors_Object((1,3,6,1,4,1,9,9,60,1,1,1,1,8),_CadpStatLineFEBErrors_Type())
-cadpStatLineFEBErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cadpStatLineFEBErrors.setStatus(_A)
-_CadpStatPathBIP8Errors_Type=Counter32
-_CadpStatPathBIP8Errors_Object=MibTableColumn
-cadpStatPathBIP8Errors=_CadpStatPathBIP8Errors_Object((1,3,6,1,4,1,9,9,60,1,1,1,1,9),_CadpStatPathBIP8Errors_Type())
-cadpStatPathBIP8Errors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cadpStatPathBIP8Errors.setStatus(_A)
-_CadpStatPathFEBErrors_Type=Counter32
-_CadpStatPathFEBErrors_Object=MibTableColumn
-cadpStatPathFEBErrors=_CadpStatPathFEBErrors_Object((1,3,6,1,4,1,9,9,60,1,1,1,1,10),_CadpStatPathFEBErrors_Type())
-cadpStatPathFEBErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cadpStatPathFEBErrors.setStatus(_A)
-_CadpStatCorrectableHCSErrors_Type=Counter32
-_CadpStatCorrectableHCSErrors_Object=MibTableColumn
-cadpStatCorrectableHCSErrors=_CadpStatCorrectableHCSErrors_Object((1,3,6,1,4,1,9,9,60,1,1,1,1,11),_CadpStatCorrectableHCSErrors_Type())
-cadpStatCorrectableHCSErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cadpStatCorrectableHCSErrors.setStatus(_A)
-_CadpStatUncorrectableHCSErrors_Type=Counter32
-_CadpStatUncorrectableHCSErrors_Object=MibTableColumn
-cadpStatUncorrectableHCSErrors=_CadpStatUncorrectableHCSErrors_Object((1,3,6,1,4,1,9,9,60,1,1,1,1,12),_CadpStatUncorrectableHCSErrors_Type())
-cadpStatUncorrectableHCSErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cadpStatUncorrectableHCSErrors.setStatus(_A)
-_CadpStatOperActivePhy_Type=InterfaceIndexOrZero
-_CadpStatOperActivePhy_Object=MibScalar
-cadpStatOperActivePhy=_CadpStatOperActivePhy_Object((1,3,6,1,4,1,9,9,60,1,1,2),_CadpStatOperActivePhy_Type())
-cadpStatOperActivePhy.setMaxAccess(_C)
-if mibBuilder.loadTexts:cadpStatOperActivePhy.setStatus(_A)
-_CadpStatAdminActivePhy_Type=InterfaceIndex
-_CadpStatAdminActivePhy_Object=MibScalar
-cadpStatAdminActivePhy=_CadpStatAdminActivePhy_Object((1,3,6,1,4,1,9,9,60,1,1,3),_CadpStatAdminActivePhy_Type())
-cadpStatAdminActivePhy.setMaxAccess('read-write')
-if mibBuilder.loadTexts:cadpStatAdminActivePhy.setStatus(_A)
-_CiscoAtmDualPhyMIBTrapPrefix_ObjectIdentity=ObjectIdentity
-ciscoAtmDualPhyMIBTrapPrefix=_CiscoAtmDualPhyMIBTrapPrefix_ObjectIdentity((1,3,6,1,4,1,9,9,60,2))
-_CiscoAtmDualPhyMIBTraps_ObjectIdentity=ObjectIdentity
-ciscoAtmDualPhyMIBTraps=_CiscoAtmDualPhyMIBTraps_ObjectIdentity((1,3,6,1,4,1,9,9,60,2,0))
-_CiscoAtmDualPhyMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoAtmDualPhyMIBConformance=_CiscoAtmDualPhyMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,60,3))
-_CiscoAtmDualPhyMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoAtmDualPhyMIBCompliances=_CiscoAtmDualPhyMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,60,3,1))
-_CiscoAtmDualPhyMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoAtmDualPhyMIBGroups=_CiscoAtmDualPhyMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,60,3,2))
-ciscoAtmDualPhyMIBGroup=ObjectGroup((1,3,6,1,4,1,9,9,60,3,2,1))
-ciscoAtmDualPhyMIBGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_D)))
-if mibBuilder.loadTexts:ciscoAtmDualPhyMIBGroup.setStatus(_A)
-ciscoAtmDualPhyChange=NotificationType((1,3,6,1,4,1,9,9,60,2,0,1))
-ciscoAtmDualPhyChange.setObjects((_B,_D))
-if mibBuilder.loadTexts:ciscoAtmDualPhyChange.setStatus(_A)
-ciscoAtmDualPhyMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,60,3,1,1))
-ciscoAtmDualPhyMIBCompliance.setObjects((_B,_R))
-if mibBuilder.loadTexts:ciscoAtmDualPhyMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoAtmDualPhyMIB':ciscoAtmDualPhyMIB,'ciscoAtmDualPhyMIBObjects':ciscoAtmDualPhyMIBObjects,'cadpStatistics':cadpStatistics,'cadpStatTable':cadpStatTable,'cadpStatEntry':cadpStatEntry,_G:cadpStatLossOfSignal,_H:cadpStatFarEndReceiveFailure,_I:cadpStatActive,_J:cadpStatSectionBIP8Errors,_K:cadpStatLineBIP824Errors,_L:cadpStatLineFEBErrors,_M:cadpStatPathBIP8Errors,_N:cadpStatPathFEBErrors,_O:cadpStatCorrectableHCSErrors,_P:cadpStatUncorrectableHCSErrors,_D:cadpStatOperActivePhy,_Q:cadpStatAdminActivePhy,'ciscoAtmDualPhyMIBTrapPrefix':ciscoAtmDualPhyMIBTrapPrefix,'ciscoAtmDualPhyMIBTraps':ciscoAtmDualPhyMIBTraps,'ciscoAtmDualPhyChange':ciscoAtmDualPhyChange,'ciscoAtmDualPhyMIBConformance':ciscoAtmDualPhyMIBConformance,'ciscoAtmDualPhyMIBCompliances':ciscoAtmDualPhyMIBCompliances,'ciscoAtmDualPhyMIBCompliance':ciscoAtmDualPhyMIBCompliance,'ciscoAtmDualPhyMIBGroups':ciscoAtmDualPhyMIBGroups,_R:ciscoAtmDualPhyMIBGroup})
+#
+# PySNMP MIB module CISCO-ATM-DUAL-PHY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-ATM-DUAL-PHY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+InterfaceIndexOrZero, = mibBuilder.importSymbols("CISCO-TC", "InterfaceIndexOrZero")
+ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ciscoAtmDualPhyMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 60))
+if mibBuilder.loadTexts: ciscoAtmDualPhyMIB.setLastUpdated('9608300000Z')
+if mibBuilder.loadTexts: ciscoAtmDualPhyMIB.setOrganization('Cisco Systems, Inc.')
+ciscoAtmDualPhyMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 60, 1))
+cadpStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 60, 1, 1))
+cadpStatTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 60, 1, 1, 1), )
+if mibBuilder.loadTexts: cadpStatTable.setStatus('current')
+cadpStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 60, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cadpStatEntry.setStatus('current')
+cadpStatLossOfSignal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 60, 1, 1, 1, 1, 1), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cadpStatLossOfSignal.setStatus('current')
+cadpStatFarEndReceiveFailure = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 60, 1, 1, 1, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cadpStatFarEndReceiveFailure.setStatus('current')
+cadpStatActive = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 60, 1, 1, 1, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cadpStatActive.setStatus('current')
+cadpStatSectionBIP8Errors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 60, 1, 1, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cadpStatSectionBIP8Errors.setStatus('current')
+cadpStatLineBIP824Errors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 60, 1, 1, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cadpStatLineBIP824Errors.setStatus('current')
+cadpStatLineFEBErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 60, 1, 1, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cadpStatLineFEBErrors.setStatus('current')
+cadpStatPathBIP8Errors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 60, 1, 1, 1, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cadpStatPathBIP8Errors.setStatus('current')
+cadpStatPathFEBErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 60, 1, 1, 1, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cadpStatPathFEBErrors.setStatus('current')
+cadpStatCorrectableHCSErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 60, 1, 1, 1, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cadpStatCorrectableHCSErrors.setStatus('current')
+cadpStatUncorrectableHCSErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 60, 1, 1, 1, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cadpStatUncorrectableHCSErrors.setStatus('current')
+cadpStatOperActivePhy = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 60, 1, 1, 2), InterfaceIndexOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cadpStatOperActivePhy.setStatus('current')
+cadpStatAdminActivePhy = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 60, 1, 1, 3), InterfaceIndex()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cadpStatAdminActivePhy.setStatus('current')
+ciscoAtmDualPhyMIBTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 60, 2))
+ciscoAtmDualPhyMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 60, 2, 0))
+ciscoAtmDualPhyChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 60, 2, 0, 1)).setObjects(("CISCO-ATM-DUAL-PHY-MIB", "cadpStatOperActivePhy"))
+if mibBuilder.loadTexts: ciscoAtmDualPhyChange.setStatus('current')
+ciscoAtmDualPhyMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 60, 3))
+ciscoAtmDualPhyMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 60, 3, 1))
+ciscoAtmDualPhyMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 60, 3, 2))
+ciscoAtmDualPhyMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 60, 3, 1, 1)).setObjects(("CISCO-ATM-DUAL-PHY-MIB", "ciscoAtmDualPhyMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmDualPhyMIBCompliance = ciscoAtmDualPhyMIBCompliance.setStatus('current')
+ciscoAtmDualPhyMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 60, 3, 2, 1)).setObjects(("CISCO-ATM-DUAL-PHY-MIB", "cadpStatLossOfSignal"), ("CISCO-ATM-DUAL-PHY-MIB", "cadpStatFarEndReceiveFailure"), ("CISCO-ATM-DUAL-PHY-MIB", "cadpStatActive"), ("CISCO-ATM-DUAL-PHY-MIB", "cadpStatSectionBIP8Errors"), ("CISCO-ATM-DUAL-PHY-MIB", "cadpStatLineBIP824Errors"), ("CISCO-ATM-DUAL-PHY-MIB", "cadpStatLineFEBErrors"), ("CISCO-ATM-DUAL-PHY-MIB", "cadpStatPathBIP8Errors"), ("CISCO-ATM-DUAL-PHY-MIB", "cadpStatPathFEBErrors"), ("CISCO-ATM-DUAL-PHY-MIB", "cadpStatCorrectableHCSErrors"), ("CISCO-ATM-DUAL-PHY-MIB", "cadpStatUncorrectableHCSErrors"), ("CISCO-ATM-DUAL-PHY-MIB", "cadpStatAdminActivePhy"), ("CISCO-ATM-DUAL-PHY-MIB", "cadpStatOperActivePhy"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmDualPhyMIBGroup = ciscoAtmDualPhyMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-ATM-DUAL-PHY-MIB", ciscoAtmDualPhyMIBCompliance=ciscoAtmDualPhyMIBCompliance, ciscoAtmDualPhyMIBConformance=ciscoAtmDualPhyMIBConformance, cadpStatEntry=cadpStatEntry, cadpStatistics=cadpStatistics, cadpStatPathFEBErrors=cadpStatPathFEBErrors, ciscoAtmDualPhyMIBTraps=ciscoAtmDualPhyMIBTraps, ciscoAtmDualPhyMIBGroups=ciscoAtmDualPhyMIBGroups, ciscoAtmDualPhyMIBTrapPrefix=ciscoAtmDualPhyMIBTrapPrefix, ciscoAtmDualPhyMIBObjects=ciscoAtmDualPhyMIBObjects, cadpStatUncorrectableHCSErrors=cadpStatUncorrectableHCSErrors, cadpStatTable=cadpStatTable, cadpStatLineBIP824Errors=cadpStatLineBIP824Errors, ciscoAtmDualPhyMIBGroup=ciscoAtmDualPhyMIBGroup, PYSNMP_MODULE_ID=ciscoAtmDualPhyMIB, ciscoAtmDualPhyMIB=ciscoAtmDualPhyMIB, cadpStatActive=cadpStatActive, cadpStatLossOfSignal=cadpStatLossOfSignal, ciscoAtmDualPhyChange=ciscoAtmDualPhyChange, cadpStatOperActivePhy=cadpStatOperActivePhy, cadpStatAdminActivePhy=cadpStatAdminActivePhy, ciscoAtmDualPhyMIBCompliances=ciscoAtmDualPhyMIBCompliances, cadpStatPathBIP8Errors=cadpStatPathBIP8Errors, cadpStatCorrectableHCSErrors=cadpStatCorrectableHCSErrors, cadpStatSectionBIP8Errors=cadpStatSectionBIP8Errors, cadpStatFarEndReceiveFailure=cadpStatFarEndReceiveFailure, cadpStatLineFEBErrors=cadpStatLineFEBErrors)

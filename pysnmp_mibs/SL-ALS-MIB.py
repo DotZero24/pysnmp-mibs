@@ -1,97 +1,58 @@
-_K='slAlsOperStatus'
-_J='SL-ALS-MIB'
-_I='activate'
-_H='ms2250'
-_G='ms2000'
-_F='ms1750'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,ifIndex=mibBuilder.importSymbols(_D,'InterfaceIndex',_E)
-PerfCurrentCount,PerfIntervalCount,PerfTotalCount=mibBuilder.importSymbols('PerfHist-TC-MIB','PerfCurrentCount','PerfIntervalCount','PerfTotalCount')
-sitelight,=mibBuilder.importSymbols('SL-NE-MIB','sitelight')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-slAlsMib=ModuleIdentity((1,3,6,1,4,1,4515,1,12))
-class AlsManualPulseTimeType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_F,1),(_G,2),(_H,3)))
-class AlsAutomaticPulseTimeType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_F,1),(_G,2),(_H,3)))
-_SlAlsConfig_ObjectIdentity=ObjectIdentity
-slAlsConfig=_SlAlsConfig_ObjectIdentity((1,3,6,1,4,1,4515,1,12,1))
-_SlAlsConfigTable_Object=MibTable
-slAlsConfigTable=_SlAlsConfigTable_Object((1,3,6,1,4,1,4515,1,12,1,1))
-if mibBuilder.loadTexts:slAlsConfigTable.setStatus(_A)
-_SlAlsConfigEntry_Object=MibTableRow
-slAlsConfigEntry=_SlAlsConfigEntry_Object((1,3,6,1,4,1,4515,1,12,1,1,1))
-slAlsConfigEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:slAlsConfigEntry.setStatus(_A)
-class _SlAlsMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_SlAlsMode_Type.__name__=_B
-_SlAlsMode_Object=MibTableColumn
-slAlsMode=_SlAlsMode_Object((1,3,6,1,4,1,4515,1,12,1,1,1,1),_SlAlsMode_Type())
-slAlsMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:slAlsMode.setStatus(_A)
-class _SlAlsLosDeclareTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('ms500',1),('ms550',2),('ms600',3)))
-_SlAlsLosDeclareTime_Type.__name__=_B
-_SlAlsLosDeclareTime_Object=MibTableColumn
-slAlsLosDeclareTime=_SlAlsLosDeclareTime_Object((1,3,6,1,4,1,4515,1,12,1,1,1,2),_SlAlsLosDeclareTime_Type())
-slAlsLosDeclareTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:slAlsLosDeclareTime.setStatus(_A)
-class _SlAlsTestPulseTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('s80',1),('s90',2),('s100',3)))
-_SlAlsTestPulseTime_Type.__name__=_B
-_SlAlsTestPulseTime_Object=MibTableColumn
-slAlsTestPulseTime=_SlAlsTestPulseTime_Object((1,3,6,1,4,1,4515,1,12,1,1,1,3),_SlAlsTestPulseTime_Type())
-slAlsTestPulseTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:slAlsTestPulseTime.setStatus(_A)
-_SlAlsManualPulseTime_Type=Integer32
-_SlAlsManualPulseTime_Object=MibTableColumn
-slAlsManualPulseTime=_SlAlsManualPulseTime_Object((1,3,6,1,4,1,4515,1,12,1,1,1,4),_SlAlsManualPulseTime_Type())
-slAlsManualPulseTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:slAlsManualPulseTime.setStatus(_A)
-_SlAlsAutomaticPulseTime_Type=Integer32
-_SlAlsAutomaticPulseTime_Object=MibTableColumn
-slAlsAutomaticPulseTime=_SlAlsAutomaticPulseTime_Object((1,3,6,1,4,1,4515,1,12,1,1,1,5),_SlAlsAutomaticPulseTime_Type())
-slAlsAutomaticPulseTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:slAlsAutomaticPulseTime.setStatus(_A)
-class _SlAlsAutomaticDelayTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,300))
-_SlAlsAutomaticDelayTime_Type.__name__=_B
-_SlAlsAutomaticDelayTime_Object=MibTableColumn
-slAlsAutomaticDelayTime=_SlAlsAutomaticDelayTime_Object((1,3,6,1,4,1,4515,1,12,1,1,1,6),_SlAlsAutomaticDelayTime_Type())
-slAlsAutomaticDelayTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:slAlsAutomaticDelayTime.setStatus(_A)
-class _SlAlsLaserTestActivate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues((_I,1))
-_SlAlsLaserTestActivate_Type.__name__=_B
-_SlAlsLaserTestActivate_Object=MibTableColumn
-slAlsLaserTestActivate=_SlAlsLaserTestActivate_Object((1,3,6,1,4,1,4515,1,12,1,1,1,7),_SlAlsLaserTestActivate_Type())
-slAlsLaserTestActivate.setMaxAccess(_C)
-if mibBuilder.loadTexts:slAlsLaserTestActivate.setStatus(_A)
-class _SlAlsLaserManualActivate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues((_I,1))
-_SlAlsLaserManualActivate_Type.__name__=_B
-_SlAlsLaserManualActivate_Object=MibTableColumn
-slAlsLaserManualActivate=_SlAlsLaserManualActivate_Object((1,3,6,1,4,1,4515,1,12,1,1,1,8),_SlAlsLaserManualActivate_Type())
-slAlsLaserManualActivate.setMaxAccess(_C)
-if mibBuilder.loadTexts:slAlsLaserManualActivate.setStatus(_A)
-class _SlAlsOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('active',1),('inactive',2)))
-_SlAlsOperStatus_Type.__name__=_B
-_SlAlsOperStatus_Object=MibTableColumn
-slAlsOperStatus=_SlAlsOperStatus_Object((1,3,6,1,4,1,4515,1,12,1,1,1,9),_SlAlsOperStatus_Type())
-slAlsOperStatus.setMaxAccess('read-only')
-if mibBuilder.loadTexts:slAlsOperStatus.setStatus(_A)
-class _SlAlsResetParams_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('resetCounters',1))
-_SlAlsResetParams_Type.__name__=_B
-_SlAlsResetParams_Object=MibTableColumn
-slAlsResetParams=_SlAlsResetParams_Object((1,3,6,1,4,1,4515,1,12,1,1,1,10),_SlAlsResetParams_Type())
-slAlsResetParams.setMaxAccess(_C)
-if mibBuilder.loadTexts:slAlsResetParams.setStatus(_A)
-_SlAlsTraps_ObjectIdentity=ObjectIdentity
-slAlsTraps=_SlAlsTraps_ObjectIdentity((1,3,6,1,4,1,4515,1,12,2))
-slAlsStatusChangeTrap=NotificationType((1,3,6,1,4,1,4515,1,12,2,1))
-slAlsStatusChangeTrap.setObjects(*((_D,_E),(_J,_K)))
-if mibBuilder.loadTexts:slAlsStatusChangeTrap.setStatus(_A)
-mibBuilder.exportSymbols(_J,**{'AlsManualPulseTimeType':AlsManualPulseTimeType,'AlsAutomaticPulseTimeType':AlsAutomaticPulseTimeType,'slAlsMib':slAlsMib,'slAlsConfig':slAlsConfig,'slAlsConfigTable':slAlsConfigTable,'slAlsConfigEntry':slAlsConfigEntry,'slAlsMode':slAlsMode,'slAlsLosDeclareTime':slAlsLosDeclareTime,'slAlsTestPulseTime':slAlsTestPulseTime,'slAlsManualPulseTime':slAlsManualPulseTime,'slAlsAutomaticPulseTime':slAlsAutomaticPulseTime,'slAlsAutomaticDelayTime':slAlsAutomaticDelayTime,'slAlsLaserTestActivate':slAlsLaserTestActivate,'slAlsLaserManualActivate':slAlsLaserManualActivate,_K:slAlsOperStatus,'slAlsResetParams':slAlsResetParams,'slAlsTraps':slAlsTraps,'slAlsStatusChangeTrap':slAlsStatusChangeTrap})
+#
+# PySNMP MIB module SL-ALS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/smartoptics/SL-ALS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:09 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
+PerfCurrentCount, PerfTotalCount, PerfIntervalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfTotalCount", "PerfIntervalCount")
+sitelight, = mibBuilder.importSymbols("SL-NE-MIB", "sitelight")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+slAlsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 12))
+if mibBuilder.loadTexts: slAlsMib.setLastUpdated('200008280000Z')
+if mibBuilder.loadTexts: slAlsMib.setOrganization('Smartoptics')
+slAlsConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 12, 1))
+slAlsTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 12, 2))
+class AlsManualPulseTimeType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("ms1750", 1), ("ms2000", 2), ("ms2250", 3))
+
+class AlsAutomaticPulseTimeType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("ms1750", 1), ("ms2000", 2), ("ms2250", 3))
+
+slAlsConfigTable = MibTable((1, 3, 6, 1, 4, 1, 4515, 1, 12, 1, 1), )
+if mibBuilder.loadTexts: slAlsConfigTable.setStatus('current')
+slAlsConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4515, 1, 12, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: slAlsConfigEntry.setStatus('current')
+slAlsMode = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 12, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slAlsMode.setStatus('current')
+slAlsLosDeclareTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 12, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ms500", 1), ("ms550", 2), ("ms600", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slAlsLosDeclareTime.setStatus('current')
+slAlsTestPulseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 12, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("s80", 1), ("s90", 2), ("s100", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slAlsTestPulseTime.setStatus('current')
+slAlsManualPulseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 12, 1, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slAlsManualPulseTime.setStatus('current')
+slAlsAutomaticPulseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 12, 1, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slAlsAutomaticPulseTime.setStatus('current')
+slAlsAutomaticDelayTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 12, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 300))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slAlsAutomaticDelayTime.setStatus('current')
+slAlsLaserTestActivate = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 12, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("activate", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slAlsLaserTestActivate.setStatus('current')
+slAlsLaserManualActivate = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 12, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("activate", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slAlsLaserManualActivate.setStatus('current')
+slAlsOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 12, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slAlsOperStatus.setStatus('current')
+slAlsResetParams = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 12, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("resetCounters", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slAlsResetParams.setStatus('current')
+slAlsStatusChangeTrap = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 12, 2, 1)).setObjects(("IF-MIB", "ifIndex"), ("SL-ALS-MIB", "slAlsOperStatus"))
+if mibBuilder.loadTexts: slAlsStatusChangeTrap.setStatus('current')
+mibBuilder.exportSymbols("SL-ALS-MIB", slAlsTestPulseTime=slAlsTestPulseTime, slAlsTraps=slAlsTraps, AlsManualPulseTimeType=AlsManualPulseTimeType, slAlsOperStatus=slAlsOperStatus, slAlsConfigTable=slAlsConfigTable, slAlsManualPulseTime=slAlsManualPulseTime, slAlsConfig=slAlsConfig, slAlsAutomaticPulseTime=slAlsAutomaticPulseTime, slAlsAutomaticDelayTime=slAlsAutomaticDelayTime, slAlsResetParams=slAlsResetParams, PYSNMP_MODULE_ID=slAlsMib, slAlsMib=slAlsMib, slAlsMode=slAlsMode, slAlsLosDeclareTime=slAlsLosDeclareTime, AlsAutomaticPulseTimeType=AlsAutomaticPulseTimeType, slAlsStatusChangeTrap=slAlsStatusChangeTrap, slAlsConfigEntry=slAlsConfigEntry, slAlsLaserManualActivate=slAlsLaserManualActivate, slAlsLaserTestActivate=slAlsLaserTestActivate)

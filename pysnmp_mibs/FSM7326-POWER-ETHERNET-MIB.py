@@ -1,52 +1,35 @@
-_E='agentPethPsePortEntry'
-_D='FSM7326-POWER-ETHERNET-MIB'
-_C='Gauge32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsm7326,=mibBuilder.importSymbols('FSM7326-REF-MIB','fsm7326')
-pethPsePortEntry,=mibBuilder.importSymbols('POWER-ETHERNET-MIB','pethPsePortEntry')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64',_C,'Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-fsm7326powerEthernetMIB=ModuleIdentity((1,3,6,1,4,1,4526,1,9,15))
-if mibBuilder.loadTexts:fsm7326powerEthernetMIB.setRevisions(('2003-11-10 12:00',))
-_AgentPethObjects_ObjectIdentity=ObjectIdentity
-agentPethObjects=_AgentPethObjects_ObjectIdentity((1,3,6,1,4,1,4526,1,9,15,1))
-_AgentPethPsePortTable_Object=MibTable
-agentPethPsePortTable=_AgentPethPsePortTable_Object((1,3,6,1,4,1,4526,1,9,15,1,1))
-if mibBuilder.loadTexts:agentPethPsePortTable.setStatus(_A)
-_AgentPethPsePortEntry_Object=MibTableRow
-agentPethPsePortEntry=_AgentPethPsePortEntry_Object((1,3,6,1,4,1,4526,1,9,15,1,1,1))
-if mibBuilder.loadTexts:agentPethPsePortEntry.setStatus(_A)
-class _AgentPethPowerLimit_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3,16))
-_AgentPethPowerLimit_Type.__name__=_C
-_AgentPethPowerLimit_Object=MibTableColumn
-agentPethPowerLimit=_AgentPethPowerLimit_Object((1,3,6,1,4,1,4526,1,9,15,1,1,1,1),_AgentPethPowerLimit_Type())
-agentPethPowerLimit.setMaxAccess('read-write')
-if mibBuilder.loadTexts:agentPethPowerLimit.setStatus(_A)
-if mibBuilder.loadTexts:agentPethPowerLimit.setUnits('Watts')
-_AgentPethOutputPower_Type=Gauge32
-_AgentPethOutputPower_Object=MibTableColumn
-agentPethOutputPower=_AgentPethOutputPower_Object((1,3,6,1,4,1,4526,1,9,15,1,1,1,2),_AgentPethOutputPower_Type())
-agentPethOutputPower.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentPethOutputPower.setStatus(_A)
-if mibBuilder.loadTexts:agentPethOutputPower.setUnits('Milliwatts')
-_AgentPethOutputCurrent_Type=Gauge32
-_AgentPethOutputCurrent_Object=MibTableColumn
-agentPethOutputCurrent=_AgentPethOutputCurrent_Object((1,3,6,1,4,1,4526,1,9,15,1,1,1,3),_AgentPethOutputCurrent_Type())
-agentPethOutputCurrent.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentPethOutputCurrent.setStatus(_A)
-if mibBuilder.loadTexts:agentPethOutputCurrent.setUnits('Milliamps')
-_AgentPethOutputVolts_Type=Gauge32
-_AgentPethOutputVolts_Object=MibTableColumn
-agentPethOutputVolts=_AgentPethOutputVolts_Object((1,3,6,1,4,1,4526,1,9,15,1,1,1,4),_AgentPethOutputVolts_Type())
-agentPethOutputVolts.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentPethOutputVolts.setStatus(_A)
-if mibBuilder.loadTexts:agentPethOutputVolts.setUnits('Volts')
-pethPsePortEntry.registerAugmentions((_D,_E))
+#
+# PySNMP MIB module FSM7326-POWER-ETHERNET-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netgear/FSM7326-POWER-ETHERNET-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:27:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fsm7326, = mibBuilder.importSymbols("FSM7326-REF-MIB", "fsm7326")
+pethPsePortEntry, = mibBuilder.importSymbols("POWER-ETHERNET-MIB", "pethPsePortEntry")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+fsm7326powerEthernetMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 1, 9, 15))
+fsm7326powerEthernetMIB.setRevisions(('2003-11-10 12:00',))
+if mibBuilder.loadTexts: fsm7326powerEthernetMIB.setLastUpdated('200311101200Z')
+if mibBuilder.loadTexts: fsm7326powerEthernetMIB.setOrganization('Netgear')
+agentPethObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4526, 1, 9, 15, 1))
+agentPethPsePortTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 1, 9, 15, 1, 1), )
+if mibBuilder.loadTexts: agentPethPsePortTable.setStatus('current')
+agentPethPsePortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 1, 9, 15, 1, 1, 1), )
+pethPsePortEntry.registerAugmentions(("FSM7326-POWER-ETHERNET-MIB", "agentPethPsePortEntry"))
 agentPethPsePortEntry.setIndexNames(*pethPsePortEntry.getIndexNames())
-mibBuilder.exportSymbols(_D,**{'fsm7326powerEthernetMIB':fsm7326powerEthernetMIB,'agentPethObjects':agentPethObjects,'agentPethPsePortTable':agentPethPsePortTable,_E:agentPethPsePortEntry,'agentPethPowerLimit':agentPethPowerLimit,'agentPethOutputPower':agentPethOutputPower,'agentPethOutputCurrent':agentPethOutputCurrent,'agentPethOutputVolts':agentPethOutputVolts})
+if mibBuilder.loadTexts: agentPethPsePortEntry.setStatus('current')
+agentPethPowerLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 9, 15, 1, 1, 1, 1), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(3, 16))).setUnits('Watts').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentPethPowerLimit.setStatus('current')
+agentPethOutputPower = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 9, 15, 1, 1, 1, 2), Gauge32()).setUnits('Milliwatts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentPethOutputPower.setStatus('current')
+agentPethOutputCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 9, 15, 1, 1, 1, 3), Gauge32()).setUnits('Milliamps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentPethOutputCurrent.setStatus('current')
+agentPethOutputVolts = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 1, 9, 15, 1, 1, 1, 4), Gauge32()).setUnits('Volts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentPethOutputVolts.setStatus('current')
+mibBuilder.exportSymbols("FSM7326-POWER-ETHERNET-MIB", agentPethOutputPower=agentPethOutputPower, agentPethOutputCurrent=agentPethOutputCurrent, PYSNMP_MODULE_ID=fsm7326powerEthernetMIB, agentPethPowerLimit=agentPethPowerLimit, agentPethOutputVolts=agentPethOutputVolts, agentPethPsePortTable=agentPethPsePortTable, agentPethObjects=agentPethObjects, agentPethPsePortEntry=agentPethPsePortEntry, fsm7326powerEthernetMIB=fsm7326powerEthernetMIB)

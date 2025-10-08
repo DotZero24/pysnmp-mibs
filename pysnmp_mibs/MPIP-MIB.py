@@ -1,64 +1,36 @@
-_I='read-only'
-_H='mpIpTMask'
-_G='mpIpTAddress'
-_F='mpIpTIfName'
-_E='DisplayString'
-_D='not-accessible'
-_C='Integer32'
-_B='MPIP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mpMgmt,=mibBuilder.importSymbols('MAIPU-SMI','mpMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,ObjectName,ObjectSyntax,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','ObjectName','ObjectSyntax','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_E,'MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-mpIpMib=ModuleIdentity((1,3,6,1,4,1,5651,3,700))
-_MpIpTable_Object=MibTable
-mpIpTable=_MpIpTable_Object((1,3,6,1,4,1,5651,3,700,1))
-if mibBuilder.loadTexts:mpIpTable.setStatus(_A)
-_MpIpEntry_Object=MibTableRow
-mpIpEntry=_MpIpEntry_Object((1,3,6,1,4,1,5651,3,700,1,1))
-mpIpEntry.setIndexNames((0,_B,_F),(0,_B,_G),(0,_B,_H))
-if mibBuilder.loadTexts:mpIpEntry.setStatus(_A)
-class _MpIpTIfName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,40))
-_MpIpTIfName_Type.__name__=_E
-_MpIpTIfName_Object=MibTableColumn
-mpIpTIfName=_MpIpTIfName_Object((1,3,6,1,4,1,5651,3,700,1,1,1),_MpIpTIfName_Type())
-mpIpTIfName.setMaxAccess(_D)
-if mibBuilder.loadTexts:mpIpTIfName.setStatus(_A)
-_MpIpTAddress_Type=IpAddress
-_MpIpTAddress_Object=MibTableColumn
-mpIpTAddress=_MpIpTAddress_Object((1,3,6,1,4,1,5651,3,700,1,1,2),_MpIpTAddress_Type())
-mpIpTAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:mpIpTAddress.setStatus(_A)
-_MpIpTMask_Type=IpAddress
-_MpIpTMask_Object=MibTableColumn
-mpIpTMask=_MpIpTMask_Object((1,3,6,1,4,1,5651,3,700,1,1,3),_MpIpTMask_Type())
-mpIpTMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:mpIpTMask.setStatus(_A)
-_MpIpTBPAddress_Type=IpAddress
-_MpIpTBPAddress_Object=MibTableColumn
-mpIpTBPAddress=_MpIpTBPAddress_Object((1,3,6,1,4,1,5651,3,700,1,1,4),_MpIpTBPAddress_Type())
-mpIpTBPAddress.setMaxAccess(_I)
-if mibBuilder.loadTexts:mpIpTBPAddress.setStatus(_A)
-class _MpIpTType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('primary',1),('secondary',2)))
-_MpIpTType_Type.__name__=_C
-_MpIpTType_Object=MibTableColumn
-mpIpTType=_MpIpTType_Object((1,3,6,1,4,1,5651,3,700,1,1,5),_MpIpTType_Type())
-mpIpTType.setMaxAccess('read-write')
-if mibBuilder.loadTexts:mpIpTType.setStatus(_A)
-class _MpIpTWay_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('manual',1),('dhcp',2),('negotiated',3),('unnumbered',4),('virtual',5)))
-_MpIpTWay_Type.__name__=_C
-_MpIpTWay_Object=MibTableColumn
-mpIpTWay=_MpIpTWay_Object((1,3,6,1,4,1,5651,3,700,1,1,6),_MpIpTWay_Type())
-mpIpTWay.setMaxAccess(_I)
-if mibBuilder.loadTexts:mpIpTWay.setStatus(_A)
-_MpIpTRowStatus_Type=RowStatus
-_MpIpTRowStatus_Object=MibTableColumn
-mpIpTRowStatus=_MpIpTRowStatus_Object((1,3,6,1,4,1,5651,3,700,1,1,7),_MpIpTRowStatus_Type())
-mpIpTRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:mpIpTRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'mpIpMib':mpIpMib,'mpIpTable':mpIpTable,'mpIpEntry':mpIpEntry,_F:mpIpTIfName,_G:mpIpTAddress,_H:mpIpTMask,'mpIpTBPAddress':mpIpTBPAddress,'mpIpTType':mpIpTType,'mpIpTWay':mpIpTWay,'mpIpTRowStatus':mpIpTRowStatus})
+#
+# PySNMP MIB module MPIP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/maipu/MPIP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mpMgmt, = mibBuilder.importSymbols("MAIPU-SMI", "mpMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, ObjectSyntax, iso, MibIdentifier, ObjectName, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "ObjectSyntax", "iso", "MibIdentifier", "ObjectName", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+mpIpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 5651, 3, 700))
+if mibBuilder.loadTexts: mpIpMib.setLastUpdated('0703191040Z')
+if mibBuilder.loadTexts: mpIpMib.setOrganization('Maipu DataComm')
+mpIpTable = MibTable((1, 3, 6, 1, 4, 1, 5651, 3, 700, 1), )
+if mibBuilder.loadTexts: mpIpTable.setStatus('current')
+mpIpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 3, 700, 1, 1), ).setIndexNames((0, "MPIP-MIB", "mpIpTIfName"), (0, "MPIP-MIB", "mpIpTAddress"), (0, "MPIP-MIB", "mpIpTMask"))
+if mibBuilder.loadTexts: mpIpEntry.setStatus('current')
+mpIpTIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 700, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 40)))
+if mibBuilder.loadTexts: mpIpTIfName.setStatus('current')
+mpIpTAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 700, 1, 1, 2), IpAddress())
+if mibBuilder.loadTexts: mpIpTAddress.setStatus('current')
+mpIpTMask = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 700, 1, 1, 3), IpAddress())
+if mibBuilder.loadTexts: mpIpTMask.setStatus('current')
+mpIpTBPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 700, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpIpTBPAddress.setStatus('current')
+mpIpTType = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 700, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: mpIpTType.setStatus('current')
+mpIpTWay = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 700, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("manual", 1), ("dhcp", 2), ("negotiated", 3), ("unnumbered", 4), ("virtual", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpIpTWay.setStatus('current')
+mpIpTRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 700, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mpIpTRowStatus.setStatus('current')
+mibBuilder.exportSymbols("MPIP-MIB", mpIpTMask=mpIpTMask, mpIpTable=mpIpTable, mpIpEntry=mpIpEntry, mpIpTType=mpIpTType, mpIpTRowStatus=mpIpTRowStatus, mpIpTWay=mpIpTWay, mpIpTIfName=mpIpTIfName, mpIpMib=mpIpMib, mpIpTAddress=mpIpTAddress, mpIpTBPAddress=mpIpTBPAddress, PYSNMP_MODULE_ID=mpIpMib)

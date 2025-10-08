@@ -1,1271 +1,859 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-cerentGlobalRegModule=ModuleIdentity((1,3,6,1,4,1,3607,1,10,10))
-if mibBuilder.loadTexts:cerentGlobalRegModule.setRevisions(('1904-10-01 00:00',))
-_Cerent_ObjectIdentity=ObjectIdentity
-cerent=_Cerent_ObjectIdentity((1,3,6,1,4,1,3607))
-if mibBuilder.loadTexts:cerent.setStatus(_A)
-_CerentRegistry_ObjectIdentity=ObjectIdentity
-cerentRegistry=_CerentRegistry_ObjectIdentity((1,3,6,1,4,1,3607,1))
-if mibBuilder.loadTexts:cerentRegistry.setStatus(_A)
-_CerentModules_ObjectIdentity=ObjectIdentity
-cerentModules=_CerentModules_ObjectIdentity((1,3,6,1,4,1,3607,1,10))
-if mibBuilder.loadTexts:cerentModules.setStatus(_A)
-_CerentCommunicationEquipment_ObjectIdentity=ObjectIdentity
-cerentCommunicationEquipment=_CerentCommunicationEquipment_ObjectIdentity((1,3,6,1,4,1,3607,1,20))
-if mibBuilder.loadTexts:cerentCommunicationEquipment.setStatus(_A)
-_CerentADMs_ObjectIdentity=ObjectIdentity
-cerentADMs=_CerentADMs_ObjectIdentity((1,3,6,1,4,1,3607,1,20,10))
-if mibBuilder.loadTexts:cerentADMs.setStatus(_A)
-_Cerent454Node_ObjectIdentity=ObjectIdentity
-cerent454Node=_Cerent454Node_ObjectIdentity((1,3,6,1,4,1,3607,1,20,10,10))
-if mibBuilder.loadTexts:cerent454Node.setStatus(_A)
-_Cerent327Node_ObjectIdentity=ObjectIdentity
-cerent327Node=_Cerent327Node_ObjectIdentity((1,3,6,1,4,1,3607,1,20,10,20))
-if mibBuilder.loadTexts:cerent327Node.setStatus(_A)
-_Cerent600Node_ObjectIdentity=ObjectIdentity
-cerent600Node=_Cerent600Node_ObjectIdentity((1,3,6,1,4,1,3607,1,20,10,30))
-if mibBuilder.loadTexts:cerent600Node.setStatus(_A)
-_Cerent310Node_ObjectIdentity=ObjectIdentity
-cerent310Node=_Cerent310Node_ObjectIdentity((1,3,6,1,4,1,3607,1,20,10,40))
-if mibBuilder.loadTexts:cerent310Node.setStatus(_A)
-_Cerent310MaAnsiNode_ObjectIdentity=ObjectIdentity
-cerent310MaAnsiNode=_Cerent310MaAnsiNode_ObjectIdentity((1,3,6,1,4,1,3607,1,20,10,50))
-if mibBuilder.loadTexts:cerent310MaAnsiNode.setStatus(_A)
-_Cerent310MaEtsiNode_ObjectIdentity=ObjectIdentity
-cerent310MaEtsiNode=_Cerent310MaEtsiNode_ObjectIdentity((1,3,6,1,4,1,3607,1,20,10,60))
-if mibBuilder.loadTexts:cerent310MaEtsiNode.setStatus(_A)
-_Cerent454M6Node_ObjectIdentity=ObjectIdentity
-cerent454M6Node=_Cerent454M6Node_ObjectIdentity((1,3,6,1,4,1,3607,1,20,10,70))
-if mibBuilder.loadTexts:cerent454M6Node.setStatus(_A)
-_Cerent454M2Node_ObjectIdentity=ObjectIdentity
-cerent454M2Node=_Cerent454M2Node_ObjectIdentity((1,3,6,1,4,1,3607,1,20,10,80))
-if mibBuilder.loadTexts:cerent454M2Node.setStatus(_A)
-_CerentDwdmDevices_ObjectIdentity=ObjectIdentity
-cerentDwdmDevices=_CerentDwdmDevices_ObjectIdentity((1,3,6,1,4,1,3607,1,20,20))
-if mibBuilder.loadTexts:cerentDwdmDevices.setStatus(_A)
-_Cerent15216OpmNode_ObjectIdentity=ObjectIdentity
-cerent15216OpmNode=_Cerent15216OpmNode_ObjectIdentity((1,3,6,1,4,1,3607,1,20,20,10))
-if mibBuilder.loadTexts:cerent15216OpmNode.setStatus(_A)
-_Cerent15216EdfaNode_ObjectIdentity=ObjectIdentity
-cerent15216EdfaNode=_Cerent15216EdfaNode_ObjectIdentity((1,3,6,1,4,1,3607,1,20,20,20))
-if mibBuilder.loadTexts:cerent15216EdfaNode.setStatus(_A)
-_CerentComponents_ObjectIdentity=ObjectIdentity
-cerentComponents=_CerentComponents_ObjectIdentity((1,3,6,1,4,1,3607,1,30))
-if mibBuilder.loadTexts:cerentComponents.setStatus(_A)
-_CerentOtherComponent_ObjectIdentity=ObjectIdentity
-cerentOtherComponent=_CerentOtherComponent_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1))
-if mibBuilder.loadTexts:cerentOtherComponent.setStatus(_A)
-_CerentTcc_ObjectIdentity=ObjectIdentity
-cerentTcc=_CerentTcc_ObjectIdentity((1,3,6,1,4,1,3607,1,30,10))
-if mibBuilder.loadTexts:cerentTcc.setStatus(_A)
-_CerentXc_ObjectIdentity=ObjectIdentity
-cerentXc=_CerentXc_ObjectIdentity((1,3,6,1,4,1,3607,1,30,20))
-if mibBuilder.loadTexts:cerentXc.setStatus(_A)
-_CerentDs114_ObjectIdentity=ObjectIdentity
-cerentDs114=_CerentDs114_ObjectIdentity((1,3,6,1,4,1,3607,1,30,30))
-if mibBuilder.loadTexts:cerentDs114.setStatus(_A)
-_CerentDs1n14_ObjectIdentity=ObjectIdentity
-cerentDs1n14=_CerentDs1n14_ObjectIdentity((1,3,6,1,4,1,3607,1,30,40))
-if mibBuilder.loadTexts:cerentDs1n14.setStatus(_A)
-_CerentDs312_ObjectIdentity=ObjectIdentity
-cerentDs312=_CerentDs312_ObjectIdentity((1,3,6,1,4,1,3607,1,30,50))
-if mibBuilder.loadTexts:cerentDs312.setStatus(_A)
-_CerentOc3ir_ObjectIdentity=ObjectIdentity
-cerentOc3ir=_CerentOc3ir_ObjectIdentity((1,3,6,1,4,1,3607,1,30,60))
-if mibBuilder.loadTexts:cerentOc3ir.setStatus(_A)
-_CerentOc12ir_ObjectIdentity=ObjectIdentity
-cerentOc12ir=_CerentOc12ir_ObjectIdentity((1,3,6,1,4,1,3607,1,30,70))
-if mibBuilder.loadTexts:cerentOc12ir.setStatus(_A)
-_CerentOc12lr1310_ObjectIdentity=ObjectIdentity
-cerentOc12lr1310=_CerentOc12lr1310_ObjectIdentity((1,3,6,1,4,1,3607,1,30,80))
-if mibBuilder.loadTexts:cerentOc12lr1310.setStatus(_A)
-_CerentOc48ir_ObjectIdentity=ObjectIdentity
-cerentOc48ir=_CerentOc48ir_ObjectIdentity((1,3,6,1,4,1,3607,1,30,90))
-if mibBuilder.loadTexts:cerentOc48ir.setStatus(_A)
-_CerentOc48lr_ObjectIdentity=ObjectIdentity
-cerentOc48lr=_CerentOc48lr_ObjectIdentity((1,3,6,1,4,1,3607,1,30,100))
-if mibBuilder.loadTexts:cerentOc48lr.setStatus(_A)
-_CerentFanTray_ObjectIdentity=ObjectIdentity
-cerentFanTray=_CerentFanTray_ObjectIdentity((1,3,6,1,4,1,3607,1,30,110))
-if mibBuilder.loadTexts:cerentFanTray.setStatus(_A)
-_CerentFanSlot_ObjectIdentity=ObjectIdentity
-cerentFanSlot=_CerentFanSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,120))
-if mibBuilder.loadTexts:cerentFanSlot.setStatus(_A)
-_CerentIoSlot_ObjectIdentity=ObjectIdentity
-cerentIoSlot=_CerentIoSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,130))
-if mibBuilder.loadTexts:cerentIoSlot.setStatus(_A)
-_CerentXcSlot_ObjectIdentity=ObjectIdentity
-cerentXcSlot=_CerentXcSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,140))
-if mibBuilder.loadTexts:cerentXcSlot.setStatus(_A)
-_CerentAicSlot_ObjectIdentity=ObjectIdentity
-cerentAicSlot=_CerentAicSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,150))
-if mibBuilder.loadTexts:cerentAicSlot.setStatus(_A)
-_CerentTccSlot_ObjectIdentity=ObjectIdentity
-cerentTccSlot=_CerentTccSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,160))
-if mibBuilder.loadTexts:cerentTccSlot.setStatus(_A)
-_CerentBackPlane454_ObjectIdentity=ObjectIdentity
-cerentBackPlane454=_CerentBackPlane454_ObjectIdentity((1,3,6,1,4,1,3607,1,30,170))
-if mibBuilder.loadTexts:cerentBackPlane454.setStatus(_A)
-_CerentChassis454_ObjectIdentity=ObjectIdentity
-cerentChassis454=_CerentChassis454_ObjectIdentity((1,3,6,1,4,1,3607,1,30,180))
-if mibBuilder.loadTexts:cerentChassis454.setStatus(_A)
-_CerentDs3nCard_ObjectIdentity=ObjectIdentity
-cerentDs3nCard=_CerentDs3nCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,190))
-if mibBuilder.loadTexts:cerentDs3nCard.setStatus(_A)
-_CerentDs3XmCard_ObjectIdentity=ObjectIdentity
-cerentDs3XmCard=_CerentDs3XmCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,200))
-if mibBuilder.loadTexts:cerentDs3XmCard.setStatus(_A)
-_CerentOc3Card_ObjectIdentity=ObjectIdentity
-cerentOc3Card=_CerentOc3Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,210))
-if mibBuilder.loadTexts:cerentOc3Card.setStatus(_A)
-_CerentOc3OctaCard_ObjectIdentity=ObjectIdentity
-cerentOc3OctaCard=_CerentOc3OctaCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,212))
-if mibBuilder.loadTexts:cerentOc3OctaCard.setStatus(_A)
-_CerentOc12Card_ObjectIdentity=ObjectIdentity
-cerentOc12Card=_CerentOc12Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,220))
-if mibBuilder.loadTexts:cerentOc12Card.setStatus(_A)
-_CerentOc48Card_ObjectIdentity=ObjectIdentity
-cerentOc48Card=_CerentOc48Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,230))
-if mibBuilder.loadTexts:cerentOc48Card.setStatus(_A)
-_CerentEc1Card_ObjectIdentity=ObjectIdentity
-cerentEc1Card=_CerentEc1Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,240))
-if mibBuilder.loadTexts:cerentEc1Card.setStatus(_A)
-_CerentEc1nCard_ObjectIdentity=ObjectIdentity
-cerentEc1nCard=_CerentEc1nCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,250))
-if mibBuilder.loadTexts:cerentEc1nCard.setStatus(_A)
-_CerentEpos100Card_ObjectIdentity=ObjectIdentity
-cerentEpos100Card=_CerentEpos100Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,260))
-if mibBuilder.loadTexts:cerentEpos100Card.setStatus(_A)
-_CerentEpos1000Card_ObjectIdentity=ObjectIdentity
-cerentEpos1000Card=_CerentEpos1000Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,270))
-if mibBuilder.loadTexts:cerentEpos1000Card.setStatus(_A)
-_CerentAicCard_ObjectIdentity=ObjectIdentity
-cerentAicCard=_CerentAicCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,280))
-if mibBuilder.loadTexts:cerentAicCard.setStatus(_A)
-_CerentXcVtCard_ObjectIdentity=ObjectIdentity
-cerentXcVtCard=_CerentXcVtCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,290))
-if mibBuilder.loadTexts:cerentXcVtCard.setStatus(_A)
-_CerentEther1000Port_ObjectIdentity=ObjectIdentity
-cerentEther1000Port=_CerentEther1000Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,300))
-if mibBuilder.loadTexts:cerentEther1000Port.setStatus(_A)
-_CerentEther100Port_ObjectIdentity=ObjectIdentity
-cerentEther100Port=_CerentEther100Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,310))
-if mibBuilder.loadTexts:cerentEther100Port.setStatus(_A)
-_CerentDs1VtMappedPort_ObjectIdentity=ObjectIdentity
-cerentDs1VtMappedPort=_CerentDs1VtMappedPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,320))
-if mibBuilder.loadTexts:cerentDs1VtMappedPort.setStatus(_A)
-_CerentDs3XmPort_ObjectIdentity=ObjectIdentity
-cerentDs3XmPort=_CerentDs3XmPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,330))
-if mibBuilder.loadTexts:cerentDs3XmPort.setStatus(_A)
-_CerentDs3Port_ObjectIdentity=ObjectIdentity
-cerentDs3Port=_CerentDs3Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,340))
-if mibBuilder.loadTexts:cerentDs3Port.setStatus(_A)
-_CerentEc1Port_ObjectIdentity=ObjectIdentity
-cerentEc1Port=_CerentEc1Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,350))
-if mibBuilder.loadTexts:cerentEc1Port.setStatus(_A)
-_CerentOc3Port_ObjectIdentity=ObjectIdentity
-cerentOc3Port=_CerentOc3Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,360))
-if mibBuilder.loadTexts:cerentOc3Port.setStatus(_A)
-_CerentOc12Port_ObjectIdentity=ObjectIdentity
-cerentOc12Port=_CerentOc12Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,370))
-if mibBuilder.loadTexts:cerentOc12Port.setStatus(_A)
-_CerentOc48Port_ObjectIdentity=ObjectIdentity
-cerentOc48Port=_CerentOc48Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,380))
-if mibBuilder.loadTexts:cerentOc48Port.setStatus(_A)
-_CerentOrderwirePort_ObjectIdentity=ObjectIdentity
-cerentOrderwirePort=_CerentOrderwirePort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,390))
-if mibBuilder.loadTexts:cerentOrderwirePort.setStatus(_A)
-_CerentSensorComponent_ObjectIdentity=ObjectIdentity
-cerentSensorComponent=_CerentSensorComponent_ObjectIdentity((1,3,6,1,4,1,3607,1,30,400))
-if mibBuilder.loadTexts:cerentSensorComponent.setStatus(_A)
-_CerentChassis15327_ObjectIdentity=ObjectIdentity
-cerentChassis15327=_CerentChassis15327_ObjectIdentity((1,3,6,1,4,1,3607,1,30,410))
-if mibBuilder.loadTexts:cerentChassis15327.setStatus(_A)
-_CerentBackPlane15327_ObjectIdentity=ObjectIdentity
-cerentBackPlane15327=_CerentBackPlane15327_ObjectIdentity((1,3,6,1,4,1,3607,1,30,420))
-if mibBuilder.loadTexts:cerentBackPlane15327.setStatus(_A)
-_CerentXtcCard_ObjectIdentity=ObjectIdentity
-cerentXtcCard=_CerentXtcCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,430))
-if mibBuilder.loadTexts:cerentXtcCard.setStatus(_A)
-_CerentMicCard_ObjectIdentity=ObjectIdentity
-cerentMicCard=_CerentMicCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,440))
-if mibBuilder.loadTexts:cerentMicCard.setStatus(_A)
-_CerentMicExtCard_ObjectIdentity=ObjectIdentity
-cerentMicExtCard=_CerentMicExtCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,450))
-if mibBuilder.loadTexts:cerentMicExtCard.setStatus(_A)
-_CerentXtcSlot_ObjectIdentity=ObjectIdentity
-cerentXtcSlot=_CerentXtcSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,460))
-if mibBuilder.loadTexts:cerentXtcSlot.setStatus(_A)
-_CerentMicSlot_ObjectIdentity=ObjectIdentity
-cerentMicSlot=_CerentMicSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,470))
-if mibBuilder.loadTexts:cerentMicSlot.setStatus(_A)
-_CerentVicEncoderLineCard_ObjectIdentity=ObjectIdentity
-cerentVicEncoderLineCard=_CerentVicEncoderLineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,480))
-if mibBuilder.loadTexts:cerentVicEncoderLineCard.setStatus(_A)
-_CerentVicDecoderLineCard_ObjectIdentity=ObjectIdentity
-cerentVicDecoderLineCard=_CerentVicDecoderLineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,490))
-if mibBuilder.loadTexts:cerentVicDecoderLineCard.setStatus(_A)
-_CerentVicEncoderPort_ObjectIdentity=ObjectIdentity
-cerentVicEncoderPort=_CerentVicEncoderPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,500))
-if mibBuilder.loadTexts:cerentVicEncoderPort.setStatus(_A)
-_CerentVicDecoderPort_ObjectIdentity=ObjectIdentity
-cerentVicDecoderPort=_CerentVicDecoderPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,510))
-if mibBuilder.loadTexts:cerentVicDecoderPort.setStatus(_A)
-_CerentVicTestPort_ObjectIdentity=ObjectIdentity
-cerentVicTestPort=_CerentVicTestPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,520))
-if mibBuilder.loadTexts:cerentVicTestPort.setStatus(_A)
-_CerentAip_ObjectIdentity=ObjectIdentity
-cerentAip=_CerentAip_ObjectIdentity((1,3,6,1,4,1,3607,1,30,530))
-if mibBuilder.loadTexts:cerentAip.setStatus(_A)
-_CerentBicSmb_ObjectIdentity=ObjectIdentity
-cerentBicSmb=_CerentBicSmb_ObjectIdentity((1,3,6,1,4,1,3607,1,30,540))
-if mibBuilder.loadTexts:cerentBicSmb.setStatus(_A)
-_CerentBicBnc_ObjectIdentity=ObjectIdentity
-cerentBicBnc=_CerentBicBnc_ObjectIdentity((1,3,6,1,4,1,3607,1,30,550))
-if mibBuilder.loadTexts:cerentBicBnc.setStatus(_A)
-_CerentFcb_ObjectIdentity=ObjectIdentity
-cerentFcb=_CerentFcb_ObjectIdentity((1,3,6,1,4,1,3607,1,30,560))
-if mibBuilder.loadTexts:cerentFcb.setStatus(_A)
-_CerentEnvironmentControl_ObjectIdentity=ObjectIdentity
-cerentEnvironmentControl=_CerentEnvironmentControl_ObjectIdentity((1,3,6,1,4,1,3607,1,30,570))
-if mibBuilder.loadTexts:cerentEnvironmentControl.setStatus(_A)
-_CerentLedIndicator_ObjectIdentity=ObjectIdentity
-cerentLedIndicator=_CerentLedIndicator_ObjectIdentity((1,3,6,1,4,1,3607,1,30,580))
-if mibBuilder.loadTexts:cerentLedIndicator.setStatus(_A)
-_CerentAudibleAlarm_ObjectIdentity=ObjectIdentity
-cerentAudibleAlarm=_CerentAudibleAlarm_ObjectIdentity((1,3,6,1,4,1,3607,1,30,590))
-if mibBuilder.loadTexts:cerentAudibleAlarm.setStatus(_A)
-_CerentXc10g_ObjectIdentity=ObjectIdentity
-cerentXc10g=_CerentXc10g_ObjectIdentity((1,3,6,1,4,1,3607,1,30,600))
-if mibBuilder.loadTexts:cerentXc10g.setStatus(_A)
-_CerentOc192Card_ObjectIdentity=ObjectIdentity
-cerentOc192Card=_CerentOc192Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,610))
-if mibBuilder.loadTexts:cerentOc192Card.setStatus(_A)
-_CerentOc192Port_ObjectIdentity=ObjectIdentity
-cerentOc192Port=_CerentOc192Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,620))
-if mibBuilder.loadTexts:cerentOc192Port.setStatus(_A)
-_CerentDs3eCard_ObjectIdentity=ObjectIdentity
-cerentDs3eCard=_CerentDs3eCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,630))
-if mibBuilder.loadTexts:cerentDs3eCard.setStatus(_A)
-_CerentDs3neCard_ObjectIdentity=ObjectIdentity
-cerentDs3neCard=_CerentDs3neCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,640))
-if mibBuilder.loadTexts:cerentDs3neCard.setStatus(_A)
-_Cerent15216OpmChassis_ObjectIdentity=ObjectIdentity
-cerent15216OpmChassis=_Cerent15216OpmChassis_ObjectIdentity((1,3,6,1,4,1,3607,1,30,650))
-if mibBuilder.loadTexts:cerent15216OpmChassis.setStatus(_A)
-_Cerent15216OpmBackPlane_ObjectIdentity=ObjectIdentity
-cerent15216OpmBackPlane=_Cerent15216OpmBackPlane_ObjectIdentity((1,3,6,1,4,1,3607,1,30,660))
-if mibBuilder.loadTexts:cerent15216OpmBackPlane.setStatus(_A)
-_Cerent15216OpmSlot_ObjectIdentity=ObjectIdentity
-cerent15216OpmSlot=_Cerent15216OpmSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,670))
-if mibBuilder.loadTexts:cerent15216OpmSlot.setStatus(_A)
-_Cerent15216OpmController_ObjectIdentity=ObjectIdentity
-cerent15216OpmController=_Cerent15216OpmController_ObjectIdentity((1,3,6,1,4,1,3607,1,30,680))
-if mibBuilder.loadTexts:cerent15216OpmController.setStatus(_A)
-_Cerent15216OpmSpectrometer_ObjectIdentity=ObjectIdentity
-cerent15216OpmSpectrometer=_Cerent15216OpmSpectrometer_ObjectIdentity((1,3,6,1,4,1,3607,1,30,690))
-if mibBuilder.loadTexts:cerent15216OpmSpectrometer.setStatus(_A)
-_Cerent15216OpmOpticalSwitch_ObjectIdentity=ObjectIdentity
-cerent15216OpmOpticalSwitch=_Cerent15216OpmOpticalSwitch_ObjectIdentity((1,3,6,1,4,1,3607,1,30,700))
-if mibBuilder.loadTexts:cerent15216OpmOpticalSwitch.setStatus(_A)
-_Cerent15216OpmOpticalPort_ObjectIdentity=ObjectIdentity
-cerent15216OpmOpticalPort=_Cerent15216OpmOpticalPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,710))
-if mibBuilder.loadTexts:cerent15216OpmOpticalPort.setStatus(_A)
-_Cerent15216OpmSerialPort_ObjectIdentity=ObjectIdentity
-cerent15216OpmSerialPort=_Cerent15216OpmSerialPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,720))
-if mibBuilder.loadTexts:cerent15216OpmSerialPort.setStatus(_A)
-_Cerent15216OpmLedIndicator_ObjectIdentity=ObjectIdentity
-cerent15216OpmLedIndicator=_Cerent15216OpmLedIndicator_ObjectIdentity((1,3,6,1,4,1,3607,1,30,730))
-if mibBuilder.loadTexts:cerent15216OpmLedIndicator.setStatus(_A)
-_Cerent15216OpmRelay_ObjectIdentity=ObjectIdentity
-cerent15216OpmRelay=_Cerent15216OpmRelay_ObjectIdentity((1,3,6,1,4,1,3607,1,30,740))
-if mibBuilder.loadTexts:cerent15216OpmRelay.setStatus(_A)
-_Cerent15216OpmPowerSupply_ObjectIdentity=ObjectIdentity
-cerent15216OpmPowerSupply=_Cerent15216OpmPowerSupply_ObjectIdentity((1,3,6,1,4,1,3607,1,30,750))
-if mibBuilder.loadTexts:cerent15216OpmPowerSupply.setStatus(_A)
-_Cerent15216OpmPcmciaSlot_ObjectIdentity=ObjectIdentity
-cerent15216OpmPcmciaSlot=_Cerent15216OpmPcmciaSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,760))
-if mibBuilder.loadTexts:cerent15216OpmPcmciaSlot.setStatus(_A)
-_CerentOc12QuadCard_ObjectIdentity=ObjectIdentity
-cerentOc12QuadCard=_CerentOc12QuadCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,770))
-if mibBuilder.loadTexts:cerentOc12QuadCard.setStatus(_A)
-_CerentG1000QuadCard_ObjectIdentity=ObjectIdentity
-cerentG1000QuadCard=_CerentG1000QuadCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,780))
-if mibBuilder.loadTexts:cerentG1000QuadCard.setStatus('deprecated')
-_CerentG1000Port_ObjectIdentity=ObjectIdentity
-cerentG1000Port=_CerentG1000Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,790))
-if mibBuilder.loadTexts:cerentG1000Port.setStatus(_A)
-_CerentMlEtherPort_ObjectIdentity=ObjectIdentity
-cerentMlEtherPort=_CerentMlEtherPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,791))
-if mibBuilder.loadTexts:cerentMlEtherPort.setStatus(_A)
-_CerentMlPosPort_ObjectIdentity=ObjectIdentity
-cerentMlPosPort=_CerentMlPosPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,792))
-if mibBuilder.loadTexts:cerentMlPosPort.setStatus(_A)
-_CerentG1000GenericCard_ObjectIdentity=ObjectIdentity
-cerentG1000GenericCard=_CerentG1000GenericCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,800))
-if mibBuilder.loadTexts:cerentG1000GenericCard.setStatus(_A)
-_CerentML100GenericCard_ObjectIdentity=ObjectIdentity
-cerentML100GenericCard=_CerentML100GenericCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,801))
-if mibBuilder.loadTexts:cerentML100GenericCard.setStatus(_A)
-_CerentML1000GenericCard_ObjectIdentity=ObjectIdentity
-cerentML1000GenericCard=_CerentML1000GenericCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,802))
-if mibBuilder.loadTexts:cerentML1000GenericCard.setStatus(_A)
-_CerentG1K4Card_ObjectIdentity=ObjectIdentity
-cerentG1K4Card=_CerentG1K4Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,810))
-if mibBuilder.loadTexts:cerentG1K4Card.setStatus(_A)
-_CerentOc192IrCard_ObjectIdentity=ObjectIdentity
-cerentOc192IrCard=_CerentOc192IrCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,820))
-if mibBuilder.loadTexts:cerentOc192IrCard.setStatus(_A)
-_CerentOc192LrCard_ObjectIdentity=ObjectIdentity
-cerentOc192LrCard=_CerentOc192LrCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,830))
-if mibBuilder.loadTexts:cerentOc192LrCard.setStatus(_A)
-_CerentOc192ItuCard_ObjectIdentity=ObjectIdentity
-cerentOc192ItuCard=_CerentOc192ItuCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,840))
-if mibBuilder.loadTexts:cerentOc192ItuCard.setStatus(_A)
-_CerentOc3n1Card_ObjectIdentity=ObjectIdentity
-cerentOc3n1Card=_CerentOc3n1Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,850))
-if mibBuilder.loadTexts:cerentOc3n1Card.setStatus(_A)
-_Ape_ObjectIdentity=ObjectIdentity
-ape=_Ape_ObjectIdentity((1,3,6,1,4,1,3607,1,30,860))
-if mibBuilder.loadTexts:ape.setStatus(_A)
-_OneGePort_ObjectIdentity=ObjectIdentity
-oneGePort=_OneGePort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,870))
-if mibBuilder.loadTexts:oneGePort.setStatus(_A)
-_TenGePort_ObjectIdentity=ObjectIdentity
-tenGePort=_TenGePort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,880))
-if mibBuilder.loadTexts:tenGePort.setStatus(_A)
-_EsconPort_ObjectIdentity=ObjectIdentity
-esconPort=_EsconPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,890))
-if mibBuilder.loadTexts:esconPort.setStatus(_A)
-_Dv6000Port_ObjectIdentity=ObjectIdentity
-dv6000Port=_Dv6000Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,900))
-if mibBuilder.loadTexts:dv6000Port.setStatus(_A)
-_CerentE1n14_ObjectIdentity=ObjectIdentity
-cerentE1n14=_CerentE1n14_ObjectIdentity((1,3,6,1,4,1,3607,1,30,910))
-if mibBuilder.loadTexts:cerentE1n14.setStatus(_A)
-_CerentBackPlane454SDH_ObjectIdentity=ObjectIdentity
-cerentBackPlane454SDH=_CerentBackPlane454SDH_ObjectIdentity((1,3,6,1,4,1,3607,1,30,911))
-if mibBuilder.loadTexts:cerentBackPlane454SDH.setStatus(_A)
-_CerentChassis454SDH_ObjectIdentity=ObjectIdentity
-cerentChassis454SDH=_CerentChassis454SDH_ObjectIdentity((1,3,6,1,4,1,3607,1,30,912))
-if mibBuilder.loadTexts:cerentChassis454SDH.setStatus(_A)
-_CerentDs3inCard_ObjectIdentity=ObjectIdentity
-cerentDs3inCard=_CerentDs3inCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,913))
-if mibBuilder.loadTexts:cerentDs3inCard.setStatus(_A)
-_CerentE312Card_ObjectIdentity=ObjectIdentity
-cerentE312Card=_CerentE312Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,914))
-if mibBuilder.loadTexts:cerentE312Card.setStatus(_A)
-_CerentE1Port_ObjectIdentity=ObjectIdentity
-cerentE1Port=_CerentE1Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,915))
-if mibBuilder.loadTexts:cerentE1Port.setStatus(_A)
-_CerentDs3iPort_ObjectIdentity=ObjectIdentity
-cerentDs3iPort=_CerentDs3iPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,916))
-if mibBuilder.loadTexts:cerentDs3iPort.setStatus(_A)
-_CerentE3Port_ObjectIdentity=ObjectIdentity
-cerentE3Port=_CerentE3Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,917))
-if mibBuilder.loadTexts:cerentE3Port.setStatus(_A)
-_CerentAlmPwrSlot_ObjectIdentity=ObjectIdentity
-cerentAlmPwrSlot=_CerentAlmPwrSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,918))
-if mibBuilder.loadTexts:cerentAlmPwrSlot.setStatus(_A)
-_CerentCrftTmgSlot_ObjectIdentity=ObjectIdentity
-cerentCrftTmgSlot=_CerentCrftTmgSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,919))
-if mibBuilder.loadTexts:cerentCrftTmgSlot.setStatus(_A)
-_CerentAlmPwr_ObjectIdentity=ObjectIdentity
-cerentAlmPwr=_CerentAlmPwr_ObjectIdentity((1,3,6,1,4,1,3607,1,30,920))
-if mibBuilder.loadTexts:cerentAlmPwr.setStatus(_A)
-_CerentCrftTmg_ObjectIdentity=ObjectIdentity
-cerentCrftTmg=_CerentCrftTmg_ObjectIdentity((1,3,6,1,4,1,3607,1,30,921))
-if mibBuilder.loadTexts:cerentCrftTmg.setStatus(_A)
-_CerentFmecDb_ObjectIdentity=ObjectIdentity
-cerentFmecDb=_CerentFmecDb_ObjectIdentity((1,3,6,1,4,1,3607,1,30,922))
-if mibBuilder.loadTexts:cerentFmecDb.setStatus(_A)
-_CerentFmecSmzE1_ObjectIdentity=ObjectIdentity
-cerentFmecSmzE1=_CerentFmecSmzE1_ObjectIdentity((1,3,6,1,4,1,3607,1,30,923))
-if mibBuilder.loadTexts:cerentFmecSmzE1.setStatus(_A)
-_CerentFmecBlank_ObjectIdentity=ObjectIdentity
-cerentFmecBlank=_CerentFmecBlank_ObjectIdentity((1,3,6,1,4,1,3607,1,30,924))
-if mibBuilder.loadTexts:cerentFmecBlank.setStatus(_A)
-_CerentXcVxlCard_ObjectIdentity=ObjectIdentity
-cerentXcVxlCard=_CerentXcVxlCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,925))
-if mibBuilder.loadTexts:cerentXcVxlCard.setStatus(_A)
-_CerentEfca454Sdh_ObjectIdentity=ObjectIdentity
-cerentEfca454Sdh=_CerentEfca454Sdh_ObjectIdentity((1,3,6,1,4,1,3607,1,30,926))
-if mibBuilder.loadTexts:cerentEfca454Sdh.setStatus(_A)
-_CerentFmecSlot_ObjectIdentity=ObjectIdentity
-cerentFmecSlot=_CerentFmecSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,927))
-if mibBuilder.loadTexts:cerentFmecSlot.setStatus(_A)
-_CerentFmecSmzE3_ObjectIdentity=ObjectIdentity
-cerentFmecSmzE3=_CerentFmecSmzE3_ObjectIdentity((1,3,6,1,4,1,3607,1,30,928))
-if mibBuilder.loadTexts:cerentFmecSmzE3.setStatus(_A)
-_CerentDs3i_ObjectIdentity=ObjectIdentity
-cerentDs3i=_CerentDs3i_ObjectIdentity((1,3,6,1,4,1,3607,1,30,929))
-if mibBuilder.loadTexts:cerentDs3i.setStatus(_A)
-_Cerent15216EdfaChassis_ObjectIdentity=ObjectIdentity
-cerent15216EdfaChassis=_Cerent15216EdfaChassis_ObjectIdentity((1,3,6,1,4,1,3607,1,30,930))
-if mibBuilder.loadTexts:cerent15216EdfaChassis.setStatus(_A)
-_CerentAici_ObjectIdentity=ObjectIdentity
-cerentAici=_CerentAici_ObjectIdentity((1,3,6,1,4,1,3607,1,30,931))
-if mibBuilder.loadTexts:cerentAici.setStatus(_A)
-_CerentFudcPort_ObjectIdentity=ObjectIdentity
-cerentFudcPort=_CerentFudcPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,932))
-if mibBuilder.loadTexts:cerentFudcPort.setStatus(_A)
-_CerentDccPort_ObjectIdentity=ObjectIdentity
-cerentDccPort=_CerentDccPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,933))
-if mibBuilder.loadTexts:cerentDccPort.setStatus(_A)
-_CerentAiciAep_ObjectIdentity=ObjectIdentity
-cerentAiciAep=_CerentAiciAep_ObjectIdentity((1,3,6,1,4,1,3607,1,30,934))
-if mibBuilder.loadTexts:cerentAiciAep.setStatus(_A)
-_CerentAiciAie_ObjectIdentity=ObjectIdentity
-cerentAiciAie=_CerentAiciAie_ObjectIdentity((1,3,6,1,4,1,3607,1,30,935))
-if mibBuilder.loadTexts:cerentAiciAie.setStatus(_A)
-_CerentXcVxl25GCard_ObjectIdentity=ObjectIdentity
-cerentXcVxl25GCard=_CerentXcVxl25GCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,936))
-if mibBuilder.loadTexts:cerentXcVxl25GCard.setStatus(_A)
-_CerentE114_ObjectIdentity=ObjectIdentity
-cerentE114=_CerentE114_ObjectIdentity((1,3,6,1,4,1,3607,1,30,937))
-if mibBuilder.loadTexts:cerentE114.setStatus(_A)
-_CerentPIMSlot_ObjectIdentity=ObjectIdentity
-cerentPIMSlot=_CerentPIMSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,940))
-if mibBuilder.loadTexts:cerentPIMSlot.setStatus(_A)
-_CerentPIM4PPM_ObjectIdentity=ObjectIdentity
-cerentPIM4PPM=_CerentPIM4PPM_ObjectIdentity((1,3,6,1,4,1,3607,1,30,950))
-if mibBuilder.loadTexts:cerentPIM4PPM.setStatus(_A)
-_CerentPPMSlot_ObjectIdentity=ObjectIdentity
-cerentPPMSlot=_CerentPPMSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,960))
-if mibBuilder.loadTexts:cerentPPMSlot.setStatus(_A)
-_CerentPPM1Port_ObjectIdentity=ObjectIdentity
-cerentPPM1Port=_CerentPPM1Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,970))
-if mibBuilder.loadTexts:cerentPPM1Port.setStatus(_A)
-_CerentOptDemux32RChCard_ObjectIdentity=ObjectIdentity
-cerentOptDemux32RChCard=_CerentOptDemux32RChCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,980))
-if mibBuilder.loadTexts:cerentOptDemux32RChCard.setStatus(_A)
-_CerentOptWss32ChCard_ObjectIdentity=ObjectIdentity
-cerentOptWss32ChCard=_CerentOptWss32ChCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,990))
-if mibBuilder.loadTexts:cerentOptWss32ChCard.setStatus(_A)
-_CerentChassis15310ClOid_ObjectIdentity=ObjectIdentity
-cerentChassis15310ClOid=_CerentChassis15310ClOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1000))
-if mibBuilder.loadTexts:cerentChassis15310ClOid.setStatus(_A)
-_CerentChassis15310MaAnsiOid_ObjectIdentity=ObjectIdentity
-cerentChassis15310MaAnsiOid=_CerentChassis15310MaAnsiOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1010))
-if mibBuilder.loadTexts:cerentChassis15310MaAnsiOid.setStatus(_A)
-_CerentChassis15310MaEtsiOid_ObjectIdentity=ObjectIdentity
-cerentChassis15310MaEtsiOid=_CerentChassis15310MaEtsiOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1020))
-if mibBuilder.loadTexts:cerentChassis15310MaEtsiOid.setStatus(_A)
-_CerentBackplane15310ClOid_ObjectIdentity=ObjectIdentity
-cerentBackplane15310ClOid=_CerentBackplane15310ClOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1030))
-if mibBuilder.loadTexts:cerentBackplane15310ClOid.setStatus(_A)
-_CerentBackplane15310MaAnsiOid_ObjectIdentity=ObjectIdentity
-cerentBackplane15310MaAnsiOid=_CerentBackplane15310MaAnsiOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1040))
-if mibBuilder.loadTexts:cerentBackplane15310MaAnsiOid.setStatus(_A)
-_CerentBackplane15310MaEtsiOid_ObjectIdentity=ObjectIdentity
-cerentBackplane15310MaEtsiOid=_CerentBackplane15310MaEtsiOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1050))
-if mibBuilder.loadTexts:cerentBackplane15310MaEtsiOid.setStatus(_A)
-_CerentCtxCardOid_ObjectIdentity=ObjectIdentity
-cerentCtxCardOid=_CerentCtxCardOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1060))
-if mibBuilder.loadTexts:cerentCtxCardOid.setStatus(_A)
-_CerentBbeLineCardOid_ObjectIdentity=ObjectIdentity
-cerentBbeLineCardOid=_CerentBbeLineCardOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1070))
-if mibBuilder.loadTexts:cerentBbeLineCardOid.setStatus(_A)
-_CerentWbeLineCardOid_ObjectIdentity=ObjectIdentity
-cerentWbeLineCardOid=_CerentWbeLineCardOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1080))
-if mibBuilder.loadTexts:cerentWbeLineCardOid.setStatus(_A)
-_CerentCtxSlotOid_ObjectIdentity=ObjectIdentity
-cerentCtxSlotOid=_CerentCtxSlotOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1090))
-if mibBuilder.loadTexts:cerentCtxSlotOid.setStatus(_A)
-_CerentBbeSlotOid_ObjectIdentity=ObjectIdentity
-cerentBbeSlotOid=_CerentBbeSlotOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1100))
-if mibBuilder.loadTexts:cerentBbeSlotOid.setStatus(_A)
-_CerentWbeSlotOid_ObjectIdentity=ObjectIdentity
-cerentWbeSlotOid=_CerentWbeSlotOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1110))
-if mibBuilder.loadTexts:cerentWbeSlotOid.setStatus(_A)
-_CerentAsap4LineCardOid_ObjectIdentity=ObjectIdentity
-cerentAsap4LineCardOid=_CerentAsap4LineCardOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1120))
-if mibBuilder.loadTexts:cerentAsap4LineCardOid.setStatus(_A)
-_CerentMrc4LineCardOid_ObjectIdentity=ObjectIdentity
-cerentMrc4LineCardOid=_CerentMrc4LineCardOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1130))
-if mibBuilder.loadTexts:cerentMrc4LineCardOid.setStatus(_A)
-_Cerent310CE100t8LineCardOid_ObjectIdentity=ObjectIdentity
-cerent310CE100t8LineCardOid=_Cerent310CE100t8LineCardOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1140))
-if mibBuilder.loadTexts:cerent310CE100t8LineCardOid.setStatus(_A)
-_Cerent310ML100t8LineCardOid_ObjectIdentity=ObjectIdentity
-cerent310ML100t8LineCardOid=_Cerent310ML100t8LineCardOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1150))
-if mibBuilder.loadTexts:cerent310ML100t8LineCardOid.setStatus(_A)
-_CerentL1PPosPortOid_ObjectIdentity=ObjectIdentity
-cerentL1PPosPortOid=_CerentL1PPosPortOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1160))
-if mibBuilder.loadTexts:cerentL1PPosPortOid.setStatus(_A)
-_CerentL1PEtherPortOid_ObjectIdentity=ObjectIdentity
-cerentL1PEtherPortOid=_CerentL1PEtherPortOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1170))
-if mibBuilder.loadTexts:cerentL1PEtherPortOid.setStatus(_A)
-_Fc10gPort_ObjectIdentity=ObjectIdentity
-fc10gPort=_Fc10gPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1180))
-if mibBuilder.loadTexts:fc10gPort.setStatus(_A)
-_Ficon1gport_ObjectIdentity=ObjectIdentity
-ficon1gport=_Ficon1gport_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1190))
-if mibBuilder.loadTexts:ficon1gport.setStatus(_A)
-_Ficon2gport_ObjectIdentity=ObjectIdentity
-ficon2gport=_Ficon2gport_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1200))
-if mibBuilder.loadTexts:ficon2gport.setStatus(_A)
-_CerentOc192Card4Ports_ObjectIdentity=ObjectIdentity
-cerentOc192Card4Ports=_CerentOc192Card4Ports_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1210))
-if mibBuilder.loadTexts:cerentOc192Card4Ports.setStatus(_A)
-_CerentOc48Card8Ports_ObjectIdentity=ObjectIdentity
-cerentOc48Card8Ports=_CerentOc48Card8Ports_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1215))
-if mibBuilder.loadTexts:cerentOc48Card8Ports.setStatus(_A)
-_CerentOc48Card16Ports_ObjectIdentity=ObjectIdentity
-cerentOc48Card16Ports=_CerentOc48Card16Ports_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1220))
-if mibBuilder.loadTexts:cerentOc48Card16Ports.setStatus(_A)
-_Cerent15600ControllerSlot_ObjectIdentity=ObjectIdentity
-cerent15600ControllerSlot=_Cerent15600ControllerSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1225))
-if mibBuilder.loadTexts:cerent15600ControllerSlot.setStatus(_A)
-_CerentTsc_ObjectIdentity=ObjectIdentity
-cerentTsc=_CerentTsc_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1230))
-if mibBuilder.loadTexts:cerentTsc.setStatus(_A)
-_CerentChassis600_ObjectIdentity=ObjectIdentity
-cerentChassis600=_CerentChassis600_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1235))
-if mibBuilder.loadTexts:cerentChassis600.setStatus(_A)
-_CerentBackPlane600_ObjectIdentity=ObjectIdentity
-cerentBackPlane600=_CerentBackPlane600_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1240))
-if mibBuilder.loadTexts:cerentBackPlane600.setStatus(_A)
-_CerentCap_ObjectIdentity=ObjectIdentity
-cerentCap=_CerentCap_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1245))
-if mibBuilder.loadTexts:cerentCap.setStatus(_A)
-_CerentCxc_ObjectIdentity=ObjectIdentity
-cerentCxc=_CerentCxc_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1250))
-if mibBuilder.loadTexts:cerentCxc.setStatus(_A)
-_CerentCxcSlot_ObjectIdentity=ObjectIdentity
-cerentCxcSlot=_CerentCxcSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1255))
-if mibBuilder.loadTexts:cerentCxcSlot.setStatus(_A)
-_CerentFillerCard_ObjectIdentity=ObjectIdentity
-cerentFillerCard=_CerentFillerCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1260))
-if mibBuilder.loadTexts:cerentFillerCard.setStatus(_A)
-_CerentFcmrLineCard_ObjectIdentity=ObjectIdentity
-cerentFcmrLineCard=_CerentFcmrLineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1265))
-if mibBuilder.loadTexts:cerentFcmrLineCard.setStatus(_A)
-_CerentFcmrPort_ObjectIdentity=ObjectIdentity
-cerentFcmrPort=_CerentFcmrPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1270))
-if mibBuilder.loadTexts:cerentFcmrPort.setStatus(_A)
-_CerentTxpd10ECard_ObjectIdentity=ObjectIdentity
-cerentTxpd10ECard=_CerentTxpd10ECard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1275))
-if mibBuilder.loadTexts:cerentTxpd10ECard.setStatus(_A)
-_CerentMuxpd25G10ECard_ObjectIdentity=ObjectIdentity
-cerentMuxpd25G10ECard=_CerentMuxpd25G10ECard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1280))
-if mibBuilder.loadTexts:cerentMuxpd25G10ECard.setStatus(_A)
-_CerentDs3Xm12Card_ObjectIdentity=ObjectIdentity
-cerentDs3Xm12Card=_CerentDs3Xm12Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1285))
-if mibBuilder.loadTexts:cerentDs3Xm12Card.setStatus(_A)
-_Ds3Ec148LineCard_ObjectIdentity=ObjectIdentity
-ds3Ec148LineCard=_Ds3Ec148LineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1290))
-if mibBuilder.loadTexts:ds3Ec148LineCard.setStatus(_A)
-_GfpPort_ObjectIdentity=ObjectIdentity
-gfpPort=_GfpPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1300))
-if mibBuilder.loadTexts:gfpPort.setStatus(_A)
-_Cerent454CE100t8LineCardOid_ObjectIdentity=ObjectIdentity
-cerent454CE100t8LineCardOid=_Cerent454CE100t8LineCardOid_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1310))
-if mibBuilder.loadTexts:cerent454CE100t8LineCardOid.setStatus(_A)
-_BicUniv_ObjectIdentity=ObjectIdentity
-bicUniv=_BicUniv_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1320))
-if mibBuilder.loadTexts:bicUniv.setStatus(_A)
-_BicUnknown_ObjectIdentity=ObjectIdentity
-bicUnknown=_BicUnknown_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1330))
-if mibBuilder.loadTexts:bicUnknown.setStatus(_A)
-_SdiD1VideoPort_ObjectIdentity=ObjectIdentity
-sdiD1VideoPort=_SdiD1VideoPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1340))
-if mibBuilder.loadTexts:sdiD1VideoPort.setStatus(_A)
-_HdtvPort_ObjectIdentity=ObjectIdentity
-hdtvPort=_HdtvPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1350))
-if mibBuilder.loadTexts:hdtvPort.setStatus(_A)
-_PassThruPort_ObjectIdentity=ObjectIdentity
-passThruPort=_PassThruPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1360))
-if mibBuilder.loadTexts:passThruPort.setStatus(_A)
-_EtrCloPort_ObjectIdentity=ObjectIdentity
-etrCloPort=_EtrCloPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1370))
-if mibBuilder.loadTexts:etrCloPort.setStatus(_A)
-_IscPort_ObjectIdentity=ObjectIdentity
-iscPort=_IscPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1380))
-if mibBuilder.loadTexts:iscPort.setStatus(_A)
-_Fc1gPort_ObjectIdentity=ObjectIdentity
-fc1gPort=_Fc1gPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1390))
-if mibBuilder.loadTexts:fc1gPort.setStatus(_A)
-_Fc2gPort_ObjectIdentity=ObjectIdentity
-fc2gPort=_Fc2gPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1400))
-if mibBuilder.loadTexts:fc2gPort.setStatus(_A)
-_MrSlot_ObjectIdentity=ObjectIdentity
-mrSlot=_MrSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1410))
-if mibBuilder.loadTexts:mrSlot.setStatus(_A)
-_Isc3Port_ObjectIdentity=ObjectIdentity
-isc3Port=_Isc3Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1420))
-if mibBuilder.loadTexts:isc3Port.setStatus(_A)
-_CerentDs1i14_ObjectIdentity=ObjectIdentity
-cerentDs1i14=_CerentDs1i14_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1430))
-if mibBuilder.loadTexts:cerentDs1i14.setStatus(_A)
-_CerentFmecDs1i14_ObjectIdentity=ObjectIdentity
-cerentFmecDs1i14=_CerentFmecDs1i14_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1440))
-if mibBuilder.loadTexts:cerentFmecDs1i14.setStatus(_A)
-_CerentBackPlane454HD_ObjectIdentity=ObjectIdentity
-cerentBackPlane454HD=_CerentBackPlane454HD_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1450))
-if mibBuilder.loadTexts:cerentBackPlane454HD.setStatus(_A)
-_CerentDs1E156LineCard_ObjectIdentity=ObjectIdentity
-cerentDs1E156LineCard=_CerentDs1E156LineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1470))
-if mibBuilder.loadTexts:cerentDs1E156LineCard.setStatus(_A)
-_CerentMrc12LineCard_ObjectIdentity=ObjectIdentity
-cerentMrc12LineCard=_CerentMrc12LineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1480))
-if mibBuilder.loadTexts:cerentMrc12LineCard.setStatus(_A)
-_CerentOc192XfpLineCard_ObjectIdentity=ObjectIdentity
-cerentOc192XfpLineCard=_CerentOc192XfpLineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1490))
-if mibBuilder.loadTexts:cerentOc192XfpLineCard.setStatus(_A)
-_CerentPowerSupply_ObjectIdentity=ObjectIdentity
-cerentPowerSupply=_CerentPowerSupply_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1500))
-if mibBuilder.loadTexts:cerentPowerSupply.setStatus(_A)
-_CerentTxpd10GCard_ObjectIdentity=ObjectIdentity
-cerentTxpd10GCard=_CerentTxpd10GCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1550))
-if mibBuilder.loadTexts:cerentTxpd10GCard.setStatus(_A)
-_CerentTxpd25GCard_ObjectIdentity=ObjectIdentity
-cerentTxpd25GCard=_CerentTxpd25GCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1560))
-if mibBuilder.loadTexts:cerentTxpd25GCard.setStatus(_A)
-_CerentTxpdP25GCard_ObjectIdentity=ObjectIdentity
-cerentTxpdP25GCard=_CerentTxpdP25GCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1570))
-if mibBuilder.loadTexts:cerentTxpdP25GCard.setStatus(_A)
-_CerentMuxpd25G10GCard_ObjectIdentity=ObjectIdentity
-cerentMuxpd25G10GCard=_CerentMuxpd25G10GCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1580))
-if mibBuilder.loadTexts:cerentMuxpd25G10GCard.setStatus(_A)
-_CerentDwdmClientPort_ObjectIdentity=ObjectIdentity
-cerentDwdmClientPort=_CerentDwdmClientPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1590))
-if mibBuilder.loadTexts:cerentDwdmClientPort.setStatus(_A)
-_CerentDwdmTrunkPort_ObjectIdentity=ObjectIdentity
-cerentDwdmTrunkPort=_CerentDwdmTrunkPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1600))
-if mibBuilder.loadTexts:cerentDwdmTrunkPort.setStatus(_A)
-_CerentMuxpdMr25GCard_ObjectIdentity=ObjectIdentity
-cerentMuxpdMr25GCard=_CerentMuxpdMr25GCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1610))
-if mibBuilder.loadTexts:cerentMuxpdMr25GCard.setStatus(_A)
-_CerentMuxpdPMr25GCard_ObjectIdentity=ObjectIdentity
-cerentMuxpdPMr25GCard=_CerentMuxpdPMr25GCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1620))
-if mibBuilder.loadTexts:cerentMuxpdPMr25GCard.setStatus(_A)
-_CerentMm850Port_ObjectIdentity=ObjectIdentity
-cerentMm850Port=_CerentMm850Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1630))
-if mibBuilder.loadTexts:cerentMm850Port.setStatus(_A)
-_CerentSm1310Port_ObjectIdentity=ObjectIdentity
-cerentSm1310Port=_CerentSm1310Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1640))
-if mibBuilder.loadTexts:cerentSm1310Port.setStatus(_A)
-_CerentXcVxcCard_ObjectIdentity=ObjectIdentity
-cerentXcVxcCard=_CerentXcVxcCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1670))
-if mibBuilder.loadTexts:cerentXcVxcCard.setStatus(_A)
-_CerentXcVxc25GCard_ObjectIdentity=ObjectIdentity
-cerentXcVxc25GCard=_CerentXcVxc25GCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1680))
-if mibBuilder.loadTexts:cerentXcVxc25GCard.setStatus(_A)
-_CerentOptBstECard_ObjectIdentity=ObjectIdentity
-cerentOptBstECard=_CerentOptBstECard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1690))
-if mibBuilder.loadTexts:cerentOptBstECard.setStatus(_A)
-_Fc4gPort_ObjectIdentity=ObjectIdentity
-fc4gPort=_Fc4gPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1700))
-if mibBuilder.loadTexts:fc4gPort.setStatus(_A)
-_Ficon4gport_ObjectIdentity=ObjectIdentity
-ficon4gport=_Ficon4gport_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1710))
-if mibBuilder.loadTexts:ficon4gport.setStatus(_A)
-_Isc3Peer1gPort_ObjectIdentity=ObjectIdentity
-isc3Peer1gPort=_Isc3Peer1gPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1720))
-if mibBuilder.loadTexts:isc3Peer1gPort.setStatus(_A)
-_Isc3Peer2gPort_ObjectIdentity=ObjectIdentity
-isc3Peer2gPort=_Isc3Peer2gPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,1730))
-if mibBuilder.loadTexts:isc3Peer2gPort.setStatus(_A)
-_CerentOscmCard_ObjectIdentity=ObjectIdentity
-cerentOscmCard=_CerentOscmCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3200))
-if mibBuilder.loadTexts:cerentOscmCard.setStatus(_A)
-_CerentOscCsmCard_ObjectIdentity=ObjectIdentity
-cerentOscCsmCard=_CerentOscCsmCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3205))
-if mibBuilder.loadTexts:cerentOscCsmCard.setStatus(_A)
-_CerentOptPreCard_ObjectIdentity=ObjectIdentity
-cerentOptPreCard=_CerentOptPreCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3210))
-if mibBuilder.loadTexts:cerentOptPreCard.setStatus(_A)
-_CerentOptBstCard_ObjectIdentity=ObjectIdentity
-cerentOptBstCard=_CerentOptBstCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3215))
-if mibBuilder.loadTexts:cerentOptBstCard.setStatus(_A)
-_CerentOptDemux32ChCard_ObjectIdentity=ObjectIdentity
-cerentOptDemux32ChCard=_CerentOptDemux32ChCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3220))
-if mibBuilder.loadTexts:cerentOptDemux32ChCard.setStatus(_A)
-_CerentOptMux32ChCard_ObjectIdentity=ObjectIdentity
-cerentOptMux32ChCard=_CerentOptMux32ChCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3225))
-if mibBuilder.loadTexts:cerentOptMux32ChCard.setStatus(_A)
-_CerentOptMuxDemux4ChCard_ObjectIdentity=ObjectIdentity
-cerentOptMuxDemux4ChCard=_CerentOptMuxDemux4ChCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3230))
-if mibBuilder.loadTexts:cerentOptMuxDemux4ChCard.setStatus(_A)
-_CerentOadm1ChCard_ObjectIdentity=ObjectIdentity
-cerentOadm1ChCard=_CerentOadm1ChCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3235))
-if mibBuilder.loadTexts:cerentOadm1ChCard.setStatus(_A)
-_CerentOadm2ChCard_ObjectIdentity=ObjectIdentity
-cerentOadm2ChCard=_CerentOadm2ChCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3240))
-if mibBuilder.loadTexts:cerentOadm2ChCard.setStatus(_A)
-_CerentOadm4ChCard_ObjectIdentity=ObjectIdentity
-cerentOadm4ChCard=_CerentOadm4ChCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3245))
-if mibBuilder.loadTexts:cerentOadm4ChCard.setStatus(_A)
-_CerentOadm1BnCard_ObjectIdentity=ObjectIdentity
-cerentOadm1BnCard=_CerentOadm1BnCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3250))
-if mibBuilder.loadTexts:cerentOadm1BnCard.setStatus(_A)
-_CerentOadm4BnCard_ObjectIdentity=ObjectIdentity
-cerentOadm4BnCard=_CerentOadm4BnCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3255))
-if mibBuilder.loadTexts:cerentOadm4BnCard.setStatus(_A)
-_CerentOTSPort_ObjectIdentity=ObjectIdentity
-cerentOTSPort=_CerentOTSPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3260))
-if mibBuilder.loadTexts:cerentOTSPort.setStatus(_A)
-_CerentAOTSPort_ObjectIdentity=ObjectIdentity
-cerentAOTSPort=_CerentAOTSPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3265))
-if mibBuilder.loadTexts:cerentAOTSPort.setStatus(_A)
-_CerentOMSPort_ObjectIdentity=ObjectIdentity
-cerentOMSPort=_CerentOMSPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3270))
-if mibBuilder.loadTexts:cerentOMSPort.setStatus(_A)
-_CerentOCHPort_ObjectIdentity=ObjectIdentity
-cerentOCHPort=_CerentOCHPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,3275))
-if mibBuilder.loadTexts:cerentOCHPort.setStatus(_A)
-_CerentE1P42LineCard_ObjectIdentity=ObjectIdentity
-cerentE1P42LineCard=_CerentE1P42LineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4000))
-if mibBuilder.loadTexts:cerentE1P42LineCard.setStatus(_A)
-_CerentE1nP42LineCard_ObjectIdentity=ObjectIdentity
-cerentE1nP42LineCard=_CerentE1nP42LineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4005))
-if mibBuilder.loadTexts:cerentE1nP42LineCard.setStatus(_A)
-_CerentFmecE1P42TypeUnprotW120Card_ObjectIdentity=ObjectIdentity
-cerentFmecE1P42TypeUnprotW120Card=_CerentFmecE1P42TypeUnprotW120Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4010))
-if mibBuilder.loadTexts:cerentFmecE1P42TypeUnprotW120Card.setStatus(_A)
-_CerentFmecE1P42Type1To3W120aCard_ObjectIdentity=ObjectIdentity
-cerentFmecE1P42Type1To3W120aCard=_CerentFmecE1P42Type1To3W120aCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4015))
-if mibBuilder.loadTexts:cerentFmecE1P42Type1To3W120aCard.setStatus(_A)
-_CerentFmecE1P42Type1To3W120bCard_ObjectIdentity=ObjectIdentity
-cerentFmecE1P42Type1To3W120bCard=_CerentFmecE1P42Type1To3W120bCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4020))
-if mibBuilder.loadTexts:cerentFmecE1P42Type1To3W120bCard.setStatus(_A)
-_CerentStm1e12LineCard_ObjectIdentity=ObjectIdentity
-cerentStm1e12LineCard=_CerentStm1e12LineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4025))
-if mibBuilder.loadTexts:cerentStm1e12LineCard.setStatus(_A)
-_CerentStm1ePort_ObjectIdentity=ObjectIdentity
-cerentStm1ePort=_CerentStm1ePort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4030))
-if mibBuilder.loadTexts:cerentStm1ePort.setStatus(_A)
-_CerentFmec155eUnprotCard_ObjectIdentity=ObjectIdentity
-cerentFmec155eUnprotCard=_CerentFmec155eUnprotCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4035))
-if mibBuilder.loadTexts:cerentFmec155eUnprotCard.setStatus(_A)
-_CerentFmec155e1To1Card_ObjectIdentity=ObjectIdentity
-cerentFmec155e1To1Card=_CerentFmec155e1To1Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4040))
-if mibBuilder.loadTexts:cerentFmec155e1To1Card.setStatus(_A)
-_CerentFmec155e1To3Card_ObjectIdentity=ObjectIdentity
-cerentFmec155e1To3Card=_CerentFmec155e1To3Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4045))
-if mibBuilder.loadTexts:cerentFmec155e1To3Card.setStatus(_A)
-_Cerent15216Edfa3ShelfController_ObjectIdentity=ObjectIdentity
-cerent15216Edfa3ShelfController=_Cerent15216Edfa3ShelfController_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4050))
-if mibBuilder.loadTexts:cerent15216Edfa3ShelfController.setStatus(_A)
-_Cerent15216Edfa3OpticsModule_ObjectIdentity=ObjectIdentity
-cerent15216Edfa3OpticsModule=_Cerent15216Edfa3OpticsModule_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4051))
-if mibBuilder.loadTexts:cerent15216Edfa3OpticsModule.setStatus(_A)
-_Cerent15216EdfaEtherPort_ObjectIdentity=ObjectIdentity
-cerent15216EdfaEtherPort=_Cerent15216EdfaEtherPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4052))
-if mibBuilder.loadTexts:cerent15216EdfaEtherPort.setStatus(_A)
-_Cerent15216EdfaSerialPort_ObjectIdentity=ObjectIdentity
-cerent15216EdfaSerialPort=_Cerent15216EdfaSerialPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4053))
-if mibBuilder.loadTexts:cerent15216EdfaSerialPort.setStatus(_A)
-_CerentMl100X8LineCard_ObjectIdentity=ObjectIdentity
-cerentMl100X8LineCard=_CerentMl100X8LineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4055))
-if mibBuilder.loadTexts:cerentMl100X8LineCard.setStatus(_A)
-_CerentOptBstLCard_ObjectIdentity=ObjectIdentity
-cerentOptBstLCard=_CerentOptBstLCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4060))
-if mibBuilder.loadTexts:cerentOptBstLCard.setStatus(_A)
-_CerentOptAmpLCard_ObjectIdentity=ObjectIdentity
-cerentOptAmpLCard=_CerentOptAmpLCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4065))
-if mibBuilder.loadTexts:cerentOptAmpLCard.setStatus(_A)
-_CerentDmx32LCard_ObjectIdentity=ObjectIdentity
-cerentDmx32LCard=_CerentDmx32LCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4070))
-if mibBuilder.loadTexts:cerentDmx32LCard.setStatus(_A)
-_CerentWss32LCard_ObjectIdentity=ObjectIdentity
-cerentWss32LCard=_CerentWss32LCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4075))
-if mibBuilder.loadTexts:cerentWss32LCard.setStatus(_A)
-_CerentMMUCard_ObjectIdentity=ObjectIdentity
-cerentMMUCard=_CerentMMUCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4080))
-if mibBuilder.loadTexts:cerentMMUCard.setStatus(_A)
-_CerentMsIsc100tCard_ObjectIdentity=ObjectIdentity
-cerentMsIsc100tCard=_CerentMsIsc100tCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4085))
-if mibBuilder.loadTexts:cerentMsIsc100tCard.setStatus(_A)
-_CerentMxpMr10DmeCard_ObjectIdentity=ObjectIdentity
-cerentMxpMr10DmeCard=_CerentMxpMr10DmeCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4090))
-if mibBuilder.loadTexts:cerentMxpMr10DmeCard.setStatus(_A)
-_CerentCE1000Card_ObjectIdentity=ObjectIdentity
-cerentCE1000Card=_CerentCE1000Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4095))
-if mibBuilder.loadTexts:cerentCE1000Card.setStatus(_A)
-_CerentCE1000EtherPort_ObjectIdentity=ObjectIdentity
-cerentCE1000EtherPort=_CerentCE1000EtherPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4100))
-if mibBuilder.loadTexts:cerentCE1000EtherPort.setStatus(_A)
-_CerentCE1000PosPort_ObjectIdentity=ObjectIdentity
-cerentCE1000PosPort=_CerentCE1000PosPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4105))
-if mibBuilder.loadTexts:cerentCE1000PosPort.setStatus(_A)
-_CerentPIM1PPM_ObjectIdentity=ObjectIdentity
-cerentPIM1PPM=_CerentPIM1PPM_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4110))
-if mibBuilder.loadTexts:cerentPIM1PPM.setStatus(_A)
-_CerentCEMR454Card_ObjectIdentity=ObjectIdentity
-cerentCEMR454Card=_CerentCEMR454Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4115))
-if mibBuilder.loadTexts:cerentCEMR454Card.setStatus(_A)
-_CerentCEMR310Card_ObjectIdentity=ObjectIdentity
-cerentCEMR310Card=_CerentCEMR310Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4120))
-if mibBuilder.loadTexts:cerentCEMR310Card.setStatus(_A)
-_CerentCTX2500Card_ObjectIdentity=ObjectIdentity
-cerentCTX2500Card=_CerentCTX2500Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4125))
-if mibBuilder.loadTexts:cerentCTX2500Card.setStatus(_A)
-_CerentDs128Ds3EC13LineCard_ObjectIdentity=ObjectIdentity
-cerentDs128Ds3EC13LineCard=_CerentDs128Ds3EC13LineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4130))
-if mibBuilder.loadTexts:cerentDs128Ds3EC13LineCard.setStatus(_A)
-_CerentDs184Ds3EC13LineCard_ObjectIdentity=ObjectIdentity
-cerentDs184Ds3EC13LineCard=_CerentDs184Ds3EC13LineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4135))
-if mibBuilder.loadTexts:cerentDs184Ds3EC13LineCard.setStatus(_A)
-_CerentDs3EC16LineCard_ObjectIdentity=ObjectIdentity
-cerentDs3EC16LineCard=_CerentDs3EC16LineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4140))
-if mibBuilder.loadTexts:cerentDs3EC16LineCard.setStatus(_A)
-_CerentBicTelco_ObjectIdentity=ObjectIdentity
-cerentBicTelco=_CerentBicTelco_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4145))
-if mibBuilder.loadTexts:cerentBicTelco.setStatus(_A)
-_CerentBicCmn_ObjectIdentity=ObjectIdentity
-cerentBicCmn=_CerentBicCmn_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4150))
-if mibBuilder.loadTexts:cerentBicCmn.setStatus(_A)
-_CerentRanSvcLineCard_ObjectIdentity=ObjectIdentity
-cerentRanSvcLineCard=_CerentRanSvcLineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4155))
-if mibBuilder.loadTexts:cerentRanSvcLineCard.setStatus(_A)
-_CerentTxpd10EXCard_ObjectIdentity=ObjectIdentity
-cerentTxpd10EXCard=_CerentTxpd10EXCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4160))
-if mibBuilder.loadTexts:cerentTxpd10EXCard.setStatus(_A)
-_CerentTxpdP10EXCard_ObjectIdentity=ObjectIdentity
-cerentTxpdP10EXCard=_CerentTxpdP10EXCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4165))
-if mibBuilder.loadTexts:cerentTxpdP10EXCard.setStatus(_A)
-_CerentMuxpd25G10XCard_ObjectIdentity=ObjectIdentity
-cerentMuxpd25G10XCard=_CerentMuxpd25G10XCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4170))
-if mibBuilder.loadTexts:cerentMuxpd25G10XCard.setStatus(_A)
-_CerentOptAmp17Card_ObjectIdentity=ObjectIdentity
-cerentOptAmp17Card=_CerentOptAmp17Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4175))
-if mibBuilder.loadTexts:cerentOptAmp17Card.setStatus(_A)
-_CerentOptAmp23Card_ObjectIdentity=ObjectIdentity
-cerentOptAmp23Card=_CerentOptAmp23Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4180))
-if mibBuilder.loadTexts:cerentOptAmp23Card.setStatus(_A)
-_CerentOptWss40ChCard_ObjectIdentity=ObjectIdentity
-cerentOptWss40ChCard=_CerentOptWss40ChCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4185))
-if mibBuilder.loadTexts:cerentOptWss40ChCard.setStatus(_A)
-_CerentOptMux40ChCard_ObjectIdentity=ObjectIdentity
-cerentOptMux40ChCard=_CerentOptMux40ChCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4190))
-if mibBuilder.loadTexts:cerentOptMux40ChCard.setStatus(_A)
-_CerentOptDemux40ChCard_ObjectIdentity=ObjectIdentity
-cerentOptDemux40ChCard=_CerentOptDemux40ChCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4195))
-if mibBuilder.loadTexts:cerentOptDemux40ChCard.setStatus(_A)
-_CerentOptWxc40ChCard_ObjectIdentity=ObjectIdentity
-cerentOptWxc40ChCard=_CerentOptWxc40ChCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4200))
-if mibBuilder.loadTexts:cerentOptWxc40ChCard.setStatus(_A)
-_CerentXpd10GECard_ObjectIdentity=ObjectIdentity
-cerentXpd10GECard=_CerentXpd10GECard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4205))
-if mibBuilder.loadTexts:cerentXpd10GECard.setStatus(_A)
-_CerentXpdGECard_ObjectIdentity=ObjectIdentity
-cerentXpdGECard=_CerentXpdGECard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4210))
-if mibBuilder.loadTexts:cerentXpdGECard.setStatus(_A)
-_CerentOadm10GCard_ObjectIdentity=ObjectIdentity
-cerentOadm10GCard=_CerentOadm10GCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4215))
-if mibBuilder.loadTexts:cerentOadm10GCard.setStatus(_A)
-_CerentOtu2Port_ObjectIdentity=ObjectIdentity
-cerentOtu2Port=_CerentOtu2Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4220))
-if mibBuilder.loadTexts:cerentOtu2Port.setStatus(_A)
-_CerentWss40LCard_ObjectIdentity=ObjectIdentity
-cerentWss40LCard=_CerentWss40LCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4225))
-if mibBuilder.loadTexts:cerentWss40LCard.setStatus(_A)
-_CerentMux40LCard_ObjectIdentity=ObjectIdentity
-cerentMux40LCard=_CerentMux40LCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4230))
-if mibBuilder.loadTexts:cerentMux40LCard.setStatus(_A)
-_CerentDmx40LCard_ObjectIdentity=ObjectIdentity
-cerentDmx40LCard=_CerentDmx40LCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4235))
-if mibBuilder.loadTexts:cerentDmx40LCard.setStatus(_A)
-_CerentWxc40LCard_ObjectIdentity=ObjectIdentity
-cerentWxc40LCard=_CerentWxc40LCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4240))
-if mibBuilder.loadTexts:cerentWxc40LCard.setStatus(_A)
-_CerentIlkPort_ObjectIdentity=ObjectIdentity
-cerentIlkPort=_CerentIlkPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4245))
-if mibBuilder.loadTexts:cerentIlkPort.setStatus(_A)
-_CerentOc192Card4PortsDwdm_ObjectIdentity=ObjectIdentity
-cerentOc192Card4PortsDwdm=_CerentOc192Card4PortsDwdm_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4250))
-if mibBuilder.loadTexts:cerentOc192Card4PortsDwdm.setStatus(_A)
-_CerentOptAmpCCard_ObjectIdentity=ObjectIdentity
-cerentOptAmpCCard=_CerentOptAmpCCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4255))
-if mibBuilder.loadTexts:cerentOptAmpCCard.setStatus(_A)
-_CerentWssCE40Card_ObjectIdentity=ObjectIdentity
-cerentWssCE40Card=_CerentWssCE40Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4260))
-if mibBuilder.loadTexts:cerentWssCE40Card.setStatus(_A)
-_CerentDmxCE40Card_ObjectIdentity=ObjectIdentity
-cerentDmxCE40Card=_CerentDmxCE40Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4265))
-if mibBuilder.loadTexts:cerentDmxCE40Card.setStatus(_A)
-_CerentMxpMr10DmexCard_ObjectIdentity=ObjectIdentity
-cerentMxpMr10DmexCard=_CerentMxpMr10DmexCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4270))
-if mibBuilder.loadTexts:cerentMxpMr10DmexCard.setStatus(_A)
-_CerentMrc25G12LineCard_ObjectIdentity=ObjectIdentity
-cerentMrc25G12LineCard=_CerentMrc25G12LineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4275))
-if mibBuilder.loadTexts:cerentMrc25G12LineCard.setStatus(_A)
-_CerentMrc25G4LineCard_ObjectIdentity=ObjectIdentity
-cerentMrc25G4LineCard=_CerentMrc25G4LineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4280))
-if mibBuilder.loadTexts:cerentMrc25G4LineCard.setStatus(_A)
-_CerentPSMCard_ObjectIdentity=ObjectIdentity
-cerentPSMCard=_CerentPSMCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4282))
-if mibBuilder.loadTexts:cerentPSMCard.setStatus(_A)
-_CerentOptRAmpCCard_ObjectIdentity=ObjectIdentity
-cerentOptRAmpCCard=_CerentOptRAmpCCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4285))
-if mibBuilder.loadTexts:cerentOptRAmpCCard.setStatus(_A)
-_CerentOptRAmpECard_ObjectIdentity=ObjectIdentity
-cerentOptRAmpECard=_CerentOptRAmpECard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4287))
-if mibBuilder.loadTexts:cerentOptRAmpECard.setStatus(_A)
-_CerentXP10G4LineCard_ObjectIdentity=ObjectIdentity
-cerentXP10G4LineCard=_CerentXP10G4LineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4290))
-if mibBuilder.loadTexts:cerentXP10G4LineCard.setStatus(_A)
-_CerentE121E3DS33LineCard_ObjectIdentity=ObjectIdentity
-cerentE121E3DS33LineCard=_CerentE121E3DS33LineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4295))
-if mibBuilder.loadTexts:cerentE121E3DS33LineCard.setStatus(_A)
-_CerentE163E3DS33LineCard_ObjectIdentity=ObjectIdentity
-cerentE163E3DS33LineCard=_CerentE163E3DS33LineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4300))
-if mibBuilder.loadTexts:cerentE163E3DS33LineCard.setStatus(_A)
-_Cerent40SMR1Card_ObjectIdentity=ObjectIdentity
-cerent40SMR1Card=_Cerent40SMR1Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4305))
-if mibBuilder.loadTexts:cerent40SMR1Card.setStatus(_A)
-_Cerent40SMR2Card_ObjectIdentity=ObjectIdentity
-cerent40SMR2Card=_Cerent40SMR2Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4310))
-if mibBuilder.loadTexts:cerent40SMR2Card.setStatus(_A)
-_CerentOptWxc80ChCard_ObjectIdentity=ObjectIdentity
-cerentOptWxc80ChCard=_CerentOptWxc80ChCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4315))
-if mibBuilder.loadTexts:cerentOptWxc80ChCard.setStatus(_A)
-_CerentMd40OddPassiveUnit_ObjectIdentity=ObjectIdentity
-cerentMd40OddPassiveUnit=_CerentMd40OddPassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4320))
-if mibBuilder.loadTexts:cerentMd40OddPassiveUnit.setStatus(_A)
-_CerentMd40EvenPassiveUnit_ObjectIdentity=ObjectIdentity
-cerentMd40EvenPassiveUnit=_CerentMd40EvenPassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4325))
-if mibBuilder.loadTexts:cerentMd40EvenPassiveUnit.setStatus(_A)
-_CerentMdId50PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentMdId50PassiveUnit=_CerentMdId50PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4330))
-if mibBuilder.loadTexts:cerentMdId50PassiveUnit.setStatus(_A)
-_CerentPP4SMRPassiveUnit_ObjectIdentity=ObjectIdentity
-cerentPP4SMRPassiveUnit=_CerentPP4SMRPassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4335))
-if mibBuilder.loadTexts:cerentPP4SMRPassiveUnit.setStatus(_A)
-_CerentPPMESH4PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentPPMESH4PassiveUnit=_CerentPPMESH4PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4340))
-if mibBuilder.loadTexts:cerentPPMESH4PassiveUnit.setStatus(_A)
-_CerentPPMESH8PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentPPMESH8PassiveUnit=_CerentPPMESH8PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4345))
-if mibBuilder.loadTexts:cerentPPMESH8PassiveUnit.setStatus(_A)
-_CerentDcuPassiveUnit_ObjectIdentity=ObjectIdentity
-cerentDcuPassiveUnit=_CerentDcuPassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4350))
-if mibBuilder.loadTexts:cerentDcuPassiveUnit.setStatus(_A)
-_CerentCTDcuPassiveUnit_ObjectIdentity=ObjectIdentity
-cerentCTDcuPassiveUnit=_CerentCTDcuPassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4355))
-if mibBuilder.loadTexts:cerentCTDcuPassiveUnit.setStatus(_A)
-_CerentFTDcuPassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFTDcuPassiveUnit=_CerentFTDcuPassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4360))
-if mibBuilder.loadTexts:cerentFTDcuPassiveUnit.setStatus(_A)
-_FortyGePort_ObjectIdentity=ObjectIdentity
-fortyGePort=_FortyGePort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4365))
-if mibBuilder.loadTexts:fortyGePort.setStatus(_A)
-_Fc8gPort_ObjectIdentity=ObjectIdentity
-fc8gPort=_Fc8gPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4370))
-if mibBuilder.loadTexts:fc8gPort.setStatus(_A)
-_CerentOtu3Port_ObjectIdentity=ObjectIdentity
-cerentOtu3Port=_CerentOtu3Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4375))
-if mibBuilder.loadTexts:cerentOtu3Port.setStatus(_A)
-_CerentOc768Port_ObjectIdentity=ObjectIdentity
-cerentOc768Port=_CerentOc768Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4380))
-if mibBuilder.loadTexts:cerentOc768Port.setStatus(_A)
-_CerentMechanicalUnit_ObjectIdentity=ObjectIdentity
-cerentMechanicalUnit=_CerentMechanicalUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4385))
-if mibBuilder.loadTexts:cerentMechanicalUnit.setStatus(_A)
-_Cerent40GTxpCard_ObjectIdentity=ObjectIdentity
-cerent40GTxpCard=_Cerent40GTxpCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4390))
-if mibBuilder.loadTexts:cerent40GTxpCard.setStatus(_A)
-_Cerent40GMxpCard_ObjectIdentity=ObjectIdentity
-cerent40GMxpCard=_Cerent40GMxpCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4395))
-if mibBuilder.loadTexts:cerent40GMxpCard.setStatus(_A)
-_Cerent40EMxpCard_ObjectIdentity=ObjectIdentity
-cerent40EMxpCard=_Cerent40EMxpCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4400))
-if mibBuilder.loadTexts:cerent40EMxpCard.setStatus(_A)
-_Cerent15216ID50PassiveUnit_ObjectIdentity=ObjectIdentity
-cerent15216ID50PassiveUnit=_Cerent15216ID50PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4405))
-if mibBuilder.loadTexts:cerent15216ID50PassiveUnit.setStatus(_A)
-_Cerent40ETxpCard_ObjectIdentity=ObjectIdentity
-cerent40ETxpCard=_Cerent40ETxpCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4415))
-if mibBuilder.loadTexts:cerent40ETxpCard.setStatus(_A)
-_CerentOptEdfa17Card_ObjectIdentity=ObjectIdentity
-cerentOptEdfa17Card=_CerentOptEdfa17Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4420))
-if mibBuilder.loadTexts:cerentOptEdfa17Card.setStatus(_A)
-_CerentOptEdfa24Card_ObjectIdentity=ObjectIdentity
-cerentOptEdfa24Card=_CerentOptEdfa24Card_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4425))
-if mibBuilder.loadTexts:cerentOptEdfa24Card.setStatus(_A)
-_CerentBackPlaneM2_ObjectIdentity=ObjectIdentity
-cerentBackPlaneM2=_CerentBackPlaneM2_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4510))
-if mibBuilder.loadTexts:cerentBackPlaneM2.setStatus(_A)
-_CerentChassisM2Ansi_ObjectIdentity=ObjectIdentity
-cerentChassisM2Ansi=_CerentChassisM2Ansi_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4520))
-if mibBuilder.loadTexts:cerentChassisM2Ansi.setStatus(_A)
-_CerentChassisM2Etsi_ObjectIdentity=ObjectIdentity
-cerentChassisM2Etsi=_CerentChassisM2Etsi_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4530))
-if mibBuilder.loadTexts:cerentChassisM2Etsi.setStatus(_A)
-_CerentArXpCard_ObjectIdentity=ObjectIdentity
-cerentArXpCard=_CerentArXpCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4535))
-if mibBuilder.loadTexts:cerentArXpCard.setStatus(_A)
-_CerentBackPlaneM6_ObjectIdentity=ObjectIdentity
-cerentBackPlaneM6=_CerentBackPlaneM6_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4540))
-if mibBuilder.loadTexts:cerentBackPlaneM6.setStatus(_A)
-_CerentArMxpCard_ObjectIdentity=ObjectIdentity
-cerentArMxpCard=_CerentArMxpCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4545))
-if mibBuilder.loadTexts:cerentArMxpCard.setStatus(_A)
-_CerentChassisM6Ansi_ObjectIdentity=ObjectIdentity
-cerentChassisM6Ansi=_CerentChassisM6Ansi_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4550))
-if mibBuilder.loadTexts:cerentChassisM6Ansi.setStatus(_A)
-_CerentChassisM6Etsi_ObjectIdentity=ObjectIdentity
-cerentChassisM6Etsi=_CerentChassisM6Etsi_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4560))
-if mibBuilder.loadTexts:cerentChassisM6Etsi.setStatus(_A)
-_CerentPowerSupplyUts_ObjectIdentity=ObjectIdentity
-cerentPowerSupplyUts=_CerentPowerSupplyUts_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4570))
-if mibBuilder.loadTexts:cerentPowerSupplyUts.setStatus(_A)
-_CerentFlashUts_ObjectIdentity=ObjectIdentity
-cerentFlashUts=_CerentFlashUts_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4580))
-if mibBuilder.loadTexts:cerentFlashUts.setStatus(_A)
-_CerentAicInUts_ObjectIdentity=ObjectIdentity
-cerentAicInUts=_CerentAicInUts_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4590))
-if mibBuilder.loadTexts:cerentAicInUts.setStatus(_A)
-_CerentAicOutUts_ObjectIdentity=ObjectIdentity
-cerentAicOutUts=_CerentAicOutUts_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4600))
-if mibBuilder.loadTexts:cerentAicOutUts.setStatus(_A)
-_CerentIscEqptUts_ObjectIdentity=ObjectIdentity
-cerentIscEqptUts=_CerentIscEqptUts_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4610))
-if mibBuilder.loadTexts:cerentIscEqptUts.setStatus(_A)
-_CerentUdcVoipEmsUts_ObjectIdentity=ObjectIdentity
-cerentUdcVoipEmsUts=_CerentUdcVoipEmsUts_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4620))
-if mibBuilder.loadTexts:cerentUdcVoipEmsUts.setStatus(_A)
-_CerentBitsUts_ObjectIdentity=ObjectIdentity
-cerentBitsUts=_CerentBitsUts_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4630))
-if mibBuilder.loadTexts:cerentBitsUts.setStatus(_A)
-_CerentFanTrayUts_ObjectIdentity=ObjectIdentity
-cerentFanTrayUts=_CerentFanTrayUts_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4640))
-if mibBuilder.loadTexts:cerentFanTrayUts.setStatus(_A)
-_CerentAlarmDryContactUts_ObjectIdentity=ObjectIdentity
-cerentAlarmDryContactUts=_CerentAlarmDryContactUts_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4645))
-if mibBuilder.loadTexts:cerentAlarmDryContactUts.setStatus(_A)
-_CerentUsbUts_ObjectIdentity=ObjectIdentity
-cerentUsbUts=_CerentUsbUts_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4650))
-if mibBuilder.loadTexts:cerentUsbUts.setStatus(_A)
-_CerentUsbUtsPortCard_ObjectIdentity=ObjectIdentity
-cerentUsbUtsPortCard=_CerentUsbUtsPortCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4655))
-if mibBuilder.loadTexts:cerentUsbUtsPortCard.setStatus(_A)
-_CerentIoUts_ObjectIdentity=ObjectIdentity
-cerentIoUts=_CerentIoUts_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4660))
-if mibBuilder.loadTexts:cerentIoUts.setStatus(_A)
-_CerentEcuTray_ObjectIdentity=ObjectIdentity
-cerentEcuTray=_CerentEcuTray_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4670))
-if mibBuilder.loadTexts:cerentEcuTray.setStatus(_A)
-_CerentTncUtsCard_ObjectIdentity=ObjectIdentity
-cerentTncUtsCard=_CerentTncUtsCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4680))
-if mibBuilder.loadTexts:cerentTncUtsCard.setStatus(_A)
-_CerentTscUtsCard_ObjectIdentity=ObjectIdentity
-cerentTscUtsCard=_CerentTscUtsCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4690))
-if mibBuilder.loadTexts:cerentTscUtsCard.setStatus(_A)
-_CerentTncTscUtsSlot_ObjectIdentity=ObjectIdentity
-cerentTncTscUtsSlot=_CerentTncTscUtsSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4700))
-if mibBuilder.loadTexts:cerentTncTscUtsSlot.setStatus(_A)
-_CerentEcuSlot_ObjectIdentity=ObjectIdentity
-cerentEcuSlot=_CerentEcuSlot_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4710))
-if mibBuilder.loadTexts:cerentEcuSlot.setStatus(_A)
-_CerentMscIscUtsPort_ObjectIdentity=ObjectIdentity
-cerentMscIscUtsPort=_CerentMscIscUtsPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4720))
-if mibBuilder.loadTexts:cerentMscIscUtsPort.setStatus(_A)
-_CerentOtu1Port_ObjectIdentity=ObjectIdentity
-cerentOtu1Port=_CerentOtu1Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4725))
-if mibBuilder.loadTexts:cerentOtu1Port.setStatus(_A)
-_CerentTncFePort_ObjectIdentity=ObjectIdentity
-cerentTncFePort=_CerentTncFePort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4730))
-if mibBuilder.loadTexts:cerentTncFePort.setStatus(_A)
-_CerentIsc3stp1gPort_ObjectIdentity=ObjectIdentity
-cerentIsc3stp1gPort=_CerentIsc3stp1gPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4732))
-if mibBuilder.loadTexts:cerentIsc3stp1gPort.setStatus(_A)
-_CerentIsc3stp2gPort_ObjectIdentity=ObjectIdentity
-cerentIsc3stp2gPort=_CerentIsc3stp2gPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4735))
-if mibBuilder.loadTexts:cerentIsc3stp2gPort.setStatus(_A)
-_CerentPtSystem_ObjectIdentity=ObjectIdentity
-cerentPtSystem=_CerentPtSystem_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4740))
-if mibBuilder.loadTexts:cerentPtSystem.setStatus(_A)
-_CerentSdi3gvideoPort_ObjectIdentity=ObjectIdentity
-cerentSdi3gvideoPort=_CerentSdi3gvideoPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4742))
-if mibBuilder.loadTexts:cerentSdi3gvideoPort.setStatus(_A)
-_CerentPtf10GECard_ObjectIdentity=ObjectIdentity
-cerentPtf10GECard=_CerentPtf10GECard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4745))
-if mibBuilder.loadTexts:cerentPtf10GECard.setStatus(_A)
-_CerentAutoPort_ObjectIdentity=ObjectIdentity
-cerentAutoPort=_CerentAutoPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4747))
-if mibBuilder.loadTexts:cerentAutoPort.setStatus(_A)
-_CerentPt10GECard_ObjectIdentity=ObjectIdentity
-cerentPt10GECard=_CerentPt10GECard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4750))
-if mibBuilder.loadTexts:cerentPt10GECard.setStatus(_A)
-_CerentPtsaGECard_ObjectIdentity=ObjectIdentity
-cerentPtsaGECard=_CerentPtsaGECard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4755))
-if mibBuilder.loadTexts:cerentPtsaGECard.setStatus(_A)
-_CerentFld303PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFld303PassiveUnit=_CerentFld303PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4760))
-if mibBuilder.loadTexts:cerentFld303PassiveUnit.setStatus(_A)
-_CerentFld334PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFld334PassiveUnit=_CerentFld334PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4765))
-if mibBuilder.loadTexts:cerentFld334PassiveUnit.setStatus(_A)
-_CerentFld366PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFld366PassiveUnit=_CerentFld366PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4770))
-if mibBuilder.loadTexts:cerentFld366PassiveUnit.setStatus(_A)
-_CerentFld397PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFld397PassiveUnit=_CerentFld397PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4775))
-if mibBuilder.loadTexts:cerentFld397PassiveUnit.setStatus(_A)
-_CerentFld429PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFld429PassiveUnit=_CerentFld429PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4780))
-if mibBuilder.loadTexts:cerentFld429PassiveUnit.setStatus(_A)
-_CerentFld461PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFld461PassiveUnit=_CerentFld461PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4785))
-if mibBuilder.loadTexts:cerentFld461PassiveUnit.setStatus(_A)
-_CerentFld493PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFld493PassiveUnit=_CerentFld493PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4790))
-if mibBuilder.loadTexts:cerentFld493PassiveUnit.setStatus(_A)
-_CerentFld525PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFld525PassiveUnit=_CerentFld525PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4795))
-if mibBuilder.loadTexts:cerentFld525PassiveUnit.setStatus(_A)
-_CerentFld557PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFld557PassiveUnit=_CerentFld557PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4800))
-if mibBuilder.loadTexts:cerentFld557PassiveUnit.setStatus(_A)
-_CerentFld589PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFld589PassiveUnit=_CerentFld589PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4805))
-if mibBuilder.loadTexts:cerentFld589PassiveUnit.setStatus(_A)
-_CerentFldOscPassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFldOscPassiveUnit=_CerentFldOscPassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4810))
-if mibBuilder.loadTexts:cerentFldOscPassiveUnit.setStatus(_A)
-_CerentFlcCwdm8PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFlcCwdm8PassiveUnit=_CerentFlcCwdm8PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4815))
-if mibBuilder.loadTexts:cerentFlcCwdm8PassiveUnit.setStatus(_A)
-_CerentSdsdiPort_ObjectIdentity=ObjectIdentity
-cerentSdsdiPort=_CerentSdsdiPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4820))
-if mibBuilder.loadTexts:cerentSdsdiPort.setStatus(_A)
-_CerentHdsdiPort_ObjectIdentity=ObjectIdentity
-cerentHdsdiPort=_CerentHdsdiPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4825))
-if mibBuilder.loadTexts:cerentHdsdiPort.setStatus(_A)
-_CerentOptRampCTPCard_ObjectIdentity=ObjectIdentity
-cerentOptRampCTPCard=_CerentOptRampCTPCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4830))
-if mibBuilder.loadTexts:cerentOptRampCTPCard.setStatus(_A)
-_CerentOptRampCOPCard_ObjectIdentity=ObjectIdentity
-cerentOptRampCOPCard=_CerentOptRampCOPCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4835))
-if mibBuilder.loadTexts:cerentOptRampCOPCard.setStatus(_A)
-_CerentFbgdcu165PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFbgdcu165PassiveUnit=_CerentFbgdcu165PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4840))
-if mibBuilder.loadTexts:cerentFbgdcu165PassiveUnit.setStatus(_A)
-_CerentFbgdcu331PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFbgdcu331PassiveUnit=_CerentFbgdcu331PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4845))
-if mibBuilder.loadTexts:cerentFbgdcu331PassiveUnit.setStatus(_A)
-_CerentFbgdcu496PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFbgdcu496PassiveUnit=_CerentFbgdcu496PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4850))
-if mibBuilder.loadTexts:cerentFbgdcu496PassiveUnit.setStatus(_A)
-_CerentFbgdcu661PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFbgdcu661PassiveUnit=_CerentFbgdcu661PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4855))
-if mibBuilder.loadTexts:cerentFbgdcu661PassiveUnit.setStatus(_A)
-_CerentFbgdcu826PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFbgdcu826PassiveUnit=_CerentFbgdcu826PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4860))
-if mibBuilder.loadTexts:cerentFbgdcu826PassiveUnit.setStatus(_A)
-_CerentFbgdcu992PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFbgdcu992PassiveUnit=_CerentFbgdcu992PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4865))
-if mibBuilder.loadTexts:cerentFbgdcu992PassiveUnit.setStatus(_A)
-_CerentFbgdcu1157PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFbgdcu1157PassiveUnit=_CerentFbgdcu1157PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4870))
-if mibBuilder.loadTexts:cerentFbgdcu1157PassiveUnit.setStatus(_A)
-_CerentFbgdcu1322PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFbgdcu1322PassiveUnit=_CerentFbgdcu1322PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4875))
-if mibBuilder.loadTexts:cerentFbgdcu1322PassiveUnit.setStatus(_A)
-_CerentFbgdcu1653PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFbgdcu1653PassiveUnit=_CerentFbgdcu1653PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4880))
-if mibBuilder.loadTexts:cerentFbgdcu1653PassiveUnit.setStatus(_A)
-_CerentFbgdcu1983PassiveUnit_ObjectIdentity=ObjectIdentity
-cerentFbgdcu1983PassiveUnit=_CerentFbgdcu1983PassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4885))
-if mibBuilder.loadTexts:cerentFbgdcu1983PassiveUnit.setStatus(_A)
-_CerentMd48OddPassiveUnit_ObjectIdentity=ObjectIdentity
-cerentMd48OddPassiveUnit=_CerentMd48OddPassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4900))
-if mibBuilder.loadTexts:cerentMd48OddPassiveUnit.setStatus(_A)
-_CerentMd48EvenPassiveUnit_ObjectIdentity=ObjectIdentity
-cerentMd48EvenPassiveUnit=_CerentMd48EvenPassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4905))
-if mibBuilder.loadTexts:cerentMd48EvenPassiveUnit.setStatus(_A)
-_CerentMd48CmPassiveUnit_ObjectIdentity=ObjectIdentity
-cerentMd48CmPassiveUnit=_CerentMd48CmPassiveUnit_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4910))
-if mibBuilder.loadTexts:cerentMd48CmPassiveUnit.setStatus(_A)
-_CerentOtu4Port_ObjectIdentity=ObjectIdentity
-cerentOtu4Port=_CerentOtu4Port_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4915))
-if mibBuilder.loadTexts:cerentOtu4Port.setStatus(_A)
-_CerentOneHundredGePort_ObjectIdentity=ObjectIdentity
-cerentOneHundredGePort=_CerentOneHundredGePort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4920))
-if mibBuilder.loadTexts:cerentOneHundredGePort.setStatus(_A)
-_CerentHundredGigLineCard_ObjectIdentity=ObjectIdentity
-cerentHundredGigLineCard=_CerentHundredGigLineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4925))
-if mibBuilder.loadTexts:cerentHundredGigLineCard.setStatus(_A)
-_CerentTENxTENGigLineCard_ObjectIdentity=ObjectIdentity
-cerentTENxTENGigLineCard=_CerentTENxTENGigLineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4930))
-if mibBuilder.loadTexts:cerentTENxTENGigLineCard.setStatus(_A)
-_CerentCfpLineCard_ObjectIdentity=ObjectIdentity
-cerentCfpLineCard=_CerentCfpLineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4935))
-if mibBuilder.loadTexts:cerentCfpLineCard.setStatus(_A)
-_CerentOTLPort_ObjectIdentity=ObjectIdentity
-cerentOTLPort=_CerentOTLPort_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4940))
-if mibBuilder.loadTexts:cerentOTLPort.setStatus(_A)
-_CerentHundredgigPlim_ObjectIdentity=ObjectIdentity
-cerentHundredgigPlim=_CerentHundredgigPlim_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4945))
-if mibBuilder.loadTexts:cerentHundredgigPlim.setStatus(_A)
-_CerentWseLineCard_ObjectIdentity=ObjectIdentity
-cerentWseLineCard=_CerentWseLineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4947))
-if mibBuilder.loadTexts:cerentWseLineCard.setStatus(_A)
-_CerentArXpeCard_ObjectIdentity=ObjectIdentity
-cerentArXpeCard=_CerentArXpeCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4950))
-if mibBuilder.loadTexts:cerentArXpeCard.setStatus(_A)
-_CerentEDRA126C_ObjectIdentity=ObjectIdentity
-cerentEDRA126C=_CerentEDRA126C_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4955))
-if mibBuilder.loadTexts:cerentEDRA126C.setStatus(_A)
-_CerentEDRA135C_ObjectIdentity=ObjectIdentity
-cerentEDRA135C=_CerentEDRA135C_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4960))
-if mibBuilder.loadTexts:cerentEDRA135C.setStatus(_A)
-_CerentEDRA226C_ObjectIdentity=ObjectIdentity
-cerentEDRA226C=_CerentEDRA226C_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4965))
-if mibBuilder.loadTexts:cerentEDRA226C.setStatus(_A)
-_CerentEDRA235C_ObjectIdentity=ObjectIdentity
-cerentEDRA235C=_CerentEDRA235C_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4970))
-if mibBuilder.loadTexts:cerentEDRA235C.setStatus(_A)
-_CerentWXC16FSLineCard_ObjectIdentity=ObjectIdentity
-cerentWXC16FSLineCard=_CerentWXC16FSLineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4975))
-if mibBuilder.loadTexts:cerentWXC16FSLineCard.setStatus(_A)
-_CerentPassiv1x16COFSC_ObjectIdentity=ObjectIdentity
-cerentPassiv1x16COFSC=_CerentPassiv1x16COFSC_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4980))
-if mibBuilder.loadTexts:cerentPassiv1x16COFSC.setStatus(_A)
-_CerentPassive4x4COFSC_ObjectIdentity=ObjectIdentity
-cerentPassive4x4COFSC=_CerentPassive4x4COFSC_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4985))
-if mibBuilder.loadTexts:cerentPassive4x4COFSC.setStatus(_A)
-_CerentPassiveMODDEG5_ObjectIdentity=ObjectIdentity
-cerentPassiveMODDEG5=_CerentPassiveMODDEG5_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4990))
-if mibBuilder.loadTexts:cerentPassiveMODDEG5.setStatus(_A)
-_CerentPassiveMODUPG4_ObjectIdentity=ObjectIdentity
-cerentPassiveMODUPG4=_CerentPassiveMODUPG4_ObjectIdentity((1,3,6,1,4,1,3607,1,30,4995))
-if mibBuilder.loadTexts:cerentPassiveMODUPG4.setStatus(_A)
-_CerentPassiveMPO8LCADPT_ObjectIdentity=ObjectIdentity
-cerentPassiveMPO8LCADPT=_CerentPassiveMPO8LCADPT_ObjectIdentity((1,3,6,1,4,1,3607,1,30,5000))
-if mibBuilder.loadTexts:cerentPassiveMPO8LCADPT.setStatus(_A)
-_CerentPassiveASTEDFA_ObjectIdentity=ObjectIdentity
-cerentPassiveASTEDFA=_CerentPassiveASTEDFA_ObjectIdentity((1,3,6,1,4,1,3607,1,30,5005))
-if mibBuilder.loadTexts:cerentPassiveASTEDFA.setStatus(_A)
-_CerentCPAK100GLineCard_ObjectIdentity=ObjectIdentity
-cerentCPAK100GLineCard=_CerentCPAK100GLineCard_ObjectIdentity((1,3,6,1,4,1,3607,1,30,5010))
-if mibBuilder.loadTexts:cerentCPAK100GLineCard.setStatus(_A)
-_CerentGeneric_ObjectIdentity=ObjectIdentity
-cerentGeneric=_CerentGeneric_ObjectIdentity((1,3,6,1,4,1,3607,2))
-if mibBuilder.loadTexts:cerentGeneric.setStatus(_A)
-_CerentGenericDummyObjects_ObjectIdentity=ObjectIdentity
-cerentGenericDummyObjects=_CerentGenericDummyObjects_ObjectIdentity((1,3,6,1,4,1,3607,2,1))
-if mibBuilder.loadTexts:cerentGenericDummyObjects.setStatus(_A)
-_CerentExperimental_ObjectIdentity=ObjectIdentity
-cerentExperimental=_CerentExperimental_ObjectIdentity((1,3,6,1,4,1,3607,3))
-if mibBuilder.loadTexts:cerentExperimental.setStatus(_A)
-_CerentAgentCapabilities_ObjectIdentity=ObjectIdentity
-cerentAgentCapabilities=_CerentAgentCapabilities_ObjectIdentity((1,3,6,1,4,1,3607,4))
-if mibBuilder.loadTexts:cerentAgentCapabilities.setStatus(_A)
-_CerentRequirements_ObjectIdentity=ObjectIdentity
-cerentRequirements=_CerentRequirements_ObjectIdentity((1,3,6,1,4,1,3607,5))
-if mibBuilder.loadTexts:cerentRequirements.setStatus(_A)
-_CerentProducts_ObjectIdentity=ObjectIdentity
-cerentProducts=_CerentProducts_ObjectIdentity((1,3,6,1,4,1,3607,6))
-if mibBuilder.loadTexts:cerentProducts.setStatus(_A)
-mibBuilder.exportSymbols('CERENT-GLOBAL-REGISTRY',**{'cerent':cerent,'cerentRegistry':cerentRegistry,'cerentModules':cerentModules,'cerentGlobalRegModule':cerentGlobalRegModule,'cerentCommunicationEquipment':cerentCommunicationEquipment,'cerentADMs':cerentADMs,'cerent454Node':cerent454Node,'cerent327Node':cerent327Node,'cerent600Node':cerent600Node,'cerent310Node':cerent310Node,'cerent310MaAnsiNode':cerent310MaAnsiNode,'cerent310MaEtsiNode':cerent310MaEtsiNode,'cerent454M6Node':cerent454M6Node,'cerent454M2Node':cerent454M2Node,'cerentDwdmDevices':cerentDwdmDevices,'cerent15216OpmNode':cerent15216OpmNode,'cerent15216EdfaNode':cerent15216EdfaNode,'cerentComponents':cerentComponents,'cerentOtherComponent':cerentOtherComponent,'cerentTcc':cerentTcc,'cerentXc':cerentXc,'cerentDs114':cerentDs114,'cerentDs1n14':cerentDs1n14,'cerentDs312':cerentDs312,'cerentOc3ir':cerentOc3ir,'cerentOc12ir':cerentOc12ir,'cerentOc12lr1310':cerentOc12lr1310,'cerentOc48ir':cerentOc48ir,'cerentOc48lr':cerentOc48lr,'cerentFanTray':cerentFanTray,'cerentFanSlot':cerentFanSlot,'cerentIoSlot':cerentIoSlot,'cerentXcSlot':cerentXcSlot,'cerentAicSlot':cerentAicSlot,'cerentTccSlot':cerentTccSlot,'cerentBackPlane454':cerentBackPlane454,'cerentChassis454':cerentChassis454,'cerentDs3nCard':cerentDs3nCard,'cerentDs3XmCard':cerentDs3XmCard,'cerentOc3Card':cerentOc3Card,'cerentOc3OctaCard':cerentOc3OctaCard,'cerentOc12Card':cerentOc12Card,'cerentOc48Card':cerentOc48Card,'cerentEc1Card':cerentEc1Card,'cerentEc1nCard':cerentEc1nCard,'cerentEpos100Card':cerentEpos100Card,'cerentEpos1000Card':cerentEpos1000Card,'cerentAicCard':cerentAicCard,'cerentXcVtCard':cerentXcVtCard,'cerentEther1000Port':cerentEther1000Port,'cerentEther100Port':cerentEther100Port,'cerentDs1VtMappedPort':cerentDs1VtMappedPort,'cerentDs3XmPort':cerentDs3XmPort,'cerentDs3Port':cerentDs3Port,'cerentEc1Port':cerentEc1Port,'cerentOc3Port':cerentOc3Port,'cerentOc12Port':cerentOc12Port,'cerentOc48Port':cerentOc48Port,'cerentOrderwirePort':cerentOrderwirePort,'cerentSensorComponent':cerentSensorComponent,'cerentChassis15327':cerentChassis15327,'cerentBackPlane15327':cerentBackPlane15327,'cerentXtcCard':cerentXtcCard,'cerentMicCard':cerentMicCard,'cerentMicExtCard':cerentMicExtCard,'cerentXtcSlot':cerentXtcSlot,'cerentMicSlot':cerentMicSlot,'cerentVicEncoderLineCard':cerentVicEncoderLineCard,'cerentVicDecoderLineCard':cerentVicDecoderLineCard,'cerentVicEncoderPort':cerentVicEncoderPort,'cerentVicDecoderPort':cerentVicDecoderPort,'cerentVicTestPort':cerentVicTestPort,'cerentAip':cerentAip,'cerentBicSmb':cerentBicSmb,'cerentBicBnc':cerentBicBnc,'cerentFcb':cerentFcb,'cerentEnvironmentControl':cerentEnvironmentControl,'cerentLedIndicator':cerentLedIndicator,'cerentAudibleAlarm':cerentAudibleAlarm,'cerentXc10g':cerentXc10g,'cerentOc192Card':cerentOc192Card,'cerentOc192Port':cerentOc192Port,'cerentDs3eCard':cerentDs3eCard,'cerentDs3neCard':cerentDs3neCard,'cerent15216OpmChassis':cerent15216OpmChassis,'cerent15216OpmBackPlane':cerent15216OpmBackPlane,'cerent15216OpmSlot':cerent15216OpmSlot,'cerent15216OpmController':cerent15216OpmController,'cerent15216OpmSpectrometer':cerent15216OpmSpectrometer,'cerent15216OpmOpticalSwitch':cerent15216OpmOpticalSwitch,'cerent15216OpmOpticalPort':cerent15216OpmOpticalPort,'cerent15216OpmSerialPort':cerent15216OpmSerialPort,'cerent15216OpmLedIndicator':cerent15216OpmLedIndicator,'cerent15216OpmRelay':cerent15216OpmRelay,'cerent15216OpmPowerSupply':cerent15216OpmPowerSupply,'cerent15216OpmPcmciaSlot':cerent15216OpmPcmciaSlot,'cerentOc12QuadCard':cerentOc12QuadCard,'cerentG1000QuadCard':cerentG1000QuadCard,'cerentG1000Port':cerentG1000Port,'cerentMlEtherPort':cerentMlEtherPort,'cerentMlPosPort':cerentMlPosPort,'cerentG1000GenericCard':cerentG1000GenericCard,'cerentML100GenericCard':cerentML100GenericCard,'cerentML1000GenericCard':cerentML1000GenericCard,'cerentG1K4Card':cerentG1K4Card,'cerentOc192IrCard':cerentOc192IrCard,'cerentOc192LrCard':cerentOc192LrCard,'cerentOc192ItuCard':cerentOc192ItuCard,'cerentOc3n1Card':cerentOc3n1Card,'ape':ape,'oneGePort':oneGePort,'tenGePort':tenGePort,'esconPort':esconPort,'dv6000Port':dv6000Port,'cerentE1n14':cerentE1n14,'cerentBackPlane454SDH':cerentBackPlane454SDH,'cerentChassis454SDH':cerentChassis454SDH,'cerentDs3inCard':cerentDs3inCard,'cerentE312Card':cerentE312Card,'cerentE1Port':cerentE1Port,'cerentDs3iPort':cerentDs3iPort,'cerentE3Port':cerentE3Port,'cerentAlmPwrSlot':cerentAlmPwrSlot,'cerentCrftTmgSlot':cerentCrftTmgSlot,'cerentAlmPwr':cerentAlmPwr,'cerentCrftTmg':cerentCrftTmg,'cerentFmecDb':cerentFmecDb,'cerentFmecSmzE1':cerentFmecSmzE1,'cerentFmecBlank':cerentFmecBlank,'cerentXcVxlCard':cerentXcVxlCard,'cerentEfca454Sdh':cerentEfca454Sdh,'cerentFmecSlot':cerentFmecSlot,'cerentFmecSmzE3':cerentFmecSmzE3,'cerentDs3i':cerentDs3i,'cerent15216EdfaChassis':cerent15216EdfaChassis,'cerentAici':cerentAici,'cerentFudcPort':cerentFudcPort,'cerentDccPort':cerentDccPort,'cerentAiciAep':cerentAiciAep,'cerentAiciAie':cerentAiciAie,'cerentXcVxl25GCard':cerentXcVxl25GCard,'cerentE114':cerentE114,'cerentPIMSlot':cerentPIMSlot,'cerentPIM4PPM':cerentPIM4PPM,'cerentPPMSlot':cerentPPMSlot,'cerentPPM1Port':cerentPPM1Port,'cerentOptDemux32RChCard':cerentOptDemux32RChCard,'cerentOptWss32ChCard':cerentOptWss32ChCard,'cerentChassis15310ClOid':cerentChassis15310ClOid,'cerentChassis15310MaAnsiOid':cerentChassis15310MaAnsiOid,'cerentChassis15310MaEtsiOid':cerentChassis15310MaEtsiOid,'cerentBackplane15310ClOid':cerentBackplane15310ClOid,'cerentBackplane15310MaAnsiOid':cerentBackplane15310MaAnsiOid,'cerentBackplane15310MaEtsiOid':cerentBackplane15310MaEtsiOid,'cerentCtxCardOid':cerentCtxCardOid,'cerentBbeLineCardOid':cerentBbeLineCardOid,'cerentWbeLineCardOid':cerentWbeLineCardOid,'cerentCtxSlotOid':cerentCtxSlotOid,'cerentBbeSlotOid':cerentBbeSlotOid,'cerentWbeSlotOid':cerentWbeSlotOid,'cerentAsap4LineCardOid':cerentAsap4LineCardOid,'cerentMrc4LineCardOid':cerentMrc4LineCardOid,'cerent310CE100t8LineCardOid':cerent310CE100t8LineCardOid,'cerent310ML100t8LineCardOid':cerent310ML100t8LineCardOid,'cerentL1PPosPortOid':cerentL1PPosPortOid,'cerentL1PEtherPortOid':cerentL1PEtherPortOid,'fc10gPort':fc10gPort,'ficon1gport':ficon1gport,'ficon2gport':ficon2gport,'cerentOc192Card4Ports':cerentOc192Card4Ports,'cerentOc48Card8Ports':cerentOc48Card8Ports,'cerentOc48Card16Ports':cerentOc48Card16Ports,'cerent15600ControllerSlot':cerent15600ControllerSlot,'cerentTsc':cerentTsc,'cerentChassis600':cerentChassis600,'cerentBackPlane600':cerentBackPlane600,'cerentCap':cerentCap,'cerentCxc':cerentCxc,'cerentCxcSlot':cerentCxcSlot,'cerentFillerCard':cerentFillerCard,'cerentFcmrLineCard':cerentFcmrLineCard,'cerentFcmrPort':cerentFcmrPort,'cerentTxpd10ECard':cerentTxpd10ECard,'cerentMuxpd25G10ECard':cerentMuxpd25G10ECard,'cerentDs3Xm12Card':cerentDs3Xm12Card,'ds3Ec148LineCard':ds3Ec148LineCard,'gfpPort':gfpPort,'cerent454CE100t8LineCardOid':cerent454CE100t8LineCardOid,'bicUniv':bicUniv,'bicUnknown':bicUnknown,'sdiD1VideoPort':sdiD1VideoPort,'hdtvPort':hdtvPort,'passThruPort':passThruPort,'etrCloPort':etrCloPort,'iscPort':iscPort,'fc1gPort':fc1gPort,'fc2gPort':fc2gPort,'mrSlot':mrSlot,'isc3Port':isc3Port,'cerentDs1i14':cerentDs1i14,'cerentFmecDs1i14':cerentFmecDs1i14,'cerentBackPlane454HD':cerentBackPlane454HD,'cerentDs1E156LineCard':cerentDs1E156LineCard,'cerentMrc12LineCard':cerentMrc12LineCard,'cerentOc192XfpLineCard':cerentOc192XfpLineCard,'cerentPowerSupply':cerentPowerSupply,'cerentTxpd10GCard':cerentTxpd10GCard,'cerentTxpd25GCard':cerentTxpd25GCard,'cerentTxpdP25GCard':cerentTxpdP25GCard,'cerentMuxpd25G10GCard':cerentMuxpd25G10GCard,'cerentDwdmClientPort':cerentDwdmClientPort,'cerentDwdmTrunkPort':cerentDwdmTrunkPort,'cerentMuxpdMr25GCard':cerentMuxpdMr25GCard,'cerentMuxpdPMr25GCard':cerentMuxpdPMr25GCard,'cerentMm850Port':cerentMm850Port,'cerentSm1310Port':cerentSm1310Port,'cerentXcVxcCard':cerentXcVxcCard,'cerentXcVxc25GCard':cerentXcVxc25GCard,'cerentOptBstECard':cerentOptBstECard,'fc4gPort':fc4gPort,'ficon4gport':ficon4gport,'isc3Peer1gPort':isc3Peer1gPort,'isc3Peer2gPort':isc3Peer2gPort,'cerentOscmCard':cerentOscmCard,'cerentOscCsmCard':cerentOscCsmCard,'cerentOptPreCard':cerentOptPreCard,'cerentOptBstCard':cerentOptBstCard,'cerentOptDemux32ChCard':cerentOptDemux32ChCard,'cerentOptMux32ChCard':cerentOptMux32ChCard,'cerentOptMuxDemux4ChCard':cerentOptMuxDemux4ChCard,'cerentOadm1ChCard':cerentOadm1ChCard,'cerentOadm2ChCard':cerentOadm2ChCard,'cerentOadm4ChCard':cerentOadm4ChCard,'cerentOadm1BnCard':cerentOadm1BnCard,'cerentOadm4BnCard':cerentOadm4BnCard,'cerentOTSPort':cerentOTSPort,'cerentAOTSPort':cerentAOTSPort,'cerentOMSPort':cerentOMSPort,'cerentOCHPort':cerentOCHPort,'cerentE1P42LineCard':cerentE1P42LineCard,'cerentE1nP42LineCard':cerentE1nP42LineCard,'cerentFmecE1P42TypeUnprotW120Card':cerentFmecE1P42TypeUnprotW120Card,'cerentFmecE1P42Type1To3W120aCard':cerentFmecE1P42Type1To3W120aCard,'cerentFmecE1P42Type1To3W120bCard':cerentFmecE1P42Type1To3W120bCard,'cerentStm1e12LineCard':cerentStm1e12LineCard,'cerentStm1ePort':cerentStm1ePort,'cerentFmec155eUnprotCard':cerentFmec155eUnprotCard,'cerentFmec155e1To1Card':cerentFmec155e1To1Card,'cerentFmec155e1To3Card':cerentFmec155e1To3Card,'cerent15216Edfa3ShelfController':cerent15216Edfa3ShelfController,'cerent15216Edfa3OpticsModule':cerent15216Edfa3OpticsModule,'cerent15216EdfaEtherPort':cerent15216EdfaEtherPort,'cerent15216EdfaSerialPort':cerent15216EdfaSerialPort,'cerentMl100X8LineCard':cerentMl100X8LineCard,'cerentOptBstLCard':cerentOptBstLCard,'cerentOptAmpLCard':cerentOptAmpLCard,'cerentDmx32LCard':cerentDmx32LCard,'cerentWss32LCard':cerentWss32LCard,'cerentMMUCard':cerentMMUCard,'cerentMsIsc100tCard':cerentMsIsc100tCard,'cerentMxpMr10DmeCard':cerentMxpMr10DmeCard,'cerentCE1000Card':cerentCE1000Card,'cerentCE1000EtherPort':cerentCE1000EtherPort,'cerentCE1000PosPort':cerentCE1000PosPort,'cerentPIM1PPM':cerentPIM1PPM,'cerentCEMR454Card':cerentCEMR454Card,'cerentCEMR310Card':cerentCEMR310Card,'cerentCTX2500Card':cerentCTX2500Card,'cerentDs128Ds3EC13LineCard':cerentDs128Ds3EC13LineCard,'cerentDs184Ds3EC13LineCard':cerentDs184Ds3EC13LineCard,'cerentDs3EC16LineCard':cerentDs3EC16LineCard,'cerentBicTelco':cerentBicTelco,'cerentBicCmn':cerentBicCmn,'cerentRanSvcLineCard':cerentRanSvcLineCard,'cerentTxpd10EXCard':cerentTxpd10EXCard,'cerentTxpdP10EXCard':cerentTxpdP10EXCard,'cerentMuxpd25G10XCard':cerentMuxpd25G10XCard,'cerentOptAmp17Card':cerentOptAmp17Card,'cerentOptAmp23Card':cerentOptAmp23Card,'cerentOptWss40ChCard':cerentOptWss40ChCard,'cerentOptMux40ChCard':cerentOptMux40ChCard,'cerentOptDemux40ChCard':cerentOptDemux40ChCard,'cerentOptWxc40ChCard':cerentOptWxc40ChCard,'cerentXpd10GECard':cerentXpd10GECard,'cerentXpdGECard':cerentXpdGECard,'cerentOadm10GCard':cerentOadm10GCard,'cerentOtu2Port':cerentOtu2Port,'cerentWss40LCard':cerentWss40LCard,'cerentMux40LCard':cerentMux40LCard,'cerentDmx40LCard':cerentDmx40LCard,'cerentWxc40LCard':cerentWxc40LCard,'cerentIlkPort':cerentIlkPort,'cerentOc192Card4PortsDwdm':cerentOc192Card4PortsDwdm,'cerentOptAmpCCard':cerentOptAmpCCard,'cerentWssCE40Card':cerentWssCE40Card,'cerentDmxCE40Card':cerentDmxCE40Card,'cerentMxpMr10DmexCard':cerentMxpMr10DmexCard,'cerentMrc25G12LineCard':cerentMrc25G12LineCard,'cerentMrc25G4LineCard':cerentMrc25G4LineCard,'cerentPSMCard':cerentPSMCard,'cerentOptRAmpCCard':cerentOptRAmpCCard,'cerentOptRAmpECard':cerentOptRAmpECard,'cerentXP10G4LineCard':cerentXP10G4LineCard,'cerentE121E3DS33LineCard':cerentE121E3DS33LineCard,'cerentE163E3DS33LineCard':cerentE163E3DS33LineCard,'cerent40SMR1Card':cerent40SMR1Card,'cerent40SMR2Card':cerent40SMR2Card,'cerentOptWxc80ChCard':cerentOptWxc80ChCard,'cerentMd40OddPassiveUnit':cerentMd40OddPassiveUnit,'cerentMd40EvenPassiveUnit':cerentMd40EvenPassiveUnit,'cerentMdId50PassiveUnit':cerentMdId50PassiveUnit,'cerentPP4SMRPassiveUnit':cerentPP4SMRPassiveUnit,'cerentPPMESH4PassiveUnit':cerentPPMESH4PassiveUnit,'cerentPPMESH8PassiveUnit':cerentPPMESH8PassiveUnit,'cerentDcuPassiveUnit':cerentDcuPassiveUnit,'cerentCTDcuPassiveUnit':cerentCTDcuPassiveUnit,'cerentFTDcuPassiveUnit':cerentFTDcuPassiveUnit,'fortyGePort':fortyGePort,'fc8gPort':fc8gPort,'cerentOtu3Port':cerentOtu3Port,'cerentOc768Port':cerentOc768Port,'cerentMechanicalUnit':cerentMechanicalUnit,'cerent40GTxpCard':cerent40GTxpCard,'cerent40GMxpCard':cerent40GMxpCard,'cerent40EMxpCard':cerent40EMxpCard,'cerent15216ID50PassiveUnit':cerent15216ID50PassiveUnit,'cerent40ETxpCard':cerent40ETxpCard,'cerentOptEdfa17Card':cerentOptEdfa17Card,'cerentOptEdfa24Card':cerentOptEdfa24Card,'cerentBackPlaneM2':cerentBackPlaneM2,'cerentChassisM2Ansi':cerentChassisM2Ansi,'cerentChassisM2Etsi':cerentChassisM2Etsi,'cerentArXpCard':cerentArXpCard,'cerentBackPlaneM6':cerentBackPlaneM6,'cerentArMxpCard':cerentArMxpCard,'cerentChassisM6Ansi':cerentChassisM6Ansi,'cerentChassisM6Etsi':cerentChassisM6Etsi,'cerentPowerSupplyUts':cerentPowerSupplyUts,'cerentFlashUts':cerentFlashUts,'cerentAicInUts':cerentAicInUts,'cerentAicOutUts':cerentAicOutUts,'cerentIscEqptUts':cerentIscEqptUts,'cerentUdcVoipEmsUts':cerentUdcVoipEmsUts,'cerentBitsUts':cerentBitsUts,'cerentFanTrayUts':cerentFanTrayUts,'cerentAlarmDryContactUts':cerentAlarmDryContactUts,'cerentUsbUts':cerentUsbUts,'cerentUsbUtsPortCard':cerentUsbUtsPortCard,'cerentIoUts':cerentIoUts,'cerentEcuTray':cerentEcuTray,'cerentTncUtsCard':cerentTncUtsCard,'cerentTscUtsCard':cerentTscUtsCard,'cerentTncTscUtsSlot':cerentTncTscUtsSlot,'cerentEcuSlot':cerentEcuSlot,'cerentMscIscUtsPort':cerentMscIscUtsPort,'cerentOtu1Port':cerentOtu1Port,'cerentTncFePort':cerentTncFePort,'cerentIsc3stp1gPort':cerentIsc3stp1gPort,'cerentIsc3stp2gPort':cerentIsc3stp2gPort,'cerentPtSystem':cerentPtSystem,'cerentSdi3gvideoPort':cerentSdi3gvideoPort,'cerentPtf10GECard':cerentPtf10GECard,'cerentAutoPort':cerentAutoPort,'cerentPt10GECard':cerentPt10GECard,'cerentPtsaGECard':cerentPtsaGECard,'cerentFld303PassiveUnit':cerentFld303PassiveUnit,'cerentFld334PassiveUnit':cerentFld334PassiveUnit,'cerentFld366PassiveUnit':cerentFld366PassiveUnit,'cerentFld397PassiveUnit':cerentFld397PassiveUnit,'cerentFld429PassiveUnit':cerentFld429PassiveUnit,'cerentFld461PassiveUnit':cerentFld461PassiveUnit,'cerentFld493PassiveUnit':cerentFld493PassiveUnit,'cerentFld525PassiveUnit':cerentFld525PassiveUnit,'cerentFld557PassiveUnit':cerentFld557PassiveUnit,'cerentFld589PassiveUnit':cerentFld589PassiveUnit,'cerentFldOscPassiveUnit':cerentFldOscPassiveUnit,'cerentFlcCwdm8PassiveUnit':cerentFlcCwdm8PassiveUnit,'cerentSdsdiPort':cerentSdsdiPort,'cerentHdsdiPort':cerentHdsdiPort,'cerentOptRampCTPCard':cerentOptRampCTPCard,'cerentOptRampCOPCard':cerentOptRampCOPCard,'cerentFbgdcu165PassiveUnit':cerentFbgdcu165PassiveUnit,'cerentFbgdcu331PassiveUnit':cerentFbgdcu331PassiveUnit,'cerentFbgdcu496PassiveUnit':cerentFbgdcu496PassiveUnit,'cerentFbgdcu661PassiveUnit':cerentFbgdcu661PassiveUnit,'cerentFbgdcu826PassiveUnit':cerentFbgdcu826PassiveUnit,'cerentFbgdcu992PassiveUnit':cerentFbgdcu992PassiveUnit,'cerentFbgdcu1157PassiveUnit':cerentFbgdcu1157PassiveUnit,'cerentFbgdcu1322PassiveUnit':cerentFbgdcu1322PassiveUnit,'cerentFbgdcu1653PassiveUnit':cerentFbgdcu1653PassiveUnit,'cerentFbgdcu1983PassiveUnit':cerentFbgdcu1983PassiveUnit,'cerentMd48OddPassiveUnit':cerentMd48OddPassiveUnit,'cerentMd48EvenPassiveUnit':cerentMd48EvenPassiveUnit,'cerentMd48CmPassiveUnit':cerentMd48CmPassiveUnit,'cerentOtu4Port':cerentOtu4Port,'cerentOneHundredGePort':cerentOneHundredGePort,'cerentHundredGigLineCard':cerentHundredGigLineCard,'cerentTENxTENGigLineCard':cerentTENxTENGigLineCard,'cerentCfpLineCard':cerentCfpLineCard,'cerentOTLPort':cerentOTLPort,'cerentHundredgigPlim':cerentHundredgigPlim,'cerentWseLineCard':cerentWseLineCard,'cerentArXpeCard':cerentArXpeCard,'cerentEDRA126C':cerentEDRA126C,'cerentEDRA135C':cerentEDRA135C,'cerentEDRA226C':cerentEDRA226C,'cerentEDRA235C':cerentEDRA235C,'cerentWXC16FSLineCard':cerentWXC16FSLineCard,'cerentPassiv1x16COFSC':cerentPassiv1x16COFSC,'cerentPassive4x4COFSC':cerentPassive4x4COFSC,'cerentPassiveMODDEG5':cerentPassiveMODDEG5,'cerentPassiveMODUPG4':cerentPassiveMODUPG4,'cerentPassiveMPO8LCADPT':cerentPassiveMPO8LCADPT,'cerentPassiveASTEDFA':cerentPassiveASTEDFA,'cerentCPAK100GLineCard':cerentCPAK100GLineCard,'cerentGeneric':cerentGeneric,'cerentGenericDummyObjects':cerentGenericDummyObjects,'cerentExperimental':cerentExperimental,'cerentAgentCapabilities':cerentAgentCapabilities,'cerentRequirements':cerentRequirements,'cerentProducts':cerentProducts})
+#
+# PySNMP MIB module CERENT-GLOBAL-REGISTRY (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CERENT-GLOBAL-REGISTRY
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:31 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+cerentGlobalRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 10, 10))
+cerentGlobalRegModule.setRevisions(('1904-10-01 00:00',))
+if mibBuilder.loadTexts: cerentGlobalRegModule.setLastUpdated('0410010000Z')
+if mibBuilder.loadTexts: cerentGlobalRegModule.setOrganization('Cisco Systems')
+cerent = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607))
+if mibBuilder.loadTexts: cerent.setStatus('current')
+cerentRegistry = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1))
+if mibBuilder.loadTexts: cerentRegistry.setStatus('current')
+cerentGeneric = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 2))
+if mibBuilder.loadTexts: cerentGeneric.setStatus('current')
+cerentGenericDummyObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 2, 1))
+if mibBuilder.loadTexts: cerentGenericDummyObjects.setStatus('current')
+cerentExperimental = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 3))
+if mibBuilder.loadTexts: cerentExperimental.setStatus('current')
+cerentAgentCapabilities = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 4))
+if mibBuilder.loadTexts: cerentAgentCapabilities.setStatus('current')
+cerentRequirements = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 5))
+if mibBuilder.loadTexts: cerentRequirements.setStatus('current')
+cerentProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 6))
+if mibBuilder.loadTexts: cerentProducts.setStatus('current')
+cerentModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 10))
+if mibBuilder.loadTexts: cerentModules.setStatus('current')
+cerentCommunicationEquipment = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 20))
+if mibBuilder.loadTexts: cerentCommunicationEquipment.setStatus('current')
+cerentComponents = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30))
+if mibBuilder.loadTexts: cerentComponents.setStatus('current')
+cerentADMs = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 20, 10))
+if mibBuilder.loadTexts: cerentADMs.setStatus('current')
+cerentDwdmDevices = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 20, 20))
+if mibBuilder.loadTexts: cerentDwdmDevices.setStatus('current')
+cerent454Node = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 20, 10, 10))
+if mibBuilder.loadTexts: cerent454Node.setStatus('current')
+cerent327Node = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 20, 10, 20))
+if mibBuilder.loadTexts: cerent327Node.setStatus('current')
+cerent600Node = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 20, 10, 30))
+if mibBuilder.loadTexts: cerent600Node.setStatus('current')
+cerent310Node = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 20, 10, 40))
+if mibBuilder.loadTexts: cerent310Node.setStatus('current')
+cerent310MaAnsiNode = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 20, 10, 50))
+if mibBuilder.loadTexts: cerent310MaAnsiNode.setStatus('current')
+cerent310MaEtsiNode = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 20, 10, 60))
+if mibBuilder.loadTexts: cerent310MaEtsiNode.setStatus('current')
+cerent454M6Node = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 20, 10, 70))
+if mibBuilder.loadTexts: cerent454M6Node.setStatus('current')
+cerent454M2Node = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 20, 10, 80))
+if mibBuilder.loadTexts: cerent454M2Node.setStatus('current')
+cerent15216OpmNode = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 20, 20, 10))
+if mibBuilder.loadTexts: cerent15216OpmNode.setStatus('current')
+cerent15216EdfaNode = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 20, 20, 20))
+if mibBuilder.loadTexts: cerent15216EdfaNode.setStatus('current')
+cerentOtherComponent = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1))
+if mibBuilder.loadTexts: cerentOtherComponent.setStatus('current')
+cerentTcc = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 10))
+if mibBuilder.loadTexts: cerentTcc.setStatus('current')
+cerentXc = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 20))
+if mibBuilder.loadTexts: cerentXc.setStatus('current')
+cerentDs114 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 30))
+if mibBuilder.loadTexts: cerentDs114.setStatus('current')
+cerentDs1n14 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 40))
+if mibBuilder.loadTexts: cerentDs1n14.setStatus('current')
+cerentDs312 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 50))
+if mibBuilder.loadTexts: cerentDs312.setStatus('current')
+cerentOc3ir = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 60))
+if mibBuilder.loadTexts: cerentOc3ir.setStatus('current')
+cerentOc12ir = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 70))
+if mibBuilder.loadTexts: cerentOc12ir.setStatus('current')
+cerentOc12lr1310 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 80))
+if mibBuilder.loadTexts: cerentOc12lr1310.setStatus('current')
+cerentOc48ir = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 90))
+if mibBuilder.loadTexts: cerentOc48ir.setStatus('current')
+cerentOc48lr = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 100))
+if mibBuilder.loadTexts: cerentOc48lr.setStatus('current')
+cerentFanTray = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 110))
+if mibBuilder.loadTexts: cerentFanTray.setStatus('current')
+cerentFanSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 120))
+if mibBuilder.loadTexts: cerentFanSlot.setStatus('current')
+cerentIoSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 130))
+if mibBuilder.loadTexts: cerentIoSlot.setStatus('current')
+cerentXcSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 140))
+if mibBuilder.loadTexts: cerentXcSlot.setStatus('current')
+cerentAicSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 150))
+if mibBuilder.loadTexts: cerentAicSlot.setStatus('current')
+cerentTccSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 160))
+if mibBuilder.loadTexts: cerentTccSlot.setStatus('current')
+cerentBackPlane454 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 170))
+if mibBuilder.loadTexts: cerentBackPlane454.setStatus('current')
+cerentChassis454 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 180))
+if mibBuilder.loadTexts: cerentChassis454.setStatus('current')
+cerentPowerSupply = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1500))
+if mibBuilder.loadTexts: cerentPowerSupply.setStatus('current')
+cerentDs3nCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 190))
+if mibBuilder.loadTexts: cerentDs3nCard.setStatus('current')
+cerentDs3XmCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 200))
+if mibBuilder.loadTexts: cerentDs3XmCard.setStatus('current')
+cerentOc3Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 210))
+if mibBuilder.loadTexts: cerentOc3Card.setStatus('current')
+cerentOc3OctaCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 212))
+if mibBuilder.loadTexts: cerentOc3OctaCard.setStatus('current')
+cerentOc12Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 220))
+if mibBuilder.loadTexts: cerentOc12Card.setStatus('current')
+cerentOc48Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 230))
+if mibBuilder.loadTexts: cerentOc48Card.setStatus('current')
+cerentEc1Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 240))
+if mibBuilder.loadTexts: cerentEc1Card.setStatus('current')
+cerentEc1nCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 250))
+if mibBuilder.loadTexts: cerentEc1nCard.setStatus('current')
+cerentEpos100Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 260))
+if mibBuilder.loadTexts: cerentEpos100Card.setStatus('current')
+cerentEpos1000Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 270))
+if mibBuilder.loadTexts: cerentEpos1000Card.setStatus('current')
+cerentAicCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 280))
+if mibBuilder.loadTexts: cerentAicCard.setStatus('current')
+cerentXcVtCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 290))
+if mibBuilder.loadTexts: cerentXcVtCard.setStatus('current')
+cerentEther1000Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 300))
+if mibBuilder.loadTexts: cerentEther1000Port.setStatus('current')
+cerentEther100Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 310))
+if mibBuilder.loadTexts: cerentEther100Port.setStatus('current')
+cerentDs1VtMappedPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 320))
+if mibBuilder.loadTexts: cerentDs1VtMappedPort.setStatus('current')
+cerentDs3XmPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 330))
+if mibBuilder.loadTexts: cerentDs3XmPort.setStatus('current')
+cerentDs3Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 340))
+if mibBuilder.loadTexts: cerentDs3Port.setStatus('current')
+cerentEc1Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 350))
+if mibBuilder.loadTexts: cerentEc1Port.setStatus('current')
+cerentOc3Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 360))
+if mibBuilder.loadTexts: cerentOc3Port.setStatus('current')
+cerentOc12Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 370))
+if mibBuilder.loadTexts: cerentOc12Port.setStatus('current')
+cerentDs1E156LineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1470))
+if mibBuilder.loadTexts: cerentDs1E156LineCard.setStatus('current')
+cerentMrc12LineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1480))
+if mibBuilder.loadTexts: cerentMrc12LineCard.setStatus('current')
+cerentOc192XfpLineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1490))
+if mibBuilder.loadTexts: cerentOc192XfpLineCard.setStatus('current')
+cerentOc48Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 380))
+if mibBuilder.loadTexts: cerentOc48Port.setStatus('current')
+cerentOrderwirePort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 390))
+if mibBuilder.loadTexts: cerentOrderwirePort.setStatus('current')
+cerentSensorComponent = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 400))
+if mibBuilder.loadTexts: cerentSensorComponent.setStatus('current')
+cerentChassis15327 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 410))
+if mibBuilder.loadTexts: cerentChassis15327.setStatus('current')
+cerentBackPlane15327 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 420))
+if mibBuilder.loadTexts: cerentBackPlane15327.setStatus('current')
+cerentXtcCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 430))
+if mibBuilder.loadTexts: cerentXtcCard.setStatus('current')
+cerentMicCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 440))
+if mibBuilder.loadTexts: cerentMicCard.setStatus('current')
+cerentMicExtCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 450))
+if mibBuilder.loadTexts: cerentMicExtCard.setStatus('current')
+cerentXtcSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 460))
+if mibBuilder.loadTexts: cerentXtcSlot.setStatus('current')
+cerentMicSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 470))
+if mibBuilder.loadTexts: cerentMicSlot.setStatus('current')
+cerentVicEncoderLineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 480))
+if mibBuilder.loadTexts: cerentVicEncoderLineCard.setStatus('current')
+cerentVicDecoderLineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 490))
+if mibBuilder.loadTexts: cerentVicDecoderLineCard.setStatus('current')
+cerentVicEncoderPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 500))
+if mibBuilder.loadTexts: cerentVicEncoderPort.setStatus('current')
+cerentVicDecoderPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 510))
+if mibBuilder.loadTexts: cerentVicDecoderPort.setStatus('current')
+cerentVicTestPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 520))
+if mibBuilder.loadTexts: cerentVicTestPort.setStatus('current')
+cerentAip = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 530))
+if mibBuilder.loadTexts: cerentAip.setStatus('current')
+cerentBicSmb = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 540))
+if mibBuilder.loadTexts: cerentBicSmb.setStatus('current')
+cerentBicBnc = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 550))
+if mibBuilder.loadTexts: cerentBicBnc.setStatus('current')
+cerentFcb = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 560))
+if mibBuilder.loadTexts: cerentFcb.setStatus('current')
+cerentEnvironmentControl = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 570))
+if mibBuilder.loadTexts: cerentEnvironmentControl.setStatus('current')
+cerentLedIndicator = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 580))
+if mibBuilder.loadTexts: cerentLedIndicator.setStatus('current')
+cerentAudibleAlarm = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 590))
+if mibBuilder.loadTexts: cerentAudibleAlarm.setStatus('current')
+cerentXc10g = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 600))
+if mibBuilder.loadTexts: cerentXc10g.setStatus('current')
+cerentOc192Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 610))
+if mibBuilder.loadTexts: cerentOc192Card.setStatus('current')
+cerentOc192Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 620))
+if mibBuilder.loadTexts: cerentOc192Port.setStatus('current')
+cerentDs3eCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 630))
+if mibBuilder.loadTexts: cerentDs3eCard.setStatus('current')
+cerentDs3neCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 640))
+if mibBuilder.loadTexts: cerentDs3neCard.setStatus('current')
+cerent15216OpmChassis = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 650))
+if mibBuilder.loadTexts: cerent15216OpmChassis.setStatus('current')
+cerent15216OpmBackPlane = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 660))
+if mibBuilder.loadTexts: cerent15216OpmBackPlane.setStatus('current')
+cerent15216OpmSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 670))
+if mibBuilder.loadTexts: cerent15216OpmSlot.setStatus('current')
+cerent15216OpmController = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 680))
+if mibBuilder.loadTexts: cerent15216OpmController.setStatus('current')
+cerent15216OpmSpectrometer = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 690))
+if mibBuilder.loadTexts: cerent15216OpmSpectrometer.setStatus('current')
+cerent15216OpmOpticalSwitch = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 700))
+if mibBuilder.loadTexts: cerent15216OpmOpticalSwitch.setStatus('current')
+cerent15216OpmOpticalPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 710))
+if mibBuilder.loadTexts: cerent15216OpmOpticalPort.setStatus('current')
+cerent15216OpmSerialPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 720))
+if mibBuilder.loadTexts: cerent15216OpmSerialPort.setStatus('current')
+cerent15216OpmLedIndicator = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 730))
+if mibBuilder.loadTexts: cerent15216OpmLedIndicator.setStatus('current')
+cerent15216OpmRelay = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 740))
+if mibBuilder.loadTexts: cerent15216OpmRelay.setStatus('current')
+cerent15216OpmPowerSupply = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 750))
+if mibBuilder.loadTexts: cerent15216OpmPowerSupply.setStatus('current')
+cerent15216OpmPcmciaSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 760))
+if mibBuilder.loadTexts: cerent15216OpmPcmciaSlot.setStatus('current')
+cerentOc12QuadCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 770))
+if mibBuilder.loadTexts: cerentOc12QuadCard.setStatus('current')
+cerentG1000QuadCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 780))
+if mibBuilder.loadTexts: cerentG1000QuadCard.setStatus('deprecated')
+cerentG1000Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 790))
+if mibBuilder.loadTexts: cerentG1000Port.setStatus('current')
+cerentMlEtherPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 791))
+if mibBuilder.loadTexts: cerentMlEtherPort.setStatus('current')
+cerentMlPosPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 792))
+if mibBuilder.loadTexts: cerentMlPosPort.setStatus('current')
+cerentG1000GenericCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 800))
+if mibBuilder.loadTexts: cerentG1000GenericCard.setStatus('current')
+cerentML100GenericCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 801))
+if mibBuilder.loadTexts: cerentML100GenericCard.setStatus('current')
+cerentML1000GenericCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 802))
+if mibBuilder.loadTexts: cerentML1000GenericCard.setStatus('current')
+cerentG1K4Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 810))
+if mibBuilder.loadTexts: cerentG1K4Card.setStatus('current')
+cerentOc192IrCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 820))
+if mibBuilder.loadTexts: cerentOc192IrCard.setStatus('current')
+cerentOc192LrCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 830))
+if mibBuilder.loadTexts: cerentOc192LrCard.setStatus('current')
+cerentOc192ItuCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 840))
+if mibBuilder.loadTexts: cerentOc192ItuCard.setStatus('current')
+cerentOc3n1Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 850))
+if mibBuilder.loadTexts: cerentOc3n1Card.setStatus('current')
+ape = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 860))
+if mibBuilder.loadTexts: ape.setStatus('current')
+oneGePort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 870))
+if mibBuilder.loadTexts: oneGePort.setStatus('current')
+tenGePort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 880))
+if mibBuilder.loadTexts: tenGePort.setStatus('current')
+esconPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 890))
+if mibBuilder.loadTexts: esconPort.setStatus('current')
+dv6000Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 900))
+if mibBuilder.loadTexts: dv6000Port.setStatus('current')
+cerentE1n14 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 910))
+if mibBuilder.loadTexts: cerentE1n14.setStatus('current')
+cerentBackPlane454SDH = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 911))
+if mibBuilder.loadTexts: cerentBackPlane454SDH.setStatus('current')
+cerentChassis454SDH = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 912))
+if mibBuilder.loadTexts: cerentChassis454SDH.setStatus('current')
+cerentDs3inCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 913))
+if mibBuilder.loadTexts: cerentDs3inCard.setStatus('current')
+cerentE312Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 914))
+if mibBuilder.loadTexts: cerentE312Card.setStatus('current')
+cerentE1Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 915))
+if mibBuilder.loadTexts: cerentE1Port.setStatus('current')
+cerentDs3iPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 916))
+if mibBuilder.loadTexts: cerentDs3iPort.setStatus('current')
+cerentE3Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 917))
+if mibBuilder.loadTexts: cerentE3Port.setStatus('current')
+cerentAlmPwrSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 918))
+if mibBuilder.loadTexts: cerentAlmPwrSlot.setStatus('current')
+cerentCrftTmgSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 919))
+if mibBuilder.loadTexts: cerentCrftTmgSlot.setStatus('current')
+cerentAlmPwr = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 920))
+if mibBuilder.loadTexts: cerentAlmPwr.setStatus('current')
+cerentCrftTmg = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 921))
+if mibBuilder.loadTexts: cerentCrftTmg.setStatus('current')
+cerentFmecDb = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 922))
+if mibBuilder.loadTexts: cerentFmecDb.setStatus('current')
+cerentFmecSmzE1 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 923))
+if mibBuilder.loadTexts: cerentFmecSmzE1.setStatus('current')
+cerentFmecBlank = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 924))
+if mibBuilder.loadTexts: cerentFmecBlank.setStatus('current')
+cerentXcVxlCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 925))
+if mibBuilder.loadTexts: cerentXcVxlCard.setStatus('current')
+cerentEfca454Sdh = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 926))
+if mibBuilder.loadTexts: cerentEfca454Sdh.setStatus('current')
+cerentFmecSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 927))
+if mibBuilder.loadTexts: cerentFmecSlot.setStatus('current')
+cerentFmecSmzE3 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 928))
+if mibBuilder.loadTexts: cerentFmecSmzE3.setStatus('current')
+cerentDs3i = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 929))
+if mibBuilder.loadTexts: cerentDs3i.setStatus('current')
+cerent15216EdfaChassis = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 930))
+if mibBuilder.loadTexts: cerent15216EdfaChassis.setStatus('current')
+cerentAici = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 931))
+if mibBuilder.loadTexts: cerentAici.setStatus('current')
+cerentFudcPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 932))
+if mibBuilder.loadTexts: cerentFudcPort.setStatus('current')
+cerentDccPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 933))
+if mibBuilder.loadTexts: cerentDccPort.setStatus('current')
+cerentAiciAep = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 934))
+if mibBuilder.loadTexts: cerentAiciAep.setStatus('current')
+cerentAiciAie = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 935))
+if mibBuilder.loadTexts: cerentAiciAie.setStatus('current')
+cerentXcVxl25GCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 936))
+if mibBuilder.loadTexts: cerentXcVxl25GCard.setStatus('current')
+cerentE114 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 937))
+if mibBuilder.loadTexts: cerentE114.setStatus('current')
+cerentPIMSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 940))
+if mibBuilder.loadTexts: cerentPIMSlot.setStatus('current')
+cerentPIM4PPM = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 950))
+if mibBuilder.loadTexts: cerentPIM4PPM.setStatus('current')
+cerentPPMSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 960))
+if mibBuilder.loadTexts: cerentPPMSlot.setStatus('current')
+cerentPPM1Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 970))
+if mibBuilder.loadTexts: cerentPPM1Port.setStatus('current')
+cerentChassis15310ClOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1000))
+if mibBuilder.loadTexts: cerentChassis15310ClOid.setStatus('current')
+cerentChassis15310MaAnsiOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1010))
+if mibBuilder.loadTexts: cerentChassis15310MaAnsiOid.setStatus('current')
+cerentChassis15310MaEtsiOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1020))
+if mibBuilder.loadTexts: cerentChassis15310MaEtsiOid.setStatus('current')
+cerentBackplane15310ClOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1030))
+if mibBuilder.loadTexts: cerentBackplane15310ClOid.setStatus('current')
+cerentBackplane15310MaAnsiOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1040))
+if mibBuilder.loadTexts: cerentBackplane15310MaAnsiOid.setStatus('current')
+cerentBackplane15310MaEtsiOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1050))
+if mibBuilder.loadTexts: cerentBackplane15310MaEtsiOid.setStatus('current')
+cerentCtxCardOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1060))
+if mibBuilder.loadTexts: cerentCtxCardOid.setStatus('current')
+cerentBbeLineCardOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1070))
+if mibBuilder.loadTexts: cerentBbeLineCardOid.setStatus('current')
+cerentWbeLineCardOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1080))
+if mibBuilder.loadTexts: cerentWbeLineCardOid.setStatus('current')
+cerentCtxSlotOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1090))
+if mibBuilder.loadTexts: cerentCtxSlotOid.setStatus('current')
+cerentBbeSlotOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1100))
+if mibBuilder.loadTexts: cerentBbeSlotOid.setStatus('current')
+cerentWbeSlotOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1110))
+if mibBuilder.loadTexts: cerentWbeSlotOid.setStatus('current')
+cerentAsap4LineCardOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1120))
+if mibBuilder.loadTexts: cerentAsap4LineCardOid.setStatus('current')
+cerentMrc4LineCardOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1130))
+if mibBuilder.loadTexts: cerentMrc4LineCardOid.setStatus('current')
+cerent310CE100t8LineCardOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1140))
+if mibBuilder.loadTexts: cerent310CE100t8LineCardOid.setStatus('current')
+cerent310ML100t8LineCardOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1150))
+if mibBuilder.loadTexts: cerent310ML100t8LineCardOid.setStatus('current')
+cerentL1PPosPortOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1160))
+if mibBuilder.loadTexts: cerentL1PPosPortOid.setStatus('current')
+cerentL1PEtherPortOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1170))
+if mibBuilder.loadTexts: cerentL1PEtherPortOid.setStatus('current')
+fc10gPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1180))
+if mibBuilder.loadTexts: fc10gPort.setStatus('current')
+ficon1gport = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1190))
+if mibBuilder.loadTexts: ficon1gport.setStatus('current')
+ficon2gport = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1200))
+if mibBuilder.loadTexts: ficon2gport.setStatus('current')
+ficon4gport = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1710))
+if mibBuilder.loadTexts: ficon4gport.setStatus('current')
+cerentOc192Card4Ports = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1210))
+if mibBuilder.loadTexts: cerentOc192Card4Ports.setStatus('current')
+cerentOc48Card8Ports = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1215))
+if mibBuilder.loadTexts: cerentOc48Card8Ports.setStatus('current')
+cerentOc48Card16Ports = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1220))
+if mibBuilder.loadTexts: cerentOc48Card16Ports.setStatus('current')
+cerent15600ControllerSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1225))
+if mibBuilder.loadTexts: cerent15600ControllerSlot.setStatus('current')
+cerentTsc = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1230))
+if mibBuilder.loadTexts: cerentTsc.setStatus('current')
+cerentChassis600 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1235))
+if mibBuilder.loadTexts: cerentChassis600.setStatus('current')
+cerentBackPlane600 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1240))
+if mibBuilder.loadTexts: cerentBackPlane600.setStatus('current')
+cerentCap = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1245))
+if mibBuilder.loadTexts: cerentCap.setStatus('current')
+cerentCxc = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1250))
+if mibBuilder.loadTexts: cerentCxc.setStatus('current')
+cerentCxcSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1255))
+if mibBuilder.loadTexts: cerentCxcSlot.setStatus('current')
+cerentFillerCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1260))
+if mibBuilder.loadTexts: cerentFillerCard.setStatus('current')
+cerentFcmrLineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1265))
+if mibBuilder.loadTexts: cerentFcmrLineCard.setStatus('current')
+cerentFcmrPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1270))
+if mibBuilder.loadTexts: cerentFcmrPort.setStatus('current')
+cerentDs3Xm12Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1285))
+if mibBuilder.loadTexts: cerentDs3Xm12Card.setStatus('current')
+ds3Ec148LineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1290))
+if mibBuilder.loadTexts: ds3Ec148LineCard.setStatus('current')
+gfpPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1300))
+if mibBuilder.loadTexts: gfpPort.setStatus('current')
+cerent454CE100t8LineCardOid = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1310))
+if mibBuilder.loadTexts: cerent454CE100t8LineCardOid.setStatus('current')
+bicUniv = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1320))
+if mibBuilder.loadTexts: bicUniv.setStatus('current')
+bicUnknown = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1330))
+if mibBuilder.loadTexts: bicUnknown.setStatus('current')
+sdiD1VideoPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1340))
+if mibBuilder.loadTexts: sdiD1VideoPort.setStatus('current')
+hdtvPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1350))
+if mibBuilder.loadTexts: hdtvPort.setStatus('current')
+passThruPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1360))
+if mibBuilder.loadTexts: passThruPort.setStatus('current')
+etrCloPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1370))
+if mibBuilder.loadTexts: etrCloPort.setStatus('current')
+iscPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1380))
+if mibBuilder.loadTexts: iscPort.setStatus('current')
+fc1gPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1390))
+if mibBuilder.loadTexts: fc1gPort.setStatus('current')
+fc2gPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1400))
+if mibBuilder.loadTexts: fc2gPort.setStatus('current')
+fc4gPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1700))
+if mibBuilder.loadTexts: fc4gPort.setStatus('current')
+mrSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1410))
+if mibBuilder.loadTexts: mrSlot.setStatus('current')
+isc3Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1420))
+if mibBuilder.loadTexts: isc3Port.setStatus('current')
+isc3Peer1gPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1720))
+if mibBuilder.loadTexts: isc3Peer1gPort.setStatus('current')
+isc3Peer2gPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1730))
+if mibBuilder.loadTexts: isc3Peer2gPort.setStatus('current')
+cerentDs1i14 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1430))
+if mibBuilder.loadTexts: cerentDs1i14.setStatus('current')
+cerentFmecDs1i14 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1440))
+if mibBuilder.loadTexts: cerentFmecDs1i14.setStatus('current')
+cerentBackPlane454HD = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1450))
+if mibBuilder.loadTexts: cerentBackPlane454HD.setStatus('current')
+cerentTxpd10GCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1550))
+if mibBuilder.loadTexts: cerentTxpd10GCard.setStatus('current')
+cerentTxpd10ECard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1275))
+if mibBuilder.loadTexts: cerentTxpd10ECard.setStatus('current')
+cerentTxpd25GCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1560))
+if mibBuilder.loadTexts: cerentTxpd25GCard.setStatus('current')
+cerentTxpdP25GCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1570))
+if mibBuilder.loadTexts: cerentTxpdP25GCard.setStatus('current')
+cerentTxpd10EXCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4160))
+if mibBuilder.loadTexts: cerentTxpd10EXCard.setStatus('current')
+cerentOtu2Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4220))
+if mibBuilder.loadTexts: cerentOtu2Port.setStatus('current')
+cerentTxpdP10EXCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4165))
+if mibBuilder.loadTexts: cerentTxpdP10EXCard.setStatus('current')
+cerentMuxpd25G10GCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1580))
+if mibBuilder.loadTexts: cerentMuxpd25G10GCard.setStatus('current')
+cerentMuxpd25G10ECard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1280))
+if mibBuilder.loadTexts: cerentMuxpd25G10ECard.setStatus('current')
+cerentMuxpd25G10XCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4170))
+if mibBuilder.loadTexts: cerentMuxpd25G10XCard.setStatus('current')
+cerentDwdmClientPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1590))
+if mibBuilder.loadTexts: cerentDwdmClientPort.setStatus('current')
+cerentDwdmTrunkPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1600))
+if mibBuilder.loadTexts: cerentDwdmTrunkPort.setStatus('current')
+cerentMuxpdMr25GCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1610))
+if mibBuilder.loadTexts: cerentMuxpdMr25GCard.setStatus('current')
+cerentMuxpdPMr25GCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1620))
+if mibBuilder.loadTexts: cerentMuxpdPMr25GCard.setStatus('current')
+cerentMxpMr10DmexCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4270))
+if mibBuilder.loadTexts: cerentMxpMr10DmexCard.setStatus('current')
+cerentXpdGECard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4210))
+if mibBuilder.loadTexts: cerentXpdGECard.setStatus('current')
+cerentXpd10GECard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4205))
+if mibBuilder.loadTexts: cerentXpd10GECard.setStatus('current')
+cerentMm850Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1630))
+if mibBuilder.loadTexts: cerentMm850Port.setStatus('current')
+cerentSm1310Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1640))
+if mibBuilder.loadTexts: cerentSm1310Port.setStatus('current')
+cerentXcVxcCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1670))
+if mibBuilder.loadTexts: cerentXcVxcCard.setStatus('current')
+cerentXcVxc25GCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1680))
+if mibBuilder.loadTexts: cerentXcVxc25GCard.setStatus('current')
+cerentOptBstECard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 1690))
+if mibBuilder.loadTexts: cerentOptBstECard.setStatus('current')
+cerentE1P42LineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4000))
+if mibBuilder.loadTexts: cerentE1P42LineCard.setStatus('current')
+cerentE1nP42LineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4005))
+if mibBuilder.loadTexts: cerentE1nP42LineCard.setStatus('current')
+cerentFmecE1P42TypeUnprotW120Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4010))
+if mibBuilder.loadTexts: cerentFmecE1P42TypeUnprotW120Card.setStatus('current')
+cerentFmecE1P42Type1To3W120aCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4015))
+if mibBuilder.loadTexts: cerentFmecE1P42Type1To3W120aCard.setStatus('current')
+cerentFmecE1P42Type1To3W120bCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4020))
+if mibBuilder.loadTexts: cerentFmecE1P42Type1To3W120bCard.setStatus('current')
+cerentStm1e12LineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4025))
+if mibBuilder.loadTexts: cerentStm1e12LineCard.setStatus('current')
+cerentStm1ePort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4030))
+if mibBuilder.loadTexts: cerentStm1ePort.setStatus('current')
+cerentFmec155eUnprotCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4035))
+if mibBuilder.loadTexts: cerentFmec155eUnprotCard.setStatus('current')
+cerentFmec155e1To1Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4040))
+if mibBuilder.loadTexts: cerentFmec155e1To1Card.setStatus('current')
+cerentFmec155e1To3Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4045))
+if mibBuilder.loadTexts: cerentFmec155e1To3Card.setStatus('current')
+cerent15216Edfa3ShelfController = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4050))
+if mibBuilder.loadTexts: cerent15216Edfa3ShelfController.setStatus('current')
+cerent15216Edfa3OpticsModule = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4051))
+if mibBuilder.loadTexts: cerent15216Edfa3OpticsModule.setStatus('current')
+cerent15216EdfaEtherPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4052))
+if mibBuilder.loadTexts: cerent15216EdfaEtherPort.setStatus('current')
+cerent15216EdfaSerialPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4053))
+if mibBuilder.loadTexts: cerent15216EdfaSerialPort.setStatus('current')
+cerentMl100X8LineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4055))
+if mibBuilder.loadTexts: cerentMl100X8LineCard.setStatus('current')
+cerentOscmCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3200))
+if mibBuilder.loadTexts: cerentOscmCard.setStatus('current')
+cerentOscCsmCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3205))
+if mibBuilder.loadTexts: cerentOscCsmCard.setStatus('current')
+cerentOptPreCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3210))
+if mibBuilder.loadTexts: cerentOptPreCard.setStatus('current')
+cerentOptBstCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3215))
+if mibBuilder.loadTexts: cerentOptBstCard.setStatus('current')
+cerentOptAmp17Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4175))
+if mibBuilder.loadTexts: cerentOptAmp17Card.setStatus('current')
+cerentOptAmp23Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4180))
+if mibBuilder.loadTexts: cerentOptAmp23Card.setStatus('current')
+cerentOptDemux32ChCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3220))
+if mibBuilder.loadTexts: cerentOptDemux32ChCard.setStatus('current')
+cerentOptDemux40ChCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4195))
+if mibBuilder.loadTexts: cerentOptDemux40ChCard.setStatus('current')
+cerentOptMux32ChCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3225))
+if mibBuilder.loadTexts: cerentOptMux32ChCard.setStatus('current')
+cerentOptMux40ChCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4190))
+if mibBuilder.loadTexts: cerentOptMux40ChCard.setStatus('current')
+cerentOptWxc40ChCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4200))
+if mibBuilder.loadTexts: cerentOptWxc40ChCard.setStatus('current')
+cerentOptMuxDemux4ChCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3230))
+if mibBuilder.loadTexts: cerentOptMuxDemux4ChCard.setStatus('current')
+cerentOadm1ChCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3235))
+if mibBuilder.loadTexts: cerentOadm1ChCard.setStatus('current')
+cerentOadm2ChCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3240))
+if mibBuilder.loadTexts: cerentOadm2ChCard.setStatus('current')
+cerentOadm4ChCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3245))
+if mibBuilder.loadTexts: cerentOadm4ChCard.setStatus('current')
+cerentOadm1BnCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3250))
+if mibBuilder.loadTexts: cerentOadm1BnCard.setStatus('current')
+cerentOadm10GCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4215))
+if mibBuilder.loadTexts: cerentOadm10GCard.setStatus('current')
+cerentOadm4BnCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3255))
+if mibBuilder.loadTexts: cerentOadm4BnCard.setStatus('current')
+cerentOptDemux32RChCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 980))
+if mibBuilder.loadTexts: cerentOptDemux32RChCard.setStatus('current')
+cerentOptWss32ChCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 990))
+if mibBuilder.loadTexts: cerentOptWss32ChCard.setStatus('current')
+cerentOptWss40ChCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4185))
+if mibBuilder.loadTexts: cerentOptWss40ChCard.setStatus('current')
+cerentOTSPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3260))
+if mibBuilder.loadTexts: cerentOTSPort.setStatus('current')
+cerentAOTSPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3265))
+if mibBuilder.loadTexts: cerentAOTSPort.setStatus('current')
+cerentOMSPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3270))
+if mibBuilder.loadTexts: cerentOMSPort.setStatus('current')
+cerentOCHPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 3275))
+if mibBuilder.loadTexts: cerentOCHPort.setStatus('current')
+cerentOptBstLCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4060))
+if mibBuilder.loadTexts: cerentOptBstLCard.setStatus('current')
+cerentOptAmpLCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4065))
+if mibBuilder.loadTexts: cerentOptAmpLCard.setStatus('current')
+cerentOptAmpCCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4255))
+if mibBuilder.loadTexts: cerentOptAmpCCard.setStatus('current')
+cerentOptRAmpCCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4285))
+if mibBuilder.loadTexts: cerentOptRAmpCCard.setStatus('current')
+cerentOptRAmpECard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4287))
+if mibBuilder.loadTexts: cerentOptRAmpECard.setStatus('current')
+cerentDmx32LCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4070))
+if mibBuilder.loadTexts: cerentDmx32LCard.setStatus('current')
+cerentWss32LCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4075))
+if mibBuilder.loadTexts: cerentWss32LCard.setStatus('current')
+cerentWss40LCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4225))
+if mibBuilder.loadTexts: cerentWss40LCard.setStatus('current')
+cerentWssCE40Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4260))
+if mibBuilder.loadTexts: cerentWssCE40Card.setStatus('current')
+cerentMux40LCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4230))
+if mibBuilder.loadTexts: cerentMux40LCard.setStatus('current')
+cerentDmx40LCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4235))
+if mibBuilder.loadTexts: cerentDmx40LCard.setStatus('current')
+cerentDmxCE40Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4265))
+if mibBuilder.loadTexts: cerentDmxCE40Card.setStatus('current')
+cerentWxc40LCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4240))
+if mibBuilder.loadTexts: cerentWxc40LCard.setStatus('current')
+cerentMMUCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4080))
+if mibBuilder.loadTexts: cerentMMUCard.setStatus('current')
+cerentPSMCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4282))
+if mibBuilder.loadTexts: cerentPSMCard.setStatus('current')
+cerentXP10G4LineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4290))
+if mibBuilder.loadTexts: cerentXP10G4LineCard.setStatus('current')
+cerent40SMR1Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4305))
+if mibBuilder.loadTexts: cerent40SMR1Card.setStatus('current')
+cerent40SMR2Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4310))
+if mibBuilder.loadTexts: cerent40SMR2Card.setStatus('current')
+cerentOptWxc80ChCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4315))
+if mibBuilder.loadTexts: cerentOptWxc80ChCard.setStatus('current')
+cerentBackPlaneM2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4510))
+if mibBuilder.loadTexts: cerentBackPlaneM2.setStatus('current')
+cerentChassisM2Ansi = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4520))
+if mibBuilder.loadTexts: cerentChassisM2Ansi.setStatus('current')
+cerentChassisM2Etsi = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4530))
+if mibBuilder.loadTexts: cerentChassisM2Etsi.setStatus('current')
+cerentBackPlaneM6 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4540))
+if mibBuilder.loadTexts: cerentBackPlaneM6.setStatus('current')
+cerentChassisM6Ansi = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4550))
+if mibBuilder.loadTexts: cerentChassisM6Ansi.setStatus('current')
+cerentChassisM6Etsi = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4560))
+if mibBuilder.loadTexts: cerentChassisM6Etsi.setStatus('current')
+cerentPowerSupplyUts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4570))
+if mibBuilder.loadTexts: cerentPowerSupplyUts.setStatus('current')
+cerentFlashUts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4580))
+if mibBuilder.loadTexts: cerentFlashUts.setStatus('current')
+cerentAicInUts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4590))
+if mibBuilder.loadTexts: cerentAicInUts.setStatus('current')
+cerentAicOutUts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4600))
+if mibBuilder.loadTexts: cerentAicOutUts.setStatus('current')
+cerentIscEqptUts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4610))
+if mibBuilder.loadTexts: cerentIscEqptUts.setStatus('current')
+cerentUdcVoipEmsUts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4620))
+if mibBuilder.loadTexts: cerentUdcVoipEmsUts.setStatus('current')
+cerentBitsUts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4630))
+if mibBuilder.loadTexts: cerentBitsUts.setStatus('current')
+cerentFanTrayUts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4640))
+if mibBuilder.loadTexts: cerentFanTrayUts.setStatus('current')
+cerentAlarmDryContactUts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4645))
+if mibBuilder.loadTexts: cerentAlarmDryContactUts.setStatus('current')
+cerentIoUts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4660))
+if mibBuilder.loadTexts: cerentIoUts.setStatus('current')
+cerentEcuTray = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4670))
+if mibBuilder.loadTexts: cerentEcuTray.setStatus('current')
+cerentTncUtsCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4680))
+if mibBuilder.loadTexts: cerentTncUtsCard.setStatus('current')
+cerentTscUtsCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4690))
+if mibBuilder.loadTexts: cerentTscUtsCard.setStatus('current')
+cerentUsbUtsPortCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4655))
+if mibBuilder.loadTexts: cerentUsbUtsPortCard.setStatus('current')
+cerentUsbUts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4650))
+if mibBuilder.loadTexts: cerentUsbUts.setStatus('current')
+cerentTncTscUtsSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4700))
+if mibBuilder.loadTexts: cerentTncTscUtsSlot.setStatus('current')
+cerentEcuSlot = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4710))
+if mibBuilder.loadTexts: cerentEcuSlot.setStatus('current')
+cerentMscIscUtsPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4720))
+if mibBuilder.loadTexts: cerentMscIscUtsPort.setStatus('current')
+cerentTncFePort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4730))
+if mibBuilder.loadTexts: cerentTncFePort.setStatus('current')
+cerentPtSystem = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4740))
+if mibBuilder.loadTexts: cerentPtSystem.setStatus('current')
+cerentPtf10GECard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4745))
+if mibBuilder.loadTexts: cerentPtf10GECard.setStatus('current')
+cerentPt10GECard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4750))
+if mibBuilder.loadTexts: cerentPt10GECard.setStatus('current')
+cerentPtsaGECard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4755))
+if mibBuilder.loadTexts: cerentPtsaGECard.setStatus('current')
+cerentMsIsc100tCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4085))
+if mibBuilder.loadTexts: cerentMsIsc100tCard.setStatus('current')
+cerentMxpMr10DmeCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4090))
+if mibBuilder.loadTexts: cerentMxpMr10DmeCard.setStatus('current')
+cerentCE1000Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4095))
+if mibBuilder.loadTexts: cerentCE1000Card.setStatus('current')
+cerentCE1000EtherPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4100))
+if mibBuilder.loadTexts: cerentCE1000EtherPort.setStatus('current')
+cerentCE1000PosPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4105))
+if mibBuilder.loadTexts: cerentCE1000PosPort.setStatus('current')
+cerentPIM1PPM = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4110))
+if mibBuilder.loadTexts: cerentPIM1PPM.setStatus('current')
+cerentCEMR454Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4115))
+if mibBuilder.loadTexts: cerentCEMR454Card.setStatus('current')
+cerentCEMR310Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4120))
+if mibBuilder.loadTexts: cerentCEMR310Card.setStatus('current')
+cerentCTX2500Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4125))
+if mibBuilder.loadTexts: cerentCTX2500Card.setStatus('current')
+cerentDs128Ds3EC13LineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4130))
+if mibBuilder.loadTexts: cerentDs128Ds3EC13LineCard.setStatus('current')
+cerentDs184Ds3EC13LineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4135))
+if mibBuilder.loadTexts: cerentDs184Ds3EC13LineCard.setStatus('current')
+cerentDs3EC16LineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4140))
+if mibBuilder.loadTexts: cerentDs3EC16LineCard.setStatus('current')
+cerentBicTelco = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4145))
+if mibBuilder.loadTexts: cerentBicTelco.setStatus('current')
+cerentBicCmn = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4150))
+if mibBuilder.loadTexts: cerentBicCmn.setStatus('current')
+cerentRanSvcLineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4155))
+if mibBuilder.loadTexts: cerentRanSvcLineCard.setStatus('current')
+cerentIlkPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4245))
+if mibBuilder.loadTexts: cerentIlkPort.setStatus('current')
+cerentOc192Card4PortsDwdm = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4250))
+if mibBuilder.loadTexts: cerentOc192Card4PortsDwdm.setStatus('current')
+cerentMrc25G12LineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4275))
+if mibBuilder.loadTexts: cerentMrc25G12LineCard.setStatus('current')
+cerentMrc25G4LineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4280))
+if mibBuilder.loadTexts: cerentMrc25G4LineCard.setStatus('current')
+cerentE121E3DS33LineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4295))
+if mibBuilder.loadTexts: cerentE121E3DS33LineCard.setStatus('current')
+cerentE163E3DS33LineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4300))
+if mibBuilder.loadTexts: cerentE163E3DS33LineCard.setStatus('current')
+cerentMd40OddPassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4320))
+if mibBuilder.loadTexts: cerentMd40OddPassiveUnit.setStatus('current')
+cerentMd40EvenPassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4325))
+if mibBuilder.loadTexts: cerentMd40EvenPassiveUnit.setStatus('current')
+cerentMdId50PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4330))
+if mibBuilder.loadTexts: cerentMdId50PassiveUnit.setStatus('current')
+cerentPP4SMRPassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4335))
+if mibBuilder.loadTexts: cerentPP4SMRPassiveUnit.setStatus('current')
+cerentPPMESH4PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4340))
+if mibBuilder.loadTexts: cerentPPMESH4PassiveUnit.setStatus('current')
+cerentPPMESH8PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4345))
+if mibBuilder.loadTexts: cerentPPMESH8PassiveUnit.setStatus('current')
+cerentDcuPassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4350))
+if mibBuilder.loadTexts: cerentDcuPassiveUnit.setStatus('current')
+cerentCTDcuPassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4355))
+if mibBuilder.loadTexts: cerentCTDcuPassiveUnit.setStatus('current')
+cerentFTDcuPassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4360))
+if mibBuilder.loadTexts: cerentFTDcuPassiveUnit.setStatus('current')
+fortyGePort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4365))
+if mibBuilder.loadTexts: fortyGePort.setStatus('current')
+fc8gPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4370))
+if mibBuilder.loadTexts: fc8gPort.setStatus('current')
+cerentOtu3Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4375))
+if mibBuilder.loadTexts: cerentOtu3Port.setStatus('current')
+cerentOc768Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4380))
+if mibBuilder.loadTexts: cerentOc768Port.setStatus('current')
+cerentMechanicalUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4385))
+if mibBuilder.loadTexts: cerentMechanicalUnit.setStatus('current')
+cerent40GTxpCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4390))
+if mibBuilder.loadTexts: cerent40GTxpCard.setStatus('current')
+cerent40GMxpCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4395))
+if mibBuilder.loadTexts: cerent40GMxpCard.setStatus('current')
+cerent40EMxpCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4400))
+if mibBuilder.loadTexts: cerent40EMxpCard.setStatus('current')
+cerentArXpCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4535))
+if mibBuilder.loadTexts: cerentArXpCard.setStatus('current')
+cerentArMxpCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4545))
+if mibBuilder.loadTexts: cerentArMxpCard.setStatus('current')
+cerent15216ID50PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4405))
+if mibBuilder.loadTexts: cerent15216ID50PassiveUnit.setStatus('current')
+cerent40ETxpCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4415))
+if mibBuilder.loadTexts: cerent40ETxpCard.setStatus('current')
+cerentOtu1Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4725))
+if mibBuilder.loadTexts: cerentOtu1Port.setStatus('current')
+cerentIsc3stp1gPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4732))
+if mibBuilder.loadTexts: cerentIsc3stp1gPort.setStatus('current')
+cerentIsc3stp2gPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4735))
+if mibBuilder.loadTexts: cerentIsc3stp2gPort.setStatus('current')
+cerentSdi3gvideoPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4742))
+if mibBuilder.loadTexts: cerentSdi3gvideoPort.setStatus('current')
+cerentAutoPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4747))
+if mibBuilder.loadTexts: cerentAutoPort.setStatus('current')
+cerentOptEdfa17Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4420))
+if mibBuilder.loadTexts: cerentOptEdfa17Card.setStatus('current')
+cerentOptEdfa24Card = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4425))
+if mibBuilder.loadTexts: cerentOptEdfa24Card.setStatus('current')
+cerentFld303PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4760))
+if mibBuilder.loadTexts: cerentFld303PassiveUnit.setStatus('current')
+cerentFld334PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4765))
+if mibBuilder.loadTexts: cerentFld334PassiveUnit.setStatus('current')
+cerentFld366PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4770))
+if mibBuilder.loadTexts: cerentFld366PassiveUnit.setStatus('current')
+cerentFld397PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4775))
+if mibBuilder.loadTexts: cerentFld397PassiveUnit.setStatus('current')
+cerentFld429PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4780))
+if mibBuilder.loadTexts: cerentFld429PassiveUnit.setStatus('current')
+cerentFld461PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4785))
+if mibBuilder.loadTexts: cerentFld461PassiveUnit.setStatus('current')
+cerentFld493PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4790))
+if mibBuilder.loadTexts: cerentFld493PassiveUnit.setStatus('current')
+cerentFld525PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4795))
+if mibBuilder.loadTexts: cerentFld525PassiveUnit.setStatus('current')
+cerentFld557PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4800))
+if mibBuilder.loadTexts: cerentFld557PassiveUnit.setStatus('current')
+cerentFld589PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4805))
+if mibBuilder.loadTexts: cerentFld589PassiveUnit.setStatus('current')
+cerentFldOscPassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4810))
+if mibBuilder.loadTexts: cerentFldOscPassiveUnit.setStatus('current')
+cerentFlcCwdm8PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4815))
+if mibBuilder.loadTexts: cerentFlcCwdm8PassiveUnit.setStatus('current')
+cerentSdsdiPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4820))
+if mibBuilder.loadTexts: cerentSdsdiPort.setStatus('current')
+cerentHdsdiPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4825))
+if mibBuilder.loadTexts: cerentHdsdiPort.setStatus('current')
+cerentOptRampCTPCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4830))
+if mibBuilder.loadTexts: cerentOptRampCTPCard.setStatus('current')
+cerentOptRampCOPCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4835))
+if mibBuilder.loadTexts: cerentOptRampCOPCard.setStatus('current')
+cerentFbgdcu165PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4840))
+if mibBuilder.loadTexts: cerentFbgdcu165PassiveUnit.setStatus('current')
+cerentFbgdcu331PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4845))
+if mibBuilder.loadTexts: cerentFbgdcu331PassiveUnit.setStatus('current')
+cerentFbgdcu496PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4850))
+if mibBuilder.loadTexts: cerentFbgdcu496PassiveUnit.setStatus('current')
+cerentFbgdcu661PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4855))
+if mibBuilder.loadTexts: cerentFbgdcu661PassiveUnit.setStatus('current')
+cerentFbgdcu826PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4860))
+if mibBuilder.loadTexts: cerentFbgdcu826PassiveUnit.setStatus('current')
+cerentFbgdcu992PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4865))
+if mibBuilder.loadTexts: cerentFbgdcu992PassiveUnit.setStatus('current')
+cerentFbgdcu1157PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4870))
+if mibBuilder.loadTexts: cerentFbgdcu1157PassiveUnit.setStatus('current')
+cerentFbgdcu1322PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4875))
+if mibBuilder.loadTexts: cerentFbgdcu1322PassiveUnit.setStatus('current')
+cerentFbgdcu1653PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4880))
+if mibBuilder.loadTexts: cerentFbgdcu1653PassiveUnit.setStatus('current')
+cerentFbgdcu1983PassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4885))
+if mibBuilder.loadTexts: cerentFbgdcu1983PassiveUnit.setStatus('current')
+cerentMd48OddPassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4900))
+if mibBuilder.loadTexts: cerentMd48OddPassiveUnit.setStatus('current')
+cerentMd48EvenPassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4905))
+if mibBuilder.loadTexts: cerentMd48EvenPassiveUnit.setStatus('current')
+cerentMd48CmPassiveUnit = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4910))
+if mibBuilder.loadTexts: cerentMd48CmPassiveUnit.setStatus('current')
+cerentOtu4Port = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4915))
+if mibBuilder.loadTexts: cerentOtu4Port.setStatus('current')
+cerentOneHundredGePort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4920))
+if mibBuilder.loadTexts: cerentOneHundredGePort.setStatus('current')
+cerentHundredGigLineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4925))
+if mibBuilder.loadTexts: cerentHundredGigLineCard.setStatus('current')
+cerentTENxTENGigLineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4930))
+if mibBuilder.loadTexts: cerentTENxTENGigLineCard.setStatus('current')
+cerentCfpLineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4935))
+if mibBuilder.loadTexts: cerentCfpLineCard.setStatus('current')
+cerentOTLPort = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4940))
+if mibBuilder.loadTexts: cerentOTLPort.setStatus('current')
+cerentHundredgigPlim = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4945))
+if mibBuilder.loadTexts: cerentHundredgigPlim.setStatus('current')
+cerentWseLineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4947))
+if mibBuilder.loadTexts: cerentWseLineCard.setStatus('current')
+cerentArXpeCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4950))
+if mibBuilder.loadTexts: cerentArXpeCard.setStatus('current')
+cerentCPAK100GLineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 5010))
+if mibBuilder.loadTexts: cerentCPAK100GLineCard.setStatus('current')
+cerentEDRA126C = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4955))
+if mibBuilder.loadTexts: cerentEDRA126C.setStatus('current')
+cerentEDRA135C = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4960))
+if mibBuilder.loadTexts: cerentEDRA135C.setStatus('current')
+cerentEDRA226C = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4965))
+if mibBuilder.loadTexts: cerentEDRA226C.setStatus('current')
+cerentEDRA235C = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4970))
+if mibBuilder.loadTexts: cerentEDRA235C.setStatus('current')
+cerentWXC16FSLineCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4975))
+if mibBuilder.loadTexts: cerentWXC16FSLineCard.setStatus('current')
+cerentPassiv1x16COFSC = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4980))
+if mibBuilder.loadTexts: cerentPassiv1x16COFSC.setStatus('current')
+cerentPassive4x4COFSC = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4985))
+if mibBuilder.loadTexts: cerentPassive4x4COFSC.setStatus('current')
+cerentPassiveMODDEG5 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4990))
+if mibBuilder.loadTexts: cerentPassiveMODDEG5.setStatus('current')
+cerentPassiveMODUPG4 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 4995))
+if mibBuilder.loadTexts: cerentPassiveMODUPG4.setStatus('current')
+cerentPassiveMPO8LCADPT = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 5000))
+if mibBuilder.loadTexts: cerentPassiveMPO8LCADPT.setStatus('current')
+cerentPassiveASTEDFA = ObjectIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 30, 5005))
+if mibBuilder.loadTexts: cerentPassiveASTEDFA.setStatus('current')
+mibBuilder.exportSymbols("CERENT-GLOBAL-REGISTRY", cerentHdsdiPort=cerentHdsdiPort, cerentOc12Port=cerentOc12Port, cerentMrc12LineCard=cerentMrc12LineCard, iscPort=iscPort, cerentE121E3DS33LineCard=cerentE121E3DS33LineCard, cerent454M2Node=cerent454M2Node, cerentMechanicalUnit=cerentMechanicalUnit, cerentEDRA126C=cerentEDRA126C, cerentFanTray=cerentFanTray, cerentModules=cerentModules, cerentFmecSmzE1=cerentFmecSmzE1, cerentFmec155e1To1Card=cerentFmec155e1To1Card, cerentOptRampCTPCard=cerentOptRampCTPCard, fc10gPort=fc10gPort, cerentMxpMr10DmeCard=cerentMxpMr10DmeCard, cerentTsc=cerentTsc, cerentFld461PassiveUnit=cerentFld461PassiveUnit, cerentDs1VtMappedPort=cerentDs1VtMappedPort, cerentArXpCard=cerentArXpCard, cerentMuxpd25G10ECard=cerentMuxpd25G10ECard, cerentVicDecoderLineCard=cerentVicDecoderLineCard, cerent310ML100t8LineCardOid=cerent310ML100t8LineCardOid, cerentArMxpCard=cerentArMxpCard, cerentTxpd10ECard=cerentTxpd10ECard, cerentFbgdcu1322PassiveUnit=cerentFbgdcu1322PassiveUnit, cerentMd48EvenPassiveUnit=cerentMd48EvenPassiveUnit, cerentFld493PassiveUnit=cerentFld493PassiveUnit, cerentAlmPwrSlot=cerentAlmPwrSlot, tenGePort=tenGePort, cerentRegistry=cerentRegistry, cerentEcuSlot=cerentEcuSlot, cerentOc48ir=cerentOc48ir, cerentOc192Port=cerentOc192Port, cerentOc192ItuCard=cerentOc192ItuCard, cerentFld334PassiveUnit=cerentFld334PassiveUnit, cerent15600ControllerSlot=cerent15600ControllerSlot, cerentPP4SMRPassiveUnit=cerentPP4SMRPassiveUnit, cerentFbgdcu661PassiveUnit=cerentFbgdcu661PassiveUnit, fortyGePort=fortyGePort, cerent15216OpmOpticalSwitch=cerent15216OpmOpticalSwitch, cerentOptAmpCCard=cerentOptAmpCCard, cerentDs3Port=cerentDs3Port, cerentOc12ir=cerentOc12ir, cerentAicCard=cerentAicCard, cerentMd40OddPassiveUnit=cerentMd40OddPassiveUnit, cerentCE1000PosPort=cerentCE1000PosPort, cerentEDRA226C=cerentEDRA226C, cerentDs312=cerentDs312, cerentAOTSPort=cerentAOTSPort, cerentOrderwirePort=cerentOrderwirePort, cerentMuxpdMr25GCard=cerentMuxpdMr25GCard, cerentL1PPosPortOid=cerentL1PPosPortOid, cerentFld557PassiveUnit=cerentFld557PassiveUnit, cerent15216OpmSerialPort=cerent15216OpmSerialPort, PYSNMP_MODULE_ID=cerentGlobalRegModule, cerentXpdGECard=cerentXpdGECard, cerentExperimental=cerentExperimental, cerentFbgdcu1653PassiveUnit=cerentFbgdcu1653PassiveUnit, cerentE163E3DS33LineCard=cerentE163E3DS33LineCard, cerent15216OpmPcmciaSlot=cerent15216OpmPcmciaSlot, cerentMxpMr10DmexCard=cerentMxpMr10DmexCard, cerentOc3ir=cerentOc3ir, ds3Ec148LineCard=ds3Ec148LineCard, cerentXcVxcCard=cerentXcVxcCard, cerentTxpdP25GCard=cerentTxpdP25GCard, cerentOadm4BnCard=cerentOadm4BnCard, cerentBackPlane600=cerentBackPlane600, cerentStm1ePort=cerentStm1ePort, cerentE1nP42LineCard=cerentE1nP42LineCard, cerentPtf10GECard=cerentPtf10GECard, cerentFbgdcu165PassiveUnit=cerentFbgdcu165PassiveUnit, cerentUsbUtsPortCard=cerentUsbUtsPortCard, cerentPIM4PPM=cerentPIM4PPM, cerentFmecE1P42TypeUnprotW120Card=cerentFmecE1P42TypeUnprotW120Card, cerentHundredGigLineCard=cerentHundredGigLineCard, cerentOc12Card=cerentOc12Card, cerentOc48Card16Ports=cerentOc48Card16Ports, cerent15216Edfa3ShelfController=cerent15216Edfa3ShelfController, cerentEther100Port=cerentEther100Port, cerentDs3Xm12Card=cerentDs3Xm12Card, cerentPassiveMPO8LCADPT=cerentPassiveMPO8LCADPT, cerentCTX2500Card=cerentCTX2500Card, cerentMd48OddPassiveUnit=cerentMd48OddPassiveUnit, cerentChassisM2Etsi=cerentChassisM2Etsi, cerentTscUtsCard=cerentTscUtsCard, cerentOptDemux32ChCard=cerentOptDemux32ChCard, cerentOTSPort=cerentOTSPort, cerentMuxpdPMr25GCard=cerentMuxpdPMr25GCard, cerentEDRA235C=cerentEDRA235C, cerentEfca454Sdh=cerentEfca454Sdh, cerentBackplane15310MaAnsiOid=cerentBackplane15310MaAnsiOid, cerentDwdmDevices=cerentDwdmDevices, cerentBackPlane454=cerentBackPlane454, cerentPPMESH4PassiveUnit=cerentPPMESH4PassiveUnit, cerentOc12QuadCard=cerentOc12QuadCard, cerentTxpd10EXCard=cerentTxpd10EXCard, cerentEc1Port=cerentEc1Port, cerent310CE100t8LineCardOid=cerent310CE100t8LineCardOid, cerentAicInUts=cerentAicInUts, ape=ape, cerentOtu3Port=cerentOtu3Port, cerentOMSPort=cerentOMSPort, cerentWseLineCard=cerentWseLineCard, gfpPort=gfpPort, cerentPassiv1x16COFSC=cerentPassiv1x16COFSC, oneGePort=oneGePort, cerentBbeSlotOid=cerentBbeSlotOid, cerentOptRampCOPCard=cerentOptRampCOPCard, cerentDs1i14=cerentDs1i14, fc4gPort=fc4gPort, cerentEpos100Card=cerentEpos100Card, cerentOc192XfpLineCard=cerentOc192XfpLineCard, cerentMm850Port=cerentMm850Port, cerent15216ID50PassiveUnit=cerent15216ID50PassiveUnit, cerentPPMSlot=cerentPPMSlot, cerentPtSystem=cerentPtSystem, cerentChassis15310MaAnsiOid=cerentChassis15310MaAnsiOid, cerentAiciAie=cerentAiciAie, cerentWssCE40Card=cerentWssCE40Card, cerentOscCsmCard=cerentOscCsmCard, cerentChassis454SDH=cerentChassis454SDH, cerentFld303PassiveUnit=cerentFld303PassiveUnit, cerentMuxpd25G10XCard=cerentMuxpd25G10XCard, cerent15216OpmLedIndicator=cerent15216OpmLedIndicator, cerentFbgdcu992PassiveUnit=cerentFbgdcu992PassiveUnit, cerentMicCard=cerentMicCard, cerentDmxCE40Card=cerentDmxCE40Card, cerentCrftTmgSlot=cerentCrftTmgSlot, cerentOptBstECard=cerentOptBstECard, cerentMicSlot=cerentMicSlot, cerentChassisM6Etsi=cerentChassisM6Etsi, cerentIscEqptUts=cerentIscEqptUts, cerent15216OpmNode=cerent15216OpmNode, cerentAicOutUts=cerentAicOutUts, cerentCommunicationEquipment=cerentCommunicationEquipment, cerentG1K4Card=cerentG1K4Card, cerentMrc4LineCardOid=cerentMrc4LineCardOid, cerentVicEncoderPort=cerentVicEncoderPort, cerentFmecBlank=cerentFmecBlank, cerent600Node=cerent600Node, cerentMrc25G12LineCard=cerentMrc25G12LineCard, cerent15216EdfaSerialPort=cerent15216EdfaSerialPort, cerentOneHundredGePort=cerentOneHundredGePort, cerent40ETxpCard=cerent40ETxpCard, cerentOptPreCard=cerentOptPreCard, cerentBicBnc=cerentBicBnc, cerentXcVxlCard=cerentXcVxlCard, cerentDcuPassiveUnit=cerentDcuPassiveUnit, cerentOptDemux40ChCard=cerentOptDemux40ChCard, cerent15216OpmBackPlane=cerent15216OpmBackPlane, cerentOptEdfa17Card=cerentOptEdfa17Card, cerentDccPort=cerentDccPort, cerentADMs=cerentADMs, cerentTncTscUtsSlot=cerentTncTscUtsSlot, cerentFld429PassiveUnit=cerentFld429PassiveUnit, cerentOadm4ChCard=cerentOadm4ChCard, cerentEcuTray=cerentEcuTray, cerentLedIndicator=cerentLedIndicator, cerentAlarmDryContactUts=cerentAlarmDryContactUts, cerentTxpd25GCard=cerentTxpd25GCard, cerentFld589PassiveUnit=cerentFld589PassiveUnit, cerentEpos1000Card=cerentEpos1000Card, cerentDs3i=cerentDs3i, cerent40SMR1Card=cerent40SMR1Card, cerentHundredgigPlim=cerentHundredgigPlim, cerentOc3Port=cerentOc3Port, cerentOc192IrCard=cerentOc192IrCard, cerentFmecE1P42Type1To3W120aCard=cerentFmecE1P42Type1To3W120aCard, cerentFanTrayUts=cerentFanTrayUts, cerentMicExtCard=cerentMicExtCard, cerentMuxpd25G10GCard=cerentMuxpd25G10GCard, cerentVicDecoderPort=cerentVicDecoderPort, cerentWss32LCard=cerentWss32LCard, cerentOc3n1Card=cerentOc3n1Card, cerentDs1n14=cerentDs1n14, ficon2gport=ficon2gport, cerentPassive4x4COFSC=cerentPassive4x4COFSC, cerentE1P42LineCard=cerentE1P42LineCard, cerentOc48Port=cerentOc48Port, cerentFanSlot=cerentFanSlot, cerentXc10g=cerentXc10g, cerentFbgdcu826PassiveUnit=cerentFbgdcu826PassiveUnit, cerentChassis454=cerentChassis454, cerent40EMxpCard=cerent40EMxpCard, cerentAip=cerentAip, cerentFcmrLineCard=cerentFcmrLineCard, cerentDwdmClientPort=cerentDwdmClientPort, cerentCfpLineCard=cerentCfpLineCard, cerentL1PEtherPortOid=cerentL1PEtherPortOid, cerentML1000GenericCard=cerentML1000GenericCard, cerentAici=cerentAici, cerentOc192Card4Ports=cerentOc192Card4Ports, cerentBackplane15310ClOid=cerentBackplane15310ClOid, cerentTENxTENGigLineCard=cerentTENxTENGigLineCard, cerentML100GenericCard=cerentML100GenericCard, cerentFbgdcu331PassiveUnit=cerentFbgdcu331PassiveUnit, cerentOadm1ChCard=cerentOadm1ChCard, cerentXcVxc25GCard=cerentXcVxc25GCard, cerentAsap4LineCardOid=cerentAsap4LineCardOid, cerent40SMR2Card=cerent40SMR2Card, dv6000Port=dv6000Port, cerentE3Port=cerentE3Port, cerentPIM1PPM=cerentPIM1PPM, cerentComponents=cerentComponents, cerentFmecDs1i14=cerentFmecDs1i14, sdiD1VideoPort=sdiD1VideoPort, cerentChassis15310MaEtsiOid=cerentChassis15310MaEtsiOid, cerentProducts=cerentProducts, cerentIlkPort=cerentIlkPort, cerentWbeSlotOid=cerentWbeSlotOid, cerentCtxSlotOid=cerentCtxSlotOid, cerent15216OpmRelay=cerent15216OpmRelay, cerentBitsUts=cerentBitsUts, cerentOc192Card4PortsDwdm=cerentOc192Card4PortsDwdm, cerentOc48Card8Ports=cerentOc48Card8Ports, passThruPort=passThruPort, cerent454CE100t8LineCardOid=cerent454CE100t8LineCardOid, cerentMdId50PassiveUnit=cerentMdId50PassiveUnit, cerentFillerCard=cerentFillerCard, cerentFld397PassiveUnit=cerentFld397PassiveUnit, cerent15216OpmPowerSupply=cerent15216OpmPowerSupply, cerentFudcPort=cerentFudcPort, cerent327Node=cerent327Node, cerentAgentCapabilities=cerentAgentCapabilities, cerentXcVxl25GCard=cerentXcVxl25GCard, cerentOptBstCard=cerentOptBstCard, cerentRanSvcLineCard=cerentRanSvcLineCard, ficon4gport=ficon4gport, mrSlot=mrSlot, cerentDs3eCard=cerentDs3eCard, cerentPSMCard=cerentPSMCard, cerentAicSlot=cerentAicSlot, cerentAiciAep=cerentAiciAep, cerentOptEdfa24Card=cerentOptEdfa24Card, cerentOc3Card=cerentOc3Card, cerentBicSmb=cerentBicSmb, cerentOptWss40ChCard=cerentOptWss40ChCard, cerentVicTestPort=cerentVicTestPort, cerentOscmCard=cerentOscmCard, cerentPPM1Port=cerentPPM1Port, cerentChassis15327=cerentChassis15327, cerent15216OpmSpectrometer=cerent15216OpmSpectrometer, cerentBbeLineCardOid=cerentBbeLineCardOid, cerentOptBstLCard=cerentOptBstLCard, cerentDs114=cerentDs114, cerentOptAmp17Card=cerentOptAmp17Card, cerentFTDcuPassiveUnit=cerentFTDcuPassiveUnit, cerent15216EdfaEtherPort=cerent15216EdfaEtherPort, cerentTxpdP10EXCard=cerentTxpdP10EXCard, cerentOc768Port=cerentOc768Port, cerentPassiveMODUPG4=cerentPassiveMODUPG4, cerentOc48Card=cerentOc48Card, cerentG1000Port=cerentG1000Port, cerentIsc3stp1gPort=cerentIsc3stp1gPort)
+mibBuilder.exportSymbols("CERENT-GLOBAL-REGISTRY", cerentXc=cerentXc, cerentBackPlane454SDH=cerentBackPlane454SDH, cerentWXC16FSLineCard=cerentWXC16FSLineCard, cerentFmecSlot=cerentFmecSlot, cerentRequirements=cerentRequirements, cerentCxcSlot=cerentCxcSlot, cerentFmecE1P42Type1To3W120bCard=cerentFmecE1P42Type1To3W120bCard, cerentDs128Ds3EC13LineCard=cerentDs128Ds3EC13LineCard, cerentE114=cerentE114, cerentOptMux40ChCard=cerentOptMux40ChCard, cerent454Node=cerent454Node, cerentAutoPort=cerentAutoPort, cerentCEMR454Card=cerentCEMR454Card, cerentWxc40LCard=cerentWxc40LCard, cerentUsbUts=cerentUsbUts, cerentTncFePort=cerentTncFePort, cerentBackPlane454HD=cerentBackPlane454HD, cerentCE1000EtherPort=cerentCE1000EtherPort, cerentOc192LrCard=cerentOc192LrCard, cerentCTDcuPassiveUnit=cerentCTDcuPassiveUnit, cerentOTLPort=cerentOTLPort, cerentFbgdcu1983PassiveUnit=cerentFbgdcu1983PassiveUnit, cerentFmecSmzE3=cerentFmecSmzE3, cerentEc1Card=cerentEc1Card, cerent15216EdfaNode=cerent15216EdfaNode, cerentCE1000Card=cerentCE1000Card, cerentMscIscUtsPort=cerentMscIscUtsPort, cerentMsIsc100tCard=cerentMsIsc100tCard, cerentTccSlot=cerentTccSlot, cerentOptDemux32RChCard=cerentOptDemux32RChCard, cerentFldOscPassiveUnit=cerentFldOscPassiveUnit, cerentG1000GenericCard=cerentG1000GenericCard, cerentOptRAmpECard=cerentOptRAmpECard, cerentWbeLineCardOid=cerentWbeLineCardOid, cerentStm1e12LineCard=cerentStm1e12LineCard, cerentFmec155e1To3Card=cerentFmec155e1To3Card, cerentEther1000Port=cerentEther1000Port, cerentXcSlot=cerentXcSlot, cerent15216OpmSlot=cerent15216OpmSlot, cerentWss40LCard=cerentWss40LCard, cerentMl100X8LineCard=cerentMl100X8LineCard, cerentBackPlaneM2=cerentBackPlaneM2, bicUnknown=bicUnknown, cerentEDRA135C=cerentEDRA135C, bicUniv=bicUniv, cerentOptMux32ChCard=cerentOptMux32ChCard, cerentUdcVoipEmsUts=cerentUdcVoipEmsUts, fc2gPort=fc2gPort, cerentTxpd10GCard=cerentTxpd10GCard, cerentOptMuxDemux4ChCard=cerentOptMuxDemux4ChCard, cerent40GMxpCard=cerent40GMxpCard, cerentXcVtCard=cerentXcVtCard, cerentXtcCard=cerentXtcCard, cerentOptWxc40ChCard=cerentOptWxc40ChCard, cerentE1Port=cerentE1Port, isc3Peer1gPort=isc3Peer1gPort, cerentOadm2ChCard=cerentOadm2ChCard, cerentOtu4Port=cerentOtu4Port, cerentOadm10GCard=cerentOadm10GCard, cerentCPAK100GLineCard=cerentCPAK100GLineCard, cerentOptWxc80ChCard=cerentOptWxc80ChCard, cerentOc3OctaCard=cerentOc3OctaCard, cerentSm1310Port=cerentSm1310Port, cerentSdi3gvideoPort=cerentSdi3gvideoPort, cerentBackplane15310MaEtsiOid=cerentBackplane15310MaEtsiOid, cerentArXpeCard=cerentArXpeCard, cerentIoSlot=cerentIoSlot, cerentBicTelco=cerentBicTelco, cerentTcc=cerentTcc, cerentFcmrPort=cerentFcmrPort, cerentCtxCardOid=cerentCtxCardOid, cerentMux40LCard=cerentMux40LCard, cerent15216OpmOpticalPort=cerent15216OpmOpticalPort, cerentChassis15310ClOid=cerentChassis15310ClOid, cerentOptAmp23Card=cerentOptAmp23Card, cerentDs3neCard=cerentDs3neCard, cerent15216OpmChassis=cerent15216OpmChassis, cerentGlobalRegModule=cerentGlobalRegModule, cerentE1n14=cerentE1n14, cerentDmx32LCard=cerentDmx32LCard, cerentOadm1BnCard=cerentOadm1BnCard, cerentFmec155eUnprotCard=cerentFmec155eUnprotCard, cerent310MaEtsiNode=cerent310MaEtsiNode, fc8gPort=fc8gPort, cerentDs3XmPort=cerentDs3XmPort, cerentIoUts=cerentIoUts, cerentChassisM6Ansi=cerentChassisM6Ansi, cerentBackPlaneM6=cerentBackPlaneM6, cerentDs3XmCard=cerentDs3XmCard, cerentDwdmTrunkPort=cerentDwdmTrunkPort, cerentOtu1Port=cerentOtu1Port, cerent40GTxpCard=cerent40GTxpCard, cerentPassiveASTEDFA=cerentPassiveASTEDFA, cerentMMUCard=cerentMMUCard, cerentPtsaGECard=cerentPtsaGECard, cerentMrc25G4LineCard=cerentMrc25G4LineCard, cerentOtu2Port=cerentOtu2Port, fc1gPort=fc1gPort, cerent15216EdfaChassis=cerent15216EdfaChassis, cerentSensorComponent=cerentSensorComponent, cerentFld366PassiveUnit=cerentFld366PassiveUnit, cerentCEMR310Card=cerentCEMR310Card, cerentPIMSlot=cerentPIMSlot, cerentOptWss32ChCard=cerentOptWss32ChCard, cerentPassiveMODDEG5=cerentPassiveMODDEG5, cerentOc48lr=cerentOc48lr, isc3Peer2gPort=isc3Peer2gPort, cerentVicEncoderLineCard=cerentVicEncoderLineCard, isc3Port=isc3Port, cerent310Node=cerent310Node, cerentOtherComponent=cerentOtherComponent, cerent15216OpmController=cerent15216OpmController, cerentOptRAmpCCard=cerentOptRAmpCCard, cerentChassisM2Ansi=cerentChassisM2Ansi, cerentFlcCwdm8PassiveUnit=cerentFlcCwdm8PassiveUnit, cerentAudibleAlarm=cerentAudibleAlarm, cerentPt10GECard=cerentPt10GECard, cerentCrftTmg=cerentCrftTmg, cerentEc1nCard=cerentEc1nCard, cerentPPMESH8PassiveUnit=cerentPPMESH8PassiveUnit, cerentDs3EC16LineCard=cerentDs3EC16LineCard, cerentFld525PassiveUnit=cerentFld525PassiveUnit, cerentBackPlane15327=cerentBackPlane15327, cerentXpd10GECard=cerentXpd10GECard, cerentAlmPwr=cerentAlmPwr, cerentDs1E156LineCard=cerentDs1E156LineCard, esconPort=esconPort, cerentIsc3stp2gPort=cerentIsc3stp2gPort, cerentDs184Ds3EC13LineCard=cerentDs184Ds3EC13LineCard, cerentG1000QuadCard=cerentG1000QuadCard, cerentDs3inCard=cerentDs3inCard, cerentMlPosPort=cerentMlPosPort, cerentMlEtherPort=cerentMlEtherPort, cerentGeneric=cerentGeneric, cerentDs3nCard=cerentDs3nCard, cerentFcb=cerentFcb, cerentE312Card=cerentE312Card, hdtvPort=hdtvPort, cerentDmx40LCard=cerentDmx40LCard, etrCloPort=etrCloPort, cerentSdsdiPort=cerentSdsdiPort, cerentTncUtsCard=cerentTncUtsCard, cerent15216Edfa3OpticsModule=cerent15216Edfa3OpticsModule, cerentXP10G4LineCard=cerentXP10G4LineCard, cerentMd40EvenPassiveUnit=cerentMd40EvenPassiveUnit, cerentChassis600=cerentChassis600, cerentMd48CmPassiveUnit=cerentMd48CmPassiveUnit, cerentFbgdcu496PassiveUnit=cerentFbgdcu496PassiveUnit, cerentOc192Card=cerentOc192Card, ficon1gport=ficon1gport, cerentCxc=cerentCxc, cerentGenericDummyObjects=cerentGenericDummyObjects, cerentFbgdcu1157PassiveUnit=cerentFbgdcu1157PassiveUnit, cerentPowerSupplyUts=cerentPowerSupplyUts, cerentFlashUts=cerentFlashUts, cerentBicCmn=cerentBicCmn, cerentOCHPort=cerentOCHPort, cerentDs3iPort=cerentDs3iPort, cerent310MaAnsiNode=cerent310MaAnsiNode, cerentEnvironmentControl=cerentEnvironmentControl, cerentCap=cerentCap, cerentOc12lr1310=cerentOc12lr1310, cerentFmecDb=cerentFmecDb, cerentOptAmpLCard=cerentOptAmpLCard, cerentXtcSlot=cerentXtcSlot, cerentPowerSupply=cerentPowerSupply, cerent454M6Node=cerent454M6Node, cerent=cerent)

@@ -1,56 +1,35 @@
-_F='dlmodIndex'
-_E='UCD-DLMOD-MIB'
-_D='read-only'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ucdExperimental,=mibBuilder.importSymbols('UCD-SNMP-MIB','ucdExperimental')
-ucdDlmodMIB=ModuleIdentity((1,3,6,1,4,1,2021,13,14))
-if mibBuilder.loadTexts:ucdDlmodMIB.setRevisions(('2000-01-26 00:00','1999-12-10 00:00'))
-_DlmodNextIndex_Type=Integer32
-_DlmodNextIndex_Object=MibScalar
-dlmodNextIndex=_DlmodNextIndex_Object((1,3,6,1,4,1,2021,13,14,1),_DlmodNextIndex_Type())
-dlmodNextIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:dlmodNextIndex.setStatus(_A)
-_DlmodTable_Object=MibTable
-dlmodTable=_DlmodTable_Object((1,3,6,1,4,1,2021,13,14,2))
-if mibBuilder.loadTexts:dlmodTable.setStatus(_A)
-_DlmodEntry_Object=MibTableRow
-dlmodEntry=_DlmodEntry_Object((1,3,6,1,4,1,2021,13,14,2,1))
-dlmodEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:dlmodEntry.setStatus(_A)
-class _DlmodIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_DlmodIndex_Type.__name__=_B
-_DlmodIndex_Object=MibTableColumn
-dlmodIndex=_DlmodIndex_Object((1,3,6,1,4,1,2021,13,14,2,1,1),_DlmodIndex_Type())
-dlmodIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:dlmodIndex.setStatus(_A)
-_DlmodName_Type=DisplayString
-_DlmodName_Object=MibTableColumn
-dlmodName=_DlmodName_Object((1,3,6,1,4,1,2021,13,14,2,1,2),_DlmodName_Type())
-dlmodName.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmodName.setStatus(_A)
-_DlmodPath_Type=DisplayString
-_DlmodPath_Object=MibTableColumn
-dlmodPath=_DlmodPath_Object((1,3,6,1,4,1,2021,13,14,2,1,3),_DlmodPath_Type())
-dlmodPath.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmodPath.setStatus(_A)
-_DlmodError_Type=DisplayString
-_DlmodError_Object=MibTableColumn
-dlmodError=_DlmodError_Object((1,3,6,1,4,1,2021,13,14,2,1,4),_DlmodError_Type())
-dlmodError.setMaxAccess(_D)
-if mibBuilder.loadTexts:dlmodError.setStatus(_A)
-class _DlmodStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('loaded',1),('unloaded',2),('error',3),('load',4),('unload',5),('create',6),('delete',7)))
-_DlmodStatus_Type.__name__=_B
-_DlmodStatus_Object=MibTableColumn
-dlmodStatus=_DlmodStatus_Object((1,3,6,1,4,1,2021,13,14,2,1,5),_DlmodStatus_Type())
-dlmodStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmodStatus.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'ucdDlmodMIB':ucdDlmodMIB,'dlmodNextIndex':dlmodNextIndex,'dlmodTable':dlmodTable,'dlmodEntry':dlmodEntry,_F:dlmodIndex,'dlmodName':dlmodName,'dlmodPath':dlmodPath,'dlmodError':dlmodError,'dlmodStatus':dlmodStatus})
+#
+# PySNMP MIB module UCD-DLMOD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///usr/share/snmp/mibs/UCD-DLMOD-MIB.txt
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ucdExperimental, = mibBuilder.importSymbols("UCD-SNMP-MIB", "ucdExperimental")
+ucdDlmodMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2021, 13, 14))
+ucdDlmodMIB.setRevisions(('2000-01-26 00:00', '1999-12-10 00:00',))
+if mibBuilder.loadTexts: ucdDlmodMIB.setLastUpdated('200001260000Z')
+if mibBuilder.loadTexts: ucdDlmodMIB.setOrganization('University of California, Davis')
+dlmodNextIndex = MibScalar((1, 3, 6, 1, 4, 1, 2021, 13, 14, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlmodNextIndex.setStatus('current')
+dlmodTable = MibTable((1, 3, 6, 1, 4, 1, 2021, 13, 14, 2), )
+if mibBuilder.loadTexts: dlmodTable.setStatus('current')
+dlmodEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2021, 13, 14, 2, 1), ).setIndexNames((0, "UCD-DLMOD-MIB", "dlmodIndex"))
+if mibBuilder.loadTexts: dlmodEntry.setStatus('current')
+dlmodIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 14, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
+if mibBuilder.loadTexts: dlmodIndex.setStatus('current')
+dlmodName = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 14, 2, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dlmodName.setStatus('current')
+dlmodPath = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 14, 2, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dlmodPath.setStatus('current')
+dlmodError = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 14, 2, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlmodError.setStatus('current')
+dlmodStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 14, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("loaded", 1), ("unloaded", 2), ("error", 3), ("load", 4), ("unload", 5), ("create", 6), ("delete", 7)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dlmodStatus.setStatus('current')
+mibBuilder.exportSymbols("UCD-DLMOD-MIB", dlmodIndex=dlmodIndex, dlmodTable=dlmodTable, PYSNMP_MODULE_ID=ucdDlmodMIB, dlmodPath=dlmodPath, ucdDlmodMIB=ucdDlmodMIB, dlmodEntry=dlmodEntry, dlmodError=dlmodError, dlmodNextIndex=dlmodNextIndex, dlmodStatus=dlmodStatus, dlmodName=dlmodName)

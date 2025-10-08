@@ -1,413 +1,209 @@
-_Ab='omsOperationCommandOk'
-_Aa='omsOperationCommandAlarm'
-_AZ='mp800mkBatConnOkTrap'
-_AY='mp800mkSuppOkTrap'
-_AX='mp800mkIbatChOkTrap'
-_AW='mp800mkIloadOkTrap'
-_AV='mp800mkBatChargeOkTrap'
-_AU='mp800mkACVOkTrap'
-_AT='mp800mkDVcellOkTrap'
-_AS='mp800mkRlsDevOkTrap'
-_AR='mp800mkVbatChOkTrap'
-_AQ='mp800mkVbatMOkTrap'
-_AP='mp800mkIbatMOkTrap'
-_AO='mp800mkACVMOkTrap'
-_AN='mp800mkTMOkTrap'
-_AM='mp800mkUEPConfOkTrap'
-_AL='mp800mkInpParmOkTrap'
-_AK='mp800mkMPStatusOkTrap'
-_AJ='mp800mkBatConnAlarmTrap'
-_AI='mp800mkSuppAlarmTrap'
-_AH='mp800mkIbatChAlarmTrap'
-_AG='mp800mkIloadAlarmTrap'
-_AF='mp800mkBatChargeAlarmTrap'
-_AE='mp800mkACVAlarmTrap'
-_AD='mp800mkDVcellAlarmTrap'
-_AC='mp800mkRlsDevAlarmTrap'
-_AB='mp800mkVbatChAlarmTrap'
-_AA='mp800mkVbatMAlarmTrap'
-_A9='mp800mkIbatMAlarmTrap'
-_A8='mp800mkACVMAlarmTrap'
-_A7='mp800mkTMAlarmTrap'
-_A6='mp800mkUEPConfAlarmTrap'
-_A5='mp800mkInpParmAlarmTrap'
-_A4='mp800mkMPStatusAlarmTrap'
-_A3='dslamEthLinkOkTrap'
-_A2='dslamSessionOkTrap'
-_A1='dslamVoltageOkTrap'
-_A0='dslamOverheatOkTrap'
-_z='dslamEthLinkAlarmTrap'
-_y='dslamSessionAlarmTrap'
-_x='dslamVoltageAlarmTrap'
-_w='dslamOverheatAlarmTrap'
-_v='ponOpticalOkTrap'
-_u='ponEthOkTrap'
-_t='ponONUAuthOkTrap'
-_s='dslamUSRateOkTrap'
-_r='dslamDSRateOkTrap'
-_q='dslamLinkUpTrap'
-_p='mc240SensOkTrap'
-_o='mc240UPSOkTrap'
-_n='mxlTELEOkTrap'
-_m='mxlDPSOkTrap'
-_l='mc240CardOkTrap'
-_k='mc240FileOkTrap'
-_j='mc240ss7LinksetOkTrap'
-_i='mc240ss7LinkOkTrap'
-_h='mc240SyncOkTrap'
-_g='mc240StreamOkTrap'
-_f='ponOpticalAlarmTrap'
-_e='ponEthAlarmTrap'
-_d='ponONUAuthAlarmTrap'
-_c='dslamUSRateAlarmTrap'
-_b='dslamDSRateAlarmTrap'
-_a='dslamLinkDownTrap'
-_Z='mc240SensAlarmTrap'
-_Y='mc240UPSAlarmTrap'
-_X='mxlTELEAlarmTrap'
-_W='mxlDPSAlarmTrap'
-_V='mc240CardAlarmTrap'
-_U='mc240FileAlarmTrap'
-_T='mc240ss7LinksetAlarmTrap'
-_S='mc240ss7LinkAlarmTrap'
-_R='mc240SyncAlarmTrap'
-_Q='mc240StreamAlarmTrap'
-_P='DisplayString'
-_O='read-only'
-_N='mcReservedFlag'
-_M='mcTrapSyncType'
-_L='mcTrapRestoredAlarmID'
-_K='mp800mkTrapComment'
-_J='mp800mkTrapValue'
-_I='mp800mkTrapParameter'
-_H='mcTrapDescr'
-_G='mcTrapID'
-_F='mcTrapLParam3'
-_E='mcTrapLParam2'
-_D='mcTrapLParam1'
-_C='mcTrapExState'
-_B='current'
-_A='ELTEX-SMI'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC',_P,'PhysAddress','TextualConvention','TimeStamp')
-eltex=ModuleIdentity((1,3,6,1,4,1,34300))
-_ElHardware_ObjectIdentity=ObjectIdentity
-elHardware=_ElHardware_ObjectIdentity((1,3,6,1,4,1,34300,1))
-if mibBuilder.loadTexts:elHardware.setStatus(_B)
-_ElSoftware_ObjectIdentity=ObjectIdentity
-elSoftware=_ElSoftware_ObjectIdentity((1,3,6,1,4,1,34300,2))
-if mibBuilder.loadTexts:elSoftware.setStatus(_B)
-_EltrapGroup_ObjectIdentity=ObjectIdentity
-eltrapGroup=_EltrapGroup_ObjectIdentity((1,3,6,1,4,1,34300,3))
-if mibBuilder.loadTexts:eltrapGroup.setStatus(_B)
-_Mc240AlarmTraps_ObjectIdentity=ObjectIdentity
-mc240AlarmTraps=_Mc240AlarmTraps_ObjectIdentity((1,3,6,1,4,1,34300,3,3))
-_Mc240OkTraps_ObjectIdentity=ObjectIdentity
-mc240OkTraps=_Mc240OkTraps_ObjectIdentity((1,3,6,1,4,1,34300,3,4))
-_Mc240TrapTypes_ObjectIdentity=ObjectIdentity
-mc240TrapTypes=_Mc240TrapTypes_ObjectIdentity((1,3,6,1,4,1,34300,3,5))
-_McTrapExState_Type=Integer32
-_McTrapExState_Object=MibScalar
-mcTrapExState=_McTrapExState_Object((1,3,6,1,4,1,34300,3,5,1),_McTrapExState_Type())
-mcTrapExState.setMaxAccess(_O)
-if mibBuilder.loadTexts:mcTrapExState.setStatus(_B)
-_McTrapLParam1_Type=Integer32
-_McTrapLParam1_Object=MibScalar
-mcTrapLParam1=_McTrapLParam1_Object((1,3,6,1,4,1,34300,3,5,2),_McTrapLParam1_Type())
-mcTrapLParam1.setMaxAccess(_O)
-if mibBuilder.loadTexts:mcTrapLParam1.setStatus(_B)
-_McTrapLParam2_Type=Integer32
-_McTrapLParam2_Object=MibScalar
-mcTrapLParam2=_McTrapLParam2_Object((1,3,6,1,4,1,34300,3,5,3),_McTrapLParam2_Type())
-mcTrapLParam2.setMaxAccess(_O)
-if mibBuilder.loadTexts:mcTrapLParam2.setStatus(_B)
-_McTrapLParam3_Type=Integer32
-_McTrapLParam3_Object=MibScalar
-mcTrapLParam3=_McTrapLParam3_Object((1,3,6,1,4,1,34300,3,5,4),_McTrapLParam3_Type())
-mcTrapLParam3.setMaxAccess(_O)
-if mibBuilder.loadTexts:mcTrapLParam3.setStatus(_B)
-_McTrapID_Type=Integer32
-_McTrapID_Object=MibScalar
-mcTrapID=_McTrapID_Object((1,3,6,1,4,1,34300,3,5,5),_McTrapID_Type())
-mcTrapID.setMaxAccess(_O)
-if mibBuilder.loadTexts:mcTrapID.setStatus(_B)
-class _McTrapDescr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_McTrapDescr_Type.__name__=_P
-_McTrapDescr_Object=MibScalar
-mcTrapDescr=_McTrapDescr_Object((1,3,6,1,4,1,34300,3,5,6),_McTrapDescr_Type())
-mcTrapDescr.setMaxAccess(_O)
-if mibBuilder.loadTexts:mcTrapDescr.setStatus(_B)
-_McTrapRestoredAlarmID_Type=Integer32
-_McTrapRestoredAlarmID_Object=MibScalar
-mcTrapRestoredAlarmID=_McTrapRestoredAlarmID_Object((1,3,6,1,4,1,34300,3,5,7),_McTrapRestoredAlarmID_Type())
-mcTrapRestoredAlarmID.setMaxAccess(_O)
-if mibBuilder.loadTexts:mcTrapRestoredAlarmID.setStatus(_B)
-_McTrapSyncType_Type=Integer32
-_McTrapSyncType_Object=MibScalar
-mcTrapSyncType=_McTrapSyncType_Object((1,3,6,1,4,1,34300,3,5,8),_McTrapSyncType_Type())
-mcTrapSyncType.setMaxAccess(_O)
-if mibBuilder.loadTexts:mcTrapSyncType.setStatus(_B)
-_McReservedFlag_Type=Integer32
-_McReservedFlag_Object=MibScalar
-mcReservedFlag=_McReservedFlag_Object((1,3,6,1,4,1,34300,3,5,9),_McReservedFlag_Type())
-mcReservedFlag.setMaxAccess(_O)
-if mibBuilder.loadTexts:mcReservedFlag.setStatus(_B)
-_Mp800mkAlarmTraps_ObjectIdentity=ObjectIdentity
-mp800mkAlarmTraps=_Mp800mkAlarmTraps_ObjectIdentity((1,3,6,1,4,1,34300,3,8))
-_Mp800mkOkTraps_ObjectIdentity=ObjectIdentity
-mp800mkOkTraps=_Mp800mkOkTraps_ObjectIdentity((1,3,6,1,4,1,34300,3,9))
-_Mp800mkTrapTypes_ObjectIdentity=ObjectIdentity
-mp800mkTrapTypes=_Mp800mkTrapTypes_ObjectIdentity((1,3,6,1,4,1,34300,3,10))
-_Mp800mkTrapParameter_Type=DisplayString
-_Mp800mkTrapParameter_Object=MibScalar
-mp800mkTrapParameter=_Mp800mkTrapParameter_Object((1,3,6,1,4,1,34300,3,10,1),_Mp800mkTrapParameter_Type())
-mp800mkTrapParameter.setMaxAccess(_O)
-if mibBuilder.loadTexts:mp800mkTrapParameter.setStatus(_B)
-_Mp800mkTrapValue_Type=DisplayString
-_Mp800mkTrapValue_Object=MibScalar
-mp800mkTrapValue=_Mp800mkTrapValue_Object((1,3,6,1,4,1,34300,3,10,2),_Mp800mkTrapValue_Type())
-mp800mkTrapValue.setMaxAccess(_O)
-if mibBuilder.loadTexts:mp800mkTrapValue.setStatus(_B)
-_Mp800mkTrapComment_Type=DisplayString
-_Mp800mkTrapComment_Object=MibScalar
-mp800mkTrapComment=_Mp800mkTrapComment_Object((1,3,6,1,4,1,34300,3,10,3),_Mp800mkTrapComment_Type())
-mp800mkTrapComment.setMaxAccess(_O)
-if mibBuilder.loadTexts:mp800mkTrapComment.setStatus(_B)
-_OmsOperationAlarmTraps_ObjectIdentity=ObjectIdentity
-omsOperationAlarmTraps=_OmsOperationAlarmTraps_ObjectIdentity((1,3,6,1,4,1,34300,3,20))
-_OmsOperationOkTraps_ObjectIdentity=ObjectIdentity
-omsOperationOkTraps=_OmsOperationOkTraps_ObjectIdentity((1,3,6,1,4,1,34300,3,21))
-eltrapObjectGroup=ObjectGroup((1,3,6,1,4,1,34300,3,101))
-eltrapObjectGroup.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:eltrapObjectGroup.setStatus(_B)
-mc240StreamAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,1))
-mc240StreamAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240StreamAlarmTrap.setStatus(_B)
-mc240SyncAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,2))
-mc240SyncAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240SyncAlarmTrap.setStatus(_B)
-mc240ss7LinkAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,3))
-mc240ss7LinkAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240ss7LinkAlarmTrap.setStatus(_B)
-mc240ss7LinksetAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,4))
-mc240ss7LinksetAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240ss7LinksetAlarmTrap.setStatus(_B)
-mc240FileAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,5))
-mc240FileAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240FileAlarmTrap.setStatus(_B)
-mc240CardAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,6))
-mc240CardAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240CardAlarmTrap.setStatus(_B)
-mxlDPSAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,7))
-mxlDPSAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:mxlDPSAlarmTrap.setStatus(_B)
-mxlTELEAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,8))
-mxlTELEAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:mxlTELEAlarmTrap.setStatus(_B)
-mc240UPSAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,9))
-mc240UPSAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240UPSAlarmTrap.setStatus(_B)
-mc240SensAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,10))
-mc240SensAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240SensAlarmTrap.setStatus(_B)
-dslamLinkDownTrap=NotificationType((1,3,6,1,4,1,34300,3,3,11))
-dslamLinkDownTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:dslamLinkDownTrap.setStatus(_B)
-dslamDSRateAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,12))
-dslamDSRateAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:dslamDSRateAlarmTrap.setStatus(_B)
-dslamUSRateAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,13))
-dslamUSRateAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:dslamUSRateAlarmTrap.setStatus(_B)
-ponONUAuthAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,14))
-ponONUAuthAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:ponONUAuthAlarmTrap.setStatus(_B)
-ponEthAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,15))
-ponEthAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:ponEthAlarmTrap.setStatus(_B)
-ponOpticalAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,16))
-ponOpticalAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:ponOpticalAlarmTrap.setStatus(_B)
-dslamOverheatAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,17))
-dslamOverheatAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:dslamOverheatAlarmTrap.setStatus(_B)
-dslamVoltageAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,18))
-dslamVoltageAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:dslamVoltageAlarmTrap.setStatus(_B)
-dslamSessionAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,19))
-dslamSessionAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:dslamSessionAlarmTrap.setStatus(_B)
-dslamEthLinkAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,3,20))
-dslamEthLinkAlarmTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:dslamEthLinkAlarmTrap.setStatus(_B)
-mc240StreamOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,1))
-mc240StreamOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240StreamOkTrap.setStatus(_B)
-mc240SyncOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,2))
-mc240SyncOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240SyncOkTrap.setStatus(_B)
-mc240ss7LinkOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,3))
-mc240ss7LinkOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240ss7LinkOkTrap.setStatus(_B)
-mc240ss7LinksetOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,4))
-mc240ss7LinksetOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240ss7LinksetOkTrap.setStatus(_B)
-mc240FileOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,5))
-mc240FileOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240FileOkTrap.setStatus(_B)
-mc240CardOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,6))
-mc240CardOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240CardOkTrap.setStatus(_B)
-mxlDPSOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,7))
-mxlDPSOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:mxlDPSOkTrap.setStatus(_B)
-mxlTELEOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,8))
-mxlTELEOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:mxlTELEOkTrap.setStatus(_B)
-mc240UPSOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,9))
-mc240UPSOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240UPSOkTrap.setStatus(_B)
-mc240SensOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,10))
-mc240SensOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:mc240SensOkTrap.setStatus(_B)
-dslamLinkUpTrap=NotificationType((1,3,6,1,4,1,34300,3,4,11))
-dslamLinkUpTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:dslamLinkUpTrap.setStatus(_B)
-dslamDSRateOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,12))
-dslamDSRateOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:dslamDSRateOkTrap.setStatus(_B)
-dslamUSRateOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,13))
-dslamUSRateOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:dslamUSRateOkTrap.setStatus(_B)
-ponONUAuthOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,14))
-ponONUAuthOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:ponONUAuthOkTrap.setStatus(_B)
-ponEthOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,15))
-ponEthOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:ponEthOkTrap.setStatus(_B)
-ponOpticalOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,16))
-ponOpticalOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:ponOpticalOkTrap.setStatus(_B)
-dslamOverheatOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,17))
-dslamOverheatOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:dslamOverheatOkTrap.setStatus(_B)
-dslamVoltageOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,18))
-dslamVoltageOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:dslamVoltageOkTrap.setStatus(_B)
-dslamSessionOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,19))
-dslamSessionOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:dslamSessionOkTrap.setStatus(_B)
-dslamEthLinkOkTrap=NotificationType((1,3,6,1,4,1,34300,3,4,20))
-dslamEthLinkOkTrap.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:dslamEthLinkOkTrap.setStatus(_B)
-mp800mkMPStatusAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,1))
-mp800mkMPStatusAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkMPStatusAlarmTrap.setStatus(_B)
-mp800mkInpParmAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,2))
-mp800mkInpParmAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkInpParmAlarmTrap.setStatus(_B)
-mp800mkUEPConfAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,3))
-mp800mkUEPConfAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkUEPConfAlarmTrap.setStatus(_B)
-mp800mkTMAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,4))
-mp800mkTMAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkTMAlarmTrap.setStatus(_B)
-mp800mkACVMAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,5))
-mp800mkACVMAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkACVMAlarmTrap.setStatus(_B)
-mp800mkIbatMAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,6))
-mp800mkIbatMAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkIbatMAlarmTrap.setStatus(_B)
-mp800mkVbatMAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,7))
-mp800mkVbatMAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkVbatMAlarmTrap.setStatus(_B)
-mp800mkVbatChAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,8))
-mp800mkVbatChAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkVbatChAlarmTrap.setStatus(_B)
-mp800mkRlsDevAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,9))
-mp800mkRlsDevAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkRlsDevAlarmTrap.setStatus(_B)
-mp800mkDVcellAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,10))
-mp800mkDVcellAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkDVcellAlarmTrap.setStatus(_B)
-mp800mkACVAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,11))
-mp800mkACVAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkACVAlarmTrap.setStatus(_B)
-mp800mkBatChargeAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,12))
-mp800mkBatChargeAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkBatChargeAlarmTrap.setStatus(_B)
-mp800mkIloadAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,13))
-mp800mkIloadAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkIloadAlarmTrap.setStatus(_B)
-mp800mkIbatChAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,14))
-mp800mkIbatChAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkIbatChAlarmTrap.setStatus(_B)
-mp800mkSuppAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,15))
-mp800mkSuppAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkSuppAlarmTrap.setStatus(_B)
-mp800mkBatConnAlarmTrap=NotificationType((1,3,6,1,4,1,34300,3,8,16))
-mp800mkBatConnAlarmTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkBatConnAlarmTrap.setStatus(_B)
-mp800mkMPStatusOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,1))
-mp800mkMPStatusOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkMPStatusOkTrap.setStatus(_B)
-mp800mkInpParmOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,2))
-mp800mkInpParmOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkInpParmOkTrap.setStatus(_B)
-mp800mkUEPConfOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,3))
-mp800mkUEPConfOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkUEPConfOkTrap.setStatus(_B)
-mp800mkTMOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,4))
-mp800mkTMOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkTMOkTrap.setStatus(_B)
-mp800mkACVMOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,5))
-mp800mkACVMOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkACVMOkTrap.setStatus(_B)
-mp800mkIbatMOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,6))
-mp800mkIbatMOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkIbatMOkTrap.setStatus(_B)
-mp800mkVbatMOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,7))
-mp800mkVbatMOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkVbatMOkTrap.setStatus(_B)
-mp800mkVbatChOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,8))
-mp800mkVbatChOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkVbatChOkTrap.setStatus(_B)
-mp800mkRlsDevOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,9))
-mp800mkRlsDevOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkRlsDevOkTrap.setStatus(_B)
-mp800mkDVcellOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,10))
-mp800mkDVcellOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkDVcellOkTrap.setStatus(_B)
-mp800mkACVOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,11))
-mp800mkACVOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkACVOkTrap.setStatus(_B)
-mp800mkBatChargeOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,12))
-mp800mkBatChargeOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkBatChargeOkTrap.setStatus(_B)
-mp800mkIloadOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,13))
-mp800mkIloadOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkIloadOkTrap.setStatus(_B)
-mp800mkIbatChOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,14))
-mp800mkIbatChOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkIbatChOkTrap.setStatus(_B)
-mp800mkSuppOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,15))
-mp800mkSuppOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkSuppOkTrap.setStatus(_B)
-mp800mkBatConnOkTrap=NotificationType((1,3,6,1,4,1,34300,3,9,16))
-mp800mkBatConnOkTrap.setObjects(*((_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:mp800mkBatConnOkTrap.setStatus(_B)
-omsOperationCommandAlarm=NotificationType((1,3,6,1,4,1,34300,3,20,1))
-omsOperationCommandAlarm.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:omsOperationCommandAlarm.setStatus(_B)
-omsOperationCommandOk=NotificationType((1,3,6,1,4,1,34300,3,21,1))
-omsOperationCommandOk.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:omsOperationCommandOk.setStatus(_B)
-eltrapNotificationGroup=NotificationGroup((1,3,6,1,4,1,34300,3,100))
-eltrapNotificationGroup.setObjects(*((_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab)))
-if mibBuilder.loadTexts:eltrapNotificationGroup.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'eltex':eltex,'elHardware':elHardware,'elSoftware':elSoftware,'eltrapGroup':eltrapGroup,'mc240AlarmTraps':mc240AlarmTraps,_Q:mc240StreamAlarmTrap,_R:mc240SyncAlarmTrap,_S:mc240ss7LinkAlarmTrap,_T:mc240ss7LinksetAlarmTrap,_U:mc240FileAlarmTrap,_V:mc240CardAlarmTrap,_W:mxlDPSAlarmTrap,_X:mxlTELEAlarmTrap,_Y:mc240UPSAlarmTrap,_Z:mc240SensAlarmTrap,_a:dslamLinkDownTrap,_b:dslamDSRateAlarmTrap,_c:dslamUSRateAlarmTrap,_d:ponONUAuthAlarmTrap,_e:ponEthAlarmTrap,_f:ponOpticalAlarmTrap,_w:dslamOverheatAlarmTrap,_x:dslamVoltageAlarmTrap,_y:dslamSessionAlarmTrap,_z:dslamEthLinkAlarmTrap,'mc240OkTraps':mc240OkTraps,_g:mc240StreamOkTrap,_h:mc240SyncOkTrap,_i:mc240ss7LinkOkTrap,_j:mc240ss7LinksetOkTrap,_k:mc240FileOkTrap,_l:mc240CardOkTrap,_m:mxlDPSOkTrap,_n:mxlTELEOkTrap,_o:mc240UPSOkTrap,_p:mc240SensOkTrap,_q:dslamLinkUpTrap,_r:dslamDSRateOkTrap,_s:dslamUSRateOkTrap,_t:ponONUAuthOkTrap,_u:ponEthOkTrap,_v:ponOpticalOkTrap,_A0:dslamOverheatOkTrap,_A1:dslamVoltageOkTrap,_A2:dslamSessionOkTrap,_A3:dslamEthLinkOkTrap,'mc240TrapTypes':mc240TrapTypes,_C:mcTrapExState,_D:mcTrapLParam1,_E:mcTrapLParam2,_F:mcTrapLParam3,_G:mcTrapID,_H:mcTrapDescr,_L:mcTrapRestoredAlarmID,_M:mcTrapSyncType,_N:mcReservedFlag,'mp800mkAlarmTraps':mp800mkAlarmTraps,_A4:mp800mkMPStatusAlarmTrap,_A5:mp800mkInpParmAlarmTrap,_A6:mp800mkUEPConfAlarmTrap,_A7:mp800mkTMAlarmTrap,_A8:mp800mkACVMAlarmTrap,_A9:mp800mkIbatMAlarmTrap,_AA:mp800mkVbatMAlarmTrap,_AB:mp800mkVbatChAlarmTrap,_AC:mp800mkRlsDevAlarmTrap,_AD:mp800mkDVcellAlarmTrap,_AE:mp800mkACVAlarmTrap,_AF:mp800mkBatChargeAlarmTrap,_AG:mp800mkIloadAlarmTrap,_AH:mp800mkIbatChAlarmTrap,_AI:mp800mkSuppAlarmTrap,_AJ:mp800mkBatConnAlarmTrap,'mp800mkOkTraps':mp800mkOkTraps,_AK:mp800mkMPStatusOkTrap,_AL:mp800mkInpParmOkTrap,_AM:mp800mkUEPConfOkTrap,_AN:mp800mkTMOkTrap,_AO:mp800mkACVMOkTrap,_AP:mp800mkIbatMOkTrap,_AQ:mp800mkVbatMOkTrap,_AR:mp800mkVbatChOkTrap,_AS:mp800mkRlsDevOkTrap,_AT:mp800mkDVcellOkTrap,_AU:mp800mkACVOkTrap,_AV:mp800mkBatChargeOkTrap,_AW:mp800mkIloadOkTrap,_AX:mp800mkIbatChOkTrap,_AY:mp800mkSuppOkTrap,_AZ:mp800mkBatConnOkTrap,'mp800mkTrapTypes':mp800mkTrapTypes,_I:mp800mkTrapParameter,_J:mp800mkTrapValue,_K:mp800mkTrapComment,'omsOperationAlarmTraps':omsOperationAlarmTraps,_Aa:omsOperationCommandAlarm,'omsOperationOkTraps':omsOperationOkTraps,_Ab:omsOperationCommandOk,'eltrapNotificationGroup':eltrapNotificationGroup,'eltrapObjectGroup':eltrapObjectGroup})
+#
+# PySNMP MIB module ELTEX-SMI (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-SMI
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:38 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+eltex = ModuleIdentity((1, 3, 6, 1, 4, 1, 34300))
+if mibBuilder.loadTexts: eltex.setLastUpdated('200906031500Z')
+if mibBuilder.loadTexts: eltex.setOrganization('Eltex Co')
+elHardware = ObjectIdentity((1, 3, 6, 1, 4, 1, 34300, 1))
+if mibBuilder.loadTexts: elHardware.setStatus('current')
+elSoftware = ObjectIdentity((1, 3, 6, 1, 4, 1, 34300, 2))
+if mibBuilder.loadTexts: elSoftware.setStatus('current')
+eltrapGroup = ObjectIdentity((1, 3, 6, 1, 4, 1, 34300, 3))
+if mibBuilder.loadTexts: eltrapGroup.setStatus('current')
+mc240AlarmTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 34300, 3, 3))
+mc240StreamAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 1)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240StreamAlarmTrap.setStatus('current')
+mc240SyncAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 2)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240SyncAlarmTrap.setStatus('current')
+mc240ss7LinkAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 3)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240ss7LinkAlarmTrap.setStatus('current')
+mc240ss7LinksetAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 4)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240ss7LinksetAlarmTrap.setStatus('current')
+mc240FileAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 5)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240FileAlarmTrap.setStatus('current')
+mc240CardAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 6)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240CardAlarmTrap.setStatus('current')
+mxlDPSAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 7)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: mxlDPSAlarmTrap.setStatus('current')
+mxlTELEAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 8)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: mxlTELEAlarmTrap.setStatus('current')
+mc240UPSAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 9)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240UPSAlarmTrap.setStatus('current')
+mc240SensAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 10)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240SensAlarmTrap.setStatus('current')
+dslamLinkDownTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 11)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: dslamLinkDownTrap.setStatus('current')
+dslamDSRateAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 12)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: dslamDSRateAlarmTrap.setStatus('current')
+dslamUSRateAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 13)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: dslamUSRateAlarmTrap.setStatus('current')
+ponONUAuthAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 14)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: ponONUAuthAlarmTrap.setStatus('current')
+ponEthAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 15)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: ponEthAlarmTrap.setStatus('current')
+ponOpticalAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 16)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: ponOpticalAlarmTrap.setStatus('current')
+dslamOverheatAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 17)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: dslamOverheatAlarmTrap.setStatus('current')
+dslamVoltageAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 18)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: dslamVoltageAlarmTrap.setStatus('current')
+dslamSessionAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 19)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: dslamSessionAlarmTrap.setStatus('current')
+dslamEthLinkAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 3, 20)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: dslamEthLinkAlarmTrap.setStatus('current')
+mc240OkTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 34300, 3, 4))
+mc240StreamOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 1)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240StreamOkTrap.setStatus('current')
+mc240SyncOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 2)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240SyncOkTrap.setStatus('current')
+mc240ss7LinkOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 3)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240ss7LinkOkTrap.setStatus('current')
+mc240ss7LinksetOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 4)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240ss7LinksetOkTrap.setStatus('current')
+mc240FileOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 5)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240FileOkTrap.setStatus('current')
+mc240CardOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 6)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240CardOkTrap.setStatus('current')
+mxlDPSOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 7)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: mxlDPSOkTrap.setStatus('current')
+mxlTELEOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 8)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: mxlTELEOkTrap.setStatus('current')
+mc240UPSOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 9)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240UPSOkTrap.setStatus('current')
+mc240SensOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 10)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if mibBuilder.loadTexts: mc240SensOkTrap.setStatus('current')
+dslamLinkUpTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 11)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: dslamLinkUpTrap.setStatus('current')
+dslamDSRateOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 12)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: dslamDSRateOkTrap.setStatus('current')
+dslamUSRateOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 13)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: dslamUSRateOkTrap.setStatus('current')
+ponONUAuthOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 14)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: ponONUAuthOkTrap.setStatus('current')
+ponEthOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 15)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: ponEthOkTrap.setStatus('current')
+ponOpticalOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 16)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: ponOpticalOkTrap.setStatus('current')
+dslamOverheatOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 17)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: dslamOverheatOkTrap.setStatus('current')
+dslamVoltageOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 18)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: dslamVoltageOkTrap.setStatus('current')
+dslamSessionOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 19)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: dslamSessionOkTrap.setStatus('current')
+dslamEthLinkOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 4, 20)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: dslamEthLinkOkTrap.setStatus('current')
+mc240TrapTypes = MibIdentifier((1, 3, 6, 1, 4, 1, 34300, 3, 5))
+mcTrapExState = MibScalar((1, 3, 6, 1, 4, 1, 34300, 3, 5, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mcTrapExState.setStatus('current')
+mcTrapLParam1 = MibScalar((1, 3, 6, 1, 4, 1, 34300, 3, 5, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mcTrapLParam1.setStatus('current')
+mcTrapLParam2 = MibScalar((1, 3, 6, 1, 4, 1, 34300, 3, 5, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mcTrapLParam2.setStatus('current')
+mcTrapLParam3 = MibScalar((1, 3, 6, 1, 4, 1, 34300, 3, 5, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mcTrapLParam3.setStatus('current')
+mcTrapID = MibScalar((1, 3, 6, 1, 4, 1, 34300, 3, 5, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mcTrapID.setStatus('current')
+mcTrapDescr = MibScalar((1, 3, 6, 1, 4, 1, 34300, 3, 5, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mcTrapDescr.setStatus('current')
+mcTrapRestoredAlarmID = MibScalar((1, 3, 6, 1, 4, 1, 34300, 3, 5, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mcTrapRestoredAlarmID.setStatus('current')
+mcTrapSyncType = MibScalar((1, 3, 6, 1, 4, 1, 34300, 3, 5, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mcTrapSyncType.setStatus('current')
+mcReservedFlag = MibScalar((1, 3, 6, 1, 4, 1, 34300, 3, 5, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mcReservedFlag.setStatus('current')
+omsOperationAlarmTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 34300, 3, 20))
+omsOperationOkTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 34300, 3, 21))
+omsOperationCommandAlarm = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 20, 1)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: omsOperationCommandAlarm.setStatus('current')
+omsOperationCommandOk = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 21, 1)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"))
+if mibBuilder.loadTexts: omsOperationCommandOk.setStatus('current')
+mp800mkAlarmTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 34300, 3, 8))
+mp800mkMPStatusAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 1)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkMPStatusAlarmTrap.setStatus('current')
+mp800mkInpParmAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 2)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkInpParmAlarmTrap.setStatus('current')
+mp800mkUEPConfAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 3)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkUEPConfAlarmTrap.setStatus('current')
+mp800mkTMAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 4)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkTMAlarmTrap.setStatus('current')
+mp800mkACVMAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 5)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkACVMAlarmTrap.setStatus('current')
+mp800mkIbatMAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 6)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkIbatMAlarmTrap.setStatus('current')
+mp800mkVbatMAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 7)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkVbatMAlarmTrap.setStatus('current')
+mp800mkVbatChAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 8)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkVbatChAlarmTrap.setStatus('current')
+mp800mkRlsDevAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 9)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkRlsDevAlarmTrap.setStatus('current')
+mp800mkDVcellAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 10)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkDVcellAlarmTrap.setStatus('current')
+mp800mkACVAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 11)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkACVAlarmTrap.setStatus('current')
+mp800mkBatChargeAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 12)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkBatChargeAlarmTrap.setStatus('current')
+mp800mkIloadAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 13)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkIloadAlarmTrap.setStatus('current')
+mp800mkIbatChAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 14)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkIbatChAlarmTrap.setStatus('current')
+mp800mkSuppAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 15)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkSuppAlarmTrap.setStatus('current')
+mp800mkBatConnAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 8, 16)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkBatConnAlarmTrap.setStatus('current')
+mp800mkOkTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 34300, 3, 9))
+mp800mkMPStatusOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 1)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkMPStatusOkTrap.setStatus('current')
+mp800mkInpParmOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 2)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkInpParmOkTrap.setStatus('current')
+mp800mkUEPConfOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 3)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkUEPConfOkTrap.setStatus('current')
+mp800mkTMOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 4)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkTMOkTrap.setStatus('current')
+mp800mkACVMOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 5)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkACVMOkTrap.setStatus('current')
+mp800mkIbatMOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 6)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkIbatMOkTrap.setStatus('current')
+mp800mkVbatMOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 7)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkVbatMOkTrap.setStatus('current')
+mp800mkVbatChOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 8)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkVbatChOkTrap.setStatus('current')
+mp800mkRlsDevOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 9)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkRlsDevOkTrap.setStatus('current')
+mp800mkDVcellOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 10)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkDVcellOkTrap.setStatus('current')
+mp800mkACVOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 11)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkACVOkTrap.setStatus('current')
+mp800mkBatChargeOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 12)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkBatChargeOkTrap.setStatus('current')
+mp800mkIloadOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 13)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkIloadOkTrap.setStatus('current')
+mp800mkIbatChOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 14)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkIbatChOkTrap.setStatus('current')
+mp800mkSuppOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 15)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkSuppOkTrap.setStatus('current')
+mp800mkBatConnOkTrap = NotificationType((1, 3, 6, 1, 4, 1, 34300, 3, 9, 16)).setObjects(("ELTEX-SMI", "mp800mkTrapParameter"), ("ELTEX-SMI", "mp800mkTrapValue"), ("ELTEX-SMI", "mp800mkTrapComment"))
+if mibBuilder.loadTexts: mp800mkBatConnOkTrap.setStatus('current')
+mp800mkTrapTypes = MibIdentifier((1, 3, 6, 1, 4, 1, 34300, 3, 10))
+mp800mkTrapParameter = MibScalar((1, 3, 6, 1, 4, 1, 34300, 3, 10, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mp800mkTrapParameter.setStatus('current')
+mp800mkTrapValue = MibScalar((1, 3, 6, 1, 4, 1, 34300, 3, 10, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mp800mkTrapValue.setStatus('current')
+mp800mkTrapComment = MibScalar((1, 3, 6, 1, 4, 1, 34300, 3, 10, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mp800mkTrapComment.setStatus('current')
+eltrapNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 34300, 3, 100)).setObjects(("ELTEX-SMI", "mc240StreamAlarmTrap"), ("ELTEX-SMI", "mc240SyncAlarmTrap"), ("ELTEX-SMI", "mc240ss7LinkAlarmTrap"), ("ELTEX-SMI", "mc240ss7LinksetAlarmTrap"), ("ELTEX-SMI", "mc240FileAlarmTrap"), ("ELTEX-SMI", "mc240CardAlarmTrap"), ("ELTEX-SMI", "mxlDPSAlarmTrap"), ("ELTEX-SMI", "mxlTELEAlarmTrap"), ("ELTEX-SMI", "mc240UPSAlarmTrap"), ("ELTEX-SMI", "mc240SensAlarmTrap"), ("ELTEX-SMI", "dslamLinkDownTrap"), ("ELTEX-SMI", "dslamDSRateAlarmTrap"), ("ELTEX-SMI", "dslamUSRateAlarmTrap"), ("ELTEX-SMI", "ponONUAuthAlarmTrap"), ("ELTEX-SMI", "ponEthAlarmTrap"), ("ELTEX-SMI", "ponOpticalAlarmTrap"), ("ELTEX-SMI", "mc240StreamOkTrap"), ("ELTEX-SMI", "mc240SyncOkTrap"), ("ELTEX-SMI", "mc240ss7LinkOkTrap"), ("ELTEX-SMI", "mc240ss7LinksetOkTrap"), ("ELTEX-SMI", "mc240FileOkTrap"), ("ELTEX-SMI", "mc240CardOkTrap"), ("ELTEX-SMI", "mxlDPSOkTrap"), ("ELTEX-SMI", "mxlTELEOkTrap"), ("ELTEX-SMI", "mc240UPSOkTrap"), ("ELTEX-SMI", "mc240SensOkTrap"), ("ELTEX-SMI", "dslamLinkUpTrap"), ("ELTEX-SMI", "dslamDSRateOkTrap"), ("ELTEX-SMI", "dslamUSRateOkTrap"), ("ELTEX-SMI", "ponONUAuthOkTrap"), ("ELTEX-SMI", "ponEthOkTrap"), ("ELTEX-SMI", "ponOpticalOkTrap"), ("ELTEX-SMI", "dslamOverheatAlarmTrap"), ("ELTEX-SMI", "dslamVoltageAlarmTrap"), ("ELTEX-SMI", "dslamSessionAlarmTrap"), ("ELTEX-SMI", "dslamEthLinkAlarmTrap"), ("ELTEX-SMI", "dslamOverheatOkTrap"), ("ELTEX-SMI", "dslamVoltageOkTrap"), ("ELTEX-SMI", "dslamSessionOkTrap"), ("ELTEX-SMI", "dslamEthLinkOkTrap"), ("ELTEX-SMI", "mp800mkMPStatusAlarmTrap"), ("ELTEX-SMI", "mp800mkInpParmAlarmTrap"), ("ELTEX-SMI", "mp800mkUEPConfAlarmTrap"), ("ELTEX-SMI", "mp800mkTMAlarmTrap"), ("ELTEX-SMI", "mp800mkACVMAlarmTrap"), ("ELTEX-SMI", "mp800mkIbatMAlarmTrap"), ("ELTEX-SMI", "mp800mkVbatMAlarmTrap"), ("ELTEX-SMI", "mp800mkVbatChAlarmTrap"), ("ELTEX-SMI", "mp800mkRlsDevAlarmTrap"), ("ELTEX-SMI", "mp800mkDVcellAlarmTrap"), ("ELTEX-SMI", "mp800mkACVAlarmTrap"), ("ELTEX-SMI", "mp800mkBatChargeAlarmTrap"), ("ELTEX-SMI", "mp800mkIloadAlarmTrap"), ("ELTEX-SMI", "mp800mkIbatChAlarmTrap"), ("ELTEX-SMI", "mp800mkSuppAlarmTrap"), ("ELTEX-SMI", "mp800mkBatConnAlarmTrap"), ("ELTEX-SMI", "mp800mkMPStatusOkTrap"), ("ELTEX-SMI", "mp800mkInpParmOkTrap"), ("ELTEX-SMI", "mp800mkUEPConfOkTrap"), ("ELTEX-SMI", "mp800mkTMOkTrap"), ("ELTEX-SMI", "mp800mkACVMOkTrap"), ("ELTEX-SMI", "mp800mkIbatMOkTrap"), ("ELTEX-SMI", "mp800mkVbatMOkTrap"), ("ELTEX-SMI", "mp800mkVbatChOkTrap"), ("ELTEX-SMI", "mp800mkRlsDevOkTrap"), ("ELTEX-SMI", "mp800mkDVcellOkTrap"), ("ELTEX-SMI", "mp800mkACVOkTrap"), ("ELTEX-SMI", "mp800mkBatChargeOkTrap"), ("ELTEX-SMI", "mp800mkIloadOkTrap"), ("ELTEX-SMI", "mp800mkIbatChOkTrap"), ("ELTEX-SMI", "mp800mkSuppOkTrap"), ("ELTEX-SMI", "mp800mkBatConnOkTrap"), ("ELTEX-SMI", "omsOperationCommandAlarm"), ("ELTEX-SMI", "omsOperationCommandOk"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    eltrapNotificationGroup = eltrapNotificationGroup.setStatus('current')
+eltrapObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 34300, 3, 101)).setObjects(("ELTEX-SMI", "mcTrapExState"), ("ELTEX-SMI", "mcTrapLParam1"), ("ELTEX-SMI", "mcTrapLParam2"), ("ELTEX-SMI", "mcTrapLParam3"), ("ELTEX-SMI", "mcTrapID"), ("ELTEX-SMI", "mcTrapDescr"), ("ELTEX-SMI", "mcTrapRestoredAlarmID"), ("ELTEX-SMI", "mcTrapSyncType"), ("ELTEX-SMI", "mcReservedFlag"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    eltrapObjectGroup = eltrapObjectGroup.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-SMI", dslamVoltageOkTrap=dslamVoltageOkTrap, mp800mkIbatMOkTrap=mp800mkIbatMOkTrap, mxlDPSOkTrap=mxlDPSOkTrap, omsOperationCommandOk=omsOperationCommandOk, dslamDSRateOkTrap=dslamDSRateOkTrap, mp800mkBatChargeAlarmTrap=mp800mkBatChargeAlarmTrap, mp800mkIloadAlarmTrap=mp800mkIloadAlarmTrap, elHardware=elHardware, dslamOverheatOkTrap=dslamOverheatOkTrap, mc240SyncAlarmTrap=mc240SyncAlarmTrap, mp800mkVbatMOkTrap=mp800mkVbatMOkTrap, mp800mkVbatChAlarmTrap=mp800mkVbatChAlarmTrap, elSoftware=elSoftware, mp800mkBatChargeOkTrap=mp800mkBatChargeOkTrap, mc240ss7LinkAlarmTrap=mc240ss7LinkAlarmTrap, mp800mkACVOkTrap=mp800mkACVOkTrap, mc240StreamAlarmTrap=mc240StreamAlarmTrap, dslamEthLinkOkTrap=dslamEthLinkOkTrap, mcTrapSyncType=mcTrapSyncType, mp800mkRlsDevAlarmTrap=mp800mkRlsDevAlarmTrap, mc240CardOkTrap=mc240CardOkTrap, mp800mkACVMAlarmTrap=mp800mkACVMAlarmTrap, mp800mkTrapTypes=mp800mkTrapTypes, mc240FileOkTrap=mc240FileOkTrap, dslamDSRateAlarmTrap=dslamDSRateAlarmTrap, mp800mkMPStatusAlarmTrap=mp800mkMPStatusAlarmTrap, mp800mkDVcellOkTrap=mp800mkDVcellOkTrap, ponONUAuthAlarmTrap=ponONUAuthAlarmTrap, mp800mkTrapValue=mp800mkTrapValue, mc240SensOkTrap=mc240SensOkTrap, mcTrapExState=mcTrapExState, mc240CardAlarmTrap=mc240CardAlarmTrap, eltex=eltex, mp800mkTMOkTrap=mp800mkTMOkTrap, eltrapNotificationGroup=eltrapNotificationGroup, mc240TrapTypes=mc240TrapTypes, mp800mkUEPConfAlarmTrap=mp800mkUEPConfAlarmTrap, mc240SensAlarmTrap=mc240SensAlarmTrap, mp800mkInpParmOkTrap=mp800mkInpParmOkTrap, dslamSessionAlarmTrap=dslamSessionAlarmTrap, mp800mkInpParmAlarmTrap=mp800mkInpParmAlarmTrap, dslamVoltageAlarmTrap=dslamVoltageAlarmTrap, mp800mkIbatChAlarmTrap=mp800mkIbatChAlarmTrap, dslamOverheatAlarmTrap=dslamOverheatAlarmTrap, ponEthAlarmTrap=ponEthAlarmTrap, dslamLinkUpTrap=dslamLinkUpTrap, mxlDPSAlarmTrap=mxlDPSAlarmTrap, mc240OkTraps=mc240OkTraps, mp800mkRlsDevOkTrap=mp800mkRlsDevOkTrap, mc240ss7LinkOkTrap=mc240ss7LinkOkTrap, mp800mkTrapParameter=mp800mkTrapParameter, mcTrapID=mcTrapID, omsOperationCommandAlarm=omsOperationCommandAlarm, mp800mkVbatChOkTrap=mp800mkVbatChOkTrap, mp800mkSuppOkTrap=mp800mkSuppOkTrap, mp800mkIbatChOkTrap=mp800mkIbatChOkTrap, mp800mkBatConnAlarmTrap=mp800mkBatConnAlarmTrap, dslamUSRateOkTrap=dslamUSRateOkTrap, PYSNMP_MODULE_ID=eltex, ponONUAuthOkTrap=ponONUAuthOkTrap, mp800mkTrapComment=mp800mkTrapComment, mc240SyncOkTrap=mc240SyncOkTrap, mc240UPSOkTrap=mc240UPSOkTrap, mc240FileAlarmTrap=mc240FileAlarmTrap, mp800mkUEPConfOkTrap=mp800mkUEPConfOkTrap, mc240ss7LinksetAlarmTrap=mc240ss7LinksetAlarmTrap, mcReservedFlag=mcReservedFlag, dslamEthLinkAlarmTrap=dslamEthLinkAlarmTrap, mp800mkTMAlarmTrap=mp800mkTMAlarmTrap, mc240UPSAlarmTrap=mc240UPSAlarmTrap, mc240AlarmTraps=mc240AlarmTraps, mp800mkDVcellAlarmTrap=mp800mkDVcellAlarmTrap, ponEthOkTrap=ponEthOkTrap, eltrapObjectGroup=eltrapObjectGroup, mp800mkAlarmTraps=mp800mkAlarmTraps, mp800mkACVMOkTrap=mp800mkACVMOkTrap, ponOpticalAlarmTrap=ponOpticalAlarmTrap, mc240StreamOkTrap=mc240StreamOkTrap, mcTrapDescr=mcTrapDescr, mcTrapRestoredAlarmID=mcTrapRestoredAlarmID, mp800mkOkTraps=mp800mkOkTraps, eltrapGroup=eltrapGroup, mcTrapLParam1=mcTrapLParam1, mp800mkMPStatusOkTrap=mp800mkMPStatusOkTrap, mc240ss7LinksetOkTrap=mc240ss7LinksetOkTrap, mp800mkIbatMAlarmTrap=mp800mkIbatMAlarmTrap, mp800mkIloadOkTrap=mp800mkIloadOkTrap, mp800mkACVAlarmTrap=mp800mkACVAlarmTrap, dslamLinkDownTrap=dslamLinkDownTrap, mxlTELEOkTrap=mxlTELEOkTrap, ponOpticalOkTrap=ponOpticalOkTrap, dslamUSRateAlarmTrap=dslamUSRateAlarmTrap, dslamSessionOkTrap=dslamSessionOkTrap, mcTrapLParam3=mcTrapLParam3, mp800mkBatConnOkTrap=mp800mkBatConnOkTrap, omsOperationAlarmTraps=omsOperationAlarmTraps, mcTrapLParam2=mcTrapLParam2, mp800mkVbatMAlarmTrap=mp800mkVbatMAlarmTrap, mp800mkSuppAlarmTrap=mp800mkSuppAlarmTrap, omsOperationOkTraps=omsOperationOkTraps, mxlTELEAlarmTrap=mxlTELEAlarmTrap)

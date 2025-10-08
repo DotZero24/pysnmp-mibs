@@ -1,88 +1,46 @@
-_J='zxDslIllegalLoginIP'
-_I='zxDslIllegalLoginType'
-_H='zxDslIllegalLoginUserName'
-_G='zxDslSysLatestLogonCrftTerminalType'
-_F='DisplayString'
-_E='read-write'
-_D='read-only'
-_C='ZTE-DSL-SEC-MIB'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_F,'PhysAddress','RowStatus','TextualConvention')
-zxDsl,=mibBuilder.importSymbols('ZTE-DSL-MIB','zxDsl')
-zxDslSysSecMib=ModuleIdentity((1,3,6,1,4,1,3902,1004,36))
-_ZxDslSysSecObjects_ObjectIdentity=ObjectIdentity
-zxDslSysSecObjects=_ZxDslSysSecObjects_ObjectIdentity((1,3,6,1,4,1,3902,1004,36,1))
-class _ZxDslCrftTerminalEnable_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_ZxDslCrftTerminalEnable_Type.__name__=_B
-_ZxDslCrftTerminalEnable_Object=MibScalar
-zxDslCrftTerminalEnable=_ZxDslCrftTerminalEnable_Object((1,3,6,1,4,1,3902,1004,36,1,1),_ZxDslCrftTerminalEnable_Type())
-zxDslCrftTerminalEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxDslCrftTerminalEnable.setStatus(_A)
-class _ZxDslCliSecurityLevel_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('guest',1),('administrator',2)))
-_ZxDslCliSecurityLevel_Type.__name__=_B
-_ZxDslCliSecurityLevel_Object=MibScalar
-zxDslCliSecurityLevel=_ZxDslCliSecurityLevel_Object((1,3,6,1,4,1,3902,1004,36,1,2),_ZxDslCliSecurityLevel_Type())
-zxDslCliSecurityLevel.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxDslCliSecurityLevel.setStatus(_A)
-class _ZxDslCrftTerminalLogonStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('logon',1),('logout',2)))
-_ZxDslCrftTerminalLogonStatus_Type.__name__=_B
-_ZxDslCrftTerminalLogonStatus_Object=MibScalar
-zxDslCrftTerminalLogonStatus=_ZxDslCrftTerminalLogonStatus_Object((1,3,6,1,4,1,3902,1004,36,1,3),_ZxDslCrftTerminalLogonStatus_Type())
-zxDslCrftTerminalLogonStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxDslCrftTerminalLogonStatus.setStatus(_A)
-class _ZxDslSysLatestLogonCrftTerminalType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('rs232SerialInterface',1),('outbandMgmtInterface',2)))
-_ZxDslSysLatestLogonCrftTerminalType_Type.__name__=_B
-_ZxDslSysLatestLogonCrftTerminalType_Object=MibScalar
-zxDslSysLatestLogonCrftTerminalType=_ZxDslSysLatestLogonCrftTerminalType_Object((1,3,6,1,4,1,3902,1004,36,1,4),_ZxDslSysLatestLogonCrftTerminalType_Type())
-zxDslSysLatestLogonCrftTerminalType.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxDslSysLatestLogonCrftTerminalType.setStatus(_A)
-class _ZxDslCliLogonWelcomeMessage_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,400))
-_ZxDslCliLogonWelcomeMessage_Type.__name__=_F
-_ZxDslCliLogonWelcomeMessage_Object=MibScalar
-zxDslCliLogonWelcomeMessage=_ZxDslCliLogonWelcomeMessage_Object((1,3,6,1,4,1,3902,1004,36,1,5),_ZxDslCliLogonWelcomeMessage_Type())
-zxDslCliLogonWelcomeMessage.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxDslCliLogonWelcomeMessage.setStatus(_A)
-class _ZxDslCliLogonOvertimeMin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,60))
-_ZxDslCliLogonOvertimeMin_Type.__name__=_B
-_ZxDslCliLogonOvertimeMin_Object=MibScalar
-zxDslCliLogonOvertimeMin=_ZxDslCliLogonOvertimeMin_Object((1,3,6,1,4,1,3902,1004,36,1,6),_ZxDslCliLogonOvertimeMin_Type())
-zxDslCliLogonOvertimeMin.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxDslCliLogonOvertimeMin.setStatus(_A)
-class _ZxDslIllegalLoginUserName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_ZxDslIllegalLoginUserName_Type.__name__=_F
-_ZxDslIllegalLoginUserName_Object=MibScalar
-zxDslIllegalLoginUserName=_ZxDslIllegalLoginUserName_Object((1,3,6,1,4,1,3902,1004,36,1,7),_ZxDslIllegalLoginUserName_Type())
-zxDslIllegalLoginUserName.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxDslIllegalLoginUserName.setStatus(_A)
-class _ZxDslIllegalLoginType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('console',1),('telnet',2),('ssh',3)))
-_ZxDslIllegalLoginType_Type.__name__=_B
-_ZxDslIllegalLoginType_Object=MibScalar
-zxDslIllegalLoginType=_ZxDslIllegalLoginType_Object((1,3,6,1,4,1,3902,1004,36,1,8),_ZxDslIllegalLoginType_Type())
-zxDslIllegalLoginType.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxDslIllegalLoginType.setStatus(_A)
-_ZxDslIllegalLoginIP_Type=IpAddress
-_ZxDslIllegalLoginIP_Object=MibScalar
-zxDslIllegalLoginIP=_ZxDslIllegalLoginIP_Object((1,3,6,1,4,1,3902,1004,36,1,9),_ZxDslIllegalLoginIP_Type())
-zxDslIllegalLoginIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxDslIllegalLoginIP.setStatus(_A)
-_ZxDslSysSecTrapObjects_ObjectIdentity=ObjectIdentity
-zxDslSysSecTrapObjects=_ZxDslSysSecTrapObjects_ObjectIdentity((1,3,6,1,4,1,3902,1004,36,2))
-zxDslCrftTerminLogonTrap=NotificationType((1,3,6,1,4,1,3902,1004,36,2,1))
-zxDslCrftTerminLogonTrap.setObjects((_C,_G))
-if mibBuilder.loadTexts:zxDslCrftTerminLogonTrap.setStatus(_A)
-zxDslCrftTerminLogoutTrap=NotificationType((1,3,6,1,4,1,3902,1004,36,2,2))
-zxDslCrftTerminLogoutTrap.setObjects((_C,_G))
-if mibBuilder.loadTexts:zxDslCrftTerminLogoutTrap.setStatus(_A)
-zxDslIllegalLoginTrap=NotificationType((1,3,6,1,4,1,3902,1004,36,2,3))
-zxDslIllegalLoginTrap.setObjects(*((_C,_H),(_C,_I),(_C,_J)))
-if mibBuilder.loadTexts:zxDslIllegalLoginTrap.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'zxDslSysSecMib':zxDslSysSecMib,'zxDslSysSecObjects':zxDslSysSecObjects,'zxDslCrftTerminalEnable':zxDslCrftTerminalEnable,'zxDslCliSecurityLevel':zxDslCliSecurityLevel,'zxDslCrftTerminalLogonStatus':zxDslCrftTerminalLogonStatus,_G:zxDslSysLatestLogonCrftTerminalType,'zxDslCliLogonWelcomeMessage':zxDslCliLogonWelcomeMessage,'zxDslCliLogonOvertimeMin':zxDslCliLogonOvertimeMin,_H:zxDslIllegalLoginUserName,_I:zxDslIllegalLoginType,_J:zxDslIllegalLoginIP,'zxDslSysSecTrapObjects':zxDslSysSecTrapObjects,'zxDslCrftTerminLogonTrap':zxDslCrftTerminLogonTrap,'zxDslCrftTerminLogoutTrap':zxDslCrftTerminLogoutTrap,'zxDslIllegalLoginTrap':zxDslIllegalLoginTrap})
+#
+# PySNMP MIB module ZTE-DSL-SEC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZTE-DSL-SEC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:51 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+zxDsl, = mibBuilder.importSymbols("ZTE-DSL-MIB", "zxDsl")
+zxDslSysSecMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1004, 36))
+if mibBuilder.loadTexts: zxDslSysSecMib.setLastUpdated('200404151500Z')
+if mibBuilder.loadTexts: zxDslSysSecMib.setOrganization('ZTE Corporation')
+zxDslSysSecObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1004, 36, 1))
+zxDslSysSecTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1004, 36, 2))
+zxDslCrftTerminalEnable = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 36, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslCrftTerminalEnable.setStatus('current')
+zxDslCliSecurityLevel = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 36, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("guest", 1), ("administrator", 2))).clone('administrator')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslCliSecurityLevel.setStatus('current')
+zxDslCrftTerminalLogonStatus = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 36, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("logon", 1), ("logout", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxDslCrftTerminalLogonStatus.setStatus('current')
+zxDslSysLatestLogonCrftTerminalType = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 36, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("rs232SerialInterface", 1), ("outbandMgmtInterface", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxDslSysLatestLogonCrftTerminalType.setStatus('current')
+zxDslCliLogonWelcomeMessage = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 36, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 400))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslCliLogonWelcomeMessage.setStatus('current')
+zxDslCliLogonOvertimeMin = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 36, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 60))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslCliLogonOvertimeMin.setStatus('current')
+zxDslIllegalLoginUserName = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 36, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxDslIllegalLoginUserName.setStatus('current')
+zxDslIllegalLoginType = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 36, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("console", 1), ("telnet", 2), ("ssh", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxDslIllegalLoginType.setStatus('current')
+zxDslIllegalLoginIP = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 36, 1, 9), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxDslIllegalLoginIP.setStatus('current')
+zxDslCrftTerminLogonTrap = NotificationType((1, 3, 6, 1, 4, 1, 3902, 1004, 36, 2, 1)).setObjects(("ZTE-DSL-SEC-MIB", "zxDslSysLatestLogonCrftTerminalType"))
+if mibBuilder.loadTexts: zxDslCrftTerminLogonTrap.setStatus('current')
+zxDslCrftTerminLogoutTrap = NotificationType((1, 3, 6, 1, 4, 1, 3902, 1004, 36, 2, 2)).setObjects(("ZTE-DSL-SEC-MIB", "zxDslSysLatestLogonCrftTerminalType"))
+if mibBuilder.loadTexts: zxDslCrftTerminLogoutTrap.setStatus('current')
+zxDslIllegalLoginTrap = NotificationType((1, 3, 6, 1, 4, 1, 3902, 1004, 36, 2, 3)).setObjects(("ZTE-DSL-SEC-MIB", "zxDslIllegalLoginUserName"), ("ZTE-DSL-SEC-MIB", "zxDslIllegalLoginType"), ("ZTE-DSL-SEC-MIB", "zxDslIllegalLoginIP"))
+if mibBuilder.loadTexts: zxDslIllegalLoginTrap.setStatus('current')
+mibBuilder.exportSymbols("ZTE-DSL-SEC-MIB", zxDslIllegalLoginIP=zxDslIllegalLoginIP, zxDslSysLatestLogonCrftTerminalType=zxDslSysLatestLogonCrftTerminalType, zxDslSysSecMib=zxDslSysSecMib, zxDslCrftTerminalLogonStatus=zxDslCrftTerminalLogonStatus, zxDslCrftTerminalEnable=zxDslCrftTerminalEnable, zxDslIllegalLoginTrap=zxDslIllegalLoginTrap, PYSNMP_MODULE_ID=zxDslSysSecMib, zxDslCliLogonWelcomeMessage=zxDslCliLogonWelcomeMessage, zxDslCliSecurityLevel=zxDslCliSecurityLevel, zxDslCrftTerminLogoutTrap=zxDslCrftTerminLogoutTrap, zxDslSysSecTrapObjects=zxDslSysSecTrapObjects, zxDslCliLogonOvertimeMin=zxDslCliLogonOvertimeMin, zxDslSysSecObjects=zxDslSysSecObjects, zxDslCrftTerminLogonTrap=zxDslCrftTerminLogonTrap, zxDslIllegalLoginUserName=zxDslIllegalLoginUserName, zxDslIllegalLoginType=zxDslIllegalLoginType)

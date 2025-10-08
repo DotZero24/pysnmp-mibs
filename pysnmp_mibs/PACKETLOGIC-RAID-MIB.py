@@ -1,83 +1,48 @@
-_G='diskEntryIndex'
-_F='not-accessible'
-_E='ldEntryIndex'
-_D='PACKETLOGIC-RAID-MIB'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CounterBasedGauge64,=mibBuilder.importSymbols('HCNUM-TC','CounterBasedGauge64')
-hw,=mibBuilder.importSymbols('PACKETLOGIC-HW-MIB','hw')
-packetlogic2,=mibBuilder.importSymbols('PACKETLOGIC-MIB','packetlogic2')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
-raid=ModuleIdentity((1,3,6,1,4,1,15397,2,30,1))
-if mibBuilder.loadTexts:raid.setRevisions(('2012-12-13 13:22',))
-_RaidCfg_ObjectIdentity=ObjectIdentity
-raidCfg=_RaidCfg_ObjectIdentity((1,3,6,1,4,1,15397,2,30,1,1))
-_AdpNumber_Type=Unsigned32
-_AdpNumber_Object=MibScalar
-adpNumber=_AdpNumber_Object((1,3,6,1,4,1,15397,2,30,1,1,1),_AdpNumber_Type())
-adpNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:adpNumber.setStatus(_A)
-_LdNumber_Type=Unsigned32
-_LdNumber_Object=MibScalar
-ldNumber=_LdNumber_Object((1,3,6,1,4,1,15397,2,30,1,1,2),_LdNumber_Type())
-ldNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:ldNumber.setStatus(_A)
-_DiskNumber_Type=Unsigned32
-_DiskNumber_Object=MibScalar
-diskNumber=_DiskNumber_Object((1,3,6,1,4,1,15397,2,30,1,1,3),_DiskNumber_Type())
-diskNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:diskNumber.setStatus(_A)
-_Ld_Object=MibTable
-ld=_Ld_Object((1,3,6,1,4,1,15397,2,30,1,3))
-if mibBuilder.loadTexts:ld.setStatus(_A)
-_LdEntry_Object=MibTableRow
-ldEntry=_LdEntry_Object((1,3,6,1,4,1,15397,2,30,1,3,1))
-ldEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:ldEntry.setStatus(_A)
-_LdId_Type=DisplayString
-_LdId_Object=MibTableColumn
-ldId=_LdId_Object((1,3,6,1,4,1,15397,2,30,1,3,1,1),_LdId_Type())
-ldId.setMaxAccess(_B)
-if mibBuilder.loadTexts:ldId.setStatus(_A)
-_LdState_Type=DisplayString
-_LdState_Object=MibTableColumn
-ldState=_LdState_Object((1,3,6,1,4,1,15397,2,30,1,3,1,2),_LdState_Type())
-ldState.setMaxAccess(_B)
-if mibBuilder.loadTexts:ldState.setStatus(_A)
-class _LdEntryIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_LdEntryIndex_Type.__name__=_C
-_LdEntryIndex_Object=MibTableColumn
-ldEntryIndex=_LdEntryIndex_Object((1,3,6,1,4,1,15397,2,30,1,3,1,999),_LdEntryIndex_Type())
-ldEntryIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:ldEntryIndex.setStatus(_A)
-_Disk_Object=MibTable
-disk=_Disk_Object((1,3,6,1,4,1,15397,2,30,1,4))
-if mibBuilder.loadTexts:disk.setStatus(_A)
-_DiskEntry_Object=MibTableRow
-diskEntry=_DiskEntry_Object((1,3,6,1,4,1,15397,2,30,1,4,1))
-diskEntry.setIndexNames((0,_D,_G))
-if mibBuilder.loadTexts:diskEntry.setStatus(_A)
-_DiskId_Type=DisplayString
-_DiskId_Object=MibTableColumn
-diskId=_DiskId_Object((1,3,6,1,4,1,15397,2,30,1,4,1,1),_DiskId_Type())
-diskId.setMaxAccess(_B)
-if mibBuilder.loadTexts:diskId.setStatus(_A)
-_DiskState_Type=DisplayString
-_DiskState_Object=MibTableColumn
-diskState=_DiskState_Object((1,3,6,1,4,1,15397,2,30,1,4,1,2),_DiskState_Type())
-diskState.setMaxAccess(_B)
-if mibBuilder.loadTexts:diskState.setStatus(_A)
-class _DiskEntryIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_DiskEntryIndex_Type.__name__=_C
-_DiskEntryIndex_Object=MibTableColumn
-diskEntryIndex=_DiskEntryIndex_Object((1,3,6,1,4,1,15397,2,30,1,4,1,999),_DiskEntryIndex_Type())
-diskEntryIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:diskEntryIndex.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'raid':raid,'raidCfg':raidCfg,'adpNumber':adpNumber,'ldNumber':ldNumber,'diskNumber':diskNumber,'ld':ld,'ldEntry':ldEntry,'ldId':ldId,'ldState':ldState,_E:ldEntryIndex,'disk':disk,'diskEntry':diskEntry,'diskId':diskId,'diskState':diskState,_G:diskEntryIndex})
+#
+# PySNMP MIB module PACKETLOGIC-RAID-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/procera/PACKETLOGIC-RAID-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
+hw, = mibBuilder.importSymbols("PACKETLOGIC-HW-MIB", "hw")
+packetlogic2, = mibBuilder.importSymbols("PACKETLOGIC-MIB", "packetlogic2")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+raid = ModuleIdentity((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1))
+raid.setRevisions(('2012-12-13 13:22',))
+if mibBuilder.loadTexts: raid.setLastUpdated('201212131322Z')
+if mibBuilder.loadTexts: raid.setOrganization('Procera Networks, Inc.')
+raidCfg = MibIdentifier((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 1))
+ld = MibTable((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 3), )
+if mibBuilder.loadTexts: ld.setStatus('current')
+ldEntry = MibTableRow((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 3, 1), ).setIndexNames((0, "PACKETLOGIC-RAID-MIB", "ldEntryIndex"))
+if mibBuilder.loadTexts: ldEntry.setStatus('current')
+ldEntryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 3, 1, 999), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: ldEntryIndex.setStatus('current')
+disk = MibTable((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4), )
+if mibBuilder.loadTexts: disk.setStatus('current')
+diskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4, 1), ).setIndexNames((0, "PACKETLOGIC-RAID-MIB", "diskEntryIndex"))
+if mibBuilder.loadTexts: diskEntry.setStatus('current')
+diskEntryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4, 1, 999), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: diskEntryIndex.setStatus('current')
+adpNumber = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adpNumber.setStatus('current')
+ldNumber = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ldNumber.setStatus('current')
+diskNumber = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskNumber.setStatus('current')
+ldId = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 3, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ldId.setStatus('current')
+ldState = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 3, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ldState.setStatus('current')
+diskId = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskId.setStatus('current')
+diskState = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskState.setStatus('current')
+mibBuilder.exportSymbols("PACKETLOGIC-RAID-MIB", diskId=diskId, ldNumber=ldNumber, ldEntry=ldEntry, PYSNMP_MODULE_ID=raid, adpNumber=adpNumber, diskEntryIndex=diskEntryIndex, diskNumber=diskNumber, ldState=ldState, diskState=diskState, disk=disk, ldId=ldId, raidCfg=raidCfg, raid=raid, ldEntryIndex=ldEntryIndex, ld=ld, diskEntry=diskEntry)

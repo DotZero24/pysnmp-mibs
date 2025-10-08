@@ -1,138 +1,71 @@
-_K='h3cMGRprobeVlanID'
-_J='h3cMGReflectorIfIndex'
-_I='h3cMGMonitorIfIndex'
-_H='h3cMGMirrorDirection'
-_G='h3cMGMirrorIfIndex'
-_F='Integer32'
-_E='read-create'
-_D='not-accessible'
-_C='h3cMGID'
-_B='A3COM-HUAWEI-MIRRORGROUP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('A3COM-HUAWEI-OID-MIB','h3cCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-h3cMirrGroup=ModuleIdentity((1,3,6,1,4,1,43,45,1,10,2,68))
-if mibBuilder.loadTexts:h3cMirrGroup.setRevisions(('2006-01-10 19:03',))
-_H3cMGInfoObjects_ObjectIdentity=ObjectIdentity
-h3cMGInfoObjects=_H3cMGInfoObjects_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,68,1))
-_H3cMGObjects_ObjectIdentity=ObjectIdentity
-h3cMGObjects=_H3cMGObjects_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,68,1,1))
-_H3cMGTable_Object=MibTable
-h3cMGTable=_H3cMGTable_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,1,1))
-if mibBuilder.loadTexts:h3cMGTable.setStatus(_A)
-_H3cMGEntry_Object=MibTableRow
-h3cMGEntry=_H3cMGEntry_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,1,1,1))
-h3cMGEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:h3cMGEntry.setStatus(_A)
-_H3cMGID_Type=Integer32
-_H3cMGID_Object=MibTableColumn
-h3cMGID=_H3cMGID_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,1,1,1,1),_H3cMGID_Type())
-h3cMGID.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cMGID.setStatus(_A)
-class _H3cMGType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('local',1),('remoteSource',2),('remoteDestination',3)))
-_H3cMGType_Type.__name__=_F
-_H3cMGType_Object=MibTableColumn
-h3cMGType=_H3cMGType_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,1,1,1,2),_H3cMGType_Type())
-h3cMGType.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cMGType.setStatus(_A)
-class _H3cMGStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('active',1),('inactive',2)))
-_H3cMGStatus_Type.__name__=_F
-_H3cMGStatus_Object=MibTableColumn
-h3cMGStatus=_H3cMGStatus_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,1,1,1,3),_H3cMGStatus_Type())
-h3cMGStatus.setMaxAccess('read-only')
-if mibBuilder.loadTexts:h3cMGStatus.setStatus(_A)
-_H3cMGRowStatus_Type=RowStatus
-_H3cMGRowStatus_Object=MibTableColumn
-h3cMGRowStatus=_H3cMGRowStatus_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,1,1,1,4),_H3cMGRowStatus_Type())
-h3cMGRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cMGRowStatus.setStatus(_A)
-_H3cMGMirrorIfObjects_ObjectIdentity=ObjectIdentity
-h3cMGMirrorIfObjects=_H3cMGMirrorIfObjects_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,68,1,2))
-_H3cMGMirrorIfTable_Object=MibTable
-h3cMGMirrorIfTable=_H3cMGMirrorIfTable_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,2,1))
-if mibBuilder.loadTexts:h3cMGMirrorIfTable.setStatus(_A)
-_H3cMGMirrorIfEntry_Object=MibTableRow
-h3cMGMirrorIfEntry=_H3cMGMirrorIfEntry_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,2,1,1))
-h3cMGMirrorIfEntry.setIndexNames((0,_B,_C),(0,_B,_G),(0,_B,_H))
-if mibBuilder.loadTexts:h3cMGMirrorIfEntry.setStatus(_A)
-_H3cMGMirrorIfIndex_Type=Integer32
-_H3cMGMirrorIfIndex_Object=MibTableColumn
-h3cMGMirrorIfIndex=_H3cMGMirrorIfIndex_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,2,1,1,1),_H3cMGMirrorIfIndex_Type())
-h3cMGMirrorIfIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cMGMirrorIfIndex.setStatus(_A)
-class _H3cMGMirrorDirection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('inbound',1),('outbound',2),('both',3)))
-_H3cMGMirrorDirection_Type.__name__=_F
-_H3cMGMirrorDirection_Object=MibTableColumn
-h3cMGMirrorDirection=_H3cMGMirrorDirection_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,2,1,1,2),_H3cMGMirrorDirection_Type())
-h3cMGMirrorDirection.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cMGMirrorDirection.setStatus(_A)
-_H3cMGMirrorRowStatus_Type=RowStatus
-_H3cMGMirrorRowStatus_Object=MibTableColumn
-h3cMGMirrorRowStatus=_H3cMGMirrorRowStatus_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,2,1,1,3),_H3cMGMirrorRowStatus_Type())
-h3cMGMirrorRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cMGMirrorRowStatus.setStatus(_A)
-_H3cMGMonitorIfObjects_ObjectIdentity=ObjectIdentity
-h3cMGMonitorIfObjects=_H3cMGMonitorIfObjects_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,68,1,3))
-_H3cMGMonitorIfTable_Object=MibTable
-h3cMGMonitorIfTable=_H3cMGMonitorIfTable_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,3,1))
-if mibBuilder.loadTexts:h3cMGMonitorIfTable.setStatus(_A)
-_H3cMGMonitorIfEntry_Object=MibTableRow
-h3cMGMonitorIfEntry=_H3cMGMonitorIfEntry_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,3,1,1))
-h3cMGMonitorIfEntry.setIndexNames((0,_B,_C),(0,_B,_I))
-if mibBuilder.loadTexts:h3cMGMonitorIfEntry.setStatus(_A)
-_H3cMGMonitorIfIndex_Type=Integer32
-_H3cMGMonitorIfIndex_Object=MibTableColumn
-h3cMGMonitorIfIndex=_H3cMGMonitorIfIndex_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,3,1,1,1),_H3cMGMonitorIfIndex_Type())
-h3cMGMonitorIfIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cMGMonitorIfIndex.setStatus(_A)
-_H3cMGMonitorRowStatus_Type=RowStatus
-_H3cMGMonitorRowStatus_Object=MibTableColumn
-h3cMGMonitorRowStatus=_H3cMGMonitorRowStatus_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,3,1,1,2),_H3cMGMonitorRowStatus_Type())
-h3cMGMonitorRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cMGMonitorRowStatus.setStatus(_A)
-_H3cMGReflectorIfObjects_ObjectIdentity=ObjectIdentity
-h3cMGReflectorIfObjects=_H3cMGReflectorIfObjects_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,68,1,4))
-_H3cMGReflectorIfTable_Object=MibTable
-h3cMGReflectorIfTable=_H3cMGReflectorIfTable_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,4,1))
-if mibBuilder.loadTexts:h3cMGReflectorIfTable.setStatus(_A)
-_H3cMGReflectorIfEntry_Object=MibTableRow
-h3cMGReflectorIfEntry=_H3cMGReflectorIfEntry_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,4,1,1))
-h3cMGReflectorIfEntry.setIndexNames((0,_B,_C),(0,_B,_J))
-if mibBuilder.loadTexts:h3cMGReflectorIfEntry.setStatus(_A)
-_H3cMGReflectorIfIndex_Type=Integer32
-_H3cMGReflectorIfIndex_Object=MibTableColumn
-h3cMGReflectorIfIndex=_H3cMGReflectorIfIndex_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,4,1,1,1),_H3cMGReflectorIfIndex_Type())
-h3cMGReflectorIfIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cMGReflectorIfIndex.setStatus(_A)
-_H3cMGReflectorRowStatus_Type=RowStatus
-_H3cMGReflectorRowStatus_Object=MibTableColumn
-h3cMGReflectorRowStatus=_H3cMGReflectorRowStatus_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,4,1,1,2),_H3cMGReflectorRowStatus_Type())
-h3cMGReflectorRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cMGReflectorRowStatus.setStatus(_A)
-_H3cMGRprobeVlanObjects_ObjectIdentity=ObjectIdentity
-h3cMGRprobeVlanObjects=_H3cMGRprobeVlanObjects_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,68,1,5))
-_H3cMGRprobeVlanTable_Object=MibTable
-h3cMGRprobeVlanTable=_H3cMGRprobeVlanTable_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,5,1))
-if mibBuilder.loadTexts:h3cMGRprobeVlanTable.setStatus(_A)
-_H3cMGRprobeVlanEntry_Object=MibTableRow
-h3cMGRprobeVlanEntry=_H3cMGRprobeVlanEntry_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,5,1,1))
-h3cMGRprobeVlanEntry.setIndexNames((0,_B,_C),(0,_B,_K))
-if mibBuilder.loadTexts:h3cMGRprobeVlanEntry.setStatus(_A)
-class _H3cMGRprobeVlanID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_H3cMGRprobeVlanID_Type.__name__=_F
-_H3cMGRprobeVlanID_Object=MibTableColumn
-h3cMGRprobeVlanID=_H3cMGRprobeVlanID_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,5,1,1,1),_H3cMGRprobeVlanID_Type())
-h3cMGRprobeVlanID.setMaxAccess(_D)
-if mibBuilder.loadTexts:h3cMGRprobeVlanID.setStatus(_A)
-_H3cMGRprobeVlanRowStatus_Type=RowStatus
-_H3cMGRprobeVlanRowStatus_Object=MibTableColumn
-h3cMGRprobeVlanRowStatus=_H3cMGRprobeVlanRowStatus_Object((1,3,6,1,4,1,43,45,1,10,2,68,1,5,1,1,2),_H3cMGRprobeVlanRowStatus_Type())
-h3cMGRprobeVlanRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cMGRprobeVlanRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'h3cMirrGroup':h3cMirrGroup,'h3cMGInfoObjects':h3cMGInfoObjects,'h3cMGObjects':h3cMGObjects,'h3cMGTable':h3cMGTable,'h3cMGEntry':h3cMGEntry,_C:h3cMGID,'h3cMGType':h3cMGType,'h3cMGStatus':h3cMGStatus,'h3cMGRowStatus':h3cMGRowStatus,'h3cMGMirrorIfObjects':h3cMGMirrorIfObjects,'h3cMGMirrorIfTable':h3cMGMirrorIfTable,'h3cMGMirrorIfEntry':h3cMGMirrorIfEntry,_G:h3cMGMirrorIfIndex,_H:h3cMGMirrorDirection,'h3cMGMirrorRowStatus':h3cMGMirrorRowStatus,'h3cMGMonitorIfObjects':h3cMGMonitorIfObjects,'h3cMGMonitorIfTable':h3cMGMonitorIfTable,'h3cMGMonitorIfEntry':h3cMGMonitorIfEntry,_I:h3cMGMonitorIfIndex,'h3cMGMonitorRowStatus':h3cMGMonitorRowStatus,'h3cMGReflectorIfObjects':h3cMGReflectorIfObjects,'h3cMGReflectorIfTable':h3cMGReflectorIfTable,'h3cMGReflectorIfEntry':h3cMGReflectorIfEntry,_J:h3cMGReflectorIfIndex,'h3cMGReflectorRowStatus':h3cMGReflectorRowStatus,'h3cMGRprobeVlanObjects':h3cMGRprobeVlanObjects,'h3cMGRprobeVlanTable':h3cMGRprobeVlanTable,'h3cMGRprobeVlanEntry':h3cMGRprobeVlanEntry,_K:h3cMGRprobeVlanID,'h3cMGRprobeVlanRowStatus':h3cMGRprobeVlanRowStatus})
+#
+# PySNMP MIB module A3COM-HUAWEI-MIRRORGROUP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-MIRRORGROUP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+h3cMirrGroup = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68))
+h3cMirrGroup.setRevisions(('2006-01-10 19:03',))
+if mibBuilder.loadTexts: h3cMirrGroup.setLastUpdated('200601131403Z')
+if mibBuilder.loadTexts: h3cMirrGroup.setOrganization('Huawei 3Com Technologies Co., Ltd.')
+h3cMGInfoObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1))
+h3cMGObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 1))
+h3cMGTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 1, 1), )
+if mibBuilder.loadTexts: h3cMGTable.setStatus('current')
+h3cMGEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 1, 1, 1), ).setIndexNames((0, "A3COM-HUAWEI-MIRRORGROUP-MIB", "h3cMGID"))
+if mibBuilder.loadTexts: h3cMGEntry.setStatus('current')
+h3cMGID = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 1, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: h3cMGID.setStatus('current')
+h3cMGType = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("local", 1), ("remoteSource", 2), ("remoteDestination", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cMGType.setStatus('current')
+h3cMGStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cMGStatus.setStatus('current')
+h3cMGRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cMGRowStatus.setStatus('current')
+h3cMGMirrorIfObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 2))
+h3cMGMirrorIfTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 2, 1), )
+if mibBuilder.loadTexts: h3cMGMirrorIfTable.setStatus('current')
+h3cMGMirrorIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 2, 1, 1), ).setIndexNames((0, "A3COM-HUAWEI-MIRRORGROUP-MIB", "h3cMGID"), (0, "A3COM-HUAWEI-MIRRORGROUP-MIB", "h3cMGMirrorIfIndex"), (0, "A3COM-HUAWEI-MIRRORGROUP-MIB", "h3cMGMirrorDirection"))
+if mibBuilder.loadTexts: h3cMGMirrorIfEntry.setStatus('current')
+h3cMGMirrorIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 2, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: h3cMGMirrorIfIndex.setStatus('current')
+h3cMGMirrorDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("inbound", 1), ("outbound", 2), ("both", 3))))
+if mibBuilder.loadTexts: h3cMGMirrorDirection.setStatus('current')
+h3cMGMirrorRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 2, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cMGMirrorRowStatus.setStatus('current')
+h3cMGMonitorIfObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 3))
+h3cMGMonitorIfTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 3, 1), )
+if mibBuilder.loadTexts: h3cMGMonitorIfTable.setStatus('current')
+h3cMGMonitorIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 3, 1, 1), ).setIndexNames((0, "A3COM-HUAWEI-MIRRORGROUP-MIB", "h3cMGID"), (0, "A3COM-HUAWEI-MIRRORGROUP-MIB", "h3cMGMonitorIfIndex"))
+if mibBuilder.loadTexts: h3cMGMonitorIfEntry.setStatus('current')
+h3cMGMonitorIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 3, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: h3cMGMonitorIfIndex.setStatus('current')
+h3cMGMonitorRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 3, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cMGMonitorRowStatus.setStatus('current')
+h3cMGReflectorIfObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 4))
+h3cMGReflectorIfTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 4, 1), )
+if mibBuilder.loadTexts: h3cMGReflectorIfTable.setStatus('current')
+h3cMGReflectorIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 4, 1, 1), ).setIndexNames((0, "A3COM-HUAWEI-MIRRORGROUP-MIB", "h3cMGID"), (0, "A3COM-HUAWEI-MIRRORGROUP-MIB", "h3cMGReflectorIfIndex"))
+if mibBuilder.loadTexts: h3cMGReflectorIfEntry.setStatus('current')
+h3cMGReflectorIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 4, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: h3cMGReflectorIfIndex.setStatus('current')
+h3cMGReflectorRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 4, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cMGReflectorRowStatus.setStatus('current')
+h3cMGRprobeVlanObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 5))
+h3cMGRprobeVlanTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 5, 1), )
+if mibBuilder.loadTexts: h3cMGRprobeVlanTable.setStatus('current')
+h3cMGRprobeVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 5, 1, 1), ).setIndexNames((0, "A3COM-HUAWEI-MIRRORGROUP-MIB", "h3cMGID"), (0, "A3COM-HUAWEI-MIRRORGROUP-MIB", "h3cMGRprobeVlanID"))
+if mibBuilder.loadTexts: h3cMGRprobeVlanEntry.setStatus('current')
+h3cMGRprobeVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 5, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
+if mibBuilder.loadTexts: h3cMGRprobeVlanID.setStatus('current')
+h3cMGRprobeVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 68, 1, 5, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cMGRprobeVlanRowStatus.setStatus('current')
+mibBuilder.exportSymbols("A3COM-HUAWEI-MIRRORGROUP-MIB", h3cMGEntry=h3cMGEntry, h3cMGMonitorIfObjects=h3cMGMonitorIfObjects, h3cMGMirrorIfObjects=h3cMGMirrorIfObjects, h3cMirrGroup=h3cMirrGroup, PYSNMP_MODULE_ID=h3cMirrGroup, h3cMGType=h3cMGType, h3cMGRprobeVlanObjects=h3cMGRprobeVlanObjects, h3cMGRprobeVlanRowStatus=h3cMGRprobeVlanRowStatus, h3cMGReflectorRowStatus=h3cMGReflectorRowStatus, h3cMGID=h3cMGID, h3cMGMonitorIfEntry=h3cMGMonitorIfEntry, h3cMGStatus=h3cMGStatus, h3cMGRowStatus=h3cMGRowStatus, h3cMGMirrorIfTable=h3cMGMirrorIfTable, h3cMGMonitorRowStatus=h3cMGMonitorRowStatus, h3cMGMirrorDirection=h3cMGMirrorDirection, h3cMGMonitorIfTable=h3cMGMonitorIfTable, h3cMGObjects=h3cMGObjects, h3cMGTable=h3cMGTable, h3cMGRprobeVlanEntry=h3cMGRprobeVlanEntry, h3cMGMirrorIfEntry=h3cMGMirrorIfEntry, h3cMGMonitorIfIndex=h3cMGMonitorIfIndex, h3cMGReflectorIfEntry=h3cMGReflectorIfEntry, h3cMGReflectorIfTable=h3cMGReflectorIfTable, h3cMGReflectorIfObjects=h3cMGReflectorIfObjects, h3cMGInfoObjects=h3cMGInfoObjects, h3cMGRprobeVlanTable=h3cMGRprobeVlanTable, h3cMGMirrorIfIndex=h3cMGMirrorIfIndex, h3cMGReflectorIfIndex=h3cMGReflectorIfIndex, h3cMGMirrorRowStatus=h3cMGMirrorRowStatus, h3cMGRprobeVlanID=h3cMGRprobeVlanID)

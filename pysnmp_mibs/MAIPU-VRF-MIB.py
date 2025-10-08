@@ -1,78 +1,43 @@
-_I='mVrfConfiguration2RouteDistinguisher'
-_H='mVrfConfiguration2Type'
-_G='mVrfConfiguration2Name'
-_F='not-accessible'
-_E='Integer32'
-_D='read-create'
-_C='MAIPU-VRF-MIB'
-_B='DisplayString'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mpMgmt,=mibBuilder.importSymbols('MAIPU-SMI','mpMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_B,'PhysAddress','RowStatus','TextualConvention','TruthValue')
-mVrfMib=ModuleIdentity((1,3,6,1,4,1,5651,3,89))
-if mibBuilder.loadTexts:mVrfMib.setRevisions(('1904-05-27 10:03',))
-_MVrfMibObjects_ObjectIdentity=ObjectIdentity
-mVrfMibObjects=_MVrfMibObjects_ObjectIdentity((1,3,6,1,4,1,5651,3,89,1))
-_MVrfGlobal_ObjectIdentity=ObjectIdentity
-mVrfGlobal=_MVrfGlobal_ObjectIdentity((1,3,6,1,4,1,5651,3,89,1,1))
-_MVrfConfiguration1_ObjectIdentity=ObjectIdentity
-mVrfConfiguration1=_MVrfConfiguration1_ObjectIdentity((1,3,6,1,4,1,5651,3,89,1,2))
-_MVrfConfiguration1Table_Object=MibTable
-mVrfConfiguration1Table=_MVrfConfiguration1Table_Object((1,3,6,1,4,1,5651,3,89,1,2,1))
-if mibBuilder.loadTexts:mVrfConfiguration1Table.setStatus(_A)
-_MVrfConfiguration1Entry_Object=MibTableRow
-mVrfConfiguration1Entry=_MVrfConfiguration1Entry_Object((1,3,6,1,4,1,5651,3,89,1,2,1,1))
-mVrfConfiguration1Entry.setIndexNames((0,_C,'mVrfConfiguration1NameIndex'))
-if mibBuilder.loadTexts:mVrfConfiguration1Entry.setStatus(_A)
-class _MVrfConfiguration1Name_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_MVrfConfiguration1Name_Type.__name__=_B
-_MVrfConfiguration1Name_Object=MibTableColumn
-mVrfConfiguration1Name=_MVrfConfiguration1Name_Object((1,3,6,1,4,1,5651,3,89,1,2,1,1,1),_MVrfConfiguration1Name_Type())
-mVrfConfiguration1Name.setMaxAccess(_F)
-if mibBuilder.loadTexts:mVrfConfiguration1Name.setStatus(_A)
-class _MVrfConfiguration1RouteDistinguisher_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,27))
-_MVrfConfiguration1RouteDistinguisher_Type.__name__=_B
-_MVrfConfiguration1RouteDistinguisher_Object=MibTableColumn
-mVrfConfiguration1RouteDistinguisher=_MVrfConfiguration1RouteDistinguisher_Object((1,3,6,1,4,1,5651,3,89,1,2,1,1,2),_MVrfConfiguration1RouteDistinguisher_Type())
-mVrfConfiguration1RouteDistinguisher.setMaxAccess(_D)
-if mibBuilder.loadTexts:mVrfConfiguration1RouteDistinguisher.setStatus(_A)
-class _MVrfConfiguration1Description_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,50))
-_MVrfConfiguration1Description_Type.__name__=_B
-_MVrfConfiguration1Description_Object=MibTableColumn
-mVrfConfiguration1Description=_MVrfConfiguration1Description_Object((1,3,6,1,4,1,5651,3,89,1,2,1,1,3),_MVrfConfiguration1Description_Type())
-mVrfConfiguration1Description.setMaxAccess(_D)
-if mibBuilder.loadTexts:mVrfConfiguration1Description.setStatus(_A)
-class _MVrfConfiguration2Type_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('import',1),('export',2),('both',3)))
-_MVrfConfiguration2Type_Type.__name__=_E
-_MVrfConfiguration2Type_Object=MibTableColumn
-mVrfConfiguration2Type=_MVrfConfiguration2Type_Object((1,3,6,1,4,1,5651,3,89,1,2,1,1,3),_MVrfConfiguration2Type_Type())
-mVrfConfiguration2Type.setMaxAccess(_D)
-if mibBuilder.loadTexts:mVrfConfiguration2Type.setStatus(_A)
-_MVrfConfiguration2_ObjectIdentity=ObjectIdentity
-mVrfConfiguration2=_MVrfConfiguration2_ObjectIdentity((1,3,6,1,4,1,5651,3,89,1,3))
-_MVrfConfiguration2Table_Object=MibTable
-mVrfConfiguration2Table=_MVrfConfiguration2Table_Object((1,3,6,1,4,1,5651,3,89,1,3,1))
-if mibBuilder.loadTexts:mVrfConfiguration2Table.setStatus(_A)
-_MVrfConfiguration2Entry_Object=MibTableRow
-mVrfConfiguration2Entry=_MVrfConfiguration2Entry_Object((1,3,6,1,4,1,5651,3,89,1,3,1,1))
-mVrfConfiguration2Entry.setIndexNames((0,_C,_G),(0,_C,_H),(0,_C,_I))
-if mibBuilder.loadTexts:mVrfConfiguration2Entry.setStatus(_A)
-class _MVrfConfiguration2Name_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_MVrfConfiguration2Name_Type.__name__=_B
-_MVrfConfiguration2Name_Object=MibTableColumn
-mVrfConfiguration2Name=_MVrfConfiguration2Name_Object((1,3,6,1,4,1,5651,3,89,1,3,1,1,1),_MVrfConfiguration2Name_Type())
-mVrfConfiguration2Name.setMaxAccess(_F)
-if mibBuilder.loadTexts:mVrfConfiguration2Name.setStatus(_A)
-class _MVrfConfiguration2RouteDistinguisher_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,27))
-_MVrfConfiguration2RouteDistinguisher_Type.__name__=_B
-_MVrfConfiguration2RouteDistinguisher_Object=MibTableColumn
-mVrfConfiguration2RouteDistinguisher=_MVrfConfiguration2RouteDistinguisher_Object((1,3,6,1,4,1,5651,3,89,1,3,1,1,3),_MVrfConfiguration2RouteDistinguisher_Type())
-mVrfConfiguration2RouteDistinguisher.setMaxAccess(_D)
-if mibBuilder.loadTexts:mVrfConfiguration2RouteDistinguisher.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'mVrfMib':mVrfMib,'mVrfMibObjects':mVrfMibObjects,'mVrfGlobal':mVrfGlobal,'mVrfConfiguration1':mVrfConfiguration1,'mVrfConfiguration1Table':mVrfConfiguration1Table,'mVrfConfiguration1Entry':mVrfConfiguration1Entry,'mVrfConfiguration1Name':mVrfConfiguration1Name,'mVrfConfiguration1RouteDistinguisher':mVrfConfiguration1RouteDistinguisher,'mVrfConfiguration1Description':mVrfConfiguration1Description,_H:mVrfConfiguration2Type,'mVrfConfiguration2':mVrfConfiguration2,'mVrfConfiguration2Table':mVrfConfiguration2Table,'mVrfConfiguration2Entry':mVrfConfiguration2Entry,_G:mVrfConfiguration2Name,_I:mVrfConfiguration2RouteDistinguisher})
+#
+# PySNMP MIB module MAIPU-VRF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/maipu/MAIPU-VRF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mpMgmt, = mibBuilder.importSymbols("MAIPU-SMI", "mpMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+mVrfMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 5651, 3, 89))
+mVrfMib.setRevisions(('1904-05-27 10:03',))
+if mibBuilder.loadTexts: mVrfMib.setLastUpdated('0405271003Z')
+if mibBuilder.loadTexts: mVrfMib.setOrganization('Maipu (Sichuan ) Communication Technology Co.,Ltd')
+mVrfMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5651, 3, 89, 1))
+mVrfGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 5651, 3, 89, 1, 1))
+mVrfConfiguration1 = MibIdentifier((1, 3, 6, 1, 4, 1, 5651, 3, 89, 1, 2))
+mVrfConfiguration2 = MibIdentifier((1, 3, 6, 1, 4, 1, 5651, 3, 89, 1, 3))
+mVrfConfiguration1Table = MibTable((1, 3, 6, 1, 4, 1, 5651, 3, 89, 1, 2, 1), )
+if mibBuilder.loadTexts: mVrfConfiguration1Table.setStatus('current')
+mVrfConfiguration1Entry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 3, 89, 1, 2, 1, 1), ).setIndexNames((0, "MAIPU-VRF-MIB", "mVrfConfiguration1NameIndex"))
+if mibBuilder.loadTexts: mVrfConfiguration1Entry.setStatus('current')
+mVrfConfiguration1Name = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 89, 1, 2, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32)))
+if mibBuilder.loadTexts: mVrfConfiguration1Name.setStatus('current')
+mVrfConfiguration1RouteDistinguisher = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 89, 1, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 27))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mVrfConfiguration1RouteDistinguisher.setStatus('current')
+mVrfConfiguration1Description = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 89, 1, 2, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 50))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mVrfConfiguration1Description.setStatus('current')
+mVrfConfiguration2Table = MibTable((1, 3, 6, 1, 4, 1, 5651, 3, 89, 1, 3, 1), )
+if mibBuilder.loadTexts: mVrfConfiguration2Table.setStatus('current')
+mVrfConfiguration2Entry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 3, 89, 1, 3, 1, 1), ).setIndexNames((0, "MAIPU-VRF-MIB", "mVrfConfiguration2Name"), (0, "MAIPU-VRF-MIB", "mVrfConfiguration2Type"), (0, "MAIPU-VRF-MIB", "mVrfConfiguration2RouteDistinguisher"))
+if mibBuilder.loadTexts: mVrfConfiguration2Entry.setStatus('current')
+mVrfConfiguration2Name = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 89, 1, 3, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32)))
+if mibBuilder.loadTexts: mVrfConfiguration2Name.setStatus('current')
+mVrfConfiguration2Type = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 89, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("import", 1), ("export", 2), ("both", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mVrfConfiguration2Type.setStatus('current')
+mVrfConfiguration2RouteDistinguisher = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 89, 1, 3, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 27))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mVrfConfiguration2RouteDistinguisher.setStatus('current')
+mibBuilder.exportSymbols("MAIPU-VRF-MIB", mVrfConfiguration2=mVrfConfiguration2, mVrfConfiguration2Entry=mVrfConfiguration2Entry, mVrfConfiguration2Name=mVrfConfiguration2Name, mVrfConfiguration1RouteDistinguisher=mVrfConfiguration1RouteDistinguisher, mVrfConfiguration1Name=mVrfConfiguration1Name, mVrfConfiguration1Description=mVrfConfiguration1Description, mVrfMib=mVrfMib, mVrfMibObjects=mVrfMibObjects, mVrfConfiguration2Table=mVrfConfiguration2Table, mVrfConfiguration2RouteDistinguisher=mVrfConfiguration2RouteDistinguisher, PYSNMP_MODULE_ID=mVrfMib, mVrfConfiguration2Type=mVrfConfiguration2Type, mVrfConfiguration1Entry=mVrfConfiguration1Entry, mVrfConfiguration1Table=mVrfConfiguration1Table, mVrfGlobal=mVrfGlobal, mVrfConfiguration1=mVrfConfiguration1)

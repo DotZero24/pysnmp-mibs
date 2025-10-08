@@ -1,1102 +1,423 @@
-_Al='npVoltageTrapPeakStatus'
-_Ak='npVoltageTrapSagStatus'
-_Aj='npVoltageTrapSagCounter'
-_Ai='npVoltageTrapMemo'
-_Ah='npVoltageTrapFreqStatus'
-_Ag='npVoltageTrapFreq'
-_Af='npVoltageTrapStatus'
-_Ae='npVoltageTrapRMS'
-_Ad='npVoltageTrapN'
-_Ac='npIoTrapLevelLegend'
-_Ab='npIoTrapMemo'
-_Aa='npIoTrapLevelIn'
-_AZ='npIoTrapLineN'
-_AY='npThermoTrapMemo'
-_AX='npThermoTrapHigh'
-_AW='npThermoTrapLow'
-_AV='npThermoTrapStatus'
-_AU='npThermoTrapValue'
-_AT='npThermoTrapSensorN'
-_AS='npTrapEmailTo'
-_AR='npCurLoopTrapPower'
-_AQ='npCurLoopTrapR'
-_AP='npCurLoopTrapV'
-_AO='npCurLoopTrapI'
-_AN='npCurLoopTrapStatus'
-_AM='npCurLoopTrapN'
-_AL='npInputAnalogTrapWorkRangeLow'
-_AK='npInputAnalogTrapSafeRangeLow'
-_AJ='npInputAnalogTrapSafeRangeHigh'
-_AI='npInputAnalogTrapWorkRangeHigh'
-_AH='npInputAnalogTrapPower'
-_AG='npInputAnalogTrapMemo'
-_AF='npInputAnalogTrapResistance'
-_AE='npInputAnalogTrapVoltage'
-_AD='npInputAnalogTrapCurrent'
-_AC='npInputAnalogTrapStatus'
-_AB='npInputAnalogTrapSensorN'
-_AA='npGsmUnparsedRxSmsUtf8'
-_A9='npGsmUnparsedRxSms'
-_A8='npGsmUnparsedRxSmsFrom'
-_A7='npGsmStrength'
-_A6='npGsmRegistration'
-_A5='npGsmFailed'
-_A4='dangerous'
-_A3='npVoltageN'
-_A2='npIoLineN'
-_A1='npThermoSensorN'
-_A0='npRelHumN'
-_z='notPowered'
-_y='npCurLoopN'
-_x='failureAnalog'
-_w='aboveSafe'
-_v='belowSafe'
-_u='failure1w'
-_t='npInputAnalogSensorN'
-_s='npExtRelayN'
-_r='npRelayN'
-_q='schedule'
-_p='watchdog'
-_o='httpApi'
-_n='webInterface'
-_m='low'
-_l='aboveSafeRange'
-_k='inSafeRange'
-_j='belowSafeRange'
-_i='unknown'
-_h='failed'
-_g='good'
-_f='warn'
-_e='bad'
-_d='high'
-_c='flip'
-_b='npExtRelayTrapDateTime'
-_a='npExtRelayTrapCmdSrc'
-_Z='npExtRelayTrapState'
-_Y='npExtRelayTrapMemo'
-_X='npExtRelayTrapMode'
-_W='npExtRelayTrapN'
-_V='npRelayTrapDateTime'
-_U='npRelayTrapCmdSrc'
-_T='npRelayTrapState'
-_S='npRelayTrapMemo'
-_R='npRelayTrapMode'
-_Q='npRelayTrapN'
-_P='noVoltage'
-_O='npRelHumTrapDataSafeRangeLow'
-_N='npRelHumTrapDataSafeRangeHigh'
-_M='npRelHumTrapDataMemo'
-_L='npRelHumTrapDataValue'
-_K='npRelHumTrapDataStatus'
-_J='npRelHumTrapDataN'
-_I='sensorFailed'
-_H='on'
-_G='off'
-_F='accessible-for-notify'
-_E='read-write'
-_D='Integer32'
-_C='read-only'
-_B='DKSF-70-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-snmpTraps,=mibBuilder.importSymbols('SNMPv2-MIB','snmpTraps')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-uniPingServerSolutionV3=ModuleIdentity((1,3,6,1,4,1,25728,70))
-if mibBuilder.loadTexts:uniPingServerSolutionV3.setRevisions(('2022-07-01 00:00','2020-08-19 00:00','2020-06-12 00:00','2019-10-13 00:00','2018-07-01 00:00','2016-08-24 00:00','2015-07-14 00:00','2015-05-29 00:00','2014-12-03 00:00','2014-11-26 00:00','2014-02-02 00:00','2014-01-29 00:00','2014-01-21 00:00','2013-04-11 00:00','2012-05-31 00:00','2012-04-17 00:00','2012-03-23 00:00','2011-09-23 00:00','2011-03-24 00:00','2010-10-14 00:00','2010-09-20 00:00','2010-05-31 00:00','2010-04-14 00:00'))
-class FixedPoint1000(TextualConvention,Integer32):status=_A;displayHint='d-3'
-_Lightcom_ObjectIdentity=ObjectIdentity
-lightcom=_Lightcom_ObjectIdentity((1,3,6,1,4,1,25728))
-_NpTrapInfo_ObjectIdentity=ObjectIdentity
-npTrapInfo=_NpTrapInfo_ObjectIdentity((1,3,6,1,4,1,25728,90))
-_NpTrapEmailTo_Type=DisplayString
-_NpTrapEmailTo_Object=MibScalar
-npTrapEmailTo=_NpTrapEmailTo_Object((1,3,6,1,4,1,25728,90,1),_NpTrapEmailTo_Type())
-npTrapEmailTo.setMaxAccess(_C)
-if mibBuilder.loadTexts:npTrapEmailTo.setStatus(_A)
-_NpReboot_ObjectIdentity=ObjectIdentity
-npReboot=_NpReboot_ObjectIdentity((1,3,6,1,4,1,25728,911))
-_NpSoftReboot_Type=Integer32
-_NpSoftReboot_Object=MibScalar
-npSoftReboot=_NpSoftReboot_Object((1,3,6,1,4,1,25728,911,1),_NpSoftReboot_Type())
-npSoftReboot.setMaxAccess(_E)
-if mibBuilder.loadTexts:npSoftReboot.setStatus(_A)
-_NpResetStack_Type=Integer32
-_NpResetStack_Object=MibScalar
-npResetStack=_NpResetStack_Object((1,3,6,1,4,1,25728,911,2),_NpResetStack_Type())
-npResetStack.setMaxAccess(_E)
-if mibBuilder.loadTexts:npResetStack.setStatus(_A)
-_NpForcedReboot_Type=Integer32
-_NpForcedReboot_Object=MibScalar
-npForcedReboot=_NpForcedReboot_Object((1,3,6,1,4,1,25728,911,3),_NpForcedReboot_Type())
-npForcedReboot.setMaxAccess(_E)
-if mibBuilder.loadTexts:npForcedReboot.setStatus(_A)
-_NpGsm_ObjectIdentity=ObjectIdentity
-npGsm=_NpGsm_ObjectIdentity((1,3,6,1,4,1,25728,3800))
-_NpGsmInfo_ObjectIdentity=ObjectIdentity
-npGsmInfo=_NpGsmInfo_ObjectIdentity((1,3,6,1,4,1,25728,3800,1))
-class _NpGsmFailed_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('ok',0),(_h,1),('fatalError',2)))
-_NpGsmFailed_Type.__name__=_D
-_NpGsmFailed_Object=MibScalar
-npGsmFailed=_NpGsmFailed_Object((1,3,6,1,4,1,25728,3800,1,1),_NpGsmFailed_Type())
-npGsmFailed.setMaxAccess(_C)
-if mibBuilder.loadTexts:npGsmFailed.setStatus(_A)
-class _NpGsmRegistration_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,255)));namedValues=NamedValues(*(('impossible',0),('homeNetwork',1),('searching',2),('denied',3),(_i,4),('roaming',5),('infoUpdate',255)))
-_NpGsmRegistration_Type.__name__=_D
-_NpGsmRegistration_Object=MibScalar
-npGsmRegistration=_NpGsmRegistration_Object((1,3,6,1,4,1,25728,3800,1,2),_NpGsmRegistration_Type())
-npGsmRegistration.setMaxAccess(_C)
-if mibBuilder.loadTexts:npGsmRegistration.setStatus(_A)
-class _NpGsmStrength_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_NpGsmStrength_Type.__name__=_D
-_NpGsmStrength_Object=MibScalar
-npGsmStrength=_NpGsmStrength_Object((1,3,6,1,4,1,25728,3800,1,3),_NpGsmStrength_Type())
-npGsmStrength.setMaxAccess(_C)
-if mibBuilder.loadTexts:npGsmStrength.setStatus(_A)
-_NpGsmSendSmsUtf8_Type=DisplayString
-_NpGsmSendSmsUtf8_Object=MibScalar
-npGsmSendSmsUtf8=_NpGsmSendSmsUtf8_Object((1,3,6,1,4,1,25728,3800,1,9),_NpGsmSendSmsUtf8_Type())
-npGsmSendSmsUtf8.setMaxAccess(_E)
-if mibBuilder.loadTexts:npGsmSendSmsUtf8.setStatus(_A)
-_NpGsmSendSmsWin1251_Type=DisplayString
-_NpGsmSendSmsWin1251_Object=MibScalar
-npGsmSendSmsWin1251=_NpGsmSendSmsWin1251_Object((1,3,6,1,4,1,25728,3800,1,10),_NpGsmSendSmsWin1251_Type())
-npGsmSendSmsWin1251.setMaxAccess(_E)
-if mibBuilder.loadTexts:npGsmSendSmsWin1251.setStatus(_A)
-_NpGsmUnparsedRxSmsFrom_Type=DisplayString
-_NpGsmUnparsedRxSmsFrom_Object=MibScalar
-npGsmUnparsedRxSmsFrom=_NpGsmUnparsedRxSmsFrom_Object((1,3,6,1,4,1,25728,3800,1,11),_NpGsmUnparsedRxSmsFrom_Type())
-npGsmUnparsedRxSmsFrom.setMaxAccess(_F)
-if mibBuilder.loadTexts:npGsmUnparsedRxSmsFrom.setStatus(_A)
-_NpGsmUnparsedRxSms_Type=DisplayString
-_NpGsmUnparsedRxSms_Object=MibScalar
-npGsmUnparsedRxSms=_NpGsmUnparsedRxSms_Object((1,3,6,1,4,1,25728,3800,1,12),_NpGsmUnparsedRxSms_Type())
-npGsmUnparsedRxSms.setMaxAccess(_F)
-if mibBuilder.loadTexts:npGsmUnparsedRxSms.setStatus(_A)
-_NpGsmUnparsedRxSmsUtf8_Type=DisplayString
-_NpGsmUnparsedRxSmsUtf8_Object=MibScalar
-npGsmUnparsedRxSmsUtf8=_NpGsmUnparsedRxSmsUtf8_Object((1,3,6,1,4,1,25728,3800,1,13),_NpGsmUnparsedRxSmsUtf8_Type())
-npGsmUnparsedRxSmsUtf8.setMaxAccess(_F)
-if mibBuilder.loadTexts:npGsmUnparsedRxSmsUtf8.setStatus(_A)
-_NpGsmTraps_ObjectIdentity=ObjectIdentity
-npGsmTraps=_NpGsmTraps_ObjectIdentity((1,3,6,1,4,1,25728,3800,2))
-_NpGsmTrapPrefix_ObjectIdentity=ObjectIdentity
-npGsmTrapPrefix=_NpGsmTrapPrefix_ObjectIdentity((1,3,6,1,4,1,25728,3800,2,0))
-_NpRelay_ObjectIdentity=ObjectIdentity
-npRelay=_NpRelay_ObjectIdentity((1,3,6,1,4,1,25728,5500))
-_NpRelayTrapData_ObjectIdentity=ObjectIdentity
-npRelayTrapData=_NpRelayTrapData_ObjectIdentity((1,3,6,1,4,1,25728,5500,3))
-class _NpRelayTrapN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_NpRelayTrapN_Type.__name__=_D
-_NpRelayTrapN_Object=MibScalar
-npRelayTrapN=_NpRelayTrapN_Object((1,3,6,1,4,1,25728,5500,3,1),_NpRelayTrapN_Type())
-npRelayTrapN.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelayTrapN.setStatus(_A)
-class _NpRelayTrapMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_H,1)))
-_NpRelayTrapMode_Type.__name__=_D
-_NpRelayTrapMode_Object=MibScalar
-npRelayTrapMode=_NpRelayTrapMode_Object((1,3,6,1,4,1,25728,5500,3,2),_NpRelayTrapMode_Type())
-npRelayTrapMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:npRelayTrapMode.setStatus(_A)
-_NpRelayTrapMemo_Type=DisplayString
-_NpRelayTrapMemo_Object=MibScalar
-npRelayTrapMemo=_NpRelayTrapMemo_Object((1,3,6,1,4,1,25728,5500,3,6),_NpRelayTrapMemo_Type())
-npRelayTrapMemo.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelayTrapMemo.setStatus(_A)
-class _NpRelayTrapState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_H,1)))
-_NpRelayTrapState_Type.__name__=_D
-_NpRelayTrapState_Object=MibScalar
-npRelayTrapState=_NpRelayTrapState_Object((1,3,6,1,4,1,25728,5500,3,15),_NpRelayTrapState_Type())
-npRelayTrapState.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelayTrapState.setStatus(_A)
-class _NpRelayTrapCmdSrc_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,1,2,3,4,5,6,7)));namedValues=NamedValues(*((_i,-1),(_n,1),('snmp',2),('sms',3),(_o,4),(_p,5),(_q,6),('logic',7)))
-_NpRelayTrapCmdSrc_Type.__name__=_D
-_NpRelayTrapCmdSrc_Object=MibScalar
-npRelayTrapCmdSrc=_NpRelayTrapCmdSrc_Object((1,3,6,1,4,1,25728,5500,3,18),_NpRelayTrapCmdSrc_Type())
-npRelayTrapCmdSrc.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelayTrapCmdSrc.setStatus(_A)
-_NpRelayTrapDateTime_Type=DisplayString
-_NpRelayTrapDateTime_Object=MibScalar
-npRelayTrapDateTime=_NpRelayTrapDateTime_Object((1,3,6,1,4,1,25728,5500,3,19),_NpRelayTrapDateTime_Type())
-npRelayTrapDateTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelayTrapDateTime.setStatus(_A)
-_NpRelayTable_Object=MibTable
-npRelayTable=_NpRelayTable_Object((1,3,6,1,4,1,25728,5500,5))
-if mibBuilder.loadTexts:npRelayTable.setStatus(_A)
-_NpRelayEntry_Object=MibTableRow
-npRelayEntry=_NpRelayEntry_Object((1,3,6,1,4,1,25728,5500,5,1))
-npRelayEntry.setIndexNames((0,_B,_r))
-if mibBuilder.loadTexts:npRelayEntry.setStatus(_A)
-class _NpRelayN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1))
-_NpRelayN_Type.__name__=_D
-_NpRelayN_Object=MibTableColumn
-npRelayN=_NpRelayN_Object((1,3,6,1,4,1,25728,5500,5,1,1),_NpRelayN_Type())
-npRelayN.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelayN.setStatus(_A)
-class _NpRelayMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,0,1)));namedValues=NamedValues(*((_c,-1),(_G,0),(_H,1)))
-_NpRelayMode_Type.__name__=_D
-_NpRelayMode_Object=MibTableColumn
-npRelayMode=_NpRelayMode_Object((1,3,6,1,4,1,25728,5500,5,1,2),_NpRelayMode_Type())
-npRelayMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:npRelayMode.setStatus(_A)
-_NpRelayStartReset_Type=Integer32
-_NpRelayStartReset_Object=MibTableColumn
-npRelayStartReset=_NpRelayStartReset_Object((1,3,6,1,4,1,25728,5500,5,1,3),_NpRelayStartReset_Type())
-npRelayStartReset.setMaxAccess(_E)
-if mibBuilder.loadTexts:npRelayStartReset.setStatus(_A)
-_NpRelayMemo_Type=DisplayString
-_NpRelayMemo_Object=MibTableColumn
-npRelayMemo=_NpRelayMemo_Object((1,3,6,1,4,1,25728,5500,5,1,6),_NpRelayMemo_Type())
-npRelayMemo.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelayMemo.setStatus(_A)
-class _NpRelayFlip_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(-1));namedValues=NamedValues((_c,-1))
-_NpRelayFlip_Type.__name__=_D
-_NpRelayFlip_Object=MibTableColumn
-npRelayFlip=_NpRelayFlip_Object((1,3,6,1,4,1,25728,5500,5,1,14),_NpRelayFlip_Type())
-npRelayFlip.setMaxAccess(_E)
-if mibBuilder.loadTexts:npRelayFlip.setStatus(_A)
-class _NpRelayState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_H,1)))
-_NpRelayState_Type.__name__=_D
-_NpRelayState_Object=MibTableColumn
-npRelayState=_NpRelayState_Object((1,3,6,1,4,1,25728,5500,5,1,15),_NpRelayState_Type())
-npRelayState.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelayState.setStatus(_A)
-_NpRelayTrap_ObjectIdentity=ObjectIdentity
-npRelayTrap=_NpRelayTrap_ObjectIdentity((1,3,6,1,4,1,25728,5500,6))
-_NpRelayTrapAllEvents_ObjectIdentity=ObjectIdentity
-npRelayTrapAllEvents=_NpRelayTrapAllEvents_ObjectIdentity((1,3,6,1,4,1,25728,5500,6,127))
-_NpExtRelay_ObjectIdentity=ObjectIdentity
-npExtRelay=_NpExtRelay_ObjectIdentity((1,3,6,1,4,1,25728,5600))
-_NpExtRelayTrapData_ObjectIdentity=ObjectIdentity
-npExtRelayTrapData=_NpExtRelayTrapData_ObjectIdentity((1,3,6,1,4,1,25728,5600,3))
-class _NpExtRelayTrapN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_NpExtRelayTrapN_Type.__name__=_D
-_NpExtRelayTrapN_Object=MibScalar
-npExtRelayTrapN=_NpExtRelayTrapN_Object((1,3,6,1,4,1,25728,5600,3,1),_NpExtRelayTrapN_Type())
-npExtRelayTrapN.setMaxAccess(_C)
-if mibBuilder.loadTexts:npExtRelayTrapN.setStatus(_A)
-class _NpExtRelayTrapMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_H,1)))
-_NpExtRelayTrapMode_Type.__name__=_D
-_NpExtRelayTrapMode_Object=MibScalar
-npExtRelayTrapMode=_NpExtRelayTrapMode_Object((1,3,6,1,4,1,25728,5600,3,2),_NpExtRelayTrapMode_Type())
-npExtRelayTrapMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:npExtRelayTrapMode.setStatus(_A)
-_NpExtRelayTrapMemo_Type=DisplayString
-_NpExtRelayTrapMemo_Object=MibScalar
-npExtRelayTrapMemo=_NpExtRelayTrapMemo_Object((1,3,6,1,4,1,25728,5600,3,6),_NpExtRelayTrapMemo_Type())
-npExtRelayTrapMemo.setMaxAccess(_C)
-if mibBuilder.loadTexts:npExtRelayTrapMemo.setStatus(_A)
-class _NpExtRelayTrapState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_H,1)))
-_NpExtRelayTrapState_Type.__name__=_D
-_NpExtRelayTrapState_Object=MibScalar
-npExtRelayTrapState=_NpExtRelayTrapState_Object((1,3,6,1,4,1,25728,5600,3,15),_NpExtRelayTrapState_Type())
-npExtRelayTrapState.setMaxAccess(_C)
-if mibBuilder.loadTexts:npExtRelayTrapState.setStatus(_A)
-class _NpExtRelayTrapCmdSrc_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_i,-1),(_n,1),('snmp',2),('sms',3),(_o,4),(_p,5),(_q,6),('logic',7),('button',8)))
-_NpExtRelayTrapCmdSrc_Type.__name__=_D
-_NpExtRelayTrapCmdSrc_Object=MibScalar
-npExtRelayTrapCmdSrc=_NpExtRelayTrapCmdSrc_Object((1,3,6,1,4,1,25728,5600,3,18),_NpExtRelayTrapCmdSrc_Type())
-npExtRelayTrapCmdSrc.setMaxAccess(_C)
-if mibBuilder.loadTexts:npExtRelayTrapCmdSrc.setStatus(_A)
-_NpExtRelayTrapDateTime_Type=DisplayString
-_NpExtRelayTrapDateTime_Object=MibScalar
-npExtRelayTrapDateTime=_NpExtRelayTrapDateTime_Object((1,3,6,1,4,1,25728,5600,3,19),_NpExtRelayTrapDateTime_Type())
-npExtRelayTrapDateTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:npExtRelayTrapDateTime.setStatus(_A)
-_NpExtRelayTable_Object=MibTable
-npExtRelayTable=_NpExtRelayTable_Object((1,3,6,1,4,1,25728,5600,5))
-if mibBuilder.loadTexts:npExtRelayTable.setStatus(_A)
-_NpExtRelayEntry_Object=MibTableRow
-npExtRelayEntry=_NpExtRelayEntry_Object((1,3,6,1,4,1,25728,5600,5,1))
-npExtRelayEntry.setIndexNames((0,_B,_s))
-if mibBuilder.loadTexts:npExtRelayEntry.setStatus(_A)
-class _NpExtRelayN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_NpExtRelayN_Type.__name__=_D
-_NpExtRelayN_Object=MibTableColumn
-npExtRelayN=_NpExtRelayN_Object((1,3,6,1,4,1,25728,5600,5,1,1),_NpExtRelayN_Type())
-npExtRelayN.setMaxAccess(_C)
-if mibBuilder.loadTexts:npExtRelayN.setStatus(_A)
-class _NpExtRelayMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,0,1)));namedValues=NamedValues(*((_c,-1),(_G,0),(_H,1)))
-_NpExtRelayMode_Type.__name__=_D
-_NpExtRelayMode_Object=MibTableColumn
-npExtRelayMode=_NpExtRelayMode_Object((1,3,6,1,4,1,25728,5600,5,1,2),_NpExtRelayMode_Type())
-npExtRelayMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:npExtRelayMode.setStatus(_A)
-_NpExtRelayStartReset_Type=Integer32
-_NpExtRelayStartReset_Object=MibTableColumn
-npExtRelayStartReset=_NpExtRelayStartReset_Object((1,3,6,1,4,1,25728,5600,5,1,3),_NpExtRelayStartReset_Type())
-npExtRelayStartReset.setMaxAccess(_E)
-if mibBuilder.loadTexts:npExtRelayStartReset.setStatus(_A)
-_NpExtRelayMemo_Type=DisplayString
-_NpExtRelayMemo_Object=MibTableColumn
-npExtRelayMemo=_NpExtRelayMemo_Object((1,3,6,1,4,1,25728,5600,5,1,6),_NpExtRelayMemo_Type())
-npExtRelayMemo.setMaxAccess(_C)
-if mibBuilder.loadTexts:npExtRelayMemo.setStatus(_A)
-class _NpExtRelayFlip_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(-1));namedValues=NamedValues((_c,-1))
-_NpExtRelayFlip_Type.__name__=_D
-_NpExtRelayFlip_Object=MibTableColumn
-npExtRelayFlip=_NpExtRelayFlip_Object((1,3,6,1,4,1,25728,5600,5,1,14),_NpExtRelayFlip_Type())
-npExtRelayFlip.setMaxAccess(_E)
-if mibBuilder.loadTexts:npExtRelayFlip.setStatus(_A)
-class _NpExtRelayState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_H,1)))
-_NpExtRelayState_Type.__name__=_D
-_NpExtRelayState_Object=MibTableColumn
-npExtRelayState=_NpExtRelayState_Object((1,3,6,1,4,1,25728,5600,5,1,15),_NpExtRelayState_Type())
-npExtRelayState.setMaxAccess(_C)
-if mibBuilder.loadTexts:npExtRelayState.setStatus(_A)
-_NpExtRelayTrap_ObjectIdentity=ObjectIdentity
-npExtRelayTrap=_NpExtRelayTrap_ObjectIdentity((1,3,6,1,4,1,25728,5600,6))
-_NpExtRelayTrapAllEvents_ObjectIdentity=ObjectIdentity
-npExtRelayTrapAllEvents=_NpExtRelayTrapAllEvents_ObjectIdentity((1,3,6,1,4,1,25728,5600,6,127))
-_NpIr_ObjectIdentity=ObjectIdentity
-npIr=_NpIr_ObjectIdentity((1,3,6,1,4,1,25728,7900))
-_NpIrCtrl_ObjectIdentity=ObjectIdentity
-npIrCtrl=_NpIrCtrl_ObjectIdentity((1,3,6,1,4,1,25728,7900,1))
-class _NpIrPlayCmd_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_NpIrPlayCmd_Type.__name__=_D
-_NpIrPlayCmd_Object=MibScalar
-npIrPlayCmd=_NpIrPlayCmd_Object((1,3,6,1,4,1,25728,7900,1,1),_NpIrPlayCmd_Type())
-npIrPlayCmd.setMaxAccess(_E)
-if mibBuilder.loadTexts:npIrPlayCmd.setStatus(_A)
-class _NpIrReset_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
-_NpIrReset_Type.__name__=_D
-_NpIrReset_Object=MibScalar
-npIrReset=_NpIrReset_Object((1,3,6,1,4,1,25728,7900,1,2),_NpIrReset_Type())
-npIrReset.setMaxAccess(_E)
-if mibBuilder.loadTexts:npIrReset.setStatus(_A)
-class _NpIrStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,16,17,18,19,20,21)));namedValues=NamedValues(*(('commandCompleted',0),('protocolError',1),('commandAccepted',2),('errorUnknown',16),('errorBadNumber',17),('errorEmptyRecord',18),('errorFlashChip',19),('errorTimeout',20),('errorExtBusBusy',21)))
-_NpIrStatus_Type.__name__=_D
-_NpIrStatus_Object=MibScalar
-npIrStatus=_NpIrStatus_Object((1,3,6,1,4,1,25728,7900,1,3),_NpIrStatus_Type())
-npIrStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npIrStatus.setStatus(_A)
-_NpInputAnalog_ObjectIdentity=ObjectIdentity
-npInputAnalog=_NpInputAnalog_ObjectIdentity((1,3,6,1,4,1,25728,8200))
-_NpInputAnalogTable_Object=MibTable
-npInputAnalogTable=_NpInputAnalogTable_Object((1,3,6,1,4,1,25728,8200,1))
-if mibBuilder.loadTexts:npInputAnalogTable.setStatus(_A)
-_NpInputAnalogEntry_Object=MibTableRow
-npInputAnalogEntry=_NpInputAnalogEntry_Object((1,3,6,1,4,1,25728,8200,1,1))
-npInputAnalogEntry.setIndexNames((0,_B,_t))
-if mibBuilder.loadTexts:npInputAnalogEntry.setStatus(_A)
-class _NpInputAnalogSensorN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_NpInputAnalogSensorN_Type.__name__=_D
-_NpInputAnalogSensorN_Object=MibTableColumn
-npInputAnalogSensorN=_NpInputAnalogSensorN_Object((1,3,6,1,4,1,25728,8200,1,1,1),_NpInputAnalogSensorN_Type())
-npInputAnalogSensorN.setMaxAccess(_C)
-if mibBuilder.loadTexts:npInputAnalogSensorN.setStatus(_A)
-class _NpInputAnalogStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,5)));namedValues=NamedValues(*((_u,0),(_v,1),('safe',2),(_w,3),(_x,5)))
-_NpInputAnalogStatus_Type.__name__=_D
-_NpInputAnalogStatus_Object=MibTableColumn
-npInputAnalogStatus=_NpInputAnalogStatus_Object((1,3,6,1,4,1,25728,8200,1,1,2),_NpInputAnalogStatus_Type())
-npInputAnalogStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npInputAnalogStatus.setStatus(_A)
-_NpInputAnalogCurrent_Type=Integer32
-_NpInputAnalogCurrent_Object=MibTableColumn
-npInputAnalogCurrent=_NpInputAnalogCurrent_Object((1,3,6,1,4,1,25728,8200,1,1,3),_NpInputAnalogCurrent_Type())
-npInputAnalogCurrent.setMaxAccess(_C)
-if mibBuilder.loadTexts:npInputAnalogCurrent.setStatus(_A)
-_NpInputAnalogVoltage_Type=Integer32
-_NpInputAnalogVoltage_Object=MibTableColumn
-npInputAnalogVoltage=_NpInputAnalogVoltage_Object((1,3,6,1,4,1,25728,8200,1,1,4),_NpInputAnalogVoltage_Type())
-npInputAnalogVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:npInputAnalogVoltage.setStatus(_A)
-_NpInputAnalogResistance_Type=Unsigned32
-_NpInputAnalogResistance_Object=MibTableColumn
-npInputAnalogResistance=_NpInputAnalogResistance_Object((1,3,6,1,4,1,25728,8200,1,1,5),_NpInputAnalogResistance_Type())
-npInputAnalogResistance.setMaxAccess(_C)
-if mibBuilder.loadTexts:npInputAnalogResistance.setStatus(_A)
-_NpInputAnalogMemo_Type=DisplayString
-_NpInputAnalogMemo_Object=MibTableColumn
-npInputAnalogMemo=_NpInputAnalogMemo_Object((1,3,6,1,4,1,25728,8200,1,1,6),_NpInputAnalogMemo_Type())
-npInputAnalogMemo.setMaxAccess(_C)
-if mibBuilder.loadTexts:npInputAnalogMemo.setStatus(_A)
-class _NpInputAnalogPower_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_H,1)))
-_NpInputAnalogPower_Type.__name__=_D
-_NpInputAnalogPower_Object=MibTableColumn
-npInputAnalogPower=_NpInputAnalogPower_Object((1,3,6,1,4,1,25728,8200,1,1,7),_NpInputAnalogPower_Type())
-npInputAnalogPower.setMaxAccess(_E)
-if mibBuilder.loadTexts:npInputAnalogPower.setStatus(_A)
-_NpInputAnalogReset_Type=Integer32
-_NpInputAnalogReset_Object=MibTableColumn
-npInputAnalogReset=_NpInputAnalogReset_Object((1,3,6,1,4,1,25728,8200,1,1,8),_NpInputAnalogReset_Type())
-npInputAnalogReset.setMaxAccess(_E)
-if mibBuilder.loadTexts:npInputAnalogReset.setStatus(_A)
-_NpInputAnalogWorkRangeHigh_Type=Integer32
-_NpInputAnalogWorkRangeHigh_Object=MibTableColumn
-npInputAnalogWorkRangeHigh=_NpInputAnalogWorkRangeHigh_Object((1,3,6,1,4,1,25728,8200,1,1,11),_NpInputAnalogWorkRangeHigh_Type())
-npInputAnalogWorkRangeHigh.setMaxAccess(_C)
-if mibBuilder.loadTexts:npInputAnalogWorkRangeHigh.setStatus(_A)
-_NpInputAnalogSafeRangeHigh_Type=Integer32
-_NpInputAnalogSafeRangeHigh_Object=MibTableColumn
-npInputAnalogSafeRangeHigh=_NpInputAnalogSafeRangeHigh_Object((1,3,6,1,4,1,25728,8200,1,1,12),_NpInputAnalogSafeRangeHigh_Type())
-npInputAnalogSafeRangeHigh.setMaxAccess(_C)
-if mibBuilder.loadTexts:npInputAnalogSafeRangeHigh.setStatus(_A)
-_NpInputAnalogSafeRangeLow_Type=Integer32
-_NpInputAnalogSafeRangeLow_Object=MibTableColumn
-npInputAnalogSafeRangeLow=_NpInputAnalogSafeRangeLow_Object((1,3,6,1,4,1,25728,8200,1,1,13),_NpInputAnalogSafeRangeLow_Type())
-npInputAnalogSafeRangeLow.setMaxAccess(_C)
-if mibBuilder.loadTexts:npInputAnalogSafeRangeLow.setStatus(_A)
-_NpInputAnalogWorkRangeLow_Type=Integer32
-_NpInputAnalogWorkRangeLow_Object=MibTableColumn
-npInputAnalogWorkRangeLow=_NpInputAnalogWorkRangeLow_Object((1,3,6,1,4,1,25728,8200,1,1,14),_NpInputAnalogWorkRangeLow_Type())
-npInputAnalogWorkRangeLow.setMaxAccess(_C)
-if mibBuilder.loadTexts:npInputAnalogWorkRangeLow.setStatus(_A)
-_NpInputAnalogTraps_ObjectIdentity=ObjectIdentity
-npInputAnalogTraps=_NpInputAnalogTraps_ObjectIdentity((1,3,6,1,4,1,25728,8200,2))
-_NpInputAnalogTrapPrefix_ObjectIdentity=ObjectIdentity
-npInputAnalogTrapPrefix=_NpInputAnalogTrapPrefix_ObjectIdentity((1,3,6,1,4,1,25728,8200,2,0))
-class _NpInputAnalogTrapSensorN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_NpInputAnalogTrapSensorN_Type.__name__=_D
-_NpInputAnalogTrapSensorN_Object=MibScalar
-npInputAnalogTrapSensorN=_NpInputAnalogTrapSensorN_Object((1,3,6,1,4,1,25728,8200,2,1),_NpInputAnalogTrapSensorN_Type())
-npInputAnalogTrapSensorN.setMaxAccess(_F)
-if mibBuilder.loadTexts:npInputAnalogTrapSensorN.setStatus(_A)
-class _NpInputAnalogTrapStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,5)));namedValues=NamedValues(*((_u,0),(_v,1),('safe',2),(_w,3),(_x,5)))
-_NpInputAnalogTrapStatus_Type.__name__=_D
-_NpInputAnalogTrapStatus_Object=MibScalar
-npInputAnalogTrapStatus=_NpInputAnalogTrapStatus_Object((1,3,6,1,4,1,25728,8200,2,2),_NpInputAnalogTrapStatus_Type())
-npInputAnalogTrapStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:npInputAnalogTrapStatus.setStatus(_A)
-_NpInputAnalogTrapCurrent_Type=Integer32
-_NpInputAnalogTrapCurrent_Object=MibScalar
-npInputAnalogTrapCurrent=_NpInputAnalogTrapCurrent_Object((1,3,6,1,4,1,25728,8200,2,3),_NpInputAnalogTrapCurrent_Type())
-npInputAnalogTrapCurrent.setMaxAccess(_F)
-if mibBuilder.loadTexts:npInputAnalogTrapCurrent.setStatus(_A)
-_NpInputAnalogTrapVoltage_Type=Integer32
-_NpInputAnalogTrapVoltage_Object=MibScalar
-npInputAnalogTrapVoltage=_NpInputAnalogTrapVoltage_Object((1,3,6,1,4,1,25728,8200,2,4),_NpInputAnalogTrapVoltage_Type())
-npInputAnalogTrapVoltage.setMaxAccess(_F)
-if mibBuilder.loadTexts:npInputAnalogTrapVoltage.setStatus(_A)
-_NpInputAnalogTrapResistance_Type=Unsigned32
-_NpInputAnalogTrapResistance_Object=MibScalar
-npInputAnalogTrapResistance=_NpInputAnalogTrapResistance_Object((1,3,6,1,4,1,25728,8200,2,5),_NpInputAnalogTrapResistance_Type())
-npInputAnalogTrapResistance.setMaxAccess(_F)
-if mibBuilder.loadTexts:npInputAnalogTrapResistance.setStatus(_A)
-_NpInputAnalogTrapMemo_Type=DisplayString
-_NpInputAnalogTrapMemo_Object=MibScalar
-npInputAnalogTrapMemo=_NpInputAnalogTrapMemo_Object((1,3,6,1,4,1,25728,8200,2,6),_NpInputAnalogTrapMemo_Type())
-npInputAnalogTrapMemo.setMaxAccess(_F)
-if mibBuilder.loadTexts:npInputAnalogTrapMemo.setStatus(_A)
-class _NpInputAnalogTrapPower_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,3)));namedValues=NamedValues(*((_G,0),(_H,1),('temporaryOff',3)))
-_NpInputAnalogTrapPower_Type.__name__=_D
-_NpInputAnalogTrapPower_Object=MibScalar
-npInputAnalogTrapPower=_NpInputAnalogTrapPower_Object((1,3,6,1,4,1,25728,8200,2,7),_NpInputAnalogTrapPower_Type())
-npInputAnalogTrapPower.setMaxAccess(_F)
-if mibBuilder.loadTexts:npInputAnalogTrapPower.setStatus(_A)
-_NpInputAnalogTrapWorkRangeHigh_Type=Integer32
-_NpInputAnalogTrapWorkRangeHigh_Object=MibScalar
-npInputAnalogTrapWorkRangeHigh=_NpInputAnalogTrapWorkRangeHigh_Object((1,3,6,1,4,1,25728,8200,2,11),_NpInputAnalogTrapWorkRangeHigh_Type())
-npInputAnalogTrapWorkRangeHigh.setMaxAccess(_F)
-if mibBuilder.loadTexts:npInputAnalogTrapWorkRangeHigh.setStatus(_A)
-_NpInputAnalogTrapSafeRangeHigh_Type=Integer32
-_NpInputAnalogTrapSafeRangeHigh_Object=MibScalar
-npInputAnalogTrapSafeRangeHigh=_NpInputAnalogTrapSafeRangeHigh_Object((1,3,6,1,4,1,25728,8200,2,12),_NpInputAnalogTrapSafeRangeHigh_Type())
-npInputAnalogTrapSafeRangeHigh.setMaxAccess(_F)
-if mibBuilder.loadTexts:npInputAnalogTrapSafeRangeHigh.setStatus(_A)
-_NpInputAnalogTrapSafeRangeLow_Type=Integer32
-_NpInputAnalogTrapSafeRangeLow_Object=MibScalar
-npInputAnalogTrapSafeRangeLow=_NpInputAnalogTrapSafeRangeLow_Object((1,3,6,1,4,1,25728,8200,2,13),_NpInputAnalogTrapSafeRangeLow_Type())
-npInputAnalogTrapSafeRangeLow.setMaxAccess(_F)
-if mibBuilder.loadTexts:npInputAnalogTrapSafeRangeLow.setStatus(_A)
-_NpInputAnalogTrapWorkRangeLow_Type=Integer32
-_NpInputAnalogTrapWorkRangeLow_Object=MibScalar
-npInputAnalogTrapWorkRangeLow=_NpInputAnalogTrapWorkRangeLow_Object((1,3,6,1,4,1,25728,8200,2,14),_NpInputAnalogTrapWorkRangeLow_Type())
-npInputAnalogTrapWorkRangeLow.setMaxAccess(_F)
-if mibBuilder.loadTexts:npInputAnalogTrapWorkRangeLow.setStatus(_A)
-_NpCurLoop_ObjectIdentity=ObjectIdentity
-npCurLoop=_NpCurLoop_ObjectIdentity((1,3,6,1,4,1,25728,8300))
-_NpCurLoopTable_Object=MibTable
-npCurLoopTable=_NpCurLoopTable_Object((1,3,6,1,4,1,25728,8300,1))
-if mibBuilder.loadTexts:npCurLoopTable.setStatus(_A)
-_NpCurLoopEntry_Object=MibTableRow
-npCurLoopEntry=_NpCurLoopEntry_Object((1,3,6,1,4,1,25728,8300,1,1))
-npCurLoopEntry.setIndexNames((0,_B,_y))
-if mibBuilder.loadTexts:npCurLoopEntry.setStatus(_A)
-class _NpCurLoopN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_NpCurLoopN_Type.__name__=_D
-_NpCurLoopN_Object=MibTableColumn
-npCurLoopN=_NpCurLoopN_Object((1,3,6,1,4,1,25728,8300,1,1,1),_NpCurLoopN_Type())
-npCurLoopN.setMaxAccess(_C)
-if mibBuilder.loadTexts:npCurLoopN.setStatus(_A)
-class _NpCurLoopStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('ok',0),('alert',1),('cut',2),('short',3),(_z,4)))
-_NpCurLoopStatus_Type.__name__=_D
-_NpCurLoopStatus_Object=MibTableColumn
-npCurLoopStatus=_NpCurLoopStatus_Object((1,3,6,1,4,1,25728,8300,1,1,2),_NpCurLoopStatus_Type())
-npCurLoopStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npCurLoopStatus.setStatus(_A)
-class _NpCurLoopI_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,99999))
-_NpCurLoopI_Type.__name__=_D
-_NpCurLoopI_Object=MibTableColumn
-npCurLoopI=_NpCurLoopI_Object((1,3,6,1,4,1,25728,8300,1,1,3),_NpCurLoopI_Type())
-npCurLoopI.setMaxAccess(_C)
-if mibBuilder.loadTexts:npCurLoopI.setStatus(_A)
-class _NpCurLoopV_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,99999))
-_NpCurLoopV_Type.__name__=_D
-_NpCurLoopV_Object=MibTableColumn
-npCurLoopV=_NpCurLoopV_Object((1,3,6,1,4,1,25728,8300,1,1,4),_NpCurLoopV_Type())
-npCurLoopV.setMaxAccess(_C)
-if mibBuilder.loadTexts:npCurLoopV.setStatus(_A)
-class _NpCurLoopR_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,99999))
-_NpCurLoopR_Type.__name__=_D
-_NpCurLoopR_Object=MibTableColumn
-npCurLoopR=_NpCurLoopR_Object((1,3,6,1,4,1,25728,8300,1,1,5),_NpCurLoopR_Type())
-npCurLoopR.setMaxAccess(_C)
-if mibBuilder.loadTexts:npCurLoopR.setStatus(_A)
-class _NpCurLoopPower_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_G,0),(_H,1),('cyclePower',2)))
-_NpCurLoopPower_Type.__name__=_D
-_NpCurLoopPower_Object=MibTableColumn
-npCurLoopPower=_NpCurLoopPower_Object((1,3,6,1,4,1,25728,8300,1,1,7),_NpCurLoopPower_Type())
-npCurLoopPower.setMaxAccess(_E)
-if mibBuilder.loadTexts:npCurLoopPower.setStatus(_A)
-_NpCurLoopTraps_ObjectIdentity=ObjectIdentity
-npCurLoopTraps=_NpCurLoopTraps_ObjectIdentity((1,3,6,1,4,1,25728,8300,2))
-_NpCurLoopTrapPrefix_ObjectIdentity=ObjectIdentity
-npCurLoopTrapPrefix=_NpCurLoopTrapPrefix_ObjectIdentity((1,3,6,1,4,1,25728,8300,2,0))
-class _NpCurLoopTrapN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_NpCurLoopTrapN_Type.__name__=_D
-_NpCurLoopTrapN_Object=MibScalar
-npCurLoopTrapN=_NpCurLoopTrapN_Object((1,3,6,1,4,1,25728,8300,2,1),_NpCurLoopTrapN_Type())
-npCurLoopTrapN.setMaxAccess(_C)
-if mibBuilder.loadTexts:npCurLoopTrapN.setStatus(_A)
-class _NpCurLoopTrapStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('ok',0),('alert',1),('cut',2),('short',3),(_z,4)))
-_NpCurLoopTrapStatus_Type.__name__=_D
-_NpCurLoopTrapStatus_Object=MibScalar
-npCurLoopTrapStatus=_NpCurLoopTrapStatus_Object((1,3,6,1,4,1,25728,8300,2,2),_NpCurLoopTrapStatus_Type())
-npCurLoopTrapStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npCurLoopTrapStatus.setStatus(_A)
-class _NpCurLoopTrapI_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,99999))
-_NpCurLoopTrapI_Type.__name__=_D
-_NpCurLoopTrapI_Object=MibScalar
-npCurLoopTrapI=_NpCurLoopTrapI_Object((1,3,6,1,4,1,25728,8300,2,3),_NpCurLoopTrapI_Type())
-npCurLoopTrapI.setMaxAccess(_C)
-if mibBuilder.loadTexts:npCurLoopTrapI.setStatus(_A)
-class _NpCurLoopTrapV_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,99999))
-_NpCurLoopTrapV_Type.__name__=_D
-_NpCurLoopTrapV_Object=MibScalar
-npCurLoopTrapV=_NpCurLoopTrapV_Object((1,3,6,1,4,1,25728,8300,2,4),_NpCurLoopTrapV_Type())
-npCurLoopTrapV.setMaxAccess(_C)
-if mibBuilder.loadTexts:npCurLoopTrapV.setStatus(_A)
-class _NpCurLoopTrapR_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,99999))
-_NpCurLoopTrapR_Type.__name__=_D
-_NpCurLoopTrapR_Object=MibScalar
-npCurLoopTrapR=_NpCurLoopTrapR_Object((1,3,6,1,4,1,25728,8300,2,5),_NpCurLoopTrapR_Type())
-npCurLoopTrapR.setMaxAccess(_C)
-if mibBuilder.loadTexts:npCurLoopTrapR.setStatus(_A)
-class _NpCurLoopTrapPower_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_H,1)))
-_NpCurLoopTrapPower_Type.__name__=_D
-_NpCurLoopTrapPower_Object=MibScalar
-npCurLoopTrapPower=_NpCurLoopTrapPower_Object((1,3,6,1,4,1,25728,8300,2,7),_NpCurLoopTrapPower_Type())
-npCurLoopTrapPower.setMaxAccess(_E)
-if mibBuilder.loadTexts:npCurLoopTrapPower.setStatus(_A)
-_NpRelHumidity_ObjectIdentity=ObjectIdentity
-npRelHumidity=_NpRelHumidity_ObjectIdentity((1,3,6,1,4,1,25728,8400))
-_NpRelHumTable_Object=MibTable
-npRelHumTable=_NpRelHumTable_Object((1,3,6,1,4,1,25728,8400,1))
-if mibBuilder.loadTexts:npRelHumTable.setStatus(_A)
-_NpRelHumEntry_Object=MibTableRow
-npRelHumEntry=_NpRelHumEntry_Object((1,3,6,1,4,1,25728,8400,1,1))
-npRelHumEntry.setIndexNames((0,_B,_A0))
-if mibBuilder.loadTexts:npRelHumEntry.setStatus(_A)
-class _NpRelHumN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_NpRelHumN_Type.__name__=_D
-_NpRelHumN_Object=MibTableColumn
-npRelHumN=_NpRelHumN_Object((1,3,6,1,4,1,25728,8400,1,1,1),_NpRelHumN_Type())
-npRelHumN.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumN.setStatus(_A)
-class _NpRelHumValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_NpRelHumValue_Type.__name__=_D
-_NpRelHumValue_Object=MibTableColumn
-npRelHumValue=_NpRelHumValue_Object((1,3,6,1,4,1,25728,8400,1,1,2),_NpRelHumValue_Type())
-npRelHumValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumValue.setStatus(_A)
-class _NpRelHumStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_I,0),(_j,1),(_k,2),(_l,3)))
-_NpRelHumStatus_Type.__name__=_D
-_NpRelHumStatus_Object=MibTableColumn
-npRelHumStatus=_NpRelHumStatus_Object((1,3,6,1,4,1,25728,8400,1,1,3),_NpRelHumStatus_Type())
-npRelHumStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumStatus.setStatus(_A)
-class _NpRelHumTempValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-60,200))
-_NpRelHumTempValue_Type.__name__=_D
-_NpRelHumTempValue_Object=MibTableColumn
-npRelHumTempValue=_NpRelHumTempValue_Object((1,3,6,1,4,1,25728,8400,1,1,4),_NpRelHumTempValue_Type())
-npRelHumTempValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumTempValue.setStatus(_A)
-class _NpRelHumTempStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_I,0),(_j,1),(_k,2),(_l,3)))
-_NpRelHumTempStatus_Type.__name__=_D
-_NpRelHumTempStatus_Object=MibTableColumn
-npRelHumTempStatus=_NpRelHumTempStatus_Object((1,3,6,1,4,1,25728,8400,1,1,5),_NpRelHumTempStatus_Type())
-npRelHumTempStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumTempStatus.setStatus(_A)
-_NpRelHumMemo_Type=DisplayString
-_NpRelHumMemo_Object=MibTableColumn
-npRelHumMemo=_NpRelHumMemo_Object((1,3,6,1,4,1,25728,8400,1,1,6),_NpRelHumMemo_Type())
-npRelHumMemo.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumMemo.setStatus(_A)
-class _NpRelHumSafeRangeHigh_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_NpRelHumSafeRangeHigh_Type.__name__=_D
-_NpRelHumSafeRangeHigh_Object=MibTableColumn
-npRelHumSafeRangeHigh=_NpRelHumSafeRangeHigh_Object((1,3,6,1,4,1,25728,8400,1,1,7),_NpRelHumSafeRangeHigh_Type())
-npRelHumSafeRangeHigh.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumSafeRangeHigh.setStatus(_A)
-class _NpRelHumSafeRangeLow_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_NpRelHumSafeRangeLow_Type.__name__=_D
-_NpRelHumSafeRangeLow_Object=MibTableColumn
-npRelHumSafeRangeLow=_NpRelHumSafeRangeLow_Object((1,3,6,1,4,1,25728,8400,1,1,8),_NpRelHumSafeRangeLow_Type())
-npRelHumSafeRangeLow.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumSafeRangeLow.setStatus(_A)
-class _NpRelHumTempSafeRangeHigh_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-55,150))
-_NpRelHumTempSafeRangeHigh_Type.__name__=_D
-_NpRelHumTempSafeRangeHigh_Object=MibTableColumn
-npRelHumTempSafeRangeHigh=_NpRelHumTempSafeRangeHigh_Object((1,3,6,1,4,1,25728,8400,1,1,9),_NpRelHumTempSafeRangeHigh_Type())
-npRelHumTempSafeRangeHigh.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumTempSafeRangeHigh.setStatus(_A)
-class _NpRelHumTempSafeRangeLow_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-55,150))
-_NpRelHumTempSafeRangeLow_Type.__name__=_D
-_NpRelHumTempSafeRangeLow_Object=MibTableColumn
-npRelHumTempSafeRangeLow=_NpRelHumTempSafeRangeLow_Object((1,3,6,1,4,1,25728,8400,1,1,10),_NpRelHumTempSafeRangeLow_Type())
-npRelHumTempSafeRangeLow.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumTempSafeRangeLow.setStatus(_A)
-_NpRelHumTrapData_ObjectIdentity=ObjectIdentity
-npRelHumTrapData=_NpRelHumTrapData_ObjectIdentity((1,3,6,1,4,1,25728,8400,3))
-class _NpRelHumTrapDataN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_NpRelHumTrapDataN_Type.__name__=_D
-_NpRelHumTrapDataN_Object=MibScalar
-npRelHumTrapDataN=_NpRelHumTrapDataN_Object((1,3,6,1,4,1,25728,8400,3,1),_NpRelHumTrapDataN_Type())
-npRelHumTrapDataN.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumTrapDataN.setStatus(_A)
-_NpRelHumTrapDataValue_Type=Integer32
-_NpRelHumTrapDataValue_Object=MibScalar
-npRelHumTrapDataValue=_NpRelHumTrapDataValue_Object((1,3,6,1,4,1,25728,8400,3,2),_NpRelHumTrapDataValue_Type())
-npRelHumTrapDataValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumTrapDataValue.setStatus(_A)
-class _NpRelHumTrapDataStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_I,0),(_j,1),(_k,2),(_l,3)))
-_NpRelHumTrapDataStatus_Type.__name__=_D
-_NpRelHumTrapDataStatus_Object=MibScalar
-npRelHumTrapDataStatus=_NpRelHumTrapDataStatus_Object((1,3,6,1,4,1,25728,8400,3,4),_NpRelHumTrapDataStatus_Type())
-npRelHumTrapDataStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumTrapDataStatus.setStatus(_A)
-_NpRelHumTrapDataMemo_Type=DisplayString
-_NpRelHumTrapDataMemo_Object=MibScalar
-npRelHumTrapDataMemo=_NpRelHumTrapDataMemo_Object((1,3,6,1,4,1,25728,8400,3,6),_NpRelHumTrapDataMemo_Type())
-npRelHumTrapDataMemo.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumTrapDataMemo.setStatus(_A)
-_NpRelHumTrapDataSafeRangeHigh_Type=Integer32
-_NpRelHumTrapDataSafeRangeHigh_Object=MibScalar
-npRelHumTrapDataSafeRangeHigh=_NpRelHumTrapDataSafeRangeHigh_Object((1,3,6,1,4,1,25728,8400,3,7),_NpRelHumTrapDataSafeRangeHigh_Type())
-npRelHumTrapDataSafeRangeHigh.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumTrapDataSafeRangeHigh.setStatus(_A)
-_NpRelHumTrapDataSafeRangeLow_Type=Integer32
-_NpRelHumTrapDataSafeRangeLow_Object=MibScalar
-npRelHumTrapDataSafeRangeLow=_NpRelHumTrapDataSafeRangeLow_Object((1,3,6,1,4,1,25728,8400,3,8),_NpRelHumTrapDataSafeRangeLow_Type())
-npRelHumTrapDataSafeRangeLow.setMaxAccess(_C)
-if mibBuilder.loadTexts:npRelHumTrapDataSafeRangeLow.setStatus(_A)
-_NpRelHumTrap_ObjectIdentity=ObjectIdentity
-npRelHumTrap=_NpRelHumTrap_ObjectIdentity((1,3,6,1,4,1,25728,8400,6))
-_NpRelHumTrapAllEvents_ObjectIdentity=ObjectIdentity
-npRelHumTrapAllEvents=_NpRelHumTrapAllEvents_ObjectIdentity((1,3,6,1,4,1,25728,8400,6,127))
-_NpRelHumTrapTemp_ObjectIdentity=ObjectIdentity
-npRelHumTrapTemp=_NpRelHumTrapTemp_ObjectIdentity((1,3,6,1,4,1,25728,8400,7))
-_NpRelHumTrapTempAllEvents_ObjectIdentity=ObjectIdentity
-npRelHumTrapTempAllEvents=_NpRelHumTrapTempAllEvents_ObjectIdentity((1,3,6,1,4,1,25728,8400,7,127))
-_NpThermo_ObjectIdentity=ObjectIdentity
-npThermo=_NpThermo_ObjectIdentity((1,3,6,1,4,1,25728,8800))
-_NpThermoTable_Object=MibTable
-npThermoTable=_NpThermoTable_Object((1,3,6,1,4,1,25728,8800,1))
-if mibBuilder.loadTexts:npThermoTable.setStatus(_A)
-_NpThermoEntry_Object=MibTableRow
-npThermoEntry=_NpThermoEntry_Object((1,3,6,1,4,1,25728,8800,1,1))
-npThermoEntry.setIndexNames((0,_B,_A1))
-if mibBuilder.loadTexts:npThermoEntry.setStatus(_A)
-class _NpThermoSensorN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_NpThermoSensorN_Type.__name__=_D
-_NpThermoSensorN_Object=MibTableColumn
-npThermoSensorN=_NpThermoSensorN_Object((1,3,6,1,4,1,25728,8800,1,1,1),_NpThermoSensorN_Type())
-npThermoSensorN.setMaxAccess(_C)
-if mibBuilder.loadTexts:npThermoSensorN.setStatus(_A)
-class _NpThermoValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-60,280))
-_NpThermoValue_Type.__name__=_D
-_NpThermoValue_Object=MibTableColumn
-npThermoValue=_NpThermoValue_Object((1,3,6,1,4,1,25728,8800,1,1,2),_NpThermoValue_Type())
-npThermoValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:npThermoValue.setStatus(_A)
-class _NpThermoStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_h,0),(_m,1),('norm',2),(_d,3)))
-_NpThermoStatus_Type.__name__=_D
-_NpThermoStatus_Object=MibTableColumn
-npThermoStatus=_NpThermoStatus_Object((1,3,6,1,4,1,25728,8800,1,1,3),_NpThermoStatus_Type())
-npThermoStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npThermoStatus.setStatus(_A)
-class _NpThermoLow_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-60,280))
-_NpThermoLow_Type.__name__=_D
-_NpThermoLow_Object=MibTableColumn
-npThermoLow=_NpThermoLow_Object((1,3,6,1,4,1,25728,8800,1,1,4),_NpThermoLow_Type())
-npThermoLow.setMaxAccess(_C)
-if mibBuilder.loadTexts:npThermoLow.setStatus(_A)
-class _NpThermoHigh_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-60,280))
-_NpThermoHigh_Type.__name__=_D
-_NpThermoHigh_Object=MibTableColumn
-npThermoHigh=_NpThermoHigh_Object((1,3,6,1,4,1,25728,8800,1,1,5),_NpThermoHigh_Type())
-npThermoHigh.setMaxAccess(_C)
-if mibBuilder.loadTexts:npThermoHigh.setStatus(_A)
-_NpThermoMemo_Type=DisplayString
-_NpThermoMemo_Object=MibTableColumn
-npThermoMemo=_NpThermoMemo_Object((1,3,6,1,4,1,25728,8800,1,1,6),_NpThermoMemo_Type())
-npThermoMemo.setMaxAccess(_C)
-if mibBuilder.loadTexts:npThermoMemo.setStatus(_A)
-_NpThermoValuePrecise_Type=FixedPoint1000
-_NpThermoValuePrecise_Object=MibTableColumn
-npThermoValuePrecise=_NpThermoValuePrecise_Object((1,3,6,1,4,1,25728,8800,1,1,7),_NpThermoValuePrecise_Type())
-npThermoValuePrecise.setMaxAccess(_C)
-if mibBuilder.loadTexts:npThermoValuePrecise.setStatus(_A)
-_NpThermoTraps_ObjectIdentity=ObjectIdentity
-npThermoTraps=_NpThermoTraps_ObjectIdentity((1,3,6,1,4,1,25728,8800,2))
-_NpThermoTrapPrefix_ObjectIdentity=ObjectIdentity
-npThermoTrapPrefix=_NpThermoTrapPrefix_ObjectIdentity((1,3,6,1,4,1,25728,8800,2,0))
-class _NpThermoTrapSensorN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_NpThermoTrapSensorN_Type.__name__=_D
-_NpThermoTrapSensorN_Object=MibScalar
-npThermoTrapSensorN=_NpThermoTrapSensorN_Object((1,3,6,1,4,1,25728,8800,2,1),_NpThermoTrapSensorN_Type())
-npThermoTrapSensorN.setMaxAccess(_C)
-if mibBuilder.loadTexts:npThermoTrapSensorN.setStatus(_A)
-class _NpThermoTrapValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-60,280))
-_NpThermoTrapValue_Type.__name__=_D
-_NpThermoTrapValue_Object=MibScalar
-npThermoTrapValue=_NpThermoTrapValue_Object((1,3,6,1,4,1,25728,8800,2,2),_NpThermoTrapValue_Type())
-npThermoTrapValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:npThermoTrapValue.setStatus(_A)
-class _NpThermoTrapStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_h,0),(_m,1),('norm',2),(_d,3)))
-_NpThermoTrapStatus_Type.__name__=_D
-_NpThermoTrapStatus_Object=MibScalar
-npThermoTrapStatus=_NpThermoTrapStatus_Object((1,3,6,1,4,1,25728,8800,2,3),_NpThermoTrapStatus_Type())
-npThermoTrapStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npThermoTrapStatus.setStatus(_A)
-class _NpThermoTrapLow_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-60,280))
-_NpThermoTrapLow_Type.__name__=_D
-_NpThermoTrapLow_Object=MibScalar
-npThermoTrapLow=_NpThermoTrapLow_Object((1,3,6,1,4,1,25728,8800,2,4),_NpThermoTrapLow_Type())
-npThermoTrapLow.setMaxAccess(_C)
-if mibBuilder.loadTexts:npThermoTrapLow.setStatus(_A)
-class _NpThermoTrapHigh_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-60,280))
-_NpThermoTrapHigh_Type.__name__=_D
-_NpThermoTrapHigh_Object=MibScalar
-npThermoTrapHigh=_NpThermoTrapHigh_Object((1,3,6,1,4,1,25728,8800,2,5),_NpThermoTrapHigh_Type())
-npThermoTrapHigh.setMaxAccess(_C)
-if mibBuilder.loadTexts:npThermoTrapHigh.setStatus(_A)
-_NpThermoTrapMemo_Type=DisplayString
-_NpThermoTrapMemo_Object=MibScalar
-npThermoTrapMemo=_NpThermoTrapMemo_Object((1,3,6,1,4,1,25728,8800,2,6),_NpThermoTrapMemo_Type())
-npThermoTrapMemo.setMaxAccess(_C)
-if mibBuilder.loadTexts:npThermoTrapMemo.setStatus(_A)
-_NpIo_ObjectIdentity=ObjectIdentity
-npIo=_NpIo_ObjectIdentity((1,3,6,1,4,1,25728,8900))
-_NpIoTable_Object=MibTable
-npIoTable=_NpIoTable_Object((1,3,6,1,4,1,25728,8900,1))
-if mibBuilder.loadTexts:npIoTable.setStatus(_A)
-_NpIoEntry_Object=MibTableRow
-npIoEntry=_NpIoEntry_Object((1,3,6,1,4,1,25728,8900,1,1))
-npIoEntry.setIndexNames((0,_B,_A2))
-if mibBuilder.loadTexts:npIoEntry.setStatus(_A)
-class _NpIoLineN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_NpIoLineN_Type.__name__=_D
-_NpIoLineN_Object=MibTableColumn
-npIoLineN=_NpIoLineN_Object((1,3,6,1,4,1,25728,8900,1,1,1),_NpIoLineN_Type())
-npIoLineN.setMaxAccess(_C)
-if mibBuilder.loadTexts:npIoLineN.setStatus(_A)
-class _NpIoLevelIn_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
-_NpIoLevelIn_Type.__name__=_D
-_NpIoLevelIn_Object=MibTableColumn
-npIoLevelIn=_NpIoLevelIn_Object((1,3,6,1,4,1,25728,8900,1,1,2),_NpIoLevelIn_Type())
-npIoLevelIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:npIoLevelIn.setStatus(_A)
-class _NpIoLevelOut_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,0,1)));namedValues=NamedValues(*((_c,-1),(_m,0),(_d,1)))
-_NpIoLevelOut_Type.__name__=_D
-_NpIoLevelOut_Object=MibTableColumn
-npIoLevelOut=_NpIoLevelOut_Object((1,3,6,1,4,1,25728,8900,1,1,3),_NpIoLevelOut_Type())
-npIoLevelOut.setMaxAccess(_E)
-if mibBuilder.loadTexts:npIoLevelOut.setStatus(_A)
-_NpIoMemo_Type=DisplayString
-_NpIoMemo_Object=MibTableColumn
-npIoMemo=_NpIoMemo_Object((1,3,6,1,4,1,25728,8900,1,1,6),_NpIoMemo_Type())
-npIoMemo.setMaxAccess(_C)
-if mibBuilder.loadTexts:npIoMemo.setStatus(_A)
-_NpIoPulseCounter_Type=Counter32
-_NpIoPulseCounter_Object=MibTableColumn
-npIoPulseCounter=_NpIoPulseCounter_Object((1,3,6,1,4,1,25728,8900,1,1,9),_NpIoPulseCounter_Type())
-npIoPulseCounter.setMaxAccess(_E)
-if mibBuilder.loadTexts:npIoPulseCounter.setStatus(_A)
-class _NpIoSinglePulseDuration_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,25500))
-_NpIoSinglePulseDuration_Type.__name__=_D
-_NpIoSinglePulseDuration_Object=MibTableColumn
-npIoSinglePulseDuration=_NpIoSinglePulseDuration_Object((1,3,6,1,4,1,25728,8900,1,1,12),_NpIoSinglePulseDuration_Type())
-npIoSinglePulseDuration.setMaxAccess(_E)
-if mibBuilder.loadTexts:npIoSinglePulseDuration.setStatus(_A)
-_NpIoSinglePulseStart_Type=Integer32
-_NpIoSinglePulseStart_Object=MibTableColumn
-npIoSinglePulseStart=_NpIoSinglePulseStart_Object((1,3,6,1,4,1,25728,8900,1,1,13),_NpIoSinglePulseStart_Type())
-npIoSinglePulseStart.setMaxAccess(_E)
-if mibBuilder.loadTexts:npIoSinglePulseStart.setStatus(_A)
-_NpIoTraps_ObjectIdentity=ObjectIdentity
-npIoTraps=_NpIoTraps_ObjectIdentity((1,3,6,1,4,1,25728,8900,2))
-_NpIoTrapPrefix_ObjectIdentity=ObjectIdentity
-npIoTrapPrefix=_NpIoTrapPrefix_ObjectIdentity((1,3,6,1,4,1,25728,8900,2,0))
-class _NpIoTrapLineN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_NpIoTrapLineN_Type.__name__=_D
-_NpIoTrapLineN_Object=MibScalar
-npIoTrapLineN=_NpIoTrapLineN_Object((1,3,6,1,4,1,25728,8900,2,1),_NpIoTrapLineN_Type())
-npIoTrapLineN.setMaxAccess(_C)
-if mibBuilder.loadTexts:npIoTrapLineN.setStatus(_A)
-class _NpIoTrapLevelIn_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
-_NpIoTrapLevelIn_Type.__name__=_D
-_NpIoTrapLevelIn_Object=MibScalar
-npIoTrapLevelIn=_NpIoTrapLevelIn_Object((1,3,6,1,4,1,25728,8900,2,2),_NpIoTrapLevelIn_Type())
-npIoTrapLevelIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:npIoTrapLevelIn.setStatus(_A)
-_NpIoTrapMemo_Type=DisplayString
-_NpIoTrapMemo_Object=MibScalar
-npIoTrapMemo=_NpIoTrapMemo_Object((1,3,6,1,4,1,25728,8900,2,6),_NpIoTrapMemo_Type())
-npIoTrapMemo.setMaxAccess(_C)
-if mibBuilder.loadTexts:npIoTrapMemo.setStatus(_A)
-_NpIoTrapLevelLegend_Type=DisplayString
-_NpIoTrapLevelLegend_Object=MibScalar
-npIoTrapLevelLegend=_NpIoTrapLevelLegend_Object((1,3,6,1,4,1,25728,8900,2,7),_NpIoTrapLevelLegend_Type())
-npIoTrapLevelLegend.setMaxAccess(_C)
-if mibBuilder.loadTexts:npIoTrapLevelLegend.setStatus(_A)
-_NpVoltage_ObjectIdentity=ObjectIdentity
-npVoltage=_NpVoltage_ObjectIdentity((1,3,6,1,4,1,25728,9000))
-_NpVoltageTable_Object=MibTable
-npVoltageTable=_NpVoltageTable_Object((1,3,6,1,4,1,25728,9000,1))
-if mibBuilder.loadTexts:npVoltageTable.setStatus(_A)
-_NpVoltageEntry_Object=MibTableRow
-npVoltageEntry=_NpVoltageEntry_Object((1,3,6,1,4,1,25728,9000,1,1))
-npVoltageEntry.setIndexNames((0,_B,_A3))
-if mibBuilder.loadTexts:npVoltageEntry.setStatus(_A)
-class _NpVoltageN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3))
-_NpVoltageN_Type.__name__=_D
-_NpVoltageN_Object=MibTableColumn
-npVoltageN=_NpVoltageN_Object((1,3,6,1,4,1,25728,9000,1,1,1),_NpVoltageN_Type())
-npVoltageN.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageN.setStatus(_A)
-class _NpVoltageRMS_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
-_NpVoltageRMS_Type.__name__=_D
-_NpVoltageRMS_Object=MibTableColumn
-npVoltageRMS=_NpVoltageRMS_Object((1,3,6,1,4,1,25728,9000,1,1,2),_NpVoltageRMS_Type())
-npVoltageRMS.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageRMS.setStatus(_A)
-class _NpVoltageStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*((_I,0),(_P,1),(_e,2),(_f,3),(_g,4)))
-_NpVoltageStatus_Type.__name__=_D
-_NpVoltageStatus_Object=MibTableColumn
-npVoltageStatus=_NpVoltageStatus_Object((1,3,6,1,4,1,25728,9000,1,1,3),_NpVoltageStatus_Type())
-npVoltageStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageStatus.setStatus(_A)
-class _NpVoltageFreq_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-_NpVoltageFreq_Type.__name__=_D
-_NpVoltageFreq_Object=MibTableColumn
-npVoltageFreq=_NpVoltageFreq_Object((1,3,6,1,4,1,25728,9000,1,1,4),_NpVoltageFreq_Type())
-npVoltageFreq.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageFreq.setStatus(_A)
-class _NpVoltageFreqStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*((_I,0),(_P,1),(_e,2),(_f,3),(_g,4)))
-_NpVoltageFreqStatus_Type.__name__=_D
-_NpVoltageFreqStatus_Object=MibTableColumn
-npVoltageFreqStatus=_NpVoltageFreqStatus_Object((1,3,6,1,4,1,25728,9000,1,1,5),_NpVoltageFreqStatus_Type())
-npVoltageFreqStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageFreqStatus.setStatus(_A)
-_NpVoltageMemo_Type=DisplayString
-_NpVoltageMemo_Object=MibTableColumn
-npVoltageMemo=_NpVoltageMemo_Object((1,3,6,1,4,1,25728,9000,1,1,6),_NpVoltageMemo_Type())
-npVoltageMemo.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageMemo.setStatus(_A)
-_NpVoltageSagCounter_Type=Counter32
-_NpVoltageSagCounter_Object=MibTableColumn
-npVoltageSagCounter=_NpVoltageSagCounter_Object((1,3,6,1,4,1,25728,9000,1,1,10),_NpVoltageSagCounter_Type())
-npVoltageSagCounter.setMaxAccess(_E)
-if mibBuilder.loadTexts:npVoltageSagCounter.setStatus(_A)
-class _NpVoltageSagStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*((_I,0),(_P,1),(_d,2),('medium',3),('small',4),('noSags',5)))
-_NpVoltageSagStatus_Type.__name__=_D
-_NpVoltageSagStatus_Object=MibTableColumn
-npVoltageSagStatus=_NpVoltageSagStatus_Object((1,3,6,1,4,1,25728,9000,1,1,11),_NpVoltageSagStatus_Type())
-npVoltageSagStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageSagStatus.setStatus(_A)
-class _NpVoltageSagSmallThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_NpVoltageSagSmallThreshold_Type.__name__=_D
-_NpVoltageSagSmallThreshold_Object=MibTableColumn
-npVoltageSagSmallThreshold=_NpVoltageSagSmallThreshold_Object((1,3,6,1,4,1,25728,9000,1,1,12),_NpVoltageSagSmallThreshold_Type())
-npVoltageSagSmallThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:npVoltageSagSmallThreshold.setStatus(_A)
-class _NpVoltageSagMediumThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_NpVoltageSagMediumThreshold_Type.__name__=_D
-_NpVoltageSagMediumThreshold_Object=MibTableColumn
-npVoltageSagMediumThreshold=_NpVoltageSagMediumThreshold_Object((1,3,6,1,4,1,25728,9000,1,1,13),_NpVoltageSagMediumThreshold_Type())
-npVoltageSagMediumThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:npVoltageSagMediumThreshold.setStatus(_A)
-class _NpVoltageSagBigThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_NpVoltageSagBigThreshold_Type.__name__=_D
-_NpVoltageSagBigThreshold_Object=MibTableColumn
-npVoltageSagBigThreshold=_NpVoltageSagBigThreshold_Object((1,3,6,1,4,1,25728,9000,1,1,14),_NpVoltageSagBigThreshold_Type())
-npVoltageSagBigThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:npVoltageSagBigThreshold.setStatus(_A)
-class _NpVoltageStandard_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,240))
-_NpVoltageStandard_Type.__name__=_D
-_NpVoltageStandard_Object=MibTableColumn
-npVoltageStandard=_NpVoltageStandard_Object((1,3,6,1,4,1,25728,9000,1,1,20),_NpVoltageStandard_Type())
-npVoltageStandard.setMaxAccess(_E)
-if mibBuilder.loadTexts:npVoltageStandard.setStatus(_A)
-class _NpVoltagePeak_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
-_NpVoltagePeak_Type.__name__=_D
-_NpVoltagePeak_Object=MibTableColumn
-npVoltagePeak=_NpVoltagePeak_Object((1,3,6,1,4,1,25728,9000,1,1,30),_NpVoltagePeak_Type())
-npVoltagePeak.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltagePeak.setStatus(_A)
-class _NpVoltagePeakStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_I,0),(_P,1),(_A4,2),('noPeaks',3)))
-_NpVoltagePeakStatus_Type.__name__=_D
-_NpVoltagePeakStatus_Object=MibTableColumn
-npVoltagePeakStatus=_NpVoltagePeakStatus_Object((1,3,6,1,4,1,25728,9000,1,1,31),_NpVoltagePeakStatus_Type())
-npVoltagePeakStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltagePeakStatus.setStatus(_A)
-_NpVoltageTraps_ObjectIdentity=ObjectIdentity
-npVoltageTraps=_NpVoltageTraps_ObjectIdentity((1,3,6,1,4,1,25728,9000,2))
-_NpVoltageTrapPrefix_ObjectIdentity=ObjectIdentity
-npVoltageTrapPrefix=_NpVoltageTrapPrefix_ObjectIdentity((1,3,6,1,4,1,25728,9000,2,0))
-class _NpVoltageTrapN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3))
-_NpVoltageTrapN_Type.__name__=_D
-_NpVoltageTrapN_Object=MibScalar
-npVoltageTrapN=_NpVoltageTrapN_Object((1,3,6,1,4,1,25728,9000,2,1),_NpVoltageTrapN_Type())
-npVoltageTrapN.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageTrapN.setStatus(_A)
-class _NpVoltageTrapRMS_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
-_NpVoltageTrapRMS_Type.__name__=_D
-_NpVoltageTrapRMS_Object=MibScalar
-npVoltageTrapRMS=_NpVoltageTrapRMS_Object((1,3,6,1,4,1,25728,9000,2,2),_NpVoltageTrapRMS_Type())
-npVoltageTrapRMS.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageTrapRMS.setStatus(_A)
-class _NpVoltageTrapStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*((_I,0),(_P,1),(_e,2),(_f,3),(_g,4)))
-_NpVoltageTrapStatus_Type.__name__=_D
-_NpVoltageTrapStatus_Object=MibScalar
-npVoltageTrapStatus=_NpVoltageTrapStatus_Object((1,3,6,1,4,1,25728,9000,2,3),_NpVoltageTrapStatus_Type())
-npVoltageTrapStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageTrapStatus.setStatus(_A)
-class _NpVoltageTrapFreq_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-_NpVoltageTrapFreq_Type.__name__=_D
-_NpVoltageTrapFreq_Object=MibScalar
-npVoltageTrapFreq=_NpVoltageTrapFreq_Object((1,3,6,1,4,1,25728,9000,2,4),_NpVoltageTrapFreq_Type())
-npVoltageTrapFreq.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageTrapFreq.setStatus(_A)
-class _NpVoltageTrapFreqStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*((_I,0),(_P,1),(_e,2),(_f,3),(_g,4)))
-_NpVoltageTrapFreqStatus_Type.__name__=_D
-_NpVoltageTrapFreqStatus_Object=MibScalar
-npVoltageTrapFreqStatus=_NpVoltageTrapFreqStatus_Object((1,3,6,1,4,1,25728,9000,2,5),_NpVoltageTrapFreqStatus_Type())
-npVoltageTrapFreqStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageTrapFreqStatus.setStatus(_A)
-_NpVoltageTrapMemo_Type=DisplayString
-_NpVoltageTrapMemo_Object=MibScalar
-npVoltageTrapMemo=_NpVoltageTrapMemo_Object((1,3,6,1,4,1,25728,9000,2,6),_NpVoltageTrapMemo_Type())
-npVoltageTrapMemo.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageTrapMemo.setStatus(_A)
-_NpVoltageTrapSagCounter_Type=Counter32
-_NpVoltageTrapSagCounter_Object=MibScalar
-npVoltageTrapSagCounter=_NpVoltageTrapSagCounter_Object((1,3,6,1,4,1,25728,9000,2,10),_NpVoltageTrapSagCounter_Type())
-npVoltageTrapSagCounter.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageTrapSagCounter.setStatus(_A)
-class _NpVoltageTrapSagStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*((_I,0),(_P,1),(_d,2),('medium',3),('small',4),('noSags',5)))
-_NpVoltageTrapSagStatus_Type.__name__=_D
-_NpVoltageTrapSagStatus_Object=MibScalar
-npVoltageTrapSagStatus=_NpVoltageTrapSagStatus_Object((1,3,6,1,4,1,25728,9000,2,11),_NpVoltageTrapSagStatus_Type())
-npVoltageTrapSagStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageTrapSagStatus.setStatus(_A)
-class _NpVoltageTrapPeak_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
-_NpVoltageTrapPeak_Type.__name__=_D
-_NpVoltageTrapPeak_Object=MibScalar
-npVoltageTrapPeak=_NpVoltageTrapPeak_Object((1,3,6,1,4,1,25728,9000,2,30),_NpVoltageTrapPeak_Type())
-npVoltageTrapPeak.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageTrapPeak.setStatus(_A)
-class _NpVoltageTrapPeakStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_I,0),(_P,1),(_A4,2),('noPeaks',3)))
-_NpVoltageTrapPeakStatus_Type.__name__=_D
-_NpVoltageTrapPeakStatus_Object=MibScalar
-npVoltageTrapPeakStatus=_NpVoltageTrapPeakStatus_Object((1,3,6,1,4,1,25728,9000,2,31),_NpVoltageTrapPeakStatus_Type())
-npVoltageTrapPeakStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:npVoltageTrapPeakStatus.setStatus(_A)
-npGsmTrap=NotificationType((1,3,6,1,4,1,25728,3800,2,0,1))
-npGsmTrap.setObjects(*((_B,_A5),(_B,_A6),(_B,_A7)))
-if mibBuilder.loadTexts:npGsmTrap.setStatus(_A)
-npGsmTrapUnparsedSms=NotificationType((1,3,6,1,4,1,25728,3800,2,0,2))
-npGsmTrapUnparsedSms.setObjects(*((_B,_A8),(_B,_A9),(_B,_AA)))
-if mibBuilder.loadTexts:npGsmTrapUnparsedSms.setStatus(_A)
-npRelayTrapOff=NotificationType((1,3,6,1,4,1,25728,5500,6,100))
-npRelayTrapOff.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:npRelayTrapOff.setStatus(_A)
-npRelayTrapOn=NotificationType((1,3,6,1,4,1,25728,5500,6,101))
-npRelayTrapOn.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:npRelayTrapOn.setStatus(_A)
-npRelayTrapModeChange=NotificationType((1,3,6,1,4,1,25728,5500,6,102))
-npRelayTrapModeChange.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:npRelayTrapModeChange.setStatus(_A)
-npRelayTrapReset=NotificationType((1,3,6,1,4,1,25728,5500,6,103))
-npRelayTrapReset.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:npRelayTrapReset.setStatus(_A)
-npRelayTrapAllChannels=NotificationType((1,3,6,1,4,1,25728,5500,6,127,99))
-npRelayTrapAllChannels.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:npRelayTrapAllChannels.setStatus(_A)
-npExtRelayTrapOff=NotificationType((1,3,6,1,4,1,25728,5600,6,100))
-npExtRelayTrapOff.setObjects(*((_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b)))
-if mibBuilder.loadTexts:npExtRelayTrapOff.setStatus(_A)
-npExtRelayTrapOn=NotificationType((1,3,6,1,4,1,25728,5600,6,101))
-npExtRelayTrapOn.setObjects(*((_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b)))
-if mibBuilder.loadTexts:npExtRelayTrapOn.setStatus(_A)
-npExtRelayTrapModeChange=NotificationType((1,3,6,1,4,1,25728,5600,6,102))
-npExtRelayTrapModeChange.setObjects(*((_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b)))
-if mibBuilder.loadTexts:npExtRelayTrapModeChange.setStatus(_A)
-npExtRelayTrapReset=NotificationType((1,3,6,1,4,1,25728,5600,6,103))
-npExtRelayTrapReset.setObjects(*((_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b)))
-if mibBuilder.loadTexts:npExtRelayTrapReset.setStatus(_A)
-npExtRelayTrapAllChannels=NotificationType((1,3,6,1,4,1,25728,5600,6,127,99))
-npExtRelayTrapAllChannels.setObjects(*((_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b)))
-if mibBuilder.loadTexts:npExtRelayTrapAllChannels.setStatus(_A)
-npInputAnalogTrap=NotificationType((1,3,6,1,4,1,25728,8200,2,0,1))
-npInputAnalogTrap.setObjects(*((_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL)))
-if mibBuilder.loadTexts:npInputAnalogTrap.setStatus(_A)
-npCurLoopTrap=NotificationType((1,3,6,1,4,1,25728,8300,2,0,1))
-npCurLoopTrap.setObjects(*((_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS)))
-if mibBuilder.loadTexts:npCurLoopTrap.setStatus(_A)
-npRelHumTrapFail=NotificationType((1,3,6,1,4,1,25728,8400,6,100))
-npRelHumTrapFail.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:npRelHumTrapFail.setStatus(_A)
-npRelHumTrapBelowSafe=NotificationType((1,3,6,1,4,1,25728,8400,6,101))
-npRelHumTrapBelowSafe.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:npRelHumTrapBelowSafe.setStatus(_A)
-npRelHumTrapSafe=NotificationType((1,3,6,1,4,1,25728,8400,6,102))
-npRelHumTrapSafe.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:npRelHumTrapSafe.setStatus(_A)
-npRelHumTrapAboveSafe=NotificationType((1,3,6,1,4,1,25728,8400,6,103))
-npRelHumTrapAboveSafe.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:npRelHumTrapAboveSafe.setStatus(_A)
-npRelHumTrapAllChannels=NotificationType((1,3,6,1,4,1,25728,8400,6,127,99))
-npRelHumTrapAllChannels.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:npRelHumTrapAllChannels.setStatus(_A)
-npRelHumTrapTempFail=NotificationType((1,3,6,1,4,1,25728,8400,7,100))
-npRelHumTrapTempFail.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:npRelHumTrapTempFail.setStatus(_A)
-npRelHumTrapTempBelowSafe=NotificationType((1,3,6,1,4,1,25728,8400,7,101))
-npRelHumTrapTempBelowSafe.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:npRelHumTrapTempBelowSafe.setStatus(_A)
-npRelHumTrapTempSafe=NotificationType((1,3,6,1,4,1,25728,8400,7,102))
-npRelHumTrapTempSafe.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:npRelHumTrapTempSafe.setStatus(_A)
-npRelHumTrapTempAboveSafe=NotificationType((1,3,6,1,4,1,25728,8400,7,103))
-npRelHumTrapTempAboveSafe.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:npRelHumTrapTempAboveSafe.setStatus(_A)
-npRelHumTrapTempAllChannels=NotificationType((1,3,6,1,4,1,25728,8400,7,127,99))
-npRelHumTrapTempAllChannels.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:npRelHumTrapTempAllChannels.setStatus(_A)
-npThermoTrap=NotificationType((1,3,6,1,4,1,25728,8800,2,0,1))
-npThermoTrap.setObjects(*((_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY)))
-if mibBuilder.loadTexts:npThermoTrap.setStatus(_A)
-npIoTrap=NotificationType((1,3,6,1,4,1,25728,8900,2,0,1))
-npIoTrap.setObjects(*((_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac)))
-if mibBuilder.loadTexts:npIoTrap.setStatus(_A)
-npVoltageTrap=NotificationType((1,3,6,1,4,1,25728,9000,2,0,1))
-npVoltageTrap.setObjects(*((_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al)))
-if mibBuilder.loadTexts:npVoltageTrap.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'FixedPoint1000':FixedPoint1000,'lightcom':lightcom,'uniPingServerSolutionV3':uniPingServerSolutionV3,'npTrapInfo':npTrapInfo,_AS:npTrapEmailTo,'npReboot':npReboot,'npSoftReboot':npSoftReboot,'npResetStack':npResetStack,'npForcedReboot':npForcedReboot,'npGsm':npGsm,'npGsmInfo':npGsmInfo,_A5:npGsmFailed,_A6:npGsmRegistration,_A7:npGsmStrength,'npGsmSendSmsUtf8':npGsmSendSmsUtf8,'npGsmSendSmsWin1251':npGsmSendSmsWin1251,_A8:npGsmUnparsedRxSmsFrom,_A9:npGsmUnparsedRxSms,_AA:npGsmUnparsedRxSmsUtf8,'npGsmTraps':npGsmTraps,'npGsmTrapPrefix':npGsmTrapPrefix,'npGsmTrap':npGsmTrap,'npGsmTrapUnparsedSms':npGsmTrapUnparsedSms,'npRelay':npRelay,'npRelayTrapData':npRelayTrapData,_Q:npRelayTrapN,_R:npRelayTrapMode,_S:npRelayTrapMemo,_T:npRelayTrapState,_U:npRelayTrapCmdSrc,_V:npRelayTrapDateTime,'npRelayTable':npRelayTable,'npRelayEntry':npRelayEntry,_r:npRelayN,'npRelayMode':npRelayMode,'npRelayStartReset':npRelayStartReset,'npRelayMemo':npRelayMemo,'npRelayFlip':npRelayFlip,'npRelayState':npRelayState,'npRelayTrap':npRelayTrap,'npRelayTrapOff':npRelayTrapOff,'npRelayTrapOn':npRelayTrapOn,'npRelayTrapModeChange':npRelayTrapModeChange,'npRelayTrapReset':npRelayTrapReset,'npRelayTrapAllEvents':npRelayTrapAllEvents,'npRelayTrapAllChannels':npRelayTrapAllChannels,'npExtRelay':npExtRelay,'npExtRelayTrapData':npExtRelayTrapData,_W:npExtRelayTrapN,_X:npExtRelayTrapMode,_Y:npExtRelayTrapMemo,_Z:npExtRelayTrapState,_a:npExtRelayTrapCmdSrc,_b:npExtRelayTrapDateTime,'npExtRelayTable':npExtRelayTable,'npExtRelayEntry':npExtRelayEntry,_s:npExtRelayN,'npExtRelayMode':npExtRelayMode,'npExtRelayStartReset':npExtRelayStartReset,'npExtRelayMemo':npExtRelayMemo,'npExtRelayFlip':npExtRelayFlip,'npExtRelayState':npExtRelayState,'npExtRelayTrap':npExtRelayTrap,'npExtRelayTrapOff':npExtRelayTrapOff,'npExtRelayTrapOn':npExtRelayTrapOn,'npExtRelayTrapModeChange':npExtRelayTrapModeChange,'npExtRelayTrapReset':npExtRelayTrapReset,'npExtRelayTrapAllEvents':npExtRelayTrapAllEvents,'npExtRelayTrapAllChannels':npExtRelayTrapAllChannels,'npIr':npIr,'npIrCtrl':npIrCtrl,'npIrPlayCmd':npIrPlayCmd,'npIrReset':npIrReset,'npIrStatus':npIrStatus,'npInputAnalog':npInputAnalog,'npInputAnalogTable':npInputAnalogTable,'npInputAnalogEntry':npInputAnalogEntry,_t:npInputAnalogSensorN,'npInputAnalogStatus':npInputAnalogStatus,'npInputAnalogCurrent':npInputAnalogCurrent,'npInputAnalogVoltage':npInputAnalogVoltage,'npInputAnalogResistance':npInputAnalogResistance,'npInputAnalogMemo':npInputAnalogMemo,'npInputAnalogPower':npInputAnalogPower,'npInputAnalogReset':npInputAnalogReset,'npInputAnalogWorkRangeHigh':npInputAnalogWorkRangeHigh,'npInputAnalogSafeRangeHigh':npInputAnalogSafeRangeHigh,'npInputAnalogSafeRangeLow':npInputAnalogSafeRangeLow,'npInputAnalogWorkRangeLow':npInputAnalogWorkRangeLow,'npInputAnalogTraps':npInputAnalogTraps,'npInputAnalogTrapPrefix':npInputAnalogTrapPrefix,'npInputAnalogTrap':npInputAnalogTrap,_AB:npInputAnalogTrapSensorN,_AC:npInputAnalogTrapStatus,_AD:npInputAnalogTrapCurrent,_AE:npInputAnalogTrapVoltage,_AF:npInputAnalogTrapResistance,_AG:npInputAnalogTrapMemo,_AH:npInputAnalogTrapPower,_AI:npInputAnalogTrapWorkRangeHigh,_AJ:npInputAnalogTrapSafeRangeHigh,_AK:npInputAnalogTrapSafeRangeLow,_AL:npInputAnalogTrapWorkRangeLow,'npCurLoop':npCurLoop,'npCurLoopTable':npCurLoopTable,'npCurLoopEntry':npCurLoopEntry,_y:npCurLoopN,'npCurLoopStatus':npCurLoopStatus,'npCurLoopI':npCurLoopI,'npCurLoopV':npCurLoopV,'npCurLoopR':npCurLoopR,'npCurLoopPower':npCurLoopPower,'npCurLoopTraps':npCurLoopTraps,'npCurLoopTrapPrefix':npCurLoopTrapPrefix,'npCurLoopTrap':npCurLoopTrap,_AM:npCurLoopTrapN,_AN:npCurLoopTrapStatus,_AO:npCurLoopTrapI,_AP:npCurLoopTrapV,_AQ:npCurLoopTrapR,_AR:npCurLoopTrapPower,'npRelHumidity':npRelHumidity,'npRelHumTable':npRelHumTable,'npRelHumEntry':npRelHumEntry,_A0:npRelHumN,'npRelHumValue':npRelHumValue,'npRelHumStatus':npRelHumStatus,'npRelHumTempValue':npRelHumTempValue,'npRelHumTempStatus':npRelHumTempStatus,'npRelHumMemo':npRelHumMemo,'npRelHumSafeRangeHigh':npRelHumSafeRangeHigh,'npRelHumSafeRangeLow':npRelHumSafeRangeLow,'npRelHumTempSafeRangeHigh':npRelHumTempSafeRangeHigh,'npRelHumTempSafeRangeLow':npRelHumTempSafeRangeLow,'npRelHumTrapData':npRelHumTrapData,_J:npRelHumTrapDataN,_L:npRelHumTrapDataValue,_K:npRelHumTrapDataStatus,_M:npRelHumTrapDataMemo,_N:npRelHumTrapDataSafeRangeHigh,_O:npRelHumTrapDataSafeRangeLow,'npRelHumTrap':npRelHumTrap,'npRelHumTrapFail':npRelHumTrapFail,'npRelHumTrapBelowSafe':npRelHumTrapBelowSafe,'npRelHumTrapSafe':npRelHumTrapSafe,'npRelHumTrapAboveSafe':npRelHumTrapAboveSafe,'npRelHumTrapAllEvents':npRelHumTrapAllEvents,'npRelHumTrapAllChannels':npRelHumTrapAllChannels,'npRelHumTrapTemp':npRelHumTrapTemp,'npRelHumTrapTempFail':npRelHumTrapTempFail,'npRelHumTrapTempBelowSafe':npRelHumTrapTempBelowSafe,'npRelHumTrapTempSafe':npRelHumTrapTempSafe,'npRelHumTrapTempAboveSafe':npRelHumTrapTempAboveSafe,'npRelHumTrapTempAllEvents':npRelHumTrapTempAllEvents,'npRelHumTrapTempAllChannels':npRelHumTrapTempAllChannels,'npThermo':npThermo,'npThermoTable':npThermoTable,'npThermoEntry':npThermoEntry,_A1:npThermoSensorN,'npThermoValue':npThermoValue,'npThermoStatus':npThermoStatus,'npThermoLow':npThermoLow,'npThermoHigh':npThermoHigh,'npThermoMemo':npThermoMemo,'npThermoValuePrecise':npThermoValuePrecise,'npThermoTraps':npThermoTraps,'npThermoTrapPrefix':npThermoTrapPrefix,'npThermoTrap':npThermoTrap,_AT:npThermoTrapSensorN,_AU:npThermoTrapValue,_AV:npThermoTrapStatus,_AW:npThermoTrapLow,_AX:npThermoTrapHigh,_AY:npThermoTrapMemo,'npIo':npIo,'npIoTable':npIoTable,'npIoEntry':npIoEntry,_A2:npIoLineN,'npIoLevelIn':npIoLevelIn,'npIoLevelOut':npIoLevelOut,'npIoMemo':npIoMemo,'npIoPulseCounter':npIoPulseCounter,'npIoSinglePulseDuration':npIoSinglePulseDuration,'npIoSinglePulseStart':npIoSinglePulseStart,'npIoTraps':npIoTraps,'npIoTrapPrefix':npIoTrapPrefix,'npIoTrap':npIoTrap,_AZ:npIoTrapLineN,_Aa:npIoTrapLevelIn,_Ab:npIoTrapMemo,_Ac:npIoTrapLevelLegend,'npVoltage':npVoltage,'npVoltageTable':npVoltageTable,'npVoltageEntry':npVoltageEntry,_A3:npVoltageN,'npVoltageRMS':npVoltageRMS,'npVoltageStatus':npVoltageStatus,'npVoltageFreq':npVoltageFreq,'npVoltageFreqStatus':npVoltageFreqStatus,'npVoltageMemo':npVoltageMemo,'npVoltageSagCounter':npVoltageSagCounter,'npVoltageSagStatus':npVoltageSagStatus,'npVoltageSagSmallThreshold':npVoltageSagSmallThreshold,'npVoltageSagMediumThreshold':npVoltageSagMediumThreshold,'npVoltageSagBigThreshold':npVoltageSagBigThreshold,'npVoltageStandard':npVoltageStandard,'npVoltagePeak':npVoltagePeak,'npVoltagePeakStatus':npVoltagePeakStatus,'npVoltageTraps':npVoltageTraps,'npVoltageTrapPrefix':npVoltageTrapPrefix,'npVoltageTrap':npVoltageTrap,_Ad:npVoltageTrapN,_Ae:npVoltageTrapRMS,_Af:npVoltageTrapStatus,_Ag:npVoltageTrapFreq,_Ah:npVoltageTrapFreqStatus,_Ai:npVoltageTrapMemo,_Aj:npVoltageTrapSagCounter,_Ak:npVoltageTrapSagStatus,'npVoltageTrapPeak':npVoltageTrapPeak,_Al:npVoltageTrapPeakStatus})
+#
+# PySNMP MIB module DKSF-70-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netping/DKSF-70-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:18 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+snmpTraps, = mibBuilder.importSymbols("SNMPv2-MIB", "snmpTraps")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+uniPingServerSolutionV3 = ModuleIdentity((1, 3, 6, 1, 4, 1, 25728, 70))
+uniPingServerSolutionV3.setRevisions(('2022-07-01 00:00', '2020-08-19 00:00', '2020-06-12 00:00', '2019-10-13 00:00', '2018-07-01 00:00', '2016-08-24 00:00', '2015-07-14 00:00', '2015-05-29 00:00', '2014-12-03 00:00', '2014-11-26 00:00', '2014-02-02 00:00', '2014-01-29 00:00', '2014-01-21 00:00', '2013-04-11 00:00', '2012-05-31 00:00', '2012-04-17 00:00', '2012-03-23 00:00', '2011-09-23 00:00', '2011-03-24 00:00', '2010-10-14 00:00', '2010-09-20 00:00', '2010-05-31 00:00', '2010-04-14 00:00',))
+if mibBuilder.loadTexts: uniPingServerSolutionV3.setLastUpdated('202008190000Z')
+if mibBuilder.loadTexts: uniPingServerSolutionV3.setOrganization('Alentis Electronics')
+lightcom = MibIdentifier((1, 3, 6, 1, 4, 1, 25728))
+class FixedPoint1000(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd-3'
+
+npTrapInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 90))
+npTrapEmailTo = MibScalar((1, 3, 6, 1, 4, 1, 25728, 90, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npTrapEmailTo.setStatus('current')
+npRelay = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 5500))
+npRelayTable = MibTable((1, 3, 6, 1, 4, 1, 25728, 5500, 5), )
+if mibBuilder.loadTexts: npRelayTable.setStatus('current')
+npRelayEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25728, 5500, 5, 1), ).setIndexNames((0, "DKSF-70-MIB", "npRelayN"))
+if mibBuilder.loadTexts: npRelayEntry.setStatus('current')
+npRelayN = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 5500, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelayN.setStatus('current')
+npRelayMode = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 5500, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 0, 1))).clone(namedValues=NamedValues(("flip", -1), ("off", 0), ("on", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npRelayMode.setStatus('current')
+npRelayStartReset = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 5500, 5, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npRelayStartReset.setStatus('current')
+npRelayMemo = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 5500, 5, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelayMemo.setStatus('current')
+npRelayFlip = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 5500, 5, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1))).clone(namedValues=NamedValues(("flip", -1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npRelayFlip.setStatus('current')
+npRelayState = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 5500, 5, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelayState.setStatus('current')
+npRelayTrapData = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 5500, 3))
+npRelayTrapN = MibScalar((1, 3, 6, 1, 4, 1, 25728, 5500, 3, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelayTrapN.setStatus('current')
+npRelayTrapMode = MibScalar((1, 3, 6, 1, 4, 1, 25728, 5500, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npRelayTrapMode.setStatus('current')
+npRelayTrapMemo = MibScalar((1, 3, 6, 1, 4, 1, 25728, 5500, 3, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelayTrapMemo.setStatus('current')
+npRelayTrapState = MibScalar((1, 3, 6, 1, 4, 1, 25728, 5500, 3, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelayTrapState.setStatus('current')
+npRelayTrapCmdSrc = MibScalar((1, 3, 6, 1, 4, 1, 25728, 5500, 3, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("unknown", -1), ("webInterface", 1), ("snmp", 2), ("sms", 3), ("httpApi", 4), ("watchdog", 5), ("schedule", 6), ("logic", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelayTrapCmdSrc.setStatus('current')
+npRelayTrapDateTime = MibScalar((1, 3, 6, 1, 4, 1, 25728, 5500, 3, 19), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelayTrapDateTime.setStatus('current')
+npRelayTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 5500, 6))
+npRelayTrapAllEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 5500, 6, 127))
+npRelayTrapAllChannels = NotificationType((1, 3, 6, 1, 4, 1, 25728, 5500, 6, 127, 99)).setObjects(("DKSF-70-MIB", "npRelayTrapN"), ("DKSF-70-MIB", "npRelayTrapMode"), ("DKSF-70-MIB", "npRelayTrapMemo"), ("DKSF-70-MIB", "npRelayTrapState"), ("DKSF-70-MIB", "npRelayTrapCmdSrc"), ("DKSF-70-MIB", "npRelayTrapDateTime"))
+if mibBuilder.loadTexts: npRelayTrapAllChannels.setStatus('current')
+npRelayTrapOff = NotificationType((1, 3, 6, 1, 4, 1, 25728, 5500, 6, 100)).setObjects(("DKSF-70-MIB", "npRelayTrapN"), ("DKSF-70-MIB", "npRelayTrapMode"), ("DKSF-70-MIB", "npRelayTrapMemo"), ("DKSF-70-MIB", "npRelayTrapState"), ("DKSF-70-MIB", "npRelayTrapCmdSrc"), ("DKSF-70-MIB", "npRelayTrapDateTime"))
+if mibBuilder.loadTexts: npRelayTrapOff.setStatus('current')
+npRelayTrapOn = NotificationType((1, 3, 6, 1, 4, 1, 25728, 5500, 6, 101)).setObjects(("DKSF-70-MIB", "npRelayTrapN"), ("DKSF-70-MIB", "npRelayTrapMode"), ("DKSF-70-MIB", "npRelayTrapMemo"), ("DKSF-70-MIB", "npRelayTrapState"), ("DKSF-70-MIB", "npRelayTrapCmdSrc"), ("DKSF-70-MIB", "npRelayTrapDateTime"))
+if mibBuilder.loadTexts: npRelayTrapOn.setStatus('current')
+npRelayTrapModeChange = NotificationType((1, 3, 6, 1, 4, 1, 25728, 5500, 6, 102)).setObjects(("DKSF-70-MIB", "npRelayTrapN"), ("DKSF-70-MIB", "npRelayTrapMode"), ("DKSF-70-MIB", "npRelayTrapMemo"), ("DKSF-70-MIB", "npRelayTrapState"), ("DKSF-70-MIB", "npRelayTrapCmdSrc"), ("DKSF-70-MIB", "npRelayTrapDateTime"))
+if mibBuilder.loadTexts: npRelayTrapModeChange.setStatus('current')
+npRelayTrapReset = NotificationType((1, 3, 6, 1, 4, 1, 25728, 5500, 6, 103)).setObjects(("DKSF-70-MIB", "npRelayTrapN"), ("DKSF-70-MIB", "npRelayTrapMode"), ("DKSF-70-MIB", "npRelayTrapMemo"), ("DKSF-70-MIB", "npRelayTrapState"), ("DKSF-70-MIB", "npRelayTrapCmdSrc"), ("DKSF-70-MIB", "npRelayTrapDateTime"))
+if mibBuilder.loadTexts: npRelayTrapReset.setStatus('current')
+npExtRelay = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 5600))
+npExtRelayTable = MibTable((1, 3, 6, 1, 4, 1, 25728, 5600, 5), )
+if mibBuilder.loadTexts: npExtRelayTable.setStatus('current')
+npExtRelayEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25728, 5600, 5, 1), ).setIndexNames((0, "DKSF-70-MIB", "npExtRelayN"))
+if mibBuilder.loadTexts: npExtRelayEntry.setStatus('current')
+npExtRelayN = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 5600, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npExtRelayN.setStatus('current')
+npExtRelayMode = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 5600, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 0, 1))).clone(namedValues=NamedValues(("flip", -1), ("off", 0), ("on", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npExtRelayMode.setStatus('current')
+npExtRelayStartReset = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 5600, 5, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npExtRelayStartReset.setStatus('current')
+npExtRelayMemo = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 5600, 5, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npExtRelayMemo.setStatus('current')
+npExtRelayFlip = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 5600, 5, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1))).clone(namedValues=NamedValues(("flip", -1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npExtRelayFlip.setStatus('current')
+npExtRelayState = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 5600, 5, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npExtRelayState.setStatus('current')
+npExtRelayTrapData = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 5600, 3))
+npExtRelayTrapN = MibScalar((1, 3, 6, 1, 4, 1, 25728, 5600, 3, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npExtRelayTrapN.setStatus('current')
+npExtRelayTrapMode = MibScalar((1, 3, 6, 1, 4, 1, 25728, 5600, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npExtRelayTrapMode.setStatus('current')
+npExtRelayTrapMemo = MibScalar((1, 3, 6, 1, 4, 1, 25728, 5600, 3, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npExtRelayTrapMemo.setStatus('current')
+npExtRelayTrapState = MibScalar((1, 3, 6, 1, 4, 1, 25728, 5600, 3, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npExtRelayTrapState.setStatus('current')
+npExtRelayTrapCmdSrc = MibScalar((1, 3, 6, 1, 4, 1, 25728, 5600, 3, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("unknown", -1), ("webInterface", 1), ("snmp", 2), ("sms", 3), ("httpApi", 4), ("watchdog", 5), ("schedule", 6), ("logic", 7), ("button", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npExtRelayTrapCmdSrc.setStatus('current')
+npExtRelayTrapDateTime = MibScalar((1, 3, 6, 1, 4, 1, 25728, 5600, 3, 19), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npExtRelayTrapDateTime.setStatus('current')
+npExtRelayTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 5600, 6))
+npExtRelayTrapAllEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 5600, 6, 127))
+npExtRelayTrapAllChannels = NotificationType((1, 3, 6, 1, 4, 1, 25728, 5600, 6, 127, 99)).setObjects(("DKSF-70-MIB", "npExtRelayTrapN"), ("DKSF-70-MIB", "npExtRelayTrapMode"), ("DKSF-70-MIB", "npExtRelayTrapMemo"), ("DKSF-70-MIB", "npExtRelayTrapState"), ("DKSF-70-MIB", "npExtRelayTrapCmdSrc"), ("DKSF-70-MIB", "npExtRelayTrapDateTime"))
+if mibBuilder.loadTexts: npExtRelayTrapAllChannels.setStatus('current')
+npExtRelayTrapOff = NotificationType((1, 3, 6, 1, 4, 1, 25728, 5600, 6, 100)).setObjects(("DKSF-70-MIB", "npExtRelayTrapN"), ("DKSF-70-MIB", "npExtRelayTrapMode"), ("DKSF-70-MIB", "npExtRelayTrapMemo"), ("DKSF-70-MIB", "npExtRelayTrapState"), ("DKSF-70-MIB", "npExtRelayTrapCmdSrc"), ("DKSF-70-MIB", "npExtRelayTrapDateTime"))
+if mibBuilder.loadTexts: npExtRelayTrapOff.setStatus('current')
+npExtRelayTrapOn = NotificationType((1, 3, 6, 1, 4, 1, 25728, 5600, 6, 101)).setObjects(("DKSF-70-MIB", "npExtRelayTrapN"), ("DKSF-70-MIB", "npExtRelayTrapMode"), ("DKSF-70-MIB", "npExtRelayTrapMemo"), ("DKSF-70-MIB", "npExtRelayTrapState"), ("DKSF-70-MIB", "npExtRelayTrapCmdSrc"), ("DKSF-70-MIB", "npExtRelayTrapDateTime"))
+if mibBuilder.loadTexts: npExtRelayTrapOn.setStatus('current')
+npExtRelayTrapModeChange = NotificationType((1, 3, 6, 1, 4, 1, 25728, 5600, 6, 102)).setObjects(("DKSF-70-MIB", "npExtRelayTrapN"), ("DKSF-70-MIB", "npExtRelayTrapMode"), ("DKSF-70-MIB", "npExtRelayTrapMemo"), ("DKSF-70-MIB", "npExtRelayTrapState"), ("DKSF-70-MIB", "npExtRelayTrapCmdSrc"), ("DKSF-70-MIB", "npExtRelayTrapDateTime"))
+if mibBuilder.loadTexts: npExtRelayTrapModeChange.setStatus('current')
+npExtRelayTrapReset = NotificationType((1, 3, 6, 1, 4, 1, 25728, 5600, 6, 103)).setObjects(("DKSF-70-MIB", "npExtRelayTrapN"), ("DKSF-70-MIB", "npExtRelayTrapMode"), ("DKSF-70-MIB", "npExtRelayTrapMemo"), ("DKSF-70-MIB", "npExtRelayTrapState"), ("DKSF-70-MIB", "npExtRelayTrapCmdSrc"), ("DKSF-70-MIB", "npExtRelayTrapDateTime"))
+if mibBuilder.loadTexts: npExtRelayTrapReset.setStatus('current')
+npThermo = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8800))
+npThermoTable = MibTable((1, 3, 6, 1, 4, 1, 25728, 8800, 1), )
+if mibBuilder.loadTexts: npThermoTable.setStatus('current')
+npThermoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25728, 8800, 1, 1), ).setIndexNames((0, "DKSF-70-MIB", "npThermoSensorN"))
+if mibBuilder.loadTexts: npThermoEntry.setStatus('current')
+npThermoSensorN = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8800, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npThermoSensorN.setStatus('current')
+npThermoValue = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8800, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-60, 280))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npThermoValue.setStatus('current')
+npThermoStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8800, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("failed", 0), ("low", 1), ("norm", 2), ("high", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npThermoStatus.setStatus('current')
+npThermoLow = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8800, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-60, 280))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npThermoLow.setStatus('current')
+npThermoHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8800, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-60, 280))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npThermoHigh.setStatus('current')
+npThermoMemo = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8800, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npThermoMemo.setStatus('current')
+npThermoValuePrecise = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8800, 1, 1, 7), FixedPoint1000()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npThermoValuePrecise.setStatus('current')
+npThermoTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8800, 2))
+npThermoTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8800, 2, 0))
+npThermoTrapSensorN = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8800, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npThermoTrapSensorN.setStatus('current')
+npThermoTrapValue = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8800, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-60, 280))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npThermoTrapValue.setStatus('current')
+npThermoTrapStatus = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8800, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("failed", 0), ("low", 1), ("norm", 2), ("high", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npThermoTrapStatus.setStatus('current')
+npThermoTrapLow = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8800, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-60, 280))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npThermoTrapLow.setStatus('current')
+npThermoTrapHigh = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8800, 2, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-60, 280))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npThermoTrapHigh.setStatus('current')
+npThermoTrapMemo = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8800, 2, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npThermoTrapMemo.setStatus('current')
+npThermoTrap = NotificationType((1, 3, 6, 1, 4, 1, 25728, 8800, 2, 0, 1)).setObjects(("DKSF-70-MIB", "npThermoTrapSensorN"), ("DKSF-70-MIB", "npThermoTrapValue"), ("DKSF-70-MIB", "npThermoTrapStatus"), ("DKSF-70-MIB", "npThermoTrapLow"), ("DKSF-70-MIB", "npThermoTrapHigh"), ("DKSF-70-MIB", "npThermoTrapMemo"))
+if mibBuilder.loadTexts: npThermoTrap.setStatus('current')
+npIo = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8900))
+npIoTable = MibTable((1, 3, 6, 1, 4, 1, 25728, 8900, 1), )
+if mibBuilder.loadTexts: npIoTable.setStatus('current')
+npIoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25728, 8900, 1, 1), ).setIndexNames((0, "DKSF-70-MIB", "npIoLineN"))
+if mibBuilder.loadTexts: npIoEntry.setStatus('current')
+npIoLineN = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8900, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npIoLineN.setStatus('current')
+npIoLevelIn = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8900, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npIoLevelIn.setStatus('current')
+npIoLevelOut = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8900, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 0, 1))).clone(namedValues=NamedValues(("flip", -1), ("low", 0), ("high", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npIoLevelOut.setStatus('current')
+npIoMemo = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8900, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npIoMemo.setStatus('current')
+npIoPulseCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8900, 1, 1, 9), Counter32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npIoPulseCounter.setStatus('current')
+npIoSinglePulseDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8900, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100, 25500))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npIoSinglePulseDuration.setStatus('current')
+npIoSinglePulseStart = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8900, 1, 1, 13), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npIoSinglePulseStart.setStatus('current')
+npIoTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8900, 2))
+npIoTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8900, 2, 0))
+npIoTrapLineN = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8900, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npIoTrapLineN.setStatus('current')
+npIoTrapLevelIn = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8900, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npIoTrapLevelIn.setStatus('current')
+npIoTrapMemo = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8900, 2, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npIoTrapMemo.setStatus('current')
+npIoTrapLevelLegend = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8900, 2, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npIoTrapLevelLegend.setStatus('current')
+npIoTrap = NotificationType((1, 3, 6, 1, 4, 1, 25728, 8900, 2, 0, 1)).setObjects(("DKSF-70-MIB", "npIoTrapLineN"), ("DKSF-70-MIB", "npIoTrapLevelIn"), ("DKSF-70-MIB", "npIoTrapMemo"), ("DKSF-70-MIB", "npIoTrapLevelLegend"))
+if mibBuilder.loadTexts: npIoTrap.setStatus('current')
+npCurLoop = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8300))
+npCurLoopTable = MibTable((1, 3, 6, 1, 4, 1, 25728, 8300, 1), )
+if mibBuilder.loadTexts: npCurLoopTable.setStatus('current')
+npCurLoopEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25728, 8300, 1, 1), ).setIndexNames((0, "DKSF-70-MIB", "npCurLoopN"))
+if mibBuilder.loadTexts: npCurLoopEntry.setStatus('current')
+npCurLoopN = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8300, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npCurLoopN.setStatus('current')
+npCurLoopStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8300, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("ok", 0), ("alert", 1), ("cut", 2), ("short", 3), ("notPowered", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npCurLoopStatus.setStatus('current')
+npCurLoopI = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8300, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99999))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npCurLoopI.setStatus('current')
+npCurLoopV = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8300, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99999))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npCurLoopV.setStatus('current')
+npCurLoopR = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8300, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99999))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npCurLoopR.setStatus('current')
+npCurLoopPower = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8300, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("off", 0), ("on", 1), ("cyclePower", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npCurLoopPower.setStatus('current')
+npCurLoopTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8300, 2))
+npCurLoopTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8300, 2, 0))
+npCurLoopTrapN = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8300, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npCurLoopTrapN.setStatus('current')
+npCurLoopTrapStatus = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8300, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("ok", 0), ("alert", 1), ("cut", 2), ("short", 3), ("notPowered", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npCurLoopTrapStatus.setStatus('current')
+npCurLoopTrapI = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8300, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99999))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npCurLoopTrapI.setStatus('current')
+npCurLoopTrapV = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8300, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99999))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npCurLoopTrapV.setStatus('current')
+npCurLoopTrapR = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8300, 2, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99999))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npCurLoopTrapR.setStatus('current')
+npCurLoopTrapPower = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8300, 2, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npCurLoopTrapPower.setStatus('current')
+npCurLoopTrap = NotificationType((1, 3, 6, 1, 4, 1, 25728, 8300, 2, 0, 1)).setObjects(("DKSF-70-MIB", "npCurLoopTrapN"), ("DKSF-70-MIB", "npCurLoopTrapStatus"), ("DKSF-70-MIB", "npCurLoopTrapI"), ("DKSF-70-MIB", "npCurLoopTrapV"), ("DKSF-70-MIB", "npCurLoopTrapR"), ("DKSF-70-MIB", "npCurLoopTrapPower"), ("DKSF-70-MIB", "npTrapEmailTo"))
+if mibBuilder.loadTexts: npCurLoopTrap.setStatus('current')
+npVoltage = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 9000))
+npVoltageTable = MibTable((1, 3, 6, 1, 4, 1, 25728, 9000, 1), )
+if mibBuilder.loadTexts: npVoltageTable.setStatus('current')
+npVoltageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25728, 9000, 1, 1), ).setIndexNames((0, "DKSF-70-MIB", "npVoltageN"))
+if mibBuilder.loadTexts: npVoltageEntry.setStatus('current')
+npVoltageN = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 9000, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageN.setStatus('current')
+npVoltageRMS = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 9000, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageRMS.setStatus('current')
+npVoltageStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 9000, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("sensorFailed", 0), ("noVoltage", 1), ("bad", 2), ("warn", 3), ("good", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageStatus.setStatus('current')
+npVoltageFreq = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 9000, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageFreq.setStatus('current')
+npVoltageFreqStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 9000, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("sensorFailed", 0), ("noVoltage", 1), ("bad", 2), ("warn", 3), ("good", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageFreqStatus.setStatus('current')
+npVoltageMemo = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 9000, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageMemo.setStatus('current')
+npVoltageSagCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 9000, 1, 1, 10), Counter32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npVoltageSagCounter.setStatus('current')
+npVoltageSagStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 9000, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("sensorFailed", 0), ("noVoltage", 1), ("high", 2), ("medium", 3), ("small", 4), ("noSags", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageSagStatus.setStatus('current')
+npVoltageSagSmallThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 9000, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npVoltageSagSmallThreshold.setStatus('current')
+npVoltageSagMediumThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 9000, 1, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npVoltageSagMediumThreshold.setStatus('current')
+npVoltageSagBigThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 9000, 1, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npVoltageSagBigThreshold.setStatus('current')
+npVoltageStandard = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 9000, 1, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100, 240))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npVoltageStandard.setStatus('current')
+npVoltagePeak = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 9000, 1, 1, 30), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltagePeak.setStatus('current')
+npVoltagePeakStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 9000, 1, 1, 31), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("sensorFailed", 0), ("noVoltage", 1), ("dangerous", 2), ("noPeaks", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltagePeakStatus.setStatus('current')
+npVoltageTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 9000, 2))
+npVoltageTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 9000, 2, 0))
+npVoltageTrapN = MibScalar((1, 3, 6, 1, 4, 1, 25728, 9000, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageTrapN.setStatus('current')
+npVoltageTrapRMS = MibScalar((1, 3, 6, 1, 4, 1, 25728, 9000, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageTrapRMS.setStatus('current')
+npVoltageTrapStatus = MibScalar((1, 3, 6, 1, 4, 1, 25728, 9000, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("sensorFailed", 0), ("noVoltage", 1), ("bad", 2), ("warn", 3), ("good", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageTrapStatus.setStatus('current')
+npVoltageTrapFreq = MibScalar((1, 3, 6, 1, 4, 1, 25728, 9000, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageTrapFreq.setStatus('current')
+npVoltageTrapFreqStatus = MibScalar((1, 3, 6, 1, 4, 1, 25728, 9000, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("sensorFailed", 0), ("noVoltage", 1), ("bad", 2), ("warn", 3), ("good", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageTrapFreqStatus.setStatus('current')
+npVoltageTrapMemo = MibScalar((1, 3, 6, 1, 4, 1, 25728, 9000, 2, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageTrapMemo.setStatus('current')
+npVoltageTrapSagCounter = MibScalar((1, 3, 6, 1, 4, 1, 25728, 9000, 2, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageTrapSagCounter.setStatus('current')
+npVoltageTrapSagStatus = MibScalar((1, 3, 6, 1, 4, 1, 25728, 9000, 2, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("sensorFailed", 0), ("noVoltage", 1), ("high", 2), ("medium", 3), ("small", 4), ("noSags", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageTrapSagStatus.setStatus('current')
+npVoltageTrapPeak = MibScalar((1, 3, 6, 1, 4, 1, 25728, 9000, 2, 30), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageTrapPeak.setStatus('current')
+npVoltageTrapPeakStatus = MibScalar((1, 3, 6, 1, 4, 1, 25728, 9000, 2, 31), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("sensorFailed", 0), ("noVoltage", 1), ("dangerous", 2), ("noPeaks", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npVoltageTrapPeakStatus.setStatus('current')
+npVoltageTrap = NotificationType((1, 3, 6, 1, 4, 1, 25728, 9000, 2, 0, 1)).setObjects(("DKSF-70-MIB", "npVoltageTrapN"), ("DKSF-70-MIB", "npVoltageTrapRMS"), ("DKSF-70-MIB", "npVoltageTrapStatus"), ("DKSF-70-MIB", "npVoltageTrapFreq"), ("DKSF-70-MIB", "npVoltageTrapFreqStatus"), ("DKSF-70-MIB", "npVoltageTrapMemo"), ("DKSF-70-MIB", "npVoltageTrapSagCounter"), ("DKSF-70-MIB", "npVoltageTrapSagStatus"), ("DKSF-70-MIB", "npVoltageTrapPeakStatus"))
+if mibBuilder.loadTexts: npVoltageTrap.setStatus('current')
+npInputAnalog = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8200))
+npInputAnalogTable = MibTable((1, 3, 6, 1, 4, 1, 25728, 8200, 1), )
+if mibBuilder.loadTexts: npInputAnalogTable.setStatus('current')
+npInputAnalogEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25728, 8200, 1, 1), ).setIndexNames((0, "DKSF-70-MIB", "npInputAnalogSensorN"))
+if mibBuilder.loadTexts: npInputAnalogEntry.setStatus('current')
+npInputAnalogSensorN = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8200, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npInputAnalogSensorN.setStatus('current')
+npInputAnalogStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8200, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 5))).clone(namedValues=NamedValues(("failure1w", 0), ("belowSafe", 1), ("safe", 2), ("aboveSafe", 3), ("failureAnalog", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npInputAnalogStatus.setStatus('current')
+npInputAnalogCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8200, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npInputAnalogCurrent.setStatus('current')
+npInputAnalogVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8200, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npInputAnalogVoltage.setStatus('current')
+npInputAnalogResistance = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8200, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npInputAnalogResistance.setStatus('current')
+npInputAnalogMemo = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8200, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npInputAnalogMemo.setStatus('current')
+npInputAnalogPower = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8200, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npInputAnalogPower.setStatus('current')
+npInputAnalogReset = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8200, 1, 1, 8), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npInputAnalogReset.setStatus('current')
+npInputAnalogWorkRangeHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8200, 1, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npInputAnalogWorkRangeHigh.setStatus('current')
+npInputAnalogSafeRangeHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8200, 1, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npInputAnalogSafeRangeHigh.setStatus('current')
+npInputAnalogSafeRangeLow = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8200, 1, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npInputAnalogSafeRangeLow.setStatus('current')
+npInputAnalogWorkRangeLow = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8200, 1, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npInputAnalogWorkRangeLow.setStatus('current')
+npInputAnalogTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8200, 2))
+npInputAnalogTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8200, 2, 0))
+npInputAnalogTrapSensorN = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8200, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: npInputAnalogTrapSensorN.setStatus('current')
+npInputAnalogTrapStatus = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8200, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 5))).clone(namedValues=NamedValues(("failure1w", 0), ("belowSafe", 1), ("safe", 2), ("aboveSafe", 3), ("failureAnalog", 5)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: npInputAnalogTrapStatus.setStatus('current')
+npInputAnalogTrapCurrent = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8200, 2, 3), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: npInputAnalogTrapCurrent.setStatus('current')
+npInputAnalogTrapVoltage = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8200, 2, 4), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: npInputAnalogTrapVoltage.setStatus('current')
+npInputAnalogTrapResistance = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8200, 2, 5), Unsigned32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: npInputAnalogTrapResistance.setStatus('current')
+npInputAnalogTrapMemo = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8200, 2, 6), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: npInputAnalogTrapMemo.setStatus('current')
+npInputAnalogTrapPower = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8200, 2, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 3))).clone(namedValues=NamedValues(("off", 0), ("on", 1), ("temporaryOff", 3)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: npInputAnalogTrapPower.setStatus('current')
+npInputAnalogTrapWorkRangeHigh = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8200, 2, 11), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: npInputAnalogTrapWorkRangeHigh.setStatus('current')
+npInputAnalogTrapSafeRangeHigh = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8200, 2, 12), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: npInputAnalogTrapSafeRangeHigh.setStatus('current')
+npInputAnalogTrapSafeRangeLow = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8200, 2, 13), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: npInputAnalogTrapSafeRangeLow.setStatus('current')
+npInputAnalogTrapWorkRangeLow = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8200, 2, 14), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: npInputAnalogTrapWorkRangeLow.setStatus('current')
+npInputAnalogTrap = NotificationType((1, 3, 6, 1, 4, 1, 25728, 8200, 2, 0, 1)).setObjects(("DKSF-70-MIB", "npInputAnalogTrapSensorN"), ("DKSF-70-MIB", "npInputAnalogTrapStatus"), ("DKSF-70-MIB", "npInputAnalogTrapCurrent"), ("DKSF-70-MIB", "npInputAnalogTrapVoltage"), ("DKSF-70-MIB", "npInputAnalogTrapResistance"), ("DKSF-70-MIB", "npInputAnalogTrapMemo"), ("DKSF-70-MIB", "npInputAnalogTrapPower"), ("DKSF-70-MIB", "npInputAnalogTrapWorkRangeHigh"), ("DKSF-70-MIB", "npInputAnalogTrapSafeRangeHigh"), ("DKSF-70-MIB", "npInputAnalogTrapSafeRangeLow"), ("DKSF-70-MIB", "npInputAnalogTrapWorkRangeLow"))
+if mibBuilder.loadTexts: npInputAnalogTrap.setStatus('current')
+npRelHumidity = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8400))
+npRelHumTable = MibTable((1, 3, 6, 1, 4, 1, 25728, 8400, 1), )
+if mibBuilder.loadTexts: npRelHumTable.setStatus('current')
+npRelHumEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25728, 8400, 1, 1), ).setIndexNames((0, "DKSF-70-MIB", "npRelHumN"))
+if mibBuilder.loadTexts: npRelHumEntry.setStatus('current')
+npRelHumN = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8400, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumN.setStatus('current')
+npRelHumValue = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8400, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumValue.setStatus('current')
+npRelHumStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8400, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("sensorFailed", 0), ("belowSafeRange", 1), ("inSafeRange", 2), ("aboveSafeRange", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumStatus.setStatus('current')
+npRelHumTempValue = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8400, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-60, 200))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumTempValue.setStatus('current')
+npRelHumTempStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8400, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("sensorFailed", 0), ("belowSafeRange", 1), ("inSafeRange", 2), ("aboveSafeRange", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumTempStatus.setStatus('current')
+npRelHumMemo = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8400, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumMemo.setStatus('current')
+npRelHumSafeRangeHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8400, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumSafeRangeHigh.setStatus('current')
+npRelHumSafeRangeLow = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8400, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumSafeRangeLow.setStatus('current')
+npRelHumTempSafeRangeHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8400, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-55, 150))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumTempSafeRangeHigh.setStatus('current')
+npRelHumTempSafeRangeLow = MibTableColumn((1, 3, 6, 1, 4, 1, 25728, 8400, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-55, 150))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumTempSafeRangeLow.setStatus('current')
+npRelHumTrapData = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8400, 3))
+npRelHumTrapDataN = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8400, 3, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumTrapDataN.setStatus('current')
+npRelHumTrapDataValue = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8400, 3, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumTrapDataValue.setStatus('current')
+npRelHumTrapDataStatus = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8400, 3, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("sensorFailed", 0), ("belowSafeRange", 1), ("inSafeRange", 2), ("aboveSafeRange", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumTrapDataStatus.setStatus('current')
+npRelHumTrapDataMemo = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8400, 3, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumTrapDataMemo.setStatus('current')
+npRelHumTrapDataSafeRangeHigh = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8400, 3, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumTrapDataSafeRangeHigh.setStatus('current')
+npRelHumTrapDataSafeRangeLow = MibScalar((1, 3, 6, 1, 4, 1, 25728, 8400, 3, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npRelHumTrapDataSafeRangeLow.setStatus('current')
+npRelHumTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8400, 6))
+npRelHumTrapAllEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8400, 6, 127))
+npRelHumTrapTemp = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8400, 7))
+npRelHumTrapTempAllEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 8400, 7, 127))
+npRelHumTrapAllChannels = NotificationType((1, 3, 6, 1, 4, 1, 25728, 8400, 6, 127, 99)).setObjects(("DKSF-70-MIB", "npRelHumTrapDataN"), ("DKSF-70-MIB", "npRelHumTrapDataStatus"), ("DKSF-70-MIB", "npRelHumTrapDataValue"), ("DKSF-70-MIB", "npRelHumTrapDataMemo"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeHigh"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeLow"))
+if mibBuilder.loadTexts: npRelHumTrapAllChannels.setStatus('current')
+npRelHumTrapAboveSafe = NotificationType((1, 3, 6, 1, 4, 1, 25728, 8400, 6, 103)).setObjects(("DKSF-70-MIB", "npRelHumTrapDataN"), ("DKSF-70-MIB", "npRelHumTrapDataStatus"), ("DKSF-70-MIB", "npRelHumTrapDataValue"), ("DKSF-70-MIB", "npRelHumTrapDataMemo"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeHigh"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeLow"))
+if mibBuilder.loadTexts: npRelHumTrapAboveSafe.setStatus('current')
+npRelHumTrapSafe = NotificationType((1, 3, 6, 1, 4, 1, 25728, 8400, 6, 102)).setObjects(("DKSF-70-MIB", "npRelHumTrapDataN"), ("DKSF-70-MIB", "npRelHumTrapDataStatus"), ("DKSF-70-MIB", "npRelHumTrapDataValue"), ("DKSF-70-MIB", "npRelHumTrapDataMemo"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeHigh"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeLow"))
+if mibBuilder.loadTexts: npRelHumTrapSafe.setStatus('current')
+npRelHumTrapBelowSafe = NotificationType((1, 3, 6, 1, 4, 1, 25728, 8400, 6, 101)).setObjects(("DKSF-70-MIB", "npRelHumTrapDataN"), ("DKSF-70-MIB", "npRelHumTrapDataStatus"), ("DKSF-70-MIB", "npRelHumTrapDataValue"), ("DKSF-70-MIB", "npRelHumTrapDataMemo"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeHigh"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeLow"))
+if mibBuilder.loadTexts: npRelHumTrapBelowSafe.setStatus('current')
+npRelHumTrapFail = NotificationType((1, 3, 6, 1, 4, 1, 25728, 8400, 6, 100)).setObjects(("DKSF-70-MIB", "npRelHumTrapDataN"), ("DKSF-70-MIB", "npRelHumTrapDataStatus"), ("DKSF-70-MIB", "npRelHumTrapDataValue"), ("DKSF-70-MIB", "npRelHumTrapDataMemo"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeHigh"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeLow"))
+if mibBuilder.loadTexts: npRelHumTrapFail.setStatus('current')
+npRelHumTrapTempAllChannels = NotificationType((1, 3, 6, 1, 4, 1, 25728, 8400, 7, 127, 99)).setObjects(("DKSF-70-MIB", "npRelHumTrapDataN"), ("DKSF-70-MIB", "npRelHumTrapDataStatus"), ("DKSF-70-MIB", "npRelHumTrapDataValue"), ("DKSF-70-MIB", "npRelHumTrapDataMemo"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeHigh"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeLow"))
+if mibBuilder.loadTexts: npRelHumTrapTempAllChannels.setStatus('current')
+npRelHumTrapTempAboveSafe = NotificationType((1, 3, 6, 1, 4, 1, 25728, 8400, 7, 103)).setObjects(("DKSF-70-MIB", "npRelHumTrapDataN"), ("DKSF-70-MIB", "npRelHumTrapDataStatus"), ("DKSF-70-MIB", "npRelHumTrapDataValue"), ("DKSF-70-MIB", "npRelHumTrapDataMemo"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeHigh"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeLow"))
+if mibBuilder.loadTexts: npRelHumTrapTempAboveSafe.setStatus('current')
+npRelHumTrapTempSafe = NotificationType((1, 3, 6, 1, 4, 1, 25728, 8400, 7, 102)).setObjects(("DKSF-70-MIB", "npRelHumTrapDataN"), ("DKSF-70-MIB", "npRelHumTrapDataStatus"), ("DKSF-70-MIB", "npRelHumTrapDataValue"), ("DKSF-70-MIB", "npRelHumTrapDataMemo"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeHigh"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeLow"))
+if mibBuilder.loadTexts: npRelHumTrapTempSafe.setStatus('current')
+npRelHumTrapTempBelowSafe = NotificationType((1, 3, 6, 1, 4, 1, 25728, 8400, 7, 101)).setObjects(("DKSF-70-MIB", "npRelHumTrapDataN"), ("DKSF-70-MIB", "npRelHumTrapDataStatus"), ("DKSF-70-MIB", "npRelHumTrapDataValue"), ("DKSF-70-MIB", "npRelHumTrapDataMemo"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeHigh"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeLow"))
+if mibBuilder.loadTexts: npRelHumTrapTempBelowSafe.setStatus('current')
+npRelHumTrapTempFail = NotificationType((1, 3, 6, 1, 4, 1, 25728, 8400, 7, 100)).setObjects(("DKSF-70-MIB", "npRelHumTrapDataN"), ("DKSF-70-MIB", "npRelHumTrapDataStatus"), ("DKSF-70-MIB", "npRelHumTrapDataValue"), ("DKSF-70-MIB", "npRelHumTrapDataMemo"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeHigh"), ("DKSF-70-MIB", "npRelHumTrapDataSafeRangeLow"))
+if mibBuilder.loadTexts: npRelHumTrapTempFail.setStatus('current')
+npGsm = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 3800))
+npGsmInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 3800, 1))
+npGsmFailed = MibScalar((1, 3, 6, 1, 4, 1, 25728, 3800, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("ok", 0), ("failed", 1), ("fatalError", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npGsmFailed.setStatus('current')
+npGsmRegistration = MibScalar((1, 3, 6, 1, 4, 1, 25728, 3800, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 255))).clone(namedValues=NamedValues(("impossible", 0), ("homeNetwork", 1), ("searching", 2), ("denied", 3), ("unknown", 4), ("roaming", 5), ("infoUpdate", 255)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npGsmRegistration.setStatus('current')
+npGsmStrength = MibScalar((1, 3, 6, 1, 4, 1, 25728, 3800, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npGsmStrength.setStatus('current')
+npGsmSendSmsUtf8 = MibScalar((1, 3, 6, 1, 4, 1, 25728, 3800, 1, 9), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npGsmSendSmsUtf8.setStatus('current')
+npGsmSendSmsWin1251 = MibScalar((1, 3, 6, 1, 4, 1, 25728, 3800, 1, 10), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npGsmSendSmsWin1251.setStatus('current')
+npGsmUnparsedRxSmsFrom = MibScalar((1, 3, 6, 1, 4, 1, 25728, 3800, 1, 11), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: npGsmUnparsedRxSmsFrom.setStatus('current')
+npGsmUnparsedRxSms = MibScalar((1, 3, 6, 1, 4, 1, 25728, 3800, 1, 12), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: npGsmUnparsedRxSms.setStatus('current')
+npGsmUnparsedRxSmsUtf8 = MibScalar((1, 3, 6, 1, 4, 1, 25728, 3800, 1, 13), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: npGsmUnparsedRxSmsUtf8.setStatus('current')
+npGsmTrapUnparsedSms = NotificationType((1, 3, 6, 1, 4, 1, 25728, 3800, 2, 0, 2)).setObjects(("DKSF-70-MIB", "npGsmUnparsedRxSmsFrom"), ("DKSF-70-MIB", "npGsmUnparsedRxSms"), ("DKSF-70-MIB", "npGsmUnparsedRxSmsUtf8"))
+if mibBuilder.loadTexts: npGsmTrapUnparsedSms.setStatus('current')
+npGsmTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 3800, 2))
+npGsmTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 3800, 2, 0))
+npGsmTrap = NotificationType((1, 3, 6, 1, 4, 1, 25728, 3800, 2, 0, 1)).setObjects(("DKSF-70-MIB", "npGsmFailed"), ("DKSF-70-MIB", "npGsmRegistration"), ("DKSF-70-MIB", "npGsmStrength"))
+if mibBuilder.loadTexts: npGsmTrap.setStatus('current')
+npIr = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 7900))
+npIrCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 7900, 1))
+npIrPlayCmd = MibScalar((1, 3, 6, 1, 4, 1, 25728, 7900, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npIrPlayCmd.setStatus('current')
+npIrReset = MibScalar((1, 3, 6, 1, 4, 1, 25728, 7900, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npIrReset.setStatus('current')
+npIrStatus = MibScalar((1, 3, 6, 1, 4, 1, 25728, 7900, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 16, 17, 18, 19, 20, 21))).clone(namedValues=NamedValues(("commandCompleted", 0), ("protocolError", 1), ("commandAccepted", 2), ("errorUnknown", 16), ("errorBadNumber", 17), ("errorEmptyRecord", 18), ("errorFlashChip", 19), ("errorTimeout", 20), ("errorExtBusBusy", 21)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: npIrStatus.setStatus('current')
+npReboot = MibIdentifier((1, 3, 6, 1, 4, 1, 25728, 911))
+npSoftReboot = MibScalar((1, 3, 6, 1, 4, 1, 25728, 911, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npSoftReboot.setStatus('current')
+npResetStack = MibScalar((1, 3, 6, 1, 4, 1, 25728, 911, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npResetStack.setStatus('current')
+npForcedReboot = MibScalar((1, 3, 6, 1, 4, 1, 25728, 911, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: npForcedReboot.setStatus('current')
+mibBuilder.exportSymbols("DKSF-70-MIB", npRelHumTrap=npRelHumTrap, npRelHumTrapBelowSafe=npRelHumTrapBelowSafe, npGsm=npGsm, npRelHumTrapTemp=npRelHumTrapTemp, npIoTrap=npIoTrap, npRelHumTrapAboveSafe=npRelHumTrapAboveSafe, npExtRelayMode=npExtRelayMode, npTrapInfo=npTrapInfo, npRelayTrapAllChannels=npRelayTrapAllChannels, npRelayTrapN=npRelayTrapN, npExtRelayTrapModeChange=npExtRelayTrapModeChange, npVoltageSagStatus=npVoltageSagStatus, npThermoValuePrecise=npThermoValuePrecise, npVoltagePeak=npVoltagePeak, npExtRelayTrap=npExtRelayTrap, npRelHumTrapDataValue=npRelHumTrapDataValue, npCurLoopTrapI=npCurLoopTrapI, npVoltageTrap=npVoltageTrap, npGsmRegistration=npGsmRegistration, npVoltageTrapStatus=npVoltageTrapStatus, npExtRelayMemo=npExtRelayMemo, npVoltageTrapFreq=npVoltageTrapFreq, npExtRelayEntry=npExtRelayEntry, npIoTrapPrefix=npIoTrapPrefix, npRelayTrapData=npRelayTrapData, npInputAnalogPower=npInputAnalogPower, npVoltageStandard=npVoltageStandard, npRelHumTrapFail=npRelHumTrapFail, npRelayTrapAllEvents=npRelayTrapAllEvents, npCurLoopTable=npCurLoopTable, npRelHumMemo=npRelHumMemo, npExtRelayTrapData=npExtRelayTrapData, npVoltageTrapSagStatus=npVoltageTrapSagStatus, npInputAnalogVoltage=npInputAnalogVoltage, npReboot=npReboot, npInputAnalogTrapMemo=npInputAnalogTrapMemo, npVoltageSagSmallThreshold=npVoltageSagSmallThreshold, npCurLoopTrapPower=npCurLoopTrapPower, npGsmFailed=npGsmFailed, npRelay=npRelay, npInputAnalogMemo=npInputAnalogMemo, lightcom=lightcom, npCurLoopTrapN=npCurLoopTrapN, npInputAnalogTraps=npInputAnalogTraps, npRelHumTrapDataMemo=npRelHumTrapDataMemo, npIrPlayCmd=npIrPlayCmd, npThermoTrapHigh=npThermoTrapHigh, npInputAnalogEntry=npInputAnalogEntry, npExtRelayTrapN=npExtRelayTrapN, npVoltageFreqStatus=npVoltageFreqStatus, npIr=npIr, npInputAnalogTrapWorkRangeHigh=npInputAnalogTrapWorkRangeHigh, npThermoTraps=npThermoTraps, npVoltageTrapPrefix=npVoltageTrapPrefix, npGsmTrapPrefix=npGsmTrapPrefix, npExtRelayTrapMode=npExtRelayTrapMode, npIoSinglePulseStart=npIoSinglePulseStart, npVoltageEntry=npVoltageEntry, npRelHumValue=npRelHumValue, npInputAnalogTable=npInputAnalogTable, npThermoTrapValue=npThermoTrapValue, npThermoTrapSensorN=npThermoTrapSensorN, npExtRelayTrapCmdSrc=npExtRelayTrapCmdSrc, npRelHumTrapAllEvents=npRelHumTrapAllEvents, npInputAnalogCurrent=npInputAnalogCurrent, npIoMemo=npIoMemo, npCurLoopR=npCurLoopR, npExtRelayTrapDateTime=npExtRelayTrapDateTime, npIrReset=npIrReset, npThermoTrapMemo=npThermoTrapMemo, npExtRelayTrapMemo=npExtRelayTrapMemo, npRelHumN=npRelHumN, npGsmTrap=npGsmTrap, npCurLoopV=npCurLoopV, npVoltageTrapN=npVoltageTrapN, npInputAnalog=npInputAnalog, npVoltageStatus=npVoltageStatus, npRelHumTrapDataSafeRangeLow=npRelHumTrapDataSafeRangeLow, npForcedReboot=npForcedReboot, npRelayTrapDateTime=npRelayTrapDateTime, npIoTrapLineN=npIoTrapLineN, npInputAnalogTrapSafeRangeHigh=npInputAnalogTrapSafeRangeHigh, npExtRelayState=npExtRelayState, npRelayTrapOn=npRelayTrapOn, npInputAnalogTrapSensorN=npInputAnalogTrapSensorN, npRelayMode=npRelayMode, npRelHumTrapTempFail=npRelHumTrapTempFail, npInputAnalogTrapResistance=npInputAnalogTrapResistance, npVoltageSagCounter=npVoltageSagCounter, npCurLoopTrapR=npCurLoopTrapR, npVoltage=npVoltage, npVoltageTrapFreqStatus=npVoltageTrapFreqStatus, npRelHumTrapData=npRelHumTrapData, npInputAnalogSensorN=npInputAnalogSensorN, npThermoTrapLow=npThermoTrapLow, npCurLoopStatus=npCurLoopStatus, npThermoMemo=npThermoMemo, npCurLoopEntry=npCurLoopEntry, npRelHumTrapDataN=npRelHumTrapDataN, npVoltageTrapPeak=npVoltageTrapPeak, npThermoLow=npThermoLow, npRelayTrapMemo=npRelayTrapMemo, npCurLoop=npCurLoop, npVoltageFreq=npVoltageFreq, npThermoSensorN=npThermoSensorN, npInputAnalogTrapVoltage=npInputAnalogTrapVoltage, npGsmSendSmsUtf8=npGsmSendSmsUtf8, npVoltageTraps=npVoltageTraps, npVoltageN=npVoltageN, npCurLoopTrapStatus=npCurLoopTrapStatus, FixedPoint1000=FixedPoint1000, npIoTrapMemo=npIoTrapMemo, npInputAnalogTrapSafeRangeLow=npInputAnalogTrapSafeRangeLow, npCurLoopI=npCurLoopI, npRelHumTrapTempAboveSafe=npRelHumTrapTempAboveSafe, npExtRelay=npExtRelay, npVoltageRMS=npVoltageRMS, npRelHumTrapAllChannels=npRelHumTrapAllChannels, npRelHumTrapTempAllChannels=npRelHumTrapTempAllChannels, npCurLoopTrap=npCurLoopTrap, npVoltageTrapPeakStatus=npVoltageTrapPeakStatus, npRelHumSafeRangeHigh=npRelHumSafeRangeHigh, npIoLineN=npIoLineN, npRelayStartReset=npRelayStartReset, npRelHumEntry=npRelHumEntry, npRelHumStatus=npRelHumStatus, npRelHumTempValue=npRelHumTempValue, npGsmSendSmsWin1251=npGsmSendSmsWin1251, npGsmTraps=npGsmTraps, npVoltageTrapRMS=npVoltageTrapRMS, npTrapEmailTo=npTrapEmailTo, npRelHumTrapTempAllEvents=npRelHumTrapTempAllEvents, npRelHumTrapTempBelowSafe=npRelHumTrapTempBelowSafe, npInputAnalogTrapCurrent=npInputAnalogTrapCurrent, npInputAnalogTrapWorkRangeLow=npInputAnalogTrapWorkRangeLow, npInputAnalogResistance=npInputAnalogResistance, npThermoTrapPrefix=npThermoTrapPrefix, npThermoTable=npThermoTable, npExtRelayTrapState=npExtRelayTrapState, npVoltagePeakStatus=npVoltagePeakStatus, npVoltageSagMediumThreshold=npVoltageSagMediumThreshold, npRelayEntry=npRelayEntry, npRelHumTempStatus=npRelHumTempStatus, npInputAnalogStatus=npInputAnalogStatus, npRelayFlip=npRelayFlip, uniPingServerSolutionV3=uniPingServerSolutionV3, npIoLevelIn=npIoLevelIn, npGsmUnparsedRxSmsUtf8=npGsmUnparsedRxSmsUtf8, npGsmUnparsedRxSmsFrom=npGsmUnparsedRxSmsFrom, npIrStatus=npIrStatus, npVoltageSagBigThreshold=npVoltageSagBigThreshold, npRelayState=npRelayState, npInputAnalogTrapStatus=npInputAnalogTrapStatus, npExtRelayN=npExtRelayN, npExtRelayTrapAllEvents=npExtRelayTrapAllEvents, npRelayTrap=npRelayTrap, npIrCtrl=npIrCtrl, npThermoHigh=npThermoHigh, npIoPulseCounter=npIoPulseCounter, npRelayTrapMode=npRelayTrapMode, npVoltageMemo=npVoltageMemo, npThermoEntry=npThermoEntry, npExtRelayTable=npExtRelayTable, npExtRelayStartReset=npExtRelayStartReset, npIoTable=npIoTable, npVoltageTable=npVoltageTable, npExtRelayTrapAllChannels=npExtRelayTrapAllChannels, npIoEntry=npIoEntry, npIoTrapLevelLegend=npIoTrapLevelLegend, npGsmStrength=npGsmStrength, npIoSinglePulseDuration=npIoSinglePulseDuration, npRelayMemo=npRelayMemo, npCurLoopTraps=npCurLoopTraps, npInputAnalogTrapPower=npInputAnalogTrapPower, npGsmUnparsedRxSms=npGsmUnparsedRxSms, npInputAnalogTrap=npInputAnalogTrap, npCurLoopTrapV=npCurLoopTrapV, npGsmTrapUnparsedSms=npGsmTrapUnparsedSms, npExtRelayTrapOn=npExtRelayTrapOn, npRelayTrapModeChange=npRelayTrapModeChange, npThermoTrapStatus=npThermoTrapStatus, npRelayTrapCmdSrc=npRelayTrapCmdSrc, npCurLoopN=npCurLoopN, npVoltageTrapMemo=npVoltageTrapMemo, npInputAnalogWorkRangeLow=npInputAnalogWorkRangeLow, npIoLevelOut=npIoLevelOut, npCurLoopPower=npCurLoopPower, npThermoValue=npThermoValue, npSoftReboot=npSoftReboot, npRelayN=npRelayN, npRelayTrapState=npRelayTrapState, npInputAnalogTrapPrefix=npInputAnalogTrapPrefix, npExtRelayFlip=npExtRelayFlip, PYSNMP_MODULE_ID=uniPingServerSolutionV3, npResetStack=npResetStack, npRelHumidity=npRelHumidity, npInputAnalogSafeRangeHigh=npInputAnalogSafeRangeHigh, npRelHumTrapDataSafeRangeHigh=npRelHumTrapDataSafeRangeHigh, npInputAnalogWorkRangeHigh=npInputAnalogWorkRangeHigh, npThermoStatus=npThermoStatus, npRelayTrapOff=npRelayTrapOff, npRelHumTempSafeRangeLow=npRelHumTempSafeRangeLow, npRelHumTempSafeRangeHigh=npRelHumTempSafeRangeHigh, npThermoTrap=npThermoTrap, npCurLoopTrapPrefix=npCurLoopTrapPrefix, npRelHumSafeRangeLow=npRelHumSafeRangeLow, npRelHumTrapDataStatus=npRelHumTrapDataStatus, npVoltageTrapSagCounter=npVoltageTrapSagCounter, npInputAnalogSafeRangeLow=npInputAnalogSafeRangeLow, npRelHumTable=npRelHumTable, npRelayTable=npRelayTable, npExtRelayTrapReset=npExtRelayTrapReset, npIoTraps=npIoTraps, npGsmInfo=npGsmInfo, npIoTrapLevelIn=npIoTrapLevelIn, npRelHumTrapSafe=npRelHumTrapSafe, npRelHumTrapTempSafe=npRelHumTrapTempSafe, npThermo=npThermo, npInputAnalogReset=npInputAnalogReset, npRelayTrapReset=npRelayTrapReset, npIo=npIo, npExtRelayTrapOff=npExtRelayTrapOff)

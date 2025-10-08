@@ -1,62 +1,34 @@
-_E='DisplayString'
-_D='NotificationType'
-_C='read-only'
-_B='Integer32'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-compaq,cpqHoTrapFlags=mibBuilder.importSymbols('CPQHOST-MIB','compaq','cpqHoTrapFlags')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-sysName,=mibBuilder.importSymbols('SNMPv2-MIB','sysName')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier',_D,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_D,'TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_E,'PhysAddress','TextualConvention')
-_CpqApplianceMgmt_ObjectIdentity=ObjectIdentity
-cpqApplianceMgmt=_CpqApplianceMgmt_ObjectIdentity((1,3,6,1,4,1,232,21))
-_CpqApMibRev_ObjectIdentity=ObjectIdentity
-cpqApMibRev=_CpqApMibRev_ObjectIdentity((1,3,6,1,4,1,232,21,1))
-class _CpqApMibRevMajor_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CpqApMibRevMajor_Type.__name__=_B
-_CpqApMibRevMajor_Object=MibScalar
-cpqApMibRevMajor=_CpqApMibRevMajor_Object((1,3,6,1,4,1,232,21,1,1),_CpqApMibRevMajor_Type())
-cpqApMibRevMajor.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpqApMibRevMajor.setStatus(_A)
-class _CpqApMibRevMinor_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CpqApMibRevMinor_Type.__name__=_B
-_CpqApMibRevMinor_Object=MibScalar
-cpqApMibRevMinor=_CpqApMibRevMinor_Object((1,3,6,1,4,1,232,21,1,2),_CpqApMibRevMinor_Type())
-cpqApMibRevMinor.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpqApMibRevMinor.setStatus(_A)
-class _CpqApMibCondition_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('other',1),('ok',2),('degraded',3),('failed',4)))
-_CpqApMibCondition_Type.__name__=_B
-_CpqApMibCondition_Object=MibScalar
-cpqApMibCondition=_CpqApMibCondition_Object((1,3,6,1,4,1,232,21,1,3),_CpqApMibCondition_Type())
-cpqApMibCondition.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpqApMibCondition.setStatus(_A)
-_CpqApComponent_ObjectIdentity=ObjectIdentity
-cpqApComponent=_CpqApComponent_ObjectIdentity((1,3,6,1,4,1,232,21,2))
-_CpqApInterface_ObjectIdentity=ObjectIdentity
-cpqApInterface=_CpqApInterface_ObjectIdentity((1,3,6,1,4,1,232,21,2,1))
-_CpqApOsCommon_ObjectIdentity=ObjectIdentity
-cpqApOsCommon=_CpqApOsCommon_ObjectIdentity((1,3,6,1,4,1,232,21,2,1,4))
-class _CpqApOsCommonPollFreq_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CpqApOsCommonPollFreq_Type.__name__=_B
-_CpqApOsCommonPollFreq_Object=MibScalar
-cpqApOsCommonPollFreq=_CpqApOsCommonPollFreq_Object((1,3,6,1,4,1,232,21,2,1,4,1),_CpqApOsCommonPollFreq_Type())
-cpqApOsCommonPollFreq.setMaxAccess('read-write')
-if mibBuilder.loadTexts:cpqApOsCommonPollFreq.setStatus(_A)
-_CpqApConfig_ObjectIdentity=ObjectIdentity
-cpqApConfig=_CpqApConfig_ObjectIdentity((1,3,6,1,4,1,232,21,2,2))
-_CpqApApplianceId_Type=Integer32
-_CpqApApplianceId_Object=MibScalar
-cpqApApplianceId=_CpqApApplianceId_Object((1,3,6,1,4,1,232,21,2,2,1),_CpqApApplianceId_Type())
-cpqApApplianceId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpqApApplianceId.setStatus(_A)
-class _CpqApApplianceDescription_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_CpqApApplianceDescription_Type.__name__=_E
-_CpqApApplianceDescription_Object=MibScalar
-cpqApApplianceDescription=_CpqApApplianceDescription_Object((1,3,6,1,4,1,232,21,2,2,2),_CpqApApplianceDescription_Type())
-cpqApApplianceDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpqApApplianceDescription.setStatus(_A)
-mibBuilder.exportSymbols('CPQAPPLIANCE-MIB',**{'cpqApplianceMgmt':cpqApplianceMgmt,'cpqApMibRev':cpqApMibRev,'cpqApMibRevMajor':cpqApMibRevMajor,'cpqApMibRevMinor':cpqApMibRevMinor,'cpqApMibCondition':cpqApMibCondition,'cpqApComponent':cpqApComponent,'cpqApInterface':cpqApInterface,'cpqApOsCommon':cpqApOsCommon,'cpqApOsCommonPollFreq':cpqApOsCommonPollFreq,'cpqApConfig':cpqApConfig,'cpqApApplianceId':cpqApApplianceId,'cpqApApplianceDescription':cpqApApplianceDescription})
+#
+# PySNMP MIB module CPQAPPLIANCE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/CPQAPPLIANCE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:34 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cpqHoTrapFlags, compaq = mibBuilder.importSymbols("CPQHOST-MIB", "cpqHoTrapFlags", "compaq")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
+ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+cpqApplianceMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 21))
+cpqApMibRev = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 21, 1))
+cpqApComponent = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 21, 2))
+cpqApInterface = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 21, 2, 1))
+cpqApConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 21, 2, 2))
+cpqApOsCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 21, 2, 1, 4))
+cpqApMibRevMajor = MibScalar((1, 3, 6, 1, 4, 1, 232, 21, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqApMibRevMajor.setStatus('mandatory')
+cpqApMibRevMinor = MibScalar((1, 3, 6, 1, 4, 1, 232, 21, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqApMibRevMinor.setStatus('mandatory')
+cpqApMibCondition = MibScalar((1, 3, 6, 1, 4, 1, 232, 21, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("ok", 2), ("degraded", 3), ("failed", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqApMibCondition.setStatus('mandatory')
+cpqApOsCommonPollFreq = MibScalar((1, 3, 6, 1, 4, 1, 232, 21, 2, 1, 4, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpqApOsCommonPollFreq.setStatus('mandatory')
+cpqApApplianceId = MibScalar((1, 3, 6, 1, 4, 1, 232, 21, 2, 2, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqApApplianceId.setStatus('mandatory')
+cpqApApplianceDescription = MibScalar((1, 3, 6, 1, 4, 1, 232, 21, 2, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqApApplianceDescription.setStatus('mandatory')
+mibBuilder.exportSymbols("CPQAPPLIANCE-MIB", cpqApInterface=cpqApInterface, cpqApOsCommon=cpqApOsCommon, cpqApMibRevMajor=cpqApMibRevMajor, cpqApMibCondition=cpqApMibCondition, cpqApOsCommonPollFreq=cpqApOsCommonPollFreq, cpqApApplianceId=cpqApApplianceId, cpqApplianceMgmt=cpqApplianceMgmt, cpqApComponent=cpqApComponent, cpqApMibRevMinor=cpqApMibRevMinor, cpqApApplianceDescription=cpqApApplianceDescription, cpqApConfig=cpqApConfig, cpqApMibRev=cpqApMibRev)

@@ -1,159 +1,89 @@
-_Z='ciscoSanTapDVTConfigGroup1'
-_Y='ciscoSanTapDVTConfigGroup'
-_X='ciscoSanTapServiceConfigGroup'
-_W='cstDVTIOTimeout'
-_V='cstDVTLunSizeHandling'
-_U='cstCVTName'
-_T='cstDVTPortWwn'
-_S='TruthValue'
-_R='Unsigned32'
-_Q='ciscoSanTapServiceConfigGroupRev1'
-_P='cstDVTRowStatus'
-_O='cstDVTName'
-_N='cstDVTPort'
-_M='cstDVTTargetVsan'
-_L='cstServiceConfigRowStatus'
-_K='cstCVTPortWwn'
-_J='cstCVTNodeWwn'
-_I='read-only'
-_H='SnmpAdminString'
-_G='vsanIndex'
-_F='CISCO-VSAN-MIB'
-_E='deprecated'
-_D='cstModuleId'
-_C='read-create'
-_B='current'
-_A='CISCO-SANTAP-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-FcNameId,FcNameIdOrZero,VsanIndex=mibBuilder.importSymbols('CISCO-ST-TC','FcNameId','FcNameIdOrZero','VsanIndex')
-vsanIndex,=mibBuilder.importSymbols(_F,_G)
-PhysicalIndex,=mibBuilder.importSymbols('ENTITY-MIB','PhysicalIndex')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_H)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_R,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_S)
-ciscoSanTapMIB=ModuleIdentity((1,3,6,1,4,1,9,9,463))
-if mibBuilder.loadTexts:ciscoSanTapMIB.setRevisions(('2006-03-16 00:00','2005-10-27 00:00','2005-02-02 00:00'))
-_CiscoSanTapMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoSanTapMIBObjects=_CiscoSanTapMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,463,1))
-_CstModuleTable_Object=MibTable
-cstModuleTable=_CstModuleTable_Object((1,3,6,1,4,1,9,9,463,1,1))
-if mibBuilder.loadTexts:cstModuleTable.setStatus(_B)
-_CstModuleEntry_Object=MibTableRow
-cstModuleEntry=_CstModuleEntry_Object((1,3,6,1,4,1,9,9,463,1,1,1))
-cstModuleEntry.setIndexNames((0,_A,_D))
-if mibBuilder.loadTexts:cstModuleEntry.setStatus(_B)
-_CstModuleId_Type=PhysicalIndex
-_CstModuleId_Object=MibTableColumn
-cstModuleId=_CstModuleId_Object((1,3,6,1,4,1,9,9,463,1,1,1,1),_CstModuleId_Type())
-cstModuleId.setMaxAccess(_I)
-if mibBuilder.loadTexts:cstModuleId.setStatus(_B)
-_CstServiceConfigTable_Object=MibTable
-cstServiceConfigTable=_CstServiceConfigTable_Object((1,3,6,1,4,1,9,9,463,1,2))
-if mibBuilder.loadTexts:cstServiceConfigTable.setStatus(_B)
-_CstServiceConfigEntry_Object=MibTableRow
-cstServiceConfigEntry=_CstServiceConfigEntry_Object((1,3,6,1,4,1,9,9,463,1,2,1))
-cstServiceConfigEntry.setIndexNames((0,_A,_D),(0,_F,_G))
-if mibBuilder.loadTexts:cstServiceConfigEntry.setStatus(_B)
-_CstCVTNodeWwn_Type=FcNameIdOrZero
-_CstCVTNodeWwn_Object=MibTableColumn
-cstCVTNodeWwn=_CstCVTNodeWwn_Object((1,3,6,1,4,1,9,9,463,1,2,1,1),_CstCVTNodeWwn_Type())
-cstCVTNodeWwn.setMaxAccess(_I)
-if mibBuilder.loadTexts:cstCVTNodeWwn.setStatus(_B)
-_CstCVTPortWwn_Type=FcNameIdOrZero
-_CstCVTPortWwn_Object=MibTableColumn
-cstCVTPortWwn=_CstCVTPortWwn_Object((1,3,6,1,4,1,9,9,463,1,2,1,2),_CstCVTPortWwn_Type())
-cstCVTPortWwn.setMaxAccess(_I)
-if mibBuilder.loadTexts:cstCVTPortWwn.setStatus(_B)
-_CstServiceConfigRowStatus_Type=RowStatus
-_CstServiceConfigRowStatus_Object=MibTableColumn
-cstServiceConfigRowStatus=_CstServiceConfigRowStatus_Object((1,3,6,1,4,1,9,9,463,1,2,1,3),_CstServiceConfigRowStatus_Type())
-cstServiceConfigRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cstServiceConfigRowStatus.setStatus(_B)
-class _CstCVTName_Type(SnmpAdminString):defaultValue=OctetString('');subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CstCVTName_Type.__name__=_H
-_CstCVTName_Object=MibTableColumn
-cstCVTName=_CstCVTName_Object((1,3,6,1,4,1,9,9,463,1,2,1,4),_CstCVTName_Type())
-cstCVTName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cstCVTName.setStatus(_B)
-_CstDVTConfigTable_Object=MibTable
-cstDVTConfigTable=_CstDVTConfigTable_Object((1,3,6,1,4,1,9,9,463,1,3))
-if mibBuilder.loadTexts:cstDVTConfigTable.setStatus(_B)
-_CstDVTConfigEntry_Object=MibTableRow
-cstDVTConfigEntry=_CstDVTConfigEntry_Object((1,3,6,1,4,1,9,9,463,1,3,1))
-cstDVTConfigEntry.setIndexNames((0,_F,_G),(0,_A,_T))
-if mibBuilder.loadTexts:cstDVTConfigEntry.setStatus(_B)
-_CstDVTPortWwn_Type=FcNameId
-_CstDVTPortWwn_Object=MibTableColumn
-cstDVTPortWwn=_CstDVTPortWwn_Object((1,3,6,1,4,1,9,9,463,1,3,1,1),_CstDVTPortWwn_Type())
-cstDVTPortWwn.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:cstDVTPortWwn.setStatus(_B)
-_CstDVTTargetVsan_Type=VsanIndex
-_CstDVTTargetVsan_Object=MibTableColumn
-cstDVTTargetVsan=_CstDVTTargetVsan_Object((1,3,6,1,4,1,9,9,463,1,3,1,2),_CstDVTTargetVsan_Type())
-cstDVTTargetVsan.setMaxAccess(_C)
-if mibBuilder.loadTexts:cstDVTTargetVsan.setStatus(_B)
-_CstDVTPort_Type=InterfaceIndex
-_CstDVTPort_Object=MibTableColumn
-cstDVTPort=_CstDVTPort_Object((1,3,6,1,4,1,9,9,463,1,3,1,3),_CstDVTPort_Type())
-cstDVTPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:cstDVTPort.setStatus(_B)
-class _CstDVTName_Type(SnmpAdminString):defaultValue=OctetString('');subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CstDVTName_Type.__name__=_H
-_CstDVTName_Object=MibTableColumn
-cstDVTName=_CstDVTName_Object((1,3,6,1,4,1,9,9,463,1,3,1,4),_CstDVTName_Type())
-cstDVTName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cstDVTName.setStatus(_B)
-_CstDVTRowStatus_Type=RowStatus
-_CstDVTRowStatus_Object=MibTableColumn
-cstDVTRowStatus=_CstDVTRowStatus_Object((1,3,6,1,4,1,9,9,463,1,3,1,5),_CstDVTRowStatus_Type())
-cstDVTRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cstDVTRowStatus.setStatus(_B)
-class _CstDVTLunSizeHandling_Type(TruthValue):defaultValue=1
-_CstDVTLunSizeHandling_Type.__name__=_S
-_CstDVTLunSizeHandling_Object=MibTableColumn
-cstDVTLunSizeHandling=_CstDVTLunSizeHandling_Object((1,3,6,1,4,1,9,9,463,1,3,1,6),_CstDVTLunSizeHandling_Type())
-cstDVTLunSizeHandling.setMaxAccess(_C)
-if mibBuilder.loadTexts:cstDVTLunSizeHandling.setStatus(_B)
-class _CstDVTIOTimeout_Type(Unsigned32):defaultValue=10;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,200))
-_CstDVTIOTimeout_Type.__name__=_R
-_CstDVTIOTimeout_Object=MibTableColumn
-cstDVTIOTimeout=_CstDVTIOTimeout_Object((1,3,6,1,4,1,9,9,463,1,3,1,7),_CstDVTIOTimeout_Type())
-cstDVTIOTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:cstDVTIOTimeout.setStatus(_B)
-if mibBuilder.loadTexts:cstDVTIOTimeout.setUnits('seconds')
-_CiscoSanTapMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoSanTapMIBConformance=_CiscoSanTapMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,463,2))
-_CiscoSanTapMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoSanTapMIBCompliances=_CiscoSanTapMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,463,2,1))
-_CiscoSanTapMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoSanTapMIBGroups=_CiscoSanTapMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,463,2,2))
-_CiscoSanTapNotifications_ObjectIdentity=ObjectIdentity
-ciscoSanTapNotifications=_CiscoSanTapNotifications_ObjectIdentity((1,3,6,1,4,1,9,9,463,3))
-ciscoSanTapServiceConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,463,2,2,1))
-ciscoSanTapServiceConfigGroup.setObjects(*((_A,_D),(_A,_J),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ciscoSanTapServiceConfigGroup.setStatus(_E)
-ciscoSanTapServiceConfigGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,463,2,2,2))
-ciscoSanTapServiceConfigGroupRev1.setObjects(*((_A,_D),(_A,_J),(_A,_K),(_A,_L),(_A,_U)))
-if mibBuilder.loadTexts:ciscoSanTapServiceConfigGroupRev1.setStatus(_B)
-ciscoSanTapDVTConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,463,2,2,3))
-ciscoSanTapDVTConfigGroup.setObjects(*((_A,_M),(_A,_N),(_A,_O),(_A,_P)))
-if mibBuilder.loadTexts:ciscoSanTapDVTConfigGroup.setStatus(_E)
-ciscoSanTapDVTConfigGroup1=ObjectGroup((1,3,6,1,4,1,9,9,463,2,2,4))
-ciscoSanTapDVTConfigGroup1.setObjects(*((_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_V),(_A,_W)))
-if mibBuilder.loadTexts:ciscoSanTapDVTConfigGroup1.setStatus(_B)
-ciscoSanTapMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,463,2,1,1))
-ciscoSanTapMIBCompliance.setObjects((_A,_X))
-if mibBuilder.loadTexts:ciscoSanTapMIBCompliance.setStatus(_E)
-ciscoSanTapMIBComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,9,463,2,1,2))
-ciscoSanTapMIBComplianceRev1.setObjects(*((_A,_Q),(_A,_Y)))
-if mibBuilder.loadTexts:ciscoSanTapMIBComplianceRev1.setStatus(_E)
-ciscoSanTapMIBComplianceRev2=ModuleCompliance((1,3,6,1,4,1,9,9,463,2,1,3))
-ciscoSanTapMIBComplianceRev2.setObjects(*((_A,_Q),(_A,_Z)))
-if mibBuilder.loadTexts:ciscoSanTapMIBComplianceRev2.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ciscoSanTapMIB':ciscoSanTapMIB,'ciscoSanTapMIBObjects':ciscoSanTapMIBObjects,'cstModuleTable':cstModuleTable,'cstModuleEntry':cstModuleEntry,_D:cstModuleId,'cstServiceConfigTable':cstServiceConfigTable,'cstServiceConfigEntry':cstServiceConfigEntry,_J:cstCVTNodeWwn,_K:cstCVTPortWwn,_L:cstServiceConfigRowStatus,_U:cstCVTName,'cstDVTConfigTable':cstDVTConfigTable,'cstDVTConfigEntry':cstDVTConfigEntry,_T:cstDVTPortWwn,_M:cstDVTTargetVsan,_N:cstDVTPort,_O:cstDVTName,_P:cstDVTRowStatus,_V:cstDVTLunSizeHandling,_W:cstDVTIOTimeout,'ciscoSanTapMIBConformance':ciscoSanTapMIBConformance,'ciscoSanTapMIBCompliances':ciscoSanTapMIBCompliances,'ciscoSanTapMIBCompliance':ciscoSanTapMIBCompliance,'ciscoSanTapMIBComplianceRev1':ciscoSanTapMIBComplianceRev1,'ciscoSanTapMIBComplianceRev2':ciscoSanTapMIBComplianceRev2,'ciscoSanTapMIBGroups':ciscoSanTapMIBGroups,_X:ciscoSanTapServiceConfigGroup,_Q:ciscoSanTapServiceConfigGroupRev1,_Y:ciscoSanTapDVTConfigGroup,_Z:ciscoSanTapDVTConfigGroup1,'ciscoSanTapNotifications':ciscoSanTapNotifications})
+#
+# PySNMP MIB module CISCO-SANTAP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-SANTAP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:05 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+FcNameIdOrZero, FcNameId, VsanIndex = mibBuilder.importSymbols("CISCO-ST-TC", "FcNameIdOrZero", "FcNameId", "VsanIndex")
+vsanIndex, = mibBuilder.importSymbols("CISCO-VSAN-MIB", "vsanIndex")
+PhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "PhysicalIndex")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ciscoSanTapMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 463))
+ciscoSanTapMIB.setRevisions(('2006-03-16 00:00', '2005-10-27 00:00', '2005-02-02 00:00',))
+if mibBuilder.loadTexts: ciscoSanTapMIB.setLastUpdated('200603160000Z')
+if mibBuilder.loadTexts: ciscoSanTapMIB.setOrganization('Cisco Systems Inc.')
+ciscoSanTapMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 463, 1))
+ciscoSanTapMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 463, 2))
+ciscoSanTapNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 463, 3))
+cstModuleTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 1), )
+if mibBuilder.loadTexts: cstModuleTable.setStatus('current')
+cstModuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 1, 1), ).setIndexNames((0, "CISCO-SANTAP-MIB", "cstModuleId"))
+if mibBuilder.loadTexts: cstModuleEntry.setStatus('current')
+cstModuleId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 1, 1, 1), PhysicalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cstModuleId.setStatus('current')
+cstServiceConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 2), )
+if mibBuilder.loadTexts: cstServiceConfigTable.setStatus('current')
+cstServiceConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 2, 1), ).setIndexNames((0, "CISCO-SANTAP-MIB", "cstModuleId"), (0, "CISCO-VSAN-MIB", "vsanIndex"))
+if mibBuilder.loadTexts: cstServiceConfigEntry.setStatus('current')
+cstCVTNodeWwn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 2, 1, 1), FcNameIdOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cstCVTNodeWwn.setStatus('current')
+cstCVTPortWwn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 2, 1, 2), FcNameIdOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cstCVTPortWwn.setStatus('current')
+cstServiceConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cstServiceConfigRowStatus.setStatus('current')
+cstCVTName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 2, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cstCVTName.setStatus('current')
+cstDVTConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 3), )
+if mibBuilder.loadTexts: cstDVTConfigTable.setStatus('current')
+cstDVTConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 3, 1), ).setIndexNames((0, "CISCO-VSAN-MIB", "vsanIndex"), (0, "CISCO-SANTAP-MIB", "cstDVTPortWwn"))
+if mibBuilder.loadTexts: cstDVTConfigEntry.setStatus('current')
+cstDVTPortWwn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 3, 1, 1), FcNameId())
+if mibBuilder.loadTexts: cstDVTPortWwn.setStatus('current')
+cstDVTTargetVsan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 3, 1, 2), VsanIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cstDVTTargetVsan.setStatus('current')
+cstDVTPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 3, 1, 3), InterfaceIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cstDVTPort.setStatus('current')
+cstDVTName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 3, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cstDVTName.setStatus('current')
+cstDVTRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 3, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cstDVTRowStatus.setStatus('current')
+cstDVTLunSizeHandling = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 3, 1, 6), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cstDVTLunSizeHandling.setStatus('current')
+cstDVTIOTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 463, 1, 3, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10, 200)).clone(10)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cstDVTIOTimeout.setStatus('current')
+ciscoSanTapMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 463, 2, 1))
+ciscoSanTapMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 463, 2, 1, 1)).setObjects(("CISCO-SANTAP-MIB", "ciscoSanTapServiceConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSanTapMIBCompliance = ciscoSanTapMIBCompliance.setStatus('deprecated')
+ciscoSanTapMIBComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 463, 2, 1, 2)).setObjects(("CISCO-SANTAP-MIB", "ciscoSanTapServiceConfigGroupRev1"), ("CISCO-SANTAP-MIB", "ciscoSanTapDVTConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSanTapMIBComplianceRev1 = ciscoSanTapMIBComplianceRev1.setStatus('deprecated')
+ciscoSanTapMIBComplianceRev2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 463, 2, 1, 3)).setObjects(("CISCO-SANTAP-MIB", "ciscoSanTapServiceConfigGroupRev1"), ("CISCO-SANTAP-MIB", "ciscoSanTapDVTConfigGroup1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSanTapMIBComplianceRev2 = ciscoSanTapMIBComplianceRev2.setStatus('current')
+ciscoSanTapMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 463, 2, 2))
+ciscoSanTapServiceConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 463, 2, 2, 1)).setObjects(("CISCO-SANTAP-MIB", "cstModuleId"), ("CISCO-SANTAP-MIB", "cstCVTNodeWwn"), ("CISCO-SANTAP-MIB", "cstCVTPortWwn"), ("CISCO-SANTAP-MIB", "cstServiceConfigRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSanTapServiceConfigGroup = ciscoSanTapServiceConfigGroup.setStatus('deprecated')
+ciscoSanTapServiceConfigGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 463, 2, 2, 2)).setObjects(("CISCO-SANTAP-MIB", "cstModuleId"), ("CISCO-SANTAP-MIB", "cstCVTNodeWwn"), ("CISCO-SANTAP-MIB", "cstCVTPortWwn"), ("CISCO-SANTAP-MIB", "cstServiceConfigRowStatus"), ("CISCO-SANTAP-MIB", "cstCVTName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSanTapServiceConfigGroupRev1 = ciscoSanTapServiceConfigGroupRev1.setStatus('current')
+ciscoSanTapDVTConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 463, 2, 2, 3)).setObjects(("CISCO-SANTAP-MIB", "cstDVTTargetVsan"), ("CISCO-SANTAP-MIB", "cstDVTPort"), ("CISCO-SANTAP-MIB", "cstDVTName"), ("CISCO-SANTAP-MIB", "cstDVTRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSanTapDVTConfigGroup = ciscoSanTapDVTConfigGroup.setStatus('deprecated')
+ciscoSanTapDVTConfigGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 463, 2, 2, 4)).setObjects(("CISCO-SANTAP-MIB", "cstDVTTargetVsan"), ("CISCO-SANTAP-MIB", "cstDVTPort"), ("CISCO-SANTAP-MIB", "cstDVTName"), ("CISCO-SANTAP-MIB", "cstDVTRowStatus"), ("CISCO-SANTAP-MIB", "cstDVTLunSizeHandling"), ("CISCO-SANTAP-MIB", "cstDVTIOTimeout"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSanTapDVTConfigGroup1 = ciscoSanTapDVTConfigGroup1.setStatus('current')
+mibBuilder.exportSymbols("CISCO-SANTAP-MIB", cstModuleTable=cstModuleTable, ciscoSanTapMIB=ciscoSanTapMIB, ciscoSanTapMIBCompliances=ciscoSanTapMIBCompliances, ciscoSanTapServiceConfigGroupRev1=ciscoSanTapServiceConfigGroupRev1, cstDVTTargetVsan=cstDVTTargetVsan, ciscoSanTapDVTConfigGroup1=ciscoSanTapDVTConfigGroup1, cstDVTPortWwn=cstDVTPortWwn, ciscoSanTapMIBComplianceRev1=ciscoSanTapMIBComplianceRev1, cstServiceConfigEntry=cstServiceConfigEntry, ciscoSanTapServiceConfigGroup=ciscoSanTapServiceConfigGroup, cstDVTConfigEntry=cstDVTConfigEntry, cstCVTNodeWwn=cstCVTNodeWwn, cstDVTConfigTable=cstDVTConfigTable, ciscoSanTapMIBObjects=ciscoSanTapMIBObjects, cstCVTPortWwn=cstCVTPortWwn, ciscoSanTapNotifications=ciscoSanTapNotifications, cstDVTRowStatus=cstDVTRowStatus, cstModuleId=cstModuleId, cstServiceConfigRowStatus=cstServiceConfigRowStatus, cstDVTLunSizeHandling=cstDVTLunSizeHandling, cstDVTIOTimeout=cstDVTIOTimeout, ciscoSanTapDVTConfigGroup=ciscoSanTapDVTConfigGroup, ciscoSanTapMIBConformance=ciscoSanTapMIBConformance, cstServiceConfigTable=cstServiceConfigTable, ciscoSanTapMIBCompliance=ciscoSanTapMIBCompliance, cstDVTPort=cstDVTPort, cstModuleEntry=cstModuleEntry, cstDVTName=cstDVTName, cstCVTName=cstCVTName, ciscoSanTapMIBGroups=ciscoSanTapMIBGroups, ciscoSanTapMIBComplianceRev2=ciscoSanTapMIBComplianceRev2, PYSNMP_MODULE_ID=ciscoSanTapMIB)

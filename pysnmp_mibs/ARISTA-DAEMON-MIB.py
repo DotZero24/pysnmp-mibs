@@ -1,123 +1,82 @@
-_O='aristaDaemonBaseGroup'
-_N='aristaDaemonDataValue'
-_M='aristaDaemonRunning'
-_L='aristaDaemonOptionValue'
-_K='aristaDaemonEnabled'
-_J='aristaDaemonDataKey'
-_I='aristaDaemonDataAgentName'
-_H='aristaDaemonRunningAgentName'
-_G='aristaDaemonOptionKey'
-_F='aristaDaemonOptionAgentName'
-_E='aristaDaemonEnabledAgentName'
-_D='read-only'
-_C='not-accessible'
-_B='ARISTA-DAEMON-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-aristaMibs,=mibBuilder.importSymbols('ARISTA-SMI-MIB','aristaMibs')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-aristaDaemonMIB=ModuleIdentity((1,3,6,1,4,1,30065,3,17))
-if mibBuilder.loadTexts:aristaDaemonMIB.setRevisions(('2015-04-27 00:00',))
-class AgentName(TextualConvention,OctetString):status=_A;displayHint='32a';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-class AgentAttributeKey(TextualConvention,OctetString):status=_A;displayHint='64a';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-class AgentAttributeValue(TextualConvention,OctetString):status=_A;displayHint='10240a';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,10240))
-_AristaDaemonConfig_ObjectIdentity=ObjectIdentity
-aristaDaemonConfig=_AristaDaemonConfig_ObjectIdentity((1,3,6,1,4,1,30065,3,17,1))
-_AristaDaemonEnabledTable_Object=MibTable
-aristaDaemonEnabledTable=_AristaDaemonEnabledTable_Object((1,3,6,1,4,1,30065,3,17,1,1))
-if mibBuilder.loadTexts:aristaDaemonEnabledTable.setStatus(_A)
-_AristaDaemonEnabledEntry_Object=MibTableRow
-aristaDaemonEnabledEntry=_AristaDaemonEnabledEntry_Object((1,3,6,1,4,1,30065,3,17,1,1,1))
-aristaDaemonEnabledEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:aristaDaemonEnabledEntry.setStatus(_A)
-_AristaDaemonEnabledAgentName_Type=AgentName
-_AristaDaemonEnabledAgentName_Object=MibTableColumn
-aristaDaemonEnabledAgentName=_AristaDaemonEnabledAgentName_Object((1,3,6,1,4,1,30065,3,17,1,1,1,1),_AristaDaemonEnabledAgentName_Type())
-aristaDaemonEnabledAgentName.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaDaemonEnabledAgentName.setStatus(_A)
-_AristaDaemonEnabled_Type=TruthValue
-_AristaDaemonEnabled_Object=MibTableColumn
-aristaDaemonEnabled=_AristaDaemonEnabled_Object((1,3,6,1,4,1,30065,3,17,1,1,1,2),_AristaDaemonEnabled_Type())
-aristaDaemonEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:aristaDaemonEnabled.setStatus(_A)
-_AristaDaemonOptionTable_Object=MibTable
-aristaDaemonOptionTable=_AristaDaemonOptionTable_Object((1,3,6,1,4,1,30065,3,17,1,2))
-if mibBuilder.loadTexts:aristaDaemonOptionTable.setStatus(_A)
-_AristaDaemonOptionEntry_Object=MibTableRow
-aristaDaemonOptionEntry=_AristaDaemonOptionEntry_Object((1,3,6,1,4,1,30065,3,17,1,2,1))
-aristaDaemonOptionEntry.setIndexNames((0,_B,_F),(0,_B,_G))
-if mibBuilder.loadTexts:aristaDaemonOptionEntry.setStatus(_A)
-_AristaDaemonOptionAgentName_Type=AgentName
-_AristaDaemonOptionAgentName_Object=MibTableColumn
-aristaDaemonOptionAgentName=_AristaDaemonOptionAgentName_Object((1,3,6,1,4,1,30065,3,17,1,2,1,1),_AristaDaemonOptionAgentName_Type())
-aristaDaemonOptionAgentName.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaDaemonOptionAgentName.setStatus(_A)
-_AristaDaemonOptionKey_Type=AgentAttributeKey
-_AristaDaemonOptionKey_Object=MibTableColumn
-aristaDaemonOptionKey=_AristaDaemonOptionKey_Object((1,3,6,1,4,1,30065,3,17,1,2,1,2),_AristaDaemonOptionKey_Type())
-aristaDaemonOptionKey.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaDaemonOptionKey.setStatus(_A)
-_AristaDaemonOptionValue_Type=AgentAttributeValue
-_AristaDaemonOptionValue_Object=MibTableColumn
-aristaDaemonOptionValue=_AristaDaemonOptionValue_Object((1,3,6,1,4,1,30065,3,17,1,2,1,3),_AristaDaemonOptionValue_Type())
-aristaDaemonOptionValue.setMaxAccess(_D)
-if mibBuilder.loadTexts:aristaDaemonOptionValue.setStatus(_A)
-_AristaDaemonStatus_ObjectIdentity=ObjectIdentity
-aristaDaemonStatus=_AristaDaemonStatus_ObjectIdentity((1,3,6,1,4,1,30065,3,17,2))
-_AristaDaemonRunningTable_Object=MibTable
-aristaDaemonRunningTable=_AristaDaemonRunningTable_Object((1,3,6,1,4,1,30065,3,17,2,1))
-if mibBuilder.loadTexts:aristaDaemonRunningTable.setStatus(_A)
-_AristaDaemonRunningEntry_Object=MibTableRow
-aristaDaemonRunningEntry=_AristaDaemonRunningEntry_Object((1,3,6,1,4,1,30065,3,17,2,1,1))
-aristaDaemonRunningEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:aristaDaemonRunningEntry.setStatus(_A)
-_AristaDaemonRunningAgentName_Type=AgentName
-_AristaDaemonRunningAgentName_Object=MibTableColumn
-aristaDaemonRunningAgentName=_AristaDaemonRunningAgentName_Object((1,3,6,1,4,1,30065,3,17,2,1,1,1),_AristaDaemonRunningAgentName_Type())
-aristaDaemonRunningAgentName.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaDaemonRunningAgentName.setStatus(_A)
-_AristaDaemonRunning_Type=TruthValue
-_AristaDaemonRunning_Object=MibTableColumn
-aristaDaemonRunning=_AristaDaemonRunning_Object((1,3,6,1,4,1,30065,3,17,2,1,1,2),_AristaDaemonRunning_Type())
-aristaDaemonRunning.setMaxAccess(_D)
-if mibBuilder.loadTexts:aristaDaemonRunning.setStatus(_A)
-_AristaDaemonDataTable_Object=MibTable
-aristaDaemonDataTable=_AristaDaemonDataTable_Object((1,3,6,1,4,1,30065,3,17,2,2))
-if mibBuilder.loadTexts:aristaDaemonDataTable.setStatus(_A)
-_AristaDaemonDataEntry_Object=MibTableRow
-aristaDaemonDataEntry=_AristaDaemonDataEntry_Object((1,3,6,1,4,1,30065,3,17,2,2,1))
-aristaDaemonDataEntry.setIndexNames((0,_B,_I),(0,_B,_J))
-if mibBuilder.loadTexts:aristaDaemonDataEntry.setStatus(_A)
-_AristaDaemonDataAgentName_Type=AgentName
-_AristaDaemonDataAgentName_Object=MibTableColumn
-aristaDaemonDataAgentName=_AristaDaemonDataAgentName_Object((1,3,6,1,4,1,30065,3,17,2,2,1,1),_AristaDaemonDataAgentName_Type())
-aristaDaemonDataAgentName.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaDaemonDataAgentName.setStatus(_A)
-_AristaDaemonDataKey_Type=AgentAttributeKey
-_AristaDaemonDataKey_Object=MibTableColumn
-aristaDaemonDataKey=_AristaDaemonDataKey_Object((1,3,6,1,4,1,30065,3,17,2,2,1,2),_AristaDaemonDataKey_Type())
-aristaDaemonDataKey.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaDaemonDataKey.setStatus(_A)
-_AristaDaemonDataValue_Type=AgentAttributeValue
-_AristaDaemonDataValue_Object=MibTableColumn
-aristaDaemonDataValue=_AristaDaemonDataValue_Object((1,3,6,1,4,1,30065,3,17,2,2,1,3),_AristaDaemonDataValue_Type())
-aristaDaemonDataValue.setMaxAccess(_D)
-if mibBuilder.loadTexts:aristaDaemonDataValue.setStatus(_A)
-_AristaDaemonConformance_ObjectIdentity=ObjectIdentity
-aristaDaemonConformance=_AristaDaemonConformance_ObjectIdentity((1,3,6,1,4,1,30065,3,17,3))
-_AristaDaemonGroups_ObjectIdentity=ObjectIdentity
-aristaDaemonGroups=_AristaDaemonGroups_ObjectIdentity((1,3,6,1,4,1,30065,3,17,3,1))
-_AristaDaemonCompliances_ObjectIdentity=ObjectIdentity
-aristaDaemonCompliances=_AristaDaemonCompliances_ObjectIdentity((1,3,6,1,4,1,30065,3,17,3,2))
-aristaDaemonBaseGroup=ObjectGroup((1,3,6,1,4,1,30065,3,17,3,1,1))
-aristaDaemonBaseGroup.setObjects(*((_B,_K),(_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:aristaDaemonBaseGroup.setStatus(_A)
-aristaDaemonCompliance=ModuleCompliance((1,3,6,1,4,1,30065,3,17,3,2,1))
-aristaDaemonCompliance.setObjects((_B,_O))
-if mibBuilder.loadTexts:aristaDaemonCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'AgentName':AgentName,'AgentAttributeKey':AgentAttributeKey,'AgentAttributeValue':AgentAttributeValue,'aristaDaemonMIB':aristaDaemonMIB,'aristaDaemonConfig':aristaDaemonConfig,'aristaDaemonEnabledTable':aristaDaemonEnabledTable,'aristaDaemonEnabledEntry':aristaDaemonEnabledEntry,_E:aristaDaemonEnabledAgentName,_K:aristaDaemonEnabled,'aristaDaemonOptionTable':aristaDaemonOptionTable,'aristaDaemonOptionEntry':aristaDaemonOptionEntry,_F:aristaDaemonOptionAgentName,_G:aristaDaemonOptionKey,_L:aristaDaemonOptionValue,'aristaDaemonStatus':aristaDaemonStatus,'aristaDaemonRunningTable':aristaDaemonRunningTable,'aristaDaemonRunningEntry':aristaDaemonRunningEntry,_H:aristaDaemonRunningAgentName,_M:aristaDaemonRunning,'aristaDaemonDataTable':aristaDaemonDataTable,'aristaDaemonDataEntry':aristaDaemonDataEntry,_I:aristaDaemonDataAgentName,_J:aristaDaemonDataKey,_N:aristaDaemonDataValue,'aristaDaemonConformance':aristaDaemonConformance,'aristaDaemonGroups':aristaDaemonGroups,_O:aristaDaemonBaseGroup,'aristaDaemonCompliances':aristaDaemonCompliances,'aristaDaemonCompliance':aristaDaemonCompliance})
+#
+# PySNMP MIB module ARISTA-DAEMON-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/arista/ARISTA-DAEMON-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+aristaDaemonMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 17))
+aristaDaemonMIB.setRevisions(('2015-04-27 00:00',))
+if mibBuilder.loadTexts: aristaDaemonMIB.setLastUpdated('201504270000Z')
+if mibBuilder.loadTexts: aristaDaemonMIB.setOrganization('Arista Networks, Inc.')
+class AgentName(TextualConvention, OctetString):
+    status = 'current'
+    displayHint = '32a'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 32)
+
+class AgentAttributeKey(TextualConvention, OctetString):
+    status = 'current'
+    displayHint = '64a'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 64)
+
+class AgentAttributeValue(TextualConvention, OctetString):
+    status = 'current'
+    displayHint = '10240a'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 10240)
+
+aristaDaemonConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 17, 1))
+aristaDaemonStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 17, 2))
+aristaDaemonEnabledTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 17, 1, 1), )
+if mibBuilder.loadTexts: aristaDaemonEnabledTable.setStatus('current')
+aristaDaemonEnabledEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 17, 1, 1, 1), ).setIndexNames((0, "ARISTA-DAEMON-MIB", "aristaDaemonEnabledAgentName"))
+if mibBuilder.loadTexts: aristaDaemonEnabledEntry.setStatus('current')
+aristaDaemonEnabledAgentName = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 17, 1, 1, 1, 1), AgentName())
+if mibBuilder.loadTexts: aristaDaemonEnabledAgentName.setStatus('current')
+aristaDaemonEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 17, 1, 1, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaDaemonEnabled.setStatus('current')
+aristaDaemonOptionTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 17, 1, 2), )
+if mibBuilder.loadTexts: aristaDaemonOptionTable.setStatus('current')
+aristaDaemonOptionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 17, 1, 2, 1), ).setIndexNames((0, "ARISTA-DAEMON-MIB", "aristaDaemonOptionAgentName"), (0, "ARISTA-DAEMON-MIB", "aristaDaemonOptionKey"))
+if mibBuilder.loadTexts: aristaDaemonOptionEntry.setStatus('current')
+aristaDaemonOptionAgentName = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 17, 1, 2, 1, 1), AgentName())
+if mibBuilder.loadTexts: aristaDaemonOptionAgentName.setStatus('current')
+aristaDaemonOptionKey = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 17, 1, 2, 1, 2), AgentAttributeKey())
+if mibBuilder.loadTexts: aristaDaemonOptionKey.setStatus('current')
+aristaDaemonOptionValue = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 17, 1, 2, 1, 3), AgentAttributeValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaDaemonOptionValue.setStatus('current')
+aristaDaemonRunningTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 17, 2, 1), )
+if mibBuilder.loadTexts: aristaDaemonRunningTable.setStatus('current')
+aristaDaemonRunningEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 17, 2, 1, 1), ).setIndexNames((0, "ARISTA-DAEMON-MIB", "aristaDaemonRunningAgentName"))
+if mibBuilder.loadTexts: aristaDaemonRunningEntry.setStatus('current')
+aristaDaemonRunningAgentName = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 17, 2, 1, 1, 1), AgentName())
+if mibBuilder.loadTexts: aristaDaemonRunningAgentName.setStatus('current')
+aristaDaemonRunning = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 17, 2, 1, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaDaemonRunning.setStatus('current')
+aristaDaemonDataTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 17, 2, 2), )
+if mibBuilder.loadTexts: aristaDaemonDataTable.setStatus('current')
+aristaDaemonDataEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 17, 2, 2, 1), ).setIndexNames((0, "ARISTA-DAEMON-MIB", "aristaDaemonDataAgentName"), (0, "ARISTA-DAEMON-MIB", "aristaDaemonDataKey"))
+if mibBuilder.loadTexts: aristaDaemonDataEntry.setStatus('current')
+aristaDaemonDataAgentName = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 17, 2, 2, 1, 1), AgentName())
+if mibBuilder.loadTexts: aristaDaemonDataAgentName.setStatus('current')
+aristaDaemonDataKey = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 17, 2, 2, 1, 2), AgentAttributeKey())
+if mibBuilder.loadTexts: aristaDaemonDataKey.setStatus('current')
+aristaDaemonDataValue = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 17, 2, 2, 1, 3), AgentAttributeValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaDaemonDataValue.setStatus('current')
+aristaDaemonConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 17, 3))
+aristaDaemonGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 17, 3, 1))
+aristaDaemonCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 17, 3, 2))
+aristaDaemonBaseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 17, 3, 1, 1)).setObjects(("ARISTA-DAEMON-MIB", "aristaDaemonEnabled"), ("ARISTA-DAEMON-MIB", "aristaDaemonOptionValue"), ("ARISTA-DAEMON-MIB", "aristaDaemonRunning"), ("ARISTA-DAEMON-MIB", "aristaDaemonDataValue"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaDaemonBaseGroup = aristaDaemonBaseGroup.setStatus('current')
+aristaDaemonCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 30065, 3, 17, 3, 2, 1)).setObjects(("ARISTA-DAEMON-MIB", "aristaDaemonBaseGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaDaemonCompliance = aristaDaemonCompliance.setStatus('current')
+mibBuilder.exportSymbols("ARISTA-DAEMON-MIB", aristaDaemonRunningTable=aristaDaemonRunningTable, aristaDaemonRunning=aristaDaemonRunning, aristaDaemonOptionValue=aristaDaemonOptionValue, aristaDaemonEnabledTable=aristaDaemonEnabledTable, AgentAttributeKey=AgentAttributeKey, aristaDaemonConfig=aristaDaemonConfig, aristaDaemonStatus=aristaDaemonStatus, aristaDaemonRunningAgentName=aristaDaemonRunningAgentName, aristaDaemonEnabledEntry=aristaDaemonEnabledEntry, aristaDaemonCompliance=aristaDaemonCompliance, AgentName=AgentName, aristaDaemonOptionAgentName=aristaDaemonOptionAgentName, aristaDaemonDataKey=aristaDaemonDataKey, aristaDaemonGroups=aristaDaemonGroups, PYSNMP_MODULE_ID=aristaDaemonMIB, AgentAttributeValue=AgentAttributeValue, aristaDaemonCompliances=aristaDaemonCompliances, aristaDaemonDataValue=aristaDaemonDataValue, aristaDaemonOptionTable=aristaDaemonOptionTable, aristaDaemonDataAgentName=aristaDaemonDataAgentName, aristaDaemonMIB=aristaDaemonMIB, aristaDaemonConformance=aristaDaemonConformance, aristaDaemonDataEntry=aristaDaemonDataEntry, aristaDaemonDataTable=aristaDaemonDataTable, aristaDaemonRunningEntry=aristaDaemonRunningEntry, aristaDaemonEnabled=aristaDaemonEnabled, aristaDaemonEnabledAgentName=aristaDaemonEnabledAgentName, aristaDaemonBaseGroup=aristaDaemonBaseGroup, aristaDaemonOptionKey=aristaDaemonOptionKey, aristaDaemonOptionEntry=aristaDaemonOptionEntry)

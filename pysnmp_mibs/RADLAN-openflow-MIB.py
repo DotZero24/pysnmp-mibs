@@ -1,56 +1,30 @@
-_E='TruthValue'
-_D='IpAddress'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-rnd,=mibBuilder.importSymbols('RADLAN-MIB','rnd')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,_D,'ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp',_E)
-_RlOpenFlow_ObjectIdentity=ObjectIdentity
-rlOpenFlow=_RlOpenFlow_ObjectIdentity((1,3,6,1,4,1,89,319))
-_RlOpenFlowSupported_Type=TruthValue
-_RlOpenFlowSupported_Object=MibScalar
-rlOpenFlowSupported=_RlOpenFlowSupported_Object((1,3,6,1,4,1,89,319,1),_RlOpenFlowSupported_Type())
-rlOpenFlowSupported.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlOpenFlowSupported.setStatus(_A)
-class _RlOpenFlowTcpPort_Type(Integer32):defaultValue=6633
-_RlOpenFlowTcpPort_Type.__name__=_C
-_RlOpenFlowTcpPort_Object=MibScalar
-rlOpenFlowTcpPort=_RlOpenFlowTcpPort_Object((1,3,6,1,4,1,89,319,2),_RlOpenFlowTcpPort_Type())
-rlOpenFlowTcpPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlOpenFlowTcpPort.setStatus(_A)
-class _RlOpenFlowServerIpAddr_Type(IpAddress):defaultHexValue='00000000'
-_RlOpenFlowServerIpAddr_Type.__name__=_D
-_RlOpenFlowServerIpAddr_Object=MibScalar
-rlOpenFlowServerIpAddr=_RlOpenFlowServerIpAddr_Object((1,3,6,1,4,1,89,319,3),_RlOpenFlowServerIpAddr_Type())
-rlOpenFlowServerIpAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlOpenFlowServerIpAddr.setStatus(_A)
-class _RlOpenFlowProtocolType_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('tcp',0),('tls',1)))
-_RlOpenFlowProtocolType_Type.__name__=_C
-_RlOpenFlowProtocolType_Object=MibScalar
-rlOpenFlowProtocolType=_RlOpenFlowProtocolType_Object((1,3,6,1,4,1,89,319,4),_RlOpenFlowProtocolType_Type())
-rlOpenFlowProtocolType.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlOpenFlowProtocolType.setStatus(_A)
-class _RlOpenFlowDefaultForwardAction_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('forward',0),('drop',1),('toController',2)))
-_RlOpenFlowDefaultForwardAction_Type.__name__=_C
-_RlOpenFlowDefaultForwardAction_Object=MibScalar
-rlOpenFlowDefaultForwardAction=_RlOpenFlowDefaultForwardAction_Object((1,3,6,1,4,1,89,319,5),_RlOpenFlowDefaultForwardAction_Type())
-rlOpenFlowDefaultForwardAction.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlOpenFlowDefaultForwardAction.setStatus(_A)
-_RlOpenFlowEnable_Type=TruthValue
-_RlOpenFlowEnable_Object=MibScalar
-rlOpenFlowEnable=_RlOpenFlowEnable_Object((1,3,6,1,4,1,89,319,6),_RlOpenFlowEnable_Type())
-rlOpenFlowEnable.setMaxAccess('read-only')
-if mibBuilder.loadTexts:rlOpenFlowEnable.setStatus(_A)
-class _RlOpenFlowEnableAfterReset_Type(TruthValue):defaultValue=2
-_RlOpenFlowEnableAfterReset_Type.__name__=_E
-_RlOpenFlowEnableAfterReset_Object=MibScalar
-rlOpenFlowEnableAfterReset=_RlOpenFlowEnableAfterReset_Object((1,3,6,1,4,1,89,319,7),_RlOpenFlowEnableAfterReset_Type())
-rlOpenFlowEnableAfterReset.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlOpenFlowEnableAfterReset.setStatus(_A)
-mibBuilder.exportSymbols('RADLAN-openflow-MIB',**{'rlOpenFlow':rlOpenFlow,'rlOpenFlowSupported':rlOpenFlowSupported,'rlOpenFlowTcpPort':rlOpenFlowTcpPort,'rlOpenFlowServerIpAddr':rlOpenFlowServerIpAddr,'rlOpenFlowProtocolType':rlOpenFlowProtocolType,'rlOpenFlowDefaultForwardAction':rlOpenFlowDefaultForwardAction,'rlOpenFlowEnable':rlOpenFlowEnable,'rlOpenFlowEnableAfterReset':rlOpenFlowEnableAfterReset})
+#
+# PySNMP MIB module RADLAN-openflow-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/radlan/RADLAN-openflow-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TimeStamp, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+rlOpenFlow = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 319))
+rlOpenFlowSupported = MibScalar((1, 3, 6, 1, 4, 1, 89, 319, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlOpenFlowSupported.setStatus('current')
+rlOpenFlowTcpPort = MibScalar((1, 3, 6, 1, 4, 1, 89, 319, 2), Integer32().clone(6633)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlOpenFlowTcpPort.setStatus('current')
+rlOpenFlowServerIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 89, 319, 3), IpAddress().clone(hexValue="00000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlOpenFlowServerIpAddr.setStatus('current')
+rlOpenFlowProtocolType = MibScalar((1, 3, 6, 1, 4, 1, 89, 319, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("tcp", 0), ("tls", 1))).clone('tcp')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlOpenFlowProtocolType.setStatus('current')
+rlOpenFlowDefaultForwardAction = MibScalar((1, 3, 6, 1, 4, 1, 89, 319, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("forward", 0), ("drop", 1), ("toController", 2))).clone('forward')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlOpenFlowDefaultForwardAction.setStatus('current')
+rlOpenFlowEnable = MibScalar((1, 3, 6, 1, 4, 1, 89, 319, 6), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlOpenFlowEnable.setStatus('current')
+rlOpenFlowEnableAfterReset = MibScalar((1, 3, 6, 1, 4, 1, 89, 319, 7), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlOpenFlowEnableAfterReset.setStatus('current')
+mibBuilder.exportSymbols("RADLAN-openflow-MIB", rlOpenFlowSupported=rlOpenFlowSupported, rlOpenFlow=rlOpenFlow, rlOpenFlowDefaultForwardAction=rlOpenFlowDefaultForwardAction, rlOpenFlowEnableAfterReset=rlOpenFlowEnableAfterReset, rlOpenFlowServerIpAddr=rlOpenFlowServerIpAddr, rlOpenFlowProtocolType=rlOpenFlowProtocolType, rlOpenFlowTcpPort=rlOpenFlowTcpPort, rlOpenFlowEnable=rlOpenFlowEnable)

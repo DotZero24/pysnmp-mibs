@@ -1,55 +1,36 @@
-_E='swPolicyRouteName'
-_D='POLICY-ROUTE-MIB'
-_C='DisplayString'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_common_mgmt,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-common-mgmt')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_C,'MacAddress','PhysAddress','RowStatus','TextualConvention')
-swPolicyRouteMIB=ModuleIdentity((1,3,6,1,4,1,171,12,32))
-_SwPolicyRouteCtrl_ObjectIdentity=ObjectIdentity
-swPolicyRouteCtrl=_SwPolicyRouteCtrl_ObjectIdentity((1,3,6,1,4,1,171,12,32,1))
-_SwPolicyRouteInfo_ObjectIdentity=ObjectIdentity
-swPolicyRouteInfo=_SwPolicyRouteInfo_ObjectIdentity((1,3,6,1,4,1,171,12,32,2))
-_SwPolicyRouteMgmt_ObjectIdentity=ObjectIdentity
-swPolicyRouteMgmt=_SwPolicyRouteMgmt_ObjectIdentity((1,3,6,1,4,1,171,12,32,3))
-_SwPolicyRouteTable_Object=MibTable
-swPolicyRouteTable=_SwPolicyRouteTable_Object((1,3,6,1,4,1,171,12,32,3,1))
-if mibBuilder.loadTexts:swPolicyRouteTable.setStatus(_A)
-_SwPolicyRouteEntry_Object=MibTableRow
-swPolicyRouteEntry=_SwPolicyRouteEntry_Object((1,3,6,1,4,1,171,12,32,3,1,1))
-swPolicyRouteEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:swPolicyRouteEntry.setStatus(_A)
-class _SwPolicyRouteName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_SwPolicyRouteName_Type.__name__=_C
-_SwPolicyRouteName_Object=MibTableColumn
-swPolicyRouteName=_SwPolicyRouteName_Object((1,3,6,1,4,1,171,12,32,3,1,1,1),_SwPolicyRouteName_Type())
-swPolicyRouteName.setMaxAccess('read-only')
-if mibBuilder.loadTexts:swPolicyRouteName.setStatus(_A)
-_SwPolicyRouteProfileId_Type=Integer32
-_SwPolicyRouteProfileId_Object=MibTableColumn
-swPolicyRouteProfileId=_SwPolicyRouteProfileId_Object((1,3,6,1,4,1,171,12,32,3,1,1,2),_SwPolicyRouteProfileId_Type())
-swPolicyRouteProfileId.setMaxAccess(_B)
-if mibBuilder.loadTexts:swPolicyRouteProfileId.setStatus(_A)
-_SwPolicyRouteAccessId_Type=Integer32
-_SwPolicyRouteAccessId_Object=MibTableColumn
-swPolicyRouteAccessId=_SwPolicyRouteAccessId_Object((1,3,6,1,4,1,171,12,32,3,1,1,3),_SwPolicyRouteAccessId_Type())
-swPolicyRouteAccessId.setMaxAccess(_B)
-if mibBuilder.loadTexts:swPolicyRouteAccessId.setStatus(_A)
-_SwPolicyRouteNextHop_Type=IpAddress
-_SwPolicyRouteNextHop_Object=MibTableColumn
-swPolicyRouteNextHop=_SwPolicyRouteNextHop_Object((1,3,6,1,4,1,171,12,32,3,1,1,4),_SwPolicyRouteNextHop_Type())
-swPolicyRouteNextHop.setMaxAccess(_B)
-if mibBuilder.loadTexts:swPolicyRouteNextHop.setStatus(_A)
-_SwPolicyRouteRowStatus_Type=RowStatus
-_SwPolicyRouteRowStatus_Object=MibTableColumn
-swPolicyRouteRowStatus=_SwPolicyRouteRowStatus_Object((1,3,6,1,4,1,171,12,32,3,1,1,5),_SwPolicyRouteRowStatus_Type())
-swPolicyRouteRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:swPolicyRouteRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'swPolicyRouteMIB':swPolicyRouteMIB,'swPolicyRouteCtrl':swPolicyRouteCtrl,'swPolicyRouteInfo':swPolicyRouteInfo,'swPolicyRouteMgmt':swPolicyRouteMgmt,'swPolicyRouteTable':swPolicyRouteTable,'swPolicyRouteEntry':swPolicyRouteEntry,_E:swPolicyRouteName,'swPolicyRouteProfileId':swPolicyRouteProfileId,'swPolicyRouteAccessId':swPolicyRouteAccessId,'swPolicyRouteNextHop':swPolicyRouteNextHop,'swPolicyRouteRowStatus':swPolicyRouteRowStatus})
+#
+# PySNMP MIB module POLICY-ROUTE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/POLICY-ROUTE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:17 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+swPolicyRouteMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 32))
+if mibBuilder.loadTexts: swPolicyRouteMIB.setLastUpdated('0703270000Z')
+if mibBuilder.loadTexts: swPolicyRouteMIB.setOrganization('D-Link Corp.')
+swPolicyRouteCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 32, 1))
+swPolicyRouteInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 32, 2))
+swPolicyRouteMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 32, 3))
+swPolicyRouteTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 32, 3, 1), )
+if mibBuilder.loadTexts: swPolicyRouteTable.setStatus('current')
+swPolicyRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 32, 3, 1, 1), ).setIndexNames((0, "POLICY-ROUTE-MIB", "swPolicyRouteName"))
+if mibBuilder.loadTexts: swPolicyRouteEntry.setStatus('current')
+swPolicyRouteName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 32, 3, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swPolicyRouteName.setStatus('current')
+swPolicyRouteProfileId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 32, 3, 1, 1, 2), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swPolicyRouteProfileId.setStatus('current')
+swPolicyRouteAccessId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 32, 3, 1, 1, 3), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swPolicyRouteAccessId.setStatus('current')
+swPolicyRouteNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 32, 3, 1, 1, 4), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swPolicyRouteNextHop.setStatus('current')
+swPolicyRouteRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 32, 3, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swPolicyRouteRowStatus.setStatus('current')
+mibBuilder.exportSymbols("POLICY-ROUTE-MIB", PYSNMP_MODULE_ID=swPolicyRouteMIB, swPolicyRouteRowStatus=swPolicyRouteRowStatus, swPolicyRouteNextHop=swPolicyRouteNextHop, swPolicyRouteName=swPolicyRouteName, swPolicyRouteInfo=swPolicyRouteInfo, swPolicyRouteProfileId=swPolicyRouteProfileId, swPolicyRouteMIB=swPolicyRouteMIB, swPolicyRouteMgmt=swPolicyRouteMgmt, swPolicyRouteTable=swPolicyRouteTable, swPolicyRouteEntry=swPolicyRouteEntry, swPolicyRouteAccessId=swPolicyRouteAccessId, swPolicyRouteCtrl=swPolicyRouteCtrl)

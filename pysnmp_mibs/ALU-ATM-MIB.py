@@ -1,141 +1,87 @@
-_S='aluExtAtmVclVplOamStatsGroup'
-_R='aluExtAtmIntfOamStatsGroup'
-_Q='aeAal5VccStatsPPPoERelayErrors'
-_P='aeAal5VccStatsPPPoERelayOverflow'
-_O='aeAal5VccStatsPPPoERelayMalformed'
-_N='aeAal5VccStatsPPPoERelayRxd'
-_M='aeAtmVplStatsOamCellsGeneratedTxd'
-_L='aeAtmVclStatsOamCellsGeneratedTxd'
-_K='aeAtmIntfStatsTotalOamCellsTxd'
-_J='aeAtmIntfStatsTotalOamCellsRxd'
-_I='aeAal5VccPppoERelayStatsEntry'
-_H='aeTAtmOamVplStatisticsEntry'
-_G='aeTAtmOamVclStatisticsEntry'
-_F='aeTAtmIntfStatsEntry'
-_E='aeAtmVplStatsOamCellsGenerated'
-_D='aeAtmVclStatsOamCellsGenerated'
-_C='read-only'
-_B='ALU-ATM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-aluSARConfs,aluSARMIBModules,aluSARNotifyPrefix,aluSARObjs=mibBuilder.importSymbols('ALU-SAR-GLOBAL-MIB','aluSARConfs','aluSARMIBModules','aluSARNotifyPrefix','aluSARObjs')
-aal5VccEntry,atmVclEntry,atmVplEntry=mibBuilder.importSymbols('ATM-MIB','aal5VccEntry','atmVclEntry','atmVplEntry')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp')
-tAtmIntfStatsEntry,=mibBuilder.importSymbols('TIMETRA-ATM-MIB','tAtmIntfStatsEntry')
-aluATMMIBModule=ModuleIdentity((1,3,6,1,4,1,6527,6,1,1,1,3,4))
-if mibBuilder.loadTexts:aluATMMIBModule.setRevisions(('1908-01-18 00:00',))
-_AluAtmMIBConformance_ObjectIdentity=ObjectIdentity
-aluAtmMIBConformance=_AluAtmMIBConformance_ObjectIdentity((1,3,6,1,4,1,6527,6,1,2,1,3))
-_AluAtmMIBCompliances_ObjectIdentity=ObjectIdentity
-aluAtmMIBCompliances=_AluAtmMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6527,6,1,2,1,3,1))
-_AluAtmMIBGroups_ObjectIdentity=ObjectIdentity
-aluAtmMIBGroups=_AluAtmMIBGroups_ObjectIdentity((1,3,6,1,4,1,6527,6,1,2,1,3,2))
-_AluAtmObjs_ObjectIdentity=ObjectIdentity
-aluAtmObjs=_AluAtmObjs_ObjectIdentity((1,3,6,1,4,1,6527,6,1,2,2,3))
-_AluAtmExtensionObjs_ObjectIdentity=ObjectIdentity
-aluAtmExtensionObjs=_AluAtmExtensionObjs_ObjectIdentity((1,3,6,1,4,1,6527,6,1,2,2,3,1))
-_AeTAtmIntfStatsTable_Object=MibTable
-aeTAtmIntfStatsTable=_AeTAtmIntfStatsTable_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,1))
-if mibBuilder.loadTexts:aeTAtmIntfStatsTable.setStatus(_A)
-_AeTAtmIntfStatsEntry_Object=MibTableRow
-aeTAtmIntfStatsEntry=_AeTAtmIntfStatsEntry_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,1,1))
-if mibBuilder.loadTexts:aeTAtmIntfStatsEntry.setStatus(_A)
-_AeAtmIntfStatsTotalOamCellsRxd_Type=Counter64
-_AeAtmIntfStatsTotalOamCellsRxd_Object=MibTableColumn
-aeAtmIntfStatsTotalOamCellsRxd=_AeAtmIntfStatsTotalOamCellsRxd_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,1,1,1),_AeAtmIntfStatsTotalOamCellsRxd_Type())
-aeAtmIntfStatsTotalOamCellsRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:aeAtmIntfStatsTotalOamCellsRxd.setStatus(_A)
-_AeAtmIntfStatsTotalOamCellsTxd_Type=Counter64
-_AeAtmIntfStatsTotalOamCellsTxd_Object=MibTableColumn
-aeAtmIntfStatsTotalOamCellsTxd=_AeAtmIntfStatsTotalOamCellsTxd_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,1,1,2),_AeAtmIntfStatsTotalOamCellsTxd_Type())
-aeAtmIntfStatsTotalOamCellsTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:aeAtmIntfStatsTotalOamCellsTxd.setStatus(_A)
-_AeTAtmOamVclStatisticsTable_Object=MibTable
-aeTAtmOamVclStatisticsTable=_AeTAtmOamVclStatisticsTable_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,2))
-if mibBuilder.loadTexts:aeTAtmOamVclStatisticsTable.setStatus(_A)
-_AeTAtmOamVclStatisticsEntry_Object=MibTableRow
-aeTAtmOamVclStatisticsEntry=_AeTAtmOamVclStatisticsEntry_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,2,1))
-if mibBuilder.loadTexts:aeTAtmOamVclStatisticsEntry.setStatus(_A)
-_AeAtmVclStatsOamCellsGenerated_Type=Counter32
-_AeAtmVclStatsOamCellsGenerated_Object=MibTableColumn
-aeAtmVclStatsOamCellsGenerated=_AeAtmVclStatsOamCellsGenerated_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,2,1,1),_AeAtmVclStatsOamCellsGenerated_Type())
-aeAtmVclStatsOamCellsGenerated.setMaxAccess(_C)
-if mibBuilder.loadTexts:aeAtmVclStatsOamCellsGenerated.setStatus(_A)
-_AeAtmVclStatsOamCellsGeneratedTxd_Type=Counter32
-_AeAtmVclStatsOamCellsGeneratedTxd_Object=MibTableColumn
-aeAtmVclStatsOamCellsGeneratedTxd=_AeAtmVclStatsOamCellsGeneratedTxd_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,2,1,2),_AeAtmVclStatsOamCellsGeneratedTxd_Type())
-aeAtmVclStatsOamCellsGeneratedTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:aeAtmVclStatsOamCellsGeneratedTxd.setStatus(_A)
-_AeTAtmOamVplStatisticsTable_Object=MibTable
-aeTAtmOamVplStatisticsTable=_AeTAtmOamVplStatisticsTable_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,3))
-if mibBuilder.loadTexts:aeTAtmOamVplStatisticsTable.setStatus(_A)
-_AeTAtmOamVplStatisticsEntry_Object=MibTableRow
-aeTAtmOamVplStatisticsEntry=_AeTAtmOamVplStatisticsEntry_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,3,1))
-if mibBuilder.loadTexts:aeTAtmOamVplStatisticsEntry.setStatus(_A)
-_AeAtmVplStatsOamCellsGenerated_Type=Counter32
-_AeAtmVplStatsOamCellsGenerated_Object=MibTableColumn
-aeAtmVplStatsOamCellsGenerated=_AeAtmVplStatsOamCellsGenerated_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,3,1,1),_AeAtmVplStatsOamCellsGenerated_Type())
-aeAtmVplStatsOamCellsGenerated.setMaxAccess(_C)
-if mibBuilder.loadTexts:aeAtmVplStatsOamCellsGenerated.setStatus(_A)
-_AeAtmVplStatsOamCellsGeneratedTxd_Type=Counter32
-_AeAtmVplStatsOamCellsGeneratedTxd_Object=MibTableColumn
-aeAtmVplStatsOamCellsGeneratedTxd=_AeAtmVplStatsOamCellsGeneratedTxd_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,3,1,2),_AeAtmVplStatsOamCellsGeneratedTxd_Type())
-aeAtmVplStatsOamCellsGeneratedTxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:aeAtmVplStatsOamCellsGeneratedTxd.setStatus(_A)
-_AeAal5VccPppoERelayStatsTable_Object=MibTable
-aeAal5VccPppoERelayStatsTable=_AeAal5VccPppoERelayStatsTable_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,4))
-if mibBuilder.loadTexts:aeAal5VccPppoERelayStatsTable.setStatus(_A)
-_AeAal5VccPppoERelayStatsEntry_Object=MibTableRow
-aeAal5VccPppoERelayStatsEntry=_AeAal5VccPppoERelayStatsEntry_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,4,1))
-if mibBuilder.loadTexts:aeAal5VccPppoERelayStatsEntry.setStatus(_A)
-_AeAal5VccStatsPPPoERelayRxd_Type=Counter64
-_AeAal5VccStatsPPPoERelayRxd_Object=MibTableColumn
-aeAal5VccStatsPPPoERelayRxd=_AeAal5VccStatsPPPoERelayRxd_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,4,1,1),_AeAal5VccStatsPPPoERelayRxd_Type())
-aeAal5VccStatsPPPoERelayRxd.setMaxAccess(_C)
-if mibBuilder.loadTexts:aeAal5VccStatsPPPoERelayRxd.setStatus(_A)
-_AeAal5VccStatsPPPoERelayMalformed_Type=Counter64
-_AeAal5VccStatsPPPoERelayMalformed_Object=MibTableColumn
-aeAal5VccStatsPPPoERelayMalformed=_AeAal5VccStatsPPPoERelayMalformed_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,4,1,2),_AeAal5VccStatsPPPoERelayMalformed_Type())
-aeAal5VccStatsPPPoERelayMalformed.setMaxAccess(_C)
-if mibBuilder.loadTexts:aeAal5VccStatsPPPoERelayMalformed.setStatus(_A)
-_AeAal5VccStatsPPPoERelayOverflow_Type=Counter64
-_AeAal5VccStatsPPPoERelayOverflow_Object=MibTableColumn
-aeAal5VccStatsPPPoERelayOverflow=_AeAal5VccStatsPPPoERelayOverflow_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,4,1,3),_AeAal5VccStatsPPPoERelayOverflow_Type())
-aeAal5VccStatsPPPoERelayOverflow.setMaxAccess(_C)
-if mibBuilder.loadTexts:aeAal5VccStatsPPPoERelayOverflow.setStatus(_A)
-_AeAal5VccStatsPPPoERelayErrors_Type=Counter64
-_AeAal5VccStatsPPPoERelayErrors_Object=MibTableColumn
-aeAal5VccStatsPPPoERelayErrors=_AeAal5VccStatsPPPoERelayErrors_Object((1,3,6,1,4,1,6527,6,1,2,2,3,1,4,1,4),_AeAal5VccStatsPPPoERelayErrors_Type())
-aeAal5VccStatsPPPoERelayErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:aeAal5VccStatsPPPoERelayErrors.setStatus(_A)
-_AluAtmNotifyPrefix_ObjectIdentity=ObjectIdentity
-aluAtmNotifyPrefix=_AluAtmNotifyPrefix_ObjectIdentity((1,3,6,1,4,1,6527,6,1,2,3,3))
-tAtmIntfStatsEntry.registerAugmentions((_B,_F))
+#
+# PySNMP MIB module ALU-ATM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/ALU-ATM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:21:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+aluSARMIBModules, aluSARConfs, aluSARNotifyPrefix, aluSARObjs = mibBuilder.importSymbols("ALU-SAR-GLOBAL-MIB", "aluSARMIBModules", "aluSARConfs", "aluSARNotifyPrefix", "aluSARObjs")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+aal5VccEntry, atmVclEntry, atmVplEntry = mibBuilder.importSymbols("ATM-MIB", "aal5VccEntry", "atmVclEntry", "atmVplEntry")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "RowStatus", "TextualConvention")
+tAtmIntfStatsEntry, = mibBuilder.importSymbols("TIMETRA-ATM-MIB", "tAtmIntfStatsEntry")
+aluATMMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 1, 3, 4))
+aluATMMIBModule.setRevisions(('1908-01-18 00:00',))
+if mibBuilder.loadTexts: aluATMMIBModule.setLastUpdated('0801180000Z')
+if mibBuilder.loadTexts: aluATMMIBModule.setOrganization('Nokia')
+aluAtmObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3))
+aluAtmMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 3))
+aluAtmExtensionObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1))
+aluAtmNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 3))
+aeTAtmIntfStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 1), )
+if mibBuilder.loadTexts: aeTAtmIntfStatsTable.setStatus('current')
+aeTAtmIntfStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 1, 1), )
+tAtmIntfStatsEntry.registerAugmentions(("ALU-ATM-MIB", "aeTAtmIntfStatsEntry"))
 aeTAtmIntfStatsEntry.setIndexNames(*tAtmIntfStatsEntry.getIndexNames())
-atmVclEntry.registerAugmentions((_B,_G))
+if mibBuilder.loadTexts: aeTAtmIntfStatsEntry.setStatus('current')
+aeAtmIntfStatsTotalOamCellsRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 1, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aeAtmIntfStatsTotalOamCellsRxd.setStatus('current')
+aeAtmIntfStatsTotalOamCellsTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 1, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aeAtmIntfStatsTotalOamCellsTxd.setStatus('current')
+aeTAtmOamVclStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 2), )
+if mibBuilder.loadTexts: aeTAtmOamVclStatisticsTable.setStatus('current')
+aeTAtmOamVclStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 2, 1), )
+atmVclEntry.registerAugmentions(("ALU-ATM-MIB", "aeTAtmOamVclStatisticsEntry"))
 aeTAtmOamVclStatisticsEntry.setIndexNames(*atmVclEntry.getIndexNames())
-atmVplEntry.registerAugmentions((_B,_H))
+if mibBuilder.loadTexts: aeTAtmOamVclStatisticsEntry.setStatus('current')
+aeAtmVclStatsOamCellsGenerated = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 2, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aeAtmVclStatsOamCellsGenerated.setStatus('current')
+aeAtmVclStatsOamCellsGeneratedTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 2, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aeAtmVclStatsOamCellsGeneratedTxd.setStatus('current')
+aeTAtmOamVplStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 3), )
+if mibBuilder.loadTexts: aeTAtmOamVplStatisticsTable.setStatus('current')
+aeTAtmOamVplStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 3, 1), )
+atmVplEntry.registerAugmentions(("ALU-ATM-MIB", "aeTAtmOamVplStatisticsEntry"))
 aeTAtmOamVplStatisticsEntry.setIndexNames(*atmVplEntry.getIndexNames())
-aal5VccEntry.registerAugmentions((_B,_I))
+if mibBuilder.loadTexts: aeTAtmOamVplStatisticsEntry.setStatus('current')
+aeAtmVplStatsOamCellsGenerated = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 3, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aeAtmVplStatsOamCellsGenerated.setStatus('current')
+aeAtmVplStatsOamCellsGeneratedTxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 3, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aeAtmVplStatsOamCellsGeneratedTxd.setStatus('current')
+aeAal5VccPppoERelayStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 4), )
+if mibBuilder.loadTexts: aeAal5VccPppoERelayStatsTable.setStatus('current')
+aeAal5VccPppoERelayStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 4, 1), )
+aal5VccEntry.registerAugmentions(("ALU-ATM-MIB", "aeAal5VccPppoERelayStatsEntry"))
 aeAal5VccPppoERelayStatsEntry.setIndexNames(*aal5VccEntry.getIndexNames())
-aluExtAtmIntfOamStatsGroup=ObjectGroup((1,3,6,1,4,1,6527,6,1,2,1,3,2,1))
-aluExtAtmIntfOamStatsGroup.setObjects(*((_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:aluExtAtmIntfOamStatsGroup.setStatus(_A)
-aluExtAtmVclVplOamStatsGroup=ObjectGroup((1,3,6,1,4,1,6527,6,1,2,1,3,2,2))
-aluExtAtmVclVplOamStatsGroup.setObjects(*((_B,_D),(_B,_E)))
-if mibBuilder.loadTexts:aluExtAtmVclVplOamStatsGroup.setStatus('obsolete')
-aluExtAtmVclVplOamStatsGroupV3v0=ObjectGroup((1,3,6,1,4,1,6527,6,1,2,1,3,2,3))
-aluExtAtmVclVplOamStatsGroupV3v0.setObjects(*((_B,_D),(_B,_L),(_B,_E),(_B,_M)))
-if mibBuilder.loadTexts:aluExtAtmVclVplOamStatsGroupV3v0.setStatus(_A)
-aeAal5VccPppoERelayStatsGroup=ObjectGroup((1,3,6,1,4,1,6527,6,1,2,1,3,2,4))
-aeAal5VccPppoERelayStatsGroup.setObjects(*((_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:aeAal5VccPppoERelayStatsGroup.setStatus(_A)
-aluAtmMIBCompliance=ModuleCompliance((1,3,6,1,4,1,6527,6,1,2,1,3,1,1))
-aluAtmMIBCompliance.setObjects(*((_B,_R),(_B,_S)))
-if mibBuilder.loadTexts:aluAtmMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'aluATMMIBModule':aluATMMIBModule,'aluAtmMIBConformance':aluAtmMIBConformance,'aluAtmMIBCompliances':aluAtmMIBCompliances,'aluAtmMIBCompliance':aluAtmMIBCompliance,'aluAtmMIBGroups':aluAtmMIBGroups,_R:aluExtAtmIntfOamStatsGroup,_S:aluExtAtmVclVplOamStatsGroup,'aluExtAtmVclVplOamStatsGroupV3v0':aluExtAtmVclVplOamStatsGroupV3v0,'aeAal5VccPppoERelayStatsGroup':aeAal5VccPppoERelayStatsGroup,'aluAtmObjs':aluAtmObjs,'aluAtmExtensionObjs':aluAtmExtensionObjs,'aeTAtmIntfStatsTable':aeTAtmIntfStatsTable,_F:aeTAtmIntfStatsEntry,_J:aeAtmIntfStatsTotalOamCellsRxd,_K:aeAtmIntfStatsTotalOamCellsTxd,'aeTAtmOamVclStatisticsTable':aeTAtmOamVclStatisticsTable,_G:aeTAtmOamVclStatisticsEntry,_D:aeAtmVclStatsOamCellsGenerated,_L:aeAtmVclStatsOamCellsGeneratedTxd,'aeTAtmOamVplStatisticsTable':aeTAtmOamVplStatisticsTable,_H:aeTAtmOamVplStatisticsEntry,_E:aeAtmVplStatsOamCellsGenerated,_M:aeAtmVplStatsOamCellsGeneratedTxd,'aeAal5VccPppoERelayStatsTable':aeAal5VccPppoERelayStatsTable,_I:aeAal5VccPppoERelayStatsEntry,_N:aeAal5VccStatsPPPoERelayRxd,_O:aeAal5VccStatsPPPoERelayMalformed,_P:aeAal5VccStatsPPPoERelayOverflow,_Q:aeAal5VccStatsPPPoERelayErrors,'aluAtmNotifyPrefix':aluAtmNotifyPrefix})
+if mibBuilder.loadTexts: aeAal5VccPppoERelayStatsEntry.setStatus('current')
+aeAal5VccStatsPPPoERelayRxd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 4, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aeAal5VccStatsPPPoERelayRxd.setStatus('current')
+aeAal5VccStatsPPPoERelayMalformed = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 4, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aeAal5VccStatsPPPoERelayMalformed.setStatus('current')
+aeAal5VccStatsPPPoERelayOverflow = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 4, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aeAal5VccStatsPPPoERelayOverflow.setStatus('current')
+aeAal5VccStatsPPPoERelayErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 3, 1, 4, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aeAal5VccStatsPPPoERelayErrors.setStatus('current')
+aluAtmMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 3, 1))
+aluAtmMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 3, 2))
+aluAtmMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 3, 1, 1)).setObjects(("ALU-ATM-MIB", "aluExtAtmIntfOamStatsGroup"), ("ALU-ATM-MIB", "aluExtAtmVclVplOamStatsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aluAtmMIBCompliance = aluAtmMIBCompliance.setStatus('current')
+aluExtAtmIntfOamStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 3, 2, 1)).setObjects(("ALU-ATM-MIB", "aeAtmIntfStatsTotalOamCellsRxd"), ("ALU-ATM-MIB", "aeAtmIntfStatsTotalOamCellsTxd"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aluExtAtmIntfOamStatsGroup = aluExtAtmIntfOamStatsGroup.setStatus('current')
+aluExtAtmVclVplOamStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 3, 2, 2)).setObjects(("ALU-ATM-MIB", "aeAtmVclStatsOamCellsGenerated"), ("ALU-ATM-MIB", "aeAtmVplStatsOamCellsGenerated"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aluExtAtmVclVplOamStatsGroup = aluExtAtmVclVplOamStatsGroup.setStatus('obsolete')
+aluExtAtmVclVplOamStatsGroupV3v0 = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 3, 2, 3)).setObjects(("ALU-ATM-MIB", "aeAtmVclStatsOamCellsGenerated"), ("ALU-ATM-MIB", "aeAtmVclStatsOamCellsGeneratedTxd"), ("ALU-ATM-MIB", "aeAtmVplStatsOamCellsGenerated"), ("ALU-ATM-MIB", "aeAtmVplStatsOamCellsGeneratedTxd"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aluExtAtmVclVplOamStatsGroupV3v0 = aluExtAtmVclVplOamStatsGroupV3v0.setStatus('current')
+aeAal5VccPppoERelayStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 3, 2, 4)).setObjects(("ALU-ATM-MIB", "aeAal5VccStatsPPPoERelayRxd"), ("ALU-ATM-MIB", "aeAal5VccStatsPPPoERelayMalformed"), ("ALU-ATM-MIB", "aeAal5VccStatsPPPoERelayOverflow"), ("ALU-ATM-MIB", "aeAal5VccStatsPPPoERelayErrors"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aeAal5VccPppoERelayStatsGroup = aeAal5VccPppoERelayStatsGroup.setStatus('current')
+mibBuilder.exportSymbols("ALU-ATM-MIB", aluAtmMIBGroups=aluAtmMIBGroups, aeAal5VccStatsPPPoERelayMalformed=aeAal5VccStatsPPPoERelayMalformed, aluAtmExtensionObjs=aluAtmExtensionObjs, aluAtmObjs=aluAtmObjs, aeAal5VccStatsPPPoERelayRxd=aeAal5VccStatsPPPoERelayRxd, aluExtAtmIntfOamStatsGroup=aluExtAtmIntfOamStatsGroup, aeAtmVclStatsOamCellsGeneratedTxd=aeAtmVclStatsOamCellsGeneratedTxd, aeTAtmOamVplStatisticsEntry=aeTAtmOamVplStatisticsEntry, aeAtmVplStatsOamCellsGeneratedTxd=aeAtmVplStatsOamCellsGeneratedTxd, aluAtmMIBCompliance=aluAtmMIBCompliance, aeTAtmIntfStatsTable=aeTAtmIntfStatsTable, aeTAtmOamVplStatisticsTable=aeTAtmOamVplStatisticsTable, aeAtmVplStatsOamCellsGenerated=aeAtmVplStatsOamCellsGenerated, aeAtmVclStatsOamCellsGenerated=aeAtmVclStatsOamCellsGenerated, aeTAtmOamVclStatisticsTable=aeTAtmOamVclStatisticsTable, aeAtmIntfStatsTotalOamCellsTxd=aeAtmIntfStatsTotalOamCellsTxd, aeAtmIntfStatsTotalOamCellsRxd=aeAtmIntfStatsTotalOamCellsRxd, aeAal5VccPppoERelayStatsGroup=aeAal5VccPppoERelayStatsGroup, aeTAtmIntfStatsEntry=aeTAtmIntfStatsEntry, aeAal5VccPppoERelayStatsTable=aeAal5VccPppoERelayStatsTable, aluAtmMIBCompliances=aluAtmMIBCompliances, PYSNMP_MODULE_ID=aluATMMIBModule, aluAtmNotifyPrefix=aluAtmNotifyPrefix, aeAal5VccPppoERelayStatsEntry=aeAal5VccPppoERelayStatsEntry, aeAal5VccStatsPPPoERelayErrors=aeAal5VccStatsPPPoERelayErrors, aluATMMIBModule=aluATMMIBModule, aeTAtmOamVclStatisticsEntry=aeTAtmOamVclStatisticsEntry, aeAal5VccStatsPPPoERelayOverflow=aeAal5VccStatsPPPoERelayOverflow, aluExtAtmVclVplOamStatsGroup=aluExtAtmVclVplOamStatsGroup, aluExtAtmVclVplOamStatsGroupV3v0=aluExtAtmVclVplOamStatsGroupV3v0, aluAtmMIBConformance=aluAtmMIBConformance)

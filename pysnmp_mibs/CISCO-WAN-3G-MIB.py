@@ -1,2285 +1,868 @@
-_Ea='c3gModemTemperAbateRecoveryNotif'
-_EZ='c3gModemTemperOnsetRecoveryNotif'
-_EY='c3gSmsOutSmsArchiveErrorCount'
-_EX='c3gSmsOutSmsArchiveCount'
-_EW='c3gSmsOutSmsPendingCount'
-_EV='c3gSmsInSmsCallBack'
-_EU='c3gSmsInSmsStorageMax'
-_ET='c3gSmsInSmsDeleted'
-_ES='c3gSmsInSmsCount'
-_ER='c3gSmsOutSmsStatus'
-_EQ='c3gSmsArchiveUrl'
-_EP='c3gSmsInSmsArchived'
-_EO='c3gSmsInSmsArchiveErrorCount'
-_EN='c3gSmsInSmsArchiveCount'
-_EM='c3gSmsInSmsStorageUnused'
-_EL='c3gSmsInSmsStorageUsed'
-_EK='c3gSmsOutSmsErrorCount'
-_EJ='c3gSmsOutSmsCount'
-_EI='c3gSmsServiceAvailable'
-_EH='c3gWanLbsSatelliteInfoRowStatus'
-_EG='c3gWanLbsSatelliteInfoSignalNoiseRatio'
-_EF='c3gWanLbsSatelliteUsed'
-_EE='c3gWanLbsSatelliteAzimuth'
-_ED='c3gWanLbsSatelliteElevation'
-_EC='c3gWanLbsSatelliteNumber'
-_EB='c3gLbsNumSatellites'
-_EA='c3gLbsHepe'
-_E9='c3gLbsVelocityVertical'
-_E8='c3gLbsVelocityHorizontal'
-_E7='c3gLbsHeading'
-_E6='c3gLbsVelocityValid'
-_E5='c3gLbsLocUncertaintyVertical'
-_E4='c3gLbsHeight'
-_E3='c3gLbsHeightValid'
-_E2='c3gLbsFixtype'
-_E1='c3gLbsLocUncertaintyPos'
-_E0='c3gLbsLocUncertaintyA'
-_D_='c3gLbsLocUncertaintyAngle'
-_Dz='c3gLbsTimeStamp'
-_Dy='c3gLbsLongitude'
-_Dx='c3gLbsLatitude'
-_Dw='c3gLbsLocFixError'
-_Dv='c3gLbsState'
-_Du='c3gLbsModeSelected'
-_Dt='c3gGsmNumberOfRetriesRemaining'
-_Ds='c3gGsmSimUserOperationRequired'
-_Dr='c3gGsmSimStatus'
-_Dq='c3gGsmChv1'
-_Dp='c3gGsmHistoryRssiPerHour'
-_Do='c3gGsmHistoryRssiPerMinute'
-_Dn='c3gGsmHistoryRssiPerSecond'
-_Dm='c3gGsmNearbyCellEcIoMeasurement'
-_Dl='c3gGsmNearbyCellRscp'
-_Dk='c3gGsmNearbyCellPrimaryScramblingCode'
-_Dj='c3gGsmNumberOfNearbyCell'
-_Di='c3gGsmChannelNumber'
-_Dh='c3gGsmCurrentBand'
-_Dg='c3gCurrentGsmEcIo'
-_Df='c3gCurrentGsmRssi'
-_De='c3gGsmMinGprsQosRowStatus'
-_Dd='c3gGsmMinGprsQosMeanRate'
-_Dc='c3gGsmMinGprsQosPeakRate'
-_Db='c3gGsmMinGprsQosReliability'
-_Da='c3gGsmMinGprsQosDelay'
-_DZ='c3gGsmMinGprsQosPrecedence'
-_DY='c3gGsmReqGprsQosRowStatus'
-_DX='c3gGsmReqGprsQosMeanRate'
-_DW='c3gGsmReqGprsQosPeakRate'
-_DV='c3gGsmReqGprsQosReliability'
-_DU='c3gGsmReqGprsQosDelay'
-_DT='c3gGsmReqGprsQosPrecedence'
-_DS='c3gGsmMinUmtsQosRowStatus'
-_DR='c3gGsmMinUmtsQosSignalIndication'
-_DQ='c3gGsmMinUmtsQosSrcStatDescriptor'
-_DP='c3gGsmMinUmtsQosPriority'
-_DO='c3gGsmMinUmtsQosDelay'
-_DN='c3gGsmMinUmtsQosBer'
-_DM='c3gGsmMinUmtsQosSer'
-_DL='c3gGsmMinUmtsQosMaxSduSize'
-_DK='c3gGsmMinUmtsQosErroneousSdu'
-_DJ='c3gGsmMinUmtsQosOrder'
-_DI='c3gGsmMinUmtsQosGuaDownLinkBitRate'
-_DH='c3gGsmMinUmtsQosGuaUpLinkBitRate'
-_DG='c3gGsmMinUmtsQosMaxDownLinkBitRate'
-_DF='c3gGsmMinUmtsQosMaxUpLinkBitRate'
-_DE='c3gGsmMinUmtsQosTrafficClass'
-_DD='c3gGsmReqUmtsQosRowStatus'
-_DC='c3gGsmReqUmtsQosSignalIndication'
-_DB='c3gGsmReqUmtsQosSrcStatDescriptor'
-_DA='c3gGsmReqUmtsQosPriority'
-_D9='c3gGsmReqUmtsQosDelay'
-_D8='c3gGsmReqUmtsQosBer'
-_D7='c3gGsmReqUmtsQosSer'
-_D6='c3gGsmReqUmtsQosMaxSduSize'
-_D5='c3gGsmReqUmtsQosErroneousSdu'
-_D4='c3gGsmReqUmtsQosOrder'
-_D3='c3gGsmReqUmtsQosGuaDownLinkBitRate'
-_D2='c3gGsmReqUmtsQosGuaUpLinkBitRate'
-_D1='c3gGsmReqUmtsQosMaxDownLinkBitRate'
-_D0='c3gGsmReqUmtsQosMaxUpLinkBitRate'
-_C_='c3gGsmReqUmtsQosTrafficClass'
-_Cz='c3gGsmPdpProfileRowStatus'
-_Cy='c3gGsmPdpProfilePassword'
-_Cx='c3gGsmPdpProfileUsername'
-_Cw='c3gGsmPdpProfileAuthenType'
-_Cv='c3gGsmPdpProfileApn'
-_Cu='c3gGsmPdpProfileAddr'
-_Ct='c3gGsmPdpProfileType'
-_Cs='c3gGsmServiceProvider'
-_Cr='c3gGsmPlmnAbbr'
-_Cq='c3gGsmRegPlmn'
-_Cp='c3gGsmPlmnSelection'
-_Co='c3gGsmCurrentPrimaryScramblingCode'
-_Cn='c3gGsmCurrentCellId'
-_Cm='c3gGsmRac'
-_Cl='c3gGsmNetwork'
-_Ck='c3gGsmCountry'
-_Cj='c3gGsmNetworkSelectionMode'
-_Ci='c3gGsmCurrentRoamingStatus'
-_Ch='c3gGsmPacketService'
-_Cg='c3gGsmCurrentService'
-_Cf='c3gGsmCurrentServiceError'
-_Ce='c3gGsmCurrentServiceStatus'
-_Cd='c3gGsmLac'
-_Cc='c3gGsmRoamingPreference'
-_Cb='c3gModemStatus'
-_Ca='c3gMsisdn'
-_CZ='c3gGsmNegoGprsQosMeanRate'
-_CY='c3gGsmNegoGprsQosPeakRate'
-_CX='c3gGsmNegoGprsQosReliability'
-_CW='c3gGsmNegoGprsQosDelay'
-_CV='c3gGsmNegoGprsQosPrecedence'
-_CU='c3gGsmNegoUmtsQosSignalIndication'
-_CT='c3gGsmNegoUmtsQosSrcStatDescriptor'
-_CS='c3gGsmNegoUmtsQosPriority'
-_CR='c3gGsmNegoUmtsQosDelay'
-_CQ='c3gGsmNegoUmtsQosBer'
-_CP='c3gGsmNegoUmtsQosSer'
-_CO='c3gGsmNegoUmtsQosMaxSduSize'
-_CN='c3gGsmNegoUmtsQosErroneousSdu'
-_CM='c3gGsmNegoUmtsQosOrder'
-_CL='c3gGsmNegoUmtsQosGuaDownLinkBitRate'
-_CK='c3gGsmNegoUmtsQosGuaUpLinkBitRate'
-_CJ='c3gGsmNegoUmtsQosMaxDownLinkBitRate'
-_CI='c3gGsmNegoUmtsQosMaxUpLinkBitRate'
-_CH='c3gGsmNegoUmtsQosTrafficClass'
-_CG='c3gGsmPdpAddress'
-_CF='c3gGsmPdpType'
-_CE='c3gGsmPacketSessionStatus'
-_CD='c3gGsmTotalByteReceived'
-_CC='c3gGsmTotalByteTransmitted'
-_CB='c3gCdmaPowerUpLockStatus'
-_CA='c3gCdmaPinSecurityStatus'
-_C9='c3gCdmaHistoryEvDoRssiPerHour'
-_C8='c3gCdmaHistoryEvDoRssiPerMinute'
-_C7='c3gCdmaHistoryEvDoRssiPerSecond'
-_C6='c3gCdmaHistory1xRttRssiPerHour'
-_C5='c3gCdmaHistory1xRttRssiPerMinute'
-_C4='c3gCdmaHistory1xRttRssiPerSecond'
-_C3='c3gEvDoBandClass'
-_C2='c3g1xRttBandClass'
-_C1='c3gCarrierToInterferenceRatio'
-_C0='c3gTxGainAdjust'
-_B_='c3gTxTotalPower'
-_Bz='c3gRxDiversityGainControl'
-_By='c3gRxMainGainControl'
-_Bx='c3gPnOffset'
-_Bw='c3gHdrColorCode'
-_Bv='c3gSubnetMask'
-_Bu='c3gSectorId'
-_Bt='c3gCurrentEvDoChannelNumber'
-_Bs='c3gCurrentEvDoEcIo'
-_Br='c3gCurrentEvDoRssi'
-_Bq='c3gCurrent1xRttChannelState'
-_Bp='c3gCurrent1xRttChannelNumber'
-_Bo='c3gCurrent1xRttEcIo'
-_Bn='c3gCurrent1xRttRssi'
-_Bm='c3gSecHaAddr'
-_Bl='c3gSecHaAddrType'
-_Bk='c3gPriHaAddr'
-_Bj='c3gPriHaAddrType'
-_Bi='c3gHomeAddr'
-_Bh='c3gHomeAddrType'
-_Bg='c3gReverseTunnelPreference'
-_Bf='c3gMnAaaSpi'
-_Be='c3gMnAaaSs'
-_Bd='c3gMnHaSpi'
-_Bc='c3gMnHaSs'
-_Bb='c3gAaaPassword'
-_Ba='c3gCurrentActiveDataProfile'
-_BZ='c3gNumberOfDataProfileConfigurable'
-_BY='c3gServingBaseStationLatitude'
-_BX='c3gServingBaseStationLongitude'
-_BW='c3gSipPassword'
-_BV='c3gSipUsername'
-_BU='c3gCurrentCallSetupMode'
-_BT='c3gCurrentIdleDigitalMode'
-_BS='c3gCdmaCurrentRoamingStatus'
-_BR='c3gCdmaHybridModePreference'
-_BQ='c3gCdmaCurrentServiceStatus'
-_BP='c3gPrlVersion'
-_BO='c3gCdmaRoamingPreference'
-_BN='c3gAccountActivationDate'
-_BM='c3gModemActivationStatus'
-_BL='c3gMobileIpErrorCode'
-_BK='c3gCdmaLastConnError'
-_BJ='c3gCdmaLastCallDisconnReason'
-_BI='c3gCdmaCurrentCallType'
-_BH='c3gCdmaCurrentCallDuration'
-_BG='c3gCdmaCurrentCallStatus'
-_BF='c3gCdmaCurrentReceived'
-_BE='c3gCdmaCurrentTransmitted'
-_BD='c3gHdrRri'
-_BC='c3gHdrDrcCover'
-_BB='c3gHdrDrc'
-_BA='c3gAuthStatus'
-_B9='c3gHdrSessionEnd'
-_B8='c3gHdrSessionStart'
-_B7='c3gHdrSessionDuration'
-_B6='c3gColorCode'
-_B5='c3gHdrSessionState'
-_B4='c3gHdrAtState'
-_B3='c3gOutgoingCallNumber'
-_B2='c3gHdrDdtmPreference'
-_B1='c3gCdmaTotalReceived'
-_B0='c3gCdmaTotalTransmitted'
-_A_='c3gCdmaTotalCallDuration'
-_Az='c3gGpsState'
-_Ay='c3gModemTemperAbateNotifEnabled'
-_Ax='c3gModemTemperOnsetNotifEnabled'
-_Aw='c3gEcIoAbateNotifFlag'
-_Av='c3gEcIoOnsetNotifFlag'
-_Au='c3gRssiAbateNotifFlag'
-_At='c3gRssiOnsetNotifFlag'
-_As='c3gConnectionStatusChangedNotifFlag'
-_Ar='c3gNetworkChangedNotifEnabled'
-_Aq='c3gServiceChangedNotifEnabled'
-_Ap='c3gModemDownNotifEnabled'
-_Ao='c3gModemUpNotifEnabled'
-_An='c3gModemReset'
-_Am='c3gModemTemperAbateNotifThreshold'
-_Al='c3gModemTemperOnsetNotifThreshold'
-_Ak='c3gEcIoAbateNotifThreshold'
-_Aj='c3gEcIoOnsetNotifThreshold'
-_Ai='c3gRssiAbateNotifThreshold'
-_Ah='c3gRssiOnsetNotifThreshold'
-_Ag='c3gCurrentSystemTime'
-_Af='c3gModemState'
-_Ae='c3gCapability'
-_Ad='c3gStandard'
-_Ac='c3gWanLbsSatelliteInfoIndex'
-_Ab='meters per second'
-_Aa='gpsDisabled'
-_AZ='c3gGsmNearbyCellIndex'
-_AY='C3gPdpType'
-_AX='automatic'
-_AW='c3gCdmaProfileIndex'
-_AV='modemLocked'
-_AU='modemOffline'
-_AT='oneExpMinus6'
-_AS='oneExpMinus5'
-_AR='oneExpMinus4'
-_AQ='oneExpMinus3'
-_AP='oneExpMinus2'
-_AO='umtsWcdma'
-_AN='ciscoWan3gMIBNotificationGroupRev1'
-_AM='ciscoWan3gMIBNotificationGroup'
-_AL='deprecated'
-_AK='c3gModemTemperAbateNotif'
-_AJ='c3gModemTemperOnsetNotif'
-_AI='c3gEcIoAbateNotif'
-_AH='c3gRssiAbateNotif'
-_AG='c3gEcIoOnsetNotif'
-_AF='c3gRssiOnsetNotif'
-_AE='c3gConnectionStatusChangedNotif'
-_AD='c3gNetworkChangedNotif'
-_AC='c3gServiceChangedNotif'
-_AB='c3gModemDownNotif'
-_AA='c3gModemUpNotif'
-_A9='c3gGsmMnc'
-_A8='c3gGsmMcc'
-_A7='c3gCurrentNid'
-_A6='c3gCurrentSid'
-_A5='c3gConnectionStatus'
-_A4='c3gRoamingStatus'
-_A3='c3gPreviousServiceType'
-_A2='octet-per-hour'
-_A1='c3gBandClassIndex'
-_A0='notSet'
-_z='set'
-_y='C3gTemperature'
-_x='C3gEcIo'
-_w='C3gRssi'
-_v='degrees Celsius'
-_u='active'
-_t='idle'
-_s='disconnected'
-_r='connecting'
-_q='error'
-_p='roaming'
-_o='entPhysicalName'
-_n='c3gNotifEcIo'
-_m='c3gNotifRssi'
-_l='c3gCurrentServiceType'
-_k='meters'
-_j='degrees'
-_i='noService'
-_h='dB'
-_g='inactive'
-_f='connected'
-_e='dormant'
-_d='ciscoWan3gMIBLbsObjectGroup'
-_c='ciscoWan3gMIBSmsObjectGroup'
-_b='ciscoWan3gMIBGsmObjectGroup'
-_a='ciscoWan3gMIBCdmaObjectGroup'
-_Z='ciscoWan3gMIBCommonObjectGroup'
-_Y='not-accessible'
-_X='home'
-_W='c3gModemTemperature'
-_V='c3gNotifRadioService'
-_U='milliseconds'
-_T='dBm'
-_S='none'
-_R='c3gGsmPdpProfileIndex'
-_Q='-dBm'
-_P='bytes'
-_O='OctetString'
-_N='msgs'
-_M='subscription'
-_L='TruthValue'
-_K='Unsigned32'
-_J='entPhysicalIndex'
-_I='DisplayString'
-_H='ENTITY-MIB'
-_G='unknown'
-_F='read-create'
-_E='read-write'
-_D='Integer32'
-_C='read-only'
-_B='CISCO-WAN-3G-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_O,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-entPhysicalIndex,entPhysicalName=mibBuilder.importSymbols(_H,_J,_o)
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_K,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_I,'PhysAddress','RowStatus','TextualConvention',_L)
-ciscoWan3gMIB=ModuleIdentity((1,3,6,1,4,1,9,9,661))
-if mibBuilder.loadTexts:ciscoWan3gMIB.setRevisions(('2013-08-12 00:00','2012-07-25 00:00','2012-07-10 00:00','2010-08-11 00:00','2010-08-04 00:00','2009-02-05 00:00'))
-class C3gServiceCapability(TextualConvention,Bits):status=_A;namedValues=NamedValues(*(('oneXRtt',0),('evDoRel0',1),('evDoRelA',2),('evDoRelB',3),('gprs',4),('edge',5),(_AO,6),('hsdpa',7),('hsupa',8),('hspa',9),('hspaPlus',10),('lteTdd',11),('lteFdd',12)))
-class C3gRssi(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-150,0))
-class C3gEcIo(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-150,0))
-class C3gTemperature(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-50,100))
-class C3gPdpType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_G,1),('ipV4',2),('ppp',3),('ipV6',4),('ipV4V6',5)))
-class C3gUmtsQosTrafficClass(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_M,1),('conversational',2),('streaming',3),('interactive',4),('background',5)))
-class C3gUmtsQosLinkBitRate(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)));namedValues=NamedValues(*((_M,1),('rate16kbps',2),('rate32kbps',3),('rate64kbps',4),('rate128kbps',5),('rate256kbps',6),('rate384kbps',7),('rate1dot8mbps',8),('rate3dot6mbps',9),('rate7dot2mbps',10),('rate14dot4mbps',11),('rate56kbps',12),('rate1dot15mbps',13),('rate1dot6mbps',14),('rate2dot1mbps',15),('rate2dot8mbps',16),('rate4dot2mbps',17),('rate8dot4mbps',18)))
-class C3gUmtsQosOrder(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_M,1),('withDeliverOrder',2),('withoutDeliverOrder',3)))
-class C3gUmtsQosErroneousSdu(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_M,1),('noDetect',2),('errSduDeliver',3),('errSduNotDeliver',4)))
-class C3gUmtsQosSer(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_M,1),(_AP,2),('sevenExpMinus3',3),(_AQ,4),(_AR,5),(_AS,6),(_AT,7),('oneExpMinus1',8)))
-class C3gUmtsQosBer(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_M,1),('fiveExpMinus2',2),(_AP,3),('fiveExpMinus3',4),('fourExpMinus3',5),(_AQ,6),(_AR,7),(_AS,8),(_AT,9),('sixExpMinus8',10)))
-class C3gUmtsQosPriority(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_M,1),('level1',2),('level2',3),('level3',4)))
-class C3gUmtsQosSrcStatDescriptor(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),('speech',2)))
-class C3gUmtsQosSignalIndication(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('notOptimized',1),('optimized',2)))
-class C3gGprsQosPrecedence(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_M,1),('highPriority',2),('normalPriority',3),('lowPriority',4)))
-class C3gGprsQosDelay(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_M,1),('delayClass1',2),('delayClass2',3),('delayClass3',4),('delayClass4',5)))
-class C3gGprsQosReliability(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_M,1),('ackGtpLlcRlcProtData',2),('unAckGtpAckLlcRlcProtData',3),('unAckGtpLlcAckRlcProtData',4),('unAckGtpLlcRlcProtData',5),('unAckGtpLlcRlcUnProtData',6)))
-class C3gGprsQosPeakRate(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_M,1),('upTo1kops',2),('upTo2kops',3),('upTo4kops',4),('upTo8kops',5),('upTo16kops',6),('upTo32kops',7),('upTo64kops',8),('upTo128kops',9),('upTo256kops',10)))
-class C3gGprsQosMeanRate(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32)));namedValues=NamedValues(*((_M,1),('rate100',2),('rate200',3),('rate500',4),('rate1k',5),('rate2k',6),('rate5k',7),('rate10k',8),('rate20k',9),('rate50k',10),('rate100k',11),('rate200k',12),('rate500k',13),('rate1m',14),('rate2m',15),('rate5m',16),('rate10m',17),('rate20m',18),('rate50m',19),('resv1',20),('resv2',21),('resv3',22),('resv4',23),('resv5',24),('resv6',25),('resv7',26),('resv8',27),('resv9',28),('resv10',29),('resv11',30),('resv12',31),('bestEffort',32)))
-_CiscoWan3gMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoWan3gMIBNotifs=_CiscoWan3gMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,661,0))
-_CiscoWan3gMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoWan3gMIBObjects=_CiscoWan3gMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,661,1))
-_C3gWanCommonTable_Object=MibTable
-c3gWanCommonTable=_C3gWanCommonTable_Object((1,3,6,1,4,1,9,9,661,1,1))
-if mibBuilder.loadTexts:c3gWanCommonTable.setStatus(_A)
-_C3gWanCommonEntry_Object=MibTableRow
-c3gWanCommonEntry=_C3gWanCommonEntry_Object((1,3,6,1,4,1,9,9,661,1,1,1))
-c3gWanCommonEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gWanCommonEntry.setStatus(_A)
-class _C3gStandard_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('cdma',1),('gsm',2)))
-_C3gStandard_Type.__name__=_D
-_C3gStandard_Object=MibTableColumn
-c3gStandard=_C3gStandard_Object((1,3,6,1,4,1,9,9,661,1,1,1,1),_C3gStandard_Type())
-c3gStandard.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gStandard.setStatus(_A)
-_C3gCapability_Type=C3gServiceCapability
-_C3gCapability_Object=MibTableColumn
-c3gCapability=_C3gCapability_Object((1,3,6,1,4,1,9,9,661,1,1,1,2),_C3gCapability_Type())
-c3gCapability.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCapability.setStatus(_A)
-class _C3gModemState_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),('up',2),('down',3)))
-_C3gModemState_Type.__name__=_D
-_C3gModemState_Object=MibTableColumn
-c3gModemState=_C3gModemState_Object((1,3,6,1,4,1,9,9,661,1,1,1,3),_C3gModemState_Type())
-c3gModemState.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gModemState.setStatus(_A)
-_C3gPreviousServiceType_Type=C3gServiceCapability
-_C3gPreviousServiceType_Object=MibTableColumn
-c3gPreviousServiceType=_C3gPreviousServiceType_Object((1,3,6,1,4,1,9,9,661,1,1,1,4),_C3gPreviousServiceType_Type())
-c3gPreviousServiceType.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gPreviousServiceType.setStatus(_A)
-_C3gCurrentServiceType_Type=C3gServiceCapability
-_C3gCurrentServiceType_Object=MibTableColumn
-c3gCurrentServiceType=_C3gCurrentServiceType_Object((1,3,6,1,4,1,9,9,661,1,1,1,5),_C3gCurrentServiceType_Type())
-c3gCurrentServiceType.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCurrentServiceType.setStatus(_A)
-class _C3gRoamingStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),(_p,2),(_X,3)))
-_C3gRoamingStatus_Type.__name__=_D
-_C3gRoamingStatus_Object=MibTableColumn
-c3gRoamingStatus=_C3gRoamingStatus_Object((1,3,6,1,4,1,9,9,661,1,1,1,6),_C3gRoamingStatus_Type())
-c3gRoamingStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gRoamingStatus.setStatus(_A)
-class _C3gCurrentSystemTime_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gCurrentSystemTime_Type.__name__=_I
-_C3gCurrentSystemTime_Object=MibTableColumn
-c3gCurrentSystemTime=_C3gCurrentSystemTime_Object((1,3,6,1,4,1,9,9,661,1,1,1,7),_C3gCurrentSystemTime_Type())
-c3gCurrentSystemTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCurrentSystemTime.setStatus(_A)
-class _C3gConnectionStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*((_G,1),(_q,2),(_r,3),(_e,4),(_f,5),(_s,6),(_t,7),(_u,8),(_g,9)))
-_C3gConnectionStatus_Type.__name__=_D
-_C3gConnectionStatus_Object=MibTableColumn
-c3gConnectionStatus=_C3gConnectionStatus_Object((1,3,6,1,4,1,9,9,661,1,1,1,8),_C3gConnectionStatus_Type())
-c3gConnectionStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gConnectionStatus.setStatus(_A)
-_C3gNotifRadioService_Type=C3gServiceCapability
-_C3gNotifRadioService_Object=MibTableColumn
-c3gNotifRadioService=_C3gNotifRadioService_Object((1,3,6,1,4,1,9,9,661,1,1,1,9),_C3gNotifRadioService_Type())
-c3gNotifRadioService.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gNotifRadioService.setStatus(_A)
-_C3gNotifRssi_Type=C3gRssi
-_C3gNotifRssi_Object=MibTableColumn
-c3gNotifRssi=_C3gNotifRssi_Object((1,3,6,1,4,1,9,9,661,1,1,1,10),_C3gNotifRssi_Type())
-c3gNotifRssi.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gNotifRssi.setStatus(_A)
-_C3gNotifEcIo_Type=C3gEcIo
-_C3gNotifEcIo_Object=MibTableColumn
-c3gNotifEcIo=_C3gNotifEcIo_Object((1,3,6,1,4,1,9,9,661,1,1,1,11),_C3gNotifEcIo_Type())
-c3gNotifEcIo.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gNotifEcIo.setStatus(_A)
-_C3gModemTemperature_Type=C3gTemperature
-_C3gModemTemperature_Object=MibTableColumn
-c3gModemTemperature=_C3gModemTemperature_Object((1,3,6,1,4,1,9,9,661,1,1,1,12),_C3gModemTemperature_Type())
-c3gModemTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gModemTemperature.setStatus(_A)
-if mibBuilder.loadTexts:c3gModemTemperature.setUnits(_v)
-class _C3gRssiOnsetNotifThreshold_Type(C3gRssi):defaultValue=-150
-_C3gRssiOnsetNotifThreshold_Type.__name__=_w
-_C3gRssiOnsetNotifThreshold_Object=MibTableColumn
-c3gRssiOnsetNotifThreshold=_C3gRssiOnsetNotifThreshold_Object((1,3,6,1,4,1,9,9,661,1,1,1,13),_C3gRssiOnsetNotifThreshold_Type())
-c3gRssiOnsetNotifThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gRssiOnsetNotifThreshold.setStatus(_A)
-if mibBuilder.loadTexts:c3gRssiOnsetNotifThreshold.setUnits(_T)
-class _C3gRssiAbateNotifThreshold_Type(C3gRssi):defaultValue=0
-_C3gRssiAbateNotifThreshold_Type.__name__=_w
-_C3gRssiAbateNotifThreshold_Object=MibTableColumn
-c3gRssiAbateNotifThreshold=_C3gRssiAbateNotifThreshold_Object((1,3,6,1,4,1,9,9,661,1,1,1,14),_C3gRssiAbateNotifThreshold_Type())
-c3gRssiAbateNotifThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gRssiAbateNotifThreshold.setStatus(_A)
-if mibBuilder.loadTexts:c3gRssiAbateNotifThreshold.setUnits(_T)
-class _C3gEcIoOnsetNotifThreshold_Type(C3gEcIo):defaultValue=-150
-_C3gEcIoOnsetNotifThreshold_Type.__name__=_x
-_C3gEcIoOnsetNotifThreshold_Object=MibTableColumn
-c3gEcIoOnsetNotifThreshold=_C3gEcIoOnsetNotifThreshold_Object((1,3,6,1,4,1,9,9,661,1,1,1,15),_C3gEcIoOnsetNotifThreshold_Type())
-c3gEcIoOnsetNotifThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gEcIoOnsetNotifThreshold.setStatus(_A)
-if mibBuilder.loadTexts:c3gEcIoOnsetNotifThreshold.setUnits(_h)
-class _C3gEcIoAbateNotifThreshold_Type(C3gEcIo):defaultValue=0
-_C3gEcIoAbateNotifThreshold_Type.__name__=_x
-_C3gEcIoAbateNotifThreshold_Object=MibTableColumn
-c3gEcIoAbateNotifThreshold=_C3gEcIoAbateNotifThreshold_Object((1,3,6,1,4,1,9,9,661,1,1,1,16),_C3gEcIoAbateNotifThreshold_Type())
-c3gEcIoAbateNotifThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gEcIoAbateNotifThreshold.setStatus(_A)
-if mibBuilder.loadTexts:c3gEcIoAbateNotifThreshold.setUnits(_h)
-class _C3gModemTemperOnsetNotifThreshold_Type(C3gTemperature):defaultValue=100
-_C3gModemTemperOnsetNotifThreshold_Type.__name__=_y
-_C3gModemTemperOnsetNotifThreshold_Object=MibTableColumn
-c3gModemTemperOnsetNotifThreshold=_C3gModemTemperOnsetNotifThreshold_Object((1,3,6,1,4,1,9,9,661,1,1,1,17),_C3gModemTemperOnsetNotifThreshold_Type())
-c3gModemTemperOnsetNotifThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gModemTemperOnsetNotifThreshold.setStatus(_A)
-if mibBuilder.loadTexts:c3gModemTemperOnsetNotifThreshold.setUnits(_v)
-class _C3gModemTemperAbateNotifThreshold_Type(C3gTemperature):defaultValue=-50
-_C3gModemTemperAbateNotifThreshold_Type.__name__=_y
-_C3gModemTemperAbateNotifThreshold_Object=MibTableColumn
-c3gModemTemperAbateNotifThreshold=_C3gModemTemperAbateNotifThreshold_Object((1,3,6,1,4,1,9,9,661,1,1,1,18),_C3gModemTemperAbateNotifThreshold_Type())
-c3gModemTemperAbateNotifThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gModemTemperAbateNotifThreshold.setStatus(_A)
-if mibBuilder.loadTexts:c3gModemTemperAbateNotifThreshold.setUnits(_v)
-class _C3gModemReset_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('reset',1),('powerCycle',2)))
-_C3gModemReset_Type.__name__=_D
-_C3gModemReset_Object=MibTableColumn
-c3gModemReset=_C3gModemReset_Object((1,3,6,1,4,1,9,9,661,1,1,1,19),_C3gModemReset_Type())
-c3gModemReset.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gModemReset.setStatus(_A)
-class _C3gModemUpNotifEnabled_Type(TruthValue):defaultValue=2
-_C3gModemUpNotifEnabled_Type.__name__=_L
-_C3gModemUpNotifEnabled_Object=MibTableColumn
-c3gModemUpNotifEnabled=_C3gModemUpNotifEnabled_Object((1,3,6,1,4,1,9,9,661,1,1,1,20),_C3gModemUpNotifEnabled_Type())
-c3gModemUpNotifEnabled.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gModemUpNotifEnabled.setStatus(_A)
-class _C3gModemDownNotifEnabled_Type(TruthValue):defaultValue=2
-_C3gModemDownNotifEnabled_Type.__name__=_L
-_C3gModemDownNotifEnabled_Object=MibTableColumn
-c3gModemDownNotifEnabled=_C3gModemDownNotifEnabled_Object((1,3,6,1,4,1,9,9,661,1,1,1,21),_C3gModemDownNotifEnabled_Type())
-c3gModemDownNotifEnabled.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gModemDownNotifEnabled.setStatus(_A)
-class _C3gServiceChangedNotifEnabled_Type(TruthValue):defaultValue=2
-_C3gServiceChangedNotifEnabled_Type.__name__=_L
-_C3gServiceChangedNotifEnabled_Object=MibTableColumn
-c3gServiceChangedNotifEnabled=_C3gServiceChangedNotifEnabled_Object((1,3,6,1,4,1,9,9,661,1,1,1,22),_C3gServiceChangedNotifEnabled_Type())
-c3gServiceChangedNotifEnabled.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gServiceChangedNotifEnabled.setStatus(_A)
-class _C3gNetworkChangedNotifEnabled_Type(TruthValue):defaultValue=2
-_C3gNetworkChangedNotifEnabled_Type.__name__=_L
-_C3gNetworkChangedNotifEnabled_Object=MibTableColumn
-c3gNetworkChangedNotifEnabled=_C3gNetworkChangedNotifEnabled_Object((1,3,6,1,4,1,9,9,661,1,1,1,23),_C3gNetworkChangedNotifEnabled_Type())
-c3gNetworkChangedNotifEnabled.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gNetworkChangedNotifEnabled.setStatus(_A)
-class _C3gConnectionStatusChangedNotifFlag_Type(Bits):namedValues=NamedValues(*((_G,0),(_q,1),(_r,2),(_e,3),(_f,4),(_s,5),(_t,6),(_u,7),(_g,8)))
-_C3gConnectionStatusChangedNotifFlag_Type.__name__='Bits'
-_C3gConnectionStatusChangedNotifFlag_Object=MibTableColumn
-c3gConnectionStatusChangedNotifFlag=_C3gConnectionStatusChangedNotifFlag_Object((1,3,6,1,4,1,9,9,661,1,1,1,24),_C3gConnectionStatusChangedNotifFlag_Type())
-c3gConnectionStatusChangedNotifFlag.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gConnectionStatusChangedNotifFlag.setStatus(_A)
-_C3gRssiOnsetNotifFlag_Type=C3gServiceCapability
-_C3gRssiOnsetNotifFlag_Object=MibTableColumn
-c3gRssiOnsetNotifFlag=_C3gRssiOnsetNotifFlag_Object((1,3,6,1,4,1,9,9,661,1,1,1,25),_C3gRssiOnsetNotifFlag_Type())
-c3gRssiOnsetNotifFlag.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gRssiOnsetNotifFlag.setStatus(_A)
-_C3gRssiAbateNotifFlag_Type=C3gServiceCapability
-_C3gRssiAbateNotifFlag_Object=MibTableColumn
-c3gRssiAbateNotifFlag=_C3gRssiAbateNotifFlag_Object((1,3,6,1,4,1,9,9,661,1,1,1,26),_C3gRssiAbateNotifFlag_Type())
-c3gRssiAbateNotifFlag.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gRssiAbateNotifFlag.setStatus(_A)
-_C3gEcIoOnsetNotifFlag_Type=C3gServiceCapability
-_C3gEcIoOnsetNotifFlag_Object=MibTableColumn
-c3gEcIoOnsetNotifFlag=_C3gEcIoOnsetNotifFlag_Object((1,3,6,1,4,1,9,9,661,1,1,1,27),_C3gEcIoOnsetNotifFlag_Type())
-c3gEcIoOnsetNotifFlag.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gEcIoOnsetNotifFlag.setStatus(_A)
-_C3gEcIoAbateNotifFlag_Type=C3gServiceCapability
-_C3gEcIoAbateNotifFlag_Object=MibTableColumn
-c3gEcIoAbateNotifFlag=_C3gEcIoAbateNotifFlag_Object((1,3,6,1,4,1,9,9,661,1,1,1,28),_C3gEcIoAbateNotifFlag_Type())
-c3gEcIoAbateNotifFlag.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gEcIoAbateNotifFlag.setStatus(_A)
-class _C3gModemTemperOnsetNotifEnabled_Type(TruthValue):defaultValue=2
-_C3gModemTemperOnsetNotifEnabled_Type.__name__=_L
-_C3gModemTemperOnsetNotifEnabled_Object=MibTableColumn
-c3gModemTemperOnsetNotifEnabled=_C3gModemTemperOnsetNotifEnabled_Object((1,3,6,1,4,1,9,9,661,1,1,1,29),_C3gModemTemperOnsetNotifEnabled_Type())
-c3gModemTemperOnsetNotifEnabled.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gModemTemperOnsetNotifEnabled.setStatus(_A)
-class _C3gModemTemperAbateNotifEnabled_Type(TruthValue):defaultValue=2
-_C3gModemTemperAbateNotifEnabled_Type.__name__=_L
-_C3gModemTemperAbateNotifEnabled_Object=MibTableColumn
-c3gModemTemperAbateNotifEnabled=_C3gModemTemperAbateNotifEnabled_Object((1,3,6,1,4,1,9,9,661,1,1,1,30),_C3gModemTemperAbateNotifEnabled_Type())
-c3gModemTemperAbateNotifEnabled.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gModemTemperAbateNotifEnabled.setStatus(_A)
-class _C3gGpsState_Type(TruthValue):defaultValue=2
-_C3gGpsState_Type.__name__=_L
-_C3gGpsState_Object=MibTableColumn
-c3gGpsState=_C3gGpsState_Object((1,3,6,1,4,1,9,9,661,1,1,1,31),_C3gGpsState_Type())
-c3gGpsState.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gGpsState.setStatus(_A)
-_C3gWanCdma_ObjectIdentity=ObjectIdentity
-c3gWanCdma=_C3gWanCdma_ObjectIdentity((1,3,6,1,4,1,9,9,661,1,2))
-_C3gCdmaSessionTable_Object=MibTable
-c3gCdmaSessionTable=_C3gCdmaSessionTable_Object((1,3,6,1,4,1,9,9,661,1,2,1))
-if mibBuilder.loadTexts:c3gCdmaSessionTable.setStatus(_A)
-_C3gCdmaSessionEntry_Object=MibTableRow
-c3gCdmaSessionEntry=_C3gCdmaSessionEntry_Object((1,3,6,1,4,1,9,9,661,1,2,1,1))
-c3gCdmaSessionEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gCdmaSessionEntry.setStatus(_A)
-_C3gCdmaTotalCallDuration_Type=Counter64
-_C3gCdmaTotalCallDuration_Object=MibTableColumn
-c3gCdmaTotalCallDuration=_C3gCdmaTotalCallDuration_Object((1,3,6,1,4,1,9,9,661,1,2,1,1,1),_C3gCdmaTotalCallDuration_Type())
-c3gCdmaTotalCallDuration.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaTotalCallDuration.setStatus(_A)
-if mibBuilder.loadTexts:c3gCdmaTotalCallDuration.setUnits('seconds')
-_C3gCdmaTotalTransmitted_Type=Counter64
-_C3gCdmaTotalTransmitted_Object=MibTableColumn
-c3gCdmaTotalTransmitted=_C3gCdmaTotalTransmitted_Object((1,3,6,1,4,1,9,9,661,1,2,1,1,2),_C3gCdmaTotalTransmitted_Type())
-c3gCdmaTotalTransmitted.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaTotalTransmitted.setStatus(_A)
-if mibBuilder.loadTexts:c3gCdmaTotalTransmitted.setUnits(_P)
-_C3gCdmaTotalReceived_Type=Counter64
-_C3gCdmaTotalReceived_Object=MibTableColumn
-c3gCdmaTotalReceived=_C3gCdmaTotalReceived_Object((1,3,6,1,4,1,9,9,661,1,2,1,1,3),_C3gCdmaTotalReceived_Type())
-c3gCdmaTotalReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaTotalReceived.setStatus(_A)
-if mibBuilder.loadTexts:c3gCdmaTotalReceived.setUnits(_P)
-class _C3gHdrDdtmPreference_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),('off',2),('on',3),('noChange',4)))
-_C3gHdrDdtmPreference_Type.__name__=_D
-_C3gHdrDdtmPreference_Object=MibTableColumn
-c3gHdrDdtmPreference=_C3gHdrDdtmPreference_Object((1,3,6,1,4,1,9,9,661,1,2,1,1,4),_C3gHdrDdtmPreference_Type())
-c3gHdrDdtmPreference.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gHdrDdtmPreference.setStatus(_A)
-_C3gCdmaConnectionTable_Object=MibTable
-c3gCdmaConnectionTable=_C3gCdmaConnectionTable_Object((1,3,6,1,4,1,9,9,661,1,2,2))
-if mibBuilder.loadTexts:c3gCdmaConnectionTable.setStatus(_A)
-_C3gCdmaConnectionEntry_Object=MibTableRow
-c3gCdmaConnectionEntry=_C3gCdmaConnectionEntry_Object((1,3,6,1,4,1,9,9,661,1,2,2,1))
-c3gCdmaConnectionEntry.setIndexNames((0,'IF-MIB','ifIndex'))
-if mibBuilder.loadTexts:c3gCdmaConnectionEntry.setStatus(_A)
-class _C3gOutgoingCallNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gOutgoingCallNumber_Type.__name__=_I
-_C3gOutgoingCallNumber_Object=MibTableColumn
-c3gOutgoingCallNumber=_C3gOutgoingCallNumber_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,1),_C3gOutgoingCallNumber_Type())
-c3gOutgoingCallNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gOutgoingCallNumber.setStatus(_A)
-class _C3gHdrAtState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*((_G,1),(_g,2),('acquisition',3),('sync',4),(_t,5),('access',6),(_f,7)))
-_C3gHdrAtState_Type.__name__=_D
-_C3gHdrAtState_Object=MibTableColumn
-c3gHdrAtState=_C3gHdrAtState_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,2),_C3gHdrAtState_Type())
-c3gHdrAtState.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gHdrAtState.setStatus(_A)
-class _C3gHdrSessionState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_G,1),('open',2),('close',3),('addressManagementProtocolSetup',4),('atInitiated',5),('anInitiated',6)))
-_C3gHdrSessionState_Type.__name__=_D
-_C3gHdrSessionState_Object=MibTableColumn
-c3gHdrSessionState=_C3gHdrSessionState_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,3),_C3gHdrSessionState_Type())
-c3gHdrSessionState.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gHdrSessionState.setStatus(_A)
-class _C3gUati_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gUati_Type.__name__=_I
-_C3gUati_Object=MibTableColumn
-c3gUati=_C3gUati_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,4),_C3gUati_Type())
-c3gUati.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gUati.setStatus(_A)
-_C3gColorCode_Type=Unsigned32
-_C3gColorCode_Object=MibTableColumn
-c3gColorCode=_C3gColorCode_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,5),_C3gColorCode_Type())
-c3gColorCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gColorCode.setStatus(_A)
-_C3gRati_Type=Unsigned32
-_C3gRati_Object=MibTableColumn
-c3gRati=_C3gRati_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,6),_C3gRati_Type())
-c3gRati.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gRati.setStatus(_A)
-class _C3gHdrSessionDuration_Type(Unsigned32):defaultValue=0
-_C3gHdrSessionDuration_Type.__name__=_K
-_C3gHdrSessionDuration_Object=MibTableColumn
-c3gHdrSessionDuration=_C3gHdrSessionDuration_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,7),_C3gHdrSessionDuration_Type())
-c3gHdrSessionDuration.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gHdrSessionDuration.setStatus(_A)
-if mibBuilder.loadTexts:c3gHdrSessionDuration.setUnits(_U)
-class _C3gHdrSessionStart_Type(Unsigned32):defaultValue=0
-_C3gHdrSessionStart_Type.__name__=_K
-_C3gHdrSessionStart_Object=MibTableColumn
-c3gHdrSessionStart=_C3gHdrSessionStart_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,8),_C3gHdrSessionStart_Type())
-c3gHdrSessionStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gHdrSessionStart.setStatus(_A)
-if mibBuilder.loadTexts:c3gHdrSessionStart.setUnits(_U)
-class _C3gHdrSessionEnd_Type(Unsigned32):defaultValue=0
-_C3gHdrSessionEnd_Type.__name__=_K
-_C3gHdrSessionEnd_Object=MibTableColumn
-c3gHdrSessionEnd=_C3gHdrSessionEnd_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,9),_C3gHdrSessionEnd_Type())
-c3gHdrSessionEnd.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gHdrSessionEnd.setStatus(_A)
-if mibBuilder.loadTexts:c3gHdrSessionEnd.setUnits(_U)
-class _C3gAuthStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_G,1),('notAuthenticated',2),('authenticated',3),('failed',4),('authenticationDisabled',5)))
-_C3gAuthStatus_Type.__name__=_D
-_C3gAuthStatus_Object=MibTableColumn
-c3gAuthStatus=_C3gAuthStatus_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,10),_C3gAuthStatus_Type())
-c3gAuthStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gAuthStatus.setStatus(_A)
-class _C3gHdrDrc_Type(Unsigned32):defaultValue=0
-_C3gHdrDrc_Type.__name__=_K
-_C3gHdrDrc_Object=MibTableColumn
-c3gHdrDrc=_C3gHdrDrc_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,11),_C3gHdrDrc_Type())
-c3gHdrDrc.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gHdrDrc.setStatus(_A)
-class _C3gHdrDrcCover_Type(Unsigned32):defaultValue=0
-_C3gHdrDrcCover_Type.__name__=_K
-_C3gHdrDrcCover_Object=MibTableColumn
-c3gHdrDrcCover=_C3gHdrDrcCover_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,12),_C3gHdrDrcCover_Type())
-c3gHdrDrcCover.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gHdrDrcCover.setStatus(_A)
-class _C3gHdrRri_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*((_G,1),('pilotOnly',2),('rri9dot6kbps',3),('rri19dot2kbps',4),('rri38dot4kbps',5),('rri76dot8kbps',6),('rri153dot6kbps',7)))
-_C3gHdrRri_Type.__name__=_D
-_C3gHdrRri_Object=MibTableColumn
-c3gHdrRri=_C3gHdrRri_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,13),_C3gHdrRri_Type())
-c3gHdrRri.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gHdrRri.setStatus(_A)
-_C3gMobileIpErrorCode_Type=Integer32
-_C3gMobileIpErrorCode_Object=MibTableColumn
-c3gMobileIpErrorCode=_C3gMobileIpErrorCode_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,14),_C3gMobileIpErrorCode_Type())
-c3gMobileIpErrorCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gMobileIpErrorCode.setStatus(_A)
-_C3gCdmaCurrentTransmitted_Type=Counter64
-_C3gCdmaCurrentTransmitted_Object=MibTableColumn
-c3gCdmaCurrentTransmitted=_C3gCdmaCurrentTransmitted_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,15),_C3gCdmaCurrentTransmitted_Type())
-c3gCdmaCurrentTransmitted.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaCurrentTransmitted.setStatus(_A)
-if mibBuilder.loadTexts:c3gCdmaCurrentTransmitted.setUnits(_P)
-_C3gCdmaCurrentReceived_Type=Counter64
-_C3gCdmaCurrentReceived_Object=MibTableColumn
-c3gCdmaCurrentReceived=_C3gCdmaCurrentReceived_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,16),_C3gCdmaCurrentReceived_Type())
-c3gCdmaCurrentReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaCurrentReceived.setStatus(_A)
-if mibBuilder.loadTexts:c3gCdmaCurrentReceived.setUnits(_P)
-class _C3gCdmaCurrentCallStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_G,1),(_q,2),(_r,3),(_e,4),(_f,5),(_s,6)))
-_C3gCdmaCurrentCallStatus_Type.__name__=_D
-_C3gCdmaCurrentCallStatus_Object=MibTableColumn
-c3gCdmaCurrentCallStatus=_C3gCdmaCurrentCallStatus_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,17),_C3gCdmaCurrentCallStatus_Type())
-c3gCdmaCurrentCallStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaCurrentCallStatus.setStatus(_A)
-class _C3gCdmaCurrentCallDuration_Type(Unsigned32):defaultValue=0
-_C3gCdmaCurrentCallDuration_Type.__name__=_K
-_C3gCdmaCurrentCallDuration_Object=MibTableColumn
-c3gCdmaCurrentCallDuration=_C3gCdmaCurrentCallDuration_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,18),_C3gCdmaCurrentCallDuration_Type())
-c3gCdmaCurrentCallDuration.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaCurrentCallDuration.setStatus(_A)
-if mibBuilder.loadTexts:c3gCdmaCurrentCallDuration.setUnits('seconds')
-class _C3gCdmaCurrentCallType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)));namedValues=NamedValues(*((_G,1),('asyncData',2),('voiceCall',3),('packet1xRttCall',4),('atAsyncDataCall',5),('atVoiceCall',6),('atPacketCall',7),('faxCall',8),('smsCall',9),('otaCall',10),('testCall',11),('callWaiting',12),('positionDetermination',13),(_e,14),('e911Call',15)))
-_C3gCdmaCurrentCallType_Type.__name__=_D
-_C3gCdmaCurrentCallType_Object=MibTableColumn
-c3gCdmaCurrentCallType=_C3gCdmaCurrentCallType_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,19),_C3gCdmaCurrentCallType_Type())
-c3gCdmaCurrentCallType.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaCurrentCallType.setStatus(_A)
-class _C3gCdmaLastCallDisconnReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37)));namedValues=NamedValues(*((_G,1),(_AU,2),('modemCdmaLocTilPowCyc',3),(_i,4),('abnormalCallEnd',5),('baseStatIntercept',6),('baseStatRelease',7),('baseStatReleaseNoReas',8),('baseStatReleaseSoRej',9),('incomingCall',10),('baseStatAlertStop',11),('clientEndedCall',12),('activationEndedOtasp',13),('ndssFailure',14),('maxAccesProbTransmit',15),('persistTestFailure',16),('ruimNotPresent',17),('accessAttemptInProg',18),('reasonUnspecified',19),('recdRetryOrder',20),(_AV,21),('gpsCallEnded',22),('smsCallEnded',23),('noConcurrentService',24),('noResponseFromBs',25),('rejectedByBs',26),('notCompatConcurServ',27),('accessBlockedByBs',28),('alreadyOnTraffChann',29),('emergencyCall',30),('dataCallEnded',31),('busyHdr',32),('billingOrAuthErrHdr',33),('sysChangeDueToPrlHdr',34),('hdrExitDueToPrl',35),('noSessionHdr',36),('callEndedHdr',37)))
-_C3gCdmaLastCallDisconnReason_Type.__name__=_D
-_C3gCdmaLastCallDisconnReason_Object=MibTableColumn
-c3gCdmaLastCallDisconnReason=_C3gCdmaLastCallDisconnReason_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,20),_C3gCdmaLastCallDisconnReason_Type())
-c3gCdmaLastCallDisconnReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaLastCallDisconnReason.setStatus(_A)
-class _C3gCdmaLastConnError_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)));namedValues=NamedValues(*((_S,1),('invalidClientId',2),('badCallType',3),('badServiceType',4),('expectingNumber',5),('nullNumberBuffer',6),('invalidDigits',7),('outOfRangeNumber',8),('nullAalphaBuffer',9),('outOfRangeAlphaNumber',10),('invalidOtaspActivatCode',11),(_AU,12),(_AV,13),('unsupportedFlash',14),('dialedNumberProhibited',15),('onlyE911Calls',16),('modemInUse',17),('unsupportedServiceType',18),('wrongCallType',19),('invalidCommandCallState',20),('invalidCommandModemState',21),('noValidService',22),('cannotAnswerIncomingCall',23),('badPrivacySetting',24),('noCommandBuffers',25),('communicationProblem',26),('unspecifiedError',27),('invalidLastActiveNetwork',28),('noCollocatedHdr',29),('uimNotPresent',30)))
-_C3gCdmaLastConnError_Type.__name__=_D
-_C3gCdmaLastConnError_Object=MibTableColumn
-c3gCdmaLastConnError=_C3gCdmaLastConnError_Object((1,3,6,1,4,1,9,9,661,1,2,2,1,21),_C3gCdmaLastConnError_Type())
-c3gCdmaLastConnError.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaLastConnError.setStatus(_A)
-_C3gCdmaIdentityTable_Object=MibTable
-c3gCdmaIdentityTable=_C3gCdmaIdentityTable_Object((1,3,6,1,4,1,9,9,661,1,2,3))
-if mibBuilder.loadTexts:c3gCdmaIdentityTable.setStatus(_A)
-_C3gCdmaIdentityEntry_Object=MibTableRow
-c3gCdmaIdentityEntry=_C3gCdmaIdentityEntry_Object((1,3,6,1,4,1,9,9,661,1,2,3,1))
-c3gCdmaIdentityEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gCdmaIdentityEntry.setStatus(_A)
-class _C3gEsn_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_C3gEsn_Type.__name__=_I
-_C3gEsn_Object=MibTableColumn
-c3gEsn=_C3gEsn_Object((1,3,6,1,4,1,9,9,661,1,2,3,1,1),_C3gEsn_Type())
-c3gEsn.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gEsn.setStatus(_A)
-class _C3gModemActivationStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),('activated',2),('notActivated',3)))
-_C3gModemActivationStatus_Type.__name__=_D
-_C3gModemActivationStatus_Object=MibTableColumn
-c3gModemActivationStatus=_C3gModemActivationStatus_Object((1,3,6,1,4,1,9,9,661,1,2,3,1,2),_C3gModemActivationStatus_Type())
-c3gModemActivationStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gModemActivationStatus.setStatus(_A)
-class _C3gAccountActivationDate_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_C3gAccountActivationDate_Type.__name__=_I
-_C3gAccountActivationDate_Object=MibTableColumn
-c3gAccountActivationDate=_C3gAccountActivationDate_Object((1,3,6,1,4,1,9,9,661,1,2,3,1,3),_C3gAccountActivationDate_Type())
-c3gAccountActivationDate.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gAccountActivationDate.setStatus(_A)
-class _C3gCdmaRoamingPreference_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),(_X,2),('affiliated',3),('any',4)))
-_C3gCdmaRoamingPreference_Type.__name__=_D
-_C3gCdmaRoamingPreference_Object=MibTableColumn
-c3gCdmaRoamingPreference=_C3gCdmaRoamingPreference_Object((1,3,6,1,4,1,9,9,661,1,2,3,1,4),_C3gCdmaRoamingPreference_Type())
-c3gCdmaRoamingPreference.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gCdmaRoamingPreference.setStatus(_A)
-class _C3gPrlVersion_Type(Unsigned32):defaultValue=0
-_C3gPrlVersion_Type.__name__=_K
-_C3gPrlVersion_Object=MibTableColumn
-c3gPrlVersion=_C3gPrlVersion_Object((1,3,6,1,4,1,9,9,661,1,2,3,1,5),_C3gPrlVersion_Type())
-c3gPrlVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gPrlVersion.setStatus(_A)
-class _C3gMdn_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gMdn_Type.__name__=_I
-_C3gMdn_Object=MibTableColumn
-c3gMdn=_C3gMdn_Object((1,3,6,1,4,1,9,9,661,1,2,3,1,6),_C3gMdn_Type())
-c3gMdn.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gMdn.setStatus(_A)
-class _C3gMsid_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gMsid_Type.__name__=_I
-_C3gMsid_Object=MibTableColumn
-c3gMsid=_C3gMsid_Object((1,3,6,1,4,1,9,9,661,1,2,3,1,7),_C3gMsid_Type())
-c3gMsid.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gMsid.setStatus(_A)
-class _C3gMsl_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gMsl_Type.__name__=_I
-_C3gMsl_Object=MibTableColumn
-c3gMsl=_C3gMsl_Object((1,3,6,1,4,1,9,9,661,1,2,3,1,8),_C3gMsl_Type())
-c3gMsl.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gMsl.setStatus(_A)
-_C3gCdmaNetworkTable_Object=MibTable
-c3gCdmaNetworkTable=_C3gCdmaNetworkTable_Object((1,3,6,1,4,1,9,9,661,1,2,4))
-if mibBuilder.loadTexts:c3gCdmaNetworkTable.setStatus(_A)
-_C3gCdmaNetworkEntry_Object=MibTableRow
-c3gCdmaNetworkEntry=_C3gCdmaNetworkEntry_Object((1,3,6,1,4,1,9,9,661,1,2,4,1))
-c3gCdmaNetworkEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gCdmaNetworkEntry.setStatus(_A)
-class _C3gCdmaCurrentServiceStatus_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gCdmaCurrentServiceStatus_Type.__name__=_I
-_C3gCdmaCurrentServiceStatus_Object=MibTableColumn
-c3gCdmaCurrentServiceStatus=_C3gCdmaCurrentServiceStatus_Object((1,3,6,1,4,1,9,9,661,1,2,4,1,1),_C3gCdmaCurrentServiceStatus_Type())
-c3gCdmaCurrentServiceStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaCurrentServiceStatus.setStatus(_A)
-class _C3gCdmaHybridModePreference_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),('hybrid',2),('evDoOnly',3),('oneXRttOnly',4)))
-_C3gCdmaHybridModePreference_Type.__name__=_D
-_C3gCdmaHybridModePreference_Object=MibTableColumn
-c3gCdmaHybridModePreference=_C3gCdmaHybridModePreference_Object((1,3,6,1,4,1,9,9,661,1,2,4,1,2),_C3gCdmaHybridModePreference_Type())
-c3gCdmaHybridModePreference.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gCdmaHybridModePreference.setStatus(_A)
-class _C3gCdmaCurrentRoamingStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),(_X,2),('roamingWithSid',3),('roamingWithoutSid',4)))
-_C3gCdmaCurrentRoamingStatus_Type.__name__=_D
-_C3gCdmaCurrentRoamingStatus_Object=MibTableColumn
-c3gCdmaCurrentRoamingStatus=_C3gCdmaCurrentRoamingStatus_Object((1,3,6,1,4,1,9,9,661,1,2,4,1,3),_C3gCdmaCurrentRoamingStatus_Type())
-c3gCdmaCurrentRoamingStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaCurrentRoamingStatus.setStatus(_A)
-class _C3gCurrentIdleDigitalMode_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*((_G,1),(_i,2),('amps',3),('cdma',4),('gsm',5),('hdr',6),('wcdma',7),('gps',8),('lte',9)))
-_C3gCurrentIdleDigitalMode_Type.__name__=_D
-_C3gCurrentIdleDigitalMode_Object=MibTableColumn
-c3gCurrentIdleDigitalMode=_C3gCurrentIdleDigitalMode_Object((1,3,6,1,4,1,9,9,661,1,2,4,1,4),_C3gCurrentIdleDigitalMode_Type())
-c3gCurrentIdleDigitalMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCurrentIdleDigitalMode.setStatus(_A)
-class _C3gCurrentSid_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,32767))
-_C3gCurrentSid_Type.__name__=_D
-_C3gCurrentSid_Object=MibTableColumn
-c3gCurrentSid=_C3gCurrentSid_Object((1,3,6,1,4,1,9,9,661,1,2,4,1,5),_C3gCurrentSid_Type())
-c3gCurrentSid.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gCurrentSid.setStatus(_A)
-class _C3gCurrentNid_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,65535))
-_C3gCurrentNid_Type.__name__=_D
-_C3gCurrentNid_Object=MibTableColumn
-c3gCurrentNid=_C3gCurrentNid_Object((1,3,6,1,4,1,9,9,661,1,2,4,1,6),_C3gCurrentNid_Type())
-c3gCurrentNid.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gCurrentNid.setStatus(_A)
-class _C3gCurrentCallSetupMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),('simpleIpOnly',2),('mobileIpPreferWithSipFallback',3),('mobileIpOnly',4)))
-_C3gCurrentCallSetupMode_Type.__name__=_D
-_C3gCurrentCallSetupMode_Object=MibTableColumn
-c3gCurrentCallSetupMode=_C3gCurrentCallSetupMode_Object((1,3,6,1,4,1,9,9,661,1,2,4,1,7),_C3gCurrentCallSetupMode_Type())
-c3gCurrentCallSetupMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gCurrentCallSetupMode.setStatus(_A)
-class _C3gSipUsername_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gSipUsername_Type.__name__=_I
-_C3gSipUsername_Object=MibTableColumn
-c3gSipUsername=_C3gSipUsername_Object((1,3,6,1,4,1,9,9,661,1,2,4,1,8),_C3gSipUsername_Type())
-c3gSipUsername.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gSipUsername.setStatus(_A)
-class _C3gSipPassword_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gSipPassword_Type.__name__=_I
-_C3gSipPassword_Object=MibTableColumn
-c3gSipPassword=_C3gSipPassword_Object((1,3,6,1,4,1,9,9,661,1,2,4,1,9),_C3gSipPassword_Type())
-c3gSipPassword.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gSipPassword.setStatus(_A)
-class _C3gServingBaseStationLongitude_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gServingBaseStationLongitude_Type.__name__=_I
-_C3gServingBaseStationLongitude_Object=MibTableColumn
-c3gServingBaseStationLongitude=_C3gServingBaseStationLongitude_Object((1,3,6,1,4,1,9,9,661,1,2,4,1,10),_C3gServingBaseStationLongitude_Type())
-c3gServingBaseStationLongitude.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gServingBaseStationLongitude.setStatus(_A)
-class _C3gServingBaseStationLatitude_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gServingBaseStationLatitude_Type.__name__=_I
-_C3gServingBaseStationLatitude_Object=MibTableColumn
-c3gServingBaseStationLatitude=_C3gServingBaseStationLatitude_Object((1,3,6,1,4,1,9,9,661,1,2,4,1,11),_C3gServingBaseStationLatitude_Type())
-c3gServingBaseStationLatitude.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gServingBaseStationLatitude.setStatus(_A)
-_C3gCdmaProfile_ObjectIdentity=ObjectIdentity
-c3gCdmaProfile=_C3gCdmaProfile_ObjectIdentity((1,3,6,1,4,1,9,9,661,1,2,5))
-_C3gCdmaProfileCommonTable_Object=MibTable
-c3gCdmaProfileCommonTable=_C3gCdmaProfileCommonTable_Object((1,3,6,1,4,1,9,9,661,1,2,5,1))
-if mibBuilder.loadTexts:c3gCdmaProfileCommonTable.setStatus(_A)
-_C3gCdmaProfileCommonEntry_Object=MibTableRow
-c3gCdmaProfileCommonEntry=_C3gCdmaProfileCommonEntry_Object((1,3,6,1,4,1,9,9,661,1,2,5,1,1))
-c3gCdmaProfileCommonEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gCdmaProfileCommonEntry.setStatus(_A)
-class _C3gNumberOfDataProfileConfigurable_Type(Unsigned32):defaultValue=0
-_C3gNumberOfDataProfileConfigurable_Type.__name__=_K
-_C3gNumberOfDataProfileConfigurable_Object=MibTableColumn
-c3gNumberOfDataProfileConfigurable=_C3gNumberOfDataProfileConfigurable_Object((1,3,6,1,4,1,9,9,661,1,2,5,1,1,1),_C3gNumberOfDataProfileConfigurable_Type())
-c3gNumberOfDataProfileConfigurable.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gNumberOfDataProfileConfigurable.setStatus(_A)
-_C3gCurrentActiveDataProfile_Type=Unsigned32
-_C3gCurrentActiveDataProfile_Object=MibTableColumn
-c3gCurrentActiveDataProfile=_C3gCurrentActiveDataProfile_Object((1,3,6,1,4,1,9,9,661,1,2,5,1,1,2),_C3gCurrentActiveDataProfile_Type())
-c3gCurrentActiveDataProfile.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gCurrentActiveDataProfile.setStatus(_A)
-_C3gCdmaProfileTable_Object=MibTable
-c3gCdmaProfileTable=_C3gCdmaProfileTable_Object((1,3,6,1,4,1,9,9,661,1,2,5,2))
-if mibBuilder.loadTexts:c3gCdmaProfileTable.setStatus(_A)
-_C3gCdmaProfileEntry_Object=MibTableRow
-c3gCdmaProfileEntry=_C3gCdmaProfileEntry_Object((1,3,6,1,4,1,9,9,661,1,2,5,2,1))
-c3gCdmaProfileEntry.setIndexNames((0,_H,_J),(0,_B,_AW))
-if mibBuilder.loadTexts:c3gCdmaProfileEntry.setStatus(_A)
-class _C3gCdmaProfileIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_C3gCdmaProfileIndex_Type.__name__=_D
-_C3gCdmaProfileIndex_Object=MibTableColumn
-c3gCdmaProfileIndex=_C3gCdmaProfileIndex_Object((1,3,6,1,4,1,9,9,661,1,2,5,2,1,1),_C3gCdmaProfileIndex_Type())
-c3gCdmaProfileIndex.setMaxAccess(_Y)
-if mibBuilder.loadTexts:c3gCdmaProfileIndex.setStatus(_A)
-class _C3gNai_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gNai_Type.__name__=_I
-_C3gNai_Object=MibTableColumn
-c3gNai=_C3gNai_Object((1,3,6,1,4,1,9,9,661,1,2,5,2,1,2),_C3gNai_Type())
-c3gNai.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gNai.setStatus(_A)
-class _C3gAaaPassword_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gAaaPassword_Type.__name__=_I
-_C3gAaaPassword_Object=MibTableColumn
-c3gAaaPassword=_C3gAaaPassword_Object((1,3,6,1,4,1,9,9,661,1,2,5,2,1,3),_C3gAaaPassword_Type())
-c3gAaaPassword.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gAaaPassword.setStatus(_A)
-class _C3gMnHaSs_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_z,1),(_A0,2)))
-_C3gMnHaSs_Type.__name__=_D
-_C3gMnHaSs_Object=MibTableColumn
-c3gMnHaSs=_C3gMnHaSs_Object((1,3,6,1,4,1,9,9,661,1,2,5,2,1,4),_C3gMnHaSs_Type())
-c3gMnHaSs.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gMnHaSs.setStatus(_A)
-_C3gMnHaSpi_Type=Unsigned32
-_C3gMnHaSpi_Object=MibTableColumn
-c3gMnHaSpi=_C3gMnHaSpi_Object((1,3,6,1,4,1,9,9,661,1,2,5,2,1,5),_C3gMnHaSpi_Type())
-c3gMnHaSpi.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gMnHaSpi.setStatus(_A)
-class _C3gMnAaaSs_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_z,1),(_A0,2)))
-_C3gMnAaaSs_Type.__name__=_D
-_C3gMnAaaSs_Object=MibTableColumn
-c3gMnAaaSs=_C3gMnAaaSs_Object((1,3,6,1,4,1,9,9,661,1,2,5,2,1,6),_C3gMnAaaSs_Type())
-c3gMnAaaSs.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gMnAaaSs.setStatus(_A)
-_C3gMnAaaSpi_Type=Unsigned32
-_C3gMnAaaSpi_Object=MibTableColumn
-c3gMnAaaSpi=_C3gMnAaaSpi_Object((1,3,6,1,4,1,9,9,661,1,2,5,2,1,7),_C3gMnAaaSpi_Type())
-c3gMnAaaSpi.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gMnAaaSpi.setStatus(_A)
-class _C3gReverseTunnelPreference_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_z,1),(_A0,2)))
-_C3gReverseTunnelPreference_Type.__name__=_D
-_C3gReverseTunnelPreference_Object=MibTableColumn
-c3gReverseTunnelPreference=_C3gReverseTunnelPreference_Object((1,3,6,1,4,1,9,9,661,1,2,5,2,1,8),_C3gReverseTunnelPreference_Type())
-c3gReverseTunnelPreference.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gReverseTunnelPreference.setStatus(_A)
-_C3gHomeAddrType_Type=InetAddressType
-_C3gHomeAddrType_Object=MibTableColumn
-c3gHomeAddrType=_C3gHomeAddrType_Object((1,3,6,1,4,1,9,9,661,1,2,5,2,1,9),_C3gHomeAddrType_Type())
-c3gHomeAddrType.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gHomeAddrType.setStatus(_A)
-_C3gHomeAddr_Type=InetAddress
-_C3gHomeAddr_Object=MibTableColumn
-c3gHomeAddr=_C3gHomeAddr_Object((1,3,6,1,4,1,9,9,661,1,2,5,2,1,10),_C3gHomeAddr_Type())
-c3gHomeAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gHomeAddr.setStatus(_A)
-_C3gPriHaAddrType_Type=InetAddressType
-_C3gPriHaAddrType_Object=MibTableColumn
-c3gPriHaAddrType=_C3gPriHaAddrType_Object((1,3,6,1,4,1,9,9,661,1,2,5,2,1,11),_C3gPriHaAddrType_Type())
-c3gPriHaAddrType.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gPriHaAddrType.setStatus(_A)
-_C3gPriHaAddr_Type=InetAddress
-_C3gPriHaAddr_Object=MibTableColumn
-c3gPriHaAddr=_C3gPriHaAddr_Object((1,3,6,1,4,1,9,9,661,1,2,5,2,1,12),_C3gPriHaAddr_Type())
-c3gPriHaAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gPriHaAddr.setStatus(_A)
-_C3gSecHaAddrType_Type=InetAddressType
-_C3gSecHaAddrType_Object=MibTableColumn
-c3gSecHaAddrType=_C3gSecHaAddrType_Object((1,3,6,1,4,1,9,9,661,1,2,5,2,1,13),_C3gSecHaAddrType_Type())
-c3gSecHaAddrType.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gSecHaAddrType.setStatus(_A)
-_C3gSecHaAddr_Type=InetAddress
-_C3gSecHaAddr_Object=MibTableColumn
-c3gSecHaAddr=_C3gSecHaAddr_Object((1,3,6,1,4,1,9,9,661,1,2,5,2,1,14),_C3gSecHaAddr_Type())
-c3gSecHaAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gSecHaAddr.setStatus(_A)
-_C3gCdmaRadio_ObjectIdentity=ObjectIdentity
-c3gCdmaRadio=_C3gCdmaRadio_ObjectIdentity((1,3,6,1,4,1,9,9,661,1,2,6))
-_C3gCdma1xRttRadioTable_Object=MibTable
-c3gCdma1xRttRadioTable=_C3gCdma1xRttRadioTable_Object((1,3,6,1,4,1,9,9,661,1,2,6,1))
-if mibBuilder.loadTexts:c3gCdma1xRttRadioTable.setStatus(_A)
-_C3gCdma1xRttRadioEntry_Object=MibTableRow
-c3gCdma1xRttRadioEntry=_C3gCdma1xRttRadioEntry_Object((1,3,6,1,4,1,9,9,661,1,2,6,1,1))
-c3gCdma1xRttRadioEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gCdma1xRttRadioEntry.setStatus(_A)
-_C3gCurrent1xRttRssi_Type=C3gRssi
-_C3gCurrent1xRttRssi_Object=MibTableColumn
-c3gCurrent1xRttRssi=_C3gCurrent1xRttRssi_Object((1,3,6,1,4,1,9,9,661,1,2,6,1,1,1),_C3gCurrent1xRttRssi_Type())
-c3gCurrent1xRttRssi.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCurrent1xRttRssi.setStatus(_A)
-_C3gCurrent1xRttEcIo_Type=C3gEcIo
-_C3gCurrent1xRttEcIo_Object=MibTableColumn
-c3gCurrent1xRttEcIo=_C3gCurrent1xRttEcIo_Object((1,3,6,1,4,1,9,9,661,1,2,6,1,1,2),_C3gCurrent1xRttEcIo_Type())
-c3gCurrent1xRttEcIo.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCurrent1xRttEcIo.setStatus(_A)
-_C3gCurrent1xRttChannelNumber_Type=Integer32
-_C3gCurrent1xRttChannelNumber_Object=MibTableColumn
-c3gCurrent1xRttChannelNumber=_C3gCurrent1xRttChannelNumber_Object((1,3,6,1,4,1,9,9,661,1,2,6,1,1,3),_C3gCurrent1xRttChannelNumber_Type())
-c3gCurrent1xRttChannelNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCurrent1xRttChannelNumber.setStatus(_A)
-class _C3gCurrent1xRttChannelState_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),('notAcquired',2),('acquired',3),('scanning',4)))
-_C3gCurrent1xRttChannelState_Type.__name__=_D
-_C3gCurrent1xRttChannelState_Object=MibTableColumn
-c3gCurrent1xRttChannelState=_C3gCurrent1xRttChannelState_Object((1,3,6,1,4,1,9,9,661,1,2,6,1,1,4),_C3gCurrent1xRttChannelState_Type())
-c3gCurrent1xRttChannelState.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCurrent1xRttChannelState.setStatus(_A)
-_C3gCdma1xRttBandClassTable_Object=MibTable
-c3gCdma1xRttBandClassTable=_C3gCdma1xRttBandClassTable_Object((1,3,6,1,4,1,9,9,661,1,2,6,2))
-if mibBuilder.loadTexts:c3gCdma1xRttBandClassTable.setStatus(_A)
-_C3gCdma1xRttBandClassEntry_Object=MibTableRow
-c3gCdma1xRttBandClassEntry=_C3gCdma1xRttBandClassEntry_Object((1,3,6,1,4,1,9,9,661,1,2,6,2,1))
-c3gCdma1xRttBandClassEntry.setIndexNames((0,_H,_J),(0,_B,_A1))
-if mibBuilder.loadTexts:c3gCdma1xRttBandClassEntry.setStatus(_A)
-class _C3gBandClassIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_C3gBandClassIndex_Type.__name__=_D
-_C3gBandClassIndex_Object=MibTableColumn
-c3gBandClassIndex=_C3gBandClassIndex_Object((1,3,6,1,4,1,9,9,661,1,2,6,2,1,1),_C3gBandClassIndex_Type())
-c3gBandClassIndex.setMaxAccess(_Y)
-if mibBuilder.loadTexts:c3gBandClassIndex.setStatus(_A)
-_C3g1xRttBandClass_Type=Unsigned32
-_C3g1xRttBandClass_Object=MibTableColumn
-c3g1xRttBandClass=_C3g1xRttBandClass_Object((1,3,6,1,4,1,9,9,661,1,2,6,2,1,2),_C3g1xRttBandClass_Type())
-c3g1xRttBandClass.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3g1xRttBandClass.setStatus(_A)
-_C3gCdmaEvDoRadioTable_Object=MibTable
-c3gCdmaEvDoRadioTable=_C3gCdmaEvDoRadioTable_Object((1,3,6,1,4,1,9,9,661,1,2,6,3))
-if mibBuilder.loadTexts:c3gCdmaEvDoRadioTable.setStatus(_A)
-_C3gCdmaEvDoRadioEntry_Object=MibTableRow
-c3gCdmaEvDoRadioEntry=_C3gCdmaEvDoRadioEntry_Object((1,3,6,1,4,1,9,9,661,1,2,6,3,1))
-c3gCdmaEvDoRadioEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gCdmaEvDoRadioEntry.setStatus(_A)
-_C3gCurrentEvDoRssi_Type=C3gRssi
-_C3gCurrentEvDoRssi_Object=MibTableColumn
-c3gCurrentEvDoRssi=_C3gCurrentEvDoRssi_Object((1,3,6,1,4,1,9,9,661,1,2,6,3,1,1),_C3gCurrentEvDoRssi_Type())
-c3gCurrentEvDoRssi.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCurrentEvDoRssi.setStatus(_A)
-_C3gCurrentEvDoEcIo_Type=C3gEcIo
-_C3gCurrentEvDoEcIo_Object=MibTableColumn
-c3gCurrentEvDoEcIo=_C3gCurrentEvDoEcIo_Object((1,3,6,1,4,1,9,9,661,1,2,6,3,1,2),_C3gCurrentEvDoEcIo_Type())
-c3gCurrentEvDoEcIo.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCurrentEvDoEcIo.setStatus(_A)
-_C3gCurrentEvDoChannelNumber_Type=Integer32
-_C3gCurrentEvDoChannelNumber_Object=MibTableColumn
-c3gCurrentEvDoChannelNumber=_C3gCurrentEvDoChannelNumber_Object((1,3,6,1,4,1,9,9,661,1,2,6,3,1,3),_C3gCurrentEvDoChannelNumber_Type())
-c3gCurrentEvDoChannelNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCurrentEvDoChannelNumber.setStatus(_A)
-class _C3gSectorId_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gSectorId_Type.__name__=_I
-_C3gSectorId_Object=MibTableColumn
-c3gSectorId=_C3gSectorId_Object((1,3,6,1,4,1,9,9,661,1,2,6,3,1,4),_C3gSectorId_Type())
-c3gSectorId.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSectorId.setStatus(_A)
-_C3gSubnetMask_Type=Unsigned32
-_C3gSubnetMask_Object=MibTableColumn
-c3gSubnetMask=_C3gSubnetMask_Object((1,3,6,1,4,1,9,9,661,1,2,6,3,1,5),_C3gSubnetMask_Type())
-c3gSubnetMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSubnetMask.setStatus(_A)
-_C3gHdrColorCode_Type=Unsigned32
-_C3gHdrColorCode_Object=MibTableColumn
-c3gHdrColorCode=_C3gHdrColorCode_Object((1,3,6,1,4,1,9,9,661,1,2,6,3,1,6),_C3gHdrColorCode_Type())
-c3gHdrColorCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gHdrColorCode.setStatus(_A)
-_C3gPnOffset_Type=Unsigned32
-_C3gPnOffset_Object=MibTableColumn
-c3gPnOffset=_C3gPnOffset_Object((1,3,6,1,4,1,9,9,661,1,2,6,3,1,7),_C3gPnOffset_Type())
-c3gPnOffset.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gPnOffset.setStatus(_A)
-_C3gRxMainGainControl_Type=Integer32
-_C3gRxMainGainControl_Object=MibTableColumn
-c3gRxMainGainControl=_C3gRxMainGainControl_Object((1,3,6,1,4,1,9,9,661,1,2,6,3,1,8),_C3gRxMainGainControl_Type())
-c3gRxMainGainControl.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gRxMainGainControl.setStatus(_A)
-if mibBuilder.loadTexts:c3gRxMainGainControl.setUnits(_T)
-_C3gRxDiversityGainControl_Type=Integer32
-_C3gRxDiversityGainControl_Object=MibTableColumn
-c3gRxDiversityGainControl=_C3gRxDiversityGainControl_Object((1,3,6,1,4,1,9,9,661,1,2,6,3,1,9),_C3gRxDiversityGainControl_Type())
-c3gRxDiversityGainControl.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gRxDiversityGainControl.setStatus(_A)
-if mibBuilder.loadTexts:c3gRxDiversityGainControl.setUnits(_T)
-_C3gTxTotalPower_Type=Integer32
-_C3gTxTotalPower_Object=MibTableColumn
-c3gTxTotalPower=_C3gTxTotalPower_Object((1,3,6,1,4,1,9,9,661,1,2,6,3,1,10),_C3gTxTotalPower_Type())
-c3gTxTotalPower.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gTxTotalPower.setStatus(_A)
-if mibBuilder.loadTexts:c3gTxTotalPower.setUnits(_T)
-_C3gTxGainAdjust_Type=Integer32
-_C3gTxGainAdjust_Object=MibTableColumn
-c3gTxGainAdjust=_C3gTxGainAdjust_Object((1,3,6,1,4,1,9,9,661,1,2,6,3,1,11),_C3gTxGainAdjust_Type())
-c3gTxGainAdjust.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gTxGainAdjust.setStatus(_A)
-if mibBuilder.loadTexts:c3gTxGainAdjust.setUnits(_T)
-_C3gCarrierToInterferenceRatio_Type=Unsigned32
-_C3gCarrierToInterferenceRatio_Object=MibTableColumn
-c3gCarrierToInterferenceRatio=_C3gCarrierToInterferenceRatio_Object((1,3,6,1,4,1,9,9,661,1,2,6,3,1,12),_C3gCarrierToInterferenceRatio_Type())
-c3gCarrierToInterferenceRatio.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCarrierToInterferenceRatio.setStatus(_A)
-_C3gCdmaEvDoBandClassTable_Object=MibTable
-c3gCdmaEvDoBandClassTable=_C3gCdmaEvDoBandClassTable_Object((1,3,6,1,4,1,9,9,661,1,2,6,4))
-if mibBuilder.loadTexts:c3gCdmaEvDoBandClassTable.setStatus(_A)
-_C3gCdmaEvDoBandClassEntry_Object=MibTableRow
-c3gCdmaEvDoBandClassEntry=_C3gCdmaEvDoBandClassEntry_Object((1,3,6,1,4,1,9,9,661,1,2,6,4,1))
-c3gCdmaEvDoBandClassEntry.setIndexNames((0,_H,_J),(0,_B,_A1))
-if mibBuilder.loadTexts:c3gCdmaEvDoBandClassEntry.setStatus(_A)
-_C3gEvDoBandClass_Type=Unsigned32
-_C3gEvDoBandClass_Object=MibTableColumn
-c3gEvDoBandClass=_C3gEvDoBandClass_Object((1,3,6,1,4,1,9,9,661,1,2,6,4,1,1),_C3gEvDoBandClass_Type())
-c3gEvDoBandClass.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gEvDoBandClass.setStatus(_A)
-_C3gCdmaHistoryTable_Object=MibTable
-c3gCdmaHistoryTable=_C3gCdmaHistoryTable_Object((1,3,6,1,4,1,9,9,661,1,2,6,5))
-if mibBuilder.loadTexts:c3gCdmaHistoryTable.setStatus(_A)
-_C3gCdmaHistoryEntry_Object=MibTableRow
-c3gCdmaHistoryEntry=_C3gCdmaHistoryEntry_Object((1,3,6,1,4,1,9,9,661,1,2,6,5,1))
-c3gCdmaHistoryEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gCdmaHistoryEntry.setStatus(_A)
-class _C3gCdmaHistory1xRttRssiPerSecond_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(60,60));fixedLength=60
-_C3gCdmaHistory1xRttRssiPerSecond_Type.__name__=_O
-_C3gCdmaHistory1xRttRssiPerSecond_Object=MibTableColumn
-c3gCdmaHistory1xRttRssiPerSecond=_C3gCdmaHistory1xRttRssiPerSecond_Object((1,3,6,1,4,1,9,9,661,1,2,6,5,1,1),_C3gCdmaHistory1xRttRssiPerSecond_Type())
-c3gCdmaHistory1xRttRssiPerSecond.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaHistory1xRttRssiPerSecond.setStatus(_A)
-if mibBuilder.loadTexts:c3gCdmaHistory1xRttRssiPerSecond.setUnits(_Q)
-class _C3gCdmaHistory1xRttRssiPerMinute_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(60,60));fixedLength=60
-_C3gCdmaHistory1xRttRssiPerMinute_Type.__name__=_O
-_C3gCdmaHistory1xRttRssiPerMinute_Object=MibTableColumn
-c3gCdmaHistory1xRttRssiPerMinute=_C3gCdmaHistory1xRttRssiPerMinute_Object((1,3,6,1,4,1,9,9,661,1,2,6,5,1,2),_C3gCdmaHistory1xRttRssiPerMinute_Type())
-c3gCdmaHistory1xRttRssiPerMinute.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaHistory1xRttRssiPerMinute.setStatus(_A)
-if mibBuilder.loadTexts:c3gCdmaHistory1xRttRssiPerMinute.setUnits(_Q)
-class _C3gCdmaHistory1xRttRssiPerHour_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(72,72));fixedLength=72
-_C3gCdmaHistory1xRttRssiPerHour_Type.__name__=_O
-_C3gCdmaHistory1xRttRssiPerHour_Object=MibTableColumn
-c3gCdmaHistory1xRttRssiPerHour=_C3gCdmaHistory1xRttRssiPerHour_Object((1,3,6,1,4,1,9,9,661,1,2,6,5,1,3),_C3gCdmaHistory1xRttRssiPerHour_Type())
-c3gCdmaHistory1xRttRssiPerHour.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaHistory1xRttRssiPerHour.setStatus(_A)
-if mibBuilder.loadTexts:c3gCdmaHistory1xRttRssiPerHour.setUnits(_Q)
-class _C3gCdmaHistoryEvDoRssiPerSecond_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(60,60));fixedLength=60
-_C3gCdmaHistoryEvDoRssiPerSecond_Type.__name__=_O
-_C3gCdmaHistoryEvDoRssiPerSecond_Object=MibTableColumn
-c3gCdmaHistoryEvDoRssiPerSecond=_C3gCdmaHistoryEvDoRssiPerSecond_Object((1,3,6,1,4,1,9,9,661,1,2,6,5,1,4),_C3gCdmaHistoryEvDoRssiPerSecond_Type())
-c3gCdmaHistoryEvDoRssiPerSecond.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaHistoryEvDoRssiPerSecond.setStatus(_A)
-if mibBuilder.loadTexts:c3gCdmaHistoryEvDoRssiPerSecond.setUnits(_Q)
-class _C3gCdmaHistoryEvDoRssiPerMinute_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(60,60));fixedLength=60
-_C3gCdmaHistoryEvDoRssiPerMinute_Type.__name__=_O
-_C3gCdmaHistoryEvDoRssiPerMinute_Object=MibTableColumn
-c3gCdmaHistoryEvDoRssiPerMinute=_C3gCdmaHistoryEvDoRssiPerMinute_Object((1,3,6,1,4,1,9,9,661,1,2,6,5,1,5),_C3gCdmaHistoryEvDoRssiPerMinute_Type())
-c3gCdmaHistoryEvDoRssiPerMinute.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaHistoryEvDoRssiPerMinute.setStatus(_A)
-if mibBuilder.loadTexts:c3gCdmaHistoryEvDoRssiPerMinute.setUnits(_Q)
-class _C3gCdmaHistoryEvDoRssiPerHour_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(72,72));fixedLength=72
-_C3gCdmaHistoryEvDoRssiPerHour_Type.__name__=_O
-_C3gCdmaHistoryEvDoRssiPerHour_Object=MibTableColumn
-c3gCdmaHistoryEvDoRssiPerHour=_C3gCdmaHistoryEvDoRssiPerHour_Object((1,3,6,1,4,1,9,9,661,1,2,6,5,1,6),_C3gCdmaHistoryEvDoRssiPerHour_Type())
-c3gCdmaHistoryEvDoRssiPerHour.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCdmaHistoryEvDoRssiPerHour.setStatus(_A)
-if mibBuilder.loadTexts:c3gCdmaHistoryEvDoRssiPerHour.setUnits(_Q)
-_C3gCdmaSecurity_ObjectIdentity=ObjectIdentity
-c3gCdmaSecurity=_C3gCdmaSecurity_ObjectIdentity((1,3,6,1,4,1,9,9,661,1,2,7))
-_C3gCdmaSecurityTable_Object=MibTable
-c3gCdmaSecurityTable=_C3gCdmaSecurityTable_Object((1,3,6,1,4,1,9,9,661,1,2,7,1))
-if mibBuilder.loadTexts:c3gCdmaSecurityTable.setStatus(_A)
-_C3gCdmaSecurityEntry_Object=MibTableRow
-c3gCdmaSecurityEntry=_C3gCdmaSecurityEntry_Object((1,3,6,1,4,1,9,9,661,1,2,7,1,1))
-c3gCdmaSecurityEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gCdmaSecurityEntry.setStatus(_A)
-class _C3gCdmaPinSecurityStatus_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),('locked',2),('unlocked',3)))
-_C3gCdmaPinSecurityStatus_Type.__name__=_D
-_C3gCdmaPinSecurityStatus_Object=MibTableColumn
-c3gCdmaPinSecurityStatus=_C3gCdmaPinSecurityStatus_Object((1,3,6,1,4,1,9,9,661,1,2,7,1,1,1),_C3gCdmaPinSecurityStatus_Type())
-c3gCdmaPinSecurityStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gCdmaPinSecurityStatus.setStatus(_A)
-class _C3gCdmaPowerUpLockStatus_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),('enabled',2),('disabled',3)))
-_C3gCdmaPowerUpLockStatus_Type.__name__=_D
-_C3gCdmaPowerUpLockStatus_Object=MibTableColumn
-c3gCdmaPowerUpLockStatus=_C3gCdmaPowerUpLockStatus_Object((1,3,6,1,4,1,9,9,661,1,2,7,1,1,2),_C3gCdmaPowerUpLockStatus_Type())
-c3gCdmaPowerUpLockStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gCdmaPowerUpLockStatus.setStatus(_A)
-_C3gWanGsm_ObjectIdentity=ObjectIdentity
-c3gWanGsm=_C3gWanGsm_ObjectIdentity((1,3,6,1,4,1,9,9,661,1,3))
-_C3gGsmIdentityTable_Object=MibTable
-c3gGsmIdentityTable=_C3gGsmIdentityTable_Object((1,3,6,1,4,1,9,9,661,1,3,1))
-if mibBuilder.loadTexts:c3gGsmIdentityTable.setStatus(_A)
-_C3gGsmIdentityEntry_Object=MibTableRow
-c3gGsmIdentityEntry=_C3gGsmIdentityEntry_Object((1,3,6,1,4,1,9,9,661,1,3,1,1))
-c3gGsmIdentityEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gGsmIdentityEntry.setStatus(_A)
-class _C3gImsi_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gImsi_Type.__name__=_I
-_C3gImsi_Object=MibTableColumn
-c3gImsi=_C3gImsi_Object((1,3,6,1,4,1,9,9,661,1,3,1,1,1),_C3gImsi_Type())
-c3gImsi.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gImsi.setStatus(_A)
-class _C3gImei_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gImei_Type.__name__=_I
-_C3gImei_Object=MibTableColumn
-c3gImei=_C3gImei_Object((1,3,6,1,4,1,9,9,661,1,3,1,1,2),_C3gImei_Type())
-c3gImei.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gImei.setStatus(_A)
-class _C3gIccId_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gIccId_Type.__name__=_I
-_C3gIccId_Object=MibTableColumn
-c3gIccId=_C3gIccId_Object((1,3,6,1,4,1,9,9,661,1,3,1,1,3),_C3gIccId_Type())
-c3gIccId.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gIccId.setStatus(_A)
-class _C3gMsisdn_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gMsisdn_Type.__name__=_I
-_C3gMsisdn_Object=MibTableColumn
-c3gMsisdn=_C3gMsisdn_Object((1,3,6,1,4,1,9,9,661,1,3,1,1,4),_C3gMsisdn_Type())
-c3gMsisdn.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gMsisdn.setStatus(_A)
-class _C3gFsn_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gFsn_Type.__name__=_I
-_C3gFsn_Object=MibTableColumn
-c3gFsn=_C3gFsn_Object((1,3,6,1,4,1,9,9,661,1,3,1,1,5),_C3gFsn_Type())
-c3gFsn.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gFsn.setStatus(_A)
-class _C3gModemStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),('offLine',2),('onLine',3),('lowPowerMode',4)))
-_C3gModemStatus_Type.__name__=_D
-_C3gModemStatus_Object=MibTableColumn
-c3gModemStatus=_C3gModemStatus_Object((1,3,6,1,4,1,9,9,661,1,3,1,1,6),_C3gModemStatus_Type())
-c3gModemStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gModemStatus.setStatus(_A)
-class _C3gGsmRoamingPreference_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),(_X,2),(_p,3)))
-_C3gGsmRoamingPreference_Type.__name__=_D
-_C3gGsmRoamingPreference_Object=MibTableColumn
-c3gGsmRoamingPreference=_C3gGsmRoamingPreference_Object((1,3,6,1,4,1,9,9,661,1,3,1,1,7),_C3gGsmRoamingPreference_Type())
-c3gGsmRoamingPreference.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gGsmRoamingPreference.setStatus(_A)
-_C3gGsmNetworkTable_Object=MibTable
-c3gGsmNetworkTable=_C3gGsmNetworkTable_Object((1,3,6,1,4,1,9,9,661,1,3,2))
-if mibBuilder.loadTexts:c3gGsmNetworkTable.setStatus(_A)
-_C3gGsmNetworkEntry_Object=MibTableRow
-c3gGsmNetworkEntry=_C3gGsmNetworkEntry_Object((1,3,6,1,4,1,9,9,661,1,3,2,1))
-c3gGsmNetworkEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gGsmNetworkEntry.setStatus(_A)
-class _C3gGsmLac_Type(Unsigned32):defaultValue=0
-_C3gGsmLac_Type.__name__=_K
-_C3gGsmLac_Object=MibTableColumn
-c3gGsmLac=_C3gGsmLac_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,1),_C3gGsmLac_Type())
-c3gGsmLac.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmLac.setStatus(_A)
-class _C3gGsmCurrentServiceStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),(_i,2),('normal',3),('emergencyOnly',4)))
-_C3gGsmCurrentServiceStatus_Type.__name__=_D
-_C3gGsmCurrentServiceStatus_Object=MibTableColumn
-c3gGsmCurrentServiceStatus=_C3gGsmCurrentServiceStatus_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,2),_C3gGsmCurrentServiceStatus_Type())
-c3gGsmCurrentServiceStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmCurrentServiceStatus.setStatus(_A)
-class _C3gGsmCurrentServiceError_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29)));namedValues=NamedValues(*((_G,1),(_S,2),('imsiUnknownInHlr',3),('illegalMs',4),('imsiUnknownInVlr',5),('imeiNotAccepted',6),('illegalMe',7),('gprsServNotAllowed',8),('gprsNonGprsServNotAllow',9),('msIdentUnknown',10),('implicitlyDetached',11),('plmnNotAllowed',12),('lacNotAllowed',13),('roamingNotAllowed',14),('gprsServNotAllowInPlmn',15),('noSuitableCellInLa',16),('mscTempNotReachable',17),('networkFailure',18),('macFailure',19),('synchFailure',20),('congestion',21),('gsmAuthenNotAccept',22),('servOptionNotSupport',23),('reqServOptionNotSub',24),('servOptionOutOfOrder',25),('callCannotIdentified',26),('noPdpContextActivated',27),('invalidMandatInfo',28),('unpsecProtErr',29)))
-_C3gGsmCurrentServiceError_Type.__name__=_D
-_C3gGsmCurrentServiceError_Object=MibTableColumn
-c3gGsmCurrentServiceError=_C3gGsmCurrentServiceError_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,3),_C3gGsmCurrentServiceError_Type())
-c3gGsmCurrentServiceError.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmCurrentServiceError.setStatus(_A)
-class _C3gGsmCurrentService_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_G,1),('invalid',2),('circuitSwitched',3),('packetSwitched',4),('combined',5)))
-_C3gGsmCurrentService_Type.__name__=_D
-_C3gGsmCurrentService_Object=MibTableColumn
-c3gGsmCurrentService=_C3gGsmCurrentService_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,4),_C3gGsmCurrentService_Type())
-c3gGsmCurrentService.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmCurrentService.setStatus(_A)
-class _C3gGsmPacketService_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_G,1),(_S,2),('gprs',3),('edge',4),(_AO,5),('hsdpa',6),('hsupa',7),('hspa',8),('hspaPlus',9),('lte',10)))
-_C3gGsmPacketService_Type.__name__=_D
-_C3gGsmPacketService_Object=MibTableColumn
-c3gGsmPacketService=_C3gGsmPacketService_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,5),_C3gGsmPacketService_Type())
-c3gGsmPacketService.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmPacketService.setStatus(_A)
-class _C3gGsmCurrentRoamingStatus_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),(_p,2),(_X,3)))
-_C3gGsmCurrentRoamingStatus_Type.__name__=_D
-_C3gGsmCurrentRoamingStatus_Object=MibTableColumn
-c3gGsmCurrentRoamingStatus=_C3gGsmCurrentRoamingStatus_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,6),_C3gGsmCurrentRoamingStatus_Type())
-c3gGsmCurrentRoamingStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmCurrentRoamingStatus.setStatus(_A)
-class _C3gGsmNetworkSelectionMode_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),(_AX,2),('manual',3)))
-_C3gGsmNetworkSelectionMode_Type.__name__=_D
-_C3gGsmNetworkSelectionMode_Object=MibTableColumn
-c3gGsmNetworkSelectionMode=_C3gGsmNetworkSelectionMode_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,7),_C3gGsmNetworkSelectionMode_Type())
-c3gGsmNetworkSelectionMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gGsmNetworkSelectionMode.setStatus(_A)
-class _C3gGsmCountry_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gGsmCountry_Type.__name__=_I
-_C3gGsmCountry_Object=MibTableColumn
-c3gGsmCountry=_C3gGsmCountry_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,8),_C3gGsmCountry_Type())
-c3gGsmCountry.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmCountry.setStatus(_A)
-class _C3gGsmNetwork_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gGsmNetwork_Type.__name__=_I
-_C3gGsmNetwork_Object=MibTableColumn
-c3gGsmNetwork=_C3gGsmNetwork_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,9),_C3gGsmNetwork_Type())
-c3gGsmNetwork.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNetwork.setStatus(_A)
-class _C3gGsmMcc_Type(Integer32):defaultValue=0
-_C3gGsmMcc_Type.__name__=_D
-_C3gGsmMcc_Object=MibTableColumn
-c3gGsmMcc=_C3gGsmMcc_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,10),_C3gGsmMcc_Type())
-c3gGsmMcc.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gGsmMcc.setStatus(_A)
-class _C3gGsmMnc_Type(Integer32):defaultValue=0
-_C3gGsmMnc_Type.__name__=_D
-_C3gGsmMnc_Object=MibTableColumn
-c3gGsmMnc=_C3gGsmMnc_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,11),_C3gGsmMnc_Type())
-c3gGsmMnc.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gGsmMnc.setStatus(_A)
-class _C3gGsmRac_Type(Unsigned32):defaultValue=0
-_C3gGsmRac_Type.__name__=_K
-_C3gGsmRac_Object=MibTableColumn
-c3gGsmRac=_C3gGsmRac_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,12),_C3gGsmRac_Type())
-c3gGsmRac.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmRac.setStatus(_A)
-class _C3gGsmCurrentCellId_Type(Unsigned32):defaultValue=0
-_C3gGsmCurrentCellId_Type.__name__=_K
-_C3gGsmCurrentCellId_Object=MibTableColumn
-c3gGsmCurrentCellId=_C3gGsmCurrentCellId_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,13),_C3gGsmCurrentCellId_Type())
-c3gGsmCurrentCellId.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmCurrentCellId.setStatus(_A)
-class _C3gGsmCurrentPrimaryScramblingCode_Type(Unsigned32):defaultValue=0
-_C3gGsmCurrentPrimaryScramblingCode_Type.__name__=_K
-_C3gGsmCurrentPrimaryScramblingCode_Object=MibTableColumn
-c3gGsmCurrentPrimaryScramblingCode=_C3gGsmCurrentPrimaryScramblingCode_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,14),_C3gGsmCurrentPrimaryScramblingCode_Type())
-c3gGsmCurrentPrimaryScramblingCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmCurrentPrimaryScramblingCode.setStatus(_A)
-class _C3gGsmPlmnSelection_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),('manual',2),(_AX,3)))
-_C3gGsmPlmnSelection_Type.__name__=_D
-_C3gGsmPlmnSelection_Object=MibTableColumn
-c3gGsmPlmnSelection=_C3gGsmPlmnSelection_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,15),_C3gGsmPlmnSelection_Type())
-c3gGsmPlmnSelection.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gGsmPlmnSelection.setStatus(_A)
-class _C3gGsmRegPlmn_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gGsmRegPlmn_Type.__name__=_I
-_C3gGsmRegPlmn_Object=MibTableColumn
-c3gGsmRegPlmn=_C3gGsmRegPlmn_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,16),_C3gGsmRegPlmn_Type())
-c3gGsmRegPlmn.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmRegPlmn.setStatus(_A)
-class _C3gGsmPlmnAbbr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gGsmPlmnAbbr_Type.__name__=_I
-_C3gGsmPlmnAbbr_Object=MibTableColumn
-c3gGsmPlmnAbbr=_C3gGsmPlmnAbbr_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,17),_C3gGsmPlmnAbbr_Type())
-c3gGsmPlmnAbbr.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmPlmnAbbr.setStatus(_A)
-class _C3gGsmServiceProvider_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gGsmServiceProvider_Type.__name__=_I
-_C3gGsmServiceProvider_Object=MibTableColumn
-c3gGsmServiceProvider=_C3gGsmServiceProvider_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,18),_C3gGsmServiceProvider_Type())
-c3gGsmServiceProvider.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmServiceProvider.setStatus(_A)
-_C3gGsmTotalByteTransmitted_Type=Counter64
-_C3gGsmTotalByteTransmitted_Object=MibTableColumn
-c3gGsmTotalByteTransmitted=_C3gGsmTotalByteTransmitted_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,19),_C3gGsmTotalByteTransmitted_Type())
-c3gGsmTotalByteTransmitted.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmTotalByteTransmitted.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmTotalByteTransmitted.setUnits(_P)
-_C3gGsmTotalByteReceived_Type=Counter64
-_C3gGsmTotalByteReceived_Object=MibTableColumn
-c3gGsmTotalByteReceived=_C3gGsmTotalByteReceived_Object((1,3,6,1,4,1,9,9,661,1,3,2,1,20),_C3gGsmTotalByteReceived_Type())
-c3gGsmTotalByteReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmTotalByteReceived.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmTotalByteReceived.setUnits(_P)
-_C3gGsmPdpProfile_ObjectIdentity=ObjectIdentity
-c3gGsmPdpProfile=_C3gGsmPdpProfile_ObjectIdentity((1,3,6,1,4,1,9,9,661,1,3,3))
-_C3gGsmPdpProfileTable_Object=MibTable
-c3gGsmPdpProfileTable=_C3gGsmPdpProfileTable_Object((1,3,6,1,4,1,9,9,661,1,3,3,1))
-if mibBuilder.loadTexts:c3gGsmPdpProfileTable.setStatus(_A)
-_C3gGsmPdpProfileEntry_Object=MibTableRow
-c3gGsmPdpProfileEntry=_C3gGsmPdpProfileEntry_Object((1,3,6,1,4,1,9,9,661,1,3,3,1,1))
-c3gGsmPdpProfileEntry.setIndexNames((0,_H,_J),(0,_B,_R))
-if mibBuilder.loadTexts:c3gGsmPdpProfileEntry.setStatus(_A)
-class _C3gGsmPdpProfileIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000))
-_C3gGsmPdpProfileIndex_Type.__name__=_D
-_C3gGsmPdpProfileIndex_Object=MibTableColumn
-c3gGsmPdpProfileIndex=_C3gGsmPdpProfileIndex_Object((1,3,6,1,4,1,9,9,661,1,3,3,1,1,1),_C3gGsmPdpProfileIndex_Type())
-c3gGsmPdpProfileIndex.setMaxAccess(_Y)
-if mibBuilder.loadTexts:c3gGsmPdpProfileIndex.setStatus(_A)
-class _C3gGsmPdpProfileType_Type(C3gPdpType):defaultValue=1
-_C3gGsmPdpProfileType_Type.__name__=_AY
-_C3gGsmPdpProfileType_Object=MibTableColumn
-c3gGsmPdpProfileType=_C3gGsmPdpProfileType_Object((1,3,6,1,4,1,9,9,661,1,3,3,1,1,2),_C3gGsmPdpProfileType_Type())
-c3gGsmPdpProfileType.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmPdpProfileType.setStatus(_A)
-class _C3gGsmPdpProfileAddr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gGsmPdpProfileAddr_Type.__name__=_I
-_C3gGsmPdpProfileAddr_Object=MibTableColumn
-c3gGsmPdpProfileAddr=_C3gGsmPdpProfileAddr_Object((1,3,6,1,4,1,9,9,661,1,3,3,1,1,3),_C3gGsmPdpProfileAddr_Type())
-c3gGsmPdpProfileAddr.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmPdpProfileAddr.setStatus(_A)
-class _C3gGsmPdpProfileApn_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gGsmPdpProfileApn_Type.__name__=_I
-_C3gGsmPdpProfileApn_Object=MibTableColumn
-c3gGsmPdpProfileApn=_C3gGsmPdpProfileApn_Object((1,3,6,1,4,1,9,9,661,1,3,3,1,1,4),_C3gGsmPdpProfileApn_Type())
-c3gGsmPdpProfileApn.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmPdpProfileApn.setStatus(_A)
-class _C3gGsmPdpProfileAuthenType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),(_S,2),('chap',3),('pap',4)))
-_C3gGsmPdpProfileAuthenType_Type.__name__=_D
-_C3gGsmPdpProfileAuthenType_Object=MibTableColumn
-c3gGsmPdpProfileAuthenType=_C3gGsmPdpProfileAuthenType_Object((1,3,6,1,4,1,9,9,661,1,3,3,1,1,5),_C3gGsmPdpProfileAuthenType_Type())
-c3gGsmPdpProfileAuthenType.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmPdpProfileAuthenType.setStatus(_A)
-class _C3gGsmPdpProfileUsername_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gGsmPdpProfileUsername_Type.__name__=_I
-_C3gGsmPdpProfileUsername_Object=MibTableColumn
-c3gGsmPdpProfileUsername=_C3gGsmPdpProfileUsername_Object((1,3,6,1,4,1,9,9,661,1,3,3,1,1,6),_C3gGsmPdpProfileUsername_Type())
-c3gGsmPdpProfileUsername.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmPdpProfileUsername.setStatus(_A)
-class _C3gGsmPdpProfilePassword_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gGsmPdpProfilePassword_Type.__name__=_I
-_C3gGsmPdpProfilePassword_Object=MibTableColumn
-c3gGsmPdpProfilePassword=_C3gGsmPdpProfilePassword_Object((1,3,6,1,4,1,9,9,661,1,3,3,1,1,7),_C3gGsmPdpProfilePassword_Type())
-c3gGsmPdpProfilePassword.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmPdpProfilePassword.setStatus(_A)
-_C3gGsmPdpProfileRowStatus_Type=RowStatus
-_C3gGsmPdpProfileRowStatus_Object=MibTableColumn
-c3gGsmPdpProfileRowStatus=_C3gGsmPdpProfileRowStatus_Object((1,3,6,1,4,1,9,9,661,1,3,3,1,1,8),_C3gGsmPdpProfileRowStatus_Type())
-c3gGsmPdpProfileRowStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmPdpProfileRowStatus.setStatus(_A)
-_C3gGsmPacketSessionTable_Object=MibTable
-c3gGsmPacketSessionTable=_C3gGsmPacketSessionTable_Object((1,3,6,1,4,1,9,9,661,1,3,3,2))
-if mibBuilder.loadTexts:c3gGsmPacketSessionTable.setStatus(_A)
-_C3gGsmPacketSessionEntry_Object=MibTableRow
-c3gGsmPacketSessionEntry=_C3gGsmPacketSessionEntry_Object((1,3,6,1,4,1,9,9,661,1,3,3,2,1))
-c3gGsmPacketSessionEntry.setIndexNames((0,_H,_J),(0,_B,_R))
-if mibBuilder.loadTexts:c3gGsmPacketSessionEntry.setStatus(_A)
-class _C3gGsmPacketSessionStatus_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),(_u,2),(_g,3)))
-_C3gGsmPacketSessionStatus_Type.__name__=_D
-_C3gGsmPacketSessionStatus_Object=MibTableColumn
-c3gGsmPacketSessionStatus=_C3gGsmPacketSessionStatus_Object((1,3,6,1,4,1,9,9,661,1,3,3,2,1,1),_C3gGsmPacketSessionStatus_Type())
-c3gGsmPacketSessionStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmPacketSessionStatus.setStatus(_A)
-_C3gGsmPdpType_Type=C3gPdpType
-_C3gGsmPdpType_Object=MibTableColumn
-c3gGsmPdpType=_C3gGsmPdpType_Object((1,3,6,1,4,1,9,9,661,1,3,3,2,1,2),_C3gGsmPdpType_Type())
-c3gGsmPdpType.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmPdpType.setStatus(_A)
-class _C3gGsmPdpAddress_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_C3gGsmPdpAddress_Type.__name__=_I
-_C3gGsmPdpAddress_Object=MibTableColumn
-c3gGsmPdpAddress=_C3gGsmPdpAddress_Object((1,3,6,1,4,1,9,9,661,1,3,3,2,1,3),_C3gGsmPdpAddress_Type())
-c3gGsmPdpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmPdpAddress.setStatus(_A)
-_C3gGsmReqUmtsQosTable_Object=MibTable
-c3gGsmReqUmtsQosTable=_C3gGsmReqUmtsQosTable_Object((1,3,6,1,4,1,9,9,661,1,3,3,3))
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosTable.setStatus(_A)
-_C3gGsmReqUmtsQosEntry_Object=MibTableRow
-c3gGsmReqUmtsQosEntry=_C3gGsmReqUmtsQosEntry_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1))
-c3gGsmReqUmtsQosEntry.setIndexNames((0,_H,_J),(0,_B,_R))
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosEntry.setStatus(_A)
-_C3gGsmReqUmtsQosTrafficClass_Type=C3gUmtsQosTrafficClass
-_C3gGsmReqUmtsQosTrafficClass_Object=MibTableColumn
-c3gGsmReqUmtsQosTrafficClass=_C3gGsmReqUmtsQosTrafficClass_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1,2),_C3gGsmReqUmtsQosTrafficClass_Type())
-c3gGsmReqUmtsQosTrafficClass.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosTrafficClass.setStatus(_A)
-_C3gGsmReqUmtsQosMaxUpLinkBitRate_Type=C3gUmtsQosLinkBitRate
-_C3gGsmReqUmtsQosMaxUpLinkBitRate_Object=MibTableColumn
-c3gGsmReqUmtsQosMaxUpLinkBitRate=_C3gGsmReqUmtsQosMaxUpLinkBitRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1,3),_C3gGsmReqUmtsQosMaxUpLinkBitRate_Type())
-c3gGsmReqUmtsQosMaxUpLinkBitRate.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosMaxUpLinkBitRate.setStatus(_A)
-_C3gGsmReqUmtsQosMaxDownLinkBitRate_Type=C3gUmtsQosLinkBitRate
-_C3gGsmReqUmtsQosMaxDownLinkBitRate_Object=MibTableColumn
-c3gGsmReqUmtsQosMaxDownLinkBitRate=_C3gGsmReqUmtsQosMaxDownLinkBitRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1,4),_C3gGsmReqUmtsQosMaxDownLinkBitRate_Type())
-c3gGsmReqUmtsQosMaxDownLinkBitRate.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosMaxDownLinkBitRate.setStatus(_A)
-_C3gGsmReqUmtsQosGuaUpLinkBitRate_Type=C3gUmtsQosLinkBitRate
-_C3gGsmReqUmtsQosGuaUpLinkBitRate_Object=MibTableColumn
-c3gGsmReqUmtsQosGuaUpLinkBitRate=_C3gGsmReqUmtsQosGuaUpLinkBitRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1,5),_C3gGsmReqUmtsQosGuaUpLinkBitRate_Type())
-c3gGsmReqUmtsQosGuaUpLinkBitRate.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosGuaUpLinkBitRate.setStatus(_A)
-_C3gGsmReqUmtsQosGuaDownLinkBitRate_Type=C3gUmtsQosLinkBitRate
-_C3gGsmReqUmtsQosGuaDownLinkBitRate_Object=MibTableColumn
-c3gGsmReqUmtsQosGuaDownLinkBitRate=_C3gGsmReqUmtsQosGuaDownLinkBitRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1,6),_C3gGsmReqUmtsQosGuaDownLinkBitRate_Type())
-c3gGsmReqUmtsQosGuaDownLinkBitRate.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosGuaDownLinkBitRate.setStatus(_A)
-_C3gGsmReqUmtsQosOrder_Type=C3gUmtsQosOrder
-_C3gGsmReqUmtsQosOrder_Object=MibTableColumn
-c3gGsmReqUmtsQosOrder=_C3gGsmReqUmtsQosOrder_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1,7),_C3gGsmReqUmtsQosOrder_Type())
-c3gGsmReqUmtsQosOrder.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosOrder.setStatus(_A)
-_C3gGsmReqUmtsQosErroneousSdu_Type=C3gUmtsQosErroneousSdu
-_C3gGsmReqUmtsQosErroneousSdu_Object=MibTableColumn
-c3gGsmReqUmtsQosErroneousSdu=_C3gGsmReqUmtsQosErroneousSdu_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1,8),_C3gGsmReqUmtsQosErroneousSdu_Type())
-c3gGsmReqUmtsQosErroneousSdu.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosErroneousSdu.setStatus(_A)
-class _C3gGsmReqUmtsQosMaxSduSize_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1520))
-_C3gGsmReqUmtsQosMaxSduSize_Type.__name__=_K
-_C3gGsmReqUmtsQosMaxSduSize_Object=MibTableColumn
-c3gGsmReqUmtsQosMaxSduSize=_C3gGsmReqUmtsQosMaxSduSize_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1,9),_C3gGsmReqUmtsQosMaxSduSize_Type())
-c3gGsmReqUmtsQosMaxSduSize.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosMaxSduSize.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosMaxSduSize.setUnits(_P)
-_C3gGsmReqUmtsQosSer_Type=C3gUmtsQosSer
-_C3gGsmReqUmtsQosSer_Object=MibTableColumn
-c3gGsmReqUmtsQosSer=_C3gGsmReqUmtsQosSer_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1,10),_C3gGsmReqUmtsQosSer_Type())
-c3gGsmReqUmtsQosSer.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosSer.setStatus(_A)
-_C3gGsmReqUmtsQosBer_Type=C3gUmtsQosBer
-_C3gGsmReqUmtsQosBer_Object=MibTableColumn
-c3gGsmReqUmtsQosBer=_C3gGsmReqUmtsQosBer_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1,11),_C3gGsmReqUmtsQosBer_Type())
-c3gGsmReqUmtsQosBer.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosBer.setStatus(_A)
-class _C3gGsmReqUmtsQosDelay_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4000))
-_C3gGsmReqUmtsQosDelay_Type.__name__=_K
-_C3gGsmReqUmtsQosDelay_Object=MibTableColumn
-c3gGsmReqUmtsQosDelay=_C3gGsmReqUmtsQosDelay_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1,12),_C3gGsmReqUmtsQosDelay_Type())
-c3gGsmReqUmtsQosDelay.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosDelay.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosDelay.setUnits(_U)
-_C3gGsmReqUmtsQosPriority_Type=C3gUmtsQosPriority
-_C3gGsmReqUmtsQosPriority_Object=MibTableColumn
-c3gGsmReqUmtsQosPriority=_C3gGsmReqUmtsQosPriority_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1,13),_C3gGsmReqUmtsQosPriority_Type())
-c3gGsmReqUmtsQosPriority.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosPriority.setStatus(_A)
-_C3gGsmReqUmtsQosSrcStatDescriptor_Type=C3gUmtsQosSrcStatDescriptor
-_C3gGsmReqUmtsQosSrcStatDescriptor_Object=MibTableColumn
-c3gGsmReqUmtsQosSrcStatDescriptor=_C3gGsmReqUmtsQosSrcStatDescriptor_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1,14),_C3gGsmReqUmtsQosSrcStatDescriptor_Type())
-c3gGsmReqUmtsQosSrcStatDescriptor.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosSrcStatDescriptor.setStatus(_A)
-_C3gGsmReqUmtsQosSignalIndication_Type=C3gUmtsQosSignalIndication
-_C3gGsmReqUmtsQosSignalIndication_Object=MibTableColumn
-c3gGsmReqUmtsQosSignalIndication=_C3gGsmReqUmtsQosSignalIndication_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1,15),_C3gGsmReqUmtsQosSignalIndication_Type())
-c3gGsmReqUmtsQosSignalIndication.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosSignalIndication.setStatus(_A)
-_C3gGsmReqUmtsQosRowStatus_Type=RowStatus
-_C3gGsmReqUmtsQosRowStatus_Object=MibTableColumn
-c3gGsmReqUmtsQosRowStatus=_C3gGsmReqUmtsQosRowStatus_Object((1,3,6,1,4,1,9,9,661,1,3,3,3,1,16),_C3gGsmReqUmtsQosRowStatus_Type())
-c3gGsmReqUmtsQosRowStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqUmtsQosRowStatus.setStatus(_A)
-_C3gGsmMinUmtsQosTable_Object=MibTable
-c3gGsmMinUmtsQosTable=_C3gGsmMinUmtsQosTable_Object((1,3,6,1,4,1,9,9,661,1,3,3,4))
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosTable.setStatus(_A)
-_C3gGsmMinUmtsQosEntry_Object=MibTableRow
-c3gGsmMinUmtsQosEntry=_C3gGsmMinUmtsQosEntry_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1))
-c3gGsmMinUmtsQosEntry.setIndexNames((0,_H,_J),(0,_B,_R))
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosEntry.setStatus(_A)
-_C3gGsmMinUmtsQosTrafficClass_Type=C3gUmtsQosTrafficClass
-_C3gGsmMinUmtsQosTrafficClass_Object=MibTableColumn
-c3gGsmMinUmtsQosTrafficClass=_C3gGsmMinUmtsQosTrafficClass_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1,1),_C3gGsmMinUmtsQosTrafficClass_Type())
-c3gGsmMinUmtsQosTrafficClass.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosTrafficClass.setStatus(_A)
-_C3gGsmMinUmtsQosMaxUpLinkBitRate_Type=C3gUmtsQosLinkBitRate
-_C3gGsmMinUmtsQosMaxUpLinkBitRate_Object=MibTableColumn
-c3gGsmMinUmtsQosMaxUpLinkBitRate=_C3gGsmMinUmtsQosMaxUpLinkBitRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1,2),_C3gGsmMinUmtsQosMaxUpLinkBitRate_Type())
-c3gGsmMinUmtsQosMaxUpLinkBitRate.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosMaxUpLinkBitRate.setStatus(_A)
-_C3gGsmMinUmtsQosMaxDownLinkBitRate_Type=C3gUmtsQosLinkBitRate
-_C3gGsmMinUmtsQosMaxDownLinkBitRate_Object=MibTableColumn
-c3gGsmMinUmtsQosMaxDownLinkBitRate=_C3gGsmMinUmtsQosMaxDownLinkBitRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1,3),_C3gGsmMinUmtsQosMaxDownLinkBitRate_Type())
-c3gGsmMinUmtsQosMaxDownLinkBitRate.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosMaxDownLinkBitRate.setStatus(_A)
-_C3gGsmMinUmtsQosGuaUpLinkBitRate_Type=C3gUmtsQosLinkBitRate
-_C3gGsmMinUmtsQosGuaUpLinkBitRate_Object=MibTableColumn
-c3gGsmMinUmtsQosGuaUpLinkBitRate=_C3gGsmMinUmtsQosGuaUpLinkBitRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1,4),_C3gGsmMinUmtsQosGuaUpLinkBitRate_Type())
-c3gGsmMinUmtsQosGuaUpLinkBitRate.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosGuaUpLinkBitRate.setStatus(_A)
-_C3gGsmMinUmtsQosGuaDownLinkBitRate_Type=C3gUmtsQosLinkBitRate
-_C3gGsmMinUmtsQosGuaDownLinkBitRate_Object=MibTableColumn
-c3gGsmMinUmtsQosGuaDownLinkBitRate=_C3gGsmMinUmtsQosGuaDownLinkBitRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1,5),_C3gGsmMinUmtsQosGuaDownLinkBitRate_Type())
-c3gGsmMinUmtsQosGuaDownLinkBitRate.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosGuaDownLinkBitRate.setStatus(_A)
-_C3gGsmMinUmtsQosOrder_Type=C3gUmtsQosOrder
-_C3gGsmMinUmtsQosOrder_Object=MibTableColumn
-c3gGsmMinUmtsQosOrder=_C3gGsmMinUmtsQosOrder_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1,6),_C3gGsmMinUmtsQosOrder_Type())
-c3gGsmMinUmtsQosOrder.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosOrder.setStatus(_A)
-_C3gGsmMinUmtsQosErroneousSdu_Type=C3gUmtsQosErroneousSdu
-_C3gGsmMinUmtsQosErroneousSdu_Object=MibTableColumn
-c3gGsmMinUmtsQosErroneousSdu=_C3gGsmMinUmtsQosErroneousSdu_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1,7),_C3gGsmMinUmtsQosErroneousSdu_Type())
-c3gGsmMinUmtsQosErroneousSdu.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosErroneousSdu.setStatus(_A)
-class _C3gGsmMinUmtsQosMaxSduSize_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1520))
-_C3gGsmMinUmtsQosMaxSduSize_Type.__name__=_K
-_C3gGsmMinUmtsQosMaxSduSize_Object=MibTableColumn
-c3gGsmMinUmtsQosMaxSduSize=_C3gGsmMinUmtsQosMaxSduSize_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1,8),_C3gGsmMinUmtsQosMaxSduSize_Type())
-c3gGsmMinUmtsQosMaxSduSize.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosMaxSduSize.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosMaxSduSize.setUnits(_P)
-_C3gGsmMinUmtsQosSer_Type=C3gUmtsQosSer
-_C3gGsmMinUmtsQosSer_Object=MibTableColumn
-c3gGsmMinUmtsQosSer=_C3gGsmMinUmtsQosSer_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1,9),_C3gGsmMinUmtsQosSer_Type())
-c3gGsmMinUmtsQosSer.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosSer.setStatus(_A)
-_C3gGsmMinUmtsQosBer_Type=C3gUmtsQosBer
-_C3gGsmMinUmtsQosBer_Object=MibTableColumn
-c3gGsmMinUmtsQosBer=_C3gGsmMinUmtsQosBer_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1,10),_C3gGsmMinUmtsQosBer_Type())
-c3gGsmMinUmtsQosBer.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosBer.setStatus(_A)
-class _C3gGsmMinUmtsQosDelay_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4000))
-_C3gGsmMinUmtsQosDelay_Type.__name__=_K
-_C3gGsmMinUmtsQosDelay_Object=MibTableColumn
-c3gGsmMinUmtsQosDelay=_C3gGsmMinUmtsQosDelay_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1,11),_C3gGsmMinUmtsQosDelay_Type())
-c3gGsmMinUmtsQosDelay.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosDelay.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosDelay.setUnits(_U)
-_C3gGsmMinUmtsQosPriority_Type=C3gUmtsQosPriority
-_C3gGsmMinUmtsQosPriority_Object=MibTableColumn
-c3gGsmMinUmtsQosPriority=_C3gGsmMinUmtsQosPriority_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1,12),_C3gGsmMinUmtsQosPriority_Type())
-c3gGsmMinUmtsQosPriority.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosPriority.setStatus(_A)
-_C3gGsmMinUmtsQosSrcStatDescriptor_Type=C3gUmtsQosSrcStatDescriptor
-_C3gGsmMinUmtsQosSrcStatDescriptor_Object=MibTableColumn
-c3gGsmMinUmtsQosSrcStatDescriptor=_C3gGsmMinUmtsQosSrcStatDescriptor_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1,13),_C3gGsmMinUmtsQosSrcStatDescriptor_Type())
-c3gGsmMinUmtsQosSrcStatDescriptor.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosSrcStatDescriptor.setStatus(_A)
-_C3gGsmMinUmtsQosSignalIndication_Type=C3gUmtsQosSignalIndication
-_C3gGsmMinUmtsQosSignalIndication_Object=MibTableColumn
-c3gGsmMinUmtsQosSignalIndication=_C3gGsmMinUmtsQosSignalIndication_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1,14),_C3gGsmMinUmtsQosSignalIndication_Type())
-c3gGsmMinUmtsQosSignalIndication.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosSignalIndication.setStatus(_A)
-_C3gGsmMinUmtsQosRowStatus_Type=RowStatus
-_C3gGsmMinUmtsQosRowStatus_Object=MibTableColumn
-c3gGsmMinUmtsQosRowStatus=_C3gGsmMinUmtsQosRowStatus_Object((1,3,6,1,4,1,9,9,661,1,3,3,4,1,15),_C3gGsmMinUmtsQosRowStatus_Type())
-c3gGsmMinUmtsQosRowStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinUmtsQosRowStatus.setStatus(_A)
-_C3gGsmNegoUmtsQosTable_Object=MibTable
-c3gGsmNegoUmtsQosTable=_C3gGsmNegoUmtsQosTable_Object((1,3,6,1,4,1,9,9,661,1,3,3,5))
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosTable.setStatus(_A)
-_C3gGsmNegoUmtsQosEntry_Object=MibTableRow
-c3gGsmNegoUmtsQosEntry=_C3gGsmNegoUmtsQosEntry_Object((1,3,6,1,4,1,9,9,661,1,3,3,5,1))
-c3gGsmNegoUmtsQosEntry.setIndexNames((0,_H,_J),(0,_B,_R))
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosEntry.setStatus(_A)
-_C3gGsmNegoUmtsQosTrafficClass_Type=C3gUmtsQosTrafficClass
-_C3gGsmNegoUmtsQosTrafficClass_Object=MibTableColumn
-c3gGsmNegoUmtsQosTrafficClass=_C3gGsmNegoUmtsQosTrafficClass_Object((1,3,6,1,4,1,9,9,661,1,3,3,5,1,1),_C3gGsmNegoUmtsQosTrafficClass_Type())
-c3gGsmNegoUmtsQosTrafficClass.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosTrafficClass.setStatus(_A)
-_C3gGsmNegoUmtsQosMaxUpLinkBitRate_Type=C3gUmtsQosLinkBitRate
-_C3gGsmNegoUmtsQosMaxUpLinkBitRate_Object=MibTableColumn
-c3gGsmNegoUmtsQosMaxUpLinkBitRate=_C3gGsmNegoUmtsQosMaxUpLinkBitRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,5,1,2),_C3gGsmNegoUmtsQosMaxUpLinkBitRate_Type())
-c3gGsmNegoUmtsQosMaxUpLinkBitRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosMaxUpLinkBitRate.setStatus(_A)
-_C3gGsmNegoUmtsQosMaxDownLinkBitRate_Type=C3gUmtsQosLinkBitRate
-_C3gGsmNegoUmtsQosMaxDownLinkBitRate_Object=MibTableColumn
-c3gGsmNegoUmtsQosMaxDownLinkBitRate=_C3gGsmNegoUmtsQosMaxDownLinkBitRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,5,1,3),_C3gGsmNegoUmtsQosMaxDownLinkBitRate_Type())
-c3gGsmNegoUmtsQosMaxDownLinkBitRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosMaxDownLinkBitRate.setStatus(_A)
-_C3gGsmNegoUmtsQosGuaUpLinkBitRate_Type=C3gUmtsQosLinkBitRate
-_C3gGsmNegoUmtsQosGuaUpLinkBitRate_Object=MibTableColumn
-c3gGsmNegoUmtsQosGuaUpLinkBitRate=_C3gGsmNegoUmtsQosGuaUpLinkBitRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,5,1,4),_C3gGsmNegoUmtsQosGuaUpLinkBitRate_Type())
-c3gGsmNegoUmtsQosGuaUpLinkBitRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosGuaUpLinkBitRate.setStatus(_A)
-_C3gGsmNegoUmtsQosGuaDownLinkBitRate_Type=C3gUmtsQosLinkBitRate
-_C3gGsmNegoUmtsQosGuaDownLinkBitRate_Object=MibTableColumn
-c3gGsmNegoUmtsQosGuaDownLinkBitRate=_C3gGsmNegoUmtsQosGuaDownLinkBitRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,5,1,5),_C3gGsmNegoUmtsQosGuaDownLinkBitRate_Type())
-c3gGsmNegoUmtsQosGuaDownLinkBitRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosGuaDownLinkBitRate.setStatus(_A)
-_C3gGsmNegoUmtsQosOrder_Type=C3gUmtsQosOrder
-_C3gGsmNegoUmtsQosOrder_Object=MibTableColumn
-c3gGsmNegoUmtsQosOrder=_C3gGsmNegoUmtsQosOrder_Object((1,3,6,1,4,1,9,9,661,1,3,3,5,1,6),_C3gGsmNegoUmtsQosOrder_Type())
-c3gGsmNegoUmtsQosOrder.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosOrder.setStatus(_A)
-_C3gGsmNegoUmtsQosErroneousSdu_Type=C3gUmtsQosErroneousSdu
-_C3gGsmNegoUmtsQosErroneousSdu_Object=MibTableColumn
-c3gGsmNegoUmtsQosErroneousSdu=_C3gGsmNegoUmtsQosErroneousSdu_Object((1,3,6,1,4,1,9,9,661,1,3,3,5,1,7),_C3gGsmNegoUmtsQosErroneousSdu_Type())
-c3gGsmNegoUmtsQosErroneousSdu.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosErroneousSdu.setStatus(_A)
-class _C3gGsmNegoUmtsQosMaxSduSize_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1520))
-_C3gGsmNegoUmtsQosMaxSduSize_Type.__name__=_K
-_C3gGsmNegoUmtsQosMaxSduSize_Object=MibTableColumn
-c3gGsmNegoUmtsQosMaxSduSize=_C3gGsmNegoUmtsQosMaxSduSize_Object((1,3,6,1,4,1,9,9,661,1,3,3,5,1,8),_C3gGsmNegoUmtsQosMaxSduSize_Type())
-c3gGsmNegoUmtsQosMaxSduSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosMaxSduSize.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosMaxSduSize.setUnits(_P)
-_C3gGsmNegoUmtsQosSer_Type=C3gUmtsQosSer
-_C3gGsmNegoUmtsQosSer_Object=MibTableColumn
-c3gGsmNegoUmtsQosSer=_C3gGsmNegoUmtsQosSer_Object((1,3,6,1,4,1,9,9,661,1,3,3,5,1,9),_C3gGsmNegoUmtsQosSer_Type())
-c3gGsmNegoUmtsQosSer.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosSer.setStatus(_A)
-_C3gGsmNegoUmtsQosBer_Type=C3gUmtsQosBer
-_C3gGsmNegoUmtsQosBer_Object=MibTableColumn
-c3gGsmNegoUmtsQosBer=_C3gGsmNegoUmtsQosBer_Object((1,3,6,1,4,1,9,9,661,1,3,3,5,1,10),_C3gGsmNegoUmtsQosBer_Type())
-c3gGsmNegoUmtsQosBer.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosBer.setStatus(_A)
-class _C3gGsmNegoUmtsQosDelay_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4000))
-_C3gGsmNegoUmtsQosDelay_Type.__name__=_K
-_C3gGsmNegoUmtsQosDelay_Object=MibTableColumn
-c3gGsmNegoUmtsQosDelay=_C3gGsmNegoUmtsQosDelay_Object((1,3,6,1,4,1,9,9,661,1,3,3,5,1,11),_C3gGsmNegoUmtsQosDelay_Type())
-c3gGsmNegoUmtsQosDelay.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosDelay.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosDelay.setUnits(_U)
-_C3gGsmNegoUmtsQosPriority_Type=C3gUmtsQosPriority
-_C3gGsmNegoUmtsQosPriority_Object=MibTableColumn
-c3gGsmNegoUmtsQosPriority=_C3gGsmNegoUmtsQosPriority_Object((1,3,6,1,4,1,9,9,661,1,3,3,5,1,12),_C3gGsmNegoUmtsQosPriority_Type())
-c3gGsmNegoUmtsQosPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosPriority.setStatus(_A)
-_C3gGsmNegoUmtsQosSrcStatDescriptor_Type=C3gUmtsQosSrcStatDescriptor
-_C3gGsmNegoUmtsQosSrcStatDescriptor_Object=MibTableColumn
-c3gGsmNegoUmtsQosSrcStatDescriptor=_C3gGsmNegoUmtsQosSrcStatDescriptor_Object((1,3,6,1,4,1,9,9,661,1,3,3,5,1,13),_C3gGsmNegoUmtsQosSrcStatDescriptor_Type())
-c3gGsmNegoUmtsQosSrcStatDescriptor.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosSrcStatDescriptor.setStatus(_A)
-_C3gGsmNegoUmtsQosSignalIndication_Type=C3gUmtsQosSignalIndication
-_C3gGsmNegoUmtsQosSignalIndication_Object=MibTableColumn
-c3gGsmNegoUmtsQosSignalIndication=_C3gGsmNegoUmtsQosSignalIndication_Object((1,3,6,1,4,1,9,9,661,1,3,3,5,1,14),_C3gGsmNegoUmtsQosSignalIndication_Type())
-c3gGsmNegoUmtsQosSignalIndication.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoUmtsQosSignalIndication.setStatus(_A)
-_C3gGsmReqGprsQosTable_Object=MibTable
-c3gGsmReqGprsQosTable=_C3gGsmReqGprsQosTable_Object((1,3,6,1,4,1,9,9,661,1,3,3,6))
-if mibBuilder.loadTexts:c3gGsmReqGprsQosTable.setStatus(_A)
-_C3gGsmReqGprsQosEntry_Object=MibTableRow
-c3gGsmReqGprsQosEntry=_C3gGsmReqGprsQosEntry_Object((1,3,6,1,4,1,9,9,661,1,3,3,6,1))
-c3gGsmReqGprsQosEntry.setIndexNames((0,_H,_J),(0,_B,_R))
-if mibBuilder.loadTexts:c3gGsmReqGprsQosEntry.setStatus(_A)
-_C3gGsmReqGprsQosPrecedence_Type=C3gGprsQosPrecedence
-_C3gGsmReqGprsQosPrecedence_Object=MibTableColumn
-c3gGsmReqGprsQosPrecedence=_C3gGsmReqGprsQosPrecedence_Object((1,3,6,1,4,1,9,9,661,1,3,3,6,1,1),_C3gGsmReqGprsQosPrecedence_Type())
-c3gGsmReqGprsQosPrecedence.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqGprsQosPrecedence.setStatus(_A)
-_C3gGsmReqGprsQosDelay_Type=C3gGprsQosDelay
-_C3gGsmReqGprsQosDelay_Object=MibTableColumn
-c3gGsmReqGprsQosDelay=_C3gGsmReqGprsQosDelay_Object((1,3,6,1,4,1,9,9,661,1,3,3,6,1,2),_C3gGsmReqGprsQosDelay_Type())
-c3gGsmReqGprsQosDelay.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqGprsQosDelay.setStatus(_A)
-_C3gGsmReqGprsQosReliability_Type=C3gGprsQosReliability
-_C3gGsmReqGprsQosReliability_Object=MibTableColumn
-c3gGsmReqGprsQosReliability=_C3gGsmReqGprsQosReliability_Object((1,3,6,1,4,1,9,9,661,1,3,3,6,1,3),_C3gGsmReqGprsQosReliability_Type())
-c3gGsmReqGprsQosReliability.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqGprsQosReliability.setStatus(_A)
-_C3gGsmReqGprsQosPeakRate_Type=C3gGprsQosPeakRate
-_C3gGsmReqGprsQosPeakRate_Object=MibTableColumn
-c3gGsmReqGprsQosPeakRate=_C3gGsmReqGprsQosPeakRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,6,1,4),_C3gGsmReqGprsQosPeakRate_Type())
-c3gGsmReqGprsQosPeakRate.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqGprsQosPeakRate.setStatus(_A)
-_C3gGsmReqGprsQosMeanRate_Type=C3gGprsQosMeanRate
-_C3gGsmReqGprsQosMeanRate_Object=MibTableColumn
-c3gGsmReqGprsQosMeanRate=_C3gGsmReqGprsQosMeanRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,6,1,5),_C3gGsmReqGprsQosMeanRate_Type())
-c3gGsmReqGprsQosMeanRate.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqGprsQosMeanRate.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmReqGprsQosMeanRate.setUnits(_A2)
-_C3gGsmReqGprsQosRowStatus_Type=RowStatus
-_C3gGsmReqGprsQosRowStatus_Object=MibTableColumn
-c3gGsmReqGprsQosRowStatus=_C3gGsmReqGprsQosRowStatus_Object((1,3,6,1,4,1,9,9,661,1,3,3,6,1,6),_C3gGsmReqGprsQosRowStatus_Type())
-c3gGsmReqGprsQosRowStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmReqGprsQosRowStatus.setStatus(_A)
-_C3gGsmMinGprsQosTable_Object=MibTable
-c3gGsmMinGprsQosTable=_C3gGsmMinGprsQosTable_Object((1,3,6,1,4,1,9,9,661,1,3,3,7))
-if mibBuilder.loadTexts:c3gGsmMinGprsQosTable.setStatus(_A)
-_C3gGsmMinGprsQosEntry_Object=MibTableRow
-c3gGsmMinGprsQosEntry=_C3gGsmMinGprsQosEntry_Object((1,3,6,1,4,1,9,9,661,1,3,3,7,1))
-c3gGsmMinGprsQosEntry.setIndexNames((0,_H,_J),(0,_B,_R))
-if mibBuilder.loadTexts:c3gGsmMinGprsQosEntry.setStatus(_A)
-_C3gGsmMinGprsQosPrecedence_Type=C3gGprsQosPrecedence
-_C3gGsmMinGprsQosPrecedence_Object=MibTableColumn
-c3gGsmMinGprsQosPrecedence=_C3gGsmMinGprsQosPrecedence_Object((1,3,6,1,4,1,9,9,661,1,3,3,7,1,1),_C3gGsmMinGprsQosPrecedence_Type())
-c3gGsmMinGprsQosPrecedence.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinGprsQosPrecedence.setStatus(_A)
-_C3gGsmMinGprsQosDelay_Type=C3gGprsQosDelay
-_C3gGsmMinGprsQosDelay_Object=MibTableColumn
-c3gGsmMinGprsQosDelay=_C3gGsmMinGprsQosDelay_Object((1,3,6,1,4,1,9,9,661,1,3,3,7,1,2),_C3gGsmMinGprsQosDelay_Type())
-c3gGsmMinGprsQosDelay.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinGprsQosDelay.setStatus(_A)
-_C3gGsmMinGprsQosReliability_Type=C3gGprsQosReliability
-_C3gGsmMinGprsQosReliability_Object=MibTableColumn
-c3gGsmMinGprsQosReliability=_C3gGsmMinGprsQosReliability_Object((1,3,6,1,4,1,9,9,661,1,3,3,7,1,3),_C3gGsmMinGprsQosReliability_Type())
-c3gGsmMinGprsQosReliability.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinGprsQosReliability.setStatus(_A)
-_C3gGsmMinGprsQosPeakRate_Type=C3gGprsQosPeakRate
-_C3gGsmMinGprsQosPeakRate_Object=MibTableColumn
-c3gGsmMinGprsQosPeakRate=_C3gGsmMinGprsQosPeakRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,7,1,4),_C3gGsmMinGprsQosPeakRate_Type())
-c3gGsmMinGprsQosPeakRate.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinGprsQosPeakRate.setStatus(_A)
-_C3gGsmMinGprsQosMeanRate_Type=C3gGprsQosMeanRate
-_C3gGsmMinGprsQosMeanRate_Object=MibTableColumn
-c3gGsmMinGprsQosMeanRate=_C3gGsmMinGprsQosMeanRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,7,1,5),_C3gGsmMinGprsQosMeanRate_Type())
-c3gGsmMinGprsQosMeanRate.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinGprsQosMeanRate.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmMinGprsQosMeanRate.setUnits(_A2)
-_C3gGsmMinGprsQosRowStatus_Type=RowStatus
-_C3gGsmMinGprsQosRowStatus_Object=MibTableColumn
-c3gGsmMinGprsQosRowStatus=_C3gGsmMinGprsQosRowStatus_Object((1,3,6,1,4,1,9,9,661,1,3,3,7,1,6),_C3gGsmMinGprsQosRowStatus_Type())
-c3gGsmMinGprsQosRowStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gGsmMinGprsQosRowStatus.setStatus(_A)
-_C3gGsmNegoGprsQosTable_Object=MibTable
-c3gGsmNegoGprsQosTable=_C3gGsmNegoGprsQosTable_Object((1,3,6,1,4,1,9,9,661,1,3,3,8))
-if mibBuilder.loadTexts:c3gGsmNegoGprsQosTable.setStatus(_A)
-_C3gGsmNegoGprsQosEntry_Object=MibTableRow
-c3gGsmNegoGprsQosEntry=_C3gGsmNegoGprsQosEntry_Object((1,3,6,1,4,1,9,9,661,1,3,3,8,1))
-c3gGsmNegoGprsQosEntry.setIndexNames((0,_H,_J),(0,_B,_R))
-if mibBuilder.loadTexts:c3gGsmNegoGprsQosEntry.setStatus(_A)
-_C3gGsmNegoGprsQosPrecedence_Type=C3gGprsQosPrecedence
-_C3gGsmNegoGprsQosPrecedence_Object=MibTableColumn
-c3gGsmNegoGprsQosPrecedence=_C3gGsmNegoGprsQosPrecedence_Object((1,3,6,1,4,1,9,9,661,1,3,3,8,1,1),_C3gGsmNegoGprsQosPrecedence_Type())
-c3gGsmNegoGprsQosPrecedence.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoGprsQosPrecedence.setStatus(_A)
-_C3gGsmNegoGprsQosDelay_Type=C3gGprsQosDelay
-_C3gGsmNegoGprsQosDelay_Object=MibTableColumn
-c3gGsmNegoGprsQosDelay=_C3gGsmNegoGprsQosDelay_Object((1,3,6,1,4,1,9,9,661,1,3,3,8,1,2),_C3gGsmNegoGprsQosDelay_Type())
-c3gGsmNegoGprsQosDelay.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoGprsQosDelay.setStatus(_A)
-_C3gGsmNegoGprsQosReliability_Type=C3gGprsQosReliability
-_C3gGsmNegoGprsQosReliability_Object=MibTableColumn
-c3gGsmNegoGprsQosReliability=_C3gGsmNegoGprsQosReliability_Object((1,3,6,1,4,1,9,9,661,1,3,3,8,1,3),_C3gGsmNegoGprsQosReliability_Type())
-c3gGsmNegoGprsQosReliability.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoGprsQosReliability.setStatus(_A)
-_C3gGsmNegoGprsQosPeakRate_Type=C3gGprsQosPeakRate
-_C3gGsmNegoGprsQosPeakRate_Object=MibTableColumn
-c3gGsmNegoGprsQosPeakRate=_C3gGsmNegoGprsQosPeakRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,8,1,4),_C3gGsmNegoGprsQosPeakRate_Type())
-c3gGsmNegoGprsQosPeakRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoGprsQosPeakRate.setStatus(_A)
-_C3gGsmNegoGprsQosMeanRate_Type=C3gGprsQosMeanRate
-_C3gGsmNegoGprsQosMeanRate_Object=MibTableColumn
-c3gGsmNegoGprsQosMeanRate=_C3gGsmNegoGprsQosMeanRate_Object((1,3,6,1,4,1,9,9,661,1,3,3,8,1,5),_C3gGsmNegoGprsQosMeanRate_Type())
-c3gGsmNegoGprsQosMeanRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNegoGprsQosMeanRate.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmNegoGprsQosMeanRate.setUnits(_A2)
-_C3gGsmRadio_ObjectIdentity=ObjectIdentity
-c3gGsmRadio=_C3gGsmRadio_ObjectIdentity((1,3,6,1,4,1,9,9,661,1,3,4))
-_C3gGsmRadioTable_Object=MibTable
-c3gGsmRadioTable=_C3gGsmRadioTable_Object((1,3,6,1,4,1,9,9,661,1,3,4,1))
-if mibBuilder.loadTexts:c3gGsmRadioTable.setStatus(_A)
-_C3gGsmRadioEntry_Object=MibTableRow
-c3gGsmRadioEntry=_C3gGsmRadioEntry_Object((1,3,6,1,4,1,9,9,661,1,3,4,1,1))
-c3gGsmRadioEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gGsmRadioEntry.setStatus(_A)
-_C3gCurrentGsmRssi_Type=C3gRssi
-_C3gCurrentGsmRssi_Object=MibTableColumn
-c3gCurrentGsmRssi=_C3gCurrentGsmRssi_Object((1,3,6,1,4,1,9,9,661,1,3,4,1,1,1),_C3gCurrentGsmRssi_Type())
-c3gCurrentGsmRssi.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCurrentGsmRssi.setStatus(_A)
-_C3gCurrentGsmEcIo_Type=C3gEcIo
-_C3gCurrentGsmEcIo_Object=MibTableColumn
-c3gCurrentGsmEcIo=_C3gCurrentGsmEcIo_Object((1,3,6,1,4,1,9,9,661,1,3,4,1,1,2),_C3gCurrentGsmEcIo_Type())
-c3gCurrentGsmEcIo.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gCurrentGsmEcIo.setStatus(_A)
-class _C3gGsmCurrentBand_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12)));namedValues=NamedValues(*((_G,1),('invalid',2),(_S,3),('gsm850',4),('gsm900',5),('gsm1800',6),('gsm1900',7),('wcdma800',8),('wcdma850',9),('wcdma1900',10),('wcdma2100',11),('lteBand',12)))
-_C3gGsmCurrentBand_Type.__name__=_D
-_C3gGsmCurrentBand_Object=MibTableColumn
-c3gGsmCurrentBand=_C3gGsmCurrentBand_Object((1,3,6,1,4,1,9,9,661,1,3,4,1,1,3),_C3gGsmCurrentBand_Type())
-c3gGsmCurrentBand.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmCurrentBand.setStatus(_A)
-class _C3gGsmChannelNumber_Type(Unsigned32):defaultValue=0
-_C3gGsmChannelNumber_Type.__name__=_K
-_C3gGsmChannelNumber_Object=MibTableColumn
-c3gGsmChannelNumber=_C3gGsmChannelNumber_Object((1,3,6,1,4,1,9,9,661,1,3,4,1,1,4),_C3gGsmChannelNumber_Type())
-c3gGsmChannelNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmChannelNumber.setStatus(_A)
-class _C3gGsmNumberOfNearbyCell_Type(Unsigned32):defaultValue=0
-_C3gGsmNumberOfNearbyCell_Type.__name__=_K
-_C3gGsmNumberOfNearbyCell_Object=MibTableColumn
-c3gGsmNumberOfNearbyCell=_C3gGsmNumberOfNearbyCell_Object((1,3,6,1,4,1,9,9,661,1,3,4,1,1,5),_C3gGsmNumberOfNearbyCell_Type())
-c3gGsmNumberOfNearbyCell.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNumberOfNearbyCell.setStatus(_A)
-_C3gGsmNearbyCellTable_Object=MibTable
-c3gGsmNearbyCellTable=_C3gGsmNearbyCellTable_Object((1,3,6,1,4,1,9,9,661,1,3,4,2))
-if mibBuilder.loadTexts:c3gGsmNearbyCellTable.setStatus(_A)
-_C3gGsmNearbyCellEntry_Object=MibTableRow
-c3gGsmNearbyCellEntry=_C3gGsmNearbyCellEntry_Object((1,3,6,1,4,1,9,9,661,1,3,4,2,1))
-c3gGsmNearbyCellEntry.setIndexNames((0,_H,_J),(0,_B,_AZ))
-if mibBuilder.loadTexts:c3gGsmNearbyCellEntry.setStatus(_A)
-class _C3gGsmNearbyCellIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_C3gGsmNearbyCellIndex_Type.__name__=_D
-_C3gGsmNearbyCellIndex_Object=MibTableColumn
-c3gGsmNearbyCellIndex=_C3gGsmNearbyCellIndex_Object((1,3,6,1,4,1,9,9,661,1,3,4,2,1,1),_C3gGsmNearbyCellIndex_Type())
-c3gGsmNearbyCellIndex.setMaxAccess(_Y)
-if mibBuilder.loadTexts:c3gGsmNearbyCellIndex.setStatus(_A)
-_C3gGsmNearbyCellPrimaryScramblingCode_Type=Unsigned32
-_C3gGsmNearbyCellPrimaryScramblingCode_Object=MibTableColumn
-c3gGsmNearbyCellPrimaryScramblingCode=_C3gGsmNearbyCellPrimaryScramblingCode_Object((1,3,6,1,4,1,9,9,661,1,3,4,2,1,2),_C3gGsmNearbyCellPrimaryScramblingCode_Type())
-c3gGsmNearbyCellPrimaryScramblingCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNearbyCellPrimaryScramblingCode.setStatus(_A)
-class _C3gGsmNearbyCellRscp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-150,0))
-_C3gGsmNearbyCellRscp_Type.__name__=_D
-_C3gGsmNearbyCellRscp_Object=MibTableColumn
-c3gGsmNearbyCellRscp=_C3gGsmNearbyCellRscp_Object((1,3,6,1,4,1,9,9,661,1,3,4,2,1,3),_C3gGsmNearbyCellRscp_Type())
-c3gGsmNearbyCellRscp.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNearbyCellRscp.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmNearbyCellRscp.setUnits(_h)
-_C3gGsmNearbyCellEcIoMeasurement_Type=C3gEcIo
-_C3gGsmNearbyCellEcIoMeasurement_Object=MibTableColumn
-c3gGsmNearbyCellEcIoMeasurement=_C3gGsmNearbyCellEcIoMeasurement_Object((1,3,6,1,4,1,9,9,661,1,3,4,2,1,4),_C3gGsmNearbyCellEcIoMeasurement_Type())
-c3gGsmNearbyCellEcIoMeasurement.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNearbyCellEcIoMeasurement.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmNearbyCellEcIoMeasurement.setUnits(_h)
-_C3gGsmHistoryTable_Object=MibTable
-c3gGsmHistoryTable=_C3gGsmHistoryTable_Object((1,3,6,1,4,1,9,9,661,1,3,4,3))
-if mibBuilder.loadTexts:c3gGsmHistoryTable.setStatus(_A)
-_C3gGsmHistoryEntry_Object=MibTableRow
-c3gGsmHistoryEntry=_C3gGsmHistoryEntry_Object((1,3,6,1,4,1,9,9,661,1,3,4,3,1))
-c3gGsmHistoryEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gGsmHistoryEntry.setStatus(_A)
-class _C3gGsmHistoryRssiPerSecond_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(60,60));fixedLength=60
-_C3gGsmHistoryRssiPerSecond_Type.__name__=_O
-_C3gGsmHistoryRssiPerSecond_Object=MibTableColumn
-c3gGsmHistoryRssiPerSecond=_C3gGsmHistoryRssiPerSecond_Object((1,3,6,1,4,1,9,9,661,1,3,4,3,1,1),_C3gGsmHistoryRssiPerSecond_Type())
-c3gGsmHistoryRssiPerSecond.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmHistoryRssiPerSecond.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmHistoryRssiPerSecond.setUnits(_Q)
-class _C3gGsmHistoryRssiPerMinute_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(60,60));fixedLength=60
-_C3gGsmHistoryRssiPerMinute_Type.__name__=_O
-_C3gGsmHistoryRssiPerMinute_Object=MibTableColumn
-c3gGsmHistoryRssiPerMinute=_C3gGsmHistoryRssiPerMinute_Object((1,3,6,1,4,1,9,9,661,1,3,4,3,1,2),_C3gGsmHistoryRssiPerMinute_Type())
-c3gGsmHistoryRssiPerMinute.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmHistoryRssiPerMinute.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmHistoryRssiPerMinute.setUnits(_Q)
-class _C3gGsmHistoryRssiPerHour_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(72,72));fixedLength=72
-_C3gGsmHistoryRssiPerHour_Type.__name__=_O
-_C3gGsmHistoryRssiPerHour_Object=MibTableColumn
-c3gGsmHistoryRssiPerHour=_C3gGsmHistoryRssiPerHour_Object((1,3,6,1,4,1,9,9,661,1,3,4,3,1,3),_C3gGsmHistoryRssiPerHour_Type())
-c3gGsmHistoryRssiPerHour.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmHistoryRssiPerHour.setStatus(_A)
-if mibBuilder.loadTexts:c3gGsmHistoryRssiPerHour.setUnits(_Q)
-_C3gGsmSecurity_ObjectIdentity=ObjectIdentity
-c3gGsmSecurity=_C3gGsmSecurity_ObjectIdentity((1,3,6,1,4,1,9,9,661,1,3,5))
-_C3gGsmSecurityTable_Object=MibTable
-c3gGsmSecurityTable=_C3gGsmSecurityTable_Object((1,3,6,1,4,1,9,9,661,1,3,5,1))
-if mibBuilder.loadTexts:c3gGsmSecurityTable.setStatus(_A)
-_C3gGsmSecurityEntry_Object=MibTableRow
-c3gGsmSecurityEntry=_C3gGsmSecurityEntry_Object((1,3,6,1,4,1,9,9,661,1,3,5,1,1))
-c3gGsmSecurityEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gGsmSecurityEntry.setStatus(_A)
-class _C3gGsmChv1_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),('disabled',2),('enabled',3)))
-_C3gGsmChv1_Type.__name__=_D
-_C3gGsmChv1_Object=MibTableColumn
-c3gGsmChv1=_C3gGsmChv1_Object((1,3,6,1,4,1,9,9,661,1,3,5,1,1,1),_C3gGsmChv1_Type())
-c3gGsmChv1.setMaxAccess(_E)
-if mibBuilder.loadTexts:c3gGsmChv1.setStatus(_A)
-class _C3gGsmSimStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13)));namedValues=NamedValues(*((_G,1),('ok',2),('notInserted',3),('removed',4),('initFailure',5),('generalFailure',6),('locked',7),('chv1Blocked',8),('chv2Blocked',9),('chv1Rejected',10),('chv2Rejected',11),('mepLocked',12),('networkRejected',13)))
-_C3gGsmSimStatus_Type.__name__=_D
-_C3gGsmSimStatus_Object=MibTableColumn
-c3gGsmSimStatus=_C3gGsmSimStatus_Object((1,3,6,1,4,1,9,9,661,1,3,5,1,1,2),_C3gGsmSimStatus_Type())
-c3gGsmSimStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmSimStatus.setStatus(_A)
-class _C3gGsmSimUserOperationRequired_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*((_G,1),(_S,2),('enterChv1',3),('enterChv2',4),('enterUnblockChv1',5),('enterUnblockChv2',6),('enterMepCode',7)))
-_C3gGsmSimUserOperationRequired_Type.__name__=_D
-_C3gGsmSimUserOperationRequired_Object=MibTableColumn
-c3gGsmSimUserOperationRequired=_C3gGsmSimUserOperationRequired_Object((1,3,6,1,4,1,9,9,661,1,3,5,1,1,3),_C3gGsmSimUserOperationRequired_Type())
-c3gGsmSimUserOperationRequired.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmSimUserOperationRequired.setStatus(_A)
-class _C3gGsmNumberOfRetriesRemaining_Type(Unsigned32):defaultValue=0
-_C3gGsmNumberOfRetriesRemaining_Type.__name__=_K
-_C3gGsmNumberOfRetriesRemaining_Object=MibTableColumn
-c3gGsmNumberOfRetriesRemaining=_C3gGsmNumberOfRetriesRemaining_Object((1,3,6,1,4,1,9,9,661,1,3,5,1,1,4),_C3gGsmNumberOfRetriesRemaining_Type())
-c3gGsmNumberOfRetriesRemaining.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gGsmNumberOfRetriesRemaining.setStatus(_A)
-_C3gWanLbs_ObjectIdentity=ObjectIdentity
-c3gWanLbs=_C3gWanLbs_ObjectIdentity((1,3,6,1,4,1,9,9,661,1,4))
-_C3gWanLbsCommon_ObjectIdentity=ObjectIdentity
-c3gWanLbsCommon=_C3gWanLbsCommon_ObjectIdentity((1,3,6,1,4,1,9,9,661,1,4,1))
-_C3gWanLbsCommonTable_Object=MibTable
-c3gWanLbsCommonTable=_C3gWanLbsCommonTable_Object((1,3,6,1,4,1,9,9,661,1,4,1,1))
-if mibBuilder.loadTexts:c3gWanLbsCommonTable.setStatus(_A)
-_C3gWanLbsCommonEntry_Object=MibTableRow
-c3gWanLbsCommonEntry=_C3gWanLbsCommonEntry_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1))
-c3gWanLbsCommonEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gWanLbsCommonEntry.setStatus(_A)
-class _C3gLbsModeSelected_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('unKnown',1),('standAlone',2),('msBased',3),('msAssist',4),('reserved',5)))
-_C3gLbsModeSelected_Type.__name__=_D
-_C3gLbsModeSelected_Object=MibTableColumn
-c3gLbsModeSelected=_C3gLbsModeSelected_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,1),_C3gLbsModeSelected_Type())
-c3gLbsModeSelected.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsModeSelected.setStatus(_A)
-class _C3gLbsState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_Aa,1),('gpsAcquiring',2),('gpsEnabled',3),('gpsLocError',4)))
-_C3gLbsState_Type.__name__=_D
-_C3gLbsState_Object=MibTableColumn
-c3gLbsState=_C3gLbsState_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,2),_C3gLbsState_Type())
-c3gLbsState.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsState.setStatus(_A)
-class _C3gLbsLocFixError_Type(Integer32):defaultValue=48;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48)));namedValues=NamedValues(*(('offline',1),(_i,2),('noConnection',3),('noData',4),('sessionBusy',5),('reserved',6),(_Aa,7),('connectionFailed',8),('errorState',9),('clientEnded',10),('uiEnded',11),('networkEnded',12),('timeout',13),('privacyLevel',14),('networkAccessError',15),('fixError',16),('pdeRejected',17),('trafficChannelExited',18),('e911',19),('serverError',20),('staleBSinformation',21),('resourceContention',22),('authenticationParameterFailed',23),('authenticationFailedLocal',24),('authenticationFailedNetwork',25),('vxLcsAgentAuthFail',26),('unknownSystemError',27),('unsupportedService',28),('subscriptionViolation',29),('desiredFixMethodFailed',30),('antennaSwitch',31),('noTxConfirmationReceived',32),('normalEndOfSession',33),('noErrorFromNetwork',34),('noResourcesLeftOnNetwork',35),('positionServerNotAvailable',36),('unsupportedProtocolVersion',37),('ssmolrErrorSystemFailure',38),('ssmolrErrorUnexpectedDataValue',39),('ssmolrErrorDataMissing',40),('ssmolrErrorFacilityNotSupported',41),('ssmolrErrorSsSubscriptionViolation',42),('ssmolrErrorPositionMethodFailure',43),('ssmolrErrorUndefined',44),('smlcTimeout',45),('mtGguardTimeExpired',46),('additionalAssistanceNeeded',47),('noFixError',48)))
-_C3gLbsLocFixError_Type.__name__=_D
-_C3gLbsLocFixError_Object=MibTableColumn
-c3gLbsLocFixError=_C3gLbsLocFixError_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,3),_C3gLbsLocFixError_Type())
-c3gLbsLocFixError.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsLocFixError.setStatus(_A)
-_C3gLbsLatitude_Type=SnmpAdminString
-_C3gLbsLatitude_Object=MibTableColumn
-c3gLbsLatitude=_C3gLbsLatitude_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,4),_C3gLbsLatitude_Type())
-c3gLbsLatitude.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsLatitude.setStatus(_A)
-_C3gLbsLongitude_Type=SnmpAdminString
-_C3gLbsLongitude_Object=MibTableColumn
-c3gLbsLongitude=_C3gLbsLongitude_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,5),_C3gLbsLongitude_Type())
-c3gLbsLongitude.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsLongitude.setStatus(_A)
-_C3gLbsTimeStamp_Type=SnmpAdminString
-_C3gLbsTimeStamp_Object=MibTableColumn
-c3gLbsTimeStamp=_C3gLbsTimeStamp_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,6),_C3gLbsTimeStamp_Type())
-c3gLbsTimeStamp.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsTimeStamp.setStatus(_A)
-class _C3gLbsLocUncertaintyAngle_Type(Unsigned32):defaultValue=0
-_C3gLbsLocUncertaintyAngle_Type.__name__=_K
-_C3gLbsLocUncertaintyAngle_Object=MibTableColumn
-c3gLbsLocUncertaintyAngle=_C3gLbsLocUncertaintyAngle_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,7),_C3gLbsLocUncertaintyAngle_Type())
-c3gLbsLocUncertaintyAngle.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsLocUncertaintyAngle.setStatus(_A)
-if mibBuilder.loadTexts:c3gLbsLocUncertaintyAngle.setUnits(_j)
-class _C3gLbsLocUncertaintyA_Type(Unsigned32):defaultValue=0
-_C3gLbsLocUncertaintyA_Type.__name__=_K
-_C3gLbsLocUncertaintyA_Object=MibTableColumn
-c3gLbsLocUncertaintyA=_C3gLbsLocUncertaintyA_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,8),_C3gLbsLocUncertaintyA_Type())
-c3gLbsLocUncertaintyA.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsLocUncertaintyA.setStatus(_A)
-if mibBuilder.loadTexts:c3gLbsLocUncertaintyA.setUnits(_k)
-class _C3gLbsLocUncertaintyPos_Type(Unsigned32):defaultValue=0
-_C3gLbsLocUncertaintyPos_Type.__name__=_K
-_C3gLbsLocUncertaintyPos_Object=MibTableColumn
-c3gLbsLocUncertaintyPos=_C3gLbsLocUncertaintyPos_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,9),_C3gLbsLocUncertaintyPos_Type())
-c3gLbsLocUncertaintyPos.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsLocUncertaintyPos.setStatus(_A)
-if mibBuilder.loadTexts:c3gLbsLocUncertaintyPos.setUnits(_k)
-class _C3gLbsFixtype_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_S,1),('twoDimension',2),('threeDimension',3)))
-_C3gLbsFixtype_Type.__name__=_D
-_C3gLbsFixtype_Object=MibTableColumn
-c3gLbsFixtype=_C3gLbsFixtype_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,10),_C3gLbsFixtype_Type())
-c3gLbsFixtype.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsFixtype.setStatus(_A)
-class _C3gLbsHeightValid_Type(TruthValue):defaultValue=2
-_C3gLbsHeightValid_Type.__name__=_L
-_C3gLbsHeightValid_Object=MibTableColumn
-c3gLbsHeightValid=_C3gLbsHeightValid_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,11),_C3gLbsHeightValid_Type())
-c3gLbsHeightValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsHeightValid.setStatus(_A)
-class _C3gLbsHeight_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-500,500))
-_C3gLbsHeight_Type.__name__=_D
-_C3gLbsHeight_Object=MibTableColumn
-c3gLbsHeight=_C3gLbsHeight_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,12),_C3gLbsHeight_Type())
-c3gLbsHeight.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsHeight.setStatus(_A)
-if mibBuilder.loadTexts:c3gLbsHeight.setUnits(_k)
-class _C3gLbsLocUncertaintyVertical_Type(Unsigned32):defaultValue=0
-_C3gLbsLocUncertaintyVertical_Type.__name__=_K
-_C3gLbsLocUncertaintyVertical_Object=MibTableColumn
-c3gLbsLocUncertaintyVertical=_C3gLbsLocUncertaintyVertical_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,13),_C3gLbsLocUncertaintyVertical_Type())
-c3gLbsLocUncertaintyVertical.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsLocUncertaintyVertical.setStatus(_A)
-if mibBuilder.loadTexts:c3gLbsLocUncertaintyVertical.setUnits(_k)
-class _C3gLbsVelocityValid_Type(TruthValue):defaultValue=2
-_C3gLbsVelocityValid_Type.__name__=_L
-_C3gLbsVelocityValid_Object=MibTableColumn
-c3gLbsVelocityValid=_C3gLbsVelocityValid_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,14),_C3gLbsVelocityValid_Type())
-c3gLbsVelocityValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsVelocityValid.setStatus(_A)
-class _C3gLbsHeading_Type(Unsigned32):defaultValue=0
-_C3gLbsHeading_Type.__name__=_K
-_C3gLbsHeading_Object=MibTableColumn
-c3gLbsHeading=_C3gLbsHeading_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,15),_C3gLbsHeading_Type())
-c3gLbsHeading.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsHeading.setStatus(_A)
-if mibBuilder.loadTexts:c3gLbsHeading.setUnits(_j)
-class _C3gLbsVelocityHorizontal_Type(Unsigned32):defaultValue=0
-_C3gLbsVelocityHorizontal_Type.__name__=_K
-_C3gLbsVelocityHorizontal_Object=MibTableColumn
-c3gLbsVelocityHorizontal=_C3gLbsVelocityHorizontal_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,16),_C3gLbsVelocityHorizontal_Type())
-c3gLbsVelocityHorizontal.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsVelocityHorizontal.setStatus(_A)
-if mibBuilder.loadTexts:c3gLbsVelocityHorizontal.setUnits(_Ab)
-class _C3gLbsVelocityVertical_Type(Unsigned32):defaultValue=0
-_C3gLbsVelocityVertical_Type.__name__=_K
-_C3gLbsVelocityVertical_Object=MibTableColumn
-c3gLbsVelocityVertical=_C3gLbsVelocityVertical_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,17),_C3gLbsVelocityVertical_Type())
-c3gLbsVelocityVertical.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsVelocityVertical.setStatus(_A)
-if mibBuilder.loadTexts:c3gLbsVelocityVertical.setUnits(_Ab)
-class _C3gLbsHepe_Type(Unsigned32):defaultValue=0
-_C3gLbsHepe_Type.__name__=_K
-_C3gLbsHepe_Object=MibTableColumn
-c3gLbsHepe=_C3gLbsHepe_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,18),_C3gLbsHepe_Type())
-c3gLbsHepe.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsHepe.setStatus(_A)
-if mibBuilder.loadTexts:c3gLbsHepe.setUnits('centimeters')
-class _C3gLbsNumSatellites_Type(Gauge32):defaultValue=0
-_C3gLbsNumSatellites_Type.__name__='Gauge32'
-_C3gLbsNumSatellites_Object=MibTableColumn
-c3gLbsNumSatellites=_C3gLbsNumSatellites_Object((1,3,6,1,4,1,9,9,661,1,4,1,1,1,19),_C3gLbsNumSatellites_Type())
-c3gLbsNumSatellites.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gLbsNumSatellites.setStatus(_A)
-_C3gWanLbsSatelliteInfo_ObjectIdentity=ObjectIdentity
-c3gWanLbsSatelliteInfo=_C3gWanLbsSatelliteInfo_ObjectIdentity((1,3,6,1,4,1,9,9,661,1,4,2))
-_C3gWanLbsSatelliteInfoTable_Object=MibTable
-c3gWanLbsSatelliteInfoTable=_C3gWanLbsSatelliteInfoTable_Object((1,3,6,1,4,1,9,9,661,1,4,2,1))
-if mibBuilder.loadTexts:c3gWanLbsSatelliteInfoTable.setStatus(_A)
-_C3gWanLbsSatelliteInfoEntry_Object=MibTableRow
-c3gWanLbsSatelliteInfoEntry=_C3gWanLbsSatelliteInfoEntry_Object((1,3,6,1,4,1,9,9,661,1,4,2,1,1))
-c3gWanLbsSatelliteInfoEntry.setIndexNames((0,_H,_J),(0,_B,_Ac))
-if mibBuilder.loadTexts:c3gWanLbsSatelliteInfoEntry.setStatus(_A)
-class _C3gWanLbsSatelliteInfoIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000))
-_C3gWanLbsSatelliteInfoIndex_Type.__name__=_D
-_C3gWanLbsSatelliteInfoIndex_Object=MibTableColumn
-c3gWanLbsSatelliteInfoIndex=_C3gWanLbsSatelliteInfoIndex_Object((1,3,6,1,4,1,9,9,661,1,4,2,1,1,1),_C3gWanLbsSatelliteInfoIndex_Type())
-c3gWanLbsSatelliteInfoIndex.setMaxAccess(_Y)
-if mibBuilder.loadTexts:c3gWanLbsSatelliteInfoIndex.setStatus(_A)
-_C3gWanLbsSatelliteNumber_Type=Integer32
-_C3gWanLbsSatelliteNumber_Object=MibTableColumn
-c3gWanLbsSatelliteNumber=_C3gWanLbsSatelliteNumber_Object((1,3,6,1,4,1,9,9,661,1,4,2,1,1,2),_C3gWanLbsSatelliteNumber_Type())
-c3gWanLbsSatelliteNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gWanLbsSatelliteNumber.setStatus(_A)
-_C3gWanLbsSatelliteElevation_Type=Integer32
-_C3gWanLbsSatelliteElevation_Object=MibTableColumn
-c3gWanLbsSatelliteElevation=_C3gWanLbsSatelliteElevation_Object((1,3,6,1,4,1,9,9,661,1,4,2,1,1,3),_C3gWanLbsSatelliteElevation_Type())
-c3gWanLbsSatelliteElevation.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gWanLbsSatelliteElevation.setStatus(_A)
-if mibBuilder.loadTexts:c3gWanLbsSatelliteElevation.setUnits(_j)
-_C3gWanLbsSatelliteAzimuth_Type=Integer32
-_C3gWanLbsSatelliteAzimuth_Object=MibTableColumn
-c3gWanLbsSatelliteAzimuth=_C3gWanLbsSatelliteAzimuth_Object((1,3,6,1,4,1,9,9,661,1,4,2,1,1,4),_C3gWanLbsSatelliteAzimuth_Type())
-c3gWanLbsSatelliteAzimuth.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gWanLbsSatelliteAzimuth.setStatus(_A)
-if mibBuilder.loadTexts:c3gWanLbsSatelliteAzimuth.setUnits(_j)
-_C3gWanLbsSatelliteInfoSignalNoiseRatio_Type=Integer32
-_C3gWanLbsSatelliteInfoSignalNoiseRatio_Object=MibTableColumn
-c3gWanLbsSatelliteInfoSignalNoiseRatio=_C3gWanLbsSatelliteInfoSignalNoiseRatio_Object((1,3,6,1,4,1,9,9,661,1,4,2,1,1,5),_C3gWanLbsSatelliteInfoSignalNoiseRatio_Type())
-c3gWanLbsSatelliteInfoSignalNoiseRatio.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gWanLbsSatelliteInfoSignalNoiseRatio.setStatus(_A)
-if mibBuilder.loadTexts:c3gWanLbsSatelliteInfoSignalNoiseRatio.setUnits('db')
-class _C3gWanLbsSatelliteUsed_Type(TruthValue):defaultValue=2
-_C3gWanLbsSatelliteUsed_Type.__name__=_L
-_C3gWanLbsSatelliteUsed_Object=MibTableColumn
-c3gWanLbsSatelliteUsed=_C3gWanLbsSatelliteUsed_Object((1,3,6,1,4,1,9,9,661,1,4,2,1,1,6),_C3gWanLbsSatelliteUsed_Type())
-c3gWanLbsSatelliteUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gWanLbsSatelliteUsed.setStatus(_A)
-_C3gWanLbsSatelliteInfoRowStatus_Type=RowStatus
-_C3gWanLbsSatelliteInfoRowStatus_Object=MibTableColumn
-c3gWanLbsSatelliteInfoRowStatus=_C3gWanLbsSatelliteInfoRowStatus_Object((1,3,6,1,4,1,9,9,661,1,4,2,1,1,7),_C3gWanLbsSatelliteInfoRowStatus_Type())
-c3gWanLbsSatelliteInfoRowStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:c3gWanLbsSatelliteInfoRowStatus.setStatus(_A)
-_C3gWanSmsCommon_ObjectIdentity=ObjectIdentity
-c3gWanSmsCommon=_C3gWanSmsCommon_ObjectIdentity((1,3,6,1,4,1,9,9,661,1,5))
-_C3gWanSms_ObjectIdentity=ObjectIdentity
-c3gWanSms=_C3gWanSms_ObjectIdentity((1,3,6,1,4,1,9,9,661,1,5,1))
-_C3gSmsCommonTable_Object=MibTable
-c3gSmsCommonTable=_C3gSmsCommonTable_Object((1,3,6,1,4,1,9,9,661,1,5,1,1))
-if mibBuilder.loadTexts:c3gSmsCommonTable.setStatus(_A)
-_C3gSmsCommonEntry_Object=MibTableRow
-c3gSmsCommonEntry=_C3gSmsCommonEntry_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1))
-c3gSmsCommonEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:c3gSmsCommonEntry.setStatus(_A)
-class _C3gSmsServiceAvailable_Type(TruthValue):defaultValue=2
-_C3gSmsServiceAvailable_Type.__name__=_L
-_C3gSmsServiceAvailable_Object=MibTableColumn
-c3gSmsServiceAvailable=_C3gSmsServiceAvailable_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,1),_C3gSmsServiceAvailable_Type())
-c3gSmsServiceAvailable.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsServiceAvailable.setStatus(_A)
-_C3gSmsOutSmsCount_Type=Counter32
-_C3gSmsOutSmsCount_Object=MibTableColumn
-c3gSmsOutSmsCount=_C3gSmsOutSmsCount_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,2),_C3gSmsOutSmsCount_Type())
-c3gSmsOutSmsCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsOutSmsCount.setStatus(_A)
-if mibBuilder.loadTexts:c3gSmsOutSmsCount.setUnits(_N)
-_C3gSmsOutSmsErrorCount_Type=Counter32
-_C3gSmsOutSmsErrorCount_Object=MibTableColumn
-c3gSmsOutSmsErrorCount=_C3gSmsOutSmsErrorCount_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,3),_C3gSmsOutSmsErrorCount_Type())
-c3gSmsOutSmsErrorCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsOutSmsErrorCount.setStatus(_A)
-if mibBuilder.loadTexts:c3gSmsOutSmsErrorCount.setUnits(_N)
-_C3gSmsInSmsStorageUsed_Type=Gauge32
-_C3gSmsInSmsStorageUsed_Object=MibTableColumn
-c3gSmsInSmsStorageUsed=_C3gSmsInSmsStorageUsed_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,4),_C3gSmsInSmsStorageUsed_Type())
-c3gSmsInSmsStorageUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsInSmsStorageUsed.setStatus(_A)
-if mibBuilder.loadTexts:c3gSmsInSmsStorageUsed.setUnits(_N)
-_C3gSmsInSmsStorageUnused_Type=Gauge32
-_C3gSmsInSmsStorageUnused_Object=MibTableColumn
-c3gSmsInSmsStorageUnused=_C3gSmsInSmsStorageUnused_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,5),_C3gSmsInSmsStorageUnused_Type())
-c3gSmsInSmsStorageUnused.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsInSmsStorageUnused.setStatus(_A)
-if mibBuilder.loadTexts:c3gSmsInSmsStorageUnused.setUnits(_N)
-_C3gSmsInSmsArchiveCount_Type=Gauge32
-_C3gSmsInSmsArchiveCount_Object=MibTableColumn
-c3gSmsInSmsArchiveCount=_C3gSmsInSmsArchiveCount_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,6),_C3gSmsInSmsArchiveCount_Type())
-c3gSmsInSmsArchiveCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsInSmsArchiveCount.setStatus(_A)
-if mibBuilder.loadTexts:c3gSmsInSmsArchiveCount.setUnits(_N)
-_C3gSmsInSmsArchiveErrorCount_Type=Gauge32
-_C3gSmsInSmsArchiveErrorCount_Object=MibTableColumn
-c3gSmsInSmsArchiveErrorCount=_C3gSmsInSmsArchiveErrorCount_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,7),_C3gSmsInSmsArchiveErrorCount_Type())
-c3gSmsInSmsArchiveErrorCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsInSmsArchiveErrorCount.setStatus(_A)
-if mibBuilder.loadTexts:c3gSmsInSmsArchiveErrorCount.setUnits(_N)
-_C3gSmsArchiveUrl_Type=SnmpAdminString
-_C3gSmsArchiveUrl_Object=MibTableColumn
-c3gSmsArchiveUrl=_C3gSmsArchiveUrl_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,8),_C3gSmsArchiveUrl_Type())
-c3gSmsArchiveUrl.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsArchiveUrl.setStatus(_A)
-class _C3gSmsOutSmsStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_G,1),('success',2),('copySmsHeader',3),('copySmsBody',4),('sent',5),('receivedSentNotification',6),('receivedOutMsgNumber',7),('receivedOutMsgStatus',8)))
-_C3gSmsOutSmsStatus_Type.__name__=_D
-_C3gSmsOutSmsStatus_Object=MibTableColumn
-c3gSmsOutSmsStatus=_C3gSmsOutSmsStatus_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,9),_C3gSmsOutSmsStatus_Type())
-c3gSmsOutSmsStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsOutSmsStatus.setStatus(_A)
-_C3gSmsInSmsCount_Type=Counter32
-_C3gSmsInSmsCount_Object=MibTableColumn
-c3gSmsInSmsCount=_C3gSmsInSmsCount_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,10),_C3gSmsInSmsCount_Type())
-c3gSmsInSmsCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsInSmsCount.setStatus(_A)
-_C3gSmsInSmsDeleted_Type=Counter32
-_C3gSmsInSmsDeleted_Object=MibTableColumn
-c3gSmsInSmsDeleted=_C3gSmsInSmsDeleted_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,11),_C3gSmsInSmsDeleted_Type())
-c3gSmsInSmsDeleted.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsInSmsDeleted.setStatus(_A)
-_C3gSmsInSmsStorageMax_Type=Counter64
-_C3gSmsInSmsStorageMax_Object=MibTableColumn
-c3gSmsInSmsStorageMax=_C3gSmsInSmsStorageMax_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,12),_C3gSmsInSmsStorageMax_Type())
-c3gSmsInSmsStorageMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsInSmsStorageMax.setStatus(_A)
-if mibBuilder.loadTexts:c3gSmsInSmsStorageMax.setUnits(_N)
-_C3gSmsInSmsCallBack_Type=Counter32
-_C3gSmsInSmsCallBack_Object=MibTableColumn
-c3gSmsInSmsCallBack=_C3gSmsInSmsCallBack_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,13),_C3gSmsInSmsCallBack_Type())
-c3gSmsInSmsCallBack.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsInSmsCallBack.setStatus(_A)
-if mibBuilder.loadTexts:c3gSmsInSmsCallBack.setUnits(_N)
-_C3gSmsOutSmsPendingCount_Type=Gauge32
-_C3gSmsOutSmsPendingCount_Object=MibTableColumn
-c3gSmsOutSmsPendingCount=_C3gSmsOutSmsPendingCount_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,14),_C3gSmsOutSmsPendingCount_Type())
-c3gSmsOutSmsPendingCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsOutSmsPendingCount.setStatus(_A)
-if mibBuilder.loadTexts:c3gSmsOutSmsPendingCount.setUnits(_N)
-_C3gSmsOutSmsArchiveCount_Type=Gauge32
-_C3gSmsOutSmsArchiveCount_Object=MibTableColumn
-c3gSmsOutSmsArchiveCount=_C3gSmsOutSmsArchiveCount_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,15),_C3gSmsOutSmsArchiveCount_Type())
-c3gSmsOutSmsArchiveCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsOutSmsArchiveCount.setStatus(_A)
-if mibBuilder.loadTexts:c3gSmsOutSmsArchiveCount.setUnits(_N)
-_C3gSmsOutSmsArchiveErrorCount_Type=Gauge32
-_C3gSmsOutSmsArchiveErrorCount_Object=MibTableColumn
-c3gSmsOutSmsArchiveErrorCount=_C3gSmsOutSmsArchiveErrorCount_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,16),_C3gSmsOutSmsArchiveErrorCount_Type())
-c3gSmsOutSmsArchiveErrorCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsOutSmsArchiveErrorCount.setStatus(_A)
-if mibBuilder.loadTexts:c3gSmsOutSmsArchiveErrorCount.setUnits(_N)
-_C3gSmsInSmsArchived_Type=Gauge32
-_C3gSmsInSmsArchived_Object=MibTableColumn
-c3gSmsInSmsArchived=_C3gSmsInSmsArchived_Object((1,3,6,1,4,1,9,9,661,1,5,1,1,1,17),_C3gSmsInSmsArchived_Type())
-c3gSmsInSmsArchived.setMaxAccess(_C)
-if mibBuilder.loadTexts:c3gSmsInSmsArchived.setStatus(_A)
-if mibBuilder.loadTexts:c3gSmsInSmsArchived.setUnits(_N)
-_CiscoWan3gMIBConform_ObjectIdentity=ObjectIdentity
-ciscoWan3gMIBConform=_CiscoWan3gMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,661,2))
-_CiscoWan3gMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoWan3gMIBCompliances=_CiscoWan3gMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,661,2,1))
-_CiscoWan3gMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoWan3gMIBGroups=_CiscoWan3gMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,661,2,2))
-ciscoWan3gMIBCommonObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,661,2,2,1))
-ciscoWan3gMIBCommonObjectGroup.setObjects(*((_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_A3),(_B,_l),(_B,_A4),(_B,_Ag),(_B,_A5),(_B,_V),(_B,_m),(_B,_n),(_B,_W),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az)))
-if mibBuilder.loadTexts:ciscoWan3gMIBCommonObjectGroup.setStatus(_A)
-ciscoWan3gMIBCdmaObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,661,2,2,2))
-ciscoWan3gMIBCdmaObjectGroup.setObjects(*((_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,'c3gUati'),(_B,_B6),(_B,'c3gRati'),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ),(_B,_BK),(_B,_BL),(_B,'c3gEsn'),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,'c3gMdn'),(_B,'c3gMsid'),(_B,'c3gMsl'),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_A6),(_B,_A7),(_B,_BU),(_B,_BV),(_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,'c3gNai'),(_B,_Bb),(_B,_Bc),(_B,_Bd),(_B,_Be),(_B,_Bf),(_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm),(_B,_Bn),(_B,_Bo),(_B,_Bp),(_B,_Bq),(_B,_Br),(_B,_Bs),(_B,_Bt),(_B,_Bu),(_B,_Bv),(_B,_Bw),(_B,_Bx),(_B,_By),(_B,_Bz),(_B,_B_),(_B,_C0),(_B,_C1),(_B,_C2),(_B,_C3),(_B,_C4),(_B,_C5),(_B,_C6),(_B,_C7),(_B,_C8),(_B,_C9),(_B,_CA),(_B,_CB)))
-if mibBuilder.loadTexts:ciscoWan3gMIBCdmaObjectGroup.setStatus(_A)
-ciscoWan3gMIBGsmObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,661,2,2,3))
-ciscoWan3gMIBGsmObjectGroup.setObjects(*((_B,_CC),(_B,_CD),(_B,_CE),(_B,_CF),(_B,_CG),(_B,_CH),(_B,_CI),(_B,_CJ),(_B,_CK),(_B,_CL),(_B,_CM),(_B,_CN),(_B,_CO),(_B,_CP),(_B,_CQ),(_B,_CR),(_B,_CS),(_B,_CT),(_B,_CU),(_B,_CV),(_B,_CW),(_B,_CX),(_B,_CY),(_B,_CZ),(_B,'c3gImsi'),(_B,'c3gImei'),(_B,'c3gIccId'),(_B,_Ca),(_B,'c3gFsn'),(_B,_Cb),(_B,_Cc),(_B,_Cd),(_B,_Ce),(_B,_Cf),(_B,_Cg),(_B,_Ch),(_B,_Ci),(_B,_Cj),(_B,_Ck),(_B,_Cl),(_B,_A8),(_B,_A9),(_B,_Cm),(_B,_Cn),(_B,_Co),(_B,_Cp),(_B,_Cq),(_B,_Cr),(_B,_Cs),(_B,_Ct),(_B,_Cu),(_B,_Cv),(_B,_Cw),(_B,_Cx),(_B,_Cy),(_B,_Cz),(_B,_C_),(_B,_D0),(_B,_D1),(_B,_D2),(_B,_D3),(_B,_D4),(_B,_D5),(_B,_D6),(_B,_D7),(_B,_D8),(_B,_D9),(_B,_DA),(_B,_DB),(_B,_DC),(_B,_DD),(_B,_DE),(_B,_DF),(_B,_DG),(_B,_DH),(_B,_DI),(_B,_DJ),(_B,_DK),(_B,_DL),(_B,_DM),(_B,_DN),(_B,_DO),(_B,_DP),(_B,_DQ),(_B,_DR),(_B,_DS),(_B,_DT),(_B,_DU),(_B,_DV),(_B,_DW),(_B,_DX),(_B,_DY),(_B,_DZ),(_B,_Da),(_B,_Db),(_B,_Dc),(_B,_Dd),(_B,_De),(_B,_Df),(_B,_Dg),(_B,_Dh),(_B,_Di),(_B,_Dj),(_B,_Dk),(_B,_Dl),(_B,_Dm),(_B,_Dn),(_B,_Do),(_B,_Dp),(_B,_Dq),(_B,_Dr),(_B,_Ds),(_B,_Dt)))
-if mibBuilder.loadTexts:ciscoWan3gMIBGsmObjectGroup.setStatus(_A)
-ciscoWan3gMIBLbsObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,661,2,2,5))
-ciscoWan3gMIBLbsObjectGroup.setObjects(*((_B,_Du),(_B,_Dv),(_B,_Dw),(_B,_Dx),(_B,_Dy),(_B,_Dz),(_B,_D_),(_B,_E0),(_B,_E1),(_B,_E2),(_B,_E3),(_B,_E4),(_B,_E5),(_B,_E6),(_B,_E7),(_B,_E8),(_B,_E9),(_B,_EA),(_B,_EB),(_B,_EC),(_B,_ED),(_B,_EE),(_B,_EF),(_B,_EG),(_B,_EH)))
-if mibBuilder.loadTexts:ciscoWan3gMIBLbsObjectGroup.setStatus(_A)
-ciscoWan3gMIBSmsObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,661,2,2,6))
-ciscoWan3gMIBSmsObjectGroup.setObjects(*((_B,_EI),(_B,_EJ),(_B,_EK),(_B,_EL),(_B,_EM),(_B,_EN),(_B,_EO),(_B,_EP),(_B,_EQ),(_B,_ER),(_B,_ES),(_B,_ET),(_B,_EU),(_B,_EV),(_B,_EW),(_B,_EX),(_B,_EY)))
-if mibBuilder.loadTexts:ciscoWan3gMIBSmsObjectGroup.setStatus(_A)
-c3gModemUpNotif=NotificationType((1,3,6,1,4,1,9,9,661,0,1))
-c3gModemUpNotif.setObjects((_H,_o))
-if mibBuilder.loadTexts:c3gModemUpNotif.setStatus(_A)
-c3gModemDownNotif=NotificationType((1,3,6,1,4,1,9,9,661,0,2))
-c3gModemDownNotif.setObjects((_H,_o))
-if mibBuilder.loadTexts:c3gModemDownNotif.setStatus(_A)
-c3gServiceChangedNotif=NotificationType((1,3,6,1,4,1,9,9,661,0,3))
-c3gServiceChangedNotif.setObjects(*((_B,_A3),(_B,_l)))
-if mibBuilder.loadTexts:c3gServiceChangedNotif.setStatus(_A)
-c3gNetworkChangedNotif=NotificationType((1,3,6,1,4,1,9,9,661,0,4))
-c3gNetworkChangedNotif.setObjects(*((_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_A4)))
-if mibBuilder.loadTexts:c3gNetworkChangedNotif.setStatus(_A)
-c3gConnectionStatusChangedNotif=NotificationType((1,3,6,1,4,1,9,9,661,0,5))
-c3gConnectionStatusChangedNotif.setObjects(*((_B,_A5),(_B,_l)))
-if mibBuilder.loadTexts:c3gConnectionStatusChangedNotif.setStatus(_A)
-c3gRssiOnsetNotif=NotificationType((1,3,6,1,4,1,9,9,661,0,6))
-c3gRssiOnsetNotif.setObjects(*((_B,_V),(_B,_m)))
-if mibBuilder.loadTexts:c3gRssiOnsetNotif.setStatus(_A)
-c3gRssiAbateNotif=NotificationType((1,3,6,1,4,1,9,9,661,0,7))
-c3gRssiAbateNotif.setObjects(*((_B,_V),(_B,_m)))
-if mibBuilder.loadTexts:c3gRssiAbateNotif.setStatus(_A)
-c3gEcIoOnsetNotif=NotificationType((1,3,6,1,4,1,9,9,661,0,8))
-c3gEcIoOnsetNotif.setObjects(*((_B,_V),(_B,_n)))
-if mibBuilder.loadTexts:c3gEcIoOnsetNotif.setStatus(_A)
-c3gEcIoAbateNotif=NotificationType((1,3,6,1,4,1,9,9,661,0,9))
-c3gEcIoAbateNotif.setObjects(*((_B,_V),(_B,_n)))
-if mibBuilder.loadTexts:c3gEcIoAbateNotif.setStatus(_A)
-c3gModemTemperOnsetNotif=NotificationType((1,3,6,1,4,1,9,9,661,0,10))
-c3gModemTemperOnsetNotif.setObjects((_B,_W))
-if mibBuilder.loadTexts:c3gModemTemperOnsetNotif.setStatus(_A)
-c3gModemTemperAbateNotif=NotificationType((1,3,6,1,4,1,9,9,661,0,11))
-c3gModemTemperAbateNotif.setObjects((_B,_W))
-if mibBuilder.loadTexts:c3gModemTemperAbateNotif.setStatus(_A)
-c3gModemTemperOnsetRecoveryNotif=NotificationType((1,3,6,1,4,1,9,9,661,0,12))
-c3gModemTemperOnsetRecoveryNotif.setObjects((_B,_W))
-if mibBuilder.loadTexts:c3gModemTemperOnsetRecoveryNotif.setStatus(_A)
-c3gModemTemperAbateRecoveryNotif=NotificationType((1,3,6,1,4,1,9,9,661,0,13))
-c3gModemTemperAbateRecoveryNotif.setObjects((_B,_W))
-if mibBuilder.loadTexts:c3gModemTemperAbateRecoveryNotif.setStatus(_A)
-ciscoWan3gMIBNotificationGroup=NotificationGroup((1,3,6,1,4,1,9,9,661,2,2,4))
-ciscoWan3gMIBNotificationGroup.setObjects(*((_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK)))
-if mibBuilder.loadTexts:ciscoWan3gMIBNotificationGroup.setStatus(_AL)
-ciscoWan3gMIBNotificationGroupRev1=NotificationGroup((1,3,6,1,4,1,9,9,661,2,2,7))
-ciscoWan3gMIBNotificationGroupRev1.setObjects(*((_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_EZ),(_B,_Ea)))
-if mibBuilder.loadTexts:ciscoWan3gMIBNotificationGroupRev1.setStatus(_A)
-ciscoWan3gMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,661,2,1,1))
-ciscoWan3gMIBCompliance.setObjects(*((_B,_AM),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d)))
-if mibBuilder.loadTexts:ciscoWan3gMIBCompliance.setStatus(_AL)
-ciscoWan3gMIBCompliance1=ModuleCompliance((1,3,6,1,4,1,9,9,661,2,1,2))
-ciscoWan3gMIBCompliance1.setObjects(*((_B,_AM),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d)))
-if mibBuilder.loadTexts:ciscoWan3gMIBCompliance1.setStatus(_AL)
-ciscoWan3gMIBComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,9,661,2,1,3))
-ciscoWan3gMIBComplianceRev1.setObjects(*((_B,_AN),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d)))
-if mibBuilder.loadTexts:ciscoWan3gMIBComplianceRev1.setStatus(_A)
-ciscoWan3gMIBCompliance1Rev1=ModuleCompliance((1,3,6,1,4,1,9,9,661,2,1,4))
-ciscoWan3gMIBCompliance1Rev1.setObjects(*((_B,_AN),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d)))
-if mibBuilder.loadTexts:ciscoWan3gMIBCompliance1Rev1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'C3gServiceCapability':C3gServiceCapability,_w:C3gRssi,_x:C3gEcIo,_y:C3gTemperature,_AY:C3gPdpType,'C3gUmtsQosTrafficClass':C3gUmtsQosTrafficClass,'C3gUmtsQosLinkBitRate':C3gUmtsQosLinkBitRate,'C3gUmtsQosOrder':C3gUmtsQosOrder,'C3gUmtsQosErroneousSdu':C3gUmtsQosErroneousSdu,'C3gUmtsQosSer':C3gUmtsQosSer,'C3gUmtsQosBer':C3gUmtsQosBer,'C3gUmtsQosPriority':C3gUmtsQosPriority,'C3gUmtsQosSrcStatDescriptor':C3gUmtsQosSrcStatDescriptor,'C3gUmtsQosSignalIndication':C3gUmtsQosSignalIndication,'C3gGprsQosPrecedence':C3gGprsQosPrecedence,'C3gGprsQosDelay':C3gGprsQosDelay,'C3gGprsQosReliability':C3gGprsQosReliability,'C3gGprsQosPeakRate':C3gGprsQosPeakRate,'C3gGprsQosMeanRate':C3gGprsQosMeanRate,'ciscoWan3gMIB':ciscoWan3gMIB,'ciscoWan3gMIBNotifs':ciscoWan3gMIBNotifs,_AA:c3gModemUpNotif,_AB:c3gModemDownNotif,_AC:c3gServiceChangedNotif,_AD:c3gNetworkChangedNotif,_AE:c3gConnectionStatusChangedNotif,_AF:c3gRssiOnsetNotif,_AH:c3gRssiAbateNotif,_AG:c3gEcIoOnsetNotif,_AI:c3gEcIoAbateNotif,_AJ:c3gModemTemperOnsetNotif,_AK:c3gModemTemperAbateNotif,_EZ:c3gModemTemperOnsetRecoveryNotif,_Ea:c3gModemTemperAbateRecoveryNotif,'ciscoWan3gMIBObjects':ciscoWan3gMIBObjects,'c3gWanCommonTable':c3gWanCommonTable,'c3gWanCommonEntry':c3gWanCommonEntry,_Ad:c3gStandard,_Ae:c3gCapability,_Af:c3gModemState,_A3:c3gPreviousServiceType,_l:c3gCurrentServiceType,_A4:c3gRoamingStatus,_Ag:c3gCurrentSystemTime,_A5:c3gConnectionStatus,_V:c3gNotifRadioService,_m:c3gNotifRssi,_n:c3gNotifEcIo,_W:c3gModemTemperature,_Ah:c3gRssiOnsetNotifThreshold,_Ai:c3gRssiAbateNotifThreshold,_Aj:c3gEcIoOnsetNotifThreshold,_Ak:c3gEcIoAbateNotifThreshold,_Al:c3gModemTemperOnsetNotifThreshold,_Am:c3gModemTemperAbateNotifThreshold,_An:c3gModemReset,_Ao:c3gModemUpNotifEnabled,_Ap:c3gModemDownNotifEnabled,_Aq:c3gServiceChangedNotifEnabled,_Ar:c3gNetworkChangedNotifEnabled,_As:c3gConnectionStatusChangedNotifFlag,_At:c3gRssiOnsetNotifFlag,_Au:c3gRssiAbateNotifFlag,_Av:c3gEcIoOnsetNotifFlag,_Aw:c3gEcIoAbateNotifFlag,_Ax:c3gModemTemperOnsetNotifEnabled,_Ay:c3gModemTemperAbateNotifEnabled,_Az:c3gGpsState,'c3gWanCdma':c3gWanCdma,'c3gCdmaSessionTable':c3gCdmaSessionTable,'c3gCdmaSessionEntry':c3gCdmaSessionEntry,_A_:c3gCdmaTotalCallDuration,_B0:c3gCdmaTotalTransmitted,_B1:c3gCdmaTotalReceived,_B2:c3gHdrDdtmPreference,'c3gCdmaConnectionTable':c3gCdmaConnectionTable,'c3gCdmaConnectionEntry':c3gCdmaConnectionEntry,_B3:c3gOutgoingCallNumber,_B4:c3gHdrAtState,_B5:c3gHdrSessionState,'c3gUati':c3gUati,_B6:c3gColorCode,'c3gRati':c3gRati,_B7:c3gHdrSessionDuration,_B8:c3gHdrSessionStart,_B9:c3gHdrSessionEnd,_BA:c3gAuthStatus,_BB:c3gHdrDrc,_BC:c3gHdrDrcCover,_BD:c3gHdrRri,_BL:c3gMobileIpErrorCode,_BE:c3gCdmaCurrentTransmitted,_BF:c3gCdmaCurrentReceived,_BG:c3gCdmaCurrentCallStatus,_BH:c3gCdmaCurrentCallDuration,_BI:c3gCdmaCurrentCallType,_BJ:c3gCdmaLastCallDisconnReason,_BK:c3gCdmaLastConnError,'c3gCdmaIdentityTable':c3gCdmaIdentityTable,'c3gCdmaIdentityEntry':c3gCdmaIdentityEntry,'c3gEsn':c3gEsn,_BM:c3gModemActivationStatus,_BN:c3gAccountActivationDate,_BO:c3gCdmaRoamingPreference,_BP:c3gPrlVersion,'c3gMdn':c3gMdn,'c3gMsid':c3gMsid,'c3gMsl':c3gMsl,'c3gCdmaNetworkTable':c3gCdmaNetworkTable,'c3gCdmaNetworkEntry':c3gCdmaNetworkEntry,_BQ:c3gCdmaCurrentServiceStatus,_BR:c3gCdmaHybridModePreference,_BS:c3gCdmaCurrentRoamingStatus,_BT:c3gCurrentIdleDigitalMode,_A6:c3gCurrentSid,_A7:c3gCurrentNid,_BU:c3gCurrentCallSetupMode,_BV:c3gSipUsername,_BW:c3gSipPassword,_BX:c3gServingBaseStationLongitude,_BY:c3gServingBaseStationLatitude,'c3gCdmaProfile':c3gCdmaProfile,'c3gCdmaProfileCommonTable':c3gCdmaProfileCommonTable,'c3gCdmaProfileCommonEntry':c3gCdmaProfileCommonEntry,_BZ:c3gNumberOfDataProfileConfigurable,_Ba:c3gCurrentActiveDataProfile,'c3gCdmaProfileTable':c3gCdmaProfileTable,'c3gCdmaProfileEntry':c3gCdmaProfileEntry,_AW:c3gCdmaProfileIndex,'c3gNai':c3gNai,_Bb:c3gAaaPassword,_Bc:c3gMnHaSs,_Bd:c3gMnHaSpi,_Be:c3gMnAaaSs,_Bf:c3gMnAaaSpi,_Bg:c3gReverseTunnelPreference,_Bh:c3gHomeAddrType,_Bi:c3gHomeAddr,_Bj:c3gPriHaAddrType,_Bk:c3gPriHaAddr,_Bl:c3gSecHaAddrType,_Bm:c3gSecHaAddr,'c3gCdmaRadio':c3gCdmaRadio,'c3gCdma1xRttRadioTable':c3gCdma1xRttRadioTable,'c3gCdma1xRttRadioEntry':c3gCdma1xRttRadioEntry,_Bn:c3gCurrent1xRttRssi,_Bo:c3gCurrent1xRttEcIo,_Bp:c3gCurrent1xRttChannelNumber,_Bq:c3gCurrent1xRttChannelState,'c3gCdma1xRttBandClassTable':c3gCdma1xRttBandClassTable,'c3gCdma1xRttBandClassEntry':c3gCdma1xRttBandClassEntry,_A1:c3gBandClassIndex,_C2:c3g1xRttBandClass,'c3gCdmaEvDoRadioTable':c3gCdmaEvDoRadioTable,'c3gCdmaEvDoRadioEntry':c3gCdmaEvDoRadioEntry,_Br:c3gCurrentEvDoRssi,_Bs:c3gCurrentEvDoEcIo,_Bt:c3gCurrentEvDoChannelNumber,_Bu:c3gSectorId,_Bv:c3gSubnetMask,_Bw:c3gHdrColorCode,_Bx:c3gPnOffset,_By:c3gRxMainGainControl,_Bz:c3gRxDiversityGainControl,_B_:c3gTxTotalPower,_C0:c3gTxGainAdjust,_C1:c3gCarrierToInterferenceRatio,'c3gCdmaEvDoBandClassTable':c3gCdmaEvDoBandClassTable,'c3gCdmaEvDoBandClassEntry':c3gCdmaEvDoBandClassEntry,_C3:c3gEvDoBandClass,'c3gCdmaHistoryTable':c3gCdmaHistoryTable,'c3gCdmaHistoryEntry':c3gCdmaHistoryEntry,_C4:c3gCdmaHistory1xRttRssiPerSecond,_C5:c3gCdmaHistory1xRttRssiPerMinute,_C6:c3gCdmaHistory1xRttRssiPerHour,_C7:c3gCdmaHistoryEvDoRssiPerSecond,_C8:c3gCdmaHistoryEvDoRssiPerMinute,_C9:c3gCdmaHistoryEvDoRssiPerHour,'c3gCdmaSecurity':c3gCdmaSecurity,'c3gCdmaSecurityTable':c3gCdmaSecurityTable,'c3gCdmaSecurityEntry':c3gCdmaSecurityEntry,_CA:c3gCdmaPinSecurityStatus,_CB:c3gCdmaPowerUpLockStatus,'c3gWanGsm':c3gWanGsm,'c3gGsmIdentityTable':c3gGsmIdentityTable,'c3gGsmIdentityEntry':c3gGsmIdentityEntry,'c3gImsi':c3gImsi,'c3gImei':c3gImei,'c3gIccId':c3gIccId,_Ca:c3gMsisdn,'c3gFsn':c3gFsn,_Cb:c3gModemStatus,_Cc:c3gGsmRoamingPreference,'c3gGsmNetworkTable':c3gGsmNetworkTable,'c3gGsmNetworkEntry':c3gGsmNetworkEntry,_Cd:c3gGsmLac,_Ce:c3gGsmCurrentServiceStatus,_Cf:c3gGsmCurrentServiceError,_Cg:c3gGsmCurrentService,_Ch:c3gGsmPacketService,_Ci:c3gGsmCurrentRoamingStatus,_Cj:c3gGsmNetworkSelectionMode,_Ck:c3gGsmCountry,_Cl:c3gGsmNetwork,_A8:c3gGsmMcc,_A9:c3gGsmMnc,_Cm:c3gGsmRac,_Cn:c3gGsmCurrentCellId,_Co:c3gGsmCurrentPrimaryScramblingCode,_Cp:c3gGsmPlmnSelection,_Cq:c3gGsmRegPlmn,_Cr:c3gGsmPlmnAbbr,_Cs:c3gGsmServiceProvider,_CC:c3gGsmTotalByteTransmitted,_CD:c3gGsmTotalByteReceived,'c3gGsmPdpProfile':c3gGsmPdpProfile,'c3gGsmPdpProfileTable':c3gGsmPdpProfileTable,'c3gGsmPdpProfileEntry':c3gGsmPdpProfileEntry,_R:c3gGsmPdpProfileIndex,_Ct:c3gGsmPdpProfileType,_Cu:c3gGsmPdpProfileAddr,_Cv:c3gGsmPdpProfileApn,_Cw:c3gGsmPdpProfileAuthenType,_Cx:c3gGsmPdpProfileUsername,_Cy:c3gGsmPdpProfilePassword,_Cz:c3gGsmPdpProfileRowStatus,'c3gGsmPacketSessionTable':c3gGsmPacketSessionTable,'c3gGsmPacketSessionEntry':c3gGsmPacketSessionEntry,_CE:c3gGsmPacketSessionStatus,_CF:c3gGsmPdpType,_CG:c3gGsmPdpAddress,'c3gGsmReqUmtsQosTable':c3gGsmReqUmtsQosTable,'c3gGsmReqUmtsQosEntry':c3gGsmReqUmtsQosEntry,_C_:c3gGsmReqUmtsQosTrafficClass,_D0:c3gGsmReqUmtsQosMaxUpLinkBitRate,_D1:c3gGsmReqUmtsQosMaxDownLinkBitRate,_D2:c3gGsmReqUmtsQosGuaUpLinkBitRate,_D3:c3gGsmReqUmtsQosGuaDownLinkBitRate,_D4:c3gGsmReqUmtsQosOrder,_D5:c3gGsmReqUmtsQosErroneousSdu,_D6:c3gGsmReqUmtsQosMaxSduSize,_D7:c3gGsmReqUmtsQosSer,_D8:c3gGsmReqUmtsQosBer,_D9:c3gGsmReqUmtsQosDelay,_DA:c3gGsmReqUmtsQosPriority,_DB:c3gGsmReqUmtsQosSrcStatDescriptor,_DC:c3gGsmReqUmtsQosSignalIndication,_DD:c3gGsmReqUmtsQosRowStatus,'c3gGsmMinUmtsQosTable':c3gGsmMinUmtsQosTable,'c3gGsmMinUmtsQosEntry':c3gGsmMinUmtsQosEntry,_DE:c3gGsmMinUmtsQosTrafficClass,_DF:c3gGsmMinUmtsQosMaxUpLinkBitRate,_DG:c3gGsmMinUmtsQosMaxDownLinkBitRate,_DH:c3gGsmMinUmtsQosGuaUpLinkBitRate,_DI:c3gGsmMinUmtsQosGuaDownLinkBitRate,_DJ:c3gGsmMinUmtsQosOrder,_DK:c3gGsmMinUmtsQosErroneousSdu,_DL:c3gGsmMinUmtsQosMaxSduSize,_DM:c3gGsmMinUmtsQosSer,_DN:c3gGsmMinUmtsQosBer,_DO:c3gGsmMinUmtsQosDelay,_DP:c3gGsmMinUmtsQosPriority,_DQ:c3gGsmMinUmtsQosSrcStatDescriptor,_DR:c3gGsmMinUmtsQosSignalIndication,_DS:c3gGsmMinUmtsQosRowStatus,'c3gGsmNegoUmtsQosTable':c3gGsmNegoUmtsQosTable,'c3gGsmNegoUmtsQosEntry':c3gGsmNegoUmtsQosEntry,_CH:c3gGsmNegoUmtsQosTrafficClass,_CI:c3gGsmNegoUmtsQosMaxUpLinkBitRate,_CJ:c3gGsmNegoUmtsQosMaxDownLinkBitRate,_CK:c3gGsmNegoUmtsQosGuaUpLinkBitRate,_CL:c3gGsmNegoUmtsQosGuaDownLinkBitRate,_CM:c3gGsmNegoUmtsQosOrder,_CN:c3gGsmNegoUmtsQosErroneousSdu,_CO:c3gGsmNegoUmtsQosMaxSduSize,_CP:c3gGsmNegoUmtsQosSer,_CQ:c3gGsmNegoUmtsQosBer,_CR:c3gGsmNegoUmtsQosDelay,_CS:c3gGsmNegoUmtsQosPriority,_CT:c3gGsmNegoUmtsQosSrcStatDescriptor,_CU:c3gGsmNegoUmtsQosSignalIndication,'c3gGsmReqGprsQosTable':c3gGsmReqGprsQosTable,'c3gGsmReqGprsQosEntry':c3gGsmReqGprsQosEntry,_DT:c3gGsmReqGprsQosPrecedence,_DU:c3gGsmReqGprsQosDelay,_DV:c3gGsmReqGprsQosReliability,_DW:c3gGsmReqGprsQosPeakRate,_DX:c3gGsmReqGprsQosMeanRate,_DY:c3gGsmReqGprsQosRowStatus,'c3gGsmMinGprsQosTable':c3gGsmMinGprsQosTable,'c3gGsmMinGprsQosEntry':c3gGsmMinGprsQosEntry,_DZ:c3gGsmMinGprsQosPrecedence,_Da:c3gGsmMinGprsQosDelay,_Db:c3gGsmMinGprsQosReliability,_Dc:c3gGsmMinGprsQosPeakRate,_Dd:c3gGsmMinGprsQosMeanRate,_De:c3gGsmMinGprsQosRowStatus,'c3gGsmNegoGprsQosTable':c3gGsmNegoGprsQosTable,'c3gGsmNegoGprsQosEntry':c3gGsmNegoGprsQosEntry,_CV:c3gGsmNegoGprsQosPrecedence,_CW:c3gGsmNegoGprsQosDelay,_CX:c3gGsmNegoGprsQosReliability,_CY:c3gGsmNegoGprsQosPeakRate,_CZ:c3gGsmNegoGprsQosMeanRate,'c3gGsmRadio':c3gGsmRadio,'c3gGsmRadioTable':c3gGsmRadioTable,'c3gGsmRadioEntry':c3gGsmRadioEntry,_Df:c3gCurrentGsmRssi,_Dg:c3gCurrentGsmEcIo,_Dh:c3gGsmCurrentBand,_Di:c3gGsmChannelNumber,_Dj:c3gGsmNumberOfNearbyCell,'c3gGsmNearbyCellTable':c3gGsmNearbyCellTable,'c3gGsmNearbyCellEntry':c3gGsmNearbyCellEntry,_AZ:c3gGsmNearbyCellIndex,_Dk:c3gGsmNearbyCellPrimaryScramblingCode,_Dl:c3gGsmNearbyCellRscp,_Dm:c3gGsmNearbyCellEcIoMeasurement,'c3gGsmHistoryTable':c3gGsmHistoryTable,'c3gGsmHistoryEntry':c3gGsmHistoryEntry,_Dn:c3gGsmHistoryRssiPerSecond,_Do:c3gGsmHistoryRssiPerMinute,_Dp:c3gGsmHistoryRssiPerHour,'c3gGsmSecurity':c3gGsmSecurity,'c3gGsmSecurityTable':c3gGsmSecurityTable,'c3gGsmSecurityEntry':c3gGsmSecurityEntry,_Dq:c3gGsmChv1,_Dr:c3gGsmSimStatus,_Ds:c3gGsmSimUserOperationRequired,_Dt:c3gGsmNumberOfRetriesRemaining,'c3gWanLbs':c3gWanLbs,'c3gWanLbsCommon':c3gWanLbsCommon,'c3gWanLbsCommonTable':c3gWanLbsCommonTable,'c3gWanLbsCommonEntry':c3gWanLbsCommonEntry,_Du:c3gLbsModeSelected,_Dv:c3gLbsState,_Dw:c3gLbsLocFixError,_Dx:c3gLbsLatitude,_Dy:c3gLbsLongitude,_Dz:c3gLbsTimeStamp,_D_:c3gLbsLocUncertaintyAngle,_E0:c3gLbsLocUncertaintyA,_E1:c3gLbsLocUncertaintyPos,_E2:c3gLbsFixtype,_E3:c3gLbsHeightValid,_E4:c3gLbsHeight,_E5:c3gLbsLocUncertaintyVertical,_E6:c3gLbsVelocityValid,_E7:c3gLbsHeading,_E8:c3gLbsVelocityHorizontal,_E9:c3gLbsVelocityVertical,_EA:c3gLbsHepe,_EB:c3gLbsNumSatellites,'c3gWanLbsSatelliteInfo':c3gWanLbsSatelliteInfo,'c3gWanLbsSatelliteInfoTable':c3gWanLbsSatelliteInfoTable,'c3gWanLbsSatelliteInfoEntry':c3gWanLbsSatelliteInfoEntry,_Ac:c3gWanLbsSatelliteInfoIndex,_EC:c3gWanLbsSatelliteNumber,_ED:c3gWanLbsSatelliteElevation,_EE:c3gWanLbsSatelliteAzimuth,_EG:c3gWanLbsSatelliteInfoSignalNoiseRatio,_EF:c3gWanLbsSatelliteUsed,_EH:c3gWanLbsSatelliteInfoRowStatus,'c3gWanSmsCommon':c3gWanSmsCommon,'c3gWanSms':c3gWanSms,'c3gSmsCommonTable':c3gSmsCommonTable,'c3gSmsCommonEntry':c3gSmsCommonEntry,_EI:c3gSmsServiceAvailable,_EJ:c3gSmsOutSmsCount,_EK:c3gSmsOutSmsErrorCount,_EL:c3gSmsInSmsStorageUsed,_EM:c3gSmsInSmsStorageUnused,_EN:c3gSmsInSmsArchiveCount,_EO:c3gSmsInSmsArchiveErrorCount,_EQ:c3gSmsArchiveUrl,_ER:c3gSmsOutSmsStatus,_ES:c3gSmsInSmsCount,_ET:c3gSmsInSmsDeleted,_EU:c3gSmsInSmsStorageMax,_EV:c3gSmsInSmsCallBack,_EW:c3gSmsOutSmsPendingCount,_EX:c3gSmsOutSmsArchiveCount,_EY:c3gSmsOutSmsArchiveErrorCount,_EP:c3gSmsInSmsArchived,'ciscoWan3gMIBConform':ciscoWan3gMIBConform,'ciscoWan3gMIBCompliances':ciscoWan3gMIBCompliances,'ciscoWan3gMIBCompliance':ciscoWan3gMIBCompliance,'ciscoWan3gMIBCompliance1':ciscoWan3gMIBCompliance1,'ciscoWan3gMIBComplianceRev1':ciscoWan3gMIBComplianceRev1,'ciscoWan3gMIBCompliance1Rev1':ciscoWan3gMIBCompliance1Rev1,'ciscoWan3gMIBGroups':ciscoWan3gMIBGroups,_Z:ciscoWan3gMIBCommonObjectGroup,_a:ciscoWan3gMIBCdmaObjectGroup,_b:ciscoWan3gMIBGsmObjectGroup,_AM:ciscoWan3gMIBNotificationGroup,_d:ciscoWan3gMIBLbsObjectGroup,_c:ciscoWan3gMIBSmsObjectGroup,_AN:ciscoWan3gMIBNotificationGroupRev1})
+#
+# PySNMP MIB module CISCO-WAN-3G-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-WAN-3G-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+entPhysicalName, entPhysicalIndex = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalName", "entPhysicalIndex")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ciscoWan3gMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 661))
+ciscoWan3gMIB.setRevisions(('2013-08-12 00:00', '2012-07-25 00:00', '2012-07-10 00:00', '2010-08-11 00:00', '2010-08-04 00:00', '2009-02-05 00:00',))
+if mibBuilder.loadTexts: ciscoWan3gMIB.setLastUpdated('201308120000Z')
+if mibBuilder.loadTexts: ciscoWan3gMIB.setOrganization('Cisco Systems, Inc.')
+class C3gServiceCapability(TextualConvention, Bits):
+    status = 'current'
+    namedValues = NamedValues(("oneXRtt", 0), ("evDoRel0", 1), ("evDoRelA", 2), ("evDoRelB", 3), ("gprs", 4), ("edge", 5), ("umtsWcdma", 6), ("hsdpa", 7), ("hsupa", 8), ("hspa", 9), ("hspaPlus", 10), ("lteTdd", 11), ("lteFdd", 12))
+
+class C3gRssi(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(-150, 0)
+
+class C3gEcIo(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(-150, 0)
+
+class C3gTemperature(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(-50, 100)
+
+class C3gPdpType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("unknown", 1), ("ipV4", 2), ("ppp", 3), ("ipV6", 4), ("ipV4V6", 5))
+
+class C3gUmtsQosTrafficClass(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("subscription", 1), ("conversational", 2), ("streaming", 3), ("interactive", 4), ("background", 5))
+
+class C3gUmtsQosLinkBitRate(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18))
+    namedValues = NamedValues(("subscription", 1), ("rate16kbps", 2), ("rate32kbps", 3), ("rate64kbps", 4), ("rate128kbps", 5), ("rate256kbps", 6), ("rate384kbps", 7), ("rate1dot8mbps", 8), ("rate3dot6mbps", 9), ("rate7dot2mbps", 10), ("rate14dot4mbps", 11), ("rate56kbps", 12), ("rate1dot15mbps", 13), ("rate1dot6mbps", 14), ("rate2dot1mbps", 15), ("rate2dot8mbps", 16), ("rate4dot2mbps", 17), ("rate8dot4mbps", 18))
+
+class C3gUmtsQosOrder(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("subscription", 1), ("withDeliverOrder", 2), ("withoutDeliverOrder", 3))
+
+class C3gUmtsQosErroneousSdu(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("subscription", 1), ("noDetect", 2), ("errSduDeliver", 3), ("errSduNotDeliver", 4))
+
+class C3gUmtsQosSer(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))
+    namedValues = NamedValues(("subscription", 1), ("oneExpMinus2", 2), ("sevenExpMinus3", 3), ("oneExpMinus3", 4), ("oneExpMinus4", 5), ("oneExpMinus5", 6), ("oneExpMinus6", 7), ("oneExpMinus1", 8))
+
+class C3gUmtsQosBer(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+    namedValues = NamedValues(("subscription", 1), ("fiveExpMinus2", 2), ("oneExpMinus2", 3), ("fiveExpMinus3", 4), ("fourExpMinus3", 5), ("oneExpMinus3", 6), ("oneExpMinus4", 7), ("oneExpMinus5", 8), ("oneExpMinus6", 9), ("sixExpMinus8", 10))
+
+class C3gUmtsQosPriority(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("subscription", 1), ("level1", 2), ("level2", 3), ("level3", 4))
+
+class C3gUmtsQosSrcStatDescriptor(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("unknown", 1), ("speech", 2))
+
+class C3gUmtsQosSignalIndication(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("notOptimized", 1), ("optimized", 2))
+
+class C3gGprsQosPrecedence(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("subscription", 1), ("highPriority", 2), ("normalPriority", 3), ("lowPriority", 4))
+
+class C3gGprsQosDelay(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("subscription", 1), ("delayClass1", 2), ("delayClass2", 3), ("delayClass3", 4), ("delayClass4", 5))
+
+class C3gGprsQosReliability(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
+    namedValues = NamedValues(("subscription", 1), ("ackGtpLlcRlcProtData", 2), ("unAckGtpAckLlcRlcProtData", 3), ("unAckGtpLlcAckRlcProtData", 4), ("unAckGtpLlcRlcProtData", 5), ("unAckGtpLlcRlcUnProtData", 6))
+
+class C3gGprsQosPeakRate(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+    namedValues = NamedValues(("subscription", 1), ("upTo1kops", 2), ("upTo2kops", 3), ("upTo4kops", 4), ("upTo8kops", 5), ("upTo16kops", 6), ("upTo32kops", 7), ("upTo64kops", 8), ("upTo128kops", 9), ("upTo256kops", 10))
+
+class C3gGprsQosMeanRate(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32))
+    namedValues = NamedValues(("subscription", 1), ("rate100", 2), ("rate200", 3), ("rate500", 4), ("rate1k", 5), ("rate2k", 6), ("rate5k", 7), ("rate10k", 8), ("rate20k", 9), ("rate50k", 10), ("rate100k", 11), ("rate200k", 12), ("rate500k", 13), ("rate1m", 14), ("rate2m", 15), ("rate5m", 16), ("rate10m", 17), ("rate20m", 18), ("rate50m", 19), ("resv1", 20), ("resv2", 21), ("resv3", 22), ("resv4", 23), ("resv5", 24), ("resv6", 25), ("resv7", 26), ("resv8", 27), ("resv9", 28), ("resv10", 29), ("resv11", 30), ("resv12", 31), ("bestEffort", 32))
+
+ciscoWan3gMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 0))
+ciscoWan3gMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 1))
+ciscoWan3gMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 2))
+c3gWanCommonTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1), )
+if mibBuilder.loadTexts: c3gWanCommonTable.setStatus('current')
+c3gWanCommonEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gWanCommonEntry.setStatus('current')
+c3gStandard = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("cdma", 1), ("gsm", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gStandard.setStatus('current')
+c3gCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 2), C3gServiceCapability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCapability.setStatus('current')
+c3gModemState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("up", 2), ("down", 3))).clone('down')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gModemState.setStatus('current')
+c3gPreviousServiceType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 4), C3gServiceCapability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gPreviousServiceType.setStatus('current')
+c3gCurrentServiceType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 5), C3gServiceCapability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCurrentServiceType.setStatus('current')
+c3gRoamingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("roaming", 2), ("home", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gRoamingStatus.setStatus('current')
+c3gCurrentSystemTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCurrentSystemTime.setStatus('current')
+c3gConnectionStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("unknown", 1), ("error", 2), ("connecting", 3), ("dormant", 4), ("connected", 5), ("disconnected", 6), ("idle", 7), ("active", 8), ("inactive", 9)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gConnectionStatus.setStatus('current')
+c3gNotifRadioService = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 9), C3gServiceCapability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gNotifRadioService.setStatus('current')
+c3gNotifRssi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 10), C3gRssi()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gNotifRssi.setStatus('current')
+c3gNotifEcIo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 11), C3gEcIo()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gNotifEcIo.setStatus('current')
+c3gModemTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 12), C3gTemperature()).setUnits('degrees Celsius').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gModemTemperature.setStatus('current')
+c3gRssiOnsetNotifThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 13), C3gRssi().clone(-150)).setUnits('dBm').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gRssiOnsetNotifThreshold.setStatus('current')
+c3gRssiAbateNotifThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 14), C3gRssi()).setUnits('dBm').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gRssiAbateNotifThreshold.setStatus('current')
+c3gEcIoOnsetNotifThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 15), C3gEcIo().clone(-150)).setUnits('dB').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gEcIoOnsetNotifThreshold.setStatus('current')
+c3gEcIoAbateNotifThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 16), C3gEcIo()).setUnits('dB').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gEcIoAbateNotifThreshold.setStatus('current')
+c3gModemTemperOnsetNotifThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 17), C3gTemperature().clone(100)).setUnits('degrees Celsius').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gModemTemperOnsetNotifThreshold.setStatus('current')
+c3gModemTemperAbateNotifThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 18), C3gTemperature().clone(-50)).setUnits('degrees Celsius').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gModemTemperAbateNotifThreshold.setStatus('current')
+c3gModemReset = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("reset", 1), ("powerCycle", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gModemReset.setStatus('current')
+c3gModemUpNotifEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 20), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gModemUpNotifEnabled.setStatus('current')
+c3gModemDownNotifEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 21), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gModemDownNotifEnabled.setStatus('current')
+c3gServiceChangedNotifEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 22), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gServiceChangedNotifEnabled.setStatus('current')
+c3gNetworkChangedNotifEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 23), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gNetworkChangedNotifEnabled.setStatus('current')
+c3gConnectionStatusChangedNotifFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 24), Bits().clone(namedValues=NamedValues(("unknown", 0), ("error", 1), ("connecting", 2), ("dormant", 3), ("connected", 4), ("disconnected", 5), ("idle", 6), ("active", 7), ("inactive", 8)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gConnectionStatusChangedNotifFlag.setStatus('current')
+c3gRssiOnsetNotifFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 25), C3gServiceCapability()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gRssiOnsetNotifFlag.setStatus('current')
+c3gRssiAbateNotifFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 26), C3gServiceCapability()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gRssiAbateNotifFlag.setStatus('current')
+c3gEcIoOnsetNotifFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 27), C3gServiceCapability()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gEcIoOnsetNotifFlag.setStatus('current')
+c3gEcIoAbateNotifFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 28), C3gServiceCapability()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gEcIoAbateNotifFlag.setStatus('current')
+c3gModemTemperOnsetNotifEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 29), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gModemTemperOnsetNotifEnabled.setStatus('current')
+c3gModemTemperAbateNotifEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 30), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gModemTemperAbateNotifEnabled.setStatus('current')
+c3gGpsState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 1, 1, 31), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gGpsState.setStatus('current')
+c3gWanCdma = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2))
+c3gWanGsm = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3))
+c3gWanLbs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4))
+c3gWanSmsCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5))
+c3gCdmaSessionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 1), )
+if mibBuilder.loadTexts: c3gCdmaSessionTable.setStatus('current')
+c3gCdmaSessionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gCdmaSessionEntry.setStatus('current')
+c3gCdmaTotalCallDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 1, 1, 1), Counter64()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaTotalCallDuration.setStatus('current')
+c3gCdmaTotalTransmitted = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 1, 1, 2), Counter64()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaTotalTransmitted.setStatus('current')
+c3gCdmaTotalReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 1, 1, 3), Counter64()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaTotalReceived.setStatus('current')
+c3gHdrDdtmPreference = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("off", 2), ("on", 3), ("noChange", 4))).clone('unknown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gHdrDdtmPreference.setStatus('current')
+c3gCdmaConnectionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2), )
+if mibBuilder.loadTexts: c3gCdmaConnectionTable.setStatus('current')
+c3gCdmaConnectionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: c3gCdmaConnectionEntry.setStatus('current')
+c3gOutgoingCallNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gOutgoingCallNumber.setStatus('current')
+c3gHdrAtState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("unknown", 1), ("inactive", 2), ("acquisition", 3), ("sync", 4), ("idle", 5), ("access", 6), ("connected", 7))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gHdrAtState.setStatus('current')
+c3gHdrSessionState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("unknown", 1), ("open", 2), ("close", 3), ("addressManagementProtocolSetup", 4), ("atInitiated", 5), ("anInitiated", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gHdrSessionState.setStatus('current')
+c3gUati = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gUati.setStatus('current')
+c3gColorCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gColorCode.setStatus('current')
+c3gRati = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gRati.setStatus('current')
+c3gHdrSessionDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 7), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gHdrSessionDuration.setStatus('current')
+c3gHdrSessionStart = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 8), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gHdrSessionStart.setStatus('current')
+c3gHdrSessionEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 9), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gHdrSessionEnd.setStatus('current')
+c3gAuthStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 1), ("notAuthenticated", 2), ("authenticated", 3), ("failed", 4), ("authenticationDisabled", 5))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gAuthStatus.setStatus('current')
+c3gHdrDrc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gHdrDrc.setStatus('current')
+c3gHdrDrcCover = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gHdrDrcCover.setStatus('current')
+c3gHdrRri = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("unknown", 1), ("pilotOnly", 2), ("rri9dot6kbps", 3), ("rri19dot2kbps", 4), ("rri38dot4kbps", 5), ("rri76dot8kbps", 6), ("rri153dot6kbps", 7))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gHdrRri.setStatus('current')
+c3gMobileIpErrorCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gMobileIpErrorCode.setStatus('current')
+c3gCdmaCurrentTransmitted = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 15), Counter64()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaCurrentTransmitted.setStatus('current')
+c3gCdmaCurrentReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 16), Counter64()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaCurrentReceived.setStatus('current')
+c3gCdmaCurrentCallStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("unknown", 1), ("error", 2), ("connecting", 3), ("dormant", 4), ("connected", 5), ("disconnected", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaCurrentCallStatus.setStatus('current')
+c3gCdmaCurrentCallDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 18), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaCurrentCallDuration.setStatus('current')
+c3gCdmaCurrentCallType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15))).clone(namedValues=NamedValues(("unknown", 1), ("asyncData", 2), ("voiceCall", 3), ("packet1xRttCall", 4), ("atAsyncDataCall", 5), ("atVoiceCall", 6), ("atPacketCall", 7), ("faxCall", 8), ("smsCall", 9), ("otaCall", 10), ("testCall", 11), ("callWaiting", 12), ("positionDetermination", 13), ("dormant", 14), ("e911Call", 15)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaCurrentCallType.setStatus('current')
+c3gCdmaLastCallDisconnReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37))).clone(namedValues=NamedValues(("unknown", 1), ("modemOffline", 2), ("modemCdmaLocTilPowCyc", 3), ("noService", 4), ("abnormalCallEnd", 5), ("baseStatIntercept", 6), ("baseStatRelease", 7), ("baseStatReleaseNoReas", 8), ("baseStatReleaseSoRej", 9), ("incomingCall", 10), ("baseStatAlertStop", 11), ("clientEndedCall", 12), ("activationEndedOtasp", 13), ("ndssFailure", 14), ("maxAccesProbTransmit", 15), ("persistTestFailure", 16), ("ruimNotPresent", 17), ("accessAttemptInProg", 18), ("reasonUnspecified", 19), ("recdRetryOrder", 20), ("modemLocked", 21), ("gpsCallEnded", 22), ("smsCallEnded", 23), ("noConcurrentService", 24), ("noResponseFromBs", 25), ("rejectedByBs", 26), ("notCompatConcurServ", 27), ("accessBlockedByBs", 28), ("alreadyOnTraffChann", 29), ("emergencyCall", 30), ("dataCallEnded", 31), ("busyHdr", 32), ("billingOrAuthErrHdr", 33), ("sysChangeDueToPrlHdr", 34), ("hdrExitDueToPrl", 35), ("noSessionHdr", 36), ("callEndedHdr", 37)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaLastCallDisconnReason.setStatus('current')
+c3gCdmaLastConnError = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 2, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30))).clone(namedValues=NamedValues(("none", 1), ("invalidClientId", 2), ("badCallType", 3), ("badServiceType", 4), ("expectingNumber", 5), ("nullNumberBuffer", 6), ("invalidDigits", 7), ("outOfRangeNumber", 8), ("nullAalphaBuffer", 9), ("outOfRangeAlphaNumber", 10), ("invalidOtaspActivatCode", 11), ("modemOffline", 12), ("modemLocked", 13), ("unsupportedFlash", 14), ("dialedNumberProhibited", 15), ("onlyE911Calls", 16), ("modemInUse", 17), ("unsupportedServiceType", 18), ("wrongCallType", 19), ("invalidCommandCallState", 20), ("invalidCommandModemState", 21), ("noValidService", 22), ("cannotAnswerIncomingCall", 23), ("badPrivacySetting", 24), ("noCommandBuffers", 25), ("communicationProblem", 26), ("unspecifiedError", 27), ("invalidLastActiveNetwork", 28), ("noCollocatedHdr", 29), ("uimNotPresent", 30)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaLastConnError.setStatus('current')
+c3gCdmaIdentityTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 3), )
+if mibBuilder.loadTexts: c3gCdmaIdentityTable.setStatus('current')
+c3gCdmaIdentityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 3, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gCdmaIdentityEntry.setStatus('current')
+c3gEsn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 3, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gEsn.setStatus('current')
+c3gModemActivationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("activated", 2), ("notActivated", 3))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gModemActivationStatus.setStatus('current')
+c3gAccountActivationDate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gAccountActivationDate.setStatus('current')
+c3gCdmaRoamingPreference = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("home", 2), ("affiliated", 3), ("any", 4))).clone('any')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gCdmaRoamingPreference.setStatus('current')
+c3gPrlVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 3, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gPrlVersion.setStatus('current')
+c3gMdn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 3, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gMdn.setStatus('current')
+c3gMsid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 3, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gMsid.setStatus('current')
+c3gMsl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 3, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gMsl.setStatus('current')
+c3gCdmaNetworkTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 4), )
+if mibBuilder.loadTexts: c3gCdmaNetworkTable.setStatus('current')
+c3gCdmaNetworkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 4, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gCdmaNetworkEntry.setStatus('current')
+c3gCdmaCurrentServiceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 4, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaCurrentServiceStatus.setStatus('current')
+c3gCdmaHybridModePreference = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("hybrid", 2), ("evDoOnly", 3), ("oneXRttOnly", 4))).clone('unknown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gCdmaHybridModePreference.setStatus('current')
+c3gCdmaCurrentRoamingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("home", 2), ("roamingWithSid", 3), ("roamingWithoutSid", 4))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaCurrentRoamingStatus.setStatus('current')
+c3gCurrentIdleDigitalMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("unknown", 1), ("noService", 2), ("amps", 3), ("cdma", 4), ("gsm", 5), ("hdr", 6), ("wcdma", 7), ("gps", 8), ("lte", 9))).clone('noService')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCurrentIdleDigitalMode.setStatus('current')
+c3gCurrentSid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 4, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 32767))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gCurrentSid.setStatus('current')
+c3gCurrentNid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 4, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gCurrentNid.setStatus('current')
+c3gCurrentCallSetupMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 4, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("simpleIpOnly", 2), ("mobileIpPreferWithSipFallback", 3), ("mobileIpOnly", 4))).clone('unknown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gCurrentCallSetupMode.setStatus('current')
+c3gSipUsername = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 4, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gSipUsername.setStatus('current')
+c3gSipPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 4, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gSipPassword.setStatus('current')
+c3gServingBaseStationLongitude = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 4, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gServingBaseStationLongitude.setStatus('current')
+c3gServingBaseStationLatitude = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 4, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gServingBaseStationLatitude.setStatus('current')
+c3gCdmaProfile = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5))
+c3gCdmaProfileCommonTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 1), )
+if mibBuilder.loadTexts: c3gCdmaProfileCommonTable.setStatus('current')
+c3gCdmaProfileCommonEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gCdmaProfileCommonEntry.setStatus('current')
+c3gNumberOfDataProfileConfigurable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 1, 1, 1), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gNumberOfDataProfileConfigurable.setStatus('current')
+c3gCurrentActiveDataProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 1, 1, 2), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gCurrentActiveDataProfile.setStatus('current')
+c3gCdmaProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2), )
+if mibBuilder.loadTexts: c3gCdmaProfileTable.setStatus('current')
+c3gCdmaProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-WAN-3G-MIB", "c3gCdmaProfileIndex"))
+if mibBuilder.loadTexts: c3gCdmaProfileEntry.setStatus('current')
+c3gCdmaProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
+if mibBuilder.loadTexts: c3gCdmaProfileIndex.setStatus('current')
+c3gNai = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gNai.setStatus('current')
+c3gAaaPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gAaaPassword.setStatus('current')
+c3gMnHaSs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("set", 1), ("notSet", 2))).clone('notSet')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gMnHaSs.setStatus('current')
+c3gMnHaSpi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2, 1, 5), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gMnHaSpi.setStatus('current')
+c3gMnAaaSs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("set", 1), ("notSet", 2))).clone('notSet')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gMnAaaSs.setStatus('current')
+c3gMnAaaSpi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2, 1, 7), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gMnAaaSpi.setStatus('current')
+c3gReverseTunnelPreference = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("set", 1), ("notSet", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gReverseTunnelPreference.setStatus('current')
+c3gHomeAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2, 1, 9), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gHomeAddrType.setStatus('current')
+c3gHomeAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2, 1, 10), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gHomeAddr.setStatus('current')
+c3gPriHaAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2, 1, 11), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gPriHaAddrType.setStatus('current')
+c3gPriHaAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2, 1, 12), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gPriHaAddr.setStatus('current')
+c3gSecHaAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2, 1, 13), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gSecHaAddrType.setStatus('current')
+c3gSecHaAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 5, 2, 1, 14), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gSecHaAddr.setStatus('current')
+c3gCdmaRadio = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6))
+c3gCdma1xRttRadioTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 1), )
+if mibBuilder.loadTexts: c3gCdma1xRttRadioTable.setStatus('current')
+c3gCdma1xRttRadioEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gCdma1xRttRadioEntry.setStatus('current')
+c3gCurrent1xRttRssi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 1, 1, 1), C3gRssi()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCurrent1xRttRssi.setStatus('current')
+c3gCurrent1xRttEcIo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 1, 1, 2), C3gEcIo()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCurrent1xRttEcIo.setStatus('current')
+c3gCurrent1xRttChannelNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCurrent1xRttChannelNumber.setStatus('current')
+c3gCurrent1xRttChannelState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("notAcquired", 2), ("acquired", 3), ("scanning", 4))).clone('notAcquired')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCurrent1xRttChannelState.setStatus('current')
+c3gCdma1xRttBandClassTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 2), )
+if mibBuilder.loadTexts: c3gCdma1xRttBandClassTable.setStatus('current')
+c3gCdma1xRttBandClassEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-WAN-3G-MIB", "c3gBandClassIndex"))
+if mibBuilder.loadTexts: c3gCdma1xRttBandClassEntry.setStatus('current')
+c3gBandClassIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32)))
+if mibBuilder.loadTexts: c3gBandClassIndex.setStatus('current')
+c3g1xRttBandClass = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3g1xRttBandClass.setStatus('current')
+c3gCdmaEvDoRadioTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 3), )
+if mibBuilder.loadTexts: c3gCdmaEvDoRadioTable.setStatus('current')
+c3gCdmaEvDoRadioEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 3, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gCdmaEvDoRadioEntry.setStatus('current')
+c3gCurrentEvDoRssi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 3, 1, 1), C3gRssi()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCurrentEvDoRssi.setStatus('current')
+c3gCurrentEvDoEcIo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 3, 1, 2), C3gEcIo()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCurrentEvDoEcIo.setStatus('current')
+c3gCurrentEvDoChannelNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 3, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCurrentEvDoChannelNumber.setStatus('current')
+c3gSectorId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 3, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSectorId.setStatus('current')
+c3gSubnetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 3, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSubnetMask.setStatus('current')
+c3gHdrColorCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 3, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gHdrColorCode.setStatus('current')
+c3gPnOffset = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 3, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gPnOffset.setStatus('current')
+c3gRxMainGainControl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 3, 1, 8), Integer32()).setUnits('dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gRxMainGainControl.setStatus('current')
+c3gRxDiversityGainControl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 3, 1, 9), Integer32()).setUnits('dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gRxDiversityGainControl.setStatus('current')
+c3gTxTotalPower = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 3, 1, 10), Integer32()).setUnits('dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gTxTotalPower.setStatus('current')
+c3gTxGainAdjust = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 3, 1, 11), Integer32()).setUnits('dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gTxGainAdjust.setStatus('current')
+c3gCarrierToInterferenceRatio = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 3, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCarrierToInterferenceRatio.setStatus('current')
+c3gCdmaEvDoBandClassTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 4), )
+if mibBuilder.loadTexts: c3gCdmaEvDoBandClassTable.setStatus('current')
+c3gCdmaEvDoBandClassEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 4, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-WAN-3G-MIB", "c3gBandClassIndex"))
+if mibBuilder.loadTexts: c3gCdmaEvDoBandClassEntry.setStatus('current')
+c3gEvDoBandClass = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 4, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gEvDoBandClass.setStatus('current')
+c3gCdmaHistoryTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 5), )
+if mibBuilder.loadTexts: c3gCdmaHistoryTable.setStatus('current')
+c3gCdmaHistoryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 5, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gCdmaHistoryEntry.setStatus('current')
+c3gCdmaHistory1xRttRssiPerSecond = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 5, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(60, 60)).setFixedLength(60)).setUnits('-dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaHistory1xRttRssiPerSecond.setStatus('current')
+c3gCdmaHistory1xRttRssiPerMinute = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 5, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(60, 60)).setFixedLength(60)).setUnits('-dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaHistory1xRttRssiPerMinute.setStatus('current')
+c3gCdmaHistory1xRttRssiPerHour = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 5, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(72, 72)).setFixedLength(72)).setUnits('-dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaHistory1xRttRssiPerHour.setStatus('current')
+c3gCdmaHistoryEvDoRssiPerSecond = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 5, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(60, 60)).setFixedLength(60)).setUnits('-dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaHistoryEvDoRssiPerSecond.setStatus('current')
+c3gCdmaHistoryEvDoRssiPerMinute = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 5, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(60, 60)).setFixedLength(60)).setUnits('-dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaHistoryEvDoRssiPerMinute.setStatus('current')
+c3gCdmaHistoryEvDoRssiPerHour = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 6, 5, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(72, 72)).setFixedLength(72)).setUnits('-dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCdmaHistoryEvDoRssiPerHour.setStatus('current')
+c3gCdmaSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 7))
+c3gCdmaSecurityTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 7, 1), )
+if mibBuilder.loadTexts: c3gCdmaSecurityTable.setStatus('current')
+c3gCdmaSecurityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 7, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gCdmaSecurityEntry.setStatus('current')
+c3gCdmaPinSecurityStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 7, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("locked", 2), ("unlocked", 3))).clone('unlocked')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gCdmaPinSecurityStatus.setStatus('current')
+c3gCdmaPowerUpLockStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 2, 7, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("enabled", 2), ("disabled", 3))).clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gCdmaPowerUpLockStatus.setStatus('current')
+c3gGsmIdentityTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 1), )
+if mibBuilder.loadTexts: c3gGsmIdentityTable.setStatus('current')
+c3gGsmIdentityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gGsmIdentityEntry.setStatus('current')
+c3gImsi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gImsi.setStatus('current')
+c3gImei = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gImei.setStatus('current')
+c3gIccId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gIccId.setStatus('current')
+c3gMsisdn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gMsisdn.setStatus('current')
+c3gFsn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gFsn.setStatus('current')
+c3gModemStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("offLine", 2), ("onLine", 3), ("lowPowerMode", 4))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gModemStatus.setStatus('current')
+c3gGsmRoamingPreference = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("home", 2), ("roaming", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gGsmRoamingPreference.setStatus('current')
+c3gGsmNetworkTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2), )
+if mibBuilder.loadTexts: c3gGsmNetworkTable.setStatus('current')
+c3gGsmNetworkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gGsmNetworkEntry.setStatus('current')
+c3gGsmLac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmLac.setStatus('current')
+c3gGsmCurrentServiceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("noService", 2), ("normal", 3), ("emergencyOnly", 4))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmCurrentServiceStatus.setStatus('current')
+c3gGsmCurrentServiceError = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29))).clone(namedValues=NamedValues(("unknown", 1), ("none", 2), ("imsiUnknownInHlr", 3), ("illegalMs", 4), ("imsiUnknownInVlr", 5), ("imeiNotAccepted", 6), ("illegalMe", 7), ("gprsServNotAllowed", 8), ("gprsNonGprsServNotAllow", 9), ("msIdentUnknown", 10), ("implicitlyDetached", 11), ("plmnNotAllowed", 12), ("lacNotAllowed", 13), ("roamingNotAllowed", 14), ("gprsServNotAllowInPlmn", 15), ("noSuitableCellInLa", 16), ("mscTempNotReachable", 17), ("networkFailure", 18), ("macFailure", 19), ("synchFailure", 20), ("congestion", 21), ("gsmAuthenNotAccept", 22), ("servOptionNotSupport", 23), ("reqServOptionNotSub", 24), ("servOptionOutOfOrder", 25), ("callCannotIdentified", 26), ("noPdpContextActivated", 27), ("invalidMandatInfo", 28), ("unpsecProtErr", 29)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmCurrentServiceError.setStatus('current')
+c3gGsmCurrentService = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 1), ("invalid", 2), ("circuitSwitched", 3), ("packetSwitched", 4), ("combined", 5))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmCurrentService.setStatus('current')
+c3gGsmPacketService = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("unknown", 1), ("none", 2), ("gprs", 3), ("edge", 4), ("umtsWcdma", 5), ("hsdpa", 6), ("hsupa", 7), ("hspa", 8), ("hspaPlus", 9), ("lte", 10))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmPacketService.setStatus('current')
+c3gGsmCurrentRoamingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("roaming", 2), ("home", 3))).clone('home')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmCurrentRoamingStatus.setStatus('current')
+c3gGsmNetworkSelectionMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("automatic", 2), ("manual", 3))).clone('automatic')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gGsmNetworkSelectionMode.setStatus('current')
+c3gGsmCountry = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmCountry.setStatus('current')
+c3gGsmNetwork = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNetwork.setStatus('current')
+c3gGsmMcc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 10), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gGsmMcc.setStatus('current')
+c3gGsmMnc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 11), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gGsmMnc.setStatus('current')
+c3gGsmRac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmRac.setStatus('current')
+c3gGsmCurrentCellId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 13), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmCurrentCellId.setStatus('current')
+c3gGsmCurrentPrimaryScramblingCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 14), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmCurrentPrimaryScramblingCode.setStatus('current')
+c3gGsmPlmnSelection = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("manual", 2), ("automatic", 3))).clone('automatic')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gGsmPlmnSelection.setStatus('current')
+c3gGsmRegPlmn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 16), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmRegPlmn.setStatus('current')
+c3gGsmPlmnAbbr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 17), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmPlmnAbbr.setStatus('current')
+c3gGsmServiceProvider = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmServiceProvider.setStatus('current')
+c3gGsmTotalByteTransmitted = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 19), Counter64()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmTotalByteTransmitted.setStatus('current')
+c3gGsmTotalByteReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 2, 1, 20), Counter64()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmTotalByteReceived.setStatus('current')
+c3gGsmPdpProfile = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3))
+c3gGsmPdpProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 1), )
+if mibBuilder.loadTexts: c3gGsmPdpProfileTable.setStatus('current')
+c3gGsmPdpProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-WAN-3G-MIB", "c3gGsmPdpProfileIndex"))
+if mibBuilder.loadTexts: c3gGsmPdpProfileEntry.setStatus('current')
+c3gGsmPdpProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000)))
+if mibBuilder.loadTexts: c3gGsmPdpProfileIndex.setStatus('current')
+c3gGsmPdpProfileType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 1, 1, 2), C3gPdpType().clone('unknown')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmPdpProfileType.setStatus('current')
+c3gGsmPdpProfileAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmPdpProfileAddr.setStatus('current')
+c3gGsmPdpProfileApn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmPdpProfileApn.setStatus('current')
+c3gGsmPdpProfileAuthenType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("none", 2), ("chap", 3), ("pap", 4))).clone('unknown')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmPdpProfileAuthenType.setStatus('current')
+c3gGsmPdpProfileUsername = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmPdpProfileUsername.setStatus('current')
+c3gGsmPdpProfilePassword = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 1, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmPdpProfilePassword.setStatus('current')
+c3gGsmPdpProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmPdpProfileRowStatus.setStatus('current')
+c3gGsmPacketSessionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 2), )
+if mibBuilder.loadTexts: c3gGsmPacketSessionTable.setStatus('current')
+c3gGsmPacketSessionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-WAN-3G-MIB", "c3gGsmPdpProfileIndex"))
+if mibBuilder.loadTexts: c3gGsmPacketSessionEntry.setStatus('current')
+c3gGsmPacketSessionStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("active", 2), ("inactive", 3))).clone('inactive')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmPacketSessionStatus.setStatus('current')
+c3gGsmPdpType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 2, 1, 2), C3gPdpType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmPdpType.setStatus('current')
+c3gGsmPdpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmPdpAddress.setStatus('current')
+c3gGsmReqUmtsQosTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3), )
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosTable.setStatus('current')
+c3gGsmReqUmtsQosEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-WAN-3G-MIB", "c3gGsmPdpProfileIndex"))
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosEntry.setStatus('current')
+c3gGsmReqUmtsQosTrafficClass = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1, 2), C3gUmtsQosTrafficClass()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosTrafficClass.setStatus('current')
+c3gGsmReqUmtsQosMaxUpLinkBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1, 3), C3gUmtsQosLinkBitRate()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosMaxUpLinkBitRate.setStatus('current')
+c3gGsmReqUmtsQosMaxDownLinkBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1, 4), C3gUmtsQosLinkBitRate()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosMaxDownLinkBitRate.setStatus('current')
+c3gGsmReqUmtsQosGuaUpLinkBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1, 5), C3gUmtsQosLinkBitRate()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosGuaUpLinkBitRate.setStatus('current')
+c3gGsmReqUmtsQosGuaDownLinkBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1, 6), C3gUmtsQosLinkBitRate()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosGuaDownLinkBitRate.setStatus('current')
+c3gGsmReqUmtsQosOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1, 7), C3gUmtsQosOrder()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosOrder.setStatus('current')
+c3gGsmReqUmtsQosErroneousSdu = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1, 8), C3gUmtsQosErroneousSdu()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosErroneousSdu.setStatus('current')
+c3gGsmReqUmtsQosMaxSduSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1520))).setUnits('bytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosMaxSduSize.setStatus('current')
+c3gGsmReqUmtsQosSer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1, 10), C3gUmtsQosSer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosSer.setStatus('current')
+c3gGsmReqUmtsQosBer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1, 11), C3gUmtsQosBer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosBer.setStatus('current')
+c3gGsmReqUmtsQosDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4000))).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosDelay.setStatus('current')
+c3gGsmReqUmtsQosPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1, 13), C3gUmtsQosPriority()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosPriority.setStatus('current')
+c3gGsmReqUmtsQosSrcStatDescriptor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1, 14), C3gUmtsQosSrcStatDescriptor()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosSrcStatDescriptor.setStatus('current')
+c3gGsmReqUmtsQosSignalIndication = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1, 15), C3gUmtsQosSignalIndication()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosSignalIndication.setStatus('current')
+c3gGsmReqUmtsQosRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 3, 1, 16), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqUmtsQosRowStatus.setStatus('current')
+c3gGsmMinUmtsQosTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4), )
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosTable.setStatus('current')
+c3gGsmMinUmtsQosEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-WAN-3G-MIB", "c3gGsmPdpProfileIndex"))
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosEntry.setStatus('current')
+c3gGsmMinUmtsQosTrafficClass = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1, 1), C3gUmtsQosTrafficClass()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosTrafficClass.setStatus('current')
+c3gGsmMinUmtsQosMaxUpLinkBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1, 2), C3gUmtsQosLinkBitRate()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosMaxUpLinkBitRate.setStatus('current')
+c3gGsmMinUmtsQosMaxDownLinkBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1, 3), C3gUmtsQosLinkBitRate()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosMaxDownLinkBitRate.setStatus('current')
+c3gGsmMinUmtsQosGuaUpLinkBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1, 4), C3gUmtsQosLinkBitRate()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosGuaUpLinkBitRate.setStatus('current')
+c3gGsmMinUmtsQosGuaDownLinkBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1, 5), C3gUmtsQosLinkBitRate()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosGuaDownLinkBitRate.setStatus('current')
+c3gGsmMinUmtsQosOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1, 6), C3gUmtsQosOrder()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosOrder.setStatus('current')
+c3gGsmMinUmtsQosErroneousSdu = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1, 7), C3gUmtsQosErroneousSdu()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosErroneousSdu.setStatus('current')
+c3gGsmMinUmtsQosMaxSduSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1520))).setUnits('bytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosMaxSduSize.setStatus('current')
+c3gGsmMinUmtsQosSer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1, 9), C3gUmtsQosSer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosSer.setStatus('current')
+c3gGsmMinUmtsQosBer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1, 10), C3gUmtsQosBer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosBer.setStatus('current')
+c3gGsmMinUmtsQosDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4000))).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosDelay.setStatus('current')
+c3gGsmMinUmtsQosPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1, 12), C3gUmtsQosPriority()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosPriority.setStatus('current')
+c3gGsmMinUmtsQosSrcStatDescriptor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1, 13), C3gUmtsQosSrcStatDescriptor()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosSrcStatDescriptor.setStatus('current')
+c3gGsmMinUmtsQosSignalIndication = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1, 14), C3gUmtsQosSignalIndication()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosSignalIndication.setStatus('current')
+c3gGsmMinUmtsQosRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 4, 1, 15), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinUmtsQosRowStatus.setStatus('current')
+c3gGsmNegoUmtsQosTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5), )
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosTable.setStatus('current')
+c3gGsmNegoUmtsQosEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-WAN-3G-MIB", "c3gGsmPdpProfileIndex"))
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosEntry.setStatus('current')
+c3gGsmNegoUmtsQosTrafficClass = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5, 1, 1), C3gUmtsQosTrafficClass()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosTrafficClass.setStatus('current')
+c3gGsmNegoUmtsQosMaxUpLinkBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5, 1, 2), C3gUmtsQosLinkBitRate()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosMaxUpLinkBitRate.setStatus('current')
+c3gGsmNegoUmtsQosMaxDownLinkBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5, 1, 3), C3gUmtsQosLinkBitRate()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosMaxDownLinkBitRate.setStatus('current')
+c3gGsmNegoUmtsQosGuaUpLinkBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5, 1, 4), C3gUmtsQosLinkBitRate()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosGuaUpLinkBitRate.setStatus('current')
+c3gGsmNegoUmtsQosGuaDownLinkBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5, 1, 5), C3gUmtsQosLinkBitRate()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosGuaDownLinkBitRate.setStatus('current')
+c3gGsmNegoUmtsQosOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5, 1, 6), C3gUmtsQosOrder()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosOrder.setStatus('current')
+c3gGsmNegoUmtsQosErroneousSdu = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5, 1, 7), C3gUmtsQosErroneousSdu()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosErroneousSdu.setStatus('current')
+c3gGsmNegoUmtsQosMaxSduSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1520))).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosMaxSduSize.setStatus('current')
+c3gGsmNegoUmtsQosSer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5, 1, 9), C3gUmtsQosSer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosSer.setStatus('current')
+c3gGsmNegoUmtsQosBer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5, 1, 10), C3gUmtsQosBer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosBer.setStatus('current')
+c3gGsmNegoUmtsQosDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4000))).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosDelay.setStatus('current')
+c3gGsmNegoUmtsQosPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5, 1, 12), C3gUmtsQosPriority()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosPriority.setStatus('current')
+c3gGsmNegoUmtsQosSrcStatDescriptor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5, 1, 13), C3gUmtsQosSrcStatDescriptor()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosSrcStatDescriptor.setStatus('current')
+c3gGsmNegoUmtsQosSignalIndication = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 5, 1, 14), C3gUmtsQosSignalIndication()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoUmtsQosSignalIndication.setStatus('current')
+c3gGsmReqGprsQosTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 6), )
+if mibBuilder.loadTexts: c3gGsmReqGprsQosTable.setStatus('current')
+c3gGsmReqGprsQosEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 6, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-WAN-3G-MIB", "c3gGsmPdpProfileIndex"))
+if mibBuilder.loadTexts: c3gGsmReqGprsQosEntry.setStatus('current')
+c3gGsmReqGprsQosPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 6, 1, 1), C3gGprsQosPrecedence()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqGprsQosPrecedence.setStatus('current')
+c3gGsmReqGprsQosDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 6, 1, 2), C3gGprsQosDelay()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqGprsQosDelay.setStatus('current')
+c3gGsmReqGprsQosReliability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 6, 1, 3), C3gGprsQosReliability()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqGprsQosReliability.setStatus('current')
+c3gGsmReqGprsQosPeakRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 6, 1, 4), C3gGprsQosPeakRate()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqGprsQosPeakRate.setStatus('current')
+c3gGsmReqGprsQosMeanRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 6, 1, 5), C3gGprsQosMeanRate()).setUnits('octet-per-hour').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqGprsQosMeanRate.setStatus('current')
+c3gGsmReqGprsQosRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 6, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmReqGprsQosRowStatus.setStatus('current')
+c3gGsmMinGprsQosTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 7), )
+if mibBuilder.loadTexts: c3gGsmMinGprsQosTable.setStatus('current')
+c3gGsmMinGprsQosEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 7, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-WAN-3G-MIB", "c3gGsmPdpProfileIndex"))
+if mibBuilder.loadTexts: c3gGsmMinGprsQosEntry.setStatus('current')
+c3gGsmMinGprsQosPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 7, 1, 1), C3gGprsQosPrecedence()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinGprsQosPrecedence.setStatus('current')
+c3gGsmMinGprsQosDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 7, 1, 2), C3gGprsQosDelay()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinGprsQosDelay.setStatus('current')
+c3gGsmMinGprsQosReliability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 7, 1, 3), C3gGprsQosReliability()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinGprsQosReliability.setStatus('current')
+c3gGsmMinGprsQosPeakRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 7, 1, 4), C3gGprsQosPeakRate()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinGprsQosPeakRate.setStatus('current')
+c3gGsmMinGprsQosMeanRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 7, 1, 5), C3gGprsQosMeanRate()).setUnits('octet-per-hour').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinGprsQosMeanRate.setStatus('current')
+c3gGsmMinGprsQosRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 7, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gGsmMinGprsQosRowStatus.setStatus('current')
+c3gGsmNegoGprsQosTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 8), )
+if mibBuilder.loadTexts: c3gGsmNegoGprsQosTable.setStatus('current')
+c3gGsmNegoGprsQosEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 8, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-WAN-3G-MIB", "c3gGsmPdpProfileIndex"))
+if mibBuilder.loadTexts: c3gGsmNegoGprsQosEntry.setStatus('current')
+c3gGsmNegoGprsQosPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 8, 1, 1), C3gGprsQosPrecedence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoGprsQosPrecedence.setStatus('current')
+c3gGsmNegoGprsQosDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 8, 1, 2), C3gGprsQosDelay()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoGprsQosDelay.setStatus('current')
+c3gGsmNegoGprsQosReliability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 8, 1, 3), C3gGprsQosReliability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoGprsQosReliability.setStatus('current')
+c3gGsmNegoGprsQosPeakRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 8, 1, 4), C3gGprsQosPeakRate()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoGprsQosPeakRate.setStatus('current')
+c3gGsmNegoGprsQosMeanRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 3, 8, 1, 5), C3gGprsQosMeanRate()).setUnits('octet-per-hour').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNegoGprsQosMeanRate.setStatus('current')
+c3gGsmRadio = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4))
+c3gGsmRadioTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 1), )
+if mibBuilder.loadTexts: c3gGsmRadioTable.setStatus('current')
+c3gGsmRadioEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gGsmRadioEntry.setStatus('current')
+c3gCurrentGsmRssi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 1, 1, 1), C3gRssi()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCurrentGsmRssi.setStatus('current')
+c3gCurrentGsmEcIo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 1, 1, 2), C3gEcIo()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gCurrentGsmEcIo.setStatus('current')
+c3gGsmCurrentBand = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("unknown", 1), ("invalid", 2), ("none", 3), ("gsm850", 4), ("gsm900", 5), ("gsm1800", 6), ("gsm1900", 7), ("wcdma800", 8), ("wcdma850", 9), ("wcdma1900", 10), ("wcdma2100", 11), ("lteBand", 12))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmCurrentBand.setStatus('current')
+c3gGsmChannelNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmChannelNumber.setStatus('current')
+c3gGsmNumberOfNearbyCell = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNumberOfNearbyCell.setStatus('current')
+c3gGsmNearbyCellTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 2), )
+if mibBuilder.loadTexts: c3gGsmNearbyCellTable.setStatus('current')
+c3gGsmNearbyCellEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-WAN-3G-MIB", "c3gGsmNearbyCellIndex"))
+if mibBuilder.loadTexts: c3gGsmNearbyCellEntry.setStatus('current')
+c3gGsmNearbyCellIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)))
+if mibBuilder.loadTexts: c3gGsmNearbyCellIndex.setStatus('current')
+c3gGsmNearbyCellPrimaryScramblingCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNearbyCellPrimaryScramblingCode.setStatus('current')
+c3gGsmNearbyCellRscp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-150, 0))).setUnits('dB').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNearbyCellRscp.setStatus('current')
+c3gGsmNearbyCellEcIoMeasurement = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 2, 1, 4), C3gEcIo()).setUnits('dB').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNearbyCellEcIoMeasurement.setStatus('current')
+c3gGsmHistoryTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 3), )
+if mibBuilder.loadTexts: c3gGsmHistoryTable.setStatus('current')
+c3gGsmHistoryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 3, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gGsmHistoryEntry.setStatus('current')
+c3gGsmHistoryRssiPerSecond = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 3, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(60, 60)).setFixedLength(60)).setUnits('-dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmHistoryRssiPerSecond.setStatus('current')
+c3gGsmHistoryRssiPerMinute = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 3, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(60, 60)).setFixedLength(60)).setUnits('-dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmHistoryRssiPerMinute.setStatus('current')
+c3gGsmHistoryRssiPerHour = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 4, 3, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(72, 72)).setFixedLength(72)).setUnits('-dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmHistoryRssiPerHour.setStatus('current')
+c3gGsmSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 5))
+c3gGsmSecurityTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 5, 1), )
+if mibBuilder.loadTexts: c3gGsmSecurityTable.setStatus('current')
+c3gGsmSecurityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 5, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gGsmSecurityEntry.setStatus('current')
+c3gGsmChv1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 5, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("disabled", 2), ("enabled", 3))).clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: c3gGsmChv1.setStatus('current')
+c3gGsmSimStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 5, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13))).clone(namedValues=NamedValues(("unknown", 1), ("ok", 2), ("notInserted", 3), ("removed", 4), ("initFailure", 5), ("generalFailure", 6), ("locked", 7), ("chv1Blocked", 8), ("chv2Blocked", 9), ("chv1Rejected", 10), ("chv2Rejected", 11), ("mepLocked", 12), ("networkRejected", 13))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmSimStatus.setStatus('current')
+c3gGsmSimUserOperationRequired = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("unknown", 1), ("none", 2), ("enterChv1", 3), ("enterChv2", 4), ("enterUnblockChv1", 5), ("enterUnblockChv2", 6), ("enterMepCode", 7))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmSimUserOperationRequired.setStatus('current')
+c3gGsmNumberOfRetriesRemaining = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 3, 5, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gGsmNumberOfRetriesRemaining.setStatus('current')
+c3gWanLbsCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1))
+c3gWanLbsCommonTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1), )
+if mibBuilder.loadTexts: c3gWanLbsCommonTable.setStatus('current')
+c3gWanLbsCommonEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gWanLbsCommonEntry.setStatus('current')
+c3gLbsModeSelected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unKnown", 1), ("standAlone", 2), ("msBased", 3), ("msAssist", 4), ("reserved", 5))).clone('unKnown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsModeSelected.setStatus('current')
+c3gLbsState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("gpsDisabled", 1), ("gpsAcquiring", 2), ("gpsEnabled", 3), ("gpsLocError", 4))).clone('gpsDisabled')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsState.setStatus('current')
+c3gLbsLocFixError = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48))).clone(namedValues=NamedValues(("offline", 1), ("noService", 2), ("noConnection", 3), ("noData", 4), ("sessionBusy", 5), ("reserved", 6), ("gpsDisabled", 7), ("connectionFailed", 8), ("errorState", 9), ("clientEnded", 10), ("uiEnded", 11), ("networkEnded", 12), ("timeout", 13), ("privacyLevel", 14), ("networkAccessError", 15), ("fixError", 16), ("pdeRejected", 17), ("trafficChannelExited", 18), ("e911", 19), ("serverError", 20), ("staleBSinformation", 21), ("resourceContention", 22), ("authenticationParameterFailed", 23), ("authenticationFailedLocal", 24), ("authenticationFailedNetwork", 25), ("vxLcsAgentAuthFail", 26), ("unknownSystemError", 27), ("unsupportedService", 28), ("subscriptionViolation", 29), ("desiredFixMethodFailed", 30), ("antennaSwitch", 31), ("noTxConfirmationReceived", 32), ("normalEndOfSession", 33), ("noErrorFromNetwork", 34), ("noResourcesLeftOnNetwork", 35), ("positionServerNotAvailable", 36), ("unsupportedProtocolVersion", 37), ("ssmolrErrorSystemFailure", 38), ("ssmolrErrorUnexpectedDataValue", 39), ("ssmolrErrorDataMissing", 40), ("ssmolrErrorFacilityNotSupported", 41), ("ssmolrErrorSsSubscriptionViolation", 42), ("ssmolrErrorPositionMethodFailure", 43), ("ssmolrErrorUndefined", 44), ("smlcTimeout", 45), ("mtGguardTimeExpired", 46), ("additionalAssistanceNeeded", 47), ("noFixError", 48))).clone('noFixError')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsLocFixError.setStatus('current')
+c3gLbsLatitude = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsLatitude.setStatus('current')
+c3gLbsLongitude = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsLongitude.setStatus('current')
+c3gLbsTimeStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsTimeStamp.setStatus('current')
+c3gLbsLocUncertaintyAngle = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 7), Unsigned32()).setUnits('degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsLocUncertaintyAngle.setStatus('current')
+c3gLbsLocUncertaintyA = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 8), Unsigned32()).setUnits('meters').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsLocUncertaintyA.setStatus('current')
+c3gLbsLocUncertaintyPos = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 9), Unsigned32()).setUnits('meters').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsLocUncertaintyPos.setStatus('current')
+c3gLbsFixtype = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("twoDimension", 2), ("threeDimension", 3))).clone('none')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsFixtype.setStatus('current')
+c3gLbsHeightValid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 11), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsHeightValid.setStatus('current')
+c3gLbsHeight = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-500, 500))).setUnits('meters').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsHeight.setStatus('current')
+c3gLbsLocUncertaintyVertical = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 13), Unsigned32()).setUnits('meters').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsLocUncertaintyVertical.setStatus('current')
+c3gLbsVelocityValid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 14), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsVelocityValid.setStatus('current')
+c3gLbsHeading = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 15), Unsigned32()).setUnits('degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsHeading.setStatus('current')
+c3gLbsVelocityHorizontal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 16), Unsigned32()).setUnits('meters per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsVelocityHorizontal.setStatus('current')
+c3gLbsVelocityVertical = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 17), Unsigned32()).setUnits('meters per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsVelocityVertical.setStatus('current')
+c3gLbsHepe = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 18), Unsigned32()).setUnits('centimeters').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsHepe.setStatus('current')
+c3gLbsNumSatellites = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 1, 1, 1, 19), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gLbsNumSatellites.setStatus('current')
+c3gWanLbsSatelliteInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 2))
+c3gWanLbsSatelliteInfoTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 2, 1), )
+if mibBuilder.loadTexts: c3gWanLbsSatelliteInfoTable.setStatus('current')
+c3gWanLbsSatelliteInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 2, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-WAN-3G-MIB", "c3gWanLbsSatelliteInfoIndex"))
+if mibBuilder.loadTexts: c3gWanLbsSatelliteInfoEntry.setStatus('current')
+c3gWanLbsSatelliteInfoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000)))
+if mibBuilder.loadTexts: c3gWanLbsSatelliteInfoIndex.setStatus('current')
+c3gWanLbsSatelliteNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 2, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gWanLbsSatelliteNumber.setStatus('current')
+c3gWanLbsSatelliteElevation = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 2, 1, 1, 3), Integer32()).setUnits('degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gWanLbsSatelliteElevation.setStatus('current')
+c3gWanLbsSatelliteAzimuth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 2, 1, 1, 4), Integer32()).setUnits('degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gWanLbsSatelliteAzimuth.setStatus('current')
+c3gWanLbsSatelliteInfoSignalNoiseRatio = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 2, 1, 1, 5), Integer32()).setUnits('db').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gWanLbsSatelliteInfoSignalNoiseRatio.setStatus('current')
+c3gWanLbsSatelliteUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 2, 1, 1, 6), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gWanLbsSatelliteUsed.setStatus('current')
+c3gWanLbsSatelliteInfoRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 4, 2, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: c3gWanLbsSatelliteInfoRowStatus.setStatus('current')
+c3gWanSms = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1))
+c3gSmsCommonTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1), )
+if mibBuilder.loadTexts: c3gSmsCommonTable.setStatus('current')
+c3gSmsCommonEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: c3gSmsCommonEntry.setStatus('current')
+c3gSmsServiceAvailable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsServiceAvailable.setStatus('current')
+c3gSmsOutSmsCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 2), Counter32()).setUnits('msgs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsOutSmsCount.setStatus('current')
+c3gSmsOutSmsErrorCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 3), Counter32()).setUnits('msgs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsOutSmsErrorCount.setStatus('current')
+c3gSmsInSmsStorageUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 4), Gauge32()).setUnits('msgs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsInSmsStorageUsed.setStatus('current')
+c3gSmsInSmsStorageUnused = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 5), Gauge32()).setUnits('msgs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsInSmsStorageUnused.setStatus('current')
+c3gSmsInSmsArchiveCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 6), Gauge32()).setUnits('msgs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsInSmsArchiveCount.setStatus('current')
+c3gSmsInSmsArchiveErrorCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 7), Gauge32()).setUnits('msgs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsInSmsArchiveErrorCount.setStatus('current')
+c3gSmsArchiveUrl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsArchiveUrl.setStatus('current')
+c3gSmsOutSmsStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("unknown", 1), ("success", 2), ("copySmsHeader", 3), ("copySmsBody", 4), ("sent", 5), ("receivedSentNotification", 6), ("receivedOutMsgNumber", 7), ("receivedOutMsgStatus", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsOutSmsStatus.setStatus('current')
+c3gSmsInSmsCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsInSmsCount.setStatus('current')
+c3gSmsInSmsDeleted = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsInSmsDeleted.setStatus('current')
+c3gSmsInSmsStorageMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 12), Counter64()).setUnits('msgs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsInSmsStorageMax.setStatus('current')
+c3gSmsInSmsCallBack = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 13), Counter32()).setUnits('msgs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsInSmsCallBack.setStatus('current')
+c3gSmsOutSmsPendingCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 14), Gauge32()).setUnits('msgs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsOutSmsPendingCount.setStatus('current')
+c3gSmsOutSmsArchiveCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 15), Gauge32()).setUnits('msgs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsOutSmsArchiveCount.setStatus('current')
+c3gSmsOutSmsArchiveErrorCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 16), Gauge32()).setUnits('msgs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsOutSmsArchiveErrorCount.setStatus('current')
+c3gSmsInSmsArchived = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 661, 1, 5, 1, 1, 1, 17), Gauge32()).setUnits('msgs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: c3gSmsInSmsArchived.setStatus('current')
+c3gModemUpNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 661, 0, 1)).setObjects(("ENTITY-MIB", "entPhysicalName"))
+if mibBuilder.loadTexts: c3gModemUpNotif.setStatus('current')
+c3gModemDownNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 661, 0, 2)).setObjects(("ENTITY-MIB", "entPhysicalName"))
+if mibBuilder.loadTexts: c3gModemDownNotif.setStatus('current')
+c3gServiceChangedNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 661, 0, 3)).setObjects(("CISCO-WAN-3G-MIB", "c3gPreviousServiceType"), ("CISCO-WAN-3G-MIB", "c3gCurrentServiceType"))
+if mibBuilder.loadTexts: c3gServiceChangedNotif.setStatus('current')
+c3gNetworkChangedNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 661, 0, 4)).setObjects(("CISCO-WAN-3G-MIB", "c3gCurrentSid"), ("CISCO-WAN-3G-MIB", "c3gCurrentNid"), ("CISCO-WAN-3G-MIB", "c3gGsmMcc"), ("CISCO-WAN-3G-MIB", "c3gGsmMnc"), ("CISCO-WAN-3G-MIB", "c3gRoamingStatus"))
+if mibBuilder.loadTexts: c3gNetworkChangedNotif.setStatus('current')
+c3gConnectionStatusChangedNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 661, 0, 5)).setObjects(("CISCO-WAN-3G-MIB", "c3gConnectionStatus"), ("CISCO-WAN-3G-MIB", "c3gCurrentServiceType"))
+if mibBuilder.loadTexts: c3gConnectionStatusChangedNotif.setStatus('current')
+c3gRssiOnsetNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 661, 0, 6)).setObjects(("CISCO-WAN-3G-MIB", "c3gNotifRadioService"), ("CISCO-WAN-3G-MIB", "c3gNotifRssi"))
+if mibBuilder.loadTexts: c3gRssiOnsetNotif.setStatus('current')
+c3gRssiAbateNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 661, 0, 7)).setObjects(("CISCO-WAN-3G-MIB", "c3gNotifRadioService"), ("CISCO-WAN-3G-MIB", "c3gNotifRssi"))
+if mibBuilder.loadTexts: c3gRssiAbateNotif.setStatus('current')
+c3gEcIoOnsetNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 661, 0, 8)).setObjects(("CISCO-WAN-3G-MIB", "c3gNotifRadioService"), ("CISCO-WAN-3G-MIB", "c3gNotifEcIo"))
+if mibBuilder.loadTexts: c3gEcIoOnsetNotif.setStatus('current')
+c3gEcIoAbateNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 661, 0, 9)).setObjects(("CISCO-WAN-3G-MIB", "c3gNotifRadioService"), ("CISCO-WAN-3G-MIB", "c3gNotifEcIo"))
+if mibBuilder.loadTexts: c3gEcIoAbateNotif.setStatus('current')
+c3gModemTemperOnsetNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 661, 0, 10)).setObjects(("CISCO-WAN-3G-MIB", "c3gModemTemperature"))
+if mibBuilder.loadTexts: c3gModemTemperOnsetNotif.setStatus('current')
+c3gModemTemperAbateNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 661, 0, 11)).setObjects(("CISCO-WAN-3G-MIB", "c3gModemTemperature"))
+if mibBuilder.loadTexts: c3gModemTemperAbateNotif.setStatus('current')
+c3gModemTemperOnsetRecoveryNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 661, 0, 12)).setObjects(("CISCO-WAN-3G-MIB", "c3gModemTemperature"))
+if mibBuilder.loadTexts: c3gModemTemperOnsetRecoveryNotif.setStatus('current')
+c3gModemTemperAbateRecoveryNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 661, 0, 13)).setObjects(("CISCO-WAN-3G-MIB", "c3gModemTemperature"))
+if mibBuilder.loadTexts: c3gModemTemperAbateRecoveryNotif.setStatus('current')
+ciscoWan3gMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 2, 1))
+ciscoWan3gMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 661, 2, 2))
+ciscoWan3gMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 661, 2, 1, 1)).setObjects(("CISCO-WAN-3G-MIB", "ciscoWan3gMIBNotificationGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBCommonObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBCdmaObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBGsmObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBSmsObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBLbsObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWan3gMIBCompliance = ciscoWan3gMIBCompliance.setStatus('deprecated')
+ciscoWan3gMIBCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 661, 2, 1, 2)).setObjects(("CISCO-WAN-3G-MIB", "ciscoWan3gMIBNotificationGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBCommonObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBCdmaObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBGsmObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBSmsObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBLbsObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWan3gMIBCompliance1 = ciscoWan3gMIBCompliance1.setStatus('deprecated')
+ciscoWan3gMIBComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 661, 2, 1, 3)).setObjects(("CISCO-WAN-3G-MIB", "ciscoWan3gMIBNotificationGroupRev1"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBCommonObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBCdmaObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBGsmObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBSmsObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBLbsObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWan3gMIBComplianceRev1 = ciscoWan3gMIBComplianceRev1.setStatus('current')
+ciscoWan3gMIBCompliance1Rev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 661, 2, 1, 4)).setObjects(("CISCO-WAN-3G-MIB", "ciscoWan3gMIBNotificationGroupRev1"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBCommonObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBCdmaObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBGsmObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBSmsObjectGroup"), ("CISCO-WAN-3G-MIB", "ciscoWan3gMIBLbsObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWan3gMIBCompliance1Rev1 = ciscoWan3gMIBCompliance1Rev1.setStatus('current')
+ciscoWan3gMIBCommonObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 661, 2, 2, 1)).setObjects(("CISCO-WAN-3G-MIB", "c3gStandard"), ("CISCO-WAN-3G-MIB", "c3gCapability"), ("CISCO-WAN-3G-MIB", "c3gModemState"), ("CISCO-WAN-3G-MIB", "c3gPreviousServiceType"), ("CISCO-WAN-3G-MIB", "c3gCurrentServiceType"), ("CISCO-WAN-3G-MIB", "c3gRoamingStatus"), ("CISCO-WAN-3G-MIB", "c3gCurrentSystemTime"), ("CISCO-WAN-3G-MIB", "c3gConnectionStatus"), ("CISCO-WAN-3G-MIB", "c3gNotifRadioService"), ("CISCO-WAN-3G-MIB", "c3gNotifRssi"), ("CISCO-WAN-3G-MIB", "c3gNotifEcIo"), ("CISCO-WAN-3G-MIB", "c3gModemTemperature"), ("CISCO-WAN-3G-MIB", "c3gRssiOnsetNotifThreshold"), ("CISCO-WAN-3G-MIB", "c3gRssiAbateNotifThreshold"), ("CISCO-WAN-3G-MIB", "c3gEcIoOnsetNotifThreshold"), ("CISCO-WAN-3G-MIB", "c3gEcIoAbateNotifThreshold"), ("CISCO-WAN-3G-MIB", "c3gModemTemperOnsetNotifThreshold"), ("CISCO-WAN-3G-MIB", "c3gModemTemperAbateNotifThreshold"), ("CISCO-WAN-3G-MIB", "c3gModemReset"), ("CISCO-WAN-3G-MIB", "c3gModemUpNotifEnabled"), ("CISCO-WAN-3G-MIB", "c3gModemDownNotifEnabled"), ("CISCO-WAN-3G-MIB", "c3gServiceChangedNotifEnabled"), ("CISCO-WAN-3G-MIB", "c3gNetworkChangedNotifEnabled"), ("CISCO-WAN-3G-MIB", "c3gConnectionStatusChangedNotifFlag"), ("CISCO-WAN-3G-MIB", "c3gRssiOnsetNotifFlag"), ("CISCO-WAN-3G-MIB", "c3gRssiAbateNotifFlag"), ("CISCO-WAN-3G-MIB", "c3gEcIoOnsetNotifFlag"), ("CISCO-WAN-3G-MIB", "c3gEcIoAbateNotifFlag"), ("CISCO-WAN-3G-MIB", "c3gModemTemperOnsetNotifEnabled"), ("CISCO-WAN-3G-MIB", "c3gModemTemperAbateNotifEnabled"), ("CISCO-WAN-3G-MIB", "c3gGpsState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWan3gMIBCommonObjectGroup = ciscoWan3gMIBCommonObjectGroup.setStatus('current')
+ciscoWan3gMIBCdmaObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 661, 2, 2, 2)).setObjects(("CISCO-WAN-3G-MIB", "c3gCdmaTotalCallDuration"), ("CISCO-WAN-3G-MIB", "c3gCdmaTotalTransmitted"), ("CISCO-WAN-3G-MIB", "c3gCdmaTotalReceived"), ("CISCO-WAN-3G-MIB", "c3gHdrDdtmPreference"), ("CISCO-WAN-3G-MIB", "c3gOutgoingCallNumber"), ("CISCO-WAN-3G-MIB", "c3gHdrAtState"), ("CISCO-WAN-3G-MIB", "c3gHdrSessionState"), ("CISCO-WAN-3G-MIB", "c3gUati"), ("CISCO-WAN-3G-MIB", "c3gColorCode"), ("CISCO-WAN-3G-MIB", "c3gRati"), ("CISCO-WAN-3G-MIB", "c3gHdrSessionDuration"), ("CISCO-WAN-3G-MIB", "c3gHdrSessionStart"), ("CISCO-WAN-3G-MIB", "c3gHdrSessionEnd"), ("CISCO-WAN-3G-MIB", "c3gAuthStatus"), ("CISCO-WAN-3G-MIB", "c3gHdrDrc"), ("CISCO-WAN-3G-MIB", "c3gHdrDrcCover"), ("CISCO-WAN-3G-MIB", "c3gHdrRri"), ("CISCO-WAN-3G-MIB", "c3gCdmaCurrentTransmitted"), ("CISCO-WAN-3G-MIB", "c3gCdmaCurrentReceived"), ("CISCO-WAN-3G-MIB", "c3gCdmaCurrentCallStatus"), ("CISCO-WAN-3G-MIB", "c3gCdmaCurrentCallDuration"), ("CISCO-WAN-3G-MIB", "c3gCdmaCurrentCallType"), ("CISCO-WAN-3G-MIB", "c3gCdmaLastCallDisconnReason"), ("CISCO-WAN-3G-MIB", "c3gCdmaLastConnError"), ("CISCO-WAN-3G-MIB", "c3gMobileIpErrorCode"), ("CISCO-WAN-3G-MIB", "c3gEsn"), ("CISCO-WAN-3G-MIB", "c3gModemActivationStatus"), ("CISCO-WAN-3G-MIB", "c3gAccountActivationDate"), ("CISCO-WAN-3G-MIB", "c3gCdmaRoamingPreference"), ("CISCO-WAN-3G-MIB", "c3gPrlVersion"), ("CISCO-WAN-3G-MIB", "c3gMdn"), ("CISCO-WAN-3G-MIB", "c3gMsid"), ("CISCO-WAN-3G-MIB", "c3gMsl"), ("CISCO-WAN-3G-MIB", "c3gCdmaCurrentServiceStatus"), ("CISCO-WAN-3G-MIB", "c3gCdmaHybridModePreference"), ("CISCO-WAN-3G-MIB", "c3gCdmaCurrentRoamingStatus"), ("CISCO-WAN-3G-MIB", "c3gCurrentIdleDigitalMode"), ("CISCO-WAN-3G-MIB", "c3gCurrentSid"), ("CISCO-WAN-3G-MIB", "c3gCurrentNid"), ("CISCO-WAN-3G-MIB", "c3gCurrentCallSetupMode"), ("CISCO-WAN-3G-MIB", "c3gSipUsername"), ("CISCO-WAN-3G-MIB", "c3gSipPassword"), ("CISCO-WAN-3G-MIB", "c3gServingBaseStationLongitude"), ("CISCO-WAN-3G-MIB", "c3gServingBaseStationLatitude"), ("CISCO-WAN-3G-MIB", "c3gNumberOfDataProfileConfigurable"), ("CISCO-WAN-3G-MIB", "c3gCurrentActiveDataProfile"), ("CISCO-WAN-3G-MIB", "c3gNai"), ("CISCO-WAN-3G-MIB", "c3gAaaPassword"), ("CISCO-WAN-3G-MIB", "c3gMnHaSs"), ("CISCO-WAN-3G-MIB", "c3gMnHaSpi"), ("CISCO-WAN-3G-MIB", "c3gMnAaaSs"), ("CISCO-WAN-3G-MIB", "c3gMnAaaSpi"), ("CISCO-WAN-3G-MIB", "c3gReverseTunnelPreference"), ("CISCO-WAN-3G-MIB", "c3gHomeAddrType"), ("CISCO-WAN-3G-MIB", "c3gHomeAddr"), ("CISCO-WAN-3G-MIB", "c3gPriHaAddrType"), ("CISCO-WAN-3G-MIB", "c3gPriHaAddr"), ("CISCO-WAN-3G-MIB", "c3gSecHaAddrType"), ("CISCO-WAN-3G-MIB", "c3gSecHaAddr"), ("CISCO-WAN-3G-MIB", "c3gCurrent1xRttRssi"), ("CISCO-WAN-3G-MIB", "c3gCurrent1xRttEcIo"), ("CISCO-WAN-3G-MIB", "c3gCurrent1xRttChannelNumber"), ("CISCO-WAN-3G-MIB", "c3gCurrent1xRttChannelState"), ("CISCO-WAN-3G-MIB", "c3gCurrentEvDoRssi"), ("CISCO-WAN-3G-MIB", "c3gCurrentEvDoEcIo"), ("CISCO-WAN-3G-MIB", "c3gCurrentEvDoChannelNumber"), ("CISCO-WAN-3G-MIB", "c3gSectorId"), ("CISCO-WAN-3G-MIB", "c3gSubnetMask"), ("CISCO-WAN-3G-MIB", "c3gHdrColorCode"), ("CISCO-WAN-3G-MIB", "c3gPnOffset"), ("CISCO-WAN-3G-MIB", "c3gRxMainGainControl"), ("CISCO-WAN-3G-MIB", "c3gRxDiversityGainControl"), ("CISCO-WAN-3G-MIB", "c3gTxTotalPower"), ("CISCO-WAN-3G-MIB", "c3gTxGainAdjust"), ("CISCO-WAN-3G-MIB", "c3gCarrierToInterferenceRatio"), ("CISCO-WAN-3G-MIB", "c3g1xRttBandClass"), ("CISCO-WAN-3G-MIB", "c3gEvDoBandClass"), ("CISCO-WAN-3G-MIB", "c3gCdmaHistory1xRttRssiPerSecond"), ("CISCO-WAN-3G-MIB", "c3gCdmaHistory1xRttRssiPerMinute"), ("CISCO-WAN-3G-MIB", "c3gCdmaHistory1xRttRssiPerHour"), ("CISCO-WAN-3G-MIB", "c3gCdmaHistoryEvDoRssiPerSecond"), ("CISCO-WAN-3G-MIB", "c3gCdmaHistoryEvDoRssiPerMinute"), ("CISCO-WAN-3G-MIB", "c3gCdmaHistoryEvDoRssiPerHour"), ("CISCO-WAN-3G-MIB", "c3gCdmaPinSecurityStatus"), ("CISCO-WAN-3G-MIB", "c3gCdmaPowerUpLockStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWan3gMIBCdmaObjectGroup = ciscoWan3gMIBCdmaObjectGroup.setStatus('current')
+ciscoWan3gMIBGsmObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 661, 2, 2, 3)).setObjects(("CISCO-WAN-3G-MIB", "c3gGsmTotalByteTransmitted"), ("CISCO-WAN-3G-MIB", "c3gGsmTotalByteReceived"), ("CISCO-WAN-3G-MIB", "c3gGsmPacketSessionStatus"), ("CISCO-WAN-3G-MIB", "c3gGsmPdpType"), ("CISCO-WAN-3G-MIB", "c3gGsmPdpAddress"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoUmtsQosTrafficClass"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoUmtsQosMaxUpLinkBitRate"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoUmtsQosMaxDownLinkBitRate"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoUmtsQosGuaUpLinkBitRate"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoUmtsQosGuaDownLinkBitRate"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoUmtsQosOrder"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoUmtsQosErroneousSdu"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoUmtsQosMaxSduSize"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoUmtsQosSer"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoUmtsQosBer"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoUmtsQosDelay"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoUmtsQosPriority"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoUmtsQosSrcStatDescriptor"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoUmtsQosSignalIndication"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoGprsQosPrecedence"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoGprsQosDelay"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoGprsQosReliability"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoGprsQosPeakRate"), ("CISCO-WAN-3G-MIB", "c3gGsmNegoGprsQosMeanRate"), ("CISCO-WAN-3G-MIB", "c3gImsi"), ("CISCO-WAN-3G-MIB", "c3gImei"), ("CISCO-WAN-3G-MIB", "c3gIccId"), ("CISCO-WAN-3G-MIB", "c3gMsisdn"), ("CISCO-WAN-3G-MIB", "c3gFsn"), ("CISCO-WAN-3G-MIB", "c3gModemStatus"), ("CISCO-WAN-3G-MIB", "c3gGsmRoamingPreference"), ("CISCO-WAN-3G-MIB", "c3gGsmLac"), ("CISCO-WAN-3G-MIB", "c3gGsmCurrentServiceStatus"), ("CISCO-WAN-3G-MIB", "c3gGsmCurrentServiceError"), ("CISCO-WAN-3G-MIB", "c3gGsmCurrentService"), ("CISCO-WAN-3G-MIB", "c3gGsmPacketService"), ("CISCO-WAN-3G-MIB", "c3gGsmCurrentRoamingStatus"), ("CISCO-WAN-3G-MIB", "c3gGsmNetworkSelectionMode"), ("CISCO-WAN-3G-MIB", "c3gGsmCountry"), ("CISCO-WAN-3G-MIB", "c3gGsmNetwork"), ("CISCO-WAN-3G-MIB", "c3gGsmMcc"), ("CISCO-WAN-3G-MIB", "c3gGsmMnc"), ("CISCO-WAN-3G-MIB", "c3gGsmRac"), ("CISCO-WAN-3G-MIB", "c3gGsmCurrentCellId"), ("CISCO-WAN-3G-MIB", "c3gGsmCurrentPrimaryScramblingCode"), ("CISCO-WAN-3G-MIB", "c3gGsmPlmnSelection"), ("CISCO-WAN-3G-MIB", "c3gGsmRegPlmn"), ("CISCO-WAN-3G-MIB", "c3gGsmPlmnAbbr"), ("CISCO-WAN-3G-MIB", "c3gGsmServiceProvider"), ("CISCO-WAN-3G-MIB", "c3gGsmPdpProfileType"), ("CISCO-WAN-3G-MIB", "c3gGsmPdpProfileAddr"), ("CISCO-WAN-3G-MIB", "c3gGsmPdpProfileApn"), ("CISCO-WAN-3G-MIB", "c3gGsmPdpProfileAuthenType"), ("CISCO-WAN-3G-MIB", "c3gGsmPdpProfileUsername"), ("CISCO-WAN-3G-MIB", "c3gGsmPdpProfilePassword"), ("CISCO-WAN-3G-MIB", "c3gGsmPdpProfileRowStatus"), ("CISCO-WAN-3G-MIB", "c3gGsmReqUmtsQosTrafficClass"), ("CISCO-WAN-3G-MIB", "c3gGsmReqUmtsQosMaxUpLinkBitRate"), ("CISCO-WAN-3G-MIB", "c3gGsmReqUmtsQosMaxDownLinkBitRate"), ("CISCO-WAN-3G-MIB", "c3gGsmReqUmtsQosGuaUpLinkBitRate"), ("CISCO-WAN-3G-MIB", "c3gGsmReqUmtsQosGuaDownLinkBitRate"), ("CISCO-WAN-3G-MIB", "c3gGsmReqUmtsQosOrder"), ("CISCO-WAN-3G-MIB", "c3gGsmReqUmtsQosErroneousSdu"), ("CISCO-WAN-3G-MIB", "c3gGsmReqUmtsQosMaxSduSize"), ("CISCO-WAN-3G-MIB", "c3gGsmReqUmtsQosSer"), ("CISCO-WAN-3G-MIB", "c3gGsmReqUmtsQosBer"), ("CISCO-WAN-3G-MIB", "c3gGsmReqUmtsQosDelay"), ("CISCO-WAN-3G-MIB", "c3gGsmReqUmtsQosPriority"), ("CISCO-WAN-3G-MIB", "c3gGsmReqUmtsQosSrcStatDescriptor"), ("CISCO-WAN-3G-MIB", "c3gGsmReqUmtsQosSignalIndication"), ("CISCO-WAN-3G-MIB", "c3gGsmReqUmtsQosRowStatus"), ("CISCO-WAN-3G-MIB", "c3gGsmMinUmtsQosTrafficClass"), ("CISCO-WAN-3G-MIB", "c3gGsmMinUmtsQosMaxUpLinkBitRate"), ("CISCO-WAN-3G-MIB", "c3gGsmMinUmtsQosMaxDownLinkBitRate"), ("CISCO-WAN-3G-MIB", "c3gGsmMinUmtsQosGuaUpLinkBitRate"), ("CISCO-WAN-3G-MIB", "c3gGsmMinUmtsQosGuaDownLinkBitRate"), ("CISCO-WAN-3G-MIB", "c3gGsmMinUmtsQosOrder"), ("CISCO-WAN-3G-MIB", "c3gGsmMinUmtsQosErroneousSdu"), ("CISCO-WAN-3G-MIB", "c3gGsmMinUmtsQosMaxSduSize"), ("CISCO-WAN-3G-MIB", "c3gGsmMinUmtsQosSer"), ("CISCO-WAN-3G-MIB", "c3gGsmMinUmtsQosBer"), ("CISCO-WAN-3G-MIB", "c3gGsmMinUmtsQosDelay"), ("CISCO-WAN-3G-MIB", "c3gGsmMinUmtsQosPriority"), ("CISCO-WAN-3G-MIB", "c3gGsmMinUmtsQosSrcStatDescriptor"), ("CISCO-WAN-3G-MIB", "c3gGsmMinUmtsQosSignalIndication"), ("CISCO-WAN-3G-MIB", "c3gGsmMinUmtsQosRowStatus"), ("CISCO-WAN-3G-MIB", "c3gGsmReqGprsQosPrecedence"), ("CISCO-WAN-3G-MIB", "c3gGsmReqGprsQosDelay"), ("CISCO-WAN-3G-MIB", "c3gGsmReqGprsQosReliability"), ("CISCO-WAN-3G-MIB", "c3gGsmReqGprsQosPeakRate"), ("CISCO-WAN-3G-MIB", "c3gGsmReqGprsQosMeanRate"), ("CISCO-WAN-3G-MIB", "c3gGsmReqGprsQosRowStatus"), ("CISCO-WAN-3G-MIB", "c3gGsmMinGprsQosPrecedence"), ("CISCO-WAN-3G-MIB", "c3gGsmMinGprsQosDelay"), ("CISCO-WAN-3G-MIB", "c3gGsmMinGprsQosReliability"), ("CISCO-WAN-3G-MIB", "c3gGsmMinGprsQosPeakRate"), ("CISCO-WAN-3G-MIB", "c3gGsmMinGprsQosMeanRate"), ("CISCO-WAN-3G-MIB", "c3gGsmMinGprsQosRowStatus"), ("CISCO-WAN-3G-MIB", "c3gCurrentGsmRssi"), ("CISCO-WAN-3G-MIB", "c3gCurrentGsmEcIo"), ("CISCO-WAN-3G-MIB", "c3gGsmCurrentBand"), ("CISCO-WAN-3G-MIB", "c3gGsmChannelNumber"), ("CISCO-WAN-3G-MIB", "c3gGsmNumberOfNearbyCell"), ("CISCO-WAN-3G-MIB", "c3gGsmNearbyCellPrimaryScramblingCode"), ("CISCO-WAN-3G-MIB", "c3gGsmNearbyCellRscp"), ("CISCO-WAN-3G-MIB", "c3gGsmNearbyCellEcIoMeasurement"), ("CISCO-WAN-3G-MIB", "c3gGsmHistoryRssiPerSecond"), ("CISCO-WAN-3G-MIB", "c3gGsmHistoryRssiPerMinute"), ("CISCO-WAN-3G-MIB", "c3gGsmHistoryRssiPerHour"), ("CISCO-WAN-3G-MIB", "c3gGsmChv1"), ("CISCO-WAN-3G-MIB", "c3gGsmSimStatus"), ("CISCO-WAN-3G-MIB", "c3gGsmSimUserOperationRequired"), ("CISCO-WAN-3G-MIB", "c3gGsmNumberOfRetriesRemaining"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWan3gMIBGsmObjectGroup = ciscoWan3gMIBGsmObjectGroup.setStatus('current')
+ciscoWan3gMIBNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 661, 2, 2, 4)).setObjects(("CISCO-WAN-3G-MIB", "c3gModemUpNotif"), ("CISCO-WAN-3G-MIB", "c3gModemDownNotif"), ("CISCO-WAN-3G-MIB", "c3gServiceChangedNotif"), ("CISCO-WAN-3G-MIB", "c3gNetworkChangedNotif"), ("CISCO-WAN-3G-MIB", "c3gConnectionStatusChangedNotif"), ("CISCO-WAN-3G-MIB", "c3gRssiOnsetNotif"), ("CISCO-WAN-3G-MIB", "c3gEcIoOnsetNotif"), ("CISCO-WAN-3G-MIB", "c3gRssiAbateNotif"), ("CISCO-WAN-3G-MIB", "c3gEcIoAbateNotif"), ("CISCO-WAN-3G-MIB", "c3gModemTemperOnsetNotif"), ("CISCO-WAN-3G-MIB", "c3gModemTemperAbateNotif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWan3gMIBNotificationGroup = ciscoWan3gMIBNotificationGroup.setStatus('deprecated')
+ciscoWan3gMIBLbsObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 661, 2, 2, 5)).setObjects(("CISCO-WAN-3G-MIB", "c3gLbsModeSelected"), ("CISCO-WAN-3G-MIB", "c3gLbsState"), ("CISCO-WAN-3G-MIB", "c3gLbsLocFixError"), ("CISCO-WAN-3G-MIB", "c3gLbsLatitude"), ("CISCO-WAN-3G-MIB", "c3gLbsLongitude"), ("CISCO-WAN-3G-MIB", "c3gLbsTimeStamp"), ("CISCO-WAN-3G-MIB", "c3gLbsLocUncertaintyAngle"), ("CISCO-WAN-3G-MIB", "c3gLbsLocUncertaintyA"), ("CISCO-WAN-3G-MIB", "c3gLbsLocUncertaintyPos"), ("CISCO-WAN-3G-MIB", "c3gLbsFixtype"), ("CISCO-WAN-3G-MIB", "c3gLbsHeightValid"), ("CISCO-WAN-3G-MIB", "c3gLbsHeight"), ("CISCO-WAN-3G-MIB", "c3gLbsLocUncertaintyVertical"), ("CISCO-WAN-3G-MIB", "c3gLbsVelocityValid"), ("CISCO-WAN-3G-MIB", "c3gLbsHeading"), ("CISCO-WAN-3G-MIB", "c3gLbsVelocityHorizontal"), ("CISCO-WAN-3G-MIB", "c3gLbsVelocityVertical"), ("CISCO-WAN-3G-MIB", "c3gLbsHepe"), ("CISCO-WAN-3G-MIB", "c3gLbsNumSatellites"), ("CISCO-WAN-3G-MIB", "c3gWanLbsSatelliteNumber"), ("CISCO-WAN-3G-MIB", "c3gWanLbsSatelliteElevation"), ("CISCO-WAN-3G-MIB", "c3gWanLbsSatelliteAzimuth"), ("CISCO-WAN-3G-MIB", "c3gWanLbsSatelliteUsed"), ("CISCO-WAN-3G-MIB", "c3gWanLbsSatelliteInfoSignalNoiseRatio"), ("CISCO-WAN-3G-MIB", "c3gWanLbsSatelliteInfoRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWan3gMIBLbsObjectGroup = ciscoWan3gMIBLbsObjectGroup.setStatus('current')
+ciscoWan3gMIBSmsObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 661, 2, 2, 6)).setObjects(("CISCO-WAN-3G-MIB", "c3gSmsServiceAvailable"), ("CISCO-WAN-3G-MIB", "c3gSmsOutSmsCount"), ("CISCO-WAN-3G-MIB", "c3gSmsOutSmsErrorCount"), ("CISCO-WAN-3G-MIB", "c3gSmsInSmsStorageUsed"), ("CISCO-WAN-3G-MIB", "c3gSmsInSmsStorageUnused"), ("CISCO-WAN-3G-MIB", "c3gSmsInSmsArchiveCount"), ("CISCO-WAN-3G-MIB", "c3gSmsInSmsArchiveErrorCount"), ("CISCO-WAN-3G-MIB", "c3gSmsInSmsArchived"), ("CISCO-WAN-3G-MIB", "c3gSmsArchiveUrl"), ("CISCO-WAN-3G-MIB", "c3gSmsOutSmsStatus"), ("CISCO-WAN-3G-MIB", "c3gSmsInSmsCount"), ("CISCO-WAN-3G-MIB", "c3gSmsInSmsDeleted"), ("CISCO-WAN-3G-MIB", "c3gSmsInSmsStorageMax"), ("CISCO-WAN-3G-MIB", "c3gSmsInSmsCallBack"), ("CISCO-WAN-3G-MIB", "c3gSmsOutSmsPendingCount"), ("CISCO-WAN-3G-MIB", "c3gSmsOutSmsArchiveCount"), ("CISCO-WAN-3G-MIB", "c3gSmsOutSmsArchiveErrorCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWan3gMIBSmsObjectGroup = ciscoWan3gMIBSmsObjectGroup.setStatus('current')
+ciscoWan3gMIBNotificationGroupRev1 = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 661, 2, 2, 7)).setObjects(("CISCO-WAN-3G-MIB", "c3gModemUpNotif"), ("CISCO-WAN-3G-MIB", "c3gModemDownNotif"), ("CISCO-WAN-3G-MIB", "c3gServiceChangedNotif"), ("CISCO-WAN-3G-MIB", "c3gNetworkChangedNotif"), ("CISCO-WAN-3G-MIB", "c3gConnectionStatusChangedNotif"), ("CISCO-WAN-3G-MIB", "c3gRssiOnsetNotif"), ("CISCO-WAN-3G-MIB", "c3gEcIoOnsetNotif"), ("CISCO-WAN-3G-MIB", "c3gRssiAbateNotif"), ("CISCO-WAN-3G-MIB", "c3gEcIoAbateNotif"), ("CISCO-WAN-3G-MIB", "c3gModemTemperOnsetNotif"), ("CISCO-WAN-3G-MIB", "c3gModemTemperAbateNotif"), ("CISCO-WAN-3G-MIB", "c3gModemTemperOnsetRecoveryNotif"), ("CISCO-WAN-3G-MIB", "c3gModemTemperAbateRecoveryNotif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWan3gMIBNotificationGroupRev1 = ciscoWan3gMIBNotificationGroupRev1.setStatus('current')
+mibBuilder.exportSymbols("CISCO-WAN-3G-MIB", c3gGsmIdentityTable=c3gGsmIdentityTable, c3gGsmReqUmtsQosTable=c3gGsmReqUmtsQosTable, c3gModemTemperOnsetNotifThreshold=c3gModemTemperOnsetNotifThreshold, c3gModemUpNotifEnabled=c3gModemUpNotifEnabled, c3gCurrentCallSetupMode=c3gCurrentCallSetupMode, c3gCurrentActiveDataProfile=c3gCurrentActiveDataProfile, c3gWanLbsCommon=c3gWanLbsCommon, c3gRxMainGainControl=c3gRxMainGainControl, c3gAuthStatus=c3gAuthStatus, c3gServiceChangedNotif=c3gServiceChangedNotif, ciscoWan3gMIBSmsObjectGroup=ciscoWan3gMIBSmsObjectGroup, c3gLbsHepe=c3gLbsHepe, C3gUmtsQosTrafficClass=C3gUmtsQosTrafficClass, c3gGsmReqUmtsQosMaxDownLinkBitRate=c3gGsmReqUmtsQosMaxDownLinkBitRate, c3gRssiOnsetNotifFlag=c3gRssiOnsetNotifFlag, c3gGsmLac=c3gGsmLac, ciscoWan3gMIBLbsObjectGroup=ciscoWan3gMIBLbsObjectGroup, c3gEcIoAbateNotif=c3gEcIoAbateNotif, c3gGsmNumberOfRetriesRemaining=c3gGsmNumberOfRetriesRemaining, c3gWanLbsSatelliteAzimuth=c3gWanLbsSatelliteAzimuth, c3gNotifRadioService=c3gNotifRadioService, c3gCurrentEvDoEcIo=c3gCurrentEvDoEcIo, c3gGsmMinUmtsQosDelay=c3gGsmMinUmtsQosDelay, c3gCdmaCurrentCallType=c3gCdmaCurrentCallType, c3gHdrSessionEnd=c3gHdrSessionEnd, c3gCdmaRadio=c3gCdmaRadio, c3gCdmaEvDoRadioEntry=c3gCdmaEvDoRadioEntry, c3gGsmNegoUmtsQosGuaDownLinkBitRate=c3gGsmNegoUmtsQosGuaDownLinkBitRate, c3gGsmReqGprsQosTable=c3gGsmReqGprsQosTable, c3gGsmServiceProvider=c3gGsmServiceProvider, c3gGsmPdpProfileUsername=c3gGsmPdpProfileUsername, c3gHomeAddrType=c3gHomeAddrType, c3gModemTemperOnsetRecoveryNotif=c3gModemTemperOnsetRecoveryNotif, c3gCarrierToInterferenceRatio=c3gCarrierToInterferenceRatio, c3gMnAaaSs=c3gMnAaaSs, c3gGsmCurrentPrimaryScramblingCode=c3gGsmCurrentPrimaryScramblingCode, c3gCdmaCurrentReceived=c3gCdmaCurrentReceived, c3gSmsOutSmsStatus=c3gSmsOutSmsStatus, c3gLbsHeading=c3gLbsHeading, c3gSmsInSmsArchived=c3gSmsInSmsArchived, c3gEsn=c3gEsn, c3gGsmReqUmtsQosPriority=c3gGsmReqUmtsQosPriority, c3gSmsInSmsStorageUsed=c3gSmsInSmsStorageUsed, c3gCurrentGsmEcIo=c3gCurrentGsmEcIo, c3gLbsLocUncertaintyAngle=c3gLbsLocUncertaintyAngle, c3gMnHaSs=c3gMnHaSs, c3gSmsOutSmsCount=c3gSmsOutSmsCount, c3gMsisdn=c3gMsisdn, c3gGsmHistoryRssiPerHour=c3gGsmHistoryRssiPerHour, c3gWanLbsCommonEntry=c3gWanLbsCommonEntry, c3gCdmaCurrentCallStatus=c3gCdmaCurrentCallStatus, c3gRssiOnsetNotifThreshold=c3gRssiOnsetNotifThreshold, c3gEcIoAbateNotifFlag=c3gEcIoAbateNotifFlag, c3gNotifEcIo=c3gNotifEcIo, c3gGsmMinUmtsQosSrcStatDescriptor=c3gGsmMinUmtsQosSrcStatDescriptor, c3gCdmaLastCallDisconnReason=c3gCdmaLastCallDisconnReason, c3gGsmMinUmtsQosTable=c3gGsmMinUmtsQosTable, c3gCdmaHistoryEntry=c3gCdmaHistoryEntry, c3gWanCdma=c3gWanCdma, c3gLbsVelocityHorizontal=c3gLbsVelocityHorizontal, C3gGprsQosPrecedence=C3gGprsQosPrecedence, c3gGsmMinUmtsQosTrafficClass=c3gGsmMinUmtsQosTrafficClass, c3gConnectionStatusChangedNotif=c3gConnectionStatusChangedNotif, c3gModemTemperAbateNotif=c3gModemTemperAbateNotif, c3gCdma1xRttRadioTable=c3gCdma1xRttRadioTable, c3gGpsState=c3gGpsState, c3gCurrent1xRttChannelNumber=c3gCurrent1xRttChannelNumber, c3gCdmaEvDoBandClassEntry=c3gCdmaEvDoBandClassEntry, c3gLbsModeSelected=c3gLbsModeSelected, c3gGsmNetworkTable=c3gGsmNetworkTable, C3gUmtsQosOrder=C3gUmtsQosOrder, c3gGsmMinUmtsQosOrder=c3gGsmMinUmtsQosOrder, c3gGsmReqUmtsQosSer=c3gGsmReqUmtsQosSer, c3gCdmaCurrentRoamingStatus=c3gCdmaCurrentRoamingStatus, c3gGsmReqUmtsQosSrcStatDescriptor=c3gGsmReqUmtsQosSrcStatDescriptor, c3gGsmPacketSessionTable=c3gGsmPacketSessionTable, c3gLbsTimeStamp=c3gLbsTimeStamp, c3gGsmReqUmtsQosRowStatus=c3gGsmReqUmtsQosRowStatus, c3gCdmaHistoryEvDoRssiPerHour=c3gCdmaHistoryEvDoRssiPerHour, c3gGsmNegoUmtsQosGuaUpLinkBitRate=c3gGsmNegoUmtsQosGuaUpLinkBitRate, c3gGsmMinUmtsQosSer=c3gGsmMinUmtsQosSer, c3gModemStatus=c3gModemStatus, c3gHdrSessionState=c3gHdrSessionState, c3gNetworkChangedNotif=c3gNetworkChangedNotif, c3gSubnetMask=c3gSubnetMask, c3gGsmReqUmtsQosOrder=c3gGsmReqUmtsQosOrder, c3gWanLbsSatelliteInfoSignalNoiseRatio=c3gWanLbsSatelliteInfoSignalNoiseRatio, c3gGsmNegoUmtsQosTable=c3gGsmNegoUmtsQosTable, c3gCdmaEvDoRadioTable=c3gCdmaEvDoRadioTable, c3gSmsInSmsDeleted=c3gSmsInSmsDeleted, c3gGsmMinUmtsQosErroneousSdu=c3gGsmMinUmtsQosErroneousSdu, c3gCdma1xRttBandClassTable=c3gCdma1xRttBandClassTable, c3gCdmaNetworkTable=c3gCdmaNetworkTable, c3gCurrentSystemTime=c3gCurrentSystemTime, c3gLbsLatitude=c3gLbsLatitude, c3gNetworkChangedNotifEnabled=c3gNetworkChangedNotifEnabled, c3gConnectionStatusChangedNotifFlag=c3gConnectionStatusChangedNotifFlag, c3gGsmMcc=c3gGsmMcc, c3gGsmCurrentServiceStatus=c3gGsmCurrentServiceStatus, c3gCdmaTotalReceived=c3gCdmaTotalReceived, c3gGsmCurrentServiceError=c3gGsmCurrentServiceError, c3gModemReset=c3gModemReset, C3gTemperature=C3gTemperature, c3gCdmaProfileTable=c3gCdmaProfileTable, c3gCdmaPinSecurityStatus=c3gCdmaPinSecurityStatus, c3gSmsArchiveUrl=c3gSmsArchiveUrl, c3gGsmRadio=c3gGsmRadio, c3gMnAaaSpi=c3gMnAaaSpi, c3gServingBaseStationLatitude=c3gServingBaseStationLatitude, c3gGsmMinGprsQosRowStatus=c3gGsmMinGprsQosRowStatus, c3gGsmRac=c3gGsmRac, C3gUmtsQosLinkBitRate=C3gUmtsQosLinkBitRate, c3gCdmaTotalCallDuration=c3gCdmaTotalCallDuration, c3gLbsLocUncertaintyPos=c3gLbsLocUncertaintyPos, c3gRoamingStatus=c3gRoamingStatus, c3gGsmHistoryEntry=c3gGsmHistoryEntry, c3gGsmMinGprsQosReliability=c3gGsmMinGprsQosReliability, c3gGsmNearbyCellPrimaryScramblingCode=c3gGsmNearbyCellPrimaryScramblingCode, c3gGsmPacketService=c3gGsmPacketService, c3gGsmPlmnAbbr=c3gGsmPlmnAbbr, C3gUmtsQosSrcStatDescriptor=C3gUmtsQosSrcStatDescriptor, c3gGsmNegoUmtsQosMaxSduSize=c3gGsmNegoUmtsQosMaxSduSize, c3gGsmHistoryRssiPerSecond=c3gGsmHistoryRssiPerSecond, c3gServiceChangedNotifEnabled=c3gServiceChangedNotifEnabled, c3gWanLbsSatelliteNumber=c3gWanLbsSatelliteNumber, c3gSmsInSmsStorageMax=c3gSmsInSmsStorageMax, c3gGsmReqGprsQosPrecedence=c3gGsmReqGprsQosPrecedence, c3gCurrentServiceType=c3gCurrentServiceType, c3gCurrent1xRttRssi=c3gCurrent1xRttRssi, c3gRssiAbateNotif=c3gRssiAbateNotif, c3gGsmMinUmtsQosMaxSduSize=c3gGsmMinUmtsQosMaxSduSize, c3gWanCommonTable=c3gWanCommonTable, c3gCurrentGsmRssi=c3gCurrentGsmRssi, c3gConnectionStatus=c3gConnectionStatus, c3gGsmNegoGprsQosTable=c3gGsmNegoGprsQosTable, ciscoWan3gMIBNotifs=ciscoWan3gMIBNotifs, c3gGsmPlmnSelection=c3gGsmPlmnSelection, C3gUmtsQosSignalIndication=C3gUmtsQosSignalIndication, c3gSmsInSmsStorageUnused=c3gSmsInSmsStorageUnused, c3gAccountActivationDate=c3gAccountActivationDate, c3gImei=c3gImei, c3gGsmCurrentService=c3gGsmCurrentService, ciscoWan3gMIBCompliance=ciscoWan3gMIBCompliance, c3gModemUpNotif=c3gModemUpNotif, c3gMnHaSpi=c3gMnHaSpi, c3gLbsFixtype=c3gLbsFixtype, c3gGsmNegoUmtsQosOrder=c3gGsmNegoUmtsQosOrder, c3gCdmaSessionTable=c3gCdmaSessionTable, C3gServiceCapability=C3gServiceCapability, c3gGsmSecurityEntry=c3gGsmSecurityEntry, c3gWanLbsSatelliteInfoTable=c3gWanLbsSatelliteInfoTable, c3gSecHaAddrType=c3gSecHaAddrType, c3gLbsLocUncertaintyA=c3gLbsLocUncertaintyA, c3gGsmCurrentRoamingStatus=c3gGsmCurrentRoamingStatus, c3gGsmNegoUmtsQosMaxUpLinkBitRate=c3gGsmNegoUmtsQosMaxUpLinkBitRate, c3gWanLbsSatelliteInfoRowStatus=c3gWanLbsSatelliteInfoRowStatus, c3gCdmaSessionEntry=c3gCdmaSessionEntry, c3gLbsLocUncertaintyVertical=c3gLbsLocUncertaintyVertical, c3gCdmaHistoryTable=c3gCdmaHistoryTable, c3gGsmCurrentCellId=c3gGsmCurrentCellId, c3gGsmPdpProfileIndex=c3gGsmPdpProfileIndex, c3gSmsInSmsCallBack=c3gSmsInSmsCallBack, c3gGsmIdentityEntry=c3gGsmIdentityEntry, c3gGsmPdpAddress=c3gGsmPdpAddress, c3gPriHaAddrType=c3gPriHaAddrType, c3gHdrDdtmPreference=c3gHdrDdtmPreference, C3gGprsQosReliability=C3gGprsQosReliability, c3gGsmNegoGprsQosPrecedence=c3gGsmNegoGprsQosPrecedence, c3gGsmSecurity=c3gGsmSecurity, c3gCapability=c3gCapability, c3gColorCode=c3gColorCode, c3gGsmPdpProfileEntry=c3gGsmPdpProfileEntry, c3gWanLbsCommonTable=c3gWanLbsCommonTable, c3gPnOffset=c3gPnOffset, c3gGsmNumberOfNearbyCell=c3gGsmNumberOfNearbyCell, c3gModemDownNotif=c3gModemDownNotif, c3gCdmaPowerUpLockStatus=c3gCdmaPowerUpLockStatus, c3gCdmaIdentityTable=c3gCdmaIdentityTable, c3gLbsLongitude=c3gLbsLongitude, c3gModemTemperOnsetNotifEnabled=c3gModemTemperOnsetNotifEnabled, c3gCdmaHistory1xRttRssiPerHour=c3gCdmaHistory1xRttRssiPerHour, c3gSmsOutSmsErrorCount=c3gSmsOutSmsErrorCount, C3gRssi=C3gRssi, c3gGsmNearbyCellIndex=c3gGsmNearbyCellIndex, ciscoWan3gMIBGsmObjectGroup=ciscoWan3gMIBGsmObjectGroup, c3gWanLbsSatelliteElevation=c3gWanLbsSatelliteElevation, C3gGprsQosDelay=C3gGprsQosDelay, C3gEcIo=C3gEcIo, c3gGsmMinUmtsQosSignalIndication=c3gGsmMinUmtsQosSignalIndication, c3gGsmNearbyCellEcIoMeasurement=c3gGsmNearbyCellEcIoMeasurement, c3gHdrAtState=c3gHdrAtState, c3gGsmPdpProfileTable=c3gGsmPdpProfileTable, c3gGsmRadioTable=c3gGsmRadioTable, c3gCdmaProfileCommonTable=c3gCdmaProfileCommonTable, c3gTxGainAdjust=c3gTxGainAdjust, c3gImsi=c3gImsi, c3gGsmReqUmtsQosBer=c3gGsmReqUmtsQosBer, c3gGsmPacketSessionEntry=c3gGsmPacketSessionEntry, c3gLbsNumSatellites=c3gLbsNumSatellites, c3gGsmMinUmtsQosBer=c3gGsmMinUmtsQosBer, c3gPreviousServiceType=c3gPreviousServiceType, c3gNai=c3gNai, c3gGsmMinGprsQosPrecedence=c3gGsmMinGprsQosPrecedence, c3gSmsCommonTable=c3gSmsCommonTable, c3gModemState=c3gModemState, c3gSecHaAddr=c3gSecHaAddr, c3gGsmMinUmtsQosRowStatus=c3gGsmMinUmtsQosRowStatus, c3gGsmNegoUmtsQosErroneousSdu=c3gGsmNegoUmtsQosErroneousSdu, c3gRssiAbateNotifThreshold=c3gRssiAbateNotifThreshold, c3gRati=c3gRati, c3gWanLbsSatelliteInfo=c3gWanLbsSatelliteInfo, c3gModemTemperAbateNotifThreshold=c3gModemTemperAbateNotifThreshold, c3gCurrentIdleDigitalMode=c3gCurrentIdleDigitalMode, c3gGsmSimUserOperationRequired=c3gGsmSimUserOperationRequired, c3gPrlVersion=c3gPrlVersion, c3gCurrentEvDoRssi=c3gCurrentEvDoRssi, c3gGsmNegoUmtsQosSignalIndication=c3gGsmNegoUmtsQosSignalIndication, c3gServingBaseStationLongitude=c3gServingBaseStationLongitude, c3gMobileIpErrorCode=c3gMobileIpErrorCode, c3gGsmChv1=c3gGsmChv1, c3gCdmaHistory1xRttRssiPerMinute=c3gCdmaHistory1xRttRssiPerMinute, ciscoWan3gMIBCommonObjectGroup=ciscoWan3gMIBCommonObjectGroup, c3gGsmReqUmtsQosSignalIndication=c3gGsmReqUmtsQosSignalIndication, c3gHomeAddr=c3gHomeAddr, c3gEcIoOnsetNotifThreshold=c3gEcIoOnsetNotifThreshold, c3gGsmReqGprsQosPeakRate=c3gGsmReqGprsQosPeakRate, c3gCdmaSecurity=c3gCdmaSecurity, c3gCurrentEvDoChannelNumber=c3gCurrentEvDoChannelNumber, c3gSmsInSmsCount=c3gSmsInSmsCount, c3gGsmMinGprsQosPeakRate=c3gGsmMinGprsQosPeakRate, c3gGsmReqUmtsQosEntry=c3gGsmReqUmtsQosEntry, c3gRssiAbateNotifFlag=c3gRssiAbateNotifFlag, c3gCdmaProfile=c3gCdmaProfile, c3gNumberOfDataProfileConfigurable=c3gNumberOfDataProfileConfigurable, c3gGsmPdpProfileType=c3gGsmPdpProfileType, c3gSmsInSmsArchiveCount=c3gSmsInSmsArchiveCount, ciscoWan3gMIBNotificationGroup=ciscoWan3gMIBNotificationGroup, c3gGsmTotalByteReceived=c3gGsmTotalByteReceived, c3gModemTemperature=c3gModemTemperature, c3gCdmaNetworkEntry=c3gCdmaNetworkEntry, c3gGsmNegoUmtsQosBer=c3gGsmNegoUmtsQosBer, c3gSmsCommonEntry=c3gSmsCommonEntry, c3gCdmaConnectionEntry=c3gCdmaConnectionEntry, c3gGsmNegoUmtsQosTrafficClass=c3gGsmNegoUmtsQosTrafficClass, c3gGsmSimStatus=c3gGsmSimStatus, c3gModemActivationStatus=c3gModemActivationStatus, c3gGsmMinUmtsQosEntry=c3gGsmMinUmtsQosEntry, c3gGsmHistoryTable=c3gGsmHistoryTable, c3gGsmMinGprsQosMeanRate=c3gGsmMinGprsQosMeanRate, c3gGsmSecurityTable=c3gGsmSecurityTable, c3gGsmReqUmtsQosMaxSduSize=c3gGsmReqUmtsQosMaxSduSize, c3gGsmNearbyCellRscp=c3gGsmNearbyCellRscp, c3gGsmChannelNumber=c3gGsmChannelNumber, c3gHdrDrc=c3gHdrDrc)
+mibBuilder.exportSymbols("CISCO-WAN-3G-MIB", c3gWanGsm=c3gWanGsm, c3gMsl=c3gMsl, c3gLbsVelocityValid=c3gLbsVelocityValid, c3gCdmaSecurityTable=c3gCdmaSecurityTable, ciscoWan3gMIBCompliance1Rev1=ciscoWan3gMIBCompliance1Rev1, c3gGsmNegoUmtsQosDelay=c3gGsmNegoUmtsQosDelay, c3gGsmNegoUmtsQosMaxDownLinkBitRate=c3gGsmNegoUmtsQosMaxDownLinkBitRate, c3gCdmaCurrentTransmitted=c3gCdmaCurrentTransmitted, c3gGsmNegoGprsQosDelay=c3gGsmNegoGprsQosDelay, c3gIccId=c3gIccId, c3gCdma1xRttBandClassEntry=c3gCdma1xRttBandClassEntry, c3gCdmaTotalTransmitted=c3gCdmaTotalTransmitted, c3gCdmaHistory1xRttRssiPerSecond=c3gCdmaHistory1xRttRssiPerSecond, c3gCdmaHybridModePreference=c3gCdmaHybridModePreference, C3gGprsQosPeakRate=C3gGprsQosPeakRate, c3gTxTotalPower=c3gTxTotalPower, c3gReverseTunnelPreference=c3gReverseTunnelPreference, c3gCdmaSecurityEntry=c3gCdmaSecurityEntry, c3gCdmaProfileEntry=c3gCdmaProfileEntry, c3gStandard=c3gStandard, c3gGsmPdpProfile=c3gGsmPdpProfile, c3gGsmNegoUmtsQosEntry=c3gGsmNegoUmtsQosEntry, c3gWanLbsSatelliteInfoEntry=c3gWanLbsSatelliteInfoEntry, c3gHdrSessionStart=c3gHdrSessionStart, c3gLbsHeightValid=c3gLbsHeightValid, c3gGsmPacketSessionStatus=c3gGsmPacketSessionStatus, c3g1xRttBandClass=c3g1xRttBandClass, c3gSipPassword=c3gSipPassword, c3gGsmPdpProfilePassword=c3gGsmPdpProfilePassword, c3gCurrentSid=c3gCurrentSid, c3gCdmaHistoryEvDoRssiPerSecond=c3gCdmaHistoryEvDoRssiPerSecond, ciscoWan3gMIBCompliances=ciscoWan3gMIBCompliances, c3gGsmPdpProfileApn=c3gGsmPdpProfileApn, c3gGsmNegoGprsQosEntry=c3gGsmNegoGprsQosEntry, c3gGsmReqUmtsQosGuaDownLinkBitRate=c3gGsmReqUmtsQosGuaDownLinkBitRate, c3gCurrent1xRttChannelState=c3gCurrent1xRttChannelState, c3gGsmPdpProfileAuthenType=c3gGsmPdpProfileAuthenType, c3gCdmaEvDoBandClassTable=c3gCdmaEvDoBandClassTable, c3gEcIoOnsetNotifFlag=c3gEcIoOnsetNotifFlag, C3gUmtsQosBer=C3gUmtsQosBer, c3gGsmReqGprsQosReliability=c3gGsmReqGprsQosReliability, c3gLbsLocFixError=c3gLbsLocFixError, c3gGsmPdpType=c3gGsmPdpType, c3gGsmRoamingPreference=c3gGsmRoamingPreference, c3gGsmReqGprsQosMeanRate=c3gGsmReqGprsQosMeanRate, ciscoWan3gMIBNotificationGroupRev1=ciscoWan3gMIBNotificationGroupRev1, c3gHdrRri=c3gHdrRri, c3gGsmNegoUmtsQosPriority=c3gGsmNegoUmtsQosPriority, c3gGsmReqUmtsQosGuaUpLinkBitRate=c3gGsmReqUmtsQosGuaUpLinkBitRate, c3gSmsInSmsArchiveErrorCount=c3gSmsInSmsArchiveErrorCount, c3gWanLbsSatelliteUsed=c3gWanLbsSatelliteUsed, c3gModemTemperOnsetNotif=c3gModemTemperOnsetNotif, ciscoWan3gMIBCompliance1=ciscoWan3gMIBCompliance1, c3gGsmReqGprsQosDelay=c3gGsmReqGprsQosDelay, c3gGsmNegoUmtsQosSer=c3gGsmNegoUmtsQosSer, c3gNotifRssi=c3gNotifRssi, c3gGsmNearbyCellEntry=c3gGsmNearbyCellEntry, c3gGsmMinUmtsQosMaxDownLinkBitRate=c3gGsmMinUmtsQosMaxDownLinkBitRate, c3gEcIoOnsetNotif=c3gEcIoOnsetNotif, c3gGsmMinUmtsQosGuaUpLinkBitRate=c3gGsmMinUmtsQosGuaUpLinkBitRate, PYSNMP_MODULE_ID=ciscoWan3gMIB, c3gWanCommonEntry=c3gWanCommonEntry, c3gCdmaProfileCommonEntry=c3gCdmaProfileCommonEntry, c3gGsmNetworkEntry=c3gGsmNetworkEntry, c3gGsmRadioEntry=c3gGsmRadioEntry, c3gCurrent1xRttEcIo=c3gCurrent1xRttEcIo, ciscoWan3gMIBConform=ciscoWan3gMIBConform, c3gGsmMinGprsQosDelay=c3gGsmMinGprsQosDelay, c3gWanSms=c3gWanSms, c3gGsmNegoUmtsQosSrcStatDescriptor=c3gGsmNegoUmtsQosSrcStatDescriptor, ciscoWan3gMIBObjects=ciscoWan3gMIBObjects, c3gGsmCurrentBand=c3gGsmCurrentBand, c3gCdmaHistoryEvDoRssiPerMinute=c3gCdmaHistoryEvDoRssiPerMinute, c3gSmsServiceAvailable=c3gSmsServiceAvailable, c3gGsmMinUmtsQosPriority=c3gGsmMinUmtsQosPriority, c3gGsmMinGprsQosEntry=c3gGsmMinGprsQosEntry, c3gCurrentNid=c3gCurrentNid, c3gGsmHistoryRssiPerMinute=c3gGsmHistoryRssiPerMinute, ciscoWan3gMIBCdmaObjectGroup=ciscoWan3gMIBCdmaObjectGroup, c3gMdn=c3gMdn, C3gGprsQosMeanRate=C3gGprsQosMeanRate, c3gHdrDrcCover=c3gHdrDrcCover, c3gMsid=c3gMsid, c3gEvDoBandClass=c3gEvDoBandClass, c3gGsmPdpProfileAddr=c3gGsmPdpProfileAddr, c3gGsmReqUmtsQosDelay=c3gGsmReqUmtsQosDelay, c3gGsmMinUmtsQosMaxUpLinkBitRate=c3gGsmMinUmtsQosMaxUpLinkBitRate, ciscoWan3gMIB=ciscoWan3gMIB, C3gUmtsQosErroneousSdu=C3gUmtsQosErroneousSdu, c3gFsn=c3gFsn, C3gUmtsQosSer=C3gUmtsQosSer, c3gLbsVelocityVertical=c3gLbsVelocityVertical, ciscoWan3gMIBComplianceRev1=ciscoWan3gMIBComplianceRev1, c3gGsmRegPlmn=c3gGsmRegPlmn, c3gGsmPdpProfileRowStatus=c3gGsmPdpProfileRowStatus, c3gGsmMinUmtsQosGuaDownLinkBitRate=c3gGsmMinUmtsQosGuaDownLinkBitRate, c3gGsmNetworkSelectionMode=c3gGsmNetworkSelectionMode, c3gCdmaProfileIndex=c3gCdmaProfileIndex, c3gBandClassIndex=c3gBandClassIndex, c3gLbsHeight=c3gLbsHeight, c3gGsmNearbyCellTable=c3gGsmNearbyCellTable, c3gHdrSessionDuration=c3gHdrSessionDuration, c3gCdmaRoamingPreference=c3gCdmaRoamingPreference, c3gModemTemperAbateNotifEnabled=c3gModemTemperAbateNotifEnabled, c3gWanLbs=c3gWanLbs, c3gGsmReqUmtsQosErroneousSdu=c3gGsmReqUmtsQosErroneousSdu, c3gGsmMinGprsQosTable=c3gGsmMinGprsQosTable, c3gGsmNegoGprsQosPeakRate=c3gGsmNegoGprsQosPeakRate, c3gWanLbsSatelliteInfoIndex=c3gWanLbsSatelliteInfoIndex, c3gSmsOutSmsArchiveErrorCount=c3gSmsOutSmsArchiveErrorCount, c3gEcIoAbateNotifThreshold=c3gEcIoAbateNotifThreshold, c3gHdrColorCode=c3gHdrColorCode, c3gSmsOutSmsPendingCount=c3gSmsOutSmsPendingCount, c3gGsmReqUmtsQosMaxUpLinkBitRate=c3gGsmReqUmtsQosMaxUpLinkBitRate, c3gUati=c3gUati, c3gLbsState=c3gLbsState, C3gUmtsQosPriority=C3gUmtsQosPriority, c3gModemTemperAbateRecoveryNotif=c3gModemTemperAbateRecoveryNotif, c3gRssiOnsetNotif=c3gRssiOnsetNotif, C3gPdpType=C3gPdpType, c3gModemDownNotifEnabled=c3gModemDownNotifEnabled, c3gCdmaCurrentCallDuration=c3gCdmaCurrentCallDuration, c3gGsmCountry=c3gGsmCountry, c3gGsmNegoGprsQosMeanRate=c3gGsmNegoGprsQosMeanRate, c3gCdma1xRttRadioEntry=c3gCdma1xRttRadioEntry, c3gGsmTotalByteTransmitted=c3gGsmTotalByteTransmitted, c3gRxDiversityGainControl=c3gRxDiversityGainControl, c3gSectorId=c3gSectorId, c3gGsmNetwork=c3gGsmNetwork, c3gCdmaIdentityEntry=c3gCdmaIdentityEntry, c3gAaaPassword=c3gAaaPassword, c3gWanSmsCommon=c3gWanSmsCommon, c3gGsmReqUmtsQosTrafficClass=c3gGsmReqUmtsQosTrafficClass, c3gGsmMnc=c3gGsmMnc, c3gSipUsername=c3gSipUsername, c3gGsmReqGprsQosEntry=c3gGsmReqGprsQosEntry, c3gGsmNegoGprsQosReliability=c3gGsmNegoGprsQosReliability, c3gCdmaLastConnError=c3gCdmaLastConnError, c3gCdmaCurrentServiceStatus=c3gCdmaCurrentServiceStatus, ciscoWan3gMIBGroups=ciscoWan3gMIBGroups, c3gPriHaAddr=c3gPriHaAddr, c3gSmsOutSmsArchiveCount=c3gSmsOutSmsArchiveCount, c3gOutgoingCallNumber=c3gOutgoingCallNumber, c3gGsmReqGprsQosRowStatus=c3gGsmReqGprsQosRowStatus, c3gCdmaConnectionTable=c3gCdmaConnectionTable)

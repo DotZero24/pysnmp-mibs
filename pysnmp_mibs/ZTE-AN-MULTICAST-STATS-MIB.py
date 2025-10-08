@@ -1,83 +1,44 @@
-_I='zxAnMCastGrpTrafficGrpIpAddr'
-_H='zxAnMCastGrpTrafficGrpIpType'
-_G='zxAnMCastGrpTrafficVid'
-_F='not-accessible'
-_E='Integer32'
-_D='ZTE-AN-MULTICAST-STATS-MIB'
-_C='read-only'
-_B='kbps'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-zxAn,=mibBuilder.importSymbols('ZTE-AN-TC-MIB','zxAn')
-zxAnMulticastStatsMib=ModuleIdentity((1,3,6,1,4,1,3902,1015,45))
-if mibBuilder.loadTexts:zxAnMulticastStatsMib.setRevisions(('2012-09-14 14:30',))
-_ZxAnMulticastStatsObjects_ObjectIdentity=ObjectIdentity
-zxAnMulticastStatsObjects=_ZxAnMulticastStatsObjects_ObjectIdentity((1,3,6,1,4,1,3902,1015,45,2))
-_ZxAnMulticastGroupStats_ObjectIdentity=ObjectIdentity
-zxAnMulticastGroupStats=_ZxAnMulticastGroupStats_ObjectIdentity((1,3,6,1,4,1,3902,1015,45,2,2))
-_ZxAnMcastGrpTrafficTable_Object=MibTable
-zxAnMcastGrpTrafficTable=_ZxAnMcastGrpTrafficTable_Object((1,3,6,1,4,1,3902,1015,45,2,2,2))
-if mibBuilder.loadTexts:zxAnMcastGrpTrafficTable.setStatus(_A)
-_ZxAnMcastGrpTrafficEntry_Object=MibTableRow
-zxAnMcastGrpTrafficEntry=_ZxAnMcastGrpTrafficEntry_Object((1,3,6,1,4,1,3902,1015,45,2,2,2,1))
-zxAnMcastGrpTrafficEntry.setIndexNames((0,_D,_G),(0,_D,_H),(0,_D,_I))
-if mibBuilder.loadTexts:zxAnMcastGrpTrafficEntry.setStatus(_A)
-class _ZxAnMCastGrpTrafficVid_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_ZxAnMCastGrpTrafficVid_Type.__name__=_E
-_ZxAnMCastGrpTrafficVid_Object=MibTableColumn
-zxAnMCastGrpTrafficVid=_ZxAnMCastGrpTrafficVid_Object((1,3,6,1,4,1,3902,1015,45,2,2,2,1,1),_ZxAnMCastGrpTrafficVid_Type())
-zxAnMCastGrpTrafficVid.setMaxAccess(_F)
-if mibBuilder.loadTexts:zxAnMCastGrpTrafficVid.setStatus(_A)
-_ZxAnMCastGrpTrafficGrpIpType_Type=InetAddressType
-_ZxAnMCastGrpTrafficGrpIpType_Object=MibTableColumn
-zxAnMCastGrpTrafficGrpIpType=_ZxAnMCastGrpTrafficGrpIpType_Object((1,3,6,1,4,1,3902,1015,45,2,2,2,1,2),_ZxAnMCastGrpTrafficGrpIpType_Type())
-zxAnMCastGrpTrafficGrpIpType.setMaxAccess(_F)
-if mibBuilder.loadTexts:zxAnMCastGrpTrafficGrpIpType.setStatus(_A)
-_ZxAnMCastGrpTrafficGrpIpAddr_Type=InetAddress
-_ZxAnMCastGrpTrafficGrpIpAddr_Object=MibTableColumn
-zxAnMCastGrpTrafficGrpIpAddr=_ZxAnMCastGrpTrafficGrpIpAddr_Object((1,3,6,1,4,1,3902,1015,45,2,2,2,1,3),_ZxAnMCastGrpTrafficGrpIpAddr_Type())
-zxAnMCastGrpTrafficGrpIpAddr.setMaxAccess(_F)
-if mibBuilder.loadTexts:zxAnMCastGrpTrafficGrpIpAddr.setStatus(_A)
-class _ZxAnMCastGrpTrafficUnit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('pps',1),(_B,2)))
-_ZxAnMCastGrpTrafficUnit_Type.__name__=_E
-_ZxAnMCastGrpTrafficUnit_Object=MibTableColumn
-zxAnMCastGrpTrafficUnit=_ZxAnMCastGrpTrafficUnit_Object((1,3,6,1,4,1,3902,1015,45,2,2,2,1,4),_ZxAnMCastGrpTrafficUnit_Type())
-zxAnMCastGrpTrafficUnit.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnMCastGrpTrafficUnit.setStatus(_A)
-_ZxAnMCastGrpTrafficPeakRate_Type=Integer32
-_ZxAnMCastGrpTrafficPeakRate_Object=MibTableColumn
-zxAnMCastGrpTrafficPeakRate=_ZxAnMCastGrpTrafficPeakRate_Object((1,3,6,1,4,1,3902,1015,45,2,2,2,1,5),_ZxAnMCastGrpTrafficPeakRate_Type())
-zxAnMCastGrpTrafficPeakRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnMCastGrpTrafficPeakRate.setStatus(_A)
-if mibBuilder.loadTexts:zxAnMCastGrpTrafficPeakRate.setUnits(_B)
-_ZxAnMCastGrpTrafficAvgRate_Type=Integer32
-_ZxAnMCastGrpTrafficAvgRate_Object=MibTableColumn
-zxAnMCastGrpTrafficAvgRate=_ZxAnMCastGrpTrafficAvgRate_Object((1,3,6,1,4,1,3902,1015,45,2,2,2,1,6),_ZxAnMCastGrpTrafficAvgRate_Type())
-zxAnMCastGrpTrafficAvgRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnMCastGrpTrafficAvgRate.setStatus(_A)
-if mibBuilder.loadTexts:zxAnMCastGrpTrafficAvgRate.setUnits(_B)
-_ZxAnMCastGrpTrafficCurrRate_Type=Integer32
-_ZxAnMCastGrpTrafficCurrRate_Object=MibTableColumn
-zxAnMCastGrpTrafficCurrRate=_ZxAnMCastGrpTrafficCurrRate_Object((1,3,6,1,4,1,3902,1015,45,2,2,2,1,7),_ZxAnMCastGrpTrafficCurrRate_Type())
-zxAnMCastGrpTrafficCurrRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnMCastGrpTrafficCurrRate.setStatus(_A)
-if mibBuilder.loadTexts:zxAnMCastGrpTrafficCurrRate.setUnits(_B)
-_ZxAnMCastGrpTrafficMinRate_Type=Integer32
-_ZxAnMCastGrpTrafficMinRate_Object=MibTableColumn
-zxAnMCastGrpTrafficMinRate=_ZxAnMCastGrpTrafficMinRate_Object((1,3,6,1,4,1,3902,1015,45,2,2,2,1,8),_ZxAnMCastGrpTrafficMinRate_Type())
-zxAnMCastGrpTrafficMinRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnMCastGrpTrafficMinRate.setStatus(_A)
-if mibBuilder.loadTexts:zxAnMCastGrpTrafficMinRate.setUnits(_B)
-_ZxAnMCastGrpTrafficRowStatus_Type=RowStatus
-_ZxAnMCastGrpTrafficRowStatus_Object=MibTableColumn
-zxAnMCastGrpTrafficRowStatus=_ZxAnMCastGrpTrafficRowStatus_Object((1,3,6,1,4,1,3902,1015,45,2,2,2,1,50),_ZxAnMCastGrpTrafficRowStatus_Type())
-zxAnMCastGrpTrafficRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:zxAnMCastGrpTrafficRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'zxAnMulticastStatsMib':zxAnMulticastStatsMib,'zxAnMulticastStatsObjects':zxAnMulticastStatsObjects,'zxAnMulticastGroupStats':zxAnMulticastGroupStats,'zxAnMcastGrpTrafficTable':zxAnMcastGrpTrafficTable,'zxAnMcastGrpTrafficEntry':zxAnMcastGrpTrafficEntry,_G:zxAnMCastGrpTrafficVid,_H:zxAnMCastGrpTrafficGrpIpType,_I:zxAnMCastGrpTrafficGrpIpAddr,'zxAnMCastGrpTrafficUnit':zxAnMCastGrpTrafficUnit,'zxAnMCastGrpTrafficPeakRate':zxAnMCastGrpTrafficPeakRate,'zxAnMCastGrpTrafficAvgRate':zxAnMCastGrpTrafficAvgRate,'zxAnMCastGrpTrafficCurrRate':zxAnMCastGrpTrafficCurrRate,'zxAnMCastGrpTrafficMinRate':zxAnMCastGrpTrafficMinRate,'zxAnMCastGrpTrafficRowStatus':zxAnMCastGrpTrafficRowStatus})
+#
+# PySNMP MIB module ZTE-AN-MULTICAST-STATS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZTE-AN-MULTICAST-STATS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:51 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+zxAn, = mibBuilder.importSymbols("ZTE-AN-TC-MIB", "zxAn")
+zxAnMulticastStatsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1015, 45))
+zxAnMulticastStatsMib.setRevisions(('2012-09-14 14:30',))
+if mibBuilder.loadTexts: zxAnMulticastStatsMib.setLastUpdated('201209141430Z')
+if mibBuilder.loadTexts: zxAnMulticastStatsMib.setOrganization('ZTE Corporation')
+zxAnMulticastStatsObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 45, 2))
+zxAnMulticastGroupStats = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 45, 2, 2))
+zxAnMcastGrpTrafficTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 45, 2, 2, 2), )
+if mibBuilder.loadTexts: zxAnMcastGrpTrafficTable.setStatus('current')
+zxAnMcastGrpTrafficEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 45, 2, 2, 2, 1), ).setIndexNames((0, "ZTE-AN-MULTICAST-STATS-MIB", "zxAnMCastGrpTrafficVid"), (0, "ZTE-AN-MULTICAST-STATS-MIB", "zxAnMCastGrpTrafficGrpIpType"), (0, "ZTE-AN-MULTICAST-STATS-MIB", "zxAnMCastGrpTrafficGrpIpAddr"))
+if mibBuilder.loadTexts: zxAnMcastGrpTrafficEntry.setStatus('current')
+zxAnMCastGrpTrafficVid = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 45, 2, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
+if mibBuilder.loadTexts: zxAnMCastGrpTrafficVid.setStatus('current')
+zxAnMCastGrpTrafficGrpIpType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 45, 2, 2, 2, 1, 2), InetAddressType())
+if mibBuilder.loadTexts: zxAnMCastGrpTrafficGrpIpType.setStatus('current')
+zxAnMCastGrpTrafficGrpIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 45, 2, 2, 2, 1, 3), InetAddress())
+if mibBuilder.loadTexts: zxAnMCastGrpTrafficGrpIpAddr.setStatus('current')
+zxAnMCastGrpTrafficUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 45, 2, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("pps", 1), ("kbps", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnMCastGrpTrafficUnit.setStatus('current')
+zxAnMCastGrpTrafficPeakRate = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 45, 2, 2, 2, 1, 5), Integer32()).setUnits('kbps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnMCastGrpTrafficPeakRate.setStatus('current')
+zxAnMCastGrpTrafficAvgRate = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 45, 2, 2, 2, 1, 6), Integer32()).setUnits('kbps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnMCastGrpTrafficAvgRate.setStatus('current')
+zxAnMCastGrpTrafficCurrRate = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 45, 2, 2, 2, 1, 7), Integer32()).setUnits('kbps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnMCastGrpTrafficCurrRate.setStatus('current')
+zxAnMCastGrpTrafficMinRate = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 45, 2, 2, 2, 1, 8), Integer32()).setUnits('kbps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnMCastGrpTrafficMinRate.setStatus('current')
+zxAnMCastGrpTrafficRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 45, 2, 2, 2, 1, 50), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnMCastGrpTrafficRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ZTE-AN-MULTICAST-STATS-MIB", zxAnMCastGrpTrafficMinRate=zxAnMCastGrpTrafficMinRate, PYSNMP_MODULE_ID=zxAnMulticastStatsMib, zxAnMulticastStatsObjects=zxAnMulticastStatsObjects, zxAnMcastGrpTrafficEntry=zxAnMcastGrpTrafficEntry, zxAnMulticastStatsMib=zxAnMulticastStatsMib, zxAnMCastGrpTrafficPeakRate=zxAnMCastGrpTrafficPeakRate, zxAnMCastGrpTrafficRowStatus=zxAnMCastGrpTrafficRowStatus, zxAnMCastGrpTrafficUnit=zxAnMCastGrpTrafficUnit, zxAnMCastGrpTrafficCurrRate=zxAnMCastGrpTrafficCurrRate, zxAnMCastGrpTrafficAvgRate=zxAnMCastGrpTrafficAvgRate, zxAnMcastGrpTrafficTable=zxAnMcastGrpTrafficTable, zxAnMulticastGroupStats=zxAnMulticastGroupStats, zxAnMCastGrpTrafficVid=zxAnMCastGrpTrafficVid, zxAnMCastGrpTrafficGrpIpAddr=zxAnMCastGrpTrafficGrpIpAddr, zxAnMCastGrpTrafficGrpIpType=zxAnMCastGrpTrafficGrpIpType)

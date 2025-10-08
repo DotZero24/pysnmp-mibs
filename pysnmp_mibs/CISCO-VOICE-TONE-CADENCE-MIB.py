@@ -1,168 +1,94 @@
-_Z='cvtcToneConfigGroup'
-_Y='cvtcProgrammableToneRowStatus'
-_X='cvtcProgrammableToneStorageType'
-_W='cvtcProgrammableToneDuration'
-_V='cvtcProgrammableToneCadence'
-_U='cvtcProgrammableToneAmplitude'
-_T='cvtcProgrammableToneFrequency'
-_S='cvtcToneIdRowStatus'
-_R='cvtcToneName'
-_Q='cvtcTonePlanRowStatus'
-_P='cvtcTonePlanStorageType'
-_O='cvtcTonePlanFileName'
-_N='cvtcTonePlanVersion'
-_M='cvtcTonePlanCountry'
-_L='cvtcTonePlanVifCount'
-_K='read-only'
-_J='not-accessible'
-_I='cvtcToneId'
-_H='cvtcTonePlanId'
-_G='SnmpAdminString'
-_F='Unsigned32'
-_E='cmgwIndex'
-_D='CISCO-MEDIA-GATEWAY-MIB'
-_C='read-create'
-_B='CISCO-VOICE-TONE-CADENCE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CVoiceTonePlanIndex,cmgwIndex=mibBuilder.importSymbols(_D,'CVoiceTonePlanIndex',_E)
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CountryCode,=mibBuilder.importSymbols('CISCO-TC','CountryCode')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_G)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','StorageType','TextualConvention')
-ciscoVoiceToneCadenceMIB=ModuleIdentity((1,3,6,1,4,1,9,9,356))
-if mibBuilder.loadTexts:ciscoVoiceToneCadenceMIB.setRevisions(('2003-05-28 00:00',))
-class CToneFrequency(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-class CToneAmplitude(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,64))
-class CToneCadence(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,64))
-_CiscoVoiceToneCadenceMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoVoiceToneCadenceMIBNotifs=_CiscoVoiceToneCadenceMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,356,0))
-_CiscoVoiceToneCadenceMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoVoiceToneCadenceMIBObjects=_CiscoVoiceToneCadenceMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,356,1))
-_CVoiceToneCadenceConfig_ObjectIdentity=ObjectIdentity
-cVoiceToneCadenceConfig=_CVoiceToneCadenceConfig_ObjectIdentity((1,3,6,1,4,1,9,9,356,1,1))
-_CvtcTonePlanTable_Object=MibTable
-cvtcTonePlanTable=_CvtcTonePlanTable_Object((1,3,6,1,4,1,9,9,356,1,1,1))
-if mibBuilder.loadTexts:cvtcTonePlanTable.setStatus(_A)
-_CvtcTonePlanEntry_Object=MibTableRow
-cvtcTonePlanEntry=_CvtcTonePlanEntry_Object((1,3,6,1,4,1,9,9,356,1,1,1,1))
-cvtcTonePlanEntry.setIndexNames((0,_D,_E),(0,_B,_H))
-if mibBuilder.loadTexts:cvtcTonePlanEntry.setStatus(_A)
-_CvtcTonePlanId_Type=CVoiceTonePlanIndex
-_CvtcTonePlanId_Object=MibTableColumn
-cvtcTonePlanId=_CvtcTonePlanId_Object((1,3,6,1,4,1,9,9,356,1,1,1,1,1),_CvtcTonePlanId_Type())
-cvtcTonePlanId.setMaxAccess(_J)
-if mibBuilder.loadTexts:cvtcTonePlanId.setStatus(_A)
-_CvtcTonePlanVifCount_Type=Gauge32
-_CvtcTonePlanVifCount_Object=MibTableColumn
-cvtcTonePlanVifCount=_CvtcTonePlanVifCount_Object((1,3,6,1,4,1,9,9,356,1,1,1,1,2),_CvtcTonePlanVifCount_Type())
-cvtcTonePlanVifCount.setMaxAccess(_K)
-if mibBuilder.loadTexts:cvtcTonePlanVifCount.setStatus(_A)
-_CvtcTonePlanCountry_Type=CountryCode
-_CvtcTonePlanCountry_Object=MibTableColumn
-cvtcTonePlanCountry=_CvtcTonePlanCountry_Object((1,3,6,1,4,1,9,9,356,1,1,1,1,3),_CvtcTonePlanCountry_Type())
-cvtcTonePlanCountry.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtcTonePlanCountry.setStatus(_A)
-class _CvtcTonePlanVersion_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_CvtcTonePlanVersion_Type.__name__=_F
-_CvtcTonePlanVersion_Object=MibTableColumn
-cvtcTonePlanVersion=_CvtcTonePlanVersion_Object((1,3,6,1,4,1,9,9,356,1,1,1,1,4),_CvtcTonePlanVersion_Type())
-cvtcTonePlanVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtcTonePlanVersion.setStatus(_A)
-class _CvtcTonePlanFileName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_CvtcTonePlanFileName_Type.__name__=_G
-_CvtcTonePlanFileName_Object=MibTableColumn
-cvtcTonePlanFileName=_CvtcTonePlanFileName_Object((1,3,6,1,4,1,9,9,356,1,1,1,1,5),_CvtcTonePlanFileName_Type())
-cvtcTonePlanFileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtcTonePlanFileName.setStatus(_A)
-_CvtcTonePlanStorageType_Type=StorageType
-_CvtcTonePlanStorageType_Object=MibTableColumn
-cvtcTonePlanStorageType=_CvtcTonePlanStorageType_Object((1,3,6,1,4,1,9,9,356,1,1,1,1,6),_CvtcTonePlanStorageType_Type())
-cvtcTonePlanStorageType.setMaxAccess(_K)
-if mibBuilder.loadTexts:cvtcTonePlanStorageType.setStatus(_A)
-_CvtcTonePlanRowStatus_Type=RowStatus
-_CvtcTonePlanRowStatus_Object=MibTableColumn
-cvtcTonePlanRowStatus=_CvtcTonePlanRowStatus_Object((1,3,6,1,4,1,9,9,356,1,1,1,1,7),_CvtcTonePlanRowStatus_Type())
-cvtcTonePlanRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtcTonePlanRowStatus.setStatus(_A)
-_CvtcToneIdTable_Object=MibTable
-cvtcToneIdTable=_CvtcToneIdTable_Object((1,3,6,1,4,1,9,9,356,1,1,2))
-if mibBuilder.loadTexts:cvtcToneIdTable.setStatus(_A)
-_CvtcToneIdEntry_Object=MibTableRow
-cvtcToneIdEntry=_CvtcToneIdEntry_Object((1,3,6,1,4,1,9,9,356,1,1,2,1))
-cvtcToneIdEntry.setIndexNames((0,_D,_E),(0,_B,_I))
-if mibBuilder.loadTexts:cvtcToneIdEntry.setStatus(_A)
-class _CvtcToneId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CvtcToneId_Type.__name__=_F
-_CvtcToneId_Object=MibTableColumn
-cvtcToneId=_CvtcToneId_Object((1,3,6,1,4,1,9,9,356,1,1,2,1,1),_CvtcToneId_Type())
-cvtcToneId.setMaxAccess(_J)
-if mibBuilder.loadTexts:cvtcToneId.setStatus(_A)
-class _CvtcToneName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_CvtcToneName_Type.__name__=_G
-_CvtcToneName_Object=MibTableColumn
-cvtcToneName=_CvtcToneName_Object((1,3,6,1,4,1,9,9,356,1,1,2,1,2),_CvtcToneName_Type())
-cvtcToneName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtcToneName.setStatus(_A)
-_CvtcToneIdRowStatus_Type=RowStatus
-_CvtcToneIdRowStatus_Object=MibTableColumn
-cvtcToneIdRowStatus=_CvtcToneIdRowStatus_Object((1,3,6,1,4,1,9,9,356,1,1,2,1,3),_CvtcToneIdRowStatus_Type())
-cvtcToneIdRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtcToneIdRowStatus.setStatus(_A)
-_CvtcProgrammableToneTable_Object=MibTable
-cvtcProgrammableToneTable=_CvtcProgrammableToneTable_Object((1,3,6,1,4,1,9,9,356,1,1,3))
-if mibBuilder.loadTexts:cvtcProgrammableToneTable.setStatus(_A)
-_CvtcProgrammableToneEntry_Object=MibTableRow
-cvtcProgrammableToneEntry=_CvtcProgrammableToneEntry_Object((1,3,6,1,4,1,9,9,356,1,1,3,1))
-cvtcProgrammableToneEntry.setIndexNames((0,_D,_E),(0,_B,_H),(0,_B,_I))
-if mibBuilder.loadTexts:cvtcProgrammableToneEntry.setStatus(_A)
-_CvtcProgrammableToneFrequency_Type=CToneFrequency
-_CvtcProgrammableToneFrequency_Object=MibTableColumn
-cvtcProgrammableToneFrequency=_CvtcProgrammableToneFrequency_Object((1,3,6,1,4,1,9,9,356,1,1,3,1,1),_CvtcProgrammableToneFrequency_Type())
-cvtcProgrammableToneFrequency.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtcProgrammableToneFrequency.setStatus(_A)
-_CvtcProgrammableToneAmplitude_Type=CToneAmplitude
-_CvtcProgrammableToneAmplitude_Object=MibTableColumn
-cvtcProgrammableToneAmplitude=_CvtcProgrammableToneAmplitude_Object((1,3,6,1,4,1,9,9,356,1,1,3,1,2),_CvtcProgrammableToneAmplitude_Type())
-cvtcProgrammableToneAmplitude.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtcProgrammableToneAmplitude.setStatus(_A)
-_CvtcProgrammableToneCadence_Type=CToneCadence
-_CvtcProgrammableToneCadence_Object=MibTableColumn
-cvtcProgrammableToneCadence=_CvtcProgrammableToneCadence_Object((1,3,6,1,4,1,9,9,356,1,1,3,1,3),_CvtcProgrammableToneCadence_Type())
-cvtcProgrammableToneCadence.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtcProgrammableToneCadence.setStatus(_A)
-class _CvtcProgrammableToneDuration_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CvtcProgrammableToneDuration_Type.__name__=_F
-_CvtcProgrammableToneDuration_Object=MibTableColumn
-cvtcProgrammableToneDuration=_CvtcProgrammableToneDuration_Object((1,3,6,1,4,1,9,9,356,1,1,3,1,4),_CvtcProgrammableToneDuration_Type())
-cvtcProgrammableToneDuration.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtcProgrammableToneDuration.setStatus(_A)
-if mibBuilder.loadTexts:cvtcProgrammableToneDuration.setUnits('milliseconds')
-_CvtcProgrammableToneStorageType_Type=StorageType
-_CvtcProgrammableToneStorageType_Object=MibTableColumn
-cvtcProgrammableToneStorageType=_CvtcProgrammableToneStorageType_Object((1,3,6,1,4,1,9,9,356,1,1,3,1,5),_CvtcProgrammableToneStorageType_Type())
-cvtcProgrammableToneStorageType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtcProgrammableToneStorageType.setStatus(_A)
-_CvtcProgrammableToneRowStatus_Type=RowStatus
-_CvtcProgrammableToneRowStatus_Object=MibTableColumn
-cvtcProgrammableToneRowStatus=_CvtcProgrammableToneRowStatus_Object((1,3,6,1,4,1,9,9,356,1,1,3,1,6),_CvtcProgrammableToneRowStatus_Type())
-cvtcProgrammableToneRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtcProgrammableToneRowStatus.setStatus(_A)
-_CiscoVoiceToneCadenceMIBConform_ObjectIdentity=ObjectIdentity
-ciscoVoiceToneCadenceMIBConform=_CiscoVoiceToneCadenceMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,356,3))
-_CVoiceToneCadenceCompliances_ObjectIdentity=ObjectIdentity
-cVoiceToneCadenceCompliances=_CVoiceToneCadenceCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,356,3,1))
-_CVoiceToneCadenceGroups_ObjectIdentity=ObjectIdentity
-cVoiceToneCadenceGroups=_CVoiceToneCadenceGroups_ObjectIdentity((1,3,6,1,4,1,9,9,356,3,2))
-cvtcToneConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,356,3,2,1))
-cvtcToneConfigGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y)))
-if mibBuilder.loadTexts:cvtcToneConfigGroup.setStatus(_A)
-cVoiceToneCadenceCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,356,3,1,1))
-cVoiceToneCadenceCompliance.setObjects((_B,_Z))
-if mibBuilder.loadTexts:cVoiceToneCadenceCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CToneFrequency':CToneFrequency,'CToneAmplitude':CToneAmplitude,'CToneCadence':CToneCadence,'ciscoVoiceToneCadenceMIB':ciscoVoiceToneCadenceMIB,'ciscoVoiceToneCadenceMIBNotifs':ciscoVoiceToneCadenceMIBNotifs,'ciscoVoiceToneCadenceMIBObjects':ciscoVoiceToneCadenceMIBObjects,'cVoiceToneCadenceConfig':cVoiceToneCadenceConfig,'cvtcTonePlanTable':cvtcTonePlanTable,'cvtcTonePlanEntry':cvtcTonePlanEntry,_H:cvtcTonePlanId,_L:cvtcTonePlanVifCount,_M:cvtcTonePlanCountry,_N:cvtcTonePlanVersion,_O:cvtcTonePlanFileName,_P:cvtcTonePlanStorageType,_Q:cvtcTonePlanRowStatus,'cvtcToneIdTable':cvtcToneIdTable,'cvtcToneIdEntry':cvtcToneIdEntry,_I:cvtcToneId,_R:cvtcToneName,_S:cvtcToneIdRowStatus,'cvtcProgrammableToneTable':cvtcProgrammableToneTable,'cvtcProgrammableToneEntry':cvtcProgrammableToneEntry,_T:cvtcProgrammableToneFrequency,_U:cvtcProgrammableToneAmplitude,_V:cvtcProgrammableToneCadence,_W:cvtcProgrammableToneDuration,_X:cvtcProgrammableToneStorageType,_Y:cvtcProgrammableToneRowStatus,'ciscoVoiceToneCadenceMIBConform':ciscoVoiceToneCadenceMIBConform,'cVoiceToneCadenceCompliances':cVoiceToneCadenceCompliances,'cVoiceToneCadenceCompliance':cVoiceToneCadenceCompliance,'cVoiceToneCadenceGroups':cVoiceToneCadenceGroups,_Z:cvtcToneConfigGroup})
+#
+# PySNMP MIB module CISCO-VOICE-TONE-CADENCE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-VOICE-TONE-CADENCE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:21 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+CVoiceTonePlanIndex, cmgwIndex = mibBuilder.importSymbols("CISCO-MEDIA-GATEWAY-MIB", "CVoiceTonePlanIndex", "cmgwIndex")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+CountryCode, = mibBuilder.importSymbols("CISCO-TC", "CountryCode")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention, RowStatus, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus", "StorageType")
+ciscoVoiceToneCadenceMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 356))
+ciscoVoiceToneCadenceMIB.setRevisions(('2003-05-28 00:00',))
+if mibBuilder.loadTexts: ciscoVoiceToneCadenceMIB.setLastUpdated('200305280000Z')
+if mibBuilder.loadTexts: ciscoVoiceToneCadenceMIB.setOrganization('Cisco Systems, Inc.')
+ciscoVoiceToneCadenceMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 356, 0))
+ciscoVoiceToneCadenceMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 356, 1))
+cVoiceToneCadenceConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1))
+class CToneFrequency(TextualConvention, OctetString):
+    reference = 'ITU E.180 Supplement 2 - Various Tones Used In National Network.'
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 64)
+
+class CToneAmplitude(TextualConvention, OctetString):
+    reference = 'ITU E.180/Q.35 - Technical Characteristic of Tones for the Telephone Service.'
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(2, 64)
+
+class CToneCadence(TextualConvention, OctetString):
+    reference = 'ITU E.180 Supplement 2 - Various Tones Used In National Network.'
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(3, 64)
+
+cvtcTonePlanTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1), )
+if mibBuilder.loadTexts: cvtcTonePlanTable.setStatus('current')
+cvtcTonePlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-MEDIA-GATEWAY-MIB", "cmgwIndex"), (0, "CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanId"))
+if mibBuilder.loadTexts: cvtcTonePlanEntry.setStatus('current')
+cvtcTonePlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1, 1), CVoiceTonePlanIndex())
+if mibBuilder.loadTexts: cvtcTonePlanId.setStatus('current')
+cvtcTonePlanVifCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvtcTonePlanVifCount.setStatus('current')
+cvtcTonePlanCountry = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1, 3), CountryCode()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcTonePlanCountry.setStatus('current')
+cvtcTonePlanVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcTonePlanVersion.setStatus('current')
+cvtcTonePlanFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1, 5), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcTonePlanFileName.setStatus('current')
+cvtcTonePlanStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1, 6), StorageType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvtcTonePlanStorageType.setStatus('current')
+cvtcTonePlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcTonePlanRowStatus.setStatus('current')
+cvtcToneIdTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 2), )
+if mibBuilder.loadTexts: cvtcToneIdTable.setStatus('current')
+cvtcToneIdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 2, 1), ).setIndexNames((0, "CISCO-MEDIA-GATEWAY-MIB", "cmgwIndex"), (0, "CISCO-VOICE-TONE-CADENCE-MIB", "cvtcToneId"))
+if mibBuilder.loadTexts: cvtcToneIdEntry.setStatus('current')
+cvtcToneId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
+if mibBuilder.loadTexts: cvtcToneId.setStatus('current')
+cvtcToneName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 2, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcToneName.setStatus('current')
+cvtcToneIdRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcToneIdRowStatus.setStatus('current')
+cvtcProgrammableToneTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3), )
+if mibBuilder.loadTexts: cvtcProgrammableToneTable.setStatus('current')
+cvtcProgrammableToneEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3, 1), ).setIndexNames((0, "CISCO-MEDIA-GATEWAY-MIB", "cmgwIndex"), (0, "CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanId"), (0, "CISCO-VOICE-TONE-CADENCE-MIB", "cvtcToneId"))
+if mibBuilder.loadTexts: cvtcProgrammableToneEntry.setStatus('current')
+cvtcProgrammableToneFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3, 1, 1), CToneFrequency()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcProgrammableToneFrequency.setStatus('current')
+cvtcProgrammableToneAmplitude = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3, 1, 2), CToneAmplitude()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcProgrammableToneAmplitude.setStatus('current')
+cvtcProgrammableToneCadence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3, 1, 3), CToneCadence()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcProgrammableToneCadence.setStatus('current')
+cvtcProgrammableToneDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcProgrammableToneDuration.setStatus('current')
+cvtcProgrammableToneStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3, 1, 5), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcProgrammableToneStorageType.setStatus('current')
+cvtcProgrammableToneRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 356, 1, 1, 3, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtcProgrammableToneRowStatus.setStatus('current')
+ciscoVoiceToneCadenceMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 356, 3))
+cVoiceToneCadenceCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 356, 3, 1))
+cVoiceToneCadenceGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 356, 3, 2))
+cVoiceToneCadenceCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 356, 3, 1, 1)).setObjects(("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcToneConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cVoiceToneCadenceCompliance = cVoiceToneCadenceCompliance.setStatus('current')
+cvtcToneConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 356, 3, 2, 1)).setObjects(("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanVifCount"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanCountry"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanVersion"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanFileName"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanStorageType"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcTonePlanRowStatus"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcToneName"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcToneIdRowStatus"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcProgrammableToneFrequency"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcProgrammableToneAmplitude"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcProgrammableToneCadence"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcProgrammableToneDuration"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcProgrammableToneStorageType"), ("CISCO-VOICE-TONE-CADENCE-MIB", "cvtcProgrammableToneRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cvtcToneConfigGroup = cvtcToneConfigGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-VOICE-TONE-CADENCE-MIB", cvtcProgrammableToneEntry=cvtcProgrammableToneEntry, PYSNMP_MODULE_ID=ciscoVoiceToneCadenceMIB, cvtcProgrammableToneRowStatus=cvtcProgrammableToneRowStatus, cvtcToneConfigGroup=cvtcToneConfigGroup, cvtcToneName=cvtcToneName, cvtcTonePlanStorageType=cvtcTonePlanStorageType, cvtcTonePlanRowStatus=cvtcTonePlanRowStatus, ciscoVoiceToneCadenceMIBNotifs=ciscoVoiceToneCadenceMIBNotifs, cvtcProgrammableToneStorageType=cvtcProgrammableToneStorageType, cvtcProgrammableToneDuration=cvtcProgrammableToneDuration, ciscoVoiceToneCadenceMIB=ciscoVoiceToneCadenceMIB, cVoiceToneCadenceGroups=cVoiceToneCadenceGroups, cvtcToneId=cvtcToneId, cvtcTonePlanEntry=cvtcTonePlanEntry, cvtcTonePlanTable=cvtcTonePlanTable, CToneCadence=CToneCadence, ciscoVoiceToneCadenceMIBConform=ciscoVoiceToneCadenceMIBConform, cVoiceToneCadenceCompliance=cVoiceToneCadenceCompliance, cVoiceToneCadenceConfig=cVoiceToneCadenceConfig, CToneFrequency=CToneFrequency, cvtcToneIdRowStatus=cvtcToneIdRowStatus, cvtcTonePlanCountry=cvtcTonePlanCountry, CToneAmplitude=CToneAmplitude, cvtcToneIdTable=cvtcToneIdTable, cvtcProgrammableToneTable=cvtcProgrammableToneTable, cvtcTonePlanId=cvtcTonePlanId, cVoiceToneCadenceCompliances=cVoiceToneCadenceCompliances, cvtcProgrammableToneAmplitude=cvtcProgrammableToneAmplitude, cvtcTonePlanVifCount=cvtcTonePlanVifCount, ciscoVoiceToneCadenceMIBObjects=ciscoVoiceToneCadenceMIBObjects, cvtcToneIdEntry=cvtcToneIdEntry, cvtcProgrammableToneCadence=cvtcProgrammableToneCadence, cvtcTonePlanFileName=cvtcTonePlanFileName, cvtcProgrammableToneFrequency=cvtcProgrammableToneFrequency, cvtcTonePlanVersion=cvtcTonePlanVersion)

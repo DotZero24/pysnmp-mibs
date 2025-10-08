@@ -1,46 +1,172 @@
-_G='noRequest'
-_F='forceSwitch'
-_E='lockOutProtection'
-_D='manualSwitchToWorking'
-_C='manualSwitchToProtection'
-_B='d'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,org=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','org')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ieee8021TcMib=ModuleIdentity((1,3,111,2,802,1,1,1))
-if mibBuilder.loadTexts:ieee8021TcMib.setRevisions(('2018-06-21 00:00','2014-12-15 00:00','2012-02-15 00:00','2011-08-23 00:00','2011-04-06 00:00','2011-02-27 00:00','2008-11-18 00:00','2008-10-15 00:00'))
-class IEEE8021PbbComponentIdentifier(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-class IEEE8021PbbComponentIdentifierOrZero(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,4294967295))
-class IEEE8021PbbServiceIdentifier(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(256,16777214))
-class IEEE8021PbbServiceIdentifierOrUnassigned(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1),ValueRangeConstraint(256,16777214))
-class IEEE8021PbbIngressEgress(TextualConvention,Bits):status=_A;namedValues=NamedValues(*(('ingress',0),('egress',1)))
-class IEEE8021PriorityCodePoint(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('codePoint8p0d',1),('codePoint7p1d',2),('codePoint6p2d',3),('codePoint5p3d',4)))
-class IEEE8021BridgePortNumber(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-class IEEE8021BridgePortNumberOrZero(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-class IEEE8021BridgePortType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12)));namedValues=NamedValues(*(('none',1),('customerVlanPort',2),('providerNetworkPort',3),('customerNetworkPort',4),('customerEdgePort',5),('customerBackbonePort',6),('virtualInstancePort',7),('dBridgePort',8),('remoteCustomerAccessPort',9),('stationFacingBridgePort',10),('uplinkAccessPort',11),('uplinkRelayPort',12)))
-class IEEE8021VlanIndex(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094),ValueRangeConstraint(4096,4294967295))
-class IEEE8021VlanIndexOrWildcard(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-class IEEE8021MstIdentifier(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-class IEEE8021ServiceSelectorType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('vlanId',1),('isid',2),('tesid',3),('segid',4),('path-tesid',5),('group-isid',6),('ieeeReserved',7)))
-class IEEE8021ServiceSelectorValueOrNone(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,4294967295))
-class IEEE8021ServiceSelectorValue(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-class IEEE8021PortAcceptableFrameTypes(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('admitAll',1),('admitUntaggedAndPriority',2),('admitTagged',3)))
-class IEEE8021PriorityValue(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-class IEEE8021PbbTeProtectionGroupId(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,429467295))
-class IEEE8021PbbTeEsp(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(14,14));fixedLength=14
-class IEEE8021PbbTeTSidId(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,42947295))
-class IEEE8021PbbTeProtectionGroupConfigAdmin(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('clear',1),(_E,2),(_F,3),(_C,4),(_D,5)))
-class IEEE8021PbbTeProtectionGroupActiveRequests(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*((_G,1),('loP',2),('fs',3),('pSFH',4),('wSFH',5),(_C,6),(_D,7)))
-class IEEE8021TeipsIpgid(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,429467295))
-class IEEE8021TeipsSegid(TextualConvention,Unsigned32):status=_A;displayHint=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,42947295))
-class IEEE8021TeipsSmpid(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(14,14));fixedLength=14
-class IEEE8021TeipsIpgConfigAdmin(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('clear',1),(_E,2),(_F,3),(_C,4),(_D,5)))
-class IEEE8021TeipsIpgConfigActiveRequests(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*((_G,1),('loP',2),('fs',3),('pSFH',4),('wSFH',5),(_C,6),(_D,7)))
-_Ieee802dot1mibs_ObjectIdentity=ObjectIdentity
-ieee802dot1mibs=_Ieee802dot1mibs_ObjectIdentity((1,3,111,2,802,1,1))
-mibBuilder.exportSymbols('IEEE8021-TC-MIB',**{'IEEE8021PbbComponentIdentifier':IEEE8021PbbComponentIdentifier,'IEEE8021PbbComponentIdentifierOrZero':IEEE8021PbbComponentIdentifierOrZero,'IEEE8021PbbServiceIdentifier':IEEE8021PbbServiceIdentifier,'IEEE8021PbbServiceIdentifierOrUnassigned':IEEE8021PbbServiceIdentifierOrUnassigned,'IEEE8021PbbIngressEgress':IEEE8021PbbIngressEgress,'IEEE8021PriorityCodePoint':IEEE8021PriorityCodePoint,'IEEE8021BridgePortNumber':IEEE8021BridgePortNumber,'IEEE8021BridgePortNumberOrZero':IEEE8021BridgePortNumberOrZero,'IEEE8021BridgePortType':IEEE8021BridgePortType,'IEEE8021VlanIndex':IEEE8021VlanIndex,'IEEE8021VlanIndexOrWildcard':IEEE8021VlanIndexOrWildcard,'IEEE8021MstIdentifier':IEEE8021MstIdentifier,'IEEE8021ServiceSelectorType':IEEE8021ServiceSelectorType,'IEEE8021ServiceSelectorValueOrNone':IEEE8021ServiceSelectorValueOrNone,'IEEE8021ServiceSelectorValue':IEEE8021ServiceSelectorValue,'IEEE8021PortAcceptableFrameTypes':IEEE8021PortAcceptableFrameTypes,'IEEE8021PriorityValue':IEEE8021PriorityValue,'IEEE8021PbbTeProtectionGroupId':IEEE8021PbbTeProtectionGroupId,'IEEE8021PbbTeEsp':IEEE8021PbbTeEsp,'IEEE8021PbbTeTSidId':IEEE8021PbbTeTSidId,'IEEE8021PbbTeProtectionGroupConfigAdmin':IEEE8021PbbTeProtectionGroupConfigAdmin,'IEEE8021PbbTeProtectionGroupActiveRequests':IEEE8021PbbTeProtectionGroupActiveRequests,'IEEE8021TeipsIpgid':IEEE8021TeipsIpgid,'IEEE8021TeipsSegid':IEEE8021TeipsSegid,'IEEE8021TeipsSmpid':IEEE8021TeipsSmpid,'IEEE8021TeipsIpgConfigAdmin':IEEE8021TeipsIpgConfigAdmin,'IEEE8021TeipsIpgConfigActiveRequests':IEEE8021TeipsIpgConfigActiveRequests,'ieee802dot1mibs':ieee802dot1mibs,'ieee8021TcMib':ieee8021TcMib})
+#
+# PySNMP MIB module IEEE8021-TC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/IEEE8021-TC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, org, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "org", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ieee8021TcMib = ModuleIdentity((1, 3, 111, 2, 802, 1, 1, 1))
+ieee8021TcMib.setRevisions(('2018-06-21 00:00', '2014-12-15 00:00', '2012-02-15 00:00', '2011-08-23 00:00', '2011-04-06 00:00', '2011-02-27 00:00', '2008-11-18 00:00', '2008-10-15 00:00',))
+if mibBuilder.loadTexts: ieee8021TcMib.setLastUpdated('201806210000Z')
+if mibBuilder.loadTexts: ieee8021TcMib.setOrganization('IEEE 802.1 Working Group')
+ieee802dot1mibs = MibIdentifier((1, 3, 111, 2, 802, 1, 1))
+class IEEE8021PbbComponentIdentifier(TextualConvention, Unsigned32):
+    reference = '12.3 l)'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
+
+class IEEE8021PbbComponentIdentifierOrZero(TextualConvention, Unsigned32):
+    reference = '12.3 l)'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 4294967295), )
+class IEEE8021PbbServiceIdentifier(TextualConvention, Unsigned32):
+    reference = '12.16.3, 12.16.5'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(256, 16777214)
+
+class IEEE8021PbbServiceIdentifierOrUnassigned(TextualConvention, Unsigned32):
+    reference = '12.16.3, 12.16.5'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(1, 1), ValueRangeConstraint(256, 16777214), )
+class IEEE8021PbbIngressEgress(TextualConvention, Bits):
+    reference = '12.16.3, 12.16.5'
+    status = 'current'
+    namedValues = NamedValues(("ingress", 0), ("egress", 1))
+
+class IEEE8021PriorityCodePoint(TextualConvention, Integer32):
+    reference = '12.6.2.6'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("codePoint8p0d", 1), ("codePoint7p1d", 2), ("codePoint6p2d", 3), ("codePoint5p3d", 4))
+
+class IEEE8021BridgePortNumber(TextualConvention, Unsigned32):
+    reference = '17.3.2.2'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 65535)
+
+class IEEE8021BridgePortNumberOrZero(TextualConvention, Unsigned32):
+    reference = '17.3.2.2'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 65535)
+
+class IEEE8021BridgePortType(TextualConvention, Integer32):
+    reference = '40.4, 12.13.1.1, 12.13.1.2, 12.16, 12.16.1.1.3 12.16.2.1, 12.26'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
+    namedValues = NamedValues(("none", 1), ("customerVlanPort", 2), ("providerNetworkPort", 3), ("customerNetworkPort", 4), ("customerEdgePort", 5), ("customerBackbonePort", 6), ("virtualInstancePort", 7), ("dBridgePort", 8), ("remoteCustomerAccessPort", 9), ("stationFacingBridgePort", 10), ("uplinkAccessPort", 11), ("uplinkRelayPort", 12))
+
+class IEEE8021VlanIndex(TextualConvention, Unsigned32):
+    reference = '9.6'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(1, 4094), ValueRangeConstraint(4096, 4294967295), )
+class IEEE8021VlanIndexOrWildcard(TextualConvention, Unsigned32):
+    reference = '9.6'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
+
+class IEEE8021MstIdentifier(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4094)
+
+class IEEE8021ServiceSelectorType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
+    namedValues = NamedValues(("vlanId", 1), ("isid", 2), ("tesid", 3), ("segid", 4), ("path-tesid", 5), ("group-isid", 6), ("ieeeReserved", 7))
+
+class IEEE8021ServiceSelectorValueOrNone(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 4294967295), )
+class IEEE8021ServiceSelectorValue(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
+
+class IEEE8021PortAcceptableFrameTypes(TextualConvention, Integer32):
+    reference = '12.10.1.3, 12.13.3.3, 12.13.3.4'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("admitAll", 1), ("admitUntaggedAndPriority", 2), ("admitTagged", 3))
+
+class IEEE8021PriorityValue(TextualConvention, Unsigned32):
+    reference = '12.13.3.3'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 7)
+
+class IEEE8021PbbTeProtectionGroupId(TextualConvention, Unsigned32):
+    reference = '12.18.2'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 429467295)
+
+class IEEE8021PbbTeEsp(TextualConvention, OctetString):
+    reference = '3.83'
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(14, 14)
+    fixedLength = 14
+
+class IEEE8021PbbTeTSidId(TextualConvention, Unsigned32):
+    reference = '3.270'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 42947295)
+
+class IEEE8021PbbTeProtectionGroupConfigAdmin(TextualConvention, Integer32):
+    reference = '26.10.3.3.5 26.10.3.3.6 26.10.3.3.7 12.18.2.3.2'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("clear", 1), ("lockOutProtection", 2), ("forceSwitch", 3), ("manualSwitchToProtection", 4), ("manualSwitchToWorking", 5))
+
+class IEEE8021PbbTeProtectionGroupActiveRequests(TextualConvention, Integer32):
+    reference = '12.18.2.1.3 d)'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
+    namedValues = NamedValues(("noRequest", 1), ("loP", 2), ("fs", 3), ("pSFH", 4), ("wSFH", 5), ("manualSwitchToProtection", 6), ("manualSwitchToWorking", 7))
+
+class IEEE8021TeipsIpgid(TextualConvention, Unsigned32):
+    reference = '12.24.1.1.3 a)'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 429467295)
+
+class IEEE8021TeipsSegid(TextualConvention, Unsigned32):
+    reference = '26.11.1'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 42947295)
+
+class IEEE8021TeipsSmpid(TextualConvention, OctetString):
+    reference = '26.11.1'
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(14, 14)
+    fixedLength = 14
+
+class IEEE8021TeipsIpgConfigAdmin(TextualConvention, Integer32):
+    reference = '12.24.2.1.3 h)'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("clear", 1), ("lockOutProtection", 2), ("forceSwitch", 3), ("manualSwitchToProtection", 4), ("manualSwitchToWorking", 5))
+
+class IEEE8021TeipsIpgConfigActiveRequests(TextualConvention, Integer32):
+    reference = '12.24.2.1.3 d)'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
+    namedValues = NamedValues(("noRequest", 1), ("loP", 2), ("fs", 3), ("pSFH", 4), ("wSFH", 5), ("manualSwitchToProtection", 6), ("manualSwitchToWorking", 7))
+
+mibBuilder.exportSymbols("IEEE8021-TC-MIB", IEEE8021TeipsSmpid=IEEE8021TeipsSmpid, IEEE8021PortAcceptableFrameTypes=IEEE8021PortAcceptableFrameTypes, IEEE8021PbbIngressEgress=IEEE8021PbbIngressEgress, PYSNMP_MODULE_ID=ieee8021TcMib, IEEE8021TeipsSegid=IEEE8021TeipsSegid, IEEE8021ServiceSelectorType=IEEE8021ServiceSelectorType, IEEE8021PbbTeEsp=IEEE8021PbbTeEsp, IEEE8021PbbTeProtectionGroupConfigAdmin=IEEE8021PbbTeProtectionGroupConfigAdmin, IEEE8021PbbServiceIdentifier=IEEE8021PbbServiceIdentifier, IEEE8021VlanIndexOrWildcard=IEEE8021VlanIndexOrWildcard, IEEE8021ServiceSelectorValueOrNone=IEEE8021ServiceSelectorValueOrNone, IEEE8021PriorityValue=IEEE8021PriorityValue, IEEE8021VlanIndex=IEEE8021VlanIndex, IEEE8021PbbTeProtectionGroupId=IEEE8021PbbTeProtectionGroupId, IEEE8021TeipsIpgid=IEEE8021TeipsIpgid, IEEE8021PriorityCodePoint=IEEE8021PriorityCodePoint, ieee802dot1mibs=ieee802dot1mibs, IEEE8021MstIdentifier=IEEE8021MstIdentifier, IEEE8021BridgePortType=IEEE8021BridgePortType, IEEE8021PbbServiceIdentifierOrUnassigned=IEEE8021PbbServiceIdentifierOrUnassigned, IEEE8021PbbComponentIdentifier=IEEE8021PbbComponentIdentifier, IEEE8021TeipsIpgConfigActiveRequests=IEEE8021TeipsIpgConfigActiveRequests, IEEE8021BridgePortNumberOrZero=IEEE8021BridgePortNumberOrZero, IEEE8021PbbTeTSidId=IEEE8021PbbTeTSidId, IEEE8021BridgePortNumber=IEEE8021BridgePortNumber, ieee8021TcMib=ieee8021TcMib, IEEE8021PbbTeProtectionGroupActiveRequests=IEEE8021PbbTeProtectionGroupActiveRequests, IEEE8021TeipsIpgConfigAdmin=IEEE8021TeipsIpgConfigAdmin, IEEE8021ServiceSelectorValue=IEEE8021ServiceSelectorValue, IEEE8021PbbComponentIdentifierOrZero=IEEE8021PbbComponentIdentifierOrZero)

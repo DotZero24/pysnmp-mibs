@@ -1,176 +1,82 @@
-_f='oaPortLinGroup'
-_e='oaPortLinTrapParamsGroup'
-_d='oaPortLinNotificationsGroup'
-_c='oaPortLinMandatoryGroup'
-_b='oaPortLinStateDown'
-_a='oaPortLinStateUp'
-_Z='oaPortLinAgAdminStatus'
-_Y='oaPortLinAgRMepStatus'
-_X='oaPortLinLastError'
-_W='oaPortLinSymmetricStatus'
-_V='oaPortLinAdminStatus'
-_U='oaPortLinOperStatus'
-_T='oaPortLinAgSupport'
-_S='oaPortLinGenSupport'
-_R='oaPortLinAgRemoteMep'
-_Q='oaPortLinAgAssociationId'
-_P='oaPortLinAgDomainId'
-_O='invalid'
-_N='supported'
-_M='notSupported'
-_L='DisplayString'
-_K='OctetString'
-_J='oaPortLinId'
-_I='oaPortLinActionCause'
-_H='oaPortLinSlavePorts'
-_G='read-write'
-_F='not-accessible'
-_E='Unsigned32'
-_D='read-only'
-_C='Integer32'
-_B='current'
-_A='OA-PORT-LIN-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_K,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-nbSwitchG1Il,=mibBuilder.importSymbols('OS-COMMON-TC-MIB','nbSwitchG1Il')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_L,'PhysAddress','TextualConvention')
-nbPortLinkReflection=ModuleIdentity((1,3,6,1,4,1,629,1,50,10,11))
-if mibBuilder.loadTexts:nbPortLinkReflection.setRevisions(('2011-03-16 00:00','2010-11-02 00:00','2007-12-11 00:00','2007-08-02 00:00'))
-_NbPortParams_ObjectIdentity=ObjectIdentity
-nbPortParams=_NbPortParams_ObjectIdentity((1,3,6,1,4,1,629,1,50,10))
-_OaPortLinNotifications_ObjectIdentity=ObjectIdentity
-oaPortLinNotifications=_OaPortLinNotifications_ObjectIdentity((1,3,6,1,4,1,629,1,50,10,11,0))
-_OaPortLinGen_ObjectIdentity=ObjectIdentity
-oaPortLinGen=_OaPortLinGen_ObjectIdentity((1,3,6,1,4,1,629,1,50,10,11,1))
-class _OaPortLinGenSupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_M,1),(_N,2)))
-_OaPortLinGenSupport_Type.__name__=_C
-_OaPortLinGenSupport_Object=MibScalar
-oaPortLinGenSupport=_OaPortLinGenSupport_Object((1,3,6,1,4,1,629,1,50,10,11,1,1),_OaPortLinGenSupport_Type())
-oaPortLinGenSupport.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaPortLinGenSupport.setStatus(_B)
-class _OaPortLinAgSupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_M,1),(_N,2)))
-_OaPortLinAgSupport_Type.__name__=_C
-_OaPortLinAgSupport_Object=MibScalar
-oaPortLinAgSupport=_OaPortLinAgSupport_Object((1,3,6,1,4,1,629,1,50,10,11,1,2),_OaPortLinAgSupport_Type())
-oaPortLinAgSupport.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaPortLinAgSupport.setStatus(_B)
-class _OaPortLinLastError_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,160))
-_OaPortLinLastError_Type.__name__=_L
-_OaPortLinLastError_Object=MibScalar
-oaPortLinLastError=_OaPortLinLastError_Object((1,3,6,1,4,1,629,1,50,10,11,1,3),_OaPortLinLastError_Type())
-oaPortLinLastError.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaPortLinLastError.setStatus(_B)
-_OaPortLinGrp_ObjectIdentity=ObjectIdentity
-oaPortLinGrp=_OaPortLinGrp_ObjectIdentity((1,3,6,1,4,1,629,1,50,10,11,2))
-_OaPortLinTable_Object=MibTable
-oaPortLinTable=_OaPortLinTable_Object((1,3,6,1,4,1,629,1,50,10,11,2,1))
-if mibBuilder.loadTexts:oaPortLinTable.setStatus(_B)
-_OaPortLinEntry_Object=MibTableRow
-oaPortLinEntry=_OaPortLinEntry_Object((1,3,6,1,4,1,629,1,50,10,11,2,1,1))
-oaPortLinEntry.setIndexNames((0,_A,_J))
-if mibBuilder.loadTexts:oaPortLinEntry.setStatus(_B)
-class _OaPortLinId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_OaPortLinId_Type.__name__=_C
-_OaPortLinId_Object=MibTableColumn
-oaPortLinId=_OaPortLinId_Object((1,3,6,1,4,1,629,1,50,10,11,2,1,1,1),_OaPortLinId_Type())
-oaPortLinId.setMaxAccess(_F)
-if mibBuilder.loadTexts:oaPortLinId.setStatus(_B)
-class _OaPortLinOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('master',2),('slave',3)))
-_OaPortLinOperStatus_Type.__name__=_C
-_OaPortLinOperStatus_Object=MibTableColumn
-oaPortLinOperStatus=_OaPortLinOperStatus_Object((1,3,6,1,4,1,629,1,50,10,11,2,1,1,2),_OaPortLinOperStatus_Type())
-oaPortLinOperStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaPortLinOperStatus.setStatus(_B)
-class _OaPortLinAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('valid',1),(_O,2)))
-_OaPortLinAdminStatus_Type.__name__=_C
-_OaPortLinAdminStatus_Object=MibTableColumn
-oaPortLinAdminStatus=_OaPortLinAdminStatus_Object((1,3,6,1,4,1,629,1,50,10,11,2,1,1,3),_OaPortLinAdminStatus_Type())
-oaPortLinAdminStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:oaPortLinAdminStatus.setStatus(_B)
-class _OaPortLinSlavePorts_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_OaPortLinSlavePorts_Type.__name__=_K
-_OaPortLinSlavePorts_Object=MibTableColumn
-oaPortLinSlavePorts=_OaPortLinSlavePorts_Object((1,3,6,1,4,1,629,1,50,10,11,2,1,1,4),_OaPortLinSlavePorts_Type())
-oaPortLinSlavePorts.setMaxAccess(_G)
-if mibBuilder.loadTexts:oaPortLinSlavePorts.setStatus(_B)
-class _OaPortLinSymmetricStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('other',1),('symmetric',2),('nonSymmetric',3)))
-_OaPortLinSymmetricStatus_Type.__name__=_C
-_OaPortLinSymmetricStatus_Object=MibTableColumn
-oaPortLinSymmetricStatus=_OaPortLinSymmetricStatus_Object((1,3,6,1,4,1,629,1,50,10,11,2,1,1,5),_OaPortLinSymmetricStatus_Type())
-oaPortLinSymmetricStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:oaPortLinSymmetricStatus.setStatus(_B)
-class _OaPortLinActionCause_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('noAction',1),('portLinkUp',2),('portLinkDown',3),('agRMepDiscardEvent',4),('agRMepNoConnEvent',5),('agRMepAliveEvent',6)))
-_OaPortLinActionCause_Type.__name__=_C
-_OaPortLinActionCause_Object=MibTableColumn
-oaPortLinActionCause=_OaPortLinActionCause_Object((1,3,6,1,4,1,629,1,50,10,11,2,1,1,6),_OaPortLinActionCause_Type())
-oaPortLinActionCause.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaPortLinActionCause.setStatus(_B)
-_OaPortLinAgTable_Object=MibTable
-oaPortLinAgTable=_OaPortLinAgTable_Object((1,3,6,1,4,1,629,1,50,10,11,2,5))
-if mibBuilder.loadTexts:oaPortLinAgTable.setStatus(_B)
-_OaPortLinAgEntry_Object=MibTableRow
-oaPortLinAgEntry=_OaPortLinAgEntry_Object((1,3,6,1,4,1,629,1,50,10,11,2,5,1))
-oaPortLinAgEntry.setIndexNames((0,_A,_J),(0,_A,_P),(0,_A,_Q),(0,_A,_R))
-if mibBuilder.loadTexts:oaPortLinAgEntry.setStatus(_B)
-class _OaPortLinAgDomainId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_OaPortLinAgDomainId_Type.__name__=_E
-_OaPortLinAgDomainId_Object=MibTableColumn
-oaPortLinAgDomainId=_OaPortLinAgDomainId_Object((1,3,6,1,4,1,629,1,50,10,11,2,5,1,2),_OaPortLinAgDomainId_Type())
-oaPortLinAgDomainId.setMaxAccess(_F)
-if mibBuilder.loadTexts:oaPortLinAgDomainId.setStatus(_B)
-class _OaPortLinAgAssociationId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_OaPortLinAgAssociationId_Type.__name__=_E
-_OaPortLinAgAssociationId_Object=MibTableColumn
-oaPortLinAgAssociationId=_OaPortLinAgAssociationId_Object((1,3,6,1,4,1,629,1,50,10,11,2,5,1,3),_OaPortLinAgAssociationId_Type())
-oaPortLinAgAssociationId.setMaxAccess(_F)
-if mibBuilder.loadTexts:oaPortLinAgAssociationId.setStatus(_B)
-class _OaPortLinAgRemoteMep_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8192))
-_OaPortLinAgRemoteMep_Type.__name__=_E
-_OaPortLinAgRemoteMep_Object=MibTableColumn
-oaPortLinAgRemoteMep=_OaPortLinAgRemoteMep_Object((1,3,6,1,4,1,629,1,50,10,11,2,5,1,4),_OaPortLinAgRemoteMep_Type())
-oaPortLinAgRemoteMep.setMaxAccess(_F)
-if mibBuilder.loadTexts:oaPortLinAgRemoteMep.setStatus(_B)
-class _OaPortLinAgRMepStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('normal',1),('discard',2),('noConnection',3)))
-_OaPortLinAgRMepStatus_Type.__name__=_C
-_OaPortLinAgRMepStatus_Object=MibTableColumn
-oaPortLinAgRMepStatus=_OaPortLinAgRMepStatus_Object((1,3,6,1,4,1,629,1,50,10,11,2,5,1,8),_OaPortLinAgRMepStatus_Type())
-oaPortLinAgRMepStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaPortLinAgRMepStatus.setStatus(_B)
-class _OaPortLinAgAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('valid',1),(_O,2)))
-_OaPortLinAgAdminStatus_Type.__name__=_C
-_OaPortLinAgAdminStatus_Object=MibTableColumn
-oaPortLinAgAdminStatus=_OaPortLinAgAdminStatus_Object((1,3,6,1,4,1,629,1,50,10,11,2,5,1,10),_OaPortLinAgAdminStatus_Type())
-oaPortLinAgAdminStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:oaPortLinAgAdminStatus.setStatus(_B)
-_OaPortLinConformance_ObjectIdentity=ObjectIdentity
-oaPortLinConformance=_OaPortLinConformance_ObjectIdentity((1,3,6,1,4,1,629,1,50,10,11,101))
-_OaPortLinCompliances_ObjectIdentity=ObjectIdentity
-oaPortLinCompliances=_OaPortLinCompliances_ObjectIdentity((1,3,6,1,4,1,629,1,50,10,11,101,1))
-_OaPortLinGroups_ObjectIdentity=ObjectIdentity
-oaPortLinGroups=_OaPortLinGroups_ObjectIdentity((1,3,6,1,4,1,629,1,50,10,11,101,2))
-oaPortLinMandatoryGroup=ObjectGroup((1,3,6,1,4,1,629,1,50,10,11,101,2,1))
-oaPortLinMandatoryGroup.setObjects(*((_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_H),(_A,_W),(_A,_X)))
-if mibBuilder.loadTexts:oaPortLinMandatoryGroup.setStatus(_B)
-oaPortLinTrapParamsGroup=ObjectGroup((1,3,6,1,4,1,629,1,50,10,11,101,2,2))
-oaPortLinTrapParamsGroup.setObjects((_A,_I))
-if mibBuilder.loadTexts:oaPortLinTrapParamsGroup.setStatus(_B)
-oaPortLinGroup=ObjectGroup((1,3,6,1,4,1,629,1,50,10,11,101,2,3))
-oaPortLinGroup.setObjects(*((_A,_Y),(_A,_Z)))
-if mibBuilder.loadTexts:oaPortLinGroup.setStatus(_B)
-oaPortLinStateUp=NotificationType((1,3,6,1,4,1,629,1,50,10,11,0,33))
-oaPortLinStateUp.setObjects(*((_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:oaPortLinStateUp.setStatus(_B)
-oaPortLinStateDown=NotificationType((1,3,6,1,4,1,629,1,50,10,11,0,35))
-oaPortLinStateDown.setObjects(*((_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:oaPortLinStateDown.setStatus(_B)
-oaPortLinNotificationsGroup=NotificationGroup((1,3,6,1,4,1,629,1,50,10,11,101,2,4))
-oaPortLinNotificationsGroup.setObjects(*((_A,_a),(_A,_b)))
-if mibBuilder.loadTexts:oaPortLinNotificationsGroup.setStatus(_B)
-oaPortLinCompliance=ModuleCompliance((1,3,6,1,4,1,629,1,50,10,11,101,1,1))
-oaPortLinCompliance.setObjects(*((_A,_c),(_A,_d),(_A,_e),(_A,_f)))
-if mibBuilder.loadTexts:oaPortLinCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'nbPortParams':nbPortParams,'nbPortLinkReflection':nbPortLinkReflection,'oaPortLinNotifications':oaPortLinNotifications,_a:oaPortLinStateUp,_b:oaPortLinStateDown,'oaPortLinGen':oaPortLinGen,_S:oaPortLinGenSupport,_T:oaPortLinAgSupport,_X:oaPortLinLastError,'oaPortLinGrp':oaPortLinGrp,'oaPortLinTable':oaPortLinTable,'oaPortLinEntry':oaPortLinEntry,_J:oaPortLinId,_U:oaPortLinOperStatus,_V:oaPortLinAdminStatus,_H:oaPortLinSlavePorts,_W:oaPortLinSymmetricStatus,_I:oaPortLinActionCause,'oaPortLinAgTable':oaPortLinAgTable,'oaPortLinAgEntry':oaPortLinAgEntry,_P:oaPortLinAgDomainId,_Q:oaPortLinAgAssociationId,_R:oaPortLinAgRemoteMep,_Y:oaPortLinAgRMepStatus,_Z:oaPortLinAgAdminStatus,'oaPortLinConformance':oaPortLinConformance,'oaPortLinCompliances':oaPortLinCompliances,'oaPortLinCompliance':oaPortLinCompliance,'oaPortLinGroups':oaPortLinGroups,_c:oaPortLinMandatoryGroup,_e:oaPortLinTrapParamsGroup,_f:oaPortLinGroup,_d:oaPortLinNotificationsGroup})
+#
+# PySNMP MIB module OA-PORT-LIN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/OA-PORT-LIN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+nbSwitchG1Il, = mibBuilder.importSymbols("OS-COMMON-TC-MIB", "nbSwitchG1Il")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+nbPortLinkReflection = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11))
+nbPortLinkReflection.setRevisions(('2011-03-16 00:00', '2010-11-02 00:00', '2007-12-11 00:00', '2007-08-02 00:00',))
+if mibBuilder.loadTexts: nbPortLinkReflection.setLastUpdated('201103160000Z')
+if mibBuilder.loadTexts: nbPortLinkReflection.setOrganization('MRV Communications, Inc.')
+nbPortParams = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 10))
+oaPortLinNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 0))
+oaPortLinGen = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 1))
+oaPortLinGrp = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2))
+oaPortLinConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 101))
+oaPortLinGenSupport = MibScalar((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("notSupported", 1), ("supported", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaPortLinGenSupport.setStatus('current')
+oaPortLinAgSupport = MibScalar((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("notSupported", 1), ("supported", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaPortLinAgSupport.setStatus('current')
+oaPortLinLastError = MibScalar((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(2, 160))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaPortLinLastError.setStatus('current')
+oaPortLinTable = MibTable((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2, 1), )
+if mibBuilder.loadTexts: oaPortLinTable.setStatus('current')
+oaPortLinEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2, 1, 1), ).setIndexNames((0, "OA-PORT-LIN-MIB", "oaPortLinId"))
+if mibBuilder.loadTexts: oaPortLinEntry.setStatus('current')
+oaPortLinId = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)))
+if mibBuilder.loadTexts: oaPortLinId.setStatus('current')
+oaPortLinOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("master", 2), ("slave", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaPortLinOperStatus.setStatus('current')
+oaPortLinAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaPortLinAdminStatus.setStatus('current')
+oaPortLinSlavePorts = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaPortLinSlavePorts.setStatus('current')
+oaPortLinSymmetricStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("symmetric", 2), ("nonSymmetric", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaPortLinSymmetricStatus.setStatus('current')
+oaPortLinActionCause = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("noAction", 1), ("portLinkUp", 2), ("portLinkDown", 3), ("agRMepDiscardEvent", 4), ("agRMepNoConnEvent", 5), ("agRMepAliveEvent", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaPortLinActionCause.setStatus('current')
+oaPortLinAgTable = MibTable((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2, 5), )
+if mibBuilder.loadTexts: oaPortLinAgTable.setStatus('current')
+oaPortLinAgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2, 5, 1), ).setIndexNames((0, "OA-PORT-LIN-MIB", "oaPortLinId"), (0, "OA-PORT-LIN-MIB", "oaPortLinAgDomainId"), (0, "OA-PORT-LIN-MIB", "oaPortLinAgAssociationId"), (0, "OA-PORT-LIN-MIB", "oaPortLinAgRemoteMep"))
+if mibBuilder.loadTexts: oaPortLinAgEntry.setStatus('current')
+oaPortLinAgDomainId = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2, 5, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)))
+if mibBuilder.loadTexts: oaPortLinAgDomainId.setStatus('current')
+oaPortLinAgAssociationId = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2, 5, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: oaPortLinAgAssociationId.setStatus('current')
+oaPortLinAgRemoteMep = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2, 5, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 8192)))
+if mibBuilder.loadTexts: oaPortLinAgRemoteMep.setStatus('current')
+oaPortLinAgRMepStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2, 5, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("normal", 1), ("discard", 2), ("noConnection", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaPortLinAgRMepStatus.setStatus('current')
+oaPortLinAgAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 2, 5, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaPortLinAgAdminStatus.setStatus('current')
+oaPortLinCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 101, 1))
+oaPortLinGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 101, 2))
+oaPortLinCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 101, 1, 1)).setObjects(("OA-PORT-LIN-MIB", "oaPortLinMandatoryGroup"), ("OA-PORT-LIN-MIB", "oaPortLinNotificationsGroup"), ("OA-PORT-LIN-MIB", "oaPortLinTrapParamsGroup"), ("OA-PORT-LIN-MIB", "oaPortLinGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oaPortLinCompliance = oaPortLinCompliance.setStatus('current')
+oaPortLinMandatoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 101, 2, 1)).setObjects(("OA-PORT-LIN-MIB", "oaPortLinGenSupport"), ("OA-PORT-LIN-MIB", "oaPortLinAgSupport"), ("OA-PORT-LIN-MIB", "oaPortLinOperStatus"), ("OA-PORT-LIN-MIB", "oaPortLinAdminStatus"), ("OA-PORT-LIN-MIB", "oaPortLinSlavePorts"), ("OA-PORT-LIN-MIB", "oaPortLinSymmetricStatus"), ("OA-PORT-LIN-MIB", "oaPortLinLastError"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oaPortLinMandatoryGroup = oaPortLinMandatoryGroup.setStatus('current')
+oaPortLinTrapParamsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 101, 2, 2)).setObjects(("OA-PORT-LIN-MIB", "oaPortLinActionCause"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oaPortLinTrapParamsGroup = oaPortLinTrapParamsGroup.setStatus('current')
+oaPortLinGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 101, 2, 3)).setObjects(("OA-PORT-LIN-MIB", "oaPortLinAgRMepStatus"), ("OA-PORT-LIN-MIB", "oaPortLinAgAdminStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oaPortLinGroup = oaPortLinGroup.setStatus('current')
+oaPortLinNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 101, 2, 4)).setObjects(("OA-PORT-LIN-MIB", "oaPortLinStateUp"), ("OA-PORT-LIN-MIB", "oaPortLinStateDown"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oaPortLinNotificationsGroup = oaPortLinNotificationsGroup.setStatus('current')
+oaPortLinStateUp = NotificationType((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 0, 33)).setObjects(("OA-PORT-LIN-MIB", "oaPortLinSlavePorts"), ("OA-PORT-LIN-MIB", "oaPortLinActionCause"))
+if mibBuilder.loadTexts: oaPortLinStateUp.setStatus('current')
+oaPortLinStateDown = NotificationType((1, 3, 6, 1, 4, 1, 629, 1, 50, 10, 11, 0, 35)).setObjects(("OA-PORT-LIN-MIB", "oaPortLinSlavePorts"), ("OA-PORT-LIN-MIB", "oaPortLinActionCause"))
+if mibBuilder.loadTexts: oaPortLinStateDown.setStatus('current')
+mibBuilder.exportSymbols("OA-PORT-LIN-MIB", nbPortLinkReflection=nbPortLinkReflection, oaPortLinConformance=oaPortLinConformance, oaPortLinAgEntry=oaPortLinAgEntry, oaPortLinMandatoryGroup=oaPortLinMandatoryGroup, oaPortLinGen=oaPortLinGen, oaPortLinGrp=oaPortLinGrp, oaPortLinStateUp=oaPortLinStateUp, PYSNMP_MODULE_ID=nbPortLinkReflection, oaPortLinActionCause=oaPortLinActionCause, oaPortLinSymmetricStatus=oaPortLinSymmetricStatus, oaPortLinSlavePorts=oaPortLinSlavePorts, oaPortLinOperStatus=oaPortLinOperStatus, oaPortLinAgTable=oaPortLinAgTable, oaPortLinAgSupport=oaPortLinAgSupport, oaPortLinLastError=oaPortLinLastError, oaPortLinTable=oaPortLinTable, nbPortParams=nbPortParams, oaPortLinAdminStatus=oaPortLinAdminStatus, oaPortLinTrapParamsGroup=oaPortLinTrapParamsGroup, oaPortLinEntry=oaPortLinEntry, oaPortLinAgRMepStatus=oaPortLinAgRMepStatus, oaPortLinGroup=oaPortLinGroup, oaPortLinAgAdminStatus=oaPortLinAgAdminStatus, oaPortLinNotificationsGroup=oaPortLinNotificationsGroup, oaPortLinAgRemoteMep=oaPortLinAgRemoteMep, oaPortLinNotifications=oaPortLinNotifications, oaPortLinAgAssociationId=oaPortLinAgAssociationId, oaPortLinId=oaPortLinId, oaPortLinCompliances=oaPortLinCompliances, oaPortLinGenSupport=oaPortLinGenSupport, oaPortLinGroups=oaPortLinGroups, oaPortLinCompliance=oaPortLinCompliance, oaPortLinAgDomainId=oaPortLinAgDomainId, oaPortLinStateDown=oaPortLinStateDown)

@@ -1,310 +1,145 @@
-_K='cfprUuidpoolUniverseInstanceId'
-_J='cfprUuidpoolPooledInstanceId'
-_I='cfprUuidpoolPoolableInstanceId'
-_H='cfprUuidpoolPoolInstanceId'
-_G='cfprUuidpoolFormatInstanceId'
-_F='cfprUuidpoolBlockInstanceId'
-_E='cfprUuidpoolAddrInstanceId'
-_D='not-accessible'
-_C='CISCO-FIREPOWER-UUIDPOOL-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CfprManagedObjectDn,CfprManagedObjectId,ciscoFirepowerMIBObjects=mibBuilder.importSymbols('CISCO-FIREPOWER-MIB','CfprManagedObjectDn','CfprManagedObjectId','ciscoFirepowerMIBObjects')
-CfprAddressUIDSuffxMask,CfprPolicyPolicyOwner,CfprPoolElementOwner,CfprUuidpoolPoolAssignmentOrder=mibBuilder.importSymbols('CISCO-FIREPOWER-TC-MIB','CfprAddressUIDSuffxMask','CfprPolicyPolicyOwner','CfprPoolElementOwner','CfprUuidpoolPoolAssignmentOrder')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
-InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
-cfprUuidpoolObjects=ModuleIdentity((1,3,6,1,4,1,9,9,826,1,80))
-_CfprUuidpoolAddrTable_Object=MibTable
-cfprUuidpoolAddrTable=_CfprUuidpoolAddrTable_Object((1,3,6,1,4,1,9,9,826,1,80,1))
-if mibBuilder.loadTexts:cfprUuidpoolAddrTable.setStatus(_A)
-_CfprUuidpoolAddrEntry_Object=MibTableRow
-cfprUuidpoolAddrEntry=_CfprUuidpoolAddrEntry_Object((1,3,6,1,4,1,9,9,826,1,80,1,1))
-cfprUuidpoolAddrEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:cfprUuidpoolAddrEntry.setStatus(_A)
-_CfprUuidpoolAddrInstanceId_Type=CfprManagedObjectId
-_CfprUuidpoolAddrInstanceId_Object=MibTableColumn
-cfprUuidpoolAddrInstanceId=_CfprUuidpoolAddrInstanceId_Object((1,3,6,1,4,1,9,9,826,1,80,1,1,1),_CfprUuidpoolAddrInstanceId_Type())
-cfprUuidpoolAddrInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprUuidpoolAddrInstanceId.setStatus(_A)
-_CfprUuidpoolAddrDn_Type=CfprManagedObjectDn
-_CfprUuidpoolAddrDn_Object=MibTableColumn
-cfprUuidpoolAddrDn=_CfprUuidpoolAddrDn_Object((1,3,6,1,4,1,9,9,826,1,80,1,1,2),_CfprUuidpoolAddrDn_Type())
-cfprUuidpoolAddrDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolAddrDn.setStatus(_A)
-_CfprUuidpoolAddrRn_Type=SnmpAdminString
-_CfprUuidpoolAddrRn_Object=MibTableColumn
-cfprUuidpoolAddrRn=_CfprUuidpoolAddrRn_Object((1,3,6,1,4,1,9,9,826,1,80,1,1,3),_CfprUuidpoolAddrRn_Type())
-cfprUuidpoolAddrRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolAddrRn.setStatus(_A)
-_CfprUuidpoolAddrAssigned_Type=TruthValue
-_CfprUuidpoolAddrAssigned_Object=MibTableColumn
-cfprUuidpoolAddrAssigned=_CfprUuidpoolAddrAssigned_Object((1,3,6,1,4,1,9,9,826,1,80,1,1,4),_CfprUuidpoolAddrAssigned_Type())
-cfprUuidpoolAddrAssigned.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolAddrAssigned.setStatus(_A)
-_CfprUuidpoolAddrAssignedToDn_Type=SnmpAdminString
-_CfprUuidpoolAddrAssignedToDn_Object=MibTableColumn
-cfprUuidpoolAddrAssignedToDn=_CfprUuidpoolAddrAssignedToDn_Object((1,3,6,1,4,1,9,9,826,1,80,1,1,5),_CfprUuidpoolAddrAssignedToDn_Type())
-cfprUuidpoolAddrAssignedToDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolAddrAssignedToDn.setStatus(_A)
-_CfprUuidpoolAddrGlobalAssignedCnt_Type=Gauge32
-_CfprUuidpoolAddrGlobalAssignedCnt_Object=MibTableColumn
-cfprUuidpoolAddrGlobalAssignedCnt=_CfprUuidpoolAddrGlobalAssignedCnt_Object((1,3,6,1,4,1,9,9,826,1,80,1,1,6),_CfprUuidpoolAddrGlobalAssignedCnt_Type())
-cfprUuidpoolAddrGlobalAssignedCnt.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolAddrGlobalAssignedCnt.setStatus(_A)
-_CfprUuidpoolAddrGlobalDefinedCnt_Type=Gauge32
-_CfprUuidpoolAddrGlobalDefinedCnt_Object=MibTableColumn
-cfprUuidpoolAddrGlobalDefinedCnt=_CfprUuidpoolAddrGlobalDefinedCnt_Object((1,3,6,1,4,1,9,9,826,1,80,1,1,7),_CfprUuidpoolAddrGlobalDefinedCnt_Type())
-cfprUuidpoolAddrGlobalDefinedCnt.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolAddrGlobalDefinedCnt.setStatus(_A)
-_CfprUuidpoolAddrId_Type=SnmpAdminString
-_CfprUuidpoolAddrId_Object=MibTableColumn
-cfprUuidpoolAddrId=_CfprUuidpoolAddrId_Object((1,3,6,1,4,1,9,9,826,1,80,1,1,8),_CfprUuidpoolAddrId_Type())
-cfprUuidpoolAddrId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolAddrId.setStatus(_A)
-_CfprUuidpoolAddrOwner_Type=CfprPoolElementOwner
-_CfprUuidpoolAddrOwner_Object=MibTableColumn
-cfprUuidpoolAddrOwner=_CfprUuidpoolAddrOwner_Object((1,3,6,1,4,1,9,9,826,1,80,1,1,9),_CfprUuidpoolAddrOwner_Type())
-cfprUuidpoolAddrOwner.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolAddrOwner.setStatus(_A)
-_CfprUuidpoolBlockTable_Object=MibTable
-cfprUuidpoolBlockTable=_CfprUuidpoolBlockTable_Object((1,3,6,1,4,1,9,9,826,1,80,2))
-if mibBuilder.loadTexts:cfprUuidpoolBlockTable.setStatus(_A)
-_CfprUuidpoolBlockEntry_Object=MibTableRow
-cfprUuidpoolBlockEntry=_CfprUuidpoolBlockEntry_Object((1,3,6,1,4,1,9,9,826,1,80,2,1))
-cfprUuidpoolBlockEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:cfprUuidpoolBlockEntry.setStatus(_A)
-_CfprUuidpoolBlockInstanceId_Type=CfprManagedObjectId
-_CfprUuidpoolBlockInstanceId_Object=MibTableColumn
-cfprUuidpoolBlockInstanceId=_CfprUuidpoolBlockInstanceId_Object((1,3,6,1,4,1,9,9,826,1,80,2,1,1),_CfprUuidpoolBlockInstanceId_Type())
-cfprUuidpoolBlockInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprUuidpoolBlockInstanceId.setStatus(_A)
-_CfprUuidpoolBlockDn_Type=CfprManagedObjectDn
-_CfprUuidpoolBlockDn_Object=MibTableColumn
-cfprUuidpoolBlockDn=_CfprUuidpoolBlockDn_Object((1,3,6,1,4,1,9,9,826,1,80,2,1,2),_CfprUuidpoolBlockDn_Type())
-cfprUuidpoolBlockDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolBlockDn.setStatus(_A)
-_CfprUuidpoolBlockRn_Type=SnmpAdminString
-_CfprUuidpoolBlockRn_Object=MibTableColumn
-cfprUuidpoolBlockRn=_CfprUuidpoolBlockRn_Object((1,3,6,1,4,1,9,9,826,1,80,2,1,3),_CfprUuidpoolBlockRn_Type())
-cfprUuidpoolBlockRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolBlockRn.setStatus(_A)
-_CfprUuidpoolBlockFrom_Type=Unsigned64
-_CfprUuidpoolBlockFrom_Object=MibTableColumn
-cfprUuidpoolBlockFrom=_CfprUuidpoolBlockFrom_Object((1,3,6,1,4,1,9,9,826,1,80,2,1,4),_CfprUuidpoolBlockFrom_Type())
-cfprUuidpoolBlockFrom.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolBlockFrom.setStatus(_A)
-_CfprUuidpoolBlockTo_Type=Unsigned64
-_CfprUuidpoolBlockTo_Object=MibTableColumn
-cfprUuidpoolBlockTo=_CfprUuidpoolBlockTo_Object((1,3,6,1,4,1,9,9,826,1,80,2,1,5),_CfprUuidpoolBlockTo_Type())
-cfprUuidpoolBlockTo.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolBlockTo.setStatus(_A)
-_CfprUuidpoolFormatTable_Object=MibTable
-cfprUuidpoolFormatTable=_CfprUuidpoolFormatTable_Object((1,3,6,1,4,1,9,9,826,1,80,3))
-if mibBuilder.loadTexts:cfprUuidpoolFormatTable.setStatus(_A)
-_CfprUuidpoolFormatEntry_Object=MibTableRow
-cfprUuidpoolFormatEntry=_CfprUuidpoolFormatEntry_Object((1,3,6,1,4,1,9,9,826,1,80,3,1))
-cfprUuidpoolFormatEntry.setIndexNames((0,_C,_G))
-if mibBuilder.loadTexts:cfprUuidpoolFormatEntry.setStatus(_A)
-_CfprUuidpoolFormatInstanceId_Type=CfprManagedObjectId
-_CfprUuidpoolFormatInstanceId_Object=MibTableColumn
-cfprUuidpoolFormatInstanceId=_CfprUuidpoolFormatInstanceId_Object((1,3,6,1,4,1,9,9,826,1,80,3,1,1),_CfprUuidpoolFormatInstanceId_Type())
-cfprUuidpoolFormatInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprUuidpoolFormatInstanceId.setStatus(_A)
-_CfprUuidpoolFormatDn_Type=CfprManagedObjectDn
-_CfprUuidpoolFormatDn_Object=MibTableColumn
-cfprUuidpoolFormatDn=_CfprUuidpoolFormatDn_Object((1,3,6,1,4,1,9,9,826,1,80,3,1,2),_CfprUuidpoolFormatDn_Type())
-cfprUuidpoolFormatDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolFormatDn.setStatus(_A)
-_CfprUuidpoolFormatRn_Type=SnmpAdminString
-_CfprUuidpoolFormatRn_Object=MibTableColumn
-cfprUuidpoolFormatRn=_CfprUuidpoolFormatRn_Object((1,3,6,1,4,1,9,9,826,1,80,3,1,3),_CfprUuidpoolFormatRn_Type())
-cfprUuidpoolFormatRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolFormatRn.setStatus(_A)
-_CfprUuidpoolFormatFormat_Type=Unsigned64
-_CfprUuidpoolFormatFormat_Object=MibTableColumn
-cfprUuidpoolFormatFormat=_CfprUuidpoolFormatFormat_Object((1,3,6,1,4,1,9,9,826,1,80,3,1,4),_CfprUuidpoolFormatFormat_Type())
-cfprUuidpoolFormatFormat.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolFormatFormat.setStatus(_A)
-_CfprUuidpoolFormatMask_Type=CfprAddressUIDSuffxMask
-_CfprUuidpoolFormatMask_Object=MibTableColumn
-cfprUuidpoolFormatMask=_CfprUuidpoolFormatMask_Object((1,3,6,1,4,1,9,9,826,1,80,3,1,5),_CfprUuidpoolFormatMask_Type())
-cfprUuidpoolFormatMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolFormatMask.setStatus(_A)
-_CfprUuidpoolPoolTable_Object=MibTable
-cfprUuidpoolPoolTable=_CfprUuidpoolPoolTable_Object((1,3,6,1,4,1,9,9,826,1,80,4))
-if mibBuilder.loadTexts:cfprUuidpoolPoolTable.setStatus(_A)
-_CfprUuidpoolPoolEntry_Object=MibTableRow
-cfprUuidpoolPoolEntry=_CfprUuidpoolPoolEntry_Object((1,3,6,1,4,1,9,9,826,1,80,4,1))
-cfprUuidpoolPoolEntry.setIndexNames((0,_C,_H))
-if mibBuilder.loadTexts:cfprUuidpoolPoolEntry.setStatus(_A)
-_CfprUuidpoolPoolInstanceId_Type=CfprManagedObjectId
-_CfprUuidpoolPoolInstanceId_Object=MibTableColumn
-cfprUuidpoolPoolInstanceId=_CfprUuidpoolPoolInstanceId_Object((1,3,6,1,4,1,9,9,826,1,80,4,1,1),_CfprUuidpoolPoolInstanceId_Type())
-cfprUuidpoolPoolInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprUuidpoolPoolInstanceId.setStatus(_A)
-_CfprUuidpoolPoolDn_Type=CfprManagedObjectDn
-_CfprUuidpoolPoolDn_Object=MibTableColumn
-cfprUuidpoolPoolDn=_CfprUuidpoolPoolDn_Object((1,3,6,1,4,1,9,9,826,1,80,4,1,2),_CfprUuidpoolPoolDn_Type())
-cfprUuidpoolPoolDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPoolDn.setStatus(_A)
-_CfprUuidpoolPoolRn_Type=SnmpAdminString
-_CfprUuidpoolPoolRn_Object=MibTableColumn
-cfprUuidpoolPoolRn=_CfprUuidpoolPoolRn_Object((1,3,6,1,4,1,9,9,826,1,80,4,1,3),_CfprUuidpoolPoolRn_Type())
-cfprUuidpoolPoolRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPoolRn.setStatus(_A)
-_CfprUuidpoolPoolAssigned_Type=Gauge32
-_CfprUuidpoolPoolAssigned_Object=MibTableColumn
-cfprUuidpoolPoolAssigned=_CfprUuidpoolPoolAssigned_Object((1,3,6,1,4,1,9,9,826,1,80,4,1,4),_CfprUuidpoolPoolAssigned_Type())
-cfprUuidpoolPoolAssigned.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPoolAssigned.setStatus(_A)
-_CfprUuidpoolPoolAssignmentOrder_Type=CfprUuidpoolPoolAssignmentOrder
-_CfprUuidpoolPoolAssignmentOrder_Object=MibTableColumn
-cfprUuidpoolPoolAssignmentOrder=_CfprUuidpoolPoolAssignmentOrder_Object((1,3,6,1,4,1,9,9,826,1,80,4,1,5),_CfprUuidpoolPoolAssignmentOrder_Type())
-cfprUuidpoolPoolAssignmentOrder.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPoolAssignmentOrder.setStatus(_A)
-_CfprUuidpoolPoolDescr_Type=SnmpAdminString
-_CfprUuidpoolPoolDescr_Object=MibTableColumn
-cfprUuidpoolPoolDescr=_CfprUuidpoolPoolDescr_Object((1,3,6,1,4,1,9,9,826,1,80,4,1,6),_CfprUuidpoolPoolDescr_Type())
-cfprUuidpoolPoolDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPoolDescr.setStatus(_A)
-_CfprUuidpoolPoolIntId_Type=SnmpAdminString
-_CfprUuidpoolPoolIntId_Object=MibTableColumn
-cfprUuidpoolPoolIntId=_CfprUuidpoolPoolIntId_Object((1,3,6,1,4,1,9,9,826,1,80,4,1,7),_CfprUuidpoolPoolIntId_Type())
-cfprUuidpoolPoolIntId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPoolIntId.setStatus(_A)
-_CfprUuidpoolPoolName_Type=SnmpAdminString
-_CfprUuidpoolPoolName_Object=MibTableColumn
-cfprUuidpoolPoolName=_CfprUuidpoolPoolName_Object((1,3,6,1,4,1,9,9,826,1,80,4,1,8),_CfprUuidpoolPoolName_Type())
-cfprUuidpoolPoolName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPoolName.setStatus(_A)
-_CfprUuidpoolPoolPolicyLevel_Type=Gauge32
-_CfprUuidpoolPoolPolicyLevel_Object=MibTableColumn
-cfprUuidpoolPoolPolicyLevel=_CfprUuidpoolPoolPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,80,4,1,9),_CfprUuidpoolPoolPolicyLevel_Type())
-cfprUuidpoolPoolPolicyLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPoolPolicyLevel.setStatus(_A)
-_CfprUuidpoolPoolPolicyOwner_Type=CfprPolicyPolicyOwner
-_CfprUuidpoolPoolPolicyOwner_Object=MibTableColumn
-cfprUuidpoolPoolPolicyOwner=_CfprUuidpoolPoolPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,80,4,1,10),_CfprUuidpoolPoolPolicyOwner_Type())
-cfprUuidpoolPoolPolicyOwner.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPoolPolicyOwner.setStatus(_A)
-_CfprUuidpoolPoolPrefix_Type=Unsigned64
-_CfprUuidpoolPoolPrefix_Object=MibTableColumn
-cfprUuidpoolPoolPrefix=_CfprUuidpoolPoolPrefix_Object((1,3,6,1,4,1,9,9,826,1,80,4,1,11),_CfprUuidpoolPoolPrefix_Type())
-cfprUuidpoolPoolPrefix.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPoolPrefix.setStatus(_A)
-_CfprUuidpoolPoolSize_Type=Gauge32
-_CfprUuidpoolPoolSize_Object=MibTableColumn
-cfprUuidpoolPoolSize=_CfprUuidpoolPoolSize_Object((1,3,6,1,4,1,9,9,826,1,80,4,1,12),_CfprUuidpoolPoolSize_Type())
-cfprUuidpoolPoolSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPoolSize.setStatus(_A)
-_CfprUuidpoolPoolableTable_Object=MibTable
-cfprUuidpoolPoolableTable=_CfprUuidpoolPoolableTable_Object((1,3,6,1,4,1,9,9,826,1,80,5))
-if mibBuilder.loadTexts:cfprUuidpoolPoolableTable.setStatus(_A)
-_CfprUuidpoolPoolableEntry_Object=MibTableRow
-cfprUuidpoolPoolableEntry=_CfprUuidpoolPoolableEntry_Object((1,3,6,1,4,1,9,9,826,1,80,5,1))
-cfprUuidpoolPoolableEntry.setIndexNames((0,_C,_I))
-if mibBuilder.loadTexts:cfprUuidpoolPoolableEntry.setStatus(_A)
-_CfprUuidpoolPoolableInstanceId_Type=CfprManagedObjectId
-_CfprUuidpoolPoolableInstanceId_Object=MibTableColumn
-cfprUuidpoolPoolableInstanceId=_CfprUuidpoolPoolableInstanceId_Object((1,3,6,1,4,1,9,9,826,1,80,5,1,1),_CfprUuidpoolPoolableInstanceId_Type())
-cfprUuidpoolPoolableInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprUuidpoolPoolableInstanceId.setStatus(_A)
-_CfprUuidpoolPoolableDn_Type=CfprManagedObjectDn
-_CfprUuidpoolPoolableDn_Object=MibTableColumn
-cfprUuidpoolPoolableDn=_CfprUuidpoolPoolableDn_Object((1,3,6,1,4,1,9,9,826,1,80,5,1,2),_CfprUuidpoolPoolableDn_Type())
-cfprUuidpoolPoolableDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPoolableDn.setStatus(_A)
-_CfprUuidpoolPoolableRn_Type=SnmpAdminString
-_CfprUuidpoolPoolableRn_Object=MibTableColumn
-cfprUuidpoolPoolableRn=_CfprUuidpoolPoolableRn_Object((1,3,6,1,4,1,9,9,826,1,80,5,1,3),_CfprUuidpoolPoolableRn_Type())
-cfprUuidpoolPoolableRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPoolableRn.setStatus(_A)
-_CfprUuidpoolPoolableId_Type=Unsigned64
-_CfprUuidpoolPoolableId_Object=MibTableColumn
-cfprUuidpoolPoolableId=_CfprUuidpoolPoolableId_Object((1,3,6,1,4,1,9,9,826,1,80,5,1,4),_CfprUuidpoolPoolableId_Type())
-cfprUuidpoolPoolableId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPoolableId.setStatus(_A)
-_CfprUuidpoolPoolablePoolDn_Type=SnmpAdminString
-_CfprUuidpoolPoolablePoolDn_Object=MibTableColumn
-cfprUuidpoolPoolablePoolDn=_CfprUuidpoolPoolablePoolDn_Object((1,3,6,1,4,1,9,9,826,1,80,5,1,5),_CfprUuidpoolPoolablePoolDn_Type())
-cfprUuidpoolPoolablePoolDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPoolablePoolDn.setStatus(_A)
-_CfprUuidpoolPooledTable_Object=MibTable
-cfprUuidpoolPooledTable=_CfprUuidpoolPooledTable_Object((1,3,6,1,4,1,9,9,826,1,80,6))
-if mibBuilder.loadTexts:cfprUuidpoolPooledTable.setStatus(_A)
-_CfprUuidpoolPooledEntry_Object=MibTableRow
-cfprUuidpoolPooledEntry=_CfprUuidpoolPooledEntry_Object((1,3,6,1,4,1,9,9,826,1,80,6,1))
-cfprUuidpoolPooledEntry.setIndexNames((0,_C,_J))
-if mibBuilder.loadTexts:cfprUuidpoolPooledEntry.setStatus(_A)
-_CfprUuidpoolPooledInstanceId_Type=CfprManagedObjectId
-_CfprUuidpoolPooledInstanceId_Object=MibTableColumn
-cfprUuidpoolPooledInstanceId=_CfprUuidpoolPooledInstanceId_Object((1,3,6,1,4,1,9,9,826,1,80,6,1,1),_CfprUuidpoolPooledInstanceId_Type())
-cfprUuidpoolPooledInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprUuidpoolPooledInstanceId.setStatus(_A)
-_CfprUuidpoolPooledDn_Type=CfprManagedObjectDn
-_CfprUuidpoolPooledDn_Object=MibTableColumn
-cfprUuidpoolPooledDn=_CfprUuidpoolPooledDn_Object((1,3,6,1,4,1,9,9,826,1,80,6,1,2),_CfprUuidpoolPooledDn_Type())
-cfprUuidpoolPooledDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPooledDn.setStatus(_A)
-_CfprUuidpoolPooledRn_Type=SnmpAdminString
-_CfprUuidpoolPooledRn_Object=MibTableColumn
-cfprUuidpoolPooledRn=_CfprUuidpoolPooledRn_Object((1,3,6,1,4,1,9,9,826,1,80,6,1,3),_CfprUuidpoolPooledRn_Type())
-cfprUuidpoolPooledRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPooledRn.setStatus(_A)
-_CfprUuidpoolPooledAssigned_Type=TruthValue
-_CfprUuidpoolPooledAssigned_Object=MibTableColumn
-cfprUuidpoolPooledAssigned=_CfprUuidpoolPooledAssigned_Object((1,3,6,1,4,1,9,9,826,1,80,6,1,4),_CfprUuidpoolPooledAssigned_Type())
-cfprUuidpoolPooledAssigned.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPooledAssigned.setStatus(_A)
-_CfprUuidpoolPooledAssignedToDn_Type=SnmpAdminString
-_CfprUuidpoolPooledAssignedToDn_Object=MibTableColumn
-cfprUuidpoolPooledAssignedToDn=_CfprUuidpoolPooledAssignedToDn_Object((1,3,6,1,4,1,9,9,826,1,80,6,1,5),_CfprUuidpoolPooledAssignedToDn_Type())
-cfprUuidpoolPooledAssignedToDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPooledAssignedToDn.setStatus(_A)
-_CfprUuidpoolPooledId_Type=Unsigned64
-_CfprUuidpoolPooledId_Object=MibTableColumn
-cfprUuidpoolPooledId=_CfprUuidpoolPooledId_Object((1,3,6,1,4,1,9,9,826,1,80,6,1,6),_CfprUuidpoolPooledId_Type())
-cfprUuidpoolPooledId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPooledId.setStatus(_A)
-_CfprUuidpoolPooledPoolableDn_Type=SnmpAdminString
-_CfprUuidpoolPooledPoolableDn_Object=MibTableColumn
-cfprUuidpoolPooledPoolableDn=_CfprUuidpoolPooledPoolableDn_Object((1,3,6,1,4,1,9,9,826,1,80,6,1,7),_CfprUuidpoolPooledPoolableDn_Type())
-cfprUuidpoolPooledPoolableDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPooledPoolableDn.setStatus(_A)
-_CfprUuidpoolPooledPrevAssignedToDn_Type=SnmpAdminString
-_CfprUuidpoolPooledPrevAssignedToDn_Object=MibTableColumn
-cfprUuidpoolPooledPrevAssignedToDn=_CfprUuidpoolPooledPrevAssignedToDn_Object((1,3,6,1,4,1,9,9,826,1,80,6,1,8),_CfprUuidpoolPooledPrevAssignedToDn_Type())
-cfprUuidpoolPooledPrevAssignedToDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolPooledPrevAssignedToDn.setStatus(_A)
-_CfprUuidpoolUniverseTable_Object=MibTable
-cfprUuidpoolUniverseTable=_CfprUuidpoolUniverseTable_Object((1,3,6,1,4,1,9,9,826,1,80,7))
-if mibBuilder.loadTexts:cfprUuidpoolUniverseTable.setStatus(_A)
-_CfprUuidpoolUniverseEntry_Object=MibTableRow
-cfprUuidpoolUniverseEntry=_CfprUuidpoolUniverseEntry_Object((1,3,6,1,4,1,9,9,826,1,80,7,1))
-cfprUuidpoolUniverseEntry.setIndexNames((0,_C,_K))
-if mibBuilder.loadTexts:cfprUuidpoolUniverseEntry.setStatus(_A)
-_CfprUuidpoolUniverseInstanceId_Type=CfprManagedObjectId
-_CfprUuidpoolUniverseInstanceId_Object=MibTableColumn
-cfprUuidpoolUniverseInstanceId=_CfprUuidpoolUniverseInstanceId_Object((1,3,6,1,4,1,9,9,826,1,80,7,1,1),_CfprUuidpoolUniverseInstanceId_Type())
-cfprUuidpoolUniverseInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprUuidpoolUniverseInstanceId.setStatus(_A)
-_CfprUuidpoolUniverseDn_Type=CfprManagedObjectDn
-_CfprUuidpoolUniverseDn_Object=MibTableColumn
-cfprUuidpoolUniverseDn=_CfprUuidpoolUniverseDn_Object((1,3,6,1,4,1,9,9,826,1,80,7,1,2),_CfprUuidpoolUniverseDn_Type())
-cfprUuidpoolUniverseDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolUniverseDn.setStatus(_A)
-_CfprUuidpoolUniverseRn_Type=SnmpAdminString
-_CfprUuidpoolUniverseRn_Object=MibTableColumn
-cfprUuidpoolUniverseRn=_CfprUuidpoolUniverseRn_Object((1,3,6,1,4,1,9,9,826,1,80,7,1,3),_CfprUuidpoolUniverseRn_Type())
-cfprUuidpoolUniverseRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprUuidpoolUniverseRn.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'cfprUuidpoolObjects':cfprUuidpoolObjects,'cfprUuidpoolAddrTable':cfprUuidpoolAddrTable,'cfprUuidpoolAddrEntry':cfprUuidpoolAddrEntry,_E:cfprUuidpoolAddrInstanceId,'cfprUuidpoolAddrDn':cfprUuidpoolAddrDn,'cfprUuidpoolAddrRn':cfprUuidpoolAddrRn,'cfprUuidpoolAddrAssigned':cfprUuidpoolAddrAssigned,'cfprUuidpoolAddrAssignedToDn':cfprUuidpoolAddrAssignedToDn,'cfprUuidpoolAddrGlobalAssignedCnt':cfprUuidpoolAddrGlobalAssignedCnt,'cfprUuidpoolAddrGlobalDefinedCnt':cfprUuidpoolAddrGlobalDefinedCnt,'cfprUuidpoolAddrId':cfprUuidpoolAddrId,'cfprUuidpoolAddrOwner':cfprUuidpoolAddrOwner,'cfprUuidpoolBlockTable':cfprUuidpoolBlockTable,'cfprUuidpoolBlockEntry':cfprUuidpoolBlockEntry,_F:cfprUuidpoolBlockInstanceId,'cfprUuidpoolBlockDn':cfprUuidpoolBlockDn,'cfprUuidpoolBlockRn':cfprUuidpoolBlockRn,'cfprUuidpoolBlockFrom':cfprUuidpoolBlockFrom,'cfprUuidpoolBlockTo':cfprUuidpoolBlockTo,'cfprUuidpoolFormatTable':cfprUuidpoolFormatTable,'cfprUuidpoolFormatEntry':cfprUuidpoolFormatEntry,_G:cfprUuidpoolFormatInstanceId,'cfprUuidpoolFormatDn':cfprUuidpoolFormatDn,'cfprUuidpoolFormatRn':cfprUuidpoolFormatRn,'cfprUuidpoolFormatFormat':cfprUuidpoolFormatFormat,'cfprUuidpoolFormatMask':cfprUuidpoolFormatMask,'cfprUuidpoolPoolTable':cfprUuidpoolPoolTable,'cfprUuidpoolPoolEntry':cfprUuidpoolPoolEntry,_H:cfprUuidpoolPoolInstanceId,'cfprUuidpoolPoolDn':cfprUuidpoolPoolDn,'cfprUuidpoolPoolRn':cfprUuidpoolPoolRn,'cfprUuidpoolPoolAssigned':cfprUuidpoolPoolAssigned,'cfprUuidpoolPoolAssignmentOrder':cfprUuidpoolPoolAssignmentOrder,'cfprUuidpoolPoolDescr':cfprUuidpoolPoolDescr,'cfprUuidpoolPoolIntId':cfprUuidpoolPoolIntId,'cfprUuidpoolPoolName':cfprUuidpoolPoolName,'cfprUuidpoolPoolPolicyLevel':cfprUuidpoolPoolPolicyLevel,'cfprUuidpoolPoolPolicyOwner':cfprUuidpoolPoolPolicyOwner,'cfprUuidpoolPoolPrefix':cfprUuidpoolPoolPrefix,'cfprUuidpoolPoolSize':cfprUuidpoolPoolSize,'cfprUuidpoolPoolableTable':cfprUuidpoolPoolableTable,'cfprUuidpoolPoolableEntry':cfprUuidpoolPoolableEntry,_I:cfprUuidpoolPoolableInstanceId,'cfprUuidpoolPoolableDn':cfprUuidpoolPoolableDn,'cfprUuidpoolPoolableRn':cfprUuidpoolPoolableRn,'cfprUuidpoolPoolableId':cfprUuidpoolPoolableId,'cfprUuidpoolPoolablePoolDn':cfprUuidpoolPoolablePoolDn,'cfprUuidpoolPooledTable':cfprUuidpoolPooledTable,'cfprUuidpoolPooledEntry':cfprUuidpoolPooledEntry,_J:cfprUuidpoolPooledInstanceId,'cfprUuidpoolPooledDn':cfprUuidpoolPooledDn,'cfprUuidpoolPooledRn':cfprUuidpoolPooledRn,'cfprUuidpoolPooledAssigned':cfprUuidpoolPooledAssigned,'cfprUuidpoolPooledAssignedToDn':cfprUuidpoolPooledAssignedToDn,'cfprUuidpoolPooledId':cfprUuidpoolPooledId,'cfprUuidpoolPooledPoolableDn':cfprUuidpoolPooledPoolableDn,'cfprUuidpoolPooledPrevAssignedToDn':cfprUuidpoolPooledPrevAssignedToDn,'cfprUuidpoolUniverseTable':cfprUuidpoolUniverseTable,'cfprUuidpoolUniverseEntry':cfprUuidpoolUniverseEntry,_K:cfprUuidpoolUniverseInstanceId,'cfprUuidpoolUniverseDn':cfprUuidpoolUniverseDn,'cfprUuidpoolUniverseRn':cfprUuidpoolUniverseRn})
+#
+# PySNMP MIB module CISCO-FIREPOWER-UUIDPOOL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-FIREPOWER-UUIDPOOL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:13 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoFirepowerMIBObjects, CfprManagedObjectId, CfprManagedObjectDn = mibBuilder.importSymbols("CISCO-FIREPOWER-MIB", "ciscoFirepowerMIBObjects", "CfprManagedObjectId", "CfprManagedObjectDn")
+CfprAddressUIDSuffxMask, CfprPoolElementOwner, CfprUuidpoolPoolAssignmentOrder, CfprPolicyPolicyOwner = mibBuilder.importSymbols("CISCO-FIREPOWER-TC-MIB", "CfprAddressUIDSuffxMask", "CfprPoolElementOwner", "CfprUuidpoolPoolAssignmentOrder", "CfprPolicyPolicyOwner")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+Unsigned64, CiscoAlarmSeverity, CiscoInetAddressMask, TimeIntervalSec, CiscoNetworkAddress = mibBuilder.importSymbols("CISCO-TC", "Unsigned64", "CiscoAlarmSeverity", "CiscoInetAddressMask", "TimeIntervalSec", "CiscoNetworkAddress")
+InetAddressIPv6, InetAddressIPv4 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6", "InetAddressIPv4")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, TruthValue, DateAndTime, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "TruthValue", "DateAndTime", "RowPointer", "TextualConvention")
+cfprUuidpoolObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80))
+if mibBuilder.loadTexts: cfprUuidpoolObjects.setLastUpdated('202003100000Z')
+if mibBuilder.loadTexts: cfprUuidpoolObjects.setOrganization('Cisco Systems Inc.')
+cfprUuidpoolAddrTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 1), )
+if mibBuilder.loadTexts: cfprUuidpoolAddrTable.setStatus('current')
+cfprUuidpoolAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 1, 1), ).setIndexNames((0, "CISCO-FIREPOWER-UUIDPOOL-MIB", "cfprUuidpoolAddrInstanceId"))
+if mibBuilder.loadTexts: cfprUuidpoolAddrEntry.setStatus('current')
+cfprUuidpoolAddrInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 1, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprUuidpoolAddrInstanceId.setStatus('current')
+cfprUuidpoolAddrDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 1, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolAddrDn.setStatus('current')
+cfprUuidpoolAddrRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolAddrRn.setStatus('current')
+cfprUuidpoolAddrAssigned = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 1, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolAddrAssigned.setStatus('current')
+cfprUuidpoolAddrAssignedToDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolAddrAssignedToDn.setStatus('current')
+cfprUuidpoolAddrGlobalAssignedCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 1, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolAddrGlobalAssignedCnt.setStatus('current')
+cfprUuidpoolAddrGlobalDefinedCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 1, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolAddrGlobalDefinedCnt.setStatus('current')
+cfprUuidpoolAddrId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolAddrId.setStatus('current')
+cfprUuidpoolAddrOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 1, 1, 9), CfprPoolElementOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolAddrOwner.setStatus('current')
+cfprUuidpoolBlockTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 2), )
+if mibBuilder.loadTexts: cfprUuidpoolBlockTable.setStatus('current')
+cfprUuidpoolBlockEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 2, 1), ).setIndexNames((0, "CISCO-FIREPOWER-UUIDPOOL-MIB", "cfprUuidpoolBlockInstanceId"))
+if mibBuilder.loadTexts: cfprUuidpoolBlockEntry.setStatus('current')
+cfprUuidpoolBlockInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 2, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprUuidpoolBlockInstanceId.setStatus('current')
+cfprUuidpoolBlockDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 2, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolBlockDn.setStatus('current')
+cfprUuidpoolBlockRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolBlockRn.setStatus('current')
+cfprUuidpoolBlockFrom = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 2, 1, 4), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolBlockFrom.setStatus('current')
+cfprUuidpoolBlockTo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 2, 1, 5), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolBlockTo.setStatus('current')
+cfprUuidpoolFormatTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 3), )
+if mibBuilder.loadTexts: cfprUuidpoolFormatTable.setStatus('current')
+cfprUuidpoolFormatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 3, 1), ).setIndexNames((0, "CISCO-FIREPOWER-UUIDPOOL-MIB", "cfprUuidpoolFormatInstanceId"))
+if mibBuilder.loadTexts: cfprUuidpoolFormatEntry.setStatus('current')
+cfprUuidpoolFormatInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 3, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprUuidpoolFormatInstanceId.setStatus('current')
+cfprUuidpoolFormatDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 3, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolFormatDn.setStatus('current')
+cfprUuidpoolFormatRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 3, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolFormatRn.setStatus('current')
+cfprUuidpoolFormatFormat = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 3, 1, 4), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolFormatFormat.setStatus('current')
+cfprUuidpoolFormatMask = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 3, 1, 5), CfprAddressUIDSuffxMask()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolFormatMask.setStatus('current')
+cfprUuidpoolPoolTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 4), )
+if mibBuilder.loadTexts: cfprUuidpoolPoolTable.setStatus('current')
+cfprUuidpoolPoolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 4, 1), ).setIndexNames((0, "CISCO-FIREPOWER-UUIDPOOL-MIB", "cfprUuidpoolPoolInstanceId"))
+if mibBuilder.loadTexts: cfprUuidpoolPoolEntry.setStatus('current')
+cfprUuidpoolPoolInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 4, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprUuidpoolPoolInstanceId.setStatus('current')
+cfprUuidpoolPoolDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 4, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPoolDn.setStatus('current')
+cfprUuidpoolPoolRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 4, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPoolRn.setStatus('current')
+cfprUuidpoolPoolAssigned = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 4, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPoolAssigned.setStatus('current')
+cfprUuidpoolPoolAssignmentOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 4, 1, 5), CfprUuidpoolPoolAssignmentOrder()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPoolAssignmentOrder.setStatus('current')
+cfprUuidpoolPoolDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 4, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPoolDescr.setStatus('current')
+cfprUuidpoolPoolIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 4, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPoolIntId.setStatus('current')
+cfprUuidpoolPoolName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 4, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPoolName.setStatus('current')
+cfprUuidpoolPoolPolicyLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 4, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPoolPolicyLevel.setStatus('current')
+cfprUuidpoolPoolPolicyOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 4, 1, 10), CfprPolicyPolicyOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPoolPolicyOwner.setStatus('current')
+cfprUuidpoolPoolPrefix = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 4, 1, 11), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPoolPrefix.setStatus('current')
+cfprUuidpoolPoolSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 4, 1, 12), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPoolSize.setStatus('current')
+cfprUuidpoolPoolableTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 5), )
+if mibBuilder.loadTexts: cfprUuidpoolPoolableTable.setStatus('current')
+cfprUuidpoolPoolableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 5, 1), ).setIndexNames((0, "CISCO-FIREPOWER-UUIDPOOL-MIB", "cfprUuidpoolPoolableInstanceId"))
+if mibBuilder.loadTexts: cfprUuidpoolPoolableEntry.setStatus('current')
+cfprUuidpoolPoolableInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 5, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprUuidpoolPoolableInstanceId.setStatus('current')
+cfprUuidpoolPoolableDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 5, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPoolableDn.setStatus('current')
+cfprUuidpoolPoolableRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 5, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPoolableRn.setStatus('current')
+cfprUuidpoolPoolableId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 5, 1, 4), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPoolableId.setStatus('current')
+cfprUuidpoolPoolablePoolDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 5, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPoolablePoolDn.setStatus('current')
+cfprUuidpoolPooledTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 6), )
+if mibBuilder.loadTexts: cfprUuidpoolPooledTable.setStatus('current')
+cfprUuidpoolPooledEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 6, 1), ).setIndexNames((0, "CISCO-FIREPOWER-UUIDPOOL-MIB", "cfprUuidpoolPooledInstanceId"))
+if mibBuilder.loadTexts: cfprUuidpoolPooledEntry.setStatus('current')
+cfprUuidpoolPooledInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 6, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprUuidpoolPooledInstanceId.setStatus('current')
+cfprUuidpoolPooledDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 6, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPooledDn.setStatus('current')
+cfprUuidpoolPooledRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 6, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPooledRn.setStatus('current')
+cfprUuidpoolPooledAssigned = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 6, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPooledAssigned.setStatus('current')
+cfprUuidpoolPooledAssignedToDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 6, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPooledAssignedToDn.setStatus('current')
+cfprUuidpoolPooledId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 6, 1, 6), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPooledId.setStatus('current')
+cfprUuidpoolPooledPoolableDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 6, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPooledPoolableDn.setStatus('current')
+cfprUuidpoolPooledPrevAssignedToDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 6, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolPooledPrevAssignedToDn.setStatus('current')
+cfprUuidpoolUniverseTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 7), )
+if mibBuilder.loadTexts: cfprUuidpoolUniverseTable.setStatus('current')
+cfprUuidpoolUniverseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 7, 1), ).setIndexNames((0, "CISCO-FIREPOWER-UUIDPOOL-MIB", "cfprUuidpoolUniverseInstanceId"))
+if mibBuilder.loadTexts: cfprUuidpoolUniverseEntry.setStatus('current')
+cfprUuidpoolUniverseInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 7, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprUuidpoolUniverseInstanceId.setStatus('current')
+cfprUuidpoolUniverseDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 7, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolUniverseDn.setStatus('current')
+cfprUuidpoolUniverseRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 80, 7, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprUuidpoolUniverseRn.setStatus('current')
+mibBuilder.exportSymbols("CISCO-FIREPOWER-UUIDPOOL-MIB", cfprUuidpoolPoolTable=cfprUuidpoolPoolTable, cfprUuidpoolPooledId=cfprUuidpoolPooledId, cfprUuidpoolAddrTable=cfprUuidpoolAddrTable, cfprUuidpoolPooledPoolableDn=cfprUuidpoolPooledPoolableDn, cfprUuidpoolPooledPrevAssignedToDn=cfprUuidpoolPooledPrevAssignedToDn, cfprUuidpoolPoolableDn=cfprUuidpoolPoolableDn, cfprUuidpoolPoolDescr=cfprUuidpoolPoolDescr, cfprUuidpoolPooledDn=cfprUuidpoolPooledDn, cfprUuidpoolPooledAssignedToDn=cfprUuidpoolPooledAssignedToDn, cfprUuidpoolFormatDn=cfprUuidpoolFormatDn, cfprUuidpoolPooledInstanceId=cfprUuidpoolPooledInstanceId, cfprUuidpoolPoolEntry=cfprUuidpoolPoolEntry, cfprUuidpoolBlockTable=cfprUuidpoolBlockTable, cfprUuidpoolPoolableInstanceId=cfprUuidpoolPoolableInstanceId, cfprUuidpoolPooledAssigned=cfprUuidpoolPooledAssigned, cfprUuidpoolBlockFrom=cfprUuidpoolBlockFrom, cfprUuidpoolAddrInstanceId=cfprUuidpoolAddrInstanceId, cfprUuidpoolAddrDn=cfprUuidpoolAddrDn, cfprUuidpoolPoolableTable=cfprUuidpoolPoolableTable, cfprUuidpoolPoolableEntry=cfprUuidpoolPoolableEntry, cfprUuidpoolPooledEntry=cfprUuidpoolPooledEntry, cfprUuidpoolPoolSize=cfprUuidpoolPoolSize, cfprUuidpoolPoolableRn=cfprUuidpoolPoolableRn, cfprUuidpoolPoolPrefix=cfprUuidpoolPoolPrefix, cfprUuidpoolUniverseRn=cfprUuidpoolUniverseRn, cfprUuidpoolPoolPolicyOwner=cfprUuidpoolPoolPolicyOwner, cfprUuidpoolPooledRn=cfprUuidpoolPooledRn, cfprUuidpoolPoolName=cfprUuidpoolPoolName, cfprUuidpoolBlockDn=cfprUuidpoolBlockDn, cfprUuidpoolUniverseTable=cfprUuidpoolUniverseTable, cfprUuidpoolAddrId=cfprUuidpoolAddrId, cfprUuidpoolUniverseInstanceId=cfprUuidpoolUniverseInstanceId, cfprUuidpoolFormatRn=cfprUuidpoolFormatRn, cfprUuidpoolPoolRn=cfprUuidpoolPoolRn, PYSNMP_MODULE_ID=cfprUuidpoolObjects, cfprUuidpoolAddrAssignedToDn=cfprUuidpoolAddrAssignedToDn, cfprUuidpoolBlockRn=cfprUuidpoolBlockRn, cfprUuidpoolPoolAssignmentOrder=cfprUuidpoolPoolAssignmentOrder, cfprUuidpoolObjects=cfprUuidpoolObjects, cfprUuidpoolAddrGlobalAssignedCnt=cfprUuidpoolAddrGlobalAssignedCnt, cfprUuidpoolAddrRn=cfprUuidpoolAddrRn, cfprUuidpoolFormatTable=cfprUuidpoolFormatTable, cfprUuidpoolFormatEntry=cfprUuidpoolFormatEntry, cfprUuidpoolPoolPolicyLevel=cfprUuidpoolPoolPolicyLevel, cfprUuidpoolAddrEntry=cfprUuidpoolAddrEntry, cfprUuidpoolPoolDn=cfprUuidpoolPoolDn, cfprUuidpoolBlockInstanceId=cfprUuidpoolBlockInstanceId, cfprUuidpoolPoolAssigned=cfprUuidpoolPoolAssigned, cfprUuidpoolFormatMask=cfprUuidpoolFormatMask, cfprUuidpoolAddrOwner=cfprUuidpoolAddrOwner, cfprUuidpoolPooledTable=cfprUuidpoolPooledTable, cfprUuidpoolBlockTo=cfprUuidpoolBlockTo, cfprUuidpoolPoolablePoolDn=cfprUuidpoolPoolablePoolDn, cfprUuidpoolFormatInstanceId=cfprUuidpoolFormatInstanceId, cfprUuidpoolPoolInstanceId=cfprUuidpoolPoolInstanceId, cfprUuidpoolUniverseDn=cfprUuidpoolUniverseDn, cfprUuidpoolUniverseEntry=cfprUuidpoolUniverseEntry, cfprUuidpoolFormatFormat=cfprUuidpoolFormatFormat, cfprUuidpoolAddrAssigned=cfprUuidpoolAddrAssigned, cfprUuidpoolPoolIntId=cfprUuidpoolPoolIntId, cfprUuidpoolBlockEntry=cfprUuidpoolBlockEntry, cfprUuidpoolPoolableId=cfprUuidpoolPoolableId, cfprUuidpoolAddrGlobalDefinedCnt=cfprUuidpoolAddrGlobalDefinedCnt)

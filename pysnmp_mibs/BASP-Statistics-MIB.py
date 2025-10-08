@@ -1,203 +1,91 @@
-_J='btsvAdapterIndex'
-_I='btsvTeamIndex'
-_H='btspAdapterIndex'
-_G='btspTeamIndex'
-_F='btsTeamIndex'
-_E='not-accessible'
-_D='BASP-Statistics-MIB'
-_C='Integer32'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Broadcom_ObjectIdentity=ObjectIdentity
-broadcom=_Broadcom_ObjectIdentity((1,3,6,1,4,1,4413))
-_Enet_ObjectIdentity=ObjectIdentity
-enet=_Enet_ObjectIdentity((1,3,6,1,4,1,4413,1))
-_Basp_ObjectIdentity=ObjectIdentity
-basp=_Basp_ObjectIdentity((1,3,6,1,4,1,4413,1,2))
-_BaspStat_ObjectIdentity=ObjectIdentity
-baspStat=_BaspStat_ObjectIdentity((1,3,6,1,4,1,4413,1,2,2))
-_BaspTeamStat_ObjectIdentity=ObjectIdentity
-baspTeamStat=_BaspTeamStat_ObjectIdentity((1,3,6,1,4,1,4413,1,2,2,1))
-_BtsTeamNumber_Type=Integer32
-_BtsTeamNumber_Object=MibScalar
-btsTeamNumber=_BtsTeamNumber_Object((1,3,6,1,4,1,4413,1,2,2,1,1),_BtsTeamNumber_Type())
-btsTeamNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsTeamNumber.setStatus(_A)
-_BtsTeamTable_Object=MibTable
-btsTeamTable=_BtsTeamTable_Object((1,3,6,1,4,1,4413,1,2,2,1,2))
-if mibBuilder.loadTexts:btsTeamTable.setStatus(_A)
-_BtsTeamEntry_Object=MibTableRow
-btsTeamEntry=_BtsTeamEntry_Object((1,3,6,1,4,1,4413,1,2,2,1,2,1))
-btsTeamEntry.setIndexNames((0,_D,_F))
-if mibBuilder.loadTexts:btsTeamEntry.setStatus(_A)
-class _BtsTeamIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_BtsTeamIndex_Type.__name__=_C
-_BtsTeamIndex_Object=MibTableColumn
-btsTeamIndex=_BtsTeamIndex_Object((1,3,6,1,4,1,4413,1,2,2,1,2,1,1),_BtsTeamIndex_Type())
-btsTeamIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:btsTeamIndex.setStatus(_A)
-_BtsTeamName_Type=DisplayString
-_BtsTeamName_Object=MibTableColumn
-btsTeamName=_BtsTeamName_Object((1,3,6,1,4,1,4413,1,2,2,1,2,1,2),_BtsTeamName_Type())
-btsTeamName.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsTeamName.setStatus(_A)
-_BtsPhyNumber_Type=Integer32
-_BtsPhyNumber_Object=MibTableColumn
-btsPhyNumber=_BtsPhyNumber_Object((1,3,6,1,4,1,4413,1,2,2,1,2,1,3),_BtsPhyNumber_Type())
-btsPhyNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsPhyNumber.setStatus(_A)
-_BtsVirNumber_Type=Integer32
-_BtsVirNumber_Object=MibTableColumn
-btsVirNumber=_BtsVirNumber_Object((1,3,6,1,4,1,4413,1,2,2,1,2,1,4),_BtsVirNumber_Type())
-btsVirNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsVirNumber.setStatus(_A)
-_BtsPacketSends_Type=Counter32
-_BtsPacketSends_Object=MibTableColumn
-btsPacketSends=_BtsPacketSends_Object((1,3,6,1,4,1,4413,1,2,2,1,2,1,5),_BtsPacketSends_Type())
-btsPacketSends.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsPacketSends.setStatus(_A)
-_BtsPacketSendDiscardeds_Type=Counter32
-_BtsPacketSendDiscardeds_Object=MibTableColumn
-btsPacketSendDiscardeds=_BtsPacketSendDiscardeds_Object((1,3,6,1,4,1,4413,1,2,2,1,2,1,6),_BtsPacketSendDiscardeds_Type())
-btsPacketSendDiscardeds.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsPacketSendDiscardeds.setStatus(_A)
-_BtsPacketSendQueueds_Type=Counter32
-_BtsPacketSendQueueds_Object=MibTableColumn
-btsPacketSendQueueds=_BtsPacketSendQueueds_Object((1,3,6,1,4,1,4413,1,2,2,1,2,1,7),_BtsPacketSendQueueds_Type())
-btsPacketSendQueueds.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsPacketSendQueueds.setStatus(_A)
-_BtsPacketRecvs_Type=Counter32
-_BtsPacketRecvs_Object=MibTableColumn
-btsPacketRecvs=_BtsPacketRecvs_Object((1,3,6,1,4,1,4413,1,2,2,1,2,1,8),_BtsPacketRecvs_Type())
-btsPacketRecvs.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsPacketRecvs.setStatus(_A)
-_BtsPacketRecvDiscardeds_Type=Counter32
-_BtsPacketRecvDiscardeds_Object=MibTableColumn
-btsPacketRecvDiscardeds=_BtsPacketRecvDiscardeds_Object((1,3,6,1,4,1,4413,1,2,2,1,2,1,9),_BtsPacketRecvDiscardeds_Type())
-btsPacketRecvDiscardeds.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsPacketRecvDiscardeds.setStatus(_A)
-_BtsLinkPacketsSents_Type=Counter32
-_BtsLinkPacketsSents_Object=MibTableColumn
-btsLinkPacketsSents=_BtsLinkPacketsSents_Object((1,3,6,1,4,1,4413,1,2,2,1,2,1,10),_BtsLinkPacketsSents_Type())
-btsLinkPacketsSents.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsLinkPacketsSents.setStatus(_A)
-_BtsLinkPacketsRetrieds_Type=Counter32
-_BtsLinkPacketsRetrieds_Object=MibTableColumn
-btsLinkPacketsRetrieds=_BtsLinkPacketsRetrieds_Object((1,3,6,1,4,1,4413,1,2,2,1,2,1,11),_BtsLinkPacketsRetrieds_Type())
-btsLinkPacketsRetrieds.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsLinkPacketsRetrieds.setStatus(_A)
-_BaspPhyAdapterStat_ObjectIdentity=ObjectIdentity
-baspPhyAdapterStat=_BaspPhyAdapterStat_ObjectIdentity((1,3,6,1,4,1,4413,1,2,2,2))
-_BtsPhyAdapterNumber_Type=Integer32
-_BtsPhyAdapterNumber_Object=MibScalar
-btsPhyAdapterNumber=_BtsPhyAdapterNumber_Object((1,3,6,1,4,1,4413,1,2,2,2,1),_BtsPhyAdapterNumber_Type())
-btsPhyAdapterNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsPhyAdapterNumber.setStatus(_A)
-_BtsPhyAdapterStatTable_Object=MibTable
-btsPhyAdapterStatTable=_BtsPhyAdapterStatTable_Object((1,3,6,1,4,1,4413,1,2,2,2,2))
-if mibBuilder.loadTexts:btsPhyAdapterStatTable.setStatus(_A)
-_BtsPhyAdapterStatEntry_Object=MibTableRow
-btsPhyAdapterStatEntry=_BtsPhyAdapterStatEntry_Object((1,3,6,1,4,1,4413,1,2,2,2,2,1))
-btsPhyAdapterStatEntry.setIndexNames((0,_D,_G),(0,_D,_H))
-if mibBuilder.loadTexts:btsPhyAdapterStatEntry.setStatus(_A)
-class _BtspTeamIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_BtspTeamIndex_Type.__name__=_C
-_BtspTeamIndex_Object=MibTableColumn
-btspTeamIndex=_BtspTeamIndex_Object((1,3,6,1,4,1,4413,1,2,2,2,2,1,1),_BtspTeamIndex_Type())
-btspTeamIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:btspTeamIndex.setStatus(_A)
-class _BtspAdapterIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_BtspAdapterIndex_Type.__name__=_C
-_BtspAdapterIndex_Object=MibTableColumn
-btspAdapterIndex=_BtspAdapterIndex_Object((1,3,6,1,4,1,4413,1,2,2,2,2,1,2),_BtspAdapterIndex_Type())
-btspAdapterIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:btspAdapterIndex.setStatus(_A)
-_BtspAdapterDesc_Type=DisplayString
-_BtspAdapterDesc_Object=MibTableColumn
-btspAdapterDesc=_BtspAdapterDesc_Object((1,3,6,1,4,1,4413,1,2,2,2,2,1,3),_BtspAdapterDesc_Type())
-btspAdapterDesc.setMaxAccess(_B)
-if mibBuilder.loadTexts:btspAdapterDesc.setStatus(_A)
-_BtspPacketSends_Type=Counter32
-_BtspPacketSends_Object=MibTableColumn
-btspPacketSends=_BtspPacketSends_Object((1,3,6,1,4,1,4413,1,2,2,2,2,1,4),_BtspPacketSends_Type())
-btspPacketSends.setMaxAccess(_B)
-if mibBuilder.loadTexts:btspPacketSends.setStatus(_A)
-_BtspPacketSendDiscardeds_Type=Counter32
-_BtspPacketSendDiscardeds_Object=MibTableColumn
-btspPacketSendDiscardeds=_BtspPacketSendDiscardeds_Object((1,3,6,1,4,1,4413,1,2,2,2,2,1,5),_BtspPacketSendDiscardeds_Type())
-btspPacketSendDiscardeds.setMaxAccess(_B)
-if mibBuilder.loadTexts:btspPacketSendDiscardeds.setStatus(_A)
-_BtspPacketRecvs_Type=Counter32
-_BtspPacketRecvs_Object=MibTableColumn
-btspPacketRecvs=_BtspPacketRecvs_Object((1,3,6,1,4,1,4413,1,2,2,2,2,1,6),_BtspPacketRecvs_Type())
-btspPacketRecvs.setMaxAccess(_B)
-if mibBuilder.loadTexts:btspPacketRecvs.setStatus(_A)
-_BtspPacketRecvDiscardeds_Type=Counter32
-_BtspPacketRecvDiscardeds_Object=MibTableColumn
-btspPacketRecvDiscardeds=_BtspPacketRecvDiscardeds_Object((1,3,6,1,4,1,4413,1,2,2,2,2,1,7),_BtspPacketRecvDiscardeds_Type())
-btspPacketRecvDiscardeds.setMaxAccess(_B)
-if mibBuilder.loadTexts:btspPacketRecvDiscardeds.setStatus(_A)
-_BtspLinkPacketsSents_Type=Counter32
-_BtspLinkPacketsSents_Object=MibTableColumn
-btspLinkPacketsSents=_BtspLinkPacketsSents_Object((1,3,6,1,4,1,4413,1,2,2,2,2,1,8),_BtspLinkPacketsSents_Type())
-btspLinkPacketsSents.setMaxAccess(_B)
-if mibBuilder.loadTexts:btspLinkPacketsSents.setStatus(_A)
-_BtspLinkPacketsRetrieds_Type=Counter32
-_BtspLinkPacketsRetrieds_Object=MibTableColumn
-btspLinkPacketsRetrieds=_BtspLinkPacketsRetrieds_Object((1,3,6,1,4,1,4413,1,2,2,2,2,1,9),_BtspLinkPacketsRetrieds_Type())
-btspLinkPacketsRetrieds.setMaxAccess(_B)
-if mibBuilder.loadTexts:btspLinkPacketsRetrieds.setStatus(_A)
-_BaspVirAdapterStat_ObjectIdentity=ObjectIdentity
-baspVirAdapterStat=_BaspVirAdapterStat_ObjectIdentity((1,3,6,1,4,1,4413,1,2,2,3))
-_BtsVirAdapterNumber_Type=Integer32
-_BtsVirAdapterNumber_Object=MibScalar
-btsVirAdapterNumber=_BtsVirAdapterNumber_Object((1,3,6,1,4,1,4413,1,2,2,3,1),_BtsVirAdapterNumber_Type())
-btsVirAdapterNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsVirAdapterNumber.setStatus(_A)
-_BtsVirAdapterStatTable_Object=MibTable
-btsVirAdapterStatTable=_BtsVirAdapterStatTable_Object((1,3,6,1,4,1,4413,1,2,2,3,2))
-if mibBuilder.loadTexts:btsVirAdapterStatTable.setStatus(_A)
-_BtsVirAdapterStatEntry_Object=MibTableRow
-btsVirAdapterStatEntry=_BtsVirAdapterStatEntry_Object((1,3,6,1,4,1,4413,1,2,2,3,2,1))
-btsVirAdapterStatEntry.setIndexNames((0,_D,_I),(0,_D,_J))
-if mibBuilder.loadTexts:btsVirAdapterStatEntry.setStatus(_A)
-class _BtsvTeamIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_BtsvTeamIndex_Type.__name__=_C
-_BtsvTeamIndex_Object=MibTableColumn
-btsvTeamIndex=_BtsvTeamIndex_Object((1,3,6,1,4,1,4413,1,2,2,3,2,1,1),_BtsvTeamIndex_Type())
-btsvTeamIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:btsvTeamIndex.setStatus(_A)
-class _BtsvAdapterIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_BtsvAdapterIndex_Type.__name__=_C
-_BtsvAdapterIndex_Object=MibTableColumn
-btsvAdapterIndex=_BtsvAdapterIndex_Object((1,3,6,1,4,1,4413,1,2,2,3,2,1,2),_BtsvAdapterIndex_Type())
-btsvAdapterIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:btsvAdapterIndex.setStatus(_A)
-_BtsvAdapterDesc_Type=DisplayString
-_BtsvAdapterDesc_Object=MibTableColumn
-btsvAdapterDesc=_BtsvAdapterDesc_Object((1,3,6,1,4,1,4413,1,2,2,3,2,1,3),_BtsvAdapterDesc_Type())
-btsvAdapterDesc.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsvAdapterDesc.setStatus(_A)
-_BtsvPacketSends_Type=Counter32
-_BtsvPacketSends_Object=MibTableColumn
-btsvPacketSends=_BtsvPacketSends_Object((1,3,6,1,4,1,4413,1,2,2,3,2,1,4),_BtsvPacketSends_Type())
-btsvPacketSends.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsvPacketSends.setStatus(_A)
-_BtsvPacketSendQueueds_Type=Counter32
-_BtsvPacketSendQueueds_Object=MibTableColumn
-btsvPacketSendQueueds=_BtsvPacketSendQueueds_Object((1,3,6,1,4,1,4413,1,2,2,3,2,1,5),_BtsvPacketSendQueueds_Type())
-btsvPacketSendQueueds.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsvPacketSendQueueds.setStatus(_A)
-_BtsvPacketRecvs_Type=Counter32
-_BtsvPacketRecvs_Object=MibTableColumn
-btsvPacketRecvs=_BtsvPacketRecvs_Object((1,3,6,1,4,1,4413,1,2,2,3,2,1,6),_BtsvPacketRecvs_Type())
-btsvPacketRecvs.setMaxAccess(_B)
-if mibBuilder.loadTexts:btsvPacketRecvs.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'broadcom':broadcom,'enet':enet,'basp':basp,'baspStat':baspStat,'baspTeamStat':baspTeamStat,'btsTeamNumber':btsTeamNumber,'btsTeamTable':btsTeamTable,'btsTeamEntry':btsTeamEntry,_F:btsTeamIndex,'btsTeamName':btsTeamName,'btsPhyNumber':btsPhyNumber,'btsVirNumber':btsVirNumber,'btsPacketSends':btsPacketSends,'btsPacketSendDiscardeds':btsPacketSendDiscardeds,'btsPacketSendQueueds':btsPacketSendQueueds,'btsPacketRecvs':btsPacketRecvs,'btsPacketRecvDiscardeds':btsPacketRecvDiscardeds,'btsLinkPacketsSents':btsLinkPacketsSents,'btsLinkPacketsRetrieds':btsLinkPacketsRetrieds,'baspPhyAdapterStat':baspPhyAdapterStat,'btsPhyAdapterNumber':btsPhyAdapterNumber,'btsPhyAdapterStatTable':btsPhyAdapterStatTable,'btsPhyAdapterStatEntry':btsPhyAdapterStatEntry,_G:btspTeamIndex,_H:btspAdapterIndex,'btspAdapterDesc':btspAdapterDesc,'btspPacketSends':btspPacketSends,'btspPacketSendDiscardeds':btspPacketSendDiscardeds,'btspPacketRecvs':btspPacketRecvs,'btspPacketRecvDiscardeds':btspPacketRecvDiscardeds,'btspLinkPacketsSents':btspLinkPacketsSents,'btspLinkPacketsRetrieds':btspLinkPacketsRetrieds,'baspVirAdapterStat':baspVirAdapterStat,'btsVirAdapterNumber':btsVirAdapterNumber,'btsVirAdapterStatTable':btsVirAdapterStatTable,'btsVirAdapterStatEntry':btsVirAdapterStatEntry,_I:btsvTeamIndex,_J:btsvAdapterIndex,'btsvAdapterDesc':btsvAdapterDesc,'btsvPacketSends':btsvPacketSends,'btsvPacketSendQueueds':btsvPacketSendQueueds,'btsvPacketRecvs':btsvPacketRecvs})
+#
+# PySNMP MIB module BASP-Statistics-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/broadcom/BASP-Statistics-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:11 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+broadcom = MibIdentifier((1, 3, 6, 1, 4, 1, 4413))
+enet = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1))
+basp = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 2))
+baspStat = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2))
+baspTeamStat = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 1))
+baspPhyAdapterStat = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 2))
+baspVirAdapterStat = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 3))
+btsTeamNumber = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsTeamNumber.setStatus('mandatory')
+btsTeamTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 1, 2), )
+if mibBuilder.loadTexts: btsTeamTable.setStatus('mandatory')
+btsTeamEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 1, 2, 1), ).setIndexNames((0, "BASP-Statistics-MIB", "btsTeamIndex"))
+if mibBuilder.loadTexts: btsTeamEntry.setStatus('mandatory')
+btsTeamIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: btsTeamIndex.setStatus('mandatory')
+btsTeamName = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 1, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsTeamName.setStatus('mandatory')
+btsPhyNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 1, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsPhyNumber.setStatus('mandatory')
+btsVirNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 1, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsVirNumber.setStatus('mandatory')
+btsPacketSends = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 1, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsPacketSends.setStatus('mandatory')
+btsPacketSendDiscardeds = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 1, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsPacketSendDiscardeds.setStatus('mandatory')
+btsPacketSendQueueds = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 1, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsPacketSendQueueds.setStatus('mandatory')
+btsPacketRecvs = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 1, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsPacketRecvs.setStatus('mandatory')
+btsPacketRecvDiscardeds = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 1, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsPacketRecvDiscardeds.setStatus('mandatory')
+btsLinkPacketsSents = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 1, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsLinkPacketsSents.setStatus('mandatory')
+btsLinkPacketsRetrieds = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 1, 2, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsLinkPacketsRetrieds.setStatus('mandatory')
+btsPhyAdapterNumber = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 2, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsPhyAdapterNumber.setStatus('mandatory')
+btsPhyAdapterStatTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 2, 2), )
+if mibBuilder.loadTexts: btsPhyAdapterStatTable.setStatus('mandatory')
+btsPhyAdapterStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 2, 2, 1), ).setIndexNames((0, "BASP-Statistics-MIB", "btspTeamIndex"), (0, "BASP-Statistics-MIB", "btspAdapterIndex"))
+if mibBuilder.loadTexts: btsPhyAdapterStatEntry.setStatus('mandatory')
+btspTeamIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: btspTeamIndex.setStatus('mandatory')
+btspAdapterIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: btspAdapterIndex.setStatus('mandatory')
+btspAdapterDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 2, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btspAdapterDesc.setStatus('mandatory')
+btspPacketSends = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 2, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btspPacketSends.setStatus('mandatory')
+btspPacketSendDiscardeds = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 2, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btspPacketSendDiscardeds.setStatus('mandatory')
+btspPacketRecvs = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 2, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btspPacketRecvs.setStatus('mandatory')
+btspPacketRecvDiscardeds = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 2, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btspPacketRecvDiscardeds.setStatus('mandatory')
+btspLinkPacketsSents = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 2, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btspLinkPacketsSents.setStatus('mandatory')
+btspLinkPacketsRetrieds = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 2, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btspLinkPacketsRetrieds.setStatus('mandatory')
+btsVirAdapterNumber = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 3, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsVirAdapterNumber.setStatus('mandatory')
+btsVirAdapterStatTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 3, 2), )
+if mibBuilder.loadTexts: btsVirAdapterStatTable.setStatus('mandatory')
+btsVirAdapterStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 3, 2, 1), ).setIndexNames((0, "BASP-Statistics-MIB", "btsvTeamIndex"), (0, "BASP-Statistics-MIB", "btsvAdapterIndex"))
+if mibBuilder.loadTexts: btsVirAdapterStatEntry.setStatus('mandatory')
+btsvTeamIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: btsvTeamIndex.setStatus('mandatory')
+btsvAdapterIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: btsvAdapterIndex.setStatus('mandatory')
+btsvAdapterDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 3, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsvAdapterDesc.setStatus('mandatory')
+btsvPacketSends = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 3, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsvPacketSends.setStatus('mandatory')
+btsvPacketSendQueueds = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 3, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsvPacketSendQueueds.setStatus('mandatory')
+btsvPacketRecvs = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 2, 2, 3, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: btsvPacketRecvs.setStatus('mandatory')
+mibBuilder.exportSymbols("BASP-Statistics-MIB", btsTeamEntry=btsTeamEntry, btsTeamTable=btsTeamTable, btsPhyAdapterStatEntry=btsPhyAdapterStatEntry, btsPhyAdapterNumber=btsPhyAdapterNumber, btsPacketRecvDiscardeds=btsPacketRecvDiscardeds, btsvPacketSends=btsvPacketSends, btsLinkPacketsSents=btsLinkPacketsSents, btspLinkPacketsSents=btspLinkPacketsSents, btsPacketRecvs=btsPacketRecvs, baspVirAdapterStat=baspVirAdapterStat, btsLinkPacketsRetrieds=btsLinkPacketsRetrieds, btsVirAdapterNumber=btsVirAdapterNumber, btsvPacketRecvs=btsvPacketRecvs, btspPacketRecvDiscardeds=btspPacketRecvDiscardeds, baspStat=baspStat, btsTeamIndex=btsTeamIndex, btsPhyAdapterStatTable=btsPhyAdapterStatTable, btsPacketSendDiscardeds=btsPacketSendDiscardeds, btsVirAdapterStatTable=btsVirAdapterStatTable, btspPacketSends=btspPacketSends, btsVirAdapterStatEntry=btsVirAdapterStatEntry, btspLinkPacketsRetrieds=btspLinkPacketsRetrieds, basp=basp, btsvTeamIndex=btsvTeamIndex, btspPacketRecvs=btspPacketRecvs, baspPhyAdapterStat=baspPhyAdapterStat, enet=enet, btsPacketSends=btsPacketSends, btsvPacketSendQueueds=btsvPacketSendQueueds, btsTeamNumber=btsTeamNumber, btspAdapterDesc=btspAdapterDesc, baspTeamStat=baspTeamStat, btsPacketSendQueueds=btsPacketSendQueueds, btspTeamIndex=btspTeamIndex, btsTeamName=btsTeamName, broadcom=broadcom, btsPhyNumber=btsPhyNumber, btsvAdapterIndex=btsvAdapterIndex, btsvAdapterDesc=btsvAdapterDesc, btspPacketSendDiscardeds=btspPacketSendDiscardeds, btsVirNumber=btsVirNumber, btspAdapterIndex=btspAdapterIndex)

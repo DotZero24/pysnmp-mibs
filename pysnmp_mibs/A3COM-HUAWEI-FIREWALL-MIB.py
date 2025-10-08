@@ -1,28 +1,25 @@
-_B='current'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('A3COM-HUAWEI-OID-MIB','h3cCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-h3cFireWall=ModuleIdentity((1,3,6,1,4,1,43,45,1,10,2,88))
-_H3cFirewallobject_ObjectIdentity=ObjectIdentity
-h3cFirewallobject=_H3cFirewallobject_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,88,1))
-_H3cFirewallSpecs_ObjectIdentity=ObjectIdentity
-h3cFirewallSpecs=_H3cFirewallSpecs_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,88,1,1))
-_H3cFWMaxConnNum_Type=Unsigned32
-_H3cFWMaxConnNum_Object=MibScalar
-h3cFWMaxConnNum=_H3cFWMaxConnNum_Object((1,3,6,1,4,1,43,45,1,10,2,88,1,1,1),_H3cFWMaxConnNum_Type())
-h3cFWMaxConnNum.setMaxAccess(_A)
-if mibBuilder.loadTexts:h3cFWMaxConnNum.setStatus(_B)
-_H3cFirewallGlobalStats_ObjectIdentity=ObjectIdentity
-h3cFirewallGlobalStats=_H3cFirewallGlobalStats_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,88,1,2))
-_H3cFWConnNumCurr_Type=Gauge32
-_H3cFWConnNumCurr_Object=MibScalar
-h3cFWConnNumCurr=_H3cFWConnNumCurr_Object((1,3,6,1,4,1,43,45,1,10,2,88,1,2,1),_H3cFWConnNumCurr_Type())
-h3cFWConnNumCurr.setMaxAccess(_A)
-if mibBuilder.loadTexts:h3cFWConnNumCurr.setStatus(_B)
-mibBuilder.exportSymbols('A3COM-HUAWEI-FIREWALL-MIB',**{'h3cFireWall':h3cFireWall,'h3cFirewallobject':h3cFirewallobject,'h3cFirewallSpecs':h3cFirewallSpecs,'h3cFWMaxConnNum':h3cFWMaxConnNum,'h3cFirewallGlobalStats':h3cFirewallGlobalStats,'h3cFWConnNumCurr':h3cFWConnNumCurr})
+#
+# PySNMP MIB module A3COM-HUAWEI-FIREWALL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-FIREWALL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:51 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+h3cFireWall = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 88))
+if mibBuilder.loadTexts: h3cFireWall.setLastUpdated('200801171450Z')
+if mibBuilder.loadTexts: h3cFireWall.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
+h3cFirewallobject = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 88, 1))
+h3cFirewallSpecs = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 88, 1, 1))
+h3cFWMaxConnNum = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 88, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFWMaxConnNum.setStatus('current')
+h3cFirewallGlobalStats = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 88, 1, 2))
+h3cFWConnNumCurr = MibScalar((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 88, 1, 2, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFWConnNumCurr.setStatus('current')
+mibBuilder.exportSymbols("A3COM-HUAWEI-FIREWALL-MIB", h3cFireWall=h3cFireWall, h3cFirewallobject=h3cFirewallobject, h3cFirewallGlobalStats=h3cFirewallGlobalStats, h3cFirewallSpecs=h3cFirewallSpecs, PYSNMP_MODULE_ID=h3cFireWall, h3cFWMaxConnNum=h3cFWMaxConnNum, h3cFWConnNumCurr=h3cFWConnNumCurr)

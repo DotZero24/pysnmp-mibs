@@ -1,96 +1,46 @@
-_I='secondary'
-_H='primary'
-_G='read-only'
-_F='NotificationType'
-_E='mandatory'
-_D='Integer32'
-_C='sysUpTime'
-_B='sysDescr'
-_A='SNMPv2-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-sysDescr,sysUpTime=mibBuilder.importSymbols(_A,_B,_C)
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier',_F,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_F,'TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Compaq_ObjectIdentity=ObjectIdentity
-compaq=_Compaq_ObjectIdentity((1,3,6,1,4,1,232))
-_CpqGigaSwitch_ObjectIdentity=ObjectIdentity
-cpqGigaSwitch=_CpqGigaSwitch_ObjectIdentity((1,3,6,1,4,1,232,111))
-_CpqGigaSwitchProd_ObjectIdentity=ObjectIdentity
-cpqGigaSwitchProd=_CpqGigaSwitchProd_ObjectIdentity((1,3,6,1,4,1,232,111,1))
-_CpqGigaSwitchId5422_ObjectIdentity=ObjectIdentity
-cpqGigaSwitchId5422=_CpqGigaSwitchId5422_ObjectIdentity((1,3,6,1,4,1,232,111,1,1))
-_CpqGigaSwitchId5411_ObjectIdentity=ObjectIdentity
-cpqGigaSwitchId5411=_CpqGigaSwitchId5411_ObjectIdentity((1,3,6,1,4,1,232,111,1,2))
-_CpqOids_ObjectIdentity=ObjectIdentity
-cpqOids=_CpqOids_ObjectIdentity((1,3,6,1,4,1,232,111,2))
-_CpqMauType_ObjectIdentity=ObjectIdentity
-cpqMauType=_CpqMauType_ObjectIdentity((1,3,6,1,4,1,232,111,2,1))
-_CpqMauType1000BaseSX_ObjectIdentity=ObjectIdentity
-cpqMauType1000BaseSX=_CpqMauType1000BaseSX_ObjectIdentity((1,3,6,1,4,1,232,111,2,1,1))
-_CpqMauType1000BaseLX_ObjectIdentity=ObjectIdentity
-cpqMauType1000BaseLX=_CpqMauType1000BaseLX_ObjectIdentity((1,3,6,1,4,1,232,111,2,1,2))
-_CpqMauType1000BaseCX_ObjectIdentity=ObjectIdentity
-cpqMauType1000BaseCX=_CpqMauType1000BaseCX_ObjectIdentity((1,3,6,1,4,1,232,111,2,1,3))
-_CpqMauType1000BaseSXFD_ObjectIdentity=ObjectIdentity
-cpqMauType1000BaseSXFD=_CpqMauType1000BaseSXFD_ObjectIdentity((1,3,6,1,4,1,232,111,2,1,4))
-_CpqMauType1000BaseLXFD_ObjectIdentity=ObjectIdentity
-cpqMauType1000BaseLXFD=_CpqMauType1000BaseLXFD_ObjectIdentity((1,3,6,1,4,1,232,111,2,1,5))
-_CpqMauType1000BaseCXFD_ObjectIdentity=ObjectIdentity
-cpqMauType1000BaseCXFD=_CpqMauType1000BaseCXFD_ObjectIdentity((1,3,6,1,4,1,232,111,2,1,6))
-_CpqGigaSwitchMib_ObjectIdentity=ObjectIdentity
-cpqGigaSwitchMib=_CpqGigaSwitchMib_ObjectIdentity((1,3,6,1,4,1,232,111,3))
-_CpqGigaSwitchSystem_ObjectIdentity=ObjectIdentity
-cpqGigaSwitchSystem=_CpqGigaSwitchSystem_ObjectIdentity((1,3,6,1,4,1,232,111,3,1))
-class _CpqSaveConfiguration_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('saveToPrimary',1),('saveToSecondary',2)))
-_CpqSaveConfiguration_Type.__name__=_D
-_CpqSaveConfiguration_Object=MibScalar
-cpqSaveConfiguration=_CpqSaveConfiguration_Object((1,3,6,1,4,1,232,111,3,1,3),_CpqSaveConfiguration_Type())
-cpqSaveConfiguration.setMaxAccess('write-only')
-if mibBuilder.loadTexts:cpqSaveConfiguration.setStatus(_E)
-class _CpqSaveStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('saveInProgress',1),('saveNotInProgress',2)))
-_CpqSaveStatus_Type.__name__=_D
-_CpqSaveStatus_Object=MibScalar
-cpqSaveStatus=_CpqSaveStatus_Object((1,3,6,1,4,1,232,111,3,1,4),_CpqSaveStatus_Type())
-cpqSaveStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:cpqSaveStatus.setStatus(_E)
-class _CpqCurrentConfigInUse_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
-_CpqCurrentConfigInUse_Type.__name__=_D
-_CpqCurrentConfigInUse_Object=MibScalar
-cpqCurrentConfigInUse=_CpqCurrentConfigInUse_Object((1,3,6,1,4,1,232,111,3,1,5),_CpqCurrentConfigInUse_Type())
-cpqCurrentConfigInUse.setMaxAccess(_G)
-if mibBuilder.loadTexts:cpqCurrentConfigInUse.setStatus(_E)
-class _CpqConfigToUseOnReboot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
-_CpqConfigToUseOnReboot_Type.__name__=_D
-_CpqConfigToUseOnReboot_Object=MibScalar
-cpqConfigToUseOnReboot=_CpqConfigToUseOnReboot_Object((1,3,6,1,4,1,232,111,3,1,6),_CpqConfigToUseOnReboot_Type())
-cpqConfigToUseOnReboot.setMaxAccess('read-write')
-if mibBuilder.loadTexts:cpqConfigToUseOnReboot.setStatus(_E)
-overheat=NotificationType((1,3,6,1,4,1,232,111,0,6))
-overheat.setObjects(*((_A,_C),(_A,_B)))
-if mibBuilder.loadTexts:overheat.setStatus('')
-fanfailed=NotificationType((1,3,6,1,4,1,232,111,0,7))
-fanfailed.setObjects(*((_A,_C),(_A,_B)))
-if mibBuilder.loadTexts:fanfailed.setStatus('')
-fanOK=NotificationType((1,3,6,1,4,1,232,111,0,8))
-fanOK.setObjects(*((_A,_C),(_A,_B)))
-if mibBuilder.loadTexts:fanOK.setStatus('')
-invalidLoginAttempt=NotificationType((1,3,6,1,4,1,232,111,0,9))
-invalidLoginAttempt.setObjects(*((_A,_C),(_A,_B)))
-if mibBuilder.loadTexts:invalidLoginAttempt.setStatus('')
-powerSupplyFail=NotificationType((1,3,6,1,4,1,232,111,0,10))
-powerSupplyFail.setObjects(*((_A,_C),(_A,_B)))
-if mibBuilder.loadTexts:powerSupplyFail.setStatus('')
-powerSupplyGood=NotificationType((1,3,6,1,4,1,232,111,0,11))
-powerSupplyGood.setObjects(*((_A,_C),(_A,_B)))
-if mibBuilder.loadTexts:powerSupplyGood.setStatus('')
-rpsAlarm=NotificationType((1,3,6,1,4,1,232,111,0,12))
-rpsAlarm.setObjects(*((_A,_C),(_A,_B)))
-if mibBuilder.loadTexts:rpsAlarm.setStatus('')
-rpsNoAlarm=NotificationType((1,3,6,1,4,1,232,111,0,13))
-rpsNoAlarm.setObjects(*((_A,_C),(_A,_B)))
-if mibBuilder.loadTexts:rpsNoAlarm.setStatus('')
-mibBuilder.exportSymbols('CPQN54NN-MIB',**{'compaq':compaq,'cpqGigaSwitch':cpqGigaSwitch,'overheat':overheat,'fanfailed':fanfailed,'fanOK':fanOK,'invalidLoginAttempt':invalidLoginAttempt,'powerSupplyFail':powerSupplyFail,'powerSupplyGood':powerSupplyGood,'rpsAlarm':rpsAlarm,'rpsNoAlarm':rpsNoAlarm,'cpqGigaSwitchProd':cpqGigaSwitchProd,'cpqGigaSwitchId5422':cpqGigaSwitchId5422,'cpqGigaSwitchId5411':cpqGigaSwitchId5411,'cpqOids':cpqOids,'cpqMauType':cpqMauType,'cpqMauType1000BaseSX':cpqMauType1000BaseSX,'cpqMauType1000BaseLX':cpqMauType1000BaseLX,'cpqMauType1000BaseCX':cpqMauType1000BaseCX,'cpqMauType1000BaseSXFD':cpqMauType1000BaseSXFD,'cpqMauType1000BaseLXFD':cpqMauType1000BaseLXFD,'cpqMauType1000BaseCXFD':cpqMauType1000BaseCXFD,'cpqGigaSwitchMib':cpqGigaSwitchMib,'cpqGigaSwitchSystem':cpqGigaSwitchSystem,'cpqSaveConfiguration':cpqSaveConfiguration,'cpqSaveStatus':cpqSaveStatus,'cpqCurrentConfigInUse':cpqCurrentConfigInUse,'cpqConfigToUseOnReboot':cpqConfigToUseOnReboot})
+#
+# PySNMP MIB module CPQN54NN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/CPQN54NN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:51 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+sysUpTime, sysDescr = mibBuilder.importSymbols("SNMPv2-MIB", "sysUpTime", "sysDescr")
+ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+compaq = MibIdentifier((1, 3, 6, 1, 4, 1, 232))
+cpqGigaSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 111))
+cpqGigaSwitchProd = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 111, 1))
+cpqGigaSwitchId5422 = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 111, 1, 1))
+cpqGigaSwitchId5411 = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 111, 1, 2))
+cpqGigaSwitchMib = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 111, 3))
+cpqGigaSwitchSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 111, 3, 1))
+cpqSaveConfiguration = MibScalar((1, 3, 6, 1, 4, 1, 232, 111, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("saveToPrimary", 1), ("saveToSecondary", 2)))).setMaxAccess("writeonly")
+if mibBuilder.loadTexts: cpqSaveConfiguration.setStatus('mandatory')
+cpqSaveStatus = MibScalar((1, 3, 6, 1, 4, 1, 232, 111, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("saveInProgress", 1), ("saveNotInProgress", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqSaveStatus.setStatus('mandatory')
+cpqCurrentConfigInUse = MibScalar((1, 3, 6, 1, 4, 1, 232, 111, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqCurrentConfigInUse.setStatus('mandatory')
+cpqConfigToUseOnReboot = MibScalar((1, 3, 6, 1, 4, 1, 232, 111, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cpqConfigToUseOnReboot.setStatus('mandatory')
+cpqOids = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 111, 2))
+cpqMauType = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 111, 2, 1))
+cpqMauType1000BaseSX = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 111, 2, 1, 1))
+cpqMauType1000BaseLX = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 111, 2, 1, 2))
+cpqMauType1000BaseCX = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 111, 2, 1, 3))
+cpqMauType1000BaseSXFD = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 111, 2, 1, 4))
+cpqMauType1000BaseLXFD = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 111, 2, 1, 5))
+cpqMauType1000BaseCXFD = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 111, 2, 1, 6))
+overheat = NotificationType((1, 3, 6, 1, 4, 1, 232, 111) + (0,6)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"))
+fanfailed = NotificationType((1, 3, 6, 1, 4, 1, 232, 111) + (0,7)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"))
+fanOK = NotificationType((1, 3, 6, 1, 4, 1, 232, 111) + (0,8)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"))
+invalidLoginAttempt = NotificationType((1, 3, 6, 1, 4, 1, 232, 111) + (0,9)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"))
+powerSupplyFail = NotificationType((1, 3, 6, 1, 4, 1, 232, 111) + (0,10)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"))
+powerSupplyGood = NotificationType((1, 3, 6, 1, 4, 1, 232, 111) + (0,11)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"))
+rpsAlarm = NotificationType((1, 3, 6, 1, 4, 1, 232, 111) + (0,12)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"))
+rpsNoAlarm = NotificationType((1, 3, 6, 1, 4, 1, 232, 111) + (0,13)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"))
+mibBuilder.exportSymbols("CPQN54NN-MIB", cpqMauType1000BaseLX=cpqMauType1000BaseLX, invalidLoginAttempt=invalidLoginAttempt, cpqGigaSwitch=cpqGigaSwitch, cpqOids=cpqOids, cpqGigaSwitchProd=cpqGigaSwitchProd, cpqMauType1000BaseSX=cpqMauType1000BaseSX, cpqMauType1000BaseSXFD=cpqMauType1000BaseSXFD, cpqCurrentConfigInUse=cpqCurrentConfigInUse, cpqMauType1000BaseCXFD=cpqMauType1000BaseCXFD, rpsNoAlarm=rpsNoAlarm, cpqMauType1000BaseCX=cpqMauType1000BaseCX, compaq=compaq, cpqGigaSwitchSystem=cpqGigaSwitchSystem, cpqSaveStatus=cpqSaveStatus, overheat=overheat, cpqConfigToUseOnReboot=cpqConfigToUseOnReboot, cpqMauType=cpqMauType, powerSupplyGood=powerSupplyGood, cpqGigaSwitchId5411=cpqGigaSwitchId5411, cpqMauType1000BaseLXFD=cpqMauType1000BaseLXFD, cpqGigaSwitchId5422=cpqGigaSwitchId5422, cpqSaveConfiguration=cpqSaveConfiguration, cpqGigaSwitchMib=cpqGigaSwitchMib, fanfailed=fanfailed, rpsAlarm=rpsAlarm, powerSupplyFail=powerSupplyFail, fanOK=fanOK)

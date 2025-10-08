@@ -1,56 +1,40 @@
-_H='dcpTopologyTableGroupV1'
-_G='dcpTopologyInternalDestination'
-_F='dcpTopologyInternalSource'
-_E='read-only'
-_D='dcpTopologyInternalId'
-_C='Unsigned32'
-_B='DCP-TOPOLOGY-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dcpGeneric,=mibBuilder.importSymbols('DCP-MIB','dcpGeneric')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_C,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-dcpTopology=ModuleIdentity((1,3,6,1,4,1,30826,2,2,5))
-if mibBuilder.loadTexts:dcpTopology.setRevisions(('2021-12-30 08:00',))
-_DcpTopologyObjects_ObjectIdentity=ObjectIdentity
-dcpTopologyObjects=_DcpTopologyObjects_ObjectIdentity((1,3,6,1,4,1,30826,2,2,5,1))
-_DcpTopologyInternalTable_Object=MibTable
-dcpTopologyInternalTable=_DcpTopologyInternalTable_Object((1,3,6,1,4,1,30826,2,2,5,1,1))
-if mibBuilder.loadTexts:dcpTopologyInternalTable.setStatus(_A)
-_DcpTopologyInternalEntry_Object=MibTableRow
-dcpTopologyInternalEntry=_DcpTopologyInternalEntry_Object((1,3,6,1,4,1,30826,2,2,5,1,1,1))
-dcpTopologyInternalEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:dcpTopologyInternalEntry.setStatus(_A)
-class _DcpTopologyInternalId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000000))
-_DcpTopologyInternalId_Type.__name__=_C
-_DcpTopologyInternalId_Object=MibTableColumn
-dcpTopologyInternalId=_DcpTopologyInternalId_Object((1,3,6,1,4,1,30826,2,2,5,1,1,1,1),_DcpTopologyInternalId_Type())
-dcpTopologyInternalId.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:dcpTopologyInternalId.setStatus(_A)
-_DcpTopologyInternalSource_Type=DisplayString
-_DcpTopologyInternalSource_Object=MibTableColumn
-dcpTopologyInternalSource=_DcpTopologyInternalSource_Object((1,3,6,1,4,1,30826,2,2,5,1,1,1,2),_DcpTopologyInternalSource_Type())
-dcpTopologyInternalSource.setMaxAccess(_E)
-if mibBuilder.loadTexts:dcpTopologyInternalSource.setStatus(_A)
-_DcpTopologyInternalDestination_Type=DisplayString
-_DcpTopologyInternalDestination_Object=MibTableColumn
-dcpTopologyInternalDestination=_DcpTopologyInternalDestination_Object((1,3,6,1,4,1,30826,2,2,5,1,1,1,3),_DcpTopologyInternalDestination_Type())
-dcpTopologyInternalDestination.setMaxAccess(_E)
-if mibBuilder.loadTexts:dcpTopologyInternalDestination.setStatus(_A)
-_DcpTopologyMIBCompliance_ObjectIdentity=ObjectIdentity
-dcpTopologyMIBCompliance=_DcpTopologyMIBCompliance_ObjectIdentity((1,3,6,1,4,1,30826,2,2,5,2))
-_DcpTopologyMIBGroups_ObjectIdentity=ObjectIdentity
-dcpTopologyMIBGroups=_DcpTopologyMIBGroups_ObjectIdentity((1,3,6,1,4,1,30826,2,2,5,2,1))
-_DcpTopologyMIBCompliances_ObjectIdentity=ObjectIdentity
-dcpTopologyMIBCompliances=_DcpTopologyMIBCompliances_ObjectIdentity((1,3,6,1,4,1,30826,2,2,5,2,2))
-dcpTopologyTableGroupV1=ObjectGroup((1,3,6,1,4,1,30826,2,2,5,2,1,1))
-dcpTopologyTableGroupV1.setObjects(*((_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:dcpTopologyTableGroupV1.setStatus(_A)
-dcpTopologyBasicComplV1=ModuleCompliance((1,3,6,1,4,1,30826,2,2,5,2,2,1))
-dcpTopologyBasicComplV1.setObjects((_B,_H))
-if mibBuilder.loadTexts:dcpTopologyBasicComplV1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'dcpTopology':dcpTopology,'dcpTopologyObjects':dcpTopologyObjects,'dcpTopologyInternalTable':dcpTopologyInternalTable,'dcpTopologyInternalEntry':dcpTopologyInternalEntry,_D:dcpTopologyInternalId,_F:dcpTopologyInternalSource,_G:dcpTopologyInternalDestination,'dcpTopologyMIBCompliance':dcpTopologyMIBCompliance,'dcpTopologyMIBGroups':dcpTopologyMIBGroups,_H:dcpTopologyTableGroupV1,'dcpTopologyMIBCompliances':dcpTopologyMIBCompliances,'dcpTopologyBasicComplV1':dcpTopologyBasicComplV1})
+#
+# PySNMP MIB module DCP-TOPOLOGY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/smartoptics/DCP-TOPOLOGY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:01 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dcpGeneric, = mibBuilder.importSymbols("DCP-MIB", "dcpGeneric")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+dcpTopology = ModuleIdentity((1, 3, 6, 1, 4, 1, 30826, 2, 2, 5))
+dcpTopology.setRevisions(('2021-12-30 08:00',))
+if mibBuilder.loadTexts: dcpTopology.setLastUpdated('202112300800Z')
+if mibBuilder.loadTexts: dcpTopology.setOrganization('Smartoptics.')
+dcpTopologyObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 30826, 2, 2, 5, 1))
+dcpTopologyInternalTable = MibTable((1, 3, 6, 1, 4, 1, 30826, 2, 2, 5, 1, 1), )
+if mibBuilder.loadTexts: dcpTopologyInternalTable.setStatus('current')
+dcpTopologyInternalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30826, 2, 2, 5, 1, 1, 1), ).setIndexNames((0, "DCP-TOPOLOGY-MIB", "dcpTopologyInternalId"))
+if mibBuilder.loadTexts: dcpTopologyInternalEntry.setStatus('current')
+dcpTopologyInternalId = MibTableColumn((1, 3, 6, 1, 4, 1, 30826, 2, 2, 5, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000000)))
+if mibBuilder.loadTexts: dcpTopologyInternalId.setStatus('current')
+dcpTopologyInternalSource = MibTableColumn((1, 3, 6, 1, 4, 1, 30826, 2, 2, 5, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dcpTopologyInternalSource.setStatus('current')
+dcpTopologyInternalDestination = MibTableColumn((1, 3, 6, 1, 4, 1, 30826, 2, 2, 5, 1, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dcpTopologyInternalDestination.setStatus('current')
+dcpTopologyMIBCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 30826, 2, 2, 5, 2))
+dcpTopologyMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 30826, 2, 2, 5, 2, 1))
+dcpTopologyTableGroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 30826, 2, 2, 5, 2, 1, 1)).setObjects(("DCP-TOPOLOGY-MIB", "dcpTopologyInternalSource"), ("DCP-TOPOLOGY-MIB", "dcpTopologyInternalDestination"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dcpTopologyTableGroupV1 = dcpTopologyTableGroupV1.setStatus('current')
+dcpTopologyMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 30826, 2, 2, 5, 2, 2))
+dcpTopologyBasicComplV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 30826, 2, 2, 5, 2, 2, 1)).setObjects(("DCP-TOPOLOGY-MIB", "dcpTopologyTableGroupV1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dcpTopologyBasicComplV1 = dcpTopologyBasicComplV1.setStatus('current')
+mibBuilder.exportSymbols("DCP-TOPOLOGY-MIB", dcpTopologyMIBCompliances=dcpTopologyMIBCompliances, dcpTopologyInternalSource=dcpTopologyInternalSource, dcpTopologyInternalId=dcpTopologyInternalId, dcpTopologyMIBGroups=dcpTopologyMIBGroups, dcpTopology=dcpTopology, dcpTopologyInternalDestination=dcpTopologyInternalDestination, PYSNMP_MODULE_ID=dcpTopology, dcpTopologyBasicComplV1=dcpTopologyBasicComplV1, dcpTopologyInternalTable=dcpTopologyInternalTable, dcpTopologyObjects=dcpTopologyObjects, dcpTopologyInternalEntry=dcpTopologyInternalEntry, dcpTopologyTableGroupV1=dcpTopologyTableGroupV1, dcpTopologyMIBCompliance=dcpTopologyMIBCompliance)

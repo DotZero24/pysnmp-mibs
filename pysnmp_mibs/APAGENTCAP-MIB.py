@@ -1,378 +1,572 @@
-_C='Acme Packet Diameter Signaling Controller'
-_B='Acme Packet SD'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-acmepacketAgentCapability,=mibBuilder.importSymbols('ACMEPACKET-SMI','acmepacketAgentCapability')
-AgentCapabilities,ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','AgentCapabilities','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso,mib_2,snmpModules=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso','mib-2','snmpModules')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-apAgentCapModule=ModuleIdentity((1,3,6,1,4,1,9148,2,1))
-if mibBuilder.loadTexts:apAgentCapModule.setRevisions(('1920-04-11 18:00','1900-06-21 15:00','2006-05-01 00:00','2007-05-07 00:00','1920-12-15 00:00','2012-03-07 00:00','2012-07-16 00:00'))
-_ApSnmpMibCapabilities_ObjectIdentity=ObjectIdentity
-apSnmpMibCapabilities=_ApSnmpMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,1))
-_ApIfMibCapabilities_ObjectIdentity=ObjectIdentity
-apIfMibCapabilities=_ApIfMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,2))
-_ApIPMibCapabilities_ObjectIdentity=ObjectIdentity
-apIPMibCapabilities=_ApIPMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,3))
-_ApTCPMibCapabilities_ObjectIdentity=ObjectIdentity
-apTCPMibCapabilities=_ApTCPMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,4))
-_ApUDPMibCapabilities_ObjectIdentity=ObjectIdentity
-apUDPMibCapabilities=_ApUDPMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,5))
-_ApEntityCapabilities_ObjectIdentity=ObjectIdentity
-apEntityCapabilities=_ApEntityCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,6))
-_ApSlogMibCapabilities_ObjectIdentity=ObjectIdentity
-apSlogMibCapabilities=_ApSlogMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,7))
-_ApSmgmtMibCapabilities_ObjectIdentity=ObjectIdentity
-apSmgmtMibCapabilities=_ApSmgmtMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,8))
-_ApEnvMonitorMibCapabilities_ObjectIdentity=ObjectIdentity
-apEnvMonitorMibCapabilities=_ApEnvMonitorMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,9))
-_ApSwinventoryMibCapabilities_ObjectIdentity=ObjectIdentity
-apSwinventoryMibCapabilities=_ApSwinventoryMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,10))
-_ApLicenseMibCapabilities_ObjectIdentity=ObjectIdentity
-apLicenseMibCapabilities=_ApLicenseMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,11))
-_ApAmiMibCapabilities_ObjectIdentity=ObjectIdentity
-apAmiMibCapabilities=_ApAmiMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,12))
-_ApCodecMibCapabilities_ObjectIdentity=ObjectIdentity
-apCodecMibCapabilities=_ApCodecMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,13))
-_ApSecurityMibCapabilities_ObjectIdentity=ObjectIdentity
-apSecurityMibCapabilities=_ApSecurityMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,14))
-_ApH323MibCapabilites_ObjectIdentity=ObjectIdentity
-apH323MibCapabilites=_ApH323MibCapabilites_ObjectIdentity((1,3,6,1,4,1,9148,2,1,15))
-_ApSLBMibCapabilities_ObjectIdentity=ObjectIdentity
-apSLBMibCapabilities=_ApSLBMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,16))
-_ApDiamMibCapabilities_ObjectIdentity=ObjectIdentity
-apDiamMibCapabilities=_ApDiamMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,17))
-_ApDDMibCapabilities_ObjectIdentity=ObjectIdentity
-apDDMibCapabilities=_ApDDMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,18))
-_ApDNSALGMibCapabilities_ObjectIdentity=ObjectIdentity
-apDNSALGMibCapabilities=_ApDNSALGMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,19))
-_ApAppsMibCapabilities_ObjectIdentity=ObjectIdentity
-apAppsMibCapabilities=_ApAppsMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,20))
-_ApSipMibCapabilities_ObjectIdentity=ObjectIdentity
-apSipMibCapabilities=_ApSipMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,21))
-_ApUsbcSysMibCapabilities_ObjectIdentity=ObjectIdentity
-apUsbcSysMibCapabilities=_ApUsbcSysMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,22))
-_ApRadiusMibCapabilities_ObjectIdentity=ObjectIdentity
-apRadiusMibCapabilities=_ApRadiusMibCapabilities_ObjectIdentity((1,3,6,1,4,1,9148,2,1,23))
-apSnmpCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,1,1))
-if mibBuilder.loadTexts:apSnmpCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSnmpCap.setStatus(_A)
-apSnmpv3Cap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,1,2))
-if mibBuilder.loadTexts:apSnmpv3Cap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSnmpv3Cap.setStatus(_A)
-apInterfacesCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,2,1))
-if mibBuilder.loadTexts:apInterfacesCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apInterfacesCap.setStatus(_A)
-apIfMibCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,2,2))
-if mibBuilder.loadTexts:apIfMibCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apIfMibCap.setStatus(_A)
-apIfMibHCCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,2,3))
-if mibBuilder.loadTexts:apIfMibHCCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apIfMibHCCap.setStatus(_A)
-apIpCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,3,1))
-if mibBuilder.loadTexts:apIpCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apIpCap.setStatus(_A)
-apTcpCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,4,1))
-if mibBuilder.loadTexts:apTcpCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apTcpCap.setStatus(_A)
-apUdpCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,5,1))
-if mibBuilder.loadTexts:apUdpCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apUdpCap.setStatus(_A)
-apEntityCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,6,1))
-if mibBuilder.loadTexts:apEntityCap.setProductRelease('Acme Packet for Relase 2.0')
-if mibBuilder.loadTexts:apEntityCap.setStatus(_A)
-apSyslogCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,7,1))
-if mibBuilder.loadTexts:apSyslogCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSyslogCap.setStatus(_A)
-apSmgmtCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,1))
-if mibBuilder.loadTexts:apSmgmtCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtCap.setStatus(_A)
-apSmgmtCap2=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,2))
-if mibBuilder.loadTexts:apSmgmtCap2.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtCap2.setStatus(_A)
-apSmgmtCap3=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,3))
-if mibBuilder.loadTexts:apSmgmtCap3.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtCap3.setStatus(_A)
-apSmgmtCap4=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,4))
-if mibBuilder.loadTexts:apSmgmtCap4.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtCap4.setStatus(_A)
-apSmgmtCap5=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,5))
-if mibBuilder.loadTexts:apSmgmtCap5.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtCap5.setStatus(_A)
-apSmgmtCap6=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,6))
-if mibBuilder.loadTexts:apSmgmtCap6.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtCap6.setStatus(_A)
-apSmgmtNSEPCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,7))
-if mibBuilder.loadTexts:apSmgmtNSEPCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtNSEPCap.setStatus(_A)
-apSmgmtCtrlStatsCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,8))
-if mibBuilder.loadTexts:apSmgmtCtrlStatsCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtCtrlStatsCap.setStatus(_A)
-apSmgmtLDAPCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,9))
-if mibBuilder.loadTexts:apSmgmtLDAPCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtLDAPCap.setStatus(_A)
-apSmgmtHDRCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,10))
-if mibBuilder.loadTexts:apSmgmtHDRCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtHDRCap.setStatus(_A)
-apSmgmtMediaSuperCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,11))
-if mibBuilder.loadTexts:apSmgmtMediaSuperCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtMediaSuperCap.setStatus(_A)
-apSmgmtH248Cap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,12))
-if mibBuilder.loadTexts:apSmgmtH248Cap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtH248Cap.setStatus(_A)
-apSmgmtRFactorCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,13))
-if mibBuilder.loadTexts:apSmgmtRFactorCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtRFactorCap.setStatus(_A)
-apSmgmtSipRejectCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,14))
-if mibBuilder.loadTexts:apSmgmtSipRejectCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtSipRejectCap.setStatus(_A)
-apSmgmtDOSNotifyCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,15))
-if mibBuilder.loadTexts:apSmgmtDOSNotifyCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtDOSNotifyCap.setStatus(_A)
-apSmgmtRegNotifyCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,16))
-if mibBuilder.loadTexts:apSmgmtRegNotifyCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtRegNotifyCap.setStatus(_A)
-apSmgmtNTPNotifyCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,17))
-if mibBuilder.loadTexts:apSmgmtNTPNotifyCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtNTPNotifyCap.setStatus(_A)
-apSmgmtCollectorPushSuccessNotifyCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,18))
-if mibBuilder.loadTexts:apSmgmtCollectorPushSuccessNotifyCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtCollectorPushSuccessNotifyCap.setStatus(_A)
-apSmgmtExtSigRealmCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,19))
-if mibBuilder.loadTexts:apSmgmtExtSigRealmCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtExtSigRealmCap.setStatus(_A)
-apSmgmtClockNotifyCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,20))
-if mibBuilder.loadTexts:apSmgmtClockNotifyCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtClockNotifyCap.setStatus(_A)
-apSmgmtRegistrationCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,21))
-if mibBuilder.loadTexts:apSmgmtRegistrationCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtRegistrationCap.setStatus(_A)
-apSmgmtRegistrationCap2=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,22))
-if mibBuilder.loadTexts:apSmgmtRegistrationCap2.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtRegistrationCap2.setStatus(_A)
-apSmgmtRegCacheLimCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,23))
-if mibBuilder.loadTexts:apSmgmtRegCacheLimCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtRegCacheLimCap.setStatus(_A)
-apSmgmtShortSessionCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,24))
-if mibBuilder.loadTexts:apSmgmtShortSessionCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtShortSessionCap.setStatus(_A)
-apSystemManagementGatewaySynchronizedMonitorCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,25))
-if mibBuilder.loadTexts:apSystemManagementGatewaySynchronizedMonitorCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSystemManagementGatewaySynchronizedMonitorCap.setStatus(_A)
-apSmgmtRegistrationCap3=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,26))
-if mibBuilder.loadTexts:apSmgmtRegistrationCap3.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtRegistrationCap3.setStatus(_A)
-apSmgmtCallRecordingCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,27))
-if mibBuilder.loadTexts:apSmgmtCallRecordingCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtCallRecordingCap.setStatus(_A)
-apSmgmtH323AdditionsCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,28))
-if mibBuilder.loadTexts:apSmgmtH323AdditionsCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtH323AdditionsCap.setStatus(_A)
-apSmgmtENUMCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,29))
-if mibBuilder.loadTexts:apSmgmtENUMCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtENUMCap.setStatus(_A)
-apSmgmtExtSipCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,30))
-if mibBuilder.loadTexts:apSmgmtExtSipCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtExtSipCap.setStatus(_A)
-apSmgmtRealmIcmpFailureCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,31))
-if mibBuilder.loadTexts:apSmgmtRealmIcmpFailureCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtRealmIcmpFailureCap.setStatus(_A)
-apSmgmtTrapTableObjectCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,32))
-if mibBuilder.loadTexts:apSmgmtTrapTableObjectCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtTrapTableObjectCap.setStatus(_A)
-apSmgmtCDRPushReceiverFailureCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,33))
-if mibBuilder.loadTexts:apSmgmtCDRPushReceiverFailureCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtCDRPushReceiverFailureCap.setStatus(_A)
-apSmgmtRealmStatsQoSCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,34))
-if mibBuilder.loadTexts:apSmgmtRealmStatsQoSCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtRealmStatsQoSCap.setStatus(_A)
-apSmgmtInetAddrDOSNotifyCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,35))
-if mibBuilder.loadTexts:apSmgmtInetAddrDOSNotifyCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtInetAddrDOSNotifyCap.setStatus(_A)
-apSmgmtApplicationCPUUsageCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,36))
-if mibBuilder.loadTexts:apSmgmtApplicationCPUUsageCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtApplicationCPUUsageCap.setStatus(_A)
-apSmgmtRegistrationCapacityCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,37))
-if mibBuilder.loadTexts:apSmgmtRegistrationCapacityCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtRegistrationCapacityCap.setStatus('obsolete')
-apSmgmtRejectedMessagesCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,38))
-if mibBuilder.loadTexts:apSmgmtRejectedMessagesCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtRejectedMessagesCap.setStatus(_A)
-apSmgmtEndPtDemotionCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,39))
-if mibBuilder.loadTexts:apSmgmtEndPtDemotionCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtEndPtDemotionCap.setStatus(_A)
-apSmgmtAdminCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,40))
-if mibBuilder.loadTexts:apSmgmtAdminCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtAdminCap.setStatus(_A)
-apSmgmtLPCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,41))
-if mibBuilder.loadTexts:apSmgmtLPCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtLPCap.setStatus(_A)
-apSmgmtPhyUtilCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,42))
-if mibBuilder.loadTexts:apSmgmtPhyUtilCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtPhyUtilCap.setStatus(_A)
-apSmgmtStorageSpaceCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,43))
-if mibBuilder.loadTexts:apSmgmtStorageSpaceCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtStorageSpaceCap.setStatus(_A)
-apSmgmtCtrlStatsCap2=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,44))
-if mibBuilder.loadTexts:apSmgmtCtrlStatsCap2.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtCtrlStatsCap2.setStatus(_A)
-apSmgmtDatabaseRegCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,45))
-if mibBuilder.loadTexts:apSmgmtDatabaseRegCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtDatabaseRegCap.setStatus(_A)
-apSmgmtCallsRejectedCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,46))
-if mibBuilder.loadTexts:apSmgmtCallsRejectedCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtCallsRejectedCap.setStatus(_A)
-apSmgmtSipInterfaceRegCacheLimCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,47))
-if mibBuilder.loadTexts:apSmgmtSipInterfaceRegCacheLimCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtSipInterfaceRegCacheLimCap.setStatus(_A)
-apSmgmtRealmRegCacheSummaryCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,48))
-if mibBuilder.loadTexts:apSmgmtRealmRegCacheSummaryCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtRealmRegCacheSummaryCap.setStatus(_A)
-apSmgmtSubscriptionSummaryCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,49))
-if mibBuilder.loadTexts:apSmgmtSubscriptionSummaryCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtSubscriptionSummaryCap.setStatus(_A)
-apSmgmtH248PortMapUsageCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,50))
-if mibBuilder.loadTexts:apSmgmtH248PortMapUsageCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtH248PortMapUsageCap.setStatus(_A)
-apSmgmtDOSNotifyTrustedtoUntrustedCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,51))
-if mibBuilder.loadTexts:apSmgmtDOSNotifyTrustedtoUntrustedCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSmgmtDOSNotifyTrustedtoUntrustedCap.setStatus(_A)
-apSysMgmtETCUtilCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,8,52))
-if mibBuilder.loadTexts:apSysMgmtETCUtilCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSysMgmtETCUtilCap.setStatus(_A)
-apEnvMonCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,9,1))
-if mibBuilder.loadTexts:apEnvMonCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apEnvMonCap.setStatus(_A)
-apEnvMonCap2=AgentCapabilities((1,3,6,1,4,1,9148,2,1,9,2))
-if mibBuilder.loadTexts:apEnvMonCap2.setProductRelease(_B)
-if mibBuilder.loadTexts:apEnvMonCap2.setStatus(_A)
-apEnvMonPortChangeCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,9,3))
-if mibBuilder.loadTexts:apEnvMonPortChangeCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apEnvMonPortChangeCap.setStatus(_A)
-apEnvMonCap4=AgentCapabilities((1,3,6,1,4,1,9148,2,1,9,4))
-if mibBuilder.loadTexts:apEnvMonCap4.setProductRelease(_B)
-if mibBuilder.loadTexts:apEnvMonCap4.setStatus(_A)
-apSwInventoryCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,10,1))
-if mibBuilder.loadTexts:apSwInventoryCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSwInventoryCap.setStatus(_A)
-apLicenseCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,11,1))
-if mibBuilder.loadTexts:apLicenseCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apLicenseCap.setStatus(_A)
-apLicenseDatabaseRegCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,11,2))
-if mibBuilder.loadTexts:apLicenseDatabaseRegCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apLicenseDatabaseRegCap.setStatus(_A)
-apLicenseExpirationWarnCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,11,3))
-if mibBuilder.loadTexts:apLicenseExpirationWarnCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apLicenseExpirationWarnCap.setStatus(_A)
-apAmiCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,12,1))
-if mibBuilder.loadTexts:apAmiCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apAmiCap.setStatus(_A)
-apCodecRealmCodecCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,13,1))
-if mibBuilder.loadTexts:apCodecRealmCodecCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apCodecRealmCodecCap.setStatus(_A)
-apCodecMediaProcessingCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,13,2))
-if mibBuilder.loadTexts:apCodecMediaProcessingCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apCodecMediaProcessingCap.setStatus(_A)
-apCodecRealmCodecCap2=AgentCapabilities((1,3,6,1,4,1,9148,2,1,13,3))
-if mibBuilder.loadTexts:apCodecRealmCodecCap2.setProductRelease(_B)
-if mibBuilder.loadTexts:apCodecRealmCodecCap2.setStatus(_A)
-apCodecTranscodingStatsCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,13,4))
-if mibBuilder.loadTexts:apCodecTranscodingStatsCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apCodecTranscodingStatsCap.setStatus(_A)
-apSecurityCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,14,1))
-if mibBuilder.loadTexts:apSecurityCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSecurityCap.setStatus(_A)
-apSecurityIPsecTunnelsCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,14,2))
-if mibBuilder.loadTexts:apSecurityIPsecTunnelsCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSecurityIPsecTunnelsCap.setStatus(_A)
-apSecurityIkeInterfaceCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,14,3))
-if mibBuilder.loadTexts:apSecurityIkeInterfaceCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSecurityIkeInterfaceCap.setStatus(_A)
-apSecurityTacacsCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,14,4))
-if mibBuilder.loadTexts:apSecurityTacacsCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSecurityTacacsCap.setStatus(_A)
-apSecurityCertStatusCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,14,5))
-if mibBuilder.loadTexts:apSecurityCertStatusCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSecurityCertStatusCap.setStatus(_A)
-apSecurityIkeDDoSCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,14,6))
-if mibBuilder.loadTexts:apSecurityIkeDDoSCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSecurityIkeDDoSCap.setStatus(_A)
-apSecurityCertificateCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,14,7))
-if mibBuilder.loadTexts:apSecurityCertificateCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSecurityCertificateCap.setStatus(_A)
-apSecurityGtpStatusCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,14,8))
-if mibBuilder.loadTexts:apSecurityGtpStatusCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSecurityGtpStatusCap.setStatus(_A)
-apSecurityIkeInterfaceInfoCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,14,9))
-if mibBuilder.loadTexts:apSecurityIkeInterfaceInfoCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSecurityIkeInterfaceInfoCap.setStatus(_A)
-apSecurityTacacsNotifCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,14,10))
-if mibBuilder.loadTexts:apSecurityTacacsNotifCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSecurityTacacsNotifCap.setStatus(_A)
-apSecurityInetCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,14,11))
-if mibBuilder.loadTexts:apSecurityInetCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSecurityInetCap.setStatus(_A)
-apSecurityIkeDDoSInetCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,14,12))
-if mibBuilder.loadTexts:apSecurityIkeDDoSInetCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSecurityIkeDDoSInetCap.setStatus(_A)
-apH323StackCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,15,1))
-if mibBuilder.loadTexts:apH323StackCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apH323StackCap.setStatus(_A)
-apSLBEndpointCapacityCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,16,1))
-if mibBuilder.loadTexts:apSLBEndpointCapacityCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSLBEndpointCapacityCap.setStatus(_A)
-apSLBUntrustedEndpointCapacityCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,16,2))
-if mibBuilder.loadTexts:apSLBUntrustedEndpointCapacityCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSLBUntrustedEndpointCapacityCap.setStatus(_A)
-apDiamMibCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,17,1))
-if mibBuilder.loadTexts:apDiamMibCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apDiamMibCap.setStatus(_A)
-apDDStatsGroupCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,18,1))
-if mibBuilder.loadTexts:apDDStatsGroupCap.setProductRelease(_C)
-if mibBuilder.loadTexts:apDDStatsGroupCap.setStatus(_A)
-apDDNotifGroupCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,18,2))
-if mibBuilder.loadTexts:apDDNotifGroupCap.setProductRelease(_C)
-if mibBuilder.loadTexts:apDDNotifGroupCap.setStatus(_A)
-apDDStatsGroup2Cap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,18,3))
-if mibBuilder.loadTexts:apDDStatsGroup2Cap.setProductRelease(_C)
-if mibBuilder.loadTexts:apDDStatsGroup2Cap.setStatus(_A)
-apDDStatsGroup3Cap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,18,4))
-if mibBuilder.loadTexts:apDDStatsGroup3Cap.setProductRelease(_C)
-if mibBuilder.loadTexts:apDDStatsGroup3Cap.setStatus(_A)
-apDNSALGStatsGroupCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,19,1))
-if mibBuilder.loadTexts:apDNSALGStatsGroupCap.setProductRelease('Acme Packet DNS ALG')
-if mibBuilder.loadTexts:apDNSALGStatsGroupCap.setStatus(_A)
-apDNSALGNotifGroupCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,19,2))
-if mibBuilder.loadTexts:apDNSALGNotifGroupCap.setProductRelease('Acme Packet PEC')
-if mibBuilder.loadTexts:apDNSALGNotifGroupCap.setStatus(_A)
-apAppsENUMStatusGroupCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,20,1))
-if mibBuilder.loadTexts:apAppsENUMStatusGroupCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apAppsENUMStatusGroupCap.setStatus(_A)
-apAppsDNSStatusGroupCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,20,2))
-if mibBuilder.loadTexts:apAppsDNSStatusGroupCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apAppsDNSStatusGroupCap.setStatus(_A)
-apAppsENUMSvrNotifGroupCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,20,3))
-if mibBuilder.loadTexts:apAppsENUMSvrNotifGroupCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apAppsENUMSvrNotifGroupCap.setStatus(_A)
-apAppsDNSSvrNotifGroupCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,20,4))
-if mibBuilder.loadTexts:apAppsDNSSvrNotifGroupCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apAppsDNSSvrNotifGroupCap.setStatus(_A)
-apSipSecInterfaceRegNotifGroupCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,21,1))
-if mibBuilder.loadTexts:apSipSecInterfaceRegNotifGroupCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSipSecInterfaceRegNotifGroupCap.setStatus(_A)
-apSipSecInterfaceRegObjectsGroupCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,21,2))
-if mibBuilder.loadTexts:apSipSecInterfaceRegObjectsGroupCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apSipSecInterfaceRegObjectsGroupCap.setStatus(_A)
-apUsbcSysCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,22,1))
-if mibBuilder.loadTexts:apUsbcSysCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apUsbcSysCap.setStatus(_A)
-apRadiusMibCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,23,1))
-if mibBuilder.loadTexts:apRadiusMibCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apRadiusMibCap.setStatus(_A)
-apRadiusServerStatsCap=AgentCapabilities((1,3,6,1,4,1,9148,2,1,23,2))
-if mibBuilder.loadTexts:apRadiusServerStatsCap.setProductRelease(_B)
-if mibBuilder.loadTexts:apRadiusServerStatsCap.setStatus(_A)
-mibBuilder.exportSymbols('APAGENTCAP-MIB',**{'apAgentCapModule':apAgentCapModule,'apSnmpMibCapabilities':apSnmpMibCapabilities,'apSnmpCap':apSnmpCap,'apSnmpv3Cap':apSnmpv3Cap,'apIfMibCapabilities':apIfMibCapabilities,'apInterfacesCap':apInterfacesCap,'apIfMibCap':apIfMibCap,'apIfMibHCCap':apIfMibHCCap,'apIPMibCapabilities':apIPMibCapabilities,'apIpCap':apIpCap,'apTCPMibCapabilities':apTCPMibCapabilities,'apTcpCap':apTcpCap,'apUDPMibCapabilities':apUDPMibCapabilities,'apUdpCap':apUdpCap,'apEntityCapabilities':apEntityCapabilities,'apEntityCap':apEntityCap,'apSlogMibCapabilities':apSlogMibCapabilities,'apSyslogCap':apSyslogCap,'apSmgmtMibCapabilities':apSmgmtMibCapabilities,'apSmgmtCap':apSmgmtCap,'apSmgmtCap2':apSmgmtCap2,'apSmgmtCap3':apSmgmtCap3,'apSmgmtCap4':apSmgmtCap4,'apSmgmtCap5':apSmgmtCap5,'apSmgmtCap6':apSmgmtCap6,'apSmgmtNSEPCap':apSmgmtNSEPCap,'apSmgmtCtrlStatsCap':apSmgmtCtrlStatsCap,'apSmgmtLDAPCap':apSmgmtLDAPCap,'apSmgmtHDRCap':apSmgmtHDRCap,'apSmgmtMediaSuperCap':apSmgmtMediaSuperCap,'apSmgmtH248Cap':apSmgmtH248Cap,'apSmgmtRFactorCap':apSmgmtRFactorCap,'apSmgmtSipRejectCap':apSmgmtSipRejectCap,'apSmgmtDOSNotifyCap':apSmgmtDOSNotifyCap,'apSmgmtRegNotifyCap':apSmgmtRegNotifyCap,'apSmgmtNTPNotifyCap':apSmgmtNTPNotifyCap,'apSmgmtCollectorPushSuccessNotifyCap':apSmgmtCollectorPushSuccessNotifyCap,'apSmgmtExtSigRealmCap':apSmgmtExtSigRealmCap,'apSmgmtClockNotifyCap':apSmgmtClockNotifyCap,'apSmgmtRegistrationCap':apSmgmtRegistrationCap,'apSmgmtRegistrationCap2':apSmgmtRegistrationCap2,'apSmgmtRegCacheLimCap':apSmgmtRegCacheLimCap,'apSmgmtShortSessionCap':apSmgmtShortSessionCap,'apSystemManagementGatewaySynchronizedMonitorCap':apSystemManagementGatewaySynchronizedMonitorCap,'apSmgmtRegistrationCap3':apSmgmtRegistrationCap3,'apSmgmtCallRecordingCap':apSmgmtCallRecordingCap,'apSmgmtH323AdditionsCap':apSmgmtH323AdditionsCap,'apSmgmtENUMCap':apSmgmtENUMCap,'apSmgmtExtSipCap':apSmgmtExtSipCap,'apSmgmtRealmIcmpFailureCap':apSmgmtRealmIcmpFailureCap,'apSmgmtTrapTableObjectCap':apSmgmtTrapTableObjectCap,'apSmgmtCDRPushReceiverFailureCap':apSmgmtCDRPushReceiverFailureCap,'apSmgmtRealmStatsQoSCap':apSmgmtRealmStatsQoSCap,'apSmgmtInetAddrDOSNotifyCap':apSmgmtInetAddrDOSNotifyCap,'apSmgmtApplicationCPUUsageCap':apSmgmtApplicationCPUUsageCap,'apSmgmtRegistrationCapacityCap':apSmgmtRegistrationCapacityCap,'apSmgmtRejectedMessagesCap':apSmgmtRejectedMessagesCap,'apSmgmtEndPtDemotionCap':apSmgmtEndPtDemotionCap,'apSmgmtAdminCap':apSmgmtAdminCap,'apSmgmtLPCap':apSmgmtLPCap,'apSmgmtPhyUtilCap':apSmgmtPhyUtilCap,'apSmgmtStorageSpaceCap':apSmgmtStorageSpaceCap,'apSmgmtCtrlStatsCap2':apSmgmtCtrlStatsCap2,'apSmgmtDatabaseRegCap':apSmgmtDatabaseRegCap,'apSmgmtCallsRejectedCap':apSmgmtCallsRejectedCap,'apSmgmtSipInterfaceRegCacheLimCap':apSmgmtSipInterfaceRegCacheLimCap,'apSmgmtRealmRegCacheSummaryCap':apSmgmtRealmRegCacheSummaryCap,'apSmgmtSubscriptionSummaryCap':apSmgmtSubscriptionSummaryCap,'apSmgmtH248PortMapUsageCap':apSmgmtH248PortMapUsageCap,'apSmgmtDOSNotifyTrustedtoUntrustedCap':apSmgmtDOSNotifyTrustedtoUntrustedCap,'apSysMgmtETCUtilCap':apSysMgmtETCUtilCap,'apEnvMonitorMibCapabilities':apEnvMonitorMibCapabilities,'apEnvMonCap':apEnvMonCap,'apEnvMonCap2':apEnvMonCap2,'apEnvMonPortChangeCap':apEnvMonPortChangeCap,'apEnvMonCap4':apEnvMonCap4,'apSwinventoryMibCapabilities':apSwinventoryMibCapabilities,'apSwInventoryCap':apSwInventoryCap,'apLicenseMibCapabilities':apLicenseMibCapabilities,'apLicenseCap':apLicenseCap,'apLicenseDatabaseRegCap':apLicenseDatabaseRegCap,'apLicenseExpirationWarnCap':apLicenseExpirationWarnCap,'apAmiMibCapabilities':apAmiMibCapabilities,'apAmiCap':apAmiCap,'apCodecMibCapabilities':apCodecMibCapabilities,'apCodecRealmCodecCap':apCodecRealmCodecCap,'apCodecMediaProcessingCap':apCodecMediaProcessingCap,'apCodecRealmCodecCap2':apCodecRealmCodecCap2,'apCodecTranscodingStatsCap':apCodecTranscodingStatsCap,'apSecurityMibCapabilities':apSecurityMibCapabilities,'apSecurityCap':apSecurityCap,'apSecurityIPsecTunnelsCap':apSecurityIPsecTunnelsCap,'apSecurityIkeInterfaceCap':apSecurityIkeInterfaceCap,'apSecurityTacacsCap':apSecurityTacacsCap,'apSecurityCertStatusCap':apSecurityCertStatusCap,'apSecurityIkeDDoSCap':apSecurityIkeDDoSCap,'apSecurityCertificateCap':apSecurityCertificateCap,'apSecurityGtpStatusCap':apSecurityGtpStatusCap,'apSecurityIkeInterfaceInfoCap':apSecurityIkeInterfaceInfoCap,'apSecurityTacacsNotifCap':apSecurityTacacsNotifCap,'apSecurityInetCap':apSecurityInetCap,'apSecurityIkeDDoSInetCap':apSecurityIkeDDoSInetCap,'apH323MibCapabilites':apH323MibCapabilites,'apH323StackCap':apH323StackCap,'apSLBMibCapabilities':apSLBMibCapabilities,'apSLBEndpointCapacityCap':apSLBEndpointCapacityCap,'apSLBUntrustedEndpointCapacityCap':apSLBUntrustedEndpointCapacityCap,'apDiamMibCapabilities':apDiamMibCapabilities,'apDiamMibCap':apDiamMibCap,'apDDMibCapabilities':apDDMibCapabilities,'apDDStatsGroupCap':apDDStatsGroupCap,'apDDNotifGroupCap':apDDNotifGroupCap,'apDDStatsGroup2Cap':apDDStatsGroup2Cap,'apDDStatsGroup3Cap':apDDStatsGroup3Cap,'apDNSALGMibCapabilities':apDNSALGMibCapabilities,'apDNSALGStatsGroupCap':apDNSALGStatsGroupCap,'apDNSALGNotifGroupCap':apDNSALGNotifGroupCap,'apAppsMibCapabilities':apAppsMibCapabilities,'apAppsENUMStatusGroupCap':apAppsENUMStatusGroupCap,'apAppsDNSStatusGroupCap':apAppsDNSStatusGroupCap,'apAppsENUMSvrNotifGroupCap':apAppsENUMSvrNotifGroupCap,'apAppsDNSSvrNotifGroupCap':apAppsDNSSvrNotifGroupCap,'apSipMibCapabilities':apSipMibCapabilities,'apSipSecInterfaceRegNotifGroupCap':apSipSecInterfaceRegNotifGroupCap,'apSipSecInterfaceRegObjectsGroupCap':apSipSecInterfaceRegObjectsGroupCap,'apUsbcSysMibCapabilities':apUsbcSysMibCapabilities,'apUsbcSysCap':apUsbcSysCap,'apRadiusMibCapabilities':apRadiusMibCapabilities,'apRadiusMibCap':apRadiusMibCap,'apRadiusServerStatsCap':apRadiusServerStatsCap})
+#
+# PySNMP MIB module APAGENTCAP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/acme/APAGENTCAP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+acmepacketAgentCapability, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacketAgentCapability")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup, AgentCapabilities = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "AgentCapabilities")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, snmpModules, NotificationType, iso, TimeTicks, Counter32, MibIdentifier, Integer32, Bits, mib_2, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "snmpModules", "NotificationType", "iso", "TimeTicks", "Counter32", "MibIdentifier", "Integer32", "Bits", "mib-2", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+apAgentCapModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 2, 1))
+apAgentCapModule.setRevisions(('1920-04-11 18:00', '1900-06-21 15:00', '2006-05-01 00:00', '2007-05-07 00:00', '1920-12-15 00:00', '2012-03-07 00:00', '2012-07-16 00:00',))
+if mibBuilder.loadTexts: apAgentCapModule.setLastUpdated('201207160000Z')
+if mibBuilder.loadTexts: apAgentCapModule.setOrganization('Acme Packet, Inc')
+apSnmpMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 1))
+apIfMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 2))
+apIPMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 3))
+apTCPMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 4))
+apUDPMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 5))
+apEntityCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 6))
+apSlogMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 7))
+apSmgmtMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8))
+apEnvMonitorMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 9))
+apSwinventoryMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 10))
+apLicenseMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 11))
+apAmiMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 12))
+apCodecMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 13))
+apSecurityMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 14))
+apH323MibCapabilites = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 15))
+apSLBMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 16))
+apDiamMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 17))
+apDDMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 18))
+apDNSALGMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 19))
+apAppsMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 20))
+apSipMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 21))
+apUsbcSysMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 22))
+apRadiusMibCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 2, 1, 23))
+apSnmpCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 1, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSnmpCap = apSnmpCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSnmpCap = apSnmpCap.setStatus('current')
+apSnmpv3Cap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 1, 2))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSnmpv3Cap = apSnmpv3Cap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSnmpv3Cap = apSnmpv3Cap.setStatus('current')
+apInterfacesCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 2, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apInterfacesCap = apInterfacesCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apInterfacesCap = apInterfacesCap.setStatus('current')
+apIfMibCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 2, 2))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apIfMibCap = apIfMibCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apIfMibCap = apIfMibCap.setStatus('current')
+apIfMibHCCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 2, 3))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apIfMibHCCap = apIfMibHCCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apIfMibHCCap = apIfMibHCCap.setStatus('current')
+apIpCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 3, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apIpCap = apIpCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apIpCap = apIpCap.setStatus('current')
+apTcpCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 4, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apTcpCap = apTcpCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apTcpCap = apTcpCap.setStatus('current')
+apUdpCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 5, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apUdpCap = apUdpCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apUdpCap = apUdpCap.setStatus('current')
+apEntityCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 6, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apEntityCap = apEntityCap.setProductRelease('Acme Packet for Relase 2.0')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apEntityCap = apEntityCap.setStatus('current')
+apSyslogCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 7, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSyslogCap = apSyslogCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSyslogCap = apSyslogCap.setStatus('current')
+apSmgmtCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCap = apSmgmtCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCap = apSmgmtCap.setStatus('current')
+apSmgmtCap2 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 2))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCap2 = apSmgmtCap2.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCap2 = apSmgmtCap2.setStatus('current')
+apSmgmtCap3 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 3))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCap3 = apSmgmtCap3.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCap3 = apSmgmtCap3.setStatus('current')
+apSmgmtCap4 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 4))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCap4 = apSmgmtCap4.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCap4 = apSmgmtCap4.setStatus('current')
+apSmgmtCap5 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 5))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCap5 = apSmgmtCap5.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCap5 = apSmgmtCap5.setStatus('current')
+apSmgmtCap6 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 6))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCap6 = apSmgmtCap6.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCap6 = apSmgmtCap6.setStatus('current')
+apSmgmtNSEPCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 7))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtNSEPCap = apSmgmtNSEPCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtNSEPCap = apSmgmtNSEPCap.setStatus('current')
+apSmgmtCtrlStatsCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 8))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCtrlStatsCap = apSmgmtCtrlStatsCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCtrlStatsCap = apSmgmtCtrlStatsCap.setStatus('current')
+apSmgmtLDAPCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 9))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtLDAPCap = apSmgmtLDAPCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtLDAPCap = apSmgmtLDAPCap.setStatus('current')
+apSmgmtHDRCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 10))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtHDRCap = apSmgmtHDRCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtHDRCap = apSmgmtHDRCap.setStatus('current')
+apSmgmtMediaSuperCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 11))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtMediaSuperCap = apSmgmtMediaSuperCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtMediaSuperCap = apSmgmtMediaSuperCap.setStatus('current')
+apSmgmtH248Cap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 12))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtH248Cap = apSmgmtH248Cap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtH248Cap = apSmgmtH248Cap.setStatus('current')
+apSmgmtRFactorCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 13))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRFactorCap = apSmgmtRFactorCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRFactorCap = apSmgmtRFactorCap.setStatus('current')
+apSmgmtSipRejectCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 14))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtSipRejectCap = apSmgmtSipRejectCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtSipRejectCap = apSmgmtSipRejectCap.setStatus('current')
+apSmgmtDOSNotifyCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 15))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtDOSNotifyCap = apSmgmtDOSNotifyCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtDOSNotifyCap = apSmgmtDOSNotifyCap.setStatus('current')
+apSmgmtRegNotifyCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 16))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRegNotifyCap = apSmgmtRegNotifyCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRegNotifyCap = apSmgmtRegNotifyCap.setStatus('current')
+apSmgmtNTPNotifyCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 17))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtNTPNotifyCap = apSmgmtNTPNotifyCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtNTPNotifyCap = apSmgmtNTPNotifyCap.setStatus('current')
+apSmgmtCollectorPushSuccessNotifyCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 18))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCollectorPushSuccessNotifyCap = apSmgmtCollectorPushSuccessNotifyCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCollectorPushSuccessNotifyCap = apSmgmtCollectorPushSuccessNotifyCap.setStatus('current')
+apSmgmtExtSigRealmCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 19))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtExtSigRealmCap = apSmgmtExtSigRealmCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtExtSigRealmCap = apSmgmtExtSigRealmCap.setStatus('current')
+apSmgmtClockNotifyCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 20))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtClockNotifyCap = apSmgmtClockNotifyCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtClockNotifyCap = apSmgmtClockNotifyCap.setStatus('current')
+apSmgmtRegistrationCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 21))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRegistrationCap = apSmgmtRegistrationCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRegistrationCap = apSmgmtRegistrationCap.setStatus('current')
+apSmgmtRegistrationCap2 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 22))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRegistrationCap2 = apSmgmtRegistrationCap2.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRegistrationCap2 = apSmgmtRegistrationCap2.setStatus('current')
+apSmgmtRegCacheLimCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 23))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRegCacheLimCap = apSmgmtRegCacheLimCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRegCacheLimCap = apSmgmtRegCacheLimCap.setStatus('current')
+apSmgmtShortSessionCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 24))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtShortSessionCap = apSmgmtShortSessionCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtShortSessionCap = apSmgmtShortSessionCap.setStatus('current')
+apSystemManagementGatewaySynchronizedMonitorCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 25))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSystemManagementGatewaySynchronizedMonitorCap = apSystemManagementGatewaySynchronizedMonitorCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSystemManagementGatewaySynchronizedMonitorCap = apSystemManagementGatewaySynchronizedMonitorCap.setStatus('current')
+apSmgmtRegistrationCap3 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 26))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRegistrationCap3 = apSmgmtRegistrationCap3.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRegistrationCap3 = apSmgmtRegistrationCap3.setStatus('current')
+apSmgmtCallRecordingCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 27))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCallRecordingCap = apSmgmtCallRecordingCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCallRecordingCap = apSmgmtCallRecordingCap.setStatus('current')
+apSmgmtH323AdditionsCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 28))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtH323AdditionsCap = apSmgmtH323AdditionsCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtH323AdditionsCap = apSmgmtH323AdditionsCap.setStatus('current')
+apSmgmtENUMCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 29))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtENUMCap = apSmgmtENUMCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtENUMCap = apSmgmtENUMCap.setStatus('current')
+apSmgmtExtSipCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 30))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtExtSipCap = apSmgmtExtSipCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtExtSipCap = apSmgmtExtSipCap.setStatus('current')
+apSmgmtRealmIcmpFailureCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 31))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRealmIcmpFailureCap = apSmgmtRealmIcmpFailureCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRealmIcmpFailureCap = apSmgmtRealmIcmpFailureCap.setStatus('current')
+apSmgmtTrapTableObjectCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 32))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtTrapTableObjectCap = apSmgmtTrapTableObjectCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtTrapTableObjectCap = apSmgmtTrapTableObjectCap.setStatus('current')
+apSmgmtCDRPushReceiverFailureCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 33))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCDRPushReceiverFailureCap = apSmgmtCDRPushReceiverFailureCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCDRPushReceiverFailureCap = apSmgmtCDRPushReceiverFailureCap.setStatus('current')
+apSmgmtRealmStatsQoSCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 34))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRealmStatsQoSCap = apSmgmtRealmStatsQoSCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRealmStatsQoSCap = apSmgmtRealmStatsQoSCap.setStatus('current')
+apSmgmtInetAddrDOSNotifyCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 35))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtInetAddrDOSNotifyCap = apSmgmtInetAddrDOSNotifyCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtInetAddrDOSNotifyCap = apSmgmtInetAddrDOSNotifyCap.setStatus('current')
+apSmgmtApplicationCPUUsageCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 36))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtApplicationCPUUsageCap = apSmgmtApplicationCPUUsageCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtApplicationCPUUsageCap = apSmgmtApplicationCPUUsageCap.setStatus('current')
+apSmgmtRegistrationCapacityCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 37))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRegistrationCapacityCap = apSmgmtRegistrationCapacityCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRegistrationCapacityCap = apSmgmtRegistrationCapacityCap.setStatus('obsolete')
+apSmgmtRejectedMessagesCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 38))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRejectedMessagesCap = apSmgmtRejectedMessagesCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRejectedMessagesCap = apSmgmtRejectedMessagesCap.setStatus('current')
+apSmgmtEndPtDemotionCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 39))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtEndPtDemotionCap = apSmgmtEndPtDemotionCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtEndPtDemotionCap = apSmgmtEndPtDemotionCap.setStatus('current')
+apSmgmtAdminCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 40))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtAdminCap = apSmgmtAdminCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtAdminCap = apSmgmtAdminCap.setStatus('current')
+apSmgmtLPCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 41))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtLPCap = apSmgmtLPCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtLPCap = apSmgmtLPCap.setStatus('current')
+apSmgmtPhyUtilCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 42))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtPhyUtilCap = apSmgmtPhyUtilCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtPhyUtilCap = apSmgmtPhyUtilCap.setStatus('current')
+apSmgmtStorageSpaceCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 43))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtStorageSpaceCap = apSmgmtStorageSpaceCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtStorageSpaceCap = apSmgmtStorageSpaceCap.setStatus('current')
+apSmgmtCtrlStatsCap2 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 44))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCtrlStatsCap2 = apSmgmtCtrlStatsCap2.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCtrlStatsCap2 = apSmgmtCtrlStatsCap2.setStatus('current')
+apSmgmtDatabaseRegCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 45))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtDatabaseRegCap = apSmgmtDatabaseRegCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtDatabaseRegCap = apSmgmtDatabaseRegCap.setStatus('current')
+apSmgmtCallsRejectedCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 46))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCallsRejectedCap = apSmgmtCallsRejectedCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtCallsRejectedCap = apSmgmtCallsRejectedCap.setStatus('current')
+apSmgmtSipInterfaceRegCacheLimCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 47))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtSipInterfaceRegCacheLimCap = apSmgmtSipInterfaceRegCacheLimCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtSipInterfaceRegCacheLimCap = apSmgmtSipInterfaceRegCacheLimCap.setStatus('current')
+apSmgmtRealmRegCacheSummaryCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 48))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRealmRegCacheSummaryCap = apSmgmtRealmRegCacheSummaryCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtRealmRegCacheSummaryCap = apSmgmtRealmRegCacheSummaryCap.setStatus('current')
+apSmgmtSubscriptionSummaryCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 49))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtSubscriptionSummaryCap = apSmgmtSubscriptionSummaryCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtSubscriptionSummaryCap = apSmgmtSubscriptionSummaryCap.setStatus('current')
+apSmgmtH248PortMapUsageCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 50))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtH248PortMapUsageCap = apSmgmtH248PortMapUsageCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtH248PortMapUsageCap = apSmgmtH248PortMapUsageCap.setStatus('current')
+apSmgmtDOSNotifyTrustedtoUntrustedCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 51))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtDOSNotifyTrustedtoUntrustedCap = apSmgmtDOSNotifyTrustedtoUntrustedCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSmgmtDOSNotifyTrustedtoUntrustedCap = apSmgmtDOSNotifyTrustedtoUntrustedCap.setStatus('current')
+apSysMgmtETCUtilCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 8, 52))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSysMgmtETCUtilCap = apSysMgmtETCUtilCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSysMgmtETCUtilCap = apSysMgmtETCUtilCap.setStatus('current')
+apEnvMonCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 9, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apEnvMonCap = apEnvMonCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apEnvMonCap = apEnvMonCap.setStatus('current')
+apEnvMonCap2 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 9, 2))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apEnvMonCap2 = apEnvMonCap2.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apEnvMonCap2 = apEnvMonCap2.setStatus('current')
+apEnvMonPortChangeCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 9, 3))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apEnvMonPortChangeCap = apEnvMonPortChangeCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apEnvMonPortChangeCap = apEnvMonPortChangeCap.setStatus('current')
+apEnvMonCap4 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 9, 4))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apEnvMonCap4 = apEnvMonCap4.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apEnvMonCap4 = apEnvMonCap4.setStatus('current')
+apSwInventoryCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 10, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSwInventoryCap = apSwInventoryCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSwInventoryCap = apSwInventoryCap.setStatus('current')
+apLicenseCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 11, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apLicenseCap = apLicenseCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apLicenseCap = apLicenseCap.setStatus('current')
+apLicenseDatabaseRegCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 11, 2))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apLicenseDatabaseRegCap = apLicenseDatabaseRegCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apLicenseDatabaseRegCap = apLicenseDatabaseRegCap.setStatus('current')
+apLicenseExpirationWarnCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 11, 3))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apLicenseExpirationWarnCap = apLicenseExpirationWarnCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apLicenseExpirationWarnCap = apLicenseExpirationWarnCap.setStatus('current')
+apAmiCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 12, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apAmiCap = apAmiCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apAmiCap = apAmiCap.setStatus('current')
+apCodecRealmCodecCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 13, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apCodecRealmCodecCap = apCodecRealmCodecCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apCodecRealmCodecCap = apCodecRealmCodecCap.setStatus('current')
+apCodecMediaProcessingCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 13, 2))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apCodecMediaProcessingCap = apCodecMediaProcessingCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apCodecMediaProcessingCap = apCodecMediaProcessingCap.setStatus('current')
+apCodecRealmCodecCap2 = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 13, 3))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apCodecRealmCodecCap2 = apCodecRealmCodecCap2.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apCodecRealmCodecCap2 = apCodecRealmCodecCap2.setStatus('current')
+apCodecTranscodingStatsCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 13, 4))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apCodecTranscodingStatsCap = apCodecTranscodingStatsCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apCodecTranscodingStatsCap = apCodecTranscodingStatsCap.setStatus('current')
+apSecurityCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 14, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityCap = apSecurityCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityCap = apSecurityCap.setStatus('current')
+apSecurityIPsecTunnelsCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 14, 2))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityIPsecTunnelsCap = apSecurityIPsecTunnelsCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityIPsecTunnelsCap = apSecurityIPsecTunnelsCap.setStatus('current')
+apSecurityIkeInterfaceCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 14, 3))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityIkeInterfaceCap = apSecurityIkeInterfaceCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityIkeInterfaceCap = apSecurityIkeInterfaceCap.setStatus('current')
+apSecurityTacacsCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 14, 4))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityTacacsCap = apSecurityTacacsCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityTacacsCap = apSecurityTacacsCap.setStatus('current')
+apSecurityCertStatusCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 14, 5))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityCertStatusCap = apSecurityCertStatusCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityCertStatusCap = apSecurityCertStatusCap.setStatus('current')
+apSecurityIkeDDoSCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 14, 6))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityIkeDDoSCap = apSecurityIkeDDoSCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityIkeDDoSCap = apSecurityIkeDDoSCap.setStatus('current')
+apSecurityCertificateCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 14, 7))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityCertificateCap = apSecurityCertificateCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityCertificateCap = apSecurityCertificateCap.setStatus('current')
+apSecurityGtpStatusCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 14, 8))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityGtpStatusCap = apSecurityGtpStatusCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityGtpStatusCap = apSecurityGtpStatusCap.setStatus('current')
+apSecurityIkeInterfaceInfoCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 14, 9))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityIkeInterfaceInfoCap = apSecurityIkeInterfaceInfoCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityIkeInterfaceInfoCap = apSecurityIkeInterfaceInfoCap.setStatus('current')
+apSecurityTacacsNotifCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 14, 10))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityTacacsNotifCap = apSecurityTacacsNotifCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityTacacsNotifCap = apSecurityTacacsNotifCap.setStatus('current')
+apSecurityInetCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 14, 11))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityInetCap = apSecurityInetCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityInetCap = apSecurityInetCap.setStatus('current')
+apSecurityIkeDDoSInetCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 14, 12))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityIkeDDoSInetCap = apSecurityIkeDDoSInetCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSecurityIkeDDoSInetCap = apSecurityIkeDDoSInetCap.setStatus('current')
+apH323StackCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 15, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apH323StackCap = apH323StackCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apH323StackCap = apH323StackCap.setStatus('current')
+apSLBEndpointCapacityCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 16, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSLBEndpointCapacityCap = apSLBEndpointCapacityCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSLBEndpointCapacityCap = apSLBEndpointCapacityCap.setStatus('current')
+apSLBUntrustedEndpointCapacityCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 16, 2))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSLBUntrustedEndpointCapacityCap = apSLBUntrustedEndpointCapacityCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSLBUntrustedEndpointCapacityCap = apSLBUntrustedEndpointCapacityCap.setStatus('current')
+apDiamMibCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 17, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apDiamMibCap = apDiamMibCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apDiamMibCap = apDiamMibCap.setStatus('current')
+apDDStatsGroupCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 18, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apDDStatsGroupCap = apDDStatsGroupCap.setProductRelease('Acme Packet Diameter Signaling Controller')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apDDStatsGroupCap = apDDStatsGroupCap.setStatus('current')
+apDDNotifGroupCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 18, 2))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apDDNotifGroupCap = apDDNotifGroupCap.setProductRelease('Acme Packet Diameter Signaling Controller')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apDDNotifGroupCap = apDDNotifGroupCap.setStatus('current')
+apDDStatsGroup2Cap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 18, 3))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apDDStatsGroup2Cap = apDDStatsGroup2Cap.setProductRelease('Acme Packet Diameter Signaling Controller')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apDDStatsGroup2Cap = apDDStatsGroup2Cap.setStatus('current')
+apDDStatsGroup3Cap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 18, 4))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apDDStatsGroup3Cap = apDDStatsGroup3Cap.setProductRelease('Acme Packet Diameter Signaling Controller')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apDDStatsGroup3Cap = apDDStatsGroup3Cap.setStatus('current')
+apDNSALGStatsGroupCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 19, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apDNSALGStatsGroupCap = apDNSALGStatsGroupCap.setProductRelease('Acme Packet DNS ALG')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apDNSALGStatsGroupCap = apDNSALGStatsGroupCap.setStatus('current')
+apDNSALGNotifGroupCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 19, 2))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apDNSALGNotifGroupCap = apDNSALGNotifGroupCap.setProductRelease('Acme Packet PEC')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apDNSALGNotifGroupCap = apDNSALGNotifGroupCap.setStatus('current')
+apAppsENUMStatusGroupCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 20, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apAppsENUMStatusGroupCap = apAppsENUMStatusGroupCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apAppsENUMStatusGroupCap = apAppsENUMStatusGroupCap.setStatus('current')
+apAppsDNSStatusGroupCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 20, 2))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apAppsDNSStatusGroupCap = apAppsDNSStatusGroupCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apAppsDNSStatusGroupCap = apAppsDNSStatusGroupCap.setStatus('current')
+apAppsENUMSvrNotifGroupCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 20, 3))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apAppsENUMSvrNotifGroupCap = apAppsENUMSvrNotifGroupCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apAppsENUMSvrNotifGroupCap = apAppsENUMSvrNotifGroupCap.setStatus('current')
+apAppsDNSSvrNotifGroupCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 20, 4))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apAppsDNSSvrNotifGroupCap = apAppsDNSSvrNotifGroupCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apAppsDNSSvrNotifGroupCap = apAppsDNSSvrNotifGroupCap.setStatus('current')
+apSipSecInterfaceRegNotifGroupCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 21, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSipSecInterfaceRegNotifGroupCap = apSipSecInterfaceRegNotifGroupCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSipSecInterfaceRegNotifGroupCap = apSipSecInterfaceRegNotifGroupCap.setStatus('current')
+apSipSecInterfaceRegObjectsGroupCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 21, 2))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSipSecInterfaceRegObjectsGroupCap = apSipSecInterfaceRegObjectsGroupCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apSipSecInterfaceRegObjectsGroupCap = apSipSecInterfaceRegObjectsGroupCap.setStatus('current')
+apUsbcSysCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 22, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apUsbcSysCap = apUsbcSysCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apUsbcSysCap = apUsbcSysCap.setStatus('current')
+apRadiusMibCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 23, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apRadiusMibCap = apRadiusMibCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apRadiusMibCap = apRadiusMibCap.setStatus('current')
+apRadiusServerStatsCap = AgentCapabilities((1, 3, 6, 1, 4, 1, 9148, 2, 1, 23, 2))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apRadiusServerStatsCap = apRadiusServerStatsCap.setProductRelease('Acme Packet SD')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    apRadiusServerStatsCap = apRadiusServerStatsCap.setStatus('current')
+mibBuilder.exportSymbols("APAGENTCAP-MIB", apSmgmtH248Cap=apSmgmtH248Cap, apInterfacesCap=apInterfacesCap, apTCPMibCapabilities=apTCPMibCapabilities, apSmgmtH323AdditionsCap=apSmgmtH323AdditionsCap, apSmgmtApplicationCPUUsageCap=apSmgmtApplicationCPUUsageCap, apSmgmtMibCapabilities=apSmgmtMibCapabilities, apSecurityCertificateCap=apSecurityCertificateCap, apH323StackCap=apH323StackCap, apSmgmtInetAddrDOSNotifyCap=apSmgmtInetAddrDOSNotifyCap, apAppsMibCapabilities=apAppsMibCapabilities, apAmiCap=apAmiCap, apAppsENUMSvrNotifGroupCap=apAppsENUMSvrNotifGroupCap, apLicenseMibCapabilities=apLicenseMibCapabilities, apSLBUntrustedEndpointCapacityCap=apSLBUntrustedEndpointCapacityCap, apSmgmtSubscriptionSummaryCap=apSmgmtSubscriptionSummaryCap, apSwInventoryCap=apSwInventoryCap, apSmgmtH248PortMapUsageCap=apSmgmtH248PortMapUsageCap, apSmgmtCap6=apSmgmtCap6, apSmgmtCap3=apSmgmtCap3, apSmgmtENUMCap=apSmgmtENUMCap, apSmgmtRealmRegCacheSummaryCap=apSmgmtRealmRegCacheSummaryCap, apCodecMibCapabilities=apCodecMibCapabilities, apSmgmtDatabaseRegCap=apSmgmtDatabaseRegCap, apIfMibCap=apIfMibCap, apSmgmtDOSNotifyCap=apSmgmtDOSNotifyCap, apIfMibHCCap=apIfMibHCCap, apDDStatsGroup2Cap=apDDStatsGroup2Cap, apAgentCapModule=apAgentCapModule, apEnvMonCap4=apEnvMonCap4, PYSNMP_MODULE_ID=apAgentCapModule, apSmgmtRegistrationCap2=apSmgmtRegistrationCap2, apSyslogCap=apSyslogCap, apDiamMibCapabilities=apDiamMibCapabilities, apSmgmtCap2=apSmgmtCap2, apSipSecInterfaceRegNotifGroupCap=apSipSecInterfaceRegNotifGroupCap, apSmgmtNTPNotifyCap=apSmgmtNTPNotifyCap, apSecurityCertStatusCap=apSecurityCertStatusCap, apSmgmtCap5=apSmgmtCap5, apEnvMonPortChangeCap=apEnvMonPortChangeCap, apUDPMibCapabilities=apUDPMibCapabilities, apSLBMibCapabilities=apSLBMibCapabilities, apLicenseDatabaseRegCap=apLicenseDatabaseRegCap, apSmgmtSipRejectCap=apSmgmtSipRejectCap, apTcpCap=apTcpCap, apSmgmtRegNotifyCap=apSmgmtRegNotifyCap, apSmgmtSipInterfaceRegCacheLimCap=apSmgmtSipInterfaceRegCacheLimCap, apSecurityIkeDDoSInetCap=apSecurityIkeDDoSInetCap, apSecurityInetCap=apSecurityInetCap, apSecurityIkeInterfaceInfoCap=apSecurityIkeInterfaceInfoCap, apDDNotifGroupCap=apDDNotifGroupCap, apUdpCap=apUdpCap, apRadiusMibCapabilities=apRadiusMibCapabilities, apAmiMibCapabilities=apAmiMibCapabilities, apEntityCapabilities=apEntityCapabilities, apSnmpCap=apSnmpCap, apLicenseExpirationWarnCap=apLicenseExpirationWarnCap, apSmgmtCDRPushReceiverFailureCap=apSmgmtCDRPushReceiverFailureCap, apSwinventoryMibCapabilities=apSwinventoryMibCapabilities, apSmgmtNSEPCap=apSmgmtNSEPCap, apAppsENUMStatusGroupCap=apAppsENUMStatusGroupCap, apSnmpv3Cap=apSnmpv3Cap, apSecurityIPsecTunnelsCap=apSecurityIPsecTunnelsCap, apSmgmtCap4=apSmgmtCap4, apSecurityTacacsNotifCap=apSecurityTacacsNotifCap, apCodecMediaProcessingCap=apCodecMediaProcessingCap, apSmgmtEndPtDemotionCap=apSmgmtEndPtDemotionCap, apSmgmtExtSigRealmCap=apSmgmtExtSigRealmCap, apSecurityCap=apSecurityCap, apSecurityGtpStatusCap=apSecurityGtpStatusCap, apSLBEndpointCapacityCap=apSLBEndpointCapacityCap, apSystemManagementGatewaySynchronizedMonitorCap=apSystemManagementGatewaySynchronizedMonitorCap, apSnmpMibCapabilities=apSnmpMibCapabilities, apSlogMibCapabilities=apSlogMibCapabilities, apSmgmtRegCacheLimCap=apSmgmtRegCacheLimCap, apSmgmtCollectorPushSuccessNotifyCap=apSmgmtCollectorPushSuccessNotifyCap, apSmgmtRFactorCap=apSmgmtRFactorCap, apDDStatsGroupCap=apDDStatsGroupCap, apCodecRealmCodecCap2=apCodecRealmCodecCap2, apSmgmtStorageSpaceCap=apSmgmtStorageSpaceCap, apSecurityTacacsCap=apSecurityTacacsCap, apSmgmtRegistrationCapacityCap=apSmgmtRegistrationCapacityCap, apSmgmtHDRCap=apSmgmtHDRCap, apSmgmtRejectedMessagesCap=apSmgmtRejectedMessagesCap, apSmgmtRegistrationCap3=apSmgmtRegistrationCap3, apDNSALGNotifGroupCap=apDNSALGNotifGroupCap, apCodecTranscodingStatsCap=apCodecTranscodingStatsCap, apSmgmtDOSNotifyTrustedtoUntrustedCap=apSmgmtDOSNotifyTrustedtoUntrustedCap, apEntityCap=apEntityCap, apSysMgmtETCUtilCap=apSysMgmtETCUtilCap, apSecurityIkeInterfaceCap=apSecurityIkeInterfaceCap, apSmgmtCallRecordingCap=apSmgmtCallRecordingCap, apDiamMibCap=apDiamMibCap, apH323MibCapabilites=apH323MibCapabilites, apEnvMonitorMibCapabilities=apEnvMonitorMibCapabilities, apSmgmtCallsRejectedCap=apSmgmtCallsRejectedCap, apRadiusMibCap=apRadiusMibCap, apSecurityIkeDDoSCap=apSecurityIkeDDoSCap, apDDStatsGroup3Cap=apDDStatsGroup3Cap, apAppsDNSSvrNotifGroupCap=apAppsDNSSvrNotifGroupCap, apRadiusServerStatsCap=apRadiusServerStatsCap, apSmgmtRealmStatsQoSCap=apSmgmtRealmStatsQoSCap, apEnvMonCap=apEnvMonCap, apIpCap=apIpCap, apSecurityMibCapabilities=apSecurityMibCapabilities, apSmgmtRegistrationCap=apSmgmtRegistrationCap, apSmgmtCap=apSmgmtCap, apDDMibCapabilities=apDDMibCapabilities, apDNSALGStatsGroupCap=apDNSALGStatsGroupCap, apSmgmtCtrlStatsCap=apSmgmtCtrlStatsCap, apAppsDNSStatusGroupCap=apAppsDNSStatusGroupCap, apUsbcSysCap=apUsbcSysCap, apUsbcSysMibCapabilities=apUsbcSysMibCapabilities, apCodecRealmCodecCap=apCodecRealmCodecCap, apIfMibCapabilities=apIfMibCapabilities, apSipSecInterfaceRegObjectsGroupCap=apSipSecInterfaceRegObjectsGroupCap, apSmgmtRealmIcmpFailureCap=apSmgmtRealmIcmpFailureCap, apSmgmtPhyUtilCap=apSmgmtPhyUtilCap, apSmgmtMediaSuperCap=apSmgmtMediaSuperCap, apSmgmtLDAPCap=apSmgmtLDAPCap, apEnvMonCap2=apEnvMonCap2, apSipMibCapabilities=apSipMibCapabilities, apSmgmtLPCap=apSmgmtLPCap, apSmgmtClockNotifyCap=apSmgmtClockNotifyCap, apIPMibCapabilities=apIPMibCapabilities, apSmgmtCtrlStatsCap2=apSmgmtCtrlStatsCap2, apSmgmtTrapTableObjectCap=apSmgmtTrapTableObjectCap, apLicenseCap=apLicenseCap, apSmgmtExtSipCap=apSmgmtExtSipCap, apSmgmtShortSessionCap=apSmgmtShortSessionCap, apSmgmtAdminCap=apSmgmtAdminCap, apDNSALGMibCapabilities=apDNSALGMibCapabilities)

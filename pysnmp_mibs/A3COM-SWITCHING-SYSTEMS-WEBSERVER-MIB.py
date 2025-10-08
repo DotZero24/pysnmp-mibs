@@ -1,37 +1,24 @@
-_C='mandatory'
-_B='read-write'
-_A='DisplayString'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_A,'PhysAddress','TextualConvention')
-_A3Com_ObjectIdentity=ObjectIdentity
-a3Com=_A3Com_ObjectIdentity((1,3,6,1,4,1,43))
-_SwitchingSystemsMibs_ObjectIdentity=ObjectIdentity
-switchingSystemsMibs=_SwitchingSystemsMibs_ObjectIdentity((1,3,6,1,4,1,43,29))
-_A3ComSwitchingSystemsMib_ObjectIdentity=ObjectIdentity
-a3ComSwitchingSystemsMib=_A3ComSwitchingSystemsMib_ObjectIdentity((1,3,6,1,4,1,43,29,4))
-_A3ComWebConfig_ObjectIdentity=ObjectIdentity
-a3ComWebConfig=_A3ComWebConfig_ObjectIdentity((1,3,6,1,4,1,43,29,4,24))
-class _A3ComWebConfigHelpServer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,85))
-_A3ComWebConfigHelpServer_Type.__name__=_A
-_A3ComWebConfigHelpServer_Object=MibScalar
-a3ComWebConfigHelpServer=_A3ComWebConfigHelpServer_Object((1,3,6,1,4,1,43,29,4,24,1),_A3ComWebConfigHelpServer_Type())
-a3ComWebConfigHelpServer.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComWebConfigHelpServer.setStatus(_C)
-class _A3ComWebConfigEmailServerAddress_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,85))
-_A3ComWebConfigEmailServerAddress_Type.__name__=_A
-_A3ComWebConfigEmailServerAddress_Object=MibScalar
-a3ComWebConfigEmailServerAddress=_A3ComWebConfigEmailServerAddress_Object((1,3,6,1,4,1,43,29,4,24,2),_A3ComWebConfigEmailServerAddress_Type())
-a3ComWebConfigEmailServerAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComWebConfigEmailServerAddress.setStatus(_C)
-class _A3ComWebConfigEmailAddresses_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_A3ComWebConfigEmailAddresses_Type.__name__=_A
-_A3ComWebConfigEmailAddresses_Object=MibScalar
-a3ComWebConfigEmailAddresses=_A3ComWebConfigEmailAddresses_Object((1,3,6,1,4,1,43,29,4,24,3),_A3ComWebConfigEmailAddresses_Type())
-a3ComWebConfigEmailAddresses.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComWebConfigEmailAddresses.setStatus(_C)
-mibBuilder.exportSymbols('A3COM-SWITCHING-SYSTEMS-WEBSERVER-MIB',**{'a3Com':a3Com,'switchingSystemsMibs':switchingSystemsMibs,'a3ComSwitchingSystemsMib':a3ComSwitchingSystemsMib,'a3ComWebConfig':a3ComWebConfig,'a3ComWebConfigHelpServer':a3ComWebConfigHelpServer,'a3ComWebConfigEmailServerAddress':a3ComWebConfigEmailServerAddress,'a3ComWebConfigEmailAddresses':a3ComWebConfigEmailAddresses})
+#
+# PySNMP MIB module A3COM-SWITCHING-SYSTEMS-WEBSERVER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-SWITCHING-SYSTEMS-WEBSERVER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:53 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+a3Com = MibIdentifier((1, 3, 6, 1, 4, 1, 43))
+switchingSystemsMibs = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 29))
+a3ComSwitchingSystemsMib = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 29, 4))
+a3ComWebConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 29, 4, 24))
+a3ComWebConfigHelpServer = MibScalar((1, 3, 6, 1, 4, 1, 43, 29, 4, 24, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 85))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: a3ComWebConfigHelpServer.setStatus('mandatory')
+a3ComWebConfigEmailServerAddress = MibScalar((1, 3, 6, 1, 4, 1, 43, 29, 4, 24, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 85))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: a3ComWebConfigEmailServerAddress.setStatus('mandatory')
+a3ComWebConfigEmailAddresses = MibScalar((1, 3, 6, 1, 4, 1, 43, 29, 4, 24, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: a3ComWebConfigEmailAddresses.setStatus('mandatory')
+mibBuilder.exportSymbols("A3COM-SWITCHING-SYSTEMS-WEBSERVER-MIB", switchingSystemsMibs=switchingSystemsMibs, a3ComWebConfigHelpServer=a3ComWebConfigHelpServer, a3Com=a3Com, a3ComWebConfigEmailServerAddress=a3ComWebConfigEmailServerAddress, a3ComWebConfigEmailAddresses=a3ComWebConfigEmailAddresses, a3ComWebConfig=a3ComWebConfig, a3ComSwitchingSystemsMib=a3ComSwitchingSystemsMib)

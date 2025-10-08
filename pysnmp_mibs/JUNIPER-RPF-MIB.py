@@ -1,49 +1,33 @@
-_G='read-only'
-_F='not-accessible'
-_E='jnxRpfStatsAddrFamily'
-_D='jnxRpfStatsIfIndex'
-_C='Integer32'
-_B='JUNIPER-RPF-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-jnxMibs,=mibBuilder.importSymbols('JUNIPER-SMI','jnxMibs')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-jnxRpf=ModuleIdentity((1,3,6,1,4,1,2636,3,17))
-if mibBuilder.loadTexts:jnxRpf.setRevisions(('2002-02-25 00:00',))
-_JnxRpfStats_ObjectIdentity=ObjectIdentity
-jnxRpfStats=_JnxRpfStats_ObjectIdentity((1,3,6,1,4,1,2636,3,17,1))
-_JnxRpfStatsTable_Object=MibTable
-jnxRpfStatsTable=_JnxRpfStatsTable_Object((1,3,6,1,4,1,2636,3,17,1,1))
-if mibBuilder.loadTexts:jnxRpfStatsTable.setStatus(_A)
-_JnxRpfStatsEntry_Object=MibTableRow
-jnxRpfStatsEntry=_JnxRpfStatsEntry_Object((1,3,6,1,4,1,2636,3,17,1,1,1))
-jnxRpfStatsEntry.setIndexNames((0,_B,_D),(0,_B,_E))
-if mibBuilder.loadTexts:jnxRpfStatsEntry.setStatus(_A)
-_JnxRpfStatsIfIndex_Type=InterfaceIndex
-_JnxRpfStatsIfIndex_Object=MibTableColumn
-jnxRpfStatsIfIndex=_JnxRpfStatsIfIndex_Object((1,3,6,1,4,1,2636,3,17,1,1,1,1),_JnxRpfStatsIfIndex_Type())
-jnxRpfStatsIfIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:jnxRpfStatsIfIndex.setStatus(_A)
-class _JnxRpfStatsAddrFamily_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ipv4',1),('ipv6',2)))
-_JnxRpfStatsAddrFamily_Type.__name__=_C
-_JnxRpfStatsAddrFamily_Object=MibTableColumn
-jnxRpfStatsAddrFamily=_JnxRpfStatsAddrFamily_Object((1,3,6,1,4,1,2636,3,17,1,1,1,2),_JnxRpfStatsAddrFamily_Type())
-jnxRpfStatsAddrFamily.setMaxAccess(_F)
-if mibBuilder.loadTexts:jnxRpfStatsAddrFamily.setStatus(_A)
-_JnxRpfStatsPackets_Type=Counter64
-_JnxRpfStatsPackets_Object=MibTableColumn
-jnxRpfStatsPackets=_JnxRpfStatsPackets_Object((1,3,6,1,4,1,2636,3,17,1,1,1,3),_JnxRpfStatsPackets_Type())
-jnxRpfStatsPackets.setMaxAccess(_G)
-if mibBuilder.loadTexts:jnxRpfStatsPackets.setStatus(_A)
-_JnxRpfStatsBytes_Type=Counter64
-_JnxRpfStatsBytes_Object=MibTableColumn
-jnxRpfStatsBytes=_JnxRpfStatsBytes_Object((1,3,6,1,4,1,2636,3,17,1,1,1,4),_JnxRpfStatsBytes_Type())
-jnxRpfStatsBytes.setMaxAccess(_G)
-if mibBuilder.loadTexts:jnxRpfStatsBytes.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'jnxRpf':jnxRpf,'jnxRpfStats':jnxRpfStats,'jnxRpfStatsTable':jnxRpfStatsTable,'jnxRpfStatsEntry':jnxRpfStatsEntry,_D:jnxRpfStatsIfIndex,_E:jnxRpfStatsAddrFamily,'jnxRpfStatsPackets':jnxRpfStatsPackets,'jnxRpfStatsBytes':jnxRpfStatsBytes})
+#
+# PySNMP MIB module JUNIPER-RPF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/juniper/JUNIPER-RPF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:38 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+jnxMibs, = mibBuilder.importSymbols("JUNIPER-SMI", "jnxMibs")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+jnxRpf = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 17))
+jnxRpf.setRevisions(('2002-02-25 00:00',))
+if mibBuilder.loadTexts: jnxRpf.setLastUpdated('200307182153Z')
+if mibBuilder.loadTexts: jnxRpf.setOrganization('Juniper Networks, Inc.')
+jnxRpfStats = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 17, 1))
+jnxRpfStatsTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 17, 1, 1), )
+if mibBuilder.loadTexts: jnxRpfStatsTable.setStatus('current')
+jnxRpfStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 17, 1, 1, 1), ).setIndexNames((0, "JUNIPER-RPF-MIB", "jnxRpfStatsIfIndex"), (0, "JUNIPER-RPF-MIB", "jnxRpfStatsAddrFamily"))
+if mibBuilder.loadTexts: jnxRpfStatsEntry.setStatus('current')
+jnxRpfStatsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 17, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: jnxRpfStatsIfIndex.setStatus('current')
+jnxRpfStatsAddrFamily = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 17, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ipv4", 1), ("ipv6", 2))))
+if mibBuilder.loadTexts: jnxRpfStatsAddrFamily.setStatus('current')
+jnxRpfStatsPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 17, 1, 1, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxRpfStatsPackets.setStatus('current')
+jnxRpfStatsBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 17, 1, 1, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxRpfStatsBytes.setStatus('current')
+mibBuilder.exportSymbols("JUNIPER-RPF-MIB", jnxRpfStats=jnxRpfStats, PYSNMP_MODULE_ID=jnxRpf, jnxRpf=jnxRpf, jnxRpfStatsPackets=jnxRpfStatsPackets, jnxRpfStatsBytes=jnxRpfStatsBytes, jnxRpfStatsTable=jnxRpfStatsTable, jnxRpfStatsEntry=jnxRpfStatsEntry, jnxRpfStatsAddrFamily=jnxRpfStatsAddrFamily, jnxRpfStatsIfIndex=jnxRpfStatsIfIndex)

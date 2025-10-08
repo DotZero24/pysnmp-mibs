@@ -1,94 +1,55 @@
-_E='tunnelServiceSslTunnelId'
-_D='tunnelServiceClientAddrPoolId'
-_C='SONICWALL-SMA-APPLIANCE-TUNNEL-SERVER-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InternationalDisplayString,=mibBuilder.importSymbols('HOST-RESOURCES-MIB','InternationalDisplayString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-sonicwallSMAAppliance,=mibBuilder.importSymbols('SONICWALL-SMA-MIB','sonicwallSMAAppliance')
-sonicwallTunnelServer=ModuleIdentity((1,3,6,1,4,1,8741,8,1,5))
-_TunnelServerState_Type=InternationalDisplayString
-_TunnelServerState_Object=MibScalar
-tunnelServerState=_TunnelServerState_Object((1,3,6,1,4,1,8741,8,1,5,1),_TunnelServerState_Type())
-tunnelServerState.setMaxAccess(_B)
-if mibBuilder.loadTexts:tunnelServerState.setStatus(_A)
-_NumOfTunnelServiceClientAddrPool_Type=Integer32
-_NumOfTunnelServiceClientAddrPool_Object=MibScalar
-numOfTunnelServiceClientAddrPool=_NumOfTunnelServiceClientAddrPool_Object((1,3,6,1,4,1,8741,8,1,5,2),_NumOfTunnelServiceClientAddrPool_Type())
-numOfTunnelServiceClientAddrPool.setMaxAccess(_B)
-if mibBuilder.loadTexts:numOfTunnelServiceClientAddrPool.setStatus(_A)
-_TunnelServiceClientAddrPoolRangesTable_Object=MibTable
-tunnelServiceClientAddrPoolRangesTable=_TunnelServiceClientAddrPoolRangesTable_Object((1,3,6,1,4,1,8741,8,1,5,3))
-if mibBuilder.loadTexts:tunnelServiceClientAddrPoolRangesTable.setStatus(_A)
-_TunnelServiceClientAddrPoolEntry_Object=MibTableRow
-tunnelServiceClientAddrPoolEntry=_TunnelServiceClientAddrPoolEntry_Object((1,3,6,1,4,1,8741,8,1,5,3,1))
-tunnelServiceClientAddrPoolEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:tunnelServiceClientAddrPoolEntry.setStatus(_A)
-_TunnelServiceClientAddrPoolId_Type=Integer32
-_TunnelServiceClientAddrPoolId_Object=MibTableColumn
-tunnelServiceClientAddrPoolId=_TunnelServiceClientAddrPoolId_Object((1,3,6,1,4,1,8741,8,1,5,3,1,1),_TunnelServiceClientAddrPoolId_Type())
-tunnelServiceClientAddrPoolId.setMaxAccess(_B)
-if mibBuilder.loadTexts:tunnelServiceClientAddrPoolId.setStatus(_A)
-_TunnelServiceClientAddrPoolUtilization_Type=Integer32
-_TunnelServiceClientAddrPoolUtilization_Object=MibTableColumn
-tunnelServiceClientAddrPoolUtilization=_TunnelServiceClientAddrPoolUtilization_Object((1,3,6,1,4,1,8741,8,1,5,3,1,2),_TunnelServiceClientAddrPoolUtilization_Type())
-tunnelServiceClientAddrPoolUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:tunnelServiceClientAddrPoolUtilization.setStatus(_A)
-_TunnelServiceStartRangeOfClientAddrPool_Type=InternationalDisplayString
-_TunnelServiceStartRangeOfClientAddrPool_Object=MibTableColumn
-tunnelServiceStartRangeOfClientAddrPool=_TunnelServiceStartRangeOfClientAddrPool_Object((1,3,6,1,4,1,8741,8,1,5,3,1,3),_TunnelServiceStartRangeOfClientAddrPool_Type())
-tunnelServiceStartRangeOfClientAddrPool.setMaxAccess(_B)
-if mibBuilder.loadTexts:tunnelServiceStartRangeOfClientAddrPool.setStatus(_A)
-_TunnelServiceEndRangeOfClientAddrPool_Type=InternationalDisplayString
-_TunnelServiceEndRangeOfClientAddrPool_Object=MibTableColumn
-tunnelServiceEndRangeOfClientAddrPool=_TunnelServiceEndRangeOfClientAddrPool_Object((1,3,6,1,4,1,8741,8,1,5,3,1,4),_TunnelServiceEndRangeOfClientAddrPool_Type())
-tunnelServiceEndRangeOfClientAddrPool.setMaxAccess(_B)
-if mibBuilder.loadTexts:tunnelServiceEndRangeOfClientAddrPool.setStatus(_A)
-_NumberOfTunnelServiceSslTunnels_Type=Integer32
-_NumberOfTunnelServiceSslTunnels_Object=MibScalar
-numberOfTunnelServiceSslTunnels=_NumberOfTunnelServiceSslTunnels_Object((1,3,6,1,4,1,8741,8,1,5,4),_NumberOfTunnelServiceSslTunnels_Type())
-numberOfTunnelServiceSslTunnels.setMaxAccess(_B)
-if mibBuilder.loadTexts:numberOfTunnelServiceSslTunnels.setStatus(_A)
-_TunnelServiceSslTunnelTable_Object=MibTable
-tunnelServiceSslTunnelTable=_TunnelServiceSslTunnelTable_Object((1,3,6,1,4,1,8741,8,1,5,5))
-if mibBuilder.loadTexts:tunnelServiceSslTunnelTable.setStatus(_A)
-_TunnelServiceSslTunnelEntry_Object=MibTableRow
-tunnelServiceSslTunnelEntry=_TunnelServiceSslTunnelEntry_Object((1,3,6,1,4,1,8741,8,1,5,5,1))
-tunnelServiceSslTunnelEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:tunnelServiceSslTunnelEntry.setStatus(_A)
-_TunnelServiceSslTunnelId_Type=Integer32
-_TunnelServiceSslTunnelId_Object=MibTableColumn
-tunnelServiceSslTunnelId=_TunnelServiceSslTunnelId_Object((1,3,6,1,4,1,8741,8,1,5,5,1,1),_TunnelServiceSslTunnelId_Type())
-tunnelServiceSslTunnelId.setMaxAccess(_B)
-if mibBuilder.loadTexts:tunnelServiceSslTunnelId.setStatus(_A)
-_TunnelServiceSslTunnelUser_Type=InternationalDisplayString
-_TunnelServiceSslTunnelUser_Object=MibTableColumn
-tunnelServiceSslTunnelUser=_TunnelServiceSslTunnelUser_Object((1,3,6,1,4,1,8741,8,1,5,5,1,2),_TunnelServiceSslTunnelUser_Type())
-tunnelServiceSslTunnelUser.setMaxAccess(_B)
-if mibBuilder.loadTexts:tunnelServiceSslTunnelUser.setStatus(_A)
-_TunnelServiceSslTunnelVIP_Type=InternationalDisplayString
-_TunnelServiceSslTunnelVIP_Object=MibTableColumn
-tunnelServiceSslTunnelVIP=_TunnelServiceSslTunnelVIP_Object((1,3,6,1,4,1,8741,8,1,5,5,1,3),_TunnelServiceSslTunnelVIP_Type())
-tunnelServiceSslTunnelVIP.setMaxAccess(_B)
-if mibBuilder.loadTexts:tunnelServiceSslTunnelVIP.setStatus(_A)
-_NumOfTunnelServiceFlowsPerTunnel_Type=Integer32
-_NumOfTunnelServiceFlowsPerTunnel_Object=MibTableColumn
-numOfTunnelServiceFlowsPerTunnel=_NumOfTunnelServiceFlowsPerTunnel_Object((1,3,6,1,4,1,8741,8,1,5,5,1,4),_NumOfTunnelServiceFlowsPerTunnel_Type())
-numOfTunnelServiceFlowsPerTunnel.setMaxAccess(_B)
-if mibBuilder.loadTexts:numOfTunnelServiceFlowsPerTunnel.setStatus(_A)
-_TunnelServiceSslTunnelUpTime_Type=Integer32
-_TunnelServiceSslTunnelUpTime_Object=MibTableColumn
-tunnelServiceSslTunnelUpTime=_TunnelServiceSslTunnelUpTime_Object((1,3,6,1,4,1,8741,8,1,5,5,1,5),_TunnelServiceSslTunnelUpTime_Type())
-tunnelServiceSslTunnelUpTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:tunnelServiceSslTunnelUpTime.setStatus(_A)
-tunnelServiceclientAddrPoolUtilizationWarning=NotificationType((1,3,6,1,4,1,8741,8,1,5,100))
-if mibBuilder.loadTexts:tunnelServiceclientAddrPoolUtilizationWarning.setStatus(_A)
-tunnelServerStateChange=NotificationType((1,3,6,1,4,1,8741,8,1,5,101))
-if mibBuilder.loadTexts:tunnelServerStateChange.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'sonicwallTunnelServer':sonicwallTunnelServer,'tunnelServerState':tunnelServerState,'numOfTunnelServiceClientAddrPool':numOfTunnelServiceClientAddrPool,'tunnelServiceClientAddrPoolRangesTable':tunnelServiceClientAddrPoolRangesTable,'tunnelServiceClientAddrPoolEntry':tunnelServiceClientAddrPoolEntry,_D:tunnelServiceClientAddrPoolId,'tunnelServiceClientAddrPoolUtilization':tunnelServiceClientAddrPoolUtilization,'tunnelServiceStartRangeOfClientAddrPool':tunnelServiceStartRangeOfClientAddrPool,'tunnelServiceEndRangeOfClientAddrPool':tunnelServiceEndRangeOfClientAddrPool,'numberOfTunnelServiceSslTunnels':numberOfTunnelServiceSslTunnels,'tunnelServiceSslTunnelTable':tunnelServiceSslTunnelTable,'tunnelServiceSslTunnelEntry':tunnelServiceSslTunnelEntry,_E:tunnelServiceSslTunnelId,'tunnelServiceSslTunnelUser':tunnelServiceSslTunnelUser,'tunnelServiceSslTunnelVIP':tunnelServiceSslTunnelVIP,'numOfTunnelServiceFlowsPerTunnel':numOfTunnelServiceFlowsPerTunnel,'tunnelServiceSslTunnelUpTime':tunnelServiceSslTunnelUpTime,'tunnelServiceclientAddrPoolUtilizationWarning':tunnelServiceclientAddrPoolUtilizationWarning,'tunnelServerStateChange':tunnelServerStateChange})
+#
+# PySNMP MIB module SONICWALL-SMA-APPLIANCE-TUNNEL-SERVER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/sonicwall/SONICWALL-SMA-APPLIANCE-TUNNEL-SERVER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InternationalDisplayString, = mibBuilder.importSymbols("HOST-RESOURCES-MIB", "InternationalDisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+sonicwallSMAAppliance, = mibBuilder.importSymbols("SONICWALL-SMA-MIB", "sonicwallSMAAppliance")
+sonicwallTunnelServer = ModuleIdentity((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5))
+if mibBuilder.loadTexts: sonicwallTunnelServer.setLastUpdated('201804090001Z')
+if mibBuilder.loadTexts: sonicwallTunnelServer.setOrganization('SonicWall')
+tunnelServerState = MibScalar((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 1), InternationalDisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tunnelServerState.setStatus('current')
+numOfTunnelServiceClientAddrPool = MibScalar((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: numOfTunnelServiceClientAddrPool.setStatus('current')
+tunnelServiceClientAddrPoolRangesTable = MibTable((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 3), )
+if mibBuilder.loadTexts: tunnelServiceClientAddrPoolRangesTable.setStatus('current')
+tunnelServiceClientAddrPoolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 3, 1), ).setIndexNames((0, "SONICWALL-SMA-APPLIANCE-TUNNEL-SERVER-MIB", "tunnelServiceClientAddrPoolId"))
+if mibBuilder.loadTexts: tunnelServiceClientAddrPoolEntry.setStatus('current')
+tunnelServiceClientAddrPoolId = MibTableColumn((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tunnelServiceClientAddrPoolId.setStatus('current')
+tunnelServiceClientAddrPoolUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 3, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tunnelServiceClientAddrPoolUtilization.setStatus('current')
+tunnelServiceStartRangeOfClientAddrPool = MibTableColumn((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 3, 1, 3), InternationalDisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tunnelServiceStartRangeOfClientAddrPool.setStatus('current')
+tunnelServiceEndRangeOfClientAddrPool = MibTableColumn((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 3, 1, 4), InternationalDisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tunnelServiceEndRangeOfClientAddrPool.setStatus('current')
+numberOfTunnelServiceSslTunnels = MibScalar((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: numberOfTunnelServiceSslTunnels.setStatus('current')
+tunnelServiceSslTunnelTable = MibTable((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 5), )
+if mibBuilder.loadTexts: tunnelServiceSslTunnelTable.setStatus('current')
+tunnelServiceSslTunnelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 5, 1), ).setIndexNames((0, "SONICWALL-SMA-APPLIANCE-TUNNEL-SERVER-MIB", "tunnelServiceSslTunnelId"))
+if mibBuilder.loadTexts: tunnelServiceSslTunnelEntry.setStatus('current')
+tunnelServiceSslTunnelId = MibTableColumn((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 5, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tunnelServiceSslTunnelId.setStatus('current')
+tunnelServiceSslTunnelUser = MibTableColumn((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 5, 1, 2), InternationalDisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tunnelServiceSslTunnelUser.setStatus('current')
+tunnelServiceSslTunnelVIP = MibTableColumn((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 5, 1, 3), InternationalDisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tunnelServiceSslTunnelVIP.setStatus('current')
+numOfTunnelServiceFlowsPerTunnel = MibTableColumn((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 5, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: numOfTunnelServiceFlowsPerTunnel.setStatus('current')
+tunnelServiceSslTunnelUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 5, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tunnelServiceSslTunnelUpTime.setStatus('current')
+tunnelServiceclientAddrPoolUtilizationWarning = NotificationType((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 100))
+if mibBuilder.loadTexts: tunnelServiceclientAddrPoolUtilizationWarning.setStatus('current')
+tunnelServerStateChange = NotificationType((1, 3, 6, 1, 4, 1, 8741, 8, 1, 5, 101))
+if mibBuilder.loadTexts: tunnelServerStateChange.setStatus('current')
+mibBuilder.exportSymbols("SONICWALL-SMA-APPLIANCE-TUNNEL-SERVER-MIB", tunnelServiceSslTunnelEntry=tunnelServiceSslTunnelEntry, tunnelServiceClientAddrPoolRangesTable=tunnelServiceClientAddrPoolRangesTable, numberOfTunnelServiceSslTunnels=numberOfTunnelServiceSslTunnels, tunnelServiceClientAddrPoolUtilization=tunnelServiceClientAddrPoolUtilization, tunnelServiceEndRangeOfClientAddrPool=tunnelServiceEndRangeOfClientAddrPool, tunnelServiceStartRangeOfClientAddrPool=tunnelServiceStartRangeOfClientAddrPool, tunnelServiceSslTunnelId=tunnelServiceSslTunnelId, PYSNMP_MODULE_ID=sonicwallTunnelServer, tunnelServiceSslTunnelUser=tunnelServiceSslTunnelUser, numOfTunnelServiceClientAddrPool=numOfTunnelServiceClientAddrPool, tunnelServiceSslTunnelVIP=tunnelServiceSslTunnelVIP, tunnelServiceSslTunnelUpTime=tunnelServiceSslTunnelUpTime, tunnelServiceClientAddrPoolEntry=tunnelServiceClientAddrPoolEntry, tunnelServerStateChange=tunnelServerStateChange, sonicwallTunnelServer=sonicwallTunnelServer, numOfTunnelServiceFlowsPerTunnel=numOfTunnelServiceFlowsPerTunnel, tunnelServiceclientAddrPoolUtilizationWarning=tunnelServiceclientAddrPoolUtilizationWarning, tunnelServiceSslTunnelTable=tunnelServiceSslTunnelTable, tunnelServerState=tunnelServerState, tunnelServiceClientAddrPoolId=tunnelServiceClientAddrPoolId)

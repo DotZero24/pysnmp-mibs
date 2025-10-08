@@ -1,117 +1,59 @@
-_R='diskGroup'
-_Q='diskHealthStatus'
-_P='diskName'
-_O='diskRemainLife'
-_N='diskIdentifyFail'
-_M='diskBadSector'
-_L='diskRetry'
-_K='diskRole'
-_J='diskTemperature'
-_I='diskStatus'
-_H='diskType'
-_G='diskModel'
-_F='diskID'
-_E='diskIndex'
-_D='Integer32'
-_C='read-only'
-_B='SYNOLOGY-DISK-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-synoDisk=ModuleIdentity((1,3,6,1,4,1,6574,2))
-if mibBuilder.loadTexts:synoDisk.setRevisions(('2013-09-11 00:00',))
-_Synology_ObjectIdentity=ObjectIdentity
-synology=_Synology_ObjectIdentity((1,3,6,1,4,1,6574))
-_DiskTable_Object=MibTable
-diskTable=_DiskTable_Object((1,3,6,1,4,1,6574,2,1))
-if mibBuilder.loadTexts:diskTable.setStatus(_A)
-_DiskEntry_Object=MibTableRow
-diskEntry=_DiskEntry_Object((1,3,6,1,4,1,6574,2,1,1))
-diskEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:diskEntry.setStatus(_A)
-class _DiskIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_DiskIndex_Type.__name__=_D
-_DiskIndex_Object=MibTableColumn
-diskIndex=_DiskIndex_Object((1,3,6,1,4,1,6574,2,1,1,1),_DiskIndex_Type())
-diskIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskIndex.setStatus(_A)
-_DiskID_Type=OctetString
-_DiskID_Object=MibTableColumn
-diskID=_DiskID_Object((1,3,6,1,4,1,6574,2,1,1,2),_DiskID_Type())
-diskID.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskID.setStatus(_A)
-_DiskModel_Type=OctetString
-_DiskModel_Object=MibTableColumn
-diskModel=_DiskModel_Object((1,3,6,1,4,1,6574,2,1,1,3),_DiskModel_Type())
-diskModel.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskModel.setStatus(_A)
-_DiskType_Type=OctetString
-_DiskType_Object=MibTableColumn
-diskType=_DiskType_Object((1,3,6,1,4,1,6574,2,1,1,4),_DiskType_Type())
-diskType.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskType.setStatus(_A)
-class _DiskStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,5))
-_DiskStatus_Type.__name__=_D
-_DiskStatus_Object=MibTableColumn
-diskStatus=_DiskStatus_Object((1,3,6,1,4,1,6574,2,1,1,5),_DiskStatus_Type())
-diskStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskStatus.setStatus(_A)
-_DiskTemperature_Type=Integer32
-_DiskTemperature_Object=MibTableColumn
-diskTemperature=_DiskTemperature_Object((1,3,6,1,4,1,6574,2,1,1,6),_DiskTemperature_Type())
-diskTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskTemperature.setStatus(_A)
-_DiskRole_Type=OctetString
-_DiskRole_Object=MibTableColumn
-diskRole=_DiskRole_Object((1,3,6,1,4,1,6574,2,1,1,7),_DiskRole_Type())
-diskRole.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskRole.setStatus(_A)
-_DiskRetry_Type=Integer32
-_DiskRetry_Object=MibTableColumn
-diskRetry=_DiskRetry_Object((1,3,6,1,4,1,6574,2,1,1,8),_DiskRetry_Type())
-diskRetry.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskRetry.setStatus(_A)
-_DiskBadSector_Type=Integer32
-_DiskBadSector_Object=MibTableColumn
-diskBadSector=_DiskBadSector_Object((1,3,6,1,4,1,6574,2,1,1,9),_DiskBadSector_Type())
-diskBadSector.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskBadSector.setStatus(_A)
-_DiskIdentifyFail_Type=Integer32
-_DiskIdentifyFail_Object=MibTableColumn
-diskIdentifyFail=_DiskIdentifyFail_Object((1,3,6,1,4,1,6574,2,1,1,10),_DiskIdentifyFail_Type())
-diskIdentifyFail.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskIdentifyFail.setStatus(_A)
-_DiskRemainLife_Type=Integer32
-_DiskRemainLife_Object=MibTableColumn
-diskRemainLife=_DiskRemainLife_Object((1,3,6,1,4,1,6574,2,1,1,11),_DiskRemainLife_Type())
-diskRemainLife.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskRemainLife.setStatus(_A)
-_DiskName_Type=OctetString
-_DiskName_Object=MibTableColumn
-diskName=_DiskName_Object((1,3,6,1,4,1,6574,2,1,1,12),_DiskName_Type())
-diskName.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskName.setStatus(_A)
-class _DiskHealthStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,5))
-_DiskHealthStatus_Type.__name__=_D
-_DiskHealthStatus_Object=MibTableColumn
-diskHealthStatus=_DiskHealthStatus_Object((1,3,6,1,4,1,6574,2,1,1,13),_DiskHealthStatus_Type())
-diskHealthStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskHealthStatus.setStatus(_A)
-_DiskConformance_ObjectIdentity=ObjectIdentity
-diskConformance=_DiskConformance_ObjectIdentity((1,3,6,1,4,1,6574,2,2))
-_DiskCompliances_ObjectIdentity=ObjectIdentity
-diskCompliances=_DiskCompliances_ObjectIdentity((1,3,6,1,4,1,6574,2,2,1))
-_DiskGroups_ObjectIdentity=ObjectIdentity
-diskGroups=_DiskGroups_ObjectIdentity((1,3,6,1,4,1,6574,2,2,2))
-diskGroup=ObjectGroup((1,3,6,1,4,1,6574,2,2,2,1))
-diskGroup.setObjects(*((_B,_E),(_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:diskGroup.setStatus(_A)
-diskCompliance=ModuleCompliance((1,3,6,1,4,1,6574,2,2,1,1))
-diskCompliance.setObjects((_B,_R))
-if mibBuilder.loadTexts:diskCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'synology':synology,'synoDisk':synoDisk,'diskTable':diskTable,'diskEntry':diskEntry,_E:diskIndex,_F:diskID,_G:diskModel,_H:diskType,_I:diskStatus,_J:diskTemperature,_K:diskRole,_L:diskRetry,_M:diskBadSector,_N:diskIdentifyFail,_O:diskRemainLife,_P:diskName,_Q:diskHealthStatus,'diskConformance':diskConformance,'diskCompliances':diskCompliances,'diskCompliance':diskCompliance,'diskGroups':diskGroups,_R:diskGroup})
+#
+# PySNMP MIB module SYNOLOGY-DISK-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/synology/SYNOLOGY-DISK-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+synoDisk = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 2))
+synoDisk.setRevisions(('2013-09-11 00:00',))
+if mibBuilder.loadTexts: synoDisk.setLastUpdated('201309110000Z')
+if mibBuilder.loadTexts: synoDisk.setOrganization('www.synology.com')
+synology = MibIdentifier((1, 3, 6, 1, 4, 1, 6574))
+diskTable = MibTable((1, 3, 6, 1, 4, 1, 6574, 2, 1), )
+if mibBuilder.loadTexts: diskTable.setStatus('current')
+diskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6574, 2, 1, 1), ).setIndexNames((0, "SYNOLOGY-DISK-MIB", "diskIndex"))
+if mibBuilder.loadTexts: diskEntry.setStatus('current')
+diskIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskIndex.setStatus('current')
+diskID = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 2, 1, 1, 2), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskID.setStatus('current')
+diskModel = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 2, 1, 1, 3), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskModel.setStatus('current')
+diskType = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 2, 1, 1, 4), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskType.setStatus('current')
+diskStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskStatus.setStatus('current')
+diskTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 2, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskTemperature.setStatus('current')
+diskRole = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 2, 1, 1, 7), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskRole.setStatus('current')
+diskRetry = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 2, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskRetry.setStatus('current')
+diskBadSector = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 2, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskBadSector.setStatus('current')
+diskIdentifyFail = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 2, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskIdentifyFail.setStatus('current')
+diskRemainLife = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 2, 1, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskRemainLife.setStatus('current')
+diskName = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 2, 1, 1, 12), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskName.setStatus('current')
+diskHealthStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 2, 1, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskHealthStatus.setStatus('current')
+diskConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 2, 2))
+diskCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 2, 2, 1))
+diskGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 2, 2, 2))
+diskCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6574, 2, 2, 1, 1)).setObjects(("SYNOLOGY-DISK-MIB", "diskGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    diskCompliance = diskCompliance.setStatus('current')
+diskGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 2, 2, 2, 1)).setObjects(("SYNOLOGY-DISK-MIB", "diskIndex"), ("SYNOLOGY-DISK-MIB", "diskID"), ("SYNOLOGY-DISK-MIB", "diskModel"), ("SYNOLOGY-DISK-MIB", "diskType"), ("SYNOLOGY-DISK-MIB", "diskStatus"), ("SYNOLOGY-DISK-MIB", "diskTemperature"), ("SYNOLOGY-DISK-MIB", "diskRole"), ("SYNOLOGY-DISK-MIB", "diskRetry"), ("SYNOLOGY-DISK-MIB", "diskBadSector"), ("SYNOLOGY-DISK-MIB", "diskIdentifyFail"), ("SYNOLOGY-DISK-MIB", "diskRemainLife"), ("SYNOLOGY-DISK-MIB", "diskName"), ("SYNOLOGY-DISK-MIB", "diskHealthStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    diskGroup = diskGroup.setStatus('current')
+mibBuilder.exportSymbols("SYNOLOGY-DISK-MIB", diskModel=diskModel, diskID=diskID, diskStatus=diskStatus, diskType=diskType, diskCompliance=diskCompliance, synoDisk=synoDisk, diskIndex=diskIndex, diskTemperature=diskTemperature, diskRetry=diskRetry, diskRole=diskRole, synology=synology, diskEntry=diskEntry, diskRemainLife=diskRemainLife, diskConformance=diskConformance, diskHealthStatus=diskHealthStatus, diskName=diskName, diskCompliances=diskCompliances, diskTable=diskTable, PYSNMP_MODULE_ID=synoDisk, diskGroups=diskGroups, diskIdentifyFail=diskIdentifyFail, diskGroup=diskGroup, diskBadSector=diskBadSector)

@@ -1,71 +1,50 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-meru=ModuleIdentity((1,3,6,1,4,1,15983))
-_Meru_reg_ObjectIdentity=ObjectIdentity
-meru_reg=_Meru_reg_ObjectIdentity((1,3,6,1,4,1,15983,1))
-_Meru_wlan_ObjectIdentity=ObjectIdentity
-meru_wlan=_Meru_wlan_ObjectIdentity((1,3,6,1,4,1,15983,1,1))
-_MwStatistics_ObjectIdentity=ObjectIdentity
-mwStatistics=_MwStatistics_ObjectIdentity((1,3,6,1,4,1,15983,1,1,3))
-if mibBuilder.loadTexts:mwStatistics.setStatus(_A)
-_MwConfiguration_ObjectIdentity=ObjectIdentity
-mwConfiguration=_MwConfiguration_ObjectIdentity((1,3,6,1,4,1,15983,1,1,4))
-if mibBuilder.loadTexts:mwConfiguration.setStatus(_A)
-_MwDiagnostics_ObjectIdentity=ObjectIdentity
-mwDiagnostics=_MwDiagnostics_ObjectIdentity((1,3,6,1,4,1,15983,1,1,5))
-if mibBuilder.loadTexts:mwDiagnostics.setStatus(_A)
-_MeruAgentCapability_ObjectIdentity=ObjectIdentity
-meruAgentCapability=_MeruAgentCapability_ObjectIdentity((1,3,6,1,4,1,15983,1,1,6))
-if mibBuilder.loadTexts:meruAgentCapability.setStatus(_A)
-_MwControllers_ObjectIdentity=ObjectIdentity
-mwControllers=_MwControllers_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7))
-if mibBuilder.loadTexts:mwControllers.setStatus(_A)
-_Mc500_ObjectIdentity=ObjectIdentity
-mc500=_Mc500_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,1))
-_Mc1000_ObjectIdentity=ObjectIdentity
-mc1000=_Mc1000_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,2))
-_Mc1100_ObjectIdentity=ObjectIdentity
-mc1100=_Mc1100_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,3))
-_Mc3000_ObjectIdentity=ObjectIdentity
-mc3000=_Mc3000_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,4))
-_Mc500a_ObjectIdentity=ObjectIdentity
-mc500a=_Mc500a_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,5))
-_Mc5000_ObjectIdentity=ObjectIdentity
-mc5000=_Mc5000_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,6))
-_Mc4000_ObjectIdentity=ObjectIdentity
-mc4000=_Mc4000_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,7))
-_Mc4100_ObjectIdentity=ObjectIdentity
-mc4100=_Mc4100_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,8))
-_Mc1500_ObjectIdentity=ObjectIdentity
-mc1500=_Mc1500_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,9))
-_Mc3200_ObjectIdentity=ObjectIdentity
-mc3200=_Mc3200_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,10))
-_Mc4200_ObjectIdentity=ObjectIdentity
-mc4200=_Mc4200_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,11))
-_Mc6000_ObjectIdentity=ObjectIdentity
-mc6000=_Mc6000_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,12))
-_Mc1500v_ObjectIdentity=ObjectIdentity
-mc1500v=_Mc1500v_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,13))
-_Mc3200v_ObjectIdentity=ObjectIdentity
-mc3200v=_Mc3200v_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,14))
-_Mc4200v_ObjectIdentity=ObjectIdentity
-mc4200v=_Mc4200v_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,15))
-_Mc1550_ObjectIdentity=ObjectIdentity
-mc1550=_Mc1550_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,16))
-_Mc1550v_ObjectIdentity=ObjectIdentity
-mc1550v=_Mc1550v_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,17))
-_Fwc50d_ObjectIdentity=ObjectIdentity
-fwc50d=_Fwc50d_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,18))
-_Fwc2hd_ObjectIdentity=ObjectIdentity
-fwc2hd=_Fwc2hd_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,19))
-_Fwc5hd_ObjectIdentity=ObjectIdentity
-fwc5hd=_Fwc5hd_ObjectIdentity((1,3,6,1,4,1,15983,1,1,7,20))
-_Meru_modules_ObjectIdentity=ObjectIdentity
-meru_modules=_Meru_modules_ObjectIdentity((1,3,6,1,4,1,15983,1,2))
-mibBuilder.exportSymbols('MERU-SMI',**{'meru':meru,'meru-reg':meru_reg,'meru-wlan':meru_wlan,'mwStatistics':mwStatistics,'mwConfiguration':mwConfiguration,'mwDiagnostics':mwDiagnostics,'meruAgentCapability':meruAgentCapability,'mwControllers':mwControllers,'mc500':mc500,'mc1000':mc1000,'mc1100':mc1100,'mc3000':mc3000,'mc500a':mc500a,'mc5000':mc5000,'mc4000':mc4000,'mc4100':mc4100,'mc1500':mc1500,'mc3200':mc3200,'mc4200':mc4200,'mc6000':mc6000,'mc1500v':mc1500v,'mc3200v':mc3200v,'mc4200v':mc4200v,'mc1550':mc1550,'mc1550v':mc1550v,'fwc50d':fwc50d,'fwc2hd':fwc2hd,'fwc5hd':fwc5hd,'meru-modules':meru_modules})
+#
+# PySNMP MIB module MERU-SMI (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/meru/MERU-SMI
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+meru = ModuleIdentity((1, 3, 6, 1, 4, 1, 15983))
+if mibBuilder.loadTexts: meru.setLastUpdated('200504250000Z')
+if mibBuilder.loadTexts: meru.setOrganization('Meru Networks')
+meru_reg = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1)).setLabel("meru-reg")
+meru_wlan = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1)).setLabel("meru-wlan")
+meru_modules = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 2)).setLabel("meru-modules")
+mwStatistics = ObjectIdentity((1, 3, 6, 1, 4, 1, 15983, 1, 1, 3))
+if mibBuilder.loadTexts: mwStatistics.setStatus('current')
+mwConfiguration = ObjectIdentity((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4))
+if mibBuilder.loadTexts: mwConfiguration.setStatus('current')
+mwDiagnostics = ObjectIdentity((1, 3, 6, 1, 4, 1, 15983, 1, 1, 5))
+if mibBuilder.loadTexts: mwDiagnostics.setStatus('current')
+meruAgentCapability = ObjectIdentity((1, 3, 6, 1, 4, 1, 15983, 1, 1, 6))
+if mibBuilder.loadTexts: meruAgentCapability.setStatus('current')
+mwControllers = ObjectIdentity((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7))
+if mibBuilder.loadTexts: mwControllers.setStatus('current')
+mc500 = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 1))
+mc1000 = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 2))
+mc1100 = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 3))
+mc3000 = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 4))
+mc500a = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 5))
+mc5000 = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 6))
+mc4000 = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 7))
+mc4100 = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 8))
+mc1500 = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 9))
+mc3200 = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 10))
+mc4200 = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 11))
+mc6000 = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 12))
+mc1500v = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 13))
+mc3200v = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 14))
+mc4200v = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 15))
+mc1550 = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 16))
+mc1550v = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 17))
+fwc50d = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 18))
+fwc2hd = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 19))
+fwc5hd = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 7, 20))
+mibBuilder.exportSymbols("MERU-SMI", mwControllers=mwControllers, mc1550=mc1550, meru_modules=meru_modules, mc3000=mc3000, meru=meru, mc4200v=mc4200v, meru_reg=meru_reg, PYSNMP_MODULE_ID=meru, mc3200=mc3200, mwDiagnostics=mwDiagnostics, mwConfiguration=mwConfiguration, fwc5hd=fwc5hd, fwc2hd=fwc2hd, mc4100=mc4100, mc500=mc500, mc500a=mc500a, mc1500=mc1500, mwStatistics=mwStatistics, mc4200=mc4200, mc5000=mc5000, mc4000=mc4000, mc3200v=mc3200v, mc1500v=mc1500v, mc1100=mc1100, meruAgentCapability=meruAgentCapability, mc1550v=mc1550v, mc1000=mc1000, mc6000=mc6000, fwc50d=fwc50d, meru_wlan=meru_wlan)

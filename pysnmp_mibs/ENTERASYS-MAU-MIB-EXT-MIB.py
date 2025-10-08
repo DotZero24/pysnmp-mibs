@@ -1,71 +1,51 @@
-_K='etsysMauMibExtMasterSlaveGroup'
-_J='etsysMauMibExtMDIXGroup'
-_I='etsysIfMauExtMasterSlaveStatus'
-_H='etsysIfMauExtMDIXStatus'
-_G='read-write'
-_F='Integer32'
-_E='ifMauIfIndex'
-_D='MAU-MIB'
-_C='ENTERASYS-MAU-MIB-EXT-MIB'
-_B='deprecated'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-etsysModules,=mibBuilder.importSymbols('ENTERASYS-MIB-NAMES','etsysModules')
-ifMauIfIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-etsysMauMibExtMIB=ModuleIdentity((1,3,6,1,4,1,5624,1,2,59))
-if mibBuilder.loadTexts:etsysMauMibExtMIB.setRevisions(('2011-08-15 18:12','2006-05-09 11:30','2006-02-16 19:18','2005-02-07 15:05'))
-_EtsysMauMibExtObjects_ObjectIdentity=ObjectIdentity
-etsysMauMibExtObjects=_EtsysMauMibExtObjects_ObjectIdentity((1,3,6,1,4,1,5624,1,2,59,1))
-_EtsysMauMibExtBasic_ObjectIdentity=ObjectIdentity
-etsysMauMibExtBasic=_EtsysMauMibExtBasic_ObjectIdentity((1,3,6,1,4,1,5624,1,2,59,1,1))
-_EtsysIfMauExtMDIXTable_Object=MibTable
-etsysIfMauExtMDIXTable=_EtsysIfMauExtMDIXTable_Object((1,3,6,1,4,1,5624,1,2,59,1,1,1))
-if mibBuilder.loadTexts:etsysIfMauExtMDIXTable.setStatus(_A)
-_EtsysIfMauExtMDIXEntry_Object=MibTableRow
-etsysIfMauExtMDIXEntry=_EtsysIfMauExtMDIXEntry_Object((1,3,6,1,4,1,5624,1,2,59,1,1,1,1))
-etsysIfMauExtMDIXEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:etsysIfMauExtMDIXEntry.setStatus(_A)
-class _EtsysIfMauExtMDIXStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('auto',1),('mdix',2),('mdi',3)))
-_EtsysIfMauExtMDIXStatus_Type.__name__=_F
-_EtsysIfMauExtMDIXStatus_Object=MibTableColumn
-etsysIfMauExtMDIXStatus=_EtsysIfMauExtMDIXStatus_Object((1,3,6,1,4,1,5624,1,2,59,1,1,1,1,1),_EtsysIfMauExtMDIXStatus_Type())
-etsysIfMauExtMDIXStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:etsysIfMauExtMDIXStatus.setStatus(_A)
-_EtsysIfMauExtMasterSlaveTable_Object=MibTable
-etsysIfMauExtMasterSlaveTable=_EtsysIfMauExtMasterSlaveTable_Object((1,3,6,1,4,1,5624,1,2,59,1,1,2))
-if mibBuilder.loadTexts:etsysIfMauExtMasterSlaveTable.setStatus(_B)
-_EtsysIfMauExtMasterSlaveEntry_Object=MibTableRow
-etsysIfMauExtMasterSlaveEntry=_EtsysIfMauExtMasterSlaveEntry_Object((1,3,6,1,4,1,5624,1,2,59,1,1,2,1))
-etsysIfMauExtMasterSlaveEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:etsysIfMauExtMasterSlaveEntry.setStatus(_B)
-class _EtsysIfMauExtMasterSlaveStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('master',1),('slave',2)))
-_EtsysIfMauExtMasterSlaveStatus_Type.__name__=_F
-_EtsysIfMauExtMasterSlaveStatus_Object=MibTableColumn
-etsysIfMauExtMasterSlaveStatus=_EtsysIfMauExtMasterSlaveStatus_Object((1,3,6,1,4,1,5624,1,2,59,1,1,2,1,1),_EtsysIfMauExtMasterSlaveStatus_Type())
-etsysIfMauExtMasterSlaveStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:etsysIfMauExtMasterSlaveStatus.setStatus(_B)
-_EtsysMauMibExtConformance_ObjectIdentity=ObjectIdentity
-etsysMauMibExtConformance=_EtsysMauMibExtConformance_ObjectIdentity((1,3,6,1,4,1,5624,1,2,59,2))
-_EtsysMauMibExtGroups_ObjectIdentity=ObjectIdentity
-etsysMauMibExtGroups=_EtsysMauMibExtGroups_ObjectIdentity((1,3,6,1,4,1,5624,1,2,59,2,1))
-_EtsysMauMibExtCompliances_ObjectIdentity=ObjectIdentity
-etsysMauMibExtCompliances=_EtsysMauMibExtCompliances_ObjectIdentity((1,3,6,1,4,1,5624,1,2,59,2,2))
-etsysMauMibExtMDIXGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,59,2,1,1))
-etsysMauMibExtMDIXGroup.setObjects((_C,_H))
-if mibBuilder.loadTexts:etsysMauMibExtMDIXGroup.setStatus(_A)
-etsysMauMibExtMasterSlaveGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,59,2,1,2))
-etsysMauMibExtMasterSlaveGroup.setObjects((_C,_I))
-if mibBuilder.loadTexts:etsysMauMibExtMasterSlaveGroup.setStatus(_B)
-etsysMauMibExtMDIXCompliance=ModuleCompliance((1,3,6,1,4,1,5624,1,2,59,2,2,1))
-etsysMauMibExtMDIXCompliance.setObjects((_C,_J))
-if mibBuilder.loadTexts:etsysMauMibExtMDIXCompliance.setStatus(_A)
-etsysMauMibExtMasterSlaveCompliance=ModuleCompliance((1,3,6,1,4,1,5624,1,2,59,2,2,2))
-etsysMauMibExtMasterSlaveCompliance.setObjects((_C,_K))
-if mibBuilder.loadTexts:etsysMauMibExtMasterSlaveCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_C,**{'etsysMauMibExtMIB':etsysMauMibExtMIB,'etsysMauMibExtObjects':etsysMauMibExtObjects,'etsysMauMibExtBasic':etsysMauMibExtBasic,'etsysIfMauExtMDIXTable':etsysIfMauExtMDIXTable,'etsysIfMauExtMDIXEntry':etsysIfMauExtMDIXEntry,_H:etsysIfMauExtMDIXStatus,'etsysIfMauExtMasterSlaveTable':etsysIfMauExtMasterSlaveTable,'etsysIfMauExtMasterSlaveEntry':etsysIfMauExtMasterSlaveEntry,_I:etsysIfMauExtMasterSlaveStatus,'etsysMauMibExtConformance':etsysMauMibExtConformance,'etsysMauMibExtGroups':etsysMauMibExtGroups,_J:etsysMauMibExtMDIXGroup,_K:etsysMauMibExtMasterSlaveGroup,'etsysMauMibExtCompliances':etsysMauMibExtCompliances,'etsysMauMibExtMDIXCompliance':etsysMauMibExtMDIXCompliance,'etsysMauMibExtMasterSlaveCompliance':etsysMauMibExtMasterSlaveCompliance})
+#
+# PySNMP MIB module ENTERASYS-MAU-MIB-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/enterasys/ENTERASYS-MAU-MIB-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:22 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
+ifMauIfIndex, = mibBuilder.importSymbols("MAU-MIB", "ifMauIfIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+etsysMauMibExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59))
+etsysMauMibExtMIB.setRevisions(('2011-08-15 18:12', '2006-05-09 11:30', '2006-02-16 19:18', '2005-02-07 15:05',))
+if mibBuilder.loadTexts: etsysMauMibExtMIB.setLastUpdated('201108151812Z')
+if mibBuilder.loadTexts: etsysMauMibExtMIB.setOrganization('Enterasys Networks, Inc.')
+etsysMauMibExtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59, 1))
+etsysMauMibExtBasic = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59, 1, 1))
+etsysIfMauExtMDIXTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59, 1, 1, 1), )
+if mibBuilder.loadTexts: etsysIfMauExtMDIXTable.setStatus('current')
+etsysIfMauExtMDIXEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59, 1, 1, 1, 1), ).setIndexNames((0, "MAU-MIB", "ifMauIfIndex"))
+if mibBuilder.loadTexts: etsysIfMauExtMDIXEntry.setStatus('current')
+etsysIfMauExtMDIXStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("auto", 1), ("mdix", 2), ("mdi", 3))).clone('auto')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysIfMauExtMDIXStatus.setStatus('current')
+etsysIfMauExtMasterSlaveTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59, 1, 1, 2), )
+if mibBuilder.loadTexts: etsysIfMauExtMasterSlaveTable.setStatus('deprecated')
+etsysIfMauExtMasterSlaveEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59, 1, 1, 2, 1), ).setIndexNames((0, "MAU-MIB", "ifMauIfIndex"))
+if mibBuilder.loadTexts: etsysIfMauExtMasterSlaveEntry.setStatus('deprecated')
+etsysIfMauExtMasterSlaveStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("master", 1), ("slave", 2))).clone('slave')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysIfMauExtMasterSlaveStatus.setStatus('deprecated')
+etsysMauMibExtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59, 2))
+etsysMauMibExtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59, 2, 1))
+etsysMauMibExtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59, 2, 2))
+etsysMauMibExtMDIXGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59, 2, 1, 1)).setObjects(("ENTERASYS-MAU-MIB-EXT-MIB", "etsysIfMauExtMDIXStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysMauMibExtMDIXGroup = etsysMauMibExtMDIXGroup.setStatus('current')
+etsysMauMibExtMasterSlaveGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59, 2, 1, 2)).setObjects(("ENTERASYS-MAU-MIB-EXT-MIB", "etsysIfMauExtMasterSlaveStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysMauMibExtMasterSlaveGroup = etsysMauMibExtMasterSlaveGroup.setStatus('deprecated')
+etsysMauMibExtMDIXCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59, 2, 2, 1)).setObjects(("ENTERASYS-MAU-MIB-EXT-MIB", "etsysMauMibExtMDIXGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysMauMibExtMDIXCompliance = etsysMauMibExtMDIXCompliance.setStatus('current')
+etsysMauMibExtMasterSlaveCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 59, 2, 2, 2)).setObjects(("ENTERASYS-MAU-MIB-EXT-MIB", "etsysMauMibExtMasterSlaveGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysMauMibExtMasterSlaveCompliance = etsysMauMibExtMasterSlaveCompliance.setStatus('deprecated')
+mibBuilder.exportSymbols("ENTERASYS-MAU-MIB-EXT-MIB", etsysIfMauExtMDIXEntry=etsysIfMauExtMDIXEntry, etsysIfMauExtMasterSlaveStatus=etsysIfMauExtMasterSlaveStatus, PYSNMP_MODULE_ID=etsysMauMibExtMIB, etsysMauMibExtConformance=etsysMauMibExtConformance, etsysMauMibExtCompliances=etsysMauMibExtCompliances, etsysMauMibExtMDIXGroup=etsysMauMibExtMDIXGroup, etsysMauMibExtMIB=etsysMauMibExtMIB, etsysIfMauExtMDIXStatus=etsysIfMauExtMDIXStatus, etsysMauMibExtGroups=etsysMauMibExtGroups, etsysMauMibExtMasterSlaveCompliance=etsysMauMibExtMasterSlaveCompliance, etsysMauMibExtObjects=etsysMauMibExtObjects, etsysMauMibExtMDIXCompliance=etsysMauMibExtMDIXCompliance, etsysMauMibExtBasic=etsysMauMibExtBasic, etsysIfMauExtMDIXTable=etsysIfMauExtMDIXTable, etsysIfMauExtMasterSlaveTable=etsysIfMauExtMasterSlaveTable, etsysIfMauExtMasterSlaveEntry=etsysIfMauExtMasterSlaveEntry, etsysMauMibExtMasterSlaveGroup=etsysMauMibExtMasterSlaveGroup)

@@ -1,67 +1,39 @@
-_G='not-accessible'
-_F='zyLayer3IpInbandMask'
-_E='zyLayer3IpInbandIpAddress'
-_D='Integer32'
-_C='ZYXEL-L3-IP-MIB'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelL3Ip=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,40))
-_ZyxelLayer3IpSetup_ObjectIdentity=ObjectIdentity
-zyxelLayer3IpSetup=_ZyxelLayer3IpSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,40,1))
-_ZyLayer3IpDnsIpAddress_Type=IpAddress
-_ZyLayer3IpDnsIpAddress_Object=MibScalar
-zyLayer3IpDnsIpAddress=_ZyLayer3IpDnsIpAddress_Object((1,3,6,1,4,1,890,1,15,3,40,1,1),_ZyLayer3IpDnsIpAddress_Type())
-zyLayer3IpDnsIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyLayer3IpDnsIpAddress.setStatus(_A)
-class _ZyLayer3IpDefaultMgmt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('inBand',0),('outOfBand',1)))
-_ZyLayer3IpDefaultMgmt_Type.__name__=_D
-_ZyLayer3IpDefaultMgmt_Object=MibScalar
-zyLayer3IpDefaultMgmt=_ZyLayer3IpDefaultMgmt_Object((1,3,6,1,4,1,890,1,15,3,40,1,2),_ZyLayer3IpDefaultMgmt_Type())
-zyLayer3IpDefaultMgmt.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyLayer3IpDefaultMgmt.setStatus(_A)
-_ZyLayer3IpDefaultGateway_Type=IpAddress
-_ZyLayer3IpDefaultGateway_Object=MibScalar
-zyLayer3IpDefaultGateway=_ZyLayer3IpDefaultGateway_Object((1,3,6,1,4,1,890,1,15,3,40,1,3),_ZyLayer3IpDefaultGateway_Type())
-zyLayer3IpDefaultGateway.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyLayer3IpDefaultGateway.setStatus(_A)
-_ZyLayer3IpInbandMaxNumberOfInterfaces_Type=Integer32
-_ZyLayer3IpInbandMaxNumberOfInterfaces_Object=MibScalar
-zyLayer3IpInbandMaxNumberOfInterfaces=_ZyLayer3IpInbandMaxNumberOfInterfaces_Object((1,3,6,1,4,1,890,1,15,3,40,1,4),_ZyLayer3IpInbandMaxNumberOfInterfaces_Type())
-zyLayer3IpInbandMaxNumberOfInterfaces.setMaxAccess('read-only')
-if mibBuilder.loadTexts:zyLayer3IpInbandMaxNumberOfInterfaces.setStatus(_A)
-_ZyxelLayer3IpInbandTable_Object=MibTable
-zyxelLayer3IpInbandTable=_ZyxelLayer3IpInbandTable_Object((1,3,6,1,4,1,890,1,15,3,40,1,5))
-if mibBuilder.loadTexts:zyxelLayer3IpInbandTable.setStatus(_A)
-_ZyxelLayer3IpInbandEntry_Object=MibTableRow
-zyxelLayer3IpInbandEntry=_ZyxelLayer3IpInbandEntry_Object((1,3,6,1,4,1,890,1,15,3,40,1,5,1))
-zyxelLayer3IpInbandEntry.setIndexNames((0,_C,_E),(0,_C,_F))
-if mibBuilder.loadTexts:zyxelLayer3IpInbandEntry.setStatus(_A)
-_ZyLayer3IpInbandIpAddress_Type=IpAddress
-_ZyLayer3IpInbandIpAddress_Object=MibTableColumn
-zyLayer3IpInbandIpAddress=_ZyLayer3IpInbandIpAddress_Object((1,3,6,1,4,1,890,1,15,3,40,1,5,1,1),_ZyLayer3IpInbandIpAddress_Type())
-zyLayer3IpInbandIpAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:zyLayer3IpInbandIpAddress.setStatus(_A)
-_ZyLayer3IpInbandMask_Type=IpAddress
-_ZyLayer3IpInbandMask_Object=MibTableColumn
-zyLayer3IpInbandMask=_ZyLayer3IpInbandMask_Object((1,3,6,1,4,1,890,1,15,3,40,1,5,1,2),_ZyLayer3IpInbandMask_Type())
-zyLayer3IpInbandMask.setMaxAccess(_G)
-if mibBuilder.loadTexts:zyLayer3IpInbandMask.setStatus(_A)
-_ZyLayer3IpInbandVid_Type=Integer32
-_ZyLayer3IpInbandVid_Object=MibTableColumn
-zyLayer3IpInbandVid=_ZyLayer3IpInbandVid_Object((1,3,6,1,4,1,890,1,15,3,40,1,5,1,3),_ZyLayer3IpInbandVid_Type())
-zyLayer3IpInbandVid.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyLayer3IpInbandVid.setStatus(_A)
-_ZyLayer3IpInbandRowStatus_Type=RowStatus
-_ZyLayer3IpInbandRowStatus_Object=MibTableColumn
-zyLayer3IpInbandRowStatus=_ZyLayer3IpInbandRowStatus_Object((1,3,6,1,4,1,890,1,15,3,40,1,5,1,4),_ZyLayer3IpInbandRowStatus_Type())
-zyLayer3IpInbandRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:zyLayer3IpInbandRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'zyxelL3Ip':zyxelL3Ip,'zyxelLayer3IpSetup':zyxelLayer3IpSetup,'zyLayer3IpDnsIpAddress':zyLayer3IpDnsIpAddress,'zyLayer3IpDefaultMgmt':zyLayer3IpDefaultMgmt,'zyLayer3IpDefaultGateway':zyLayer3IpDefaultGateway,'zyLayer3IpInbandMaxNumberOfInterfaces':zyLayer3IpInbandMaxNumberOfInterfaces,'zyxelLayer3IpInbandTable':zyxelLayer3IpInbandTable,'zyxelLayer3IpInbandEntry':zyxelLayer3IpInbandEntry,_E:zyLayer3IpInbandIpAddress,_F:zyLayer3IpInbandMask,'zyLayer3IpInbandVid':zyLayer3IpInbandVid,'zyLayer3IpInbandRowStatus':zyLayer3IpInbandRowStatus})
+#
+# PySNMP MIB module ZYXEL-L3-IP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-L3-IP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelL3Ip = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 40))
+if mibBuilder.loadTexts: zyxelL3Ip.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelL3Ip.setOrganization('Enterprise Solution ZyXEL')
+zyxelLayer3IpSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 40, 1))
+zyLayer3IpDnsIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 40, 1, 1), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyLayer3IpDnsIpAddress.setStatus('current')
+zyLayer3IpDefaultMgmt = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 40, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("inBand", 0), ("outOfBand", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyLayer3IpDefaultMgmt.setStatus('current')
+zyLayer3IpDefaultGateway = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 40, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyLayer3IpDefaultGateway.setStatus('current')
+zyLayer3IpInbandMaxNumberOfInterfaces = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 40, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zyLayer3IpInbandMaxNumberOfInterfaces.setStatus('current')
+zyxelLayer3IpInbandTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 40, 1, 5), )
+if mibBuilder.loadTexts: zyxelLayer3IpInbandTable.setStatus('current')
+zyxelLayer3IpInbandEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 40, 1, 5, 1), ).setIndexNames((0, "ZYXEL-L3-IP-MIB", "zyLayer3IpInbandIpAddress"), (0, "ZYXEL-L3-IP-MIB", "zyLayer3IpInbandMask"))
+if mibBuilder.loadTexts: zyxelLayer3IpInbandEntry.setStatus('current')
+zyLayer3IpInbandIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 40, 1, 5, 1, 1), IpAddress())
+if mibBuilder.loadTexts: zyLayer3IpInbandIpAddress.setStatus('current')
+zyLayer3IpInbandMask = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 40, 1, 5, 1, 2), IpAddress())
+if mibBuilder.loadTexts: zyLayer3IpInbandMask.setStatus('current')
+zyLayer3IpInbandVid = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 40, 1, 5, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyLayer3IpInbandVid.setStatus('current')
+zyLayer3IpInbandRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 40, 1, 5, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zyLayer3IpInbandRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-L3-IP-MIB", zyxelLayer3IpInbandEntry=zyxelLayer3IpInbandEntry, zyLayer3IpInbandMaxNumberOfInterfaces=zyLayer3IpInbandMaxNumberOfInterfaces, zyLayer3IpDefaultGateway=zyLayer3IpDefaultGateway, zyLayer3IpInbandIpAddress=zyLayer3IpInbandIpAddress, zyxelL3Ip=zyxelL3Ip, PYSNMP_MODULE_ID=zyxelL3Ip, zyLayer3IpDnsIpAddress=zyLayer3IpDnsIpAddress, zyLayer3IpInbandRowStatus=zyLayer3IpInbandRowStatus, zyLayer3IpInbandMask=zyLayer3IpInbandMask, zyLayer3IpDefaultMgmt=zyLayer3IpDefaultMgmt, zyxelLayer3IpSetup=zyxelLayer3IpSetup, zyLayer3IpInbandVid=zyLayer3IpInbandVid, zyxelLayer3IpInbandTable=zyxelLayer3IpInbandTable)

@@ -1,328 +1,131 @@
-_y='ciscoMspMIBMetaParamsObjectGroup'
-_x='ciscoMspMIBRsvpParamsObjectGroup'
-_w='ciscoMspMIBProfileNameObjectGroup'
-_v='ciscoMspMIBIfProfileObjectGroup'
-_u='ciscoMspMIBScalarObjectGroup'
-_t='cMspMetaParamsRowStatus'
-_s='cMspMetaParamsStorageType'
-_r='cMspMetaParamsAppVersion'
-_q='cMspMetaParamsAppVendor'
-_p='cMspMetaParamsAppName'
-_o='cMspMetaParamsSipEmail'
-_n='cMspMetaParamsSipUserName'
-_m='cMspMetaParamsPayloadType'
-_l='cMspMetaParamsMimeType'
-_k='cMspMetaParamsCname'
-_j='cMspMetaParamsDomainName'
-_i='cMspMetaParamsSessId'
-_h='cMspMetaParamsClockFreq'
-_g='cMspMetaParamsSyncSrc'
-_f='cMspMetaParamsBandwidth'
-_e='cMspRsvpParamsRowStatus'
-_d='cMspRsvpParamsStorageType'
-_c='cMspRsvpParamsPriorityDefend'
-_b='cMspRsvpParamsPriorityPrempt'
-_a='cMspRsvpParamsMaxBurst'
-_Z='cMspRsvpParamsPeakRate'
-_Y='cMspRsvpParamsBandwidth'
-_X='cMspProfileRowStatus'
-_W='cMspProfileStorageType'
-_V='cMspProfileMetadata'
-_U='cMspProfileRsvp'
-_T='cMspProfileService'
-_S='cMspIfProfileRowStatus'
-_R='cMspIfProfileStorageType'
-_Q='cMspIfProfileName'
-_P='cMspGlobalProfile'
-_O='cMspGlobalStatus'
-_N='read-write'
-_M='Integer32'
-_L='ifIndex'
-_K='IF-MIB'
-_J='cMspMetaParamsName'
-_I='kbps'
-_H='cMspRsvpParamsName'
-_G='cMspProfileName'
-_F='StorageType'
-_E='Unsigned32'
-_D='SnmpAdminString'
-_C='read-create'
-_B='CISCO-MSP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ifIndex,=mibBuilder.importSymbols(_K,_L)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_D)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_M,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_F,'TextualConvention')
-ciscoMspMIB=ModuleIdentity((1,3,6,1,4,1,9,9,793))
-if mibBuilder.loadTexts:ciscoMspMIB.setRevisions(('2012-04-19 00:00',))
-_CiscoMspMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoMspMIBNotifs=_CiscoMspMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,793,0))
-_CiscoMspMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoMspMIBObjects=_CiscoMspMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,793,1))
-class _CMspGlobalStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_CMspGlobalStatus_Type.__name__=_M
-_CMspGlobalStatus_Object=MibScalar
-cMspGlobalStatus=_CMspGlobalStatus_Object((1,3,6,1,4,1,9,9,793,1,1),_CMspGlobalStatus_Type())
-cMspGlobalStatus.setMaxAccess(_N)
-if mibBuilder.loadTexts:cMspGlobalStatus.setStatus(_A)
-class _CMspGlobalProfile_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,100))
-_CMspGlobalProfile_Type.__name__=_D
-_CMspGlobalProfile_Object=MibScalar
-cMspGlobalProfile=_CMspGlobalProfile_Object((1,3,6,1,4,1,9,9,793,1,2),_CMspGlobalProfile_Type())
-cMspGlobalProfile.setMaxAccess(_N)
-if mibBuilder.loadTexts:cMspGlobalProfile.setStatus(_A)
-_CMspIfProfileTable_Object=MibTable
-cMspIfProfileTable=_CMspIfProfileTable_Object((1,3,6,1,4,1,9,9,793,1,3))
-if mibBuilder.loadTexts:cMspIfProfileTable.setStatus(_A)
-_CMspIfProfileEntry_Object=MibTableRow
-cMspIfProfileEntry=_CMspIfProfileEntry_Object((1,3,6,1,4,1,9,9,793,1,3,1))
-cMspIfProfileEntry.setIndexNames((0,_K,_L))
-if mibBuilder.loadTexts:cMspIfProfileEntry.setStatus(_A)
-class _CMspIfProfileName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,100))
-_CMspIfProfileName_Type.__name__=_D
-_CMspIfProfileName_Object=MibTableColumn
-cMspIfProfileName=_CMspIfProfileName_Object((1,3,6,1,4,1,9,9,793,1,3,1,1),_CMspIfProfileName_Type())
-cMspIfProfileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspIfProfileName.setStatus(_A)
-class _CMspIfProfileStorageType_Type(StorageType):defaultValue=3
-_CMspIfProfileStorageType_Type.__name__=_F
-_CMspIfProfileStorageType_Object=MibTableColumn
-cMspIfProfileStorageType=_CMspIfProfileStorageType_Object((1,3,6,1,4,1,9,9,793,1,3,1,2),_CMspIfProfileStorageType_Type())
-cMspIfProfileStorageType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspIfProfileStorageType.setStatus(_A)
-_CMspIfProfileRowStatus_Type=RowStatus
-_CMspIfProfileRowStatus_Object=MibTableColumn
-cMspIfProfileRowStatus=_CMspIfProfileRowStatus_Object((1,3,6,1,4,1,9,9,793,1,3,1,3),_CMspIfProfileRowStatus_Type())
-cMspIfProfileRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspIfProfileRowStatus.setStatus(_A)
-_CMspProfileTable_Object=MibTable
-cMspProfileTable=_CMspProfileTable_Object((1,3,6,1,4,1,9,9,793,1,4))
-if mibBuilder.loadTexts:cMspProfileTable.setStatus(_A)
-_CMspProfileEntry_Object=MibTableRow
-cMspProfileEntry=_CMspProfileEntry_Object((1,3,6,1,4,1,9,9,793,1,4,1))
-cMspProfileEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:cMspProfileEntry.setStatus(_A)
-class _CMspProfileName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,100))
-_CMspProfileName_Type.__name__=_D
-_CMspProfileName_Object=MibTableColumn
-cMspProfileName=_CMspProfileName_Object((1,3,6,1,4,1,9,9,793,1,4,1,1),_CMspProfileName_Type())
-cMspProfileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspProfileName.setStatus(_A)
-class _CMspProfileService_Type(Bits):namedValues=NamedValues(*(('rsvp',0),('metadata',1)))
-_CMspProfileService_Type.__name__='Bits'
-_CMspProfileService_Object=MibTableColumn
-cMspProfileService=_CMspProfileService_Object((1,3,6,1,4,1,9,9,793,1,4,1,2),_CMspProfileService_Type())
-cMspProfileService.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspProfileService.setStatus(_A)
-class _CMspProfileRsvp_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,100))
-_CMspProfileRsvp_Type.__name__=_D
-_CMspProfileRsvp_Object=MibTableColumn
-cMspProfileRsvp=_CMspProfileRsvp_Object((1,3,6,1,4,1,9,9,793,1,4,1,3),_CMspProfileRsvp_Type())
-cMspProfileRsvp.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspProfileRsvp.setStatus(_A)
-class _CMspProfileMetadata_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,100))
-_CMspProfileMetadata_Type.__name__=_D
-_CMspProfileMetadata_Object=MibTableColumn
-cMspProfileMetadata=_CMspProfileMetadata_Object((1,3,6,1,4,1,9,9,793,1,4,1,4),_CMspProfileMetadata_Type())
-cMspProfileMetadata.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspProfileMetadata.setStatus(_A)
-class _CMspProfileStorageType_Type(StorageType):defaultValue=3
-_CMspProfileStorageType_Type.__name__=_F
-_CMspProfileStorageType_Object=MibTableColumn
-cMspProfileStorageType=_CMspProfileStorageType_Object((1,3,6,1,4,1,9,9,793,1,4,1,5),_CMspProfileStorageType_Type())
-cMspProfileStorageType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspProfileStorageType.setStatus(_A)
-_CMspProfileRowStatus_Type=RowStatus
-_CMspProfileRowStatus_Object=MibTableColumn
-cMspProfileRowStatus=_CMspProfileRowStatus_Object((1,3,6,1,4,1,9,9,793,1,4,1,6),_CMspProfileRowStatus_Type())
-cMspProfileRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspProfileRowStatus.setStatus(_A)
-_CMspRsvpParamsTable_Object=MibTable
-cMspRsvpParamsTable=_CMspRsvpParamsTable_Object((1,3,6,1,4,1,9,9,793,1,5))
-if mibBuilder.loadTexts:cMspRsvpParamsTable.setStatus(_A)
-_CMspRsvpParamsEntry_Object=MibTableRow
-cMspRsvpParamsEntry=_CMspRsvpParamsEntry_Object((1,3,6,1,4,1,9,9,793,1,5,1))
-cMspRsvpParamsEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:cMspRsvpParamsEntry.setStatus(_A)
-class _CMspRsvpParamsName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,100))
-_CMspRsvpParamsName_Type.__name__=_D
-_CMspRsvpParamsName_Object=MibTableColumn
-cMspRsvpParamsName=_CMspRsvpParamsName_Object((1,3,6,1,4,1,9,9,793,1,5,1,1),_CMspRsvpParamsName_Type())
-cMspRsvpParamsName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspRsvpParamsName.setStatus(_A)
-class _CMspRsvpParamsBandwidth_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10000000))
-_CMspRsvpParamsBandwidth_Type.__name__=_E
-_CMspRsvpParamsBandwidth_Object=MibTableColumn
-cMspRsvpParamsBandwidth=_CMspRsvpParamsBandwidth_Object((1,3,6,1,4,1,9,9,793,1,5,1,2),_CMspRsvpParamsBandwidth_Type())
-cMspRsvpParamsBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspRsvpParamsBandwidth.setStatus(_A)
-if mibBuilder.loadTexts:cMspRsvpParamsBandwidth.setUnits(_I)
-class _CMspRsvpParamsPeakRate_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10000000))
-_CMspRsvpParamsPeakRate_Type.__name__=_E
-_CMspRsvpParamsPeakRate_Object=MibTableColumn
-cMspRsvpParamsPeakRate=_CMspRsvpParamsPeakRate_Object((1,3,6,1,4,1,9,9,793,1,5,1,3),_CMspRsvpParamsPeakRate_Type())
-cMspRsvpParamsPeakRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspRsvpParamsPeakRate.setStatus(_A)
-if mibBuilder.loadTexts:cMspRsvpParamsPeakRate.setUnits(_I)
-class _CMspRsvpParamsMaxBurst_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CMspRsvpParamsMaxBurst_Type.__name__=_E
-_CMspRsvpParamsMaxBurst_Object=MibTableColumn
-cMspRsvpParamsMaxBurst=_CMspRsvpParamsMaxBurst_Object((1,3,6,1,4,1,9,9,793,1,5,1,4),_CMspRsvpParamsMaxBurst_Type())
-cMspRsvpParamsMaxBurst.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspRsvpParamsMaxBurst.setStatus(_A)
-if mibBuilder.loadTexts:cMspRsvpParamsMaxBurst.setUnits('kB')
-class _CMspRsvpParamsPriorityPrempt_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_CMspRsvpParamsPriorityPrempt_Type.__name__=_E
-_CMspRsvpParamsPriorityPrempt_Object=MibTableColumn
-cMspRsvpParamsPriorityPrempt=_CMspRsvpParamsPriorityPrempt_Object((1,3,6,1,4,1,9,9,793,1,5,1,5),_CMspRsvpParamsPriorityPrempt_Type())
-cMspRsvpParamsPriorityPrempt.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspRsvpParamsPriorityPrempt.setStatus(_A)
-class _CMspRsvpParamsPriorityDefend_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_CMspRsvpParamsPriorityDefend_Type.__name__=_E
-_CMspRsvpParamsPriorityDefend_Object=MibTableColumn
-cMspRsvpParamsPriorityDefend=_CMspRsvpParamsPriorityDefend_Object((1,3,6,1,4,1,9,9,793,1,5,1,6),_CMspRsvpParamsPriorityDefend_Type())
-cMspRsvpParamsPriorityDefend.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspRsvpParamsPriorityDefend.setStatus(_A)
-class _CMspRsvpParamsStorageType_Type(StorageType):defaultValue=3
-_CMspRsvpParamsStorageType_Type.__name__=_F
-_CMspRsvpParamsStorageType_Object=MibTableColumn
-cMspRsvpParamsStorageType=_CMspRsvpParamsStorageType_Object((1,3,6,1,4,1,9,9,793,1,5,1,7),_CMspRsvpParamsStorageType_Type())
-cMspRsvpParamsStorageType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspRsvpParamsStorageType.setStatus(_A)
-_CMspRsvpParamsRowStatus_Type=RowStatus
-_CMspRsvpParamsRowStatus_Object=MibTableColumn
-cMspRsvpParamsRowStatus=_CMspRsvpParamsRowStatus_Object((1,3,6,1,4,1,9,9,793,1,5,1,8),_CMspRsvpParamsRowStatus_Type())
-cMspRsvpParamsRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspRsvpParamsRowStatus.setStatus(_A)
-_CMspMetaParamsTable_Object=MibTable
-cMspMetaParamsTable=_CMspMetaParamsTable_Object((1,3,6,1,4,1,9,9,793,1,6))
-if mibBuilder.loadTexts:cMspMetaParamsTable.setStatus(_A)
-_CMspMetaParamsEntry_Object=MibTableRow
-cMspMetaParamsEntry=_CMspMetaParamsEntry_Object((1,3,6,1,4,1,9,9,793,1,6,1))
-cMspMetaParamsEntry.setIndexNames((0,_B,_J))
-if mibBuilder.loadTexts:cMspMetaParamsEntry.setStatus(_A)
-class _CMspMetaParamsName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,100))
-_CMspMetaParamsName_Type.__name__=_D
-_CMspMetaParamsName_Object=MibTableColumn
-cMspMetaParamsName=_CMspMetaParamsName_Object((1,3,6,1,4,1,9,9,793,1,6,1,1),_CMspMetaParamsName_Type())
-cMspMetaParamsName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsName.setStatus(_A)
-class _CMspMetaParamsBandwidth_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10000000))
-_CMspMetaParamsBandwidth_Type.__name__=_E
-_CMspMetaParamsBandwidth_Object=MibTableColumn
-cMspMetaParamsBandwidth=_CMspMetaParamsBandwidth_Object((1,3,6,1,4,1,9,9,793,1,6,1,2),_CMspMetaParamsBandwidth_Type())
-cMspMetaParamsBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsBandwidth.setStatus(_A)
-if mibBuilder.loadTexts:cMspMetaParamsBandwidth.setUnits(_I)
-_CMspMetaParamsSyncSrc_Type=Unsigned32
-_CMspMetaParamsSyncSrc_Object=MibTableColumn
-cMspMetaParamsSyncSrc=_CMspMetaParamsSyncSrc_Object((1,3,6,1,4,1,9,9,793,1,6,1,3),_CMspMetaParamsSyncSrc_Type())
-cMspMetaParamsSyncSrc.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsSyncSrc.setStatus(_A)
-_CMspMetaParamsClockFreq_Type=Unsigned32
-_CMspMetaParamsClockFreq_Object=MibTableColumn
-cMspMetaParamsClockFreq=_CMspMetaParamsClockFreq_Object((1,3,6,1,4,1,9,9,793,1,6,1,4),_CMspMetaParamsClockFreq_Type())
-cMspMetaParamsClockFreq.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsClockFreq.setStatus(_A)
-class _CMspMetaParamsSessId_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_CMspMetaParamsSessId_Type.__name__=_D
-_CMspMetaParamsSessId_Object=MibTableColumn
-cMspMetaParamsSessId=_CMspMetaParamsSessId_Object((1,3,6,1,4,1,9,9,793,1,6,1,5),_CMspMetaParamsSessId_Type())
-cMspMetaParamsSessId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsSessId.setStatus(_A)
-class _CMspMetaParamsDomainName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,24))
-_CMspMetaParamsDomainName_Type.__name__=_D
-_CMspMetaParamsDomainName_Object=MibTableColumn
-cMspMetaParamsDomainName=_CMspMetaParamsDomainName_Object((1,3,6,1,4,1,9,9,793,1,6,1,6),_CMspMetaParamsDomainName_Type())
-cMspMetaParamsDomainName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsDomainName.setStatus(_A)
-class _CMspMetaParamsCname_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,24))
-_CMspMetaParamsCname_Type.__name__=_D
-_CMspMetaParamsCname_Object=MibTableColumn
-cMspMetaParamsCname=_CMspMetaParamsCname_Object((1,3,6,1,4,1,9,9,793,1,6,1,7),_CMspMetaParamsCname_Type())
-cMspMetaParamsCname.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsCname.setStatus(_A)
-class _CMspMetaParamsMimeType_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_CMspMetaParamsMimeType_Type.__name__=_D
-_CMspMetaParamsMimeType_Object=MibTableColumn
-cMspMetaParamsMimeType=_CMspMetaParamsMimeType_Object((1,3,6,1,4,1,9,9,793,1,6,1,8),_CMspMetaParamsMimeType_Type())
-cMspMetaParamsMimeType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsMimeType.setStatus(_A)
-class _CMspMetaParamsPayloadType_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,127))
-_CMspMetaParamsPayloadType_Type.__name__=_E
-_CMspMetaParamsPayloadType_Object=MibTableColumn
-cMspMetaParamsPayloadType=_CMspMetaParamsPayloadType_Object((1,3,6,1,4,1,9,9,793,1,6,1,9),_CMspMetaParamsPayloadType_Type())
-cMspMetaParamsPayloadType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsPayloadType.setStatus(_A)
-class _CMspMetaParamsSipUserName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_CMspMetaParamsSipUserName_Type.__name__=_D
-_CMspMetaParamsSipUserName_Object=MibTableColumn
-cMspMetaParamsSipUserName=_CMspMetaParamsSipUserName_Object((1,3,6,1,4,1,9,9,793,1,6,1,10),_CMspMetaParamsSipUserName_Type())
-cMspMetaParamsSipUserName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsSipUserName.setStatus(_A)
-class _CMspMetaParamsSipEmail_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,24))
-_CMspMetaParamsSipEmail_Type.__name__=_D
-_CMspMetaParamsSipEmail_Object=MibTableColumn
-cMspMetaParamsSipEmail=_CMspMetaParamsSipEmail_Object((1,3,6,1,4,1,9,9,793,1,6,1,11),_CMspMetaParamsSipEmail_Type())
-cMspMetaParamsSipEmail.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsSipEmail.setStatus(_A)
-class _CMspMetaParamsAppName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,40))
-_CMspMetaParamsAppName_Type.__name__=_D
-_CMspMetaParamsAppName_Object=MibTableColumn
-cMspMetaParamsAppName=_CMspMetaParamsAppName_Object((1,3,6,1,4,1,9,9,793,1,6,1,12),_CMspMetaParamsAppName_Type())
-cMspMetaParamsAppName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsAppName.setStatus(_A)
-class _CMspMetaParamsAppVendor_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,40))
-_CMspMetaParamsAppVendor_Type.__name__=_D
-_CMspMetaParamsAppVendor_Object=MibTableColumn
-cMspMetaParamsAppVendor=_CMspMetaParamsAppVendor_Object((1,3,6,1,4,1,9,9,793,1,6,1,13),_CMspMetaParamsAppVendor_Type())
-cMspMetaParamsAppVendor.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsAppVendor.setStatus(_A)
-class _CMspMetaParamsAppVersion_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,40))
-_CMspMetaParamsAppVersion_Type.__name__=_D
-_CMspMetaParamsAppVersion_Object=MibTableColumn
-cMspMetaParamsAppVersion=_CMspMetaParamsAppVersion_Object((1,3,6,1,4,1,9,9,793,1,6,1,14),_CMspMetaParamsAppVersion_Type())
-cMspMetaParamsAppVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsAppVersion.setStatus(_A)
-class _CMspMetaParamsStorageType_Type(StorageType):defaultValue=3
-_CMspMetaParamsStorageType_Type.__name__=_F
-_CMspMetaParamsStorageType_Object=MibTableColumn
-cMspMetaParamsStorageType=_CMspMetaParamsStorageType_Object((1,3,6,1,4,1,9,9,793,1,6,1,15),_CMspMetaParamsStorageType_Type())
-cMspMetaParamsStorageType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsStorageType.setStatus(_A)
-_CMspMetaParamsRowStatus_Type=RowStatus
-_CMspMetaParamsRowStatus_Object=MibTableColumn
-cMspMetaParamsRowStatus=_CMspMetaParamsRowStatus_Object((1,3,6,1,4,1,9,9,793,1,6,1,16),_CMspMetaParamsRowStatus_Type())
-cMspMetaParamsRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cMspMetaParamsRowStatus.setStatus(_A)
-_CiscoMspMIBConform_ObjectIdentity=ObjectIdentity
-ciscoMspMIBConform=_CiscoMspMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,793,2))
-_CiscoMspMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoMspMIBCompliances=_CiscoMspMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,793,2,1))
-_CiscoMspMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoMspMIBGroups=_CiscoMspMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,793,2,2))
-ciscoMspMIBScalarObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,793,2,2,1))
-ciscoMspMIBScalarObjectGroup.setObjects(*((_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:ciscoMspMIBScalarObjectGroup.setStatus(_A)
-ciscoMspMIBIfProfileObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,793,2,2,2))
-ciscoMspMIBIfProfileObjectGroup.setObjects(*((_B,_Q),(_B,_R),(_B,_S)))
-if mibBuilder.loadTexts:ciscoMspMIBIfProfileObjectGroup.setStatus(_A)
-ciscoMspMIBProfileNameObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,793,2,2,3))
-ciscoMspMIBProfileNameObjectGroup.setObjects(*((_B,_G),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:ciscoMspMIBProfileNameObjectGroup.setStatus(_A)
-ciscoMspMIBRsvpParamsObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,793,2,2,4))
-ciscoMspMIBRsvpParamsObjectGroup.setObjects(*((_B,_H),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e)))
-if mibBuilder.loadTexts:ciscoMspMIBRsvpParamsObjectGroup.setStatus(_A)
-ciscoMspMIBMetaParamsObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,793,2,2,5))
-ciscoMspMIBMetaParamsObjectGroup.setObjects(*((_B,_J),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t)))
-if mibBuilder.loadTexts:ciscoMspMIBMetaParamsObjectGroup.setStatus(_A)
-ciscoMspMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,793,2,1,1))
-ciscoMspMIBCompliance.setObjects(*((_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y)))
-if mibBuilder.loadTexts:ciscoMspMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoMspMIB':ciscoMspMIB,'ciscoMspMIBNotifs':ciscoMspMIBNotifs,'ciscoMspMIBObjects':ciscoMspMIBObjects,_O:cMspGlobalStatus,_P:cMspGlobalProfile,'cMspIfProfileTable':cMspIfProfileTable,'cMspIfProfileEntry':cMspIfProfileEntry,_Q:cMspIfProfileName,_R:cMspIfProfileStorageType,_S:cMspIfProfileRowStatus,'cMspProfileTable':cMspProfileTable,'cMspProfileEntry':cMspProfileEntry,_G:cMspProfileName,_T:cMspProfileService,_U:cMspProfileRsvp,_V:cMspProfileMetadata,_W:cMspProfileStorageType,_X:cMspProfileRowStatus,'cMspRsvpParamsTable':cMspRsvpParamsTable,'cMspRsvpParamsEntry':cMspRsvpParamsEntry,_H:cMspRsvpParamsName,_Y:cMspRsvpParamsBandwidth,_Z:cMspRsvpParamsPeakRate,_a:cMspRsvpParamsMaxBurst,_b:cMspRsvpParamsPriorityPrempt,_c:cMspRsvpParamsPriorityDefend,_d:cMspRsvpParamsStorageType,_e:cMspRsvpParamsRowStatus,'cMspMetaParamsTable':cMspMetaParamsTable,'cMspMetaParamsEntry':cMspMetaParamsEntry,_J:cMspMetaParamsName,_f:cMspMetaParamsBandwidth,_g:cMspMetaParamsSyncSrc,_h:cMspMetaParamsClockFreq,_i:cMspMetaParamsSessId,_j:cMspMetaParamsDomainName,_k:cMspMetaParamsCname,_l:cMspMetaParamsMimeType,_m:cMspMetaParamsPayloadType,_n:cMspMetaParamsSipUserName,_o:cMspMetaParamsSipEmail,_p:cMspMetaParamsAppName,_q:cMspMetaParamsAppVendor,_r:cMspMetaParamsAppVersion,_s:cMspMetaParamsStorageType,_t:cMspMetaParamsRowStatus,'ciscoMspMIBConform':ciscoMspMIBConform,'ciscoMspMIBCompliances':ciscoMspMIBCompliances,'ciscoMspMIBCompliance':ciscoMspMIBCompliance,'ciscoMspMIBGroups':ciscoMspMIBGroups,_u:ciscoMspMIBScalarObjectGroup,_v:ciscoMspMIBIfProfileObjectGroup,_w:ciscoMspMIBProfileNameObjectGroup,_x:ciscoMspMIBRsvpParamsObjectGroup,_y:ciscoMspMIBMetaParamsObjectGroup})
+#
+# PySNMP MIB module CISCO-MSP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-MSP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:38 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention, RowStatus, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus", "StorageType")
+ciscoMspMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 793))
+ciscoMspMIB.setRevisions(('2012-04-19 00:00',))
+if mibBuilder.loadTexts: ciscoMspMIB.setLastUpdated('201204190000Z')
+if mibBuilder.loadTexts: ciscoMspMIB.setOrganization('Cisco Systems, Inc.')
+ciscoMspMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 793, 0))
+ciscoMspMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 793, 1))
+ciscoMspMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 793, 2))
+cMspGlobalStatus = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cMspGlobalStatus.setStatus('current')
+cMspGlobalProfile = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cMspGlobalProfile.setStatus('current')
+cMspIfProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 3), )
+if mibBuilder.loadTexts: cMspIfProfileTable.setStatus('current')
+cMspIfProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cMspIfProfileEntry.setStatus('current')
+cMspIfProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 3, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 100))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspIfProfileName.setStatus('current')
+cMspIfProfileStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 3, 1, 2), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspIfProfileStorageType.setStatus('current')
+cMspIfProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspIfProfileRowStatus.setStatus('current')
+cMspProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 4), )
+if mibBuilder.loadTexts: cMspProfileTable.setStatus('current')
+cMspProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 4, 1), ).setIndexNames((0, "CISCO-MSP-MIB", "cMspProfileName"))
+if mibBuilder.loadTexts: cMspProfileEntry.setStatus('current')
+cMspProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 4, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 100))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspProfileName.setStatus('current')
+cMspProfileService = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 4, 1, 2), Bits().clone(namedValues=NamedValues(("rsvp", 0), ("metadata", 1)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspProfileService.setStatus('current')
+cMspProfileRsvp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 4, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 100))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspProfileRsvp.setStatus('current')
+cMspProfileMetadata = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 4, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 100))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspProfileMetadata.setStatus('current')
+cMspProfileStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 4, 1, 5), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspProfileStorageType.setStatus('current')
+cMspProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 4, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspProfileRowStatus.setStatus('current')
+cMspRsvpParamsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 5), )
+if mibBuilder.loadTexts: cMspRsvpParamsTable.setStatus('current')
+cMspRsvpParamsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 5, 1), ).setIndexNames((0, "CISCO-MSP-MIB", "cMspRsvpParamsName"))
+if mibBuilder.loadTexts: cMspRsvpParamsEntry.setStatus('current')
+cMspRsvpParamsName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 5, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 100))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspRsvpParamsName.setStatus('current')
+cMspRsvpParamsBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 5, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10000000))).setUnits('kbps').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspRsvpParamsBandwidth.setStatus('current')
+cMspRsvpParamsPeakRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 5, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10000000))).setUnits('kbps').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspRsvpParamsPeakRate.setStatus('current')
+cMspRsvpParamsMaxBurst = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 5, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setUnits('kB').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspRsvpParamsMaxBurst.setStatus('current')
+cMspRsvpParamsPriorityPrempt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 5, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspRsvpParamsPriorityPrempt.setStatus('current')
+cMspRsvpParamsPriorityDefend = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 5, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspRsvpParamsPriorityDefend.setStatus('current')
+cMspRsvpParamsStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 5, 1, 7), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspRsvpParamsStorageType.setStatus('current')
+cMspRsvpParamsRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 5, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspRsvpParamsRowStatus.setStatus('current')
+cMspMetaParamsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6), )
+if mibBuilder.loadTexts: cMspMetaParamsTable.setStatus('current')
+cMspMetaParamsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1), ).setIndexNames((0, "CISCO-MSP-MIB", "cMspMetaParamsName"))
+if mibBuilder.loadTexts: cMspMetaParamsEntry.setStatus('current')
+cMspMetaParamsName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 100))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsName.setStatus('current')
+cMspMetaParamsBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10000000))).setUnits('kbps').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsBandwidth.setStatus('current')
+cMspMetaParamsSyncSrc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 3), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsSyncSrc.setStatus('current')
+cMspMetaParamsClockFreq = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 4), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsClockFreq.setStatus('current')
+cMspMetaParamsSessId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 5), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsSessId.setStatus('current')
+cMspMetaParamsDomainName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 6), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 24))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsDomainName.setStatus('current')
+cMspMetaParamsCname = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 7), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 24))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsCname.setStatus('current')
+cMspMetaParamsMimeType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 8), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsMimeType.setStatus('current')
+cMspMetaParamsPayloadType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 127))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsPayloadType.setStatus('current')
+cMspMetaParamsSipUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 10), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsSipUserName.setStatus('current')
+cMspMetaParamsSipEmail = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 11), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 24))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsSipEmail.setStatus('current')
+cMspMetaParamsAppName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 12), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 40))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsAppName.setStatus('current')
+cMspMetaParamsAppVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 13), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 40))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsAppVendor.setStatus('current')
+cMspMetaParamsAppVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 14), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 40))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsAppVersion.setStatus('current')
+cMspMetaParamsStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 15), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsStorageType.setStatus('current')
+cMspMetaParamsRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 793, 1, 6, 1, 16), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cMspMetaParamsRowStatus.setStatus('current')
+ciscoMspMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 793, 2, 1))
+ciscoMspMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 793, 2, 2))
+ciscoMspMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 793, 2, 1, 1)).setObjects(("CISCO-MSP-MIB", "ciscoMspMIBScalarObjectGroup"), ("CISCO-MSP-MIB", "ciscoMspMIBIfProfileObjectGroup"), ("CISCO-MSP-MIB", "ciscoMspMIBProfileNameObjectGroup"), ("CISCO-MSP-MIB", "ciscoMspMIBRsvpParamsObjectGroup"), ("CISCO-MSP-MIB", "ciscoMspMIBMetaParamsObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMspMIBCompliance = ciscoMspMIBCompliance.setStatus('current')
+ciscoMspMIBScalarObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 793, 2, 2, 1)).setObjects(("CISCO-MSP-MIB", "cMspGlobalStatus"), ("CISCO-MSP-MIB", "cMspGlobalProfile"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMspMIBScalarObjectGroup = ciscoMspMIBScalarObjectGroup.setStatus('current')
+ciscoMspMIBIfProfileObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 793, 2, 2, 2)).setObjects(("CISCO-MSP-MIB", "cMspIfProfileName"), ("CISCO-MSP-MIB", "cMspIfProfileStorageType"), ("CISCO-MSP-MIB", "cMspIfProfileRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMspMIBIfProfileObjectGroup = ciscoMspMIBIfProfileObjectGroup.setStatus('current')
+ciscoMspMIBProfileNameObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 793, 2, 2, 3)).setObjects(("CISCO-MSP-MIB", "cMspProfileName"), ("CISCO-MSP-MIB", "cMspProfileService"), ("CISCO-MSP-MIB", "cMspProfileRsvp"), ("CISCO-MSP-MIB", "cMspProfileMetadata"), ("CISCO-MSP-MIB", "cMspProfileStorageType"), ("CISCO-MSP-MIB", "cMspProfileRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMspMIBProfileNameObjectGroup = ciscoMspMIBProfileNameObjectGroup.setStatus('current')
+ciscoMspMIBRsvpParamsObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 793, 2, 2, 4)).setObjects(("CISCO-MSP-MIB", "cMspRsvpParamsName"), ("CISCO-MSP-MIB", "cMspRsvpParamsBandwidth"), ("CISCO-MSP-MIB", "cMspRsvpParamsPeakRate"), ("CISCO-MSP-MIB", "cMspRsvpParamsMaxBurst"), ("CISCO-MSP-MIB", "cMspRsvpParamsPriorityPrempt"), ("CISCO-MSP-MIB", "cMspRsvpParamsPriorityDefend"), ("CISCO-MSP-MIB", "cMspRsvpParamsStorageType"), ("CISCO-MSP-MIB", "cMspRsvpParamsRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMspMIBRsvpParamsObjectGroup = ciscoMspMIBRsvpParamsObjectGroup.setStatus('current')
+ciscoMspMIBMetaParamsObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 793, 2, 2, 5)).setObjects(("CISCO-MSP-MIB", "cMspMetaParamsName"), ("CISCO-MSP-MIB", "cMspMetaParamsBandwidth"), ("CISCO-MSP-MIB", "cMspMetaParamsSyncSrc"), ("CISCO-MSP-MIB", "cMspMetaParamsClockFreq"), ("CISCO-MSP-MIB", "cMspMetaParamsSessId"), ("CISCO-MSP-MIB", "cMspMetaParamsDomainName"), ("CISCO-MSP-MIB", "cMspMetaParamsCname"), ("CISCO-MSP-MIB", "cMspMetaParamsMimeType"), ("CISCO-MSP-MIB", "cMspMetaParamsPayloadType"), ("CISCO-MSP-MIB", "cMspMetaParamsSipUserName"), ("CISCO-MSP-MIB", "cMspMetaParamsSipEmail"), ("CISCO-MSP-MIB", "cMspMetaParamsAppName"), ("CISCO-MSP-MIB", "cMspMetaParamsAppVendor"), ("CISCO-MSP-MIB", "cMspMetaParamsAppVersion"), ("CISCO-MSP-MIB", "cMspMetaParamsStorageType"), ("CISCO-MSP-MIB", "cMspMetaParamsRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoMspMIBMetaParamsObjectGroup = ciscoMspMIBMetaParamsObjectGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-MSP-MIB", cMspProfileTable=cMspProfileTable, cMspMetaParamsPayloadType=cMspMetaParamsPayloadType, cMspRsvpParamsPeakRate=cMspRsvpParamsPeakRate, cMspRsvpParamsStorageType=cMspRsvpParamsStorageType, cMspMetaParamsDomainName=cMspMetaParamsDomainName, cMspMetaParamsStorageType=cMspMetaParamsStorageType, cMspMetaParamsEntry=cMspMetaParamsEntry, ciscoMspMIBConform=ciscoMspMIBConform, cMspRsvpParamsPriorityPrempt=cMspRsvpParamsPriorityPrempt, cMspIfProfileRowStatus=cMspIfProfileRowStatus, cMspRsvpParamsPriorityDefend=cMspRsvpParamsPriorityDefend, cMspMetaParamsClockFreq=cMspMetaParamsClockFreq, cMspGlobalProfile=cMspGlobalProfile, cMspGlobalStatus=cMspGlobalStatus, cMspRsvpParamsEntry=cMspRsvpParamsEntry, cMspProfileName=cMspProfileName, cMspRsvpParamsName=cMspRsvpParamsName, cMspMetaParamsSessId=cMspMetaParamsSessId, cMspProfileRowStatus=cMspProfileRowStatus, cMspMetaParamsAppName=cMspMetaParamsAppName, cMspMetaParamsRowStatus=cMspMetaParamsRowStatus, ciscoMspMIBCompliances=ciscoMspMIBCompliances, cMspProfileStorageType=cMspProfileStorageType, ciscoMspMIBRsvpParamsObjectGroup=ciscoMspMIBRsvpParamsObjectGroup, PYSNMP_MODULE_ID=ciscoMspMIB, cMspMetaParamsName=cMspMetaParamsName, cMspMetaParamsCname=cMspMetaParamsCname, cMspMetaParamsMimeType=cMspMetaParamsMimeType, cMspIfProfileEntry=cMspIfProfileEntry, cMspProfileService=cMspProfileService, cMspMetaParamsSipEmail=cMspMetaParamsSipEmail, ciscoMspMIB=ciscoMspMIB, cMspRsvpParamsBandwidth=cMspRsvpParamsBandwidth, cMspMetaParamsTable=cMspMetaParamsTable, ciscoMspMIBCompliance=ciscoMspMIBCompliance, cMspMetaParamsSipUserName=cMspMetaParamsSipUserName, cMspRsvpParamsTable=cMspRsvpParamsTable, cMspRsvpParamsMaxBurst=cMspRsvpParamsMaxBurst, ciscoMspMIBGroups=ciscoMspMIBGroups, cMspMetaParamsBandwidth=cMspMetaParamsBandwidth, ciscoMspMIBProfileNameObjectGroup=ciscoMspMIBProfileNameObjectGroup, cMspIfProfileTable=cMspIfProfileTable, cMspMetaParamsSyncSrc=cMspMetaParamsSyncSrc, cMspProfileEntry=cMspProfileEntry, cMspProfileMetadata=cMspProfileMetadata, ciscoMspMIBObjects=ciscoMspMIBObjects, cMspIfProfileName=cMspIfProfileName, cMspMetaParamsAppVersion=cMspMetaParamsAppVersion, cMspMetaParamsAppVendor=cMspMetaParamsAppVendor, cMspRsvpParamsRowStatus=cMspRsvpParamsRowStatus, cMspProfileRsvp=cMspProfileRsvp, ciscoMspMIBScalarObjectGroup=ciscoMspMIBScalarObjectGroup, ciscoMspMIBIfProfileObjectGroup=ciscoMspMIBIfProfileObjectGroup, cMspIfProfileStorageType=cMspIfProfileStorageType, ciscoMspMIBMetaParamsObjectGroup=ciscoMspMIBMetaParamsObjectGroup, ciscoMspMIBNotifs=ciscoMspMIBNotifs)

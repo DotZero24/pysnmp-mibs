@@ -1,86 +1,46 @@
-_G='devAtmAutoConfigXconChannel'
-_F='devAtmMaxVpi'
-_E='devAtmMaxIfIndex'
-_D='read-only'
-_C='PDN-SCMEXT-MIB'
-_B='read-write'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-pdnAtm,=mibBuilder.importSymbols('PDN-HEADER-MIB','pdnAtm')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-_DevAtmScm_ObjectIdentity=ObjectIdentity
-devAtmScm=_DevAtmScm_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,6,11,4))
-_DevAtmMaxVciVpiConfig_ObjectIdentity=ObjectIdentity
-devAtmMaxVciVpiConfig=_DevAtmMaxVciVpiConfig_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,6,11,4,1))
-_DevAtmMaxVciVpiConfigTable_Object=MibTable
-devAtmMaxVciVpiConfigTable=_DevAtmMaxVciVpiConfigTable_Object((1,3,6,1,4,1,1795,2,24,2,6,11,4,1,1))
-if mibBuilder.loadTexts:devAtmMaxVciVpiConfigTable.setStatus(_A)
-_DevAtmMaxVciVpiConfigEntry_Object=MibTableRow
-devAtmMaxVciVpiConfigEntry=_DevAtmMaxVciVpiConfigEntry_Object((1,3,6,1,4,1,1795,2,24,2,6,11,4,1,1,1))
-devAtmMaxVciVpiConfigEntry.setIndexNames((0,_C,_E),(0,_C,_F))
-if mibBuilder.loadTexts:devAtmMaxVciVpiConfigEntry.setStatus(_A)
-_DevAtmMaxIfIndex_Type=Integer32
-_DevAtmMaxIfIndex_Object=MibTableColumn
-devAtmMaxIfIndex=_DevAtmMaxIfIndex_Object((1,3,6,1,4,1,1795,2,24,2,6,11,4,1,1,1,1),_DevAtmMaxIfIndex_Type())
-devAtmMaxIfIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:devAtmMaxIfIndex.setStatus(_A)
-_DevAtmMaxVpi_Type=Integer32
-_DevAtmMaxVpi_Object=MibTableColumn
-devAtmMaxVpi=_DevAtmMaxVpi_Object((1,3,6,1,4,1,1795,2,24,2,6,11,4,1,1,1,2),_DevAtmMaxVpi_Type())
-devAtmMaxVpi.setMaxAccess(_D)
-if mibBuilder.loadTexts:devAtmMaxVpi.setStatus(_A)
-_DevAtmMaxVci_Type=Integer32
-_DevAtmMaxVci_Object=MibTableColumn
-devAtmMaxVci=_DevAtmMaxVci_Object((1,3,6,1,4,1,1795,2,24,2,6,11,4,1,1,1,3),_DevAtmMaxVci_Type())
-devAtmMaxVci.setMaxAccess(_B)
-if mibBuilder.loadTexts:devAtmMaxVci.setStatus(_A)
-_DevAtmMaxVciVpiRowStatus_Type=RowStatus
-_DevAtmMaxVciVpiRowStatus_Object=MibTableColumn
-devAtmMaxVciVpiRowStatus=_DevAtmMaxVciVpiRowStatus_Object((1,3,6,1,4,1,1795,2,24,2,6,11,4,1,1,1,4),_DevAtmMaxVciVpiRowStatus_Type())
-devAtmMaxVciVpiRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:devAtmMaxVciVpiRowStatus.setStatus(_A)
-_DevAtmAutoConfigXcon_ObjectIdentity=ObjectIdentity
-devAtmAutoConfigXcon=_DevAtmAutoConfigXcon_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,6,11,4,2))
-_DevAtmAutoConfigXconTable_Object=MibTable
-devAtmAutoConfigXconTable=_DevAtmAutoConfigXconTable_Object((1,3,6,1,4,1,1795,2,24,2,6,11,4,2,1))
-if mibBuilder.loadTexts:devAtmAutoConfigXconTable.setStatus(_A)
-_DevAtmAutoConfigXconEntry_Object=MibTableRow
-devAtmAutoConfigXconEntry=_DevAtmAutoConfigXconEntry_Object((1,3,6,1,4,1,1795,2,24,2,6,11,4,2,1,1))
-devAtmAutoConfigXconEntry.setIndexNames((0,_C,_G))
-if mibBuilder.loadTexts:devAtmAutoConfigXconEntry.setStatus(_A)
-_DevAtmAutoConfigXconChannel_Type=Integer32
-_DevAtmAutoConfigXconChannel_Object=MibTableColumn
-devAtmAutoConfigXconChannel=_DevAtmAutoConfigXconChannel_Object((1,3,6,1,4,1,1795,2,24,2,6,11,4,2,1,1,1),_DevAtmAutoConfigXconChannel_Type())
-devAtmAutoConfigXconChannel.setMaxAccess(_D)
-if mibBuilder.loadTexts:devAtmAutoConfigXconChannel.setStatus(_A)
-_DevAtmAutoConfigXconIfIndex_Type=Integer32
-_DevAtmAutoConfigXconIfIndex_Object=MibTableColumn
-devAtmAutoConfigXconIfIndex=_DevAtmAutoConfigXconIfIndex_Object((1,3,6,1,4,1,1795,2,24,2,6,11,4,2,1,1,2),_DevAtmAutoConfigXconIfIndex_Type())
-devAtmAutoConfigXconIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:devAtmAutoConfigXconIfIndex.setStatus(_A)
-_DevAtmAutoConfigXconVpi_Type=Integer32
-_DevAtmAutoConfigXconVpi_Object=MibTableColumn
-devAtmAutoConfigXconVpi=_DevAtmAutoConfigXconVpi_Object((1,3,6,1,4,1,1795,2,24,2,6,11,4,2,1,1,3),_DevAtmAutoConfigXconVpi_Type())
-devAtmAutoConfigXconVpi.setMaxAccess(_B)
-if mibBuilder.loadTexts:devAtmAutoConfigXconVpi.setStatus(_A)
-_DevAtmAutoConfigXconVci_Type=Integer32
-_DevAtmAutoConfigXconVci_Object=MibTableColumn
-devAtmAutoConfigXconVci=_DevAtmAutoConfigXconVci_Object((1,3,6,1,4,1,1795,2,24,2,6,11,4,2,1,1,4),_DevAtmAutoConfigXconVci_Type())
-devAtmAutoConfigXconVci.setMaxAccess(_B)
-if mibBuilder.loadTexts:devAtmAutoConfigXconVci.setStatus(_A)
-_DevAtmAutoConfigXconTraffic_Type=Integer32
-_DevAtmAutoConfigXconTraffic_Object=MibTableColumn
-devAtmAutoConfigXconTraffic=_DevAtmAutoConfigXconTraffic_Object((1,3,6,1,4,1,1795,2,24,2,6,11,4,2,1,1,5),_DevAtmAutoConfigXconTraffic_Type())
-devAtmAutoConfigXconTraffic.setMaxAccess(_B)
-if mibBuilder.loadTexts:devAtmAutoConfigXconTraffic.setStatus(_A)
-_DevAtmAutoConfigXconRowStatus_Type=RowStatus
-_DevAtmAutoConfigXconRowStatus_Object=MibTableColumn
-devAtmAutoConfigXconRowStatus=_DevAtmAutoConfigXconRowStatus_Object((1,3,6,1,4,1,1795,2,24,2,6,11,4,2,1,1,6),_DevAtmAutoConfigXconRowStatus_Type())
-devAtmAutoConfigXconRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:devAtmAutoConfigXconRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'devAtmScm':devAtmScm,'devAtmMaxVciVpiConfig':devAtmMaxVciVpiConfig,'devAtmMaxVciVpiConfigTable':devAtmMaxVciVpiConfigTable,'devAtmMaxVciVpiConfigEntry':devAtmMaxVciVpiConfigEntry,_E:devAtmMaxIfIndex,_F:devAtmMaxVpi,'devAtmMaxVci':devAtmMaxVci,'devAtmMaxVciVpiRowStatus':devAtmMaxVciVpiRowStatus,'devAtmAutoConfigXcon':devAtmAutoConfigXcon,'devAtmAutoConfigXconTable':devAtmAutoConfigXconTable,'devAtmAutoConfigXconEntry':devAtmAutoConfigXconEntry,_G:devAtmAutoConfigXconChannel,'devAtmAutoConfigXconIfIndex':devAtmAutoConfigXconIfIndex,'devAtmAutoConfigXconVpi':devAtmAutoConfigXconVpi,'devAtmAutoConfigXconVci':devAtmAutoConfigXconVci,'devAtmAutoConfigXconTraffic':devAtmAutoConfigXconTraffic,'devAtmAutoConfigXconRowStatus':devAtmAutoConfigXconRowStatus})
+#
+# PySNMP MIB module PDN-SCMEXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/paradyne/PDN-SCMEXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+pdnAtm, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdnAtm")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+devAtmScm = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4))
+devAtmMaxVciVpiConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 1))
+devAtmMaxVciVpiConfigTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 1, 1), )
+if mibBuilder.loadTexts: devAtmMaxVciVpiConfigTable.setStatus('mandatory')
+devAtmMaxVciVpiConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 1, 1, 1), ).setIndexNames((0, "PDN-SCMEXT-MIB", "devAtmMaxIfIndex"), (0, "PDN-SCMEXT-MIB", "devAtmMaxVpi"))
+if mibBuilder.loadTexts: devAtmMaxVciVpiConfigEntry.setStatus('mandatory')
+devAtmMaxIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devAtmMaxIfIndex.setStatus('mandatory')
+devAtmMaxVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devAtmMaxVpi.setStatus('mandatory')
+devAtmMaxVci = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 1, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devAtmMaxVci.setStatus('mandatory')
+devAtmMaxVciVpiRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 1, 1, 1, 4), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devAtmMaxVciVpiRowStatus.setStatus('mandatory')
+devAtmAutoConfigXcon = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 2))
+devAtmAutoConfigXconTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 2, 1), )
+if mibBuilder.loadTexts: devAtmAutoConfigXconTable.setStatus('mandatory')
+devAtmAutoConfigXconEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 2, 1, 1), ).setIndexNames((0, "PDN-SCMEXT-MIB", "devAtmAutoConfigXconChannel"))
+if mibBuilder.loadTexts: devAtmAutoConfigXconEntry.setStatus('mandatory')
+devAtmAutoConfigXconChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devAtmAutoConfigXconChannel.setStatus('mandatory')
+devAtmAutoConfigXconIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 2, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devAtmAutoConfigXconIfIndex.setStatus('mandatory')
+devAtmAutoConfigXconVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 2, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devAtmAutoConfigXconVpi.setStatus('mandatory')
+devAtmAutoConfigXconVci = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 2, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devAtmAutoConfigXconVci.setStatus('mandatory')
+devAtmAutoConfigXconTraffic = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 2, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devAtmAutoConfigXconTraffic.setStatus('mandatory')
+devAtmAutoConfigXconRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 11, 4, 2, 1, 1, 6), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devAtmAutoConfigXconRowStatus.setStatus('mandatory')
+mibBuilder.exportSymbols("PDN-SCMEXT-MIB", devAtmMaxVciVpiRowStatus=devAtmMaxVciVpiRowStatus, devAtmMaxVciVpiConfig=devAtmMaxVciVpiConfig, devAtmMaxVci=devAtmMaxVci, devAtmAutoConfigXconVpi=devAtmAutoConfigXconVpi, devAtmAutoConfigXconTraffic=devAtmAutoConfigXconTraffic, devAtmAutoConfigXcon=devAtmAutoConfigXcon, devAtmAutoConfigXconTable=devAtmAutoConfigXconTable, devAtmAutoConfigXconVci=devAtmAutoConfigXconVci, devAtmAutoConfigXconEntry=devAtmAutoConfigXconEntry, devAtmAutoConfigXconChannel=devAtmAutoConfigXconChannel, devAtmMaxVciVpiConfigEntry=devAtmMaxVciVpiConfigEntry, devAtmMaxIfIndex=devAtmMaxIfIndex, devAtmMaxVciVpiConfigTable=devAtmMaxVciVpiConfigTable, devAtmAutoConfigXconRowStatus=devAtmAutoConfigXconRowStatus, devAtmScm=devAtmScm, devAtmAutoConfigXconIfIndex=devAtmAutoConfigXconIfIndex, devAtmMaxVpi=devAtmMaxVpi)

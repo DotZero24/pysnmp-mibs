@@ -1,133 +1,66 @@
-_U='altigaFilterStatsGroup'
-_T='alFilterStatsOutIcmpFragDiscard'
-_S='alFilterStatsInIcmpFragDiscard'
-_R='alFilterStatsOutTcpFragDiscard'
-_Q='alFilterStatsInTcpFragDiscard'
-_P='alFilterStatsOutShortUdpHdr'
-_O='alFilterStatsInShortUdpHdr'
-_N='alFilterStatsOutShortTcpHdr'
-_M='alFilterStatsInShortTcpHdr'
-_L='alFilterStatsOutPktsTx'
-_K='alFilterStatsInPktsTx'
-_J='alFilterStatsOutPktsRx'
-_I='alFilterStatsInPktsRx'
-_H='alFilterStatsOutPktsFiltered'
-_G='alFilterStatsInPktsFiltered'
-_F='alFilterStatsStartTime'
-_E='Integer32'
-_D='alFilterStatsInterfaceId'
-_C='read-only'
-_B='ALTIGA-FILTER-STATS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-alFilterMibModule,=mibBuilder.importSymbols('ALTIGA-GLOBAL-REG','alFilterMibModule')
-alFilterGroup,alStatsFilter=mibBuilder.importSymbols('ALTIGA-MIB','alFilterGroup','alStatsFilter')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-altigaFilterStatsMibModule=ModuleIdentity((1,3,6,1,4,1,3076,1,1,14,2))
-if mibBuilder.loadTexts:altigaFilterStatsMibModule.setRevisions(('2002-09-05 13:00','2002-07-10 00:00'))
-_AltigaFilterStatsMibConformance_ObjectIdentity=ObjectIdentity
-altigaFilterStatsMibConformance=_AltigaFilterStatsMibConformance_ObjectIdentity((1,3,6,1,4,1,3076,1,1,14,2,1))
-_AltigaFilterStatsMibCompliances_ObjectIdentity=ObjectIdentity
-altigaFilterStatsMibCompliances=_AltigaFilterStatsMibCompliances_ObjectIdentity((1,3,6,1,4,1,3076,1,1,14,2,1,1))
-_AlStatsFilterGlobal_ObjectIdentity=ObjectIdentity
-alStatsFilterGlobal=_AlStatsFilterGlobal_ObjectIdentity((1,3,6,1,4,1,3076,2,1,2,9,1))
-_AlFilterStatsTable_Object=MibTable
-alFilterStatsTable=_AlFilterStatsTable_Object((1,3,6,1,4,1,3076,2,1,2,9,2))
-if mibBuilder.loadTexts:alFilterStatsTable.setStatus(_A)
-_AlFilterStatsEntry_Object=MibTableRow
-alFilterStatsEntry=_AlFilterStatsEntry_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1))
-alFilterStatsEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:alFilterStatsEntry.setStatus(_A)
-class _AlFilterStatsInterfaceId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AlFilterStatsInterfaceId_Type.__name__=_E
-_AlFilterStatsInterfaceId_Object=MibTableColumn
-alFilterStatsInterfaceId=_AlFilterStatsInterfaceId_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,1),_AlFilterStatsInterfaceId_Type())
-alFilterStatsInterfaceId.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsInterfaceId.setStatus(_A)
-_AlFilterStatsStartTime_Type=TimeTicks
-_AlFilterStatsStartTime_Object=MibTableColumn
-alFilterStatsStartTime=_AlFilterStatsStartTime_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,2),_AlFilterStatsStartTime_Type())
-alFilterStatsStartTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsStartTime.setStatus(_A)
-_AlFilterStatsInPktsFiltered_Type=Counter32
-_AlFilterStatsInPktsFiltered_Object=MibTableColumn
-alFilterStatsInPktsFiltered=_AlFilterStatsInPktsFiltered_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,3),_AlFilterStatsInPktsFiltered_Type())
-alFilterStatsInPktsFiltered.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsInPktsFiltered.setStatus(_A)
-_AlFilterStatsOutPktsFiltered_Type=Counter32
-_AlFilterStatsOutPktsFiltered_Object=MibTableColumn
-alFilterStatsOutPktsFiltered=_AlFilterStatsOutPktsFiltered_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,4),_AlFilterStatsOutPktsFiltered_Type())
-alFilterStatsOutPktsFiltered.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsOutPktsFiltered.setStatus(_A)
-_AlFilterStatsInPktsRx_Type=Counter32
-_AlFilterStatsInPktsRx_Object=MibTableColumn
-alFilterStatsInPktsRx=_AlFilterStatsInPktsRx_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,5),_AlFilterStatsInPktsRx_Type())
-alFilterStatsInPktsRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsInPktsRx.setStatus(_A)
-_AlFilterStatsOutPktsRx_Type=Counter32
-_AlFilterStatsOutPktsRx_Object=MibTableColumn
-alFilterStatsOutPktsRx=_AlFilterStatsOutPktsRx_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,6),_AlFilterStatsOutPktsRx_Type())
-alFilterStatsOutPktsRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsOutPktsRx.setStatus(_A)
-_AlFilterStatsInPktsTx_Type=Counter32
-_AlFilterStatsInPktsTx_Object=MibTableColumn
-alFilterStatsInPktsTx=_AlFilterStatsInPktsTx_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,7),_AlFilterStatsInPktsTx_Type())
-alFilterStatsInPktsTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsInPktsTx.setStatus(_A)
-_AlFilterStatsOutPktsTx_Type=Counter32
-_AlFilterStatsOutPktsTx_Object=MibTableColumn
-alFilterStatsOutPktsTx=_AlFilterStatsOutPktsTx_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,8),_AlFilterStatsOutPktsTx_Type())
-alFilterStatsOutPktsTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsOutPktsTx.setStatus(_A)
-_AlFilterStatsInShortTcpHdr_Type=Counter32
-_AlFilterStatsInShortTcpHdr_Object=MibTableColumn
-alFilterStatsInShortTcpHdr=_AlFilterStatsInShortTcpHdr_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,9),_AlFilterStatsInShortTcpHdr_Type())
-alFilterStatsInShortTcpHdr.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsInShortTcpHdr.setStatus(_A)
-_AlFilterStatsOutShortTcpHdr_Type=Counter32
-_AlFilterStatsOutShortTcpHdr_Object=MibTableColumn
-alFilterStatsOutShortTcpHdr=_AlFilterStatsOutShortTcpHdr_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,10),_AlFilterStatsOutShortTcpHdr_Type())
-alFilterStatsOutShortTcpHdr.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsOutShortTcpHdr.setStatus(_A)
-_AlFilterStatsInShortUdpHdr_Type=Counter32
-_AlFilterStatsInShortUdpHdr_Object=MibTableColumn
-alFilterStatsInShortUdpHdr=_AlFilterStatsInShortUdpHdr_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,11),_AlFilterStatsInShortUdpHdr_Type())
-alFilterStatsInShortUdpHdr.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsInShortUdpHdr.setStatus(_A)
-_AlFilterStatsOutShortUdpHdr_Type=Counter32
-_AlFilterStatsOutShortUdpHdr_Object=MibTableColumn
-alFilterStatsOutShortUdpHdr=_AlFilterStatsOutShortUdpHdr_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,12),_AlFilterStatsOutShortUdpHdr_Type())
-alFilterStatsOutShortUdpHdr.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsOutShortUdpHdr.setStatus(_A)
-_AlFilterStatsInTcpFragDiscard_Type=Counter32
-_AlFilterStatsInTcpFragDiscard_Object=MibTableColumn
-alFilterStatsInTcpFragDiscard=_AlFilterStatsInTcpFragDiscard_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,13),_AlFilterStatsInTcpFragDiscard_Type())
-alFilterStatsInTcpFragDiscard.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsInTcpFragDiscard.setStatus(_A)
-_AlFilterStatsOutTcpFragDiscard_Type=Counter32
-_AlFilterStatsOutTcpFragDiscard_Object=MibTableColumn
-alFilterStatsOutTcpFragDiscard=_AlFilterStatsOutTcpFragDiscard_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,14),_AlFilterStatsOutTcpFragDiscard_Type())
-alFilterStatsOutTcpFragDiscard.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsOutTcpFragDiscard.setStatus(_A)
-_AlFilterStatsInIcmpFragDiscard_Type=Counter32
-_AlFilterStatsInIcmpFragDiscard_Object=MibTableColumn
-alFilterStatsInIcmpFragDiscard=_AlFilterStatsInIcmpFragDiscard_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,15),_AlFilterStatsInIcmpFragDiscard_Type())
-alFilterStatsInIcmpFragDiscard.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsInIcmpFragDiscard.setStatus(_A)
-_AlFilterStatsOutIcmpFragDiscard_Type=Counter32
-_AlFilterStatsOutIcmpFragDiscard_Object=MibTableColumn
-alFilterStatsOutIcmpFragDiscard=_AlFilterStatsOutIcmpFragDiscard_Object((1,3,6,1,4,1,3076,2,1,2,9,2,1,16),_AlFilterStatsOutIcmpFragDiscard_Type())
-alFilterStatsOutIcmpFragDiscard.setMaxAccess(_C)
-if mibBuilder.loadTexts:alFilterStatsOutIcmpFragDiscard.setStatus(_A)
-altigaFilterStatsGroup=ObjectGroup((1,3,6,1,4,1,3076,2,1,1,1,9,2))
-altigaFilterStatsGroup.setObjects(*((_B,_D),(_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T)))
-if mibBuilder.loadTexts:altigaFilterStatsGroup.setStatus(_A)
-altigaFilterStatsMibCompliance=ModuleCompliance((1,3,6,1,4,1,3076,1,1,14,2,1,1,1))
-altigaFilterStatsMibCompliance.setObjects((_B,_U))
-if mibBuilder.loadTexts:altigaFilterStatsMibCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'altigaFilterStatsMibModule':altigaFilterStatsMibModule,'altigaFilterStatsMibConformance':altigaFilterStatsMibConformance,'altigaFilterStatsMibCompliances':altigaFilterStatsMibCompliances,'altigaFilterStatsMibCompliance':altigaFilterStatsMibCompliance,_U:altigaFilterStatsGroup,'alStatsFilterGlobal':alStatsFilterGlobal,'alFilterStatsTable':alFilterStatsTable,'alFilterStatsEntry':alFilterStatsEntry,_D:alFilterStatsInterfaceId,_F:alFilterStatsStartTime,_G:alFilterStatsInPktsFiltered,_H:alFilterStatsOutPktsFiltered,_I:alFilterStatsInPktsRx,_J:alFilterStatsOutPktsRx,_K:alFilterStatsInPktsTx,_L:alFilterStatsOutPktsTx,_M:alFilterStatsInShortTcpHdr,_N:alFilterStatsOutShortTcpHdr,_O:alFilterStatsInShortUdpHdr,_P:alFilterStatsOutShortUdpHdr,_Q:alFilterStatsInTcpFragDiscard,_R:alFilterStatsOutTcpFragDiscard,_S:alFilterStatsInIcmpFragDiscard,_T:alFilterStatsOutIcmpFragDiscard})
+#
+# PySNMP MIB module ALTIGA-FILTER-STATS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/ALTIGA-FILTER-STATS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:40 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+alFilterMibModule, = mibBuilder.importSymbols("ALTIGA-GLOBAL-REG", "alFilterMibModule")
+alStatsFilter, alFilterGroup = mibBuilder.importSymbols("ALTIGA-MIB", "alStatsFilter", "alFilterGroup")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+altigaFilterStatsMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3076, 1, 1, 14, 2))
+altigaFilterStatsMibModule.setRevisions(('2002-09-05 13:00', '2002-07-10 00:00',))
+if mibBuilder.loadTexts: altigaFilterStatsMibModule.setLastUpdated('200209051300Z')
+if mibBuilder.loadTexts: altigaFilterStatsMibModule.setOrganization('Cisco Systems, Inc.')
+alStatsFilterGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 1))
+alFilterStatsTable = MibTable((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2), )
+if mibBuilder.loadTexts: alFilterStatsTable.setStatus('current')
+alFilterStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1), ).setIndexNames((0, "ALTIGA-FILTER-STATS-MIB", "alFilterStatsInterfaceId"))
+if mibBuilder.loadTexts: alFilterStatsEntry.setStatus('current')
+alFilterStatsInterfaceId = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsInterfaceId.setStatus('current')
+alFilterStatsStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 2), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsStartTime.setStatus('current')
+alFilterStatsInPktsFiltered = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsInPktsFiltered.setStatus('current')
+alFilterStatsOutPktsFiltered = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsOutPktsFiltered.setStatus('current')
+alFilterStatsInPktsRx = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsInPktsRx.setStatus('current')
+alFilterStatsOutPktsRx = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsOutPktsRx.setStatus('current')
+alFilterStatsInPktsTx = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsInPktsTx.setStatus('current')
+alFilterStatsOutPktsTx = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsOutPktsTx.setStatus('current')
+alFilterStatsInShortTcpHdr = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsInShortTcpHdr.setStatus('current')
+alFilterStatsOutShortTcpHdr = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsOutShortTcpHdr.setStatus('current')
+alFilterStatsInShortUdpHdr = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsInShortUdpHdr.setStatus('current')
+alFilterStatsOutShortUdpHdr = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsOutShortUdpHdr.setStatus('current')
+alFilterStatsInTcpFragDiscard = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsInTcpFragDiscard.setStatus('current')
+alFilterStatsOutTcpFragDiscard = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsOutTcpFragDiscard.setStatus('current')
+alFilterStatsInIcmpFragDiscard = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsInIcmpFragDiscard.setStatus('current')
+alFilterStatsOutIcmpFragDiscard = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 9, 2, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alFilterStatsOutIcmpFragDiscard.setStatus('current')
+altigaFilterStatsMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 3076, 1, 1, 14, 2, 1))
+altigaFilterStatsMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 3076, 1, 1, 14, 2, 1, 1))
+altigaFilterStatsMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 3076, 1, 1, 14, 2, 1, 1, 1)).setObjects(("ALTIGA-FILTER-STATS-MIB", "altigaFilterStatsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    altigaFilterStatsMibCompliance = altigaFilterStatsMibCompliance.setStatus('current')
+altigaFilterStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3076, 2, 1, 1, 1, 9, 2)).setObjects(("ALTIGA-FILTER-STATS-MIB", "alFilterStatsInterfaceId"), ("ALTIGA-FILTER-STATS-MIB", "alFilterStatsStartTime"), ("ALTIGA-FILTER-STATS-MIB", "alFilterStatsInPktsFiltered"), ("ALTIGA-FILTER-STATS-MIB", "alFilterStatsOutPktsFiltered"), ("ALTIGA-FILTER-STATS-MIB", "alFilterStatsInPktsRx"), ("ALTIGA-FILTER-STATS-MIB", "alFilterStatsOutPktsRx"), ("ALTIGA-FILTER-STATS-MIB", "alFilterStatsInPktsTx"), ("ALTIGA-FILTER-STATS-MIB", "alFilterStatsOutPktsTx"), ("ALTIGA-FILTER-STATS-MIB", "alFilterStatsInShortTcpHdr"), ("ALTIGA-FILTER-STATS-MIB", "alFilterStatsOutShortTcpHdr"), ("ALTIGA-FILTER-STATS-MIB", "alFilterStatsInShortUdpHdr"), ("ALTIGA-FILTER-STATS-MIB", "alFilterStatsOutShortUdpHdr"), ("ALTIGA-FILTER-STATS-MIB", "alFilterStatsInTcpFragDiscard"), ("ALTIGA-FILTER-STATS-MIB", "alFilterStatsOutTcpFragDiscard"), ("ALTIGA-FILTER-STATS-MIB", "alFilterStatsInIcmpFragDiscard"), ("ALTIGA-FILTER-STATS-MIB", "alFilterStatsOutIcmpFragDiscard"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    altigaFilterStatsGroup = altigaFilterStatsGroup.setStatus('current')
+mibBuilder.exportSymbols("ALTIGA-FILTER-STATS-MIB", alFilterStatsOutIcmpFragDiscard=alFilterStatsOutIcmpFragDiscard, alFilterStatsInIcmpFragDiscard=alFilterStatsInIcmpFragDiscard, altigaFilterStatsMibModule=altigaFilterStatsMibModule, alFilterStatsInPktsFiltered=alFilterStatsInPktsFiltered, altigaFilterStatsGroup=altigaFilterStatsGroup, altigaFilterStatsMibConformance=altigaFilterStatsMibConformance, alFilterStatsTable=alFilterStatsTable, alFilterStatsOutPktsFiltered=alFilterStatsOutPktsFiltered, alFilterStatsInShortUdpHdr=alFilterStatsInShortUdpHdr, alFilterStatsInterfaceId=alFilterStatsInterfaceId, altigaFilterStatsMibCompliance=altigaFilterStatsMibCompliance, alFilterStatsInPktsRx=alFilterStatsInPktsRx, alFilterStatsOutShortTcpHdr=alFilterStatsOutShortTcpHdr, PYSNMP_MODULE_ID=altigaFilterStatsMibModule, alFilterStatsOutTcpFragDiscard=alFilterStatsOutTcpFragDiscard, alFilterStatsOutPktsRx=alFilterStatsOutPktsRx, alFilterStatsOutPktsTx=alFilterStatsOutPktsTx, alFilterStatsInPktsTx=alFilterStatsInPktsTx, alFilterStatsOutShortUdpHdr=alFilterStatsOutShortUdpHdr, alFilterStatsStartTime=alFilterStatsStartTime, alFilterStatsInTcpFragDiscard=alFilterStatsInTcpFragDiscard, alFilterStatsInShortTcpHdr=alFilterStatsInShortTcpHdr, alStatsFilterGlobal=alStatsFilterGlobal, altigaFilterStatsMibCompliances=altigaFilterStatsMibCompliances, alFilterStatsEntry=alFilterStatsEntry)

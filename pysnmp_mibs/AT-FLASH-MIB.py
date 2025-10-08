@@ -1,98 +1,49 @@
-_P='flashVerifyFailure'
-_O='flashCompactFailure'
-_N='flashEraseFailure'
-_M='flashCheckFailure'
-_L='flashDeleteFailure'
-_K='flashPutFailure'
-_J='flashCreateFailure'
-_I='flashWriteFailure'
-_H='flashCompleteFailure'
-_G='flashCloseFailure'
-_F='flashReadFailure'
-_E='flashOpenFailure'
-_D='flashGetFailure'
-_C='read-only'
-_B='AT-FLASH-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-DisplayStringUnsized,modules=mibBuilder.importSymbols('AT-SMI-MIB','DisplayStringUnsized','modules')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-flash=ModuleIdentity((1,3,6,1,4,1,207,8,4,4,4,31))
-if mibBuilder.loadTexts:flash.setRevisions(('2006-06-28 12:22',))
-_FlashTrap_ObjectIdentity=ObjectIdentity
-flashTrap=_FlashTrap_ObjectIdentity((1,3,6,1,4,1,207,8,4,4,4,31,0))
-_FlashGetFailure_Type=Integer32
-_FlashGetFailure_Object=MibScalar
-flashGetFailure=_FlashGetFailure_Object((1,3,6,1,4,1,207,8,4,4,4,31,1),_FlashGetFailure_Type())
-flashGetFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashGetFailure.setStatus(_A)
-_FlashOpenFailure_Type=Integer32
-_FlashOpenFailure_Object=MibScalar
-flashOpenFailure=_FlashOpenFailure_Object((1,3,6,1,4,1,207,8,4,4,4,31,2),_FlashOpenFailure_Type())
-flashOpenFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashOpenFailure.setStatus(_A)
-_FlashReadFailure_Type=Integer32
-_FlashReadFailure_Object=MibScalar
-flashReadFailure=_FlashReadFailure_Object((1,3,6,1,4,1,207,8,4,4,4,31,3),_FlashReadFailure_Type())
-flashReadFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashReadFailure.setStatus(_A)
-_FlashCloseFailure_Type=Integer32
-_FlashCloseFailure_Object=MibScalar
-flashCloseFailure=_FlashCloseFailure_Object((1,3,6,1,4,1,207,8,4,4,4,31,4),_FlashCloseFailure_Type())
-flashCloseFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashCloseFailure.setStatus(_A)
-_FlashCompleteFailure_Type=Integer32
-_FlashCompleteFailure_Object=MibScalar
-flashCompleteFailure=_FlashCompleteFailure_Object((1,3,6,1,4,1,207,8,4,4,4,31,5),_FlashCompleteFailure_Type())
-flashCompleteFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashCompleteFailure.setStatus(_A)
-_FlashWriteFailure_Type=Integer32
-_FlashWriteFailure_Object=MibScalar
-flashWriteFailure=_FlashWriteFailure_Object((1,3,6,1,4,1,207,8,4,4,4,31,6),_FlashWriteFailure_Type())
-flashWriteFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashWriteFailure.setStatus(_A)
-_FlashCreateFailure_Type=Integer32
-_FlashCreateFailure_Object=MibScalar
-flashCreateFailure=_FlashCreateFailure_Object((1,3,6,1,4,1,207,8,4,4,4,31,7),_FlashCreateFailure_Type())
-flashCreateFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashCreateFailure.setStatus(_A)
-_FlashPutFailure_Type=Integer32
-_FlashPutFailure_Object=MibScalar
-flashPutFailure=_FlashPutFailure_Object((1,3,6,1,4,1,207,8,4,4,4,31,8),_FlashPutFailure_Type())
-flashPutFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashPutFailure.setStatus(_A)
-_FlashDeleteFailure_Type=Integer32
-_FlashDeleteFailure_Object=MibScalar
-flashDeleteFailure=_FlashDeleteFailure_Object((1,3,6,1,4,1,207,8,4,4,4,31,9),_FlashDeleteFailure_Type())
-flashDeleteFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashDeleteFailure.setStatus(_A)
-_FlashCheckFailure_Type=Integer32
-_FlashCheckFailure_Object=MibScalar
-flashCheckFailure=_FlashCheckFailure_Object((1,3,6,1,4,1,207,8,4,4,4,31,10),_FlashCheckFailure_Type())
-flashCheckFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashCheckFailure.setStatus(_A)
-_FlashEraseFailure_Type=Integer32
-_FlashEraseFailure_Object=MibScalar
-flashEraseFailure=_FlashEraseFailure_Object((1,3,6,1,4,1,207,8,4,4,4,31,11),_FlashEraseFailure_Type())
-flashEraseFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashEraseFailure.setStatus(_A)
-_FlashCompactFailure_Type=Integer32
-_FlashCompactFailure_Object=MibScalar
-flashCompactFailure=_FlashCompactFailure_Object((1,3,6,1,4,1,207,8,4,4,4,31,12),_FlashCompactFailure_Type())
-flashCompactFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashCompactFailure.setStatus(_A)
-_FlashVerifyFailure_Type=Integer32
-_FlashVerifyFailure_Object=MibScalar
-flashVerifyFailure=_FlashVerifyFailure_Object((1,3,6,1,4,1,207,8,4,4,4,31,13),_FlashVerifyFailure_Type())
-flashVerifyFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:flashVerifyFailure.setStatus(_A)
-flashFailureTrap=NotificationType((1,3,6,1,4,1,207,8,4,4,4,31,0,1))
-flashFailureTrap.setObjects(*((_B,_D),(_B,_E),(_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:flashFailureTrap.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'flash':flash,'flashTrap':flashTrap,'flashFailureTrap':flashFailureTrap,_D:flashGetFailure,_E:flashOpenFailure,_F:flashReadFailure,_G:flashCloseFailure,_H:flashCompleteFailure,_I:flashWriteFailure,_J:flashCreateFailure,_K:flashPutFailure,_L:flashDeleteFailure,_M:flashCheckFailure,_N:flashEraseFailure,_O:flashCompactFailure,_P:flashVerifyFailure})
+#
+# PySNMP MIB module AT-FLASH-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allied-old/AT-FLASH-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+DisplayStringUnsized, modules = mibBuilder.importSymbols("AT-SMI-MIB", "DisplayStringUnsized", "modules")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+flash = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31))
+flash.setRevisions(('2006-06-28 12:22',))
+if mibBuilder.loadTexts: flash.setLastUpdated('200606281222Z')
+if mibBuilder.loadTexts: flash.setOrganization('Allied Telesis, Inc')
+flashGetFailure = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashGetFailure.setStatus('current')
+flashOpenFailure = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashOpenFailure.setStatus('current')
+flashReadFailure = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashReadFailure.setStatus('current')
+flashCloseFailure = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashCloseFailure.setStatus('current')
+flashCompleteFailure = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashCompleteFailure.setStatus('current')
+flashWriteFailure = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashWriteFailure.setStatus('current')
+flashCreateFailure = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashCreateFailure.setStatus('current')
+flashPutFailure = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashPutFailure.setStatus('current')
+flashDeleteFailure = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashDeleteFailure.setStatus('current')
+flashCheckFailure = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashCheckFailure.setStatus('current')
+flashEraseFailure = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashEraseFailure.setStatus('current')
+flashCompactFailure = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashCompactFailure.setStatus('current')
+flashVerifyFailure = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: flashVerifyFailure.setStatus('current')
+flashTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31, 0))
+flashFailureTrap = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 31, 0, 1)).setObjects(("AT-FLASH-MIB", "flashGetFailure"), ("AT-FLASH-MIB", "flashOpenFailure"), ("AT-FLASH-MIB", "flashReadFailure"), ("AT-FLASH-MIB", "flashCloseFailure"), ("AT-FLASH-MIB", "flashCompleteFailure"), ("AT-FLASH-MIB", "flashWriteFailure"), ("AT-FLASH-MIB", "flashCreateFailure"), ("AT-FLASH-MIB", "flashPutFailure"), ("AT-FLASH-MIB", "flashDeleteFailure"), ("AT-FLASH-MIB", "flashCheckFailure"), ("AT-FLASH-MIB", "flashEraseFailure"), ("AT-FLASH-MIB", "flashCompactFailure"), ("AT-FLASH-MIB", "flashVerifyFailure"))
+if mibBuilder.loadTexts: flashFailureTrap.setStatus('current')
+mibBuilder.exportSymbols("AT-FLASH-MIB", flashCompleteFailure=flashCompleteFailure, flashCloseFailure=flashCloseFailure, flashDeleteFailure=flashDeleteFailure, flashPutFailure=flashPutFailure, flashTrap=flashTrap, flashWriteFailure=flashWriteFailure, flash=flash, flashVerifyFailure=flashVerifyFailure, flashCompactFailure=flashCompactFailure, PYSNMP_MODULE_ID=flash, flashCheckFailure=flashCheckFailure, flashCreateFailure=flashCreateFailure, flashFailureTrap=flashFailureTrap, flashReadFailure=flashReadFailure, flashEraseFailure=flashEraseFailure, flashGetFailure=flashGetFailure, flashOpenFailure=flashOpenFailure)

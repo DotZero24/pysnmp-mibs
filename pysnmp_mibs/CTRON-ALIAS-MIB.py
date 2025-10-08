@@ -1,384 +1,191 @@
-_A9='ctAliasInterfaceGroup'
-_A8='ctAliasConfigurationGroup2'
-_A7='ctAliasConfigurationGroupI'
-_A6='ctAliasControlGroupI'
-_A5='ctAliasProtocolAddressGroup'
-_A4='ctAliasMacAddressGroup'
-_A3='ctAliasInterfaceTime'
-_A2='ctAliasInterfaceAddressText'
-_A1='ctAliasInterfaceIsActive'
-_A0='ctAliasInterfaceVlanID'
-_z='ctAliasInterfaceAddress'
-_y='ctAliasInterfaceProtocol'
-_x='ctAliasInterfaceMacAddress'
-_w='ctAliasConfigurationProtocolEnableState'
-_v='ctAliasConfigurationNumQueueWraps'
-_u='ctAliasEntryClearAll'
-_t='ctAliasEntryStatus'
-_s='ctAliasProtocolAddressTime'
-_r='ctAliasProtocolAddressAddressText'
-_q='ctAliasProtocolAddressIsActive'
-_p='ctAliasProtocolAddressVlanID'
-_o='ctAliasProtocolAddressInterface'
-_n='ctAliasMacAddressTime'
-_m='ctAliasMacAddressAddressText'
-_l='ctAliasMacAddressIsActive'
-_k='ctAliasMacAddressVlanID'
-_j='ctAliasMacAddressInterface'
-_i='ctAliasMarkInactive'
-_h='ctAliasTableStatsState'
-_g='ctAliasTableStatsPurgeTime'
-_f='ctAliasTableStatsActiveEntries'
-_e='ctAliasTableStatsTotalEntries'
-_d='ctAliasAddressText'
-_c='ctAliasIsActive'
-_b='ctAliasVlanID'
-_a='ctAliasID'
-_Z='ctAliasTimeFilter'
-_Y='netBios'
-_X='bootpc'
-_W='bootps'
-_V='unknown'
-_U='EnabledStatus'
-_T='ctAliasStatsGroup'
-_S='ctAliasBasicGroup'
-_R='ctAliasConfigurationInterfaceEnableState'
-_Q='ctAliasConfigurationInterfaceMaxEntries'
-_P='ctAliasConfigurationInterfaceTotalEntries'
-_O='ctAliasConfigurationSystemTotalEntries'
-_N='ctAliasConfigurationSystemAllocatedEntries'
-_M='deprecated'
-_L='not-accessible'
-_K='ctAliasGroup'
-_J='ctAliasAddress'
-_I='ctAliasProtocol'
-_H='ctAliasMacAddress'
-_G='ctAliasInterface'
-_F='ctAliasReference'
-_E='Integer32'
-_D='read-write'
-_C='read-only'
-_B='current'
-_A='CTRON-ALIAS-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ctAliasMib,=mibBuilder.importSymbols('CTRON-MIB-NAMES','ctAliasMib')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB',_U)
-VlanIndex,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanIndex')
-TimeFilter,=mibBuilder.importSymbols('RMON2-MIB','TimeFilter')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TruthValue')
-cabletronAliasMib=ModuleIdentity((1,3,6,1,4,1,52,4,1,3,7,1))
-if mibBuilder.loadTexts:cabletronAliasMib.setRevisions(('2013-02-15 14:30','2011-02-14 15:25','2003-04-22 13:39','2002-01-30 13:01','2002-01-23 20:56','2002-01-18 20:22','1999-09-26 00:00','1999-09-04 00:00','1999-08-06 00:00','1999-07-28 00:00'))
-class CabletronProtocolTC(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29)));namedValues=NamedValues(*((_V,0),('ip',1),('apl',2),('mac',3),('hsrp',4),('dhcps',5),('dhcpc',6),(_W,7),(_X,8),('ospf',9),('vrrp',10),('ipx',11),('xrip',12),('xsap',13),('xnlsp',14),('ipx20',15),('rtmp',16),(_Y,17),('nbt',18),('n802q',19),('bgp',20),('rip',21),('igrp',22),('dec',23),('bpdu',24),('udp',25),('ipv6',26),('mdns',27),('llmnr',28),('ssdp',29)))
-class AliasAddress(TextualConvention,OctetString):status=_B;displayHint='1x ';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-class CabletronProtocolBits(TextualConvention,Bits):status=_B;namedValues=NamedValues(*((_V,0),('ipv4',1),('apl',2),('mac',3),('hsrp',4),('dhcps',5),('dhcpc',6),(_W,7),(_X,8),('ospf',9),('vrrp',10),('ipx',11),('xrip',12),('xsap',13),('xnlsp',14),('ipx20',15),('rtmp',16),(_Y,17),('nbt',18),('n802q',19),('bgp',20),('rip',21),('igrp',22),('dec',23),('bpdu',24),('udp',25),('ipv6',26),('mdns',27),('llmnr',28),('ssdp',29)))
-_CtAlias_ObjectIdentity=ObjectIdentity
-ctAlias=_CtAlias_ObjectIdentity((1,3,6,1,4,1,52,4,1,3,7,1,1))
-_CtAliasTable_Object=MibTable
-ctAliasTable=_CtAliasTable_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,1))
-if mibBuilder.loadTexts:ctAliasTable.setStatus(_B)
-_CtAliasEntry_Object=MibTableRow
-ctAliasEntry=_CtAliasEntry_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,1,1))
-ctAliasEntry.setIndexNames((0,_A,_Z),(0,_A,_F))
-if mibBuilder.loadTexts:ctAliasEntry.setStatus(_B)
-_CtAliasTimeFilter_Type=TimeFilter
-_CtAliasTimeFilter_Object=MibTableColumn
-ctAliasTimeFilter=_CtAliasTimeFilter_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,1,1,1),_CtAliasTimeFilter_Type())
-ctAliasTimeFilter.setMaxAccess(_L)
-if mibBuilder.loadTexts:ctAliasTimeFilter.setStatus(_B)
-class _CtAliasReference_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CtAliasReference_Type.__name__=_E
-_CtAliasReference_Object=MibTableColumn
-ctAliasReference=_CtAliasReference_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,1,1,2),_CtAliasReference_Type())
-ctAliasReference.setMaxAccess(_L)
-if mibBuilder.loadTexts:ctAliasReference.setStatus(_B)
-_CtAliasInterface_Type=InterfaceIndex
-_CtAliasInterface_Object=MibTableColumn
-ctAliasInterface=_CtAliasInterface_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,1,1,3),_CtAliasInterface_Type())
-ctAliasInterface.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasInterface.setStatus(_B)
-_CtAliasMacAddress_Type=MacAddress
-_CtAliasMacAddress_Object=MibTableColumn
-ctAliasMacAddress=_CtAliasMacAddress_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,1,1,4),_CtAliasMacAddress_Type())
-ctAliasMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasMacAddress.setStatus(_B)
-_CtAliasVlanID_Type=VlanIndex
-_CtAliasVlanID_Object=MibTableColumn
-ctAliasVlanID=_CtAliasVlanID_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,1,1,5),_CtAliasVlanID_Type())
-ctAliasVlanID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasVlanID.setStatus(_B)
-_CtAliasProtocol_Type=CabletronProtocolTC
-_CtAliasProtocol_Object=MibTableColumn
-ctAliasProtocol=_CtAliasProtocol_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,1,1,6),_CtAliasProtocol_Type())
-ctAliasProtocol.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasProtocol.setStatus(_B)
-_CtAliasAddress_Type=AliasAddress
-_CtAliasAddress_Object=MibTableColumn
-ctAliasAddress=_CtAliasAddress_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,1,1,7),_CtAliasAddress_Type())
-ctAliasAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasAddress.setStatus(_B)
-_CtAliasIsActive_Type=TruthValue
-_CtAliasIsActive_Object=MibTableColumn
-ctAliasIsActive=_CtAliasIsActive_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,1,1,8),_CtAliasIsActive_Type())
-ctAliasIsActive.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasIsActive.setStatus(_B)
-_CtAliasAddressText_Type=SnmpAdminString
-_CtAliasAddressText_Object=MibTableColumn
-ctAliasAddressText=_CtAliasAddressText_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,1,1,9),_CtAliasAddressText_Type())
-ctAliasAddressText.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasAddressText.setStatus(_B)
-_CtAliasControlTable_Object=MibTable
-ctAliasControlTable=_CtAliasControlTable_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,2))
-if mibBuilder.loadTexts:ctAliasControlTable.setStatus(_B)
-_CtAliasControlEntry_Object=MibTableRow
-ctAliasControlEntry=_CtAliasControlEntry_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,2,1))
-ctAliasControlEntry.setIndexNames((0,_A,_a))
-if mibBuilder.loadTexts:ctAliasControlEntry.setStatus(_B)
-class _CtAliasID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CtAliasID_Type.__name__=_E
-_CtAliasID_Object=MibTableColumn
-ctAliasID=_CtAliasID_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,2,1,1),_CtAliasID_Type())
-ctAliasID.setMaxAccess(_L)
-if mibBuilder.loadTexts:ctAliasID.setStatus(_B)
-_CtAliasMarkInactive_Type=TruthValue
-_CtAliasMarkInactive_Object=MibTableColumn
-ctAliasMarkInactive=_CtAliasMarkInactive_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,2,1,2),_CtAliasMarkInactive_Type())
-ctAliasMarkInactive.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctAliasMarkInactive.setStatus(_M)
-class _CtAliasEntryStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('active',1),('inactive',2),('remove',3)))
-_CtAliasEntryStatus_Type.__name__=_E
-_CtAliasEntryStatus_Object=MibTableColumn
-ctAliasEntryStatus=_CtAliasEntryStatus_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,2,1,3),_CtAliasEntryStatus_Type())
-ctAliasEntryStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctAliasEntryStatus.setStatus(_B)
-_CtAliasStats_ObjectIdentity=ObjectIdentity
-ctAliasStats=_CtAliasStats_ObjectIdentity((1,3,6,1,4,1,52,4,1,3,7,1,1,3))
-_CtAliasTableStatsTotalEntries_Type=Gauge32
-_CtAliasTableStatsTotalEntries_Object=MibScalar
-ctAliasTableStatsTotalEntries=_CtAliasTableStatsTotalEntries_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,3,1),_CtAliasTableStatsTotalEntries_Type())
-ctAliasTableStatsTotalEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasTableStatsTotalEntries.setStatus(_B)
-_CtAliasTableStatsActiveEntries_Type=Gauge32
-_CtAliasTableStatsActiveEntries_Object=MibScalar
-ctAliasTableStatsActiveEntries=_CtAliasTableStatsActiveEntries_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,3,2),_CtAliasTableStatsActiveEntries_Type())
-ctAliasTableStatsActiveEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasTableStatsActiveEntries.setStatus(_B)
-_CtAliasTableStatsPurgeTime_Type=TimeTicks
-_CtAliasTableStatsPurgeTime_Object=MibScalar
-ctAliasTableStatsPurgeTime=_CtAliasTableStatsPurgeTime_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,3,3),_CtAliasTableStatsPurgeTime_Type())
-ctAliasTableStatsPurgeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasTableStatsPurgeTime.setStatus(_B)
-class _CtAliasTableStatsState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('notStarted',1),('ready',2),('full',3)))
-_CtAliasTableStatsState_Type.__name__=_E
-_CtAliasTableStatsState_Object=MibScalar
-ctAliasTableStatsState=_CtAliasTableStatsState_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,3,4),_CtAliasTableStatsState_Type())
-ctAliasTableStatsState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasTableStatsState.setStatus(_B)
-_CtAliasConfiguration_ObjectIdentity=ObjectIdentity
-ctAliasConfiguration=_CtAliasConfiguration_ObjectIdentity((1,3,6,1,4,1,52,4,1,3,7,1,1,4))
-_CtAliasConfigurationSystemAllocatedEntries_Type=Gauge32
-_CtAliasConfigurationSystemAllocatedEntries_Object=MibScalar
-ctAliasConfigurationSystemAllocatedEntries=_CtAliasConfigurationSystemAllocatedEntries_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,4,1),_CtAliasConfigurationSystemAllocatedEntries_Type())
-ctAliasConfigurationSystemAllocatedEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasConfigurationSystemAllocatedEntries.setStatus(_B)
-_CtAliasConfigurationSystemTotalEntries_Type=Gauge32
-_CtAliasConfigurationSystemTotalEntries_Object=MibScalar
-ctAliasConfigurationSystemTotalEntries=_CtAliasConfigurationSystemTotalEntries_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,4,2),_CtAliasConfigurationSystemTotalEntries_Type())
-ctAliasConfigurationSystemTotalEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasConfigurationSystemTotalEntries.setStatus(_B)
-_CtAliasConfigurationTable_Object=MibTable
-ctAliasConfigurationTable=_CtAliasConfigurationTable_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,4,3))
-if mibBuilder.loadTexts:ctAliasConfigurationTable.setStatus(_B)
-_CtAliasConfigurationEntry_Object=MibTableRow
-ctAliasConfigurationEntry=_CtAliasConfigurationEntry_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,4,3,1))
-ctAliasConfigurationEntry.setIndexNames((0,_A,_G))
-if mibBuilder.loadTexts:ctAliasConfigurationEntry.setStatus(_B)
-_CtAliasConfigurationInterfaceTotalEntries_Type=Gauge32
-_CtAliasConfigurationInterfaceTotalEntries_Object=MibTableColumn
-ctAliasConfigurationInterfaceTotalEntries=_CtAliasConfigurationInterfaceTotalEntries_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,4,3,1,1),_CtAliasConfigurationInterfaceTotalEntries_Type())
-ctAliasConfigurationInterfaceTotalEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasConfigurationInterfaceTotalEntries.setStatus(_B)
-_CtAliasConfigurationInterfaceMaxEntries_Type=Gauge32
-_CtAliasConfigurationInterfaceMaxEntries_Object=MibTableColumn
-ctAliasConfigurationInterfaceMaxEntries=_CtAliasConfigurationInterfaceMaxEntries_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,4,3,1,2),_CtAliasConfigurationInterfaceMaxEntries_Type())
-ctAliasConfigurationInterfaceMaxEntries.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctAliasConfigurationInterfaceMaxEntries.setStatus(_B)
-class _CtAliasConfigurationInterfaceEnableState_Type(EnabledStatus):defaultValue=1
-_CtAliasConfigurationInterfaceEnableState_Type.__name__=_U
-_CtAliasConfigurationInterfaceEnableState_Object=MibTableColumn
-ctAliasConfigurationInterfaceEnableState=_CtAliasConfigurationInterfaceEnableState_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,4,3,1,3),_CtAliasConfigurationInterfaceEnableState_Type())
-ctAliasConfigurationInterfaceEnableState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctAliasConfigurationInterfaceEnableState.setStatus(_B)
-_CtAliasConfigurationNumQueueWraps_Type=Counter32
-_CtAliasConfigurationNumQueueWraps_Object=MibTableColumn
-ctAliasConfigurationNumQueueWraps=_CtAliasConfigurationNumQueueWraps_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,4,3,1,4),_CtAliasConfigurationNumQueueWraps_Type())
-ctAliasConfigurationNumQueueWraps.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasConfigurationNumQueueWraps.setStatus(_B)
-_CtAliasConfigurationProtocolEnableState_Type=CabletronProtocolBits
-_CtAliasConfigurationProtocolEnableState_Object=MibScalar
-ctAliasConfigurationProtocolEnableState=_CtAliasConfigurationProtocolEnableState_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,4,4),_CtAliasConfigurationProtocolEnableState_Type())
-ctAliasConfigurationProtocolEnableState.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctAliasConfigurationProtocolEnableState.setStatus(_B)
-_CtAliasMacAddressTable_Object=MibTable
-ctAliasMacAddressTable=_CtAliasMacAddressTable_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,5))
-if mibBuilder.loadTexts:ctAliasMacAddressTable.setStatus(_B)
-_CtAliasMacAddressEntry_Object=MibTableRow
-ctAliasMacAddressEntry=_CtAliasMacAddressEntry_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,5,1))
-ctAliasMacAddressEntry.setIndexNames((0,_A,_H),(0,_A,_I),(0,_A,_J),(0,_A,_F))
-if mibBuilder.loadTexts:ctAliasMacAddressEntry.setStatus(_B)
-_CtAliasMacAddressInterface_Type=InterfaceIndex
-_CtAliasMacAddressInterface_Object=MibTableColumn
-ctAliasMacAddressInterface=_CtAliasMacAddressInterface_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,5,1,1),_CtAliasMacAddressInterface_Type())
-ctAliasMacAddressInterface.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasMacAddressInterface.setStatus(_B)
-_CtAliasMacAddressVlanID_Type=VlanIndex
-_CtAliasMacAddressVlanID_Object=MibTableColumn
-ctAliasMacAddressVlanID=_CtAliasMacAddressVlanID_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,5,1,2),_CtAliasMacAddressVlanID_Type())
-ctAliasMacAddressVlanID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasMacAddressVlanID.setStatus(_B)
-_CtAliasMacAddressIsActive_Type=TruthValue
-_CtAliasMacAddressIsActive_Object=MibTableColumn
-ctAliasMacAddressIsActive=_CtAliasMacAddressIsActive_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,5,1,3),_CtAliasMacAddressIsActive_Type())
-ctAliasMacAddressIsActive.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasMacAddressIsActive.setStatus(_B)
-_CtAliasMacAddressAddressText_Type=SnmpAdminString
-_CtAliasMacAddressAddressText_Object=MibTableColumn
-ctAliasMacAddressAddressText=_CtAliasMacAddressAddressText_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,5,1,4),_CtAliasMacAddressAddressText_Type())
-ctAliasMacAddressAddressText.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasMacAddressAddressText.setStatus(_B)
-_CtAliasMacAddressTime_Type=TimeTicks
-_CtAliasMacAddressTime_Object=MibTableColumn
-ctAliasMacAddressTime=_CtAliasMacAddressTime_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,5,1,5),_CtAliasMacAddressTime_Type())
-ctAliasMacAddressTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasMacAddressTime.setStatus(_B)
-_CtAliasProtocolAddressTable_Object=MibTable
-ctAliasProtocolAddressTable=_CtAliasProtocolAddressTable_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,6))
-if mibBuilder.loadTexts:ctAliasProtocolAddressTable.setStatus(_B)
-_CtAliasProtocolAddressEntry_Object=MibTableRow
-ctAliasProtocolAddressEntry=_CtAliasProtocolAddressEntry_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,6,1))
-ctAliasProtocolAddressEntry.setIndexNames((0,_A,_I),(0,_A,_J),(0,_A,_H),(0,_A,_F))
-if mibBuilder.loadTexts:ctAliasProtocolAddressEntry.setStatus(_B)
-_CtAliasProtocolAddressInterface_Type=InterfaceIndex
-_CtAliasProtocolAddressInterface_Object=MibTableColumn
-ctAliasProtocolAddressInterface=_CtAliasProtocolAddressInterface_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,6,1,1),_CtAliasProtocolAddressInterface_Type())
-ctAliasProtocolAddressInterface.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasProtocolAddressInterface.setStatus(_B)
-_CtAliasProtocolAddressVlanID_Type=VlanIndex
-_CtAliasProtocolAddressVlanID_Object=MibTableColumn
-ctAliasProtocolAddressVlanID=_CtAliasProtocolAddressVlanID_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,6,1,2),_CtAliasProtocolAddressVlanID_Type())
-ctAliasProtocolAddressVlanID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasProtocolAddressVlanID.setStatus(_B)
-_CtAliasProtocolAddressIsActive_Type=TruthValue
-_CtAliasProtocolAddressIsActive_Object=MibTableColumn
-ctAliasProtocolAddressIsActive=_CtAliasProtocolAddressIsActive_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,6,1,3),_CtAliasProtocolAddressIsActive_Type())
-ctAliasProtocolAddressIsActive.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasProtocolAddressIsActive.setStatus(_B)
-_CtAliasProtocolAddressAddressText_Type=SnmpAdminString
-_CtAliasProtocolAddressAddressText_Object=MibTableColumn
-ctAliasProtocolAddressAddressText=_CtAliasProtocolAddressAddressText_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,6,1,4),_CtAliasProtocolAddressAddressText_Type())
-ctAliasProtocolAddressAddressText.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasProtocolAddressAddressText.setStatus(_B)
-_CtAliasProtocolAddressTime_Type=TimeTicks
-_CtAliasProtocolAddressTime_Object=MibTableColumn
-ctAliasProtocolAddressTime=_CtAliasProtocolAddressTime_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,6,1,5),_CtAliasProtocolAddressTime_Type())
-ctAliasProtocolAddressTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasProtocolAddressTime.setStatus(_B)
-_CtAliasEntryClearAll_Type=TruthValue
-_CtAliasEntryClearAll_Object=MibScalar
-ctAliasEntryClearAll=_CtAliasEntryClearAll_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,7),_CtAliasEntryClearAll_Type())
-ctAliasEntryClearAll.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctAliasEntryClearAll.setStatus(_B)
-_CtAliasInterfaceTable_Object=MibTable
-ctAliasInterfaceTable=_CtAliasInterfaceTable_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,8))
-if mibBuilder.loadTexts:ctAliasInterfaceTable.setStatus(_B)
-_CtAliasInterfaceEntry_Object=MibTableRow
-ctAliasInterfaceEntry=_CtAliasInterfaceEntry_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,8,1))
-ctAliasInterfaceEntry.setIndexNames((0,_A,_G),(0,_A,_F))
-if mibBuilder.loadTexts:ctAliasInterfaceEntry.setStatus(_B)
-_CtAliasInterfaceMacAddress_Type=MacAddress
-_CtAliasInterfaceMacAddress_Object=MibTableColumn
-ctAliasInterfaceMacAddress=_CtAliasInterfaceMacAddress_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,8,1,1),_CtAliasInterfaceMacAddress_Type())
-ctAliasInterfaceMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasInterfaceMacAddress.setStatus(_B)
-_CtAliasInterfaceProtocol_Type=CabletronProtocolTC
-_CtAliasInterfaceProtocol_Object=MibTableColumn
-ctAliasInterfaceProtocol=_CtAliasInterfaceProtocol_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,8,1,2),_CtAliasInterfaceProtocol_Type())
-ctAliasInterfaceProtocol.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasInterfaceProtocol.setStatus(_B)
-_CtAliasInterfaceAddress_Type=AliasAddress
-_CtAliasInterfaceAddress_Object=MibTableColumn
-ctAliasInterfaceAddress=_CtAliasInterfaceAddress_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,8,1,3),_CtAliasInterfaceAddress_Type())
-ctAliasInterfaceAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasInterfaceAddress.setStatus(_B)
-_CtAliasInterfaceVlanID_Type=VlanIndex
-_CtAliasInterfaceVlanID_Object=MibTableColumn
-ctAliasInterfaceVlanID=_CtAliasInterfaceVlanID_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,8,1,4),_CtAliasInterfaceVlanID_Type())
-ctAliasInterfaceVlanID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasInterfaceVlanID.setStatus(_B)
-_CtAliasInterfaceIsActive_Type=TruthValue
-_CtAliasInterfaceIsActive_Object=MibTableColumn
-ctAliasInterfaceIsActive=_CtAliasInterfaceIsActive_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,8,1,5),_CtAliasInterfaceIsActive_Type())
-ctAliasInterfaceIsActive.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasInterfaceIsActive.setStatus(_B)
-_CtAliasInterfaceAddressText_Type=SnmpAdminString
-_CtAliasInterfaceAddressText_Object=MibTableColumn
-ctAliasInterfaceAddressText=_CtAliasInterfaceAddressText_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,8,1,6),_CtAliasInterfaceAddressText_Type())
-ctAliasInterfaceAddressText.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasInterfaceAddressText.setStatus(_B)
-_CtAliasInterfaceTime_Type=TimeTicks
-_CtAliasInterfaceTime_Object=MibTableColumn
-ctAliasInterfaceTime=_CtAliasInterfaceTime_Object((1,3,6,1,4,1,52,4,1,3,7,1,1,8,1,7),_CtAliasInterfaceTime_Type())
-ctAliasInterfaceTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAliasInterfaceTime.setStatus(_B)
-_CtAliasConformance_ObjectIdentity=ObjectIdentity
-ctAliasConformance=_CtAliasConformance_ObjectIdentity((1,3,6,1,4,1,52,4,1,3,7,2))
-_CtAliasGroups_ObjectIdentity=ObjectIdentity
-ctAliasGroups=_CtAliasGroups_ObjectIdentity((1,3,6,1,4,1,52,4,1,3,7,2,1))
-_CtAliasCompliances_ObjectIdentity=ObjectIdentity
-ctAliasCompliances=_CtAliasCompliances_ObjectIdentity((1,3,6,1,4,1,52,4,1,3,7,2,2))
-ctAliasBasicGroup=ObjectGroup((1,3,6,1,4,1,52,4,1,3,7,2,1,1))
-ctAliasBasicGroup.setObjects(*((_A,_G),(_A,_H),(_A,_b),(_A,_I),(_A,_J),(_A,_c),(_A,_d)))
-if mibBuilder.loadTexts:ctAliasBasicGroup.setStatus(_B)
-ctAliasStatsGroup=ObjectGroup((1,3,6,1,4,1,52,4,1,3,7,2,1,2))
-ctAliasStatsGroup.setObjects(*((_A,_e),(_A,_f),(_A,_g),(_A,_h)))
-if mibBuilder.loadTexts:ctAliasStatsGroup.setStatus(_B)
-ctAliasControlGroup=ObjectGroup((1,3,6,1,4,1,52,4,1,3,7,2,1,3))
-ctAliasControlGroup.setObjects((_A,_i))
-if mibBuilder.loadTexts:ctAliasControlGroup.setStatus(_M)
-ctAliasConfigurationGroup=ObjectGroup((1,3,6,1,4,1,52,4,1,3,7,2,1,4))
-ctAliasConfigurationGroup.setObjects(*((_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R)))
-if mibBuilder.loadTexts:ctAliasConfigurationGroup.setStatus(_M)
-ctAliasMacAddressGroup=ObjectGroup((1,3,6,1,4,1,52,4,1,3,7,2,1,5))
-ctAliasMacAddressGroup.setObjects(*((_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n)))
-if mibBuilder.loadTexts:ctAliasMacAddressGroup.setStatus(_B)
-ctAliasProtocolAddressGroup=ObjectGroup((1,3,6,1,4,1,52,4,1,3,7,2,1,6))
-ctAliasProtocolAddressGroup.setObjects(*((_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s)))
-if mibBuilder.loadTexts:ctAliasProtocolAddressGroup.setStatus(_B)
-ctAliasControlGroupI=ObjectGroup((1,3,6,1,4,1,52,4,1,3,7,2,1,7))
-ctAliasControlGroupI.setObjects((_A,_t))
-if mibBuilder.loadTexts:ctAliasControlGroupI.setStatus(_B)
-ctAliasGroup=ObjectGroup((1,3,6,1,4,1,52,4,1,3,7,2,1,8))
-ctAliasGroup.setObjects((_A,_u))
-if mibBuilder.loadTexts:ctAliasGroup.setStatus(_B)
-ctAliasConfigurationGroupI=ObjectGroup((1,3,6,1,4,1,52,4,1,3,7,2,1,9))
-ctAliasConfigurationGroupI.setObjects((_A,_v))
-if mibBuilder.loadTexts:ctAliasConfigurationGroupI.setStatus(_B)
-ctAliasConfigurationGroup2=ObjectGroup((1,3,6,1,4,1,52,4,1,3,7,2,1,10))
-ctAliasConfigurationGroup2.setObjects(*((_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_w)))
-if mibBuilder.loadTexts:ctAliasConfigurationGroup2.setStatus(_B)
-ctAliasInterfaceGroup=ObjectGroup((1,3,6,1,4,1,52,4,1,3,7,2,1,11))
-ctAliasInterfaceGroup.setObjects(*((_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3)))
-if mibBuilder.loadTexts:ctAliasInterfaceGroup.setStatus(_B)
-ctAliasCompliance=ModuleCompliance((1,3,6,1,4,1,52,4,1,3,7,2,2,1))
-ctAliasCompliance.setObjects(*((_A,_S),(_A,_T),(_A,_K)))
-if mibBuilder.loadTexts:ctAliasCompliance.setStatus(_B)
-ctAliasCompliance2=ModuleCompliance((1,3,6,1,4,1,52,4,1,3,7,2,2,2))
-ctAliasCompliance2.setObjects(*((_A,_S),(_A,_T),(_A,_K),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_K),(_A,_A7),(_A,_A8),(_A,_A9)))
-if mibBuilder.loadTexts:ctAliasCompliance2.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'CabletronProtocolTC':CabletronProtocolTC,'AliasAddress':AliasAddress,'CabletronProtocolBits':CabletronProtocolBits,'cabletronAliasMib':cabletronAliasMib,'ctAlias':ctAlias,'ctAliasTable':ctAliasTable,'ctAliasEntry':ctAliasEntry,_Z:ctAliasTimeFilter,_F:ctAliasReference,_G:ctAliasInterface,_H:ctAliasMacAddress,_b:ctAliasVlanID,_I:ctAliasProtocol,_J:ctAliasAddress,_c:ctAliasIsActive,_d:ctAliasAddressText,'ctAliasControlTable':ctAliasControlTable,'ctAliasControlEntry':ctAliasControlEntry,_a:ctAliasID,_i:ctAliasMarkInactive,_t:ctAliasEntryStatus,'ctAliasStats':ctAliasStats,_e:ctAliasTableStatsTotalEntries,_f:ctAliasTableStatsActiveEntries,_g:ctAliasTableStatsPurgeTime,_h:ctAliasTableStatsState,'ctAliasConfiguration':ctAliasConfiguration,_N:ctAliasConfigurationSystemAllocatedEntries,_O:ctAliasConfigurationSystemTotalEntries,'ctAliasConfigurationTable':ctAliasConfigurationTable,'ctAliasConfigurationEntry':ctAliasConfigurationEntry,_P:ctAliasConfigurationInterfaceTotalEntries,_Q:ctAliasConfigurationInterfaceMaxEntries,_R:ctAliasConfigurationInterfaceEnableState,_v:ctAliasConfigurationNumQueueWraps,_w:ctAliasConfigurationProtocolEnableState,'ctAliasMacAddressTable':ctAliasMacAddressTable,'ctAliasMacAddressEntry':ctAliasMacAddressEntry,_j:ctAliasMacAddressInterface,_k:ctAliasMacAddressVlanID,_l:ctAliasMacAddressIsActive,_m:ctAliasMacAddressAddressText,_n:ctAliasMacAddressTime,'ctAliasProtocolAddressTable':ctAliasProtocolAddressTable,'ctAliasProtocolAddressEntry':ctAliasProtocolAddressEntry,_o:ctAliasProtocolAddressInterface,_p:ctAliasProtocolAddressVlanID,_q:ctAliasProtocolAddressIsActive,_r:ctAliasProtocolAddressAddressText,_s:ctAliasProtocolAddressTime,_u:ctAliasEntryClearAll,'ctAliasInterfaceTable':ctAliasInterfaceTable,'ctAliasInterfaceEntry':ctAliasInterfaceEntry,_x:ctAliasInterfaceMacAddress,_y:ctAliasInterfaceProtocol,_z:ctAliasInterfaceAddress,_A0:ctAliasInterfaceVlanID,_A1:ctAliasInterfaceIsActive,_A2:ctAliasInterfaceAddressText,_A3:ctAliasInterfaceTime,'ctAliasConformance':ctAliasConformance,'ctAliasGroups':ctAliasGroups,_S:ctAliasBasicGroup,_T:ctAliasStatsGroup,'ctAliasControlGroup':ctAliasControlGroup,'ctAliasConfigurationGroup':ctAliasConfigurationGroup,_A4:ctAliasMacAddressGroup,_A5:ctAliasProtocolAddressGroup,_A6:ctAliasControlGroupI,_K:ctAliasGroup,_A7:ctAliasConfigurationGroupI,_A8:ctAliasConfigurationGroup2,_A9:ctAliasInterfaceGroup,'ctAliasCompliances':ctAliasCompliances,'ctAliasCompliance':ctAliasCompliance,'ctAliasCompliance2':ctAliasCompliance2})
+#
+# PySNMP MIB module CTRON-ALIAS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CTRON-ALIAS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:39 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ctAliasMib, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctAliasMib")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+VlanIndex, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIndex")
+TimeFilter, = mibBuilder.importSymbols("RMON2-MIB", "TimeFilter")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TruthValue, MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "DisplayString", "TextualConvention")
+cabletronAliasMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1))
+cabletronAliasMib.setRevisions(('2013-02-15 14:30', '2011-02-14 15:25', '2003-04-22 13:39', '2002-01-30 13:01', '2002-01-23 20:56', '2002-01-18 20:22', '1999-09-26 00:00', '1999-09-04 00:00', '1999-08-06 00:00', '1999-07-28 00:00',))
+if mibBuilder.loadTexts: cabletronAliasMib.setLastUpdated('201302151430Z')
+if mibBuilder.loadTexts: cabletronAliasMib.setOrganization('Enterasys Networks, Inc')
+class CabletronProtocolTC(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29))
+    namedValues = NamedValues(("unknown", 0), ("ip", 1), ("apl", 2), ("mac", 3), ("hsrp", 4), ("dhcps", 5), ("dhcpc", 6), ("bootps", 7), ("bootpc", 8), ("ospf", 9), ("vrrp", 10), ("ipx", 11), ("xrip", 12), ("xsap", 13), ("xnlsp", 14), ("ipx20", 15), ("rtmp", 16), ("netBios", 17), ("nbt", 18), ("n802q", 19), ("bgp", 20), ("rip", 21), ("igrp", 22), ("dec", 23), ("bpdu", 24), ("udp", 25), ("ipv6", 26), ("mdns", 27), ("llmnr", 28), ("ssdp", 29))
+
+class AliasAddress(TextualConvention, OctetString):
+    status = 'current'
+    displayHint = '1x '
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 32)
+
+class CabletronProtocolBits(TextualConvention, Bits):
+    status = 'current'
+    namedValues = NamedValues(("unknown", 0), ("ipv4", 1), ("apl", 2), ("mac", 3), ("hsrp", 4), ("dhcps", 5), ("dhcpc", 6), ("bootps", 7), ("bootpc", 8), ("ospf", 9), ("vrrp", 10), ("ipx", 11), ("xrip", 12), ("xsap", 13), ("xnlsp", 14), ("ipx20", 15), ("rtmp", 16), ("netBios", 17), ("nbt", 18), ("n802q", 19), ("bgp", 20), ("rip", 21), ("igrp", 22), ("dec", 23), ("bpdu", 24), ("udp", 25), ("ipv6", 26), ("mdns", 27), ("llmnr", 28), ("ssdp", 29))
+
+ctAlias = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1))
+ctAliasTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 1), )
+if mibBuilder.loadTexts: ctAliasTable.setStatus('current')
+ctAliasEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 1, 1), ).setIndexNames((0, "CTRON-ALIAS-MIB", "ctAliasTimeFilter"), (0, "CTRON-ALIAS-MIB", "ctAliasReference"))
+if mibBuilder.loadTexts: ctAliasEntry.setStatus('current')
+ctAliasTimeFilter = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 1, 1, 1), TimeFilter())
+if mibBuilder.loadTexts: ctAliasTimeFilter.setStatus('current')
+ctAliasReference = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: ctAliasReference.setStatus('current')
+ctAliasInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 1, 1, 3), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasInterface.setStatus('current')
+ctAliasMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 1, 1, 4), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasMacAddress.setStatus('current')
+ctAliasVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 1, 1, 5), VlanIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasVlanID.setStatus('current')
+ctAliasProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 1, 1, 6), CabletronProtocolTC()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasProtocol.setStatus('current')
+ctAliasAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 1, 1, 7), AliasAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasAddress.setStatus('current')
+ctAliasIsActive = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 1, 1, 8), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasIsActive.setStatus('current')
+ctAliasAddressText = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 1, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasAddressText.setStatus('current')
+ctAliasControlTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 2), )
+if mibBuilder.loadTexts: ctAliasControlTable.setStatus('current')
+ctAliasControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 2, 1), ).setIndexNames((0, "CTRON-ALIAS-MIB", "ctAliasID"))
+if mibBuilder.loadTexts: ctAliasControlEntry.setStatus('current')
+ctAliasID = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: ctAliasID.setStatus('current')
+ctAliasMarkInactive = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 2, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctAliasMarkInactive.setStatus('deprecated')
+ctAliasEntryStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2), ("remove", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctAliasEntryStatus.setStatus('current')
+ctAliasStats = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 3))
+ctAliasTableStatsTotalEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 3, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasTableStatsTotalEntries.setStatus('current')
+ctAliasTableStatsActiveEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 3, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasTableStatsActiveEntries.setStatus('current')
+ctAliasTableStatsPurgeTime = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 3, 3), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasTableStatsPurgeTime.setStatus('current')
+ctAliasTableStatsState = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 3, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notStarted", 1), ("ready", 2), ("full", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasTableStatsState.setStatus('current')
+ctAliasConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 4))
+ctAliasConfigurationSystemAllocatedEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 4, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasConfigurationSystemAllocatedEntries.setStatus('current')
+ctAliasConfigurationSystemTotalEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 4, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasConfigurationSystemTotalEntries.setStatus('current')
+ctAliasConfigurationTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 4, 3), )
+if mibBuilder.loadTexts: ctAliasConfigurationTable.setStatus('current')
+ctAliasConfigurationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 4, 3, 1), ).setIndexNames((0, "CTRON-ALIAS-MIB", "ctAliasInterface"))
+if mibBuilder.loadTexts: ctAliasConfigurationEntry.setStatus('current')
+ctAliasConfigurationInterfaceTotalEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 4, 3, 1, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasConfigurationInterfaceTotalEntries.setStatus('current')
+ctAliasConfigurationInterfaceMaxEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 4, 3, 1, 2), Gauge32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctAliasConfigurationInterfaceMaxEntries.setStatus('current')
+ctAliasConfigurationInterfaceEnableState = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 4, 3, 1, 3), EnabledStatus().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctAliasConfigurationInterfaceEnableState.setStatus('current')
+ctAliasConfigurationNumQueueWraps = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 4, 3, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasConfigurationNumQueueWraps.setStatus('current')
+ctAliasConfigurationProtocolEnableState = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 4, 4), CabletronProtocolBits()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctAliasConfigurationProtocolEnableState.setStatus('current')
+ctAliasMacAddressTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 5), )
+if mibBuilder.loadTexts: ctAliasMacAddressTable.setStatus('current')
+ctAliasMacAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 5, 1), ).setIndexNames((0, "CTRON-ALIAS-MIB", "ctAliasMacAddress"), (0, "CTRON-ALIAS-MIB", "ctAliasProtocol"), (0, "CTRON-ALIAS-MIB", "ctAliasAddress"), (0, "CTRON-ALIAS-MIB", "ctAliasReference"))
+if mibBuilder.loadTexts: ctAliasMacAddressEntry.setStatus('current')
+ctAliasMacAddressInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 5, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasMacAddressInterface.setStatus('current')
+ctAliasMacAddressVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 5, 1, 2), VlanIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasMacAddressVlanID.setStatus('current')
+ctAliasMacAddressIsActive = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 5, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasMacAddressIsActive.setStatus('current')
+ctAliasMacAddressAddressText = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 5, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasMacAddressAddressText.setStatus('current')
+ctAliasMacAddressTime = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 5, 1, 5), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasMacAddressTime.setStatus('current')
+ctAliasProtocolAddressTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 6), )
+if mibBuilder.loadTexts: ctAliasProtocolAddressTable.setStatus('current')
+ctAliasProtocolAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 6, 1), ).setIndexNames((0, "CTRON-ALIAS-MIB", "ctAliasProtocol"), (0, "CTRON-ALIAS-MIB", "ctAliasAddress"), (0, "CTRON-ALIAS-MIB", "ctAliasMacAddress"), (0, "CTRON-ALIAS-MIB", "ctAliasReference"))
+if mibBuilder.loadTexts: ctAliasProtocolAddressEntry.setStatus('current')
+ctAliasProtocolAddressInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 6, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasProtocolAddressInterface.setStatus('current')
+ctAliasProtocolAddressVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 6, 1, 2), VlanIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasProtocolAddressVlanID.setStatus('current')
+ctAliasProtocolAddressIsActive = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 6, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasProtocolAddressIsActive.setStatus('current')
+ctAliasProtocolAddressAddressText = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 6, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasProtocolAddressAddressText.setStatus('current')
+ctAliasProtocolAddressTime = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 6, 1, 5), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasProtocolAddressTime.setStatus('current')
+ctAliasEntryClearAll = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctAliasEntryClearAll.setStatus('current')
+ctAliasInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 8), )
+if mibBuilder.loadTexts: ctAliasInterfaceTable.setStatus('current')
+ctAliasInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 8, 1), ).setIndexNames((0, "CTRON-ALIAS-MIB", "ctAliasInterface"), (0, "CTRON-ALIAS-MIB", "ctAliasReference"))
+if mibBuilder.loadTexts: ctAliasInterfaceEntry.setStatus('current')
+ctAliasInterfaceMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 8, 1, 1), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasInterfaceMacAddress.setStatus('current')
+ctAliasInterfaceProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 8, 1, 2), CabletronProtocolTC()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasInterfaceProtocol.setStatus('current')
+ctAliasInterfaceAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 8, 1, 3), AliasAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasInterfaceAddress.setStatus('current')
+ctAliasInterfaceVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 8, 1, 4), VlanIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasInterfaceVlanID.setStatus('current')
+ctAliasInterfaceIsActive = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 8, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasInterfaceIsActive.setStatus('current')
+ctAliasInterfaceAddressText = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 8, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasInterfaceAddressText.setStatus('current')
+ctAliasInterfaceTime = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 1, 1, 8, 1, 7), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAliasInterfaceTime.setStatus('current')
+ctAliasConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2))
+ctAliasGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2, 1))
+ctAliasCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2, 2))
+ctAliasBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2, 1, 1)).setObjects(("CTRON-ALIAS-MIB", "ctAliasInterface"), ("CTRON-ALIAS-MIB", "ctAliasMacAddress"), ("CTRON-ALIAS-MIB", "ctAliasVlanID"), ("CTRON-ALIAS-MIB", "ctAliasProtocol"), ("CTRON-ALIAS-MIB", "ctAliasAddress"), ("CTRON-ALIAS-MIB", "ctAliasIsActive"), ("CTRON-ALIAS-MIB", "ctAliasAddressText"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctAliasBasicGroup = ctAliasBasicGroup.setStatus('current')
+ctAliasStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2, 1, 2)).setObjects(("CTRON-ALIAS-MIB", "ctAliasTableStatsTotalEntries"), ("CTRON-ALIAS-MIB", "ctAliasTableStatsActiveEntries"), ("CTRON-ALIAS-MIB", "ctAliasTableStatsPurgeTime"), ("CTRON-ALIAS-MIB", "ctAliasTableStatsState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctAliasStatsGroup = ctAliasStatsGroup.setStatus('current')
+ctAliasControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2, 1, 3)).setObjects(("CTRON-ALIAS-MIB", "ctAliasMarkInactive"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctAliasControlGroup = ctAliasControlGroup.setStatus('deprecated')
+ctAliasConfigurationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2, 1, 4)).setObjects(("CTRON-ALIAS-MIB", "ctAliasConfigurationSystemAllocatedEntries"), ("CTRON-ALIAS-MIB", "ctAliasConfigurationSystemTotalEntries"), ("CTRON-ALIAS-MIB", "ctAliasConfigurationInterfaceTotalEntries"), ("CTRON-ALIAS-MIB", "ctAliasConfigurationInterfaceMaxEntries"), ("CTRON-ALIAS-MIB", "ctAliasConfigurationInterfaceEnableState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctAliasConfigurationGroup = ctAliasConfigurationGroup.setStatus('deprecated')
+ctAliasMacAddressGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2, 1, 5)).setObjects(("CTRON-ALIAS-MIB", "ctAliasMacAddressInterface"), ("CTRON-ALIAS-MIB", "ctAliasMacAddressVlanID"), ("CTRON-ALIAS-MIB", "ctAliasMacAddressIsActive"), ("CTRON-ALIAS-MIB", "ctAliasMacAddressAddressText"), ("CTRON-ALIAS-MIB", "ctAliasMacAddressTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctAliasMacAddressGroup = ctAliasMacAddressGroup.setStatus('current')
+ctAliasProtocolAddressGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2, 1, 6)).setObjects(("CTRON-ALIAS-MIB", "ctAliasProtocolAddressInterface"), ("CTRON-ALIAS-MIB", "ctAliasProtocolAddressVlanID"), ("CTRON-ALIAS-MIB", "ctAliasProtocolAddressIsActive"), ("CTRON-ALIAS-MIB", "ctAliasProtocolAddressAddressText"), ("CTRON-ALIAS-MIB", "ctAliasProtocolAddressTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctAliasProtocolAddressGroup = ctAliasProtocolAddressGroup.setStatus('current')
+ctAliasControlGroupI = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2, 1, 7)).setObjects(("CTRON-ALIAS-MIB", "ctAliasEntryStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctAliasControlGroupI = ctAliasControlGroupI.setStatus('current')
+ctAliasGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2, 1, 8)).setObjects(("CTRON-ALIAS-MIB", "ctAliasEntryClearAll"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctAliasGroup = ctAliasGroup.setStatus('current')
+ctAliasConfigurationGroupI = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2, 1, 9)).setObjects(("CTRON-ALIAS-MIB", "ctAliasConfigurationNumQueueWraps"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctAliasConfigurationGroupI = ctAliasConfigurationGroupI.setStatus('current')
+ctAliasConfigurationGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2, 1, 10)).setObjects(("CTRON-ALIAS-MIB", "ctAliasConfigurationSystemAllocatedEntries"), ("CTRON-ALIAS-MIB", "ctAliasConfigurationSystemTotalEntries"), ("CTRON-ALIAS-MIB", "ctAliasConfigurationInterfaceTotalEntries"), ("CTRON-ALIAS-MIB", "ctAliasConfigurationInterfaceMaxEntries"), ("CTRON-ALIAS-MIB", "ctAliasConfigurationInterfaceEnableState"), ("CTRON-ALIAS-MIB", "ctAliasConfigurationProtocolEnableState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctAliasConfigurationGroup2 = ctAliasConfigurationGroup2.setStatus('current')
+ctAliasInterfaceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2, 1, 11)).setObjects(("CTRON-ALIAS-MIB", "ctAliasInterfaceMacAddress"), ("CTRON-ALIAS-MIB", "ctAliasInterfaceProtocol"), ("CTRON-ALIAS-MIB", "ctAliasInterfaceAddress"), ("CTRON-ALIAS-MIB", "ctAliasInterfaceVlanID"), ("CTRON-ALIAS-MIB", "ctAliasInterfaceIsActive"), ("CTRON-ALIAS-MIB", "ctAliasInterfaceAddressText"), ("CTRON-ALIAS-MIB", "ctAliasInterfaceTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctAliasInterfaceGroup = ctAliasInterfaceGroup.setStatus('current')
+ctAliasCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2, 2, 1)).setObjects(("CTRON-ALIAS-MIB", "ctAliasBasicGroup"), ("CTRON-ALIAS-MIB", "ctAliasStatsGroup"), ("CTRON-ALIAS-MIB", "ctAliasGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctAliasCompliance = ctAliasCompliance.setStatus('current')
+ctAliasCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 7, 2, 2, 2)).setObjects(("CTRON-ALIAS-MIB", "ctAliasBasicGroup"), ("CTRON-ALIAS-MIB", "ctAliasStatsGroup"), ("CTRON-ALIAS-MIB", "ctAliasGroup"), ("CTRON-ALIAS-MIB", "ctAliasMacAddressGroup"), ("CTRON-ALIAS-MIB", "ctAliasProtocolAddressGroup"), ("CTRON-ALIAS-MIB", "ctAliasControlGroupI"), ("CTRON-ALIAS-MIB", "ctAliasGroup"), ("CTRON-ALIAS-MIB", "ctAliasConfigurationGroupI"), ("CTRON-ALIAS-MIB", "ctAliasConfigurationGroup2"), ("CTRON-ALIAS-MIB", "ctAliasInterfaceGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctAliasCompliance2 = ctAliasCompliance2.setStatus('current')
+mibBuilder.exportSymbols("CTRON-ALIAS-MIB", ctAliasInterfaceAddressText=ctAliasInterfaceAddressText, ctAliasMarkInactive=ctAliasMarkInactive, ctAliasConfigurationGroup2=ctAliasConfigurationGroup2, ctAliasConfigurationEntry=ctAliasConfigurationEntry, ctAliasTableStatsState=ctAliasTableStatsState, ctAliasTableStatsActiveEntries=ctAliasTableStatsActiveEntries, ctAliasAddress=ctAliasAddress, ctAliasControlTable=ctAliasControlTable, ctAliasMacAddressTable=ctAliasMacAddressTable, ctAliasConfigurationGroup=ctAliasConfigurationGroup, ctAliasConfigurationNumQueueWraps=ctAliasConfigurationNumQueueWraps, ctAliasMacAddressVlanID=ctAliasMacAddressVlanID, ctAliasProtocolAddressInterface=ctAliasProtocolAddressInterface, ctAliasControlGroup=ctAliasControlGroup, ctAliasConfiguration=ctAliasConfiguration, ctAlias=ctAlias, CabletronProtocolTC=CabletronProtocolTC, PYSNMP_MODULE_ID=cabletronAliasMib, ctAliasProtocol=ctAliasProtocol, ctAliasTimeFilter=ctAliasTimeFilter, ctAliasConfigurationTable=ctAliasConfigurationTable, ctAliasInterfaceGroup=ctAliasInterfaceGroup, ctAliasConfigurationGroupI=ctAliasConfigurationGroupI, ctAliasTable=ctAliasTable, ctAliasInterfaceEntry=ctAliasInterfaceEntry, ctAliasMacAddressTime=ctAliasMacAddressTime, ctAliasMacAddress=ctAliasMacAddress, ctAliasMacAddressAddressText=ctAliasMacAddressAddressText, ctAliasInterfaceVlanID=ctAliasInterfaceVlanID, ctAliasCompliance2=ctAliasCompliance2, ctAliasMacAddressInterface=ctAliasMacAddressInterface, ctAliasConfigurationSystemTotalEntries=ctAliasConfigurationSystemTotalEntries, ctAliasMacAddressGroup=ctAliasMacAddressGroup, ctAliasID=ctAliasID, ctAliasConfigurationInterfaceTotalEntries=ctAliasConfigurationInterfaceTotalEntries, ctAliasTableStatsPurgeTime=ctAliasTableStatsPurgeTime, ctAliasProtocolAddressAddressText=ctAliasProtocolAddressAddressText, ctAliasConfigurationInterfaceMaxEntries=ctAliasConfigurationInterfaceMaxEntries, ctAliasEntryStatus=ctAliasEntryStatus, ctAliasIsActive=ctAliasIsActive, ctAliasInterfaceTime=ctAliasInterfaceTime, ctAliasConfigurationInterfaceEnableState=ctAliasConfigurationInterfaceEnableState, CabletronProtocolBits=CabletronProtocolBits, cabletronAliasMib=cabletronAliasMib, ctAliasCompliances=ctAliasCompliances, ctAliasConfigurationSystemAllocatedEntries=ctAliasConfigurationSystemAllocatedEntries, ctAliasInterfaceIsActive=ctAliasInterfaceIsActive, ctAliasProtocolAddressTable=ctAliasProtocolAddressTable, ctAliasEntryClearAll=ctAliasEntryClearAll, ctAliasConformance=ctAliasConformance, ctAliasProtocolAddressVlanID=ctAliasProtocolAddressVlanID, ctAliasCompliance=ctAliasCompliance, ctAliasInterface=ctAliasInterface, ctAliasProtocolAddressTime=ctAliasProtocolAddressTime, ctAliasInterfaceTable=ctAliasInterfaceTable, ctAliasMacAddressIsActive=ctAliasMacAddressIsActive, ctAliasReference=ctAliasReference, ctAliasConfigurationProtocolEnableState=ctAliasConfigurationProtocolEnableState, ctAliasInterfaceProtocol=ctAliasInterfaceProtocol, ctAliasProtocolAddressGroup=ctAliasProtocolAddressGroup, ctAliasTableStatsTotalEntries=ctAliasTableStatsTotalEntries, ctAliasStatsGroup=ctAliasStatsGroup, ctAliasAddressText=ctAliasAddressText, ctAliasControlGroupI=ctAliasControlGroupI, ctAliasInterfaceMacAddress=ctAliasInterfaceMacAddress, ctAliasStats=ctAliasStats, ctAliasMacAddressEntry=ctAliasMacAddressEntry, ctAliasGroups=ctAliasGroups, ctAliasEntry=ctAliasEntry, ctAliasProtocolAddressEntry=ctAliasProtocolAddressEntry, ctAliasVlanID=ctAliasVlanID, ctAliasControlEntry=ctAliasControlEntry, ctAliasBasicGroup=ctAliasBasicGroup, ctAliasInterfaceAddress=ctAliasInterfaceAddress, ctAliasProtocolAddressIsActive=ctAliasProtocolAddressIsActive, AliasAddress=AliasAddress, ctAliasGroup=ctAliasGroup)

@@ -1,126 +1,57 @@
-_H='qamModDCPowerIndex'
-_G='qamPidFilterIndex'
-_F='NSCRTV-HFCEMS-QAMMOD-MIB'
-_E='optional'
-_D='read-write'
-_C='read-only'
-_B='Integer32'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-qammodIdent,=mibBuilder.importSymbols('NSCRTV-ROOT','qammodIdent')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_QamModVendorOID_Type=ObjectIdentifier
-_QamModVendorOID_Object=MibScalar
-qamModVendorOID=_QamModVendorOID_Object((1,3,6,1,4,1,17409,1,5,1),_QamModVendorOID_Type())
-qamModVendorOID.setMaxAccess(_C)
-if mibBuilder.loadTexts:qamModVendorOID.setStatus(_E)
-class _QamModmode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,6))
-_QamModmode_Type.__name__=_B
-_QamModmode_Object=MibScalar
-qamModmode=_QamModmode_Object((1,3,6,1,4,1,17409,1,5,2),_QamModmode_Type())
-qamModmode.setMaxAccess(_D)
-if mibBuilder.loadTexts:qamModmode.setStatus(_A)
-class _QamModsymbolrate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_QamModsymbolrate_Type.__name__=_B
-_QamModsymbolrate_Object=MibScalar
-qamModsymbolrate=_QamModsymbolrate_Object((1,3,6,1,4,1,17409,1,5,3),_QamModsymbolrate_Type())
-qamModsymbolrate.setMaxAccess(_D)
-if mibBuilder.loadTexts:qamModsymbolrate.setStatus(_A)
-_QamModRFfreq_Type=Integer32
-_QamModRFfreq_Object=MibScalar
-qamModRFfreq=_QamModRFfreq_Object((1,3,6,1,4,1,17409,1,5,4),_QamModRFfreq_Type())
-qamModRFfreq.setMaxAccess(_D)
-if mibBuilder.loadTexts:qamModRFfreq.setStatus(_A)
-_QamModRFLevel_Type=Integer32
-_QamModRFLevel_Object=MibScalar
-qamModRFLevel=_QamModRFLevel_Object((1,3,6,1,4,1,17409,1,5,5),_QamModRFLevel_Type())
-qamModRFLevel.setMaxAccess(_D)
-if mibBuilder.loadTexts:qamModRFLevel.setStatus(_E)
-_QamModRFLevelatt_Type=Integer32
-_QamModRFLevelatt_Object=MibScalar
-qamModRFLevelatt=_QamModRFLevelatt_Object((1,3,6,1,4,1,17409,1,5,6),_QamModRFLevelatt_Type())
-qamModRFLevelatt.setMaxAccess(_D)
-if mibBuilder.loadTexts:qamModRFLevelatt.setStatus(_E)
-class _QamModInputInterface_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('asi',1),('spi',2),('ds3',3),('other',4)))
-_QamModInputInterface_Type.__name__=_B
-_QamModInputInterface_Object=MibScalar
-qamModInputInterface=_QamModInputInterface_Object((1,3,6,1,4,1,17409,1,5,7),_QamModInputInterface_Type())
-qamModInputInterface.setMaxAccess(_C)
-if mibBuilder.loadTexts:qamModInputInterface.setStatus(_A)
-class _QamInputstatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('sync',1),('noSync',2)))
-_QamInputstatus_Type.__name__=_B
-_QamInputstatus_Object=MibScalar
-qamInputstatus=_QamInputstatus_Object((1,3,6,1,4,1,17409,1,5,8),_QamInputstatus_Type())
-qamInputstatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:qamInputstatus.setStatus(_A)
-class _QamModTSpacketlen_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('bytes188',1),('bytes204',2)))
-_QamModTSpacketlen_Type.__name__=_B
-_QamModTSpacketlen_Object=MibScalar
-qamModTSpacketlen=_QamModTSpacketlen_Object((1,3,6,1,4,1,17409,1,5,9),_QamModTSpacketlen_Type())
-qamModTSpacketlen.setMaxAccess(_D)
-if mibBuilder.loadTexts:qamModTSpacketlen.setStatus(_A)
-_QamPidFilterTable_Object=MibTable
-qamPidFilterTable=_QamPidFilterTable_Object((1,3,6,1,4,1,17409,1,5,10))
-if mibBuilder.loadTexts:qamPidFilterTable.setStatus(_A)
-_QamPidFilterEntry_Object=MibTableRow
-qamPidFilterEntry=_QamPidFilterEntry_Object((1,3,6,1,4,1,17409,1,5,10,1))
-qamPidFilterEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:qamPidFilterEntry.setStatus(_A)
-_QamPidFilterIndex_Type=Integer32
-_QamPidFilterIndex_Object=MibTableColumn
-qamPidFilterIndex=_QamPidFilterIndex_Object((1,3,6,1,4,1,17409,1,5,10,1,1),_QamPidFilterIndex_Type())
-qamPidFilterIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qamPidFilterIndex.setStatus(_A)
-class _QamInPid_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_QamInPid_Type.__name__=_B
-_QamInPid_Object=MibTableColumn
-qamInPid=_QamInPid_Object((1,3,6,1,4,1,17409,1,5,10,1,2),_QamInPid_Type())
-qamInPid.setMaxAccess(_C)
-if mibBuilder.loadTexts:qamInPid.setStatus(_A)
-class _QamModNumberDCPowerSupply_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16))
-_QamModNumberDCPowerSupply_Type.__name__=_B
-_QamModNumberDCPowerSupply_Object=MibScalar
-qamModNumberDCPowerSupply=_QamModNumberDCPowerSupply_Object((1,3,6,1,4,1,17409,1,5,11),_QamModNumberDCPowerSupply_Type())
-qamModNumberDCPowerSupply.setMaxAccess(_C)
-if mibBuilder.loadTexts:qamModNumberDCPowerSupply.setStatus(_A)
-class _QamModDCPowerSupplyMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('loadsharing',1),('switchedRedundant',2),('aloneSupply',3)))
-_QamModDCPowerSupplyMode_Type.__name__=_B
-_QamModDCPowerSupplyMode_Object=MibScalar
-qamModDCPowerSupplyMode=_QamModDCPowerSupplyMode_Object((1,3,6,1,4,1,17409,1,5,12),_QamModDCPowerSupplyMode_Type())
-qamModDCPowerSupplyMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:qamModDCPowerSupplyMode.setStatus(_E)
-_QamModDCPowerTable_Object=MibTable
-qamModDCPowerTable=_QamModDCPowerTable_Object((1,3,6,1,4,1,17409,1,5,13))
-if mibBuilder.loadTexts:qamModDCPowerTable.setStatus(_A)
-_QamModDCPowerEntry_Object=MibTableRow
-qamModDCPowerEntry=_QamModDCPowerEntry_Object((1,3,6,1,4,1,17409,1,5,13,1))
-qamModDCPowerEntry.setIndexNames((0,_F,_H))
-if mibBuilder.loadTexts:qamModDCPowerEntry.setStatus(_A)
-_QamModDCPowerIndex_Type=Integer32
-_QamModDCPowerIndex_Object=MibTableColumn
-qamModDCPowerIndex=_QamModDCPowerIndex_Object((1,3,6,1,4,1,17409,1,5,13,1,1),_QamModDCPowerIndex_Type())
-qamModDCPowerIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qamModDCPowerIndex.setStatus(_A)
-class _QamModDCPowerVoltage_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-32768,32767))
-_QamModDCPowerVoltage_Type.__name__=_B
-_QamModDCPowerVoltage_Object=MibTableColumn
-qamModDCPowerVoltage=_QamModDCPowerVoltage_Object((1,3,6,1,4,1,17409,1,5,13,1,2),_QamModDCPowerVoltage_Type())
-qamModDCPowerVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:qamModDCPowerVoltage.setStatus(_A)
-class _QamModDCPowerCurrent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_QamModDCPowerCurrent_Type.__name__=_B
-_QamModDCPowerCurrent_Object=MibTableColumn
-qamModDCPowerCurrent=_QamModDCPowerCurrent_Object((1,3,6,1,4,1,17409,1,5,13,1,3),_QamModDCPowerCurrent_Type())
-qamModDCPowerCurrent.setMaxAccess(_C)
-if mibBuilder.loadTexts:qamModDCPowerCurrent.setStatus(_E)
-_QamModDCPowerName_Type=DisplayString
-_QamModDCPowerName_Object=MibTableColumn
-qamModDCPowerName=_QamModDCPowerName_Object((1,3,6,1,4,1,17409,1,5,13,1,4),_QamModDCPowerName_Type())
-qamModDCPowerName.setMaxAccess(_C)
-if mibBuilder.loadTexts:qamModDCPowerName.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'qamModVendorOID':qamModVendorOID,'qamModmode':qamModmode,'qamModsymbolrate':qamModsymbolrate,'qamModRFfreq':qamModRFfreq,'qamModRFLevel':qamModRFLevel,'qamModRFLevelatt':qamModRFLevelatt,'qamModInputInterface':qamModInputInterface,'qamInputstatus':qamInputstatus,'qamModTSpacketlen':qamModTSpacketlen,'qamPidFilterTable':qamPidFilterTable,'qamPidFilterEntry':qamPidFilterEntry,_G:qamPidFilterIndex,'qamInPid':qamInPid,'qamModNumberDCPowerSupply':qamModNumberDCPowerSupply,'qamModDCPowerSupplyMode':qamModDCPowerSupplyMode,'qamModDCPowerTable':qamModDCPowerTable,'qamModDCPowerEntry':qamModDCPowerEntry,_H:qamModDCPowerIndex,'qamModDCPowerVoltage':qamModDCPowerVoltage,'qamModDCPowerCurrent':qamModDCPowerCurrent,'qamModDCPowerName':qamModDCPowerName})
+#
+# PySNMP MIB module NSCRTV-HFCEMS-QAMMOD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nscrtv/NSCRTV-HFCEMS-QAMMOD-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+qammodIdent, = mibBuilder.importSymbols("NSCRTV-ROOT", "qammodIdent")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+qamModVendorOID = MibScalar((1, 3, 6, 1, 4, 1, 17409, 1, 5, 1), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qamModVendorOID.setStatus('optional')
+qamModmode = MibScalar((1, 3, 6, 1, 4, 1, 17409, 1, 5, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 6))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qamModmode.setStatus('mandatory')
+qamModsymbolrate = MibScalar((1, 3, 6, 1, 4, 1, 17409, 1, 5, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qamModsymbolrate.setStatus('mandatory')
+qamModRFfreq = MibScalar((1, 3, 6, 1, 4, 1, 17409, 1, 5, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qamModRFfreq.setStatus('mandatory')
+qamModRFLevel = MibScalar((1, 3, 6, 1, 4, 1, 17409, 1, 5, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qamModRFLevel.setStatus('optional')
+qamModRFLevelatt = MibScalar((1, 3, 6, 1, 4, 1, 17409, 1, 5, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qamModRFLevelatt.setStatus('optional')
+qamModInputInterface = MibScalar((1, 3, 6, 1, 4, 1, 17409, 1, 5, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("asi", 1), ("spi", 2), ("ds3", 3), ("other", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qamModInputInterface.setStatus('mandatory')
+qamInputstatus = MibScalar((1, 3, 6, 1, 4, 1, 17409, 1, 5, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("sync", 1), ("noSync", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qamInputstatus.setStatus('mandatory')
+qamModTSpacketlen = MibScalar((1, 3, 6, 1, 4, 1, 17409, 1, 5, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("bytes188", 1), ("bytes204", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qamModTSpacketlen.setStatus('mandatory')
+qamPidFilterTable = MibTable((1, 3, 6, 1, 4, 1, 17409, 1, 5, 10), )
+if mibBuilder.loadTexts: qamPidFilterTable.setStatus('mandatory')
+qamPidFilterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 17409, 1, 5, 10, 1), ).setIndexNames((0, "NSCRTV-HFCEMS-QAMMOD-MIB", "qamPidFilterIndex"))
+if mibBuilder.loadTexts: qamPidFilterEntry.setStatus('mandatory')
+qamPidFilterIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 17409, 1, 5, 10, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qamPidFilterIndex.setStatus('mandatory')
+qamInPid = MibTableColumn((1, 3, 6, 1, 4, 1, 17409, 1, 5, 10, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qamInPid.setStatus('mandatory')
+qamModNumberDCPowerSupply = MibScalar((1, 3, 6, 1, 4, 1, 17409, 1, 5, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qamModNumberDCPowerSupply.setStatus('mandatory')
+qamModDCPowerSupplyMode = MibScalar((1, 3, 6, 1, 4, 1, 17409, 1, 5, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("loadsharing", 1), ("switchedRedundant", 2), ("aloneSupply", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qamModDCPowerSupplyMode.setStatus('optional')
+qamModDCPowerTable = MibTable((1, 3, 6, 1, 4, 1, 17409, 1, 5, 13), )
+if mibBuilder.loadTexts: qamModDCPowerTable.setStatus('mandatory')
+qamModDCPowerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 17409, 1, 5, 13, 1), ).setIndexNames((0, "NSCRTV-HFCEMS-QAMMOD-MIB", "qamModDCPowerIndex"))
+if mibBuilder.loadTexts: qamModDCPowerEntry.setStatus('mandatory')
+qamModDCPowerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 17409, 1, 5, 13, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qamModDCPowerIndex.setStatus('mandatory')
+qamModDCPowerVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 17409, 1, 5, 13, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32768, 32767))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qamModDCPowerVoltage.setStatus('mandatory')
+qamModDCPowerCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 17409, 1, 5, 13, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qamModDCPowerCurrent.setStatus('optional')
+qamModDCPowerName = MibTableColumn((1, 3, 6, 1, 4, 1, 17409, 1, 5, 13, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qamModDCPowerName.setStatus('mandatory')
+mibBuilder.exportSymbols("NSCRTV-HFCEMS-QAMMOD-MIB", qamModDCPowerName=qamModDCPowerName, qamInPid=qamInPid, qamPidFilterEntry=qamPidFilterEntry, qamModRFLevelatt=qamModRFLevelatt, qamModRFfreq=qamModRFfreq, qamModRFLevel=qamModRFLevel, qamPidFilterTable=qamPidFilterTable, qamInputstatus=qamInputstatus, qamModmode=qamModmode, qamModDCPowerIndex=qamModDCPowerIndex, qamModTSpacketlen=qamModTSpacketlen, qamModInputInterface=qamModInputInterface, qamModDCPowerEntry=qamModDCPowerEntry, qamModDCPowerCurrent=qamModDCPowerCurrent, qamModNumberDCPowerSupply=qamModNumberDCPowerSupply, qamModVendorOID=qamModVendorOID, qamPidFilterIndex=qamPidFilterIndex, qamModDCPowerSupplyMode=qamModDCPowerSupplyMode, qamModDCPowerVoltage=qamModDCPowerVoltage, qamModsymbolrate=qamModsymbolrate, qamModDCPowerTable=qamModDCPowerTable)

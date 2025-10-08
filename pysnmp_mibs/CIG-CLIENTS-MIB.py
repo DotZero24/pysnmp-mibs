@@ -1,290 +1,119 @@
-_V='cigDhcpClientsServerIpAddr'
-_U='cigDhcpClientsClientId'
-_T='cigDhcpClientsHostName'
-_S='cigDhcpClientsIPAddress'
-_R='cigDhcpClientsIfAlias'
-_Q='cigDnsResolverDomainIndex'
-_P='cigDnsResolverDnsServerIndex'
-_O='cigDnsResolverDnsServerListIndex'
-_N='cigDnsResolverDnsServersListIndex'
-_M='release'
-_L='cigDhcpClientsIfIndex'
-_K='TruthValue'
-_J='IpAddress'
-_I='idle'
-_H='OctetString'
-_G='Integer32'
-_F='DisplayString'
-_E='Unsigned32'
-_D='CIG-CLIENTS-MIB'
-_C='read-write'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_H,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,_J,'ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'enterprises','iso')
-DateAndTime,DisplayString,PhysAddress,RowStatus,TextualConvention,TimeInterval,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_F,'PhysAddress','RowStatus','TextualConvention','TimeInterval',_K)
-cigClients=ModuleIdentity((1,3,6,1,4,1,6889,2,1,17))
-_Avaya_ObjectIdentity=ObjectIdentity
-avaya=_Avaya_ObjectIdentity((1,3,6,1,4,1,6889))
-_Mibs_ObjectIdentity=ObjectIdentity
-mibs=_Mibs_ObjectIdentity((1,3,6,1,4,1,6889,2))
-_Lsg_ObjectIdentity=ObjectIdentity
-lsg=_Lsg_ObjectIdentity((1,3,6,1,4,1,6889,2,1))
-_CigDhcpClients_ObjectIdentity=ObjectIdentity
-cigDhcpClients=_CigDhcpClients_ObjectIdentity((1,3,6,1,4,1,6889,2,1,17,1))
-_CigDhcpClientsNotification_ObjectIdentity=ObjectIdentity
-cigDhcpClientsNotification=_CigDhcpClientsNotification_ObjectIdentity((1,3,6,1,4,1,6889,2,1,17,1,0))
-_CigDhcpClientsTable_Object=MibTable
-cigDhcpClientsTable=_CigDhcpClientsTable_Object((1,3,6,1,4,1,6889,2,1,17,1,1))
-if mibBuilder.loadTexts:cigDhcpClientsTable.setStatus(_A)
-_CigDhcpClientsEntry_Object=MibTableRow
-cigDhcpClientsEntry=_CigDhcpClientsEntry_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1))
-cigDhcpClientsEntry.setIndexNames((0,_D,_L))
-if mibBuilder.loadTexts:cigDhcpClientsEntry.setStatus(_A)
-_CigDhcpClientsIfIndex_Type=Integer32
-_CigDhcpClientsIfIndex_Object=MibTableColumn
-cigDhcpClientsIfIndex=_CigDhcpClientsIfIndex_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,1),_CigDhcpClientsIfIndex_Type())
-cigDhcpClientsIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDhcpClientsIfIndex.setStatus(_A)
-_CigDhcpClientsRowStatus_Type=RowStatus
-_CigDhcpClientsRowStatus_Object=MibTableColumn
-cigDhcpClientsRowStatus=_CigDhcpClientsRowStatus_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,2),_CigDhcpClientsRowStatus_Type())
-cigDhcpClientsRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDhcpClientsRowStatus.setStatus(_A)
-class _CigDhcpClientsIfAlias_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CigDhcpClientsIfAlias_Type.__name__=_F
-_CigDhcpClientsIfAlias_Object=MibTableColumn
-cigDhcpClientsIfAlias=_CigDhcpClientsIfAlias_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,3),_CigDhcpClientsIfAlias_Type())
-cigDhcpClientsIfAlias.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDhcpClientsIfAlias.setStatus(_A)
-class _CigDhcpClientsIPAddress_Type(IpAddress):defaultHexValue='00000000'
-_CigDhcpClientsIPAddress_Type.__name__=_J
-_CigDhcpClientsIPAddress_Object=MibTableColumn
-cigDhcpClientsIPAddress=_CigDhcpClientsIPAddress_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,4),_CigDhcpClientsIPAddress_Type())
-cigDhcpClientsIPAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDhcpClientsIPAddress.setStatus(_A)
-_CigDhcpClientsSubnetMask_Type=IpAddress
-_CigDhcpClientsSubnetMask_Object=MibTableColumn
-cigDhcpClientsSubnetMask=_CigDhcpClientsSubnetMask_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,5),_CigDhcpClientsSubnetMask_Type())
-cigDhcpClientsSubnetMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDhcpClientsSubnetMask.setStatus(_A)
-class _CigDhcpClientsClientId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_CigDhcpClientsClientId_Type.__name__=_H
-_CigDhcpClientsClientId_Object=MibTableColumn
-cigDhcpClientsClientId=_CigDhcpClientsClientId_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,6),_CigDhcpClientsClientId_Type())
-cigDhcpClientsClientId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDhcpClientsClientId.setStatus(_A)
-class _CigDhcpClientsHostName_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
-_CigDhcpClientsHostName_Type.__name__=_F
-_CigDhcpClientsHostName_Object=MibTableColumn
-cigDhcpClientsHostName=_CigDhcpClientsHostName_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,7),_CigDhcpClientsHostName_Type())
-cigDhcpClientsHostName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDhcpClientsHostName.setStatus(_A)
-class _CigDhcpClientsRequestLeaseTime_Type(Unsigned32):defaultValue=0
-_CigDhcpClientsRequestLeaseTime_Type.__name__=_E
-_CigDhcpClientsRequestLeaseTime_Object=MibTableColumn
-cigDhcpClientsRequestLeaseTime=_CigDhcpClientsRequestLeaseTime_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,8),_CigDhcpClientsRequestLeaseTime_Type())
-cigDhcpClientsRequestLeaseTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDhcpClientsRequestLeaseTime.setStatus(_A)
-class _CigDhcpClientsReceiveLeaseTime_Type(Unsigned32):defaultValue=0
-_CigDhcpClientsReceiveLeaseTime_Type.__name__=_E
-_CigDhcpClientsReceiveLeaseTime_Object=MibTableColumn
-cigDhcpClientsReceiveLeaseTime=_CigDhcpClientsReceiveLeaseTime_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,9),_CigDhcpClientsReceiveLeaseTime_Type())
-cigDhcpClientsReceiveLeaseTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDhcpClientsReceiveLeaseTime.setStatus(_A)
-class _CigDhcpClientsRemainLeaseTime_Type(Unsigned32):defaultValue=0
-_CigDhcpClientsRemainLeaseTime_Type.__name__=_E
-_CigDhcpClientsRemainLeaseTime_Object=MibTableColumn
-cigDhcpClientsRemainLeaseTime=_CigDhcpClientsRemainLeaseTime_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,10),_CigDhcpClientsRemainLeaseTime_Type())
-cigDhcpClientsRemainLeaseTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDhcpClientsRemainLeaseTime.setStatus(_A)
-class _CigDhcpClientsRenewLeaseTime_Type(Unsigned32):defaultValue=0
-_CigDhcpClientsRenewLeaseTime_Type.__name__=_E
-_CigDhcpClientsRenewLeaseTime_Object=MibTableColumn
-cigDhcpClientsRenewLeaseTime=_CigDhcpClientsRenewLeaseTime_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,11),_CigDhcpClientsRenewLeaseTime_Type())
-cigDhcpClientsRenewLeaseTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDhcpClientsRenewLeaseTime.setStatus(_A)
-class _CigDhcpClientsRebindLeaseTime_Type(Unsigned32):defaultValue=0
-_CigDhcpClientsRebindLeaseTime_Type.__name__=_E
-_CigDhcpClientsRebindLeaseTime_Object=MibTableColumn
-cigDhcpClientsRebindLeaseTime=_CigDhcpClientsRebindLeaseTime_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,12),_CigDhcpClientsRebindLeaseTime_Type())
-cigDhcpClientsRebindLeaseTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDhcpClientsRebindLeaseTime.setStatus(_A)
-class _CigDhcpClientsDefaultGatewayList_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_CigDhcpClientsDefaultGatewayList_Type.__name__=_F
-_CigDhcpClientsDefaultGatewayList_Object=MibTableColumn
-cigDhcpClientsDefaultGatewayList=_CigDhcpClientsDefaultGatewayList_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,13),_CigDhcpClientsDefaultGatewayList_Type())
-cigDhcpClientsDefaultGatewayList.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDhcpClientsDefaultGatewayList.setStatus(_A)
-class _CigDhcpClientsDnsServerList_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_CigDhcpClientsDnsServerList_Type.__name__=_F
-_CigDhcpClientsDnsServerList_Object=MibTableColumn
-cigDhcpClientsDnsServerList=_CigDhcpClientsDnsServerList_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,14),_CigDhcpClientsDnsServerList_Type())
-cigDhcpClientsDnsServerList.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDhcpClientsDnsServerList.setStatus(_A)
-class _CigDhcpClientsDomainName_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_CigDhcpClientsDomainName_Type.__name__=_F
-_CigDhcpClientsDomainName_Object=MibTableColumn
-cigDhcpClientsDomainName=_CigDhcpClientsDomainName_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,15),_CigDhcpClientsDomainName_Type())
-cigDhcpClientsDomainName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDhcpClientsDomainName.setStatus(_A)
-_CigDhcpClientsServerIpAddr_Type=IpAddress
-_CigDhcpClientsServerIpAddr_Object=MibTableColumn
-cigDhcpClientsServerIpAddr=_CigDhcpClientsServerIpAddr_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,16),_CigDhcpClientsServerIpAddr_Type())
-cigDhcpClientsServerIpAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDhcpClientsServerIpAddr.setStatus(_A)
-class _CigDhcpClientsOperations_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),(_M,2),('renew',3)))
-_CigDhcpClientsOperations_Type.__name__=_G
-_CigDhcpClientsOperations_Object=MibTableColumn
-cigDhcpClientsOperations=_CigDhcpClientsOperations_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,17),_CigDhcpClientsOperations_Type())
-cigDhcpClientsOperations.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDhcpClientsOperations.setStatus(_A)
-class _CigDhcpClientsStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,255)));namedValues=NamedValues(*(('select',1),('request',2),('bound',3),('rebind',4),('renew',5),(_M,6),('decline',7),('reboot',8),(_I,9),('notSupported',255)))
-_CigDhcpClientsStatus_Type.__name__=_G
-_CigDhcpClientsStatus_Object=MibTableColumn
-cigDhcpClientsStatus=_CigDhcpClientsStatus_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,18),_CigDhcpClientsStatus_Type())
-cigDhcpClientsStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDhcpClientsStatus.setStatus(_A)
-class _CigDhcpClientsRequestBitmap_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_CigDhcpClientsRequestBitmap_Type.__name__=_H
-_CigDhcpClientsRequestBitmap_Object=MibTableColumn
-cigDhcpClientsRequestBitmap=_CigDhcpClientsRequestBitmap_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,19),_CigDhcpClientsRequestBitmap_Type())
-cigDhcpClientsRequestBitmap.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDhcpClientsRequestBitmap.setStatus(_A)
-class _CigDhcpClientsDefaultRouterTrackId_Type(Unsigned32):defaultValue=0
-_CigDhcpClientsDefaultRouterTrackId_Type.__name__=_E
-_CigDhcpClientsDefaultRouterTrackId_Object=MibTableColumn
-cigDhcpClientsDefaultRouterTrackId=_CigDhcpClientsDefaultRouterTrackId_Object((1,3,6,1,4,1,6889,2,1,17,1,1,1,20),_CigDhcpClientsDefaultRouterTrackId_Type())
-cigDhcpClientsDefaultRouterTrackId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDhcpClientsDefaultRouterTrackId.setStatus(_A)
-_CigDnsResolver_ObjectIdentity=ObjectIdentity
-cigDnsResolver=_CigDnsResolver_ObjectIdentity((1,3,6,1,4,1,6889,2,1,17,2))
-_CigDnsResolverGenConfig_ObjectIdentity=ObjectIdentity
-cigDnsResolverGenConfig=_CigDnsResolverGenConfig_ObjectIdentity((1,3,6,1,4,1,6889,2,1,17,2,1))
-class _CigDnsResolverMode_Type(TruthValue):defaultValue=1
-_CigDnsResolverMode_Type.__name__=_K
-_CigDnsResolverMode_Object=MibScalar
-cigDnsResolverMode=_CigDnsResolverMode_Object((1,3,6,1,4,1,6889,2,1,17,2,1,1),_CigDnsResolverMode_Type())
-cigDnsResolverMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDnsResolverMode.setStatus(_A)
-class _CigDnsResolverRetry_Type(Unsigned32):defaultValue=2
-_CigDnsResolverRetry_Type.__name__=_E
-_CigDnsResolverRetry_Object=MibScalar
-cigDnsResolverRetry=_CigDnsResolverRetry_Object((1,3,6,1,4,1,6889,2,1,17,2,1,2),_CigDnsResolverRetry_Type())
-cigDnsResolverRetry.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDnsResolverRetry.setStatus(_A)
-class _CigDnsResolverTimeout_Type(Unsigned32):defaultValue=3
-_CigDnsResolverTimeout_Type.__name__=_E
-_CigDnsResolverTimeout_Object=MibScalar
-cigDnsResolverTimeout=_CigDnsResolverTimeout_Object((1,3,6,1,4,1,6889,2,1,17,2,1,3),_CigDnsResolverTimeout_Type())
-cigDnsResolverTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDnsResolverTimeout.setStatus(_A)
-class _CigDnsResolverOperations_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),('clearDynamicServers',2),('clearDNSCache',3)))
-_CigDnsResolverOperations_Type.__name__=_G
-_CigDnsResolverOperations_Object=MibScalar
-cigDnsResolverOperations=_CigDnsResolverOperations_Object((1,3,6,1,4,1,6889,2,1,17,2,1,4),_CigDnsResolverOperations_Type())
-cigDnsResolverOperations.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDnsResolverOperations.setStatus(_A)
-_CigDnsResolverDnsServersListTable_Object=MibTable
-cigDnsResolverDnsServersListTable=_CigDnsResolverDnsServersListTable_Object((1,3,6,1,4,1,6889,2,1,17,2,2))
-if mibBuilder.loadTexts:cigDnsResolverDnsServersListTable.setStatus(_A)
-_CigDnsResolverDnsServersListEntry_Object=MibTableRow
-cigDnsResolverDnsServersListEntry=_CigDnsResolverDnsServersListEntry_Object((1,3,6,1,4,1,6889,2,1,17,2,2,1))
-cigDnsResolverDnsServersListEntry.setIndexNames((0,_D,_N))
-if mibBuilder.loadTexts:cigDnsResolverDnsServersListEntry.setStatus(_A)
-_CigDnsResolverDnsServersListIndex_Type=Integer32
-_CigDnsResolverDnsServersListIndex_Object=MibTableColumn
-cigDnsResolverDnsServersListIndex=_CigDnsResolverDnsServersListIndex_Object((1,3,6,1,4,1,6889,2,1,17,2,2,1,1),_CigDnsResolverDnsServersListIndex_Type())
-cigDnsResolverDnsServersListIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDnsResolverDnsServersListIndex.setStatus(_A)
-class _CigDnsResolverDnsServersListDescription_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_CigDnsResolverDnsServersListDescription_Type.__name__=_F
-_CigDnsResolverDnsServersListDescription_Object=MibTableColumn
-cigDnsResolverDnsServersListDescription=_CigDnsResolverDnsServersListDescription_Object((1,3,6,1,4,1,6889,2,1,17,2,2,1,2),_CigDnsResolverDnsServersListDescription_Type())
-cigDnsResolverDnsServersListDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDnsResolverDnsServersListDescription.setStatus(_A)
-_CigDnsResolverDnsServersListRowStatus_Type=RowStatus
-_CigDnsResolverDnsServersListRowStatus_Object=MibTableColumn
-cigDnsResolverDnsServersListRowStatus=_CigDnsResolverDnsServersListRowStatus_Object((1,3,6,1,4,1,6889,2,1,17,2,2,1,3),_CigDnsResolverDnsServersListRowStatus_Type())
-cigDnsResolverDnsServersListRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDnsResolverDnsServersListRowStatus.setStatus(_A)
-_CigDnsResolverDnsServerTable_Object=MibTable
-cigDnsResolverDnsServerTable=_CigDnsResolverDnsServerTable_Object((1,3,6,1,4,1,6889,2,1,17,2,3))
-if mibBuilder.loadTexts:cigDnsResolverDnsServerTable.setStatus(_A)
-_CigDnsResolverDnsServerEntry_Object=MibTableRow
-cigDnsResolverDnsServerEntry=_CigDnsResolverDnsServerEntry_Object((1,3,6,1,4,1,6889,2,1,17,2,3,1))
-cigDnsResolverDnsServerEntry.setIndexNames((0,_D,_O),(0,_D,_P))
-if mibBuilder.loadTexts:cigDnsResolverDnsServerEntry.setStatus(_A)
-_CigDnsResolverDnsServerListIndex_Type=Integer32
-_CigDnsResolverDnsServerListIndex_Object=MibTableColumn
-cigDnsResolverDnsServerListIndex=_CigDnsResolverDnsServerListIndex_Object((1,3,6,1,4,1,6889,2,1,17,2,3,1,1),_CigDnsResolverDnsServerListIndex_Type())
-cigDnsResolverDnsServerListIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDnsResolverDnsServerListIndex.setStatus(_A)
-_CigDnsResolverDnsServerIndex_Type=Integer32
-_CigDnsResolverDnsServerIndex_Object=MibTableColumn
-cigDnsResolverDnsServerIndex=_CigDnsResolverDnsServerIndex_Object((1,3,6,1,4,1,6889,2,1,17,2,3,1,2),_CigDnsResolverDnsServerIndex_Type())
-cigDnsResolverDnsServerIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDnsResolverDnsServerIndex.setStatus(_A)
-_CigDnsResolverDnsServerIpAddress_Type=IpAddress
-_CigDnsResolverDnsServerIpAddress_Object=MibTableColumn
-cigDnsResolverDnsServerIpAddress=_CigDnsResolverDnsServerIpAddress_Object((1,3,6,1,4,1,6889,2,1,17,2,3,1,3),_CigDnsResolverDnsServerIpAddress_Type())
-cigDnsResolverDnsServerIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDnsResolverDnsServerIpAddress.setStatus(_A)
-_CigDnsResolverDnsServerIfIndex_Type=Integer32
-_CigDnsResolverDnsServerIfIndex_Object=MibTableColumn
-cigDnsResolverDnsServerIfIndex=_CigDnsResolverDnsServerIfIndex_Object((1,3,6,1,4,1,6889,2,1,17,2,3,1,4),_CigDnsResolverDnsServerIfIndex_Type())
-cigDnsResolverDnsServerIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDnsResolverDnsServerIfIndex.setStatus(_A)
-class _CigDnsResolverDnsServerType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('static',1),('dynamic-dhcp',2),('dynamic-ppp',3)))
-_CigDnsResolverDnsServerType_Type.__name__=_G
-_CigDnsResolverDnsServerType_Object=MibTableColumn
-cigDnsResolverDnsServerType=_CigDnsResolverDnsServerType_Object((1,3,6,1,4,1,6889,2,1,17,2,3,1,5),_CigDnsResolverDnsServerType_Type())
-cigDnsResolverDnsServerType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDnsResolverDnsServerType.setStatus(_A)
-_CigDnsResolverDnsServerRowStatus_Type=RowStatus
-_CigDnsResolverDnsServerRowStatus_Object=MibTableColumn
-cigDnsResolverDnsServerRowStatus=_CigDnsResolverDnsServerRowStatus_Object((1,3,6,1,4,1,6889,2,1,17,2,3,1,6),_CigDnsResolverDnsServerRowStatus_Type())
-cigDnsResolverDnsServerRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDnsResolverDnsServerRowStatus.setStatus(_A)
-_CigDnsResolverDnsServerInetAddressType_Type=InetAddressType
-_CigDnsResolverDnsServerInetAddressType_Object=MibTableColumn
-cigDnsResolverDnsServerInetAddressType=_CigDnsResolverDnsServerInetAddressType_Object((1,3,6,1,4,1,6889,2,1,17,2,3,1,7),_CigDnsResolverDnsServerInetAddressType_Type())
-cigDnsResolverDnsServerInetAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDnsResolverDnsServerInetAddressType.setStatus(_A)
-_CigDnsResolverDnsServerInetAddress_Type=InetAddress
-_CigDnsResolverDnsServerInetAddress_Object=MibTableColumn
-cigDnsResolverDnsServerInetAddress=_CigDnsResolverDnsServerInetAddress_Object((1,3,6,1,4,1,6889,2,1,17,2,3,1,8),_CigDnsResolverDnsServerInetAddress_Type())
-cigDnsResolverDnsServerInetAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDnsResolverDnsServerInetAddress.setStatus(_A)
-_CigDnsResolverDomainTable_Object=MibTable
-cigDnsResolverDomainTable=_CigDnsResolverDomainTable_Object((1,3,6,1,4,1,6889,2,1,17,2,4))
-if mibBuilder.loadTexts:cigDnsResolverDomainTable.setStatus(_A)
-_CigDnsResolverDomainEntry_Object=MibTableRow
-cigDnsResolverDomainEntry=_CigDnsResolverDomainEntry_Object((1,3,6,1,4,1,6889,2,1,17,2,4,1))
-cigDnsResolverDomainEntry.setIndexNames((0,_D,_Q))
-if mibBuilder.loadTexts:cigDnsResolverDomainEntry.setStatus(_A)
-_CigDnsResolverDomainIndex_Type=Integer32
-_CigDnsResolverDomainIndex_Object=MibTableColumn
-cigDnsResolverDomainIndex=_CigDnsResolverDomainIndex_Object((1,3,6,1,4,1,6889,2,1,17,2,4,1,1),_CigDnsResolverDomainIndex_Type())
-cigDnsResolverDomainIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:cigDnsResolverDomainIndex.setStatus(_A)
-class _CigDnsResolverDomain_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_CigDnsResolverDomain_Type.__name__=_F
-_CigDnsResolverDomain_Object=MibTableColumn
-cigDnsResolverDomain=_CigDnsResolverDomain_Object((1,3,6,1,4,1,6889,2,1,17,2,4,1,2),_CigDnsResolverDomain_Type())
-cigDnsResolverDomain.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDnsResolverDomain.setStatus(_A)
-_CigDnsResolverDomainRowStatus_Type=RowStatus
-_CigDnsResolverDomainRowStatus_Object=MibTableColumn
-cigDnsResolverDomainRowStatus=_CigDnsResolverDomainRowStatus_Object((1,3,6,1,4,1,6889,2,1,17,2,4,1,3),_CigDnsResolverDomainRowStatus_Type())
-cigDnsResolverDomainRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cigDnsResolverDomainRowStatus.setStatus(_A)
-cigDhcpClientsConflictDetectionTrap=NotificationType((1,3,6,1,4,1,6889,2,1,17,1,0,1))
-cigDhcpClientsConflictDetectionTrap.setObjects(*((_D,_R),(_D,_S),(_D,_T),(_D,_U),(_D,_V)))
-if mibBuilder.loadTexts:cigDhcpClientsConflictDetectionTrap.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'avaya':avaya,'mibs':mibs,'lsg':lsg,'cigClients':cigClients,'cigDhcpClients':cigDhcpClients,'cigDhcpClientsNotification':cigDhcpClientsNotification,'cigDhcpClientsConflictDetectionTrap':cigDhcpClientsConflictDetectionTrap,'cigDhcpClientsTable':cigDhcpClientsTable,'cigDhcpClientsEntry':cigDhcpClientsEntry,_L:cigDhcpClientsIfIndex,'cigDhcpClientsRowStatus':cigDhcpClientsRowStatus,_R:cigDhcpClientsIfAlias,_S:cigDhcpClientsIPAddress,'cigDhcpClientsSubnetMask':cigDhcpClientsSubnetMask,_U:cigDhcpClientsClientId,_T:cigDhcpClientsHostName,'cigDhcpClientsRequestLeaseTime':cigDhcpClientsRequestLeaseTime,'cigDhcpClientsReceiveLeaseTime':cigDhcpClientsReceiveLeaseTime,'cigDhcpClientsRemainLeaseTime':cigDhcpClientsRemainLeaseTime,'cigDhcpClientsRenewLeaseTime':cigDhcpClientsRenewLeaseTime,'cigDhcpClientsRebindLeaseTime':cigDhcpClientsRebindLeaseTime,'cigDhcpClientsDefaultGatewayList':cigDhcpClientsDefaultGatewayList,'cigDhcpClientsDnsServerList':cigDhcpClientsDnsServerList,'cigDhcpClientsDomainName':cigDhcpClientsDomainName,_V:cigDhcpClientsServerIpAddr,'cigDhcpClientsOperations':cigDhcpClientsOperations,'cigDhcpClientsStatus':cigDhcpClientsStatus,'cigDhcpClientsRequestBitmap':cigDhcpClientsRequestBitmap,'cigDhcpClientsDefaultRouterTrackId':cigDhcpClientsDefaultRouterTrackId,'cigDnsResolver':cigDnsResolver,'cigDnsResolverGenConfig':cigDnsResolverGenConfig,'cigDnsResolverMode':cigDnsResolverMode,'cigDnsResolverRetry':cigDnsResolverRetry,'cigDnsResolverTimeout':cigDnsResolverTimeout,'cigDnsResolverOperations':cigDnsResolverOperations,'cigDnsResolverDnsServersListTable':cigDnsResolverDnsServersListTable,'cigDnsResolverDnsServersListEntry':cigDnsResolverDnsServersListEntry,_N:cigDnsResolverDnsServersListIndex,'cigDnsResolverDnsServersListDescription':cigDnsResolverDnsServersListDescription,'cigDnsResolverDnsServersListRowStatus':cigDnsResolverDnsServersListRowStatus,'cigDnsResolverDnsServerTable':cigDnsResolverDnsServerTable,'cigDnsResolverDnsServerEntry':cigDnsResolverDnsServerEntry,_O:cigDnsResolverDnsServerListIndex,_P:cigDnsResolverDnsServerIndex,'cigDnsResolverDnsServerIpAddress':cigDnsResolverDnsServerIpAddress,'cigDnsResolverDnsServerIfIndex':cigDnsResolverDnsServerIfIndex,'cigDnsResolverDnsServerType':cigDnsResolverDnsServerType,'cigDnsResolverDnsServerRowStatus':cigDnsResolverDnsServerRowStatus,'cigDnsResolverDnsServerInetAddressType':cigDnsResolverDnsServerInetAddressType,'cigDnsResolverDnsServerInetAddress':cigDnsResolverDnsServerInetAddress,'cigDnsResolverDomainTable':cigDnsResolverDomainTable,'cigDnsResolverDomainEntry':cigDnsResolverDomainEntry,_Q:cigDnsResolverDomainIndex,'cigDnsResolverDomain':cigDnsResolverDomain,'cigDnsResolverDomainRowStatus':cigDnsResolverDomainRowStatus})
+#
+# PySNMP MIB module CIG-CLIENTS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/avaya/CIG-CLIENTS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:22:33 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeInterval, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeInterval", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+cigClients = ModuleIdentity((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17))
+if mibBuilder.loadTexts: cigClients.setLastUpdated('200910251352Z')
+if mibBuilder.loadTexts: cigClients.setOrganization('Avaya')
+avaya = MibIdentifier((1, 3, 6, 1, 4, 1, 6889))
+mibs = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 2))
+lsg = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 2, 1))
+cigDhcpClients = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1))
+cigDnsResolver = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2))
+cigDhcpClientsNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 0))
+cigDhcpClientsConflictDetectionTrap = NotificationType((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 0, 1)).setObjects(("CIG-CLIENTS-MIB", "cigDhcpClientsIfAlias"), ("CIG-CLIENTS-MIB", "cigDhcpClientsIPAddress"), ("CIG-CLIENTS-MIB", "cigDhcpClientsHostName"), ("CIG-CLIENTS-MIB", "cigDhcpClientsClientId"), ("CIG-CLIENTS-MIB", "cigDhcpClientsServerIpAddr"))
+if mibBuilder.loadTexts: cigDhcpClientsConflictDetectionTrap.setStatus('current')
+cigDhcpClientsTable = MibTable((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1), )
+if mibBuilder.loadTexts: cigDhcpClientsTable.setStatus('current')
+cigDhcpClientsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1), ).setIndexNames((0, "CIG-CLIENTS-MIB", "cigDhcpClientsIfIndex"))
+if mibBuilder.loadTexts: cigDhcpClientsEntry.setStatus('current')
+cigDhcpClientsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDhcpClientsIfIndex.setStatus('current')
+cigDhcpClientsRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 2), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDhcpClientsRowStatus.setStatus('current')
+cigDhcpClientsIfAlias = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDhcpClientsIfAlias.setStatus('current')
+cigDhcpClientsIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 4), IpAddress().clone(hexValue="00000000")).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDhcpClientsIPAddress.setStatus('current')
+cigDhcpClientsSubnetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 5), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDhcpClientsSubnetMask.setStatus('current')
+cigDhcpClientsClientId = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDhcpClientsClientId.setStatus('current')
+cigDhcpClientsHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDhcpClientsHostName.setStatus('current')
+cigDhcpClientsRequestLeaseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 8), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDhcpClientsRequestLeaseTime.setStatus('current')
+cigDhcpClientsReceiveLeaseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDhcpClientsReceiveLeaseTime.setStatus('current')
+cigDhcpClientsRemainLeaseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 10), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDhcpClientsRemainLeaseTime.setStatus('current')
+cigDhcpClientsRenewLeaseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDhcpClientsRenewLeaseTime.setStatus('current')
+cigDhcpClientsRebindLeaseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDhcpClientsRebindLeaseTime.setStatus('current')
+cigDhcpClientsDefaultGatewayList = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDhcpClientsDefaultGatewayList.setStatus('current')
+cigDhcpClientsDnsServerList = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDhcpClientsDnsServerList.setStatus('current')
+cigDhcpClientsDomainName = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 15), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDhcpClientsDomainName.setStatus('current')
+cigDhcpClientsServerIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 16), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDhcpClientsServerIpAddr.setStatus('current')
+cigDhcpClientsOperations = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("idle", 1), ("release", 2), ("renew", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDhcpClientsOperations.setStatus('current')
+cigDhcpClientsStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 255))).clone(namedValues=NamedValues(("select", 1), ("request", 2), ("bound", 3), ("rebind", 4), ("renew", 5), ("release", 6), ("decline", 7), ("reboot", 8), ("idle", 9), ("notSupported", 255)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDhcpClientsStatus.setStatus('current')
+cigDhcpClientsRequestBitmap = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 19), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDhcpClientsRequestBitmap.setStatus('current')
+cigDhcpClientsDefaultRouterTrackId = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 1, 1, 1, 20), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDhcpClientsDefaultRouterTrackId.setStatus('current')
+cigDnsResolverGenConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 1))
+cigDnsResolverMode = MibScalar((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 1, 1), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDnsResolverMode.setStatus('current')
+cigDnsResolverRetry = MibScalar((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 1, 2), Unsigned32().clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDnsResolverRetry.setStatus('current')
+cigDnsResolverTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 1, 3), Unsigned32().clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDnsResolverTimeout.setStatus('current')
+cigDnsResolverOperations = MibScalar((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("idle", 1), ("clearDynamicServers", 2), ("clearDNSCache", 3))).clone('idle')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDnsResolverOperations.setStatus('current')
+cigDnsResolverDnsServersListTable = MibTable((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 2), )
+if mibBuilder.loadTexts: cigDnsResolverDnsServersListTable.setStatus('current')
+cigDnsResolverDnsServersListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 2, 1), ).setIndexNames((0, "CIG-CLIENTS-MIB", "cigDnsResolverDnsServersListIndex"))
+if mibBuilder.loadTexts: cigDnsResolverDnsServersListEntry.setStatus('current')
+cigDnsResolverDnsServersListIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDnsResolverDnsServersListIndex.setStatus('current')
+cigDnsResolverDnsServersListDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDnsResolverDnsServersListDescription.setStatus('current')
+cigDnsResolverDnsServersListRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 2, 1, 3), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDnsResolverDnsServersListRowStatus.setStatus('current')
+cigDnsResolverDnsServerTable = MibTable((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 3), )
+if mibBuilder.loadTexts: cigDnsResolverDnsServerTable.setStatus('current')
+cigDnsResolverDnsServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 3, 1), ).setIndexNames((0, "CIG-CLIENTS-MIB", "cigDnsResolverDnsServerListIndex"), (0, "CIG-CLIENTS-MIB", "cigDnsResolverDnsServerIndex"))
+if mibBuilder.loadTexts: cigDnsResolverDnsServerEntry.setStatus('current')
+cigDnsResolverDnsServerListIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDnsResolverDnsServerListIndex.setStatus('current')
+cigDnsResolverDnsServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 3, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDnsResolverDnsServerIndex.setStatus('current')
+cigDnsResolverDnsServerIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 3, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDnsResolverDnsServerIpAddress.setStatus('current')
+cigDnsResolverDnsServerIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 3, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDnsResolverDnsServerIfIndex.setStatus('current')
+cigDnsResolverDnsServerType = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("static", 1), ("dynamic-dhcp", 2), ("dynamic-ppp", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDnsResolverDnsServerType.setStatus('current')
+cigDnsResolverDnsServerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 3, 1, 6), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDnsResolverDnsServerRowStatus.setStatus('current')
+cigDnsResolverDnsServerInetAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 3, 1, 7), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDnsResolverDnsServerInetAddressType.setStatus('current')
+cigDnsResolverDnsServerInetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 3, 1, 8), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDnsResolverDnsServerInetAddress.setStatus('current')
+cigDnsResolverDomainTable = MibTable((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 4), )
+if mibBuilder.loadTexts: cigDnsResolverDomainTable.setStatus('current')
+cigDnsResolverDomainEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 4, 1), ).setIndexNames((0, "CIG-CLIENTS-MIB", "cigDnsResolverDomainIndex"))
+if mibBuilder.loadTexts: cigDnsResolverDomainEntry.setStatus('current')
+cigDnsResolverDomainIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 4, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cigDnsResolverDomainIndex.setStatus('current')
+cigDnsResolverDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 4, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDnsResolverDomain.setStatus('current')
+cigDnsResolverDomainRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6889, 2, 1, 17, 2, 4, 1, 3), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cigDnsResolverDomainRowStatus.setStatus('current')
+mibBuilder.exportSymbols("CIG-CLIENTS-MIB", cigDnsResolverDnsServerRowStatus=cigDnsResolverDnsServerRowStatus, cigDhcpClientsConflictDetectionTrap=cigDhcpClientsConflictDetectionTrap, cigDhcpClientsIfIndex=cigDhcpClientsIfIndex, cigDnsResolverDomainTable=cigDnsResolverDomainTable, cigDhcpClientsIfAlias=cigDhcpClientsIfAlias, cigDnsResolverDnsServerListIndex=cigDnsResolverDnsServerListIndex, cigDhcpClientsNotification=cigDhcpClientsNotification, cigDnsResolverDnsServersListIndex=cigDnsResolverDnsServersListIndex, cigDhcpClientsRenewLeaseTime=cigDhcpClientsRenewLeaseTime, cigDnsResolverRetry=cigDnsResolverRetry, cigDhcpClientsDnsServerList=cigDhcpClientsDnsServerList, cigDhcpClientsSubnetMask=cigDhcpClientsSubnetMask, cigDhcpClientsServerIpAddr=cigDhcpClientsServerIpAddr, cigDnsResolverDomainRowStatus=cigDnsResolverDomainRowStatus, cigDnsResolverTimeout=cigDnsResolverTimeout, cigDhcpClientsRequestBitmap=cigDhcpClientsRequestBitmap, cigDnsResolverDnsServerEntry=cigDnsResolverDnsServerEntry, cigClients=cigClients, cigDhcpClientsTable=cigDhcpClientsTable, cigDhcpClientsReceiveLeaseTime=cigDhcpClientsReceiveLeaseTime, cigDnsResolverDnsServersListTable=cigDnsResolverDnsServersListTable, cigDhcpClients=cigDhcpClients, cigDhcpClientsRequestLeaseTime=cigDhcpClientsRequestLeaseTime, cigDnsResolverDnsServersListRowStatus=cigDnsResolverDnsServersListRowStatus, cigDnsResolverDnsServerIndex=cigDnsResolverDnsServerIndex, cigDhcpClientsRemainLeaseTime=cigDhcpClientsRemainLeaseTime, cigDnsResolverGenConfig=cigDnsResolverGenConfig, cigDnsResolverDnsServerInetAddressType=cigDnsResolverDnsServerInetAddressType, cigDhcpClientsRowStatus=cigDhcpClientsRowStatus, cigDhcpClientsRebindLeaseTime=cigDhcpClientsRebindLeaseTime, PYSNMP_MODULE_ID=cigClients, cigDhcpClientsEntry=cigDhcpClientsEntry, cigDnsResolverMode=cigDnsResolverMode, cigDhcpClientsHostName=cigDhcpClientsHostName, cigDnsResolverDomain=cigDnsResolverDomain, cigDhcpClientsDefaultGatewayList=cigDhcpClientsDefaultGatewayList, cigDnsResolver=cigDnsResolver, avaya=avaya, cigDnsResolverDnsServerIfIndex=cigDnsResolverDnsServerIfIndex, cigDhcpClientsOperations=cigDhcpClientsOperations, cigDhcpClientsClientId=cigDhcpClientsClientId, cigDhcpClientsIPAddress=cigDhcpClientsIPAddress, cigDnsResolverDnsServersListDescription=cigDnsResolverDnsServersListDescription, cigDnsResolverDnsServerType=cigDnsResolverDnsServerType, cigDnsResolverDnsServerIpAddress=cigDnsResolverDnsServerIpAddress, cigDnsResolverDnsServerTable=cigDnsResolverDnsServerTable, cigDnsResolverDnsServersListEntry=cigDnsResolverDnsServersListEntry, cigDnsResolverDomainIndex=cigDnsResolverDomainIndex, lsg=lsg, cigDnsResolverDnsServerInetAddress=cigDnsResolverDnsServerInetAddress, cigDnsResolverDomainEntry=cigDnsResolverDomainEntry, cigDhcpClientsDomainName=cigDhcpClientsDomainName, cigDhcpClientsDefaultRouterTrackId=cigDhcpClientsDefaultRouterTrackId, cigDhcpClientsStatus=cigDhcpClientsStatus, mibs=mibs, cigDnsResolverOperations=cigDnsResolverOperations)

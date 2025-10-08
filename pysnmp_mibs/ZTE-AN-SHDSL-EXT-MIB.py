@@ -1,71 +1,41 @@
-_H='zxAnShdslSpanConfExtEntry'
-_G='ZTE-AN-SHDSL-EXT-MIB'
-_F='tcpAM32'
-_E='tcpAM16'
-_D='read-write'
-_C='read-only'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hdsl2ShdslMIB,hdsl2ShdslSpanConfEntry=mibBuilder.importSymbols('HDSL2-SHDSL-LINE-MIB','hdsl2ShdslMIB','hdsl2ShdslSpanConfEntry')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-zxAnShdslExtMib=ModuleIdentity((1,3,6,1,4,1,3902,1015,1002))
-_Zte_ObjectIdentity=ObjectIdentity
-zte=_Zte_ObjectIdentity((1,3,6,1,4,1,3902))
-_ZxAn_ObjectIdentity=ObjectIdentity
-zxAn=_ZxAn_ObjectIdentity((1,3,6,1,4,1,3902,1015))
-_ZxAnShdslExtObjects_ObjectIdentity=ObjectIdentity
-zxAnShdslExtObjects=_ZxAnShdslExtObjects_ObjectIdentity((1,3,6,1,4,1,3902,1015,1002,1))
-_ZxAnShdslSpanConfExtTable_Object=MibTable
-zxAnShdslSpanConfExtTable=_ZxAnShdslSpanConfExtTable_Object((1,3,6,1,4,1,3902,1015,1002,1,1))
-if mibBuilder.loadTexts:zxAnShdslSpanConfExtTable.setStatus(_A)
-_ZxAnShdslSpanConfExtEntry_Object=MibTableRow
-zxAnShdslSpanConfExtEntry=_ZxAnShdslSpanConfExtEntry_Object((1,3,6,1,4,1,3902,1015,1002,1,1,1))
-if mibBuilder.loadTexts:zxAnShdslSpanConfExtEntry.setStatus(_A)
-class _ZxAnShdslSpanConfDataPathType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,4)));namedValues=NamedValues(*(('atm',1),('efm',2),('auto',4)))
-_ZxAnShdslSpanConfDataPathType_Type.__name__=_B
-_ZxAnShdslSpanConfDataPathType_Object=MibTableColumn
-zxAnShdslSpanConfDataPathType=_ZxAnShdslSpanConfDataPathType_Object((1,3,6,1,4,1,3902,1015,1002,1,1,1,1),_ZxAnShdslSpanConfDataPathType_Type())
-zxAnShdslSpanConfDataPathType.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxAnShdslSpanConfDataPathType.setStatus(_A)
-class _ZxAnShdslSpanActualDataPathType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('atm',1),('efm',2)))
-_ZxAnShdslSpanActualDataPathType_Type.__name__=_B
-_ZxAnShdslSpanActualDataPathType_Object=MibTableColumn
-zxAnShdslSpanActualDataPathType=_ZxAnShdslSpanActualDataPathType_Object((1,3,6,1,4,1,3902,1015,1002,1,1,1,2),_ZxAnShdslSpanActualDataPathType_Type())
-zxAnShdslSpanActualDataPathType.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnShdslSpanActualDataPathType.setStatus(_A)
-class _ZxAnShdslSpanConfPamConstellation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,4)));namedValues=NamedValues(*((_E,1),(_F,2),('auto',4)))
-_ZxAnShdslSpanConfPamConstellation_Type.__name__=_B
-_ZxAnShdslSpanConfPamConstellation_Object=MibTableColumn
-zxAnShdslSpanConfPamConstellation=_ZxAnShdslSpanConfPamConstellation_Object((1,3,6,1,4,1,3902,1015,1002,1,1,1,3),_ZxAnShdslSpanConfPamConstellation_Type())
-zxAnShdslSpanConfPamConstellation.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxAnShdslSpanConfPamConstellation.setStatus(_A)
-class _ZxAnShdslSpanActualPamConstellation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_ZxAnShdslSpanActualPamConstellation_Type.__name__=_B
-_ZxAnShdslSpanActualPamConstellation_Object=MibTableColumn
-zxAnShdslSpanActualPamConstellation=_ZxAnShdslSpanActualPamConstellation_Object((1,3,6,1,4,1,3902,1015,1002,1,1,1,4),_ZxAnShdslSpanActualPamConstellation_Type())
-zxAnShdslSpanActualPamConstellation.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnShdslSpanActualPamConstellation.setStatus(_A)
-_ZxAnShdslSpanActualTransmitPower_Type=Integer32
-_ZxAnShdslSpanActualTransmitPower_Object=MibTableColumn
-zxAnShdslSpanActualTransmitPower=_ZxAnShdslSpanActualTransmitPower_Object((1,3,6,1,4,1,3902,1015,1002,1,1,1,5),_ZxAnShdslSpanActualTransmitPower_Type())
-zxAnShdslSpanActualTransmitPower.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnShdslSpanActualTransmitPower.setStatus(_A)
-if mibBuilder.loadTexts:zxAnShdslSpanActualTransmitPower.setUnits('0.1 dBm')
-_ZxAnShdslExtGlobalObjects_ObjectIdentity=ObjectIdentity
-zxAnShdslExtGlobalObjects=_ZxAnShdslExtGlobalObjects_ObjectIdentity((1,3,6,1,4,1,3902,1015,1002,2))
-class _ZxAnShdslCapabilities_Type(Bits):namedValues=NamedValues(('rfc4319',0))
-_ZxAnShdslCapabilities_Type.__name__='Bits'
-_ZxAnShdslCapabilities_Object=MibScalar
-zxAnShdslCapabilities=_ZxAnShdslCapabilities_Object((1,3,6,1,4,1,3902,1015,1002,2,1),_ZxAnShdslCapabilities_Type())
-zxAnShdslCapabilities.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnShdslCapabilities.setStatus(_A)
-hdsl2ShdslSpanConfEntry.registerAugmentions((_G,_H))
+#
+# PySNMP MIB module ZTE-AN-SHDSL-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZTE-AN-SHDSL-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hdsl2ShdslMIB, hdsl2ShdslSpanConfEntry = mibBuilder.importSymbols("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslMIB", "hdsl2ShdslSpanConfEntry")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+zxAnShdslExtMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1015, 1002))
+if mibBuilder.loadTexts: zxAnShdslExtMib.setLastUpdated('200810141530Z')
+if mibBuilder.loadTexts: zxAnShdslExtMib.setOrganization('ZTE Corporation')
+zte = MibIdentifier((1, 3, 6, 1, 4, 1, 3902))
+zxAn = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015))
+zxAnShdslExtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 1002, 1))
+zxAnShdslExtGlobalObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 1002, 2))
+zxAnShdslSpanConfExtTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 1002, 1, 1), )
+if mibBuilder.loadTexts: zxAnShdslSpanConfExtTable.setStatus('current')
+zxAnShdslSpanConfExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 1002, 1, 1, 1), )
+hdsl2ShdslSpanConfEntry.registerAugmentions(("ZTE-AN-SHDSL-EXT-MIB", "zxAnShdslSpanConfExtEntry"))
 zxAnShdslSpanConfExtEntry.setIndexNames(*hdsl2ShdslSpanConfEntry.getIndexNames())
-mibBuilder.exportSymbols(_G,**{'zte':zte,'zxAn':zxAn,'zxAnShdslExtMib':zxAnShdslExtMib,'zxAnShdslExtObjects':zxAnShdslExtObjects,'zxAnShdslSpanConfExtTable':zxAnShdslSpanConfExtTable,_H:zxAnShdslSpanConfExtEntry,'zxAnShdslSpanConfDataPathType':zxAnShdslSpanConfDataPathType,'zxAnShdslSpanActualDataPathType':zxAnShdslSpanActualDataPathType,'zxAnShdslSpanConfPamConstellation':zxAnShdslSpanConfPamConstellation,'zxAnShdslSpanActualPamConstellation':zxAnShdslSpanActualPamConstellation,'zxAnShdslSpanActualTransmitPower':zxAnShdslSpanActualTransmitPower,'zxAnShdslExtGlobalObjects':zxAnShdslExtGlobalObjects,'zxAnShdslCapabilities':zxAnShdslCapabilities})
+if mibBuilder.loadTexts: zxAnShdslSpanConfExtEntry.setStatus('current')
+zxAnShdslSpanConfDataPathType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1002, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4))).clone(namedValues=NamedValues(("atm", 1), ("efm", 2), ("auto", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnShdslSpanConfDataPathType.setStatus('current')
+zxAnShdslSpanActualDataPathType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1002, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("atm", 1), ("efm", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnShdslSpanActualDataPathType.setStatus('current')
+zxAnShdslSpanConfPamConstellation = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1002, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4))).clone(namedValues=NamedValues(("tcpAM16", 1), ("tcpAM32", 2), ("auto", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnShdslSpanConfPamConstellation.setStatus('current')
+zxAnShdslSpanActualPamConstellation = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1002, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("tcpAM16", 1), ("tcpAM32", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnShdslSpanActualPamConstellation.setStatus('current')
+zxAnShdslSpanActualTransmitPower = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1002, 1, 1, 1, 5), Integer32()).setUnits('0.1 dBm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnShdslSpanActualTransmitPower.setStatus('current')
+zxAnShdslCapabilities = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1015, 1002, 2, 1), Bits().clone(namedValues=NamedValues(("rfc4319", 0)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnShdslCapabilities.setStatus('current')
+mibBuilder.exportSymbols("ZTE-AN-SHDSL-EXT-MIB", zxAnShdslExtMib=zxAnShdslExtMib, zte=zte, zxAnShdslSpanActualPamConstellation=zxAnShdslSpanActualPamConstellation, zxAnShdslSpanConfExtTable=zxAnShdslSpanConfExtTable, zxAnShdslSpanActualDataPathType=zxAnShdslSpanActualDataPathType, zxAnShdslExtGlobalObjects=zxAnShdslExtGlobalObjects, zxAnShdslSpanConfDataPathType=zxAnShdslSpanConfDataPathType, zxAnShdslSpanConfExtEntry=zxAnShdslSpanConfExtEntry, zxAnShdslSpanConfPamConstellation=zxAnShdslSpanConfPamConstellation, PYSNMP_MODULE_ID=zxAnShdslExtMib, zxAn=zxAn, zxAnShdslCapabilities=zxAnShdslCapabilities, zxAnShdslSpanActualTransmitPower=zxAnShdslSpanActualTransmitPower, zxAnShdslExtObjects=zxAnShdslExtObjects)

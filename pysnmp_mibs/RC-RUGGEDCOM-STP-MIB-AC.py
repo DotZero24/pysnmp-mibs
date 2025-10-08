@@ -1,18 +1,29 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ruggedcomAgentCapability,=mibBuilder.importSymbols('RUGGEDCOM-MIB','ruggedcomAgentCapability')
-AgentCapabilities,ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','AgentCapabilities','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ruggedcomRcStpACModule=ModuleIdentity((1,3,6,1,4,1,15004,6,30,15))
-if mibBuilder.loadTexts:ruggedcomRcStpACModule.setRevisions(('2011-02-22 17:00',))
-ruggedcomRcStpAC=AgentCapabilities((1,3,6,1,4,1,15004,6,30,15,1))
-if mibBuilder.loadTexts:ruggedcomRcStpAC.setProductRelease('ROS-CF52')
-if mibBuilder.loadTexts:ruggedcomRcStpAC.setStatus(_A)
-ruggedcomRcStpAC01=AgentCapabilities((1,3,6,1,4,1,15004,6,30,15,2))
-if mibBuilder.loadTexts:ruggedcomRcStpAC01.setProductRelease('Ruggedcom ROX 2.4.1')
-if mibBuilder.loadTexts:ruggedcomRcStpAC01.setStatus(_A)
-mibBuilder.exportSymbols('RC-RUGGEDCOM-STP-MIB-AC',**{'ruggedcomRcStpACModule':ruggedcomRcStpACModule,'ruggedcomRcStpAC':ruggedcomRcStpAC,'ruggedcomRcStpAC01':ruggedcomRcStpAC01})
+#
+# PySNMP MIB module RC-RUGGEDCOM-STP-MIB-AC (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/siemens/RC-RUGGEDCOM-STP-MIB-AC
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ruggedcomAgentCapability, = mibBuilder.importSymbols("RUGGEDCOM-MIB", "ruggedcomAgentCapability")
+ModuleCompliance, NotificationGroup, AgentCapabilities = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "AgentCapabilities")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ruggedcomRcStpACModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 15004, 6, 30, 15))
+ruggedcomRcStpACModule.setRevisions(('2011-02-22 17:00',))
+if mibBuilder.loadTexts: ruggedcomRcStpACModule.setLastUpdated('201102221700Z')
+if mibBuilder.loadTexts: ruggedcomRcStpACModule.setOrganization('RuggedCom - Industrial Strength Networks')
+ruggedcomRcStpAC = AgentCapabilities((1, 3, 6, 1, 4, 1, 15004, 6, 30, 15, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ruggedcomRcStpAC = ruggedcomRcStpAC.setProductRelease('ROS-CF52')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ruggedcomRcStpAC = ruggedcomRcStpAC.setStatus('current')
+ruggedcomRcStpAC01 = AgentCapabilities((1, 3, 6, 1, 4, 1, 15004, 6, 30, 15, 2))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ruggedcomRcStpAC01 = ruggedcomRcStpAC01.setProductRelease('Ruggedcom ROX 2.4.1')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ruggedcomRcStpAC01 = ruggedcomRcStpAC01.setStatus('current')
+mibBuilder.exportSymbols("RC-RUGGEDCOM-STP-MIB-AC", ruggedcomRcStpAC=ruggedcomRcStpAC, PYSNMP_MODULE_ID=ruggedcomRcStpACModule, ruggedcomRcStpAC01=ruggedcomRcStpAC01, ruggedcomRcStpACModule=ruggedcomRcStpACModule)

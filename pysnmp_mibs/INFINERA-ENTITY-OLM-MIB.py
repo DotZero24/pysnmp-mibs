@@ -1,167 +1,76 @@
-_d='olmGroup'
-_c='olmInstalledOTNContainerRepresentation'
-_b='olmOTNContainerRepresentation'
-_a='olmBwBlicensed'
-_Z='olmBwBused'
-_Y='olmBwBmax'
-_X='olmBwQlicensed'
-_W='olmBwQused'
-_V='olmBwQmax'
-_U='olmDefFlexLicModformat'
-_T='olmRxEdfaOutputTargetPower'
-_S='olmRxEdfaGain'
-_R='actvTimingSource'
-_Q='olmRowStatus'
-_P='olmOcgNumber'
-_O='olmPicDspVer'
-_N='olmCurOcgNumber'
-_M='olmTunableOcgNumber'
-_L='olmAvailableTunableOcgNumbers'
-_K='olmOperatingMode'
-_J='olmProvEqptType'
-_I='olmMoId'
-_H='InfnOperatingMode'
-_G='entLPPhysicalIndex'
-_F='ENTITY-MIB'
-_E='read-write'
-_D='read-create'
-_C='read-only'
-_B='INFINERA-ENTITY-OLM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-entLPPhysicalIndex,=mibBuilder.importSymbols(_F,_G)
-equipment,=mibBuilder.importSymbols('INFINERA-REG-MIB','equipment')
-FloatTenths,FloatThousandths,InfnAutoTunable,InfnChannelPlan,InfnEqptType,InfnOcgType,InfnOlmDefFlexLicModformat,InfnOperatingMode,InfnOtnOtuType,InfnSlteOpMode=mibBuilder.importSymbols('INFINERA-TC-MIB','FloatTenths','FloatThousandths','InfnAutoTunable','InfnChannelPlan','InfnEqptType','InfnOcgType','InfnOlmDefFlexLicModformat',_H,'InfnOtnOtuType','InfnSlteOpMode')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-olmMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,1,25))
-_OlmTable_Object=MibTable
-olmTable=_OlmTable_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1))
-if mibBuilder.loadTexts:olmTable.setStatus(_A)
-_OlmEntry_Object=MibTableRow
-olmEntry=_OlmEntry_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1))
-olmEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:olmEntry.setStatus(_A)
-_OlmMoId_Type=DisplayString
-_OlmMoId_Object=MibTableColumn
-olmMoId=_OlmMoId_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,1),_OlmMoId_Type())
-olmMoId.setMaxAccess(_D)
-if mibBuilder.loadTexts:olmMoId.setStatus(_A)
-_OlmProvEqptType_Type=InfnEqptType
-_OlmProvEqptType_Object=MibTableColumn
-olmProvEqptType=_OlmProvEqptType_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,2),_OlmProvEqptType_Type())
-olmProvEqptType.setMaxAccess(_D)
-if mibBuilder.loadTexts:olmProvEqptType.setStatus(_A)
-class _OlmOperatingMode_Type(InfnOperatingMode):defaultValue=2
-_OlmOperatingMode_Type.__name__=_H
-_OlmOperatingMode_Object=MibTableColumn
-olmOperatingMode=_OlmOperatingMode_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,3),_OlmOperatingMode_Type())
-olmOperatingMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:olmOperatingMode.setStatus(_A)
-_OlmAvailableTunableOcgNumbers_Type=Integer32
-_OlmAvailableTunableOcgNumbers_Object=MibTableColumn
-olmAvailableTunableOcgNumbers=_OlmAvailableTunableOcgNumbers_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,4),_OlmAvailableTunableOcgNumbers_Type())
-olmAvailableTunableOcgNumbers.setMaxAccess(_C)
-if mibBuilder.loadTexts:olmAvailableTunableOcgNumbers.setStatus(_A)
-_OlmTunableOcgNumber_Type=Integer32
-_OlmTunableOcgNumber_Object=MibTableColumn
-olmTunableOcgNumber=_OlmTunableOcgNumber_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,5),_OlmTunableOcgNumber_Type())
-olmTunableOcgNumber.setMaxAccess(_E)
-if mibBuilder.loadTexts:olmTunableOcgNumber.setStatus(_A)
-_OlmCurOcgNumber_Type=Integer32
-_OlmCurOcgNumber_Object=MibTableColumn
-olmCurOcgNumber=_OlmCurOcgNumber_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,6),_OlmCurOcgNumber_Type())
-olmCurOcgNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:olmCurOcgNumber.setStatus(_A)
-_OlmPicDspVer_Type=DisplayString
-_OlmPicDspVer_Object=MibTableColumn
-olmPicDspVer=_OlmPicDspVer_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,7),_OlmPicDspVer_Type())
-olmPicDspVer.setMaxAccess(_C)
-if mibBuilder.loadTexts:olmPicDspVer.setStatus(_A)
-_OlmOcgNumber_Type=Integer32
-_OlmOcgNumber_Object=MibTableColumn
-olmOcgNumber=_OlmOcgNumber_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,8),_OlmOcgNumber_Type())
-olmOcgNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:olmOcgNumber.setStatus(_A)
-_OlmRowStatus_Type=RowStatus
-_OlmRowStatus_Object=MibTableColumn
-olmRowStatus=_OlmRowStatus_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,9),_OlmRowStatus_Type())
-olmRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:olmRowStatus.setStatus(_A)
-_ActvTimingSource_Type=DisplayString
-_ActvTimingSource_Object=MibTableColumn
-actvTimingSource=_ActvTimingSource_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,10),_ActvTimingSource_Type())
-actvTimingSource.setMaxAccess(_C)
-if mibBuilder.loadTexts:actvTimingSource.setStatus(_A)
-_OlmRxEdfaGain_Type=FloatTenths
-_OlmRxEdfaGain_Object=MibTableColumn
-olmRxEdfaGain=_OlmRxEdfaGain_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,11),_OlmRxEdfaGain_Type())
-olmRxEdfaGain.setMaxAccess(_C)
-if mibBuilder.loadTexts:olmRxEdfaGain.setStatus(_A)
-_OlmRxEdfaOutputTargetPower_Type=FloatTenths
-_OlmRxEdfaOutputTargetPower_Object=MibTableColumn
-olmRxEdfaOutputTargetPower=_OlmRxEdfaOutputTargetPower_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,12),_OlmRxEdfaOutputTargetPower_Type())
-olmRxEdfaOutputTargetPower.setMaxAccess(_C)
-if mibBuilder.loadTexts:olmRxEdfaOutputTargetPower.setStatus(_A)
-_OlmDefFlexLicModformat_Type=InfnOlmDefFlexLicModformat
-_OlmDefFlexLicModformat_Object=MibTableColumn
-olmDefFlexLicModformat=_OlmDefFlexLicModformat_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,13),_OlmDefFlexLicModformat_Type())
-olmDefFlexLicModformat.setMaxAccess(_E)
-if mibBuilder.loadTexts:olmDefFlexLicModformat.setStatus(_A)
-_OlmBwQmax_Type=FloatThousandths
-_OlmBwQmax_Object=MibTableColumn
-olmBwQmax=_OlmBwQmax_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,14),_OlmBwQmax_Type())
-olmBwQmax.setMaxAccess(_C)
-if mibBuilder.loadTexts:olmBwQmax.setStatus(_A)
-_OlmBwQused_Type=FloatThousandths
-_OlmBwQused_Object=MibTableColumn
-olmBwQused=_OlmBwQused_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,15),_OlmBwQused_Type())
-olmBwQused.setMaxAccess(_C)
-if mibBuilder.loadTexts:olmBwQused.setStatus(_A)
-_OlmBwQlicensed_Type=FloatThousandths
-_OlmBwQlicensed_Object=MibTableColumn
-olmBwQlicensed=_OlmBwQlicensed_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,16),_OlmBwQlicensed_Type())
-olmBwQlicensed.setMaxAccess(_C)
-if mibBuilder.loadTexts:olmBwQlicensed.setStatus(_A)
-_OlmBwBmax_Type=FloatThousandths
-_OlmBwBmax_Object=MibTableColumn
-olmBwBmax=_OlmBwBmax_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,17),_OlmBwBmax_Type())
-olmBwBmax.setMaxAccess(_C)
-if mibBuilder.loadTexts:olmBwBmax.setStatus(_A)
-_OlmBwBused_Type=FloatThousandths
-_OlmBwBused_Object=MibTableColumn
-olmBwBused=_OlmBwBused_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,18),_OlmBwBused_Type())
-olmBwBused.setMaxAccess(_C)
-if mibBuilder.loadTexts:olmBwBused.setStatus(_A)
-_OlmBwBlicensed_Type=FloatThousandths
-_OlmBwBlicensed_Object=MibTableColumn
-olmBwBlicensed=_OlmBwBlicensed_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,19),_OlmBwBlicensed_Type())
-olmBwBlicensed.setMaxAccess(_C)
-if mibBuilder.loadTexts:olmBwBlicensed.setStatus(_A)
-_OlmOTNContainerRepresentation_Type=InfnOtnOtuType
-_OlmOTNContainerRepresentation_Object=MibTableColumn
-olmOTNContainerRepresentation=_OlmOTNContainerRepresentation_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,20),_OlmOTNContainerRepresentation_Type())
-olmOTNContainerRepresentation.setMaxAccess(_E)
-if mibBuilder.loadTexts:olmOTNContainerRepresentation.setStatus(_A)
-_OlmInstalledOTNContainerRepresentation_Type=InfnOtnOtuType
-_OlmInstalledOTNContainerRepresentation_Object=MibTableColumn
-olmInstalledOTNContainerRepresentation=_OlmInstalledOTNContainerRepresentation_Object((1,3,6,1,4,1,21296,2,2,2,1,25,1,1,21),_OlmInstalledOTNContainerRepresentation_Type())
-olmInstalledOTNContainerRepresentation.setMaxAccess(_C)
-if mibBuilder.loadTexts:olmInstalledOTNContainerRepresentation.setStatus(_A)
-_OlmConformance_ObjectIdentity=ObjectIdentity
-olmConformance=_OlmConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,25,3))
-_OlmCompliances_ObjectIdentity=ObjectIdentity
-olmCompliances=_OlmCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,25,3,1))
-_OlmGroups_ObjectIdentity=ObjectIdentity
-olmGroups=_OlmGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,25,3,2))
-olmGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,1,25,3,2,1))
-olmGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c)))
-if mibBuilder.loadTexts:olmGroup.setStatus(_A)
-olmCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,1,25,3,1,1))
-olmCompliance.setObjects((_B,_d))
-if mibBuilder.loadTexts:olmCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'olmMIB':olmMIB,'olmTable':olmTable,'olmEntry':olmEntry,_I:olmMoId,_J:olmProvEqptType,_K:olmOperatingMode,_L:olmAvailableTunableOcgNumbers,_M:olmTunableOcgNumber,_N:olmCurOcgNumber,_O:olmPicDspVer,_P:olmOcgNumber,_Q:olmRowStatus,_R:actvTimingSource,_S:olmRxEdfaGain,_T:olmRxEdfaOutputTargetPower,_U:olmDefFlexLicModformat,_V:olmBwQmax,_W:olmBwQused,_X:olmBwQlicensed,_Y:olmBwBmax,_Z:olmBwBused,_a:olmBwBlicensed,_b:olmOTNContainerRepresentation,_c:olmInstalledOTNContainerRepresentation,'olmConformance':olmConformance,'olmCompliances':olmCompliances,'olmCompliance':olmCompliance,'olmGroups':olmGroups,_d:olmGroup})
+#
+# PySNMP MIB module INFINERA-ENTITY-OLM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-ENTITY-OLM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+entLPPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entLPPhysicalIndex")
+equipment, = mibBuilder.importSymbols("INFINERA-REG-MIB", "equipment")
+FloatTenths, InfnOcgType, InfnEqptType, FloatThousandths, InfnOlmDefFlexLicModformat, InfnChannelPlan, InfnSlteOpMode, InfnOtnOtuType, InfnOperatingMode, InfnAutoTunable = mibBuilder.importSymbols("INFINERA-TC-MIB", "FloatTenths", "InfnOcgType", "InfnEqptType", "FloatThousandths", "InfnOlmDefFlexLicModformat", "InfnChannelPlan", "InfnSlteOpMode", "InfnOtnOtuType", "InfnOperatingMode", "InfnAutoTunable")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+olmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25))
+if mibBuilder.loadTexts: olmMIB.setLastUpdated('201110200000Z')
+if mibBuilder.loadTexts: olmMIB.setOrganization('INFINERA')
+olmConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 3))
+olmCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 3, 1))
+olmGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 3, 2))
+olmTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1), )
+if mibBuilder.loadTexts: olmTable.setStatus('current')
+olmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entLPPhysicalIndex"))
+if mibBuilder.loadTexts: olmEntry.setStatus('current')
+olmMoId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 1), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: olmMoId.setStatus('current')
+olmProvEqptType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 2), InfnEqptType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: olmProvEqptType.setStatus('current')
+olmOperatingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 3), InfnOperatingMode().clone('gen2')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: olmOperatingMode.setStatus('current')
+olmAvailableTunableOcgNumbers = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: olmAvailableTunableOcgNumbers.setStatus('current')
+olmTunableOcgNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: olmTunableOcgNumber.setStatus('current')
+olmCurOcgNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: olmCurOcgNumber.setStatus('current')
+olmPicDspVer = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: olmPicDspVer.setStatus('current')
+olmOcgNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 8), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: olmOcgNumber.setStatus('current')
+olmRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: olmRowStatus.setStatus('current')
+actvTimingSource = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: actvTimingSource.setStatus('current')
+olmRxEdfaGain = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 11), FloatTenths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: olmRxEdfaGain.setStatus('current')
+olmRxEdfaOutputTargetPower = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 12), FloatTenths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: olmRxEdfaOutputTargetPower.setStatus('current')
+olmDefFlexLicModformat = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 13), InfnOlmDefFlexLicModformat()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: olmDefFlexLicModformat.setStatus('current')
+olmBwQmax = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 14), FloatThousandths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: olmBwQmax.setStatus('current')
+olmBwQused = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 15), FloatThousandths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: olmBwQused.setStatus('current')
+olmBwQlicensed = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 16), FloatThousandths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: olmBwQlicensed.setStatus('current')
+olmBwBmax = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 17), FloatThousandths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: olmBwBmax.setStatus('current')
+olmBwBused = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 18), FloatThousandths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: olmBwBused.setStatus('current')
+olmBwBlicensed = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 19), FloatThousandths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: olmBwBlicensed.setStatus('current')
+olmOTNContainerRepresentation = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 20), InfnOtnOtuType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: olmOTNContainerRepresentation.setStatus('current')
+olmInstalledOTNContainerRepresentation = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 1, 1, 21), InfnOtnOtuType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: olmInstalledOTNContainerRepresentation.setStatus('current')
+olmCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 3, 1, 1)).setObjects(("INFINERA-ENTITY-OLM-MIB", "olmGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    olmCompliance = olmCompliance.setStatus('current')
+olmGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 25, 3, 2, 1)).setObjects(("INFINERA-ENTITY-OLM-MIB", "olmMoId"), ("INFINERA-ENTITY-OLM-MIB", "olmProvEqptType"), ("INFINERA-ENTITY-OLM-MIB", "olmOperatingMode"), ("INFINERA-ENTITY-OLM-MIB", "olmAvailableTunableOcgNumbers"), ("INFINERA-ENTITY-OLM-MIB", "olmTunableOcgNumber"), ("INFINERA-ENTITY-OLM-MIB", "olmCurOcgNumber"), ("INFINERA-ENTITY-OLM-MIB", "olmPicDspVer"), ("INFINERA-ENTITY-OLM-MIB", "olmOcgNumber"), ("INFINERA-ENTITY-OLM-MIB", "olmRowStatus"), ("INFINERA-ENTITY-OLM-MIB", "actvTimingSource"), ("INFINERA-ENTITY-OLM-MIB", "olmRxEdfaGain"), ("INFINERA-ENTITY-OLM-MIB", "olmRxEdfaOutputTargetPower"), ("INFINERA-ENTITY-OLM-MIB", "olmDefFlexLicModformat"), ("INFINERA-ENTITY-OLM-MIB", "olmBwQmax"), ("INFINERA-ENTITY-OLM-MIB", "olmBwQused"), ("INFINERA-ENTITY-OLM-MIB", "olmBwQlicensed"), ("INFINERA-ENTITY-OLM-MIB", "olmBwBmax"), ("INFINERA-ENTITY-OLM-MIB", "olmBwBused"), ("INFINERA-ENTITY-OLM-MIB", "olmBwBlicensed"), ("INFINERA-ENTITY-OLM-MIB", "olmOTNContainerRepresentation"), ("INFINERA-ENTITY-OLM-MIB", "olmInstalledOTNContainerRepresentation"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    olmGroup = olmGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-ENTITY-OLM-MIB", olmBwBused=olmBwBused, olmGroup=olmGroup, olmOperatingMode=olmOperatingMode, olmCompliances=olmCompliances, olmGroups=olmGroups, olmTunableOcgNumber=olmTunableOcgNumber, PYSNMP_MODULE_ID=olmMIB, olmProvEqptType=olmProvEqptType, olmRxEdfaGain=olmRxEdfaGain, olmRowStatus=olmRowStatus, olmOcgNumber=olmOcgNumber, olmBwQlicensed=olmBwQlicensed, actvTimingSource=actvTimingSource, olmBwBlicensed=olmBwBlicensed, olmInstalledOTNContainerRepresentation=olmInstalledOTNContainerRepresentation, olmRxEdfaOutputTargetPower=olmRxEdfaOutputTargetPower, olmBwBmax=olmBwBmax, olmConformance=olmConformance, olmTable=olmTable, olmCompliance=olmCompliance, olmMoId=olmMoId, olmOTNContainerRepresentation=olmOTNContainerRepresentation, olmBwQused=olmBwQused, olmEntry=olmEntry, olmCurOcgNumber=olmCurOcgNumber, olmMIB=olmMIB, olmBwQmax=olmBwQmax, olmPicDspVer=olmPicDspVer, olmDefFlexLicModformat=olmDefFlexLicModformat, olmAvailableTunableOcgNumbers=olmAvailableTunableOcgNumbers)

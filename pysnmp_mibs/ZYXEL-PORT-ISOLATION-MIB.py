@@ -1,35 +1,29 @@
-_D='read-write'
-_C='dot1dBasePort'
-_B='BRIDGE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_B,_C)
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelPortIsolation=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,64))
-_ZyxelPortIsolationSetup_ObjectIdentity=ObjectIdentity
-zyxelPortIsolationSetup=_ZyxelPortIsolationSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,64,1))
-_ZyxelPortIsolationPortTable_Object=MibTable
-zyxelPortIsolationPortTable=_ZyxelPortIsolationPortTable_Object((1,3,6,1,4,1,890,1,15,3,64,1,1))
-if mibBuilder.loadTexts:zyxelPortIsolationPortTable.setStatus(_A)
-_ZyxelPortIsolationPortEntry_Object=MibTableRow
-zyxelPortIsolationPortEntry=_ZyxelPortIsolationPortEntry_Object((1,3,6,1,4,1,890,1,15,3,64,1,1,1))
-zyxelPortIsolationPortEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:zyxelPortIsolationPortEntry.setStatus(_A)
-_ZyPortIsolationPortState_Type=EnabledStatus
-_ZyPortIsolationPortState_Object=MibTableColumn
-zyPortIsolationPortState=_ZyPortIsolationPortState_Object((1,3,6,1,4,1,890,1,15,3,64,1,1,1,1),_ZyPortIsolationPortState_Type())
-zyPortIsolationPortState.setMaxAccess(_D)
-if mibBuilder.loadTexts:zyPortIsolationPortState.setStatus(_A)
-_ZyPortIsolationSmartIsolationState_Type=EnabledStatus
-_ZyPortIsolationSmartIsolationState_Object=MibScalar
-zyPortIsolationSmartIsolationState=_ZyPortIsolationSmartIsolationState_Object((1,3,6,1,4,1,890,1,15,3,64,1,2),_ZyPortIsolationSmartIsolationState_Type())
-zyPortIsolationSmartIsolationState.setMaxAccess(_D)
-if mibBuilder.loadTexts:zyPortIsolationSmartIsolationState.setStatus(_A)
-mibBuilder.exportSymbols('ZYXEL-PORT-ISOLATION-MIB',**{'zyxelPortIsolation':zyxelPortIsolation,'zyxelPortIsolationSetup':zyxelPortIsolationSetup,'zyxelPortIsolationPortTable':zyxelPortIsolationPortTable,'zyxelPortIsolationPortEntry':zyxelPortIsolationPortEntry,'zyPortIsolationPortState':zyPortIsolationPortState,'zyPortIsolationSmartIsolationState':zyPortIsolationSmartIsolationState})
+#
+# PySNMP MIB module ZYXEL-PORT-ISOLATION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-PORT-ISOLATION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:21 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelPortIsolation = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 64))
+if mibBuilder.loadTexts: zyxelPortIsolation.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelPortIsolation.setOrganization('Enterprise Solution ZyXEL')
+zyxelPortIsolationSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 64, 1))
+zyxelPortIsolationPortTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 64, 1, 1), )
+if mibBuilder.loadTexts: zyxelPortIsolationPortTable.setStatus('current')
+zyxelPortIsolationPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 64, 1, 1, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: zyxelPortIsolationPortEntry.setStatus('current')
+zyPortIsolationPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 64, 1, 1, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyPortIsolationPortState.setStatus('current')
+zyPortIsolationSmartIsolationState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 64, 1, 2), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyPortIsolationSmartIsolationState.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-PORT-ISOLATION-MIB", zyPortIsolationSmartIsolationState=zyPortIsolationSmartIsolationState, zyxelPortIsolationPortEntry=zyxelPortIsolationPortEntry, PYSNMP_MODULE_ID=zyxelPortIsolation, zyPortIsolationPortState=zyPortIsolationPortState, zyxelPortIsolationPortTable=zyxelPortIsolationPortTable, zyxelPortIsolation=zyxelPortIsolation, zyxelPortIsolationSetup=zyxelPortIsolationSetup)

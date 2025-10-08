@@ -1,215 +1,103 @@
-_j='ciscoCallHistoryMibGroupRev2'
-_i='ciscoCallHistoryMibGroup'
-_h='ciscoCallHistoryRetainTimer'
-_g='ciscoCallHistoryTableMaxLength'
-_f='ciscoCallHistoryMultiplier'
-_e='ciscoCallHistoryCurrencyAmount'
-_d='ciscoCallHistoryCurrency'
-_c='ciscoCallHistoryRecordedUnits'
-_b='not-accessible'
-_a='ciscoCallHistoryIndex'
-_Z='ciscoCallHistoryStartTime'
-_Y='read-write'
-_X='1995-08-15 00:00'
-_W='ciscoCallHistoryMibGlobalsGroup'
-_V='ciscoCallHistoryMibGroupRev1'
-_U='ciscoCallHistoryReceiveBytes'
-_T='ciscoCallHistoryReceivePackets'
-_S='ciscoCallHistoryTransmitBytes'
-_R='ciscoCallHistoryTransmitPackets'
-_Q='ciscoCallHistoryDisconnectTimeOfDay'
-_P='ciscoCallHistoryConnectTimeOfDay'
-_O='ciscoCallHistoryDialReason'
-_N='ciscoCallHistoryCallDisconnectTime'
-_M='ciscoCallHistoryCallConnectionTime'
-_L='ciscoCallHistoryCallDisconnectCause'
-_K='ciscoCallHistoryDestinationHostName'
-_J='ciscoCallHistoryDestinationAddress'
-_I='ciscoCallHistoryInterfaceNumber'
-_H='ciscoCallHistoryCalledNumber'
-_G='ciscoCallHistoryCallingNumber'
-_F='OctetString'
-_E='obsolete'
-_D='Integer32'
-_C='read-only'
-_B='current'
-_A='CISCO-CALL-HISTORY-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp')
-ciscoCallHistoryMib=ModuleIdentity((1,3,6,1,4,1,9,9,27))
-if mibBuilder.loadTexts:ciscoCallHistoryMib.setRevisions((_X,'1995-07-20 00:00',_X,'1996-11-19 00:00'))
-_CiscoCallHistoryMibObjects_ObjectIdentity=ObjectIdentity
-ciscoCallHistoryMibObjects=_CiscoCallHistoryMibObjects_ObjectIdentity((1,3,6,1,4,1,9,9,27,1))
-_CiscoCallHistory_ObjectIdentity=ObjectIdentity
-ciscoCallHistory=_CiscoCallHistory_ObjectIdentity((1,3,6,1,4,1,9,9,27,1,1))
-class _CiscoCallHistoryTableMaxLength_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,500))
-_CiscoCallHistoryTableMaxLength_Type.__name__=_D
-_CiscoCallHistoryTableMaxLength_Object=MibScalar
-ciscoCallHistoryTableMaxLength=_CiscoCallHistoryTableMaxLength_Object((1,3,6,1,4,1,9,9,27,1,1,1),_CiscoCallHistoryTableMaxLength_Type())
-ciscoCallHistoryTableMaxLength.setMaxAccess(_Y)
-if mibBuilder.loadTexts:ciscoCallHistoryTableMaxLength.setStatus(_B)
-class _CiscoCallHistoryRetainTimer_Type(Integer32):defaultValue=15;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,500))
-_CiscoCallHistoryRetainTimer_Type.__name__=_D
-_CiscoCallHistoryRetainTimer_Object=MibScalar
-ciscoCallHistoryRetainTimer=_CiscoCallHistoryRetainTimer_Object((1,3,6,1,4,1,9,9,27,1,1,2),_CiscoCallHistoryRetainTimer_Type())
-ciscoCallHistoryRetainTimer.setMaxAccess(_Y)
-if mibBuilder.loadTexts:ciscoCallHistoryRetainTimer.setStatus(_B)
-if mibBuilder.loadTexts:ciscoCallHistoryRetainTimer.setUnits('minutes')
-_CiscoCallHistoryTable_Object=MibTable
-ciscoCallHistoryTable=_CiscoCallHistoryTable_Object((1,3,6,1,4,1,9,9,27,1,1,3))
-if mibBuilder.loadTexts:ciscoCallHistoryTable.setStatus(_B)
-_CiscoCallHistoryEntry_Object=MibTableRow
-ciscoCallHistoryEntry=_CiscoCallHistoryEntry_Object((1,3,6,1,4,1,9,9,27,1,1,3,1))
-ciscoCallHistoryEntry.setIndexNames((0,_A,_Z),(0,_A,_a))
-if mibBuilder.loadTexts:ciscoCallHistoryEntry.setStatus(_B)
-_CiscoCallHistoryStartTime_Type=TimeStamp
-_CiscoCallHistoryStartTime_Object=MibTableColumn
-ciscoCallHistoryStartTime=_CiscoCallHistoryStartTime_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,1),_CiscoCallHistoryStartTime_Type())
-ciscoCallHistoryStartTime.setMaxAccess(_b)
-if mibBuilder.loadTexts:ciscoCallHistoryStartTime.setStatus(_B)
-class _CiscoCallHistoryIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_CiscoCallHistoryIndex_Type.__name__=_D
-_CiscoCallHistoryIndex_Object=MibTableColumn
-ciscoCallHistoryIndex=_CiscoCallHistoryIndex_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,2),_CiscoCallHistoryIndex_Type())
-ciscoCallHistoryIndex.setMaxAccess(_b)
-if mibBuilder.loadTexts:ciscoCallHistoryIndex.setStatus(_B)
-class _CiscoCallHistoryCallingNumber_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_CiscoCallHistoryCallingNumber_Type.__name__=_F
-_CiscoCallHistoryCallingNumber_Object=MibTableColumn
-ciscoCallHistoryCallingNumber=_CiscoCallHistoryCallingNumber_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,3),_CiscoCallHistoryCallingNumber_Type())
-ciscoCallHistoryCallingNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryCallingNumber.setStatus(_B)
-class _CiscoCallHistoryCalledNumber_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_CiscoCallHistoryCalledNumber_Type.__name__=_F
-_CiscoCallHistoryCalledNumber_Object=MibTableColumn
-ciscoCallHistoryCalledNumber=_CiscoCallHistoryCalledNumber_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,4),_CiscoCallHistoryCalledNumber_Type())
-ciscoCallHistoryCalledNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryCalledNumber.setStatus(_B)
-_CiscoCallHistoryInterfaceNumber_Type=InterfaceIndex
-_CiscoCallHistoryInterfaceNumber_Object=MibTableColumn
-ciscoCallHistoryInterfaceNumber=_CiscoCallHistoryInterfaceNumber_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,5),_CiscoCallHistoryInterfaceNumber_Type())
-ciscoCallHistoryInterfaceNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryInterfaceNumber.setStatus(_B)
-class _CiscoCallHistoryDestinationAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,60))
-_CiscoCallHistoryDestinationAddress_Type.__name__=_F
-_CiscoCallHistoryDestinationAddress_Object=MibTableColumn
-ciscoCallHistoryDestinationAddress=_CiscoCallHistoryDestinationAddress_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,6),_CiscoCallHistoryDestinationAddress_Type())
-ciscoCallHistoryDestinationAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryDestinationAddress.setStatus(_B)
-_CiscoCallHistoryDestinationHostName_Type=DisplayString
-_CiscoCallHistoryDestinationHostName_Object=MibTableColumn
-ciscoCallHistoryDestinationHostName=_CiscoCallHistoryDestinationHostName_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,7),_CiscoCallHistoryDestinationHostName_Type())
-ciscoCallHistoryDestinationHostName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryDestinationHostName.setStatus(_B)
-class _CiscoCallHistoryCallDisconnectCause_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('other',1),('normalDisconnectSent',2),('normalDisconnectReceived',3),('networkOutOfOrder',4),('callRejected',5),('userBusy',6),('noCircuitChannelAvailable',7),('interworkingError',8)))
-_CiscoCallHistoryCallDisconnectCause_Type.__name__=_D
-_CiscoCallHistoryCallDisconnectCause_Object=MibTableColumn
-ciscoCallHistoryCallDisconnectCause=_CiscoCallHistoryCallDisconnectCause_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,8),_CiscoCallHistoryCallDisconnectCause_Type())
-ciscoCallHistoryCallDisconnectCause.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryCallDisconnectCause.setStatus(_B)
-_CiscoCallHistoryCallConnectionTime_Type=TimeStamp
-_CiscoCallHistoryCallConnectionTime_Object=MibTableColumn
-ciscoCallHistoryCallConnectionTime=_CiscoCallHistoryCallConnectionTime_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,9),_CiscoCallHistoryCallConnectionTime_Type())
-ciscoCallHistoryCallConnectionTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryCallConnectionTime.setStatus(_B)
-_CiscoCallHistoryCallDisconnectTime_Type=TimeStamp
-_CiscoCallHistoryCallDisconnectTime_Object=MibTableColumn
-ciscoCallHistoryCallDisconnectTime=_CiscoCallHistoryCallDisconnectTime_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,10),_CiscoCallHistoryCallDisconnectTime_Type())
-ciscoCallHistoryCallDisconnectTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryCallDisconnectTime.setStatus(_B)
-_CiscoCallHistoryDialReason_Type=DisplayString
-_CiscoCallHistoryDialReason_Object=MibTableColumn
-ciscoCallHistoryDialReason=_CiscoCallHistoryDialReason_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,11),_CiscoCallHistoryDialReason_Type())
-ciscoCallHistoryDialReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryDialReason.setStatus(_B)
-_CiscoCallHistoryConnectTimeOfDay_Type=DisplayString
-_CiscoCallHistoryConnectTimeOfDay_Object=MibTableColumn
-ciscoCallHistoryConnectTimeOfDay=_CiscoCallHistoryConnectTimeOfDay_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,12),_CiscoCallHistoryConnectTimeOfDay_Type())
-ciscoCallHistoryConnectTimeOfDay.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryConnectTimeOfDay.setStatus(_B)
-_CiscoCallHistoryDisconnectTimeOfDay_Type=DisplayString
-_CiscoCallHistoryDisconnectTimeOfDay_Object=MibTableColumn
-ciscoCallHistoryDisconnectTimeOfDay=_CiscoCallHistoryDisconnectTimeOfDay_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,13),_CiscoCallHistoryDisconnectTimeOfDay_Type())
-ciscoCallHistoryDisconnectTimeOfDay.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryDisconnectTimeOfDay.setStatus(_B)
-_CiscoCallHistoryTransmitPackets_Type=Integer32
-_CiscoCallHistoryTransmitPackets_Object=MibTableColumn
-ciscoCallHistoryTransmitPackets=_CiscoCallHistoryTransmitPackets_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,14),_CiscoCallHistoryTransmitPackets_Type())
-ciscoCallHistoryTransmitPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryTransmitPackets.setStatus(_B)
-_CiscoCallHistoryTransmitBytes_Type=Integer32
-_CiscoCallHistoryTransmitBytes_Object=MibTableColumn
-ciscoCallHistoryTransmitBytes=_CiscoCallHistoryTransmitBytes_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,15),_CiscoCallHistoryTransmitBytes_Type())
-ciscoCallHistoryTransmitBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryTransmitBytes.setStatus(_B)
-_CiscoCallHistoryReceivePackets_Type=Integer32
-_CiscoCallHistoryReceivePackets_Object=MibTableColumn
-ciscoCallHistoryReceivePackets=_CiscoCallHistoryReceivePackets_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,16),_CiscoCallHistoryReceivePackets_Type())
-ciscoCallHistoryReceivePackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryReceivePackets.setStatus(_B)
-_CiscoCallHistoryReceiveBytes_Type=Integer32
-_CiscoCallHistoryReceiveBytes_Object=MibTableColumn
-ciscoCallHistoryReceiveBytes=_CiscoCallHistoryReceiveBytes_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,17),_CiscoCallHistoryReceiveBytes_Type())
-ciscoCallHistoryReceiveBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryReceiveBytes.setStatus(_B)
-class _CiscoCallHistoryRecordedUnits_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16777215))
-_CiscoCallHistoryRecordedUnits_Type.__name__=_D
-_CiscoCallHistoryRecordedUnits_Object=MibTableColumn
-ciscoCallHistoryRecordedUnits=_CiscoCallHistoryRecordedUnits_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,18),_CiscoCallHistoryRecordedUnits_Type())
-ciscoCallHistoryRecordedUnits.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryRecordedUnits.setStatus(_B)
-_CiscoCallHistoryCurrency_Type=DisplayString
-_CiscoCallHistoryCurrency_Object=MibTableColumn
-ciscoCallHistoryCurrency=_CiscoCallHistoryCurrency_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,19),_CiscoCallHistoryCurrency_Type())
-ciscoCallHistoryCurrency.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryCurrency.setStatus(_B)
-class _CiscoCallHistoryCurrencyAmount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16777215))
-_CiscoCallHistoryCurrencyAmount_Type.__name__=_D
-_CiscoCallHistoryCurrencyAmount_Object=MibTableColumn
-ciscoCallHistoryCurrencyAmount=_CiscoCallHistoryCurrencyAmount_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,20),_CiscoCallHistoryCurrencyAmount_Type())
-ciscoCallHistoryCurrencyAmount.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryCurrencyAmount.setStatus(_B)
-class _CiscoCallHistoryMultiplier_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*(('oneThousandth',0),('oneHundreth',1),('oneTenth',2),('one',3),('ten',4),('hundred',5),('thousand',6)))
-_CiscoCallHistoryMultiplier_Type.__name__=_D
-_CiscoCallHistoryMultiplier_Object=MibTableColumn
-ciscoCallHistoryMultiplier=_CiscoCallHistoryMultiplier_Object((1,3,6,1,4,1,9,9,27,1,1,3,1,21),_CiscoCallHistoryMultiplier_Type())
-ciscoCallHistoryMultiplier.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoCallHistoryMultiplier.setStatus(_B)
-_CiscoCallHistoryMibConformance_ObjectIdentity=ObjectIdentity
-ciscoCallHistoryMibConformance=_CiscoCallHistoryMibConformance_ObjectIdentity((1,3,6,1,4,1,9,9,27,2))
-_CiscoCallHistoryMibCompliances_ObjectIdentity=ObjectIdentity
-ciscoCallHistoryMibCompliances=_CiscoCallHistoryMibCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,27,2,1))
-_CiscoCallHistoryMibGroups_ObjectIdentity=ObjectIdentity
-ciscoCallHistoryMibGroups=_CiscoCallHistoryMibGroups_ObjectIdentity((1,3,6,1,4,1,9,9,27,2,2))
-ciscoCallHistoryMibGroup=ObjectGroup((1,3,6,1,4,1,9,9,27,2,2,1))
-ciscoCallHistoryMibGroup.setObjects(*((_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:ciscoCallHistoryMibGroup.setStatus(_E)
-ciscoCallHistoryMibGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,27,2,2,2))
-ciscoCallHistoryMibGroupRev1.setObjects(*((_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:ciscoCallHistoryMibGroupRev1.setStatus(_E)
-ciscoCallHistoryMibGroupRev2=ObjectGroup((1,3,6,1,4,1,9,9,27,2,2,3))
-ciscoCallHistoryMibGroupRev2.setObjects(*((_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_c),(_A,_d),(_A,_e),(_A,_f)))
-if mibBuilder.loadTexts:ciscoCallHistoryMibGroupRev2.setStatus(_B)
-ciscoCallHistoryMibGlobalsGroup=ObjectGroup((1,3,6,1,4,1,9,9,27,2,2,4))
-ciscoCallHistoryMibGlobalsGroup.setObjects(*((_A,_g),(_A,_h)))
-if mibBuilder.loadTexts:ciscoCallHistoryMibGlobalsGroup.setStatus(_B)
-ciscoCallHistoryMibCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,27,2,1,1))
-ciscoCallHistoryMibCompliance.setObjects((_A,_i))
-if mibBuilder.loadTexts:ciscoCallHistoryMibCompliance.setStatus(_E)
-ciscoCallHistoryMibComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,9,27,2,1,2))
-ciscoCallHistoryMibComplianceRev1.setObjects((_A,_V))
-if mibBuilder.loadTexts:ciscoCallHistoryMibComplianceRev1.setStatus(_E)
-ciscoCallHistoryMibComplianceV11R01=ModuleCompliance((1,3,6,1,4,1,9,9,27,2,1,3))
-ciscoCallHistoryMibComplianceV11R01.setObjects(*((_A,_V),(_A,_W)))
-if mibBuilder.loadTexts:ciscoCallHistoryMibComplianceV11R01.setStatus(_E)
-ciscoCallHistoryMibComplianceV11R02=ModuleCompliance((1,3,6,1,4,1,9,9,27,2,1,4))
-ciscoCallHistoryMibComplianceV11R02.setObjects(*((_A,_j),(_A,_W)))
-if mibBuilder.loadTexts:ciscoCallHistoryMibComplianceV11R02.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ciscoCallHistoryMib':ciscoCallHistoryMib,'ciscoCallHistoryMibObjects':ciscoCallHistoryMibObjects,'ciscoCallHistory':ciscoCallHistory,_g:ciscoCallHistoryTableMaxLength,_h:ciscoCallHistoryRetainTimer,'ciscoCallHistoryTable':ciscoCallHistoryTable,'ciscoCallHistoryEntry':ciscoCallHistoryEntry,_Z:ciscoCallHistoryStartTime,_a:ciscoCallHistoryIndex,_G:ciscoCallHistoryCallingNumber,_H:ciscoCallHistoryCalledNumber,_I:ciscoCallHistoryInterfaceNumber,_J:ciscoCallHistoryDestinationAddress,_K:ciscoCallHistoryDestinationHostName,_L:ciscoCallHistoryCallDisconnectCause,_M:ciscoCallHistoryCallConnectionTime,_N:ciscoCallHistoryCallDisconnectTime,_O:ciscoCallHistoryDialReason,_P:ciscoCallHistoryConnectTimeOfDay,_Q:ciscoCallHistoryDisconnectTimeOfDay,_R:ciscoCallHistoryTransmitPackets,_S:ciscoCallHistoryTransmitBytes,_T:ciscoCallHistoryReceivePackets,_U:ciscoCallHistoryReceiveBytes,_c:ciscoCallHistoryRecordedUnits,_d:ciscoCallHistoryCurrency,_e:ciscoCallHistoryCurrencyAmount,_f:ciscoCallHistoryMultiplier,'ciscoCallHistoryMibConformance':ciscoCallHistoryMibConformance,'ciscoCallHistoryMibCompliances':ciscoCallHistoryMibCompliances,'ciscoCallHistoryMibCompliance':ciscoCallHistoryMibCompliance,'ciscoCallHistoryMibComplianceRev1':ciscoCallHistoryMibComplianceRev1,'ciscoCallHistoryMibComplianceV11R01':ciscoCallHistoryMibComplianceV11R01,'ciscoCallHistoryMibComplianceV11R02':ciscoCallHistoryMibComplianceV11R02,'ciscoCallHistoryMibGroups':ciscoCallHistoryMibGroups,_i:ciscoCallHistoryMibGroup,_V:ciscoCallHistoryMibGroupRev1,_j:ciscoCallHistoryMibGroupRev2,_W:ciscoCallHistoryMibGlobalsGroup})
+#
+# PySNMP MIB module CISCO-CALL-HISTORY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-CALL-HISTORY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+ciscoCallHistoryMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 27))
+ciscoCallHistoryMib.setRevisions(('1995-08-15 00:00', '1995-07-20 00:00', '1995-08-15 00:00', '1996-11-19 00:00',))
+if mibBuilder.loadTexts: ciscoCallHistoryMib.setLastUpdated('9611190000Z')
+if mibBuilder.loadTexts: ciscoCallHistoryMib.setOrganization('Cisco Systems, Inc.')
+ciscoCallHistoryMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 27, 1))
+ciscoCallHistory = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1))
+ciscoCallHistoryTableMaxLength = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 500)).clone(100)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoCallHistoryTableMaxLength.setStatus('current')
+ciscoCallHistoryRetainTimer = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 500)).clone(15)).setUnits('minutes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoCallHistoryRetainTimer.setStatus('current')
+ciscoCallHistoryTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3), )
+if mibBuilder.loadTexts: ciscoCallHistoryTable.setStatus('current')
+ciscoCallHistoryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1), ).setIndexNames((0, "CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryStartTime"), (0, "CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryIndex"))
+if mibBuilder.loadTexts: ciscoCallHistoryEntry.setStatus('current')
+ciscoCallHistoryStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 1), TimeStamp())
+if mibBuilder.loadTexts: ciscoCallHistoryStartTime.setStatus('current')
+ciscoCallHistoryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: ciscoCallHistoryIndex.setStatus('current')
+ciscoCallHistoryCallingNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryCallingNumber.setStatus('current')
+ciscoCallHistoryCalledNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryCalledNumber.setStatus('current')
+ciscoCallHistoryInterfaceNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 5), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryInterfaceNumber.setStatus('current')
+ciscoCallHistoryDestinationAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 60))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryDestinationAddress.setStatus('current')
+ciscoCallHistoryDestinationHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryDestinationHostName.setStatus('current')
+ciscoCallHistoryCallDisconnectCause = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("other", 1), ("normalDisconnectSent", 2), ("normalDisconnectReceived", 3), ("networkOutOfOrder", 4), ("callRejected", 5), ("userBusy", 6), ("noCircuitChannelAvailable", 7), ("interworkingError", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryCallDisconnectCause.setStatus('current')
+ciscoCallHistoryCallConnectionTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 9), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryCallConnectionTime.setStatus('current')
+ciscoCallHistoryCallDisconnectTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 10), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryCallDisconnectTime.setStatus('current')
+ciscoCallHistoryDialReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 11), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryDialReason.setStatus('current')
+ciscoCallHistoryConnectTimeOfDay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 12), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryConnectTimeOfDay.setStatus('current')
+ciscoCallHistoryDisconnectTimeOfDay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 13), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryDisconnectTimeOfDay.setStatus('current')
+ciscoCallHistoryTransmitPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryTransmitPackets.setStatus('current')
+ciscoCallHistoryTransmitBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryTransmitBytes.setStatus('current')
+ciscoCallHistoryReceivePackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 16), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryReceivePackets.setStatus('current')
+ciscoCallHistoryReceiveBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryReceiveBytes.setStatus('current')
+ciscoCallHistoryRecordedUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16777215))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryRecordedUnits.setStatus('current')
+ciscoCallHistoryCurrency = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 19), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryCurrency.setStatus('current')
+ciscoCallHistoryCurrencyAmount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16777215))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryCurrencyAmount.setStatus('current')
+ciscoCallHistoryMultiplier = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 27, 1, 1, 3, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("oneThousandth", 0), ("oneHundreth", 1), ("oneTenth", 2), ("one", 3), ("ten", 4), ("hundred", 5), ("thousand", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoCallHistoryMultiplier.setStatus('current')
+ciscoCallHistoryMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 27, 2))
+ciscoCallHistoryMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 27, 2, 1))
+ciscoCallHistoryMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 27, 2, 2))
+ciscoCallHistoryMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 27, 2, 1, 1)).setObjects(("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryMibGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCallHistoryMibCompliance = ciscoCallHistoryMibCompliance.setStatus('obsolete')
+ciscoCallHistoryMibComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 27, 2, 1, 2)).setObjects(("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryMibGroupRev1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCallHistoryMibComplianceRev1 = ciscoCallHistoryMibComplianceRev1.setStatus('obsolete')
+ciscoCallHistoryMibComplianceV11R01 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 27, 2, 1, 3)).setObjects(("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryMibGroupRev1"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryMibGlobalsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCallHistoryMibComplianceV11R01 = ciscoCallHistoryMibComplianceV11R01.setStatus('obsolete')
+ciscoCallHistoryMibComplianceV11R02 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 27, 2, 1, 4)).setObjects(("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryMibGroupRev2"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryMibGlobalsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCallHistoryMibComplianceV11R02 = ciscoCallHistoryMibComplianceV11R02.setStatus('current')
+ciscoCallHistoryMibGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 27, 2, 2, 1)).setObjects(("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCallingNumber"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCalledNumber"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryInterfaceNumber"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryDestinationAddress"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryDestinationHostName"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCallDisconnectCause"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCallConnectionTime"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCallDisconnectTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCallHistoryMibGroup = ciscoCallHistoryMibGroup.setStatus('obsolete')
+ciscoCallHistoryMibGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 27, 2, 2, 2)).setObjects(("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCallingNumber"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCalledNumber"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryInterfaceNumber"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryDestinationAddress"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryDestinationHostName"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCallDisconnectCause"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCallConnectionTime"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCallDisconnectTime"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryDialReason"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryConnectTimeOfDay"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryDisconnectTimeOfDay"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryTransmitPackets"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryTransmitBytes"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryReceivePackets"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryReceiveBytes"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCallHistoryMibGroupRev1 = ciscoCallHistoryMibGroupRev1.setStatus('obsolete')
+ciscoCallHistoryMibGroupRev2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 27, 2, 2, 3)).setObjects(("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCallingNumber"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCalledNumber"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryInterfaceNumber"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryDestinationAddress"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryDestinationHostName"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCallDisconnectCause"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCallConnectionTime"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCallDisconnectTime"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryDialReason"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryConnectTimeOfDay"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryDisconnectTimeOfDay"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryTransmitPackets"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryTransmitBytes"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryReceivePackets"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryReceiveBytes"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryRecordedUnits"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCurrency"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryCurrencyAmount"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryMultiplier"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCallHistoryMibGroupRev2 = ciscoCallHistoryMibGroupRev2.setStatus('current')
+ciscoCallHistoryMibGlobalsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 27, 2, 2, 4)).setObjects(("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryTableMaxLength"), ("CISCO-CALL-HISTORY-MIB", "ciscoCallHistoryRetainTimer"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCallHistoryMibGlobalsGroup = ciscoCallHistoryMibGlobalsGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-CALL-HISTORY-MIB", ciscoCallHistoryStartTime=ciscoCallHistoryStartTime, ciscoCallHistoryInterfaceNumber=ciscoCallHistoryInterfaceNumber, ciscoCallHistoryTransmitBytes=ciscoCallHistoryTransmitBytes, ciscoCallHistoryMibCompliance=ciscoCallHistoryMibCompliance, ciscoCallHistoryCallDisconnectCause=ciscoCallHistoryCallDisconnectCause, ciscoCallHistoryTransmitPackets=ciscoCallHistoryTransmitPackets, ciscoCallHistoryMibGroups=ciscoCallHistoryMibGroups, ciscoCallHistoryDialReason=ciscoCallHistoryDialReason, ciscoCallHistoryCurrency=ciscoCallHistoryCurrency, ciscoCallHistoryEntry=ciscoCallHistoryEntry, ciscoCallHistoryTableMaxLength=ciscoCallHistoryTableMaxLength, ciscoCallHistoryConnectTimeOfDay=ciscoCallHistoryConnectTimeOfDay, ciscoCallHistoryMibCompliances=ciscoCallHistoryMibCompliances, ciscoCallHistoryMultiplier=ciscoCallHistoryMultiplier, PYSNMP_MODULE_ID=ciscoCallHistoryMib, ciscoCallHistoryMibGroupRev2=ciscoCallHistoryMibGroupRev2, ciscoCallHistory=ciscoCallHistory, ciscoCallHistoryMibObjects=ciscoCallHistoryMibObjects, ciscoCallHistoryCallingNumber=ciscoCallHistoryCallingNumber, ciscoCallHistoryRetainTimer=ciscoCallHistoryRetainTimer, ciscoCallHistoryMibConformance=ciscoCallHistoryMibConformance, ciscoCallHistoryMibComplianceV11R02=ciscoCallHistoryMibComplianceV11R02, ciscoCallHistoryIndex=ciscoCallHistoryIndex, ciscoCallHistoryCallDisconnectTime=ciscoCallHistoryCallDisconnectTime, ciscoCallHistoryMibComplianceRev1=ciscoCallHistoryMibComplianceRev1, ciscoCallHistoryMibGroupRev1=ciscoCallHistoryMibGroupRev1, ciscoCallHistoryCallConnectionTime=ciscoCallHistoryCallConnectionTime, ciscoCallHistoryCurrencyAmount=ciscoCallHistoryCurrencyAmount, ciscoCallHistoryDestinationHostName=ciscoCallHistoryDestinationHostName, ciscoCallHistoryRecordedUnits=ciscoCallHistoryRecordedUnits, ciscoCallHistoryMib=ciscoCallHistoryMib, ciscoCallHistoryReceivePackets=ciscoCallHistoryReceivePackets, ciscoCallHistoryReceiveBytes=ciscoCallHistoryReceiveBytes, ciscoCallHistoryTable=ciscoCallHistoryTable, ciscoCallHistoryMibComplianceV11R01=ciscoCallHistoryMibComplianceV11R01, ciscoCallHistoryMibGroup=ciscoCallHistoryMibGroup, ciscoCallHistoryCalledNumber=ciscoCallHistoryCalledNumber, ciscoCallHistoryDestinationAddress=ciscoCallHistoryDestinationAddress, ciscoCallHistoryDisconnectTimeOfDay=ciscoCallHistoryDisconnectTimeOfDay, ciscoCallHistoryMibGlobalsGroup=ciscoCallHistoryMibGlobalsGroup)

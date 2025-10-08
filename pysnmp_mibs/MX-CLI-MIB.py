@@ -1,83 +1,43 @@
-_G='Unsigned32'
-_F='OctetString'
-_E='MxIpPort'
-_D='MxEnableState'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mediatrixServices,=mibBuilder.importSymbols('MX-SMI2','mediatrixServices')
-MxActivationState,MxAdvancedIpPort,MxDigitMap,MxEnableState,MxIpAddress,MxIpHostName,MxIpPort,MxIpSubnetMask=mibBuilder.importSymbols('MX-TC','MxActivationState','MxAdvancedIpPort','MxDigitMap',_D,'MxIpAddress','MxIpHostName',_E,'MxIpSubnetMask')
-MxFloat32,MxIpAddr,MxIpAddrMask,MxIpAddrPort,MxIpHostNamePort,MxUInt64,MxUri,MxUrl=mibBuilder.importSymbols('MX-TC2','MxFloat32','MxIpAddr','MxIpAddrMask','MxIpAddrPort','MxIpHostNamePort','MxUInt64','MxUri','MxUrl')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-cliMIB=ModuleIdentity((1,3,6,1,4,1,4935,1000,100,200,100,2700))
-_CliMIBObjects_ObjectIdentity=ObjectIdentity
-cliMIBObjects=_CliMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,2700,1))
-class _InactivityTimeOut_Type(Unsigned32):defaultValue=15;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,90))
-_InactivityTimeOut_Type.__name__=_G
-_InactivityTimeOut_Object=MibScalar
-inactivityTimeOut=_InactivityTimeOut_Object((1,3,6,1,4,1,4935,1000,100,200,100,2700,1,100),_InactivityTimeOut_Type())
-inactivityTimeOut.setMaxAccess(_B)
-if mibBuilder.loadTexts:inactivityTimeOut.setStatus(_A)
-class _WelcomeMessage_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
-_WelcomeMessage_Type.__name__=_F
-_WelcomeMessage_Object=MibScalar
-welcomeMessage=_WelcomeMessage_Object((1,3,6,1,4,1,4935,1000,100,200,100,2700,1,200),_WelcomeMessage_Type())
-welcomeMessage.setMaxAccess(_B)
-if mibBuilder.loadTexts:welcomeMessage.setStatus(_A)
-_TelnetGroup_ObjectIdentity=ObjectIdentity
-telnetGroup=_TelnetGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,2700,1,1000))
-class _EnableTelnet_Type(MxEnableState):defaultValue=0
-_EnableTelnet_Type.__name__=_D
-_EnableTelnet_Object=MibScalar
-enableTelnet=_EnableTelnet_Object((1,3,6,1,4,1,4935,1000,100,200,100,2700,1,1000,100),_EnableTelnet_Type())
-enableTelnet.setMaxAccess(_B)
-if mibBuilder.loadTexts:enableTelnet.setStatus(_A)
-class _TelnetPort_Type(MxIpPort):defaultValue=23
-_TelnetPort_Type.__name__=_E
-_TelnetPort_Object=MibScalar
-telnetPort=_TelnetPort_Object((1,3,6,1,4,1,4935,1000,100,200,100,2700,1,1000,200),_TelnetPort_Type())
-telnetPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:telnetPort.setStatus(_A)
-_SshGroup_ObjectIdentity=ObjectIdentity
-sshGroup=_SshGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,2700,1,1100))
-class _EnableSsh_Type(MxEnableState):defaultValue=1
-_EnableSsh_Type.__name__=_D
-_EnableSsh_Object=MibScalar
-enableSsh=_EnableSsh_Object((1,3,6,1,4,1,4935,1000,100,200,100,2700,1,1100,100),_EnableSsh_Type())
-enableSsh.setMaxAccess(_B)
-if mibBuilder.loadTexts:enableSsh.setStatus(_A)
-class _SshPort_Type(MxIpPort):defaultValue=22
-_SshPort_Type.__name__=_E
-_SshPort_Object=MibScalar
-sshPort=_SshPort_Object((1,3,6,1,4,1,4935,1000,100,200,100,2700,1,1100,200),_SshPort_Type())
-sshPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshPort.setStatus(_A)
-class _SshSecurityLevel_Type(Integer32):defaultValue=200;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(100,200,300)));namedValues=NamedValues(*(('permissive',100),('standard',200),('mostSecure',300)))
-_SshSecurityLevel_Type.__name__=_C
-_SshSecurityLevel_Object=MibScalar
-sshSecurityLevel=_SshSecurityLevel_Object((1,3,6,1,4,1,4935,1000,100,200,100,2700,1,1100,300),_SshSecurityLevel_Type())
-sshSecurityLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:sshSecurityLevel.setStatus(_A)
-_NotificationsGroup_ObjectIdentity=ObjectIdentity
-notificationsGroup=_NotificationsGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,2700,1,60010))
-class _MinSeverity_Type(Integer32):defaultValue=300;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,100,200,300,400,500)));namedValues=NamedValues(*(('disable',0),('debug',100),('info',200),('warning',300),('error',400),('critical',500)))
-_MinSeverity_Type.__name__=_C
-_MinSeverity_Object=MibScalar
-minSeverity=_MinSeverity_Object((1,3,6,1,4,1,4935,1000,100,200,100,2700,1,60010,100),_MinSeverity_Type())
-minSeverity.setMaxAccess(_B)
-if mibBuilder.loadTexts:minSeverity.setStatus(_A)
-_ConfigurationGroup_ObjectIdentity=ObjectIdentity
-configurationGroup=_ConfigurationGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,2700,1,60020))
-class _NeedRestartInfo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,100)));namedValues=NamedValues(*(('no',0),('yes',100)))
-_NeedRestartInfo_Type.__name__=_C
-_NeedRestartInfo_Object=MibScalar
-needRestartInfo=_NeedRestartInfo_Object((1,3,6,1,4,1,4935,1000,100,200,100,2700,1,60020,100),_NeedRestartInfo_Type())
-needRestartInfo.setMaxAccess('read-only')
-if mibBuilder.loadTexts:needRestartInfo.setStatus(_A)
-mibBuilder.exportSymbols('MX-CLI-MIB',**{'cliMIB':cliMIB,'cliMIBObjects':cliMIBObjects,'inactivityTimeOut':inactivityTimeOut,'welcomeMessage':welcomeMessage,'telnetGroup':telnetGroup,'enableTelnet':enableTelnet,'telnetPort':telnetPort,'sshGroup':sshGroup,'enableSsh':enableSsh,'sshPort':sshPort,'sshSecurityLevel':sshSecurityLevel,'notificationsGroup':notificationsGroup,'minSeverity':minSeverity,'configurationGroup':configurationGroup,'needRestartInfo':needRestartInfo})
+#
+# PySNMP MIB module MX-CLI-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-CLI-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mediatrixServices, = mibBuilder.importSymbols("MX-SMI2", "mediatrixServices")
+MxActivationState, MxEnableState, MxIpAddress, MxAdvancedIpPort, MxDigitMap, MxIpPort, MxIpHostName, MxIpSubnetMask = mibBuilder.importSymbols("MX-TC", "MxActivationState", "MxEnableState", "MxIpAddress", "MxAdvancedIpPort", "MxDigitMap", "MxIpPort", "MxIpHostName", "MxIpSubnetMask")
+MxIpHostNamePort, MxIpAddrMask, MxUri, MxIpAddr, MxIpAddrPort, MxUrl, MxUInt64, MxFloat32 = mibBuilder.importSymbols("MX-TC2", "MxIpHostNamePort", "MxIpAddrMask", "MxUri", "MxIpAddr", "MxIpAddrPort", "MxUrl", "MxUInt64", "MxFloat32")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+cliMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2700))
+if mibBuilder.loadTexts: cliMIB.setLastUpdated('1910210000Z')
+if mibBuilder.loadTexts: cliMIB.setOrganization(' Mediatrix Telecom, Inc. ')
+cliMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2700, 1))
+inactivityTimeOut = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2700, 1, 100), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 90)).clone(15)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: inactivityTimeOut.setStatus('current')
+welcomeMessage = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2700, 1, 200), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 1024))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: welcomeMessage.setStatus('current')
+telnetGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2700, 1, 1000))
+enableTelnet = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2700, 1, 1000, 100), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enableTelnet.setStatus('current')
+telnetPort = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2700, 1, 1000, 200), MxIpPort().clone(23)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: telnetPort.setStatus('current')
+sshGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2700, 1, 1100))
+enableSsh = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2700, 1, 1100, 100), MxEnableState().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enableSsh.setStatus('current')
+sshPort = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2700, 1, 1100, 200), MxIpPort().clone(22)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sshPort.setStatus('current')
+sshSecurityLevel = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2700, 1, 1100, 300), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 200, 300))).clone(namedValues=NamedValues(("permissive", 100), ("standard", 200), ("mostSecure", 300))).clone('standard')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sshSecurityLevel.setStatus('current')
+notificationsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2700, 1, 60010))
+minSeverity = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2700, 1, 60010, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100, 200, 300, 400, 500))).clone(namedValues=NamedValues(("disable", 0), ("debug", 100), ("info", 200), ("warning", 300), ("error", 400), ("critical", 500))).clone('warning')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: minSeverity.setStatus('current')
+configurationGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2700, 1, 60020))
+needRestartInfo = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2700, 1, 60020, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100))).clone(namedValues=NamedValues(("no", 0), ("yes", 100)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: needRestartInfo.setStatus('current')
+mibBuilder.exportSymbols("MX-CLI-MIB", welcomeMessage=welcomeMessage, enableTelnet=enableTelnet, PYSNMP_MODULE_ID=cliMIB, sshGroup=sshGroup, inactivityTimeOut=inactivityTimeOut, sshSecurityLevel=sshSecurityLevel, telnetPort=telnetPort, cliMIB=cliMIB, sshPort=sshPort, cliMIBObjects=cliMIBObjects, notificationsGroup=notificationsGroup, minSeverity=minSeverity, configurationGroup=configurationGroup, needRestartInfo=needRestartInfo, telnetGroup=telnetGroup, enableSsh=enableSsh)

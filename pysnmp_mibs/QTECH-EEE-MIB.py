@@ -1,46 +1,30 @@
-_H='disabled'
-_G='enabled'
-_F='read-only'
-_E='qtechEEEifIndex'
-_D='QTECH-EEE-MIB'
-_C='2012-10-16 00:00'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-qtechMgmt,=mibBuilder.importSymbols('QTECH-SMI','qtechMgmt')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-qtechEEEMIB=ModuleIdentity((1,3,6,1,4,1,27514,1,1,10,2,119))
-if mibBuilder.loadTexts:qtechEEEMIB.setRevisions((_C,_C))
-_QtechEEEConfigMIBObjects_ObjectIdentity=ObjectIdentity
-qtechEEEConfigMIBObjects=_QtechEEEConfigMIBObjects_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,119,1))
-_QtechEEETable_Object=MibTable
-qtechEEETable=_QtechEEETable_Object((1,3,6,1,4,1,27514,1,1,10,2,119,1,1))
-if mibBuilder.loadTexts:qtechEEETable.setStatus(_A)
-_QtechEEEEntry_Object=MibTableRow
-qtechEEEEntry=_QtechEEEEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,119,1,1,1))
-qtechEEEEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:qtechEEEEntry.setStatus(_A)
-class _QtechEEEifIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_QtechEEEifIndex_Type.__name__=_B
-_QtechEEEifIndex_Object=MibTableColumn
-qtechEEEifIndex=_QtechEEEifIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,119,1,1,1,1),_QtechEEEifIndex_Type())
-qtechEEEifIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:qtechEEEifIndex.setStatus(_A)
-class _QtechEEEAdminEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_QtechEEEAdminEnable_Type.__name__=_B
-_QtechEEEAdminEnable_Object=MibTableColumn
-qtechEEEAdminEnable=_QtechEEEAdminEnable_Object((1,3,6,1,4,1,27514,1,1,10,2,119,1,1,1,2),_QtechEEEAdminEnable_Type())
-qtechEEEAdminEnable.setMaxAccess('read-write')
-if mibBuilder.loadTexts:qtechEEEAdminEnable.setStatus(_A)
-class _QtechEEEOperEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_QtechEEEOperEnable_Type.__name__=_B
-_QtechEEEOperEnable_Object=MibTableColumn
-qtechEEEOperEnable=_QtechEEEOperEnable_Object((1,3,6,1,4,1,27514,1,1,10,2,119,1,1,1,3),_QtechEEEOperEnable_Type())
-qtechEEEOperEnable.setMaxAccess(_F)
-if mibBuilder.loadTexts:qtechEEEOperEnable.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'qtechEEEMIB':qtechEEEMIB,'qtechEEEConfigMIBObjects':qtechEEEConfigMIBObjects,'qtechEEETable':qtechEEETable,'qtechEEEEntry':qtechEEEEntry,_E:qtechEEEifIndex,'qtechEEEAdminEnable':qtechEEEAdminEnable,'qtechEEEOperEnable':qtechEEEOperEnable})
+#
+# PySNMP MIB module QTECH-EEE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-EEE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:13 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+qtechEEEMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 119))
+qtechEEEMIB.setRevisions(('2012-10-16 00:00', '2012-10-16 00:00',))
+if mibBuilder.loadTexts: qtechEEEMIB.setLastUpdated('201210160000Z')
+if mibBuilder.loadTexts: qtechEEEMIB.setOrganization('Qtech Networks Co.,Ltd.')
+qtechEEEConfigMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 119, 1))
+qtechEEETable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 119, 1, 1), )
+if mibBuilder.loadTexts: qtechEEETable.setStatus('current')
+qtechEEEEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 119, 1, 1, 1), ).setIndexNames((0, "QTECH-EEE-MIB", "qtechEEEifIndex"))
+if mibBuilder.loadTexts: qtechEEEEntry.setStatus('current')
+qtechEEEifIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 119, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechEEEifIndex.setStatus('current')
+qtechEEEAdminEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 119, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechEEEAdminEnable.setStatus('current')
+qtechEEEOperEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 119, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechEEEOperEnable.setStatus('current')
+mibBuilder.exportSymbols("QTECH-EEE-MIB", PYSNMP_MODULE_ID=qtechEEEMIB, qtechEEEOperEnable=qtechEEEOperEnable, qtechEEEMIB=qtechEEEMIB, qtechEEETable=qtechEEETable, qtechEEEConfigMIBObjects=qtechEEEConfigMIBObjects, qtechEEEifIndex=qtechEEEifIndex, qtechEEEAdminEnable=qtechEEEAdminEnable, qtechEEEEntry=qtechEEEEntry)

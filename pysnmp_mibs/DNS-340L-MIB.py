@@ -1,182 +1,91 @@
-_F='dns340LUPSNum'
-_E='dns340LDiskNum'
-_D='dns340LVolumeNum'
-_C='DNS-340L-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_D_link_ObjectIdentity=ObjectIdentity
-d_link=_D_link_ObjectIdentity((1,3,6,1,4,1,171))
-_ProductID_ObjectIdentity=ObjectIdentity
-productID=_ProductID_ObjectIdentity((1,3,6,1,4,1,171,50))
-_ProjectID_ObjectIdentity=ObjectIdentity
-projectID=_ProjectID_ObjectIdentity((1,3,6,1,4,1,171,50,1))
-_ModelID_ObjectIdentity=ObjectIdentity
-modelID=_ModelID_ObjectIdentity((1,3,6,1,4,1,171,50,1,10))
-_SubmodelID_ObjectIdentity=ObjectIdentity
-submodelID=_SubmodelID_ObjectIdentity((1,3,6,1,4,1,171,50,1,10,1))
-_NasAgent_ObjectIdentity=ObjectIdentity
-nasAgent=_NasAgent_ObjectIdentity((1,3,6,1,4,1,171,50,1,10,1,1))
-_Dns340LAgentVer_Type=DisplayString
-_Dns340LAgentVer_Object=MibScalar
-dns340LAgentVer=_Dns340LAgentVer_Object((1,3,6,1,4,1,171,50,1,10,1,1,1),_Dns340LAgentVer_Type())
-dns340LAgentVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LAgentVer.setStatus(_A)
-_Dns340LSoftwareVersion_Type=DisplayString
-_Dns340LSoftwareVersion_Object=MibScalar
-dns340LSoftwareVersion=_Dns340LSoftwareVersion_Object((1,3,6,1,4,1,171,50,1,10,1,1,2),_Dns340LSoftwareVersion_Type())
-dns340LSoftwareVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LSoftwareVersion.setStatus(_A)
-_Dns340LHostName_Type=DisplayString
-_Dns340LHostName_Object=MibScalar
-dns340LHostName=_Dns340LHostName_Object((1,3,6,1,4,1,171,50,1,10,1,1,3),_Dns340LHostName_Type())
-dns340LHostName.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LHostName.setStatus(_A)
-_Dns340LFTPServer_Type=DisplayString
-_Dns340LFTPServer_Object=MibScalar
-dns340LFTPServer=_Dns340LFTPServer_Object((1,3,6,1,4,1,171,50,1,10,1,1,5),_Dns340LFTPServer_Type())
-dns340LFTPServer.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LFTPServer.setStatus(_A)
-_Dns340LNetType_Type=DisplayString
-_Dns340LNetType_Object=MibScalar
-dns340LNetType=_Dns340LNetType_Object((1,3,6,1,4,1,171,50,1,10,1,1,6),_Dns340LNetType_Type())
-dns340LNetType.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LNetType.setStatus(_A)
-_Dns340LTemperature_Type=DisplayString
-_Dns340LTemperature_Object=MibScalar
-dns340LTemperature=_Dns340LTemperature_Object((1,3,6,1,4,1,171,50,1,10,1,1,7),_Dns340LTemperature_Type())
-dns340LTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LTemperature.setStatus(_A)
-_Dns340LFanStatus_Type=DisplayString
-_Dns340LFanStatus_Object=MibScalar
-dns340LFanStatus=_Dns340LFanStatus_Object((1,3,6,1,4,1,171,50,1,10,1,1,8),_Dns340LFanStatus_Type())
-dns340LFanStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LFanStatus.setStatus(_A)
-_Dns340LVolumeTable_Object=MibTable
-dns340LVolumeTable=_Dns340LVolumeTable_Object((1,3,6,1,4,1,171,50,1,10,1,1,9))
-if mibBuilder.loadTexts:dns340LVolumeTable.setStatus(_A)
-_Dns340LVolumeEntry_Object=MibTableRow
-dns340LVolumeEntry=_Dns340LVolumeEntry_Object((1,3,6,1,4,1,171,50,1,10,1,1,9,1))
-dns340LVolumeEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:dns340LVolumeEntry.setStatus(_A)
-_Dns340LVolumeNum_Type=Integer32
-_Dns340LVolumeNum_Object=MibTableColumn
-dns340LVolumeNum=_Dns340LVolumeNum_Object((1,3,6,1,4,1,171,50,1,10,1,1,9,1,1),_Dns340LVolumeNum_Type())
-dns340LVolumeNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LVolumeNum.setStatus(_A)
-_Dns340LVolumeName_Type=DisplayString
-_Dns340LVolumeName_Object=MibTableColumn
-dns340LVolumeName=_Dns340LVolumeName_Object((1,3,6,1,4,1,171,50,1,10,1,1,9,1,2),_Dns340LVolumeName_Type())
-dns340LVolumeName.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LVolumeName.setStatus(_A)
-_Dns340LVolumeFsType_Type=DisplayString
-_Dns340LVolumeFsType_Object=MibTableColumn
-dns340LVolumeFsType=_Dns340LVolumeFsType_Object((1,3,6,1,4,1,171,50,1,10,1,1,9,1,3),_Dns340LVolumeFsType_Type())
-dns340LVolumeFsType.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LVolumeFsType.setStatus(_A)
-_Dns340LVolumeRaidLevel_Type=DisplayString
-_Dns340LVolumeRaidLevel_Object=MibTableColumn
-dns340LVolumeRaidLevel=_Dns340LVolumeRaidLevel_Object((1,3,6,1,4,1,171,50,1,10,1,1,9,1,4),_Dns340LVolumeRaidLevel_Type())
-dns340LVolumeRaidLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LVolumeRaidLevel.setStatus(_A)
-_Dns340LVolumeSize_Type=DisplayString
-_Dns340LVolumeSize_Object=MibTableColumn
-dns340LVolumeSize=_Dns340LVolumeSize_Object((1,3,6,1,4,1,171,50,1,10,1,1,9,1,5),_Dns340LVolumeSize_Type())
-dns340LVolumeSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LVolumeSize.setStatus(_A)
-_Dns340LVolumeFreeSpace_Type=DisplayString
-_Dns340LVolumeFreeSpace_Object=MibTableColumn
-dns340LVolumeFreeSpace=_Dns340LVolumeFreeSpace_Object((1,3,6,1,4,1,171,50,1,10,1,1,9,1,6),_Dns340LVolumeFreeSpace_Type())
-dns340LVolumeFreeSpace.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LVolumeFreeSpace.setStatus(_A)
-_Dns340LDiskTable_Object=MibTable
-dns340LDiskTable=_Dns340LDiskTable_Object((1,3,6,1,4,1,171,50,1,10,1,1,10))
-if mibBuilder.loadTexts:dns340LDiskTable.setStatus(_A)
-_Dns340LDiskEntry_Object=MibTableRow
-dns340LDiskEntry=_Dns340LDiskEntry_Object((1,3,6,1,4,1,171,50,1,10,1,1,10,1))
-dns340LDiskEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:dns340LDiskEntry.setStatus(_A)
-_Dns340LDiskNum_Type=Integer32
-_Dns340LDiskNum_Object=MibTableColumn
-dns340LDiskNum=_Dns340LDiskNum_Object((1,3,6,1,4,1,171,50,1,10,1,1,10,1,1),_Dns340LDiskNum_Type())
-dns340LDiskNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LDiskNum.setStatus(_A)
-_Dns340LDiskVendor_Type=DisplayString
-_Dns340LDiskVendor_Object=MibTableColumn
-dns340LDiskVendor=_Dns340LDiskVendor_Object((1,3,6,1,4,1,171,50,1,10,1,1,10,1,2),_Dns340LDiskVendor_Type())
-dns340LDiskVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LDiskVendor.setStatus(_A)
-_Dns340LDiskModel_Type=DisplayString
-_Dns340LDiskModel_Object=MibTableColumn
-dns340LDiskModel=_Dns340LDiskModel_Object((1,3,6,1,4,1,171,50,1,10,1,1,10,1,3),_Dns340LDiskModel_Type())
-dns340LDiskModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LDiskModel.setStatus(_A)
-_Dns340LDiskSerialNumber_Type=DisplayString
-_Dns340LDiskSerialNumber_Object=MibTableColumn
-dns340LDiskSerialNumber=_Dns340LDiskSerialNumber_Object((1,3,6,1,4,1,171,50,1,10,1,1,10,1,4),_Dns340LDiskSerialNumber_Type())
-dns340LDiskSerialNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LDiskSerialNumber.setStatus(_A)
-_Dns340LDiskTemperature_Type=DisplayString
-_Dns340LDiskTemperature_Object=MibTableColumn
-dns340LDiskTemperature=_Dns340LDiskTemperature_Object((1,3,6,1,4,1,171,50,1,10,1,1,10,1,5),_Dns340LDiskTemperature_Type())
-dns340LDiskTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LDiskTemperature.setStatus(_A)
-_Dns340LDiskCapacity_Type=DisplayString
-_Dns340LDiskCapacity_Object=MibTableColumn
-dns340LDiskCapacity=_Dns340LDiskCapacity_Object((1,3,6,1,4,1,171,50,1,10,1,1,10,1,6),_Dns340LDiskCapacity_Type())
-dns340LDiskCapacity.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LDiskCapacity.setStatus(_A)
-_Dns340LUPSTable_Object=MibTable
-dns340LUPSTable=_Dns340LUPSTable_Object((1,3,6,1,4,1,171,50,1,10,1,1,11))
-if mibBuilder.loadTexts:dns340LUPSTable.setStatus(_A)
-_Dns340LUPSEntry_Object=MibTableRow
-dns340LUPSEntry=_Dns340LUPSEntry_Object((1,3,6,1,4,1,171,50,1,10,1,1,11,1))
-dns340LUPSEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:dns340LUPSEntry.setStatus(_A)
-_Dns340LUPSNum_Type=Integer32
-_Dns340LUPSNum_Object=MibTableColumn
-dns340LUPSNum=_Dns340LUPSNum_Object((1,3,6,1,4,1,171,50,1,10,1,1,11,1,1),_Dns340LUPSNum_Type())
-dns340LUPSNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LUPSNum.setStatus(_A)
-_Dns340LUPSMode_Type=DisplayString
-_Dns340LUPSMode_Object=MibTableColumn
-dns340LUPSMode=_Dns340LUPSMode_Object((1,3,6,1,4,1,171,50,1,10,1,1,11,1,2),_Dns340LUPSMode_Type())
-dns340LUPSMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LUPSMode.setStatus(_A)
-_Dns340LUPSManufacturer_Type=DisplayString
-_Dns340LUPSManufacturer_Object=MibTableColumn
-dns340LUPSManufacturer=_Dns340LUPSManufacturer_Object((1,3,6,1,4,1,171,50,1,10,1,1,11,1,3),_Dns340LUPSManufacturer_Type())
-dns340LUPSManufacturer.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LUPSManufacturer.setStatus(_A)
-_Dns340LUPSProduct_Type=DisplayString
-_Dns340LUPSProduct_Object=MibTableColumn
-dns340LUPSProduct=_Dns340LUPSProduct_Object((1,3,6,1,4,1,171,50,1,10,1,1,11,1,4),_Dns340LUPSProduct_Type())
-dns340LUPSProduct.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LUPSProduct.setStatus(_A)
-_Dns340LUPSBatteryCharge_Type=DisplayString
-_Dns340LUPSBatteryCharge_Object=MibTableColumn
-dns340LUPSBatteryCharge=_Dns340LUPSBatteryCharge_Object((1,3,6,1,4,1,171,50,1,10,1,1,11,1,5),_Dns340LUPSBatteryCharge_Type())
-dns340LUPSBatteryCharge.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LUPSBatteryCharge.setStatus(_A)
-_Dns340LUPSStatus_Type=DisplayString
-_Dns340LUPSStatus_Object=MibTableColumn
-dns340LUPSStatus=_Dns340LUPSStatus_Object((1,3,6,1,4,1,171,50,1,10,1,1,11,1,6),_Dns340LUPSStatus_Type())
-dns340LUPSStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:dns340LUPSStatus.setStatus(_A)
-_NotifyEvts_ObjectIdentity=ObjectIdentity
-notifyEvts=_NotifyEvts_ObjectIdentity((1,3,6,1,4,1,171,50,1,10,1,1,200))
-notifyPasswdChanged=NotificationType((1,3,6,1,4,1,171,50,1,10,1,1,200,1))
-if mibBuilder.loadTexts:notifyPasswdChanged.setStatus(_A)
-notifyFirmwareUpgraded=NotificationType((1,3,6,1,4,1,171,50,1,10,1,1,200,2))
-if mibBuilder.loadTexts:notifyFirmwareUpgraded.setStatus(_A)
-notifyNetworkChanged=NotificationType((1,3,6,1,4,1,171,50,1,10,1,1,200,3))
-if mibBuilder.loadTexts:notifyNetworkChanged.setStatus(_A)
-notifyTemperatureExceeded=NotificationType((1,3,6,1,4,1,171,50,1,10,1,1,200,4))
-if mibBuilder.loadTexts:notifyTemperatureExceeded.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'d-link':d_link,'productID':productID,'projectID':projectID,'modelID':modelID,'submodelID':submodelID,'nasAgent':nasAgent,'dns340LAgentVer':dns340LAgentVer,'dns340LSoftwareVersion':dns340LSoftwareVersion,'dns340LHostName':dns340LHostName,'dns340LFTPServer':dns340LFTPServer,'dns340LNetType':dns340LNetType,'dns340LTemperature':dns340LTemperature,'dns340LFanStatus':dns340LFanStatus,'dns340LVolumeTable':dns340LVolumeTable,'dns340LVolumeEntry':dns340LVolumeEntry,_D:dns340LVolumeNum,'dns340LVolumeName':dns340LVolumeName,'dns340LVolumeFsType':dns340LVolumeFsType,'dns340LVolumeRaidLevel':dns340LVolumeRaidLevel,'dns340LVolumeSize':dns340LVolumeSize,'dns340LVolumeFreeSpace':dns340LVolumeFreeSpace,'dns340LDiskTable':dns340LDiskTable,'dns340LDiskEntry':dns340LDiskEntry,_E:dns340LDiskNum,'dns340LDiskVendor':dns340LDiskVendor,'dns340LDiskModel':dns340LDiskModel,'dns340LDiskSerialNumber':dns340LDiskSerialNumber,'dns340LDiskTemperature':dns340LDiskTemperature,'dns340LDiskCapacity':dns340LDiskCapacity,'dns340LUPSTable':dns340LUPSTable,'dns340LUPSEntry':dns340LUPSEntry,_F:dns340LUPSNum,'dns340LUPSMode':dns340LUPSMode,'dns340LUPSManufacturer':dns340LUPSManufacturer,'dns340LUPSProduct':dns340LUPSProduct,'dns340LUPSBatteryCharge':dns340LUPSBatteryCharge,'dns340LUPSStatus':dns340LUPSStatus,'notifyEvts':notifyEvts,'notifyPasswdChanged':notifyPasswdChanged,'notifyFirmwareUpgraded':notifyFirmwareUpgraded,'notifyNetworkChanged':notifyNetworkChanged,'notifyTemperatureExceeded':notifyTemperatureExceeded})
+#
+# PySNMP MIB module DNS-340L-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DNS-340L-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:11 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+d_link = MibIdentifier((1, 3, 6, 1, 4, 1, 171)).setLabel("d-link")
+productID = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 50))
+projectID = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 50, 1))
+modelID = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 50, 1, 10))
+submodelID = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1))
+nasAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1))
+dns340LAgentVer = MibScalar((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LAgentVer.setStatus('current')
+dns340LSoftwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LSoftwareVersion.setStatus('current')
+dns340LHostName = MibScalar((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LHostName.setStatus('current')
+dns340LFTPServer = MibScalar((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LFTPServer.setStatus('current')
+dns340LNetType = MibScalar((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LNetType.setStatus('current')
+dns340LTemperature = MibScalar((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LTemperature.setStatus('current')
+dns340LFanStatus = MibScalar((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LFanStatus.setStatus('current')
+dns340LVolumeTable = MibTable((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 9), )
+if mibBuilder.loadTexts: dns340LVolumeTable.setStatus('current')
+dns340LVolumeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 9, 1), ).setIndexNames((0, "DNS-340L-MIB", "dns340LVolumeNum"))
+if mibBuilder.loadTexts: dns340LVolumeEntry.setStatus('current')
+dns340LVolumeNum = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 9, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LVolumeNum.setStatus('current')
+dns340LVolumeName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 9, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LVolumeName.setStatus('current')
+dns340LVolumeFsType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 9, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LVolumeFsType.setStatus('current')
+dns340LVolumeRaidLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 9, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LVolumeRaidLevel.setStatus('current')
+dns340LVolumeSize = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 9, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LVolumeSize.setStatus('current')
+dns340LVolumeFreeSpace = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 9, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LVolumeFreeSpace.setStatus('current')
+dns340LDiskTable = MibTable((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 10), )
+if mibBuilder.loadTexts: dns340LDiskTable.setStatus('current')
+dns340LDiskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 10, 1), ).setIndexNames((0, "DNS-340L-MIB", "dns340LDiskNum"))
+if mibBuilder.loadTexts: dns340LDiskEntry.setStatus('current')
+dns340LDiskNum = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 10, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LDiskNum.setStatus('current')
+dns340LDiskVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 10, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LDiskVendor.setStatus('current')
+dns340LDiskModel = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 10, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LDiskModel.setStatus('current')
+dns340LDiskSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 10, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LDiskSerialNumber.setStatus('current')
+dns340LDiskTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 10, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LDiskTemperature.setStatus('current')
+dns340LDiskCapacity = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 10, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LDiskCapacity.setStatus('current')
+dns340LUPSTable = MibTable((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 11), )
+if mibBuilder.loadTexts: dns340LUPSTable.setStatus('current')
+dns340LUPSEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 11, 1), ).setIndexNames((0, "DNS-340L-MIB", "dns340LUPSNum"))
+if mibBuilder.loadTexts: dns340LUPSEntry.setStatus('current')
+dns340LUPSNum = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 11, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LUPSNum.setStatus('current')
+dns340LUPSMode = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 11, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LUPSMode.setStatus('current')
+dns340LUPSManufacturer = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 11, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LUPSManufacturer.setStatus('current')
+dns340LUPSProduct = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 11, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LUPSProduct.setStatus('current')
+dns340LUPSBatteryCharge = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 11, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LUPSBatteryCharge.setStatus('current')
+dns340LUPSStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 11, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dns340LUPSStatus.setStatus('current')
+notifyEvts = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 200))
+notifyPasswdChanged = NotificationType((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 200, 1))
+if mibBuilder.loadTexts: notifyPasswdChanged.setStatus('current')
+notifyFirmwareUpgraded = NotificationType((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 200, 2))
+if mibBuilder.loadTexts: notifyFirmwareUpgraded.setStatus('current')
+notifyNetworkChanged = NotificationType((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 200, 3))
+if mibBuilder.loadTexts: notifyNetworkChanged.setStatus('current')
+notifyTemperatureExceeded = NotificationType((1, 3, 6, 1, 4, 1, 171, 50, 1, 10, 1, 1, 200, 4))
+if mibBuilder.loadTexts: notifyTemperatureExceeded.setStatus('current')
+mibBuilder.exportSymbols("DNS-340L-MIB", dns340LUPSNum=dns340LUPSNum, dns340LUPSBatteryCharge=dns340LUPSBatteryCharge, dns340LVolumeNum=dns340LVolumeNum, dns340LUPSManufacturer=dns340LUPSManufacturer, nasAgent=nasAgent, dns340LAgentVer=dns340LAgentVer, dns340LFanStatus=dns340LFanStatus, notifyNetworkChanged=notifyNetworkChanged, dns340LHostName=dns340LHostName, dns340LDiskEntry=dns340LDiskEntry, dns340LFTPServer=dns340LFTPServer, dns340LUPSProduct=dns340LUPSProduct, dns340LVolumeFsType=dns340LVolumeFsType, dns340LDiskSerialNumber=dns340LDiskSerialNumber, notifyTemperatureExceeded=notifyTemperatureExceeded, dns340LDiskTemperature=dns340LDiskTemperature, projectID=projectID, dns340LDiskCapacity=dns340LDiskCapacity, dns340LDiskTable=dns340LDiskTable, dns340LUPSStatus=dns340LUPSStatus, notifyFirmwareUpgraded=notifyFirmwareUpgraded, d_link=d_link, dns340LTemperature=dns340LTemperature, dns340LVolumeRaidLevel=dns340LVolumeRaidLevel, notifyPasswdChanged=notifyPasswdChanged, dns340LVolumeName=dns340LVolumeName, dns340LVolumeEntry=dns340LVolumeEntry, dns340LVolumeFreeSpace=dns340LVolumeFreeSpace, dns340LUPSMode=dns340LUPSMode, dns340LUPSEntry=dns340LUPSEntry, productID=productID, modelID=modelID, dns340LUPSTable=dns340LUPSTable, submodelID=submodelID, dns340LNetType=dns340LNetType, notifyEvts=notifyEvts, dns340LDiskVendor=dns340LDiskVendor, dns340LVolumeSize=dns340LVolumeSize, dns340LDiskModel=dns340LDiskModel, dns340LDiskNum=dns340LDiskNum, dns340LVolumeTable=dns340LVolumeTable, dns340LSoftwareVersion=dns340LSoftwareVersion)

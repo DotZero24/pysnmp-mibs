@@ -1,136 +1,57 @@
-_U='NotificationType'
-_T='mandatory'
-_S='Integer32'
-_R='cpqOneViewAlertInfo'
-_Q='cpqOneViewAlertTypeId'
-_P='cpqOneViewAlertEnterpriseId'
-_O='cpqOneViewAlertSourceIPv6Address'
-_N='cpqOneViewAlertSourceIPv4Address'
-_M='cpqOneViewAlertResourceUri'
-_L='cpqOneViewAlertResourceType'
-_K='cpqOneViewAlertCreatedTime'
-_J='cpqOneViewAlertIsLifecycle'
-_I='cpqOneViewAlertResolution'
-_H='cpqOneViewAlertSummary'
-_G='cpqOneViewAlertState'
-_F='cpqOneViewAlertCategory'
-_E='sysName'
-_D='SNMPv2-MIB'
-_C='optional'
-_B='read-only'
-_A='CPQOneView-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-compaq,cpqHoTrapFlags=mibBuilder.importSymbols('CPQHOST-MIB','compaq','cpqHoTrapFlags')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-sysName,=mibBuilder.importSymbols(_D,_E)
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_S,'IpAddress','ModuleIdentity','MibIdentifier',_U,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_U,'TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_CpqOneView_ObjectIdentity=ObjectIdentity
-cpqOneView=_CpqOneView_ObjectIdentity((1,3,6,1,4,1,232,179))
-_CpqOneViewMibRev_ObjectIdentity=ObjectIdentity
-cpqOneViewMibRev=_CpqOneViewMibRev_ObjectIdentity((1,3,6,1,4,1,232,179,1))
-class _CpqOneViewMibRevMajor_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CpqOneViewMibRevMajor_Type.__name__=_S
-_CpqOneViewMibRevMajor_Object=MibScalar
-cpqOneViewMibRevMajor=_CpqOneViewMibRevMajor_Object((1,3,6,1,4,1,232,179,1,1),_CpqOneViewMibRevMajor_Type())
-cpqOneViewMibRevMajor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewMibRevMajor.setStatus(_T)
-class _CpqOneViewMibRevMinor_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CpqOneViewMibRevMinor_Type.__name__=_S
-_CpqOneViewMibRevMinor_Object=MibScalar
-cpqOneViewMibRevMinor=_CpqOneViewMibRevMinor_Object((1,3,6,1,4,1,232,179,1,2),_CpqOneViewMibRevMinor_Type())
-cpqOneViewMibRevMinor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewMibRevMinor.setStatus(_T)
-class _CpqOneViewMibCondition_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('other',1),('ok',2),('degraded',3),('failed',4)))
-_CpqOneViewMibCondition_Type.__name__=_S
-_CpqOneViewMibCondition_Object=MibScalar
-cpqOneViewMibCondition=_CpqOneViewMibCondition_Object((1,3,6,1,4,1,232,179,1,3),_CpqOneViewMibCondition_Type())
-cpqOneViewMibCondition.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewMibCondition.setStatus(_T)
-_CpqOneViewComponent_ObjectIdentity=ObjectIdentity
-cpqOneViewComponent=_CpqOneViewComponent_ObjectIdentity((1,3,6,1,4,1,232,179,2))
-_CpqOneViewAlert_ObjectIdentity=ObjectIdentity
-cpqOneViewAlert=_CpqOneViewAlert_ObjectIdentity((1,3,6,1,4,1,232,179,2,1))
-_CpqOneViewAlertSummary_Type=DisplayString
-_CpqOneViewAlertSummary_Object=MibScalar
-cpqOneViewAlertSummary=_CpqOneViewAlertSummary_Object((1,3,6,1,4,1,232,179,2,1,1),_CpqOneViewAlertSummary_Type())
-cpqOneViewAlertSummary.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewAlertSummary.setStatus(_C)
-_CpqOneViewAlertResolution_Type=DisplayString
-_CpqOneViewAlertResolution_Object=MibScalar
-cpqOneViewAlertResolution=_CpqOneViewAlertResolution_Object((1,3,6,1,4,1,232,179,2,1,2),_CpqOneViewAlertResolution_Type())
-cpqOneViewAlertResolution.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewAlertResolution.setStatus(_C)
-_CpqOneViewAlertCategory_Type=DisplayString
-_CpqOneViewAlertCategory_Object=MibScalar
-cpqOneViewAlertCategory=_CpqOneViewAlertCategory_Object((1,3,6,1,4,1,232,179,2,1,3),_CpqOneViewAlertCategory_Type())
-cpqOneViewAlertCategory.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewAlertCategory.setStatus(_C)
-_CpqOneViewAlertState_Type=DisplayString
-_CpqOneViewAlertState_Object=MibScalar
-cpqOneViewAlertState=_CpqOneViewAlertState_Object((1,3,6,1,4,1,232,179,2,1,4),_CpqOneViewAlertState_Type())
-cpqOneViewAlertState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewAlertState.setStatus(_C)
-_CpqOneViewAlertIsLifecycle_Type=DisplayString
-_CpqOneViewAlertIsLifecycle_Object=MibScalar
-cpqOneViewAlertIsLifecycle=_CpqOneViewAlertIsLifecycle_Object((1,3,6,1,4,1,232,179,2,1,5),_CpqOneViewAlertIsLifecycle_Type())
-cpqOneViewAlertIsLifecycle.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewAlertIsLifecycle.setStatus(_C)
-_CpqOneViewAlertResourceType_Type=DisplayString
-_CpqOneViewAlertResourceType_Object=MibScalar
-cpqOneViewAlertResourceType=_CpqOneViewAlertResourceType_Object((1,3,6,1,4,1,232,179,2,1,6),_CpqOneViewAlertResourceType_Type())
-cpqOneViewAlertResourceType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewAlertResourceType.setStatus(_C)
-_CpqOneViewAlertResourceUri_Type=DisplayString
-_CpqOneViewAlertResourceUri_Object=MibScalar
-cpqOneViewAlertResourceUri=_CpqOneViewAlertResourceUri_Object((1,3,6,1,4,1,232,179,2,1,7),_CpqOneViewAlertResourceUri_Type())
-cpqOneViewAlertResourceUri.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewAlertResourceUri.setStatus(_C)
-_CpqOneViewAlertCreatedTime_Type=DisplayString
-_CpqOneViewAlertCreatedTime_Object=MibScalar
-cpqOneViewAlertCreatedTime=_CpqOneViewAlertCreatedTime_Object((1,3,6,1,4,1,232,179,2,1,8),_CpqOneViewAlertCreatedTime_Type())
-cpqOneViewAlertCreatedTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewAlertCreatedTime.setStatus(_C)
-_CpqOneViewAlertDeviceHealth_ObjectIdentity=ObjectIdentity
-cpqOneViewAlertDeviceHealth=_CpqOneViewAlertDeviceHealth_ObjectIdentity((1,3,6,1,4,1,232,179,2,1,100))
-_CpqOneViewAlertSourceIPv4Address_Type=IpAddress
-_CpqOneViewAlertSourceIPv4Address_Object=MibScalar
-cpqOneViewAlertSourceIPv4Address=_CpqOneViewAlertSourceIPv4Address_Object((1,3,6,1,4,1,232,179,2,1,100,1),_CpqOneViewAlertSourceIPv4Address_Type())
-cpqOneViewAlertSourceIPv4Address.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewAlertSourceIPv4Address.setStatus(_C)
-_CpqOneViewAlertSourceIPv6Address_Type=IpAddress
-_CpqOneViewAlertSourceIPv6Address_Object=MibScalar
-cpqOneViewAlertSourceIPv6Address=_CpqOneViewAlertSourceIPv6Address_Object((1,3,6,1,4,1,232,179,2,1,100,2),_CpqOneViewAlertSourceIPv6Address_Type())
-cpqOneViewAlertSourceIPv6Address.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewAlertSourceIPv6Address.setStatus(_C)
-_CpqOneViewAlertEnterpriseId_Type=DisplayString
-_CpqOneViewAlertEnterpriseId_Object=MibScalar
-cpqOneViewAlertEnterpriseId=_CpqOneViewAlertEnterpriseId_Object((1,3,6,1,4,1,232,179,2,1,100,3),_CpqOneViewAlertEnterpriseId_Type())
-cpqOneViewAlertEnterpriseId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewAlertEnterpriseId.setStatus(_C)
-_CpqOneViewAlertTypeId_Type=Integer32
-_CpqOneViewAlertTypeId_Object=MibScalar
-cpqOneViewAlertTypeId=_CpqOneViewAlertTypeId_Object((1,3,6,1,4,1,232,179,2,1,100,4),_CpqOneViewAlertTypeId_Type())
-cpqOneViewAlertTypeId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewAlertTypeId.setStatus(_C)
-_CpqOneViewAlertInfo_Type=Integer32
-_CpqOneViewAlertInfo_Object=MibScalar
-cpqOneViewAlertInfo=_CpqOneViewAlertInfo_Object((1,3,6,1,4,1,232,179,2,1,100,5),_CpqOneViewAlertInfo_Type())
-cpqOneViewAlertInfo.setMaxAccess(_B)
-if mibBuilder.loadTexts:cpqOneViewAlertInfo.setStatus(_C)
-cpqOneViewCriticalAlert=NotificationType((1,3,6,1,4,1,232,0,179001))
-cpqOneViewCriticalAlert.setObjects(*((_D,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R)))
-if mibBuilder.loadTexts:cpqOneViewCriticalAlert.setStatus('')
-cpqOneViewWarningAlert=NotificationType((1,3,6,1,4,1,232,0,179002))
-cpqOneViewWarningAlert.setObjects(*((_D,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R)))
-if mibBuilder.loadTexts:cpqOneViewWarningAlert.setStatus('')
-cpqOneViewOkAlert=NotificationType((1,3,6,1,4,1,232,0,179003))
-cpqOneViewOkAlert.setObjects(*((_D,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R)))
-if mibBuilder.loadTexts:cpqOneViewOkAlert.setStatus('')
-cpqOneViewUnknownAlert=NotificationType((1,3,6,1,4,1,232,0,179004))
-cpqOneViewUnknownAlert.setObjects(*((_D,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R)))
-if mibBuilder.loadTexts:cpqOneViewUnknownAlert.setStatus('')
-mibBuilder.exportSymbols(_A,**{'cpqOneViewCriticalAlert':cpqOneViewCriticalAlert,'cpqOneViewWarningAlert':cpqOneViewWarningAlert,'cpqOneViewOkAlert':cpqOneViewOkAlert,'cpqOneViewUnknownAlert':cpqOneViewUnknownAlert,'cpqOneView':cpqOneView,'cpqOneViewMibRev':cpqOneViewMibRev,'cpqOneViewMibRevMajor':cpqOneViewMibRevMajor,'cpqOneViewMibRevMinor':cpqOneViewMibRevMinor,'cpqOneViewMibCondition':cpqOneViewMibCondition,'cpqOneViewComponent':cpqOneViewComponent,'cpqOneViewAlert':cpqOneViewAlert,_H:cpqOneViewAlertSummary,_I:cpqOneViewAlertResolution,_F:cpqOneViewAlertCategory,_G:cpqOneViewAlertState,_J:cpqOneViewAlertIsLifecycle,_L:cpqOneViewAlertResourceType,_M:cpqOneViewAlertResourceUri,_K:cpqOneViewAlertCreatedTime,'cpqOneViewAlertDeviceHealth':cpqOneViewAlertDeviceHealth,_N:cpqOneViewAlertSourceIPv4Address,_O:cpqOneViewAlertSourceIPv6Address,_P:cpqOneViewAlertEnterpriseId,_Q:cpqOneViewAlertTypeId,_R:cpqOneViewAlertInfo})
+#
+# PySNMP MIB module CPQOneView-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/CPQOneView-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:21 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cpqHoTrapFlags, compaq = mibBuilder.importSymbols("CPQHOST-MIB", "cpqHoTrapFlags", "compaq")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
+ModuleIdentity, NotificationType, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+cpqOneView = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 179))
+cpqOneViewMibRev = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 179, 1))
+cpqOneViewComponent = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 179, 2))
+cpqOneViewAlert = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 179, 2, 1))
+cpqOneViewAlertDeviceHealth = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 179, 2, 1, 100))
+cpqOneViewMibRevMajor = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewMibRevMajor.setStatus('mandatory')
+cpqOneViewMibRevMinor = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewMibRevMinor.setStatus('mandatory')
+cpqOneViewMibCondition = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("ok", 2), ("degraded", 3), ("failed", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewMibCondition.setStatus('mandatory')
+cpqOneViewAlertSummary = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 2, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewAlertSummary.setStatus('optional')
+cpqOneViewAlertResolution = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewAlertResolution.setStatus('optional')
+cpqOneViewAlertCategory = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewAlertCategory.setStatus('optional')
+cpqOneViewAlertState = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 2, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewAlertState.setStatus('optional')
+cpqOneViewAlertIsLifecycle = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 2, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewAlertIsLifecycle.setStatus('optional')
+cpqOneViewAlertResourceType = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 2, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewAlertResourceType.setStatus('optional')
+cpqOneViewAlertResourceUri = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 2, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewAlertResourceUri.setStatus('optional')
+cpqOneViewAlertCreatedTime = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 2, 1, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewAlertCreatedTime.setStatus('optional')
+cpqOneViewAlertSourceIPv4Address = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 2, 1, 100, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewAlertSourceIPv4Address.setStatus('optional')
+cpqOneViewAlertSourceIPv6Address = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 2, 1, 100, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewAlertSourceIPv6Address.setStatus('optional')
+cpqOneViewAlertEnterpriseId = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 2, 1, 100, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewAlertEnterpriseId.setStatus('optional')
+cpqOneViewAlertTypeId = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 2, 1, 100, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewAlertTypeId.setStatus('optional')
+cpqOneViewAlertInfo = MibScalar((1, 3, 6, 1, 4, 1, 232, 179, 2, 1, 100, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpqOneViewAlertInfo.setStatus('optional')
+cpqOneViewCriticalAlert = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,179001)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQOneView-MIB", "cpqOneViewAlertCategory"), ("CPQOneView-MIB", "cpqOneViewAlertState"), ("CPQOneView-MIB", "cpqOneViewAlertSummary"), ("CPQOneView-MIB", "cpqOneViewAlertResolution"), ("CPQOneView-MIB", "cpqOneViewAlertIsLifecycle"), ("CPQOneView-MIB", "cpqOneViewAlertCreatedTime"), ("CPQOneView-MIB", "cpqOneViewAlertResourceType"), ("CPQOneView-MIB", "cpqOneViewAlertResourceUri"), ("CPQOneView-MIB", "cpqOneViewAlertSourceIPv4Address"), ("CPQOneView-MIB", "cpqOneViewAlertSourceIPv6Address"), ("CPQOneView-MIB", "cpqOneViewAlertEnterpriseId"), ("CPQOneView-MIB", "cpqOneViewAlertTypeId"), ("CPQOneView-MIB", "cpqOneViewAlertInfo"))
+cpqOneViewWarningAlert = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,179002)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQOneView-MIB", "cpqOneViewAlertCategory"), ("CPQOneView-MIB", "cpqOneViewAlertState"), ("CPQOneView-MIB", "cpqOneViewAlertSummary"), ("CPQOneView-MIB", "cpqOneViewAlertResolution"), ("CPQOneView-MIB", "cpqOneViewAlertIsLifecycle"), ("CPQOneView-MIB", "cpqOneViewAlertCreatedTime"), ("CPQOneView-MIB", "cpqOneViewAlertResourceType"), ("CPQOneView-MIB", "cpqOneViewAlertResourceUri"), ("CPQOneView-MIB", "cpqOneViewAlertSourceIPv4Address"), ("CPQOneView-MIB", "cpqOneViewAlertSourceIPv6Address"), ("CPQOneView-MIB", "cpqOneViewAlertEnterpriseId"), ("CPQOneView-MIB", "cpqOneViewAlertTypeId"), ("CPQOneView-MIB", "cpqOneViewAlertInfo"))
+cpqOneViewOkAlert = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,179003)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQOneView-MIB", "cpqOneViewAlertCategory"), ("CPQOneView-MIB", "cpqOneViewAlertState"), ("CPQOneView-MIB", "cpqOneViewAlertSummary"), ("CPQOneView-MIB", "cpqOneViewAlertResolution"), ("CPQOneView-MIB", "cpqOneViewAlertIsLifecycle"), ("CPQOneView-MIB", "cpqOneViewAlertCreatedTime"), ("CPQOneView-MIB", "cpqOneViewAlertResourceType"), ("CPQOneView-MIB", "cpqOneViewAlertResourceUri"), ("CPQOneView-MIB", "cpqOneViewAlertSourceIPv4Address"), ("CPQOneView-MIB", "cpqOneViewAlertSourceIPv6Address"), ("CPQOneView-MIB", "cpqOneViewAlertEnterpriseId"), ("CPQOneView-MIB", "cpqOneViewAlertTypeId"), ("CPQOneView-MIB", "cpqOneViewAlertInfo"))
+cpqOneViewUnknownAlert = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,179004)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQOneView-MIB", "cpqOneViewAlertCategory"), ("CPQOneView-MIB", "cpqOneViewAlertState"), ("CPQOneView-MIB", "cpqOneViewAlertSummary"), ("CPQOneView-MIB", "cpqOneViewAlertResolution"), ("CPQOneView-MIB", "cpqOneViewAlertIsLifecycle"), ("CPQOneView-MIB", "cpqOneViewAlertCreatedTime"), ("CPQOneView-MIB", "cpqOneViewAlertResourceType"), ("CPQOneView-MIB", "cpqOneViewAlertResourceUri"), ("CPQOneView-MIB", "cpqOneViewAlertSourceIPv4Address"), ("CPQOneView-MIB", "cpqOneViewAlertSourceIPv6Address"), ("CPQOneView-MIB", "cpqOneViewAlertEnterpriseId"), ("CPQOneView-MIB", "cpqOneViewAlertTypeId"), ("CPQOneView-MIB", "cpqOneViewAlertInfo"))
+mibBuilder.exportSymbols("CPQOneView-MIB", cpqOneViewMibCondition=cpqOneViewMibCondition, cpqOneViewAlertResourceUri=cpqOneViewAlertResourceUri, cpqOneViewAlertIsLifecycle=cpqOneViewAlertIsLifecycle, cpqOneViewOkAlert=cpqOneViewOkAlert, cpqOneViewComponent=cpqOneViewComponent, cpqOneViewMibRev=cpqOneViewMibRev, cpqOneViewAlertState=cpqOneViewAlertState, cpqOneViewAlertSummary=cpqOneViewAlertSummary, cpqOneViewCriticalAlert=cpqOneViewCriticalAlert, cpqOneViewAlertCreatedTime=cpqOneViewAlertCreatedTime, cpqOneViewAlertSourceIPv4Address=cpqOneViewAlertSourceIPv4Address, cpqOneViewMibRevMajor=cpqOneViewMibRevMajor, cpqOneViewAlert=cpqOneViewAlert, cpqOneViewAlertInfo=cpqOneViewAlertInfo, cpqOneViewAlertCategory=cpqOneViewAlertCategory, cpqOneViewAlertTypeId=cpqOneViewAlertTypeId, cpqOneView=cpqOneView, cpqOneViewWarningAlert=cpqOneViewWarningAlert, cpqOneViewAlertSourceIPv6Address=cpqOneViewAlertSourceIPv6Address, cpqOneViewAlertResourceType=cpqOneViewAlertResourceType, cpqOneViewAlertResolution=cpqOneViewAlertResolution, cpqOneViewMibRevMinor=cpqOneViewMibRevMinor, cpqOneViewAlertEnterpriseId=cpqOneViewAlertEnterpriseId, cpqOneViewUnknownAlert=cpqOneViewUnknownAlert, cpqOneViewAlertDeviceHealth=cpqOneViewAlertDeviceHealth)

@@ -1,82 +1,45 @@
-_I='hpnicfMplsTeRsvpIndex'
-_H='not-accessible'
-_G='hpnicfMplsTeIndex'
-_F='read-write'
-_E='HPN-ICF-MPLSTE-MIB'
-_D='TruthValue'
-_C='Unsigned32'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpnicfCommon,=mibBuilder.importSymbols('HPN-ICF-OID-MIB','hpnicfCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_C,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_D)
-hpnicfMplsTe=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,15,2,143))
-if mibBuilder.loadTexts:hpnicfMplsTe.setRevisions(('2013-06-13 18:00',))
-_HpnicfMplsTeObjects_ObjectIdentity=ObjectIdentity
-hpnicfMplsTeObjects=_HpnicfMplsTeObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,143,1))
-_HpnicfMplsTeScalarGroup_ObjectIdentity=ObjectIdentity
-hpnicfMplsTeScalarGroup=_HpnicfMplsTeScalarGroup_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,143,1,1))
-_HpnicfMplsTeStatus_Type=TruthValue
-_HpnicfMplsTeStatus_Object=MibScalar
-hpnicfMplsTeStatus=_HpnicfMplsTeStatus_Object((1,3,6,1,4,1,11,2,14,11,15,2,143,1,1,1),_HpnicfMplsTeStatus_Type())
-hpnicfMplsTeStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:hpnicfMplsTeStatus.setStatus(_A)
-_HpnicfMplsTeRsvpStatus_Type=TruthValue
-_HpnicfMplsTeRsvpStatus_Object=MibScalar
-hpnicfMplsTeRsvpStatus=_HpnicfMplsTeRsvpStatus_Object((1,3,6,1,4,1,11,2,14,11,15,2,143,1,1,2),_HpnicfMplsTeRsvpStatus_Type())
-hpnicfMplsTeRsvpStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:hpnicfMplsTeRsvpStatus.setStatus(_A)
-_HpnicfMplsTeTable_Object=MibTable
-hpnicfMplsTeTable=_HpnicfMplsTeTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,143,1,2))
-if mibBuilder.loadTexts:hpnicfMplsTeTable.setStatus(_A)
-_HpnicfMplsTeEntry_Object=MibTableRow
-hpnicfMplsTeEntry=_HpnicfMplsTeEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,143,1,2,1))
-hpnicfMplsTeEntry.setIndexNames((0,_E,_G))
-if mibBuilder.loadTexts:hpnicfMplsTeEntry.setStatus(_A)
-class _HpnicfMplsTeIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_HpnicfMplsTeIndex_Type.__name__=_C
-_HpnicfMplsTeIndex_Object=MibTableColumn
-hpnicfMplsTeIndex=_HpnicfMplsTeIndex_Object((1,3,6,1,4,1,11,2,14,11,15,2,143,1,2,1,1),_HpnicfMplsTeIndex_Type())
-hpnicfMplsTeIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:hpnicfMplsTeIndex.setStatus(_A)
-class _HpnicfMplsTeCapability_Type(TruthValue):defaultValue=2
-_HpnicfMplsTeCapability_Type.__name__=_D
-_HpnicfMplsTeCapability_Object=MibTableColumn
-hpnicfMplsTeCapability=_HpnicfMplsTeCapability_Object((1,3,6,1,4,1,11,2,14,11,15,2,143,1,2,1,2),_HpnicfMplsTeCapability_Type())
-hpnicfMplsTeCapability.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMplsTeCapability.setStatus(_A)
-_HpnicfMplsTeRowStatus_Type=RowStatus
-_HpnicfMplsTeRowStatus_Object=MibTableColumn
-hpnicfMplsTeRowStatus=_HpnicfMplsTeRowStatus_Object((1,3,6,1,4,1,11,2,14,11,15,2,143,1,2,1,3),_HpnicfMplsTeRowStatus_Type())
-hpnicfMplsTeRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMplsTeRowStatus.setStatus(_A)
-_HpnicfMplsTeRsvpTable_Object=MibTable
-hpnicfMplsTeRsvpTable=_HpnicfMplsTeRsvpTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,143,1,3))
-if mibBuilder.loadTexts:hpnicfMplsTeRsvpTable.setStatus(_A)
-_HpnicfMplsTeRsvpEntry_Object=MibTableRow
-hpnicfMplsTeRsvpEntry=_HpnicfMplsTeRsvpEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,143,1,3,1))
-hpnicfMplsTeRsvpEntry.setIndexNames((0,_E,_I))
-if mibBuilder.loadTexts:hpnicfMplsTeRsvpEntry.setStatus(_A)
-class _HpnicfMplsTeRsvpIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_HpnicfMplsTeRsvpIndex_Type.__name__=_C
-_HpnicfMplsTeRsvpIndex_Object=MibTableColumn
-hpnicfMplsTeRsvpIndex=_HpnicfMplsTeRsvpIndex_Object((1,3,6,1,4,1,11,2,14,11,15,2,143,1,3,1,1),_HpnicfMplsTeRsvpIndex_Type())
-hpnicfMplsTeRsvpIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:hpnicfMplsTeRsvpIndex.setStatus(_A)
-class _HpnicfMplsTeRsvpCapability_Type(TruthValue):defaultValue=2
-_HpnicfMplsTeRsvpCapability_Type.__name__=_D
-_HpnicfMplsTeRsvpCapability_Object=MibTableColumn
-hpnicfMplsTeRsvpCapability=_HpnicfMplsTeRsvpCapability_Object((1,3,6,1,4,1,11,2,14,11,15,2,143,1,3,1,2),_HpnicfMplsTeRsvpCapability_Type())
-hpnicfMplsTeRsvpCapability.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMplsTeRsvpCapability.setStatus(_A)
-_HpnicfMplsTeRsvpRowStatus_Type=RowStatus
-_HpnicfMplsTeRsvpRowStatus_Object=MibTableColumn
-hpnicfMplsTeRsvpRowStatus=_HpnicfMplsTeRsvpRowStatus_Object((1,3,6,1,4,1,11,2,14,11,15,2,143,1,3,1,3),_HpnicfMplsTeRsvpRowStatus_Type())
-hpnicfMplsTeRsvpRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMplsTeRsvpRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'hpnicfMplsTe':hpnicfMplsTe,'hpnicfMplsTeObjects':hpnicfMplsTeObjects,'hpnicfMplsTeScalarGroup':hpnicfMplsTeScalarGroup,'hpnicfMplsTeStatus':hpnicfMplsTeStatus,'hpnicfMplsTeRsvpStatus':hpnicfMplsTeRsvpStatus,'hpnicfMplsTeTable':hpnicfMplsTeTable,'hpnicfMplsTeEntry':hpnicfMplsTeEntry,_G:hpnicfMplsTeIndex,'hpnicfMplsTeCapability':hpnicfMplsTeCapability,'hpnicfMplsTeRowStatus':hpnicfMplsTeRowStatus,'hpnicfMplsTeRsvpTable':hpnicfMplsTeRsvpTable,'hpnicfMplsTeRsvpEntry':hpnicfMplsTeRsvpEntry,_I:hpnicfMplsTeRsvpIndex,'hpnicfMplsTeRsvpCapability':hpnicfMplsTeRsvpCapability,'hpnicfMplsTeRsvpRowStatus':hpnicfMplsTeRsvpRowStatus})
+#
+# PySNMP MIB module HPN-ICF-MPLSTE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-MPLSTE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:34 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+hpnicfMplsTe = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 143))
+hpnicfMplsTe.setRevisions(('2013-06-13 18:00',))
+if mibBuilder.loadTexts: hpnicfMplsTe.setLastUpdated('201306131800Z')
+if mibBuilder.loadTexts: hpnicfMplsTe.setOrganization('')
+hpnicfMplsTeObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 143, 1))
+hpnicfMplsTeScalarGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 143, 1, 1))
+hpnicfMplsTeStatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 143, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfMplsTeStatus.setStatus('current')
+hpnicfMplsTeRsvpStatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 143, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfMplsTeRsvpStatus.setStatus('current')
+hpnicfMplsTeTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 143, 1, 2), )
+if mibBuilder.loadTexts: hpnicfMplsTeTable.setStatus('current')
+hpnicfMplsTeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 143, 1, 2, 1), ).setIndexNames((0, "HPN-ICF-MPLSTE-MIB", "hpnicfMplsTeIndex"))
+if mibBuilder.loadTexts: hpnicfMplsTeEntry.setStatus('current')
+hpnicfMplsTeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 143, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: hpnicfMplsTeIndex.setStatus('current')
+hpnicfMplsTeCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 143, 1, 2, 1, 2), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfMplsTeCapability.setStatus('current')
+hpnicfMplsTeRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 143, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfMplsTeRowStatus.setStatus('current')
+hpnicfMplsTeRsvpTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 143, 1, 3), )
+if mibBuilder.loadTexts: hpnicfMplsTeRsvpTable.setStatus('current')
+hpnicfMplsTeRsvpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 143, 1, 3, 1), ).setIndexNames((0, "HPN-ICF-MPLSTE-MIB", "hpnicfMplsTeRsvpIndex"))
+if mibBuilder.loadTexts: hpnicfMplsTeRsvpEntry.setStatus('current')
+hpnicfMplsTeRsvpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 143, 1, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: hpnicfMplsTeRsvpIndex.setStatus('current')
+hpnicfMplsTeRsvpCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 143, 1, 3, 1, 2), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfMplsTeRsvpCapability.setStatus('current')
+hpnicfMplsTeRsvpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 143, 1, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfMplsTeRsvpRowStatus.setStatus('current')
+mibBuilder.exportSymbols("HPN-ICF-MPLSTE-MIB", hpnicfMplsTeRsvpCapability=hpnicfMplsTeRsvpCapability, hpnicfMplsTe=hpnicfMplsTe, hpnicfMplsTeEntry=hpnicfMplsTeEntry, hpnicfMplsTeRsvpEntry=hpnicfMplsTeRsvpEntry, hpnicfMplsTeTable=hpnicfMplsTeTable, hpnicfMplsTeCapability=hpnicfMplsTeCapability, hpnicfMplsTeIndex=hpnicfMplsTeIndex, PYSNMP_MODULE_ID=hpnicfMplsTe, hpnicfMplsTeRsvpStatus=hpnicfMplsTeRsvpStatus, hpnicfMplsTeRowStatus=hpnicfMplsTeRowStatus, hpnicfMplsTeRsvpTable=hpnicfMplsTeRsvpTable, hpnicfMplsTeRsvpIndex=hpnicfMplsTeRsvpIndex, hpnicfMplsTeScalarGroup=hpnicfMplsTeScalarGroup, hpnicfMplsTeRsvpRowStatus=hpnicfMplsTeRsvpRowStatus, hpnicfMplsTeObjects=hpnicfMplsTeObjects, hpnicfMplsTeStatus=hpnicfMplsTeStatus)

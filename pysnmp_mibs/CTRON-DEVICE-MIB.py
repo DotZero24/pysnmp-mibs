@@ -1,31 +1,22 @@
-_C='mandatory'
-_B='read-write'
-_A='DisplayString'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ctDevice,=mibBuilder.importSymbols('CTRON-MIB-NAMES','ctDevice')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_A,'PhysAddress','TextualConvention')
-_CommonDev_ObjectIdentity=ObjectIdentity
-commonDev=_CommonDev_ObjectIdentity((1,3,6,1,4,1,52,4,1,1,5,1))
-_ComDeviceIPAddress_Type=IpAddress
-_ComDeviceIPAddress_Object=MibScalar
-comDeviceIPAddress=_ComDeviceIPAddress_Object((1,3,6,1,4,1,52,4,1,1,5,1,1),_ComDeviceIPAddress_Type())
-comDeviceIPAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:comDeviceIPAddress.setStatus(_C)
-class _ComDeviceTime_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6),ValueSizeConstraint(8,8))
-_ComDeviceTime_Type.__name__=_A
-_ComDeviceTime_Object=MibScalar
-comDeviceTime=_ComDeviceTime_Object((1,3,6,1,4,1,52,4,1,1,5,1,2),_ComDeviceTime_Type())
-comDeviceTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:comDeviceTime.setStatus(_C)
-class _ComDeviceDate_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
-_ComDeviceDate_Type.__name__=_A
-_ComDeviceDate_Object=MibScalar
-comDeviceDate=_ComDeviceDate_Object((1,3,6,1,4,1,52,4,1,1,5,1,3),_ComDeviceDate_Type())
-comDeviceDate.setMaxAccess(_B)
-if mibBuilder.loadTexts:comDeviceDate.setStatus(_C)
-mibBuilder.exportSymbols('CTRON-DEVICE-MIB',**{'commonDev':commonDev,'comDeviceIPAddress':comDeviceIPAddress,'comDeviceTime':comDeviceTime,'comDeviceDate':comDeviceDate})
+#
+# PySNMP MIB module CTRON-DEVICE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CTRON-DEVICE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ctDevice, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctDevice")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "PhysAddress")
+commonDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 5, 1))
+comDeviceIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 5, 1, 1), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: comDeviceIPAddress.setStatus('mandatory')
+comDeviceTime = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 5, 1, 2), DisplayString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(6, 6), ValueSizeConstraint(8, 8), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: comDeviceTime.setStatus('mandatory')
+comDeviceDate = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 5, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: comDeviceDate.setStatus('mandatory')
+mibBuilder.exportSymbols("CTRON-DEVICE-MIB", comDeviceTime=comDeviceTime, commonDev=commonDev, comDeviceDate=comDeviceDate, comDeviceIPAddress=comDeviceIPAddress)

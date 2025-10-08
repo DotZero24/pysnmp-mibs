@@ -1,54 +1,47 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-siemens,=mibBuilder.importSymbols('SIEMENS-SMI','siemens')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-automation=ModuleIdentity((1,3,6,1,4,1,4329,6))
-if mibBuilder.loadTexts:automation.setRevisions(('2013-06-25 00:00','2012-07-27 00:00','2008-11-10 00:00','2008-06-02 00:00','2008-04-29 00:00','2005-01-12 00:00'))
-_AutomationProducts_ObjectIdentity=ObjectIdentity
-automationProducts=_AutomationProducts_ObjectIdentity((1,3,6,1,4,1,4329,6,1))
-if mibBuilder.loadTexts:automationProducts.setStatus(_A)
-_AutomationPlc_ObjectIdentity=ObjectIdentity
-automationPlc=_AutomationPlc_ObjectIdentity((1,3,6,1,4,1,4329,6,1,1))
-if mibBuilder.loadTexts:automationPlc.setStatus(_A)
-_AutomationSimaticNet_ObjectIdentity=ObjectIdentity
-automationSimaticNet=_AutomationSimaticNet_ObjectIdentity((1,3,6,1,4,1,4329,6,1,2))
-if mibBuilder.loadTexts:automationSimaticNet.setStatus(_A)
-_AutomationMotionControl_ObjectIdentity=ObjectIdentity
-automationMotionControl=_AutomationMotionControl_ObjectIdentity((1,3,6,1,4,1,4329,6,1,3))
-if mibBuilder.loadTexts:automationMotionControl.setStatus(_A)
-_AutomationHmi_ObjectIdentity=ObjectIdentity
-automationHmi=_AutomationHmi_ObjectIdentity((1,3,6,1,4,1,4329,6,1,4))
-if mibBuilder.loadTexts:automationHmi.setStatus(_A)
-_AutomationSitopPower_ObjectIdentity=ObjectIdentity
-automationSitopPower=_AutomationSitopPower_ObjectIdentity((1,3,6,1,4,1,4329,6,1,5))
-if mibBuilder.loadTexts:automationSitopPower.setStatus(_A)
-_AutomationModules_ObjectIdentity=ObjectIdentity
-automationModules=_AutomationModules_ObjectIdentity((1,3,6,1,4,1,4329,6,2))
-if mibBuilder.loadTexts:automationModules.setStatus(_A)
-_AutomationMgmt_ObjectIdentity=ObjectIdentity
-automationMgmt=_AutomationMgmt_ObjectIdentity((1,3,6,1,4,1,4329,6,3))
-if mibBuilder.loadTexts:automationMgmt.setStatus(_A)
-_AutomationAgentCapability_ObjectIdentity=ObjectIdentity
-automationAgentCapability=_AutomationAgentCapability_ObjectIdentity((1,3,6,1,4,1,4329,6,4))
-if mibBuilder.loadTexts:automationAgentCapability.setStatus(_A)
-_AutomationPlcAgentCapability_ObjectIdentity=ObjectIdentity
-automationPlcAgentCapability=_AutomationPlcAgentCapability_ObjectIdentity((1,3,6,1,4,1,4329,6,4,1))
-if mibBuilder.loadTexts:automationPlcAgentCapability.setStatus(_A)
-_AutomationSimaticNetAgentCapability_ObjectIdentity=ObjectIdentity
-automationSimaticNetAgentCapability=_AutomationSimaticNetAgentCapability_ObjectIdentity((1,3,6,1,4,1,4329,6,4,2))
-if mibBuilder.loadTexts:automationSimaticNetAgentCapability.setStatus(_A)
-_AutomationMotionControlAgentCapability_ObjectIdentity=ObjectIdentity
-automationMotionControlAgentCapability=_AutomationMotionControlAgentCapability_ObjectIdentity((1,3,6,1,4,1,4329,6,4,3))
-if mibBuilder.loadTexts:automationMotionControlAgentCapability.setStatus(_A)
-_AutomationHmiAgentCapability_ObjectIdentity=ObjectIdentity
-automationHmiAgentCapability=_AutomationHmiAgentCapability_ObjectIdentity((1,3,6,1,4,1,4329,6,4,4))
-if mibBuilder.loadTexts:automationHmiAgentCapability.setStatus(_A)
-_AutomationSitopPowerCapability_ObjectIdentity=ObjectIdentity
-automationSitopPowerCapability=_AutomationSitopPowerCapability_ObjectIdentity((1,3,6,1,4,1,4329,6,4,5))
-if mibBuilder.loadTexts:automationSitopPowerCapability.setStatus(_A)
-mibBuilder.exportSymbols('AUTOMATION-SMI',**{'automation':automation,'automationProducts':automationProducts,'automationPlc':automationPlc,'automationSimaticNet':automationSimaticNet,'automationMotionControl':automationMotionControl,'automationHmi':automationHmi,'automationSitopPower':automationSitopPower,'automationModules':automationModules,'automationMgmt':automationMgmt,'automationAgentCapability':automationAgentCapability,'automationPlcAgentCapability':automationPlcAgentCapability,'automationSimaticNetAgentCapability':automationSimaticNetAgentCapability,'automationMotionControlAgentCapability':automationMotionControlAgentCapability,'automationHmiAgentCapability':automationHmiAgentCapability,'automationSitopPowerCapability':automationSitopPowerCapability})
+#
+# PySNMP MIB module AUTOMATION-SMI (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/siemens/AUTOMATION-SMI
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:01 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+siemens, = mibBuilder.importSymbols("SIEMENS-SMI", "siemens")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+automation = ModuleIdentity((1, 3, 6, 1, 4, 1, 4329, 6))
+automation.setRevisions(('2013-06-25 00:00', '2012-07-27 00:00', '2008-11-10 00:00', '2008-06-02 00:00', '2008-04-29 00:00', '2005-01-12 00:00',))
+if mibBuilder.loadTexts: automation.setLastUpdated('201306250000Z')
+if mibBuilder.loadTexts: automation.setOrganization('Siemens AG')
+automationProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 6, 1))
+if mibBuilder.loadTexts: automationProducts.setStatus('current')
+automationPlc = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 6, 1, 1))
+if mibBuilder.loadTexts: automationPlc.setStatus('current')
+automationSimaticNet = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 6, 1, 2))
+if mibBuilder.loadTexts: automationSimaticNet.setStatus('current')
+automationMotionControl = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 6, 1, 3))
+if mibBuilder.loadTexts: automationMotionControl.setStatus('current')
+automationHmi = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 6, 1, 4))
+if mibBuilder.loadTexts: automationHmi.setStatus('current')
+automationSitopPower = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 6, 1, 5))
+if mibBuilder.loadTexts: automationSitopPower.setStatus('current')
+automationModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 6, 2))
+if mibBuilder.loadTexts: automationModules.setStatus('current')
+automationMgmt = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 6, 3))
+if mibBuilder.loadTexts: automationMgmt.setStatus('current')
+automationAgentCapability = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 6, 4))
+if mibBuilder.loadTexts: automationAgentCapability.setStatus('current')
+automationPlcAgentCapability = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 6, 4, 1))
+if mibBuilder.loadTexts: automationPlcAgentCapability.setStatus('current')
+automationSimaticNetAgentCapability = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 6, 4, 2))
+if mibBuilder.loadTexts: automationSimaticNetAgentCapability.setStatus('current')
+automationMotionControlAgentCapability = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 6, 4, 3))
+if mibBuilder.loadTexts: automationMotionControlAgentCapability.setStatus('current')
+automationHmiAgentCapability = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 6, 4, 4))
+if mibBuilder.loadTexts: automationHmiAgentCapability.setStatus('current')
+automationSitopPowerCapability = ObjectIdentity((1, 3, 6, 1, 4, 1, 4329, 6, 4, 5))
+if mibBuilder.loadTexts: automationSitopPowerCapability.setStatus('current')
+mibBuilder.exportSymbols("AUTOMATION-SMI", automationMgmt=automationMgmt, automationSitopPower=automationSitopPower, automationSimaticNetAgentCapability=automationSimaticNetAgentCapability, automation=automation, PYSNMP_MODULE_ID=automation, automationHmi=automationHmi, automationModules=automationModules, automationAgentCapability=automationAgentCapability, automationPlcAgentCapability=automationPlcAgentCapability, automationHmiAgentCapability=automationHmiAgentCapability, automationMotionControl=automationMotionControl, automationSitopPowerCapability=automationSitopPowerCapability, automationProducts=automationProducts, automationPlc=automationPlc, automationMotionControlAgentCapability=automationMotionControlAgentCapability, automationSimaticNet=automationSimaticNet)

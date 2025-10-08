@@ -1,54 +1,35 @@
-_E='zxDslRadiusClientAuthSvrIndex'
-_D='ZET-DSL-RADIUS-MIB'
-_C='DisplayString'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_C,'PhysAddress','RowStatus','TextualConvention')
-zxDslRadiusMib=ModuleIdentity((1,3,6,1,4,1,3902,1004,34))
-_Zte_ObjectIdentity=ObjectIdentity
-zte=_Zte_ObjectIdentity((1,3,6,1,4,1,3902))
-_ZxDsl_ObjectIdentity=ObjectIdentity
-zxDsl=_ZxDsl_ObjectIdentity((1,3,6,1,4,1,3902,1004))
-_ZxDslRadiusClient_ObjectIdentity=ObjectIdentity
-zxDslRadiusClient=_ZxDslRadiusClient_ObjectIdentity((1,3,6,1,4,1,3902,1004,34,1))
-_ZxDslRadiusClientAuthSvrTable_Object=MibTable
-zxDslRadiusClientAuthSvrTable=_ZxDslRadiusClientAuthSvrTable_Object((1,3,6,1,4,1,3902,1004,34,1,1))
-if mibBuilder.loadTexts:zxDslRadiusClientAuthSvrTable.setStatus(_A)
-_ZxDslRadiusClientAuthSvrEntry_Object=MibTableRow
-zxDslRadiusClientAuthSvrEntry=_ZxDslRadiusClientAuthSvrEntry_Object((1,3,6,1,4,1,3902,1004,34,1,1,1))
-zxDslRadiusClientAuthSvrEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:zxDslRadiusClientAuthSvrEntry.setStatus(_A)
-_ZxDslRadiusClientAuthSvrIndex_Type=Integer32
-_ZxDslRadiusClientAuthSvrIndex_Object=MibTableColumn
-zxDslRadiusClientAuthSvrIndex=_ZxDslRadiusClientAuthSvrIndex_Object((1,3,6,1,4,1,3902,1004,34,1,1,1,1),_ZxDslRadiusClientAuthSvrIndex_Type())
-zxDslRadiusClientAuthSvrIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:zxDslRadiusClientAuthSvrIndex.setStatus(_A)
-_ZxDslRadiusClientAuthAddress_Type=IpAddress
-_ZxDslRadiusClientAuthAddress_Object=MibTableColumn
-zxDslRadiusClientAuthAddress=_ZxDslRadiusClientAuthAddress_Object((1,3,6,1,4,1,3902,1004,34,1,1,1,2),_ZxDslRadiusClientAuthAddress_Type())
-zxDslRadiusClientAuthAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxDslRadiusClientAuthAddress.setStatus(_A)
-_ZxDslRadiusClientAuthPortNumber_Type=Integer32
-_ZxDslRadiusClientAuthPortNumber_Object=MibTableColumn
-zxDslRadiusClientAuthPortNumber=_ZxDslRadiusClientAuthPortNumber_Object((1,3,6,1,4,1,3902,1004,34,1,1,1,3),_ZxDslRadiusClientAuthPortNumber_Type())
-zxDslRadiusClientAuthPortNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxDslRadiusClientAuthPortNumber.setStatus(_A)
-class _ZxDslRadiusClientAuthSecret_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_ZxDslRadiusClientAuthSecret_Type.__name__=_C
-_ZxDslRadiusClientAuthSecret_Object=MibTableColumn
-zxDslRadiusClientAuthSecret=_ZxDslRadiusClientAuthSecret_Object((1,3,6,1,4,1,3902,1004,34,1,1,1,4),_ZxDslRadiusClientAuthSecret_Type())
-zxDslRadiusClientAuthSecret.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxDslRadiusClientAuthSecret.setStatus(_A)
-_ZxDslRadiusClientAuthRowStatus_Type=RowStatus
-_ZxDslRadiusClientAuthRowStatus_Object=MibTableColumn
-zxDslRadiusClientAuthRowStatus=_ZxDslRadiusClientAuthRowStatus_Object((1,3,6,1,4,1,3902,1004,34,1,1,1,5),_ZxDslRadiusClientAuthRowStatus_Type())
-zxDslRadiusClientAuthRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxDslRadiusClientAuthRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'zte':zte,'zxDsl':zxDsl,'zxDslRadiusMib':zxDslRadiusMib,'zxDslRadiusClient':zxDslRadiusClient,'zxDslRadiusClientAuthSvrTable':zxDslRadiusClientAuthSvrTable,'zxDslRadiusClientAuthSvrEntry':zxDslRadiusClientAuthSvrEntry,_E:zxDslRadiusClientAuthSvrIndex,'zxDslRadiusClientAuthAddress':zxDslRadiusClientAuthAddress,'zxDslRadiusClientAuthPortNumber':zxDslRadiusClientAuthPortNumber,'zxDslRadiusClientAuthSecret':zxDslRadiusClientAuthSecret,'zxDslRadiusClientAuthRowStatus':zxDslRadiusClientAuthRowStatus})
+#
+# PySNMP MIB module ZET-DSL-RADIUS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZET-DSL-RADIUS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+zxDslRadiusMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1004, 34))
+if mibBuilder.loadTexts: zxDslRadiusMib.setLastUpdated('0706090000Z')
+if mibBuilder.loadTexts: zxDslRadiusMib.setOrganization('Zhongxing Telcom Co. Ltd.')
+zte = MibIdentifier((1, 3, 6, 1, 4, 1, 3902))
+zxDsl = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1004))
+zxDslRadiusClient = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1004, 34, 1))
+zxDslRadiusClientAuthSvrTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1004, 34, 1, 1), )
+if mibBuilder.loadTexts: zxDslRadiusClientAuthSvrTable.setStatus('current')
+zxDslRadiusClientAuthSvrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1004, 34, 1, 1, 1), ).setIndexNames((0, "ZET-DSL-RADIUS-MIB", "zxDslRadiusClientAuthSvrIndex"))
+if mibBuilder.loadTexts: zxDslRadiusClientAuthSvrEntry.setStatus('current')
+zxDslRadiusClientAuthSvrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1004, 34, 1, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: zxDslRadiusClientAuthSvrIndex.setStatus('current')
+zxDslRadiusClientAuthAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1004, 34, 1, 1, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxDslRadiusClientAuthAddress.setStatus('current')
+zxDslRadiusClientAuthPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1004, 34, 1, 1, 1, 3), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxDslRadiusClientAuthPortNumber.setStatus('current')
+zxDslRadiusClientAuthSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1004, 34, 1, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxDslRadiusClientAuthSecret.setStatus('current')
+zxDslRadiusClientAuthRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1004, 34, 1, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxDslRadiusClientAuthRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ZET-DSL-RADIUS-MIB", zte=zte, PYSNMP_MODULE_ID=zxDslRadiusMib, zxDslRadiusClientAuthSvrEntry=zxDslRadiusClientAuthSvrEntry, zxDslRadiusClient=zxDslRadiusClient, zxDslRadiusMib=zxDslRadiusMib, zxDslRadiusClientAuthSvrIndex=zxDslRadiusClientAuthSvrIndex, zxDslRadiusClientAuthPortNumber=zxDslRadiusClientAuthPortNumber, zxDslRadiusClientAuthSvrTable=zxDslRadiusClientAuthSvrTable, zxDslRadiusClientAuthRowStatus=zxDslRadiusClientAuthRowStatus, zxDslRadiusClientAuthSecret=zxDslRadiusClientAuthSecret, zxDslRadiusClientAuthAddress=zxDslRadiusClientAuthAddress, zxDsl=zxDsl)

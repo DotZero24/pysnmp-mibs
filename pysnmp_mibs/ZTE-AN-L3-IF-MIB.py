@@ -1,157 +1,73 @@
-_N='zxAnL3IfIpv6IpAddress'
-_M='zxAnL3IfIpAddress'
-_L='read-only'
-_K='DisplayString'
-_J='OctetString'
-_I='read-write'
-_H='disable'
-_G='enable'
-_F='not-accessible'
-_E='zxAnL3IfIndex'
-_D='ZTE-AN-L3-IF-MIB'
-_C='Integer32'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_J,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InetAddress,InetAddressPrefixLength=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressPrefixLength')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_K,'PhysAddress','RowStatus','TextualConvention')
-ZxAnIfindex,zxAn=mibBuilder.importSymbols('ZTE-AN-TC-MIB','ZxAnIfindex','zxAn')
-zxAnL3InterfaceMib=ModuleIdentity((1,3,6,1,4,1,3902,1015,4))
-_ZxAnL3InterfaceObjects_ObjectIdentity=ObjectIdentity
-zxAnL3InterfaceObjects=_ZxAnL3InterfaceObjects_ObjectIdentity((1,3,6,1,4,1,3902,1015,4,1))
-_ZxAnL3IfTable_Object=MibTable
-zxAnL3IfTable=_ZxAnL3IfTable_Object((1,3,6,1,4,1,3902,1015,4,1,1))
-if mibBuilder.loadTexts:zxAnL3IfTable.setStatus(_A)
-_ZxAnL3IfEntry_Object=MibTableRow
-zxAnL3IfEntry=_ZxAnL3IfEntry_Object((1,3,6,1,4,1,3902,1015,4,1,1,1))
-zxAnL3IfEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:zxAnL3IfEntry.setStatus(_A)
-_ZxAnL3IfIndex_Type=ZxAnIfindex
-_ZxAnL3IfIndex_Object=MibTableColumn
-zxAnL3IfIndex=_ZxAnL3IfIndex_Object((1,3,6,1,4,1,3902,1015,4,1,1,1,1),_ZxAnL3IfIndex_Type())
-zxAnL3IfIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:zxAnL3IfIndex.setStatus(_A)
-class _ZxAnL3IfName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_ZxAnL3IfName_Type.__name__=_K
-_ZxAnL3IfName_Object=MibTableColumn
-zxAnL3IfName=_ZxAnL3IfName_Object((1,3,6,1,4,1,3902,1015,4,1,1,1,2),_ZxAnL3IfName_Type())
-zxAnL3IfName.setMaxAccess(_L)
-if mibBuilder.loadTexts:zxAnL3IfName.setStatus(_A)
-_ZxAnIfReferIndex_Type=Integer32
-_ZxAnIfReferIndex_Object=MibTableColumn
-zxAnIfReferIndex=_ZxAnIfReferIndex_Object((1,3,6,1,4,1,3902,1015,4,1,1,1,3),_ZxAnIfReferIndex_Type())
-zxAnIfReferIndex.setMaxAccess(_L)
-if mibBuilder.loadTexts:zxAnIfReferIndex.setStatus(_A)
-class _ZxAnL3IfArpProxyEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_ZxAnL3IfArpProxyEnable_Type.__name__=_C
-_ZxAnL3IfArpProxyEnable_Object=MibTableColumn
-zxAnL3IfArpProxyEnable=_ZxAnL3IfArpProxyEnable_Object((1,3,6,1,4,1,3902,1015,4,1,1,1,4),_ZxAnL3IfArpProxyEnable_Type())
-zxAnL3IfArpProxyEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnL3IfArpProxyEnable.setStatus(_A)
-_ZxAnL3IfRowStatus_Type=RowStatus
-_ZxAnL3IfRowStatus_Object=MibTableColumn
-zxAnL3IfRowStatus=_ZxAnL3IfRowStatus_Object((1,3,6,1,4,1,3902,1015,4,1,1,1,5),_ZxAnL3IfRowStatus_Type())
-zxAnL3IfRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnL3IfRowStatus.setStatus(_A)
-class _ZxAnL3IfArpAgingTime_Type(Integer32):defaultValue=300;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967))
-_ZxAnL3IfArpAgingTime_Type.__name__=_C
-_ZxAnL3IfArpAgingTime_Object=MibTableColumn
-zxAnL3IfArpAgingTime=_ZxAnL3IfArpAgingTime_Object((1,3,6,1,4,1,3902,1015,4,1,1,1,6),_ZxAnL3IfArpAgingTime_Type())
-zxAnL3IfArpAgingTime.setMaxAccess(_I)
-if mibBuilder.loadTexts:zxAnL3IfArpAgingTime.setStatus(_A)
-if mibBuilder.loadTexts:zxAnL3IfArpAgingTime.setUnits('second')
-_ZxAnL3IfSuperVlanTable_Object=MibTable
-zxAnL3IfSuperVlanTable=_ZxAnL3IfSuperVlanTable_Object((1,3,6,1,4,1,3902,1015,4,1,2))
-if mibBuilder.loadTexts:zxAnL3IfSuperVlanTable.setStatus(_A)
-_ZxAnL3IfSuperVlanEntry_Object=MibTableRow
-zxAnL3IfSuperVlanEntry=_ZxAnL3IfSuperVlanEntry_Object((1,3,6,1,4,1,3902,1015,4,1,2,1))
-zxAnL3IfSuperVlanEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:zxAnL3IfSuperVlanEntry.setStatus(_A)
-class _ZxAnL3IfSubvlanRoutingEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_ZxAnL3IfSubvlanRoutingEnable_Type.__name__=_C
-_ZxAnL3IfSubvlanRoutingEnable_Object=MibTableColumn
-zxAnL3IfSubvlanRoutingEnable=_ZxAnL3IfSubvlanRoutingEnable_Object((1,3,6,1,4,1,3902,1015,4,1,2,1,1),_ZxAnL3IfSubvlanRoutingEnable_Type())
-zxAnL3IfSubvlanRoutingEnable.setMaxAccess(_I)
-if mibBuilder.loadTexts:zxAnL3IfSubvlanRoutingEnable.setStatus(_A)
-class _ZxAnL3IfSubvlanList_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,5472))
-_ZxAnL3IfSubvlanList_Type.__name__=_J
-_ZxAnL3IfSubvlanList_Object=MibTableColumn
-zxAnL3IfSubvlanList=_ZxAnL3IfSubvlanList_Object((1,3,6,1,4,1,3902,1015,4,1,2,1,2),_ZxAnL3IfSubvlanList_Type())
-zxAnL3IfSubvlanList.setMaxAccess(_I)
-if mibBuilder.loadTexts:zxAnL3IfSubvlanList.setStatus(_A)
-_ZxAnL3IfIpAddressTable_Object=MibTable
-zxAnL3IfIpAddressTable=_ZxAnL3IfIpAddressTable_Object((1,3,6,1,4,1,3902,1015,4,1,3))
-if mibBuilder.loadTexts:zxAnL3IfIpAddressTable.setStatus(_A)
-_ZxAnL3IfIpAddressEntry_Object=MibTableRow
-zxAnL3IfIpAddressEntry=_ZxAnL3IfIpAddressEntry_Object((1,3,6,1,4,1,3902,1015,4,1,3,1))
-zxAnL3IfIpAddressEntry.setIndexNames((0,_D,_E),(0,_D,_M))
-if mibBuilder.loadTexts:zxAnL3IfIpAddressEntry.setStatus(_A)
-_ZxAnL3IfIpAddress_Type=IpAddress
-_ZxAnL3IfIpAddress_Object=MibTableColumn
-zxAnL3IfIpAddress=_ZxAnL3IfIpAddress_Object((1,3,6,1,4,1,3902,1015,4,1,3,1,1),_ZxAnL3IfIpAddress_Type())
-zxAnL3IfIpAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:zxAnL3IfIpAddress.setStatus(_A)
-_ZxAnL3IfIpAddressMask_Type=IpAddress
-_ZxAnL3IfIpAddressMask_Object=MibTableColumn
-zxAnL3IfIpAddressMask=_ZxAnL3IfIpAddressMask_Object((1,3,6,1,4,1,3902,1015,4,1,3,1,2),_ZxAnL3IfIpAddressMask_Type())
-zxAnL3IfIpAddressMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnL3IfIpAddressMask.setStatus(_A)
-class _ZxAnL3IfIpCategory_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('single',1),('primary',2),('secondary',3)))
-_ZxAnL3IfIpCategory_Type.__name__=_C
-_ZxAnL3IfIpCategory_Object=MibTableColumn
-zxAnL3IfIpCategory=_ZxAnL3IfIpCategory_Object((1,3,6,1,4,1,3902,1015,4,1,3,1,3),_ZxAnL3IfIpCategory_Type())
-zxAnL3IfIpCategory.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnL3IfIpCategory.setStatus(_A)
-_ZxAnL3IfIpRowStatus_Type=RowStatus
-_ZxAnL3IfIpRowStatus_Object=MibTableColumn
-zxAnL3IfIpRowStatus=_ZxAnL3IfIpRowStatus_Object((1,3,6,1,4,1,3902,1015,4,1,3,1,4),_ZxAnL3IfIpRowStatus_Type())
-zxAnL3IfIpRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnL3IfIpRowStatus.setStatus(_A)
-_ZxAnL3IfIpv6IpAddressTable_Object=MibTable
-zxAnL3IfIpv6IpAddressTable=_ZxAnL3IfIpv6IpAddressTable_Object((1,3,6,1,4,1,3902,1015,4,1,4))
-if mibBuilder.loadTexts:zxAnL3IfIpv6IpAddressTable.setStatus(_A)
-_ZxAnL3IfIpv6IpAddressEntry_Object=MibTableRow
-zxAnL3IfIpv6IpAddressEntry=_ZxAnL3IfIpv6IpAddressEntry_Object((1,3,6,1,4,1,3902,1015,4,1,4,1))
-zxAnL3IfIpv6IpAddressEntry.setIndexNames((0,_D,_E),(0,_D,_N))
-if mibBuilder.loadTexts:zxAnL3IfIpv6IpAddressEntry.setStatus(_A)
-_ZxAnL3IfIpv6IpAddress_Type=InetAddress
-_ZxAnL3IfIpv6IpAddress_Object=MibTableColumn
-zxAnL3IfIpv6IpAddress=_ZxAnL3IfIpv6IpAddress_Object((1,3,6,1,4,1,3902,1015,4,1,4,1,1),_ZxAnL3IfIpv6IpAddress_Type())
-zxAnL3IfIpv6IpAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:zxAnL3IfIpv6IpAddress.setStatus(_A)
-_ZxAnL3IfIpv6IpPfxLen_Type=InetAddressPrefixLength
-_ZxAnL3IfIpv6IpPfxLen_Object=MibTableColumn
-zxAnL3IfIpv6IpPfxLen=_ZxAnL3IfIpv6IpPfxLen_Object((1,3,6,1,4,1,3902,1015,4,1,4,1,2),_ZxAnL3IfIpv6IpPfxLen_Type())
-zxAnL3IfIpv6IpPfxLen.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnL3IfIpv6IpPfxLen.setStatus(_A)
-class _ZxAnL3IfIpv6Enable_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_ZxAnL3IfIpv6Enable_Type.__name__=_C
-_ZxAnL3IfIpv6Enable_Object=MibTableColumn
-zxAnL3IfIpv6Enable=_ZxAnL3IfIpv6Enable_Object((1,3,6,1,4,1,3902,1015,4,1,4,1,3),_ZxAnL3IfIpv6Enable_Type())
-zxAnL3IfIpv6Enable.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnL3IfIpv6Enable.setStatus(_A)
-class _ZxAnL3IfIpv6Mtu_Type(Integer32):defaultValue=1500;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1280,1500))
-_ZxAnL3IfIpv6Mtu_Type.__name__=_C
-_ZxAnL3IfIpv6Mtu_Object=MibTableColumn
-zxAnL3IfIpv6Mtu=_ZxAnL3IfIpv6Mtu_Object((1,3,6,1,4,1,3902,1015,4,1,4,1,4),_ZxAnL3IfIpv6Mtu_Type())
-zxAnL3IfIpv6Mtu.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnL3IfIpv6Mtu.setStatus(_A)
-class _ZxAnL3IfIpv6DadAttemps_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,60))
-_ZxAnL3IfIpv6DadAttemps_Type.__name__=_C
-_ZxAnL3IfIpv6DadAttemps_Object=MibTableColumn
-zxAnL3IfIpv6DadAttemps=_ZxAnL3IfIpv6DadAttemps_Object((1,3,6,1,4,1,3902,1015,4,1,4,1,5),_ZxAnL3IfIpv6DadAttemps_Type())
-zxAnL3IfIpv6DadAttemps.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnL3IfIpv6DadAttemps.setStatus(_A)
-_ZxAnL3IfIpv6RowStatus_Type=RowStatus
-_ZxAnL3IfIpv6RowStatus_Object=MibTableColumn
-zxAnL3IfIpv6RowStatus=_ZxAnL3IfIpv6RowStatus_Object((1,3,6,1,4,1,3902,1015,4,1,4,1,20),_ZxAnL3IfIpv6RowStatus_Type())
-zxAnL3IfIpv6RowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnL3IfIpv6RowStatus.setStatus(_A)
-_ZxAnL3InterfaceTrapObjects_ObjectIdentity=ObjectIdentity
-zxAnL3InterfaceTrapObjects=_ZxAnL3InterfaceTrapObjects_ObjectIdentity((1,3,6,1,4,1,3902,1015,4,2))
-mibBuilder.exportSymbols(_D,**{'zxAnL3InterfaceMib':zxAnL3InterfaceMib,'zxAnL3InterfaceObjects':zxAnL3InterfaceObjects,'zxAnL3IfTable':zxAnL3IfTable,'zxAnL3IfEntry':zxAnL3IfEntry,_E:zxAnL3IfIndex,'zxAnL3IfName':zxAnL3IfName,'zxAnIfReferIndex':zxAnIfReferIndex,'zxAnL3IfArpProxyEnable':zxAnL3IfArpProxyEnable,'zxAnL3IfRowStatus':zxAnL3IfRowStatus,'zxAnL3IfArpAgingTime':zxAnL3IfArpAgingTime,'zxAnL3IfSuperVlanTable':zxAnL3IfSuperVlanTable,'zxAnL3IfSuperVlanEntry':zxAnL3IfSuperVlanEntry,'zxAnL3IfSubvlanRoutingEnable':zxAnL3IfSubvlanRoutingEnable,'zxAnL3IfSubvlanList':zxAnL3IfSubvlanList,'zxAnL3IfIpAddressTable':zxAnL3IfIpAddressTable,'zxAnL3IfIpAddressEntry':zxAnL3IfIpAddressEntry,_M:zxAnL3IfIpAddress,'zxAnL3IfIpAddressMask':zxAnL3IfIpAddressMask,'zxAnL3IfIpCategory':zxAnL3IfIpCategory,'zxAnL3IfIpRowStatus':zxAnL3IfIpRowStatus,'zxAnL3IfIpv6IpAddressTable':zxAnL3IfIpv6IpAddressTable,'zxAnL3IfIpv6IpAddressEntry':zxAnL3IfIpv6IpAddressEntry,_N:zxAnL3IfIpv6IpAddress,'zxAnL3IfIpv6IpPfxLen':zxAnL3IfIpv6IpPfxLen,'zxAnL3IfIpv6Enable':zxAnL3IfIpv6Enable,'zxAnL3IfIpv6Mtu':zxAnL3IfIpv6Mtu,'zxAnL3IfIpv6DadAttemps':zxAnL3IfIpv6DadAttemps,'zxAnL3IfIpv6RowStatus':zxAnL3IfIpv6RowStatus,'zxAnL3InterfaceTrapObjects':zxAnL3InterfaceTrapObjects})
+#
+# PySNMP MIB module ZTE-AN-L3-IF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZTE-AN-L3-IF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressPrefixLength, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ZxAnIfindex, zxAn = mibBuilder.importSymbols("ZTE-AN-TC-MIB", "ZxAnIfindex", "zxAn")
+zxAnL3InterfaceMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1015, 4))
+if mibBuilder.loadTexts: zxAnL3InterfaceMib.setLastUpdated('0612070000Z')
+if mibBuilder.loadTexts: zxAnL3InterfaceMib.setOrganization('ZTE Corporation')
+zxAnL3InterfaceObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1))
+zxAnL3InterfaceTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 2))
+zxAnL3IfTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 1), )
+if mibBuilder.loadTexts: zxAnL3IfTable.setStatus('current')
+zxAnL3IfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 1, 1), ).setIndexNames((0, "ZTE-AN-L3-IF-MIB", "zxAnL3IfIndex"))
+if mibBuilder.loadTexts: zxAnL3IfEntry.setStatus('current')
+zxAnL3IfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 1, 1, 1), ZxAnIfindex())
+if mibBuilder.loadTexts: zxAnL3IfIndex.setStatus('current')
+zxAnL3IfName = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnL3IfName.setStatus('current')
+zxAnIfReferIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnIfReferIndex.setStatus('current')
+zxAnL3IfArpProxyEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnL3IfArpProxyEnable.setStatus('current')
+zxAnL3IfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnL3IfRowStatus.setStatus('current')
+zxAnL3IfArpAgingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967)).clone(300)).setUnits('second').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnL3IfArpAgingTime.setStatus('current')
+zxAnL3IfSuperVlanTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 2), )
+if mibBuilder.loadTexts: zxAnL3IfSuperVlanTable.setStatus('current')
+zxAnL3IfSuperVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 2, 1), ).setIndexNames((0, "ZTE-AN-L3-IF-MIB", "zxAnL3IfIndex"))
+if mibBuilder.loadTexts: zxAnL3IfSuperVlanEntry.setStatus('current')
+zxAnL3IfSubvlanRoutingEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnL3IfSubvlanRoutingEnable.setStatus('current')
+zxAnL3IfSubvlanList = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 5472))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnL3IfSubvlanList.setStatus('current')
+zxAnL3IfIpAddressTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 3), )
+if mibBuilder.loadTexts: zxAnL3IfIpAddressTable.setStatus('current')
+zxAnL3IfIpAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 3, 1), ).setIndexNames((0, "ZTE-AN-L3-IF-MIB", "zxAnL3IfIndex"), (0, "ZTE-AN-L3-IF-MIB", "zxAnL3IfIpAddress"))
+if mibBuilder.loadTexts: zxAnL3IfIpAddressEntry.setStatus('current')
+zxAnL3IfIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 3, 1, 1), IpAddress())
+if mibBuilder.loadTexts: zxAnL3IfIpAddress.setStatus('current')
+zxAnL3IfIpAddressMask = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 3, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnL3IfIpAddressMask.setStatus('current')
+zxAnL3IfIpCategory = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("single", 1), ("primary", 2), ("secondary", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnL3IfIpCategory.setStatus('current')
+zxAnL3IfIpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnL3IfIpRowStatus.setStatus('current')
+zxAnL3IfIpv6IpAddressTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 4), )
+if mibBuilder.loadTexts: zxAnL3IfIpv6IpAddressTable.setStatus('current')
+zxAnL3IfIpv6IpAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 4, 1), ).setIndexNames((0, "ZTE-AN-L3-IF-MIB", "zxAnL3IfIndex"), (0, "ZTE-AN-L3-IF-MIB", "zxAnL3IfIpv6IpAddress"))
+if mibBuilder.loadTexts: zxAnL3IfIpv6IpAddressEntry.setStatus('current')
+zxAnL3IfIpv6IpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 4, 1, 1), InetAddress())
+if mibBuilder.loadTexts: zxAnL3IfIpv6IpAddress.setStatus('current')
+zxAnL3IfIpv6IpPfxLen = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 4, 1, 2), InetAddressPrefixLength()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnL3IfIpv6IpPfxLen.setStatus('current')
+zxAnL3IfIpv6Enable = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnL3IfIpv6Enable.setStatus('current')
+zxAnL3IfIpv6Mtu = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 4, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1280, 1500)).clone(1500)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnL3IfIpv6Mtu.setStatus('current')
+zxAnL3IfIpv6DadAttemps = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 60)).clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnL3IfIpv6DadAttemps.setStatus('current')
+zxAnL3IfIpv6RowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 4, 1, 4, 1, 20), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnL3IfIpv6RowStatus.setStatus('current')
+mibBuilder.exportSymbols("ZTE-AN-L3-IF-MIB", zxAnL3IfIpAddressTable=zxAnL3IfIpAddressTable, zxAnL3IfTable=zxAnL3IfTable, zxAnL3IfSubvlanList=zxAnL3IfSubvlanList, zxAnL3IfIpv6Enable=zxAnL3IfIpv6Enable, zxAnL3IfIpAddressEntry=zxAnL3IfIpAddressEntry, zxAnL3IfIpv6RowStatus=zxAnL3IfIpv6RowStatus, zxAnL3IfRowStatus=zxAnL3IfRowStatus, zxAnL3IfIpv6DadAttemps=zxAnL3IfIpv6DadAttemps, zxAnL3InterfaceTrapObjects=zxAnL3InterfaceTrapObjects, zxAnL3IfIpv6IpAddressTable=zxAnL3IfIpv6IpAddressTable, zxAnL3IfIndex=zxAnL3IfIndex, zxAnL3IfIpAddress=zxAnL3IfIpAddress, zxAnL3IfEntry=zxAnL3IfEntry, PYSNMP_MODULE_ID=zxAnL3InterfaceMib, zxAnL3IfIpCategory=zxAnL3IfIpCategory, zxAnL3IfIpv6IpAddress=zxAnL3IfIpv6IpAddress, zxAnL3InterfaceMib=zxAnL3InterfaceMib, zxAnL3IfSuperVlanTable=zxAnL3IfSuperVlanTable, zxAnL3IfSubvlanRoutingEnable=zxAnL3IfSubvlanRoutingEnable, zxAnL3IfIpRowStatus=zxAnL3IfIpRowStatus, zxAnL3IfIpv6IpAddressEntry=zxAnL3IfIpv6IpAddressEntry, zxAnL3IfSuperVlanEntry=zxAnL3IfSuperVlanEntry, zxAnL3IfIpv6Mtu=zxAnL3IfIpv6Mtu, zxAnL3IfArpProxyEnable=zxAnL3IfArpProxyEnable, zxAnL3IfName=zxAnL3IfName, zxAnL3IfIpv6IpPfxLen=zxAnL3IfIpv6IpPfxLen, zxAnL3InterfaceObjects=zxAnL3InterfaceObjects, zxAnL3IfIpAddressMask=zxAnL3IfIpAddressMask, zxAnL3IfArpAgingTime=zxAnL3IfArpAgingTime, zxAnIfReferIndex=zxAnIfReferIndex)

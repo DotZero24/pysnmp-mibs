@@ -1,82 +1,46 @@
-_N='videoMulticastSourceIndexNext'
-_M='videoMulticastSourceNetMask'
-_L='videoMulticastSourceIpAddress'
-_K='videoMulticastSourceRowStatus'
-_J='videoInterfaceType'
-_I='videoInterfaceRowStatus'
-_H='videoMulticastSourceIndex'
-_G='read-create'
-_F='ifIndex'
-_E='IF-MIB'
-_D='read-write'
-_C='Integer32'
-_B='ZHONE-COM-VIDEO-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,ifPhysAddress=mibBuilder.importSymbols(_E,_F,'ifPhysAddress')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-zhoneModules,zhoneVideo=mibBuilder.importSymbols('Zhone','zhoneModules','zhoneVideo')
-ZhoneRowStatus,=mibBuilder.importSymbols('Zhone-TC','ZhoneRowStatus')
-comVideo=ModuleIdentity((1,3,6,1,4,1,5504,6,78))
-if mibBuilder.loadTexts:comVideo.setRevisions(('2003-10-28 11:00',))
-_VideoInterfaceTable_Object=MibTable
-videoInterfaceTable=_VideoInterfaceTable_Object((1,3,6,1,4,1,5504,4,8,2))
-if mibBuilder.loadTexts:videoInterfaceTable.setStatus(_A)
-_VideoInterfaceEntry_Object=MibTableRow
-videoInterfaceEntry=_VideoInterfaceEntry_Object((1,3,6,1,4,1,5504,4,8,2,1))
-videoInterfaceEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:videoInterfaceEntry.setStatus(_A)
-_VideoInterfaceRowStatus_Type=ZhoneRowStatus
-_VideoInterfaceRowStatus_Object=MibTableColumn
-videoInterfaceRowStatus=_VideoInterfaceRowStatus_Object((1,3,6,1,4,1,5504,4,8,2,1,1),_VideoInterfaceRowStatus_Type())
-videoInterfaceRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:videoInterfaceRowStatus.setStatus(_A)
-class _VideoInterfaceType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('management',1),('stream',2),('client',3)))
-_VideoInterfaceType_Type.__name__=_C
-_VideoInterfaceType_Object=MibTableColumn
-videoInterfaceType=_VideoInterfaceType_Object((1,3,6,1,4,1,5504,4,8,2,1,2),_VideoInterfaceType_Type())
-videoInterfaceType.setMaxAccess(_G)
-if mibBuilder.loadTexts:videoInterfaceType.setStatus(_A)
-_VideoMulticastSourceTable_Object=MibTable
-videoMulticastSourceTable=_VideoMulticastSourceTable_Object((1,3,6,1,4,1,5504,4,8,3))
-if mibBuilder.loadTexts:videoMulticastSourceTable.setStatus(_A)
-_VideoMulticastSourceEntry_Object=MibTableRow
-videoMulticastSourceEntry=_VideoMulticastSourceEntry_Object((1,3,6,1,4,1,5504,4,8,3,1))
-videoMulticastSourceEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:videoMulticastSourceEntry.setStatus(_A)
-class _VideoMulticastSourceIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_VideoMulticastSourceIndex_Type.__name__=_C
-_VideoMulticastSourceIndex_Object=MibTableColumn
-videoMulticastSourceIndex=_VideoMulticastSourceIndex_Object((1,3,6,1,4,1,5504,4,8,3,1,1),_VideoMulticastSourceIndex_Type())
-videoMulticastSourceIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:videoMulticastSourceIndex.setStatus(_A)
-_VideoMulticastSourceRowStatus_Type=ZhoneRowStatus
-_VideoMulticastSourceRowStatus_Object=MibTableColumn
-videoMulticastSourceRowStatus=_VideoMulticastSourceRowStatus_Object((1,3,6,1,4,1,5504,4,8,3,1,2),_VideoMulticastSourceRowStatus_Type())
-videoMulticastSourceRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:videoMulticastSourceRowStatus.setStatus(_A)
-_VideoMulticastSourceIpAddress_Type=IpAddress
-_VideoMulticastSourceIpAddress_Object=MibTableColumn
-videoMulticastSourceIpAddress=_VideoMulticastSourceIpAddress_Object((1,3,6,1,4,1,5504,4,8,3,1,3),_VideoMulticastSourceIpAddress_Type())
-videoMulticastSourceIpAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:videoMulticastSourceIpAddress.setStatus(_A)
-_VideoMulticastSourceNetMask_Type=IpAddress
-_VideoMulticastSourceNetMask_Object=MibTableColumn
-videoMulticastSourceNetMask=_VideoMulticastSourceNetMask_Object((1,3,6,1,4,1,5504,4,8,3,1,4),_VideoMulticastSourceNetMask_Type())
-videoMulticastSourceNetMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:videoMulticastSourceNetMask.setStatus(_A)
-class _VideoMulticastSourceIndexNext_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_VideoMulticastSourceIndexNext_Type.__name__=_C
-_VideoMulticastSourceIndexNext_Object=MibScalar
-videoMulticastSourceIndexNext=_VideoMulticastSourceIndexNext_Object((1,3,6,1,4,1,5504,4,8,4),_VideoMulticastSourceIndexNext_Type())
-videoMulticastSourceIndexNext.setMaxAccess('read-only')
-if mibBuilder.loadTexts:videoMulticastSourceIndexNext.setStatus(_A)
-videoGroup=ObjectGroup((1,3,6,1,4,1,5504,4,8,1))
-videoGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:videoGroup.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'videoGroup':videoGroup,'videoInterfaceTable':videoInterfaceTable,'videoInterfaceEntry':videoInterfaceEntry,_I:videoInterfaceRowStatus,_J:videoInterfaceType,'videoMulticastSourceTable':videoMulticastSourceTable,'videoMulticastSourceEntry':videoMulticastSourceEntry,_H:videoMulticastSourceIndex,_K:videoMulticastSourceRowStatus,_L:videoMulticastSourceIpAddress,_M:videoMulticastSourceNetMask,_N:videoMulticastSourceIndexNext,'comVideo':comVideo})
+#
+# PySNMP MIB module ZHONE-COM-VIDEO-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zhone/ZHONE-COM-VIDEO-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:11 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, ifPhysAddress = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifPhysAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+zhoneModules, zhoneVideo = mibBuilder.importSymbols("Zhone", "zhoneModules", "zhoneVideo")
+ZhoneRowStatus, = mibBuilder.importSymbols("Zhone-TC", "ZhoneRowStatus")
+comVideo = ModuleIdentity((1, 3, 6, 1, 4, 1, 5504, 6, 78))
+comVideo.setRevisions(('2003-10-28 11:00',))
+if mibBuilder.loadTexts: comVideo.setLastUpdated('200310281012Z')
+if mibBuilder.loadTexts: comVideo.setOrganization('Zhone Technologies, Inc.')
+videoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5504, 4, 8, 1)).setObjects(("ZHONE-COM-VIDEO-MIB", "videoInterfaceRowStatus"), ("ZHONE-COM-VIDEO-MIB", "videoInterfaceType"), ("ZHONE-COM-VIDEO-MIB", "videoMulticastSourceRowStatus"), ("ZHONE-COM-VIDEO-MIB", "videoMulticastSourceIpAddress"), ("ZHONE-COM-VIDEO-MIB", "videoMulticastSourceNetMask"), ("ZHONE-COM-VIDEO-MIB", "videoMulticastSourceIndexNext"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    videoGroup = videoGroup.setStatus('current')
+videoInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 5504, 4, 8, 2), )
+if mibBuilder.loadTexts: videoInterfaceTable.setStatus('current')
+videoInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5504, 4, 8, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: videoInterfaceEntry.setStatus('current')
+videoInterfaceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 4, 8, 2, 1, 1), ZhoneRowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: videoInterfaceRowStatus.setStatus('current')
+videoInterfaceType = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 4, 8, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("management", 1), ("stream", 2), ("client", 3))).clone('management')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: videoInterfaceType.setStatus('current')
+videoMulticastSourceTable = MibTable((1, 3, 6, 1, 4, 1, 5504, 4, 8, 3), )
+if mibBuilder.loadTexts: videoMulticastSourceTable.setStatus('current')
+videoMulticastSourceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5504, 4, 8, 3, 1), ).setIndexNames((0, "ZHONE-COM-VIDEO-MIB", "videoMulticastSourceIndex"))
+if mibBuilder.loadTexts: videoMulticastSourceEntry.setStatus('current')
+videoMulticastSourceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 4, 8, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: videoMulticastSourceIndex.setStatus('current')
+videoMulticastSourceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 4, 8, 3, 1, 2), ZhoneRowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: videoMulticastSourceRowStatus.setStatus('current')
+videoMulticastSourceIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 4, 8, 3, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: videoMulticastSourceIpAddress.setStatus('current')
+videoMulticastSourceNetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 4, 8, 3, 1, 4), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: videoMulticastSourceNetMask.setStatus('current')
+videoMulticastSourceIndexNext = MibScalar((1, 3, 6, 1, 4, 1, 5504, 4, 8, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: videoMulticastSourceIndexNext.setStatus('current')
+mibBuilder.exportSymbols("ZHONE-COM-VIDEO-MIB", videoInterfaceEntry=videoInterfaceEntry, videoMulticastSourceEntry=videoMulticastSourceEntry, videoMulticastSourceIndex=videoMulticastSourceIndex, videoInterfaceType=videoInterfaceType, videoGroup=videoGroup, videoInterfaceTable=videoInterfaceTable, comVideo=comVideo, videoInterfaceRowStatus=videoInterfaceRowStatus, PYSNMP_MODULE_ID=comVideo, videoMulticastSourceIpAddress=videoMulticastSourceIpAddress, videoMulticastSourceIndexNext=videoMulticastSourceIndexNext, videoMulticastSourceNetMask=videoMulticastSourceNetMask, videoMulticastSourceTable=videoMulticastSourceTable, videoMulticastSourceRowStatus=videoMulticastSourceRowStatus)

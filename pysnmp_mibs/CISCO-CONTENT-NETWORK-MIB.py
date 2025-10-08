@@ -1,120 +1,72 @@
-_U='ccnNotifGroupRev1'
-_T='ccnNotifGroup'
-_S='ccnNotifOnline'
-_R='ccnNotifWaitingForCdm'
-_Q='ccnNotifNeedsAttention'
-_P='ccnNotifOffline'
-_O='ccnNotifServerStop'
-_N='ccnNotifServerStart'
-_M='ccnReportAcctCacheMissRate'
-_L='ccnReportAcctCacheHitRate'
-_K='ccnReportAcctObjectsCached'
-_J='ccnReportAcctBytesServed'
-_I='ccnReportDnsRequests'
-_H='ccnReportDnsClientCount'
-_G='ccnReportDnsRequestRate'
-_F='objects-per-minute'
-_E='ccnReportingGroup'
-_D='deprecated'
-_C='read-only'
-_B='current'
-_A='CISCO-CONTENT-NETWORK-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ZeroBasedCounter32,=mibBuilder.importSymbols('RMON2-MIB','ZeroBasedCounter32')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoContentNetworkMIB=ModuleIdentity((1,3,6,1,4,1,9,9,216))
-if mibBuilder.loadTexts:ciscoContentNetworkMIB.setRevisions(('2001-10-11 18:25','2001-05-23 21:34'))
-_CiscoContentNetworkMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoContentNetworkMIBObjects=_CiscoContentNetworkMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,216,1))
-_CcnReport_ObjectIdentity=ObjectIdentity
-ccnReport=_CcnReport_ObjectIdentity((1,3,6,1,4,1,9,9,216,1,1))
-_CcnReportDns_ObjectIdentity=ObjectIdentity
-ccnReportDns=_CcnReportDns_ObjectIdentity((1,3,6,1,4,1,9,9,216,1,1,1))
-_CcnReportDnsRequestRate_Type=Gauge32
-_CcnReportDnsRequestRate_Object=MibScalar
-ccnReportDnsRequestRate=_CcnReportDnsRequestRate_Object((1,3,6,1,4,1,9,9,216,1,1,1,1),_CcnReportDnsRequestRate_Type())
-ccnReportDnsRequestRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccnReportDnsRequestRate.setStatus(_B)
-if mibBuilder.loadTexts:ccnReportDnsRequestRate.setUnits('requests-per-second')
-_CcnReportDnsClientCount_Type=ZeroBasedCounter32
-_CcnReportDnsClientCount_Object=MibScalar
-ccnReportDnsClientCount=_CcnReportDnsClientCount_Object((1,3,6,1,4,1,9,9,216,1,1,1,2),_CcnReportDnsClientCount_Type())
-ccnReportDnsClientCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccnReportDnsClientCount.setStatus(_B)
-if mibBuilder.loadTexts:ccnReportDnsClientCount.setUnits('clients')
-_CcnReportDnsRequests_Type=ZeroBasedCounter32
-_CcnReportDnsRequests_Object=MibScalar
-ccnReportDnsRequests=_CcnReportDnsRequests_Object((1,3,6,1,4,1,9,9,216,1,1,1,3),_CcnReportDnsRequests_Type())
-ccnReportDnsRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccnReportDnsRequests.setStatus(_B)
-if mibBuilder.loadTexts:ccnReportDnsRequests.setUnits('requests')
-_CcnReportAcct_ObjectIdentity=ObjectIdentity
-ccnReportAcct=_CcnReportAcct_ObjectIdentity((1,3,6,1,4,1,9,9,216,1,1,2))
-_CcnReportAcctBytesServed_Type=ZeroBasedCounter32
-_CcnReportAcctBytesServed_Object=MibScalar
-ccnReportAcctBytesServed=_CcnReportAcctBytesServed_Object((1,3,6,1,4,1,9,9,216,1,1,2,1),_CcnReportAcctBytesServed_Type())
-ccnReportAcctBytesServed.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccnReportAcctBytesServed.setStatus(_B)
-if mibBuilder.loadTexts:ccnReportAcctBytesServed.setUnits('bytes')
-_CcnReportAcctObjectsCached_Type=Gauge32
-_CcnReportAcctObjectsCached_Object=MibScalar
-ccnReportAcctObjectsCached=_CcnReportAcctObjectsCached_Object((1,3,6,1,4,1,9,9,216,1,1,2,2),_CcnReportAcctObjectsCached_Type())
-ccnReportAcctObjectsCached.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccnReportAcctObjectsCached.setStatus(_B)
-if mibBuilder.loadTexts:ccnReportAcctObjectsCached.setUnits('objects')
-_CcnReportAcctCacheHitRate_Type=Gauge32
-_CcnReportAcctCacheHitRate_Object=MibScalar
-ccnReportAcctCacheHitRate=_CcnReportAcctCacheHitRate_Object((1,3,6,1,4,1,9,9,216,1,1,2,3),_CcnReportAcctCacheHitRate_Type())
-ccnReportAcctCacheHitRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccnReportAcctCacheHitRate.setStatus(_B)
-if mibBuilder.loadTexts:ccnReportAcctCacheHitRate.setUnits(_F)
-_CcnReportAcctCacheMissRate_Type=Gauge32
-_CcnReportAcctCacheMissRate_Object=MibScalar
-ccnReportAcctCacheMissRate=_CcnReportAcctCacheMissRate_Object((1,3,6,1,4,1,9,9,216,1,1,2,4),_CcnReportAcctCacheMissRate_Type())
-ccnReportAcctCacheMissRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccnReportAcctCacheMissRate.setStatus(_B)
-if mibBuilder.loadTexts:ccnReportAcctCacheMissRate.setUnits(_F)
-_CiscoContentNetworkMIBNotif_ObjectIdentity=ObjectIdentity
-ciscoContentNetworkMIBNotif=_CiscoContentNetworkMIBNotif_ObjectIdentity((1,3,6,1,4,1,9,9,216,2))
-_CcnNotifications_ObjectIdentity=ObjectIdentity
-ccnNotifications=_CcnNotifications_ObjectIdentity((1,3,6,1,4,1,9,9,216,2,0))
-_CcnMIBConformance_ObjectIdentity=ObjectIdentity
-ccnMIBConformance=_CcnMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,216,3))
-_CcnMIBCompliances_ObjectIdentity=ObjectIdentity
-ccnMIBCompliances=_CcnMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,216,3,1))
-_CcnMIBGroups_ObjectIdentity=ObjectIdentity
-ccnMIBGroups=_CcnMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,216,3,2))
-ccnReportingGroup=ObjectGroup((1,3,6,1,4,1,9,9,216,3,2,1))
-ccnReportingGroup.setObjects(*((_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:ccnReportingGroup.setStatus(_B)
-ccnNotifServerStart=NotificationType((1,3,6,1,4,1,9,9,216,2,0,1))
-if mibBuilder.loadTexts:ccnNotifServerStart.setStatus(_D)
-ccnNotifServerStop=NotificationType((1,3,6,1,4,1,9,9,216,2,0,2))
-if mibBuilder.loadTexts:ccnNotifServerStop.setStatus(_D)
-ccnNotifOffline=NotificationType((1,3,6,1,4,1,9,9,216,2,0,3))
-if mibBuilder.loadTexts:ccnNotifOffline.setStatus(_B)
-ccnNotifNeedsAttention=NotificationType((1,3,6,1,4,1,9,9,216,2,0,4))
-if mibBuilder.loadTexts:ccnNotifNeedsAttention.setStatus(_B)
-ccnNotifWaitingForCdm=NotificationType((1,3,6,1,4,1,9,9,216,2,0,5))
-if mibBuilder.loadTexts:ccnNotifWaitingForCdm.setStatus(_B)
-ccnNotifOnline=NotificationType((1,3,6,1,4,1,9,9,216,2,0,6))
-if mibBuilder.loadTexts:ccnNotifOnline.setStatus(_B)
-ccnNotifGroup=NotificationGroup((1,3,6,1,4,1,9,9,216,3,2,2))
-ccnNotifGroup.setObjects(*((_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:ccnNotifGroup.setStatus(_D)
-ccnNotifGroupRev1=NotificationGroup((1,3,6,1,4,1,9,9,216,3,2,3))
-ccnNotifGroupRev1.setObjects(*((_A,_P),(_A,_Q),(_A,_R),(_A,_S)))
-if mibBuilder.loadTexts:ccnNotifGroupRev1.setStatus(_B)
-ccnMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,216,3,1,1))
-ccnMIBCompliance.setObjects(*((_A,_E),(_A,_T)))
-if mibBuilder.loadTexts:ccnMIBCompliance.setStatus(_D)
-ccnMIBComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,9,216,3,1,2))
-ccnMIBComplianceRev1.setObjects(*((_A,_E),(_A,_U)))
-if mibBuilder.loadTexts:ccnMIBComplianceRev1.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ciscoContentNetworkMIB':ciscoContentNetworkMIB,'ciscoContentNetworkMIBObjects':ciscoContentNetworkMIBObjects,'ccnReport':ccnReport,'ccnReportDns':ccnReportDns,_G:ccnReportDnsRequestRate,_H:ccnReportDnsClientCount,_I:ccnReportDnsRequests,'ccnReportAcct':ccnReportAcct,_J:ccnReportAcctBytesServed,_K:ccnReportAcctObjectsCached,_L:ccnReportAcctCacheHitRate,_M:ccnReportAcctCacheMissRate,'ciscoContentNetworkMIBNotif':ciscoContentNetworkMIBNotif,'ccnNotifications':ccnNotifications,_N:ccnNotifServerStart,_O:ccnNotifServerStop,_P:ccnNotifOffline,_Q:ccnNotifNeedsAttention,_R:ccnNotifWaitingForCdm,_S:ccnNotifOnline,'ccnMIBConformance':ccnMIBConformance,'ccnMIBCompliances':ccnMIBCompliances,'ccnMIBCompliance':ccnMIBCompliance,'ccnMIBComplianceRev1':ccnMIBComplianceRev1,'ccnMIBGroups':ccnMIBGroups,_E:ccnReportingGroup,_T:ccnNotifGroup,_U:ccnNotifGroupRev1})
+#
+# PySNMP MIB module CISCO-CONTENT-NETWORK-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-CONTENT-NETWORK-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:13 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ZeroBasedCounter32, = mibBuilder.importSymbols("RMON2-MIB", "ZeroBasedCounter32")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoContentNetworkMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 216))
+ciscoContentNetworkMIB.setRevisions(('2001-10-11 18:25', '2001-05-23 21:34',))
+if mibBuilder.loadTexts: ciscoContentNetworkMIB.setLastUpdated('200110111825Z')
+if mibBuilder.loadTexts: ciscoContentNetworkMIB.setOrganization('Cisco Systems, Inc.')
+ciscoContentNetworkMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 216, 1))
+ccnReport = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 216, 1, 1))
+ccnReportDns = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 216, 1, 1, 1))
+ccnReportAcct = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 216, 1, 1, 2))
+ccnReportDnsRequestRate = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 216, 1, 1, 1, 1), Gauge32()).setUnits('requests-per-second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccnReportDnsRequestRate.setStatus('current')
+ccnReportDnsClientCount = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 216, 1, 1, 1, 2), ZeroBasedCounter32()).setUnits('clients').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccnReportDnsClientCount.setStatus('current')
+ccnReportDnsRequests = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 216, 1, 1, 1, 3), ZeroBasedCounter32()).setUnits('requests').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccnReportDnsRequests.setStatus('current')
+ccnReportAcctBytesServed = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 216, 1, 1, 2, 1), ZeroBasedCounter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccnReportAcctBytesServed.setStatus('current')
+ccnReportAcctObjectsCached = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 216, 1, 1, 2, 2), Gauge32()).setUnits('objects').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccnReportAcctObjectsCached.setStatus('current')
+ccnReportAcctCacheHitRate = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 216, 1, 1, 2, 3), Gauge32()).setUnits('objects-per-minute').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccnReportAcctCacheHitRate.setStatus('current')
+ccnReportAcctCacheMissRate = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 216, 1, 1, 2, 4), Gauge32()).setUnits('objects-per-minute').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccnReportAcctCacheMissRate.setStatus('current')
+ciscoContentNetworkMIBNotif = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 216, 2))
+ccnNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 216, 2, 0))
+ccnNotifServerStart = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 216, 2, 0, 1))
+if mibBuilder.loadTexts: ccnNotifServerStart.setStatus('deprecated')
+ccnNotifServerStop = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 216, 2, 0, 2))
+if mibBuilder.loadTexts: ccnNotifServerStop.setStatus('deprecated')
+ccnNotifOffline = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 216, 2, 0, 3))
+if mibBuilder.loadTexts: ccnNotifOffline.setStatus('current')
+ccnNotifNeedsAttention = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 216, 2, 0, 4))
+if mibBuilder.loadTexts: ccnNotifNeedsAttention.setStatus('current')
+ccnNotifWaitingForCdm = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 216, 2, 0, 5))
+if mibBuilder.loadTexts: ccnNotifWaitingForCdm.setStatus('current')
+ccnNotifOnline = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 216, 2, 0, 6))
+if mibBuilder.loadTexts: ccnNotifOnline.setStatus('current')
+ccnMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 216, 3))
+ccnMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 216, 3, 1))
+ccnMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 216, 3, 2))
+ccnMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 216, 3, 1, 1)).setObjects(("CISCO-CONTENT-NETWORK-MIB", "ccnReportingGroup"), ("CISCO-CONTENT-NETWORK-MIB", "ccnNotifGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ccnMIBCompliance = ccnMIBCompliance.setStatus('deprecated')
+ccnMIBComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 216, 3, 1, 2)).setObjects(("CISCO-CONTENT-NETWORK-MIB", "ccnReportingGroup"), ("CISCO-CONTENT-NETWORK-MIB", "ccnNotifGroupRev1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ccnMIBComplianceRev1 = ccnMIBComplianceRev1.setStatus('current')
+ccnReportingGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 216, 3, 2, 1)).setObjects(("CISCO-CONTENT-NETWORK-MIB", "ccnReportDnsRequestRate"), ("CISCO-CONTENT-NETWORK-MIB", "ccnReportDnsClientCount"), ("CISCO-CONTENT-NETWORK-MIB", "ccnReportDnsRequests"), ("CISCO-CONTENT-NETWORK-MIB", "ccnReportAcctBytesServed"), ("CISCO-CONTENT-NETWORK-MIB", "ccnReportAcctObjectsCached"), ("CISCO-CONTENT-NETWORK-MIB", "ccnReportAcctCacheHitRate"), ("CISCO-CONTENT-NETWORK-MIB", "ccnReportAcctCacheMissRate"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ccnReportingGroup = ccnReportingGroup.setStatus('current')
+ccnNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 216, 3, 2, 2)).setObjects(("CISCO-CONTENT-NETWORK-MIB", "ccnNotifServerStart"), ("CISCO-CONTENT-NETWORK-MIB", "ccnNotifServerStop"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ccnNotifGroup = ccnNotifGroup.setStatus('deprecated')
+ccnNotifGroupRev1 = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 216, 3, 2, 3)).setObjects(("CISCO-CONTENT-NETWORK-MIB", "ccnNotifOffline"), ("CISCO-CONTENT-NETWORK-MIB", "ccnNotifNeedsAttention"), ("CISCO-CONTENT-NETWORK-MIB", "ccnNotifWaitingForCdm"), ("CISCO-CONTENT-NETWORK-MIB", "ccnNotifOnline"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ccnNotifGroupRev1 = ccnNotifGroupRev1.setStatus('current')
+mibBuilder.exportSymbols("CISCO-CONTENT-NETWORK-MIB", ccnMIBComplianceRev1=ccnMIBComplianceRev1, ccnNotifNeedsAttention=ccnNotifNeedsAttention, ccnReportAcctCacheMissRate=ccnReportAcctCacheMissRate, ccnNotifServerStart=ccnNotifServerStart, ccnMIBCompliance=ccnMIBCompliance, ccnReportAcct=ccnReportAcct, ccnReportAcctCacheHitRate=ccnReportAcctCacheHitRate, ccnMIBCompliances=ccnMIBCompliances, ccnReportDnsRequests=ccnReportDnsRequests, ccnMIBGroups=ccnMIBGroups, ccnReportAcctBytesServed=ccnReportAcctBytesServed, ccnMIBConformance=ccnMIBConformance, ccnReportDnsClientCount=ccnReportDnsClientCount, ccnReportDnsRequestRate=ccnReportDnsRequestRate, ccnReportingGroup=ccnReportingGroup, ciscoContentNetworkMIBObjects=ciscoContentNetworkMIBObjects, PYSNMP_MODULE_ID=ciscoContentNetworkMIB, ccnReportAcctObjectsCached=ccnReportAcctObjectsCached, ccnNotifServerStop=ccnNotifServerStop, ciscoContentNetworkMIBNotif=ciscoContentNetworkMIBNotif, ciscoContentNetworkMIB=ciscoContentNetworkMIB, ccnNotifGroup=ccnNotifGroup, ccnReportDns=ccnReportDns, ccnNotifOnline=ccnNotifOnline, ccnNotifGroupRev1=ccnNotifGroupRev1, ccnReport=ccnReport, ccnNotifWaitingForCdm=ccnNotifWaitingForCdm, ccnNotifOffline=ccnNotifOffline, ccnNotifications=ccnNotifications)

@@ -1,89 +1,45 @@
-_I='oacSshEnabled'
-_H='ONEACCESS-SSH-CONFIG-MIB'
-_G='seconds'
-_F='TruthValue'
-_E='Unsigned32'
-_D='OctetString'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-oacExpIMIpAcl,oacExpIMManagement,oacMIBModules=mibBuilder.importSymbols('ONEACCESS-GLOBAL-REG','oacExpIMIpAcl','oacExpIMManagement','oacMIBModules')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_F)
-oacSshConfigMIB=ModuleIdentity((1,3,6,1,4,1,13191,1,100,2004))
-if mibBuilder.loadTexts:oacSshConfigMIB.setRevisions(('2011-07-26 00:00','2011-06-15 00:00'))
-_OacSshConfig_ObjectIdentity=ObjectIdentity
-oacSshConfig=_OacSshConfig_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,22))
-_OacSshConfigObjects_ObjectIdentity=ObjectIdentity
-oacSshConfigObjects=_OacSshConfigObjects_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,22,1))
-class _OacSshDsaKey_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,256,512,1024,2048)));namedValues=NamedValues(*(('keysize-0bits',0),('keysize-256bits',256),('keysize-512bits',512),('keysize-1024bits',1024),('keysize-2048bits',2048)))
-_OacSshDsaKey_Type.__name__=_C
-_OacSshDsaKey_Object=MibScalar
-oacSshDsaKey=_OacSshDsaKey_Object((1,3,6,1,4,1,13191,10,3,4,22,1,1),_OacSshDsaKey_Type())
-oacSshDsaKey.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSshDsaKey.setStatus(_A)
-class _OacSshEnabled_Type(TruthValue):defaultValue=2
-_OacSshEnabled_Type.__name__=_F
-_OacSshEnabled_Object=MibScalar
-oacSshEnabled=_OacSshEnabled_Object((1,3,6,1,4,1,13191,10,3,4,22,1,2),_OacSshEnabled_Type())
-oacSshEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSshEnabled.setStatus(_A)
-class _OacSshIdleTimeout_Type(Unsigned32):defaultValue=600;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(120,4294967295))
-_OacSshIdleTimeout_Type.__name__=_E
-_OacSshIdleTimeout_Object=MibScalar
-oacSshIdleTimeout=_OacSshIdleTimeout_Object((1,3,6,1,4,1,13191,10,3,4,22,1,3),_OacSshIdleTimeout_Type())
-oacSshIdleTimeout.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSshIdleTimeout.setStatus(_A)
-if mibBuilder.loadTexts:oacSshIdleTimeout.setUnits(_G)
-class _OacSshAuthTimeout_Type(Integer32):defaultValue=120;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,120))
-_OacSshAuthTimeout_Type.__name__=_C
-_OacSshAuthTimeout_Object=MibScalar
-oacSshAuthTimeout=_OacSshAuthTimeout_Object((1,3,6,1,4,1,13191,10,3,4,22,1,4),_OacSshAuthTimeout_Type())
-oacSshAuthTimeout.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSshAuthTimeout.setStatus(_A)
-if mibBuilder.loadTexts:oacSshAuthTimeout.setUnits(_G)
-class _OacSshAuthRetries_Type(Integer32):defaultValue=3
-_OacSshAuthRetries_Type.__name__=_C
-_OacSshAuthRetries_Object=MibScalar
-oacSshAuthRetries=_OacSshAuthRetries_Object((1,3,6,1,4,1,13191,10,3,4,22,1,5),_OacSshAuthRetries_Type())
-oacSshAuthRetries.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSshAuthRetries.setStatus(_A)
-class _OacSshBindInterface_Type(OctetString):defaultValue=OctetString('any');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_OacSshBindInterface_Type.__name__=_D
-_OacSshBindInterface_Object=MibScalar
-oacSshBindInterface=_OacSshBindInterface_Object((1,3,6,1,4,1,13191,10,3,4,22,1,6),_OacSshBindInterface_Type())
-oacSshBindInterface.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSshBindInterface.setStatus(_A)
-class _OacSshBindAcl_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_OacSshBindAcl_Type.__name__=_D
-_OacSshBindAcl_Object=MibScalar
-oacSshBindAcl=_OacSshBindAcl_Object((1,3,6,1,4,1,13191,10,3,4,22,1,7),_OacSshBindAcl_Type())
-oacSshBindAcl.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSshBindAcl.setStatus(_A)
-class _OacSshMaxSessions_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,5))
-_OacSshMaxSessions_Type.__name__=_C
-_OacSshMaxSessions_Object=MibScalar
-oacSshMaxSessions=_OacSshMaxSessions_Object((1,3,6,1,4,1,13191,10,3,4,22,1,8),_OacSshMaxSessions_Type())
-oacSshMaxSessions.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSshMaxSessions.setStatus(_A)
-class _OacSshMaxSessionChannels_Type(Integer32):defaultValue=10;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_OacSshMaxSessionChannels_Type.__name__=_C
-_OacSshMaxSessionChannels_Object=MibScalar
-oacSshMaxSessionChannels=_OacSshMaxSessionChannels_Object((1,3,6,1,4,1,13191,10,3,4,22,1,9),_OacSshMaxSessionChannels_Type())
-oacSshMaxSessionChannels.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSshMaxSessionChannels.setStatus(_A)
-_OacSshConfigConformance_ObjectIdentity=ObjectIdentity
-oacSshConfigConformance=_OacSshConfigConformance_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,22,2))
-_OacSshConfigGroups_ObjectIdentity=ObjectIdentity
-oacSshConfigGroups=_OacSshConfigGroups_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,22,2,1))
-_OacSshCompls_ObjectIdentity=ObjectIdentity
-oacSshCompls=_OacSshCompls_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,22,2,2))
-oacSshConfigGroup=ObjectGroup((1,3,6,1,4,1,13191,10,3,4,22,2,1,1))
-oacSshConfigGroup.setObjects((_H,_I))
-if mibBuilder.loadTexts:oacSshConfigGroup.setStatus(_A)
-mibBuilder.exportSymbols(_H,**{'oacSshConfigMIB':oacSshConfigMIB,'oacSshConfig':oacSshConfig,'oacSshConfigObjects':oacSshConfigObjects,'oacSshDsaKey':oacSshDsaKey,_I:oacSshEnabled,'oacSshIdleTimeout':oacSshIdleTimeout,'oacSshAuthTimeout':oacSshAuthTimeout,'oacSshAuthRetries':oacSshAuthRetries,'oacSshBindInterface':oacSshBindInterface,'oacSshBindAcl':oacSshBindAcl,'oacSshMaxSessions':oacSshMaxSessions,'oacSshMaxSessionChannels':oacSshMaxSessionChannels,'oacSshConfigConformance':oacSshConfigConformance,'oacSshConfigGroups':oacSshConfigGroups,'oacSshConfigGroup':oacSshConfigGroup,'oacSshCompls':oacSshCompls})
+#
+# PySNMP MIB module ONEACCESS-SSH-CONFIG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/oneaccess/ONEACCESS-SSH-CONFIG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:04 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+oacMIBModules, oacExpIMManagement, oacExpIMIpAcl = mibBuilder.importSymbols("ONEACCESS-GLOBAL-REG", "oacMIBModules", "oacExpIMManagement", "oacExpIMIpAcl")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, PhysAddress, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "PhysAddress", "TruthValue", "TextualConvention")
+oacSshConfigMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13191, 1, 100, 2004))
+oacSshConfigMIB.setRevisions(('2011-07-26 00:00', '2011-06-15 00:00',))
+if mibBuilder.loadTexts: oacSshConfigMIB.setLastUpdated('201107260000Z')
+if mibBuilder.loadTexts: oacSshConfigMIB.setOrganization(' OneAccess ')
+oacSshConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 22))
+oacSshConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 22, 1))
+oacSshConfigConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 22, 2))
+oacSshDsaKey = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 22, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 256, 512, 1024, 2048))).clone(namedValues=NamedValues(("keysize-0bits", 0), ("keysize-256bits", 256), ("keysize-512bits", 512), ("keysize-1024bits", 1024), ("keysize-2048bits", 2048)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSshDsaKey.setStatus('current')
+oacSshEnabled = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 22, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSshEnabled.setStatus('current')
+oacSshIdleTimeout = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 22, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(120, 4294967295)).clone(600)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSshIdleTimeout.setStatus('current')
+oacSshAuthTimeout = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 22, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 120)).clone(120)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSshAuthTimeout.setStatus('current')
+oacSshAuthRetries = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 22, 1, 5), Integer32().clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSshAuthRetries.setStatus('current')
+oacSshBindInterface = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 22, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255)).clone('any')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSshBindInterface.setStatus('current')
+oacSshBindAcl = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 22, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSshBindAcl.setStatus('current')
+oacSshMaxSessions = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 22, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSshMaxSessions.setStatus('current')
+oacSshMaxSessionChannels = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 22, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(10)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSshMaxSessionChannels.setStatus('current')
+oacSshConfigGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 22, 2, 1))
+oacSshConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 22, 2, 1, 1)).setObjects(("ONEACCESS-SSH-CONFIG-MIB", "oacSshEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oacSshConfigGroup = oacSshConfigGroup.setStatus('current')
+oacSshCompls = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 22, 2, 2))
+mibBuilder.exportSymbols("ONEACCESS-SSH-CONFIG-MIB", oacSshConfigGroups=oacSshConfigGroups, PYSNMP_MODULE_ID=oacSshConfigMIB, oacSshEnabled=oacSshEnabled, oacSshDsaKey=oacSshDsaKey, oacSshBindAcl=oacSshBindAcl, oacSshConfigObjects=oacSshConfigObjects, oacSshAuthRetries=oacSshAuthRetries, oacSshMaxSessionChannels=oacSshMaxSessionChannels, oacSshConfigGroup=oacSshConfigGroup, oacSshConfigMIB=oacSshConfigMIB, oacSshConfigConformance=oacSshConfigConformance, oacSshAuthTimeout=oacSshAuthTimeout, oacSshBindInterface=oacSshBindInterface, oacSshCompls=oacSshCompls, oacSshMaxSessions=oacSshMaxSessions, oacSshIdleTimeout=oacSshIdleTimeout, oacSshConfig=oacSshConfig)

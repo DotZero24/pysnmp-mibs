@@ -1,39 +1,29 @@
-_B='current'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-sonicwallCommon,=mibBuilder.importSymbols('SONICWALL-SMI','sonicwallCommon')
-snwlCommonModule=ModuleIdentity((1,3,6,1,4,1,8741,2,1))
-_SnwlSys_ObjectIdentity=ObjectIdentity
-snwlSys=_SnwlSys_ObjectIdentity((1,3,6,1,4,1,8741,2,1,1))
-_SnwlSysModel_Type=DisplayString
-_SnwlSysModel_Object=MibScalar
-snwlSysModel=_SnwlSysModel_Object((1,3,6,1,4,1,8741,2,1,1,1),_SnwlSysModel_Type())
-snwlSysModel.setMaxAccess(_A)
-if mibBuilder.loadTexts:snwlSysModel.setStatus(_B)
-_SnwlSysSerialNumber_Type=DisplayString
-_SnwlSysSerialNumber_Object=MibScalar
-snwlSysSerialNumber=_SnwlSysSerialNumber_Object((1,3,6,1,4,1,8741,2,1,1,2),_SnwlSysSerialNumber_Type())
-snwlSysSerialNumber.setMaxAccess(_A)
-if mibBuilder.loadTexts:snwlSysSerialNumber.setStatus(_B)
-_SnwlSysFirmwareVersion_Type=DisplayString
-_SnwlSysFirmwareVersion_Object=MibScalar
-snwlSysFirmwareVersion=_SnwlSysFirmwareVersion_Object((1,3,6,1,4,1,8741,2,1,1,3),_SnwlSysFirmwareVersion_Type())
-snwlSysFirmwareVersion.setMaxAccess(_A)
-if mibBuilder.loadTexts:snwlSysFirmwareVersion.setStatus(_B)
-_SnwlSysROMVersion_Type=DisplayString
-_SnwlSysROMVersion_Object=MibScalar
-snwlSysROMVersion=_SnwlSysROMVersion_Object((1,3,6,1,4,1,8741,2,1,1,4),_SnwlSysROMVersion_Type())
-snwlSysROMVersion.setMaxAccess(_A)
-if mibBuilder.loadTexts:snwlSysROMVersion.setStatus(_B)
-_SnwlSysAssetNumber_Type=DisplayString
-_SnwlSysAssetNumber_Object=MibScalar
-snwlSysAssetNumber=_SnwlSysAssetNumber_Object((1,3,6,1,4,1,8741,2,1,1,5),_SnwlSysAssetNumber_Type())
-snwlSysAssetNumber.setMaxAccess(_A)
-if mibBuilder.loadTexts:snwlSysAssetNumber.setStatus(_B)
-mibBuilder.exportSymbols('SONICWALL-COMMON-MIB',**{'snwlCommonModule':snwlCommonModule,'snwlSys':snwlSys,'snwlSysModel':snwlSysModel,'snwlSysSerialNumber':snwlSysSerialNumber,'snwlSysFirmwareVersion':snwlSysFirmwareVersion,'snwlSysROMVersion':snwlSysROMVersion,'snwlSysAssetNumber':snwlSysAssetNumber})
+#
+# PySNMP MIB module SONICWALL-COMMON-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/sonicwall/SONICWALL-COMMON-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:36 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+sonicwallCommon, = mibBuilder.importSymbols("SONICWALL-SMI", "sonicwallCommon")
+snwlCommonModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 8741, 2, 1))
+if mibBuilder.loadTexts: snwlCommonModule.setLastUpdated('201804090001Z')
+if mibBuilder.loadTexts: snwlCommonModule.setOrganization('SonicWall')
+snwlSys = MibIdentifier((1, 3, 6, 1, 4, 1, 8741, 2, 1, 1))
+snwlSysModel = MibScalar((1, 3, 6, 1, 4, 1, 8741, 2, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snwlSysModel.setStatus('current')
+snwlSysSerialNumber = MibScalar((1, 3, 6, 1, 4, 1, 8741, 2, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snwlSysSerialNumber.setStatus('current')
+snwlSysFirmwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 8741, 2, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snwlSysFirmwareVersion.setStatus('current')
+snwlSysROMVersion = MibScalar((1, 3, 6, 1, 4, 1, 8741, 2, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snwlSysROMVersion.setStatus('current')
+snwlSysAssetNumber = MibScalar((1, 3, 6, 1, 4, 1, 8741, 2, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snwlSysAssetNumber.setStatus('current')
+mibBuilder.exportSymbols("SONICWALL-COMMON-MIB", snwlSysAssetNumber=snwlSysAssetNumber, snwlSysModel=snwlSysModel, snwlSysSerialNumber=snwlSysSerialNumber, PYSNMP_MODULE_ID=snwlCommonModule, snwlSysFirmwareVersion=snwlSysFirmwareVersion, snwlCommonModule=snwlCommonModule, snwlSysROMVersion=snwlSysROMVersion, snwlSys=snwlSys)

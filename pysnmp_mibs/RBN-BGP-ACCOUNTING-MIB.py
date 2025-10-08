@@ -1,90 +1,55 @@
-_P='rbnBpaTableGroup1'
-_O='rbnBpaTableGroup'
-_N='rbnBpaContextName'
-_M='rbnBpaInterfaceName'
-_L='rbnBpaCircuitDescr'
-_K='deprecated'
-_J='Integer32'
-_I='ifIndex'
-_H='IF-MIB'
-_G='rbnBpaInOctetCount'
-_F='rbnBpaInPacketCount'
-_E='rbnBpaBucketIndex'
-_D='SnmpAdminString'
-_C='read-only'
-_B='current'
-_A='RBN-BGP-ACCOUNTING-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_H,_I)
-rbnMgmt,=mibBuilder.importSymbols('RBN-SMI','rbnMgmt')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_D)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_J,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-rbnBgpPolAcctMIB=ModuleIdentity((1,3,6,1,4,1,2352,2,20))
-if mibBuilder.loadTexts:rbnBgpPolAcctMIB.setRevisions(('2005-09-20 00:00','2002-03-15 00:00'))
-_RbnBgpPolAcctMIBObjects_ObjectIdentity=ObjectIdentity
-rbnBgpPolAcctMIBObjects=_RbnBgpPolAcctMIBObjects_ObjectIdentity((1,3,6,1,4,1,2352,2,20,1))
-_RbnBpaTable_Object=MibTable
-rbnBpaTable=_RbnBpaTable_Object((1,3,6,1,4,1,2352,2,20,1,1))
-if mibBuilder.loadTexts:rbnBpaTable.setStatus(_B)
-_RbnBpaEntry_Object=MibTableRow
-rbnBpaEntry=_RbnBpaEntry_Object((1,3,6,1,4,1,2352,2,20,1,1,1))
-rbnBpaEntry.setIndexNames((0,_H,_I),(0,_A,_E))
-if mibBuilder.loadTexts:rbnBpaEntry.setStatus(_B)
-class _RbnBpaBucketIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_RbnBpaBucketIndex_Type.__name__=_J
-_RbnBpaBucketIndex_Object=MibTableColumn
-rbnBpaBucketIndex=_RbnBpaBucketIndex_Object((1,3,6,1,4,1,2352,2,20,1,1,1,1),_RbnBpaBucketIndex_Type())
-rbnBpaBucketIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnBpaBucketIndex.setStatus(_B)
-_RbnBpaInPacketCount_Type=Counter64
-_RbnBpaInPacketCount_Object=MibTableColumn
-rbnBpaInPacketCount=_RbnBpaInPacketCount_Object((1,3,6,1,4,1,2352,2,20,1,1,1,2),_RbnBpaInPacketCount_Type())
-rbnBpaInPacketCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnBpaInPacketCount.setStatus(_B)
-_RbnBpaInOctetCount_Type=Counter64
-_RbnBpaInOctetCount_Object=MibTableColumn
-rbnBpaInOctetCount=_RbnBpaInOctetCount_Object((1,3,6,1,4,1,2352,2,20,1,1,1,3),_RbnBpaInOctetCount_Type())
-rbnBpaInOctetCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnBpaInOctetCount.setStatus(_B)
-class _RbnBpaCircuitDescr_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,192))
-_RbnBpaCircuitDescr_Type.__name__=_D
-_RbnBpaCircuitDescr_Object=MibTableColumn
-rbnBpaCircuitDescr=_RbnBpaCircuitDescr_Object((1,3,6,1,4,1,2352,2,20,1,1,1,4),_RbnBpaCircuitDescr_Type())
-rbnBpaCircuitDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnBpaCircuitDescr.setStatus(_B)
-class _RbnBpaInterfaceName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_RbnBpaInterfaceName_Type.__name__=_D
-_RbnBpaInterfaceName_Object=MibTableColumn
-rbnBpaInterfaceName=_RbnBpaInterfaceName_Object((1,3,6,1,4,1,2352,2,20,1,1,1,5),_RbnBpaInterfaceName_Type())
-rbnBpaInterfaceName.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnBpaInterfaceName.setStatus(_B)
-class _RbnBpaContextName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_RbnBpaContextName_Type.__name__=_D
-_RbnBpaContextName_Object=MibTableColumn
-rbnBpaContextName=_RbnBpaContextName_Object((1,3,6,1,4,1,2352,2,20,1,1,1,6),_RbnBpaContextName_Type())
-rbnBpaContextName.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnBpaContextName.setStatus(_B)
-_RbnBgpPolAcctMIBConformance_ObjectIdentity=ObjectIdentity
-rbnBgpPolAcctMIBConformance=_RbnBgpPolAcctMIBConformance_ObjectIdentity((1,3,6,1,4,1,2352,2,20,3))
-_RbnBgpPolAcctMIBCompliances_ObjectIdentity=ObjectIdentity
-rbnBgpPolAcctMIBCompliances=_RbnBgpPolAcctMIBCompliances_ObjectIdentity((1,3,6,1,4,1,2352,2,20,3,1))
-_RbnBgpPolAcctMIBGroups_ObjectIdentity=ObjectIdentity
-rbnBgpPolAcctMIBGroups=_RbnBgpPolAcctMIBGroups_ObjectIdentity((1,3,6,1,4,1,2352,2,20,3,2))
-rbnBpaTableGroup=ObjectGroup((1,3,6,1,4,1,2352,2,20,3,2,1))
-rbnBpaTableGroup.setObjects(*((_A,_E),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:rbnBpaTableGroup.setStatus(_K)
-rbnBpaTableGroup1=ObjectGroup((1,3,6,1,4,1,2352,2,20,3,2,2))
-rbnBpaTableGroup1.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:rbnBpaTableGroup1.setStatus(_B)
-rbnBgpPolAcctMIBCompliance=ModuleCompliance((1,3,6,1,4,1,2352,2,20,3,1,1))
-rbnBgpPolAcctMIBCompliance.setObjects((_A,_O))
-if mibBuilder.loadTexts:rbnBgpPolAcctMIBCompliance.setStatus(_K)
-rbnBgpPolAcctMIBCompliance1=ModuleCompliance((1,3,6,1,4,1,2352,2,20,3,1,2))
-rbnBgpPolAcctMIBCompliance1.setObjects((_A,_P))
-if mibBuilder.loadTexts:rbnBgpPolAcctMIBCompliance1.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'rbnBgpPolAcctMIB':rbnBgpPolAcctMIB,'rbnBgpPolAcctMIBObjects':rbnBgpPolAcctMIBObjects,'rbnBpaTable':rbnBpaTable,'rbnBpaEntry':rbnBpaEntry,_E:rbnBpaBucketIndex,_F:rbnBpaInPacketCount,_G:rbnBpaInOctetCount,_L:rbnBpaCircuitDescr,_M:rbnBpaInterfaceName,_N:rbnBpaContextName,'rbnBgpPolAcctMIBConformance':rbnBgpPolAcctMIBConformance,'rbnBgpPolAcctMIBCompliances':rbnBgpPolAcctMIBCompliances,'rbnBgpPolAcctMIBCompliance':rbnBgpPolAcctMIBCompliance,'rbnBgpPolAcctMIBCompliance1':rbnBgpPolAcctMIBCompliance1,'rbnBgpPolAcctMIBGroups':rbnBgpPolAcctMIBGroups,_O:rbnBpaTableGroup,_P:rbnBpaTableGroup1})
+#
+# PySNMP MIB module RBN-BGP-ACCOUNTING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ericsson/RBN-BGP-ACCOUNTING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:49 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+rbnMgmt, = mibBuilder.importSymbols("RBN-SMI", "rbnMgmt")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+rbnBgpPolAcctMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2352, 2, 20))
+rbnBgpPolAcctMIB.setRevisions(('2005-09-20 00:00', '2002-03-15 00:00',))
+if mibBuilder.loadTexts: rbnBgpPolAcctMIB.setLastUpdated('200203150000Z')
+if mibBuilder.loadTexts: rbnBgpPolAcctMIB.setOrganization('RedBack Networks, Inc.')
+rbnBgpPolAcctMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 20, 1))
+rbnBpaTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 2, 20, 1, 1), )
+if mibBuilder.loadTexts: rbnBpaTable.setStatus('current')
+rbnBpaEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 2, 20, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "RBN-BGP-ACCOUNTING-MIB", "rbnBpaBucketIndex"))
+if mibBuilder.loadTexts: rbnBpaEntry.setStatus('current')
+rbnBpaBucketIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 20, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnBpaBucketIndex.setStatus('current')
+rbnBpaInPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 20, 1, 1, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnBpaInPacketCount.setStatus('current')
+rbnBpaInOctetCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 20, 1, 1, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnBpaInOctetCount.setStatus('current')
+rbnBpaCircuitDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 20, 1, 1, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 192))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnBpaCircuitDescr.setStatus('current')
+rbnBpaInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 20, 1, 1, 1, 5), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnBpaInterfaceName.setStatus('current')
+rbnBpaContextName = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 20, 1, 1, 1, 6), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnBpaContextName.setStatus('current')
+rbnBgpPolAcctMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 20, 3))
+rbnBgpPolAcctMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 20, 3, 1))
+rbnBgpPolAcctMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 20, 3, 2))
+rbnBgpPolAcctMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 20, 3, 1, 1)).setObjects(("RBN-BGP-ACCOUNTING-MIB", "rbnBpaTableGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnBgpPolAcctMIBCompliance = rbnBgpPolAcctMIBCompliance.setStatus('deprecated')
+rbnBgpPolAcctMIBCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 20, 3, 1, 2)).setObjects(("RBN-BGP-ACCOUNTING-MIB", "rbnBpaTableGroup1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnBgpPolAcctMIBCompliance1 = rbnBgpPolAcctMIBCompliance1.setStatus('current')
+rbnBpaTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 20, 3, 2, 1)).setObjects(("RBN-BGP-ACCOUNTING-MIB", "rbnBpaBucketIndex"), ("RBN-BGP-ACCOUNTING-MIB", "rbnBpaInPacketCount"), ("RBN-BGP-ACCOUNTING-MIB", "rbnBpaInOctetCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnBpaTableGroup = rbnBpaTableGroup.setStatus('deprecated')
+rbnBpaTableGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 20, 3, 2, 2)).setObjects(("RBN-BGP-ACCOUNTING-MIB", "rbnBpaBucketIndex"), ("RBN-BGP-ACCOUNTING-MIB", "rbnBpaInPacketCount"), ("RBN-BGP-ACCOUNTING-MIB", "rbnBpaInOctetCount"), ("RBN-BGP-ACCOUNTING-MIB", "rbnBpaCircuitDescr"), ("RBN-BGP-ACCOUNTING-MIB", "rbnBpaInterfaceName"), ("RBN-BGP-ACCOUNTING-MIB", "rbnBpaContextName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnBpaTableGroup1 = rbnBpaTableGroup1.setStatus('current')
+mibBuilder.exportSymbols("RBN-BGP-ACCOUNTING-MIB", rbnBpaInOctetCount=rbnBpaInOctetCount, rbnBgpPolAcctMIBCompliance=rbnBgpPolAcctMIBCompliance, rbnBpaEntry=rbnBpaEntry, rbnBgpPolAcctMIBCompliance1=rbnBgpPolAcctMIBCompliance1, rbnBpaContextName=rbnBpaContextName, rbnBpaTableGroup=rbnBpaTableGroup, PYSNMP_MODULE_ID=rbnBgpPolAcctMIB, rbnBpaBucketIndex=rbnBpaBucketIndex, rbnBpaCircuitDescr=rbnBpaCircuitDescr, rbnBgpPolAcctMIB=rbnBgpPolAcctMIB, rbnBpaInPacketCount=rbnBpaInPacketCount, rbnBgpPolAcctMIBConformance=rbnBgpPolAcctMIBConformance, rbnBgpPolAcctMIBGroups=rbnBgpPolAcctMIBGroups, rbnBpaTable=rbnBpaTable, rbnBpaTableGroup1=rbnBpaTableGroup1, rbnBgpPolAcctMIBObjects=rbnBgpPolAcctMIBObjects, rbnBpaInterfaceName=rbnBpaInterfaceName, rbnBgpPolAcctMIBCompliances=rbnBgpPolAcctMIBCompliances)

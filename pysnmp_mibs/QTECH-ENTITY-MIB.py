@@ -1,347 +1,154 @@
-_A2='qtechTemperatureWarningGroup'
-_A1='qtechTemperatureWarningDescGroup'
-_A0='qtechFanStateGroup'
-_z='qtechPowerStateGroup'
-_y='qtechModuleTempStateGroup'
-_x='qtechDeviceMIBNotificationGroup'
-_w='qtechEntityChgDescGroup'
-_v='qtechOptionalDevInfoMIBGroup'
-_u='qtechModuleInfoMIBGroup'
-_t='qtechDeviceInfoMIBGroup'
-_s='qtechTemperatureWarning'
-_r='qtechEntityStatusChange'
-_q='qtechFanStateFanDescr'
-_p='qtechFanState'
-_o='qtechPowerStatePowerDescr'
-_n='qtechPowerState'
-_m='qtechModuleTempState'
-_l='qtechSlotHWVersion'
-_k='qtechSlotSerialNumber'
-_j='qtechSlotSoftwareStatus'
-_i='qtechSlotUserStatus'
-_h='qtechSlotConfigModuleInfoDescr'
-_g='qtechSlotInfoDesc'
-_f='qtechSlotInfoPortMaxNumber'
-_e='qtechSlotInfoPortNumber'
-_d='qtechSlotModuleInfoDescr'
-_c='qtechDeviceOid'
-_b='qtechDeviceSerialNumber'
-_a='qtechDeviceHWVersion'
-_Z='qtechDeviceSWVersion'
-_Y='qtechDeviceAlias'
-_X='qtechDevicePriority'
-_W='qtechDeviceMacAddress'
-_V='qtechDevicePowerStatus'
-_U='qtechDeviceInfoSlotNumber'
-_T='qtechDeviceInfoDescr'
-_S='qtechDeviceMaxNumber'
-_R='accessible-for-notify'
-_Q='read-write'
-_P='qtechTemperatureWarningDesc'
-_O='qtechEntityStateChgDesc'
-_N='qtechFanStateIndex'
-_M='qtechFanStateDeviceIndex'
-_L='qtechPowerStateIndex'
-_K='qtechPowerStateDeviceIndex'
-_J='qtechModuleTempStateIndex'
-_I='qtechModuleTempStateDeviceIndex'
-_H='qtechSlotInfoIndex'
-_G='qtechSlotInfoDeviceIndex'
-_F='qtechDeviceInfoIndex'
-_E='Integer32'
-_D='DisplayString'
-_C='read-only'
-_B='current'
-_A='QTECH-ENTITY-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-qtechMgmt,=mibBuilder.importSymbols('QTECH-SMI','qtechMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'MacAddress','PhysAddress','TextualConvention')
-qtechEntityMIB=ModuleIdentity((1,3,6,1,4,1,27514,1,1,10,2,21))
-if mibBuilder.loadTexts:qtechEntityMIB.setRevisions(('2002-03-20 00:00',))
-_QtechDeviceMIBObjects_ObjectIdentity=ObjectIdentity
-qtechDeviceMIBObjects=_QtechDeviceMIBObjects_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,21,1))
-_QtechDeviceMaxNumber_Type=Integer32
-_QtechDeviceMaxNumber_Object=MibScalar
-qtechDeviceMaxNumber=_QtechDeviceMaxNumber_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,1),_QtechDeviceMaxNumber_Type())
-qtechDeviceMaxNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDeviceMaxNumber.setStatus(_B)
-_QtechDeviceInfoTable_Object=MibTable
-qtechDeviceInfoTable=_QtechDeviceInfoTable_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,2))
-if mibBuilder.loadTexts:qtechDeviceInfoTable.setStatus(_B)
-_QtechDeviceInfoEntry_Object=MibTableRow
-qtechDeviceInfoEntry=_QtechDeviceInfoEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,2,1))
-qtechDeviceInfoEntry.setIndexNames((0,_A,_F))
-if mibBuilder.loadTexts:qtechDeviceInfoEntry.setStatus(_B)
-_QtechDeviceInfoIndex_Type=Integer32
-_QtechDeviceInfoIndex_Object=MibTableColumn
-qtechDeviceInfoIndex=_QtechDeviceInfoIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,2,1,1),_QtechDeviceInfoIndex_Type())
-qtechDeviceInfoIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDeviceInfoIndex.setStatus(_B)
-class _QtechDeviceInfoDescr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_QtechDeviceInfoDescr_Type.__name__=_D
-_QtechDeviceInfoDescr_Object=MibTableColumn
-qtechDeviceInfoDescr=_QtechDeviceInfoDescr_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,2,1,2),_QtechDeviceInfoDescr_Type())
-qtechDeviceInfoDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDeviceInfoDescr.setStatus(_B)
-_QtechDeviceInfoSlotNumber_Type=Integer32
-_QtechDeviceInfoSlotNumber_Object=MibTableColumn
-qtechDeviceInfoSlotNumber=_QtechDeviceInfoSlotNumber_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,2,1,3),_QtechDeviceInfoSlotNumber_Type())
-qtechDeviceInfoSlotNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDeviceInfoSlotNumber.setStatus(_B)
-class _QtechDevicePowerStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('rpsNoLink',1),('rpsLinkAndNoPower',2),('rpsLinkAndReadyForPower',3),('rpsLinkAndPower',4)))
-_QtechDevicePowerStatus_Type.__name__=_E
-_QtechDevicePowerStatus_Object=MibTableColumn
-qtechDevicePowerStatus=_QtechDevicePowerStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,2,1,4),_QtechDevicePowerStatus_Type())
-qtechDevicePowerStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDevicePowerStatus.setStatus(_B)
-_QtechDeviceMacAddress_Type=MacAddress
-_QtechDeviceMacAddress_Object=MibTableColumn
-qtechDeviceMacAddress=_QtechDeviceMacAddress_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,2,1,5),_QtechDeviceMacAddress_Type())
-qtechDeviceMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDeviceMacAddress.setStatus(_B)
-class _QtechDevicePriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_QtechDevicePriority_Type.__name__=_E
-_QtechDevicePriority_Object=MibTableColumn
-qtechDevicePriority=_QtechDevicePriority_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,2,1,6),_QtechDevicePriority_Type())
-qtechDevicePriority.setMaxAccess(_Q)
-if mibBuilder.loadTexts:qtechDevicePriority.setStatus(_B)
-class _QtechDeviceAlias_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_QtechDeviceAlias_Type.__name__=_D
-_QtechDeviceAlias_Object=MibTableColumn
-qtechDeviceAlias=_QtechDeviceAlias_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,2,1,7),_QtechDeviceAlias_Type())
-qtechDeviceAlias.setMaxAccess(_Q)
-if mibBuilder.loadTexts:qtechDeviceAlias.setStatus(_B)
-class _QtechDeviceSWVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_QtechDeviceSWVersion_Type.__name__=_D
-_QtechDeviceSWVersion_Object=MibTableColumn
-qtechDeviceSWVersion=_QtechDeviceSWVersion_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,2,1,8),_QtechDeviceSWVersion_Type())
-qtechDeviceSWVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDeviceSWVersion.setStatus(_B)
-class _QtechDeviceHWVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_QtechDeviceHWVersion_Type.__name__=_D
-_QtechDeviceHWVersion_Object=MibTableColumn
-qtechDeviceHWVersion=_QtechDeviceHWVersion_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,2,1,9),_QtechDeviceHWVersion_Type())
-qtechDeviceHWVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDeviceHWVersion.setStatus(_B)
-class _QtechDeviceSerialNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_QtechDeviceSerialNumber_Type.__name__=_D
-_QtechDeviceSerialNumber_Object=MibTableColumn
-qtechDeviceSerialNumber=_QtechDeviceSerialNumber_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,2,1,10),_QtechDeviceSerialNumber_Type())
-qtechDeviceSerialNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDeviceSerialNumber.setStatus(_B)
-_QtechDeviceOid_Type=ObjectIdentifier
-_QtechDeviceOid_Object=MibTableColumn
-qtechDeviceOid=_QtechDeviceOid_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,2,1,11),_QtechDeviceOid_Type())
-qtechDeviceOid.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechDeviceOid.setStatus(_B)
-_QtechSlotInfoTable_Object=MibTable
-qtechSlotInfoTable=_QtechSlotInfoTable_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,3))
-if mibBuilder.loadTexts:qtechSlotInfoTable.setStatus(_B)
-_QtechSlotInfoEntry_Object=MibTableRow
-qtechSlotInfoEntry=_QtechSlotInfoEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,3,1))
-qtechSlotInfoEntry.setIndexNames((0,_A,_G),(0,_A,_H))
-if mibBuilder.loadTexts:qtechSlotInfoEntry.setStatus(_B)
-_QtechSlotInfoDeviceIndex_Type=Integer32
-_QtechSlotInfoDeviceIndex_Object=MibTableColumn
-qtechSlotInfoDeviceIndex=_QtechSlotInfoDeviceIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,3,1,1),_QtechSlotInfoDeviceIndex_Type())
-qtechSlotInfoDeviceIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSlotInfoDeviceIndex.setStatus(_B)
-_QtechSlotInfoIndex_Type=Integer32
-_QtechSlotInfoIndex_Object=MibTableColumn
-qtechSlotInfoIndex=_QtechSlotInfoIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,3,1,2),_QtechSlotInfoIndex_Type())
-qtechSlotInfoIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSlotInfoIndex.setStatus(_B)
-_QtechSlotModuleInfoDescr_Type=DisplayString
-_QtechSlotModuleInfoDescr_Object=MibTableColumn
-qtechSlotModuleInfoDescr=_QtechSlotModuleInfoDescr_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,3,1,3),_QtechSlotModuleInfoDescr_Type())
-qtechSlotModuleInfoDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSlotModuleInfoDescr.setStatus(_B)
-_QtechSlotInfoPortNumber_Type=Integer32
-_QtechSlotInfoPortNumber_Object=MibTableColumn
-qtechSlotInfoPortNumber=_QtechSlotInfoPortNumber_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,3,1,4),_QtechSlotInfoPortNumber_Type())
-qtechSlotInfoPortNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSlotInfoPortNumber.setStatus(_B)
-_QtechSlotInfoPortMaxNumber_Type=Integer32
-_QtechSlotInfoPortMaxNumber_Object=MibTableColumn
-qtechSlotInfoPortMaxNumber=_QtechSlotInfoPortMaxNumber_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,3,1,5),_QtechSlotInfoPortMaxNumber_Type())
-qtechSlotInfoPortMaxNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSlotInfoPortMaxNumber.setStatus(_B)
-class _QtechSlotInfoDesc_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_QtechSlotInfoDesc_Type.__name__=_D
-_QtechSlotInfoDesc_Object=MibTableColumn
-qtechSlotInfoDesc=_QtechSlotInfoDesc_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,3,1,6),_QtechSlotInfoDesc_Type())
-qtechSlotInfoDesc.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSlotInfoDesc.setStatus(_B)
-class _QtechSlotConfigModuleInfoDescr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_QtechSlotConfigModuleInfoDescr_Type.__name__=_D
-_QtechSlotConfigModuleInfoDescr_Object=MibTableColumn
-qtechSlotConfigModuleInfoDescr=_QtechSlotConfigModuleInfoDescr_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,3,1,7),_QtechSlotConfigModuleInfoDescr_Type())
-qtechSlotConfigModuleInfoDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSlotConfigModuleInfoDescr.setStatus(_B)
-_QtechSlotUserStatus_Type=Integer32
-_QtechSlotUserStatus_Object=MibTableColumn
-qtechSlotUserStatus=_QtechSlotUserStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,3,1,8),_QtechSlotUserStatus_Type())
-qtechSlotUserStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSlotUserStatus.setStatus(_B)
-_QtechSlotSoftwareStatus_Type=Integer32
-_QtechSlotSoftwareStatus_Object=MibTableColumn
-qtechSlotSoftwareStatus=_QtechSlotSoftwareStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,3,1,9),_QtechSlotSoftwareStatus_Type())
-qtechSlotSoftwareStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSlotSoftwareStatus.setStatus(_B)
-class _QtechSlotSerialNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_QtechSlotSerialNumber_Type.__name__=_D
-_QtechSlotSerialNumber_Object=MibTableColumn
-qtechSlotSerialNumber=_QtechSlotSerialNumber_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,3,1,10),_QtechSlotSerialNumber_Type())
-qtechSlotSerialNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSlotSerialNumber.setStatus(_B)
-class _QtechSlotHWVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_QtechSlotHWVersion_Type.__name__=_D
-_QtechSlotHWVersion_Object=MibTableColumn
-qtechSlotHWVersion=_QtechSlotHWVersion_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,3,1,11),_QtechSlotHWVersion_Type())
-qtechSlotHWVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSlotHWVersion.setStatus(_B)
-_QtechModuleTempStateTable_Object=MibTable
-qtechModuleTempStateTable=_QtechModuleTempStateTable_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,4))
-if mibBuilder.loadTexts:qtechModuleTempStateTable.setStatus(_B)
-_QtechModuleTempStateEntry_Object=MibTableRow
-qtechModuleTempStateEntry=_QtechModuleTempStateEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,4,1))
-qtechModuleTempStateEntry.setIndexNames((0,_A,_I),(0,_A,_J))
-if mibBuilder.loadTexts:qtechModuleTempStateEntry.setStatus(_B)
-_QtechModuleTempStateDeviceIndex_Type=Integer32
-_QtechModuleTempStateDeviceIndex_Object=MibTableColumn
-qtechModuleTempStateDeviceIndex=_QtechModuleTempStateDeviceIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,4,1,1),_QtechModuleTempStateDeviceIndex_Type())
-qtechModuleTempStateDeviceIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechModuleTempStateDeviceIndex.setStatus(_B)
-_QtechModuleTempStateIndex_Type=Integer32
-_QtechModuleTempStateIndex_Object=MibTableColumn
-qtechModuleTempStateIndex=_QtechModuleTempStateIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,4,1,2),_QtechModuleTempStateIndex_Type())
-qtechModuleTempStateIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechModuleTempStateIndex.setStatus(_B)
-class _QtechModuleTempState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('tempNormal',1),('tempWarning',2)))
-_QtechModuleTempState_Type.__name__=_E
-_QtechModuleTempState_Object=MibTableColumn
-qtechModuleTempState=_QtechModuleTempState_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,4,1,3),_QtechModuleTempState_Type())
-qtechModuleTempState.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechModuleTempState.setStatus(_B)
-_QtechPowerStateTable_Object=MibTable
-qtechPowerStateTable=_QtechPowerStateTable_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,5))
-if mibBuilder.loadTexts:qtechPowerStateTable.setStatus(_B)
-_QtechPowerStateEntry_Object=MibTableRow
-qtechPowerStateEntry=_QtechPowerStateEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,5,1))
-qtechPowerStateEntry.setIndexNames((0,_A,_K),(0,_A,_L))
-if mibBuilder.loadTexts:qtechPowerStateEntry.setStatus(_B)
-_QtechPowerStateDeviceIndex_Type=Integer32
-_QtechPowerStateDeviceIndex_Object=MibTableColumn
-qtechPowerStateDeviceIndex=_QtechPowerStateDeviceIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,5,1,1),_QtechPowerStateDeviceIndex_Type())
-qtechPowerStateDeviceIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechPowerStateDeviceIndex.setStatus(_B)
-_QtechPowerStateIndex_Type=Integer32
-_QtechPowerStateIndex_Object=MibTableColumn
-qtechPowerStateIndex=_QtechPowerStateIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,5,1,2),_QtechPowerStateIndex_Type())
-qtechPowerStateIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechPowerStateIndex.setStatus(_B)
-class _QtechPowerState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('noLink',1),('linkAndNoPower',2),('linkAndReadyForPower',3),('linkAndPower',4),('linkAndPowerAbnormal',5)))
-_QtechPowerState_Type.__name__=_E
-_QtechPowerState_Object=MibTableColumn
-qtechPowerState=_QtechPowerState_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,5,1,3),_QtechPowerState_Type())
-qtechPowerState.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechPowerState.setStatus(_B)
-class _QtechPowerStatePowerDescr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_QtechPowerStatePowerDescr_Type.__name__=_D
-_QtechPowerStatePowerDescr_Object=MibTableColumn
-qtechPowerStatePowerDescr=_QtechPowerStatePowerDescr_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,5,1,4),_QtechPowerStatePowerDescr_Type())
-qtechPowerStatePowerDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechPowerStatePowerDescr.setStatus(_B)
-_QtechFanStateTable_Object=MibTable
-qtechFanStateTable=_QtechFanStateTable_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,6))
-if mibBuilder.loadTexts:qtechFanStateTable.setStatus(_B)
-_QtechFanStateEntry_Object=MibTableRow
-qtechFanStateEntry=_QtechFanStateEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,6,1))
-qtechFanStateEntry.setIndexNames((0,_A,_M),(0,_A,_N))
-if mibBuilder.loadTexts:qtechFanStateEntry.setStatus(_B)
-_QtechFanStateDeviceIndex_Type=Integer32
-_QtechFanStateDeviceIndex_Object=MibTableColumn
-qtechFanStateDeviceIndex=_QtechFanStateDeviceIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,6,1,1),_QtechFanStateDeviceIndex_Type())
-qtechFanStateDeviceIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechFanStateDeviceIndex.setStatus(_B)
-_QtechFanStateIndex_Type=Integer32
-_QtechFanStateIndex_Object=MibTableColumn
-qtechFanStateIndex=_QtechFanStateIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,6,1,2),_QtechFanStateIndex_Type())
-qtechFanStateIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechFanStateIndex.setStatus(_B)
-class _QtechFanState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('work',1),('stop',2)))
-_QtechFanState_Type.__name__=_E
-_QtechFanState_Object=MibTableColumn
-qtechFanState=_QtechFanState_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,6,1,3),_QtechFanState_Type())
-qtechFanState.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechFanState.setStatus(_B)
-class _QtechFanStateFanDescr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_QtechFanStateFanDescr_Type.__name__=_D
-_QtechFanStateFanDescr_Object=MibTableColumn
-qtechFanStateFanDescr=_QtechFanStateFanDescr_Object((1,3,6,1,4,1,27514,1,1,10,2,21,1,6,1,4),_QtechFanStateFanDescr_Type())
-qtechFanStateFanDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechFanStateFanDescr.setStatus(_B)
-_QtechEntityMIBTraps_ObjectIdentity=ObjectIdentity
-qtechEntityMIBTraps=_QtechEntityMIBTraps_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,21,2))
-_QtechEntityStateChgDesc_Type=DisplayString
-_QtechEntityStateChgDesc_Object=MibScalar
-qtechEntityStateChgDesc=_QtechEntityStateChgDesc_Object((1,3,6,1,4,1,27514,1,1,10,2,21,2,1),_QtechEntityStateChgDesc_Type())
-qtechEntityStateChgDesc.setMaxAccess(_R)
-if mibBuilder.loadTexts:qtechEntityStateChgDesc.setStatus(_B)
-class _QtechTemperatureWarningDesc_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_QtechTemperatureWarningDesc_Type.__name__=_D
-_QtechTemperatureWarningDesc_Object=MibScalar
-qtechTemperatureWarningDesc=_QtechTemperatureWarningDesc_Object((1,3,6,1,4,1,27514,1,1,10,2,21,2,3),_QtechTemperatureWarningDesc_Type())
-qtechTemperatureWarningDesc.setMaxAccess(_R)
-if mibBuilder.loadTexts:qtechTemperatureWarningDesc.setStatus(_B)
-_QtechDeviceMIBConformance_ObjectIdentity=ObjectIdentity
-qtechDeviceMIBConformance=_QtechDeviceMIBConformance_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,21,3))
-_QtechDeviceMIBCompliances_ObjectIdentity=ObjectIdentity
-qtechDeviceMIBCompliances=_QtechDeviceMIBCompliances_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,21,3,1))
-_QtechDeviceMIBGroups_ObjectIdentity=ObjectIdentity
-qtechDeviceMIBGroups=_QtechDeviceMIBGroups_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,21,3,2))
-qtechDeviceInfoMIBGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,21,3,2,1))
-qtechDeviceInfoMIBGroup.setObjects(*((_A,_S),(_A,_F),(_A,_T),(_A,_U),(_A,_V)))
-if mibBuilder.loadTexts:qtechDeviceInfoMIBGroup.setStatus(_B)
-qtechOptionalDevInfoMIBGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,21,3,2,2))
-qtechOptionalDevInfoMIBGroup.setObjects(*((_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c)))
-if mibBuilder.loadTexts:qtechOptionalDevInfoMIBGroup.setStatus(_B)
-qtechModuleInfoMIBGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,21,3,2,3))
-qtechModuleInfoMIBGroup.setObjects(*((_A,_G),(_A,_H),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l)))
-if mibBuilder.loadTexts:qtechModuleInfoMIBGroup.setStatus(_B)
-qtechEntityChgDescGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,21,3,2,4))
-qtechEntityChgDescGroup.setObjects((_A,_O))
-if mibBuilder.loadTexts:qtechEntityChgDescGroup.setStatus(_B)
-qtechModuleTempStateGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,21,3,2,6))
-qtechModuleTempStateGroup.setObjects(*((_A,_I),(_A,_J),(_A,_m)))
-if mibBuilder.loadTexts:qtechModuleTempStateGroup.setStatus(_B)
-qtechPowerStateGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,21,3,2,7))
-qtechPowerStateGroup.setObjects(*((_A,_K),(_A,_L),(_A,_n),(_A,_o)))
-if mibBuilder.loadTexts:qtechPowerStateGroup.setStatus(_B)
-qtechFanStateGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,21,3,2,8))
-qtechFanStateGroup.setObjects(*((_A,_M),(_A,_N),(_A,_p),(_A,_q)))
-if mibBuilder.loadTexts:qtechFanStateGroup.setStatus(_B)
-qtechTemperatureWarningDescGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,21,3,2,9))
-qtechTemperatureWarningDescGroup.setObjects((_A,_P))
-if mibBuilder.loadTexts:qtechTemperatureWarningDescGroup.setStatus(_B)
-qtechEntityStatusChange=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,21,2,2))
-qtechEntityStatusChange.setObjects((_A,_O))
-if mibBuilder.loadTexts:qtechEntityStatusChange.setStatus(_B)
-qtechTemperatureWarning=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,21,2,4))
-qtechTemperatureWarning.setObjects((_A,_P))
-if mibBuilder.loadTexts:qtechTemperatureWarning.setStatus(_B)
-qtechDeviceMIBNotificationGroup=NotificationGroup((1,3,6,1,4,1,27514,1,1,10,2,21,3,2,5))
-qtechDeviceMIBNotificationGroup.setObjects((_A,_r))
-if mibBuilder.loadTexts:qtechDeviceMIBNotificationGroup.setStatus(_B)
-qtechTemperatureWarningGroup=NotificationGroup((1,3,6,1,4,1,27514,1,1,10,2,21,3,2,10))
-qtechTemperatureWarningGroup.setObjects((_A,_s))
-if mibBuilder.loadTexts:qtechTemperatureWarningGroup.setStatus(_B)
-qtechDeviceMIBCompliance=ModuleCompliance((1,3,6,1,4,1,27514,1,1,10,2,21,3,1,1))
-qtechDeviceMIBCompliance.setObjects(*((_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2)))
-if mibBuilder.loadTexts:qtechDeviceMIBCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'qtechEntityMIB':qtechEntityMIB,'qtechDeviceMIBObjects':qtechDeviceMIBObjects,_S:qtechDeviceMaxNumber,'qtechDeviceInfoTable':qtechDeviceInfoTable,'qtechDeviceInfoEntry':qtechDeviceInfoEntry,_F:qtechDeviceInfoIndex,_T:qtechDeviceInfoDescr,_U:qtechDeviceInfoSlotNumber,_V:qtechDevicePowerStatus,_W:qtechDeviceMacAddress,_X:qtechDevicePriority,_Y:qtechDeviceAlias,_Z:qtechDeviceSWVersion,_a:qtechDeviceHWVersion,_b:qtechDeviceSerialNumber,_c:qtechDeviceOid,'qtechSlotInfoTable':qtechSlotInfoTable,'qtechSlotInfoEntry':qtechSlotInfoEntry,_G:qtechSlotInfoDeviceIndex,_H:qtechSlotInfoIndex,_d:qtechSlotModuleInfoDescr,_e:qtechSlotInfoPortNumber,_f:qtechSlotInfoPortMaxNumber,_g:qtechSlotInfoDesc,_h:qtechSlotConfigModuleInfoDescr,_i:qtechSlotUserStatus,_j:qtechSlotSoftwareStatus,_k:qtechSlotSerialNumber,_l:qtechSlotHWVersion,'qtechModuleTempStateTable':qtechModuleTempStateTable,'qtechModuleTempStateEntry':qtechModuleTempStateEntry,_I:qtechModuleTempStateDeviceIndex,_J:qtechModuleTempStateIndex,_m:qtechModuleTempState,'qtechPowerStateTable':qtechPowerStateTable,'qtechPowerStateEntry':qtechPowerStateEntry,_K:qtechPowerStateDeviceIndex,_L:qtechPowerStateIndex,_n:qtechPowerState,_o:qtechPowerStatePowerDescr,'qtechFanStateTable':qtechFanStateTable,'qtechFanStateEntry':qtechFanStateEntry,_M:qtechFanStateDeviceIndex,_N:qtechFanStateIndex,_p:qtechFanState,_q:qtechFanStateFanDescr,'qtechEntityMIBTraps':qtechEntityMIBTraps,_O:qtechEntityStateChgDesc,_r:qtechEntityStatusChange,_P:qtechTemperatureWarningDesc,_s:qtechTemperatureWarning,'qtechDeviceMIBConformance':qtechDeviceMIBConformance,'qtechDeviceMIBCompliances':qtechDeviceMIBCompliances,'qtechDeviceMIBCompliance':qtechDeviceMIBCompliance,'qtechDeviceMIBGroups':qtechDeviceMIBGroups,_t:qtechDeviceInfoMIBGroup,_v:qtechOptionalDevInfoMIBGroup,_u:qtechModuleInfoMIBGroup,_w:qtechEntityChgDescGroup,_x:qtechDeviceMIBNotificationGroup,_y:qtechModuleTempStateGroup,_z:qtechPowerStateGroup,_A0:qtechFanStateGroup,_A1:qtechTemperatureWarningDescGroup,_A2:qtechTemperatureWarningGroup})
+#
+# PySNMP MIB module QTECH-ENTITY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-ENTITY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:36 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+qtechEntityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21))
+qtechEntityMIB.setRevisions(('2002-03-20 00:00',))
+if mibBuilder.loadTexts: qtechEntityMIB.setLastUpdated('200203200000Z')
+if mibBuilder.loadTexts: qtechEntityMIB.setOrganization('Qtech Networks Co.,Ltd.')
+qtechDeviceMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1))
+qtechDeviceMaxNumber = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDeviceMaxNumber.setStatus('current')
+qtechDeviceInfoTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 2), )
+if mibBuilder.loadTexts: qtechDeviceInfoTable.setStatus('current')
+qtechDeviceInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 2, 1), ).setIndexNames((0, "QTECH-ENTITY-MIB", "qtechDeviceInfoIndex"))
+if mibBuilder.loadTexts: qtechDeviceInfoEntry.setStatus('current')
+qtechDeviceInfoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDeviceInfoIndex.setStatus('current')
+qtechDeviceInfoDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDeviceInfoDescr.setStatus('current')
+qtechDeviceInfoSlotNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDeviceInfoSlotNumber.setStatus('current')
+qtechDevicePowerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("rpsNoLink", 1), ("rpsLinkAndNoPower", 2), ("rpsLinkAndReadyForPower", 3), ("rpsLinkAndPower", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDevicePowerStatus.setStatus('current')
+qtechDeviceMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 2, 1, 5), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDeviceMacAddress.setStatus('current')
+qtechDevicePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechDevicePriority.setStatus('current')
+qtechDeviceAlias = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 2, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechDeviceAlias.setStatus('current')
+qtechDeviceSWVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 2, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDeviceSWVersion.setStatus('current')
+qtechDeviceHWVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 2, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDeviceHWVersion.setStatus('current')
+qtechDeviceSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 2, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDeviceSerialNumber.setStatus('current')
+qtechDeviceOid = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 2, 1, 11), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechDeviceOid.setStatus('current')
+qtechSlotInfoTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 3), )
+if mibBuilder.loadTexts: qtechSlotInfoTable.setStatus('current')
+qtechSlotInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 3, 1), ).setIndexNames((0, "QTECH-ENTITY-MIB", "qtechSlotInfoDeviceIndex"), (0, "QTECH-ENTITY-MIB", "qtechSlotInfoIndex"))
+if mibBuilder.loadTexts: qtechSlotInfoEntry.setStatus('current')
+qtechSlotInfoDeviceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSlotInfoDeviceIndex.setStatus('current')
+qtechSlotInfoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 3, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSlotInfoIndex.setStatus('current')
+qtechSlotModuleInfoDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 3, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSlotModuleInfoDescr.setStatus('current')
+qtechSlotInfoPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 3, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSlotInfoPortNumber.setStatus('current')
+qtechSlotInfoPortMaxNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 3, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSlotInfoPortMaxNumber.setStatus('current')
+qtechSlotInfoDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 3, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSlotInfoDesc.setStatus('current')
+qtechSlotConfigModuleInfoDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 3, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSlotConfigModuleInfoDescr.setStatus('current')
+qtechSlotUserStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 3, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSlotUserStatus.setStatus('current')
+qtechSlotSoftwareStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 3, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSlotSoftwareStatus.setStatus('current')
+qtechSlotSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 3, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSlotSerialNumber.setStatus('current')
+qtechSlotHWVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 3, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSlotHWVersion.setStatus('current')
+qtechModuleTempStateTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 4), )
+if mibBuilder.loadTexts: qtechModuleTempStateTable.setStatus('current')
+qtechModuleTempStateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 4, 1), ).setIndexNames((0, "QTECH-ENTITY-MIB", "qtechModuleTempStateDeviceIndex"), (0, "QTECH-ENTITY-MIB", "qtechModuleTempStateIndex"))
+if mibBuilder.loadTexts: qtechModuleTempStateEntry.setStatus('current')
+qtechModuleTempStateDeviceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 4, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechModuleTempStateDeviceIndex.setStatus('current')
+qtechModuleTempStateIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 4, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechModuleTempStateIndex.setStatus('current')
+qtechModuleTempState = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("tempNormal", 1), ("tempWarning", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechModuleTempState.setStatus('current')
+qtechPowerStateTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 5), )
+if mibBuilder.loadTexts: qtechPowerStateTable.setStatus('current')
+qtechPowerStateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 5, 1), ).setIndexNames((0, "QTECH-ENTITY-MIB", "qtechPowerStateDeviceIndex"), (0, "QTECH-ENTITY-MIB", "qtechPowerStateIndex"))
+if mibBuilder.loadTexts: qtechPowerStateEntry.setStatus('current')
+qtechPowerStateDeviceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 5, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechPowerStateDeviceIndex.setStatus('current')
+qtechPowerStateIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 5, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechPowerStateIndex.setStatus('current')
+qtechPowerState = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("noLink", 1), ("linkAndNoPower", 2), ("linkAndReadyForPower", 3), ("linkAndPower", 4), ("linkAndPowerAbnormal", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechPowerState.setStatus('current')
+qtechPowerStatePowerDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 5, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechPowerStatePowerDescr.setStatus('current')
+qtechFanStateTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 6), )
+if mibBuilder.loadTexts: qtechFanStateTable.setStatus('current')
+qtechFanStateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 6, 1), ).setIndexNames((0, "QTECH-ENTITY-MIB", "qtechFanStateDeviceIndex"), (0, "QTECH-ENTITY-MIB", "qtechFanStateIndex"))
+if mibBuilder.loadTexts: qtechFanStateEntry.setStatus('current')
+qtechFanStateDeviceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 6, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechFanStateDeviceIndex.setStatus('current')
+qtechFanStateIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 6, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechFanStateIndex.setStatus('current')
+qtechFanState = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("work", 1), ("stop", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechFanState.setStatus('current')
+qtechFanStateFanDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 1, 6, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechFanStateFanDescr.setStatus('current')
+qtechEntityMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 2))
+qtechEntityStateChgDesc = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 2, 1), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechEntityStateChgDesc.setStatus('current')
+qtechEntityStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 2, 2)).setObjects(("QTECH-ENTITY-MIB", "qtechEntityStateChgDesc"))
+if mibBuilder.loadTexts: qtechEntityStatusChange.setStatus('current')
+qtechTemperatureWarningDesc = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 2, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechTemperatureWarningDesc.setStatus('current')
+qtechTemperatureWarning = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 2, 4)).setObjects(("QTECH-ENTITY-MIB", "qtechTemperatureWarningDesc"))
+if mibBuilder.loadTexts: qtechTemperatureWarning.setStatus('current')
+qtechDeviceMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 3))
+qtechDeviceMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 3, 1))
+qtechDeviceMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 3, 2))
+qtechDeviceMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 3, 1, 1)).setObjects(("QTECH-ENTITY-MIB", "qtechDeviceInfoMIBGroup"), ("QTECH-ENTITY-MIB", "qtechModuleInfoMIBGroup"), ("QTECH-ENTITY-MIB", "qtechOptionalDevInfoMIBGroup"), ("QTECH-ENTITY-MIB", "qtechEntityChgDescGroup"), ("QTECH-ENTITY-MIB", "qtechDeviceMIBNotificationGroup"), ("QTECH-ENTITY-MIB", "qtechModuleTempStateGroup"), ("QTECH-ENTITY-MIB", "qtechPowerStateGroup"), ("QTECH-ENTITY-MIB", "qtechFanStateGroup"), ("QTECH-ENTITY-MIB", "qtechTemperatureWarningDescGroup"), ("QTECH-ENTITY-MIB", "qtechTemperatureWarningGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechDeviceMIBCompliance = qtechDeviceMIBCompliance.setStatus('current')
+qtechDeviceInfoMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 3, 2, 1)).setObjects(("QTECH-ENTITY-MIB", "qtechDeviceMaxNumber"), ("QTECH-ENTITY-MIB", "qtechDeviceInfoIndex"), ("QTECH-ENTITY-MIB", "qtechDeviceInfoDescr"), ("QTECH-ENTITY-MIB", "qtechDeviceInfoSlotNumber"), ("QTECH-ENTITY-MIB", "qtechDevicePowerStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechDeviceInfoMIBGroup = qtechDeviceInfoMIBGroup.setStatus('current')
+qtechOptionalDevInfoMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 3, 2, 2)).setObjects(("QTECH-ENTITY-MIB", "qtechDeviceMacAddress"), ("QTECH-ENTITY-MIB", "qtechDevicePriority"), ("QTECH-ENTITY-MIB", "qtechDeviceAlias"), ("QTECH-ENTITY-MIB", "qtechDeviceSWVersion"), ("QTECH-ENTITY-MIB", "qtechDeviceHWVersion"), ("QTECH-ENTITY-MIB", "qtechDeviceSerialNumber"), ("QTECH-ENTITY-MIB", "qtechDeviceOid"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechOptionalDevInfoMIBGroup = qtechOptionalDevInfoMIBGroup.setStatus('current')
+qtechModuleInfoMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 3, 2, 3)).setObjects(("QTECH-ENTITY-MIB", "qtechSlotInfoDeviceIndex"), ("QTECH-ENTITY-MIB", "qtechSlotInfoIndex"), ("QTECH-ENTITY-MIB", "qtechSlotModuleInfoDescr"), ("QTECH-ENTITY-MIB", "qtechSlotInfoPortNumber"), ("QTECH-ENTITY-MIB", "qtechSlotInfoPortMaxNumber"), ("QTECH-ENTITY-MIB", "qtechSlotInfoDesc"), ("QTECH-ENTITY-MIB", "qtechSlotConfigModuleInfoDescr"), ("QTECH-ENTITY-MIB", "qtechSlotUserStatus"), ("QTECH-ENTITY-MIB", "qtechSlotSoftwareStatus"), ("QTECH-ENTITY-MIB", "qtechSlotSerialNumber"), ("QTECH-ENTITY-MIB", "qtechSlotHWVersion"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechModuleInfoMIBGroup = qtechModuleInfoMIBGroup.setStatus('current')
+qtechEntityChgDescGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 3, 2, 4)).setObjects(("QTECH-ENTITY-MIB", "qtechEntityStateChgDesc"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechEntityChgDescGroup = qtechEntityChgDescGroup.setStatus('current')
+qtechDeviceMIBNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 3, 2, 5)).setObjects(("QTECH-ENTITY-MIB", "qtechEntityStatusChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechDeviceMIBNotificationGroup = qtechDeviceMIBNotificationGroup.setStatus('current')
+qtechModuleTempStateGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 3, 2, 6)).setObjects(("QTECH-ENTITY-MIB", "qtechModuleTempStateDeviceIndex"), ("QTECH-ENTITY-MIB", "qtechModuleTempStateIndex"), ("QTECH-ENTITY-MIB", "qtechModuleTempState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechModuleTempStateGroup = qtechModuleTempStateGroup.setStatus('current')
+qtechPowerStateGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 3, 2, 7)).setObjects(("QTECH-ENTITY-MIB", "qtechPowerStateDeviceIndex"), ("QTECH-ENTITY-MIB", "qtechPowerStateIndex"), ("QTECH-ENTITY-MIB", "qtechPowerState"), ("QTECH-ENTITY-MIB", "qtechPowerStatePowerDescr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechPowerStateGroup = qtechPowerStateGroup.setStatus('current')
+qtechFanStateGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 3, 2, 8)).setObjects(("QTECH-ENTITY-MIB", "qtechFanStateDeviceIndex"), ("QTECH-ENTITY-MIB", "qtechFanStateIndex"), ("QTECH-ENTITY-MIB", "qtechFanState"), ("QTECH-ENTITY-MIB", "qtechFanStateFanDescr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechFanStateGroup = qtechFanStateGroup.setStatus('current')
+qtechTemperatureWarningDescGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 3, 2, 9)).setObjects(("QTECH-ENTITY-MIB", "qtechTemperatureWarningDesc"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechTemperatureWarningDescGroup = qtechTemperatureWarningDescGroup.setStatus('current')
+qtechTemperatureWarningGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 21, 3, 2, 10)).setObjects(("QTECH-ENTITY-MIB", "qtechTemperatureWarning"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechTemperatureWarningGroup = qtechTemperatureWarningGroup.setStatus('current')
+mibBuilder.exportSymbols("QTECH-ENTITY-MIB", qtechPowerStateEntry=qtechPowerStateEntry, qtechDeviceInfoDescr=qtechDeviceInfoDescr, qtechFanState=qtechFanState, qtechFanStateDeviceIndex=qtechFanStateDeviceIndex, qtechEntityChgDescGroup=qtechEntityChgDescGroup, qtechOptionalDevInfoMIBGroup=qtechOptionalDevInfoMIBGroup, qtechTemperatureWarningDescGroup=qtechTemperatureWarningDescGroup, qtechDeviceInfoMIBGroup=qtechDeviceInfoMIBGroup, qtechFanStateGroup=qtechFanStateGroup, qtechDeviceMIBObjects=qtechDeviceMIBObjects, qtechSlotInfoEntry=qtechSlotInfoEntry, qtechPowerStateTable=qtechPowerStateTable, qtechPowerStatePowerDescr=qtechPowerStatePowerDescr, qtechDeviceInfoEntry=qtechDeviceInfoEntry, qtechPowerStateIndex=qtechPowerStateIndex, qtechDeviceInfoSlotNumber=qtechDeviceInfoSlotNumber, qtechDeviceOid=qtechDeviceOid, qtechEntityMIBTraps=qtechEntityMIBTraps, qtechSlotInfoPortMaxNumber=qtechSlotInfoPortMaxNumber, qtechDeviceMIBCompliances=qtechDeviceMIBCompliances, qtechSlotInfoPortNumber=qtechSlotInfoPortNumber, qtechDeviceMIBNotificationGroup=qtechDeviceMIBNotificationGroup, qtechSlotInfoTable=qtechSlotInfoTable, qtechPowerStateDeviceIndex=qtechPowerStateDeviceIndex, qtechFanStateFanDescr=qtechFanStateFanDescr, qtechDeviceMIBGroups=qtechDeviceMIBGroups, qtechDeviceHWVersion=qtechDeviceHWVersion, qtechSlotConfigModuleInfoDescr=qtechSlotConfigModuleInfoDescr, qtechDeviceInfoTable=qtechDeviceInfoTable, qtechDeviceSWVersion=qtechDeviceSWVersion, qtechEntityStateChgDesc=qtechEntityStateChgDesc, qtechFanStateEntry=qtechFanStateEntry, qtechPowerState=qtechPowerState, qtechModuleTempStateTable=qtechModuleTempStateTable, qtechModuleTempState=qtechModuleTempState, qtechFanStateIndex=qtechFanStateIndex, qtechDeviceInfoIndex=qtechDeviceInfoIndex, qtechTemperatureWarningDesc=qtechTemperatureWarningDesc, qtechDeviceMIBCompliance=qtechDeviceMIBCompliance, qtechModuleTempStateGroup=qtechModuleTempStateGroup, qtechFanStateTable=qtechFanStateTable, qtechModuleInfoMIBGroup=qtechModuleInfoMIBGroup, qtechSlotInfoDeviceIndex=qtechSlotInfoDeviceIndex, PYSNMP_MODULE_ID=qtechEntityMIB, qtechModuleTempStateEntry=qtechModuleTempStateEntry, qtechPowerStateGroup=qtechPowerStateGroup, qtechDeviceMIBConformance=qtechDeviceMIBConformance, qtechDeviceSerialNumber=qtechDeviceSerialNumber, qtechSlotSoftwareStatus=qtechSlotSoftwareStatus, qtechDevicePriority=qtechDevicePriority, qtechSlotInfoDesc=qtechSlotInfoDesc, qtechDeviceMaxNumber=qtechDeviceMaxNumber, qtechSlotInfoIndex=qtechSlotInfoIndex, qtechSlotHWVersion=qtechSlotHWVersion, qtechDeviceMacAddress=qtechDeviceMacAddress, qtechEntityMIB=qtechEntityMIB, qtechSlotUserStatus=qtechSlotUserStatus, qtechModuleTempStateIndex=qtechModuleTempStateIndex, qtechEntityStatusChange=qtechEntityStatusChange, qtechSlotSerialNumber=qtechSlotSerialNumber, qtechTemperatureWarning=qtechTemperatureWarning, qtechTemperatureWarningGroup=qtechTemperatureWarningGroup, qtechDevicePowerStatus=qtechDevicePowerStatus, qtechModuleTempStateDeviceIndex=qtechModuleTempStateDeviceIndex, qtechSlotModuleInfoDescr=qtechSlotModuleInfoDescr, qtechDeviceAlias=qtechDeviceAlias)

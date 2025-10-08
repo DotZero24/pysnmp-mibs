@@ -1,172 +1,88 @@
-_c='etsysR2MgmtBaseGroupV2'
-_b='etsysR2MgmtBaseGroup'
-_a='etsysR2MgmtVlan'
-_Z='etsysR2MgmtUplineDumpMode'
-_Y='etsysR2MgmtCrashUploadDirectory'
-_X='etsysR2MgmtCrashUploadServerIP'
-_W='etsysR2MgmtCrashUploadUseBootp'
-_V='etsysR2MgmtErrLogInfo'
-_U='etsysR2MgmtErrLogResetNumber'
-_T='etsysR2MgmtErrLogTimeStamp'
-_S='etsysR2MgmtErrLogNumEntries'
-_R='etsysR2MgmtUnsolicitedResets'
-_Q='etsysR2MgmtResets'
-_P='etsysR2MgmtPowerups'
-_O='deprecated'
-_N='SnmpAdminString'
-_M='OctetString'
-_L='etsysR2MgmtLoaderGroup'
-_K='etsysR2MgmtErrLogGroup'
-_J='etsysR2MgmtCountersGroup'
-_I='etsysR2MgmtTelnetInterface'
-_H='etsysR2MgmtWEBInterface'
-_G='etsysR2MgmtMemorySize'
-_F='etsysR2MgmtErrLogIndex'
-_E='Integer32'
-_D='read-write'
-_C='read-only'
-_B='current'
-_A='ENTERASYS-R2MGMT-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_M,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-etsysModules,=mibBuilder.importSymbols('ENTERASYS-MIB-NAMES','etsysModules')
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_N)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-enterasysR2MgmtMIB=ModuleIdentity((1,3,6,1,4,1,5624,1,2,11))
-if mibBuilder.loadTexts:enterasysR2MgmtMIB.setRevisions(('2004-07-08 15:30','2002-03-07 19:35','2001-06-26 17:30'))
-_EtsysR2MgmtObjects_ObjectIdentity=ObjectIdentity
-etsysR2MgmtObjects=_EtsysR2MgmtObjects_ObjectIdentity((1,3,6,1,4,1,5624,1,2,11,1))
-_EtsysR2MgmtParams_ObjectIdentity=ObjectIdentity
-etsysR2MgmtParams=_EtsysR2MgmtParams_ObjectIdentity((1,3,6,1,4,1,5624,1,2,11,1,1))
-_EtsysR2MgmtMemorySize_Type=Integer32
-_EtsysR2MgmtMemorySize_Object=MibScalar
-etsysR2MgmtMemorySize=_EtsysR2MgmtMemorySize_Object((1,3,6,1,4,1,5624,1,2,11,1,1,1),_EtsysR2MgmtMemorySize_Type())
-etsysR2MgmtMemorySize.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysR2MgmtMemorySize.setStatus(_B)
-_EtsysR2MgmtWEBInterface_Type=EnabledStatus
-_EtsysR2MgmtWEBInterface_Object=MibScalar
-etsysR2MgmtWEBInterface=_EtsysR2MgmtWEBInterface_Object((1,3,6,1,4,1,5624,1,2,11,1,1,2),_EtsysR2MgmtWEBInterface_Type())
-etsysR2MgmtWEBInterface.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysR2MgmtWEBInterface.setStatus(_B)
-_EtsysR2MgmtTelnetInterface_Type=EnabledStatus
-_EtsysR2MgmtTelnetInterface_Object=MibScalar
-etsysR2MgmtTelnetInterface=_EtsysR2MgmtTelnetInterface_Object((1,3,6,1,4,1,5624,1,2,11,1,1,3),_EtsysR2MgmtTelnetInterface_Type())
-etsysR2MgmtTelnetInterface.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysR2MgmtTelnetInterface.setStatus(_B)
-class _EtsysR2MgmtVlan_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4094))
-_EtsysR2MgmtVlan_Type.__name__=_E
-_EtsysR2MgmtVlan_Object=MibScalar
-etsysR2MgmtVlan=_EtsysR2MgmtVlan_Object((1,3,6,1,4,1,5624,1,2,11,1,1,4),_EtsysR2MgmtVlan_Type())
-etsysR2MgmtVlan.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysR2MgmtVlan.setStatus(_B)
-_EtsysR2MgmtCounters_ObjectIdentity=ObjectIdentity
-etsysR2MgmtCounters=_EtsysR2MgmtCounters_ObjectIdentity((1,3,6,1,4,1,5624,1,2,11,1,2))
-_EtsysR2MgmtPowerups_Type=Counter32
-_EtsysR2MgmtPowerups_Object=MibScalar
-etsysR2MgmtPowerups=_EtsysR2MgmtPowerups_Object((1,3,6,1,4,1,5624,1,2,11,1,2,1),_EtsysR2MgmtPowerups_Type())
-etsysR2MgmtPowerups.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysR2MgmtPowerups.setStatus(_B)
-_EtsysR2MgmtResets_Type=Counter32
-_EtsysR2MgmtResets_Object=MibScalar
-etsysR2MgmtResets=_EtsysR2MgmtResets_Object((1,3,6,1,4,1,5624,1,2,11,1,2,2),_EtsysR2MgmtResets_Type())
-etsysR2MgmtResets.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysR2MgmtResets.setStatus(_B)
-_EtsysR2MgmtUnsolicitedResets_Type=Counter32
-_EtsysR2MgmtUnsolicitedResets_Object=MibScalar
-etsysR2MgmtUnsolicitedResets=_EtsysR2MgmtUnsolicitedResets_Object((1,3,6,1,4,1,5624,1,2,11,1,2,3),_EtsysR2MgmtUnsolicitedResets_Type())
-etsysR2MgmtUnsolicitedResets.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysR2MgmtUnsolicitedResets.setStatus(_B)
-_EtsysR2MgmtErrorLog_ObjectIdentity=ObjectIdentity
-etsysR2MgmtErrorLog=_EtsysR2MgmtErrorLog_ObjectIdentity((1,3,6,1,4,1,5624,1,2,11,1,3))
-class _EtsysR2MgmtErrLogNumEntries_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_EtsysR2MgmtErrLogNumEntries_Type.__name__=_E
-_EtsysR2MgmtErrLogNumEntries_Object=MibScalar
-etsysR2MgmtErrLogNumEntries=_EtsysR2MgmtErrLogNumEntries_Object((1,3,6,1,4,1,5624,1,2,11,1,3,1),_EtsysR2MgmtErrLogNumEntries_Type())
-etsysR2MgmtErrLogNumEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysR2MgmtErrLogNumEntries.setStatus(_B)
-_EtsysR2MgmtErrLogTable_Object=MibTable
-etsysR2MgmtErrLogTable=_EtsysR2MgmtErrLogTable_Object((1,3,6,1,4,1,5624,1,2,11,1,3,2))
-if mibBuilder.loadTexts:etsysR2MgmtErrLogTable.setStatus(_B)
-_EtsysR2MgmtErrLogEntry_Object=MibTableRow
-etsysR2MgmtErrLogEntry=_EtsysR2MgmtErrLogEntry_Object((1,3,6,1,4,1,5624,1,2,11,1,3,2,1))
-etsysR2MgmtErrLogEntry.setIndexNames((0,_A,_F))
-if mibBuilder.loadTexts:etsysR2MgmtErrLogEntry.setStatus(_B)
-class _EtsysR2MgmtErrLogIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_EtsysR2MgmtErrLogIndex_Type.__name__=_E
-_EtsysR2MgmtErrLogIndex_Object=MibTableColumn
-etsysR2MgmtErrLogIndex=_EtsysR2MgmtErrLogIndex_Object((1,3,6,1,4,1,5624,1,2,11,1,3,2,1,1),_EtsysR2MgmtErrLogIndex_Type())
-etsysR2MgmtErrLogIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysR2MgmtErrLogIndex.setStatus(_B)
-_EtsysR2MgmtErrLogTimeStamp_Type=TimeTicks
-_EtsysR2MgmtErrLogTimeStamp_Object=MibTableColumn
-etsysR2MgmtErrLogTimeStamp=_EtsysR2MgmtErrLogTimeStamp_Object((1,3,6,1,4,1,5624,1,2,11,1,3,2,1,2),_EtsysR2MgmtErrLogTimeStamp_Type())
-etsysR2MgmtErrLogTimeStamp.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysR2MgmtErrLogTimeStamp.setStatus(_B)
-class _EtsysR2MgmtErrLogResetNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_EtsysR2MgmtErrLogResetNumber_Type.__name__=_E
-_EtsysR2MgmtErrLogResetNumber_Object=MibTableColumn
-etsysR2MgmtErrLogResetNumber=_EtsysR2MgmtErrLogResetNumber_Object((1,3,6,1,4,1,5624,1,2,11,1,3,2,1,3),_EtsysR2MgmtErrLogResetNumber_Type())
-etsysR2MgmtErrLogResetNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysR2MgmtErrLogResetNumber.setStatus(_B)
-class _EtsysR2MgmtErrLogInfo_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_EtsysR2MgmtErrLogInfo_Type.__name__=_N
-_EtsysR2MgmtErrLogInfo_Object=MibTableColumn
-etsysR2MgmtErrLogInfo=_EtsysR2MgmtErrLogInfo_Object((1,3,6,1,4,1,5624,1,2,11,1,3,2,1,4),_EtsysR2MgmtErrLogInfo_Type())
-etsysR2MgmtErrLogInfo.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysR2MgmtErrLogInfo.setStatus(_B)
-_EtsysR2MgmtLoader_ObjectIdentity=ObjectIdentity
-etsysR2MgmtLoader=_EtsysR2MgmtLoader_ObjectIdentity((1,3,6,1,4,1,5624,1,2,11,1,4))
-_EtsysR2MgmtCrashUploadUseBootp_Type=TruthValue
-_EtsysR2MgmtCrashUploadUseBootp_Object=MibScalar
-etsysR2MgmtCrashUploadUseBootp=_EtsysR2MgmtCrashUploadUseBootp_Object((1,3,6,1,4,1,5624,1,2,11,1,4,1),_EtsysR2MgmtCrashUploadUseBootp_Type())
-etsysR2MgmtCrashUploadUseBootp.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysR2MgmtCrashUploadUseBootp.setStatus(_B)
-_EtsysR2MgmtCrashUploadServerIP_Type=IpAddress
-_EtsysR2MgmtCrashUploadServerIP_Object=MibScalar
-etsysR2MgmtCrashUploadServerIP=_EtsysR2MgmtCrashUploadServerIP_Object((1,3,6,1,4,1,5624,1,2,11,1,4,2),_EtsysR2MgmtCrashUploadServerIP_Type())
-etsysR2MgmtCrashUploadServerIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysR2MgmtCrashUploadServerIP.setStatus(_B)
-class _EtsysR2MgmtCrashUploadDirectory_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_EtsysR2MgmtCrashUploadDirectory_Type.__name__=_M
-_EtsysR2MgmtCrashUploadDirectory_Object=MibScalar
-etsysR2MgmtCrashUploadDirectory=_EtsysR2MgmtCrashUploadDirectory_Object((1,3,6,1,4,1,5624,1,2,11,1,4,3),_EtsysR2MgmtCrashUploadDirectory_Type())
-etsysR2MgmtCrashUploadDirectory.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysR2MgmtCrashUploadDirectory.setStatus(_B)
-_EtsysR2MgmtUplineDumpMode_Type=EnabledStatus
-_EtsysR2MgmtUplineDumpMode_Object=MibScalar
-etsysR2MgmtUplineDumpMode=_EtsysR2MgmtUplineDumpMode_Object((1,3,6,1,4,1,5624,1,2,11,1,4,4),_EtsysR2MgmtUplineDumpMode_Type())
-etsysR2MgmtUplineDumpMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysR2MgmtUplineDumpMode.setStatus(_B)
-_EtsysR2MgmtConformance_ObjectIdentity=ObjectIdentity
-etsysR2MgmtConformance=_EtsysR2MgmtConformance_ObjectIdentity((1,3,6,1,4,1,5624,1,2,11,2))
-_EtsysR2MgmtGroups_ObjectIdentity=ObjectIdentity
-etsysR2MgmtGroups=_EtsysR2MgmtGroups_ObjectIdentity((1,3,6,1,4,1,5624,1,2,11,2,1))
-_EtsysR2MgmtCompliances_ObjectIdentity=ObjectIdentity
-etsysR2MgmtCompliances=_EtsysR2MgmtCompliances_ObjectIdentity((1,3,6,1,4,1,5624,1,2,11,2,2))
-etsysR2MgmtBaseGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,11,2,1,1))
-etsysR2MgmtBaseGroup.setObjects(*((_A,_G),(_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:etsysR2MgmtBaseGroup.setStatus(_O)
-etsysR2MgmtCountersGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,11,2,1,2))
-etsysR2MgmtCountersGroup.setObjects(*((_A,_P),(_A,_Q),(_A,_R)))
-if mibBuilder.loadTexts:etsysR2MgmtCountersGroup.setStatus(_B)
-etsysR2MgmtErrLogGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,11,2,1,3))
-etsysR2MgmtErrLogGroup.setObjects(*((_A,_S),(_A,_F),(_A,_T),(_A,_U),(_A,_V)))
-if mibBuilder.loadTexts:etsysR2MgmtErrLogGroup.setStatus(_B)
-etsysR2MgmtLoaderGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,11,2,1,4))
-etsysR2MgmtLoaderGroup.setObjects(*((_A,_W),(_A,_X),(_A,_Y),(_A,_Z)))
-if mibBuilder.loadTexts:etsysR2MgmtLoaderGroup.setStatus(_B)
-etsysR2MgmtBaseGroupV2=ObjectGroup((1,3,6,1,4,1,5624,1,2,11,2,1,5))
-etsysR2MgmtBaseGroupV2.setObjects(*((_A,_G),(_A,_H),(_A,_I),(_A,_a)))
-if mibBuilder.loadTexts:etsysR2MgmtBaseGroupV2.setStatus(_B)
-etsysR2MgmtCompliance=ModuleCompliance((1,3,6,1,4,1,5624,1,2,11,2,2,1))
-etsysR2MgmtCompliance.setObjects(*((_A,_b),(_A,_J),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:etsysR2MgmtCompliance.setStatus(_O)
-etsysR2MgmtComplianceV2=ModuleCompliance((1,3,6,1,4,1,5624,1,2,11,2,2,2))
-etsysR2MgmtComplianceV2.setObjects(*((_A,_c),(_A,_J),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:etsysR2MgmtComplianceV2.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'enterasysR2MgmtMIB':enterasysR2MgmtMIB,'etsysR2MgmtObjects':etsysR2MgmtObjects,'etsysR2MgmtParams':etsysR2MgmtParams,_G:etsysR2MgmtMemorySize,_H:etsysR2MgmtWEBInterface,_I:etsysR2MgmtTelnetInterface,_a:etsysR2MgmtVlan,'etsysR2MgmtCounters':etsysR2MgmtCounters,_P:etsysR2MgmtPowerups,_Q:etsysR2MgmtResets,_R:etsysR2MgmtUnsolicitedResets,'etsysR2MgmtErrorLog':etsysR2MgmtErrorLog,_S:etsysR2MgmtErrLogNumEntries,'etsysR2MgmtErrLogTable':etsysR2MgmtErrLogTable,'etsysR2MgmtErrLogEntry':etsysR2MgmtErrLogEntry,_F:etsysR2MgmtErrLogIndex,_T:etsysR2MgmtErrLogTimeStamp,_U:etsysR2MgmtErrLogResetNumber,_V:etsysR2MgmtErrLogInfo,'etsysR2MgmtLoader':etsysR2MgmtLoader,_W:etsysR2MgmtCrashUploadUseBootp,_X:etsysR2MgmtCrashUploadServerIP,_Y:etsysR2MgmtCrashUploadDirectory,_Z:etsysR2MgmtUplineDumpMode,'etsysR2MgmtConformance':etsysR2MgmtConformance,'etsysR2MgmtGroups':etsysR2MgmtGroups,_b:etsysR2MgmtBaseGroup,_J:etsysR2MgmtCountersGroup,_K:etsysR2MgmtErrLogGroup,_L:etsysR2MgmtLoaderGroup,_c:etsysR2MgmtBaseGroupV2,'etsysR2MgmtCompliances':etsysR2MgmtCompliances,'etsysR2MgmtCompliance':etsysR2MgmtCompliance,'etsysR2MgmtComplianceV2':etsysR2MgmtComplianceV2})
+#
+# PySNMP MIB module ENTERASYS-R2MGMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/enterasys/ENTERASYS-R2MGMT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:18 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+enterasysR2MgmtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11))
+enterasysR2MgmtMIB.setRevisions(('2004-07-08 15:30', '2002-03-07 19:35', '2001-06-26 17:30',))
+if mibBuilder.loadTexts: enterasysR2MgmtMIB.setLastUpdated('200407081530Z')
+if mibBuilder.loadTexts: enterasysR2MgmtMIB.setOrganization('Enterasys Networks, Inc')
+etsysR2MgmtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1))
+etsysR2MgmtParams = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 1))
+etsysR2MgmtCounters = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 2))
+etsysR2MgmtErrorLog = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 3))
+etsysR2MgmtLoader = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 4))
+etsysR2MgmtMemorySize = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysR2MgmtMemorySize.setStatus('current')
+etsysR2MgmtWEBInterface = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 1, 2), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysR2MgmtWEBInterface.setStatus('current')
+etsysR2MgmtTelnetInterface = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 1, 3), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysR2MgmtTelnetInterface.setStatus('current')
+etsysR2MgmtVlan = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysR2MgmtVlan.setStatus('current')
+etsysR2MgmtPowerups = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 2, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysR2MgmtPowerups.setStatus('current')
+etsysR2MgmtResets = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 2, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysR2MgmtResets.setStatus('current')
+etsysR2MgmtUnsolicitedResets = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 2, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysR2MgmtUnsolicitedResets.setStatus('current')
+etsysR2MgmtErrLogNumEntries = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 3, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysR2MgmtErrLogNumEntries.setStatus('current')
+etsysR2MgmtErrLogTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 3, 2), )
+if mibBuilder.loadTexts: etsysR2MgmtErrLogTable.setStatus('current')
+etsysR2MgmtErrLogEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 3, 2, 1), ).setIndexNames((0, "ENTERASYS-R2MGMT-MIB", "etsysR2MgmtErrLogIndex"))
+if mibBuilder.loadTexts: etsysR2MgmtErrLogEntry.setStatus('current')
+etsysR2MgmtErrLogIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysR2MgmtErrLogIndex.setStatus('current')
+etsysR2MgmtErrLogTimeStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 3, 2, 1, 2), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysR2MgmtErrLogTimeStamp.setStatus('current')
+etsysR2MgmtErrLogResetNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysR2MgmtErrLogResetNumber.setStatus('current')
+etsysR2MgmtErrLogInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 3, 2, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysR2MgmtErrLogInfo.setStatus('current')
+etsysR2MgmtCrashUploadUseBootp = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 4, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysR2MgmtCrashUploadUseBootp.setStatus('current')
+etsysR2MgmtCrashUploadServerIP = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 4, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysR2MgmtCrashUploadServerIP.setStatus('current')
+etsysR2MgmtCrashUploadDirectory = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 4, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysR2MgmtCrashUploadDirectory.setStatus('current')
+etsysR2MgmtUplineDumpMode = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 1, 4, 4), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysR2MgmtUplineDumpMode.setStatus('current')
+etsysR2MgmtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 2))
+etsysR2MgmtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 2, 1))
+etsysR2MgmtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 2, 2))
+etsysR2MgmtBaseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 2, 1, 1)).setObjects(("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtMemorySize"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtWEBInterface"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtTelnetInterface"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysR2MgmtBaseGroup = etsysR2MgmtBaseGroup.setStatus('deprecated')
+etsysR2MgmtCountersGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 2, 1, 2)).setObjects(("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtPowerups"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtResets"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtUnsolicitedResets"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysR2MgmtCountersGroup = etsysR2MgmtCountersGroup.setStatus('current')
+etsysR2MgmtErrLogGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 2, 1, 3)).setObjects(("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtErrLogNumEntries"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtErrLogIndex"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtErrLogTimeStamp"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtErrLogResetNumber"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtErrLogInfo"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysR2MgmtErrLogGroup = etsysR2MgmtErrLogGroup.setStatus('current')
+etsysR2MgmtLoaderGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 2, 1, 4)).setObjects(("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtCrashUploadUseBootp"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtCrashUploadServerIP"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtCrashUploadDirectory"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtUplineDumpMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysR2MgmtLoaderGroup = etsysR2MgmtLoaderGroup.setStatus('current')
+etsysR2MgmtBaseGroupV2 = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 2, 1, 5)).setObjects(("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtMemorySize"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtWEBInterface"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtTelnetInterface"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtVlan"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysR2MgmtBaseGroupV2 = etsysR2MgmtBaseGroupV2.setStatus('current')
+etsysR2MgmtCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 2, 2, 1)).setObjects(("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtBaseGroup"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtCountersGroup"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtErrLogGroup"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtLoaderGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysR2MgmtCompliance = etsysR2MgmtCompliance.setStatus('deprecated')
+etsysR2MgmtComplianceV2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 11, 2, 2, 2)).setObjects(("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtBaseGroupV2"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtCountersGroup"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtErrLogGroup"), ("ENTERASYS-R2MGMT-MIB", "etsysR2MgmtLoaderGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysR2MgmtComplianceV2 = etsysR2MgmtComplianceV2.setStatus('current')
+mibBuilder.exportSymbols("ENTERASYS-R2MGMT-MIB", etsysR2MgmtLoaderGroup=etsysR2MgmtLoaderGroup, etsysR2MgmtConformance=etsysR2MgmtConformance, etsysR2MgmtMemorySize=etsysR2MgmtMemorySize, etsysR2MgmtCrashUploadDirectory=etsysR2MgmtCrashUploadDirectory, etsysR2MgmtComplianceV2=etsysR2MgmtComplianceV2, PYSNMP_MODULE_ID=enterasysR2MgmtMIB, etsysR2MgmtLoader=etsysR2MgmtLoader, etsysR2MgmtErrorLog=etsysR2MgmtErrorLog, etsysR2MgmtPowerups=etsysR2MgmtPowerups, etsysR2MgmtErrLogInfo=etsysR2MgmtErrLogInfo, etsysR2MgmtCompliances=etsysR2MgmtCompliances, etsysR2MgmtCounters=etsysR2MgmtCounters, etsysR2MgmtCrashUploadUseBootp=etsysR2MgmtCrashUploadUseBootp, etsysR2MgmtUnsolicitedResets=etsysR2MgmtUnsolicitedResets, etsysR2MgmtUplineDumpMode=etsysR2MgmtUplineDumpMode, etsysR2MgmtErrLogResetNumber=etsysR2MgmtErrLogResetNumber, etsysR2MgmtErrLogEntry=etsysR2MgmtErrLogEntry, etsysR2MgmtParams=etsysR2MgmtParams, etsysR2MgmtBaseGroupV2=etsysR2MgmtBaseGroupV2, etsysR2MgmtErrLogIndex=etsysR2MgmtErrLogIndex, etsysR2MgmtGroups=etsysR2MgmtGroups, etsysR2MgmtErrLogGroup=etsysR2MgmtErrLogGroup, etsysR2MgmtCompliance=etsysR2MgmtCompliance, etsysR2MgmtWEBInterface=etsysR2MgmtWEBInterface, etsysR2MgmtErrLogNumEntries=etsysR2MgmtErrLogNumEntries, etsysR2MgmtErrLogTable=etsysR2MgmtErrLogTable, etsysR2MgmtVlan=etsysR2MgmtVlan, etsysR2MgmtObjects=etsysR2MgmtObjects, etsysR2MgmtResets=etsysR2MgmtResets, etsysR2MgmtCrashUploadServerIP=etsysR2MgmtCrashUploadServerIP, enterasysR2MgmtMIB=enterasysR2MgmtMIB, etsysR2MgmtTelnetInterface=etsysR2MgmtTelnetInterface, etsysR2MgmtErrLogTimeStamp=etsysR2MgmtErrLogTimeStamp, etsysR2MgmtBaseGroup=etsysR2MgmtBaseGroup, etsysR2MgmtCountersGroup=etsysR2MgmtCountersGroup)

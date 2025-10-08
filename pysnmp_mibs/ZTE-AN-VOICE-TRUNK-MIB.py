@@ -1,74 +1,39 @@
-_H='zxAnEmSlot'
-_G='zxAnEmShelf'
-_F='zxAnEmRack'
-_E='not-accessible'
-_D='read-write'
-_C='ZTE-AN-VOICE-TRUNK-MIB'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-zxAnVoiceTrunkMib=ModuleIdentity((1,3,6,1,4,1,3902,1015,5200))
-_Zte_ObjectIdentity=ObjectIdentity
-zte=_Zte_ObjectIdentity((1,3,6,1,4,1,3902))
-_ZxAn_ObjectIdentity=ObjectIdentity
-zxAn=_ZxAn_ObjectIdentity((1,3,6,1,4,1,3902,1015))
-_MsagmajorVersion_ObjectIdentity=ObjectIdentity
-msagmajorVersion=_MsagmajorVersion_ObjectIdentity((1,3,6,1,4,1,3902,1015,5200,3))
-_MsagEmConfig_ObjectIdentity=ObjectIdentity
-msagEmConfig=_MsagEmConfig_ObjectIdentity((1,3,6,1,4,1,3902,1015,5200,3,11))
-_ZxAnEmCfgTable_Object=MibTable
-zxAnEmCfgTable=_ZxAnEmCfgTable_Object((1,3,6,1,4,1,3902,1015,5200,3,11,1))
-if mibBuilder.loadTexts:zxAnEmCfgTable.setStatus(_A)
-_ZxAnEmCfgEntry_Object=MibTableRow
-zxAnEmCfgEntry=_ZxAnEmCfgEntry_Object((1,3,6,1,4,1,3902,1015,5200,3,11,1,1))
-zxAnEmCfgEntry.setIndexNames((0,_C,_F),(0,_C,_G),(0,_C,_H))
-if mibBuilder.loadTexts:zxAnEmCfgEntry.setStatus(_A)
-class _ZxAnEmRack_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3))
-_ZxAnEmRack_Type.__name__=_B
-_ZxAnEmRack_Object=MibTableColumn
-zxAnEmRack=_ZxAnEmRack_Object((1,3,6,1,4,1,3902,1015,5200,3,11,1,1,1),_ZxAnEmRack_Type())
-zxAnEmRack.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxAnEmRack.setStatus(_A)
-class _ZxAnEmShelf_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,5))
-_ZxAnEmShelf_Type.__name__=_B
-_ZxAnEmShelf_Object=MibTableColumn
-zxAnEmShelf=_ZxAnEmShelf_Object((1,3,6,1,4,1,3902,1015,5200,3,11,1,1,2),_ZxAnEmShelf_Type())
-zxAnEmShelf.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxAnEmShelf.setStatus(_A)
-class _ZxAnEmSlot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,24))
-_ZxAnEmSlot_Type.__name__=_B
-_ZxAnEmSlot_Object=MibTableColumn
-zxAnEmSlot=_ZxAnEmSlot_Object((1,3,6,1,4,1,3902,1015,5200,3,11,1,1,3),_ZxAnEmSlot_Type())
-zxAnEmSlot.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxAnEmSlot.setStatus(_A)
-class _ZxAnEmAudioIfType_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,4)));namedValues=NamedValues(*(('twoWire',2),('fourWire',4)))
-_ZxAnEmAudioIfType_Type.__name__=_B
-_ZxAnEmAudioIfType_Object=MibTableColumn
-zxAnEmAudioIfType=_ZxAnEmAudioIfType_Object((1,3,6,1,4,1,3902,1015,5200,3,11,1,1,4),_ZxAnEmAudioIfType_Type())
-zxAnEmAudioIfType.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxAnEmAudioIfType.setStatus(_A)
-class _ZxAnEmIfType_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,5)));namedValues=NamedValues(*(('emTypeI',1),('emTypeV',5)))
-_ZxAnEmIfType_Type.__name__=_B
-_ZxAnEmIfType_Object=MibTableColumn
-zxAnEmIfType=_ZxAnEmIfType_Object((1,3,6,1,4,1,3902,1015,5200,3,11,1,1,5),_ZxAnEmIfType_Type())
-zxAnEmIfType.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxAnEmIfType.setStatus(_A)
-class _ZxAnEmOutGain_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,12))
-_ZxAnEmOutGain_Type.__name__=_B
-_ZxAnEmOutGain_Object=MibTableColumn
-zxAnEmOutGain=_ZxAnEmOutGain_Object((1,3,6,1,4,1,3902,1015,5200,3,11,1,1,6),_ZxAnEmOutGain_Type())
-zxAnEmOutGain.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxAnEmOutGain.setStatus(_A)
-class _ZxAnEmInGain_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,12))
-_ZxAnEmInGain_Type.__name__=_B
-_ZxAnEmInGain_Object=MibTableColumn
-zxAnEmInGain=_ZxAnEmInGain_Object((1,3,6,1,4,1,3902,1015,5200,3,11,1,1,7),_ZxAnEmInGain_Type())
-zxAnEmInGain.setMaxAccess(_D)
-if mibBuilder.loadTexts:zxAnEmInGain.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'zte':zte,'zxAn':zxAn,'zxAnVoiceTrunkMib':zxAnVoiceTrunkMib,'msagmajorVersion':msagmajorVersion,'msagEmConfig':msagEmConfig,'zxAnEmCfgTable':zxAnEmCfgTable,'zxAnEmCfgEntry':zxAnEmCfgEntry,_F:zxAnEmRack,_G:zxAnEmShelf,_H:zxAnEmSlot,'zxAnEmAudioIfType':zxAnEmAudioIfType,'zxAnEmIfType':zxAnEmIfType,'zxAnEmOutGain':zxAnEmOutGain,'zxAnEmInGain':zxAnEmInGain})
+#
+# PySNMP MIB module ZTE-AN-VOICE-TRUNK-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZTE-AN-VOICE-TRUNK-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:47 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+zxAnVoiceTrunkMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1015, 5200))
+if mibBuilder.loadTexts: zxAnVoiceTrunkMib.setLastUpdated('0608140000Z')
+if mibBuilder.loadTexts: zxAnVoiceTrunkMib.setOrganization('zte Telcom Co. Ltd.')
+zte = MibIdentifier((1, 3, 6, 1, 4, 1, 3902))
+zxAn = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015))
+msagmajorVersion = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3))
+msagEmConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 11))
+zxAnEmCfgTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 11, 1), )
+if mibBuilder.loadTexts: zxAnEmCfgTable.setStatus('current')
+zxAnEmCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 11, 1, 1), ).setIndexNames((0, "ZTE-AN-VOICE-TRUNK-MIB", "zxAnEmRack"), (0, "ZTE-AN-VOICE-TRUNK-MIB", "zxAnEmShelf"), (0, "ZTE-AN-VOICE-TRUNK-MIB", "zxAnEmSlot"))
+if mibBuilder.loadTexts: zxAnEmCfgEntry.setStatus('current')
+zxAnEmRack = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 11, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3)))
+if mibBuilder.loadTexts: zxAnEmRack.setStatus('current')
+zxAnEmShelf = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 11, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5)))
+if mibBuilder.loadTexts: zxAnEmShelf.setStatus('current')
+zxAnEmSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 11, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 24)))
+if mibBuilder.loadTexts: zxAnEmSlot.setStatus('current')
+zxAnEmAudioIfType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 11, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 4))).clone(namedValues=NamedValues(("twoWire", 2), ("fourWire", 4))).clone(4)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnEmAudioIfType.setStatus('current')
+zxAnEmIfType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 11, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 5))).clone(namedValues=NamedValues(("emTypeI", 1), ("emTypeV", 5))).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnEmIfType.setStatus('current')
+zxAnEmOutGain = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 11, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 12)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnEmOutGain.setStatus('current')
+zxAnEmInGain = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 11, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 12)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnEmInGain.setStatus('current')
+mibBuilder.exportSymbols("ZTE-AN-VOICE-TRUNK-MIB", zte=zte, zxAnEmCfgTable=zxAnEmCfgTable, msagmajorVersion=msagmajorVersion, PYSNMP_MODULE_ID=zxAnVoiceTrunkMib, zxAn=zxAn, zxAnEmAudioIfType=zxAnEmAudioIfType, zxAnEmInGain=zxAnEmInGain, zxAnEmShelf=zxAnEmShelf, zxAnEmSlot=zxAnEmSlot, zxAnEmIfType=zxAnEmIfType, zxAnVoiceTrunkMib=zxAnVoiceTrunkMib, zxAnEmRack=zxAnEmRack, zxAnEmCfgEntry=zxAnEmCfgEntry, msagEmConfig=msagEmConfig, zxAnEmOutGain=zxAnEmOutGain)

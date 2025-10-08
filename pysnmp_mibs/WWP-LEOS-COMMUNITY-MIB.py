@@ -1,104 +1,56 @@
-_G='wwpLeosNotifIndex'
-_F='wwpLeosCommunityIndex'
-_E='WWP-LEOS-COMMUNITY-MIB'
-_D='read-only'
-_C='Integer32'
-_B='read-create'
-_A='deprecated'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-wwpModulesLeos,=mibBuilder.importSymbols('WWP-SMI','wwpModulesLeos')
-wwpLeosCommunityMIB=ModuleIdentity((1,3,6,1,4,1,6141,2,60,22))
-if mibBuilder.loadTexts:wwpLeosCommunityMIB.setRevisions(('2001-04-03 17:00',))
-_WwpLeosCommunityMIBObjects_ObjectIdentity=ObjectIdentity
-wwpLeosCommunityMIBObjects=_WwpLeosCommunityMIBObjects_ObjectIdentity((1,3,6,1,4,1,6141,2,60,22,1))
-_WwpLeosCommunity_ObjectIdentity=ObjectIdentity
-wwpLeosCommunity=_WwpLeosCommunity_ObjectIdentity((1,3,6,1,4,1,6141,2,60,22,1,1))
-_WwpLeosCommunityTable_Object=MibTable
-wwpLeosCommunityTable=_WwpLeosCommunityTable_Object((1,3,6,1,4,1,6141,2,60,22,1,1,1))
-if mibBuilder.loadTexts:wwpLeosCommunityTable.setStatus(_A)
-_WwpLeosCommunityEntry_Object=MibTableRow
-wwpLeosCommunityEntry=_WwpLeosCommunityEntry_Object((1,3,6,1,4,1,6141,2,60,22,1,1,1,1))
-wwpLeosCommunityEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:wwpLeosCommunityEntry.setStatus(_A)
-class _WwpLeosCommunityIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_WwpLeosCommunityIndex_Type.__name__=_C
-_WwpLeosCommunityIndex_Object=MibTableColumn
-wwpLeosCommunityIndex=_WwpLeosCommunityIndex_Object((1,3,6,1,4,1,6141,2,60,22,1,1,1,1,1),_WwpLeosCommunityIndex_Type())
-wwpLeosCommunityIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:wwpLeosCommunityIndex.setStatus(_A)
-_WwpLeosCommunityName_Type=DisplayString
-_WwpLeosCommunityName_Object=MibTableColumn
-wwpLeosCommunityName=_WwpLeosCommunityName_Object((1,3,6,1,4,1,6141,2,60,22,1,1,1,1,2),_WwpLeosCommunityName_Type())
-wwpLeosCommunityName.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosCommunityName.setStatus(_A)
-_WwpLeosCommunityAddr_Type=DisplayString
-_WwpLeosCommunityAddr_Object=MibTableColumn
-wwpLeosCommunityAddr=_WwpLeosCommunityAddr_Object((1,3,6,1,4,1,6141,2,60,22,1,1,1,1,3),_WwpLeosCommunityAddr_Type())
-wwpLeosCommunityAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosCommunityAddr.setStatus(_A)
-_WwpLeosCommunityResolvedIp_Type=IpAddress
-_WwpLeosCommunityResolvedIp_Object=MibTableColumn
-wwpLeosCommunityResolvedIp=_WwpLeosCommunityResolvedIp_Object((1,3,6,1,4,1,6141,2,60,22,1,1,1,1,4),_WwpLeosCommunityResolvedIp_Type())
-wwpLeosCommunityResolvedIp.setMaxAccess(_D)
-if mibBuilder.loadTexts:wwpLeosCommunityResolvedIp.setStatus(_A)
-class _WwpLeosCommunityRights_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('readOnly',1),('readWrite',2)))
-_WwpLeosCommunityRights_Type.__name__=_C
-_WwpLeosCommunityRights_Object=MibTableColumn
-wwpLeosCommunityRights=_WwpLeosCommunityRights_Object((1,3,6,1,4,1,6141,2,60,22,1,1,1,1,5),_WwpLeosCommunityRights_Type())
-wwpLeosCommunityRights.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosCommunityRights.setStatus(_A)
-_WwpLeosCommunityStatus_Type=RowStatus
-_WwpLeosCommunityStatus_Object=MibTableColumn
-wwpLeosCommunityStatus=_WwpLeosCommunityStatus_Object((1,3,6,1,4,1,6141,2,60,22,1,1,1,1,6),_WwpLeosCommunityStatus_Type())
-wwpLeosCommunityStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosCommunityStatus.setStatus(_A)
-_WwpLeosNotifCommunityTable_Object=MibTable
-wwpLeosNotifCommunityTable=_WwpLeosNotifCommunityTable_Object((1,3,6,1,4,1,6141,2,60,22,1,1,2))
-if mibBuilder.loadTexts:wwpLeosNotifCommunityTable.setStatus(_A)
-_WwpLeosNotifCommunityEntry_Object=MibTableRow
-wwpLeosNotifCommunityEntry=_WwpLeosNotifCommunityEntry_Object((1,3,6,1,4,1,6141,2,60,22,1,1,2,1))
-wwpLeosNotifCommunityEntry.setIndexNames((0,_E,_G))
-if mibBuilder.loadTexts:wwpLeosNotifCommunityEntry.setStatus(_A)
-class _WwpLeosNotifIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_WwpLeosNotifIndex_Type.__name__=_C
-_WwpLeosNotifIndex_Object=MibTableColumn
-wwpLeosNotifIndex=_WwpLeosNotifIndex_Object((1,3,6,1,4,1,6141,2,60,22,1,1,2,1,1),_WwpLeosNotifIndex_Type())
-wwpLeosNotifIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:wwpLeosNotifIndex.setStatus(_A)
-_WwpLeosNotifCommunityName_Type=DisplayString
-_WwpLeosNotifCommunityName_Object=MibTableColumn
-wwpLeosNotifCommunityName=_WwpLeosNotifCommunityName_Object((1,3,6,1,4,1,6141,2,60,22,1,1,2,1,2),_WwpLeosNotifCommunityName_Type())
-wwpLeosNotifCommunityName.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosNotifCommunityName.setStatus(_A)
-_WwpLeosNotifCommunityDestAddr_Type=DisplayString
-_WwpLeosNotifCommunityDestAddr_Object=MibTableColumn
-wwpLeosNotifCommunityDestAddr=_WwpLeosNotifCommunityDestAddr_Object((1,3,6,1,4,1,6141,2,60,22,1,1,2,1,3),_WwpLeosNotifCommunityDestAddr_Type())
-wwpLeosNotifCommunityDestAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosNotifCommunityDestAddr.setStatus(_A)
-_WwpLeosNotifCommunityResolvedIpAddr_Type=IpAddress
-_WwpLeosNotifCommunityResolvedIpAddr_Object=MibTableColumn
-wwpLeosNotifCommunityResolvedIpAddr=_WwpLeosNotifCommunityResolvedIpAddr_Object((1,3,6,1,4,1,6141,2,60,22,1,1,2,1,4),_WwpLeosNotifCommunityResolvedIpAddr_Type())
-wwpLeosNotifCommunityResolvedIpAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:wwpLeosNotifCommunityResolvedIpAddr.setStatus(_A)
-_WwpLeosNotifCommunityStatus_Type=RowStatus
-_WwpLeosNotifCommunityStatus_Object=MibTableColumn
-wwpLeosNotifCommunityStatus=_WwpLeosNotifCommunityStatus_Object((1,3,6,1,4,1,6141,2,60,22,1,1,2,1,5),_WwpLeosNotifCommunityStatus_Type())
-wwpLeosNotifCommunityStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpLeosNotifCommunityStatus.setStatus(_A)
-_WwpLeosCommunityMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
-wwpLeosCommunityMIBNotificationPrefix=_WwpLeosCommunityMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,6141,2,60,22,2))
-_WwpLeosCommunityMIBNotifications_ObjectIdentity=ObjectIdentity
-wwpLeosCommunityMIBNotifications=_WwpLeosCommunityMIBNotifications_ObjectIdentity((1,3,6,1,4,1,6141,2,60,22,2,0))
-_WwpLeosCommunityMIBConformance_ObjectIdentity=ObjectIdentity
-wwpLeosCommunityMIBConformance=_WwpLeosCommunityMIBConformance_ObjectIdentity((1,3,6,1,4,1,6141,2,60,22,3))
-_WwpLeosCommunityMIBCompliances_ObjectIdentity=ObjectIdentity
-wwpLeosCommunityMIBCompliances=_WwpLeosCommunityMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6141,2,60,22,3,1))
-_WwpLeosCommunityMIBGroups_ObjectIdentity=ObjectIdentity
-wwpLeosCommunityMIBGroups=_WwpLeosCommunityMIBGroups_ObjectIdentity((1,3,6,1,4,1,6141,2,60,22,3,2))
-mibBuilder.exportSymbols(_E,**{'wwpLeosCommunityMIB':wwpLeosCommunityMIB,'wwpLeosCommunityMIBObjects':wwpLeosCommunityMIBObjects,'wwpLeosCommunity':wwpLeosCommunity,'wwpLeosCommunityTable':wwpLeosCommunityTable,'wwpLeosCommunityEntry':wwpLeosCommunityEntry,_F:wwpLeosCommunityIndex,'wwpLeosCommunityName':wwpLeosCommunityName,'wwpLeosCommunityAddr':wwpLeosCommunityAddr,'wwpLeosCommunityResolvedIp':wwpLeosCommunityResolvedIp,'wwpLeosCommunityRights':wwpLeosCommunityRights,'wwpLeosCommunityStatus':wwpLeosCommunityStatus,'wwpLeosNotifCommunityTable':wwpLeosNotifCommunityTable,'wwpLeosNotifCommunityEntry':wwpLeosNotifCommunityEntry,_G:wwpLeosNotifIndex,'wwpLeosNotifCommunityName':wwpLeosNotifCommunityName,'wwpLeosNotifCommunityDestAddr':wwpLeosNotifCommunityDestAddr,'wwpLeosNotifCommunityResolvedIpAddr':wwpLeosNotifCommunityResolvedIpAddr,'wwpLeosNotifCommunityStatus':wwpLeosNotifCommunityStatus,'wwpLeosCommunityMIBNotificationPrefix':wwpLeosCommunityMIBNotificationPrefix,'wwpLeosCommunityMIBNotifications':wwpLeosCommunityMIBNotifications,'wwpLeosCommunityMIBConformance':wwpLeosCommunityMIBConformance,'wwpLeosCommunityMIBCompliances':wwpLeosCommunityMIBCompliances,'wwpLeosCommunityMIBGroups':wwpLeosCommunityMIBGroups})
+#
+# PySNMP MIB module WWP-LEOS-COMMUNITY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/WWP-LEOS-COMMUNITY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:06 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+wwpModulesLeos, = mibBuilder.importSymbols("WWP-SMI", "wwpModulesLeos")
+wwpLeosCommunityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22))
+wwpLeosCommunityMIB.setRevisions(('2001-04-03 17:00',))
+if mibBuilder.loadTexts: wwpLeosCommunityMIB.setLastUpdated('200104031700Z')
+if mibBuilder.loadTexts: wwpLeosCommunityMIB.setOrganization('Ciena, Inc')
+wwpLeosCommunityMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1))
+wwpLeosCommunity = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1))
+wwpLeosCommunityMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 2))
+wwpLeosCommunityMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 2, 0))
+wwpLeosCommunityMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 3))
+wwpLeosCommunityMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 3, 1))
+wwpLeosCommunityMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 3, 2))
+wwpLeosCommunityTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1, 1), )
+if mibBuilder.loadTexts: wwpLeosCommunityTable.setStatus('deprecated')
+wwpLeosCommunityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1, 1, 1), ).setIndexNames((0, "WWP-LEOS-COMMUNITY-MIB", "wwpLeosCommunityIndex"))
+if mibBuilder.loadTexts: wwpLeosCommunityEntry.setStatus('deprecated')
+wwpLeosCommunityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosCommunityIndex.setStatus('deprecated')
+wwpLeosCommunityName = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1, 1, 1, 2), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: wwpLeosCommunityName.setStatus('deprecated')
+wwpLeosCommunityAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1, 1, 1, 3), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: wwpLeosCommunityAddr.setStatus('deprecated')
+wwpLeosCommunityResolvedIp = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosCommunityResolvedIp.setStatus('deprecated')
+wwpLeosCommunityRights = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("readOnly", 1), ("readWrite", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: wwpLeosCommunityRights.setStatus('deprecated')
+wwpLeosCommunityStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: wwpLeosCommunityStatus.setStatus('deprecated')
+wwpLeosNotifCommunityTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1, 2), )
+if mibBuilder.loadTexts: wwpLeosNotifCommunityTable.setStatus('deprecated')
+wwpLeosNotifCommunityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1, 2, 1), ).setIndexNames((0, "WWP-LEOS-COMMUNITY-MIB", "wwpLeosNotifIndex"))
+if mibBuilder.loadTexts: wwpLeosNotifCommunityEntry.setStatus('deprecated')
+wwpLeosNotifIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosNotifIndex.setStatus('deprecated')
+wwpLeosNotifCommunityName = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1, 2, 1, 2), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: wwpLeosNotifCommunityName.setStatus('deprecated')
+wwpLeosNotifCommunityDestAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1, 2, 1, 3), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: wwpLeosNotifCommunityDestAddr.setStatus('deprecated')
+wwpLeosNotifCommunityResolvedIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1, 2, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpLeosNotifCommunityResolvedIpAddr.setStatus('deprecated')
+wwpLeosNotifCommunityStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 22, 1, 1, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: wwpLeosNotifCommunityStatus.setStatus('deprecated')
+mibBuilder.exportSymbols("WWP-LEOS-COMMUNITY-MIB", wwpLeosCommunityName=wwpLeosCommunityName, wwpLeosCommunity=wwpLeosCommunity, wwpLeosNotifCommunityDestAddr=wwpLeosNotifCommunityDestAddr, PYSNMP_MODULE_ID=wwpLeosCommunityMIB, wwpLeosCommunityIndex=wwpLeosCommunityIndex, wwpLeosCommunityMIBCompliances=wwpLeosCommunityMIBCompliances, wwpLeosCommunityMIBObjects=wwpLeosCommunityMIBObjects, wwpLeosNotifCommunityTable=wwpLeosNotifCommunityTable, wwpLeosNotifCommunityResolvedIpAddr=wwpLeosNotifCommunityResolvedIpAddr, wwpLeosCommunityResolvedIp=wwpLeosCommunityResolvedIp, wwpLeosCommunityTable=wwpLeosCommunityTable, wwpLeosCommunityMIBConformance=wwpLeosCommunityMIBConformance, wwpLeosCommunityStatus=wwpLeosCommunityStatus, wwpLeosCommunityAddr=wwpLeosCommunityAddr, wwpLeosNotifCommunityEntry=wwpLeosNotifCommunityEntry, wwpLeosNotifCommunityStatus=wwpLeosNotifCommunityStatus, wwpLeosCommunityMIB=wwpLeosCommunityMIB, wwpLeosCommunityMIBNotificationPrefix=wwpLeosCommunityMIBNotificationPrefix, wwpLeosCommunityMIBNotifications=wwpLeosCommunityMIBNotifications, wwpLeosCommunityMIBGroups=wwpLeosCommunityMIBGroups, wwpLeosCommunityRights=wwpLeosCommunityRights, wwpLeosNotifCommunityName=wwpLeosNotifCommunityName, wwpLeosCommunityEntry=wwpLeosCommunityEntry, wwpLeosNotifIndex=wwpLeosNotifIndex)

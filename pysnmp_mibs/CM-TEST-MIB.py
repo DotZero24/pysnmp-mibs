@@ -1,177 +1,74 @@
-_M='bits per second'
-_L='milliseconds'
-_K='invalidLogin'
-_J='serviceNotAvail'
-_I='transferComplete'
-_H='inProgress'
-_G='cancel'
-_F='InetPortNumber'
-_E='Integer32'
-_D='DisplayString'
-_C='read-only'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressType',_F)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention,TimeInterval=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention','TimeInterval')
-cmTestMib=ModuleIdentity((1,3,6,1,4,1,1166,1,19,61))
-if mibBuilder.loadTexts:cmTestMib.setRevisions(('2011-05-20 10:00','2010-03-26 10:00','2009-12-16 10:00','2009-05-11 10:00'))
-_Gi_ObjectIdentity=ObjectIdentity
-gi=_Gi_ObjectIdentity((1,3,6,1,4,1,1166))
-_Giproducts_ObjectIdentity=ObjectIdentity
-giproducts=_Giproducts_ObjectIdentity((1,3,6,1,4,1,1166,1))
-_Cm_ObjectIdentity=ObjectIdentity
-cm=_Cm_ObjectIdentity((1,3,6,1,4,1,1166,1,19))
-_CmTestFtpDownstreamSpeed_ObjectIdentity=ObjectIdentity
-cmTestFtpDownstreamSpeed=_CmTestFtpDownstreamSpeed_ObjectIdentity((1,3,6,1,4,1,1166,1,19,61,1))
-_CmTestFtpServerAddressType_Type=InetAddressType
-_CmTestFtpServerAddressType_Object=MibScalar
-cmTestFtpServerAddressType=_CmTestFtpServerAddressType_Object((1,3,6,1,4,1,1166,1,19,61,1,1),_CmTestFtpServerAddressType_Type())
-cmTestFtpServerAddressType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cmTestFtpServerAddressType.setStatus(_A)
-class _CmTestFtpServerAddress_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CmTestFtpServerAddress_Type.__name__=_D
-_CmTestFtpServerAddress_Object=MibScalar
-cmTestFtpServerAddress=_CmTestFtpServerAddress_Object((1,3,6,1,4,1,1166,1,19,61,1,2),_CmTestFtpServerAddress_Type())
-cmTestFtpServerAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cmTestFtpServerAddress.setStatus(_A)
-class _CmTestFtpServerPort_Type(InetPortNumber):defaultValue=21
-_CmTestFtpServerPort_Type.__name__=_F
-_CmTestFtpServerPort_Object=MibScalar
-cmTestFtpServerPort=_CmTestFtpServerPort_Object((1,3,6,1,4,1,1166,1,19,61,1,3),_CmTestFtpServerPort_Type())
-cmTestFtpServerPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:cmTestFtpServerPort.setStatus(_A)
-class _CmTestFtpUserName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CmTestFtpUserName_Type.__name__=_D
-_CmTestFtpUserName_Object=MibScalar
-cmTestFtpUserName=_CmTestFtpUserName_Object((1,3,6,1,4,1,1166,1,19,61,1,4),_CmTestFtpUserName_Type())
-cmTestFtpUserName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cmTestFtpUserName.setStatus(_A)
-class _CmTestFtpPassword_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CmTestFtpPassword_Type.__name__=_D
-_CmTestFtpPassword_Object=MibScalar
-cmTestFtpPassword=_CmTestFtpPassword_Object((1,3,6,1,4,1,1166,1,19,61,1,5),_CmTestFtpPassword_Type())
-cmTestFtpPassword.setMaxAccess(_B)
-if mibBuilder.loadTexts:cmTestFtpPassword.setStatus(_A)
-class _CmTestFtpFilename_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CmTestFtpFilename_Type.__name__=_D
-_CmTestFtpFilename_Object=MibScalar
-cmTestFtpFilename=_CmTestFtpFilename_Object((1,3,6,1,4,1,1166,1,19,61,1,6),_CmTestFtpFilename_Type())
-cmTestFtpFilename.setMaxAccess(_B)
-if mibBuilder.loadTexts:cmTestFtpFilename.setStatus(_A)
-class _CmTestFtpCommand_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),('get',1)))
-_CmTestFtpCommand_Type.__name__=_E
-_CmTestFtpCommand_Object=MibScalar
-cmTestFtpCommand=_CmTestFtpCommand_Object((1,3,6,1,4,1,1166,1,19,61,1,7),_CmTestFtpCommand_Type())
-cmTestFtpCommand.setMaxAccess(_B)
-if mibBuilder.loadTexts:cmTestFtpCommand.setStatus(_A)
-class _CmTestFtpTransferStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,226,421,530,550)));namedValues=NamedValues(*(('idle',0),(_H,1),(_I,226),(_J,421),(_K,530),('fileNotFound',550)))
-_CmTestFtpTransferStatus_Type.__name__=_E
-_CmTestFtpTransferStatus_Object=MibScalar
-cmTestFtpTransferStatus=_CmTestFtpTransferStatus_Object((1,3,6,1,4,1,1166,1,19,61,1,8),_CmTestFtpTransferStatus_Type())
-cmTestFtpTransferStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmTestFtpTransferStatus.setStatus(_A)
-_CmTestFtpTransferPayloadBytes_Type=Counter32
-_CmTestFtpTransferPayloadBytes_Object=MibScalar
-cmTestFtpTransferPayloadBytes=_CmTestFtpTransferPayloadBytes_Object((1,3,6,1,4,1,1166,1,19,61,1,9),_CmTestFtpTransferPayloadBytes_Type())
-cmTestFtpTransferPayloadBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmTestFtpTransferPayloadBytes.setStatus(_A)
-_CmTestFtpTransferTotalBytes_Type=Counter32
-_CmTestFtpTransferTotalBytes_Object=MibScalar
-cmTestFtpTransferTotalBytes=_CmTestFtpTransferTotalBytes_Object((1,3,6,1,4,1,1166,1,19,61,1,10),_CmTestFtpTransferTotalBytes_Type())
-cmTestFtpTransferTotalBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmTestFtpTransferTotalBytes.setStatus(_A)
-_CmTestFtpTransferElapsedTime_Type=TimeInterval
-_CmTestFtpTransferElapsedTime_Object=MibScalar
-cmTestFtpTransferElapsedTime=_CmTestFtpTransferElapsedTime_Object((1,3,6,1,4,1,1166,1,19,61,1,11),_CmTestFtpTransferElapsedTime_Type())
-cmTestFtpTransferElapsedTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmTestFtpTransferElapsedTime.setStatus(_A)
-if mibBuilder.loadTexts:cmTestFtpTransferElapsedTime.setUnits(_L)
-_CmTestFtpTransferThroughput_Type=Unsigned32
-_CmTestFtpTransferThroughput_Object=MibScalar
-cmTestFtpTransferThroughput=_CmTestFtpTransferThroughput_Object((1,3,6,1,4,1,1166,1,19,61,1,12),_CmTestFtpTransferThroughput_Type())
-cmTestFtpTransferThroughput.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmTestFtpTransferThroughput.setStatus(_A)
-if mibBuilder.loadTexts:cmTestFtpTransferThroughput.setUnits(_M)
-_CmTestFtpUpstreamSpeed_ObjectIdentity=ObjectIdentity
-cmTestFtpUpstreamSpeed=_CmTestFtpUpstreamSpeed_ObjectIdentity((1,3,6,1,4,1,1166,1,19,61,2))
-_CmTestFtpUpstreamServerAddressType_Type=InetAddressType
-_CmTestFtpUpstreamServerAddressType_Object=MibScalar
-cmTestFtpUpstreamServerAddressType=_CmTestFtpUpstreamServerAddressType_Object((1,3,6,1,4,1,1166,1,19,61,2,1),_CmTestFtpUpstreamServerAddressType_Type())
-cmTestFtpUpstreamServerAddressType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cmTestFtpUpstreamServerAddressType.setStatus(_A)
-class _CmTestFtpUpstreamServerAddress_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CmTestFtpUpstreamServerAddress_Type.__name__=_D
-_CmTestFtpUpstreamServerAddress_Object=MibScalar
-cmTestFtpUpstreamServerAddress=_CmTestFtpUpstreamServerAddress_Object((1,3,6,1,4,1,1166,1,19,61,2,2),_CmTestFtpUpstreamServerAddress_Type())
-cmTestFtpUpstreamServerAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cmTestFtpUpstreamServerAddress.setStatus(_A)
-class _CmTestFtpUpstreamServerPort_Type(InetPortNumber):defaultValue=21
-_CmTestFtpUpstreamServerPort_Type.__name__=_F
-_CmTestFtpUpstreamServerPort_Object=MibScalar
-cmTestFtpUpstreamServerPort=_CmTestFtpUpstreamServerPort_Object((1,3,6,1,4,1,1166,1,19,61,2,3),_CmTestFtpUpstreamServerPort_Type())
-cmTestFtpUpstreamServerPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:cmTestFtpUpstreamServerPort.setStatus(_A)
-class _CmTestFtpUpstreamUserName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CmTestFtpUpstreamUserName_Type.__name__=_D
-_CmTestFtpUpstreamUserName_Object=MibScalar
-cmTestFtpUpstreamUserName=_CmTestFtpUpstreamUserName_Object((1,3,6,1,4,1,1166,1,19,61,2,4),_CmTestFtpUpstreamUserName_Type())
-cmTestFtpUpstreamUserName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cmTestFtpUpstreamUserName.setStatus(_A)
-class _CmTestFtpUpstreamPassword_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CmTestFtpUpstreamPassword_Type.__name__=_D
-_CmTestFtpUpstreamPassword_Object=MibScalar
-cmTestFtpUpstreamPassword=_CmTestFtpUpstreamPassword_Object((1,3,6,1,4,1,1166,1,19,61,2,5),_CmTestFtpUpstreamPassword_Type())
-cmTestFtpUpstreamPassword.setMaxAccess(_B)
-if mibBuilder.loadTexts:cmTestFtpUpstreamPassword.setStatus(_A)
-class _CmTestFtpUpstreamFilename_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CmTestFtpUpstreamFilename_Type.__name__=_D
-_CmTestFtpUpstreamFilename_Object=MibScalar
-cmTestFtpUpstreamFilename=_CmTestFtpUpstreamFilename_Object((1,3,6,1,4,1,1166,1,19,61,2,6),_CmTestFtpUpstreamFilename_Type())
-cmTestFtpUpstreamFilename.setMaxAccess(_B)
-if mibBuilder.loadTexts:cmTestFtpUpstreamFilename.setStatus(_A)
-_CmTestFtpUpstreamFileSize_Type=Counter32
-_CmTestFtpUpstreamFileSize_Object=MibScalar
-cmTestFtpUpstreamFileSize=_CmTestFtpUpstreamFileSize_Object((1,3,6,1,4,1,1166,1,19,61,2,7),_CmTestFtpUpstreamFileSize_Type())
-cmTestFtpUpstreamFileSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cmTestFtpUpstreamFileSize.setStatus(_A)
-class _CmTestFtpUpstreamCommand_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),('put',1)))
-_CmTestFtpUpstreamCommand_Type.__name__=_E
-_CmTestFtpUpstreamCommand_Object=MibScalar
-cmTestFtpUpstreamCommand=_CmTestFtpUpstreamCommand_Object((1,3,6,1,4,1,1166,1,19,61,2,8),_CmTestFtpUpstreamCommand_Type())
-cmTestFtpUpstreamCommand.setMaxAccess(_B)
-if mibBuilder.loadTexts:cmTestFtpUpstreamCommand.setStatus(_A)
-class _CmTestFtpUpstreamTransferStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,226,421,530)));namedValues=NamedValues(*(('idle',0),(_H,1),(_I,226),(_J,421),(_K,530)))
-_CmTestFtpUpstreamTransferStatus_Type.__name__=_E
-_CmTestFtpUpstreamTransferStatus_Object=MibScalar
-cmTestFtpUpstreamTransferStatus=_CmTestFtpUpstreamTransferStatus_Object((1,3,6,1,4,1,1166,1,19,61,2,9),_CmTestFtpUpstreamTransferStatus_Type())
-cmTestFtpUpstreamTransferStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmTestFtpUpstreamTransferStatus.setStatus(_A)
-_CmTestFtpUpstreamTransferPayloadBytes_Type=Counter32
-_CmTestFtpUpstreamTransferPayloadBytes_Object=MibScalar
-cmTestFtpUpstreamTransferPayloadBytes=_CmTestFtpUpstreamTransferPayloadBytes_Object((1,3,6,1,4,1,1166,1,19,61,2,10),_CmTestFtpUpstreamTransferPayloadBytes_Type())
-cmTestFtpUpstreamTransferPayloadBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmTestFtpUpstreamTransferPayloadBytes.setStatus(_A)
-_CmTestFtpUpstreamTransferTotalBytes_Type=Counter32
-_CmTestFtpUpstreamTransferTotalBytes_Object=MibScalar
-cmTestFtpUpstreamTransferTotalBytes=_CmTestFtpUpstreamTransferTotalBytes_Object((1,3,6,1,4,1,1166,1,19,61,2,11),_CmTestFtpUpstreamTransferTotalBytes_Type())
-cmTestFtpUpstreamTransferTotalBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmTestFtpUpstreamTransferTotalBytes.setStatus(_A)
-_CmTestFtpUpstreamTransferElapsedTime_Type=TimeInterval
-_CmTestFtpUpstreamTransferElapsedTime_Object=MibScalar
-cmTestFtpUpstreamTransferElapsedTime=_CmTestFtpUpstreamTransferElapsedTime_Object((1,3,6,1,4,1,1166,1,19,61,2,12),_CmTestFtpUpstreamTransferElapsedTime_Type())
-cmTestFtpUpstreamTransferElapsedTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmTestFtpUpstreamTransferElapsedTime.setStatus(_A)
-if mibBuilder.loadTexts:cmTestFtpUpstreamTransferElapsedTime.setUnits(_L)
-_CmTestFtpUpstreamTransferThroughput_Type=Unsigned32
-_CmTestFtpUpstreamTransferThroughput_Object=MibScalar
-cmTestFtpUpstreamTransferThroughput=_CmTestFtpUpstreamTransferThroughput_Object((1,3,6,1,4,1,1166,1,19,61,2,13),_CmTestFtpUpstreamTransferThroughput_Type())
-cmTestFtpUpstreamTransferThroughput.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmTestFtpUpstreamTransferThroughput.setStatus(_A)
-if mibBuilder.loadTexts:cmTestFtpUpstreamTransferThroughput.setUnits(_M)
-mibBuilder.exportSymbols('CM-TEST-MIB',**{'gi':gi,'giproducts':giproducts,'cm':cm,'cmTestMib':cmTestMib,'cmTestFtpDownstreamSpeed':cmTestFtpDownstreamSpeed,'cmTestFtpServerAddressType':cmTestFtpServerAddressType,'cmTestFtpServerAddress':cmTestFtpServerAddress,'cmTestFtpServerPort':cmTestFtpServerPort,'cmTestFtpUserName':cmTestFtpUserName,'cmTestFtpPassword':cmTestFtpPassword,'cmTestFtpFilename':cmTestFtpFilename,'cmTestFtpCommand':cmTestFtpCommand,'cmTestFtpTransferStatus':cmTestFtpTransferStatus,'cmTestFtpTransferPayloadBytes':cmTestFtpTransferPayloadBytes,'cmTestFtpTransferTotalBytes':cmTestFtpTransferTotalBytes,'cmTestFtpTransferElapsedTime':cmTestFtpTransferElapsedTime,'cmTestFtpTransferThroughput':cmTestFtpTransferThroughput,'cmTestFtpUpstreamSpeed':cmTestFtpUpstreamSpeed,'cmTestFtpUpstreamServerAddressType':cmTestFtpUpstreamServerAddressType,'cmTestFtpUpstreamServerAddress':cmTestFtpUpstreamServerAddress,'cmTestFtpUpstreamServerPort':cmTestFtpUpstreamServerPort,'cmTestFtpUpstreamUserName':cmTestFtpUpstreamUserName,'cmTestFtpUpstreamPassword':cmTestFtpUpstreamPassword,'cmTestFtpUpstreamFilename':cmTestFtpUpstreamFilename,'cmTestFtpUpstreamFileSize':cmTestFtpUpstreamFileSize,'cmTestFtpUpstreamCommand':cmTestFtpUpstreamCommand,'cmTestFtpUpstreamTransferStatus':cmTestFtpUpstreamTransferStatus,'cmTestFtpUpstreamTransferPayloadBytes':cmTestFtpUpstreamTransferPayloadBytes,'cmTestFtpUpstreamTransferTotalBytes':cmTestFtpUpstreamTransferTotalBytes,'cmTestFtpUpstreamTransferElapsedTime':cmTestFtpUpstreamTransferElapsedTime,'cmTestFtpUpstreamTransferThroughput':cmTestFtpUpstreamTransferThroughput})
+#
+# PySNMP MIB module CM-TEST-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/CM-TEST-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:26:07 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetPortNumber, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention, TimeInterval = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TimeInterval")
+cmTestMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61))
+cmTestMib.setRevisions(('2011-05-20 10:00', '2010-03-26 10:00', '2009-12-16 10:00', '2009-05-11 10:00',))
+if mibBuilder.loadTexts: cmTestMib.setLastUpdated('201105201000Z')
+if mibBuilder.loadTexts: cmTestMib.setOrganization('Motorola Inc.')
+gi = MibIdentifier((1, 3, 6, 1, 4, 1, 1166))
+giproducts = MibIdentifier((1, 3, 6, 1, 4, 1, 1166, 1))
+cm = MibIdentifier((1, 3, 6, 1, 4, 1, 1166, 1, 19))
+cmTestFtpDownstreamSpeed = MibIdentifier((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 1))
+cmTestFtpServerAddressType = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 1, 1), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmTestFtpServerAddressType.setStatus('current')
+cmTestFtpServerAddress = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmTestFtpServerAddress.setStatus('current')
+cmTestFtpServerPort = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 1, 3), InetPortNumber().clone(21)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmTestFtpServerPort.setStatus('current')
+cmTestFtpUserName = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmTestFtpUserName.setStatus('current')
+cmTestFtpPassword = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmTestFtpPassword.setStatus('current')
+cmTestFtpFilename = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmTestFtpFilename.setStatus('current')
+cmTestFtpCommand = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("cancel", 0), ("get", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmTestFtpCommand.setStatus('current')
+cmTestFtpTransferStatus = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 226, 421, 530, 550))).clone(namedValues=NamedValues(("idle", 0), ("inProgress", 1), ("transferComplete", 226), ("serviceNotAvail", 421), ("invalidLogin", 530), ("fileNotFound", 550)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cmTestFtpTransferStatus.setStatus('current')
+cmTestFtpTransferPayloadBytes = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cmTestFtpTransferPayloadBytes.setStatus('current')
+cmTestFtpTransferTotalBytes = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cmTestFtpTransferTotalBytes.setStatus('current')
+cmTestFtpTransferElapsedTime = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 1, 11), TimeInterval()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cmTestFtpTransferElapsedTime.setStatus('current')
+cmTestFtpTransferThroughput = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 1, 12), Unsigned32()).setUnits('bits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cmTestFtpTransferThroughput.setStatus('current')
+cmTestFtpUpstreamSpeed = MibIdentifier((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 2))
+cmTestFtpUpstreamServerAddressType = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 2, 1), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmTestFtpUpstreamServerAddressType.setStatus('current')
+cmTestFtpUpstreamServerAddress = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmTestFtpUpstreamServerAddress.setStatus('current')
+cmTestFtpUpstreamServerPort = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 2, 3), InetPortNumber().clone(21)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmTestFtpUpstreamServerPort.setStatus('current')
+cmTestFtpUpstreamUserName = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 2, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmTestFtpUpstreamUserName.setStatus('current')
+cmTestFtpUpstreamPassword = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 2, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmTestFtpUpstreamPassword.setStatus('current')
+cmTestFtpUpstreamFilename = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 2, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmTestFtpUpstreamFilename.setStatus('current')
+cmTestFtpUpstreamFileSize = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 2, 7), Counter32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmTestFtpUpstreamFileSize.setStatus('current')
+cmTestFtpUpstreamCommand = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 2, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("cancel", 0), ("put", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmTestFtpUpstreamCommand.setStatus('current')
+cmTestFtpUpstreamTransferStatus = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 2, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 226, 421, 530))).clone(namedValues=NamedValues(("idle", 0), ("inProgress", 1), ("transferComplete", 226), ("serviceNotAvail", 421), ("invalidLogin", 530)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cmTestFtpUpstreamTransferStatus.setStatus('current')
+cmTestFtpUpstreamTransferPayloadBytes = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 2, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cmTestFtpUpstreamTransferPayloadBytes.setStatus('current')
+cmTestFtpUpstreamTransferTotalBytes = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 2, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cmTestFtpUpstreamTransferTotalBytes.setStatus('current')
+cmTestFtpUpstreamTransferElapsedTime = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 2, 12), TimeInterval()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cmTestFtpUpstreamTransferElapsedTime.setStatus('current')
+cmTestFtpUpstreamTransferThroughput = MibScalar((1, 3, 6, 1, 4, 1, 1166, 1, 19, 61, 2, 13), Unsigned32()).setUnits('bits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cmTestFtpUpstreamTransferThroughput.setStatus('current')
+mibBuilder.exportSymbols("CM-TEST-MIB", cmTestFtpUpstreamServerAddressType=cmTestFtpUpstreamServerAddressType, giproducts=giproducts, cmTestFtpUpstreamTransferThroughput=cmTestFtpUpstreamTransferThroughput, cmTestFtpTransferStatus=cmTestFtpTransferStatus, cmTestFtpServerPort=cmTestFtpServerPort, cmTestFtpTransferPayloadBytes=cmTestFtpTransferPayloadBytes, cmTestFtpDownstreamSpeed=cmTestFtpDownstreamSpeed, cmTestFtpUpstreamTransferPayloadBytes=cmTestFtpUpstreamTransferPayloadBytes, cmTestFtpServerAddress=cmTestFtpServerAddress, cmTestFtpTransferTotalBytes=cmTestFtpTransferTotalBytes, cmTestFtpServerAddressType=cmTestFtpServerAddressType, PYSNMP_MODULE_ID=cmTestMib, gi=gi, cmTestFtpUpstreamServerAddress=cmTestFtpUpstreamServerAddress, cm=cm, cmTestFtpCommand=cmTestFtpCommand, cmTestFtpTransferElapsedTime=cmTestFtpTransferElapsedTime, cmTestFtpUserName=cmTestFtpUserName, cmTestFtpUpstreamUserName=cmTestFtpUpstreamUserName, cmTestFtpUpstreamTransferTotalBytes=cmTestFtpUpstreamTransferTotalBytes, cmTestFtpUpstreamTransferElapsedTime=cmTestFtpUpstreamTransferElapsedTime, cmTestFtpUpstreamPassword=cmTestFtpUpstreamPassword, cmTestFtpUpstreamSpeed=cmTestFtpUpstreamSpeed, cmTestFtpUpstreamFileSize=cmTestFtpUpstreamFileSize, cmTestFtpUpstreamTransferStatus=cmTestFtpUpstreamTransferStatus, cmTestFtpTransferThroughput=cmTestFtpTransferThroughput, cmTestFtpUpstreamCommand=cmTestFtpUpstreamCommand, cmTestFtpPassword=cmTestFtpPassword, cmTestFtpUpstreamFilename=cmTestFtpUpstreamFilename, cmTestFtpFilename=cmTestFtpFilename, cmTestMib=cmTestMib, cmTestFtpUpstreamServerPort=cmTestFtpUpstreamServerPort)

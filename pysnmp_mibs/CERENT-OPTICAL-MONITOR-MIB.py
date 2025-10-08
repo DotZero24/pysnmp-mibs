@@ -1,226 +1,119 @@
-_j='cerentOpticalMIBPMGroup'
-_i='cerentOpticalMIBThresholdGroup'
-_h='cerentOpticalMIBMonGroup'
-_g='cOpticalParamHighDegradeThresh'
-_f='cOpticalParamLowDegradeThresh'
-_e='cOpticalPMIntervalValidData'
-_d='cOpticalPMIntervalMeanParam'
-_c='cOpticalPMIntervalMinParam'
-_b='cOpticalPMIntervalMaxParam'
-_a='cOpticalPMCurrentMeanParam'
-_Z='cOpticalPMCurrentMinParam'
-_Y='cOpticalPMCurrentMaxParam'
-_X='cOpticalParameterValue'
-_W='cOpticalPMIntervalNumber'
-_V='cOpticalPMIntervalPeriod'
-_U='cOpticalPMIntervalParamType'
-_T='cOpticalPMIntervalDirection'
-_S='cOpticalPMCurrentPeriod'
-_R='cOpticalPMCurrentParamType'
-_Q='cOpticalPMCurrentDirection'
-_P='cOpticalMonParameterType'
-_O='cOpticalMonDirection'
-_N='Integer32'
-_M='cOpticalParamLowWarning1DayThresh'
-_L='cOpticalParamLowWarning15MinThresh'
-_K='cOpticalParamLowAlarmThresh'
-_J='cOpticalParamHighWarning1DayThresh'
-_I='cOpticalParamHighWarning15MinThresh'
-_H='cOpticalParamHighAlarmThresh'
-_G='ifIndex'
-_F='IF-MIB'
-_E='read-write'
-_D='read-only'
-_C='not-accessible'
-_B='CERENT-OPTICAL-MONITOR-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-cerentGeneric,cerentModules,cerentRequirements=mibBuilder.importSymbols('CERENT-GLOBAL-REGISTRY','cerentGeneric','cerentModules','cerentRequirements')
-CerentPeriod,=mibBuilder.importSymbols('CERENT-TC','CerentPeriod')
-ifIndex,=mibBuilder.importSymbols(_F,_G)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_N,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-cerentOpticalMonitorMIB=ModuleIdentity((1,3,6,1,4,1,3607,1,10,70))
-if mibBuilder.loadTexts:cerentOpticalMonitorMIB.setRevisions(('1902-11-11 00:00',))
-class OpticalParameterType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('power',1),('acPower',2),('apdTemp',3),('laserTemp',4),('biasCurrent',5),('peltierCurrent',6),('xcvrVoltage',7),('voa',8),('gain',9),('oscPower',10),('addPower',11)))
-class OpticalParameterValue(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1000000,1000000))
-class OpticalIfDirection(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('receive',1),('transmit',2),('notApplicable',3)))
-_CerentOpticalMonitorMIBObjects_ObjectIdentity=ObjectIdentity
-cerentOpticalMonitorMIBObjects=_CerentOpticalMonitorMIBObjects_ObjectIdentity((1,3,6,1,4,1,3607,2,30))
-_CerentOpticalMonGroup_ObjectIdentity=ObjectIdentity
-cerentOpticalMonGroup=_CerentOpticalMonGroup_ObjectIdentity((1,3,6,1,4,1,3607,2,30,1))
-_COpticalMonTable_Object=MibTable
-cOpticalMonTable=_COpticalMonTable_Object((1,3,6,1,4,1,3607,2,30,1,1))
-if mibBuilder.loadTexts:cOpticalMonTable.setStatus(_A)
-_COpticalMonEntry_Object=MibTableRow
-cOpticalMonEntry=_COpticalMonEntry_Object((1,3,6,1,4,1,3607,2,30,1,1,1))
-cOpticalMonEntry.setIndexNames((0,_F,_G),(0,_B,_O),(0,_B,_P))
-if mibBuilder.loadTexts:cOpticalMonEntry.setStatus(_A)
-_COpticalMonDirection_Type=OpticalIfDirection
-_COpticalMonDirection_Object=MibTableColumn
-cOpticalMonDirection=_COpticalMonDirection_Object((1,3,6,1,4,1,3607,2,30,1,1,1,1),_COpticalMonDirection_Type())
-cOpticalMonDirection.setMaxAccess(_C)
-if mibBuilder.loadTexts:cOpticalMonDirection.setStatus(_A)
-_COpticalMonParameterType_Type=OpticalParameterType
-_COpticalMonParameterType_Object=MibTableColumn
-cOpticalMonParameterType=_COpticalMonParameterType_Object((1,3,6,1,4,1,3607,2,30,1,1,1,2),_COpticalMonParameterType_Type())
-cOpticalMonParameterType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cOpticalMonParameterType.setStatus(_A)
-_COpticalParameterValue_Type=OpticalParameterValue
-_COpticalParameterValue_Object=MibTableColumn
-cOpticalParameterValue=_COpticalParameterValue_Object((1,3,6,1,4,1,3607,2,30,1,1,1,3),_COpticalParameterValue_Type())
-cOpticalParameterValue.setMaxAccess(_D)
-if mibBuilder.loadTexts:cOpticalParameterValue.setStatus(_A)
-_COpticalParamHighAlarmThresh_Type=OpticalParameterValue
-_COpticalParamHighAlarmThresh_Object=MibTableColumn
-cOpticalParamHighAlarmThresh=_COpticalParamHighAlarmThresh_Object((1,3,6,1,4,1,3607,2,30,1,1,1,4),_COpticalParamHighAlarmThresh_Type())
-cOpticalParamHighAlarmThresh.setMaxAccess(_E)
-if mibBuilder.loadTexts:cOpticalParamHighAlarmThresh.setStatus(_A)
-_COpticalParamHighWarning15MinThresh_Type=OpticalParameterValue
-_COpticalParamHighWarning15MinThresh_Object=MibTableColumn
-cOpticalParamHighWarning15MinThresh=_COpticalParamHighWarning15MinThresh_Object((1,3,6,1,4,1,3607,2,30,1,1,1,5),_COpticalParamHighWarning15MinThresh_Type())
-cOpticalParamHighWarning15MinThresh.setMaxAccess(_E)
-if mibBuilder.loadTexts:cOpticalParamHighWarning15MinThresh.setStatus(_A)
-_COpticalParamHighWarning1DayThresh_Type=OpticalParameterValue
-_COpticalParamHighWarning1DayThresh_Object=MibTableColumn
-cOpticalParamHighWarning1DayThresh=_COpticalParamHighWarning1DayThresh_Object((1,3,6,1,4,1,3607,2,30,1,1,1,6),_COpticalParamHighWarning1DayThresh_Type())
-cOpticalParamHighWarning1DayThresh.setMaxAccess(_E)
-if mibBuilder.loadTexts:cOpticalParamHighWarning1DayThresh.setStatus(_A)
-_COpticalParamLowAlarmThresh_Type=OpticalParameterValue
-_COpticalParamLowAlarmThresh_Object=MibTableColumn
-cOpticalParamLowAlarmThresh=_COpticalParamLowAlarmThresh_Object((1,3,6,1,4,1,3607,2,30,1,1,1,7),_COpticalParamLowAlarmThresh_Type())
-cOpticalParamLowAlarmThresh.setMaxAccess(_E)
-if mibBuilder.loadTexts:cOpticalParamLowAlarmThresh.setStatus(_A)
-_COpticalParamLowWarning15MinThresh_Type=OpticalParameterValue
-_COpticalParamLowWarning15MinThresh_Object=MibTableColumn
-cOpticalParamLowWarning15MinThresh=_COpticalParamLowWarning15MinThresh_Object((1,3,6,1,4,1,3607,2,30,1,1,1,8),_COpticalParamLowWarning15MinThresh_Type())
-cOpticalParamLowWarning15MinThresh.setMaxAccess(_E)
-if mibBuilder.loadTexts:cOpticalParamLowWarning15MinThresh.setStatus(_A)
-_COpticalParamLowWarning1DayThresh_Type=OpticalParameterValue
-_COpticalParamLowWarning1DayThresh_Object=MibTableColumn
-cOpticalParamLowWarning1DayThresh=_COpticalParamLowWarning1DayThresh_Object((1,3,6,1,4,1,3607,2,30,1,1,1,9),_COpticalParamLowWarning1DayThresh_Type())
-cOpticalParamLowWarning1DayThresh.setMaxAccess(_E)
-if mibBuilder.loadTexts:cOpticalParamLowWarning1DayThresh.setStatus(_A)
-_COpticalParamLowDegradeThresh_Type=OpticalParameterValue
-_COpticalParamLowDegradeThresh_Object=MibTableColumn
-cOpticalParamLowDegradeThresh=_COpticalParamLowDegradeThresh_Object((1,3,6,1,4,1,3607,2,30,1,1,1,10),_COpticalParamLowDegradeThresh_Type())
-cOpticalParamLowDegradeThresh.setMaxAccess(_E)
-if mibBuilder.loadTexts:cOpticalParamLowDegradeThresh.setStatus(_A)
-_COpticalParamHighDegradeThresh_Type=OpticalParameterValue
-_COpticalParamHighDegradeThresh_Object=MibTableColumn
-cOpticalParamHighDegradeThresh=_COpticalParamHighDegradeThresh_Object((1,3,6,1,4,1,3607,2,30,1,1,1,11),_COpticalParamHighDegradeThresh_Type())
-cOpticalParamHighDegradeThresh.setMaxAccess(_E)
-if mibBuilder.loadTexts:cOpticalParamHighDegradeThresh.setStatus(_A)
-_CerentOpticalPMGroup_ObjectIdentity=ObjectIdentity
-cerentOpticalPMGroup=_CerentOpticalPMGroup_ObjectIdentity((1,3,6,1,4,1,3607,2,30,2))
-_COpticalPMCurrentTable_Object=MibTable
-cOpticalPMCurrentTable=_COpticalPMCurrentTable_Object((1,3,6,1,4,1,3607,2,30,2,1))
-if mibBuilder.loadTexts:cOpticalPMCurrentTable.setStatus(_A)
-_COpticalPMCurrentEntry_Object=MibTableRow
-cOpticalPMCurrentEntry=_COpticalPMCurrentEntry_Object((1,3,6,1,4,1,3607,2,30,2,1,1))
-cOpticalPMCurrentEntry.setIndexNames((0,_F,_G),(0,_B,_Q),(0,_B,_R),(0,_B,_S))
-if mibBuilder.loadTexts:cOpticalPMCurrentEntry.setStatus(_A)
-_COpticalPMCurrentDirection_Type=OpticalIfDirection
-_COpticalPMCurrentDirection_Object=MibTableColumn
-cOpticalPMCurrentDirection=_COpticalPMCurrentDirection_Object((1,3,6,1,4,1,3607,2,30,2,1,1,1),_COpticalPMCurrentDirection_Type())
-cOpticalPMCurrentDirection.setMaxAccess(_C)
-if mibBuilder.loadTexts:cOpticalPMCurrentDirection.setStatus(_A)
-_COpticalPMCurrentParamType_Type=OpticalParameterType
-_COpticalPMCurrentParamType_Object=MibTableColumn
-cOpticalPMCurrentParamType=_COpticalPMCurrentParamType_Object((1,3,6,1,4,1,3607,2,30,2,1,1,2),_COpticalPMCurrentParamType_Type())
-cOpticalPMCurrentParamType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cOpticalPMCurrentParamType.setStatus(_A)
-_COpticalPMCurrentPeriod_Type=CerentPeriod
-_COpticalPMCurrentPeriod_Object=MibTableColumn
-cOpticalPMCurrentPeriod=_COpticalPMCurrentPeriod_Object((1,3,6,1,4,1,3607,2,30,2,1,1,3),_COpticalPMCurrentPeriod_Type())
-cOpticalPMCurrentPeriod.setMaxAccess(_C)
-if mibBuilder.loadTexts:cOpticalPMCurrentPeriod.setStatus(_A)
-_COpticalPMCurrentMaxParam_Type=OpticalParameterValue
-_COpticalPMCurrentMaxParam_Object=MibTableColumn
-cOpticalPMCurrentMaxParam=_COpticalPMCurrentMaxParam_Object((1,3,6,1,4,1,3607,2,30,2,1,1,4),_COpticalPMCurrentMaxParam_Type())
-cOpticalPMCurrentMaxParam.setMaxAccess(_D)
-if mibBuilder.loadTexts:cOpticalPMCurrentMaxParam.setStatus(_A)
-_COpticalPMCurrentMinParam_Type=OpticalParameterValue
-_COpticalPMCurrentMinParam_Object=MibTableColumn
-cOpticalPMCurrentMinParam=_COpticalPMCurrentMinParam_Object((1,3,6,1,4,1,3607,2,30,2,1,1,5),_COpticalPMCurrentMinParam_Type())
-cOpticalPMCurrentMinParam.setMaxAccess(_D)
-if mibBuilder.loadTexts:cOpticalPMCurrentMinParam.setStatus(_A)
-_COpticalPMCurrentMeanParam_Type=OpticalParameterValue
-_COpticalPMCurrentMeanParam_Object=MibTableColumn
-cOpticalPMCurrentMeanParam=_COpticalPMCurrentMeanParam_Object((1,3,6,1,4,1,3607,2,30,2,1,1,6),_COpticalPMCurrentMeanParam_Type())
-cOpticalPMCurrentMeanParam.setMaxAccess(_D)
-if mibBuilder.loadTexts:cOpticalPMCurrentMeanParam.setStatus(_A)
-_COpticalPMIntervalTable_Object=MibTable
-cOpticalPMIntervalTable=_COpticalPMIntervalTable_Object((1,3,6,1,4,1,3607,2,30,2,2))
-if mibBuilder.loadTexts:cOpticalPMIntervalTable.setStatus(_A)
-_COpticalPMIntervalEntry_Object=MibTableRow
-cOpticalPMIntervalEntry=_COpticalPMIntervalEntry_Object((1,3,6,1,4,1,3607,2,30,2,2,1))
-cOpticalPMIntervalEntry.setIndexNames((0,_F,_G),(0,_B,_T),(0,_B,_U),(0,_B,_V),(0,_B,_W))
-if mibBuilder.loadTexts:cOpticalPMIntervalEntry.setStatus(_A)
-_COpticalPMIntervalDirection_Type=OpticalIfDirection
-_COpticalPMIntervalDirection_Object=MibTableColumn
-cOpticalPMIntervalDirection=_COpticalPMIntervalDirection_Object((1,3,6,1,4,1,3607,2,30,2,2,1,1),_COpticalPMIntervalDirection_Type())
-cOpticalPMIntervalDirection.setMaxAccess(_C)
-if mibBuilder.loadTexts:cOpticalPMIntervalDirection.setStatus(_A)
-_COpticalPMIntervalParamType_Type=OpticalParameterType
-_COpticalPMIntervalParamType_Object=MibTableColumn
-cOpticalPMIntervalParamType=_COpticalPMIntervalParamType_Object((1,3,6,1,4,1,3607,2,30,2,2,1,2),_COpticalPMIntervalParamType_Type())
-cOpticalPMIntervalParamType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cOpticalPMIntervalParamType.setStatus(_A)
-_COpticalPMIntervalPeriod_Type=CerentPeriod
-_COpticalPMIntervalPeriod_Object=MibTableColumn
-cOpticalPMIntervalPeriod=_COpticalPMIntervalPeriod_Object((1,3,6,1,4,1,3607,2,30,2,2,1,3),_COpticalPMIntervalPeriod_Type())
-cOpticalPMIntervalPeriod.setMaxAccess(_C)
-if mibBuilder.loadTexts:cOpticalPMIntervalPeriod.setStatus(_A)
-class _COpticalPMIntervalNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,96))
-_COpticalPMIntervalNumber_Type.__name__=_N
-_COpticalPMIntervalNumber_Object=MibTableColumn
-cOpticalPMIntervalNumber=_COpticalPMIntervalNumber_Object((1,3,6,1,4,1,3607,2,30,2,2,1,4),_COpticalPMIntervalNumber_Type())
-cOpticalPMIntervalNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:cOpticalPMIntervalNumber.setStatus(_A)
-_COpticalPMIntervalMaxParam_Type=OpticalParameterValue
-_COpticalPMIntervalMaxParam_Object=MibTableColumn
-cOpticalPMIntervalMaxParam=_COpticalPMIntervalMaxParam_Object((1,3,6,1,4,1,3607,2,30,2,2,1,5),_COpticalPMIntervalMaxParam_Type())
-cOpticalPMIntervalMaxParam.setMaxAccess(_D)
-if mibBuilder.loadTexts:cOpticalPMIntervalMaxParam.setStatus(_A)
-_COpticalPMIntervalMinParam_Type=OpticalParameterValue
-_COpticalPMIntervalMinParam_Object=MibTableColumn
-cOpticalPMIntervalMinParam=_COpticalPMIntervalMinParam_Object((1,3,6,1,4,1,3607,2,30,2,2,1,6),_COpticalPMIntervalMinParam_Type())
-cOpticalPMIntervalMinParam.setMaxAccess(_D)
-if mibBuilder.loadTexts:cOpticalPMIntervalMinParam.setStatus(_A)
-_COpticalPMIntervalMeanParam_Type=OpticalParameterValue
-_COpticalPMIntervalMeanParam_Object=MibTableColumn
-cOpticalPMIntervalMeanParam=_COpticalPMIntervalMeanParam_Object((1,3,6,1,4,1,3607,2,30,2,2,1,7),_COpticalPMIntervalMeanParam_Type())
-cOpticalPMIntervalMeanParam.setMaxAccess(_D)
-if mibBuilder.loadTexts:cOpticalPMIntervalMeanParam.setStatus(_A)
-_COpticalPMIntervalValidData_Type=TruthValue
-_COpticalPMIntervalValidData_Object=MibTableColumn
-cOpticalPMIntervalValidData=_COpticalPMIntervalValidData_Object((1,3,6,1,4,1,3607,2,30,2,2,1,8),_COpticalPMIntervalValidData_Type())
-cOpticalPMIntervalValidData.setMaxAccess(_D)
-if mibBuilder.loadTexts:cOpticalPMIntervalValidData.setStatus(_A)
-_CerentOpticalMonitorMIBConformance_ObjectIdentity=ObjectIdentity
-cerentOpticalMonitorMIBConformance=_CerentOpticalMonitorMIBConformance_ObjectIdentity((1,3,6,1,4,1,3607,5,20))
-_CerentOpticalMonitorMIBCompliances_ObjectIdentity=ObjectIdentity
-cerentOpticalMonitorMIBCompliances=_CerentOpticalMonitorMIBCompliances_ObjectIdentity((1,3,6,1,4,1,3607,5,20,1))
-_CerentOpticalMonitorMIBGroups_ObjectIdentity=ObjectIdentity
-cerentOpticalMonitorMIBGroups=_CerentOpticalMonitorMIBGroups_ObjectIdentity((1,3,6,1,4,1,3607,5,20,2))
-cerentOpticalMIBMonGroup=ObjectGroup((1,3,6,1,4,1,3607,5,20,2,1))
-cerentOpticalMIBMonGroup.setObjects((_B,_X))
-if mibBuilder.loadTexts:cerentOpticalMIBMonGroup.setStatus(_A)
-cerentOpticalMIBThresholdGroup=ObjectGroup((1,3,6,1,4,1,3607,5,20,2,2))
-cerentOpticalMIBThresholdGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M)))
-if mibBuilder.loadTexts:cerentOpticalMIBThresholdGroup.setStatus(_A)
-cerentOpticalMIBPMGroup=ObjectGroup((1,3,6,1,4,1,3607,5,20,2,3))
-cerentOpticalMIBPMGroup.setObjects(*((_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e)))
-if mibBuilder.loadTexts:cerentOpticalMIBPMGroup.setStatus(_A)
-cerentOpticalDwdmNetworkMIBThresholdGroup=ObjectGroup((1,3,6,1,4,1,3607,5,20,2,4))
-cerentOpticalDwdmNetworkMIBThresholdGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_f),(_B,_g)))
-if mibBuilder.loadTexts:cerentOpticalDwdmNetworkMIBThresholdGroup.setStatus(_A)
-cerentOpticalMonitorMIBCompliance=ModuleCompliance((1,3,6,1,4,1,3607,5,20,1,1))
-cerentOpticalMonitorMIBCompliance.setObjects(*((_B,_h),(_B,_i),(_B,_j)))
-if mibBuilder.loadTexts:cerentOpticalMonitorMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'OpticalParameterType':OpticalParameterType,'OpticalParameterValue':OpticalParameterValue,'OpticalIfDirection':OpticalIfDirection,'cerentOpticalMonitorMIB':cerentOpticalMonitorMIB,'cerentOpticalMonitorMIBObjects':cerentOpticalMonitorMIBObjects,'cerentOpticalMonGroup':cerentOpticalMonGroup,'cOpticalMonTable':cOpticalMonTable,'cOpticalMonEntry':cOpticalMonEntry,_O:cOpticalMonDirection,_P:cOpticalMonParameterType,_X:cOpticalParameterValue,_H:cOpticalParamHighAlarmThresh,_I:cOpticalParamHighWarning15MinThresh,_J:cOpticalParamHighWarning1DayThresh,_K:cOpticalParamLowAlarmThresh,_L:cOpticalParamLowWarning15MinThresh,_M:cOpticalParamLowWarning1DayThresh,_f:cOpticalParamLowDegradeThresh,_g:cOpticalParamHighDegradeThresh,'cerentOpticalPMGroup':cerentOpticalPMGroup,'cOpticalPMCurrentTable':cOpticalPMCurrentTable,'cOpticalPMCurrentEntry':cOpticalPMCurrentEntry,_Q:cOpticalPMCurrentDirection,_R:cOpticalPMCurrentParamType,_S:cOpticalPMCurrentPeriod,_Y:cOpticalPMCurrentMaxParam,_Z:cOpticalPMCurrentMinParam,_a:cOpticalPMCurrentMeanParam,'cOpticalPMIntervalTable':cOpticalPMIntervalTable,'cOpticalPMIntervalEntry':cOpticalPMIntervalEntry,_T:cOpticalPMIntervalDirection,_U:cOpticalPMIntervalParamType,_V:cOpticalPMIntervalPeriod,_W:cOpticalPMIntervalNumber,_b:cOpticalPMIntervalMaxParam,_c:cOpticalPMIntervalMinParam,_d:cOpticalPMIntervalMeanParam,_e:cOpticalPMIntervalValidData,'cerentOpticalMonitorMIBConformance':cerentOpticalMonitorMIBConformance,'cerentOpticalMonitorMIBCompliances':cerentOpticalMonitorMIBCompliances,'cerentOpticalMonitorMIBCompliance':cerentOpticalMonitorMIBCompliance,'cerentOpticalMonitorMIBGroups':cerentOpticalMonitorMIBGroups,_h:cerentOpticalMIBMonGroup,_i:cerentOpticalMIBThresholdGroup,_j:cerentOpticalMIBPMGroup,'cerentOpticalDwdmNetworkMIBThresholdGroup':cerentOpticalDwdmNetworkMIBThresholdGroup})
+#
+# PySNMP MIB module CERENT-OPTICAL-MONITOR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CERENT-OPTICAL-MONITOR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:46 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cerentGeneric, cerentRequirements, cerentModules = mibBuilder.importSymbols("CERENT-GLOBAL-REGISTRY", "cerentGeneric", "cerentRequirements", "cerentModules")
+CerentPeriod, = mibBuilder.importSymbols("CERENT-TC", "CerentPeriod")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+cerentOpticalMonitorMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 10, 70))
+cerentOpticalMonitorMIB.setRevisions(('1902-11-11 00:00',))
+if mibBuilder.loadTexts: cerentOpticalMonitorMIB.setLastUpdated('0211110000Z')
+if mibBuilder.loadTexts: cerentOpticalMonitorMIB.setOrganization('Cisco Systems, Inc.')
+class OpticalParameterType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+    namedValues = NamedValues(("power", 1), ("acPower", 2), ("apdTemp", 3), ("laserTemp", 4), ("biasCurrent", 5), ("peltierCurrent", 6), ("xcvrVoltage", 7), ("voa", 8), ("gain", 9), ("oscPower", 10), ("addPower", 11))
+
+class OpticalParameterValue(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(-1000000, 1000000)
+
+class OpticalIfDirection(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("receive", 1), ("transmit", 2), ("notApplicable", 3))
+
+cerentOpticalMonitorMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3607, 2, 30))
+cerentOpticalMonGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 3607, 2, 30, 1))
+cerentOpticalPMGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2))
+cOpticalMonTable = MibTable((1, 3, 6, 1, 4, 1, 3607, 2, 30, 1, 1), )
+if mibBuilder.loadTexts: cOpticalMonTable.setStatus('current')
+cOpticalMonEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3607, 2, 30, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CERENT-OPTICAL-MONITOR-MIB", "cOpticalMonDirection"), (0, "CERENT-OPTICAL-MONITOR-MIB", "cOpticalMonParameterType"))
+if mibBuilder.loadTexts: cOpticalMonEntry.setStatus('current')
+cOpticalMonDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 1, 1, 1, 1), OpticalIfDirection())
+if mibBuilder.loadTexts: cOpticalMonDirection.setStatus('current')
+cOpticalMonParameterType = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 1, 1, 1, 2), OpticalParameterType())
+if mibBuilder.loadTexts: cOpticalMonParameterType.setStatus('current')
+cOpticalParameterValue = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 1, 1, 1, 3), OpticalParameterValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cOpticalParameterValue.setStatus('current')
+cOpticalParamHighAlarmThresh = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 1, 1, 1, 4), OpticalParameterValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cOpticalParamHighAlarmThresh.setStatus('current')
+cOpticalParamHighWarning15MinThresh = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 1, 1, 1, 5), OpticalParameterValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cOpticalParamHighWarning15MinThresh.setStatus('current')
+cOpticalParamHighWarning1DayThresh = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 1, 1, 1, 6), OpticalParameterValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cOpticalParamHighWarning1DayThresh.setStatus('current')
+cOpticalParamLowAlarmThresh = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 1, 1, 1, 7), OpticalParameterValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cOpticalParamLowAlarmThresh.setStatus('current')
+cOpticalParamLowWarning15MinThresh = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 1, 1, 1, 8), OpticalParameterValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cOpticalParamLowWarning15MinThresh.setStatus('current')
+cOpticalParamLowWarning1DayThresh = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 1, 1, 1, 9), OpticalParameterValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cOpticalParamLowWarning1DayThresh.setStatus('current')
+cOpticalParamLowDegradeThresh = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 1, 1, 1, 10), OpticalParameterValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cOpticalParamLowDegradeThresh.setStatus('current')
+cOpticalParamHighDegradeThresh = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 1, 1, 1, 11), OpticalParameterValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cOpticalParamHighDegradeThresh.setStatus('current')
+cOpticalPMCurrentTable = MibTable((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 1), )
+if mibBuilder.loadTexts: cOpticalPMCurrentTable.setStatus('current')
+cOpticalPMCurrentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CERENT-OPTICAL-MONITOR-MIB", "cOpticalPMCurrentDirection"), (0, "CERENT-OPTICAL-MONITOR-MIB", "cOpticalPMCurrentParamType"), (0, "CERENT-OPTICAL-MONITOR-MIB", "cOpticalPMCurrentPeriod"))
+if mibBuilder.loadTexts: cOpticalPMCurrentEntry.setStatus('current')
+cOpticalPMCurrentDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 1, 1, 1), OpticalIfDirection())
+if mibBuilder.loadTexts: cOpticalPMCurrentDirection.setStatus('current')
+cOpticalPMCurrentParamType = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 1, 1, 2), OpticalParameterType())
+if mibBuilder.loadTexts: cOpticalPMCurrentParamType.setStatus('current')
+cOpticalPMCurrentPeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 1, 1, 3), CerentPeriod())
+if mibBuilder.loadTexts: cOpticalPMCurrentPeriod.setStatus('current')
+cOpticalPMCurrentMaxParam = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 1, 1, 4), OpticalParameterValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cOpticalPMCurrentMaxParam.setStatus('current')
+cOpticalPMCurrentMinParam = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 1, 1, 5), OpticalParameterValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cOpticalPMCurrentMinParam.setStatus('current')
+cOpticalPMCurrentMeanParam = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 1, 1, 6), OpticalParameterValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cOpticalPMCurrentMeanParam.setStatus('current')
+cOpticalPMIntervalTable = MibTable((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 2), )
+if mibBuilder.loadTexts: cOpticalPMIntervalTable.setStatus('current')
+cOpticalPMIntervalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CERENT-OPTICAL-MONITOR-MIB", "cOpticalPMIntervalDirection"), (0, "CERENT-OPTICAL-MONITOR-MIB", "cOpticalPMIntervalParamType"), (0, "CERENT-OPTICAL-MONITOR-MIB", "cOpticalPMIntervalPeriod"), (0, "CERENT-OPTICAL-MONITOR-MIB", "cOpticalPMIntervalNumber"))
+if mibBuilder.loadTexts: cOpticalPMIntervalEntry.setStatus('current')
+cOpticalPMIntervalDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 2, 1, 1), OpticalIfDirection())
+if mibBuilder.loadTexts: cOpticalPMIntervalDirection.setStatus('current')
+cOpticalPMIntervalParamType = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 2, 1, 2), OpticalParameterType())
+if mibBuilder.loadTexts: cOpticalPMIntervalParamType.setStatus('current')
+cOpticalPMIntervalPeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 2, 1, 3), CerentPeriod())
+if mibBuilder.loadTexts: cOpticalPMIntervalPeriod.setStatus('current')
+cOpticalPMIntervalNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 96)))
+if mibBuilder.loadTexts: cOpticalPMIntervalNumber.setStatus('current')
+cOpticalPMIntervalMaxParam = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 2, 1, 5), OpticalParameterValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cOpticalPMIntervalMaxParam.setStatus('current')
+cOpticalPMIntervalMinParam = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 2, 1, 6), OpticalParameterValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cOpticalPMIntervalMinParam.setStatus('current')
+cOpticalPMIntervalMeanParam = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 2, 1, 7), OpticalParameterValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cOpticalPMIntervalMeanParam.setStatus('current')
+cOpticalPMIntervalValidData = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 30, 2, 2, 1, 8), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cOpticalPMIntervalValidData.setStatus('current')
+cerentOpticalMonitorMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 3607, 5, 20))
+cerentOpticalMonitorMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 3607, 5, 20, 1))
+cerentOpticalMonitorMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 3607, 5, 20, 2))
+cerentOpticalMonitorMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 3607, 5, 20, 1, 1)).setObjects(("CERENT-OPTICAL-MONITOR-MIB", "cerentOpticalMIBMonGroup"), ("CERENT-OPTICAL-MONITOR-MIB", "cerentOpticalMIBThresholdGroup"), ("CERENT-OPTICAL-MONITOR-MIB", "cerentOpticalMIBPMGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cerentOpticalMonitorMIBCompliance = cerentOpticalMonitorMIBCompliance.setStatus('current')
+cerentOpticalMIBMonGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3607, 5, 20, 2, 1)).setObjects(("CERENT-OPTICAL-MONITOR-MIB", "cOpticalParameterValue"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cerentOpticalMIBMonGroup = cerentOpticalMIBMonGroup.setStatus('current')
+cerentOpticalMIBThresholdGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3607, 5, 20, 2, 2)).setObjects(("CERENT-OPTICAL-MONITOR-MIB", "cOpticalParamHighAlarmThresh"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalParamHighWarning15MinThresh"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalParamHighWarning1DayThresh"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalParamLowAlarmThresh"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalParamLowWarning15MinThresh"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalParamLowWarning1DayThresh"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cerentOpticalMIBThresholdGroup = cerentOpticalMIBThresholdGroup.setStatus('current')
+cerentOpticalMIBPMGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3607, 5, 20, 2, 3)).setObjects(("CERENT-OPTICAL-MONITOR-MIB", "cOpticalPMCurrentMaxParam"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalPMCurrentMinParam"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalPMCurrentMeanParam"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalPMIntervalMaxParam"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalPMIntervalMinParam"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalPMIntervalMeanParam"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalPMIntervalValidData"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cerentOpticalMIBPMGroup = cerentOpticalMIBPMGroup.setStatus('current')
+cerentOpticalDwdmNetworkMIBThresholdGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3607, 5, 20, 2, 4)).setObjects(("CERENT-OPTICAL-MONITOR-MIB", "cOpticalParamHighAlarmThresh"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalParamHighWarning15MinThresh"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalParamHighWarning1DayThresh"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalParamLowAlarmThresh"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalParamLowWarning15MinThresh"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalParamLowWarning1DayThresh"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalParamLowDegradeThresh"), ("CERENT-OPTICAL-MONITOR-MIB", "cOpticalParamHighDegradeThresh"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cerentOpticalDwdmNetworkMIBThresholdGroup = cerentOpticalDwdmNetworkMIBThresholdGroup.setStatus('current')
+mibBuilder.exportSymbols("CERENT-OPTICAL-MONITOR-MIB", cOpticalPMIntervalValidData=cOpticalPMIntervalValidData, cOpticalMonDirection=cOpticalMonDirection, cOpticalMonTable=cOpticalMonTable, cOpticalPMCurrentMinParam=cOpticalPMCurrentMinParam, cOpticalPMIntervalMinParam=cOpticalPMIntervalMinParam, cOpticalPMCurrentTable=cOpticalPMCurrentTable, cerentOpticalMonitorMIBGroups=cerentOpticalMonitorMIBGroups, cerentOpticalMIBThresholdGroup=cerentOpticalMIBThresholdGroup, cOpticalPMCurrentDirection=cOpticalPMCurrentDirection, cOpticalPMIntervalEntry=cOpticalPMIntervalEntry, cerentOpticalMonitorMIB=cerentOpticalMonitorMIB, cerentOpticalMIBMonGroup=cerentOpticalMIBMonGroup, cOpticalParamHighWarning15MinThresh=cOpticalParamHighWarning15MinThresh, cerentOpticalMonitorMIBObjects=cerentOpticalMonitorMIBObjects, cerentOpticalMonitorMIBConformance=cerentOpticalMonitorMIBConformance, cOpticalParamLowWarning15MinThresh=cOpticalParamLowWarning15MinThresh, cOpticalPMCurrentEntry=cOpticalPMCurrentEntry, cOpticalPMCurrentMaxParam=cOpticalPMCurrentMaxParam, PYSNMP_MODULE_ID=cerentOpticalMonitorMIB, cOpticalParameterValue=cOpticalParameterValue, cerentOpticalPMGroup=cerentOpticalPMGroup, cOpticalMonEntry=cOpticalMonEntry, OpticalParameterValue=OpticalParameterValue, cOpticalPMIntervalParamType=cOpticalPMIntervalParamType, cOpticalParamLowWarning1DayThresh=cOpticalParamLowWarning1DayThresh, cOpticalParamHighAlarmThresh=cOpticalParamHighAlarmThresh, cOpticalPMIntervalTable=cOpticalPMIntervalTable, cOpticalPMIntervalNumber=cOpticalPMIntervalNumber, cerentOpticalMonitorMIBCompliances=cerentOpticalMonitorMIBCompliances, OpticalIfDirection=OpticalIfDirection, cOpticalPMIntervalDirection=cOpticalPMIntervalDirection, cOpticalPMCurrentParamType=cOpticalPMCurrentParamType, cOpticalParamHighDegradeThresh=cOpticalParamHighDegradeThresh, cOpticalPMCurrentPeriod=cOpticalPMCurrentPeriod, cerentOpticalMIBPMGroup=cerentOpticalMIBPMGroup, cOpticalParamHighWarning1DayThresh=cOpticalParamHighWarning1DayThresh, cOpticalPMIntervalMaxParam=cOpticalPMIntervalMaxParam, cOpticalPMIntervalMeanParam=cOpticalPMIntervalMeanParam, cOpticalParamLowAlarmThresh=cOpticalParamLowAlarmThresh, cOpticalPMIntervalPeriod=cOpticalPMIntervalPeriod, OpticalParameterType=OpticalParameterType, cerentOpticalMonitorMIBCompliance=cerentOpticalMonitorMIBCompliance, cOpticalMonParameterType=cOpticalMonParameterType, cOpticalParamLowDegradeThresh=cOpticalParamLowDegradeThresh, cerentOpticalDwdmNetworkMIBThresholdGroup=cerentOpticalDwdmNetworkMIBThresholdGroup, cOpticalPMCurrentMeanParam=cOpticalPMCurrentMeanParam, cerentOpticalMonGroup=cerentOpticalMonGroup)

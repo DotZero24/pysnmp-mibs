@@ -1,187 +1,85 @@
-_D='read-write'
-_C='DisplayString'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_C,'PhysAddress','TextualConvention')
-ucdavis,=mibBuilder.importSymbols('UCD-SNMP-MIB','ucdavis')
-_Processes_Object=MibTable
-processes=_Processes_Object((1,3,6,1,4,1,2021,1))
-if mibBuilder.loadTexts:processes.setStatus(_A)
-_ProcessIndex_Type=Integer32
-_ProcessIndex_Object=MibTableColumn
-processIndex=_ProcessIndex_Object((1,3,6,1,4,1,2021,1,1),_ProcessIndex_Type())
-processIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:processIndex.setStatus(_A)
-class _ProcessNames_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_ProcessNames_Type.__name__=_C
-_ProcessNames_Object=MibTableColumn
-processNames=_ProcessNames_Object((1,3,6,1,4,1,2021,1,2),_ProcessNames_Type())
-processNames.setMaxAccess(_B)
-if mibBuilder.loadTexts:processNames.setStatus(_A)
-_ProcessMin_Type=Integer32
-_ProcessMin_Object=MibTableColumn
-processMin=_ProcessMin_Object((1,3,6,1,4,1,2021,1,3),_ProcessMin_Type())
-processMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:processMin.setStatus(_A)
-_ProcessMax_Type=Integer32
-_ProcessMax_Object=MibTableColumn
-processMax=_ProcessMax_Object((1,3,6,1,4,1,2021,1,4),_ProcessMax_Type())
-processMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:processMax.setStatus(_A)
-_ProcessCount_Type=Integer32
-_ProcessCount_Object=MibTableColumn
-processCount=_ProcessCount_Object((1,3,6,1,4,1,2021,1,5),_ProcessCount_Type())
-processCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:processCount.setStatus(_A)
-_ProcessErrorFlag_Type=Integer32
-_ProcessErrorFlag_Object=MibTableColumn
-processErrorFlag=_ProcessErrorFlag_Object((1,3,6,1,4,1,2021,1,100),_ProcessErrorFlag_Type())
-processErrorFlag.setMaxAccess(_B)
-if mibBuilder.loadTexts:processErrorFlag.setStatus(_A)
-class _ProcessErrMessage_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_ProcessErrMessage_Type.__name__=_C
-_ProcessErrMessage_Object=MibTableColumn
-processErrMessage=_ProcessErrMessage_Object((1,3,6,1,4,1,2021,1,101),_ProcessErrMessage_Type())
-processErrMessage.setMaxAccess(_B)
-if mibBuilder.loadTexts:processErrMessage.setStatus(_A)
-_ProcessErrFix_Type=Integer32
-_ProcessErrFix_Object=MibTableColumn
-processErrFix=_ProcessErrFix_Object((1,3,6,1,4,1,2021,1,102),_ProcessErrFix_Type())
-processErrFix.setMaxAccess(_D)
-if mibBuilder.loadTexts:processErrFix.setStatus(_A)
-_Extensible_Object=MibTable
-extensible=_Extensible_Object((1,3,6,1,4,1,2021,3))
-if mibBuilder.loadTexts:extensible.setStatus(_A)
-_ExtensibleIndex_Type=Integer32
-_ExtensibleIndex_Object=MibTableColumn
-extensibleIndex=_ExtensibleIndex_Object((1,3,6,1,4,1,2021,3,1),_ExtensibleIndex_Type())
-extensibleIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:extensibleIndex.setStatus(_A)
-class _ExtensibleNames_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_ExtensibleNames_Type.__name__=_C
-_ExtensibleNames_Object=MibTableColumn
-extensibleNames=_ExtensibleNames_Object((1,3,6,1,4,1,2021,3,2),_ExtensibleNames_Type())
-extensibleNames.setMaxAccess(_B)
-if mibBuilder.loadTexts:extensibleNames.setStatus(_A)
-class _ExtensibleCommand_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_ExtensibleCommand_Type.__name__=_C
-_ExtensibleCommand_Object=MibTableColumn
-extensibleCommand=_ExtensibleCommand_Object((1,3,6,1,4,1,2021,3,3),_ExtensibleCommand_Type())
-extensibleCommand.setMaxAccess(_B)
-if mibBuilder.loadTexts:extensibleCommand.setStatus(_A)
-_ExtensibleResult_Type=Integer32
-_ExtensibleResult_Object=MibTableColumn
-extensibleResult=_ExtensibleResult_Object((1,3,6,1,4,1,2021,3,100),_ExtensibleResult_Type())
-extensibleResult.setMaxAccess(_B)
-if mibBuilder.loadTexts:extensibleResult.setStatus(_A)
-class _ExtensibleOutput_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_ExtensibleOutput_Type.__name__=_C
-_ExtensibleOutput_Object=MibTableColumn
-extensibleOutput=_ExtensibleOutput_Object((1,3,6,1,4,1,2021,3,101),_ExtensibleOutput_Type())
-extensibleOutput.setMaxAccess(_B)
-if mibBuilder.loadTexts:extensibleOutput.setStatus(_A)
-_ExtensibleErrFix_Type=Integer32
-_ExtensibleErrFix_Object=MibTableColumn
-extensibleErrFix=_ExtensibleErrFix_Object((1,3,6,1,4,1,2021,3,102),_ExtensibleErrFix_Type())
-extensibleErrFix.setMaxAccess(_D)
-if mibBuilder.loadTexts:extensibleErrFix.setStatus(_A)
-_Disk_Object=MibTable
-disk=_Disk_Object((1,3,6,1,4,1,2021,6))
-if mibBuilder.loadTexts:disk.setStatus(_A)
-_DiskIndex_Type=Integer32
-_DiskIndex_Object=MibTableColumn
-diskIndex=_DiskIndex_Object((1,3,6,1,4,1,2021,6,1),_DiskIndex_Type())
-diskIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:diskIndex.setStatus(_A)
-_DiskPath_Type=DisplayString
-_DiskPath_Object=MibTableColumn
-diskPath=_DiskPath_Object((1,3,6,1,4,1,2021,6,2),_DiskPath_Type())
-diskPath.setMaxAccess(_B)
-if mibBuilder.loadTexts:diskPath.setStatus(_A)
-_DiskDevice_Type=DisplayString
-_DiskDevice_Object=MibTableColumn
-diskDevice=_DiskDevice_Object((1,3,6,1,4,1,2021,6,3),_DiskDevice_Type())
-diskDevice.setMaxAccess(_B)
-if mibBuilder.loadTexts:diskDevice.setStatus(_A)
-_DiskMinimum_Type=Integer32
-_DiskMinimum_Object=MibTableColumn
-diskMinimum=_DiskMinimum_Object((1,3,6,1,4,1,2021,6,4),_DiskMinimum_Type())
-diskMinimum.setMaxAccess(_B)
-if mibBuilder.loadTexts:diskMinimum.setStatus(_A)
-_DiskMinPercent_Type=Integer32
-_DiskMinPercent_Object=MibTableColumn
-diskMinPercent=_DiskMinPercent_Object((1,3,6,1,4,1,2021,6,5),_DiskMinPercent_Type())
-diskMinPercent.setMaxAccess(_B)
-if mibBuilder.loadTexts:diskMinPercent.setStatus(_A)
-_DiskTotal_Type=Integer32
-_DiskTotal_Object=MibTableColumn
-diskTotal=_DiskTotal_Object((1,3,6,1,4,1,2021,6,6),_DiskTotal_Type())
-diskTotal.setMaxAccess(_B)
-if mibBuilder.loadTexts:diskTotal.setStatus(_A)
-_DiskAvail_Type=Integer32
-_DiskAvail_Object=MibTableColumn
-diskAvail=_DiskAvail_Object((1,3,6,1,4,1,2021,6,7),_DiskAvail_Type())
-diskAvail.setMaxAccess(_B)
-if mibBuilder.loadTexts:diskAvail.setStatus(_A)
-_DiskUsed_Type=Integer32
-_DiskUsed_Object=MibTableColumn
-diskUsed=_DiskUsed_Object((1,3,6,1,4,1,2021,6,8),_DiskUsed_Type())
-diskUsed.setMaxAccess(_B)
-if mibBuilder.loadTexts:diskUsed.setStatus(_A)
-_DiskPercent_Type=Integer32
-_DiskPercent_Object=MibTableColumn
-diskPercent=_DiskPercent_Object((1,3,6,1,4,1,2021,6,9),_DiskPercent_Type())
-diskPercent.setMaxAccess(_B)
-if mibBuilder.loadTexts:diskPercent.setStatus(_A)
-_DiskErrorFlag_Type=Integer32
-_DiskErrorFlag_Object=MibTableColumn
-diskErrorFlag=_DiskErrorFlag_Object((1,3,6,1,4,1,2021,6,100),_DiskErrorFlag_Type())
-diskErrorFlag.setMaxAccess(_B)
-if mibBuilder.loadTexts:diskErrorFlag.setStatus(_A)
-_DiskErrorMsg_Type=DisplayString
-_DiskErrorMsg_Object=MibTableColumn
-diskErrorMsg=_DiskErrorMsg_Object((1,3,6,1,4,1,2021,6,101),_DiskErrorMsg_Type())
-diskErrorMsg.setMaxAccess(_B)
-if mibBuilder.loadTexts:diskErrorMsg.setStatus(_A)
-_Loadaves_Object=MibTable
-loadaves=_Loadaves_Object((1,3,6,1,4,1,2021,7))
-if mibBuilder.loadTexts:loadaves.setStatus(_A)
-_LoadaveIndex_Type=Integer32
-_LoadaveIndex_Object=MibTableColumn
-loadaveIndex=_LoadaveIndex_Object((1,3,6,1,4,1,2021,7,1),_LoadaveIndex_Type())
-loadaveIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:loadaveIndex.setStatus(_A)
-class _LoadaveNames_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_LoadaveNames_Type.__name__=_C
-_LoadaveNames_Object=MibTableColumn
-loadaveNames=_LoadaveNames_Object((1,3,6,1,4,1,2021,7,2),_LoadaveNames_Type())
-loadaveNames.setMaxAccess(_B)
-if mibBuilder.loadTexts:loadaveNames.setStatus(_A)
-_LoadaveLoad_Type=DisplayString
-_LoadaveLoad_Object=MibTableColumn
-loadaveLoad=_LoadaveLoad_Object((1,3,6,1,4,1,2021,7,3),_LoadaveLoad_Type())
-loadaveLoad.setMaxAccess(_B)
-if mibBuilder.loadTexts:loadaveLoad.setStatus(_A)
-_LoadaveConfig_Type=DisplayString
-_LoadaveConfig_Object=MibTableColumn
-loadaveConfig=_LoadaveConfig_Object((1,3,6,1,4,1,2021,7,4),_LoadaveConfig_Type())
-loadaveConfig.setMaxAccess(_B)
-if mibBuilder.loadTexts:loadaveConfig.setStatus(_A)
-_LoadaveErrorFlag_Type=Integer32
-_LoadaveErrorFlag_Object=MibTableColumn
-loadaveErrorFlag=_LoadaveErrorFlag_Object((1,3,6,1,4,1,2021,7,100),_LoadaveErrorFlag_Type())
-loadaveErrorFlag.setMaxAccess(_B)
-if mibBuilder.loadTexts:loadaveErrorFlag.setStatus(_A)
-class _LoadaveErrMessage_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_LoadaveErrMessage_Type.__name__=_C
-_LoadaveErrMessage_Object=MibTableColumn
-loadaveErrMessage=_LoadaveErrMessage_Object((1,3,6,1,4,1,2021,7,101),_LoadaveErrMessage_Type())
-loadaveErrMessage.setMaxAccess(_B)
-if mibBuilder.loadTexts:loadaveErrMessage.setStatus(_A)
-mibBuilder.exportSymbols('UCD-SNMP-MIB-OLD',**{'processes':processes,'processIndex':processIndex,'processNames':processNames,'processMin':processMin,'processMax':processMax,'processCount':processCount,'processErrorFlag':processErrorFlag,'processErrMessage':processErrMessage,'processErrFix':processErrFix,'extensible':extensible,'extensibleIndex':extensibleIndex,'extensibleNames':extensibleNames,'extensibleCommand':extensibleCommand,'extensibleResult':extensibleResult,'extensibleOutput':extensibleOutput,'extensibleErrFix':extensibleErrFix,'disk':disk,'diskIndex':diskIndex,'diskPath':diskPath,'diskDevice':diskDevice,'diskMinimum':diskMinimum,'diskMinPercent':diskMinPercent,'diskTotal':diskTotal,'diskAvail':diskAvail,'diskUsed':diskUsed,'diskPercent':diskPercent,'diskErrorFlag':diskErrorFlag,'diskErrorMsg':diskErrorMsg,'loadaves':loadaves,'loadaveIndex':loadaveIndex,'loadaveNames':loadaveNames,'loadaveLoad':loadaveLoad,'loadaveConfig':loadaveConfig,'loadaveErrorFlag':loadaveErrorFlag,'loadaveErrMessage':loadaveErrMessage})
+#
+# PySNMP MIB module UCD-SNMP-MIB-OLD (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/net-snmp/UCD-SNMP-MIB-OLD
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ucdavis, = mibBuilder.importSymbols("UCD-SNMP-MIB", "ucdavis")
+processes = MibTable((1, 3, 6, 1, 4, 1, 2021, 1), ).setIndexNames((0, "UCD-SNMP-MIB-OLD", "processIndex"))
+if mibBuilder.loadTexts: processes.setStatus('mandatory')
+processIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: processIndex.setStatus('mandatory')
+processNames = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: processNames.setStatus('mandatory')
+processMin = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: processMin.setStatus('mandatory')
+processMax = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: processMax.setStatus('mandatory')
+processCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: processCount.setStatus('mandatory')
+processErrorFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 1, 100), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: processErrorFlag.setStatus('mandatory')
+processErrMessage = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 1, 101), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: processErrMessage.setStatus('mandatory')
+processErrFix = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 1, 102), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: processErrFix.setStatus('mandatory')
+extensible = MibTable((1, 3, 6, 1, 4, 1, 2021, 3), ).setIndexNames((0, "UCD-SNMP-MIB-OLD", "extensibleIndex"))
+if mibBuilder.loadTexts: extensible.setStatus('mandatory')
+extensibleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 3, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extensibleIndex.setStatus('mandatory')
+extensibleNames = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 3, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extensibleNames.setStatus('mandatory')
+extensibleCommand = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 3, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extensibleCommand.setStatus('mandatory')
+extensibleResult = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 3, 100), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extensibleResult.setStatus('mandatory')
+extensibleOutput = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 3, 101), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extensibleOutput.setStatus('mandatory')
+extensibleErrFix = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 3, 102), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: extensibleErrFix.setStatus('mandatory')
+disk = MibTable((1, 3, 6, 1, 4, 1, 2021, 6), ).setIndexNames((0, "UCD-SNMP-MIB-OLD", "diskIndex"))
+if mibBuilder.loadTexts: disk.setStatus('mandatory')
+diskIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 6, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskIndex.setStatus('mandatory')
+diskPath = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 6, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskPath.setStatus('mandatory')
+diskDevice = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 6, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskDevice.setStatus('mandatory')
+diskMinimum = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 6, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskMinimum.setStatus('mandatory')
+diskMinPercent = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 6, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskMinPercent.setStatus('mandatory')
+diskTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 6, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskTotal.setStatus('mandatory')
+diskAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 6, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskAvail.setStatus('mandatory')
+diskUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 6, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskUsed.setStatus('mandatory')
+diskPercent = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 6, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskPercent.setStatus('mandatory')
+diskErrorFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 6, 100), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskErrorFlag.setStatus('mandatory')
+diskErrorMsg = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 6, 101), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskErrorMsg.setStatus('mandatory')
+loadaves = MibTable((1, 3, 6, 1, 4, 1, 2021, 7), ).setIndexNames((0, "UCD-SNMP-MIB-OLD", "loadaveIndex"))
+if mibBuilder.loadTexts: loadaves.setStatus('mandatory')
+loadaveIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 7, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loadaveIndex.setStatus('mandatory')
+loadaveNames = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 7, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loadaveNames.setStatus('mandatory')
+loadaveLoad = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 7, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loadaveLoad.setStatus('mandatory')
+loadaveConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 7, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loadaveConfig.setStatus('mandatory')
+loadaveErrorFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 7, 100), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loadaveErrorFlag.setStatus('mandatory')
+loadaveErrMessage = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 7, 101), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loadaveErrMessage.setStatus('mandatory')
+mibBuilder.exportSymbols("UCD-SNMP-MIB-OLD", extensibleNames=extensibleNames, diskMinimum=diskMinimum, loadaves=loadaves, processErrFix=processErrFix, extensibleErrFix=extensibleErrFix, extensibleIndex=extensibleIndex, processErrMessage=processErrMessage, processMin=processMin, loadaveLoad=loadaveLoad, diskTotal=diskTotal, loadaveErrorFlag=loadaveErrorFlag, extensibleOutput=extensibleOutput, diskMinPercent=diskMinPercent, disk=disk, processes=processes, diskIndex=diskIndex, extensible=extensible, diskPath=diskPath, processCount=processCount, diskUsed=diskUsed, diskAvail=diskAvail, processMax=processMax, processIndex=processIndex, diskDevice=diskDevice, loadaveConfig=loadaveConfig, processNames=processNames, loadaveNames=loadaveNames, extensibleResult=extensibleResult, extensibleCommand=extensibleCommand, diskPercent=diskPercent, diskErrorMsg=diskErrorMsg, diskErrorFlag=diskErrorFlag, loadaveErrMessage=loadaveErrMessage, processErrorFlag=processErrorFlag, loadaveIndex=loadaveIndex)

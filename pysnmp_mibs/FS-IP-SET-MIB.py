@@ -1,72 +1,46 @@
-_K='fsIpSetMIBGroup'
-_J='fsIPSetipAddressType'
-_I='fsIPSetipAddressStatus'
-_H='fsIPSetipAddressMask'
-_G='fsIPSetipAddressAddr'
-_F='read-create'
-_E='read-write'
-_D='fsIPSetipAddressIfIndex'
-_C='Integer32'
-_B='FS-IP-SET-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsMgmt,=mibBuilder.importSymbols('FS-SMI','fsMgmt')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-fsIPSetMgmt=ModuleIdentity((1,3,6,1,4,1,52642,1,1,10,2,111))
-if mibBuilder.loadTexts:fsIPSetMgmt.setRevisions(('2012-02-15 00:00',))
-_FsIPSetMIBObjects_ObjectIdentity=ObjectIdentity
-fsIPSetMIBObjects=_FsIPSetMIBObjects_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,111,1))
-_FsIPSetipAddressTable_Object=MibTable
-fsIPSetipAddressTable=_FsIPSetipAddressTable_Object((1,3,6,1,4,1,52642,1,1,10,2,111,1,1))
-if mibBuilder.loadTexts:fsIPSetipAddressTable.setStatus(_A)
-_FsIPSetIpAddressEntry_Object=MibTableRow
-fsIPSetIpAddressEntry=_FsIPSetIpAddressEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,111,1,1,1))
-fsIPSetIpAddressEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:fsIPSetIpAddressEntry.setStatus(_A)
-_FsIPSetipAddressIfIndex_Type=InterfaceIndex
-_FsIPSetipAddressIfIndex_Object=MibTableColumn
-fsIPSetipAddressIfIndex=_FsIPSetipAddressIfIndex_Object((1,3,6,1,4,1,52642,1,1,10,2,111,1,1,1,1),_FsIPSetipAddressIfIndex_Type())
-fsIPSetipAddressIfIndex.setMaxAccess('read-only')
-if mibBuilder.loadTexts:fsIPSetipAddressIfIndex.setStatus(_A)
-_FsIPSetipAddressAddr_Type=IpAddress
-_FsIPSetipAddressAddr_Object=MibTableColumn
-fsIPSetipAddressAddr=_FsIPSetipAddressAddr_Object((1,3,6,1,4,1,52642,1,1,10,2,111,1,1,1,2),_FsIPSetipAddressAddr_Type())
-fsIPSetipAddressAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsIPSetipAddressAddr.setStatus(_A)
-_FsIPSetipAddressMask_Type=IpAddress
-_FsIPSetipAddressMask_Object=MibTableColumn
-fsIPSetipAddressMask=_FsIPSetipAddressMask_Object((1,3,6,1,4,1,52642,1,1,10,2,111,1,1,1,3),_FsIPSetipAddressMask_Type())
-fsIPSetipAddressMask.setMaxAccess(_E)
-if mibBuilder.loadTexts:fsIPSetipAddressMask.setStatus(_A)
-class _FsIPSetipAddressStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('delete',0),('add',1)))
-_FsIPSetipAddressStatus_Type.__name__=_C
-_FsIPSetipAddressStatus_Object=MibTableColumn
-fsIPSetipAddressStatus=_FsIPSetipAddressStatus_Object((1,3,6,1,4,1,52642,1,1,10,2,111,1,1,1,4),_FsIPSetipAddressStatus_Type())
-fsIPSetipAddressStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsIPSetipAddressStatus.setStatus(_A)
-class _FsIPSetipAddressType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('unicast',1),('anycast',2),('broadcast',3)))
-_FsIPSetipAddressType_Type.__name__=_C
-_FsIPSetipAddressType_Object=MibTableColumn
-fsIPSetipAddressType=_FsIPSetipAddressType_Object((1,3,6,1,4,1,52642,1,1,10,2,111,1,1,1,5),_FsIPSetipAddressType_Type())
-fsIPSetipAddressType.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsIPSetipAddressType.setStatus(_A)
-_FsIpSetMIBConformance_ObjectIdentity=ObjectIdentity
-fsIpSetMIBConformance=_FsIpSetMIBConformance_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,111,2))
-_FsIpSetMIBCompliances_ObjectIdentity=ObjectIdentity
-fsIpSetMIBCompliances=_FsIpSetMIBCompliances_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,111,2,1))
-_FsIpSetMIBGroups_ObjectIdentity=ObjectIdentity
-fsIpSetMIBGroups=_FsIpSetMIBGroups_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,111,2,2))
-fsIpSetMIBGroup=ObjectGroup((1,3,6,1,4,1,52642,1,1,10,2,111,2,2,1))
-fsIpSetMIBGroup.setObjects(*((_B,_D),(_B,_G),(_B,_H),(_B,_I),(_B,_J)))
-if mibBuilder.loadTexts:fsIpSetMIBGroup.setStatus(_A)
-fsIcmpMIBCompliance=ModuleCompliance((1,3,6,1,4,1,52642,1,1,10,2,111,2,1,1))
-fsIcmpMIBCompliance.setObjects((_B,_K))
-if mibBuilder.loadTexts:fsIcmpMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'fsIPSetMgmt':fsIPSetMgmt,'fsIPSetMIBObjects':fsIPSetMIBObjects,'fsIPSetipAddressTable':fsIPSetipAddressTable,'fsIPSetIpAddressEntry':fsIPSetIpAddressEntry,_D:fsIPSetipAddressIfIndex,_G:fsIPSetipAddressAddr,_H:fsIPSetipAddressMask,_I:fsIPSetipAddressStatus,_J:fsIPSetipAddressType,'fsIpSetMIBConformance':fsIpSetMIBConformance,'fsIpSetMIBCompliances':fsIpSetMIBCompliances,'fsIcmpMIBCompliance':fsIcmpMIBCompliance,'fsIpSetMIBGroups':fsIpSetMIBGroups,_K:fsIpSetMIBGroup})
+#
+# PySNMP MIB module FS-IP-SET-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-IP-SET-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+fsIPSetMgmt = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 111))
+fsIPSetMgmt.setRevisions(('2012-02-15 00:00',))
+if mibBuilder.loadTexts: fsIPSetMgmt.setLastUpdated('201202150000Z')
+if mibBuilder.loadTexts: fsIPSetMgmt.setOrganization('FS.COM Inc..')
+fsIPSetMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 111, 1))
+fsIPSetipAddressTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 111, 1, 1), ).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsIPSetipAddressTable.setStatus('current')
+fsIPSetIpAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 111, 1, 1, 1), ).setMaxAccess("readonly").setIndexNames((0, "FS-IP-SET-MIB", "fsIPSetipAddressIfIndex"))
+if mibBuilder.loadTexts: fsIPSetIpAddressEntry.setStatus('current')
+fsIPSetipAddressIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 111, 1, 1, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsIPSetipAddressIfIndex.setStatus('current')
+fsIPSetipAddressAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 111, 1, 1, 1, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsIPSetipAddressAddr.setStatus('current')
+fsIPSetipAddressMask = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 111, 1, 1, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsIPSetipAddressMask.setStatus('current')
+fsIPSetipAddressStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 111, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("delete", 0), ("add", 1)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsIPSetipAddressStatus.setStatus('current')
+fsIPSetipAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 111, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unicast", 1), ("anycast", 2), ("broadcast", 3))).clone('unicast')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsIPSetipAddressType.setStatus('current')
+fsIpSetMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 111, 2))
+fsIpSetMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 111, 2, 1))
+fsIpSetMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 111, 2, 2))
+fsIcmpMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 111, 2, 1, 1)).setObjects(("FS-IP-SET-MIB", "fsIpSetMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsIcmpMIBCompliance = fsIcmpMIBCompliance.setStatus('current')
+fsIpSetMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 111, 2, 2, 1)).setObjects(("FS-IP-SET-MIB", "fsIPSetipAddressIfIndex"), ("FS-IP-SET-MIB", "fsIPSetipAddressAddr"), ("FS-IP-SET-MIB", "fsIPSetipAddressMask"), ("FS-IP-SET-MIB", "fsIPSetipAddressStatus"), ("FS-IP-SET-MIB", "fsIPSetipAddressType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsIpSetMIBGroup = fsIpSetMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("FS-IP-SET-MIB", fsIpSetMIBConformance=fsIpSetMIBConformance, fsIPSetMIBObjects=fsIPSetMIBObjects, fsIPSetipAddressMask=fsIPSetipAddressMask, fsIPSetipAddressAddr=fsIPSetipAddressAddr, fsIcmpMIBCompliance=fsIcmpMIBCompliance, fsIPSetipAddressType=fsIPSetipAddressType, fsIPSetIpAddressEntry=fsIPSetIpAddressEntry, fsIpSetMIBGroups=fsIpSetMIBGroups, PYSNMP_MODULE_ID=fsIPSetMgmt, fsIPSetipAddressIfIndex=fsIPSetipAddressIfIndex, fsIpSetMIBCompliances=fsIpSetMIBCompliances, fsIPSetMgmt=fsIPSetMgmt, fsIpSetMIBGroup=fsIpSetMIBGroup, fsIPSetipAddressStatus=fsIPSetipAddressStatus, fsIPSetipAddressTable=fsIPSetipAddressTable)

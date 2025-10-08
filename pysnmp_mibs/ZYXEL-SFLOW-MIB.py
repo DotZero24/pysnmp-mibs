@@ -1,113 +1,60 @@
-_L='zySflowPortCollectorIpAddress'
-_K='zySflowPortCollectorIpAddressType'
-_J='read-create'
-_I='zySflowCollectorIpAddress'
-_H='zySflowCollectorIpAddressType'
-_G='read-only'
-_F='dot1dBasePort'
-_E='BRIDGE-MIB'
-_D='not-accessible'
-_C='ZYXEL-SFLOW-MIB'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_E,_F)
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelSflow=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,75))
-_ZyxelSflowSetup_ObjectIdentity=ObjectIdentity
-zyxelSflowSetup=_ZyxelSflowSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,75,1))
-_ZySflowState_Type=EnabledStatus
-_ZySflowState_Object=MibScalar
-zySflowState=_ZySflowState_Object((1,3,6,1,4,1,890,1,15,3,75,1,1),_ZySflowState_Type())
-zySflowState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zySflowState.setStatus(_A)
-_ZySflowMaxNumberOfCollectors_Type=Integer32
-_ZySflowMaxNumberOfCollectors_Object=MibScalar
-zySflowMaxNumberOfCollectors=_ZySflowMaxNumberOfCollectors_Object((1,3,6,1,4,1,890,1,15,3,75,1,2),_ZySflowMaxNumberOfCollectors_Type())
-zySflowMaxNumberOfCollectors.setMaxAccess(_G)
-if mibBuilder.loadTexts:zySflowMaxNumberOfCollectors.setStatus(_A)
-_ZyxelSflowCollectorTable_Object=MibTable
-zyxelSflowCollectorTable=_ZyxelSflowCollectorTable_Object((1,3,6,1,4,1,890,1,15,3,75,1,3))
-if mibBuilder.loadTexts:zyxelSflowCollectorTable.setStatus(_A)
-_ZyxelSflowCollectorEntry_Object=MibTableRow
-zyxelSflowCollectorEntry=_ZyxelSflowCollectorEntry_Object((1,3,6,1,4,1,890,1,15,3,75,1,3,1))
-zyxelSflowCollectorEntry.setIndexNames((0,_C,_H),(0,_C,_I))
-if mibBuilder.loadTexts:zyxelSflowCollectorEntry.setStatus(_A)
-_ZySflowCollectorIpAddressType_Type=InetAddressType
-_ZySflowCollectorIpAddressType_Object=MibTableColumn
-zySflowCollectorIpAddressType=_ZySflowCollectorIpAddressType_Object((1,3,6,1,4,1,890,1,15,3,75,1,3,1,1),_ZySflowCollectorIpAddressType_Type())
-zySflowCollectorIpAddressType.setMaxAccess(_D)
-if mibBuilder.loadTexts:zySflowCollectorIpAddressType.setStatus(_A)
-_ZySflowCollectorIpAddress_Type=InetAddress
-_ZySflowCollectorIpAddress_Object=MibTableColumn
-zySflowCollectorIpAddress=_ZySflowCollectorIpAddress_Object((1,3,6,1,4,1,890,1,15,3,75,1,3,1,2),_ZySflowCollectorIpAddress_Type())
-zySflowCollectorIpAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:zySflowCollectorIpAddress.setStatus(_A)
-_ZySflowCollectorUdpPort_Type=Integer32
-_ZySflowCollectorUdpPort_Object=MibTableColumn
-zySflowCollectorUdpPort=_ZySflowCollectorUdpPort_Object((1,3,6,1,4,1,890,1,15,3,75,1,3,1,3),_ZySflowCollectorUdpPort_Type())
-zySflowCollectorUdpPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:zySflowCollectorUdpPort.setStatus(_A)
-_ZySflowCollectorRowStatus_Type=RowStatus
-_ZySflowCollectorRowStatus_Object=MibTableColumn
-zySflowCollectorRowStatus=_ZySflowCollectorRowStatus_Object((1,3,6,1,4,1,890,1,15,3,75,1,3,1,4),_ZySflowCollectorRowStatus_Type())
-zySflowCollectorRowStatus.setMaxAccess(_J)
-if mibBuilder.loadTexts:zySflowCollectorRowStatus.setStatus(_A)
-_ZyxelSflowPortTable_Object=MibTable
-zyxelSflowPortTable=_ZyxelSflowPortTable_Object((1,3,6,1,4,1,890,1,15,3,75,1,4))
-if mibBuilder.loadTexts:zyxelSflowPortTable.setStatus(_A)
-_ZyxelSflowPortEntry_Object=MibTableRow
-zyxelSflowPortEntry=_ZyxelSflowPortEntry_Object((1,3,6,1,4,1,890,1,15,3,75,1,4,1))
-zyxelSflowPortEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:zyxelSflowPortEntry.setStatus(_A)
-_ZySflowPortState_Type=EnabledStatus
-_ZySflowPortState_Object=MibTableColumn
-zySflowPortState=_ZySflowPortState_Object((1,3,6,1,4,1,890,1,15,3,75,1,4,1,1),_ZySflowPortState_Type())
-zySflowPortState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zySflowPortState.setStatus(_A)
-_ZySflowMaxNumberOfPortCollectors_Type=Integer32
-_ZySflowMaxNumberOfPortCollectors_Object=MibScalar
-zySflowMaxNumberOfPortCollectors=_ZySflowMaxNumberOfPortCollectors_Object((1,3,6,1,4,1,890,1,15,3,75,1,5),_ZySflowMaxNumberOfPortCollectors_Type())
-zySflowMaxNumberOfPortCollectors.setMaxAccess(_G)
-if mibBuilder.loadTexts:zySflowMaxNumberOfPortCollectors.setStatus(_A)
-_ZyxelSflowPortCollectorTable_Object=MibTable
-zyxelSflowPortCollectorTable=_ZyxelSflowPortCollectorTable_Object((1,3,6,1,4,1,890,1,15,3,75,1,6))
-if mibBuilder.loadTexts:zyxelSflowPortCollectorTable.setStatus(_A)
-_ZyxelSflowPortCollectorEntry_Object=MibTableRow
-zyxelSflowPortCollectorEntry=_ZyxelSflowPortCollectorEntry_Object((1,3,6,1,4,1,890,1,15,3,75,1,6,1))
-zyxelSflowPortCollectorEntry.setIndexNames((0,_E,_F),(0,_C,_K),(0,_C,_L))
-if mibBuilder.loadTexts:zyxelSflowPortCollectorEntry.setStatus(_A)
-_ZySflowPortCollectorIpAddressType_Type=InetAddressType
-_ZySflowPortCollectorIpAddressType_Object=MibTableColumn
-zySflowPortCollectorIpAddressType=_ZySflowPortCollectorIpAddressType_Object((1,3,6,1,4,1,890,1,15,3,75,1,6,1,1),_ZySflowPortCollectorIpAddressType_Type())
-zySflowPortCollectorIpAddressType.setMaxAccess(_D)
-if mibBuilder.loadTexts:zySflowPortCollectorIpAddressType.setStatus(_A)
-_ZySflowPortCollectorIpAddress_Type=InetAddress
-_ZySflowPortCollectorIpAddress_Object=MibTableColumn
-zySflowPortCollectorIpAddress=_ZySflowPortCollectorIpAddress_Object((1,3,6,1,4,1,890,1,15,3,75,1,6,1,2),_ZySflowPortCollectorIpAddress_Type())
-zySflowPortCollectorIpAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:zySflowPortCollectorIpAddress.setStatus(_A)
-_ZySflowPortCollectorSampleRate_Type=Integer32
-_ZySflowPortCollectorSampleRate_Object=MibTableColumn
-zySflowPortCollectorSampleRate=_ZySflowPortCollectorSampleRate_Object((1,3,6,1,4,1,890,1,15,3,75,1,6,1,3),_ZySflowPortCollectorSampleRate_Type())
-zySflowPortCollectorSampleRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:zySflowPortCollectorSampleRate.setStatus(_A)
-_ZySflowPortCollectorPollInterval_Type=Integer32
-_ZySflowPortCollectorPollInterval_Object=MibTableColumn
-zySflowPortCollectorPollInterval=_ZySflowPortCollectorPollInterval_Object((1,3,6,1,4,1,890,1,15,3,75,1,6,1,4),_ZySflowPortCollectorPollInterval_Type())
-zySflowPortCollectorPollInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:zySflowPortCollectorPollInterval.setStatus(_A)
-_ZySflowPortCollectorRowStatus_Type=RowStatus
-_ZySflowPortCollectorRowStatus_Object=MibTableColumn
-zySflowPortCollectorRowStatus=_ZySflowPortCollectorRowStatus_Object((1,3,6,1,4,1,890,1,15,3,75,1,6,1,5),_ZySflowPortCollectorRowStatus_Type())
-zySflowPortCollectorRowStatus.setMaxAccess(_J)
-if mibBuilder.loadTexts:zySflowPortCollectorRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'zyxelSflow':zyxelSflow,'zyxelSflowSetup':zyxelSflowSetup,'zySflowState':zySflowState,'zySflowMaxNumberOfCollectors':zySflowMaxNumberOfCollectors,'zyxelSflowCollectorTable':zyxelSflowCollectorTable,'zyxelSflowCollectorEntry':zyxelSflowCollectorEntry,_H:zySflowCollectorIpAddressType,_I:zySflowCollectorIpAddress,'zySflowCollectorUdpPort':zySflowCollectorUdpPort,'zySflowCollectorRowStatus':zySflowCollectorRowStatus,'zyxelSflowPortTable':zyxelSflowPortTable,'zyxelSflowPortEntry':zyxelSflowPortEntry,'zySflowPortState':zySflowPortState,'zySflowMaxNumberOfPortCollectors':zySflowMaxNumberOfPortCollectors,'zyxelSflowPortCollectorTable':zyxelSflowPortCollectorTable,'zyxelSflowPortCollectorEntry':zyxelSflowPortCollectorEntry,_K:zySflowPortCollectorIpAddressType,_L:zySflowPortCollectorIpAddress,'zySflowPortCollectorSampleRate':zySflowPortCollectorSampleRate,'zySflowPortCollectorPollInterval':zySflowPortCollectorPollInterval,'zySflowPortCollectorRowStatus':zySflowPortCollectorRowStatus})
+#
+# PySNMP MIB module ZYXEL-SFLOW-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-SFLOW-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:37:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelSflow = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75))
+if mibBuilder.loadTexts: zyxelSflow.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelSflow.setOrganization('Enterprise Solution ZyXEL')
+zyxelSflowSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1))
+zySflowState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zySflowState.setStatus('current')
+zySflowMaxNumberOfCollectors = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zySflowMaxNumberOfCollectors.setStatus('current')
+zyxelSflowCollectorTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 3), )
+if mibBuilder.loadTexts: zyxelSflowCollectorTable.setStatus('current')
+zyxelSflowCollectorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 3, 1), ).setIndexNames((0, "ZYXEL-SFLOW-MIB", "zySflowCollectorIpAddressType"), (0, "ZYXEL-SFLOW-MIB", "zySflowCollectorIpAddress"))
+if mibBuilder.loadTexts: zyxelSflowCollectorEntry.setStatus('current')
+zySflowCollectorIpAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 3, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: zySflowCollectorIpAddressType.setStatus('current')
+zySflowCollectorIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 3, 1, 2), InetAddress())
+if mibBuilder.loadTexts: zySflowCollectorIpAddress.setStatus('current')
+zySflowCollectorUdpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 3, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zySflowCollectorUdpPort.setStatus('current')
+zySflowCollectorRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zySflowCollectorRowStatus.setStatus('current')
+zyxelSflowPortTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 4), )
+if mibBuilder.loadTexts: zyxelSflowPortTable.setStatus('current')
+zyxelSflowPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 4, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: zyxelSflowPortEntry.setStatus('current')
+zySflowPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 4, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zySflowPortState.setStatus('current')
+zySflowMaxNumberOfPortCollectors = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zySflowMaxNumberOfPortCollectors.setStatus('current')
+zyxelSflowPortCollectorTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 6), )
+if mibBuilder.loadTexts: zyxelSflowPortCollectorTable.setStatus('current')
+zyxelSflowPortCollectorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 6, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"), (0, "ZYXEL-SFLOW-MIB", "zySflowPortCollectorIpAddressType"), (0, "ZYXEL-SFLOW-MIB", "zySflowPortCollectorIpAddress"))
+if mibBuilder.loadTexts: zyxelSflowPortCollectorEntry.setStatus('current')
+zySflowPortCollectorIpAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 6, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: zySflowPortCollectorIpAddressType.setStatus('current')
+zySflowPortCollectorIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 6, 1, 2), InetAddress())
+if mibBuilder.loadTexts: zySflowPortCollectorIpAddress.setStatus('current')
+zySflowPortCollectorSampleRate = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 6, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zySflowPortCollectorSampleRate.setStatus('current')
+zySflowPortCollectorPollInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 6, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zySflowPortCollectorPollInterval.setStatus('current')
+zySflowPortCollectorRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 75, 1, 6, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zySflowPortCollectorRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-SFLOW-MIB", zySflowPortCollectorPollInterval=zySflowPortCollectorPollInterval, zyxelSflowPortTable=zyxelSflowPortTable, zyxelSflow=zyxelSflow, zyxelSflowSetup=zyxelSflowSetup, zyxelSflowPortCollectorTable=zyxelSflowPortCollectorTable, zySflowPortCollectorIpAddressType=zySflowPortCollectorIpAddressType, zyxelSflowPortEntry=zyxelSflowPortEntry, zySflowCollectorRowStatus=zySflowCollectorRowStatus, zySflowCollectorUdpPort=zySflowCollectorUdpPort, zyxelSflowCollectorEntry=zyxelSflowCollectorEntry, zyxelSflowCollectorTable=zyxelSflowCollectorTable, zySflowPortState=zySflowPortState, zySflowPortCollectorIpAddress=zySflowPortCollectorIpAddress, zySflowState=zySflowState, zySflowMaxNumberOfPortCollectors=zySflowMaxNumberOfPortCollectors, zySflowPortCollectorSampleRate=zySflowPortCollectorSampleRate, zyxelSflowPortCollectorEntry=zyxelSflowPortCollectorEntry, zySflowMaxNumberOfCollectors=zySflowMaxNumberOfCollectors, zySflowCollectorIpAddress=zySflowCollectorIpAddress, zySflowPortCollectorRowStatus=zySflowPortCollectorRowStatus, zySflowCollectorIpAddressType=zySflowCollectorIpAddressType, PYSNMP_MODULE_ID=zyxelSflow)

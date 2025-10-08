@@ -1,43 +1,33 @@
-_F='read-write'
-_E='ifIndex'
-_D='IF-MIB'
-_C='dot1dBasePort'
-_B='BRIDGE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_B,_C)
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelLoopGuard=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,45))
-_ZyxelLoopGuardSetup_ObjectIdentity=ObjectIdentity
-zyxelLoopGuardSetup=_ZyxelLoopGuardSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,45,1))
-_ZyLoopGuardState_Type=EnabledStatus
-_ZyLoopGuardState_Object=MibScalar
-zyLoopGuardState=_ZyLoopGuardState_Object((1,3,6,1,4,1,890,1,15,3,45,1,1),_ZyLoopGuardState_Type())
-zyLoopGuardState.setMaxAccess(_F)
-if mibBuilder.loadTexts:zyLoopGuardState.setStatus(_A)
-_ZyxelLoopGuardPortTable_Object=MibTable
-zyxelLoopGuardPortTable=_ZyxelLoopGuardPortTable_Object((1,3,6,1,4,1,890,1,15,3,45,1,2))
-if mibBuilder.loadTexts:zyxelLoopGuardPortTable.setStatus(_A)
-_ZyxelLoopGuardPortEntry_Object=MibTableRow
-zyxelLoopGuardPortEntry=_ZyxelLoopGuardPortEntry_Object((1,3,6,1,4,1,890,1,15,3,45,1,2,1))
-zyxelLoopGuardPortEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:zyxelLoopGuardPortEntry.setStatus(_A)
-_ZyLoopGuardPortState_Type=EnabledStatus
-_ZyLoopGuardPortState_Object=MibTableColumn
-zyLoopGuardPortState=_ZyLoopGuardPortState_Object((1,3,6,1,4,1,890,1,15,3,45,1,2,1,1),_ZyLoopGuardPortState_Type())
-zyLoopGuardPortState.setMaxAccess(_F)
-if mibBuilder.loadTexts:zyLoopGuardPortState.setStatus(_A)
-_ZyxelLoopGuardNotifications_ObjectIdentity=ObjectIdentity
-zyxelLoopGuardNotifications=_ZyxelLoopGuardNotifications_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,45,2))
-zyLoopGuardLoopDetect=NotificationType((1,3,6,1,4,1,890,1,15,3,45,2,1))
-zyLoopGuardLoopDetect.setObjects((_D,_E))
-if mibBuilder.loadTexts:zyLoopGuardLoopDetect.setStatus(_A)
-mibBuilder.exportSymbols('ZYXEL-LOOPGUARD-MIB',**{'zyxelLoopGuard':zyxelLoopGuard,'zyxelLoopGuardSetup':zyxelLoopGuardSetup,'zyLoopGuardState':zyLoopGuardState,'zyxelLoopGuardPortTable':zyxelLoopGuardPortTable,'zyxelLoopGuardPortEntry':zyxelLoopGuardPortEntry,'zyLoopGuardPortState':zyLoopGuardPortState,'zyxelLoopGuardNotifications':zyxelLoopGuardNotifications,'zyLoopGuardLoopDetect':zyLoopGuardLoopDetect})
+#
+# PySNMP MIB module ZYXEL-LOOPGUARD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-LOOPGUARD-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelLoopGuard = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 45))
+if mibBuilder.loadTexts: zyxelLoopGuard.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelLoopGuard.setOrganization('Enterprise Solution ZyXEL')
+zyxelLoopGuardSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 45, 1))
+zyxelLoopGuardNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 45, 2))
+zyLoopGuardState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 45, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyLoopGuardState.setStatus('current')
+zyxelLoopGuardPortTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 45, 1, 2), )
+if mibBuilder.loadTexts: zyxelLoopGuardPortTable.setStatus('current')
+zyxelLoopGuardPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 45, 1, 2, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: zyxelLoopGuardPortEntry.setStatus('current')
+zyLoopGuardPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 45, 1, 2, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyLoopGuardPortState.setStatus('current')
+zyLoopGuardLoopDetect = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 45, 2, 1)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: zyLoopGuardLoopDetect.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-LOOPGUARD-MIB", zyLoopGuardState=zyLoopGuardState, zyLoopGuardLoopDetect=zyLoopGuardLoopDetect, zyxelLoopGuard=zyxelLoopGuard, zyxelLoopGuardSetup=zyxelLoopGuardSetup, zyxelLoopGuardNotifications=zyxelLoopGuardNotifications, zyxelLoopGuardPortEntry=zyxelLoopGuardPortEntry, zyLoopGuardPortState=zyLoopGuardPortState, PYSNMP_MODULE_ID=zyxelLoopGuard, zyxelLoopGuardPortTable=zyxelLoopGuardPortTable)

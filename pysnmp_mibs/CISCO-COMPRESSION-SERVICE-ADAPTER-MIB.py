@@ -1,103 +1,55 @@
-_Q='csaMIBGroup'
-_P='csaEnable'
-_O='csaDecompressionRatio'
-_N='csaCompressionRatio'
-_M='csaNumberOfRestarts'
-_L='csaOutPacketsDrop'
-_K='csaInPacketsDrop'
-_J='csaOutPackets'
-_I='csaInPackets'
-_H='csaOutOctets'
-_G='csaInOctets'
-_F='cardIndex'
-_E='OLD-CISCO-CHASSIS-MIB'
-_D='Gauge32'
-_C='read-only'
-_B='CISCO-COMPRESSION-SERVICE-ADAPTER-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-cardIndex,=mibBuilder.importSymbols(_E,_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64',_D,'Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-ciscoCompressionServiceAdapterMIB=ModuleIdentity((1,3,6,1,4,1,9,9,57))
-_CiscoCSAMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoCSAMIBObjects=_CiscoCSAMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,57,1))
-_CsaStats_ObjectIdentity=ObjectIdentity
-csaStats=_CsaStats_ObjectIdentity((1,3,6,1,4,1,9,9,57,1,1))
-_CsaStatsTable_Object=MibTable
-csaStatsTable=_CsaStatsTable_Object((1,3,6,1,4,1,9,9,57,1,1,1))
-if mibBuilder.loadTexts:csaStatsTable.setStatus(_A)
-_CsaStatsEntry_Object=MibTableRow
-csaStatsEntry=_CsaStatsEntry_Object((1,3,6,1,4,1,9,9,57,1,1,1,1))
-csaStatsEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:csaStatsEntry.setStatus(_A)
-_CsaInOctets_Type=Counter32
-_CsaInOctets_Object=MibTableColumn
-csaInOctets=_CsaInOctets_Object((1,3,6,1,4,1,9,9,57,1,1,1,1,1),_CsaInOctets_Type())
-csaInOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:csaInOctets.setStatus(_A)
-_CsaOutOctets_Type=Counter32
-_CsaOutOctets_Object=MibTableColumn
-csaOutOctets=_CsaOutOctets_Object((1,3,6,1,4,1,9,9,57,1,1,1,1,2),_CsaOutOctets_Type())
-csaOutOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:csaOutOctets.setStatus(_A)
-_CsaInPackets_Type=Counter32
-_CsaInPackets_Object=MibTableColumn
-csaInPackets=_CsaInPackets_Object((1,3,6,1,4,1,9,9,57,1,1,1,1,3),_CsaInPackets_Type())
-csaInPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:csaInPackets.setStatus(_A)
-_CsaOutPackets_Type=Counter32
-_CsaOutPackets_Object=MibTableColumn
-csaOutPackets=_CsaOutPackets_Object((1,3,6,1,4,1,9,9,57,1,1,1,1,4),_CsaOutPackets_Type())
-csaOutPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:csaOutPackets.setStatus(_A)
-_CsaInPacketsDrop_Type=Counter32
-_CsaInPacketsDrop_Object=MibTableColumn
-csaInPacketsDrop=_CsaInPacketsDrop_Object((1,3,6,1,4,1,9,9,57,1,1,1,1,5),_CsaInPacketsDrop_Type())
-csaInPacketsDrop.setMaxAccess(_C)
-if mibBuilder.loadTexts:csaInPacketsDrop.setStatus(_A)
-_CsaOutPacketsDrop_Type=Counter32
-_CsaOutPacketsDrop_Object=MibTableColumn
-csaOutPacketsDrop=_CsaOutPacketsDrop_Object((1,3,6,1,4,1,9,9,57,1,1,1,1,6),_CsaOutPacketsDrop_Type())
-csaOutPacketsDrop.setMaxAccess(_C)
-if mibBuilder.loadTexts:csaOutPacketsDrop.setStatus(_A)
-_CsaNumberOfRestarts_Type=Counter32
-_CsaNumberOfRestarts_Object=MibTableColumn
-csaNumberOfRestarts=_CsaNumberOfRestarts_Object((1,3,6,1,4,1,9,9,57,1,1,1,1,7),_CsaNumberOfRestarts_Type())
-csaNumberOfRestarts.setMaxAccess(_C)
-if mibBuilder.loadTexts:csaNumberOfRestarts.setStatus(_A)
-class _CsaCompressionRatio_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_CsaCompressionRatio_Type.__name__=_D
-_CsaCompressionRatio_Object=MibTableColumn
-csaCompressionRatio=_CsaCompressionRatio_Object((1,3,6,1,4,1,9,9,57,1,1,1,1,8),_CsaCompressionRatio_Type())
-csaCompressionRatio.setMaxAccess(_C)
-if mibBuilder.loadTexts:csaCompressionRatio.setStatus(_A)
-class _CsaDecompressionRatio_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_CsaDecompressionRatio_Type.__name__=_D
-_CsaDecompressionRatio_Object=MibTableColumn
-csaDecompressionRatio=_CsaDecompressionRatio_Object((1,3,6,1,4,1,9,9,57,1,1,1,1,9),_CsaDecompressionRatio_Type())
-csaDecompressionRatio.setMaxAccess(_C)
-if mibBuilder.loadTexts:csaDecompressionRatio.setStatus(_A)
-_CsaEnable_Type=TruthValue
-_CsaEnable_Object=MibTableColumn
-csaEnable=_CsaEnable_Object((1,3,6,1,4,1,9,9,57,1,1,1,1,10),_CsaEnable_Type())
-csaEnable.setMaxAccess('read-write')
-if mibBuilder.loadTexts:csaEnable.setStatus(_A)
-_CiscoCSAMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoCSAMIBConformance=_CiscoCSAMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,57,3))
-_CsaMIBCompliances_ObjectIdentity=ObjectIdentity
-csaMIBCompliances=_CsaMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,57,3,1))
-_CsaMIBGroups_ObjectIdentity=ObjectIdentity
-csaMIBGroups=_CsaMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,57,3,2))
-csaMIBGroup=ObjectGroup((1,3,6,1,4,1,9,9,57,3,2,1))
-csaMIBGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:csaMIBGroup.setStatus(_A)
-csaMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,57,3,1,1))
-csaMIBCompliance.setObjects((_B,_Q))
-if mibBuilder.loadTexts:csaMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoCompressionServiceAdapterMIB':ciscoCompressionServiceAdapterMIB,'ciscoCSAMIBObjects':ciscoCSAMIBObjects,'csaStats':csaStats,'csaStatsTable':csaStatsTable,'csaStatsEntry':csaStatsEntry,_G:csaInOctets,_H:csaOutOctets,_I:csaInPackets,_J:csaOutPackets,_K:csaInPacketsDrop,_L:csaOutPacketsDrop,_M:csaNumberOfRestarts,_N:csaCompressionRatio,_O:csaDecompressionRatio,_P:csaEnable,'ciscoCSAMIBConformance':ciscoCSAMIBConformance,'csaMIBCompliances':csaMIBCompliances,'csaMIBCompliance':csaMIBCompliance,'csaMIBGroups':csaMIBGroups,_Q:csaMIBGroup})
+#
+# PySNMP MIB module CISCO-COMPRESSION-SERVICE-ADAPTER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-COMPRESSION-SERVICE-ADAPTER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+cardIndex, = mibBuilder.importSymbols("OLD-CISCO-CHASSIS-MIB", "cardIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ciscoCompressionServiceAdapterMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 57))
+if mibBuilder.loadTexts: ciscoCompressionServiceAdapterMIB.setLastUpdated('9608150000Z')
+if mibBuilder.loadTexts: ciscoCompressionServiceAdapterMIB.setOrganization('Cisco Systems, Inc.')
+ciscoCSAMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 57, 1))
+csaStats = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 57, 1, 1))
+csaStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 57, 1, 1, 1), )
+if mibBuilder.loadTexts: csaStatsTable.setStatus('current')
+csaStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 57, 1, 1, 1, 1), ).setIndexNames((0, "OLD-CISCO-CHASSIS-MIB", "cardIndex"))
+if mibBuilder.loadTexts: csaStatsEntry.setStatus('current')
+csaInOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 57, 1, 1, 1, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csaInOctets.setStatus('current')
+csaOutOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 57, 1, 1, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csaOutOctets.setStatus('current')
+csaInPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 57, 1, 1, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csaInPackets.setStatus('current')
+csaOutPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 57, 1, 1, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csaOutPackets.setStatus('current')
+csaInPacketsDrop = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 57, 1, 1, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csaInPacketsDrop.setStatus('current')
+csaOutPacketsDrop = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 57, 1, 1, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csaOutPacketsDrop.setStatus('current')
+csaNumberOfRestarts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 57, 1, 1, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csaNumberOfRestarts.setStatus('current')
+csaCompressionRatio = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 57, 1, 1, 1, 1, 8), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csaCompressionRatio.setStatus('current')
+csaDecompressionRatio = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 57, 1, 1, 1, 1, 9), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csaDecompressionRatio.setStatus('current')
+csaEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 57, 1, 1, 1, 1, 10), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csaEnable.setStatus('current')
+ciscoCSAMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 57, 3))
+csaMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 57, 3, 1))
+csaMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 57, 3, 2))
+csaMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 57, 3, 1, 1)).setObjects(("CISCO-COMPRESSION-SERVICE-ADAPTER-MIB", "csaMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    csaMIBCompliance = csaMIBCompliance.setStatus('current')
+csaMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 57, 3, 2, 1)).setObjects(("CISCO-COMPRESSION-SERVICE-ADAPTER-MIB", "csaInOctets"), ("CISCO-COMPRESSION-SERVICE-ADAPTER-MIB", "csaOutOctets"), ("CISCO-COMPRESSION-SERVICE-ADAPTER-MIB", "csaInPackets"), ("CISCO-COMPRESSION-SERVICE-ADAPTER-MIB", "csaOutPackets"), ("CISCO-COMPRESSION-SERVICE-ADAPTER-MIB", "csaInPacketsDrop"), ("CISCO-COMPRESSION-SERVICE-ADAPTER-MIB", "csaOutPacketsDrop"), ("CISCO-COMPRESSION-SERVICE-ADAPTER-MIB", "csaNumberOfRestarts"), ("CISCO-COMPRESSION-SERVICE-ADAPTER-MIB", "csaCompressionRatio"), ("CISCO-COMPRESSION-SERVICE-ADAPTER-MIB", "csaDecompressionRatio"), ("CISCO-COMPRESSION-SERVICE-ADAPTER-MIB", "csaEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    csaMIBGroup = csaMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-COMPRESSION-SERVICE-ADAPTER-MIB", ciscoCSAMIBConformance=ciscoCSAMIBConformance, csaOutPackets=csaOutPackets, csaEnable=csaEnable, csaMIBGroup=csaMIBGroup, csaInOctets=csaInOctets, csaOutOctets=csaOutOctets, csaInPacketsDrop=csaInPacketsDrop, csaMIBCompliance=csaMIBCompliance, ciscoCompressionServiceAdapterMIB=ciscoCompressionServiceAdapterMIB, csaNumberOfRestarts=csaNumberOfRestarts, csaMIBCompliances=csaMIBCompliances, csaInPackets=csaInPackets, csaStatsTable=csaStatsTable, csaStatsEntry=csaStatsEntry, csaOutPacketsDrop=csaOutPacketsDrop, csaMIBGroups=csaMIBGroups, csaDecompressionRatio=csaDecompressionRatio, csaCompressionRatio=csaCompressionRatio, csaStats=csaStats, PYSNMP_MODULE_ID=ciscoCompressionServiceAdapterMIB, ciscoCSAMIBObjects=ciscoCSAMIBObjects)

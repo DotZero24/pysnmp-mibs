@@ -1,80 +1,65 @@
-_K='aristaVrfInformationGroup'
-_J='aristaVrfIfMembership'
-_I='aristaVrfState'
-_H='aristaVrfRouteDistinguisher'
-_G='aristaVrfRoutingStatus'
-_F='aristaVrfName'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-only'
-_B='ARISTA-VRF-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-aristaMibs,=mibBuilder.importSymbols('ARISTA-SMI-MIB','aristaMibs')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-aristaVrfMIB=ModuleIdentity((1,3,6,1,4,1,30065,3,18))
-if mibBuilder.loadTexts:aristaVrfMIB.setRevisions(('2015-01-11 00:00',))
-class VrfName(TextualConvention,OctetString):status=_A;displayHint='100t';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,100))
-class VrfRouteDistinguisher(TextualConvention,OctetString):status=_A;displayHint='256a';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-class VrfState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('active',1),('inactive',2)))
-_AristaVrfMibObjects_ObjectIdentity=ObjectIdentity
-aristaVrfMibObjects=_AristaVrfMibObjects_ObjectIdentity((1,3,6,1,4,1,30065,3,18,1))
-_AristaVrfTable_Object=MibTable
-aristaVrfTable=_AristaVrfTable_Object((1,3,6,1,4,1,30065,3,18,1,1))
-if mibBuilder.loadTexts:aristaVrfTable.setStatus(_A)
-_AristaVrfEntry_Object=MibTableRow
-aristaVrfEntry=_AristaVrfEntry_Object((1,3,6,1,4,1,30065,3,18,1,1,1))
-aristaVrfEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:aristaVrfEntry.setStatus(_A)
-_AristaVrfName_Type=VrfName
-_AristaVrfName_Object=MibTableColumn
-aristaVrfName=_AristaVrfName_Object((1,3,6,1,4,1,30065,3,18,1,1,1,1),_AristaVrfName_Type())
-aristaVrfName.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:aristaVrfName.setStatus(_A)
-class _AristaVrfRoutingStatus_Type(Bits):namedValues=NamedValues(*(('ipv4',0),('ipv6',1)))
-_AristaVrfRoutingStatus_Type.__name__='Bits'
-_AristaVrfRoutingStatus_Object=MibTableColumn
-aristaVrfRoutingStatus=_AristaVrfRoutingStatus_Object((1,3,6,1,4,1,30065,3,18,1,1,1,2),_AristaVrfRoutingStatus_Type())
-aristaVrfRoutingStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaVrfRoutingStatus.setStatus(_A)
-_AristaVrfRouteDistinguisher_Type=VrfRouteDistinguisher
-_AristaVrfRouteDistinguisher_Object=MibTableColumn
-aristaVrfRouteDistinguisher=_AristaVrfRouteDistinguisher_Object((1,3,6,1,4,1,30065,3,18,1,1,1,3),_AristaVrfRouteDistinguisher_Type())
-aristaVrfRouteDistinguisher.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaVrfRouteDistinguisher.setStatus(_A)
-_AristaVrfState_Type=VrfState
-_AristaVrfState_Object=MibTableColumn
-aristaVrfState=_AristaVrfState_Object((1,3,6,1,4,1,30065,3,18,1,1,1,4),_AristaVrfState_Type())
-aristaVrfState.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaVrfState.setStatus(_A)
-_AristaVrfIfTable_Object=MibTable
-aristaVrfIfTable=_AristaVrfIfTable_Object((1,3,6,1,4,1,30065,3,18,1,2))
-if mibBuilder.loadTexts:aristaVrfIfTable.setStatus(_A)
-_AristaVrfIfEntry_Object=MibTableRow
-aristaVrfIfEntry=_AristaVrfIfEntry_Object((1,3,6,1,4,1,30065,3,18,1,2,1))
-aristaVrfIfEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:aristaVrfIfEntry.setStatus(_A)
-_AristaVrfIfMembership_Type=VrfName
-_AristaVrfIfMembership_Object=MibTableColumn
-aristaVrfIfMembership=_AristaVrfIfMembership_Object((1,3,6,1,4,1,30065,3,18,1,2,1,1),_AristaVrfIfMembership_Type())
-aristaVrfIfMembership.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaVrfIfMembership.setStatus(_A)
-_AristaVrfMibConformance_ObjectIdentity=ObjectIdentity
-aristaVrfMibConformance=_AristaVrfMibConformance_ObjectIdentity((1,3,6,1,4,1,30065,3,18,2))
-_AristaVrfMibCompliances_ObjectIdentity=ObjectIdentity
-aristaVrfMibCompliances=_AristaVrfMibCompliances_ObjectIdentity((1,3,6,1,4,1,30065,3,18,2,1))
-_AristaVrfMibGroups_ObjectIdentity=ObjectIdentity
-aristaVrfMibGroups=_AristaVrfMibGroups_ObjectIdentity((1,3,6,1,4,1,30065,3,18,2,2))
-aristaVrfInformationGroup=ObjectGroup((1,3,6,1,4,1,30065,3,18,2,2,1))
-aristaVrfInformationGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J)))
-if mibBuilder.loadTexts:aristaVrfInformationGroup.setStatus(_A)
-aristaVrfMibCompliance=ModuleCompliance((1,3,6,1,4,1,30065,3,18,2,1,1))
-aristaVrfMibCompliance.setObjects((_B,_K))
-if mibBuilder.loadTexts:aristaVrfMibCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'VrfName':VrfName,'VrfRouteDistinguisher':VrfRouteDistinguisher,'VrfState':VrfState,'aristaVrfMIB':aristaVrfMIB,'aristaVrfMibObjects':aristaVrfMibObjects,'aristaVrfTable':aristaVrfTable,'aristaVrfEntry':aristaVrfEntry,_F:aristaVrfName,_G:aristaVrfRoutingStatus,_H:aristaVrfRouteDistinguisher,_I:aristaVrfState,'aristaVrfIfTable':aristaVrfIfTable,'aristaVrfIfEntry':aristaVrfIfEntry,_J:aristaVrfIfMembership,'aristaVrfMibConformance':aristaVrfMibConformance,'aristaVrfMibCompliances':aristaVrfMibCompliances,'aristaVrfMibCompliance':aristaVrfMibCompliance,'aristaVrfMibGroups':aristaVrfMibGroups,_K:aristaVrfInformationGroup})
+#
+# PySNMP MIB module ARISTA-VRF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/arista/ARISTA-VRF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+aristaVrfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 18))
+aristaVrfMIB.setRevisions(('2015-01-11 00:00',))
+if mibBuilder.loadTexts: aristaVrfMIB.setLastUpdated('201501110000Z')
+if mibBuilder.loadTexts: aristaVrfMIB.setOrganization('Arista Networks, Inc.')
+aristaVrfMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 18, 1))
+aristaVrfMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 18, 2))
+class VrfName(TextualConvention, OctetString):
+    status = 'current'
+    displayHint = '100t'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 100)
+
+class VrfRouteDistinguisher(TextualConvention, OctetString):
+    reference = '[RFC4364]'
+    status = 'current'
+    displayHint = '256a'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 256)
+
+class VrfState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("active", 1), ("inactive", 2))
+
+aristaVrfTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 18, 1, 1), )
+if mibBuilder.loadTexts: aristaVrfTable.setStatus('current')
+aristaVrfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 18, 1, 1, 1), ).setIndexNames((0, "ARISTA-VRF-MIB", "aristaVrfName"))
+if mibBuilder.loadTexts: aristaVrfEntry.setStatus('current')
+aristaVrfName = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 18, 1, 1, 1, 1), VrfName())
+if mibBuilder.loadTexts: aristaVrfName.setStatus('current')
+aristaVrfRoutingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 18, 1, 1, 1, 2), Bits().clone(namedValues=NamedValues(("ipv4", 0), ("ipv6", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaVrfRoutingStatus.setStatus('current')
+aristaVrfRouteDistinguisher = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 18, 1, 1, 1, 3), VrfRouteDistinguisher()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaVrfRouteDistinguisher.setStatus('current')
+aristaVrfState = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 18, 1, 1, 1, 4), VrfState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaVrfState.setStatus('current')
+aristaVrfIfTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 18, 1, 2), )
+if mibBuilder.loadTexts: aristaVrfIfTable.setStatus('current')
+aristaVrfIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 18, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: aristaVrfIfEntry.setStatus('current')
+aristaVrfIfMembership = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 18, 1, 2, 1, 1), VrfName()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaVrfIfMembership.setStatus('current')
+aristaVrfMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 18, 2, 1))
+aristaVrfMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 18, 2, 2))
+aristaVrfMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 30065, 3, 18, 2, 1, 1)).setObjects(("ARISTA-VRF-MIB", "aristaVrfInformationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaVrfMibCompliance = aristaVrfMibCompliance.setStatus('current')
+aristaVrfInformationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 18, 2, 2, 1)).setObjects(("ARISTA-VRF-MIB", "aristaVrfRoutingStatus"), ("ARISTA-VRF-MIB", "aristaVrfRouteDistinguisher"), ("ARISTA-VRF-MIB", "aristaVrfState"), ("ARISTA-VRF-MIB", "aristaVrfIfMembership"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaVrfInformationGroup = aristaVrfInformationGroup.setStatus('current')
+mibBuilder.exportSymbols("ARISTA-VRF-MIB", aristaVrfIfEntry=aristaVrfIfEntry, PYSNMP_MODULE_ID=aristaVrfMIB, aristaVrfMibConformance=aristaVrfMibConformance, aristaVrfMIB=aristaVrfMIB, aristaVrfMibCompliance=aristaVrfMibCompliance, VrfState=VrfState, aristaVrfRouteDistinguisher=aristaVrfRouteDistinguisher, aristaVrfInformationGroup=aristaVrfInformationGroup, aristaVrfMibCompliances=aristaVrfMibCompliances, aristaVrfIfMembership=aristaVrfIfMembership, aristaVrfMibObjects=aristaVrfMibObjects, aristaVrfRoutingStatus=aristaVrfRoutingStatus, aristaVrfEntry=aristaVrfEntry, aristaVrfName=aristaVrfName, aristaVrfIfTable=aristaVrfIfTable, VrfRouteDistinguisher=VrfRouteDistinguisher, aristaVrfTable=aristaVrfTable, VrfName=VrfName, aristaVrfState=aristaVrfState, aristaVrfMibGroups=aristaVrfMibGroups)

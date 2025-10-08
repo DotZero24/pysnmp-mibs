@@ -1,96 +1,44 @@
-_M='local6'
-_L='local4'
-_K='local3'
-_J='local2'
-_I='local1'
-_H='local0'
-_G='auth-sec'
-_F='DisplayString'
-_E='enabled'
-_D='disable'
-_C='Integer32'
-_B='current'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-netscreenSetting,netscreenSettingMibModule=mibBuilder.importSymbols('NETSCREEN-SMI','netscreenSetting','netscreenSettingMibModule')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_F,'PhysAddress','TextualConvention')
-netscreenSetLogMibModule=ModuleIdentity((1,3,6,1,4,1,3224,7,0,8))
-if mibBuilder.loadTexts:netscreenSetLogMibModule.setRevisions(('2004-05-03 00:00','2004-03-03 00:00','2003-11-10 00:00','2001-09-28 00:00','2001-05-27 00:00'))
-_NsSetLog_ObjectIdentity=ObjectIdentity
-nsSetLog=_NsSetLog_ObjectIdentity((1,3,6,1,4,1,3224,7,8))
-class _NsSetLogEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_NsSetLogEnable_Type.__name__=_C
-_NsSetLogEnable_Object=MibScalar
-nsSetLogEnable=_NsSetLogEnable_Object((1,3,6,1,4,1,3224,7,8,1),_NsSetLogEnable_Type())
-nsSetLogEnable.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetLogEnable.setStatus(_B)
-class _NsSetLogVPNEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_NsSetLogVPNEnable_Type.__name__=_C
-_NsSetLogVPNEnable_Object=MibScalar
-nsSetLogVPNEnable=_NsSetLogVPNEnable_Object((1,3,6,1,4,1,3224,7,8,2),_NsSetLogVPNEnable_Type())
-nsSetLogVPNEnable.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetLogVPNEnable.setStatus(_B)
-class _NsSetLogTraffic_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_NsSetLogTraffic_Type.__name__=_C
-_NsSetLogTraffic_Object=MibScalar
-nsSetLogTraffic=_NsSetLogTraffic_Object((1,3,6,1,4,1,3224,7,8,3),_NsSetLogTraffic_Type())
-nsSetLogTraffic.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetLogTraffic.setStatus(_B)
-class _NsSetLogHostName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_NsSetLogHostName_Type.__name__=_F
-_NsSetLogHostName_Object=MibScalar
-nsSetLogHostName=_NsSetLogHostName_Object((1,3,6,1,4,1,3224,7,8,4),_NsSetLogHostName_Type())
-nsSetLogHostName.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetLogHostName.setStatus(_B)
-_NsSetLogPort_Type=Integer32
-_NsSetLogPort_Object=MibScalar
-nsSetLogPort=_NsSetLogPort_Object((1,3,6,1,4,1,3224,7,8,5),_NsSetLogPort_Type())
-nsSetLogPort.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetLogPort.setStatus(_B)
-class _NsSetLogSecFacility_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(4,16,17,18,19,20,21,22,23)));namedValues=NamedValues(*((_G,4),(_H,16),(_I,17),(_J,18),(_K,19),(_L,20),('local5',21),(_M,22),('local7',23)))
-_NsSetLogSecFacility_Type.__name__=_C
-_NsSetLogSecFacility_Object=MibScalar
-nsSetLogSecFacility=_NsSetLogSecFacility_Object((1,3,6,1,4,1,3224,7,8,6),_NsSetLogSecFacility_Type())
-nsSetLogSecFacility.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetLogSecFacility.setStatus(_B)
-class _NsSetLogFacility_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(4,16,17,18,19,20,21,22,23)));namedValues=NamedValues(*((_G,4),(_H,16),(_I,17),(_J,18),(_K,19),(_L,20),('lcoal5',21),(_M,22),('loca7',23)))
-_NsSetLogFacility_Type.__name__=_C
-_NsSetLogFacility_Object=MibScalar
-nsSetLogFacility=_NsSetLogFacility_Object((1,3,6,1,4,1,3224,7,8,7),_NsSetLogFacility_Type())
-nsSetLogFacility.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetLogFacility.setStatus(_B)
-class _NsSetLogLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7)));namedValues=NamedValues(*(('emergency',0),('aleart',1),('critical',2),('error',3),('warning',4),('notice',5),('info',6),('debug',7)))
-_NsSetLogLevel_Type.__name__=_C
-_NsSetLogLevel_Object=MibScalar
-nsSetLogLevel=_NsSetLogLevel_Object((1,3,6,1,4,1,3224,7,8,8),_NsSetLogLevel_Type())
-nsSetLogLevel.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetLogLevel.setStatus(_B)
-class _NsSetLogWebTrendsEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_NsSetLogWebTrendsEnable_Type.__name__=_C
-_NsSetLogWebTrendsEnable_Object=MibScalar
-nsSetLogWebTrendsEnable=_NsSetLogWebTrendsEnable_Object((1,3,6,1,4,1,3224,7,8,9),_NsSetLogWebTrendsEnable_Type())
-nsSetLogWebTrendsEnable.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetLogWebTrendsEnable.setStatus(_B)
-class _NsSetLogWebTrendsVPNEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_NsSetLogWebTrendsVPNEnable_Type.__name__=_C
-_NsSetLogWebTrendsVPNEnable_Object=MibScalar
-nsSetLogWebTrendsVPNEnable=_NsSetLogWebTrendsVPNEnable_Object((1,3,6,1,4,1,3224,7,8,10),_NsSetLogWebTrendsVPNEnable_Type())
-nsSetLogWebTrendsVPNEnable.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetLogWebTrendsVPNEnable.setStatus(_B)
-class _NsSetLogWebTrendsHostName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_NsSetLogWebTrendsHostName_Type.__name__=_F
-_NsSetLogWebTrendsHostName_Object=MibScalar
-nsSetLogWebTrendsHostName=_NsSetLogWebTrendsHostName_Object((1,3,6,1,4,1,3224,7,8,11),_NsSetLogWebTrendsHostName_Type())
-nsSetLogWebTrendsHostName.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetLogWebTrendsHostName.setStatus(_B)
-_NsSetLogWebTrendsPort_Type=Integer32
-_NsSetLogWebTrendsPort_Object=MibScalar
-nsSetLogWebTrendsPort=_NsSetLogWebTrendsPort_Object((1,3,6,1,4,1,3224,7,8,12),_NsSetLogWebTrendsPort_Type())
-nsSetLogWebTrendsPort.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetLogWebTrendsPort.setStatus(_B)
-mibBuilder.exportSymbols('NETSCREEN-SET-LOG-MIB',**{'netscreenSetLogMibModule':netscreenSetLogMibModule,'nsSetLog':nsSetLog,'nsSetLogEnable':nsSetLogEnable,'nsSetLogVPNEnable':nsSetLogVPNEnable,'nsSetLogTraffic':nsSetLogTraffic,'nsSetLogHostName':nsSetLogHostName,'nsSetLogPort':nsSetLogPort,'nsSetLogSecFacility':nsSetLogSecFacility,'nsSetLogFacility':nsSetLogFacility,'nsSetLogLevel':nsSetLogLevel,'nsSetLogWebTrendsEnable':nsSetLogWebTrendsEnable,'nsSetLogWebTrendsVPNEnable':nsSetLogWebTrendsVPNEnable,'nsSetLogWebTrendsHostName':nsSetLogWebTrendsHostName,'nsSetLogWebTrendsPort':nsSetLogWebTrendsPort})
+#
+# PySNMP MIB module NETSCREEN-SET-LOG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netscreen/NETSCREEN-SET-LOG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+netscreenSetting, netscreenSettingMibModule = mibBuilder.importSymbols("NETSCREEN-SMI", "netscreenSetting", "netscreenSettingMibModule")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+netscreenSetLogMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3224, 7, 0, 8))
+netscreenSetLogMibModule.setRevisions(('2004-05-03 00:00', '2004-03-03 00:00', '2003-11-10 00:00', '2001-09-28 00:00', '2001-05-27 00:00',))
+if mibBuilder.loadTexts: netscreenSetLogMibModule.setLastUpdated('200405032022Z')
+if mibBuilder.loadTexts: netscreenSetLogMibModule.setOrganization('Juniper Networks, Inc.')
+nsSetLog = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 7, 8))
+nsSetLogEnable = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 8, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetLogEnable.setStatus('current')
+nsSetLogVPNEnable = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 8, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetLogVPNEnable.setStatus('current')
+nsSetLogTraffic = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 8, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetLogTraffic.setStatus('current')
+nsSetLogHostName = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 8, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetLogHostName.setStatus('current')
+nsSetLogPort = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 8, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetLogPort.setStatus('current')
+nsSetLogSecFacility = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 8, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(16, 17, 18, 19, 20, 21, 22, 23, 4))).clone(namedValues=NamedValues(("local0", 16), ("local1", 17), ("local2", 18), ("local3", 19), ("local4", 20), ("local5", 21), ("local6", 22), ("local7", 23), ("auth-sec", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetLogSecFacility.setStatus('current')
+nsSetLogFacility = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 8, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(16, 17, 18, 19, 20, 21, 22, 23, 4))).clone(namedValues=NamedValues(("local0", 16), ("local1", 17), ("local2", 18), ("local3", 19), ("local4", 20), ("lcoal5", 21), ("local6", 22), ("loca7", 23), ("auth-sec", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetLogFacility.setStatus('current')
+nsSetLogLevel = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 8, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("aleart", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetLogLevel.setStatus('current')
+nsSetLogWebTrendsEnable = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 8, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetLogWebTrendsEnable.setStatus('current')
+nsSetLogWebTrendsVPNEnable = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 8, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetLogWebTrendsVPNEnable.setStatus('current')
+nsSetLogWebTrendsHostName = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 8, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetLogWebTrendsHostName.setStatus('current')
+nsSetLogWebTrendsPort = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 8, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetLogWebTrendsPort.setStatus('current')
+mibBuilder.exportSymbols("NETSCREEN-SET-LOG-MIB", nsSetLogFacility=nsSetLogFacility, nsSetLogWebTrendsVPNEnable=nsSetLogWebTrendsVPNEnable, nsSetLogTraffic=nsSetLogTraffic, nsSetLogWebTrendsEnable=nsSetLogWebTrendsEnable, PYSNMP_MODULE_ID=netscreenSetLogMibModule, netscreenSetLogMibModule=netscreenSetLogMibModule, nsSetLogHostName=nsSetLogHostName, nsSetLogPort=nsSetLogPort, nsSetLogSecFacility=nsSetLogSecFacility, nsSetLogVPNEnable=nsSetLogVPNEnable, nsSetLogLevel=nsSetLogLevel, nsSetLog=nsSetLog, nsSetLogEnable=nsSetLogEnable, nsSetLogWebTrendsHostName=nsSetLogWebTrendsHostName, nsSetLogWebTrendsPort=nsSetLogWebTrendsPort)

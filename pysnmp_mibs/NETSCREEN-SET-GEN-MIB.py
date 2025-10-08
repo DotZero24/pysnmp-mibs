@@ -1,66 +1,36 @@
-_F='enabled'
-_E='disable'
-_D='Integer32'
-_C='DisplayString'
-_B='current'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-netscreenSetting,netscreenSettingMibModule=mibBuilder.importSymbols('NETSCREEN-SMI','netscreenSetting','netscreenSettingMibModule')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_C,'PhysAddress','TextualConvention')
-netscreenSetGenMibModule=ModuleIdentity((1,3,6,1,4,1,3224,7,0,1))
-if mibBuilder.loadTexts:netscreenSetGenMibModule.setRevisions(('2005-08-12 00:00','2004-05-03 00:00','2004-03-03 00:00','2003-11-10 00:00','2001-09-28 00:00','2001-05-27 00:00'))
-_NsSetGeneral_ObjectIdentity=ObjectIdentity
-nsSetGeneral=_NsSetGeneral_ObjectIdentity((1,3,6,1,4,1,3224,7,1))
-_NsSetGenSysIp_Type=IpAddress
-_NsSetGenSysIp_Object=MibScalar
-nsSetGenSysIp=_NsSetGenSysIp_Object((1,3,6,1,4,1,3224,7,1,1),_NsSetGenSysIp_Type())
-nsSetGenSysIp.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetGenSysIp.setStatus('obsolete')
-class _NsSetGenHostName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_NsSetGenHostName_Type.__name__=_C
-_NsSetGenHostName_Object=MibScalar
-nsSetGenHostName=_NsSetGenHostName_Object((1,3,6,1,4,1,3224,7,1,2),_NsSetGenHostName_Type())
-nsSetGenHostName.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetGenHostName.setStatus(_B)
-class _NsSetGenDomain_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_NsSetGenDomain_Type.__name__=_C
-_NsSetGenDomain_Object=MibScalar
-nsSetGenDomain=_NsSetGenDomain_Object((1,3,6,1,4,1,3224,7,1,3),_NsSetGenDomain_Type())
-nsSetGenDomain.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetGenDomain.setStatus(_B)
-class _NsSetGenOpMode_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_NsSetGenOpMode_Type.__name__=_C
-_NsSetGenOpMode_Object=MibScalar
-nsSetGenOpMode=_NsSetGenOpMode_Object((1,3,6,1,4,1,3224,7,1,4),_NsSetGenOpMode_Type())
-nsSetGenOpMode.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetGenOpMode.setStatus(_B)
-class _NsSetGenSwVer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_NsSetGenSwVer_Type.__name__=_C
-_NsSetGenSwVer_Object=MibScalar
-nsSetGenSwVer=_NsSetGenSwVer_Object((1,3,6,1,4,1,3224,7,1,5),_NsSetGenSwVer_Type())
-nsSetGenSwVer.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetGenSwVer.setStatus(_B)
-class _NsSetGenLicInfo_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_NsSetGenLicInfo_Type.__name__=_C
-_NsSetGenLicInfo_Object=MibScalar
-nsSetGenLicInfo=_NsSetGenLicInfo_Object((1,3,6,1,4,1,3224,7,1,6),_NsSetGenLicInfo_Type())
-nsSetGenLicInfo.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetGenLicInfo.setStatus(_B)
-class _NsSetGenSCSAdminEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_E,0),(_F,1)))
-_NsSetGenSCSAdminEnable_Type.__name__=_D
-_NsSetGenSCSAdminEnable_Object=MibScalar
-nsSetGenSCSAdminEnable=_NsSetGenSCSAdminEnable_Object((1,3,6,1,4,1,3224,7,1,7),_NsSetGenSCSAdminEnable_Type())
-nsSetGenSCSAdminEnable.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetGenSCSAdminEnable.setStatus(_B)
-class _NsSetGenDropSelfLogPac_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_E,0),(_F,1)))
-_NsSetGenDropSelfLogPac_Type.__name__=_D
-_NsSetGenDropSelfLogPac_Object=MibScalar
-nsSetGenDropSelfLogPac=_NsSetGenDropSelfLogPac_Object((1,3,6,1,4,1,3224,7,1,8),_NsSetGenDropSelfLogPac_Type())
-nsSetGenDropSelfLogPac.setMaxAccess(_A)
-if mibBuilder.loadTexts:nsSetGenDropSelfLogPac.setStatus(_B)
-mibBuilder.exportSymbols('NETSCREEN-SET-GEN-MIB',**{'netscreenSetGenMibModule':netscreenSetGenMibModule,'nsSetGeneral':nsSetGeneral,'nsSetGenSysIp':nsSetGenSysIp,'nsSetGenHostName':nsSetGenHostName,'nsSetGenDomain':nsSetGenDomain,'nsSetGenOpMode':nsSetGenOpMode,'nsSetGenSwVer':nsSetGenSwVer,'nsSetGenLicInfo':nsSetGenLicInfo,'nsSetGenSCSAdminEnable':nsSetGenSCSAdminEnable,'nsSetGenDropSelfLogPac':nsSetGenDropSelfLogPac})
+#
+# PySNMP MIB module NETSCREEN-SET-GEN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netscreen/NETSCREEN-SET-GEN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+netscreenSetting, netscreenSettingMibModule = mibBuilder.importSymbols("NETSCREEN-SMI", "netscreenSetting", "netscreenSettingMibModule")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+netscreenSetGenMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3224, 7, 0, 1))
+netscreenSetGenMibModule.setRevisions(('2005-08-12 00:00', '2004-05-03 00:00', '2004-03-03 00:00', '2003-11-10 00:00', '2001-09-28 00:00', '2001-05-27 00:00',))
+if mibBuilder.loadTexts: netscreenSetGenMibModule.setLastUpdated('200405032022Z')
+if mibBuilder.loadTexts: netscreenSetGenMibModule.setOrganization('Juniper Networks, Inc.')
+nsSetGeneral = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 7, 1))
+nsSetGenSysIp = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetGenSysIp.setStatus('obsolete')
+nsSetGenHostName = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetGenHostName.setStatus('current')
+nsSetGenDomain = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetGenDomain.setStatus('current')
+nsSetGenOpMode = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetGenOpMode.setStatus('current')
+nsSetGenSwVer = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetGenSwVer.setStatus('current')
+nsSetGenLicInfo = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetGenLicInfo.setStatus('current')
+nsSetGenSCSAdminEnable = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetGenSCSAdminEnable.setStatus('current')
+nsSetGenDropSelfLogPac = MibScalar((1, 3, 6, 1, 4, 1, 3224, 7, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsSetGenDropSelfLogPac.setStatus('current')
+mibBuilder.exportSymbols("NETSCREEN-SET-GEN-MIB", nsSetGenHostName=nsSetGenHostName, nsSetGenDropSelfLogPac=nsSetGenDropSelfLogPac, nsSetGenSysIp=nsSetGenSysIp, nsSetGenSCSAdminEnable=nsSetGenSCSAdminEnable, nsSetGeneral=nsSetGeneral, nsSetGenOpMode=nsSetGenOpMode, PYSNMP_MODULE_ID=netscreenSetGenMibModule, nsSetGenSwVer=nsSetGenSwVer, netscreenSetGenMibModule=netscreenSetGenMibModule, nsSetGenDomain=nsSetGenDomain, nsSetGenLicInfo=nsSetGenLicInfo)

@@ -1,34 +1,27 @@
-_D='decodeType'
-_C='CISCO-DMN-DSG-DECODE-ENABLE-MIB'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoDSGUtilities,=mibBuilder.importSymbols('CISCO-DMN-DSG-ROOT-MIB','ciscoDSGUtilities')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoDSGDecodeEnable=ModuleIdentity((1,3,6,1,4,1,1429,2,2,5,13))
-if mibBuilder.loadTexts:ciscoDSGDecodeEnable.setRevisions(('2010-08-30 06:00','2009-12-07 12:00'))
-_DecodeEnableTable_Object=MibTable
-decodeEnableTable=_DecodeEnableTable_Object((1,3,6,1,4,1,1429,2,2,5,13,1))
-if mibBuilder.loadTexts:decodeEnableTable.setStatus(_A)
-_DecodeEnableEntry_Object=MibTableRow
-decodeEnableEntry=_DecodeEnableEntry_Object((1,3,6,1,4,1,1429,2,2,5,13,1,1))
-decodeEnableEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:decodeEnableEntry.setStatus(_A)
-class _DecodeType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14)));namedValues=NamedValues(*(('video',1),('audio1',2),('audio2',3),('audio3',4),('audio4',5),('vbi',6),('data',7),('mpe1',8),('mpe2',9),('mpe3',10),('mpe4',11),('mpe5',12),('stt',13),('dpi',14)))
-_DecodeType_Type.__name__=_B
-_DecodeType_Object=MibTableColumn
-decodeType=_DecodeType_Object((1,3,6,1,4,1,1429,2,2,5,13,1,1,1),_DecodeType_Type())
-decodeType.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:decodeType.setStatus(_A)
-class _DecodeEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('no',1),('yes',2)))
-_DecodeEnable_Type.__name__=_B
-_DecodeEnable_Object=MibTableColumn
-decodeEnable=_DecodeEnable_Object((1,3,6,1,4,1,1429,2,2,5,13,1,1,2),_DecodeEnable_Type())
-decodeEnable.setMaxAccess('read-write')
-if mibBuilder.loadTexts:decodeEnable.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'ciscoDSGDecodeEnable':ciscoDSGDecodeEnable,'decodeEnableTable':decodeEnableTable,'decodeEnableEntry':decodeEnableEntry,_D:decodeType,'decodeEnable':decodeEnable})
+#
+# PySNMP MIB module CISCO-DMN-DSG-DECODE-ENABLE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-DMN-DSG-DECODE-ENABLE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoDSGUtilities, = mibBuilder.importSymbols("CISCO-DMN-DSG-ROOT-MIB", "ciscoDSGUtilities")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoDSGDecodeEnable = ModuleIdentity((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 13))
+ciscoDSGDecodeEnable.setRevisions(('2010-08-30 06:00', '2009-12-07 12:00',))
+if mibBuilder.loadTexts: ciscoDSGDecodeEnable.setLastUpdated('201008300600Z')
+if mibBuilder.loadTexts: ciscoDSGDecodeEnable.setOrganization('Cisco Systems, Inc.')
+decodeEnableTable = MibTable((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 13, 1), )
+if mibBuilder.loadTexts: decodeEnableTable.setStatus('current')
+decodeEnableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 13, 1, 1), ).setIndexNames((0, "CISCO-DMN-DSG-DECODE-ENABLE-MIB", "decodeType"))
+if mibBuilder.loadTexts: decodeEnableEntry.setStatus('current')
+decodeType = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 13, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("video", 1), ("audio1", 2), ("audio2", 3), ("audio3", 4), ("audio4", 5), ("vbi", 6), ("data", 7), ("mpe1", 8), ("mpe2", 9), ("mpe3", 10), ("mpe4", 11), ("mpe5", 12), ("stt", 13), ("dpi", 14))))
+if mibBuilder.loadTexts: decodeType.setStatus('current')
+decodeEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 13, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: decodeEnable.setStatus('current')
+mibBuilder.exportSymbols("CISCO-DMN-DSG-DECODE-ENABLE-MIB", PYSNMP_MODULE_ID=ciscoDSGDecodeEnable, decodeEnableTable=decodeEnableTable, decodeEnableEntry=decodeEnableEntry, decodeType=decodeType, ciscoDSGDecodeEnable=ciscoDSGDecodeEnable, decodeEnable=decodeEnable)

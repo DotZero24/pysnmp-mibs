@@ -1,95 +1,49 @@
-_H='read-only'
-_G='extremeDosIfIndex'
-_F='extremeDosAlertLevel'
-_E='EXTREME-DOS-MIB'
-_D='TruthValue'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-extremeAgent,extremeV2Traps,extremenetworks=mibBuilder.importSymbols('EXTREME-BASE-MIB','extremeAgent','extremeV2Traps','extremenetworks')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_D)
-extremeDosMib=ModuleIdentity((1,3,6,1,4,1,1916,1,28))
-_ExtremeDosProtect_ObjectIdentity=ObjectIdentity
-extremeDosProtect=_ExtremeDosProtect_ObjectIdentity((1,3,6,1,4,1,1916,1,28,1))
-class _ExtremeDosEnable_Type(TruthValue):defaultValue=2
-_ExtremeDosEnable_Type.__name__=_D
-_ExtremeDosEnable_Object=MibScalar
-extremeDosEnable=_ExtremeDosEnable_Object((1,3,6,1,4,1,1916,1,28,1,1),_ExtremeDosEnable_Type())
-extremeDosEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeDosEnable.setStatus(_A)
-class _ExtremeDosNoticeLevel_Type(Integer32):defaultValue=4000;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(150,100000))
-_ExtremeDosNoticeLevel_Type.__name__=_C
-_ExtremeDosNoticeLevel_Object=MibScalar
-extremeDosNoticeLevel=_ExtremeDosNoticeLevel_Object((1,3,6,1,4,1,1916,1,28,1,2),_ExtremeDosNoticeLevel_Type())
-extremeDosNoticeLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeDosNoticeLevel.setStatus(_A)
-class _ExtremeDosAlertLevel_Type(Integer32):defaultValue=4000;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(150,100000))
-_ExtremeDosAlertLevel_Type.__name__=_C
-_ExtremeDosAlertLevel_Object=MibScalar
-extremeDosAlertLevel=_ExtremeDosAlertLevel_Object((1,3,6,1,4,1,1916,1,28,1,3),_ExtremeDosAlertLevel_Type())
-extremeDosAlertLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeDosAlertLevel.setStatus(_A)
-class _ExtremeDosFilterType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('destination',1),('source',2),('destinationAndSource',3)))
-_ExtremeDosFilterType_Type.__name__=_C
-_ExtremeDosFilterType_Object=MibScalar
-extremeDosFilterType=_ExtremeDosFilterType_Object((1,3,6,1,4,1,1916,1,28,1,4),_ExtremeDosFilterType_Type())
-extremeDosFilterType.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeDosFilterType.setStatus(_A)
-class _ExtremeDosAclTimeout_Type(Integer32):defaultValue=15;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,300))
-_ExtremeDosAclTimeout_Type.__name__=_C
-_ExtremeDosAclTimeout_Object=MibScalar
-extremeDosAclTimeout=_ExtremeDosAclTimeout_Object((1,3,6,1,4,1,1916,1,28,1,5),_ExtremeDosAclTimeout_Type())
-extremeDosAclTimeout.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeDosAclTimeout.setStatus(_A)
-class _ExtremeDosAclRulePrecedence_Type(Integer32):defaultValue=10;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,25588))
-_ExtremeDosAclRulePrecedence_Type.__name__=_C
-_ExtremeDosAclRulePrecedence_Object=MibScalar
-extremeDosAclRulePrecedence=_ExtremeDosAclRulePrecedence_Object((1,3,6,1,4,1,1916,1,28,1,6),_ExtremeDosAclRulePrecedence_Type())
-extremeDosAclRulePrecedence.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeDosAclRulePrecedence.setStatus(_A)
-class _ExtremeDosMessagesEnable_Type(TruthValue):defaultValue=1
-_ExtremeDosMessagesEnable_Type.__name__=_D
-_ExtremeDosMessagesEnable_Object=MibScalar
-extremeDosMessagesEnable=_ExtremeDosMessagesEnable_Object((1,3,6,1,4,1,1916,1,28,1,7),_ExtremeDosMessagesEnable_Type())
-extremeDosMessagesEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeDosMessagesEnable.setStatus(_A)
-_ExtremeDosPortTable_Object=MibTable
-extremeDosPortTable=_ExtremeDosPortTable_Object((1,3,6,1,4,1,1916,1,28,1,8))
-if mibBuilder.loadTexts:extremeDosPortTable.setStatus(_A)
-_ExtremeDosPortEntry_Object=MibTableRow
-extremeDosPortEntry=_ExtremeDosPortEntry_Object((1,3,6,1,4,1,1916,1,28,1,8,1))
-extremeDosPortEntry.setIndexNames((0,_E,_G))
-if mibBuilder.loadTexts:extremeDosPortEntry.setStatus(_A)
-_ExtremeDosIfIndex_Type=Integer32
-_ExtremeDosIfIndex_Object=MibTableColumn
-extremeDosIfIndex=_ExtremeDosIfIndex_Object((1,3,6,1,4,1,1916,1,28,1,8,1,1),_ExtremeDosIfIndex_Type())
-extremeDosIfIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:extremeDosIfIndex.setStatus(_A)
-class _ExtremeDosPortTrusted_Type(TruthValue):defaultValue=2
-_ExtremeDosPortTrusted_Type.__name__=_D
-_ExtremeDosPortTrusted_Object=MibTableColumn
-extremeDosPortTrusted=_ExtremeDosPortTrusted_Object((1,3,6,1,4,1,1916,1,28,1,8,1,2),_ExtremeDosPortTrusted_Type())
-extremeDosPortTrusted.setMaxAccess('read-create')
-if mibBuilder.loadTexts:extremeDosPortTrusted.setStatus(_A)
-_ExtremeDosIsDosActive_Type=TruthValue
-_ExtremeDosIsDosActive_Object=MibTableColumn
-extremeDosIsDosActive=_ExtremeDosIsDosActive_Object((1,3,6,1,4,1,1916,1,28,1,8,1,3),_ExtremeDosIsDosActive_Type())
-extremeDosIsDosActive.setMaxAccess(_H)
-if mibBuilder.loadTexts:extremeDosIsDosActive.setStatus(_A)
-_ExtremeDosTraps_ObjectIdentity=ObjectIdentity
-extremeDosTraps=_ExtremeDosTraps_ObjectIdentity((1,3,6,1,4,1,1916,4,14))
-_ExtremeDosTrapsPrefix_ObjectIdentity=ObjectIdentity
-extremeDosTrapsPrefix=_ExtremeDosTrapsPrefix_ObjectIdentity((1,3,6,1,4,1,1916,4,14,0))
-extremeDosThresholdCleared=NotificationType((1,3,6,1,4,1,1916,4,14,0,1))
-extremeDosThresholdCleared.setObjects((_E,_F))
-if mibBuilder.loadTexts:extremeDosThresholdCleared.setStatus(_A)
-extremeDosThresholdReached=NotificationType((1,3,6,1,4,1,1916,4,14,0,2))
-extremeDosThresholdReached.setObjects((_E,_F))
-if mibBuilder.loadTexts:extremeDosThresholdReached.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'extremeDosMib':extremeDosMib,'extremeDosProtect':extremeDosProtect,'extremeDosEnable':extremeDosEnable,'extremeDosNoticeLevel':extremeDosNoticeLevel,_F:extremeDosAlertLevel,'extremeDosFilterType':extremeDosFilterType,'extremeDosAclTimeout':extremeDosAclTimeout,'extremeDosAclRulePrecedence':extremeDosAclRulePrecedence,'extremeDosMessagesEnable':extremeDosMessagesEnable,'extremeDosPortTable':extremeDosPortTable,'extremeDosPortEntry':extremeDosPortEntry,_G:extremeDosIfIndex,'extremeDosPortTrusted':extremeDosPortTrusted,'extremeDosIsDosActive':extremeDosIsDosActive,'extremeDosTraps':extremeDosTraps,'extremeDosTrapsPrefix':extremeDosTrapsPrefix,'extremeDosThresholdCleared':extremeDosThresholdCleared,'extremeDosThresholdReached':extremeDosThresholdReached})
+#
+# PySNMP MIB module EXTREME-DOS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/extreme/EXTREME-DOS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+extremeAgent, extremeV2Traps, extremenetworks = mibBuilder.importSymbols("EXTREME-BASE-MIB", "extremeAgent", "extremeV2Traps", "extremenetworks")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+extremeDosMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 1916, 1, 28))
+if mibBuilder.loadTexts: extremeDosMib.setLastUpdated('0401020000Z')
+if mibBuilder.loadTexts: extremeDosMib.setOrganization('Extreme Networks, Inc.')
+extremeDosProtect = MibIdentifier((1, 3, 6, 1, 4, 1, 1916, 1, 28, 1))
+extremeDosEnable = MibScalar((1, 3, 6, 1, 4, 1, 1916, 1, 28, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: extremeDosEnable.setStatus('current')
+extremeDosNoticeLevel = MibScalar((1, 3, 6, 1, 4, 1, 1916, 1, 28, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(150, 100000)).clone(4000)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: extremeDosNoticeLevel.setStatus('current')
+extremeDosAlertLevel = MibScalar((1, 3, 6, 1, 4, 1, 1916, 1, 28, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(150, 100000)).clone(4000)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: extremeDosAlertLevel.setStatus('current')
+extremeDosFilterType = MibScalar((1, 3, 6, 1, 4, 1, 1916, 1, 28, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("destination", 1), ("source", 2), ("destinationAndSource", 3))).clone('destination')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: extremeDosFilterType.setStatus('current')
+extremeDosAclTimeout = MibScalar((1, 3, 6, 1, 4, 1, 1916, 1, 28, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(2, 300)).clone(15)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: extremeDosAclTimeout.setStatus('current')
+extremeDosAclRulePrecedence = MibScalar((1, 3, 6, 1, 4, 1, 1916, 1, 28, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 25588)).clone(10)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: extremeDosAclRulePrecedence.setStatus('current')
+extremeDosMessagesEnable = MibScalar((1, 3, 6, 1, 4, 1, 1916, 1, 28, 1, 7), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: extremeDosMessagesEnable.setStatus('current')
+extremeDosPortTable = MibTable((1, 3, 6, 1, 4, 1, 1916, 1, 28, 1, 8), )
+if mibBuilder.loadTexts: extremeDosPortTable.setStatus('current')
+extremeDosPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1916, 1, 28, 1, 8, 1), ).setIndexNames((0, "EXTREME-DOS-MIB", "extremeDosIfIndex"))
+if mibBuilder.loadTexts: extremeDosPortEntry.setStatus('current')
+extremeDosIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 28, 1, 8, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeDosIfIndex.setStatus('current')
+extremeDosPortTrusted = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 28, 1, 8, 1, 2), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: extremeDosPortTrusted.setStatus('current')
+extremeDosIsDosActive = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 28, 1, 8, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeDosIsDosActive.setStatus('current')
+extremeDosTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1916, 4, 14))
+extremeDosTrapsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 1916, 4, 14, 0))
+extremeDosThresholdCleared = NotificationType((1, 3, 6, 1, 4, 1, 1916, 4, 14, 0, 1)).setObjects(("EXTREME-DOS-MIB", "extremeDosAlertLevel"))
+if mibBuilder.loadTexts: extremeDosThresholdCleared.setStatus('current')
+extremeDosThresholdReached = NotificationType((1, 3, 6, 1, 4, 1, 1916, 4, 14, 0, 2)).setObjects(("EXTREME-DOS-MIB", "extremeDosAlertLevel"))
+if mibBuilder.loadTexts: extremeDosThresholdReached.setStatus('current')
+mibBuilder.exportSymbols("EXTREME-DOS-MIB", extremeDosTraps=extremeDosTraps, PYSNMP_MODULE_ID=extremeDosMib, extremeDosPortTable=extremeDosPortTable, extremeDosNoticeLevel=extremeDosNoticeLevel, extremeDosTrapsPrefix=extremeDosTrapsPrefix, extremeDosPortEntry=extremeDosPortEntry, extremeDosProtect=extremeDosProtect, extremeDosIfIndex=extremeDosIfIndex, extremeDosFilterType=extremeDosFilterType, extremeDosAclRulePrecedence=extremeDosAclRulePrecedence, extremeDosPortTrusted=extremeDosPortTrusted, extremeDosThresholdReached=extremeDosThresholdReached, extremeDosIsDosActive=extremeDosIsDosActive, extremeDosMessagesEnable=extremeDosMessagesEnable, extremeDosThresholdCleared=extremeDosThresholdCleared, extremeDosEnable=extremeDosEnable, extremeDosMib=extremeDosMib, extremeDosAlertLevel=extremeDosAlertLevel, extremeDosAclTimeout=extremeDosAclTimeout)

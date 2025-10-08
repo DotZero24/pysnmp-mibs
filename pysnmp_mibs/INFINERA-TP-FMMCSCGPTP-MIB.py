@@ -1,220 +1,102 @@
-_i='fmmC12ScgPtpGroup'
-_h='fmmC5ScgPtpGroup'
-_g='fmmC12ScgPtpRxPowerOffset'
-_f='fmmC12ScgPtpPassiveMirrorProvNeighborTP'
-_e='fmmC12ScgPtpAvailableFreqSlotList'
-_d='fmmC12ScgPtpUsedFreqSlotList'
-_c='fmmC12ScgPtpPmHistStatsEnable'
-_b='fmmC12ScgPtpProvisionedNeighborAdTpType'
-_a='fmmC12ScgPtpProvisionedNeighborTP'
-_Z='fmmC12ScgPtpInterfaceType'
-_Y='fmmC12ScgPtpDiscoveredNeighborTP'
-_X='fmmC12ScgPtpAutoDiscoveryState'
-_W='fmmC12ScgPtpScgSupEqptType'
-_V='fmmC12ScgPtpScgNumber'
-_U='fmmC5ScgPtpRxPowerOffset'
-_T='fmmC5ScgPtpPassiveMirrorProvNeighborTP'
-_S='fmmC5ScgPtpAllowedPassBandList'
-_R='fmmC5ScgPtpTxPowerOffset'
-_Q='fmmC5ScgPtpAutoDiscSoakTime'
-_P='fmmC5ScgPtpAvailableFreqSlotList'
-_O='fmmC5ScgPtpUsedFreqSlotList'
-_N='fmmC5ScgPtpPmHistStatsEnable'
-_M='fmmC5ScgPtpProvisionedNeighborAdTpType'
-_L='fmmC5ScgPtpProvisionedNeighborTP'
-_K='fmmC5ScgPtpInterfaceType'
-_J='fmmC5ScgPtpDiscoveredNeighborTP'
-_I='fmmC5ScgPtpAutoDiscoveryState'
-_H='fmmC5ScgPtpScgSupEqptType'
-_G='fmmC5ScgPtpScgNumber'
-_F='ifIndex'
-_E='IF-MIB'
-_D='read-write'
-_C='read-only'
-_B='INFINERA-TP-FMMCSCGPTP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-terminationPoint,=mibBuilder.importSymbols('INFINERA-REG-MIB','terminationPoint')
-FloatHundredths,FloatTenths,InfnAdTpType,InfnAutoDiscoveryState,InfnEnableDisable,InfnEqptType,InfnPmHistStatsControl,InfnWaveInterfaceType=mibBuilder.importSymbols('INFINERA-TC-MIB','FloatHundredths','FloatTenths','InfnAdTpType','InfnAutoDiscoveryState','InfnEnableDisable','InfnEqptType','InfnPmHistStatsControl','InfnWaveInterfaceType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-fmmCScgPtpMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,2,63))
-if mibBuilder.loadTexts:fmmCScgPtpMIB.setRevisions(('2015-05-20 00:00',))
-_FmmC5ScgPtpTable_Object=MibTable
-fmmC5ScgPtpTable=_FmmC5ScgPtpTable_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1))
-if mibBuilder.loadTexts:fmmC5ScgPtpTable.setStatus(_A)
-_FmmC5ScgPtpEntry_Object=MibTableRow
-fmmC5ScgPtpEntry=_FmmC5ScgPtpEntry_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1))
-fmmC5ScgPtpEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:fmmC5ScgPtpEntry.setStatus(_A)
-_FmmC5ScgPtpScgNumber_Type=Integer32
-_FmmC5ScgPtpScgNumber_Object=MibTableColumn
-fmmC5ScgPtpScgNumber=_FmmC5ScgPtpScgNumber_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1,1),_FmmC5ScgPtpScgNumber_Type())
-fmmC5ScgPtpScgNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC5ScgPtpScgNumber.setStatus(_A)
-_FmmC5ScgPtpScgSupEqptType_Type=InfnEqptType
-_FmmC5ScgPtpScgSupEqptType_Object=MibTableColumn
-fmmC5ScgPtpScgSupEqptType=_FmmC5ScgPtpScgSupEqptType_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1,2),_FmmC5ScgPtpScgSupEqptType_Type())
-fmmC5ScgPtpScgSupEqptType.setMaxAccess(_D)
-if mibBuilder.loadTexts:fmmC5ScgPtpScgSupEqptType.setStatus(_A)
-_FmmC5ScgPtpAutoDiscoveryState_Type=InfnAutoDiscoveryState
-_FmmC5ScgPtpAutoDiscoveryState_Object=MibTableColumn
-fmmC5ScgPtpAutoDiscoveryState=_FmmC5ScgPtpAutoDiscoveryState_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1,3),_FmmC5ScgPtpAutoDiscoveryState_Type())
-fmmC5ScgPtpAutoDiscoveryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC5ScgPtpAutoDiscoveryState.setStatus(_A)
-_FmmC5ScgPtpDiscoveredNeighborTP_Type=DisplayString
-_FmmC5ScgPtpDiscoveredNeighborTP_Object=MibTableColumn
-fmmC5ScgPtpDiscoveredNeighborTP=_FmmC5ScgPtpDiscoveredNeighborTP_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1,4),_FmmC5ScgPtpDiscoveredNeighborTP_Type())
-fmmC5ScgPtpDiscoveredNeighborTP.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC5ScgPtpDiscoveredNeighborTP.setStatus(_A)
-_FmmC5ScgPtpProvisionedNeighborTP_Type=DisplayString
-_FmmC5ScgPtpProvisionedNeighborTP_Object=MibTableColumn
-fmmC5ScgPtpProvisionedNeighborTP=_FmmC5ScgPtpProvisionedNeighborTP_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1,5),_FmmC5ScgPtpProvisionedNeighborTP_Type())
-fmmC5ScgPtpProvisionedNeighborTP.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC5ScgPtpProvisionedNeighborTP.setStatus(_A)
-_FmmC5ScgPtpProvisionedNeighborAdTpType_Type=InfnAdTpType
-_FmmC5ScgPtpProvisionedNeighborAdTpType_Object=MibTableColumn
-fmmC5ScgPtpProvisionedNeighborAdTpType=_FmmC5ScgPtpProvisionedNeighborAdTpType_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1,6),_FmmC5ScgPtpProvisionedNeighborAdTpType_Type())
-fmmC5ScgPtpProvisionedNeighborAdTpType.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC5ScgPtpProvisionedNeighborAdTpType.setStatus(_A)
-_FmmC5ScgPtpInterfaceType_Type=InfnWaveInterfaceType
-_FmmC5ScgPtpInterfaceType_Object=MibTableColumn
-fmmC5ScgPtpInterfaceType=_FmmC5ScgPtpInterfaceType_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1,7),_FmmC5ScgPtpInterfaceType_Type())
-fmmC5ScgPtpInterfaceType.setMaxAccess(_D)
-if mibBuilder.loadTexts:fmmC5ScgPtpInterfaceType.setStatus(_A)
-_FmmC5ScgPtpPmHistStatsEnable_Type=InfnPmHistStatsControl
-_FmmC5ScgPtpPmHistStatsEnable_Object=MibTableColumn
-fmmC5ScgPtpPmHistStatsEnable=_FmmC5ScgPtpPmHistStatsEnable_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1,8),_FmmC5ScgPtpPmHistStatsEnable_Type())
-fmmC5ScgPtpPmHistStatsEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:fmmC5ScgPtpPmHistStatsEnable.setStatus(_A)
-_FmmC5ScgPtpUsedFreqSlotList_Type=DisplayString
-_FmmC5ScgPtpUsedFreqSlotList_Object=MibTableColumn
-fmmC5ScgPtpUsedFreqSlotList=_FmmC5ScgPtpUsedFreqSlotList_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1,9),_FmmC5ScgPtpUsedFreqSlotList_Type())
-fmmC5ScgPtpUsedFreqSlotList.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC5ScgPtpUsedFreqSlotList.setStatus(_A)
-_FmmC5ScgPtpAvailableFreqSlotList_Type=DisplayString
-_FmmC5ScgPtpAvailableFreqSlotList_Object=MibTableColumn
-fmmC5ScgPtpAvailableFreqSlotList=_FmmC5ScgPtpAvailableFreqSlotList_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1,10),_FmmC5ScgPtpAvailableFreqSlotList_Type())
-fmmC5ScgPtpAvailableFreqSlotList.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC5ScgPtpAvailableFreqSlotList.setStatus(_A)
-_FmmC5ScgPtpAutoDiscSoakTime_Type=Integer32
-_FmmC5ScgPtpAutoDiscSoakTime_Object=MibTableColumn
-fmmC5ScgPtpAutoDiscSoakTime=_FmmC5ScgPtpAutoDiscSoakTime_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1,11),_FmmC5ScgPtpAutoDiscSoakTime_Type())
-fmmC5ScgPtpAutoDiscSoakTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:fmmC5ScgPtpAutoDiscSoakTime.setStatus(_A)
-_FmmC5ScgPtpTxPowerOffset_Type=FloatTenths
-_FmmC5ScgPtpTxPowerOffset_Object=MibTableColumn
-fmmC5ScgPtpTxPowerOffset=_FmmC5ScgPtpTxPowerOffset_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1,12),_FmmC5ScgPtpTxPowerOffset_Type())
-fmmC5ScgPtpTxPowerOffset.setMaxAccess(_D)
-if mibBuilder.loadTexts:fmmC5ScgPtpTxPowerOffset.setStatus(_A)
-_FmmC5ScgPtpAllowedPassBandList_Type=DisplayString
-_FmmC5ScgPtpAllowedPassBandList_Object=MibTableColumn
-fmmC5ScgPtpAllowedPassBandList=_FmmC5ScgPtpAllowedPassBandList_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1,13),_FmmC5ScgPtpAllowedPassBandList_Type())
-fmmC5ScgPtpAllowedPassBandList.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC5ScgPtpAllowedPassBandList.setStatus(_A)
-_FmmC5ScgPtpPassiveMirrorProvNeighborTP_Type=DisplayString
-_FmmC5ScgPtpPassiveMirrorProvNeighborTP_Object=MibTableColumn
-fmmC5ScgPtpPassiveMirrorProvNeighborTP=_FmmC5ScgPtpPassiveMirrorProvNeighborTP_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1,14),_FmmC5ScgPtpPassiveMirrorProvNeighborTP_Type())
-fmmC5ScgPtpPassiveMirrorProvNeighborTP.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC5ScgPtpPassiveMirrorProvNeighborTP.setStatus(_A)
-_FmmC5ScgPtpRxPowerOffset_Type=FloatTenths
-_FmmC5ScgPtpRxPowerOffset_Object=MibTableColumn
-fmmC5ScgPtpRxPowerOffset=_FmmC5ScgPtpRxPowerOffset_Object((1,3,6,1,4,1,21296,2,2,2,2,63,1,1,15),_FmmC5ScgPtpRxPowerOffset_Type())
-fmmC5ScgPtpRxPowerOffset.setMaxAccess(_D)
-if mibBuilder.loadTexts:fmmC5ScgPtpRxPowerOffset.setStatus(_A)
-_FmmC12ScgPtpTable_Object=MibTable
-fmmC12ScgPtpTable=_FmmC12ScgPtpTable_Object((1,3,6,1,4,1,21296,2,2,2,2,63,2))
-if mibBuilder.loadTexts:fmmC12ScgPtpTable.setStatus(_A)
-_FmmC12ScgPtpEntry_Object=MibTableRow
-fmmC12ScgPtpEntry=_FmmC12ScgPtpEntry_Object((1,3,6,1,4,1,21296,2,2,2,2,63,2,1))
-fmmC12ScgPtpEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:fmmC12ScgPtpEntry.setStatus(_A)
-_FmmC12ScgPtpScgNumber_Type=Integer32
-_FmmC12ScgPtpScgNumber_Object=MibTableColumn
-fmmC12ScgPtpScgNumber=_FmmC12ScgPtpScgNumber_Object((1,3,6,1,4,1,21296,2,2,2,2,63,2,1,1),_FmmC12ScgPtpScgNumber_Type())
-fmmC12ScgPtpScgNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC12ScgPtpScgNumber.setStatus(_A)
-_FmmC12ScgPtpScgSupEqptType_Type=InfnEqptType
-_FmmC12ScgPtpScgSupEqptType_Object=MibTableColumn
-fmmC12ScgPtpScgSupEqptType=_FmmC12ScgPtpScgSupEqptType_Object((1,3,6,1,4,1,21296,2,2,2,2,63,2,1,2),_FmmC12ScgPtpScgSupEqptType_Type())
-fmmC12ScgPtpScgSupEqptType.setMaxAccess(_D)
-if mibBuilder.loadTexts:fmmC12ScgPtpScgSupEqptType.setStatus(_A)
-_FmmC12ScgPtpAutoDiscoveryState_Type=InfnAutoDiscoveryState
-_FmmC12ScgPtpAutoDiscoveryState_Object=MibTableColumn
-fmmC12ScgPtpAutoDiscoveryState=_FmmC12ScgPtpAutoDiscoveryState_Object((1,3,6,1,4,1,21296,2,2,2,2,63,2,1,3),_FmmC12ScgPtpAutoDiscoveryState_Type())
-fmmC12ScgPtpAutoDiscoveryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC12ScgPtpAutoDiscoveryState.setStatus(_A)
-_FmmC12ScgPtpDiscoveredNeighborTP_Type=DisplayString
-_FmmC12ScgPtpDiscoveredNeighborTP_Object=MibTableColumn
-fmmC12ScgPtpDiscoveredNeighborTP=_FmmC12ScgPtpDiscoveredNeighborTP_Object((1,3,6,1,4,1,21296,2,2,2,2,63,2,1,4),_FmmC12ScgPtpDiscoveredNeighborTP_Type())
-fmmC12ScgPtpDiscoveredNeighborTP.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC12ScgPtpDiscoveredNeighborTP.setStatus(_A)
-_FmmC12ScgPtpProvisionedNeighborTP_Type=DisplayString
-_FmmC12ScgPtpProvisionedNeighborTP_Object=MibTableColumn
-fmmC12ScgPtpProvisionedNeighborTP=_FmmC12ScgPtpProvisionedNeighborTP_Object((1,3,6,1,4,1,21296,2,2,2,2,63,2,1,5),_FmmC12ScgPtpProvisionedNeighborTP_Type())
-fmmC12ScgPtpProvisionedNeighborTP.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC12ScgPtpProvisionedNeighborTP.setStatus(_A)
-_FmmC12ScgPtpProvisionedNeighborAdTpType_Type=InfnAdTpType
-_FmmC12ScgPtpProvisionedNeighborAdTpType_Object=MibTableColumn
-fmmC12ScgPtpProvisionedNeighborAdTpType=_FmmC12ScgPtpProvisionedNeighborAdTpType_Object((1,3,6,1,4,1,21296,2,2,2,2,63,2,1,6),_FmmC12ScgPtpProvisionedNeighborAdTpType_Type())
-fmmC12ScgPtpProvisionedNeighborAdTpType.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC12ScgPtpProvisionedNeighborAdTpType.setStatus(_A)
-_FmmC12ScgPtpInterfaceType_Type=InfnWaveInterfaceType
-_FmmC12ScgPtpInterfaceType_Object=MibTableColumn
-fmmC12ScgPtpInterfaceType=_FmmC12ScgPtpInterfaceType_Object((1,3,6,1,4,1,21296,2,2,2,2,63,2,1,7),_FmmC12ScgPtpInterfaceType_Type())
-fmmC12ScgPtpInterfaceType.setMaxAccess(_D)
-if mibBuilder.loadTexts:fmmC12ScgPtpInterfaceType.setStatus(_A)
-_FmmC12ScgPtpPmHistStatsEnable_Type=InfnPmHistStatsControl
-_FmmC12ScgPtpPmHistStatsEnable_Object=MibTableColumn
-fmmC12ScgPtpPmHistStatsEnable=_FmmC12ScgPtpPmHistStatsEnable_Object((1,3,6,1,4,1,21296,2,2,2,2,63,2,1,8),_FmmC12ScgPtpPmHistStatsEnable_Type())
-fmmC12ScgPtpPmHistStatsEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:fmmC12ScgPtpPmHistStatsEnable.setStatus(_A)
-_FmmC12ScgPtpUsedFreqSlotList_Type=DisplayString
-_FmmC12ScgPtpUsedFreqSlotList_Object=MibTableColumn
-fmmC12ScgPtpUsedFreqSlotList=_FmmC12ScgPtpUsedFreqSlotList_Object((1,3,6,1,4,1,21296,2,2,2,2,63,2,1,9),_FmmC12ScgPtpUsedFreqSlotList_Type())
-fmmC12ScgPtpUsedFreqSlotList.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC12ScgPtpUsedFreqSlotList.setStatus(_A)
-_FmmC12ScgPtpAvailableFreqSlotList_Type=DisplayString
-_FmmC12ScgPtpAvailableFreqSlotList_Object=MibTableColumn
-fmmC12ScgPtpAvailableFreqSlotList=_FmmC12ScgPtpAvailableFreqSlotList_Object((1,3,6,1,4,1,21296,2,2,2,2,63,2,1,10),_FmmC12ScgPtpAvailableFreqSlotList_Type())
-fmmC12ScgPtpAvailableFreqSlotList.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC12ScgPtpAvailableFreqSlotList.setStatus(_A)
-_FmmC12ScgPtpAllowedPassBandList_Type=DisplayString
-_FmmC12ScgPtpAllowedPassBandList_Object=MibTableColumn
-fmmC12ScgPtpAllowedPassBandList=_FmmC12ScgPtpAllowedPassBandList_Object((1,3,6,1,4,1,21296,2,2,2,2,63,2,1,11),_FmmC12ScgPtpAllowedPassBandList_Type())
-fmmC12ScgPtpAllowedPassBandList.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC12ScgPtpAllowedPassBandList.setStatus(_A)
-_FmmC12ScgPtpPassiveMirrorProvNeighborTP_Type=DisplayString
-_FmmC12ScgPtpPassiveMirrorProvNeighborTP_Object=MibTableColumn
-fmmC12ScgPtpPassiveMirrorProvNeighborTP=_FmmC12ScgPtpPassiveMirrorProvNeighborTP_Object((1,3,6,1,4,1,21296,2,2,2,2,63,2,1,12),_FmmC12ScgPtpPassiveMirrorProvNeighborTP_Type())
-fmmC12ScgPtpPassiveMirrorProvNeighborTP.setMaxAccess(_C)
-if mibBuilder.loadTexts:fmmC12ScgPtpPassiveMirrorProvNeighborTP.setStatus(_A)
-_FmmC12ScgPtpRxPowerOffset_Type=FloatTenths
-_FmmC12ScgPtpRxPowerOffset_Object=MibTableColumn
-fmmC12ScgPtpRxPowerOffset=_FmmC12ScgPtpRxPowerOffset_Object((1,3,6,1,4,1,21296,2,2,2,2,63,2,1,13),_FmmC12ScgPtpRxPowerOffset_Type())
-fmmC12ScgPtpRxPowerOffset.setMaxAccess(_D)
-if mibBuilder.loadTexts:fmmC12ScgPtpRxPowerOffset.setStatus(_A)
-_FmmCScgPtpConformance_ObjectIdentity=ObjectIdentity
-fmmCScgPtpConformance=_FmmCScgPtpConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,63,3))
-_FmmCScgPtpCompliances_ObjectIdentity=ObjectIdentity
-fmmCScgPtpCompliances=_FmmCScgPtpCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,63,3,1))
-_FmmCScgPtpGroups_ObjectIdentity=ObjectIdentity
-fmmCScgPtpGroups=_FmmCScgPtpGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,63,3,2))
-fmmC5ScgPtpGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,2,63,3,2,1))
-fmmC5ScgPtpGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:fmmC5ScgPtpGroup.setStatus(_A)
-fmmC12ScgPtpGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,2,63,3,2,2))
-fmmC12ScgPtpGroup.setObjects(*((_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g)))
-if mibBuilder.loadTexts:fmmC12ScgPtpGroup.setStatus(_A)
-fmmCScgPtpCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,2,63,3,1,1))
-fmmCScgPtpCompliance.setObjects((_B,_h))
-if mibBuilder.loadTexts:fmmCScgPtpCompliance.setStatus(_A)
-fmmC12ScgPtpCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,2,63,3,1,2))
-fmmC12ScgPtpCompliance.setObjects((_B,_i))
-if mibBuilder.loadTexts:fmmC12ScgPtpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'fmmCScgPtpMIB':fmmCScgPtpMIB,'fmmC5ScgPtpTable':fmmC5ScgPtpTable,'fmmC5ScgPtpEntry':fmmC5ScgPtpEntry,_G:fmmC5ScgPtpScgNumber,_H:fmmC5ScgPtpScgSupEqptType,_I:fmmC5ScgPtpAutoDiscoveryState,_J:fmmC5ScgPtpDiscoveredNeighborTP,_L:fmmC5ScgPtpProvisionedNeighborTP,_M:fmmC5ScgPtpProvisionedNeighborAdTpType,_K:fmmC5ScgPtpInterfaceType,_N:fmmC5ScgPtpPmHistStatsEnable,_O:fmmC5ScgPtpUsedFreqSlotList,_P:fmmC5ScgPtpAvailableFreqSlotList,_Q:fmmC5ScgPtpAutoDiscSoakTime,_R:fmmC5ScgPtpTxPowerOffset,_S:fmmC5ScgPtpAllowedPassBandList,_T:fmmC5ScgPtpPassiveMirrorProvNeighborTP,_U:fmmC5ScgPtpRxPowerOffset,'fmmC12ScgPtpTable':fmmC12ScgPtpTable,'fmmC12ScgPtpEntry':fmmC12ScgPtpEntry,_V:fmmC12ScgPtpScgNumber,_W:fmmC12ScgPtpScgSupEqptType,_X:fmmC12ScgPtpAutoDiscoveryState,_Y:fmmC12ScgPtpDiscoveredNeighborTP,_a:fmmC12ScgPtpProvisionedNeighborTP,_b:fmmC12ScgPtpProvisionedNeighborAdTpType,_Z:fmmC12ScgPtpInterfaceType,_c:fmmC12ScgPtpPmHistStatsEnable,_d:fmmC12ScgPtpUsedFreqSlotList,_e:fmmC12ScgPtpAvailableFreqSlotList,'fmmC12ScgPtpAllowedPassBandList':fmmC12ScgPtpAllowedPassBandList,_f:fmmC12ScgPtpPassiveMirrorProvNeighborTP,_g:fmmC12ScgPtpRxPowerOffset,'fmmCScgPtpConformance':fmmCScgPtpConformance,'fmmCScgPtpCompliances':fmmCScgPtpCompliances,'fmmCScgPtpCompliance':fmmCScgPtpCompliance,'fmmC12ScgPtpCompliance':fmmC12ScgPtpCompliance,'fmmCScgPtpGroups':fmmCScgPtpGroups,_h:fmmC5ScgPtpGroup,_i:fmmC12ScgPtpGroup})
+#
+# PySNMP MIB module INFINERA-TP-FMMCSCGPTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-FMMCSCGPTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:01 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
+InfnAutoDiscoveryState, InfnWaveInterfaceType, FloatTenths, InfnEqptType, InfnPmHistStatsControl, InfnEnableDisable, FloatHundredths, InfnAdTpType = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnAutoDiscoveryState", "InfnWaveInterfaceType", "FloatTenths", "InfnEqptType", "InfnPmHistStatsControl", "InfnEnableDisable", "FloatHundredths", "InfnAdTpType")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+fmmCScgPtpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63))
+fmmCScgPtpMIB.setRevisions(('2015-05-20 00:00',))
+if mibBuilder.loadTexts: fmmCScgPtpMIB.setLastUpdated('201505200000Z')
+if mibBuilder.loadTexts: fmmCScgPtpMIB.setOrganization('Infinera')
+fmmC5ScgPtpTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1), )
+if mibBuilder.loadTexts: fmmC5ScgPtpTable.setStatus('current')
+fmmC5ScgPtpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: fmmC5ScgPtpEntry.setStatus('current')
+fmmC5ScgPtpScgNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC5ScgPtpScgNumber.setStatus('current')
+fmmC5ScgPtpScgSupEqptType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1, 2), InfnEqptType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmC5ScgPtpScgSupEqptType.setStatus('current')
+fmmC5ScgPtpAutoDiscoveryState = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1, 3), InfnAutoDiscoveryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC5ScgPtpAutoDiscoveryState.setStatus('current')
+fmmC5ScgPtpDiscoveredNeighborTP = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC5ScgPtpDiscoveredNeighborTP.setStatus('current')
+fmmC5ScgPtpProvisionedNeighborTP = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC5ScgPtpProvisionedNeighborTP.setStatus('current')
+fmmC5ScgPtpProvisionedNeighborAdTpType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1, 6), InfnAdTpType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC5ScgPtpProvisionedNeighborAdTpType.setStatus('current')
+fmmC5ScgPtpInterfaceType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1, 7), InfnWaveInterfaceType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmC5ScgPtpInterfaceType.setStatus('current')
+fmmC5ScgPtpPmHistStatsEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1, 8), InfnPmHistStatsControl()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmC5ScgPtpPmHistStatsEnable.setStatus('current')
+fmmC5ScgPtpUsedFreqSlotList = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC5ScgPtpUsedFreqSlotList.setStatus('current')
+fmmC5ScgPtpAvailableFreqSlotList = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC5ScgPtpAvailableFreqSlotList.setStatus('current')
+fmmC5ScgPtpAutoDiscSoakTime = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1, 11), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmC5ScgPtpAutoDiscSoakTime.setStatus('current')
+fmmC5ScgPtpTxPowerOffset = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1, 12), FloatTenths()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmC5ScgPtpTxPowerOffset.setStatus('current')
+fmmC5ScgPtpAllowedPassBandList = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1, 13), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC5ScgPtpAllowedPassBandList.setStatus('current')
+fmmC5ScgPtpPassiveMirrorProvNeighborTP = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1, 14), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC5ScgPtpPassiveMirrorProvNeighborTP.setStatus('current')
+fmmC5ScgPtpRxPowerOffset = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 1, 1, 15), FloatTenths()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmC5ScgPtpRxPowerOffset.setStatus('current')
+fmmC12ScgPtpTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 2), )
+if mibBuilder.loadTexts: fmmC12ScgPtpTable.setStatus('current')
+fmmC12ScgPtpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: fmmC12ScgPtpEntry.setStatus('current')
+fmmC12ScgPtpScgNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC12ScgPtpScgNumber.setStatus('current')
+fmmC12ScgPtpScgSupEqptType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 2, 1, 2), InfnEqptType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmC12ScgPtpScgSupEqptType.setStatus('current')
+fmmC12ScgPtpAutoDiscoveryState = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 2, 1, 3), InfnAutoDiscoveryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC12ScgPtpAutoDiscoveryState.setStatus('current')
+fmmC12ScgPtpDiscoveredNeighborTP = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 2, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC12ScgPtpDiscoveredNeighborTP.setStatus('current')
+fmmC12ScgPtpProvisionedNeighborTP = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 2, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC12ScgPtpProvisionedNeighborTP.setStatus('current')
+fmmC12ScgPtpProvisionedNeighborAdTpType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 2, 1, 6), InfnAdTpType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC12ScgPtpProvisionedNeighborAdTpType.setStatus('current')
+fmmC12ScgPtpInterfaceType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 2, 1, 7), InfnWaveInterfaceType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmC12ScgPtpInterfaceType.setStatus('current')
+fmmC12ScgPtpPmHistStatsEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 2, 1, 8), InfnPmHistStatsControl()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmC12ScgPtpPmHistStatsEnable.setStatus('current')
+fmmC12ScgPtpUsedFreqSlotList = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 2, 1, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC12ScgPtpUsedFreqSlotList.setStatus('current')
+fmmC12ScgPtpAvailableFreqSlotList = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 2, 1, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC12ScgPtpAvailableFreqSlotList.setStatus('current')
+fmmC12ScgPtpAllowedPassBandList = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 2, 1, 11), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC12ScgPtpAllowedPassBandList.setStatus('current')
+fmmC12ScgPtpPassiveMirrorProvNeighborTP = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 2, 1, 12), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fmmC12ScgPtpPassiveMirrorProvNeighborTP.setStatus('current')
+fmmC12ScgPtpRxPowerOffset = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 2, 1, 13), FloatTenths()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fmmC12ScgPtpRxPowerOffset.setStatus('current')
+fmmCScgPtpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 3))
+fmmCScgPtpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 3, 1))
+fmmCScgPtpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 3, 2))
+fmmCScgPtpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 3, 1, 1)).setObjects(("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fmmCScgPtpCompliance = fmmCScgPtpCompliance.setStatus('current')
+fmmC12ScgPtpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 3, 1, 2)).setObjects(("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC12ScgPtpGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fmmC12ScgPtpCompliance = fmmC12ScgPtpCompliance.setStatus('current')
+fmmC5ScgPtpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 3, 2, 1)).setObjects(("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpScgNumber"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpScgSupEqptType"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpAutoDiscoveryState"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpDiscoveredNeighborTP"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpInterfaceType"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpProvisionedNeighborTP"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpProvisionedNeighborAdTpType"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpPmHistStatsEnable"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpUsedFreqSlotList"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpAvailableFreqSlotList"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpAutoDiscSoakTime"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpTxPowerOffset"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpAllowedPassBandList"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpPassiveMirrorProvNeighborTP"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC5ScgPtpRxPowerOffset"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fmmC5ScgPtpGroup = fmmC5ScgPtpGroup.setStatus('current')
+fmmC12ScgPtpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 63, 3, 2, 2)).setObjects(("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC12ScgPtpScgNumber"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC12ScgPtpScgSupEqptType"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC12ScgPtpAutoDiscoveryState"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC12ScgPtpDiscoveredNeighborTP"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC12ScgPtpInterfaceType"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC12ScgPtpProvisionedNeighborTP"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC12ScgPtpProvisionedNeighborAdTpType"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC12ScgPtpPmHistStatsEnable"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC12ScgPtpUsedFreqSlotList"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC12ScgPtpAvailableFreqSlotList"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC12ScgPtpPassiveMirrorProvNeighborTP"), ("INFINERA-TP-FMMCSCGPTP-MIB", "fmmC12ScgPtpRxPowerOffset"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fmmC12ScgPtpGroup = fmmC12ScgPtpGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-TP-FMMCSCGPTP-MIB", fmmC5ScgPtpProvisionedNeighborAdTpType=fmmC5ScgPtpProvisionedNeighborAdTpType, fmmC12ScgPtpUsedFreqSlotList=fmmC12ScgPtpUsedFreqSlotList, fmmC12ScgPtpPmHistStatsEnable=fmmC12ScgPtpPmHistStatsEnable, fmmC5ScgPtpTable=fmmC5ScgPtpTable, fmmC5ScgPtpAutoDiscSoakTime=fmmC5ScgPtpAutoDiscSoakTime, fmmC12ScgPtpAllowedPassBandList=fmmC12ScgPtpAllowedPassBandList, fmmC12ScgPtpAvailableFreqSlotList=fmmC12ScgPtpAvailableFreqSlotList, fmmC5ScgPtpEntry=fmmC5ScgPtpEntry, fmmC12ScgPtpEntry=fmmC12ScgPtpEntry, fmmCScgPtpMIB=fmmCScgPtpMIB, fmmC5ScgPtpUsedFreqSlotList=fmmC5ScgPtpUsedFreqSlotList, fmmC12ScgPtpPassiveMirrorProvNeighborTP=fmmC12ScgPtpPassiveMirrorProvNeighborTP, fmmCScgPtpCompliance=fmmCScgPtpCompliance, fmmC5ScgPtpAvailableFreqSlotList=fmmC5ScgPtpAvailableFreqSlotList, fmmC12ScgPtpProvisionedNeighborTP=fmmC12ScgPtpProvisionedNeighborTP, fmmC5ScgPtpScgSupEqptType=fmmC5ScgPtpScgSupEqptType, fmmC5ScgPtpAllowedPassBandList=fmmC5ScgPtpAllowedPassBandList, fmmCScgPtpCompliances=fmmCScgPtpCompliances, fmmC5ScgPtpTxPowerOffset=fmmC5ScgPtpTxPowerOffset, fmmC12ScgPtpAutoDiscoveryState=fmmC12ScgPtpAutoDiscoveryState, fmmC5ScgPtpPmHistStatsEnable=fmmC5ScgPtpPmHistStatsEnable, fmmC12ScgPtpProvisionedNeighborAdTpType=fmmC12ScgPtpProvisionedNeighborAdTpType, fmmCScgPtpGroups=fmmCScgPtpGroups, fmmC5ScgPtpScgNumber=fmmC5ScgPtpScgNumber, fmmC12ScgPtpRxPowerOffset=fmmC12ScgPtpRxPowerOffset, fmmC12ScgPtpCompliance=fmmC12ScgPtpCompliance, fmmC12ScgPtpScgSupEqptType=fmmC12ScgPtpScgSupEqptType, fmmC5ScgPtpGroup=fmmC5ScgPtpGroup, fmmC5ScgPtpProvisionedNeighborTP=fmmC5ScgPtpProvisionedNeighborTP, fmmC5ScgPtpDiscoveredNeighborTP=fmmC5ScgPtpDiscoveredNeighborTP, fmmC5ScgPtpRxPowerOffset=fmmC5ScgPtpRxPowerOffset, fmmC12ScgPtpScgNumber=fmmC12ScgPtpScgNumber, fmmCScgPtpConformance=fmmCScgPtpConformance, fmmC12ScgPtpGroup=fmmC12ScgPtpGroup, fmmC5ScgPtpAutoDiscoveryState=fmmC5ScgPtpAutoDiscoveryState, fmmC12ScgPtpInterfaceType=fmmC12ScgPtpInterfaceType, fmmC12ScgPtpDiscoveredNeighborTP=fmmC12ScgPtpDiscoveredNeighborTP, fmmC12ScgPtpTable=fmmC12ScgPtpTable, fmmC5ScgPtpPassiveMirrorProvNeighborTP=fmmC5ScgPtpPassiveMirrorProvNeighborTP, PYSNMP_MODULE_ID=fmmCScgPtpMIB, fmmC5ScgPtpInterfaceType=fmmC5ScgPtpInterfaceType)

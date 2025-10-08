@@ -1,100 +1,49 @@
-_F='fsMIPingIndex'
-_E='SUPERMICRO-MIPING-MIB'
-_D='read-only'
-_C='read-create'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-fsMIPingMIB=ModuleIdentity((1,3,6,1,4,1,10876,101,2,36))
-if mibBuilder.loadTexts:fsMIPingMIB.setRevisions(('2012-09-05 00:00',))
-_FsMIPingMIBObjects_ObjectIdentity=ObjectIdentity
-fsMIPingMIBObjects=_FsMIPingMIBObjects_ObjectIdentity((1,3,6,1,4,1,10876,101,2,36,1))
-_FsMIPingTable_Object=MibTable
-fsMIPingTable=_FsMIPingTable_Object((1,3,6,1,4,1,10876,101,2,36,1,1))
-if mibBuilder.loadTexts:fsMIPingTable.setStatus(_A)
-_FsMIPingEntry_Object=MibTableRow
-fsMIPingEntry=_FsMIPingEntry_Object((1,3,6,1,4,1,10876,101,2,36,1,1,1))
-fsMIPingEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:fsMIPingEntry.setStatus(_A)
-class _FsMIPingIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_FsMIPingIndex_Type.__name__=_B
-_FsMIPingIndex_Object=MibTableColumn
-fsMIPingIndex=_FsMIPingIndex_Object((1,3,6,1,4,1,10876,101,2,36,1,1,1,1),_FsMIPingIndex_Type())
-fsMIPingIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:fsMIPingIndex.setStatus(_A)
-_FsMIPingDest_Type=IpAddress
-_FsMIPingDest_Object=MibTableColumn
-fsMIPingDest=_FsMIPingDest_Object((1,3,6,1,4,1,10876,101,2,36,1,1,1,2),_FsMIPingDest_Type())
-fsMIPingDest.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIPingDest.setStatus(_A)
-class _FsMIPingContextId_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_FsMIPingContextId_Type.__name__=_B
-_FsMIPingContextId_Object=MibTableColumn
-fsMIPingContextId=_FsMIPingContextId_Object((1,3,6,1,4,1,10876,101,2,36,1,1,1,3),_FsMIPingContextId_Type())
-fsMIPingContextId.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIPingContextId.setStatus(_A)
-class _FsMIPingTimeout_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_FsMIPingTimeout_Type.__name__=_B
-_FsMIPingTimeout_Object=MibTableColumn
-fsMIPingTimeout=_FsMIPingTimeout_Object((1,3,6,1,4,1,10876,101,2,36,1,1,1,4),_FsMIPingTimeout_Type())
-fsMIPingTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIPingTimeout.setStatus(_A)
-class _FsMIPingTries_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000))
-_FsMIPingTries_Type.__name__=_B
-_FsMIPingTries_Object=MibTableColumn
-fsMIPingTries=_FsMIPingTries_Object((1,3,6,1,4,1,10876,101,2,36,1,1,1,5),_FsMIPingTries_Type())
-fsMIPingTries.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIPingTries.setStatus(_A)
-class _FsMIPingDataSize_Type(Integer32):defaultValue=64;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2080))
-_FsMIPingDataSize_Type.__name__=_B
-_FsMIPingDataSize_Object=MibTableColumn
-fsMIPingDataSize=_FsMIPingDataSize_Object((1,3,6,1,4,1,10876,101,2,36,1,1,1,6),_FsMIPingDataSize_Type())
-fsMIPingDataSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIPingDataSize.setStatus(_A)
-class _FsMIPingStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('notinitiated',1),('progress',2),('completed',3)))
-_FsMIPingStatus_Type.__name__=_B
-_FsMIPingStatus_Object=MibTableColumn
-fsMIPingStatus=_FsMIPingStatus_Object((1,3,6,1,4,1,10876,101,2,36,1,1,1,7),_FsMIPingStatus_Type())
-fsMIPingStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMIPingStatus.setStatus(_A)
-class _FsMIPingSendCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_FsMIPingSendCount_Type.__name__=_B
-_FsMIPingSendCount_Object=MibTableColumn
-fsMIPingSendCount=_FsMIPingSendCount_Object((1,3,6,1,4,1,10876,101,2,36,1,1,1,8),_FsMIPingSendCount_Type())
-fsMIPingSendCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMIPingSendCount.setStatus(_A)
-class _FsMIPingAverageTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_FsMIPingAverageTime_Type.__name__=_B
-_FsMIPingAverageTime_Object=MibTableColumn
-fsMIPingAverageTime=_FsMIPingAverageTime_Object((1,3,6,1,4,1,10876,101,2,36,1,1,1,9),_FsMIPingAverageTime_Type())
-fsMIPingAverageTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMIPingAverageTime.setStatus(_A)
-class _FsMIPingMaxTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_FsMIPingMaxTime_Type.__name__=_B
-_FsMIPingMaxTime_Object=MibTableColumn
-fsMIPingMaxTime=_FsMIPingMaxTime_Object((1,3,6,1,4,1,10876,101,2,36,1,1,1,10),_FsMIPingMaxTime_Type())
-fsMIPingMaxTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMIPingMaxTime.setStatus(_A)
-class _FsMIPingMinTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_FsMIPingMinTime_Type.__name__=_B
-_FsMIPingMinTime_Object=MibTableColumn
-fsMIPingMinTime=_FsMIPingMinTime_Object((1,3,6,1,4,1,10876,101,2,36,1,1,1,11),_FsMIPingMinTime_Type())
-fsMIPingMinTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMIPingMinTime.setStatus(_A)
-_FsMIPingSuccesses_Type=Counter32
-_FsMIPingSuccesses_Object=MibTableColumn
-fsMIPingSuccesses=_FsMIPingSuccesses_Object((1,3,6,1,4,1,10876,101,2,36,1,1,1,12),_FsMIPingSuccesses_Type())
-fsMIPingSuccesses.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsMIPingSuccesses.setStatus(_A)
-_FsMIPingEntryStatus_Type=RowStatus
-_FsMIPingEntryStatus_Object=MibTableColumn
-fsMIPingEntryStatus=_FsMIPingEntryStatus_Object((1,3,6,1,4,1,10876,101,2,36,1,1,1,13),_FsMIPingEntryStatus_Type())
-fsMIPingEntryStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIPingEntryStatus.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'fsMIPingMIB':fsMIPingMIB,'fsMIPingMIBObjects':fsMIPingMIBObjects,'fsMIPingTable':fsMIPingTable,'fsMIPingEntry':fsMIPingEntry,_F:fsMIPingIndex,'fsMIPingDest':fsMIPingDest,'fsMIPingContextId':fsMIPingContextId,'fsMIPingTimeout':fsMIPingTimeout,'fsMIPingTries':fsMIPingTries,'fsMIPingDataSize':fsMIPingDataSize,'fsMIPingStatus':fsMIPingStatus,'fsMIPingSendCount':fsMIPingSendCount,'fsMIPingAverageTime':fsMIPingAverageTime,'fsMIPingMaxTime':fsMIPingMaxTime,'fsMIPingMinTime':fsMIPingMinTime,'fsMIPingSuccesses':fsMIPingSuccesses,'fsMIPingEntryStatus':fsMIPingEntryStatus})
+#
+# PySNMP MIB module SUPERMICRO-MIPING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-MIPING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:53 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+fsMIPingMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36))
+fsMIPingMIB.setRevisions(('2012-09-05 00:00',))
+if mibBuilder.loadTexts: fsMIPingMIB.setLastUpdated('201209050000Z')
+if mibBuilder.loadTexts: fsMIPingMIB.setOrganization('Super Micro Computer Inc.')
+fsMIPingMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1))
+fsMIPingTable = MibTable((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1, 1), )
+if mibBuilder.loadTexts: fsMIPingTable.setStatus('current')
+fsMIPingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1, 1, 1), ).setIndexNames((0, "SUPERMICRO-MIPING-MIB", "fsMIPingIndex"))
+if mibBuilder.loadTexts: fsMIPingEntry.setStatus('current')
+fsMIPingIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: fsMIPingIndex.setStatus('current')
+fsMIPingDest = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1, 1, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsMIPingDest.setStatus('current')
+fsMIPingContextId = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsMIPingContextId.setStatus('current')
+fsMIPingTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsMIPingTimeout.setStatus('current')
+fsMIPingTries = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000)).clone(3)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsMIPingTries.setStatus('current')
+fsMIPingDataSize = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2080)).clone(64)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsMIPingDataSize.setStatus('current')
+fsMIPingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notinitiated", 1), ("progress", 2), ("completed", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIPingStatus.setStatus('current')
+fsMIPingSendCount = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIPingSendCount.setStatus('current')
+fsMIPingAverageTime = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIPingAverageTime.setStatus('current')
+fsMIPingMaxTime = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIPingMaxTime.setStatus('current')
+fsMIPingMinTime = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIPingMinTime.setStatus('current')
+fsMIPingSuccesses = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1, 1, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIPingSuccesses.setStatus('current')
+fsMIPingEntryStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 36, 1, 1, 1, 13), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsMIPingEntryStatus.setStatus('current')
+mibBuilder.exportSymbols("SUPERMICRO-MIPING-MIB", fsMIPingMIB=fsMIPingMIB, PYSNMP_MODULE_ID=fsMIPingMIB, fsMIPingEntry=fsMIPingEntry, fsMIPingTimeout=fsMIPingTimeout, fsMIPingTries=fsMIPingTries, fsMIPingStatus=fsMIPingStatus, fsMIPingMinTime=fsMIPingMinTime, fsMIPingEntryStatus=fsMIPingEntryStatus, fsMIPingIndex=fsMIPingIndex, fsMIPingMaxTime=fsMIPingMaxTime, fsMIPingTable=fsMIPingTable, fsMIPingDest=fsMIPingDest, fsMIPingSuccesses=fsMIPingSuccesses, fsMIPingMIBObjects=fsMIPingMIBObjects, fsMIPingSendCount=fsMIPingSendCount, fsMIPingContextId=fsMIPingContextId, fsMIPingDataSize=fsMIPingDataSize, fsMIPingAverageTime=fsMIPingAverageTime)

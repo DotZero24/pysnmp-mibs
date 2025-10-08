@@ -1,68 +1,40 @@
-_H='read-write'
-_G='zyIpv6StaticRouteDestinationAddressPrefixLength'
-_F='zyIpv6StaticRouteDestinationIpAddress'
-_E='zyIpv6StaticRouteDestinationIpAddressType'
-_D='read-only'
-_C='not-accessible'
-_B='ZYXEL-IPV6-STATIC-ROUTE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelIpv6StaticRoute=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,37))
-_ZyxelIpv6StaticRouteSetup_ObjectIdentity=ObjectIdentity
-zyxelIpv6StaticRouteSetup=_ZyxelIpv6StaticRouteSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,37,1))
-_ZyIpv6StaticRouteMaxNumberOfStaticRoutes_Type=Integer32
-_ZyIpv6StaticRouteMaxNumberOfStaticRoutes_Object=MibScalar
-zyIpv6StaticRouteMaxNumberOfStaticRoutes=_ZyIpv6StaticRouteMaxNumberOfStaticRoutes_Object((1,3,6,1,4,1,890,1,15,3,37,1,1),_ZyIpv6StaticRouteMaxNumberOfStaticRoutes_Type())
-zyIpv6StaticRouteMaxNumberOfStaticRoutes.setMaxAccess(_D)
-if mibBuilder.loadTexts:zyIpv6StaticRouteMaxNumberOfStaticRoutes.setStatus(_A)
-_ZyxelIpv6StaticRouteTable_Object=MibTable
-zyxelIpv6StaticRouteTable=_ZyxelIpv6StaticRouteTable_Object((1,3,6,1,4,1,890,1,15,3,37,1,2))
-if mibBuilder.loadTexts:zyxelIpv6StaticRouteTable.setStatus(_A)
-_ZyxelIpv6StaticRouteEntry_Object=MibTableRow
-zyxelIpv6StaticRouteEntry=_ZyxelIpv6StaticRouteEntry_Object((1,3,6,1,4,1,890,1,15,3,37,1,2,1))
-zyxelIpv6StaticRouteEntry.setIndexNames((0,_B,_E),(0,_B,_F),(0,_B,_G))
-if mibBuilder.loadTexts:zyxelIpv6StaticRouteEntry.setStatus(_A)
-_ZyIpv6StaticRouteDestinationIpAddressType_Type=InetAddressType
-_ZyIpv6StaticRouteDestinationIpAddressType_Object=MibTableColumn
-zyIpv6StaticRouteDestinationIpAddressType=_ZyIpv6StaticRouteDestinationIpAddressType_Object((1,3,6,1,4,1,890,1,15,3,37,1,2,1,1),_ZyIpv6StaticRouteDestinationIpAddressType_Type())
-zyIpv6StaticRouteDestinationIpAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:zyIpv6StaticRouteDestinationIpAddressType.setStatus(_A)
-_ZyIpv6StaticRouteDestinationIpAddress_Type=InetAddress
-_ZyIpv6StaticRouteDestinationIpAddress_Object=MibTableColumn
-zyIpv6StaticRouteDestinationIpAddress=_ZyIpv6StaticRouteDestinationIpAddress_Object((1,3,6,1,4,1,890,1,15,3,37,1,2,1,2),_ZyIpv6StaticRouteDestinationIpAddress_Type())
-zyIpv6StaticRouteDestinationIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:zyIpv6StaticRouteDestinationIpAddress.setStatus(_A)
-_ZyIpv6StaticRouteDestinationAddressPrefixLength_Type=Integer32
-_ZyIpv6StaticRouteDestinationAddressPrefixLength_Object=MibTableColumn
-zyIpv6StaticRouteDestinationAddressPrefixLength=_ZyIpv6StaticRouteDestinationAddressPrefixLength_Object((1,3,6,1,4,1,890,1,15,3,37,1,2,1,3),_ZyIpv6StaticRouteDestinationAddressPrefixLength_Type())
-zyIpv6StaticRouteDestinationAddressPrefixLength.setMaxAccess(_C)
-if mibBuilder.loadTexts:zyIpv6StaticRouteDestinationAddressPrefixLength.setStatus(_A)
-_ZyIpv6StaticRouteNextHopIpAddressType_Type=InetAddressType
-_ZyIpv6StaticRouteNextHopIpAddressType_Object=MibTableColumn
-zyIpv6StaticRouteNextHopIpAddressType=_ZyIpv6StaticRouteNextHopIpAddressType_Object((1,3,6,1,4,1,890,1,15,3,37,1,2,1,4),_ZyIpv6StaticRouteNextHopIpAddressType_Type())
-zyIpv6StaticRouteNextHopIpAddressType.setMaxAccess(_D)
-if mibBuilder.loadTexts:zyIpv6StaticRouteNextHopIpAddressType.setStatus(_A)
-_ZyIpv6StaticRouteNextHopIpAddress_Type=InetAddress
-_ZyIpv6StaticRouteNextHopIpAddress_Object=MibTableColumn
-zyIpv6StaticRouteNextHopIpAddress=_ZyIpv6StaticRouteNextHopIpAddress_Object((1,3,6,1,4,1,890,1,15,3,37,1,2,1,5),_ZyIpv6StaticRouteNextHopIpAddress_Type())
-zyIpv6StaticRouteNextHopIpAddress.setMaxAccess(_H)
-if mibBuilder.loadTexts:zyIpv6StaticRouteNextHopIpAddress.setStatus(_A)
-_ZyIpv6StaticRouteIfIndex_Type=Integer32
-_ZyIpv6StaticRouteIfIndex_Object=MibTableColumn
-zyIpv6StaticRouteIfIndex=_ZyIpv6StaticRouteIfIndex_Object((1,3,6,1,4,1,890,1,15,3,37,1,2,1,6),_ZyIpv6StaticRouteIfIndex_Type())
-zyIpv6StaticRouteIfIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:zyIpv6StaticRouteIfIndex.setStatus(_A)
-_ZyIpv6StaticRouteRowStatus_Type=RowStatus
-_ZyIpv6StaticRouteRowStatus_Object=MibTableColumn
-zyIpv6StaticRouteRowStatus=_ZyIpv6StaticRouteRowStatus_Object((1,3,6,1,4,1,890,1,15,3,37,1,2,1,7),_ZyIpv6StaticRouteRowStatus_Type())
-zyIpv6StaticRouteRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:zyIpv6StaticRouteRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'zyxelIpv6StaticRoute':zyxelIpv6StaticRoute,'zyxelIpv6StaticRouteSetup':zyxelIpv6StaticRouteSetup,'zyIpv6StaticRouteMaxNumberOfStaticRoutes':zyIpv6StaticRouteMaxNumberOfStaticRoutes,'zyxelIpv6StaticRouteTable':zyxelIpv6StaticRouteTable,'zyxelIpv6StaticRouteEntry':zyxelIpv6StaticRouteEntry,_E:zyIpv6StaticRouteDestinationIpAddressType,_F:zyIpv6StaticRouteDestinationIpAddress,_G:zyIpv6StaticRouteDestinationAddressPrefixLength,'zyIpv6StaticRouteNextHopIpAddressType':zyIpv6StaticRouteNextHopIpAddressType,'zyIpv6StaticRouteNextHopIpAddress':zyIpv6StaticRouteNextHopIpAddress,'zyIpv6StaticRouteIfIndex':zyIpv6StaticRouteIfIndex,'zyIpv6StaticRouteRowStatus':zyIpv6StaticRouteRowStatus})
+#
+# PySNMP MIB module ZYXEL-IPV6-STATIC-ROUTE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-IPV6-STATIC-ROUTE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:06 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelIpv6StaticRoute = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 37))
+if mibBuilder.loadTexts: zyxelIpv6StaticRoute.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelIpv6StaticRoute.setOrganization('Enterprise Solution ZyXEL')
+zyxelIpv6StaticRouteSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 37, 1))
+zyIpv6StaticRouteMaxNumberOfStaticRoutes = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 37, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zyIpv6StaticRouteMaxNumberOfStaticRoutes.setStatus('current')
+zyxelIpv6StaticRouteTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 37, 1, 2), )
+if mibBuilder.loadTexts: zyxelIpv6StaticRouteTable.setStatus('current')
+zyxelIpv6StaticRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 37, 1, 2, 1), ).setIndexNames((0, "ZYXEL-IPV6-STATIC-ROUTE-MIB", "zyIpv6StaticRouteDestinationIpAddressType"), (0, "ZYXEL-IPV6-STATIC-ROUTE-MIB", "zyIpv6StaticRouteDestinationIpAddress"), (0, "ZYXEL-IPV6-STATIC-ROUTE-MIB", "zyIpv6StaticRouteDestinationAddressPrefixLength"))
+if mibBuilder.loadTexts: zyxelIpv6StaticRouteEntry.setStatus('current')
+zyIpv6StaticRouteDestinationIpAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 37, 1, 2, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: zyIpv6StaticRouteDestinationIpAddressType.setStatus('current')
+zyIpv6StaticRouteDestinationIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 37, 1, 2, 1, 2), InetAddress())
+if mibBuilder.loadTexts: zyIpv6StaticRouteDestinationIpAddress.setStatus('current')
+zyIpv6StaticRouteDestinationAddressPrefixLength = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 37, 1, 2, 1, 3), Integer32())
+if mibBuilder.loadTexts: zyIpv6StaticRouteDestinationAddressPrefixLength.setStatus('current')
+zyIpv6StaticRouteNextHopIpAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 37, 1, 2, 1, 4), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zyIpv6StaticRouteNextHopIpAddressType.setStatus('current')
+zyIpv6StaticRouteNextHopIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 37, 1, 2, 1, 5), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyIpv6StaticRouteNextHopIpAddress.setStatus('current')
+zyIpv6StaticRouteIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 37, 1, 2, 1, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyIpv6StaticRouteIfIndex.setStatus('current')
+zyIpv6StaticRouteRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 37, 1, 2, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zyIpv6StaticRouteRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-IPV6-STATIC-ROUTE-MIB", zyIpv6StaticRouteIfIndex=zyIpv6StaticRouteIfIndex, zyIpv6StaticRouteDestinationIpAddressType=zyIpv6StaticRouteDestinationIpAddressType, zyIpv6StaticRouteMaxNumberOfStaticRoutes=zyIpv6StaticRouteMaxNumberOfStaticRoutes, zyxelIpv6StaticRouteEntry=zyxelIpv6StaticRouteEntry, zyxelIpv6StaticRouteTable=zyxelIpv6StaticRouteTable, zyxelIpv6StaticRoute=zyxelIpv6StaticRoute, zyIpv6StaticRouteDestinationIpAddress=zyIpv6StaticRouteDestinationIpAddress, zyIpv6StaticRouteNextHopIpAddress=zyIpv6StaticRouteNextHopIpAddress, zyIpv6StaticRouteRowStatus=zyIpv6StaticRouteRowStatus, PYSNMP_MODULE_ID=zyxelIpv6StaticRoute, zyIpv6StaticRouteDestinationAddressPrefixLength=zyIpv6StaticRouteDestinationAddressPrefixLength, zyIpv6StaticRouteNextHopIpAddressType=zyIpv6StaticRouteNextHopIpAddressType, zyxelIpv6StaticRouteSetup=zyxelIpv6StaticRouteSetup)

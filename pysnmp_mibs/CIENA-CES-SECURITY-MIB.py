@@ -1,108 +1,60 @@
-_T='cienaCesSecurityDevCertKeyCreateNotification'
-_S='cienaCesSecurityDevCertInstallNotification'
-_R='cienaCesSecurityCaCrlInvalidCaNotification'
-_Q='cienaCesSecurityCaCrlInstallNotification'
-_P='cienaCesSecurityCertExpiryExpiredNotification'
-_O='cienaCesSecurityCertExpiryWarningNotification'
-_N='cienaCesSecurityCertKeyOperation'
-_M='cienaCesSecurityCaCrlInvalidCaReason'
-_L='cienaCesSecurityCaCrlType'
-_K='Integer32'
-_J='cienaCesSecurityCertCrlOperation'
-_I='cienaCesSecurityCertValidTo'
-_H='cienaCesSecurityCertType'
-_G='cienaCesSecurityCertName'
-_F='accessible-for-notify'
-_E='cienaGlobalSeverity'
-_D='cienaGlobalMacAddress'
-_C='CIENA-GLOBAL-MIB'
-_B='current'
-_A='CIENA-CES-SECURITY-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-cienaGlobalMacAddress,cienaGlobalSeverity=mibBuilder.importSymbols(_C,_D,_E)
-cienaCesConfig,cienaCesNotifications=mibBuilder.importSymbols('CIENA-SMI','cienaCesConfig','cienaCesNotifications')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_K,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-cienaCesSecurityMIB=ModuleIdentity((1,3,6,1,4,1,1271,2,1,44))
-if mibBuilder.loadTexts:cienaCesSecurityMIB.setRevisions(('2017-09-27 00:00',))
-_CienaCesSecurityMIBObjects_ObjectIdentity=ObjectIdentity
-cienaCesSecurityMIBObjects=_CienaCesSecurityMIBObjects_ObjectIdentity((1,3,6,1,4,1,1271,2,1,44,1))
-_CienaCesSecurityCertExpiry_ObjectIdentity=ObjectIdentity
-cienaCesSecurityCertExpiry=_CienaCesSecurityCertExpiry_ObjectIdentity((1,3,6,1,4,1,1271,2,1,44,1,1))
-class _CienaCesSecurityCertType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('ca',1),('devCert',2),('sshClient',3),('sshServer',4)))
-_CienaCesSecurityCertType_Type.__name__=_K
-_CienaCesSecurityCertType_Object=MibScalar
-cienaCesSecurityCertType=_CienaCesSecurityCertType_Object((1,3,6,1,4,1,1271,2,1,44,1,1,1),_CienaCesSecurityCertType_Type())
-cienaCesSecurityCertType.setMaxAccess(_F)
-if mibBuilder.loadTexts:cienaCesSecurityCertType.setStatus(_B)
-_CienaCesSecurityCertName_Type=DisplayString
-_CienaCesSecurityCertName_Object=MibScalar
-cienaCesSecurityCertName=_CienaCesSecurityCertName_Object((1,3,6,1,4,1,1271,2,1,44,1,1,2),_CienaCesSecurityCertName_Type())
-cienaCesSecurityCertName.setMaxAccess(_F)
-if mibBuilder.loadTexts:cienaCesSecurityCertName.setStatus(_B)
-_CienaCesSecurityCertValidTo_Type=DisplayString
-_CienaCesSecurityCertValidTo_Object=MibScalar
-cienaCesSecurityCertValidTo=_CienaCesSecurityCertValidTo_Object((1,3,6,1,4,1,1271,2,1,44,1,1,3),_CienaCesSecurityCertValidTo_Type())
-cienaCesSecurityCertValidTo.setMaxAccess(_F)
-if mibBuilder.loadTexts:cienaCesSecurityCertValidTo.setStatus(_B)
-_CienaCesSecurityCertCrl_ObjectIdentity=ObjectIdentity
-cienaCesSecurityCertCrl=_CienaCesSecurityCertCrl_ObjectIdentity((1,3,6,1,4,1,1271,2,1,44,1,2))
-_CienaCesSecurityCaCrlType_Type=DisplayString
-_CienaCesSecurityCaCrlType_Object=MibScalar
-cienaCesSecurityCaCrlType=_CienaCesSecurityCaCrlType_Object((1,3,6,1,4,1,1271,2,1,44,1,2,1),_CienaCesSecurityCaCrlType_Type())
-cienaCesSecurityCaCrlType.setMaxAccess(_F)
-if mibBuilder.loadTexts:cienaCesSecurityCaCrlType.setStatus(_B)
-_CienaCesSecurityCertCrlOperation_Type=DisplayString
-_CienaCesSecurityCertCrlOperation_Object=MibScalar
-cienaCesSecurityCertCrlOperation=_CienaCesSecurityCertCrlOperation_Object((1,3,6,1,4,1,1271,2,1,44,1,2,2),_CienaCesSecurityCertCrlOperation_Type())
-cienaCesSecurityCertCrlOperation.setMaxAccess(_F)
-if mibBuilder.loadTexts:cienaCesSecurityCertCrlOperation.setStatus(_B)
-_CienaCesSecurityCaCrlInvalidCaReason_Type=DisplayString
-_CienaCesSecurityCaCrlInvalidCaReason_Object=MibScalar
-cienaCesSecurityCaCrlInvalidCaReason=_CienaCesSecurityCaCrlInvalidCaReason_Object((1,3,6,1,4,1,1271,2,1,44,1,2,3),_CienaCesSecurityCaCrlInvalidCaReason_Type())
-cienaCesSecurityCaCrlInvalidCaReason.setMaxAccess(_F)
-if mibBuilder.loadTexts:cienaCesSecurityCaCrlInvalidCaReason.setStatus(_B)
-_CienaCesSecurityCertKeyOperation_Type=DisplayString
-_CienaCesSecurityCertKeyOperation_Object=MibScalar
-cienaCesSecurityCertKeyOperation=_CienaCesSecurityCertKeyOperation_Object((1,3,6,1,4,1,1271,2,1,44,1,2,4),_CienaCesSecurityCertKeyOperation_Type())
-cienaCesSecurityCertKeyOperation.setMaxAccess(_F)
-if mibBuilder.loadTexts:cienaCesSecurityCertKeyOperation.setStatus(_B)
-_CienaCesSecurityMIBConformance_ObjectIdentity=ObjectIdentity
-cienaCesSecurityMIBConformance=_CienaCesSecurityMIBConformance_ObjectIdentity((1,3,6,1,4,1,1271,2,1,44,2))
-_CienaCesSecurityMIBCompliances_ObjectIdentity=ObjectIdentity
-cienaCesSecurityMIBCompliances=_CienaCesSecurityMIBCompliances_ObjectIdentity((1,3,6,1,4,1,1271,2,1,44,2,1))
-_CienaCesSecurityMIBGroups_ObjectIdentity=ObjectIdentity
-cienaCesSecurityMIBGroups=_CienaCesSecurityMIBGroups_ObjectIdentity((1,3,6,1,4,1,1271,2,1,44,2,2))
-_CienaCesSecurityMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
-cienaCesSecurityMIBNotificationPrefix=_CienaCesSecurityMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,1271,2,2,43))
-_CienaCesSecurityMIBNotifications_ObjectIdentity=ObjectIdentity
-cienaCesSecurityMIBNotifications=_CienaCesSecurityMIBNotifications_ObjectIdentity((1,3,6,1,4,1,1271,2,2,43,0))
-cienaCesSecurityCertExpiryWarningNotification=NotificationType((1,3,6,1,4,1,1271,2,2,43,0,1))
-cienaCesSecurityCertExpiryWarningNotification.setObjects(*((_C,_E),(_C,_D),(_A,_H),(_A,_G),(_A,_I)))
-if mibBuilder.loadTexts:cienaCesSecurityCertExpiryWarningNotification.setStatus(_B)
-cienaCesSecurityCertExpiryExpiredNotification=NotificationType((1,3,6,1,4,1,1271,2,2,43,0,2))
-cienaCesSecurityCertExpiryExpiredNotification.setObjects(*((_C,_E),(_C,_D),(_A,_H),(_A,_G),(_A,_I)))
-if mibBuilder.loadTexts:cienaCesSecurityCertExpiryExpiredNotification.setStatus(_B)
-cienaCesSecurityCaCrlInstallNotification=NotificationType((1,3,6,1,4,1,1271,2,2,43,0,3))
-cienaCesSecurityCaCrlInstallNotification.setObjects(*((_C,_E),(_C,_D),(_A,_L),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:cienaCesSecurityCaCrlInstallNotification.setStatus(_B)
-cienaCesSecurityCaCrlInvalidCaNotification=NotificationType((1,3,6,1,4,1,1271,2,2,43,0,4))
-cienaCesSecurityCaCrlInvalidCaNotification.setObjects(*((_C,_E),(_C,_D),(_A,_M)))
-if mibBuilder.loadTexts:cienaCesSecurityCaCrlInvalidCaNotification.setStatus(_B)
-cienaCesSecurityDevCertInstallNotification=NotificationType((1,3,6,1,4,1,1271,2,2,43,0,5))
-cienaCesSecurityDevCertInstallNotification.setObjects(*((_C,_E),(_C,_D),(_A,_G),(_A,_J)))
-if mibBuilder.loadTexts:cienaCesSecurityDevCertInstallNotification.setStatus(_B)
-cienaCesSecurityDevCertKeyCreateNotification=NotificationType((1,3,6,1,4,1,1271,2,2,43,0,6))
-cienaCesSecurityDevCertKeyCreateNotification.setObjects(*((_C,_E),(_C,_D),(_A,_G),(_A,_N)))
-if mibBuilder.loadTexts:cienaCesSecurityDevCertKeyCreateNotification.setStatus(_B)
-cienaCesSecurityCertExpiryGroup=NotificationGroup((1,3,6,1,4,1,1271,2,1,44,2,2,1))
-cienaCesSecurityCertExpiryGroup.setObjects(*((_A,_O),(_A,_P)))
-if mibBuilder.loadTexts:cienaCesSecurityCertExpiryGroup.setStatus(_B)
-cienaCesSecurityCertCrlGroup=NotificationGroup((1,3,6,1,4,1,1271,2,1,44,2,2,2))
-cienaCesSecurityCertCrlGroup.setObjects(*((_A,_Q),(_A,_R),(_A,_S),(_A,_T)))
-if mibBuilder.loadTexts:cienaCesSecurityCertCrlGroup.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'cienaCesSecurityMIB':cienaCesSecurityMIB,'cienaCesSecurityMIBObjects':cienaCesSecurityMIBObjects,'cienaCesSecurityCertExpiry':cienaCesSecurityCertExpiry,_H:cienaCesSecurityCertType,_G:cienaCesSecurityCertName,_I:cienaCesSecurityCertValidTo,'cienaCesSecurityCertCrl':cienaCesSecurityCertCrl,_L:cienaCesSecurityCaCrlType,_J:cienaCesSecurityCertCrlOperation,_M:cienaCesSecurityCaCrlInvalidCaReason,_N:cienaCesSecurityCertKeyOperation,'cienaCesSecurityMIBConformance':cienaCesSecurityMIBConformance,'cienaCesSecurityMIBCompliances':cienaCesSecurityMIBCompliances,'cienaCesSecurityMIBGroups':cienaCesSecurityMIBGroups,'cienaCesSecurityCertExpiryGroup':cienaCesSecurityCertExpiryGroup,'cienaCesSecurityCertCrlGroup':cienaCesSecurityCertCrlGroup,'cienaCesSecurityMIBNotificationPrefix':cienaCesSecurityMIBNotificationPrefix,'cienaCesSecurityMIBNotifications':cienaCesSecurityMIBNotifications,_O:cienaCesSecurityCertExpiryWarningNotification,_P:cienaCesSecurityCertExpiryExpiredNotification,_Q:cienaCesSecurityCaCrlInstallNotification,_R:cienaCesSecurityCaCrlInvalidCaNotification,_S:cienaCesSecurityDevCertInstallNotification,_T:cienaCesSecurityDevCertKeyCreateNotification})
+#
+# PySNMP MIB module CIENA-CES-SECURITY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/CIENA-CES-SECURITY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cienaGlobalSeverity, cienaGlobalMacAddress = mibBuilder.importSymbols("CIENA-GLOBAL-MIB", "cienaGlobalSeverity", "cienaGlobalMacAddress")
+cienaCesConfig, cienaCesNotifications = mibBuilder.importSymbols("CIENA-SMI", "cienaCesConfig", "cienaCesNotifications")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+cienaCesSecurityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44))
+cienaCesSecurityMIB.setRevisions(('2017-09-27 00:00',))
+if mibBuilder.loadTexts: cienaCesSecurityMIB.setLastUpdated('201709270000Z')
+if mibBuilder.loadTexts: cienaCesSecurityMIB.setOrganization('Ciena Corp.')
+cienaCesSecurityMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44, 1))
+cienaCesSecurityCertExpiry = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44, 1, 1))
+cienaCesSecurityCertCrl = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44, 1, 2))
+cienaCesSecurityMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 2, 43))
+cienaCesSecurityMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 2, 43, 0))
+cienaCesSecurityMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44, 2))
+cienaCesSecurityMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44, 2, 1))
+cienaCesSecurityMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44, 2, 2))
+cienaCesSecurityCertType = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("ca", 1), ("devCert", 2), ("sshClient", 3), ("sshServer", 4)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cienaCesSecurityCertType.setStatus('current')
+cienaCesSecurityCertName = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44, 1, 1, 2), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cienaCesSecurityCertName.setStatus('current')
+cienaCesSecurityCertValidTo = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44, 1, 1, 3), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cienaCesSecurityCertValidTo.setStatus('current')
+cienaCesSecurityCaCrlType = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44, 1, 2, 1), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cienaCesSecurityCaCrlType.setStatus('current')
+cienaCesSecurityCertCrlOperation = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44, 1, 2, 2), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cienaCesSecurityCertCrlOperation.setStatus('current')
+cienaCesSecurityCaCrlInvalidCaReason = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44, 1, 2, 3), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cienaCesSecurityCaCrlInvalidCaReason.setStatus('current')
+cienaCesSecurityCertKeyOperation = MibScalar((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44, 1, 2, 4), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cienaCesSecurityCertKeyOperation.setStatus('current')
+cienaCesSecurityCertExpiryWarningNotification = NotificationType((1, 3, 6, 1, 4, 1, 1271, 2, 2, 43, 0, 1)).setObjects(("CIENA-GLOBAL-MIB", "cienaGlobalSeverity"), ("CIENA-GLOBAL-MIB", "cienaGlobalMacAddress"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCertType"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCertName"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCertValidTo"))
+if mibBuilder.loadTexts: cienaCesSecurityCertExpiryWarningNotification.setStatus('current')
+cienaCesSecurityCertExpiryExpiredNotification = NotificationType((1, 3, 6, 1, 4, 1, 1271, 2, 2, 43, 0, 2)).setObjects(("CIENA-GLOBAL-MIB", "cienaGlobalSeverity"), ("CIENA-GLOBAL-MIB", "cienaGlobalMacAddress"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCertType"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCertName"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCertValidTo"))
+if mibBuilder.loadTexts: cienaCesSecurityCertExpiryExpiredNotification.setStatus('current')
+cienaCesSecurityCaCrlInstallNotification = NotificationType((1, 3, 6, 1, 4, 1, 1271, 2, 2, 43, 0, 3)).setObjects(("CIENA-GLOBAL-MIB", "cienaGlobalSeverity"), ("CIENA-GLOBAL-MIB", "cienaGlobalMacAddress"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCaCrlType"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCertName"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCertCrlOperation"))
+if mibBuilder.loadTexts: cienaCesSecurityCaCrlInstallNotification.setStatus('current')
+cienaCesSecurityCaCrlInvalidCaNotification = NotificationType((1, 3, 6, 1, 4, 1, 1271, 2, 2, 43, 0, 4)).setObjects(("CIENA-GLOBAL-MIB", "cienaGlobalSeverity"), ("CIENA-GLOBAL-MIB", "cienaGlobalMacAddress"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCaCrlInvalidCaReason"))
+if mibBuilder.loadTexts: cienaCesSecurityCaCrlInvalidCaNotification.setStatus('current')
+cienaCesSecurityDevCertInstallNotification = NotificationType((1, 3, 6, 1, 4, 1, 1271, 2, 2, 43, 0, 5)).setObjects(("CIENA-GLOBAL-MIB", "cienaGlobalSeverity"), ("CIENA-GLOBAL-MIB", "cienaGlobalMacAddress"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCertName"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCertCrlOperation"))
+if mibBuilder.loadTexts: cienaCesSecurityDevCertInstallNotification.setStatus('current')
+cienaCesSecurityDevCertKeyCreateNotification = NotificationType((1, 3, 6, 1, 4, 1, 1271, 2, 2, 43, 0, 6)).setObjects(("CIENA-GLOBAL-MIB", "cienaGlobalSeverity"), ("CIENA-GLOBAL-MIB", "cienaGlobalMacAddress"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCertName"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCertKeyOperation"))
+if mibBuilder.loadTexts: cienaCesSecurityDevCertKeyCreateNotification.setStatus('current')
+cienaCesSecurityCertExpiryGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44, 2, 2, 1)).setObjects(("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCertExpiryWarningNotification"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCertExpiryExpiredNotification"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cienaCesSecurityCertExpiryGroup = cienaCesSecurityCertExpiryGroup.setStatus('current')
+cienaCesSecurityCertCrlGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 1271, 2, 1, 44, 2, 2, 2)).setObjects(("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCaCrlInstallNotification"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityCaCrlInvalidCaNotification"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityDevCertInstallNotification"), ("CIENA-CES-SECURITY-MIB", "cienaCesSecurityDevCertKeyCreateNotification"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cienaCesSecurityCertCrlGroup = cienaCesSecurityCertCrlGroup.setStatus('current')
+mibBuilder.exportSymbols("CIENA-CES-SECURITY-MIB", cienaCesSecurityCertKeyOperation=cienaCesSecurityCertKeyOperation, cienaCesSecurityMIB=cienaCesSecurityMIB, cienaCesSecurityCertType=cienaCesSecurityCertType, cienaCesSecurityCaCrlInvalidCaReason=cienaCesSecurityCaCrlInvalidCaReason, cienaCesSecurityCertExpiryWarningNotification=cienaCesSecurityCertExpiryWarningNotification, cienaCesSecurityCertName=cienaCesSecurityCertName, cienaCesSecurityDevCertKeyCreateNotification=cienaCesSecurityDevCertKeyCreateNotification, cienaCesSecurityCertExpiryExpiredNotification=cienaCesSecurityCertExpiryExpiredNotification, cienaCesSecurityMIBCompliances=cienaCesSecurityMIBCompliances, cienaCesSecurityMIBNotifications=cienaCesSecurityMIBNotifications, cienaCesSecurityCaCrlType=cienaCesSecurityCaCrlType, cienaCesSecurityMIBObjects=cienaCesSecurityMIBObjects, cienaCesSecurityMIBGroups=cienaCesSecurityMIBGroups, PYSNMP_MODULE_ID=cienaCesSecurityMIB, cienaCesSecurityCertCrlGroup=cienaCesSecurityCertCrlGroup, cienaCesSecurityCertCrl=cienaCesSecurityCertCrl, cienaCesSecurityMIBNotificationPrefix=cienaCesSecurityMIBNotificationPrefix, cienaCesSecurityCertExpiry=cienaCesSecurityCertExpiry, cienaCesSecurityMIBConformance=cienaCesSecurityMIBConformance, cienaCesSecurityCaCrlInvalidCaNotification=cienaCesSecurityCaCrlInvalidCaNotification, cienaCesSecurityCertCrlOperation=cienaCesSecurityCertCrlOperation, cienaCesSecurityCaCrlInstallNotification=cienaCesSecurityCaCrlInstallNotification, cienaCesSecurityDevCertInstallNotification=cienaCesSecurityDevCertInstallNotification, cienaCesSecurityCertValidTo=cienaCesSecurityCertValidTo, cienaCesSecurityCertExpiryGroup=cienaCesSecurityCertExpiryGroup)

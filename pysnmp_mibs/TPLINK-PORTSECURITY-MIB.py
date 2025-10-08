@@ -1,59 +1,36 @@
-_G='read-only'
-_F='DisplayString'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_F,'PhysAddress','TextualConvention')
-tplinkMgmt,=mibBuilder.importSymbols('TPLINK-MIB','tplinkMgmt')
-tplinkPortSecurityMIB=ModuleIdentity((1,3,6,1,4,1,11863,6,12))
-if mibBuilder.loadTexts:tplinkPortSecurityMIB.setRevisions(('2012-12-13 00:00',))
-_TplinkPortSecurityMIBObjects_ObjectIdentity=ObjectIdentity
-tplinkPortSecurityMIBObjects=_TplinkPortSecurityMIBObjects_ObjectIdentity((1,3,6,1,4,1,11863,6,12,1))
-_TpPortSecurityTable_Object=MibTable
-tpPortSecurityTable=_TpPortSecurityTable_Object((1,3,6,1,4,1,11863,6,12,1,1))
-if mibBuilder.loadTexts:tpPortSecurityTable.setStatus(_A)
-_TpPortSecurityEntry_Object=MibTableRow
-tpPortSecurityEntry=_TpPortSecurityEntry_Object((1,3,6,1,4,1,11863,6,12,1,1,1))
-tpPortSecurityEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:tpPortSecurityEntry.setStatus(_A)
-class _TpPortSecurityPortIndex_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_TpPortSecurityPortIndex_Type.__name__=_F
-_TpPortSecurityPortIndex_Object=MibTableColumn
-tpPortSecurityPortIndex=_TpPortSecurityPortIndex_Object((1,3,6,1,4,1,11863,6,12,1,1,1,1),_TpPortSecurityPortIndex_Type())
-tpPortSecurityPortIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:tpPortSecurityPortIndex.setStatus(_A)
-class _TpPortSecurityMaxNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1024))
-_TpPortSecurityMaxNum_Type.__name__=_B
-_TpPortSecurityMaxNum_Object=MibTableColumn
-tpPortSecurityMaxNum=_TpPortSecurityMaxNum_Object((1,3,6,1,4,1,11863,6,12,1,1,1,2),_TpPortSecurityMaxNum_Type())
-tpPortSecurityMaxNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:tpPortSecurityMaxNum.setStatus(_A)
-_TpPortSecurityLearnNum_Type=Integer32
-_TpPortSecurityLearnNum_Object=MibTableColumn
-tpPortSecurityLearnNum=_TpPortSecurityLearnNum_Object((1,3,6,1,4,1,11863,6,12,1,1,1,3),_TpPortSecurityLearnNum_Type())
-tpPortSecurityLearnNum.setMaxAccess(_G)
-if mibBuilder.loadTexts:tpPortSecurityLearnNum.setStatus(_A)
-class _TpPortSecurityLearnMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('dynamic',0),('static',1),('permanent',2)))
-_TpPortSecurityLearnMode_Type.__name__=_B
-_TpPortSecurityLearnMode_Object=MibTableColumn
-tpPortSecurityLearnMode=_TpPortSecurityLearnMode_Object((1,3,6,1,4,1,11863,6,12,1,1,1,4),_TpPortSecurityLearnMode_Type())
-tpPortSecurityLearnMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:tpPortSecurityLearnMode.setStatus(_A)
-class _TpPortSecurityPortStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('disable',0),('forward',1),('drop',2)))
-_TpPortSecurityPortStatus_Type.__name__=_B
-_TpPortSecurityPortStatus_Object=MibTableColumn
-tpPortSecurityPortStatus=_TpPortSecurityPortStatus_Object((1,3,6,1,4,1,11863,6,12,1,1,1,5),_TpPortSecurityPortStatus_Type())
-tpPortSecurityPortStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tpPortSecurityPortStatus.setStatus(_A)
-_TplinkPortSecurityNotifications_ObjectIdentity=ObjectIdentity
-tplinkPortSecurityNotifications=_TplinkPortSecurityNotifications_ObjectIdentity((1,3,6,1,4,1,11863,6,12,2))
-mibBuilder.exportSymbols('TPLINK-PORTSECURITY-MIB',**{'tplinkPortSecurityMIB':tplinkPortSecurityMIB,'tplinkPortSecurityMIBObjects':tplinkPortSecurityMIBObjects,'tpPortSecurityTable':tpPortSecurityTable,'tpPortSecurityEntry':tpPortSecurityEntry,'tpPortSecurityPortIndex':tpPortSecurityPortIndex,'tpPortSecurityMaxNum':tpPortSecurityMaxNum,'tpPortSecurityLearnNum':tpPortSecurityLearnNum,'tpPortSecurityLearnMode':tpPortSecurityLearnMode,'tpPortSecurityPortStatus':tpPortSecurityPortStatus,'tplinkPortSecurityNotifications':tplinkPortSecurityNotifications})
+#
+# PySNMP MIB module TPLINK-PORTSECURITY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-PORTSECURITY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:18 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
+tplinkPortSecurityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 12))
+tplinkPortSecurityMIB.setRevisions(('2012-12-13 00:00',))
+if mibBuilder.loadTexts: tplinkPortSecurityMIB.setLastUpdated('201212130000Z')
+if mibBuilder.loadTexts: tplinkPortSecurityMIB.setOrganization('TPLINK')
+tplinkPortSecurityMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 12, 1))
+tplinkPortSecurityNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 12, 2))
+tpPortSecurityTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 12, 1, 1), )
+if mibBuilder.loadTexts: tpPortSecurityTable.setStatus('current')
+tpPortSecurityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 12, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: tpPortSecurityEntry.setStatus('current')
+tpPortSecurityPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 12, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpPortSecurityPortIndex.setStatus('current')
+tpPortSecurityMaxNum = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 12, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1024))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpPortSecurityMaxNum.setStatus('current')
+tpPortSecurityLearnNum = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 12, 1, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpPortSecurityLearnNum.setStatus('current')
+tpPortSecurityLearnMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 12, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("dynamic", 0), ("static", 1), ("permanent", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpPortSecurityLearnMode.setStatus('current')
+tpPortSecurityPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 12, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disable", 0), ("forward", 1), ("drop", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpPortSecurityPortStatus.setStatus('current')
+mibBuilder.exportSymbols("TPLINK-PORTSECURITY-MIB", tpPortSecurityPortStatus=tpPortSecurityPortStatus, PYSNMP_MODULE_ID=tplinkPortSecurityMIB, tplinkPortSecurityMIBObjects=tplinkPortSecurityMIBObjects, tplinkPortSecurityMIB=tplinkPortSecurityMIB, tpPortSecurityPortIndex=tpPortSecurityPortIndex, tpPortSecurityEntry=tpPortSecurityEntry, tpPortSecurityMaxNum=tpPortSecurityMaxNum, tpPortSecurityTable=tpPortSecurityTable, tpPortSecurityLearnMode=tpPortSecurityLearnMode, tpPortSecurityLearnNum=tpPortSecurityLearnNum, tplinkPortSecurityNotifications=tplinkPortSecurityNotifications)

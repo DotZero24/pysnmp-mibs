@@ -1,135 +1,69 @@
-_D='bHttpServLatencyStatsInterval'
-_C='BENU-HTTP-SERVER-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-benuWAG,=mibBuilder.importSymbols('BENU-WAG-MIB','benuWAG')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-benuHttpServerMIB=ModuleIdentity((1,3,6,1,4,1,39406,2,1,10))
-if mibBuilder.loadTexts:benuHttpServerMIB.setRevisions(('2015-10-21 00:00',))
-_BHttpServerObjects_ObjectIdentity=ObjectIdentity
-bHttpServerObjects=_BHttpServerObjects_ObjectIdentity((1,3,6,1,4,1,39406,2,1,10,1))
-if mibBuilder.loadTexts:bHttpServerObjects.setStatus(_A)
-_BHttpServerLatencyTable_Object=MibTable
-bHttpServerLatencyTable=_BHttpServerLatencyTable_Object((1,3,6,1,4,1,39406,2,1,10,1,1))
-if mibBuilder.loadTexts:bHttpServerLatencyTable.setStatus(_A)
-_BHttpServerLatencyEntry_Object=MibTableRow
-bHttpServerLatencyEntry=_BHttpServerLatencyEntry_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1))
-bHttpServerLatencyEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:bHttpServerLatencyEntry.setStatus(_A)
-_BHttpServLatencyStatsInterval_Type=Integer32
-_BHttpServLatencyStatsInterval_Object=MibTableColumn
-bHttpServLatencyStatsInterval=_BHttpServLatencyStatsInterval_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,1),_BHttpServLatencyStatsInterval_Type())
-bHttpServLatencyStatsInterval.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:bHttpServLatencyStatsInterval.setStatus(_A)
-_BHttpServLatencyStatsIntervalDuration_Type=Integer32
-_BHttpServLatencyStatsIntervalDuration_Object=MibTableColumn
-bHttpServLatencyStatsIntervalDuration=_BHttpServLatencyStatsIntervalDuration_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,2),_BHttpServLatencyStatsIntervalDuration_Type())
-bHttpServLatencyStatsIntervalDuration.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyStatsIntervalDuration.setStatus(_A)
-_BHttpServLatencyTotalPktCount_Type=Unsigned32
-_BHttpServLatencyTotalPktCount_Object=MibTableColumn
-bHttpServLatencyTotalPktCount=_BHttpServLatencyTotalPktCount_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,3),_BHttpServLatencyTotalPktCount_Type())
-bHttpServLatencyTotalPktCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyTotalPktCount.setStatus(_A)
-_BHttpServLatencyMaxProcessingTime_Type=Unsigned32
-_BHttpServLatencyMaxProcessingTime_Object=MibTableColumn
-bHttpServLatencyMaxProcessingTime=_BHttpServLatencyMaxProcessingTime_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,4),_BHttpServLatencyMaxProcessingTime_Type())
-bHttpServLatencyMaxProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyMaxProcessingTime.setStatus(_A)
-_BHttpServLatencyMinProcessingTime_Type=Unsigned32
-_BHttpServLatencyMinProcessingTime_Object=MibTableColumn
-bHttpServLatencyMinProcessingTime=_BHttpServLatencyMinProcessingTime_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,5),_BHttpServLatencyMinProcessingTime_Type())
-bHttpServLatencyMinProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyMinProcessingTime.setStatus(_A)
-_BHttpServLatencyAvgProcessingTime_Type=Unsigned32
-_BHttpServLatencyAvgProcessingTime_Object=MibTableColumn
-bHttpServLatencyAvgProcessingTime=_BHttpServLatencyAvgProcessingTime_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,6),_BHttpServLatencyAvgProcessingTime_Type())
-bHttpServLatencyAvgProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyAvgProcessingTime.setStatus(_A)
-_BHttpServLatencyProcessTimeMorethan1MSPktCount_Type=Unsigned32
-_BHttpServLatencyProcessTimeMorethan1MSPktCount_Object=MibTableColumn
-bHttpServLatencyProcessTimeMorethan1MSPktCount=_BHttpServLatencyProcessTimeMorethan1MSPktCount_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,7),_BHttpServLatencyProcessTimeMorethan1MSPktCount_Type())
-bHttpServLatencyProcessTimeMorethan1MSPktCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyProcessTimeMorethan1MSPktCount.setStatus(_A)
-_BHttpServLatencyGetTotalPktCount_Type=Unsigned32
-_BHttpServLatencyGetTotalPktCount_Object=MibTableColumn
-bHttpServLatencyGetTotalPktCount=_BHttpServLatencyGetTotalPktCount_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,8),_BHttpServLatencyGetTotalPktCount_Type())
-bHttpServLatencyGetTotalPktCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyGetTotalPktCount.setStatus(_A)
-_BHttpServLatencyGetMaxProcessingTime_Type=Unsigned32
-_BHttpServLatencyGetMaxProcessingTime_Object=MibTableColumn
-bHttpServLatencyGetMaxProcessingTime=_BHttpServLatencyGetMaxProcessingTime_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,9),_BHttpServLatencyGetMaxProcessingTime_Type())
-bHttpServLatencyGetMaxProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyGetMaxProcessingTime.setStatus(_A)
-_BHttpServLatencyGetMinProcessingTime_Type=Unsigned32
-_BHttpServLatencyGetMinProcessingTime_Object=MibTableColumn
-bHttpServLatencyGetMinProcessingTime=_BHttpServLatencyGetMinProcessingTime_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,10),_BHttpServLatencyGetMinProcessingTime_Type())
-bHttpServLatencyGetMinProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyGetMinProcessingTime.setStatus(_A)
-_BHttpServLatencyGetAvgProcessingTime_Type=Unsigned32
-_BHttpServLatencyGetAvgProcessingTime_Object=MibTableColumn
-bHttpServLatencyGetAvgProcessingTime=_BHttpServLatencyGetAvgProcessingTime_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,11),_BHttpServLatencyGetAvgProcessingTime_Type())
-bHttpServLatencyGetAvgProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyGetAvgProcessingTime.setStatus(_A)
-_BHttpServLatencyGetProcessTimeMorethan1MSPktCount_Type=Unsigned32
-_BHttpServLatencyGetProcessTimeMorethan1MSPktCount_Object=MibTableColumn
-bHttpServLatencyGetProcessTimeMorethan1MSPktCount=_BHttpServLatencyGetProcessTimeMorethan1MSPktCount_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,12),_BHttpServLatencyGetProcessTimeMorethan1MSPktCount_Type())
-bHttpServLatencyGetProcessTimeMorethan1MSPktCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyGetProcessTimeMorethan1MSPktCount.setStatus(_A)
-_BHttpServLatencyPostTotalPktCount_Type=Unsigned32
-_BHttpServLatencyPostTotalPktCount_Object=MibTableColumn
-bHttpServLatencyPostTotalPktCount=_BHttpServLatencyPostTotalPktCount_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,13),_BHttpServLatencyPostTotalPktCount_Type())
-bHttpServLatencyPostTotalPktCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyPostTotalPktCount.setStatus(_A)
-_BHttpServLatencyPostMaxProcessingTime_Type=Unsigned32
-_BHttpServLatencyPostMaxProcessingTime_Object=MibTableColumn
-bHttpServLatencyPostMaxProcessingTime=_BHttpServLatencyPostMaxProcessingTime_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,14),_BHttpServLatencyPostMaxProcessingTime_Type())
-bHttpServLatencyPostMaxProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyPostMaxProcessingTime.setStatus(_A)
-_BHttpServLatencyPostMinProcessingTime_Type=Unsigned32
-_BHttpServLatencyPostMinProcessingTime_Object=MibTableColumn
-bHttpServLatencyPostMinProcessingTime=_BHttpServLatencyPostMinProcessingTime_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,15),_BHttpServLatencyPostMinProcessingTime_Type())
-bHttpServLatencyPostMinProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyPostMinProcessingTime.setStatus(_A)
-_BHttpServLatencyPostAvgProcessingTime_Type=Unsigned32
-_BHttpServLatencyPostAvgProcessingTime_Object=MibTableColumn
-bHttpServLatencyPostAvgProcessingTime=_BHttpServLatencyPostAvgProcessingTime_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,16),_BHttpServLatencyPostAvgProcessingTime_Type())
-bHttpServLatencyPostAvgProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyPostAvgProcessingTime.setStatus(_A)
-_BHttpServLatencyPostProcessTimeMorethan1MSPktCount_Type=Unsigned32
-_BHttpServLatencyPostProcessTimeMorethan1MSPktCount_Object=MibTableColumn
-bHttpServLatencyPostProcessTimeMorethan1MSPktCount=_BHttpServLatencyPostProcessTimeMorethan1MSPktCount_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,17),_BHttpServLatencyPostProcessTimeMorethan1MSPktCount_Type())
-bHttpServLatencyPostProcessTimeMorethan1MSPktCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyPostProcessTimeMorethan1MSPktCount.setStatus(_A)
-_BHttpServLatencyDeleteTotalPktCount_Type=Unsigned32
-_BHttpServLatencyDeleteTotalPktCount_Object=MibTableColumn
-bHttpServLatencyDeleteTotalPktCount=_BHttpServLatencyDeleteTotalPktCount_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,18),_BHttpServLatencyDeleteTotalPktCount_Type())
-bHttpServLatencyDeleteTotalPktCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyDeleteTotalPktCount.setStatus(_A)
-_BHttpServLatencyDeleteMaxProcessingTime_Type=Unsigned32
-_BHttpServLatencyDeleteMaxProcessingTime_Object=MibTableColumn
-bHttpServLatencyDeleteMaxProcessingTime=_BHttpServLatencyDeleteMaxProcessingTime_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,19),_BHttpServLatencyDeleteMaxProcessingTime_Type())
-bHttpServLatencyDeleteMaxProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyDeleteMaxProcessingTime.setStatus(_A)
-_BHttpServLatencyDeleteMinProcessingTime_Type=Unsigned32
-_BHttpServLatencyDeleteMinProcessingTime_Object=MibTableColumn
-bHttpServLatencyDeleteMinProcessingTime=_BHttpServLatencyDeleteMinProcessingTime_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,20),_BHttpServLatencyDeleteMinProcessingTime_Type())
-bHttpServLatencyDeleteMinProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyDeleteMinProcessingTime.setStatus(_A)
-_BHttpServLatencyDeleteAvgProcessingTime_Type=Unsigned32
-_BHttpServLatencyDeleteAvgProcessingTime_Object=MibTableColumn
-bHttpServLatencyDeleteAvgProcessingTime=_BHttpServLatencyDeleteAvgProcessingTime_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,21),_BHttpServLatencyDeleteAvgProcessingTime_Type())
-bHttpServLatencyDeleteAvgProcessingTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyDeleteAvgProcessingTime.setStatus(_A)
-_BHttpServLatencyDeleteProcessTimeMorethan1MSPktCount_Type=Unsigned32
-_BHttpServLatencyDeleteProcessTimeMorethan1MSPktCount_Object=MibTableColumn
-bHttpServLatencyDeleteProcessTimeMorethan1MSPktCount=_BHttpServLatencyDeleteProcessTimeMorethan1MSPktCount_Object((1,3,6,1,4,1,39406,2,1,10,1,1,1,22),_BHttpServLatencyDeleteProcessTimeMorethan1MSPktCount_Type())
-bHttpServLatencyDeleteProcessTimeMorethan1MSPktCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:bHttpServLatencyDeleteProcessTimeMorethan1MSPktCount.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'benuHttpServerMIB':benuHttpServerMIB,'bHttpServerObjects':bHttpServerObjects,'bHttpServerLatencyTable':bHttpServerLatencyTable,'bHttpServerLatencyEntry':bHttpServerLatencyEntry,_D:bHttpServLatencyStatsInterval,'bHttpServLatencyStatsIntervalDuration':bHttpServLatencyStatsIntervalDuration,'bHttpServLatencyTotalPktCount':bHttpServLatencyTotalPktCount,'bHttpServLatencyMaxProcessingTime':bHttpServLatencyMaxProcessingTime,'bHttpServLatencyMinProcessingTime':bHttpServLatencyMinProcessingTime,'bHttpServLatencyAvgProcessingTime':bHttpServLatencyAvgProcessingTime,'bHttpServLatencyProcessTimeMorethan1MSPktCount':bHttpServLatencyProcessTimeMorethan1MSPktCount,'bHttpServLatencyGetTotalPktCount':bHttpServLatencyGetTotalPktCount,'bHttpServLatencyGetMaxProcessingTime':bHttpServLatencyGetMaxProcessingTime,'bHttpServLatencyGetMinProcessingTime':bHttpServLatencyGetMinProcessingTime,'bHttpServLatencyGetAvgProcessingTime':bHttpServLatencyGetAvgProcessingTime,'bHttpServLatencyGetProcessTimeMorethan1MSPktCount':bHttpServLatencyGetProcessTimeMorethan1MSPktCount,'bHttpServLatencyPostTotalPktCount':bHttpServLatencyPostTotalPktCount,'bHttpServLatencyPostMaxProcessingTime':bHttpServLatencyPostMaxProcessingTime,'bHttpServLatencyPostMinProcessingTime':bHttpServLatencyPostMinProcessingTime,'bHttpServLatencyPostAvgProcessingTime':bHttpServLatencyPostAvgProcessingTime,'bHttpServLatencyPostProcessTimeMorethan1MSPktCount':bHttpServLatencyPostProcessTimeMorethan1MSPktCount,'bHttpServLatencyDeleteTotalPktCount':bHttpServLatencyDeleteTotalPktCount,'bHttpServLatencyDeleteMaxProcessingTime':bHttpServLatencyDeleteMaxProcessingTime,'bHttpServLatencyDeleteMinProcessingTime':bHttpServLatencyDeleteMinProcessingTime,'bHttpServLatencyDeleteAvgProcessingTime':bHttpServLatencyDeleteAvgProcessingTime,'bHttpServLatencyDeleteProcessTimeMorethan1MSPktCount':bHttpServLatencyDeleteProcessTimeMorethan1MSPktCount})
+#
+# PySNMP MIB module BENU-HTTP-SERVER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/benu/BENU-HTTP-SERVER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:47 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+benuWAG, = mibBuilder.importSymbols("BENU-WAG-MIB", "benuWAG")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+benuHttpServerMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10))
+benuHttpServerMIB.setRevisions(('2015-10-21 00:00',))
+if mibBuilder.loadTexts: benuHttpServerMIB.setLastUpdated('201510210000Z')
+if mibBuilder.loadTexts: benuHttpServerMIB.setOrganization('Benu Networks,Inc')
+bHttpServerObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1))
+if mibBuilder.loadTexts: bHttpServerObjects.setStatus('current')
+bHttpServerLatencyTable = MibTable((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1), )
+if mibBuilder.loadTexts: bHttpServerLatencyTable.setStatus('current')
+bHttpServerLatencyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1), ).setIndexNames((0, "BENU-HTTP-SERVER-MIB", "bHttpServLatencyStatsInterval"))
+if mibBuilder.loadTexts: bHttpServerLatencyEntry.setStatus('current')
+bHttpServLatencyStatsInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: bHttpServLatencyStatsInterval.setStatus('current')
+bHttpServLatencyStatsIntervalDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyStatsIntervalDuration.setStatus('current')
+bHttpServLatencyTotalPktCount = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyTotalPktCount.setStatus('current')
+bHttpServLatencyMaxProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyMaxProcessingTime.setStatus('current')
+bHttpServLatencyMinProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyMinProcessingTime.setStatus('current')
+bHttpServLatencyAvgProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyAvgProcessingTime.setStatus('current')
+bHttpServLatencyProcessTimeMorethan1MSPktCount = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyProcessTimeMorethan1MSPktCount.setStatus('current')
+bHttpServLatencyGetTotalPktCount = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyGetTotalPktCount.setStatus('current')
+bHttpServLatencyGetMaxProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyGetMaxProcessingTime.setStatus('current')
+bHttpServLatencyGetMinProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 10), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyGetMinProcessingTime.setStatus('current')
+bHttpServLatencyGetAvgProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyGetAvgProcessingTime.setStatus('current')
+bHttpServLatencyGetProcessTimeMorethan1MSPktCount = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyGetProcessTimeMorethan1MSPktCount.setStatus('current')
+bHttpServLatencyPostTotalPktCount = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 13), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyPostTotalPktCount.setStatus('current')
+bHttpServLatencyPostMaxProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 14), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyPostMaxProcessingTime.setStatus('current')
+bHttpServLatencyPostMinProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 15), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyPostMinProcessingTime.setStatus('current')
+bHttpServLatencyPostAvgProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 16), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyPostAvgProcessingTime.setStatus('current')
+bHttpServLatencyPostProcessTimeMorethan1MSPktCount = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 17), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyPostProcessTimeMorethan1MSPktCount.setStatus('current')
+bHttpServLatencyDeleteTotalPktCount = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 18), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyDeleteTotalPktCount.setStatus('current')
+bHttpServLatencyDeleteMaxProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 19), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyDeleteMaxProcessingTime.setStatus('current')
+bHttpServLatencyDeleteMinProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 20), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyDeleteMinProcessingTime.setStatus('current')
+bHttpServLatencyDeleteAvgProcessingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 21), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyDeleteAvgProcessingTime.setStatus('current')
+bHttpServLatencyDeleteProcessTimeMorethan1MSPktCount = MibTableColumn((1, 3, 6, 1, 4, 1, 39406, 2, 1, 10, 1, 1, 1, 22), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bHttpServLatencyDeleteProcessTimeMorethan1MSPktCount.setStatus('current')
+mibBuilder.exportSymbols("BENU-HTTP-SERVER-MIB", bHttpServLatencyPostTotalPktCount=bHttpServLatencyPostTotalPktCount, bHttpServLatencyDeleteAvgProcessingTime=bHttpServLatencyDeleteAvgProcessingTime, bHttpServerLatencyTable=bHttpServerLatencyTable, bHttpServLatencyDeleteMaxProcessingTime=bHttpServLatencyDeleteMaxProcessingTime, bHttpServLatencyGetMaxProcessingTime=bHttpServLatencyGetMaxProcessingTime, bHttpServerLatencyEntry=bHttpServerLatencyEntry, bHttpServLatencyTotalPktCount=bHttpServLatencyTotalPktCount, bHttpServLatencyDeleteProcessTimeMorethan1MSPktCount=bHttpServLatencyDeleteProcessTimeMorethan1MSPktCount, bHttpServLatencyStatsIntervalDuration=bHttpServLatencyStatsIntervalDuration, bHttpServLatencyPostMaxProcessingTime=bHttpServLatencyPostMaxProcessingTime, bHttpServLatencyMinProcessingTime=bHttpServLatencyMinProcessingTime, bHttpServLatencyGetAvgProcessingTime=bHttpServLatencyGetAvgProcessingTime, PYSNMP_MODULE_ID=benuHttpServerMIB, bHttpServLatencyStatsInterval=bHttpServLatencyStatsInterval, bHttpServLatencyPostAvgProcessingTime=bHttpServLatencyPostAvgProcessingTime, bHttpServLatencyPostProcessTimeMorethan1MSPktCount=bHttpServLatencyPostProcessTimeMorethan1MSPktCount, bHttpServLatencyMaxProcessingTime=bHttpServLatencyMaxProcessingTime, bHttpServLatencyGetProcessTimeMorethan1MSPktCount=bHttpServLatencyGetProcessTimeMorethan1MSPktCount, bHttpServLatencyGetMinProcessingTime=bHttpServLatencyGetMinProcessingTime, bHttpServLatencyProcessTimeMorethan1MSPktCount=bHttpServLatencyProcessTimeMorethan1MSPktCount, bHttpServLatencyDeleteTotalPktCount=bHttpServLatencyDeleteTotalPktCount, benuHttpServerMIB=benuHttpServerMIB, bHttpServLatencyAvgProcessingTime=bHttpServLatencyAvgProcessingTime, bHttpServLatencyGetTotalPktCount=bHttpServLatencyGetTotalPktCount, bHttpServLatencyDeleteMinProcessingTime=bHttpServLatencyDeleteMinProcessingTime, bHttpServerObjects=bHttpServerObjects, bHttpServLatencyPostMinProcessingTime=bHttpServLatencyPostMinProcessingTime)

@@ -1,77 +1,44 @@
-_H='rlAggregateSubVlanIfIndex'
-_G='read-only'
-_F='DisplayString'
-_E='rlAggregateVlanIndex'
-_D='Integer32'
-_C='read-create'
-_B='NETGEAR-RADLAN-AGGREGATEVLAN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-rnd,=mibBuilder.importSymbols('NETGEAR-RADLAN-MIB','rnd')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_F,'PhysAddress','RowStatus','TextualConvention')
-rlAggregateVlan=ModuleIdentity((1,3,6,1,4,1,4526,17,73))
-if mibBuilder.loadTexts:rlAggregateVlan.setRevisions(('2007-01-02 00:00',))
-_RlAggregateVlanMibVersion_Type=Integer32
-_RlAggregateVlanMibVersion_Object=MibScalar
-rlAggregateVlanMibVersion=_RlAggregateVlanMibVersion_Object((1,3,6,1,4,1,4526,17,73,1),_RlAggregateVlanMibVersion_Type())
-rlAggregateVlanMibVersion.setMaxAccess(_G)
-if mibBuilder.loadTexts:rlAggregateVlanMibVersion.setStatus(_A)
-_RlAggregateVlanTable_Object=MibTable
-rlAggregateVlanTable=_RlAggregateVlanTable_Object((1,3,6,1,4,1,4526,17,73,2))
-if mibBuilder.loadTexts:rlAggregateVlanTable.setStatus(_A)
-_RlAggregateVlanEntry_Object=MibTableRow
-rlAggregateVlanEntry=_RlAggregateVlanEntry_Object((1,3,6,1,4,1,4526,17,73,2,1))
-rlAggregateVlanEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:rlAggregateVlanEntry.setStatus(_A)
-_RlAggregateVlanIndex_Type=InterfaceIndex
-_RlAggregateVlanIndex_Object=MibTableColumn
-rlAggregateVlanIndex=_RlAggregateVlanIndex_Object((1,3,6,1,4,1,4526,17,73,2,1,1),_RlAggregateVlanIndex_Type())
-rlAggregateVlanIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:rlAggregateVlanIndex.setStatus(_A)
-class _RlAggregateVlanName_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_RlAggregateVlanName_Type.__name__=_F
-_RlAggregateVlanName_Object=MibTableColumn
-rlAggregateVlanName=_RlAggregateVlanName_Object((1,3,6,1,4,1,4526,17,73,2,1,2),_RlAggregateVlanName_Type())
-rlAggregateVlanName.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlAggregateVlanName.setStatus(_A)
-class _RlAggregateVlanPhysAddressType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('default',1),('reserve',2)))
-_RlAggregateVlanPhysAddressType_Type.__name__=_D
-_RlAggregateVlanPhysAddressType_Object=MibTableColumn
-rlAggregateVlanPhysAddressType=_RlAggregateVlanPhysAddressType_Object((1,3,6,1,4,1,4526,17,73,2,1,3),_RlAggregateVlanPhysAddressType_Type())
-rlAggregateVlanPhysAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlAggregateVlanPhysAddressType.setStatus(_A)
-_RlAggregateVlanStatus_Type=RowStatus
-_RlAggregateVlanStatus_Object=MibTableColumn
-rlAggregateVlanStatus=_RlAggregateVlanStatus_Object((1,3,6,1,4,1,4526,17,73,2,1,4),_RlAggregateVlanStatus_Type())
-rlAggregateVlanStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlAggregateVlanStatus.setStatus(_A)
-_RlAggregateSubVlanTable_Object=MibTable
-rlAggregateSubVlanTable=_RlAggregateSubVlanTable_Object((1,3,6,1,4,1,4526,17,73,3))
-if mibBuilder.loadTexts:rlAggregateSubVlanTable.setStatus(_A)
-_RlAggregateSubVlanEntry_Object=MibTableRow
-rlAggregateSubVlanEntry=_RlAggregateSubVlanEntry_Object((1,3,6,1,4,1,4526,17,73,3,1))
-rlAggregateSubVlanEntry.setIndexNames((0,_B,_E),(0,_B,_H))
-if mibBuilder.loadTexts:rlAggregateSubVlanEntry.setStatus(_A)
-_RlAggregateSubVlanIfIndex_Type=InterfaceIndex
-_RlAggregateSubVlanIfIndex_Object=MibTableColumn
-rlAggregateSubVlanIfIndex=_RlAggregateSubVlanIfIndex_Object((1,3,6,1,4,1,4526,17,73,3,1,1),_RlAggregateSubVlanIfIndex_Type())
-rlAggregateSubVlanIfIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:rlAggregateSubVlanIfIndex.setStatus(_A)
-_RlAggregateSubVlanStatus_Type=RowStatus
-_RlAggregateSubVlanStatus_Object=MibTableColumn
-rlAggregateSubVlanStatus=_RlAggregateSubVlanStatus_Object((1,3,6,1,4,1,4526,17,73,3,1,2),_RlAggregateSubVlanStatus_Type())
-rlAggregateSubVlanStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlAggregateSubVlanStatus.setStatus(_A)
-class _RlAggregateVlanArpProxy_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_RlAggregateVlanArpProxy_Type.__name__=_D
-_RlAggregateVlanArpProxy_Object=MibScalar
-rlAggregateVlanArpProxy=_RlAggregateVlanArpProxy_Object((1,3,6,1,4,1,4526,17,73,4),_RlAggregateVlanArpProxy_Type())
-rlAggregateVlanArpProxy.setMaxAccess('read-write')
-if mibBuilder.loadTexts:rlAggregateVlanArpProxy.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'rlAggregateVlan':rlAggregateVlan,'rlAggregateVlanMibVersion':rlAggregateVlanMibVersion,'rlAggregateVlanTable':rlAggregateVlanTable,'rlAggregateVlanEntry':rlAggregateVlanEntry,_E:rlAggregateVlanIndex,'rlAggregateVlanName':rlAggregateVlanName,'rlAggregateVlanPhysAddressType':rlAggregateVlanPhysAddressType,'rlAggregateVlanStatus':rlAggregateVlanStatus,'rlAggregateSubVlanTable':rlAggregateSubVlanTable,'rlAggregateSubVlanEntry':rlAggregateSubVlanEntry,_H:rlAggregateSubVlanIfIndex,'rlAggregateSubVlanStatus':rlAggregateSubVlanStatus,'rlAggregateVlanArpProxy':rlAggregateVlanArpProxy})
+#
+# PySNMP MIB module NETGEAR-RADLAN-AGGREGATEVLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netgear/NETGEAR-RADLAN-AGGREGATEVLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:28:39 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+rnd, = mibBuilder.importSymbols("NETGEAR-RADLAN-MIB", "rnd")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+rlAggregateVlan = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 17, 73))
+rlAggregateVlan.setRevisions(('2007-01-02 00:00',))
+if mibBuilder.loadTexts: rlAggregateVlan.setLastUpdated('200701020000Z')
+if mibBuilder.loadTexts: rlAggregateVlan.setOrganization('Radlan - a MARVELL company. Marvell Semiconductor, Inc.')
+rlAggregateVlanMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 73, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlAggregateVlanMibVersion.setStatus('current')
+rlAggregateVlanTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 17, 73, 2), )
+if mibBuilder.loadTexts: rlAggregateVlanTable.setStatus('current')
+rlAggregateVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 17, 73, 2, 1), ).setIndexNames((0, "NETGEAR-RADLAN-AGGREGATEVLAN-MIB", "rlAggregateVlanIndex"))
+if mibBuilder.loadTexts: rlAggregateVlanEntry.setStatus('current')
+rlAggregateVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 73, 2, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: rlAggregateVlanIndex.setStatus('current')
+rlAggregateVlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 73, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rlAggregateVlanName.setStatus('current')
+rlAggregateVlanPhysAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 73, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("default", 1), ("reserve", 2))).clone('default')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rlAggregateVlanPhysAddressType.setStatus('current')
+rlAggregateVlanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 73, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rlAggregateVlanStatus.setStatus('current')
+rlAggregateSubVlanTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 17, 73, 3), )
+if mibBuilder.loadTexts: rlAggregateSubVlanTable.setStatus('current')
+rlAggregateSubVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 17, 73, 3, 1), ).setIndexNames((0, "NETGEAR-RADLAN-AGGREGATEVLAN-MIB", "rlAggregateVlanIndex"), (0, "NETGEAR-RADLAN-AGGREGATEVLAN-MIB", "rlAggregateSubVlanIfIndex"))
+if mibBuilder.loadTexts: rlAggregateSubVlanEntry.setStatus('current')
+rlAggregateSubVlanIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 73, 3, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlAggregateSubVlanIfIndex.setStatus('current')
+rlAggregateSubVlanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 73, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rlAggregateSubVlanStatus.setStatus('current')
+rlAggregateVlanArpProxy = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 73, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlAggregateVlanArpProxy.setStatus('current')
+mibBuilder.exportSymbols("NETGEAR-RADLAN-AGGREGATEVLAN-MIB", rlAggregateVlanEntry=rlAggregateVlanEntry, rlAggregateVlanName=rlAggregateVlanName, rlAggregateSubVlanEntry=rlAggregateSubVlanEntry, rlAggregateVlan=rlAggregateVlan, rlAggregateVlanPhysAddressType=rlAggregateVlanPhysAddressType, rlAggregateVlanArpProxy=rlAggregateVlanArpProxy, rlAggregateVlanIndex=rlAggregateVlanIndex, rlAggregateSubVlanStatus=rlAggregateSubVlanStatus, rlAggregateVlanStatus=rlAggregateVlanStatus, rlAggregateSubVlanTable=rlAggregateSubVlanTable, rlAggregateVlanTable=rlAggregateVlanTable, PYSNMP_MODULE_ID=rlAggregateVlan, rlAggregateSubVlanIfIndex=rlAggregateSubVlanIfIndex, rlAggregateVlanMibVersion=rlAggregateVlanMibVersion)

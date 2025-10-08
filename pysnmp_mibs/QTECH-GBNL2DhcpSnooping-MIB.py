@@ -1,64 +1,39 @@
-_G='vlanIndex'
-_F='read-only'
-_E='portIndex'
-_D='QTECH-GBNL2DhcpSnooping-MIB'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-gbnL2,=mibBuilder.importSymbols('QTECH-MASTER-MIB','gbnL2')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-gbnL3DhcpSnooping=ModuleIdentity((1,3,6,1,4,1,27514,1,2,4,5))
-if mibBuilder.loadTexts:gbnL3DhcpSnooping.setRevisions(('1901-05-03 00:00',))
-_DhcpsnoopingOnOff_Type=TruthValue
-_DhcpsnoopingOnOff_Object=MibScalar
-dhcpsnoopingOnOff=_DhcpsnoopingOnOff_Object((1,3,6,1,4,1,27514,1,2,4,5,1),_DhcpsnoopingOnOff_Type())
-dhcpsnoopingOnOff.setMaxAccess(_B)
-if mibBuilder.loadTexts:dhcpsnoopingOnOff.setStatus(_A)
-_DhcpsnoopingPortTable_Object=MibTable
-dhcpsnoopingPortTable=_DhcpsnoopingPortTable_Object((1,3,6,1,4,1,27514,1,2,4,5,2))
-if mibBuilder.loadTexts:dhcpsnoopingPortTable.setStatus(_A)
-_DhcpsnoopingPortEntry_Object=MibTableRow
-dhcpsnoopingPortEntry=_DhcpsnoopingPortEntry_Object((1,3,6,1,4,1,27514,1,2,4,5,2,1))
-dhcpsnoopingPortEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:dhcpsnoopingPortEntry.setStatus(_A)
-_PortIndex_Type=Integer32
-_PortIndex_Object=MibTableColumn
-portIndex=_PortIndex_Object((1,3,6,1,4,1,27514,1,2,4,5,2,1,1),_PortIndex_Type())
-portIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:portIndex.setStatus(_A)
-class _PortTrustMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('trust',1),('untrust',2)))
-_PortTrustMode_Type.__name__=_C
-_PortTrustMode_Object=MibTableColumn
-portTrustMode=_PortTrustMode_Object((1,3,6,1,4,1,27514,1,2,4,5,2,1,2),_PortTrustMode_Type())
-portTrustMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:portTrustMode.setStatus(_A)
-_PortMaxNum_Type=Integer32
-_PortMaxNum_Object=MibTableColumn
-portMaxNum=_PortMaxNum_Object((1,3,6,1,4,1,27514,1,2,4,5,2,1,3),_PortMaxNum_Type())
-portMaxNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:portMaxNum.setStatus(_A)
-_DhcpsnoopingVlanTable_Object=MibTable
-dhcpsnoopingVlanTable=_DhcpsnoopingVlanTable_Object((1,3,6,1,4,1,27514,1,2,4,5,3))
-if mibBuilder.loadTexts:dhcpsnoopingVlanTable.setStatus(_A)
-_DhcpsnoopingVlanEntry_Object=MibTableRow
-dhcpsnoopingVlanEntry=_DhcpsnoopingVlanEntry_Object((1,3,6,1,4,1,27514,1,2,4,5,3,1))
-dhcpsnoopingVlanEntry.setIndexNames((0,_D,_G))
-if mibBuilder.loadTexts:dhcpsnoopingVlanEntry.setStatus(_A)
-class _VlanIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_VlanIndex_Type.__name__=_C
-_VlanIndex_Object=MibTableColumn
-vlanIndex=_VlanIndex_Object((1,3,6,1,4,1,27514,1,2,4,5,3,1,1),_VlanIndex_Type())
-vlanIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:vlanIndex.setStatus(_A)
-_VlanMaxNum_Type=Integer32
-_VlanMaxNum_Object=MibTableColumn
-vlanMaxNum=_VlanMaxNum_Object((1,3,6,1,4,1,27514,1,2,4,5,3,1,2),_VlanMaxNum_Type())
-vlanMaxNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:vlanMaxNum.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'gbnL3DhcpSnooping':gbnL3DhcpSnooping,'dhcpsnoopingOnOff':dhcpsnoopingOnOff,'dhcpsnoopingPortTable':dhcpsnoopingPortTable,'dhcpsnoopingPortEntry':dhcpsnoopingPortEntry,_E:portIndex,'portTrustMode':portTrustMode,'portMaxNum':portMaxNum,'dhcpsnoopingVlanTable':dhcpsnoopingVlanTable,'dhcpsnoopingVlanEntry':dhcpsnoopingVlanEntry,_G:vlanIndex,'vlanMaxNum':vlanMaxNum})
+#
+# PySNMP MIB module QTECH-GBNL2DhcpSnooping-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-GBNL2DhcpSnooping-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:22 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+gbnL2, = mibBuilder.importSymbols("QTECH-MASTER-MIB", "gbnL2")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+gbnL3DhcpSnooping = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 2, 4, 5))
+gbnL3DhcpSnooping.setRevisions(('1901-05-03 00:00',))
+if mibBuilder.loadTexts: gbnL3DhcpSnooping.setLastUpdated('0105030000Z')
+if mibBuilder.loadTexts: gbnL3DhcpSnooping.setOrganization('QTECH LLC')
+dhcpsnoopingOnOff = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 2, 4, 5, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dhcpsnoopingOnOff.setStatus('current')
+dhcpsnoopingPortTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 2, 4, 5, 2), )
+if mibBuilder.loadTexts: dhcpsnoopingPortTable.setStatus('current')
+dhcpsnoopingPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 2, 4, 5, 2, 1), ).setIndexNames((0, "QTECH-GBNL2DhcpSnooping-MIB", "portIndex"))
+if mibBuilder.loadTexts: dhcpsnoopingPortEntry.setStatus('current')
+portIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 4, 5, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portIndex.setStatus('current')
+portTrustMode = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 4, 5, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("trust", 1), ("untrust", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portTrustMode.setStatus('current')
+portMaxNum = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 4, 5, 2, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portMaxNum.setStatus('current')
+dhcpsnoopingVlanTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 2, 4, 5, 3), )
+if mibBuilder.loadTexts: dhcpsnoopingVlanTable.setStatus('current')
+dhcpsnoopingVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 2, 4, 5, 3, 1), ).setIndexNames((0, "QTECH-GBNL2DhcpSnooping-MIB", "vlanIndex"))
+if mibBuilder.loadTexts: dhcpsnoopingVlanEntry.setStatus('current')
+vlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 4, 5, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vlanIndex.setStatus('current')
+vlanMaxNum = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 4, 5, 3, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: vlanMaxNum.setStatus('current')
+mibBuilder.exportSymbols("QTECH-GBNL2DhcpSnooping-MIB", portTrustMode=portTrustMode, portMaxNum=portMaxNum, dhcpsnoopingPortTable=dhcpsnoopingPortTable, dhcpsnoopingPortEntry=dhcpsnoopingPortEntry, dhcpsnoopingOnOff=dhcpsnoopingOnOff, dhcpsnoopingVlanTable=dhcpsnoopingVlanTable, vlanIndex=vlanIndex, gbnL3DhcpSnooping=gbnL3DhcpSnooping, portIndex=portIndex, PYSNMP_MODULE_ID=gbnL3DhcpSnooping, vlanMaxNum=vlanMaxNum, dhcpsnoopingVlanEntry=dhcpsnoopingVlanEntry)

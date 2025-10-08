@@ -1,56 +1,41 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-netscreen=ModuleIdentity((1,3,6,1,4,1,3224))
-if mibBuilder.loadTexts:netscreen.setRevisions(('2004-08-31 00:00','2004-05-03 00:00','2004-03-03 00:00','2001-09-28 00:00','2000-08-02 00:00'))
-_NetscreenTrap_ObjectIdentity=ObjectIdentity
-netscreenTrap=_NetscreenTrap_ObjectIdentity((1,3,6,1,4,1,3224,0))
-_NetscreenProducts_ObjectIdentity=ObjectIdentity
-netscreenProducts=_NetscreenProducts_ObjectIdentity((1,3,6,1,4,1,3224,1))
-_NetscreenTrapInfo_ObjectIdentity=ObjectIdentity
-netscreenTrapInfo=_NetscreenTrapInfo_ObjectIdentity((1,3,6,1,4,1,3224,2))
-_NetscreenIDS_ObjectIdentity=ObjectIdentity
-netscreenIDS=_NetscreenIDS_ObjectIdentity((1,3,6,1,4,1,3224,3))
-_NetscreenVpn_ObjectIdentity=ObjectIdentity
-netscreenVpn=_NetscreenVpn_ObjectIdentity((1,3,6,1,4,1,3224,4))
-_NetscreenVpnMibModule_ObjectIdentity=ObjectIdentity
-netscreenVpnMibModule=_NetscreenVpnMibModule_ObjectIdentity((1,3,6,1,4,1,3224,4,0))
-_NetscreenQos_ObjectIdentity=ObjectIdentity
-netscreenQos=_NetscreenQos_ObjectIdentity((1,3,6,1,4,1,3224,5))
-_NetscreenNsrp_ObjectIdentity=ObjectIdentity
-netscreenNsrp=_NetscreenNsrp_ObjectIdentity((1,3,6,1,4,1,3224,6))
-_NetscreenSetting_ObjectIdentity=ObjectIdentity
-netscreenSetting=_NetscreenSetting_ObjectIdentity((1,3,6,1,4,1,3224,7))
-_NetscreenSettingMibModule_ObjectIdentity=ObjectIdentity
-netscreenSettingMibModule=_NetscreenSettingMibModule_ObjectIdentity((1,3,6,1,4,1,3224,7,0))
-_NetscreenZone_ObjectIdentity=ObjectIdentity
-netscreenZone=_NetscreenZone_ObjectIdentity((1,3,6,1,4,1,3224,8))
-_NetscreenInterface_ObjectIdentity=ObjectIdentity
-netscreenInterface=_NetscreenInterface_ObjectIdentity((1,3,6,1,4,1,3224,9))
-_NetscreenPolicy_ObjectIdentity=ObjectIdentity
-netscreenPolicy=_NetscreenPolicy_ObjectIdentity((1,3,6,1,4,1,3224,10))
-_NetscreenNAT_ObjectIdentity=ObjectIdentity
-netscreenNAT=_NetscreenNAT_ObjectIdentity((1,3,6,1,4,1,3224,11))
-_NetscreenAddr_ObjectIdentity=ObjectIdentity
-netscreenAddr=_NetscreenAddr_ObjectIdentity((1,3,6,1,4,1,3224,12))
-_NetscreenService_ObjectIdentity=ObjectIdentity
-netscreenService=_NetscreenService_ObjectIdentity((1,3,6,1,4,1,3224,13))
-_NetscreenSchedule_ObjectIdentity=ObjectIdentity
-netscreenSchedule=_NetscreenSchedule_ObjectIdentity((1,3,6,1,4,1,3224,14))
-_NetscreenVsys_ObjectIdentity=ObjectIdentity
-netscreenVsys=_NetscreenVsys_ObjectIdentity((1,3,6,1,4,1,3224,15))
-_NetscreenResource_ObjectIdentity=ObjectIdentity
-netscreenResource=_NetscreenResource_ObjectIdentity((1,3,6,1,4,1,3224,16))
-_NetscreenIp_ObjectIdentity=ObjectIdentity
-netscreenIp=_NetscreenIp_ObjectIdentity((1,3,6,1,4,1,3224,17))
-_NetscreenVR_ObjectIdentity=ObjectIdentity
-netscreenVR=_NetscreenVR_ObjectIdentity((1,3,6,1,4,1,3224,18))
-_NetscreenChassis_ObjectIdentity=ObjectIdentity
-netscreenChassis=_NetscreenChassis_ObjectIdentity((1,3,6,1,4,1,3224,21))
-_NetscreenUAC_ObjectIdentity=ObjectIdentity
-netscreenUAC=_NetscreenUAC_ObjectIdentity((1,3,6,1,4,1,3224,22))
-mibBuilder.exportSymbols('NETSCREEN-SMI',**{'netscreen':netscreen,'netscreenTrap':netscreenTrap,'netscreenProducts':netscreenProducts,'netscreenTrapInfo':netscreenTrapInfo,'netscreenIDS':netscreenIDS,'netscreenVpn':netscreenVpn,'netscreenVpnMibModule':netscreenVpnMibModule,'netscreenQos':netscreenQos,'netscreenNsrp':netscreenNsrp,'netscreenSetting':netscreenSetting,'netscreenSettingMibModule':netscreenSettingMibModule,'netscreenZone':netscreenZone,'netscreenInterface':netscreenInterface,'netscreenPolicy':netscreenPolicy,'netscreenNAT':netscreenNAT,'netscreenAddr':netscreenAddr,'netscreenService':netscreenService,'netscreenSchedule':netscreenSchedule,'netscreenVsys':netscreenVsys,'netscreenResource':netscreenResource,'netscreenIp':netscreenIp,'netscreenVR':netscreenVR,'netscreenChassis':netscreenChassis,'netscreenUAC':netscreenUAC})
+#
+# PySNMP MIB module NETSCREEN-SMI (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netscreen/NETSCREEN-SMI
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+netscreen = ModuleIdentity((1, 3, 6, 1, 4, 1, 3224))
+netscreen.setRevisions(('2004-08-31 00:00', '2004-05-03 00:00', '2004-03-03 00:00', '2001-09-28 00:00', '2000-08-02 00:00',))
+if mibBuilder.loadTexts: netscreen.setLastUpdated('200408310000Z')
+if mibBuilder.loadTexts: netscreen.setOrganization('Juniper Networks, Inc.')
+netscreenTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 0))
+netscreenProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 1))
+netscreenTrapInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 2))
+netscreenIDS = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 3))
+netscreenVpn = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 4))
+netscreenQos = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 5))
+netscreenNsrp = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 6))
+netscreenSetting = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 7))
+netscreenZone = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 8))
+netscreenInterface = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 9))
+netscreenPolicy = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 10))
+netscreenNAT = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 11))
+netscreenAddr = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 12))
+netscreenService = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 13))
+netscreenSchedule = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 14))
+netscreenVsys = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 15))
+netscreenResource = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 16))
+netscreenIp = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 17))
+netscreenVR = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 18))
+netscreenChassis = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 21))
+netscreenUAC = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 22))
+netscreenSettingMibModule = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 7, 0))
+netscreenVpnMibModule = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 4, 0))
+mibBuilder.exportSymbols("NETSCREEN-SMI", netscreenChassis=netscreenChassis, netscreenIp=netscreenIp, netscreenNAT=netscreenNAT, netscreenSettingMibModule=netscreenSettingMibModule, netscreenProducts=netscreenProducts, netscreenVpn=netscreenVpn, netscreenResource=netscreenResource, netscreenAddr=netscreenAddr, netscreenPolicy=netscreenPolicy, netscreenUAC=netscreenUAC, netscreenSchedule=netscreenSchedule, netscreenNsrp=netscreenNsrp, netscreenTrapInfo=netscreenTrapInfo, PYSNMP_MODULE_ID=netscreen, netscreenInterface=netscreenInterface, netscreenVpnMibModule=netscreenVpnMibModule, netscreenVR=netscreenVR, netscreenService=netscreenService, netscreenZone=netscreenZone, netscreenSetting=netscreenSetting, netscreenVsys=netscreenVsys, netscreenQos=netscreenQos, netscreenTrap=netscreenTrap, netscreen=netscreen, netscreenIDS=netscreenIDS)

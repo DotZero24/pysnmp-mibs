@@ -1,385 +1,137 @@
-_n='NotificationType'
-_m='Integer32'
-_l='Unsigned32'
-_k='spCimMsgPrefix'
-_j='spCimMsgID'
-_i='spLogSequenceNum'
-_h='spTrapServiceableEventFlag'
-_g='spTrapSysRackU'
-_f='spTrapSysRackId'
-_e='spTrapSysRoomId'
-_d='spTrapChassisName'
-_c='spTrapComponentFRUInfo'
-_b='spTrapComponentID'
-_a='spTrapAuxData'
-_Z='spBladeEventDataSource'
-_Y='spTrapBladeEvtName'
-_X='spTrapBladeFRUSerialNumber'
-_W='mandatory'
-_V='read-only'
-_U='spEventCorrelator'
-_T='spTrapBladeMachineModel'
-_S='spTrapSysMachineModel'
-_R='spTrapSysIPAddress'
-_Q='spTrapCallHomeFlag'
-_P='spTrapSourceId'
-_O='spTrapEvtName'
-_N='spTrapBladeUuid'
-_M='spTrapBladeSern'
-_L='spTrapBladeName'
-_K='spTrapHostLocation'
-_J='spTrapHostContact'
-_I='spTrapMsgText'
-_H='spTrapPriority'
-_G='spTrapAppType'
-_F='spTrapSysSern'
-_E='spTrapSysUuid'
-_D='spTrapSpTxtId'
-_C='spTrapAppId'
-_B='spTrapDateTime'
-_A='BLADESPPALT-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_m,'IpAddress','ModuleIdentity','MibIdentifier',_n,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_n,'TimeTicks',_l,'enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Ibm_ObjectIdentity=ObjectIdentity
-ibm=_Ibm_ObjectIdentity((1,3,6,1,4,1,2))
-_IbmProd_ObjectIdentity=ObjectIdentity
-ibmProd=_IbmProd_ObjectIdentity((1,3,6,1,4,1,2,6))
-_SupportProcessor_ObjectIdentity=ObjectIdentity
-supportProcessor=_SupportProcessor_ObjectIdentity((1,3,6,1,4,1,2,6,158))
-_MmRemoteSupTrapMIB_ObjectIdentity=ObjectIdentity
-mmRemoteSupTrapMIB=_MmRemoteSupTrapMIB_ObjectIdentity((1,3,6,1,4,1,2,6,158,3))
-_RemoteSupTrapMibObjects_ObjectIdentity=ObjectIdentity
-remoteSupTrapMibObjects=_RemoteSupTrapMibObjects_ObjectIdentity((1,3,6,1,4,1,2,6,158,3,1))
-_SpTrapInfo_ObjectIdentity=ObjectIdentity
-spTrapInfo=_SpTrapInfo_ObjectIdentity((1,3,6,1,4,1,2,6,158,3,1,1))
-_SpTrapDateTime_Type=DisplayString
-_SpTrapDateTime_Object=MibScalar
-spTrapDateTime=_SpTrapDateTime_Object((1,3,6,1,4,1,2,6,158,3,1,1,1),_SpTrapDateTime_Type())
-spTrapDateTime.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapDateTime.setStatus(_W)
-_SpTrapAppId_Type=DisplayString
-_SpTrapAppId_Object=MibScalar
-spTrapAppId=_SpTrapAppId_Object((1,3,6,1,4,1,2,6,158,3,1,1,2),_SpTrapAppId_Type())
-spTrapAppId.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapAppId.setStatus(_W)
-_SpTrapSpTxtId_Type=DisplayString
-_SpTrapSpTxtId_Object=MibScalar
-spTrapSpTxtId=_SpTrapSpTxtId_Object((1,3,6,1,4,1,2,6,158,3,1,1,3),_SpTrapSpTxtId_Type())
-spTrapSpTxtId.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapSpTxtId.setStatus(_W)
-_SpTrapSysUuid_Type=DisplayString
-_SpTrapSysUuid_Object=MibScalar
-spTrapSysUuid=_SpTrapSysUuid_Object((1,3,6,1,4,1,2,6,158,3,1,1,4),_SpTrapSysUuid_Type())
-spTrapSysUuid.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapSysUuid.setStatus(_W)
-_SpTrapSysSern_Type=DisplayString
-_SpTrapSysSern_Object=MibScalar
-spTrapSysSern=_SpTrapSysSern_Object((1,3,6,1,4,1,2,6,158,3,1,1,5),_SpTrapSysSern_Type())
-spTrapSysSern.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapSysSern.setStatus(_W)
-class _SpTrapAppType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_SpTrapAppType_Type.__name__=_m
-_SpTrapAppType_Object=MibScalar
-spTrapAppType=_SpTrapAppType_Object((1,3,6,1,4,1,2,6,158,3,1,1,6),_SpTrapAppType_Type())
-spTrapAppType.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapAppType.setStatus(_W)
-class _SpTrapPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_SpTrapPriority_Type.__name__=_m
-_SpTrapPriority_Object=MibScalar
-spTrapPriority=_SpTrapPriority_Object((1,3,6,1,4,1,2,6,158,3,1,1,7),_SpTrapPriority_Type())
-spTrapPriority.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapPriority.setStatus(_W)
-_SpTrapMsgText_Type=DisplayString
-_SpTrapMsgText_Object=MibScalar
-spTrapMsgText=_SpTrapMsgText_Object((1,3,6,1,4,1,2,6,158,3,1,1,8),_SpTrapMsgText_Type())
-spTrapMsgText.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapMsgText.setStatus(_W)
-_SpTrapHostContact_Type=DisplayString
-_SpTrapHostContact_Object=MibScalar
-spTrapHostContact=_SpTrapHostContact_Object((1,3,6,1,4,1,2,6,158,3,1,1,9),_SpTrapHostContact_Type())
-spTrapHostContact.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapHostContact.setStatus(_W)
-_SpTrapHostLocation_Type=DisplayString
-_SpTrapHostLocation_Object=MibScalar
-spTrapHostLocation=_SpTrapHostLocation_Object((1,3,6,1,4,1,2,6,158,3,1,1,10),_SpTrapHostLocation_Type())
-spTrapHostLocation.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapHostLocation.setStatus(_W)
-_SpTrapBladeName_Type=DisplayString
-_SpTrapBladeName_Object=MibScalar
-spTrapBladeName=_SpTrapBladeName_Object((1,3,6,1,4,1,2,6,158,3,1,1,11),_SpTrapBladeName_Type())
-spTrapBladeName.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapBladeName.setStatus(_W)
-_SpTrapBladeSern_Type=DisplayString
-_SpTrapBladeSern_Object=MibScalar
-spTrapBladeSern=_SpTrapBladeSern_Object((1,3,6,1,4,1,2,6,158,3,1,1,12),_SpTrapBladeSern_Type())
-spTrapBladeSern.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapBladeSern.setStatus(_W)
-_SpTrapBladeUuid_Type=DisplayString
-_SpTrapBladeUuid_Object=MibScalar
-spTrapBladeUuid=_SpTrapBladeUuid_Object((1,3,6,1,4,1,2,6,158,3,1,1,13),_SpTrapBladeUuid_Type())
-spTrapBladeUuid.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapBladeUuid.setStatus(_W)
-class _SpTrapEvtName_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_SpTrapEvtName_Type.__name__=_l
-_SpTrapEvtName_Object=MibScalar
-spTrapEvtName=_SpTrapEvtName_Object((1,3,6,1,4,1,2,6,158,3,1,1,14),_SpTrapEvtName_Type())
-spTrapEvtName.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapEvtName.setStatus(_W)
-_SpTrapSourceId_Type=DisplayString
-_SpTrapSourceId_Object=MibScalar
-spTrapSourceId=_SpTrapSourceId_Object((1,3,6,1,4,1,2,6,158,3,1,1,15),_SpTrapSourceId_Type())
-spTrapSourceId.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapSourceId.setStatus(_W)
-class _SpTrapCallHomeFlag_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_SpTrapCallHomeFlag_Type.__name__=_l
-_SpTrapCallHomeFlag_Object=MibScalar
-spTrapCallHomeFlag=_SpTrapCallHomeFlag_Object((1,3,6,1,4,1,2,6,158,3,1,1,16),_SpTrapCallHomeFlag_Type())
-spTrapCallHomeFlag.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapCallHomeFlag.setStatus(_W)
-_SpTrapSysIPAddress_Type=DisplayString
-_SpTrapSysIPAddress_Object=MibScalar
-spTrapSysIPAddress=_SpTrapSysIPAddress_Object((1,3,6,1,4,1,2,6,158,3,1,1,17),_SpTrapSysIPAddress_Type())
-spTrapSysIPAddress.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapSysIPAddress.setStatus(_W)
-_SpTrapSysMachineModel_Type=DisplayString
-_SpTrapSysMachineModel_Object=MibScalar
-spTrapSysMachineModel=_SpTrapSysMachineModel_Object((1,3,6,1,4,1,2,6,158,3,1,1,18),_SpTrapSysMachineModel_Type())
-spTrapSysMachineModel.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapSysMachineModel.setStatus(_W)
-_SpTrapBladeMachineModel_Type=DisplayString
-_SpTrapBladeMachineModel_Object=MibScalar
-spTrapBladeMachineModel=_SpTrapBladeMachineModel_Object((1,3,6,1,4,1,2,6,158,3,1,1,19),_SpTrapBladeMachineModel_Type())
-spTrapBladeMachineModel.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapBladeMachineModel.setStatus(_W)
-_SpTrapBladeFRUSerialNumber_Type=DisplayString
-_SpTrapBladeFRUSerialNumber_Object=MibScalar
-spTrapBladeFRUSerialNumber=_SpTrapBladeFRUSerialNumber_Object((1,3,6,1,4,1,2,6,158,3,1,1,20),_SpTrapBladeFRUSerialNumber_Type())
-spTrapBladeFRUSerialNumber.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapBladeFRUSerialNumber.setStatus(_W)
-_SpTrapBladeEvtName_Type=DisplayString
-_SpTrapBladeEvtName_Object=MibScalar
-spTrapBladeEvtName=_SpTrapBladeEvtName_Object((1,3,6,1,4,1,2,6,158,3,1,1,21),_SpTrapBladeEvtName_Type())
-spTrapBladeEvtName.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapBladeEvtName.setStatus(_W)
-_SpBladeEventDataSource_Type=DisplayString
-_SpBladeEventDataSource_Object=MibScalar
-spBladeEventDataSource=_SpBladeEventDataSource_Object((1,3,6,1,4,1,2,6,158,3,1,1,22),_SpBladeEventDataSource_Type())
-spBladeEventDataSource.setMaxAccess(_V)
-if mibBuilder.loadTexts:spBladeEventDataSource.setStatus(_W)
-_SpTrapAuxData_Type=DisplayString
-_SpTrapAuxData_Object=MibScalar
-spTrapAuxData=_SpTrapAuxData_Object((1,3,6,1,4,1,2,6,158,3,1,1,23),_SpTrapAuxData_Type())
-spTrapAuxData.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapAuxData.setStatus(_W)
-_SpTrapComponentID_Type=DisplayString
-_SpTrapComponentID_Object=MibScalar
-spTrapComponentID=_SpTrapComponentID_Object((1,3,6,1,4,1,2,6,158,3,1,1,24),_SpTrapComponentID_Type())
-spTrapComponentID.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapComponentID.setStatus(_W)
-_SpTrapComponentFRUInfo_Type=DisplayString
-_SpTrapComponentFRUInfo_Object=MibScalar
-spTrapComponentFRUInfo=_SpTrapComponentFRUInfo_Object((1,3,6,1,4,1,2,6,158,3,1,1,25),_SpTrapComponentFRUInfo_Type())
-spTrapComponentFRUInfo.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapComponentFRUInfo.setStatus(_W)
-_SpTrapChassisName_Type=DisplayString
-_SpTrapChassisName_Object=MibScalar
-spTrapChassisName=_SpTrapChassisName_Object((1,3,6,1,4,1,2,6,158,3,1,1,26),_SpTrapChassisName_Type())
-spTrapChassisName.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapChassisName.setStatus(_W)
-_SpTrapSysRoomId_Type=DisplayString
-_SpTrapSysRoomId_Object=MibScalar
-spTrapSysRoomId=_SpTrapSysRoomId_Object((1,3,6,1,4,1,2,6,158,3,1,1,27),_SpTrapSysRoomId_Type())
-spTrapSysRoomId.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapSysRoomId.setStatus(_W)
-_SpTrapSysRackId_Type=DisplayString
-_SpTrapSysRackId_Object=MibScalar
-spTrapSysRackId=_SpTrapSysRackId_Object((1,3,6,1,4,1,2,6,158,3,1,1,28),_SpTrapSysRackId_Type())
-spTrapSysRackId.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapSysRackId.setStatus(_W)
-class _SpTrapSysRackU_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_SpTrapSysRackU_Type.__name__=_l
-_SpTrapSysRackU_Object=MibScalar
-spTrapSysRackU=_SpTrapSysRackU_Object((1,3,6,1,4,1,2,6,158,3,1,1,29),_SpTrapSysRackU_Type())
-spTrapSysRackU.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapSysRackU.setStatus(_W)
-class _SpTrapServiceableEventFlag_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_SpTrapServiceableEventFlag_Type.__name__=_l
-_SpTrapServiceableEventFlag_Object=MibScalar
-spTrapServiceableEventFlag=_SpTrapServiceableEventFlag_Object((1,3,6,1,4,1,2,6,158,3,1,1,30),_SpTrapServiceableEventFlag_Type())
-spTrapServiceableEventFlag.setMaxAccess(_V)
-if mibBuilder.loadTexts:spTrapServiceableEventFlag.setStatus(_W)
-class _SpLogSequenceNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_SpLogSequenceNum_Type.__name__=_l
-_SpLogSequenceNum_Object=MibScalar
-spLogSequenceNum=_SpLogSequenceNum_Object((1,3,6,1,4,1,2,6,158,3,1,1,31),_SpLogSequenceNum_Type())
-spLogSequenceNum.setMaxAccess(_V)
-if mibBuilder.loadTexts:spLogSequenceNum.setStatus(_W)
-_SpCimMsgID_Type=DisplayString
-_SpCimMsgID_Object=MibScalar
-spCimMsgID=_SpCimMsgID_Object((1,3,6,1,4,1,2,6,158,3,1,1,32),_SpCimMsgID_Type())
-spCimMsgID.setMaxAccess(_V)
-if mibBuilder.loadTexts:spCimMsgID.setStatus(_W)
-_SpCimMsgPrefix_Type=DisplayString
-_SpCimMsgPrefix_Object=MibScalar
-spCimMsgPrefix=_SpCimMsgPrefix_Object((1,3,6,1,4,1,2,6,158,3,1,1,33),_SpCimMsgPrefix_Type())
-spCimMsgPrefix.setMaxAccess(_V)
-if mibBuilder.loadTexts:spCimMsgPrefix.setStatus(_W)
-class _SpEventCorrelator_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_SpEventCorrelator_Type.__name__=_l
-_SpEventCorrelator_Object=MibScalar
-spEventCorrelator=_SpEventCorrelator_Object((1,3,6,1,4,1,2,6,158,3,1,1,34),_SpEventCorrelator_Type())
-spEventCorrelator.setMaxAccess(_V)
-if mibBuilder.loadTexts:spEventCorrelator.setStatus(_W)
-mmTrapTempC=NotificationType((1,3,6,1,4,1,2,6,158,3,0,0))
-mmTrapTempC.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapTempC.setStatus('')
-mmTrapVoltC=NotificationType((1,3,6,1,4,1,2,6,158,3,0,1))
-mmTrapVoltC.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapVoltC.setStatus('')
-mmTrapTampC=NotificationType((1,3,6,1,4,1,2,6,158,3,0,2))
-mmTrapTampC.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapTampC.setStatus('')
-mmTrapMffC=NotificationType((1,3,6,1,4,1,2,6,158,3,0,3))
-mmTrapMffC.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapMffC.setStatus('')
-mmTrapPsC=NotificationType((1,3,6,1,4,1,2,6,158,3,0,4))
-mmTrapPsC.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapPsC.setStatus('')
-mTrapHdC=NotificationType((1,3,6,1,4,1,2,6,158,3,0,5))
-mTrapHdC.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mTrapHdC.setStatus('')
-mmTrapVrmC=NotificationType((1,3,6,1,4,1,2,6,158,3,0,6))
-mmTrapVrmC.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapVrmC.setStatus('')
-mmTrapLogFullN=NotificationType((1,3,6,1,4,1,2,6,158,3,0,7))
-mmTrapLogFullN.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapLogFullN.setStatus('')
-mmTrapRdpsN=NotificationType((1,3,6,1,4,1,2,6,158,3,0,10))
-mmTrapRdpsN.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapRdpsN.setStatus('')
-mmTrapSffC=NotificationType((1,3,6,1,4,1,2,6,158,3,0,11))
-mmTrapSffC.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapSffC.setStatus('')
-mmTrapTempN=NotificationType((1,3,6,1,4,1,2,6,158,3,0,12))
-mmTrapTempN.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapTempN.setStatus('')
-mmTrapVoltN=NotificationType((1,3,6,1,4,1,2,6,158,3,0,13))
-mmTrapVoltN.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T)))
-if mibBuilder.loadTexts:mmTrapVoltN.setStatus('')
-mmTrapSecDvS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,15))
-mmTrapSecDvS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapSecDvS.setStatus('')
-mmTrapPostToS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,20))
-mmTrapPostToS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapPostToS.setStatus('')
-mmTrapOsToS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,21))
-mmTrapOsToS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapOsToS.setStatus('')
-mmTrapAppS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,22))
-mmTrapAppS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapAppS.setStatus('')
-mmTrapPoffS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,23))
-mmTrapPoffS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapPoffS.setStatus('')
-mmTrapPonS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,24))
-mmTrapPonS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapPonS.setStatus('')
-mmTrapBootS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,25))
-mmTrapBootS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapBootS.setStatus('')
-mmTrapLdrToS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,26))
-mmTrapLdrToS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapLdrToS.setStatus('')
-mmTrapPFAS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,27))
-mmTrapPFAS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapPFAS.setStatus('')
-mmTrapRemoteLoginS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,30))
-mmTrapRemoteLoginS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapRemoteLoginS.setStatus('')
-mmTrapMsC=NotificationType((1,3,6,1,4,1,2,6,158,3,0,31))
-mmTrapMsC.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapMsC.setStatus('')
-mmTrapRmN=NotificationType((1,3,6,1,4,1,2,6,158,3,0,32))
-mmTrapRmN.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapRmN.setStatus('')
-mmTrapKVMSwitchS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,33))
-mmTrapKVMSwitchS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapKVMSwitchS.setStatus('')
-mmTrapSysInvS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,34))
-mmTrapSysInvS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapSysInvS.setStatus('')
-mmTrapSysLogS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,35))
-mmTrapSysLogS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapSysLogS.setStatus('')
-mmTrapIhcC=NotificationType((1,3,6,1,4,1,2,6,158,3,0,36))
-mmTrapIhcC.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapIhcC.setStatus('')
-mmTrapNwChangeS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,37))
-mmTrapNwChangeS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapNwChangeS.setStatus('')
-mmTrapBlThrS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,39))
-mmTrapBlThrS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapBlThrS.setStatus('')
-mmTrapPwrMgntS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,40))
-mmTrapPwrMgntS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapPwrMgntS.setStatus('')
-mmTrapBladeC=NotificationType((1,3,6,1,4,1,2,6,158,3,0,128))
-mmTrapBladeC.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapBladeC.setStatus('')
-mmTrapIOC=NotificationType((1,3,6,1,4,1,2,6,158,3,0,129))
-mmTrapIOC.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapIOC.setStatus('')
-mmTrapChassisC=NotificationType((1,3,6,1,4,1,2,6,158,3,0,130))
-mmTrapChassisC.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapChassisC.setStatus('')
-mmTrapStorageC=NotificationType((1,3,6,1,4,1,2,6,158,3,0,131))
-mmTrapStorageC.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapStorageC.setStatus('')
-mmTrapFanC=NotificationType((1,3,6,1,4,1,2,6,158,3,0,133))
-mmTrapFanC.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapFanC.setStatus('')
-mmTrapBladeN=NotificationType((1,3,6,1,4,1,2,6,158,3,0,160))
-mmTrapBladeN.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapBladeN.setStatus('')
-mmTrapION=NotificationType((1,3,6,1,4,1,2,6,158,3,0,161))
-mmTrapION.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapION.setStatus('')
-mmTrapChassisN=NotificationType((1,3,6,1,4,1,2,6,158,3,0,162))
-mmTrapChassisN.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapChassisN.setStatus('')
-mmTrapStorageN=NotificationType((1,3,6,1,4,1,2,6,158,3,0,163))
-mmTrapStorageN.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapStorageN.setStatus('')
-mmTrapPowerN=NotificationType((1,3,6,1,4,1,2,6,158,3,0,164))
-mmTrapPowerN.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapPowerN.setStatus('')
-mmTrapFanN=NotificationType((1,3,6,1,4,1,2,6,158,3,0,165))
-mmTrapFanN.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapFanN.setStatus('')
-mmTrapBladeS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,176))
-mmTrapBladeS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapBladeS.setStatus('')
-mmTrapIOS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,177))
-mmTrapIOS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapIOS.setStatus('')
-mmTrapChassisS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,178))
-mmTrapChassisS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapChassisS.setStatus('')
-mmTrapStorageS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,179))
-mmTrapStorageS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapStorageS.setStatus('')
-mmTrapPowerS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,180))
-mmTrapPowerS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapPowerS.setStatus('')
-mmTrapFanS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,181))
-mmTrapFanS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapFanS.setStatus('')
-mmTrapPwrDOS=NotificationType((1,3,6,1,4,1,2,6,158,3,0,182))
-mmTrapPwrDOS.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_U)))
-if mibBuilder.loadTexts:mmTrapPwrDOS.setStatus('')
-mibBuilder.exportSymbols(_A,**{'ibm':ibm,'ibmProd':ibmProd,'supportProcessor':supportProcessor,'mmRemoteSupTrapMIB':mmRemoteSupTrapMIB,'mmTrapTempC':mmTrapTempC,'mmTrapVoltC':mmTrapVoltC,'mmTrapTampC':mmTrapTampC,'mmTrapMffC':mmTrapMffC,'mmTrapPsC':mmTrapPsC,'mTrapHdC':mTrapHdC,'mmTrapVrmC':mmTrapVrmC,'mmTrapLogFullN':mmTrapLogFullN,'mmTrapRdpsN':mmTrapRdpsN,'mmTrapSffC':mmTrapSffC,'mmTrapTempN':mmTrapTempN,'mmTrapVoltN':mmTrapVoltN,'mmTrapSecDvS':mmTrapSecDvS,'mmTrapPostToS':mmTrapPostToS,'mmTrapOsToS':mmTrapOsToS,'mmTrapAppS':mmTrapAppS,'mmTrapPoffS':mmTrapPoffS,'mmTrapPonS':mmTrapPonS,'mmTrapBootS':mmTrapBootS,'mmTrapLdrToS':mmTrapLdrToS,'mmTrapPFAS':mmTrapPFAS,'mmTrapRemoteLoginS':mmTrapRemoteLoginS,'mmTrapMsC':mmTrapMsC,'mmTrapRmN':mmTrapRmN,'mmTrapKVMSwitchS':mmTrapKVMSwitchS,'mmTrapSysInvS':mmTrapSysInvS,'mmTrapSysLogS':mmTrapSysLogS,'mmTrapIhcC':mmTrapIhcC,'mmTrapNwChangeS':mmTrapNwChangeS,'mmTrapBlThrS':mmTrapBlThrS,'mmTrapPwrMgntS':mmTrapPwrMgntS,'mmTrapBladeC':mmTrapBladeC,'mmTrapIOC':mmTrapIOC,'mmTrapChassisC':mmTrapChassisC,'mmTrapStorageC':mmTrapStorageC,'mmTrapFanC':mmTrapFanC,'mmTrapBladeN':mmTrapBladeN,'mmTrapION':mmTrapION,'mmTrapChassisN':mmTrapChassisN,'mmTrapStorageN':mmTrapStorageN,'mmTrapPowerN':mmTrapPowerN,'mmTrapFanN':mmTrapFanN,'mmTrapBladeS':mmTrapBladeS,'mmTrapIOS':mmTrapIOS,'mmTrapChassisS':mmTrapChassisS,'mmTrapStorageS':mmTrapStorageS,'mmTrapPowerS':mmTrapPowerS,'mmTrapFanS':mmTrapFanS,'mmTrapPwrDOS':mmTrapPwrDOS,'remoteSupTrapMibObjects':remoteSupTrapMibObjects,'spTrapInfo':spTrapInfo,_B:spTrapDateTime,_C:spTrapAppId,_D:spTrapSpTxtId,_E:spTrapSysUuid,_F:spTrapSysSern,_G:spTrapAppType,_H:spTrapPriority,_I:spTrapMsgText,_J:spTrapHostContact,_K:spTrapHostLocation,_L:spTrapBladeName,_M:spTrapBladeSern,_N:spTrapBladeUuid,_O:spTrapEvtName,_P:spTrapSourceId,_Q:spTrapCallHomeFlag,_R:spTrapSysIPAddress,_S:spTrapSysMachineModel,_T:spTrapBladeMachineModel,_X:spTrapBladeFRUSerialNumber,_Y:spTrapBladeEvtName,_Z:spBladeEventDataSource,_a:spTrapAuxData,_b:spTrapComponentID,_c:spTrapComponentFRUInfo,_d:spTrapChassisName,_e:spTrapSysRoomId,_f:spTrapSysRackId,_g:spTrapSysRackU,_h:spTrapServiceableEventFlag,_i:spLogSequenceNum,_j:spCimMsgID,_k:spCimMsgPrefix,_U:spEventCorrelator})
+#
+# PySNMP MIB module BLADESPPALT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ibm/BLADESPPALT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ibm = MibIdentifier((1, 3, 6, 1, 4, 1, 2))
+ibmProd = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6))
+supportProcessor = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 158))
+mmRemoteSupTrapMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 158, 3))
+remoteSupTrapMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1))
+spTrapInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1))
+spTrapDateTime = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapDateTime.setStatus('mandatory')
+spTrapAppId = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapAppId.setStatus('mandatory')
+spTrapSpTxtId = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapSpTxtId.setStatus('mandatory')
+spTrapSysUuid = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapSysUuid.setStatus('mandatory')
+spTrapSysSern = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapSysSern.setStatus('mandatory')
+spTrapAppType = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapAppType.setStatus('mandatory')
+spTrapPriority = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapPriority.setStatus('mandatory')
+spTrapMsgText = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapMsgText.setStatus('mandatory')
+spTrapHostContact = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapHostContact.setStatus('mandatory')
+spTrapHostLocation = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapHostLocation.setStatus('mandatory')
+spTrapBladeName = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 11), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapBladeName.setStatus('mandatory')
+spTrapBladeSern = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 12), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapBladeSern.setStatus('mandatory')
+spTrapBladeUuid = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 13), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapBladeUuid.setStatus('mandatory')
+spTrapEvtName = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapEvtName.setStatus('mandatory')
+spTrapSourceId = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 15), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapSourceId.setStatus('mandatory')
+spTrapCallHomeFlag = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 16), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapCallHomeFlag.setStatus('mandatory')
+spTrapSysIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 17), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapSysIPAddress.setStatus('mandatory')
+spTrapSysMachineModel = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 18), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapSysMachineModel.setStatus('mandatory')
+spTrapBladeMachineModel = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 19), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapBladeMachineModel.setStatus('mandatory')
+spTrapBladeFRUSerialNumber = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 20), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapBladeFRUSerialNumber.setStatus('mandatory')
+spTrapBladeEvtName = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 21), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapBladeEvtName.setStatus('mandatory')
+spBladeEventDataSource = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 22), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spBladeEventDataSource.setStatus('mandatory')
+spTrapAuxData = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 23), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapAuxData.setStatus('mandatory')
+spTrapComponentID = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 24), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapComponentID.setStatus('mandatory')
+spTrapComponentFRUInfo = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 25), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapComponentFRUInfo.setStatus('mandatory')
+spTrapChassisName = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 26), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapChassisName.setStatus('mandatory')
+spTrapSysRoomId = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 27), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapSysRoomId.setStatus('mandatory')
+spTrapSysRackId = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 28), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapSysRackId.setStatus('mandatory')
+spTrapSysRackU = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 29), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapSysRackU.setStatus('mandatory')
+spTrapServiceableEventFlag = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 30), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spTrapServiceableEventFlag.setStatus('mandatory')
+spLogSequenceNum = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 31), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spLogSequenceNum.setStatus('mandatory')
+spCimMsgID = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 32), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spCimMsgID.setStatus('mandatory')
+spCimMsgPrefix = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 33), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spCimMsgPrefix.setStatus('mandatory')
+spEventCorrelator = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 158, 3, 1, 1, 34), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: spEventCorrelator.setStatus('mandatory')
+mmTrapTempC = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,0)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapVoltC = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,1)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapTampC = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,2)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapMffC = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,3)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapPsC = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,4)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mTrapHdC = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,5)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapVrmC = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,6)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapSffC = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,11)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapMsC = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,31)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapIhcC = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,36)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapBladeC = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,128)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapIOC = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,129)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapStorageC = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,131)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapChassisC = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,130)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapFanC = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,133)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapRdpsN = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,10)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapTempN = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,12)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapVoltN = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,13)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"))
+mmTrapRmN = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,32)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapBladeN = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,160)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapION = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,161)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapLogFullN = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,7)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapStorageN = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,163)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapPowerN = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,164)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapChassisN = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,162)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapFanN = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,165)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapSecDvS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,15)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapPostToS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,20)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapOsToS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,21)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapAppS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,22)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapPoffS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,23)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapPonS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,24)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapBootS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,25)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapLdrToS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,26)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapPFAS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,27)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapRemoteLoginS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,30)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapKVMSwitchS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,33)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapSysInvS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,34)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapSysLogS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,35)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapNwChangeS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,37)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapBlThrS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,39)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapPwrMgntS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,40)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapBladeS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,176)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapIOS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,177)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapStorageS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,179)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapPowerS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,180)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapChassisS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,178)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapFanS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,181)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mmTrapPwrDOS = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 158, 3) + (0,182)).setObjects(("BLADESPPALT-MIB", "spTrapDateTime"), ("BLADESPPALT-MIB", "spTrapAppId"), ("BLADESPPALT-MIB", "spTrapSpTxtId"), ("BLADESPPALT-MIB", "spTrapSysUuid"), ("BLADESPPALT-MIB", "spTrapSysSern"), ("BLADESPPALT-MIB", "spTrapAppType"), ("BLADESPPALT-MIB", "spTrapPriority"), ("BLADESPPALT-MIB", "spTrapMsgText"), ("BLADESPPALT-MIB", "spTrapHostContact"), ("BLADESPPALT-MIB", "spTrapHostLocation"), ("BLADESPPALT-MIB", "spTrapBladeName"), ("BLADESPPALT-MIB", "spTrapBladeSern"), ("BLADESPPALT-MIB", "spTrapBladeUuid"), ("BLADESPPALT-MIB", "spTrapEvtName"), ("BLADESPPALT-MIB", "spTrapSourceId"), ("BLADESPPALT-MIB", "spTrapCallHomeFlag"), ("BLADESPPALT-MIB", "spTrapSysIPAddress"), ("BLADESPPALT-MIB", "spTrapSysMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeMachineModel"), ("BLADESPPALT-MIB", "spTrapBladeFRUSerialNumber"), ("BLADESPPALT-MIB", "spTrapBladeEvtName"), ("BLADESPPALT-MIB", "spBladeEventDataSource"), ("BLADESPPALT-MIB", "spTrapAuxData"), ("BLADESPPALT-MIB", "spTrapComponentID"), ("BLADESPPALT-MIB", "spTrapComponentFRUInfo"), ("BLADESPPALT-MIB", "spTrapChassisName"), ("BLADESPPALT-MIB", "spTrapSysRoomId"), ("BLADESPPALT-MIB", "spTrapSysRackId"), ("BLADESPPALT-MIB", "spTrapSysRackU"), ("BLADESPPALT-MIB", "spTrapServiceableEventFlag"), ("BLADESPPALT-MIB", "spLogSequenceNum"), ("BLADESPPALT-MIB", "spCimMsgID"), ("BLADESPPALT-MIB", "spCimMsgPrefix"), ("BLADESPPALT-MIB", "spEventCorrelator"))
+mibBuilder.exportSymbols("BLADESPPALT-MIB", spTrapSysUuid=spTrapSysUuid, mmTrapBootS=mmTrapBootS, spTrapBladeUuid=spTrapBladeUuid, spTrapDateTime=spTrapDateTime, mmTrapFanN=mmTrapFanN, mmTrapPowerN=mmTrapPowerN, mmTrapFanC=mmTrapFanC, spTrapCallHomeFlag=spTrapCallHomeFlag, spTrapSysRackId=spTrapSysRackId, mmTrapIhcC=mmTrapIhcC, spTrapBladeEvtName=spTrapBladeEvtName, ibmProd=ibmProd, mmTrapIOC=mmTrapIOC, mmTrapChassisS=mmTrapChassisS, spTrapServiceableEventFlag=spTrapServiceableEventFlag, mmTrapKVMSwitchS=mmTrapKVMSwitchS, mmTrapION=mmTrapION, mmRemoteSupTrapMIB=mmRemoteSupTrapMIB, spBladeEventDataSource=spBladeEventDataSource, mmTrapTampC=mmTrapTampC, mmTrapBladeC=mmTrapBladeC, mTrapHdC=mTrapHdC, spLogSequenceNum=spLogSequenceNum, mmTrapAppS=mmTrapAppS, mmTrapRmN=mmTrapRmN, spTrapAuxData=spTrapAuxData, mmTrapPostToS=mmTrapPostToS, mmTrapPoffS=mmTrapPoffS, mmTrapPonS=mmTrapPonS, spTrapBladeSern=spTrapBladeSern, spCimMsgID=spCimMsgID, spTrapPriority=spTrapPriority, spTrapSpTxtId=spTrapSpTxtId, mmTrapChassisN=mmTrapChassisN, spTrapComponentID=spTrapComponentID, mmTrapStorageS=mmTrapStorageS, spTrapSourceId=spTrapSourceId, mmTrapBlThrS=mmTrapBlThrS, spTrapBladeFRUSerialNumber=spTrapBladeFRUSerialNumber, spTrapEvtName=spTrapEvtName, spTrapSysRackU=spTrapSysRackU, mmTrapPowerS=mmTrapPowerS, mmTrapChassisC=mmTrapChassisC, spTrapBladeMachineModel=spTrapBladeMachineModel, spTrapComponentFRUInfo=spTrapComponentFRUInfo, mmTrapSffC=mmTrapSffC, mmTrapMsC=mmTrapMsC, mmTrapBladeN=mmTrapBladeN, mmTrapTempN=mmTrapTempN, mmTrapRemoteLoginS=mmTrapRemoteLoginS, mmTrapLogFullN=mmTrapLogFullN, spTrapAppType=spTrapAppType, mmTrapVoltC=mmTrapVoltC, spTrapChassisName=spTrapChassisName, mmTrapMffC=mmTrapMffC, mmTrapPwrMgntS=mmTrapPwrMgntS, mmTrapStorageC=mmTrapStorageC, mmTrapIOS=mmTrapIOS, mmTrapPwrDOS=mmTrapPwrDOS, mmTrapStorageN=mmTrapStorageN, mmTrapPsC=mmTrapPsC, spTrapHostLocation=spTrapHostLocation, spTrapInfo=spTrapInfo, mmTrapPFAS=mmTrapPFAS, spTrapAppId=spTrapAppId, mmTrapRdpsN=mmTrapRdpsN, spTrapSysIPAddress=spTrapSysIPAddress, ibm=ibm, spCimMsgPrefix=spCimMsgPrefix, spTrapSysMachineModel=spTrapSysMachineModel, mmTrapFanS=mmTrapFanS, mmTrapSysLogS=mmTrapSysLogS, mmTrapLdrToS=mmTrapLdrToS, mmTrapNwChangeS=mmTrapNwChangeS, mmTrapTempC=mmTrapTempC, spTrapSysSern=spTrapSysSern, spTrapHostContact=spTrapHostContact, mmTrapSecDvS=mmTrapSecDvS, remoteSupTrapMibObjects=remoteSupTrapMibObjects, mmTrapVoltN=mmTrapVoltN, mmTrapSysInvS=mmTrapSysInvS, spEventCorrelator=spEventCorrelator, mmTrapBladeS=mmTrapBladeS, mmTrapVrmC=mmTrapVrmC, spTrapBladeName=spTrapBladeName, spTrapMsgText=spTrapMsgText, mmTrapOsToS=mmTrapOsToS, spTrapSysRoomId=spTrapSysRoomId, supportProcessor=supportProcessor)

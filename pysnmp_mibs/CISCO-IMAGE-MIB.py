@@ -1,49 +1,38 @@
-_F='ciscoImageMIBGroup'
-_E='ciscoImageString'
-_D='ciscoImageIndex'
-_C='Integer32'
-_B='CISCO-IMAGE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoImageMIB=ModuleIdentity((1,3,6,1,4,1,9,9,25))
-if mibBuilder.loadTexts:ciscoImageMIB.setRevisions(('1995-08-15 00:00','1995-01-16 00:00'))
-_CiscoImageMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoImageMIBObjects=_CiscoImageMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,25,1))
-_CiscoImageTable_Object=MibTable
-ciscoImageTable=_CiscoImageTable_Object((1,3,6,1,4,1,9,9,25,1,1))
-if mibBuilder.loadTexts:ciscoImageTable.setStatus(_A)
-_CiscoImageEntry_Object=MibTableRow
-ciscoImageEntry=_CiscoImageEntry_Object((1,3,6,1,4,1,9,9,25,1,1,1))
-ciscoImageEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:ciscoImageEntry.setStatus(_A)
-class _CiscoImageIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CiscoImageIndex_Type.__name__=_C
-_CiscoImageIndex_Object=MibTableColumn
-ciscoImageIndex=_CiscoImageIndex_Object((1,3,6,1,4,1,9,9,25,1,1,1,1),_CiscoImageIndex_Type())
-ciscoImageIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:ciscoImageIndex.setStatus(_A)
-_CiscoImageString_Type=DisplayString
-_CiscoImageString_Object=MibTableColumn
-ciscoImageString=_CiscoImageString_Object((1,3,6,1,4,1,9,9,25,1,1,1,2),_CiscoImageString_Type())
-ciscoImageString.setMaxAccess('read-only')
-if mibBuilder.loadTexts:ciscoImageString.setStatus(_A)
-_CiscoImageMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoImageMIBConformance=_CiscoImageMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,25,2))
-_CiscoImageMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoImageMIBCompliances=_CiscoImageMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,25,2,1))
-_CiscoImageMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoImageMIBGroups=_CiscoImageMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,25,2,2))
-ciscoImageMIBGroup=ObjectGroup((1,3,6,1,4,1,9,9,25,2,2,1))
-ciscoImageMIBGroup.setObjects((_B,_E))
-if mibBuilder.loadTexts:ciscoImageMIBGroup.setStatus(_A)
-ciscoImageMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,25,2,1,1))
-ciscoImageMIBCompliance.setObjects((_B,_F))
-if mibBuilder.loadTexts:ciscoImageMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoImageMIB':ciscoImageMIB,'ciscoImageMIBObjects':ciscoImageMIBObjects,'ciscoImageTable':ciscoImageTable,'ciscoImageEntry':ciscoImageEntry,_D:ciscoImageIndex,_E:ciscoImageString,'ciscoImageMIBConformance':ciscoImageMIBConformance,'ciscoImageMIBCompliances':ciscoImageMIBCompliances,'ciscoImageMIBCompliance':ciscoImageMIBCompliance,'ciscoImageMIBGroups':ciscoImageMIBGroups,_F:ciscoImageMIBGroup})
+#
+# PySNMP MIB module CISCO-IMAGE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-IMAGE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoImageMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 25))
+ciscoImageMIB.setRevisions(('1995-08-15 00:00', '1995-01-16 00:00',))
+if mibBuilder.loadTexts: ciscoImageMIB.setLastUpdated('9508150000Z')
+if mibBuilder.loadTexts: ciscoImageMIB.setOrganization('Cisco Systems, Inc.')
+ciscoImageMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 25, 1))
+ciscoImageTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 25, 1, 1), )
+if mibBuilder.loadTexts: ciscoImageTable.setStatus('current')
+ciscoImageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 25, 1, 1, 1), ).setIndexNames((0, "CISCO-IMAGE-MIB", "ciscoImageIndex"))
+if mibBuilder.loadTexts: ciscoImageEntry.setStatus('current')
+ciscoImageIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 25, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: ciscoImageIndex.setStatus('current')
+ciscoImageString = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 25, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoImageString.setStatus('current')
+ciscoImageMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 25, 2))
+ciscoImageMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 25, 2, 1))
+ciscoImageMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 25, 2, 2))
+ciscoImageMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 25, 2, 1, 1)).setObjects(("CISCO-IMAGE-MIB", "ciscoImageMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoImageMIBCompliance = ciscoImageMIBCompliance.setStatus('current')
+ciscoImageMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 25, 2, 2, 1)).setObjects(("CISCO-IMAGE-MIB", "ciscoImageString"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoImageMIBGroup = ciscoImageMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-IMAGE-MIB", ciscoImageIndex=ciscoImageIndex, ciscoImageMIB=ciscoImageMIB, ciscoImageMIBObjects=ciscoImageMIBObjects, ciscoImageMIBGroups=ciscoImageMIBGroups, ciscoImageMIBCompliance=ciscoImageMIBCompliance, ciscoImageString=ciscoImageString, ciscoImageEntry=ciscoImageEntry, ciscoImageMIBGroup=ciscoImageMIBGroup, ciscoImageTable=ciscoImageTable, PYSNMP_MODULE_ID=ciscoImageMIB, ciscoImageMIBCompliances=ciscoImageMIBCompliances, ciscoImageMIBConformance=ciscoImageMIBConformance)

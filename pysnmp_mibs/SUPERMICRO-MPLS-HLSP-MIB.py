@@ -1,124 +1,60 @@
-_Q='read-only'
-_P='fsMplsHLSPEgressLSRId'
-_O='fsMplsHLSPIngressLSRId'
-_N='fsMplsHLSPInstance'
-_M='fsMplsHLSPIndex'
-_L='read-write'
-_K='fsMplsLSPMapSubTunnelEgressLSRId'
-_J='fsMplsLSPMapSubTunnelIngressLSRId'
-_I='fsMplsLSPMapSubTunnelInstance'
-_H='fsMplsLSPMapSubTunnelIndex'
-_G='fsMplsLSPMapTunnelEgressLSRId'
-_F='fsMplsLSPMapTunnelIngressLSRId'
-_E='fsMplsLSPMapTunnelInstance'
-_D='fsMplsLSPMapTunnelIndex'
-_C='not-accessible'
-_B='SUPERMICRO-MPLS-HLSP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-MplsExtendedTunnelId,MplsTunnelIndex,MplsTunnelInstanceIndex=mibBuilder.importSymbols('MPLS-TC-STD-MIB','MplsExtendedTunnelId','MplsTunnelIndex','MplsTunnelInstanceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-fsHlspMIB=ModuleIdentity((1,3,6,1,4,1,10876,101,2,58))
-if mibBuilder.loadTexts:fsHlspMIB.setRevisions(('2012-09-05 00:00',))
-_FsMplsHlspConfigObjects_ObjectIdentity=ObjectIdentity
-fsMplsHlspConfigObjects=_FsMplsHlspConfigObjects_ObjectIdentity((1,3,6,1,4,1,10876,101,2,58,1))
-_FsMplsLSPMapTunnelTable_Object=MibTable
-fsMplsLSPMapTunnelTable=_FsMplsLSPMapTunnelTable_Object((1,3,6,1,4,1,10876,101,2,58,1,1))
-if mibBuilder.loadTexts:fsMplsLSPMapTunnelTable.setStatus(_A)
-_FsMplsLSPMapTunnelEntry_Object=MibTableRow
-fsMplsLSPMapTunnelEntry=_FsMplsLSPMapTunnelEntry_Object((1,3,6,1,4,1,10876,101,2,58,1,1,1))
-fsMplsLSPMapTunnelEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_F),(0,_B,_G),(0,_B,_H),(0,_B,_I),(0,_B,_J),(0,_B,_K))
-if mibBuilder.loadTexts:fsMplsLSPMapTunnelEntry.setStatus(_A)
-_FsMplsLSPMapTunnelIndex_Type=MplsTunnelIndex
-_FsMplsLSPMapTunnelIndex_Object=MibTableColumn
-fsMplsLSPMapTunnelIndex=_FsMplsLSPMapTunnelIndex_Object((1,3,6,1,4,1,10876,101,2,58,1,1,1,1),_FsMplsLSPMapTunnelIndex_Type())
-fsMplsLSPMapTunnelIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMplsLSPMapTunnelIndex.setStatus(_A)
-_FsMplsLSPMapTunnelInstance_Type=MplsTunnelInstanceIndex
-_FsMplsLSPMapTunnelInstance_Object=MibTableColumn
-fsMplsLSPMapTunnelInstance=_FsMplsLSPMapTunnelInstance_Object((1,3,6,1,4,1,10876,101,2,58,1,1,1,2),_FsMplsLSPMapTunnelInstance_Type())
-fsMplsLSPMapTunnelInstance.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMplsLSPMapTunnelInstance.setStatus(_A)
-_FsMplsLSPMapTunnelIngressLSRId_Type=MplsExtendedTunnelId
-_FsMplsLSPMapTunnelIngressLSRId_Object=MibTableColumn
-fsMplsLSPMapTunnelIngressLSRId=_FsMplsLSPMapTunnelIngressLSRId_Object((1,3,6,1,4,1,10876,101,2,58,1,1,1,3),_FsMplsLSPMapTunnelIngressLSRId_Type())
-fsMplsLSPMapTunnelIngressLSRId.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMplsLSPMapTunnelIngressLSRId.setStatus(_A)
-_FsMplsLSPMapTunnelEgressLSRId_Type=MplsExtendedTunnelId
-_FsMplsLSPMapTunnelEgressLSRId_Object=MibTableColumn
-fsMplsLSPMapTunnelEgressLSRId=_FsMplsLSPMapTunnelEgressLSRId_Object((1,3,6,1,4,1,10876,101,2,58,1,1,1,4),_FsMplsLSPMapTunnelEgressLSRId_Type())
-fsMplsLSPMapTunnelEgressLSRId.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMplsLSPMapTunnelEgressLSRId.setStatus(_A)
-_FsMplsLSPMapSubTunnelIndex_Type=MplsTunnelIndex
-_FsMplsLSPMapSubTunnelIndex_Object=MibTableColumn
-fsMplsLSPMapSubTunnelIndex=_FsMplsLSPMapSubTunnelIndex_Object((1,3,6,1,4,1,10876,101,2,58,1,1,1,5),_FsMplsLSPMapSubTunnelIndex_Type())
-fsMplsLSPMapSubTunnelIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMplsLSPMapSubTunnelIndex.setStatus(_A)
-_FsMplsLSPMapSubTunnelInstance_Type=MplsTunnelInstanceIndex
-_FsMplsLSPMapSubTunnelInstance_Object=MibTableColumn
-fsMplsLSPMapSubTunnelInstance=_FsMplsLSPMapSubTunnelInstance_Object((1,3,6,1,4,1,10876,101,2,58,1,1,1,6),_FsMplsLSPMapSubTunnelInstance_Type())
-fsMplsLSPMapSubTunnelInstance.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMplsLSPMapSubTunnelInstance.setStatus(_A)
-_FsMplsLSPMapSubTunnelIngressLSRId_Type=MplsExtendedTunnelId
-_FsMplsLSPMapSubTunnelIngressLSRId_Object=MibTableColumn
-fsMplsLSPMapSubTunnelIngressLSRId=_FsMplsLSPMapSubTunnelIngressLSRId_Object((1,3,6,1,4,1,10876,101,2,58,1,1,1,7),_FsMplsLSPMapSubTunnelIngressLSRId_Type())
-fsMplsLSPMapSubTunnelIngressLSRId.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMplsLSPMapSubTunnelIngressLSRId.setStatus(_A)
-_FsMplsLSPMapSubTunnelEgressLSRId_Type=MplsExtendedTunnelId
-_FsMplsLSPMapSubTunnelEgressLSRId_Object=MibTableColumn
-fsMplsLSPMapSubTunnelEgressLSRId=_FsMplsLSPMapSubTunnelEgressLSRId_Object((1,3,6,1,4,1,10876,101,2,58,1,1,1,8),_FsMplsLSPMapSubTunnelEgressLSRId_Type())
-fsMplsLSPMapSubTunnelEgressLSRId.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMplsLSPMapSubTunnelEgressLSRId.setStatus(_A)
-_FsMplsLSPMaptunnelOperation_Type=Unsigned32
-_FsMplsLSPMaptunnelOperation_Object=MibTableColumn
-fsMplsLSPMaptunnelOperation=_FsMplsLSPMaptunnelOperation_Object((1,3,6,1,4,1,10876,101,2,58,1,1,1,9),_FsMplsLSPMaptunnelOperation_Type())
-fsMplsLSPMaptunnelOperation.setMaxAccess(_L)
-if mibBuilder.loadTexts:fsMplsLSPMaptunnelOperation.setStatus(_A)
-_FsMplsLSPMaptunnelRowStatus_Type=RowStatus
-_FsMplsLSPMaptunnelRowStatus_Object=MibTableColumn
-fsMplsLSPMaptunnelRowStatus=_FsMplsLSPMaptunnelRowStatus_Object((1,3,6,1,4,1,10876,101,2,58,1,1,1,10),_FsMplsLSPMaptunnelRowStatus_Type())
-fsMplsLSPMaptunnelRowStatus.setMaxAccess(_L)
-if mibBuilder.loadTexts:fsMplsLSPMaptunnelRowStatus.setStatus(_A)
-_FsMplsHLSPTable_Object=MibTable
-fsMplsHLSPTable=_FsMplsHLSPTable_Object((1,3,6,1,4,1,10876,101,2,58,1,2))
-if mibBuilder.loadTexts:fsMplsHLSPTable.setStatus(_A)
-_FsMplsHLSPEntry_Object=MibTableRow
-fsMplsHLSPEntry=_FsMplsHLSPEntry_Object((1,3,6,1,4,1,10876,101,2,58,1,2,1))
-fsMplsHLSPEntry.setIndexNames((0,_B,_M),(0,_B,_N),(0,_B,_O),(0,_B,_P))
-if mibBuilder.loadTexts:fsMplsHLSPEntry.setStatus(_A)
-_FsMplsHLSPIndex_Type=MplsTunnelIndex
-_FsMplsHLSPIndex_Object=MibTableColumn
-fsMplsHLSPIndex=_FsMplsHLSPIndex_Object((1,3,6,1,4,1,10876,101,2,58,1,2,1,1),_FsMplsHLSPIndex_Type())
-fsMplsHLSPIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMplsHLSPIndex.setStatus(_A)
-_FsMplsHLSPInstance_Type=MplsTunnelInstanceIndex
-_FsMplsHLSPInstance_Object=MibTableColumn
-fsMplsHLSPInstance=_FsMplsHLSPInstance_Object((1,3,6,1,4,1,10876,101,2,58,1,2,1,2),_FsMplsHLSPInstance_Type())
-fsMplsHLSPInstance.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMplsHLSPInstance.setStatus(_A)
-_FsMplsHLSPIngressLSRId_Type=MplsExtendedTunnelId
-_FsMplsHLSPIngressLSRId_Object=MibTableColumn
-fsMplsHLSPIngressLSRId=_FsMplsHLSPIngressLSRId_Object((1,3,6,1,4,1,10876,101,2,58,1,2,1,3),_FsMplsHLSPIngressLSRId_Type())
-fsMplsHLSPIngressLSRId.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMplsHLSPIngressLSRId.setStatus(_A)
-_FsMplsHLSPEgressLSRId_Type=MplsExtendedTunnelId
-_FsMplsHLSPEgressLSRId_Object=MibTableColumn
-fsMplsHLSPEgressLSRId=_FsMplsHLSPEgressLSRId_Object((1,3,6,1,4,1,10876,101,2,58,1,2,1,4),_FsMplsHLSPEgressLSRId_Type())
-fsMplsHLSPEgressLSRId.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMplsHLSPEgressLSRId.setStatus(_A)
-_FsMplsHLSPAvailableBW_Type=Unsigned32
-_FsMplsHLSPAvailableBW_Object=MibTableColumn
-fsMplsHLSPAvailableBW=_FsMplsHLSPAvailableBW_Object((1,3,6,1,4,1,10876,101,2,58,1,2,1,5),_FsMplsHLSPAvailableBW_Type())
-fsMplsHLSPAvailableBW.setMaxAccess(_Q)
-if mibBuilder.loadTexts:fsMplsHLSPAvailableBW.setStatus(_A)
-_FsMplsHLSPNoOfStackedTunnels_Type=Unsigned32
-_FsMplsHLSPNoOfStackedTunnels_Object=MibTableColumn
-fsMplsHLSPNoOfStackedTunnels=_FsMplsHLSPNoOfStackedTunnels_Object((1,3,6,1,4,1,10876,101,2,58,1,2,1,6),_FsMplsHLSPNoOfStackedTunnels_Type())
-fsMplsHLSPNoOfStackedTunnels.setMaxAccess(_Q)
-if mibBuilder.loadTexts:fsMplsHLSPNoOfStackedTunnels.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'fsHlspMIB':fsHlspMIB,'fsMplsHlspConfigObjects':fsMplsHlspConfigObjects,'fsMplsLSPMapTunnelTable':fsMplsLSPMapTunnelTable,'fsMplsLSPMapTunnelEntry':fsMplsLSPMapTunnelEntry,_D:fsMplsLSPMapTunnelIndex,_E:fsMplsLSPMapTunnelInstance,_F:fsMplsLSPMapTunnelIngressLSRId,_G:fsMplsLSPMapTunnelEgressLSRId,_H:fsMplsLSPMapSubTunnelIndex,_I:fsMplsLSPMapSubTunnelInstance,_J:fsMplsLSPMapSubTunnelIngressLSRId,_K:fsMplsLSPMapSubTunnelEgressLSRId,'fsMplsLSPMaptunnelOperation':fsMplsLSPMaptunnelOperation,'fsMplsLSPMaptunnelRowStatus':fsMplsLSPMaptunnelRowStatus,'fsMplsHLSPTable':fsMplsHLSPTable,'fsMplsHLSPEntry':fsMplsHLSPEntry,_M:fsMplsHLSPIndex,_N:fsMplsHLSPInstance,_O:fsMplsHLSPIngressLSRId,_P:fsMplsHLSPEgressLSRId,'fsMplsHLSPAvailableBW':fsMplsHLSPAvailableBW,'fsMplsHLSPNoOfStackedTunnels':fsMplsHLSPNoOfStackedTunnels})
+#
+# PySNMP MIB module SUPERMICRO-MPLS-HLSP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-MPLS-HLSP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+MplsTunnelIndex, MplsExtendedTunnelId, MplsTunnelInstanceIndex = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "MplsTunnelIndex", "MplsExtendedTunnelId", "MplsTunnelInstanceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+fsHlspMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58))
+fsHlspMIB.setRevisions(('2012-09-05 00:00',))
+if mibBuilder.loadTexts: fsHlspMIB.setLastUpdated('201209050000Z')
+if mibBuilder.loadTexts: fsHlspMIB.setOrganization('Super Micro Computer Inc.')
+fsMplsHlspConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1))
+fsMplsLSPMapTunnelTable = MibTable((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 1), )
+if mibBuilder.loadTexts: fsMplsLSPMapTunnelTable.setStatus('current')
+fsMplsLSPMapTunnelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 1, 1), ).setIndexNames((0, "SUPERMICRO-MPLS-HLSP-MIB", "fsMplsLSPMapTunnelIndex"), (0, "SUPERMICRO-MPLS-HLSP-MIB", "fsMplsLSPMapTunnelInstance"), (0, "SUPERMICRO-MPLS-HLSP-MIB", "fsMplsLSPMapTunnelIngressLSRId"), (0, "SUPERMICRO-MPLS-HLSP-MIB", "fsMplsLSPMapTunnelEgressLSRId"), (0, "SUPERMICRO-MPLS-HLSP-MIB", "fsMplsLSPMapSubTunnelIndex"), (0, "SUPERMICRO-MPLS-HLSP-MIB", "fsMplsLSPMapSubTunnelInstance"), (0, "SUPERMICRO-MPLS-HLSP-MIB", "fsMplsLSPMapSubTunnelIngressLSRId"), (0, "SUPERMICRO-MPLS-HLSP-MIB", "fsMplsLSPMapSubTunnelEgressLSRId"))
+if mibBuilder.loadTexts: fsMplsLSPMapTunnelEntry.setStatus('current')
+fsMplsLSPMapTunnelIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 1, 1, 1), MplsTunnelIndex())
+if mibBuilder.loadTexts: fsMplsLSPMapTunnelIndex.setStatus('current')
+fsMplsLSPMapTunnelInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 1, 1, 2), MplsTunnelInstanceIndex())
+if mibBuilder.loadTexts: fsMplsLSPMapTunnelInstance.setStatus('current')
+fsMplsLSPMapTunnelIngressLSRId = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 1, 1, 3), MplsExtendedTunnelId())
+if mibBuilder.loadTexts: fsMplsLSPMapTunnelIngressLSRId.setStatus('current')
+fsMplsLSPMapTunnelEgressLSRId = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 1, 1, 4), MplsExtendedTunnelId())
+if mibBuilder.loadTexts: fsMplsLSPMapTunnelEgressLSRId.setStatus('current')
+fsMplsLSPMapSubTunnelIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 1, 1, 5), MplsTunnelIndex())
+if mibBuilder.loadTexts: fsMplsLSPMapSubTunnelIndex.setStatus('current')
+fsMplsLSPMapSubTunnelInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 1, 1, 6), MplsTunnelInstanceIndex())
+if mibBuilder.loadTexts: fsMplsLSPMapSubTunnelInstance.setStatus('current')
+fsMplsLSPMapSubTunnelIngressLSRId = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 1, 1, 7), MplsExtendedTunnelId())
+if mibBuilder.loadTexts: fsMplsLSPMapSubTunnelIngressLSRId.setStatus('current')
+fsMplsLSPMapSubTunnelEgressLSRId = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 1, 1, 8), MplsExtendedTunnelId())
+if mibBuilder.loadTexts: fsMplsLSPMapSubTunnelEgressLSRId.setStatus('current')
+fsMplsLSPMaptunnelOperation = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 1, 1, 9), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMplsLSPMaptunnelOperation.setStatus('current')
+fsMplsLSPMaptunnelRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 1, 1, 10), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMplsLSPMaptunnelRowStatus.setStatus('current')
+fsMplsHLSPTable = MibTable((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 2), )
+if mibBuilder.loadTexts: fsMplsHLSPTable.setStatus('current')
+fsMplsHLSPEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 2, 1), ).setIndexNames((0, "SUPERMICRO-MPLS-HLSP-MIB", "fsMplsHLSPIndex"), (0, "SUPERMICRO-MPLS-HLSP-MIB", "fsMplsHLSPInstance"), (0, "SUPERMICRO-MPLS-HLSP-MIB", "fsMplsHLSPIngressLSRId"), (0, "SUPERMICRO-MPLS-HLSP-MIB", "fsMplsHLSPEgressLSRId"))
+if mibBuilder.loadTexts: fsMplsHLSPEntry.setStatus('current')
+fsMplsHLSPIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 2, 1, 1), MplsTunnelIndex())
+if mibBuilder.loadTexts: fsMplsHLSPIndex.setStatus('current')
+fsMplsHLSPInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 2, 1, 2), MplsTunnelInstanceIndex())
+if mibBuilder.loadTexts: fsMplsHLSPInstance.setStatus('current')
+fsMplsHLSPIngressLSRId = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 2, 1, 3), MplsExtendedTunnelId())
+if mibBuilder.loadTexts: fsMplsHLSPIngressLSRId.setStatus('current')
+fsMplsHLSPEgressLSRId = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 2, 1, 4), MplsExtendedTunnelId())
+if mibBuilder.loadTexts: fsMplsHLSPEgressLSRId.setStatus('current')
+fsMplsHLSPAvailableBW = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 2, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMplsHLSPAvailableBW.setStatus('current')
+fsMplsHLSPNoOfStackedTunnels = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 58, 1, 2, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMplsHLSPNoOfStackedTunnels.setStatus('current')
+mibBuilder.exportSymbols("SUPERMICRO-MPLS-HLSP-MIB", fsHlspMIB=fsHlspMIB, fsMplsLSPMapTunnelEgressLSRId=fsMplsLSPMapTunnelEgressLSRId, fsMplsHLSPAvailableBW=fsMplsHLSPAvailableBW, fsMplsLSPMapTunnelInstance=fsMplsLSPMapTunnelInstance, fsMplsHLSPNoOfStackedTunnels=fsMplsHLSPNoOfStackedTunnels, fsMplsLSPMapSubTunnelIngressLSRId=fsMplsLSPMapSubTunnelIngressLSRId, fsMplsLSPMaptunnelOperation=fsMplsLSPMaptunnelOperation, fsMplsHLSPTable=fsMplsHLSPTable, fsMplsHlspConfigObjects=fsMplsHlspConfigObjects, fsMplsLSPMapTunnelIngressLSRId=fsMplsLSPMapTunnelIngressLSRId, fsMplsHLSPInstance=fsMplsHLSPInstance, fsMplsLSPMapTunnelEntry=fsMplsLSPMapTunnelEntry, fsMplsLSPMapSubTunnelEgressLSRId=fsMplsLSPMapSubTunnelEgressLSRId, PYSNMP_MODULE_ID=fsHlspMIB, fsMplsLSPMapSubTunnelIndex=fsMplsLSPMapSubTunnelIndex, fsMplsHLSPEntry=fsMplsHLSPEntry, fsMplsLSPMapTunnelTable=fsMplsLSPMapTunnelTable, fsMplsLSPMaptunnelRowStatus=fsMplsLSPMaptunnelRowStatus, fsMplsLSPMapTunnelIndex=fsMplsLSPMapTunnelIndex, fsMplsHLSPIngressLSRId=fsMplsHLSPIngressLSRId, fsMplsLSPMapSubTunnelInstance=fsMplsLSPMapSubTunnelInstance, fsMplsHLSPEgressLSRId=fsMplsHLSPEgressLSRId, fsMplsHLSPIndex=fsMplsHLSPIndex)

@@ -1,157 +1,69 @@
-_G='deprecated'
-_F='Unsigned32'
-_E='OctetString'
-_D='Integer32'
-_C='SnmpAdminString'
-_B='current'
-_A='read-write'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-cableDataFactory,=mibBuilder.importSymbols('BRCM-CABLEDATA-FACTORY-MIB','cableDataFactory')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_C)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ieee802dot11Factory=ModuleIdentity((1,3,6,1,4,1,4413,2,99,1,1,2,5))
-if mibBuilder.loadTexts:ieee802dot11Factory.setRevisions(('2008-07-01 00:00','2007-02-05 00:00','2003-08-22 00:00','2003-04-28 00:00','2002-09-19 00:00'))
-_Dot11FactoryCfg_ObjectIdentity=ObjectIdentity
-dot11FactoryCfg=_Dot11FactoryCfg_ObjectIdentity((1,3,6,1,4,1,4413,2,99,1,1,2,5,1))
-class _Dot11RegDomain_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(16,32,48,49,50,64)));namedValues=NamedValues(*(('fcc',16),('doc',32),('etsi',48),('spain',49),('france',50),('mkk',64)))
-_Dot11RegDomain_Type.__name__=_D
-_Dot11RegDomain_Object=MibScalar
-dot11RegDomain=_Dot11RegDomain_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,1,2),_Dot11RegDomain_Type())
-dot11RegDomain.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11RegDomain.setStatus(_G)
-_Dot11BoardRev_Type=Unsigned32
-_Dot11BoardRev_Object=MibScalar
-dot11BoardRev=_Dot11BoardRev_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,1,3),_Dot11BoardRev_Type())
-dot11BoardRev.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11BoardRev.setStatus(_B)
-_Dot11MaxPower_Type=Unsigned32
-_Dot11MaxPower_Object=MibScalar
-dot11MaxPower=_Dot11MaxPower_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,1,4),_Dot11MaxPower_Type())
-dot11MaxPower.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11MaxPower.setStatus(_B)
-class _Dot11Country_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('worldWide',0),('thailand',1),('israel',2),('jordan',3),('china',4),('japan',5),('usa',6),('europe',7),('allChannels',8)))
-_Dot11Country_Type.__name__=_D
-_Dot11Country_Object=MibScalar
-dot11Country=_Dot11Country_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,1,5),_Dot11Country_Type())
-dot11Country.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11Country.setStatus(_G)
-class _Dot11PAParameters_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
-_Dot11PAParameters_Type.__name__=_E
-_Dot11PAParameters_Object=MibScalar
-dot11PAParameters=_Dot11PAParameters_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,1,6),_Dot11PAParameters_Type())
-dot11PAParameters.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11PAParameters.setStatus(_B)
-class _Dot11IdleTSSI_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_Dot11IdleTSSI_Type.__name__=_D
-_Dot11IdleTSSI_Object=MibScalar
-dot11IdleTSSI=_Dot11IdleTSSI_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,1,7),_Dot11IdleTSSI_Type())
-dot11IdleTSSI.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11IdleTSSI.setStatus(_B)
-class _Dot11AntennaGain_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_Dot11AntennaGain_Type.__name__=_D
-_Dot11AntennaGain_Object=MibScalar
-dot11AntennaGain=_Dot11AntennaGain_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,1,8),_Dot11AntennaGain_Type())
-dot11AntennaGain.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11AntennaGain.setStatus(_B)
-_Dot11SromWrite_Type=OctetString
-_Dot11SromWrite_Object=MibScalar
-dot11SromWrite=_Dot11SromWrite_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,1,9),_Dot11SromWrite_Type())
-dot11SromWrite.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11SromWrite.setStatus(_B)
-_Dot11SromRead_Type=OctetString
-_Dot11SromRead_Object=MibScalar
-dot11SromRead=_Dot11SromRead_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,1,10),_Dot11SromRead_Type())
-dot11SromRead.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11SromRead.setStatus(_B)
-_Dot11IsoCountry_Type=OctetString
-_Dot11IsoCountry_Object=MibScalar
-dot11IsoCountry=_Dot11IsoCountry_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,1,11),_Dot11IsoCountry_Type())
-dot11IsoCountry.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11IsoCountry.setStatus(_B)
-_Dot11FactoryDiagnostics_ObjectIdentity=ObjectIdentity
-dot11FactoryDiagnostics=_Dot11FactoryDiagnostics_ObjectIdentity((1,3,6,1,4,1,4413,2,99,1,1,2,5,2))
-class _Dot11DiagChannel_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,14))
-_Dot11DiagChannel_Type.__name__=_F
-_Dot11DiagChannel_Object=MibScalar
-dot11DiagChannel=_Dot11DiagChannel_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,2,1),_Dot11DiagChannel_Type())
-dot11DiagChannel.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11DiagChannel.setStatus(_B)
-class _Dot11DiagAntennaDiversity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('diversityDisabledAntenna0',0),('diversityDisabledAntenna1',1),('diversityEnabledAntenna1',2),('diversityEnabledAntenna0',3)))
-_Dot11DiagAntennaDiversity_Type.__name__=_D
-_Dot11DiagAntennaDiversity_Object=MibScalar
-dot11DiagAntennaDiversity=_Dot11DiagAntennaDiversity_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,2,2),_Dot11DiagAntennaDiversity_Type())
-dot11DiagAntennaDiversity.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11DiagAntennaDiversity.setStatus(_B)
-class _Dot11DiagTxMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('cw',0),('evm',1),('normal',2)))
-_Dot11DiagTxMode_Type.__name__=_D
-_Dot11DiagTxMode_Object=MibScalar
-dot11DiagTxMode=_Dot11DiagTxMode_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,2,3),_Dot11DiagTxMode_Type())
-dot11DiagTxMode.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11DiagTxMode.setStatus(_B)
-class _Dot11DiagTxPowerLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000))
-_Dot11DiagTxPowerLevel_Type.__name__=_D
-_Dot11DiagTxPowerLevel_Object=MibScalar
-dot11DiagTxPowerLevel=_Dot11DiagTxPowerLevel_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,2,4),_Dot11DiagTxPowerLevel_Type())
-dot11DiagTxPowerLevel.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11DiagTxPowerLevel.setStatus(_B)
-if mibBuilder.loadTexts:dot11DiagTxPowerLevel.setUnits('milliwatts')
-_Dot11DiagWirelessLanCmd_Type=DisplayString
-_Dot11DiagWirelessLanCmd_Object=MibScalar
-dot11DiagWirelessLanCmd=_Dot11DiagWirelessLanCmd_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,2,5),_Dot11DiagWirelessLanCmd_Type())
-dot11DiagWirelessLanCmd.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11DiagWirelessLanCmd.setStatus(_B)
-_Dot11DiagWirelessLanOutput_Type=OctetString
-_Dot11DiagWirelessLanOutput_Object=MibScalar
-dot11DiagWirelessLanOutput=_Dot11DiagWirelessLanOutput_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,2,6),_Dot11DiagWirelessLanOutput_Type())
-dot11DiagWirelessLanOutput.setMaxAccess('read-only')
-if mibBuilder.loadTexts:dot11DiagWirelessLanOutput.setStatus(_B)
-_Dot11FactoryWPSSettings_ObjectIdentity=ObjectIdentity
-dot11FactoryWPSSettings=_Dot11FactoryWPSSettings_ObjectIdentity((1,3,6,1,4,1,4413,2,99,1,1,2,5,3))
-class _Dot11WPSBoardNum_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Dot11WPSBoardNum_Type.__name__=_C
-_Dot11WPSBoardNum_Object=MibScalar
-dot11WPSBoardNum=_Dot11WPSBoardNum_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,3,1),_Dot11WPSBoardNum_Type())
-dot11WPSBoardNum.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11WPSBoardNum.setStatus(_B)
-class _Dot11WPSDeviceName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Dot11WPSDeviceName_Type.__name__=_C
-_Dot11WPSDeviceName_Object=MibScalar
-dot11WPSDeviceName=_Dot11WPSDeviceName_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,3,2),_Dot11WPSDeviceName_Type())
-dot11WPSDeviceName.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11WPSDeviceName.setStatus(_B)
-class _Dot11WPSDevicePin_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
-_Dot11WPSDevicePin_Type.__name__=_C
-_Dot11WPSDevicePin_Object=MibScalar
-dot11WPSDevicePin=_Dot11WPSDevicePin_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,3,3),_Dot11WPSDevicePin_Type())
-dot11WPSDevicePin.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11WPSDevicePin.setStatus(_B)
-class _Dot11WPSMfgName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_Dot11WPSMfgName_Type.__name__=_C
-_Dot11WPSMfgName_Object=MibScalar
-dot11WPSMfgName=_Dot11WPSMfgName_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,3,4),_Dot11WPSMfgName_Type())
-dot11WPSMfgName.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11WPSMfgName.setStatus(_B)
-class _Dot11WPSModelName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Dot11WPSModelName_Type.__name__=_C
-_Dot11WPSModelName_Object=MibScalar
-dot11WPSModelName=_Dot11WPSModelName_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,3,5),_Dot11WPSModelName_Type())
-dot11WPSModelName.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11WPSModelName.setStatus(_B)
-class _Dot11WPSModelNum_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Dot11WPSModelNum_Type.__name__=_C
-_Dot11WPSModelNum_Object=MibScalar
-dot11WPSModelNum=_Dot11WPSModelNum_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,3,6),_Dot11WPSModelNum_Type())
-dot11WPSModelNum.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11WPSModelNum.setStatus(_B)
-class _Dot11WPSUUID_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_Dot11WPSUUID_Type.__name__=_C
-_Dot11WPSUUID_Object=MibScalar
-dot11WPSUUID=_Dot11WPSUUID_Object((1,3,6,1,4,1,4413,2,99,1,1,2,5,3,7),_Dot11WPSUUID_Type())
-dot11WPSUUID.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot11WPSUUID.setStatus(_B)
-mibBuilder.exportSymbols('BRCM-80211-FACTORY-MIB',**{'ieee802dot11Factory':ieee802dot11Factory,'dot11FactoryCfg':dot11FactoryCfg,'dot11RegDomain':dot11RegDomain,'dot11BoardRev':dot11BoardRev,'dot11MaxPower':dot11MaxPower,'dot11Country':dot11Country,'dot11PAParameters':dot11PAParameters,'dot11IdleTSSI':dot11IdleTSSI,'dot11AntennaGain':dot11AntennaGain,'dot11SromWrite':dot11SromWrite,'dot11SromRead':dot11SromRead,'dot11IsoCountry':dot11IsoCountry,'dot11FactoryDiagnostics':dot11FactoryDiagnostics,'dot11DiagChannel':dot11DiagChannel,'dot11DiagAntennaDiversity':dot11DiagAntennaDiversity,'dot11DiagTxMode':dot11DiagTxMode,'dot11DiagTxPowerLevel':dot11DiagTxPowerLevel,'dot11DiagWirelessLanCmd':dot11DiagWirelessLanCmd,'dot11DiagWirelessLanOutput':dot11DiagWirelessLanOutput,'dot11FactoryWPSSettings':dot11FactoryWPSSettings,'dot11WPSBoardNum':dot11WPSBoardNum,'dot11WPSDeviceName':dot11WPSDeviceName,'dot11WPSDevicePin':dot11WPSDevicePin,'dot11WPSMfgName':dot11WPSMfgName,'dot11WPSModelName':dot11WPSModelName,'dot11WPSModelNum':dot11WPSModelNum,'dot11WPSUUID':dot11WPSUUID})
+#
+# PySNMP MIB module BRCM-80211-FACTORY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/broadcom/BRCM-80211-FACTORY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cableDataFactory, = mibBuilder.importSymbols("BRCM-CABLEDATA-FACTORY-MIB", "cableDataFactory")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ieee802dot11Factory = ModuleIdentity((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5))
+ieee802dot11Factory.setRevisions(('2008-07-01 00:00', '2007-02-05 00:00', '2003-08-22 00:00', '2003-04-28 00:00', '2002-09-19 00:00',))
+if mibBuilder.loadTexts: ieee802dot11Factory.setLastUpdated('200807010000Z')
+if mibBuilder.loadTexts: ieee802dot11Factory.setOrganization('Broadcom Corporation')
+dot11FactoryCfg = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 1))
+dot11RegDomain = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(16, 32, 48, 49, 50, 64))).clone(namedValues=NamedValues(("fcc", 16), ("doc", 32), ("etsi", 48), ("spain", 49), ("france", 50), ("mkk", 64)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11RegDomain.setStatus('deprecated')
+dot11BoardRev = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 1, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11BoardRev.setStatus('current')
+dot11MaxPower = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 1, 4), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11MaxPower.setStatus('current')
+dot11Country = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("worldWide", 0), ("thailand", 1), ("israel", 2), ("jordan", 3), ("china", 4), ("japan", 5), ("usa", 6), ("europe", 7), ("allChannels", 8)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11Country.setStatus('deprecated')
+dot11PAParameters = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11PAParameters.setStatus('current')
+dot11IdleTSSI = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11IdleTSSI.setStatus('current')
+dot11AntennaGain = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11AntennaGain.setStatus('current')
+dot11SromWrite = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 1, 9), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11SromWrite.setStatus('current')
+dot11SromRead = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 1, 10), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11SromRead.setStatus('current')
+dot11IsoCountry = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 1, 11), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11IsoCountry.setStatus('current')
+dot11FactoryDiagnostics = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 2))
+dot11DiagChannel = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 2, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 14))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11DiagChannel.setStatus('current')
+dot11DiagAntennaDiversity = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("diversityDisabledAntenna0", 0), ("diversityDisabledAntenna1", 1), ("diversityEnabledAntenna1", 2), ("diversityEnabledAntenna0", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11DiagAntennaDiversity.setStatus('current')
+dot11DiagTxMode = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("cw", 0), ("evm", 1), ("normal", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11DiagTxMode.setStatus('current')
+dot11DiagTxPowerLevel = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000))).setUnits('milliwatts').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11DiagTxPowerLevel.setStatus('current')
+dot11DiagWirelessLanCmd = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 2, 5), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11DiagWirelessLanCmd.setStatus('current')
+dot11DiagWirelessLanOutput = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 2, 6), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dot11DiagWirelessLanOutput.setStatus('current')
+dot11FactoryWPSSettings = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 3))
+dot11WPSBoardNum = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 3, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11WPSBoardNum.setStatus('current')
+dot11WPSDeviceName = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 3, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11WPSDeviceName.setStatus('current')
+dot11WPSDevicePin = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 3, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11WPSDevicePin.setStatus('current')
+dot11WPSMfgName = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 3, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11WPSMfgName.setStatus('current')
+dot11WPSModelName = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 3, 5), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11WPSModelName.setStatus('current')
+dot11WPSModelNum = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 3, 6), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11WPSModelNum.setStatus('current')
+dot11WPSUUID = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 2, 5, 3, 7), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot11WPSUUID.setStatus('current')
+mibBuilder.exportSymbols("BRCM-80211-FACTORY-MIB", dot11PAParameters=dot11PAParameters, dot11AntennaGain=dot11AntennaGain, dot11BoardRev=dot11BoardRev, dot11WPSUUID=dot11WPSUUID, dot11DiagWirelessLanOutput=dot11DiagWirelessLanOutput, dot11WPSMfgName=dot11WPSMfgName, dot11SromWrite=dot11SromWrite, PYSNMP_MODULE_ID=ieee802dot11Factory, dot11FactoryDiagnostics=dot11FactoryDiagnostics, dot11DiagAntennaDiversity=dot11DiagAntennaDiversity, dot11WPSBoardNum=dot11WPSBoardNum, dot11DiagTxPowerLevel=dot11DiagTxPowerLevel, ieee802dot11Factory=ieee802dot11Factory, dot11IdleTSSI=dot11IdleTSSI, dot11DiagTxMode=dot11DiagTxMode, dot11RegDomain=dot11RegDomain, dot11Country=dot11Country, dot11WPSDeviceName=dot11WPSDeviceName, dot11MaxPower=dot11MaxPower, dot11WPSDevicePin=dot11WPSDevicePin, dot11DiagWirelessLanCmd=dot11DiagWirelessLanCmd, dot11SromRead=dot11SromRead, dot11FactoryCfg=dot11FactoryCfg, dot11FactoryWPSSettings=dot11FactoryWPSSettings, dot11IsoCountry=dot11IsoCountry, dot11WPSModelName=dot11WPSModelName, dot11DiagChannel=dot11DiagChannel, dot11WPSModelNum=dot11WPSModelNum)

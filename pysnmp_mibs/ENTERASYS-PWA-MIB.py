@@ -1,394 +1,174 @@
-_A9='etsysPwaSessionHCGroup'
-_A8='etsysPwaSystemGroup2'
-_A7='etsysPwaSystemGroupI'
-_A6='etsysPwaSystemGroup'
-_A5='etsysPwaSystemAccountEnable'
-_A4='etsysPwaSystemAuthEnhancedMode'
-_A3='etsysPwaAuthSessionOctetsTxHc'
-_A2='etsysPwaAuthSessionOctetsRxHc'
-_A1='etsysPwaAuthSessionUserName'
-_A0='etsysPwaAuthSessionIPAddress'
-_z='etsysPwaAuthSessionIPAddressType'
-_y='etsysPwaAuthSessionMacAddress'
-_x='etsysPwaAuthSessionTerminateCause'
-_w='etsysPwaAuthSessionDuration'
-_v='etsysPwaAuthSessionStartTime'
-_u='etsysPwaAuthSessionFramesTx'
-_t='etsysPwaAuthSessionFramesRx'
-_s='etsysPwaAuthSessionOctetsTxOverflow'
-_r='etsysPwaAuthSessionOctetsTx'
-_q='etsysPwaAuthSessionOctetsRxOverflow'
-_p='etsysPwaAuthSessionOctetsRx'
-_o='etsysPwaLastLogonResult'
-_n='etsysPwaFailedAttemptsSinceLogon'
-_m='etsysPwaMaxFailedAttempts'
-_l='etsysPwaAuthPwaState'
-_k='etsysPwaControlledPortControl'
-_j='etsysPwaAuthMaxReq'
-_i='etsysPwaAuthQuietPeriod'
-_h='etsysPwaInitializePort'
-_g='etsysPwaSystemAuthIPAddress'
-_f='etsysPwaSystemAuthIPAddressType'
-_e='seconds'
-_d='TruthValue'
-_c='SnmpAdminString'
-_b='etsysPwaSystemEnhancedModeRefreshTime'
-_a='etsysPwaSystemGuestNetworkingStatus'
-_Z='etsysPwaSystemGuestPasswordValid'
-_Y='etsysPwaSystemGuestPassword'
-_X='etsysPwaSystemGuestUsername'
-_W='etsysPwaLogoDisplayStatus'
-_V='etsysPwaSystemAuthInetAddress'
-_U='etsysPwaSystemAuthInetAddressType'
-_T='etsysPwaAuthSessionHCID'
-_S='etsysPwaAuthSessionID'
-_R='etsysPwaSessionGroup'
-_Q='etsysPwaPortStatusGroup'
-_P='etsysPwaPortConfigurationGroup'
-_O='etsysPwaSystemAuthDomain'
-_N='etsysPwaSystemAuthProtocol'
-_M='etsysPwaSystemPwaNameServicesEnable'
-_L='etsysPwaSystemAuthBanner'
-_K='etsysPwaSystemAuthHostName'
-_J='etsysPwaSystemAuthControl'
-_I='DisplayString'
-_H='etsysPwaPortNumber'
-_G='deprecated'
-_F='EnabledStatus'
-_E='Integer32'
-_D='read-write'
-_C='read-only'
-_B='current'
-_A='ENTERASYS-PWA-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-etsysModules,=mibBuilder.importSymbols('ENTERASYS-MIB-NAMES','etsysModules')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB',_F)
-ZeroBasedCounter32,=mibBuilder.importSymbols('RMON2-MIB','ZeroBasedCounter32')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_c)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_I,'MacAddress','PhysAddress','TextualConvention','TimeInterval','TimeStamp',_d)
-etsysPwaMIB=ModuleIdentity((1,3,6,1,4,1,5624,1,2,8))
-if mibBuilder.loadTexts:etsysPwaMIB.setRevisions(('2013-08-08 14:18','2013-02-12 16:56','2003-11-05 16:56','2003-08-04 11:22','2003-05-14 19:32','2002-12-13 21:56','2002-05-15 20:44','2002-05-14 21:30','2002-03-21 21:49','2001-06-07 16:00'))
-_EtsysPwaSystem_ObjectIdentity=ObjectIdentity
-etsysPwaSystem=_EtsysPwaSystem_ObjectIdentity((1,3,6,1,4,1,5624,1,2,8,1))
-class _EtsysPwaSystemAuthControl_Type(EnabledStatus):defaultValue=2
-_EtsysPwaSystemAuthControl_Type.__name__=_F
-_EtsysPwaSystemAuthControl_Object=MibScalar
-etsysPwaSystemAuthControl=_EtsysPwaSystemAuthControl_Object((1,3,6,1,4,1,5624,1,2,8,1,1),_EtsysPwaSystemAuthControl_Type())
-etsysPwaSystemAuthControl.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemAuthControl.setStatus(_B)
-class _EtsysPwaSystemAuthHostName_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_EtsysPwaSystemAuthHostName_Type.__name__=_I
-_EtsysPwaSystemAuthHostName_Object=MibScalar
-etsysPwaSystemAuthHostName=_EtsysPwaSystemAuthHostName_Object((1,3,6,1,4,1,5624,1,2,8,1,2),_EtsysPwaSystemAuthHostName_Type())
-etsysPwaSystemAuthHostName.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemAuthHostName.setStatus(_B)
-class _EtsysPwaSystemAuthBanner_Type(SnmpAdminString):defaultValue=OctetString('')
-_EtsysPwaSystemAuthBanner_Type.__name__=_c
-_EtsysPwaSystemAuthBanner_Object=MibScalar
-etsysPwaSystemAuthBanner=_EtsysPwaSystemAuthBanner_Object((1,3,6,1,4,1,5624,1,2,8,1,3),_EtsysPwaSystemAuthBanner_Type())
-etsysPwaSystemAuthBanner.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemAuthBanner.setStatus(_B)
-class _EtsysPwaSystemPwaNameServicesEnable_Type(EnabledStatus):defaultValue=2
-_EtsysPwaSystemPwaNameServicesEnable_Type.__name__=_F
-_EtsysPwaSystemPwaNameServicesEnable_Object=MibScalar
-etsysPwaSystemPwaNameServicesEnable=_EtsysPwaSystemPwaNameServicesEnable_Object((1,3,6,1,4,1,5624,1,2,8,1,4),_EtsysPwaSystemPwaNameServicesEnable_Type())
-etsysPwaSystemPwaNameServicesEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemPwaNameServicesEnable.setStatus(_B)
-_EtsysPwaSystemAuthIPAddressType_Type=InetAddressType
-_EtsysPwaSystemAuthIPAddressType_Object=MibScalar
-etsysPwaSystemAuthIPAddressType=_EtsysPwaSystemAuthIPAddressType_Object((1,3,6,1,4,1,5624,1,2,8,1,5),_EtsysPwaSystemAuthIPAddressType_Type())
-etsysPwaSystemAuthIPAddressType.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemAuthIPAddressType.setStatus(_G)
-_EtsysPwaSystemAuthIPAddress_Type=IpAddress
-_EtsysPwaSystemAuthIPAddress_Object=MibScalar
-etsysPwaSystemAuthIPAddress=_EtsysPwaSystemAuthIPAddress_Object((1,3,6,1,4,1,5624,1,2,8,1,6),_EtsysPwaSystemAuthIPAddress_Type())
-etsysPwaSystemAuthIPAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemAuthIPAddress.setStatus(_G)
-class _EtsysPwaSystemAuthProtocol_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('chap',1),('pap',2)))
-_EtsysPwaSystemAuthProtocol_Type.__name__=_E
-_EtsysPwaSystemAuthProtocol_Object=MibScalar
-etsysPwaSystemAuthProtocol=_EtsysPwaSystemAuthProtocol_Object((1,3,6,1,4,1,5624,1,2,8,1,7),_EtsysPwaSystemAuthProtocol_Type())
-etsysPwaSystemAuthProtocol.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemAuthProtocol.setStatus(_B)
-_EtsysPwaSystemAuthDomain_Type=SnmpAdminString
-_EtsysPwaSystemAuthDomain_Object=MibScalar
-etsysPwaSystemAuthDomain=_EtsysPwaSystemAuthDomain_Object((1,3,6,1,4,1,5624,1,2,8,1,8),_EtsysPwaSystemAuthDomain_Type())
-etsysPwaSystemAuthDomain.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemAuthDomain.setStatus(_B)
-_EtsysPwaSystemAuthInetAddressType_Type=InetAddressType
-_EtsysPwaSystemAuthInetAddressType_Object=MibScalar
-etsysPwaSystemAuthInetAddressType=_EtsysPwaSystemAuthInetAddressType_Object((1,3,6,1,4,1,5624,1,2,8,1,9),_EtsysPwaSystemAuthInetAddressType_Type())
-etsysPwaSystemAuthInetAddressType.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemAuthInetAddressType.setStatus(_B)
-_EtsysPwaSystemAuthInetAddress_Type=InetAddress
-_EtsysPwaSystemAuthInetAddress_Object=MibScalar
-etsysPwaSystemAuthInetAddress=_EtsysPwaSystemAuthInetAddress_Object((1,3,6,1,4,1,5624,1,2,8,1,10),_EtsysPwaSystemAuthInetAddress_Type())
-etsysPwaSystemAuthInetAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemAuthInetAddress.setStatus(_B)
-class _EtsysPwaSystemAuthEnhancedMode_Type(EnabledStatus):defaultValue=2
-_EtsysPwaSystemAuthEnhancedMode_Type.__name__=_F
-_EtsysPwaSystemAuthEnhancedMode_Object=MibScalar
-etsysPwaSystemAuthEnhancedMode=_EtsysPwaSystemAuthEnhancedMode_Object((1,3,6,1,4,1,5624,1,2,8,1,11),_EtsysPwaSystemAuthEnhancedMode_Type())
-etsysPwaSystemAuthEnhancedMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemAuthEnhancedMode.setStatus(_B)
-class _EtsysPwaLogoDisplayStatus_Type(EnabledStatus):defaultValue=1
-_EtsysPwaLogoDisplayStatus_Type.__name__=_F
-_EtsysPwaLogoDisplayStatus_Object=MibScalar
-etsysPwaLogoDisplayStatus=_EtsysPwaLogoDisplayStatus_Object((1,3,6,1,4,1,5624,1,2,8,1,12),_EtsysPwaLogoDisplayStatus_Type())
-etsysPwaLogoDisplayStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaLogoDisplayStatus.setStatus(_B)
-class _EtsysPwaSystemGuestUsername_Type(DisplayString):defaultValue=OctetString('guest');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_EtsysPwaSystemGuestUsername_Type.__name__=_I
-_EtsysPwaSystemGuestUsername_Object=MibScalar
-etsysPwaSystemGuestUsername=_EtsysPwaSystemGuestUsername_Object((1,3,6,1,4,1,5624,1,2,8,1,13),_EtsysPwaSystemGuestUsername_Type())
-etsysPwaSystemGuestUsername.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemGuestUsername.setStatus(_B)
-class _EtsysPwaSystemGuestPassword_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_EtsysPwaSystemGuestPassword_Type.__name__=_I
-_EtsysPwaSystemGuestPassword_Object=MibScalar
-etsysPwaSystemGuestPassword=_EtsysPwaSystemGuestPassword_Object((1,3,6,1,4,1,5624,1,2,8,1,14),_EtsysPwaSystemGuestPassword_Type())
-etsysPwaSystemGuestPassword.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemGuestPassword.setStatus(_B)
-class _EtsysPwaSystemGuestPasswordValid_Type(TruthValue):defaultValue=2
-_EtsysPwaSystemGuestPasswordValid_Type.__name__=_d
-_EtsysPwaSystemGuestPasswordValid_Object=MibScalar
-etsysPwaSystemGuestPasswordValid=_EtsysPwaSystemGuestPasswordValid_Object((1,3,6,1,4,1,5624,1,2,8,1,15),_EtsysPwaSystemGuestPasswordValid_Type())
-etsysPwaSystemGuestPasswordValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaSystemGuestPasswordValid.setStatus(_B)
-class _EtsysPwaSystemGuestNetworkingStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('disabled',1),('authNone',2),('authRadius',3)))
-_EtsysPwaSystemGuestNetworkingStatus_Type.__name__=_E
-_EtsysPwaSystemGuestNetworkingStatus_Object=MibScalar
-etsysPwaSystemGuestNetworkingStatus=_EtsysPwaSystemGuestNetworkingStatus_Object((1,3,6,1,4,1,5624,1,2,8,1,16),_EtsysPwaSystemGuestNetworkingStatus_Type())
-etsysPwaSystemGuestNetworkingStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemGuestNetworkingStatus.setStatus(_B)
-class _EtsysPwaSystemEnhancedModeRefreshTime_Type(Integer32):defaultValue=30;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,120))
-_EtsysPwaSystemEnhancedModeRefreshTime_Type.__name__=_E
-_EtsysPwaSystemEnhancedModeRefreshTime_Object=MibScalar
-etsysPwaSystemEnhancedModeRefreshTime=_EtsysPwaSystemEnhancedModeRefreshTime_Object((1,3,6,1,4,1,5624,1,2,8,1,17),_EtsysPwaSystemEnhancedModeRefreshTime_Type())
-etsysPwaSystemEnhancedModeRefreshTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemEnhancedModeRefreshTime.setStatus(_B)
-if mibBuilder.loadTexts:etsysPwaSystemEnhancedModeRefreshTime.setUnits(_e)
-class _EtsysPwaSystemAccountEnable_Type(EnabledStatus):defaultValue=1
-_EtsysPwaSystemAccountEnable_Type.__name__=_F
-_EtsysPwaSystemAccountEnable_Object=MibScalar
-etsysPwaSystemAccountEnable=_EtsysPwaSystemAccountEnable_Object((1,3,6,1,4,1,5624,1,2,8,1,18),_EtsysPwaSystemAccountEnable_Type())
-etsysPwaSystemAccountEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaSystemAccountEnable.setStatus(_B)
-_EtsysPwaPortConfiguration_ObjectIdentity=ObjectIdentity
-etsysPwaPortConfiguration=_EtsysPwaPortConfiguration_ObjectIdentity((1,3,6,1,4,1,5624,1,2,8,2))
-_EtsysPwaPortConfigurationTable_Object=MibTable
-etsysPwaPortConfigurationTable=_EtsysPwaPortConfigurationTable_Object((1,3,6,1,4,1,5624,1,2,8,2,1))
-if mibBuilder.loadTexts:etsysPwaPortConfigurationTable.setStatus(_B)
-_EtsysPwaPortConfigurationEntry_Object=MibTableRow
-etsysPwaPortConfigurationEntry=_EtsysPwaPortConfigurationEntry_Object((1,3,6,1,4,1,5624,1,2,8,2,1,1))
-etsysPwaPortConfigurationEntry.setIndexNames((0,_A,_H))
-if mibBuilder.loadTexts:etsysPwaPortConfigurationEntry.setStatus(_B)
-_EtsysPwaPortNumber_Type=InterfaceIndex
-_EtsysPwaPortNumber_Object=MibTableColumn
-etsysPwaPortNumber=_EtsysPwaPortNumber_Object((1,3,6,1,4,1,5624,1,2,8,2,1,1,1),_EtsysPwaPortNumber_Type())
-etsysPwaPortNumber.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:etsysPwaPortNumber.setStatus(_B)
-_EtsysPwaInitializePort_Type=TruthValue
-_EtsysPwaInitializePort_Object=MibTableColumn
-etsysPwaInitializePort=_EtsysPwaInitializePort_Object((1,3,6,1,4,1,5624,1,2,8,2,1,1,2),_EtsysPwaInitializePort_Type())
-etsysPwaInitializePort.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaInitializePort.setStatus(_B)
-class _EtsysPwaAuthQuietPeriod_Type(Integer32):defaultValue=60;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_EtsysPwaAuthQuietPeriod_Type.__name__=_E
-_EtsysPwaAuthQuietPeriod_Object=MibTableColumn
-etsysPwaAuthQuietPeriod=_EtsysPwaAuthQuietPeriod_Object((1,3,6,1,4,1,5624,1,2,8,2,1,1,3),_EtsysPwaAuthQuietPeriod_Type())
-etsysPwaAuthQuietPeriod.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaAuthQuietPeriod.setStatus(_B)
-if mibBuilder.loadTexts:etsysPwaAuthQuietPeriod.setUnits(_e)
-class _EtsysPwaAuthMaxReq_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_EtsysPwaAuthMaxReq_Type.__name__=_E
-_EtsysPwaAuthMaxReq_Object=MibTableColumn
-etsysPwaAuthMaxReq=_EtsysPwaAuthMaxReq_Object((1,3,6,1,4,1,5624,1,2,8,2,1,1,4),_EtsysPwaAuthMaxReq_Type())
-etsysPwaAuthMaxReq.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaAuthMaxReq.setStatus(_B)
-class _EtsysPwaControlledPortControl_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('forceUnauthorized',1),('auto',2),('forceAuthorized',3),('promiscousAuto',4)))
-_EtsysPwaControlledPortControl_Type.__name__=_E
-_EtsysPwaControlledPortControl_Object=MibTableColumn
-etsysPwaControlledPortControl=_EtsysPwaControlledPortControl_Object((1,3,6,1,4,1,5624,1,2,8,2,1,1,5),_EtsysPwaControlledPortControl_Type())
-etsysPwaControlledPortControl.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysPwaControlledPortControl.setStatus(_B)
-_EtsysPwaPortStatus_ObjectIdentity=ObjectIdentity
-etsysPwaPortStatus=_EtsysPwaPortStatus_ObjectIdentity((1,3,6,1,4,1,5624,1,2,8,3))
-_EtsysPwaAuthStatusTable_Object=MibTable
-etsysPwaAuthStatusTable=_EtsysPwaAuthStatusTable_Object((1,3,6,1,4,1,5624,1,2,8,3,1))
-if mibBuilder.loadTexts:etsysPwaAuthStatusTable.setStatus(_B)
-_EtsysPwaAuthStatusEntry_Object=MibTableRow
-etsysPwaAuthStatusEntry=_EtsysPwaAuthStatusEntry_Object((1,3,6,1,4,1,5624,1,2,8,3,1,1))
-etsysPwaAuthStatusEntry.setIndexNames((0,_A,_H))
-if mibBuilder.loadTexts:etsysPwaAuthStatusEntry.setStatus(_B)
-class _EtsysPwaAuthPwaState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('disconnected',1),('authenticating',2),('authenticated',3),('held',4)))
-_EtsysPwaAuthPwaState_Type.__name__=_E
-_EtsysPwaAuthPwaState_Object=MibTableColumn
-etsysPwaAuthPwaState=_EtsysPwaAuthPwaState_Object((1,3,6,1,4,1,5624,1,2,8,3,1,1,1),_EtsysPwaAuthPwaState_Type())
-etsysPwaAuthPwaState.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthPwaState.setStatus(_B)
-_EtsysPwaMaxFailedAttempts_Type=ZeroBasedCounter32
-_EtsysPwaMaxFailedAttempts_Object=MibTableColumn
-etsysPwaMaxFailedAttempts=_EtsysPwaMaxFailedAttempts_Object((1,3,6,1,4,1,5624,1,2,8,3,1,1,2),_EtsysPwaMaxFailedAttempts_Type())
-etsysPwaMaxFailedAttempts.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaMaxFailedAttempts.setStatus(_B)
-_EtsysPwaFailedAttemptsSinceLogon_Type=ZeroBasedCounter32
-_EtsysPwaFailedAttemptsSinceLogon_Object=MibTableColumn
-etsysPwaFailedAttemptsSinceLogon=_EtsysPwaFailedAttemptsSinceLogon_Object((1,3,6,1,4,1,5624,1,2,8,3,1,1,3),_EtsysPwaFailedAttemptsSinceLogon_Type())
-etsysPwaFailedAttemptsSinceLogon.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaFailedAttemptsSinceLogon.setStatus(_B)
-_EtsysPwaLastLogonResult_Type=SnmpAdminString
-_EtsysPwaLastLogonResult_Object=MibTableColumn
-etsysPwaLastLogonResult=_EtsysPwaLastLogonResult_Object((1,3,6,1,4,1,5624,1,2,8,3,1,1,4),_EtsysPwaLastLogonResult_Type())
-etsysPwaLastLogonResult.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaLastLogonResult.setStatus(_B)
-_EtsysPwaSession_ObjectIdentity=ObjectIdentity
-etsysPwaSession=_EtsysPwaSession_ObjectIdentity((1,3,6,1,4,1,5624,1,2,8,4))
-_EtsysPwaAuthSessionStatsTable_Object=MibTable
-etsysPwaAuthSessionStatsTable=_EtsysPwaAuthSessionStatsTable_Object((1,3,6,1,4,1,5624,1,2,8,4,1))
-if mibBuilder.loadTexts:etsysPwaAuthSessionStatsTable.setStatus(_B)
-_EtsysPwaAuthSessionStatsEntry_Object=MibTableRow
-etsysPwaAuthSessionStatsEntry=_EtsysPwaAuthSessionStatsEntry_Object((1,3,6,1,4,1,5624,1,2,8,4,1,1))
-etsysPwaAuthSessionStatsEntry.setIndexNames((0,_A,_H),(0,_A,_S))
-if mibBuilder.loadTexts:etsysPwaAuthSessionStatsEntry.setStatus(_B)
-_EtsysPwaAuthSessionID_Type=Integer32
-_EtsysPwaAuthSessionID_Object=MibTableColumn
-etsysPwaAuthSessionID=_EtsysPwaAuthSessionID_Object((1,3,6,1,4,1,5624,1,2,8,4,1,1,1),_EtsysPwaAuthSessionID_Type())
-etsysPwaAuthSessionID.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionID.setStatus(_B)
-_EtsysPwaAuthSessionOctetsRx_Type=Counter32
-_EtsysPwaAuthSessionOctetsRx_Object=MibTableColumn
-etsysPwaAuthSessionOctetsRx=_EtsysPwaAuthSessionOctetsRx_Object((1,3,6,1,4,1,5624,1,2,8,4,1,1,2),_EtsysPwaAuthSessionOctetsRx_Type())
-etsysPwaAuthSessionOctetsRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionOctetsRx.setStatus(_B)
-_EtsysPwaAuthSessionOctetsRxOverflow_Type=Counter32
-_EtsysPwaAuthSessionOctetsRxOverflow_Object=MibTableColumn
-etsysPwaAuthSessionOctetsRxOverflow=_EtsysPwaAuthSessionOctetsRxOverflow_Object((1,3,6,1,4,1,5624,1,2,8,4,1,1,3),_EtsysPwaAuthSessionOctetsRxOverflow_Type())
-etsysPwaAuthSessionOctetsRxOverflow.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionOctetsRxOverflow.setStatus(_B)
-_EtsysPwaAuthSessionOctetsTx_Type=Counter32
-_EtsysPwaAuthSessionOctetsTx_Object=MibTableColumn
-etsysPwaAuthSessionOctetsTx=_EtsysPwaAuthSessionOctetsTx_Object((1,3,6,1,4,1,5624,1,2,8,4,1,1,4),_EtsysPwaAuthSessionOctetsTx_Type())
-etsysPwaAuthSessionOctetsTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionOctetsTx.setStatus(_B)
-_EtsysPwaAuthSessionOctetsTxOverflow_Type=Counter32
-_EtsysPwaAuthSessionOctetsTxOverflow_Object=MibTableColumn
-etsysPwaAuthSessionOctetsTxOverflow=_EtsysPwaAuthSessionOctetsTxOverflow_Object((1,3,6,1,4,1,5624,1,2,8,4,1,1,5),_EtsysPwaAuthSessionOctetsTxOverflow_Type())
-etsysPwaAuthSessionOctetsTxOverflow.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionOctetsTxOverflow.setStatus(_B)
-_EtsysPwaAuthSessionFramesRx_Type=Counter32
-_EtsysPwaAuthSessionFramesRx_Object=MibTableColumn
-etsysPwaAuthSessionFramesRx=_EtsysPwaAuthSessionFramesRx_Object((1,3,6,1,4,1,5624,1,2,8,4,1,1,6),_EtsysPwaAuthSessionFramesRx_Type())
-etsysPwaAuthSessionFramesRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionFramesRx.setStatus(_B)
-_EtsysPwaAuthSessionFramesTx_Type=Counter32
-_EtsysPwaAuthSessionFramesTx_Object=MibTableColumn
-etsysPwaAuthSessionFramesTx=_EtsysPwaAuthSessionFramesTx_Object((1,3,6,1,4,1,5624,1,2,8,4,1,1,7),_EtsysPwaAuthSessionFramesTx_Type())
-etsysPwaAuthSessionFramesTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionFramesTx.setStatus(_B)
-_EtsysPwaAuthSessionStartTime_Type=TimeStamp
-_EtsysPwaAuthSessionStartTime_Object=MibTableColumn
-etsysPwaAuthSessionStartTime=_EtsysPwaAuthSessionStartTime_Object((1,3,6,1,4,1,5624,1,2,8,4,1,1,8),_EtsysPwaAuthSessionStartTime_Type())
-etsysPwaAuthSessionStartTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionStartTime.setStatus(_B)
-_EtsysPwaAuthSessionDuration_Type=TimeInterval
-_EtsysPwaAuthSessionDuration_Object=MibTableColumn
-etsysPwaAuthSessionDuration=_EtsysPwaAuthSessionDuration_Object((1,3,6,1,4,1,5624,1,2,8,4,1,1,9),_EtsysPwaAuthSessionDuration_Type())
-etsysPwaAuthSessionDuration.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionDuration.setStatus(_B)
-class _EtsysPwaAuthSessionTerminateCause_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,999)));namedValues=NamedValues(*(('linkDown',1),('logoff',2),('authControlForceUnauth',3),('portReInit',4),('portDisabled',5),('notTerminatedYet',999)))
-_EtsysPwaAuthSessionTerminateCause_Type.__name__=_E
-_EtsysPwaAuthSessionTerminateCause_Object=MibTableColumn
-etsysPwaAuthSessionTerminateCause=_EtsysPwaAuthSessionTerminateCause_Object((1,3,6,1,4,1,5624,1,2,8,4,1,1,10),_EtsysPwaAuthSessionTerminateCause_Type())
-etsysPwaAuthSessionTerminateCause.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionTerminateCause.setStatus(_B)
-_EtsysPwaAuthSessionMacAddress_Type=MacAddress
-_EtsysPwaAuthSessionMacAddress_Object=MibTableColumn
-etsysPwaAuthSessionMacAddress=_EtsysPwaAuthSessionMacAddress_Object((1,3,6,1,4,1,5624,1,2,8,4,1,1,11),_EtsysPwaAuthSessionMacAddress_Type())
-etsysPwaAuthSessionMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionMacAddress.setStatus(_B)
-_EtsysPwaAuthSessionIPAddressType_Type=InetAddressType
-_EtsysPwaAuthSessionIPAddressType_Object=MibTableColumn
-etsysPwaAuthSessionIPAddressType=_EtsysPwaAuthSessionIPAddressType_Object((1,3,6,1,4,1,5624,1,2,8,4,1,1,12),_EtsysPwaAuthSessionIPAddressType_Type())
-etsysPwaAuthSessionIPAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionIPAddressType.setStatus(_B)
-_EtsysPwaAuthSessionIPAddress_Type=InetAddress
-_EtsysPwaAuthSessionIPAddress_Object=MibTableColumn
-etsysPwaAuthSessionIPAddress=_EtsysPwaAuthSessionIPAddress_Object((1,3,6,1,4,1,5624,1,2,8,4,1,1,13),_EtsysPwaAuthSessionIPAddress_Type())
-etsysPwaAuthSessionIPAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionIPAddress.setStatus(_B)
-_EtsysPwaAuthSessionUserName_Type=SnmpAdminString
-_EtsysPwaAuthSessionUserName_Object=MibTableColumn
-etsysPwaAuthSessionUserName=_EtsysPwaAuthSessionUserName_Object((1,3,6,1,4,1,5624,1,2,8,4,1,1,14),_EtsysPwaAuthSessionUserName_Type())
-etsysPwaAuthSessionUserName.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionUserName.setStatus(_B)
-_EtsysPwaAuthSessionStatsHCTable_Object=MibTable
-etsysPwaAuthSessionStatsHCTable=_EtsysPwaAuthSessionStatsHCTable_Object((1,3,6,1,4,1,5624,1,2,8,4,2))
-if mibBuilder.loadTexts:etsysPwaAuthSessionStatsHCTable.setStatus(_B)
-_EtsysPwaAuthSessionStatsHCEntry_Object=MibTableRow
-etsysPwaAuthSessionStatsHCEntry=_EtsysPwaAuthSessionStatsHCEntry_Object((1,3,6,1,4,1,5624,1,2,8,4,2,1))
-etsysPwaAuthSessionStatsHCEntry.setIndexNames((0,_A,_H),(0,_A,_T))
-if mibBuilder.loadTexts:etsysPwaAuthSessionStatsHCEntry.setStatus(_B)
-_EtsysPwaAuthSessionHCID_Type=Integer32
-_EtsysPwaAuthSessionHCID_Object=MibTableColumn
-etsysPwaAuthSessionHCID=_EtsysPwaAuthSessionHCID_Object((1,3,6,1,4,1,5624,1,2,8,4,2,1,1),_EtsysPwaAuthSessionHCID_Type())
-etsysPwaAuthSessionHCID.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionHCID.setStatus(_B)
-_EtsysPwaAuthSessionOctetsRxHc_Type=Counter64
-_EtsysPwaAuthSessionOctetsRxHc_Object=MibTableColumn
-etsysPwaAuthSessionOctetsRxHc=_EtsysPwaAuthSessionOctetsRxHc_Object((1,3,6,1,4,1,5624,1,2,8,4,2,1,2),_EtsysPwaAuthSessionOctetsRxHc_Type())
-etsysPwaAuthSessionOctetsRxHc.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionOctetsRxHc.setStatus(_B)
-_EtsysPwaAuthSessionOctetsTxHc_Type=Counter64
-_EtsysPwaAuthSessionOctetsTxHc_Object=MibTableColumn
-etsysPwaAuthSessionOctetsTxHc=_EtsysPwaAuthSessionOctetsTxHc_Object((1,3,6,1,4,1,5624,1,2,8,4,2,1,3),_EtsysPwaAuthSessionOctetsTxHc_Type())
-etsysPwaAuthSessionOctetsTxHc.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysPwaAuthSessionOctetsTxHc.setStatus(_B)
-_EtsysPwaMIBGroups_ObjectIdentity=ObjectIdentity
-etsysPwaMIBGroups=_EtsysPwaMIBGroups_ObjectIdentity((1,3,6,1,4,1,5624,1,2,8,5))
-_EtsysPwaMIBCompliances_ObjectIdentity=ObjectIdentity
-etsysPwaMIBCompliances=_EtsysPwaMIBCompliances_ObjectIdentity((1,3,6,1,4,1,5624,1,2,8,6))
-etsysPwaSystemGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,8,5,1))
-etsysPwaSystemGroup.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_f),(_A,_g),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:etsysPwaSystemGroup.setStatus(_G)
-etsysPwaPortConfigurationGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,8,5,2))
-etsysPwaPortConfigurationGroup.setObjects(*((_A,_h),(_A,_i),(_A,_j),(_A,_k)))
-if mibBuilder.loadTexts:etsysPwaPortConfigurationGroup.setStatus(_B)
-etsysPwaPortStatusGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,8,5,3))
-etsysPwaPortStatusGroup.setObjects(*((_A,_l),(_A,_m),(_A,_n),(_A,_o)))
-if mibBuilder.loadTexts:etsysPwaPortStatusGroup.setStatus(_B)
-etsysPwaSessionGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,8,5,4))
-etsysPwaSessionGroup.setObjects(*((_A,_S),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1)))
-if mibBuilder.loadTexts:etsysPwaSessionGroup.setStatus(_B)
-etsysPwaSessionHCGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,8,5,5))
-etsysPwaSessionHCGroup.setObjects(*((_A,_T),(_A,_A2),(_A,_A3)))
-if mibBuilder.loadTexts:etsysPwaSessionHCGroup.setStatus(_B)
-etsysPwaSystemGroupI=ObjectGroup((1,3,6,1,4,1,5624,1,2,8,5,6))
-etsysPwaSystemGroupI.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b)))
-if mibBuilder.loadTexts:etsysPwaSystemGroupI.setStatus(_G)
-etsysPwaSystemAuthEnhancedGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,8,5,7))
-etsysPwaSystemAuthEnhancedGroup.setObjects((_A,_A4))
-if mibBuilder.loadTexts:etsysPwaSystemAuthEnhancedGroup.setStatus(_B)
-etsysPwaSystemGroup2=ObjectGroup((1,3,6,1,4,1,5624,1,2,8,5,8))
-etsysPwaSystemGroup2.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_A5)))
-if mibBuilder.loadTexts:etsysPwaSystemGroup2.setStatus(_B)
-etsysPwaMIBCompliance=ModuleCompliance((1,3,6,1,4,1,5624,1,2,8,6,1))
-etsysPwaMIBCompliance.setObjects(*((_A,_A6),(_A,_P),(_A,_Q),(_A,_R)))
-if mibBuilder.loadTexts:etsysPwaMIBCompliance.setStatus(_G)
-etsysPwaMIBComplianceI=ModuleCompliance((1,3,6,1,4,1,5624,1,2,8,6,2))
-etsysPwaMIBComplianceI.setObjects(*((_A,_A7),(_A,_P),(_A,_Q),(_A,_R)))
-if mibBuilder.loadTexts:etsysPwaMIBComplianceI.setStatus(_G)
-etsysPwaMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,5624,1,2,8,6,3))
-etsysPwaMIBCompliance2.setObjects(*((_A,_A8),(_A,_P),(_A,_Q),(_A,_R)))
-if mibBuilder.loadTexts:etsysPwaMIBCompliance2.setStatus(_B)
-etsysPwaMIBHighCapacityCompliance=ModuleCompliance((1,3,6,1,4,1,5624,1,2,8,6,4))
-etsysPwaMIBHighCapacityCompliance.setObjects((_A,_A9))
-if mibBuilder.loadTexts:etsysPwaMIBHighCapacityCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'etsysPwaMIB':etsysPwaMIB,'etsysPwaSystem':etsysPwaSystem,_J:etsysPwaSystemAuthControl,_K:etsysPwaSystemAuthHostName,_L:etsysPwaSystemAuthBanner,_M:etsysPwaSystemPwaNameServicesEnable,_f:etsysPwaSystemAuthIPAddressType,_g:etsysPwaSystemAuthIPAddress,_N:etsysPwaSystemAuthProtocol,_O:etsysPwaSystemAuthDomain,_U:etsysPwaSystemAuthInetAddressType,_V:etsysPwaSystemAuthInetAddress,_A4:etsysPwaSystemAuthEnhancedMode,_W:etsysPwaLogoDisplayStatus,_X:etsysPwaSystemGuestUsername,_Y:etsysPwaSystemGuestPassword,_Z:etsysPwaSystemGuestPasswordValid,_a:etsysPwaSystemGuestNetworkingStatus,_b:etsysPwaSystemEnhancedModeRefreshTime,_A5:etsysPwaSystemAccountEnable,'etsysPwaPortConfiguration':etsysPwaPortConfiguration,'etsysPwaPortConfigurationTable':etsysPwaPortConfigurationTable,'etsysPwaPortConfigurationEntry':etsysPwaPortConfigurationEntry,_H:etsysPwaPortNumber,_h:etsysPwaInitializePort,_i:etsysPwaAuthQuietPeriod,_j:etsysPwaAuthMaxReq,_k:etsysPwaControlledPortControl,'etsysPwaPortStatus':etsysPwaPortStatus,'etsysPwaAuthStatusTable':etsysPwaAuthStatusTable,'etsysPwaAuthStatusEntry':etsysPwaAuthStatusEntry,_l:etsysPwaAuthPwaState,_m:etsysPwaMaxFailedAttempts,_n:etsysPwaFailedAttemptsSinceLogon,_o:etsysPwaLastLogonResult,'etsysPwaSession':etsysPwaSession,'etsysPwaAuthSessionStatsTable':etsysPwaAuthSessionStatsTable,'etsysPwaAuthSessionStatsEntry':etsysPwaAuthSessionStatsEntry,_S:etsysPwaAuthSessionID,_p:etsysPwaAuthSessionOctetsRx,_q:etsysPwaAuthSessionOctetsRxOverflow,_r:etsysPwaAuthSessionOctetsTx,_s:etsysPwaAuthSessionOctetsTxOverflow,_t:etsysPwaAuthSessionFramesRx,_u:etsysPwaAuthSessionFramesTx,_v:etsysPwaAuthSessionStartTime,_w:etsysPwaAuthSessionDuration,_x:etsysPwaAuthSessionTerminateCause,_y:etsysPwaAuthSessionMacAddress,_z:etsysPwaAuthSessionIPAddressType,_A0:etsysPwaAuthSessionIPAddress,_A1:etsysPwaAuthSessionUserName,'etsysPwaAuthSessionStatsHCTable':etsysPwaAuthSessionStatsHCTable,'etsysPwaAuthSessionStatsHCEntry':etsysPwaAuthSessionStatsHCEntry,_T:etsysPwaAuthSessionHCID,_A2:etsysPwaAuthSessionOctetsRxHc,_A3:etsysPwaAuthSessionOctetsTxHc,'etsysPwaMIBGroups':etsysPwaMIBGroups,_A6:etsysPwaSystemGroup,_P:etsysPwaPortConfigurationGroup,_Q:etsysPwaPortStatusGroup,_R:etsysPwaSessionGroup,_A9:etsysPwaSessionHCGroup,_A7:etsysPwaSystemGroupI,'etsysPwaSystemAuthEnhancedGroup':etsysPwaSystemAuthEnhancedGroup,_A8:etsysPwaSystemGroup2,'etsysPwaMIBCompliances':etsysPwaMIBCompliances,'etsysPwaMIBCompliance':etsysPwaMIBCompliance,'etsysPwaMIBComplianceI':etsysPwaMIBComplianceI,'etsysPwaMIBCompliance2':etsysPwaMIBCompliance2,'etsysPwaMIBHighCapacityCompliance':etsysPwaMIBHighCapacityCompliance})
+#
+# PySNMP MIB module ENTERASYS-PWA-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/enterasys/ENTERASYS-PWA-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:21 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ZeroBasedCounter32, = mibBuilder.importSymbols("RMON2-MIB", "ZeroBasedCounter32")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "TruthValue", "TextualConvention")
+etsysPwaMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8))
+etsysPwaMIB.setRevisions(('2013-08-08 14:18', '2013-02-12 16:56', '2003-11-05 16:56', '2003-08-04 11:22', '2003-05-14 19:32', '2002-12-13 21:56', '2002-05-15 20:44', '2002-05-14 21:30', '2002-03-21 21:49', '2001-06-07 16:00',))
+if mibBuilder.loadTexts: etsysPwaMIB.setLastUpdated('201308081418Z')
+if mibBuilder.loadTexts: etsysPwaMIB.setOrganization('Enterasys Networks, Inc')
+etsysPwaSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1))
+etsysPwaPortConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 2))
+etsysPwaPortStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 3))
+etsysPwaSession = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4))
+etsysPwaSystemAuthControl = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 1), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemAuthControl.setStatus('current')
+etsysPwaSystemAuthHostName = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemAuthHostName.setStatus('current')
+etsysPwaSystemAuthBanner = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 3), SnmpAdminString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemAuthBanner.setStatus('current')
+etsysPwaSystemPwaNameServicesEnable = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 4), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemPwaNameServicesEnable.setStatus('current')
+etsysPwaSystemAuthIPAddressType = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 5), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemAuthIPAddressType.setStatus('deprecated')
+etsysPwaSystemAuthIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 6), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemAuthIPAddress.setStatus('deprecated')
+etsysPwaSystemAuthProtocol = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("chap", 1), ("pap", 2))).clone('pap')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemAuthProtocol.setStatus('current')
+etsysPwaSystemAuthDomain = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 8), SnmpAdminString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemAuthDomain.setStatus('current')
+etsysPwaSystemAuthInetAddressType = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 9), InetAddressType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemAuthInetAddressType.setStatus('current')
+etsysPwaSystemAuthInetAddress = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 10), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemAuthInetAddress.setStatus('current')
+etsysPwaSystemAuthEnhancedMode = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 11), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemAuthEnhancedMode.setStatus('current')
+etsysPwaLogoDisplayStatus = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 12), EnabledStatus().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaLogoDisplayStatus.setStatus('current')
+etsysPwaSystemGuestUsername = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32)).clone('guest')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemGuestUsername.setStatus('current')
+etsysPwaSystemGuestPassword = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemGuestPassword.setStatus('current')
+etsysPwaSystemGuestPasswordValid = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 15), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaSystemGuestPasswordValid.setStatus('current')
+etsysPwaSystemGuestNetworkingStatus = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("disabled", 1), ("authNone", 2), ("authRadius", 3))).clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemGuestNetworkingStatus.setStatus('current')
+etsysPwaSystemEnhancedModeRefreshTime = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 120)).clone(30)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemEnhancedModeRefreshTime.setStatus('current')
+etsysPwaSystemAccountEnable = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 1, 18), EnabledStatus().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaSystemAccountEnable.setStatus('current')
+etsysPwaPortConfigurationTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 2, 1), )
+if mibBuilder.loadTexts: etsysPwaPortConfigurationTable.setStatus('current')
+etsysPwaPortConfigurationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 2, 1, 1), ).setIndexNames((0, "ENTERASYS-PWA-MIB", "etsysPwaPortNumber"))
+if mibBuilder.loadTexts: etsysPwaPortConfigurationEntry.setStatus('current')
+etsysPwaPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 2, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: etsysPwaPortNumber.setStatus('current')
+etsysPwaInitializePort = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 2, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaInitializePort.setStatus('current')
+etsysPwaAuthQuietPeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)).clone(60)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaAuthQuietPeriod.setStatus('current')
+etsysPwaAuthMaxReq = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)).clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaAuthMaxReq.setStatus('current')
+etsysPwaControlledPortControl = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("forceUnauthorized", 1), ("auto", 2), ("forceAuthorized", 3), ("promiscousAuto", 4))).clone('forceAuthorized')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysPwaControlledPortControl.setStatus('current')
+etsysPwaAuthStatusTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 3, 1), )
+if mibBuilder.loadTexts: etsysPwaAuthStatusTable.setStatus('current')
+etsysPwaAuthStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 3, 1, 1), ).setIndexNames((0, "ENTERASYS-PWA-MIB", "etsysPwaPortNumber"))
+if mibBuilder.loadTexts: etsysPwaAuthStatusEntry.setStatus('current')
+etsysPwaAuthPwaState = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("disconnected", 1), ("authenticating", 2), ("authenticated", 3), ("held", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthPwaState.setStatus('current')
+etsysPwaMaxFailedAttempts = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 3, 1, 1, 2), ZeroBasedCounter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaMaxFailedAttempts.setStatus('current')
+etsysPwaFailedAttemptsSinceLogon = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 3, 1, 1, 3), ZeroBasedCounter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaFailedAttemptsSinceLogon.setStatus('current')
+etsysPwaLastLogonResult = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 3, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaLastLogonResult.setStatus('current')
+etsysPwaAuthSessionStatsTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1), )
+if mibBuilder.loadTexts: etsysPwaAuthSessionStatsTable.setStatus('current')
+etsysPwaAuthSessionStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1, 1), ).setIndexNames((0, "ENTERASYS-PWA-MIB", "etsysPwaPortNumber"), (0, "ENTERASYS-PWA-MIB", "etsysPwaAuthSessionID"))
+if mibBuilder.loadTexts: etsysPwaAuthSessionStatsEntry.setStatus('current')
+etsysPwaAuthSessionID = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionID.setStatus('current')
+etsysPwaAuthSessionOctetsRx = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionOctetsRx.setStatus('current')
+etsysPwaAuthSessionOctetsRxOverflow = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionOctetsRxOverflow.setStatus('current')
+etsysPwaAuthSessionOctetsTx = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionOctetsTx.setStatus('current')
+etsysPwaAuthSessionOctetsTxOverflow = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionOctetsTxOverflow.setStatus('current')
+etsysPwaAuthSessionFramesRx = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionFramesRx.setStatus('current')
+etsysPwaAuthSessionFramesTx = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionFramesTx.setStatus('current')
+etsysPwaAuthSessionStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1, 1, 8), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionStartTime.setStatus('current')
+etsysPwaAuthSessionDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1, 1, 9), TimeInterval()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionDuration.setStatus('current')
+etsysPwaAuthSessionTerminateCause = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 999))).clone(namedValues=NamedValues(("linkDown", 1), ("logoff", 2), ("authControlForceUnauth", 3), ("portReInit", 4), ("portDisabled", 5), ("notTerminatedYet", 999)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionTerminateCause.setStatus('current')
+etsysPwaAuthSessionMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1, 1, 11), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionMacAddress.setStatus('current')
+etsysPwaAuthSessionIPAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1, 1, 12), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionIPAddressType.setStatus('current')
+etsysPwaAuthSessionIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1, 1, 13), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionIPAddress.setStatus('current')
+etsysPwaAuthSessionUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 1, 1, 14), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionUserName.setStatus('current')
+etsysPwaAuthSessionStatsHCTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 2), )
+if mibBuilder.loadTexts: etsysPwaAuthSessionStatsHCTable.setStatus('current')
+etsysPwaAuthSessionStatsHCEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 2, 1), ).setIndexNames((0, "ENTERASYS-PWA-MIB", "etsysPwaPortNumber"), (0, "ENTERASYS-PWA-MIB", "etsysPwaAuthSessionHCID"))
+if mibBuilder.loadTexts: etsysPwaAuthSessionStatsHCEntry.setStatus('current')
+etsysPwaAuthSessionHCID = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionHCID.setStatus('current')
+etsysPwaAuthSessionOctetsRxHc = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 2, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionOctetsRxHc.setStatus('current')
+etsysPwaAuthSessionOctetsTxHc = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 4, 2, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysPwaAuthSessionOctetsTxHc.setStatus('current')
+etsysPwaMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 5))
+etsysPwaMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 6))
+etsysPwaSystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 5, 1)).setObjects(("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthControl"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthHostName"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthBanner"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemPwaNameServicesEnable"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthIPAddressType"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthIPAddress"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthProtocol"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthDomain"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysPwaSystemGroup = etsysPwaSystemGroup.setStatus('deprecated')
+etsysPwaPortConfigurationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 5, 2)).setObjects(("ENTERASYS-PWA-MIB", "etsysPwaInitializePort"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthQuietPeriod"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthMaxReq"), ("ENTERASYS-PWA-MIB", "etsysPwaControlledPortControl"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysPwaPortConfigurationGroup = etsysPwaPortConfigurationGroup.setStatus('current')
+etsysPwaPortStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 5, 3)).setObjects(("ENTERASYS-PWA-MIB", "etsysPwaAuthPwaState"), ("ENTERASYS-PWA-MIB", "etsysPwaMaxFailedAttempts"), ("ENTERASYS-PWA-MIB", "etsysPwaFailedAttemptsSinceLogon"), ("ENTERASYS-PWA-MIB", "etsysPwaLastLogonResult"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysPwaPortStatusGroup = etsysPwaPortStatusGroup.setStatus('current')
+etsysPwaSessionGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 5, 4)).setObjects(("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionID"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionOctetsRx"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionOctetsRxOverflow"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionOctetsTx"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionOctetsTxOverflow"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionFramesRx"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionFramesTx"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionStartTime"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionDuration"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionTerminateCause"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionMacAddress"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionIPAddressType"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionIPAddress"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionUserName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysPwaSessionGroup = etsysPwaSessionGroup.setStatus('current')
+etsysPwaSessionHCGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 5, 5)).setObjects(("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionHCID"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionOctetsRxHc"), ("ENTERASYS-PWA-MIB", "etsysPwaAuthSessionOctetsTxHc"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysPwaSessionHCGroup = etsysPwaSessionHCGroup.setStatus('current')
+etsysPwaSystemGroupI = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 5, 6)).setObjects(("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthControl"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthHostName"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthBanner"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemPwaNameServicesEnable"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthProtocol"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthDomain"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthInetAddressType"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthInetAddress"), ("ENTERASYS-PWA-MIB", "etsysPwaLogoDisplayStatus"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemGuestUsername"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemGuestPassword"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemGuestPasswordValid"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemGuestNetworkingStatus"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemEnhancedModeRefreshTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysPwaSystemGroupI = etsysPwaSystemGroupI.setStatus('deprecated')
+etsysPwaSystemAuthEnhancedGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 5, 7)).setObjects(("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthEnhancedMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysPwaSystemAuthEnhancedGroup = etsysPwaSystemAuthEnhancedGroup.setStatus('current')
+etsysPwaSystemGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 5, 8)).setObjects(("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthControl"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthHostName"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthBanner"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemPwaNameServicesEnable"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthProtocol"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthDomain"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthInetAddressType"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAuthInetAddress"), ("ENTERASYS-PWA-MIB", "etsysPwaLogoDisplayStatus"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemGuestUsername"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemGuestPassword"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemGuestPasswordValid"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemGuestNetworkingStatus"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemEnhancedModeRefreshTime"), ("ENTERASYS-PWA-MIB", "etsysPwaSystemAccountEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysPwaSystemGroup2 = etsysPwaSystemGroup2.setStatus('current')
+etsysPwaMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 6, 1)).setObjects(("ENTERASYS-PWA-MIB", "etsysPwaSystemGroup"), ("ENTERASYS-PWA-MIB", "etsysPwaPortConfigurationGroup"), ("ENTERASYS-PWA-MIB", "etsysPwaPortStatusGroup"), ("ENTERASYS-PWA-MIB", "etsysPwaSessionGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysPwaMIBCompliance = etsysPwaMIBCompliance.setStatus('deprecated')
+etsysPwaMIBComplianceI = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 6, 2)).setObjects(("ENTERASYS-PWA-MIB", "etsysPwaSystemGroupI"), ("ENTERASYS-PWA-MIB", "etsysPwaPortConfigurationGroup"), ("ENTERASYS-PWA-MIB", "etsysPwaPortStatusGroup"), ("ENTERASYS-PWA-MIB", "etsysPwaSessionGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysPwaMIBComplianceI = etsysPwaMIBComplianceI.setStatus('deprecated')
+etsysPwaMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 6, 3)).setObjects(("ENTERASYS-PWA-MIB", "etsysPwaSystemGroup2"), ("ENTERASYS-PWA-MIB", "etsysPwaPortConfigurationGroup"), ("ENTERASYS-PWA-MIB", "etsysPwaPortStatusGroup"), ("ENTERASYS-PWA-MIB", "etsysPwaSessionGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysPwaMIBCompliance2 = etsysPwaMIBCompliance2.setStatus('current')
+etsysPwaMIBHighCapacityCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 8, 6, 4)).setObjects(("ENTERASYS-PWA-MIB", "etsysPwaSessionHCGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysPwaMIBHighCapacityCompliance = etsysPwaMIBHighCapacityCompliance.setStatus('current')
+mibBuilder.exportSymbols("ENTERASYS-PWA-MIB", etsysPwaMIBComplianceI=etsysPwaMIBComplianceI, etsysPwaAuthStatusTable=etsysPwaAuthStatusTable, etsysPwaSystemGuestNetworkingStatus=etsysPwaSystemGuestNetworkingStatus, etsysPwaAuthSessionStatsTable=etsysPwaAuthSessionStatsTable, etsysPwaAuthSessionStatsHCTable=etsysPwaAuthSessionStatsHCTable, etsysPwaSystemAuthControl=etsysPwaSystemAuthControl, etsysPwaSystemAuthIPAddress=etsysPwaSystemAuthIPAddress, etsysPwaMIBCompliance=etsysPwaMIBCompliance, etsysPwaAuthSessionStartTime=etsysPwaAuthSessionStartTime, etsysPwaSystem=etsysPwaSystem, etsysPwaSession=etsysPwaSession, etsysPwaAuthMaxReq=etsysPwaAuthMaxReq, etsysPwaAuthSessionIPAddress=etsysPwaAuthSessionIPAddress, etsysPwaAuthSessionOctetsTxHc=etsysPwaAuthSessionOctetsTxHc, etsysPwaSystemAuthIPAddressType=etsysPwaSystemAuthIPAddressType, etsysPwaSystemEnhancedModeRefreshTime=etsysPwaSystemEnhancedModeRefreshTime, etsysPwaPortStatus=etsysPwaPortStatus, etsysPwaSystemGuestPasswordValid=etsysPwaSystemGuestPasswordValid, etsysPwaMIB=etsysPwaMIB, etsysPwaAuthSessionIPAddressType=etsysPwaAuthSessionIPAddressType, etsysPwaAuthSessionStatsHCEntry=etsysPwaAuthSessionStatsHCEntry, etsysPwaAuthSessionDuration=etsysPwaAuthSessionDuration, etsysPwaMIBCompliance2=etsysPwaMIBCompliance2, etsysPwaSystemAuthInetAddress=etsysPwaSystemAuthInetAddress, etsysPwaSystemGroupI=etsysPwaSystemGroupI, etsysPwaSessionHCGroup=etsysPwaSessionHCGroup, etsysPwaSystemGroup2=etsysPwaSystemGroup2, etsysPwaFailedAttemptsSinceLogon=etsysPwaFailedAttemptsSinceLogon, etsysPwaAuthSessionHCID=etsysPwaAuthSessionHCID, etsysPwaAuthSessionOctetsTxOverflow=etsysPwaAuthSessionOctetsTxOverflow, etsysPwaSystemGroup=etsysPwaSystemGroup, etsysPwaSystemAuthEnhancedGroup=etsysPwaSystemAuthEnhancedGroup, etsysPwaAuthQuietPeriod=etsysPwaAuthQuietPeriod, etsysPwaMIBGroups=etsysPwaMIBGroups, etsysPwaSystemAuthProtocol=etsysPwaSystemAuthProtocol, etsysPwaSystemAuthBanner=etsysPwaSystemAuthBanner, etsysPwaLogoDisplayStatus=etsysPwaLogoDisplayStatus, etsysPwaPortConfigurationTable=etsysPwaPortConfigurationTable, etsysPwaPortConfigurationEntry=etsysPwaPortConfigurationEntry, etsysPwaSystemPwaNameServicesEnable=etsysPwaSystemPwaNameServicesEnable, etsysPwaAuthSessionID=etsysPwaAuthSessionID, etsysPwaPortStatusGroup=etsysPwaPortStatusGroup, etsysPwaAuthSessionTerminateCause=etsysPwaAuthSessionTerminateCause, etsysPwaAuthPwaState=etsysPwaAuthPwaState, etsysPwaAuthSessionOctetsRx=etsysPwaAuthSessionOctetsRx, etsysPwaAuthSessionOctetsRxHc=etsysPwaAuthSessionOctetsRxHc, etsysPwaSystemGuestPassword=etsysPwaSystemGuestPassword, etsysPwaMaxFailedAttempts=etsysPwaMaxFailedAttempts, etsysPwaAuthSessionUserName=etsysPwaAuthSessionUserName, etsysPwaSystemAuthEnhancedMode=etsysPwaSystemAuthEnhancedMode, etsysPwaPortConfiguration=etsysPwaPortConfiguration, etsysPwaControlledPortControl=etsysPwaControlledPortControl, etsysPwaPortConfigurationGroup=etsysPwaPortConfigurationGroup, etsysPwaAuthSessionFramesTx=etsysPwaAuthSessionFramesTx, etsysPwaInitializePort=etsysPwaInitializePort, etsysPwaSystemGuestUsername=etsysPwaSystemGuestUsername, etsysPwaMIBHighCapacityCompliance=etsysPwaMIBHighCapacityCompliance, etsysPwaSystemAuthHostName=etsysPwaSystemAuthHostName, etsysPwaSystemAccountEnable=etsysPwaSystemAccountEnable, etsysPwaSystemAuthDomain=etsysPwaSystemAuthDomain, etsysPwaMIBCompliances=etsysPwaMIBCompliances, etsysPwaAuthSessionStatsEntry=etsysPwaAuthSessionStatsEntry, etsysPwaAuthSessionFramesRx=etsysPwaAuthSessionFramesRx, etsysPwaSessionGroup=etsysPwaSessionGroup, etsysPwaAuthSessionMacAddress=etsysPwaAuthSessionMacAddress, etsysPwaAuthStatusEntry=etsysPwaAuthStatusEntry, etsysPwaSystemAuthInetAddressType=etsysPwaSystemAuthInetAddressType, PYSNMP_MODULE_ID=etsysPwaMIB, etsysPwaLastLogonResult=etsysPwaLastLogonResult, etsysPwaPortNumber=etsysPwaPortNumber, etsysPwaAuthSessionOctetsRxOverflow=etsysPwaAuthSessionOctetsRxOverflow, etsysPwaAuthSessionOctetsTx=etsysPwaAuthSessionOctetsTx)

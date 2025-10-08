@@ -1,54 +1,35 @@
-_F='read-write'
-_E='read-only'
-_D='linkBandwidthControlLinkName'
-_C='MX-NTC-MIB'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mediatrixServices,=mibBuilder.importSymbols('MX-SMI2','mediatrixServices')
-MxActivationState,MxAdvancedIpPort,MxDigitMap,MxEnableState,MxIpAddress,MxIpHostName,MxIpPort,MxIpSubnetMask=mibBuilder.importSymbols('MX-TC','MxActivationState','MxAdvancedIpPort','MxDigitMap','MxEnableState','MxIpAddress','MxIpHostName','MxIpPort','MxIpSubnetMask')
-MxFloat32,MxIpAddr,MxIpAddrMask,MxIpAddrPort,MxIpHostNamePort,MxUInt64,MxUri,MxUrl=mibBuilder.importSymbols('MX-TC2','MxFloat32','MxIpAddr','MxIpAddrMask','MxIpAddrPort','MxIpHostNamePort','MxUInt64','MxUri','MxUrl')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ntcMIB=ModuleIdentity((1,3,6,1,4,1,4935,1000,100,200,100,3700))
-_NtcMIBObjects_ObjectIdentity=ObjectIdentity
-ntcMIBObjects=_NtcMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,3700,1))
-_LinkBandwidthControlTable_Object=MibTable
-linkBandwidthControlTable=_LinkBandwidthControlTable_Object((1,3,6,1,4,1,4935,1000,100,200,100,3700,1,100))
-if mibBuilder.loadTexts:linkBandwidthControlTable.setStatus(_A)
-_LinkBandwidthControlEntry_Object=MibTableRow
-linkBandwidthControlEntry=_LinkBandwidthControlEntry_Object((1,3,6,1,4,1,4935,1000,100,200,100,3700,1,100,1))
-linkBandwidthControlEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:linkBandwidthControlEntry.setStatus(_A)
-_LinkBandwidthControlLinkName_Type=OctetString
-_LinkBandwidthControlLinkName_Object=MibTableColumn
-linkBandwidthControlLinkName=_LinkBandwidthControlLinkName_Object((1,3,6,1,4,1,4935,1000,100,200,100,3700,1,100,1,100),_LinkBandwidthControlLinkName_Type())
-linkBandwidthControlLinkName.setMaxAccess(_E)
-if mibBuilder.loadTexts:linkBandwidthControlLinkName.setStatus(_A)
-class _LinkBandwidthControlEgressLimit_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(64,1000000))
-_LinkBandwidthControlEgressLimit_Type.__name__=_B
-_LinkBandwidthControlEgressLimit_Object=MibTableColumn
-linkBandwidthControlEgressLimit=_LinkBandwidthControlEgressLimit_Object((1,3,6,1,4,1,4935,1000,100,200,100,3700,1,100,1,200),_LinkBandwidthControlEgressLimit_Type())
-linkBandwidthControlEgressLimit.setMaxAccess(_F)
-if mibBuilder.loadTexts:linkBandwidthControlEgressLimit.setStatus(_A)
-_NotificationsGroup_ObjectIdentity=ObjectIdentity
-notificationsGroup=_NotificationsGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,3700,1,60010))
-class _MinSeverity_Type(Integer32):defaultValue=300;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,100,200,300,400,500)));namedValues=NamedValues(*(('disable',0),('debug',100),('info',200),('warning',300),('error',400),('critical',500)))
-_MinSeverity_Type.__name__=_B
-_MinSeverity_Object=MibScalar
-minSeverity=_MinSeverity_Object((1,3,6,1,4,1,4935,1000,100,200,100,3700,1,60010,100),_MinSeverity_Type())
-minSeverity.setMaxAccess(_F)
-if mibBuilder.loadTexts:minSeverity.setStatus(_A)
-_ConfigurationGroup_ObjectIdentity=ObjectIdentity
-configurationGroup=_ConfigurationGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,3700,1,60020))
-class _NeedRestartInfo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,100)));namedValues=NamedValues(*(('no',0),('yes',100)))
-_NeedRestartInfo_Type.__name__=_B
-_NeedRestartInfo_Object=MibScalar
-needRestartInfo=_NeedRestartInfo_Object((1,3,6,1,4,1,4935,1000,100,200,100,3700,1,60020,100),_NeedRestartInfo_Type())
-needRestartInfo.setMaxAccess(_E)
-if mibBuilder.loadTexts:needRestartInfo.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'ntcMIB':ntcMIB,'ntcMIBObjects':ntcMIBObjects,'linkBandwidthControlTable':linkBandwidthControlTable,'linkBandwidthControlEntry':linkBandwidthControlEntry,_D:linkBandwidthControlLinkName,'linkBandwidthControlEgressLimit':linkBandwidthControlEgressLimit,'notificationsGroup':notificationsGroup,'minSeverity':minSeverity,'configurationGroup':configurationGroup,'needRestartInfo':needRestartInfo})
+#
+# PySNMP MIB module MX-NTC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-NTC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mediatrixServices, = mibBuilder.importSymbols("MX-SMI2", "mediatrixServices")
+MxActivationState, MxEnableState, MxIpAddress, MxAdvancedIpPort, MxDigitMap, MxIpPort, MxIpHostName, MxIpSubnetMask = mibBuilder.importSymbols("MX-TC", "MxActivationState", "MxEnableState", "MxIpAddress", "MxAdvancedIpPort", "MxDigitMap", "MxIpPort", "MxIpHostName", "MxIpSubnetMask")
+MxIpHostNamePort, MxIpAddrMask, MxUri, MxIpAddr, MxIpAddrPort, MxUrl, MxUInt64, MxFloat32 = mibBuilder.importSymbols("MX-TC2", "MxIpHostNamePort", "MxIpAddrMask", "MxUri", "MxIpAddr", "MxIpAddrPort", "MxUrl", "MxUInt64", "MxFloat32")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ntcMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 3700))
+if mibBuilder.loadTexts: ntcMIB.setLastUpdated('1910210000Z')
+if mibBuilder.loadTexts: ntcMIB.setOrganization(' Mediatrix Telecom, Inc. ')
+ntcMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 3700, 1))
+linkBandwidthControlTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 3700, 1, 100), )
+if mibBuilder.loadTexts: linkBandwidthControlTable.setStatus('current')
+linkBandwidthControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 3700, 1, 100, 1), ).setIndexNames((0, "MX-NTC-MIB", "linkBandwidthControlLinkName"))
+if mibBuilder.loadTexts: linkBandwidthControlEntry.setStatus('current')
+linkBandwidthControlLinkName = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 3700, 1, 100, 1, 100), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: linkBandwidthControlLinkName.setStatus('current')
+linkBandwidthControlEgressLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 3700, 1, 100, 1, 200), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(64, 1000000), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: linkBandwidthControlEgressLimit.setStatus('current')
+notificationsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 3700, 1, 60010))
+minSeverity = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 3700, 1, 60010, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100, 200, 300, 400, 500))).clone(namedValues=NamedValues(("disable", 0), ("debug", 100), ("info", 200), ("warning", 300), ("error", 400), ("critical", 500))).clone('warning')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: minSeverity.setStatus('current')
+configurationGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 3700, 1, 60020))
+needRestartInfo = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 3700, 1, 60020, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100))).clone(namedValues=NamedValues(("no", 0), ("yes", 100)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: needRestartInfo.setStatus('current')
+mibBuilder.exportSymbols("MX-NTC-MIB", ntcMIB=ntcMIB, PYSNMP_MODULE_ID=ntcMIB, linkBandwidthControlTable=linkBandwidthControlTable, linkBandwidthControlLinkName=linkBandwidthControlLinkName, ntcMIBObjects=ntcMIBObjects, linkBandwidthControlEgressLimit=linkBandwidthControlEgressLimit, notificationsGroup=notificationsGroup, linkBandwidthControlEntry=linkBandwidthControlEntry, minSeverity=minSeverity, configurationGroup=configurationGroup, needRestartInfo=needRestartInfo)

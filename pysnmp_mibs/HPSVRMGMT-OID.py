@@ -1,79 +1,61 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hpEmbeddedServerMgt=ModuleIdentity((1,3,6,1,4,1,11,5,7))
-if mibBuilder.loadTexts:hpEmbeddedServerMgt.setRevisions(('2007-07-09 00:00','2010-04-15 00:00','2012-01-18 00:00','2012-09-14 00:00','2013-03-08 00:00','2013-09-26 00:00','2017-06-19 00:00'))
-_Hp_ObjectIdentity=ObjectIdentity
-hp=_Hp_ObjectIdentity((1,3,6,1,4,1,11))
-_HpSysMgt_ObjectIdentity=ObjectIdentity
-hpSysMgt=_HpSysMgt_ObjectIdentity((1,3,6,1,4,1,11,5))
-_HpChassisMgmtProc_ObjectIdentity=ObjectIdentity
-hpChassisMgmtProc=_HpChassisMgmtProc_ObjectIdentity((1,3,6,1,4,1,11,5,7,1))
-_HpBladeMgmtCard_ObjectIdentity=ObjectIdentity
-hpBladeMgmtCard=_HpBladeMgmtCard_ObjectIdentity((1,3,6,1,4,1,11,5,7,1,1))
-if mibBuilder.loadTexts:hpBladeMgmtCard.setStatus(_A)
-_HpOnboardAdministrator_ObjectIdentity=ObjectIdentity
-hpOnboardAdministrator=_HpOnboardAdministrator_ObjectIdentity((1,3,6,1,4,1,11,5,7,1,2))
-if mibBuilder.loadTexts:hpOnboardAdministrator.setStatus(_A)
-_HpBladeMgmtProc_ObjectIdentity=ObjectIdentity
-hpBladeMgmtProc=_HpBladeMgmtProc_ObjectIdentity((1,3,6,1,4,1,11,5,7,2))
-_HpBHMgmtProc_ObjectIdentity=ObjectIdentity
-hpBHMgmtProc=_HpBHMgmtProc_ObjectIdentity((1,3,6,1,4,1,11,5,7,2,1))
-if mibBuilder.loadTexts:hpBHMgmtProc.setStatus(_A)
-_HpServerMgmtProc_ObjectIdentity=ObjectIdentity
-hpServerMgmtProc=_HpServerMgmtProc_ObjectIdentity((1,3,6,1,4,1,11,5,7,3))
-_HpServerGSP_ObjectIdentity=ObjectIdentity
-hpServerGSP=_HpServerGSP_ObjectIdentity((1,3,6,1,4,1,11,5,7,3,1))
-if mibBuilder.loadTexts:hpServerGSP.setStatus(_A)
-_HpServerMP_ObjectIdentity=ObjectIdentity
-hpServerMP=_HpServerMP_ObjectIdentity((1,3,6,1,4,1,11,5,7,3,2))
-if mibBuilder.loadTexts:hpServerMP.setStatus(_A)
-_HpServeriLO3_ObjectIdentity=ObjectIdentity
-hpServeriLO3=_HpServeriLO3_ObjectIdentity((1,3,6,1,4,1,11,5,7,3,3))
-if mibBuilder.loadTexts:hpServeriLO3.setStatus(_A)
-_HpPartitionSvrMgmtProc_ObjectIdentity=ObjectIdentity
-hpPartitionSvrMgmtProc=_HpPartitionSvrMgmtProc_ObjectIdentity((1,3,6,1,4,1,11,5,7,4))
-_HpHiMPartGSP_ObjectIdentity=ObjectIdentity
-hpHiMPartGSP=_HpHiMPartGSP_ObjectIdentity((1,3,6,1,4,1,11,5,7,4,1))
-if mibBuilder.loadTexts:hpHiMPartGSP.setStatus(_A)
-_HpMidMPartMP_ObjectIdentity=ObjectIdentity
-hpMidMPartMP=_HpMidMPartMP_ObjectIdentity((1,3,6,1,4,1,11,5,7,4,2))
-if mibBuilder.loadTexts:hpMidMPartMP.setStatus(_A)
-_HpHiMPartArchMP_ObjectIdentity=ObjectIdentity
-hpHiMPartArchMP=_HpHiMPartArchMP_ObjectIdentity((1,3,6,1,4,1,11,5,7,4,3))
-if mibBuilder.loadTexts:hpHiMPartArchMP.setStatus(_A)
-_HpMidMPartArchMP_ObjectIdentity=ObjectIdentity
-hpMidMPartArchMP=_HpMidMPartArchMP_ObjectIdentity((1,3,6,1,4,1,11,5,7,4,4))
-if mibBuilder.loadTexts:hpMidMPartArchMP.setStatus(_A)
-_HpModuleMgmtProc_ObjectIdentity=ObjectIdentity
-hpModuleMgmtProc=_HpModuleMgmtProc_ObjectIdentity((1,3,6,1,4,1,11,5,7,5))
-_HpVCEthernetModule_ObjectIdentity=ObjectIdentity
-hpVCEthernetModule=_HpVCEthernetModule_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,1))
-if mibBuilder.loadTexts:hpVCEthernetModule.setStatus(_A)
-_HpVCModuleIsVC24PortCmdr_ObjectIdentity=ObjectIdentity
-hpVCModuleIsVC24PortCmdr=_HpVCModuleIsVC24PortCmdr_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,3))
-if mibBuilder.loadTexts:hpVCModuleIsVC24PortCmdr.setStatus(_A)
-_HpVCFlex_10_10D_Module_ObjectIdentity=ObjectIdentity
-hpVCFlex_10_10D_Module=_HpVCFlex_10_10D_Module_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,4))
-if mibBuilder.loadTexts:hpVCFlex_10_10D_Module.setStatus(_A)
-_HpVCFlexFabric_20_40_F8_Module_ObjectIdentity=ObjectIdentity
-hpVCFlexFabric_20_40_F8_Module=_HpVCFlexFabric_20_40_F8_Module_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,6))
-if mibBuilder.loadTexts:hpVCFlexFabric_20_40_F8_Module.setStatus(_A)
-_HpHyperscaleFabric_ObjectIdentity=ObjectIdentity
-hpHyperscaleFabric=_HpHyperscaleFabric_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,7))
-if mibBuilder.loadTexts:hpHyperscaleFabric.setStatus(_A)
-_HpMoonshot_45G_Switch_Module_ObjectIdentity=ObjectIdentity
-hpMoonshot_45G_Switch_Module=_HpMoonshot_45G_Switch_Module_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,7,1))
-if mibBuilder.loadTexts:hpMoonshot_45G_Switch_Module.setStatus(_A)
-_HpVCSE_40Gb_F8_Module_ObjectIdentity=ObjectIdentity
-hpVCSE_40Gb_F8_Module=_HpVCSE_40Gb_F8_Module_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,8))
-if mibBuilder.loadTexts:hpVCSE_40Gb_F8_Module.setStatus(_A)
-_HpVCSE_100Gb_F32_Module_ObjectIdentity=ObjectIdentity
-hpVCSE_100Gb_F32_Module=_HpVCSE_100Gb_F32_Module_ObjectIdentity((1,3,6,1,4,1,11,5,7,5,9))
-if mibBuilder.loadTexts:hpVCSE_100Gb_F32_Module.setStatus(_A)
-mibBuilder.exportSymbols('HPSVRMGMT-OID',**{'hp':hp,'hpSysMgt':hpSysMgt,'hpEmbeddedServerMgt':hpEmbeddedServerMgt,'hpChassisMgmtProc':hpChassisMgmtProc,'hpBladeMgmtCard':hpBladeMgmtCard,'hpOnboardAdministrator':hpOnboardAdministrator,'hpBladeMgmtProc':hpBladeMgmtProc,'hpBHMgmtProc':hpBHMgmtProc,'hpServerMgmtProc':hpServerMgmtProc,'hpServerGSP':hpServerGSP,'hpServerMP':hpServerMP,'hpServeriLO3':hpServeriLO3,'hpPartitionSvrMgmtProc':hpPartitionSvrMgmtProc,'hpHiMPartGSP':hpHiMPartGSP,'hpMidMPartMP':hpMidMPartMP,'hpHiMPartArchMP':hpHiMPartArchMP,'hpMidMPartArchMP':hpMidMPartArchMP,'hpModuleMgmtProc':hpModuleMgmtProc,'hpVCEthernetModule':hpVCEthernetModule,'hpVCModuleIsVC24PortCmdr':hpVCModuleIsVC24PortCmdr,'hpVCFlex-10-10D-Module':hpVCFlex_10_10D_Module,'hpVCFlexFabric-20-40-F8-Module':hpVCFlexFabric_20_40_F8_Module,'hpHyperscaleFabric':hpHyperscaleFabric,'hpMoonshot-45G-Switch-Module':hpMoonshot_45G_Switch_Module,'hpVCSE-40Gb-F8-Module':hpVCSE_40Gb_F8_Module,'hpVCSE-100Gb-F32-Module':hpVCSE_100Gb_F32_Module})
+#
+# PySNMP MIB module HPSVRMGMT-OID (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPSVRMGMT-OID
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:39 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hp = MibIdentifier((1, 3, 6, 1, 4, 1, 11))
+hpSysMgt = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5))
+hpEmbeddedServerMgt = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7))
+hpEmbeddedServerMgt.setRevisions(('2007-07-09 00:00', '2010-04-15 00:00', '2012-01-18 00:00', '2012-09-14 00:00', '2013-03-08 00:00', '2013-09-26 00:00', '2017-06-19 00:00',))
+if mibBuilder.loadTexts: hpEmbeddedServerMgt.setLastUpdated('201303080000Z')
+if mibBuilder.loadTexts: hpEmbeddedServerMgt.setOrganization('Hewlett Packard Company, General Systems Technology Lab')
+hpChassisMgmtProc = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 1))
+hpBladeMgmtProc = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 2))
+hpServerMgmtProc = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 3))
+hpPartitionSvrMgmtProc = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 4))
+hpModuleMgmtProc = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 5, 7, 5))
+hpBladeMgmtCard = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 1, 1))
+if mibBuilder.loadTexts: hpBladeMgmtCard.setStatus('current')
+hpOnboardAdministrator = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 1, 2))
+if mibBuilder.loadTexts: hpOnboardAdministrator.setStatus('current')
+hpBHMgmtProc = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 2, 1))
+if mibBuilder.loadTexts: hpBHMgmtProc.setStatus('current')
+hpServerGSP = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 3, 1))
+if mibBuilder.loadTexts: hpServerGSP.setStatus('current')
+hpServerMP = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 3, 2))
+if mibBuilder.loadTexts: hpServerMP.setStatus('current')
+hpServeriLO3 = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 3, 3))
+if mibBuilder.loadTexts: hpServeriLO3.setStatus('current')
+hpHiMPartGSP = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 4, 1))
+if mibBuilder.loadTexts: hpHiMPartGSP.setStatus('current')
+hpMidMPartMP = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 4, 2))
+if mibBuilder.loadTexts: hpMidMPartMP.setStatus('current')
+hpHiMPartArchMP = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 4, 3))
+if mibBuilder.loadTexts: hpHiMPartArchMP.setStatus('current')
+hpMidMPartArchMP = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 4, 4))
+if mibBuilder.loadTexts: hpMidMPartArchMP.setStatus('current')
+hpVCEthernetModule = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 1))
+if mibBuilder.loadTexts: hpVCEthernetModule.setStatus('current')
+hpVCModuleIsVC24PortCmdr = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 3))
+if mibBuilder.loadTexts: hpVCModuleIsVC24PortCmdr.setStatus('current')
+hpVCFlex_10_10D_Module = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 4)).setLabel("hpVCFlex-10-10D-Module")
+if mibBuilder.loadTexts: hpVCFlex_10_10D_Module.setStatus('current')
+hpVCFlexFabric_20_40_F8_Module = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 6)).setLabel("hpVCFlexFabric-20-40-F8-Module")
+if mibBuilder.loadTexts: hpVCFlexFabric_20_40_F8_Module.setStatus('current')
+hpHyperscaleFabric = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 7))
+if mibBuilder.loadTexts: hpHyperscaleFabric.setStatus('current')
+hpMoonshot_45G_Switch_Module = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 7, 1)).setLabel("hpMoonshot-45G-Switch-Module")
+if mibBuilder.loadTexts: hpMoonshot_45G_Switch_Module.setStatus('current')
+hpVCSE_40Gb_F8_Module = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 8)).setLabel("hpVCSE-40Gb-F8-Module")
+if mibBuilder.loadTexts: hpVCSE_40Gb_F8_Module.setStatus('current')
+hpVCSE_100Gb_F32_Module = ObjectIdentity((1, 3, 6, 1, 4, 1, 11, 5, 7, 5, 9)).setLabel("hpVCSE-100Gb-F32-Module")
+if mibBuilder.loadTexts: hpVCSE_100Gb_F32_Module.setStatus('current')
+mibBuilder.exportSymbols("HPSVRMGMT-OID", hpServerGSP=hpServerGSP, hpVCFlexFabric_20_40_F8_Module=hpVCFlexFabric_20_40_F8_Module, hpSysMgt=hpSysMgt, hpHiMPartGSP=hpHiMPartGSP, hpHiMPartArchMP=hpHiMPartArchMP, hpBHMgmtProc=hpBHMgmtProc, hpChassisMgmtProc=hpChassisMgmtProc, hpMoonshot_45G_Switch_Module=hpMoonshot_45G_Switch_Module, hpServeriLO3=hpServeriLO3, hpMidMPartArchMP=hpMidMPartArchMP, hpOnboardAdministrator=hpOnboardAdministrator, hpMidMPartMP=hpMidMPartMP, hp=hp, PYSNMP_MODULE_ID=hpEmbeddedServerMgt, hpServerMP=hpServerMP, hpBladeMgmtCard=hpBladeMgmtCard, hpModuleMgmtProc=hpModuleMgmtProc, hpServerMgmtProc=hpServerMgmtProc, hpBladeMgmtProc=hpBladeMgmtProc, hpEmbeddedServerMgt=hpEmbeddedServerMgt, hpVCSE_40Gb_F8_Module=hpVCSE_40Gb_F8_Module, hpVCSE_100Gb_F32_Module=hpVCSE_100Gb_F32_Module, hpVCEthernetModule=hpVCEthernetModule, hpHyperscaleFabric=hpHyperscaleFabric, hpVCFlex_10_10D_Module=hpVCFlex_10_10D_Module, hpPartitionSvrMgmtProc=hpPartitionSvrMgmtProc, hpVCModuleIsVC24PortCmdr=hpVCModuleIsVC24PortCmdr)

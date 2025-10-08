@@ -1,81 +1,55 @@
-_L='clabTopoGroup'
-_K='clabTopoChFnCfgRowStatus'
-_J='clabTopoFiberNodeCfgRowStatus'
-_I='clabTopoFiberNodeCfgNodeDescr'
-_H='clabTopoChFnCfgChIfIndex'
-_G='not-accessible'
-_F='NodeName'
-_E='SnmpAdminString'
-_D='read-create'
-_C='clabTopoFiberNodeCfgNodeName'
-_B='CLAB-TOPO-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-clabCommonMibs,=mibBuilder.importSymbols('CLAB-DEF-MIB','clabCommonMibs')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-clabTopoMib=ModuleIdentity((1,3,6,1,4,1,4491,4,2))
-if mibBuilder.loadTexts:clabTopoMib.setRevisions(('2006-12-07 17:00',))
-class NodeName(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_ClabTopoMibObjects_ObjectIdentity=ObjectIdentity
-clabTopoMibObjects=_ClabTopoMibObjects_ObjectIdentity((1,3,6,1,4,1,4491,4,2,1))
-_ClabTopoFiberNodeCfgTable_Object=MibTable
-clabTopoFiberNodeCfgTable=_ClabTopoFiberNodeCfgTable_Object((1,3,6,1,4,1,4491,4,2,1,1))
-if mibBuilder.loadTexts:clabTopoFiberNodeCfgTable.setStatus(_A)
-_ClabTopoFiberNodeCfgEntry_Object=MibTableRow
-clabTopoFiberNodeCfgEntry=_ClabTopoFiberNodeCfgEntry_Object((1,3,6,1,4,1,4491,4,2,1,1,1))
-clabTopoFiberNodeCfgEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:clabTopoFiberNodeCfgEntry.setStatus(_A)
-class _ClabTopoFiberNodeCfgNodeName_Type(NodeName):subtypeSpec=NodeName.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,16))
-_ClabTopoFiberNodeCfgNodeName_Type.__name__=_F
-_ClabTopoFiberNodeCfgNodeName_Object=MibTableColumn
-clabTopoFiberNodeCfgNodeName=_ClabTopoFiberNodeCfgNodeName_Object((1,3,6,1,4,1,4491,4,2,1,1,1,1),_ClabTopoFiberNodeCfgNodeName_Type())
-clabTopoFiberNodeCfgNodeName.setMaxAccess(_G)
-if mibBuilder.loadTexts:clabTopoFiberNodeCfgNodeName.setStatus(_A)
-class _ClabTopoFiberNodeCfgNodeDescr_Type(SnmpAdminString):defaultHexValue=''
-_ClabTopoFiberNodeCfgNodeDescr_Type.__name__=_E
-_ClabTopoFiberNodeCfgNodeDescr_Object=MibTableColumn
-clabTopoFiberNodeCfgNodeDescr=_ClabTopoFiberNodeCfgNodeDescr_Object((1,3,6,1,4,1,4491,4,2,1,1,1,2),_ClabTopoFiberNodeCfgNodeDescr_Type())
-clabTopoFiberNodeCfgNodeDescr.setMaxAccess(_D)
-if mibBuilder.loadTexts:clabTopoFiberNodeCfgNodeDescr.setStatus(_A)
-_ClabTopoFiberNodeCfgRowStatus_Type=RowStatus
-_ClabTopoFiberNodeCfgRowStatus_Object=MibTableColumn
-clabTopoFiberNodeCfgRowStatus=_ClabTopoFiberNodeCfgRowStatus_Object((1,3,6,1,4,1,4491,4,2,1,1,1,3),_ClabTopoFiberNodeCfgRowStatus_Type())
-clabTopoFiberNodeCfgRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:clabTopoFiberNodeCfgRowStatus.setStatus(_A)
-_ClabTopoChFnCfgTable_Object=MibTable
-clabTopoChFnCfgTable=_ClabTopoChFnCfgTable_Object((1,3,6,1,4,1,4491,4,2,1,2))
-if mibBuilder.loadTexts:clabTopoChFnCfgTable.setStatus(_A)
-_ClabTopoChFnCfgEntry_Object=MibTableRow
-clabTopoChFnCfgEntry=_ClabTopoChFnCfgEntry_Object((1,3,6,1,4,1,4491,4,2,1,2,1))
-clabTopoChFnCfgEntry.setIndexNames((0,_B,_C),(0,_B,_H))
-if mibBuilder.loadTexts:clabTopoChFnCfgEntry.setStatus(_A)
-_ClabTopoChFnCfgChIfIndex_Type=InterfaceIndex
-_ClabTopoChFnCfgChIfIndex_Object=MibTableColumn
-clabTopoChFnCfgChIfIndex=_ClabTopoChFnCfgChIfIndex_Object((1,3,6,1,4,1,4491,4,2,1,2,1,1),_ClabTopoChFnCfgChIfIndex_Type())
-clabTopoChFnCfgChIfIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:clabTopoChFnCfgChIfIndex.setStatus(_A)
-_ClabTopoChFnCfgRowStatus_Type=RowStatus
-_ClabTopoChFnCfgRowStatus_Object=MibTableColumn
-clabTopoChFnCfgRowStatus=_ClabTopoChFnCfgRowStatus_Object((1,3,6,1,4,1,4491,4,2,1,2,1,2),_ClabTopoChFnCfgRowStatus_Type())
-clabTopoChFnCfgRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:clabTopoChFnCfgRowStatus.setStatus(_A)
-_ClabTopoMibConformance_ObjectIdentity=ObjectIdentity
-clabTopoMibConformance=_ClabTopoMibConformance_ObjectIdentity((1,3,6,1,4,1,4491,4,2,2))
-_ClabTopoMibCompliances_ObjectIdentity=ObjectIdentity
-clabTopoMibCompliances=_ClabTopoMibCompliances_ObjectIdentity((1,3,6,1,4,1,4491,4,2,2,1))
-_ClabTopoMibGroups_ObjectIdentity=ObjectIdentity
-clabTopoMibGroups=_ClabTopoMibGroups_ObjectIdentity((1,3,6,1,4,1,4491,4,2,2,2))
-clabTopoGroup=ObjectGroup((1,3,6,1,4,1,4491,4,2,2,2,1))
-clabTopoGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:clabTopoGroup.setStatus(_A)
-clabTopoCompliance=ModuleCompliance((1,3,6,1,4,1,4491,4,2,2,1,1))
-clabTopoCompliance.setObjects((_B,_L))
-if mibBuilder.loadTexts:clabTopoCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_F:NodeName,'clabTopoMib':clabTopoMib,'clabTopoMibObjects':clabTopoMibObjects,'clabTopoFiberNodeCfgTable':clabTopoFiberNodeCfgTable,'clabTopoFiberNodeCfgEntry':clabTopoFiberNodeCfgEntry,_C:clabTopoFiberNodeCfgNodeName,_I:clabTopoFiberNodeCfgNodeDescr,_J:clabTopoFiberNodeCfgRowStatus,'clabTopoChFnCfgTable':clabTopoChFnCfgTable,'clabTopoChFnCfgEntry':clabTopoChFnCfgEntry,_H:clabTopoChFnCfgChIfIndex,_K:clabTopoChFnCfgRowStatus,'clabTopoMibConformance':clabTopoMibConformance,'clabTopoMibCompliances':clabTopoMibCompliances,'clabTopoCompliance':clabTopoCompliance,'clabTopoMibGroups':clabTopoMibGroups,_L:clabTopoGroup})
+#
+# PySNMP MIB module CLAB-TOPO-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CLAB-TOPO-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:26:52 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+clabCommonMibs, = mibBuilder.importSymbols("CLAB-DEF-MIB", "clabCommonMibs")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+clabTopoMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4491, 4, 2))
+clabTopoMib.setRevisions(('2006-12-07 17:00',))
+if mibBuilder.loadTexts: clabTopoMib.setLastUpdated('200612071700Z')
+if mibBuilder.loadTexts: clabTopoMib.setOrganization('Cable Television Laboratories, Inc.')
+class NodeName(TextualConvention, OctetString):
+    reference = 'RFC 3411.'
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 16)
+
+clabTopoMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 4, 2, 1))
+clabTopoFiberNodeCfgTable = MibTable((1, 3, 6, 1, 4, 1, 4491, 4, 2, 1, 1), )
+if mibBuilder.loadTexts: clabTopoFiberNodeCfgTable.setStatus('current')
+clabTopoFiberNodeCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4491, 4, 2, 1, 1, 1), ).setIndexNames((0, "CLAB-TOPO-MIB", "clabTopoFiberNodeCfgNodeName"))
+if mibBuilder.loadTexts: clabTopoFiberNodeCfgEntry.setStatus('current')
+clabTopoFiberNodeCfgNodeName = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 4, 2, 1, 1, 1, 1), NodeName().subtype(subtypeSpec=ValueSizeConstraint(1, 16)))
+if mibBuilder.loadTexts: clabTopoFiberNodeCfgNodeName.setStatus('current')
+clabTopoFiberNodeCfgNodeDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 4, 2, 1, 1, 1, 2), SnmpAdminString().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: clabTopoFiberNodeCfgNodeDescr.setStatus('current')
+clabTopoFiberNodeCfgRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 4, 2, 1, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: clabTopoFiberNodeCfgRowStatus.setStatus('current')
+clabTopoChFnCfgTable = MibTable((1, 3, 6, 1, 4, 1, 4491, 4, 2, 1, 2), )
+if mibBuilder.loadTexts: clabTopoChFnCfgTable.setStatus('current')
+clabTopoChFnCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4491, 4, 2, 1, 2, 1), ).setIndexNames((0, "CLAB-TOPO-MIB", "clabTopoFiberNodeCfgNodeName"), (0, "CLAB-TOPO-MIB", "clabTopoChFnCfgChIfIndex"))
+if mibBuilder.loadTexts: clabTopoChFnCfgEntry.setStatus('current')
+clabTopoChFnCfgChIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 4, 2, 1, 2, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: clabTopoChFnCfgChIfIndex.setStatus('current')
+clabTopoChFnCfgRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 4, 2, 1, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: clabTopoChFnCfgRowStatus.setStatus('current')
+clabTopoMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 4, 2, 2))
+clabTopoMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 4, 2, 2, 1))
+clabTopoMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 4, 2, 2, 2))
+clabTopoCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4491, 4, 2, 2, 1, 1)).setObjects(("CLAB-TOPO-MIB", "clabTopoGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    clabTopoCompliance = clabTopoCompliance.setStatus('current')
+clabTopoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4491, 4, 2, 2, 2, 1)).setObjects(("CLAB-TOPO-MIB", "clabTopoFiberNodeCfgNodeDescr"), ("CLAB-TOPO-MIB", "clabTopoFiberNodeCfgRowStatus"), ("CLAB-TOPO-MIB", "clabTopoChFnCfgRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    clabTopoGroup = clabTopoGroup.setStatus('current')
+mibBuilder.exportSymbols("CLAB-TOPO-MIB", PYSNMP_MODULE_ID=clabTopoMib, clabTopoChFnCfgRowStatus=clabTopoChFnCfgRowStatus, clabTopoFiberNodeCfgNodeDescr=clabTopoFiberNodeCfgNodeDescr, NodeName=NodeName, clabTopoFiberNodeCfgEntry=clabTopoFiberNodeCfgEntry, clabTopoMibCompliances=clabTopoMibCompliances, clabTopoMibObjects=clabTopoMibObjects, clabTopoChFnCfgTable=clabTopoChFnCfgTable, clabTopoMibConformance=clabTopoMibConformance, clabTopoChFnCfgChIfIndex=clabTopoChFnCfgChIfIndex, clabTopoFiberNodeCfgTable=clabTopoFiberNodeCfgTable, clabTopoFiberNodeCfgNodeName=clabTopoFiberNodeCfgNodeName, clabTopoCompliance=clabTopoCompliance, clabTopoGroup=clabTopoGroup, clabTopoMibGroups=clabTopoMibGroups, clabTopoMib=clabTopoMib, clabTopoChFnCfgEntry=clabTopoChFnCfgEntry, clabTopoFiberNodeCfgRowStatus=clabTopoFiberNodeCfgRowStatus)

@@ -1,56 +1,40 @@
-_F='refreshOID'
-_E='statusOID'
-_D='accessible-for-notify'
-_C='moduleInfo'
-_B='SUNMANAGEMENTCENTER-TRAP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-traps=ModuleIdentity((1,3,6,1,4,1,42,2,12,2,0))
-if mibBuilder.loadTexts:traps.setRevisions(('1999-07-20 15:05',))
-_Sun_ObjectIdentity=ObjectIdentity
-sun=_Sun_ObjectIdentity((1,3,6,1,4,1,42))
-_Prod_ObjectIdentity=ObjectIdentity
-prod=_Prod_ObjectIdentity((1,3,6,1,4,1,42,2))
-_Sunsymon_ObjectIdentity=ObjectIdentity
-sunsymon=_Sunsymon_ObjectIdentity((1,3,6,1,4,1,42,2,12))
-_Agent_ObjectIdentity=ObjectIdentity
-agent=_Agent_ObjectIdentity((1,3,6,1,4,1,42,2,12,2))
-_Base_ObjectIdentity=ObjectIdentity
-base=_Base_ObjectIdentity((1,3,6,1,4,1,42,2,12,2,1))
-_StatusOID_Type=ObjectIdentifier
-_StatusOID_Object=MibScalar
-statusOID=_StatusOID_Object((1,3,6,1,4,1,42,2,12,2,1,3,1),_StatusOID_Type())
-statusOID.setMaxAccess(_D)
-if mibBuilder.loadTexts:statusOID.setStatus(_A)
-_RefreshOID_Type=ObjectIdentifier
-_RefreshOID_Object=MibScalar
-refreshOID=_RefreshOID_Object((1,3,6,1,4,1,42,2,12,2,1,3,2),_RefreshOID_Type())
-refreshOID.setMaxAccess(_D)
-if mibBuilder.loadTexts:refreshOID.setStatus(_A)
-_ModuleInfo_Type=OctetString
-_ModuleInfo_Object=MibScalar
-moduleInfo=_ModuleInfo_Object((1,3,6,1,4,1,42,2,12,2,1,3,5),_ModuleInfo_Type())
-moduleInfo.setMaxAccess(_D)
-if mibBuilder.loadTexts:moduleInfo.setStatus(_A)
-trapInfoGroup=ObjectGroup((1,3,6,1,4,1,42,2,12,2,1,3))
-trapInfoGroup.setObjects(*((_B,_E),(_B,_F),(_B,_C)))
-if mibBuilder.loadTexts:trapInfoGroup.setStatus(_A)
-statusChange=NotificationType((1,3,6,1,4,1,42,2,12,2,0,1))
-statusChange.setObjects((_B,_E))
-if mibBuilder.loadTexts:statusChange.setStatus(_A)
-valueRefresh=NotificationType((1,3,6,1,4,1,42,2,12,2,0,2))
-valueRefresh.setObjects((_B,_F))
-if mibBuilder.loadTexts:valueRefresh.setStatus(_A)
-moduleLoaded=NotificationType((1,3,6,1,4,1,42,2,12,2,0,4))
-moduleLoaded.setObjects((_B,_C))
-if mibBuilder.loadTexts:moduleLoaded.setStatus(_A)
-moduleUnloaded=NotificationType((1,3,6,1,4,1,42,2,12,2,0,5))
-moduleUnloaded.setObjects((_B,_C))
-if mibBuilder.loadTexts:moduleUnloaded.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'sun':sun,'prod':prod,'sunsymon':sunsymon,'agent':agent,'traps':traps,'statusChange':statusChange,'valueRefresh':valueRefresh,'moduleLoaded':moduleLoaded,'moduleUnloaded':moduleUnloaded,'base':base,'trapInfoGroup':trapInfoGroup,_E:statusOID,_F:refreshOID,_C:moduleInfo})
+#
+# PySNMP MIB module SUNMANAGEMENTCENTER-TRAP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/oracle/SUNMANAGEMENTCENTER-TRAP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:08 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+traps = ModuleIdentity((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 0))
+traps.setRevisions(('1999-07-20 15:05',))
+if mibBuilder.loadTexts: traps.setLastUpdated('9907201505Z')
+if mibBuilder.loadTexts: traps.setOrganization('Sun Microsystems Inc.')
+sun = MibIdentifier((1, 3, 6, 1, 4, 1, 42))
+prod = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2))
+sunsymon = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12))
+agent = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2))
+base = MibIdentifier((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 1))
+trapInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 1, 3)).setObjects(("SUNMANAGEMENTCENTER-TRAP-MIB", "statusOID"), ("SUNMANAGEMENTCENTER-TRAP-MIB", "refreshOID"), ("SUNMANAGEMENTCENTER-TRAP-MIB", "moduleInfo"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    trapInfoGroup = trapInfoGroup.setStatus('current')
+statusChange = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 0, 1)).setObjects(("SUNMANAGEMENTCENTER-TRAP-MIB", "statusOID"))
+if mibBuilder.loadTexts: statusChange.setStatus('current')
+valueRefresh = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 0, 2)).setObjects(("SUNMANAGEMENTCENTER-TRAP-MIB", "refreshOID"))
+if mibBuilder.loadTexts: valueRefresh.setStatus('current')
+moduleLoaded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 0, 4)).setObjects(("SUNMANAGEMENTCENTER-TRAP-MIB", "moduleInfo"))
+if mibBuilder.loadTexts: moduleLoaded.setStatus('current')
+moduleUnloaded = NotificationType((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 0, 5)).setObjects(("SUNMANAGEMENTCENTER-TRAP-MIB", "moduleInfo"))
+if mibBuilder.loadTexts: moduleUnloaded.setStatus('current')
+statusOID = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 1, 3, 1), ObjectIdentifier()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: statusOID.setStatus('current')
+refreshOID = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 1, 3, 2), ObjectIdentifier()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: refreshOID.setStatus('current')
+moduleInfo = MibScalar((1, 3, 6, 1, 4, 1, 42, 2, 12, 2, 1, 3, 5), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: moduleInfo.setStatus('current')
+mibBuilder.exportSymbols("SUNMANAGEMENTCENTER-TRAP-MIB", base=base, refreshOID=refreshOID, statusChange=statusChange, valueRefresh=valueRefresh, PYSNMP_MODULE_ID=traps, sunsymon=sunsymon, moduleUnloaded=moduleUnloaded, moduleInfo=moduleInfo, prod=prod, traps=traps, statusOID=statusOID, agent=agent, trapInfoGroup=trapInfoGroup, sun=sun, moduleLoaded=moduleLoaded)

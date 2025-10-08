@@ -1,220 +1,109 @@
-_H='read-write'
-_G='adTa5kDs3PMDayIntervalNumber'
-_F='ADTRAN-TA5K-DS3-EXTRAPERFS-MIB'
-_E='Integer32'
-_D='ifIndex'
-_C='IF-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adTa5kSingleDs3,adTa5kSingleDs3ModuleIdentity=mibBuilder.importSymbols('ADTRAN-TA5K-SingleDS3-MIB','adTa5kSingleDs3','adTa5kSingleDs3ModuleIdentity')
-ifIndex,=mibBuilder.importSymbols(_C,_D)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-adTa5kDs3PMModuleIdentity=ModuleIdentity((1,3,6,1,4,1,664,6,896,1))
-if mibBuilder.loadTexts:adTa5kDs3PMModuleIdentity.setRevisions(('2011-08-30 00:00',))
-class AdTADS3PerfCurrentCount(Counter32):0
-class AdTADS3PerfIntervalCount(Counter32):0
-_AdTa5kDS3PM_ObjectIdentity=ObjectIdentity
-adTa5kDS3PM=_AdTa5kDS3PM_ObjectIdentity((1,3,6,1,4,1,664,2,896,2))
-_AdTa5kDs3PMCurrentDayTable_Object=MibTable
-adTa5kDs3PMCurrentDayTable=_AdTa5kDs3PMCurrentDayTable_Object((1,3,6,1,4,1,664,2,896,2,1))
-if mibBuilder.loadTexts:adTa5kDs3PMCurrentDayTable.setStatus(_A)
-_AdTa5kDs3PMCurrentDayEntry_Object=MibTableRow
-adTa5kDs3PMCurrentDayEntry=_AdTa5kDs3PMCurrentDayEntry_Object((1,3,6,1,4,1,664,2,896,2,1,1))
-adTa5kDs3PMCurrentDayEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:adTa5kDs3PMCurrentDayEntry.setStatus(_A)
-_AdTa5kDs3PMDayCurrentPESs_Type=AdTADS3PerfCurrentCount
-_AdTa5kDs3PMDayCurrentPESs_Object=MibTableColumn
-adTa5kDs3PMDayCurrentPESs=_AdTa5kDs3PMDayCurrentPESs_Object((1,3,6,1,4,1,664,2,896,2,1,1,1),_AdTa5kDs3PMDayCurrentPESs_Type())
-adTa5kDs3PMDayCurrentPESs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayCurrentPESs.setStatus(_A)
-_AdTa5kDs3PMDayCurrentPSESs_Type=AdTADS3PerfCurrentCount
-_AdTa5kDs3PMDayCurrentPSESs_Object=MibTableColumn
-adTa5kDs3PMDayCurrentPSESs=_AdTa5kDs3PMDayCurrentPSESs_Object((1,3,6,1,4,1,664,2,896,2,1,1,2),_AdTa5kDs3PMDayCurrentPSESs_Type())
-adTa5kDs3PMDayCurrentPSESs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayCurrentPSESs.setStatus(_A)
-_AdTa5kDs3PMDayCurrentSEFSs_Type=AdTADS3PerfCurrentCount
-_AdTa5kDs3PMDayCurrentSEFSs_Object=MibTableColumn
-adTa5kDs3PMDayCurrentSEFSs=_AdTa5kDs3PMDayCurrentSEFSs_Object((1,3,6,1,4,1,664,2,896,2,1,1,3),_AdTa5kDs3PMDayCurrentSEFSs_Type())
-adTa5kDs3PMDayCurrentSEFSs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayCurrentSEFSs.setStatus(_A)
-_AdTa5kDs3PMDayCurrentUASs_Type=AdTADS3PerfCurrentCount
-_AdTa5kDs3PMDayCurrentUASs_Object=MibTableColumn
-adTa5kDs3PMDayCurrentUASs=_AdTa5kDs3PMDayCurrentUASs_Object((1,3,6,1,4,1,664,2,896,2,1,1,4),_AdTa5kDs3PMDayCurrentUASs_Type())
-adTa5kDs3PMDayCurrentUASs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayCurrentUASs.setStatus(_A)
-_AdTa5kDs3PMDayCurrentLCVs_Type=AdTADS3PerfCurrentCount
-_AdTa5kDs3PMDayCurrentLCVs_Object=MibTableColumn
-adTa5kDs3PMDayCurrentLCVs=_AdTa5kDs3PMDayCurrentLCVs_Object((1,3,6,1,4,1,664,2,896,2,1,1,5),_AdTa5kDs3PMDayCurrentLCVs_Type())
-adTa5kDs3PMDayCurrentLCVs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayCurrentLCVs.setStatus(_A)
-_AdTa5kDs3PMDayCurrentPCVs_Type=AdTADS3PerfCurrentCount
-_AdTa5kDs3PMDayCurrentPCVs_Object=MibTableColumn
-adTa5kDs3PMDayCurrentPCVs=_AdTa5kDs3PMDayCurrentPCVs_Object((1,3,6,1,4,1,664,2,896,2,1,1,6),_AdTa5kDs3PMDayCurrentPCVs_Type())
-adTa5kDs3PMDayCurrentPCVs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayCurrentPCVs.setStatus(_A)
-_AdTa5kDs3PMDayCurrentLESs_Type=AdTADS3PerfCurrentCount
-_AdTa5kDs3PMDayCurrentLESs_Object=MibTableColumn
-adTa5kDs3PMDayCurrentLESs=_AdTa5kDs3PMDayCurrentLESs_Object((1,3,6,1,4,1,664,2,896,2,1,1,7),_AdTa5kDs3PMDayCurrentLESs_Type())
-adTa5kDs3PMDayCurrentLESs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayCurrentLESs.setStatus(_A)
-_AdTa5kDs3PMDayCurrentCCVs_Type=AdTADS3PerfCurrentCount
-_AdTa5kDs3PMDayCurrentCCVs_Object=MibTableColumn
-adTa5kDs3PMDayCurrentCCVs=_AdTa5kDs3PMDayCurrentCCVs_Object((1,3,6,1,4,1,664,2,896,2,1,1,8),_AdTa5kDs3PMDayCurrentCCVs_Type())
-adTa5kDs3PMDayCurrentCCVs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayCurrentCCVs.setStatus(_A)
-_AdTa5kDs3PMDayCurrentCESs_Type=AdTADS3PerfCurrentCount
-_AdTa5kDs3PMDayCurrentCESs_Object=MibTableColumn
-adTa5kDs3PMDayCurrentCESs=_AdTa5kDs3PMDayCurrentCESs_Object((1,3,6,1,4,1,664,2,896,2,1,1,9),_AdTa5kDs3PMDayCurrentCESs_Type())
-adTa5kDs3PMDayCurrentCESs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayCurrentCESs.setStatus(_A)
-_AdTa5kDs3PMDayCurrentCSESs_Type=AdTADS3PerfCurrentCount
-_AdTa5kDs3PMDayCurrentCSESs_Object=MibTableColumn
-adTa5kDs3PMDayCurrentCSESs=_AdTa5kDs3PMDayCurrentCSESs_Object((1,3,6,1,4,1,664,2,896,2,1,1,10),_AdTa5kDs3PMDayCurrentCSESs_Type())
-adTa5kDs3PMDayCurrentCSESs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayCurrentCSESs.setStatus(_A)
-_AdTa5kDs3PMIntervalDayTable_Object=MibTable
-adTa5kDs3PMIntervalDayTable=_AdTa5kDs3PMIntervalDayTable_Object((1,3,6,1,4,1,664,2,896,2,2))
-if mibBuilder.loadTexts:adTa5kDs3PMIntervalDayTable.setStatus(_A)
-_AdTa5kDs3PMIntervalDayEntry_Object=MibTableRow
-adTa5kDs3PMIntervalDayEntry=_AdTa5kDs3PMIntervalDayEntry_Object((1,3,6,1,4,1,664,2,896,2,2,1))
-adTa5kDs3PMIntervalDayEntry.setIndexNames((0,_C,_D),(0,_F,_G))
-if mibBuilder.loadTexts:adTa5kDs3PMIntervalDayEntry.setStatus(_A)
-_AdTa5kDs3PMDayIntervalPESs_Type=AdTADS3PerfIntervalCount
-_AdTa5kDs3PMDayIntervalPESs_Object=MibTableColumn
-adTa5kDs3PMDayIntervalPESs=_AdTa5kDs3PMDayIntervalPESs_Object((1,3,6,1,4,1,664,2,896,2,2,1,1),_AdTa5kDs3PMDayIntervalPESs_Type())
-adTa5kDs3PMDayIntervalPESs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayIntervalPESs.setStatus(_A)
-_AdTa5kDs3PMDayIntervalPSESs_Type=AdTADS3PerfIntervalCount
-_AdTa5kDs3PMDayIntervalPSESs_Object=MibTableColumn
-adTa5kDs3PMDayIntervalPSESs=_AdTa5kDs3PMDayIntervalPSESs_Object((1,3,6,1,4,1,664,2,896,2,2,1,2),_AdTa5kDs3PMDayIntervalPSESs_Type())
-adTa5kDs3PMDayIntervalPSESs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayIntervalPSESs.setStatus(_A)
-_AdTa5kDs3PMDayIntervalSEFSs_Type=AdTADS3PerfIntervalCount
-_AdTa5kDs3PMDayIntervalSEFSs_Object=MibTableColumn
-adTa5kDs3PMDayIntervalSEFSs=_AdTa5kDs3PMDayIntervalSEFSs_Object((1,3,6,1,4,1,664,2,896,2,2,1,3),_AdTa5kDs3PMDayIntervalSEFSs_Type())
-adTa5kDs3PMDayIntervalSEFSs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayIntervalSEFSs.setStatus(_A)
-_AdTa5kDs3PMDayIntervalUASs_Type=AdTADS3PerfIntervalCount
-_AdTa5kDs3PMDayIntervalUASs_Object=MibTableColumn
-adTa5kDs3PMDayIntervalUASs=_AdTa5kDs3PMDayIntervalUASs_Object((1,3,6,1,4,1,664,2,896,2,2,1,4),_AdTa5kDs3PMDayIntervalUASs_Type())
-adTa5kDs3PMDayIntervalUASs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayIntervalUASs.setStatus(_A)
-_AdTa5kDs3PMDayIntervalLCVs_Type=AdTADS3PerfIntervalCount
-_AdTa5kDs3PMDayIntervalLCVs_Object=MibTableColumn
-adTa5kDs3PMDayIntervalLCVs=_AdTa5kDs3PMDayIntervalLCVs_Object((1,3,6,1,4,1,664,2,896,2,2,1,5),_AdTa5kDs3PMDayIntervalLCVs_Type())
-adTa5kDs3PMDayIntervalLCVs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayIntervalLCVs.setStatus(_A)
-_AdTa5kDs3PMDayIntervalPCVs_Type=AdTADS3PerfIntervalCount
-_AdTa5kDs3PMDayIntervalPCVs_Object=MibTableColumn
-adTa5kDs3PMDayIntervalPCVs=_AdTa5kDs3PMDayIntervalPCVs_Object((1,3,6,1,4,1,664,2,896,2,2,1,6),_AdTa5kDs3PMDayIntervalPCVs_Type())
-adTa5kDs3PMDayIntervalPCVs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayIntervalPCVs.setStatus(_A)
-_AdTa5kDs3PMDayIntervalLESs_Type=AdTADS3PerfIntervalCount
-_AdTa5kDs3PMDayIntervalLESs_Object=MibTableColumn
-adTa5kDs3PMDayIntervalLESs=_AdTa5kDs3PMDayIntervalLESs_Object((1,3,6,1,4,1,664,2,896,2,2,1,7),_AdTa5kDs3PMDayIntervalLESs_Type())
-adTa5kDs3PMDayIntervalLESs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayIntervalLESs.setStatus(_A)
-_AdTa5kDs3PMDayIntervalCCVs_Type=AdTADS3PerfIntervalCount
-_AdTa5kDs3PMDayIntervalCCVs_Object=MibTableColumn
-adTa5kDs3PMDayIntervalCCVs=_AdTa5kDs3PMDayIntervalCCVs_Object((1,3,6,1,4,1,664,2,896,2,2,1,8),_AdTa5kDs3PMDayIntervalCCVs_Type())
-adTa5kDs3PMDayIntervalCCVs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayIntervalCCVs.setStatus(_A)
-_AdTa5kDs3PMDayIntervalCESs_Type=AdTADS3PerfIntervalCount
-_AdTa5kDs3PMDayIntervalCESs_Object=MibTableColumn
-adTa5kDs3PMDayIntervalCESs=_AdTa5kDs3PMDayIntervalCESs_Object((1,3,6,1,4,1,664,2,896,2,2,1,9),_AdTa5kDs3PMDayIntervalCESs_Type())
-adTa5kDs3PMDayIntervalCESs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayIntervalCESs.setStatus(_A)
-_AdTa5kDs3PMDayIntervalCSESs_Type=AdTADS3PerfIntervalCount
-_AdTa5kDs3PMDayIntervalCSESs_Object=MibTableColumn
-adTa5kDs3PMDayIntervalCSESs=_AdTa5kDs3PMDayIntervalCSESs_Object((1,3,6,1,4,1,664,2,896,2,2,1,10),_AdTa5kDs3PMDayIntervalCSESs_Type())
-adTa5kDs3PMDayIntervalCSESs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayIntervalCSESs.setStatus(_A)
-class _AdTa5kDs3PMDayIntervalNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,7))
-_AdTa5kDs3PMDayIntervalNumber_Type.__name__=_E
-_AdTa5kDs3PMDayIntervalNumber_Object=MibTableColumn
-adTa5kDs3PMDayIntervalNumber=_AdTa5kDs3PMDayIntervalNumber_Object((1,3,6,1,4,1,664,2,896,2,2,1,11),_AdTa5kDs3PMDayIntervalNumber_Type())
-adTa5kDs3PMDayIntervalNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3PMDayIntervalNumber.setStatus(_A)
-_AdTa5kDs3PMResetTable_Object=MibTable
-adTa5kDs3PMResetTable=_AdTa5kDs3PMResetTable_Object((1,3,6,1,4,1,664,2,896,2,3))
-if mibBuilder.loadTexts:adTa5kDs3PMResetTable.setStatus(_A)
-_AdTa5kDs3PMResetEntry_Object=MibTableRow
-adTa5kDs3PMResetEntry=_AdTa5kDs3PMResetEntry_Object((1,3,6,1,4,1,664,2,896,2,3,1))
-adTa5kDs3PMResetEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:adTa5kDs3PMResetEntry.setStatus(_A)
-class _AdTa5kDs3PMReset_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('reset',1))
-_AdTa5kDs3PMReset_Type.__name__=_E
-_AdTa5kDs3PMReset_Object=MibTableColumn
-adTa5kDs3PMReset=_AdTa5kDs3PMReset_Object((1,3,6,1,4,1,664,2,896,2,3,1,1),_AdTa5kDs3PMReset_Type())
-adTa5kDs3PMReset.setMaxAccess(_H)
-if mibBuilder.loadTexts:adTa5kDs3PMReset.setStatus(_A)
-_AdTa5kDs3RollingCountTable_Object=MibTable
-adTa5kDs3RollingCountTable=_AdTa5kDs3RollingCountTable_Object((1,3,6,1,4,1,664,2,896,2,4))
-if mibBuilder.loadTexts:adTa5kDs3RollingCountTable.setStatus(_A)
-_AdTa5kDs3RollingCountEntry_Object=MibTableRow
-adTa5kDs3RollingCountEntry=_AdTa5kDs3RollingCountEntry_Object((1,3,6,1,4,1,664,2,896,2,4,1))
-adTa5kDs3RollingCountEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:adTa5kDs3RollingCountEntry.setStatus(_A)
-_AdTa5kDs3RollingCountPESs_Type=Counter32
-_AdTa5kDs3RollingCountPESs_Object=MibTableColumn
-adTa5kDs3RollingCountPESs=_AdTa5kDs3RollingCountPESs_Object((1,3,6,1,4,1,664,2,896,2,4,1,1),_AdTa5kDs3RollingCountPESs_Type())
-adTa5kDs3RollingCountPESs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3RollingCountPESs.setStatus(_A)
-_AdTa5kDs3RollingCountPSESs_Type=Counter32
-_AdTa5kDs3RollingCountPSESs_Object=MibTableColumn
-adTa5kDs3RollingCountPSESs=_AdTa5kDs3RollingCountPSESs_Object((1,3,6,1,4,1,664,2,896,2,4,1,2),_AdTa5kDs3RollingCountPSESs_Type())
-adTa5kDs3RollingCountPSESs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3RollingCountPSESs.setStatus(_A)
-_AdTa5kDs3RollingCountSEFSs_Type=Counter32
-_AdTa5kDs3RollingCountSEFSs_Object=MibTableColumn
-adTa5kDs3RollingCountSEFSs=_AdTa5kDs3RollingCountSEFSs_Object((1,3,6,1,4,1,664,2,896,2,4,1,3),_AdTa5kDs3RollingCountSEFSs_Type())
-adTa5kDs3RollingCountSEFSs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3RollingCountSEFSs.setStatus(_A)
-_AdTa5kDs3RollingCountUASs_Type=Counter32
-_AdTa5kDs3RollingCountUASs_Object=MibTableColumn
-adTa5kDs3RollingCountUASs=_AdTa5kDs3RollingCountUASs_Object((1,3,6,1,4,1,664,2,896,2,4,1,4),_AdTa5kDs3RollingCountUASs_Type())
-adTa5kDs3RollingCountUASs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3RollingCountUASs.setStatus(_A)
-_AdTa5kDs3RollingCountLCVs_Type=Counter32
-_AdTa5kDs3RollingCountLCVs_Object=MibTableColumn
-adTa5kDs3RollingCountLCVs=_AdTa5kDs3RollingCountLCVs_Object((1,3,6,1,4,1,664,2,896,2,4,1,5),_AdTa5kDs3RollingCountLCVs_Type())
-adTa5kDs3RollingCountLCVs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3RollingCountLCVs.setStatus(_A)
-_AdTa5kDs3RollingCountPCVs_Type=Counter32
-_AdTa5kDs3RollingCountPCVs_Object=MibTableColumn
-adTa5kDs3RollingCountPCVs=_AdTa5kDs3RollingCountPCVs_Object((1,3,6,1,4,1,664,2,896,2,4,1,6),_AdTa5kDs3RollingCountPCVs_Type())
-adTa5kDs3RollingCountPCVs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3RollingCountPCVs.setStatus(_A)
-_AdTa5kDs3RollingCountLESs_Type=Counter32
-_AdTa5kDs3RollingCountLESs_Object=MibTableColumn
-adTa5kDs3RollingCountLESs=_AdTa5kDs3RollingCountLESs_Object((1,3,6,1,4,1,664,2,896,2,4,1,7),_AdTa5kDs3RollingCountLESs_Type())
-adTa5kDs3RollingCountLESs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3RollingCountLESs.setStatus(_A)
-_AdTa5kDs3RollingCountCCVs_Type=Counter32
-_AdTa5kDs3RollingCountCCVs_Object=MibTableColumn
-adTa5kDs3RollingCountCCVs=_AdTa5kDs3RollingCountCCVs_Object((1,3,6,1,4,1,664,2,896,2,4,1,8),_AdTa5kDs3RollingCountCCVs_Type())
-adTa5kDs3RollingCountCCVs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3RollingCountCCVs.setStatus(_A)
-_AdTa5kDs3RollingCountCESs_Type=Counter32
-_AdTa5kDs3RollingCountCESs_Object=MibTableColumn
-adTa5kDs3RollingCountCESs=_AdTa5kDs3RollingCountCESs_Object((1,3,6,1,4,1,664,2,896,2,4,1,9),_AdTa5kDs3RollingCountCESs_Type())
-adTa5kDs3RollingCountCESs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3RollingCountCESs.setStatus(_A)
-_AdTa5kDs3RollingCountCSESs_Type=Counter32
-_AdTa5kDs3RollingCountCSESs_Object=MibTableColumn
-adTa5kDs3RollingCountCSESs=_AdTa5kDs3RollingCountCSESs_Object((1,3,6,1,4,1,664,2,896,2,4,1,10),_AdTa5kDs3RollingCountCSESs_Type())
-adTa5kDs3RollingCountCSESs.setMaxAccess(_B)
-if mibBuilder.loadTexts:adTa5kDs3RollingCountCSESs.setStatus(_A)
-class _AdTa5kDs3RollingCountReset_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('reset',1))
-_AdTa5kDs3RollingCountReset_Type.__name__=_E
-_AdTa5kDs3RollingCountReset_Object=MibTableColumn
-adTa5kDs3RollingCountReset=_AdTa5kDs3RollingCountReset_Object((1,3,6,1,4,1,664,2,896,2,4,1,11),_AdTa5kDs3RollingCountReset_Type())
-adTa5kDs3RollingCountReset.setMaxAccess(_H)
-if mibBuilder.loadTexts:adTa5kDs3RollingCountReset.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'AdTADS3PerfCurrentCount':AdTADS3PerfCurrentCount,'AdTADS3PerfIntervalCount':AdTADS3PerfIntervalCount,'adTa5kDS3PM':adTa5kDS3PM,'adTa5kDs3PMCurrentDayTable':adTa5kDs3PMCurrentDayTable,'adTa5kDs3PMCurrentDayEntry':adTa5kDs3PMCurrentDayEntry,'adTa5kDs3PMDayCurrentPESs':adTa5kDs3PMDayCurrentPESs,'adTa5kDs3PMDayCurrentPSESs':adTa5kDs3PMDayCurrentPSESs,'adTa5kDs3PMDayCurrentSEFSs':adTa5kDs3PMDayCurrentSEFSs,'adTa5kDs3PMDayCurrentUASs':adTa5kDs3PMDayCurrentUASs,'adTa5kDs3PMDayCurrentLCVs':adTa5kDs3PMDayCurrentLCVs,'adTa5kDs3PMDayCurrentPCVs':adTa5kDs3PMDayCurrentPCVs,'adTa5kDs3PMDayCurrentLESs':adTa5kDs3PMDayCurrentLESs,'adTa5kDs3PMDayCurrentCCVs':adTa5kDs3PMDayCurrentCCVs,'adTa5kDs3PMDayCurrentCESs':adTa5kDs3PMDayCurrentCESs,'adTa5kDs3PMDayCurrentCSESs':adTa5kDs3PMDayCurrentCSESs,'adTa5kDs3PMIntervalDayTable':adTa5kDs3PMIntervalDayTable,'adTa5kDs3PMIntervalDayEntry':adTa5kDs3PMIntervalDayEntry,'adTa5kDs3PMDayIntervalPESs':adTa5kDs3PMDayIntervalPESs,'adTa5kDs3PMDayIntervalPSESs':adTa5kDs3PMDayIntervalPSESs,'adTa5kDs3PMDayIntervalSEFSs':adTa5kDs3PMDayIntervalSEFSs,'adTa5kDs3PMDayIntervalUASs':adTa5kDs3PMDayIntervalUASs,'adTa5kDs3PMDayIntervalLCVs':adTa5kDs3PMDayIntervalLCVs,'adTa5kDs3PMDayIntervalPCVs':adTa5kDs3PMDayIntervalPCVs,'adTa5kDs3PMDayIntervalLESs':adTa5kDs3PMDayIntervalLESs,'adTa5kDs3PMDayIntervalCCVs':adTa5kDs3PMDayIntervalCCVs,'adTa5kDs3PMDayIntervalCESs':adTa5kDs3PMDayIntervalCESs,'adTa5kDs3PMDayIntervalCSESs':adTa5kDs3PMDayIntervalCSESs,_G:adTa5kDs3PMDayIntervalNumber,'adTa5kDs3PMResetTable':adTa5kDs3PMResetTable,'adTa5kDs3PMResetEntry':adTa5kDs3PMResetEntry,'adTa5kDs3PMReset':adTa5kDs3PMReset,'adTa5kDs3RollingCountTable':adTa5kDs3RollingCountTable,'adTa5kDs3RollingCountEntry':adTa5kDs3RollingCountEntry,'adTa5kDs3RollingCountPESs':adTa5kDs3RollingCountPESs,'adTa5kDs3RollingCountPSESs':adTa5kDs3RollingCountPSESs,'adTa5kDs3RollingCountSEFSs':adTa5kDs3RollingCountSEFSs,'adTa5kDs3RollingCountUASs':adTa5kDs3RollingCountUASs,'adTa5kDs3RollingCountLCVs':adTa5kDs3RollingCountLCVs,'adTa5kDs3RollingCountPCVs':adTa5kDs3RollingCountPCVs,'adTa5kDs3RollingCountLESs':adTa5kDs3RollingCountLESs,'adTa5kDs3RollingCountCCVs':adTa5kDs3RollingCountCCVs,'adTa5kDs3RollingCountCESs':adTa5kDs3RollingCountCESs,'adTa5kDs3RollingCountCSESs':adTa5kDs3RollingCountCSESs,'adTa5kDs3RollingCountReset':adTa5kDs3RollingCountReset,'adTa5kDs3PMModuleIdentity':adTa5kDs3PMModuleIdentity})
+#
+# PySNMP MIB module ADTRAN-TA5K-DS3-EXTRAPERFS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-TA5K-DS3-EXTRAPERFS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:18 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adTa5kSingleDs3ModuleIdentity, adTa5kSingleDs3 = mibBuilder.importSymbols("ADTRAN-TA5K-SingleDS3-MIB", "adTa5kSingleDs3ModuleIdentity", "adTa5kSingleDs3")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+adTa5kDs3PMModuleIdentity = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 896, 1))
+adTa5kDs3PMModuleIdentity.setRevisions(('2011-08-30 00:00',))
+if mibBuilder.loadTexts: adTa5kDs3PMModuleIdentity.setLastUpdated('201108300000Z')
+if mibBuilder.loadTexts: adTa5kDs3PMModuleIdentity.setOrganization('ADTRAN, Inc.')
+adTa5kDS3PM = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 2, 896, 2))
+class AdTADS3PerfCurrentCount(Counter32):
+    pass
+
+class AdTADS3PerfIntervalCount(Counter32):
+    pass
+
+adTa5kDs3PMCurrentDayTable = MibTable((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 1), )
+if mibBuilder.loadTexts: adTa5kDs3PMCurrentDayTable.setStatus('current')
+adTa5kDs3PMCurrentDayEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: adTa5kDs3PMCurrentDayEntry.setStatus('current')
+adTa5kDs3PMDayCurrentPESs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 1, 1, 1), AdTADS3PerfCurrentCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayCurrentPESs.setStatus('current')
+adTa5kDs3PMDayCurrentPSESs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 1, 1, 2), AdTADS3PerfCurrentCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayCurrentPSESs.setStatus('current')
+adTa5kDs3PMDayCurrentSEFSs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 1, 1, 3), AdTADS3PerfCurrentCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayCurrentSEFSs.setStatus('current')
+adTa5kDs3PMDayCurrentUASs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 1, 1, 4), AdTADS3PerfCurrentCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayCurrentUASs.setStatus('current')
+adTa5kDs3PMDayCurrentLCVs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 1, 1, 5), AdTADS3PerfCurrentCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayCurrentLCVs.setStatus('current')
+adTa5kDs3PMDayCurrentPCVs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 1, 1, 6), AdTADS3PerfCurrentCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayCurrentPCVs.setStatus('current')
+adTa5kDs3PMDayCurrentLESs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 1, 1, 7), AdTADS3PerfCurrentCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayCurrentLESs.setStatus('current')
+adTa5kDs3PMDayCurrentCCVs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 1, 1, 8), AdTADS3PerfCurrentCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayCurrentCCVs.setStatus('current')
+adTa5kDs3PMDayCurrentCESs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 1, 1, 9), AdTADS3PerfCurrentCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayCurrentCESs.setStatus('current')
+adTa5kDs3PMDayCurrentCSESs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 1, 1, 10), AdTADS3PerfCurrentCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayCurrentCSESs.setStatus('current')
+adTa5kDs3PMIntervalDayTable = MibTable((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 2), )
+if mibBuilder.loadTexts: adTa5kDs3PMIntervalDayTable.setStatus('current')
+adTa5kDs3PMIntervalDayEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ADTRAN-TA5K-DS3-EXTRAPERFS-MIB", "adTa5kDs3PMDayIntervalNumber"))
+if mibBuilder.loadTexts: adTa5kDs3PMIntervalDayEntry.setStatus('current')
+adTa5kDs3PMDayIntervalPESs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 2, 1, 1), AdTADS3PerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayIntervalPESs.setStatus('current')
+adTa5kDs3PMDayIntervalPSESs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 2, 1, 2), AdTADS3PerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayIntervalPSESs.setStatus('current')
+adTa5kDs3PMDayIntervalSEFSs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 2, 1, 3), AdTADS3PerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayIntervalSEFSs.setStatus('current')
+adTa5kDs3PMDayIntervalUASs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 2, 1, 4), AdTADS3PerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayIntervalUASs.setStatus('current')
+adTa5kDs3PMDayIntervalLCVs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 2, 1, 5), AdTADS3PerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayIntervalLCVs.setStatus('current')
+adTa5kDs3PMDayIntervalPCVs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 2, 1, 6), AdTADS3PerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayIntervalPCVs.setStatus('current')
+adTa5kDs3PMDayIntervalLESs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 2, 1, 7), AdTADS3PerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayIntervalLESs.setStatus('current')
+adTa5kDs3PMDayIntervalCCVs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 2, 1, 8), AdTADS3PerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayIntervalCCVs.setStatus('current')
+adTa5kDs3PMDayIntervalCESs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 2, 1, 9), AdTADS3PerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayIntervalCESs.setStatus('current')
+adTa5kDs3PMDayIntervalCSESs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 2, 1, 10), AdTADS3PerfIntervalCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayIntervalCSESs.setStatus('current')
+adTa5kDs3PMDayIntervalNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 2, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 7))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3PMDayIntervalNumber.setStatus('current')
+adTa5kDs3PMResetTable = MibTable((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 3), )
+if mibBuilder.loadTexts: adTa5kDs3PMResetTable.setStatus('current')
+adTa5kDs3PMResetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: adTa5kDs3PMResetEntry.setStatus('current')
+adTa5kDs3PMReset = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("reset", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adTa5kDs3PMReset.setStatus('current')
+adTa5kDs3RollingCountTable = MibTable((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 4), )
+if mibBuilder.loadTexts: adTa5kDs3RollingCountTable.setStatus('current')
+adTa5kDs3RollingCountEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: adTa5kDs3RollingCountEntry.setStatus('current')
+adTa5kDs3RollingCountPESs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 4, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3RollingCountPESs.setStatus('current')
+adTa5kDs3RollingCountPSESs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 4, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3RollingCountPSESs.setStatus('current')
+adTa5kDs3RollingCountSEFSs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 4, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3RollingCountSEFSs.setStatus('current')
+adTa5kDs3RollingCountUASs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 4, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3RollingCountUASs.setStatus('current')
+adTa5kDs3RollingCountLCVs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 4, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3RollingCountLCVs.setStatus('current')
+adTa5kDs3RollingCountPCVs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 4, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3RollingCountPCVs.setStatus('current')
+adTa5kDs3RollingCountLESs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 4, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3RollingCountLESs.setStatus('current')
+adTa5kDs3RollingCountCCVs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 4, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3RollingCountCCVs.setStatus('current')
+adTa5kDs3RollingCountCESs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 4, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3RollingCountCESs.setStatus('current')
+adTa5kDs3RollingCountCSESs = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 4, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kDs3RollingCountCSESs.setStatus('current')
+adTa5kDs3RollingCountReset = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 2, 896, 2, 4, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("reset", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adTa5kDs3RollingCountReset.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-TA5K-DS3-EXTRAPERFS-MIB", adTa5kDs3PMCurrentDayTable=adTa5kDs3PMCurrentDayTable, adTa5kDs3RollingCountUASs=adTa5kDs3RollingCountUASs, PYSNMP_MODULE_ID=adTa5kDs3PMModuleIdentity, adTa5kDs3RollingCountPSESs=adTa5kDs3RollingCountPSESs, adTa5kDs3RollingCountTable=adTa5kDs3RollingCountTable, adTa5kDs3PMDayIntervalNumber=adTa5kDs3PMDayIntervalNumber, adTa5kDs3PMResetEntry=adTa5kDs3PMResetEntry, adTa5kDs3PMDayIntervalCESs=adTa5kDs3PMDayIntervalCESs, adTa5kDs3RollingCountReset=adTa5kDs3RollingCountReset, adTa5kDs3RollingCountSEFSs=adTa5kDs3RollingCountSEFSs, adTa5kDS3PM=adTa5kDS3PM, adTa5kDs3PMCurrentDayEntry=adTa5kDs3PMCurrentDayEntry, adTa5kDs3PMResetTable=adTa5kDs3PMResetTable, adTa5kDs3PMModuleIdentity=adTa5kDs3PMModuleIdentity, adTa5kDs3PMDayCurrentSEFSs=adTa5kDs3PMDayCurrentSEFSs, adTa5kDs3RollingCountLCVs=adTa5kDs3RollingCountLCVs, adTa5kDs3PMIntervalDayEntry=adTa5kDs3PMIntervalDayEntry, adTa5kDs3PMDayCurrentCESs=adTa5kDs3PMDayCurrentCESs, adTa5kDs3RollingCountPCVs=adTa5kDs3RollingCountPCVs, adTa5kDs3PMDayCurrentLCVs=adTa5kDs3PMDayCurrentLCVs, adTa5kDs3PMDayIntervalUASs=adTa5kDs3PMDayIntervalUASs, adTa5kDs3PMIntervalDayTable=adTa5kDs3PMIntervalDayTable, adTa5kDs3PMDayIntervalCSESs=adTa5kDs3PMDayIntervalCSESs, AdTADS3PerfIntervalCount=AdTADS3PerfIntervalCount, adTa5kDs3PMDayIntervalSEFSs=adTa5kDs3PMDayIntervalSEFSs, adTa5kDs3PMDayCurrentCSESs=adTa5kDs3PMDayCurrentCSESs, adTa5kDs3RollingCountCCVs=adTa5kDs3RollingCountCCVs, adTa5kDs3PMReset=adTa5kDs3PMReset, adTa5kDs3PMDayCurrentLESs=adTa5kDs3PMDayCurrentLESs, AdTADS3PerfCurrentCount=AdTADS3PerfCurrentCount, adTa5kDs3PMDayIntervalPESs=adTa5kDs3PMDayIntervalPESs, adTa5kDs3PMDayCurrentUASs=adTa5kDs3PMDayCurrentUASs, adTa5kDs3PMDayIntervalLCVs=adTa5kDs3PMDayIntervalLCVs, adTa5kDs3PMDayCurrentCCVs=adTa5kDs3PMDayCurrentCCVs, adTa5kDs3PMDayIntervalCCVs=adTa5kDs3PMDayIntervalCCVs, adTa5kDs3RollingCountLESs=adTa5kDs3RollingCountLESs, adTa5kDs3PMDayCurrentPCVs=adTa5kDs3PMDayCurrentPCVs, adTa5kDs3RollingCountCSESs=adTa5kDs3RollingCountCSESs, adTa5kDs3PMDayIntervalLESs=adTa5kDs3PMDayIntervalLESs, adTa5kDs3PMDayCurrentPSESs=adTa5kDs3PMDayCurrentPSESs, adTa5kDs3PMDayIntervalPSESs=adTa5kDs3PMDayIntervalPSESs, adTa5kDs3RollingCountEntry=adTa5kDs3RollingCountEntry, adTa5kDs3RollingCountCESs=adTa5kDs3RollingCountCESs, adTa5kDs3RollingCountPESs=adTa5kDs3RollingCountPESs, adTa5kDs3PMDayIntervalPCVs=adTa5kDs3PMDayIntervalPCVs, adTa5kDs3PMDayCurrentPESs=adTa5kDs3PMDayCurrentPESs)

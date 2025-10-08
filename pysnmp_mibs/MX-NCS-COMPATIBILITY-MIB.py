@@ -1,44 +1,34 @@
-_G='ncsCompatibilityBasicGroupVer1'
-_F='ncsCompatibilityVersion'
-_E='ncsCompatibilityRtpPayloadType18EncodingName'
-_D='read-write'
-_C='Integer32'
-_B='MX-NCS-COMPATIBILITY-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mediatrixExperimental,=mibBuilder.importSymbols('MX-SMI','mediatrixExperimental')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ncsCompatibilityMIB=ModuleIdentity((1,3,6,1,4,1,4935,99,15))
-if mibBuilder.loadTexts:ncsCompatibilityMIB.setRevisions(('2008-12-03 00:00','1902-08-28 00:00'))
-_NcsCompatibilityMIBObjects_ObjectIdentity=ObjectIdentity
-ncsCompatibilityMIBObjects=_NcsCompatibilityMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,99,15,1))
-class _NcsCompatibilityRtpPayloadType18EncodingName_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('g729',0),('g729A',1)))
-_NcsCompatibilityRtpPayloadType18EncodingName_Type.__name__=_C
-_NcsCompatibilityRtpPayloadType18EncodingName_Object=MibScalar
-ncsCompatibilityRtpPayloadType18EncodingName=_NcsCompatibilityRtpPayloadType18EncodingName_Object((1,3,6,1,4,1,4935,99,15,1,5),_NcsCompatibilityRtpPayloadType18EncodingName_Type())
-ncsCompatibilityRtpPayloadType18EncodingName.setMaxAccess(_D)
-if mibBuilder.loadTexts:ncsCompatibilityRtpPayloadType18EncodingName.setStatus(_A)
-class _NcsCompatibilityVersion_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('mgcp01Ncs10',0),('fakeMgcp10Ncs10',1)))
-_NcsCompatibilityVersion_Type.__name__=_C
-_NcsCompatibilityVersion_Object=MibScalar
-ncsCompatibilityVersion=_NcsCompatibilityVersion_Object((1,3,6,1,4,1,4935,99,15,1,100),_NcsCompatibilityVersion_Type())
-ncsCompatibilityVersion.setMaxAccess(_D)
-if mibBuilder.loadTexts:ncsCompatibilityVersion.setStatus(_A)
-_NcsCompatibilityConformance_ObjectIdentity=ObjectIdentity
-ncsCompatibilityConformance=_NcsCompatibilityConformance_ObjectIdentity((1,3,6,1,4,1,4935,99,15,2))
-_NcsCompatibilityCompliances_ObjectIdentity=ObjectIdentity
-ncsCompatibilityCompliances=_NcsCompatibilityCompliances_ObjectIdentity((1,3,6,1,4,1,4935,99,15,2,1))
-_NcsCompatibilityGroups_ObjectIdentity=ObjectIdentity
-ncsCompatibilityGroups=_NcsCompatibilityGroups_ObjectIdentity((1,3,6,1,4,1,4935,99,15,2,2))
-ncsCompatibilityBasicGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,99,15,2,2,10))
-ncsCompatibilityBasicGroupVer1.setObjects(*((_B,_E),(_B,_F)))
-if mibBuilder.loadTexts:ncsCompatibilityBasicGroupVer1.setStatus(_A)
-ncsCompatibilityComplVer1=ModuleCompliance((1,3,6,1,4,1,4935,99,15,2,1,10))
-ncsCompatibilityComplVer1.setObjects((_B,_G))
-if mibBuilder.loadTexts:ncsCompatibilityComplVer1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ncsCompatibilityMIB':ncsCompatibilityMIB,'ncsCompatibilityMIBObjects':ncsCompatibilityMIBObjects,_E:ncsCompatibilityRtpPayloadType18EncodingName,_F:ncsCompatibilityVersion,'ncsCompatibilityConformance':ncsCompatibilityConformance,'ncsCompatibilityCompliances':ncsCompatibilityCompliances,'ncsCompatibilityComplVer1':ncsCompatibilityComplVer1,'ncsCompatibilityGroups':ncsCompatibilityGroups,_G:ncsCompatibilityBasicGroupVer1})
+#
+# PySNMP MIB module MX-NCS-COMPATIBILITY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-NCS-COMPATIBILITY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mediatrixExperimental, = mibBuilder.importSymbols("MX-SMI", "mediatrixExperimental")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ncsCompatibilityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 99, 15))
+ncsCompatibilityMIB.setRevisions(('2008-12-03 00:00', '1902-08-28 00:00',))
+if mibBuilder.loadTexts: ncsCompatibilityMIB.setLastUpdated('200812030000Z')
+if mibBuilder.loadTexts: ncsCompatibilityMIB.setOrganization('Mediatrix Telecom, Inc.')
+ncsCompatibilityMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 15, 1))
+ncsCompatibilityConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 15, 2))
+ncsCompatibilityRtpPayloadType18EncodingName = MibScalar((1, 3, 6, 1, 4, 1, 4935, 99, 15, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("g729", 0), ("g729A", 1))).clone('g729')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ncsCompatibilityRtpPayloadType18EncodingName.setStatus('current')
+ncsCompatibilityVersion = MibScalar((1, 3, 6, 1, 4, 1, 4935, 99, 15, 1, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("mgcp01Ncs10", 0), ("fakeMgcp10Ncs10", 1))).clone('mgcp01Ncs10')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ncsCompatibilityVersion.setStatus('current')
+ncsCompatibilityCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 15, 2, 1))
+ncsCompatibilityComplVer1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4935, 99, 15, 2, 1, 10)).setObjects(("MX-NCS-COMPATIBILITY-MIB", "ncsCompatibilityBasicGroupVer1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ncsCompatibilityComplVer1 = ncsCompatibilityComplVer1.setStatus('current')
+ncsCompatibilityGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 15, 2, 2))
+ncsCompatibilityBasicGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 99, 15, 2, 2, 10)).setObjects(("MX-NCS-COMPATIBILITY-MIB", "ncsCompatibilityRtpPayloadType18EncodingName"), ("MX-NCS-COMPATIBILITY-MIB", "ncsCompatibilityVersion"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ncsCompatibilityBasicGroupVer1 = ncsCompatibilityBasicGroupVer1.setStatus('current')
+mibBuilder.exportSymbols("MX-NCS-COMPATIBILITY-MIB", ncsCompatibilityVersion=ncsCompatibilityVersion, PYSNMP_MODULE_ID=ncsCompatibilityMIB, ncsCompatibilityComplVer1=ncsCompatibilityComplVer1, ncsCompatibilityGroups=ncsCompatibilityGroups, ncsCompatibilityBasicGroupVer1=ncsCompatibilityBasicGroupVer1, ncsCompatibilityMIBObjects=ncsCompatibilityMIBObjects, ncsCompatibilityMIB=ncsCompatibilityMIB, ncsCompatibilityConformance=ncsCompatibilityConformance, ncsCompatibilityCompliances=ncsCompatibilityCompliances, ncsCompatibilityRtpPayloadType18EncodingName=ncsCompatibilityRtpPayloadType18EncodingName)

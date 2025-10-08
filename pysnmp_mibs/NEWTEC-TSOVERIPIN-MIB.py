@@ -1,323 +1,120 @@
-_A0='ntcTsOIpInConfGrpV1Standard'
-_z='ntcTsOIpInMaxTrafficJitter'
-_y='ntcTsOIpInPcrPid'
-_x='ntcTsOIpInAutoPcrDetection'
-_w='ntcTsOIpInInputRateType'
-_v='ntcTsOIpInMulticastSourceB'
-_u='ntcTsOIpInMulticastSourceA'
-_t='ntcTsOIpInAlmInvalidTsBitRate'
-_s='ntcTsOIpInAlmRtpNoSync'
-_r='ntcTsOIpInAlmBufferUnflow'
-_q='ntcTsOIpInAlmBufferOverflow'
-_p='ntcTsOIpInAlmNoInputData'
-_o='ntcTsOIpInAlmGeneralTsOverIpIn'
-_n='ntcTsOIpInMonActivePCRPID'
-_m='ntcTsOIpInMonRtpFecDropCount'
-_l='ntcTsOIpInMonRtpRepairCount'
-_k='ntcTsOIpInMonRtpDropCount'
-_j='ntcTsOIpInMonTsOverflowCount'
-_i='ntcTsOIpInMonTsDropCount'
-_h='ntcTsOIpInMonTsOutCount'
-_g='ntcTsOIpInMonRtpRowFecInCount'
-_f='ntcTsOIpInMonRtpColumnFecInCount'
-_e='ntcTsOIpInMonRtpInCount'
-_d='ntcTsOIpInMonTsInCount'
-_c='ntcTsOIpInMonRtpFecScheme'
-_b='ntcTsOIpInMonSourceInfo'
-_a='ntcTsOIpInMonMaxBufferFilling'
-_Z='ntcTsOIpInMonMinBufferFilling'
-_Y='ntcTsOIpInMonBufferDelay'
-_X='ntcTsOIpInMonInputTsBitRate'
-_W='ntcTsOIpInMonResetCounters'
-_V='ntcTsOIpInInputTsBitRate'
-_U='ntcTsOIpInMaxBufferDelay'
-_T='ntcTsOIpInTrafficProfile'
-_S='ntcTsOIpInUdpPort'
-_R='ntcTsOIpInMulticastAddress'
-_Q='ntcTsOIpInIpAddressType'
-_P='ntcTsOIpInTsEncapProtocol'
-_O='ntcTsOIpInInputSelection'
-_N='ntcTsOIpInEnable'
-_M='0.0.0.0'
-_L='IpAddress'
-_K='DisplayString'
-_J='NtcNetworkAddress'
-_I='NtcEnable'
-_H='ms'
-_G='Unsigned32'
-_F='Integer32'
-_E='packets'
-_D='read-write'
-_C='read-only'
-_B='NEWTEC-TSOVERIPIN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ntcFunction,=mibBuilder.importSymbols('NEWTEC-MAIN-MIB','ntcFunction')
-NtcAlarmState,NtcEnable,NtcNetworkAddress=mibBuilder.importSymbols('NEWTEC-TC-MIB','NtcAlarmState',_I,_J)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,_L,'ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_K,'PhysAddress','TextualConvention')
-ntcTsOverIpIn=ModuleIdentity((1,3,6,1,4,1,5835,5,2,600))
-if mibBuilder.loadTexts:ntcTsOverIpIn.setRevisions(('2017-07-10 12:00','2016-02-02 07:00','2015-02-19 09:00','2014-09-09 09:00','2013-03-27 10:00','2012-06-28 12:00'))
-_NtcTsOIpInObjects_ObjectIdentity=ObjectIdentity
-ntcTsOIpInObjects=_NtcTsOIpInObjects_ObjectIdentity((1,3,6,1,4,1,5835,5,2,600,1))
-if mibBuilder.loadTexts:ntcTsOIpInObjects.setStatus(_A)
-class _NtcTsOIpInEnable_Type(NtcEnable):defaultValue=0
-_NtcTsOIpInEnable_Type.__name__=_I
-_NtcTsOIpInEnable_Object=MibScalar
-ntcTsOIpInEnable=_NtcTsOIpInEnable_Object((1,3,6,1,4,1,5835,5,2,600,1,1),_NtcTsOIpInEnable_Type())
-ntcTsOIpInEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInEnable.setStatus(_A)
-class _NtcTsOIpInInputSelection_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('none',1),('data1',2),('data2',3),('data',4),('any',5)))
-_NtcTsOIpInInputSelection_Type.__name__=_F
-_NtcTsOIpInInputSelection_Object=MibScalar
-ntcTsOIpInInputSelection=_NtcTsOIpInInputSelection_Object((1,3,6,1,4,1,5835,5,2,600,1,2),_NtcTsOIpInInputSelection_Type())
-ntcTsOIpInInputSelection.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInInputSelection.setStatus(_A)
-class _NtcTsOIpInTsEncapProtocol_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('udp',0),('rtp',1),('rtpfec',2)))
-_NtcTsOIpInTsEncapProtocol_Type.__name__=_F
-_NtcTsOIpInTsEncapProtocol_Object=MibScalar
-ntcTsOIpInTsEncapProtocol=_NtcTsOIpInTsEncapProtocol_Object((1,3,6,1,4,1,5835,5,2,600,1,3),_NtcTsOIpInTsEncapProtocol_Type())
-ntcTsOIpInTsEncapProtocol.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInTsEncapProtocol.setStatus(_A)
-class _NtcTsOIpInIpAddressType_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('unicast',0),('multicast',1)))
-_NtcTsOIpInIpAddressType_Type.__name__=_F
-_NtcTsOIpInIpAddressType_Object=MibScalar
-ntcTsOIpInIpAddressType=_NtcTsOIpInIpAddressType_Object((1,3,6,1,4,1,5835,5,2,600,1,4),_NtcTsOIpInIpAddressType_Type())
-ntcTsOIpInIpAddressType.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInIpAddressType.setStatus(_A)
-class _NtcTsOIpInMulticastAddress_Type(IpAddress):defaultHexValue='e0010001'
-_NtcTsOIpInMulticastAddress_Type.__name__=_L
-_NtcTsOIpInMulticastAddress_Object=MibScalar
-ntcTsOIpInMulticastAddress=_NtcTsOIpInMulticastAddress_Object((1,3,6,1,4,1,5835,5,2,600,1,5),_NtcTsOIpInMulticastAddress_Type())
-ntcTsOIpInMulticastAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInMulticastAddress.setStatus(_A)
-class _NtcTsOIpInUdpPort_Type(Unsigned32):defaultValue=56789;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_NtcTsOIpInUdpPort_Type.__name__=_G
-_NtcTsOIpInUdpPort_Object=MibScalar
-ntcTsOIpInUdpPort=_NtcTsOIpInUdpPort_Object((1,3,6,1,4,1,5835,5,2,600,1,6),_NtcTsOIpInUdpPort_Type())
-ntcTsOIpInUdpPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInUdpPort.setStatus(_A)
-class _NtcTsOIpInTrafficProfile_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('vbr',0),('cbr',1)))
-_NtcTsOIpInTrafficProfile_Type.__name__=_F
-_NtcTsOIpInTrafficProfile_Object=MibScalar
-ntcTsOIpInTrafficProfile=_NtcTsOIpInTrafficProfile_Object((1,3,6,1,4,1,5835,5,2,600,1,7),_NtcTsOIpInTrafficProfile_Type())
-ntcTsOIpInTrafficProfile.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInTrafficProfile.setStatus(_A)
-class _NtcTsOIpInMaxTrafficJitter_Type(Unsigned32):defaultValue=50
-_NtcTsOIpInMaxTrafficJitter_Type.__name__=_G
-_NtcTsOIpInMaxTrafficJitter_Object=MibScalar
-ntcTsOIpInMaxTrafficJitter=_NtcTsOIpInMaxTrafficJitter_Object((1,3,6,1,4,1,5835,5,2,600,1,8),_NtcTsOIpInMaxTrafficJitter_Type())
-ntcTsOIpInMaxTrafficJitter.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInMaxTrafficJitter.setStatus('deprecated')
-if mibBuilder.loadTexts:ntcTsOIpInMaxTrafficJitter.setUnits(_H)
-class _NtcTsOIpInMaxBufferDelay_Type(Unsigned32):defaultValue=250
-_NtcTsOIpInMaxBufferDelay_Type.__name__=_G
-_NtcTsOIpInMaxBufferDelay_Object=MibScalar
-ntcTsOIpInMaxBufferDelay=_NtcTsOIpInMaxBufferDelay_Object((1,3,6,1,4,1,5835,5,2,600,1,9),_NtcTsOIpInMaxBufferDelay_Type())
-ntcTsOIpInMaxBufferDelay.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInMaxBufferDelay.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInMaxBufferDelay.setUnits(_H)
-class _NtcTsOIpInInputTsBitRate_Type(Unsigned32):defaultValue=1000000
-_NtcTsOIpInInputTsBitRate_Type.__name__=_G
-_NtcTsOIpInInputTsBitRate_Object=MibScalar
-ntcTsOIpInInputTsBitRate=_NtcTsOIpInInputTsBitRate_Object((1,3,6,1,4,1,5835,5,2,600,1,10),_NtcTsOIpInInputTsBitRate_Type())
-ntcTsOIpInInputTsBitRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInInputTsBitRate.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInInputTsBitRate.setUnits('bps')
-_NtcTsOIpInMonitor_ObjectIdentity=ObjectIdentity
-ntcTsOIpInMonitor=_NtcTsOIpInMonitor_ObjectIdentity((1,3,6,1,4,1,5835,5,2,600,1,11))
-if mibBuilder.loadTexts:ntcTsOIpInMonitor.setStatus(_A)
-class _NtcTsOIpInMonResetCounters_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('counting',0),('reset',1)))
-_NtcTsOIpInMonResetCounters_Type.__name__=_F
-_NtcTsOIpInMonResetCounters_Object=MibScalar
-ntcTsOIpInMonResetCounters=_NtcTsOIpInMonResetCounters_Object((1,3,6,1,4,1,5835,5,2,600,1,11,1),_NtcTsOIpInMonResetCounters_Type())
-ntcTsOIpInMonResetCounters.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInMonResetCounters.setStatus(_A)
-_NtcTsOIpInMonInputTsBitRate_Type=Unsigned32
-_NtcTsOIpInMonInputTsBitRate_Object=MibScalar
-ntcTsOIpInMonInputTsBitRate=_NtcTsOIpInMonInputTsBitRate_Object((1,3,6,1,4,1,5835,5,2,600,1,11,2),_NtcTsOIpInMonInputTsBitRate_Type())
-ntcTsOIpInMonInputTsBitRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonInputTsBitRate.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInMonInputTsBitRate.setUnits('bps')
-_NtcTsOIpInMonBufferDelay_Type=Unsigned32
-_NtcTsOIpInMonBufferDelay_Object=MibScalar
-ntcTsOIpInMonBufferDelay=_NtcTsOIpInMonBufferDelay_Object((1,3,6,1,4,1,5835,5,2,600,1,11,3),_NtcTsOIpInMonBufferDelay_Type())
-ntcTsOIpInMonBufferDelay.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonBufferDelay.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInMonBufferDelay.setUnits(_H)
-_NtcTsOIpInMonMinBufferFilling_Type=Unsigned32
-_NtcTsOIpInMonMinBufferFilling_Object=MibScalar
-ntcTsOIpInMonMinBufferFilling=_NtcTsOIpInMonMinBufferFilling_Object((1,3,6,1,4,1,5835,5,2,600,1,11,4),_NtcTsOIpInMonMinBufferFilling_Type())
-ntcTsOIpInMonMinBufferFilling.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonMinBufferFilling.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInMonMinBufferFilling.setUnits(_H)
-_NtcTsOIpInMonMaxBufferFilling_Type=Unsigned32
-_NtcTsOIpInMonMaxBufferFilling_Object=MibScalar
-ntcTsOIpInMonMaxBufferFilling=_NtcTsOIpInMonMaxBufferFilling_Object((1,3,6,1,4,1,5835,5,2,600,1,11,5),_NtcTsOIpInMonMaxBufferFilling_Type())
-ntcTsOIpInMonMaxBufferFilling.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonMaxBufferFilling.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInMonMaxBufferFilling.setUnits(_H)
-class _NtcTsOIpInMonSourceInfo_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_NtcTsOIpInMonSourceInfo_Type.__name__=_K
-_NtcTsOIpInMonSourceInfo_Object=MibScalar
-ntcTsOIpInMonSourceInfo=_NtcTsOIpInMonSourceInfo_Object((1,3,6,1,4,1,5835,5,2,600,1,11,6),_NtcTsOIpInMonSourceInfo_Type())
-ntcTsOIpInMonSourceInfo.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonSourceInfo.setStatus(_A)
-class _NtcTsOIpInMonRtpFecScheme_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_NtcTsOIpInMonRtpFecScheme_Type.__name__=_K
-_NtcTsOIpInMonRtpFecScheme_Object=MibScalar
-ntcTsOIpInMonRtpFecScheme=_NtcTsOIpInMonRtpFecScheme_Object((1,3,6,1,4,1,5835,5,2,600,1,11,7),_NtcTsOIpInMonRtpFecScheme_Type())
-ntcTsOIpInMonRtpFecScheme.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonRtpFecScheme.setStatus(_A)
-_NtcTsOIpInMonTsInCount_Type=Counter32
-_NtcTsOIpInMonTsInCount_Object=MibScalar
-ntcTsOIpInMonTsInCount=_NtcTsOIpInMonTsInCount_Object((1,3,6,1,4,1,5835,5,2,600,1,11,8),_NtcTsOIpInMonTsInCount_Type())
-ntcTsOIpInMonTsInCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonTsInCount.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInMonTsInCount.setUnits(_E)
-_NtcTsOIpInMonRtpInCount_Type=Counter32
-_NtcTsOIpInMonRtpInCount_Object=MibScalar
-ntcTsOIpInMonRtpInCount=_NtcTsOIpInMonRtpInCount_Object((1,3,6,1,4,1,5835,5,2,600,1,11,9),_NtcTsOIpInMonRtpInCount_Type())
-ntcTsOIpInMonRtpInCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonRtpInCount.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInMonRtpInCount.setUnits(_E)
-_NtcTsOIpInMonRtpColumnFecInCount_Type=Counter32
-_NtcTsOIpInMonRtpColumnFecInCount_Object=MibScalar
-ntcTsOIpInMonRtpColumnFecInCount=_NtcTsOIpInMonRtpColumnFecInCount_Object((1,3,6,1,4,1,5835,5,2,600,1,11,10),_NtcTsOIpInMonRtpColumnFecInCount_Type())
-ntcTsOIpInMonRtpColumnFecInCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonRtpColumnFecInCount.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInMonRtpColumnFecInCount.setUnits(_E)
-_NtcTsOIpInMonRtpRowFecInCount_Type=Counter32
-_NtcTsOIpInMonRtpRowFecInCount_Object=MibScalar
-ntcTsOIpInMonRtpRowFecInCount=_NtcTsOIpInMonRtpRowFecInCount_Object((1,3,6,1,4,1,5835,5,2,600,1,11,11),_NtcTsOIpInMonRtpRowFecInCount_Type())
-ntcTsOIpInMonRtpRowFecInCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonRtpRowFecInCount.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInMonRtpRowFecInCount.setUnits(_E)
-_NtcTsOIpInMonTsOutCount_Type=Counter32
-_NtcTsOIpInMonTsOutCount_Object=MibScalar
-ntcTsOIpInMonTsOutCount=_NtcTsOIpInMonTsOutCount_Object((1,3,6,1,4,1,5835,5,2,600,1,11,12),_NtcTsOIpInMonTsOutCount_Type())
-ntcTsOIpInMonTsOutCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonTsOutCount.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInMonTsOutCount.setUnits(_E)
-_NtcTsOIpInMonTsDropCount_Type=Counter32
-_NtcTsOIpInMonTsDropCount_Object=MibScalar
-ntcTsOIpInMonTsDropCount=_NtcTsOIpInMonTsDropCount_Object((1,3,6,1,4,1,5835,5,2,600,1,11,13),_NtcTsOIpInMonTsDropCount_Type())
-ntcTsOIpInMonTsDropCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonTsDropCount.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInMonTsDropCount.setUnits(_E)
-_NtcTsOIpInMonTsOverflowCount_Type=Counter32
-_NtcTsOIpInMonTsOverflowCount_Object=MibScalar
-ntcTsOIpInMonTsOverflowCount=_NtcTsOIpInMonTsOverflowCount_Object((1,3,6,1,4,1,5835,5,2,600,1,11,14),_NtcTsOIpInMonTsOverflowCount_Type())
-ntcTsOIpInMonTsOverflowCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonTsOverflowCount.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInMonTsOverflowCount.setUnits(_E)
-_NtcTsOIpInMonRtpDropCount_Type=Counter32
-_NtcTsOIpInMonRtpDropCount_Object=MibScalar
-ntcTsOIpInMonRtpDropCount=_NtcTsOIpInMonRtpDropCount_Object((1,3,6,1,4,1,5835,5,2,600,1,11,15),_NtcTsOIpInMonRtpDropCount_Type())
-ntcTsOIpInMonRtpDropCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonRtpDropCount.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInMonRtpDropCount.setUnits(_E)
-_NtcTsOIpInMonRtpRepairCount_Type=Counter32
-_NtcTsOIpInMonRtpRepairCount_Object=MibScalar
-ntcTsOIpInMonRtpRepairCount=_NtcTsOIpInMonRtpRepairCount_Object((1,3,6,1,4,1,5835,5,2,600,1,11,16),_NtcTsOIpInMonRtpRepairCount_Type())
-ntcTsOIpInMonRtpRepairCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonRtpRepairCount.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInMonRtpRepairCount.setUnits(_E)
-_NtcTsOIpInMonRtpFecDropCount_Type=Counter32
-_NtcTsOIpInMonRtpFecDropCount_Object=MibScalar
-ntcTsOIpInMonRtpFecDropCount=_NtcTsOIpInMonRtpFecDropCount_Object((1,3,6,1,4,1,5835,5,2,600,1,11,17),_NtcTsOIpInMonRtpFecDropCount_Type())
-ntcTsOIpInMonRtpFecDropCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonRtpFecDropCount.setStatus(_A)
-if mibBuilder.loadTexts:ntcTsOIpInMonRtpFecDropCount.setUnits(_E)
-class _NtcTsOIpInMonActivePCRPID_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,8190))
-_NtcTsOIpInMonActivePCRPID_Type.__name__=_G
-_NtcTsOIpInMonActivePCRPID_Object=MibScalar
-ntcTsOIpInMonActivePCRPID=_NtcTsOIpInMonActivePCRPID_Object((1,3,6,1,4,1,5835,5,2,600,1,11,18),_NtcTsOIpInMonActivePCRPID_Type())
-ntcTsOIpInMonActivePCRPID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInMonActivePCRPID.setStatus(_A)
-_NtcTsOIpInAlarm_ObjectIdentity=ObjectIdentity
-ntcTsOIpInAlarm=_NtcTsOIpInAlarm_ObjectIdentity((1,3,6,1,4,1,5835,5,2,600,1,12))
-if mibBuilder.loadTexts:ntcTsOIpInAlarm.setStatus(_A)
-_NtcTsOIpInAlmGeneralTsOverIpIn_Type=NtcAlarmState
-_NtcTsOIpInAlmGeneralTsOverIpIn_Object=MibScalar
-ntcTsOIpInAlmGeneralTsOverIpIn=_NtcTsOIpInAlmGeneralTsOverIpIn_Object((1,3,6,1,4,1,5835,5,2,600,1,12,1),_NtcTsOIpInAlmGeneralTsOverIpIn_Type())
-ntcTsOIpInAlmGeneralTsOverIpIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInAlmGeneralTsOverIpIn.setStatus(_A)
-_NtcTsOIpInAlmNoInputData_Type=NtcAlarmState
-_NtcTsOIpInAlmNoInputData_Object=MibScalar
-ntcTsOIpInAlmNoInputData=_NtcTsOIpInAlmNoInputData_Object((1,3,6,1,4,1,5835,5,2,600,1,12,2),_NtcTsOIpInAlmNoInputData_Type())
-ntcTsOIpInAlmNoInputData.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInAlmNoInputData.setStatus(_A)
-_NtcTsOIpInAlmBufferOverflow_Type=NtcAlarmState
-_NtcTsOIpInAlmBufferOverflow_Object=MibScalar
-ntcTsOIpInAlmBufferOverflow=_NtcTsOIpInAlmBufferOverflow_Object((1,3,6,1,4,1,5835,5,2,600,1,12,3),_NtcTsOIpInAlmBufferOverflow_Type())
-ntcTsOIpInAlmBufferOverflow.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInAlmBufferOverflow.setStatus(_A)
-_NtcTsOIpInAlmBufferUnflow_Type=NtcAlarmState
-_NtcTsOIpInAlmBufferUnflow_Object=MibScalar
-ntcTsOIpInAlmBufferUnflow=_NtcTsOIpInAlmBufferUnflow_Object((1,3,6,1,4,1,5835,5,2,600,1,12,4),_NtcTsOIpInAlmBufferUnflow_Type())
-ntcTsOIpInAlmBufferUnflow.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInAlmBufferUnflow.setStatus(_A)
-_NtcTsOIpInAlmRtpNoSync_Type=NtcAlarmState
-_NtcTsOIpInAlmRtpNoSync_Object=MibScalar
-ntcTsOIpInAlmRtpNoSync=_NtcTsOIpInAlmRtpNoSync_Object((1,3,6,1,4,1,5835,5,2,600,1,12,5),_NtcTsOIpInAlmRtpNoSync_Type())
-ntcTsOIpInAlmRtpNoSync.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInAlmRtpNoSync.setStatus(_A)
-_NtcTsOIpInAlmInvalidTsBitRate_Type=NtcAlarmState
-_NtcTsOIpInAlmInvalidTsBitRate_Object=MibScalar
-ntcTsOIpInAlmInvalidTsBitRate=_NtcTsOIpInAlmInvalidTsBitRate_Object((1,3,6,1,4,1,5835,5,2,600,1,12,6),_NtcTsOIpInAlmInvalidTsBitRate_Type())
-ntcTsOIpInAlmInvalidTsBitRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:ntcTsOIpInAlmInvalidTsBitRate.setStatus(_A)
-class _NtcTsOIpInMulticastSourceA_Type(NtcNetworkAddress):defaultValue=OctetString(_M)
-_NtcTsOIpInMulticastSourceA_Type.__name__=_J
-_NtcTsOIpInMulticastSourceA_Object=MibScalar
-ntcTsOIpInMulticastSourceA=_NtcTsOIpInMulticastSourceA_Object((1,3,6,1,4,1,5835,5,2,600,1,13),_NtcTsOIpInMulticastSourceA_Type())
-ntcTsOIpInMulticastSourceA.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInMulticastSourceA.setStatus(_A)
-class _NtcTsOIpInMulticastSourceB_Type(NtcNetworkAddress):defaultValue=OctetString(_M)
-_NtcTsOIpInMulticastSourceB_Type.__name__=_J
-_NtcTsOIpInMulticastSourceB_Object=MibScalar
-ntcTsOIpInMulticastSourceB=_NtcTsOIpInMulticastSourceB_Object((1,3,6,1,4,1,5835,5,2,600,1,14),_NtcTsOIpInMulticastSourceB_Type())
-ntcTsOIpInMulticastSourceB.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInMulticastSourceB.setStatus(_A)
-class _NtcTsOIpInInputRateType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('userdefined',0),('pcr',1)))
-_NtcTsOIpInInputRateType_Type.__name__=_F
-_NtcTsOIpInInputRateType_Object=MibScalar
-ntcTsOIpInInputRateType=_NtcTsOIpInInputRateType_Object((1,3,6,1,4,1,5835,5,2,600,1,15),_NtcTsOIpInInputRateType_Type())
-ntcTsOIpInInputRateType.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInInputRateType.setStatus(_A)
-class _NtcTsOIpInAutoPcrDetection_Type(NtcEnable):defaultValue=1
-_NtcTsOIpInAutoPcrDetection_Type.__name__=_I
-_NtcTsOIpInAutoPcrDetection_Object=MibScalar
-ntcTsOIpInAutoPcrDetection=_NtcTsOIpInAutoPcrDetection_Object((1,3,6,1,4,1,5835,5,2,600,1,16),_NtcTsOIpInAutoPcrDetection_Type())
-ntcTsOIpInAutoPcrDetection.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInAutoPcrDetection.setStatus(_A)
-class _NtcTsOIpInPcrPid_Type(Unsigned32):defaultValue=8191;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,8191))
-_NtcTsOIpInPcrPid_Type.__name__=_G
-_NtcTsOIpInPcrPid_Object=MibScalar
-ntcTsOIpInPcrPid=_NtcTsOIpInPcrPid_Object((1,3,6,1,4,1,5835,5,2,600,1,17),_NtcTsOIpInPcrPid_Type())
-ntcTsOIpInPcrPid.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcTsOIpInPcrPid.setStatus(_A)
-_NtcTsOIpInConformance_ObjectIdentity=ObjectIdentity
-ntcTsOIpInConformance=_NtcTsOIpInConformance_ObjectIdentity((1,3,6,1,4,1,5835,5,2,600,2))
-if mibBuilder.loadTexts:ntcTsOIpInConformance.setStatus(_A)
-_NtcTsOIpInConfCompliance_ObjectIdentity=ObjectIdentity
-ntcTsOIpInConfCompliance=_NtcTsOIpInConfCompliance_ObjectIdentity((1,3,6,1,4,1,5835,5,2,600,2,1))
-if mibBuilder.loadTexts:ntcTsOIpInConfCompliance.setStatus(_A)
-_NtcTsOIpInConfGroup_ObjectIdentity=ObjectIdentity
-ntcTsOIpInConfGroup=_NtcTsOIpInConfGroup_ObjectIdentity((1,3,6,1,4,1,5835,5,2,600,2,2))
-if mibBuilder.loadTexts:ntcTsOIpInConfGroup.setStatus(_A)
-ntcTsOIpInConfGrpV1Standard=ObjectGroup((1,3,6,1,4,1,5835,5,2,600,2,2,1))
-ntcTsOIpInConfGrpV1Standard.setObjects(*((_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y)))
-if mibBuilder.loadTexts:ntcTsOIpInConfGrpV1Standard.setStatus(_A)
-ntcTsOIpInConfGrpObsolete=ObjectGroup((1,3,6,1,4,1,5835,5,2,600,2,2,2))
-ntcTsOIpInConfGrpObsolete.setObjects((_B,_z))
-if mibBuilder.loadTexts:ntcTsOIpInConfGrpObsolete.setStatus('obsolete')
-ntcTsOIpInConfCompV1Standard=ModuleCompliance((1,3,6,1,4,1,5835,5,2,600,2,1,1))
-ntcTsOIpInConfCompV1Standard.setObjects((_B,_A0))
-if mibBuilder.loadTexts:ntcTsOIpInConfCompV1Standard.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ntcTsOverIpIn':ntcTsOverIpIn,'ntcTsOIpInObjects':ntcTsOIpInObjects,_N:ntcTsOIpInEnable,_O:ntcTsOIpInInputSelection,_P:ntcTsOIpInTsEncapProtocol,_Q:ntcTsOIpInIpAddressType,_R:ntcTsOIpInMulticastAddress,_S:ntcTsOIpInUdpPort,_T:ntcTsOIpInTrafficProfile,_z:ntcTsOIpInMaxTrafficJitter,_U:ntcTsOIpInMaxBufferDelay,_V:ntcTsOIpInInputTsBitRate,'ntcTsOIpInMonitor':ntcTsOIpInMonitor,_W:ntcTsOIpInMonResetCounters,_X:ntcTsOIpInMonInputTsBitRate,_Y:ntcTsOIpInMonBufferDelay,_Z:ntcTsOIpInMonMinBufferFilling,_a:ntcTsOIpInMonMaxBufferFilling,_b:ntcTsOIpInMonSourceInfo,_c:ntcTsOIpInMonRtpFecScheme,_d:ntcTsOIpInMonTsInCount,_e:ntcTsOIpInMonRtpInCount,_f:ntcTsOIpInMonRtpColumnFecInCount,_g:ntcTsOIpInMonRtpRowFecInCount,_h:ntcTsOIpInMonTsOutCount,_i:ntcTsOIpInMonTsDropCount,_j:ntcTsOIpInMonTsOverflowCount,_k:ntcTsOIpInMonRtpDropCount,_l:ntcTsOIpInMonRtpRepairCount,_m:ntcTsOIpInMonRtpFecDropCount,_n:ntcTsOIpInMonActivePCRPID,'ntcTsOIpInAlarm':ntcTsOIpInAlarm,_o:ntcTsOIpInAlmGeneralTsOverIpIn,_p:ntcTsOIpInAlmNoInputData,_q:ntcTsOIpInAlmBufferOverflow,_r:ntcTsOIpInAlmBufferUnflow,_s:ntcTsOIpInAlmRtpNoSync,_t:ntcTsOIpInAlmInvalidTsBitRate,_u:ntcTsOIpInMulticastSourceA,_v:ntcTsOIpInMulticastSourceB,_w:ntcTsOIpInInputRateType,_x:ntcTsOIpInAutoPcrDetection,_y:ntcTsOIpInPcrPid,'ntcTsOIpInConformance':ntcTsOIpInConformance,'ntcTsOIpInConfCompliance':ntcTsOIpInConfCompliance,'ntcTsOIpInConfCompV1Standard':ntcTsOIpInConfCompV1Standard,'ntcTsOIpInConfGroup':ntcTsOIpInConfGroup,_A0:ntcTsOIpInConfGrpV1Standard,'ntcTsOIpInConfGrpObsolete':ntcTsOIpInConfGrpObsolete})
+#
+# PySNMP MIB module NEWTEC-TSOVERIPIN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/newtec/NEWTEC-TSOVERIPIN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:26 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ntcFunction, = mibBuilder.importSymbols("NEWTEC-MAIN-MIB", "ntcFunction")
+NtcAlarmState, NtcEnable, NtcNetworkAddress = mibBuilder.importSymbols("NEWTEC-TC-MIB", "NtcAlarmState", "NtcEnable", "NtcNetworkAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ntcTsOverIpIn = ModuleIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600))
+ntcTsOverIpIn.setRevisions(('2017-07-10 12:00', '2016-02-02 07:00', '2015-02-19 09:00', '2014-09-09 09:00', '2013-03-27 10:00', '2012-06-28 12:00',))
+if mibBuilder.loadTexts: ntcTsOverIpIn.setLastUpdated('201707101200Z')
+if mibBuilder.loadTexts: ntcTsOverIpIn.setOrganization('Newtec Cy')
+ntcTsOIpInObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1))
+if mibBuilder.loadTexts: ntcTsOIpInObjects.setStatus('current')
+ntcTsOIpInConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 2))
+if mibBuilder.loadTexts: ntcTsOIpInConformance.setStatus('current')
+ntcTsOIpInMonitor = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11))
+if mibBuilder.loadTexts: ntcTsOIpInMonitor.setStatus('current')
+ntcTsOIpInAlarm = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 12))
+if mibBuilder.loadTexts: ntcTsOIpInAlarm.setStatus('current')
+ntcTsOIpInConfCompliance = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 2, 1))
+if mibBuilder.loadTexts: ntcTsOIpInConfCompliance.setStatus('current')
+ntcTsOIpInConfGroup = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 2, 2))
+if mibBuilder.loadTexts: ntcTsOIpInConfGroup.setStatus('current')
+ntcTsOIpInEnable = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 1), NtcEnable().clone('off')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInEnable.setStatus('current')
+ntcTsOIpInInputSelection = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("data1", 2), ("data2", 3), ("data", 4), ("any", 5))).clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInInputSelection.setStatus('current')
+ntcTsOIpInTsEncapProtocol = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("udp", 0), ("rtp", 1), ("rtpfec", 2))).clone('udp')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInTsEncapProtocol.setStatus('current')
+ntcTsOIpInIpAddressType = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("unicast", 0), ("multicast", 1))).clone('unicast')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInIpAddressType.setStatus('current')
+ntcTsOIpInMulticastAddress = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 5), IpAddress().clone(hexValue="e0010001")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInMulticastAddress.setStatus('current')
+ntcTsOIpInUdpPort = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(56789)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInUdpPort.setStatus('current')
+ntcTsOIpInTrafficProfile = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("vbr", 0), ("cbr", 1))).clone('cbr')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInTrafficProfile.setStatus('current')
+ntcTsOIpInMaxTrafficJitter = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 8), Unsigned32().clone(50)).setUnits('ms').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInMaxTrafficJitter.setStatus('deprecated')
+ntcTsOIpInMaxBufferDelay = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 9), Unsigned32().clone(250)).setUnits('ms').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInMaxBufferDelay.setStatus('current')
+ntcTsOIpInInputTsBitRate = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 10), Unsigned32().clone(1000000)).setUnits('bps').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInInputTsBitRate.setStatus('current')
+ntcTsOIpInMonResetCounters = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("counting", 0), ("reset", 1))).clone('counting')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInMonResetCounters.setStatus('current')
+ntcTsOIpInMonInputTsBitRate = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 2), Unsigned32()).setUnits('bps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonInputTsBitRate.setStatus('current')
+ntcTsOIpInMonBufferDelay = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 3), Unsigned32()).setUnits('ms').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonBufferDelay.setStatus('current')
+ntcTsOIpInMonMinBufferFilling = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 4), Unsigned32()).setUnits('ms').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonMinBufferFilling.setStatus('current')
+ntcTsOIpInMonMaxBufferFilling = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 5), Unsigned32()).setUnits('ms').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonMaxBufferFilling.setStatus('current')
+ntcTsOIpInMonSourceInfo = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonSourceInfo.setStatus('current')
+ntcTsOIpInMonRtpFecScheme = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonRtpFecScheme.setStatus('current')
+ntcTsOIpInMonTsInCount = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 8), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonTsInCount.setStatus('current')
+ntcTsOIpInMonRtpInCount = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 9), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonRtpInCount.setStatus('current')
+ntcTsOIpInMonRtpColumnFecInCount = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 10), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonRtpColumnFecInCount.setStatus('current')
+ntcTsOIpInMonRtpRowFecInCount = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 11), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonRtpRowFecInCount.setStatus('current')
+ntcTsOIpInMonTsOutCount = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 12), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonTsOutCount.setStatus('current')
+ntcTsOIpInMonTsDropCount = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 13), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonTsDropCount.setStatus('current')
+ntcTsOIpInMonTsOverflowCount = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 14), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonTsOverflowCount.setStatus('current')
+ntcTsOIpInMonRtpDropCount = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 15), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonRtpDropCount.setStatus('current')
+ntcTsOIpInMonRtpRepairCount = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 16), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonRtpRepairCount.setStatus('current')
+ntcTsOIpInMonRtpFecDropCount = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 17), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonRtpFecDropCount.setStatus('current')
+ntcTsOIpInMonActivePCRPID = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 11, 18), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 8190))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInMonActivePCRPID.setStatus('current')
+ntcTsOIpInAlmGeneralTsOverIpIn = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 12, 1), NtcAlarmState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInAlmGeneralTsOverIpIn.setStatus('current')
+ntcTsOIpInAlmNoInputData = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 12, 2), NtcAlarmState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInAlmNoInputData.setStatus('current')
+ntcTsOIpInAlmBufferOverflow = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 12, 3), NtcAlarmState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInAlmBufferOverflow.setStatus('current')
+ntcTsOIpInAlmBufferUnflow = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 12, 4), NtcAlarmState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInAlmBufferUnflow.setStatus('current')
+ntcTsOIpInAlmRtpNoSync = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 12, 5), NtcAlarmState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInAlmRtpNoSync.setStatus('current')
+ntcTsOIpInAlmInvalidTsBitRate = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 12, 6), NtcAlarmState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcTsOIpInAlmInvalidTsBitRate.setStatus('current')
+ntcTsOIpInMulticastSourceA = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 13), NtcNetworkAddress().clone('0.0.0.0')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInMulticastSourceA.setStatus('current')
+ntcTsOIpInMulticastSourceB = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 14), NtcNetworkAddress().clone('0.0.0.0')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInMulticastSourceB.setStatus('current')
+ntcTsOIpInInputRateType = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("userdefined", 0), ("pcr", 1))).clone('pcr')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInInputRateType.setStatus('current')
+ntcTsOIpInAutoPcrDetection = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 16), NtcEnable().clone('on')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInAutoPcrDetection.setStatus('current')
+ntcTsOIpInPcrPid = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 1, 17), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 8191)).clone(8191)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcTsOIpInPcrPid.setStatus('current')
+ntcTsOIpInConfGrpV1Standard = ObjectGroup((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 2, 2, 1)).setObjects(("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInEnable"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInInputSelection"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInTsEncapProtocol"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInIpAddressType"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMulticastAddress"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInUdpPort"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInTrafficProfile"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMaxBufferDelay"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInInputTsBitRate"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonResetCounters"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonInputTsBitRate"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonBufferDelay"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonMinBufferFilling"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonMaxBufferFilling"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonSourceInfo"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonRtpFecScheme"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonTsInCount"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonRtpInCount"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonRtpColumnFecInCount"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonRtpRowFecInCount"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonTsOutCount"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonTsDropCount"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonTsOverflowCount"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonRtpDropCount"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonRtpRepairCount"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonRtpFecDropCount"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMonActivePCRPID"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInAlmGeneralTsOverIpIn"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInAlmNoInputData"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInAlmBufferOverflow"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInAlmBufferUnflow"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInAlmRtpNoSync"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInAlmInvalidTsBitRate"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMulticastSourceA"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMulticastSourceB"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInInputRateType"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInAutoPcrDetection"), ("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInPcrPid"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ntcTsOIpInConfGrpV1Standard = ntcTsOIpInConfGrpV1Standard.setStatus('current')
+ntcTsOIpInConfGrpObsolete = ObjectGroup((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 2, 2, 2)).setObjects(("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInMaxTrafficJitter"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ntcTsOIpInConfGrpObsolete = ntcTsOIpInConfGrpObsolete.setStatus('obsolete')
+ntcTsOIpInConfCompV1Standard = ModuleCompliance((1, 3, 6, 1, 4, 1, 5835, 5, 2, 600, 2, 1, 1)).setObjects(("NEWTEC-TSOVERIPIN-MIB", "ntcTsOIpInConfGrpV1Standard"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ntcTsOIpInConfCompV1Standard = ntcTsOIpInConfCompV1Standard.setStatus('current')
+mibBuilder.exportSymbols("NEWTEC-TSOVERIPIN-MIB", ntcTsOIpInMonTsOutCount=ntcTsOIpInMonTsOutCount, ntcTsOIpInTsEncapProtocol=ntcTsOIpInTsEncapProtocol, ntcTsOIpInMonitor=ntcTsOIpInMonitor, ntcTsOIpInMaxTrafficJitter=ntcTsOIpInMaxTrafficJitter, ntcTsOIpInAlmNoInputData=ntcTsOIpInAlmNoInputData, ntcTsOIpInIpAddressType=ntcTsOIpInIpAddressType, ntcTsOIpInMonTsOverflowCount=ntcTsOIpInMonTsOverflowCount, ntcTsOIpInMonRtpRowFecInCount=ntcTsOIpInMonRtpRowFecInCount, ntcTsOIpInAlmGeneralTsOverIpIn=ntcTsOIpInAlmGeneralTsOverIpIn, ntcTsOIpInAlmBufferUnflow=ntcTsOIpInAlmBufferUnflow, ntcTsOIpInConfGrpObsolete=ntcTsOIpInConfGrpObsolete, ntcTsOIpInConfGroup=ntcTsOIpInConfGroup, ntcTsOIpInMulticastAddress=ntcTsOIpInMulticastAddress, ntcTsOIpInMulticastSourceB=ntcTsOIpInMulticastSourceB, ntcTsOIpInAlmBufferOverflow=ntcTsOIpInAlmBufferOverflow, ntcTsOIpInConformance=ntcTsOIpInConformance, ntcTsOIpInAlmRtpNoSync=ntcTsOIpInAlmRtpNoSync, ntcTsOIpInMonActivePCRPID=ntcTsOIpInMonActivePCRPID, ntcTsOIpInConfGrpV1Standard=ntcTsOIpInConfGrpV1Standard, ntcTsOIpInMonRtpColumnFecInCount=ntcTsOIpInMonRtpColumnFecInCount, ntcTsOIpInMonResetCounters=ntcTsOIpInMonResetCounters, ntcTsOIpInMonInputTsBitRate=ntcTsOIpInMonInputTsBitRate, ntcTsOIpInMonMinBufferFilling=ntcTsOIpInMonMinBufferFilling, ntcTsOIpInInputRateType=ntcTsOIpInInputRateType, ntcTsOIpInConfCompliance=ntcTsOIpInConfCompliance, ntcTsOIpInMonBufferDelay=ntcTsOIpInMonBufferDelay, ntcTsOIpInMonMaxBufferFilling=ntcTsOIpInMonMaxBufferFilling, ntcTsOIpInMonSourceInfo=ntcTsOIpInMonSourceInfo, ntcTsOIpInEnable=ntcTsOIpInEnable, ntcTsOIpInObjects=ntcTsOIpInObjects, ntcTsOIpInMonTsInCount=ntcTsOIpInMonTsInCount, ntcTsOIpInPcrPid=ntcTsOIpInPcrPid, ntcTsOIpInMonRtpFecScheme=ntcTsOIpInMonRtpFecScheme, ntcTsOIpInMonRtpInCount=ntcTsOIpInMonRtpInCount, ntcTsOIpInAlmInvalidTsBitRate=ntcTsOIpInAlmInvalidTsBitRate, ntcTsOIpInMaxBufferDelay=ntcTsOIpInMaxBufferDelay, ntcTsOIpInMonRtpFecDropCount=ntcTsOIpInMonRtpFecDropCount, ntcTsOIpInTrafficProfile=ntcTsOIpInTrafficProfile, ntcTsOIpInConfCompV1Standard=ntcTsOIpInConfCompV1Standard, ntcTsOverIpIn=ntcTsOverIpIn, ntcTsOIpInInputSelection=ntcTsOIpInInputSelection, ntcTsOIpInUdpPort=ntcTsOIpInUdpPort, ntcTsOIpInMonRtpRepairCount=ntcTsOIpInMonRtpRepairCount, ntcTsOIpInMonTsDropCount=ntcTsOIpInMonTsDropCount, PYSNMP_MODULE_ID=ntcTsOverIpIn, ntcTsOIpInMonRtpDropCount=ntcTsOIpInMonRtpDropCount, ntcTsOIpInInputTsBitRate=ntcTsOIpInInputTsBitRate, ntcTsOIpInMulticastSourceA=ntcTsOIpInMulticastSourceA, ntcTsOIpInAutoPcrDetection=ntcTsOIpInAutoPcrDetection, ntcTsOIpInAlarm=ntcTsOIpInAlarm)

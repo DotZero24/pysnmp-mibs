@@ -1,173 +1,76 @@
-_L='a3ComSysSmtFddiStationModePortIndex'
-_K='a3ComSysSmtFddiStationModeIndex'
-_J='read-write'
-_I='a3ComSysSmtFddiPortIndex'
-_H='a3ComSysSmtFddiPortSmtIndex'
-_G='a3ComSysSmtFddiMacRateIndex'
-_F='a3ComSysSmtFddiMacRateSmtIndex'
-_E='DisplayString'
-_D='A3COM-SWITCHING-SYSTEMS-SMT-MIB'
-_C='Integer32'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_E,'PhysAddress','TextualConvention')
-_A3Com_ObjectIdentity=ObjectIdentity
-a3Com=_A3Com_ObjectIdentity((1,3,6,1,4,1,43))
-_SwitchingSystemsMibs_ObjectIdentity=ObjectIdentity
-switchingSystemsMibs=_SwitchingSystemsMibs_ObjectIdentity((1,3,6,1,4,1,43,29))
-_A3ComSwitchingSystemsMib_ObjectIdentity=ObjectIdentity
-a3ComSwitchingSystemsMib=_A3ComSwitchingSystemsMib_ObjectIdentity((1,3,6,1,4,1,43,29,4))
-_A3ComSysSmt_ObjectIdentity=ObjectIdentity
-a3ComSysSmt=_A3ComSysSmt_ObjectIdentity((1,3,6,1,4,1,43,29,4,9))
-_A3ComSysSmtCount_Type=Integer32
-_A3ComSysSmtCount_Object=MibScalar
-a3ComSysSmtCount=_A3ComSysSmtCount_Object((1,3,6,1,4,1,43,29,4,9,1),_A3ComSysSmtCount_Type())
-a3ComSysSmtCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtCount.setStatus(_A)
-_A3ComSysSmtFddiMacRateTable_Object=MibTable
-a3ComSysSmtFddiMacRateTable=_A3ComSysSmtFddiMacRateTable_Object((1,3,6,1,4,1,43,29,4,9,5))
-if mibBuilder.loadTexts:a3ComSysSmtFddiMacRateTable.setStatus(_A)
-_A3ComSysSmtFddiMacRateEntry_Object=MibTableRow
-a3ComSysSmtFddiMacRateEntry=_A3ComSysSmtFddiMacRateEntry_Object((1,3,6,1,4,1,43,29,4,9,5,1))
-a3ComSysSmtFddiMacRateEntry.setIndexNames((0,_D,_F),(0,_D,_G))
-if mibBuilder.loadTexts:a3ComSysSmtFddiMacRateEntry.setStatus(_A)
-class _A3ComSysSmtFddiMacRateSmtIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_A3ComSysSmtFddiMacRateSmtIndex_Type.__name__=_C
-_A3ComSysSmtFddiMacRateSmtIndex_Object=MibTableColumn
-a3ComSysSmtFddiMacRateSmtIndex=_A3ComSysSmtFddiMacRateSmtIndex_Object((1,3,6,1,4,1,43,29,4,9,5,1,1),_A3ComSysSmtFddiMacRateSmtIndex_Type())
-a3ComSysSmtFddiMacRateSmtIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiMacRateSmtIndex.setStatus(_A)
-class _A3ComSysSmtFddiMacRateIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_A3ComSysSmtFddiMacRateIndex_Type.__name__=_C
-_A3ComSysSmtFddiMacRateIndex_Object=MibTableColumn
-a3ComSysSmtFddiMacRateIndex=_A3ComSysSmtFddiMacRateIndex_Object((1,3,6,1,4,1,43,29,4,9,5,1,2),_A3ComSysSmtFddiMacRateIndex_Type())
-a3ComSysSmtFddiMacRateIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiMacRateIndex.setStatus(_A)
-_A3ComSysSmtFddiMacRateByteReceiveRate_Type=Integer32
-_A3ComSysSmtFddiMacRateByteReceiveRate_Object=MibTableColumn
-a3ComSysSmtFddiMacRateByteReceiveRate=_A3ComSysSmtFddiMacRateByteReceiveRate_Object((1,3,6,1,4,1,43,29,4,9,5,1,3),_A3ComSysSmtFddiMacRateByteReceiveRate_Type())
-a3ComSysSmtFddiMacRateByteReceiveRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiMacRateByteReceiveRate.setStatus(_A)
-_A3ComSysSmtFddiMacRatePeakByteReceiveRate_Type=Integer32
-_A3ComSysSmtFddiMacRatePeakByteReceiveRate_Object=MibTableColumn
-a3ComSysSmtFddiMacRatePeakByteReceiveRate=_A3ComSysSmtFddiMacRatePeakByteReceiveRate_Object((1,3,6,1,4,1,43,29,4,9,5,1,4),_A3ComSysSmtFddiMacRatePeakByteReceiveRate_Type())
-a3ComSysSmtFddiMacRatePeakByteReceiveRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiMacRatePeakByteReceiveRate.setStatus(_A)
-_A3ComSysSmtFddiMacRateFrameReceiveRate_Type=Integer32
-_A3ComSysSmtFddiMacRateFrameReceiveRate_Object=MibTableColumn
-a3ComSysSmtFddiMacRateFrameReceiveRate=_A3ComSysSmtFddiMacRateFrameReceiveRate_Object((1,3,6,1,4,1,43,29,4,9,5,1,5),_A3ComSysSmtFddiMacRateFrameReceiveRate_Type())
-a3ComSysSmtFddiMacRateFrameReceiveRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiMacRateFrameReceiveRate.setStatus(_A)
-_A3ComSysSmtFddiMacRatePeakFrameReceiveRate_Type=Integer32
-_A3ComSysSmtFddiMacRatePeakFrameReceiveRate_Object=MibTableColumn
-a3ComSysSmtFddiMacRatePeakFrameReceiveRate=_A3ComSysSmtFddiMacRatePeakFrameReceiveRate_Object((1,3,6,1,4,1,43,29,4,9,5,1,6),_A3ComSysSmtFddiMacRatePeakFrameReceiveRate_Type())
-a3ComSysSmtFddiMacRatePeakFrameReceiveRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiMacRatePeakFrameReceiveRate.setStatus(_A)
-_A3ComSysSmtFddiMacRateByteTransmitRate_Type=Integer32
-_A3ComSysSmtFddiMacRateByteTransmitRate_Object=MibTableColumn
-a3ComSysSmtFddiMacRateByteTransmitRate=_A3ComSysSmtFddiMacRateByteTransmitRate_Object((1,3,6,1,4,1,43,29,4,9,5,1,7),_A3ComSysSmtFddiMacRateByteTransmitRate_Type())
-a3ComSysSmtFddiMacRateByteTransmitRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiMacRateByteTransmitRate.setStatus(_A)
-_A3ComSysSmtFddiMacRatePeakByteTransmitRate_Type=Integer32
-_A3ComSysSmtFddiMacRatePeakByteTransmitRate_Object=MibTableColumn
-a3ComSysSmtFddiMacRatePeakByteTransmitRate=_A3ComSysSmtFddiMacRatePeakByteTransmitRate_Object((1,3,6,1,4,1,43,29,4,9,5,1,8),_A3ComSysSmtFddiMacRatePeakByteTransmitRate_Type())
-a3ComSysSmtFddiMacRatePeakByteTransmitRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiMacRatePeakByteTransmitRate.setStatus(_A)
-_A3ComSysSmtFddiMacRateFrameTransmitRate_Type=Integer32
-_A3ComSysSmtFddiMacRateFrameTransmitRate_Object=MibTableColumn
-a3ComSysSmtFddiMacRateFrameTransmitRate=_A3ComSysSmtFddiMacRateFrameTransmitRate_Object((1,3,6,1,4,1,43,29,4,9,5,1,9),_A3ComSysSmtFddiMacRateFrameTransmitRate_Type())
-a3ComSysSmtFddiMacRateFrameTransmitRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiMacRateFrameTransmitRate.setStatus(_A)
-_A3ComSysSmtFddiMacRatePeakFrameTransmitRate_Type=Integer32
-_A3ComSysSmtFddiMacRatePeakFrameTransmitRate_Object=MibTableColumn
-a3ComSysSmtFddiMacRatePeakFrameTransmitRate=_A3ComSysSmtFddiMacRatePeakFrameTransmitRate_Object((1,3,6,1,4,1,43,29,4,9,5,1,10),_A3ComSysSmtFddiMacRatePeakFrameTransmitRate_Type())
-a3ComSysSmtFddiMacRatePeakFrameTransmitRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiMacRatePeakFrameTransmitRate.setStatus(_A)
-_A3ComSysSmtFddiPortTable_Object=MibTable
-a3ComSysSmtFddiPortTable=_A3ComSysSmtFddiPortTable_Object((1,3,6,1,4,1,43,29,4,9,6))
-if mibBuilder.loadTexts:a3ComSysSmtFddiPortTable.setStatus(_A)
-_A3ComSysSmtFddiPortEntry_Object=MibTableRow
-a3ComSysSmtFddiPortEntry=_A3ComSysSmtFddiPortEntry_Object((1,3,6,1,4,1,43,29,4,9,6,1))
-a3ComSysSmtFddiPortEntry.setIndexNames((0,_D,_H),(0,_D,_I))
-if mibBuilder.loadTexts:a3ComSysSmtFddiPortEntry.setStatus(_A)
-class _A3ComSysSmtFddiPortSmtIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_A3ComSysSmtFddiPortSmtIndex_Type.__name__=_C
-_A3ComSysSmtFddiPortSmtIndex_Object=MibTableColumn
-a3ComSysSmtFddiPortSmtIndex=_A3ComSysSmtFddiPortSmtIndex_Object((1,3,6,1,4,1,43,29,4,9,6,1,1),_A3ComSysSmtFddiPortSmtIndex_Type())
-a3ComSysSmtFddiPortSmtIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiPortSmtIndex.setStatus(_A)
-class _A3ComSysSmtFddiPortIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_A3ComSysSmtFddiPortIndex_Type.__name__=_C
-_A3ComSysSmtFddiPortIndex_Object=MibTableColumn
-a3ComSysSmtFddiPortIndex=_A3ComSysSmtFddiPortIndex_Object((1,3,6,1,4,1,43,29,4,9,6,1,2),_A3ComSysSmtFddiPortIndex_Type())
-a3ComSysSmtFddiPortIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiPortIndex.setStatus(_A)
-class _A3ComSysSmtFddiPortLocationType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('other',1),('modularSlot',2),('chassis',3),('modularCard',4)))
-_A3ComSysSmtFddiPortLocationType_Type.__name__=_C
-_A3ComSysSmtFddiPortLocationType_Object=MibTableColumn
-a3ComSysSmtFddiPortLocationType=_A3ComSysSmtFddiPortLocationType_Object((1,3,6,1,4,1,43,29,4,9,6,1,3),_A3ComSysSmtFddiPortLocationType_Type())
-a3ComSysSmtFddiPortLocationType.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiPortLocationType.setStatus(_A)
-_A3ComSysSmtFddiPortLocationTypeIndex_Type=Integer32
-_A3ComSysSmtFddiPortLocationTypeIndex_Object=MibTableColumn
-a3ComSysSmtFddiPortLocationTypeIndex=_A3ComSysSmtFddiPortLocationTypeIndex_Object((1,3,6,1,4,1,43,29,4,9,6,1,4),_A3ComSysSmtFddiPortLocationTypeIndex_Type())
-a3ComSysSmtFddiPortLocationTypeIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiPortLocationTypeIndex.setStatus(_A)
-_A3ComSysSmtFddiPortLocationLocalIndex_Type=Integer32
-_A3ComSysSmtFddiPortLocationLocalIndex_Object=MibTableColumn
-a3ComSysSmtFddiPortLocationLocalIndex=_A3ComSysSmtFddiPortLocationLocalIndex_Object((1,3,6,1,4,1,43,29,4,9,6,1,5),_A3ComSysSmtFddiPortLocationLocalIndex_Type())
-a3ComSysSmtFddiPortLocationLocalIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiPortLocationLocalIndex.setStatus(_A)
-class _A3ComSysSmtFddiPortLabel_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_A3ComSysSmtFddiPortLabel_Type.__name__=_E
-_A3ComSysSmtFddiPortLabel_Object=MibTableColumn
-a3ComSysSmtFddiPortLabel=_A3ComSysSmtFddiPortLabel_Object((1,3,6,1,4,1,43,29,4,9,6,1,6),_A3ComSysSmtFddiPortLabel_Type())
-a3ComSysSmtFddiPortLabel.setMaxAccess(_J)
-if mibBuilder.loadTexts:a3ComSysSmtFddiPortLabel.setStatus(_A)
-_A3ComSysSmtFddiPortSystemPhysicalConnectorId_Type=Integer32
-_A3ComSysSmtFddiPortSystemPhysicalConnectorId_Object=MibTableColumn
-a3ComSysSmtFddiPortSystemPhysicalConnectorId=_A3ComSysSmtFddiPortSystemPhysicalConnectorId_Object((1,3,6,1,4,1,43,29,4,9,6,1,7),_A3ComSysSmtFddiPortSystemPhysicalConnectorId_Type())
-a3ComSysSmtFddiPortSystemPhysicalConnectorId.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiPortSystemPhysicalConnectorId.setStatus(_A)
-_A3ComSysSmtFddiStationModeTable_Object=MibTable
-a3ComSysSmtFddiStationModeTable=_A3ComSysSmtFddiStationModeTable_Object((1,3,6,1,4,1,43,29,4,9,10))
-if mibBuilder.loadTexts:a3ComSysSmtFddiStationModeTable.setStatus(_A)
-_A3ComSysSmtFddiStationModeEntry_Object=MibTableRow
-a3ComSysSmtFddiStationModeEntry=_A3ComSysSmtFddiStationModeEntry_Object((1,3,6,1,4,1,43,29,4,9,10,1))
-a3ComSysSmtFddiStationModeEntry.setIndexNames((0,_D,_K),(0,_D,_L))
-if mibBuilder.loadTexts:a3ComSysSmtFddiStationModeEntry.setStatus(_A)
-_A3ComSysSmtFddiStationModeIndex_Type=Integer32
-_A3ComSysSmtFddiStationModeIndex_Object=MibTableColumn
-a3ComSysSmtFddiStationModeIndex=_A3ComSysSmtFddiStationModeIndex_Object((1,3,6,1,4,1,43,29,4,9,10,1,1),_A3ComSysSmtFddiStationModeIndex_Type())
-a3ComSysSmtFddiStationModeIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiStationModeIndex.setStatus(_A)
-_A3ComSysSmtFddiStationModePortIndex_Type=Integer32
-_A3ComSysSmtFddiStationModePortIndex_Object=MibTableColumn
-a3ComSysSmtFddiStationModePortIndex=_A3ComSysSmtFddiStationModePortIndex_Object((1,3,6,1,4,1,43,29,4,9,10,1,2),_A3ComSysSmtFddiStationModePortIndex_Type())
-a3ComSysSmtFddiStationModePortIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiStationModePortIndex.setStatus(_A)
-class _A3ComSysSmtFddiStationModeSelectablePorts_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_A3ComSysSmtFddiStationModeSelectablePorts_Type.__name__=_C
-_A3ComSysSmtFddiStationModeSelectablePorts_Object=MibTableColumn
-a3ComSysSmtFddiStationModeSelectablePorts=_A3ComSysSmtFddiStationModeSelectablePorts_Object((1,3,6,1,4,1,43,29,4,9,10,1,3),_A3ComSysSmtFddiStationModeSelectablePorts_Type())
-a3ComSysSmtFddiStationModeSelectablePorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiStationModeSelectablePorts.setStatus(_A)
-class _A3ComSysSmtFddiStationModeCurrentMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('sas-m',1),('sas-s',2),('das',3)))
-_A3ComSysSmtFddiStationModeCurrentMode_Type.__name__=_C
-_A3ComSysSmtFddiStationModeCurrentMode_Object=MibTableColumn
-a3ComSysSmtFddiStationModeCurrentMode=_A3ComSysSmtFddiStationModeCurrentMode_Object((1,3,6,1,4,1,43,29,4,9,10,1,4),_A3ComSysSmtFddiStationModeCurrentMode_Type())
-a3ComSysSmtFddiStationModeCurrentMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComSysSmtFddiStationModeCurrentMode.setStatus(_A)
-class _A3ComSysSmtFddiStationModeRequestedMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('sas-m',1),('sas-s',2),('das',3)))
-_A3ComSysSmtFddiStationModeRequestedMode_Type.__name__=_C
-_A3ComSysSmtFddiStationModeRequestedMode_Object=MibTableColumn
-a3ComSysSmtFddiStationModeRequestedMode=_A3ComSysSmtFddiStationModeRequestedMode_Object((1,3,6,1,4,1,43,29,4,9,10,1,5),_A3ComSysSmtFddiStationModeRequestedMode_Type())
-a3ComSysSmtFddiStationModeRequestedMode.setMaxAccess(_J)
-if mibBuilder.loadTexts:a3ComSysSmtFddiStationModeRequestedMode.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'a3Com':a3Com,'switchingSystemsMibs':switchingSystemsMibs,'a3ComSwitchingSystemsMib':a3ComSwitchingSystemsMib,'a3ComSysSmt':a3ComSysSmt,'a3ComSysSmtCount':a3ComSysSmtCount,'a3ComSysSmtFddiMacRateTable':a3ComSysSmtFddiMacRateTable,'a3ComSysSmtFddiMacRateEntry':a3ComSysSmtFddiMacRateEntry,_F:a3ComSysSmtFddiMacRateSmtIndex,_G:a3ComSysSmtFddiMacRateIndex,'a3ComSysSmtFddiMacRateByteReceiveRate':a3ComSysSmtFddiMacRateByteReceiveRate,'a3ComSysSmtFddiMacRatePeakByteReceiveRate':a3ComSysSmtFddiMacRatePeakByteReceiveRate,'a3ComSysSmtFddiMacRateFrameReceiveRate':a3ComSysSmtFddiMacRateFrameReceiveRate,'a3ComSysSmtFddiMacRatePeakFrameReceiveRate':a3ComSysSmtFddiMacRatePeakFrameReceiveRate,'a3ComSysSmtFddiMacRateByteTransmitRate':a3ComSysSmtFddiMacRateByteTransmitRate,'a3ComSysSmtFddiMacRatePeakByteTransmitRate':a3ComSysSmtFddiMacRatePeakByteTransmitRate,'a3ComSysSmtFddiMacRateFrameTransmitRate':a3ComSysSmtFddiMacRateFrameTransmitRate,'a3ComSysSmtFddiMacRatePeakFrameTransmitRate':a3ComSysSmtFddiMacRatePeakFrameTransmitRate,'a3ComSysSmtFddiPortTable':a3ComSysSmtFddiPortTable,'a3ComSysSmtFddiPortEntry':a3ComSysSmtFddiPortEntry,_H:a3ComSysSmtFddiPortSmtIndex,_I:a3ComSysSmtFddiPortIndex,'a3ComSysSmtFddiPortLocationType':a3ComSysSmtFddiPortLocationType,'a3ComSysSmtFddiPortLocationTypeIndex':a3ComSysSmtFddiPortLocationTypeIndex,'a3ComSysSmtFddiPortLocationLocalIndex':a3ComSysSmtFddiPortLocationLocalIndex,'a3ComSysSmtFddiPortLabel':a3ComSysSmtFddiPortLabel,'a3ComSysSmtFddiPortSystemPhysicalConnectorId':a3ComSysSmtFddiPortSystemPhysicalConnectorId,'a3ComSysSmtFddiStationModeTable':a3ComSysSmtFddiStationModeTable,'a3ComSysSmtFddiStationModeEntry':a3ComSysSmtFddiStationModeEntry,_K:a3ComSysSmtFddiStationModeIndex,_L:a3ComSysSmtFddiStationModePortIndex,'a3ComSysSmtFddiStationModeSelectablePorts':a3ComSysSmtFddiStationModeSelectablePorts,'a3ComSysSmtFddiStationModeCurrentMode':a3ComSysSmtFddiStationModeCurrentMode,'a3ComSysSmtFddiStationModeRequestedMode':a3ComSysSmtFddiStationModeRequestedMode})
+#
+# PySNMP MIB module A3COM-SWITCHING-SYSTEMS-SMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-SWITCHING-SYSTEMS-SMT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+a3Com = MibIdentifier((1, 3, 6, 1, 4, 1, 43))
+switchingSystemsMibs = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 29))
+a3ComSwitchingSystemsMib = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 29, 4))
+a3ComSysSmt = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 29, 4, 9))
+a3ComSysSmtCount = MibScalar((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtCount.setStatus('mandatory')
+a3ComSysSmtFddiMacRateTable = MibTable((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 5), )
+if mibBuilder.loadTexts: a3ComSysSmtFddiMacRateTable.setStatus('mandatory')
+a3ComSysSmtFddiMacRateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 5, 1), ).setIndexNames((0, "A3COM-SWITCHING-SYSTEMS-SMT-MIB", "a3ComSysSmtFddiMacRateSmtIndex"), (0, "A3COM-SWITCHING-SYSTEMS-SMT-MIB", "a3ComSysSmtFddiMacRateIndex"))
+if mibBuilder.loadTexts: a3ComSysSmtFddiMacRateEntry.setStatus('mandatory')
+a3ComSysSmtFddiMacRateSmtIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiMacRateSmtIndex.setStatus('mandatory')
+a3ComSysSmtFddiMacRateIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiMacRateIndex.setStatus('mandatory')
+a3ComSysSmtFddiMacRateByteReceiveRate = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 5, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiMacRateByteReceiveRate.setStatus('mandatory')
+a3ComSysSmtFddiMacRatePeakByteReceiveRate = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 5, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiMacRatePeakByteReceiveRate.setStatus('mandatory')
+a3ComSysSmtFddiMacRateFrameReceiveRate = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 5, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiMacRateFrameReceiveRate.setStatus('mandatory')
+a3ComSysSmtFddiMacRatePeakFrameReceiveRate = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 5, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiMacRatePeakFrameReceiveRate.setStatus('mandatory')
+a3ComSysSmtFddiMacRateByteTransmitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 5, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiMacRateByteTransmitRate.setStatus('mandatory')
+a3ComSysSmtFddiMacRatePeakByteTransmitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 5, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiMacRatePeakByteTransmitRate.setStatus('mandatory')
+a3ComSysSmtFddiMacRateFrameTransmitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 5, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiMacRateFrameTransmitRate.setStatus('mandatory')
+a3ComSysSmtFddiMacRatePeakFrameTransmitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 5, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiMacRatePeakFrameTransmitRate.setStatus('mandatory')
+a3ComSysSmtFddiPortTable = MibTable((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 6), )
+if mibBuilder.loadTexts: a3ComSysSmtFddiPortTable.setStatus('mandatory')
+a3ComSysSmtFddiPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 6, 1), ).setIndexNames((0, "A3COM-SWITCHING-SYSTEMS-SMT-MIB", "a3ComSysSmtFddiPortSmtIndex"), (0, "A3COM-SWITCHING-SYSTEMS-SMT-MIB", "a3ComSysSmtFddiPortIndex"))
+if mibBuilder.loadTexts: a3ComSysSmtFddiPortEntry.setStatus('mandatory')
+a3ComSysSmtFddiPortSmtIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiPortSmtIndex.setStatus('mandatory')
+a3ComSysSmtFddiPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 6, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiPortIndex.setStatus('mandatory')
+a3ComSysSmtFddiPortLocationType = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("modularSlot", 2), ("chassis", 3), ("modularCard", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiPortLocationType.setStatus('mandatory')
+a3ComSysSmtFddiPortLocationTypeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 6, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiPortLocationTypeIndex.setStatus('mandatory')
+a3ComSysSmtFddiPortLocationLocalIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 6, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiPortLocationLocalIndex.setStatus('mandatory')
+a3ComSysSmtFddiPortLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 6, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: a3ComSysSmtFddiPortLabel.setStatus('mandatory')
+a3ComSysSmtFddiPortSystemPhysicalConnectorId = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 6, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiPortSystemPhysicalConnectorId.setStatus('mandatory')
+a3ComSysSmtFddiStationModeTable = MibTable((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 10), )
+if mibBuilder.loadTexts: a3ComSysSmtFddiStationModeTable.setStatus('mandatory')
+a3ComSysSmtFddiStationModeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 10, 1), ).setIndexNames((0, "A3COM-SWITCHING-SYSTEMS-SMT-MIB", "a3ComSysSmtFddiStationModeIndex"), (0, "A3COM-SWITCHING-SYSTEMS-SMT-MIB", "a3ComSysSmtFddiStationModePortIndex"))
+if mibBuilder.loadTexts: a3ComSysSmtFddiStationModeEntry.setStatus('mandatory')
+a3ComSysSmtFddiStationModeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 10, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiStationModeIndex.setStatus('mandatory')
+a3ComSysSmtFddiStationModePortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 10, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiStationModePortIndex.setStatus('mandatory')
+a3ComSysSmtFddiStationModeSelectablePorts = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 10, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiStationModeSelectablePorts.setStatus('mandatory')
+a3ComSysSmtFddiStationModeCurrentMode = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 10, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("sas-m", 1), ("sas-s", 2), ("das", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a3ComSysSmtFddiStationModeCurrentMode.setStatus('mandatory')
+a3ComSysSmtFddiStationModeRequestedMode = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 29, 4, 9, 10, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("sas-m", 1), ("sas-s", 2), ("das", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: a3ComSysSmtFddiStationModeRequestedMode.setStatus('mandatory')
+mibBuilder.exportSymbols("A3COM-SWITCHING-SYSTEMS-SMT-MIB", switchingSystemsMibs=switchingSystemsMibs, a3ComSysSmtFddiStationModePortIndex=a3ComSysSmtFddiStationModePortIndex, a3ComSysSmtFddiStationModeCurrentMode=a3ComSysSmtFddiStationModeCurrentMode, a3ComSysSmtFddiMacRateEntry=a3ComSysSmtFddiMacRateEntry, a3ComSysSmtFddiMacRatePeakByteTransmitRate=a3ComSysSmtFddiMacRatePeakByteTransmitRate, a3ComSysSmtFddiPortLabel=a3ComSysSmtFddiPortLabel, a3ComSysSmtFddiMacRatePeakByteReceiveRate=a3ComSysSmtFddiMacRatePeakByteReceiveRate, a3ComSysSmtFddiMacRatePeakFrameReceiveRate=a3ComSysSmtFddiMacRatePeakFrameReceiveRate, a3ComSysSmtFddiMacRateFrameTransmitRate=a3ComSysSmtFddiMacRateFrameTransmitRate, a3ComSysSmtFddiPortSystemPhysicalConnectorId=a3ComSysSmtFddiPortSystemPhysicalConnectorId, a3ComSysSmt=a3ComSysSmt, a3ComSysSmtFddiMacRateFrameReceiveRate=a3ComSysSmtFddiMacRateFrameReceiveRate, a3Com=a3Com, a3ComSysSmtFddiStationModeEntry=a3ComSysSmtFddiStationModeEntry, a3ComSysSmtFddiPortLocationTypeIndex=a3ComSysSmtFddiPortLocationTypeIndex, a3ComSysSmtFddiStationModeTable=a3ComSysSmtFddiStationModeTable, a3ComSysSmtFddiStationModeRequestedMode=a3ComSysSmtFddiStationModeRequestedMode, a3ComSysSmtFddiPortEntry=a3ComSysSmtFddiPortEntry, a3ComSysSmtFddiMacRateByteTransmitRate=a3ComSysSmtFddiMacRateByteTransmitRate, a3ComSysSmtFddiMacRatePeakFrameTransmitRate=a3ComSysSmtFddiMacRatePeakFrameTransmitRate, a3ComSysSmtFddiMacRateByteReceiveRate=a3ComSysSmtFddiMacRateByteReceiveRate, a3ComSysSmtFddiStationModeIndex=a3ComSysSmtFddiStationModeIndex, a3ComSysSmtFddiMacRateSmtIndex=a3ComSysSmtFddiMacRateSmtIndex, a3ComSwitchingSystemsMib=a3ComSwitchingSystemsMib, a3ComSysSmtFddiPortIndex=a3ComSysSmtFddiPortIndex, a3ComSysSmtFddiPortLocationLocalIndex=a3ComSysSmtFddiPortLocationLocalIndex, a3ComSysSmtFddiStationModeSelectablePorts=a3ComSysSmtFddiStationModeSelectablePorts, a3ComSysSmtFddiPortLocationType=a3ComSysSmtFddiPortLocationType, a3ComSysSmtFddiMacRateTable=a3ComSysSmtFddiMacRateTable, a3ComSysSmtCount=a3ComSysSmtCount, a3ComSysSmtFddiPortSmtIndex=a3ComSysSmtFddiPortSmtIndex, a3ComSysSmtFddiMacRateIndex=a3ComSysSmtFddiMacRateIndex, a3ComSysSmtFddiPortTable=a3ComSysSmtFddiPortTable)

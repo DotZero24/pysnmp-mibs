@@ -1,63 +1,46 @@
-_G='PortList'
-_F='read-only'
-_E='wwpERestPortId'
-_D='wwpERestVlanId'
-_C='Integer32'
-_B='WWP-EGRESS-PORT-RESTRICTION-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-wwpModules,=mibBuilder.importSymbols('WWP-SMI','wwpModules')
-wwpEgressPortRestrictionMIB=ModuleIdentity((1,3,6,1,4,1,6141,2,34))
-if mibBuilder.loadTexts:wwpEgressPortRestrictionMIB.setRevisions(('2001-04-03 17:00',))
-class PortList(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-class VlanId(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_WwpEgressPortRestrictionMIBObjects_ObjectIdentity=ObjectIdentity
-wwpEgressPortRestrictionMIBObjects=_WwpEgressPortRestrictionMIBObjects_ObjectIdentity((1,3,6,1,4,1,6141,2,34,1))
-_WwpEgressPortRestriction_ObjectIdentity=ObjectIdentity
-wwpEgressPortRestriction=_WwpEgressPortRestriction_ObjectIdentity((1,3,6,1,4,1,6141,2,34,1,1))
-_WwpEgressPortRestrictionTable_Object=MibTable
-wwpEgressPortRestrictionTable=_WwpEgressPortRestrictionTable_Object((1,3,6,1,4,1,6141,2,34,1,1,1))
-if mibBuilder.loadTexts:wwpEgressPortRestrictionTable.setStatus(_A)
-_WwpEgressPortRestrictionEntry_Object=MibTableRow
-wwpEgressPortRestrictionEntry=_WwpEgressPortRestrictionEntry_Object((1,3,6,1,4,1,6141,2,34,1,1,1,1))
-wwpEgressPortRestrictionEntry.setIndexNames((0,_B,_D),(0,_B,_E))
-if mibBuilder.loadTexts:wwpEgressPortRestrictionEntry.setStatus(_A)
-_WwpERestVlanId_Type=VlanId
-_WwpERestVlanId_Object=MibTableColumn
-wwpERestVlanId=_WwpERestVlanId_Object((1,3,6,1,4,1,6141,2,34,1,1,1,1,1),_WwpERestVlanId_Type())
-wwpERestVlanId.setMaxAccess(_F)
-if mibBuilder.loadTexts:wwpERestVlanId.setStatus(_A)
-class _WwpERestPortId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_WwpERestPortId_Type.__name__=_C
-_WwpERestPortId_Object=MibTableColumn
-wwpERestPortId=_WwpERestPortId_Object((1,3,6,1,4,1,6141,2,34,1,1,1,1,2),_WwpERestPortId_Type())
-wwpERestPortId.setMaxAccess(_F)
-if mibBuilder.loadTexts:wwpERestPortId.setStatus(_A)
-class _WwpERestEgreesPorts_Type(PortList):defaultHexValue='0000'
-_WwpERestEgreesPorts_Type.__name__=_G
-_WwpERestEgreesPorts_Object=MibTableColumn
-wwpERestEgreesPorts=_WwpERestEgreesPorts_Object((1,3,6,1,4,1,6141,2,34,1,1,1,1,3),_WwpERestEgreesPorts_Type())
-wwpERestEgreesPorts.setMaxAccess('read-write')
-if mibBuilder.loadTexts:wwpERestEgreesPorts.setStatus(_A)
-_WwpERestStatus_Type=RowStatus
-_WwpERestStatus_Object=MibTableColumn
-wwpERestStatus=_WwpERestStatus_Object((1,3,6,1,4,1,6141,2,34,1,1,1,1,4),_WwpERestStatus_Type())
-wwpERestStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:wwpERestStatus.setStatus(_A)
-_WwpEgressPortRestrictionNotificationPrefix_ObjectIdentity=ObjectIdentity
-wwpEgressPortRestrictionNotificationPrefix=_WwpEgressPortRestrictionNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,6141,2,34,2))
-_WwpEgressPortRestrictionNotifications_ObjectIdentity=ObjectIdentity
-wwpEgressPortRestrictionNotifications=_WwpEgressPortRestrictionNotifications_ObjectIdentity((1,3,6,1,4,1,6141,2,34,2,0))
-_WwpEgressPortRestrictionMIBConformance_ObjectIdentity=ObjectIdentity
-wwpEgressPortRestrictionMIBConformance=_WwpEgressPortRestrictionMIBConformance_ObjectIdentity((1,3,6,1,4,1,6141,2,34,3))
-_WwpEgressPortRestrictionMIBCompliances_ObjectIdentity=ObjectIdentity
-wwpEgressPortRestrictionMIBCompliances=_WwpEgressPortRestrictionMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6141,2,34,3,1))
-_WwpEgressPortRestrictionMIBGroups_ObjectIdentity=ObjectIdentity
-wwpEgressPortRestrictionMIBGroups=_WwpEgressPortRestrictionMIBGroups_ObjectIdentity((1,3,6,1,4,1,6141,2,34,3,2))
-mibBuilder.exportSymbols(_B,**{_G:PortList,'VlanId':VlanId,'wwpEgressPortRestrictionMIB':wwpEgressPortRestrictionMIB,'wwpEgressPortRestrictionMIBObjects':wwpEgressPortRestrictionMIBObjects,'wwpEgressPortRestriction':wwpEgressPortRestriction,'wwpEgressPortRestrictionTable':wwpEgressPortRestrictionTable,'wwpEgressPortRestrictionEntry':wwpEgressPortRestrictionEntry,_D:wwpERestVlanId,_E:wwpERestPortId,'wwpERestEgreesPorts':wwpERestEgreesPorts,'wwpERestStatus':wwpERestStatus,'wwpEgressPortRestrictionNotificationPrefix':wwpEgressPortRestrictionNotificationPrefix,'wwpEgressPortRestrictionNotifications':wwpEgressPortRestrictionNotifications,'wwpEgressPortRestrictionMIBConformance':wwpEgressPortRestrictionMIBConformance,'wwpEgressPortRestrictionMIBCompliances':wwpEgressPortRestrictionMIBCompliances,'wwpEgressPortRestrictionMIBGroups':wwpEgressPortRestrictionMIBGroups})
+#
+# PySNMP MIB module WWP-EGRESS-PORT-RESTRICTION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/WWP-EGRESS-PORT-RESTRICTION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:06 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+wwpModules, = mibBuilder.importSymbols("WWP-SMI", "wwpModules")
+wwpEgressPortRestrictionMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 34))
+wwpEgressPortRestrictionMIB.setRevisions(('2001-04-03 17:00',))
+if mibBuilder.loadTexts: wwpEgressPortRestrictionMIB.setLastUpdated('200104031700Z')
+if mibBuilder.loadTexts: wwpEgressPortRestrictionMIB.setOrganization('World Wide Packets, Inc')
+class PortList(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+
+class VlanId(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 4094)
+
+wwpEgressPortRestrictionMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 34, 1))
+wwpEgressPortRestriction = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 34, 1, 1))
+wwpEgressPortRestrictionNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 34, 2))
+wwpEgressPortRestrictionNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 34, 2, 0))
+wwpEgressPortRestrictionMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 34, 3))
+wwpEgressPortRestrictionMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 34, 3, 1))
+wwpEgressPortRestrictionMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 34, 3, 2))
+wwpEgressPortRestrictionTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 34, 1, 1, 1), )
+if mibBuilder.loadTexts: wwpEgressPortRestrictionTable.setStatus('current')
+wwpEgressPortRestrictionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 34, 1, 1, 1, 1), ).setIndexNames((0, "WWP-EGRESS-PORT-RESTRICTION-MIB", "wwpERestVlanId"), (0, "WWP-EGRESS-PORT-RESTRICTION-MIB", "wwpERestPortId"))
+if mibBuilder.loadTexts: wwpEgressPortRestrictionEntry.setStatus('current')
+wwpERestVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 34, 1, 1, 1, 1, 1), VlanId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpERestVlanId.setStatus('current')
+wwpERestPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 34, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpERestPortId.setStatus('current')
+wwpERestEgreesPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 34, 1, 1, 1, 1, 3), PortList().clone(hexValue="0000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpERestEgreesPorts.setStatus('current')
+wwpERestStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 34, 1, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: wwpERestStatus.setStatus('current')
+mibBuilder.exportSymbols("WWP-EGRESS-PORT-RESTRICTION-MIB", wwpEgressPortRestrictionEntry=wwpEgressPortRestrictionEntry, wwpEgressPortRestrictionMIBObjects=wwpEgressPortRestrictionMIBObjects, wwpERestStatus=wwpERestStatus, wwpEgressPortRestrictionMIBGroups=wwpEgressPortRestrictionMIBGroups, wwpERestPortId=wwpERestPortId, wwpEgressPortRestrictionTable=wwpEgressPortRestrictionTable, PYSNMP_MODULE_ID=wwpEgressPortRestrictionMIB, wwpERestVlanId=wwpERestVlanId, wwpEgressPortRestriction=wwpEgressPortRestriction, wwpEgressPortRestrictionNotificationPrefix=wwpEgressPortRestrictionNotificationPrefix, PortList=PortList, wwpEgressPortRestrictionNotifications=wwpEgressPortRestrictionNotifications, wwpERestEgreesPorts=wwpERestEgreesPorts, VlanId=VlanId, wwpEgressPortRestrictionMIBCompliances=wwpEgressPortRestrictionMIBCompliances, wwpEgressPortRestrictionMIBConformance=wwpEgressPortRestrictionMIBConformance, wwpEgressPortRestrictionMIB=wwpEgressPortRestrictionMIB)

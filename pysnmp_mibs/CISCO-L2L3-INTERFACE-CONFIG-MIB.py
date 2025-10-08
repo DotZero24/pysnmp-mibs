@@ -1,53 +1,45 @@
-_G='ciscoL2L3IfConfigMIBGroup'
-_F='cL2L3IfModeOper'
-_E='cL2L3IfModeAdmin'
-_D='ifIndex'
-_C='IF-MIB'
-_B='CISCO-L2L3-INTERFACE-CONFIG-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ifIndex,=mibBuilder.importSymbols(_C,_D)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoL2L3IfConfigMIB=ModuleIdentity((1,3,6,1,4,1,9,9,151))
-if mibBuilder.loadTexts:ciscoL2L3IfConfigMIB.setRevisions(('2000-05-10 19:00',))
-class CL2L3InterfaceMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('routed',1),('switchport',2)))
-_CiscoL2L3IfConfigMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoL2L3IfConfigMIBObjects=_CiscoL2L3IfConfigMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,151,1))
-_CL2L3IfConfig_ObjectIdentity=ObjectIdentity
-cL2L3IfConfig=_CL2L3IfConfig_ObjectIdentity((1,3,6,1,4,1,9,9,151,1,1))
-_CL2L3IfTable_Object=MibTable
-cL2L3IfTable=_CL2L3IfTable_Object((1,3,6,1,4,1,9,9,151,1,1,1))
-if mibBuilder.loadTexts:cL2L3IfTable.setStatus(_A)
-_CL2L3IfEntry_Object=MibTableRow
-cL2L3IfEntry=_CL2L3IfEntry_Object((1,3,6,1,4,1,9,9,151,1,1,1,1))
-cL2L3IfEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:cL2L3IfEntry.setStatus(_A)
-_CL2L3IfModeAdmin_Type=CL2L3InterfaceMode
-_CL2L3IfModeAdmin_Object=MibTableColumn
-cL2L3IfModeAdmin=_CL2L3IfModeAdmin_Object((1,3,6,1,4,1,9,9,151,1,1,1,1,1),_CL2L3IfModeAdmin_Type())
-cL2L3IfModeAdmin.setMaxAccess('read-write')
-if mibBuilder.loadTexts:cL2L3IfModeAdmin.setStatus(_A)
-_CL2L3IfModeOper_Type=CL2L3InterfaceMode
-_CL2L3IfModeOper_Object=MibTableColumn
-cL2L3IfModeOper=_CL2L3IfModeOper_Object((1,3,6,1,4,1,9,9,151,1,1,1,1,2),_CL2L3IfModeOper_Type())
-cL2L3IfModeOper.setMaxAccess('read-only')
-if mibBuilder.loadTexts:cL2L3IfModeOper.setStatus(_A)
-_CiscoL2L3IfConfigMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoL2L3IfConfigMIBConformance=_CiscoL2L3IfConfigMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,151,3))
-_CiscoL2L3IfConfigMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoL2L3IfConfigMIBCompliances=_CiscoL2L3IfConfigMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,151,3,1))
-_CiscoL2L3IfConfigMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoL2L3IfConfigMIBGroups=_CiscoL2L3IfConfigMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,151,3,2))
-ciscoL2L3IfConfigMIBGroup=ObjectGroup((1,3,6,1,4,1,9,9,151,3,2,1))
-ciscoL2L3IfConfigMIBGroup.setObjects(*((_B,_E),(_B,_F)))
-if mibBuilder.loadTexts:ciscoL2L3IfConfigMIBGroup.setStatus(_A)
-ciscoL2L3IfConfigMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,151,3,1,1))
-ciscoL2L3IfConfigMIBCompliance.setObjects((_B,_G))
-if mibBuilder.loadTexts:ciscoL2L3IfConfigMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CL2L3InterfaceMode':CL2L3InterfaceMode,'ciscoL2L3IfConfigMIB':ciscoL2L3IfConfigMIB,'ciscoL2L3IfConfigMIBObjects':ciscoL2L3IfConfigMIBObjects,'cL2L3IfConfig':cL2L3IfConfig,'cL2L3IfTable':cL2L3IfTable,'cL2L3IfEntry':cL2L3IfEntry,_E:cL2L3IfModeAdmin,_F:cL2L3IfModeOper,'ciscoL2L3IfConfigMIBConformance':ciscoL2L3IfConfigMIBConformance,'ciscoL2L3IfConfigMIBCompliances':ciscoL2L3IfConfigMIBCompliances,'ciscoL2L3IfConfigMIBCompliance':ciscoL2L3IfConfigMIBCompliance,'ciscoL2L3IfConfigMIBGroups':ciscoL2L3IfConfigMIBGroups,_G:ciscoL2L3IfConfigMIBGroup})
+#
+# PySNMP MIB module CISCO-L2L3-INTERFACE-CONFIG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-L2L3-INTERFACE-CONFIG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoL2L3IfConfigMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 151))
+ciscoL2L3IfConfigMIB.setRevisions(('2000-05-10 19:00',))
+if mibBuilder.loadTexts: ciscoL2L3IfConfigMIB.setLastUpdated('200005101900Z')
+if mibBuilder.loadTexts: ciscoL2L3IfConfigMIB.setOrganization('Cisco Systems, Inc.')
+ciscoL2L3IfConfigMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 151, 1))
+cL2L3IfConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 151, 1, 1))
+class CL2L3InterfaceMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("routed", 1), ("switchport", 2))
+
+cL2L3IfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 151, 1, 1, 1), )
+if mibBuilder.loadTexts: cL2L3IfTable.setStatus('current')
+cL2L3IfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 151, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cL2L3IfEntry.setStatus('current')
+cL2L3IfModeAdmin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 151, 1, 1, 1, 1, 1), CL2L3InterfaceMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cL2L3IfModeAdmin.setStatus('current')
+cL2L3IfModeOper = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 151, 1, 1, 1, 1, 2), CL2L3InterfaceMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cL2L3IfModeOper.setStatus('current')
+ciscoL2L3IfConfigMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 151, 3))
+ciscoL2L3IfConfigMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 151, 3, 1))
+ciscoL2L3IfConfigMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 151, 3, 2))
+ciscoL2L3IfConfigMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 151, 3, 1, 1)).setObjects(("CISCO-L2L3-INTERFACE-CONFIG-MIB", "ciscoL2L3IfConfigMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoL2L3IfConfigMIBCompliance = ciscoL2L3IfConfigMIBCompliance.setStatus('current')
+ciscoL2L3IfConfigMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 151, 3, 2, 1)).setObjects(("CISCO-L2L3-INTERFACE-CONFIG-MIB", "cL2L3IfModeAdmin"), ("CISCO-L2L3-INTERFACE-CONFIG-MIB", "cL2L3IfModeOper"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoL2L3IfConfigMIBGroup = ciscoL2L3IfConfigMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-L2L3-INTERFACE-CONFIG-MIB", ciscoL2L3IfConfigMIB=ciscoL2L3IfConfigMIB, ciscoL2L3IfConfigMIBObjects=ciscoL2L3IfConfigMIBObjects, cL2L3IfEntry=cL2L3IfEntry, cL2L3IfTable=cL2L3IfTable, cL2L3IfModeOper=cL2L3IfModeOper, ciscoL2L3IfConfigMIBConformance=ciscoL2L3IfConfigMIBConformance, ciscoL2L3IfConfigMIBGroup=ciscoL2L3IfConfigMIBGroup, ciscoL2L3IfConfigMIBCompliances=ciscoL2L3IfConfigMIBCompliances, cL2L3IfConfig=cL2L3IfConfig, PYSNMP_MODULE_ID=ciscoL2L3IfConfigMIB, ciscoL2L3IfConfigMIBCompliance=ciscoL2L3IfConfigMIBCompliance, cL2L3IfModeAdmin=cL2L3IfModeAdmin, CL2L3InterfaceMode=CL2L3InterfaceMode, ciscoL2L3IfConfigMIBGroups=ciscoL2L3IfConfigMIBGroups)

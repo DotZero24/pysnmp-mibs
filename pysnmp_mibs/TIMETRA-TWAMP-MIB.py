@@ -1,538 +1,221 @@
-_Ac='tmnxTwampSrvV9v0Group'
-_Ab='tmnxTwampSrvV14v0Group'
-_Aa='tmnxTwampSrvNotifyObjsV9v0Group'
-_AZ='tmnxTwampRflInactivityV19v0Group'
-_AY='tmnxTwampRflInNotifyObjsV19v0Grp'
-_AX='tmnxTwampSrvNotifyV9v0Group'
-_AW='tmnxTwampRflInactNotifV19v0Group'
-_AV='tmnxTwampRflInactivityTimeout'
-_AU='tmnxTwampSrvPfxMaxSessExceeded'
-_AT='tmnxTwampSrvMaxSessExceeded'
-_AS='tmnxTwampSrvPfxMaxConnsExceeded'
-_AR='tmnxTwampSrvMaxConnsExceeded'
-_AQ='tmnxTwampSrvInactivityTimeout'
-_AP='tmnxTwampRflInactTimeout'
-_AO='tmnxTwampSrvSessSenderUdpPort'
-_AN='tmnxTwampSrvSessSenderAddress'
-_AM='tmnxTwampSrvSessSenderAddrType'
-_AL='tmnxTwampSrvSessReflectorUdpPort'
-_AK='tmnxTwampSrvSessReflectorAddress'
-_AJ='tmnxTwampSrvSessReflectorAddrTyp'
-_AI='tmnxTwampSrvSessOperState'
-_AH='tmnxTwampSrvSessID'
-_AG='tmnxTwampSrvCapabilities'
-_AF='tmnxTwampSrvConnTestPacketsTx'
-_AE='tmnxTwampSrvConnTestPacketsRx'
-_AD='tmnxTwampSrvConnTestSessRejected'
-_AC='tmnxTwampSrvConnTestSessComplete'
-_AB='tmnxTwampSrvConnSessionCount'
-_AA='tmnxTwampSrvConnState'
-_A9='tmnxTwampSrvPfxTestPacketsTx'
-_A8='tmnxTwampSrvPfxTestPacketsRx'
-_A7='tmnxTwampSrvPfxTestSessAbort'
-_A6='tmnxTwampSrvPfxTestSessRejected'
-_A5='tmnxTwampSrvPfxTestSessCompleted'
-_A4='tmnxTwampSrvPfxConnsRejected'
-_A3='tmnxTwampSrvTestPacketsTx'
-_A2='tmnxTwampSrvTestPacketsRx'
-_A1='tmnxTwampSrvTestSessAborted'
-_A0='tmnxTwampSrvTestSessRejected'
-_z='tmnxTwampSrvTestSessCompleted'
-_y='tmnxTwampSrvConnectionsRejected'
-_x='tmnxTwampSrvUpTime'
-_w='tmnxTwampSrvOperState'
-_v='tmnxTwampSrvPrefixMaxSessions'
-_u='tmnxTwampSrvPrefixMaxConnections'
-_t='tmnxTwampSrvPrefixDescription'
-_s='tmnxTwampSrvPrefixLastChg'
-_r='tmnxTwampSrvPrefixRowStatus'
-_q='tmnxTwampSrvPrefixTblLastChg'
-_p='tmnxTwampSrvMaxSessions'
-_o='tmnxTwampSrvMaxConnections'
-_n='tmnxTwampSrvInactTimeout'
-_m='tmnxTwampSrvAdminState'
-_l='tmnxTwampSrvPrefixStatsEntry'
-_k='tmnxTwampSrvSessSeqNum'
-_j='TmnxAdminState'
-_i='TItemDescription'
-_h='InetAddressPrefixLength'
-_g='OctetString'
-_f='tmnxTwampRflNotifRemoteUdpPort'
-_e='tmnxTwampRflNotifRemoteAddrType'
-_d='tmnxTwampRflNotifRemoteAddr'
-_c='tmnxTwampRflNotifLocalUdpPort'
-_b='tmnxTwampRflNotifLocalAddrType'
-_a='tmnxTwampRflNotifLocalAddr'
-_Z='tmnxTwampSrvConnIdleTime'
-_Y='tmnxTwampSrvPfxSessionCount'
-_X='tmnxTwampSrvPfxConnCount'
-_W='tmnxTwampSrvSessionCount'
-_V='tmnxTwampSrvConnectionCount'
-_U='tmnxTwampSrvConnSeqNum'
-_T='tmnxTwampSrvConnClientAddr'
-_S='tmnxTwampSrvConnClientAddrType'
-_R='tmnxTwampSrvPrefixLen'
-_Q='tmnxTwampSrvPrefixAddr'
-_P='tmnxTwampSrvPrefixAddrType'
-_O='TmnxTwampSrvSessionCount'
-_N='TmnxTwampSrvConnectionCount'
-_M='Integer32'
-_L='read-create'
-_K='seconds'
-_J='read-write'
-_I='Unsigned32'
-_H='tmnxTwampSrvNotifClientAddr'
-_G='tmnxTwampSrvNotifClientAddrType'
-_F='not-accessible'
-_E='accessible-for-notify'
-_D='InetAddress'
-_C='read-only'
-_B='current'
-_A='TIMETRA-TWAMP-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_g,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InetAddress,InetAddressPrefixLength,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB',_D,_h,'InetAddressType','InetPortNumber')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_M,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_I,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp')
-timetraSRMIBModules,tmnxSRConfs,tmnxSRNotifyPrefix,tmnxSRObjs=mibBuilder.importSymbols('TIMETRA-GLOBAL-MIB','timetraSRMIBModules','tmnxSRConfs','tmnxSRNotifyPrefix','tmnxSRObjs')
-TItemDescription,TTcpUdpPort,TmnxAdminState,TmnxOperState=mibBuilder.importSymbols('TIMETRA-TC-MIB',_i,'TTcpUdpPort',_j,'TmnxOperState')
-timetraTwampMIBModule=ModuleIdentity((1,3,6,1,4,1,6527,1,1,3,76))
-if mibBuilder.loadTexts:timetraTwampMIBModule.setRevisions(('2016-01-01 00:00','2011-02-01 00:00'))
-class TmnxTwampSrvConnectionCount(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,64))
-class TmnxTwampSrvSessionCount(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_TmnxTwampConformance_ObjectIdentity=ObjectIdentity
-tmnxTwampConformance=_TmnxTwampConformance_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,76))
-_TmnxTwampComplianceObjs_ObjectIdentity=ObjectIdentity
-tmnxTwampComplianceObjs=_TmnxTwampComplianceObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,76,1))
-_TmnxTwampGroupObjs_ObjectIdentity=ObjectIdentity
-tmnxTwampGroupObjs=_TmnxTwampGroupObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,76,2))
-_TmnxTwampV9v0GroupObjs_ObjectIdentity=ObjectIdentity
-tmnxTwampV9v0GroupObjs=_TmnxTwampV9v0GroupObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,76,2,1))
-_TmnxTwampV14v0GroupObjs_ObjectIdentity=ObjectIdentity
-tmnxTwampV14v0GroupObjs=_TmnxTwampV14v0GroupObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,76,2,2))
-_TmnxTwampV19v0GroupObjs_ObjectIdentity=ObjectIdentity
-tmnxTwampV19v0GroupObjs=_TmnxTwampV19v0GroupObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,76,2,3))
-_TmnxTwampObjs_ObjectIdentity=ObjectIdentity
-tmnxTwampObjs=_TmnxTwampObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,76))
-_TmnxTwampTableLastChangeObjs_ObjectIdentity=ObjectIdentity
-tmnxTwampTableLastChangeObjs=_TmnxTwampTableLastChangeObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,76,1))
-_TmnxTwampSrvPrefixTblLastChg_Type=TimeStamp
-_TmnxTwampSrvPrefixTblLastChg_Object=MibScalar
-tmnxTwampSrvPrefixTblLastChg=_TmnxTwampSrvPrefixTblLastChg_Object((1,3,6,1,4,1,6527,3,1,2,76,1,1),_TmnxTwampSrvPrefixTblLastChg_Type())
-tmnxTwampSrvPrefixTblLastChg.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvPrefixTblLastChg.setStatus(_B)
-_TmnxTwampConfigObjs_ObjectIdentity=ObjectIdentity
-tmnxTwampConfigObjs=_TmnxTwampConfigObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,76,2))
-_TmnxTwampConfigScalarObjs_ObjectIdentity=ObjectIdentity
-tmnxTwampConfigScalarObjs=_TmnxTwampConfigScalarObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,76,2,1))
-class _TmnxTwampSrvAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxTwampSrvAdminState_Type.__name__=_j
-_TmnxTwampSrvAdminState_Object=MibScalar
-tmnxTwampSrvAdminState=_TmnxTwampSrvAdminState_Object((1,3,6,1,4,1,6527,3,1,2,76,2,1,1),_TmnxTwampSrvAdminState_Type())
-tmnxTwampSrvAdminState.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxTwampSrvAdminState.setStatus(_B)
-class _TmnxTwampSrvInactTimeout_Type(Unsigned32):defaultValue=900;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,3600))
-_TmnxTwampSrvInactTimeout_Type.__name__=_I
-_TmnxTwampSrvInactTimeout_Object=MibScalar
-tmnxTwampSrvInactTimeout=_TmnxTwampSrvInactTimeout_Object((1,3,6,1,4,1,6527,3,1,2,76,2,1,2),_TmnxTwampSrvInactTimeout_Type())
-tmnxTwampSrvInactTimeout.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxTwampSrvInactTimeout.setStatus(_B)
-if mibBuilder.loadTexts:tmnxTwampSrvInactTimeout.setUnits(_K)
-class _TmnxTwampSrvMaxConnections_Type(TmnxTwampSrvConnectionCount):defaultValue=32
-_TmnxTwampSrvMaxConnections_Type.__name__=_N
-_TmnxTwampSrvMaxConnections_Object=MibScalar
-tmnxTwampSrvMaxConnections=_TmnxTwampSrvMaxConnections_Object((1,3,6,1,4,1,6527,3,1,2,76,2,1,3),_TmnxTwampSrvMaxConnections_Type())
-tmnxTwampSrvMaxConnections.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxTwampSrvMaxConnections.setStatus(_B)
-class _TmnxTwampSrvMaxSessions_Type(TmnxTwampSrvSessionCount):defaultValue=32
-_TmnxTwampSrvMaxSessions_Type.__name__=_O
-_TmnxTwampSrvMaxSessions_Object=MibScalar
-tmnxTwampSrvMaxSessions=_TmnxTwampSrvMaxSessions_Object((1,3,6,1,4,1,6527,3,1,2,76,2,1,4),_TmnxTwampSrvMaxSessions_Type())
-tmnxTwampSrvMaxSessions.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxTwampSrvMaxSessions.setStatus(_B)
-class _TmnxTwampRflInactTimeout_Type(Unsigned32):defaultValue=900;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,3600))
-_TmnxTwampRflInactTimeout_Type.__name__=_I
-_TmnxTwampRflInactTimeout_Object=MibScalar
-tmnxTwampRflInactTimeout=_TmnxTwampRflInactTimeout_Object((1,3,6,1,4,1,6527,3,1,2,76,2,1,5),_TmnxTwampRflInactTimeout_Type())
-tmnxTwampRflInactTimeout.setMaxAccess(_J)
-if mibBuilder.loadTexts:tmnxTwampRflInactTimeout.setStatus(_B)
-if mibBuilder.loadTexts:tmnxTwampRflInactTimeout.setUnits(_K)
-_TmnxTwampConfigTableObjs_ObjectIdentity=ObjectIdentity
-tmnxTwampConfigTableObjs=_TmnxTwampConfigTableObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,76,2,2))
-_TmnxTwampSrvPrefixTable_Object=MibTable
-tmnxTwampSrvPrefixTable=_TmnxTwampSrvPrefixTable_Object((1,3,6,1,4,1,6527,3,1,2,76,2,2,1))
-if mibBuilder.loadTexts:tmnxTwampSrvPrefixTable.setStatus(_B)
-_TmnxTwampSrvPrefixEntry_Object=MibTableRow
-tmnxTwampSrvPrefixEntry=_TmnxTwampSrvPrefixEntry_Object((1,3,6,1,4,1,6527,3,1,2,76,2,2,1,1))
-tmnxTwampSrvPrefixEntry.setIndexNames((0,_A,_P),(0,_A,_Q),(0,_A,_R))
-if mibBuilder.loadTexts:tmnxTwampSrvPrefixEntry.setStatus(_B)
-_TmnxTwampSrvPrefixAddrType_Type=InetAddressType
-_TmnxTwampSrvPrefixAddrType_Object=MibTableColumn
-tmnxTwampSrvPrefixAddrType=_TmnxTwampSrvPrefixAddrType_Object((1,3,6,1,4,1,6527,3,1,2,76,2,2,1,1,1),_TmnxTwampSrvPrefixAddrType_Type())
-tmnxTwampSrvPrefixAddrType.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxTwampSrvPrefixAddrType.setStatus(_B)
-class _TmnxTwampSrvPrefixAddr_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxTwampSrvPrefixAddr_Type.__name__=_D
-_TmnxTwampSrvPrefixAddr_Object=MibTableColumn
-tmnxTwampSrvPrefixAddr=_TmnxTwampSrvPrefixAddr_Object((1,3,6,1,4,1,6527,3,1,2,76,2,2,1,1,2),_TmnxTwampSrvPrefixAddr_Type())
-tmnxTwampSrvPrefixAddr.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxTwampSrvPrefixAddr.setStatus(_B)
-class _TmnxTwampSrvPrefixLen_Type(InetAddressPrefixLength):subtypeSpec=InetAddressPrefixLength.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_TmnxTwampSrvPrefixLen_Type.__name__=_h
-_TmnxTwampSrvPrefixLen_Object=MibTableColumn
-tmnxTwampSrvPrefixLen=_TmnxTwampSrvPrefixLen_Object((1,3,6,1,4,1,6527,3,1,2,76,2,2,1,1,3),_TmnxTwampSrvPrefixLen_Type())
-tmnxTwampSrvPrefixLen.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxTwampSrvPrefixLen.setStatus(_B)
-if mibBuilder.loadTexts:tmnxTwampSrvPrefixLen.setUnits('bits')
-_TmnxTwampSrvPrefixRowStatus_Type=RowStatus
-_TmnxTwampSrvPrefixRowStatus_Object=MibTableColumn
-tmnxTwampSrvPrefixRowStatus=_TmnxTwampSrvPrefixRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,76,2,2,1,1,4),_TmnxTwampSrvPrefixRowStatus_Type())
-tmnxTwampSrvPrefixRowStatus.setMaxAccess(_L)
-if mibBuilder.loadTexts:tmnxTwampSrvPrefixRowStatus.setStatus(_B)
-_TmnxTwampSrvPrefixLastChg_Type=TimeStamp
-_TmnxTwampSrvPrefixLastChg_Object=MibTableColumn
-tmnxTwampSrvPrefixLastChg=_TmnxTwampSrvPrefixLastChg_Object((1,3,6,1,4,1,6527,3,1,2,76,2,2,1,1,5),_TmnxTwampSrvPrefixLastChg_Type())
-tmnxTwampSrvPrefixLastChg.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvPrefixLastChg.setStatus(_B)
-class _TmnxTwampSrvPrefixDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxTwampSrvPrefixDescription_Type.__name__=_i
-_TmnxTwampSrvPrefixDescription_Object=MibTableColumn
-tmnxTwampSrvPrefixDescription=_TmnxTwampSrvPrefixDescription_Object((1,3,6,1,4,1,6527,3,1,2,76,2,2,1,1,6),_TmnxTwampSrvPrefixDescription_Type())
-tmnxTwampSrvPrefixDescription.setMaxAccess(_L)
-if mibBuilder.loadTexts:tmnxTwampSrvPrefixDescription.setStatus(_B)
-class _TmnxTwampSrvPrefixMaxConnections_Type(TmnxTwampSrvConnectionCount):defaultValue=32
-_TmnxTwampSrvPrefixMaxConnections_Type.__name__=_N
-_TmnxTwampSrvPrefixMaxConnections_Object=MibTableColumn
-tmnxTwampSrvPrefixMaxConnections=_TmnxTwampSrvPrefixMaxConnections_Object((1,3,6,1,4,1,6527,3,1,2,76,2,2,1,1,7),_TmnxTwampSrvPrefixMaxConnections_Type())
-tmnxTwampSrvPrefixMaxConnections.setMaxAccess(_L)
-if mibBuilder.loadTexts:tmnxTwampSrvPrefixMaxConnections.setStatus(_B)
-class _TmnxTwampSrvPrefixMaxSessions_Type(TmnxTwampSrvSessionCount):defaultValue=32
-_TmnxTwampSrvPrefixMaxSessions_Type.__name__=_O
-_TmnxTwampSrvPrefixMaxSessions_Object=MibTableColumn
-tmnxTwampSrvPrefixMaxSessions=_TmnxTwampSrvPrefixMaxSessions_Object((1,3,6,1,4,1,6527,3,1,2,76,2,2,1,1,8),_TmnxTwampSrvPrefixMaxSessions_Type())
-tmnxTwampSrvPrefixMaxSessions.setMaxAccess(_L)
-if mibBuilder.loadTexts:tmnxTwampSrvPrefixMaxSessions.setStatus(_B)
-_TmnxTwampStatisticsObjs_ObjectIdentity=ObjectIdentity
-tmnxTwampStatisticsObjs=_TmnxTwampStatisticsObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,76,3))
-_TmnxTwampStatisticsScalarObjs_ObjectIdentity=ObjectIdentity
-tmnxTwampStatisticsScalarObjs=_TmnxTwampStatisticsScalarObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,76,3,1))
-_TmnxTwampSrvOperState_Type=TmnxOperState
-_TmnxTwampSrvOperState_Object=MibScalar
-tmnxTwampSrvOperState=_TmnxTwampSrvOperState_Object((1,3,6,1,4,1,6527,3,1,2,76,3,1,1),_TmnxTwampSrvOperState_Type())
-tmnxTwampSrvOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvOperState.setStatus(_B)
-_TmnxTwampSrvUpTime_Type=Counter32
-_TmnxTwampSrvUpTime_Object=MibScalar
-tmnxTwampSrvUpTime=_TmnxTwampSrvUpTime_Object((1,3,6,1,4,1,6527,3,1,2,76,3,1,2),_TmnxTwampSrvUpTime_Type())
-tmnxTwampSrvUpTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvUpTime.setStatus(_B)
-if mibBuilder.loadTexts:tmnxTwampSrvUpTime.setUnits(_K)
-_TmnxTwampSrvConnectionCount_Type=TmnxTwampSrvConnectionCount
-_TmnxTwampSrvConnectionCount_Object=MibScalar
-tmnxTwampSrvConnectionCount=_TmnxTwampSrvConnectionCount_Object((1,3,6,1,4,1,6527,3,1,2,76,3,1,3),_TmnxTwampSrvConnectionCount_Type())
-tmnxTwampSrvConnectionCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvConnectionCount.setStatus(_B)
-_TmnxTwampSrvConnectionsRejected_Type=Counter32
-_TmnxTwampSrvConnectionsRejected_Object=MibScalar
-tmnxTwampSrvConnectionsRejected=_TmnxTwampSrvConnectionsRejected_Object((1,3,6,1,4,1,6527,3,1,2,76,3,1,4),_TmnxTwampSrvConnectionsRejected_Type())
-tmnxTwampSrvConnectionsRejected.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvConnectionsRejected.setStatus(_B)
-_TmnxTwampSrvSessionCount_Type=TmnxTwampSrvSessionCount
-_TmnxTwampSrvSessionCount_Object=MibScalar
-tmnxTwampSrvSessionCount=_TmnxTwampSrvSessionCount_Object((1,3,6,1,4,1,6527,3,1,2,76,3,1,5),_TmnxTwampSrvSessionCount_Type())
-tmnxTwampSrvSessionCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvSessionCount.setStatus(_B)
-_TmnxTwampSrvTestSessCompleted_Type=Counter32
-_TmnxTwampSrvTestSessCompleted_Object=MibScalar
-tmnxTwampSrvTestSessCompleted=_TmnxTwampSrvTestSessCompleted_Object((1,3,6,1,4,1,6527,3,1,2,76,3,1,6),_TmnxTwampSrvTestSessCompleted_Type())
-tmnxTwampSrvTestSessCompleted.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvTestSessCompleted.setStatus(_B)
-_TmnxTwampSrvTestSessRejected_Type=Counter32
-_TmnxTwampSrvTestSessRejected_Object=MibScalar
-tmnxTwampSrvTestSessRejected=_TmnxTwampSrvTestSessRejected_Object((1,3,6,1,4,1,6527,3,1,2,76,3,1,7),_TmnxTwampSrvTestSessRejected_Type())
-tmnxTwampSrvTestSessRejected.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvTestSessRejected.setStatus(_B)
-_TmnxTwampSrvTestSessAborted_Type=Counter32
-_TmnxTwampSrvTestSessAborted_Object=MibScalar
-tmnxTwampSrvTestSessAborted=_TmnxTwampSrvTestSessAborted_Object((1,3,6,1,4,1,6527,3,1,2,76,3,1,8),_TmnxTwampSrvTestSessAborted_Type())
-tmnxTwampSrvTestSessAborted.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvTestSessAborted.setStatus(_B)
-_TmnxTwampSrvTestPacketsRx_Type=Counter32
-_TmnxTwampSrvTestPacketsRx_Object=MibScalar
-tmnxTwampSrvTestPacketsRx=_TmnxTwampSrvTestPacketsRx_Object((1,3,6,1,4,1,6527,3,1,2,76,3,1,9),_TmnxTwampSrvTestPacketsRx_Type())
-tmnxTwampSrvTestPacketsRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvTestPacketsRx.setStatus(_B)
-_TmnxTwampSrvTestPacketsTx_Type=Counter32
-_TmnxTwampSrvTestPacketsTx_Object=MibScalar
-tmnxTwampSrvTestPacketsTx=_TmnxTwampSrvTestPacketsTx_Object((1,3,6,1,4,1,6527,3,1,2,76,3,1,10),_TmnxTwampSrvTestPacketsTx_Type())
-tmnxTwampSrvTestPacketsTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvTestPacketsTx.setStatus(_B)
-class _TmnxTwampSrvCapabilities_Type(Bits):namedValues=NamedValues(*(('unauthenticated',0),('authenticated',1),('encrypted',2),('unauthTestEncryptControl',3),('individualSessionControl',4),('reflectOctets',5),('symmetricalSizeSenderTestPkt',6),('ikeV2DerivedMode',7),('dscpAndEcnMonitoring',8)))
-_TmnxTwampSrvCapabilities_Type.__name__='Bits'
-_TmnxTwampSrvCapabilities_Object=MibScalar
-tmnxTwampSrvCapabilities=_TmnxTwampSrvCapabilities_Object((1,3,6,1,4,1,6527,3,1,2,76,3,1,11),_TmnxTwampSrvCapabilities_Type())
-tmnxTwampSrvCapabilities.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvCapabilities.setStatus(_B)
-_TmnxTwampStatisticsTableObjs_ObjectIdentity=ObjectIdentity
-tmnxTwampStatisticsTableObjs=_TmnxTwampStatisticsTableObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,76,3,2))
-_TmnxTwampSrvPrefixStatsTable_Object=MibTable
-tmnxTwampSrvPrefixStatsTable=_TmnxTwampSrvPrefixStatsTable_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,1))
-if mibBuilder.loadTexts:tmnxTwampSrvPrefixStatsTable.setStatus(_B)
-_TmnxTwampSrvPrefixStatsEntry_Object=MibTableRow
-tmnxTwampSrvPrefixStatsEntry=_TmnxTwampSrvPrefixStatsEntry_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,1,1))
-if mibBuilder.loadTexts:tmnxTwampSrvPrefixStatsEntry.setStatus(_B)
-_TmnxTwampSrvPfxConnCount_Type=TmnxTwampSrvConnectionCount
-_TmnxTwampSrvPfxConnCount_Object=MibTableColumn
-tmnxTwampSrvPfxConnCount=_TmnxTwampSrvPfxConnCount_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,1,1,1),_TmnxTwampSrvPfxConnCount_Type())
-tmnxTwampSrvPfxConnCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvPfxConnCount.setStatus(_B)
-_TmnxTwampSrvPfxConnsRejected_Type=Counter32
-_TmnxTwampSrvPfxConnsRejected_Object=MibTableColumn
-tmnxTwampSrvPfxConnsRejected=_TmnxTwampSrvPfxConnsRejected_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,1,1,2),_TmnxTwampSrvPfxConnsRejected_Type())
-tmnxTwampSrvPfxConnsRejected.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvPfxConnsRejected.setStatus(_B)
-_TmnxTwampSrvPfxSessionCount_Type=TmnxTwampSrvSessionCount
-_TmnxTwampSrvPfxSessionCount_Object=MibTableColumn
-tmnxTwampSrvPfxSessionCount=_TmnxTwampSrvPfxSessionCount_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,1,1,3),_TmnxTwampSrvPfxSessionCount_Type())
-tmnxTwampSrvPfxSessionCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvPfxSessionCount.setStatus(_B)
-_TmnxTwampSrvPfxTestSessCompleted_Type=Counter32
-_TmnxTwampSrvPfxTestSessCompleted_Object=MibTableColumn
-tmnxTwampSrvPfxTestSessCompleted=_TmnxTwampSrvPfxTestSessCompleted_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,1,1,4),_TmnxTwampSrvPfxTestSessCompleted_Type())
-tmnxTwampSrvPfxTestSessCompleted.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvPfxTestSessCompleted.setStatus(_B)
-_TmnxTwampSrvPfxTestSessRejected_Type=Counter32
-_TmnxTwampSrvPfxTestSessRejected_Object=MibTableColumn
-tmnxTwampSrvPfxTestSessRejected=_TmnxTwampSrvPfxTestSessRejected_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,1,1,5),_TmnxTwampSrvPfxTestSessRejected_Type())
-tmnxTwampSrvPfxTestSessRejected.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvPfxTestSessRejected.setStatus(_B)
-_TmnxTwampSrvPfxTestSessAbort_Type=Counter32
-_TmnxTwampSrvPfxTestSessAbort_Object=MibTableColumn
-tmnxTwampSrvPfxTestSessAbort=_TmnxTwampSrvPfxTestSessAbort_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,1,1,6),_TmnxTwampSrvPfxTestSessAbort_Type())
-tmnxTwampSrvPfxTestSessAbort.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvPfxTestSessAbort.setStatus(_B)
-_TmnxTwampSrvPfxTestPacketsRx_Type=Counter32
-_TmnxTwampSrvPfxTestPacketsRx_Object=MibTableColumn
-tmnxTwampSrvPfxTestPacketsRx=_TmnxTwampSrvPfxTestPacketsRx_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,1,1,7),_TmnxTwampSrvPfxTestPacketsRx_Type())
-tmnxTwampSrvPfxTestPacketsRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvPfxTestPacketsRx.setStatus(_B)
-_TmnxTwampSrvPfxTestPacketsTx_Type=Counter32
-_TmnxTwampSrvPfxTestPacketsTx_Object=MibTableColumn
-tmnxTwampSrvPfxTestPacketsTx=_TmnxTwampSrvPfxTestPacketsTx_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,1,1,8),_TmnxTwampSrvPfxTestPacketsTx_Type())
-tmnxTwampSrvPfxTestPacketsTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvPfxTestPacketsTx.setStatus(_B)
-_TmnxTwampSrvConnStatsTable_Object=MibTable
-tmnxTwampSrvConnStatsTable=_TmnxTwampSrvConnStatsTable_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,2))
-if mibBuilder.loadTexts:tmnxTwampSrvConnStatsTable.setStatus(_B)
-_TmnxTwampSrvConnStatsEntry_Object=MibTableRow
-tmnxTwampSrvConnStatsEntry=_TmnxTwampSrvConnStatsEntry_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,2,1))
-tmnxTwampSrvConnStatsEntry.setIndexNames((0,_A,_P),(0,_A,_Q),(0,_A,_R),(0,_A,_S),(0,_A,_T),(0,_A,_U))
-if mibBuilder.loadTexts:tmnxTwampSrvConnStatsEntry.setStatus(_B)
-_TmnxTwampSrvConnClientAddrType_Type=InetAddressType
-_TmnxTwampSrvConnClientAddrType_Object=MibTableColumn
-tmnxTwampSrvConnClientAddrType=_TmnxTwampSrvConnClientAddrType_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,2,1,1),_TmnxTwampSrvConnClientAddrType_Type())
-tmnxTwampSrvConnClientAddrType.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxTwampSrvConnClientAddrType.setStatus(_B)
-class _TmnxTwampSrvConnClientAddr_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxTwampSrvConnClientAddr_Type.__name__=_D
-_TmnxTwampSrvConnClientAddr_Object=MibTableColumn
-tmnxTwampSrvConnClientAddr=_TmnxTwampSrvConnClientAddr_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,2,1,2),_TmnxTwampSrvConnClientAddr_Type())
-tmnxTwampSrvConnClientAddr.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxTwampSrvConnClientAddr.setStatus(_B)
-class _TmnxTwampSrvConnSeqNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_TmnxTwampSrvConnSeqNum_Type.__name__=_I
-_TmnxTwampSrvConnSeqNum_Object=MibTableColumn
-tmnxTwampSrvConnSeqNum=_TmnxTwampSrvConnSeqNum_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,2,1,3),_TmnxTwampSrvConnSeqNum_Type())
-tmnxTwampSrvConnSeqNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxTwampSrvConnSeqNum.setStatus(_B)
-class _TmnxTwampSrvConnState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('settingUp',1),('ready',2),('running',3)))
-_TmnxTwampSrvConnState_Type.__name__=_M
-_TmnxTwampSrvConnState_Object=MibTableColumn
-tmnxTwampSrvConnState=_TmnxTwampSrvConnState_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,2,1,4),_TmnxTwampSrvConnState_Type())
-tmnxTwampSrvConnState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvConnState.setStatus(_B)
-_TmnxTwampSrvConnIdleTime_Type=Unsigned32
-_TmnxTwampSrvConnIdleTime_Object=MibTableColumn
-tmnxTwampSrvConnIdleTime=_TmnxTwampSrvConnIdleTime_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,2,1,5),_TmnxTwampSrvConnIdleTime_Type())
-tmnxTwampSrvConnIdleTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvConnIdleTime.setStatus(_B)
-if mibBuilder.loadTexts:tmnxTwampSrvConnIdleTime.setUnits(_K)
-_TmnxTwampSrvConnSessionCount_Type=TmnxTwampSrvSessionCount
-_TmnxTwampSrvConnSessionCount_Object=MibTableColumn
-tmnxTwampSrvConnSessionCount=_TmnxTwampSrvConnSessionCount_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,2,1,6),_TmnxTwampSrvConnSessionCount_Type())
-tmnxTwampSrvConnSessionCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvConnSessionCount.setStatus(_B)
-_TmnxTwampSrvConnTestSessComplete_Type=Counter32
-_TmnxTwampSrvConnTestSessComplete_Object=MibTableColumn
-tmnxTwampSrvConnTestSessComplete=_TmnxTwampSrvConnTestSessComplete_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,2,1,7),_TmnxTwampSrvConnTestSessComplete_Type())
-tmnxTwampSrvConnTestSessComplete.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvConnTestSessComplete.setStatus(_B)
-_TmnxTwampSrvConnTestSessRejected_Type=Counter32
-_TmnxTwampSrvConnTestSessRejected_Object=MibTableColumn
-tmnxTwampSrvConnTestSessRejected=_TmnxTwampSrvConnTestSessRejected_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,2,1,8),_TmnxTwampSrvConnTestSessRejected_Type())
-tmnxTwampSrvConnTestSessRejected.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvConnTestSessRejected.setStatus(_B)
-_TmnxTwampSrvConnTestPacketsRx_Type=Counter32
-_TmnxTwampSrvConnTestPacketsRx_Object=MibTableColumn
-tmnxTwampSrvConnTestPacketsRx=_TmnxTwampSrvConnTestPacketsRx_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,2,1,9),_TmnxTwampSrvConnTestPacketsRx_Type())
-tmnxTwampSrvConnTestPacketsRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvConnTestPacketsRx.setStatus(_B)
-_TmnxTwampSrvConnTestPacketsTx_Type=Counter32
-_TmnxTwampSrvConnTestPacketsTx_Object=MibTableColumn
-tmnxTwampSrvConnTestPacketsTx=_TmnxTwampSrvConnTestPacketsTx_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,2,1,10),_TmnxTwampSrvConnTestPacketsTx_Type())
-tmnxTwampSrvConnTestPacketsTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvConnTestPacketsTx.setStatus(_B)
-_TmnxTwampSrvSessStatsTable_Object=MibTable
-tmnxTwampSrvSessStatsTable=_TmnxTwampSrvSessStatsTable_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,3))
-if mibBuilder.loadTexts:tmnxTwampSrvSessStatsTable.setStatus(_B)
-_TmnxTwampSrvSessStatsEntry_Object=MibTableRow
-tmnxTwampSrvSessStatsEntry=_TmnxTwampSrvSessStatsEntry_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,3,1))
-tmnxTwampSrvSessStatsEntry.setIndexNames((0,_A,_S),(0,_A,_T),(0,_A,_U),(0,_A,_k))
-if mibBuilder.loadTexts:tmnxTwampSrvSessStatsEntry.setStatus(_B)
-class _TmnxTwampSrvSessSeqNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_TmnxTwampSrvSessSeqNum_Type.__name__=_I
-_TmnxTwampSrvSessSeqNum_Object=MibTableColumn
-tmnxTwampSrvSessSeqNum=_TmnxTwampSrvSessSeqNum_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,3,1,1),_TmnxTwampSrvSessSeqNum_Type())
-tmnxTwampSrvSessSeqNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxTwampSrvSessSeqNum.setStatus(_B)
-class _TmnxTwampSrvSessID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
-_TmnxTwampSrvSessID_Type.__name__=_g
-_TmnxTwampSrvSessID_Object=MibTableColumn
-tmnxTwampSrvSessID=_TmnxTwampSrvSessID_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,3,1,2),_TmnxTwampSrvSessID_Type())
-tmnxTwampSrvSessID.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvSessID.setStatus(_B)
-class _TmnxTwampSrvSessOperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('create',1),('active',2),('stop',3)))
-_TmnxTwampSrvSessOperState_Type.__name__=_M
-_TmnxTwampSrvSessOperState_Object=MibTableColumn
-tmnxTwampSrvSessOperState=_TmnxTwampSrvSessOperState_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,3,1,3),_TmnxTwampSrvSessOperState_Type())
-tmnxTwampSrvSessOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvSessOperState.setStatus(_B)
-_TmnxTwampSrvSessSenderAddrType_Type=InetAddressType
-_TmnxTwampSrvSessSenderAddrType_Object=MibTableColumn
-tmnxTwampSrvSessSenderAddrType=_TmnxTwampSrvSessSenderAddrType_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,3,1,4),_TmnxTwampSrvSessSenderAddrType_Type())
-tmnxTwampSrvSessSenderAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvSessSenderAddrType.setStatus(_B)
-class _TmnxTwampSrvSessSenderAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxTwampSrvSessSenderAddress_Type.__name__=_D
-_TmnxTwampSrvSessSenderAddress_Object=MibTableColumn
-tmnxTwampSrvSessSenderAddress=_TmnxTwampSrvSessSenderAddress_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,3,1,5),_TmnxTwampSrvSessSenderAddress_Type())
-tmnxTwampSrvSessSenderAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvSessSenderAddress.setStatus(_B)
-_TmnxTwampSrvSessSenderUdpPort_Type=InetPortNumber
-_TmnxTwampSrvSessSenderUdpPort_Object=MibTableColumn
-tmnxTwampSrvSessSenderUdpPort=_TmnxTwampSrvSessSenderUdpPort_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,3,1,6),_TmnxTwampSrvSessSenderUdpPort_Type())
-tmnxTwampSrvSessSenderUdpPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvSessSenderUdpPort.setStatus(_B)
-_TmnxTwampSrvSessReflectorAddrTyp_Type=InetAddressType
-_TmnxTwampSrvSessReflectorAddrTyp_Object=MibTableColumn
-tmnxTwampSrvSessReflectorAddrTyp=_TmnxTwampSrvSessReflectorAddrTyp_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,3,1,7),_TmnxTwampSrvSessReflectorAddrTyp_Type())
-tmnxTwampSrvSessReflectorAddrTyp.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvSessReflectorAddrTyp.setStatus(_B)
-class _TmnxTwampSrvSessReflectorAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxTwampSrvSessReflectorAddress_Type.__name__=_D
-_TmnxTwampSrvSessReflectorAddress_Object=MibTableColumn
-tmnxTwampSrvSessReflectorAddress=_TmnxTwampSrvSessReflectorAddress_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,3,1,8),_TmnxTwampSrvSessReflectorAddress_Type())
-tmnxTwampSrvSessReflectorAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvSessReflectorAddress.setStatus(_B)
-_TmnxTwampSrvSessReflectorUdpPort_Type=InetPortNumber
-_TmnxTwampSrvSessReflectorUdpPort_Object=MibTableColumn
-tmnxTwampSrvSessReflectorUdpPort=_TmnxTwampSrvSessReflectorUdpPort_Object((1,3,6,1,4,1,6527,3,1,2,76,3,2,3,1,9),_TmnxTwampSrvSessReflectorUdpPort_Type())
-tmnxTwampSrvSessReflectorUdpPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxTwampSrvSessReflectorUdpPort.setStatus(_B)
-_TmnxTwampNotificationObjs_ObjectIdentity=ObjectIdentity
-tmnxTwampNotificationObjs=_TmnxTwampNotificationObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,76,4))
-_TmnxTwampSrvNotifClientAddrType_Type=InetAddressType
-_TmnxTwampSrvNotifClientAddrType_Object=MibScalar
-tmnxTwampSrvNotifClientAddrType=_TmnxTwampSrvNotifClientAddrType_Object((1,3,6,1,4,1,6527,3,1,2,76,4,1),_TmnxTwampSrvNotifClientAddrType_Type())
-tmnxTwampSrvNotifClientAddrType.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxTwampSrvNotifClientAddrType.setStatus(_B)
-class _TmnxTwampSrvNotifClientAddr_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxTwampSrvNotifClientAddr_Type.__name__=_D
-_TmnxTwampSrvNotifClientAddr_Object=MibScalar
-tmnxTwampSrvNotifClientAddr=_TmnxTwampSrvNotifClientAddr_Object((1,3,6,1,4,1,6527,3,1,2,76,4,2),_TmnxTwampSrvNotifClientAddr_Type())
-tmnxTwampSrvNotifClientAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxTwampSrvNotifClientAddr.setStatus(_B)
-_TmnxTwampRflNotifLocalAddrType_Type=InetAddressType
-_TmnxTwampRflNotifLocalAddrType_Object=MibScalar
-tmnxTwampRflNotifLocalAddrType=_TmnxTwampRflNotifLocalAddrType_Object((1,3,6,1,4,1,6527,3,1,2,76,4,3),_TmnxTwampRflNotifLocalAddrType_Type())
-tmnxTwampRflNotifLocalAddrType.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxTwampRflNotifLocalAddrType.setStatus(_B)
-class _TmnxTwampRflNotifLocalAddr_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxTwampRflNotifLocalAddr_Type.__name__=_D
-_TmnxTwampRflNotifLocalAddr_Object=MibScalar
-tmnxTwampRflNotifLocalAddr=_TmnxTwampRflNotifLocalAddr_Object((1,3,6,1,4,1,6527,3,1,2,76,4,4),_TmnxTwampRflNotifLocalAddr_Type())
-tmnxTwampRflNotifLocalAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxTwampRflNotifLocalAddr.setStatus(_B)
-_TmnxTwampRflNotifLocalUdpPort_Type=TTcpUdpPort
-_TmnxTwampRflNotifLocalUdpPort_Object=MibScalar
-tmnxTwampRflNotifLocalUdpPort=_TmnxTwampRflNotifLocalUdpPort_Object((1,3,6,1,4,1,6527,3,1,2,76,4,5),_TmnxTwampRflNotifLocalUdpPort_Type())
-tmnxTwampRflNotifLocalUdpPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxTwampRflNotifLocalUdpPort.setStatus(_B)
-_TmnxTwampRflNotifRemoteAddrType_Type=InetAddressType
-_TmnxTwampRflNotifRemoteAddrType_Object=MibScalar
-tmnxTwampRflNotifRemoteAddrType=_TmnxTwampRflNotifRemoteAddrType_Object((1,3,6,1,4,1,6527,3,1,2,76,4,6),_TmnxTwampRflNotifRemoteAddrType_Type())
-tmnxTwampRflNotifRemoteAddrType.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxTwampRflNotifRemoteAddrType.setStatus(_B)
-class _TmnxTwampRflNotifRemoteAddr_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxTwampRflNotifRemoteAddr_Type.__name__=_D
-_TmnxTwampRflNotifRemoteAddr_Object=MibScalar
-tmnxTwampRflNotifRemoteAddr=_TmnxTwampRflNotifRemoteAddr_Object((1,3,6,1,4,1,6527,3,1,2,76,4,7),_TmnxTwampRflNotifRemoteAddr_Type())
-tmnxTwampRflNotifRemoteAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxTwampRflNotifRemoteAddr.setStatus(_B)
-_TmnxTwampRflNotifRemoteUdpPort_Type=TTcpUdpPort
-_TmnxTwampRflNotifRemoteUdpPort_Object=MibScalar
-tmnxTwampRflNotifRemoteUdpPort=_TmnxTwampRflNotifRemoteUdpPort_Object((1,3,6,1,4,1,6527,3,1,2,76,4,8),_TmnxTwampRflNotifRemoteUdpPort_Type())
-tmnxTwampRflNotifRemoteUdpPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:tmnxTwampRflNotifRemoteUdpPort.setStatus(_B)
-_TmnxTwampNotifyPrefix_ObjectIdentity=ObjectIdentity
-tmnxTwampNotifyPrefix=_TmnxTwampNotifyPrefix_ObjectIdentity((1,3,6,1,4,1,6527,3,1,3,76))
-_TmnxTwampNotifications_ObjectIdentity=ObjectIdentity
-tmnxTwampNotifications=_TmnxTwampNotifications_ObjectIdentity((1,3,6,1,4,1,6527,3,1,3,76,0))
-tmnxTwampSrvPrefixEntry.registerAugmentions((_A,_l))
+#
+# PySNMP MIB module TIMETRA-TWAMP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TIMETRA-TWAMP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:21:03 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressPrefixLength, InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetPortNumber", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "RowStatus", "TextualConvention")
+tmnxSRConfs, tmnxSRObjs, timetraSRMIBModules, tmnxSRNotifyPrefix = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRConfs", "tmnxSRObjs", "timetraSRMIBModules", "tmnxSRNotifyPrefix")
+TItemDescription, TTcpUdpPort, TmnxOperState, TmnxAdminState = mibBuilder.importSymbols("TIMETRA-TC-MIB", "TItemDescription", "TTcpUdpPort", "TmnxOperState", "TmnxAdminState")
+timetraTwampMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 76))
+timetraTwampMIBModule.setRevisions(('2016-01-01 00:00', '2011-02-01 00:00',))
+if mibBuilder.loadTexts: timetraTwampMIBModule.setLastUpdated('201601010000Z')
+if mibBuilder.loadTexts: timetraTwampMIBModule.setOrganization('Nokia')
+class TmnxTwampSrvConnectionCount(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 64)
+
+class TmnxTwampSrvSessionCount(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 128)
+
+tmnxTwampObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76))
+tmnxTwampTableLastChangeObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 1))
+tmnxTwampSrvPrefixTblLastChg = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 1, 1), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvPrefixTblLastChg.setStatus('current')
+tmnxTwampConfigObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2))
+tmnxTwampConfigScalarObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 1))
+tmnxTwampSrvAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 1, 1), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxTwampSrvAdminState.setStatus('current')
+tmnxTwampSrvInactTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(60, 3600)).clone(900)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxTwampSrvInactTimeout.setStatus('current')
+tmnxTwampSrvMaxConnections = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 1, 3), TmnxTwampSrvConnectionCount().clone(32)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxTwampSrvMaxConnections.setStatus('current')
+tmnxTwampSrvMaxSessions = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 1, 4), TmnxTwampSrvSessionCount().clone(32)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxTwampSrvMaxSessions.setStatus('current')
+tmnxTwampRflInactTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(60, 3600)).clone(900)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxTwampRflInactTimeout.setStatus('current')
+tmnxTwampConfigTableObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 2))
+tmnxTwampSrvPrefixTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 2, 1), )
+if mibBuilder.loadTexts: tmnxTwampSrvPrefixTable.setStatus('current')
+tmnxTwampSrvPrefixEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 2, 1, 1), ).setIndexNames((0, "TIMETRA-TWAMP-MIB", "tmnxTwampSrvPrefixAddrType"), (0, "TIMETRA-TWAMP-MIB", "tmnxTwampSrvPrefixAddr"), (0, "TIMETRA-TWAMP-MIB", "tmnxTwampSrvPrefixLen"))
+if mibBuilder.loadTexts: tmnxTwampSrvPrefixEntry.setStatus('current')
+tmnxTwampSrvPrefixAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 2, 1, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: tmnxTwampSrvPrefixAddrType.setStatus('current')
+tmnxTwampSrvPrefixAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 2, 1, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
+if mibBuilder.loadTexts: tmnxTwampSrvPrefixAddr.setStatus('current')
+tmnxTwampSrvPrefixLen = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 2, 1, 1, 3), InetAddressPrefixLength().subtype(subtypeSpec=ValueRangeConstraint(0, 128))).setUnits('bits')
+if mibBuilder.loadTexts: tmnxTwampSrvPrefixLen.setStatus('current')
+tmnxTwampSrvPrefixRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 2, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxTwampSrvPrefixRowStatus.setStatus('current')
+tmnxTwampSrvPrefixLastChg = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 2, 1, 1, 5), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvPrefixLastChg.setStatus('current')
+tmnxTwampSrvPrefixDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 2, 1, 1, 6), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxTwampSrvPrefixDescription.setStatus('current')
+tmnxTwampSrvPrefixMaxConnections = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 2, 1, 1, 7), TmnxTwampSrvConnectionCount().clone(32)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxTwampSrvPrefixMaxConnections.setStatus('current')
+tmnxTwampSrvPrefixMaxSessions = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 2, 2, 1, 1, 8), TmnxTwampSrvSessionCount().clone(32)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxTwampSrvPrefixMaxSessions.setStatus('current')
+tmnxTwampStatisticsObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3))
+tmnxTwampStatisticsScalarObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 1))
+tmnxTwampSrvOperState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 1, 1), TmnxOperState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvOperState.setStatus('current')
+tmnxTwampSrvUpTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 1, 2), Counter32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvUpTime.setStatus('current')
+tmnxTwampSrvConnectionCount = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 1, 3), TmnxTwampSrvConnectionCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvConnectionCount.setStatus('current')
+tmnxTwampSrvConnectionsRejected = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvConnectionsRejected.setStatus('current')
+tmnxTwampSrvSessionCount = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 1, 5), TmnxTwampSrvSessionCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvSessionCount.setStatus('current')
+tmnxTwampSrvTestSessCompleted = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvTestSessCompleted.setStatus('current')
+tmnxTwampSrvTestSessRejected = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvTestSessRejected.setStatus('current')
+tmnxTwampSrvTestSessAborted = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvTestSessAborted.setStatus('current')
+tmnxTwampSrvTestPacketsRx = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvTestPacketsRx.setStatus('current')
+tmnxTwampSrvTestPacketsTx = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvTestPacketsTx.setStatus('current')
+tmnxTwampSrvCapabilities = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 1, 11), Bits().clone(namedValues=NamedValues(("unauthenticated", 0), ("authenticated", 1), ("encrypted", 2), ("unauthTestEncryptControl", 3), ("individualSessionControl", 4), ("reflectOctets", 5), ("symmetricalSizeSenderTestPkt", 6), ("ikeV2DerivedMode", 7), ("dscpAndEcnMonitoring", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvCapabilities.setStatus('current')
+tmnxTwampStatisticsTableObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2))
+tmnxTwampSrvPrefixStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 1), )
+if mibBuilder.loadTexts: tmnxTwampSrvPrefixStatsTable.setStatus('current')
+tmnxTwampSrvPrefixStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 1, 1), )
+tmnxTwampSrvPrefixEntry.registerAugmentions(("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPrefixStatsEntry"))
 tmnxTwampSrvPrefixStatsEntry.setIndexNames(*tmnxTwampSrvPrefixEntry.getIndexNames())
-tmnxTwampSrvV9v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,76,2,1,1))
-tmnxTwampSrvV9v0Group.setObjects(*((_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_V),(_A,_y),(_A,_W),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_X),(_A,_A4),(_A,_Y),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_Z),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF)))
-if mibBuilder.loadTexts:tmnxTwampSrvV9v0Group.setStatus(_B)
-tmnxTwampSrvNotifyObjsV9v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,76,2,1,3))
-tmnxTwampSrvNotifyObjsV9v0Group.setObjects(*((_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:tmnxTwampSrvNotifyObjsV9v0Group.setStatus(_B)
-tmnxTwampSrvV14v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,76,2,2,1))
-tmnxTwampSrvV14v0Group.setObjects(*((_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO)))
-if mibBuilder.loadTexts:tmnxTwampSrvV14v0Group.setStatus(_B)
-tmnxTwampRflInactivityV19v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,76,2,3,1))
-tmnxTwampRflInactivityV19v0Group.setObjects((_A,_AP))
-if mibBuilder.loadTexts:tmnxTwampRflInactivityV19v0Group.setStatus(_B)
-tmnxTwampRflInNotifyObjsV19v0Grp=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,76,2,3,3))
-tmnxTwampRflInNotifyObjsV19v0Grp.setObjects(*((_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f)))
-if mibBuilder.loadTexts:tmnxTwampRflInNotifyObjsV19v0Grp.setStatus(_B)
-tmnxTwampSrvInactivityTimeout=NotificationType((1,3,6,1,4,1,6527,3,1,3,76,0,1))
-tmnxTwampSrvInactivityTimeout.setObjects((_A,_Z))
-if mibBuilder.loadTexts:tmnxTwampSrvInactivityTimeout.setStatus(_B)
-tmnxTwampSrvMaxConnsExceeded=NotificationType((1,3,6,1,4,1,6527,3,1,3,76,0,2))
-tmnxTwampSrvMaxConnsExceeded.setObjects(*((_A,_V),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:tmnxTwampSrvMaxConnsExceeded.setStatus(_B)
-tmnxTwampSrvPfxMaxConnsExceeded=NotificationType((1,3,6,1,4,1,6527,3,1,3,76,0,3))
-tmnxTwampSrvPfxMaxConnsExceeded.setObjects(*((_A,_X),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:tmnxTwampSrvPfxMaxConnsExceeded.setStatus(_B)
-tmnxTwampSrvMaxSessExceeded=NotificationType((1,3,6,1,4,1,6527,3,1,3,76,0,4))
-tmnxTwampSrvMaxSessExceeded.setObjects(*((_A,_W),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:tmnxTwampSrvMaxSessExceeded.setStatus(_B)
-tmnxTwampSrvPfxMaxSessExceeded=NotificationType((1,3,6,1,4,1,6527,3,1,3,76,0,5))
-tmnxTwampSrvPfxMaxSessExceeded.setObjects(*((_A,_Y),(_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:tmnxTwampSrvPfxMaxSessExceeded.setStatus(_B)
-tmnxTwampRflInactivityTimeout=NotificationType((1,3,6,1,4,1,6527,3,1,3,76,0,6))
-tmnxTwampRflInactivityTimeout.setObjects(*((_A,_G),(_A,_H),(_A,_b),(_A,_a),(_A,_c),(_A,_e),(_A,_d),(_A,_f)))
-if mibBuilder.loadTexts:tmnxTwampRflInactivityTimeout.setStatus(_B)
-tmnxTwampSrvNotifyV9v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,76,2,1,2))
-tmnxTwampSrvNotifyV9v0Group.setObjects(*((_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU)))
-if mibBuilder.loadTexts:tmnxTwampSrvNotifyV9v0Group.setStatus(_B)
-tmnxTwampRflInactNotifV19v0Group=NotificationGroup((1,3,6,1,4,1,6527,3,1,1,76,2,3,2))
-tmnxTwampRflInactNotifV19v0Group.setObjects((_A,_AV))
-if mibBuilder.loadTexts:tmnxTwampRflInactNotifV19v0Group.setStatus(_B)
-tmnxTwampCompliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,76,1,1))
-tmnxTwampCompliance.setObjects(*((_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac)))
-if mibBuilder.loadTexts:tmnxTwampCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{_N:TmnxTwampSrvConnectionCount,_O:TmnxTwampSrvSessionCount,'timetraTwampMIBModule':timetraTwampMIBModule,'tmnxTwampConformance':tmnxTwampConformance,'tmnxTwampComplianceObjs':tmnxTwampComplianceObjs,'tmnxTwampCompliance':tmnxTwampCompliance,'tmnxTwampGroupObjs':tmnxTwampGroupObjs,'tmnxTwampV9v0GroupObjs':tmnxTwampV9v0GroupObjs,_Ac:tmnxTwampSrvV9v0Group,_AX:tmnxTwampSrvNotifyV9v0Group,_Aa:tmnxTwampSrvNotifyObjsV9v0Group,'tmnxTwampV14v0GroupObjs':tmnxTwampV14v0GroupObjs,_Ab:tmnxTwampSrvV14v0Group,'tmnxTwampV19v0GroupObjs':tmnxTwampV19v0GroupObjs,_AZ:tmnxTwampRflInactivityV19v0Group,_AW:tmnxTwampRflInactNotifV19v0Group,_AY:tmnxTwampRflInNotifyObjsV19v0Grp,'tmnxTwampObjs':tmnxTwampObjs,'tmnxTwampTableLastChangeObjs':tmnxTwampTableLastChangeObjs,_q:tmnxTwampSrvPrefixTblLastChg,'tmnxTwampConfigObjs':tmnxTwampConfigObjs,'tmnxTwampConfigScalarObjs':tmnxTwampConfigScalarObjs,_m:tmnxTwampSrvAdminState,_n:tmnxTwampSrvInactTimeout,_o:tmnxTwampSrvMaxConnections,_p:tmnxTwampSrvMaxSessions,_AP:tmnxTwampRflInactTimeout,'tmnxTwampConfigTableObjs':tmnxTwampConfigTableObjs,'tmnxTwampSrvPrefixTable':tmnxTwampSrvPrefixTable,'tmnxTwampSrvPrefixEntry':tmnxTwampSrvPrefixEntry,_P:tmnxTwampSrvPrefixAddrType,_Q:tmnxTwampSrvPrefixAddr,_R:tmnxTwampSrvPrefixLen,_r:tmnxTwampSrvPrefixRowStatus,_s:tmnxTwampSrvPrefixLastChg,_t:tmnxTwampSrvPrefixDescription,_u:tmnxTwampSrvPrefixMaxConnections,_v:tmnxTwampSrvPrefixMaxSessions,'tmnxTwampStatisticsObjs':tmnxTwampStatisticsObjs,'tmnxTwampStatisticsScalarObjs':tmnxTwampStatisticsScalarObjs,_w:tmnxTwampSrvOperState,_x:tmnxTwampSrvUpTime,_V:tmnxTwampSrvConnectionCount,_y:tmnxTwampSrvConnectionsRejected,_W:tmnxTwampSrvSessionCount,_z:tmnxTwampSrvTestSessCompleted,_A0:tmnxTwampSrvTestSessRejected,_A1:tmnxTwampSrvTestSessAborted,_A2:tmnxTwampSrvTestPacketsRx,_A3:tmnxTwampSrvTestPacketsTx,_AG:tmnxTwampSrvCapabilities,'tmnxTwampStatisticsTableObjs':tmnxTwampStatisticsTableObjs,'tmnxTwampSrvPrefixStatsTable':tmnxTwampSrvPrefixStatsTable,_l:tmnxTwampSrvPrefixStatsEntry,_X:tmnxTwampSrvPfxConnCount,_A4:tmnxTwampSrvPfxConnsRejected,_Y:tmnxTwampSrvPfxSessionCount,_A5:tmnxTwampSrvPfxTestSessCompleted,_A6:tmnxTwampSrvPfxTestSessRejected,_A7:tmnxTwampSrvPfxTestSessAbort,_A8:tmnxTwampSrvPfxTestPacketsRx,_A9:tmnxTwampSrvPfxTestPacketsTx,'tmnxTwampSrvConnStatsTable':tmnxTwampSrvConnStatsTable,'tmnxTwampSrvConnStatsEntry':tmnxTwampSrvConnStatsEntry,_S:tmnxTwampSrvConnClientAddrType,_T:tmnxTwampSrvConnClientAddr,_U:tmnxTwampSrvConnSeqNum,_AA:tmnxTwampSrvConnState,_Z:tmnxTwampSrvConnIdleTime,_AB:tmnxTwampSrvConnSessionCount,_AC:tmnxTwampSrvConnTestSessComplete,_AD:tmnxTwampSrvConnTestSessRejected,_AE:tmnxTwampSrvConnTestPacketsRx,_AF:tmnxTwampSrvConnTestPacketsTx,'tmnxTwampSrvSessStatsTable':tmnxTwampSrvSessStatsTable,'tmnxTwampSrvSessStatsEntry':tmnxTwampSrvSessStatsEntry,_k:tmnxTwampSrvSessSeqNum,_AH:tmnxTwampSrvSessID,_AI:tmnxTwampSrvSessOperState,_AM:tmnxTwampSrvSessSenderAddrType,_AN:tmnxTwampSrvSessSenderAddress,_AO:tmnxTwampSrvSessSenderUdpPort,_AJ:tmnxTwampSrvSessReflectorAddrTyp,_AK:tmnxTwampSrvSessReflectorAddress,_AL:tmnxTwampSrvSessReflectorUdpPort,'tmnxTwampNotificationObjs':tmnxTwampNotificationObjs,_G:tmnxTwampSrvNotifClientAddrType,_H:tmnxTwampSrvNotifClientAddr,_b:tmnxTwampRflNotifLocalAddrType,_a:tmnxTwampRflNotifLocalAddr,_c:tmnxTwampRflNotifLocalUdpPort,_e:tmnxTwampRflNotifRemoteAddrType,_d:tmnxTwampRflNotifRemoteAddr,_f:tmnxTwampRflNotifRemoteUdpPort,'tmnxTwampNotifyPrefix':tmnxTwampNotifyPrefix,'tmnxTwampNotifications':tmnxTwampNotifications,_AQ:tmnxTwampSrvInactivityTimeout,_AR:tmnxTwampSrvMaxConnsExceeded,_AS:tmnxTwampSrvPfxMaxConnsExceeded,_AT:tmnxTwampSrvMaxSessExceeded,_AU:tmnxTwampSrvPfxMaxSessExceeded,_AV:tmnxTwampRflInactivityTimeout})
+if mibBuilder.loadTexts: tmnxTwampSrvPrefixStatsEntry.setStatus('current')
+tmnxTwampSrvPfxConnCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 1, 1, 1), TmnxTwampSrvConnectionCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvPfxConnCount.setStatus('current')
+tmnxTwampSrvPfxConnsRejected = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvPfxConnsRejected.setStatus('current')
+tmnxTwampSrvPfxSessionCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 1, 1, 3), TmnxTwampSrvSessionCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvPfxSessionCount.setStatus('current')
+tmnxTwampSrvPfxTestSessCompleted = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvPfxTestSessCompleted.setStatus('current')
+tmnxTwampSrvPfxTestSessRejected = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvPfxTestSessRejected.setStatus('current')
+tmnxTwampSrvPfxTestSessAbort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvPfxTestSessAbort.setStatus('current')
+tmnxTwampSrvPfxTestPacketsRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvPfxTestPacketsRx.setStatus('current')
+tmnxTwampSrvPfxTestPacketsTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvPfxTestPacketsTx.setStatus('current')
+tmnxTwampSrvConnStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 2), )
+if mibBuilder.loadTexts: tmnxTwampSrvConnStatsTable.setStatus('current')
+tmnxTwampSrvConnStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 2, 1), ).setIndexNames((0, "TIMETRA-TWAMP-MIB", "tmnxTwampSrvPrefixAddrType"), (0, "TIMETRA-TWAMP-MIB", "tmnxTwampSrvPrefixAddr"), (0, "TIMETRA-TWAMP-MIB", "tmnxTwampSrvPrefixLen"), (0, "TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnClientAddrType"), (0, "TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnClientAddr"), (0, "TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnSeqNum"))
+if mibBuilder.loadTexts: tmnxTwampSrvConnStatsEntry.setStatus('current')
+tmnxTwampSrvConnClientAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 2, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: tmnxTwampSrvConnClientAddrType.setStatus('current')
+tmnxTwampSrvConnClientAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 2, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
+if mibBuilder.loadTexts: tmnxTwampSrvConnClientAddr.setStatus('current')
+tmnxTwampSrvConnSeqNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: tmnxTwampSrvConnSeqNum.setStatus('current')
+tmnxTwampSrvConnState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("settingUp", 1), ("ready", 2), ("running", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvConnState.setStatus('current')
+tmnxTwampSrvConnIdleTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 2, 1, 5), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvConnIdleTime.setStatus('current')
+tmnxTwampSrvConnSessionCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 2, 1, 6), TmnxTwampSrvSessionCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvConnSessionCount.setStatus('current')
+tmnxTwampSrvConnTestSessComplete = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvConnTestSessComplete.setStatus('current')
+tmnxTwampSrvConnTestSessRejected = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvConnTestSessRejected.setStatus('current')
+tmnxTwampSrvConnTestPacketsRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvConnTestPacketsRx.setStatus('current')
+tmnxTwampSrvConnTestPacketsTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvConnTestPacketsTx.setStatus('current')
+tmnxTwampSrvSessStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 3), )
+if mibBuilder.loadTexts: tmnxTwampSrvSessStatsTable.setStatus('current')
+tmnxTwampSrvSessStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 3, 1), ).setIndexNames((0, "TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnClientAddrType"), (0, "TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnClientAddr"), (0, "TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnSeqNum"), (0, "TIMETRA-TWAMP-MIB", "tmnxTwampSrvSessSeqNum"))
+if mibBuilder.loadTexts: tmnxTwampSrvSessStatsEntry.setStatus('current')
+tmnxTwampSrvSessSeqNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: tmnxTwampSrvSessSeqNum.setStatus('current')
+tmnxTwampSrvSessID = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 3, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvSessID.setStatus('current')
+tmnxTwampSrvSessOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("create", 1), ("active", 2), ("stop", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvSessOperState.setStatus('current')
+tmnxTwampSrvSessSenderAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 3, 1, 4), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvSessSenderAddrType.setStatus('current')
+tmnxTwampSrvSessSenderAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 3, 1, 5), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvSessSenderAddress.setStatus('current')
+tmnxTwampSrvSessSenderUdpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 3, 1, 6), InetPortNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvSessSenderUdpPort.setStatus('current')
+tmnxTwampSrvSessReflectorAddrTyp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 3, 1, 7), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvSessReflectorAddrTyp.setStatus('current')
+tmnxTwampSrvSessReflectorAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 3, 1, 8), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvSessReflectorAddress.setStatus('current')
+tmnxTwampSrvSessReflectorUdpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 3, 2, 3, 1, 9), InetPortNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxTwampSrvSessReflectorUdpPort.setStatus('current')
+tmnxTwampNotificationObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 4))
+tmnxTwampSrvNotifClientAddrType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 4, 1), InetAddressType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxTwampSrvNotifClientAddrType.setStatus('current')
+tmnxTwampSrvNotifClientAddr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 4, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxTwampSrvNotifClientAddr.setStatus('current')
+tmnxTwampRflNotifLocalAddrType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 4, 3), InetAddressType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxTwampRflNotifLocalAddrType.setStatus('current')
+tmnxTwampRflNotifLocalAddr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 4, 4), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxTwampRflNotifLocalAddr.setStatus('current')
+tmnxTwampRflNotifLocalUdpPort = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 4, 5), TTcpUdpPort()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxTwampRflNotifLocalUdpPort.setStatus('current')
+tmnxTwampRflNotifRemoteAddrType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 4, 6), InetAddressType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxTwampRflNotifRemoteAddrType.setStatus('current')
+tmnxTwampRflNotifRemoteAddr = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 4, 7), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxTwampRflNotifRemoteAddr.setStatus('current')
+tmnxTwampRflNotifRemoteUdpPort = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 76, 4, 8), TTcpUdpPort()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: tmnxTwampRflNotifRemoteUdpPort.setStatus('current')
+tmnxTwampConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 76))
+tmnxTwampComplianceObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 76, 1))
+tmnxTwampCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 76, 1, 1)).setObjects(("TIMETRA-TWAMP-MIB", "tmnxTwampRflInactNotifV19v0Group"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvNotifyV9v0Group"), ("TIMETRA-TWAMP-MIB", "tmnxTwampRflInNotifyObjsV19v0Grp"), ("TIMETRA-TWAMP-MIB", "tmnxTwampRflInactivityV19v0Group"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvNotifyObjsV9v0Group"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvV14v0Group"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvV9v0Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxTwampCompliance = tmnxTwampCompliance.setStatus('current')
+tmnxTwampGroupObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 76, 2))
+tmnxTwampV9v0GroupObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 76, 2, 1))
+tmnxTwampSrvV9v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 76, 2, 1, 1)).setObjects(("TIMETRA-TWAMP-MIB", "tmnxTwampSrvAdminState"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvInactTimeout"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvMaxConnections"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvMaxSessions"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPrefixTblLastChg"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPrefixRowStatus"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPrefixLastChg"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPrefixDescription"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPrefixMaxConnections"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPrefixMaxSessions"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvOperState"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvUpTime"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnectionCount"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnectionsRejected"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvSessionCount"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvTestSessCompleted"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvTestSessRejected"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvTestSessAborted"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvTestPacketsRx"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvTestPacketsTx"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPfxConnCount"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPfxConnsRejected"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPfxSessionCount"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPfxTestSessCompleted"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPfxTestSessRejected"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPfxTestSessAbort"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPfxTestPacketsRx"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPfxTestPacketsTx"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnState"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnIdleTime"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnSessionCount"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnTestSessComplete"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnTestSessRejected"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnTestPacketsRx"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnTestPacketsTx"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxTwampSrvV9v0Group = tmnxTwampSrvV9v0Group.setStatus('current')
+tmnxTwampSrvNotifyV9v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 76, 2, 1, 2)).setObjects(("TIMETRA-TWAMP-MIB", "tmnxTwampSrvInactivityTimeout"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvMaxConnsExceeded"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPfxMaxConnsExceeded"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvMaxSessExceeded"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPfxMaxSessExceeded"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxTwampSrvNotifyV9v0Group = tmnxTwampSrvNotifyV9v0Group.setStatus('current')
+tmnxTwampSrvNotifyObjsV9v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 76, 2, 1, 3)).setObjects(("TIMETRA-TWAMP-MIB", "tmnxTwampSrvNotifClientAddrType"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvNotifClientAddr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxTwampSrvNotifyObjsV9v0Group = tmnxTwampSrvNotifyObjsV9v0Group.setStatus('current')
+tmnxTwampV14v0GroupObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 76, 2, 2))
+tmnxTwampSrvV14v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 76, 2, 2, 1)).setObjects(("TIMETRA-TWAMP-MIB", "tmnxTwampSrvCapabilities"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvSessID"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvSessOperState"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvSessReflectorAddrTyp"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvSessReflectorAddress"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvSessReflectorUdpPort"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvSessSenderAddrType"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvSessSenderAddress"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvSessSenderUdpPort"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxTwampSrvV14v0Group = tmnxTwampSrvV14v0Group.setStatus('current')
+tmnxTwampV19v0GroupObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 76, 2, 3))
+tmnxTwampRflInactivityV19v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 76, 2, 3, 1)).setObjects(("TIMETRA-TWAMP-MIB", "tmnxTwampRflInactTimeout"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxTwampRflInactivityV19v0Group = tmnxTwampRflInactivityV19v0Group.setStatus('current')
+tmnxTwampRflInactNotifV19v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 76, 2, 3, 2)).setObjects(("TIMETRA-TWAMP-MIB", "tmnxTwampRflInactivityTimeout"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxTwampRflInactNotifV19v0Group = tmnxTwampRflInactNotifV19v0Group.setStatus('current')
+tmnxTwampRflInNotifyObjsV19v0Grp = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 76, 2, 3, 3)).setObjects(("TIMETRA-TWAMP-MIB", "tmnxTwampRflNotifLocalAddr"), ("TIMETRA-TWAMP-MIB", "tmnxTwampRflNotifLocalAddrType"), ("TIMETRA-TWAMP-MIB", "tmnxTwampRflNotifLocalUdpPort"), ("TIMETRA-TWAMP-MIB", "tmnxTwampRflNotifRemoteAddr"), ("TIMETRA-TWAMP-MIB", "tmnxTwampRflNotifRemoteAddrType"), ("TIMETRA-TWAMP-MIB", "tmnxTwampRflNotifRemoteUdpPort"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxTwampRflInNotifyObjsV19v0Grp = tmnxTwampRflInNotifyObjsV19v0Grp.setStatus('current')
+tmnxTwampNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 76))
+tmnxTwampNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 76, 0))
+tmnxTwampSrvInactivityTimeout = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 76, 0, 1)).setObjects(("TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnIdleTime"))
+if mibBuilder.loadTexts: tmnxTwampSrvInactivityTimeout.setStatus('current')
+tmnxTwampSrvMaxConnsExceeded = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 76, 0, 2)).setObjects(("TIMETRA-TWAMP-MIB", "tmnxTwampSrvConnectionCount"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvNotifClientAddrType"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvNotifClientAddr"))
+if mibBuilder.loadTexts: tmnxTwampSrvMaxConnsExceeded.setStatus('current')
+tmnxTwampSrvPfxMaxConnsExceeded = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 76, 0, 3)).setObjects(("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPfxConnCount"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvNotifClientAddrType"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvNotifClientAddr"))
+if mibBuilder.loadTexts: tmnxTwampSrvPfxMaxConnsExceeded.setStatus('current')
+tmnxTwampSrvMaxSessExceeded = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 76, 0, 4)).setObjects(("TIMETRA-TWAMP-MIB", "tmnxTwampSrvSessionCount"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvNotifClientAddrType"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvNotifClientAddr"))
+if mibBuilder.loadTexts: tmnxTwampSrvMaxSessExceeded.setStatus('current')
+tmnxTwampSrvPfxMaxSessExceeded = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 76, 0, 5)).setObjects(("TIMETRA-TWAMP-MIB", "tmnxTwampSrvPfxSessionCount"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvNotifClientAddrType"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvNotifClientAddr"))
+if mibBuilder.loadTexts: tmnxTwampSrvPfxMaxSessExceeded.setStatus('current')
+tmnxTwampRflInactivityTimeout = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 76, 0, 6)).setObjects(("TIMETRA-TWAMP-MIB", "tmnxTwampSrvNotifClientAddrType"), ("TIMETRA-TWAMP-MIB", "tmnxTwampSrvNotifClientAddr"), ("TIMETRA-TWAMP-MIB", "tmnxTwampRflNotifLocalAddrType"), ("TIMETRA-TWAMP-MIB", "tmnxTwampRflNotifLocalAddr"), ("TIMETRA-TWAMP-MIB", "tmnxTwampRflNotifLocalUdpPort"), ("TIMETRA-TWAMP-MIB", "tmnxTwampRflNotifRemoteAddrType"), ("TIMETRA-TWAMP-MIB", "tmnxTwampRflNotifRemoteAddr"), ("TIMETRA-TWAMP-MIB", "tmnxTwampRflNotifRemoteUdpPort"))
+if mibBuilder.loadTexts: tmnxTwampRflInactivityTimeout.setStatus('current')
+mibBuilder.exportSymbols("TIMETRA-TWAMP-MIB", tmnxTwampSrvPrefixStatsTable=tmnxTwampSrvPrefixStatsTable, tmnxTwampV14v0GroupObjs=tmnxTwampV14v0GroupObjs, tmnxTwampSrvPrefixMaxSessions=tmnxTwampSrvPrefixMaxSessions, tmnxTwampV19v0GroupObjs=tmnxTwampV19v0GroupObjs, tmnxTwampSrvSessStatsEntry=tmnxTwampSrvSessStatsEntry, tmnxTwampSrvConnSeqNum=tmnxTwampSrvConnSeqNum, tmnxTwampSrvSessSenderAddrType=tmnxTwampSrvSessSenderAddrType, tmnxTwampNotificationObjs=tmnxTwampNotificationObjs, timetraTwampMIBModule=timetraTwampMIBModule, tmnxTwampSrvConnStatsTable=tmnxTwampSrvConnStatsTable, tmnxTwampGroupObjs=tmnxTwampGroupObjs, tmnxTwampCompliance=tmnxTwampCompliance, tmnxTwampSrvMaxConnsExceeded=tmnxTwampSrvMaxConnsExceeded, tmnxTwampStatisticsTableObjs=tmnxTwampStatisticsTableObjs, tmnxTwampSrvSessReflectorAddrTyp=tmnxTwampSrvSessReflectorAddrTyp, tmnxTwampSrvConnectionsRejected=tmnxTwampSrvConnectionsRejected, tmnxTwampConfigTableObjs=tmnxTwampConfigTableObjs, tmnxTwampSrvTestPacketsRx=tmnxTwampSrvTestPacketsRx, tmnxTwampSrvTestSessCompleted=tmnxTwampSrvTestSessCompleted, tmnxTwampRflInNotifyObjsV19v0Grp=tmnxTwampRflInNotifyObjsV19v0Grp, tmnxTwampSrvPrefixStatsEntry=tmnxTwampSrvPrefixStatsEntry, tmnxTwampRflNotifRemoteAddr=tmnxTwampRflNotifRemoteAddr, tmnxTwampSrvAdminState=tmnxTwampSrvAdminState, tmnxTwampConfigObjs=tmnxTwampConfigObjs, tmnxTwampSrvPfxTestSessAbort=tmnxTwampSrvPfxTestSessAbort, tmnxTwampConfigScalarObjs=tmnxTwampConfigScalarObjs, tmnxTwampSrvV9v0Group=tmnxTwampSrvV9v0Group, tmnxTwampSrvSessSenderAddress=tmnxTwampSrvSessSenderAddress, tmnxTwampNotifyPrefix=tmnxTwampNotifyPrefix, tmnxTwampSrvInactivityTimeout=tmnxTwampSrvInactivityTimeout, tmnxTwampSrvSessSenderUdpPort=tmnxTwampSrvSessSenderUdpPort, tmnxTwampSrvConnTestPacketsTx=tmnxTwampSrvConnTestPacketsTx, tmnxTwampSrvPfxTestPacketsTx=tmnxTwampSrvPfxTestPacketsTx, tmnxTwampSrvOperState=tmnxTwampSrvOperState, tmnxTwampSrvPfxConnsRejected=tmnxTwampSrvPfxConnsRejected, tmnxTwampSrvConnTestSessComplete=tmnxTwampSrvConnTestSessComplete, tmnxTwampSrvNotifClientAddrType=tmnxTwampSrvNotifClientAddrType, tmnxTwampSrvConnTestSessRejected=tmnxTwampSrvConnTestSessRejected, tmnxTwampSrvUpTime=tmnxTwampSrvUpTime, tmnxTwampSrvPrefixLen=tmnxTwampSrvPrefixLen, tmnxTwampConformance=tmnxTwampConformance, TmnxTwampSrvSessionCount=TmnxTwampSrvSessionCount, tmnxTwampSrvPrefixAddr=tmnxTwampSrvPrefixAddr, tmnxTwampSrvSessSeqNum=tmnxTwampSrvSessSeqNum, tmnxTwampSrvPfxConnCount=tmnxTwampSrvPfxConnCount, tmnxTwampRflNotifLocalAddrType=tmnxTwampRflNotifLocalAddrType, tmnxTwampTableLastChangeObjs=tmnxTwampTableLastChangeObjs, tmnxTwampSrvTestSessRejected=tmnxTwampSrvTestSessRejected, tmnxTwampSrvSessReflectorAddress=tmnxTwampSrvSessReflectorAddress, tmnxTwampSrvTestPacketsTx=tmnxTwampSrvTestPacketsTx, tmnxTwampSrvConnIdleTime=tmnxTwampSrvConnIdleTime, tmnxTwampRflNotifRemoteAddrType=tmnxTwampRflNotifRemoteAddrType, tmnxTwampSrvPfxTestSessCompleted=tmnxTwampSrvPfxTestSessCompleted, tmnxTwampSrvConnTestPacketsRx=tmnxTwampSrvConnTestPacketsRx, tmnxTwampSrvConnClientAddr=tmnxTwampSrvConnClientAddr, tmnxTwampSrvSessStatsTable=tmnxTwampSrvSessStatsTable, tmnxTwampSrvNotifyV9v0Group=tmnxTwampSrvNotifyV9v0Group, tmnxTwampSrvPrefixEntry=tmnxTwampSrvPrefixEntry, tmnxTwampSrvPrefixRowStatus=tmnxTwampSrvPrefixRowStatus, tmnxTwampSrvPrefixTable=tmnxTwampSrvPrefixTable, tmnxTwampSrvConnStatsEntry=tmnxTwampSrvConnStatsEntry, tmnxTwampSrvTestSessAborted=tmnxTwampSrvTestSessAborted, tmnxTwampSrvConnSessionCount=tmnxTwampSrvConnSessionCount, tmnxTwampSrvMaxConnections=tmnxTwampSrvMaxConnections, tmnxTwampSrvPfxMaxConnsExceeded=tmnxTwampSrvPfxMaxConnsExceeded, tmnxTwampSrvConnectionCount=tmnxTwampSrvConnectionCount, tmnxTwampObjs=tmnxTwampObjs, tmnxTwampSrvPfxMaxSessExceeded=tmnxTwampSrvPfxMaxSessExceeded, tmnxTwampSrvPrefixDescription=tmnxTwampSrvPrefixDescription, tmnxTwampSrvNotifClientAddr=tmnxTwampSrvNotifClientAddr, tmnxTwampRflInactTimeout=tmnxTwampRflInactTimeout, tmnxTwampSrvSessReflectorUdpPort=tmnxTwampSrvSessReflectorUdpPort, tmnxTwampNotifications=tmnxTwampNotifications, tmnxTwampRflInactivityTimeout=tmnxTwampRflInactivityTimeout, tmnxTwampSrvConnState=tmnxTwampSrvConnState, tmnxTwampSrvPrefixLastChg=tmnxTwampSrvPrefixLastChg, tmnxTwampSrvPfxSessionCount=tmnxTwampSrvPfxSessionCount, tmnxTwampSrvMaxSessions=tmnxTwampSrvMaxSessions, tmnxTwampStatisticsObjs=tmnxTwampStatisticsObjs, tmnxTwampSrvPfxTestSessRejected=tmnxTwampSrvPfxTestSessRejected, tmnxTwampSrvSessID=tmnxTwampSrvSessID, tmnxTwampRflNotifLocalUdpPort=tmnxTwampRflNotifLocalUdpPort, tmnxTwampSrvPrefixTblLastChg=tmnxTwampSrvPrefixTblLastChg, tmnxTwampRflNotifRemoteUdpPort=tmnxTwampRflNotifRemoteUdpPort, tmnxTwampSrvPrefixAddrType=tmnxTwampSrvPrefixAddrType, tmnxTwampSrvPrefixMaxConnections=tmnxTwampSrvPrefixMaxConnections, tmnxTwampRflInactNotifV19v0Group=tmnxTwampRflInactNotifV19v0Group, tmnxTwampStatisticsScalarObjs=tmnxTwampStatisticsScalarObjs, tmnxTwampSrvInactTimeout=tmnxTwampSrvInactTimeout, PYSNMP_MODULE_ID=timetraTwampMIBModule, tmnxTwampSrvPfxTestPacketsRx=tmnxTwampSrvPfxTestPacketsRx, tmnxTwampSrvV14v0Group=tmnxTwampSrvV14v0Group, tmnxTwampComplianceObjs=tmnxTwampComplianceObjs, tmnxTwampSrvNotifyObjsV9v0Group=tmnxTwampSrvNotifyObjsV9v0Group, tmnxTwampSrvCapabilities=tmnxTwampSrvCapabilities, tmnxTwampSrvSessionCount=tmnxTwampSrvSessionCount, tmnxTwampSrvSessOperState=tmnxTwampSrvSessOperState, TmnxTwampSrvConnectionCount=TmnxTwampSrvConnectionCount, tmnxTwampV9v0GroupObjs=tmnxTwampV9v0GroupObjs, tmnxTwampRflInactivityV19v0Group=tmnxTwampRflInactivityV19v0Group, tmnxTwampSrvConnClientAddrType=tmnxTwampSrvConnClientAddrType, tmnxTwampSrvMaxSessExceeded=tmnxTwampSrvMaxSessExceeded, tmnxTwampRflNotifLocalAddr=tmnxTwampRflNotifLocalAddr)

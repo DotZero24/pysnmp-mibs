@@ -1,64 +1,45 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ipsoProducts=ModuleIdentity((1,3,6,1,4,1,94,1,21))
-if mibBuilder.loadTexts:ipsoProducts.setRevisions(('1998-12-02 00:00','1900-01-14 00:00','1901-07-17 00:00'))
-_Nokia_ObjectIdentity=ObjectIdentity
-nokia=_Nokia_ObjectIdentity((1,3,6,1,4,1,94))
-_NokiaProducts_ObjectIdentity=ObjectIdentity
-nokiaProducts=_NokiaProducts_ObjectIdentity((1,3,6,1,4,1,94,1))
-_IpsoProductIds_ObjectIdentity=ObjectIdentity
-ipsoProductIds=_IpsoProductIds_ObjectIdentity((1,3,6,1,4,1,94,1,21,2))
-_IpsoAgentID_ObjectIdentity=ObjectIdentity
-ipsoAgentID=_IpsoAgentID_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1))
-_IpsoIPUnknown_ObjectIdentity=ObjectIdentity
-ipsoIPUnknown=_IpsoIPUnknown_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,1))
-_IpsoIP4xx_ObjectIdentity=ObjectIdentity
-ipsoIP4xx=_IpsoIP4xx_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,2))
-_IpsoIP400_ObjectIdentity=ObjectIdentity
-ipsoIP400=_IpsoIP400_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,3))
-_IpsoIP410_ObjectIdentity=ObjectIdentity
-ipsoIP410=_IpsoIP410_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,4))
-_IpsoIP440_ObjectIdentity=ObjectIdentity
-ipsoIP440=_IpsoIP440_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,5))
-_IpsoIP6xx_ObjectIdentity=ObjectIdentity
-ipsoIP6xx=_IpsoIP6xx_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,6))
-_IpsoIP600_ObjectIdentity=ObjectIdentity
-ipsoIP600=_IpsoIP600_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,7))
-_IpsoIP650_ObjectIdentity=ObjectIdentity
-ipsoIP650=_IpsoIP650_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,8))
-_IpsoIP3xx_ObjectIdentity=ObjectIdentity
-ipsoIP3xx=_IpsoIP3xx_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,9))
-_IpsoIP110_ObjectIdentity=ObjectIdentity
-ipsoIP110=_IpsoIP110_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,10))
-_IpsoIP530_ObjectIdentity=ObjectIdentity
-ipsoIP530=_IpsoIP530_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,11))
-_IpsoIP740_ObjectIdentity=ObjectIdentity
-ipsoIP740=_IpsoIP740_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,12))
-_IpsoIP3400_ObjectIdentity=ObjectIdentity
-ipsoIP3400=_IpsoIP3400_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,13))
-_IpsoVPNUnknown_ObjectIdentity=ObjectIdentity
-ipsoVPNUnknown=_IpsoVPNUnknown_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,128))
-_IpsoVPN1RL50_ObjectIdentity=ObjectIdentity
-ipsoVPN1RL50=_IpsoVPN1RL50_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,129))
-_IpsoVPN1RL250_ObjectIdentity=ObjectIdentity
-ipsoVPN1RL250=_IpsoVPN1RL250_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,130))
-_IpsoVPN1RL500_ObjectIdentity=ObjectIdentity
-ipsoVPN1RL500=_IpsoVPN1RL500_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,131))
-_IpsoVPN1RLU_ObjectIdentity=ObjectIdentity
-ipsoVPN1RLU=_IpsoVPN1RLU_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,132))
-_IpsoVPN210_ObjectIdentity=ObjectIdentity
-ipsoVPN210=_IpsoVPN210_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,133))
-_IpsoVPN220_ObjectIdentity=ObjectIdentity
-ipsoVPN220=_IpsoVPN220_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,134))
-_IpsoVPN230_ObjectIdentity=ObjectIdentity
-ipsoVPN230=_IpsoVPN230_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,135))
-_IpsoVPN240_ObjectIdentity=ObjectIdentity
-ipsoVPN240=_IpsoVPN240_ObjectIdentity((1,3,6,1,4,1,94,1,21,2,1,136))
-_IpsoSosSystem_ObjectIdentity=ObjectIdentity
-ipsoSosSystem=_IpsoSosSystem_ObjectIdentity((1,3,6,1,4,1,94,1,21,4))
-mibBuilder.exportSymbols('NOKIA-IPSO-REGISTRATION-MIB',**{'nokia':nokia,'nokiaProducts':nokiaProducts,'ipsoProducts':ipsoProducts,'ipsoProductIds':ipsoProductIds,'ipsoAgentID':ipsoAgentID,'ipsoIPUnknown':ipsoIPUnknown,'ipsoIP4xx':ipsoIP4xx,'ipsoIP400':ipsoIP400,'ipsoIP410':ipsoIP410,'ipsoIP440':ipsoIP440,'ipsoIP6xx':ipsoIP6xx,'ipsoIP600':ipsoIP600,'ipsoIP650':ipsoIP650,'ipsoIP3xx':ipsoIP3xx,'ipsoIP110':ipsoIP110,'ipsoIP530':ipsoIP530,'ipsoIP740':ipsoIP740,'ipsoIP3400':ipsoIP3400,'ipsoVPNUnknown':ipsoVPNUnknown,'ipsoVPN1RL50':ipsoVPN1RL50,'ipsoVPN1RL250':ipsoVPN1RL250,'ipsoVPN1RL500':ipsoVPN1RL500,'ipsoVPN1RLU':ipsoVPN1RLU,'ipsoVPN210':ipsoVPN210,'ipsoVPN220':ipsoVPN220,'ipsoVPN230':ipsoVPN230,'ipsoVPN240':ipsoVPN240,'ipsoSosSystem':ipsoSosSystem})
+#
+# PySNMP MIB module NOKIA-IPSO-REGISTRATION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/checkpoint/NOKIA-IPSO-REGISTRATION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:33 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ipsoProducts = ModuleIdentity((1, 3, 6, 1, 4, 1, 94, 1, 21))
+ipsoProducts.setRevisions(('1998-12-02 00:00', '1900-01-14 00:00', '1901-07-17 00:00',))
+if mibBuilder.loadTexts: ipsoProducts.setLastUpdated('0001140000Z')
+if mibBuilder.loadTexts: ipsoProducts.setOrganization('Nokia')
+nokia = MibIdentifier((1, 3, 6, 1, 4, 1, 94))
+nokiaProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1))
+ipsoProductIds = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2))
+ipsoSosSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 4))
+ipsoAgentID = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1))
+ipsoIPUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 1))
+ipsoIP4xx = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 2))
+ipsoIP400 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 3))
+ipsoIP410 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 4))
+ipsoIP440 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 5))
+ipsoIP6xx = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 6))
+ipsoIP600 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 7))
+ipsoIP650 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 8))
+ipsoIP3xx = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 9))
+ipsoIP110 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 10))
+ipsoIP530 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 11))
+ipsoIP740 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 12))
+ipsoIP3400 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 13))
+ipsoVPNUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 128))
+ipsoVPN1RL50 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 129))
+ipsoVPN1RL250 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 130))
+ipsoVPN1RL500 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 131))
+ipsoVPN1RLU = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 132))
+ipsoVPN210 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 133))
+ipsoVPN220 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 134))
+ipsoVPN230 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 135))
+ipsoVPN240 = MibIdentifier((1, 3, 6, 1, 4, 1, 94, 1, 21, 2, 1, 136))
+mibBuilder.exportSymbols("NOKIA-IPSO-REGISTRATION-MIB", ipsoVPN230=ipsoVPN230, ipsoIP410=ipsoIP410, ipsoIP110=ipsoIP110, ipsoIP4xx=ipsoIP4xx, ipsoVPN210=ipsoVPN210, ipsoIPUnknown=ipsoIPUnknown, ipsoIP3xx=ipsoIP3xx, ipsoVPN1RLU=ipsoVPN1RLU, nokiaProducts=nokiaProducts, PYSNMP_MODULE_ID=ipsoProducts, ipsoProductIds=ipsoProductIds, ipsoIP6xx=ipsoIP6xx, ipsoVPN1RL50=ipsoVPN1RL50, ipsoIP600=ipsoIP600, ipsoVPN1RL250=ipsoVPN1RL250, ipsoAgentID=ipsoAgentID, ipsoVPNUnknown=ipsoVPNUnknown, ipsoIP3400=ipsoIP3400, ipsoProducts=ipsoProducts, ipsoVPN220=ipsoVPN220, ipsoVPN240=ipsoVPN240, ipsoIP740=ipsoIP740, ipsoIP530=ipsoIP530, ipsoIP650=ipsoIP650, nokia=nokia, ipsoSosSystem=ipsoSosSystem, ipsoIP440=ipsoIP440, ipsoIP400=ipsoIP400, ipsoVPN1RL500=ipsoVPN1RL500)

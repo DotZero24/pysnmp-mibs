@@ -1,19 +1,20 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_mgmt,dlink_products=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-mgmt','dlink-products')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Dlink_Des3810Series_ObjectIdentity=ObjectIdentity
-dlink_Des3810Series=_Dlink_Des3810Series_ObjectIdentity((1,3,6,1,4,1,171,11,114))
-_Des3810_ObjectIdentity=ObjectIdentity
-des3810=_Des3810_ObjectIdentity((1,3,6,1,4,1,171,11,114,1))
-_Des3810_28_ObjectIdentity=ObjectIdentity
-des3810_28=_Des3810_28_ObjectIdentity((1,3,6,1,4,1,171,11,114,1,1))
-_Des3810_28DC_ObjectIdentity=ObjectIdentity
-des3810_28DC=_Des3810_28DC_ObjectIdentity((1,3,6,1,4,1,171,11,114,1,2))
-_Des3810_52_ObjectIdentity=ObjectIdentity
-des3810_52=_Des3810_52_ObjectIdentity((1,3,6,1,4,1,171,11,114,1,3))
-mibBuilder.exportSymbols('SW3810PRIMGMT-MIB',**{'dlink-Des3810Series':dlink_Des3810Series,'des3810':des3810,'des3810-28':des3810_28,'des3810-28DC':des3810_28DC,'des3810-52':des3810_52})
+#
+# PySNMP MIB module SW3810PRIMGMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/SW3810PRIMGMT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_mgmt, dlink_products = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-mgmt", "dlink-products")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+dlink_Des3810Series = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 114)).setLabel("dlink-Des3810Series")
+des3810 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 114, 1))
+des3810_28 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 114, 1, 1)).setLabel("des3810-28")
+des3810_28DC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 114, 1, 2)).setLabel("des3810-28DC")
+des3810_52 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 114, 1, 3)).setLabel("des3810-52")
+mibBuilder.exportSymbols("SW3810PRIMGMT-MIB", des3810_52=des3810_52, des3810_28DC=des3810_28DC, des3810=des3810, dlink_Des3810Series=dlink_Des3810Series, des3810_28=des3810_28)

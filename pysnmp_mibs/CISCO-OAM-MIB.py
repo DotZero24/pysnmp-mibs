@@ -1,283 +1,130 @@
-_v='ciscoOamPingMIBGroupRev3'
-_u='ciscoOamPing2MIBGroup'
-_t='ciscoOamPingMIBGroup'
-_s='oamLoopbackPingCompletionTrap'
-_r='oamLoopbackPingMaxRttuSec'
-_q='oamLoopbackPingMinRttuSec'
-_p='oamLoopbackPingAvgRttuSec'
-_o='oamLoopSegRowStatus'
-_n='oamLoopSegVci'
-_m='oamLoopSegVpi'
-_l='oamLoopbackPingSerialNumber'
-_k='TruthValue'
-_j='ifIndex'
-_i='IF-MIB'
-_h='OctetString'
-_g='ciscoOamPingSegEndPointGroup'
-_f='oamLoopbackNotificationsGroup'
-_e='oamLoopbackPingExecTime'
-_d='oamLoopbackPingOperStatus'
-_c='oamLoopbackPingDir'
-_b='microseconds'
-_a='not-accessible'
-_Z='Unsigned32'
-_Y='deprecated'
-_X='oamLoopbackPingEntryStatus'
-_W='oamLoopbackPingEntryOwner'
-_V='oamLoopbackPingMaxRtt'
-_U='oamLoopbackPingAvgRtt'
-_T='oamLoopbackPingMinRtt'
-_S='oamLoopbackPingReceivedCells'
-_R='oamLoopbackPingSentCells'
-_Q='oamLoopbackPingTrapOnCompletion'
-_P='oamLoopbackPingDelay'
-_O='oamLoopbackPingTimeout'
-_N='oamLoopbackPingLocationFlag'
-_M='oamLoopbackPingLocation'
-_L='oamLoopbackPingType'
-_K='oamLoopbackPingCount'
-_J='oamLoopbackPingVci'
-_I='oamLoopbackPingVpi'
-_H='oamLoopbackPingInterface'
-_G='oamLoopbackPingCompleted'
-_F='milliseconds'
-_E='read-only'
-_D='read-create'
-_C='Integer32'
-_B='current'
-_A='CISCO-OAM-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_h,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoExperiment,=mibBuilder.importSymbols('CISCO-SMI','ciscoExperiment')
-ifIndex,=mibBuilder.importSymbols(_i,_j)
-OwnerString,=mibBuilder.importSymbols('RMON-MIB','OwnerString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_Z,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp',_k)
-ciscoOamPingMIB=ModuleIdentity((1,3,6,1,4,1,9,10,15))
-if mibBuilder.loadTexts:ciscoOamPingMIB.setRevisions(('2006-02-17 00:00','2003-06-27 00:00','2003-04-04 00:00','1996-05-01 00:00'))
-class CiscoOAMPingDir(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('forward',1),('backward',2)))
-class CiscoOAMPingStatus(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('success',1),('timeOut',2),('resourceNotAvailable',3),('aborted',4),('inProgress',5),('noResponseData',6),('failToStart',7)))
-_CiscoOamPingMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoOamPingMIBObjects=_CiscoOamPingMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,10,15,1))
-_OamLoopbackPingTable_Object=MibTable
-oamLoopbackPingTable=_OamLoopbackPingTable_Object((1,3,6,1,4,1,9,10,15,1,1))
-if mibBuilder.loadTexts:oamLoopbackPingTable.setStatus(_B)
-_OamLoopbackPingEntry_Object=MibTableRow
-oamLoopbackPingEntry=_OamLoopbackPingEntry_Object((1,3,6,1,4,1,9,10,15,1,1,1))
-oamLoopbackPingEntry.setIndexNames((0,_A,_l))
-if mibBuilder.loadTexts:oamLoopbackPingEntry.setStatus(_B)
-class _OamLoopbackPingSerialNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_OamLoopbackPingSerialNumber_Type.__name__=_C
-_OamLoopbackPingSerialNumber_Object=MibTableColumn
-oamLoopbackPingSerialNumber=_OamLoopbackPingSerialNumber_Object((1,3,6,1,4,1,9,10,15,1,1,1,1),_OamLoopbackPingSerialNumber_Type())
-oamLoopbackPingSerialNumber.setMaxAccess(_a)
-if mibBuilder.loadTexts:oamLoopbackPingSerialNumber.setStatus(_B)
-class _OamLoopbackPingInterface_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_OamLoopbackPingInterface_Type.__name__=_C
-_OamLoopbackPingInterface_Object=MibTableColumn
-oamLoopbackPingInterface=_OamLoopbackPingInterface_Object((1,3,6,1,4,1,9,10,15,1,1,1,2),_OamLoopbackPingInterface_Type())
-oamLoopbackPingInterface.setMaxAccess(_D)
-if mibBuilder.loadTexts:oamLoopbackPingInterface.setStatus(_B)
-class _OamLoopbackPingVpi_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_OamLoopbackPingVpi_Type.__name__=_C
-_OamLoopbackPingVpi_Object=MibTableColumn
-oamLoopbackPingVpi=_OamLoopbackPingVpi_Object((1,3,6,1,4,1,9,10,15,1,1,1,3),_OamLoopbackPingVpi_Type())
-oamLoopbackPingVpi.setMaxAccess(_D)
-if mibBuilder.loadTexts:oamLoopbackPingVpi.setStatus(_B)
-class _OamLoopbackPingVci_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,65535))
-_OamLoopbackPingVci_Type.__name__=_C
-_OamLoopbackPingVci_Object=MibTableColumn
-oamLoopbackPingVci=_OamLoopbackPingVci_Object((1,3,6,1,4,1,9,10,15,1,1,1,4),_OamLoopbackPingVci_Type())
-oamLoopbackPingVci.setMaxAccess(_D)
-if mibBuilder.loadTexts:oamLoopbackPingVci.setStatus(_B)
-class _OamLoopbackPingType_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('segment',1),('end2end',2)))
-_OamLoopbackPingType_Type.__name__=_C
-_OamLoopbackPingType_Object=MibTableColumn
-oamLoopbackPingType=_OamLoopbackPingType_Object((1,3,6,1,4,1,9,10,15,1,1,1,5),_OamLoopbackPingType_Type())
-oamLoopbackPingType.setMaxAccess(_D)
-if mibBuilder.loadTexts:oamLoopbackPingType.setStatus(_B)
-class _OamLoopbackPingLocation_Type(OctetString):defaultHexValue='FF';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_OamLoopbackPingLocation_Type.__name__=_h
-_OamLoopbackPingLocation_Object=MibTableColumn
-oamLoopbackPingLocation=_OamLoopbackPingLocation_Object((1,3,6,1,4,1,9,10,15,1,1,1,6),_OamLoopbackPingLocation_Type())
-oamLoopbackPingLocation.setMaxAccess(_D)
-if mibBuilder.loadTexts:oamLoopbackPingLocation.setStatus(_B)
-class _OamLoopbackPingLocationFlag_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('ipAddress',1),('nsapPrefix',2),('fixed16byteValue',3)))
-_OamLoopbackPingLocationFlag_Type.__name__=_C
-_OamLoopbackPingLocationFlag_Object=MibTableColumn
-oamLoopbackPingLocationFlag=_OamLoopbackPingLocationFlag_Object((1,3,6,1,4,1,9,10,15,1,1,1,7),_OamLoopbackPingLocationFlag_Type())
-oamLoopbackPingLocationFlag.setMaxAccess(_D)
-if mibBuilder.loadTexts:oamLoopbackPingLocationFlag.setStatus(_B)
-class _OamLoopbackPingCount_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_OamLoopbackPingCount_Type.__name__=_C
-_OamLoopbackPingCount_Object=MibTableColumn
-oamLoopbackPingCount=_OamLoopbackPingCount_Object((1,3,6,1,4,1,9,10,15,1,1,1,8),_OamLoopbackPingCount_Type())
-oamLoopbackPingCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:oamLoopbackPingCount.setStatus(_B)
-class _OamLoopbackPingTimeout_Type(Integer32):defaultValue=1000;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3600000))
-_OamLoopbackPingTimeout_Type.__name__=_C
-_OamLoopbackPingTimeout_Object=MibTableColumn
-oamLoopbackPingTimeout=_OamLoopbackPingTimeout_Object((1,3,6,1,4,1,9,10,15,1,1,1,9),_OamLoopbackPingTimeout_Type())
-oamLoopbackPingTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:oamLoopbackPingTimeout.setStatus(_B)
-if mibBuilder.loadTexts:oamLoopbackPingTimeout.setUnits(_F)
-class _OamLoopbackPingDelay_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3600000))
-_OamLoopbackPingDelay_Type.__name__=_C
-_OamLoopbackPingDelay_Object=MibTableColumn
-oamLoopbackPingDelay=_OamLoopbackPingDelay_Object((1,3,6,1,4,1,9,10,15,1,1,1,10),_OamLoopbackPingDelay_Type())
-oamLoopbackPingDelay.setMaxAccess(_D)
-if mibBuilder.loadTexts:oamLoopbackPingDelay.setStatus(_B)
-if mibBuilder.loadTexts:oamLoopbackPingDelay.setUnits(_F)
-class _OamLoopbackPingTrapOnCompletion_Type(TruthValue):defaultValue=2
-_OamLoopbackPingTrapOnCompletion_Type.__name__=_k
-_OamLoopbackPingTrapOnCompletion_Object=MibTableColumn
-oamLoopbackPingTrapOnCompletion=_OamLoopbackPingTrapOnCompletion_Object((1,3,6,1,4,1,9,10,15,1,1,1,11),_OamLoopbackPingTrapOnCompletion_Type())
-oamLoopbackPingTrapOnCompletion.setMaxAccess(_D)
-if mibBuilder.loadTexts:oamLoopbackPingTrapOnCompletion.setStatus(_B)
-_OamLoopbackPingSentCells_Type=Counter32
-_OamLoopbackPingSentCells_Object=MibTableColumn
-oamLoopbackPingSentCells=_OamLoopbackPingSentCells_Object((1,3,6,1,4,1,9,10,15,1,1,1,12),_OamLoopbackPingSentCells_Type())
-oamLoopbackPingSentCells.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamLoopbackPingSentCells.setStatus(_B)
-_OamLoopbackPingReceivedCells_Type=Counter32
-_OamLoopbackPingReceivedCells_Object=MibTableColumn
-oamLoopbackPingReceivedCells=_OamLoopbackPingReceivedCells_Object((1,3,6,1,4,1,9,10,15,1,1,1,13),_OamLoopbackPingReceivedCells_Type())
-oamLoopbackPingReceivedCells.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamLoopbackPingReceivedCells.setStatus(_B)
-class _OamLoopbackPingMinRtt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_OamLoopbackPingMinRtt_Type.__name__=_C
-_OamLoopbackPingMinRtt_Object=MibTableColumn
-oamLoopbackPingMinRtt=_OamLoopbackPingMinRtt_Object((1,3,6,1,4,1,9,10,15,1,1,1,14),_OamLoopbackPingMinRtt_Type())
-oamLoopbackPingMinRtt.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamLoopbackPingMinRtt.setStatus(_B)
-if mibBuilder.loadTexts:oamLoopbackPingMinRtt.setUnits(_F)
-class _OamLoopbackPingAvgRtt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_OamLoopbackPingAvgRtt_Type.__name__=_C
-_OamLoopbackPingAvgRtt_Object=MibTableColumn
-oamLoopbackPingAvgRtt=_OamLoopbackPingAvgRtt_Object((1,3,6,1,4,1,9,10,15,1,1,1,15),_OamLoopbackPingAvgRtt_Type())
-oamLoopbackPingAvgRtt.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamLoopbackPingAvgRtt.setStatus(_B)
-if mibBuilder.loadTexts:oamLoopbackPingAvgRtt.setUnits(_F)
-class _OamLoopbackPingMaxRtt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_OamLoopbackPingMaxRtt_Type.__name__=_C
-_OamLoopbackPingMaxRtt_Object=MibTableColumn
-oamLoopbackPingMaxRtt=_OamLoopbackPingMaxRtt_Object((1,3,6,1,4,1,9,10,15,1,1,1,16),_OamLoopbackPingMaxRtt_Type())
-oamLoopbackPingMaxRtt.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamLoopbackPingMaxRtt.setStatus(_B)
-if mibBuilder.loadTexts:oamLoopbackPingMaxRtt.setUnits(_F)
-_OamLoopbackPingCompleted_Type=TruthValue
-_OamLoopbackPingCompleted_Object=MibTableColumn
-oamLoopbackPingCompleted=_OamLoopbackPingCompleted_Object((1,3,6,1,4,1,9,10,15,1,1,1,17),_OamLoopbackPingCompleted_Type())
-oamLoopbackPingCompleted.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamLoopbackPingCompleted.setStatus(_B)
-_OamLoopbackPingEntryOwner_Type=OwnerString
-_OamLoopbackPingEntryOwner_Object=MibTableColumn
-oamLoopbackPingEntryOwner=_OamLoopbackPingEntryOwner_Object((1,3,6,1,4,1,9,10,15,1,1,1,18),_OamLoopbackPingEntryOwner_Type())
-oamLoopbackPingEntryOwner.setMaxAccess(_D)
-if mibBuilder.loadTexts:oamLoopbackPingEntryOwner.setStatus(_B)
-_OamLoopbackPingEntryStatus_Type=RowStatus
-_OamLoopbackPingEntryStatus_Object=MibTableColumn
-oamLoopbackPingEntryStatus=_OamLoopbackPingEntryStatus_Object((1,3,6,1,4,1,9,10,15,1,1,1,19),_OamLoopbackPingEntryStatus_Type())
-oamLoopbackPingEntryStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:oamLoopbackPingEntryStatus.setStatus(_B)
-_OamLoopbackPingDir_Type=CiscoOAMPingDir
-_OamLoopbackPingDir_Object=MibTableColumn
-oamLoopbackPingDir=_OamLoopbackPingDir_Object((1,3,6,1,4,1,9,10,15,1,1,1,20),_OamLoopbackPingDir_Type())
-oamLoopbackPingDir.setMaxAccess(_D)
-if mibBuilder.loadTexts:oamLoopbackPingDir.setStatus(_B)
-_OamLoopbackPingOperStatus_Type=CiscoOAMPingStatus
-_OamLoopbackPingOperStatus_Object=MibTableColumn
-oamLoopbackPingOperStatus=_OamLoopbackPingOperStatus_Object((1,3,6,1,4,1,9,10,15,1,1,1,21),_OamLoopbackPingOperStatus_Type())
-oamLoopbackPingOperStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamLoopbackPingOperStatus.setStatus(_B)
-_OamLoopbackPingExecTime_Type=TimeStamp
-_OamLoopbackPingExecTime_Object=MibTableColumn
-oamLoopbackPingExecTime=_OamLoopbackPingExecTime_Object((1,3,6,1,4,1,9,10,15,1,1,1,22),_OamLoopbackPingExecTime_Type())
-oamLoopbackPingExecTime.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamLoopbackPingExecTime.setStatus(_B)
-class _OamLoopbackPingMinRttuSec_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_OamLoopbackPingMinRttuSec_Type.__name__=_C
-_OamLoopbackPingMinRttuSec_Object=MibTableColumn
-oamLoopbackPingMinRttuSec=_OamLoopbackPingMinRttuSec_Object((1,3,6,1,4,1,9,10,15,1,1,1,23),_OamLoopbackPingMinRttuSec_Type())
-oamLoopbackPingMinRttuSec.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamLoopbackPingMinRttuSec.setStatus(_B)
-if mibBuilder.loadTexts:oamLoopbackPingMinRttuSec.setUnits(_b)
-class _OamLoopbackPingAvgRttuSec_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_OamLoopbackPingAvgRttuSec_Type.__name__=_C
-_OamLoopbackPingAvgRttuSec_Object=MibTableColumn
-oamLoopbackPingAvgRttuSec=_OamLoopbackPingAvgRttuSec_Object((1,3,6,1,4,1,9,10,15,1,1,1,24),_OamLoopbackPingAvgRttuSec_Type())
-oamLoopbackPingAvgRttuSec.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamLoopbackPingAvgRttuSec.setStatus(_B)
-if mibBuilder.loadTexts:oamLoopbackPingAvgRttuSec.setUnits(_b)
-class _OamLoopbackPingMaxRttuSec_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_OamLoopbackPingMaxRttuSec_Type.__name__=_C
-_OamLoopbackPingMaxRttuSec_Object=MibTableColumn
-oamLoopbackPingMaxRttuSec=_OamLoopbackPingMaxRttuSec_Object((1,3,6,1,4,1,9,10,15,1,1,1,25),_OamLoopbackPingMaxRttuSec_Type())
-oamLoopbackPingMaxRttuSec.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamLoopbackPingMaxRttuSec.setStatus(_B)
-if mibBuilder.loadTexts:oamLoopbackPingMaxRttuSec.setUnits(_b)
-_OamLoopbackSegEndPointTable_Object=MibTable
-oamLoopbackSegEndPointTable=_OamLoopbackSegEndPointTable_Object((1,3,6,1,4,1,9,10,15,1,2))
-if mibBuilder.loadTexts:oamLoopbackSegEndPointTable.setStatus(_B)
-_OamLoopbackSegEndPointEntry_Object=MibTableRow
-oamLoopbackSegEndPointEntry=_OamLoopbackSegEndPointEntry_Object((1,3,6,1,4,1,9,10,15,1,2,1))
-oamLoopbackSegEndPointEntry.setIndexNames((0,_i,_j),(0,_A,_m),(0,_A,_n))
-if mibBuilder.loadTexts:oamLoopbackSegEndPointEntry.setStatus(_B)
-class _OamLoopSegVpi_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_OamLoopSegVpi_Type.__name__=_Z
-_OamLoopSegVpi_Object=MibTableColumn
-oamLoopSegVpi=_OamLoopSegVpi_Object((1,3,6,1,4,1,9,10,15,1,2,1,1),_OamLoopSegVpi_Type())
-oamLoopSegVpi.setMaxAccess(_a)
-if mibBuilder.loadTexts:oamLoopSegVpi.setStatus(_B)
-class _OamLoopSegVci_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_OamLoopSegVci_Type.__name__=_Z
-_OamLoopSegVci_Object=MibTableColumn
-oamLoopSegVci=_OamLoopSegVci_Object((1,3,6,1,4,1,9,10,15,1,2,1,2),_OamLoopSegVci_Type())
-oamLoopSegVci.setMaxAccess(_a)
-if mibBuilder.loadTexts:oamLoopSegVci.setStatus(_B)
-_OamLoopSegRowStatus_Type=RowStatus
-_OamLoopSegRowStatus_Object=MibTableColumn
-oamLoopSegRowStatus=_OamLoopSegRowStatus_Object((1,3,6,1,4,1,9,10,15,1,2,1,3),_OamLoopSegRowStatus_Type())
-oamLoopSegRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:oamLoopSegRowStatus.setStatus(_B)
-_OamLoopbackPingMIBTrapPrefix_ObjectIdentity=ObjectIdentity
-oamLoopbackPingMIBTrapPrefix=_OamLoopbackPingMIBTrapPrefix_ObjectIdentity((1,3,6,1,4,1,9,10,15,2))
-_OamLoopbackPingMIBTraps_ObjectIdentity=ObjectIdentity
-oamLoopbackPingMIBTraps=_OamLoopbackPingMIBTraps_ObjectIdentity((1,3,6,1,4,1,9,10,15,2,0))
-_CiscoOamPingMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoOamPingMIBConformance=_CiscoOamPingMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,10,15,3))
-_CiscoOamPingMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoOamPingMIBCompliances=_CiscoOamPingMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,10,15,3,1))
-_CiscoOamPingMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoOamPingMIBGroups=_CiscoOamPingMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,10,15,3,2))
-ciscoOamPingMIBGroup=ObjectGroup((1,3,6,1,4,1,9,10,15,3,2,1))
-ciscoOamPingMIBGroup.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_G),(_A,_W),(_A,_X)))
-if mibBuilder.loadTexts:ciscoOamPingMIBGroup.setStatus(_Y)
-ciscoOamPing2MIBGroup=ObjectGroup((1,3,6,1,4,1,9,10,15,3,2,2))
-ciscoOamPing2MIBGroup.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_G),(_A,_W),(_A,_X),(_A,_c),(_A,_d),(_A,_e)))
-if mibBuilder.loadTexts:ciscoOamPing2MIBGroup.setStatus(_Y)
-ciscoOamPingSegEndPointGroup=ObjectGroup((1,3,6,1,4,1,9,10,15,3,2,3))
-ciscoOamPingSegEndPointGroup.setObjects((_A,_o))
-if mibBuilder.loadTexts:ciscoOamPingSegEndPointGroup.setStatus(_B)
-ciscoOamPingMIBGroupRev3=ObjectGroup((1,3,6,1,4,1,9,10,15,3,2,5))
-ciscoOamPingMIBGroupRev3.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_G),(_A,_W),(_A,_X),(_A,_c),(_A,_d),(_A,_e),(_A,_p),(_A,_q),(_A,_r)))
-if mibBuilder.loadTexts:ciscoOamPingMIBGroupRev3.setStatus(_B)
-oamLoopbackPingCompletionTrap=NotificationType((1,3,6,1,4,1,9,10,15,2,0,1))
-oamLoopbackPingCompletionTrap.setObjects((_A,_G))
-if mibBuilder.loadTexts:oamLoopbackPingCompletionTrap.setStatus(_B)
-oamLoopbackNotificationsGroup=NotificationGroup((1,3,6,1,4,1,9,10,15,3,2,4))
-oamLoopbackNotificationsGroup.setObjects((_A,_s))
-if mibBuilder.loadTexts:oamLoopbackNotificationsGroup.setStatus(_B)
-ciscoOamPingMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,10,15,3,1,1))
-ciscoOamPingMIBCompliance.setObjects((_A,_t))
-if mibBuilder.loadTexts:ciscoOamPingMIBCompliance.setStatus(_Y)
-ciscoOamPingMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,9,10,15,3,1,2))
-ciscoOamPingMIBCompliance2.setObjects(*((_A,_u),(_A,_f),(_A,_g)))
-if mibBuilder.loadTexts:ciscoOamPingMIBCompliance2.setStatus(_Y)
-ciscoOamPingMIBCompliance3=ModuleCompliance((1,3,6,1,4,1,9,10,15,3,1,3))
-ciscoOamPingMIBCompliance3.setObjects(*((_A,_v),(_A,_f),(_A,_g)))
-if mibBuilder.loadTexts:ciscoOamPingMIBCompliance3.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'CiscoOAMPingDir':CiscoOAMPingDir,'CiscoOAMPingStatus':CiscoOAMPingStatus,'ciscoOamPingMIB':ciscoOamPingMIB,'ciscoOamPingMIBObjects':ciscoOamPingMIBObjects,'oamLoopbackPingTable':oamLoopbackPingTable,'oamLoopbackPingEntry':oamLoopbackPingEntry,_l:oamLoopbackPingSerialNumber,_H:oamLoopbackPingInterface,_I:oamLoopbackPingVpi,_J:oamLoopbackPingVci,_L:oamLoopbackPingType,_M:oamLoopbackPingLocation,_N:oamLoopbackPingLocationFlag,_K:oamLoopbackPingCount,_O:oamLoopbackPingTimeout,_P:oamLoopbackPingDelay,_Q:oamLoopbackPingTrapOnCompletion,_R:oamLoopbackPingSentCells,_S:oamLoopbackPingReceivedCells,_T:oamLoopbackPingMinRtt,_U:oamLoopbackPingAvgRtt,_V:oamLoopbackPingMaxRtt,_G:oamLoopbackPingCompleted,_W:oamLoopbackPingEntryOwner,_X:oamLoopbackPingEntryStatus,_c:oamLoopbackPingDir,_d:oamLoopbackPingOperStatus,_e:oamLoopbackPingExecTime,_q:oamLoopbackPingMinRttuSec,_p:oamLoopbackPingAvgRttuSec,_r:oamLoopbackPingMaxRttuSec,'oamLoopbackSegEndPointTable':oamLoopbackSegEndPointTable,'oamLoopbackSegEndPointEntry':oamLoopbackSegEndPointEntry,_m:oamLoopSegVpi,_n:oamLoopSegVci,_o:oamLoopSegRowStatus,'oamLoopbackPingMIBTrapPrefix':oamLoopbackPingMIBTrapPrefix,'oamLoopbackPingMIBTraps':oamLoopbackPingMIBTraps,_s:oamLoopbackPingCompletionTrap,'ciscoOamPingMIBConformance':ciscoOamPingMIBConformance,'ciscoOamPingMIBCompliances':ciscoOamPingMIBCompliances,'ciscoOamPingMIBCompliance':ciscoOamPingMIBCompliance,'ciscoOamPingMIBCompliance2':ciscoOamPingMIBCompliance2,'ciscoOamPingMIBCompliance3':ciscoOamPingMIBCompliance3,'ciscoOamPingMIBGroups':ciscoOamPingMIBGroups,_t:ciscoOamPingMIBGroup,_u:ciscoOamPing2MIBGroup,_g:ciscoOamPingSegEndPointGroup,_f:oamLoopbackNotificationsGroup,_v:ciscoOamPingMIBGroupRev3})
+#
+# PySNMP MIB module CISCO-OAM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-OAM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:13 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+OwnerString, = mibBuilder.importSymbols("RMON-MIB", "OwnerString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "TruthValue", "TextualConvention")
+ciscoOamPingMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 15))
+ciscoOamPingMIB.setRevisions(('2006-02-17 00:00', '2003-06-27 00:00', '2003-04-04 00:00', '1996-05-01 00:00',))
+if mibBuilder.loadTexts: ciscoOamPingMIB.setLastUpdated('200602170000Z')
+if mibBuilder.loadTexts: ciscoOamPingMIB.setOrganization('Cisco Systems, Inc.')
+ciscoOamPingMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 15, 1))
+class CiscoOAMPingDir(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("forward", 1), ("backward", 2))
+
+class CiscoOAMPingStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
+    namedValues = NamedValues(("success", 1), ("timeOut", 2), ("resourceNotAvailable", 3), ("aborted", 4), ("inProgress", 5), ("noResponseData", 6), ("failToStart", 7))
+
+oamLoopbackPingTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1), )
+if mibBuilder.loadTexts: oamLoopbackPingTable.setStatus('current')
+oamLoopbackPingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1), ).setIndexNames((0, "CISCO-OAM-MIB", "oamLoopbackPingSerialNumber"))
+if mibBuilder.loadTexts: oamLoopbackPingEntry.setStatus('current')
+oamLoopbackPingSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: oamLoopbackPingSerialNumber.setStatus('current')
+oamLoopbackPingInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oamLoopbackPingInterface.setStatus('current')
+oamLoopbackPingVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oamLoopbackPingVpi.setStatus('current')
+oamLoopbackPingVci = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oamLoopbackPingVci.setStatus('current')
+oamLoopbackPingType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("segment", 1), ("end2end", 2))).clone('end2end')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oamLoopbackPingType.setStatus('current')
+oamLoopbackPingLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 16)).clone(hexValue="FF")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oamLoopbackPingLocation.setStatus('current')
+oamLoopbackPingLocationFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ipAddress", 1), ("nsapPrefix", 2), ("fixed16byteValue", 3))).clone('ipAddress')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oamLoopbackPingLocationFlag.setStatus('current')
+oamLoopbackPingCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)).clone(5)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oamLoopbackPingCount.setStatus('current')
+oamLoopbackPingTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3600000)).clone(1000)).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oamLoopbackPingTimeout.setStatus('current')
+oamLoopbackPingDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3600000))).setUnits('milliseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oamLoopbackPingDelay.setStatus('current')
+oamLoopbackPingTrapOnCompletion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 11), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oamLoopbackPingTrapOnCompletion.setStatus('current')
+oamLoopbackPingSentCells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamLoopbackPingSentCells.setStatus('current')
+oamLoopbackPingReceivedCells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamLoopbackPingReceivedCells.setStatus('current')
+oamLoopbackPingMinRtt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamLoopbackPingMinRtt.setStatus('current')
+oamLoopbackPingAvgRtt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamLoopbackPingAvgRtt.setStatus('current')
+oamLoopbackPingMaxRtt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamLoopbackPingMaxRtt.setStatus('current')
+oamLoopbackPingCompleted = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 17), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamLoopbackPingCompleted.setStatus('current')
+oamLoopbackPingEntryOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 18), OwnerString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oamLoopbackPingEntryOwner.setStatus('current')
+oamLoopbackPingEntryStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 19), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oamLoopbackPingEntryStatus.setStatus('current')
+oamLoopbackPingDir = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 20), CiscoOAMPingDir()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oamLoopbackPingDir.setStatus('current')
+oamLoopbackPingOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 21), CiscoOAMPingStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamLoopbackPingOperStatus.setStatus('current')
+oamLoopbackPingExecTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 22), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamLoopbackPingExecTime.setStatus('current')
+oamLoopbackPingMinRttuSec = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 23), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamLoopbackPingMinRttuSec.setStatus('current')
+oamLoopbackPingAvgRttuSec = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 24), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamLoopbackPingAvgRttuSec.setStatus('current')
+oamLoopbackPingMaxRttuSec = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 1, 1, 25), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamLoopbackPingMaxRttuSec.setStatus('current')
+oamLoopbackSegEndPointTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 2), )
+if mibBuilder.loadTexts: oamLoopbackSegEndPointTable.setStatus('current')
+oamLoopbackSegEndPointEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-OAM-MIB", "oamLoopSegVpi"), (0, "CISCO-OAM-MIB", "oamLoopSegVci"))
+if mibBuilder.loadTexts: oamLoopbackSegEndPointEntry.setStatus('current')
+oamLoopSegVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095)))
+if mibBuilder.loadTexts: oamLoopSegVpi.setStatus('current')
+oamLoopSegVci = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: oamLoopSegVci.setStatus('current')
+oamLoopSegRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 15, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oamLoopSegRowStatus.setStatus('current')
+oamLoopbackPingMIBTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 15, 2))
+oamLoopbackPingMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 15, 2, 0))
+oamLoopbackPingCompletionTrap = NotificationType((1, 3, 6, 1, 4, 1, 9, 10, 15, 2, 0, 1)).setObjects(("CISCO-OAM-MIB", "oamLoopbackPingCompleted"))
+if mibBuilder.loadTexts: oamLoopbackPingCompletionTrap.setStatus('current')
+ciscoOamPingMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 15, 3))
+ciscoOamPingMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 15, 3, 1))
+ciscoOamPingMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 15, 3, 2))
+ciscoOamPingMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 15, 3, 1, 1)).setObjects(("CISCO-OAM-MIB", "ciscoOamPingMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoOamPingMIBCompliance = ciscoOamPingMIBCompliance.setStatus('deprecated')
+ciscoOamPingMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 15, 3, 1, 2)).setObjects(("CISCO-OAM-MIB", "ciscoOamPing2MIBGroup"), ("CISCO-OAM-MIB", "oamLoopbackNotificationsGroup"), ("CISCO-OAM-MIB", "ciscoOamPingSegEndPointGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoOamPingMIBCompliance2 = ciscoOamPingMIBCompliance2.setStatus('deprecated')
+ciscoOamPingMIBCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 15, 3, 1, 3)).setObjects(("CISCO-OAM-MIB", "ciscoOamPingMIBGroupRev3"), ("CISCO-OAM-MIB", "oamLoopbackNotificationsGroup"), ("CISCO-OAM-MIB", "ciscoOamPingSegEndPointGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoOamPingMIBCompliance3 = ciscoOamPingMIBCompliance3.setStatus('current')
+ciscoOamPingMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 15, 3, 2, 1)).setObjects(("CISCO-OAM-MIB", "oamLoopbackPingInterface"), ("CISCO-OAM-MIB", "oamLoopbackPingVpi"), ("CISCO-OAM-MIB", "oamLoopbackPingVci"), ("CISCO-OAM-MIB", "oamLoopbackPingCount"), ("CISCO-OAM-MIB", "oamLoopbackPingType"), ("CISCO-OAM-MIB", "oamLoopbackPingLocation"), ("CISCO-OAM-MIB", "oamLoopbackPingLocationFlag"), ("CISCO-OAM-MIB", "oamLoopbackPingTimeout"), ("CISCO-OAM-MIB", "oamLoopbackPingDelay"), ("CISCO-OAM-MIB", "oamLoopbackPingTrapOnCompletion"), ("CISCO-OAM-MIB", "oamLoopbackPingSentCells"), ("CISCO-OAM-MIB", "oamLoopbackPingReceivedCells"), ("CISCO-OAM-MIB", "oamLoopbackPingMinRtt"), ("CISCO-OAM-MIB", "oamLoopbackPingAvgRtt"), ("CISCO-OAM-MIB", "oamLoopbackPingMaxRtt"), ("CISCO-OAM-MIB", "oamLoopbackPingCompleted"), ("CISCO-OAM-MIB", "oamLoopbackPingEntryOwner"), ("CISCO-OAM-MIB", "oamLoopbackPingEntryStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoOamPingMIBGroup = ciscoOamPingMIBGroup.setStatus('deprecated')
+ciscoOamPing2MIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 15, 3, 2, 2)).setObjects(("CISCO-OAM-MIB", "oamLoopbackPingInterface"), ("CISCO-OAM-MIB", "oamLoopbackPingVpi"), ("CISCO-OAM-MIB", "oamLoopbackPingVci"), ("CISCO-OAM-MIB", "oamLoopbackPingCount"), ("CISCO-OAM-MIB", "oamLoopbackPingType"), ("CISCO-OAM-MIB", "oamLoopbackPingLocation"), ("CISCO-OAM-MIB", "oamLoopbackPingLocationFlag"), ("CISCO-OAM-MIB", "oamLoopbackPingTimeout"), ("CISCO-OAM-MIB", "oamLoopbackPingDelay"), ("CISCO-OAM-MIB", "oamLoopbackPingTrapOnCompletion"), ("CISCO-OAM-MIB", "oamLoopbackPingSentCells"), ("CISCO-OAM-MIB", "oamLoopbackPingReceivedCells"), ("CISCO-OAM-MIB", "oamLoopbackPingMinRtt"), ("CISCO-OAM-MIB", "oamLoopbackPingAvgRtt"), ("CISCO-OAM-MIB", "oamLoopbackPingMaxRtt"), ("CISCO-OAM-MIB", "oamLoopbackPingCompleted"), ("CISCO-OAM-MIB", "oamLoopbackPingEntryOwner"), ("CISCO-OAM-MIB", "oamLoopbackPingEntryStatus"), ("CISCO-OAM-MIB", "oamLoopbackPingDir"), ("CISCO-OAM-MIB", "oamLoopbackPingOperStatus"), ("CISCO-OAM-MIB", "oamLoopbackPingExecTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoOamPing2MIBGroup = ciscoOamPing2MIBGroup.setStatus('deprecated')
+ciscoOamPingSegEndPointGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 15, 3, 2, 3)).setObjects(("CISCO-OAM-MIB", "oamLoopSegRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoOamPingSegEndPointGroup = ciscoOamPingSegEndPointGroup.setStatus('current')
+oamLoopbackNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 10, 15, 3, 2, 4)).setObjects(("CISCO-OAM-MIB", "oamLoopbackPingCompletionTrap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oamLoopbackNotificationsGroup = oamLoopbackNotificationsGroup.setStatus('current')
+ciscoOamPingMIBGroupRev3 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 15, 3, 2, 5)).setObjects(("CISCO-OAM-MIB", "oamLoopbackPingInterface"), ("CISCO-OAM-MIB", "oamLoopbackPingVpi"), ("CISCO-OAM-MIB", "oamLoopbackPingVci"), ("CISCO-OAM-MIB", "oamLoopbackPingCount"), ("CISCO-OAM-MIB", "oamLoopbackPingType"), ("CISCO-OAM-MIB", "oamLoopbackPingLocation"), ("CISCO-OAM-MIB", "oamLoopbackPingLocationFlag"), ("CISCO-OAM-MIB", "oamLoopbackPingTimeout"), ("CISCO-OAM-MIB", "oamLoopbackPingDelay"), ("CISCO-OAM-MIB", "oamLoopbackPingTrapOnCompletion"), ("CISCO-OAM-MIB", "oamLoopbackPingSentCells"), ("CISCO-OAM-MIB", "oamLoopbackPingReceivedCells"), ("CISCO-OAM-MIB", "oamLoopbackPingMinRtt"), ("CISCO-OAM-MIB", "oamLoopbackPingAvgRtt"), ("CISCO-OAM-MIB", "oamLoopbackPingMaxRtt"), ("CISCO-OAM-MIB", "oamLoopbackPingCompleted"), ("CISCO-OAM-MIB", "oamLoopbackPingEntryOwner"), ("CISCO-OAM-MIB", "oamLoopbackPingEntryStatus"), ("CISCO-OAM-MIB", "oamLoopbackPingDir"), ("CISCO-OAM-MIB", "oamLoopbackPingOperStatus"), ("CISCO-OAM-MIB", "oamLoopbackPingExecTime"), ("CISCO-OAM-MIB", "oamLoopbackPingAvgRttuSec"), ("CISCO-OAM-MIB", "oamLoopbackPingMinRttuSec"), ("CISCO-OAM-MIB", "oamLoopbackPingMaxRttuSec"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoOamPingMIBGroupRev3 = ciscoOamPingMIBGroupRev3.setStatus('current')
+mibBuilder.exportSymbols("CISCO-OAM-MIB", oamLoopbackPingReceivedCells=oamLoopbackPingReceivedCells, oamLoopbackPingOperStatus=oamLoopbackPingOperStatus, oamLoopbackSegEndPointEntry=oamLoopbackSegEndPointEntry, PYSNMP_MODULE_ID=ciscoOamPingMIB, ciscoOamPingMIBConformance=ciscoOamPingMIBConformance, CiscoOAMPingStatus=CiscoOAMPingStatus, oamLoopbackPingSerialNumber=oamLoopbackPingSerialNumber, ciscoOamPingMIBGroups=ciscoOamPingMIBGroups, ciscoOamPingMIBObjects=ciscoOamPingMIBObjects, oamLoopbackPingInterface=oamLoopbackPingInterface, ciscoOamPingMIBCompliance3=ciscoOamPingMIBCompliance3, ciscoOamPing2MIBGroup=ciscoOamPing2MIBGroup, oamLoopbackPingEntryOwner=oamLoopbackPingEntryOwner, oamLoopbackPingAvgRtt=oamLoopbackPingAvgRtt, oamLoopbackPingTable=oamLoopbackPingTable, oamLoopbackPingMaxRtt=oamLoopbackPingMaxRtt, ciscoOamPingSegEndPointGroup=ciscoOamPingSegEndPointGroup, oamLoopbackPingSentCells=oamLoopbackPingSentCells, oamLoopSegVci=oamLoopSegVci, oamLoopbackPingAvgRttuSec=oamLoopbackPingAvgRttuSec, oamLoopSegRowStatus=oamLoopSegRowStatus, oamLoopbackPingEntry=oamLoopbackPingEntry, ciscoOamPingMIBCompliances=ciscoOamPingMIBCompliances, oamLoopbackPingVci=oamLoopbackPingVci, ciscoOamPingMIBCompliance2=ciscoOamPingMIBCompliance2, ciscoOamPingMIBGroupRev3=ciscoOamPingMIBGroupRev3, oamLoopbackPingCount=oamLoopbackPingCount, oamLoopbackPingMaxRttuSec=oamLoopbackPingMaxRttuSec, oamLoopbackPingMinRtt=oamLoopbackPingMinRtt, oamLoopbackPingTrapOnCompletion=oamLoopbackPingTrapOnCompletion, oamLoopbackPingMinRttuSec=oamLoopbackPingMinRttuSec, oamLoopbackPingMIBTraps=oamLoopbackPingMIBTraps, oamLoopbackPingCompletionTrap=oamLoopbackPingCompletionTrap, ciscoOamPingMIBCompliance=ciscoOamPingMIBCompliance, oamLoopbackPingDelay=oamLoopbackPingDelay, oamLoopbackPingMIBTrapPrefix=oamLoopbackPingMIBTrapPrefix, oamLoopbackPingVpi=oamLoopbackPingVpi, oamLoopbackPingLocation=oamLoopbackPingLocation, ciscoOamPingMIB=ciscoOamPingMIB, oamLoopbackPingCompleted=oamLoopbackPingCompleted, oamLoopbackSegEndPointTable=oamLoopbackSegEndPointTable, oamLoopbackPingLocationFlag=oamLoopbackPingLocationFlag, oamLoopbackNotificationsGroup=oamLoopbackNotificationsGroup, oamLoopbackPingType=oamLoopbackPingType, oamLoopbackPingEntryStatus=oamLoopbackPingEntryStatus, oamLoopSegVpi=oamLoopSegVpi, CiscoOAMPingDir=CiscoOAMPingDir, ciscoOamPingMIBGroup=ciscoOamPingMIBGroup, oamLoopbackPingDir=oamLoopbackPingDir, oamLoopbackPingTimeout=oamLoopbackPingTimeout, oamLoopbackPingExecTime=oamLoopbackPingExecTime)

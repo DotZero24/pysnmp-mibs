@@ -1,62 +1,37 @@
-_E='eltIpUnnumberedIfIndex'
-_D='ELTEX-MES-VLAN-AGGREGATE-MIB'
-_C='read-write'
-_B='OctetString'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_B,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-eltMes,=mibBuilder.importSymbols('ELTEX-MES','eltMes')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-eltMesIpUnnumbered=ModuleIdentity((1,3,6,1,4,1,35265,1,23,7))
-if mibBuilder.loadTexts:eltMesIpUnnumbered.setRevisions(('2014-05-23 00:00',))
-_EltIpUnnumberedInterfaceTable_Object=MibTable
-eltIpUnnumberedInterfaceTable=_EltIpUnnumberedInterfaceTable_Object((1,3,6,1,4,1,35265,1,23,7,1))
-if mibBuilder.loadTexts:eltIpUnnumberedInterfaceTable.setStatus(_A)
-_EltIpUnnumberedInterfaceEntry_Object=MibTableRow
-eltIpUnnumberedInterfaceEntry=_EltIpUnnumberedInterfaceEntry_Object((1,3,6,1,4,1,35265,1,23,7,1,1))
-eltIpUnnumberedInterfaceEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:eltIpUnnumberedInterfaceEntry.setStatus(_A)
-_EltIpUnnumberedIfIndex_Type=Integer32
-_EltIpUnnumberedIfIndex_Object=MibTableColumn
-eltIpUnnumberedIfIndex=_EltIpUnnumberedIfIndex_Object((1,3,6,1,4,1,35265,1,23,7,1,1,1),_EltIpUnnumberedIfIndex_Type())
-eltIpUnnumberedIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltIpUnnumberedIfIndex.setStatus(_A)
-_EltIpUnnumberedAggrIfIndex_Type=Integer32
-_EltIpUnnumberedAggrIfIndex_Object=MibTableColumn
-eltIpUnnumberedAggrIfIndex=_EltIpUnnumberedAggrIfIndex_Object((1,3,6,1,4,1,35265,1,23,7,1,1,2),_EltIpUnnumberedAggrIfIndex_Type())
-eltIpUnnumberedAggrIfIndex.setMaxAccess('read-only')
-if mibBuilder.loadTexts:eltIpUnnumberedAggrIfIndex.setStatus(_A)
-class _EltIpUnnumberedVlan1to1024_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_EltIpUnnumberedVlan1to1024_Type.__name__=_B
-_EltIpUnnumberedVlan1to1024_Object=MibTableColumn
-eltIpUnnumberedVlan1to1024=_EltIpUnnumberedVlan1to1024_Object((1,3,6,1,4,1,35265,1,23,7,1,1,3),_EltIpUnnumberedVlan1to1024_Type())
-eltIpUnnumberedVlan1to1024.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltIpUnnumberedVlan1to1024.setStatus(_A)
-class _EltIpUnnumberedVlan1025to2048_Type(OctetString):defaultHexValue='00';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_EltIpUnnumberedVlan1025to2048_Type.__name__=_B
-_EltIpUnnumberedVlan1025to2048_Object=MibTableColumn
-eltIpUnnumberedVlan1025to2048=_EltIpUnnumberedVlan1025to2048_Object((1,3,6,1,4,1,35265,1,23,7,1,1,4),_EltIpUnnumberedVlan1025to2048_Type())
-eltIpUnnumberedVlan1025to2048.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltIpUnnumberedVlan1025to2048.setStatus(_A)
-class _EltIpUnnumberedVlan2049to3072_Type(OctetString):defaultHexValue='00';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_EltIpUnnumberedVlan2049to3072_Type.__name__=_B
-_EltIpUnnumberedVlan2049to3072_Object=MibTableColumn
-eltIpUnnumberedVlan2049to3072=_EltIpUnnumberedVlan2049to3072_Object((1,3,6,1,4,1,35265,1,23,7,1,1,5),_EltIpUnnumberedVlan2049to3072_Type())
-eltIpUnnumberedVlan2049to3072.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltIpUnnumberedVlan2049to3072.setStatus(_A)
-class _EltIpUnnumberedVlan3073to4094_Type(OctetString):defaultHexValue='00';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_EltIpUnnumberedVlan3073to4094_Type.__name__=_B
-_EltIpUnnumberedVlan3073to4094_Object=MibTableColumn
-eltIpUnnumberedVlan3073to4094=_EltIpUnnumberedVlan3073to4094_Object((1,3,6,1,4,1,35265,1,23,7,1,1,6),_EltIpUnnumberedVlan3073to4094_Type())
-eltIpUnnumberedVlan3073to4094.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltIpUnnumberedVlan3073to4094.setStatus(_A)
-_EltIpUnnumberedStatus_Type=RowStatus
-_EltIpUnnumberedStatus_Object=MibTableColumn
-eltIpUnnumberedStatus=_EltIpUnnumberedStatus_Object((1,3,6,1,4,1,35265,1,23,7,1,1,7),_EltIpUnnumberedStatus_Type())
-eltIpUnnumberedStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:eltIpUnnumberedStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'eltMesIpUnnumbered':eltMesIpUnnumbered,'eltIpUnnumberedInterfaceTable':eltIpUnnumberedInterfaceTable,'eltIpUnnumberedInterfaceEntry':eltIpUnnumberedInterfaceEntry,_E:eltIpUnnumberedIfIndex,'eltIpUnnumberedAggrIfIndex':eltIpUnnumberedAggrIfIndex,'eltIpUnnumberedVlan1to1024':eltIpUnnumberedVlan1to1024,'eltIpUnnumberedVlan1025to2048':eltIpUnnumberedVlan1025to2048,'eltIpUnnumberedVlan2049to3072':eltIpUnnumberedVlan2049to3072,'eltIpUnnumberedVlan3073to4094':eltIpUnnumberedVlan3073to4094,'eltIpUnnumberedStatus':eltIpUnnumberedStatus})
+#
+# PySNMP MIB module ELTEX-MES-VLAN-AGGREGATE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-MES-VLAN-AGGREGATE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltMes, = mibBuilder.importSymbols("ELTEX-MES", "eltMes")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+eltMesIpUnnumbered = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 23, 7))
+eltMesIpUnnumbered.setRevisions(('2014-05-23 00:00',))
+if mibBuilder.loadTexts: eltMesIpUnnumbered.setLastUpdated('201405230000Z')
+if mibBuilder.loadTexts: eltMesIpUnnumbered.setOrganization('Eltex Enterprise Co, Ltd.')
+eltIpUnnumberedInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 7, 1), )
+if mibBuilder.loadTexts: eltIpUnnumberedInterfaceTable.setStatus('current')
+eltIpUnnumberedInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 7, 1, 1), ).setIndexNames((0, "ELTEX-MES-VLAN-AGGREGATE-MIB", "eltIpUnnumberedIfIndex"))
+if mibBuilder.loadTexts: eltIpUnnumberedInterfaceEntry.setStatus('current')
+eltIpUnnumberedIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 7, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltIpUnnumberedIfIndex.setStatus('current')
+eltIpUnnumberedAggrIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 7, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltIpUnnumberedAggrIfIndex.setStatus('current')
+eltIpUnnumberedVlan1to1024 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 7, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltIpUnnumberedVlan1to1024.setStatus('current')
+eltIpUnnumberedVlan1025to2048 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 7, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128)).clone(hexValue="00")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltIpUnnumberedVlan1025to2048.setStatus('current')
+eltIpUnnumberedVlan2049to3072 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 7, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128)).clone(hexValue="00")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltIpUnnumberedVlan2049to3072.setStatus('current')
+eltIpUnnumberedVlan3073to4094 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 7, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128)).clone(hexValue="00")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltIpUnnumberedVlan3073to4094.setStatus('current')
+eltIpUnnumberedStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 7, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eltIpUnnumberedStatus.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-MES-VLAN-AGGREGATE-MIB", eltMesIpUnnumbered=eltMesIpUnnumbered, eltIpUnnumberedInterfaceTable=eltIpUnnumberedInterfaceTable, eltIpUnnumberedVlan2049to3072=eltIpUnnumberedVlan2049to3072, eltIpUnnumberedVlan3073to4094=eltIpUnnumberedVlan3073to4094, eltIpUnnumberedStatus=eltIpUnnumberedStatus, eltIpUnnumberedVlan1025to2048=eltIpUnnumberedVlan1025to2048, eltIpUnnumberedVlan1to1024=eltIpUnnumberedVlan1to1024, PYSNMP_MODULE_ID=eltMesIpUnnumbered, eltIpUnnumberedInterfaceEntry=eltIpUnnumberedInterfaceEntry, eltIpUnnumberedIfIndex=eltIpUnnumberedIfIndex, eltIpUnnumberedAggrIfIndex=eltIpUnnumberedAggrIfIndex)

@@ -1,229 +1,121 @@
-_l='hpicfTunneledNodeGroup4'
-_k='hpicfTunneledNodeGroup3'
-_j='hpicfTunneledNodeGroup2'
-_i='hpicfTunneledNodeGroup1'
-_h='hpicfTunneledNodeGroup'
-_g='hpicfTunneledNodeWolVIDList'
-_f='hpicfTunneledNodePapiRowStatus'
-_e='hpicfTunneledNodePapiKeyEncr'
-_d='hpicfTunneledNodePapiKeyValue'
-_c='hpicfTunneledNodeFallbackLclSw'
-_b='hpicfTunneledNodePortRowStatus'
-_a='hpicfTunneledNodePapiAuthMode'
-_Z='not-accessible'
-_Y='hpicfTunneledNodeIndex'
-_X='TruthValue'
-_W='Unsigned32'
-_V='ifIndex'
-_U='IF-MIB'
-_T='hpicfTunneledNodeMPeriod'
-_S='OctetString'
-_R='hpicfTunneledNodeReservedVlanId'
-_Q='hpicfTunneledNodeVlanMode'
-_P='hpicfTunneledNodeMode'
-_O='Integer32'
-_N='hpicfTunneledNodePapiGroup'
-_M='hpicfTunneledNodePortGroup'
-_L='hpicfTunneledNodeClearStats'
-_K='hpicfTunneledNodeRowStatus'
-_J='hpicfTunneledNodeTimeout'
-_I='hpicfTunneledNodeBackupAddr'
-_H='hpicfTunneledNodeBackupAddrType'
-_G='hpicfTunneledNodePrimaryAddr'
-_F='hpicfTunneledNodePrimaryAddrType'
-_E='hpicfTunneledNodeEnable'
-_D='deprecated'
-_C='read-create'
-_B='current'
-_A='HP-ICF-TUNNELED-NODE-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_S,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpSwitch,=mibBuilder.importSymbols('HP-ICF-OID','hpSwitch')
-VidList,=mibBuilder.importSymbols('HP-ICF-TC','VidList')
-ifIndex,=mibBuilder.importSymbols(_U,_V)
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-VlanIndex,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_O,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_W,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_X)
-hpicfTunneledNode=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,5,1,128))
-if mibBuilder.loadTexts:hpicfTunneledNode.setRevisions(('2021-06-12 00:00','2018-05-23 00:00','2018-05-22 00:00','2016-12-06 00:00','2016-08-05 00:00','2016-02-11 00:00'))
-_HpicfTunneledNodeObjects_ObjectIdentity=ObjectIdentity
-hpicfTunneledNodeObjects=_HpicfTunneledNodeObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,128,1))
-_HpicfTunneledNodeConfig_ObjectIdentity=ObjectIdentity
-hpicfTunneledNodeConfig=_HpicfTunneledNodeConfig_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1))
-_HpicfTunneledNodeTable_Object=MibTable
-hpicfTunneledNodeTable=_HpicfTunneledNodeTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,1))
-if mibBuilder.loadTexts:hpicfTunneledNodeTable.setStatus(_B)
-_HpicfTunneledNodeEntry_Object=MibTableRow
-hpicfTunneledNodeEntry=_HpicfTunneledNodeEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,1,1))
-hpicfTunneledNodeEntry.setIndexNames((0,_A,_Y))
-if mibBuilder.loadTexts:hpicfTunneledNodeEntry.setStatus(_B)
-_HpicfTunneledNodeIndex_Type=Unsigned32
-_HpicfTunneledNodeIndex_Object=MibTableColumn
-hpicfTunneledNodeIndex=_HpicfTunneledNodeIndex_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,1,1,1),_HpicfTunneledNodeIndex_Type())
-hpicfTunneledNodeIndex.setMaxAccess(_Z)
-if mibBuilder.loadTexts:hpicfTunneledNodeIndex.setStatus(_B)
-_HpicfTunneledNodeEnable_Type=TruthValue
-_HpicfTunneledNodeEnable_Object=MibTableColumn
-hpicfTunneledNodeEnable=_HpicfTunneledNodeEnable_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,1,1,2),_HpicfTunneledNodeEnable_Type())
-hpicfTunneledNodeEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodeEnable.setStatus(_B)
-_HpicfTunneledNodePrimaryAddrType_Type=InetAddressType
-_HpicfTunneledNodePrimaryAddrType_Object=MibTableColumn
-hpicfTunneledNodePrimaryAddrType=_HpicfTunneledNodePrimaryAddrType_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,1,1,3),_HpicfTunneledNodePrimaryAddrType_Type())
-hpicfTunneledNodePrimaryAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodePrimaryAddrType.setStatus(_B)
-_HpicfTunneledNodePrimaryAddr_Type=InetAddress
-_HpicfTunneledNodePrimaryAddr_Object=MibTableColumn
-hpicfTunneledNodePrimaryAddr=_HpicfTunneledNodePrimaryAddr_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,1,1,4),_HpicfTunneledNodePrimaryAddr_Type())
-hpicfTunneledNodePrimaryAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodePrimaryAddr.setStatus(_B)
-_HpicfTunneledNodeBackupAddrType_Type=InetAddressType
-_HpicfTunneledNodeBackupAddrType_Object=MibTableColumn
-hpicfTunneledNodeBackupAddrType=_HpicfTunneledNodeBackupAddrType_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,1,1,5),_HpicfTunneledNodeBackupAddrType_Type())
-hpicfTunneledNodeBackupAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodeBackupAddrType.setStatus(_B)
-_HpicfTunneledNodeBackupAddr_Type=InetAddress
-_HpicfTunneledNodeBackupAddr_Object=MibTableColumn
-hpicfTunneledNodeBackupAddr=_HpicfTunneledNodeBackupAddr_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,1,1,6),_HpicfTunneledNodeBackupAddr_Type())
-hpicfTunneledNodeBackupAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodeBackupAddr.setStatus(_B)
-class _HpicfTunneledNodeTimeout_Type(Unsigned32):defaultValue=8
-_HpicfTunneledNodeTimeout_Type.__name__=_W
-_HpicfTunneledNodeTimeout_Object=MibTableColumn
-hpicfTunneledNodeTimeout=_HpicfTunneledNodeTimeout_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,1,1,7),_HpicfTunneledNodeTimeout_Type())
-hpicfTunneledNodeTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodeTimeout.setStatus(_B)
-_HpicfTunneledNodeRowStatus_Type=RowStatus
-_HpicfTunneledNodeRowStatus_Object=MibTableColumn
-hpicfTunneledNodeRowStatus=_HpicfTunneledNodeRowStatus_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,1,1,8),_HpicfTunneledNodeRowStatus_Type())
-hpicfTunneledNodeRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodeRowStatus.setStatus(_B)
-class _HpicfTunneledNodeMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('portbased',1),('rolebased',2)))
-_HpicfTunneledNodeMode_Type.__name__=_O
-_HpicfTunneledNodeMode_Object=MibTableColumn
-hpicfTunneledNodeMode=_HpicfTunneledNodeMode_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,1,1,9),_HpicfTunneledNodeMode_Type())
-hpicfTunneledNodeMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodeMode.setStatus(_B)
-class _HpicfTunneledNodeVlanMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('vlanextend',1),('novlan',2)))
-_HpicfTunneledNodeVlanMode_Type.__name__=_O
-_HpicfTunneledNodeVlanMode_Object=MibTableColumn
-hpicfTunneledNodeVlanMode=_HpicfTunneledNodeVlanMode_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,1,1,10),_HpicfTunneledNodeVlanMode_Type())
-hpicfTunneledNodeVlanMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodeVlanMode.setStatus(_B)
-_HpicfTunneledNodeReservedVlanId_Type=VlanIndex
-_HpicfTunneledNodeReservedVlanId_Object=MibTableColumn
-hpicfTunneledNodeReservedVlanId=_HpicfTunneledNodeReservedVlanId_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,1,1,11),_HpicfTunneledNodeReservedVlanId_Type())
-hpicfTunneledNodeReservedVlanId.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodeReservedVlanId.setStatus(_B)
-class _HpicfTunneledNodeMPeriod_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,720))
-_HpicfTunneledNodeMPeriod_Type.__name__=_O
-_HpicfTunneledNodeMPeriod_Object=MibTableColumn
-hpicfTunneledNodeMPeriod=_HpicfTunneledNodeMPeriod_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,1,1,12),_HpicfTunneledNodeMPeriod_Type())
-hpicfTunneledNodeMPeriod.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodeMPeriod.setStatus(_B)
-if mibBuilder.loadTexts:hpicfTunneledNodeMPeriod.setUnits('hour')
-_HpicfTunneledNodeWolVIDList_Type=VidList
-_HpicfTunneledNodeWolVIDList_Object=MibTableColumn
-hpicfTunneledNodeWolVIDList=_HpicfTunneledNodeWolVIDList_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,1,1,13),_HpicfTunneledNodeWolVIDList_Type())
-hpicfTunneledNodeWolVIDList.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodeWolVIDList.setStatus(_B)
-_HpicfTunneledNodePortConfigTable_Object=MibTable
-hpicfTunneledNodePortConfigTable=_HpicfTunneledNodePortConfigTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,2))
-if mibBuilder.loadTexts:hpicfTunneledNodePortConfigTable.setStatus(_B)
-_HpicfTunneledNodePortConfigEntry_Object=MibTableRow
-hpicfTunneledNodePortConfigEntry=_HpicfTunneledNodePortConfigEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,2,1))
-hpicfTunneledNodePortConfigEntry.setIndexNames((0,_U,_V))
-if mibBuilder.loadTexts:hpicfTunneledNodePortConfigEntry.setStatus(_B)
-_HpicfTunneledNodePortRowStatus_Type=RowStatus
-_HpicfTunneledNodePortRowStatus_Object=MibTableColumn
-hpicfTunneledNodePortRowStatus=_HpicfTunneledNodePortRowStatus_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,2,1,1),_HpicfTunneledNodePortRowStatus_Type())
-hpicfTunneledNodePortRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodePortRowStatus.setStatus(_B)
-_HpicfTunneledNodeFallbackLclSw_Type=TruthValue
-_HpicfTunneledNodeFallbackLclSw_Object=MibTableColumn
-hpicfTunneledNodeFallbackLclSw=_HpicfTunneledNodeFallbackLclSw_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,2,1,2),_HpicfTunneledNodeFallbackLclSw_Type())
-hpicfTunneledNodeFallbackLclSw.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodeFallbackLclSw.setStatus(_B)
-class _HpicfTunneledNodeClearStats_Type(TruthValue):defaultValue=2
-_HpicfTunneledNodeClearStats_Type.__name__=_X
-_HpicfTunneledNodeClearStats_Object=MibScalar
-hpicfTunneledNodeClearStats=_HpicfTunneledNodeClearStats_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,3),_HpicfTunneledNodeClearStats_Type())
-hpicfTunneledNodeClearStats.setMaxAccess('read-write')
-if mibBuilder.loadTexts:hpicfTunneledNodeClearStats.setStatus(_B)
-_HpicfTunneledNodePapiTable_Object=MibTable
-hpicfTunneledNodePapiTable=_HpicfTunneledNodePapiTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,4))
-if mibBuilder.loadTexts:hpicfTunneledNodePapiTable.setStatus(_B)
-_HpicfTunneledNodePapiEntry_Object=MibTableRow
-hpicfTunneledNodePapiEntry=_HpicfTunneledNodePapiEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,4,1))
-hpicfTunneledNodePapiEntry.setIndexNames((0,_A,_a))
-if mibBuilder.loadTexts:hpicfTunneledNodePapiEntry.setStatus(_B)
-class _HpicfTunneledNodePapiAuthMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('none',1),('md5',2)))
-_HpicfTunneledNodePapiAuthMode_Type.__name__=_O
-_HpicfTunneledNodePapiAuthMode_Object=MibTableColumn
-hpicfTunneledNodePapiAuthMode=_HpicfTunneledNodePapiAuthMode_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,4,1,1),_HpicfTunneledNodePapiAuthMode_Type())
-hpicfTunneledNodePapiAuthMode.setMaxAccess(_Z)
-if mibBuilder.loadTexts:hpicfTunneledNodePapiAuthMode.setStatus(_B)
-class _HpicfTunneledNodePapiKeyValue_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,128))
-_HpicfTunneledNodePapiKeyValue_Type.__name__=_S
-_HpicfTunneledNodePapiKeyValue_Object=MibTableColumn
-hpicfTunneledNodePapiKeyValue=_HpicfTunneledNodePapiKeyValue_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,4,1,2),_HpicfTunneledNodePapiKeyValue_Type())
-hpicfTunneledNodePapiKeyValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodePapiKeyValue.setStatus(_B)
-class _HpicfTunneledNodePapiKeyEncr_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_HpicfTunneledNodePapiKeyEncr_Type.__name__=_S
-_HpicfTunneledNodePapiKeyEncr_Object=MibTableColumn
-hpicfTunneledNodePapiKeyEncr=_HpicfTunneledNodePapiKeyEncr_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,4,1,3),_HpicfTunneledNodePapiKeyEncr_Type())
-hpicfTunneledNodePapiKeyEncr.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodePapiKeyEncr.setStatus(_B)
-_HpicfTunneledNodePapiRowStatus_Type=RowStatus
-_HpicfTunneledNodePapiRowStatus_Object=MibTableColumn
-hpicfTunneledNodePapiRowStatus=_HpicfTunneledNodePapiRowStatus_Object((1,3,6,1,4,1,11,2,14,11,5,1,128,1,1,4,1,4),_HpicfTunneledNodePapiRowStatus_Type())
-hpicfTunneledNodePapiRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpicfTunneledNodePapiRowStatus.setStatus(_B)
-_HpicfTunneledNodeConformance_ObjectIdentity=ObjectIdentity
-hpicfTunneledNodeConformance=_HpicfTunneledNodeConformance_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,128,2))
-_HpicfTunneledNodeCompliances_ObjectIdentity=ObjectIdentity
-hpicfTunneledNodeCompliances=_HpicfTunneledNodeCompliances_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,128,2,1))
-_HpicfTunneledNodeGroups_ObjectIdentity=ObjectIdentity
-hpicfTunneledNodeGroups=_HpicfTunneledNodeGroups_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,128,2,2))
-hpicfTunneledNodeGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,128,2,2,1))
-hpicfTunneledNodeGroup.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:hpicfTunneledNodeGroup.setStatus(_D)
-hpicfTunneledNodePortGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,128,2,2,2))
-hpicfTunneledNodePortGroup.setObjects(*((_A,_b),(_A,_c)))
-if mibBuilder.loadTexts:hpicfTunneledNodePortGroup.setStatus(_B)
-hpicfTunneledNodePapiGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,128,2,2,3))
-hpicfTunneledNodePapiGroup.setObjects(*((_A,_d),(_A,_e),(_A,_f)))
-if mibBuilder.loadTexts:hpicfTunneledNodePapiGroup.setStatus(_B)
-hpicfTunneledNodeGroup1=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,128,2,2,4))
-hpicfTunneledNodeGroup1.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_P),(_A,_Q),(_A,_R)))
-if mibBuilder.loadTexts:hpicfTunneledNodeGroup1.setStatus(_D)
-hpicfTunneledNodeGroup2=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,128,2,2,5))
-hpicfTunneledNodeGroup2.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_P),(_A,_Q),(_A,_R)))
-if mibBuilder.loadTexts:hpicfTunneledNodeGroup2.setStatus(_D)
-hpicfTunneledNodeGroup3=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,128,2,2,6))
-hpicfTunneledNodeGroup3.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_P),(_A,_Q),(_A,_R),(_A,_T)))
-if mibBuilder.loadTexts:hpicfTunneledNodeGroup3.setStatus(_D)
-hpicfTunneledNodeGroup4=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,128,2,2,7))
-hpicfTunneledNodeGroup4.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_P),(_A,_Q),(_A,_R),(_A,_T),(_A,_g)))
-if mibBuilder.loadTexts:hpicfTunneledNodeGroup4.setStatus(_B)
-hpicfTunneledNodeCompliance=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,128,2,1,1))
-hpicfTunneledNodeCompliance.setObjects(*((_A,_h),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:hpicfTunneledNodeCompliance.setStatus(_D)
-hpicfTunneledNodeCompliance1=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,128,2,1,2))
-hpicfTunneledNodeCompliance1.setObjects(*((_A,_i),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:hpicfTunneledNodeCompliance1.setStatus(_D)
-hpicfTunneledNodeCompliance2=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,128,2,1,3))
-hpicfTunneledNodeCompliance2.setObjects(*((_A,_j),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:hpicfTunneledNodeCompliance2.setStatus(_D)
-hpicfTunneledNodeCompliance3=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,128,2,1,4))
-hpicfTunneledNodeCompliance3.setObjects(*((_A,_k),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:hpicfTunneledNodeCompliance3.setStatus(_D)
-hpicfTunneledNodeCompliance4=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,128,2,1,5))
-hpicfTunneledNodeCompliance4.setObjects(*((_A,_l),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:hpicfTunneledNodeCompliance4.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'hpicfTunneledNode':hpicfTunneledNode,'hpicfTunneledNodeObjects':hpicfTunneledNodeObjects,'hpicfTunneledNodeConfig':hpicfTunneledNodeConfig,'hpicfTunneledNodeTable':hpicfTunneledNodeTable,'hpicfTunneledNodeEntry':hpicfTunneledNodeEntry,_Y:hpicfTunneledNodeIndex,_E:hpicfTunneledNodeEnable,_F:hpicfTunneledNodePrimaryAddrType,_G:hpicfTunneledNodePrimaryAddr,_H:hpicfTunneledNodeBackupAddrType,_I:hpicfTunneledNodeBackupAddr,_J:hpicfTunneledNodeTimeout,_K:hpicfTunneledNodeRowStatus,_P:hpicfTunneledNodeMode,_Q:hpicfTunneledNodeVlanMode,_R:hpicfTunneledNodeReservedVlanId,_T:hpicfTunneledNodeMPeriod,_g:hpicfTunneledNodeWolVIDList,'hpicfTunneledNodePortConfigTable':hpicfTunneledNodePortConfigTable,'hpicfTunneledNodePortConfigEntry':hpicfTunneledNodePortConfigEntry,_b:hpicfTunneledNodePortRowStatus,_c:hpicfTunneledNodeFallbackLclSw,_L:hpicfTunneledNodeClearStats,'hpicfTunneledNodePapiTable':hpicfTunneledNodePapiTable,'hpicfTunneledNodePapiEntry':hpicfTunneledNodePapiEntry,_a:hpicfTunneledNodePapiAuthMode,_d:hpicfTunneledNodePapiKeyValue,_e:hpicfTunneledNodePapiKeyEncr,_f:hpicfTunneledNodePapiRowStatus,'hpicfTunneledNodeConformance':hpicfTunneledNodeConformance,'hpicfTunneledNodeCompliances':hpicfTunneledNodeCompliances,'hpicfTunneledNodeCompliance':hpicfTunneledNodeCompliance,'hpicfTunneledNodeCompliance1':hpicfTunneledNodeCompliance1,'hpicfTunneledNodeCompliance2':hpicfTunneledNodeCompliance2,'hpicfTunneledNodeCompliance3':hpicfTunneledNodeCompliance3,'hpicfTunneledNodeCompliance4':hpicfTunneledNodeCompliance4,'hpicfTunneledNodeGroups':hpicfTunneledNodeGroups,_h:hpicfTunneledNodeGroup,_M:hpicfTunneledNodePortGroup,_N:hpicfTunneledNodePapiGroup,_i:hpicfTunneledNodeGroup1,_j:hpicfTunneledNodeGroup2,_k:hpicfTunneledNodeGroup3,_l:hpicfTunneledNodeGroup4})
+#
+# PySNMP MIB module HP-ICF-TUNNELED-NODE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HP-ICF-TUNNELED-NODE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:39 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
+VidList, = mibBuilder.importSymbols("HP-ICF-TC", "VidList")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+VlanIndex, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+hpicfTunneledNode = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128))
+hpicfTunneledNode.setRevisions(('2021-06-12 00:00', '2018-05-23 00:00', '2018-05-22 00:00', '2016-12-06 00:00', '2016-08-05 00:00', '2016-02-11 00:00',))
+if mibBuilder.loadTexts: hpicfTunneledNode.setLastUpdated('202106120000Z')
+if mibBuilder.loadTexts: hpicfTunneledNode.setOrganization('HPE')
+hpicfTunneledNodeObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1))
+hpicfTunneledNodeConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 2))
+hpicfTunneledNodeConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1))
+hpicfTunneledNodeTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 1), )
+if mibBuilder.loadTexts: hpicfTunneledNodeTable.setStatus('current')
+hpicfTunneledNodeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 1, 1), ).setIndexNames((0, "HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeIndex"))
+if mibBuilder.loadTexts: hpicfTunneledNodeEntry.setStatus('current')
+hpicfTunneledNodeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: hpicfTunneledNodeIndex.setStatus('current')
+hpicfTunneledNodeEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 1, 1, 2), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodeEnable.setStatus('current')
+hpicfTunneledNodePrimaryAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 1, 1, 3), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodePrimaryAddrType.setStatus('current')
+hpicfTunneledNodePrimaryAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 1, 1, 4), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodePrimaryAddr.setStatus('current')
+hpicfTunneledNodeBackupAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 1, 1, 5), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodeBackupAddrType.setStatus('current')
+hpicfTunneledNodeBackupAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 1, 1, 6), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodeBackupAddr.setStatus('current')
+hpicfTunneledNodeTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 1, 1, 7), Unsigned32().clone(8)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodeTimeout.setStatus('current')
+hpicfTunneledNodeRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodeRowStatus.setStatus('current')
+hpicfTunneledNodeMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("portbased", 1), ("rolebased", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodeMode.setStatus('current')
+hpicfTunneledNodeVlanMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vlanextend", 1), ("novlan", 2))).clone('vlanextend')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodeVlanMode.setStatus('current')
+hpicfTunneledNodeReservedVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 1, 1, 11), VlanIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodeReservedVlanId.setStatus('current')
+hpicfTunneledNodeMPeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 720), ))).setUnits('hour').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodeMPeriod.setStatus('current')
+hpicfTunneledNodeWolVIDList = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 1, 1, 13), VidList()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodeWolVIDList.setStatus('current')
+hpicfTunneledNodePortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 2), )
+if mibBuilder.loadTexts: hpicfTunneledNodePortConfigTable.setStatus('current')
+hpicfTunneledNodePortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hpicfTunneledNodePortConfigEntry.setStatus('current')
+hpicfTunneledNodePortRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 2, 1, 1), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodePortRowStatus.setStatus('current')
+hpicfTunneledNodeFallbackLclSw = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 2, 1, 2), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodeFallbackLclSw.setStatus('current')
+hpicfTunneledNodeClearStats = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfTunneledNodeClearStats.setStatus('current')
+hpicfTunneledNodePapiTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 4), )
+if mibBuilder.loadTexts: hpicfTunneledNodePapiTable.setStatus('current')
+hpicfTunneledNodePapiEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 4, 1), ).setIndexNames((0, "HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePapiAuthMode"))
+if mibBuilder.loadTexts: hpicfTunneledNodePapiEntry.setStatus('current')
+hpicfTunneledNodePapiAuthMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("md5", 2))))
+if mibBuilder.loadTexts: hpicfTunneledNodePapiAuthMode.setStatus('current')
+hpicfTunneledNodePapiKeyValue = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 4, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 128))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodePapiKeyValue.setStatus('current')
+hpicfTunneledNodePapiKeyEncr = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 4, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodePapiKeyEncr.setStatus('current')
+hpicfTunneledNodePapiRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 1, 1, 4, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfTunneledNodePapiRowStatus.setStatus('current')
+hpicfTunneledNodeCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 2, 1))
+hpicfTunneledNodeGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 2, 2))
+hpicfTunneledNodeCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 2, 1, 1)).setObjects(("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeGroup"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePortGroup"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePapiGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfTunneledNodeCompliance = hpicfTunneledNodeCompliance.setStatus('deprecated')
+hpicfTunneledNodeCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 2, 1, 2)).setObjects(("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeGroup1"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePortGroup"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePapiGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfTunneledNodeCompliance1 = hpicfTunneledNodeCompliance1.setStatus('deprecated')
+hpicfTunneledNodeCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 2, 1, 3)).setObjects(("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeGroup2"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePortGroup"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePapiGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfTunneledNodeCompliance2 = hpicfTunneledNodeCompliance2.setStatus('deprecated')
+hpicfTunneledNodeCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 2, 1, 4)).setObjects(("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeGroup3"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePortGroup"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePapiGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfTunneledNodeCompliance3 = hpicfTunneledNodeCompliance3.setStatus('deprecated')
+hpicfTunneledNodeCompliance4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 2, 1, 5)).setObjects(("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeGroup4"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePortGroup"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePapiGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfTunneledNodeCompliance4 = hpicfTunneledNodeCompliance4.setStatus('current')
+hpicfTunneledNodeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 2, 2, 1)).setObjects(("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeEnable"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePrimaryAddrType"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePrimaryAddr"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeBackupAddrType"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeBackupAddr"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeTimeout"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeRowStatus"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeClearStats"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfTunneledNodeGroup = hpicfTunneledNodeGroup.setStatus('deprecated')
+hpicfTunneledNodePortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 2, 2, 2)).setObjects(("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePortRowStatus"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeFallbackLclSw"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfTunneledNodePortGroup = hpicfTunneledNodePortGroup.setStatus('current')
+hpicfTunneledNodePapiGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 2, 2, 3)).setObjects(("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePapiKeyValue"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePapiKeyEncr"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePapiRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfTunneledNodePapiGroup = hpicfTunneledNodePapiGroup.setStatus('current')
+hpicfTunneledNodeGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 2, 2, 4)).setObjects(("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeEnable"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePrimaryAddrType"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePrimaryAddr"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeBackupAddrType"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeBackupAddr"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeTimeout"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeRowStatus"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeClearStats"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeMode"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeVlanMode"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeReservedVlanId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfTunneledNodeGroup1 = hpicfTunneledNodeGroup1.setStatus('deprecated')
+hpicfTunneledNodeGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 2, 2, 5)).setObjects(("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeEnable"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePrimaryAddrType"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePrimaryAddr"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeBackupAddrType"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeBackupAddr"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeTimeout"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeRowStatus"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeClearStats"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeMode"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeVlanMode"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeReservedVlanId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfTunneledNodeGroup2 = hpicfTunneledNodeGroup2.setStatus('deprecated')
+hpicfTunneledNodeGroup3 = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 2, 2, 6)).setObjects(("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeEnable"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePrimaryAddrType"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePrimaryAddr"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeBackupAddrType"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeBackupAddr"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeTimeout"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeRowStatus"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeClearStats"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeMode"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeVlanMode"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeReservedVlanId"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeMPeriod"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfTunneledNodeGroup3 = hpicfTunneledNodeGroup3.setStatus('deprecated')
+hpicfTunneledNodeGroup4 = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 128, 2, 2, 7)).setObjects(("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeEnable"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePrimaryAddrType"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodePrimaryAddr"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeBackupAddrType"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeBackupAddr"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeTimeout"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeRowStatus"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeClearStats"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeMode"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeVlanMode"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeReservedVlanId"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeMPeriod"), ("HP-ICF-TUNNELED-NODE-MIB", "hpicfTunneledNodeWolVIDList"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfTunneledNodeGroup4 = hpicfTunneledNodeGroup4.setStatus('current')
+mibBuilder.exportSymbols("HP-ICF-TUNNELED-NODE-MIB", hpicfTunneledNodePortRowStatus=hpicfTunneledNodePortRowStatus, hpicfTunneledNodeWolVIDList=hpicfTunneledNodeWolVIDList, hpicfTunneledNodePortConfigTable=hpicfTunneledNodePortConfigTable, hpicfTunneledNodeIndex=hpicfTunneledNodeIndex, hpicfTunneledNodeCompliance2=hpicfTunneledNodeCompliance2, hpicfTunneledNodeBackupAddr=hpicfTunneledNodeBackupAddr, hpicfTunneledNodeGroups=hpicfTunneledNodeGroups, hpicfTunneledNode=hpicfTunneledNode, hpicfTunneledNodeMPeriod=hpicfTunneledNodeMPeriod, hpicfTunneledNodeGroup=hpicfTunneledNodeGroup, hpicfTunneledNodePortGroup=hpicfTunneledNodePortGroup, PYSNMP_MODULE_ID=hpicfTunneledNode, hpicfTunneledNodeConfig=hpicfTunneledNodeConfig, hpicfTunneledNodeCompliance1=hpicfTunneledNodeCompliance1, hpicfTunneledNodeTable=hpicfTunneledNodeTable, hpicfTunneledNodeCompliance4=hpicfTunneledNodeCompliance4, hpicfTunneledNodeClearStats=hpicfTunneledNodeClearStats, hpicfTunneledNodeTimeout=hpicfTunneledNodeTimeout, hpicfTunneledNodePapiEntry=hpicfTunneledNodePapiEntry, hpicfTunneledNodePapiRowStatus=hpicfTunneledNodePapiRowStatus, hpicfTunneledNodePapiKeyValue=hpicfTunneledNodePapiKeyValue, hpicfTunneledNodeVlanMode=hpicfTunneledNodeVlanMode, hpicfTunneledNodePapiAuthMode=hpicfTunneledNodePapiAuthMode, hpicfTunneledNodePortConfigEntry=hpicfTunneledNodePortConfigEntry, hpicfTunneledNodePrimaryAddr=hpicfTunneledNodePrimaryAddr, hpicfTunneledNodeFallbackLclSw=hpicfTunneledNodeFallbackLclSw, hpicfTunneledNodeEnable=hpicfTunneledNodeEnable, hpicfTunneledNodeMode=hpicfTunneledNodeMode, hpicfTunneledNodeCompliance=hpicfTunneledNodeCompliance, hpicfTunneledNodeObjects=hpicfTunneledNodeObjects, hpicfTunneledNodeEntry=hpicfTunneledNodeEntry, hpicfTunneledNodeBackupAddrType=hpicfTunneledNodeBackupAddrType, hpicfTunneledNodePapiGroup=hpicfTunneledNodePapiGroup, hpicfTunneledNodeGroup1=hpicfTunneledNodeGroup1, hpicfTunneledNodePrimaryAddrType=hpicfTunneledNodePrimaryAddrType, hpicfTunneledNodeCompliances=hpicfTunneledNodeCompliances, hpicfTunneledNodeCompliance3=hpicfTunneledNodeCompliance3, hpicfTunneledNodeConformance=hpicfTunneledNodeConformance, hpicfTunneledNodeGroup4=hpicfTunneledNodeGroup4, hpicfTunneledNodePapiTable=hpicfTunneledNodePapiTable, hpicfTunneledNodeGroup2=hpicfTunneledNodeGroup2, hpicfTunneledNodeGroup3=hpicfTunneledNodeGroup3, hpicfTunneledNodePapiKeyEncr=hpicfTunneledNodePapiKeyEncr, hpicfTunneledNodeReservedVlanId=hpicfTunneledNodeReservedVlanId, hpicfTunneledNodeRowStatus=hpicfTunneledNodeRowStatus)

@@ -1,188 +1,90 @@
-_K='not-accessible'
-_J='rcRrcpDeviceType'
-_I='rcRrcpDeviceId'
-_H='Integer32'
-_G='OctetString'
-_F='rcRrcpMacAddress'
-_E='rcRrcpInterfaceIndex'
-_D='read-write'
-_C='RAISECOM-RRCP-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_G,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-rcRrcp,=mibBuilder.importSymbols('RAISECOM-RRCP-VLAN-MIB','rcRrcp')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TruthValue')
-EnableVar,=mibBuilder.importSymbols('SWITCH-TC','EnableVar')
-rcRrcpProtocol=ModuleIdentity((1,3,6,1,4,1,8886,6,1,52,1))
-if mibBuilder.loadTexts:rcRrcpProtocol.setRevisions(('2010-04-09 00:00','2009-07-06 00:00'))
-_RcRrcpMibNotifications_ObjectIdentity=ObjectIdentity
-rcRrcpMibNotifications=_RcRrcpMibNotifications_ObjectIdentity((1,3,6,1,4,1,8886,6,1,52,1,1))
-_RcRrcpMibObjects_ObjectIdentity=ObjectIdentity
-rcRrcpMibObjects=_RcRrcpMibObjects_ObjectIdentity((1,3,6,1,4,1,8886,6,1,52,1,2))
-_RcRrcpGlobalGroup_ObjectIdentity=ObjectIdentity
-rcRrcpGlobalGroup=_RcRrcpGlobalGroup_ObjectIdentity((1,3,6,1,4,1,8886,6,1,52,1,2,1))
-_RcRrcpCurrentNumDevices_Type=Integer32
-_RcRrcpCurrentNumDevices_Object=MibScalar
-rcRrcpCurrentNumDevices=_RcRrcpCurrentNumDevices_Object((1,3,6,1,4,1,8886,6,1,52,1,2,1,1),_RcRrcpCurrentNumDevices_Type())
-rcRrcpCurrentNumDevices.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRrcpCurrentNumDevices.setStatus(_A)
-_RcRrcpNumDevices_Type=Integer32
-_RcRrcpNumDevices_Object=MibScalar
-rcRrcpNumDevices=_RcRrcpNumDevices_Object((1,3,6,1,4,1,8886,6,1,52,1,2,1,2),_RcRrcpNumDevices_Type())
-rcRrcpNumDevices.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRrcpNumDevices.setStatus(_A)
-_RcRrcpTrapEnable_Type=EnableVar
-_RcRrcpTrapEnable_Object=MibScalar
-rcRrcpTrapEnable=_RcRrcpTrapEnable_Object((1,3,6,1,4,1,8886,6,1,52,1,2,1,3),_RcRrcpTrapEnable_Type())
-rcRrcpTrapEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcRrcpTrapEnable.setStatus(_A)
-class _RcRrcpHelloTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_RcRrcpHelloTime_Type.__name__=_H
-_RcRrcpHelloTime_Object=MibScalar
-rcRrcpHelloTime=_RcRrcpHelloTime_Object((1,3,6,1,4,1,8886,6,1,52,1,2,1,4),_RcRrcpHelloTime_Type())
-rcRrcpHelloTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcRrcpHelloTime.setStatus(_A)
-if mibBuilder.loadTexts:rcRrcpHelloTime.setUnits('minutes')
-_RcRrcpDeviceUpdate_Type=TruthValue
-_RcRrcpDeviceUpdate_Object=MibScalar
-rcRrcpDeviceUpdate=_RcRrcpDeviceUpdate_Object((1,3,6,1,4,1,8886,6,1,52,1,2,1,5),_RcRrcpDeviceUpdate_Type())
-rcRrcpDeviceUpdate.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcRrcpDeviceUpdate.setStatus(_A)
-_RcRrcpStatsClear_Type=TruthValue
-_RcRrcpStatsClear_Object=MibScalar
-rcRrcpStatsClear=_RcRrcpStatsClear_Object((1,3,6,1,4,1,8886,6,1,52,1,2,1,6),_RcRrcpStatsClear_Type())
-rcRrcpStatsClear.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcRrcpStatsClear.setStatus(_A)
-_RcRrcpCopyGroup_ObjectIdentity=ObjectIdentity
-rcRrcpCopyGroup=_RcRrcpCopyGroup_ObjectIdentity((1,3,6,1,4,1,8886,6,1,52,1,2,2))
-_RcRrcpSourceDeviceId_Type=Integer32
-_RcRrcpSourceDeviceId_Object=MibScalar
-rcRrcpSourceDeviceId=_RcRrcpSourceDeviceId_Object((1,3,6,1,4,1,8886,6,1,52,1,2,2,1),_RcRrcpSourceDeviceId_Type())
-rcRrcpSourceDeviceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcRrcpSourceDeviceId.setStatus(_A)
-_RcRrcpDestinationDeviceList_Type=OctetString
-_RcRrcpDestinationDeviceList_Object=MibScalar
-rcRrcpDestinationDeviceList=_RcRrcpDestinationDeviceList_Object((1,3,6,1,4,1,8886,6,1,52,1,2,2,2),_RcRrcpDestinationDeviceList_Type())
-rcRrcpDestinationDeviceList.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcRrcpDestinationDeviceList.setStatus(_A)
-class _RcRrcpCopyStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('start',1),('busy',2),('completed',3),('error',4)))
-_RcRrcpCopyStatus_Type.__name__=_H
-_RcRrcpCopyStatus_Object=MibScalar
-rcRrcpCopyStatus=_RcRrcpCopyStatus_Object((1,3,6,1,4,1,8886,6,1,52,1,2,2,3),_RcRrcpCopyStatus_Type())
-rcRrcpCopyStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcRrcpCopyStatus.setStatus(_A)
-_RcRrcpCopyFailDeviceList_Type=OctetString
-_RcRrcpCopyFailDeviceList_Object=MibScalar
-rcRrcpCopyFailDeviceList=_RcRrcpCopyFailDeviceList_Object((1,3,6,1,4,1,8886,6,1,52,1,2,2,4),_RcRrcpCopyFailDeviceList_Type())
-rcRrcpCopyFailDeviceList.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRrcpCopyFailDeviceList.setStatus(_A)
-_RcRrcpInterfaceTable_Object=MibTable
-rcRrcpInterfaceTable=_RcRrcpInterfaceTable_Object((1,3,6,1,4,1,8886,6,1,52,1,2,3))
-if mibBuilder.loadTexts:rcRrcpInterfaceTable.setStatus(_A)
-_RcRrcpInterfaceEntry_Object=MibTableRow
-rcRrcpInterfaceEntry=_RcRrcpInterfaceEntry_Object((1,3,6,1,4,1,8886,6,1,52,1,2,3,1))
-rcRrcpInterfaceEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:rcRrcpInterfaceEntry.setStatus(_A)
-_RcRrcpInterfaceIndex_Type=Integer32
-_RcRrcpInterfaceIndex_Object=MibTableColumn
-rcRrcpInterfaceIndex=_RcRrcpInterfaceIndex_Object((1,3,6,1,4,1,8886,6,1,52,1,2,3,1,1),_RcRrcpInterfaceIndex_Type())
-rcRrcpInterfaceIndex.setMaxAccess(_K)
-if mibBuilder.loadTexts:rcRrcpInterfaceIndex.setStatus(_A)
-class _RcRrcpInterfaceDescription_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_RcRrcpInterfaceDescription_Type.__name__=_G
-_RcRrcpInterfaceDescription_Object=MibTableColumn
-rcRrcpInterfaceDescription=_RcRrcpInterfaceDescription_Object((1,3,6,1,4,1,8886,6,1,52,1,2,3,1,2),_RcRrcpInterfaceDescription_Type())
-rcRrcpInterfaceDescription.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRrcpInterfaceDescription.setStatus(_A)
-_RcRrcpInterfaceEnable_Type=EnableVar
-_RcRrcpInterfaceEnable_Object=MibTableColumn
-rcRrcpInterfaceEnable=_RcRrcpInterfaceEnable_Object((1,3,6,1,4,1,8886,6,1,52,1,2,3,1,3),_RcRrcpInterfaceEnable_Type())
-rcRrcpInterfaceEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcRrcpInterfaceEnable.setStatus(_A)
-_RcRrcpDeviceTable_Object=MibTable
-rcRrcpDeviceTable=_RcRrcpDeviceTable_Object((1,3,6,1,4,1,8886,6,1,52,1,2,4))
-if mibBuilder.loadTexts:rcRrcpDeviceTable.setStatus(_A)
-_RcRrcpDeviceEntry_Object=MibTableRow
-rcRrcpDeviceEntry=_RcRrcpDeviceEntry_Object((1,3,6,1,4,1,8886,6,1,52,1,2,4,1))
-rcRrcpDeviceEntry.setIndexNames((0,_C,_E),(0,_C,_F))
-if mibBuilder.loadTexts:rcRrcpDeviceEntry.setStatus(_A)
-_RcRrcpMacAddress_Type=MacAddress
-_RcRrcpMacAddress_Object=MibTableColumn
-rcRrcpMacAddress=_RcRrcpMacAddress_Object((1,3,6,1,4,1,8886,6,1,52,1,2,4,1,1),_RcRrcpMacAddress_Type())
-rcRrcpMacAddress.setMaxAccess(_K)
-if mibBuilder.loadTexts:rcRrcpMacAddress.setStatus(_A)
-_RcRrcpDeviceId_Type=Integer32
-_RcRrcpDeviceId_Object=MibTableColumn
-rcRrcpDeviceId=_RcRrcpDeviceId_Object((1,3,6,1,4,1,8886,6,1,52,1,2,4,1,2),_RcRrcpDeviceId_Type())
-rcRrcpDeviceId.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRrcpDeviceId.setStatus(_A)
-class _RcRrcpDeviceType_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_RcRrcpDeviceType_Type.__name__=_G
-_RcRrcpDeviceType_Object=MibTableColumn
-rcRrcpDeviceType=_RcRrcpDeviceType_Object((1,3,6,1,4,1,8886,6,1,52,1,2,4,1,3),_RcRrcpDeviceType_Type())
-rcRrcpDeviceType.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRrcpDeviceType.setStatus(_A)
-_RcRrcpDownlinkPort_Type=Integer32
-_RcRrcpDownlinkPort_Object=MibTableColumn
-rcRrcpDownlinkPort=_RcRrcpDownlinkPort_Object((1,3,6,1,4,1,8886,6,1,52,1,2,4,1,4),_RcRrcpDownlinkPort_Type())
-rcRrcpDownlinkPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRrcpDownlinkPort.setStatus(_A)
-_RcRrcpUplinkPort_Type=Integer32
-_RcRrcpUplinkPort_Object=MibTableColumn
-rcRrcpUplinkPort=_RcRrcpUplinkPort_Object((1,3,6,1,4,1,8886,6,1,52,1,2,4,1,5),_RcRrcpUplinkPort_Type())
-rcRrcpUplinkPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRrcpUplinkPort.setStatus(_A)
-_RcRrcpUplinkMac_Type=MacAddress
-_RcRrcpUplinkMac_Object=MibTableColumn
-rcRrcpUplinkMac=_RcRrcpUplinkMac_Object((1,3,6,1,4,1,8886,6,1,52,1,2,4,1,6),_RcRrcpUplinkMac_Type())
-rcRrcpUplinkMac.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRrcpUplinkMac.setStatus(_A)
-_RcRrcpSoftVersion_Type=Integer32
-_RcRrcpSoftVersion_Object=MibTableColumn
-rcRrcpSoftVersion=_RcRrcpSoftVersion_Object((1,3,6,1,4,1,8886,6,1,52,1,2,4,1,7),_RcRrcpSoftVersion_Type())
-rcRrcpSoftVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRrcpSoftVersion.setStatus(_A)
-_RcRrcpStatsTable_Object=MibTable
-rcRrcpStatsTable=_RcRrcpStatsTable_Object((1,3,6,1,4,1,8886,6,1,52,1,2,5))
-if mibBuilder.loadTexts:rcRrcpStatsTable.setStatus(_A)
-_RcRrcpStatsEntry_Object=MibTableRow
-rcRrcpStatsEntry=_RcRrcpStatsEntry_Object((1,3,6,1,4,1,8886,6,1,52,1,2,5,1))
-rcRrcpStatsEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:rcRrcpStatsEntry.setStatus(_A)
-_RcRrcpHelloTx_Type=Counter32
-_RcRrcpHelloTx_Object=MibTableColumn
-rcRrcpHelloTx=_RcRrcpHelloTx_Object((1,3,6,1,4,1,8886,6,1,52,1,2,5,1,1),_RcRrcpHelloTx_Type())
-rcRrcpHelloTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRrcpHelloTx.setStatus(_A)
-_RcRrcpGetTx_Type=Counter32
-_RcRrcpGetTx_Object=MibTableColumn
-rcRrcpGetTx=_RcRrcpGetTx_Object((1,3,6,1,4,1,8886,6,1,52,1,2,5,1,2),_RcRrcpGetTx_Type())
-rcRrcpGetTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRrcpGetTx.setStatus(_A)
-_RcRrcpSetTx_Type=Counter32
-_RcRrcpSetTx_Object=MibTableColumn
-rcRrcpSetTx=_RcRrcpSetTx_Object((1,3,6,1,4,1,8886,6,1,52,1,2,5,1,3),_RcRrcpSetTx_Type())
-rcRrcpSetTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRrcpSetTx.setStatus(_A)
-_RcRrcpGetReplyRx_Type=Counter32
-_RcRrcpGetReplyRx_Object=MibTableColumn
-rcRrcpGetReplyRx=_RcRrcpGetReplyRx_Object((1,3,6,1,4,1,8886,6,1,52,1,2,5,1,4),_RcRrcpGetReplyRx_Type())
-rcRrcpGetReplyRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRrcpGetReplyRx.setStatus(_A)
-_RcRrcpHelloReplyRx_Type=Counter32
-_RcRrcpHelloReplyRx_Object=MibTableColumn
-rcRrcpHelloReplyRx=_RcRrcpHelloReplyRx_Object((1,3,6,1,4,1,8886,6,1,52,1,2,5,1,5),_RcRrcpHelloReplyRx_Type())
-rcRrcpHelloReplyRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRrcpHelloReplyRx.setStatus(_A)
-rcRrcpDeviceUp=NotificationType((1,3,6,1,4,1,8886,6,1,52,1,1,1))
-rcRrcpDeviceUp.setObjects(*((_C,_E),(_C,_F),(_C,_I),(_C,_J)))
-if mibBuilder.loadTexts:rcRrcpDeviceUp.setStatus(_A)
-rcRrcpDeviceDown=NotificationType((1,3,6,1,4,1,8886,6,1,52,1,1,2))
-rcRrcpDeviceDown.setObjects(*((_C,_E),(_C,_F),(_C,_I),(_C,_J)))
-if mibBuilder.loadTexts:rcRrcpDeviceDown.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'rcRrcpProtocol':rcRrcpProtocol,'rcRrcpMibNotifications':rcRrcpMibNotifications,'rcRrcpDeviceUp':rcRrcpDeviceUp,'rcRrcpDeviceDown':rcRrcpDeviceDown,'rcRrcpMibObjects':rcRrcpMibObjects,'rcRrcpGlobalGroup':rcRrcpGlobalGroup,'rcRrcpCurrentNumDevices':rcRrcpCurrentNumDevices,'rcRrcpNumDevices':rcRrcpNumDevices,'rcRrcpTrapEnable':rcRrcpTrapEnable,'rcRrcpHelloTime':rcRrcpHelloTime,'rcRrcpDeviceUpdate':rcRrcpDeviceUpdate,'rcRrcpStatsClear':rcRrcpStatsClear,'rcRrcpCopyGroup':rcRrcpCopyGroup,'rcRrcpSourceDeviceId':rcRrcpSourceDeviceId,'rcRrcpDestinationDeviceList':rcRrcpDestinationDeviceList,'rcRrcpCopyStatus':rcRrcpCopyStatus,'rcRrcpCopyFailDeviceList':rcRrcpCopyFailDeviceList,'rcRrcpInterfaceTable':rcRrcpInterfaceTable,'rcRrcpInterfaceEntry':rcRrcpInterfaceEntry,_E:rcRrcpInterfaceIndex,'rcRrcpInterfaceDescription':rcRrcpInterfaceDescription,'rcRrcpInterfaceEnable':rcRrcpInterfaceEnable,'rcRrcpDeviceTable':rcRrcpDeviceTable,'rcRrcpDeviceEntry':rcRrcpDeviceEntry,_F:rcRrcpMacAddress,_I:rcRrcpDeviceId,_J:rcRrcpDeviceType,'rcRrcpDownlinkPort':rcRrcpDownlinkPort,'rcRrcpUplinkPort':rcRrcpUplinkPort,'rcRrcpUplinkMac':rcRrcpUplinkMac,'rcRrcpSoftVersion':rcRrcpSoftVersion,'rcRrcpStatsTable':rcRrcpStatsTable,'rcRrcpStatsEntry':rcRrcpStatsEntry,'rcRrcpHelloTx':rcRrcpHelloTx,'rcRrcpGetTx':rcRrcpGetTx,'rcRrcpSetTx':rcRrcpSetTx,'rcRrcpGetReplyRx':rcRrcpGetReplyRx,'rcRrcpHelloReplyRx':rcRrcpHelloReplyRx})
+#
+# PySNMP MIB module RAISECOM-RRCP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/RAISECOM-RRCP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:07 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+rcRrcp, = mibBuilder.importSymbols("RAISECOM-RRCP-VLAN-MIB", "rcRrcp")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TruthValue, MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "DisplayString", "TextualConvention")
+EnableVar, = mibBuilder.importSymbols("SWITCH-TC", "EnableVar")
+rcRrcpProtocol = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1))
+rcRrcpProtocol.setRevisions(('2010-04-09 00:00', '2009-07-06 00:00',))
+if mibBuilder.loadTexts: rcRrcpProtocol.setLastUpdated('201004090000Z')
+if mibBuilder.loadTexts: rcRrcpProtocol.setOrganization('Raisecom, Inc.')
+rcRrcpMibNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 1))
+rcRrcpMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2))
+rcRrcpGlobalGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 1))
+rcRrcpCopyGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 2))
+rcRrcpDeviceUp = NotificationType((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 1, 1)).setObjects(("RAISECOM-RRCP-MIB", "rcRrcpInterfaceIndex"), ("RAISECOM-RRCP-MIB", "rcRrcpMacAddress"), ("RAISECOM-RRCP-MIB", "rcRrcpDeviceId"), ("RAISECOM-RRCP-MIB", "rcRrcpDeviceType"))
+if mibBuilder.loadTexts: rcRrcpDeviceUp.setStatus('current')
+rcRrcpDeviceDown = NotificationType((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 1, 2)).setObjects(("RAISECOM-RRCP-MIB", "rcRrcpInterfaceIndex"), ("RAISECOM-RRCP-MIB", "rcRrcpMacAddress"), ("RAISECOM-RRCP-MIB", "rcRrcpDeviceId"), ("RAISECOM-RRCP-MIB", "rcRrcpDeviceType"))
+if mibBuilder.loadTexts: rcRrcpDeviceDown.setStatus('current')
+rcRrcpCurrentNumDevices = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRrcpCurrentNumDevices.setStatus('current')
+rcRrcpNumDevices = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRrcpNumDevices.setStatus('current')
+rcRrcpTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 1, 3), EnableVar()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcRrcpTrapEnable.setStatus('current')
+rcRrcpHelloTime = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('minutes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcRrcpHelloTime.setStatus('current')
+rcRrcpDeviceUpdate = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 1, 5), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcRrcpDeviceUpdate.setStatus('current')
+rcRrcpStatsClear = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 1, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcRrcpStatsClear.setStatus('current')
+rcRrcpSourceDeviceId = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 2, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcRrcpSourceDeviceId.setStatus('current')
+rcRrcpDestinationDeviceList = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 2, 2), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcRrcpDestinationDeviceList.setStatus('current')
+rcRrcpCopyStatus = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("start", 1), ("busy", 2), ("completed", 3), ("error", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcRrcpCopyStatus.setStatus('current')
+rcRrcpCopyFailDeviceList = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 2, 4), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRrcpCopyFailDeviceList.setStatus('current')
+rcRrcpInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 3), )
+if mibBuilder.loadTexts: rcRrcpInterfaceTable.setStatus('current')
+rcRrcpInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 3, 1), ).setIndexNames((0, "RAISECOM-RRCP-MIB", "rcRrcpInterfaceIndex"))
+if mibBuilder.loadTexts: rcRrcpInterfaceEntry.setStatus('current')
+rcRrcpInterfaceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 3, 1, 1), Integer32())
+if mibBuilder.loadTexts: rcRrcpInterfaceIndex.setStatus('current')
+rcRrcpInterfaceDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 3, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRrcpInterfaceDescription.setStatus('current')
+rcRrcpInterfaceEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 3, 1, 3), EnableVar()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcRrcpInterfaceEnable.setStatus('current')
+rcRrcpDeviceTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 4), )
+if mibBuilder.loadTexts: rcRrcpDeviceTable.setStatus('current')
+rcRrcpDeviceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 4, 1), ).setIndexNames((0, "RAISECOM-RRCP-MIB", "rcRrcpInterfaceIndex"), (0, "RAISECOM-RRCP-MIB", "rcRrcpMacAddress"))
+if mibBuilder.loadTexts: rcRrcpDeviceEntry.setStatus('current')
+rcRrcpMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 4, 1, 1), MacAddress())
+if mibBuilder.loadTexts: rcRrcpMacAddress.setStatus('current')
+rcRrcpDeviceId = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 4, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRrcpDeviceId.setStatus('current')
+rcRrcpDeviceType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 4, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRrcpDeviceType.setStatus('current')
+rcRrcpDownlinkPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 4, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRrcpDownlinkPort.setStatus('current')
+rcRrcpUplinkPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 4, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRrcpUplinkPort.setStatus('current')
+rcRrcpUplinkMac = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 4, 1, 6), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRrcpUplinkMac.setStatus('current')
+rcRrcpSoftVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 4, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRrcpSoftVersion.setStatus('current')
+rcRrcpStatsTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 5), )
+if mibBuilder.loadTexts: rcRrcpStatsTable.setStatus('current')
+rcRrcpStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 5, 1), ).setIndexNames((0, "RAISECOM-RRCP-MIB", "rcRrcpInterfaceIndex"))
+if mibBuilder.loadTexts: rcRrcpStatsEntry.setStatus('current')
+rcRrcpHelloTx = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 5, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRrcpHelloTx.setStatus('current')
+rcRrcpGetTx = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 5, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRrcpGetTx.setStatus('current')
+rcRrcpSetTx = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 5, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRrcpSetTx.setStatus('current')
+rcRrcpGetReplyRx = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 5, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRrcpGetReplyRx.setStatus('current')
+rcRrcpHelloReplyRx = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 52, 1, 2, 5, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRrcpHelloReplyRx.setStatus('current')
+mibBuilder.exportSymbols("RAISECOM-RRCP-MIB", rcRrcpGlobalGroup=rcRrcpGlobalGroup, rcRrcpSourceDeviceId=rcRrcpSourceDeviceId, rcRrcpMibNotifications=rcRrcpMibNotifications, rcRrcpDeviceUp=rcRrcpDeviceUp, rcRrcpUplinkPort=rcRrcpUplinkPort, rcRrcpMibObjects=rcRrcpMibObjects, rcRrcpGetReplyRx=rcRrcpGetReplyRx, rcRrcpHelloTime=rcRrcpHelloTime, rcRrcpInterfaceIndex=rcRrcpInterfaceIndex, rcRrcpDeviceEntry=rcRrcpDeviceEntry, rcRrcpInterfaceEntry=rcRrcpInterfaceEntry, rcRrcpHelloTx=rcRrcpHelloTx, rcRrcpDeviceId=rcRrcpDeviceId, rcRrcpInterfaceEnable=rcRrcpInterfaceEnable, rcRrcpGetTx=rcRrcpGetTx, rcRrcpHelloReplyRx=rcRrcpHelloReplyRx, rcRrcpInterfaceTable=rcRrcpInterfaceTable, rcRrcpCopyGroup=rcRrcpCopyGroup, rcRrcpDestinationDeviceList=rcRrcpDestinationDeviceList, rcRrcpCurrentNumDevices=rcRrcpCurrentNumDevices, rcRrcpDownlinkPort=rcRrcpDownlinkPort, rcRrcpDeviceDown=rcRrcpDeviceDown, rcRrcpStatsTable=rcRrcpStatsTable, rcRrcpSetTx=rcRrcpSetTx, rcRrcpProtocol=rcRrcpProtocol, rcRrcpStatsClear=rcRrcpStatsClear, rcRrcpCopyStatus=rcRrcpCopyStatus, rcRrcpCopyFailDeviceList=rcRrcpCopyFailDeviceList, rcRrcpNumDevices=rcRrcpNumDevices, PYSNMP_MODULE_ID=rcRrcpProtocol, rcRrcpSoftVersion=rcRrcpSoftVersion, rcRrcpMacAddress=rcRrcpMacAddress, rcRrcpUplinkMac=rcRrcpUplinkMac, rcRrcpDeviceUpdate=rcRrcpDeviceUpdate, rcRrcpStatsEntry=rcRrcpStatsEntry, rcRrcpDeviceType=rcRrcpDeviceType, rcRrcpInterfaceDescription=rcRrcpInterfaceDescription, rcRrcpTrapEnable=rcRrcpTrapEnable, rcRrcpDeviceTable=rcRrcpDeviceTable)

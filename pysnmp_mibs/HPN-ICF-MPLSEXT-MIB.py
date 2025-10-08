@@ -1,90 +1,47 @@
-_J='hpnicfMplsExtLdpIndex'
-_I='not-accessible'
-_H='hpnicfMplsExtIndex'
-_G='read-write'
-_F='OctetString'
-_E='HPN-ICF-MPLSEXT-MIB'
-_D='TruthValue'
-_C='Unsigned32'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpnicfCommon,=mibBuilder.importSymbols('HPN-ICF-OID-MIB','hpnicfCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_C,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_D)
-hpnicfMplsExt=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,15,2,142))
-if mibBuilder.loadTexts:hpnicfMplsExt.setRevisions(('2013-06-13 18:00',))
-_HpnicfMplsExtObjects_ObjectIdentity=ObjectIdentity
-hpnicfMplsExtObjects=_HpnicfMplsExtObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,142,1))
-_HpnicfMplsExtScalarGroup_ObjectIdentity=ObjectIdentity
-hpnicfMplsExtScalarGroup=_HpnicfMplsExtScalarGroup_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,142,1,1))
-class _HpnicfMplsExtLsrID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_HpnicfMplsExtLsrID_Type.__name__=_F
-_HpnicfMplsExtLsrID_Object=MibScalar
-hpnicfMplsExtLsrID=_HpnicfMplsExtLsrID_Object((1,3,6,1,4,1,11,2,14,11,15,2,142,1,1,1),_HpnicfMplsExtLsrID_Type())
-hpnicfMplsExtLsrID.setMaxAccess(_G)
-if mibBuilder.loadTexts:hpnicfMplsExtLsrID.setStatus(_A)
-_HpnicfMplsExtLdpStatus_Type=TruthValue
-_HpnicfMplsExtLdpStatus_Object=MibScalar
-hpnicfMplsExtLdpStatus=_HpnicfMplsExtLdpStatus_Object((1,3,6,1,4,1,11,2,14,11,15,2,142,1,1,2),_HpnicfMplsExtLdpStatus_Type())
-hpnicfMplsExtLdpStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:hpnicfMplsExtLdpStatus.setStatus(_A)
-_HpnicfMplsExtTable_Object=MibTable
-hpnicfMplsExtTable=_HpnicfMplsExtTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,142,1,2))
-if mibBuilder.loadTexts:hpnicfMplsExtTable.setStatus(_A)
-_HpnicfMplsExtEntry_Object=MibTableRow
-hpnicfMplsExtEntry=_HpnicfMplsExtEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,142,1,2,1))
-hpnicfMplsExtEntry.setIndexNames((0,_E,_H))
-if mibBuilder.loadTexts:hpnicfMplsExtEntry.setStatus(_A)
-class _HpnicfMplsExtIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_HpnicfMplsExtIndex_Type.__name__=_C
-_HpnicfMplsExtIndex_Object=MibTableColumn
-hpnicfMplsExtIndex=_HpnicfMplsExtIndex_Object((1,3,6,1,4,1,11,2,14,11,15,2,142,1,2,1,1),_HpnicfMplsExtIndex_Type())
-hpnicfMplsExtIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:hpnicfMplsExtIndex.setStatus(_A)
-class _HpnicfMplsExtCapability_Type(TruthValue):defaultValue=2
-_HpnicfMplsExtCapability_Type.__name__=_D
-_HpnicfMplsExtCapability_Object=MibTableColumn
-hpnicfMplsExtCapability=_HpnicfMplsExtCapability_Object((1,3,6,1,4,1,11,2,14,11,15,2,142,1,2,1,2),_HpnicfMplsExtCapability_Type())
-hpnicfMplsExtCapability.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMplsExtCapability.setStatus(_A)
-class _HpnicfMplsExtMtu_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(46,65535))
-_HpnicfMplsExtMtu_Type.__name__=_C
-_HpnicfMplsExtMtu_Object=MibTableColumn
-hpnicfMplsExtMtu=_HpnicfMplsExtMtu_Object((1,3,6,1,4,1,11,2,14,11,15,2,142,1,2,1,3),_HpnicfMplsExtMtu_Type())
-hpnicfMplsExtMtu.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMplsExtMtu.setStatus(_A)
-_HpnicfMplsExtRowStatus_Type=RowStatus
-_HpnicfMplsExtRowStatus_Object=MibTableColumn
-hpnicfMplsExtRowStatus=_HpnicfMplsExtRowStatus_Object((1,3,6,1,4,1,11,2,14,11,15,2,142,1,2,1,4),_HpnicfMplsExtRowStatus_Type())
-hpnicfMplsExtRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMplsExtRowStatus.setStatus(_A)
-_HpnicfMplsExtLdpTable_Object=MibTable
-hpnicfMplsExtLdpTable=_HpnicfMplsExtLdpTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,142,1,3))
-if mibBuilder.loadTexts:hpnicfMplsExtLdpTable.setStatus(_A)
-_HpnicfMplsExtLdpEntry_Object=MibTableRow
-hpnicfMplsExtLdpEntry=_HpnicfMplsExtLdpEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,142,1,3,1))
-hpnicfMplsExtLdpEntry.setIndexNames((0,_E,_J))
-if mibBuilder.loadTexts:hpnicfMplsExtLdpEntry.setStatus(_A)
-class _HpnicfMplsExtLdpIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_HpnicfMplsExtLdpIndex_Type.__name__=_C
-_HpnicfMplsExtLdpIndex_Object=MibTableColumn
-hpnicfMplsExtLdpIndex=_HpnicfMplsExtLdpIndex_Object((1,3,6,1,4,1,11,2,14,11,15,2,142,1,3,1,1),_HpnicfMplsExtLdpIndex_Type())
-hpnicfMplsExtLdpIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:hpnicfMplsExtLdpIndex.setStatus(_A)
-class _HpnicfMplsExtLdpCapability_Type(TruthValue):defaultValue=2
-_HpnicfMplsExtLdpCapability_Type.__name__=_D
-_HpnicfMplsExtLdpCapability_Object=MibTableColumn
-hpnicfMplsExtLdpCapability=_HpnicfMplsExtLdpCapability_Object((1,3,6,1,4,1,11,2,14,11,15,2,142,1,3,1,2),_HpnicfMplsExtLdpCapability_Type())
-hpnicfMplsExtLdpCapability.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMplsExtLdpCapability.setStatus(_A)
-_HpnicfMplsExtLdpRowStatus_Type=RowStatus
-_HpnicfMplsExtLdpRowStatus_Object=MibTableColumn
-hpnicfMplsExtLdpRowStatus=_HpnicfMplsExtLdpRowStatus_Object((1,3,6,1,4,1,11,2,14,11,15,2,142,1,3,1,3),_HpnicfMplsExtLdpRowStatus_Type())
-hpnicfMplsExtLdpRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMplsExtLdpRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'hpnicfMplsExt':hpnicfMplsExt,'hpnicfMplsExtObjects':hpnicfMplsExtObjects,'hpnicfMplsExtScalarGroup':hpnicfMplsExtScalarGroup,'hpnicfMplsExtLsrID':hpnicfMplsExtLsrID,'hpnicfMplsExtLdpStatus':hpnicfMplsExtLdpStatus,'hpnicfMplsExtTable':hpnicfMplsExtTable,'hpnicfMplsExtEntry':hpnicfMplsExtEntry,_H:hpnicfMplsExtIndex,'hpnicfMplsExtCapability':hpnicfMplsExtCapability,'hpnicfMplsExtMtu':hpnicfMplsExtMtu,'hpnicfMplsExtRowStatus':hpnicfMplsExtRowStatus,'hpnicfMplsExtLdpTable':hpnicfMplsExtLdpTable,'hpnicfMplsExtLdpEntry':hpnicfMplsExtLdpEntry,_J:hpnicfMplsExtLdpIndex,'hpnicfMplsExtLdpCapability':hpnicfMplsExtLdpCapability,'hpnicfMplsExtLdpRowStatus':hpnicfMplsExtLdpRowStatus})
+#
+# PySNMP MIB module HPN-ICF-MPLSEXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-MPLSEXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:47 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+hpnicfMplsExt = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142))
+hpnicfMplsExt.setRevisions(('2013-06-13 18:00',))
+if mibBuilder.loadTexts: hpnicfMplsExt.setLastUpdated('201306131800Z')
+if mibBuilder.loadTexts: hpnicfMplsExt.setOrganization('')
+hpnicfMplsExtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142, 1))
+hpnicfMplsExtScalarGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142, 1, 1))
+hpnicfMplsExtLsrID = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfMplsExtLsrID.setStatus('current')
+hpnicfMplsExtLdpStatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfMplsExtLdpStatus.setStatus('current')
+hpnicfMplsExtTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142, 1, 2), )
+if mibBuilder.loadTexts: hpnicfMplsExtTable.setStatus('current')
+hpnicfMplsExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142, 1, 2, 1), ).setIndexNames((0, "HPN-ICF-MPLSEXT-MIB", "hpnicfMplsExtIndex"))
+if mibBuilder.loadTexts: hpnicfMplsExtEntry.setStatus('current')
+hpnicfMplsExtIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: hpnicfMplsExtIndex.setStatus('current')
+hpnicfMplsExtCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142, 1, 2, 1, 2), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfMplsExtCapability.setStatus('current')
+hpnicfMplsExtMtu = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142, 1, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(46, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfMplsExtMtu.setStatus('current')
+hpnicfMplsExtRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfMplsExtRowStatus.setStatus('current')
+hpnicfMplsExtLdpTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142, 1, 3), )
+if mibBuilder.loadTexts: hpnicfMplsExtLdpTable.setStatus('current')
+hpnicfMplsExtLdpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142, 1, 3, 1), ).setIndexNames((0, "HPN-ICF-MPLSEXT-MIB", "hpnicfMplsExtLdpIndex"))
+if mibBuilder.loadTexts: hpnicfMplsExtLdpEntry.setStatus('current')
+hpnicfMplsExtLdpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142, 1, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: hpnicfMplsExtLdpIndex.setStatus('current')
+hpnicfMplsExtLdpCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142, 1, 3, 1, 2), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfMplsExtLdpCapability.setStatus('current')
+hpnicfMplsExtLdpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 142, 1, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpnicfMplsExtLdpRowStatus.setStatus('current')
+mibBuilder.exportSymbols("HPN-ICF-MPLSEXT-MIB", hpnicfMplsExtObjects=hpnicfMplsExtObjects, hpnicfMplsExtEntry=hpnicfMplsExtEntry, hpnicfMplsExtLdpTable=hpnicfMplsExtLdpTable, hpnicfMplsExtRowStatus=hpnicfMplsExtRowStatus, hpnicfMplsExtLsrID=hpnicfMplsExtLsrID, hpnicfMplsExtIndex=hpnicfMplsExtIndex, PYSNMP_MODULE_ID=hpnicfMplsExt, hpnicfMplsExtLdpCapability=hpnicfMplsExtLdpCapability, hpnicfMplsExtMtu=hpnicfMplsExtMtu, hpnicfMplsExtLdpIndex=hpnicfMplsExtLdpIndex, hpnicfMplsExtScalarGroup=hpnicfMplsExtScalarGroup, hpnicfMplsExtLdpEntry=hpnicfMplsExtLdpEntry, hpnicfMplsExt=hpnicfMplsExt, hpnicfMplsExtLdpRowStatus=hpnicfMplsExtLdpRowStatus, hpnicfMplsExtCapability=hpnicfMplsExtCapability, hpnicfMplsExtTable=hpnicfMplsExtTable, hpnicfMplsExtLdpStatus=hpnicfMplsExtLdpStatus)

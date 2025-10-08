@@ -1,368 +1,147 @@
-_S='raisecomRemoteStatsPortIfindex'
-_R='unknown'
-_Q='full-1000'
-_P='half-1000'
-_O='full-100'
-_N='half-100'
-_M='full-10'
-_L='half-10'
-_K='not-accessible'
-_J='raisecomRemotePortIfindex'
-_I='unavailable'
-_H='RAISECOM-REMOTE-MANAGEMENT-REMOTE-MIB'
-_G='normal'
-_F='down'
-_E='OctetString'
-_D='read-write'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-raisecomAgent,=mibBuilder.importSymbols('RAISECOM-BASE-MIB','raisecomAgent')
-EntryStatus,=mibBuilder.importSymbols('RMON-MIB','EntryStatus')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-EnableVar,PortList=mibBuilder.importSymbols('SWITCH-TC','EnableVar','PortList')
-raisecomRemoteManagementRemote=ModuleIdentity((1,3,6,1,4,1,8886,1,13))
-_RaisecomRemoteManagementRemoteHideMibObjects_ObjectIdentity=ObjectIdentity
-raisecomRemoteManagementRemoteHideMibObjects=_RaisecomRemoteManagementRemoteHideMibObjects_ObjectIdentity((1,3,6,1,4,1,8886,1,13,1))
-class _RaisecomRemoteTemperature_Type(Integer32):defaultValue=65535
-_RaisecomRemoteTemperature_Type.__name__=_C
-_RaisecomRemoteTemperature_Object=MibScalar
-raisecomRemoteTemperature=_RaisecomRemoteTemperature_Object((1,3,6,1,4,1,8886,1,13,1,1),_RaisecomRemoteTemperature_Type())
-raisecomRemoteTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemoteTemperature.setStatus(_A)
-class _RaisecomRemoteVolt3300_Type(Integer32):defaultValue=65535
-_RaisecomRemoteVolt3300_Type.__name__=_C
-_RaisecomRemoteVolt3300_Object=MibScalar
-raisecomRemoteVolt3300=_RaisecomRemoteVolt3300_Object((1,3,6,1,4,1,8886,1,13,1,2),_RaisecomRemoteVolt3300_Type())
-raisecomRemoteVolt3300.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemoteVolt3300.setStatus(_A)
-class _RaisecomRemoteVolt2500_Type(Integer32):defaultValue=65535
-_RaisecomRemoteVolt2500_Type.__name__=_C
-_RaisecomRemoteVolt2500_Object=MibScalar
-raisecomRemoteVolt2500=_RaisecomRemoteVolt2500_Object((1,3,6,1,4,1,8886,1,13,1,3),_RaisecomRemoteVolt2500_Type())
-raisecomRemoteVolt2500.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemoteVolt2500.setStatus(_A)
-class _RaisecomRemoteVolt1800_Type(Integer32):defaultValue=65535
-_RaisecomRemoteVolt1800_Type.__name__=_C
-_RaisecomRemoteVolt1800_Object=MibScalar
-raisecomRemoteVolt1800=_RaisecomRemoteVolt1800_Object((1,3,6,1,4,1,8886,1,13,1,4),_RaisecomRemoteVolt1800_Type())
-raisecomRemoteVolt1800.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemoteVolt1800.setStatus(_A)
-class _RaisecomRemoteVolt1200_Type(Integer32):defaultValue=65535
-_RaisecomRemoteVolt1200_Type.__name__=_C
-_RaisecomRemoteVolt1200_Object=MibScalar
-raisecomRemoteVolt1200=_RaisecomRemoteVolt1200_Object((1,3,6,1,4,1,8886,1,13,1,5),_RaisecomRemoteVolt1200_Type())
-raisecomRemoteVolt1200.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemoteVolt1200.setStatus(_A)
-class _RaisecomRemoteSysOperation_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('ready',1),('write',2),('erase',3),('reboot',4)))
-_RaisecomRemoteSysOperation_Type.__name__=_C
-_RaisecomRemoteSysOperation_Object=MibScalar
-raisecomRemoteSysOperation=_RaisecomRemoteSysOperation_Object((1,3,6,1,4,1,8886,1,13,1,6),_RaisecomRemoteSysOperation_Type())
-raisecomRemoteSysOperation.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemoteSysOperation.setStatus(_A)
-class _RaisecomRemoteSysOperationState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('ready',1),('running',2),('successful',3),('failed',4)))
-_RaisecomRemoteSysOperationState_Type.__name__=_C
-_RaisecomRemoteSysOperationState_Object=MibScalar
-raisecomRemoteSysOperationState=_RaisecomRemoteSysOperationState_Object((1,3,6,1,4,1,8886,1,13,1,7),_RaisecomRemoteSysOperationState_Type())
-raisecomRemoteSysOperationState.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemoteSysOperationState.setStatus(_A)
-class _RaisecomRemoteHostName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_RaisecomRemoteHostName_Type.__name__=_E
-_RaisecomRemoteHostName_Object=MibScalar
-raisecomRemoteHostName=_RaisecomRemoteHostName_Object((1,3,6,1,4,1,8886,1,13,1,8),_RaisecomRemoteHostName_Type())
-raisecomRemoteHostName.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemoteHostName.setStatus(_A)
-_RaisecomRemoteOamNotificationEnable_Type=EnableVar
-_RaisecomRemoteOamNotificationEnable_Object=MibScalar
-raisecomRemoteOamNotificationEnable=_RaisecomRemoteOamNotificationEnable_Object((1,3,6,1,4,1,8886,1,13,1,9),_RaisecomRemoteOamNotificationEnable_Type())
-raisecomRemoteOamNotificationEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemoteOamNotificationEnable.setStatus(_A)
-class _RaisecomRemoteCommunityName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,20))
-_RaisecomRemoteCommunityName_Type.__name__=_E
-_RaisecomRemoteCommunityName_Object=MibScalar
-raisecomRemoteCommunityName=_RaisecomRemoteCommunityName_Object((1,3,6,1,4,1,8886,1,13,1,10),_RaisecomRemoteCommunityName_Type())
-raisecomRemoteCommunityName.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemoteCommunityName.setStatus(_A)
-class _RaisecomRemoteCommunityPermission_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('readOnly',1),('readWrite',2),('invalid',3)))
-_RaisecomRemoteCommunityPermission_Type.__name__=_C
-_RaisecomRemoteCommunityPermission_Object=MibScalar
-raisecomRemoteCommunityPermission=_RaisecomRemoteCommunityPermission_Object((1,3,6,1,4,1,8886,1,13,1,11),_RaisecomRemoteCommunityPermission_Type())
-raisecomRemoteCommunityPermission.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemoteCommunityPermission.setStatus(_A)
-_RaisecomRemoteL3IpAddr_Type=IpAddress
-_RaisecomRemoteL3IpAddr_Object=MibScalar
-raisecomRemoteL3IpAddr=_RaisecomRemoteL3IpAddr_Object((1,3,6,1,4,1,8886,1,13,1,12),_RaisecomRemoteL3IpAddr_Type())
-raisecomRemoteL3IpAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemoteL3IpAddr.setStatus(_A)
-_RaisecomRemoteL3Mask_Type=IpAddress
-_RaisecomRemoteL3Mask_Object=MibScalar
-raisecomRemoteL3Mask=_RaisecomRemoteL3Mask_Object((1,3,6,1,4,1,8886,1,13,1,13),_RaisecomRemoteL3Mask_Type())
-raisecomRemoteL3Mask.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemoteL3Mask.setStatus(_A)
-class _RaisecomRemoteL3VidIface_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_RaisecomRemoteL3VidIface_Type.__name__=_C
-_RaisecomRemoteL3VidIface_Object=MibScalar
-raisecomRemoteL3VidIface=_RaisecomRemoteL3VidIface_Object((1,3,6,1,4,1,8886,1,13,1,14),_RaisecomRemoteL3VidIface_Type())
-raisecomRemoteL3VidIface.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemoteL3VidIface.setStatus(_A)
-_RaisecomRemoteL3VidMemberPorts_Type=PortList
-_RaisecomRemoteL3VidMemberPorts_Object=MibScalar
-raisecomRemoteL3VidMemberPorts=_RaisecomRemoteL3VidMemberPorts_Object((1,3,6,1,4,1,8886,1,13,1,15),_RaisecomRemoteL3VidMemberPorts_Type())
-raisecomRemoteL3VidMemberPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemoteL3VidMemberPorts.setStatus(_A)
-_RaisecomRemoteL3VidUntaggedPorts_Type=PortList
-_RaisecomRemoteL3VidUntaggedPorts_Object=MibScalar
-raisecomRemoteL3VidUntaggedPorts=_RaisecomRemoteL3VidUntaggedPorts_Object((1,3,6,1,4,1,8886,1,13,1,16),_RaisecomRemoteL3VidUntaggedPorts_Type())
-raisecomRemoteL3VidUntaggedPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemoteL3VidUntaggedPorts.setStatus(_A)
-_RaisecomRemoteL3DefaultGateway_Type=IpAddress
-_RaisecomRemoteL3DefaultGateway_Object=MibScalar
-raisecomRemoteL3DefaultGateway=_RaisecomRemoteL3DefaultGateway_Object((1,3,6,1,4,1,8886,1,13,1,17),_RaisecomRemoteL3DefaultGateway_Type())
-raisecomRemoteL3DefaultGateway.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemoteL3DefaultGateway.setStatus(_A)
-_RaisecomRemotePortTable_Object=MibTable
-raisecomRemotePortTable=_RaisecomRemotePortTable_Object((1,3,6,1,4,1,8886,1,13,1,18))
-if mibBuilder.loadTexts:raisecomRemotePortTable.setStatus(_A)
-_RaisecomRemotePortEntry_Object=MibTableRow
-raisecomRemotePortEntry=_RaisecomRemotePortEntry_Object((1,3,6,1,4,1,8886,1,13,1,18,1))
-raisecomRemotePortEntry.setIndexNames((0,_H,_J))
-if mibBuilder.loadTexts:raisecomRemotePortEntry.setStatus(_A)
-_RaisecomRemotePortIfindex_Type=Integer32
-_RaisecomRemotePortIfindex_Object=MibTableColumn
-raisecomRemotePortIfindex=_RaisecomRemotePortIfindex_Object((1,3,6,1,4,1,8886,1,13,1,18,1,2),_RaisecomRemotePortIfindex_Type())
-raisecomRemotePortIfindex.setMaxAccess(_K)
-if mibBuilder.loadTexts:raisecomRemotePortIfindex.setStatus(_A)
-class _RaisecomRemotePortType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*(('inexistence',0),('fx-DulMode-1000M',1),('tx-1000M',2),('fx-SigMode-1000M',3),('fx-DulMode-100M',4),('fx-SigMode-100M',5),('tx-100M',6)))
-_RaisecomRemotePortType_Type.__name__=_C
-_RaisecomRemotePortType_Object=MibTableColumn
-raisecomRemotePortType=_RaisecomRemotePortType_Object((1,3,6,1,4,1,8886,1,13,1,18,1,3),_RaisecomRemotePortType_Type())
-raisecomRemotePortType.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortType.setStatus(_A)
-class _RaisecomRemotePortName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_RaisecomRemotePortName_Type.__name__=_E
-_RaisecomRemotePortName_Object=MibTableColumn
-raisecomRemotePortName=_RaisecomRemotePortName_Object((1,3,6,1,4,1,8886,1,13,1,18,1,4),_RaisecomRemotePortName_Type())
-raisecomRemotePortName.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortName.setStatus(_A)
-class _RaisecomRemotePortAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),(_F,2)))
-_RaisecomRemotePortAdminStatus_Type.__name__=_C
-_RaisecomRemotePortAdminStatus_Object=MibTableColumn
-raisecomRemotePortAdminStatus=_RaisecomRemotePortAdminStatus_Object((1,3,6,1,4,1,8886,1,13,1,18,1,5),_RaisecomRemotePortAdminStatus_Type())
-raisecomRemotePortAdminStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemotePortAdminStatus.setStatus(_A)
-class _RaisecomRemotePortOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),(_F,2)))
-_RaisecomRemotePortOperStatus_Type.__name__=_C
-_RaisecomRemotePortOperStatus_Object=MibTableColumn
-raisecomRemotePortOperStatus=_RaisecomRemotePortOperStatus_Object((1,3,6,1,4,1,8886,1,13,1,18,1,6),_RaisecomRemotePortOperStatus_Type())
-raisecomRemotePortOperStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortOperStatus.setStatus(_A)
-class _RaisecomRemotePortDuplexSpeedSet_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('autonegotiate',1),(_L,2),(_M,3),(_N,4),(_O,5),(_P,6),(_Q,7)))
-_RaisecomRemotePortDuplexSpeedSet_Type.__name__=_C
-_RaisecomRemotePortDuplexSpeedSet_Object=MibTableColumn
-raisecomRemotePortDuplexSpeedSet=_RaisecomRemotePortDuplexSpeedSet_Object((1,3,6,1,4,1,8886,1,13,1,18,1,7),_RaisecomRemotePortDuplexSpeedSet_Type())
-raisecomRemotePortDuplexSpeedSet.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemotePortDuplexSpeedSet.setStatus(_A)
-class _RaisecomRemotePortDuplexSpeedGet_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,99)));namedValues=NamedValues(*((_R,1),(_L,2),(_M,3),(_N,4),(_O,5),(_P,6),(_Q,7),('illegal',99)))
-_RaisecomRemotePortDuplexSpeedGet_Type.__name__=_C
-_RaisecomRemotePortDuplexSpeedGet_Object=MibTableColumn
-raisecomRemotePortDuplexSpeedGet=_RaisecomRemotePortDuplexSpeedGet_Object((1,3,6,1,4,1,8886,1,13,1,18,1,8),_RaisecomRemotePortDuplexSpeedGet_Type())
-raisecomRemotePortDuplexSpeedGet.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortDuplexSpeedGet.setStatus(_A)
-_RaisecomRemotePortFlowControlEnable_Type=EnableVar
-_RaisecomRemotePortFlowControlEnable_Object=MibTableColumn
-raisecomRemotePortFlowControlEnable=_RaisecomRemotePortFlowControlEnable_Object((1,3,6,1,4,1,8886,1,13,1,18,1,9),_RaisecomRemotePortFlowControlEnable_Type())
-raisecomRemotePortFlowControlEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemotePortFlowControlEnable.setStatus(_A)
-_RaisecomRemotePortFlowControlStatus_Type=EnableVar
-_RaisecomRemotePortFlowControlStatus_Object=MibTableColumn
-raisecomRemotePortFlowControlStatus=_RaisecomRemotePortFlowControlStatus_Object((1,3,6,1,4,1,8886,1,13,1,18,1,10),_RaisecomRemotePortFlowControlStatus_Type())
-raisecomRemotePortFlowControlStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortFlowControlStatus.setStatus(_A)
-class _RaisecomRemotePortIngressRate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1048576))
-_RaisecomRemotePortIngressRate_Type.__name__=_C
-_RaisecomRemotePortIngressRate_Object=MibTableColumn
-raisecomRemotePortIngressRate=_RaisecomRemotePortIngressRate_Object((1,3,6,1,4,1,8886,1,13,1,18,1,11),_RaisecomRemotePortIngressRate_Type())
-raisecomRemotePortIngressRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemotePortIngressRate.setStatus(_A)
-class _RaisecomRemotePortEgressRate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1048576))
-_RaisecomRemotePortEgressRate_Type.__name__=_C
-_RaisecomRemotePortEgressRate_Object=MibTableColumn
-raisecomRemotePortEgressRate=_RaisecomRemotePortEgressRate_Object((1,3,6,1,4,1,8886,1,13,1,18,1,12),_RaisecomRemotePortEgressRate_Type())
-raisecomRemotePortEgressRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemotePortEgressRate.setStatus(_A)
-_RaisecomRemotePortFaultPassEnable_Type=EnableVar
-_RaisecomRemotePortFaultPassEnable_Object=MibTableColumn
-raisecomRemotePortFaultPassEnable=_RaisecomRemotePortFaultPassEnable_Object((1,3,6,1,4,1,8886,1,13,1,18,1,13),_RaisecomRemotePortFaultPassEnable_Type())
-raisecomRemotePortFaultPassEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemotePortFaultPassEnable.setStatus(_A)
-_RaisecomRemotePortFaultPassPorts_Type=PortList
-_RaisecomRemotePortFaultPassPorts_Object=MibTableColumn
-raisecomRemotePortFaultPassPorts=_RaisecomRemotePortFaultPassPorts_Object((1,3,6,1,4,1,8886,1,13,1,18,1,14),_RaisecomRemotePortFaultPassPorts_Type())
-raisecomRemotePortFaultPassPorts.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemotePortFaultPassPorts.setStatus(_A)
-class _RaisecomRemotePortFaultPassStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_F,2)))
-_RaisecomRemotePortFaultPassStatus_Type.__name__=_C
-_RaisecomRemotePortFaultPassStatus_Object=MibTableColumn
-raisecomRemotePortFaultPassStatus=_RaisecomRemotePortFaultPassStatus_Object((1,3,6,1,4,1,8886,1,13,1,18,1,15),_RaisecomRemotePortFaultPassStatus_Type())
-raisecomRemotePortFaultPassStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortFaultPassStatus.setStatus(_A)
-class _RaisecomRemotePortFaultReturnEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('enable',1),('disable',2),(_I,3)))
-_RaisecomRemotePortFaultReturnEnable_Type.__name__=_C
-_RaisecomRemotePortFaultReturnEnable_Object=MibTableColumn
-raisecomRemotePortFaultReturnEnable=_RaisecomRemotePortFaultReturnEnable_Object((1,3,6,1,4,1,8886,1,13,1,18,1,16),_RaisecomRemotePortFaultReturnEnable_Type())
-raisecomRemotePortFaultReturnEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemotePortFaultReturnEnable.setStatus(_A)
-class _RaisecomRemotePortFaultReturnStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),(_F,2),(_I,3)))
-_RaisecomRemotePortFaultReturnStatus_Type.__name__=_C
-_RaisecomRemotePortFaultReturnStatus_Object=MibTableColumn
-raisecomRemotePortFaultReturnStatus=_RaisecomRemotePortFaultReturnStatus_Object((1,3,6,1,4,1,8886,1,13,1,18,1,17),_RaisecomRemotePortFaultReturnStatus_Type())
-raisecomRemotePortFaultReturnStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortFaultReturnStatus.setStatus(_A)
-class _RaisecomRemotePortSD_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),('sd',2),(_I,3)))
-_RaisecomRemotePortSD_Type.__name__=_C
-_RaisecomRemotePortSD_Object=MibTableColumn
-raisecomRemotePortSD=_RaisecomRemotePortSD_Object((1,3,6,1,4,1,8886,1,13,1,18,1,18),_RaisecomRemotePortSD_Type())
-raisecomRemotePortSD.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortSD.setStatus(_A)
-class _RaisecomRemoteOptModuleType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*(('optical-M',1),('optical-S1',2),('optical-S2',3),('optical-S3',4),('optical-SS13',5),('optical-SS15',6),('optical-SS23',7),('optical-SS25',8),('optical-SS35',9),(_R,10)))
-_RaisecomRemoteOptModuleType_Type.__name__=_C
-_RaisecomRemoteOptModuleType_Object=MibTableColumn
-raisecomRemoteOptModuleType=_RaisecomRemoteOptModuleType_Object((1,3,6,1,4,1,8886,1,13,1,18,1,19),_RaisecomRemoteOptModuleType_Type())
-raisecomRemoteOptModuleType.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemoteOptModuleType.setStatus(_A)
-class _RaisecomRemotePortDescr_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_RaisecomRemotePortDescr_Type.__name__=_E
-_RaisecomRemotePortDescr_Object=MibTableColumn
-raisecomRemotePortDescr=_RaisecomRemotePortDescr_Object((1,3,6,1,4,1,8886,1,13,1,18,1,20),_RaisecomRemotePortDescr_Type())
-raisecomRemotePortDescr.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemotePortDescr.setStatus(_A)
-_RaisecomRemotePortStatsTable_Object=MibTable
-raisecomRemotePortStatsTable=_RaisecomRemotePortStatsTable_Object((1,3,6,1,4,1,8886,1,13,1,19))
-if mibBuilder.loadTexts:raisecomRemotePortStatsTable.setStatus(_A)
-_RaisecomRemotePortStatsEntry_Object=MibTableRow
-raisecomRemotePortStatsEntry=_RaisecomRemotePortStatsEntry_Object((1,3,6,1,4,1,8886,1,13,1,19,1))
-raisecomRemotePortStatsEntry.setIndexNames((0,_H,_S))
-if mibBuilder.loadTexts:raisecomRemotePortStatsEntry.setStatus(_A)
-_RaisecomRemoteStatsPortIfindex_Type=Integer32
-_RaisecomRemoteStatsPortIfindex_Object=MibTableColumn
-raisecomRemoteStatsPortIfindex=_RaisecomRemoteStatsPortIfindex_Object((1,3,6,1,4,1,8886,1,13,1,19,1,1),_RaisecomRemoteStatsPortIfindex_Type())
-raisecomRemoteStatsPortIfindex.setMaxAccess(_K)
-if mibBuilder.loadTexts:raisecomRemoteStatsPortIfindex.setStatus(_A)
-_RaisecomRemotePortInOctets_Type=Counter64
-_RaisecomRemotePortInOctets_Object=MibTableColumn
-raisecomRemotePortInOctets=_RaisecomRemotePortInOctets_Object((1,3,6,1,4,1,8886,1,13,1,19,1,2),_RaisecomRemotePortInOctets_Type())
-raisecomRemotePortInOctets.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortInOctets.setStatus(_A)
-_RaisecomRemotePortInPkts_Type=Counter64
-_RaisecomRemotePortInPkts_Object=MibTableColumn
-raisecomRemotePortInPkts=_RaisecomRemotePortInPkts_Object((1,3,6,1,4,1,8886,1,13,1,19,1,3),_RaisecomRemotePortInPkts_Type())
-raisecomRemotePortInPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortInPkts.setStatus(_A)
-_RaisecomRemotePortInUcastPkts_Type=Counter64
-_RaisecomRemotePortInUcastPkts_Object=MibTableColumn
-raisecomRemotePortInUcastPkts=_RaisecomRemotePortInUcastPkts_Object((1,3,6,1,4,1,8886,1,13,1,19,1,4),_RaisecomRemotePortInUcastPkts_Type())
-raisecomRemotePortInUcastPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortInUcastPkts.setStatus(_A)
-_RaisecomRemotePortInMulticastPkts_Type=Counter64
-_RaisecomRemotePortInMulticastPkts_Object=MibTableColumn
-raisecomRemotePortInMulticastPkts=_RaisecomRemotePortInMulticastPkts_Object((1,3,6,1,4,1,8886,1,13,1,19,1,5),_RaisecomRemotePortInMulticastPkts_Type())
-raisecomRemotePortInMulticastPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortInMulticastPkts.setStatus(_A)
-_RaisecomRemotePortInBroadcastPkts_Type=Counter64
-_RaisecomRemotePortInBroadcastPkts_Object=MibTableColumn
-raisecomRemotePortInBroadcastPkts=_RaisecomRemotePortInBroadcastPkts_Object((1,3,6,1,4,1,8886,1,13,1,19,1,6),_RaisecomRemotePortInBroadcastPkts_Type())
-raisecomRemotePortInBroadcastPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortInBroadcastPkts.setStatus(_A)
-_RaisecomRemotePortOutOctets_Type=Counter64
-_RaisecomRemotePortOutOctets_Object=MibTableColumn
-raisecomRemotePortOutOctets=_RaisecomRemotePortOutOctets_Object((1,3,6,1,4,1,8886,1,13,1,19,1,7),_RaisecomRemotePortOutOctets_Type())
-raisecomRemotePortOutOctets.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortOutOctets.setStatus(_A)
-_RaisecomRemotePortOutPkts_Type=Counter64
-_RaisecomRemotePortOutPkts_Object=MibTableColumn
-raisecomRemotePortOutPkts=_RaisecomRemotePortOutPkts_Object((1,3,6,1,4,1,8886,1,13,1,19,1,8),_RaisecomRemotePortOutPkts_Type())
-raisecomRemotePortOutPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortOutPkts.setStatus(_A)
-_RaisecomRemotePortOutUcastPkts_Type=Counter64
-_RaisecomRemotePortOutUcastPkts_Object=MibTableColumn
-raisecomRemotePortOutUcastPkts=_RaisecomRemotePortOutUcastPkts_Object((1,3,6,1,4,1,8886,1,13,1,19,1,9),_RaisecomRemotePortOutUcastPkts_Type())
-raisecomRemotePortOutUcastPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortOutUcastPkts.setStatus(_A)
-_RaisecomRemotePortOutMulticastPkts_Type=Counter64
-_RaisecomRemotePortOutMulticastPkts_Object=MibTableColumn
-raisecomRemotePortOutMulticastPkts=_RaisecomRemotePortOutMulticastPkts_Object((1,3,6,1,4,1,8886,1,13,1,19,1,10),_RaisecomRemotePortOutMulticastPkts_Type())
-raisecomRemotePortOutMulticastPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortOutMulticastPkts.setStatus(_A)
-_RaisecomRemotePortOutBroadcastPkts_Type=Counter64
-_RaisecomRemotePortOutBroadcastPkts_Object=MibTableColumn
-raisecomRemotePortOutBroadcastPkts=_RaisecomRemotePortOutBroadcastPkts_Object((1,3,6,1,4,1,8886,1,13,1,19,1,11),_RaisecomRemotePortOutBroadcastPkts_Type())
-raisecomRemotePortOutBroadcastPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortOutBroadcastPkts.setStatus(_A)
-_RaisecomRemotePortErrorPkts_Type=Counter32
-_RaisecomRemotePortErrorPkts_Object=MibTableColumn
-raisecomRemotePortErrorPkts=_RaisecomRemotePortErrorPkts_Object((1,3,6,1,4,1,8886,1,13,1,19,1,12),_RaisecomRemotePortErrorPkts_Type())
-raisecomRemotePortErrorPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortErrorPkts.setStatus(_A)
-_RaisecomRemotePortDropEvents_Type=Counter32
-_RaisecomRemotePortDropEvents_Object=MibTableColumn
-raisecomRemotePortDropEvents=_RaisecomRemotePortDropEvents_Object((1,3,6,1,4,1,8886,1,13,1,19,1,13),_RaisecomRemotePortDropEvents_Type())
-raisecomRemotePortDropEvents.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortDropEvents.setStatus(_A)
-_RaisecomRemotePortCRCAlignErrors_Type=Counter32
-_RaisecomRemotePortCRCAlignErrors_Object=MibTableColumn
-raisecomRemotePortCRCAlignErrors=_RaisecomRemotePortCRCAlignErrors_Object((1,3,6,1,4,1,8886,1,13,1,19,1,14),_RaisecomRemotePortCRCAlignErrors_Type())
-raisecomRemotePortCRCAlignErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortCRCAlignErrors.setStatus(_A)
-_RaisecomRemotePortUndersizePkts_Type=Counter32
-_RaisecomRemotePortUndersizePkts_Object=MibTableColumn
-raisecomRemotePortUndersizePkts=_RaisecomRemotePortUndersizePkts_Object((1,3,6,1,4,1,8886,1,13,1,19,1,15),_RaisecomRemotePortUndersizePkts_Type())
-raisecomRemotePortUndersizePkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortUndersizePkts.setStatus(_A)
-_RaisecomRemotePortOversizePkts_Type=Counter32
-_RaisecomRemotePortOversizePkts_Object=MibTableColumn
-raisecomRemotePortOversizePkts=_RaisecomRemotePortOversizePkts_Object((1,3,6,1,4,1,8886,1,13,1,19,1,16),_RaisecomRemotePortOversizePkts_Type())
-raisecomRemotePortOversizePkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortOversizePkts.setStatus(_A)
-_RaisecomRemotePortFragments_Type=Counter32
-_RaisecomRemotePortFragments_Object=MibTableColumn
-raisecomRemotePortFragments=_RaisecomRemotePortFragments_Object((1,3,6,1,4,1,8886,1,13,1,19,1,17),_RaisecomRemotePortFragments_Type())
-raisecomRemotePortFragments.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortFragments.setStatus(_A)
-_RaisecomRemotePortJabbers_Type=Counter32
-_RaisecomRemotePortJabbers_Object=MibTableColumn
-raisecomRemotePortJabbers=_RaisecomRemotePortJabbers_Object((1,3,6,1,4,1,8886,1,13,1,19,1,18),_RaisecomRemotePortJabbers_Type())
-raisecomRemotePortJabbers.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortJabbers.setStatus(_A)
-_RaisecomRemotePortCollisions_Type=Counter32
-_RaisecomRemotePortCollisions_Object=MibTableColumn
-raisecomRemotePortCollisions=_RaisecomRemotePortCollisions_Object((1,3,6,1,4,1,8886,1,13,1,19,1,19),_RaisecomRemotePortCollisions_Type())
-raisecomRemotePortCollisions.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemotePortCollisions.setStatus(_A)
-class _RaisecomRemoteVoltNormal_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),('high',2),('low',3)))
-_RaisecomRemoteVoltNormal_Type.__name__=_C
-_RaisecomRemoteVoltNormal_Object=MibScalar
-raisecomRemoteVoltNormal=_RaisecomRemoteVoltNormal_Object((1,3,6,1,4,1,8886,1,13,1,20),_RaisecomRemoteVoltNormal_Type())
-raisecomRemoteVoltNormal.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRemoteVoltNormal.setStatus(_A)
-_RaisecomRemoteMaxAllowedFrameLength_Type=Integer32
-_RaisecomRemoteMaxAllowedFrameLength_Object=MibScalar
-raisecomRemoteMaxAllowedFrameLength=_RaisecomRemoteMaxAllowedFrameLength_Object((1,3,6,1,4,1,8886,1,13,1,21),_RaisecomRemoteMaxAllowedFrameLength_Type())
-raisecomRemoteMaxAllowedFrameLength.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemoteMaxAllowedFrameLength.setStatus(_A)
-_RaisecomRemoteL3ObPortIpAddr_Type=IpAddress
-_RaisecomRemoteL3ObPortIpAddr_Object=MibScalar
-raisecomRemoteL3ObPortIpAddr=_RaisecomRemoteL3ObPortIpAddr_Object((1,3,6,1,4,1,8886,1,13,1,22),_RaisecomRemoteL3ObPortIpAddr_Type())
-raisecomRemoteL3ObPortIpAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemoteL3ObPortIpAddr.setStatus(_A)
-_RaisecomRemoteL3ObPortMask_Type=IpAddress
-_RaisecomRemoteL3ObPortMask_Object=MibScalar
-raisecomRemoteL3ObPortMask=_RaisecomRemoteL3ObPortMask_Object((1,3,6,1,4,1,8886,1,13,1,23),_RaisecomRemoteL3ObPortMask_Type())
-raisecomRemoteL3ObPortMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:raisecomRemoteL3ObPortMask.setStatus(_A)
-mibBuilder.exportSymbols(_H,**{'raisecomRemoteManagementRemote':raisecomRemoteManagementRemote,'raisecomRemoteManagementRemoteHideMibObjects':raisecomRemoteManagementRemoteHideMibObjects,'raisecomRemoteTemperature':raisecomRemoteTemperature,'raisecomRemoteVolt3300':raisecomRemoteVolt3300,'raisecomRemoteVolt2500':raisecomRemoteVolt2500,'raisecomRemoteVolt1800':raisecomRemoteVolt1800,'raisecomRemoteVolt1200':raisecomRemoteVolt1200,'raisecomRemoteSysOperation':raisecomRemoteSysOperation,'raisecomRemoteSysOperationState':raisecomRemoteSysOperationState,'raisecomRemoteHostName':raisecomRemoteHostName,'raisecomRemoteOamNotificationEnable':raisecomRemoteOamNotificationEnable,'raisecomRemoteCommunityName':raisecomRemoteCommunityName,'raisecomRemoteCommunityPermission':raisecomRemoteCommunityPermission,'raisecomRemoteL3IpAddr':raisecomRemoteL3IpAddr,'raisecomRemoteL3Mask':raisecomRemoteL3Mask,'raisecomRemoteL3VidIface':raisecomRemoteL3VidIface,'raisecomRemoteL3VidMemberPorts':raisecomRemoteL3VidMemberPorts,'raisecomRemoteL3VidUntaggedPorts':raisecomRemoteL3VidUntaggedPorts,'raisecomRemoteL3DefaultGateway':raisecomRemoteL3DefaultGateway,'raisecomRemotePortTable':raisecomRemotePortTable,'raisecomRemotePortEntry':raisecomRemotePortEntry,_J:raisecomRemotePortIfindex,'raisecomRemotePortType':raisecomRemotePortType,'raisecomRemotePortName':raisecomRemotePortName,'raisecomRemotePortAdminStatus':raisecomRemotePortAdminStatus,'raisecomRemotePortOperStatus':raisecomRemotePortOperStatus,'raisecomRemotePortDuplexSpeedSet':raisecomRemotePortDuplexSpeedSet,'raisecomRemotePortDuplexSpeedGet':raisecomRemotePortDuplexSpeedGet,'raisecomRemotePortFlowControlEnable':raisecomRemotePortFlowControlEnable,'raisecomRemotePortFlowControlStatus':raisecomRemotePortFlowControlStatus,'raisecomRemotePortIngressRate':raisecomRemotePortIngressRate,'raisecomRemotePortEgressRate':raisecomRemotePortEgressRate,'raisecomRemotePortFaultPassEnable':raisecomRemotePortFaultPassEnable,'raisecomRemotePortFaultPassPorts':raisecomRemotePortFaultPassPorts,'raisecomRemotePortFaultPassStatus':raisecomRemotePortFaultPassStatus,'raisecomRemotePortFaultReturnEnable':raisecomRemotePortFaultReturnEnable,'raisecomRemotePortFaultReturnStatus':raisecomRemotePortFaultReturnStatus,'raisecomRemotePortSD':raisecomRemotePortSD,'raisecomRemoteOptModuleType':raisecomRemoteOptModuleType,'raisecomRemotePortDescr':raisecomRemotePortDescr,'raisecomRemotePortStatsTable':raisecomRemotePortStatsTable,'raisecomRemotePortStatsEntry':raisecomRemotePortStatsEntry,_S:raisecomRemoteStatsPortIfindex,'raisecomRemotePortInOctets':raisecomRemotePortInOctets,'raisecomRemotePortInPkts':raisecomRemotePortInPkts,'raisecomRemotePortInUcastPkts':raisecomRemotePortInUcastPkts,'raisecomRemotePortInMulticastPkts':raisecomRemotePortInMulticastPkts,'raisecomRemotePortInBroadcastPkts':raisecomRemotePortInBroadcastPkts,'raisecomRemotePortOutOctets':raisecomRemotePortOutOctets,'raisecomRemotePortOutPkts':raisecomRemotePortOutPkts,'raisecomRemotePortOutUcastPkts':raisecomRemotePortOutUcastPkts,'raisecomRemotePortOutMulticastPkts':raisecomRemotePortOutMulticastPkts,'raisecomRemotePortOutBroadcastPkts':raisecomRemotePortOutBroadcastPkts,'raisecomRemotePortErrorPkts':raisecomRemotePortErrorPkts,'raisecomRemotePortDropEvents':raisecomRemotePortDropEvents,'raisecomRemotePortCRCAlignErrors':raisecomRemotePortCRCAlignErrors,'raisecomRemotePortUndersizePkts':raisecomRemotePortUndersizePkts,'raisecomRemotePortOversizePkts':raisecomRemotePortOversizePkts,'raisecomRemotePortFragments':raisecomRemotePortFragments,'raisecomRemotePortJabbers':raisecomRemotePortJabbers,'raisecomRemotePortCollisions':raisecomRemotePortCollisions,'raisecomRemoteVoltNormal':raisecomRemoteVoltNormal,'raisecomRemoteMaxAllowedFrameLength':raisecomRemoteMaxAllowedFrameLength,'raisecomRemoteL3ObPortIpAddr':raisecomRemoteL3ObPortIpAddr,'raisecomRemoteL3ObPortMask':raisecomRemoteL3ObPortMask})
+#
+# PySNMP MIB module RAISECOM-REMOTE-MANAGEMENT-REMOTE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/RAISECOM-REMOTE-MANAGEMENT-REMOTE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+raisecomAgent, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "raisecomAgent")
+EntryStatus, = mibBuilder.importSymbols("RMON-MIB", "EntryStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+PortList, EnableVar = mibBuilder.importSymbols("SWITCH-TC", "PortList", "EnableVar")
+raisecomRemoteManagementRemote = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 1, 13))
+if mibBuilder.loadTexts: raisecomRemoteManagementRemote.setLastUpdated('200609110000Z')
+if mibBuilder.loadTexts: raisecomRemoteManagementRemote.setOrganization('RAISECOM TECH, Ltd.')
+raisecomRemoteManagementRemoteHideMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1))
+raisecomRemoteTemperature = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 1), Integer32().clone(65535)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemoteTemperature.setStatus('current')
+raisecomRemoteVolt3300 = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 2), Integer32().clone(65535)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemoteVolt3300.setStatus('current')
+raisecomRemoteVolt2500 = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 3), Integer32().clone(65535)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemoteVolt2500.setStatus('current')
+raisecomRemoteVolt1800 = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 4), Integer32().clone(65535)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemoteVolt1800.setStatus('current')
+raisecomRemoteVolt1200 = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 5), Integer32().clone(65535)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemoteVolt1200.setStatus('current')
+raisecomRemoteSysOperation = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("ready", 1), ("write", 2), ("erase", 3), ("reboot", 4))).clone('ready')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemoteSysOperation.setStatus('current')
+raisecomRemoteSysOperationState = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("ready", 1), ("running", 2), ("successful", 3), ("failed", 4))).clone('ready')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemoteSysOperationState.setStatus('current')
+raisecomRemoteHostName = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemoteHostName.setStatus('current')
+raisecomRemoteOamNotificationEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 9), EnableVar()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemoteOamNotificationEnable.setStatus('current')
+raisecomRemoteCommunityName = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 20))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemoteCommunityName.setStatus('current')
+raisecomRemoteCommunityPermission = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("readOnly", 1), ("readWrite", 2), ("invalid", 3))).clone('readOnly')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemoteCommunityPermission.setStatus('current')
+raisecomRemoteL3IpAddr = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 12), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemoteL3IpAddr.setStatus('current')
+raisecomRemoteL3Mask = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 13), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemoteL3Mask.setStatus('current')
+raisecomRemoteL3VidIface = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemoteL3VidIface.setStatus('current')
+raisecomRemoteL3VidMemberPorts = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 15), PortList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemoteL3VidMemberPorts.setStatus('current')
+raisecomRemoteL3VidUntaggedPorts = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 16), PortList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemoteL3VidUntaggedPorts.setStatus('current')
+raisecomRemoteL3DefaultGateway = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 17), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemoteL3DefaultGateway.setStatus('current')
+raisecomRemotePortTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18), )
+if mibBuilder.loadTexts: raisecomRemotePortTable.setStatus('current')
+raisecomRemotePortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1), ).setIndexNames((0, "RAISECOM-REMOTE-MANAGEMENT-REMOTE-MIB", "raisecomRemotePortIfindex"))
+if mibBuilder.loadTexts: raisecomRemotePortEntry.setStatus('current')
+raisecomRemotePortIfindex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 2), Integer32())
+if mibBuilder.loadTexts: raisecomRemotePortIfindex.setStatus('current')
+raisecomRemotePortType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("inexistence", 0), ("fx-DulMode-1000M", 1), ("tx-1000M", 2), ("fx-SigMode-1000M", 3), ("fx-DulMode-100M", 4), ("fx-SigMode-100M", 5), ("tx-100M", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortType.setStatus('current')
+raisecomRemotePortName = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortName.setStatus('current')
+raisecomRemotePortAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemotePortAdminStatus.setStatus('current')
+raisecomRemotePortOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortOperStatus.setStatus('current')
+raisecomRemotePortDuplexSpeedSet = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("autonegotiate", 1), ("half-10", 2), ("full-10", 3), ("half-100", 4), ("full-100", 5), ("half-1000", 6), ("full-1000", 7)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemotePortDuplexSpeedSet.setStatus('current')
+raisecomRemotePortDuplexSpeedGet = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 99))).clone(namedValues=NamedValues(("unknown", 1), ("half-10", 2), ("full-10", 3), ("half-100", 4), ("full-100", 5), ("half-1000", 6), ("full-1000", 7), ("illegal", 99)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortDuplexSpeedGet.setStatus('current')
+raisecomRemotePortFlowControlEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 9), EnableVar()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemotePortFlowControlEnable.setStatus('current')
+raisecomRemotePortFlowControlStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 10), EnableVar()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortFlowControlStatus.setStatus('current')
+raisecomRemotePortIngressRate = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1048576))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemotePortIngressRate.setStatus('current')
+raisecomRemotePortEgressRate = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1048576))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemotePortEgressRate.setStatus('current')
+raisecomRemotePortFaultPassEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 13), EnableVar()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemotePortFaultPassEnable.setStatus('current')
+raisecomRemotePortFaultPassPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 14), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemotePortFaultPassPorts.setStatus('current')
+raisecomRemotePortFaultPassStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("normal", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortFaultPassStatus.setStatus('current')
+raisecomRemotePortFaultReturnEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2), ("unavailable", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemotePortFaultReturnEnable.setStatus('current')
+raisecomRemotePortFaultReturnStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("normal", 1), ("down", 2), ("unavailable", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortFaultReturnStatus.setStatus('current')
+raisecomRemotePortSD = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("normal", 1), ("sd", 2), ("unavailable", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortSD.setStatus('current')
+raisecomRemoteOptModuleType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("optical-M", 1), ("optical-S1", 2), ("optical-S2", 3), ("optical-S3", 4), ("optical-SS13", 5), ("optical-SS15", 6), ("optical-SS23", 7), ("optical-SS25", 8), ("optical-SS35", 9), ("unknown", 10)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemoteOptModuleType.setStatus('current')
+raisecomRemotePortDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 18, 1, 20), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemotePortDescr.setStatus('current')
+raisecomRemotePortStatsTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19), )
+if mibBuilder.loadTexts: raisecomRemotePortStatsTable.setStatus('current')
+raisecomRemotePortStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1), ).setIndexNames((0, "RAISECOM-REMOTE-MANAGEMENT-REMOTE-MIB", "raisecomRemoteStatsPortIfindex"))
+if mibBuilder.loadTexts: raisecomRemotePortStatsEntry.setStatus('current')
+raisecomRemoteStatsPortIfindex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 1), Integer32())
+if mibBuilder.loadTexts: raisecomRemoteStatsPortIfindex.setStatus('current')
+raisecomRemotePortInOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortInOctets.setStatus('current')
+raisecomRemotePortInPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortInPkts.setStatus('current')
+raisecomRemotePortInUcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortInUcastPkts.setStatus('current')
+raisecomRemotePortInMulticastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortInMulticastPkts.setStatus('current')
+raisecomRemotePortInBroadcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortInBroadcastPkts.setStatus('current')
+raisecomRemotePortOutOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortOutOctets.setStatus('current')
+raisecomRemotePortOutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortOutPkts.setStatus('current')
+raisecomRemotePortOutUcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortOutUcastPkts.setStatus('current')
+raisecomRemotePortOutMulticastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 10), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortOutMulticastPkts.setStatus('current')
+raisecomRemotePortOutBroadcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 11), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortOutBroadcastPkts.setStatus('current')
+raisecomRemotePortErrorPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortErrorPkts.setStatus('current')
+raisecomRemotePortDropEvents = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortDropEvents.setStatus('current')
+raisecomRemotePortCRCAlignErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortCRCAlignErrors.setStatus('current')
+raisecomRemotePortUndersizePkts = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortUndersizePkts.setStatus('current')
+raisecomRemotePortOversizePkts = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortOversizePkts.setStatus('current')
+raisecomRemotePortFragments = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortFragments.setStatus('current')
+raisecomRemotePortJabbers = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 18), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortJabbers.setStatus('current')
+raisecomRemotePortCollisions = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 19, 1, 19), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemotePortCollisions.setStatus('current')
+raisecomRemoteVoltNormal = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("normal", 1), ("high", 2), ("low", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRemoteVoltNormal.setStatus('current')
+raisecomRemoteMaxAllowedFrameLength = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 21), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemoteMaxAllowedFrameLength.setStatus('current')
+raisecomRemoteL3ObPortIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 22), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemoteL3ObPortIpAddr.setStatus('current')
+raisecomRemoteL3ObPortMask = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 13, 1, 23), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRemoteL3ObPortMask.setStatus('current')
+mibBuilder.exportSymbols("RAISECOM-REMOTE-MANAGEMENT-REMOTE-MIB", raisecomRemotePortSD=raisecomRemotePortSD, raisecomRemotePortOutUcastPkts=raisecomRemotePortOutUcastPkts, raisecomRemoteSysOperation=raisecomRemoteSysOperation, raisecomRemoteL3VidMemberPorts=raisecomRemoteL3VidMemberPorts, raisecomRemotePortOutMulticastPkts=raisecomRemotePortOutMulticastPkts, raisecomRemotePortFlowControlEnable=raisecomRemotePortFlowControlEnable, raisecomRemotePortFaultReturnStatus=raisecomRemotePortFaultReturnStatus, raisecomRemotePortCollisions=raisecomRemotePortCollisions, raisecomRemoteStatsPortIfindex=raisecomRemoteStatsPortIfindex, raisecomRemotePortFaultPassPorts=raisecomRemotePortFaultPassPorts, raisecomRemotePortOutPkts=raisecomRemotePortOutPkts, raisecomRemotePortFaultPassStatus=raisecomRemotePortFaultPassStatus, raisecomRemoteMaxAllowedFrameLength=raisecomRemoteMaxAllowedFrameLength, raisecomRemoteHostName=raisecomRemoteHostName, raisecomRemotePortOperStatus=raisecomRemotePortOperStatus, raisecomRemotePortAdminStatus=raisecomRemotePortAdminStatus, raisecomRemotePortInUcastPkts=raisecomRemotePortInUcastPkts, raisecomRemoteL3IpAddr=raisecomRemoteL3IpAddr, raisecomRemoteL3VidUntaggedPorts=raisecomRemoteL3VidUntaggedPorts, raisecomRemotePortEntry=raisecomRemotePortEntry, raisecomRemotePortTable=raisecomRemotePortTable, raisecomRemoteTemperature=raisecomRemoteTemperature, raisecomRemotePortJabbers=raisecomRemotePortJabbers, raisecomRemotePortCRCAlignErrors=raisecomRemotePortCRCAlignErrors, raisecomRemoteL3ObPortIpAddr=raisecomRemoteL3ObPortIpAddr, raisecomRemoteVolt3300=raisecomRemoteVolt3300, raisecomRemoteL3VidIface=raisecomRemoteL3VidIface, raisecomRemotePortFragments=raisecomRemotePortFragments, raisecomRemotePortType=raisecomRemotePortType, raisecomRemotePortStatsTable=raisecomRemotePortStatsTable, raisecomRemotePortDuplexSpeedSet=raisecomRemotePortDuplexSpeedSet, raisecomRemoteL3Mask=raisecomRemoteL3Mask, raisecomRemotePortName=raisecomRemotePortName, raisecomRemotePortInBroadcastPkts=raisecomRemotePortInBroadcastPkts, raisecomRemotePortFaultReturnEnable=raisecomRemotePortFaultReturnEnable, raisecomRemoteL3DefaultGateway=raisecomRemoteL3DefaultGateway, raisecomRemotePortUndersizePkts=raisecomRemotePortUndersizePkts, raisecomRemotePortFlowControlStatus=raisecomRemotePortFlowControlStatus, raisecomRemoteVoltNormal=raisecomRemoteVoltNormal, raisecomRemoteOamNotificationEnable=raisecomRemoteOamNotificationEnable, raisecomRemotePortIngressRate=raisecomRemotePortIngressRate, raisecomRemoteSysOperationState=raisecomRemoteSysOperationState, raisecomRemotePortOutBroadcastPkts=raisecomRemotePortOutBroadcastPkts, raisecomRemotePortEgressRate=raisecomRemotePortEgressRate, raisecomRemotePortStatsEntry=raisecomRemotePortStatsEntry, raisecomRemotePortOutOctets=raisecomRemotePortOutOctets, raisecomRemoteL3ObPortMask=raisecomRemoteL3ObPortMask, raisecomRemotePortErrorPkts=raisecomRemotePortErrorPkts, raisecomRemotePortInPkts=raisecomRemotePortInPkts, raisecomRemoteCommunityPermission=raisecomRemoteCommunityPermission, raisecomRemoteManagementRemote=raisecomRemoteManagementRemote, raisecomRemoteVolt1200=raisecomRemoteVolt1200, raisecomRemotePortFaultPassEnable=raisecomRemotePortFaultPassEnable, raisecomRemotePortInMulticastPkts=raisecomRemotePortInMulticastPkts, PYSNMP_MODULE_ID=raisecomRemoteManagementRemote, raisecomRemotePortDescr=raisecomRemotePortDescr, raisecomRemoteVolt1800=raisecomRemoteVolt1800, raisecomRemotePortIfindex=raisecomRemotePortIfindex, raisecomRemotePortDuplexSpeedGet=raisecomRemotePortDuplexSpeedGet, raisecomRemoteManagementRemoteHideMibObjects=raisecomRemoteManagementRemoteHideMibObjects, raisecomRemoteVolt2500=raisecomRemoteVolt2500, raisecomRemotePortOversizePkts=raisecomRemotePortOversizePkts, raisecomRemoteOptModuleType=raisecomRemoteOptModuleType, raisecomRemotePortInOctets=raisecomRemotePortInOctets, raisecomRemoteCommunityName=raisecomRemoteCommunityName, raisecomRemotePortDropEvents=raisecomRemotePortDropEvents)

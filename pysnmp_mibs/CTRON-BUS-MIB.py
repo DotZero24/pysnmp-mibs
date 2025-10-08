@@ -1,57 +1,33 @@
-_G='read-only'
-_F='unknown'
-_E='DisplayString'
-_D='Integer32'
-_C='CtLaneDebugLevel'
-_B='read-write'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ctAtmfLanEmulation,=mibBuilder.importSymbols('CTRON-MIB-NAMES','ctAtmfLanEmulation')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_E,'PhysAddress','TextualConvention')
-class CtLaneDebugLevel(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('user',1),('all',2),('error',3),('warning',4),('informational',5),('detailed',6),('trace',7)))
-_CtBus_ObjectIdentity=ObjectIdentity
-ctBus=_CtBus_ObjectIdentity((1,3,6,1,4,1,52,4,3,5,4))
-_CtBusConfGroup_ObjectIdentity=ObjectIdentity
-ctBusConfGroup=_CtBusConfGroup_ObjectIdentity((1,3,6,1,4,1,52,4,3,5,4,1))
-class _CtBusDSStatus_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('connected',1),('connectionLost',2),(_F,3)))
-_CtBusDSStatus_Type.__name__=_D
-_CtBusDSStatus_Object=MibScalar
-ctBusDSStatus=_CtBusDSStatus_Object((1,3,6,1,4,1,52,4,3,5,4,1,1),_CtBusDSStatus_Type())
-ctBusDSStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:ctBusDSStatus.setStatus(_A)
-class _CtBusUNIVersion_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_F,1),('uni30',2),('uni31',3),('uni40',4)))
-_CtBusUNIVersion_Type.__name__=_D
-_CtBusUNIVersion_Object=MibScalar
-ctBusUNIVersion=_CtBusUNIVersion_Object((1,3,6,1,4,1,52,4,3,5,4,1,2),_CtBusUNIVersion_Type())
-ctBusUNIVersion.setMaxAccess(_G)
-if mibBuilder.loadTexts:ctBusUNIVersion.setStatus(_A)
-class _CtBusLaneDbgOutputFile_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CtBusLaneDbgOutputFile_Type.__name__=_E
-_CtBusLaneDbgOutputFile_Object=MibScalar
-ctBusLaneDbgOutputFile=_CtBusLaneDbgOutputFile_Object((1,3,6,1,4,1,52,4,3,5,4,1,3),_CtBusLaneDbgOutputFile_Type())
-ctBusLaneDbgOutputFile.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctBusLaneDbgOutputFile.setStatus(_A)
-class _CtBusLaneDbgConnectionServices_Type(CtLaneDebugLevel):defaultValue=1
-_CtBusLaneDbgConnectionServices_Type.__name__=_C
-_CtBusLaneDbgConnectionServices_Object=MibScalar
-ctBusLaneDbgConnectionServices=_CtBusLaneDbgConnectionServices_Object((1,3,6,1,4,1,52,4,3,5,4,1,4),_CtBusLaneDbgConnectionServices_Type())
-ctBusLaneDbgConnectionServices.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctBusLaneDbgConnectionServices.setStatus(_A)
-class _CtBusLaneDbgSNMP_Type(CtLaneDebugLevel):defaultValue=1
-_CtBusLaneDbgSNMP_Type.__name__=_C
-_CtBusLaneDbgSNMP_Object=MibScalar
-ctBusLaneDbgSNMP=_CtBusLaneDbgSNMP_Object((1,3,6,1,4,1,52,4,3,5,4,1,5),_CtBusLaneDbgSNMP_Type())
-ctBusLaneDbgSNMP.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctBusLaneDbgSNMP.setStatus(_A)
-class _CtBusLaneDbgBUS_Type(CtLaneDebugLevel):defaultValue=1
-_CtBusLaneDbgBUS_Type.__name__=_C
-_CtBusLaneDbgBUS_Object=MibScalar
-ctBusLaneDbgBUS=_CtBusLaneDbgBUS_Object((1,3,6,1,4,1,52,4,3,5,4,1,6),_CtBusLaneDbgBUS_Type())
-ctBusLaneDbgBUS.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctBusLaneDbgBUS.setStatus(_A)
-mibBuilder.exportSymbols('CTRON-BUS-MIB',**{_C:CtLaneDebugLevel,'ctBus':ctBus,'ctBusConfGroup':ctBusConfGroup,'ctBusDSStatus':ctBusDSStatus,'ctBusUNIVersion':ctBusUNIVersion,'ctBusLaneDbgOutputFile':ctBusLaneDbgOutputFile,'ctBusLaneDbgConnectionServices':ctBusLaneDbgConnectionServices,'ctBusLaneDbgSNMP':ctBusLaneDbgSNMP,'ctBusLaneDbgBUS':ctBusLaneDbgBUS})
+#
+# PySNMP MIB module CTRON-BUS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CTRON-BUS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:39 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ctAtmfLanEmulation, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctAtmfLanEmulation")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ctBus = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4))
+ctBusConfGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1))
+class CtLaneDebugLevel(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
+    namedValues = NamedValues(("user", 1), ("all", 2), ("error", 3), ("warning", 4), ("informational", 5), ("detailed", 6), ("trace", 7))
+
+ctBusDSStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("connected", 1), ("connectionLost", 2), ("unknown", 3))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctBusDSStatus.setStatus('mandatory')
+ctBusUNIVersion = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("uni30", 2), ("uni31", 3), ("uni40", 4))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctBusUNIVersion.setStatus('mandatory')
+ctBusLaneDbgOutputFile = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctBusLaneDbgOutputFile.setStatus('mandatory')
+ctBusLaneDbgConnectionServices = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 4), CtLaneDebugLevel().clone('user')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctBusLaneDbgConnectionServices.setStatus('mandatory')
+ctBusLaneDbgSNMP = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 5), CtLaneDebugLevel().clone('user')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctBusLaneDbgSNMP.setStatus('mandatory')
+ctBusLaneDbgBUS = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 6), CtLaneDebugLevel().clone('user')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctBusLaneDbgBUS.setStatus('mandatory')
+mibBuilder.exportSymbols("CTRON-BUS-MIB", ctBusDSStatus=ctBusDSStatus, CtLaneDebugLevel=CtLaneDebugLevel, ctBusConfGroup=ctBusConfGroup, ctBusLaneDbgOutputFile=ctBusLaneDbgOutputFile, ctBusLaneDbgBUS=ctBusLaneDbgBUS, ctBusUNIVersion=ctBusUNIVersion, ctBusLaneDbgSNMP=ctBusLaneDbgSNMP, ctBus=ctBus, ctBusLaneDbgConnectionServices=ctBusLaneDbgConnectionServices)

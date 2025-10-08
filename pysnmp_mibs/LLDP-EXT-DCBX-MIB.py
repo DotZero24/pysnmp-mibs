@@ -1,341 +1,198 @@
-_P='lldpXdcbxFeatError'
-_O='lldpXdcbxFeatAppProtoPriority'
-_N='lldpXdcbxFeatPfcPriority'
-_M='lldpXdcbxFeatPgBwAllocPgId'
-_L='lldpXdcbxFeatPgPrioAllocPrioId'
-_K='LldpXdcbxFeatureSubType'
-_J='lldpXdcbxFeatSubType'
-_I='lldpXdcbxFeatAppProtoIndex'
-_H='percent'
-_G='lldpXdcbxFeatType'
-_F='TruthValue'
-_E='lldpXdcbxPortNumber'
-_D='read-write'
-_C='read-only'
-_B='LLDP-EXT-DCBX-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-LldpPortNumber,lldpExtensions=mibBuilder.importSymbols('LLDP-MIB','LldpPortNumber','lldpExtensions')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_F)
-lldpXdcbxMIB=ModuleIdentity((1,0,8802,1,1,2,1,5,6945))
-class LldpXdcbxPriority(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-class LldpXdcbxPriorityGroup(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)));namedValues=NamedValues(*(('priorityGroupId0',0),('priorityGroupId1',1),('priorityGroupId2',2),('priorityGroupId3',3),('priorityGroupId4',4),('priorityGroupId5',5),('priorityGroupId6',6),('priorityGroupId7',7),('reserved8',8),('reserved9',9),('reserved10',10),('reserved11',11),('reserved12',12),('reserved13',13),('reserved14',14),('noBandwidthLimit',15)))
-class LldpXdcbxFeatureType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3,4)));namedValues=NamedValues(*(('priorityGroup',2),('priorityFlowControl',3),('applicationProtocol',4)))
-class LldpXdcbxFeatureSubType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-class LldpXdcbxVersion(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-class LldpXdcbxTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-class LldpXdcbxPgBw(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-class LldpXdcbxTCPFC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-class LldpXdcbxAppProtos(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
-class LldpXdcbxSF(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('l2EtherType',0),('socketNumber',1),('reserved2',2),('reserved3',3)))
-_LldpXdcbxNotifications_ObjectIdentity=ObjectIdentity
-lldpXdcbxNotifications=_LldpXdcbxNotifications_ObjectIdentity((1,0,8802,1,1,2,1,5,6945,0))
-_LldpXdcbxObjects_ObjectIdentity=ObjectIdentity
-lldpXdcbxObjects=_LldpXdcbxObjects_ObjectIdentity((1,0,8802,1,1,2,1,5,6945,1))
-_LldpXdcbxPortTable_Object=MibTable
-lldpXdcbxPortTable=_LldpXdcbxPortTable_Object((1,0,8802,1,1,2,1,5,6945,1,1))
-if mibBuilder.loadTexts:lldpXdcbxPortTable.setStatus(_A)
-_LldpXdcbxPortEntry_Object=MibTableRow
-lldpXdcbxPortEntry=_LldpXdcbxPortEntry_Object((1,0,8802,1,1,2,1,5,6945,1,1,1))
-lldpXdcbxPortEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:lldpXdcbxPortEntry.setStatus(_A)
-_LldpXdcbxPortNumber_Type=LldpPortNumber
-_LldpXdcbxPortNumber_Object=MibTableColumn
-lldpXdcbxPortNumber=_LldpXdcbxPortNumber_Object((1,0,8802,1,1,2,1,5,6945,1,1,1,1),_LldpXdcbxPortNumber_Type())
-lldpXdcbxPortNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxPortNumber.setStatus(_A)
-class _LldpXdcbxPortEnable_Type(TruthValue):defaultValue=1
-_LldpXdcbxPortEnable_Type.__name__=_F
-_LldpXdcbxPortEnable_Object=MibTableColumn
-lldpXdcbxPortEnable=_LldpXdcbxPortEnable_Object((1,0,8802,1,1,2,1,5,6945,1,1,1,2),_LldpXdcbxPortEnable_Type())
-lldpXdcbxPortEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxPortEnable.setStatus(_A)
-_LldpXdcbxPortVersionOper_Type=LldpXdcbxVersion
-_LldpXdcbxPortVersionOper_Object=MibTableColumn
-lldpXdcbxPortVersionOper=_LldpXdcbxPortVersionOper_Object((1,0,8802,1,1,2,1,5,6945,1,1,1,3),_LldpXdcbxPortVersionOper_Type())
-lldpXdcbxPortVersionOper.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxPortVersionOper.setStatus(_A)
-_LldpXdcbxPortVersionMax_Type=LldpXdcbxVersion
-_LldpXdcbxPortVersionMax_Object=MibTableColumn
-lldpXdcbxPortVersionMax=_LldpXdcbxPortVersionMax_Object((1,0,8802,1,1,2,1,5,6945,1,1,1,4),_LldpXdcbxPortVersionMax_Type())
-lldpXdcbxPortVersionMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxPortVersionMax.setStatus(_A)
-_LldpXdcbxPortSeqNo_Type=Integer32
-_LldpXdcbxPortSeqNo_Object=MibTableColumn
-lldpXdcbxPortSeqNo=_LldpXdcbxPortSeqNo_Object((1,0,8802,1,1,2,1,5,6945,1,1,1,5),_LldpXdcbxPortSeqNo_Type())
-lldpXdcbxPortSeqNo.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxPortSeqNo.setStatus(_A)
-_LldpXdcbxPortAckNo_Type=Integer32
-_LldpXdcbxPortAckNo_Object=MibTableColumn
-lldpXdcbxPortAckNo=_LldpXdcbxPortAckNo_Object((1,0,8802,1,1,2,1,5,6945,1,1,1,6),_LldpXdcbxPortAckNo_Type())
-lldpXdcbxPortAckNo.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxPortAckNo.setStatus(_A)
-_LldpXdcbxFeatures_ObjectIdentity=ObjectIdentity
-lldpXdcbxFeatures=_LldpXdcbxFeatures_ObjectIdentity((1,0,8802,1,1,2,1,5,6945,2))
-_LldpXdcbxFeatTable_Object=MibTable
-lldpXdcbxFeatTable=_LldpXdcbxFeatTable_Object((1,0,8802,1,1,2,1,5,6945,2,1))
-if mibBuilder.loadTexts:lldpXdcbxFeatTable.setStatus(_A)
-_LldpXdcbxFeatEntry_Object=MibTableRow
-lldpXdcbxFeatEntry=_LldpXdcbxFeatEntry_Object((1,0,8802,1,1,2,1,5,6945,2,1,1))
-lldpXdcbxFeatEntry.setIndexNames((0,_B,_E),(0,_B,_G),(0,_B,_J))
-if mibBuilder.loadTexts:lldpXdcbxFeatEntry.setStatus(_A)
-_LldpXdcbxFeatType_Type=LldpXdcbxFeatureType
-_LldpXdcbxFeatType_Object=MibTableColumn
-lldpXdcbxFeatType=_LldpXdcbxFeatType_Object((1,0,8802,1,1,2,1,5,6945,2,1,1,1),_LldpXdcbxFeatType_Type())
-lldpXdcbxFeatType.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatType.setStatus(_A)
-class _LldpXdcbxFeatSubType_Type(LldpXdcbxFeatureSubType):defaultValue=0
-_LldpXdcbxFeatSubType_Type.__name__=_K
-_LldpXdcbxFeatSubType_Object=MibTableColumn
-lldpXdcbxFeatSubType=_LldpXdcbxFeatSubType_Object((1,0,8802,1,1,2,1,5,6945,2,1,1,2),_LldpXdcbxFeatSubType_Type())
-lldpXdcbxFeatSubType.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatSubType.setStatus(_A)
-_LldpXdcbxFeatVersionOper_Type=LldpXdcbxVersion
-_LldpXdcbxFeatVersionOper_Object=MibTableColumn
-lldpXdcbxFeatVersionOper=_LldpXdcbxFeatVersionOper_Object((1,0,8802,1,1,2,1,5,6945,2,1,1,3),_LldpXdcbxFeatVersionOper_Type())
-lldpXdcbxFeatVersionOper.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatVersionOper.setStatus(_A)
-_LldpXdcbxFeatVersionMax_Type=LldpXdcbxVersion
-_LldpXdcbxFeatVersionMax_Object=MibTableColumn
-lldpXdcbxFeatVersionMax=_LldpXdcbxFeatVersionMax_Object((1,0,8802,1,1,2,1,5,6945,2,1,1,4),_LldpXdcbxFeatVersionMax_Type())
-lldpXdcbxFeatVersionMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatVersionMax.setStatus(_A)
-class _LldpXdcbxFeatEnable_Type(TruthValue):defaultValue=1
-_LldpXdcbxFeatEnable_Type.__name__=_F
-_LldpXdcbxFeatEnable_Object=MibTableColumn
-lldpXdcbxFeatEnable=_LldpXdcbxFeatEnable_Object((1,0,8802,1,1,2,1,5,6945,2,1,1,5),_LldpXdcbxFeatEnable_Type())
-lldpXdcbxFeatEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatEnable.setStatus(_A)
-class _LldpXdcbxFeatWilling_Type(TruthValue):defaultValue=1
-_LldpXdcbxFeatWilling_Type.__name__=_F
-_LldpXdcbxFeatWilling_Object=MibTableColumn
-lldpXdcbxFeatWilling=_LldpXdcbxFeatWilling_Object((1,0,8802,1,1,2,1,5,6945,2,1,1,6),_LldpXdcbxFeatWilling_Type())
-lldpXdcbxFeatWilling.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatWilling.setStatus(_A)
-class _LldpXdcbxFeatError_Type(TruthValue):defaultValue=2
-_LldpXdcbxFeatError_Type.__name__=_F
-_LldpXdcbxFeatError_Object=MibTableColumn
-lldpXdcbxFeatError=_LldpXdcbxFeatError_Object((1,0,8802,1,1,2,1,5,6945,2,1,1,7),_LldpXdcbxFeatError_Type())
-lldpXdcbxFeatError.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatError.setStatus(_A)
-_LldpXdcbxFeatAdvertise_Type=TruthValue
-_LldpXdcbxFeatAdvertise_Object=MibTableColumn
-lldpXdcbxFeatAdvertise=_LldpXdcbxFeatAdvertise_Object((1,0,8802,1,1,2,1,5,6945,2,1,1,8),_LldpXdcbxFeatAdvertise_Type())
-lldpXdcbxFeatAdvertise.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatAdvertise.setStatus(_A)
-_LldpXdcbxFeatOperMode_Type=TruthValue
-_LldpXdcbxFeatOperMode_Object=MibTableColumn
-lldpXdcbxFeatOperMode=_LldpXdcbxFeatOperMode_Object((1,0,8802,1,1,2,1,5,6945,2,1,1,9),_LldpXdcbxFeatOperMode_Type())
-lldpXdcbxFeatOperMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatOperMode.setStatus(_A)
-_LldpXdcbxFeatSyncd_Type=TruthValue
-_LldpXdcbxFeatSyncd_Object=MibTableColumn
-lldpXdcbxFeatSyncd=_LldpXdcbxFeatSyncd_Object((1,0,8802,1,1,2,1,5,6945,2,1,1,10),_LldpXdcbxFeatSyncd_Type())
-lldpXdcbxFeatSyncd.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatSyncd.setStatus(_A)
-_LldpXdcbxFeatSeqNo_Type=Integer32
-_LldpXdcbxFeatSeqNo_Object=MibTableColumn
-lldpXdcbxFeatSeqNo=_LldpXdcbxFeatSeqNo_Object((1,0,8802,1,1,2,1,5,6945,2,1,1,11),_LldpXdcbxFeatSeqNo_Type())
-lldpXdcbxFeatSeqNo.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatSeqNo.setStatus(_A)
-_LldpXdcbxFeatPeerWilling_Type=TruthValue
-_LldpXdcbxFeatPeerWilling_Object=MibTableColumn
-lldpXdcbxFeatPeerWilling=_LldpXdcbxFeatPeerWilling_Object((1,0,8802,1,1,2,1,5,6945,2,1,1,12),_LldpXdcbxFeatPeerWilling_Type())
-lldpXdcbxFeatPeerWilling.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatPeerWilling.setStatus(_A)
-_LldpXdcbxFeatLocalParameterChange_Type=TruthValue
-_LldpXdcbxFeatLocalParameterChange_Object=MibTableColumn
-lldpXdcbxFeatLocalParameterChange=_LldpXdcbxFeatLocalParameterChange_Object((1,0,8802,1,1,2,1,5,6945,2,1,1,13),_LldpXdcbxFeatLocalParameterChange_Type())
-lldpXdcbxFeatLocalParameterChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatLocalParameterChange.setStatus(_A)
-_LldpXdcbxFeatPg_ObjectIdentity=ObjectIdentity
-lldpXdcbxFeatPg=_LldpXdcbxFeatPg_ObjectIdentity((1,0,8802,1,1,2,1,5,6945,2,2))
-_LldpXdcbxFeatPgNumTCsSupported_Type=LldpXdcbxTC
-_LldpXdcbxFeatPgNumTCsSupported_Object=MibScalar
-lldpXdcbxFeatPgNumTCsSupported=_LldpXdcbxFeatPgNumTCsSupported_Object((1,0,8802,1,1,2,1,5,6945,2,2,1),_LldpXdcbxFeatPgNumTCsSupported_Type())
-lldpXdcbxFeatPgNumTCsSupported.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatPgNumTCsSupported.setStatus(_A)
-_LldpXdcbxFeatPgPrioAllocTable_Object=MibTable
-lldpXdcbxFeatPgPrioAllocTable=_LldpXdcbxFeatPgPrioAllocTable_Object((1,0,8802,1,1,2,1,5,6945,2,2,2))
-if mibBuilder.loadTexts:lldpXdcbxFeatPgPrioAllocTable.setStatus(_A)
-_LldpXdcbxFeatPgPrioAllocEntry_Object=MibTableRow
-lldpXdcbxFeatPgPrioAllocEntry=_LldpXdcbxFeatPgPrioAllocEntry_Object((1,0,8802,1,1,2,1,5,6945,2,2,2,1))
-lldpXdcbxFeatPgPrioAllocEntry.setIndexNames((0,_B,_E),(0,_B,_L))
-if mibBuilder.loadTexts:lldpXdcbxFeatPgPrioAllocEntry.setStatus(_A)
-_LldpXdcbxFeatPgPrioAllocPrioId_Type=LldpXdcbxPriority
-_LldpXdcbxFeatPgPrioAllocPrioId_Object=MibTableColumn
-lldpXdcbxFeatPgPrioAllocPrioId=_LldpXdcbxFeatPgPrioAllocPrioId_Object((1,0,8802,1,1,2,1,5,6945,2,2,2,1,1),_LldpXdcbxFeatPgPrioAllocPrioId_Type())
-lldpXdcbxFeatPgPrioAllocPrioId.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatPgPrioAllocPrioId.setStatus(_A)
-_LldpXdcbxFeatPgPrioAllocPgIdDesired_Type=LldpXdcbxPriorityGroup
-_LldpXdcbxFeatPgPrioAllocPgIdDesired_Object=MibTableColumn
-lldpXdcbxFeatPgPrioAllocPgIdDesired=_LldpXdcbxFeatPgPrioAllocPgIdDesired_Object((1,0,8802,1,1,2,1,5,6945,2,2,2,1,2),_LldpXdcbxFeatPgPrioAllocPgIdDesired_Type())
-lldpXdcbxFeatPgPrioAllocPgIdDesired.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatPgPrioAllocPgIdDesired.setStatus(_A)
-_LldpXdcbxFeatPgPrioAllocPgIdOper_Type=LldpXdcbxPriorityGroup
-_LldpXdcbxFeatPgPrioAllocPgIdOper_Object=MibTableColumn
-lldpXdcbxFeatPgPrioAllocPgIdOper=_LldpXdcbxFeatPgPrioAllocPgIdOper_Object((1,0,8802,1,1,2,1,5,6945,2,2,2,1,3),_LldpXdcbxFeatPgPrioAllocPgIdOper_Type())
-lldpXdcbxFeatPgPrioAllocPgIdOper.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatPgPrioAllocPgIdOper.setStatus(_A)
-_LldpXdcbxFeatPgPrioAllocPgIdPeer_Type=LldpXdcbxPriorityGroup
-_LldpXdcbxFeatPgPrioAllocPgIdPeer_Object=MibTableColumn
-lldpXdcbxFeatPgPrioAllocPgIdPeer=_LldpXdcbxFeatPgPrioAllocPgIdPeer_Object((1,0,8802,1,1,2,1,5,6945,2,2,2,1,4),_LldpXdcbxFeatPgPrioAllocPgIdPeer_Type())
-lldpXdcbxFeatPgPrioAllocPgIdPeer.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatPgPrioAllocPgIdPeer.setStatus(_A)
-_LldpXdcbxFeatPgBwAllocTable_Object=MibTable
-lldpXdcbxFeatPgBwAllocTable=_LldpXdcbxFeatPgBwAllocTable_Object((1,0,8802,1,1,2,1,5,6945,2,2,3))
-if mibBuilder.loadTexts:lldpXdcbxFeatPgBwAllocTable.setStatus(_A)
-_LldpXdcbxFeatPgBwAllocEntry_Object=MibTableRow
-lldpXdcbxFeatPgBwAllocEntry=_LldpXdcbxFeatPgBwAllocEntry_Object((1,0,8802,1,1,2,1,5,6945,2,2,3,1))
-lldpXdcbxFeatPgBwAllocEntry.setIndexNames((0,_B,_E),(0,_B,_M))
-if mibBuilder.loadTexts:lldpXdcbxFeatPgBwAllocEntry.setStatus(_A)
-_LldpXdcbxFeatPgBwAllocPgId_Type=LldpXdcbxPriorityGroup
-_LldpXdcbxFeatPgBwAllocPgId_Object=MibTableColumn
-lldpXdcbxFeatPgBwAllocPgId=_LldpXdcbxFeatPgBwAllocPgId_Object((1,0,8802,1,1,2,1,5,6945,2,2,3,1,1),_LldpXdcbxFeatPgBwAllocPgId_Type())
-lldpXdcbxFeatPgBwAllocPgId.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatPgBwAllocPgId.setStatus(_A)
-_LldpXdcbxFeatPgBwAllocBwDesired_Type=LldpXdcbxPgBw
-_LldpXdcbxFeatPgBwAllocBwDesired_Object=MibTableColumn
-lldpXdcbxFeatPgBwAllocBwDesired=_LldpXdcbxFeatPgBwAllocBwDesired_Object((1,0,8802,1,1,2,1,5,6945,2,2,3,1,2),_LldpXdcbxFeatPgBwAllocBwDesired_Type())
-lldpXdcbxFeatPgBwAllocBwDesired.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatPgBwAllocBwDesired.setStatus(_A)
-if mibBuilder.loadTexts:lldpXdcbxFeatPgBwAllocBwDesired.setUnits(_H)
-_LldpXdcbxFeatPgBwAllocBwOper_Type=LldpXdcbxPgBw
-_LldpXdcbxFeatPgBwAllocBwOper_Object=MibTableColumn
-lldpXdcbxFeatPgBwAllocBwOper=_LldpXdcbxFeatPgBwAllocBwOper_Object((1,0,8802,1,1,2,1,5,6945,2,2,3,1,3),_LldpXdcbxFeatPgBwAllocBwOper_Type())
-lldpXdcbxFeatPgBwAllocBwOper.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatPgBwAllocBwOper.setStatus(_A)
-if mibBuilder.loadTexts:lldpXdcbxFeatPgBwAllocBwOper.setUnits(_H)
-_LldpXdcbxFeatPgBwAllocBwPeer_Type=LldpXdcbxPgBw
-_LldpXdcbxFeatPgBwAllocBwPeer_Object=MibTableColumn
-lldpXdcbxFeatPgBwAllocBwPeer=_LldpXdcbxFeatPgBwAllocBwPeer_Object((1,0,8802,1,1,2,1,5,6945,2,2,3,1,4),_LldpXdcbxFeatPgBwAllocBwPeer_Type())
-lldpXdcbxFeatPgBwAllocBwPeer.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatPgBwAllocBwPeer.setStatus(_A)
-if mibBuilder.loadTexts:lldpXdcbxFeatPgBwAllocBwPeer.setUnits(_H)
-_LldpXdcbxFeatPfc_ObjectIdentity=ObjectIdentity
-lldpXdcbxFeatPfc=_LldpXdcbxFeatPfc_ObjectIdentity((1,0,8802,1,1,2,1,5,6945,2,3))
-_LldpXdcbxFeatPfcNumTCPFCSupported_Type=LldpXdcbxTCPFC
-_LldpXdcbxFeatPfcNumTCPFCSupported_Object=MibScalar
-lldpXdcbxFeatPfcNumTCPFCSupported=_LldpXdcbxFeatPfcNumTCPFCSupported_Object((1,0,8802,1,1,2,1,5,6945,2,3,1),_LldpXdcbxFeatPfcNumTCPFCSupported_Type())
-lldpXdcbxFeatPfcNumTCPFCSupported.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatPfcNumTCPFCSupported.setStatus(_A)
-_LldpXdcbxFeatPfcTable_Object=MibTable
-lldpXdcbxFeatPfcTable=_LldpXdcbxFeatPfcTable_Object((1,0,8802,1,1,2,1,5,6945,2,3,2))
-if mibBuilder.loadTexts:lldpXdcbxFeatPfcTable.setStatus(_A)
-_LldpXdcbxFeatPfcEntry_Object=MibTableRow
-lldpXdcbxFeatPfcEntry=_LldpXdcbxFeatPfcEntry_Object((1,0,8802,1,1,2,1,5,6945,2,3,2,1))
-lldpXdcbxFeatPfcEntry.setIndexNames((0,_B,_E),(0,_B,_N))
-if mibBuilder.loadTexts:lldpXdcbxFeatPfcEntry.setStatus(_A)
-_LldpXdcbxFeatPfcPriority_Type=LldpXdcbxPriority
-_LldpXdcbxFeatPfcPriority_Object=MibTableColumn
-lldpXdcbxFeatPfcPriority=_LldpXdcbxFeatPfcPriority_Object((1,0,8802,1,1,2,1,5,6945,2,3,2,1,1),_LldpXdcbxFeatPfcPriority_Type())
-lldpXdcbxFeatPfcPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatPfcPriority.setStatus(_A)
-_LldpXdcbxFeatPfcEnableDesired_Type=TruthValue
-_LldpXdcbxFeatPfcEnableDesired_Object=MibTableColumn
-lldpXdcbxFeatPfcEnableDesired=_LldpXdcbxFeatPfcEnableDesired_Object((1,0,8802,1,1,2,1,5,6945,2,3,2,1,2),_LldpXdcbxFeatPfcEnableDesired_Type())
-lldpXdcbxFeatPfcEnableDesired.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatPfcEnableDesired.setStatus(_A)
-_LldpXdcbxFeatPfcEnableOper_Type=TruthValue
-_LldpXdcbxFeatPfcEnableOper_Object=MibTableColumn
-lldpXdcbxFeatPfcEnableOper=_LldpXdcbxFeatPfcEnableOper_Object((1,0,8802,1,1,2,1,5,6945,2,3,2,1,3),_LldpXdcbxFeatPfcEnableOper_Type())
-lldpXdcbxFeatPfcEnableOper.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatPfcEnableOper.setStatus(_A)
-_LldpXdcbxFeatPfcEnablePeer_Type=TruthValue
-_LldpXdcbxFeatPfcEnablePeer_Object=MibTableColumn
-lldpXdcbxFeatPfcEnablePeer=_LldpXdcbxFeatPfcEnablePeer_Object((1,0,8802,1,1,2,1,5,6945,2,3,2,1,4),_LldpXdcbxFeatPfcEnablePeer_Type())
-lldpXdcbxFeatPfcEnablePeer.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatPfcEnablePeer.setStatus(_A)
-_LldpXdcbxFeatAppProto_ObjectIdentity=ObjectIdentity
-lldpXdcbxFeatAppProto=_LldpXdcbxFeatAppProto_ObjectIdentity((1,0,8802,1,1,2,1,5,6945,2,4))
-_LldpXdcbxFeatAppProtoTable_Object=MibTable
-lldpXdcbxFeatAppProtoTable=_LldpXdcbxFeatAppProtoTable_Object((1,0,8802,1,1,2,1,5,6945,2,4,1))
-if mibBuilder.loadTexts:lldpXdcbxFeatAppProtoTable.setStatus(_A)
-_LldpXdcbxFeatAppProtoEntry_Object=MibTableRow
-lldpXdcbxFeatAppProtoEntry=_LldpXdcbxFeatAppProtoEntry_Object((1,0,8802,1,1,2,1,5,6945,2,4,1,1))
-lldpXdcbxFeatAppProtoEntry.setIndexNames((0,_B,_E),(0,_B,_I))
-if mibBuilder.loadTexts:lldpXdcbxFeatAppProtoEntry.setStatus(_A)
-_LldpXdcbxFeatAppProtoIndex_Type=LldpXdcbxAppProtos
-_LldpXdcbxFeatAppProtoIndex_Object=MibTableColumn
-lldpXdcbxFeatAppProtoIndex=_LldpXdcbxFeatAppProtoIndex_Object((1,0,8802,1,1,2,1,5,6945,2,4,1,1,1),_LldpXdcbxFeatAppProtoIndex_Type())
-lldpXdcbxFeatAppProtoIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatAppProtoIndex.setStatus(_A)
-_LldpXdcbxFeatAppProtoSF_Type=LldpXdcbxSF
-_LldpXdcbxFeatAppProtoSF_Object=MibTableColumn
-lldpXdcbxFeatAppProtoSF=_LldpXdcbxFeatAppProtoSF_Object((1,0,8802,1,1,2,1,5,6945,2,4,1,1,2),_LldpXdcbxFeatAppProtoSF_Type())
-lldpXdcbxFeatAppProtoSF.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatAppProtoSF.setStatus(_A)
-_LldpXdcbxFeatAppProtoOUI_Type=Integer32
-_LldpXdcbxFeatAppProtoOUI_Object=MibTableColumn
-lldpXdcbxFeatAppProtoOUI=_LldpXdcbxFeatAppProtoOUI_Object((1,0,8802,1,1,2,1,5,6945,2,4,1,1,3),_LldpXdcbxFeatAppProtoOUI_Type())
-lldpXdcbxFeatAppProtoOUI.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatAppProtoOUI.setStatus(_A)
-_LldpXdcbxFeatAppProtoId_Type=Integer32
-_LldpXdcbxFeatAppProtoId_Object=MibTableColumn
-lldpXdcbxFeatAppProtoId=_LldpXdcbxFeatAppProtoId_Object((1,0,8802,1,1,2,1,5,6945,2,4,1,1,4),_LldpXdcbxFeatAppProtoId_Type())
-lldpXdcbxFeatAppProtoId.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatAppProtoId.setStatus(_A)
-_LldpXdcbxFeatAppProtoPrioTable_Object=MibTable
-lldpXdcbxFeatAppProtoPrioTable=_LldpXdcbxFeatAppProtoPrioTable_Object((1,0,8802,1,1,2,1,5,6945,2,4,2))
-if mibBuilder.loadTexts:lldpXdcbxFeatAppProtoPrioTable.setStatus(_A)
-_LldpXdcbxFeatAppProtoPrioEntry_Object=MibTableRow
-lldpXdcbxFeatAppProtoPrioEntry=_LldpXdcbxFeatAppProtoPrioEntry_Object((1,0,8802,1,1,2,1,5,6945,2,4,2,1))
-lldpXdcbxFeatAppProtoPrioEntry.setIndexNames((0,_B,_E),(0,_B,_I),(0,_B,_O))
-if mibBuilder.loadTexts:lldpXdcbxFeatAppProtoPrioEntry.setStatus(_A)
-_LldpXdcbxFeatAppProtoPriority_Type=LldpXdcbxPriority
-_LldpXdcbxFeatAppProtoPriority_Object=MibTableColumn
-lldpXdcbxFeatAppProtoPriority=_LldpXdcbxFeatAppProtoPriority_Object((1,0,8802,1,1,2,1,5,6945,2,4,2,1,1),_LldpXdcbxFeatAppProtoPriority_Type())
-lldpXdcbxFeatAppProtoPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatAppProtoPriority.setStatus(_A)
-_LldpXdcbxFeatAppProtoEnableDesired_Type=TruthValue
-_LldpXdcbxFeatAppProtoEnableDesired_Object=MibTableColumn
-lldpXdcbxFeatAppProtoEnableDesired=_LldpXdcbxFeatAppProtoEnableDesired_Object((1,0,8802,1,1,2,1,5,6945,2,4,2,1,2),_LldpXdcbxFeatAppProtoEnableDesired_Type())
-lldpXdcbxFeatAppProtoEnableDesired.setMaxAccess(_D)
-if mibBuilder.loadTexts:lldpXdcbxFeatAppProtoEnableDesired.setStatus(_A)
-_LldpXdcbxFeatAppProtoEnableOper_Type=TruthValue
-_LldpXdcbxFeatAppProtoEnableOper_Object=MibTableColumn
-lldpXdcbxFeatAppProtoEnableOper=_LldpXdcbxFeatAppProtoEnableOper_Object((1,0,8802,1,1,2,1,5,6945,2,4,2,1,3),_LldpXdcbxFeatAppProtoEnableOper_Type())
-lldpXdcbxFeatAppProtoEnableOper.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatAppProtoEnableOper.setStatus(_A)
-_LldpXdcbxFeatAppProtoEnablePeer_Type=TruthValue
-_LldpXdcbxFeatAppProtoEnablePeer_Object=MibTableColumn
-lldpXdcbxFeatAppProtoEnablePeer=_LldpXdcbxFeatAppProtoEnablePeer_Object((1,0,8802,1,1,2,1,5,6945,2,4,2,1,4),_LldpXdcbxFeatAppProtoEnablePeer_Type())
-lldpXdcbxFeatAppProtoEnablePeer.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXdcbxFeatAppProtoEnablePeer.setStatus(_A)
-lldpXdcbxMiscControlError=NotificationType((1,0,8802,1,1,2,1,5,6945,0,1))
-lldpXdcbxMiscControlError.setObjects((_B,_E))
-if mibBuilder.loadTexts:lldpXdcbxMiscControlError.setStatus(_A)
-lldpXdcbxMiscFeatureError=NotificationType((1,0,8802,1,1,2,1,5,6945,0,2))
-lldpXdcbxMiscFeatureError.setObjects((_B,_P))
-if mibBuilder.loadTexts:lldpXdcbxMiscFeatureError.setStatus(_A)
-lldpXdcbxMultiplePeers=NotificationType((1,0,8802,1,1,2,1,5,6945,0,3))
-lldpXdcbxMultiplePeers.setObjects((_B,_E))
-if mibBuilder.loadTexts:lldpXdcbxMultiplePeers.setStatus(_A)
-lldpXdcbxLldpTxDisabled=NotificationType((1,0,8802,1,1,2,1,5,6945,0,4))
-lldpXdcbxLldpTxDisabled.setObjects((_B,_E))
-if mibBuilder.loadTexts:lldpXdcbxLldpTxDisabled.setStatus(_A)
-lldpXdcbxLldpRxDisabled=NotificationType((1,0,8802,1,1,2,1,5,6945,0,5))
-lldpXdcbxLldpRxDisabled.setObjects((_B,_E))
-if mibBuilder.loadTexts:lldpXdcbxLldpRxDisabled.setStatus(_A)
-lldpXdcbxDupControlTlv=NotificationType((1,0,8802,1,1,2,1,5,6945,0,6))
-lldpXdcbxDupControlTlv.setObjects((_B,_E))
-if mibBuilder.loadTexts:lldpXdcbxDupControlTlv.setStatus(_A)
-lldpXdcbxDupFeatureTlv=NotificationType((1,0,8802,1,1,2,1,5,6945,0,7))
-lldpXdcbxDupFeatureTlv.setObjects((_B,_G))
-if mibBuilder.loadTexts:lldpXdcbxDupFeatureTlv.setStatus(_A)
-lldpXdcbxPeerNoFeat=NotificationType((1,0,8802,1,1,2,1,5,6945,0,8))
-lldpXdcbxPeerNoFeat.setObjects((_B,_G))
-if mibBuilder.loadTexts:lldpXdcbxPeerNoFeat.setStatus(_A)
-lldpXdcbxPeerNoResp=NotificationType((1,0,8802,1,1,2,1,5,6945,0,9))
-lldpXdcbxPeerNoResp.setObjects((_B,_E))
-if mibBuilder.loadTexts:lldpXdcbxPeerNoResp.setStatus(_A)
-lldpXdcbxPeerConfigMismatch=NotificationType((1,0,8802,1,1,2,1,5,6945,0,10))
-lldpXdcbxPeerConfigMismatch.setObjects((_B,_E))
-if mibBuilder.loadTexts:lldpXdcbxPeerConfigMismatch.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'LldpXdcbxPriority':LldpXdcbxPriority,'LldpXdcbxPriorityGroup':LldpXdcbxPriorityGroup,'LldpXdcbxFeatureType':LldpXdcbxFeatureType,_K:LldpXdcbxFeatureSubType,'LldpXdcbxVersion':LldpXdcbxVersion,'LldpXdcbxTC':LldpXdcbxTC,'LldpXdcbxPgBw':LldpXdcbxPgBw,'LldpXdcbxTCPFC':LldpXdcbxTCPFC,'LldpXdcbxAppProtos':LldpXdcbxAppProtos,'LldpXdcbxSF':LldpXdcbxSF,'lldpXdcbxMIB':lldpXdcbxMIB,'lldpXdcbxNotifications':lldpXdcbxNotifications,'lldpXdcbxMiscControlError':lldpXdcbxMiscControlError,'lldpXdcbxMiscFeatureError':lldpXdcbxMiscFeatureError,'lldpXdcbxMultiplePeers':lldpXdcbxMultiplePeers,'lldpXdcbxLldpTxDisabled':lldpXdcbxLldpTxDisabled,'lldpXdcbxLldpRxDisabled':lldpXdcbxLldpRxDisabled,'lldpXdcbxDupControlTlv':lldpXdcbxDupControlTlv,'lldpXdcbxDupFeatureTlv':lldpXdcbxDupFeatureTlv,'lldpXdcbxPeerNoFeat':lldpXdcbxPeerNoFeat,'lldpXdcbxPeerNoResp':lldpXdcbxPeerNoResp,'lldpXdcbxPeerConfigMismatch':lldpXdcbxPeerConfigMismatch,'lldpXdcbxObjects':lldpXdcbxObjects,'lldpXdcbxPortTable':lldpXdcbxPortTable,'lldpXdcbxPortEntry':lldpXdcbxPortEntry,_E:lldpXdcbxPortNumber,'lldpXdcbxPortEnable':lldpXdcbxPortEnable,'lldpXdcbxPortVersionOper':lldpXdcbxPortVersionOper,'lldpXdcbxPortVersionMax':lldpXdcbxPortVersionMax,'lldpXdcbxPortSeqNo':lldpXdcbxPortSeqNo,'lldpXdcbxPortAckNo':lldpXdcbxPortAckNo,'lldpXdcbxFeatures':lldpXdcbxFeatures,'lldpXdcbxFeatTable':lldpXdcbxFeatTable,'lldpXdcbxFeatEntry':lldpXdcbxFeatEntry,_G:lldpXdcbxFeatType,_J:lldpXdcbxFeatSubType,'lldpXdcbxFeatVersionOper':lldpXdcbxFeatVersionOper,'lldpXdcbxFeatVersionMax':lldpXdcbxFeatVersionMax,'lldpXdcbxFeatEnable':lldpXdcbxFeatEnable,'lldpXdcbxFeatWilling':lldpXdcbxFeatWilling,_P:lldpXdcbxFeatError,'lldpXdcbxFeatAdvertise':lldpXdcbxFeatAdvertise,'lldpXdcbxFeatOperMode':lldpXdcbxFeatOperMode,'lldpXdcbxFeatSyncd':lldpXdcbxFeatSyncd,'lldpXdcbxFeatSeqNo':lldpXdcbxFeatSeqNo,'lldpXdcbxFeatPeerWilling':lldpXdcbxFeatPeerWilling,'lldpXdcbxFeatLocalParameterChange':lldpXdcbxFeatLocalParameterChange,'lldpXdcbxFeatPg':lldpXdcbxFeatPg,'lldpXdcbxFeatPgNumTCsSupported':lldpXdcbxFeatPgNumTCsSupported,'lldpXdcbxFeatPgPrioAllocTable':lldpXdcbxFeatPgPrioAllocTable,'lldpXdcbxFeatPgPrioAllocEntry':lldpXdcbxFeatPgPrioAllocEntry,_L:lldpXdcbxFeatPgPrioAllocPrioId,'lldpXdcbxFeatPgPrioAllocPgIdDesired':lldpXdcbxFeatPgPrioAllocPgIdDesired,'lldpXdcbxFeatPgPrioAllocPgIdOper':lldpXdcbxFeatPgPrioAllocPgIdOper,'lldpXdcbxFeatPgPrioAllocPgIdPeer':lldpXdcbxFeatPgPrioAllocPgIdPeer,'lldpXdcbxFeatPgBwAllocTable':lldpXdcbxFeatPgBwAllocTable,'lldpXdcbxFeatPgBwAllocEntry':lldpXdcbxFeatPgBwAllocEntry,_M:lldpXdcbxFeatPgBwAllocPgId,'lldpXdcbxFeatPgBwAllocBwDesired':lldpXdcbxFeatPgBwAllocBwDesired,'lldpXdcbxFeatPgBwAllocBwOper':lldpXdcbxFeatPgBwAllocBwOper,'lldpXdcbxFeatPgBwAllocBwPeer':lldpXdcbxFeatPgBwAllocBwPeer,'lldpXdcbxFeatPfc':lldpXdcbxFeatPfc,'lldpXdcbxFeatPfcNumTCPFCSupported':lldpXdcbxFeatPfcNumTCPFCSupported,'lldpXdcbxFeatPfcTable':lldpXdcbxFeatPfcTable,'lldpXdcbxFeatPfcEntry':lldpXdcbxFeatPfcEntry,_N:lldpXdcbxFeatPfcPriority,'lldpXdcbxFeatPfcEnableDesired':lldpXdcbxFeatPfcEnableDesired,'lldpXdcbxFeatPfcEnableOper':lldpXdcbxFeatPfcEnableOper,'lldpXdcbxFeatPfcEnablePeer':lldpXdcbxFeatPfcEnablePeer,'lldpXdcbxFeatAppProto':lldpXdcbxFeatAppProto,'lldpXdcbxFeatAppProtoTable':lldpXdcbxFeatAppProtoTable,'lldpXdcbxFeatAppProtoEntry':lldpXdcbxFeatAppProtoEntry,_I:lldpXdcbxFeatAppProtoIndex,'lldpXdcbxFeatAppProtoSF':lldpXdcbxFeatAppProtoSF,'lldpXdcbxFeatAppProtoOUI':lldpXdcbxFeatAppProtoOUI,'lldpXdcbxFeatAppProtoId':lldpXdcbxFeatAppProtoId,'lldpXdcbxFeatAppProtoPrioTable':lldpXdcbxFeatAppProtoPrioTable,'lldpXdcbxFeatAppProtoPrioEntry':lldpXdcbxFeatAppProtoPrioEntry,_O:lldpXdcbxFeatAppProtoPriority,'lldpXdcbxFeatAppProtoEnableDesired':lldpXdcbxFeatAppProtoEnableDesired,'lldpXdcbxFeatAppProtoEnableOper':lldpXdcbxFeatAppProtoEnableOper,'lldpXdcbxFeatAppProtoEnablePeer':lldpXdcbxFeatAppProtoEnablePeer})
+#
+# PySNMP MIB module LLDP-EXT-DCBX-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/LLDP-EXT-DCBX-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:27:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+lldpExtensions, LldpPortNumber = mibBuilder.importSymbols("LLDP-MIB", "lldpExtensions", "LldpPortNumber")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+lldpXdcbxMIB = ModuleIdentity((1, 0, 8802, 1, 1, 2, 1, 5, 6945))
+if mibBuilder.loadTexts: lldpXdcbxMIB.setLastUpdated('200811200000Z')
+if mibBuilder.loadTexts: lldpXdcbxMIB.setOrganization('IEEE ??? Working Group')
+class LldpXdcbxPriority(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 7)
+
+class LldpXdcbxPriorityGroup(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15))
+    namedValues = NamedValues(("priorityGroupId0", 0), ("priorityGroupId1", 1), ("priorityGroupId2", 2), ("priorityGroupId3", 3), ("priorityGroupId4", 4), ("priorityGroupId5", 5), ("priorityGroupId6", 6), ("priorityGroupId7", 7), ("reserved8", 8), ("reserved9", 9), ("reserved10", 10), ("reserved11", 11), ("reserved12", 12), ("reserved13", 13), ("reserved14", 14), ("noBandwidthLimit", 15))
+
+class LldpXdcbxFeatureType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(2, 3, 4))
+    namedValues = NamedValues(("priorityGroup", 2), ("priorityFlowControl", 3), ("applicationProtocol", 4))
+
+class LldpXdcbxFeatureSubType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 255)
+
+class LldpXdcbxVersion(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 255)
+
+class LldpXdcbxTC(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 7)
+
+class LldpXdcbxPgBw(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 100)
+
+class LldpXdcbxTCPFC(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 8)
+
+class LldpXdcbxAppProtos(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 15)
+
+class LldpXdcbxSF(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
+    namedValues = NamedValues(("l2EtherType", 0), ("socketNumber", 1), ("reserved2", 2), ("reserved3", 3))
+
+lldpXdcbxNotifications = MibIdentifier((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 0))
+lldpXdcbxObjects = MibIdentifier((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 1))
+lldpXdcbxFeatures = MibIdentifier((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2))
+lldpXdcbxPortTable = MibTable((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 1, 1), )
+if mibBuilder.loadTexts: lldpXdcbxPortTable.setStatus('current')
+lldpXdcbxPortEntry = MibTableRow((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 1, 1, 1), ).setIndexNames((0, "LLDP-EXT-DCBX-MIB", "lldpXdcbxPortNumber"))
+if mibBuilder.loadTexts: lldpXdcbxPortEntry.setStatus('current')
+lldpXdcbxPortNumber = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 1, 1, 1, 1), LldpPortNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxPortNumber.setStatus('current')
+lldpXdcbxPortEnable = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 1, 1, 1, 2), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxPortEnable.setStatus('current')
+lldpXdcbxPortVersionOper = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 1, 1, 1, 3), LldpXdcbxVersion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxPortVersionOper.setStatus('current')
+lldpXdcbxPortVersionMax = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 1, 1, 1, 4), LldpXdcbxVersion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxPortVersionMax.setStatus('current')
+lldpXdcbxPortSeqNo = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 1, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxPortSeqNo.setStatus('current')
+lldpXdcbxPortAckNo = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 1, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxPortAckNo.setStatus('current')
+lldpXdcbxFeatTable = MibTable((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 1), )
+if mibBuilder.loadTexts: lldpXdcbxFeatTable.setStatus('current')
+lldpXdcbxFeatEntry = MibTableRow((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 1, 1), ).setIndexNames((0, "LLDP-EXT-DCBX-MIB", "lldpXdcbxPortNumber"), (0, "LLDP-EXT-DCBX-MIB", "lldpXdcbxFeatType"), (0, "LLDP-EXT-DCBX-MIB", "lldpXdcbxFeatSubType"))
+if mibBuilder.loadTexts: lldpXdcbxFeatEntry.setStatus('current')
+lldpXdcbxFeatType = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 1, 1, 1), LldpXdcbxFeatureType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatType.setStatus('current')
+lldpXdcbxFeatSubType = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 1, 1, 2), LldpXdcbxFeatureSubType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatSubType.setStatus('current')
+lldpXdcbxFeatVersionOper = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 1, 1, 3), LldpXdcbxVersion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatVersionOper.setStatus('current')
+lldpXdcbxFeatVersionMax = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 1, 1, 4), LldpXdcbxVersion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatVersionMax.setStatus('current')
+lldpXdcbxFeatEnable = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 1, 1, 5), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatEnable.setStatus('current')
+lldpXdcbxFeatWilling = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 1, 1, 6), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatWilling.setStatus('current')
+lldpXdcbxFeatError = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 1, 1, 7), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatError.setStatus('current')
+lldpXdcbxFeatAdvertise = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 1, 1, 8), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatAdvertise.setStatus('current')
+lldpXdcbxFeatOperMode = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 1, 1, 9), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatOperMode.setStatus('current')
+lldpXdcbxFeatSyncd = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 1, 1, 10), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatSyncd.setStatus('current')
+lldpXdcbxFeatSeqNo = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 1, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatSeqNo.setStatus('current')
+lldpXdcbxFeatPeerWilling = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 1, 1, 12), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatPeerWilling.setStatus('current')
+lldpXdcbxFeatLocalParameterChange = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 1, 1, 13), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatLocalParameterChange.setStatus('current')
+lldpXdcbxFeatPg = MibIdentifier((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 2))
+lldpXdcbxFeatPgNumTCsSupported = MibScalar((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 2, 1), LldpXdcbxTC()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatPgNumTCsSupported.setStatus('current')
+lldpXdcbxFeatPgPrioAllocTable = MibTable((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 2, 2), )
+if mibBuilder.loadTexts: lldpXdcbxFeatPgPrioAllocTable.setStatus('current')
+lldpXdcbxFeatPgPrioAllocEntry = MibTableRow((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 2, 2, 1), ).setIndexNames((0, "LLDP-EXT-DCBX-MIB", "lldpXdcbxPortNumber"), (0, "LLDP-EXT-DCBX-MIB", "lldpXdcbxFeatPgPrioAllocPrioId"))
+if mibBuilder.loadTexts: lldpXdcbxFeatPgPrioAllocEntry.setStatus('current')
+lldpXdcbxFeatPgPrioAllocPrioId = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 2, 2, 1, 1), LldpXdcbxPriority()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatPgPrioAllocPrioId.setStatus('current')
+lldpXdcbxFeatPgPrioAllocPgIdDesired = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 2, 2, 1, 2), LldpXdcbxPriorityGroup()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatPgPrioAllocPgIdDesired.setStatus('current')
+lldpXdcbxFeatPgPrioAllocPgIdOper = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 2, 2, 1, 3), LldpXdcbxPriorityGroup()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatPgPrioAllocPgIdOper.setStatus('current')
+lldpXdcbxFeatPgPrioAllocPgIdPeer = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 2, 2, 1, 4), LldpXdcbxPriorityGroup()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatPgPrioAllocPgIdPeer.setStatus('current')
+lldpXdcbxFeatPgBwAllocTable = MibTable((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 2, 3), )
+if mibBuilder.loadTexts: lldpXdcbxFeatPgBwAllocTable.setStatus('current')
+lldpXdcbxFeatPgBwAllocEntry = MibTableRow((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 2, 3, 1), ).setIndexNames((0, "LLDP-EXT-DCBX-MIB", "lldpXdcbxPortNumber"), (0, "LLDP-EXT-DCBX-MIB", "lldpXdcbxFeatPgBwAllocPgId"))
+if mibBuilder.loadTexts: lldpXdcbxFeatPgBwAllocEntry.setStatus('current')
+lldpXdcbxFeatPgBwAllocPgId = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 2, 3, 1, 1), LldpXdcbxPriorityGroup()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatPgBwAllocPgId.setStatus('current')
+lldpXdcbxFeatPgBwAllocBwDesired = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 2, 3, 1, 2), LldpXdcbxPgBw()).setUnits('percent').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatPgBwAllocBwDesired.setStatus('current')
+lldpXdcbxFeatPgBwAllocBwOper = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 2, 3, 1, 3), LldpXdcbxPgBw()).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatPgBwAllocBwOper.setStatus('current')
+lldpXdcbxFeatPgBwAllocBwPeer = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 2, 3, 1, 4), LldpXdcbxPgBw()).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatPgBwAllocBwPeer.setStatus('current')
+lldpXdcbxFeatPfc = MibIdentifier((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 3))
+lldpXdcbxFeatPfcNumTCPFCSupported = MibScalar((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 3, 1), LldpXdcbxTCPFC()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatPfcNumTCPFCSupported.setStatus('current')
+lldpXdcbxFeatPfcTable = MibTable((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 3, 2), )
+if mibBuilder.loadTexts: lldpXdcbxFeatPfcTable.setStatus('current')
+lldpXdcbxFeatPfcEntry = MibTableRow((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 3, 2, 1), ).setIndexNames((0, "LLDP-EXT-DCBX-MIB", "lldpXdcbxPortNumber"), (0, "LLDP-EXT-DCBX-MIB", "lldpXdcbxFeatPfcPriority"))
+if mibBuilder.loadTexts: lldpXdcbxFeatPfcEntry.setStatus('current')
+lldpXdcbxFeatPfcPriority = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 3, 2, 1, 1), LldpXdcbxPriority()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatPfcPriority.setStatus('current')
+lldpXdcbxFeatPfcEnableDesired = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 3, 2, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatPfcEnableDesired.setStatus('current')
+lldpXdcbxFeatPfcEnableOper = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 3, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatPfcEnableOper.setStatus('current')
+lldpXdcbxFeatPfcEnablePeer = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 3, 2, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatPfcEnablePeer.setStatus('current')
+lldpXdcbxFeatAppProto = MibIdentifier((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 4))
+lldpXdcbxFeatAppProtoTable = MibTable((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 4, 1), )
+if mibBuilder.loadTexts: lldpXdcbxFeatAppProtoTable.setStatus('current')
+lldpXdcbxFeatAppProtoEntry = MibTableRow((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 4, 1, 1), ).setIndexNames((0, "LLDP-EXT-DCBX-MIB", "lldpXdcbxPortNumber"), (0, "LLDP-EXT-DCBX-MIB", "lldpXdcbxFeatAppProtoIndex"))
+if mibBuilder.loadTexts: lldpXdcbxFeatAppProtoEntry.setStatus('current')
+lldpXdcbxFeatAppProtoIndex = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 4, 1, 1, 1), LldpXdcbxAppProtos()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatAppProtoIndex.setStatus('current')
+lldpXdcbxFeatAppProtoSF = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 4, 1, 1, 2), LldpXdcbxSF()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatAppProtoSF.setStatus('current')
+lldpXdcbxFeatAppProtoOUI = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 4, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatAppProtoOUI.setStatus('current')
+lldpXdcbxFeatAppProtoId = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 4, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatAppProtoId.setStatus('current')
+lldpXdcbxFeatAppProtoPrioTable = MibTable((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 4, 2), )
+if mibBuilder.loadTexts: lldpXdcbxFeatAppProtoPrioTable.setStatus('current')
+lldpXdcbxFeatAppProtoPrioEntry = MibTableRow((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 4, 2, 1), ).setIndexNames((0, "LLDP-EXT-DCBX-MIB", "lldpXdcbxPortNumber"), (0, "LLDP-EXT-DCBX-MIB", "lldpXdcbxFeatAppProtoIndex"), (0, "LLDP-EXT-DCBX-MIB", "lldpXdcbxFeatAppProtoPriority"))
+if mibBuilder.loadTexts: lldpXdcbxFeatAppProtoPrioEntry.setStatus('current')
+lldpXdcbxFeatAppProtoPriority = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 4, 2, 1, 1), LldpXdcbxPriority()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatAppProtoPriority.setStatus('current')
+lldpXdcbxFeatAppProtoEnableDesired = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 4, 2, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXdcbxFeatAppProtoEnableDesired.setStatus('current')
+lldpXdcbxFeatAppProtoEnableOper = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 4, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatAppProtoEnableOper.setStatus('current')
+lldpXdcbxFeatAppProtoEnablePeer = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 2, 4, 2, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXdcbxFeatAppProtoEnablePeer.setStatus('current')
+lldpXdcbxMiscControlError = NotificationType((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 0, 1)).setObjects(("LLDP-EXT-DCBX-MIB", "lldpXdcbxPortNumber"))
+if mibBuilder.loadTexts: lldpXdcbxMiscControlError.setStatus('current')
+lldpXdcbxMiscFeatureError = NotificationType((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 0, 2)).setObjects(("LLDP-EXT-DCBX-MIB", "lldpXdcbxFeatError"))
+if mibBuilder.loadTexts: lldpXdcbxMiscFeatureError.setStatus('current')
+lldpXdcbxMultiplePeers = NotificationType((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 0, 3)).setObjects(("LLDP-EXT-DCBX-MIB", "lldpXdcbxPortNumber"))
+if mibBuilder.loadTexts: lldpXdcbxMultiplePeers.setStatus('current')
+lldpXdcbxLldpTxDisabled = NotificationType((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 0, 4)).setObjects(("LLDP-EXT-DCBX-MIB", "lldpXdcbxPortNumber"))
+if mibBuilder.loadTexts: lldpXdcbxLldpTxDisabled.setStatus('current')
+lldpXdcbxLldpRxDisabled = NotificationType((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 0, 5)).setObjects(("LLDP-EXT-DCBX-MIB", "lldpXdcbxPortNumber"))
+if mibBuilder.loadTexts: lldpXdcbxLldpRxDisabled.setStatus('current')
+lldpXdcbxDupControlTlv = NotificationType((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 0, 6)).setObjects(("LLDP-EXT-DCBX-MIB", "lldpXdcbxPortNumber"))
+if mibBuilder.loadTexts: lldpXdcbxDupControlTlv.setStatus('current')
+lldpXdcbxDupFeatureTlv = NotificationType((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 0, 7)).setObjects(("LLDP-EXT-DCBX-MIB", "lldpXdcbxFeatType"))
+if mibBuilder.loadTexts: lldpXdcbxDupFeatureTlv.setStatus('current')
+lldpXdcbxPeerNoFeat = NotificationType((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 0, 8)).setObjects(("LLDP-EXT-DCBX-MIB", "lldpXdcbxFeatType"))
+if mibBuilder.loadTexts: lldpXdcbxPeerNoFeat.setStatus('current')
+lldpXdcbxPeerNoResp = NotificationType((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 0, 9)).setObjects(("LLDP-EXT-DCBX-MIB", "lldpXdcbxPortNumber"))
+if mibBuilder.loadTexts: lldpXdcbxPeerNoResp.setStatus('current')
+lldpXdcbxPeerConfigMismatch = NotificationType((1, 0, 8802, 1, 1, 2, 1, 5, 6945, 0, 10)).setObjects(("LLDP-EXT-DCBX-MIB", "lldpXdcbxPortNumber"))
+if mibBuilder.loadTexts: lldpXdcbxPeerConfigMismatch.setStatus('current')
+mibBuilder.exportSymbols("LLDP-EXT-DCBX-MIB", lldpXdcbxFeatPgBwAllocBwDesired=lldpXdcbxFeatPgBwAllocBwDesired, lldpXdcbxFeatPfc=lldpXdcbxFeatPfc, lldpXdcbxFeatAppProtoEntry=lldpXdcbxFeatAppProtoEntry, lldpXdcbxFeatAppProtoEnablePeer=lldpXdcbxFeatAppProtoEnablePeer, lldpXdcbxPeerConfigMismatch=lldpXdcbxPeerConfigMismatch, lldpXdcbxMiscControlError=lldpXdcbxMiscControlError, lldpXdcbxNotifications=lldpXdcbxNotifications, lldpXdcbxMIB=lldpXdcbxMIB, lldpXdcbxFeatPfcEntry=lldpXdcbxFeatPfcEntry, lldpXdcbxFeatPgBwAllocEntry=lldpXdcbxFeatPgBwAllocEntry, lldpXdcbxFeatSyncd=lldpXdcbxFeatSyncd, lldpXdcbxFeatAppProto=lldpXdcbxFeatAppProto, lldpXdcbxFeatPgPrioAllocTable=lldpXdcbxFeatPgPrioAllocTable, lldpXdcbxFeatEnable=lldpXdcbxFeatEnable, lldpXdcbxFeatEntry=lldpXdcbxFeatEntry, lldpXdcbxFeatPgPrioAllocPgIdDesired=lldpXdcbxFeatPgPrioAllocPgIdDesired, lldpXdcbxFeatAppProtoPrioEntry=lldpXdcbxFeatAppProtoPrioEntry, LldpXdcbxPriorityGroup=LldpXdcbxPriorityGroup, lldpXdcbxPortEnable=lldpXdcbxPortEnable, lldpXdcbxFeatPgPrioAllocPgIdPeer=lldpXdcbxFeatPgPrioAllocPgIdPeer, lldpXdcbxLldpRxDisabled=lldpXdcbxLldpRxDisabled, lldpXdcbxPortVersionMax=lldpXdcbxPortVersionMax, lldpXdcbxMiscFeatureError=lldpXdcbxMiscFeatureError, lldpXdcbxFeatPgBwAllocBwOper=lldpXdcbxFeatPgBwAllocBwOper, LldpXdcbxFeatureSubType=LldpXdcbxFeatureSubType, lldpXdcbxFeatAppProtoPriority=lldpXdcbxFeatAppProtoPriority, lldpXdcbxFeatSubType=lldpXdcbxFeatSubType, lldpXdcbxFeatAppProtoEnableDesired=lldpXdcbxFeatAppProtoEnableDesired, lldpXdcbxPortAckNo=lldpXdcbxPortAckNo, lldpXdcbxMultiplePeers=lldpXdcbxMultiplePeers, lldpXdcbxPeerNoResp=lldpXdcbxPeerNoResp, lldpXdcbxFeatPfcEnableOper=lldpXdcbxFeatPfcEnableOper, lldpXdcbxFeatAppProtoSF=lldpXdcbxFeatAppProtoSF, LldpXdcbxTC=LldpXdcbxTC, lldpXdcbxFeatPeerWilling=lldpXdcbxFeatPeerWilling, lldpXdcbxFeatAppProtoPrioTable=lldpXdcbxFeatAppProtoPrioTable, lldpXdcbxFeatPg=lldpXdcbxFeatPg, lldpXdcbxFeatAppProtoId=lldpXdcbxFeatAppProtoId, lldpXdcbxFeatSeqNo=lldpXdcbxFeatSeqNo, lldpXdcbxFeatPfcPriority=lldpXdcbxFeatPfcPriority, lldpXdcbxFeatAppProtoIndex=lldpXdcbxFeatAppProtoIndex, lldpXdcbxFeatPgPrioAllocPgIdOper=lldpXdcbxFeatPgPrioAllocPgIdOper, lldpXdcbxFeatTable=lldpXdcbxFeatTable, lldpXdcbxDupControlTlv=lldpXdcbxDupControlTlv, LldpXdcbxTCPFC=LldpXdcbxTCPFC, lldpXdcbxFeatPfcNumTCPFCSupported=lldpXdcbxFeatPfcNumTCPFCSupported, lldpXdcbxFeatAppProtoOUI=lldpXdcbxFeatAppProtoOUI, lldpXdcbxDupFeatureTlv=lldpXdcbxDupFeatureTlv, LldpXdcbxPgBw=LldpXdcbxPgBw, lldpXdcbxFeatError=lldpXdcbxFeatError, lldpXdcbxObjects=lldpXdcbxObjects, lldpXdcbxFeatWilling=lldpXdcbxFeatWilling, lldpXdcbxLldpTxDisabled=lldpXdcbxLldpTxDisabled, lldpXdcbxFeatVersionMax=lldpXdcbxFeatVersionMax, lldpXdcbxFeatLocalParameterChange=lldpXdcbxFeatLocalParameterChange, lldpXdcbxFeatPfcTable=lldpXdcbxFeatPfcTable, lldpXdcbxPortSeqNo=lldpXdcbxPortSeqNo, LldpXdcbxPriority=LldpXdcbxPriority, lldpXdcbxFeatPgNumTCsSupported=lldpXdcbxFeatPgNumTCsSupported, lldpXdcbxPeerNoFeat=lldpXdcbxPeerNoFeat, lldpXdcbxFeatAppProtoEnableOper=lldpXdcbxFeatAppProtoEnableOper, lldpXdcbxFeatAppProtoTable=lldpXdcbxFeatAppProtoTable, LldpXdcbxSF=LldpXdcbxSF, LldpXdcbxVersion=LldpXdcbxVersion, lldpXdcbxFeatPgBwAllocBwPeer=lldpXdcbxFeatPgBwAllocBwPeer, lldpXdcbxFeatPgBwAllocTable=lldpXdcbxFeatPgBwAllocTable, lldpXdcbxFeatPgPrioAllocEntry=lldpXdcbxFeatPgPrioAllocEntry, lldpXdcbxFeatPgBwAllocPgId=lldpXdcbxFeatPgBwAllocPgId, lldpXdcbxFeatOperMode=lldpXdcbxFeatOperMode, lldpXdcbxPortTable=lldpXdcbxPortTable, lldpXdcbxFeatType=lldpXdcbxFeatType, lldpXdcbxFeatPgPrioAllocPrioId=lldpXdcbxFeatPgPrioAllocPrioId, LldpXdcbxAppProtos=LldpXdcbxAppProtos, lldpXdcbxFeatPfcEnablePeer=lldpXdcbxFeatPfcEnablePeer, lldpXdcbxPortNumber=lldpXdcbxPortNumber, lldpXdcbxFeatPfcEnableDesired=lldpXdcbxFeatPfcEnableDesired, PYSNMP_MODULE_ID=lldpXdcbxMIB, lldpXdcbxPortEntry=lldpXdcbxPortEntry, lldpXdcbxFeatVersionOper=lldpXdcbxFeatVersionOper, lldpXdcbxFeatures=lldpXdcbxFeatures, LldpXdcbxFeatureType=LldpXdcbxFeatureType, lldpXdcbxFeatAdvertise=lldpXdcbxFeatAdvertise, lldpXdcbxPortVersionOper=lldpXdcbxPortVersionOper)

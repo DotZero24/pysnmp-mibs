@@ -1,102 +1,53 @@
-_O='ciscoWanCesRsrcPartGroup'
-_N='cesmResPartCtrlrID'
-_M='cesmResPartEgrPctBW'
-_L='cesmResPartIngrPctBW'
-_K='cesmResPartLcnHigh'
-_J='cesmResPartLcnLow'
-_I='cesmResPartNumOfLcnAvail'
-_H='cesmResPartRowStatus'
-_G='read-only'
-_F='cesmResPartCtrlrNum'
-_E='cesmResPartPortNum'
-_D='read-write'
-_C='Integer32'
-_B='CISCO-WAN-CES-RSRC-PART-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-cesmPort,=mibBuilder.importSymbols('CISCO-WAN-CES-PORT-MIB','cesmPort')
-ciscoWan,=mibBuilder.importSymbols('CISCOWAN-SMI','ciscoWan')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoWanCesRsrcPartMIB=ModuleIdentity((1,3,6,1,4,1,351,150,41))
-if mibBuilder.loadTexts:ciscoWanCesRsrcPartMIB.setRevisions(('2002-09-03 00:00',))
-_CesmPortCnfResPartGrp_ObjectIdentity=ObjectIdentity
-cesmPortCnfResPartGrp=_CesmPortCnfResPartGrp_ObjectIdentity((1,3,6,1,4,1,351,110,5,3,1,2))
-_CesmPortCnfResPartGrpTable_Object=MibTable
-cesmPortCnfResPartGrpTable=_CesmPortCnfResPartGrpTable_Object((1,3,6,1,4,1,351,110,5,3,1,2,1))
-if mibBuilder.loadTexts:cesmPortCnfResPartGrpTable.setStatus(_A)
-_CesmPortCnfResPartGrpEntry_Object=MibTableRow
-cesmPortCnfResPartGrpEntry=_CesmPortCnfResPartGrpEntry_Object((1,3,6,1,4,1,351,110,5,3,1,2,1,1))
-cesmPortCnfResPartGrpEntry.setIndexNames((0,_B,_E),(0,_B,_F))
-if mibBuilder.loadTexts:cesmPortCnfResPartGrpEntry.setStatus(_A)
-class _CesmResPartPortNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2048))
-_CesmResPartPortNum_Type.__name__=_C
-_CesmResPartPortNum_Object=MibTableColumn
-cesmResPartPortNum=_CesmResPartPortNum_Object((1,3,6,1,4,1,351,110,5,3,1,2,1,1,1),_CesmResPartPortNum_Type())
-cesmResPartPortNum.setMaxAccess(_G)
-if mibBuilder.loadTexts:cesmResPartPortNum.setStatus(_A)
-class _CesmResPartCtrlrNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('par',1),('pnni',2),('tag',3)))
-_CesmResPartCtrlrNum_Type.__name__=_C
-_CesmResPartCtrlrNum_Object=MibTableColumn
-cesmResPartCtrlrNum=_CesmResPartCtrlrNum_Object((1,3,6,1,4,1,351,110,5,3,1,2,1,1,2),_CesmResPartCtrlrNum_Type())
-cesmResPartCtrlrNum.setMaxAccess(_G)
-if mibBuilder.loadTexts:cesmResPartCtrlrNum.setStatus(_A)
-class _CesmResPartRowStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('add',1),('del',2),('mod',3)))
-_CesmResPartRowStatus_Type.__name__=_C
-_CesmResPartRowStatus_Object=MibTableColumn
-cesmResPartRowStatus=_CesmResPartRowStatus_Object((1,3,6,1,4,1,351,110,5,3,1,2,1,1,3),_CesmResPartRowStatus_Type())
-cesmResPartRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cesmResPartRowStatus.setStatus(_A)
-class _CesmResPartNumOfLcnAvail_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2048))
-_CesmResPartNumOfLcnAvail_Type.__name__=_C
-_CesmResPartNumOfLcnAvail_Object=MibTableColumn
-cesmResPartNumOfLcnAvail=_CesmResPartNumOfLcnAvail_Object((1,3,6,1,4,1,351,110,5,3,1,2,1,1,4),_CesmResPartNumOfLcnAvail_Type())
-cesmResPartNumOfLcnAvail.setMaxAccess(_D)
-if mibBuilder.loadTexts:cesmResPartNumOfLcnAvail.setStatus(_A)
-class _CesmResPartLcnLow_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2048))
-_CesmResPartLcnLow_Type.__name__=_C
-_CesmResPartLcnLow_Object=MibTableColumn
-cesmResPartLcnLow=_CesmResPartLcnLow_Object((1,3,6,1,4,1,351,110,5,3,1,2,1,1,5),_CesmResPartLcnLow_Type())
-cesmResPartLcnLow.setMaxAccess(_D)
-if mibBuilder.loadTexts:cesmResPartLcnLow.setStatus(_A)
-class _CesmResPartLcnHigh_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2048))
-_CesmResPartLcnHigh_Type.__name__=_C
-_CesmResPartLcnHigh_Object=MibTableColumn
-cesmResPartLcnHigh=_CesmResPartLcnHigh_Object((1,3,6,1,4,1,351,110,5,3,1,2,1,1,6),_CesmResPartLcnHigh_Type())
-cesmResPartLcnHigh.setMaxAccess(_D)
-if mibBuilder.loadTexts:cesmResPartLcnHigh.setStatus(_A)
-class _CesmResPartIngrPctBW_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_CesmResPartIngrPctBW_Type.__name__=_C
-_CesmResPartIngrPctBW_Object=MibTableColumn
-cesmResPartIngrPctBW=_CesmResPartIngrPctBW_Object((1,3,6,1,4,1,351,110,5,3,1,2,1,1,7),_CesmResPartIngrPctBW_Type())
-cesmResPartIngrPctBW.setMaxAccess(_D)
-if mibBuilder.loadTexts:cesmResPartIngrPctBW.setStatus(_A)
-class _CesmResPartEgrPctBW_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_CesmResPartEgrPctBW_Type.__name__=_C
-_CesmResPartEgrPctBW_Object=MibTableColumn
-cesmResPartEgrPctBW=_CesmResPartEgrPctBW_Object((1,3,6,1,4,1,351,110,5,3,1,2,1,1,8),_CesmResPartEgrPctBW_Type())
-cesmResPartEgrPctBW.setMaxAccess(_D)
-if mibBuilder.loadTexts:cesmResPartEgrPctBW.setStatus(_A)
-class _CesmResPartCtrlrID_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_CesmResPartCtrlrID_Type.__name__=_C
-_CesmResPartCtrlrID_Object=MibTableColumn
-cesmResPartCtrlrID=_CesmResPartCtrlrID_Object((1,3,6,1,4,1,351,110,5,3,1,2,1,1,9),_CesmResPartCtrlrID_Type())
-cesmResPartCtrlrID.setMaxAccess(_D)
-if mibBuilder.loadTexts:cesmResPartCtrlrID.setStatus(_A)
-_CwcRsrcPartMIBConformance_ObjectIdentity=ObjectIdentity
-cwcRsrcPartMIBConformance=_CwcRsrcPartMIBConformance_ObjectIdentity((1,3,6,1,4,1,351,150,41,2))
-_CwcRsrcPartMIBCompliances_ObjectIdentity=ObjectIdentity
-cwcRsrcPartMIBCompliances=_CwcRsrcPartMIBCompliances_ObjectIdentity((1,3,6,1,4,1,351,150,41,2,1))
-_CwcRsrcPartMIBGroups_ObjectIdentity=ObjectIdentity
-cwcRsrcPartMIBGroups=_CwcRsrcPartMIBGroups_ObjectIdentity((1,3,6,1,4,1,351,150,41,2,2))
-ciscoWanCesRsrcPartGroup=ObjectGroup((1,3,6,1,4,1,351,150,41,2,2,1))
-ciscoWanCesRsrcPartGroup.setObjects(*((_B,_E),(_B,_F),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:ciscoWanCesRsrcPartGroup.setStatus(_A)
-ciscoWanCesRsrcPartCompliance=ModuleCompliance((1,3,6,1,4,1,351,150,41,2,1,1))
-ciscoWanCesRsrcPartCompliance.setObjects((_B,_O))
-if mibBuilder.loadTexts:ciscoWanCesRsrcPartCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'cesmPortCnfResPartGrp':cesmPortCnfResPartGrp,'cesmPortCnfResPartGrpTable':cesmPortCnfResPartGrpTable,'cesmPortCnfResPartGrpEntry':cesmPortCnfResPartGrpEntry,_E:cesmResPartPortNum,_F:cesmResPartCtrlrNum,_H:cesmResPartRowStatus,_I:cesmResPartNumOfLcnAvail,_J:cesmResPartLcnLow,_K:cesmResPartLcnHigh,_L:cesmResPartIngrPctBW,_M:cesmResPartEgrPctBW,_N:cesmResPartCtrlrID,'ciscoWanCesRsrcPartMIB':ciscoWanCesRsrcPartMIB,'cwcRsrcPartMIBConformance':cwcRsrcPartMIBConformance,'cwcRsrcPartMIBCompliances':cwcRsrcPartMIBCompliances,'ciscoWanCesRsrcPartCompliance':ciscoWanCesRsrcPartCompliance,'cwcRsrcPartMIBGroups':cwcRsrcPartMIBGroups,_O:ciscoWanCesRsrcPartGroup})
+#
+# PySNMP MIB module CISCO-WAN-CES-RSRC-PART-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-WAN-CES-RSRC-PART-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cesmPort, = mibBuilder.importSymbols("CISCO-WAN-CES-PORT-MIB", "cesmPort")
+ciscoWan, = mibBuilder.importSymbols("CISCOWAN-SMI", "ciscoWan")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoWanCesRsrcPartMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 351, 150, 41))
+ciscoWanCesRsrcPartMIB.setRevisions(('2002-09-03 00:00',))
+if mibBuilder.loadTexts: ciscoWanCesRsrcPartMIB.setLastUpdated('200209030000Z')
+if mibBuilder.loadTexts: ciscoWanCesRsrcPartMIB.setOrganization('Cisco Systems, Inc.')
+cesmPortCnfResPartGrp = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 110, 5, 3, 1, 2))
+cesmPortCnfResPartGrpTable = MibTable((1, 3, 6, 1, 4, 1, 351, 110, 5, 3, 1, 2, 1), )
+if mibBuilder.loadTexts: cesmPortCnfResPartGrpTable.setStatus('current')
+cesmPortCnfResPartGrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 351, 110, 5, 3, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-WAN-CES-RSRC-PART-MIB", "cesmResPartPortNum"), (0, "CISCO-WAN-CES-RSRC-PART-MIB", "cesmResPartCtrlrNum"))
+if mibBuilder.loadTexts: cesmPortCnfResPartGrpEntry.setStatus('current')
+cesmResPartPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 3, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2048))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cesmResPartPortNum.setStatus('current')
+cesmResPartCtrlrNum = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 3, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("par", 1), ("pnni", 2), ("tag", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cesmResPartCtrlrNum.setStatus('current')
+cesmResPartRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 3, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("add", 1), ("del", 2), ("mod", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cesmResPartRowStatus.setStatus('current')
+cesmResPartNumOfLcnAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 3, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2048))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cesmResPartNumOfLcnAvail.setStatus('current')
+cesmResPartLcnLow = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 3, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2048))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cesmResPartLcnLow.setStatus('current')
+cesmResPartLcnHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 3, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2048))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cesmResPartLcnHigh.setStatus('current')
+cesmResPartIngrPctBW = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 3, 1, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cesmResPartIngrPctBW.setStatus('current')
+cesmResPartEgrPctBW = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 3, 1, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cesmResPartEgrPctBW.setStatus('current')
+cesmResPartCtrlrID = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 3, 1, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cesmResPartCtrlrID.setStatus('current')
+cwcRsrcPartMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 41, 2))
+cwcRsrcPartMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 41, 2, 1))
+cwcRsrcPartMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 41, 2, 2))
+ciscoWanCesRsrcPartCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 351, 150, 41, 2, 1, 1)).setObjects(("CISCO-WAN-CES-RSRC-PART-MIB", "ciscoWanCesRsrcPartGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWanCesRsrcPartCompliance = ciscoWanCesRsrcPartCompliance.setStatus('current')
+ciscoWanCesRsrcPartGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 41, 2, 2, 1)).setObjects(("CISCO-WAN-CES-RSRC-PART-MIB", "cesmResPartPortNum"), ("CISCO-WAN-CES-RSRC-PART-MIB", "cesmResPartCtrlrNum"), ("CISCO-WAN-CES-RSRC-PART-MIB", "cesmResPartRowStatus"), ("CISCO-WAN-CES-RSRC-PART-MIB", "cesmResPartNumOfLcnAvail"), ("CISCO-WAN-CES-RSRC-PART-MIB", "cesmResPartLcnLow"), ("CISCO-WAN-CES-RSRC-PART-MIB", "cesmResPartLcnHigh"), ("CISCO-WAN-CES-RSRC-PART-MIB", "cesmResPartIngrPctBW"), ("CISCO-WAN-CES-RSRC-PART-MIB", "cesmResPartEgrPctBW"), ("CISCO-WAN-CES-RSRC-PART-MIB", "cesmResPartCtrlrID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoWanCesRsrcPartGroup = ciscoWanCesRsrcPartGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-WAN-CES-RSRC-PART-MIB", cesmResPartNumOfLcnAvail=cesmResPartNumOfLcnAvail, cesmResPartCtrlrNum=cesmResPartCtrlrNum, cesmPortCnfResPartGrpEntry=cesmPortCnfResPartGrpEntry, cwcRsrcPartMIBCompliances=cwcRsrcPartMIBCompliances, cesmResPartLcnHigh=cesmResPartLcnHigh, PYSNMP_MODULE_ID=ciscoWanCesRsrcPartMIB, cwcRsrcPartMIBGroups=cwcRsrcPartMIBGroups, cesmResPartIngrPctBW=cesmResPartIngrPctBW, ciscoWanCesRsrcPartCompliance=ciscoWanCesRsrcPartCompliance, cesmResPartRowStatus=cesmResPartRowStatus, cesmPortCnfResPartGrpTable=cesmPortCnfResPartGrpTable, ciscoWanCesRsrcPartGroup=ciscoWanCesRsrcPartGroup, cesmResPartEgrPctBW=cesmResPartEgrPctBW, cesmResPartPortNum=cesmResPartPortNum, cesmResPartCtrlrID=cesmResPartCtrlrID, cwcRsrcPartMIBConformance=cwcRsrcPartMIBConformance, ciscoWanCesRsrcPartMIB=ciscoWanCesRsrcPartMIB, cesmResPartLcnLow=cesmResPartLcnLow, cesmPortCnfResPartGrp=cesmPortCnfResPartGrp)

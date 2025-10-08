@@ -1,159 +1,76 @@
-_N='igmpRouterPortPort'
-_M='igmpRouterPortCard'
-_L='igmpRouterPortStatic'
-_K='igmpRouterPortVlanId'
-_J='igmpGroupAddress'
-_I='igmpGroupStatic'
-_H='igmpGroupVlanId'
-_G='igmpTimerConfigVlanId'
-_F='igmpGeneralConfigVlanId'
-_E='Integer32'
-_D='read-only'
-_C='read-write'
-_B='CENTILLION-MCAST-MIB'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-Boolean,CardId,EnableIndicator,PortId,StatusIndicator,sysConfig=mibBuilder.importSymbols('CENTILLION-ROOT-MIB','Boolean','CardId','EnableIndicator','PortId','StatusIndicator','sysConfig')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-class VlanId(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4095))
-_Vlan_ObjectIdentity=ObjectIdentity
-vlan=_Vlan_ObjectIdentity((1,3,6,1,4,1,930,2,1,2,31))
-_VlanMcastProtocolGroup_ObjectIdentity=ObjectIdentity
-vlanMcastProtocolGroup=_VlanMcastProtocolGroup_ObjectIdentity((1,3,6,1,4,1,930,2,1,2,31,1))
-_VlanIGMPProtocolGroup_ObjectIdentity=ObjectIdentity
-vlanIGMPProtocolGroup=_VlanIGMPProtocolGroup_ObjectIdentity((1,3,6,1,4,1,930,2,1,2,31,1,1))
-_VlanIGMPConfig_ObjectIdentity=ObjectIdentity
-vlanIGMPConfig=_VlanIGMPConfig_ObjectIdentity((1,3,6,1,4,1,930,2,1,2,31,1,1,1))
-_IgmpGeneralConfigTable_Object=MibTable
-igmpGeneralConfigTable=_IgmpGeneralConfigTable_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,1))
-if mibBuilder.loadTexts:igmpGeneralConfigTable.setStatus(_A)
-_IgmpGeneralConfigEntry_Object=MibTableRow
-igmpGeneralConfigEntry=_IgmpGeneralConfigEntry_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,1,1))
-igmpGeneralConfigEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:igmpGeneralConfigEntry.setStatus(_A)
-_IgmpGeneralConfigVlanId_Type=VlanId
-_IgmpGeneralConfigVlanId_Object=MibTableColumn
-igmpGeneralConfigVlanId=_IgmpGeneralConfigVlanId_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,1,1,1),_IgmpGeneralConfigVlanId_Type())
-igmpGeneralConfigVlanId.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpGeneralConfigVlanId.setStatus(_A)
-_IgmpGeneralConfigPseudoQuery_Type=EnableIndicator
-_IgmpGeneralConfigPseudoQuery_Object=MibTableColumn
-igmpGeneralConfigPseudoQuery=_IgmpGeneralConfigPseudoQuery_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,1,1,2),_IgmpGeneralConfigPseudoQuery_Type())
-igmpGeneralConfigPseudoQuery.setMaxAccess(_C)
-if mibBuilder.loadTexts:igmpGeneralConfigPseudoQuery.setStatus(_A)
-_IgmpGeneralConfigIrapQuery_Type=EnableIndicator
-_IgmpGeneralConfigIrapQuery_Object=MibTableColumn
-igmpGeneralConfigIrapQuery=_IgmpGeneralConfigIrapQuery_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,1,1,3),_IgmpGeneralConfigIrapQuery_Type())
-igmpGeneralConfigIrapQuery.setMaxAccess(_C)
-if mibBuilder.loadTexts:igmpGeneralConfigIrapQuery.setStatus(_A)
-_IgmpGeneralConfigIgmpSupport_Type=EnableIndicator
-_IgmpGeneralConfigIgmpSupport_Object=MibTableColumn
-igmpGeneralConfigIgmpSupport=_IgmpGeneralConfigIgmpSupport_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,1,1,4),_IgmpGeneralConfigIgmpSupport_Type())
-igmpGeneralConfigIgmpSupport.setMaxAccess(_C)
-if mibBuilder.loadTexts:igmpGeneralConfigIgmpSupport.setStatus(_A)
-_IgmpGeneralConfigMaxGroup_Type=Integer32
-_IgmpGeneralConfigMaxGroup_Object=MibTableColumn
-igmpGeneralConfigMaxGroup=_IgmpGeneralConfigMaxGroup_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,1,1,5),_IgmpGeneralConfigMaxGroup_Type())
-igmpGeneralConfigMaxGroup.setMaxAccess(_C)
-if mibBuilder.loadTexts:igmpGeneralConfigMaxGroup.setStatus(_A)
-_IgmpTimerConfigTable_Object=MibTable
-igmpTimerConfigTable=_IgmpTimerConfigTable_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,2))
-if mibBuilder.loadTexts:igmpTimerConfigTable.setStatus(_A)
-_IgmpTimerConfigEntry_Object=MibTableRow
-igmpTimerConfigEntry=_IgmpTimerConfigEntry_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,2,1))
-igmpTimerConfigEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:igmpTimerConfigEntry.setStatus(_A)
-_IgmpTimerConfigVlanId_Type=VlanId
-_IgmpTimerConfigVlanId_Object=MibTableColumn
-igmpTimerConfigVlanId=_IgmpTimerConfigVlanId_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,2,1,1),_IgmpTimerConfigVlanId_Type())
-igmpTimerConfigVlanId.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpTimerConfigVlanId.setStatus(_A)
-class _IgmpTimerConfigTimerRobustness_Type(Integer32):defaultValue=2
-_IgmpTimerConfigTimerRobustness_Type.__name__=_E
-_IgmpTimerConfigTimerRobustness_Object=MibTableColumn
-igmpTimerConfigTimerRobustness=_IgmpTimerConfigTimerRobustness_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,2,1,2),_IgmpTimerConfigTimerRobustness_Type())
-igmpTimerConfigTimerRobustness.setMaxAccess(_C)
-if mibBuilder.loadTexts:igmpTimerConfigTimerRobustness.setStatus(_A)
-class _IgmpTimerConfigQueryInterval_Type(Integer32):defaultValue=125
-_IgmpTimerConfigQueryInterval_Type.__name__=_E
-_IgmpTimerConfigQueryInterval_Object=MibTableColumn
-igmpTimerConfigQueryInterval=_IgmpTimerConfigQueryInterval_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,2,1,3),_IgmpTimerConfigQueryInterval_Type())
-igmpTimerConfigQueryInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:igmpTimerConfigQueryInterval.setStatus(_A)
-class _IgmpTimerConfigQueryResponse_Type(Integer32):defaultValue=100
-_IgmpTimerConfigQueryResponse_Type.__name__=_E
-_IgmpTimerConfigQueryResponse_Object=MibTableColumn
-igmpTimerConfigQueryResponse=_IgmpTimerConfigQueryResponse_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,2,1,4),_IgmpTimerConfigQueryResponse_Type())
-igmpTimerConfigQueryResponse.setMaxAccess(_C)
-if mibBuilder.loadTexts:igmpTimerConfigQueryResponse.setStatus(_A)
-_IgmpGroupTable_Object=MibTable
-igmpGroupTable=_IgmpGroupTable_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,3))
-if mibBuilder.loadTexts:igmpGroupTable.setStatus(_A)
-_IgmpGroupEntry_Object=MibTableRow
-igmpGroupEntry=_IgmpGroupEntry_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,3,1))
-igmpGroupEntry.setIndexNames((0,_B,_H),(0,_B,_I),(0,_B,_J))
-if mibBuilder.loadTexts:igmpGroupEntry.setStatus(_A)
-_IgmpGroupVlanId_Type=VlanId
-_IgmpGroupVlanId_Object=MibTableColumn
-igmpGroupVlanId=_IgmpGroupVlanId_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,3,1,1),_IgmpGroupVlanId_Type())
-igmpGroupVlanId.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpGroupVlanId.setStatus(_A)
-_IgmpGroupStatic_Type=Boolean
-_IgmpGroupStatic_Object=MibTableColumn
-igmpGroupStatic=_IgmpGroupStatic_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,3,1,2),_IgmpGroupStatic_Type())
-igmpGroupStatic.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpGroupStatic.setStatus(_A)
-_IgmpGroupAddress_Type=IpAddress
-_IgmpGroupAddress_Object=MibTableColumn
-igmpGroupAddress=_IgmpGroupAddress_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,3,1,3),_IgmpGroupAddress_Type())
-igmpGroupAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpGroupAddress.setStatus(_A)
-class _IgmpGroupIncluded_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('included',1),('excluded',2)))
-_IgmpGroupIncluded_Type.__name__=_E
-_IgmpGroupIncluded_Object=MibTableColumn
-igmpGroupIncluded=_IgmpGroupIncluded_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,3,1,4),_IgmpGroupIncluded_Type())
-igmpGroupIncluded.setMaxAccess(_C)
-if mibBuilder.loadTexts:igmpGroupIncluded.setStatus(_A)
-_IgmpGroupStatus_Type=StatusIndicator
-_IgmpGroupStatus_Object=MibTableColumn
-igmpGroupStatus=_IgmpGroupStatus_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,3,1,5),_IgmpGroupStatus_Type())
-igmpGroupStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:igmpGroupStatus.setStatus(_A)
-_IgmpRouterPortTable_Object=MibTable
-igmpRouterPortTable=_IgmpRouterPortTable_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,4))
-if mibBuilder.loadTexts:igmpRouterPortTable.setStatus(_A)
-_IgmpRouterPortEntry_Object=MibTableRow
-igmpRouterPortEntry=_IgmpRouterPortEntry_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,4,1))
-igmpRouterPortEntry.setIndexNames((0,_B,_K),(0,_B,_L),(0,_B,_M),(0,_B,_N))
-if mibBuilder.loadTexts:igmpRouterPortEntry.setStatus(_A)
-_IgmpRouterPortVlanId_Type=VlanId
-_IgmpRouterPortVlanId_Object=MibTableColumn
-igmpRouterPortVlanId=_IgmpRouterPortVlanId_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,4,1,1),_IgmpRouterPortVlanId_Type())
-igmpRouterPortVlanId.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpRouterPortVlanId.setStatus(_A)
-_IgmpRouterPortStatic_Type=Boolean
-_IgmpRouterPortStatic_Object=MibTableColumn
-igmpRouterPortStatic=_IgmpRouterPortStatic_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,4,1,2),_IgmpRouterPortStatic_Type())
-igmpRouterPortStatic.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpRouterPortStatic.setStatus(_A)
-_IgmpRouterPortCard_Type=CardId
-_IgmpRouterPortCard_Object=MibTableColumn
-igmpRouterPortCard=_IgmpRouterPortCard_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,4,1,3),_IgmpRouterPortCard_Type())
-igmpRouterPortCard.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpRouterPortCard.setStatus(_A)
-_IgmpRouterPortPort_Type=PortId
-_IgmpRouterPortPort_Object=MibTableColumn
-igmpRouterPortPort=_IgmpRouterPortPort_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,4,1,4),_IgmpRouterPortPort_Type())
-igmpRouterPortPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:igmpRouterPortPort.setStatus(_A)
-_IgmpRouterPortStatus_Type=StatusIndicator
-_IgmpRouterPortStatus_Object=MibTableColumn
-igmpRouterPortStatus=_IgmpRouterPortStatus_Object((1,3,6,1,4,1,930,2,1,2,31,1,1,1,4,1,5),_IgmpRouterPortStatus_Type())
-igmpRouterPortStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:igmpRouterPortStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'VlanId':VlanId,'vlan':vlan,'vlanMcastProtocolGroup':vlanMcastProtocolGroup,'vlanIGMPProtocolGroup':vlanIGMPProtocolGroup,'vlanIGMPConfig':vlanIGMPConfig,'igmpGeneralConfigTable':igmpGeneralConfigTable,'igmpGeneralConfigEntry':igmpGeneralConfigEntry,_F:igmpGeneralConfigVlanId,'igmpGeneralConfigPseudoQuery':igmpGeneralConfigPseudoQuery,'igmpGeneralConfigIrapQuery':igmpGeneralConfigIrapQuery,'igmpGeneralConfigIgmpSupport':igmpGeneralConfigIgmpSupport,'igmpGeneralConfigMaxGroup':igmpGeneralConfigMaxGroup,'igmpTimerConfigTable':igmpTimerConfigTable,'igmpTimerConfigEntry':igmpTimerConfigEntry,_G:igmpTimerConfigVlanId,'igmpTimerConfigTimerRobustness':igmpTimerConfigTimerRobustness,'igmpTimerConfigQueryInterval':igmpTimerConfigQueryInterval,'igmpTimerConfigQueryResponse':igmpTimerConfigQueryResponse,'igmpGroupTable':igmpGroupTable,'igmpGroupEntry':igmpGroupEntry,_H:igmpGroupVlanId,_I:igmpGroupStatic,_J:igmpGroupAddress,'igmpGroupIncluded':igmpGroupIncluded,'igmpGroupStatus':igmpGroupStatus,'igmpRouterPortTable':igmpRouterPortTable,'igmpRouterPortEntry':igmpRouterPortEntry,_K:igmpRouterPortVlanId,_L:igmpRouterPortStatic,_M:igmpRouterPortCard,_N:igmpRouterPortPort,'igmpRouterPortStatus':igmpRouterPortStatus})
+#
+# PySNMP MIB module CENTILLION-MCAST-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/CENTILLION-MCAST-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:20 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+sysConfig, CardId, Boolean, PortId, StatusIndicator, EnableIndicator = mibBuilder.importSymbols("CENTILLION-ROOT-MIB", "sysConfig", "CardId", "Boolean", "PortId", "StatusIndicator", "EnableIndicator")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+class VlanId(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 4095)
+
+vlan = MibIdentifier((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31))
+vlanMcastProtocolGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1))
+vlanIGMPProtocolGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1))
+vlanIGMPConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1))
+igmpGeneralConfigTable = MibTable((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 1), )
+if mibBuilder.loadTexts: igmpGeneralConfigTable.setStatus('mandatory')
+igmpGeneralConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 1, 1), ).setIndexNames((0, "CENTILLION-MCAST-MIB", "igmpGeneralConfigVlanId"))
+if mibBuilder.loadTexts: igmpGeneralConfigEntry.setStatus('mandatory')
+igmpGeneralConfigVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 1, 1, 1), VlanId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: igmpGeneralConfigVlanId.setStatus('mandatory')
+igmpGeneralConfigPseudoQuery = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 1, 1, 2), EnableIndicator()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpGeneralConfigPseudoQuery.setStatus('mandatory')
+igmpGeneralConfigIrapQuery = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 1, 1, 3), EnableIndicator()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpGeneralConfigIrapQuery.setStatus('mandatory')
+igmpGeneralConfigIgmpSupport = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 1, 1, 4), EnableIndicator()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpGeneralConfigIgmpSupport.setStatus('mandatory')
+igmpGeneralConfigMaxGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpGeneralConfigMaxGroup.setStatus('mandatory')
+igmpTimerConfigTable = MibTable((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 2), )
+if mibBuilder.loadTexts: igmpTimerConfigTable.setStatus('mandatory')
+igmpTimerConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 2, 1), ).setIndexNames((0, "CENTILLION-MCAST-MIB", "igmpTimerConfigVlanId"))
+if mibBuilder.loadTexts: igmpTimerConfigEntry.setStatus('mandatory')
+igmpTimerConfigVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 2, 1, 1), VlanId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: igmpTimerConfigVlanId.setStatus('mandatory')
+igmpTimerConfigTimerRobustness = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 2, 1, 2), Integer32().clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpTimerConfigTimerRobustness.setStatus('mandatory')
+igmpTimerConfigQueryInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 2, 1, 3), Integer32().clone(125)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpTimerConfigQueryInterval.setStatus('mandatory')
+igmpTimerConfigQueryResponse = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 2, 1, 4), Integer32().clone(100)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpTimerConfigQueryResponse.setStatus('mandatory')
+igmpGroupTable = MibTable((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 3), )
+if mibBuilder.loadTexts: igmpGroupTable.setStatus('mandatory')
+igmpGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 3, 1), ).setIndexNames((0, "CENTILLION-MCAST-MIB", "igmpGroupVlanId"), (0, "CENTILLION-MCAST-MIB", "igmpGroupStatic"), (0, "CENTILLION-MCAST-MIB", "igmpGroupAddress"))
+if mibBuilder.loadTexts: igmpGroupEntry.setStatus('mandatory')
+igmpGroupVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 3, 1, 1), VlanId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: igmpGroupVlanId.setStatus('mandatory')
+igmpGroupStatic = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 3, 1, 2), Boolean()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: igmpGroupStatic.setStatus('mandatory')
+igmpGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 3, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: igmpGroupAddress.setStatus('mandatory')
+igmpGroupIncluded = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("included", 1), ("excluded", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpGroupIncluded.setStatus('mandatory')
+igmpGroupStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 3, 1, 5), StatusIndicator()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpGroupStatus.setStatus('mandatory')
+igmpRouterPortTable = MibTable((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 4), )
+if mibBuilder.loadTexts: igmpRouterPortTable.setStatus('mandatory')
+igmpRouterPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 4, 1), ).setIndexNames((0, "CENTILLION-MCAST-MIB", "igmpRouterPortVlanId"), (0, "CENTILLION-MCAST-MIB", "igmpRouterPortStatic"), (0, "CENTILLION-MCAST-MIB", "igmpRouterPortCard"), (0, "CENTILLION-MCAST-MIB", "igmpRouterPortPort"))
+if mibBuilder.loadTexts: igmpRouterPortEntry.setStatus('mandatory')
+igmpRouterPortVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 4, 1, 1), VlanId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: igmpRouterPortVlanId.setStatus('mandatory')
+igmpRouterPortStatic = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 4, 1, 2), Boolean()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: igmpRouterPortStatic.setStatus('mandatory')
+igmpRouterPortCard = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 4, 1, 3), CardId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: igmpRouterPortCard.setStatus('mandatory')
+igmpRouterPortPort = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 4, 1, 4), PortId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: igmpRouterPortPort.setStatus('mandatory')
+igmpRouterPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 1, 1, 1, 4, 1, 5), StatusIndicator()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: igmpRouterPortStatus.setStatus('mandatory')
+mibBuilder.exportSymbols("CENTILLION-MCAST-MIB", vlan=vlan, vlanIGMPConfig=vlanIGMPConfig, vlanIGMPProtocolGroup=vlanIGMPProtocolGroup, igmpGroupEntry=igmpGroupEntry, igmpTimerConfigTable=igmpTimerConfigTable, igmpGroupIncluded=igmpGroupIncluded, igmpGroupVlanId=igmpGroupVlanId, igmpGroupStatus=igmpGroupStatus, igmpTimerConfigQueryResponse=igmpTimerConfigQueryResponse, igmpTimerConfigTimerRobustness=igmpTimerConfigTimerRobustness, igmpGroupAddress=igmpGroupAddress, igmpGroupTable=igmpGroupTable, igmpRouterPortTable=igmpRouterPortTable, igmpRouterPortStatic=igmpRouterPortStatic, igmpGeneralConfigEntry=igmpGeneralConfigEntry, igmpGeneralConfigIgmpSupport=igmpGeneralConfigIgmpSupport, igmpGroupStatic=igmpGroupStatic, igmpRouterPortEntry=igmpRouterPortEntry, igmpTimerConfigEntry=igmpTimerConfigEntry, vlanMcastProtocolGroup=vlanMcastProtocolGroup, igmpRouterPortCard=igmpRouterPortCard, igmpRouterPortPort=igmpRouterPortPort, igmpGeneralConfigMaxGroup=igmpGeneralConfigMaxGroup, igmpRouterPortVlanId=igmpRouterPortVlanId, igmpGeneralConfigVlanId=igmpGeneralConfigVlanId, igmpGeneralConfigTable=igmpGeneralConfigTable, igmpRouterPortStatus=igmpRouterPortStatus, igmpGeneralConfigIrapQuery=igmpGeneralConfigIrapQuery, igmpTimerConfigQueryInterval=igmpTimerConfigQueryInterval, VlanId=VlanId, igmpGeneralConfigPseudoQuery=igmpGeneralConfigPseudoQuery, igmpTimerConfigVlanId=igmpTimerConfigVlanId)

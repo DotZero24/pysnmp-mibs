@@ -1,154 +1,72 @@
-_O='swSurveillanceVlanPortNumber'
-_N='swSurveillanceVlanOuiAddr'
-_M='network-storage'
-_L='video-encoder'
-_K='vms-client'
-_J='swSurveillanceVlanDevAddr'
-_I='swSurveillanceVlanDevPort'
-_H='disabled'
-_G='enabled'
-_F='read-create'
-_E='SURVEILLANCE-VLAN-MIB'
-_D='read-write'
-_C='read-only'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_common_mgmt,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-common-mgmt')
-PortList,VlanIdOrNone=mibBuilder.importSymbols('Q-BRIDGE-MIB','PortList','VlanIdOrNone')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TimeInterval,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TimeInterval','TruthValue')
-swSurveillanceVLANMIB=ModuleIdentity((1,3,6,1,4,1,171,12,102))
-_SwSurveillanceVLANNotifications_ObjectIdentity=ObjectIdentity
-swSurveillanceVLANNotifications=_SwSurveillanceVLANNotifications_ObjectIdentity((1,3,6,1,4,1,171,12,102,0))
-_SwSurveillanceVLANMIBObjects_ObjectIdentity=ObjectIdentity
-swSurveillanceVLANMIBObjects=_SwSurveillanceVLANMIBObjects_ObjectIdentity((1,3,6,1,4,1,171,12,102,1))
-_SwSurveillanceVlanCtrl_ObjectIdentity=ObjectIdentity
-swSurveillanceVlanCtrl=_SwSurveillanceVlanCtrl_ObjectIdentity((1,3,6,1,4,1,171,12,102,1,1))
-_SwSurveillanceVlanId_Type=VlanIdOrNone
-_SwSurveillanceVlanId_Object=MibScalar
-swSurveillanceVlanId=_SwSurveillanceVlanId_Object((1,3,6,1,4,1,171,12,102,1,1,1),_SwSurveillanceVlanId_Type())
-swSurveillanceVlanId.setMaxAccess(_D)
-if mibBuilder.loadTexts:swSurveillanceVlanId.setStatus(_A)
-class _SwSurveillanceVlanGlobalState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_SwSurveillanceVlanGlobalState_Type.__name__=_B
-_SwSurveillanceVlanGlobalState_Object=MibScalar
-swSurveillanceVlanGlobalState=_SwSurveillanceVlanGlobalState_Object((1,3,6,1,4,1,171,12,102,1,1,2),_SwSurveillanceVlanGlobalState_Type())
-swSurveillanceVlanGlobalState.setMaxAccess(_D)
-if mibBuilder.loadTexts:swSurveillanceVlanGlobalState.setStatus(_A)
-class _SwSurveillanceVlanPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_SwSurveillanceVlanPriority_Type.__name__=_B
-_SwSurveillanceVlanPriority_Object=MibScalar
-swSurveillanceVlanPriority=_SwSurveillanceVlanPriority_Object((1,3,6,1,4,1,171,12,102,1,1,3),_SwSurveillanceVlanPriority_Type())
-swSurveillanceVlanPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:swSurveillanceVlanPriority.setStatus(_A)
-class _SwSurveillanceVlanAgingTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_SwSurveillanceVlanAgingTime_Type.__name__=_B
-_SwSurveillanceVlanAgingTime_Object=MibScalar
-swSurveillanceVlanAgingTime=_SwSurveillanceVlanAgingTime_Object((1,3,6,1,4,1,171,12,102,1,1,4),_SwSurveillanceVlanAgingTime_Type())
-swSurveillanceVlanAgingTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:swSurveillanceVlanAgingTime.setStatus(_A)
-class _SwSurveillanceVlanLogState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_SwSurveillanceVlanLogState_Type.__name__=_B
-_SwSurveillanceVlanLogState_Object=MibScalar
-swSurveillanceVlanLogState=_SwSurveillanceVlanLogState_Object((1,3,6,1,4,1,171,12,102,1,1,5),_SwSurveillanceVlanLogState_Type())
-swSurveillanceVlanLogState.setMaxAccess(_D)
-if mibBuilder.loadTexts:swSurveillanceVlanLogState.setStatus(_A)
-_SwSurveillanceVlanInfo_ObjectIdentity=ObjectIdentity
-swSurveillanceVlanInfo=_SwSurveillanceVlanInfo_ObjectIdentity((1,3,6,1,4,1,171,12,102,1,2))
-_SwSurveillanceVlanMemberPortlist_Type=PortList
-_SwSurveillanceVlanMemberPortlist_Object=MibScalar
-swSurveillanceVlanMemberPortlist=_SwSurveillanceVlanMemberPortlist_Object((1,3,6,1,4,1,171,12,102,1,2,1),_SwSurveillanceVlanMemberPortlist_Type())
-swSurveillanceVlanMemberPortlist.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSurveillanceVlanMemberPortlist.setStatus(_A)
-_SwSurveillanceVlanDynamicPortlist_Type=PortList
-_SwSurveillanceVlanDynamicPortlist_Object=MibScalar
-swSurveillanceVlanDynamicPortlist=_SwSurveillanceVlanDynamicPortlist_Object((1,3,6,1,4,1,171,12,102,1,2,2),_SwSurveillanceVlanDynamicPortlist_Type())
-swSurveillanceVlanDynamicPortlist.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSurveillanceVlanDynamicPortlist.setStatus(_A)
-_SwSurveillanceVlanDeviceTable_Object=MibTable
-swSurveillanceVlanDeviceTable=_SwSurveillanceVlanDeviceTable_Object((1,3,6,1,4,1,171,12,102,1,2,3))
-if mibBuilder.loadTexts:swSurveillanceVlanDeviceTable.setStatus(_A)
-_SwSurveillanceVlanDeviceEntry_Object=MibTableRow
-swSurveillanceVlanDeviceEntry=_SwSurveillanceVlanDeviceEntry_Object((1,3,6,1,4,1,171,12,102,1,2,3,1))
-swSurveillanceVlanDeviceEntry.setIndexNames((0,_E,_I),(0,_E,_J))
-if mibBuilder.loadTexts:swSurveillanceVlanDeviceEntry.setStatus(_A)
-_SwSurveillanceVlanDevPort_Type=Integer32
-_SwSurveillanceVlanDevPort_Object=MibTableColumn
-swSurveillanceVlanDevPort=_SwSurveillanceVlanDevPort_Object((1,3,6,1,4,1,171,12,102,1,2,3,1,1),_SwSurveillanceVlanDevPort_Type())
-swSurveillanceVlanDevPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSurveillanceVlanDevPort.setStatus(_A)
-_SwSurveillanceVlanDevAddr_Type=MacAddress
-_SwSurveillanceVlanDevAddr_Object=MibTableColumn
-swSurveillanceVlanDevAddr=_SwSurveillanceVlanDevAddr_Object((1,3,6,1,4,1,171,12,102,1,2,3,1,2),_SwSurveillanceVlanDevAddr_Type())
-swSurveillanceVlanDevAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSurveillanceVlanDevAddr.setStatus(_A)
-class _SwSurveillanceVlanDevComponentType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('vms',1),(_K,2),(_L,3),(_M,4),('other',5)))
-_SwSurveillanceVlanDevComponentType_Type.__name__=_B
-_SwSurveillanceVlanDevComponentType_Object=MibTableColumn
-swSurveillanceVlanDevComponentType=_SwSurveillanceVlanDevComponentType_Object((1,3,6,1,4,1,171,12,102,1,2,3,1,3),_SwSurveillanceVlanDevComponentType_Type())
-swSurveillanceVlanDevComponentType.setMaxAccess(_F)
-if mibBuilder.loadTexts:swSurveillanceVlanDevComponentType.setStatus(_A)
-_SwSurveillanceVlanDevStartTime_Type=DateAndTime
-_SwSurveillanceVlanDevStartTime_Object=MibTableColumn
-swSurveillanceVlanDevStartTime=_SwSurveillanceVlanDevStartTime_Object((1,3,6,1,4,1,171,12,102,1,2,3,1,4),_SwSurveillanceVlanDevStartTime_Type())
-swSurveillanceVlanDevStartTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSurveillanceVlanDevStartTime.setStatus(_A)
-_SwSurveillanceVlanMgmt_ObjectIdentity=ObjectIdentity
-swSurveillanceVlanMgmt=_SwSurveillanceVlanMgmt_ObjectIdentity((1,3,6,1,4,1,171,12,102,1,3))
-_SwSurveillanceVlanOuiTable_Object=MibTable
-swSurveillanceVlanOuiTable=_SwSurveillanceVlanOuiTable_Object((1,3,6,1,4,1,171,12,102,1,3,1))
-if mibBuilder.loadTexts:swSurveillanceVlanOuiTable.setStatus(_A)
-_SwSurveillanceVlanOuiEntry_Object=MibTableRow
-swSurveillanceVlanOuiEntry=_SwSurveillanceVlanOuiEntry_Object((1,3,6,1,4,1,171,12,102,1,3,1,1))
-swSurveillanceVlanOuiEntry.setIndexNames((0,_E,_N))
-if mibBuilder.loadTexts:swSurveillanceVlanOuiEntry.setStatus(_A)
-_SwSurveillanceVlanOuiAddr_Type=MacAddress
-_SwSurveillanceVlanOuiAddr_Object=MibTableColumn
-swSurveillanceVlanOuiAddr=_SwSurveillanceVlanOuiAddr_Object((1,3,6,1,4,1,171,12,102,1,3,1,1,1),_SwSurveillanceVlanOuiAddr_Type())
-swSurveillanceVlanOuiAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSurveillanceVlanOuiAddr.setStatus(_A)
-_SwSurveillanceVlanOuiMask_Type=MacAddress
-_SwSurveillanceVlanOuiMask_Object=MibTableColumn
-swSurveillanceVlanOuiMask=_SwSurveillanceVlanOuiMask_Object((1,3,6,1,4,1,171,12,102,1,3,1,1,2),_SwSurveillanceVlanOuiMask_Type())
-swSurveillanceVlanOuiMask.setMaxAccess(_F)
-if mibBuilder.loadTexts:swSurveillanceVlanOuiMask.setStatus(_A)
-class _SwSurveillanceVlanOuiComponentType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('vms',1),(_K,2),(_L,3),(_M,4),('other',5)))
-_SwSurveillanceVlanOuiComponentType_Type.__name__=_B
-_SwSurveillanceVlanOuiComponentType_Object=MibTableColumn
-swSurveillanceVlanOuiComponentType=_SwSurveillanceVlanOuiComponentType_Object((1,3,6,1,4,1,171,12,102,1,3,1,1,3),_SwSurveillanceVlanOuiComponentType_Type())
-swSurveillanceVlanOuiComponentType.setMaxAccess(_F)
-if mibBuilder.loadTexts:swSurveillanceVlanOuiComponentType.setStatus(_A)
-_SwSurveillanceVlanOuiDes_Type=DisplayString
-_SwSurveillanceVlanOuiDes_Object=MibTableColumn
-swSurveillanceVlanOuiDes=_SwSurveillanceVlanOuiDes_Object((1,3,6,1,4,1,171,12,102,1,3,1,1,4),_SwSurveillanceVlanOuiDes_Type())
-swSurveillanceVlanOuiDes.setMaxAccess(_F)
-if mibBuilder.loadTexts:swSurveillanceVlanOuiDes.setStatus(_A)
-_SwSurveillanceVlanOuiRowStatus_Type=RowStatus
-_SwSurveillanceVlanOuiRowStatus_Object=MibTableColumn
-swSurveillanceVlanOuiRowStatus=_SwSurveillanceVlanOuiRowStatus_Object((1,3,6,1,4,1,171,12,102,1,3,1,1,5),_SwSurveillanceVlanOuiRowStatus_Type())
-swSurveillanceVlanOuiRowStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:swSurveillanceVlanOuiRowStatus.setStatus(_A)
-_SwSurveillanceVlanPortTable_Object=MibTable
-swSurveillanceVlanPortTable=_SwSurveillanceVlanPortTable_Object((1,3,6,1,4,1,171,12,102,1,3,2))
-if mibBuilder.loadTexts:swSurveillanceVlanPortTable.setStatus(_A)
-_SwSurveillanceVlanPortEntry_Object=MibTableRow
-swSurveillanceVlanPortEntry=_SwSurveillanceVlanPortEntry_Object((1,3,6,1,4,1,171,12,102,1,3,2,1))
-swSurveillanceVlanPortEntry.setIndexNames((0,_E,_O))
-if mibBuilder.loadTexts:swSurveillanceVlanPortEntry.setStatus(_A)
-_SwSurveillanceVlanPortNumber_Type=Integer32
-_SwSurveillanceVlanPortNumber_Object=MibTableColumn
-swSurveillanceVlanPortNumber=_SwSurveillanceVlanPortNumber_Object((1,3,6,1,4,1,171,12,102,1,3,2,1,1),_SwSurveillanceVlanPortNumber_Type())
-swSurveillanceVlanPortNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:swSurveillanceVlanPortNumber.setStatus(_A)
-class _SwSurveillanceVlanPortState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_SwSurveillanceVlanPortState_Type.__name__=_B
-_SwSurveillanceVlanPortState_Object=MibTableColumn
-swSurveillanceVlanPortState=_SwSurveillanceVlanPortState_Object((1,3,6,1,4,1,171,12,102,1,3,2,1,2),_SwSurveillanceVlanPortState_Type())
-swSurveillanceVlanPortState.setMaxAccess(_D)
-if mibBuilder.loadTexts:swSurveillanceVlanPortState.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'swSurveillanceVLANMIB':swSurveillanceVLANMIB,'swSurveillanceVLANNotifications':swSurveillanceVLANNotifications,'swSurveillanceVLANMIBObjects':swSurveillanceVLANMIBObjects,'swSurveillanceVlanCtrl':swSurveillanceVlanCtrl,'swSurveillanceVlanId':swSurveillanceVlanId,'swSurveillanceVlanGlobalState':swSurveillanceVlanGlobalState,'swSurveillanceVlanPriority':swSurveillanceVlanPriority,'swSurveillanceVlanAgingTime':swSurveillanceVlanAgingTime,'swSurveillanceVlanLogState':swSurveillanceVlanLogState,'swSurveillanceVlanInfo':swSurveillanceVlanInfo,'swSurveillanceVlanMemberPortlist':swSurveillanceVlanMemberPortlist,'swSurveillanceVlanDynamicPortlist':swSurveillanceVlanDynamicPortlist,'swSurveillanceVlanDeviceTable':swSurveillanceVlanDeviceTable,'swSurveillanceVlanDeviceEntry':swSurveillanceVlanDeviceEntry,_I:swSurveillanceVlanDevPort,_J:swSurveillanceVlanDevAddr,'swSurveillanceVlanDevComponentType':swSurveillanceVlanDevComponentType,'swSurveillanceVlanDevStartTime':swSurveillanceVlanDevStartTime,'swSurveillanceVlanMgmt':swSurveillanceVlanMgmt,'swSurveillanceVlanOuiTable':swSurveillanceVlanOuiTable,'swSurveillanceVlanOuiEntry':swSurveillanceVlanOuiEntry,_N:swSurveillanceVlanOuiAddr,'swSurveillanceVlanOuiMask':swSurveillanceVlanOuiMask,'swSurveillanceVlanOuiComponentType':swSurveillanceVlanOuiComponentType,'swSurveillanceVlanOuiDes':swSurveillanceVlanOuiDes,'swSurveillanceVlanOuiRowStatus':swSurveillanceVlanOuiRowStatus,'swSurveillanceVlanPortTable':swSurveillanceVlanPortTable,'swSurveillanceVlanPortEntry':swSurveillanceVlanPortEntry,_O:swSurveillanceVlanPortNumber,'swSurveillanceVlanPortState':swSurveillanceVlanPortState})
+#
+# PySNMP MIB module SURVEILLANCE-VLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/SURVEILLANCE-VLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:33:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
+PortList, VlanIdOrNone = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList", "VlanIdOrNone")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TimeInterval, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+swSurveillanceVLANMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 102))
+if mibBuilder.loadTexts: swSurveillanceVLANMIB.setLastUpdated('201109190000Z')
+if mibBuilder.loadTexts: swSurveillanceVLANMIB.setOrganization('D-Link Corp.')
+swSurveillanceVLANNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 102, 0))
+swSurveillanceVLANMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 102, 1))
+swSurveillanceVlanCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 1))
+swSurveillanceVlanInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 2))
+swSurveillanceVlanMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 3))
+swSurveillanceVlanId = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 1, 1), VlanIdOrNone()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSurveillanceVlanId.setStatus('current')
+swSurveillanceVlanGlobalState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSurveillanceVlanGlobalState.setStatus('current')
+swSurveillanceVlanPriority = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSurveillanceVlanPriority.setStatus('current')
+swSurveillanceVlanAgingTime = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSurveillanceVlanAgingTime.setStatus('current')
+swSurveillanceVlanLogState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSurveillanceVlanLogState.setStatus('current')
+swSurveillanceVlanMemberPortlist = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 2, 1), PortList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSurveillanceVlanMemberPortlist.setStatus('current')
+swSurveillanceVlanDynamicPortlist = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 2, 2), PortList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSurveillanceVlanDynamicPortlist.setStatus('current')
+swSurveillanceVlanDeviceTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 2, 3), )
+if mibBuilder.loadTexts: swSurveillanceVlanDeviceTable.setStatus('current')
+swSurveillanceVlanDeviceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 2, 3, 1), ).setIndexNames((0, "SURVEILLANCE-VLAN-MIB", "swSurveillanceVlanDevPort"), (0, "SURVEILLANCE-VLAN-MIB", "swSurveillanceVlanDevAddr"))
+if mibBuilder.loadTexts: swSurveillanceVlanDeviceEntry.setStatus('current')
+swSurveillanceVlanDevPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 2, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSurveillanceVlanDevPort.setStatus('current')
+swSurveillanceVlanDevAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 2, 3, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSurveillanceVlanDevAddr.setStatus('current')
+swSurveillanceVlanDevComponentType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 2, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("vms", 1), ("vms-client", 2), ("video-encoder", 3), ("network-storage", 4), ("other", 5)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swSurveillanceVlanDevComponentType.setStatus('current')
+swSurveillanceVlanDevStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 2, 3, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSurveillanceVlanDevStartTime.setStatus('current')
+swSurveillanceVlanOuiTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 3, 1), )
+if mibBuilder.loadTexts: swSurveillanceVlanOuiTable.setStatus('current')
+swSurveillanceVlanOuiEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 3, 1, 1), ).setIndexNames((0, "SURVEILLANCE-VLAN-MIB", "swSurveillanceVlanOuiAddr"))
+if mibBuilder.loadTexts: swSurveillanceVlanOuiEntry.setStatus('current')
+swSurveillanceVlanOuiAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 3, 1, 1, 1), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSurveillanceVlanOuiAddr.setStatus('current')
+swSurveillanceVlanOuiMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 3, 1, 1, 2), MacAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swSurveillanceVlanOuiMask.setStatus('current')
+swSurveillanceVlanOuiComponentType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("vms", 1), ("vms-client", 2), ("video-encoder", 3), ("network-storage", 4), ("other", 5)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swSurveillanceVlanOuiComponentType.setStatus('current')
+swSurveillanceVlanOuiDes = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 3, 1, 1, 4), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swSurveillanceVlanOuiDes.setStatus('current')
+swSurveillanceVlanOuiRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 3, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: swSurveillanceVlanOuiRowStatus.setStatus('current')
+swSurveillanceVlanPortTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 3, 2), )
+if mibBuilder.loadTexts: swSurveillanceVlanPortTable.setStatus('current')
+swSurveillanceVlanPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 3, 2, 1), ).setIndexNames((0, "SURVEILLANCE-VLAN-MIB", "swSurveillanceVlanPortNumber"))
+if mibBuilder.loadTexts: swSurveillanceVlanPortEntry.setStatus('current')
+swSurveillanceVlanPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 3, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSurveillanceVlanPortNumber.setStatus('current')
+swSurveillanceVlanPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 102, 1, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSurveillanceVlanPortState.setStatus('current')
+mibBuilder.exportSymbols("SURVEILLANCE-VLAN-MIB", swSurveillanceVLANMIB=swSurveillanceVLANMIB, swSurveillanceVlanDeviceEntry=swSurveillanceVlanDeviceEntry, swSurveillanceVlanDevAddr=swSurveillanceVlanDevAddr, swSurveillanceVlanOuiMask=swSurveillanceVlanOuiMask, swSurveillanceVlanPriority=swSurveillanceVlanPriority, swSurveillanceVlanDeviceTable=swSurveillanceVlanDeviceTable, swSurveillanceVlanOuiRowStatus=swSurveillanceVlanOuiRowStatus, swSurveillanceVlanMemberPortlist=swSurveillanceVlanMemberPortlist, swSurveillanceVLANMIBObjects=swSurveillanceVLANMIBObjects, swSurveillanceVlanGlobalState=swSurveillanceVlanGlobalState, swSurveillanceVlanOuiEntry=swSurveillanceVlanOuiEntry, PYSNMP_MODULE_ID=swSurveillanceVLANMIB, swSurveillanceVlanCtrl=swSurveillanceVlanCtrl, swSurveillanceVlanAgingTime=swSurveillanceVlanAgingTime, swSurveillanceVlanPortEntry=swSurveillanceVlanPortEntry, swSurveillanceVlanDevComponentType=swSurveillanceVlanDevComponentType, swSurveillanceVlanPortTable=swSurveillanceVlanPortTable, swSurveillanceVlanDevPort=swSurveillanceVlanDevPort, swSurveillanceVlanMgmt=swSurveillanceVlanMgmt, swSurveillanceVlanDevStartTime=swSurveillanceVlanDevStartTime, swSurveillanceVlanOuiAddr=swSurveillanceVlanOuiAddr, swSurveillanceVlanInfo=swSurveillanceVlanInfo, swSurveillanceVlanLogState=swSurveillanceVlanLogState, swSurveillanceVlanDynamicPortlist=swSurveillanceVlanDynamicPortlist, swSurveillanceVlanPortState=swSurveillanceVlanPortState, swSurveillanceVlanPortNumber=swSurveillanceVlanPortNumber, swSurveillanceVLANNotifications=swSurveillanceVLANNotifications, swSurveillanceVlanOuiTable=swSurveillanceVlanOuiTable, swSurveillanceVlanId=swSurveillanceVlanId, swSurveillanceVlanOuiDes=swSurveillanceVlanOuiDes, swSurveillanceVlanOuiComponentType=swSurveillanceVlanOuiComponentType)

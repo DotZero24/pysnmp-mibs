@@ -1,50 +1,35 @@
-_F='DisplayString'
-_E='Integer32'
-_D='hpnicfContextName'
-_C='hpnicfContextIndex'
-_B='HPN-ICF-CONTEXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpnicfCommon,=mibBuilder.importSymbols('HPN-ICF-OID-MIB','hpnicfCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_F,'PhysAddress','TextualConvention')
-hpnicfContext=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,15,2,154))
-if mibBuilder.loadTexts:hpnicfContext.setRevisions(('2014-03-18 00:00',))
-_HpnicfContextTables_ObjectIdentity=ObjectIdentity
-hpnicfContextTables=_HpnicfContextTables_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,154,1))
-_HpnicfContextControl_ObjectIdentity=ObjectIdentity
-hpnicfContextControl=_HpnicfContextControl_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,154,1,1))
-_HpnicfContextControlTable_Object=MibTable
-hpnicfContextControlTable=_HpnicfContextControlTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,154,1,1,1))
-if mibBuilder.loadTexts:hpnicfContextControlTable.setStatus(_A)
-_HpnicfContextControlEntry_Object=MibTableRow
-hpnicfContextControlEntry=_HpnicfContextControlEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,154,1,1,1,1))
-hpnicfContextControlEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:hpnicfContextControlEntry.setStatus(_A)
-class _HpnicfContextIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_HpnicfContextIndex_Type.__name__=_E
-_HpnicfContextIndex_Object=MibTableColumn
-hpnicfContextIndex=_HpnicfContextIndex_Object((1,3,6,1,4,1,11,2,14,11,15,2,154,1,1,1,1,1),_HpnicfContextIndex_Type())
-hpnicfContextIndex.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:hpnicfContextIndex.setStatus(_A)
-class _HpnicfContextName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,15))
-_HpnicfContextName_Type.__name__=_F
-_HpnicfContextName_Object=MibTableColumn
-hpnicfContextName=_HpnicfContextName_Object((1,3,6,1,4,1,11,2,14,11,15,2,154,1,1,1,1,2),_HpnicfContextName_Type())
-hpnicfContextName.setMaxAccess('read-only')
-if mibBuilder.loadTexts:hpnicfContextName.setStatus(_A)
-_HpnicfContextNotification_ObjectIdentity=ObjectIdentity
-hpnicfContextNotification=_HpnicfContextNotification_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,154,8))
-_HpnicfContextNotificationObjects_ObjectIdentity=ObjectIdentity
-hpnicfContextNotificationObjects=_HpnicfContextNotificationObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,154,8,0))
-hpnicfContextStateChangeToActive=NotificationType((1,3,6,1,4,1,11,2,14,11,15,2,154,8,0,1))
-hpnicfContextStateChangeToActive.setObjects(*((_B,_C),(_B,_D)))
-if mibBuilder.loadTexts:hpnicfContextStateChangeToActive.setStatus(_A)
-hpnicfContextStateChangeToInactive=NotificationType((1,3,6,1,4,1,11,2,14,11,15,2,154,8,0,2))
-hpnicfContextStateChangeToInactive.setObjects(*((_B,_C),(_B,_D)))
-if mibBuilder.loadTexts:hpnicfContextStateChangeToInactive.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'hpnicfContext':hpnicfContext,'hpnicfContextTables':hpnicfContextTables,'hpnicfContextControl':hpnicfContextControl,'hpnicfContextControlTable':hpnicfContextControlTable,'hpnicfContextControlEntry':hpnicfContextControlEntry,_C:hpnicfContextIndex,_D:hpnicfContextName,'hpnicfContextNotification':hpnicfContextNotification,'hpnicfContextNotificationObjects':hpnicfContextNotificationObjects,'hpnicfContextStateChangeToActive':hpnicfContextStateChangeToActive,'hpnicfContextStateChangeToInactive':hpnicfContextStateChangeToInactive})
+#
+# PySNMP MIB module HPN-ICF-CONTEXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-CONTEXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:20 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hpnicfContext = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 154))
+hpnicfContext.setRevisions(('2014-03-18 00:00',))
+if mibBuilder.loadTexts: hpnicfContext.setLastUpdated('201403180000Z')
+if mibBuilder.loadTexts: hpnicfContext.setOrganization('')
+hpnicfContextTables = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 154, 1))
+hpnicfContextControl = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 154, 1, 1))
+hpnicfContextControlTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 154, 1, 1, 1), )
+if mibBuilder.loadTexts: hpnicfContextControlTable.setStatus('current')
+hpnicfContextControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 154, 1, 1, 1, 1), ).setIndexNames((0, "HPN-ICF-CONTEXT-MIB", "hpnicfContextIndex"))
+if mibBuilder.loadTexts: hpnicfContextControlEntry.setStatus('current')
+hpnicfContextIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 154, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: hpnicfContextIndex.setStatus('current')
+hpnicfContextName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 154, 1, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfContextName.setStatus('current')
+hpnicfContextNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 154, 8))
+hpnicfContextNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 154, 8, 0))
+hpnicfContextStateChangeToActive = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 154, 8, 0, 1)).setObjects(("HPN-ICF-CONTEXT-MIB", "hpnicfContextIndex"), ("HPN-ICF-CONTEXT-MIB", "hpnicfContextName"))
+if mibBuilder.loadTexts: hpnicfContextStateChangeToActive.setStatus('current')
+hpnicfContextStateChangeToInactive = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 154, 8, 0, 2)).setObjects(("HPN-ICF-CONTEXT-MIB", "hpnicfContextIndex"), ("HPN-ICF-CONTEXT-MIB", "hpnicfContextName"))
+if mibBuilder.loadTexts: hpnicfContextStateChangeToInactive.setStatus('current')
+mibBuilder.exportSymbols("HPN-ICF-CONTEXT-MIB", PYSNMP_MODULE_ID=hpnicfContext, hpnicfContext=hpnicfContext, hpnicfContextTables=hpnicfContextTables, hpnicfContextControl=hpnicfContextControl, hpnicfContextNotification=hpnicfContextNotification, hpnicfContextNotificationObjects=hpnicfContextNotificationObjects, hpnicfContextControlEntry=hpnicfContextControlEntry, hpnicfContextControlTable=hpnicfContextControlTable, hpnicfContextStateChangeToActive=hpnicfContextStateChangeToActive, hpnicfContextStateChangeToInactive=hpnicfContextStateChangeToInactive, hpnicfContextName=hpnicfContextName, hpnicfContextIndex=hpnicfContextIndex)

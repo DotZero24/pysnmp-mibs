@@ -1,56 +1,40 @@
-_M='dot1dStpPortOperEdgePort'
-_L='RSTP-MIB'
-_K='current'
-_J='cienaGlobalSeverity'
-_I='cienaGlobalMacAddress'
-_H='cienaCesPortPgIdMappingNotifSlotIndex'
-_G='cienaCesPortPgIdMappingNotifShelfIndex'
-_F='cienaCesPortPgIdMappingNotifPortNumber'
-_E='cienaCesPortPgIdMappingNotifChassisIndex'
-_D='dot1dStpPort'
-_C='BRIDGE-MIB'
-_B='CIENA-GLOBAL-MIB'
-_A='CIENA-CES-PORT-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dStpPort,=mibBuilder.importSymbols(_C,_D)
-cienaCesPortPgIdMappingNotifChassisIndex,cienaCesPortPgIdMappingNotifPortNumber,cienaCesPortPgIdMappingNotifShelfIndex,cienaCesPortPgIdMappingNotifSlotIndex=mibBuilder.importSymbols(_A,_E,_F,_G,_H)
-cienaGlobalMacAddress,cienaGlobalSeverity=mibBuilder.importSymbols(_B,_I,_J)
-cienaCesConfig,cienaCesNotifications=mibBuilder.importSymbols('CIENA-SMI','cienaCesConfig','cienaCesNotifications')
-dot1dStpPortOperEdgePort,=mibBuilder.importSymbols(_L,_M)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-cienaCesRstpMIB=ModuleIdentity((1,3,6,1,4,1,1271,2,1,10))
-if mibBuilder.loadTexts:cienaCesRstpMIB.setRevisions(('2010-03-28 00:00',))
-_CienaCesRstpMIBConformance_ObjectIdentity=ObjectIdentity
-cienaCesRstpMIBConformance=_CienaCesRstpMIBConformance_ObjectIdentity((1,3,6,1,4,1,1271,2,1,10,2))
-_CienaCesRstpMIBCompliances_ObjectIdentity=ObjectIdentity
-cienaCesRstpMIBCompliances=_CienaCesRstpMIBCompliances_ObjectIdentity((1,3,6,1,4,1,1271,2,1,10,2,1))
-_CienaCesRstpMIBGroups_ObjectIdentity=ObjectIdentity
-cienaCesRstpMIBGroups=_CienaCesRstpMIBGroups_ObjectIdentity((1,3,6,1,4,1,1271,2,1,10,2,2))
-_CienaCesRstpMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
-cienaCesRstpMIBNotificationPrefix=_CienaCesRstpMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,1271,2,2,10))
-_CienaCesRstpMIBNotifications_ObjectIdentity=ObjectIdentity
-cienaCesRstpMIBNotifications=_CienaCesRstpMIBNotifications_ObjectIdentity((1,3,6,1,4,1,1271,2,2,10,0))
-cienaCesRstpPortBackupNotification=NotificationType((1,3,6,1,4,1,1271,2,2,10,0,1))
-cienaCesRstpPortBackupNotification.setObjects(*((_B,_J),(_B,_I),(_A,_E),(_A,_G),(_A,_H),(_A,_F),(_C,_D)))
-if mibBuilder.loadTexts:cienaCesRstpPortBackupNotification.setStatus(_K)
-cienaCesRstpPvstBpduReceivedNotification=NotificationType((1,3,6,1,4,1,1271,2,2,10,0,2))
-cienaCesRstpPvstBpduReceivedNotification.setObjects(*((_B,_J),(_B,_I),(_A,_E),(_A,_G),(_A,_H),(_A,_F),(_C,_D)))
-if mibBuilder.loadTexts:cienaCesRstpPvstBpduReceivedNotification.setStatus(_K)
-cienaCesRstpSelfLoopNotification=NotificationType((1,3,6,1,4,1,1271,2,2,10,0,3))
-cienaCesRstpSelfLoopNotification.setObjects(*((_B,_J),(_B,_I),(_A,_E),(_A,_G),(_A,_H),(_A,_F),(_C,_D)))
-if mibBuilder.loadTexts:cienaCesRstpSelfLoopNotification.setStatus(_K)
-cienaCesRstpPortOperEdgeNotification=NotificationType((1,3,6,1,4,1,1271,2,2,10,0,4))
-cienaCesRstpPortOperEdgeNotification.setObjects(*((_B,_J),(_B,_I),(_A,_E),(_A,_G),(_A,_H),(_A,_F),(_C,_D),(_L,_M)))
-if mibBuilder.loadTexts:cienaCesRstpPortOperEdgeNotification.setStatus(_K)
-cienaCesRstpPortFlapNotification=NotificationType((1,3,6,1,4,1,1271,2,2,10,0,5))
-cienaCesRstpPortFlapNotification.setObjects(*((_B,_J),(_B,_I),(_A,_E),(_A,_G),(_A,_H),(_A,_F),(_C,_D)))
-if mibBuilder.loadTexts:cienaCesRstpPortFlapNotification.setStatus(_K)
-cienaCesRstpBridgeRootPortLostNotification=NotificationType((1,3,6,1,4,1,1271,2,2,10,0,6))
-cienaCesRstpBridgeRootPortLostNotification.setObjects(*((_B,_J),(_B,_I),(_A,_E),(_A,_G),(_A,_H),(_A,_F),(_C,_D)))
-if mibBuilder.loadTexts:cienaCesRstpBridgeRootPortLostNotification.setStatus(_K)
-mibBuilder.exportSymbols('CIENA-CES-RSTP-MIB',**{'cienaCesRstpMIB':cienaCesRstpMIB,'cienaCesRstpMIBConformance':cienaCesRstpMIBConformance,'cienaCesRstpMIBCompliances':cienaCesRstpMIBCompliances,'cienaCesRstpMIBGroups':cienaCesRstpMIBGroups,'cienaCesRstpMIBNotificationPrefix':cienaCesRstpMIBNotificationPrefix,'cienaCesRstpMIBNotifications':cienaCesRstpMIBNotifications,'cienaCesRstpPortBackupNotification':cienaCesRstpPortBackupNotification,'cienaCesRstpPvstBpduReceivedNotification':cienaCesRstpPvstBpduReceivedNotification,'cienaCesRstpSelfLoopNotification':cienaCesRstpSelfLoopNotification,'cienaCesRstpPortOperEdgeNotification':cienaCesRstpPortOperEdgeNotification,'cienaCesRstpPortFlapNotification':cienaCesRstpPortFlapNotification,'cienaCesRstpBridgeRootPortLostNotification':cienaCesRstpBridgeRootPortLostNotification})
+#
+# PySNMP MIB module CIENA-CES-RSTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/CIENA-CES-RSTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:03 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dStpPort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dStpPort")
+cienaCesPortPgIdMappingNotifSlotIndex, cienaCesPortPgIdMappingNotifChassisIndex, cienaCesPortPgIdMappingNotifShelfIndex, cienaCesPortPgIdMappingNotifPortNumber = mibBuilder.importSymbols("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifSlotIndex", "cienaCesPortPgIdMappingNotifChassisIndex", "cienaCesPortPgIdMappingNotifShelfIndex", "cienaCesPortPgIdMappingNotifPortNumber")
+cienaGlobalSeverity, cienaGlobalMacAddress = mibBuilder.importSymbols("CIENA-GLOBAL-MIB", "cienaGlobalSeverity", "cienaGlobalMacAddress")
+cienaCesConfig, cienaCesNotifications = mibBuilder.importSymbols("CIENA-SMI", "cienaCesConfig", "cienaCesNotifications")
+dot1dStpPortOperEdgePort, = mibBuilder.importSymbols("RSTP-MIB", "dot1dStpPortOperEdgePort")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+cienaCesRstpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1271, 2, 1, 10))
+cienaCesRstpMIB.setRevisions(('2010-03-28 00:00',))
+if mibBuilder.loadTexts: cienaCesRstpMIB.setLastUpdated('201003280000Z')
+if mibBuilder.loadTexts: cienaCesRstpMIB.setOrganization('Ciena Corp.')
+cienaCesRstpMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 2, 10))
+cienaCesRstpMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 2, 10, 0))
+cienaCesRstpMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 1, 10, 2))
+cienaCesRstpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 1, 10, 2, 1))
+cienaCesRstpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1271, 2, 1, 10, 2, 2))
+cienaCesRstpPortBackupNotification = NotificationType((1, 3, 6, 1, 4, 1, 1271, 2, 2, 10, 0, 1)).setObjects(("CIENA-GLOBAL-MIB", "cienaGlobalSeverity"), ("CIENA-GLOBAL-MIB", "cienaGlobalMacAddress"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifChassisIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifShelfIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifSlotIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifPortNumber"), ("BRIDGE-MIB", "dot1dStpPort"))
+if mibBuilder.loadTexts: cienaCesRstpPortBackupNotification.setStatus('current')
+cienaCesRstpPvstBpduReceivedNotification = NotificationType((1, 3, 6, 1, 4, 1, 1271, 2, 2, 10, 0, 2)).setObjects(("CIENA-GLOBAL-MIB", "cienaGlobalSeverity"), ("CIENA-GLOBAL-MIB", "cienaGlobalMacAddress"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifChassisIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifShelfIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifSlotIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifPortNumber"), ("BRIDGE-MIB", "dot1dStpPort"))
+if mibBuilder.loadTexts: cienaCesRstpPvstBpduReceivedNotification.setStatus('current')
+cienaCesRstpSelfLoopNotification = NotificationType((1, 3, 6, 1, 4, 1, 1271, 2, 2, 10, 0, 3)).setObjects(("CIENA-GLOBAL-MIB", "cienaGlobalSeverity"), ("CIENA-GLOBAL-MIB", "cienaGlobalMacAddress"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifChassisIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifShelfIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifSlotIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifPortNumber"), ("BRIDGE-MIB", "dot1dStpPort"))
+if mibBuilder.loadTexts: cienaCesRstpSelfLoopNotification.setStatus('current')
+cienaCesRstpPortOperEdgeNotification = NotificationType((1, 3, 6, 1, 4, 1, 1271, 2, 2, 10, 0, 4)).setObjects(("CIENA-GLOBAL-MIB", "cienaGlobalSeverity"), ("CIENA-GLOBAL-MIB", "cienaGlobalMacAddress"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifChassisIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifShelfIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifSlotIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifPortNumber"), ("BRIDGE-MIB", "dot1dStpPort"), ("RSTP-MIB", "dot1dStpPortOperEdgePort"))
+if mibBuilder.loadTexts: cienaCesRstpPortOperEdgeNotification.setStatus('current')
+cienaCesRstpPortFlapNotification = NotificationType((1, 3, 6, 1, 4, 1, 1271, 2, 2, 10, 0, 5)).setObjects(("CIENA-GLOBAL-MIB", "cienaGlobalSeverity"), ("CIENA-GLOBAL-MIB", "cienaGlobalMacAddress"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifChassisIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifShelfIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifSlotIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifPortNumber"), ("BRIDGE-MIB", "dot1dStpPort"))
+if mibBuilder.loadTexts: cienaCesRstpPortFlapNotification.setStatus('current')
+cienaCesRstpBridgeRootPortLostNotification = NotificationType((1, 3, 6, 1, 4, 1, 1271, 2, 2, 10, 0, 6)).setObjects(("CIENA-GLOBAL-MIB", "cienaGlobalSeverity"), ("CIENA-GLOBAL-MIB", "cienaGlobalMacAddress"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifChassisIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifShelfIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifSlotIndex"), ("CIENA-CES-PORT-MIB", "cienaCesPortPgIdMappingNotifPortNumber"), ("BRIDGE-MIB", "dot1dStpPort"))
+if mibBuilder.loadTexts: cienaCesRstpBridgeRootPortLostNotification.setStatus('current')
+mibBuilder.exportSymbols("CIENA-CES-RSTP-MIB", PYSNMP_MODULE_ID=cienaCesRstpMIB, cienaCesRstpSelfLoopNotification=cienaCesRstpSelfLoopNotification, cienaCesRstpPortFlapNotification=cienaCesRstpPortFlapNotification, cienaCesRstpMIBCompliances=cienaCesRstpMIBCompliances, cienaCesRstpPvstBpduReceivedNotification=cienaCesRstpPvstBpduReceivedNotification, cienaCesRstpMIBConformance=cienaCesRstpMIBConformance, cienaCesRstpMIBNotifications=cienaCesRstpMIBNotifications, cienaCesRstpMIB=cienaCesRstpMIB, cienaCesRstpBridgeRootPortLostNotification=cienaCesRstpBridgeRootPortLostNotification, cienaCesRstpPortBackupNotification=cienaCesRstpPortBackupNotification, cienaCesRstpMIBGroups=cienaCesRstpMIBGroups, cienaCesRstpMIBNotificationPrefix=cienaCesRstpMIBNotificationPrefix, cienaCesRstpPortOperEdgeNotification=cienaCesRstpPortOperEdgeNotification)

@@ -1,81 +1,62 @@
-_J='deviceHealthCheckMIBGroup'
-_I='deviceHealthCheckTrap'
-_H='deviceHealthCheckTime'
-_G='deviceHealthCheckState'
-_F='DisplayString'
-_E='deviceHealthCheckMessage'
-_D='deviceHealthCheckName'
-_C='read-only'
-_B='BLUECOAT-SG-HEALTHCHECK-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-blueCoatMgmt,=mibBuilder.importSymbols('BLUECOAT-MIB','blueCoatMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_F,'PhysAddress','TextualConvention')
-deviceHealthCheckMIB=ModuleIdentity((1,3,6,1,4,1,3417,2,7))
-if mibBuilder.loadTexts:deviceHealthCheckMIB.setRevisions(('2013-05-22 03:00','2013-05-21 03:00','2007-11-05 03:00','2002-08-28 03:00'))
-class HealthCheckMessageString(TextualConvention,OctetString):status=_A;displayHint='255a';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-class HealthCheckStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('unknown',1),('ok',2),('okWithErrors',3),('okForSomeIPs',4),('okButFailing',5),('checkFailed',6),('dnsFailed',7),('okOnAltServer',8)))
-_DeviceHealthCheckMIBObjects_ObjectIdentity=ObjectIdentity
-deviceHealthCheckMIBObjects=_DeviceHealthCheckMIBObjects_ObjectIdentity((1,3,6,1,4,1,3417,2,7,1))
-_DeviceHealthCheckStringValues_ObjectIdentity=ObjectIdentity
-deviceHealthCheckStringValues=_DeviceHealthCheckStringValues_ObjectIdentity((1,3,6,1,4,1,3417,2,7,1,1))
-_DeviceHealthCheckMessage_Type=HealthCheckMessageString
-_DeviceHealthCheckMessage_Object=MibScalar
-deviceHealthCheckMessage=_DeviceHealthCheckMessage_Object((1,3,6,1,4,1,3417,2,7,1,1,1),_DeviceHealthCheckMessage_Type())
-deviceHealthCheckMessage.setMaxAccess(_C)
-if mibBuilder.loadTexts:deviceHealthCheckMessage.setStatus(_A)
-_DeviceHealthCheckValues_ObjectIdentity=ObjectIdentity
-deviceHealthCheckValues=_DeviceHealthCheckValues_ObjectIdentity((1,3,6,1,4,1,3417,2,7,1,2))
-_DeviceHealthCheckValueTable_Object=MibTable
-deviceHealthCheckValueTable=_DeviceHealthCheckValueTable_Object((1,3,6,1,4,1,3417,2,7,1,2,1))
-if mibBuilder.loadTexts:deviceHealthCheckValueTable.setStatus(_A)
-_DeviceHealthCheckValueEntry_Object=MibTableRow
-deviceHealthCheckValueEntry=_DeviceHealthCheckValueEntry_Object((1,3,6,1,4,1,3417,2,7,1,2,1,1))
-deviceHealthCheckValueEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:deviceHealthCheckValueEntry.setStatus(_A)
-class _DeviceHealthCheckName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,127))
-_DeviceHealthCheckName_Type.__name__=_F
-_DeviceHealthCheckName_Object=MibTableColumn
-deviceHealthCheckName=_DeviceHealthCheckName_Object((1,3,6,1,4,1,3417,2,7,1,2,1,1,1),_DeviceHealthCheckName_Type())
-deviceHealthCheckName.setMaxAccess(_C)
-if mibBuilder.loadTexts:deviceHealthCheckName.setStatus(_A)
-_DeviceHealthCheckState_Type=HealthCheckStatus
-_DeviceHealthCheckState_Object=MibTableColumn
-deviceHealthCheckState=_DeviceHealthCheckState_Object((1,3,6,1,4,1,3417,2,7,1,2,1,1,2),_DeviceHealthCheckState_Type())
-deviceHealthCheckState.setMaxAccess(_C)
-if mibBuilder.loadTexts:deviceHealthCheckState.setStatus(_A)
-_DeviceHealthCheckTime_Type=Counter64
-_DeviceHealthCheckTime_Object=MibTableColumn
-deviceHealthCheckTime=_DeviceHealthCheckTime_Object((1,3,6,1,4,1,3417,2,7,1,2,1,1,3),_DeviceHealthCheckTime_Type())
-deviceHealthCheckTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:deviceHealthCheckTime.setStatus(_A)
-_DeviceHealthCheckMIBNotifs_ObjectIdentity=ObjectIdentity
-deviceHealthCheckMIBNotifs=_DeviceHealthCheckMIBNotifs_ObjectIdentity((1,3,6,1,4,1,3417,2,7,2))
-_DeviceHealthCheckMIBNotifsPrefix_ObjectIdentity=ObjectIdentity
-deviceHealthCheckMIBNotifsPrefix=_DeviceHealthCheckMIBNotifsPrefix_ObjectIdentity((1,3,6,1,4,1,3417,2,7,2,0))
-_DeviceHealthCheckMIBConformance_ObjectIdentity=ObjectIdentity
-deviceHealthCheckMIBConformance=_DeviceHealthCheckMIBConformance_ObjectIdentity((1,3,6,1,4,1,3417,2,7,3))
-_DeviceHealthCheckMIBCompliances_ObjectIdentity=ObjectIdentity
-deviceHealthCheckMIBCompliances=_DeviceHealthCheckMIBCompliances_ObjectIdentity((1,3,6,1,4,1,3417,2,7,3,1))
-_DeviceHealthCheckMIBGroups_ObjectIdentity=ObjectIdentity
-deviceHealthCheckMIBGroups=_DeviceHealthCheckMIBGroups_ObjectIdentity((1,3,6,1,4,1,3417,2,7,3,2))
-_DeviceHealthCheckMIBNotifGroups_ObjectIdentity=ObjectIdentity
-deviceHealthCheckMIBNotifGroups=_DeviceHealthCheckMIBNotifGroups_ObjectIdentity((1,3,6,1,4,1,3417,2,7,3,3))
-deviceHealthCheckMIBGroup=ObjectGroup((1,3,6,1,4,1,3417,2,7,3,2,1))
-deviceHealthCheckMIBGroup.setObjects(*((_B,_D),(_B,_G),(_B,_H),(_B,_E)))
-if mibBuilder.loadTexts:deviceHealthCheckMIBGroup.setStatus(_A)
-deviceHealthCheckTrap=NotificationType((1,3,6,1,4,1,3417,2,7,2,0,1))
-deviceHealthCheckTrap.setObjects((_B,_E))
-if mibBuilder.loadTexts:deviceHealthCheckTrap.setStatus(_A)
-deviceHealthCheckMIBNotifGroup=NotificationGroup((1,3,6,1,4,1,3417,2,7,3,3,1))
-deviceHealthCheckMIBNotifGroup.setObjects((_B,_I))
-if mibBuilder.loadTexts:deviceHealthCheckMIBNotifGroup.setStatus(_A)
-deviceHealthCheckMIBCompliance=ModuleCompliance((1,3,6,1,4,1,3417,2,7,3,1,1))
-deviceHealthCheckMIBCompliance.setObjects((_B,_J))
-if mibBuilder.loadTexts:deviceHealthCheckMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'HealthCheckMessageString':HealthCheckMessageString,'HealthCheckStatus':HealthCheckStatus,'deviceHealthCheckMIB':deviceHealthCheckMIB,'deviceHealthCheckMIBObjects':deviceHealthCheckMIBObjects,'deviceHealthCheckStringValues':deviceHealthCheckStringValues,_E:deviceHealthCheckMessage,'deviceHealthCheckValues':deviceHealthCheckValues,'deviceHealthCheckValueTable':deviceHealthCheckValueTable,'deviceHealthCheckValueEntry':deviceHealthCheckValueEntry,_D:deviceHealthCheckName,_G:deviceHealthCheckState,_H:deviceHealthCheckTime,'deviceHealthCheckMIBNotifs':deviceHealthCheckMIBNotifs,'deviceHealthCheckMIBNotifsPrefix':deviceHealthCheckMIBNotifsPrefix,_I:deviceHealthCheckTrap,'deviceHealthCheckMIBConformance':deviceHealthCheckMIBConformance,'deviceHealthCheckMIBCompliances':deviceHealthCheckMIBCompliances,'deviceHealthCheckMIBCompliance':deviceHealthCheckMIBCompliance,'deviceHealthCheckMIBGroups':deviceHealthCheckMIBGroups,_J:deviceHealthCheckMIBGroup,'deviceHealthCheckMIBNotifGroups':deviceHealthCheckMIBNotifGroups,'deviceHealthCheckMIBNotifGroup':deviceHealthCheckMIBNotifGroup})
+#
+# PySNMP MIB module BLUECOAT-SG-HEALTHCHECK-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/bluecoat/BLUECOAT-SG-HEALTHCHECK-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+blueCoatMgmt, = mibBuilder.importSymbols("BLUECOAT-MIB", "blueCoatMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+deviceHealthCheckMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3417, 2, 7))
+deviceHealthCheckMIB.setRevisions(('2013-05-22 03:00', '2013-05-21 03:00', '2007-11-05 03:00', '2002-08-28 03:00',))
+if mibBuilder.loadTexts: deviceHealthCheckMIB.setLastUpdated('201305220300Z')
+if mibBuilder.loadTexts: deviceHealthCheckMIB.setOrganization('Blue Coat Systems, Inc.')
+deviceHealthCheckMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 7, 1))
+deviceHealthCheckMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 7, 2))
+deviceHealthCheckMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 7, 3))
+deviceHealthCheckMIBNotifsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 7, 2, 0))
+class HealthCheckMessageString(TextualConvention, OctetString):
+    status = 'current'
+    displayHint = '255a'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+
+deviceHealthCheckStringValues = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 7, 1, 1))
+deviceHealthCheckValues = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 7, 1, 2))
+deviceHealthCheckMessage = MibScalar((1, 3, 6, 1, 4, 1, 3417, 2, 7, 1, 1, 1), HealthCheckMessageString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceHealthCheckMessage.setStatus('current')
+deviceHealthCheckValueTable = MibTable((1, 3, 6, 1, 4, 1, 3417, 2, 7, 1, 2, 1), )
+if mibBuilder.loadTexts: deviceHealthCheckValueTable.setStatus('current')
+deviceHealthCheckValueEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3417, 2, 7, 1, 2, 1, 1), ).setIndexNames((0, "BLUECOAT-SG-HEALTHCHECK-MIB", "deviceHealthCheckName"))
+if mibBuilder.loadTexts: deviceHealthCheckValueEntry.setStatus('current')
+class HealthCheckStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))
+    namedValues = NamedValues(("unknown", 1), ("ok", 2), ("okWithErrors", 3), ("okForSomeIPs", 4), ("okButFailing", 5), ("checkFailed", 6), ("dnsFailed", 7), ("okOnAltServer", 8))
+
+deviceHealthCheckName = MibTableColumn((1, 3, 6, 1, 4, 1, 3417, 2, 7, 1, 2, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 127))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceHealthCheckName.setStatus('current')
+deviceHealthCheckState = MibTableColumn((1, 3, 6, 1, 4, 1, 3417, 2, 7, 1, 2, 1, 1, 2), HealthCheckStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceHealthCheckState.setStatus('current')
+deviceHealthCheckTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3417, 2, 7, 1, 2, 1, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceHealthCheckTime.setStatus('current')
+deviceHealthCheckTrap = NotificationType((1, 3, 6, 1, 4, 1, 3417, 2, 7, 2, 0, 1)).setObjects(("BLUECOAT-SG-HEALTHCHECK-MIB", "deviceHealthCheckMessage"))
+if mibBuilder.loadTexts: deviceHealthCheckTrap.setStatus('current')
+deviceHealthCheckMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 7, 3, 1))
+deviceHealthCheckMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 7, 3, 2))
+deviceHealthCheckMIBNotifGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 2, 7, 3, 3))
+deviceHealthCheckMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 3417, 2, 7, 3, 1, 1)).setObjects(("BLUECOAT-SG-HEALTHCHECK-MIB", "deviceHealthCheckMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    deviceHealthCheckMIBCompliance = deviceHealthCheckMIBCompliance.setStatus('current')
+deviceHealthCheckMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3417, 2, 7, 3, 2, 1)).setObjects(("BLUECOAT-SG-HEALTHCHECK-MIB", "deviceHealthCheckName"), ("BLUECOAT-SG-HEALTHCHECK-MIB", "deviceHealthCheckState"), ("BLUECOAT-SG-HEALTHCHECK-MIB", "deviceHealthCheckTime"), ("BLUECOAT-SG-HEALTHCHECK-MIB", "deviceHealthCheckMessage"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    deviceHealthCheckMIBGroup = deviceHealthCheckMIBGroup.setStatus('current')
+deviceHealthCheckMIBNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 3417, 2, 7, 3, 3, 1)).setObjects(("BLUECOAT-SG-HEALTHCHECK-MIB", "deviceHealthCheckTrap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    deviceHealthCheckMIBNotifGroup = deviceHealthCheckMIBNotifGroup.setStatus('current')
+mibBuilder.exportSymbols("BLUECOAT-SG-HEALTHCHECK-MIB", deviceHealthCheckMIBGroup=deviceHealthCheckMIBGroup, deviceHealthCheckMIBCompliance=deviceHealthCheckMIBCompliance, deviceHealthCheckTrap=deviceHealthCheckTrap, HealthCheckStatus=HealthCheckStatus, deviceHealthCheckValueTable=deviceHealthCheckValueTable, deviceHealthCheckName=deviceHealthCheckName, deviceHealthCheckValues=deviceHealthCheckValues, deviceHealthCheckMIBNotifs=deviceHealthCheckMIBNotifs, deviceHealthCheckMIB=deviceHealthCheckMIB, deviceHealthCheckValueEntry=deviceHealthCheckValueEntry, deviceHealthCheckMIBNotifsPrefix=deviceHealthCheckMIBNotifsPrefix, HealthCheckMessageString=HealthCheckMessageString, deviceHealthCheckTime=deviceHealthCheckTime, PYSNMP_MODULE_ID=deviceHealthCheckMIB, deviceHealthCheckMIBObjects=deviceHealthCheckMIBObjects, deviceHealthCheckMIBGroups=deviceHealthCheckMIBGroups, deviceHealthCheckMIBConformance=deviceHealthCheckMIBConformance, deviceHealthCheckStringValues=deviceHealthCheckStringValues, deviceHealthCheckMIBNotifGroups=deviceHealthCheckMIBNotifGroups, deviceHealthCheckMIBNotifGroup=deviceHealthCheckMIBNotifGroup, deviceHealthCheckMIBCompliances=deviceHealthCheckMIBCompliances, deviceHealthCheckState=deviceHealthCheckState, deviceHealthCheckMessage=deviceHealthCheckMessage)

@@ -1,154 +1,73 @@
-_K='read-write'
-_J='h3cSmlkIfIndex'
-_I='accessible-for-notify'
-_H='h3cSmlkPortIfIndex'
-_G='read-only'
-_F='h3cSmlkGroupID'
-_E='OctetString'
-_D='H3C-SMLK-MIB'
-_C='Integer32'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','h3cCommon')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention')
-h3cSmlk=ModuleIdentity((1,3,6,1,4,1,2011,10,2,147))
-if mibBuilder.loadTexts:h3cSmlk.setRevisions(('2014-07-23 15:03',))
-_H3cSmlkObject_ObjectIdentity=ObjectIdentity
-h3cSmlkObject=_H3cSmlkObject_ObjectIdentity((1,3,6,1,4,1,2011,10,2,147,1))
-_H3cSmlkGroupTable_Object=MibTable
-h3cSmlkGroupTable=_H3cSmlkGroupTable_Object((1,3,6,1,4,1,2011,10,2,147,1,1))
-if mibBuilder.loadTexts:h3cSmlkGroupTable.setStatus(_A)
-_H3cSmlkGroupEntry_Object=MibTableRow
-h3cSmlkGroupEntry=_H3cSmlkGroupEntry_Object((1,3,6,1,4,1,2011,10,2,147,1,1,1))
-h3cSmlkGroupEntry.setIndexNames((0,_D,_F))
-if mibBuilder.loadTexts:h3cSmlkGroupEntry.setStatus(_A)
-class _H3cSmlkGroupID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,256))
-_H3cSmlkGroupID_Type.__name__=_C
-_H3cSmlkGroupID_Object=MibTableColumn
-h3cSmlkGroupID=_H3cSmlkGroupID_Object((1,3,6,1,4,1,2011,10,2,147,1,1,1,1),_H3cSmlkGroupID_Type())
-h3cSmlkGroupID.setMaxAccess(_I)
-if mibBuilder.loadTexts:h3cSmlkGroupID.setStatus(_A)
-_H3cSmlkDeviceID_Type=MacAddress
-_H3cSmlkDeviceID_Object=MibTableColumn
-h3cSmlkDeviceID=_H3cSmlkDeviceID_Object((1,3,6,1,4,1,2011,10,2,147,1,1,1,2),_H3cSmlkDeviceID_Type())
-h3cSmlkDeviceID.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cSmlkDeviceID.setStatus(_A)
-class _H3cSmlkPreemptionMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('role',2),('speed',3)))
-_H3cSmlkPreemptionMode_Type.__name__=_C
-_H3cSmlkPreemptionMode_Object=MibTableColumn
-h3cSmlkPreemptionMode=_H3cSmlkPreemptionMode_Object((1,3,6,1,4,1,2011,10,2,147,1,1,1,3),_H3cSmlkPreemptionMode_Type())
-h3cSmlkPreemptionMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cSmlkPreemptionMode.setStatus(_A)
-class _H3cSmlkSpeedThreshold_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-_H3cSmlkSpeedThreshold_Type.__name__=_C
-_H3cSmlkSpeedThreshold_Object=MibTableColumn
-h3cSmlkSpeedThreshold=_H3cSmlkSpeedThreshold_Object((1,3,6,1,4,1,2011,10,2,147,1,1,1,4),_H3cSmlkSpeedThreshold_Type())
-h3cSmlkSpeedThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cSmlkSpeedThreshold.setStatus(_A)
-class _H3cSmlkPreemptionDelay_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,300))
-_H3cSmlkPreemptionDelay_Type.__name__=_C
-_H3cSmlkPreemptionDelay_Object=MibTableColumn
-h3cSmlkPreemptionDelay=_H3cSmlkPreemptionDelay_Object((1,3,6,1,4,1,2011,10,2,147,1,1,1,5),_H3cSmlkPreemptionDelay_Type())
-h3cSmlkPreemptionDelay.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cSmlkPreemptionDelay.setStatus(_A)
-class _H3cSmlkControlVlanID_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094),ValueRangeConstraint(65535,65535))
-_H3cSmlkControlVlanID_Type.__name__=_C
-_H3cSmlkControlVlanID_Object=MibTableColumn
-h3cSmlkControlVlanID=_H3cSmlkControlVlanID_Object((1,3,6,1,4,1,2011,10,2,147,1,1,1,6),_H3cSmlkControlVlanID_Type())
-h3cSmlkControlVlanID.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cSmlkControlVlanID.setStatus(_A)
-class _H3cSmlkInstanceListLow_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(256,256));fixedLength=256
-_H3cSmlkInstanceListLow_Type.__name__=_E
-_H3cSmlkInstanceListLow_Object=MibTableColumn
-h3cSmlkInstanceListLow=_H3cSmlkInstanceListLow_Object((1,3,6,1,4,1,2011,10,2,147,1,1,1,7),_H3cSmlkInstanceListLow_Type())
-h3cSmlkInstanceListLow.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cSmlkInstanceListLow.setStatus(_A)
-class _H3cSmlkInstanceListHigh_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(256,256));fixedLength=256
-_H3cSmlkInstanceListHigh_Type.__name__=_E
-_H3cSmlkInstanceListHigh_Object=MibTableColumn
-h3cSmlkInstanceListHigh=_H3cSmlkInstanceListHigh_Object((1,3,6,1,4,1,2011,10,2,147,1,1,1,8),_H3cSmlkInstanceListHigh_Type())
-h3cSmlkInstanceListHigh.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cSmlkInstanceListHigh.setStatus(_A)
-_H3cSmlkGroupRowStatus_Type=RowStatus
-_H3cSmlkGroupRowStatus_Object=MibTableColumn
-h3cSmlkGroupRowStatus=_H3cSmlkGroupRowStatus_Object((1,3,6,1,4,1,2011,10,2,147,1,1,1,9),_H3cSmlkGroupRowStatus_Type())
-h3cSmlkGroupRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cSmlkGroupRowStatus.setStatus(_A)
-_H3cSmlkPortTable_Object=MibTable
-h3cSmlkPortTable=_H3cSmlkPortTable_Object((1,3,6,1,4,1,2011,10,2,147,1,2))
-if mibBuilder.loadTexts:h3cSmlkPortTable.setStatus(_A)
-_H3cSmlkPortEntry_Object=MibTableRow
-h3cSmlkPortEntry=_H3cSmlkPortEntry_Object((1,3,6,1,4,1,2011,10,2,147,1,2,1))
-h3cSmlkPortEntry.setIndexNames((0,_D,_F),(0,_D,_H))
-if mibBuilder.loadTexts:h3cSmlkPortEntry.setStatus(_A)
-_H3cSmlkPortIfIndex_Type=InterfaceIndex
-_H3cSmlkPortIfIndex_Object=MibTableColumn
-h3cSmlkPortIfIndex=_H3cSmlkPortIfIndex_Object((1,3,6,1,4,1,2011,10,2,147,1,2,1,1),_H3cSmlkPortIfIndex_Type())
-h3cSmlkPortIfIndex.setMaxAccess(_I)
-if mibBuilder.loadTexts:h3cSmlkPortIfIndex.setStatus(_A)
-class _H3cSmlkPortRole_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('primary',1),('secondary',2)))
-_H3cSmlkPortRole_Type.__name__=_C
-_H3cSmlkPortRole_Object=MibTableColumn
-h3cSmlkPortRole=_H3cSmlkPortRole_Object((1,3,6,1,4,1,2011,10,2,147,1,2,1,2),_H3cSmlkPortRole_Type())
-h3cSmlkPortRole.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cSmlkPortRole.setStatus(_A)
-class _H3cSmlkPortStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('down',1),('active',2),('standby',3)))
-_H3cSmlkPortStatus_Type.__name__=_C
-_H3cSmlkPortStatus_Object=MibTableColumn
-h3cSmlkPortStatus=_H3cSmlkPortStatus_Object((1,3,6,1,4,1,2011,10,2,147,1,2,1,3),_H3cSmlkPortStatus_Type())
-h3cSmlkPortStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cSmlkPortStatus.setStatus(_A)
-_H3cSmlkFlushCount_Type=Counter64
-_H3cSmlkFlushCount_Object=MibTableColumn
-h3cSmlkFlushCount=_H3cSmlkFlushCount_Object((1,3,6,1,4,1,2011,10,2,147,1,2,1,4),_H3cSmlkFlushCount_Type())
-h3cSmlkFlushCount.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cSmlkFlushCount.setStatus(_A)
-_H3cSmlkLastFlushTime_Type=DateAndTime
-_H3cSmlkLastFlushTime_Object=MibTableColumn
-h3cSmlkLastFlushTime=_H3cSmlkLastFlushTime_Object((1,3,6,1,4,1,2011,10,2,147,1,2,1,5),_H3cSmlkLastFlushTime_Type())
-h3cSmlkLastFlushTime.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cSmlkLastFlushTime.setStatus(_A)
-_H3cSmlkPortRowStatus_Type=RowStatus
-_H3cSmlkPortRowStatus_Object=MibTableColumn
-h3cSmlkPortRowStatus=_H3cSmlkPortRowStatus_Object((1,3,6,1,4,1,2011,10,2,147,1,2,1,6),_H3cSmlkPortRowStatus_Type())
-h3cSmlkPortRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cSmlkPortRowStatus.setStatus(_A)
-_H3cSmlkFlushEnableTable_Object=MibTable
-h3cSmlkFlushEnableTable=_H3cSmlkFlushEnableTable_Object((1,3,6,1,4,1,2011,10,2,147,1,3))
-if mibBuilder.loadTexts:h3cSmlkFlushEnableTable.setStatus(_A)
-_H3cSmlkFlushEnableEntry_Object=MibTableRow
-h3cSmlkFlushEnableEntry=_H3cSmlkFlushEnableEntry_Object((1,3,6,1,4,1,2011,10,2,147,1,3,1))
-h3cSmlkFlushEnableEntry.setIndexNames((0,_D,_J))
-if mibBuilder.loadTexts:h3cSmlkFlushEnableEntry.setStatus(_A)
-_H3cSmlkIfIndex_Type=InterfaceIndex
-_H3cSmlkIfIndex_Object=MibTableColumn
-h3cSmlkIfIndex=_H3cSmlkIfIndex_Object((1,3,6,1,4,1,2011,10,2,147,1,3,1,1),_H3cSmlkIfIndex_Type())
-h3cSmlkIfIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:h3cSmlkIfIndex.setStatus(_A)
-class _H3cSmlkControlVlanListLow_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(256,256));fixedLength=256
-_H3cSmlkControlVlanListLow_Type.__name__=_E
-_H3cSmlkControlVlanListLow_Object=MibTableColumn
-h3cSmlkControlVlanListLow=_H3cSmlkControlVlanListLow_Object((1,3,6,1,4,1,2011,10,2,147,1,3,1,2),_H3cSmlkControlVlanListLow_Type())
-h3cSmlkControlVlanListLow.setMaxAccess(_K)
-if mibBuilder.loadTexts:h3cSmlkControlVlanListLow.setStatus(_A)
-class _H3cSmlkControlVlanListHigh_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(256,256));fixedLength=256
-_H3cSmlkControlVlanListHigh_Type.__name__=_E
-_H3cSmlkControlVlanListHigh_Object=MibTableColumn
-h3cSmlkControlVlanListHigh=_H3cSmlkControlVlanListHigh_Object((1,3,6,1,4,1,2011,10,2,147,1,3,1,3),_H3cSmlkControlVlanListHigh_Type())
-h3cSmlkControlVlanListHigh.setMaxAccess(_K)
-if mibBuilder.loadTexts:h3cSmlkControlVlanListHigh.setStatus(_A)
-_H3cSmlkTrap_ObjectIdentity=ObjectIdentity
-h3cSmlkTrap=_H3cSmlkTrap_ObjectIdentity((1,3,6,1,4,1,2011,10,2,147,2))
-_H3cSmlkTrapPrefix_ObjectIdentity=ObjectIdentity
-h3cSmlkTrapPrefix=_H3cSmlkTrapPrefix_ObjectIdentity((1,3,6,1,4,1,2011,10,2,147,2,0))
-h3cSmlkGroupLinkActive=NotificationType((1,3,6,1,4,1,2011,10,2,147,2,0,1))
-h3cSmlkGroupLinkActive.setObjects(*((_D,_F),(_D,_H)))
-if mibBuilder.loadTexts:h3cSmlkGroupLinkActive.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'h3cSmlk':h3cSmlk,'h3cSmlkObject':h3cSmlkObject,'h3cSmlkGroupTable':h3cSmlkGroupTable,'h3cSmlkGroupEntry':h3cSmlkGroupEntry,_F:h3cSmlkGroupID,'h3cSmlkDeviceID':h3cSmlkDeviceID,'h3cSmlkPreemptionMode':h3cSmlkPreemptionMode,'h3cSmlkSpeedThreshold':h3cSmlkSpeedThreshold,'h3cSmlkPreemptionDelay':h3cSmlkPreemptionDelay,'h3cSmlkControlVlanID':h3cSmlkControlVlanID,'h3cSmlkInstanceListLow':h3cSmlkInstanceListLow,'h3cSmlkInstanceListHigh':h3cSmlkInstanceListHigh,'h3cSmlkGroupRowStatus':h3cSmlkGroupRowStatus,'h3cSmlkPortTable':h3cSmlkPortTable,'h3cSmlkPortEntry':h3cSmlkPortEntry,_H:h3cSmlkPortIfIndex,'h3cSmlkPortRole':h3cSmlkPortRole,'h3cSmlkPortStatus':h3cSmlkPortStatus,'h3cSmlkFlushCount':h3cSmlkFlushCount,'h3cSmlkLastFlushTime':h3cSmlkLastFlushTime,'h3cSmlkPortRowStatus':h3cSmlkPortRowStatus,'h3cSmlkFlushEnableTable':h3cSmlkFlushEnableTable,'h3cSmlkFlushEnableEntry':h3cSmlkFlushEnableEntry,_J:h3cSmlkIfIndex,'h3cSmlkControlVlanListLow':h3cSmlkControlVlanListLow,'h3cSmlkControlVlanListHigh':h3cSmlkControlVlanListHigh,'h3cSmlkTrap':h3cSmlkTrap,'h3cSmlkTrapPrefix':h3cSmlkTrapPrefix,'h3cSmlkGroupLinkActive':h3cSmlkGroupLinkActive})
+#
+# PySNMP MIB module H3C-SMLK-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-SMLK-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TextualConvention")
+h3cSmlk = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147))
+h3cSmlk.setRevisions(('2014-07-23 15:03',))
+if mibBuilder.loadTexts: h3cSmlk.setLastUpdated('201407231503Z')
+if mibBuilder.loadTexts: h3cSmlk.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
+h3cSmlkObject = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1))
+h3cSmlkGroupTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 1), )
+if mibBuilder.loadTexts: h3cSmlkGroupTable.setStatus('current')
+h3cSmlkGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 1, 1), ).setIndexNames((0, "H3C-SMLK-MIB", "h3cSmlkGroupID"))
+if mibBuilder.loadTexts: h3cSmlkGroupEntry.setStatus('current')
+h3cSmlkGroupID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 256))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cSmlkGroupID.setStatus('current')
+h3cSmlkDeviceID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 1, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cSmlkDeviceID.setStatus('current')
+h3cSmlkPreemptionMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("role", 2), ("speed", 3))).clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cSmlkPreemptionMode.setStatus('current')
+h3cSmlkSpeedThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cSmlkSpeedThreshold.setStatus('current')
+h3cSmlkPreemptionDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 300)).clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cSmlkPreemptionDelay.setStatus('current')
+h3cSmlkControlVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(1, 4094), ValueRangeConstraint(65535, 65535), )).clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cSmlkControlVlanID.setStatus('current')
+h3cSmlkInstanceListLow = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(256, 256)).setFixedLength(256)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cSmlkInstanceListLow.setStatus('current')
+h3cSmlkInstanceListHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(256, 256)).setFixedLength(256)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cSmlkInstanceListHigh.setStatus('current')
+h3cSmlkGroupRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 1, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cSmlkGroupRowStatus.setStatus('current')
+h3cSmlkPortTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 2), )
+if mibBuilder.loadTexts: h3cSmlkPortTable.setStatus('current')
+h3cSmlkPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 2, 1), ).setIndexNames((0, "H3C-SMLK-MIB", "h3cSmlkGroupID"), (0, "H3C-SMLK-MIB", "h3cSmlkPortIfIndex"))
+if mibBuilder.loadTexts: h3cSmlkPortEntry.setStatus('current')
+h3cSmlkPortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 2, 1, 1), InterfaceIndex()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cSmlkPortIfIndex.setStatus('current')
+h3cSmlkPortRole = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cSmlkPortRole.setStatus('current')
+h3cSmlkPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("down", 1), ("active", 2), ("standby", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cSmlkPortStatus.setStatus('current')
+h3cSmlkFlushCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 2, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cSmlkFlushCount.setStatus('current')
+h3cSmlkLastFlushTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 2, 1, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cSmlkLastFlushTime.setStatus('current')
+h3cSmlkPortRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: h3cSmlkPortRowStatus.setStatus('current')
+h3cSmlkFlushEnableTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 3), )
+if mibBuilder.loadTexts: h3cSmlkFlushEnableTable.setStatus('current')
+h3cSmlkFlushEnableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 3, 1), ).setIndexNames((0, "H3C-SMLK-MIB", "h3cSmlkIfIndex"))
+if mibBuilder.loadTexts: h3cSmlkFlushEnableEntry.setStatus('current')
+h3cSmlkIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 3, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: h3cSmlkIfIndex.setStatus('current')
+h3cSmlkControlVlanListLow = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 3, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(256, 256)).setFixedLength(256)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cSmlkControlVlanListLow.setStatus('current')
+h3cSmlkControlVlanListHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 1, 3, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(256, 256)).setFixedLength(256)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cSmlkControlVlanListHigh.setStatus('current')
+h3cSmlkTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 2))
+h3cSmlkTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 2, 0))
+h3cSmlkGroupLinkActive = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 147, 2, 0, 1)).setObjects(("H3C-SMLK-MIB", "h3cSmlkGroupID"), ("H3C-SMLK-MIB", "h3cSmlkPortIfIndex"))
+if mibBuilder.loadTexts: h3cSmlkGroupLinkActive.setStatus('current')
+mibBuilder.exportSymbols("H3C-SMLK-MIB", h3cSmlkPreemptionMode=h3cSmlkPreemptionMode, h3cSmlkPortRole=h3cSmlkPortRole, h3cSmlkIfIndex=h3cSmlkIfIndex, h3cSmlkPortIfIndex=h3cSmlkPortIfIndex, h3cSmlkFlushEnableTable=h3cSmlkFlushEnableTable, h3cSmlkFlushCount=h3cSmlkFlushCount, h3cSmlkPreemptionDelay=h3cSmlkPreemptionDelay, h3cSmlkPortStatus=h3cSmlkPortStatus, PYSNMP_MODULE_ID=h3cSmlk, h3cSmlkObject=h3cSmlkObject, h3cSmlkGroupID=h3cSmlkGroupID, h3cSmlkInstanceListLow=h3cSmlkInstanceListLow, h3cSmlkGroupTable=h3cSmlkGroupTable, h3cSmlkFlushEnableEntry=h3cSmlkFlushEnableEntry, h3cSmlkInstanceListHigh=h3cSmlkInstanceListHigh, h3cSmlkPortEntry=h3cSmlkPortEntry, h3cSmlkDeviceID=h3cSmlkDeviceID, h3cSmlkControlVlanID=h3cSmlkControlVlanID, h3cSmlkTrapPrefix=h3cSmlkTrapPrefix, h3cSmlkPortTable=h3cSmlkPortTable, h3cSmlkSpeedThreshold=h3cSmlkSpeedThreshold, h3cSmlkControlVlanListHigh=h3cSmlkControlVlanListHigh, h3cSmlkGroupRowStatus=h3cSmlkGroupRowStatus, h3cSmlkControlVlanListLow=h3cSmlkControlVlanListLow, h3cSmlkTrap=h3cSmlkTrap, h3cSmlkLastFlushTime=h3cSmlkLastFlushTime, h3cSmlkPortRowStatus=h3cSmlkPortRowStatus, h3cSmlkGroupEntry=h3cSmlkGroupEntry, h3cSmlk=h3cSmlk, h3cSmlkGroupLinkActive=h3cSmlkGroupLinkActive)

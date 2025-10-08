@@ -1,115 +1,61 @@
-_Q='fsArpMIBGroup'
-_P='fsArpCurrentUnresolveNumber'
-_O='fsArpCurrentTotalNumber'
-_N='fsArpIfCacheTimeOut'
-_M='fsArpStatus'
-_L='fsArpEntryType'
-_K='fsArpType'
-_J='fsArpRemainAge'
-_I='fsArpPhysAddress'
-_H='fsArpIfIfIndex'
-_G='read-create'
-_F='fsArpNetAddress'
-_E='fsArpIfIndex'
-_D='Integer32'
-_C='read-only'
-_B='FS-ARP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsMgmt,=mibBuilder.importSymbols('FS-SMI','fsMgmt')
-IfIndex,=mibBuilder.importSymbols('FS-TC','IfIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-fsArpMIB=ModuleIdentity((1,3,6,1,4,1,52642,1,1,10,2,2))
-if mibBuilder.loadTexts:fsArpMIB.setRevisions(('2002-03-20 00:00',))
-_FsArpMIBObjects_ObjectIdentity=ObjectIdentity
-fsArpMIBObjects=_FsArpMIBObjects_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,2,1))
-_FsArpTable_Object=MibTable
-fsArpTable=_FsArpTable_Object((1,3,6,1,4,1,52642,1,1,10,2,2,1,1))
-if mibBuilder.loadTexts:fsArpTable.setStatus(_A)
-_FsArpEntry_Object=MibTableRow
-fsArpEntry=_FsArpEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,2,1,1,1))
-fsArpEntry.setIndexNames((0,_B,_E),(0,_B,_F))
-if mibBuilder.loadTexts:fsArpEntry.setStatus(_A)
-_FsArpIfIndex_Type=IfIndex
-_FsArpIfIndex_Object=MibTableColumn
-fsArpIfIndex=_FsArpIfIndex_Object((1,3,6,1,4,1,52642,1,1,10,2,2,1,1,1,1),_FsArpIfIndex_Type())
-fsArpIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsArpIfIndex.setStatus(_A)
-_FsArpPhysAddress_Type=PhysAddress
-_FsArpPhysAddress_Object=MibTableColumn
-fsArpPhysAddress=_FsArpPhysAddress_Object((1,3,6,1,4,1,52642,1,1,10,2,2,1,1,1,2),_FsArpPhysAddress_Type())
-fsArpPhysAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:fsArpPhysAddress.setStatus(_A)
-_FsArpNetAddress_Type=IpAddress
-_FsArpNetAddress_Object=MibTableColumn
-fsArpNetAddress=_FsArpNetAddress_Object((1,3,6,1,4,1,52642,1,1,10,2,2,1,1,1,3),_FsArpNetAddress_Type())
-fsArpNetAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsArpNetAddress.setStatus(_A)
-_FsArpRemainAge_Type=Integer32
-_FsArpRemainAge_Object=MibTableColumn
-fsArpRemainAge=_FsArpRemainAge_Object((1,3,6,1,4,1,52642,1,1,10,2,2,1,1,1,4),_FsArpRemainAge_Type())
-fsArpRemainAge.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsArpRemainAge.setStatus(_A)
-class _FsArpType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('arpa',1))
-_FsArpType_Type.__name__=_D
-_FsArpType_Object=MibTableColumn
-fsArpType=_FsArpType_Object((1,3,6,1,4,1,52642,1,1,10,2,2,1,1,1,5),_FsArpType_Type())
-fsArpType.setMaxAccess(_G)
-if mibBuilder.loadTexts:fsArpType.setStatus(_A)
-class _FsArpEntryType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('static',1),('dynamic',2),('interface',3),('vrrp',4),('trusted',5)))
-_FsArpEntryType_Type.__name__=_D
-_FsArpEntryType_Object=MibTableColumn
-fsArpEntryType=_FsArpEntryType_Object((1,3,6,1,4,1,52642,1,1,10,2,2,1,1,1,6),_FsArpEntryType_Type())
-fsArpEntryType.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsArpEntryType.setStatus(_A)
-_FsArpStatus_Type=RowStatus
-_FsArpStatus_Object=MibTableColumn
-fsArpStatus=_FsArpStatus_Object((1,3,6,1,4,1,52642,1,1,10,2,2,1,1,1,7),_FsArpStatus_Type())
-fsArpStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:fsArpStatus.setStatus(_A)
-_FsArpIfTable_Object=MibTable
-fsArpIfTable=_FsArpIfTable_Object((1,3,6,1,4,1,52642,1,1,10,2,2,1,2))
-if mibBuilder.loadTexts:fsArpIfTable.setStatus(_A)
-_FsArpIfEntry_Object=MibTableRow
-fsArpIfEntry=_FsArpIfEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,2,1,2,1))
-fsArpIfEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:fsArpIfEntry.setStatus(_A)
-_FsArpIfIfIndex_Type=IfIndex
-_FsArpIfIfIndex_Object=MibTableColumn
-fsArpIfIfIndex=_FsArpIfIfIndex_Object((1,3,6,1,4,1,52642,1,1,10,2,2,1,2,1,1),_FsArpIfIfIndex_Type())
-fsArpIfIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsArpIfIfIndex.setStatus(_A)
-class _FsArpIfCacheTimeOut_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,18000))
-_FsArpIfCacheTimeOut_Type.__name__=_D
-_FsArpIfCacheTimeOut_Object=MibTableColumn
-fsArpIfCacheTimeOut=_FsArpIfCacheTimeOut_Object((1,3,6,1,4,1,52642,1,1,10,2,2,1,2,1,2),_FsArpIfCacheTimeOut_Type())
-fsArpIfCacheTimeOut.setMaxAccess('read-write')
-if mibBuilder.loadTexts:fsArpIfCacheTimeOut.setStatus(_A)
-_FsArpCurrentTotalNumber_Type=Counter32
-_FsArpCurrentTotalNumber_Object=MibScalar
-fsArpCurrentTotalNumber=_FsArpCurrentTotalNumber_Object((1,3,6,1,4,1,52642,1,1,10,2,2,1,3),_FsArpCurrentTotalNumber_Type())
-fsArpCurrentTotalNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsArpCurrentTotalNumber.setStatus(_A)
-_FsArpCurrentUnresolveNumber_Type=Counter32
-_FsArpCurrentUnresolveNumber_Object=MibScalar
-fsArpCurrentUnresolveNumber=_FsArpCurrentUnresolveNumber_Object((1,3,6,1,4,1,52642,1,1,10,2,2,1,4),_FsArpCurrentUnresolveNumber_Type())
-fsArpCurrentUnresolveNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsArpCurrentUnresolveNumber.setStatus(_A)
-_FsArpMIBConformance_ObjectIdentity=ObjectIdentity
-fsArpMIBConformance=_FsArpMIBConformance_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,2,2))
-_FsArpMIBCompliances_ObjectIdentity=ObjectIdentity
-fsArpMIBCompliances=_FsArpMIBCompliances_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,2,2,1))
-_FsArpMIBGroups_ObjectIdentity=ObjectIdentity
-fsArpMIBGroups=_FsArpMIBGroups_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,2,2,2))
-fsArpMIBGroup=ObjectGroup((1,3,6,1,4,1,52642,1,1,10,2,2,2,2,1))
-fsArpMIBGroup.setObjects(*((_B,_E),(_B,_I),(_B,_F),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_H),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:fsArpMIBGroup.setStatus(_A)
-fsArpMIBCompliance=ModuleCompliance((1,3,6,1,4,1,52642,1,1,10,2,2,2,1,1))
-fsArpMIBCompliance.setObjects((_B,_Q))
-if mibBuilder.loadTexts:fsArpMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'fsArpMIB':fsArpMIB,'fsArpMIBObjects':fsArpMIBObjects,'fsArpTable':fsArpTable,'fsArpEntry':fsArpEntry,_E:fsArpIfIndex,_I:fsArpPhysAddress,_F:fsArpNetAddress,_J:fsArpRemainAge,_K:fsArpType,_L:fsArpEntryType,_M:fsArpStatus,'fsArpIfTable':fsArpIfTable,'fsArpIfEntry':fsArpIfEntry,_H:fsArpIfIfIndex,_N:fsArpIfCacheTimeOut,_O:fsArpCurrentTotalNumber,_P:fsArpCurrentUnresolveNumber,'fsArpMIBConformance':fsArpMIBConformance,'fsArpMIBCompliances':fsArpMIBCompliances,'fsArpMIBCompliance':fsArpMIBCompliance,'fsArpMIBGroups':fsArpMIBGroups,_Q:fsArpMIBGroup})
+#
+# PySNMP MIB module FS-ARP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-ARP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:15 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
+IfIndex, = mibBuilder.importSymbols("FS-TC", "IfIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention", "PhysAddress")
+fsArpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2))
+fsArpMIB.setRevisions(('2002-03-20 00:00',))
+if mibBuilder.loadTexts: fsArpMIB.setLastUpdated('200203200000Z')
+if mibBuilder.loadTexts: fsArpMIB.setOrganization('FS.COM Inc..')
+fsArpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1))
+fsArpTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1, 1), )
+if mibBuilder.loadTexts: fsArpTable.setStatus('current')
+fsArpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1, 1, 1), ).setIndexNames((0, "FS-ARP-MIB", "fsArpIfIndex"), (0, "FS-ARP-MIB", "fsArpNetAddress"))
+if mibBuilder.loadTexts: fsArpEntry.setStatus('current')
+fsArpIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1, 1, 1, 1), IfIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsArpIfIndex.setStatus('current')
+fsArpPhysAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1, 1, 1, 2), PhysAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsArpPhysAddress.setStatus('current')
+fsArpNetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsArpNetAddress.setStatus('current')
+fsArpRemainAge = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsArpRemainAge.setStatus('current')
+fsArpType = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("arpa", 1)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsArpType.setStatus('current')
+fsArpEntryType = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("static", 1), ("dynamic", 2), ("interface", 3), ("vrrp", 4), ("trusted", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsArpEntryType.setStatus('current')
+fsArpStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsArpStatus.setStatus('current')
+fsArpIfTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1, 2), )
+if mibBuilder.loadTexts: fsArpIfTable.setStatus('current')
+fsArpIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1, 2, 1), ).setIndexNames((0, "FS-ARP-MIB", "fsArpIfIfIndex"))
+if mibBuilder.loadTexts: fsArpIfEntry.setStatus('current')
+fsArpIfIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1, 2, 1, 1), IfIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsArpIfIfIndex.setStatus('current')
+fsArpIfCacheTimeOut = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 18000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsArpIfCacheTimeOut.setStatus('current')
+fsArpCurrentTotalNumber = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsArpCurrentTotalNumber.setStatus('current')
+fsArpCurrentUnresolveNumber = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsArpCurrentUnresolveNumber.setStatus('current')
+fsArpMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 2))
+fsArpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 2, 1))
+fsArpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 2, 2))
+fsArpMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 2, 1, 1)).setObjects(("FS-ARP-MIB", "fsArpMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsArpMIBCompliance = fsArpMIBCompliance.setStatus('current')
+fsArpMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 2, 2, 2, 1)).setObjects(("FS-ARP-MIB", "fsArpIfIndex"), ("FS-ARP-MIB", "fsArpPhysAddress"), ("FS-ARP-MIB", "fsArpNetAddress"), ("FS-ARP-MIB", "fsArpRemainAge"), ("FS-ARP-MIB", "fsArpType"), ("FS-ARP-MIB", "fsArpEntryType"), ("FS-ARP-MIB", "fsArpStatus"), ("FS-ARP-MIB", "fsArpIfIfIndex"), ("FS-ARP-MIB", "fsArpIfCacheTimeOut"), ("FS-ARP-MIB", "fsArpCurrentTotalNumber"), ("FS-ARP-MIB", "fsArpCurrentUnresolveNumber"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsArpMIBGroup = fsArpMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("FS-ARP-MIB", fsArpIfEntry=fsArpIfEntry, fsArpIfCacheTimeOut=fsArpIfCacheTimeOut, fsArpPhysAddress=fsArpPhysAddress, fsArpCurrentUnresolveNumber=fsArpCurrentUnresolveNumber, fsArpEntryType=fsArpEntryType, PYSNMP_MODULE_ID=fsArpMIB, fsArpMIBCompliances=fsArpMIBCompliances, fsArpRemainAge=fsArpRemainAge, fsArpStatus=fsArpStatus, fsArpNetAddress=fsArpNetAddress, fsArpIfTable=fsArpIfTable, fsArpTable=fsArpTable, fsArpIfIndex=fsArpIfIndex, fsArpMIB=fsArpMIB, fsArpIfIfIndex=fsArpIfIfIndex, fsArpMIBCompliance=fsArpMIBCompliance, fsArpCurrentTotalNumber=fsArpCurrentTotalNumber, fsArpMIBObjects=fsArpMIBObjects, fsArpType=fsArpType, fsArpMIBGroup=fsArpMIBGroup, fsArpEntry=fsArpEntry, fsArpMIBGroups=fsArpMIBGroups, fsArpMIBConformance=fsArpMIBConformance)

@@ -1,96 +1,55 @@
-_Q='ciscoDot11RadarNotificationGroup'
-_P='ciscoDot11RadarDetectInfoGroup'
-_O='cdrDot11RadarNotifObjectGroup'
-_N='ciscoDot11RadarChannelReturn'
-_M='ciscoDot11RadarChannelSwitch'
-_L='cdrChannelReturnNotifEnabled'
-_K='cdrChannelSwitchNotifEnabled'
-_J='read-write'
-_I='cdrChannelReturnLastTime'
-_H='cdrChannelSwitchLastTime'
-_G='cdrDot11PreferFrequency'
-_F='cdrDot11NewFrequency'
-_E='TruthValue'
-_D='Unsigned32'
-_C='read-only'
-_B='current'
-_A='CISCO-DOT11-RADAR-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_E)
-ciscoDot11RadarMIB=ModuleIdentity((1,3,6,1,4,1,9,9,627))
-if mibBuilder.loadTexts:ciscoDot11RadarMIB.setRevisions(('2007-05-07 00:00',))
-_CiscoDot11RadarMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoDot11RadarMIBNotifs=_CiscoDot11RadarMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,627,0))
-_CiscoDot11RadarMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoDot11RadarMIBObjects=_CiscoDot11RadarMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,627,1))
-_CdrDot11RadarNotifConfig_ObjectIdentity=ObjectIdentity
-cdrDot11RadarNotifConfig=_CdrDot11RadarNotifConfig_ObjectIdentity((1,3,6,1,4,1,9,9,627,1,1))
-class _CdrChannelSwitchNotifEnabled_Type(TruthValue):defaultValue=2
-_CdrChannelSwitchNotifEnabled_Type.__name__=_E
-_CdrChannelSwitchNotifEnabled_Object=MibScalar
-cdrChannelSwitchNotifEnabled=_CdrChannelSwitchNotifEnabled_Object((1,3,6,1,4,1,9,9,627,1,1,1),_CdrChannelSwitchNotifEnabled_Type())
-cdrChannelSwitchNotifEnabled.setMaxAccess(_J)
-if mibBuilder.loadTexts:cdrChannelSwitchNotifEnabled.setStatus(_B)
-class _CdrChannelReturnNotifEnabled_Type(TruthValue):defaultValue=2
-_CdrChannelReturnNotifEnabled_Type.__name__=_E
-_CdrChannelReturnNotifEnabled_Object=MibScalar
-cdrChannelReturnNotifEnabled=_CdrChannelReturnNotifEnabled_Object((1,3,6,1,4,1,9,9,627,1,1,2),_CdrChannelReturnNotifEnabled_Type())
-cdrChannelReturnNotifEnabled.setMaxAccess(_J)
-if mibBuilder.loadTexts:cdrChannelReturnNotifEnabled.setStatus(_B)
-_CdrDot11RadarDetectInfo_ObjectIdentity=ObjectIdentity
-cdrDot11RadarDetectInfo=_CdrDot11RadarDetectInfo_ObjectIdentity((1,3,6,1,4,1,9,9,627,1,2))
-class _CdrDot11NewFrequency_Type(Unsigned32):defaultValue=0
-_CdrDot11NewFrequency_Type.__name__=_D
-_CdrDot11NewFrequency_Object=MibScalar
-cdrDot11NewFrequency=_CdrDot11NewFrequency_Object((1,3,6,1,4,1,9,9,627,1,2,1),_CdrDot11NewFrequency_Type())
-cdrDot11NewFrequency.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdrDot11NewFrequency.setStatus(_B)
-if mibBuilder.loadTexts:cdrDot11NewFrequency.setUnits('MHz')
-class _CdrDot11PreferFrequency_Type(Unsigned32):defaultValue=0
-_CdrDot11PreferFrequency_Type.__name__=_D
-_CdrDot11PreferFrequency_Object=MibScalar
-cdrDot11PreferFrequency=_CdrDot11PreferFrequency_Object((1,3,6,1,4,1,9,9,627,1,2,2),_CdrDot11PreferFrequency_Type())
-cdrDot11PreferFrequency.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdrDot11PreferFrequency.setStatus(_B)
-if mibBuilder.loadTexts:cdrDot11PreferFrequency.setUnits('MHz')
-_CdrChannelSwitchLastTime_Type=TimeTicks
-_CdrChannelSwitchLastTime_Object=MibScalar
-cdrChannelSwitchLastTime=_CdrChannelSwitchLastTime_Object((1,3,6,1,4,1,9,9,627,1,2,3),_CdrChannelSwitchLastTime_Type())
-cdrChannelSwitchLastTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdrChannelSwitchLastTime.setStatus(_B)
-_CdrChannelReturnLastTime_Type=TimeTicks
-_CdrChannelReturnLastTime_Object=MibScalar
-cdrChannelReturnLastTime=_CdrChannelReturnLastTime_Object((1,3,6,1,4,1,9,9,627,1,2,4),_CdrChannelReturnLastTime_Type())
-cdrChannelReturnLastTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdrChannelReturnLastTime.setStatus(_B)
-_CiscoDot11RadarMIBConform_ObjectIdentity=ObjectIdentity
-ciscoDot11RadarMIBConform=_CiscoDot11RadarMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,627,2))
-_CiscoDot11RadarMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoDot11RadarMIBCompliances=_CiscoDot11RadarMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,627,2,1))
-_CiscoDot11RadarMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoDot11RadarMIBGroups=_CiscoDot11RadarMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,627,2,2))
-cdrDot11RadarNotifObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,627,2,2,1))
-cdrDot11RadarNotifObjectGroup.setObjects(*((_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:cdrDot11RadarNotifObjectGroup.setStatus(_B)
-ciscoDot11RadarDetectInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,627,2,2,2))
-ciscoDot11RadarDetectInfoGroup.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:ciscoDot11RadarDetectInfoGroup.setStatus(_B)
-ciscoDot11RadarChannelSwitch=NotificationType((1,3,6,1,4,1,9,9,627,0,1))
-ciscoDot11RadarChannelSwitch.setObjects(*((_A,_F),(_A,_H)))
-if mibBuilder.loadTexts:ciscoDot11RadarChannelSwitch.setStatus(_B)
-ciscoDot11RadarChannelReturn=NotificationType((1,3,6,1,4,1,9,9,627,0,2))
-ciscoDot11RadarChannelReturn.setObjects(*((_A,_G),(_A,_I)))
-if mibBuilder.loadTexts:ciscoDot11RadarChannelReturn.setStatus(_B)
-ciscoDot11RadarNotificationGroup=NotificationGroup((1,3,6,1,4,1,9,9,627,2,2,3))
-ciscoDot11RadarNotificationGroup.setObjects(*((_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:ciscoDot11RadarNotificationGroup.setStatus(_B)
-ciscoDot11RadarCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,627,2,1,1))
-ciscoDot11RadarCompliance.setObjects(*((_A,_O),(_A,_P),(_A,_Q)))
-if mibBuilder.loadTexts:ciscoDot11RadarCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ciscoDot11RadarMIB':ciscoDot11RadarMIB,'ciscoDot11RadarMIBNotifs':ciscoDot11RadarMIBNotifs,_M:ciscoDot11RadarChannelSwitch,_N:ciscoDot11RadarChannelReturn,'ciscoDot11RadarMIBObjects':ciscoDot11RadarMIBObjects,'cdrDot11RadarNotifConfig':cdrDot11RadarNotifConfig,_K:cdrChannelSwitchNotifEnabled,_L:cdrChannelReturnNotifEnabled,'cdrDot11RadarDetectInfo':cdrDot11RadarDetectInfo,_F:cdrDot11NewFrequency,_G:cdrDot11PreferFrequency,_H:cdrChannelSwitchLastTime,_I:cdrChannelReturnLastTime,'ciscoDot11RadarMIBConform':ciscoDot11RadarMIBConform,'ciscoDot11RadarMIBCompliances':ciscoDot11RadarMIBCompliances,'ciscoDot11RadarCompliance':ciscoDot11RadarCompliance,'ciscoDot11RadarMIBGroups':ciscoDot11RadarMIBGroups,_O:cdrDot11RadarNotifObjectGroup,_P:ciscoDot11RadarDetectInfoGroup,_Q:ciscoDot11RadarNotificationGroup})
+#
+# PySNMP MIB module CISCO-DOT11-RADAR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-DOT11-RADAR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:26 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ciscoDot11RadarMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 627))
+ciscoDot11RadarMIB.setRevisions(('2007-05-07 00:00',))
+if mibBuilder.loadTexts: ciscoDot11RadarMIB.setLastUpdated('200705070000Z')
+if mibBuilder.loadTexts: ciscoDot11RadarMIB.setOrganization('Cisco System Inc.')
+ciscoDot11RadarMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 627, 0))
+ciscoDot11RadarMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 627, 1))
+ciscoDot11RadarMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 627, 2))
+cdrDot11RadarNotifConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 627, 1, 1))
+cdrDot11RadarDetectInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 627, 1, 2))
+cdrDot11NewFrequency = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 627, 1, 2, 1), Unsigned32().clone(0)).setUnits('MHz').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdrDot11NewFrequency.setStatus('current')
+cdrDot11PreferFrequency = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 627, 1, 2, 2), Unsigned32().clone(0)).setUnits('MHz').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdrDot11PreferFrequency.setStatus('current')
+cdrChannelSwitchLastTime = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 627, 1, 2, 3), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdrChannelSwitchLastTime.setStatus('current')
+cdrChannelReturnLastTime = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 627, 1, 2, 4), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdrChannelReturnLastTime.setStatus('current')
+cdrChannelSwitchNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 627, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdrChannelSwitchNotifEnabled.setStatus('current')
+cdrChannelReturnNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 627, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdrChannelReturnNotifEnabled.setStatus('current')
+ciscoDot11RadarChannelSwitch = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 627, 0, 1)).setObjects(("CISCO-DOT11-RADAR-MIB", "cdrDot11NewFrequency"), ("CISCO-DOT11-RADAR-MIB", "cdrChannelSwitchLastTime"))
+if mibBuilder.loadTexts: ciscoDot11RadarChannelSwitch.setStatus('current')
+ciscoDot11RadarChannelReturn = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 627, 0, 2)).setObjects(("CISCO-DOT11-RADAR-MIB", "cdrDot11PreferFrequency"), ("CISCO-DOT11-RADAR-MIB", "cdrChannelReturnLastTime"))
+if mibBuilder.loadTexts: ciscoDot11RadarChannelReturn.setStatus('current')
+ciscoDot11RadarMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 627, 2, 1))
+ciscoDot11RadarMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 627, 2, 2))
+ciscoDot11RadarCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 627, 2, 1, 1)).setObjects(("CISCO-DOT11-RADAR-MIB", "cdrDot11RadarNotifObjectGroup"), ("CISCO-DOT11-RADAR-MIB", "ciscoDot11RadarDetectInfoGroup"), ("CISCO-DOT11-RADAR-MIB", "ciscoDot11RadarNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoDot11RadarCompliance = ciscoDot11RadarCompliance.setStatus('current')
+cdrDot11RadarNotifObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 627, 2, 2, 1)).setObjects(("CISCO-DOT11-RADAR-MIB", "cdrChannelSwitchNotifEnabled"), ("CISCO-DOT11-RADAR-MIB", "cdrChannelReturnNotifEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdrDot11RadarNotifObjectGroup = cdrDot11RadarNotifObjectGroup.setStatus('current')
+ciscoDot11RadarDetectInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 627, 2, 2, 2)).setObjects(("CISCO-DOT11-RADAR-MIB", "cdrDot11NewFrequency"), ("CISCO-DOT11-RADAR-MIB", "cdrDot11PreferFrequency"), ("CISCO-DOT11-RADAR-MIB", "cdrChannelSwitchLastTime"), ("CISCO-DOT11-RADAR-MIB", "cdrChannelReturnLastTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoDot11RadarDetectInfoGroup = ciscoDot11RadarDetectInfoGroup.setStatus('current')
+ciscoDot11RadarNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 627, 2, 2, 3)).setObjects(("CISCO-DOT11-RADAR-MIB", "ciscoDot11RadarChannelSwitch"), ("CISCO-DOT11-RADAR-MIB", "ciscoDot11RadarChannelReturn"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoDot11RadarNotificationGroup = ciscoDot11RadarNotificationGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-DOT11-RADAR-MIB", cdrDot11NewFrequency=cdrDot11NewFrequency, ciscoDot11RadarMIBNotifs=ciscoDot11RadarMIBNotifs, ciscoDot11RadarChannelSwitch=ciscoDot11RadarChannelSwitch, ciscoDot11RadarMIBConform=ciscoDot11RadarMIBConform, cdrDot11RadarNotifConfig=cdrDot11RadarNotifConfig, cdrDot11RadarDetectInfo=cdrDot11RadarDetectInfo, ciscoDot11RadarDetectInfoGroup=ciscoDot11RadarDetectInfoGroup, cdrChannelReturnNotifEnabled=cdrChannelReturnNotifEnabled, cdrDot11RadarNotifObjectGroup=cdrDot11RadarNotifObjectGroup, ciscoDot11RadarMIBCompliances=ciscoDot11RadarMIBCompliances, PYSNMP_MODULE_ID=ciscoDot11RadarMIB, ciscoDot11RadarChannelReturn=ciscoDot11RadarChannelReturn, ciscoDot11RadarMIBGroups=ciscoDot11RadarMIBGroups, ciscoDot11RadarNotificationGroup=ciscoDot11RadarNotificationGroup, cdrChannelReturnLastTime=cdrChannelReturnLastTime, cdrChannelSwitchLastTime=cdrChannelSwitchLastTime, cdrChannelSwitchNotifEnabled=cdrChannelSwitchNotifEnabled, cdrDot11PreferFrequency=cdrDot11PreferFrequency, ciscoDot11RadarMIB=ciscoDot11RadarMIB, ciscoDot11RadarCompliance=ciscoDot11RadarCompliance, ciscoDot11RadarMIBObjects=ciscoDot11RadarMIBObjects)

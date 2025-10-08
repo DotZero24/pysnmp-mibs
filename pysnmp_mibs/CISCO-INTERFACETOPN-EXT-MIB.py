@@ -1,85 +1,53 @@
-_R='ciscoIfTopNExtCtrlVlanGroup'
-_Q='ciscoIfTopNExtControlGroup'
-_P='ciscoIfTopNExtCapsGroup'
-_O='citneInterfaceTopNVlanNumber'
-_N='citneInterfaceTopNInterfaceType'
-_M='citneInterfaceTopNCounterType'
-_L='citneInterfaceTopNCaps'
-_K='citneInterfaceTopNControlEntry'
-_J='overflow'
-_I='multicast'
-_H='broadcast'
-_G='packets'
-_F='utilization'
-_E='VlanIndex'
-_D='read-create'
-_C='Integer32'
-_B='CISCO-INTERFACETOPN-EXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-interfaceTopNControlEntry,=mibBuilder.importSymbols('INTERFACETOPN-MIB','interfaceTopNControlEntry')
-VlanIndex,=mibBuilder.importSymbols('Q-BRIDGE-MIB',_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoInterfaceTopNExtMIB=ModuleIdentity((1,3,6,1,4,1,9,9,482))
-if mibBuilder.loadTexts:ciscoInterfaceTopNExtMIB.setRevisions(('2010-10-19 00:00','2008-01-15 00:00','2006-03-15 00:00'))
-_CiscoInterfaceTopNExtMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoInterfaceTopNExtMIBNotifs=_CiscoInterfaceTopNExtMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,482,0))
-_CiscoInterfaceTopNExtMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoInterfaceTopNExtMIBObjects=_CiscoInterfaceTopNExtMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,482,1))
-class _CitneInterfaceTopNCaps_Type(Bits):namedValues=NamedValues(*((_F,0),('bytes',1),(_G,2),(_H,3),(_I,4),(_J,5)))
-_CitneInterfaceTopNCaps_Type.__name__='Bits'
-_CitneInterfaceTopNCaps_Object=MibScalar
-citneInterfaceTopNCaps=_CitneInterfaceTopNCaps_Object((1,3,6,1,4,1,9,9,482,1,1),_CitneInterfaceTopNCaps_Type())
-citneInterfaceTopNCaps.setMaxAccess('read-only')
-if mibBuilder.loadTexts:citneInterfaceTopNCaps.setStatus(_A)
-_CitneInterfaceTopNControlTable_Object=MibTable
-citneInterfaceTopNControlTable=_CitneInterfaceTopNControlTable_Object((1,3,6,1,4,1,9,9,482,1,2))
-if mibBuilder.loadTexts:citneInterfaceTopNControlTable.setStatus(_A)
-_CitneInterfaceTopNControlEntry_Object=MibTableRow
-citneInterfaceTopNControlEntry=_CitneInterfaceTopNControlEntry_Object((1,3,6,1,4,1,9,9,482,1,2,1))
-if mibBuilder.loadTexts:citneInterfaceTopNControlEntry.setStatus(_A)
-class _CitneInterfaceTopNCounterType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('none',1),(_F,2),('bytes',3),(_G,4),(_H,5),(_I,6),(_J,7)))
-_CitneInterfaceTopNCounterType_Type.__name__=_C
-_CitneInterfaceTopNCounterType_Object=MibTableColumn
-citneInterfaceTopNCounterType=_CitneInterfaceTopNCounterType_Object((1,3,6,1,4,1,9,9,482,1,2,1,1),_CitneInterfaceTopNCounterType_Type())
-citneInterfaceTopNCounterType.setMaxAccess(_D)
-if mibBuilder.loadTexts:citneInterfaceTopNCounterType.setStatus(_A)
-class _CitneInterfaceTopNInterfaceType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('all',1),('ethernet',2),('fastEthernet',3),('gigaEthernet',4),('tenGigaEthernet',5),('portChannel',6),('layer2',7),('layer3',8),('fortyGigaEthernet',9)))
-_CitneInterfaceTopNInterfaceType_Type.__name__=_C
-_CitneInterfaceTopNInterfaceType_Object=MibTableColumn
-citneInterfaceTopNInterfaceType=_CitneInterfaceTopNInterfaceType_Object((1,3,6,1,4,1,9,9,482,1,2,1,2),_CitneInterfaceTopNInterfaceType_Type())
-citneInterfaceTopNInterfaceType.setMaxAccess(_D)
-if mibBuilder.loadTexts:citneInterfaceTopNInterfaceType.setStatus(_A)
-class _CitneInterfaceTopNVlanNumber_Type(VlanIndex):defaultValue=0
-_CitneInterfaceTopNVlanNumber_Type.__name__=_E
-_CitneInterfaceTopNVlanNumber_Object=MibTableColumn
-citneInterfaceTopNVlanNumber=_CitneInterfaceTopNVlanNumber_Object((1,3,6,1,4,1,9,9,482,1,2,1,3),_CitneInterfaceTopNVlanNumber_Type())
-citneInterfaceTopNVlanNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:citneInterfaceTopNVlanNumber.setStatus(_A)
-_CiscoInterfaceTopNExtMIBConform_ObjectIdentity=ObjectIdentity
-ciscoInterfaceTopNExtMIBConform=_CiscoInterfaceTopNExtMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,482,2))
-_CiscoIfTopNExtMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoIfTopNExtMIBCompliances=_CiscoIfTopNExtMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,482,2,1))
-_CiscoIfTopNExtMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoIfTopNExtMIBGroups=_CiscoIfTopNExtMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,482,2,2))
-interfaceTopNControlEntry.registerAugmentions((_B,_K))
+#
+# PySNMP MIB module CISCO-INTERFACETOPN-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-INTERFACETOPN-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+interfaceTopNControlEntry, = mibBuilder.importSymbols("INTERFACETOPN-MIB", "interfaceTopNControlEntry")
+VlanIndex, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoInterfaceTopNExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 482))
+ciscoInterfaceTopNExtMIB.setRevisions(('2010-10-19 00:00', '2008-01-15 00:00', '2006-03-15 00:00',))
+if mibBuilder.loadTexts: ciscoInterfaceTopNExtMIB.setLastUpdated('201010190000Z')
+if mibBuilder.loadTexts: ciscoInterfaceTopNExtMIB.setOrganization('Cisco Systems, Inc.')
+ciscoInterfaceTopNExtMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 482, 0))
+ciscoInterfaceTopNExtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 482, 1))
+ciscoInterfaceTopNExtMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 482, 2))
+citneInterfaceTopNCaps = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 482, 1, 1), Bits().clone(namedValues=NamedValues(("utilization", 0), ("bytes", 1), ("packets", 2), ("broadcast", 3), ("multicast", 4), ("overflow", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: citneInterfaceTopNCaps.setStatus('current')
+citneInterfaceTopNControlTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 482, 1, 2), )
+if mibBuilder.loadTexts: citneInterfaceTopNControlTable.setStatus('current')
+citneInterfaceTopNControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 482, 1, 2, 1), )
+interfaceTopNControlEntry.registerAugmentions(("CISCO-INTERFACETOPN-EXT-MIB", "citneInterfaceTopNControlEntry"))
 citneInterfaceTopNControlEntry.setIndexNames(*interfaceTopNControlEntry.getIndexNames())
-ciscoIfTopNExtCapsGroup=ObjectGroup((1,3,6,1,4,1,9,9,482,2,2,1))
-ciscoIfTopNExtCapsGroup.setObjects((_B,_L))
-if mibBuilder.loadTexts:ciscoIfTopNExtCapsGroup.setStatus(_A)
-ciscoIfTopNExtControlGroup=ObjectGroup((1,3,6,1,4,1,9,9,482,2,2,2))
-ciscoIfTopNExtControlGroup.setObjects(*((_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:ciscoIfTopNExtControlGroup.setStatus(_A)
-ciscoIfTopNExtCtrlVlanGroup=ObjectGroup((1,3,6,1,4,1,9,9,482,2,2,3))
-ciscoIfTopNExtCtrlVlanGroup.setObjects((_B,_O))
-if mibBuilder.loadTexts:ciscoIfTopNExtCtrlVlanGroup.setStatus(_A)
-ciscoIfTopNExtMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,482,2,1,1))
-ciscoIfTopNExtMIBCompliance.setObjects(*((_B,_P),(_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:ciscoIfTopNExtMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoInterfaceTopNExtMIB':ciscoInterfaceTopNExtMIB,'ciscoInterfaceTopNExtMIBNotifs':ciscoInterfaceTopNExtMIBNotifs,'ciscoInterfaceTopNExtMIBObjects':ciscoInterfaceTopNExtMIBObjects,_L:citneInterfaceTopNCaps,'citneInterfaceTopNControlTable':citneInterfaceTopNControlTable,_K:citneInterfaceTopNControlEntry,_M:citneInterfaceTopNCounterType,_N:citneInterfaceTopNInterfaceType,_O:citneInterfaceTopNVlanNumber,'ciscoInterfaceTopNExtMIBConform':ciscoInterfaceTopNExtMIBConform,'ciscoIfTopNExtMIBCompliances':ciscoIfTopNExtMIBCompliances,'ciscoIfTopNExtMIBCompliance':ciscoIfTopNExtMIBCompliance,'ciscoIfTopNExtMIBGroups':ciscoIfTopNExtMIBGroups,_P:ciscoIfTopNExtCapsGroup,_Q:ciscoIfTopNExtControlGroup,_R:ciscoIfTopNExtCtrlVlanGroup})
+if mibBuilder.loadTexts: citneInterfaceTopNControlEntry.setStatus('current')
+citneInterfaceTopNCounterType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 482, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("none", 1), ("utilization", 2), ("bytes", 3), ("packets", 4), ("broadcast", 5), ("multicast", 6), ("overflow", 7))).clone('none')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: citneInterfaceTopNCounterType.setStatus('current')
+citneInterfaceTopNInterfaceType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 482, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("all", 1), ("ethernet", 2), ("fastEthernet", 3), ("gigaEthernet", 4), ("tenGigaEthernet", 5), ("portChannel", 6), ("layer2", 7), ("layer3", 8), ("fortyGigaEthernet", 9))).clone('all')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: citneInterfaceTopNInterfaceType.setStatus('current')
+citneInterfaceTopNVlanNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 482, 1, 2, 1, 3), VlanIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: citneInterfaceTopNVlanNumber.setStatus('current')
+ciscoIfTopNExtMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 482, 2, 1))
+ciscoIfTopNExtMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 482, 2, 2))
+ciscoIfTopNExtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 482, 2, 1, 1)).setObjects(("CISCO-INTERFACETOPN-EXT-MIB", "ciscoIfTopNExtCapsGroup"), ("CISCO-INTERFACETOPN-EXT-MIB", "ciscoIfTopNExtControlGroup"), ("CISCO-INTERFACETOPN-EXT-MIB", "ciscoIfTopNExtCtrlVlanGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIfTopNExtMIBCompliance = ciscoIfTopNExtMIBCompliance.setStatus('current')
+ciscoIfTopNExtCapsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 482, 2, 2, 1)).setObjects(("CISCO-INTERFACETOPN-EXT-MIB", "citneInterfaceTopNCaps"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIfTopNExtCapsGroup = ciscoIfTopNExtCapsGroup.setStatus('current')
+ciscoIfTopNExtControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 482, 2, 2, 2)).setObjects(("CISCO-INTERFACETOPN-EXT-MIB", "citneInterfaceTopNCounterType"), ("CISCO-INTERFACETOPN-EXT-MIB", "citneInterfaceTopNInterfaceType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIfTopNExtControlGroup = ciscoIfTopNExtControlGroup.setStatus('current')
+ciscoIfTopNExtCtrlVlanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 482, 2, 2, 3)).setObjects(("CISCO-INTERFACETOPN-EXT-MIB", "citneInterfaceTopNVlanNumber"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIfTopNExtCtrlVlanGroup = ciscoIfTopNExtCtrlVlanGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-INTERFACETOPN-EXT-MIB", citneInterfaceTopNCaps=citneInterfaceTopNCaps, ciscoIfTopNExtMIBCompliance=ciscoIfTopNExtMIBCompliance, citneInterfaceTopNVlanNumber=citneInterfaceTopNVlanNumber, ciscoIfTopNExtControlGroup=ciscoIfTopNExtControlGroup, ciscoInterfaceTopNExtMIBNotifs=ciscoInterfaceTopNExtMIBNotifs, ciscoInterfaceTopNExtMIBObjects=ciscoInterfaceTopNExtMIBObjects, PYSNMP_MODULE_ID=ciscoInterfaceTopNExtMIB, citneInterfaceTopNControlTable=citneInterfaceTopNControlTable, ciscoInterfaceTopNExtMIB=ciscoInterfaceTopNExtMIB, ciscoIfTopNExtMIBCompliances=ciscoIfTopNExtMIBCompliances, ciscoInterfaceTopNExtMIBConform=ciscoInterfaceTopNExtMIBConform, citneInterfaceTopNCounterType=citneInterfaceTopNCounterType, ciscoIfTopNExtCtrlVlanGroup=ciscoIfTopNExtCtrlVlanGroup, citneInterfaceTopNInterfaceType=citneInterfaceTopNInterfaceType, ciscoIfTopNExtCapsGroup=ciscoIfTopNExtCapsGroup, ciscoIfTopNExtMIBGroups=ciscoIfTopNExtMIBGroups, citneInterfaceTopNControlEntry=citneInterfaceTopNControlEntry)

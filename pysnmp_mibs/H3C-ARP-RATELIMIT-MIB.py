@@ -1,62 +1,39 @@
-_I='h3cARPRatelimitTrapMsg'
-_H='h3cARPRatelimitTrapCount'
-_G='h3cARPRatelimitTrapVer'
-_F='ifIndex'
-_E='IF-MIB'
-_D='OctetString'
-_C='accessible-for-notify'
-_B='H3C-ARP-RATELIMIT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','h3cCommon')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-h3cARPRatelimit=ModuleIdentity((1,3,6,1,4,1,2011,10,2,110))
-if mibBuilder.loadTexts:h3cARPRatelimit.setRevisions(('2013-10-14 18:00','2009-12-08 19:12'))
-_H3cARPRatelimitObjects_ObjectIdentity=ObjectIdentity
-h3cARPRatelimitObjects=_H3cARPRatelimitObjects_ObjectIdentity((1,3,6,1,4,1,2011,10,2,110,1))
-_H3cARPRatelimitTrap_ObjectIdentity=ObjectIdentity
-h3cARPRatelimitTrap=_H3cARPRatelimitTrap_ObjectIdentity((1,3,6,1,4,1,2011,10,2,110,1,1))
-_H3cARPRatelimitTraps_ObjectIdentity=ObjectIdentity
-h3cARPRatelimitTraps=_H3cARPRatelimitTraps_ObjectIdentity((1,3,6,1,4,1,2011,10,2,110,1,1,0))
-_H3cARPRatelimitTrapObjects_ObjectIdentity=ObjectIdentity
-h3cARPRatelimitTrapObjects=_H3cARPRatelimitTrapObjects_ObjectIdentity((1,3,6,1,4,1,2011,10,2,110,1,1,1))
-_H3cARPRatelimitTrapVer_Type=Unsigned32
-_H3cARPRatelimitTrapVer_Object=MibScalar
-h3cARPRatelimitTrapVer=_H3cARPRatelimitTrapVer_Object((1,3,6,1,4,1,2011,10,2,110,1,1,1,1),_H3cARPRatelimitTrapVer_Type())
-h3cARPRatelimitTrapVer.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cARPRatelimitTrapVer.setStatus(_A)
-_H3cARPRatelimitTrapCount_Type=Unsigned32
-_H3cARPRatelimitTrapCount_Object=MibScalar
-h3cARPRatelimitTrapCount=_H3cARPRatelimitTrapCount_Object((1,3,6,1,4,1,2011,10,2,110,1,1,1,2),_H3cARPRatelimitTrapCount_Type())
-h3cARPRatelimitTrapCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cARPRatelimitTrapCount.setStatus(_A)
-class _H3cARPRatelimitTrapMsg_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,254))
-_H3cARPRatelimitTrapMsg_Type.__name__=_D
-_H3cARPRatelimitTrapMsg_Object=MibScalar
-h3cARPRatelimitTrapMsg=_H3cARPRatelimitTrapMsg_Object((1,3,6,1,4,1,2011,10,2,110,1,1,1,3),_H3cARPRatelimitTrapMsg_Type())
-h3cARPRatelimitTrapMsg.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cARPRatelimitTrapMsg.setStatus(_A)
-_H3cARPRatelimitConfig_ObjectIdentity=ObjectIdentity
-h3cARPRatelimitConfig=_H3cARPRatelimitConfig_ObjectIdentity((1,3,6,1,4,1,2011,10,2,110,1,2))
-_H3cARPRatelimitConfigTable_Object=MibTable
-h3cARPRatelimitConfigTable=_H3cARPRatelimitConfigTable_Object((1,3,6,1,4,1,2011,10,2,110,1,2,1))
-if mibBuilder.loadTexts:h3cARPRatelimitConfigTable.setStatus(_A)
-_H3cARPRatelimitConfigEntry_Object=MibTableRow
-h3cARPRatelimitConfigEntry=_H3cARPRatelimitConfigEntry_Object((1,3,6,1,4,1,2011,10,2,110,1,2,1,1))
-h3cARPRatelimitConfigEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:h3cARPRatelimitConfigEntry.setStatus(_A)
-_H3cARPRatelimitValue_Type=Unsigned32
-_H3cARPRatelimitValue_Object=MibTableColumn
-h3cARPRatelimitValue=_H3cARPRatelimitValue_Object((1,3,6,1,4,1,2011,10,2,110,1,2,1,1,1),_H3cARPRatelimitValue_Type())
-h3cARPRatelimitValue.setMaxAccess('read-write')
-if mibBuilder.loadTexts:h3cARPRatelimitValue.setStatus(_A)
-h3cARPRatelimitOverspeedTrap=NotificationType((1,3,6,1,4,1,2011,10,2,110,1,1,0,1))
-h3cARPRatelimitOverspeedTrap.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:h3cARPRatelimitOverspeedTrap.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'h3cARPRatelimit':h3cARPRatelimit,'h3cARPRatelimitObjects':h3cARPRatelimitObjects,'h3cARPRatelimitTrap':h3cARPRatelimitTrap,'h3cARPRatelimitTraps':h3cARPRatelimitTraps,'h3cARPRatelimitOverspeedTrap':h3cARPRatelimitOverspeedTrap,'h3cARPRatelimitTrapObjects':h3cARPRatelimitTrapObjects,_G:h3cARPRatelimitTrapVer,_H:h3cARPRatelimitTrapCount,_I:h3cARPRatelimitTrapMsg,'h3cARPRatelimitConfig':h3cARPRatelimitConfig,'h3cARPRatelimitConfigTable':h3cARPRatelimitConfigTable,'h3cARPRatelimitConfigEntry':h3cARPRatelimitConfigEntry,'h3cARPRatelimitValue':h3cARPRatelimitValue})
+#
+# PySNMP MIB module H3C-ARP-RATELIMIT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-ARP-RATELIMIT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+h3cARPRatelimit = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110))
+h3cARPRatelimit.setRevisions(('2013-10-14 18:00', '2009-12-08 19:12',))
+if mibBuilder.loadTexts: h3cARPRatelimit.setLastUpdated('201310141800Z')
+if mibBuilder.loadTexts: h3cARPRatelimit.setOrganization('Hangzhou H3C Technologies Co., Ltd.')
+h3cARPRatelimitObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1))
+h3cARPRatelimitTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1))
+h3cARPRatelimitConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 2))
+h3cARPRatelimitTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 0))
+h3cARPRatelimitOverspeedTrap = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 0, 1)).setObjects(("H3C-ARP-RATELIMIT-MIB", "h3cARPRatelimitTrapVer"), ("H3C-ARP-RATELIMIT-MIB", "h3cARPRatelimitTrapCount"), ("H3C-ARP-RATELIMIT-MIB", "h3cARPRatelimitTrapMsg"))
+if mibBuilder.loadTexts: h3cARPRatelimitOverspeedTrap.setStatus('current')
+h3cARPRatelimitTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 1))
+h3cARPRatelimitTrapVer = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 1, 1), Unsigned32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cARPRatelimitTrapVer.setStatus('current')
+h3cARPRatelimitTrapCount = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 1, 2), Unsigned32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cARPRatelimitTrapCount.setStatus('current')
+h3cARPRatelimitTrapMsg = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 254))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cARPRatelimitTrapMsg.setStatus('current')
+h3cARPRatelimitConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 2, 1), )
+if mibBuilder.loadTexts: h3cARPRatelimitConfigTable.setStatus('current')
+h3cARPRatelimitConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: h3cARPRatelimitConfigEntry.setStatus('current')
+h3cARPRatelimitValue = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 110, 1, 2, 1, 1, 1), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cARPRatelimitValue.setStatus('current')
+mibBuilder.exportSymbols("H3C-ARP-RATELIMIT-MIB", h3cARPRatelimitConfigEntry=h3cARPRatelimitConfigEntry, h3cARPRatelimitTrapCount=h3cARPRatelimitTrapCount, PYSNMP_MODULE_ID=h3cARPRatelimit, h3cARPRatelimitTrapVer=h3cARPRatelimitTrapVer, h3cARPRatelimitTrapMsg=h3cARPRatelimitTrapMsg, h3cARPRatelimitTrapObjects=h3cARPRatelimitTrapObjects, h3cARPRatelimitConfigTable=h3cARPRatelimitConfigTable, h3cARPRatelimitValue=h3cARPRatelimitValue, h3cARPRatelimitTrap=h3cARPRatelimitTrap, h3cARPRatelimitConfig=h3cARPRatelimitConfig, h3cARPRatelimitOverspeedTrap=h3cARPRatelimitOverspeedTrap, h3cARPRatelimit=h3cARPRatelimit, h3cARPRatelimitTraps=h3cARPRatelimitTraps, h3cARPRatelimitObjects=h3cARPRatelimitObjects)

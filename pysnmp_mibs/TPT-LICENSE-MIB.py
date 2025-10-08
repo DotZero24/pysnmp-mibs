@@ -1,58 +1,45 @@
-_E='licenseEntryIndex'
-_D='TPT-LICENSE-MIB'
-_C='OctetString'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tpt_tpa_objs,=mibBuilder.importSymbols('TPT-TPAMIBS-MIB','tpt-tpa-objs')
-tpt_license_objs=ModuleIdentity((1,3,6,1,4,1,10734,3,3,2,15))
-if mibBuilder.loadTexts:tpt_license_objs.setRevisions(('2016-05-25 18:54',))
-class LicenseStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('info',0),('ok',1),('warning',2),('error',3)))
-class LicenseAction(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('allow',0),('deny',1)))
-_LicenseTable_Object=MibTable
-licenseTable=_LicenseTable_Object((1,3,6,1,4,1,10734,3,3,2,15,1))
-if mibBuilder.loadTexts:licenseTable.setStatus(_A)
-_LicenseEntry_Object=MibTableRow
-licenseEntry=_LicenseEntry_Object((1,3,6,1,4,1,10734,3,3,2,15,1,1))
-licenseEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:licenseEntry.setStatus(_A)
-_LicenseEntryIndex_Type=Unsigned32
-_LicenseEntryIndex_Object=MibTableColumn
-licenseEntryIndex=_LicenseEntryIndex_Object((1,3,6,1,4,1,10734,3,3,2,15,1,1,1),_LicenseEntryIndex_Type())
-licenseEntryIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:licenseEntryIndex.setStatus(_A)
-class _LicenseEntryFeature_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_LicenseEntryFeature_Type.__name__=_C
-_LicenseEntryFeature_Object=MibTableColumn
-licenseEntryFeature=_LicenseEntryFeature_Object((1,3,6,1,4,1,10734,3,3,2,15,1,1,2),_LicenseEntryFeature_Type())
-licenseEntryFeature.setMaxAccess(_B)
-if mibBuilder.loadTexts:licenseEntryFeature.setStatus(_A)
-_LicenseEntryStatus_Type=LicenseStatus
-_LicenseEntryStatus_Object=MibTableColumn
-licenseEntryStatus=_LicenseEntryStatus_Object((1,3,6,1,4,1,10734,3,3,2,15,1,1,3),_LicenseEntryStatus_Type())
-licenseEntryStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:licenseEntryStatus.setStatus(_A)
-_LicenseEntryAction_Type=LicenseAction
-_LicenseEntryAction_Object=MibTableColumn
-licenseEntryAction=_LicenseEntryAction_Object((1,3,6,1,4,1,10734,3,3,2,15,1,1,4),_LicenseEntryAction_Type())
-licenseEntryAction.setMaxAccess(_B)
-if mibBuilder.loadTexts:licenseEntryAction.setStatus(_A)
-class _LicenseEntryExpiry_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_LicenseEntryExpiry_Type.__name__=_C
-_LicenseEntryExpiry_Object=MibTableColumn
-licenseEntryExpiry=_LicenseEntryExpiry_Object((1,3,6,1,4,1,10734,3,3,2,15,1,1,5),_LicenseEntryExpiry_Type())
-licenseEntryExpiry.setMaxAccess(_B)
-if mibBuilder.loadTexts:licenseEntryExpiry.setStatus(_A)
-class _LicenseEntryDetails_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_LicenseEntryDetails_Type.__name__=_C
-_LicenseEntryDetails_Object=MibTableColumn
-licenseEntryDetails=_LicenseEntryDetails_Object((1,3,6,1,4,1,10734,3,3,2,15,1,1,6),_LicenseEntryDetails_Type())
-licenseEntryDetails.setMaxAccess(_B)
-if mibBuilder.loadTexts:licenseEntryDetails.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'LicenseStatus':LicenseStatus,'LicenseAction':LicenseAction,'tpt-license-objs':tpt_license_objs,'licenseTable':licenseTable,'licenseEntry':licenseEntry,_E:licenseEntryIndex,'licenseEntryFeature':licenseEntryFeature,'licenseEntryStatus':licenseEntryStatus,'licenseEntryAction':licenseEntryAction,'licenseEntryExpiry':licenseEntryExpiry,'licenseEntryDetails':licenseEntryDetails})
+#
+# PySNMP MIB module TPT-LICENSE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/trendmicro/TPT-LICENSE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:15 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tpt_tpa_objs, = mibBuilder.importSymbols("TPT-TPAMIBS-MIB", "tpt-tpa-objs")
+tpt_license_objs = ModuleIdentity((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 15)).setLabel("tpt-license-objs")
+tpt_license_objs.setRevisions(('2016-05-25 18:54',))
+if mibBuilder.loadTexts: tpt_license_objs.setLastUpdated('201605251854Z')
+if mibBuilder.loadTexts: tpt_license_objs.setOrganization('Trend Micro, Inc.')
+class LicenseStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
+    namedValues = NamedValues(("info", 0), ("ok", 1), ("warning", 2), ("error", 3))
+
+class LicenseAction(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
+    namedValues = NamedValues(("allow", 0), ("deny", 1))
+
+licenseTable = MibTable((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 15, 1), )
+if mibBuilder.loadTexts: licenseTable.setStatus('current')
+licenseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 15, 1, 1), ).setIndexNames((0, "TPT-LICENSE-MIB", "licenseEntryIndex"))
+if mibBuilder.loadTexts: licenseEntry.setStatus('current')
+licenseEntryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 15, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: licenseEntryIndex.setStatus('current')
+licenseEntryFeature = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 15, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: licenseEntryFeature.setStatus('current')
+licenseEntryStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 15, 1, 1, 3), LicenseStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: licenseEntryStatus.setStatus('current')
+licenseEntryAction = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 15, 1, 1, 4), LicenseAction()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: licenseEntryAction.setStatus('current')
+licenseEntryExpiry = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 15, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: licenseEntryExpiry.setStatus('current')
+licenseEntryDetails = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 15, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: licenseEntryDetails.setStatus('current')
+mibBuilder.exportSymbols("TPT-LICENSE-MIB", licenseEntryStatus=licenseEntryStatus, licenseEntryFeature=licenseEntryFeature, PYSNMP_MODULE_ID=tpt_license_objs, tpt_license_objs=tpt_license_objs, licenseEntryDetails=licenseEntryDetails, licenseEntry=licenseEntry, licenseEntryAction=licenseEntryAction, licenseEntryExpiry=licenseEntryExpiry, licenseEntryIndex=licenseEntryIndex, LicenseStatus=LicenseStatus, licenseTable=licenseTable, LicenseAction=LicenseAction)

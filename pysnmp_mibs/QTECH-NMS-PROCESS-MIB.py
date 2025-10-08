@@ -1,121 +1,58 @@
-_K='nmspmProcessPID'
-_J='read-write'
-_I='DisplayString'
-_H='Unsigned32'
-_G='nmspmCPUTotalIndex'
-_F='Integer32'
-_E='QTECH-NMS-PROCESS-MIB'
-_D='percent'
-_C='Gauge32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-nmsMgmt,=mibBuilder.importSymbols('QTECH-NMS-SMI','nmsMgmt')
-EntPhysicalIndexOrZero,=mibBuilder.importSymbols('QTECH-NMS-TC','EntPhysicalIndexOrZero')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64',_C,_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_H,'iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC',_I,'PhysAddress','TextualConvention','TimeStamp')
-nmsProcessMIB=ModuleIdentity((1,3,6,1,4,1,34751,9,109))
-if mibBuilder.loadTexts:nmsProcessMIB.setRevisions(('2003-10-16 00:00',))
-_NmsProcessMIBObjects_ObjectIdentity=ObjectIdentity
-nmsProcessMIBObjects=_NmsProcessMIBObjects_ObjectIdentity((1,3,6,1,4,1,34751,9,109,1))
-_NmspmCPU_ObjectIdentity=ObjectIdentity
-nmspmCPU=_NmspmCPU_ObjectIdentity((1,3,6,1,4,1,34751,9,109,1,1))
-_NmspmCPUTotalTable_Object=MibTable
-nmspmCPUTotalTable=_NmspmCPUTotalTable_Object((1,3,6,1,4,1,34751,9,109,1,1,1))
-if mibBuilder.loadTexts:nmspmCPUTotalTable.setStatus(_A)
-_NmspmCPUTotalEntry_Object=MibTableRow
-nmspmCPUTotalEntry=_NmspmCPUTotalEntry_Object((1,3,6,1,4,1,34751,9,109,1,1,1,1))
-nmspmCPUTotalEntry.setIndexNames((0,_E,_G))
-if mibBuilder.loadTexts:nmspmCPUTotalEntry.setStatus(_A)
-class _NmspmCPUTotalIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_NmspmCPUTotalIndex_Type.__name__=_H
-_NmspmCPUTotalIndex_Object=MibTableColumn
-nmspmCPUTotalIndex=_NmspmCPUTotalIndex_Object((1,3,6,1,4,1,34751,9,109,1,1,1,1,1),_NmspmCPUTotalIndex_Type())
-nmspmCPUTotalIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:nmspmCPUTotalIndex.setStatus(_A)
-_NmspmCPUTotalPhysicalIndex_Type=EntPhysicalIndexOrZero
-_NmspmCPUTotalPhysicalIndex_Object=MibTableColumn
-nmspmCPUTotalPhysicalIndex=_NmspmCPUTotalPhysicalIndex_Object((1,3,6,1,4,1,34751,9,109,1,1,1,1,2),_NmspmCPUTotalPhysicalIndex_Type())
-nmspmCPUTotalPhysicalIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:nmspmCPUTotalPhysicalIndex.setStatus(_A)
-class _NmspmCPUTotal5sec_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_NmspmCPUTotal5sec_Type.__name__=_C
-_NmspmCPUTotal5sec_Object=MibTableColumn
-nmspmCPUTotal5sec=_NmspmCPUTotal5sec_Object((1,3,6,1,4,1,34751,9,109,1,1,1,1,3),_NmspmCPUTotal5sec_Type())
-nmspmCPUTotal5sec.setMaxAccess(_B)
-if mibBuilder.loadTexts:nmspmCPUTotal5sec.setStatus(_A)
-if mibBuilder.loadTexts:nmspmCPUTotal5sec.setUnits(_D)
-class _NmspmCPUTotal1min_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_NmspmCPUTotal1min_Type.__name__=_C
-_NmspmCPUTotal1min_Object=MibTableColumn
-nmspmCPUTotal1min=_NmspmCPUTotal1min_Object((1,3,6,1,4,1,34751,9,109,1,1,1,1,4),_NmspmCPUTotal1min_Type())
-nmspmCPUTotal1min.setMaxAccess(_B)
-if mibBuilder.loadTexts:nmspmCPUTotal1min.setStatus(_A)
-if mibBuilder.loadTexts:nmspmCPUTotal1min.setUnits(_D)
-class _NmspmCPUTotal5min_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_NmspmCPUTotal5min_Type.__name__=_C
-_NmspmCPUTotal5min_Object=MibTableColumn
-nmspmCPUTotal5min=_NmspmCPUTotal5min_Object((1,3,6,1,4,1,34751,9,109,1,1,1,1,5),_NmspmCPUTotal5min_Type())
-nmspmCPUTotal5min.setMaxAccess(_B)
-if mibBuilder.loadTexts:nmspmCPUTotal5min.setStatus(_A)
-if mibBuilder.loadTexts:nmspmCPUTotal5min.setUnits(_D)
-class _NmspmCPUMaxUtilization_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_NmspmCPUMaxUtilization_Type.__name__=_C
-_NmspmCPUMaxUtilization_Object=MibScalar
-nmspmCPUMaxUtilization=_NmspmCPUMaxUtilization_Object((1,3,6,1,4,1,34751,9,109,1,1,2),_NmspmCPUMaxUtilization_Type())
-nmspmCPUMaxUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:nmspmCPUMaxUtilization.setStatus(_A)
-if mibBuilder.loadTexts:nmspmCPUMaxUtilization.setUnits(_D)
-class _NmspmCPUClearMaxUtilization_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('clear',1))
-_NmspmCPUClearMaxUtilization_Type.__name__=_F
-_NmspmCPUClearMaxUtilization_Object=MibScalar
-nmspmCPUClearMaxUtilization=_NmspmCPUClearMaxUtilization_Object((1,3,6,1,4,1,34751,9,109,1,1,3),_NmspmCPUClearMaxUtilization_Type())
-nmspmCPUClearMaxUtilization.setMaxAccess(_J)
-if mibBuilder.loadTexts:nmspmCPUClearMaxUtilization.setStatus(_A)
-if mibBuilder.loadTexts:nmspmCPUClearMaxUtilization.setUnits(_D)
-_NmspmProcess_ObjectIdentity=ObjectIdentity
-nmspmProcess=_NmspmProcess_ObjectIdentity((1,3,6,1,4,1,34751,9,109,1,2))
-_NmspmProcessTable_Object=MibTable
-nmspmProcessTable=_NmspmProcessTable_Object((1,3,6,1,4,1,34751,9,109,1,2,1))
-if mibBuilder.loadTexts:nmspmProcessTable.setStatus(_A)
-_NmspmProcessEntry_Object=MibTableRow
-nmspmProcessEntry=_NmspmProcessEntry_Object((1,3,6,1,4,1,34751,9,109,1,2,1,1))
-nmspmProcessEntry.setIndexNames((0,_E,_G),(0,_E,_K))
-if mibBuilder.loadTexts:nmspmProcessEntry.setStatus(_A)
-_NmspmProcessPID_Type=Unsigned32
-_NmspmProcessPID_Object=MibTableColumn
-nmspmProcessPID=_NmspmProcessPID_Object((1,3,6,1,4,1,34751,9,109,1,2,1,1,1),_NmspmProcessPID_Type())
-nmspmProcessPID.setMaxAccess(_B)
-if mibBuilder.loadTexts:nmspmProcessPID.setStatus(_A)
-class _NmspmProcessName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_NmspmProcessName_Type.__name__=_I
-_NmspmProcessName_Object=MibTableColumn
-nmspmProcessName=_NmspmProcessName_Object((1,3,6,1,4,1,34751,9,109,1,2,1,1,2),_NmspmProcessName_Type())
-nmspmProcessName.setMaxAccess(_B)
-if mibBuilder.loadTexts:nmspmProcessName.setStatus(_A)
-class _NmspmProcessPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,55,60,128,180,255)));namedValues=NamedValues(*(('critical',0),('veryhigh',55),('high',60),('normal',128),('low',180),('verylow',255)))
-_NmspmProcessPriority_Type.__name__=_F
-_NmspmProcessPriority_Object=MibTableColumn
-nmspmProcessPriority=_NmspmProcessPriority_Object((1,3,6,1,4,1,34751,9,109,1,2,1,1,3),_NmspmProcessPriority_Type())
-nmspmProcessPriority.setMaxAccess(_J)
-if mibBuilder.loadTexts:nmspmProcessPriority.setStatus(_A)
-_NmspmProcessTimeCreated_Type=TimeStamp
-_NmspmProcessTimeCreated_Object=MibTableColumn
-nmspmProcessTimeCreated=_NmspmProcessTimeCreated_Object((1,3,6,1,4,1,34751,9,109,1,2,1,1,4),_NmspmProcessTimeCreated_Type())
-nmspmProcessTimeCreated.setMaxAccess(_B)
-if mibBuilder.loadTexts:nmspmProcessTimeCreated.setStatus(_A)
-_NmsProcessMIBNotifPrefix_ObjectIdentity=ObjectIdentity
-nmsProcessMIBNotifPrefix=_NmsProcessMIBNotifPrefix_ObjectIdentity((1,3,6,1,4,1,34751,9,109,2))
-_NmsProcessMIBNotifs_ObjectIdentity=ObjectIdentity
-nmsProcessMIBNotifs=_NmsProcessMIBNotifs_ObjectIdentity((1,3,6,1,4,1,34751,9,109,2,0))
-_NmsProcessMIBConformance_ObjectIdentity=ObjectIdentity
-nmsProcessMIBConformance=_NmsProcessMIBConformance_ObjectIdentity((1,3,6,1,4,1,34751,9,109,3))
-_NmspmCompliances_ObjectIdentity=ObjectIdentity
-nmspmCompliances=_NmspmCompliances_ObjectIdentity((1,3,6,1,4,1,34751,9,109,3,1))
-_NmspmGroups_ObjectIdentity=ObjectIdentity
-nmspmGroups=_NmspmGroups_ObjectIdentity((1,3,6,1,4,1,34751,9,109,3,2))
-mibBuilder.exportSymbols(_E,**{'nmsProcessMIB':nmsProcessMIB,'nmsProcessMIBObjects':nmsProcessMIBObjects,'nmspmCPU':nmspmCPU,'nmspmCPUTotalTable':nmspmCPUTotalTable,'nmspmCPUTotalEntry':nmspmCPUTotalEntry,_G:nmspmCPUTotalIndex,'nmspmCPUTotalPhysicalIndex':nmspmCPUTotalPhysicalIndex,'nmspmCPUTotal5sec':nmspmCPUTotal5sec,'nmspmCPUTotal1min':nmspmCPUTotal1min,'nmspmCPUTotal5min':nmspmCPUTotal5min,'nmspmCPUMaxUtilization':nmspmCPUMaxUtilization,'nmspmCPUClearMaxUtilization':nmspmCPUClearMaxUtilization,'nmspmProcess':nmspmProcess,'nmspmProcessTable':nmspmProcessTable,'nmspmProcessEntry':nmspmProcessEntry,_K:nmspmProcessPID,'nmspmProcessName':nmspmProcessName,'nmspmProcessPriority':nmspmProcessPriority,'nmspmProcessTimeCreated':nmspmProcessTimeCreated,'nmsProcessMIBNotifPrefix':nmsProcessMIBNotifPrefix,'nmsProcessMIBNotifs':nmsProcessMIBNotifs,'nmsProcessMIBConformance':nmsProcessMIBConformance,'nmspmCompliances':nmspmCompliances,'nmspmGroups':nmspmGroups})
+#
+# PySNMP MIB module QTECH-NMS-PROCESS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-NMS-PROCESS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:22 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+nmsMgmt, = mibBuilder.importSymbols("QTECH-NMS-SMI", "nmsMgmt")
+EntPhysicalIndexOrZero, = mibBuilder.importSymbols("QTECH-NMS-TC", "EntPhysicalIndexOrZero")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+nmsProcessMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 34751, 9, 109))
+nmsProcessMIB.setRevisions(('2003-10-16 00:00',))
+if mibBuilder.loadTexts: nmsProcessMIB.setLastUpdated('200311060000Z')
+if mibBuilder.loadTexts: nmsProcessMIB.setOrganization('')
+nmsProcessMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1))
+nmspmCPU = MibIdentifier((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 1))
+nmspmProcess = MibIdentifier((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 2))
+nmspmCPUTotalTable = MibTable((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 1, 1), )
+if mibBuilder.loadTexts: nmspmCPUTotalTable.setStatus('current')
+nmspmCPUTotalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 1, 1, 1), ).setIndexNames((0, "QTECH-NMS-PROCESS-MIB", "nmspmCPUTotalIndex"))
+if mibBuilder.loadTexts: nmspmCPUTotalEntry.setStatus('current')
+nmspmCPUTotalIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: nmspmCPUTotalIndex.setStatus('current')
+nmspmCPUTotalPhysicalIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 1, 1, 1, 2), EntPhysicalIndexOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmspmCPUTotalPhysicalIndex.setStatus('current')
+nmspmCPUTotal5sec = MibTableColumn((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 1, 1, 1, 3), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmspmCPUTotal5sec.setStatus('current')
+nmspmCPUTotal1min = MibTableColumn((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 1, 1, 1, 4), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmspmCPUTotal1min.setStatus('current')
+nmspmCPUTotal5min = MibTableColumn((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 1, 1, 1, 5), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmspmCPUTotal5min.setStatus('current')
+nmspmCPUMaxUtilization = MibScalar((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 1, 2), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmspmCPUMaxUtilization.setStatus('current')
+nmspmCPUClearMaxUtilization = MibScalar((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("clear", 1)))).setUnits('percent').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nmspmCPUClearMaxUtilization.setStatus('current')
+nmspmProcessTable = MibTable((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 2, 1), )
+if mibBuilder.loadTexts: nmspmProcessTable.setStatus('current')
+nmspmProcessEntry = MibTableRow((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 2, 1, 1), ).setIndexNames((0, "QTECH-NMS-PROCESS-MIB", "nmspmCPUTotalIndex"), (0, "QTECH-NMS-PROCESS-MIB", "nmspmProcessPID"))
+if mibBuilder.loadTexts: nmspmProcessEntry.setStatus('current')
+nmspmProcessPID = MibTableColumn((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 2, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmspmProcessPID.setStatus('current')
+nmspmProcessName = MibTableColumn((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmspmProcessName.setStatus('current')
+nmspmProcessPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 55, 60, 128, 180, 255))).clone(namedValues=NamedValues(("critical", 0), ("veryhigh", 55), ("high", 60), ("normal", 128), ("low", 180), ("verylow", 255)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nmspmProcessPriority.setStatus('current')
+nmspmProcessTimeCreated = MibTableColumn((1, 3, 6, 1, 4, 1, 34751, 9, 109, 1, 2, 1, 1, 4), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmspmProcessTimeCreated.setStatus('current')
+nmsProcessMIBNotifPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 34751, 9, 109, 2))
+nmsProcessMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 34751, 9, 109, 2, 0))
+nmsProcessMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 34751, 9, 109, 3))
+nmspmCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 34751, 9, 109, 3, 1))
+nmspmGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 34751, 9, 109, 3, 2))
+mibBuilder.exportSymbols("QTECH-NMS-PROCESS-MIB", nmspmCPUTotal5sec=nmspmCPUTotal5sec, nmspmProcess=nmspmProcess, nmspmProcessEntry=nmspmProcessEntry, nmspmProcessName=nmspmProcessName, nmspmCompliances=nmspmCompliances, nmspmCPUTotalEntry=nmspmCPUTotalEntry, nmspmProcessPID=nmspmProcessPID, nmspmCPUClearMaxUtilization=nmspmCPUClearMaxUtilization, nmspmCPUTotalPhysicalIndex=nmspmCPUTotalPhysicalIndex, nmspmCPUTotal1min=nmspmCPUTotal1min, nmsProcessMIBNotifPrefix=nmsProcessMIBNotifPrefix, nmspmCPUTotalIndex=nmspmCPUTotalIndex, nmspmGroups=nmspmGroups, nmspmCPUTotalTable=nmspmCPUTotalTable, nmsProcessMIBNotifs=nmsProcessMIBNotifs, nmspmProcessPriority=nmspmProcessPriority, nmsProcessMIBConformance=nmsProcessMIBConformance, nmspmProcessTimeCreated=nmspmProcessTimeCreated, nmspmCPU=nmspmCPU, nmsProcessMIB=nmsProcessMIB, nmspmCPUMaxUtilization=nmspmCPUMaxUtilization, nmspmProcessTable=nmspmProcessTable, PYSNMP_MODULE_ID=nmsProcessMIB, nmspmCPUTotal5min=nmspmCPUTotal5min, nmsProcessMIBObjects=nmsProcessMIBObjects)

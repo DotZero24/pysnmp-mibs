@@ -1,360 +1,161 @@
-_A2='tnEgressVtsCmodeMapGroup'
-_A1='tnIngressVtsCmodeMapGroup'
-_A0='tnEgressVtsMapGroup'
-_z='tnIngressVtsMapGroup'
-_y='tnVtsConnIdGroup'
-_x='tnVtsMapGroup'
-_w='tnVtsConnGroup'
-_v='tnEgressVtsCmodeMapRowStatus'
-_u='tnEgressVtsCmodeMapCMode'
-_t='tnEgressVtsCmodeMapDIP'
-_s='tnEgressVtsCmodeMapSIP'
-_r='tnEgressVtsCmodeMapSVLANID'
-_q='tnEgressVtsCmodeMapCEVLANID'
-_p='tnIngressVtsCmodeMapRowStatus'
-_o='tnIngressVtsCmodeMapCMode'
-_n='tnIngressVtsCmodeMapDIP'
-_m='tnIngressVtsCmodeMapSIP'
-_l='tnIngressVtsCmodeMapSVLANID'
-_k='tnIngressVtsCmodeMapCEVLANID'
-_j='tnEgressVtsMapSVLANID'
-_i='tnEgressVtsMapCEVLANID'
-_h='tnIngressVtsMapSVLANID'
-_g='tnIngressVtsMapCEVLANID'
-_f='tnVtsConnIdDestVts'
-_e='tnVtsConnIdDestIfIndex'
-_d='tnVtsConnIdSrcVts'
-_c='tnVtsConnIdSrcIfIndex'
-_b='tnVtsMapSVLANID'
-_a='tnVtsMapCEVLANID'
-_Z='tnVtsConnProtectionState'
-_Y='tnVtsConnRowStatus'
-_X='tnVtsConnEBS'
-_W='tnVtsConnCBS'
-_V='tnVtsConnEIR'
-_U='tnVtsConnCIR'
-_T='tnVtsConnName'
-_S='tnVtsConnBidirectional'
-_R='tnVtsConnOperState'
-_Q='tnVtsConnAdminState'
-_P='tnVtsConnDestVts'
-_O='tnVtsConnDestIfIndex'
-_N='tnVtsConnSrcVts'
-_M='tnVtsConnSrcIfIndex'
-_L='TruthValue'
-_K='tnVtsConnId'
-_J='Integer32'
-_I='Unsigned32'
-_H='tnVtsMapVts'
-_G='tnVtsMapIfIndex'
-_F='not-accessible'
-_E='read-only'
-_D='OctetString'
-_C='read-create'
-_B='TROPIC-VTSCONN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_J,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_I,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_L)
-tnPortModules,tnVtsConnMIB=mibBuilder.importSymbols('TROPIC-GLOBAL-REG','tnPortModules','tnVtsConnMIB')
-tnVtsConnMibModule=ModuleIdentity((1,3,6,1,4,1,7483,1,1,2,2,4,4))
-if mibBuilder.loadTexts:tnVtsConnMibModule.setRevisions(('2018-02-23 12:00','2016-11-16 12:00','2011-02-25 12:00','2011-02-22 12:00','2010-10-26 12:00','2010-10-14 12:00','2010-06-23 12:00','2010-06-04 12:00','2010-05-18 12:00','2010-03-03 12:00','2009-07-17 12:00','2009-07-07 12:00','2009-06-18 12:00','2009-05-31 12:00','2009-04-27 12:00'))
-class AluWdmVtsCmodeMapCMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('cvlan',1),('svlan',2),('sip',3),('dip',4),('sipdip',5),('port',6),('untagged',7)))
-_TnVtsConnConf_ObjectIdentity=ObjectIdentity
-tnVtsConnConf=_TnVtsConnConf_ObjectIdentity((1,3,6,1,4,1,7483,2,2,4,6,1))
-_TnVtsConnGroups_ObjectIdentity=ObjectIdentity
-tnVtsConnGroups=_TnVtsConnGroups_ObjectIdentity((1,3,6,1,4,1,7483,2,2,4,6,1,1))
-_TnVtsConnCompliances_ObjectIdentity=ObjectIdentity
-tnVtsConnCompliances=_TnVtsConnCompliances_ObjectIdentity((1,3,6,1,4,1,7483,2,2,4,6,1,2))
-_TnVtsConnObjs_ObjectIdentity=ObjectIdentity
-tnVtsConnObjs=_TnVtsConnObjs_ObjectIdentity((1,3,6,1,4,1,7483,2,2,4,6,2))
-_TnVtsConnBasics_ObjectIdentity=ObjectIdentity
-tnVtsConnBasics=_TnVtsConnBasics_ObjectIdentity((1,3,6,1,4,1,7483,2,2,4,6,2,1))
-_TnVtsConnTable_Object=MibTable
-tnVtsConnTable=_TnVtsConnTable_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1))
-if mibBuilder.loadTexts:tnVtsConnTable.setStatus(_A)
-_TnVtsConnEntry_Object=MibTableRow
-tnVtsConnEntry=_TnVtsConnEntry_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1))
-tnVtsConnEntry.setIndexNames((0,_B,_M),(0,_B,_N),(0,_B,_O),(0,_B,_P))
-if mibBuilder.loadTexts:tnVtsConnEntry.setStatus(_A)
-_TnVtsConnSrcIfIndex_Type=InterfaceIndex
-_TnVtsConnSrcIfIndex_Object=MibTableColumn
-tnVtsConnSrcIfIndex=_TnVtsConnSrcIfIndex_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1,1),_TnVtsConnSrcIfIndex_Type())
-tnVtsConnSrcIfIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:tnVtsConnSrcIfIndex.setStatus(_A)
-_TnVtsConnSrcVts_Type=Unsigned32
-_TnVtsConnSrcVts_Object=MibTableColumn
-tnVtsConnSrcVts=_TnVtsConnSrcVts_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1,2),_TnVtsConnSrcVts_Type())
-tnVtsConnSrcVts.setMaxAccess(_F)
-if mibBuilder.loadTexts:tnVtsConnSrcVts.setStatus(_A)
-_TnVtsConnDestIfIndex_Type=InterfaceIndex
-_TnVtsConnDestIfIndex_Object=MibTableColumn
-tnVtsConnDestIfIndex=_TnVtsConnDestIfIndex_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1,3),_TnVtsConnDestIfIndex_Type())
-tnVtsConnDestIfIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:tnVtsConnDestIfIndex.setStatus(_A)
-_TnVtsConnDestVts_Type=Unsigned32
-_TnVtsConnDestVts_Object=MibTableColumn
-tnVtsConnDestVts=_TnVtsConnDestVts_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1,4),_TnVtsConnDestVts_Type())
-tnVtsConnDestVts.setMaxAccess(_F)
-if mibBuilder.loadTexts:tnVtsConnDestVts.setStatus(_A)
-class _TnVtsConnAdminState_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_TnVtsConnAdminState_Type.__name__=_J
-_TnVtsConnAdminState_Object=MibTableColumn
-tnVtsConnAdminState=_TnVtsConnAdminState_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1,5),_TnVtsConnAdminState_Type())
-tnVtsConnAdminState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnVtsConnAdminState.setStatus(_A)
-class _TnVtsConnOperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_TnVtsConnOperState_Type.__name__=_J
-_TnVtsConnOperState_Object=MibTableColumn
-tnVtsConnOperState=_TnVtsConnOperState_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1,6),_TnVtsConnOperState_Type())
-tnVtsConnOperState.setMaxAccess(_E)
-if mibBuilder.loadTexts:tnVtsConnOperState.setStatus(_A)
-class _TnVtsConnBidirectional_Type(TruthValue):defaultValue=1
-_TnVtsConnBidirectional_Type.__name__=_L
-_TnVtsConnBidirectional_Object=MibTableColumn
-tnVtsConnBidirectional=_TnVtsConnBidirectional_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1,7),_TnVtsConnBidirectional_Type())
-tnVtsConnBidirectional.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnVtsConnBidirectional.setStatus(_A)
-class _TnVtsConnName_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_TnVtsConnName_Type.__name__=_D
-_TnVtsConnName_Object=MibTableColumn
-tnVtsConnName=_TnVtsConnName_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1,8),_TnVtsConnName_Type())
-tnVtsConnName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnVtsConnName.setStatus(_A)
-class _TnVtsConnCIR_Type(Unsigned32):defaultValue=100
-_TnVtsConnCIR_Type.__name__=_I
-_TnVtsConnCIR_Object=MibTableColumn
-tnVtsConnCIR=_TnVtsConnCIR_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1,9),_TnVtsConnCIR_Type())
-tnVtsConnCIR.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnVtsConnCIR.setStatus(_A)
-class _TnVtsConnEIR_Type(Unsigned32):defaultValue=1000
-_TnVtsConnEIR_Type.__name__=_I
-_TnVtsConnEIR_Object=MibTableColumn
-tnVtsConnEIR=_TnVtsConnEIR_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1,10),_TnVtsConnEIR_Type())
-tnVtsConnEIR.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnVtsConnEIR.setStatus(_A)
-class _TnVtsConnCBS_Type(Unsigned32):defaultValue=256
-_TnVtsConnCBS_Type.__name__=_I
-_TnVtsConnCBS_Object=MibTableColumn
-tnVtsConnCBS=_TnVtsConnCBS_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1,11),_TnVtsConnCBS_Type())
-tnVtsConnCBS.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnVtsConnCBS.setStatus(_A)
-class _TnVtsConnEBS_Type(Unsigned32):defaultValue=4096
-_TnVtsConnEBS_Type.__name__=_I
-_TnVtsConnEBS_Object=MibTableColumn
-tnVtsConnEBS=_TnVtsConnEBS_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1,12),_TnVtsConnEBS_Type())
-tnVtsConnEBS.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnVtsConnEBS.setStatus(_A)
-_TnVtsConnRowStatus_Type=RowStatus
-_TnVtsConnRowStatus_Object=MibTableColumn
-tnVtsConnRowStatus=_TnVtsConnRowStatus_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1,13),_TnVtsConnRowStatus_Type())
-tnVtsConnRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnVtsConnRowStatus.setStatus(_A)
-_TnVtsConnId_Type=Unsigned32
-_TnVtsConnId_Object=MibTableColumn
-tnVtsConnId=_TnVtsConnId_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1,14),_TnVtsConnId_Type())
-tnVtsConnId.setMaxAccess(_E)
-if mibBuilder.loadTexts:tnVtsConnId.setStatus(_A)
-class _TnVtsConnProtectionState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('working',2),('protection',3)))
-_TnVtsConnProtectionState_Type.__name__=_J
-_TnVtsConnProtectionState_Object=MibTableColumn
-tnVtsConnProtectionState=_TnVtsConnProtectionState_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,1,1,15),_TnVtsConnProtectionState_Type())
-tnVtsConnProtectionState.setMaxAccess(_E)
-if mibBuilder.loadTexts:tnVtsConnProtectionState.setStatus(_A)
-_TnVtsMapTable_Object=MibTable
-tnVtsMapTable=_TnVtsMapTable_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,2))
-if mibBuilder.loadTexts:tnVtsMapTable.setStatus(_A)
-_TnVtsMapEntry_Object=MibTableRow
-tnVtsMapEntry=_TnVtsMapEntry_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,2,1))
-tnVtsMapEntry.setIndexNames((0,_B,_G),(0,_B,_H))
-if mibBuilder.loadTexts:tnVtsMapEntry.setStatus(_A)
-_TnVtsMapIfIndex_Type=InterfaceIndex
-_TnVtsMapIfIndex_Object=MibTableColumn
-tnVtsMapIfIndex=_TnVtsMapIfIndex_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,2,1,1),_TnVtsMapIfIndex_Type())
-tnVtsMapIfIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:tnVtsMapIfIndex.setStatus(_A)
-_TnVtsMapVts_Type=Unsigned32
-_TnVtsMapVts_Object=MibTableColumn
-tnVtsMapVts=_TnVtsMapVts_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,2,1,2),_TnVtsMapVts_Type())
-tnVtsMapVts.setMaxAccess(_F)
-if mibBuilder.loadTexts:tnVtsMapVts.setStatus(_A)
-class _TnVtsMapCEVLANID_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_TnVtsMapCEVLANID_Type.__name__=_D
-_TnVtsMapCEVLANID_Object=MibTableColumn
-tnVtsMapCEVLANID=_TnVtsMapCEVLANID_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,2,1,3),_TnVtsMapCEVLANID_Type())
-tnVtsMapCEVLANID.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnVtsMapCEVLANID.setStatus(_A)
-_TnVtsMapSVLANID_Type=Unsigned32
-_TnVtsMapSVLANID_Object=MibTableColumn
-tnVtsMapSVLANID=_TnVtsMapSVLANID_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,2,1,5),_TnVtsMapSVLANID_Type())
-tnVtsMapSVLANID.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnVtsMapSVLANID.setStatus(_A)
-_TnVtsConnIdTable_Object=MibTable
-tnVtsConnIdTable=_TnVtsConnIdTable_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,3))
-if mibBuilder.loadTexts:tnVtsConnIdTable.setStatus(_A)
-_TnVtsConnIdEntry_Object=MibTableRow
-tnVtsConnIdEntry=_TnVtsConnIdEntry_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,3,1))
-tnVtsConnIdEntry.setIndexNames((0,_B,_K))
-if mibBuilder.loadTexts:tnVtsConnIdEntry.setStatus(_A)
-_TnVtsConnIdSrcIfIndex_Type=InterfaceIndex
-_TnVtsConnIdSrcIfIndex_Object=MibTableColumn
-tnVtsConnIdSrcIfIndex=_TnVtsConnIdSrcIfIndex_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,3,1,1),_TnVtsConnIdSrcIfIndex_Type())
-tnVtsConnIdSrcIfIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:tnVtsConnIdSrcIfIndex.setStatus(_A)
-_TnVtsConnIdSrcVts_Type=Unsigned32
-_TnVtsConnIdSrcVts_Object=MibTableColumn
-tnVtsConnIdSrcVts=_TnVtsConnIdSrcVts_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,3,1,2),_TnVtsConnIdSrcVts_Type())
-tnVtsConnIdSrcVts.setMaxAccess(_E)
-if mibBuilder.loadTexts:tnVtsConnIdSrcVts.setStatus(_A)
-_TnVtsConnIdDestIfIndex_Type=InterfaceIndex
-_TnVtsConnIdDestIfIndex_Object=MibTableColumn
-tnVtsConnIdDestIfIndex=_TnVtsConnIdDestIfIndex_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,3,1,3),_TnVtsConnIdDestIfIndex_Type())
-tnVtsConnIdDestIfIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:tnVtsConnIdDestIfIndex.setStatus(_A)
-_TnVtsConnIdDestVts_Type=Unsigned32
-_TnVtsConnIdDestVts_Object=MibTableColumn
-tnVtsConnIdDestVts=_TnVtsConnIdDestVts_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,3,1,4),_TnVtsConnIdDestVts_Type())
-tnVtsConnIdDestVts.setMaxAccess(_E)
-if mibBuilder.loadTexts:tnVtsConnIdDestVts.setStatus(_A)
-_TnIngressVtsMapTable_Object=MibTable
-tnIngressVtsMapTable=_TnIngressVtsMapTable_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,4))
-if mibBuilder.loadTexts:tnIngressVtsMapTable.setStatus(_A)
-_TnIngressVtsMapEntry_Object=MibTableRow
-tnIngressVtsMapEntry=_TnIngressVtsMapEntry_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,4,1))
-tnIngressVtsMapEntry.setIndexNames((0,_B,_G),(0,_B,_H))
-if mibBuilder.loadTexts:tnIngressVtsMapEntry.setStatus(_A)
-class _TnIngressVtsMapCEVLANID_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_TnIngressVtsMapCEVLANID_Type.__name__=_D
-_TnIngressVtsMapCEVLANID_Object=MibTableColumn
-tnIngressVtsMapCEVLANID=_TnIngressVtsMapCEVLANID_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,4,1,1),_TnIngressVtsMapCEVLANID_Type())
-tnIngressVtsMapCEVLANID.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnIngressVtsMapCEVLANID.setStatus(_A)
-_TnIngressVtsMapSVLANID_Type=Unsigned32
-_TnIngressVtsMapSVLANID_Object=MibTableColumn
-tnIngressVtsMapSVLANID=_TnIngressVtsMapSVLANID_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,4,1,2),_TnIngressVtsMapSVLANID_Type())
-tnIngressVtsMapSVLANID.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnIngressVtsMapSVLANID.setStatus(_A)
-_TnEgressVtsMapTable_Object=MibTable
-tnEgressVtsMapTable=_TnEgressVtsMapTable_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,5))
-if mibBuilder.loadTexts:tnEgressVtsMapTable.setStatus(_A)
-_TnEgressVtsMapEntry_Object=MibTableRow
-tnEgressVtsMapEntry=_TnEgressVtsMapEntry_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,5,1))
-tnEgressVtsMapEntry.setIndexNames((0,_B,_G),(0,_B,_H))
-if mibBuilder.loadTexts:tnEgressVtsMapEntry.setStatus(_A)
-class _TnEgressVtsMapCEVLANID_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_TnEgressVtsMapCEVLANID_Type.__name__=_D
-_TnEgressVtsMapCEVLANID_Object=MibTableColumn
-tnEgressVtsMapCEVLANID=_TnEgressVtsMapCEVLANID_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,5,1,1),_TnEgressVtsMapCEVLANID_Type())
-tnEgressVtsMapCEVLANID.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnEgressVtsMapCEVLANID.setStatus(_A)
-_TnEgressVtsMapSVLANID_Type=Unsigned32
-_TnEgressVtsMapSVLANID_Object=MibTableColumn
-tnEgressVtsMapSVLANID=_TnEgressVtsMapSVLANID_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,5,1,2),_TnEgressVtsMapSVLANID_Type())
-tnEgressVtsMapSVLANID.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnEgressVtsMapSVLANID.setStatus(_A)
-_TnIngressVtsCmodeMapTable_Object=MibTable
-tnIngressVtsCmodeMapTable=_TnIngressVtsCmodeMapTable_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,6))
-if mibBuilder.loadTexts:tnIngressVtsCmodeMapTable.setStatus(_A)
-_TnIngressVtsCmodeMapEntry_Object=MibTableRow
-tnIngressVtsCmodeMapEntry=_TnIngressVtsCmodeMapEntry_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,6,1))
-tnIngressVtsCmodeMapEntry.setIndexNames((0,_B,_G),(0,_B,_H))
-if mibBuilder.loadTexts:tnIngressVtsCmodeMapEntry.setStatus(_A)
-class _TnIngressVtsCmodeMapCEVLANID_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_TnIngressVtsCmodeMapCEVLANID_Type.__name__=_D
-_TnIngressVtsCmodeMapCEVLANID_Object=MibTableColumn
-tnIngressVtsCmodeMapCEVLANID=_TnIngressVtsCmodeMapCEVLANID_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,6,1,1),_TnIngressVtsCmodeMapCEVLANID_Type())
-tnIngressVtsCmodeMapCEVLANID.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnIngressVtsCmodeMapCEVLANID.setStatus(_A)
-_TnIngressVtsCmodeMapSVLANID_Type=Unsigned32
-_TnIngressVtsCmodeMapSVLANID_Object=MibTableColumn
-tnIngressVtsCmodeMapSVLANID=_TnIngressVtsCmodeMapSVLANID_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,6,1,2),_TnIngressVtsCmodeMapSVLANID_Type())
-tnIngressVtsCmodeMapSVLANID.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnIngressVtsCmodeMapSVLANID.setStatus(_A)
-_TnIngressVtsCmodeMapSIP_Type=IpAddress
-_TnIngressVtsCmodeMapSIP_Object=MibTableColumn
-tnIngressVtsCmodeMapSIP=_TnIngressVtsCmodeMapSIP_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,6,1,3),_TnIngressVtsCmodeMapSIP_Type())
-tnIngressVtsCmodeMapSIP.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnIngressVtsCmodeMapSIP.setStatus(_A)
-_TnIngressVtsCmodeMapDIP_Type=IpAddress
-_TnIngressVtsCmodeMapDIP_Object=MibTableColumn
-tnIngressVtsCmodeMapDIP=_TnIngressVtsCmodeMapDIP_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,6,1,4),_TnIngressVtsCmodeMapDIP_Type())
-tnIngressVtsCmodeMapDIP.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnIngressVtsCmodeMapDIP.setStatus(_A)
-_TnIngressVtsCmodeMapCMode_Type=AluWdmVtsCmodeMapCMode
-_TnIngressVtsCmodeMapCMode_Object=MibTableColumn
-tnIngressVtsCmodeMapCMode=_TnIngressVtsCmodeMapCMode_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,6,1,5),_TnIngressVtsCmodeMapCMode_Type())
-tnIngressVtsCmodeMapCMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnIngressVtsCmodeMapCMode.setStatus(_A)
-_TnIngressVtsCmodeMapRowStatus_Type=RowStatus
-_TnIngressVtsCmodeMapRowStatus_Object=MibTableColumn
-tnIngressVtsCmodeMapRowStatus=_TnIngressVtsCmodeMapRowStatus_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,6,1,6),_TnIngressVtsCmodeMapRowStatus_Type())
-tnIngressVtsCmodeMapRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnIngressVtsCmodeMapRowStatus.setStatus(_A)
-_TnEgressVtsCmodeMapTable_Object=MibTable
-tnEgressVtsCmodeMapTable=_TnEgressVtsCmodeMapTable_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,7))
-if mibBuilder.loadTexts:tnEgressVtsCmodeMapTable.setStatus(_A)
-_TnEgressVtsCmodeMapEntry_Object=MibTableRow
-tnEgressVtsCmodeMapEntry=_TnEgressVtsCmodeMapEntry_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,7,1))
-tnEgressVtsCmodeMapEntry.setIndexNames((0,_B,_G),(0,_B,_H))
-if mibBuilder.loadTexts:tnEgressVtsCmodeMapEntry.setStatus(_A)
-class _TnEgressVtsCmodeMapCEVLANID_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_TnEgressVtsCmodeMapCEVLANID_Type.__name__=_D
-_TnEgressVtsCmodeMapCEVLANID_Object=MibTableColumn
-tnEgressVtsCmodeMapCEVLANID=_TnEgressVtsCmodeMapCEVLANID_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,7,1,1),_TnEgressVtsCmodeMapCEVLANID_Type())
-tnEgressVtsCmodeMapCEVLANID.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnEgressVtsCmodeMapCEVLANID.setStatus(_A)
-_TnEgressVtsCmodeMapSVLANID_Type=Unsigned32
-_TnEgressVtsCmodeMapSVLANID_Object=MibTableColumn
-tnEgressVtsCmodeMapSVLANID=_TnEgressVtsCmodeMapSVLANID_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,7,1,2),_TnEgressVtsCmodeMapSVLANID_Type())
-tnEgressVtsCmodeMapSVLANID.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnEgressVtsCmodeMapSVLANID.setStatus(_A)
-_TnEgressVtsCmodeMapSIP_Type=IpAddress
-_TnEgressVtsCmodeMapSIP_Object=MibTableColumn
-tnEgressVtsCmodeMapSIP=_TnEgressVtsCmodeMapSIP_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,7,1,3),_TnEgressVtsCmodeMapSIP_Type())
-tnEgressVtsCmodeMapSIP.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnEgressVtsCmodeMapSIP.setStatus(_A)
-_TnEgressVtsCmodeMapDIP_Type=IpAddress
-_TnEgressVtsCmodeMapDIP_Object=MibTableColumn
-tnEgressVtsCmodeMapDIP=_TnEgressVtsCmodeMapDIP_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,7,1,4),_TnEgressVtsCmodeMapDIP_Type())
-tnEgressVtsCmodeMapDIP.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnEgressVtsCmodeMapDIP.setStatus(_A)
-_TnEgressVtsCmodeMapCMode_Type=AluWdmVtsCmodeMapCMode
-_TnEgressVtsCmodeMapCMode_Object=MibTableColumn
-tnEgressVtsCmodeMapCMode=_TnEgressVtsCmodeMapCMode_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,7,1,5),_TnEgressVtsCmodeMapCMode_Type())
-tnEgressVtsCmodeMapCMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnEgressVtsCmodeMapCMode.setStatus(_A)
-_TnEgressVtsCmodeMapRowStatus_Type=RowStatus
-_TnEgressVtsCmodeMapRowStatus_Object=MibTableColumn
-tnEgressVtsCmodeMapRowStatus=_TnEgressVtsCmodeMapRowStatus_Object((1,3,6,1,4,1,7483,2,2,4,6,2,1,7,1,6),_TnEgressVtsCmodeMapRowStatus_Type())
-tnEgressVtsCmodeMapRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnEgressVtsCmodeMapRowStatus.setStatus(_A)
-tnVtsConnGroup=ObjectGroup((1,3,6,1,4,1,7483,2,2,4,6,1,1,1))
-tnVtsConnGroup.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_K),(_B,_Z)))
-if mibBuilder.loadTexts:tnVtsConnGroup.setStatus(_A)
-tnVtsMapGroup=ObjectGroup((1,3,6,1,4,1,7483,2,2,4,6,1,1,2))
-tnVtsMapGroup.setObjects(*((_B,_a),(_B,_b)))
-if mibBuilder.loadTexts:tnVtsMapGroup.setStatus(_A)
-tnVtsConnIdGroup=ObjectGroup((1,3,6,1,4,1,7483,2,2,4,6,1,1,3))
-tnVtsConnIdGroup.setObjects(*((_B,_c),(_B,_d),(_B,_e),(_B,_f)))
-if mibBuilder.loadTexts:tnVtsConnIdGroup.setStatus(_A)
-tnIngressVtsMapGroup=ObjectGroup((1,3,6,1,4,1,7483,2,2,4,6,1,1,4))
-tnIngressVtsMapGroup.setObjects(*((_B,_g),(_B,_h)))
-if mibBuilder.loadTexts:tnIngressVtsMapGroup.setStatus(_A)
-tnEgressVtsMapGroup=ObjectGroup((1,3,6,1,4,1,7483,2,2,4,6,1,1,5))
-tnEgressVtsMapGroup.setObjects(*((_B,_i),(_B,_j)))
-if mibBuilder.loadTexts:tnEgressVtsMapGroup.setStatus(_A)
-tnIngressVtsCmodeMapGroup=ObjectGroup((1,3,6,1,4,1,7483,2,2,4,6,1,1,6))
-tnIngressVtsCmodeMapGroup.setObjects(*((_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p)))
-if mibBuilder.loadTexts:tnIngressVtsCmodeMapGroup.setStatus(_A)
-tnEgressVtsCmodeMapGroup=ObjectGroup((1,3,6,1,4,1,7483,2,2,4,6,1,1,7))
-tnEgressVtsCmodeMapGroup.setObjects(*((_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v)))
-if mibBuilder.loadTexts:tnEgressVtsCmodeMapGroup.setStatus(_A)
-tnVtsConnCompliance=ModuleCompliance((1,3,6,1,4,1,7483,2,2,4,6,1,2,1))
-tnVtsConnCompliance.setObjects(*((_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2)))
-if mibBuilder.loadTexts:tnVtsConnCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'AluWdmVtsCmodeMapCMode':AluWdmVtsCmodeMapCMode,'tnVtsConnMibModule':tnVtsConnMibModule,'tnVtsConnConf':tnVtsConnConf,'tnVtsConnGroups':tnVtsConnGroups,_w:tnVtsConnGroup,_x:tnVtsMapGroup,_y:tnVtsConnIdGroup,_z:tnIngressVtsMapGroup,_A0:tnEgressVtsMapGroup,_A1:tnIngressVtsCmodeMapGroup,_A2:tnEgressVtsCmodeMapGroup,'tnVtsConnCompliances':tnVtsConnCompliances,'tnVtsConnCompliance':tnVtsConnCompliance,'tnVtsConnObjs':tnVtsConnObjs,'tnVtsConnBasics':tnVtsConnBasics,'tnVtsConnTable':tnVtsConnTable,'tnVtsConnEntry':tnVtsConnEntry,_M:tnVtsConnSrcIfIndex,_N:tnVtsConnSrcVts,_O:tnVtsConnDestIfIndex,_P:tnVtsConnDestVts,_Q:tnVtsConnAdminState,_R:tnVtsConnOperState,_S:tnVtsConnBidirectional,_T:tnVtsConnName,_U:tnVtsConnCIR,_V:tnVtsConnEIR,_W:tnVtsConnCBS,_X:tnVtsConnEBS,_Y:tnVtsConnRowStatus,_K:tnVtsConnId,_Z:tnVtsConnProtectionState,'tnVtsMapTable':tnVtsMapTable,'tnVtsMapEntry':tnVtsMapEntry,_G:tnVtsMapIfIndex,_H:tnVtsMapVts,_a:tnVtsMapCEVLANID,_b:tnVtsMapSVLANID,'tnVtsConnIdTable':tnVtsConnIdTable,'tnVtsConnIdEntry':tnVtsConnIdEntry,_c:tnVtsConnIdSrcIfIndex,_d:tnVtsConnIdSrcVts,_e:tnVtsConnIdDestIfIndex,_f:tnVtsConnIdDestVts,'tnIngressVtsMapTable':tnIngressVtsMapTable,'tnIngressVtsMapEntry':tnIngressVtsMapEntry,_g:tnIngressVtsMapCEVLANID,_h:tnIngressVtsMapSVLANID,'tnEgressVtsMapTable':tnEgressVtsMapTable,'tnEgressVtsMapEntry':tnEgressVtsMapEntry,_i:tnEgressVtsMapCEVLANID,_j:tnEgressVtsMapSVLANID,'tnIngressVtsCmodeMapTable':tnIngressVtsCmodeMapTable,'tnIngressVtsCmodeMapEntry':tnIngressVtsCmodeMapEntry,_k:tnIngressVtsCmodeMapCEVLANID,_l:tnIngressVtsCmodeMapSVLANID,_m:tnIngressVtsCmodeMapSIP,_n:tnIngressVtsCmodeMapDIP,_o:tnIngressVtsCmodeMapCMode,_p:tnIngressVtsCmodeMapRowStatus,'tnEgressVtsCmodeMapTable':tnEgressVtsCmodeMapTable,'tnEgressVtsCmodeMapEntry':tnEgressVtsCmodeMapEntry,_q:tnEgressVtsCmodeMapCEVLANID,_r:tnEgressVtsCmodeMapSVLANID,_s:tnEgressVtsCmodeMapSIP,_t:tnEgressVtsCmodeMapDIP,_u:tnEgressVtsCmodeMapCMode,_v:tnEgressVtsCmodeMapRowStatus})
+#
+# PySNMP MIB module TROPIC-VTSCONN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TROPIC-VTSCONN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:20:03 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+tnVtsConnMIB, tnPortModules = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnVtsConnMIB", "tnPortModules")
+tnVtsConnMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 1, 1, 2, 2, 4, 4))
+tnVtsConnMibModule.setRevisions(('2018-02-23 12:00', '2016-11-16 12:00', '2011-02-25 12:00', '2011-02-22 12:00', '2010-10-26 12:00', '2010-10-14 12:00', '2010-06-23 12:00', '2010-06-04 12:00', '2010-05-18 12:00', '2010-03-03 12:00', '2009-07-17 12:00', '2009-07-07 12:00', '2009-06-18 12:00', '2009-05-31 12:00', '2009-04-27 12:00',))
+if mibBuilder.loadTexts: tnVtsConnMibModule.setLastUpdated('201802231200Z')
+if mibBuilder.loadTexts: tnVtsConnMibModule.setOrganization('Nokia')
+tnVtsConnConf = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 1))
+tnVtsConnGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 1, 1))
+tnVtsConnCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 1, 2))
+tnVtsConnObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2))
+tnVtsConnBasics = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1))
+class AluWdmVtsCmodeMapCMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
+    namedValues = NamedValues(("cvlan", 1), ("svlan", 2), ("sip", 3), ("dip", 4), ("sipdip", 5), ("port", 6), ("untagged", 7))
+
+tnVtsConnTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1), )
+if mibBuilder.loadTexts: tnVtsConnTable.setStatus('current')
+tnVtsConnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1), ).setIndexNames((0, "TROPIC-VTSCONN-MIB", "tnVtsConnSrcIfIndex"), (0, "TROPIC-VTSCONN-MIB", "tnVtsConnSrcVts"), (0, "TROPIC-VTSCONN-MIB", "tnVtsConnDestIfIndex"), (0, "TROPIC-VTSCONN-MIB", "tnVtsConnDestVts"))
+if mibBuilder.loadTexts: tnVtsConnEntry.setStatus('current')
+tnVtsConnSrcIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: tnVtsConnSrcIfIndex.setStatus('current')
+tnVtsConnSrcVts = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1, 2), Unsigned32())
+if mibBuilder.loadTexts: tnVtsConnSrcVts.setStatus('current')
+tnVtsConnDestIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1, 3), InterfaceIndex())
+if mibBuilder.loadTexts: tnVtsConnDestIfIndex.setStatus('current')
+tnVtsConnDestVts = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1, 4), Unsigned32())
+if mibBuilder.loadTexts: tnVtsConnDestVts.setStatus('current')
+tnVtsConnAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2))).clone('down')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnVtsConnAdminState.setStatus('current')
+tnVtsConnOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnVtsConnOperState.setStatus('current')
+tnVtsConnBidirectional = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1, 7), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnVtsConnBidirectional.setStatus('current')
+tnVtsConnName = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnVtsConnName.setStatus('current')
+tnVtsConnCIR = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1, 9), Unsigned32().clone(100)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnVtsConnCIR.setStatus('current')
+tnVtsConnEIR = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1, 10), Unsigned32().clone(1000)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnVtsConnEIR.setStatus('current')
+tnVtsConnCBS = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1, 11), Unsigned32().clone(256)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnVtsConnCBS.setStatus('current')
+tnVtsConnEBS = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1, 12), Unsigned32().clone(4096)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnVtsConnEBS.setStatus('current')
+tnVtsConnRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1, 13), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnVtsConnRowStatus.setStatus('current')
+tnVtsConnId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1, 14), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnVtsConnId.setStatus('current')
+tnVtsConnProtectionState = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("working", 2), ("protection", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnVtsConnProtectionState.setStatus('current')
+tnVtsMapTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 2), )
+if mibBuilder.loadTexts: tnVtsMapTable.setStatus('current')
+tnVtsMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 2, 1), ).setIndexNames((0, "TROPIC-VTSCONN-MIB", "tnVtsMapIfIndex"), (0, "TROPIC-VTSCONN-MIB", "tnVtsMapVts"))
+if mibBuilder.loadTexts: tnVtsMapEntry.setStatus('current')
+tnVtsMapIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 2, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: tnVtsMapIfIndex.setStatus('current')
+tnVtsMapVts = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 2, 1, 2), Unsigned32())
+if mibBuilder.loadTexts: tnVtsMapVts.setStatus('current')
+tnVtsMapCEVLANID = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 2, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnVtsMapCEVLANID.setStatus('current')
+tnVtsMapSVLANID = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 2, 1, 5), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnVtsMapSVLANID.setStatus('current')
+tnVtsConnIdTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 3), )
+if mibBuilder.loadTexts: tnVtsConnIdTable.setStatus('current')
+tnVtsConnIdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 3, 1), ).setIndexNames((0, "TROPIC-VTSCONN-MIB", "tnVtsConnId"))
+if mibBuilder.loadTexts: tnVtsConnIdEntry.setStatus('current')
+tnVtsConnIdSrcIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 3, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnVtsConnIdSrcIfIndex.setStatus('current')
+tnVtsConnIdSrcVts = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 3, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnVtsConnIdSrcVts.setStatus('current')
+tnVtsConnIdDestIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 3, 1, 3), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnVtsConnIdDestIfIndex.setStatus('current')
+tnVtsConnIdDestVts = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 3, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnVtsConnIdDestVts.setStatus('current')
+tnIngressVtsMapTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 4), )
+if mibBuilder.loadTexts: tnIngressVtsMapTable.setStatus('current')
+tnIngressVtsMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 4, 1), ).setIndexNames((0, "TROPIC-VTSCONN-MIB", "tnVtsMapIfIndex"), (0, "TROPIC-VTSCONN-MIB", "tnVtsMapVts"))
+if mibBuilder.loadTexts: tnIngressVtsMapEntry.setStatus('current')
+tnIngressVtsMapCEVLANID = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 4, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnIngressVtsMapCEVLANID.setStatus('current')
+tnIngressVtsMapSVLANID = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 4, 1, 2), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnIngressVtsMapSVLANID.setStatus('current')
+tnEgressVtsMapTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 5), )
+if mibBuilder.loadTexts: tnEgressVtsMapTable.setStatus('current')
+tnEgressVtsMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 5, 1), ).setIndexNames((0, "TROPIC-VTSCONN-MIB", "tnVtsMapIfIndex"), (0, "TROPIC-VTSCONN-MIB", "tnVtsMapVts"))
+if mibBuilder.loadTexts: tnEgressVtsMapEntry.setStatus('current')
+tnEgressVtsMapCEVLANID = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 5, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnEgressVtsMapCEVLANID.setStatus('current')
+tnEgressVtsMapSVLANID = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 5, 1, 2), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnEgressVtsMapSVLANID.setStatus('current')
+tnIngressVtsCmodeMapTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 6), )
+if mibBuilder.loadTexts: tnIngressVtsCmodeMapTable.setStatus('current')
+tnIngressVtsCmodeMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 6, 1), ).setIndexNames((0, "TROPIC-VTSCONN-MIB", "tnVtsMapIfIndex"), (0, "TROPIC-VTSCONN-MIB", "tnVtsMapVts"))
+if mibBuilder.loadTexts: tnIngressVtsCmodeMapEntry.setStatus('current')
+tnIngressVtsCmodeMapCEVLANID = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 6, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnIngressVtsCmodeMapCEVLANID.setStatus('current')
+tnIngressVtsCmodeMapSVLANID = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 6, 1, 2), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnIngressVtsCmodeMapSVLANID.setStatus('current')
+tnIngressVtsCmodeMapSIP = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 6, 1, 3), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnIngressVtsCmodeMapSIP.setStatus('current')
+tnIngressVtsCmodeMapDIP = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 6, 1, 4), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnIngressVtsCmodeMapDIP.setStatus('current')
+tnIngressVtsCmodeMapCMode = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 6, 1, 5), AluWdmVtsCmodeMapCMode()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnIngressVtsCmodeMapCMode.setStatus('current')
+tnIngressVtsCmodeMapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 6, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnIngressVtsCmodeMapRowStatus.setStatus('current')
+tnEgressVtsCmodeMapTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 7), )
+if mibBuilder.loadTexts: tnEgressVtsCmodeMapTable.setStatus('current')
+tnEgressVtsCmodeMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 7, 1), ).setIndexNames((0, "TROPIC-VTSCONN-MIB", "tnVtsMapIfIndex"), (0, "TROPIC-VTSCONN-MIB", "tnVtsMapVts"))
+if mibBuilder.loadTexts: tnEgressVtsCmodeMapEntry.setStatus('current')
+tnEgressVtsCmodeMapCEVLANID = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 7, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnEgressVtsCmodeMapCEVLANID.setStatus('current')
+tnEgressVtsCmodeMapSVLANID = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 7, 1, 2), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnEgressVtsCmodeMapSVLANID.setStatus('current')
+tnEgressVtsCmodeMapSIP = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 7, 1, 3), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnEgressVtsCmodeMapSIP.setStatus('current')
+tnEgressVtsCmodeMapDIP = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 7, 1, 4), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnEgressVtsCmodeMapDIP.setStatus('current')
+tnEgressVtsCmodeMapCMode = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 7, 1, 5), AluWdmVtsCmodeMapCMode()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnEgressVtsCmodeMapCMode.setStatus('current')
+tnEgressVtsCmodeMapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 2, 1, 7, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnEgressVtsCmodeMapRowStatus.setStatus('current')
+tnVtsConnGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 1, 1, 1)).setObjects(("TROPIC-VTSCONN-MIB", "tnVtsConnAdminState"), ("TROPIC-VTSCONN-MIB", "tnVtsConnOperState"), ("TROPIC-VTSCONN-MIB", "tnVtsConnBidirectional"), ("TROPIC-VTSCONN-MIB", "tnVtsConnName"), ("TROPIC-VTSCONN-MIB", "tnVtsConnCIR"), ("TROPIC-VTSCONN-MIB", "tnVtsConnEIR"), ("TROPIC-VTSCONN-MIB", "tnVtsConnCBS"), ("TROPIC-VTSCONN-MIB", "tnVtsConnEBS"), ("TROPIC-VTSCONN-MIB", "tnVtsConnRowStatus"), ("TROPIC-VTSCONN-MIB", "tnVtsConnId"), ("TROPIC-VTSCONN-MIB", "tnVtsConnProtectionState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tnVtsConnGroup = tnVtsConnGroup.setStatus('current')
+tnVtsMapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 1, 1, 2)).setObjects(("TROPIC-VTSCONN-MIB", "tnVtsMapCEVLANID"), ("TROPIC-VTSCONN-MIB", "tnVtsMapSVLANID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tnVtsMapGroup = tnVtsMapGroup.setStatus('current')
+tnVtsConnIdGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 1, 1, 3)).setObjects(("TROPIC-VTSCONN-MIB", "tnVtsConnIdSrcIfIndex"), ("TROPIC-VTSCONN-MIB", "tnVtsConnIdSrcVts"), ("TROPIC-VTSCONN-MIB", "tnVtsConnIdDestIfIndex"), ("TROPIC-VTSCONN-MIB", "tnVtsConnIdDestVts"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tnVtsConnIdGroup = tnVtsConnIdGroup.setStatus('current')
+tnIngressVtsMapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 1, 1, 4)).setObjects(("TROPIC-VTSCONN-MIB", "tnIngressVtsMapCEVLANID"), ("TROPIC-VTSCONN-MIB", "tnIngressVtsMapSVLANID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tnIngressVtsMapGroup = tnIngressVtsMapGroup.setStatus('current')
+tnEgressVtsMapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 1, 1, 5)).setObjects(("TROPIC-VTSCONN-MIB", "tnEgressVtsMapCEVLANID"), ("TROPIC-VTSCONN-MIB", "tnEgressVtsMapSVLANID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tnEgressVtsMapGroup = tnEgressVtsMapGroup.setStatus('current')
+tnIngressVtsCmodeMapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 1, 1, 6)).setObjects(("TROPIC-VTSCONN-MIB", "tnIngressVtsCmodeMapCEVLANID"), ("TROPIC-VTSCONN-MIB", "tnIngressVtsCmodeMapSVLANID"), ("TROPIC-VTSCONN-MIB", "tnIngressVtsCmodeMapSIP"), ("TROPIC-VTSCONN-MIB", "tnIngressVtsCmodeMapDIP"), ("TROPIC-VTSCONN-MIB", "tnIngressVtsCmodeMapCMode"), ("TROPIC-VTSCONN-MIB", "tnIngressVtsCmodeMapRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tnIngressVtsCmodeMapGroup = tnIngressVtsCmodeMapGroup.setStatus('current')
+tnEgressVtsCmodeMapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 1, 1, 7)).setObjects(("TROPIC-VTSCONN-MIB", "tnEgressVtsCmodeMapCEVLANID"), ("TROPIC-VTSCONN-MIB", "tnEgressVtsCmodeMapSVLANID"), ("TROPIC-VTSCONN-MIB", "tnEgressVtsCmodeMapSIP"), ("TROPIC-VTSCONN-MIB", "tnEgressVtsCmodeMapDIP"), ("TROPIC-VTSCONN-MIB", "tnEgressVtsCmodeMapCMode"), ("TROPIC-VTSCONN-MIB", "tnEgressVtsCmodeMapRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tnEgressVtsCmodeMapGroup = tnEgressVtsCmodeMapGroup.setStatus('current')
+tnVtsConnCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 6, 1, 2, 1)).setObjects(("TROPIC-VTSCONN-MIB", "tnVtsConnGroup"), ("TROPIC-VTSCONN-MIB", "tnVtsMapGroup"), ("TROPIC-VTSCONN-MIB", "tnVtsConnIdGroup"), ("TROPIC-VTSCONN-MIB", "tnIngressVtsMapGroup"), ("TROPIC-VTSCONN-MIB", "tnEgressVtsMapGroup"), ("TROPIC-VTSCONN-MIB", "tnIngressVtsCmodeMapGroup"), ("TROPIC-VTSCONN-MIB", "tnEgressVtsCmodeMapGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tnVtsConnCompliance = tnVtsConnCompliance.setStatus('current')
+mibBuilder.exportSymbols("TROPIC-VTSCONN-MIB", tnEgressVtsMapCEVLANID=tnEgressVtsMapCEVLANID, tnEgressVtsCmodeMapCMode=tnEgressVtsCmodeMapCMode, tnVtsConnSrcIfIndex=tnVtsConnSrcIfIndex, tnIngressVtsMapCEVLANID=tnIngressVtsMapCEVLANID, tnIngressVtsMapTable=tnIngressVtsMapTable, tnVtsConnMibModule=tnVtsConnMibModule, tnVtsConnId=tnVtsConnId, tnVtsConnGroup=tnVtsConnGroup, tnIngressVtsCmodeMapGroup=tnIngressVtsCmodeMapGroup, tnVtsConnEBS=tnVtsConnEBS, tnIngressVtsMapEntry=tnIngressVtsMapEntry, tnVtsConnTable=tnVtsConnTable, tnEgressVtsCmodeMapGroup=tnEgressVtsCmodeMapGroup, tnVtsConnSrcVts=tnVtsConnSrcVts, tnVtsMapEntry=tnVtsMapEntry, tnVtsConnDestIfIndex=tnVtsConnDestIfIndex, tnVtsConnIdDestIfIndex=tnVtsConnIdDestIfIndex, tnVtsMapSVLANID=tnVtsMapSVLANID, tnIngressVtsCmodeMapCEVLANID=tnIngressVtsCmodeMapCEVLANID, tnVtsConnConf=tnVtsConnConf, tnIngressVtsCmodeMapTable=tnIngressVtsCmodeMapTable, tnEgressVtsCmodeMapSVLANID=tnEgressVtsCmodeMapSVLANID, tnVtsConnIdDestVts=tnVtsConnIdDestVts, tnVtsMapIfIndex=tnVtsMapIfIndex, tnVtsMapTable=tnVtsMapTable, tnIngressVtsMapGroup=tnIngressVtsMapGroup, AluWdmVtsCmodeMapCMode=AluWdmVtsCmodeMapCMode, tnVtsConnRowStatus=tnVtsConnRowStatus, tnEgressVtsCmodeMapDIP=tnEgressVtsCmodeMapDIP, tnVtsConnGroups=tnVtsConnGroups, tnVtsConnDestVts=tnVtsConnDestVts, tnEgressVtsMapEntry=tnEgressVtsMapEntry, tnIngressVtsCmodeMapRowStatus=tnIngressVtsCmodeMapRowStatus, tnIngressVtsMapSVLANID=tnIngressVtsMapSVLANID, PYSNMP_MODULE_ID=tnVtsConnMibModule, tnIngressVtsCmodeMapSIP=tnIngressVtsCmodeMapSIP, tnEgressVtsMapSVLANID=tnEgressVtsMapSVLANID, tnVtsConnOperState=tnVtsConnOperState, tnVtsConnIdEntry=tnVtsConnIdEntry, tnVtsConnCIR=tnVtsConnCIR, tnVtsMapCEVLANID=tnVtsMapCEVLANID, tnIngressVtsCmodeMapCMode=tnIngressVtsCmodeMapCMode, tnVtsConnObjs=tnVtsConnObjs, tnVtsConnAdminState=tnVtsConnAdminState, tnEgressVtsCmodeMapTable=tnEgressVtsCmodeMapTable, tnEgressVtsCmodeMapEntry=tnEgressVtsCmodeMapEntry, tnVtsConnBasics=tnVtsConnBasics, tnVtsConnCBS=tnVtsConnCBS, tnVtsConnIdTable=tnVtsConnIdTable, tnEgressVtsCmodeMapRowStatus=tnEgressVtsCmodeMapRowStatus, tnVtsConnProtectionState=tnVtsConnProtectionState, tnVtsConnIdGroup=tnVtsConnIdGroup, tnVtsConnEIR=tnVtsConnEIR, tnVtsMapVts=tnVtsMapVts, tnVtsConnName=tnVtsConnName, tnEgressVtsCmodeMapCEVLANID=tnEgressVtsCmodeMapCEVLANID, tnEgressVtsCmodeMapSIP=tnEgressVtsCmodeMapSIP, tnVtsConnEntry=tnVtsConnEntry, tnVtsMapGroup=tnVtsMapGroup, tnIngressVtsCmodeMapSVLANID=tnIngressVtsCmodeMapSVLANID, tnEgressVtsMapGroup=tnEgressVtsMapGroup, tnVtsConnBidirectional=tnVtsConnBidirectional, tnVtsConnIdSrcIfIndex=tnVtsConnIdSrcIfIndex, tnVtsConnIdSrcVts=tnVtsConnIdSrcVts, tnIngressVtsCmodeMapEntry=tnIngressVtsCmodeMapEntry, tnVtsConnCompliance=tnVtsConnCompliance, tnEgressVtsMapTable=tnEgressVtsMapTable, tnIngressVtsCmodeMapDIP=tnIngressVtsCmodeMapDIP, tnVtsConnCompliances=tnVtsConnCompliances)

@@ -1,103 +1,61 @@
-_O='ntcPAMConfGrpV1Standard'
-_N='ntcPAMAlNotActive'
-_M='ntcPAMAlarmStatsNotActive'
-_L='ntcPAMConfigPid'
-_K='ntcPAMConfigEnable'
-_J='ntcPAMConfigRowStatus'
-_I='read-only'
-_H='ntcPAMAlarmStatsName'
-_G='not-accessible'
-_F='ntcPAMConfigName'
-_E='Unsigned32'
-_D='read-create'
-_C='DisplayString'
-_B='NEWTEC-PIDACTMON-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ntcFunction,=mibBuilder.importSymbols('NEWTEC-MAIN-MIB','ntcFunction')
-NtcAlarmState,NtcEnable=mibBuilder.importSymbols('NEWTEC-TC-MIB','NtcAlarmState','NtcEnable')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_C,'PhysAddress','RowStatus','TextualConvention')
-ntcPidActivityMonitor=ModuleIdentity((1,3,6,1,4,1,5835,5,2,9200))
-if mibBuilder.loadTexts:ntcPidActivityMonitor.setRevisions(('2015-10-19 11:00',))
-_NtcPAMObjects_ObjectIdentity=ObjectIdentity
-ntcPAMObjects=_NtcPAMObjects_ObjectIdentity((1,3,6,1,4,1,5835,5,2,9200,1))
-if mibBuilder.loadTexts:ntcPAMObjects.setStatus(_A)
-_NtcPAMConfiguration_ObjectIdentity=ObjectIdentity
-ntcPAMConfiguration=_NtcPAMConfiguration_ObjectIdentity((1,3,6,1,4,1,5835,5,2,9200,1,1))
-if mibBuilder.loadTexts:ntcPAMConfiguration.setStatus(_A)
-_NtcPAMConfigTable_Object=MibTable
-ntcPAMConfigTable=_NtcPAMConfigTable_Object((1,3,6,1,4,1,5835,5,2,9200,1,1,1))
-if mibBuilder.loadTexts:ntcPAMConfigTable.setStatus(_A)
-_NtcPAMConfigEntry_Object=MibTableRow
-ntcPAMConfigEntry=_NtcPAMConfigEntry_Object((1,3,6,1,4,1,5835,5,2,9200,1,1,1,1))
-ntcPAMConfigEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:ntcPAMConfigEntry.setStatus(_A)
-class _NtcPAMConfigName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_NtcPAMConfigName_Type.__name__=_C
-_NtcPAMConfigName_Object=MibTableColumn
-ntcPAMConfigName=_NtcPAMConfigName_Object((1,3,6,1,4,1,5835,5,2,9200,1,1,1,1,1),_NtcPAMConfigName_Type())
-ntcPAMConfigName.setMaxAccess(_G)
-if mibBuilder.loadTexts:ntcPAMConfigName.setStatus(_A)
-_NtcPAMConfigRowStatus_Type=RowStatus
-_NtcPAMConfigRowStatus_Object=MibTableColumn
-ntcPAMConfigRowStatus=_NtcPAMConfigRowStatus_Object((1,3,6,1,4,1,5835,5,2,9200,1,1,1,1,2),_NtcPAMConfigRowStatus_Type())
-ntcPAMConfigRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcPAMConfigRowStatus.setStatus(_A)
-_NtcPAMConfigEnable_Type=NtcEnable
-_NtcPAMConfigEnable_Object=MibTableColumn
-ntcPAMConfigEnable=_NtcPAMConfigEnable_Object((1,3,6,1,4,1,5835,5,2,9200,1,1,1,1,3),_NtcPAMConfigEnable_Type())
-ntcPAMConfigEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcPAMConfigEnable.setStatus(_A)
-class _NtcPAMConfigPid_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,8190))
-_NtcPAMConfigPid_Type.__name__=_E
-_NtcPAMConfigPid_Object=MibTableColumn
-ntcPAMConfigPid=_NtcPAMConfigPid_Object((1,3,6,1,4,1,5835,5,2,9200,1,1,1,1,4),_NtcPAMConfigPid_Type())
-ntcPAMConfigPid.setMaxAccess(_D)
-if mibBuilder.loadTexts:ntcPAMConfigPid.setStatus(_A)
-_NtcPAMAlarms_ObjectIdentity=ObjectIdentity
-ntcPAMAlarms=_NtcPAMAlarms_ObjectIdentity((1,3,6,1,4,1,5835,5,2,9200,1,2))
-if mibBuilder.loadTexts:ntcPAMAlarms.setStatus(_A)
-_NtcPAMAlarmStatsTable_Object=MibTable
-ntcPAMAlarmStatsTable=_NtcPAMAlarmStatsTable_Object((1,3,6,1,4,1,5835,5,2,9200,1,2,1))
-if mibBuilder.loadTexts:ntcPAMAlarmStatsTable.setStatus(_A)
-_NtcPAMAlarmStatsEntry_Object=MibTableRow
-ntcPAMAlarmStatsEntry=_NtcPAMAlarmStatsEntry_Object((1,3,6,1,4,1,5835,5,2,9200,1,2,1,1))
-ntcPAMAlarmStatsEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:ntcPAMAlarmStatsEntry.setStatus(_A)
-class _NtcPAMAlarmStatsName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_NtcPAMAlarmStatsName_Type.__name__=_C
-_NtcPAMAlarmStatsName_Object=MibTableColumn
-ntcPAMAlarmStatsName=_NtcPAMAlarmStatsName_Object((1,3,6,1,4,1,5835,5,2,9200,1,2,1,1,1),_NtcPAMAlarmStatsName_Type())
-ntcPAMAlarmStatsName.setMaxAccess(_G)
-if mibBuilder.loadTexts:ntcPAMAlarmStatsName.setStatus(_A)
-_NtcPAMAlarmStatsNotActive_Type=NtcAlarmState
-_NtcPAMAlarmStatsNotActive_Object=MibTableColumn
-ntcPAMAlarmStatsNotActive=_NtcPAMAlarmStatsNotActive_Object((1,3,6,1,4,1,5835,5,2,9200,1,2,1,1,2),_NtcPAMAlarmStatsNotActive_Type())
-ntcPAMAlarmStatsNotActive.setMaxAccess(_I)
-if mibBuilder.loadTexts:ntcPAMAlarmStatsNotActive.setStatus(_A)
-_NtcPAMAlNotActive_Type=NtcAlarmState
-_NtcPAMAlNotActive_Object=MibScalar
-ntcPAMAlNotActive=_NtcPAMAlNotActive_Object((1,3,6,1,4,1,5835,5,2,9200,1,2,2),_NtcPAMAlNotActive_Type())
-ntcPAMAlNotActive.setMaxAccess(_I)
-if mibBuilder.loadTexts:ntcPAMAlNotActive.setStatus(_A)
-_NtcPAMConformance_ObjectIdentity=ObjectIdentity
-ntcPAMConformance=_NtcPAMConformance_ObjectIdentity((1,3,6,1,4,1,5835,5,2,9200,2))
-if mibBuilder.loadTexts:ntcPAMConformance.setStatus(_A)
-_NtcPAMConfCompliance_ObjectIdentity=ObjectIdentity
-ntcPAMConfCompliance=_NtcPAMConfCompliance_ObjectIdentity((1,3,6,1,4,1,5835,5,2,9200,2,1))
-if mibBuilder.loadTexts:ntcPAMConfCompliance.setStatus(_A)
-_NtcPAMConfGroup_ObjectIdentity=ObjectIdentity
-ntcPAMConfGroup=_NtcPAMConfGroup_ObjectIdentity((1,3,6,1,4,1,5835,5,2,9200,2,2))
-if mibBuilder.loadTexts:ntcPAMConfGroup.setStatus(_A)
-ntcPAMConfGrpV1Standard=ObjectGroup((1,3,6,1,4,1,5835,5,2,9200,2,2,1))
-ntcPAMConfGrpV1Standard.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:ntcPAMConfGrpV1Standard.setStatus(_A)
-ntcPAMConfCompV1Standard=ModuleCompliance((1,3,6,1,4,1,5835,5,2,9200,2,1,1))
-ntcPAMConfCompV1Standard.setObjects((_B,_O))
-if mibBuilder.loadTexts:ntcPAMConfCompV1Standard.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ntcPidActivityMonitor':ntcPidActivityMonitor,'ntcPAMObjects':ntcPAMObjects,'ntcPAMConfiguration':ntcPAMConfiguration,'ntcPAMConfigTable':ntcPAMConfigTable,'ntcPAMConfigEntry':ntcPAMConfigEntry,_F:ntcPAMConfigName,_J:ntcPAMConfigRowStatus,_K:ntcPAMConfigEnable,_L:ntcPAMConfigPid,'ntcPAMAlarms':ntcPAMAlarms,'ntcPAMAlarmStatsTable':ntcPAMAlarmStatsTable,'ntcPAMAlarmStatsEntry':ntcPAMAlarmStatsEntry,_H:ntcPAMAlarmStatsName,_M:ntcPAMAlarmStatsNotActive,_N:ntcPAMAlNotActive,'ntcPAMConformance':ntcPAMConformance,'ntcPAMConfCompliance':ntcPAMConfCompliance,'ntcPAMConfCompV1Standard':ntcPAMConfCompV1Standard,'ntcPAMConfGroup':ntcPAMConfGroup,_O:ntcPAMConfGrpV1Standard})
+#
+# PySNMP MIB module NEWTEC-PIDACTMON-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/newtec/NEWTEC-PIDACTMON-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ntcFunction, = mibBuilder.importSymbols("NEWTEC-MAIN-MIB", "ntcFunction")
+NtcAlarmState, NtcEnable = mibBuilder.importSymbols("NEWTEC-TC-MIB", "NtcAlarmState", "NtcEnable")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ntcPidActivityMonitor = ModuleIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200))
+ntcPidActivityMonitor.setRevisions(('2015-10-19 11:00',))
+if mibBuilder.loadTexts: ntcPidActivityMonitor.setLastUpdated('201510191100Z')
+if mibBuilder.loadTexts: ntcPidActivityMonitor.setOrganization('Newtec Cy')
+ntcPAMObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 1))
+if mibBuilder.loadTexts: ntcPAMObjects.setStatus('current')
+ntcPAMConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 2))
+if mibBuilder.loadTexts: ntcPAMConformance.setStatus('current')
+ntcPAMConfiguration = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 1, 1))
+if mibBuilder.loadTexts: ntcPAMConfiguration.setStatus('current')
+ntcPAMAlarms = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 1, 2))
+if mibBuilder.loadTexts: ntcPAMAlarms.setStatus('current')
+ntcPAMConfCompliance = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 2, 1))
+if mibBuilder.loadTexts: ntcPAMConfCompliance.setStatus('current')
+ntcPAMConfGroup = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 2, 2))
+if mibBuilder.loadTexts: ntcPAMConfGroup.setStatus('current')
+ntcPAMConfigTable = MibTable((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 1, 1, 1), )
+if mibBuilder.loadTexts: ntcPAMConfigTable.setStatus('current')
+ntcPAMConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 1, 1, 1, 1), ).setIndexNames((0, "NEWTEC-PIDACTMON-MIB", "ntcPAMConfigName"))
+if mibBuilder.loadTexts: ntcPAMConfigEntry.setStatus('current')
+ntcPAMConfigName = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 1, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32)))
+if mibBuilder.loadTexts: ntcPAMConfigName.setStatus('current')
+ntcPAMConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 1, 1, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ntcPAMConfigRowStatus.setStatus('current')
+ntcPAMConfigEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 1, 1, 1, 1, 3), NtcEnable()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ntcPAMConfigEnable.setStatus('current')
+ntcPAMConfigPid = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 1, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 8190))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ntcPAMConfigPid.setStatus('current')
+ntcPAMAlarmStatsTable = MibTable((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 1, 2, 1), )
+if mibBuilder.loadTexts: ntcPAMAlarmStatsTable.setStatus('current')
+ntcPAMAlarmStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 1, 2, 1, 1), ).setIndexNames((0, "NEWTEC-PIDACTMON-MIB", "ntcPAMAlarmStatsName"))
+if mibBuilder.loadTexts: ntcPAMAlarmStatsEntry.setStatus('current')
+ntcPAMAlarmStatsName = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 1, 2, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32)))
+if mibBuilder.loadTexts: ntcPAMAlarmStatsName.setStatus('current')
+ntcPAMAlarmStatsNotActive = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 1, 2, 1, 1, 2), NtcAlarmState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcPAMAlarmStatsNotActive.setStatus('current')
+ntcPAMAlNotActive = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 1, 2, 2), NtcAlarmState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcPAMAlNotActive.setStatus('current')
+ntcPAMConfGrpV1Standard = ObjectGroup((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 2, 2, 1)).setObjects(("NEWTEC-PIDACTMON-MIB", "ntcPAMConfigRowStatus"), ("NEWTEC-PIDACTMON-MIB", "ntcPAMConfigEnable"), ("NEWTEC-PIDACTMON-MIB", "ntcPAMConfigPid"), ("NEWTEC-PIDACTMON-MIB", "ntcPAMAlarmStatsNotActive"), ("NEWTEC-PIDACTMON-MIB", "ntcPAMAlNotActive"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ntcPAMConfGrpV1Standard = ntcPAMConfGrpV1Standard.setStatus('current')
+ntcPAMConfCompV1Standard = ModuleCompliance((1, 3, 6, 1, 4, 1, 5835, 5, 2, 9200, 2, 1, 1)).setObjects(("NEWTEC-PIDACTMON-MIB", "ntcPAMConfGrpV1Standard"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ntcPAMConfCompV1Standard = ntcPAMConfCompV1Standard.setStatus('current')
+mibBuilder.exportSymbols("NEWTEC-PIDACTMON-MIB", ntcPAMAlarms=ntcPAMAlarms, ntcPAMConfigRowStatus=ntcPAMConfigRowStatus, ntcPAMConfCompliance=ntcPAMConfCompliance, ntcPAMConfigEnable=ntcPAMConfigEnable, ntcPAMAlarmStatsName=ntcPAMAlarmStatsName, ntcPAMConfCompV1Standard=ntcPAMConfCompV1Standard, ntcPAMConfiguration=ntcPAMConfiguration, ntcPAMObjects=ntcPAMObjects, ntcPAMAlNotActive=ntcPAMAlNotActive, ntcPAMAlarmStatsEntry=ntcPAMAlarmStatsEntry, ntcPAMConfGrpV1Standard=ntcPAMConfGrpV1Standard, ntcPidActivityMonitor=ntcPidActivityMonitor, ntcPAMConfigEntry=ntcPAMConfigEntry, ntcPAMAlarmStatsTable=ntcPAMAlarmStatsTable, ntcPAMAlarmStatsNotActive=ntcPAMAlarmStatsNotActive, ntcPAMConfigTable=ntcPAMConfigTable, ntcPAMConformance=ntcPAMConformance, ntcPAMConfigPid=ntcPAMConfigPid, PYSNMP_MODULE_ID=ntcPidActivityMonitor, ntcPAMConfigName=ntcPAMConfigName, ntcPAMConfGroup=ntcPAMConfGroup)

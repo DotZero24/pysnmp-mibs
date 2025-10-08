@@ -1,215 +1,109 @@
-_h='ciscoCarMIBHCGroup'
-_g='ccarStatHCFilteredBytes'
-_f='ccarStatHCFilteredPkts'
-_e='ccarStatHCSwitchedBytes'
-_d='ccarStatHCSwitchedPkts'
-_c='ccarStatFilteredBytesOverflow'
-_b='ccarStatFilteredPktsOverflow'
-_a='ccarStatSwitchedBytesOverflow'
-_Z='ccarStatSwitchedPktsOverflow'
-_Y='ccarStatCurBurst'
-_X='ccarStatFilteredBytes'
-_W='ccarStatFilteredPkts'
-_V='ccarStatSwitchedBytes'
-_U='ccarStatSwitchedPkts'
-_T='ccarConfigExceedAction'
-_S='ccarConfigConformAction'
-_R='ccarConfigExtLimit'
-_Q='ccarConfigLimit'
-_P='ccarConfigRate'
-_O='ccarConfigAccIdx'
-_N='ccarConfigType'
-_M='ccarStatEntry'
-_L='not-accessible'
-_K='ccarConfigRowIndex'
-_J='ccarConfigDirection'
-_I='Integer32'
-_H='ifIndex'
-_G='IF-MIB'
-_F='ciscoCarMIBGroup'
-_E='packets'
-_D='bytes'
-_C='read-only'
-_B='CISCO-CAR-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ifIndex,=mibBuilder.importSymbols(_G,_H)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoCarMIB=ModuleIdentity((1,3,6,1,4,1,9,9,113))
-if mibBuilder.loadTexts:ciscoCarMIB.setRevisions(('1997-07-18 00:00','1900-02-18 00:00'))
-class PacketSource(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('input',1),('output',2)))
-class RateLimitType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('all',1),('quickAcc',2),('standardAcc',3)))
-class RateLimitAction(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('drop',1),('xmit',2),('continue',3),('precedXmit',4),('precedCont',5)))
-_CiscoCarMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoCarMIBObjects=_CiscoCarMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,113,1))
-_CcarConfigs_ObjectIdentity=ObjectIdentity
-ccarConfigs=_CcarConfigs_ObjectIdentity((1,3,6,1,4,1,9,9,113,1,1))
-_CcarConfigTable_Object=MibTable
-ccarConfigTable=_CcarConfigTable_Object((1,3,6,1,4,1,9,9,113,1,1,1))
-if mibBuilder.loadTexts:ccarConfigTable.setStatus(_A)
-_CcarConfigEntry_Object=MibTableRow
-ccarConfigEntry=_CcarConfigEntry_Object((1,3,6,1,4,1,9,9,113,1,1,1,1))
-ccarConfigEntry.setIndexNames((0,_G,_H),(0,_B,_J),(0,_B,_K))
-if mibBuilder.loadTexts:ccarConfigEntry.setStatus(_A)
-_CcarConfigDirection_Type=PacketSource
-_CcarConfigDirection_Object=MibTableColumn
-ccarConfigDirection=_CcarConfigDirection_Object((1,3,6,1,4,1,9,9,113,1,1,1,1,1),_CcarConfigDirection_Type())
-ccarConfigDirection.setMaxAccess(_L)
-if mibBuilder.loadTexts:ccarConfigDirection.setStatus(_A)
-class _CcarConfigRowIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_CcarConfigRowIndex_Type.__name__=_I
-_CcarConfigRowIndex_Object=MibTableColumn
-ccarConfigRowIndex=_CcarConfigRowIndex_Object((1,3,6,1,4,1,9,9,113,1,1,1,1,2),_CcarConfigRowIndex_Type())
-ccarConfigRowIndex.setMaxAccess(_L)
-if mibBuilder.loadTexts:ccarConfigRowIndex.setStatus(_A)
-_CcarConfigType_Type=RateLimitType
-_CcarConfigType_Object=MibTableColumn
-ccarConfigType=_CcarConfigType_Object((1,3,6,1,4,1,9,9,113,1,1,1,1,3),_CcarConfigType_Type())
-ccarConfigType.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarConfigType.setStatus(_A)
-_CcarConfigAccIdx_Type=Integer32
-_CcarConfigAccIdx_Object=MibTableColumn
-ccarConfigAccIdx=_CcarConfigAccIdx_Object((1,3,6,1,4,1,9,9,113,1,1,1,1,4),_CcarConfigAccIdx_Type())
-ccarConfigAccIdx.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarConfigAccIdx.setStatus(_A)
-_CcarConfigRate_Type=Integer32
-_CcarConfigRate_Object=MibTableColumn
-ccarConfigRate=_CcarConfigRate_Object((1,3,6,1,4,1,9,9,113,1,1,1,1,5),_CcarConfigRate_Type())
-ccarConfigRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarConfigRate.setStatus(_A)
-if mibBuilder.loadTexts:ccarConfigRate.setUnits('bits/second')
-_CcarConfigLimit_Type=Integer32
-_CcarConfigLimit_Object=MibTableColumn
-ccarConfigLimit=_CcarConfigLimit_Object((1,3,6,1,4,1,9,9,113,1,1,1,1,6),_CcarConfigLimit_Type())
-ccarConfigLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarConfigLimit.setStatus(_A)
-if mibBuilder.loadTexts:ccarConfigLimit.setUnits(_D)
-_CcarConfigExtLimit_Type=Integer32
-_CcarConfigExtLimit_Object=MibTableColumn
-ccarConfigExtLimit=_CcarConfigExtLimit_Object((1,3,6,1,4,1,9,9,113,1,1,1,1,7),_CcarConfigExtLimit_Type())
-ccarConfigExtLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarConfigExtLimit.setStatus(_A)
-if mibBuilder.loadTexts:ccarConfigExtLimit.setUnits(_D)
-_CcarConfigConformAction_Type=RateLimitAction
-_CcarConfigConformAction_Object=MibTableColumn
-ccarConfigConformAction=_CcarConfigConformAction_Object((1,3,6,1,4,1,9,9,113,1,1,1,1,8),_CcarConfigConformAction_Type())
-ccarConfigConformAction.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarConfigConformAction.setStatus(_A)
-_CcarConfigExceedAction_Type=RateLimitAction
-_CcarConfigExceedAction_Object=MibTableColumn
-ccarConfigExceedAction=_CcarConfigExceedAction_Object((1,3,6,1,4,1,9,9,113,1,1,1,1,9),_CcarConfigExceedAction_Type())
-ccarConfigExceedAction.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarConfigExceedAction.setStatus(_A)
-_CcarStats_ObjectIdentity=ObjectIdentity
-ccarStats=_CcarStats_ObjectIdentity((1,3,6,1,4,1,9,9,113,1,2))
-_CcarStatTable_Object=MibTable
-ccarStatTable=_CcarStatTable_Object((1,3,6,1,4,1,9,9,113,1,2,1))
-if mibBuilder.loadTexts:ccarStatTable.setStatus(_A)
-_CcarStatEntry_Object=MibTableRow
-ccarStatEntry=_CcarStatEntry_Object((1,3,6,1,4,1,9,9,113,1,2,1,1))
-if mibBuilder.loadTexts:ccarStatEntry.setStatus(_A)
-_CcarStatSwitchedPkts_Type=Counter32
-_CcarStatSwitchedPkts_Object=MibTableColumn
-ccarStatSwitchedPkts=_CcarStatSwitchedPkts_Object((1,3,6,1,4,1,9,9,113,1,2,1,1,1),_CcarStatSwitchedPkts_Type())
-ccarStatSwitchedPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarStatSwitchedPkts.setStatus(_A)
-if mibBuilder.loadTexts:ccarStatSwitchedPkts.setUnits(_E)
-_CcarStatSwitchedBytes_Type=Counter32
-_CcarStatSwitchedBytes_Object=MibTableColumn
-ccarStatSwitchedBytes=_CcarStatSwitchedBytes_Object((1,3,6,1,4,1,9,9,113,1,2,1,1,2),_CcarStatSwitchedBytes_Type())
-ccarStatSwitchedBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarStatSwitchedBytes.setStatus(_A)
-if mibBuilder.loadTexts:ccarStatSwitchedBytes.setUnits(_D)
-_CcarStatFilteredPkts_Type=Counter32
-_CcarStatFilteredPkts_Object=MibTableColumn
-ccarStatFilteredPkts=_CcarStatFilteredPkts_Object((1,3,6,1,4,1,9,9,113,1,2,1,1,3),_CcarStatFilteredPkts_Type())
-ccarStatFilteredPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarStatFilteredPkts.setStatus(_A)
-if mibBuilder.loadTexts:ccarStatFilteredPkts.setUnits(_E)
-_CcarStatFilteredBytes_Type=Counter32
-_CcarStatFilteredBytes_Object=MibTableColumn
-ccarStatFilteredBytes=_CcarStatFilteredBytes_Object((1,3,6,1,4,1,9,9,113,1,2,1,1,4),_CcarStatFilteredBytes_Type())
-ccarStatFilteredBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarStatFilteredBytes.setStatus(_A)
-if mibBuilder.loadTexts:ccarStatFilteredBytes.setUnits(_D)
-_CcarStatCurBurst_Type=Gauge32
-_CcarStatCurBurst_Object=MibTableColumn
-ccarStatCurBurst=_CcarStatCurBurst_Object((1,3,6,1,4,1,9,9,113,1,2,1,1,5),_CcarStatCurBurst_Type())
-ccarStatCurBurst.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarStatCurBurst.setStatus(_A)
-if mibBuilder.loadTexts:ccarStatCurBurst.setUnits(_D)
-_CcarStatSwitchedPktsOverflow_Type=Counter32
-_CcarStatSwitchedPktsOverflow_Object=MibTableColumn
-ccarStatSwitchedPktsOverflow=_CcarStatSwitchedPktsOverflow_Object((1,3,6,1,4,1,9,9,113,1,2,1,1,6),_CcarStatSwitchedPktsOverflow_Type())
-ccarStatSwitchedPktsOverflow.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarStatSwitchedPktsOverflow.setStatus(_A)
-if mibBuilder.loadTexts:ccarStatSwitchedPktsOverflow.setUnits(_E)
-_CcarStatSwitchedBytesOverflow_Type=Counter32
-_CcarStatSwitchedBytesOverflow_Object=MibTableColumn
-ccarStatSwitchedBytesOverflow=_CcarStatSwitchedBytesOverflow_Object((1,3,6,1,4,1,9,9,113,1,2,1,1,7),_CcarStatSwitchedBytesOverflow_Type())
-ccarStatSwitchedBytesOverflow.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarStatSwitchedBytesOverflow.setStatus(_A)
-if mibBuilder.loadTexts:ccarStatSwitchedBytesOverflow.setUnits(_D)
-_CcarStatFilteredPktsOverflow_Type=Counter32
-_CcarStatFilteredPktsOverflow_Object=MibTableColumn
-ccarStatFilteredPktsOverflow=_CcarStatFilteredPktsOverflow_Object((1,3,6,1,4,1,9,9,113,1,2,1,1,8),_CcarStatFilteredPktsOverflow_Type())
-ccarStatFilteredPktsOverflow.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarStatFilteredPktsOverflow.setStatus(_A)
-if mibBuilder.loadTexts:ccarStatFilteredPktsOverflow.setUnits(_E)
-_CcarStatFilteredBytesOverflow_Type=Counter32
-_CcarStatFilteredBytesOverflow_Object=MibTableColumn
-ccarStatFilteredBytesOverflow=_CcarStatFilteredBytesOverflow_Object((1,3,6,1,4,1,9,9,113,1,2,1,1,9),_CcarStatFilteredBytesOverflow_Type())
-ccarStatFilteredBytesOverflow.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarStatFilteredBytesOverflow.setStatus(_A)
-if mibBuilder.loadTexts:ccarStatFilteredBytesOverflow.setUnits(_D)
-_CcarStatHCSwitchedPkts_Type=Counter64
-_CcarStatHCSwitchedPkts_Object=MibTableColumn
-ccarStatHCSwitchedPkts=_CcarStatHCSwitchedPkts_Object((1,3,6,1,4,1,9,9,113,1,2,1,1,10),_CcarStatHCSwitchedPkts_Type())
-ccarStatHCSwitchedPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarStatHCSwitchedPkts.setStatus(_A)
-if mibBuilder.loadTexts:ccarStatHCSwitchedPkts.setUnits(_E)
-_CcarStatHCSwitchedBytes_Type=Counter64
-_CcarStatHCSwitchedBytes_Object=MibTableColumn
-ccarStatHCSwitchedBytes=_CcarStatHCSwitchedBytes_Object((1,3,6,1,4,1,9,9,113,1,2,1,1,11),_CcarStatHCSwitchedBytes_Type())
-ccarStatHCSwitchedBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarStatHCSwitchedBytes.setStatus(_A)
-if mibBuilder.loadTexts:ccarStatHCSwitchedBytes.setUnits(_D)
-_CcarStatHCFilteredPkts_Type=Counter64
-_CcarStatHCFilteredPkts_Object=MibTableColumn
-ccarStatHCFilteredPkts=_CcarStatHCFilteredPkts_Object((1,3,6,1,4,1,9,9,113,1,2,1,1,12),_CcarStatHCFilteredPkts_Type())
-ccarStatHCFilteredPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarStatHCFilteredPkts.setStatus(_A)
-if mibBuilder.loadTexts:ccarStatHCFilteredPkts.setUnits(_E)
-_CcarStatHCFilteredBytes_Type=Counter64
-_CcarStatHCFilteredBytes_Object=MibTableColumn
-ccarStatHCFilteredBytes=_CcarStatHCFilteredBytes_Object((1,3,6,1,4,1,9,9,113,1,2,1,1,13),_CcarStatHCFilteredBytes_Type())
-ccarStatHCFilteredBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccarStatHCFilteredBytes.setStatus(_A)
-if mibBuilder.loadTexts:ccarStatHCFilteredBytes.setUnits(_D)
-_CiscoCarMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoCarMIBConformance=_CiscoCarMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,113,3))
-_CiscoCarMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoCarMIBCompliances=_CiscoCarMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,113,3,1))
-_CiscoCarMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoCarMIBGroups=_CiscoCarMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,113,3,2))
-ccarConfigEntry.registerAugmentions((_B,_M))
+#
+# PySNMP MIB module CISCO-CAR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-CAR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoCarMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 113))
+ciscoCarMIB.setRevisions(('1997-07-18 00:00', '1900-02-18 00:00',))
+if mibBuilder.loadTexts: ciscoCarMIB.setLastUpdated('0002180000Z')
+if mibBuilder.loadTexts: ciscoCarMIB.setOrganization('Cisco Systems, Inc.')
+ciscoCarMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 113, 1))
+ccarConfigs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 1))
+ccarStats = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2))
+class PacketSource(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("input", 1), ("output", 2))
+
+class RateLimitType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("all", 1), ("quickAcc", 2), ("standardAcc", 3))
+
+class RateLimitAction(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("drop", 1), ("xmit", 2), ("continue", 3), ("precedXmit", 4), ("precedCont", 5))
+
+ccarConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 1, 1), )
+if mibBuilder.loadTexts: ccarConfigTable.setStatus('current')
+ccarConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-CAR-MIB", "ccarConfigDirection"), (0, "CISCO-CAR-MIB", "ccarConfigRowIndex"))
+if mibBuilder.loadTexts: ccarConfigEntry.setStatus('current')
+ccarConfigDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 1, 1, 1, 1), PacketSource())
+if mibBuilder.loadTexts: ccarConfigDirection.setStatus('current')
+ccarConfigRowIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: ccarConfigRowIndex.setStatus('current')
+ccarConfigType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 1, 1, 1, 3), RateLimitType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarConfigType.setStatus('current')
+ccarConfigAccIdx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 1, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarConfigAccIdx.setStatus('current')
+ccarConfigRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 1, 1, 1, 5), Integer32()).setUnits('bits/second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarConfigRate.setStatus('current')
+ccarConfigLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 1, 1, 1, 6), Integer32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarConfigLimit.setStatus('current')
+ccarConfigExtLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 1, 1, 1, 7), Integer32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarConfigExtLimit.setStatus('current')
+ccarConfigConformAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 1, 1, 1, 8), RateLimitAction()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarConfigConformAction.setStatus('current')
+ccarConfigExceedAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 1, 1, 1, 9), RateLimitAction()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarConfigExceedAction.setStatus('current')
+ccarStatTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2, 1), )
+if mibBuilder.loadTexts: ccarStatTable.setStatus('current')
+ccarStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2, 1, 1), )
+ccarConfigEntry.registerAugmentions(("CISCO-CAR-MIB", "ccarStatEntry"))
 ccarStatEntry.setIndexNames(*ccarConfigEntry.getIndexNames())
-ciscoCarMIBGroup=ObjectGroup((1,3,6,1,4,1,9,9,113,3,2,1))
-ciscoCarMIBGroup.setObjects(*((_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y)))
-if mibBuilder.loadTexts:ciscoCarMIBGroup.setStatus(_A)
-ciscoCarMIBHCGroup=ObjectGroup((1,3,6,1,4,1,9,9,113,3,2,2))
-ciscoCarMIBHCGroup.setObjects(*((_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g)))
-if mibBuilder.loadTexts:ciscoCarMIBHCGroup.setStatus(_A)
-ciscoCarMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,113,3,1,1))
-ciscoCarMIBCompliance.setObjects((_B,_F))
-if mibBuilder.loadTexts:ciscoCarMIBCompliance.setStatus(_A)
-ciscoCarMIBComplianceHCCounters=ModuleCompliance((1,3,6,1,4,1,9,9,113,3,1,2))
-ciscoCarMIBComplianceHCCounters.setObjects(*((_B,_F),(_B,_h)))
-if mibBuilder.loadTexts:ciscoCarMIBComplianceHCCounters.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'PacketSource':PacketSource,'RateLimitType':RateLimitType,'RateLimitAction':RateLimitAction,'ciscoCarMIB':ciscoCarMIB,'ciscoCarMIBObjects':ciscoCarMIBObjects,'ccarConfigs':ccarConfigs,'ccarConfigTable':ccarConfigTable,'ccarConfigEntry':ccarConfigEntry,_J:ccarConfigDirection,_K:ccarConfigRowIndex,_N:ccarConfigType,_O:ccarConfigAccIdx,_P:ccarConfigRate,_Q:ccarConfigLimit,_R:ccarConfigExtLimit,_S:ccarConfigConformAction,_T:ccarConfigExceedAction,'ccarStats':ccarStats,'ccarStatTable':ccarStatTable,_M:ccarStatEntry,_U:ccarStatSwitchedPkts,_V:ccarStatSwitchedBytes,_W:ccarStatFilteredPkts,_X:ccarStatFilteredBytes,_Y:ccarStatCurBurst,_Z:ccarStatSwitchedPktsOverflow,_a:ccarStatSwitchedBytesOverflow,_b:ccarStatFilteredPktsOverflow,_c:ccarStatFilteredBytesOverflow,_d:ccarStatHCSwitchedPkts,_e:ccarStatHCSwitchedBytes,_f:ccarStatHCFilteredPkts,_g:ccarStatHCFilteredBytes,'ciscoCarMIBConformance':ciscoCarMIBConformance,'ciscoCarMIBCompliances':ciscoCarMIBCompliances,'ciscoCarMIBCompliance':ciscoCarMIBCompliance,'ciscoCarMIBComplianceHCCounters':ciscoCarMIBComplianceHCCounters,'ciscoCarMIBGroups':ciscoCarMIBGroups,_F:ciscoCarMIBGroup,_h:ciscoCarMIBHCGroup})
+if mibBuilder.loadTexts: ccarStatEntry.setStatus('current')
+ccarStatSwitchedPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2, 1, 1, 1), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarStatSwitchedPkts.setStatus('current')
+ccarStatSwitchedBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2, 1, 1, 2), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarStatSwitchedBytes.setStatus('current')
+ccarStatFilteredPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2, 1, 1, 3), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarStatFilteredPkts.setStatus('current')
+ccarStatFilteredBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2, 1, 1, 4), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarStatFilteredBytes.setStatus('current')
+ccarStatCurBurst = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2, 1, 1, 5), Gauge32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarStatCurBurst.setStatus('current')
+ccarStatSwitchedPktsOverflow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2, 1, 1, 6), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarStatSwitchedPktsOverflow.setStatus('current')
+ccarStatSwitchedBytesOverflow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2, 1, 1, 7), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarStatSwitchedBytesOverflow.setStatus('current')
+ccarStatFilteredPktsOverflow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2, 1, 1, 8), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarStatFilteredPktsOverflow.setStatus('current')
+ccarStatFilteredBytesOverflow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2, 1, 1, 9), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarStatFilteredBytesOverflow.setStatus('current')
+ccarStatHCSwitchedPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2, 1, 1, 10), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarStatHCSwitchedPkts.setStatus('current')
+ccarStatHCSwitchedBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2, 1, 1, 11), Counter64()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarStatHCSwitchedBytes.setStatus('current')
+ccarStatHCFilteredPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2, 1, 1, 12), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarStatHCFilteredPkts.setStatus('current')
+ccarStatHCFilteredBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 113, 1, 2, 1, 1, 13), Counter64()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccarStatHCFilteredBytes.setStatus('current')
+ciscoCarMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 113, 3))
+ciscoCarMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 113, 3, 1))
+ciscoCarMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 113, 3, 2))
+ciscoCarMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 113, 3, 1, 1)).setObjects(("CISCO-CAR-MIB", "ciscoCarMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCarMIBCompliance = ciscoCarMIBCompliance.setStatus('current')
+ciscoCarMIBComplianceHCCounters = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 113, 3, 1, 2)).setObjects(("CISCO-CAR-MIB", "ciscoCarMIBGroup"), ("CISCO-CAR-MIB", "ciscoCarMIBHCGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCarMIBComplianceHCCounters = ciscoCarMIBComplianceHCCounters.setStatus('current')
+ciscoCarMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 113, 3, 2, 1)).setObjects(("CISCO-CAR-MIB", "ccarConfigType"), ("CISCO-CAR-MIB", "ccarConfigAccIdx"), ("CISCO-CAR-MIB", "ccarConfigRate"), ("CISCO-CAR-MIB", "ccarConfigLimit"), ("CISCO-CAR-MIB", "ccarConfigExtLimit"), ("CISCO-CAR-MIB", "ccarConfigConformAction"), ("CISCO-CAR-MIB", "ccarConfigExceedAction"), ("CISCO-CAR-MIB", "ccarStatSwitchedPkts"), ("CISCO-CAR-MIB", "ccarStatSwitchedBytes"), ("CISCO-CAR-MIB", "ccarStatFilteredPkts"), ("CISCO-CAR-MIB", "ccarStatFilteredBytes"), ("CISCO-CAR-MIB", "ccarStatCurBurst"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCarMIBGroup = ciscoCarMIBGroup.setStatus('current')
+ciscoCarMIBHCGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 113, 3, 2, 2)).setObjects(("CISCO-CAR-MIB", "ccarStatSwitchedPktsOverflow"), ("CISCO-CAR-MIB", "ccarStatSwitchedBytesOverflow"), ("CISCO-CAR-MIB", "ccarStatFilteredPktsOverflow"), ("CISCO-CAR-MIB", "ccarStatFilteredBytesOverflow"), ("CISCO-CAR-MIB", "ccarStatHCSwitchedPkts"), ("CISCO-CAR-MIB", "ccarStatHCSwitchedBytes"), ("CISCO-CAR-MIB", "ccarStatHCFilteredPkts"), ("CISCO-CAR-MIB", "ccarStatHCFilteredBytes"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCarMIBHCGroup = ciscoCarMIBHCGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-CAR-MIB", ciscoCarMIBGroups=ciscoCarMIBGroups, ccarConfigRowIndex=ccarConfigRowIndex, ccarStatSwitchedPktsOverflow=ccarStatSwitchedPktsOverflow, ciscoCarMIBObjects=ciscoCarMIBObjects, ccarConfigExceedAction=ccarConfigExceedAction, ccarStatFilteredPkts=ccarStatFilteredPkts, ciscoCarMIBComplianceHCCounters=ciscoCarMIBComplianceHCCounters, ccarConfigDirection=ccarConfigDirection, ccarConfigRate=ccarConfigRate, ccarStatFilteredBytes=ccarStatFilteredBytes, ccarStatHCFilteredBytes=ccarStatHCFilteredBytes, RateLimitType=RateLimitType, ccarStatSwitchedBytes=ccarStatSwitchedBytes, ccarStatEntry=ccarStatEntry, ccarStatTable=ccarStatTable, ccarConfigs=ccarConfigs, ccarStatHCSwitchedPkts=ccarStatHCSwitchedPkts, ccarConfigTable=ccarConfigTable, ccarConfigLimit=ccarConfigLimit, ccarConfigConformAction=ccarConfigConformAction, ccarStatFilteredPktsOverflow=ccarStatFilteredPktsOverflow, ccarStatHCSwitchedBytes=ccarStatHCSwitchedBytes, ccarConfigExtLimit=ccarConfigExtLimit, ccarStatFilteredBytesOverflow=ccarStatFilteredBytesOverflow, PYSNMP_MODULE_ID=ciscoCarMIB, ccarStatSwitchedBytesOverflow=ccarStatSwitchedBytesOverflow, ciscoCarMIBCompliance=ciscoCarMIBCompliance, ciscoCarMIBConformance=ciscoCarMIBConformance, ccarConfigEntry=ccarConfigEntry, RateLimitAction=RateLimitAction, ciscoCarMIBGroup=ciscoCarMIBGroup, ccarStatCurBurst=ccarStatCurBurst, ciscoCarMIBCompliances=ciscoCarMIBCompliances, ccarStatSwitchedPkts=ccarStatSwitchedPkts, PacketSource=PacketSource, ccarConfigType=ccarConfigType, ciscoCarMIB=ciscoCarMIB, ccarStatHCFilteredPkts=ccarStatHCFilteredPkts, ciscoCarMIBHCGroup=ciscoCarMIBHCGroup, ccarConfigAccIdx=ccarConfigAccIdx, ccarStats=ccarStats)

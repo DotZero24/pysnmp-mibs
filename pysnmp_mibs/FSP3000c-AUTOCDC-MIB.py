@@ -1,72 +1,55 @@
-_K='fsp3000cAutoCDCObjectGroup'
-_J='autoCdcStatusTodcValue'
-_I='autoCdcStatusTodcValueSet'
-_H='autoCdcStatusResultType'
-_G='autoCdcStatusPercentComplete'
-_F='autoCdcStatusControlType'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-only'
-_B='FSP3000c-AUTOCDC-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-aosCommon,fsp3000c=mibBuilder.importSymbols('ADVA-MIB','aosCommon','fsp3000c')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-fsp3000cAutoCDCMIB=ModuleIdentity((1,3,6,1,4,1,2544,1,20,2,1,1))
-if mibBuilder.loadTexts:fsp3000cAutoCDCMIB.setRevisions(('2016-09-27 00:00',))
-class AutoCdcControlType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('none',0),('idle',1),('init',2),('measure',3),('validate',4)))
-class AutoCdcResultType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7)));namedValues=NamedValues(*(('none',0),('standby',1),('progress',2),('initfail',3),('timeout',4),('rngerr',5),('valerr',6),('success',7)))
-_Fsp3000cAutoCDCObjects_ObjectIdentity=ObjectIdentity
-fsp3000cAutoCDCObjects=_Fsp3000cAutoCDCObjects_ObjectIdentity((1,3,6,1,4,1,2544,1,20,2,1,1,1))
-_AutoCdcStatusTable_Object=MibTable
-autoCdcStatusTable=_AutoCdcStatusTable_Object((1,3,6,1,4,1,2544,1,20,2,1,1,1,1))
-if mibBuilder.loadTexts:autoCdcStatusTable.setStatus(_A)
-_AutoCdcStatusEntry_Object=MibTableRow
-autoCdcStatusEntry=_AutoCdcStatusEntry_Object((1,3,6,1,4,1,2544,1,20,2,1,1,1,1,1))
-autoCdcStatusEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:autoCdcStatusEntry.setStatus(_A)
-_AutoCdcStatusControlType_Type=AutoCdcControlType
-_AutoCdcStatusControlType_Object=MibTableColumn
-autoCdcStatusControlType=_AutoCdcStatusControlType_Object((1,3,6,1,4,1,2544,1,20,2,1,1,1,1,1,1),_AutoCdcStatusControlType_Type())
-autoCdcStatusControlType.setMaxAccess(_C)
-if mibBuilder.loadTexts:autoCdcStatusControlType.setStatus(_A)
-_AutoCdcStatusPercentComplete_Type=Integer32
-_AutoCdcStatusPercentComplete_Object=MibTableColumn
-autoCdcStatusPercentComplete=_AutoCdcStatusPercentComplete_Object((1,3,6,1,4,1,2544,1,20,2,1,1,1,1,1,2),_AutoCdcStatusPercentComplete_Type())
-autoCdcStatusPercentComplete.setMaxAccess(_C)
-if mibBuilder.loadTexts:autoCdcStatusPercentComplete.setStatus(_A)
-_AutoCdcStatusResultType_Type=AutoCdcResultType
-_AutoCdcStatusResultType_Object=MibTableColumn
-autoCdcStatusResultType=_AutoCdcStatusResultType_Object((1,3,6,1,4,1,2544,1,20,2,1,1,1,1,1,3),_AutoCdcStatusResultType_Type())
-autoCdcStatusResultType.setMaxAccess(_C)
-if mibBuilder.loadTexts:autoCdcStatusResultType.setStatus(_A)
-_AutoCdcStatusTodcValueSet_Type=TruthValue
-_AutoCdcStatusTodcValueSet_Object=MibTableColumn
-autoCdcStatusTodcValueSet=_AutoCdcStatusTodcValueSet_Object((1,3,6,1,4,1,2544,1,20,2,1,1,1,1,1,4),_AutoCdcStatusTodcValueSet_Type())
-autoCdcStatusTodcValueSet.setMaxAccess(_C)
-if mibBuilder.loadTexts:autoCdcStatusTodcValueSet.setStatus(_A)
-_AutoCdcStatusTodcValue_Type=Integer32
-_AutoCdcStatusTodcValue_Object=MibTableColumn
-autoCdcStatusTodcValue=_AutoCdcStatusTodcValue_Object((1,3,6,1,4,1,2544,1,20,2,1,1,1,1,1,5),_AutoCdcStatusTodcValue_Type())
-autoCdcStatusTodcValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:autoCdcStatusTodcValue.setStatus(_A)
-if mibBuilder.loadTexts:autoCdcStatusTodcValue.setUnits('ps/nm')
-_Fsp3000cAutoCDCConformance_ObjectIdentity=ObjectIdentity
-fsp3000cAutoCDCConformance=_Fsp3000cAutoCDCConformance_ObjectIdentity((1,3,6,1,4,1,2544,1,20,2,1,1,2))
-_Fsp3000cAutoCDCCompliances_ObjectIdentity=ObjectIdentity
-fsp3000cAutoCDCCompliances=_Fsp3000cAutoCDCCompliances_ObjectIdentity((1,3,6,1,4,1,2544,1,20,2,1,1,2,1))
-_Fsp3000cAutoCDCGroups_ObjectIdentity=ObjectIdentity
-fsp3000cAutoCDCGroups=_Fsp3000cAutoCDCGroups_ObjectIdentity((1,3,6,1,4,1,2544,1,20,2,1,1,2,2))
-fsp3000cAutoCDCObjectGroup=ObjectGroup((1,3,6,1,4,1,2544,1,20,2,1,1,2,2,1))
-fsp3000cAutoCDCObjectGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J)))
-if mibBuilder.loadTexts:fsp3000cAutoCDCObjectGroup.setStatus(_A)
-fsp3000cAutoCDCCompliance=ModuleCompliance((1,3,6,1,4,1,2544,1,20,2,1,1,2,1,1))
-fsp3000cAutoCDCCompliance.setObjects((_B,_K))
-if mibBuilder.loadTexts:fsp3000cAutoCDCCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'AutoCdcControlType':AutoCdcControlType,'AutoCdcResultType':AutoCdcResultType,'fsp3000cAutoCDCMIB':fsp3000cAutoCDCMIB,'fsp3000cAutoCDCObjects':fsp3000cAutoCDCObjects,'autoCdcStatusTable':autoCdcStatusTable,'autoCdcStatusEntry':autoCdcStatusEntry,_F:autoCdcStatusControlType,_G:autoCdcStatusPercentComplete,_H:autoCdcStatusResultType,_I:autoCdcStatusTodcValueSet,_J:autoCdcStatusTodcValue,'fsp3000cAutoCDCConformance':fsp3000cAutoCDCConformance,'fsp3000cAutoCDCCompliances':fsp3000cAutoCDCCompliances,'fsp3000cAutoCDCCompliance':fsp3000cAutoCDCCompliance,'fsp3000cAutoCDCGroups':fsp3000cAutoCDCGroups,_K:fsp3000cAutoCDCObjectGroup})
+#
+# PySNMP MIB module FSP3000c-AUTOCDC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adva/FSP3000c-AUTOCDC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:37:05 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+aosCommon, fsp3000c = mibBuilder.importSymbols("ADVA-MIB", "aosCommon", "fsp3000c")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+fsp3000cAutoCDCMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2544, 1, 20, 2, 1, 1))
+fsp3000cAutoCDCMIB.setRevisions(('2016-09-27 00:00',))
+if mibBuilder.loadTexts: fsp3000cAutoCDCMIB.setLastUpdated('201609270000Z')
+if mibBuilder.loadTexts: fsp3000cAutoCDCMIB.setOrganization('ADVA Optical Networking')
+fsp3000cAutoCDCObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 20, 2, 1, 1, 1))
+fsp3000cAutoCDCConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 20, 2, 1, 1, 2))
+class AutoCdcControlType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
+    namedValues = NamedValues(("none", 0), ("idle", 1), ("init", 2), ("measure", 3), ("validate", 4))
+
+class AutoCdcResultType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))
+    namedValues = NamedValues(("none", 0), ("standby", 1), ("progress", 2), ("initfail", 3), ("timeout", 4), ("rngerr", 5), ("valerr", 6), ("success", 7))
+
+autoCdcStatusTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 20, 2, 1, 1, 1, 1), )
+if mibBuilder.loadTexts: autoCdcStatusTable.setStatus('current')
+autoCdcStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 20, 2, 1, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: autoCdcStatusEntry.setStatus('current')
+autoCdcStatusControlType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 20, 2, 1, 1, 1, 1, 1, 1), AutoCdcControlType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: autoCdcStatusControlType.setStatus('current')
+autoCdcStatusPercentComplete = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 20, 2, 1, 1, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: autoCdcStatusPercentComplete.setStatus('current')
+autoCdcStatusResultType = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 20, 2, 1, 1, 1, 1, 1, 3), AutoCdcResultType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: autoCdcStatusResultType.setStatus('current')
+autoCdcStatusTodcValueSet = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 20, 2, 1, 1, 1, 1, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: autoCdcStatusTodcValueSet.setStatus('current')
+autoCdcStatusTodcValue = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 20, 2, 1, 1, 1, 1, 1, 5), Integer32()).setUnits('ps/nm').setMaxAccess("readonly")
+if mibBuilder.loadTexts: autoCdcStatusTodcValue.setStatus('current')
+fsp3000cAutoCDCCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 20, 2, 1, 1, 2, 1))
+fsp3000cAutoCDCGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 20, 2, 1, 1, 2, 2))
+fsp3000cAutoCDCCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2544, 1, 20, 2, 1, 1, 2, 1, 1)).setObjects(("FSP3000c-AUTOCDC-MIB", "fsp3000cAutoCDCObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsp3000cAutoCDCCompliance = fsp3000cAutoCDCCompliance.setStatus('current')
+fsp3000cAutoCDCObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 20, 2, 1, 1, 2, 2, 1)).setObjects(("FSP3000c-AUTOCDC-MIB", "autoCdcStatusControlType"), ("FSP3000c-AUTOCDC-MIB", "autoCdcStatusPercentComplete"), ("FSP3000c-AUTOCDC-MIB", "autoCdcStatusResultType"), ("FSP3000c-AUTOCDC-MIB", "autoCdcStatusTodcValueSet"), ("FSP3000c-AUTOCDC-MIB", "autoCdcStatusTodcValue"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsp3000cAutoCDCObjectGroup = fsp3000cAutoCDCObjectGroup.setStatus('current')
+mibBuilder.exportSymbols("FSP3000c-AUTOCDC-MIB", autoCdcStatusResultType=autoCdcStatusResultType, autoCdcStatusTodcValueSet=autoCdcStatusTodcValueSet, fsp3000cAutoCDCMIB=fsp3000cAutoCDCMIB, fsp3000cAutoCDCGroups=fsp3000cAutoCDCGroups, autoCdcStatusTable=autoCdcStatusTable, fsp3000cAutoCDCCompliances=fsp3000cAutoCDCCompliances, AutoCdcResultType=AutoCdcResultType, autoCdcStatusEntry=autoCdcStatusEntry, PYSNMP_MODULE_ID=fsp3000cAutoCDCMIB, AutoCdcControlType=AutoCdcControlType, autoCdcStatusControlType=autoCdcStatusControlType, fsp3000cAutoCDCConformance=fsp3000cAutoCDCConformance, autoCdcStatusTodcValue=autoCdcStatusTodcValue, fsp3000cAutoCDCObjects=fsp3000cAutoCDCObjects, fsp3000cAutoCDCCompliance=fsp3000cAutoCDCCompliance, fsp3000cAutoCDCObjectGroup=fsp3000cAutoCDCObjectGroup, autoCdcStatusPercentComplete=autoCdcStatusPercentComplete)

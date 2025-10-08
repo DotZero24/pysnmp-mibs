@@ -1,569 +1,311 @@
-_Bb='lntWanMinorAlarmOff'
-_Ba='lntWanMinorAlarmOn'
-_BZ='lntWanRemoteAlarmOff'
-_BY='lntWanRemoteAlarmOn'
-_BX='lntWanLocalAlarmOff'
-_BW='lntWanLocalAlarmOn'
-_BV='lntWanPhysicalAlarmOff'
-_BU='lntWanPhysicalAlarmOn'
-_BT='lntLicenseDownloadValidationFlt'
-_BS='lntLicenseStartupValidationFlt'
-_BR='lntUnknownHostCopyEvent'
-_BQ='lntUnAuthAccessEvent'
-_BP='lntMACSecurityEvent'
-_BO='lntAccountLockoutEvent'
-_BN='lntMainFansOK'
-_BM='lntMainFansFlt'
-_BL='lntBackupFansOK'
-_BK='lntBackupFansFlt'
-_BJ='lntPolicyChangeEvent'
-_BI='lntPolicyAccessControlViolationFlt'
-_BH='lntPolicyAccessControlListLvlRuleTrap'
-_BG='lntStackMasterReelection'
-_BF='lntConfigChangeEvent'
-_BE='lntPortCAMLastChange'
-_BD='lntPortInlinePowerOK'
-_BC='lntPortInlinePowerFlt'
-_BB='lntEthVPortAutoNegotiationFlt'
-_BA='lntEthPortAutoNegotiationFlt'
-_B9='lntEthPortAutoNegotiationOK'
-_B8='lntEthVPortAutoNegotiationOK'
-_B7='lntVPortAutoPartOK'
-_B6='lntVPortAutoPartFlt'
-_B5='lntPortAutoPartOk'
-_B4='lntPortAutoPartFlt'
-_B3='lntVPortFEOk'
-_B2='lntVPortFEFlt'
-_B1='lntPortFEOk'
-_B0='lntPortFEFlt'
-_A_='lntCascadDownConnFlt'
-_Az='lntCascadDownConnOk'
-_Ay='lntCascadUpConnOk'
-_Ax='lntCascadUpConnFlt'
-_Aw='lntVPortLinkUpEvent'
-_Av='lntVPortLinkDownEvent'
-_Au='lntPortLinkUpEvent'
-_At='lntPortLinkDownEvent'
-_As='lntARPViolationEvent'
-_Ar='lntVLANViolationEvent'
-_Aq='lntDuplicateIPFlt'
-_Ap='lntTempratureWarning'
-_Ao='lntTempratureOk'
-_An='lntBackupPSUOk'
-_Am='lntBackupPSUFlt'
-_Al='lntMainPSUOk'
-_Ak='lntMainPSUFlt'
-_Aj='lntSoftRedNewEvent'
-_Ai='lntSoftRedDelEvent'
-_Ah='lntLAGCreateEvent'
-_Ag='lntLAGDeleteEvent'
-_Af='lntLAGAutoNegOk'
-_Ae='lntLAGAutoNegFlt'
-_Ad='lntLAGPartialConnLostOk'
-_Ac='lntLAGPartialConnLostFlt'
-_Ab='lntLAGConnLostOk'
-_Aa='lntLAGConnLostFlt'
-_AZ='scGenPortDot1xFailureString'
-_AY='scGenSwitchDot1xPortMaxSuppNum'
-_AX='scGenPortLastIntruderSourceAddr'
-_AW='scGenPortDot1xMAC'
-_AV='scGenGroupDot1xSystemMaxNumSupplicant'
-_AU='ipPolicyRuleListID'
-_AT='ipPolicyRuleID'
-_AS='ipPolicyRuleDescription'
-_AR='ipPolicyListID'
-_AQ='ipPolicyActivationifIndex'
-_AP='ipPolicyActivationSubContext'
-_AO='ipPolicyActivationList'
-_AN='ipPolicyActivationEntID'
-_AM='ipPolicyAccessControlViolationRuleType'
-_AL='ipNetToMediaPhysAddress'
-_AK='ipNetToMediaNetAddress'
-_AJ='softRedundancyPortId2'
-_AI='softRedundancyPortId1'
-_AH='softRedundancyName'
-_AG='softRedundancyGroupId2'
-_AF='softRedundancyGroupId1'
-_AE='genGroupBUPSActivityStatus'
-_AD='vnsPacketExpectedIfName'
-_AC='vnsPacketDetectedIfName'
-_AB='lseIntPortCAMLastChange'
-_AA='OctetString'
-_A9='lntSCPStrictCheckingMode'
-_A8='lntConfigChangeOID'
-_A7='lntConfigChangeValue'
-_A6='scGenLinkAggregationStatus'
-_A5='scGenLinkAggregationAutoNegResults'
-_A4='scGenGroupFansStatus'
-_A3='scGenGroupBUPSFansStatus'
-_A2='ipPolicyAccessControlViolationTime'
-_A1='ipPolicyAccessControlViolationSubCtxt'
-_A0='ipPolicyAccessControlViolationSrcAddr'
-_z='ipPolicyAccessControlViolationProtocol'
-_y='ipPolicyAccessControlViolationL4SrcPort'
-_x='ipPolicyAccessControlViolationL4DstPort'
-_w='ipPolicyAccessControlViolationIfIndex'
-_v='ipPolicyAccessControlViolationEstablished'
-_u='ipPolicyAccessControlViolationEntID'
-_t='ipPolicyAccessControlViolationDstAddr'
-_s='IP-MIB'
-_r='softRedundancyStatus'
-_q='genGroupCascadUpStatus'
-_p='genGroupCascadDownStatus'
-_o='chLntAgIntTemp'
-_n='chHWIntTempWarning'
-_m='chHWIntTempThresh'
-_l='vnsPacketMACAddress'
-_k='vnsPacketIPNetMask'
-_j='vnsPacketIPAddress'
-_i='vnsPacketExpectedVLAN'
-_h='vnsPacketDetectedVLAN'
-_g='vnsPacketBoxAgentIP'
-_f='lntUnauthProtocol'
-_e='lntLicenseErrorCodes'
-_d='scGenPortId'
-_c='Integer32'
-_b='genGroupMPSActivityStatus'
-_a='lntUnauthUserName'
-_Z='lntUnauthIpAddress'
-_Y='scGenLinkAggregationFunctionalStatus'
-_X='scGenPortGroupId'
-_W='scGenLinkAggregationFaultMask'
-_V='accessible-for-notify'
-_U='scGenLinkAggregationName'
-_T='scGenLinkAggregationId'
-_S='ifOperStatus'
-_R='ifName'
-_Q='ifIndex'
-_P='ifAlias'
-_O='ifAdminStatus'
-_N='dsx1LineStatus'
-_M='DS1-MIB'
-_L='genGroupFaultMask'
-_K='genGroupId'
-_J='APPLIC-MIB'
-_I='genPortId'
-_H='genPortGroupId'
-_G='genPortFaultMask'
-_F='POLICY-MIB'
-_E='IF-MIB'
-_D='XSWITCH-MIB'
-_C='Lannet-Trapsv2-MIB'
-_B='CONFIG-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_AA,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-lseIntPortCAMLastChange,vnsPacketBoxAgentIP,vnsPacketDetectedIfName,vnsPacketDetectedVLAN,vnsPacketExpectedIfName,vnsPacketExpectedVLAN,vnsPacketIPAddress,vnsPacketIPNetMask,vnsPacketMACAddress=mibBuilder.importSymbols(_J,_AB,_g,_AC,_h,_AD,_i,_j,_k,_l)
-chHWIntTempThresh,chHWIntTempWarning,chLntAgIntTemp,genGroupBUPSActivityStatus,genGroupCascadDownStatus,genGroupCascadUpStatus,genGroupFaultMask,genGroupId,genGroupMPSActivityStatus,genPortFaultMask,genPortFunctionalStatus,genPortGroupId,genPortId,softRedundancyGroupId1,softRedundancyGroupId2,softRedundancyName,softRedundancyPortId1,softRedundancyPortId2,softRedundancyStatus=mibBuilder.importSymbols(_B,_m,_n,_o,_AE,_p,_q,_L,_K,_b,_G,'genPortFunctionalStatus',_H,_I,_AF,_AG,_AH,_AI,_AJ,_r)
-dsx1LineStatus,=mibBuilder.importSymbols(_M,_N)
-lannet,=mibBuilder.importSymbols('GEN-MIB','lannet')
-ifAdminStatus,ifAlias,ifIndex,ifName,ifOperStatus=mibBuilder.importSymbols(_E,_O,_P,_Q,_R,_S)
-ipNetToMediaNetAddress,ipNetToMediaPhysAddress=mibBuilder.importSymbols(_s,_AK,_AL)
-ipPolicyAccessControlViolationDstAddr,ipPolicyAccessControlViolationEntID,ipPolicyAccessControlViolationEstablished,ipPolicyAccessControlViolationIfIndex,ipPolicyAccessControlViolationL4DstPort,ipPolicyAccessControlViolationL4SrcPort,ipPolicyAccessControlViolationProtocol,ipPolicyAccessControlViolationRuleType,ipPolicyAccessControlViolationSrcAddr,ipPolicyAccessControlViolationSubCtxt,ipPolicyAccessControlViolationTime,ipPolicyActivationEntID,ipPolicyActivationList,ipPolicyActivationSubContext,ipPolicyActivationifIndex,ipPolicyControlSlot,ipPolicyListID,ipPolicyRuleDescription,ipPolicyRuleID,ipPolicyRuleListID=mibBuilder.importSymbols(_F,_t,_u,_v,_w,_x,_y,_z,_AM,_A0,_A1,_A2,_AN,_AO,_AP,_AQ,'ipPolicyControlSlot',_AR,_AS,_AT,_AU)
-rmonNotificationGroup,=mibBuilder.importSymbols('RMON-MIB','rmonNotificationGroup')
-AgentCapabilities,ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','AgentCapabilities','ModuleCompliance','NotificationGroup','ObjectGroup')
-authenticationFailure,coldStart,warmStart=mibBuilder.importSymbols('SNMPv2-MIB','authenticationFailure','coldStart','warmStart')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_c,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-scEthPortFunctionalStatus,scEthPortGroupId,scEthPortId,scGenGroupBUPSFansStatus,scGenGroupDot1xSystemMaxNumSupplicant,scGenGroupFansStatus,scGenLinkAggregationAutoNegResults,scGenLinkAggregationFaultMask,scGenLinkAggregationFunctionalStatus,scGenLinkAggregationId,scGenLinkAggregationName,scGenLinkAggregationStatus,scGenPortDot1xMAC,scGenPortGroupId,scGenPortId,scGenPortLastIntruderSourceAddr,scGenSwitchDot1xPortMaxSuppNum=mibBuilder.importSymbols(_D,'scEthPortFunctionalStatus','scEthPortGroupId','scEthPortId',_A3,_AV,_A4,_A5,_W,_Y,_T,_U,_A6,_AW,_X,_d,_AX,_AY)
-lntTraps=ModuleIdentity((1,3,6,1,4,1,81,38))
-_LntConfigChangeEvents_ObjectIdentity=ObjectIdentity
-lntConfigChangeEvents=_LntConfigChangeEvents_ObjectIdentity((1,3,6,1,4,1,81,38,1))
-if mibBuilder.loadTexts:lntConfigChangeEvents.setStatus(_A)
-_LntConfigChangePrefix_ObjectIdentity=ObjectIdentity
-lntConfigChangePrefix=_LntConfigChangePrefix_ObjectIdentity((1,3,6,1,4,1,81,38,1,0))
-if mibBuilder.loadTexts:lntConfigChangePrefix.setStatus(_A)
-_LntSWRedundancyEvents_ObjectIdentity=ObjectIdentity
-lntSWRedundancyEvents=_LntSWRedundancyEvents_ObjectIdentity((1,3,6,1,4,1,81,38,2))
-if mibBuilder.loadTexts:lntSWRedundancyEvents.setStatus(_A)
-_LntSWRedundancyPrefix_ObjectIdentity=ObjectIdentity
-lntSWRedundancyPrefix=_LntSWRedundancyPrefix_ObjectIdentity((1,3,6,1,4,1,81,38,2,0))
-if mibBuilder.loadTexts:lntSWRedundancyPrefix.setStatus(_A)
-_LntTempratureEvents_ObjectIdentity=ObjectIdentity
-lntTempratureEvents=_LntTempratureEvents_ObjectIdentity((1,3,6,1,4,1,81,38,3))
-if mibBuilder.loadTexts:lntTempratureEvents.setStatus(_A)
-_LntTempratureWarningPrefix_ObjectIdentity=ObjectIdentity
-lntTempratureWarningPrefix=_LntTempratureWarningPrefix_ObjectIdentity((1,3,6,1,4,1,81,38,3,0))
-if mibBuilder.loadTexts:lntTempratureWarningPrefix.setStatus(_A)
-_LntCAMChangeEvents_ObjectIdentity=ObjectIdentity
-lntCAMChangeEvents=_LntCAMChangeEvents_ObjectIdentity((1,3,6,1,4,1,81,38,4))
-if mibBuilder.loadTexts:lntCAMChangeEvents.setStatus(_A)
-_LntCAMChangePrefix_ObjectIdentity=ObjectIdentity
-lntCAMChangePrefix=_LntCAMChangePrefix_ObjectIdentity((1,3,6,1,4,1,81,38,4,0))
-if mibBuilder.loadTexts:lntCAMChangePrefix.setStatus(_A)
-_LntPSUEvents_ObjectIdentity=ObjectIdentity
-lntPSUEvents=_LntPSUEvents_ObjectIdentity((1,3,6,1,4,1,81,38,5))
-if mibBuilder.loadTexts:lntPSUEvents.setStatus(_A)
-_LntPSUPrefix_ObjectIdentity=ObjectIdentity
-lntPSUPrefix=_LntPSUPrefix_ObjectIdentity((1,3,6,1,4,1,81,38,5,0))
-if mibBuilder.loadTexts:lntPSUPrefix.setStatus(_A)
-_LntL3Events_ObjectIdentity=ObjectIdentity
-lntL3Events=_LntL3Events_ObjectIdentity((1,3,6,1,4,1,81,38,6))
-if mibBuilder.loadTexts:lntL3Events.setStatus(_A)
-_LntL3FaultsPrefix_ObjectIdentity=ObjectIdentity
-lntL3FaultsPrefix=_LntL3FaultsPrefix_ObjectIdentity((1,3,6,1,4,1,81,38,6,0))
-if mibBuilder.loadTexts:lntL3FaultsPrefix.setStatus(_A)
-_LntLinkEvents_ObjectIdentity=ObjectIdentity
-lntLinkEvents=_LntLinkEvents_ObjectIdentity((1,3,6,1,4,1,81,38,7))
-if mibBuilder.loadTexts:lntLinkEvents.setStatus(_A)
-_LntLinkEventsPrefix_ObjectIdentity=ObjectIdentity
-lntLinkEventsPrefix=_LntLinkEventsPrefix_ObjectIdentity((1,3,6,1,4,1,81,38,7,0))
-if mibBuilder.loadTexts:lntLinkEventsPrefix.setStatus(_A)
-_LntLAGEvents_ObjectIdentity=ObjectIdentity
-lntLAGEvents=_LntLAGEvents_ObjectIdentity((1,3,6,1,4,1,81,38,8))
-if mibBuilder.loadTexts:lntLAGEvents.setStatus(_A)
-_LntLAGPrefix_ObjectIdentity=ObjectIdentity
-lntLAGPrefix=_LntLAGPrefix_ObjectIdentity((1,3,6,1,4,1,81,38,8,0))
-if mibBuilder.loadTexts:lntLAGPrefix.setStatus(_A)
-_LntFansEvents_ObjectIdentity=ObjectIdentity
-lntFansEvents=_LntFansEvents_ObjectIdentity((1,3,6,1,4,1,81,38,9))
-if mibBuilder.loadTexts:lntFansEvents.setStatus(_A)
-_LntFansPrefix_ObjectIdentity=ObjectIdentity
-lntFansPrefix=_LntFansPrefix_ObjectIdentity((1,3,6,1,4,1,81,38,9,0))
-if mibBuilder.loadTexts:lntFansPrefix.setStatus(_A)
-_LntCascadeEvents_ObjectIdentity=ObjectIdentity
-lntCascadeEvents=_LntCascadeEvents_ObjectIdentity((1,3,6,1,4,1,81,38,10))
-if mibBuilder.loadTexts:lntCascadeEvents.setStatus(_A)
-_LntCascadeFaultsPrefix_ObjectIdentity=ObjectIdentity
-lntCascadeFaultsPrefix=_LntCascadeFaultsPrefix_ObjectIdentity((1,3,6,1,4,1,81,38,10,0))
-if mibBuilder.loadTexts:lntCascadeFaultsPrefix.setStatus(_A)
-_LntPolicyEvents_ObjectIdentity=ObjectIdentity
-lntPolicyEvents=_LntPolicyEvents_ObjectIdentity((1,3,6,1,4,1,81,38,11))
-if mibBuilder.loadTexts:lntPolicyEvents.setStatus(_A)
-_LntPolicyPrefix_ObjectIdentity=ObjectIdentity
-lntPolicyPrefix=_LntPolicyPrefix_ObjectIdentity((1,3,6,1,4,1,81,38,11,0))
-if mibBuilder.loadTexts:lntPolicyPrefix.setStatus(_A)
-_LntEthPortFaultEvents_ObjectIdentity=ObjectIdentity
-lntEthPortFaultEvents=_LntEthPortFaultEvents_ObjectIdentity((1,3,6,1,4,1,81,38,12))
-if mibBuilder.loadTexts:lntEthPortFaultEvents.setStatus(_A)
-_LntEthPortFaultPrefix_ObjectIdentity=ObjectIdentity
-lntEthPortFaultPrefix=_LntEthPortFaultPrefix_ObjectIdentity((1,3,6,1,4,1,81,38,12,0))
-if mibBuilder.loadTexts:lntEthPortFaultPrefix.setStatus(_A)
-_LntSecurityEvents_ObjectIdentity=ObjectIdentity
-lntSecurityEvents=_LntSecurityEvents_ObjectIdentity((1,3,6,1,4,1,81,38,13))
-if mibBuilder.loadTexts:lntSecurityEvents.setStatus(_A)
-_LntSecurityPrefix_ObjectIdentity=ObjectIdentity
-lntSecurityPrefix=_LntSecurityPrefix_ObjectIdentity((1,3,6,1,4,1,81,38,13,0))
-if mibBuilder.loadTexts:lntSecurityPrefix.setStatus(_A)
-_LntNotificationVarbinds_ObjectIdentity=ObjectIdentity
-lntNotificationVarbinds=_LntNotificationVarbinds_ObjectIdentity((1,3,6,1,4,1,81,38,14))
-if mibBuilder.loadTexts:lntNotificationVarbinds.setStatus(_A)
-_LntConfigChangeValue_Type=DisplayString
-_LntConfigChangeValue_Object=MibScalar
-lntConfigChangeValue=_LntConfigChangeValue_Object((1,3,6,1,4,1,81,38,14,1),_LntConfigChangeValue_Type())
-lntConfigChangeValue.setMaxAccess(_V)
-if mibBuilder.loadTexts:lntConfigChangeValue.setStatus(_A)
-_LntConfigChangeOID_Type=ObjectIdentifier
-_LntConfigChangeOID_Object=MibScalar
-lntConfigChangeOID=_LntConfigChangeOID_Object((1,3,6,1,4,1,81,38,14,2),_LntConfigChangeOID_Type())
-lntConfigChangeOID.setMaxAccess(_V)
-if mibBuilder.loadTexts:lntConfigChangeOID.setStatus(_A)
-class _LntUnauthUserName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_LntUnauthUserName_Type.__name__=_AA
-_LntUnauthUserName_Object=MibScalar
-lntUnauthUserName=_LntUnauthUserName_Object((1,3,6,1,4,1,81,38,14,3),_LntUnauthUserName_Type())
-lntUnauthUserName.setMaxAccess(_V)
-if mibBuilder.loadTexts:lntUnauthUserName.setStatus(_A)
-_LntUnauthIpAddress_Type=IpAddress
-_LntUnauthIpAddress_Object=MibScalar
-lntUnauthIpAddress=_LntUnauthIpAddress_Object((1,3,6,1,4,1,81,38,14,4),_LntUnauthIpAddress_Type())
-lntUnauthIpAddress.setMaxAccess(_V)
-if mibBuilder.loadTexts:lntUnauthIpAddress.setStatus(_A)
-class _LntUnauthProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(22,23,80,161,443,500,6889,6890,6891)));namedValues=NamedValues(*(('lntSSHAccess',22),('lntTELNETAccess',23),('lntHTTPAccess',80),('lntSNMPAccess',161),('lntHTTPSAccess',443),('lntIKEAccess',500),('lntRASAccess',6889),('lntConsoleAccess',6890),('lntPPPAccess',6891)))
-_LntUnauthProtocol_Type.__name__=_c
-_LntUnauthProtocol_Object=MibScalar
-lntUnauthProtocol=_LntUnauthProtocol_Object((1,3,6,1,4,1,81,38,14,5),_LntUnauthProtocol_Type())
-lntUnauthProtocol.setMaxAccess(_V)
-if mibBuilder.loadTexts:lntUnauthProtocol.setStatus(_A)
-class _LntSCPStrictCheckingMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('yes',1),('no',2),('ask',3)))
-_LntSCPStrictCheckingMode_Type.__name__=_c
-_LntSCPStrictCheckingMode_Object=MibScalar
-lntSCPStrictCheckingMode=_LntSCPStrictCheckingMode_Object((1,3,6,1,4,1,81,38,14,6),_LntSCPStrictCheckingMode_Type())
-lntSCPStrictCheckingMode.setMaxAccess(_V)
-if mibBuilder.loadTexts:lntSCPStrictCheckingMode.setStatus(_A)
-class _LntLicenseErrorCodes_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('lntSerialNumMismatch',1),('lntInvalidSignature',2),('lntPlatformTypeMismatch',3),('lntInvalidLicFeture',4)))
-_LntLicenseErrorCodes_Type.__name__=_c
-_LntLicenseErrorCodes_Object=MibScalar
-lntLicenseErrorCodes=_LntLicenseErrorCodes_Object((1,3,6,1,4,1,81,38,14,7),_LntLicenseErrorCodes_Type())
-lntLicenseErrorCodes.setMaxAccess(_V)
-if mibBuilder.loadTexts:lntLicenseErrorCodes.setStatus(_A)
-_ScGenPortDot1xFailureString_Type=DisplayString
-_ScGenPortDot1xFailureString_Object=MibScalar
-scGenPortDot1xFailureString=_ScGenPortDot1xFailureString_Object((1,3,6,1,4,1,81,38,14,8),_ScGenPortDot1xFailureString_Type())
-scGenPortDot1xFailureString.setMaxAccess(_V)
-if mibBuilder.loadTexts:scGenPortDot1xFailureString.setStatus(_A)
-_LntWanEvents_ObjectIdentity=ObjectIdentity
-lntWanEvents=_LntWanEvents_ObjectIdentity((1,3,6,1,4,1,81,38,15))
-if mibBuilder.loadTexts:lntWanEvents.setStatus(_A)
-_LntWanPrefix_ObjectIdentity=ObjectIdentity
-lntWanPrefix=_LntWanPrefix_ObjectIdentity((1,3,6,1,4,1,81,38,15,0))
-if mibBuilder.loadTexts:lntWanPrefix.setStatus(_A)
-_LntNotificationGroups_ObjectIdentity=ObjectIdentity
-lntNotificationGroups=_LntNotificationGroups_ObjectIdentity((1,3,6,1,4,1,81,38,10007))
-_LntNotificationAgentCapabilities_ObjectIdentity=ObjectIdentity
-lntNotificationAgentCapabilities=_LntNotificationAgentCapabilities_ObjectIdentity((1,3,6,1,4,1,81,38,10008))
-lntConfigChangeVarbinds=ObjectGroup((1,3,6,1,4,1,81,38,10007,1))
-lntConfigChangeVarbinds.setObjects(*((_C,_A7),(_C,_A8),(_C,_Z),(_C,_a),(_C,_e),(_C,_A9),(_C,_f)))
-if mibBuilder.loadTexts:lntConfigChangeVarbinds.setStatus(_A)
-lntConfigChangeEvent=NotificationType((1,3,6,1,4,1,81,38,1,0,1))
-lntConfigChangeEvent.setObjects(*((_C,_A8),(_C,_A7)))
-if mibBuilder.loadTexts:lntConfigChangeEvent.setStatus(_A)
-lntStackMasterReelection=NotificationType((1,3,6,1,4,1,81,38,1,0,82))
-lntStackMasterReelection.setObjects((_B,_K))
-if mibBuilder.loadTexts:lntStackMasterReelection.setStatus(_A)
-lntSoftRedDelEvent=NotificationType((1,3,6,1,4,1,81,38,2,0,12))
-lntSoftRedDelEvent.setObjects((_B,_r))
-if mibBuilder.loadTexts:lntSoftRedDelEvent.setStatus(_A)
-lntSoftRedNewEvent=NotificationType((1,3,6,1,4,1,81,38,2,0,13))
-lntSoftRedNewEvent.setObjects(*((_B,_AH),(_B,_AF),(_B,_AI),(_B,_AG),(_B,_AJ),(_B,_r)))
-if mibBuilder.loadTexts:lntSoftRedNewEvent.setStatus(_A)
-lntTempratureWarning=NotificationType((1,3,6,1,4,1,81,38,3,0,14))
-lntTempratureWarning.setObjects(*((_B,_n),(_B,_m),(_B,_o)))
-if mibBuilder.loadTexts:lntTempratureWarning.setStatus(_A)
-lntTempratureOk=NotificationType((1,3,6,1,4,1,81,38,3,0,23))
-lntTempratureOk.setObjects(*((_B,_n),(_B,_m),(_B,_o)))
-if mibBuilder.loadTexts:lntTempratureOk.setStatus(_A)
-lntPortCAMLastChange=NotificationType((1,3,6,1,4,1,81,38,4,0,22))
-lntPortCAMLastChange.setObjects((_J,_AB))
-if mibBuilder.loadTexts:lntPortCAMLastChange.setStatus('obsolete')
-lntMainPSUFlt=NotificationType((1,3,6,1,4,1,81,38,5,0,2303))
-lntMainPSUFlt.setObjects(*((_B,_L),(_B,_K),(_B,_b)))
-if mibBuilder.loadTexts:lntMainPSUFlt.setStatus(_A)
-lntMainPSUOk=NotificationType((1,3,6,1,4,1,81,38,5,0,2304))
-lntMainPSUOk.setObjects(*((_B,_L),(_B,_K),(_B,_b)))
-if mibBuilder.loadTexts:lntMainPSUOk.setStatus(_A)
-lntBackupPSUFlt=NotificationType((1,3,6,1,4,1,81,38,5,0,2305))
-lntBackupPSUFlt.setObjects(*((_B,_L),(_B,_K),(_B,_AE)))
-if mibBuilder.loadTexts:lntBackupPSUFlt.setStatus(_A)
-lntBackupPSUOk=NotificationType((1,3,6,1,4,1,81,38,5,0,2306))
-lntBackupPSUOk.setObjects(*((_B,_L),(_B,_K),(_B,_b)))
-if mibBuilder.loadTexts:lntBackupPSUOk.setStatus(_A)
-lntDuplicateIPFlt=NotificationType((1,3,6,1,4,1,81,38,6,0,27))
-lntDuplicateIPFlt.setObjects(*((_s,_AL),(_s,_AK)))
-if mibBuilder.loadTexts:lntDuplicateIPFlt.setStatus(_A)
-lntVLANViolationEvent=NotificationType((1,3,6,1,4,1,81,38,6,0,28))
-lntVLANViolationEvent.setObjects(*((_J,_l),(_J,_j),(_J,_k),(_J,_i),(_J,_h),(_J,_g)))
-if mibBuilder.loadTexts:lntVLANViolationEvent.setStatus(_A)
-lntARPViolationEvent=NotificationType((1,3,6,1,4,1,81,38,6,0,70))
-lntARPViolationEvent.setObjects(*((_J,_l),(_J,_j),(_J,_k),(_J,_i),(_J,_h),(_J,_g),(_J,_AD),(_J,_AC)))
-if mibBuilder.loadTexts:lntARPViolationEvent.setStatus(_A)
-lntPortLinkDownEvent=NotificationType((1,3,6,1,4,1,81,38,7,0,3039))
-lntPortLinkDownEvent.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntPortLinkDownEvent.setStatus(_A)
-lntPortLinkUpEvent=NotificationType((1,3,6,1,4,1,81,38,7,0,3040))
-lntPortLinkUpEvent.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntPortLinkUpEvent.setStatus(_A)
-lntVPortLinkDownEvent=NotificationType((1,3,6,1,4,1,81,38,7,0,3041))
-lntVPortLinkDownEvent.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntVPortLinkDownEvent.setStatus(_A)
-lntVPortLinkUpEvent=NotificationType((1,3,6,1,4,1,81,38,7,0,3042))
-lntVPortLinkUpEvent.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntVPortLinkUpEvent.setStatus(_A)
-lntLAGConnLostFlt=NotificationType((1,3,6,1,4,1,81,38,8,0,44))
-lntLAGConnLostFlt.setObjects(*((_D,_W),(_D,_T),(_D,_U),(_D,_Y)))
-if mibBuilder.loadTexts:lntLAGConnLostFlt.setStatus(_A)
-lntLAGConnLostOk=NotificationType((1,3,6,1,4,1,81,38,8,0,46))
-lntLAGConnLostOk.setObjects(*((_D,_W),(_D,_T),(_D,_U),(_D,_Y)))
-if mibBuilder.loadTexts:lntLAGConnLostOk.setStatus(_A)
-lntLAGPartialConnLostFlt=NotificationType((1,3,6,1,4,1,81,38,8,0,48))
-lntLAGPartialConnLostFlt.setObjects(*((_D,_W),(_D,_T),(_D,_U),(_D,_Y)))
-if mibBuilder.loadTexts:lntLAGPartialConnLostFlt.setStatus(_A)
-lntLAGPartialConnLostOk=NotificationType((1,3,6,1,4,1,81,38,8,0,50))
-lntLAGPartialConnLostOk.setObjects(*((_D,_W),(_D,_T),(_D,_U),(_D,_Y)))
-if mibBuilder.loadTexts:lntLAGPartialConnLostOk.setStatus(_A)
-lntLAGAutoNegFlt=NotificationType((1,3,6,1,4,1,81,38,8,0,52))
-lntLAGAutoNegFlt.setObjects(*((_D,_W),(_D,_T),(_D,_U),(_D,_A5)))
-if mibBuilder.loadTexts:lntLAGAutoNegFlt.setStatus(_A)
-lntLAGAutoNegOk=NotificationType((1,3,6,1,4,1,81,38,8,0,54))
-lntLAGAutoNegOk.setObjects(*((_D,_W),(_D,_T),(_D,_U),(_D,_A5)))
-if mibBuilder.loadTexts:lntLAGAutoNegOk.setStatus(_A)
-lntLAGDeleteEvent=NotificationType((1,3,6,1,4,1,81,38,8,0,56))
-lntLAGDeleteEvent.setObjects(*((_D,_T),(_D,_U),(_D,_A6)))
-if mibBuilder.loadTexts:lntLAGDeleteEvent.setStatus(_A)
-lntLAGCreateEvent=NotificationType((1,3,6,1,4,1,81,38,8,0,58))
-lntLAGCreateEvent.setObjects(*((_D,_T),(_D,_U),(_D,_A6)))
-if mibBuilder.loadTexts:lntLAGCreateEvent.setStatus(_A)
-lntMainFansFlt=NotificationType((1,3,6,1,4,1,81,38,9,0,2307))
-lntMainFansFlt.setObjects(*((_B,_L),(_B,_K),(_D,_A4)))
-if mibBuilder.loadTexts:lntMainFansFlt.setStatus(_A)
-lntMainFansOK=NotificationType((1,3,6,1,4,1,81,38,9,0,2308))
-lntMainFansOK.setObjects(*((_B,_L),(_B,_K),(_D,_A4)))
-if mibBuilder.loadTexts:lntMainFansOK.setStatus(_A)
-lntBackupFansFlt=NotificationType((1,3,6,1,4,1,81,38,9,0,2309))
-lntBackupFansFlt.setObjects(*((_B,_L),(_B,_K),(_D,_A3)))
-if mibBuilder.loadTexts:lntBackupFansFlt.setStatus(_A)
-lntBackupFansOK=NotificationType((1,3,6,1,4,1,81,38,9,0,2310))
-lntBackupFansOK.setObjects(*((_B,_L),(_B,_K),(_D,_A3)))
-if mibBuilder.loadTexts:lntBackupFansOK.setStatus(_A)
-lntCascadUpConnFlt=NotificationType((1,3,6,1,4,1,81,38,10,0,2315))
-lntCascadUpConnFlt.setObjects(*((_B,_L),(_B,_K),(_B,_q)))
-if mibBuilder.loadTexts:lntCascadUpConnFlt.setStatus(_A)
-lntCascadUpConnOk=NotificationType((1,3,6,1,4,1,81,38,10,0,2316))
-lntCascadUpConnOk.setObjects(*((_B,_L),(_B,_K),(_B,_q)))
-if mibBuilder.loadTexts:lntCascadUpConnOk.setStatus(_A)
-lntCascadDownConnFlt=NotificationType((1,3,6,1,4,1,81,38,10,0,2317))
-lntCascadDownConnFlt.setObjects(*((_B,_L),(_B,_K),(_B,_p)))
-if mibBuilder.loadTexts:lntCascadDownConnFlt.setStatus(_A)
-lntCascadDownConnOk=NotificationType((1,3,6,1,4,1,81,38,10,0,2318))
-lntCascadDownConnOk.setObjects(*((_B,_L),(_B,_K),(_B,_p)))
-if mibBuilder.loadTexts:lntCascadDownConnOk.setStatus(_A)
-lntPolicyChangeEvent=NotificationType((1,3,6,1,4,1,81,38,11,0,60))
-lntPolicyChangeEvent.setObjects(*((_F,_AN),(_F,_AO),(_F,_AQ),(_F,_AP)))
-if mibBuilder.loadTexts:lntPolicyChangeEvent.setStatus(_A)
-lntPolicyAccessControlListLvlRuleTrap=NotificationType((1,3,6,1,4,1,81,38,11,0,62))
-lntPolicyAccessControlListLvlRuleTrap.setObjects(*((_F,_u),(_F,_A0),(_F,_t),(_F,_z),(_F,_y),(_F,_x),(_F,_v),(_F,_AM),(_F,_AR),(_F,_w),(_F,_A1),(_F,_A2)))
-if mibBuilder.loadTexts:lntPolicyAccessControlListLvlRuleTrap.setStatus(_A)
-lntPolicyAccessControlViolationFlt=NotificationType((1,3,6,1,4,1,81,38,11,0,64))
-lntPolicyAccessControlViolationFlt.setObjects(*((_F,_u),(_F,_A0),(_F,_t),(_F,_z),(_F,_y),(_F,_x),(_F,_v),(_F,_AT),(_F,_AU),(_F,_w),(_F,_A1),(_F,_A2),(_F,_AS)))
-if mibBuilder.loadTexts:lntPolicyAccessControlViolationFlt.setStatus(_A)
-lntEthPortAutoNegotiationFlt=NotificationType((1,3,6,1,4,1,81,38,12,0,3001))
-lntEthPortAutoNegotiationFlt.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntEthPortAutoNegotiationFlt.setStatus(_A)
-lntEthPortAutoNegotiationOK=NotificationType((1,3,6,1,4,1,81,38,12,0,3002))
-lntEthPortAutoNegotiationOK.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntEthPortAutoNegotiationOK.setStatus(_A)
-lntPortFEFlt=NotificationType((1,3,6,1,4,1,81,38,12,0,3005))
-lntPortFEFlt.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntPortFEFlt.setStatus(_A)
-lntPortFEOk=NotificationType((1,3,6,1,4,1,81,38,12,0,3006))
-lntPortFEOk.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntPortFEOk.setStatus(_A)
-lntVPortFEFlt=NotificationType((1,3,6,1,4,1,81,38,12,0,3015))
-lntVPortFEFlt.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntVPortFEFlt.setStatus(_A)
-lntVPortFEOk=NotificationType((1,3,6,1,4,1,81,38,12,0,3016))
-lntVPortFEOk.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntVPortFEOk.setStatus(_A)
-lntPortAutoPartFlt=NotificationType((1,3,6,1,4,1,81,38,12,0,3023))
-lntPortAutoPartFlt.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntPortAutoPartFlt.setStatus(_A)
-lntPortAutoPartOk=NotificationType((1,3,6,1,4,1,81,38,12,0,3024))
-lntPortAutoPartOk.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntPortAutoPartOk.setStatus(_A)
-lntVPortAutoPartFlt=NotificationType((1,3,6,1,4,1,81,38,12,0,3025))
-lntVPortAutoPartFlt.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntVPortAutoPartFlt.setStatus(_A)
-lntVPortAutoPartOK=NotificationType((1,3,6,1,4,1,81,38,12,0,3026))
-lntVPortAutoPartOK.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntVPortAutoPartOK.setStatus(_A)
-lntEthVPortAutoNegotiationFlt=NotificationType((1,3,6,1,4,1,81,38,12,0,3031))
-lntEthVPortAutoNegotiationFlt.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntEthVPortAutoNegotiationFlt.setStatus(_A)
-lntEthVPortAutoNegotiationOK=NotificationType((1,3,6,1,4,1,81,38,12,0,3032))
-lntEthVPortAutoNegotiationOK.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntEthVPortAutoNegotiationOK.setStatus(_A)
-lntPortInlinePowerFlt=NotificationType((1,3,6,1,4,1,81,38,12,0,3933))
-lntPortInlinePowerFlt.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntPortInlinePowerFlt.setStatus(_A)
-lntPortInlinePowerOK=NotificationType((1,3,6,1,4,1,81,38,12,0,3934))
-lntPortInlinePowerOK.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:lntPortInlinePowerOK.setStatus(_A)
-lntUnAuthAccessEvent=NotificationType((1,3,6,1,4,1,81,38,13,0,68))
-lntUnAuthAccessEvent.setObjects(*((_C,_a),(_C,_Z),(_C,_f)))
-if mibBuilder.loadTexts:lntUnAuthAccessEvent.setStatus(_A)
-lntMACSecurityEvent=NotificationType((1,3,6,1,4,1,81,38,13,0,104))
-lntMACSecurityEvent.setObjects(*((_D,_AX),(_D,_X),(_D,_d)))
-if mibBuilder.loadTexts:lntMACSecurityEvent.setStatus(_A)
-lntUnknownHostCopyEvent=NotificationType((1,3,6,1,4,1,81,38,13,0,1002))
-lntUnknownHostCopyEvent.setObjects(*((_C,_a),(_C,_Z),(_C,_A9)))
-if mibBuilder.loadTexts:lntUnknownHostCopyEvent.setStatus(_A)
-lntAccountLockoutEvent=NotificationType((1,3,6,1,4,1,81,38,13,0,1003))
-lntAccountLockoutEvent.setObjects(*((_C,_a),(_C,_Z),(_C,_f)))
-if mibBuilder.loadTexts:lntAccountLockoutEvent.setStatus(_A)
-lntLicenseStartupValidationFlt=NotificationType((1,3,6,1,4,1,81,38,13,0,1004))
-lntLicenseStartupValidationFlt.setObjects((_C,_e))
-if mibBuilder.loadTexts:lntLicenseStartupValidationFlt.setStatus(_A)
-lntLicenseDownloadValidationFlt=NotificationType((1,3,6,1,4,1,81,38,13,0,1005))
-lntLicenseDownloadValidationFlt.setObjects((_C,_e))
-if mibBuilder.loadTexts:lntLicenseDownloadValidationFlt.setStatus(_A)
-lntDot1xMaxAuthRateReachedEvent=NotificationType((1,3,6,1,4,1,81,38,13,0,1006))
-lntDot1xMaxAuthRateReachedEvent.setObjects((_D,_X))
-if mibBuilder.loadTexts:lntDot1xMaxAuthRateReachedEvent.setStatus(_A)
-lntDot1xAuthFailureEvent=NotificationType((1,3,6,1,4,1,81,38,13,0,1007))
-lntDot1xAuthFailureEvent.setObjects(*((_D,_AW),(_D,_X),(_D,_d),(_C,_AZ)))
-if mibBuilder.loadTexts:lntDot1xAuthFailureEvent.setStatus(_A)
-lntDot1xMaxAuthModuleNumReachedEvent=NotificationType((1,3,6,1,4,1,81,38,13,0,1008))
-lntDot1xMaxAuthModuleNumReachedEvent.setObjects(*((_D,_AV),(_D,_X)))
-if mibBuilder.loadTexts:lntDot1xMaxAuthModuleNumReachedEvent.setStatus(_A)
-lntDot1xMaxAuthPortNumReachedEvent=NotificationType((1,3,6,1,4,1,81,38,13,0,1009))
-lntDot1xMaxAuthPortNumReachedEvent.setObjects(*((_D,_AY),(_D,_X),(_D,_d)))
-if mibBuilder.loadTexts:lntDot1xMaxAuthPortNumReachedEvent.setStatus(_A)
-lntWanPhysicalAlarmOn=NotificationType((1,3,6,1,4,1,81,38,15,0,30))
-lntWanPhysicalAlarmOn.setObjects(*((_E,_Q),(_E,_O),(_E,_S),(_E,_R),(_E,_P),(_M,_N)))
-if mibBuilder.loadTexts:lntWanPhysicalAlarmOn.setStatus(_A)
-lntWanPhysicalAlarmOff=NotificationType((1,3,6,1,4,1,81,38,15,0,31))
-lntWanPhysicalAlarmOff.setObjects(*((_E,_Q),(_E,_O),(_E,_S),(_E,_R),(_E,_P),(_M,_N)))
-if mibBuilder.loadTexts:lntWanPhysicalAlarmOff.setStatus(_A)
-lntWanLocalAlarmOn=NotificationType((1,3,6,1,4,1,81,38,15,0,32))
-lntWanLocalAlarmOn.setObjects(*((_E,_Q),(_E,_O),(_E,_S),(_E,_R),(_E,_P),(_M,_N)))
-if mibBuilder.loadTexts:lntWanLocalAlarmOn.setStatus(_A)
-lntWanLocalAlarmOff=NotificationType((1,3,6,1,4,1,81,38,15,0,33))
-lntWanLocalAlarmOff.setObjects(*((_E,_Q),(_E,_O),(_E,_S),(_E,_R),(_E,_P),(_M,_N)))
-if mibBuilder.loadTexts:lntWanLocalAlarmOff.setStatus(_A)
-lntWanRemoteAlarmOn=NotificationType((1,3,6,1,4,1,81,38,15,0,34))
-lntWanRemoteAlarmOn.setObjects(*((_E,_Q),(_E,_O),(_E,_S),(_E,_R),(_E,_P),(_M,_N)))
-if mibBuilder.loadTexts:lntWanRemoteAlarmOn.setStatus(_A)
-lntWanRemoteAlarmOff=NotificationType((1,3,6,1,4,1,81,38,15,0,35))
-lntWanRemoteAlarmOff.setObjects(*((_E,_Q),(_E,_O),(_E,_S),(_E,_R),(_E,_P),(_M,_N)))
-if mibBuilder.loadTexts:lntWanRemoteAlarmOff.setStatus(_A)
-lntWanMinorAlarmOn=NotificationType((1,3,6,1,4,1,81,38,15,0,36))
-lntWanMinorAlarmOn.setObjects(*((_E,_Q),(_E,_O),(_E,_S),(_E,_R),(_E,_P),(_M,_N)))
-if mibBuilder.loadTexts:lntWanMinorAlarmOn.setStatus(_A)
-lntWanMinorAlarmOff=NotificationType((1,3,6,1,4,1,81,38,15,0,37))
-lntWanMinorAlarmOff.setObjects(*((_E,_Q),(_E,_O),(_E,_S),(_E,_R),(_E,_P),(_M,_N)))
-if mibBuilder.loadTexts:lntWanMinorAlarmOff.setStatus(_A)
-lntLagNotificationGroup=NotificationGroup((1,3,6,1,4,1,81,38,10007,5))
-lntLagNotificationGroup.setObjects(*((_C,_Aa),(_C,_Ab),(_C,_Ac),(_C,_Ad),(_C,_Ae),(_C,_Af),(_C,_Ag),(_C,_Ah)))
-if mibBuilder.loadTexts:lntLagNotificationGroup.setStatus(_A)
-lntSWRedundancyNotificationGroup=NotificationGroup((1,3,6,1,4,1,81,38,10007,6))
-lntSWRedundancyNotificationGroup.setObjects(*((_C,_Ai),(_C,_Aj)))
-if mibBuilder.loadTexts:lntSWRedundancyNotificationGroup.setStatus(_A)
-lntPSUFaultNotificationGroup=NotificationGroup((1,3,6,1,4,1,81,38,10007,7))
-lntPSUFaultNotificationGroup.setObjects(*((_C,_Ak),(_C,_Al),(_C,_Am),(_C,_An)))
-if mibBuilder.loadTexts:lntPSUFaultNotificationGroup.setStatus(_A)
-lntTempratureNotificationGroup=NotificationGroup((1,3,6,1,4,1,81,38,10007,8))
-lntTempratureNotificationGroup.setObjects(*((_C,_Ao),(_C,_Ap)))
-if mibBuilder.loadTexts:lntTempratureNotificationGroup.setStatus(_A)
-lntL3FaultNotificationGroup=NotificationGroup((1,3,6,1,4,1,81,38,10007,9))
-lntL3FaultNotificationGroup.setObjects(*((_C,_Aq),(_C,_Ar),(_C,_As)))
-if mibBuilder.loadTexts:lntL3FaultNotificationGroup.setStatus(_A)
-lntLinkDownNotificationGroup=NotificationGroup((1,3,6,1,4,1,81,38,10007,10))
-lntLinkDownNotificationGroup.setObjects(*((_C,_At),(_C,_Au),(_C,_Av),(_C,_Aw)))
-if mibBuilder.loadTexts:lntLinkDownNotificationGroup.setStatus(_A)
-lntCascadeNotificationGroup=NotificationGroup((1,3,6,1,4,1,81,38,10007,11))
-lntCascadeNotificationGroup.setObjects(*((_C,_Ax),(_C,_Ay),(_C,_Az),(_C,_A_)))
-if mibBuilder.loadTexts:lntCascadeNotificationGroup.setStatus(_A)
-lntEthPortNotificationGroup=NotificationGroup((1,3,6,1,4,1,81,38,10007,12))
-lntEthPortNotificationGroup.setObjects(*((_C,_B0),(_C,_B1),(_C,_B2),(_C,_B3),(_C,_B4),(_C,_B5),(_C,_B6),(_C,_B7),(_C,_B8),(_C,_B9),(_C,_BA),(_C,_BB),(_C,_BC),(_C,_BD)))
-if mibBuilder.loadTexts:lntEthPortNotificationGroup.setStatus(_A)
-lntCAMNotificationGroup=NotificationGroup((1,3,6,1,4,1,81,38,10007,13))
-lntCAMNotificationGroup.setObjects((_C,_BE))
-if mibBuilder.loadTexts:lntCAMNotificationGroup.setStatus('obsolete')
-lntConfigChangeNotificationGroup=NotificationGroup((1,3,6,1,4,1,81,38,10007,14))
-lntConfigChangeNotificationGroup.setObjects(*((_C,_BF),(_C,_BG)))
-if mibBuilder.loadTexts:lntConfigChangeNotificationGroup.setStatus(_A)
-lntPolicyNotificationGroup=NotificationGroup((1,3,6,1,4,1,81,38,10007,15))
-lntPolicyNotificationGroup.setObjects(*((_C,_BH),(_C,_BI),(_C,_BJ)))
-if mibBuilder.loadTexts:lntPolicyNotificationGroup.setStatus(_A)
-lntFansNotificationGroup=NotificationGroup((1,3,6,1,4,1,81,38,10007,16))
-lntFansNotificationGroup.setObjects(*((_C,_BK),(_C,_BL),(_C,_BM),(_C,_BN)))
-if mibBuilder.loadTexts:lntFansNotificationGroup.setStatus(_A)
-lntSecurityNotificationGroup=NotificationGroup((1,3,6,1,4,1,81,38,10007,17))
-lntSecurityNotificationGroup.setObjects(*((_C,_BO),(_C,_BP),(_C,_BQ),(_C,_BR),(_C,_BS),(_C,_BT)))
-if mibBuilder.loadTexts:lntSecurityNotificationGroup.setStatus(_A)
-lntWanNotificationGroup=NotificationGroup((1,3,6,1,4,1,81,38,10007,18))
-lntWanNotificationGroup.setObjects(*((_C,_BU),(_C,_BV),(_C,_BW),(_C,_BX),(_C,_BY),(_C,_BZ),(_C,_Ba),(_C,_Bb)))
-if mibBuilder.loadTexts:lntWanNotificationGroup.setStatus(_A)
-lntP330L3NotificationAgentCapabilities=AgentCapabilities((1,3,6,1,4,1,81,38,10008,1))
-if mibBuilder.loadTexts:lntP330L3NotificationAgentCapabilities.setStatus(_A)
-lntP330L2NotificationAgentCapabilities=AgentCapabilities((1,3,6,1,4,1,81,38,10008,2))
-if mibBuilder.loadTexts:lntP330L2NotificationAgentCapabilities.setStatus(_A)
-lntP130TrapAgentCapabilities=AgentCapabilities((1,3,6,1,4,1,81,38,10008,3))
-if mibBuilder.loadTexts:lntP130TrapAgentCapabilities.setStatus(_A)
-lntP330MLNotificationAgentCapabilities=AgentCapabilities((1,3,6,1,4,1,81,38,10008,4))
-if mibBuilder.loadTexts:lntP330MLNotificationAgentCapabilities.setStatus(_A)
-lntG350NotificationAgentCapability=AgentCapabilities((1,3,6,1,4,1,81,38,10008,5))
-if mibBuilder.loadTexts:lntG350NotificationAgentCapability.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'lntTraps':lntTraps,'lntConfigChangeEvents':lntConfigChangeEvents,'lntConfigChangePrefix':lntConfigChangePrefix,_BF:lntConfigChangeEvent,_BG:lntStackMasterReelection,'lntSWRedundancyEvents':lntSWRedundancyEvents,'lntSWRedundancyPrefix':lntSWRedundancyPrefix,_Ai:lntSoftRedDelEvent,_Aj:lntSoftRedNewEvent,'lntTempratureEvents':lntTempratureEvents,'lntTempratureWarningPrefix':lntTempratureWarningPrefix,_Ap:lntTempratureWarning,_Ao:lntTempratureOk,'lntCAMChangeEvents':lntCAMChangeEvents,'lntCAMChangePrefix':lntCAMChangePrefix,_BE:lntPortCAMLastChange,'lntPSUEvents':lntPSUEvents,'lntPSUPrefix':lntPSUPrefix,_Ak:lntMainPSUFlt,_Al:lntMainPSUOk,_Am:lntBackupPSUFlt,_An:lntBackupPSUOk,'lntL3Events':lntL3Events,'lntL3FaultsPrefix':lntL3FaultsPrefix,_Aq:lntDuplicateIPFlt,_Ar:lntVLANViolationEvent,_As:lntARPViolationEvent,'lntLinkEvents':lntLinkEvents,'lntLinkEventsPrefix':lntLinkEventsPrefix,_At:lntPortLinkDownEvent,_Au:lntPortLinkUpEvent,_Av:lntVPortLinkDownEvent,_Aw:lntVPortLinkUpEvent,'lntLAGEvents':lntLAGEvents,'lntLAGPrefix':lntLAGPrefix,_Aa:lntLAGConnLostFlt,_Ab:lntLAGConnLostOk,_Ac:lntLAGPartialConnLostFlt,_Ad:lntLAGPartialConnLostOk,_Ae:lntLAGAutoNegFlt,_Af:lntLAGAutoNegOk,_Ag:lntLAGDeleteEvent,_Ah:lntLAGCreateEvent,'lntFansEvents':lntFansEvents,'lntFansPrefix':lntFansPrefix,_BM:lntMainFansFlt,_BN:lntMainFansOK,_BK:lntBackupFansFlt,_BL:lntBackupFansOK,'lntCascadeEvents':lntCascadeEvents,'lntCascadeFaultsPrefix':lntCascadeFaultsPrefix,_Ax:lntCascadUpConnFlt,_Ay:lntCascadUpConnOk,_A_:lntCascadDownConnFlt,_Az:lntCascadDownConnOk,'lntPolicyEvents':lntPolicyEvents,'lntPolicyPrefix':lntPolicyPrefix,_BJ:lntPolicyChangeEvent,_BH:lntPolicyAccessControlListLvlRuleTrap,_BI:lntPolicyAccessControlViolationFlt,'lntEthPortFaultEvents':lntEthPortFaultEvents,'lntEthPortFaultPrefix':lntEthPortFaultPrefix,_BA:lntEthPortAutoNegotiationFlt,_B9:lntEthPortAutoNegotiationOK,_B0:lntPortFEFlt,_B1:lntPortFEOk,_B2:lntVPortFEFlt,_B3:lntVPortFEOk,_B4:lntPortAutoPartFlt,_B5:lntPortAutoPartOk,_B6:lntVPortAutoPartFlt,_B7:lntVPortAutoPartOK,_BB:lntEthVPortAutoNegotiationFlt,_B8:lntEthVPortAutoNegotiationOK,_BC:lntPortInlinePowerFlt,_BD:lntPortInlinePowerOK,'lntSecurityEvents':lntSecurityEvents,'lntSecurityPrefix':lntSecurityPrefix,_BQ:lntUnAuthAccessEvent,_BP:lntMACSecurityEvent,_BR:lntUnknownHostCopyEvent,_BO:lntAccountLockoutEvent,_BS:lntLicenseStartupValidationFlt,_BT:lntLicenseDownloadValidationFlt,'lntDot1xMaxAuthRateReachedEvent':lntDot1xMaxAuthRateReachedEvent,'lntDot1xAuthFailureEvent':lntDot1xAuthFailureEvent,'lntDot1xMaxAuthModuleNumReachedEvent':lntDot1xMaxAuthModuleNumReachedEvent,'lntDot1xMaxAuthPortNumReachedEvent':lntDot1xMaxAuthPortNumReachedEvent,'lntNotificationVarbinds':lntNotificationVarbinds,_A7:lntConfigChangeValue,_A8:lntConfigChangeOID,_a:lntUnauthUserName,_Z:lntUnauthIpAddress,_f:lntUnauthProtocol,_A9:lntSCPStrictCheckingMode,_e:lntLicenseErrorCodes,_AZ:scGenPortDot1xFailureString,'lntWanEvents':lntWanEvents,'lntWanPrefix':lntWanPrefix,_BU:lntWanPhysicalAlarmOn,_BV:lntWanPhysicalAlarmOff,_BW:lntWanLocalAlarmOn,_BX:lntWanLocalAlarmOff,_BY:lntWanRemoteAlarmOn,_BZ:lntWanRemoteAlarmOff,_Ba:lntWanMinorAlarmOn,_Bb:lntWanMinorAlarmOff,'lntNotificationGroups':lntNotificationGroups,'lntConfigChangeVarbinds':lntConfigChangeVarbinds,'lntLagNotificationGroup':lntLagNotificationGroup,'lntSWRedundancyNotificationGroup':lntSWRedundancyNotificationGroup,'lntPSUFaultNotificationGroup':lntPSUFaultNotificationGroup,'lntTempratureNotificationGroup':lntTempratureNotificationGroup,'lntL3FaultNotificationGroup':lntL3FaultNotificationGroup,'lntLinkDownNotificationGroup':lntLinkDownNotificationGroup,'lntCascadeNotificationGroup':lntCascadeNotificationGroup,'lntEthPortNotificationGroup':lntEthPortNotificationGroup,'lntCAMNotificationGroup':lntCAMNotificationGroup,'lntConfigChangeNotificationGroup':lntConfigChangeNotificationGroup,'lntPolicyNotificationGroup':lntPolicyNotificationGroup,'lntFansNotificationGroup':lntFansNotificationGroup,'lntSecurityNotificationGroup':lntSecurityNotificationGroup,'lntWanNotificationGroup':lntWanNotificationGroup,'lntNotificationAgentCapabilities':lntNotificationAgentCapabilities,'lntP330L3NotificationAgentCapabilities':lntP330L3NotificationAgentCapabilities,'lntP330L2NotificationAgentCapabilities':lntP330L2NotificationAgentCapabilities,'lntP130TrapAgentCapabilities':lntP130TrapAgentCapabilities,'lntP330MLNotificationAgentCapabilities':lntP330MLNotificationAgentCapabilities,'lntG350NotificationAgentCapability':lntG350NotificationAgentCapability})
+#
+# PySNMP MIB module Lannet-Trapsv2-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/avaya/Lannet-Trapsv2-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:22:38 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+vnsPacketMACAddress, vnsPacketDetectedIfName, vnsPacketIPNetMask, vnsPacketIPAddress, vnsPacketExpectedIfName, vnsPacketExpectedVLAN, vnsPacketDetectedVLAN, lseIntPortCAMLastChange, vnsPacketBoxAgentIP = mibBuilder.importSymbols("APPLIC-MIB", "vnsPacketMACAddress", "vnsPacketDetectedIfName", "vnsPacketIPNetMask", "vnsPacketIPAddress", "vnsPacketExpectedIfName", "vnsPacketExpectedVLAN", "vnsPacketDetectedVLAN", "lseIntPortCAMLastChange", "vnsPacketBoxAgentIP")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+chHWIntTempThresh, softRedundancyPortId2, chHWIntTempWarning, genGroupCascadUpStatus, softRedundancyName, genGroupBUPSActivityStatus, chLntAgIntTemp, genGroupFaultMask, genPortId, softRedundancyGroupId1, genGroupCascadDownStatus, genPortFaultMask, softRedundancyPortId1, genPortGroupId, genPortFunctionalStatus, genGroupMPSActivityStatus, softRedundancyGroupId2, softRedundancyStatus, genGroupId = mibBuilder.importSymbols("CONFIG-MIB", "chHWIntTempThresh", "softRedundancyPortId2", "chHWIntTempWarning", "genGroupCascadUpStatus", "softRedundancyName", "genGroupBUPSActivityStatus", "chLntAgIntTemp", "genGroupFaultMask", "genPortId", "softRedundancyGroupId1", "genGroupCascadDownStatus", "genPortFaultMask", "softRedundancyPortId1", "genPortGroupId", "genPortFunctionalStatus", "genGroupMPSActivityStatus", "softRedundancyGroupId2", "softRedundancyStatus", "genGroupId")
+dsx1LineStatus, = mibBuilder.importSymbols("DS1-MIB", "dsx1LineStatus")
+lannet, = mibBuilder.importSymbols("GEN-MIB", "lannet")
+ifAlias, ifName, ifIndex, ifAdminStatus, ifOperStatus = mibBuilder.importSymbols("IF-MIB", "ifAlias", "ifName", "ifIndex", "ifAdminStatus", "ifOperStatus")
+ipNetToMediaPhysAddress, ipNetToMediaNetAddress = mibBuilder.importSymbols("IP-MIB", "ipNetToMediaPhysAddress", "ipNetToMediaNetAddress")
+ipPolicyListID, ipPolicyControlSlot, ipPolicyRuleID, ipPolicyRuleDescription, ipPolicyAccessControlViolationSubCtxt, ipPolicyAccessControlViolationEntID, ipPolicyAccessControlViolationIfIndex, ipPolicyAccessControlViolationSrcAddr, ipPolicyActivationSubContext, ipPolicyActivationifIndex, ipPolicyRuleListID, ipPolicyActivationList, ipPolicyAccessControlViolationL4SrcPort, ipPolicyAccessControlViolationDstAddr, ipPolicyAccessControlViolationProtocol, ipPolicyAccessControlViolationRuleType, ipPolicyActivationEntID, ipPolicyAccessControlViolationL4DstPort, ipPolicyAccessControlViolationTime, ipPolicyAccessControlViolationEstablished = mibBuilder.importSymbols("POLICY-MIB", "ipPolicyListID", "ipPolicyControlSlot", "ipPolicyRuleID", "ipPolicyRuleDescription", "ipPolicyAccessControlViolationSubCtxt", "ipPolicyAccessControlViolationEntID", "ipPolicyAccessControlViolationIfIndex", "ipPolicyAccessControlViolationSrcAddr", "ipPolicyActivationSubContext", "ipPolicyActivationifIndex", "ipPolicyRuleListID", "ipPolicyActivationList", "ipPolicyAccessControlViolationL4SrcPort", "ipPolicyAccessControlViolationDstAddr", "ipPolicyAccessControlViolationProtocol", "ipPolicyAccessControlViolationRuleType", "ipPolicyActivationEntID", "ipPolicyAccessControlViolationL4DstPort", "ipPolicyAccessControlViolationTime", "ipPolicyAccessControlViolationEstablished")
+rmonNotificationGroup, = mibBuilder.importSymbols("RMON-MIB", "rmonNotificationGroup")
+ModuleCompliance, ObjectGroup, NotificationGroup, AgentCapabilities = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup", "AgentCapabilities")
+coldStart, warmStart, authenticationFailure = mibBuilder.importSymbols("SNMPv2-MIB", "coldStart", "warmStart", "authenticationFailure")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+scGenLinkAggregationAutoNegResults, scEthPortGroupId, scGenPortId, scGenLinkAggregationFaultMask, scGenGroupDot1xSystemMaxNumSupplicant, scGenLinkAggregationId, scGenPortLastIntruderSourceAddr, scEthPortFunctionalStatus, scGenPortGroupId, scEthPortId, scGenGroupFansStatus, scGenGroupBUPSFansStatus, scGenPortDot1xMAC, scGenLinkAggregationStatus, scGenLinkAggregationName, scGenLinkAggregationFunctionalStatus, scGenSwitchDot1xPortMaxSuppNum = mibBuilder.importSymbols("XSWITCH-MIB", "scGenLinkAggregationAutoNegResults", "scEthPortGroupId", "scGenPortId", "scGenLinkAggregationFaultMask", "scGenGroupDot1xSystemMaxNumSupplicant", "scGenLinkAggregationId", "scGenPortLastIntruderSourceAddr", "scEthPortFunctionalStatus", "scGenPortGroupId", "scEthPortId", "scGenGroupFansStatus", "scGenGroupBUPSFansStatus", "scGenPortDot1xMAC", "scGenLinkAggregationStatus", "scGenLinkAggregationName", "scGenLinkAggregationFunctionalStatus", "scGenSwitchDot1xPortMaxSuppNum")
+lntTraps = ModuleIdentity((1, 3, 6, 1, 4, 1, 81, 38))
+if mibBuilder.loadTexts: lntTraps.setLastUpdated('200903180953Z')
+if mibBuilder.loadTexts: lntTraps.setOrganization('Avaya')
+lntConfigChangeEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 1))
+if mibBuilder.loadTexts: lntConfigChangeEvents.setStatus('current')
+lntConfigChangePrefix = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 1, 0))
+if mibBuilder.loadTexts: lntConfigChangePrefix.setStatus('current')
+lntConfigChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 1, 0, 1)).setObjects(("Lannet-Trapsv2-MIB", "lntConfigChangeOID"), ("Lannet-Trapsv2-MIB", "lntConfigChangeValue"))
+if mibBuilder.loadTexts: lntConfigChangeEvent.setStatus('current')
+lntStackMasterReelection = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 1, 0, 82)).setObjects(("CONFIG-MIB", "genGroupId"))
+if mibBuilder.loadTexts: lntStackMasterReelection.setStatus('current')
+lntSWRedundancyEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 2))
+if mibBuilder.loadTexts: lntSWRedundancyEvents.setStatus('current')
+lntSWRedundancyPrefix = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 2, 0))
+if mibBuilder.loadTexts: lntSWRedundancyPrefix.setStatus('current')
+lntSoftRedDelEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 2, 0, 12)).setObjects(("CONFIG-MIB", "softRedundancyStatus"))
+if mibBuilder.loadTexts: lntSoftRedDelEvent.setStatus('current')
+lntSoftRedNewEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 2, 0, 13)).setObjects(("CONFIG-MIB", "softRedundancyName"), ("CONFIG-MIB", "softRedundancyGroupId1"), ("CONFIG-MIB", "softRedundancyPortId1"), ("CONFIG-MIB", "softRedundancyGroupId2"), ("CONFIG-MIB", "softRedundancyPortId2"), ("CONFIG-MIB", "softRedundancyStatus"))
+if mibBuilder.loadTexts: lntSoftRedNewEvent.setStatus('current')
+lntTempratureEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 3))
+if mibBuilder.loadTexts: lntTempratureEvents.setStatus('current')
+lntTempratureWarningPrefix = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 3, 0))
+if mibBuilder.loadTexts: lntTempratureWarningPrefix.setStatus('current')
+lntTempratureWarning = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 3, 0, 14)).setObjects(("CONFIG-MIB", "chHWIntTempWarning"), ("CONFIG-MIB", "chHWIntTempThresh"), ("CONFIG-MIB", "chLntAgIntTemp"))
+if mibBuilder.loadTexts: lntTempratureWarning.setStatus('current')
+lntTempratureOk = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 3, 0, 23)).setObjects(("CONFIG-MIB", "chHWIntTempWarning"), ("CONFIG-MIB", "chHWIntTempThresh"), ("CONFIG-MIB", "chLntAgIntTemp"))
+if mibBuilder.loadTexts: lntTempratureOk.setStatus('current')
+lntCAMChangeEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 4))
+if mibBuilder.loadTexts: lntCAMChangeEvents.setStatus('current')
+lntCAMChangePrefix = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 4, 0))
+if mibBuilder.loadTexts: lntCAMChangePrefix.setStatus('current')
+lntPortCAMLastChange = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 4, 0, 22)).setObjects(("APPLIC-MIB", "lseIntPortCAMLastChange"))
+if mibBuilder.loadTexts: lntPortCAMLastChange.setStatus('obsolete')
+lntPSUEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 5))
+if mibBuilder.loadTexts: lntPSUEvents.setStatus('current')
+lntPSUPrefix = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 5, 0))
+if mibBuilder.loadTexts: lntPSUPrefix.setStatus('current')
+lntMainPSUFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 5, 0, 2303)).setObjects(("CONFIG-MIB", "genGroupFaultMask"), ("CONFIG-MIB", "genGroupId"), ("CONFIG-MIB", "genGroupMPSActivityStatus"))
+if mibBuilder.loadTexts: lntMainPSUFlt.setStatus('current')
+lntMainPSUOk = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 5, 0, 2304)).setObjects(("CONFIG-MIB", "genGroupFaultMask"), ("CONFIG-MIB", "genGroupId"), ("CONFIG-MIB", "genGroupMPSActivityStatus"))
+if mibBuilder.loadTexts: lntMainPSUOk.setStatus('current')
+lntBackupPSUFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 5, 0, 2305)).setObjects(("CONFIG-MIB", "genGroupFaultMask"), ("CONFIG-MIB", "genGroupId"), ("CONFIG-MIB", "genGroupBUPSActivityStatus"))
+if mibBuilder.loadTexts: lntBackupPSUFlt.setStatus('current')
+lntBackupPSUOk = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 5, 0, 2306)).setObjects(("CONFIG-MIB", "genGroupFaultMask"), ("CONFIG-MIB", "genGroupId"), ("CONFIG-MIB", "genGroupMPSActivityStatus"))
+if mibBuilder.loadTexts: lntBackupPSUOk.setStatus('current')
+lntL3Events = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 6))
+if mibBuilder.loadTexts: lntL3Events.setStatus('current')
+lntL3FaultsPrefix = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 6, 0))
+if mibBuilder.loadTexts: lntL3FaultsPrefix.setStatus('current')
+lntDuplicateIPFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 6, 0, 27)).setObjects(("IP-MIB", "ipNetToMediaPhysAddress"), ("IP-MIB", "ipNetToMediaNetAddress"))
+if mibBuilder.loadTexts: lntDuplicateIPFlt.setStatus('current')
+lntVLANViolationEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 6, 0, 28)).setObjects(("APPLIC-MIB", "vnsPacketMACAddress"), ("APPLIC-MIB", "vnsPacketIPAddress"), ("APPLIC-MIB", "vnsPacketIPNetMask"), ("APPLIC-MIB", "vnsPacketExpectedVLAN"), ("APPLIC-MIB", "vnsPacketDetectedVLAN"), ("APPLIC-MIB", "vnsPacketBoxAgentIP"))
+if mibBuilder.loadTexts: lntVLANViolationEvent.setStatus('current')
+lntARPViolationEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 6, 0, 70)).setObjects(("APPLIC-MIB", "vnsPacketMACAddress"), ("APPLIC-MIB", "vnsPacketIPAddress"), ("APPLIC-MIB", "vnsPacketIPNetMask"), ("APPLIC-MIB", "vnsPacketExpectedVLAN"), ("APPLIC-MIB", "vnsPacketDetectedVLAN"), ("APPLIC-MIB", "vnsPacketBoxAgentIP"), ("APPLIC-MIB", "vnsPacketExpectedIfName"), ("APPLIC-MIB", "vnsPacketDetectedIfName"))
+if mibBuilder.loadTexts: lntARPViolationEvent.setStatus('current')
+lntLinkEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 7))
+if mibBuilder.loadTexts: lntLinkEvents.setStatus('current')
+lntLinkEventsPrefix = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 7, 0))
+if mibBuilder.loadTexts: lntLinkEventsPrefix.setStatus('current')
+lntPortLinkDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 7, 0, 3039)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntPortLinkDownEvent.setStatus('current')
+lntPortLinkUpEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 7, 0, 3040)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntPortLinkUpEvent.setStatus('current')
+lntVPortLinkDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 7, 0, 3041)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntVPortLinkDownEvent.setStatus('current')
+lntVPortLinkUpEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 7, 0, 3042)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntVPortLinkUpEvent.setStatus('current')
+lntLAGEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 8))
+if mibBuilder.loadTexts: lntLAGEvents.setStatus('current')
+lntLAGPrefix = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 8, 0))
+if mibBuilder.loadTexts: lntLAGPrefix.setStatus('current')
+lntLAGConnLostFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 8, 0, 44)).setObjects(("XSWITCH-MIB", "scGenLinkAggregationFaultMask"), ("XSWITCH-MIB", "scGenLinkAggregationId"), ("XSWITCH-MIB", "scGenLinkAggregationName"), ("XSWITCH-MIB", "scGenLinkAggregationFunctionalStatus"))
+if mibBuilder.loadTexts: lntLAGConnLostFlt.setStatus('current')
+lntLAGConnLostOk = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 8, 0, 46)).setObjects(("XSWITCH-MIB", "scGenLinkAggregationFaultMask"), ("XSWITCH-MIB", "scGenLinkAggregationId"), ("XSWITCH-MIB", "scGenLinkAggregationName"), ("XSWITCH-MIB", "scGenLinkAggregationFunctionalStatus"))
+if mibBuilder.loadTexts: lntLAGConnLostOk.setStatus('current')
+lntLAGPartialConnLostFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 8, 0, 48)).setObjects(("XSWITCH-MIB", "scGenLinkAggregationFaultMask"), ("XSWITCH-MIB", "scGenLinkAggregationId"), ("XSWITCH-MIB", "scGenLinkAggregationName"), ("XSWITCH-MIB", "scGenLinkAggregationFunctionalStatus"))
+if mibBuilder.loadTexts: lntLAGPartialConnLostFlt.setStatus('current')
+lntLAGPartialConnLostOk = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 8, 0, 50)).setObjects(("XSWITCH-MIB", "scGenLinkAggregationFaultMask"), ("XSWITCH-MIB", "scGenLinkAggregationId"), ("XSWITCH-MIB", "scGenLinkAggregationName"), ("XSWITCH-MIB", "scGenLinkAggregationFunctionalStatus"))
+if mibBuilder.loadTexts: lntLAGPartialConnLostOk.setStatus('current')
+lntLAGAutoNegFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 8, 0, 52)).setObjects(("XSWITCH-MIB", "scGenLinkAggregationFaultMask"), ("XSWITCH-MIB", "scGenLinkAggregationId"), ("XSWITCH-MIB", "scGenLinkAggregationName"), ("XSWITCH-MIB", "scGenLinkAggregationAutoNegResults"))
+if mibBuilder.loadTexts: lntLAGAutoNegFlt.setStatus('current')
+lntLAGAutoNegOk = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 8, 0, 54)).setObjects(("XSWITCH-MIB", "scGenLinkAggregationFaultMask"), ("XSWITCH-MIB", "scGenLinkAggregationId"), ("XSWITCH-MIB", "scGenLinkAggregationName"), ("XSWITCH-MIB", "scGenLinkAggregationAutoNegResults"))
+if mibBuilder.loadTexts: lntLAGAutoNegOk.setStatus('current')
+lntLAGDeleteEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 8, 0, 56)).setObjects(("XSWITCH-MIB", "scGenLinkAggregationId"), ("XSWITCH-MIB", "scGenLinkAggregationName"), ("XSWITCH-MIB", "scGenLinkAggregationStatus"))
+if mibBuilder.loadTexts: lntLAGDeleteEvent.setStatus('current')
+lntLAGCreateEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 8, 0, 58)).setObjects(("XSWITCH-MIB", "scGenLinkAggregationId"), ("XSWITCH-MIB", "scGenLinkAggregationName"), ("XSWITCH-MIB", "scGenLinkAggregationStatus"))
+if mibBuilder.loadTexts: lntLAGCreateEvent.setStatus('current')
+lntFansEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 9))
+if mibBuilder.loadTexts: lntFansEvents.setStatus('current')
+lntFansPrefix = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 9, 0))
+if mibBuilder.loadTexts: lntFansPrefix.setStatus('current')
+lntMainFansFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 9, 0, 2307)).setObjects(("CONFIG-MIB", "genGroupFaultMask"), ("CONFIG-MIB", "genGroupId"), ("XSWITCH-MIB", "scGenGroupFansStatus"))
+if mibBuilder.loadTexts: lntMainFansFlt.setStatus('current')
+lntMainFansOK = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 9, 0, 2308)).setObjects(("CONFIG-MIB", "genGroupFaultMask"), ("CONFIG-MIB", "genGroupId"), ("XSWITCH-MIB", "scGenGroupFansStatus"))
+if mibBuilder.loadTexts: lntMainFansOK.setStatus('current')
+lntBackupFansFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 9, 0, 2309)).setObjects(("CONFIG-MIB", "genGroupFaultMask"), ("CONFIG-MIB", "genGroupId"), ("XSWITCH-MIB", "scGenGroupBUPSFansStatus"))
+if mibBuilder.loadTexts: lntBackupFansFlt.setStatus('current')
+lntBackupFansOK = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 9, 0, 2310)).setObjects(("CONFIG-MIB", "genGroupFaultMask"), ("CONFIG-MIB", "genGroupId"), ("XSWITCH-MIB", "scGenGroupBUPSFansStatus"))
+if mibBuilder.loadTexts: lntBackupFansOK.setStatus('current')
+lntCascadeEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 10))
+if mibBuilder.loadTexts: lntCascadeEvents.setStatus('current')
+lntCascadeFaultsPrefix = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 10, 0))
+if mibBuilder.loadTexts: lntCascadeFaultsPrefix.setStatus('current')
+lntCascadUpConnFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 10, 0, 2315)).setObjects(("CONFIG-MIB", "genGroupFaultMask"), ("CONFIG-MIB", "genGroupId"), ("CONFIG-MIB", "genGroupCascadUpStatus"))
+if mibBuilder.loadTexts: lntCascadUpConnFlt.setStatus('current')
+lntCascadUpConnOk = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 10, 0, 2316)).setObjects(("CONFIG-MIB", "genGroupFaultMask"), ("CONFIG-MIB", "genGroupId"), ("CONFIG-MIB", "genGroupCascadUpStatus"))
+if mibBuilder.loadTexts: lntCascadUpConnOk.setStatus('current')
+lntCascadDownConnFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 10, 0, 2317)).setObjects(("CONFIG-MIB", "genGroupFaultMask"), ("CONFIG-MIB", "genGroupId"), ("CONFIG-MIB", "genGroupCascadDownStatus"))
+if mibBuilder.loadTexts: lntCascadDownConnFlt.setStatus('current')
+lntCascadDownConnOk = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 10, 0, 2318)).setObjects(("CONFIG-MIB", "genGroupFaultMask"), ("CONFIG-MIB", "genGroupId"), ("CONFIG-MIB", "genGroupCascadDownStatus"))
+if mibBuilder.loadTexts: lntCascadDownConnOk.setStatus('current')
+lntPolicyEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 11))
+if mibBuilder.loadTexts: lntPolicyEvents.setStatus('current')
+lntPolicyPrefix = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 11, 0))
+if mibBuilder.loadTexts: lntPolicyPrefix.setStatus('current')
+lntPolicyChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 11, 0, 60)).setObjects(("POLICY-MIB", "ipPolicyActivationEntID"), ("POLICY-MIB", "ipPolicyActivationList"), ("POLICY-MIB", "ipPolicyActivationifIndex"), ("POLICY-MIB", "ipPolicyActivationSubContext"))
+if mibBuilder.loadTexts: lntPolicyChangeEvent.setStatus('current')
+lntPolicyAccessControlListLvlRuleTrap = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 11, 0, 62)).setObjects(("POLICY-MIB", "ipPolicyAccessControlViolationEntID"), ("POLICY-MIB", "ipPolicyAccessControlViolationSrcAddr"), ("POLICY-MIB", "ipPolicyAccessControlViolationDstAddr"), ("POLICY-MIB", "ipPolicyAccessControlViolationProtocol"), ("POLICY-MIB", "ipPolicyAccessControlViolationL4SrcPort"), ("POLICY-MIB", "ipPolicyAccessControlViolationL4DstPort"), ("POLICY-MIB", "ipPolicyAccessControlViolationEstablished"), ("POLICY-MIB", "ipPolicyAccessControlViolationRuleType"), ("POLICY-MIB", "ipPolicyListID"), ("POLICY-MIB", "ipPolicyAccessControlViolationIfIndex"), ("POLICY-MIB", "ipPolicyAccessControlViolationSubCtxt"), ("POLICY-MIB", "ipPolicyAccessControlViolationTime"))
+if mibBuilder.loadTexts: lntPolicyAccessControlListLvlRuleTrap.setStatus('current')
+lntPolicyAccessControlViolationFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 11, 0, 64)).setObjects(("POLICY-MIB", "ipPolicyAccessControlViolationEntID"), ("POLICY-MIB", "ipPolicyAccessControlViolationSrcAddr"), ("POLICY-MIB", "ipPolicyAccessControlViolationDstAddr"), ("POLICY-MIB", "ipPolicyAccessControlViolationProtocol"), ("POLICY-MIB", "ipPolicyAccessControlViolationL4SrcPort"), ("POLICY-MIB", "ipPolicyAccessControlViolationL4DstPort"), ("POLICY-MIB", "ipPolicyAccessControlViolationEstablished"), ("POLICY-MIB", "ipPolicyRuleID"), ("POLICY-MIB", "ipPolicyRuleListID"), ("POLICY-MIB", "ipPolicyAccessControlViolationIfIndex"), ("POLICY-MIB", "ipPolicyAccessControlViolationSubCtxt"), ("POLICY-MIB", "ipPolicyAccessControlViolationTime"), ("POLICY-MIB", "ipPolicyRuleDescription"))
+if mibBuilder.loadTexts: lntPolicyAccessControlViolationFlt.setStatus('current')
+lntEthPortFaultEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 12))
+if mibBuilder.loadTexts: lntEthPortFaultEvents.setStatus('current')
+lntEthPortFaultPrefix = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 12, 0))
+if mibBuilder.loadTexts: lntEthPortFaultPrefix.setStatus('current')
+lntEthPortAutoNegotiationFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 12, 0, 3001)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntEthPortAutoNegotiationFlt.setStatus('current')
+lntEthPortAutoNegotiationOK = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 12, 0, 3002)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntEthPortAutoNegotiationOK.setStatus('current')
+lntPortFEFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 12, 0, 3005)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntPortFEFlt.setStatus('current')
+lntPortFEOk = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 12, 0, 3006)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntPortFEOk.setStatus('current')
+lntVPortFEFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 12, 0, 3015)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntVPortFEFlt.setStatus('current')
+lntVPortFEOk = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 12, 0, 3016)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntVPortFEOk.setStatus('current')
+lntPortAutoPartFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 12, 0, 3023)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntPortAutoPartFlt.setStatus('current')
+lntPortAutoPartOk = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 12, 0, 3024)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntPortAutoPartOk.setStatus('current')
+lntVPortAutoPartFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 12, 0, 3025)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntVPortAutoPartFlt.setStatus('current')
+lntVPortAutoPartOK = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 12, 0, 3026)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntVPortAutoPartOK.setStatus('current')
+lntEthVPortAutoNegotiationFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 12, 0, 3031)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntEthVPortAutoNegotiationFlt.setStatus('current')
+lntEthVPortAutoNegotiationOK = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 12, 0, 3032)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntEthVPortAutoNegotiationOK.setStatus('current')
+lntPortInlinePowerFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 12, 0, 3933)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntPortInlinePowerFlt.setStatus('current')
+lntPortInlinePowerOK = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 12, 0, 3934)).setObjects(("CONFIG-MIB", "genPortFaultMask"), ("CONFIG-MIB", "genPortGroupId"), ("CONFIG-MIB", "genPortId"))
+if mibBuilder.loadTexts: lntPortInlinePowerOK.setStatus('current')
+lntSecurityEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 13))
+if mibBuilder.loadTexts: lntSecurityEvents.setStatus('current')
+lntSecurityPrefix = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 13, 0))
+if mibBuilder.loadTexts: lntSecurityPrefix.setStatus('current')
+lntUnAuthAccessEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 13, 0, 68)).setObjects(("Lannet-Trapsv2-MIB", "lntUnauthUserName"), ("Lannet-Trapsv2-MIB", "lntUnauthIpAddress"), ("Lannet-Trapsv2-MIB", "lntUnauthProtocol"))
+if mibBuilder.loadTexts: lntUnAuthAccessEvent.setStatus('current')
+lntMACSecurityEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 13, 0, 104)).setObjects(("XSWITCH-MIB", "scGenPortLastIntruderSourceAddr"), ("XSWITCH-MIB", "scGenPortGroupId"), ("XSWITCH-MIB", "scGenPortId"))
+if mibBuilder.loadTexts: lntMACSecurityEvent.setStatus('current')
+lntUnknownHostCopyEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 13, 0, 1002)).setObjects(("Lannet-Trapsv2-MIB", "lntUnauthUserName"), ("Lannet-Trapsv2-MIB", "lntUnauthIpAddress"), ("Lannet-Trapsv2-MIB", "lntSCPStrictCheckingMode"))
+if mibBuilder.loadTexts: lntUnknownHostCopyEvent.setStatus('current')
+lntAccountLockoutEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 13, 0, 1003)).setObjects(("Lannet-Trapsv2-MIB", "lntUnauthUserName"), ("Lannet-Trapsv2-MIB", "lntUnauthIpAddress"), ("Lannet-Trapsv2-MIB", "lntUnauthProtocol"))
+if mibBuilder.loadTexts: lntAccountLockoutEvent.setStatus('current')
+lntLicenseStartupValidationFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 13, 0, 1004)).setObjects(("Lannet-Trapsv2-MIB", "lntLicenseErrorCodes"))
+if mibBuilder.loadTexts: lntLicenseStartupValidationFlt.setStatus('current')
+lntLicenseDownloadValidationFlt = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 13, 0, 1005)).setObjects(("Lannet-Trapsv2-MIB", "lntLicenseErrorCodes"))
+if mibBuilder.loadTexts: lntLicenseDownloadValidationFlt.setStatus('current')
+lntDot1xMaxAuthRateReachedEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 13, 0, 1006)).setObjects(("XSWITCH-MIB", "scGenPortGroupId"))
+if mibBuilder.loadTexts: lntDot1xMaxAuthRateReachedEvent.setStatus('current')
+lntDot1xAuthFailureEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 13, 0, 1007)).setObjects(("XSWITCH-MIB", "scGenPortDot1xMAC"), ("XSWITCH-MIB", "scGenPortGroupId"), ("XSWITCH-MIB", "scGenPortId"), ("Lannet-Trapsv2-MIB", "scGenPortDot1xFailureString"))
+if mibBuilder.loadTexts: lntDot1xAuthFailureEvent.setStatus('current')
+lntDot1xMaxAuthModuleNumReachedEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 13, 0, 1008)).setObjects(("XSWITCH-MIB", "scGenGroupDot1xSystemMaxNumSupplicant"), ("XSWITCH-MIB", "scGenPortGroupId"))
+if mibBuilder.loadTexts: lntDot1xMaxAuthModuleNumReachedEvent.setStatus('current')
+lntDot1xMaxAuthPortNumReachedEvent = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 13, 0, 1009)).setObjects(("XSWITCH-MIB", "scGenSwitchDot1xPortMaxSuppNum"), ("XSWITCH-MIB", "scGenPortGroupId"), ("XSWITCH-MIB", "scGenPortId"))
+if mibBuilder.loadTexts: lntDot1xMaxAuthPortNumReachedEvent.setStatus('current')
+lntNotificationVarbinds = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 14))
+if mibBuilder.loadTexts: lntNotificationVarbinds.setStatus('current')
+lntConfigChangeValue = MibScalar((1, 3, 6, 1, 4, 1, 81, 38, 14, 1), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: lntConfigChangeValue.setStatus('current')
+lntConfigChangeOID = MibScalar((1, 3, 6, 1, 4, 1, 81, 38, 14, 2), ObjectIdentifier()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: lntConfigChangeOID.setStatus('current')
+lntUnauthUserName = MibScalar((1, 3, 6, 1, 4, 1, 81, 38, 14, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: lntUnauthUserName.setStatus('current')
+lntUnauthIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 81, 38, 14, 4), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: lntUnauthIpAddress.setStatus('current')
+lntUnauthProtocol = MibScalar((1, 3, 6, 1, 4, 1, 81, 38, 14, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(22, 23, 80, 161, 443, 500, 6889, 6890, 6891))).clone(namedValues=NamedValues(("lntSSHAccess", 22), ("lntTELNETAccess", 23), ("lntHTTPAccess", 80), ("lntSNMPAccess", 161), ("lntHTTPSAccess", 443), ("lntIKEAccess", 500), ("lntRASAccess", 6889), ("lntConsoleAccess", 6890), ("lntPPPAccess", 6891)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: lntUnauthProtocol.setStatus('current')
+lntSCPStrictCheckingMode = MibScalar((1, 3, 6, 1, 4, 1, 81, 38, 14, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("yes", 1), ("no", 2), ("ask", 3)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: lntSCPStrictCheckingMode.setStatus('current')
+lntLicenseErrorCodes = MibScalar((1, 3, 6, 1, 4, 1, 81, 38, 14, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("lntSerialNumMismatch", 1), ("lntInvalidSignature", 2), ("lntPlatformTypeMismatch", 3), ("lntInvalidLicFeture", 4)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: lntLicenseErrorCodes.setStatus('current')
+scGenPortDot1xFailureString = MibScalar((1, 3, 6, 1, 4, 1, 81, 38, 14, 8), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: scGenPortDot1xFailureString.setStatus('current')
+lntWanEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 15))
+if mibBuilder.loadTexts: lntWanEvents.setStatus('current')
+lntWanPrefix = ObjectIdentity((1, 3, 6, 1, 4, 1, 81, 38, 15, 0))
+if mibBuilder.loadTexts: lntWanPrefix.setStatus('current')
+lntWanPhysicalAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 15, 0, 30)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifAdminStatus"), ("IF-MIB", "ifOperStatus"), ("IF-MIB", "ifName"), ("IF-MIB", "ifAlias"), ("DS1-MIB", "dsx1LineStatus"))
+if mibBuilder.loadTexts: lntWanPhysicalAlarmOn.setStatus('current')
+lntWanPhysicalAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 15, 0, 31)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifAdminStatus"), ("IF-MIB", "ifOperStatus"), ("IF-MIB", "ifName"), ("IF-MIB", "ifAlias"), ("DS1-MIB", "dsx1LineStatus"))
+if mibBuilder.loadTexts: lntWanPhysicalAlarmOff.setStatus('current')
+lntWanLocalAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 15, 0, 32)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifAdminStatus"), ("IF-MIB", "ifOperStatus"), ("IF-MIB", "ifName"), ("IF-MIB", "ifAlias"), ("DS1-MIB", "dsx1LineStatus"))
+if mibBuilder.loadTexts: lntWanLocalAlarmOn.setStatus('current')
+lntWanLocalAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 15, 0, 33)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifAdminStatus"), ("IF-MIB", "ifOperStatus"), ("IF-MIB", "ifName"), ("IF-MIB", "ifAlias"), ("DS1-MIB", "dsx1LineStatus"))
+if mibBuilder.loadTexts: lntWanLocalAlarmOff.setStatus('current')
+lntWanRemoteAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 15, 0, 34)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifAdminStatus"), ("IF-MIB", "ifOperStatus"), ("IF-MIB", "ifName"), ("IF-MIB", "ifAlias"), ("DS1-MIB", "dsx1LineStatus"))
+if mibBuilder.loadTexts: lntWanRemoteAlarmOn.setStatus('current')
+lntWanRemoteAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 15, 0, 35)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifAdminStatus"), ("IF-MIB", "ifOperStatus"), ("IF-MIB", "ifName"), ("IF-MIB", "ifAlias"), ("DS1-MIB", "dsx1LineStatus"))
+if mibBuilder.loadTexts: lntWanRemoteAlarmOff.setStatus('current')
+lntWanMinorAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 15, 0, 36)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifAdminStatus"), ("IF-MIB", "ifOperStatus"), ("IF-MIB", "ifName"), ("IF-MIB", "ifAlias"), ("DS1-MIB", "dsx1LineStatus"))
+if mibBuilder.loadTexts: lntWanMinorAlarmOn.setStatus('current')
+lntWanMinorAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 81, 38, 15, 0, 37)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifAdminStatus"), ("IF-MIB", "ifOperStatus"), ("IF-MIB", "ifName"), ("IF-MIB", "ifAlias"), ("DS1-MIB", "dsx1LineStatus"))
+if mibBuilder.loadTexts: lntWanMinorAlarmOff.setStatus('current')
+lntNotificationGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 81, 38, 10007))
+lntConfigChangeVarbinds = ObjectGroup((1, 3, 6, 1, 4, 1, 81, 38, 10007, 1)).setObjects(("Lannet-Trapsv2-MIB", "lntConfigChangeValue"), ("Lannet-Trapsv2-MIB", "lntConfigChangeOID"), ("Lannet-Trapsv2-MIB", "lntUnauthIpAddress"), ("Lannet-Trapsv2-MIB", "lntUnauthUserName"), ("Lannet-Trapsv2-MIB", "lntLicenseErrorCodes"), ("Lannet-Trapsv2-MIB", "lntSCPStrictCheckingMode"), ("Lannet-Trapsv2-MIB", "lntUnauthProtocol"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntConfigChangeVarbinds = lntConfigChangeVarbinds.setStatus('current')
+lntLagNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 81, 38, 10007, 5)).setObjects(("Lannet-Trapsv2-MIB", "lntLAGConnLostFlt"), ("Lannet-Trapsv2-MIB", "lntLAGConnLostOk"), ("Lannet-Trapsv2-MIB", "lntLAGPartialConnLostFlt"), ("Lannet-Trapsv2-MIB", "lntLAGPartialConnLostOk"), ("Lannet-Trapsv2-MIB", "lntLAGAutoNegFlt"), ("Lannet-Trapsv2-MIB", "lntLAGAutoNegOk"), ("Lannet-Trapsv2-MIB", "lntLAGDeleteEvent"), ("Lannet-Trapsv2-MIB", "lntLAGCreateEvent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntLagNotificationGroup = lntLagNotificationGroup.setStatus('current')
+lntSWRedundancyNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 81, 38, 10007, 6)).setObjects(("Lannet-Trapsv2-MIB", "lntSoftRedDelEvent"), ("Lannet-Trapsv2-MIB", "lntSoftRedNewEvent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntSWRedundancyNotificationGroup = lntSWRedundancyNotificationGroup.setStatus('current')
+lntPSUFaultNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 81, 38, 10007, 7)).setObjects(("Lannet-Trapsv2-MIB", "lntMainPSUFlt"), ("Lannet-Trapsv2-MIB", "lntMainPSUOk"), ("Lannet-Trapsv2-MIB", "lntBackupPSUFlt"), ("Lannet-Trapsv2-MIB", "lntBackupPSUOk"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntPSUFaultNotificationGroup = lntPSUFaultNotificationGroup.setStatus('current')
+lntTempratureNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 81, 38, 10007, 8)).setObjects(("Lannet-Trapsv2-MIB", "lntTempratureOk"), ("Lannet-Trapsv2-MIB", "lntTempratureWarning"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntTempratureNotificationGroup = lntTempratureNotificationGroup.setStatus('current')
+lntL3FaultNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 81, 38, 10007, 9)).setObjects(("Lannet-Trapsv2-MIB", "lntDuplicateIPFlt"), ("Lannet-Trapsv2-MIB", "lntVLANViolationEvent"), ("Lannet-Trapsv2-MIB", "lntARPViolationEvent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntL3FaultNotificationGroup = lntL3FaultNotificationGroup.setStatus('current')
+lntLinkDownNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 81, 38, 10007, 10)).setObjects(("Lannet-Trapsv2-MIB", "lntPortLinkDownEvent"), ("Lannet-Trapsv2-MIB", "lntPortLinkUpEvent"), ("Lannet-Trapsv2-MIB", "lntVPortLinkDownEvent"), ("Lannet-Trapsv2-MIB", "lntVPortLinkUpEvent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntLinkDownNotificationGroup = lntLinkDownNotificationGroup.setStatus('current')
+lntCascadeNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 81, 38, 10007, 11)).setObjects(("Lannet-Trapsv2-MIB", "lntCascadUpConnFlt"), ("Lannet-Trapsv2-MIB", "lntCascadUpConnOk"), ("Lannet-Trapsv2-MIB", "lntCascadDownConnOk"), ("Lannet-Trapsv2-MIB", "lntCascadDownConnFlt"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntCascadeNotificationGroup = lntCascadeNotificationGroup.setStatus('current')
+lntEthPortNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 81, 38, 10007, 12)).setObjects(("Lannet-Trapsv2-MIB", "lntPortFEFlt"), ("Lannet-Trapsv2-MIB", "lntPortFEOk"), ("Lannet-Trapsv2-MIB", "lntVPortFEFlt"), ("Lannet-Trapsv2-MIB", "lntVPortFEOk"), ("Lannet-Trapsv2-MIB", "lntPortAutoPartFlt"), ("Lannet-Trapsv2-MIB", "lntPortAutoPartOk"), ("Lannet-Trapsv2-MIB", "lntVPortAutoPartFlt"), ("Lannet-Trapsv2-MIB", "lntVPortAutoPartOK"), ("Lannet-Trapsv2-MIB", "lntEthVPortAutoNegotiationOK"), ("Lannet-Trapsv2-MIB", "lntEthPortAutoNegotiationOK"), ("Lannet-Trapsv2-MIB", "lntEthPortAutoNegotiationFlt"), ("Lannet-Trapsv2-MIB", "lntEthVPortAutoNegotiationFlt"), ("Lannet-Trapsv2-MIB", "lntPortInlinePowerFlt"), ("Lannet-Trapsv2-MIB", "lntPortInlinePowerOK"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntEthPortNotificationGroup = lntEthPortNotificationGroup.setStatus('current')
+lntCAMNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 81, 38, 10007, 13)).setObjects(("Lannet-Trapsv2-MIB", "lntPortCAMLastChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntCAMNotificationGroup = lntCAMNotificationGroup.setStatus('obsolete')
+lntConfigChangeNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 81, 38, 10007, 14)).setObjects(("Lannet-Trapsv2-MIB", "lntConfigChangeEvent"), ("Lannet-Trapsv2-MIB", "lntStackMasterReelection"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntConfigChangeNotificationGroup = lntConfigChangeNotificationGroup.setStatus('current')
+lntPolicyNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 81, 38, 10007, 15)).setObjects(("Lannet-Trapsv2-MIB", "lntPolicyAccessControlListLvlRuleTrap"), ("Lannet-Trapsv2-MIB", "lntPolicyAccessControlViolationFlt"), ("Lannet-Trapsv2-MIB", "lntPolicyChangeEvent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntPolicyNotificationGroup = lntPolicyNotificationGroup.setStatus('current')
+lntFansNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 81, 38, 10007, 16)).setObjects(("Lannet-Trapsv2-MIB", "lntBackupFansFlt"), ("Lannet-Trapsv2-MIB", "lntBackupFansOK"), ("Lannet-Trapsv2-MIB", "lntMainFansFlt"), ("Lannet-Trapsv2-MIB", "lntMainFansOK"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntFansNotificationGroup = lntFansNotificationGroup.setStatus('current')
+lntSecurityNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 81, 38, 10007, 17)).setObjects(("Lannet-Trapsv2-MIB", "lntAccountLockoutEvent"), ("Lannet-Trapsv2-MIB", "lntMACSecurityEvent"), ("Lannet-Trapsv2-MIB", "lntUnAuthAccessEvent"), ("Lannet-Trapsv2-MIB", "lntUnknownHostCopyEvent"), ("Lannet-Trapsv2-MIB", "lntLicenseStartupValidationFlt"), ("Lannet-Trapsv2-MIB", "lntLicenseDownloadValidationFlt"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntSecurityNotificationGroup = lntSecurityNotificationGroup.setStatus('current')
+lntWanNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 81, 38, 10007, 18)).setObjects(("Lannet-Trapsv2-MIB", "lntWanPhysicalAlarmOn"), ("Lannet-Trapsv2-MIB", "lntWanPhysicalAlarmOff"), ("Lannet-Trapsv2-MIB", "lntWanLocalAlarmOn"), ("Lannet-Trapsv2-MIB", "lntWanLocalAlarmOff"), ("Lannet-Trapsv2-MIB", "lntWanRemoteAlarmOn"), ("Lannet-Trapsv2-MIB", "lntWanRemoteAlarmOff"), ("Lannet-Trapsv2-MIB", "lntWanMinorAlarmOn"), ("Lannet-Trapsv2-MIB", "lntWanMinorAlarmOff"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntWanNotificationGroup = lntWanNotificationGroup.setStatus('current')
+lntNotificationAgentCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 81, 38, 10008))
+lntP330L3NotificationAgentCapabilities = AgentCapabilities((1, 3, 6, 1, 4, 1, 81, 38, 10008, 1))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntP330L3NotificationAgentCapabilities = lntP330L3NotificationAgentCapabilities.setProductRelease('')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntP330L3NotificationAgentCapabilities = lntP330L3NotificationAgentCapabilities.setStatus('current')
+lntP330L2NotificationAgentCapabilities = AgentCapabilities((1, 3, 6, 1, 4, 1, 81, 38, 10008, 2))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntP330L2NotificationAgentCapabilities = lntP330L2NotificationAgentCapabilities.setProductRelease('')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntP330L2NotificationAgentCapabilities = lntP330L2NotificationAgentCapabilities.setStatus('current')
+lntP130TrapAgentCapabilities = AgentCapabilities((1, 3, 6, 1, 4, 1, 81, 38, 10008, 3))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntP130TrapAgentCapabilities = lntP130TrapAgentCapabilities.setProductRelease('')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntP130TrapAgentCapabilities = lntP130TrapAgentCapabilities.setStatus('current')
+lntP330MLNotificationAgentCapabilities = AgentCapabilities((1, 3, 6, 1, 4, 1, 81, 38, 10008, 4))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntP330MLNotificationAgentCapabilities = lntP330MLNotificationAgentCapabilities.setProductRelease('')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntP330MLNotificationAgentCapabilities = lntP330MLNotificationAgentCapabilities.setStatus('current')
+lntG350NotificationAgentCapability = AgentCapabilities((1, 3, 6, 1, 4, 1, 81, 38, 10008, 5))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntG350NotificationAgentCapability = lntG350NotificationAgentCapability.setProductRelease('')
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lntG350NotificationAgentCapability = lntG350NotificationAgentCapability.setStatus('current')
+mibBuilder.exportSymbols("Lannet-Trapsv2-MIB", lntVPortLinkDownEvent=lntVPortLinkDownEvent, lntEthPortAutoNegotiationOK=lntEthPortAutoNegotiationOK, lntLAGPartialConnLostFlt=lntLAGPartialConnLostFlt, lntWanNotificationGroup=lntWanNotificationGroup, lntPortFEFlt=lntPortFEFlt, lntConfigChangeVarbinds=lntConfigChangeVarbinds, lntVPortLinkUpEvent=lntVPortLinkUpEvent, lntSecurityEvents=lntSecurityEvents, lntLicenseStartupValidationFlt=lntLicenseStartupValidationFlt, lntSoftRedNewEvent=lntSoftRedNewEvent, lntTraps=lntTraps, lntSWRedundancyEvents=lntSWRedundancyEvents, lntLAGAutoNegOk=lntLAGAutoNegOk, lntUnAuthAccessEvent=lntUnAuthAccessEvent, lntWanEvents=lntWanEvents, lntPSUPrefix=lntPSUPrefix, lntVPortAutoPartFlt=lntVPortAutoPartFlt, lntLinkEventsPrefix=lntLinkEventsPrefix, lntPolicyNotificationGroup=lntPolicyNotificationGroup, lntL3Events=lntL3Events, lntWanPhysicalAlarmOff=lntWanPhysicalAlarmOff, lntLicenseDownloadValidationFlt=lntLicenseDownloadValidationFlt, lntCascadeNotificationGroup=lntCascadeNotificationGroup, lntDot1xAuthFailureEvent=lntDot1xAuthFailureEvent, lntCascadeFaultsPrefix=lntCascadeFaultsPrefix, lntAccountLockoutEvent=lntAccountLockoutEvent, lntLAGAutoNegFlt=lntLAGAutoNegFlt, lntEthPortAutoNegotiationFlt=lntEthPortAutoNegotiationFlt, lntFansEvents=lntFansEvents, lntCAMChangePrefix=lntCAMChangePrefix, lntWanMinorAlarmOn=lntWanMinorAlarmOn, lntBackupFansOK=lntBackupFansOK, lntTempratureNotificationGroup=lntTempratureNotificationGroup, lntFansNotificationGroup=lntFansNotificationGroup, lntPortLinkDownEvent=lntPortLinkDownEvent, lntWanRemoteAlarmOff=lntWanRemoteAlarmOff, lntMainPSUOk=lntMainPSUOk, lntConfigChangeOID=lntConfigChangeOID, lntWanPhysicalAlarmOn=lntWanPhysicalAlarmOn, lntPortLinkUpEvent=lntPortLinkUpEvent, lntLAGDeleteEvent=lntLAGDeleteEvent, lntPolicyChangeEvent=lntPolicyChangeEvent, lntNotificationAgentCapabilities=lntNotificationAgentCapabilities, lntDuplicateIPFlt=lntDuplicateIPFlt, lntSWRedundancyPrefix=lntSWRedundancyPrefix, lntPortInlinePowerFlt=lntPortInlinePowerFlt, lntPortInlinePowerOK=lntPortInlinePowerOK, PYSNMP_MODULE_ID=lntTraps, lntSoftRedDelEvent=lntSoftRedDelEvent, lntUnknownHostCopyEvent=lntUnknownHostCopyEvent, lntMainPSUFlt=lntMainPSUFlt, lntTempratureEvents=lntTempratureEvents, lntPolicyAccessControlListLvlRuleTrap=lntPolicyAccessControlListLvlRuleTrap, lntG350NotificationAgentCapability=lntG350NotificationAgentCapability, lntEthVPortAutoNegotiationFlt=lntEthVPortAutoNegotiationFlt, lntVPortFEFlt=lntVPortFEFlt, lntVPortAutoPartOK=lntVPortAutoPartOK, lntEthVPortAutoNegotiationOK=lntEthVPortAutoNegotiationOK, lntEthPortNotificationGroup=lntEthPortNotificationGroup, scGenPortDot1xFailureString=scGenPortDot1xFailureString, lntBackupPSUFlt=lntBackupPSUFlt, lntWanMinorAlarmOff=lntWanMinorAlarmOff, lntUnauthUserName=lntUnauthUserName, lntBackupFansFlt=lntBackupFansFlt, lntPolicyEvents=lntPolicyEvents, lntStackMasterReelection=lntStackMasterReelection, lntFansPrefix=lntFansPrefix, lntCascadDownConnFlt=lntCascadDownConnFlt, lntSCPStrictCheckingMode=lntSCPStrictCheckingMode, lntSWRedundancyNotificationGroup=lntSWRedundancyNotificationGroup, lntPolicyAccessControlViolationFlt=lntPolicyAccessControlViolationFlt, lntLinkDownNotificationGroup=lntLinkDownNotificationGroup, lntLAGPrefix=lntLAGPrefix, lntConfigChangePrefix=lntConfigChangePrefix, lntLAGConnLostFlt=lntLAGConnLostFlt, lntCAMChangeEvents=lntCAMChangeEvents, lntLagNotificationGroup=lntLagNotificationGroup, lntTempratureOk=lntTempratureOk, lntSecurityNotificationGroup=lntSecurityNotificationGroup, lntWanPrefix=lntWanPrefix, lntDot1xMaxAuthPortNumReachedEvent=lntDot1xMaxAuthPortNumReachedEvent, lntVPortFEOk=lntVPortFEOk, lntPolicyPrefix=lntPolicyPrefix, lntWanLocalAlarmOff=lntWanLocalAlarmOff, lntDot1xMaxAuthRateReachedEvent=lntDot1xMaxAuthRateReachedEvent, lntLAGPartialConnLostOk=lntLAGPartialConnLostOk, lntLAGConnLostOk=lntLAGConnLostOk, lntL3FaultNotificationGroup=lntL3FaultNotificationGroup, lntCascadDownConnOk=lntCascadDownConnOk, lntCascadUpConnOk=lntCascadUpConnOk, lntCAMNotificationGroup=lntCAMNotificationGroup, lntLAGCreateEvent=lntLAGCreateEvent, lntTempratureWarningPrefix=lntTempratureWarningPrefix, lntMACSecurityEvent=lntMACSecurityEvent, lntL3FaultsPrefix=lntL3FaultsPrefix, lntWanLocalAlarmOn=lntWanLocalAlarmOn, lntLAGEvents=lntLAGEvents, lntSecurityPrefix=lntSecurityPrefix, lntP130TrapAgentCapabilities=lntP130TrapAgentCapabilities, lntEthPortFaultPrefix=lntEthPortFaultPrefix, lntCascadUpConnFlt=lntCascadUpConnFlt, lntBackupPSUOk=lntBackupPSUOk, lntEthPortFaultEvents=lntEthPortFaultEvents, lntVLANViolationEvent=lntVLANViolationEvent, lntUnauthIpAddress=lntUnauthIpAddress, lntNotificationVarbinds=lntNotificationVarbinds, lntPortCAMLastChange=lntPortCAMLastChange, lntLicenseErrorCodes=lntLicenseErrorCodes, lntARPViolationEvent=lntARPViolationEvent, lntP330L2NotificationAgentCapabilities=lntP330L2NotificationAgentCapabilities, lntMainFansOK=lntMainFansOK, lntPortAutoPartOk=lntPortAutoPartOk, lntConfigChangeEvents=lntConfigChangeEvents, lntP330L3NotificationAgentCapabilities=lntP330L3NotificationAgentCapabilities, lntPortFEOk=lntPortFEOk, lntMainFansFlt=lntMainFansFlt, lntConfigChangeEvent=lntConfigChangeEvent, lntNotificationGroups=lntNotificationGroups, lntDot1xMaxAuthModuleNumReachedEvent=lntDot1xMaxAuthModuleNumReachedEvent, lntP330MLNotificationAgentCapabilities=lntP330MLNotificationAgentCapabilities, lntPSUFaultNotificationGroup=lntPSUFaultNotificationGroup, lntPSUEvents=lntPSUEvents, lntPortAutoPartFlt=lntPortAutoPartFlt, lntUnauthProtocol=lntUnauthProtocol, lntTempratureWarning=lntTempratureWarning, lntConfigChangeNotificationGroup=lntConfigChangeNotificationGroup, lntConfigChangeValue=lntConfigChangeValue, lntLinkEvents=lntLinkEvents, lntCascadeEvents=lntCascadeEvents, lntWanRemoteAlarmOn=lntWanRemoteAlarmOn)

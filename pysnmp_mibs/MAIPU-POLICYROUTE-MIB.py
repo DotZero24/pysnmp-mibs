@@ -1,52 +1,38 @@
-_E='policyRouteIfindex'
-_D='MAIPU-POLICYROUTE-MIB'
-_C='read-write'
-_B='DisplayString'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mpMgmt,=mibBuilder.importSymbols('MAIPU-SMI','mpMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,ObjectName,ObjectSyntax,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','ObjectName','ObjectSyntax','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_B,'MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-policyRoute=ModuleIdentity((1,3,6,1,4,1,5651,3,81,6))
-class EnabledStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_RouteMib_ObjectIdentity=ObjectIdentity
-routeMib=_RouteMib_ObjectIdentity((1,3,6,1,4,1,5651,3,81))
-class _PolicyRouteLocal_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_PolicyRouteLocal_Type.__name__=_B
-_PolicyRouteLocal_Object=MibScalar
-policyRouteLocal=_PolicyRouteLocal_Object((1,3,6,1,4,1,5651,3,81,6,1),_PolicyRouteLocal_Type())
-policyRouteLocal.setMaxAccess(_C)
-if mibBuilder.loadTexts:policyRouteLocal.setStatus(_A)
-_PolicyRouteTable_Object=MibTable
-policyRouteTable=_PolicyRouteTable_Object((1,3,6,1,4,1,5651,3,81,6,2))
-if mibBuilder.loadTexts:policyRouteTable.setStatus(_A)
-_PolicyRouteEntry_Object=MibTableRow
-policyRouteEntry=_PolicyRouteEntry_Object((1,3,6,1,4,1,5651,3,81,6,2,1))
-policyRouteEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:policyRouteEntry.setStatus(_A)
-_PolicyRouteIfindex_Type=Unsigned32
-_PolicyRouteIfindex_Object=MibTableColumn
-policyRouteIfindex=_PolicyRouteIfindex_Object((1,3,6,1,4,1,5651,3,81,6,2,1,1),_PolicyRouteIfindex_Type())
-policyRouteIfindex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:policyRouteIfindex.setStatus(_A)
-class _PolicyRouteRoutemap_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_PolicyRouteRoutemap_Type.__name__=_B
-_PolicyRouteRoutemap_Object=MibTableColumn
-policyRouteRoutemap=_PolicyRouteRoutemap_Object((1,3,6,1,4,1,5651,3,81,6,2,1,2),_PolicyRouteRoutemap_Type())
-policyRouteRoutemap.setMaxAccess(_C)
-if mibBuilder.loadTexts:policyRouteRoutemap.setStatus(_A)
-_PolicyRouteCache_Type=EnabledStatus
-_PolicyRouteCache_Object=MibTableColumn
-policyRouteCache=_PolicyRouteCache_Object((1,3,6,1,4,1,5651,3,81,6,2,1,3),_PolicyRouteCache_Type())
-policyRouteCache.setMaxAccess(_C)
-if mibBuilder.loadTexts:policyRouteCache.setStatus(_A)
-_PolicyRouteRowStatus_Type=RowStatus
-_PolicyRouteRowStatus_Object=MibTableColumn
-policyRouteRowStatus=_PolicyRouteRowStatus_Object((1,3,6,1,4,1,5651,3,81,6,2,1,4),_PolicyRouteRowStatus_Type())
-policyRouteRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:policyRouteRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'EnabledStatus':EnabledStatus,'routeMib':routeMib,'policyRoute':policyRoute,'policyRouteLocal':policyRouteLocal,'policyRouteTable':policyRouteTable,'policyRouteEntry':policyRouteEntry,_E:policyRouteIfindex,'policyRouteRoutemap':policyRouteRoutemap,'policyRouteCache':policyRouteCache,'policyRouteRowStatus':policyRouteRowStatus})
+#
+# PySNMP MIB module MAIPU-POLICYROUTE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/maipu/MAIPU-POLICYROUTE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mpMgmt, = mibBuilder.importSymbols("MAIPU-SMI", "mpMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, ObjectSyntax, iso, MibIdentifier, ObjectName, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "ObjectSyntax", "iso", "MibIdentifier", "ObjectName", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+routeMib = MibIdentifier((1, 3, 6, 1, 4, 1, 5651, 3, 81))
+policyRoute = ModuleIdentity((1, 3, 6, 1, 4, 1, 5651, 3, 81, 6))
+if mibBuilder.loadTexts: policyRoute.setLastUpdated('0703071024Z')
+if mibBuilder.loadTexts: policyRoute.setOrganization('ĴͨŹɷ\u07b9˾, Maipu (Sichuan) Communication Technology Co. LTD.')
+class EnabledStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("enabled", 1), ("disabled", 2))
+
+policyRouteLocal = MibScalar((1, 3, 6, 1, 4, 1, 5651, 3, 81, 6, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: policyRouteLocal.setStatus('current')
+policyRouteTable = MibTable((1, 3, 6, 1, 4, 1, 5651, 3, 81, 6, 2), )
+if mibBuilder.loadTexts: policyRouteTable.setStatus('current')
+policyRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5651, 3, 81, 6, 2, 1), ).setIndexNames((0, "MAIPU-POLICYROUTE-MIB", "policyRouteIfindex"))
+if mibBuilder.loadTexts: policyRouteEntry.setStatus('current')
+policyRouteIfindex = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 81, 6, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: policyRouteIfindex.setStatus('current')
+policyRouteRoutemap = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 81, 6, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: policyRouteRoutemap.setStatus('current')
+policyRouteCache = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 81, 6, 2, 1, 3), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: policyRouteCache.setStatus('current')
+policyRouteRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5651, 3, 81, 6, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: policyRouteRowStatus.setStatus('current')
+mibBuilder.exportSymbols("MAIPU-POLICYROUTE-MIB", policyRouteIfindex=policyRouteIfindex, policyRouteTable=policyRouteTable, EnabledStatus=EnabledStatus, policyRouteRoutemap=policyRouteRoutemap, routeMib=routeMib, policyRouteEntry=policyRouteEntry, policyRoute=policyRoute, policyRouteRowStatus=policyRouteRowStatus, PYSNMP_MODULE_ID=policyRoute, policyRouteCache=policyRouteCache, policyRouteLocal=policyRouteLocal)

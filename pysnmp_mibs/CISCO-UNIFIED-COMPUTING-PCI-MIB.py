@@ -1,205 +1,99 @@
-_F='cucsPciEquipSlotInstanceId'
-_E='not-accessible'
-_D='cucsPciUnitInstanceId'
-_C='CISCO-UNIFIED-COMPUTING-PCI-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
-CucsManagedObjectDn,CucsManagedObjectId,ciscoUnifiedComputingMIBObjects=mibBuilder.importSymbols('CISCO-UNIFIED-COMPUTING-MIB','CucsManagedObjectDn','CucsManagedObjectId','ciscoUnifiedComputingMIBObjects')
-CucsEquipmentDiscoveryState,CucsEquipmentOperability,CucsEquipmentPowerState,CucsEquipmentPresence,CucsEquipmentSensorThresholdStatus,CucsPciEquipSlotId=mibBuilder.importSymbols('CISCO-UNIFIED-COMPUTING-TC-MIB','CucsEquipmentDiscoveryState','CucsEquipmentOperability','CucsEquipmentPowerState','CucsEquipmentPresence','CucsEquipmentSensorThresholdStatus','CucsPciEquipSlotId')
-InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
-cucsPciObjects=ModuleIdentity((1,3,6,1,4,1,9,9,719,1,36))
-_CucsPciUnitTable_Object=MibTable
-cucsPciUnitTable=_CucsPciUnitTable_Object((1,3,6,1,4,1,9,9,719,1,36,1))
-if mibBuilder.loadTexts:cucsPciUnitTable.setStatus(_A)
-_CucsPciUnitEntry_Object=MibTableRow
-cucsPciUnitEntry=_CucsPciUnitEntry_Object((1,3,6,1,4,1,9,9,719,1,36,1,1))
-cucsPciUnitEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:cucsPciUnitEntry.setStatus(_A)
-_CucsPciUnitInstanceId_Type=CucsManagedObjectId
-_CucsPciUnitInstanceId_Object=MibTableColumn
-cucsPciUnitInstanceId=_CucsPciUnitInstanceId_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,1),_CucsPciUnitInstanceId_Type())
-cucsPciUnitInstanceId.setMaxAccess(_E)
-if mibBuilder.loadTexts:cucsPciUnitInstanceId.setStatus(_A)
-_CucsPciUnitDn_Type=CucsManagedObjectDn
-_CucsPciUnitDn_Object=MibTableColumn
-cucsPciUnitDn=_CucsPciUnitDn_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,2),_CucsPciUnitDn_Type())
-cucsPciUnitDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitDn.setStatus(_A)
-_CucsPciUnitRn_Type=SnmpAdminString
-_CucsPciUnitRn_Object=MibTableColumn
-cucsPciUnitRn=_CucsPciUnitRn_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,3),_CucsPciUnitRn_Type())
-cucsPciUnitRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitRn.setStatus(_A)
-_CucsPciUnitId_Type=Gauge32
-_CucsPciUnitId_Object=MibTableColumn
-cucsPciUnitId=_CucsPciUnitId_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,4),_CucsPciUnitId_Type())
-cucsPciUnitId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitId.setStatus(_A)
-_CucsPciUnitModel_Type=SnmpAdminString
-_CucsPciUnitModel_Object=MibTableColumn
-cucsPciUnitModel=_CucsPciUnitModel_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,5),_CucsPciUnitModel_Type())
-cucsPciUnitModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitModel.setStatus(_A)
-_CucsPciUnitOperState_Type=CucsEquipmentOperability
-_CucsPciUnitOperState_Object=MibTableColumn
-cucsPciUnitOperState=_CucsPciUnitOperState_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,6),_CucsPciUnitOperState_Type())
-cucsPciUnitOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitOperState.setStatus(_A)
-_CucsPciUnitOperability_Type=CucsEquipmentOperability
-_CucsPciUnitOperability_Object=MibTableColumn
-cucsPciUnitOperability=_CucsPciUnitOperability_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,7),_CucsPciUnitOperability_Type())
-cucsPciUnitOperability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitOperability.setStatus(_A)
-_CucsPciUnitPciAddr_Type=SnmpAdminString
-_CucsPciUnitPciAddr_Object=MibTableColumn
-cucsPciUnitPciAddr=_CucsPciUnitPciAddr_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,8),_CucsPciUnitPciAddr_Type())
-cucsPciUnitPciAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitPciAddr.setStatus(_A)
-_CucsPciUnitPciSlot_Type=SnmpAdminString
-_CucsPciUnitPciSlot_Object=MibTableColumn
-cucsPciUnitPciSlot=_CucsPciUnitPciSlot_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,9),_CucsPciUnitPciSlot_Type())
-cucsPciUnitPciSlot.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitPciSlot.setStatus(_A)
-_CucsPciUnitPerf_Type=CucsEquipmentSensorThresholdStatus
-_CucsPciUnitPerf_Object=MibTableColumn
-cucsPciUnitPerf=_CucsPciUnitPerf_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,10),_CucsPciUnitPerf_Type())
-cucsPciUnitPerf.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitPerf.setStatus(_A)
-_CucsPciUnitPower_Type=CucsEquipmentPowerState
-_CucsPciUnitPower_Object=MibTableColumn
-cucsPciUnitPower=_CucsPciUnitPower_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,11),_CucsPciUnitPower_Type())
-cucsPciUnitPower.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitPower.setStatus(_A)
-_CucsPciUnitPresence_Type=CucsEquipmentPresence
-_CucsPciUnitPresence_Object=MibTableColumn
-cucsPciUnitPresence=_CucsPciUnitPresence_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,12),_CucsPciUnitPresence_Type())
-cucsPciUnitPresence.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitPresence.setStatus(_A)
-_CucsPciUnitRevision_Type=SnmpAdminString
-_CucsPciUnitRevision_Object=MibTableColumn
-cucsPciUnitRevision=_CucsPciUnitRevision_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,13),_CucsPciUnitRevision_Type())
-cucsPciUnitRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitRevision.setStatus(_A)
-_CucsPciUnitSerial_Type=SnmpAdminString
-_CucsPciUnitSerial_Object=MibTableColumn
-cucsPciUnitSerial=_CucsPciUnitSerial_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,14),_CucsPciUnitSerial_Type())
-cucsPciUnitSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitSerial.setStatus(_A)
-_CucsPciUnitThermal_Type=CucsEquipmentSensorThresholdStatus
-_CucsPciUnitThermal_Object=MibTableColumn
-cucsPciUnitThermal=_CucsPciUnitThermal_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,15),_CucsPciUnitThermal_Type())
-cucsPciUnitThermal.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitThermal.setStatus(_A)
-_CucsPciUnitVendor_Type=SnmpAdminString
-_CucsPciUnitVendor_Object=MibTableColumn
-cucsPciUnitVendor=_CucsPciUnitVendor_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,16),_CucsPciUnitVendor_Type())
-cucsPciUnitVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitVendor.setStatus(_A)
-_CucsPciUnitVoltage_Type=CucsEquipmentSensorThresholdStatus
-_CucsPciUnitVoltage_Object=MibTableColumn
-cucsPciUnitVoltage=_CucsPciUnitVoltage_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,17),_CucsPciUnitVoltage_Type())
-cucsPciUnitVoltage.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitVoltage.setStatus(_A)
-_CucsPciUnitOperQualifierReason_Type=SnmpAdminString
-_CucsPciUnitOperQualifierReason_Object=MibTableColumn
-cucsPciUnitOperQualifierReason=_CucsPciUnitOperQualifierReason_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,18),_CucsPciUnitOperQualifierReason_Type())
-cucsPciUnitOperQualifierReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitOperQualifierReason.setStatus(_A)
-_CucsPciUnitLocationDn_Type=SnmpAdminString
-_CucsPciUnitLocationDn_Object=MibTableColumn
-cucsPciUnitLocationDn=_CucsPciUnitLocationDn_Object((1,3,6,1,4,1,9,9,719,1,36,1,1,19),_CucsPciUnitLocationDn_Type())
-cucsPciUnitLocationDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciUnitLocationDn.setStatus(_A)
-_CucsPciEquipSlotTable_Object=MibTable
-cucsPciEquipSlotTable=_CucsPciEquipSlotTable_Object((1,3,6,1,4,1,9,9,719,1,36,2))
-if mibBuilder.loadTexts:cucsPciEquipSlotTable.setStatus(_A)
-_CucsPciEquipSlotEntry_Object=MibTableRow
-cucsPciEquipSlotEntry=_CucsPciEquipSlotEntry_Object((1,3,6,1,4,1,9,9,719,1,36,2,1))
-cucsPciEquipSlotEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:cucsPciEquipSlotEntry.setStatus(_A)
-_CucsPciEquipSlotInstanceId_Type=CucsManagedObjectId
-_CucsPciEquipSlotInstanceId_Object=MibTableColumn
-cucsPciEquipSlotInstanceId=_CucsPciEquipSlotInstanceId_Object((1,3,6,1,4,1,9,9,719,1,36,2,1,1),_CucsPciEquipSlotInstanceId_Type())
-cucsPciEquipSlotInstanceId.setMaxAccess(_E)
-if mibBuilder.loadTexts:cucsPciEquipSlotInstanceId.setStatus(_A)
-_CucsPciEquipSlotDn_Type=CucsManagedObjectDn
-_CucsPciEquipSlotDn_Object=MibTableColumn
-cucsPciEquipSlotDn=_CucsPciEquipSlotDn_Object((1,3,6,1,4,1,9,9,719,1,36,2,1,2),_CucsPciEquipSlotDn_Type())
-cucsPciEquipSlotDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciEquipSlotDn.setStatus(_A)
-_CucsPciEquipSlotRn_Type=SnmpAdminString
-_CucsPciEquipSlotRn_Object=MibTableColumn
-cucsPciEquipSlotRn=_CucsPciEquipSlotRn_Object((1,3,6,1,4,1,9,9,719,1,36,2,1,3),_CucsPciEquipSlotRn_Type())
-cucsPciEquipSlotRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciEquipSlotRn.setStatus(_A)
-_CucsPciEquipSlotControllerReported_Type=SnmpAdminString
-_CucsPciEquipSlotControllerReported_Object=MibTableColumn
-cucsPciEquipSlotControllerReported=_CucsPciEquipSlotControllerReported_Object((1,3,6,1,4,1,9,9,719,1,36,2,1,4),_CucsPciEquipSlotControllerReported_Type())
-cucsPciEquipSlotControllerReported.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciEquipSlotControllerReported.setStatus(_A)
-_CucsPciEquipSlotDiscoveryState_Type=CucsEquipmentDiscoveryState
-_CucsPciEquipSlotDiscoveryState_Object=MibTableColumn
-cucsPciEquipSlotDiscoveryState=_CucsPciEquipSlotDiscoveryState_Object((1,3,6,1,4,1,9,9,719,1,36,2,1,5),_CucsPciEquipSlotDiscoveryState_Type())
-cucsPciEquipSlotDiscoveryState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciEquipSlotDiscoveryState.setStatus(_A)
-_CucsPciEquipSlotFltAggr_Type=Unsigned64
-_CucsPciEquipSlotFltAggr_Object=MibTableColumn
-cucsPciEquipSlotFltAggr=_CucsPciEquipSlotFltAggr_Object((1,3,6,1,4,1,9,9,719,1,36,2,1,6),_CucsPciEquipSlotFltAggr_Type())
-cucsPciEquipSlotFltAggr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciEquipSlotFltAggr.setStatus(_A)
-_CucsPciEquipSlotHostReported_Type=SnmpAdminString
-_CucsPciEquipSlotHostReported_Object=MibTableColumn
-cucsPciEquipSlotHostReported=_CucsPciEquipSlotHostReported_Object((1,3,6,1,4,1,9,9,719,1,36,2,1,7),_CucsPciEquipSlotHostReported_Type())
-cucsPciEquipSlotHostReported.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciEquipSlotHostReported.setStatus(_A)
-_CucsPciEquipSlotId_Type=CucsPciEquipSlotId
-_CucsPciEquipSlotId_Object=MibTableColumn
-cucsPciEquipSlotId=_CucsPciEquipSlotId_Object((1,3,6,1,4,1,9,9,719,1,36,2,1,8),_CucsPciEquipSlotId_Type())
-cucsPciEquipSlotId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciEquipSlotId.setStatus(_A)
-_CucsPciEquipSlotMacLeft_Type=MacAddress
-_CucsPciEquipSlotMacLeft_Object=MibTableColumn
-cucsPciEquipSlotMacLeft=_CucsPciEquipSlotMacLeft_Object((1,3,6,1,4,1,9,9,719,1,36,2,1,9),_CucsPciEquipSlotMacLeft_Type())
-cucsPciEquipSlotMacLeft.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciEquipSlotMacLeft.setStatus(_A)
-_CucsPciEquipSlotMacRight_Type=MacAddress
-_CucsPciEquipSlotMacRight_Object=MibTableColumn
-cucsPciEquipSlotMacRight=_CucsPciEquipSlotMacRight_Object((1,3,6,1,4,1,9,9,719,1,36,2,1,10),_CucsPciEquipSlotMacRight_Type())
-cucsPciEquipSlotMacRight.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciEquipSlotMacRight.setStatus(_A)
-_CucsPciEquipSlotModel_Type=SnmpAdminString
-_CucsPciEquipSlotModel_Object=MibTableColumn
-cucsPciEquipSlotModel=_CucsPciEquipSlotModel_Object((1,3,6,1,4,1,9,9,719,1,36,2,1,11),_CucsPciEquipSlotModel_Type())
-cucsPciEquipSlotModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciEquipSlotModel.setStatus(_A)
-_CucsPciEquipSlotRevision_Type=SnmpAdminString
-_CucsPciEquipSlotRevision_Object=MibTableColumn
-cucsPciEquipSlotRevision=_CucsPciEquipSlotRevision_Object((1,3,6,1,4,1,9,9,719,1,36,2,1,12),_CucsPciEquipSlotRevision_Type())
-cucsPciEquipSlotRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciEquipSlotRevision.setStatus(_A)
-_CucsPciEquipSlotSerial_Type=SnmpAdminString
-_CucsPciEquipSlotSerial_Object=MibTableColumn
-cucsPciEquipSlotSerial=_CucsPciEquipSlotSerial_Object((1,3,6,1,4,1,9,9,719,1,36,2,1,13),_CucsPciEquipSlotSerial_Type())
-cucsPciEquipSlotSerial.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciEquipSlotSerial.setStatus(_A)
-_CucsPciEquipSlotSmbiosId_Type=Gauge32
-_CucsPciEquipSlotSmbiosId_Object=MibTableColumn
-cucsPciEquipSlotSmbiosId=_CucsPciEquipSlotSmbiosId_Object((1,3,6,1,4,1,9,9,719,1,36,2,1,14),_CucsPciEquipSlotSmbiosId_Type())
-cucsPciEquipSlotSmbiosId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciEquipSlotSmbiosId.setStatus(_A)
-_CucsPciEquipSlotVendor_Type=SnmpAdminString
-_CucsPciEquipSlotVendor_Object=MibTableColumn
-cucsPciEquipSlotVendor=_CucsPciEquipSlotVendor_Object((1,3,6,1,4,1,9,9,719,1,36,2,1,15),_CucsPciEquipSlotVendor_Type())
-cucsPciEquipSlotVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsPciEquipSlotVendor.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'cucsPciObjects':cucsPciObjects,'cucsPciUnitTable':cucsPciUnitTable,'cucsPciUnitEntry':cucsPciUnitEntry,_D:cucsPciUnitInstanceId,'cucsPciUnitDn':cucsPciUnitDn,'cucsPciUnitRn':cucsPciUnitRn,'cucsPciUnitId':cucsPciUnitId,'cucsPciUnitModel':cucsPciUnitModel,'cucsPciUnitOperState':cucsPciUnitOperState,'cucsPciUnitOperability':cucsPciUnitOperability,'cucsPciUnitPciAddr':cucsPciUnitPciAddr,'cucsPciUnitPciSlot':cucsPciUnitPciSlot,'cucsPciUnitPerf':cucsPciUnitPerf,'cucsPciUnitPower':cucsPciUnitPower,'cucsPciUnitPresence':cucsPciUnitPresence,'cucsPciUnitRevision':cucsPciUnitRevision,'cucsPciUnitSerial':cucsPciUnitSerial,'cucsPciUnitThermal':cucsPciUnitThermal,'cucsPciUnitVendor':cucsPciUnitVendor,'cucsPciUnitVoltage':cucsPciUnitVoltage,'cucsPciUnitOperQualifierReason':cucsPciUnitOperQualifierReason,'cucsPciUnitLocationDn':cucsPciUnitLocationDn,'cucsPciEquipSlotTable':cucsPciEquipSlotTable,'cucsPciEquipSlotEntry':cucsPciEquipSlotEntry,_F:cucsPciEquipSlotInstanceId,'cucsPciEquipSlotDn':cucsPciEquipSlotDn,'cucsPciEquipSlotRn':cucsPciEquipSlotRn,'cucsPciEquipSlotControllerReported':cucsPciEquipSlotControllerReported,'cucsPciEquipSlotDiscoveryState':cucsPciEquipSlotDiscoveryState,'cucsPciEquipSlotFltAggr':cucsPciEquipSlotFltAggr,'cucsPciEquipSlotHostReported':cucsPciEquipSlotHostReported,'cucsPciEquipSlotId':cucsPciEquipSlotId,'cucsPciEquipSlotMacLeft':cucsPciEquipSlotMacLeft,'cucsPciEquipSlotMacRight':cucsPciEquipSlotMacRight,'cucsPciEquipSlotModel':cucsPciEquipSlotModel,'cucsPciEquipSlotRevision':cucsPciEquipSlotRevision,'cucsPciEquipSlotSerial':cucsPciEquipSlotSerial,'cucsPciEquipSlotSmbiosId':cucsPciEquipSlotSmbiosId,'cucsPciEquipSlotVendor':cucsPciEquipSlotVendor})
+#
+# PySNMP MIB module CISCO-UNIFIED-COMPUTING-PCI-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-UNIFIED-COMPUTING-PCI-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:49 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+Unsigned64, CiscoAlarmSeverity, CiscoInetAddressMask, TimeIntervalSec, CiscoNetworkAddress = mibBuilder.importSymbols("CISCO-TC", "Unsigned64", "CiscoAlarmSeverity", "CiscoInetAddressMask", "TimeIntervalSec", "CiscoNetworkAddress")
+CucsManagedObjectId, ciscoUnifiedComputingMIBObjects, CucsManagedObjectDn = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-MIB", "CucsManagedObjectId", "ciscoUnifiedComputingMIBObjects", "CucsManagedObjectDn")
+CucsEquipmentPowerState, CucsEquipmentOperability, CucsEquipmentSensorThresholdStatus, CucsEquipmentDiscoveryState, CucsPciEquipSlotId, CucsEquipmentPresence = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-TC-MIB", "CucsEquipmentPowerState", "CucsEquipmentOperability", "CucsEquipmentSensorThresholdStatus", "CucsEquipmentDiscoveryState", "CucsPciEquipSlotId", "CucsEquipmentPresence")
+InetAddressIPv6, InetAddressIPv4 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6", "InetAddressIPv4")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, TruthValue, DateAndTime, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "TruthValue", "DateAndTime", "RowPointer", "TextualConvention")
+cucsPciObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36))
+if mibBuilder.loadTexts: cucsPciObjects.setLastUpdated('201807260000Z')
+if mibBuilder.loadTexts: cucsPciObjects.setOrganization('Cisco Systems Inc.')
+cucsPciEquipSlotTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2), )
+if mibBuilder.loadTexts: cucsPciEquipSlotTable.setStatus('current')
+cucsPciEquipSlotEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-PCI-MIB", "cucsPciEquipSlotInstanceId"))
+if mibBuilder.loadTexts: cucsPciEquipSlotEntry.setStatus('current')
+cucsPciEquipSlotInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsPciEquipSlotInstanceId.setStatus('current')
+cucsPciEquipSlotDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciEquipSlotDn.setStatus('current')
+cucsPciEquipSlotRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciEquipSlotRn.setStatus('current')
+cucsPciEquipSlotControllerReported = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciEquipSlotControllerReported.setStatus('current')
+cucsPciEquipSlotDiscoveryState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1, 5), CucsEquipmentDiscoveryState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciEquipSlotDiscoveryState.setStatus('current')
+cucsPciEquipSlotFltAggr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1, 6), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciEquipSlotFltAggr.setStatus('current')
+cucsPciEquipSlotHostReported = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciEquipSlotHostReported.setStatus('current')
+cucsPciEquipSlotId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1, 8), CucsPciEquipSlotId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciEquipSlotId.setStatus('current')
+cucsPciEquipSlotMacLeft = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1, 9), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciEquipSlotMacLeft.setStatus('current')
+cucsPciEquipSlotMacRight = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1, 10), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciEquipSlotMacRight.setStatus('current')
+cucsPciEquipSlotModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciEquipSlotModel.setStatus('current')
+cucsPciEquipSlotRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciEquipSlotRevision.setStatus('current')
+cucsPciEquipSlotSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1, 13), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciEquipSlotSerial.setStatus('current')
+cucsPciEquipSlotSmbiosId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1, 14), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciEquipSlotSmbiosId.setStatus('current')
+cucsPciEquipSlotVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 2, 1, 15), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciEquipSlotVendor.setStatus('current')
+cucsPciUnitTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1), )
+if mibBuilder.loadTexts: cucsPciUnitTable.setStatus('current')
+cucsPciUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-PCI-MIB", "cucsPciUnitInstanceId"))
+if mibBuilder.loadTexts: cucsPciUnitEntry.setStatus('current')
+cucsPciUnitInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsPciUnitInstanceId.setStatus('current')
+cucsPciUnitDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitDn.setStatus('current')
+cucsPciUnitRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitRn.setStatus('current')
+cucsPciUnitId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitId.setStatus('current')
+cucsPciUnitModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitModel.setStatus('current')
+cucsPciUnitOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 6), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitOperState.setStatus('current')
+cucsPciUnitOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 7), CucsEquipmentOperability()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitOperability.setStatus('current')
+cucsPciUnitPciAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitPciAddr.setStatus('current')
+cucsPciUnitPciSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitPciSlot.setStatus('current')
+cucsPciUnitPerf = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 10), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitPerf.setStatus('current')
+cucsPciUnitPower = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 11), CucsEquipmentPowerState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitPower.setStatus('current')
+cucsPciUnitPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 12), CucsEquipmentPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitPresence.setStatus('current')
+cucsPciUnitRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 13), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitRevision.setStatus('current')
+cucsPciUnitSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 14), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitSerial.setStatus('current')
+cucsPciUnitThermal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 15), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitThermal.setStatus('current')
+cucsPciUnitVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 16), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitVendor.setStatus('current')
+cucsPciUnitVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 17), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitVoltage.setStatus('current')
+cucsPciUnitOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 18), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitOperQualifierReason.setStatus('current')
+cucsPciUnitLocationDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 36, 1, 1, 19), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsPciUnitLocationDn.setStatus('current')
+mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-PCI-MIB", cucsPciEquipSlotMacLeft=cucsPciEquipSlotMacLeft, cucsPciUnitTable=cucsPciUnitTable, cucsPciEquipSlotSerial=cucsPciEquipSlotSerial, cucsPciUnitRevision=cucsPciUnitRevision, cucsPciEquipSlotId=cucsPciEquipSlotId, cucsPciEquipSlotSmbiosId=cucsPciEquipSlotSmbiosId, cucsPciEquipSlotRn=cucsPciEquipSlotRn, cucsPciEquipSlotInstanceId=cucsPciEquipSlotInstanceId, cucsPciUnitDn=cucsPciUnitDn, cucsPciUnitEntry=cucsPciUnitEntry, cucsPciEquipSlotEntry=cucsPciEquipSlotEntry, cucsPciEquipSlotTable=cucsPciEquipSlotTable, cucsPciUnitPciSlot=cucsPciUnitPciSlot, cucsPciEquipSlotMacRight=cucsPciEquipSlotMacRight, cucsPciUnitThermal=cucsPciUnitThermal, cucsPciEquipSlotDiscoveryState=cucsPciEquipSlotDiscoveryState, cucsPciEquipSlotControllerReported=cucsPciEquipSlotControllerReported, cucsPciUnitVendor=cucsPciUnitVendor, cucsPciEquipSlotDn=cucsPciEquipSlotDn, cucsPciUnitInstanceId=cucsPciUnitInstanceId, cucsPciEquipSlotHostReported=cucsPciEquipSlotHostReported, cucsPciUnitPciAddr=cucsPciUnitPciAddr, cucsPciUnitModel=cucsPciUnitModel, cucsPciUnitOperQualifierReason=cucsPciUnitOperQualifierReason, cucsPciUnitPower=cucsPciUnitPower, cucsPciEquipSlotVendor=cucsPciEquipSlotVendor, cucsPciUnitVoltage=cucsPciUnitVoltage, cucsPciUnitOperState=cucsPciUnitOperState, cucsPciUnitOperability=cucsPciUnitOperability, cucsPciEquipSlotRevision=cucsPciEquipSlotRevision, cucsPciEquipSlotModel=cucsPciEquipSlotModel, cucsPciEquipSlotFltAggr=cucsPciEquipSlotFltAggr, cucsPciObjects=cucsPciObjects, cucsPciUnitPerf=cucsPciUnitPerf, cucsPciUnitSerial=cucsPciUnitSerial, cucsPciUnitId=cucsPciUnitId, cucsPciUnitPresence=cucsPciUnitPresence, PYSNMP_MODULE_ID=cucsPciObjects, cucsPciUnitRn=cucsPciUnitRn, cucsPciUnitLocationDn=cucsPciUnitLocationDn)

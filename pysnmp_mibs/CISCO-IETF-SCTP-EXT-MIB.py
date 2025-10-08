@@ -1,355 +1,146 @@
-_A8='cSctpExtAssocStatGroupRev1'
-_A7='cSctpExtCtrlGroupRev1'
-_A6='cSctpExtAssocNotificationsGroup'
-_A5='cSctpExtAssocStatGroup'
-_A4='cSctpExtCtrlGroup'
-_A3='cSctpExtDestAddressStateChange'
-_A2='cSctpAssocExtBundleFlag'
-_A1='cSctpAssocExtBundleTimeout'
-_A0='cSctpAssocExtRtxChunksFast'
-_z='cSctpAssocExtEffectiveAddress'
-_y='cSctpAssocExtEffectiveAddrType'
-_x='cSctpAddressStateNotifEnabled'
-_w='cSctpAssocRemAddressSRTT'
-_v='cSctpAssocRemAddressFailedCnt'
-_u='cSctpAssocExtMaxInitRetr'
-_t='cSctpAssocExtValCookieLife'
-_s='cSctpAssocExtRtoInitial'
-_r='cSctpAssocExtRtoMax'
-_q='cSctpAssocExtRtoMin'
-_p='cSctpStatDestAddressFailures'
-_o='cSctpStatRtxChucksFast'
-_n='cSctpStatRtxChucks'
-_m='cSctpAssocRemAddressExtEntry'
-_l='cSctpAssocExtEntry'
-_k='TruthValue'
-_j='cSctpAssocRemAddressStatus'
-_i='CISCO-IETF-SCTP-MIB'
-_h='cSctpExtAssocRemAddrGroup'
-_g='cSctpExtAssocCtrlGroup'
-_f='cSctpExtStatGroup'
-_e='cSctpAssocExtDatagramsSent'
-_d='cSctpAssocExtDatagramsRec'
-_c='cSctpAssocExtChunksSentUnOrdered'
-_b='cSctpAssocExtChunksSentOrdered'
-_a='cSctpAssocExtChunksSentControl'
-_Z='cSctpAssocExtChunksRecUnOrdered'
-_Y='cSctpAssocExtChunksRecOrdered'
-_X='cSctpAssocExtChunksRecControl'
-_W='cSctpAssocExtUlpQueuedRT'
-_V='cSctpAssocExtUlpQueuedHW'
-_U='cSctpAssocExtUlpQueued'
-_T='cSctpAssocExtRemRecWndZeroCnt'
-_S='cSctpAssocExtRemRecWndLowMark'
-_R='cSctpAssocExtRemRecWnd'
-_Q='cSctpAssocExtLocRecWndZeroCnt'
-_P='cSctpAssocExtLocRecWndLowMark'
-_O='cSctpAssocExtLocRecWnd'
-_N='cSctpAssocExtMTU'
-_M='deprecated'
-_L='cSctpCtrlMaxHeld'
-_K='cSctpCtrlPurgeTimeout'
-_J='datagrams'
-_I='read-write'
-_H='bytes'
-_G='Gauge32'
-_F='milliseconds'
-_E='Unsigned32'
-_D='chunks'
-_C='read-only'
-_B='current'
-_A='CISCO-IETF-SCTP-EXT-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-cSctpAssocEntry,cSctpAssocRemAddressEntry,cSctpAssocRemAddressStatus=mibBuilder.importSymbols(_i,'cSctpAssocEntry','cSctpAssocRemAddressEntry',_j)
-ciscoExperiment,=mibBuilder.importSymbols('CISCO-SMI','ciscoExperiment')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64',_G,'Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp',_k)
-cSctpExtMIB=ModuleIdentity((1,3,6,1,4,1,9,10,76))
-if mibBuilder.loadTexts:cSctpExtMIB.setRevisions(('2001-11-09 00:00','2001-08-27 00:00'))
-_CSctpExtNotifications_ObjectIdentity=ObjectIdentity
-cSctpExtNotifications=_CSctpExtNotifications_ObjectIdentity((1,3,6,1,4,1,9,10,76,0))
-_CSctpExtObjects_ObjectIdentity=ObjectIdentity
-cSctpExtObjects=_CSctpExtObjects_ObjectIdentity((1,3,6,1,4,1,9,10,76,1))
-_CSctpScalarsExt_ObjectIdentity=ObjectIdentity
-cSctpScalarsExt=_CSctpScalarsExt_ObjectIdentity((1,3,6,1,4,1,9,10,76,1,1))
-_CSctpStatRtxChucks_Type=Counter32
-_CSctpStatRtxChucks_Object=MibScalar
-cSctpStatRtxChucks=_CSctpStatRtxChucks_Object((1,3,6,1,4,1,9,10,76,1,1,1),_CSctpStatRtxChucks_Type())
-cSctpStatRtxChucks.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpStatRtxChucks.setStatus(_B)
-if mibBuilder.loadTexts:cSctpStatRtxChucks.setUnits(_D)
-_CSctpStatRtxChucksFast_Type=Counter32
-_CSctpStatRtxChucksFast_Object=MibScalar
-cSctpStatRtxChucksFast=_CSctpStatRtxChucksFast_Object((1,3,6,1,4,1,9,10,76,1,1,2),_CSctpStatRtxChucksFast_Type())
-cSctpStatRtxChucksFast.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpStatRtxChucksFast.setStatus(_B)
-if mibBuilder.loadTexts:cSctpStatRtxChucksFast.setUnits(_D)
-_CSctpStatDestAddressFailures_Type=Counter32
-_CSctpStatDestAddressFailures_Object=MibScalar
-cSctpStatDestAddressFailures=_CSctpStatDestAddressFailures_Object((1,3,6,1,4,1,9,10,76,1,1,3),_CSctpStatDestAddressFailures_Type())
-cSctpStatDestAddressFailures.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpStatDestAddressFailures.setStatus(_B)
-class _CSctpCtrlPurgeTimeout_Type(Unsigned32):defaultValue=86400;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3600,3000000))
-_CSctpCtrlPurgeTimeout_Type.__name__=_E
-_CSctpCtrlPurgeTimeout_Object=MibScalar
-cSctpCtrlPurgeTimeout=_CSctpCtrlPurgeTimeout_Object((1,3,6,1,4,1,9,10,76,1,1,4),_CSctpCtrlPurgeTimeout_Type())
-cSctpCtrlPurgeTimeout.setMaxAccess(_I)
-if mibBuilder.loadTexts:cSctpCtrlPurgeTimeout.setStatus(_B)
-if mibBuilder.loadTexts:cSctpCtrlPurgeTimeout.setUnits('seconds')
-class _CSctpCtrlMaxHeld_Type(Unsigned32):defaultValue=100;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(30,10000))
-_CSctpCtrlMaxHeld_Type.__name__=_E
-_CSctpCtrlMaxHeld_Object=MibScalar
-cSctpCtrlMaxHeld=_CSctpCtrlMaxHeld_Object((1,3,6,1,4,1,9,10,76,1,1,5),_CSctpCtrlMaxHeld_Type())
-cSctpCtrlMaxHeld.setMaxAccess(_I)
-if mibBuilder.loadTexts:cSctpCtrlMaxHeld.setStatus(_B)
-if mibBuilder.loadTexts:cSctpCtrlMaxHeld.setUnits('association TCBs')
-class _CSctpAddressStateNotifEnabled_Type(TruthValue):defaultValue=2
-_CSctpAddressStateNotifEnabled_Type.__name__=_k
-_CSctpAddressStateNotifEnabled_Object=MibScalar
-cSctpAddressStateNotifEnabled=_CSctpAddressStateNotifEnabled_Object((1,3,6,1,4,1,9,10,76,1,1,6),_CSctpAddressStateNotifEnabled_Type())
-cSctpAddressStateNotifEnabled.setMaxAccess(_I)
-if mibBuilder.loadTexts:cSctpAddressStateNotifEnabled.setStatus(_B)
-_CSctpExtTables_ObjectIdentity=ObjectIdentity
-cSctpExtTables=_CSctpExtTables_ObjectIdentity((1,3,6,1,4,1,9,10,76,1,2))
-_CSctpAssocExtTable_Object=MibTable
-cSctpAssocExtTable=_CSctpAssocExtTable_Object((1,3,6,1,4,1,9,10,76,1,2,1))
-if mibBuilder.loadTexts:cSctpAssocExtTable.setStatus(_B)
-_CSctpAssocExtEntry_Object=MibTableRow
-cSctpAssocExtEntry=_CSctpAssocExtEntry_Object((1,3,6,1,4,1,9,10,76,1,2,1,1))
-if mibBuilder.loadTexts:cSctpAssocExtEntry.setStatus(_B)
-_CSctpAssocExtRtoMin_Type=Unsigned32
-_CSctpAssocExtRtoMin_Object=MibTableColumn
-cSctpAssocExtRtoMin=_CSctpAssocExtRtoMin_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,1),_CSctpAssocExtRtoMin_Type())
-cSctpAssocExtRtoMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtRtoMin.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtRtoMin.setUnits(_F)
-_CSctpAssocExtRtoMax_Type=Unsigned32
-_CSctpAssocExtRtoMax_Object=MibTableColumn
-cSctpAssocExtRtoMax=_CSctpAssocExtRtoMax_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,2),_CSctpAssocExtRtoMax_Type())
-cSctpAssocExtRtoMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtRtoMax.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtRtoMax.setUnits(_F)
-_CSctpAssocExtRtoInitial_Type=Unsigned32
-_CSctpAssocExtRtoInitial_Object=MibTableColumn
-cSctpAssocExtRtoInitial=_CSctpAssocExtRtoInitial_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,3),_CSctpAssocExtRtoInitial_Type())
-cSctpAssocExtRtoInitial.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtRtoInitial.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtRtoInitial.setUnits(_F)
-_CSctpAssocExtValCookieLife_Type=Unsigned32
-_CSctpAssocExtValCookieLife_Object=MibTableColumn
-cSctpAssocExtValCookieLife=_CSctpAssocExtValCookieLife_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,4),_CSctpAssocExtValCookieLife_Type())
-cSctpAssocExtValCookieLife.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtValCookieLife.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtValCookieLife.setUnits(_F)
-_CSctpAssocExtMaxInitRetr_Type=Unsigned32
-_CSctpAssocExtMaxInitRetr_Object=MibTableColumn
-cSctpAssocExtMaxInitRetr=_CSctpAssocExtMaxInitRetr_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,5),_CSctpAssocExtMaxInitRetr_Type())
-cSctpAssocExtMaxInitRetr.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtMaxInitRetr.setStatus(_B)
-class _CSctpAssocExtMTU_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(37,65535))
-_CSctpAssocExtMTU_Type.__name__=_E
-_CSctpAssocExtMTU_Object=MibTableColumn
-cSctpAssocExtMTU=_CSctpAssocExtMTU_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,6),_CSctpAssocExtMTU_Type())
-cSctpAssocExtMTU.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtMTU.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtMTU.setUnits(_H)
-class _CSctpAssocExtLocRecWnd_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CSctpAssocExtLocRecWnd_Type.__name__=_E
-_CSctpAssocExtLocRecWnd_Object=MibTableColumn
-cSctpAssocExtLocRecWnd=_CSctpAssocExtLocRecWnd_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,7),_CSctpAssocExtLocRecWnd_Type())
-cSctpAssocExtLocRecWnd.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtLocRecWnd.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtLocRecWnd.setUnits(_H)
-class _CSctpAssocExtLocRecWndLowMark_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CSctpAssocExtLocRecWndLowMark_Type.__name__=_G
-_CSctpAssocExtLocRecWndLowMark_Object=MibTableColumn
-cSctpAssocExtLocRecWndLowMark=_CSctpAssocExtLocRecWndLowMark_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,8),_CSctpAssocExtLocRecWndLowMark_Type())
-cSctpAssocExtLocRecWndLowMark.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtLocRecWndLowMark.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtLocRecWndLowMark.setUnits(_H)
-_CSctpAssocExtLocRecWndZeroCnt_Type=Counter32
-_CSctpAssocExtLocRecWndZeroCnt_Object=MibTableColumn
-cSctpAssocExtLocRecWndZeroCnt=_CSctpAssocExtLocRecWndZeroCnt_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,9),_CSctpAssocExtLocRecWndZeroCnt_Type())
-cSctpAssocExtLocRecWndZeroCnt.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtLocRecWndZeroCnt.setStatus(_B)
-class _CSctpAssocExtRemRecWnd_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CSctpAssocExtRemRecWnd_Type.__name__=_E
-_CSctpAssocExtRemRecWnd_Object=MibTableColumn
-cSctpAssocExtRemRecWnd=_CSctpAssocExtRemRecWnd_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,10),_CSctpAssocExtRemRecWnd_Type())
-cSctpAssocExtRemRecWnd.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtRemRecWnd.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtRemRecWnd.setUnits(_H)
-class _CSctpAssocExtRemRecWndLowMark_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CSctpAssocExtRemRecWndLowMark_Type.__name__=_G
-_CSctpAssocExtRemRecWndLowMark_Object=MibTableColumn
-cSctpAssocExtRemRecWndLowMark=_CSctpAssocExtRemRecWndLowMark_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,11),_CSctpAssocExtRemRecWndLowMark_Type())
-cSctpAssocExtRemRecWndLowMark.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtRemRecWndLowMark.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtRemRecWndLowMark.setUnits(_H)
-_CSctpAssocExtRemRecWndZeroCnt_Type=Counter32
-_CSctpAssocExtRemRecWndZeroCnt_Object=MibTableColumn
-cSctpAssocExtRemRecWndZeroCnt=_CSctpAssocExtRemRecWndZeroCnt_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,12),_CSctpAssocExtRemRecWndZeroCnt_Type())
-cSctpAssocExtRemRecWndZeroCnt.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtRemRecWndZeroCnt.setStatus(_B)
-class _CSctpAssocExtUlpQueued_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CSctpAssocExtUlpQueued_Type.__name__=_G
-_CSctpAssocExtUlpQueued_Object=MibTableColumn
-cSctpAssocExtUlpQueued=_CSctpAssocExtUlpQueued_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,13),_CSctpAssocExtUlpQueued_Type())
-cSctpAssocExtUlpQueued.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtUlpQueued.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtUlpQueued.setUnits(_J)
-class _CSctpAssocExtUlpQueuedHW_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CSctpAssocExtUlpQueuedHW_Type.__name__=_G
-_CSctpAssocExtUlpQueuedHW_Object=MibTableColumn
-cSctpAssocExtUlpQueuedHW=_CSctpAssocExtUlpQueuedHW_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,14),_CSctpAssocExtUlpQueuedHW_Type())
-cSctpAssocExtUlpQueuedHW.setMaxAccess(_I)
-if mibBuilder.loadTexts:cSctpAssocExtUlpQueuedHW.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtUlpQueuedHW.setUnits(_J)
-_CSctpAssocExtUlpQueuedRT_Type=TimeStamp
-_CSctpAssocExtUlpQueuedRT_Object=MibTableColumn
-cSctpAssocExtUlpQueuedRT=_CSctpAssocExtUlpQueuedRT_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,15),_CSctpAssocExtUlpQueuedRT_Type())
-cSctpAssocExtUlpQueuedRT.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtUlpQueuedRT.setStatus(_B)
-_CSctpAssocExtChunksRecControl_Type=Counter32
-_CSctpAssocExtChunksRecControl_Object=MibTableColumn
-cSctpAssocExtChunksRecControl=_CSctpAssocExtChunksRecControl_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,16),_CSctpAssocExtChunksRecControl_Type())
-cSctpAssocExtChunksRecControl.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtChunksRecControl.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtChunksRecControl.setUnits(_D)
-_CSctpAssocExtChunksRecOrdered_Type=Counter32
-_CSctpAssocExtChunksRecOrdered_Object=MibTableColumn
-cSctpAssocExtChunksRecOrdered=_CSctpAssocExtChunksRecOrdered_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,17),_CSctpAssocExtChunksRecOrdered_Type())
-cSctpAssocExtChunksRecOrdered.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtChunksRecOrdered.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtChunksRecOrdered.setUnits(_D)
-_CSctpAssocExtChunksRecUnOrdered_Type=Counter32
-_CSctpAssocExtChunksRecUnOrdered_Object=MibTableColumn
-cSctpAssocExtChunksRecUnOrdered=_CSctpAssocExtChunksRecUnOrdered_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,18),_CSctpAssocExtChunksRecUnOrdered_Type())
-cSctpAssocExtChunksRecUnOrdered.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtChunksRecUnOrdered.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtChunksRecUnOrdered.setUnits(_D)
-_CSctpAssocExtChunksSentControl_Type=Counter32
-_CSctpAssocExtChunksSentControl_Object=MibTableColumn
-cSctpAssocExtChunksSentControl=_CSctpAssocExtChunksSentControl_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,19),_CSctpAssocExtChunksSentControl_Type())
-cSctpAssocExtChunksSentControl.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtChunksSentControl.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtChunksSentControl.setUnits(_D)
-_CSctpAssocExtChunksSentOrdered_Type=Counter32
-_CSctpAssocExtChunksSentOrdered_Object=MibTableColumn
-cSctpAssocExtChunksSentOrdered=_CSctpAssocExtChunksSentOrdered_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,20),_CSctpAssocExtChunksSentOrdered_Type())
-cSctpAssocExtChunksSentOrdered.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtChunksSentOrdered.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtChunksSentOrdered.setUnits(_D)
-_CSctpAssocExtChunksSentUnOrdered_Type=Counter32
-_CSctpAssocExtChunksSentUnOrdered_Object=MibTableColumn
-cSctpAssocExtChunksSentUnOrdered=_CSctpAssocExtChunksSentUnOrdered_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,21),_CSctpAssocExtChunksSentUnOrdered_Type())
-cSctpAssocExtChunksSentUnOrdered.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtChunksSentUnOrdered.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtChunksSentUnOrdered.setUnits(_D)
-_CSctpAssocExtDatagramsRec_Type=Counter32
-_CSctpAssocExtDatagramsRec_Object=MibTableColumn
-cSctpAssocExtDatagramsRec=_CSctpAssocExtDatagramsRec_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,22),_CSctpAssocExtDatagramsRec_Type())
-cSctpAssocExtDatagramsRec.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtDatagramsRec.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtDatagramsRec.setUnits(_J)
-_CSctpAssocExtDatagramsSent_Type=Counter32
-_CSctpAssocExtDatagramsSent_Object=MibTableColumn
-cSctpAssocExtDatagramsSent=_CSctpAssocExtDatagramsSent_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,23),_CSctpAssocExtDatagramsSent_Type())
-cSctpAssocExtDatagramsSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtDatagramsSent.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtDatagramsSent.setUnits(_J)
-_CSctpAssocExtEffectiveAddrType_Type=InetAddressType
-_CSctpAssocExtEffectiveAddrType_Object=MibTableColumn
-cSctpAssocExtEffectiveAddrType=_CSctpAssocExtEffectiveAddrType_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,24),_CSctpAssocExtEffectiveAddrType_Type())
-cSctpAssocExtEffectiveAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtEffectiveAddrType.setStatus(_B)
-_CSctpAssocExtEffectiveAddress_Type=InetAddress
-_CSctpAssocExtEffectiveAddress_Object=MibTableColumn
-cSctpAssocExtEffectiveAddress=_CSctpAssocExtEffectiveAddress_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,25),_CSctpAssocExtEffectiveAddress_Type())
-cSctpAssocExtEffectiveAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtEffectiveAddress.setStatus(_B)
-_CSctpAssocExtRtxChunksFast_Type=Counter32
-_CSctpAssocExtRtxChunksFast_Object=MibTableColumn
-cSctpAssocExtRtxChunksFast=_CSctpAssocExtRtxChunksFast_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,26),_CSctpAssocExtRtxChunksFast_Type())
-cSctpAssocExtRtxChunksFast.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtRtxChunksFast.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtRtxChunksFast.setUnits(_D)
-_CSctpAssocExtBundleFlag_Type=TruthValue
-_CSctpAssocExtBundleFlag_Object=MibTableColumn
-cSctpAssocExtBundleFlag=_CSctpAssocExtBundleFlag_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,27),_CSctpAssocExtBundleFlag_Type())
-cSctpAssocExtBundleFlag.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtBundleFlag.setStatus(_B)
-class _CSctpAssocExtBundleTimeout_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,60000))
-_CSctpAssocExtBundleTimeout_Type.__name__=_E
-_CSctpAssocExtBundleTimeout_Object=MibTableColumn
-cSctpAssocExtBundleTimeout=_CSctpAssocExtBundleTimeout_Object((1,3,6,1,4,1,9,10,76,1,2,1,1,28),_CSctpAssocExtBundleTimeout_Type())
-cSctpAssocExtBundleTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocExtBundleTimeout.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocExtBundleTimeout.setUnits(_F)
-_CSctpAssocRemAddressExtTable_Object=MibTable
-cSctpAssocRemAddressExtTable=_CSctpAssocRemAddressExtTable_Object((1,3,6,1,4,1,9,10,76,1,2,2))
-if mibBuilder.loadTexts:cSctpAssocRemAddressExtTable.setStatus(_B)
-_CSctpAssocRemAddressExtEntry_Object=MibTableRow
-cSctpAssocRemAddressExtEntry=_CSctpAssocRemAddressExtEntry_Object((1,3,6,1,4,1,9,10,76,1,2,2,1))
-if mibBuilder.loadTexts:cSctpAssocRemAddressExtEntry.setStatus(_B)
-_CSctpAssocRemAddressFailedCnt_Type=Counter32
-_CSctpAssocRemAddressFailedCnt_Object=MibTableColumn
-cSctpAssocRemAddressFailedCnt=_CSctpAssocRemAddressFailedCnt_Object((1,3,6,1,4,1,9,10,76,1,2,2,1,1),_CSctpAssocRemAddressFailedCnt_Type())
-cSctpAssocRemAddressFailedCnt.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocRemAddressFailedCnt.setStatus(_B)
-class _CSctpAssocRemAddressSRTT_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CSctpAssocRemAddressSRTT_Type.__name__=_E
-_CSctpAssocRemAddressSRTT_Object=MibTableColumn
-cSctpAssocRemAddressSRTT=_CSctpAssocRemAddressSRTT_Object((1,3,6,1,4,1,9,10,76,1,2,2,1,2),_CSctpAssocRemAddressSRTT_Type())
-cSctpAssocRemAddressSRTT.setMaxAccess(_C)
-if mibBuilder.loadTexts:cSctpAssocRemAddressSRTT.setStatus(_B)
-if mibBuilder.loadTexts:cSctpAssocRemAddressSRTT.setUnits(_F)
-_CSctpExtConformance_ObjectIdentity=ObjectIdentity
-cSctpExtConformance=_CSctpExtConformance_ObjectIdentity((1,3,6,1,4,1,9,10,76,3))
-_CSctpExtCompliances_ObjectIdentity=ObjectIdentity
-cSctpExtCompliances=_CSctpExtCompliances_ObjectIdentity((1,3,6,1,4,1,9,10,76,3,1))
-_CSctpExtGroups_ObjectIdentity=ObjectIdentity
-cSctpExtGroups=_CSctpExtGroups_ObjectIdentity((1,3,6,1,4,1,9,10,76,3,2))
-cSctpAssocEntry.registerAugmentions((_A,_l))
+#
+# PySNMP MIB module CISCO-IETF-SCTP-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-IETF-SCTP-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:11 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cSctpAssocRemAddressEntry, cSctpAssocRemAddressStatus, cSctpAssocEntry = mibBuilder.importSymbols("CISCO-IETF-SCTP-MIB", "cSctpAssocRemAddressEntry", "cSctpAssocRemAddressStatus", "cSctpAssocEntry")
+ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TruthValue", "TextualConvention")
+cSctpExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 76))
+cSctpExtMIB.setRevisions(('2001-11-09 00:00', '2001-08-27 00:00',))
+if mibBuilder.loadTexts: cSctpExtMIB.setLastUpdated('200111090000Z')
+if mibBuilder.loadTexts: cSctpExtMIB.setOrganization(' ')
+cSctpExtNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 76, 0))
+cSctpExtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 76, 1))
+cSctpScalarsExt = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 1))
+cSctpExtTables = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2))
+cSctpStatRtxChucks = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 1, 1), Counter32()).setUnits('chunks').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpStatRtxChucks.setStatus('current')
+cSctpStatRtxChucksFast = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 1, 2), Counter32()).setUnits('chunks').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpStatRtxChucksFast.setStatus('current')
+cSctpStatDestAddressFailures = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpStatDestAddressFailures.setStatus('current')
+cSctpCtrlPurgeTimeout = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(3600, 3000000)).clone(86400)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cSctpCtrlPurgeTimeout.setStatus('current')
+cSctpCtrlMaxHeld = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(30, 10000)).clone(100)).setUnits('association TCBs').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cSctpCtrlMaxHeld.setStatus('current')
+cSctpAddressStateNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 1, 6), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cSctpAddressStateNotifEnabled.setStatus('current')
+cSctpAssocExtTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1), )
+if mibBuilder.loadTexts: cSctpAssocExtTable.setStatus('current')
+cSctpAssocExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1), )
+cSctpAssocEntry.registerAugmentions(("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtEntry"))
 cSctpAssocExtEntry.setIndexNames(*cSctpAssocEntry.getIndexNames())
-cSctpAssocRemAddressEntry.registerAugmentions((_A,_m))
+if mibBuilder.loadTexts: cSctpAssocExtEntry.setStatus('current')
+cSctpAssocExtRtoMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 1), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtRtoMin.setStatus('current')
+cSctpAssocExtRtoMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 2), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtRtoMax.setStatus('current')
+cSctpAssocExtRtoInitial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 3), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtRtoInitial.setStatus('current')
+cSctpAssocExtValCookieLife = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 4), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtValCookieLife.setStatus('current')
+cSctpAssocExtMaxInitRetr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtMaxInitRetr.setStatus('current')
+cSctpAssocExtMTU = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(37, 65535))).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtMTU.setStatus('current')
+cSctpAssocExtLocRecWnd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtLocRecWnd.setStatus('current')
+cSctpAssocExtLocRecWndLowMark = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 8), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtLocRecWndLowMark.setStatus('current')
+cSctpAssocExtLocRecWndZeroCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtLocRecWndZeroCnt.setStatus('current')
+cSctpAssocExtRemRecWnd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtRemRecWnd.setStatus('current')
+cSctpAssocExtRemRecWndLowMark = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 11), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtRemRecWndLowMark.setStatus('current')
+cSctpAssocExtRemRecWndZeroCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtRemRecWndZeroCnt.setStatus('current')
+cSctpAssocExtUlpQueued = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 13), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('datagrams').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtUlpQueued.setStatus('current')
+cSctpAssocExtUlpQueuedHW = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 14), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('datagrams').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cSctpAssocExtUlpQueuedHW.setStatus('current')
+cSctpAssocExtUlpQueuedRT = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 15), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtUlpQueuedRT.setStatus('current')
+cSctpAssocExtChunksRecControl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 16), Counter32()).setUnits('chunks').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtChunksRecControl.setStatus('current')
+cSctpAssocExtChunksRecOrdered = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 17), Counter32()).setUnits('chunks').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtChunksRecOrdered.setStatus('current')
+cSctpAssocExtChunksRecUnOrdered = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 18), Counter32()).setUnits('chunks').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtChunksRecUnOrdered.setStatus('current')
+cSctpAssocExtChunksSentControl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 19), Counter32()).setUnits('chunks').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtChunksSentControl.setStatus('current')
+cSctpAssocExtChunksSentOrdered = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 20), Counter32()).setUnits('chunks').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtChunksSentOrdered.setStatus('current')
+cSctpAssocExtChunksSentUnOrdered = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 21), Counter32()).setUnits('chunks').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtChunksSentUnOrdered.setStatus('current')
+cSctpAssocExtDatagramsRec = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 22), Counter32()).setUnits('datagrams').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtDatagramsRec.setStatus('current')
+cSctpAssocExtDatagramsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 23), Counter32()).setUnits('datagrams').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtDatagramsSent.setStatus('current')
+cSctpAssocExtEffectiveAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 24), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtEffectiveAddrType.setStatus('current')
+cSctpAssocExtEffectiveAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 25), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtEffectiveAddress.setStatus('current')
+cSctpAssocExtRtxChunksFast = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 26), Counter32()).setUnits('chunks').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtRtxChunksFast.setStatus('current')
+cSctpAssocExtBundleFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 27), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtBundleFlag.setStatus('current')
+cSctpAssocExtBundleTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 1, 1, 28), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 60000))).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocExtBundleTimeout.setStatus('current')
+cSctpAssocRemAddressExtTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 2), )
+if mibBuilder.loadTexts: cSctpAssocRemAddressExtTable.setStatus('current')
+cSctpAssocRemAddressExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 2, 1), )
+cSctpAssocRemAddressEntry.registerAugmentions(("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocRemAddressExtEntry"))
 cSctpAssocRemAddressExtEntry.setIndexNames(*cSctpAssocRemAddressEntry.getIndexNames())
-cSctpExtStatGroup=ObjectGroup((1,3,6,1,4,1,9,10,76,3,2,1))
-cSctpExtStatGroup.setObjects(*((_A,_n),(_A,_o),(_A,_p)))
-if mibBuilder.loadTexts:cSctpExtStatGroup.setStatus(_B)
-cSctpExtCtrlGroup=ObjectGroup((1,3,6,1,4,1,9,10,76,3,2,2))
-cSctpExtCtrlGroup.setObjects(*((_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:cSctpExtCtrlGroup.setStatus(_M)
-cSctpExtAssocCtrlGroup=ObjectGroup((1,3,6,1,4,1,9,10,76,3,2,3))
-cSctpExtAssocCtrlGroup.setObjects(*((_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u)))
-if mibBuilder.loadTexts:cSctpExtAssocCtrlGroup.setStatus(_B)
-cSctpExtAssocStatGroup=ObjectGroup((1,3,6,1,4,1,9,10,76,3,2,4))
-cSctpExtAssocStatGroup.setObjects(*((_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e)))
-if mibBuilder.loadTexts:cSctpExtAssocStatGroup.setStatus(_M)
-cSctpExtAssocRemAddrGroup=ObjectGroup((1,3,6,1,4,1,9,10,76,3,2,5))
-cSctpExtAssocRemAddrGroup.setObjects(*((_A,_v),(_A,_w)))
-if mibBuilder.loadTexts:cSctpExtAssocRemAddrGroup.setStatus(_B)
-cSctpExtCtrlGroupRev1=ObjectGroup((1,3,6,1,4,1,9,10,76,3,2,7))
-cSctpExtCtrlGroupRev1.setObjects(*((_A,_K),(_A,_L),(_A,_x)))
-if mibBuilder.loadTexts:cSctpExtCtrlGroupRev1.setStatus(_B)
-cSctpExtAssocStatGroupRev1=ObjectGroup((1,3,6,1,4,1,9,10,76,3,2,8))
-cSctpExtAssocStatGroupRev1.setObjects(*((_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2)))
-if mibBuilder.loadTexts:cSctpExtAssocStatGroupRev1.setStatus(_B)
-cSctpExtDestAddressStateChange=NotificationType((1,3,6,1,4,1,9,10,76,0,1))
-cSctpExtDestAddressStateChange.setObjects((_i,_j))
-if mibBuilder.loadTexts:cSctpExtDestAddressStateChange.setStatus(_B)
-cSctpExtAssocNotificationsGroup=NotificationGroup((1,3,6,1,4,1,9,10,76,3,2,6))
-cSctpExtAssocNotificationsGroup.setObjects((_A,_A3))
-if mibBuilder.loadTexts:cSctpExtAssocNotificationsGroup.setStatus(_B)
-cSctpExtCompliance=ModuleCompliance((1,3,6,1,4,1,9,10,76,3,1,1))
-cSctpExtCompliance.setObjects(*((_A,_f),(_A,_A4),(_A,_g),(_A,_A5),(_A,_h)))
-if mibBuilder.loadTexts:cSctpExtCompliance.setStatus(_M)
-cSctpExtComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,10,76,3,1,2))
-cSctpExtComplianceRev1.setObjects(*((_A,_f),(_A,_g),(_A,_h),(_A,_A6),(_A,_A7),(_A,_A8)))
-if mibBuilder.loadTexts:cSctpExtComplianceRev1.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'cSctpExtMIB':cSctpExtMIB,'cSctpExtNotifications':cSctpExtNotifications,_A3:cSctpExtDestAddressStateChange,'cSctpExtObjects':cSctpExtObjects,'cSctpScalarsExt':cSctpScalarsExt,_n:cSctpStatRtxChucks,_o:cSctpStatRtxChucksFast,_p:cSctpStatDestAddressFailures,_K:cSctpCtrlPurgeTimeout,_L:cSctpCtrlMaxHeld,_x:cSctpAddressStateNotifEnabled,'cSctpExtTables':cSctpExtTables,'cSctpAssocExtTable':cSctpAssocExtTable,_l:cSctpAssocExtEntry,_q:cSctpAssocExtRtoMin,_r:cSctpAssocExtRtoMax,_s:cSctpAssocExtRtoInitial,_t:cSctpAssocExtValCookieLife,_u:cSctpAssocExtMaxInitRetr,_N:cSctpAssocExtMTU,_O:cSctpAssocExtLocRecWnd,_P:cSctpAssocExtLocRecWndLowMark,_Q:cSctpAssocExtLocRecWndZeroCnt,_R:cSctpAssocExtRemRecWnd,_S:cSctpAssocExtRemRecWndLowMark,_T:cSctpAssocExtRemRecWndZeroCnt,_U:cSctpAssocExtUlpQueued,_V:cSctpAssocExtUlpQueuedHW,_W:cSctpAssocExtUlpQueuedRT,_X:cSctpAssocExtChunksRecControl,_Y:cSctpAssocExtChunksRecOrdered,_Z:cSctpAssocExtChunksRecUnOrdered,_a:cSctpAssocExtChunksSentControl,_b:cSctpAssocExtChunksSentOrdered,_c:cSctpAssocExtChunksSentUnOrdered,_d:cSctpAssocExtDatagramsRec,_e:cSctpAssocExtDatagramsSent,_y:cSctpAssocExtEffectiveAddrType,_z:cSctpAssocExtEffectiveAddress,_A0:cSctpAssocExtRtxChunksFast,_A2:cSctpAssocExtBundleFlag,_A1:cSctpAssocExtBundleTimeout,'cSctpAssocRemAddressExtTable':cSctpAssocRemAddressExtTable,_m:cSctpAssocRemAddressExtEntry,_v:cSctpAssocRemAddressFailedCnt,_w:cSctpAssocRemAddressSRTT,'cSctpExtConformance':cSctpExtConformance,'cSctpExtCompliances':cSctpExtCompliances,'cSctpExtCompliance':cSctpExtCompliance,'cSctpExtComplianceRev1':cSctpExtComplianceRev1,'cSctpExtGroups':cSctpExtGroups,_f:cSctpExtStatGroup,_A4:cSctpExtCtrlGroup,_g:cSctpExtAssocCtrlGroup,_A5:cSctpExtAssocStatGroup,_h:cSctpExtAssocRemAddrGroup,_A6:cSctpExtAssocNotificationsGroup,_A7:cSctpExtCtrlGroupRev1,_A8:cSctpExtAssocStatGroupRev1})
+if mibBuilder.loadTexts: cSctpAssocRemAddressExtEntry.setStatus('current')
+cSctpAssocRemAddressFailedCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 2, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocRemAddressFailedCnt.setStatus('current')
+cSctpAssocRemAddressSRTT = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 76, 1, 2, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cSctpAssocRemAddressSRTT.setStatus('current')
+cSctpExtDestAddressStateChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 10, 76, 0, 1)).setObjects(("CISCO-IETF-SCTP-MIB", "cSctpAssocRemAddressStatus"))
+if mibBuilder.loadTexts: cSctpExtDestAddressStateChange.setStatus('current')
+cSctpExtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 76, 3))
+cSctpExtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 76, 3, 1))
+cSctpExtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 76, 3, 2))
+cSctpExtCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 76, 3, 1, 1)).setObjects(("CISCO-IETF-SCTP-EXT-MIB", "cSctpExtStatGroup"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpExtCtrlGroup"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpExtAssocCtrlGroup"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpExtAssocStatGroup"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpExtAssocRemAddrGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cSctpExtCompliance = cSctpExtCompliance.setStatus('deprecated')
+cSctpExtComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 76, 3, 1, 2)).setObjects(("CISCO-IETF-SCTP-EXT-MIB", "cSctpExtStatGroup"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpExtAssocCtrlGroup"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpExtAssocRemAddrGroup"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpExtAssocNotificationsGroup"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpExtCtrlGroupRev1"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpExtAssocStatGroupRev1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cSctpExtComplianceRev1 = cSctpExtComplianceRev1.setStatus('current')
+cSctpExtStatGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 76, 3, 2, 1)).setObjects(("CISCO-IETF-SCTP-EXT-MIB", "cSctpStatRtxChucks"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpStatRtxChucksFast"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpStatDestAddressFailures"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cSctpExtStatGroup = cSctpExtStatGroup.setStatus('current')
+cSctpExtCtrlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 76, 3, 2, 2)).setObjects(("CISCO-IETF-SCTP-EXT-MIB", "cSctpCtrlPurgeTimeout"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpCtrlMaxHeld"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cSctpExtCtrlGroup = cSctpExtCtrlGroup.setStatus('deprecated')
+cSctpExtAssocCtrlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 76, 3, 2, 3)).setObjects(("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtRtoMin"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtRtoMax"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtRtoInitial"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtValCookieLife"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtMaxInitRetr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cSctpExtAssocCtrlGroup = cSctpExtAssocCtrlGroup.setStatus('current')
+cSctpExtAssocStatGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 76, 3, 2, 4)).setObjects(("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtMTU"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtLocRecWnd"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtLocRecWndLowMark"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtLocRecWndZeroCnt"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtRemRecWnd"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtRemRecWndLowMark"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtRemRecWndZeroCnt"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtUlpQueued"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtUlpQueuedHW"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtUlpQueuedRT"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtChunksRecControl"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtChunksRecOrdered"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtChunksRecUnOrdered"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtChunksSentControl"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtChunksSentOrdered"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtChunksSentUnOrdered"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtDatagramsRec"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtDatagramsSent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cSctpExtAssocStatGroup = cSctpExtAssocStatGroup.setStatus('deprecated')
+cSctpExtAssocRemAddrGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 76, 3, 2, 5)).setObjects(("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocRemAddressFailedCnt"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocRemAddressSRTT"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cSctpExtAssocRemAddrGroup = cSctpExtAssocRemAddrGroup.setStatus('current')
+cSctpExtAssocNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 10, 76, 3, 2, 6)).setObjects(("CISCO-IETF-SCTP-EXT-MIB", "cSctpExtDestAddressStateChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cSctpExtAssocNotificationsGroup = cSctpExtAssocNotificationsGroup.setStatus('current')
+cSctpExtCtrlGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 76, 3, 2, 7)).setObjects(("CISCO-IETF-SCTP-EXT-MIB", "cSctpCtrlPurgeTimeout"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpCtrlMaxHeld"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAddressStateNotifEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cSctpExtCtrlGroupRev1 = cSctpExtCtrlGroupRev1.setStatus('current')
+cSctpExtAssocStatGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 76, 3, 2, 8)).setObjects(("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtMTU"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtLocRecWnd"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtLocRecWndLowMark"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtLocRecWndZeroCnt"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtRemRecWnd"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtRemRecWndLowMark"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtRemRecWndZeroCnt"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtUlpQueued"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtUlpQueuedHW"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtUlpQueuedRT"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtChunksRecControl"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtChunksRecOrdered"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtChunksRecUnOrdered"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtChunksSentControl"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtChunksSentOrdered"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtChunksSentUnOrdered"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtDatagramsRec"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtDatagramsSent"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtEffectiveAddrType"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtEffectiveAddress"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtRtxChunksFast"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtBundleTimeout"), ("CISCO-IETF-SCTP-EXT-MIB", "cSctpAssocExtBundleFlag"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cSctpExtAssocStatGroupRev1 = cSctpExtAssocStatGroupRev1.setStatus('current')
+mibBuilder.exportSymbols("CISCO-IETF-SCTP-EXT-MIB", cSctpScalarsExt=cSctpScalarsExt, cSctpCtrlMaxHeld=cSctpCtrlMaxHeld, cSctpAssocExtBundleFlag=cSctpAssocExtBundleFlag, cSctpAssocExtChunksSentOrdered=cSctpAssocExtChunksSentOrdered, cSctpAssocExtValCookieLife=cSctpAssocExtValCookieLife, cSctpAssocExtRemRecWnd=cSctpAssocExtRemRecWnd, cSctpAssocExtUlpQueuedHW=cSctpAssocExtUlpQueuedHW, cSctpExtDestAddressStateChange=cSctpExtDestAddressStateChange, cSctpAssocExtLocRecWndZeroCnt=cSctpAssocExtLocRecWndZeroCnt, cSctpAssocExtDatagramsRec=cSctpAssocExtDatagramsRec, cSctpExtCompliances=cSctpExtCompliances, cSctpAssocExtChunksSentControl=cSctpAssocExtChunksSentControl, cSctpExtComplianceRev1=cSctpExtComplianceRev1, cSctpAddressStateNotifEnabled=cSctpAddressStateNotifEnabled, cSctpAssocExtRemRecWndZeroCnt=cSctpAssocExtRemRecWndZeroCnt, cSctpAssocExtTable=cSctpAssocExtTable, cSctpAssocExtBundleTimeout=cSctpAssocExtBundleTimeout, cSctpExtCompliance=cSctpExtCompliance, cSctpAssocExtRemRecWndLowMark=cSctpAssocExtRemRecWndLowMark, cSctpAssocExtUlpQueuedRT=cSctpAssocExtUlpQueuedRT, cSctpExtCtrlGroupRev1=cSctpExtCtrlGroupRev1, cSctpAssocExtLocRecWndLowMark=cSctpAssocExtLocRecWndLowMark, cSctpAssocExtRtxChunksFast=cSctpAssocExtRtxChunksFast, cSctpAssocExtUlpQueued=cSctpAssocExtUlpQueued, cSctpExtTables=cSctpExtTables, cSctpExtAssocCtrlGroup=cSctpExtAssocCtrlGroup, cSctpExtCtrlGroup=cSctpExtCtrlGroup, cSctpAssocExtEntry=cSctpAssocExtEntry, cSctpAssocExtEffectiveAddress=cSctpAssocExtEffectiveAddress, cSctpAssocExtDatagramsSent=cSctpAssocExtDatagramsSent, cSctpAssocExtEffectiveAddrType=cSctpAssocExtEffectiveAddrType, cSctpExtAssocStatGroupRev1=cSctpExtAssocStatGroupRev1, cSctpAssocRemAddressExtEntry=cSctpAssocRemAddressExtEntry, cSctpAssocExtRtoMax=cSctpAssocExtRtoMax, cSctpExtMIB=cSctpExtMIB, cSctpAssocExtLocRecWnd=cSctpAssocExtLocRecWnd, cSctpAssocExtChunksRecControl=cSctpAssocExtChunksRecControl, cSctpExtAssocRemAddrGroup=cSctpExtAssocRemAddrGroup, cSctpExtAssocNotificationsGroup=cSctpExtAssocNotificationsGroup, cSctpExtStatGroup=cSctpExtStatGroup, cSctpAssocExtRtoMin=cSctpAssocExtRtoMin, cSctpExtNotifications=cSctpExtNotifications, cSctpExtConformance=cSctpExtConformance, cSctpAssocExtChunksRecOrdered=cSctpAssocExtChunksRecOrdered, cSctpAssocExtMaxInitRetr=cSctpAssocExtMaxInitRetr, cSctpExtObjects=cSctpExtObjects, cSctpStatRtxChucksFast=cSctpStatRtxChucksFast, cSctpCtrlPurgeTimeout=cSctpCtrlPurgeTimeout, cSctpAssocRemAddressExtTable=cSctpAssocRemAddressExtTable, cSctpExtGroups=cSctpExtGroups, cSctpStatRtxChucks=cSctpStatRtxChucks, cSctpExtAssocStatGroup=cSctpExtAssocStatGroup, cSctpAssocExtChunksSentUnOrdered=cSctpAssocExtChunksSentUnOrdered, cSctpAssocExtChunksRecUnOrdered=cSctpAssocExtChunksRecUnOrdered, cSctpAssocRemAddressFailedCnt=cSctpAssocRemAddressFailedCnt, PYSNMP_MODULE_ID=cSctpExtMIB, cSctpStatDestAddressFailures=cSctpStatDestAddressFailures, cSctpAssocExtRtoInitial=cSctpAssocExtRtoInitial, cSctpAssocExtMTU=cSctpAssocExtMTU, cSctpAssocRemAddressSRTT=cSctpAssocRemAddressSRTT)

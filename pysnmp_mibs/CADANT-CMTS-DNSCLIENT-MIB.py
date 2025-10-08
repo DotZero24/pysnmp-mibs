@@ -1,73 +1,42 @@
-_I='cadDnsClientDomainName'
-_H='read-create'
-_G='not-accessible'
-_F='cadDnsClientServerIpAddr'
-_E='read-write'
-_D='TruthValue'
-_C='Integer32'
-_B='CADANT-CMTS-DNSCLIENT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-cadLayer3,=mibBuilder.importSymbols('CADANT-PRODUCTS-MIB','cadLayer3')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_D)
-cadDnsClientMib=ModuleIdentity((1,3,6,1,4,1,4998,1,1,25,8))
-if mibBuilder.loadTexts:cadDnsClientMib.setRevisions(('2003-07-14 00:00',))
-_CadDnsClientObjects_ObjectIdentity=ObjectIdentity
-cadDnsClientObjects=_CadDnsClientObjects_ObjectIdentity((1,3,6,1,4,1,4998,1,1,25,8,1))
-class _CadDnsClientEnable_Type(TruthValue):defaultValue=1
-_CadDnsClientEnable_Type.__name__=_D
-_CadDnsClientEnable_Object=MibScalar
-cadDnsClientEnable=_CadDnsClientEnable_Object((1,3,6,1,4,1,4998,1,1,25,8,1,1),_CadDnsClientEnable_Type())
-cadDnsClientEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:cadDnsClientEnable.setStatus(_A)
-_CadDnsClientDefaultDomain_Type=DisplayString
-_CadDnsClientDefaultDomain_Object=MibScalar
-cadDnsClientDefaultDomain=_CadDnsClientDefaultDomain_Object((1,3,6,1,4,1,4998,1,1,25,8,1,2),_CadDnsClientDefaultDomain_Type())
-cadDnsClientDefaultDomain.setMaxAccess(_E)
-if mibBuilder.loadTexts:cadDnsClientDefaultDomain.setStatus(_A)
-_CadDnsClientServerTable_Object=MibTable
-cadDnsClientServerTable=_CadDnsClientServerTable_Object((1,3,6,1,4,1,4998,1,1,25,8,2))
-if mibBuilder.loadTexts:cadDnsClientServerTable.setStatus(_A)
-_CadDnsClientServerEntry_Object=MibTableRow
-cadDnsClientServerEntry=_CadDnsClientServerEntry_Object((1,3,6,1,4,1,4998,1,1,25,8,2,1))
-cadDnsClientServerEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:cadDnsClientServerEntry.setStatus(_A)
-_CadDnsClientServerIpAddr_Type=IpAddress
-_CadDnsClientServerIpAddr_Object=MibTableColumn
-cadDnsClientServerIpAddr=_CadDnsClientServerIpAddr_Object((1,3,6,1,4,1,4998,1,1,25,8,2,1,1),_CadDnsClientServerIpAddr_Type())
-cadDnsClientServerIpAddr.setMaxAccess(_G)
-if mibBuilder.loadTexts:cadDnsClientServerIpAddr.setStatus(_A)
-class _CadDnsClientServerPrefId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,6))
-_CadDnsClientServerPrefId_Type.__name__=_C
-_CadDnsClientServerPrefId_Object=MibTableColumn
-cadDnsClientServerPrefId=_CadDnsClientServerPrefId_Object((1,3,6,1,4,1,4998,1,1,25,8,2,1,2),_CadDnsClientServerPrefId_Type())
-cadDnsClientServerPrefId.setMaxAccess('read-only')
-if mibBuilder.loadTexts:cadDnsClientServerPrefId.setStatus(_A)
-_CadDnsClientServerRowStatus_Type=RowStatus
-_CadDnsClientServerRowStatus_Object=MibTableColumn
-cadDnsClientServerRowStatus=_CadDnsClientServerRowStatus_Object((1,3,6,1,4,1,4998,1,1,25,8,2,1,3),_CadDnsClientServerRowStatus_Type())
-cadDnsClientServerRowStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:cadDnsClientServerRowStatus.setStatus(_A)
-_CadDnsClientDomainNameTable_Object=MibTable
-cadDnsClientDomainNameTable=_CadDnsClientDomainNameTable_Object((1,3,6,1,4,1,4998,1,1,25,8,3))
-if mibBuilder.loadTexts:cadDnsClientDomainNameTable.setStatus(_A)
-_CadDnsClientDomainNameEntry_Object=MibTableRow
-cadDnsClientDomainNameEntry=_CadDnsClientDomainNameEntry_Object((1,3,6,1,4,1,4998,1,1,25,8,3,1))
-cadDnsClientDomainNameEntry.setIndexNames((0,_B,_I))
-if mibBuilder.loadTexts:cadDnsClientDomainNameEntry.setStatus(_A)
-_CadDnsClientDomainName_Type=DisplayString
-_CadDnsClientDomainName_Object=MibTableColumn
-cadDnsClientDomainName=_CadDnsClientDomainName_Object((1,3,6,1,4,1,4998,1,1,25,8,3,1,1),_CadDnsClientDomainName_Type())
-cadDnsClientDomainName.setMaxAccess(_G)
-if mibBuilder.loadTexts:cadDnsClientDomainName.setStatus(_A)
-_CadDnsClientDomainNameRowStatus_Type=RowStatus
-_CadDnsClientDomainNameRowStatus_Object=MibTableColumn
-cadDnsClientDomainNameRowStatus=_CadDnsClientDomainNameRowStatus_Object((1,3,6,1,4,1,4998,1,1,25,8,3,1,2),_CadDnsClientDomainNameRowStatus_Type())
-cadDnsClientDomainNameRowStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:cadDnsClientDomainNameRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'cadDnsClientMib':cadDnsClientMib,'cadDnsClientObjects':cadDnsClientObjects,'cadDnsClientEnable':cadDnsClientEnable,'cadDnsClientDefaultDomain':cadDnsClientDefaultDomain,'cadDnsClientServerTable':cadDnsClientServerTable,'cadDnsClientServerEntry':cadDnsClientServerEntry,_F:cadDnsClientServerIpAddr,'cadDnsClientServerPrefId':cadDnsClientServerPrefId,'cadDnsClientServerRowStatus':cadDnsClientServerRowStatus,'cadDnsClientDomainNameTable':cadDnsClientDomainNameTable,'cadDnsClientDomainNameEntry':cadDnsClientDomainNameEntry,_I:cadDnsClientDomainName,'cadDnsClientDomainNameRowStatus':cadDnsClientDomainNameRowStatus})
+#
+# PySNMP MIB module CADANT-CMTS-DNSCLIENT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/arris/CADANT-CMTS-DNSCLIENT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:49 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cadLayer3, = mibBuilder.importSymbols("CADANT-PRODUCTS-MIB", "cadLayer3")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+cadDnsClientMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4998, 1, 1, 25, 8))
+cadDnsClientMib.setRevisions(('2003-07-14 00:00',))
+if mibBuilder.loadTexts: cadDnsClientMib.setLastUpdated('200307140000Z')
+if mibBuilder.loadTexts: cadDnsClientMib.setOrganization('Cadant Inc')
+cadDnsClientObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4998, 1, 1, 25, 8, 1))
+cadDnsClientEnable = MibScalar((1, 3, 6, 1, 4, 1, 4998, 1, 1, 25, 8, 1, 1), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cadDnsClientEnable.setStatus('current')
+cadDnsClientDefaultDomain = MibScalar((1, 3, 6, 1, 4, 1, 4998, 1, 1, 25, 8, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cadDnsClientDefaultDomain.setStatus('current')
+cadDnsClientServerTable = MibTable((1, 3, 6, 1, 4, 1, 4998, 1, 1, 25, 8, 2), )
+if mibBuilder.loadTexts: cadDnsClientServerTable.setStatus('current')
+cadDnsClientServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4998, 1, 1, 25, 8, 2, 1), ).setIndexNames((0, "CADANT-CMTS-DNSCLIENT-MIB", "cadDnsClientServerIpAddr"))
+if mibBuilder.loadTexts: cadDnsClientServerEntry.setStatus('current')
+cadDnsClientServerIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 4998, 1, 1, 25, 8, 2, 1, 1), IpAddress())
+if mibBuilder.loadTexts: cadDnsClientServerIpAddr.setStatus('current')
+cadDnsClientServerPrefId = MibTableColumn((1, 3, 6, 1, 4, 1, 4998, 1, 1, 25, 8, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 6))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cadDnsClientServerPrefId.setStatus('current')
+cadDnsClientServerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4998, 1, 1, 25, 8, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cadDnsClientServerRowStatus.setStatus('current')
+cadDnsClientDomainNameTable = MibTable((1, 3, 6, 1, 4, 1, 4998, 1, 1, 25, 8, 3), )
+if mibBuilder.loadTexts: cadDnsClientDomainNameTable.setStatus('current')
+cadDnsClientDomainNameEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4998, 1, 1, 25, 8, 3, 1), ).setIndexNames((0, "CADANT-CMTS-DNSCLIENT-MIB", "cadDnsClientDomainName"))
+if mibBuilder.loadTexts: cadDnsClientDomainNameEntry.setStatus('current')
+cadDnsClientDomainName = MibTableColumn((1, 3, 6, 1, 4, 1, 4998, 1, 1, 25, 8, 3, 1, 1), DisplayString())
+if mibBuilder.loadTexts: cadDnsClientDomainName.setStatus('current')
+cadDnsClientDomainNameRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4998, 1, 1, 25, 8, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cadDnsClientDomainNameRowStatus.setStatus('current')
+mibBuilder.exportSymbols("CADANT-CMTS-DNSCLIENT-MIB", cadDnsClientServerTable=cadDnsClientServerTable, cadDnsClientDomainNameRowStatus=cadDnsClientDomainNameRowStatus, cadDnsClientServerRowStatus=cadDnsClientServerRowStatus, cadDnsClientDomainName=cadDnsClientDomainName, cadDnsClientMib=cadDnsClientMib, cadDnsClientDomainNameEntry=cadDnsClientDomainNameEntry, cadDnsClientObjects=cadDnsClientObjects, cadDnsClientDefaultDomain=cadDnsClientDefaultDomain, PYSNMP_MODULE_ID=cadDnsClientMib, cadDnsClientServerIpAddr=cadDnsClientServerIpAddr, cadDnsClientEnable=cadDnsClientEnable, cadDnsClientServerEntry=cadDnsClientServerEntry, cadDnsClientServerPrefId=cadDnsClientServerPrefId, cadDnsClientDomainNameTable=cadDnsClientDomainNameTable)

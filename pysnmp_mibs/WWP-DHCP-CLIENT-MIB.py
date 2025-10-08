@@ -1,56 +1,34 @@
-_E='TruthValue'
-_D='DisplayString'
-_C='Integer32'
-_B='current'
-_A='read-write'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention',_E)
-wwpModules,=mibBuilder.importSymbols('WWP-SMI','wwpModules')
-wwpDhcpClientMIB=ModuleIdentity((1,3,6,1,4,1,6141,2,18))
-if mibBuilder.loadTexts:wwpDhcpClientMIB.setRevisions(('2001-04-03 17:00',))
-_WwpDhcpClientMIBObjects_ObjectIdentity=ObjectIdentity
-wwpDhcpClientMIBObjects=_WwpDhcpClientMIBObjects_ObjectIdentity((1,3,6,1,4,1,6141,2,18,1))
-_WwpDhcpClient_ObjectIdentity=ObjectIdentity
-wwpDhcpClient=_WwpDhcpClient_ObjectIdentity((1,3,6,1,4,1,6141,2,18,1,1))
-class _WwpDhcpActivate_Type(TruthValue):defaultValue=2
-_WwpDhcpActivate_Type.__name__=_E
-_WwpDhcpActivate_Object=MibScalar
-wwpDhcpActivate=_WwpDhcpActivate_Object((1,3,6,1,4,1,6141,2,18,1,1,1),_WwpDhcpActivate_Type())
-wwpDhcpActivate.setMaxAccess(_A)
-if mibBuilder.loadTexts:wwpDhcpActivate.setStatus(_B)
-class _WwpDhcpIfName_Type(DisplayString):defaultValue=OctetString('mgmt');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_WwpDhcpIfName_Type.__name__=_D
-_WwpDhcpIfName_Object=MibScalar
-wwpDhcpIfName=_WwpDhcpIfName_Object((1,3,6,1,4,1,6141,2,18,1,1,2),_WwpDhcpIfName_Type())
-wwpDhcpIfName.setMaxAccess(_A)
-if mibBuilder.loadTexts:wwpDhcpIfName.setStatus(_B)
-class _WwpDhcpDiscoveryMsgInterval_Type(Integer32):defaultValue=125;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_WwpDhcpDiscoveryMsgInterval_Type.__name__=_C
-_WwpDhcpDiscoveryMsgInterval_Object=MibScalar
-wwpDhcpDiscoveryMsgInterval=_WwpDhcpDiscoveryMsgInterval_Object((1,3,6,1,4,1,6141,2,18,1,1,3),_WwpDhcpDiscoveryMsgInterval_Type())
-wwpDhcpDiscoveryMsgInterval.setMaxAccess(_A)
-if mibBuilder.loadTexts:wwpDhcpDiscoveryMsgInterval.setStatus(_B)
-if mibBuilder.loadTexts:wwpDhcpDiscoveryMsgInterval.setUnits('miliseconds')
-class _WwpDhcpLeaseTime_Type(Integer32):defaultValue=24;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_WwpDhcpLeaseTime_Type.__name__=_C
-_WwpDhcpLeaseTime_Object=MibScalar
-wwpDhcpLeaseTime=_WwpDhcpLeaseTime_Object((1,3,6,1,4,1,6141,2,18,1,1,4),_WwpDhcpLeaseTime_Type())
-wwpDhcpLeaseTime.setMaxAccess(_A)
-if mibBuilder.loadTexts:wwpDhcpLeaseTime.setStatus(_B)
-if mibBuilder.loadTexts:wwpDhcpLeaseTime.setUnits('Hours')
-_WwpDhcpClientMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
-wwpDhcpClientMIBNotificationPrefix=_WwpDhcpClientMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,6141,2,18,2))
-_WwpDhcpClientMIBNotifications_ObjectIdentity=ObjectIdentity
-wwpDhcpClientMIBNotifications=_WwpDhcpClientMIBNotifications_ObjectIdentity((1,3,6,1,4,1,6141,2,18,2,0))
-_WwpDhcpClientMIBConformance_ObjectIdentity=ObjectIdentity
-wwpDhcpClientMIBConformance=_WwpDhcpClientMIBConformance_ObjectIdentity((1,3,6,1,4,1,6141,2,18,3))
-_WwpDhcpClientMIBCompliances_ObjectIdentity=ObjectIdentity
-wwpDhcpClientMIBCompliances=_WwpDhcpClientMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6141,2,18,3,1))
-_WwpDhcpClientMIBGroups_ObjectIdentity=ObjectIdentity
-wwpDhcpClientMIBGroups=_WwpDhcpClientMIBGroups_ObjectIdentity((1,3,6,1,4,1,6141,2,18,3,2))
-mibBuilder.exportSymbols('WWP-DHCP-CLIENT-MIB',**{'wwpDhcpClientMIB':wwpDhcpClientMIB,'wwpDhcpClientMIBObjects':wwpDhcpClientMIBObjects,'wwpDhcpClient':wwpDhcpClient,'wwpDhcpActivate':wwpDhcpActivate,'wwpDhcpIfName':wwpDhcpIfName,'wwpDhcpDiscoveryMsgInterval':wwpDhcpDiscoveryMsgInterval,'wwpDhcpLeaseTime':wwpDhcpLeaseTime,'wwpDhcpClientMIBNotificationPrefix':wwpDhcpClientMIBNotificationPrefix,'wwpDhcpClientMIBNotifications':wwpDhcpClientMIBNotifications,'wwpDhcpClientMIBConformance':wwpDhcpClientMIBConformance,'wwpDhcpClientMIBCompliances':wwpDhcpClientMIBCompliances,'wwpDhcpClientMIBGroups':wwpDhcpClientMIBGroups})
+#
+# PySNMP MIB module WWP-DHCP-CLIENT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/WWP-DHCP-CLIENT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:13 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+wwpModules, = mibBuilder.importSymbols("WWP-SMI", "wwpModules")
+wwpDhcpClientMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 18))
+wwpDhcpClientMIB.setRevisions(('2001-04-03 17:00',))
+if mibBuilder.loadTexts: wwpDhcpClientMIB.setLastUpdated('200104031700Z')
+if mibBuilder.loadTexts: wwpDhcpClientMIB.setOrganization('World Wide Packets, Inc')
+wwpDhcpClientMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 18, 1))
+wwpDhcpClient = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 18, 1, 1))
+wwpDhcpClientMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 18, 2))
+wwpDhcpClientMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 18, 2, 0))
+wwpDhcpClientMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 18, 3))
+wwpDhcpClientMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 18, 3, 1))
+wwpDhcpClientMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 18, 3, 2))
+wwpDhcpActivate = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 18, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpDhcpActivate.setStatus('current')
+wwpDhcpIfName = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 18, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32)).clone('mgmt')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpDhcpIfName.setStatus('current')
+wwpDhcpDiscoveryMsgInterval = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 18, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)).clone(125)).setUnits('miliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpDhcpDiscoveryMsgInterval.setStatus('current')
+wwpDhcpLeaseTime = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 18, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)).clone(24)).setUnits('Hours').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpDhcpLeaseTime.setStatus('current')
+mibBuilder.exportSymbols("WWP-DHCP-CLIENT-MIB", wwpDhcpDiscoveryMsgInterval=wwpDhcpDiscoveryMsgInterval, wwpDhcpIfName=wwpDhcpIfName, wwpDhcpClientMIBCompliances=wwpDhcpClientMIBCompliances, wwpDhcpClientMIBNotifications=wwpDhcpClientMIBNotifications, PYSNMP_MODULE_ID=wwpDhcpClientMIB, wwpDhcpClientMIB=wwpDhcpClientMIB, wwpDhcpClientMIBGroups=wwpDhcpClientMIBGroups, wwpDhcpClientMIBConformance=wwpDhcpClientMIBConformance, wwpDhcpActivate=wwpDhcpActivate, wwpDhcpClient=wwpDhcpClient, wwpDhcpLeaseTime=wwpDhcpLeaseTime, wwpDhcpClientMIBObjects=wwpDhcpClientMIBObjects, wwpDhcpClientMIBNotificationPrefix=wwpDhcpClientMIBNotificationPrefix)

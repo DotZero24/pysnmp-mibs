@@ -1,409 +1,173 @@
-_w='qtechSMPFrameRelayMibGroup'
-_v='qtechSMPPolicyMibGroup'
-_u='qtechSMPClientMibGroup'
-_t='qtechSMPServerMibGroup'
-_s='qtechSMPArpAttackInterfaceIndex'
-_r='qtechSMPArpAttackMac'
-_q='qtechSMPArpAttackCriticalStatus'
-_p='qtechSMPArpAttackStatus'
-_o='qtechSMPArpAttackFrameContent'
-_n='qtechSMPArpAttackInterfaceVlanID'
-_m='qtechSMPArpAttackInterfacePort'
-_l='qtechSMPArpAttackInterfaceSlot'
-_k='qtechSMPArpAttackSubnetIPNum'
-_j='qtechSMPArpAttackSubnetIP'
-_i='qtechSMPFrameContent'
-_h='qtechSMPFrameContentLength'
-_g='qtechSMPSwitchInterfaceVLANID'
-_f='qtechSMPSwitchInterfaceID'
-_e='qtechSMPSwitchIP'
-_d='qtechSMPFrameRelayDestVlan'
-_c='qtechSMPFrameRelayDestPort'
-_b='qtechSMPFrameRelayLength'
-_a='qtechSMPFrameRelayContent'
-_Z='qtechSMPPolicyName'
-_Y='qtechSMPPolicyMask'
-_X='qtechSMPPolicyContent'
-_W='qtechSMPPolicyType'
-_V='qtechSMPPolicyInstallPort'
-_U='qtechSMPPolicyStatus'
-_T='qtechSMPPolicyChecksum'
-_S='qtechSMPPolicyDelete'
-_R='qtechSMPEventSendSlice'
-_Q='qtechSMPServerKey'
-_P='qtechSMPServer'
-_O='qtechEGUserIpAddr'
-_N='qtechEGUserIpAddrType'
-_M='qtechSMPPolicyGroupIndex'
-_L='qtechSMPGroupIndex'
-_K='DisplayString'
-_J='qtechSMPPolicyIndex'
-_I='qtechSMPFrameRelayIndex'
-_H='Integer32'
-_G='read-only'
-_F='OctetString'
-_E='accessible-for-notify'
-_D='read-create'
-_C='read-write'
-_B='QTECH-SMP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-VlanId,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanId')
-qtechMgmt,=mibBuilder.importSymbols('QTECH-SMI','qtechMgmt')
-Community,=mibBuilder.importSymbols('QTECH-SNMP-AGENT-MIB','Community')
-ConfigStatus,IfIndex=mibBuilder.importSymbols('QTECH-TC','ConfigStatus','IfIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_K,'MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-qtechSMPMIB=ModuleIdentity((1,3,6,1,4,1,27514,1,1,10,2,39))
-if mibBuilder.loadTexts:qtechSMPMIB.setRevisions(('2004-09-09 00:00',))
-_QtechSMPMIBObjects_ObjectIdentity=ObjectIdentity
-qtechSMPMIBObjects=_QtechSMPMIBObjects_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,39,1))
-_QtechSMPServer_Type=IpAddress
-_QtechSMPServer_Object=MibScalar
-qtechSMPServer=_QtechSMPServer_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,1),_QtechSMPServer_Type())
-qtechSMPServer.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPServer.setStatus(_A)
-_QtechSMPServerKey_Type=Community
-_QtechSMPServerKey_Object=MibScalar
-qtechSMPServerKey=_QtechSMPServerKey_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,2),_QtechSMPServerKey_Type())
-qtechSMPServerKey.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPServerKey.setStatus(_A)
-_QtechSMPEventSendSlice_Type=Unsigned32
-_QtechSMPEventSendSlice_Object=MibScalar
-qtechSMPEventSendSlice=_QtechSMPEventSendSlice_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,3),_QtechSMPEventSendSlice_Type())
-qtechSMPEventSendSlice.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPEventSendSlice.setStatus(_A)
-_QtechSMPPolicyDelete_Type=Integer32
-_QtechSMPPolicyDelete_Object=MibScalar
-qtechSMPPolicyDelete=_QtechSMPPolicyDelete_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,4),_QtechSMPPolicyDelete_Type())
-qtechSMPPolicyDelete.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPPolicyDelete.setStatus(_A)
-class _QtechSMPPolicyChecksum_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
-_QtechSMPPolicyChecksum_Type.__name__=_F
-_QtechSMPPolicyChecksum_Object=MibScalar
-qtechSMPPolicyChecksum=_QtechSMPPolicyChecksum_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,5),_QtechSMPPolicyChecksum_Type())
-qtechSMPPolicyChecksum.setMaxAccess(_G)
-if mibBuilder.loadTexts:qtechSMPPolicyChecksum.setStatus(_A)
-_QtechSMPPolicyTimeout_Type=Unsigned32
-_QtechSMPPolicyTimeout_Object=MibScalar
-qtechSMPPolicyTimeout=_QtechSMPPolicyTimeout_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,6),_QtechSMPPolicyTimeout_Type())
-qtechSMPPolicyTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPPolicyTimeout.setStatus(_A)
-_QtechSMPFrameRelayTable_Object=MibTable
-qtechSMPFrameRelayTable=_QtechSMPFrameRelayTable_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,7))
-if mibBuilder.loadTexts:qtechSMPFrameRelayTable.setStatus(_A)
-_QtechSMPFrameRelayEntry_Object=MibTableRow
-qtechSMPFrameRelayEntry=_QtechSMPFrameRelayEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,7,1))
-qtechSMPFrameRelayEntry.setIndexNames((0,_B,_I))
-if mibBuilder.loadTexts:qtechSMPFrameRelayEntry.setStatus(_A)
-_QtechSMPFrameRelayIndex_Type=Unsigned32
-_QtechSMPFrameRelayIndex_Object=MibTableColumn
-qtechSMPFrameRelayIndex=_QtechSMPFrameRelayIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,7,1,1),_QtechSMPFrameRelayIndex_Type())
-qtechSMPFrameRelayIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:qtechSMPFrameRelayIndex.setStatus(_A)
-class _QtechSMPFrameRelayContent_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
-_QtechSMPFrameRelayContent_Type.__name__=_F
-_QtechSMPFrameRelayContent_Object=MibTableColumn
-qtechSMPFrameRelayContent=_QtechSMPFrameRelayContent_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,7,1,2),_QtechSMPFrameRelayContent_Type())
-qtechSMPFrameRelayContent.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPFrameRelayContent.setStatus(_A)
-_QtechSMPFrameRelayLength_Type=Unsigned32
-_QtechSMPFrameRelayLength_Object=MibTableColumn
-qtechSMPFrameRelayLength=_QtechSMPFrameRelayLength_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,7,1,3),_QtechSMPFrameRelayLength_Type())
-qtechSMPFrameRelayLength.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPFrameRelayLength.setStatus(_A)
-_QtechSMPFrameRelayDestPort_Type=IfIndex
-_QtechSMPFrameRelayDestPort_Object=MibTableColumn
-qtechSMPFrameRelayDestPort=_QtechSMPFrameRelayDestPort_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,7,1,4),_QtechSMPFrameRelayDestPort_Type())
-qtechSMPFrameRelayDestPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPFrameRelayDestPort.setStatus(_A)
-_QtechSMPFrameRelayDestVlan_Type=VlanId
-_QtechSMPFrameRelayDestVlan_Object=MibTableColumn
-qtechSMPFrameRelayDestVlan=_QtechSMPFrameRelayDestVlan_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,7,1,5),_QtechSMPFrameRelayDestVlan_Type())
-qtechSMPFrameRelayDestVlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPFrameRelayDestVlan.setStatus(_A)
-_QtechSMPPolicyTable_Object=MibTable
-qtechSMPPolicyTable=_QtechSMPPolicyTable_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,8))
-if mibBuilder.loadTexts:qtechSMPPolicyTable.setStatus(_A)
-_QtechSMPPolicyEntry_Object=MibTableRow
-qtechSMPPolicyEntry=_QtechSMPPolicyEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,8,1))
-qtechSMPPolicyEntry.setIndexNames((0,_B,_L),(0,_B,_J))
-if mibBuilder.loadTexts:qtechSMPPolicyEntry.setStatus(_A)
-_QtechSMPGroupIndex_Type=Unsigned32
-_QtechSMPGroupIndex_Object=MibTableColumn
-qtechSMPGroupIndex=_QtechSMPGroupIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,8,1,1),_QtechSMPGroupIndex_Type())
-qtechSMPGroupIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:qtechSMPGroupIndex.setStatus(_A)
-_QtechSMPPolicyIndex_Type=Unsigned32
-_QtechSMPPolicyIndex_Object=MibTableColumn
-qtechSMPPolicyIndex=_QtechSMPPolicyIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,8,1,2),_QtechSMPPolicyIndex_Type())
-qtechSMPPolicyIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:qtechSMPPolicyIndex.setStatus(_A)
-_QtechSMPPolicyStatus_Type=ConfigStatus
-_QtechSMPPolicyStatus_Object=MibTableColumn
-qtechSMPPolicyStatus=_QtechSMPPolicyStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,8,1,3),_QtechSMPPolicyStatus_Type())
-qtechSMPPolicyStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPPolicyStatus.setStatus(_A)
-_QtechSMPPolicyNumber_Type=Unsigned32
-_QtechSMPPolicyNumber_Object=MibTableColumn
-qtechSMPPolicyNumber=_QtechSMPPolicyNumber_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,8,1,4),_QtechSMPPolicyNumber_Type())
-qtechSMPPolicyNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPPolicyNumber.setStatus(_A)
-_QtechSMPPolicyInstallPort_Type=IfIndex
-_QtechSMPPolicyInstallPort_Object=MibTableColumn
-qtechSMPPolicyInstallPort=_QtechSMPPolicyInstallPort_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,8,1,5),_QtechSMPPolicyInstallPort_Type())
-qtechSMPPolicyInstallPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPPolicyInstallPort.setStatus(_A)
-class _QtechSMPPolicyType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('hi-isolate',1),('isolate',2),('blocked',3),('addrBind',4)))
-_QtechSMPPolicyType_Type.__name__=_H
-_QtechSMPPolicyType_Object=MibTableColumn
-qtechSMPPolicyType=_QtechSMPPolicyType_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,8,1,6),_QtechSMPPolicyType_Type())
-qtechSMPPolicyType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPPolicyType.setStatus(_A)
-class _QtechSMPPolicyContent_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(80,80));fixedLength=80
-_QtechSMPPolicyContent_Type.__name__=_F
-_QtechSMPPolicyContent_Object=MibTableColumn
-qtechSMPPolicyContent=_QtechSMPPolicyContent_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,8,1,7),_QtechSMPPolicyContent_Type())
-qtechSMPPolicyContent.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPPolicyContent.setStatus(_A)
-class _QtechSMPPolicyMask_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(80,80));fixedLength=80
-_QtechSMPPolicyMask_Type.__name__=_F
-_QtechSMPPolicyMask_Object=MibTableColumn
-qtechSMPPolicyMask=_QtechSMPPolicyMask_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,8,1,8),_QtechSMPPolicyMask_Type())
-qtechSMPPolicyMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPPolicyMask.setStatus(_A)
-class _QtechSMPPolicyName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_QtechSMPPolicyName_Type.__name__=_K
-_QtechSMPPolicyName_Object=MibTableColumn
-qtechSMPPolicyName=_QtechSMPPolicyName_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,8,1,9),_QtechSMPPolicyName_Type())
-qtechSMPPolicyName.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechSMPPolicyName.setStatus(_A)
-_QtechSMPPolicyGroupTable_Object=MibTable
-qtechSMPPolicyGroupTable=_QtechSMPPolicyGroupTable_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,9))
-if mibBuilder.loadTexts:qtechSMPPolicyGroupTable.setStatus(_A)
-_QtechSMPPolicyGroupEntry_Object=MibTableRow
-qtechSMPPolicyGroupEntry=_QtechSMPPolicyGroupEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,9,1))
-qtechSMPPolicyGroupEntry.setIndexNames((0,_B,_M))
-if mibBuilder.loadTexts:qtechSMPPolicyGroupEntry.setStatus(_A)
-_QtechSMPPolicyGroupIndex_Type=Unsigned32
-_QtechSMPPolicyGroupIndex_Object=MibTableColumn
-qtechSMPPolicyGroupIndex=_QtechSMPPolicyGroupIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,9,1,1),_QtechSMPPolicyGroupIndex_Type())
-qtechSMPPolicyGroupIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:qtechSMPPolicyGroupIndex.setStatus(_A)
-_QtechSMPPolicyGroupCount_Type=Unsigned32
-_QtechSMPPolicyGroupCount_Object=MibTableColumn
-qtechSMPPolicyGroupCount=_QtechSMPPolicyGroupCount_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,9,1,2),_QtechSMPPolicyGroupCount_Type())
-qtechSMPPolicyGroupCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechSMPPolicyGroupCount.setStatus(_A)
-class _QtechSMPPolicyGroupChecksum_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
-_QtechSMPPolicyGroupChecksum_Type.__name__=_F
-_QtechSMPPolicyGroupChecksum_Object=MibTableColumn
-qtechSMPPolicyGroupChecksum=_QtechSMPPolicyGroupChecksum_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,9,1,3),_QtechSMPPolicyGroupChecksum_Type())
-qtechSMPPolicyGroupChecksum.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechSMPPolicyGroupChecksum.setStatus(_A)
-_QtechSMPPolicyGroupStatus_Type=RowStatus
-_QtechSMPPolicyGroupStatus_Object=MibTableColumn
-qtechSMPPolicyGroupStatus=_QtechSMPPolicyGroupStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,39,1,9,1,4),_QtechSMPPolicyGroupStatus_Type())
-qtechSMPPolicyGroupStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechSMPPolicyGroupStatus.setStatus(_A)
-_QtechEGMIBObjects_ObjectIdentity=ObjectIdentity
-qtechEGMIBObjects=_QtechEGMIBObjects_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,39,2))
-_QtechEGUserTable_Object=MibTable
-qtechEGUserTable=_QtechEGUserTable_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1))
-if mibBuilder.loadTexts:qtechEGUserTable.setStatus(_A)
-_QtechEGUserEntry_Object=MibTableRow
-qtechEGUserEntry=_QtechEGUserEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1,1))
-qtechEGUserEntry.setIndexNames((0,_B,_N),(0,_B,_O))
-if mibBuilder.loadTexts:qtechEGUserEntry.setStatus(_A)
-_QtechEGUserIpAddrType_Type=InetAddressType
-_QtechEGUserIpAddrType_Object=MibTableColumn
-qtechEGUserIpAddrType=_QtechEGUserIpAddrType_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1,1,1),_QtechEGUserIpAddrType_Type())
-qtechEGUserIpAddrType.setMaxAccess(_G)
-if mibBuilder.loadTexts:qtechEGUserIpAddrType.setStatus(_A)
-_QtechEGUserIpAddr_Type=InetAddress
-_QtechEGUserIpAddr_Object=MibTableColumn
-qtechEGUserIpAddr=_QtechEGUserIpAddr_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1,1,2),_QtechEGUserIpAddr_Type())
-qtechEGUserIpAddr.setMaxAccess(_G)
-if mibBuilder.loadTexts:qtechEGUserIpAddr.setStatus(_A)
-class _QtechEGUserId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_QtechEGUserId_Type.__name__=_F
-_QtechEGUserId_Object=MibTableColumn
-qtechEGUserId=_QtechEGUserId_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1,1,3),_QtechEGUserId_Type())
-qtechEGUserId.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechEGUserId.setStatus(_A)
-class _QtechEGUserName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_QtechEGUserName_Type.__name__=_F
-_QtechEGUserName_Object=MibTableColumn
-qtechEGUserName=_QtechEGUserName_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1,1,4),_QtechEGUserName_Type())
-qtechEGUserName.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechEGUserName.setStatus(_A)
-class _QtechEGUserGroupName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_QtechEGUserGroupName_Type.__name__=_F
-_QtechEGUserGroupName_Object=MibTableColumn
-qtechEGUserGroupName=_QtechEGUserGroupName_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1,1,5),_QtechEGUserGroupName_Type())
-qtechEGUserGroupName.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechEGUserGroupName.setStatus(_A)
-_QtechEGUserMac_Type=MacAddress
-_QtechEGUserMac_Object=MibTableColumn
-qtechEGUserMac=_QtechEGUserMac_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1,1,6),_QtechEGUserMac_Type())
-qtechEGUserMac.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechEGUserMac.setStatus(_A)
-_QtechEGNasIp_Type=InetAddress
-_QtechEGNasIp_Object=MibTableColumn
-qtechEGNasIp=_QtechEGNasIp_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1,1,7),_QtechEGNasIp_Type())
-qtechEGNasIp.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechEGNasIp.setStatus(_A)
-_QtechEGNasPort_Type=Gauge32
-_QtechEGNasPort_Object=MibTableColumn
-qtechEGNasPort=_QtechEGNasPort_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1,1,8),_QtechEGNasPort_Type())
-qtechEGNasPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechEGNasPort.setStatus(_A)
-_QtechEGGatewayIp_Type=InetAddress
-_QtechEGGatewayIp_Object=MibTableColumn
-qtechEGGatewayIp=_QtechEGGatewayIp_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1,1,9),_QtechEGGatewayIp_Type())
-qtechEGGatewayIp.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechEGGatewayIp.setStatus(_A)
-_QtechEGVlanId_Type=Gauge32
-_QtechEGVlanId_Object=MibTableColumn
-qtechEGVlanId=_QtechEGVlanId_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1,1,10),_QtechEGVlanId_Type())
-qtechEGVlanId.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechEGVlanId.setStatus(_A)
-_QtechEGLoginTime_Type=OctetString
-_QtechEGLoginTime_Object=MibTableColumn
-qtechEGLoginTime=_QtechEGLoginTime_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1,1,11),_QtechEGLoginTime_Type())
-qtechEGLoginTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechEGLoginTime.setStatus(_A)
-_QtechEGLogoutTime_Type=OctetString
-_QtechEGLogoutTime_Object=MibTableColumn
-qtechEGLogoutTime=_QtechEGLogoutTime_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1,1,12),_QtechEGLogoutTime_Type())
-qtechEGLogoutTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechEGLogoutTime.setStatus(_A)
-_QtechEGMessageType_Type=Gauge32
-_QtechEGMessageType_Object=MibTableColumn
-qtechEGMessageType=_QtechEGMessageType_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1,1,13),_QtechEGMessageType_Type())
-qtechEGMessageType.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechEGMessageType.setStatus(_A)
-_QtechEGUserStatus_Type=RowStatus
-_QtechEGUserStatus_Object=MibTableColumn
-qtechEGUserStatus=_QtechEGUserStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,1,1,14),_QtechEGUserStatus_Type())
-qtechEGUserStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:qtechEGUserStatus.setStatus(_A)
-_QtechEGUserDelete_Type=Integer32
-_QtechEGUserDelete_Object=MibScalar
-qtechEGUserDelete=_QtechEGUserDelete_Object((1,3,6,1,4,1,27514,1,1,10,2,39,2,2),_QtechEGUserDelete_Type())
-qtechEGUserDelete.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechEGUserDelete.setStatus(_A)
-_QtechSMPMIBConformance_ObjectIdentity=ObjectIdentity
-qtechSMPMIBConformance=_QtechSMPMIBConformance_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,39,3))
-_QtechSMPMIBCompliances_ObjectIdentity=ObjectIdentity
-qtechSMPMIBCompliances=_QtechSMPMIBCompliances_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,39,3,1))
-_QtechSMPMIBGroups_ObjectIdentity=ObjectIdentity
-qtechSMPMIBGroups=_QtechSMPMIBGroups_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,39,3,2))
-_QtechSMPTraps_ObjectIdentity=ObjectIdentity
-qtechSMPTraps=_QtechSMPTraps_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,39,65535))
-_QtechSMPSwitchIP_Type=IpAddress
-_QtechSMPSwitchIP_Object=MibScalar
-qtechSMPSwitchIP=_QtechSMPSwitchIP_Object((1,3,6,1,4,1,27514,1,1,10,2,39,65535,1),_QtechSMPSwitchIP_Type())
-qtechSMPSwitchIP.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtechSMPSwitchIP.setStatus(_A)
-_QtechSMPSwitchInterfaceID_Type=IfIndex
-_QtechSMPSwitchInterfaceID_Object=MibScalar
-qtechSMPSwitchInterfaceID=_QtechSMPSwitchInterfaceID_Object((1,3,6,1,4,1,27514,1,1,10,2,39,65535,2),_QtechSMPSwitchInterfaceID_Type())
-qtechSMPSwitchInterfaceID.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtechSMPSwitchInterfaceID.setStatus(_A)
-_QtechSMPSwitchInterfaceVLANID_Type=VlanId
-_QtechSMPSwitchInterfaceVLANID_Object=MibScalar
-qtechSMPSwitchInterfaceVLANID=_QtechSMPSwitchInterfaceVLANID_Object((1,3,6,1,4,1,27514,1,1,10,2,39,65535,3),_QtechSMPSwitchInterfaceVLANID_Type())
-qtechSMPSwitchInterfaceVLANID.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtechSMPSwitchInterfaceVLANID.setStatus(_A)
-_QtechSMPFrameContentLength_Type=Unsigned32
-_QtechSMPFrameContentLength_Object=MibScalar
-qtechSMPFrameContentLength=_QtechSMPFrameContentLength_Object((1,3,6,1,4,1,27514,1,1,10,2,39,65535,4),_QtechSMPFrameContentLength_Type())
-qtechSMPFrameContentLength.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtechSMPFrameContentLength.setStatus(_A)
-class _QtechSMPFrameContent_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
-_QtechSMPFrameContent_Type.__name__=_F
-_QtechSMPFrameContent_Object=MibScalar
-qtechSMPFrameContent=_QtechSMPFrameContent_Object((1,3,6,1,4,1,27514,1,1,10,2,39,65535,5),_QtechSMPFrameContent_Type())
-qtechSMPFrameContent.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtechSMPFrameContent.setStatus(_A)
-class _QtechSMPArpAttackSubnetIP_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,40))
-_QtechSMPArpAttackSubnetIP_Type.__name__=_F
-_QtechSMPArpAttackSubnetIP_Object=MibScalar
-qtechSMPArpAttackSubnetIP=_QtechSMPArpAttackSubnetIP_Object((1,3,6,1,4,1,27514,1,1,10,2,39,65535,7),_QtechSMPArpAttackSubnetIP_Type())
-qtechSMPArpAttackSubnetIP.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtechSMPArpAttackSubnetIP.setStatus(_A)
-_QtechSMPArpAttackSubnetIPNum_Type=Integer32
-_QtechSMPArpAttackSubnetIPNum_Object=MibScalar
-qtechSMPArpAttackSubnetIPNum=_QtechSMPArpAttackSubnetIPNum_Object((1,3,6,1,4,1,27514,1,1,10,2,39,65535,8),_QtechSMPArpAttackSubnetIPNum_Type())
-qtechSMPArpAttackSubnetIPNum.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtechSMPArpAttackSubnetIPNum.setStatus(_A)
-_QtechSMPArpAttackInterfaceSlot_Type=Integer32
-_QtechSMPArpAttackInterfaceSlot_Object=MibScalar
-qtechSMPArpAttackInterfaceSlot=_QtechSMPArpAttackInterfaceSlot_Object((1,3,6,1,4,1,27514,1,1,10,2,39,65535,9),_QtechSMPArpAttackInterfaceSlot_Type())
-qtechSMPArpAttackInterfaceSlot.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtechSMPArpAttackInterfaceSlot.setStatus(_A)
-_QtechSMPArpAttackInterfacePort_Type=Integer32
-_QtechSMPArpAttackInterfacePort_Object=MibScalar
-qtechSMPArpAttackInterfacePort=_QtechSMPArpAttackInterfacePort_Object((1,3,6,1,4,1,27514,1,1,10,2,39,65535,10),_QtechSMPArpAttackInterfacePort_Type())
-qtechSMPArpAttackInterfacePort.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtechSMPArpAttackInterfacePort.setStatus(_A)
-_QtechSMPArpAttackInterfaceVlanID_Type=VlanId
-_QtechSMPArpAttackInterfaceVlanID_Object=MibScalar
-qtechSMPArpAttackInterfaceVlanID=_QtechSMPArpAttackInterfaceVlanID_Object((1,3,6,1,4,1,27514,1,1,10,2,39,65535,11),_QtechSMPArpAttackInterfaceVlanID_Type())
-qtechSMPArpAttackInterfaceVlanID.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtechSMPArpAttackInterfaceVlanID.setStatus(_A)
-class _QtechSMPArpAttackFrameContent_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_QtechSMPArpAttackFrameContent_Type.__name__=_F
-_QtechSMPArpAttackFrameContent_Object=MibScalar
-qtechSMPArpAttackFrameContent=_QtechSMPArpAttackFrameContent_Object((1,3,6,1,4,1,27514,1,1,10,2,39,65535,12),_QtechSMPArpAttackFrameContent_Type())
-qtechSMPArpAttackFrameContent.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtechSMPArpAttackFrameContent.setStatus(_A)
-_QtechSMPArpAttackStatus_Type=TruthValue
-_QtechSMPArpAttackStatus_Object=MibScalar
-qtechSMPArpAttackStatus=_QtechSMPArpAttackStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,39,65535,13),_QtechSMPArpAttackStatus_Type())
-qtechSMPArpAttackStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtechSMPArpAttackStatus.setStatus(_A)
-class _QtechSMPArpAttackCriticalStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('critical',1),('emergencies',2)))
-_QtechSMPArpAttackCriticalStatus_Type.__name__=_H
-_QtechSMPArpAttackCriticalStatus_Object=MibScalar
-qtechSMPArpAttackCriticalStatus=_QtechSMPArpAttackCriticalStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,39,65535,14),_QtechSMPArpAttackCriticalStatus_Type())
-qtechSMPArpAttackCriticalStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtechSMPArpAttackCriticalStatus.setStatus(_A)
-_QtechSMPArpAttackMac_Type=MacAddress
-_QtechSMPArpAttackMac_Object=MibScalar
-qtechSMPArpAttackMac=_QtechSMPArpAttackMac_Object((1,3,6,1,4,1,27514,1,1,10,2,39,65535,15),_QtechSMPArpAttackMac_Type())
-qtechSMPArpAttackMac.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtechSMPArpAttackMac.setStatus(_A)
-_QtechSMPArpAttackInterfaceIndex_Type=Integer32
-_QtechSMPArpAttackInterfaceIndex_Object=MibScalar
-qtechSMPArpAttackInterfaceIndex=_QtechSMPArpAttackInterfaceIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,39,65535,16),_QtechSMPArpAttackInterfaceIndex_Type())
-qtechSMPArpAttackInterfaceIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtechSMPArpAttackInterfaceIndex.setStatus(_A)
-qtechSMPServerMibGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,39,3,2,1))
-qtechSMPServerMibGroup.setObjects(*((_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:qtechSMPServerMibGroup.setStatus(_A)
-qtechSMPClientMibGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,39,3,2,2))
-qtechSMPClientMibGroup.setObjects((_B,_R))
-if mibBuilder.loadTexts:qtechSMPClientMibGroup.setStatus(_A)
-qtechSMPPolicyMibGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,39,3,2,3))
-qtechSMPPolicyMibGroup.setObjects(*((_B,_S),(_B,_T),(_B,_J),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z)))
-if mibBuilder.loadTexts:qtechSMPPolicyMibGroup.setStatus(_A)
-qtechSMPFrameRelayMibGroup=ObjectGroup((1,3,6,1,4,1,27514,1,1,10,2,39,3,2,4))
-qtechSMPFrameRelayMibGroup.setObjects(*((_B,_I),(_B,_a),(_B,_b),(_B,_c),(_B,_d)))
-if mibBuilder.loadTexts:qtechSMPFrameRelayMibGroup.setStatus(_A)
-qtechSMPFrameRelayTrap=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,39,65535,6))
-qtechSMPFrameRelayTrap.setObjects(*((_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i)))
-if mibBuilder.loadTexts:qtechSMPFrameRelayTrap.setStatus(_A)
-qtechSMPArpAttackTrap=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,39,65535,17))
-qtechSMPArpAttackTrap.setObjects(*((_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s)))
-if mibBuilder.loadTexts:qtechSMPArpAttackTrap.setStatus(_A)
-qtechDeviceMIBCompliance=ModuleCompliance((1,3,6,1,4,1,27514,1,1,10,2,39,3,1,1))
-qtechDeviceMIBCompliance.setObjects(*((_B,_t),(_B,_u),(_B,_v),(_B,_w)))
-if mibBuilder.loadTexts:qtechDeviceMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'qtechSMPMIB':qtechSMPMIB,'qtechSMPMIBObjects':qtechSMPMIBObjects,_P:qtechSMPServer,_Q:qtechSMPServerKey,_R:qtechSMPEventSendSlice,_S:qtechSMPPolicyDelete,_T:qtechSMPPolicyChecksum,'qtechSMPPolicyTimeout':qtechSMPPolicyTimeout,'qtechSMPFrameRelayTable':qtechSMPFrameRelayTable,'qtechSMPFrameRelayEntry':qtechSMPFrameRelayEntry,_I:qtechSMPFrameRelayIndex,_a:qtechSMPFrameRelayContent,_b:qtechSMPFrameRelayLength,_c:qtechSMPFrameRelayDestPort,_d:qtechSMPFrameRelayDestVlan,'qtechSMPPolicyTable':qtechSMPPolicyTable,'qtechSMPPolicyEntry':qtechSMPPolicyEntry,_L:qtechSMPGroupIndex,_J:qtechSMPPolicyIndex,_U:qtechSMPPolicyStatus,'qtechSMPPolicyNumber':qtechSMPPolicyNumber,_V:qtechSMPPolicyInstallPort,_W:qtechSMPPolicyType,_X:qtechSMPPolicyContent,_Y:qtechSMPPolicyMask,_Z:qtechSMPPolicyName,'qtechSMPPolicyGroupTable':qtechSMPPolicyGroupTable,'qtechSMPPolicyGroupEntry':qtechSMPPolicyGroupEntry,_M:qtechSMPPolicyGroupIndex,'qtechSMPPolicyGroupCount':qtechSMPPolicyGroupCount,'qtechSMPPolicyGroupChecksum':qtechSMPPolicyGroupChecksum,'qtechSMPPolicyGroupStatus':qtechSMPPolicyGroupStatus,'qtechEGMIBObjects':qtechEGMIBObjects,'qtechEGUserTable':qtechEGUserTable,'qtechEGUserEntry':qtechEGUserEntry,_N:qtechEGUserIpAddrType,_O:qtechEGUserIpAddr,'qtechEGUserId':qtechEGUserId,'qtechEGUserName':qtechEGUserName,'qtechEGUserGroupName':qtechEGUserGroupName,'qtechEGUserMac':qtechEGUserMac,'qtechEGNasIp':qtechEGNasIp,'qtechEGNasPort':qtechEGNasPort,'qtechEGGatewayIp':qtechEGGatewayIp,'qtechEGVlanId':qtechEGVlanId,'qtechEGLoginTime':qtechEGLoginTime,'qtechEGLogoutTime':qtechEGLogoutTime,'qtechEGMessageType':qtechEGMessageType,'qtechEGUserStatus':qtechEGUserStatus,'qtechEGUserDelete':qtechEGUserDelete,'qtechSMPMIBConformance':qtechSMPMIBConformance,'qtechSMPMIBCompliances':qtechSMPMIBCompliances,'qtechDeviceMIBCompliance':qtechDeviceMIBCompliance,'qtechSMPMIBGroups':qtechSMPMIBGroups,_t:qtechSMPServerMibGroup,_u:qtechSMPClientMibGroup,_v:qtechSMPPolicyMibGroup,_w:qtechSMPFrameRelayMibGroup,'qtechSMPTraps':qtechSMPTraps,_e:qtechSMPSwitchIP,_f:qtechSMPSwitchInterfaceID,_g:qtechSMPSwitchInterfaceVLANID,_h:qtechSMPFrameContentLength,_i:qtechSMPFrameContent,'qtechSMPFrameRelayTrap':qtechSMPFrameRelayTrap,_j:qtechSMPArpAttackSubnetIP,_k:qtechSMPArpAttackSubnetIPNum,_l:qtechSMPArpAttackInterfaceSlot,_m:qtechSMPArpAttackInterfacePort,_n:qtechSMPArpAttackInterfaceVlanID,_o:qtechSMPArpAttackFrameContent,_p:qtechSMPArpAttackStatus,_q:qtechSMPArpAttackCriticalStatus,_r:qtechSMPArpAttackMac,_s:qtechSMPArpAttackInterfaceIndex,'qtechSMPArpAttackTrap':qtechSMPArpAttackTrap})
+#
+# PySNMP MIB module QTECH-SMP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-SMP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:18 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+VlanId, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId")
+qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
+Community, = mibBuilder.importSymbols("QTECH-SNMP-AGENT-MIB", "Community")
+IfIndex, ConfigStatus = mibBuilder.importSymbols("QTECH-TC", "IfIndex", "ConfigStatus")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+qtechSMPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39))
+qtechSMPMIB.setRevisions(('2004-09-09 00:00',))
+if mibBuilder.loadTexts: qtechSMPMIB.setLastUpdated('200409090000Z')
+if mibBuilder.loadTexts: qtechSMPMIB.setOrganization('Qtech Networks Co.,Ltd.')
+qtechSMPMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1))
+qtechSMPServer = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 1), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPServer.setStatus('current')
+qtechSMPServerKey = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 2), Community()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPServerKey.setStatus('current')
+qtechSMPEventSendSlice = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPEventSendSlice.setStatus('current')
+qtechSMPPolicyDelete = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPPolicyDelete.setStatus('current')
+qtechSMPPolicyChecksum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSMPPolicyChecksum.setStatus('current')
+qtechSMPPolicyTimeout = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 6), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPPolicyTimeout.setStatus('current')
+qtechSMPPolicyGroupTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 9), )
+if mibBuilder.loadTexts: qtechSMPPolicyGroupTable.setStatus('current')
+qtechSMPPolicyGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 9, 1), ).setIndexNames((0, "QTECH-SMP-MIB", "qtechSMPPolicyGroupIndex"))
+if mibBuilder.loadTexts: qtechSMPPolicyGroupEntry.setStatus('current')
+qtechSMPPolicyGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 9, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSMPPolicyGroupIndex.setStatus('current')
+qtechSMPPolicyGroupCount = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 9, 1, 2), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechSMPPolicyGroupCount.setStatus('current')
+qtechSMPPolicyGroupChecksum = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 9, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechSMPPolicyGroupChecksum.setStatus('current')
+qtechSMPPolicyGroupStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 9, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechSMPPolicyGroupStatus.setStatus('current')
+qtechSMPPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 8), )
+if mibBuilder.loadTexts: qtechSMPPolicyTable.setStatus('current')
+qtechSMPPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 8, 1), ).setIndexNames((0, "QTECH-SMP-MIB", "qtechSMPGroupIndex"), (0, "QTECH-SMP-MIB", "qtechSMPPolicyIndex"))
+if mibBuilder.loadTexts: qtechSMPPolicyEntry.setStatus('current')
+qtechSMPGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 8, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSMPGroupIndex.setStatus('current')
+qtechSMPPolicyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 8, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSMPPolicyIndex.setStatus('current')
+qtechSMPPolicyStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 8, 1, 3), ConfigStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPPolicyStatus.setStatus('current')
+qtechSMPPolicyNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 8, 1, 4), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPPolicyNumber.setStatus('current')
+qtechSMPPolicyInstallPort = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 8, 1, 5), IfIndex()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPPolicyInstallPort.setStatus('current')
+qtechSMPPolicyType = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 8, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("hi-isolate", 1), ("isolate", 2), ("blocked", 3), ("addrBind", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPPolicyType.setStatus('current')
+qtechSMPPolicyContent = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 8, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(80, 80)).setFixedLength(80)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPPolicyContent.setStatus('current')
+qtechSMPPolicyMask = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 8, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(80, 80)).setFixedLength(80)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPPolicyMask.setStatus('current')
+qtechSMPPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 8, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPPolicyName.setStatus('current')
+qtechSMPFrameRelayTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 7), )
+if mibBuilder.loadTexts: qtechSMPFrameRelayTable.setStatus('current')
+qtechSMPFrameRelayEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 7, 1), ).setIndexNames((0, "QTECH-SMP-MIB", "qtechSMPFrameRelayIndex"))
+if mibBuilder.loadTexts: qtechSMPFrameRelayEntry.setStatus('current')
+qtechSMPFrameRelayIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 7, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechSMPFrameRelayIndex.setStatus('current')
+qtechSMPFrameRelayContent = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 7, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 1024))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPFrameRelayContent.setStatus('current')
+qtechSMPFrameRelayLength = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 7, 1, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPFrameRelayLength.setStatus('current')
+qtechSMPFrameRelayDestPort = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 7, 1, 4), IfIndex()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPFrameRelayDestPort.setStatus('current')
+qtechSMPFrameRelayDestVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 1, 7, 1, 5), VlanId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechSMPFrameRelayDestVlan.setStatus('current')
+qtechEGMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2))
+qtechEGUserTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1), )
+if mibBuilder.loadTexts: qtechEGUserTable.setStatus('current')
+qtechEGUserEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1, 1), ).setIndexNames((0, "QTECH-SMP-MIB", "qtechEGUserIpAddrType"), (0, "QTECH-SMP-MIB", "qtechEGUserIpAddr"))
+if mibBuilder.loadTexts: qtechEGUserEntry.setStatus('current')
+qtechEGUserIpAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1, 1, 1), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechEGUserIpAddrType.setStatus('current')
+qtechEGUserIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1, 1, 2), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtechEGUserIpAddr.setStatus('current')
+qtechEGUserId = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechEGUserId.setStatus('current')
+qtechEGUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechEGUserName.setStatus('current')
+qtechEGUserGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechEGUserGroupName.setStatus('current')
+qtechEGUserMac = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1, 1, 6), MacAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechEGUserMac.setStatus('current')
+qtechEGNasIp = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1, 1, 7), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechEGNasIp.setStatus('current')
+qtechEGNasPort = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1, 1, 8), Gauge32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechEGNasPort.setStatus('current')
+qtechEGGatewayIp = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1, 1, 9), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechEGGatewayIp.setStatus('current')
+qtechEGVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1, 1, 10), Gauge32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechEGVlanId.setStatus('current')
+qtechEGLoginTime = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1, 1, 11), OctetString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechEGLoginTime.setStatus('current')
+qtechEGLogoutTime = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1, 1, 12), OctetString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechEGLogoutTime.setStatus('current')
+qtechEGMessageType = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1, 1, 13), Gauge32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechEGMessageType.setStatus('current')
+qtechEGUserStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 1, 1, 14), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: qtechEGUserStatus.setStatus('current')
+qtechEGUserDelete = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 2, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtechEGUserDelete.setStatus('current')
+qtechSMPTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535))
+qtechSMPSwitchIP = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 1), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechSMPSwitchIP.setStatus('current')
+qtechSMPSwitchInterfaceID = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 2), IfIndex()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechSMPSwitchInterfaceID.setStatus('current')
+qtechSMPSwitchInterfaceVLANID = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 3), VlanId()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechSMPSwitchInterfaceVLANID.setStatus('current')
+qtechSMPFrameContentLength = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 4), Unsigned32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechSMPFrameContentLength.setStatus('current')
+qtechSMPFrameContent = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 1024))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechSMPFrameContent.setStatus('current')
+qtechSMPFrameRelayTrap = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 6)).setObjects(("QTECH-SMP-MIB", "qtechSMPSwitchIP"), ("QTECH-SMP-MIB", "qtechSMPSwitchInterfaceID"), ("QTECH-SMP-MIB", "qtechSMPSwitchInterfaceVLANID"), ("QTECH-SMP-MIB", "qtechSMPFrameContentLength"), ("QTECH-SMP-MIB", "qtechSMPFrameContent"))
+if mibBuilder.loadTexts: qtechSMPFrameRelayTrap.setStatus('current')
+qtechSMPArpAttackSubnetIP = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 40))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechSMPArpAttackSubnetIP.setStatus('current')
+qtechSMPArpAttackSubnetIPNum = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 8), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechSMPArpAttackSubnetIPNum.setStatus('current')
+qtechSMPArpAttackInterfaceSlot = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 9), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechSMPArpAttackInterfaceSlot.setStatus('current')
+qtechSMPArpAttackInterfacePort = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 10), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechSMPArpAttackInterfacePort.setStatus('current')
+qtechSMPArpAttackInterfaceVlanID = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 11), VlanId()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechSMPArpAttackInterfaceVlanID.setStatus('current')
+qtechSMPArpAttackFrameContent = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechSMPArpAttackFrameContent.setStatus('current')
+qtechSMPArpAttackStatus = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 13), TruthValue()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechSMPArpAttackStatus.setStatus('current')
+qtechSMPArpAttackCriticalStatus = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("critical", 1), ("emergencies", 2)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechSMPArpAttackCriticalStatus.setStatus('current')
+qtechSMPArpAttackMac = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 15), MacAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechSMPArpAttackMac.setStatus('current')
+qtechSMPArpAttackInterfaceIndex = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 16), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechSMPArpAttackInterfaceIndex.setStatus('current')
+qtechSMPArpAttackTrap = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 65535, 17)).setObjects(("QTECH-SMP-MIB", "qtechSMPArpAttackSubnetIP"), ("QTECH-SMP-MIB", "qtechSMPArpAttackSubnetIPNum"), ("QTECH-SMP-MIB", "qtechSMPArpAttackInterfaceSlot"), ("QTECH-SMP-MIB", "qtechSMPArpAttackInterfacePort"), ("QTECH-SMP-MIB", "qtechSMPArpAttackInterfaceVlanID"), ("QTECH-SMP-MIB", "qtechSMPArpAttackFrameContent"), ("QTECH-SMP-MIB", "qtechSMPArpAttackStatus"), ("QTECH-SMP-MIB", "qtechSMPArpAttackCriticalStatus"), ("QTECH-SMP-MIB", "qtechSMPArpAttackMac"), ("QTECH-SMP-MIB", "qtechSMPArpAttackInterfaceIndex"))
+if mibBuilder.loadTexts: qtechSMPArpAttackTrap.setStatus('current')
+qtechSMPMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 3))
+qtechSMPMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 3, 1))
+qtechSMPMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 3, 2))
+qtechDeviceMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 3, 1, 1)).setObjects(("QTECH-SMP-MIB", "qtechSMPServerMibGroup"), ("QTECH-SMP-MIB", "qtechSMPClientMibGroup"), ("QTECH-SMP-MIB", "qtechSMPPolicyMibGroup"), ("QTECH-SMP-MIB", "qtechSMPFrameRelayMibGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechDeviceMIBCompliance = qtechDeviceMIBCompliance.setStatus('current')
+qtechSMPServerMibGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 3, 2, 1)).setObjects(("QTECH-SMP-MIB", "qtechSMPServer"), ("QTECH-SMP-MIB", "qtechSMPServerKey"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechSMPServerMibGroup = qtechSMPServerMibGroup.setStatus('current')
+qtechSMPClientMibGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 3, 2, 2)).setObjects(("QTECH-SMP-MIB", "qtechSMPEventSendSlice"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechSMPClientMibGroup = qtechSMPClientMibGroup.setStatus('current')
+qtechSMPPolicyMibGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 3, 2, 3)).setObjects(("QTECH-SMP-MIB", "qtechSMPPolicyDelete"), ("QTECH-SMP-MIB", "qtechSMPPolicyChecksum"), ("QTECH-SMP-MIB", "qtechSMPPolicyIndex"), ("QTECH-SMP-MIB", "qtechSMPPolicyStatus"), ("QTECH-SMP-MIB", "qtechSMPPolicyInstallPort"), ("QTECH-SMP-MIB", "qtechSMPPolicyType"), ("QTECH-SMP-MIB", "qtechSMPPolicyContent"), ("QTECH-SMP-MIB", "qtechSMPPolicyMask"), ("QTECH-SMP-MIB", "qtechSMPPolicyName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechSMPPolicyMibGroup = qtechSMPPolicyMibGroup.setStatus('current')
+qtechSMPFrameRelayMibGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 39, 3, 2, 4)).setObjects(("QTECH-SMP-MIB", "qtechSMPFrameRelayIndex"), ("QTECH-SMP-MIB", "qtechSMPFrameRelayContent"), ("QTECH-SMP-MIB", "qtechSMPFrameRelayLength"), ("QTECH-SMP-MIB", "qtechSMPFrameRelayDestPort"), ("QTECH-SMP-MIB", "qtechSMPFrameRelayDestVlan"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qtechSMPFrameRelayMibGroup = qtechSMPFrameRelayMibGroup.setStatus('current')
+mibBuilder.exportSymbols("QTECH-SMP-MIB", qtechSMPPolicyGroupCount=qtechSMPPolicyGroupCount, qtechSMPPolicyName=qtechSMPPolicyName, qtechSMPMIBConformance=qtechSMPMIBConformance, qtechSMPServer=qtechSMPServer, qtechEGLogoutTime=qtechEGLogoutTime, qtechEGUserName=qtechEGUserName, qtechSMPFrameRelayDestPort=qtechSMPFrameRelayDestPort, qtechSMPPolicyGroupStatus=qtechSMPPolicyGroupStatus, qtechSMPFrameRelayTable=qtechSMPFrameRelayTable, qtechSMPFrameRelayContent=qtechSMPFrameRelayContent, qtechEGUserIpAddr=qtechEGUserIpAddr, qtechSMPPolicyDelete=qtechSMPPolicyDelete, qtechEGLoginTime=qtechEGLoginTime, qtechSMPEventSendSlice=qtechSMPEventSendSlice, qtechSMPFrameContentLength=qtechSMPFrameContentLength, qtechSMPArpAttackSubnetIPNum=qtechSMPArpAttackSubnetIPNum, qtechSMPPolicyContent=qtechSMPPolicyContent, qtechEGUserMac=qtechEGUserMac, qtechSMPPolicyStatus=qtechSMPPolicyStatus, qtechSMPFrameRelayIndex=qtechSMPFrameRelayIndex, qtechSMPPolicyIndex=qtechSMPPolicyIndex, qtechSMPArpAttackMac=qtechSMPArpAttackMac, qtechSMPPolicyGroupEntry=qtechSMPPolicyGroupEntry, qtechSMPPolicyMask=qtechSMPPolicyMask, qtechSMPFrameRelayTrap=qtechSMPFrameRelayTrap, qtechSMPFrameRelayEntry=qtechSMPFrameRelayEntry, qtechEGMIBObjects=qtechEGMIBObjects, qtechSMPArpAttackFrameContent=qtechSMPArpAttackFrameContent, qtechSMPMIBCompliances=qtechSMPMIBCompliances, qtechEGNasPort=qtechEGNasPort, qtechSMPPolicyType=qtechSMPPolicyType, qtechSMPSwitchInterfaceID=qtechSMPSwitchInterfaceID, qtechEGVlanId=qtechEGVlanId, qtechSMPArpAttackInterfacePort=qtechSMPArpAttackInterfacePort, qtechEGUserDelete=qtechEGUserDelete, qtechSMPArpAttackSubnetIP=qtechSMPArpAttackSubnetIP, qtechSMPClientMibGroup=qtechSMPClientMibGroup, qtechSMPSwitchInterfaceVLANID=qtechSMPSwitchInterfaceVLANID, qtechSMPPolicyGroupIndex=qtechSMPPolicyGroupIndex, qtechEGNasIp=qtechEGNasIp, qtechSMPMIBObjects=qtechSMPMIBObjects, qtechEGUserStatus=qtechEGUserStatus, qtechSMPSwitchIP=qtechSMPSwitchIP, qtechSMPFrameRelayLength=qtechSMPFrameRelayLength, qtechSMPArpAttackTrap=qtechSMPArpAttackTrap, qtechSMPArpAttackInterfaceSlot=qtechSMPArpAttackInterfaceSlot, qtechSMPArpAttackInterfaceVlanID=qtechSMPArpAttackInterfaceVlanID, qtechSMPArpAttackCriticalStatus=qtechSMPArpAttackCriticalStatus, qtechSMPPolicyTimeout=qtechSMPPolicyTimeout, PYSNMP_MODULE_ID=qtechSMPMIB, qtechSMPMIBGroups=qtechSMPMIBGroups, qtechSMPFrameRelayDestVlan=qtechSMPFrameRelayDestVlan, qtechEGGatewayIp=qtechEGGatewayIp, qtechSMPServerMibGroup=qtechSMPServerMibGroup, qtechSMPPolicyGroupTable=qtechSMPPolicyGroupTable, qtechEGUserIpAddrType=qtechEGUserIpAddrType, qtechSMPMIB=qtechSMPMIB, qtechSMPPolicyChecksum=qtechSMPPolicyChecksum, qtechSMPArpAttackStatus=qtechSMPArpAttackStatus, qtechSMPPolicyMibGroup=qtechSMPPolicyMibGroup, qtechSMPFrameContent=qtechSMPFrameContent, qtechSMPServerKey=qtechSMPServerKey, qtechEGUserEntry=qtechEGUserEntry, qtechSMPPolicyEntry=qtechSMPPolicyEntry, qtechDeviceMIBCompliance=qtechDeviceMIBCompliance, qtechSMPTraps=qtechSMPTraps, qtechEGUserGroupName=qtechEGUserGroupName, qtechEGMessageType=qtechEGMessageType, qtechSMPPolicyGroupChecksum=qtechSMPPolicyGroupChecksum, qtechSMPPolicyNumber=qtechSMPPolicyNumber, qtechEGUserId=qtechEGUserId, qtechSMPPolicyInstallPort=qtechSMPPolicyInstallPort, qtechEGUserTable=qtechEGUserTable, qtechSMPFrameRelayMibGroup=qtechSMPFrameRelayMibGroup, qtechSMPPolicyTable=qtechSMPPolicyTable, qtechSMPArpAttackInterfaceIndex=qtechSMPArpAttackInterfaceIndex, qtechSMPGroupIndex=qtechSMPGroupIndex)

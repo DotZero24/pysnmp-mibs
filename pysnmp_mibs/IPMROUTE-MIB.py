@@ -1,318 +1,132 @@
-_A3='ipMRouteMIBBoundaryGroup'
-_A2='ipMRouteMIBRouteGroup'
-_A1='ipMRouteMIBBasicGroup'
-_A0='ipMRouteRtType'
-_z='ipMRouteRtMask'
-_y='ipMRouteRtAddress'
-_x='ipMRouteRtProto'
-_w='ipMRouteBoundaryStatus'
-_v='ipMRouteNextHopClosestMemberHops'
-_u='ipMRouteProtocol'
-_t='ipMRouteInterfaceOutMcastOctets'
-_s='ipMRouteInterfaceInMcastOctets'
-_r='ipMRouteInterfaceRateLimit'
-_q='ipMRouteInterfaceProtocol'
-_p='ipMRouteInterfaceTtl'
-_o='ipMRouteNextHopProtocol'
-_n='ipMRouteNextHopExpiryTime'
-_m='ipMRouteNextHopUpTime'
-_l='ipMRouteNextHopState'
-_k='ipMRouteOctets'
-_j='ipMRouteDifferentInIfPackets'
-_i='ipMRoutePkts'
-_h='ipMRouteExpiryTime'
-_g='ipMRouteUpTime'
-_f='ipMRouteInIfIndex'
-_e='ipMRouteUpstreamNeighbor'
-_d='ipMRouteEnable'
-_c='ipMRouteBoundaryAddressMask'
-_b='ipMRouteBoundaryAddress'
-_a='ipMRouteBoundaryIfIndex'
-_Z='ipMRouteInterfaceIfIndex'
-_Y='ipMRouteNextHopAddress'
-_X='ipMRouteNextHopIfIndex'
-_W='ipMRouteNextHopSourceMask'
-_V='ipMRouteNextHopSource'
-_U='ipMRouteNextHopGroup'
-_T='ipMRouteSourceMask'
-_S='ipMRouteSource'
-_R='ipMRouteGroup'
-_Q='ipMRouteNextHopPkts'
-_P='igmpOnly'
-_O='pimDenseMode'
-_N='pimSparseMode'
-_M='cbt'
-_L='pimSparseDense'
-_K='mospf'
-_J='read-write'
-_I='dvmrp'
-_H='netmgmt'
-_G='local'
-_F='other'
-_E='not-accessible'
-_D='Integer32'
-_C='read-only'
-_B='IPMROUTE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,experimental,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','experimental','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-ipMRouteMIB=ModuleIdentity((1,3,6,1,3,60))
-if mibBuilder.loadTexts:ipMRouteMIB.setRevisions(('1994-11-04 11:59','1997-01-06 00:00','1997-05-20 00:00','1997-12-18 00:00','1999-02-08 00:00'))
-_IpMRouteMIBObjects_ObjectIdentity=ObjectIdentity
-ipMRouteMIBObjects=_IpMRouteMIBObjects_ObjectIdentity((1,3,6,1,3,60,1))
-_IpMRoute_ObjectIdentity=ObjectIdentity
-ipMRoute=_IpMRoute_ObjectIdentity((1,3,6,1,3,60,1,1))
-class _IpMRouteEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_IpMRouteEnable_Type.__name__=_D
-_IpMRouteEnable_Object=MibScalar
-ipMRouteEnable=_IpMRouteEnable_Object((1,3,6,1,3,60,1,1,1),_IpMRouteEnable_Type())
-ipMRouteEnable.setMaxAccess(_J)
-if mibBuilder.loadTexts:ipMRouteEnable.setStatus(_A)
-_IpMRouteTable_Object=MibTable
-ipMRouteTable=_IpMRouteTable_Object((1,3,6,1,3,60,1,1,2))
-if mibBuilder.loadTexts:ipMRouteTable.setStatus(_A)
-_IpMRouteEntry_Object=MibTableRow
-ipMRouteEntry=_IpMRouteEntry_Object((1,3,6,1,3,60,1,1,2,1))
-ipMRouteEntry.setIndexNames((0,_B,_R),(0,_B,_S),(0,_B,_T))
-if mibBuilder.loadTexts:ipMRouteEntry.setStatus(_A)
-_IpMRouteGroup_Type=IpAddress
-_IpMRouteGroup_Object=MibTableColumn
-ipMRouteGroup=_IpMRouteGroup_Object((1,3,6,1,3,60,1,1,2,1,1),_IpMRouteGroup_Type())
-ipMRouteGroup.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipMRouteGroup.setStatus(_A)
-_IpMRouteSource_Type=IpAddress
-_IpMRouteSource_Object=MibTableColumn
-ipMRouteSource=_IpMRouteSource_Object((1,3,6,1,3,60,1,1,2,1,2),_IpMRouteSource_Type())
-ipMRouteSource.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipMRouteSource.setStatus(_A)
-_IpMRouteSourceMask_Type=IpAddress
-_IpMRouteSourceMask_Object=MibTableColumn
-ipMRouteSourceMask=_IpMRouteSourceMask_Object((1,3,6,1,3,60,1,1,2,1,3),_IpMRouteSourceMask_Type())
-ipMRouteSourceMask.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipMRouteSourceMask.setStatus(_A)
-_IpMRouteUpstreamNeighbor_Type=IpAddress
-_IpMRouteUpstreamNeighbor_Object=MibTableColumn
-ipMRouteUpstreamNeighbor=_IpMRouteUpstreamNeighbor_Object((1,3,6,1,3,60,1,1,2,1,4),_IpMRouteUpstreamNeighbor_Type())
-ipMRouteUpstreamNeighbor.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteUpstreamNeighbor.setStatus(_A)
-_IpMRouteInIfIndex_Type=Integer32
-_IpMRouteInIfIndex_Object=MibTableColumn
-ipMRouteInIfIndex=_IpMRouteInIfIndex_Object((1,3,6,1,3,60,1,1,2,1,5),_IpMRouteInIfIndex_Type())
-ipMRouteInIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteInIfIndex.setStatus(_A)
-_IpMRouteUpTime_Type=TimeTicks
-_IpMRouteUpTime_Object=MibTableColumn
-ipMRouteUpTime=_IpMRouteUpTime_Object((1,3,6,1,3,60,1,1,2,1,6),_IpMRouteUpTime_Type())
-ipMRouteUpTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteUpTime.setStatus(_A)
-_IpMRouteExpiryTime_Type=TimeTicks
-_IpMRouteExpiryTime_Object=MibTableColumn
-ipMRouteExpiryTime=_IpMRouteExpiryTime_Object((1,3,6,1,3,60,1,1,2,1,7),_IpMRouteExpiryTime_Type())
-ipMRouteExpiryTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteExpiryTime.setStatus(_A)
-_IpMRoutePkts_Type=Counter32
-_IpMRoutePkts_Object=MibTableColumn
-ipMRoutePkts=_IpMRoutePkts_Object((1,3,6,1,3,60,1,1,2,1,8),_IpMRoutePkts_Type())
-ipMRoutePkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRoutePkts.setStatus(_A)
-_IpMRouteDifferentInIfPackets_Type=Counter32
-_IpMRouteDifferentInIfPackets_Object=MibTableColumn
-ipMRouteDifferentInIfPackets=_IpMRouteDifferentInIfPackets_Object((1,3,6,1,3,60,1,1,2,1,9),_IpMRouteDifferentInIfPackets_Type())
-ipMRouteDifferentInIfPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteDifferentInIfPackets.setStatus(_A)
-_IpMRouteOctets_Type=Counter32
-_IpMRouteOctets_Object=MibTableColumn
-ipMRouteOctets=_IpMRouteOctets_Object((1,3,6,1,3,60,1,1,2,1,10),_IpMRouteOctets_Type())
-ipMRouteOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteOctets.setStatus(_A)
-class _IpMRouteProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_F,1),(_G,2),(_H,3),(_I,4),(_K,5),(_L,6),(_M,7),(_N,8),(_O,9),(_P,10)))
-_IpMRouteProtocol_Type.__name__=_D
-_IpMRouteProtocol_Object=MibTableColumn
-ipMRouteProtocol=_IpMRouteProtocol_Object((1,3,6,1,3,60,1,1,2,1,11),_IpMRouteProtocol_Type())
-ipMRouteProtocol.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteProtocol.setStatus(_A)
-class _IpMRouteRtProto_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17)));namedValues=NamedValues(*((_F,1),(_G,2),(_H,3),('icmp',4),('egp',5),('ggp',6),('hello',7),('rip',8),('isIs',9),('esIs',10),('ciscoIgrp',11),('bbnSpfIgp',12),('ospf',13),('bgp',14),('idpr',15),('ciscoEigrp',16),(_I,17)))
-_IpMRouteRtProto_Type.__name__=_D
-_IpMRouteRtProto_Object=MibTableColumn
-ipMRouteRtProto=_IpMRouteRtProto_Object((1,3,6,1,3,60,1,1,2,1,12),_IpMRouteRtProto_Type())
-ipMRouteRtProto.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteRtProto.setStatus(_A)
-_IpMRouteRtAddress_Type=IpAddress
-_IpMRouteRtAddress_Object=MibTableColumn
-ipMRouteRtAddress=_IpMRouteRtAddress_Object((1,3,6,1,3,60,1,1,2,1,13),_IpMRouteRtAddress_Type())
-ipMRouteRtAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteRtAddress.setStatus(_A)
-_IpMRouteRtMask_Type=IpAddress
-_IpMRouteRtMask_Object=MibTableColumn
-ipMRouteRtMask=_IpMRouteRtMask_Object((1,3,6,1,3,60,1,1,2,1,14),_IpMRouteRtMask_Type())
-ipMRouteRtMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteRtMask.setStatus(_A)
-class _IpMRouteRtType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('unicast',1),('multicast',2)))
-_IpMRouteRtType_Type.__name__=_D
-_IpMRouteRtType_Object=MibTableColumn
-ipMRouteRtType=_IpMRouteRtType_Object((1,3,6,1,3,60,1,1,2,1,15),_IpMRouteRtType_Type())
-ipMRouteRtType.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteRtType.setStatus(_A)
-_IpMRouteNextHopTable_Object=MibTable
-ipMRouteNextHopTable=_IpMRouteNextHopTable_Object((1,3,6,1,3,60,1,1,3))
-if mibBuilder.loadTexts:ipMRouteNextHopTable.setStatus(_A)
-_IpMRouteNextHopEntry_Object=MibTableRow
-ipMRouteNextHopEntry=_IpMRouteNextHopEntry_Object((1,3,6,1,3,60,1,1,3,1))
-ipMRouteNextHopEntry.setIndexNames((0,_B,_U),(0,_B,_V),(0,_B,_W),(0,_B,_X),(0,_B,_Y))
-if mibBuilder.loadTexts:ipMRouteNextHopEntry.setStatus(_A)
-_IpMRouteNextHopGroup_Type=IpAddress
-_IpMRouteNextHopGroup_Object=MibTableColumn
-ipMRouteNextHopGroup=_IpMRouteNextHopGroup_Object((1,3,6,1,3,60,1,1,3,1,1),_IpMRouteNextHopGroup_Type())
-ipMRouteNextHopGroup.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipMRouteNextHopGroup.setStatus(_A)
-_IpMRouteNextHopSource_Type=IpAddress
-_IpMRouteNextHopSource_Object=MibTableColumn
-ipMRouteNextHopSource=_IpMRouteNextHopSource_Object((1,3,6,1,3,60,1,1,3,1,2),_IpMRouteNextHopSource_Type())
-ipMRouteNextHopSource.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipMRouteNextHopSource.setStatus(_A)
-_IpMRouteNextHopSourceMask_Type=IpAddress
-_IpMRouteNextHopSourceMask_Object=MibTableColumn
-ipMRouteNextHopSourceMask=_IpMRouteNextHopSourceMask_Object((1,3,6,1,3,60,1,1,3,1,3),_IpMRouteNextHopSourceMask_Type())
-ipMRouteNextHopSourceMask.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipMRouteNextHopSourceMask.setStatus(_A)
-class _IpMRouteNextHopIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_IpMRouteNextHopIfIndex_Type.__name__=_D
-_IpMRouteNextHopIfIndex_Object=MibTableColumn
-ipMRouteNextHopIfIndex=_IpMRouteNextHopIfIndex_Object((1,3,6,1,3,60,1,1,3,1,4),_IpMRouteNextHopIfIndex_Type())
-ipMRouteNextHopIfIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipMRouteNextHopIfIndex.setStatus(_A)
-_IpMRouteNextHopAddress_Type=IpAddress
-_IpMRouteNextHopAddress_Object=MibTableColumn
-ipMRouteNextHopAddress=_IpMRouteNextHopAddress_Object((1,3,6,1,3,60,1,1,3,1,5),_IpMRouteNextHopAddress_Type())
-ipMRouteNextHopAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipMRouteNextHopAddress.setStatus(_A)
-class _IpMRouteNextHopState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('pruned',1),('forwarding',2)))
-_IpMRouteNextHopState_Type.__name__=_D
-_IpMRouteNextHopState_Object=MibTableColumn
-ipMRouteNextHopState=_IpMRouteNextHopState_Object((1,3,6,1,3,60,1,1,3,1,6),_IpMRouteNextHopState_Type())
-ipMRouteNextHopState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteNextHopState.setStatus(_A)
-_IpMRouteNextHopUpTime_Type=TimeTicks
-_IpMRouteNextHopUpTime_Object=MibTableColumn
-ipMRouteNextHopUpTime=_IpMRouteNextHopUpTime_Object((1,3,6,1,3,60,1,1,3,1,7),_IpMRouteNextHopUpTime_Type())
-ipMRouteNextHopUpTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteNextHopUpTime.setStatus(_A)
-_IpMRouteNextHopExpiryTime_Type=TimeTicks
-_IpMRouteNextHopExpiryTime_Object=MibTableColumn
-ipMRouteNextHopExpiryTime=_IpMRouteNextHopExpiryTime_Object((1,3,6,1,3,60,1,1,3,1,8),_IpMRouteNextHopExpiryTime_Type())
-ipMRouteNextHopExpiryTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteNextHopExpiryTime.setStatus(_A)
-_IpMRouteNextHopClosestMemberHops_Type=Integer32
-_IpMRouteNextHopClosestMemberHops_Object=MibTableColumn
-ipMRouteNextHopClosestMemberHops=_IpMRouteNextHopClosestMemberHops_Object((1,3,6,1,3,60,1,1,3,1,9),_IpMRouteNextHopClosestMemberHops_Type())
-ipMRouteNextHopClosestMemberHops.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteNextHopClosestMemberHops.setStatus(_A)
-class _IpMRouteNextHopProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_F,1),(_G,2),(_H,3),(_I,4),(_K,5),(_L,6),(_M,7),(_N,8),(_O,9),(_P,10)))
-_IpMRouteNextHopProtocol_Type.__name__=_D
-_IpMRouteNextHopProtocol_Object=MibTableColumn
-ipMRouteNextHopProtocol=_IpMRouteNextHopProtocol_Object((1,3,6,1,3,60,1,1,3,1,10),_IpMRouteNextHopProtocol_Type())
-ipMRouteNextHopProtocol.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteNextHopProtocol.setStatus(_A)
-_IpMRouteNextHopPkts_Type=Counter32
-_IpMRouteNextHopPkts_Object=MibTableColumn
-ipMRouteNextHopPkts=_IpMRouteNextHopPkts_Object((1,3,6,1,3,60,1,1,3,1,11),_IpMRouteNextHopPkts_Type())
-ipMRouteNextHopPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteNextHopPkts.setStatus(_A)
-_IpMRouteInterfaceTable_Object=MibTable
-ipMRouteInterfaceTable=_IpMRouteInterfaceTable_Object((1,3,6,1,3,60,1,1,4))
-if mibBuilder.loadTexts:ipMRouteInterfaceTable.setStatus(_A)
-_IpMRouteInterfaceEntry_Object=MibTableRow
-ipMRouteInterfaceEntry=_IpMRouteInterfaceEntry_Object((1,3,6,1,3,60,1,1,4,1))
-ipMRouteInterfaceEntry.setIndexNames((0,_B,_Z))
-if mibBuilder.loadTexts:ipMRouteInterfaceEntry.setStatus(_A)
-class _IpMRouteInterfaceIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_IpMRouteInterfaceIfIndex_Type.__name__=_D
-_IpMRouteInterfaceIfIndex_Object=MibTableColumn
-ipMRouteInterfaceIfIndex=_IpMRouteInterfaceIfIndex_Object((1,3,6,1,3,60,1,1,4,1,1),_IpMRouteInterfaceIfIndex_Type())
-ipMRouteInterfaceIfIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipMRouteInterfaceIfIndex.setStatus(_A)
-_IpMRouteInterfaceTtl_Type=Integer32
-_IpMRouteInterfaceTtl_Object=MibTableColumn
-ipMRouteInterfaceTtl=_IpMRouteInterfaceTtl_Object((1,3,6,1,3,60,1,1,4,1,2),_IpMRouteInterfaceTtl_Type())
-ipMRouteInterfaceTtl.setMaxAccess(_J)
-if mibBuilder.loadTexts:ipMRouteInterfaceTtl.setStatus(_A)
-class _IpMRouteInterfaceProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_F,1),(_G,2),(_H,3),(_I,4),(_K,5),(_L,6),(_M,7),(_N,8),(_O,9),(_P,10)))
-_IpMRouteInterfaceProtocol_Type.__name__=_D
-_IpMRouteInterfaceProtocol_Object=MibTableColumn
-ipMRouteInterfaceProtocol=_IpMRouteInterfaceProtocol_Object((1,3,6,1,3,60,1,1,4,1,3),_IpMRouteInterfaceProtocol_Type())
-ipMRouteInterfaceProtocol.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteInterfaceProtocol.setStatus(_A)
-class _IpMRouteInterfaceRateLimit_Type(Integer32):defaultValue=0
-_IpMRouteInterfaceRateLimit_Type.__name__=_D
-_IpMRouteInterfaceRateLimit_Object=MibTableColumn
-ipMRouteInterfaceRateLimit=_IpMRouteInterfaceRateLimit_Object((1,3,6,1,3,60,1,1,4,1,4),_IpMRouteInterfaceRateLimit_Type())
-ipMRouteInterfaceRateLimit.setMaxAccess(_J)
-if mibBuilder.loadTexts:ipMRouteInterfaceRateLimit.setStatus(_A)
-_IpMRouteInterfaceInMcastOctets_Type=Counter32
-_IpMRouteInterfaceInMcastOctets_Object=MibTableColumn
-ipMRouteInterfaceInMcastOctets=_IpMRouteInterfaceInMcastOctets_Object((1,3,6,1,3,60,1,1,4,1,5),_IpMRouteInterfaceInMcastOctets_Type())
-ipMRouteInterfaceInMcastOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteInterfaceInMcastOctets.setStatus(_A)
-_IpMRouteInterfaceOutMcastOctets_Type=Counter32
-_IpMRouteInterfaceOutMcastOctets_Object=MibTableColumn
-ipMRouteInterfaceOutMcastOctets=_IpMRouteInterfaceOutMcastOctets_Object((1,3,6,1,3,60,1,1,4,1,6),_IpMRouteInterfaceOutMcastOctets_Type())
-ipMRouteInterfaceOutMcastOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipMRouteInterfaceOutMcastOctets.setStatus(_A)
-_IpMRouteBoundaryTable_Object=MibTable
-ipMRouteBoundaryTable=_IpMRouteBoundaryTable_Object((1,3,6,1,3,60,1,1,5))
-if mibBuilder.loadTexts:ipMRouteBoundaryTable.setStatus(_A)
-_IpMRouteBoundaryEntry_Object=MibTableRow
-ipMRouteBoundaryEntry=_IpMRouteBoundaryEntry_Object((1,3,6,1,3,60,1,1,5,1))
-ipMRouteBoundaryEntry.setIndexNames((0,_B,_a),(0,_B,_b),(0,_B,_c))
-if mibBuilder.loadTexts:ipMRouteBoundaryEntry.setStatus(_A)
-class _IpMRouteBoundaryIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_IpMRouteBoundaryIfIndex_Type.__name__=_D
-_IpMRouteBoundaryIfIndex_Object=MibTableColumn
-ipMRouteBoundaryIfIndex=_IpMRouteBoundaryIfIndex_Object((1,3,6,1,3,60,1,1,5,1,1),_IpMRouteBoundaryIfIndex_Type())
-ipMRouteBoundaryIfIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipMRouteBoundaryIfIndex.setStatus(_A)
-_IpMRouteBoundaryAddress_Type=IpAddress
-_IpMRouteBoundaryAddress_Object=MibTableColumn
-ipMRouteBoundaryAddress=_IpMRouteBoundaryAddress_Object((1,3,6,1,3,60,1,1,5,1,2),_IpMRouteBoundaryAddress_Type())
-ipMRouteBoundaryAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipMRouteBoundaryAddress.setStatus(_A)
-_IpMRouteBoundaryAddressMask_Type=IpAddress
-_IpMRouteBoundaryAddressMask_Object=MibTableColumn
-ipMRouteBoundaryAddressMask=_IpMRouteBoundaryAddressMask_Object((1,3,6,1,3,60,1,1,5,1,3),_IpMRouteBoundaryAddressMask_Type())
-ipMRouteBoundaryAddressMask.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipMRouteBoundaryAddressMask.setStatus(_A)
-_IpMRouteBoundaryStatus_Type=RowStatus
-_IpMRouteBoundaryStatus_Object=MibTableColumn
-ipMRouteBoundaryStatus=_IpMRouteBoundaryStatus_Object((1,3,6,1,3,60,1,1,5,1,4),_IpMRouteBoundaryStatus_Type())
-ipMRouteBoundaryStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:ipMRouteBoundaryStatus.setStatus(_A)
-_IpMRouteMIBConformance_ObjectIdentity=ObjectIdentity
-ipMRouteMIBConformance=_IpMRouteMIBConformance_ObjectIdentity((1,3,6,1,3,60,2))
-_IpMRouteMIBCompliances_ObjectIdentity=ObjectIdentity
-ipMRouteMIBCompliances=_IpMRouteMIBCompliances_ObjectIdentity((1,3,6,1,3,60,2,1))
-_IpMRouteMIBGroups_ObjectIdentity=ObjectIdentity
-ipMRouteMIBGroups=_IpMRouteMIBGroups_ObjectIdentity((1,3,6,1,3,60,2,2))
-ipMRouteMIBBasicGroup=ObjectGroup((1,3,6,1,3,60,2,2,1))
-ipMRouteMIBBasicGroup.setObjects(*((_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_Q),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u)))
-if mibBuilder.loadTexts:ipMRouteMIBBasicGroup.setStatus(_A)
-ipMRouteMIBHopCountGroup=ObjectGroup((1,3,6,1,3,60,2,2,2))
-ipMRouteMIBHopCountGroup.setObjects((_B,_v))
-if mibBuilder.loadTexts:ipMRouteMIBHopCountGroup.setStatus(_A)
-ipMRouteMIBBoundaryGroup=ObjectGroup((1,3,6,1,3,60,2,2,3))
-ipMRouteMIBBoundaryGroup.setObjects((_B,_w))
-if mibBuilder.loadTexts:ipMRouteMIBBoundaryGroup.setStatus(_A)
-ipMRouteMIBPktsOutGroup=ObjectGroup((1,3,6,1,3,60,2,2,4))
-ipMRouteMIBPktsOutGroup.setObjects((_B,_Q))
-if mibBuilder.loadTexts:ipMRouteMIBPktsOutGroup.setStatus(_A)
-ipMRouteMIBRouteGroup=ObjectGroup((1,3,6,1,3,60,2,2,6))
-ipMRouteMIBRouteGroup.setObjects(*((_B,_x),(_B,_y),(_B,_z),(_B,_A0)))
-if mibBuilder.loadTexts:ipMRouteMIBRouteGroup.setStatus(_A)
-ipMRouteMIBCompliance=ModuleCompliance((1,3,6,1,3,60,2,1,1))
-ipMRouteMIBCompliance.setObjects(*((_B,_A1),(_B,_A2),(_B,_A3)))
-if mibBuilder.loadTexts:ipMRouteMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ipMRouteMIB':ipMRouteMIB,'ipMRouteMIBObjects':ipMRouteMIBObjects,'ipMRoute':ipMRoute,_d:ipMRouteEnable,'ipMRouteTable':ipMRouteTable,'ipMRouteEntry':ipMRouteEntry,_R:ipMRouteGroup,_S:ipMRouteSource,_T:ipMRouteSourceMask,_e:ipMRouteUpstreamNeighbor,_f:ipMRouteInIfIndex,_g:ipMRouteUpTime,_h:ipMRouteExpiryTime,_i:ipMRoutePkts,_j:ipMRouteDifferentInIfPackets,_k:ipMRouteOctets,_u:ipMRouteProtocol,_x:ipMRouteRtProto,_y:ipMRouteRtAddress,_z:ipMRouteRtMask,_A0:ipMRouteRtType,'ipMRouteNextHopTable':ipMRouteNextHopTable,'ipMRouteNextHopEntry':ipMRouteNextHopEntry,_U:ipMRouteNextHopGroup,_V:ipMRouteNextHopSource,_W:ipMRouteNextHopSourceMask,_X:ipMRouteNextHopIfIndex,_Y:ipMRouteNextHopAddress,_l:ipMRouteNextHopState,_m:ipMRouteNextHopUpTime,_n:ipMRouteNextHopExpiryTime,_v:ipMRouteNextHopClosestMemberHops,_o:ipMRouteNextHopProtocol,_Q:ipMRouteNextHopPkts,'ipMRouteInterfaceTable':ipMRouteInterfaceTable,'ipMRouteInterfaceEntry':ipMRouteInterfaceEntry,_Z:ipMRouteInterfaceIfIndex,_p:ipMRouteInterfaceTtl,_q:ipMRouteInterfaceProtocol,_r:ipMRouteInterfaceRateLimit,_s:ipMRouteInterfaceInMcastOctets,_t:ipMRouteInterfaceOutMcastOctets,'ipMRouteBoundaryTable':ipMRouteBoundaryTable,'ipMRouteBoundaryEntry':ipMRouteBoundaryEntry,_a:ipMRouteBoundaryIfIndex,_b:ipMRouteBoundaryAddress,_c:ipMRouteBoundaryAddressMask,_w:ipMRouteBoundaryStatus,'ipMRouteMIBConformance':ipMRouteMIBConformance,'ipMRouteMIBCompliances':ipMRouteMIBCompliances,'ipMRouteMIBCompliance':ipMRouteMIBCompliance,'ipMRouteMIBGroups':ipMRouteMIBGroups,_A1:ipMRouteMIBBasicGroup,'ipMRouteMIBHopCountGroup':ipMRouteMIBHopCountGroup,_A3:ipMRouteMIBBoundaryGroup,'ipMRouteMIBPktsOutGroup':ipMRouteMIBPktsOutGroup,_A2:ipMRouteMIBRouteGroup})
+#
+# PySNMP MIB module IPMROUTE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/IPMROUTE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, experimental, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "experimental", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ipMRouteMIB = ModuleIdentity((1, 3, 6, 1, 3, 60))
+ipMRouteMIB.setRevisions(('1994-11-04 11:59', '1997-01-06 00:00', '1997-05-20 00:00', '1997-12-18 00:00', '1999-02-08 00:00',))
+if mibBuilder.loadTexts: ipMRouteMIB.setLastUpdated('9902080000Z')
+if mibBuilder.loadTexts: ipMRouteMIB.setOrganization('IETF IDMR Working Group.')
+ipMRouteMIBObjects = MibIdentifier((1, 3, 6, 1, 3, 60, 1))
+ipMRoute = MibIdentifier((1, 3, 6, 1, 3, 60, 1, 1))
+ipMRouteEnable = MibScalar((1, 3, 6, 1, 3, 60, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipMRouteEnable.setStatus('current')
+ipMRouteTable = MibTable((1, 3, 6, 1, 3, 60, 1, 1, 2), )
+if mibBuilder.loadTexts: ipMRouteTable.setStatus('current')
+ipMRouteEntry = MibTableRow((1, 3, 6, 1, 3, 60, 1, 1, 2, 1), ).setIndexNames((0, "IPMROUTE-MIB", "ipMRouteGroup"), (0, "IPMROUTE-MIB", "ipMRouteSource"), (0, "IPMROUTE-MIB", "ipMRouteSourceMask"))
+if mibBuilder.loadTexts: ipMRouteEntry.setStatus('current')
+ipMRouteGroup = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 2, 1, 1), IpAddress())
+if mibBuilder.loadTexts: ipMRouteGroup.setStatus('current')
+ipMRouteSource = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 2, 1, 2), IpAddress())
+if mibBuilder.loadTexts: ipMRouteSource.setStatus('current')
+ipMRouteSourceMask = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 2, 1, 3), IpAddress())
+if mibBuilder.loadTexts: ipMRouteSourceMask.setStatus('current')
+ipMRouteUpstreamNeighbor = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 2, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteUpstreamNeighbor.setStatus('current')
+ipMRouteInIfIndex = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteInIfIndex.setStatus('current')
+ipMRouteUpTime = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 2, 1, 6), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteUpTime.setStatus('current')
+ipMRouteExpiryTime = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 2, 1, 7), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteExpiryTime.setStatus('current')
+ipMRoutePkts = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRoutePkts.setStatus('current')
+ipMRouteDifferentInIfPackets = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteDifferentInIfPackets.setStatus('current')
+ipMRouteOctets = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteOctets.setStatus('current')
+ipMRouteProtocol = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("other", 1), ("local", 2), ("netmgmt", 3), ("dvmrp", 4), ("mospf", 5), ("pimSparseDense", 6), ("cbt", 7), ("pimSparseMode", 8), ("pimDenseMode", 9), ("igmpOnly", 10)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteProtocol.setStatus('current')
+ipMRouteRtProto = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 2, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17))).clone(namedValues=NamedValues(("other", 1), ("local", 2), ("netmgmt", 3), ("icmp", 4), ("egp", 5), ("ggp", 6), ("hello", 7), ("rip", 8), ("isIs", 9), ("esIs", 10), ("ciscoIgrp", 11), ("bbnSpfIgp", 12), ("ospf", 13), ("bgp", 14), ("idpr", 15), ("ciscoEigrp", 16), ("dvmrp", 17)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteRtProto.setStatus('current')
+ipMRouteRtAddress = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 2, 1, 13), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteRtAddress.setStatus('current')
+ipMRouteRtMask = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 2, 1, 14), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteRtMask.setStatus('current')
+ipMRouteRtType = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 2, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("unicast", 1), ("multicast", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteRtType.setStatus('current')
+ipMRouteNextHopTable = MibTable((1, 3, 6, 1, 3, 60, 1, 1, 3), )
+if mibBuilder.loadTexts: ipMRouteNextHopTable.setStatus('current')
+ipMRouteNextHopEntry = MibTableRow((1, 3, 6, 1, 3, 60, 1, 1, 3, 1), ).setIndexNames((0, "IPMROUTE-MIB", "ipMRouteNextHopGroup"), (0, "IPMROUTE-MIB", "ipMRouteNextHopSource"), (0, "IPMROUTE-MIB", "ipMRouteNextHopSourceMask"), (0, "IPMROUTE-MIB", "ipMRouteNextHopIfIndex"), (0, "IPMROUTE-MIB", "ipMRouteNextHopAddress"))
+if mibBuilder.loadTexts: ipMRouteNextHopEntry.setStatus('current')
+ipMRouteNextHopGroup = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 3, 1, 1), IpAddress())
+if mibBuilder.loadTexts: ipMRouteNextHopGroup.setStatus('current')
+ipMRouteNextHopSource = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 3, 1, 2), IpAddress())
+if mibBuilder.loadTexts: ipMRouteNextHopSource.setStatus('current')
+ipMRouteNextHopSourceMask = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 3, 1, 3), IpAddress())
+if mibBuilder.loadTexts: ipMRouteNextHopSourceMask.setStatus('current')
+ipMRouteNextHopIfIndex = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: ipMRouteNextHopIfIndex.setStatus('current')
+ipMRouteNextHopAddress = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 3, 1, 5), IpAddress())
+if mibBuilder.loadTexts: ipMRouteNextHopAddress.setStatus('current')
+ipMRouteNextHopState = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("pruned", 1), ("forwarding", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteNextHopState.setStatus('current')
+ipMRouteNextHopUpTime = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 3, 1, 7), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteNextHopUpTime.setStatus('current')
+ipMRouteNextHopExpiryTime = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 3, 1, 8), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteNextHopExpiryTime.setStatus('current')
+ipMRouteNextHopClosestMemberHops = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 3, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteNextHopClosestMemberHops.setStatus('current')
+ipMRouteNextHopProtocol = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("other", 1), ("local", 2), ("netmgmt", 3), ("dvmrp", 4), ("mospf", 5), ("pimSparseDense", 6), ("cbt", 7), ("pimSparseMode", 8), ("pimDenseMode", 9), ("igmpOnly", 10)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteNextHopProtocol.setStatus('current')
+ipMRouteNextHopPkts = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 3, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteNextHopPkts.setStatus('current')
+ipMRouteInterfaceTable = MibTable((1, 3, 6, 1, 3, 60, 1, 1, 4), )
+if mibBuilder.loadTexts: ipMRouteInterfaceTable.setStatus('current')
+ipMRouteInterfaceEntry = MibTableRow((1, 3, 6, 1, 3, 60, 1, 1, 4, 1), ).setIndexNames((0, "IPMROUTE-MIB", "ipMRouteInterfaceIfIndex"))
+if mibBuilder.loadTexts: ipMRouteInterfaceEntry.setStatus('current')
+ipMRouteInterfaceIfIndex = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: ipMRouteInterfaceIfIndex.setStatus('current')
+ipMRouteInterfaceTtl = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 4, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipMRouteInterfaceTtl.setStatus('current')
+ipMRouteInterfaceProtocol = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("other", 1), ("local", 2), ("netmgmt", 3), ("dvmrp", 4), ("mospf", 5), ("pimSparseDense", 6), ("cbt", 7), ("pimSparseMode", 8), ("pimDenseMode", 9), ("igmpOnly", 10)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteInterfaceProtocol.setStatus('current')
+ipMRouteInterfaceRateLimit = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 4, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipMRouteInterfaceRateLimit.setStatus('current')
+ipMRouteInterfaceInMcastOctets = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 4, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteInterfaceInMcastOctets.setStatus('current')
+ipMRouteInterfaceOutMcastOctets = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 4, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipMRouteInterfaceOutMcastOctets.setStatus('current')
+ipMRouteBoundaryTable = MibTable((1, 3, 6, 1, 3, 60, 1, 1, 5), )
+if mibBuilder.loadTexts: ipMRouteBoundaryTable.setStatus('current')
+ipMRouteBoundaryEntry = MibTableRow((1, 3, 6, 1, 3, 60, 1, 1, 5, 1), ).setIndexNames((0, "IPMROUTE-MIB", "ipMRouteBoundaryIfIndex"), (0, "IPMROUTE-MIB", "ipMRouteBoundaryAddress"), (0, "IPMROUTE-MIB", "ipMRouteBoundaryAddressMask"))
+if mibBuilder.loadTexts: ipMRouteBoundaryEntry.setStatus('current')
+ipMRouteBoundaryIfIndex = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: ipMRouteBoundaryIfIndex.setStatus('current')
+ipMRouteBoundaryAddress = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 5, 1, 2), IpAddress())
+if mibBuilder.loadTexts: ipMRouteBoundaryAddress.setStatus('current')
+ipMRouteBoundaryAddressMask = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 5, 1, 3), IpAddress())
+if mibBuilder.loadTexts: ipMRouteBoundaryAddressMask.setStatus('current')
+ipMRouteBoundaryStatus = MibTableColumn((1, 3, 6, 1, 3, 60, 1, 1, 5, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ipMRouteBoundaryStatus.setStatus('current')
+ipMRouteMIBConformance = MibIdentifier((1, 3, 6, 1, 3, 60, 2))
+ipMRouteMIBCompliances = MibIdentifier((1, 3, 6, 1, 3, 60, 2, 1))
+ipMRouteMIBGroups = MibIdentifier((1, 3, 6, 1, 3, 60, 2, 2))
+ipMRouteMIBCompliance = ModuleCompliance((1, 3, 6, 1, 3, 60, 2, 1, 1)).setObjects(("IPMROUTE-MIB", "ipMRouteMIBBasicGroup"), ("IPMROUTE-MIB", "ipMRouteMIBRouteGroup"), ("IPMROUTE-MIB", "ipMRouteMIBBoundaryGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ipMRouteMIBCompliance = ipMRouteMIBCompliance.setStatus('current')
+ipMRouteMIBBasicGroup = ObjectGroup((1, 3, 6, 1, 3, 60, 2, 2, 1)).setObjects(("IPMROUTE-MIB", "ipMRouteEnable"), ("IPMROUTE-MIB", "ipMRouteUpstreamNeighbor"), ("IPMROUTE-MIB", "ipMRouteInIfIndex"), ("IPMROUTE-MIB", "ipMRouteUpTime"), ("IPMROUTE-MIB", "ipMRouteExpiryTime"), ("IPMROUTE-MIB", "ipMRoutePkts"), ("IPMROUTE-MIB", "ipMRouteDifferentInIfPackets"), ("IPMROUTE-MIB", "ipMRouteOctets"), ("IPMROUTE-MIB", "ipMRouteNextHopState"), ("IPMROUTE-MIB", "ipMRouteNextHopUpTime"), ("IPMROUTE-MIB", "ipMRouteNextHopExpiryTime"), ("IPMROUTE-MIB", "ipMRouteNextHopProtocol"), ("IPMROUTE-MIB", "ipMRouteNextHopPkts"), ("IPMROUTE-MIB", "ipMRouteInterfaceTtl"), ("IPMROUTE-MIB", "ipMRouteInterfaceProtocol"), ("IPMROUTE-MIB", "ipMRouteInterfaceRateLimit"), ("IPMROUTE-MIB", "ipMRouteInterfaceInMcastOctets"), ("IPMROUTE-MIB", "ipMRouteInterfaceOutMcastOctets"), ("IPMROUTE-MIB", "ipMRouteProtocol"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ipMRouteMIBBasicGroup = ipMRouteMIBBasicGroup.setStatus('current')
+ipMRouteMIBHopCountGroup = ObjectGroup((1, 3, 6, 1, 3, 60, 2, 2, 2)).setObjects(("IPMROUTE-MIB", "ipMRouteNextHopClosestMemberHops"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ipMRouteMIBHopCountGroup = ipMRouteMIBHopCountGroup.setStatus('current')
+ipMRouteMIBBoundaryGroup = ObjectGroup((1, 3, 6, 1, 3, 60, 2, 2, 3)).setObjects(("IPMROUTE-MIB", "ipMRouteBoundaryStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ipMRouteMIBBoundaryGroup = ipMRouteMIBBoundaryGroup.setStatus('current')
+ipMRouteMIBPktsOutGroup = ObjectGroup((1, 3, 6, 1, 3, 60, 2, 2, 4)).setObjects(("IPMROUTE-MIB", "ipMRouteNextHopPkts"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ipMRouteMIBPktsOutGroup = ipMRouteMIBPktsOutGroup.setStatus('current')
+ipMRouteMIBRouteGroup = ObjectGroup((1, 3, 6, 1, 3, 60, 2, 2, 6)).setObjects(("IPMROUTE-MIB", "ipMRouteRtProto"), ("IPMROUTE-MIB", "ipMRouteRtAddress"), ("IPMROUTE-MIB", "ipMRouteRtMask"), ("IPMROUTE-MIB", "ipMRouteRtType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ipMRouteMIBRouteGroup = ipMRouteMIBRouteGroup.setStatus('current')
+mibBuilder.exportSymbols("IPMROUTE-MIB", ipMRoute=ipMRoute, ipMRouteRtProto=ipMRouteRtProto, ipMRouteMIBRouteGroup=ipMRouteMIBRouteGroup, ipMRouteSource=ipMRouteSource, ipMRouteInterfaceTable=ipMRouteInterfaceTable, ipMRouteDifferentInIfPackets=ipMRouteDifferentInIfPackets, ipMRouteBoundaryStatus=ipMRouteBoundaryStatus, ipMRouteTable=ipMRouteTable, ipMRouteMIBCompliances=ipMRouteMIBCompliances, ipMRouteMIBObjects=ipMRouteMIBObjects, ipMRouteOctets=ipMRouteOctets, ipMRouteNextHopClosestMemberHops=ipMRouteNextHopClosestMemberHops, ipMRoutePkts=ipMRoutePkts, ipMRouteRtAddress=ipMRouteRtAddress, PYSNMP_MODULE_ID=ipMRouteMIB, ipMRouteSourceMask=ipMRouteSourceMask, ipMRouteRtType=ipMRouteRtType, ipMRouteNextHopProtocol=ipMRouteNextHopProtocol, ipMRouteEntry=ipMRouteEntry, ipMRouteUpTime=ipMRouteUpTime, ipMRouteMIBBoundaryGroup=ipMRouteMIBBoundaryGroup, ipMRouteUpstreamNeighbor=ipMRouteUpstreamNeighbor, ipMRouteRtMask=ipMRouteRtMask, ipMRouteInterfaceEntry=ipMRouteInterfaceEntry, ipMRouteNextHopPkts=ipMRouteNextHopPkts, ipMRouteInterfaceProtocol=ipMRouteInterfaceProtocol, ipMRouteNextHopGroup=ipMRouteNextHopGroup, ipMRouteInterfaceRateLimit=ipMRouteInterfaceRateLimit, ipMRouteMIBConformance=ipMRouteMIBConformance, ipMRouteProtocol=ipMRouteProtocol, ipMRouteInterfaceTtl=ipMRouteInterfaceTtl, ipMRouteMIBBasicGroup=ipMRouteMIBBasicGroup, ipMRouteBoundaryIfIndex=ipMRouteBoundaryIfIndex, ipMRouteMIBPktsOutGroup=ipMRouteMIBPktsOutGroup, ipMRouteNextHopState=ipMRouteNextHopState, ipMRouteMIBCompliance=ipMRouteMIBCompliance, ipMRouteMIBHopCountGroup=ipMRouteMIBHopCountGroup, ipMRouteInterfaceInMcastOctets=ipMRouteInterfaceInMcastOctets, ipMRouteInterfaceIfIndex=ipMRouteInterfaceIfIndex, ipMRouteNextHopSource=ipMRouteNextHopSource, ipMRouteEnable=ipMRouteEnable, ipMRouteNextHopUpTime=ipMRouteNextHopUpTime, ipMRouteBoundaryTable=ipMRouteBoundaryTable, ipMRouteNextHopEntry=ipMRouteNextHopEntry, ipMRouteBoundaryEntry=ipMRouteBoundaryEntry, ipMRouteInIfIndex=ipMRouteInIfIndex, ipMRouteBoundaryAddressMask=ipMRouteBoundaryAddressMask, ipMRouteMIBGroups=ipMRouteMIBGroups, ipMRouteInterfaceOutMcastOctets=ipMRouteInterfaceOutMcastOctets, ipMRouteMIB=ipMRouteMIB, ipMRouteGroup=ipMRouteGroup, ipMRouteNextHopExpiryTime=ipMRouteNextHopExpiryTime, ipMRouteBoundaryAddress=ipMRouteBoundaryAddress, ipMRouteExpiryTime=ipMRouteExpiryTime, ipMRouteNextHopSourceMask=ipMRouteNextHopSourceMask, ipMRouteNextHopAddress=ipMRouteNextHopAddress, ipMRouteNextHopTable=ipMRouteNextHopTable, ipMRouteNextHopIfIndex=ipMRouteNextHopIfIndex)

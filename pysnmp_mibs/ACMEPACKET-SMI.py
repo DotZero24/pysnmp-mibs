@@ -1,29 +1,30 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-acmepacket=ModuleIdentity((1,3,6,1,4,1,9148))
-if mibBuilder.loadTexts:acmepacket.setRevisions(('2012-02-02 18:00','2004-02-26 18:00','2001-09-05 00:00'))
-_AcmepacketProducts_ObjectIdentity=ObjectIdentity
-acmepacketProducts=_AcmepacketProducts_ObjectIdentity((1,3,6,1,4,1,9148,1))
-if mibBuilder.loadTexts:acmepacketProducts.setStatus(_A)
-_AcmepacketAgentCapability_ObjectIdentity=ObjectIdentity
-acmepacketAgentCapability=_AcmepacketAgentCapability_ObjectIdentity((1,3,6,1,4,1,9148,2))
-if mibBuilder.loadTexts:acmepacketAgentCapability.setStatus(_A)
-_AcmepacketMgmt_ObjectIdentity=ObjectIdentity
-acmepacketMgmt=_AcmepacketMgmt_ObjectIdentity((1,3,6,1,4,1,9148,3))
-if mibBuilder.loadTexts:acmepacketMgmt.setStatus(_A)
-_AcmepacketConfig_ObjectIdentity=ObjectIdentity
-acmepacketConfig=_AcmepacketConfig_ObjectIdentity((1,3,6,1,4,1,9148,4))
-if mibBuilder.loadTexts:acmepacketConfig.setStatus(_A)
-_AcmepacketExperiment_ObjectIdentity=ObjectIdentity
-acmepacketExperiment=_AcmepacketExperiment_ObjectIdentity((1,3,6,1,4,1,9148,5))
-if mibBuilder.loadTexts:acmepacketExperiment.setStatus(_A)
-_AcmepacketModules_ObjectIdentity=ObjectIdentity
-acmepacketModules=_AcmepacketModules_ObjectIdentity((1,3,6,1,4,1,9148,6))
-if mibBuilder.loadTexts:acmepacketModules.setStatus(_A)
-mibBuilder.exportSymbols('ACMEPACKET-SMI',**{'acmepacket':acmepacket,'acmepacketProducts':acmepacketProducts,'acmepacketAgentCapability':acmepacketAgentCapability,'acmepacketMgmt':acmepacketMgmt,'acmepacketConfig':acmepacketConfig,'acmepacketExperiment':acmepacketExperiment,'acmepacketModules':acmepacketModules})
+#
+# PySNMP MIB module ACMEPACKET-SMI (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/acme/ACMEPACKET-SMI
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+acmepacket = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148))
+acmepacket.setRevisions(('2012-02-02 18:00', '2004-02-26 18:00', '2001-09-05 00:00',))
+if mibBuilder.loadTexts: acmepacket.setLastUpdated('201202021800Z')
+if mibBuilder.loadTexts: acmepacket.setOrganization('Acme Packet, Inc.')
+acmepacketProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 9148, 1))
+if mibBuilder.loadTexts: acmepacketProducts.setStatus('current')
+acmepacketAgentCapability = ObjectIdentity((1, 3, 6, 1, 4, 1, 9148, 2))
+if mibBuilder.loadTexts: acmepacketAgentCapability.setStatus('current')
+acmepacketMgmt = ObjectIdentity((1, 3, 6, 1, 4, 1, 9148, 3))
+if mibBuilder.loadTexts: acmepacketMgmt.setStatus('current')
+acmepacketConfig = ObjectIdentity((1, 3, 6, 1, 4, 1, 9148, 4))
+if mibBuilder.loadTexts: acmepacketConfig.setStatus('current')
+acmepacketExperiment = ObjectIdentity((1, 3, 6, 1, 4, 1, 9148, 5))
+if mibBuilder.loadTexts: acmepacketExperiment.setStatus('current')
+acmepacketModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 9148, 6))
+if mibBuilder.loadTexts: acmepacketModules.setStatus('current')
+mibBuilder.exportSymbols("ACMEPACKET-SMI", acmepacketExperiment=acmepacketExperiment, acmepacketAgentCapability=acmepacketAgentCapability, acmepacketProducts=acmepacketProducts, acmepacketMgmt=acmepacketMgmt, acmepacketConfig=acmepacketConfig, acmepacketModules=acmepacketModules, PYSNMP_MODULE_ID=acmepacket, acmepacket=acmepacket)

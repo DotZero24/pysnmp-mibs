@@ -1,118 +1,58 @@
-_E='Integer32'
-_D='ifIndex'
-_C='IF-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_C,_D)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ethernetOamStatistics,=mibBuilder.importSymbols('TPLINK-ETHERNETOAM-MIB','ethernetOamStatistics')
-_EthernetOamPduStatTable_Object=MibTable
-ethernetOamPduStatTable=_EthernetOamPduStatTable_Object((1,3,6,1,4,1,11863,6,60,1,6,1))
-if mibBuilder.loadTexts:ethernetOamPduStatTable.setStatus(_A)
-_EthernetOamPduStatEntry_Object=MibTableRow
-ethernetOamPduStatEntry=_EthernetOamPduStatEntry_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1))
-ethernetOamPduStatEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:ethernetOamPduStatEntry.setStatus(_A)
-_EthernetOamPduStatPort_Type=DisplayString
-_EthernetOamPduStatPort_Object=MibTableColumn
-ethernetOamPduStatPort=_EthernetOamPduStatPort_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,1),_EthernetOamPduStatPort_Type())
-ethernetOamPduStatPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatPort.setStatus(_A)
-class _EthernetOamPduStatClear_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('unchanged',0),('clear',1)))
-_EthernetOamPduStatClear_Type.__name__=_E
-_EthernetOamPduStatClear_Object=MibTableColumn
-ethernetOamPduStatClear=_EthernetOamPduStatClear_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,2),_EthernetOamPduStatClear_Type())
-ethernetOamPduStatClear.setMaxAccess('read-write')
-if mibBuilder.loadTexts:ethernetOamPduStatClear.setStatus(_A)
-_EthernetOamPduStatInfoTx_Type=Counter32
-_EthernetOamPduStatInfoTx_Object=MibTableColumn
-ethernetOamPduStatInfoTx=_EthernetOamPduStatInfoTx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,3),_EthernetOamPduStatInfoTx_Type())
-ethernetOamPduStatInfoTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatInfoTx.setStatus(_A)
-_EthernetOamPduStatInfoRx_Type=Counter32
-_EthernetOamPduStatInfoRx_Object=MibTableColumn
-ethernetOamPduStatInfoRx=_EthernetOamPduStatInfoRx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,4),_EthernetOamPduStatInfoRx_Type())
-ethernetOamPduStatInfoRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatInfoRx.setStatus(_A)
-_EthernetOamPduStatUniEventTx_Type=Counter32
-_EthernetOamPduStatUniEventTx_Object=MibTableColumn
-ethernetOamPduStatUniEventTx=_EthernetOamPduStatUniEventTx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,5),_EthernetOamPduStatUniEventTx_Type())
-ethernetOamPduStatUniEventTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatUniEventTx.setStatus(_A)
-_EthernetOamPduStatUniEventRx_Type=Counter32
-_EthernetOamPduStatUniEventRx_Object=MibTableColumn
-ethernetOamPduStatUniEventRx=_EthernetOamPduStatUniEventRx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,6),_EthernetOamPduStatUniEventRx_Type())
-ethernetOamPduStatUniEventRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatUniEventRx.setStatus(_A)
-_EthernetOamPduStatDupEventTx_Type=Counter32
-_EthernetOamPduStatDupEventTx_Object=MibTableColumn
-ethernetOamPduStatDupEventTx=_EthernetOamPduStatDupEventTx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,7),_EthernetOamPduStatDupEventTx_Type())
-ethernetOamPduStatDupEventTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatDupEventTx.setStatus(_A)
-_EthernetOamPduStatDupEventRx_Type=Counter32
-_EthernetOamPduStatDupEventRx_Object=MibTableColumn
-ethernetOamPduStatDupEventRx=_EthernetOamPduStatDupEventRx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,8),_EthernetOamPduStatDupEventRx_Type())
-ethernetOamPduStatDupEventRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatDupEventRx.setStatus(_A)
-_EthernetOamPduStatVarReqTx_Type=Counter32
-_EthernetOamPduStatVarReqTx_Object=MibTableColumn
-ethernetOamPduStatVarReqTx=_EthernetOamPduStatVarReqTx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,9),_EthernetOamPduStatVarReqTx_Type())
-ethernetOamPduStatVarReqTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatVarReqTx.setStatus(_A)
-_EthernetOamPduStatVarReqRx_Type=Counter32
-_EthernetOamPduStatVarReqRx_Object=MibTableColumn
-ethernetOamPduStatVarReqRx=_EthernetOamPduStatVarReqRx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,10),_EthernetOamPduStatVarReqRx_Type())
-ethernetOamPduStatVarReqRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatVarReqRx.setStatus(_A)
-_EthernetOamPduStatVarRespTx_Type=Counter32
-_EthernetOamPduStatVarRespTx_Object=MibTableColumn
-ethernetOamPduStatVarRespTx=_EthernetOamPduStatVarRespTx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,11),_EthernetOamPduStatVarRespTx_Type())
-ethernetOamPduStatVarRespTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatVarRespTx.setStatus(_A)
-_EthernetOamPduStatVarRespRx_Type=Counter32
-_EthernetOamPduStatVarRespRx_Object=MibTableColumn
-ethernetOamPduStatVarRespRx=_EthernetOamPduStatVarRespRx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,12),_EthernetOamPduStatVarRespRx_Type())
-ethernetOamPduStatVarRespRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatVarRespRx.setStatus(_A)
-_EthernetOamPduStatLoopbackCtrlTx_Type=Counter32
-_EthernetOamPduStatLoopbackCtrlTx_Object=MibTableColumn
-ethernetOamPduStatLoopbackCtrlTx=_EthernetOamPduStatLoopbackCtrlTx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,13),_EthernetOamPduStatLoopbackCtrlTx_Type())
-ethernetOamPduStatLoopbackCtrlTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatLoopbackCtrlTx.setStatus(_A)
-_EthernetOamPduStatLoopbackCtrlRx_Type=Counter32
-_EthernetOamPduStatLoopbackCtrlRx_Object=MibTableColumn
-ethernetOamPduStatLoopbackCtrlRx=_EthernetOamPduStatLoopbackCtrlRx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,14),_EthernetOamPduStatLoopbackCtrlRx_Type())
-ethernetOamPduStatLoopbackCtrlRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatLoopbackCtrlRx.setStatus(_A)
-_EthernetOamPduStatOrgSpecTx_Type=Counter32
-_EthernetOamPduStatOrgSpecTx_Object=MibTableColumn
-ethernetOamPduStatOrgSpecTx=_EthernetOamPduStatOrgSpecTx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,15),_EthernetOamPduStatOrgSpecTx_Type())
-ethernetOamPduStatOrgSpecTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatOrgSpecTx.setStatus(_A)
-_EthernetOamPduStatOrgSpecRx_Type=Counter32
-_EthernetOamPduStatOrgSpecRx_Object=MibTableColumn
-ethernetOamPduStatOrgSpecRx=_EthernetOamPduStatOrgSpecRx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,16),_EthernetOamPduStatOrgSpecRx_Type())
-ethernetOamPduStatOrgSpecRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatOrgSpecRx.setStatus(_A)
-_EthernetOamPduStatUnsupportedTx_Type=Counter32
-_EthernetOamPduStatUnsupportedTx_Object=MibTableColumn
-ethernetOamPduStatUnsupportedTx=_EthernetOamPduStatUnsupportedTx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,17),_EthernetOamPduStatUnsupportedTx_Type())
-ethernetOamPduStatUnsupportedTx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatUnsupportedTx.setStatus(_A)
-_EthernetOamPduStatUnsupportedRx_Type=Counter32
-_EthernetOamPduStatUnsupportedRx_Object=MibTableColumn
-ethernetOamPduStatUnsupportedRx=_EthernetOamPduStatUnsupportedRx_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,18),_EthernetOamPduStatUnsupportedRx_Type())
-ethernetOamPduStatUnsupportedRx.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatUnsupportedRx.setStatus(_A)
-_EthernetOamPduStatFrmLostDueToOam_Type=Counter32
-_EthernetOamPduStatFrmLostDueToOam_Object=MibTableColumn
-ethernetOamPduStatFrmLostDueToOam=_EthernetOamPduStatFrmLostDueToOam_Object((1,3,6,1,4,1,11863,6,60,1,6,1,1,19),_EthernetOamPduStatFrmLostDueToOam_Type())
-ethernetOamPduStatFrmLostDueToOam.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethernetOamPduStatFrmLostDueToOam.setStatus(_A)
-mibBuilder.exportSymbols('TPLINK-ETHERNETOAMPDUSTAT-MIB',**{'ethernetOamPduStatTable':ethernetOamPduStatTable,'ethernetOamPduStatEntry':ethernetOamPduStatEntry,'ethernetOamPduStatPort':ethernetOamPduStatPort,'ethernetOamPduStatClear':ethernetOamPduStatClear,'ethernetOamPduStatInfoTx':ethernetOamPduStatInfoTx,'ethernetOamPduStatInfoRx':ethernetOamPduStatInfoRx,'ethernetOamPduStatUniEventTx':ethernetOamPduStatUniEventTx,'ethernetOamPduStatUniEventRx':ethernetOamPduStatUniEventRx,'ethernetOamPduStatDupEventTx':ethernetOamPduStatDupEventTx,'ethernetOamPduStatDupEventRx':ethernetOamPduStatDupEventRx,'ethernetOamPduStatVarReqTx':ethernetOamPduStatVarReqTx,'ethernetOamPduStatVarReqRx':ethernetOamPduStatVarReqRx,'ethernetOamPduStatVarRespTx':ethernetOamPduStatVarRespTx,'ethernetOamPduStatVarRespRx':ethernetOamPduStatVarRespRx,'ethernetOamPduStatLoopbackCtrlTx':ethernetOamPduStatLoopbackCtrlTx,'ethernetOamPduStatLoopbackCtrlRx':ethernetOamPduStatLoopbackCtrlRx,'ethernetOamPduStatOrgSpecTx':ethernetOamPduStatOrgSpecTx,'ethernetOamPduStatOrgSpecRx':ethernetOamPduStatOrgSpecRx,'ethernetOamPduStatUnsupportedTx':ethernetOamPduStatUnsupportedTx,'ethernetOamPduStatUnsupportedRx':ethernetOamPduStatUnsupportedRx,'ethernetOamPduStatFrmLostDueToOam':ethernetOamPduStatFrmLostDueToOam})
+#
+# PySNMP MIB module TPLINK-ETHERNETOAMPDUSTAT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-ETHERNETOAMPDUSTAT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:20 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ethernetOamStatistics, = mibBuilder.importSymbols("TPLINK-ETHERNETOAM-MIB", "ethernetOamStatistics")
+ethernetOamPduStatTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1), )
+if mibBuilder.loadTexts: ethernetOamPduStatTable.setStatus('current')
+ethernetOamPduStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: ethernetOamPduStatEntry.setStatus('current')
+ethernetOamPduStatPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatPort.setStatus('current')
+ethernetOamPduStatClear = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("unchanged", 0), ("clear", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetOamPduStatClear.setStatus('current')
+ethernetOamPduStatInfoTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatInfoTx.setStatus('current')
+ethernetOamPduStatInfoRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatInfoRx.setStatus('current')
+ethernetOamPduStatUniEventTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatUniEventTx.setStatus('current')
+ethernetOamPduStatUniEventRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatUniEventRx.setStatus('current')
+ethernetOamPduStatDupEventTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatDupEventTx.setStatus('current')
+ethernetOamPduStatDupEventRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatDupEventRx.setStatus('current')
+ethernetOamPduStatVarReqTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatVarReqTx.setStatus('current')
+ethernetOamPduStatVarReqRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatVarReqRx.setStatus('current')
+ethernetOamPduStatVarRespTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatVarRespTx.setStatus('current')
+ethernetOamPduStatVarRespRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatVarRespRx.setStatus('current')
+ethernetOamPduStatLoopbackCtrlTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatLoopbackCtrlTx.setStatus('current')
+ethernetOamPduStatLoopbackCtrlRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatLoopbackCtrlRx.setStatus('current')
+ethernetOamPduStatOrgSpecTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatOrgSpecTx.setStatus('current')
+ethernetOamPduStatOrgSpecRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatOrgSpecRx.setStatus('current')
+ethernetOamPduStatUnsupportedTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatUnsupportedTx.setStatus('current')
+ethernetOamPduStatUnsupportedRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 18), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatUnsupportedRx.setStatus('current')
+ethernetOamPduStatFrmLostDueToOam = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 6, 1, 1, 19), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamPduStatFrmLostDueToOam.setStatus('current')
+mibBuilder.exportSymbols("TPLINK-ETHERNETOAMPDUSTAT-MIB", ethernetOamPduStatUniEventTx=ethernetOamPduStatUniEventTx, ethernetOamPduStatLoopbackCtrlRx=ethernetOamPduStatLoopbackCtrlRx, ethernetOamPduStatInfoRx=ethernetOamPduStatInfoRx, ethernetOamPduStatVarRespTx=ethernetOamPduStatVarRespTx, ethernetOamPduStatEntry=ethernetOamPduStatEntry, ethernetOamPduStatFrmLostDueToOam=ethernetOamPduStatFrmLostDueToOam, ethernetOamPduStatTable=ethernetOamPduStatTable, ethernetOamPduStatVarReqRx=ethernetOamPduStatVarReqRx, ethernetOamPduStatVarRespRx=ethernetOamPduStatVarRespRx, ethernetOamPduStatUniEventRx=ethernetOamPduStatUniEventRx, ethernetOamPduStatDupEventTx=ethernetOamPduStatDupEventTx, ethernetOamPduStatPort=ethernetOamPduStatPort, ethernetOamPduStatUnsupportedRx=ethernetOamPduStatUnsupportedRx, ethernetOamPduStatOrgSpecTx=ethernetOamPduStatOrgSpecTx, ethernetOamPduStatOrgSpecRx=ethernetOamPduStatOrgSpecRx, ethernetOamPduStatInfoTx=ethernetOamPduStatInfoTx, ethernetOamPduStatClear=ethernetOamPduStatClear, ethernetOamPduStatUnsupportedTx=ethernetOamPduStatUnsupportedTx, ethernetOamPduStatDupEventRx=ethernetOamPduStatDupEventRx, ethernetOamPduStatVarReqTx=ethernetOamPduStatVarReqTx, ethernetOamPduStatLoopbackCtrlTx=ethernetOamPduStatLoopbackCtrlTx)

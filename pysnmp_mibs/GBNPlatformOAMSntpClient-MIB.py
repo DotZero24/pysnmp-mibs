@@ -1,156 +1,72 @@
-_J='sntpAuthKeyId'
-_I='sntpClientValidServerMask'
-_H='sntpClientValidServerNet'
-_G='DisplayString'
-_F='Unsigned32'
-_E='GBNPlatformOAMSntpClient-MIB'
-_D='read-only'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-gbnPlatformOAM,=mibBuilder.importSymbols('GBNPlatformOAM-MIB','gbnPlatformOAM')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_G,'MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-gbnPlatformOAMSntpClient=ModuleIdentity((1,3,6,1,4,1,13464,1,2,1,1,8))
-if mibBuilder.loadTexts:gbnPlatformOAMSntpClient.setRevisions(('1901-07-15 20:04',))
-_SntpClientGeneral_ObjectIdentity=ObjectIdentity
-sntpClientGeneral=_SntpClientGeneral_ObjectIdentity((1,3,6,1,4,1,13464,1,2,1,1,8,1))
-class _SntpClientMode_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,4,8)));namedValues=NamedValues(*(('unicast',1),('anycast',2),('broadcast',4),('multicast',8)))
-_SntpClientMode_Type.__name__=_C
-_SntpClientMode_Object=MibScalar
-sntpClientMode=_SntpClientMode_Object((1,3,6,1,4,1,13464,1,2,1,1,8,1,1),_SntpClientMode_Type())
-sntpClientMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:sntpClientMode.setStatus(_A)
-class _SntpClientPollInterval_Type(Integer32):defaultValue=1000;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(64,1024))
-_SntpClientPollInterval_Type.__name__=_C
-_SntpClientPollInterval_Object=MibScalar
-sntpClientPollInterval=_SntpClientPollInterval_Object((1,3,6,1,4,1,13464,1,2,1,1,8,1,2),_SntpClientPollInterval_Type())
-sntpClientPollInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:sntpClientPollInterval.setStatus(_A)
-class _SntpClientRetransInterval_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,30))
-_SntpClientRetransInterval_Type.__name__=_C
-_SntpClientRetransInterval_Object=MibScalar
-sntpClientRetransInterval=_SntpClientRetransInterval_Object((1,3,6,1,4,1,13464,1,2,1,1,8,1,3),_SntpClientRetransInterval_Type())
-sntpClientRetransInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:sntpClientRetransInterval.setStatus(_A)
-class _SntpClientRetransTimes_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10))
-_SntpClientRetransTimes_Type.__name__=_C
-_SntpClientRetransTimes_Object=MibScalar
-sntpClientRetransTimes=_SntpClientRetransTimes_Object((1,3,6,1,4,1,13464,1,2,1,1,8,1,4),_SntpClientRetransTimes_Type())
-sntpClientRetransTimes.setMaxAccess(_B)
-if mibBuilder.loadTexts:sntpClientRetransTimes.setStatus(_A)
-_SntpClientServer_Type=IpAddress
-_SntpClientServer_Object=MibScalar
-sntpClientServer=_SntpClientServer_Object((1,3,6,1,4,1,13464,1,2,1,1,8,1,5),_SntpClientServer_Type())
-sntpClientServer.setMaxAccess(_B)
-if mibBuilder.loadTexts:sntpClientServer.setStatus(_A)
-_SntpClientSynthFlag_Type=TruthValue
-_SntpClientSynthFlag_Object=MibScalar
-sntpClientSynthFlag=_SntpClientSynthFlag_Object((1,3,6,1,4,1,13464,1,2,1,1,8,1,6),_SntpClientSynthFlag_Type())
-sntpClientSynthFlag.setMaxAccess(_D)
-if mibBuilder.loadTexts:sntpClientSynthFlag.setStatus(_A)
-_SntpClientState_Type=Integer32
-_SntpClientState_Object=MibScalar
-sntpClientState=_SntpClientState_Object((1,3,6,1,4,1,13464,1,2,1,1,8,1,7),_SntpClientState_Type())
-sntpClientState.setMaxAccess(_D)
-if mibBuilder.loadTexts:sntpClientState.setStatus(_A)
-_SntpClientLastSynthTime_Type=Integer32
-_SntpClientLastSynthTime_Object=MibScalar
-sntpClientLastSynthTime=_SntpClientLastSynthTime_Object((1,3,6,1,4,1,13464,1,2,1,1,8,1,8),_SntpClientLastSynthTime_Type())
-sntpClientLastSynthTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:sntpClientLastSynthTime.setStatus(_A)
-_SntpClientLastSynthErrno_Type=Integer32
-_SntpClientLastSynthErrno_Object=MibScalar
-sntpClientLastSynthErrno=_SntpClientLastSynthErrno_Object((1,3,6,1,4,1,13464,1,2,1,1,8,1,9),_SntpClientLastSynthErrno_Type())
-sntpClientLastSynthErrno.setMaxAccess(_D)
-if mibBuilder.loadTexts:sntpClientLastSynthErrno.setStatus(_A)
-class _SntpClientAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_SntpClientAdminStatus_Type.__name__=_C
-_SntpClientAdminStatus_Object=MibScalar
-sntpClientAdminStatus=_SntpClientAdminStatus_Object((1,3,6,1,4,1,13464,1,2,1,1,8,1,10),_SntpClientAdminStatus_Type())
-sntpClientAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:sntpClientAdminStatus.setStatus(_A)
-class _SntpClientBcastDelay_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,9999))
-_SntpClientBcastDelay_Type.__name__=_C
-_SntpClientBcastDelay_Object=MibScalar
-sntpClientBcastDelay=_SntpClientBcastDelay_Object((1,3,6,1,4,1,13464,1,2,1,1,8,1,11),_SntpClientBcastDelay_Type())
-sntpClientBcastDelay.setMaxAccess(_B)
-if mibBuilder.loadTexts:sntpClientBcastDelay.setStatus(_A)
-class _SntpClientMcastTtl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_SntpClientMcastTtl_Type.__name__=_C
-_SntpClientMcastTtl_Object=MibScalar
-sntpClientMcastTtl=_SntpClientMcastTtl_Object((1,3,6,1,4,1,13464,1,2,1,1,8,1,12),_SntpClientMcastTtl_Type())
-sntpClientMcastTtl.setMaxAccess(_B)
-if mibBuilder.loadTexts:sntpClientMcastTtl.setStatus(_A)
-_SntpClientAuthFlag_Type=TruthValue
-_SntpClientAuthFlag_Object=MibScalar
-sntpClientAuthFlag=_SntpClientAuthFlag_Object((1,3,6,1,4,1,13464,1,2,1,1,8,1,13),_SntpClientAuthFlag_Type())
-sntpClientAuthFlag.setMaxAccess(_B)
-if mibBuilder.loadTexts:sntpClientAuthFlag.setStatus(_A)
-_SntpClientUniKeyID_Type=Unsigned32
-_SntpClientUniKeyID_Object=MibScalar
-sntpClientUniKeyID=_SntpClientUniKeyID_Object((1,3,6,1,4,1,13464,1,2,1,1,8,1,14),_SntpClientUniKeyID_Type())
-sntpClientUniKeyID.setMaxAccess(_B)
-if mibBuilder.loadTexts:sntpClientUniKeyID.setStatus(_A)
-_SntpClientAnyKeyID_Type=Unsigned32
-_SntpClientAnyKeyID_Object=MibScalar
-sntpClientAnyKeyID=_SntpClientAnyKeyID_Object((1,3,6,1,4,1,13464,1,2,1,1,8,1,15),_SntpClientAnyKeyID_Type())
-sntpClientAnyKeyID.setMaxAccess(_B)
-if mibBuilder.loadTexts:sntpClientAnyKeyID.setStatus(_A)
-_SntpClientValidServerTable_Object=MibTable
-sntpClientValidServerTable=_SntpClientValidServerTable_Object((1,3,6,1,4,1,13464,1,2,1,1,8,2))
-if mibBuilder.loadTexts:sntpClientValidServerTable.setStatus(_A)
-_SntpClientValidServerEntry_Object=MibTableRow
-sntpClientValidServerEntry=_SntpClientValidServerEntry_Object((1,3,6,1,4,1,13464,1,2,1,1,8,2,1))
-sntpClientValidServerEntry.setIndexNames((0,_E,_H),(0,_E,_I))
-if mibBuilder.loadTexts:sntpClientValidServerEntry.setStatus(_A)
-_SntpClientValidServerNet_Type=IpAddress
-_SntpClientValidServerNet_Object=MibTableColumn
-sntpClientValidServerNet=_SntpClientValidServerNet_Object((1,3,6,1,4,1,13464,1,2,1,1,8,2,1,1),_SntpClientValidServerNet_Type())
-sntpClientValidServerNet.setMaxAccess(_D)
-if mibBuilder.loadTexts:sntpClientValidServerNet.setStatus(_A)
-_SntpClientValidServerMask_Type=IpAddress
-_SntpClientValidServerMask_Object=MibTableColumn
-sntpClientValidServerMask=_SntpClientValidServerMask_Object((1,3,6,1,4,1,13464,1,2,1,1,8,2,1,2),_SntpClientValidServerMask_Type())
-sntpClientValidServerMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:sntpClientValidServerMask.setStatus(_A)
-_SntpClientValidServerRowStatus_Type=RowStatus
-_SntpClientValidServerRowStatus_Object=MibTableColumn
-sntpClientValidServerRowStatus=_SntpClientValidServerRowStatus_Object((1,3,6,1,4,1,13464,1,2,1,1,8,2,1,3),_SntpClientValidServerRowStatus_Type())
-sntpClientValidServerRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:sntpClientValidServerRowStatus.setStatus(_A)
-_SntpAuthKeyTable_Object=MibTable
-sntpAuthKeyTable=_SntpAuthKeyTable_Object((1,3,6,1,4,1,13464,1,2,1,1,8,3))
-if mibBuilder.loadTexts:sntpAuthKeyTable.setStatus(_A)
-_SntpAuthKeyEntry_Object=MibTableRow
-sntpAuthKeyEntry=_SntpAuthKeyEntry_Object((1,3,6,1,4,1,13464,1,2,1,1,8,3,1))
-sntpAuthKeyEntry.setIndexNames((0,_E,_J))
-if mibBuilder.loadTexts:sntpAuthKeyEntry.setStatus(_A)
-class _SntpAuthKeyId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_SntpAuthKeyId_Type.__name__=_F
-_SntpAuthKeyId_Object=MibTableColumn
-sntpAuthKeyId=_SntpAuthKeyId_Object((1,3,6,1,4,1,13464,1,2,1,1,8,3,1,1),_SntpAuthKeyId_Type())
-sntpAuthKeyId.setMaxAccess(_D)
-if mibBuilder.loadTexts:sntpAuthKeyId.setStatus(_A)
-class _SntpAuthKeyValue_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,16))
-_SntpAuthKeyValue_Type.__name__=_G
-_SntpAuthKeyValue_Object=MibTableColumn
-sntpAuthKeyValue=_SntpAuthKeyValue_Object((1,3,6,1,4,1,13464,1,2,1,1,8,3,1,2),_SntpAuthKeyValue_Type())
-sntpAuthKeyValue.setMaxAccess(_B)
-if mibBuilder.loadTexts:sntpAuthKeyValue.setStatus(_A)
-_SntpAuthKeyTrustFlag_Type=TruthValue
-_SntpAuthKeyTrustFlag_Object=MibTableColumn
-sntpAuthKeyTrustFlag=_SntpAuthKeyTrustFlag_Object((1,3,6,1,4,1,13464,1,2,1,1,8,3,1,3),_SntpAuthKeyTrustFlag_Type())
-sntpAuthKeyTrustFlag.setMaxAccess(_B)
-if mibBuilder.loadTexts:sntpAuthKeyTrustFlag.setStatus(_A)
-_SntpAuthKeyRowStatus_Type=RowStatus
-_SntpAuthKeyRowStatus_Object=MibTableColumn
-sntpAuthKeyRowStatus=_SntpAuthKeyRowStatus_Object((1,3,6,1,4,1,13464,1,2,1,1,8,3,1,4),_SntpAuthKeyRowStatus_Type())
-sntpAuthKeyRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:sntpAuthKeyRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'gbnPlatformOAMSntpClient':gbnPlatformOAMSntpClient,'sntpClientGeneral':sntpClientGeneral,'sntpClientMode':sntpClientMode,'sntpClientPollInterval':sntpClientPollInterval,'sntpClientRetransInterval':sntpClientRetransInterval,'sntpClientRetransTimes':sntpClientRetransTimes,'sntpClientServer':sntpClientServer,'sntpClientSynthFlag':sntpClientSynthFlag,'sntpClientState':sntpClientState,'sntpClientLastSynthTime':sntpClientLastSynthTime,'sntpClientLastSynthErrno':sntpClientLastSynthErrno,'sntpClientAdminStatus':sntpClientAdminStatus,'sntpClientBcastDelay':sntpClientBcastDelay,'sntpClientMcastTtl':sntpClientMcastTtl,'sntpClientAuthFlag':sntpClientAuthFlag,'sntpClientUniKeyID':sntpClientUniKeyID,'sntpClientAnyKeyID':sntpClientAnyKeyID,'sntpClientValidServerTable':sntpClientValidServerTable,'sntpClientValidServerEntry':sntpClientValidServerEntry,_H:sntpClientValidServerNet,_I:sntpClientValidServerMask,'sntpClientValidServerRowStatus':sntpClientValidServerRowStatus,'sntpAuthKeyTable':sntpAuthKeyTable,'sntpAuthKeyEntry':sntpAuthKeyEntry,_J:sntpAuthKeyId,'sntpAuthKeyValue':sntpAuthKeyValue,'sntpAuthKeyTrustFlag':sntpAuthKeyTrustFlag,'sntpAuthKeyRowStatus':sntpAuthKeyRowStatus})
+#
+# PySNMP MIB module GBNPlatformOAMSntpClient-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/gcom/GBNPlatformOAMSntpClient-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:17 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+gbnPlatformOAM, = mibBuilder.importSymbols("GBNPlatformOAM-MIB", "gbnPlatformOAM")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+gbnPlatformOAMSntpClient = ModuleIdentity((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8))
+gbnPlatformOAMSntpClient.setRevisions(('1901-07-15 20:04',))
+if mibBuilder.loadTexts: gbnPlatformOAMSntpClient.setLastUpdated('0107152004Z')
+if mibBuilder.loadTexts: gbnPlatformOAMSntpClient.setOrganization('Greentech')
+sntpClientGeneral = MibIdentifier((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1))
+sntpClientMode = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 8))).clone(namedValues=NamedValues(("unicast", 1), ("anycast", 2), ("broadcast", 4), ("multicast", 8))).clone('broadcast')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpClientMode.setStatus('current')
+sntpClientPollInterval = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(64, 1024)).clone(1000)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpClientPollInterval.setStatus('current')
+sntpClientRetransInterval = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 30)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpClientRetransInterval.setStatus('current')
+sntpClientRetransTimes = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpClientRetransTimes.setStatus('current')
+sntpClientServer = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1, 5), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpClientServer.setStatus('current')
+sntpClientSynthFlag = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1, 6), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sntpClientSynthFlag.setStatus('current')
+sntpClientState = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sntpClientState.setStatus('current')
+sntpClientLastSynthTime = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sntpClientLastSynthTime.setStatus('current')
+sntpClientLastSynthErrno = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sntpClientLastSynthErrno.setStatus('current')
+sntpClientAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpClientAdminStatus.setStatus('current')
+sntpClientBcastDelay = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 9999))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpClientBcastDelay.setStatus('current')
+sntpClientMcastTtl = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpClientMcastTtl.setStatus('current')
+sntpClientAuthFlag = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1, 13), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpClientAuthFlag.setStatus('current')
+sntpClientUniKeyID = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1, 14), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpClientUniKeyID.setStatus('current')
+sntpClientAnyKeyID = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 1, 15), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpClientAnyKeyID.setStatus('current')
+sntpClientValidServerTable = MibTable((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 2), )
+if mibBuilder.loadTexts: sntpClientValidServerTable.setStatus('current')
+sntpClientValidServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 2, 1), ).setIndexNames((0, "GBNPlatformOAMSntpClient-MIB", "sntpClientValidServerNet"), (0, "GBNPlatformOAMSntpClient-MIB", "sntpClientValidServerMask"))
+if mibBuilder.loadTexts: sntpClientValidServerEntry.setStatus('current')
+sntpClientValidServerNet = MibTableColumn((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 2, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sntpClientValidServerNet.setStatus('current')
+sntpClientValidServerMask = MibTableColumn((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sntpClientValidServerMask.setStatus('current')
+sntpClientValidServerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 2, 1, 3), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpClientValidServerRowStatus.setStatus('current')
+sntpAuthKeyTable = MibTable((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 3), )
+if mibBuilder.loadTexts: sntpAuthKeyTable.setStatus('current')
+sntpAuthKeyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 3, 1), ).setIndexNames((0, "GBNPlatformOAMSntpClient-MIB", "sntpAuthKeyId"))
+if mibBuilder.loadTexts: sntpAuthKeyEntry.setStatus('current')
+sntpAuthKeyId = MibTableColumn((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sntpAuthKeyId.setStatus('current')
+sntpAuthKeyValue = MibTableColumn((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 16))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpAuthKeyValue.setStatus('current')
+sntpAuthKeyTrustFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 3, 1, 3), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpAuthKeyTrustFlag.setStatus('current')
+sntpAuthKeyRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 8, 3, 1, 4), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sntpAuthKeyRowStatus.setStatus('current')
+mibBuilder.exportSymbols("GBNPlatformOAMSntpClient-MIB", sntpAuthKeyId=sntpAuthKeyId, sntpClientValidServerTable=sntpClientValidServerTable, sntpClientServer=sntpClientServer, sntpClientAdminStatus=sntpClientAdminStatus, sntpClientValidServerNet=sntpClientValidServerNet, sntpClientValidServerRowStatus=sntpClientValidServerRowStatus, sntpClientAnyKeyID=sntpClientAnyKeyID, sntpClientLastSynthTime=sntpClientLastSynthTime, sntpClientMode=sntpClientMode, sntpAuthKeyValue=sntpAuthKeyValue, sntpClientRetransTimes=sntpClientRetransTimes, sntpClientGeneral=sntpClientGeneral, sntpClientState=sntpClientState, sntpClientPollInterval=sntpClientPollInterval, PYSNMP_MODULE_ID=gbnPlatformOAMSntpClient, sntpClientAuthFlag=sntpClientAuthFlag, sntpClientRetransInterval=sntpClientRetransInterval, sntpClientMcastTtl=sntpClientMcastTtl, sntpClientUniKeyID=sntpClientUniKeyID, sntpAuthKeyRowStatus=sntpAuthKeyRowStatus, sntpAuthKeyEntry=sntpAuthKeyEntry, sntpClientLastSynthErrno=sntpClientLastSynthErrno, sntpClientValidServerMask=sntpClientValidServerMask, sntpClientBcastDelay=sntpClientBcastDelay, gbnPlatformOAMSntpClient=gbnPlatformOAMSntpClient, sntpAuthKeyTable=sntpAuthKeyTable, sntpAuthKeyTrustFlag=sntpAuthKeyTrustFlag, sntpClientValidServerEntry=sntpClientValidServerEntry, sntpClientSynthFlag=sntpClientSynthFlag)

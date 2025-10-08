@@ -1,142 +1,83 @@
-_X='clemNotificationControlGroup'
-_W='clemNotificationGroup'
-_V='clemIfCounterGroup'
-_U='clemThresholdGroup'
-_T='clemGlobalGroup'
-_S='clemHighThresholdExceeded'
-_R='clemLowThresholdExceeded'
-_Q='clemNotifEnable'
-_P='clemIfCounterEnable'
-_O='clemAction'
-_N='clemSamplingTimes'
-_M='clemSamplingInterval'
-_L='clemEnabled'
-_K='clemIfCounterType'
-_J='not-accessible'
-_I='clemThresholdCounterType'
-_H='Integer32'
-_G='clemThresholdHigh'
-_F='clemThresholdLow'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-write'
-_B='CISCO-LINK-ERROR-MONITOR-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-ciscoLinkErrorMonitorMIB=ModuleIdentity((1,3,6,1,4,1,9,9,426))
-if mibBuilder.loadTexts:ciscoLinkErrorMonitorMIB.setRevisions(('2004-11-19 00:00',))
-class ClemCounterType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('rxcrc',1),('txcrc',2),('inerrors',3)))
-_CiscoLinkErrMonMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoLinkErrMonMIBNotifs=_CiscoLinkErrMonMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,426,0))
-_CiscoLinkErrMonMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoLinkErrMonMIBObjects=_CiscoLinkErrMonMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,426,1))
-_ClemGlobalObjects_ObjectIdentity=ObjectIdentity
-clemGlobalObjects=_ClemGlobalObjects_ObjectIdentity((1,3,6,1,4,1,9,9,426,1,1))
-_ClemEnabled_Type=TruthValue
-_ClemEnabled_Object=MibScalar
-clemEnabled=_ClemEnabled_Object((1,3,6,1,4,1,9,9,426,1,1,1),_ClemEnabled_Type())
-clemEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:clemEnabled.setStatus(_A)
-_ClemSamplingInterval_Type=Unsigned32
-_ClemSamplingInterval_Object=MibScalar
-clemSamplingInterval=_ClemSamplingInterval_Object((1,3,6,1,4,1,9,9,426,1,1,2),_ClemSamplingInterval_Type())
-clemSamplingInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:clemSamplingInterval.setStatus(_A)
-if mibBuilder.loadTexts:clemSamplingInterval.setUnits('seconds')
-_ClemSamplingTimes_Type=Unsigned32
-_ClemSamplingTimes_Object=MibScalar
-clemSamplingTimes=_ClemSamplingTimes_Object((1,3,6,1,4,1,9,9,426,1,1,3),_ClemSamplingTimes_Type())
-clemSamplingTimes.setMaxAccess(_C)
-if mibBuilder.loadTexts:clemSamplingTimes.setStatus(_A)
-class _ClemAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('errdisable',1),('failover',2)))
-_ClemAction_Type.__name__=_H
-_ClemAction_Object=MibScalar
-clemAction=_ClemAction_Object((1,3,6,1,4,1,9,9,426,1,1,4),_ClemAction_Type())
-clemAction.setMaxAccess(_C)
-if mibBuilder.loadTexts:clemAction.setStatus(_A)
-_ClemThresholdTable_Object=MibTable
-clemThresholdTable=_ClemThresholdTable_Object((1,3,6,1,4,1,9,9,426,1,1,5))
-if mibBuilder.loadTexts:clemThresholdTable.setStatus(_A)
-_ClemThresholdEntry_Object=MibTableRow
-clemThresholdEntry=_ClemThresholdEntry_Object((1,3,6,1,4,1,9,9,426,1,1,5,1))
-clemThresholdEntry.setIndexNames((0,_B,_I))
-if mibBuilder.loadTexts:clemThresholdEntry.setStatus(_A)
-_ClemThresholdCounterType_Type=ClemCounterType
-_ClemThresholdCounterType_Object=MibTableColumn
-clemThresholdCounterType=_ClemThresholdCounterType_Object((1,3,6,1,4,1,9,9,426,1,1,5,1,1),_ClemThresholdCounterType_Type())
-clemThresholdCounterType.setMaxAccess(_J)
-if mibBuilder.loadTexts:clemThresholdCounterType.setStatus(_A)
-_ClemThresholdLow_Type=Unsigned32
-_ClemThresholdLow_Object=MibTableColumn
-clemThresholdLow=_ClemThresholdLow_Object((1,3,6,1,4,1,9,9,426,1,1,5,1,2),_ClemThresholdLow_Type())
-clemThresholdLow.setMaxAccess(_C)
-if mibBuilder.loadTexts:clemThresholdLow.setStatus(_A)
-_ClemThresholdHigh_Type=Unsigned32
-_ClemThresholdHigh_Object=MibTableColumn
-clemThresholdHigh=_ClemThresholdHigh_Object((1,3,6,1,4,1,9,9,426,1,1,5,1,3),_ClemThresholdHigh_Type())
-clemThresholdHigh.setMaxAccess(_C)
-if mibBuilder.loadTexts:clemThresholdHigh.setStatus(_A)
-class _ClemNotifEnable_Type(Bits):namedValues=NamedValues(*(('lowThresholdExceeded',0),('highThresholdExceeded',1)))
-_ClemNotifEnable_Type.__name__='Bits'
-_ClemNotifEnable_Object=MibScalar
-clemNotifEnable=_ClemNotifEnable_Object((1,3,6,1,4,1,9,9,426,1,1,6),_ClemNotifEnable_Type())
-clemNotifEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:clemNotifEnable.setStatus(_A)
-_ClemInterfaceObjects_ObjectIdentity=ObjectIdentity
-clemInterfaceObjects=_ClemInterfaceObjects_ObjectIdentity((1,3,6,1,4,1,9,9,426,1,2))
-_ClemIfCounterTable_Object=MibTable
-clemIfCounterTable=_ClemIfCounterTable_Object((1,3,6,1,4,1,9,9,426,1,2,1))
-if mibBuilder.loadTexts:clemIfCounterTable.setStatus(_A)
-_ClemIfCounterEntry_Object=MibTableRow
-clemIfCounterEntry=_ClemIfCounterEntry_Object((1,3,6,1,4,1,9,9,426,1,2,1,1))
-clemIfCounterEntry.setIndexNames((0,_D,_E),(0,_B,_K))
-if mibBuilder.loadTexts:clemIfCounterEntry.setStatus(_A)
-_ClemIfCounterType_Type=ClemCounterType
-_ClemIfCounterType_Object=MibTableColumn
-clemIfCounterType=_ClemIfCounterType_Object((1,3,6,1,4,1,9,9,426,1,2,1,1,1),_ClemIfCounterType_Type())
-clemIfCounterType.setMaxAccess(_J)
-if mibBuilder.loadTexts:clemIfCounterType.setStatus(_A)
-_ClemIfCounterEnable_Type=TruthValue
-_ClemIfCounterEnable_Object=MibTableColumn
-clemIfCounterEnable=_ClemIfCounterEnable_Object((1,3,6,1,4,1,9,9,426,1,2,1,1,2),_ClemIfCounterEnable_Type())
-clemIfCounterEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:clemIfCounterEnable.setStatus(_A)
-_CiscoLinkErrMonMIBConform_ObjectIdentity=ObjectIdentity
-ciscoLinkErrMonMIBConform=_CiscoLinkErrMonMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,426,2))
-_CiscoLinkErrMonMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoLinkErrMonMIBCompliances=_CiscoLinkErrMonMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,426,2,1))
-_CiscoLinkErrMonMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoLinkErrMonMIBGroups=_CiscoLinkErrMonMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,426,2,2))
-clemGlobalGroup=ObjectGroup((1,3,6,1,4,1,9,9,426,2,2,1))
-clemGlobalGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:clemGlobalGroup.setStatus(_A)
-clemThresholdGroup=ObjectGroup((1,3,6,1,4,1,9,9,426,2,2,2))
-clemThresholdGroup.setObjects(*((_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:clemThresholdGroup.setStatus(_A)
-clemIfCounterGroup=ObjectGroup((1,3,6,1,4,1,9,9,426,2,2,3))
-clemIfCounterGroup.setObjects((_B,_P))
-if mibBuilder.loadTexts:clemIfCounterGroup.setStatus(_A)
-clemNotificationControlGroup=ObjectGroup((1,3,6,1,4,1,9,9,426,2,2,5))
-clemNotificationControlGroup.setObjects((_B,_Q))
-if mibBuilder.loadTexts:clemNotificationControlGroup.setStatus(_A)
-clemLowThresholdExceeded=NotificationType((1,3,6,1,4,1,9,9,426,0,1))
-clemLowThresholdExceeded.setObjects(*((_B,_F),(_D,_E)))
-if mibBuilder.loadTexts:clemLowThresholdExceeded.setStatus(_A)
-clemHighThresholdExceeded=NotificationType((1,3,6,1,4,1,9,9,426,0,2))
-clemHighThresholdExceeded.setObjects(*((_B,_G),(_D,_E)))
-if mibBuilder.loadTexts:clemHighThresholdExceeded.setStatus(_A)
-clemNotificationGroup=NotificationGroup((1,3,6,1,4,1,9,9,426,2,2,4))
-clemNotificationGroup.setObjects(*((_B,_R),(_B,_S)))
-if mibBuilder.loadTexts:clemNotificationGroup.setStatus(_A)
-ciscoLinkErrMonMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,426,2,1,1))
-ciscoLinkErrMonMIBCompliance.setObjects(*((_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:ciscoLinkErrMonMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ClemCounterType':ClemCounterType,'ciscoLinkErrorMonitorMIB':ciscoLinkErrorMonitorMIB,'ciscoLinkErrMonMIBNotifs':ciscoLinkErrMonMIBNotifs,_R:clemLowThresholdExceeded,_S:clemHighThresholdExceeded,'ciscoLinkErrMonMIBObjects':ciscoLinkErrMonMIBObjects,'clemGlobalObjects':clemGlobalObjects,_L:clemEnabled,_M:clemSamplingInterval,_N:clemSamplingTimes,_O:clemAction,'clemThresholdTable':clemThresholdTable,'clemThresholdEntry':clemThresholdEntry,_I:clemThresholdCounterType,_F:clemThresholdLow,_G:clemThresholdHigh,_Q:clemNotifEnable,'clemInterfaceObjects':clemInterfaceObjects,'clemIfCounterTable':clemIfCounterTable,'clemIfCounterEntry':clemIfCounterEntry,_K:clemIfCounterType,_P:clemIfCounterEnable,'ciscoLinkErrMonMIBConform':ciscoLinkErrMonMIBConform,'ciscoLinkErrMonMIBCompliances':ciscoLinkErrMonMIBCompliances,'ciscoLinkErrMonMIBCompliance':ciscoLinkErrMonMIBCompliance,'ciscoLinkErrMonMIBGroups':ciscoLinkErrMonMIBGroups,_T:clemGlobalGroup,_U:clemThresholdGroup,_V:clemIfCounterGroup,_W:clemNotificationGroup,_X:clemNotificationControlGroup})
+#
+# PySNMP MIB module CISCO-LINK-ERROR-MONITOR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-LINK-ERROR-MONITOR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ciscoLinkErrorMonitorMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 426))
+ciscoLinkErrorMonitorMIB.setRevisions(('2004-11-19 00:00',))
+if mibBuilder.loadTexts: ciscoLinkErrorMonitorMIB.setLastUpdated('200411190000Z')
+if mibBuilder.loadTexts: ciscoLinkErrorMonitorMIB.setOrganization('Cisco Systems, Inc.')
+ciscoLinkErrMonMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 426, 0))
+ciscoLinkErrMonMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 426, 1))
+ciscoLinkErrMonMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 426, 2))
+clemGlobalObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 1))
+clemInterfaceObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 2))
+class ClemCounterType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("rxcrc", 1), ("txcrc", 2), ("inerrors", 3))
+
+clemEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: clemEnabled.setStatus('current')
+clemSamplingInterval = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 1, 2), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: clemSamplingInterval.setStatus('current')
+clemSamplingTimes = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 1, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: clemSamplingTimes.setStatus('current')
+clemAction = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("errdisable", 1), ("failover", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: clemAction.setStatus('current')
+clemThresholdTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 1, 5), )
+if mibBuilder.loadTexts: clemThresholdTable.setStatus('current')
+clemThresholdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 1, 5, 1), ).setIndexNames((0, "CISCO-LINK-ERROR-MONITOR-MIB", "clemThresholdCounterType"))
+if mibBuilder.loadTexts: clemThresholdEntry.setStatus('current')
+clemThresholdCounterType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 1, 5, 1, 1), ClemCounterType())
+if mibBuilder.loadTexts: clemThresholdCounterType.setStatus('current')
+clemThresholdLow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 1, 5, 1, 2), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: clemThresholdLow.setStatus('current')
+clemThresholdHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 1, 5, 1, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: clemThresholdHigh.setStatus('current')
+clemNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 1, 6), Bits().clone(namedValues=NamedValues(("lowThresholdExceeded", 0), ("highThresholdExceeded", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: clemNotifEnable.setStatus('current')
+clemIfCounterTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 2, 1), )
+if mibBuilder.loadTexts: clemIfCounterTable.setStatus('current')
+clemIfCounterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-LINK-ERROR-MONITOR-MIB", "clemIfCounterType"))
+if mibBuilder.loadTexts: clemIfCounterEntry.setStatus('current')
+clemIfCounterType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 2, 1, 1, 1), ClemCounterType())
+if mibBuilder.loadTexts: clemIfCounterType.setStatus('current')
+clemIfCounterEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 426, 1, 2, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: clemIfCounterEnable.setStatus('current')
+clemLowThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 426, 0, 1)).setObjects(("CISCO-LINK-ERROR-MONITOR-MIB", "clemThresholdLow"), ("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: clemLowThresholdExceeded.setStatus('current')
+clemHighThresholdExceeded = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 426, 0, 2)).setObjects(("CISCO-LINK-ERROR-MONITOR-MIB", "clemThresholdHigh"), ("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: clemHighThresholdExceeded.setStatus('current')
+ciscoLinkErrMonMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 426, 2, 1))
+ciscoLinkErrMonMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 426, 2, 2))
+ciscoLinkErrMonMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 426, 2, 1, 1)).setObjects(("CISCO-LINK-ERROR-MONITOR-MIB", "clemGlobalGroup"), ("CISCO-LINK-ERROR-MONITOR-MIB", "clemThresholdGroup"), ("CISCO-LINK-ERROR-MONITOR-MIB", "clemIfCounterGroup"), ("CISCO-LINK-ERROR-MONITOR-MIB", "clemNotificationGroup"), ("CISCO-LINK-ERROR-MONITOR-MIB", "clemNotificationControlGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoLinkErrMonMIBCompliance = ciscoLinkErrMonMIBCompliance.setStatus('current')
+clemGlobalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 426, 2, 2, 1)).setObjects(("CISCO-LINK-ERROR-MONITOR-MIB", "clemEnabled"), ("CISCO-LINK-ERROR-MONITOR-MIB", "clemSamplingInterval"), ("CISCO-LINK-ERROR-MONITOR-MIB", "clemSamplingTimes"), ("CISCO-LINK-ERROR-MONITOR-MIB", "clemAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    clemGlobalGroup = clemGlobalGroup.setStatus('current')
+clemThresholdGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 426, 2, 2, 2)).setObjects(("CISCO-LINK-ERROR-MONITOR-MIB", "clemThresholdLow"), ("CISCO-LINK-ERROR-MONITOR-MIB", "clemThresholdHigh"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    clemThresholdGroup = clemThresholdGroup.setStatus('current')
+clemIfCounterGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 426, 2, 2, 3)).setObjects(("CISCO-LINK-ERROR-MONITOR-MIB", "clemIfCounterEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    clemIfCounterGroup = clemIfCounterGroup.setStatus('current')
+clemNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 426, 2, 2, 4)).setObjects(("CISCO-LINK-ERROR-MONITOR-MIB", "clemLowThresholdExceeded"), ("CISCO-LINK-ERROR-MONITOR-MIB", "clemHighThresholdExceeded"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    clemNotificationGroup = clemNotificationGroup.setStatus('current')
+clemNotificationControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 426, 2, 2, 5)).setObjects(("CISCO-LINK-ERROR-MONITOR-MIB", "clemNotifEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    clemNotificationControlGroup = clemNotificationControlGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-LINK-ERROR-MONITOR-MIB", clemThresholdHigh=clemThresholdHigh, clemLowThresholdExceeded=clemLowThresholdExceeded, clemNotifEnable=clemNotifEnable, ciscoLinkErrorMonitorMIB=ciscoLinkErrorMonitorMIB, clemAction=clemAction, clemIfCounterType=clemIfCounterType, clemThresholdGroup=clemThresholdGroup, clemIfCounterEnable=clemIfCounterEnable, ciscoLinkErrMonMIBCompliances=ciscoLinkErrMonMIBCompliances, clemSamplingTimes=clemSamplingTimes, clemThresholdCounterType=clemThresholdCounterType, clemInterfaceObjects=clemInterfaceObjects, clemThresholdLow=clemThresholdLow, clemNotificationControlGroup=clemNotificationControlGroup, clemGlobalGroup=clemGlobalGroup, PYSNMP_MODULE_ID=ciscoLinkErrorMonitorMIB, ciscoLinkErrMonMIBObjects=ciscoLinkErrMonMIBObjects, ciscoLinkErrMonMIBNotifs=ciscoLinkErrMonMIBNotifs, clemNotificationGroup=clemNotificationGroup, clemHighThresholdExceeded=clemHighThresholdExceeded, clemIfCounterEntry=clemIfCounterEntry, ciscoLinkErrMonMIBCompliance=ciscoLinkErrMonMIBCompliance, clemThresholdTable=clemThresholdTable, clemThresholdEntry=clemThresholdEntry, clemSamplingInterval=clemSamplingInterval, clemIfCounterTable=clemIfCounterTable, ClemCounterType=ClemCounterType, ciscoLinkErrMonMIBGroups=ciscoLinkErrMonMIBGroups, clemEnabled=clemEnabled, clemGlobalObjects=clemGlobalObjects, clemIfCounterGroup=clemIfCounterGroup, ciscoLinkErrMonMIBConform=ciscoLinkErrMonMIBConform)

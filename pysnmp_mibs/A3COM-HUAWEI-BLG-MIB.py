@@ -1,57 +1,41 @@
-_E='h3cBlgIndex'
-_D='A3COM-HUAWEI-BLG-MIB'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('A3COM-HUAWEI-OID-MIB','h3cCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-h3cBlg=ModuleIdentity((1,3,6,1,4,1,43,45,1,10,2,108))
-if mibBuilder.loadTexts:h3cBlg.setRevisions(('2009-09-15 11:11',))
-class CounterClear(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('cleared',1),('nouse',2)))
-_H3cBlgObjects_ObjectIdentity=ObjectIdentity
-h3cBlgObjects=_H3cBlgObjects_ObjectIdentity((1,3,6,1,4,1,43,45,1,10,2,108,1))
-_H3cBlgStatsTable_Object=MibTable
-h3cBlgStatsTable=_H3cBlgStatsTable_Object((1,3,6,1,4,1,43,45,1,10,2,108,1,1))
-if mibBuilder.loadTexts:h3cBlgStatsTable.setStatus(_A)
-_H3cBlgStatsEntry_Object=MibTableRow
-h3cBlgStatsEntry=_H3cBlgStatsEntry_Object((1,3,6,1,4,1,43,45,1,10,2,108,1,1,1))
-h3cBlgStatsEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:h3cBlgStatsEntry.setStatus(_A)
-class _H3cBlgIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_H3cBlgIndex_Type.__name__=_C
-_H3cBlgIndex_Object=MibTableColumn
-h3cBlgIndex=_H3cBlgIndex_Object((1,3,6,1,4,1,43,45,1,10,2,108,1,1,1,1),_H3cBlgIndex_Type())
-h3cBlgIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:h3cBlgIndex.setStatus(_A)
-_H3cBlgGroupTxPacketCount_Type=Counter64
-_H3cBlgGroupTxPacketCount_Object=MibTableColumn
-h3cBlgGroupTxPacketCount=_H3cBlgGroupTxPacketCount_Object((1,3,6,1,4,1,43,45,1,10,2,108,1,1,1,2),_H3cBlgGroupTxPacketCount_Type())
-h3cBlgGroupTxPacketCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cBlgGroupTxPacketCount.setStatus(_A)
-_H3cBlgGroupRxPacketCount_Type=Counter64
-_H3cBlgGroupRxPacketCount_Object=MibTableColumn
-h3cBlgGroupRxPacketCount=_H3cBlgGroupRxPacketCount_Object((1,3,6,1,4,1,43,45,1,10,2,108,1,1,1,3),_H3cBlgGroupRxPacketCount_Type())
-h3cBlgGroupRxPacketCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cBlgGroupRxPacketCount.setStatus(_A)
-_H3cBlgGroupTxByteCount_Type=Counter64
-_H3cBlgGroupTxByteCount_Object=MibTableColumn
-h3cBlgGroupTxByteCount=_H3cBlgGroupTxByteCount_Object((1,3,6,1,4,1,43,45,1,10,2,108,1,1,1,4),_H3cBlgGroupTxByteCount_Type())
-h3cBlgGroupTxByteCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cBlgGroupTxByteCount.setStatus(_A)
-_H3cBlgGroupRxByteCount_Type=Counter64
-_H3cBlgGroupRxByteCount_Object=MibTableColumn
-h3cBlgGroupRxByteCount=_H3cBlgGroupRxByteCount_Object((1,3,6,1,4,1,43,45,1,10,2,108,1,1,1,5),_H3cBlgGroupRxByteCount_Type())
-h3cBlgGroupRxByteCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cBlgGroupRxByteCount.setStatus(_A)
-_H3cBlgGroupCountClear_Type=CounterClear
-_H3cBlgGroupCountClear_Object=MibTableColumn
-h3cBlgGroupCountClear=_H3cBlgGroupCountClear_Object((1,3,6,1,4,1,43,45,1,10,2,108,1,1,1,6),_H3cBlgGroupCountClear_Type())
-h3cBlgGroupCountClear.setMaxAccess('read-write')
-if mibBuilder.loadTexts:h3cBlgGroupCountClear.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'CounterClear':CounterClear,'h3cBlg':h3cBlg,'h3cBlgObjects':h3cBlgObjects,'h3cBlgStatsTable':h3cBlgStatsTable,'h3cBlgStatsEntry':h3cBlgStatsEntry,_E:h3cBlgIndex,'h3cBlgGroupTxPacketCount':h3cBlgGroupTxPacketCount,'h3cBlgGroupRxPacketCount':h3cBlgGroupRxPacketCount,'h3cBlgGroupTxByteCount':h3cBlgGroupTxByteCount,'h3cBlgGroupRxByteCount':h3cBlgGroupRxByteCount,'h3cBlgGroupCountClear':h3cBlgGroupCountClear})
+#
+# PySNMP MIB module A3COM-HUAWEI-BLG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-BLG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:46 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+h3cCommon, = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "h3cCommon")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+h3cBlg = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 108))
+h3cBlg.setRevisions(('2009-09-15 11:11',))
+if mibBuilder.loadTexts: h3cBlg.setLastUpdated('200909151111Z')
+if mibBuilder.loadTexts: h3cBlg.setOrganization('H3C Technologies Co., Ltd.')
+class CounterClear(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("cleared", 1), ("nouse", 2))
+
+h3cBlgObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 108, 1))
+h3cBlgStatsTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 108, 1, 1), )
+if mibBuilder.loadTexts: h3cBlgStatsTable.setStatus('current')
+h3cBlgStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 108, 1, 1, 1), ).setIndexNames((0, "A3COM-HUAWEI-BLG-MIB", "h3cBlgIndex"))
+if mibBuilder.loadTexts: h3cBlgStatsEntry.setStatus('current')
+h3cBlgIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 108, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: h3cBlgIndex.setStatus('current')
+h3cBlgGroupTxPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 108, 1, 1, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cBlgGroupTxPacketCount.setStatus('current')
+h3cBlgGroupRxPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 108, 1, 1, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cBlgGroupRxPacketCount.setStatus('current')
+h3cBlgGroupTxByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 108, 1, 1, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cBlgGroupTxByteCount.setStatus('current')
+h3cBlgGroupRxByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 108, 1, 1, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cBlgGroupRxByteCount.setStatus('current')
+h3cBlgGroupCountClear = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 10, 2, 108, 1, 1, 1, 6), CounterClear()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cBlgGroupCountClear.setStatus('current')
+mibBuilder.exportSymbols("A3COM-HUAWEI-BLG-MIB", h3cBlgObjects=h3cBlgObjects, h3cBlgGroupTxByteCount=h3cBlgGroupTxByteCount, h3cBlgGroupTxPacketCount=h3cBlgGroupTxPacketCount, h3cBlgStatsEntry=h3cBlgStatsEntry, h3cBlgGroupRxPacketCount=h3cBlgGroupRxPacketCount, h3cBlgGroupRxByteCount=h3cBlgGroupRxByteCount, h3cBlg=h3cBlg, PYSNMP_MODULE_ID=h3cBlg, CounterClear=CounterClear, h3cBlgGroupCountClear=h3cBlgGroupCountClear, h3cBlgIndex=h3cBlgIndex, h3cBlgStatsTable=h3cBlgStatsTable)

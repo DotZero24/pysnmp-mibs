@@ -1,309 +1,144 @@
-_y='bfdSessionPerfGroup'
-_x='bfdSessionGroup'
-_w='bfdSessDown'
-_v='bfdSessUp'
-_u='bfdSessPerfPktOutHC'
-_t='bfdSessPerfPktInHC'
-_s='bfdSessPerfDiscTime'
-_r='bfdSessPerfSessUpCount'
-_q='bfdSessPerfLastCommLostDiag'
-_p='bfdSessPerfLastSessDownTime'
-_o='bfdSessPerfUpTime'
-_n='bfdSessPerfPktOut'
-_m='bfdSessPerfPktIn'
-_l='bfdSessAuthenticationType'
-_k='bfdSessAuthPresFlag'
-_j='bfdSessMapBfdIndex'
-_i='bfdSessRowStatus'
-_h='bfdSessStorType'
-_g='bfdSessDetectMult'
-_f='bfdSessReqMinEchoRxInterval'
-_e='bfdSessReqMinRxInterval'
-_d='bfdSessDesiredMinTxInterval'
-_c='bfdSessControlPlanIndepFlag'
-_b='bfdSessEchoFuncModeDesiredFlag'
-_a='bfdSessDemandModeDesiredFlag'
-_Z='bfdSessOperMode'
-_Y='bfdSessRemoteHeardFlag'
-_X='bfdSessState'
-_W='bfdSessUdpPort'
-_V='bfdSessRemoteDiscr'
-_U='bfdVersionNumber'
-_T='bfdAdminStatus'
-_S='bfdSessNotificationsEnable'
-_R='bfdSessPerfEntry'
-_Q='bfdSessIndex'
-_P='read-write'
-_O='InetPortNumber'
-_N='bfdNotificationGroup'
-_M='bfdSessionPerfHCGroup'
-_L='bfdSessAddr'
-_K='bfdSessAddrType'
-_J='bfdSessDiscriminator'
-_I='bfdSessApplicationId'
-_H='Unsigned32'
-_G='Integer32'
-_F='bfdSessDiag'
-_E='TruthValue'
-_D='read-create'
-_C='read-only'
-_B='current'
-_A='FOUNDRY-BFD-STD-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-bfd,=mibBuilder.importSymbols('FOUNDRY-SN-ROOT-MIB','bfd')
-InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType',_O)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_H,'iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','StorageType','TextualConvention','TimeStamp',_E)
-bfdMIB=ModuleIdentity((1,3,6,1,4,1,1991,3,3,1))
-if mibBuilder.loadTexts:bfdMIB.setRevisions(('2005-08-22 12:00',))
-class BfdSessIndexTC(TextualConvention,Unsigned32):status=_B;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-class BfdInterval(TextualConvention,Unsigned32):status=_B;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-class BfdDiag(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('noDiagnostic',1),('controlDetectionTimeExpired',2),('echoFunctionFailed',3),('neighborSignaledSessionDown',4),('forwardingPlaneReset',5),('pathDown',6),('concatenatedPathDown',7),('administrativelyDown',8),('reverseConcatenatedPathDown',9)))
-_BfdNotifications_ObjectIdentity=ObjectIdentity
-bfdNotifications=_BfdNotifications_ObjectIdentity((1,3,6,1,4,1,1991,3,3,1,0))
-_BfdObjects_ObjectIdentity=ObjectIdentity
-bfdObjects=_BfdObjects_ObjectIdentity((1,3,6,1,4,1,1991,3,3,1,1))
-_BfdScalarObjects_ObjectIdentity=ObjectIdentity
-bfdScalarObjects=_BfdScalarObjects_ObjectIdentity((1,3,6,1,4,1,1991,3,3,1,1,1))
-class _BfdAdminStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_BfdAdminStatus_Type.__name__=_G
-_BfdAdminStatus_Object=MibScalar
-bfdAdminStatus=_BfdAdminStatus_Object((1,3,6,1,4,1,1991,3,3,1,1,1,1),_BfdAdminStatus_Type())
-bfdAdminStatus.setMaxAccess(_P)
-if mibBuilder.loadTexts:bfdAdminStatus.setStatus(_B)
-class _BfdVersionNumber_Type(Unsigned32):defaultValue=0
-_BfdVersionNumber_Type.__name__=_H
-_BfdVersionNumber_Object=MibScalar
-bfdVersionNumber=_BfdVersionNumber_Object((1,3,6,1,4,1,1991,3,3,1,1,1,3),_BfdVersionNumber_Type())
-bfdVersionNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdVersionNumber.setStatus(_B)
-class _BfdSessNotificationsEnable_Type(TruthValue):defaultValue=2
-_BfdSessNotificationsEnable_Type.__name__=_E
-_BfdSessNotificationsEnable_Object=MibScalar
-bfdSessNotificationsEnable=_BfdSessNotificationsEnable_Object((1,3,6,1,4,1,1991,3,3,1,1,1,4),_BfdSessNotificationsEnable_Type())
-bfdSessNotificationsEnable.setMaxAccess(_P)
-if mibBuilder.loadTexts:bfdSessNotificationsEnable.setStatus(_B)
-_BfdSessTable_Object=MibTable
-bfdSessTable=_BfdSessTable_Object((1,3,6,1,4,1,1991,3,3,1,1,2))
-if mibBuilder.loadTexts:bfdSessTable.setStatus(_B)
-_BfdSessEntry_Object=MibTableRow
-bfdSessEntry=_BfdSessEntry_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1))
-bfdSessEntry.setIndexNames((0,_A,_Q))
-if mibBuilder.loadTexts:bfdSessEntry.setStatus(_B)
-_BfdSessIndex_Type=BfdSessIndexTC
-_BfdSessIndex_Object=MibTableColumn
-bfdSessIndex=_BfdSessIndex_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,1),_BfdSessIndex_Type())
-bfdSessIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:bfdSessIndex.setStatus(_B)
-_BfdSessApplicationId_Type=Unsigned32
-_BfdSessApplicationId_Object=MibTableColumn
-bfdSessApplicationId=_BfdSessApplicationId_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,2),_BfdSessApplicationId_Type())
-bfdSessApplicationId.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessApplicationId.setStatus(_B)
-class _BfdSessDiscriminator_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_BfdSessDiscriminator_Type.__name__=_H
-_BfdSessDiscriminator_Object=MibTableColumn
-bfdSessDiscriminator=_BfdSessDiscriminator_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,3),_BfdSessDiscriminator_Type())
-bfdSessDiscriminator.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessDiscriminator.setStatus(_B)
-class _BfdSessRemoteDiscr_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_BfdSessRemoteDiscr_Type.__name__=_H
-_BfdSessRemoteDiscr_Object=MibTableColumn
-bfdSessRemoteDiscr=_BfdSessRemoteDiscr_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,4),_BfdSessRemoteDiscr_Type())
-bfdSessRemoteDiscr.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessRemoteDiscr.setStatus(_B)
-class _BfdSessUdpPort_Type(InetPortNumber):defaultValue=0
-_BfdSessUdpPort_Type.__name__=_O
-_BfdSessUdpPort_Object=MibTableColumn
-bfdSessUdpPort=_BfdSessUdpPort_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,5),_BfdSessUdpPort_Type())
-bfdSessUdpPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:bfdSessUdpPort.setStatus(_B)
-class _BfdSessState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('adminDown',1),('down',2),('init',3),('up',4)))
-_BfdSessState_Type.__name__=_G
-_BfdSessState_Object=MibTableColumn
-bfdSessState=_BfdSessState_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,6),_BfdSessState_Type())
-bfdSessState.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessState.setStatus(_B)
-_BfdSessRemoteHeardFlag_Type=TruthValue
-_BfdSessRemoteHeardFlag_Object=MibTableColumn
-bfdSessRemoteHeardFlag=_BfdSessRemoteHeardFlag_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,7),_BfdSessRemoteHeardFlag_Type())
-bfdSessRemoteHeardFlag.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessRemoteHeardFlag.setStatus(_B)
-_BfdSessDiag_Type=Unsigned32
-_BfdSessDiag_Object=MibTableColumn
-bfdSessDiag=_BfdSessDiag_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,8),_BfdSessDiag_Type())
-bfdSessDiag.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:bfdSessDiag.setStatus(_B)
-class _BfdSessOperMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('asyncModeWEchoFun',1),('asynchModeWOEchoFun',2),('demandModeWEchoFunction',3),('demandModeWOEchoFunction',4)))
-_BfdSessOperMode_Type.__name__=_G
-_BfdSessOperMode_Object=MibTableColumn
-bfdSessOperMode=_BfdSessOperMode_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,9),_BfdSessOperMode_Type())
-bfdSessOperMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessOperMode.setStatus(_B)
-class _BfdSessDemandModeDesiredFlag_Type(TruthValue):defaultValue=2
-_BfdSessDemandModeDesiredFlag_Type.__name__=_E
-_BfdSessDemandModeDesiredFlag_Object=MibTableColumn
-bfdSessDemandModeDesiredFlag=_BfdSessDemandModeDesiredFlag_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,10),_BfdSessDemandModeDesiredFlag_Type())
-bfdSessDemandModeDesiredFlag.setMaxAccess(_D)
-if mibBuilder.loadTexts:bfdSessDemandModeDesiredFlag.setStatus(_B)
-class _BfdSessEchoFuncModeDesiredFlag_Type(TruthValue):defaultValue=2
-_BfdSessEchoFuncModeDesiredFlag_Type.__name__=_E
-_BfdSessEchoFuncModeDesiredFlag_Object=MibTableColumn
-bfdSessEchoFuncModeDesiredFlag=_BfdSessEchoFuncModeDesiredFlag_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,11),_BfdSessEchoFuncModeDesiredFlag_Type())
-bfdSessEchoFuncModeDesiredFlag.setMaxAccess(_D)
-if mibBuilder.loadTexts:bfdSessEchoFuncModeDesiredFlag.setStatus(_B)
-class _BfdSessControlPlanIndepFlag_Type(TruthValue):defaultValue=2
-_BfdSessControlPlanIndepFlag_Type.__name__=_E
-_BfdSessControlPlanIndepFlag_Object=MibTableColumn
-bfdSessControlPlanIndepFlag=_BfdSessControlPlanIndepFlag_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,12),_BfdSessControlPlanIndepFlag_Type())
-bfdSessControlPlanIndepFlag.setMaxAccess(_D)
-if mibBuilder.loadTexts:bfdSessControlPlanIndepFlag.setStatus(_B)
-_BfdSessAddrType_Type=InetAddressType
-_BfdSessAddrType_Object=MibTableColumn
-bfdSessAddrType=_BfdSessAddrType_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,13),_BfdSessAddrType_Type())
-bfdSessAddrType.setMaxAccess(_D)
-if mibBuilder.loadTexts:bfdSessAddrType.setStatus(_B)
-_BfdSessAddr_Type=InetAddress
-_BfdSessAddr_Object=MibTableColumn
-bfdSessAddr=_BfdSessAddr_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,14),_BfdSessAddr_Type())
-bfdSessAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:bfdSessAddr.setStatus(_B)
-_BfdSessDesiredMinTxInterval_Type=BfdInterval
-_BfdSessDesiredMinTxInterval_Object=MibTableColumn
-bfdSessDesiredMinTxInterval=_BfdSessDesiredMinTxInterval_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,15),_BfdSessDesiredMinTxInterval_Type())
-bfdSessDesiredMinTxInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:bfdSessDesiredMinTxInterval.setStatus(_B)
-_BfdSessReqMinRxInterval_Type=BfdInterval
-_BfdSessReqMinRxInterval_Object=MibTableColumn
-bfdSessReqMinRxInterval=_BfdSessReqMinRxInterval_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,16),_BfdSessReqMinRxInterval_Type())
-bfdSessReqMinRxInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:bfdSessReqMinRxInterval.setStatus(_B)
-_BfdSessReqMinEchoRxInterval_Type=BfdInterval
-_BfdSessReqMinEchoRxInterval_Object=MibTableColumn
-bfdSessReqMinEchoRxInterval=_BfdSessReqMinEchoRxInterval_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,17),_BfdSessReqMinEchoRxInterval_Type())
-bfdSessReqMinEchoRxInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:bfdSessReqMinEchoRxInterval.setStatus(_B)
-_BfdSessDetectMult_Type=Unsigned32
-_BfdSessDetectMult_Object=MibTableColumn
-bfdSessDetectMult=_BfdSessDetectMult_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,18),_BfdSessDetectMult_Type())
-bfdSessDetectMult.setMaxAccess(_D)
-if mibBuilder.loadTexts:bfdSessDetectMult.setStatus(_B)
-_BfdSessStorType_Type=StorageType
-_BfdSessStorType_Object=MibTableColumn
-bfdSessStorType=_BfdSessStorType_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,19),_BfdSessStorType_Type())
-bfdSessStorType.setMaxAccess(_D)
-if mibBuilder.loadTexts:bfdSessStorType.setStatus(_B)
-_BfdSessRowStatus_Type=RowStatus
-_BfdSessRowStatus_Object=MibTableColumn
-bfdSessRowStatus=_BfdSessRowStatus_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,20),_BfdSessRowStatus_Type())
-bfdSessRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:bfdSessRowStatus.setStatus(_B)
-class _BfdSessAuthPresFlag_Type(TruthValue):defaultValue=2
-_BfdSessAuthPresFlag_Type.__name__=_E
-_BfdSessAuthPresFlag_Object=MibTableColumn
-bfdSessAuthPresFlag=_BfdSessAuthPresFlag_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,21),_BfdSessAuthPresFlag_Type())
-bfdSessAuthPresFlag.setMaxAccess(_D)
-if mibBuilder.loadTexts:bfdSessAuthPresFlag.setStatus(_B)
-class _BfdSessAuthenticationType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('simplePassword',1),('keyedMD5',2),('meticulousKeyedMD5',3),('keyedSHA1',4),('meticulousKeyedSHA1',5)))
-_BfdSessAuthenticationType_Type.__name__=_G
-_BfdSessAuthenticationType_Object=MibTableColumn
-bfdSessAuthenticationType=_BfdSessAuthenticationType_Object((1,3,6,1,4,1,1991,3,3,1,1,2,1,22),_BfdSessAuthenticationType_Type())
-bfdSessAuthenticationType.setMaxAccess(_D)
-if mibBuilder.loadTexts:bfdSessAuthenticationType.setStatus(_B)
-_BfdSessPerfTable_Object=MibTable
-bfdSessPerfTable=_BfdSessPerfTable_Object((1,3,6,1,4,1,1991,3,3,1,1,3))
-if mibBuilder.loadTexts:bfdSessPerfTable.setStatus(_B)
-_BfdSessPerfEntry_Object=MibTableRow
-bfdSessPerfEntry=_BfdSessPerfEntry_Object((1,3,6,1,4,1,1991,3,3,1,1,3,1))
-if mibBuilder.loadTexts:bfdSessPerfEntry.setStatus(_B)
-_BfdSessPerfPktIn_Type=Counter32
-_BfdSessPerfPktIn_Object=MibTableColumn
-bfdSessPerfPktIn=_BfdSessPerfPktIn_Object((1,3,6,1,4,1,1991,3,3,1,1,3,1,1),_BfdSessPerfPktIn_Type())
-bfdSessPerfPktIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessPerfPktIn.setStatus(_B)
-_BfdSessPerfPktOut_Type=Counter32
-_BfdSessPerfPktOut_Object=MibTableColumn
-bfdSessPerfPktOut=_BfdSessPerfPktOut_Object((1,3,6,1,4,1,1991,3,3,1,1,3,1,2),_BfdSessPerfPktOut_Type())
-bfdSessPerfPktOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessPerfPktOut.setStatus(_B)
-_BfdSessPerfUpTime_Type=TimeStamp
-_BfdSessPerfUpTime_Object=MibTableColumn
-bfdSessPerfUpTime=_BfdSessPerfUpTime_Object((1,3,6,1,4,1,1991,3,3,1,1,3,1,3),_BfdSessPerfUpTime_Type())
-bfdSessPerfUpTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessPerfUpTime.setStatus(_B)
-_BfdSessPerfLastSessDownTime_Type=TimeStamp
-_BfdSessPerfLastSessDownTime_Object=MibTableColumn
-bfdSessPerfLastSessDownTime=_BfdSessPerfLastSessDownTime_Object((1,3,6,1,4,1,1991,3,3,1,1,3,1,4),_BfdSessPerfLastSessDownTime_Type())
-bfdSessPerfLastSessDownTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessPerfLastSessDownTime.setStatus(_B)
-_BfdSessPerfLastCommLostDiag_Type=BfdDiag
-_BfdSessPerfLastCommLostDiag_Object=MibTableColumn
-bfdSessPerfLastCommLostDiag=_BfdSessPerfLastCommLostDiag_Object((1,3,6,1,4,1,1991,3,3,1,1,3,1,5),_BfdSessPerfLastCommLostDiag_Type())
-bfdSessPerfLastCommLostDiag.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessPerfLastCommLostDiag.setStatus(_B)
-_BfdSessPerfSessUpCount_Type=Counter32
-_BfdSessPerfSessUpCount_Object=MibTableColumn
-bfdSessPerfSessUpCount=_BfdSessPerfSessUpCount_Object((1,3,6,1,4,1,1991,3,3,1,1,3,1,6),_BfdSessPerfSessUpCount_Type())
-bfdSessPerfSessUpCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessPerfSessUpCount.setStatus(_B)
-_BfdSessPerfDiscTime_Type=TimeStamp
-_BfdSessPerfDiscTime_Object=MibTableColumn
-bfdSessPerfDiscTime=_BfdSessPerfDiscTime_Object((1,3,6,1,4,1,1991,3,3,1,1,3,1,7),_BfdSessPerfDiscTime_Type())
-bfdSessPerfDiscTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessPerfDiscTime.setStatus(_B)
-_BfdSessPerfPktInHC_Type=Counter64
-_BfdSessPerfPktInHC_Object=MibTableColumn
-bfdSessPerfPktInHC=_BfdSessPerfPktInHC_Object((1,3,6,1,4,1,1991,3,3,1,1,3,1,8),_BfdSessPerfPktInHC_Type())
-bfdSessPerfPktInHC.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessPerfPktInHC.setStatus(_B)
-_BfdSessPerfPktOutHC_Type=Counter64
-_BfdSessPerfPktOutHC_Object=MibTableColumn
-bfdSessPerfPktOutHC=_BfdSessPerfPktOutHC_Object((1,3,6,1,4,1,1991,3,3,1,1,3,1,9),_BfdSessPerfPktOutHC_Type())
-bfdSessPerfPktOutHC.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessPerfPktOutHC.setStatus(_B)
-_BfdSessMapTable_Object=MibTable
-bfdSessMapTable=_BfdSessMapTable_Object((1,3,6,1,4,1,1991,3,3,1,1,4))
-if mibBuilder.loadTexts:bfdSessMapTable.setStatus(_B)
-_BfdSessMapEntry_Object=MibTableRow
-bfdSessMapEntry=_BfdSessMapEntry_Object((1,3,6,1,4,1,1991,3,3,1,1,4,1))
-bfdSessMapEntry.setIndexNames((0,_A,_I),(0,_A,_J),(0,_A,_K),(0,_A,_L))
-if mibBuilder.loadTexts:bfdSessMapEntry.setStatus(_B)
-_BfdSessMapBfdIndex_Type=BfdSessIndexTC
-_BfdSessMapBfdIndex_Object=MibTableColumn
-bfdSessMapBfdIndex=_BfdSessMapBfdIndex_Object((1,3,6,1,4,1,1991,3,3,1,1,4,1,1),_BfdSessMapBfdIndex_Type())
-bfdSessMapBfdIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:bfdSessMapBfdIndex.setStatus(_B)
-_BfdConformance_ObjectIdentity=ObjectIdentity
-bfdConformance=_BfdConformance_ObjectIdentity((1,3,6,1,4,1,1991,3,3,1,3))
-_BfdGroups_ObjectIdentity=ObjectIdentity
-bfdGroups=_BfdGroups_ObjectIdentity((1,3,6,1,4,1,1991,3,3,1,3,1))
-_BfdCompliances_ObjectIdentity=ObjectIdentity
-bfdCompliances=_BfdCompliances_ObjectIdentity((1,3,6,1,4,1,1991,3,3,1,3,2))
-bfdSessEntry.registerAugmentions((_A,_R))
+#
+# PySNMP MIB module FOUNDRY-BFD-STD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/brocade/FOUNDRY-BFD-STD-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:03 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+bfd, = mibBuilder.importSymbols("FOUNDRY-SN-ROOT-MIB", "bfd")
+InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, RowStatus, StorageType, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "StorageType", "TruthValue", "TextualConvention")
+bfdMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1))
+bfdMIB.setRevisions(('2005-08-22 12:00',))
+if mibBuilder.loadTexts: bfdMIB.setLastUpdated('201708070000Z')
+if mibBuilder.loadTexts: bfdMIB.setOrganization('IETF')
+bfdNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 0))
+bfdObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1))
+bfdConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 3))
+bfdScalarObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 1))
+class BfdSessIndexTC(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
+
+class BfdInterval(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
+
+class BfdDiag(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))
+    namedValues = NamedValues(("noDiagnostic", 1), ("controlDetectionTimeExpired", 2), ("echoFunctionFailed", 3), ("neighborSignaledSessionDown", 4), ("forwardingPlaneReset", 5), ("pathDown", 6), ("concatenatedPathDown", 7), ("administrativelyDown", 8), ("reverseConcatenatedPathDown", 9))
+
+bfdAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bfdAdminStatus.setStatus('current')
+bfdVersionNumber = MibScalar((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdVersionNumber.setStatus('current')
+bfdSessTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2), )
+if mibBuilder.loadTexts: bfdSessTable.setStatus('current')
+bfdSessEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1), ).setIndexNames((0, "FOUNDRY-BFD-STD-MIB", "bfdSessIndex"))
+if mibBuilder.loadTexts: bfdSessEntry.setStatus('current')
+bfdSessIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 1), BfdSessIndexTC())
+if mibBuilder.loadTexts: bfdSessIndex.setStatus('current')
+bfdSessApplicationId = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessApplicationId.setStatus('current')
+bfdSessDiscriminator = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessDiscriminator.setStatus('current')
+bfdSessRemoteDiscr = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessRemoteDiscr.setStatus('current')
+bfdSessUdpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 5), InetPortNumber()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bfdSessUdpPort.setStatus('current')
+bfdSessState = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("adminDown", 1), ("down", 2), ("init", 3), ("up", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessState.setStatus('current')
+bfdSessRemoteHeardFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 7), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessRemoteHeardFlag.setStatus('current')
+bfdSessDiag = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 8), Unsigned32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: bfdSessDiag.setStatus('current')
+bfdSessOperMode = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("asyncModeWEchoFun", 1), ("asynchModeWOEchoFun", 2), ("demandModeWEchoFunction", 3), ("demandModeWOEchoFunction", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessOperMode.setStatus('current')
+bfdSessDemandModeDesiredFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 10), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bfdSessDemandModeDesiredFlag.setStatus('current')
+bfdSessEchoFuncModeDesiredFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 11), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bfdSessEchoFuncModeDesiredFlag.setStatus('current')
+bfdSessControlPlanIndepFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 12), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bfdSessControlPlanIndepFlag.setStatus('current')
+bfdSessAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 13), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bfdSessAddrType.setStatus('current')
+bfdSessAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 14), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bfdSessAddr.setStatus('current')
+bfdSessDesiredMinTxInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 15), BfdInterval()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bfdSessDesiredMinTxInterval.setStatus('current')
+bfdSessReqMinRxInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 16), BfdInterval()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bfdSessReqMinRxInterval.setStatus('current')
+bfdSessReqMinEchoRxInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 17), BfdInterval()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bfdSessReqMinEchoRxInterval.setStatus('current')
+bfdSessDetectMult = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 18), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bfdSessDetectMult.setStatus('current')
+bfdSessStorType = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 19), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bfdSessStorType.setStatus('current')
+bfdSessRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 20), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bfdSessRowStatus.setStatus('current')
+bfdSessAuthPresFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 21), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bfdSessAuthPresFlag.setStatus('current')
+bfdSessAuthenticationType = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 2, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("simplePassword", 1), ("keyedMD5", 2), ("meticulousKeyedMD5", 3), ("keyedSHA1", 4), ("meticulousKeyedSHA1", 5)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bfdSessAuthenticationType.setStatus('current')
+bfdSessPerfTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 3), )
+if mibBuilder.loadTexts: bfdSessPerfTable.setStatus('current')
+bfdSessPerfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 3, 1), )
+bfdSessEntry.registerAugmentions(("FOUNDRY-BFD-STD-MIB", "bfdSessPerfEntry"))
 bfdSessPerfEntry.setIndexNames(*bfdSessEntry.getIndexNames())
-bfdSessionGroup=ObjectGroup((1,3,6,1,4,1,1991,3,3,1,3,1,1))
-bfdSessionGroup.setObjects(*((_A,_S),(_A,_T),(_A,_U),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_F),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l)))
-if mibBuilder.loadTexts:bfdSessionGroup.setStatus(_B)
-bfdSessionPerfGroup=ObjectGroup((1,3,6,1,4,1,1991,3,3,1,3,1,2))
-bfdSessionPerfGroup.setObjects(*((_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s)))
-if mibBuilder.loadTexts:bfdSessionPerfGroup.setStatus(_B)
-bfdSessionPerfHCGroup=ObjectGroup((1,3,6,1,4,1,1991,3,3,1,3,1,3))
-bfdSessionPerfHCGroup.setObjects(*((_A,_t),(_A,_u)))
-if mibBuilder.loadTexts:bfdSessionPerfHCGroup.setStatus(_B)
-bfdSessUp=NotificationType((1,3,6,1,4,1,1991,3,3,1,0,1))
-bfdSessUp.setObjects(*((_A,_F),(_A,_F)))
-if mibBuilder.loadTexts:bfdSessUp.setStatus(_B)
-bfdSessDown=NotificationType((1,3,6,1,4,1,1991,3,3,1,0,2))
-bfdSessDown.setObjects(*((_A,_F),(_A,_F)))
-if mibBuilder.loadTexts:bfdSessDown.setStatus(_B)
-bfdNotificationGroup=NotificationGroup((1,3,6,1,4,1,1991,3,3,1,3,1,4))
-bfdNotificationGroup.setObjects(*((_A,_v),(_A,_w)))
-if mibBuilder.loadTexts:bfdNotificationGroup.setStatus(_B)
-bfdModuleFullCompliance=ModuleCompliance((1,3,6,1,4,1,1991,3,3,1,3,2,1))
-bfdModuleFullCompliance.setObjects(*((_A,_x),(_A,_y),(_A,_M),(_A,_N),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:bfdModuleFullCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'BfdSessIndexTC':BfdSessIndexTC,'BfdInterval':BfdInterval,'BfdDiag':BfdDiag,'bfdMIB':bfdMIB,'bfdNotifications':bfdNotifications,_v:bfdSessUp,_w:bfdSessDown,'bfdObjects':bfdObjects,'bfdScalarObjects':bfdScalarObjects,_T:bfdAdminStatus,_U:bfdVersionNumber,_S:bfdSessNotificationsEnable,'bfdSessTable':bfdSessTable,'bfdSessEntry':bfdSessEntry,_Q:bfdSessIndex,_I:bfdSessApplicationId,_J:bfdSessDiscriminator,_V:bfdSessRemoteDiscr,_W:bfdSessUdpPort,_X:bfdSessState,_Y:bfdSessRemoteHeardFlag,_F:bfdSessDiag,_Z:bfdSessOperMode,_a:bfdSessDemandModeDesiredFlag,_b:bfdSessEchoFuncModeDesiredFlag,_c:bfdSessControlPlanIndepFlag,_K:bfdSessAddrType,_L:bfdSessAddr,_d:bfdSessDesiredMinTxInterval,_e:bfdSessReqMinRxInterval,_f:bfdSessReqMinEchoRxInterval,_g:bfdSessDetectMult,_h:bfdSessStorType,_i:bfdSessRowStatus,_k:bfdSessAuthPresFlag,_l:bfdSessAuthenticationType,'bfdSessPerfTable':bfdSessPerfTable,_R:bfdSessPerfEntry,_m:bfdSessPerfPktIn,_n:bfdSessPerfPktOut,_o:bfdSessPerfUpTime,_p:bfdSessPerfLastSessDownTime,_q:bfdSessPerfLastCommLostDiag,_r:bfdSessPerfSessUpCount,_s:bfdSessPerfDiscTime,_t:bfdSessPerfPktInHC,_u:bfdSessPerfPktOutHC,'bfdSessMapTable':bfdSessMapTable,'bfdSessMapEntry':bfdSessMapEntry,_j:bfdSessMapBfdIndex,'bfdConformance':bfdConformance,'bfdGroups':bfdGroups,_x:bfdSessionGroup,_y:bfdSessionPerfGroup,_M:bfdSessionPerfHCGroup,_N:bfdNotificationGroup,'bfdCompliances':bfdCompliances,'bfdModuleFullCompliance':bfdModuleFullCompliance})
+if mibBuilder.loadTexts: bfdSessPerfEntry.setStatus('current')
+bfdSessPerfPktIn = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 3, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessPerfPktIn.setStatus('current')
+bfdSessPerfPktOut = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 3, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessPerfPktOut.setStatus('current')
+bfdSessPerfUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 3, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessPerfUpTime.setStatus('current')
+bfdSessPerfLastSessDownTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 3, 1, 4), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessPerfLastSessDownTime.setStatus('current')
+bfdSessPerfLastCommLostDiag = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 3, 1, 5), BfdDiag()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessPerfLastCommLostDiag.setStatus('current')
+bfdSessPerfSessUpCount = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 3, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessPerfSessUpCount.setStatus('current')
+bfdSessPerfDiscTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 3, 1, 7), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessPerfDiscTime.setStatus('current')
+bfdSessPerfPktInHC = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 3, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessPerfPktInHC.setStatus('current')
+bfdSessPerfPktOutHC = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 3, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessPerfPktOutHC.setStatus('current')
+bfdSessMapTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 4), )
+if mibBuilder.loadTexts: bfdSessMapTable.setStatus('current')
+bfdSessMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 4, 1), ).setIndexNames((0, "FOUNDRY-BFD-STD-MIB", "bfdSessApplicationId"), (0, "FOUNDRY-BFD-STD-MIB", "bfdSessDiscriminator"), (0, "FOUNDRY-BFD-STD-MIB", "bfdSessAddrType"), (0, "FOUNDRY-BFD-STD-MIB", "bfdSessAddr"))
+if mibBuilder.loadTexts: bfdSessMapEntry.setStatus('current')
+bfdSessMapBfdIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 4, 1, 1), BfdSessIndexTC()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bfdSessMapBfdIndex.setStatus('current')
+bfdSessNotificationsEnable = MibScalar((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 1, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bfdSessNotificationsEnable.setStatus('current')
+bfdSessUp = NotificationType((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 0, 1)).setObjects(("FOUNDRY-BFD-STD-MIB", "bfdSessDiag"), ("FOUNDRY-BFD-STD-MIB", "bfdSessDiag"))
+if mibBuilder.loadTexts: bfdSessUp.setStatus('current')
+bfdSessDown = NotificationType((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 0, 2)).setObjects(("FOUNDRY-BFD-STD-MIB", "bfdSessDiag"), ("FOUNDRY-BFD-STD-MIB", "bfdSessDiag"))
+if mibBuilder.loadTexts: bfdSessDown.setStatus('current')
+bfdGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 3, 1))
+bfdCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 3, 2))
+bfdModuleFullCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 3, 2, 1)).setObjects(("FOUNDRY-BFD-STD-MIB", "bfdSessionGroup"), ("FOUNDRY-BFD-STD-MIB", "bfdSessionPerfGroup"), ("FOUNDRY-BFD-STD-MIB", "bfdSessionPerfHCGroup"), ("FOUNDRY-BFD-STD-MIB", "bfdNotificationGroup"), ("FOUNDRY-BFD-STD-MIB", "bfdSessionPerfHCGroup"), ("FOUNDRY-BFD-STD-MIB", "bfdNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bfdModuleFullCompliance = bfdModuleFullCompliance.setStatus('current')
+bfdSessionGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 3, 1, 1)).setObjects(("FOUNDRY-BFD-STD-MIB", "bfdSessNotificationsEnable"), ("FOUNDRY-BFD-STD-MIB", "bfdAdminStatus"), ("FOUNDRY-BFD-STD-MIB", "bfdVersionNumber"), ("FOUNDRY-BFD-STD-MIB", "bfdSessApplicationId"), ("FOUNDRY-BFD-STD-MIB", "bfdSessDiscriminator"), ("FOUNDRY-BFD-STD-MIB", "bfdSessAddrType"), ("FOUNDRY-BFD-STD-MIB", "bfdSessAddr"), ("FOUNDRY-BFD-STD-MIB", "bfdSessRemoteDiscr"), ("FOUNDRY-BFD-STD-MIB", "bfdSessUdpPort"), ("FOUNDRY-BFD-STD-MIB", "bfdSessState"), ("FOUNDRY-BFD-STD-MIB", "bfdSessRemoteHeardFlag"), ("FOUNDRY-BFD-STD-MIB", "bfdSessDiag"), ("FOUNDRY-BFD-STD-MIB", "bfdSessOperMode"), ("FOUNDRY-BFD-STD-MIB", "bfdSessDemandModeDesiredFlag"), ("FOUNDRY-BFD-STD-MIB", "bfdSessEchoFuncModeDesiredFlag"), ("FOUNDRY-BFD-STD-MIB", "bfdSessControlPlanIndepFlag"), ("FOUNDRY-BFD-STD-MIB", "bfdSessDesiredMinTxInterval"), ("FOUNDRY-BFD-STD-MIB", "bfdSessReqMinRxInterval"), ("FOUNDRY-BFD-STD-MIB", "bfdSessReqMinEchoRxInterval"), ("FOUNDRY-BFD-STD-MIB", "bfdSessDetectMult"), ("FOUNDRY-BFD-STD-MIB", "bfdSessStorType"), ("FOUNDRY-BFD-STD-MIB", "bfdSessRowStatus"), ("FOUNDRY-BFD-STD-MIB", "bfdSessMapBfdIndex"), ("FOUNDRY-BFD-STD-MIB", "bfdSessAuthPresFlag"), ("FOUNDRY-BFD-STD-MIB", "bfdSessAuthenticationType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bfdSessionGroup = bfdSessionGroup.setStatus('current')
+bfdSessionPerfGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 3, 1, 2)).setObjects(("FOUNDRY-BFD-STD-MIB", "bfdSessPerfPktIn"), ("FOUNDRY-BFD-STD-MIB", "bfdSessPerfPktOut"), ("FOUNDRY-BFD-STD-MIB", "bfdSessPerfUpTime"), ("FOUNDRY-BFD-STD-MIB", "bfdSessPerfLastSessDownTime"), ("FOUNDRY-BFD-STD-MIB", "bfdSessPerfLastCommLostDiag"), ("FOUNDRY-BFD-STD-MIB", "bfdSessPerfSessUpCount"), ("FOUNDRY-BFD-STD-MIB", "bfdSessPerfDiscTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bfdSessionPerfGroup = bfdSessionPerfGroup.setStatus('current')
+bfdSessionPerfHCGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 3, 1, 3)).setObjects(("FOUNDRY-BFD-STD-MIB", "bfdSessPerfPktInHC"), ("FOUNDRY-BFD-STD-MIB", "bfdSessPerfPktOutHC"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bfdSessionPerfHCGroup = bfdSessionPerfHCGroup.setStatus('current')
+bfdNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 1991, 3, 3, 1, 3, 1, 4)).setObjects(("FOUNDRY-BFD-STD-MIB", "bfdSessUp"), ("FOUNDRY-BFD-STD-MIB", "bfdSessDown"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bfdNotificationGroup = bfdNotificationGroup.setStatus('current')
+mibBuilder.exportSymbols("FOUNDRY-BFD-STD-MIB", bfdSessAuthenticationType=bfdSessAuthenticationType, bfdSessNotificationsEnable=bfdSessNotificationsEnable, bfdSessControlPlanIndepFlag=bfdSessControlPlanIndepFlag, bfdSessPerfPktInHC=bfdSessPerfPktInHC, bfdSessPerfSessUpCount=bfdSessPerfSessUpCount, bfdSessRowStatus=bfdSessRowStatus, bfdSessPerfPktIn=bfdSessPerfPktIn, bfdMIB=bfdMIB, bfdSessPerfPktOutHC=bfdSessPerfPktOutHC, bfdSessPerfUpTime=bfdSessPerfUpTime, bfdSessDesiredMinTxInterval=bfdSessDesiredMinTxInterval, bfdNotifications=bfdNotifications, bfdSessionGroup=bfdSessionGroup, bfdSessionPerfGroup=bfdSessionPerfGroup, BfdSessIndexTC=BfdSessIndexTC, bfdSessPerfDiscTime=bfdSessPerfDiscTime, bfdSessStorType=bfdSessStorType, bfdAdminStatus=bfdAdminStatus, bfdSessState=bfdSessState, bfdSessRemoteHeardFlag=bfdSessRemoteHeardFlag, bfdSessMapEntry=bfdSessMapEntry, bfdModuleFullCompliance=bfdModuleFullCompliance, bfdSessAddrType=bfdSessAddrType, bfdSessDiscriminator=bfdSessDiscriminator, bfdSessPerfEntry=bfdSessPerfEntry, bfdSessPerfLastCommLostDiag=bfdSessPerfLastCommLostDiag, bfdSessRemoteDiscr=bfdSessRemoteDiscr, BfdInterval=BfdInterval, bfdSessDemandModeDesiredFlag=bfdSessDemandModeDesiredFlag, bfdSessMapTable=bfdSessMapTable, bfdCompliances=bfdCompliances, bfdVersionNumber=bfdVersionNumber, bfdSessEchoFuncModeDesiredFlag=bfdSessEchoFuncModeDesiredFlag, bfdSessUp=bfdSessUp, bfdSessPerfTable=bfdSessPerfTable, bfdGroups=bfdGroups, bfdSessionPerfHCGroup=bfdSessionPerfHCGroup, bfdSessEntry=bfdSessEntry, bfdSessDetectMult=bfdSessDetectMult, bfdSessReqMinRxInterval=bfdSessReqMinRxInterval, bfdNotificationGroup=bfdNotificationGroup, bfdSessAddr=bfdSessAddr, bfdSessIndex=bfdSessIndex, bfdObjects=bfdObjects, bfdSessAuthPresFlag=bfdSessAuthPresFlag, bfdSessTable=bfdSessTable, bfdConformance=bfdConformance, bfdSessDiag=bfdSessDiag, bfdSessPerfPktOut=bfdSessPerfPktOut, bfdSessPerfLastSessDownTime=bfdSessPerfLastSessDownTime, bfdSessReqMinEchoRxInterval=bfdSessReqMinEchoRxInterval, bfdScalarObjects=bfdScalarObjects, bfdSessApplicationId=bfdSessApplicationId, BfdDiag=BfdDiag, PYSNMP_MODULE_ID=bfdMIB, bfdSessUdpPort=bfdSessUdpPort, bfdSessDown=bfdSessDown, bfdSessOperMode=bfdSessOperMode, bfdSessMapBfdIndex=bfdSessMapBfdIndex)

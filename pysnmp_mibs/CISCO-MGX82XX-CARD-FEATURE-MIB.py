@@ -1,86 +1,51 @@
-_N='cmCoreCardFeatureGroup'
-_M='cmAscCardFeatureGroup'
-_L='cmPxmCardFeatureGroup'
-_K='switchCoreCard'
-_J='redundancyAllowed'
-_I='pxmCardCacMode'
-_H='trkCACEnable'
-_G='apsCardAttributes'
-_F='vsiControllersAllowed'
-_E='read-write'
-_D='read-only'
-_C='Integer32'
-_B='CISCO-MGX82XX-CARD-FEATURE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-cardSpecific,=mibBuilder.importSymbols('BASIS-MIB','cardSpecific')
-ciscoWan,=mibBuilder.importSymbols('CISCOWAN-SMI','ciscoWan')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoMgx82xxCardFeatureMIB=ModuleIdentity((1,3,6,1,4,1,351,150,74))
-if mibBuilder.loadTexts:ciscoMgx82xxCardFeatureMIB.setRevisions(('2003-05-05 00:00',))
-_AscFeatures_ObjectIdentity=ObjectIdentity
-ascFeatures=_AscFeatures_ObjectIdentity((1,3,6,1,4,1,351,110,3,5))
-class _RedundancyAllowed_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('redNotAllowed',1),('redAllowed',2)))
-_RedundancyAllowed_Type.__name__=_C
-_RedundancyAllowed_Object=MibScalar
-redundancyAllowed=_RedundancyAllowed_Object((1,3,6,1,4,1,351,110,3,5,1),_RedundancyAllowed_Type())
-redundancyAllowed.setMaxAccess(_D)
-if mibBuilder.loadTexts:redundancyAllowed.setStatus(_A)
-_PxmFeatures_ObjectIdentity=ObjectIdentity
-pxmFeatures=_PxmFeatures_ObjectIdentity((1,3,6,1,4,1,351,110,3,15))
-class _VsiControllersAllowed_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16777215))
-_VsiControllersAllowed_Type.__name__=_C
-_VsiControllersAllowed_Object=MibScalar
-vsiControllersAllowed=_VsiControllersAllowed_Object((1,3,6,1,4,1,351,110,3,15,1),_VsiControllersAllowed_Type())
-vsiControllersAllowed.setMaxAccess(_D)
-if mibBuilder.loadTexts:vsiControllersAllowed.setStatus(_A)
-class _ApsCardAttributes_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_ApsCardAttributes_Type.__name__=_C
-_ApsCardAttributes_Object=MibScalar
-apsCardAttributes=_ApsCardAttributes_Object((1,3,6,1,4,1,351,110,3,15,2),_ApsCardAttributes_Type())
-apsCardAttributes.setMaxAccess(_D)
-if mibBuilder.loadTexts:apsCardAttributes.setStatus(_A)
-class _TrkCACEnable_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('disable',1),('enable',2)))
-_TrkCACEnable_Type.__name__=_C
-_TrkCACEnable_Object=MibScalar
-trkCACEnable=_TrkCACEnable_Object((1,3,6,1,4,1,351,110,3,15,3),_TrkCACEnable_Type())
-trkCACEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:trkCACEnable.setStatus(_A)
-class _PxmCardCacMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('pcrBasedCac',1),('scrBasedCac',2)))
-_PxmCardCacMode_Type.__name__=_C
-_PxmCardCacMode_Object=MibScalar
-pxmCardCacMode=_PxmCardCacMode_Object((1,3,6,1,4,1,351,110,3,15,4),_PxmCardCacMode_Type())
-pxmCardCacMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:pxmCardCacMode.setStatus(_A)
-_CoreCardCommands_ObjectIdentity=ObjectIdentity
-coreCardCommands=_CoreCardCommands_ObjectIdentity((1,3,6,1,4,1,351,110,3,20))
-class _SwitchCoreCard_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('noAction',1),('doswitchcc',2),('instswitchcc',3),('fallbackswitchcc',4)))
-_SwitchCoreCard_Type.__name__=_C
-_SwitchCoreCard_Object=MibScalar
-switchCoreCard=_SwitchCoreCard_Object((1,3,6,1,4,1,351,110,3,20,1),_SwitchCoreCard_Type())
-switchCoreCard.setMaxAccess(_E)
-if mibBuilder.loadTexts:switchCoreCard.setStatus(_A)
-_CmCardFeatureMIBConformance_ObjectIdentity=ObjectIdentity
-cmCardFeatureMIBConformance=_CmCardFeatureMIBConformance_ObjectIdentity((1,3,6,1,4,1,351,150,74,2))
-_CmCardFeatureMIBGroups_ObjectIdentity=ObjectIdentity
-cmCardFeatureMIBGroups=_CmCardFeatureMIBGroups_ObjectIdentity((1,3,6,1,4,1,351,150,74,2,1))
-_CmCardFeatureMIBCompliances_ObjectIdentity=ObjectIdentity
-cmCardFeatureMIBCompliances=_CmCardFeatureMIBCompliances_ObjectIdentity((1,3,6,1,4,1,351,150,74,2,2))
-cmPxmCardFeatureGroup=ObjectGroup((1,3,6,1,4,1,351,150,74,2,1,1))
-cmPxmCardFeatureGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:cmPxmCardFeatureGroup.setStatus(_A)
-cmAscCardFeatureGroup=ObjectGroup((1,3,6,1,4,1,351,150,74,2,1,2))
-cmAscCardFeatureGroup.setObjects((_B,_J))
-if mibBuilder.loadTexts:cmAscCardFeatureGroup.setStatus(_A)
-cmCoreCardFeatureGroup=ObjectGroup((1,3,6,1,4,1,351,150,74,2,1,3))
-cmCoreCardFeatureGroup.setObjects((_B,_K))
-if mibBuilder.loadTexts:cmCoreCardFeatureGroup.setStatus(_A)
-cmCardFeatureCompliance=ModuleCompliance((1,3,6,1,4,1,351,150,74,2,2,1))
-cmCardFeatureCompliance.setObjects(*((_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:cmCardFeatureCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ascFeatures':ascFeatures,_J:redundancyAllowed,'pxmFeatures':pxmFeatures,_F:vsiControllersAllowed,_G:apsCardAttributes,_H:trkCACEnable,_I:pxmCardCacMode,'coreCardCommands':coreCardCommands,_K:switchCoreCard,'ciscoMgx82xxCardFeatureMIB':ciscoMgx82xxCardFeatureMIB,'cmCardFeatureMIBConformance':cmCardFeatureMIBConformance,'cmCardFeatureMIBGroups':cmCardFeatureMIBGroups,_L:cmPxmCardFeatureGroup,_M:cmAscCardFeatureGroup,_N:cmCoreCardFeatureGroup,'cmCardFeatureMIBCompliances':cmCardFeatureMIBCompliances,'cmCardFeatureCompliance':cmCardFeatureCompliance})
+#
+# PySNMP MIB module CISCO-MGX82XX-CARD-FEATURE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-MGX82XX-CARD-FEATURE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:05 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cardSpecific, = mibBuilder.importSymbols("BASIS-MIB", "cardSpecific")
+ciscoWan, = mibBuilder.importSymbols("CISCOWAN-SMI", "ciscoWan")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoMgx82xxCardFeatureMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 351, 150, 74))
+ciscoMgx82xxCardFeatureMIB.setRevisions(('2003-05-05 00:00',))
+if mibBuilder.loadTexts: ciscoMgx82xxCardFeatureMIB.setLastUpdated('200305050000Z')
+if mibBuilder.loadTexts: ciscoMgx82xxCardFeatureMIB.setOrganization('Cisco Systems, Inc.')
+ascFeatures = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 110, 3, 5))
+pxmFeatures = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 110, 3, 15))
+coreCardCommands = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 110, 3, 20))
+vsiControllersAllowed = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 3, 15, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16777215))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vsiControllersAllowed.setStatus('current')
+apsCardAttributes = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 3, 15, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: apsCardAttributes.setStatus('current')
+trkCACEnable = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 3, 15, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: trkCACEnable.setStatus('current')
+pxmCardCacMode = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 3, 15, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("pcrBasedCac", 1), ("scrBasedCac", 2))).clone('pcrBasedCac')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmCardCacMode.setStatus('current')
+redundancyAllowed = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 3, 5, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("redNotAllowed", 1), ("redAllowed", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: redundancyAllowed.setStatus('current')
+switchCoreCard = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 3, 20, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("noAction", 1), ("doswitchcc", 2), ("instswitchcc", 3), ("fallbackswitchcc", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: switchCoreCard.setStatus('current')
+cmCardFeatureMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 74, 2))
+cmCardFeatureMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 74, 2, 1))
+cmCardFeatureMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 74, 2, 2))
+cmCardFeatureCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 351, 150, 74, 2, 2, 1)).setObjects(("CISCO-MGX82XX-CARD-FEATURE-MIB", "cmPxmCardFeatureGroup"), ("CISCO-MGX82XX-CARD-FEATURE-MIB", "cmAscCardFeatureGroup"), ("CISCO-MGX82XX-CARD-FEATURE-MIB", "cmCoreCardFeatureGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmCardFeatureCompliance = cmCardFeatureCompliance.setStatus('current')
+cmPxmCardFeatureGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 74, 2, 1, 1)).setObjects(("CISCO-MGX82XX-CARD-FEATURE-MIB", "vsiControllersAllowed"), ("CISCO-MGX82XX-CARD-FEATURE-MIB", "apsCardAttributes"), ("CISCO-MGX82XX-CARD-FEATURE-MIB", "trkCACEnable"), ("CISCO-MGX82XX-CARD-FEATURE-MIB", "pxmCardCacMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmPxmCardFeatureGroup = cmPxmCardFeatureGroup.setStatus('current')
+cmAscCardFeatureGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 74, 2, 1, 2)).setObjects(("CISCO-MGX82XX-CARD-FEATURE-MIB", "redundancyAllowed"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmAscCardFeatureGroup = cmAscCardFeatureGroup.setStatus('current')
+cmCoreCardFeatureGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 74, 2, 1, 3)).setObjects(("CISCO-MGX82XX-CARD-FEATURE-MIB", "switchCoreCard"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmCoreCardFeatureGroup = cmCoreCardFeatureGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-MGX82XX-CARD-FEATURE-MIB", ciscoMgx82xxCardFeatureMIB=ciscoMgx82xxCardFeatureMIB, ascFeatures=ascFeatures, pxmFeatures=pxmFeatures, coreCardCommands=coreCardCommands, vsiControllersAllowed=vsiControllersAllowed, apsCardAttributes=apsCardAttributes, redundancyAllowed=redundancyAllowed, switchCoreCard=switchCoreCard, trkCACEnable=trkCACEnable, pxmCardCacMode=pxmCardCacMode, cmCardFeatureMIBCompliances=cmCardFeatureMIBCompliances, PYSNMP_MODULE_ID=ciscoMgx82xxCardFeatureMIB, cmCardFeatureCompliance=cmCardFeatureCompliance, cmPxmCardFeatureGroup=cmPxmCardFeatureGroup, cmCardFeatureMIBConformance=cmCardFeatureMIBConformance, cmCoreCardFeatureGroup=cmCoreCardFeatureGroup, cmAscCardFeatureGroup=cmAscCardFeatureGroup, cmCardFeatureMIBGroups=cmCardFeatureMIBGroups)

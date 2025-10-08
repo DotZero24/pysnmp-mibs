@@ -1,38 +1,28 @@
-_F='read-only'
-_E='nsVsysCfgId'
-_D='NETSCREEN-VSYS-MIB'
-_C='DisplayString'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-netscreenVsys,=mibBuilder.importSymbols('NETSCREEN-SMI','netscreenVsys')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_C,'PhysAddress','TextualConvention')
-netscreenVsysMibModule=ModuleIdentity((1,3,6,1,4,1,3224,15,0))
-if mibBuilder.loadTexts:netscreenVsysMibModule.setRevisions(('2004-05-03 00:00','2004-03-03 00:00','2003-11-13 00:00','2001-09-28 00:00','2000-05-08 00:00'))
-_NsVsysCfg_ObjectIdentity=ObjectIdentity
-nsVsysCfg=_NsVsysCfg_ObjectIdentity((1,3,6,1,4,1,3224,15,1))
-_NsVsysCfgTable_Object=MibTable
-nsVsysCfgTable=_NsVsysCfgTable_Object((1,3,6,1,4,1,3224,15,1,1))
-if mibBuilder.loadTexts:nsVsysCfgTable.setStatus(_A)
-_NsVsysCfgEntry_Object=MibTableRow
-nsVsysCfgEntry=_NsVsysCfgEntry_Object((1,3,6,1,4,1,3224,15,1,1,1))
-nsVsysCfgEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:nsVsysCfgEntry.setStatus(_A)
-class _NsVsysCfgId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_NsVsysCfgId_Type.__name__=_B
-_NsVsysCfgId_Object=MibTableColumn
-nsVsysCfgId=_NsVsysCfgId_Object((1,3,6,1,4,1,3224,15,1,1,1,1),_NsVsysCfgId_Type())
-nsVsysCfgId.setMaxAccess(_F)
-if mibBuilder.loadTexts:nsVsysCfgId.setStatus(_A)
-class _NsVsysCfgName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_NsVsysCfgName_Type.__name__=_C
-_NsVsysCfgName_Object=MibTableColumn
-nsVsysCfgName=_NsVsysCfgName_Object((1,3,6,1,4,1,3224,15,1,1,1,2),_NsVsysCfgName_Type())
-nsVsysCfgName.setMaxAccess(_F)
-if mibBuilder.loadTexts:nsVsysCfgName.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'netscreenVsysMibModule':netscreenVsysMibModule,'nsVsysCfg':nsVsysCfg,'nsVsysCfgTable':nsVsysCfgTable,'nsVsysCfgEntry':nsVsysCfgEntry,_E:nsVsysCfgId,'nsVsysCfgName':nsVsysCfgName})
+#
+# PySNMP MIB module NETSCREEN-VSYS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netscreen/NETSCREEN-VSYS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+netscreenVsys, = mibBuilder.importSymbols("NETSCREEN-SMI", "netscreenVsys")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+netscreenVsysMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3224, 15, 0))
+netscreenVsysMibModule.setRevisions(('2004-05-03 00:00', '2004-03-03 00:00', '2003-11-13 00:00', '2001-09-28 00:00', '2000-05-08 00:00',))
+if mibBuilder.loadTexts: netscreenVsysMibModule.setLastUpdated('200405032022Z')
+if mibBuilder.loadTexts: netscreenVsysMibModule.setOrganization('Juniper Networks, Inc.')
+nsVsysCfg = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 15, 1))
+nsVsysCfgTable = MibTable((1, 3, 6, 1, 4, 1, 3224, 15, 1, 1), )
+if mibBuilder.loadTexts: nsVsysCfgTable.setStatus('current')
+nsVsysCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3224, 15, 1, 1, 1), ).setIndexNames((0, "NETSCREEN-VSYS-MIB", "nsVsysCfgId"))
+if mibBuilder.loadTexts: nsVsysCfgEntry.setStatus('current')
+nsVsysCfgId = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 15, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVsysCfgId.setStatus('current')
+nsVsysCfgName = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 15, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVsysCfgName.setStatus('current')
+mibBuilder.exportSymbols("NETSCREEN-VSYS-MIB", PYSNMP_MODULE_ID=netscreenVsysMibModule, netscreenVsysMibModule=netscreenVsysMibModule, nsVsysCfgId=nsVsysCfgId, nsVsysCfgName=nsVsysCfgName, nsVsysCfg=nsVsysCfg, nsVsysCfgEntry=nsVsysCfgEntry, nsVsysCfgTable=nsVsysCfgTable)

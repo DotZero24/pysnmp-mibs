@@ -1,149 +1,73 @@
-_X='ciscoIsnsIpNetDiscoveryCfgGroup'
-_W='ciscoIsnsIpNetDiscoveryInfoGroup'
-_V='ciscoIsnsIpNetDiscoveryCmdStatus'
-_U='ciscoIsnsIpNetDiscoveryCommand'
-_T='ciscoIsnsGigEInterfaceToDiscover'
-_S='ciscoIsnsIpNetToDiscover'
-_R='ciscoIsnsIpNetDiscoverySpinLock'
-_Q='ciscoIsnsIpNetInterfaceRowStatus'
-_P='ciscoIsnsIpNetRowStatus'
-_O='ciscoIsnsIpNetDiscoveryMechanism'
-_N='ciscoIsnsIpNetDiscoveryInterval'
-_M='ciscoIsnsIpNetAutomaticDiscovery'
-_L='ciscoIsnsGigEPortIfIndex'
-_K='ciscoIsnsGigEPortDeviceName'
-_J='TruthValue'
-_I='InterfaceIndexOrZero'
-_H='read-create'
-_G='not-accessible'
-_F='ciscoIsnsIpNetName'
-_E='SnmpAdminString'
-_D='Integer32'
-_C='read-write'
-_B='CISCO-ISNS-IP-NW-DISCOVERY-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-FcNameId,=mibBuilder.importSymbols('CISCO-ST-TC','FcNameId')
-InterfaceIndex,InterfaceIndexOrZero=mibBuilder.importSymbols('IF-MIB','InterfaceIndex',_I)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TestAndIncr,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TestAndIncr',_J)
-ciscoIsnsIpNetDiscoveryMIB=ModuleIdentity((1,3,6,1,4,1,9,9,434))
-if mibBuilder.loadTexts:ciscoIsnsIpNetDiscoveryMIB.setRevisions(('2004-09-08 00:00',))
-_CiscoIsnsIpNetDiscoveryMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoIsnsIpNetDiscoveryMIBNotifs=_CiscoIsnsIpNetDiscoveryMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,434,0))
-_CiscoIsnsIpNetDiscoveryMIBObjs_ObjectIdentity=ObjectIdentity
-ciscoIsnsIpNetDiscoveryMIBObjs=_CiscoIsnsIpNetDiscoveryMIBObjs_ObjectIdentity((1,3,6,1,4,1,9,9,434,1))
-_CiscoIsnsIpNetDiscoveryMIBInfo_ObjectIdentity=ObjectIdentity
-ciscoIsnsIpNetDiscoveryMIBInfo=_CiscoIsnsIpNetDiscoveryMIBInfo_ObjectIdentity((1,3,6,1,4,1,9,9,434,1,1))
-class _CiscoIsnsIpNetAutomaticDiscovery_Type(TruthValue):defaultValue=2
-_CiscoIsnsIpNetAutomaticDiscovery_Type.__name__=_J
-_CiscoIsnsIpNetAutomaticDiscovery_Object=MibScalar
-ciscoIsnsIpNetAutomaticDiscovery=_CiscoIsnsIpNetAutomaticDiscovery_Object((1,3,6,1,4,1,9,9,434,1,1,1),_CiscoIsnsIpNetAutomaticDiscovery_Type())
-ciscoIsnsIpNetAutomaticDiscovery.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoIsnsIpNetAutomaticDiscovery.setStatus(_A)
-class _CiscoIsnsIpNetDiscoveryInterval_Type(Integer32):defaultValue=10;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,5184000))
-_CiscoIsnsIpNetDiscoveryInterval_Type.__name__=_D
-_CiscoIsnsIpNetDiscoveryInterval_Object=MibScalar
-ciscoIsnsIpNetDiscoveryInterval=_CiscoIsnsIpNetDiscoveryInterval_Object((1,3,6,1,4,1,9,9,434,1,1,2),_CiscoIsnsIpNetDiscoveryInterval_Type())
-ciscoIsnsIpNetDiscoveryInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoIsnsIpNetDiscoveryInterval.setStatus(_A)
-if mibBuilder.loadTexts:ciscoIsnsIpNetDiscoveryInterval.setUnits('seconds')
-_CiscoIsnsIpNetTable_Object=MibTable
-ciscoIsnsIpNetTable=_CiscoIsnsIpNetTable_Object((1,3,6,1,4,1,9,9,434,1,1,3))
-if mibBuilder.loadTexts:ciscoIsnsIpNetTable.setStatus(_A)
-_CiscoIsnsIpNetEntry_Object=MibTableRow
-ciscoIsnsIpNetEntry=_CiscoIsnsIpNetEntry_Object((1,3,6,1,4,1,9,9,434,1,1,3,1))
-ciscoIsnsIpNetEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:ciscoIsnsIpNetEntry.setStatus(_A)
-class _CiscoIsnsIpNetName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,100))
-_CiscoIsnsIpNetName_Type.__name__=_E
-_CiscoIsnsIpNetName_Object=MibTableColumn
-ciscoIsnsIpNetName=_CiscoIsnsIpNetName_Object((1,3,6,1,4,1,9,9,434,1,1,3,1,1),_CiscoIsnsIpNetName_Type())
-ciscoIsnsIpNetName.setMaxAccess(_G)
-if mibBuilder.loadTexts:ciscoIsnsIpNetName.setStatus(_A)
-class _CiscoIsnsIpNetDiscoveryMechanism_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('autoGenerated',1),('userConfigured',2)))
-_CiscoIsnsIpNetDiscoveryMechanism_Type.__name__=_D
-_CiscoIsnsIpNetDiscoveryMechanism_Object=MibTableColumn
-ciscoIsnsIpNetDiscoveryMechanism=_CiscoIsnsIpNetDiscoveryMechanism_Object((1,3,6,1,4,1,9,9,434,1,1,3,1,2),_CiscoIsnsIpNetDiscoveryMechanism_Type())
-ciscoIsnsIpNetDiscoveryMechanism.setMaxAccess(_H)
-if mibBuilder.loadTexts:ciscoIsnsIpNetDiscoveryMechanism.setStatus(_A)
-_CiscoIsnsIpNetRowStatus_Type=RowStatus
-_CiscoIsnsIpNetRowStatus_Object=MibTableColumn
-ciscoIsnsIpNetRowStatus=_CiscoIsnsIpNetRowStatus_Object((1,3,6,1,4,1,9,9,434,1,1,3,1,3),_CiscoIsnsIpNetRowStatus_Type())
-ciscoIsnsIpNetRowStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:ciscoIsnsIpNetRowStatus.setStatus(_A)
-_CiscoIsnsIpNetInterfaceTable_Object=MibTable
-ciscoIsnsIpNetInterfaceTable=_CiscoIsnsIpNetInterfaceTable_Object((1,3,6,1,4,1,9,9,434,1,1,4))
-if mibBuilder.loadTexts:ciscoIsnsIpNetInterfaceTable.setStatus(_A)
-_CiscoIsnsIpNetInterfaceEntry_Object=MibTableRow
-ciscoIsnsIpNetInterfaceEntry=_CiscoIsnsIpNetInterfaceEntry_Object((1,3,6,1,4,1,9,9,434,1,1,4,1))
-ciscoIsnsIpNetInterfaceEntry.setIndexNames((0,_B,_F),(0,_B,_K),(0,_B,_L))
-if mibBuilder.loadTexts:ciscoIsnsIpNetInterfaceEntry.setStatus(_A)
-_CiscoIsnsGigEPortDeviceName_Type=FcNameId
-_CiscoIsnsGigEPortDeviceName_Object=MibTableColumn
-ciscoIsnsGigEPortDeviceName=_CiscoIsnsGigEPortDeviceName_Object((1,3,6,1,4,1,9,9,434,1,1,4,1,1),_CiscoIsnsGigEPortDeviceName_Type())
-ciscoIsnsGigEPortDeviceName.setMaxAccess(_G)
-if mibBuilder.loadTexts:ciscoIsnsGigEPortDeviceName.setStatus(_A)
-_CiscoIsnsGigEPortIfIndex_Type=InterfaceIndex
-_CiscoIsnsGigEPortIfIndex_Object=MibTableColumn
-ciscoIsnsGigEPortIfIndex=_CiscoIsnsGigEPortIfIndex_Object((1,3,6,1,4,1,9,9,434,1,1,4,1,2),_CiscoIsnsGigEPortIfIndex_Type())
-ciscoIsnsGigEPortIfIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:ciscoIsnsGigEPortIfIndex.setStatus(_A)
-_CiscoIsnsIpNetInterfaceRowStatus_Type=RowStatus
-_CiscoIsnsIpNetInterfaceRowStatus_Object=MibTableColumn
-ciscoIsnsIpNetInterfaceRowStatus=_CiscoIsnsIpNetInterfaceRowStatus_Object((1,3,6,1,4,1,9,9,434,1,1,4,1,3),_CiscoIsnsIpNetInterfaceRowStatus_Type())
-ciscoIsnsIpNetInterfaceRowStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:ciscoIsnsIpNetInterfaceRowStatus.setStatus(_A)
-_CiscoIsnsIpNetDiscoveryMIBConfig_ObjectIdentity=ObjectIdentity
-ciscoIsnsIpNetDiscoveryMIBConfig=_CiscoIsnsIpNetDiscoveryMIBConfig_ObjectIdentity((1,3,6,1,4,1,9,9,434,1,2))
-_CiscoIsnsIpNetDiscoverySpinLock_Type=TestAndIncr
-_CiscoIsnsIpNetDiscoverySpinLock_Object=MibScalar
-ciscoIsnsIpNetDiscoverySpinLock=_CiscoIsnsIpNetDiscoverySpinLock_Object((1,3,6,1,4,1,9,9,434,1,2,1),_CiscoIsnsIpNetDiscoverySpinLock_Type())
-ciscoIsnsIpNetDiscoverySpinLock.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoIsnsIpNetDiscoverySpinLock.setStatus(_A)
-class _CiscoIsnsIpNetToDiscover_Type(SnmpAdminString):defaultValue=OctetString('');subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,100))
-_CiscoIsnsIpNetToDiscover_Type.__name__=_E
-_CiscoIsnsIpNetToDiscover_Object=MibScalar
-ciscoIsnsIpNetToDiscover=_CiscoIsnsIpNetToDiscover_Object((1,3,6,1,4,1,9,9,434,1,2,2),_CiscoIsnsIpNetToDiscover_Type())
-ciscoIsnsIpNetToDiscover.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoIsnsIpNetToDiscover.setStatus(_A)
-class _CiscoIsnsGigEInterfaceToDiscover_Type(InterfaceIndexOrZero):defaultValue=0
-_CiscoIsnsGigEInterfaceToDiscover_Type.__name__=_I
-_CiscoIsnsGigEInterfaceToDiscover_Object=MibScalar
-ciscoIsnsGigEInterfaceToDiscover=_CiscoIsnsGigEInterfaceToDiscover_Object((1,3,6,1,4,1,9,9,434,1,2,3),_CiscoIsnsGigEInterfaceToDiscover_Type())
-ciscoIsnsGigEInterfaceToDiscover.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoIsnsGigEInterfaceToDiscover.setStatus(_A)
-class _CiscoIsnsIpNetDiscoveryCommand_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('all',1),('noOp',2),('ipNetworkSpecific',3),('interfaceSpecific',4)))
-_CiscoIsnsIpNetDiscoveryCommand_Type.__name__=_D
-_CiscoIsnsIpNetDiscoveryCommand_Object=MibScalar
-ciscoIsnsIpNetDiscoveryCommand=_CiscoIsnsIpNetDiscoveryCommand_Object((1,3,6,1,4,1,9,9,434,1,2,4),_CiscoIsnsIpNetDiscoveryCommand_Type())
-ciscoIsnsIpNetDiscoveryCommand.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoIsnsIpNetDiscoveryCommand.setStatus(_A)
-class _CiscoIsnsIpNetDiscoveryCmdStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('success',1),('none',2),('inProgress',3),('noIpNetworkNameSpecified',4),('invalidIpNetworkName',5),('noGigEInterfaceIndexSpecified',6),('invalidGigEInterfaceIndex',7),('generalFailure',8)))
-_CiscoIsnsIpNetDiscoveryCmdStatus_Type.__name__=_D
-_CiscoIsnsIpNetDiscoveryCmdStatus_Object=MibScalar
-ciscoIsnsIpNetDiscoveryCmdStatus=_CiscoIsnsIpNetDiscoveryCmdStatus_Object((1,3,6,1,4,1,9,9,434,1,2,5),_CiscoIsnsIpNetDiscoveryCmdStatus_Type())
-ciscoIsnsIpNetDiscoveryCmdStatus.setMaxAccess('read-only')
-if mibBuilder.loadTexts:ciscoIsnsIpNetDiscoveryCmdStatus.setStatus(_A)
-_CiscoIsnsIpNetDiscoveryConform_ObjectIdentity=ObjectIdentity
-ciscoIsnsIpNetDiscoveryConform=_CiscoIsnsIpNetDiscoveryConform_ObjectIdentity((1,3,6,1,4,1,9,9,434,2))
-_CiscoIsnsIpNetDiscoverCompliance_ObjectIdentity=ObjectIdentity
-ciscoIsnsIpNetDiscoverCompliance=_CiscoIsnsIpNetDiscoverCompliance_ObjectIdentity((1,3,6,1,4,1,9,9,434,2,1))
-_CiscoIsnsIpNetDiscoveryMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoIsnsIpNetDiscoveryMIBGroups=_CiscoIsnsIpNetDiscoveryMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,434,2,2))
-ciscoIsnsIpNetDiscoveryInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,434,2,2,1))
-ciscoIsnsIpNetDiscoveryInfoGroup.setObjects(*((_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:ciscoIsnsIpNetDiscoveryInfoGroup.setStatus(_A)
-ciscoIsnsIpNetDiscoveryCfgGroup=ObjectGroup((1,3,6,1,4,1,9,9,434,2,2,2))
-ciscoIsnsIpNetDiscoveryCfgGroup.setObjects(*((_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:ciscoIsnsIpNetDiscoveryCfgGroup.setStatus(_A)
-ciscoIsnsIpNetDiscoveryMIBComp=ModuleCompliance((1,3,6,1,4,1,9,9,434,2,1,1))
-ciscoIsnsIpNetDiscoveryMIBComp.setObjects(*((_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:ciscoIsnsIpNetDiscoveryMIBComp.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoIsnsIpNetDiscoveryMIB':ciscoIsnsIpNetDiscoveryMIB,'ciscoIsnsIpNetDiscoveryMIBNotifs':ciscoIsnsIpNetDiscoveryMIBNotifs,'ciscoIsnsIpNetDiscoveryMIBObjs':ciscoIsnsIpNetDiscoveryMIBObjs,'ciscoIsnsIpNetDiscoveryMIBInfo':ciscoIsnsIpNetDiscoveryMIBInfo,_M:ciscoIsnsIpNetAutomaticDiscovery,_N:ciscoIsnsIpNetDiscoveryInterval,'ciscoIsnsIpNetTable':ciscoIsnsIpNetTable,'ciscoIsnsIpNetEntry':ciscoIsnsIpNetEntry,_F:ciscoIsnsIpNetName,_O:ciscoIsnsIpNetDiscoveryMechanism,_P:ciscoIsnsIpNetRowStatus,'ciscoIsnsIpNetInterfaceTable':ciscoIsnsIpNetInterfaceTable,'ciscoIsnsIpNetInterfaceEntry':ciscoIsnsIpNetInterfaceEntry,_K:ciscoIsnsGigEPortDeviceName,_L:ciscoIsnsGigEPortIfIndex,_Q:ciscoIsnsIpNetInterfaceRowStatus,'ciscoIsnsIpNetDiscoveryMIBConfig':ciscoIsnsIpNetDiscoveryMIBConfig,_R:ciscoIsnsIpNetDiscoverySpinLock,_S:ciscoIsnsIpNetToDiscover,_T:ciscoIsnsGigEInterfaceToDiscover,_U:ciscoIsnsIpNetDiscoveryCommand,_V:ciscoIsnsIpNetDiscoveryCmdStatus,'ciscoIsnsIpNetDiscoveryConform':ciscoIsnsIpNetDiscoveryConform,'ciscoIsnsIpNetDiscoverCompliance':ciscoIsnsIpNetDiscoverCompliance,'ciscoIsnsIpNetDiscoveryMIBComp':ciscoIsnsIpNetDiscoveryMIBComp,'ciscoIsnsIpNetDiscoveryMIBGroups':ciscoIsnsIpNetDiscoveryMIBGroups,_W:ciscoIsnsIpNetDiscoveryInfoGroup,_X:ciscoIsnsIpNetDiscoveryCfgGroup})
+#
+# PySNMP MIB module CISCO-ISNS-IP-NW-DISCOVERY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-ISNS-IP-NW-DISCOVERY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:06 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+FcNameId, = mibBuilder.importSymbols("CISCO-ST-TC", "FcNameId")
+InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TestAndIncr, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TestAndIncr", "TruthValue", "TextualConvention")
+ciscoIsnsIpNetDiscoveryMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 434))
+ciscoIsnsIpNetDiscoveryMIB.setRevisions(('2004-09-08 00:00',))
+if mibBuilder.loadTexts: ciscoIsnsIpNetDiscoveryMIB.setLastUpdated('200409080000Z')
+if mibBuilder.loadTexts: ciscoIsnsIpNetDiscoveryMIB.setOrganization('Cisco Systems Inc.')
+ciscoIsnsIpNetDiscoveryMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 434, 0))
+ciscoIsnsIpNetDiscoveryMIBObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 434, 1))
+ciscoIsnsIpNetDiscoveryConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 434, 2))
+ciscoIsnsIpNetDiscoveryMIBInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 1))
+ciscoIsnsIpNetDiscoveryMIBConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 2))
+ciscoIsnsIpNetAutomaticDiscovery = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoIsnsIpNetAutomaticDiscovery.setStatus('current')
+ciscoIsnsIpNetDiscoveryInterval = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 5184000)).clone(10)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoIsnsIpNetDiscoveryInterval.setStatus('current')
+ciscoIsnsIpNetTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 1, 3), )
+if mibBuilder.loadTexts: ciscoIsnsIpNetTable.setStatus('current')
+ciscoIsnsIpNetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 1, 3, 1), ).setIndexNames((0, "CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsIpNetName"))
+if mibBuilder.loadTexts: ciscoIsnsIpNetEntry.setStatus('current')
+ciscoIsnsIpNetName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 1, 3, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 100)))
+if mibBuilder.loadTexts: ciscoIsnsIpNetName.setStatus('current')
+ciscoIsnsIpNetDiscoveryMechanism = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("autoGenerated", 1), ("userConfigured", 2))).clone('userConfigured')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciscoIsnsIpNetDiscoveryMechanism.setStatus('current')
+ciscoIsnsIpNetRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 1, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciscoIsnsIpNetRowStatus.setStatus('current')
+ciscoIsnsIpNetInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 1, 4), )
+if mibBuilder.loadTexts: ciscoIsnsIpNetInterfaceTable.setStatus('current')
+ciscoIsnsIpNetInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 1, 4, 1), ).setIndexNames((0, "CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsIpNetName"), (0, "CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsGigEPortDeviceName"), (0, "CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsGigEPortIfIndex"))
+if mibBuilder.loadTexts: ciscoIsnsIpNetInterfaceEntry.setStatus('current')
+ciscoIsnsGigEPortDeviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 1, 4, 1, 1), FcNameId())
+if mibBuilder.loadTexts: ciscoIsnsGigEPortDeviceName.setStatus('current')
+ciscoIsnsGigEPortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 1, 4, 1, 2), InterfaceIndex())
+if mibBuilder.loadTexts: ciscoIsnsGigEPortIfIndex.setStatus('current')
+ciscoIsnsIpNetInterfaceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 1, 4, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciscoIsnsIpNetInterfaceRowStatus.setStatus('current')
+ciscoIsnsIpNetDiscoverySpinLock = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 2, 1), TestAndIncr()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoIsnsIpNetDiscoverySpinLock.setStatus('current')
+ciscoIsnsIpNetToDiscover = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 2, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoIsnsIpNetToDiscover.setStatus('current')
+ciscoIsnsGigEInterfaceToDiscover = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 2, 3), InterfaceIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoIsnsGigEInterfaceToDiscover.setStatus('current')
+ciscoIsnsIpNetDiscoveryCommand = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 2, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("all", 1), ("noOp", 2), ("ipNetworkSpecific", 3), ("interfaceSpecific", 4))).clone('noOp')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoIsnsIpNetDiscoveryCommand.setStatus('current')
+ciscoIsnsIpNetDiscoveryCmdStatus = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 434, 1, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("success", 1), ("none", 2), ("inProgress", 3), ("noIpNetworkNameSpecified", 4), ("invalidIpNetworkName", 5), ("noGigEInterfaceIndexSpecified", 6), ("invalidGigEInterfaceIndex", 7), ("generalFailure", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoIsnsIpNetDiscoveryCmdStatus.setStatus('current')
+ciscoIsnsIpNetDiscoverCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 434, 2, 1))
+ciscoIsnsIpNetDiscoveryMIBComp = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 434, 2, 1, 1)).setObjects(("CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsIpNetDiscoveryInfoGroup"), ("CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsIpNetDiscoveryCfgGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIsnsIpNetDiscoveryMIBComp = ciscoIsnsIpNetDiscoveryMIBComp.setStatus('current')
+ciscoIsnsIpNetDiscoveryMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 434, 2, 2))
+ciscoIsnsIpNetDiscoveryInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 434, 2, 2, 1)).setObjects(("CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsIpNetAutomaticDiscovery"), ("CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsIpNetDiscoveryInterval"), ("CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsIpNetDiscoveryMechanism"), ("CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsIpNetRowStatus"), ("CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsIpNetInterfaceRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIsnsIpNetDiscoveryInfoGroup = ciscoIsnsIpNetDiscoveryInfoGroup.setStatus('current')
+ciscoIsnsIpNetDiscoveryCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 434, 2, 2, 2)).setObjects(("CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsIpNetDiscoverySpinLock"), ("CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsIpNetToDiscover"), ("CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsGigEInterfaceToDiscover"), ("CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsIpNetDiscoveryCommand"), ("CISCO-ISNS-IP-NW-DISCOVERY-MIB", "ciscoIsnsIpNetDiscoveryCmdStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIsnsIpNetDiscoveryCfgGroup = ciscoIsnsIpNetDiscoveryCfgGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-ISNS-IP-NW-DISCOVERY-MIB", ciscoIsnsIpNetDiscoveryInterval=ciscoIsnsIpNetDiscoveryInterval, ciscoIsnsIpNetDiscoveryMIBConfig=ciscoIsnsIpNetDiscoveryMIBConfig, ciscoIsnsGigEPortDeviceName=ciscoIsnsGigEPortDeviceName, ciscoIsnsIpNetInterfaceRowStatus=ciscoIsnsIpNetInterfaceRowStatus, ciscoIsnsIpNetDiscoveryMIBNotifs=ciscoIsnsIpNetDiscoveryMIBNotifs, ciscoIsnsIpNetDiscoveryMIBObjs=ciscoIsnsIpNetDiscoveryMIBObjs, ciscoIsnsIpNetDiscoveryMIBInfo=ciscoIsnsIpNetDiscoveryMIBInfo, ciscoIsnsIpNetDiscoveryCmdStatus=ciscoIsnsIpNetDiscoveryCmdStatus, ciscoIsnsIpNetInterfaceEntry=ciscoIsnsIpNetInterfaceEntry, ciscoIsnsIpNetEntry=ciscoIsnsIpNetEntry, ciscoIsnsIpNetDiscoveryMIBGroups=ciscoIsnsIpNetDiscoveryMIBGroups, ciscoIsnsGigEInterfaceToDiscover=ciscoIsnsGigEInterfaceToDiscover, ciscoIsnsIpNetDiscoveryConform=ciscoIsnsIpNetDiscoveryConform, ciscoIsnsIpNetDiscoveryInfoGroup=ciscoIsnsIpNetDiscoveryInfoGroup, ciscoIsnsIpNetDiscoveryCommand=ciscoIsnsIpNetDiscoveryCommand, ciscoIsnsIpNetDiscoveryMIB=ciscoIsnsIpNetDiscoveryMIB, ciscoIsnsIpNetTable=ciscoIsnsIpNetTable, ciscoIsnsIpNetDiscoverCompliance=ciscoIsnsIpNetDiscoverCompliance, ciscoIsnsIpNetDiscoveryMIBComp=ciscoIsnsIpNetDiscoveryMIBComp, ciscoIsnsIpNetInterfaceTable=ciscoIsnsIpNetInterfaceTable, ciscoIsnsIpNetDiscoverySpinLock=ciscoIsnsIpNetDiscoverySpinLock, ciscoIsnsIpNetName=ciscoIsnsIpNetName, PYSNMP_MODULE_ID=ciscoIsnsIpNetDiscoveryMIB, ciscoIsnsIpNetToDiscover=ciscoIsnsIpNetToDiscover, ciscoIsnsGigEPortIfIndex=ciscoIsnsGigEPortIfIndex, ciscoIsnsIpNetDiscoveryCfgGroup=ciscoIsnsIpNetDiscoveryCfgGroup, ciscoIsnsIpNetRowStatus=ciscoIsnsIpNetRowStatus, ciscoIsnsIpNetAutomaticDiscovery=ciscoIsnsIpNetAutomaticDiscovery, ciscoIsnsIpNetDiscoveryMechanism=ciscoIsnsIpNetDiscoveryMechanism)

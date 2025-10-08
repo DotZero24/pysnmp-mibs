@@ -1,418 +1,177 @@
-_S='raisecomMplsCccPwEntry'
-_R='raisecomMplsLspEntry'
-_Q='deprecated'
-_P='raisecomMplsLdpInterfaceIndex'
-_O='read-create'
-_N='raisecomMplsL2vpnInterfaceIndex'
-_M='raisecomMplsInterfaceIndex'
-_L='ifIndex'
-_K='IF-MIB'
-_J='OctetString'
-_I='RefreshInterval'
-_H='not-accessible'
-_G='RAISECOM-MPLS-MIB'
-_F='Unsigned32'
-_E='read-only'
-_D='Integer32'
-_C='TruthValue'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_J,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndexOrZero,ifIndex=mibBuilder.importSymbols(_K,'InterfaceIndexOrZero',_L)
-InetAddress,InetAddressIPv4,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressIPv4','InetAddressType')
-mplsXCEntry,=mibBuilder.importSymbols('MPLS-LSR-STD-MIB','mplsXCEntry')
-pwEntry,=mibBuilder.importSymbols('PW-STD-MIB','pwEntry')
-raisecomAgent,=mibBuilder.importSymbols('RAISECOM-BASE-MIB','raisecomAgent')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_C)
-raisecomMpls=ModuleIdentity((1,3,6,1,4,1,8886,1,25))
-class RefreshInterval(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_RaisecomMplsLsrObjects_ObjectIdentity=ObjectIdentity
-raisecomMplsLsrObjects=_RaisecomMplsLsrObjects_ObjectIdentity((1,3,6,1,4,1,8886,1,25,1))
-_RaisecomMplsLsrId_Type=InetAddressIPv4
-_RaisecomMplsLsrId_Object=MibScalar
-raisecomMplsLsrId=_RaisecomMplsLsrId_Object((1,3,6,1,4,1,8886,1,25,1,1),_RaisecomMplsLsrId_Type())
-raisecomMplsLsrId.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsLsrId.setStatus(_A)
-class _RaisecomMplsEnable_Type(TruthValue):defaultValue=2
-_RaisecomMplsEnable_Type.__name__=_C
-_RaisecomMplsEnable_Object=MibScalar
-raisecomMplsEnable=_RaisecomMplsEnable_Object((1,3,6,1,4,1,8886,1,25,1,2),_RaisecomMplsEnable_Type())
-raisecomMplsEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsEnable.setStatus(_A)
-class _RaisecomMplsLspStatisticsClear_Type(TruthValue):defaultValue=2
-_RaisecomMplsLspStatisticsClear_Type.__name__=_C
-_RaisecomMplsLspStatisticsClear_Object=MibScalar
-raisecomMplsLspStatisticsClear=_RaisecomMplsLspStatisticsClear_Object((1,3,6,1,4,1,8886,1,25,1,3),_RaisecomMplsLspStatisticsClear_Type())
-raisecomMplsLspStatisticsClear.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsLspStatisticsClear.setStatus(_A)
-_RaisecomMplsInterfaceTable_Object=MibTable
-raisecomMplsInterfaceTable=_RaisecomMplsInterfaceTable_Object((1,3,6,1,4,1,8886,1,25,1,4))
-if mibBuilder.loadTexts:raisecomMplsInterfaceTable.setStatus(_A)
-_RaisecomMplsInterfaceEntry_Object=MibTableRow
-raisecomMplsInterfaceEntry=_RaisecomMplsInterfaceEntry_Object((1,3,6,1,4,1,8886,1,25,1,4,1))
-raisecomMplsInterfaceEntry.setIndexNames((0,_G,_M))
-if mibBuilder.loadTexts:raisecomMplsInterfaceEntry.setStatus(_A)
-_RaisecomMplsInterfaceIndex_Type=InterfaceIndexOrZero
-_RaisecomMplsInterfaceIndex_Object=MibTableColumn
-raisecomMplsInterfaceIndex=_RaisecomMplsInterfaceIndex_Object((1,3,6,1,4,1,8886,1,25,1,4,1,1),_RaisecomMplsInterfaceIndex_Type())
-raisecomMplsInterfaceIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:raisecomMplsInterfaceIndex.setStatus(_A)
-class _RaisecomMplsInterfaceEnable_Type(TruthValue):defaultValue=1
-_RaisecomMplsInterfaceEnable_Type.__name__=_C
-_RaisecomMplsInterfaceEnable_Object=MibTableColumn
-raisecomMplsInterfaceEnable=_RaisecomMplsInterfaceEnable_Object((1,3,6,1,4,1,8886,1,25,1,4,1,2),_RaisecomMplsInterfaceEnable_Type())
-raisecomMplsInterfaceEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsInterfaceEnable.setStatus(_A)
-_RaisecomMplsLspTable_Object=MibTable
-raisecomMplsLspTable=_RaisecomMplsLspTable_Object((1,3,6,1,4,1,8886,1,25,1,5))
-if mibBuilder.loadTexts:raisecomMplsLspTable.setStatus(_A)
-_RaisecomMplsLspEntry_Object=MibTableRow
-raisecomMplsLspEntry=_RaisecomMplsLspEntry_Object((1,3,6,1,4,1,8886,1,25,1,5,1))
-if mibBuilder.loadTexts:raisecomMplsLspEntry.setStatus(_A)
-class _RaisecomMplsLspName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_RaisecomMplsLspName_Type.__name__=_J
-_RaisecomMplsLspName_Object=MibTableColumn
-raisecomMplsLspName=_RaisecomMplsLspName_Object((1,3,6,1,4,1,8886,1,25,1,5,1,1),_RaisecomMplsLspName_Type())
-raisecomMplsLspName.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsLspName.setStatus(_A)
-_RaisecomMplsLspStatisticsObjects_ObjectIdentity=ObjectIdentity
-raisecomMplsLspStatisticsObjects=_RaisecomMplsLspStatisticsObjects_ObjectIdentity((1,3,6,1,4,1,8886,1,25,1,6))
-_RaisecomMplsLspConfigured_Type=Unsigned32
-_RaisecomMplsLspConfigured_Object=MibScalar
-raisecomMplsLspConfigured=_RaisecomMplsLspConfigured_Object((1,3,6,1,4,1,8886,1,25,1,6,1),_RaisecomMplsLspConfigured_Type())
-raisecomMplsLspConfigured.setMaxAccess(_E)
-if mibBuilder.loadTexts:raisecomMplsLspConfigured.setStatus(_A)
-_RaisecomMplsLspActicve_Type=Unsigned32
-_RaisecomMplsLspActicve_Object=MibScalar
-raisecomMplsLspActicve=_RaisecomMplsLspActicve_Object((1,3,6,1,4,1,8886,1,25,1,6,2),_RaisecomMplsLspActicve_Type())
-raisecomMplsLspActicve.setMaxAccess(_E)
-if mibBuilder.loadTexts:raisecomMplsLspActicve.setStatus(_A)
-_RaisecomMplsLspInActicve_Type=Unsigned32
-_RaisecomMplsLspInActicve_Object=MibScalar
-raisecomMplsLspInActicve=_RaisecomMplsLspInActicve_Object((1,3,6,1,4,1,8886,1,25,1,6,3),_RaisecomMplsLspInActicve_Type())
-raisecomMplsLspInActicve.setMaxAccess(_E)
-if mibBuilder.loadTexts:raisecomMplsLspInActicve.setStatus(_A)
-_RaisecomMplsLspIngress_Type=Unsigned32
-_RaisecomMplsLspIngress_Object=MibScalar
-raisecomMplsLspIngress=_RaisecomMplsLspIngress_Object((1,3,6,1,4,1,8886,1,25,1,6,4),_RaisecomMplsLspIngress_Type())
-raisecomMplsLspIngress.setMaxAccess(_E)
-if mibBuilder.loadTexts:raisecomMplsLspIngress.setStatus(_A)
-_RaisecomMplsLspTransit_Type=Unsigned32
-_RaisecomMplsLspTransit_Object=MibScalar
-raisecomMplsLspTransit=_RaisecomMplsLspTransit_Object((1,3,6,1,4,1,8886,1,25,1,6,5),_RaisecomMplsLspTransit_Type())
-raisecomMplsLspTransit.setMaxAccess(_E)
-if mibBuilder.loadTexts:raisecomMplsLspTransit.setStatus(_A)
-_RaisecomMplsLspEgress_Type=Unsigned32
-_RaisecomMplsLspEgress_Object=MibScalar
-raisecomMplsLspEgress=_RaisecomMplsLspEgress_Object((1,3,6,1,4,1,8886,1,25,1,6,6),_RaisecomMplsLspEgress_Type())
-raisecomMplsLspEgress.setMaxAccess(_E)
-if mibBuilder.loadTexts:raisecomMplsLspEgress.setStatus(_A)
-_RaisecomMplsLspStatic_Type=Unsigned32
-_RaisecomMplsLspStatic_Object=MibScalar
-raisecomMplsLspStatic=_RaisecomMplsLspStatic_Object((1,3,6,1,4,1,8886,1,25,1,6,7),_RaisecomMplsLspStatic_Type())
-raisecomMplsLspStatic.setMaxAccess(_E)
-if mibBuilder.loadTexts:raisecomMplsLspStatic.setStatus(_A)
-_RaisecomMplsLspLdp_Type=Unsigned32
-_RaisecomMplsLspLdp_Object=MibScalar
-raisecomMplsLspLdp=_RaisecomMplsLspLdp_Object((1,3,6,1,4,1,8886,1,25,1,6,8),_RaisecomMplsLspLdp_Type())
-raisecomMplsLspLdp.setMaxAccess(_E)
-if mibBuilder.loadTexts:raisecomMplsLspLdp.setStatus(_A)
-_RaisecomMplsLspRsvpTe_Type=Unsigned32
-_RaisecomMplsLspRsvpTe_Object=MibScalar
-raisecomMplsLspRsvpTe=_RaisecomMplsLspRsvpTe_Object((1,3,6,1,4,1,8886,1,25,1,6,9),_RaisecomMplsLspRsvpTe_Type())
-raisecomMplsLspRsvpTe.setMaxAccess(_E)
-if mibBuilder.loadTexts:raisecomMplsLspRsvpTe.setStatus(_A)
-class _RaisecomMplsTunnelReroutedNotifEnable_Type(TruthValue):defaultValue=2
-_RaisecomMplsTunnelReroutedNotifEnable_Type.__name__=_C
-_RaisecomMplsTunnelReroutedNotifEnable_Object=MibScalar
-raisecomMplsTunnelReroutedNotifEnable=_RaisecomMplsTunnelReroutedNotifEnable_Object((1,3,6,1,4,1,8886,1,25,1,7),_RaisecomMplsTunnelReroutedNotifEnable_Type())
-raisecomMplsTunnelReroutedNotifEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsTunnelReroutedNotifEnable.setStatus(_A)
-class _RaisecomMplsTunnelReoptimizedNotifEnable_Type(TruthValue):defaultValue=2
-_RaisecomMplsTunnelReoptimizedNotifEnable_Type.__name__=_C
-_RaisecomMplsTunnelReoptimizedNotifEnable_Object=MibScalar
-raisecomMplsTunnelReoptimizedNotifEnable=_RaisecomMplsTunnelReoptimizedNotifEnable_Object((1,3,6,1,4,1,8886,1,25,1,8),_RaisecomMplsTunnelReoptimizedNotifEnable_Type())
-raisecomMplsTunnelReoptimizedNotifEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsTunnelReoptimizedNotifEnable.setStatus(_A)
-class _RaisecomMplsTtlPublicPropagate_Type(TruthValue):defaultValue=1
-_RaisecomMplsTtlPublicPropagate_Type.__name__=_C
-_RaisecomMplsTtlPublicPropagate_Object=MibScalar
-raisecomMplsTtlPublicPropagate=_RaisecomMplsTtlPublicPropagate_Object((1,3,6,1,4,1,8886,1,25,1,9),_RaisecomMplsTtlPublicPropagate_Type())
-raisecomMplsTtlPublicPropagate.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsTtlPublicPropagate.setStatus(_A)
-class _RaisecomMplsTtlVpnPropagate_Type(TruthValue):defaultValue=2
-_RaisecomMplsTtlVpnPropagate_Type.__name__=_C
-_RaisecomMplsTtlVpnPropagate_Object=MibScalar
-raisecomMplsTtlVpnPropagate=_RaisecomMplsTtlVpnPropagate_Object((1,3,6,1,4,1,8886,1,25,1,10),_RaisecomMplsTtlVpnPropagate_Type())
-raisecomMplsTtlVpnPropagate.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsTtlVpnPropagate.setStatus(_A)
-_RaisecomMplsVpnObjects_ObjectIdentity=ObjectIdentity
-raisecomMplsVpnObjects=_RaisecomMplsVpnObjects_ObjectIdentity((1,3,6,1,4,1,8886,1,25,2))
-_RaisecomMplsL2VpnObjects_ObjectIdentity=ObjectIdentity
-raisecomMplsL2VpnObjects=_RaisecomMplsL2VpnObjects_ObjectIdentity((1,3,6,1,4,1,8886,1,25,2,1))
-class _RaisecomMplsL2vpnEnable_Type(TruthValue):defaultValue=2
-_RaisecomMplsL2vpnEnable_Type.__name__=_C
-_RaisecomMplsL2vpnEnable_Object=MibScalar
-raisecomMplsL2vpnEnable=_RaisecomMplsL2vpnEnable_Object((1,3,6,1,4,1,8886,1,25,2,1,1),_RaisecomMplsL2vpnEnable_Type())
-raisecomMplsL2vpnEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsL2vpnEnable.setStatus(_A)
-class _RaisecomMplsL2vpnMartiniEnable_Type(TruthValue):defaultValue=2
-_RaisecomMplsL2vpnMartiniEnable_Type.__name__=_C
-_RaisecomMplsL2vpnMartiniEnable_Object=MibScalar
-raisecomMplsL2vpnMartiniEnable=_RaisecomMplsL2vpnMartiniEnable_Object((1,3,6,1,4,1,8886,1,25,2,1,2),_RaisecomMplsL2vpnMartiniEnable_Type())
-raisecomMplsL2vpnMartiniEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsL2vpnMartiniEnable.setStatus(_A)
-_RaisecomMplsL2vpnInterfaceTable_Object=MibTable
-raisecomMplsL2vpnInterfaceTable=_RaisecomMplsL2vpnInterfaceTable_Object((1,3,6,1,4,1,8886,1,25,2,1,3))
-if mibBuilder.loadTexts:raisecomMplsL2vpnInterfaceTable.setStatus(_A)
-_RaisecomMplsL2vpnInterfaceEntry_Object=MibTableRow
-raisecomMplsL2vpnInterfaceEntry=_RaisecomMplsL2vpnInterfaceEntry_Object((1,3,6,1,4,1,8886,1,25,2,1,3,1))
-raisecomMplsL2vpnInterfaceEntry.setIndexNames((0,_G,_N))
-if mibBuilder.loadTexts:raisecomMplsL2vpnInterfaceEntry.setStatus(_A)
-_RaisecomMplsL2vpnInterfaceIndex_Type=InterfaceIndexOrZero
-_RaisecomMplsL2vpnInterfaceIndex_Object=MibTableColumn
-raisecomMplsL2vpnInterfaceIndex=_RaisecomMplsL2vpnInterfaceIndex_Object((1,3,6,1,4,1,8886,1,25,2,1,3,1,1),_RaisecomMplsL2vpnInterfaceIndex_Type())
-raisecomMplsL2vpnInterfaceIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:raisecomMplsL2vpnInterfaceIndex.setStatus(_A)
-class _RaisecomMplsL2vpnInterfaceEnable_Type(TruthValue):defaultValue=1
-_RaisecomMplsL2vpnInterfaceEnable_Type.__name__=_C
-_RaisecomMplsL2vpnInterfaceEnable_Object=MibTableColumn
-raisecomMplsL2vpnInterfaceEnable=_RaisecomMplsL2vpnInterfaceEnable_Object((1,3,6,1,4,1,8886,1,25,2,1,3,1,2),_RaisecomMplsL2vpnInterfaceEnable_Type())
-raisecomMplsL2vpnInterfaceEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsL2vpnInterfaceEnable.setStatus(_A)
-_RaisecomMplsCccPwTable_Object=MibTable
-raisecomMplsCccPwTable=_RaisecomMplsCccPwTable_Object((1,3,6,1,4,1,8886,1,25,2,1,4))
-if mibBuilder.loadTexts:raisecomMplsCccPwTable.setStatus(_A)
-_RaisecomMplsCccPwEntry_Object=MibTableRow
-raisecomMplsCccPwEntry=_RaisecomMplsCccPwEntry_Object((1,3,6,1,4,1,8886,1,25,2,1,4,1))
-if mibBuilder.loadTexts:raisecomMplsCccPwEntry.setStatus(_A)
-_RaisecomMplsCccNexthopType_Type=InetAddressType
-_RaisecomMplsCccNexthopType_Object=MibTableColumn
-raisecomMplsCccNexthopType=_RaisecomMplsCccNexthopType_Object((1,3,6,1,4,1,8886,1,25,2,1,4,1,1),_RaisecomMplsCccNexthopType_Type())
-raisecomMplsCccNexthopType.setMaxAccess(_O)
-if mibBuilder.loadTexts:raisecomMplsCccNexthopType.setStatus(_A)
-_RaisecomMplsCccNexthop_Type=InetAddress
-_RaisecomMplsCccNexthop_Object=MibTableColumn
-raisecomMplsCccNexthop=_RaisecomMplsCccNexthop_Object((1,3,6,1,4,1,8886,1,25,2,1,4,1,2),_RaisecomMplsCccNexthop_Type())
-raisecomMplsCccNexthop.setMaxAccess(_O)
-if mibBuilder.loadTexts:raisecomMplsCccNexthop.setStatus(_A)
-_RaisecomMplsLdpObjects_ObjectIdentity=ObjectIdentity
-raisecomMplsLdpObjects=_RaisecomMplsLdpObjects_ObjectIdentity((1,3,6,1,4,1,8886,1,25,3))
-class _RaisecomMplsLdpEnable_Type(TruthValue):defaultValue=2
-_RaisecomMplsLdpEnable_Type.__name__=_C
-_RaisecomMplsLdpEnable_Object=MibScalar
-raisecomMplsLdpEnable=_RaisecomMplsLdpEnable_Object((1,3,6,1,4,1,8886,1,25,3,1),_RaisecomMplsLdpEnable_Type())
-raisecomMplsLdpEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsLdpEnable.setStatus(_A)
-_RaisecomMplsLdpInterfaceTable_Object=MibTable
-raisecomMplsLdpInterfaceTable=_RaisecomMplsLdpInterfaceTable_Object((1,3,6,1,4,1,8886,1,25,3,2))
-if mibBuilder.loadTexts:raisecomMplsLdpInterfaceTable.setStatus(_A)
-_RaisecomMplsLdpInterfaceEntry_Object=MibTableRow
-raisecomMplsLdpInterfaceEntry=_RaisecomMplsLdpInterfaceEntry_Object((1,3,6,1,4,1,8886,1,25,3,2,1))
-raisecomMplsLdpInterfaceEntry.setIndexNames((0,_G,_P))
-if mibBuilder.loadTexts:raisecomMplsLdpInterfaceEntry.setStatus(_A)
-_RaisecomMplsLdpInterfaceIndex_Type=InterfaceIndexOrZero
-_RaisecomMplsLdpInterfaceIndex_Object=MibTableColumn
-raisecomMplsLdpInterfaceIndex=_RaisecomMplsLdpInterfaceIndex_Object((1,3,6,1,4,1,8886,1,25,3,2,1,1),_RaisecomMplsLdpInterfaceIndex_Type())
-raisecomMplsLdpInterfaceIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:raisecomMplsLdpInterfaceIndex.setStatus(_A)
-class _RaisecomMplsLdpInterfaceEnable_Type(TruthValue):defaultValue=1
-_RaisecomMplsLdpInterfaceEnable_Type.__name__=_C
-_RaisecomMplsLdpInterfaceEnable_Object=MibTableColumn
-raisecomMplsLdpInterfaceEnable=_RaisecomMplsLdpInterfaceEnable_Object((1,3,6,1,4,1,8886,1,25,3,2,1,2),_RaisecomMplsLdpInterfaceEnable_Type())
-raisecomMplsLdpInterfaceEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsLdpInterfaceEnable.setStatus(_A)
-_RaisecomMplsLdpInterfaceLAM_Type=Integer32
-_RaisecomMplsLdpInterfaceLAM_Object=MibTableColumn
-raisecomMplsLdpInterfaceLAM=_RaisecomMplsLdpInterfaceLAM_Object((1,3,6,1,4,1,8886,1,25,3,2,1,3),_RaisecomMplsLdpInterfaceLAM_Type())
-raisecomMplsLdpInterfaceLAM.setMaxAccess(_E)
-if mibBuilder.loadTexts:raisecomMplsLdpInterfaceLAM.setStatus(_A)
-_RaisecomMplsLdpInterfaceTransportAddress_Type=InetAddress
-_RaisecomMplsLdpInterfaceTransportAddress_Object=MibTableColumn
-raisecomMplsLdpInterfaceTransportAddress=_RaisecomMplsLdpInterfaceTransportAddress_Object((1,3,6,1,4,1,8886,1,25,3,2,1,4),_RaisecomMplsLdpInterfaceTransportAddress_Type())
-raisecomMplsLdpInterfaceTransportAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:raisecomMplsLdpInterfaceTransportAddress.setStatus(_A)
-_RaisecomMplsLdpInterfaceLdpID_Type=OctetString
-_RaisecomMplsLdpInterfaceLdpID_Object=MibTableColumn
-raisecomMplsLdpInterfaceLdpID=_RaisecomMplsLdpInterfaceLdpID_Object((1,3,6,1,4,1,8886,1,25,3,2,1,5),_RaisecomMplsLdpInterfaceLdpID_Type())
-raisecomMplsLdpInterfaceLdpID.setMaxAccess(_E)
-if mibBuilder.loadTexts:raisecomMplsLdpInterfaceLdpID.setStatus(_A)
-class _RaisecomMplsLdpInterfaceMTU_Type(Integer32):defaultValue=1500
-_RaisecomMplsLdpInterfaceMTU_Type.__name__=_D
-_RaisecomMplsLdpInterfaceMTU_Object=MibTableColumn
-raisecomMplsLdpInterfaceMTU=_RaisecomMplsLdpInterfaceMTU_Object((1,3,6,1,4,1,8886,1,25,3,2,1,6),_RaisecomMplsLdpInterfaceMTU_Type())
-raisecomMplsLdpInterfaceMTU.setMaxAccess(_E)
-if mibBuilder.loadTexts:raisecomMplsLdpInterfaceMTU.setStatus(_A)
-class _RaisecomMplsLdpInterfaceKeepAliveHoldTimer_Type(Integer32):defaultValue=40
-_RaisecomMplsLdpInterfaceKeepAliveHoldTimer_Type.__name__=_D
-_RaisecomMplsLdpInterfaceKeepAliveHoldTimer_Object=MibTableColumn
-raisecomMplsLdpInterfaceKeepAliveHoldTimer=_RaisecomMplsLdpInterfaceKeepAliveHoldTimer_Object((1,3,6,1,4,1,8886,1,25,3,2,1,7),_RaisecomMplsLdpInterfaceKeepAliveHoldTimer_Type())
-raisecomMplsLdpInterfaceKeepAliveHoldTimer.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsLdpInterfaceKeepAliveHoldTimer.setStatus(_A)
-class _RaisecomMplsLdpInterfaceHelloHoldTimer_Type(Integer32):defaultValue=0
-_RaisecomMplsLdpInterfaceHelloHoldTimer_Type.__name__=_D
-_RaisecomMplsLdpInterfaceHelloHoldTimer_Object=MibTableColumn
-raisecomMplsLdpInterfaceHelloHoldTimer=_RaisecomMplsLdpInterfaceHelloHoldTimer_Object((1,3,6,1,4,1,8886,1,25,3,2,1,8),_RaisecomMplsLdpInterfaceHelloHoldTimer_Type())
-raisecomMplsLdpInterfaceHelloHoldTimer.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsLdpInterfaceHelloHoldTimer.setStatus(_A)
-class _RaisecomMplsLdpSessionStatusTrapEnable_Type(TruthValue):defaultValue=2
-_RaisecomMplsLdpSessionStatusTrapEnable_Type.__name__=_C
-_RaisecomMplsLdpSessionStatusTrapEnable_Object=MibScalar
-raisecomMplsLdpSessionStatusTrapEnable=_RaisecomMplsLdpSessionStatusTrapEnable_Object((1,3,6,1,4,1,8886,1,25,3,3),_RaisecomMplsLdpSessionStatusTrapEnable_Type())
-raisecomMplsLdpSessionStatusTrapEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsLdpSessionStatusTrapEnable.setStatus(_A)
-class _RaisecomMplsLdpPathVecLimitTrapEnable_Type(TruthValue):defaultValue=2
-_RaisecomMplsLdpPathVecLimitTrapEnable_Type.__name__=_C
-_RaisecomMplsLdpPathVecLimitTrapEnable_Object=MibScalar
-raisecomMplsLdpPathVecLimitTrapEnable=_RaisecomMplsLdpPathVecLimitTrapEnable_Object((1,3,6,1,4,1,8886,1,25,3,4),_RaisecomMplsLdpPathVecLimitTrapEnable_Type())
-raisecomMplsLdpPathVecLimitTrapEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsLdpPathVecLimitTrapEnable.setStatus(_A)
-class _RaisecomMplsLdpSessionThreshTrapEnable_Type(TruthValue):defaultValue=2
-_RaisecomMplsLdpSessionThreshTrapEnable_Type.__name__=_C
-_RaisecomMplsLdpSessionThreshTrapEnable_Object=MibScalar
-raisecomMplsLdpSessionThreshTrapEnable=_RaisecomMplsLdpSessionThreshTrapEnable_Object((1,3,6,1,4,1,8886,1,25,3,5),_RaisecomMplsLdpSessionThreshTrapEnable_Type())
-raisecomMplsLdpSessionThreshTrapEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsLdpSessionThreshTrapEnable.setStatus(_A)
-_RaisecomMplsRsvpTEObjects_ObjectIdentity=ObjectIdentity
-raisecomMplsRsvpTEObjects=_RaisecomMplsRsvpTEObjects_ObjectIdentity((1,3,6,1,4,1,8886,1,25,4))
-class _RaisecomMplsRsvpTEEnabled_Type(TruthValue):defaultValue=2
-_RaisecomMplsRsvpTEEnabled_Type.__name__=_C
-_RaisecomMplsRsvpTEEnabled_Object=MibScalar
-raisecomMplsRsvpTEEnabled=_RaisecomMplsRsvpTEEnabled_Object((1,3,6,1,4,1,8886,1,25,4,1),_RaisecomMplsRsvpTEEnabled_Type())
-raisecomMplsRsvpTEEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEEnabled.setStatus(_A)
-class _RaisecomMplsRsvpTERefreshInterval_Type(RefreshInterval):defaultValue=3000
-_RaisecomMplsRsvpTERefreshInterval_Type.__name__=_I
-_RaisecomMplsRsvpTERefreshInterval_Object=MibScalar
-raisecomMplsRsvpTERefreshInterval=_RaisecomMplsRsvpTERefreshInterval_Object((1,3,6,1,4,1,8886,1,25,4,2),_RaisecomMplsRsvpTERefreshInterval_Type())
-raisecomMplsRsvpTERefreshInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTERefreshInterval.setStatus(_A)
-class _RaisecomMplsRsvpTERefreshMultiple_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65536))
-_RaisecomMplsRsvpTERefreshMultiple_Type.__name__=_D
-_RaisecomMplsRsvpTERefreshMultiple_Object=MibScalar
-raisecomMplsRsvpTERefreshMultiple=_RaisecomMplsRsvpTERefreshMultiple_Object((1,3,6,1,4,1,8886,1,25,4,3),_RaisecomMplsRsvpTERefreshMultiple_Type())
-raisecomMplsRsvpTERefreshMultiple.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTERefreshMultiple.setStatus(_A)
-class _RaisecomMplsRsvpTERefreshBlockadeMultiple_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65536))
-_RaisecomMplsRsvpTERefreshBlockadeMultiple_Type.__name__=_D
-_RaisecomMplsRsvpTERefreshBlockadeMultiple_Object=MibScalar
-raisecomMplsRsvpTERefreshBlockadeMultiple=_RaisecomMplsRsvpTERefreshBlockadeMultiple_Object((1,3,6,1,4,1,8886,1,25,4,4),_RaisecomMplsRsvpTERefreshBlockadeMultiple_Type())
-raisecomMplsRsvpTERefreshBlockadeMultiple.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTERefreshBlockadeMultiple.setStatus(_A)
-class _RaisecomMplsRsvpTELSPSetupPriority_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_RaisecomMplsRsvpTELSPSetupPriority_Type.__name__=_D
-_RaisecomMplsRsvpTELSPSetupPriority_Object=MibScalar
-raisecomMplsRsvpTELSPSetupPriority=_RaisecomMplsRsvpTELSPSetupPriority_Object((1,3,6,1,4,1,8886,1,25,4,5),_RaisecomMplsRsvpTELSPSetupPriority_Type())
-raisecomMplsRsvpTELSPSetupPriority.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTELSPSetupPriority.setStatus(_Q)
-class _RaisecomMplsRsvpTELSPHoldingPriority_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_RaisecomMplsRsvpTELSPHoldingPriority_Type.__name__=_D
-_RaisecomMplsRsvpTELSPHoldingPriority_Object=MibScalar
-raisecomMplsRsvpTELSPHoldingPriority=_RaisecomMplsRsvpTELSPHoldingPriority_Object((1,3,6,1,4,1,8886,1,25,4,6),_RaisecomMplsRsvpTELSPHoldingPriority_Type())
-raisecomMplsRsvpTELSPHoldingPriority.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTELSPHoldingPriority.setStatus(_Q)
-class _RaisecomMplsRsvpTEInitPathRRInterval_Type(Integer32):defaultValue=2000
-_RaisecomMplsRsvpTEInitPathRRInterval_Type.__name__=_D
-_RaisecomMplsRsvpTEInitPathRRInterval_Object=MibScalar
-raisecomMplsRsvpTEInitPathRRInterval=_RaisecomMplsRsvpTEInitPathRRInterval_Object((1,3,6,1,4,1,8886,1,25,4,7),_RaisecomMplsRsvpTEInitPathRRInterval_Type())
-raisecomMplsRsvpTEInitPathRRInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEInitPathRRInterval.setStatus(_A)
-class _RaisecomMplsRsvpTEInitPathRRDecay_Type(Integer32):defaultValue=100
-_RaisecomMplsRsvpTEInitPathRRDecay_Type.__name__=_D
-_RaisecomMplsRsvpTEInitPathRRDecay_Object=MibScalar
-raisecomMplsRsvpTEInitPathRRDecay=_RaisecomMplsRsvpTEInitPathRRDecay_Object((1,3,6,1,4,1,8886,1,25,4,8),_RaisecomMplsRsvpTEInitPathRRDecay_Type())
-raisecomMplsRsvpTEInitPathRRDecay.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEInitPathRRDecay.setStatus(_A)
-class _RaisecomMplsRsvpTEInitPathRRLimit_Type(Integer32):defaultValue=2
-_RaisecomMplsRsvpTEInitPathRRLimit_Type.__name__=_D
-_RaisecomMplsRsvpTEInitPathRRLimit_Object=MibScalar
-raisecomMplsRsvpTEInitPathRRLimit=_RaisecomMplsRsvpTEInitPathRRLimit_Object((1,3,6,1,4,1,8886,1,25,4,9),_RaisecomMplsRsvpTEInitPathRRLimit_Type())
-raisecomMplsRsvpTEInitPathRRLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEInitPathRRLimit.setStatus(_A)
-_RaisecomMplsRsvpTEInterfaceTable_Object=MibTable
-raisecomMplsRsvpTEInterfaceTable=_RaisecomMplsRsvpTEInterfaceTable_Object((1,3,6,1,4,1,8886,1,25,4,10))
-if mibBuilder.loadTexts:raisecomMplsRsvpTEInterfaceTable.setStatus(_A)
-_RaisecomMplsRsvpTEInterfaceEntry_Object=MibTableRow
-raisecomMplsRsvpTEInterfaceEntry=_RaisecomMplsRsvpTEInterfaceEntry_Object((1,3,6,1,4,1,8886,1,25,4,10,1))
-raisecomMplsRsvpTEInterfaceEntry.setIndexNames((0,_K,_L))
-if mibBuilder.loadTexts:raisecomMplsRsvpTEInterfaceEntry.setStatus(_A)
-class _RaisecomMplsRsvpTEIfRefreshInterval_Type(RefreshInterval):defaultValue=0
-_RaisecomMplsRsvpTEIfRefreshInterval_Type.__name__=_I
-_RaisecomMplsRsvpTEIfRefreshInterval_Object=MibTableColumn
-raisecomMplsRsvpTEIfRefreshInterval=_RaisecomMplsRsvpTEIfRefreshInterval_Object((1,3,6,1,4,1,8886,1,25,4,10,1,1),_RaisecomMplsRsvpTEIfRefreshInterval_Type())
-raisecomMplsRsvpTEIfRefreshInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEIfRefreshInterval.setStatus(_A)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEIfRefreshInterval.setUnits('milliseconds')
-class _RaisecomMplsRsvpTEIfRefreshMultiple_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65536))
-_RaisecomMplsRsvpTEIfRefreshMultiple_Type.__name__=_D
-_RaisecomMplsRsvpTEIfRefreshMultiple_Object=MibTableColumn
-raisecomMplsRsvpTEIfRefreshMultiple=_RaisecomMplsRsvpTEIfRefreshMultiple_Object((1,3,6,1,4,1,8886,1,25,4,10,1,2),_RaisecomMplsRsvpTEIfRefreshMultiple_Type())
-raisecomMplsRsvpTEIfRefreshMultiple.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEIfRefreshMultiple.setStatus(_A)
-class _RaisecomMplsRsvpTEIfBlockadeMultiple_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65536))
-_RaisecomMplsRsvpTEIfBlockadeMultiple_Type.__name__=_D
-_RaisecomMplsRsvpTEIfBlockadeMultiple_Object=MibTableColumn
-raisecomMplsRsvpTEIfBlockadeMultiple=_RaisecomMplsRsvpTEIfBlockadeMultiple_Object((1,3,6,1,4,1,8886,1,25,4,10,1,3),_RaisecomMplsRsvpTEIfBlockadeMultiple_Type())
-raisecomMplsRsvpTEIfBlockadeMultiple.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEIfBlockadeMultiple.setStatus(_A)
-class _RaisecomMplsRsvpTEIfRRInterval_Type(Unsigned32):defaultValue=500
-_RaisecomMplsRsvpTEIfRRInterval_Type.__name__=_F
-_RaisecomMplsRsvpTEIfRRInterval_Object=MibTableColumn
-raisecomMplsRsvpTEIfRRInterval=_RaisecomMplsRsvpTEIfRRInterval_Object((1,3,6,1,4,1,8886,1,25,4,10,1,4),_RaisecomMplsRsvpTEIfRRInterval_Type())
-raisecomMplsRsvpTEIfRRInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEIfRRInterval.setStatus(_A)
-class _RaisecomMplsRsvpTEIfRRDecay_Type(Integer32):defaultValue=100
-_RaisecomMplsRsvpTEIfRRDecay_Type.__name__=_D
-_RaisecomMplsRsvpTEIfRRDecay_Object=MibTableColumn
-raisecomMplsRsvpTEIfRRDecay=_RaisecomMplsRsvpTEIfRRDecay_Object((1,3,6,1,4,1,8886,1,25,4,10,1,5),_RaisecomMplsRsvpTEIfRRDecay_Type())
-raisecomMplsRsvpTEIfRRDecay.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEIfRRDecay.setStatus(_A)
-class _RaisecomMplsRsvpTEIfRRLimit_Type(Unsigned32):defaultValue=2
-_RaisecomMplsRsvpTEIfRRLimit_Type.__name__=_F
-_RaisecomMplsRsvpTEIfRRLimit_Object=MibTableColumn
-raisecomMplsRsvpTEIfRRLimit=_RaisecomMplsRsvpTEIfRRLimit_Object((1,3,6,1,4,1,8886,1,25,4,10,1,6),_RaisecomMplsRsvpTEIfRRLimit_Type())
-raisecomMplsRsvpTEIfRRLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEIfRRLimit.setStatus(_A)
-class _RaisecomMplsRsvpTEIfHelloPeriod_Type(Unsigned32):defaultValue=0
-_RaisecomMplsRsvpTEIfHelloPeriod_Type.__name__=_F
-_RaisecomMplsRsvpTEIfHelloPeriod_Object=MibTableColumn
-raisecomMplsRsvpTEIfHelloPeriod=_RaisecomMplsRsvpTEIfHelloPeriod_Object((1,3,6,1,4,1,8886,1,25,4,10,1,7),_RaisecomMplsRsvpTEIfHelloPeriod_Type())
-raisecomMplsRsvpTEIfHelloPeriod.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEIfHelloPeriod.setStatus(_A)
-class _RaisecomMplsRsvpTEIfHelloHoldPeriod_Type(Unsigned32):defaultValue=3
-_RaisecomMplsRsvpTEIfHelloHoldPeriod_Type.__name__=_F
-_RaisecomMplsRsvpTEIfHelloHoldPeriod_Object=MibTableColumn
-raisecomMplsRsvpTEIfHelloHoldPeriod=_RaisecomMplsRsvpTEIfHelloHoldPeriod_Object((1,3,6,1,4,1,8886,1,25,4,10,1,8),_RaisecomMplsRsvpTEIfHelloHoldPeriod_Type())
-raisecomMplsRsvpTEIfHelloHoldPeriod.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEIfHelloHoldPeriod.setStatus(_A)
-class _RaisecomMplsRsvpTEIfHelloDecay_Type(Unsigned32):defaultValue=0
-_RaisecomMplsRsvpTEIfHelloDecay_Type.__name__=_F
-_RaisecomMplsRsvpTEIfHelloDecay_Object=MibTableColumn
-raisecomMplsRsvpTEIfHelloDecay=_RaisecomMplsRsvpTEIfHelloDecay_Object((1,3,6,1,4,1,8886,1,25,4,10,1,9),_RaisecomMplsRsvpTEIfHelloDecay_Type())
-raisecomMplsRsvpTEIfHelloDecay.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEIfHelloDecay.setStatus(_A)
-_RaisecomMplsRsvpTEIfHelloPersist_Type=Unsigned32
-_RaisecomMplsRsvpTEIfHelloPersist_Object=MibTableColumn
-raisecomMplsRsvpTEIfHelloPersist=_RaisecomMplsRsvpTEIfHelloPersist_Object((1,3,6,1,4,1,8886,1,25,4,10,1,10),_RaisecomMplsRsvpTEIfHelloPersist_Type())
-raisecomMplsRsvpTEIfHelloPersist.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEIfHelloPersist.setStatus(_A)
-_RaisecomMplsRsvpTEIfEnabled_Type=TruthValue
-_RaisecomMplsRsvpTEIfEnabled_Object=MibTableColumn
-raisecomMplsRsvpTEIfEnabled=_RaisecomMplsRsvpTEIfEnabled_Object((1,3,6,1,4,1,8886,1,25,4,10,1,11),_RaisecomMplsRsvpTEIfEnabled_Type())
-raisecomMplsRsvpTEIfEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEIfEnabled.setStatus(_A)
-_RaisecomMplsRsvpTEIfStatus_Type=RowStatus
-_RaisecomMplsRsvpTEIfStatus_Object=MibTableColumn
-raisecomMplsRsvpTEIfStatus=_RaisecomMplsRsvpTEIfStatus_Object((1,3,6,1,4,1,8886,1,25,4,10,1,12),_RaisecomMplsRsvpTEIfStatus_Type())
-raisecomMplsRsvpTEIfStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:raisecomMplsRsvpTEIfStatus.setStatus(_A)
-mplsXCEntry.registerAugmentions((_G,_R))
+#
+# PySNMP MIB module RAISECOM-MPLS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/RAISECOM-MPLS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:01 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, InterfaceIndexOrZero = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndexOrZero")
+InetAddressType, InetAddressIPv4, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddressIPv4", "InetAddress")
+mplsXCEntry, = mibBuilder.importSymbols("MPLS-LSR-STD-MIB", "mplsXCEntry")
+pwEntry, = mibBuilder.importSymbols("PW-STD-MIB", "pwEntry")
+raisecomAgent, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "raisecomAgent")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+raisecomMpls = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 1, 25))
+if mibBuilder.loadTexts: raisecomMpls.setLastUpdated('201103120000Z')
+if mibBuilder.loadTexts: raisecomMpls.setOrganization('Raisecom Technology Co., Ltd.')
+raisecomMplsLsrObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1))
+raisecomMplsVpnObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 25, 2))
+raisecomMplsLdpObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 25, 3))
+raisecomMplsRsvpTEObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4))
+class RefreshInterval(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+
+raisecomMplsL2VpnObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 25, 2, 1))
+raisecomMplsLsrId = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 1), InetAddressIPv4()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsLsrId.setStatus('current')
+raisecomMplsEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsEnable.setStatus('current')
+raisecomMplsLspStatisticsClear = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsLspStatisticsClear.setStatus('current')
+raisecomMplsInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 4), )
+if mibBuilder.loadTexts: raisecomMplsInterfaceTable.setStatus('current')
+raisecomMplsInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 4, 1), ).setIndexNames((0, "RAISECOM-MPLS-MIB", "raisecomMplsInterfaceIndex"))
+if mibBuilder.loadTexts: raisecomMplsInterfaceEntry.setStatus('current')
+raisecomMplsInterfaceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 4, 1, 1), InterfaceIndexOrZero())
+if mibBuilder.loadTexts: raisecomMplsInterfaceIndex.setStatus('current')
+raisecomMplsInterfaceEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 4, 1, 2), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsInterfaceEnable.setStatus('current')
+raisecomMplsLspTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 5), )
+if mibBuilder.loadTexts: raisecomMplsLspTable.setStatus('current')
+raisecomMplsLspEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 5, 1), )
+mplsXCEntry.registerAugmentions(("RAISECOM-MPLS-MIB", "raisecomMplsLspEntry"))
 raisecomMplsLspEntry.setIndexNames(*mplsXCEntry.getIndexNames())
-pwEntry.registerAugmentions((_G,_S))
+if mibBuilder.loadTexts: raisecomMplsLspEntry.setStatus('current')
+raisecomMplsLspName = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 5, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsLspName.setStatus('current')
+raisecomMplsLspStatisticsObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 6))
+raisecomMplsLspConfigured = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 6, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomMplsLspConfigured.setStatus('current')
+raisecomMplsLspActicve = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 6, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomMplsLspActicve.setStatus('current')
+raisecomMplsLspInActicve = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 6, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomMplsLspInActicve.setStatus('current')
+raisecomMplsLspIngress = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 6, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomMplsLspIngress.setStatus('current')
+raisecomMplsLspTransit = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 6, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomMplsLspTransit.setStatus('current')
+raisecomMplsLspEgress = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 6, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomMplsLspEgress.setStatus('current')
+raisecomMplsLspStatic = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 6, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomMplsLspStatic.setStatus('current')
+raisecomMplsLspLdp = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 6, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomMplsLspLdp.setStatus('current')
+raisecomMplsLspRsvpTe = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 6, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomMplsLspRsvpTe.setStatus('current')
+raisecomMplsTunnelReroutedNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 7), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsTunnelReroutedNotifEnable.setStatus('current')
+raisecomMplsTunnelReoptimizedNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 8), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsTunnelReoptimizedNotifEnable.setStatus('current')
+raisecomMplsTtlPublicPropagate = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 9), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsTtlPublicPropagate.setStatus('current')
+raisecomMplsTtlVpnPropagate = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 1, 10), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsTtlVpnPropagate.setStatus('current')
+raisecomMplsL2vpnEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 2, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsL2vpnEnable.setStatus('current')
+raisecomMplsL2vpnMartiniEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 2, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsL2vpnMartiniEnable.setStatus('current')
+raisecomMplsL2vpnInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 25, 2, 1, 3), )
+if mibBuilder.loadTexts: raisecomMplsL2vpnInterfaceTable.setStatus('current')
+raisecomMplsL2vpnInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 25, 2, 1, 3, 1), ).setIndexNames((0, "RAISECOM-MPLS-MIB", "raisecomMplsL2vpnInterfaceIndex"))
+if mibBuilder.loadTexts: raisecomMplsL2vpnInterfaceEntry.setStatus('current')
+raisecomMplsL2vpnInterfaceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 2, 1, 3, 1, 1), InterfaceIndexOrZero())
+if mibBuilder.loadTexts: raisecomMplsL2vpnInterfaceIndex.setStatus('current')
+raisecomMplsL2vpnInterfaceEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 2, 1, 3, 1, 2), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsL2vpnInterfaceEnable.setStatus('current')
+raisecomMplsCccPwTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 25, 2, 1, 4), )
+if mibBuilder.loadTexts: raisecomMplsCccPwTable.setStatus('current')
+raisecomMplsCccPwEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 25, 2, 1, 4, 1), )
+pwEntry.registerAugmentions(("RAISECOM-MPLS-MIB", "raisecomMplsCccPwEntry"))
 raisecomMplsCccPwEntry.setIndexNames(*pwEntry.getIndexNames())
-mibBuilder.exportSymbols(_G,**{_I:RefreshInterval,'raisecomMpls':raisecomMpls,'raisecomMplsLsrObjects':raisecomMplsLsrObjects,'raisecomMplsLsrId':raisecomMplsLsrId,'raisecomMplsEnable':raisecomMplsEnable,'raisecomMplsLspStatisticsClear':raisecomMplsLspStatisticsClear,'raisecomMplsInterfaceTable':raisecomMplsInterfaceTable,'raisecomMplsInterfaceEntry':raisecomMplsInterfaceEntry,_M:raisecomMplsInterfaceIndex,'raisecomMplsInterfaceEnable':raisecomMplsInterfaceEnable,'raisecomMplsLspTable':raisecomMplsLspTable,_R:raisecomMplsLspEntry,'raisecomMplsLspName':raisecomMplsLspName,'raisecomMplsLspStatisticsObjects':raisecomMplsLspStatisticsObjects,'raisecomMplsLspConfigured':raisecomMplsLspConfigured,'raisecomMplsLspActicve':raisecomMplsLspActicve,'raisecomMplsLspInActicve':raisecomMplsLspInActicve,'raisecomMplsLspIngress':raisecomMplsLspIngress,'raisecomMplsLspTransit':raisecomMplsLspTransit,'raisecomMplsLspEgress':raisecomMplsLspEgress,'raisecomMplsLspStatic':raisecomMplsLspStatic,'raisecomMplsLspLdp':raisecomMplsLspLdp,'raisecomMplsLspRsvpTe':raisecomMplsLspRsvpTe,'raisecomMplsTunnelReroutedNotifEnable':raisecomMplsTunnelReroutedNotifEnable,'raisecomMplsTunnelReoptimizedNotifEnable':raisecomMplsTunnelReoptimizedNotifEnable,'raisecomMplsTtlPublicPropagate':raisecomMplsTtlPublicPropagate,'raisecomMplsTtlVpnPropagate':raisecomMplsTtlVpnPropagate,'raisecomMplsVpnObjects':raisecomMplsVpnObjects,'raisecomMplsL2VpnObjects':raisecomMplsL2VpnObjects,'raisecomMplsL2vpnEnable':raisecomMplsL2vpnEnable,'raisecomMplsL2vpnMartiniEnable':raisecomMplsL2vpnMartiniEnable,'raisecomMplsL2vpnInterfaceTable':raisecomMplsL2vpnInterfaceTable,'raisecomMplsL2vpnInterfaceEntry':raisecomMplsL2vpnInterfaceEntry,_N:raisecomMplsL2vpnInterfaceIndex,'raisecomMplsL2vpnInterfaceEnable':raisecomMplsL2vpnInterfaceEnable,'raisecomMplsCccPwTable':raisecomMplsCccPwTable,_S:raisecomMplsCccPwEntry,'raisecomMplsCccNexthopType':raisecomMplsCccNexthopType,'raisecomMplsCccNexthop':raisecomMplsCccNexthop,'raisecomMplsLdpObjects':raisecomMplsLdpObjects,'raisecomMplsLdpEnable':raisecomMplsLdpEnable,'raisecomMplsLdpInterfaceTable':raisecomMplsLdpInterfaceTable,'raisecomMplsLdpInterfaceEntry':raisecomMplsLdpInterfaceEntry,_P:raisecomMplsLdpInterfaceIndex,'raisecomMplsLdpInterfaceEnable':raisecomMplsLdpInterfaceEnable,'raisecomMplsLdpInterfaceLAM':raisecomMplsLdpInterfaceLAM,'raisecomMplsLdpInterfaceTransportAddress':raisecomMplsLdpInterfaceTransportAddress,'raisecomMplsLdpInterfaceLdpID':raisecomMplsLdpInterfaceLdpID,'raisecomMplsLdpInterfaceMTU':raisecomMplsLdpInterfaceMTU,'raisecomMplsLdpInterfaceKeepAliveHoldTimer':raisecomMplsLdpInterfaceKeepAliveHoldTimer,'raisecomMplsLdpInterfaceHelloHoldTimer':raisecomMplsLdpInterfaceHelloHoldTimer,'raisecomMplsLdpSessionStatusTrapEnable':raisecomMplsLdpSessionStatusTrapEnable,'raisecomMplsLdpPathVecLimitTrapEnable':raisecomMplsLdpPathVecLimitTrapEnable,'raisecomMplsLdpSessionThreshTrapEnable':raisecomMplsLdpSessionThreshTrapEnable,'raisecomMplsRsvpTEObjects':raisecomMplsRsvpTEObjects,'raisecomMplsRsvpTEEnabled':raisecomMplsRsvpTEEnabled,'raisecomMplsRsvpTERefreshInterval':raisecomMplsRsvpTERefreshInterval,'raisecomMplsRsvpTERefreshMultiple':raisecomMplsRsvpTERefreshMultiple,'raisecomMplsRsvpTERefreshBlockadeMultiple':raisecomMplsRsvpTERefreshBlockadeMultiple,'raisecomMplsRsvpTELSPSetupPriority':raisecomMplsRsvpTELSPSetupPriority,'raisecomMplsRsvpTELSPHoldingPriority':raisecomMplsRsvpTELSPHoldingPriority,'raisecomMplsRsvpTEInitPathRRInterval':raisecomMplsRsvpTEInitPathRRInterval,'raisecomMplsRsvpTEInitPathRRDecay':raisecomMplsRsvpTEInitPathRRDecay,'raisecomMplsRsvpTEInitPathRRLimit':raisecomMplsRsvpTEInitPathRRLimit,'raisecomMplsRsvpTEInterfaceTable':raisecomMplsRsvpTEInterfaceTable,'raisecomMplsRsvpTEInterfaceEntry':raisecomMplsRsvpTEInterfaceEntry,'raisecomMplsRsvpTEIfRefreshInterval':raisecomMplsRsvpTEIfRefreshInterval,'raisecomMplsRsvpTEIfRefreshMultiple':raisecomMplsRsvpTEIfRefreshMultiple,'raisecomMplsRsvpTEIfBlockadeMultiple':raisecomMplsRsvpTEIfBlockadeMultiple,'raisecomMplsRsvpTEIfRRInterval':raisecomMplsRsvpTEIfRRInterval,'raisecomMplsRsvpTEIfRRDecay':raisecomMplsRsvpTEIfRRDecay,'raisecomMplsRsvpTEIfRRLimit':raisecomMplsRsvpTEIfRRLimit,'raisecomMplsRsvpTEIfHelloPeriod':raisecomMplsRsvpTEIfHelloPeriod,'raisecomMplsRsvpTEIfHelloHoldPeriod':raisecomMplsRsvpTEIfHelloHoldPeriod,'raisecomMplsRsvpTEIfHelloDecay':raisecomMplsRsvpTEIfHelloDecay,'raisecomMplsRsvpTEIfHelloPersist':raisecomMplsRsvpTEIfHelloPersist,'raisecomMplsRsvpTEIfEnabled':raisecomMplsRsvpTEIfEnabled,'raisecomMplsRsvpTEIfStatus':raisecomMplsRsvpTEIfStatus})
+if mibBuilder.loadTexts: raisecomMplsCccPwEntry.setStatus('current')
+raisecomMplsCccNexthopType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 2, 1, 4, 1, 1), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: raisecomMplsCccNexthopType.setStatus('current')
+raisecomMplsCccNexthop = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 2, 1, 4, 1, 2), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: raisecomMplsCccNexthop.setStatus('current')
+raisecomMplsLdpEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 3, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsLdpEnable.setStatus('current')
+raisecomMplsLdpInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 25, 3, 2), )
+if mibBuilder.loadTexts: raisecomMplsLdpInterfaceTable.setStatus('current')
+raisecomMplsLdpInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 25, 3, 2, 1), ).setIndexNames((0, "RAISECOM-MPLS-MIB", "raisecomMplsLdpInterfaceIndex"))
+if mibBuilder.loadTexts: raisecomMplsLdpInterfaceEntry.setStatus('current')
+raisecomMplsLdpInterfaceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 3, 2, 1, 1), InterfaceIndexOrZero())
+if mibBuilder.loadTexts: raisecomMplsLdpInterfaceIndex.setStatus('current')
+raisecomMplsLdpInterfaceEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 3, 2, 1, 2), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsLdpInterfaceEnable.setStatus('current')
+raisecomMplsLdpInterfaceLAM = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 3, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomMplsLdpInterfaceLAM.setStatus('current')
+raisecomMplsLdpInterfaceTransportAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 3, 2, 1, 4), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomMplsLdpInterfaceTransportAddress.setStatus('current')
+raisecomMplsLdpInterfaceLdpID = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 3, 2, 1, 5), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomMplsLdpInterfaceLdpID.setStatus('current')
+raisecomMplsLdpInterfaceMTU = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 3, 2, 1, 6), Integer32().clone(1500)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomMplsLdpInterfaceMTU.setStatus('current')
+raisecomMplsLdpInterfaceKeepAliveHoldTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 3, 2, 1, 7), Integer32().clone(40)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsLdpInterfaceKeepAliveHoldTimer.setStatus('current')
+raisecomMplsLdpInterfaceHelloHoldTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 3, 2, 1, 8), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsLdpInterfaceHelloHoldTimer.setStatus('current')
+raisecomMplsLdpSessionStatusTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 3, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsLdpSessionStatusTrapEnable.setStatus('current')
+raisecomMplsLdpPathVecLimitTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 3, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsLdpPathVecLimitTrapEnable.setStatus('current')
+raisecomMplsLdpSessionThreshTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 3, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsLdpSessionThreshTrapEnable.setStatus('current')
+raisecomMplsRsvpTEEnabled = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEEnabled.setStatus('current')
+raisecomMplsRsvpTERefreshInterval = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 2), RefreshInterval().clone(3000)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTERefreshInterval.setStatus('current')
+raisecomMplsRsvpTERefreshMultiple = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65536)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTERefreshMultiple.setStatus('current')
+raisecomMplsRsvpTERefreshBlockadeMultiple = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65536))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTERefreshBlockadeMultiple.setStatus('current')
+raisecomMplsRsvpTELSPSetupPriority = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)).clone(4)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTELSPSetupPriority.setStatus('deprecated')
+raisecomMplsRsvpTELSPHoldingPriority = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTELSPHoldingPriority.setStatus('deprecated')
+raisecomMplsRsvpTEInitPathRRInterval = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 7), Integer32().clone(2000)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEInitPathRRInterval.setStatus('current')
+raisecomMplsRsvpTEInitPathRRDecay = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 8), Integer32().clone(100)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEInitPathRRDecay.setStatus('current')
+raisecomMplsRsvpTEInitPathRRLimit = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 9), Integer32().clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEInitPathRRLimit.setStatus('current')
+raisecomMplsRsvpTEInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 10), )
+if mibBuilder.loadTexts: raisecomMplsRsvpTEInterfaceTable.setStatus('current')
+raisecomMplsRsvpTEInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 10, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: raisecomMplsRsvpTEInterfaceEntry.setStatus('current')
+raisecomMplsRsvpTEIfRefreshInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 10, 1, 1), RefreshInterval()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEIfRefreshInterval.setStatus('current')
+raisecomMplsRsvpTEIfRefreshMultiple = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 10, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65536))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEIfRefreshMultiple.setStatus('current')
+raisecomMplsRsvpTEIfBlockadeMultiple = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 10, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65536))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEIfBlockadeMultiple.setStatus('current')
+raisecomMplsRsvpTEIfRRInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 10, 1, 4), Unsigned32().clone(500)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEIfRRInterval.setStatus('current')
+raisecomMplsRsvpTEIfRRDecay = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 10, 1, 5), Integer32().clone(100)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEIfRRDecay.setStatus('current')
+raisecomMplsRsvpTEIfRRLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 10, 1, 6), Unsigned32().clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEIfRRLimit.setStatus('current')
+raisecomMplsRsvpTEIfHelloPeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 10, 1, 7), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEIfHelloPeriod.setStatus('current')
+raisecomMplsRsvpTEIfHelloHoldPeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 10, 1, 8), Unsigned32().clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEIfHelloHoldPeriod.setStatus('current')
+raisecomMplsRsvpTEIfHelloDecay = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 10, 1, 9), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEIfHelloDecay.setStatus('current')
+raisecomMplsRsvpTEIfHelloPersist = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 10, 1, 10), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEIfHelloPersist.setStatus('current')
+raisecomMplsRsvpTEIfEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 10, 1, 11), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEIfEnabled.setStatus('current')
+raisecomMplsRsvpTEIfStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 25, 4, 10, 1, 12), RowStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomMplsRsvpTEIfStatus.setStatus('current')
+mibBuilder.exportSymbols("RAISECOM-MPLS-MIB", raisecomMplsLspStatisticsClear=raisecomMplsLspStatisticsClear, raisecomMplsLdpInterfaceHelloHoldTimer=raisecomMplsLdpInterfaceHelloHoldTimer, raisecomMplsLspActicve=raisecomMplsLspActicve, raisecomMplsRsvpTERefreshMultiple=raisecomMplsRsvpTERefreshMultiple, raisecomMplsLspRsvpTe=raisecomMplsLspRsvpTe, raisecomMplsRsvpTEIfHelloDecay=raisecomMplsRsvpTEIfHelloDecay, raisecomMplsL2vpnInterfaceIndex=raisecomMplsL2vpnInterfaceIndex, raisecomMplsL2vpnMartiniEnable=raisecomMplsL2vpnMartiniEnable, raisecomMplsL2vpnInterfaceTable=raisecomMplsL2vpnInterfaceTable, raisecomMplsLdpInterfaceLAM=raisecomMplsLdpInterfaceLAM, raisecomMplsLdpInterfaceKeepAliveHoldTimer=raisecomMplsLdpInterfaceKeepAliveHoldTimer, PYSNMP_MODULE_ID=raisecomMpls, raisecomMplsTunnelReoptimizedNotifEnable=raisecomMplsTunnelReoptimizedNotifEnable, raisecomMplsInterfaceEnable=raisecomMplsInterfaceEnable, raisecomMplsRsvpTEIfRefreshMultiple=raisecomMplsRsvpTEIfRefreshMultiple, raisecomMplsLdpInterfaceLdpID=raisecomMplsLdpInterfaceLdpID, raisecomMplsRsvpTEInterfaceEntry=raisecomMplsRsvpTEInterfaceEntry, raisecomMplsLdpInterfaceIndex=raisecomMplsLdpInterfaceIndex, raisecomMplsLdpSessionStatusTrapEnable=raisecomMplsLdpSessionStatusTrapEnable, raisecomMplsLdpPathVecLimitTrapEnable=raisecomMplsLdpPathVecLimitTrapEnable, raisecomMplsL2vpnInterfaceEntry=raisecomMplsL2vpnInterfaceEntry, raisecomMplsLsrObjects=raisecomMplsLsrObjects, raisecomMplsCccPwEntry=raisecomMplsCccPwEntry, raisecomMplsLspLdp=raisecomMplsLspLdp, raisecomMplsRsvpTEIfRRDecay=raisecomMplsRsvpTEIfRRDecay, raisecomMplsRsvpTEEnabled=raisecomMplsRsvpTEEnabled, raisecomMplsRsvpTEInitPathRRLimit=raisecomMplsRsvpTEInitPathRRLimit, raisecomMplsL2VpnObjects=raisecomMplsL2VpnObjects, raisecomMplsLdpEnable=raisecomMplsLdpEnable, raisecomMplsLdpInterfaceTransportAddress=raisecomMplsLdpInterfaceTransportAddress, raisecomMplsRsvpTEIfRRLimit=raisecomMplsRsvpTEIfRRLimit, raisecomMplsRsvpTEIfHelloPeriod=raisecomMplsRsvpTEIfHelloPeriod, raisecomMplsLspName=raisecomMplsLspName, raisecomMplsLspIngress=raisecomMplsLspIngress, raisecomMplsLdpObjects=raisecomMplsLdpObjects, raisecomMplsTtlPublicPropagate=raisecomMplsTtlPublicPropagate, raisecomMplsVpnObjects=raisecomMplsVpnObjects, raisecomMplsCccNexthop=raisecomMplsCccNexthop, raisecomMplsLspEntry=raisecomMplsLspEntry, raisecomMplsLspInActicve=raisecomMplsLspInActicve, raisecomMplsInterfaceIndex=raisecomMplsInterfaceIndex, raisecomMplsLspStatisticsObjects=raisecomMplsLspStatisticsObjects, raisecomMplsRsvpTEIfRRInterval=raisecomMplsRsvpTEIfRRInterval, raisecomMplsLspStatic=raisecomMplsLspStatic, raisecomMplsTtlVpnPropagate=raisecomMplsTtlVpnPropagate, raisecomMplsRsvpTERefreshInterval=raisecomMplsRsvpTERefreshInterval, raisecomMplsLspTable=raisecomMplsLspTable, raisecomMplsLspConfigured=raisecomMplsLspConfigured, raisecomMplsTunnelReroutedNotifEnable=raisecomMplsTunnelReroutedNotifEnable, raisecomMplsRsvpTEInitPathRRDecay=raisecomMplsRsvpTEInitPathRRDecay, raisecomMplsRsvpTEIfBlockadeMultiple=raisecomMplsRsvpTEIfBlockadeMultiple, raisecomMplsRsvpTEIfHelloPersist=raisecomMplsRsvpTEIfHelloPersist, raisecomMplsLspTransit=raisecomMplsLspTransit, raisecomMplsLdpInterfaceEntry=raisecomMplsLdpInterfaceEntry, raisecomMpls=raisecomMpls, RefreshInterval=RefreshInterval, raisecomMplsInterfaceTable=raisecomMplsInterfaceTable, raisecomMplsCccPwTable=raisecomMplsCccPwTable, raisecomMplsRsvpTEInterfaceTable=raisecomMplsRsvpTEInterfaceTable, raisecomMplsLdpInterfaceTable=raisecomMplsLdpInterfaceTable, raisecomMplsLdpSessionThreshTrapEnable=raisecomMplsLdpSessionThreshTrapEnable, raisecomMplsRsvpTEIfStatus=raisecomMplsRsvpTEIfStatus, raisecomMplsLdpInterfaceEnable=raisecomMplsLdpInterfaceEnable, raisecomMplsRsvpTERefreshBlockadeMultiple=raisecomMplsRsvpTERefreshBlockadeMultiple, raisecomMplsEnable=raisecomMplsEnable, raisecomMplsLdpInterfaceMTU=raisecomMplsLdpInterfaceMTU, raisecomMplsRsvpTELSPSetupPriority=raisecomMplsRsvpTELSPSetupPriority, raisecomMplsL2vpnEnable=raisecomMplsL2vpnEnable, raisecomMplsLspEgress=raisecomMplsLspEgress, raisecomMplsRsvpTEInitPathRRInterval=raisecomMplsRsvpTEInitPathRRInterval, raisecomMplsRsvpTELSPHoldingPriority=raisecomMplsRsvpTELSPHoldingPriority, raisecomMplsL2vpnInterfaceEnable=raisecomMplsL2vpnInterfaceEnable, raisecomMplsCccNexthopType=raisecomMplsCccNexthopType, raisecomMplsRsvpTEIfHelloHoldPeriod=raisecomMplsRsvpTEIfHelloHoldPeriod, raisecomMplsRsvpTEIfEnabled=raisecomMplsRsvpTEIfEnabled, raisecomMplsRsvpTEIfRefreshInterval=raisecomMplsRsvpTEIfRefreshInterval, raisecomMplsInterfaceEntry=raisecomMplsInterfaceEntry, raisecomMplsLsrId=raisecomMplsLsrId, raisecomMplsRsvpTEObjects=raisecomMplsRsvpTEObjects)

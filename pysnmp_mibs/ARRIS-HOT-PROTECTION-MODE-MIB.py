@@ -1,50 +1,32 @@
-_D='read-only'
-_C='read-write'
-_B='current'
-_A='Integer32'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-arrisProdIdCM,=mibBuilder.importSymbols('ARRIS-MIB','arrisProdIdCM')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_A,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-arrisHorizOvertempProtModeMib=ModuleIdentity((1,3,6,1,4,1,4115,1,3,16))
-if mibBuilder.loadTexts:arrisHorizOvertempProtModeMib.setRevisions(('2014-09-05 00:00','2014-09-24 00:00','2014-10-01 00:00'))
-_ArrisHorizOvertempProtModeMibObjects_ObjectIdentity=ObjectIdentity
-arrisHorizOvertempProtModeMibObjects=_ArrisHorizOvertempProtModeMibObjects_ObjectIdentity((1,3,6,1,4,1,4115,1,3,16,1))
-_ArrisHorizOvertempProtModeMonitoring_ObjectIdentity=ObjectIdentity
-arrisHorizOvertempProtModeMonitoring=_ArrisHorizOvertempProtModeMonitoring_ObjectIdentity((1,3,6,1,4,1,4115,1,3,16,1,1))
-class _ArrisHorizOvertempProtModeState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('normal',1),('thresholdExceededHOTPTier1',2),('thresholdExceededHOTPTier2',3)))
-_ArrisHorizOvertempProtModeState_Type.__name__=_A
-_ArrisHorizOvertempProtModeState_Object=MibScalar
-arrisHorizOvertempProtModeState=_ArrisHorizOvertempProtModeState_Object((1,3,6,1,4,1,4115,1,3,16,1,1,1),_ArrisHorizOvertempProtModeState_Type())
-arrisHorizOvertempProtModeState.setMaxAccess(_D)
-if mibBuilder.loadTexts:arrisHorizOvertempProtModeState.setStatus(_B)
-_ArrisHorizOvertempProtModeCount_Type=Counter32
-_ArrisHorizOvertempProtModeCount_Object=MibScalar
-arrisHorizOvertempProtModeCount=_ArrisHorizOvertempProtModeCount_Object((1,3,6,1,4,1,4115,1,3,16,1,1,2),_ArrisHorizOvertempProtModeCount_Type())
-arrisHorizOvertempProtModeCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:arrisHorizOvertempProtModeCount.setStatus(_B)
-_ArrisHorizOvertempProtModeConfiguration_ObjectIdentity=ObjectIdentity
-arrisHorizOvertempProtModeConfiguration=_ArrisHorizOvertempProtModeConfiguration_ObjectIdentity((1,3,6,1,4,1,4115,1,3,16,1,2))
-class _ArrisHorizOvertempProtModeTier1MinThreshold_Type(Integer32):defaultValue=37;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(15,65))
-_ArrisHorizOvertempProtModeTier1MinThreshold_Type.__name__=_A
-_ArrisHorizOvertempProtModeTier1MinThreshold_Object=MibScalar
-arrisHorizOvertempProtModeTier1MinThreshold=_ArrisHorizOvertempProtModeTier1MinThreshold_Object((1,3,6,1,4,1,4115,1,3,16,1,2,1),_ArrisHorizOvertempProtModeTier1MinThreshold_Type())
-arrisHorizOvertempProtModeTier1MinThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:arrisHorizOvertempProtModeTier1MinThreshold.setStatus(_B)
-class _ArrisHorizOvertempProtModeTier1MaxThreshold_Type(Integer32):defaultValue=47;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(15,65))
-_ArrisHorizOvertempProtModeTier1MaxThreshold_Type.__name__=_A
-_ArrisHorizOvertempProtModeTier1MaxThreshold_Object=MibScalar
-arrisHorizOvertempProtModeTier1MaxThreshold=_ArrisHorizOvertempProtModeTier1MaxThreshold_Object((1,3,6,1,4,1,4115,1,3,16,1,2,2),_ArrisHorizOvertempProtModeTier1MaxThreshold_Type())
-arrisHorizOvertempProtModeTier1MaxThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:arrisHorizOvertempProtModeTier1MaxThreshold.setStatus(_B)
-class _ArrisHorizOvertempProtModeNormalOpRecoveryTemp_Type(Integer32):defaultValue=33;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(15,65))
-_ArrisHorizOvertempProtModeNormalOpRecoveryTemp_Type.__name__=_A
-_ArrisHorizOvertempProtModeNormalOpRecoveryTemp_Object=MibScalar
-arrisHorizOvertempProtModeNormalOpRecoveryTemp=_ArrisHorizOvertempProtModeNormalOpRecoveryTemp_Object((1,3,6,1,4,1,4115,1,3,16,1,2,3),_ArrisHorizOvertempProtModeNormalOpRecoveryTemp_Type())
-arrisHorizOvertempProtModeNormalOpRecoveryTemp.setMaxAccess(_C)
-if mibBuilder.loadTexts:arrisHorizOvertempProtModeNormalOpRecoveryTemp.setStatus(_B)
-mibBuilder.exportSymbols('ARRIS-HOT-PROTECTION-MODE-MIB',**{'arrisHorizOvertempProtModeMib':arrisHorizOvertempProtModeMib,'arrisHorizOvertempProtModeMibObjects':arrisHorizOvertempProtModeMibObjects,'arrisHorizOvertempProtModeMonitoring':arrisHorizOvertempProtModeMonitoring,'arrisHorizOvertempProtModeState':arrisHorizOvertempProtModeState,'arrisHorizOvertempProtModeCount':arrisHorizOvertempProtModeCount,'arrisHorizOvertempProtModeConfiguration':arrisHorizOvertempProtModeConfiguration,'arrisHorizOvertempProtModeTier1MinThreshold':arrisHorizOvertempProtModeTier1MinThreshold,'arrisHorizOvertempProtModeTier1MaxThreshold':arrisHorizOvertempProtModeTier1MaxThreshold,'arrisHorizOvertempProtModeNormalOpRecoveryTemp':arrisHorizOvertempProtModeNormalOpRecoveryTemp})
+#
+# PySNMP MIB module ARRIS-HOT-PROTECTION-MODE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/arris/ARRIS-HOT-PROTECTION-MODE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:46 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+arrisProdIdCM, = mibBuilder.importSymbols("ARRIS-MIB", "arrisProdIdCM")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+arrisHorizOvertempProtModeMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4115, 1, 3, 16))
+arrisHorizOvertempProtModeMib.setRevisions(('2014-09-05 00:00', '2014-09-24 00:00', '2014-10-01 00:00',))
+if mibBuilder.loadTexts: arrisHorizOvertempProtModeMib.setLastUpdated('201410010000Z')
+if mibBuilder.loadTexts: arrisHorizOvertempProtModeMib.setOrganization('ARRIS Broadband')
+arrisHorizOvertempProtModeMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4115, 1, 3, 16, 1))
+arrisHorizOvertempProtModeMonitoring = MibIdentifier((1, 3, 6, 1, 4, 1, 4115, 1, 3, 16, 1, 1))
+arrisHorizOvertempProtModeConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 4115, 1, 3, 16, 1, 2))
+arrisHorizOvertempProtModeState = MibScalar((1, 3, 6, 1, 4, 1, 4115, 1, 3, 16, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("normal", 1), ("thresholdExceededHOTPTier1", 2), ("thresholdExceededHOTPTier2", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arrisHorizOvertempProtModeState.setStatus('current')
+arrisHorizOvertempProtModeCount = MibScalar((1, 3, 6, 1, 4, 1, 4115, 1, 3, 16, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: arrisHorizOvertempProtModeCount.setStatus('current')
+arrisHorizOvertempProtModeTier1MinThreshold = MibScalar((1, 3, 6, 1, 4, 1, 4115, 1, 3, 16, 1, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(15, 65)).clone(37)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: arrisHorizOvertempProtModeTier1MinThreshold.setStatus('current')
+arrisHorizOvertempProtModeTier1MaxThreshold = MibScalar((1, 3, 6, 1, 4, 1, 4115, 1, 3, 16, 1, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(15, 65)).clone(47)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: arrisHorizOvertempProtModeTier1MaxThreshold.setStatus('current')
+arrisHorizOvertempProtModeNormalOpRecoveryTemp = MibScalar((1, 3, 6, 1, 4, 1, 4115, 1, 3, 16, 1, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(15, 65)).clone(33)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: arrisHorizOvertempProtModeNormalOpRecoveryTemp.setStatus('current')
+mibBuilder.exportSymbols("ARRIS-HOT-PROTECTION-MODE-MIB", arrisHorizOvertempProtModeConfiguration=arrisHorizOvertempProtModeConfiguration, arrisHorizOvertempProtModeMibObjects=arrisHorizOvertempProtModeMibObjects, arrisHorizOvertempProtModeState=arrisHorizOvertempProtModeState, arrisHorizOvertempProtModeMib=arrisHorizOvertempProtModeMib, arrisHorizOvertempProtModeCount=arrisHorizOvertempProtModeCount, arrisHorizOvertempProtModeTier1MaxThreshold=arrisHorizOvertempProtModeTier1MaxThreshold, PYSNMP_MODULE_ID=arrisHorizOvertempProtModeMib, arrisHorizOvertempProtModeMonitoring=arrisHorizOvertempProtModeMonitoring, arrisHorizOvertempProtModeTier1MinThreshold=arrisHorizOvertempProtModeTier1MinThreshold, arrisHorizOvertempProtModeNormalOpRecoveryTemp=arrisHorizOvertempProtModeNormalOpRecoveryTemp)

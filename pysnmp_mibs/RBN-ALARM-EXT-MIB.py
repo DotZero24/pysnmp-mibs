@@ -1,132 +1,69 @@
-_X='rbnAlarmClearGroup'
-_W='rbnAlarmModelGroup'
-_V='rbnAlarmClearResourceCounter64Val'
-_U='rbnAlarmClearResourceOidVal'
-_T='rbnAlarmClearResourceIpAddressVal'
-_S='rbnAlarmClearResourceOctetStringVal'
-_R='rbnAlarmClearResourceInteger32Val'
-_Q='rbnAlarmClearResourceTimeTicksVal'
-_P='rbnAlarmClearResourceUnsigned32Val'
-_O='rbnAlarmClearResourceCounter32Val'
-_N='rbnAlarmClearResourceValueType'
-_M='rbnAlarmClearResourceID'
-_L='rbnAlarmModelResourceIdx'
-_K='rbnAlarmModelEntry'
-_J='Unsigned32'
-_I='Integer32'
-_H='alarmListName'
-_G='alarmClearIndex'
-_F='alarmClearDateAndTime'
-_E='OctetString'
-_D='ALARM-MIB'
-_C='read-only'
-_B='RBN-ALARM-EXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-alarmClearDateAndTime,alarmClearIndex,alarmListName,alarmModelEntry=mibBuilder.importSymbols(_D,_F,_G,_H,'alarmModelEntry')
-rbnModules,=mibBuilder.importSymbols('RBN-SMI','rbnModules')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_J,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-rbnAlarmExtMib=ModuleIdentity((1,3,6,1,4,1,2352,5,53))
-if mibBuilder.loadTexts:rbnAlarmExtMib.setRevisions(('2009-09-18 18:00',))
-_RbnAlarmObjects_ObjectIdentity=ObjectIdentity
-rbnAlarmObjects=_RbnAlarmObjects_ObjectIdentity((1,3,6,1,4,1,2352,5,53,1))
-_RbnAlarmModel_ObjectIdentity=ObjectIdentity
-rbnAlarmModel=_RbnAlarmModel_ObjectIdentity((1,3,6,1,4,1,2352,5,53,1,1))
-_RbnAlarmModelTable_Object=MibTable
-rbnAlarmModelTable=_RbnAlarmModelTable_Object((1,3,6,1,4,1,2352,5,53,1,1,1))
-if mibBuilder.loadTexts:rbnAlarmModelTable.setStatus(_A)
-_RbnAlarmModelEntry_Object=MibTableRow
-rbnAlarmModelEntry=_RbnAlarmModelEntry_Object((1,3,6,1,4,1,2352,5,53,1,1,1,1))
-if mibBuilder.loadTexts:rbnAlarmModelEntry.setStatus(_A)
-class _RbnAlarmModelResourceIdx_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(3,512))
-_RbnAlarmModelResourceIdx_Type.__name__=_J
-_RbnAlarmModelResourceIdx_Object=MibTableColumn
-rbnAlarmModelResourceIdx=_RbnAlarmModelResourceIdx_Object((1,3,6,1,4,1,2352,5,53,1,1,1,1,1),_RbnAlarmModelResourceIdx_Type())
-rbnAlarmModelResourceIdx.setMaxAccess('read-create')
-if mibBuilder.loadTexts:rbnAlarmModelResourceIdx.setStatus(_A)
-_RbnAlarmActive_ObjectIdentity=ObjectIdentity
-rbnAlarmActive=_RbnAlarmActive_ObjectIdentity((1,3,6,1,4,1,2352,5,53,1,2))
-_RbnAlarmClear_ObjectIdentity=ObjectIdentity
-rbnAlarmClear=_RbnAlarmClear_ObjectIdentity((1,3,6,1,4,1,2352,5,53,1,3))
-_RbnAlarmClearResourceTable_Object=MibTable
-rbnAlarmClearResourceTable=_RbnAlarmClearResourceTable_Object((1,3,6,1,4,1,2352,5,53,1,3,1))
-if mibBuilder.loadTexts:rbnAlarmClearResourceTable.setStatus(_A)
-_RbnAlarmClearResourceEntry_Object=MibTableRow
-rbnAlarmClearResourceEntry=_RbnAlarmClearResourceEntry_Object((1,3,6,1,4,1,2352,5,53,1,3,1,1))
-rbnAlarmClearResourceEntry.setIndexNames((0,_D,_H),(0,_D,_F),(0,_D,_G))
-if mibBuilder.loadTexts:rbnAlarmClearResourceEntry.setStatus(_A)
-_RbnAlarmClearResourceID_Type=ObjectIdentifier
-_RbnAlarmClearResourceID_Object=MibTableColumn
-rbnAlarmClearResourceID=_RbnAlarmClearResourceID_Object((1,3,6,1,4,1,2352,5,53,1,3,1,1,1),_RbnAlarmClearResourceID_Type())
-rbnAlarmClearResourceID.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnAlarmClearResourceID.setStatus(_A)
-class _RbnAlarmClearResourceValueType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('counter32',1),('unsigned32',2),('timeTicks',3),('integer32',4),('ipAddress',5),('octetString',6),('objectId',7),('counter64',8)))
-_RbnAlarmClearResourceValueType_Type.__name__=_I
-_RbnAlarmClearResourceValueType_Object=MibTableColumn
-rbnAlarmClearResourceValueType=_RbnAlarmClearResourceValueType_Object((1,3,6,1,4,1,2352,5,53,1,3,1,1,3),_RbnAlarmClearResourceValueType_Type())
-rbnAlarmClearResourceValueType.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnAlarmClearResourceValueType.setStatus(_A)
-_RbnAlarmClearResourceCounter32Val_Type=Counter32
-_RbnAlarmClearResourceCounter32Val_Object=MibTableColumn
-rbnAlarmClearResourceCounter32Val=_RbnAlarmClearResourceCounter32Val_Object((1,3,6,1,4,1,2352,5,53,1,3,1,1,4),_RbnAlarmClearResourceCounter32Val_Type())
-rbnAlarmClearResourceCounter32Val.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnAlarmClearResourceCounter32Val.setStatus(_A)
-_RbnAlarmClearResourceUnsigned32Val_Type=Unsigned32
-_RbnAlarmClearResourceUnsigned32Val_Object=MibTableColumn
-rbnAlarmClearResourceUnsigned32Val=_RbnAlarmClearResourceUnsigned32Val_Object((1,3,6,1,4,1,2352,5,53,1,3,1,1,5),_RbnAlarmClearResourceUnsigned32Val_Type())
-rbnAlarmClearResourceUnsigned32Val.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnAlarmClearResourceUnsigned32Val.setStatus(_A)
-_RbnAlarmClearResourceTimeTicksVal_Type=TimeTicks
-_RbnAlarmClearResourceTimeTicksVal_Object=MibTableColumn
-rbnAlarmClearResourceTimeTicksVal=_RbnAlarmClearResourceTimeTicksVal_Object((1,3,6,1,4,1,2352,5,53,1,3,1,1,6),_RbnAlarmClearResourceTimeTicksVal_Type())
-rbnAlarmClearResourceTimeTicksVal.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnAlarmClearResourceTimeTicksVal.setStatus(_A)
-_RbnAlarmClearResourceInteger32Val_Type=Integer32
-_RbnAlarmClearResourceInteger32Val_Object=MibTableColumn
-rbnAlarmClearResourceInteger32Val=_RbnAlarmClearResourceInteger32Val_Object((1,3,6,1,4,1,2352,5,53,1,3,1,1,7),_RbnAlarmClearResourceInteger32Val_Type())
-rbnAlarmClearResourceInteger32Val.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnAlarmClearResourceInteger32Val.setStatus(_A)
-class _RbnAlarmClearResourceOctetStringVal_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,65535))
-_RbnAlarmClearResourceOctetStringVal_Type.__name__=_E
-_RbnAlarmClearResourceOctetStringVal_Object=MibTableColumn
-rbnAlarmClearResourceOctetStringVal=_RbnAlarmClearResourceOctetStringVal_Object((1,3,6,1,4,1,2352,5,53,1,3,1,1,8),_RbnAlarmClearResourceOctetStringVal_Type())
-rbnAlarmClearResourceOctetStringVal.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnAlarmClearResourceOctetStringVal.setStatus(_A)
-_RbnAlarmClearResourceIpAddressVal_Type=IpAddress
-_RbnAlarmClearResourceIpAddressVal_Object=MibTableColumn
-rbnAlarmClearResourceIpAddressVal=_RbnAlarmClearResourceIpAddressVal_Object((1,3,6,1,4,1,2352,5,53,1,3,1,1,9),_RbnAlarmClearResourceIpAddressVal_Type())
-rbnAlarmClearResourceIpAddressVal.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnAlarmClearResourceIpAddressVal.setStatus(_A)
-_RbnAlarmClearResourceOidVal_Type=ObjectIdentifier
-_RbnAlarmClearResourceOidVal_Object=MibTableColumn
-rbnAlarmClearResourceOidVal=_RbnAlarmClearResourceOidVal_Object((1,3,6,1,4,1,2352,5,53,1,3,1,1,10),_RbnAlarmClearResourceOidVal_Type())
-rbnAlarmClearResourceOidVal.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnAlarmClearResourceOidVal.setStatus(_A)
-_RbnAlarmClearResourceCounter64Val_Type=Counter64
-_RbnAlarmClearResourceCounter64Val_Object=MibTableColumn
-rbnAlarmClearResourceCounter64Val=_RbnAlarmClearResourceCounter64Val_Object((1,3,6,1,4,1,2352,5,53,1,3,1,1,11),_RbnAlarmClearResourceCounter64Val_Type())
-rbnAlarmClearResourceCounter64Val.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnAlarmClearResourceCounter64Val.setStatus(_A)
-_RbnAlarmExtConformance_ObjectIdentity=ObjectIdentity
-rbnAlarmExtConformance=_RbnAlarmExtConformance_ObjectIdentity((1,3,6,1,4,1,2352,5,53,2))
-_RbnAlarmExtCompliances_ObjectIdentity=ObjectIdentity
-rbnAlarmExtCompliances=_RbnAlarmExtCompliances_ObjectIdentity((1,3,6,1,4,1,2352,5,53,2,1))
-_RbnAlarmExtGroups_ObjectIdentity=ObjectIdentity
-rbnAlarmExtGroups=_RbnAlarmExtGroups_ObjectIdentity((1,3,6,1,4,1,2352,5,53,2,2))
-alarmModelEntry.registerAugmentions((_B,_K))
+#
+# PySNMP MIB module RBN-ALARM-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ericsson/RBN-ALARM-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:47 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+alarmClearDateAndTime, alarmListName, alarmClearIndex, alarmModelEntry = mibBuilder.importSymbols("ALARM-MIB", "alarmClearDateAndTime", "alarmListName", "alarmClearIndex", "alarmModelEntry")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+rbnModules, = mibBuilder.importSymbols("RBN-SMI", "rbnModules")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+rbnAlarmExtMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 2352, 5, 53))
+rbnAlarmExtMib.setRevisions(('2009-09-18 18:00',))
+if mibBuilder.loadTexts: rbnAlarmExtMib.setLastUpdated('200909181800Z')
+if mibBuilder.loadTexts: rbnAlarmExtMib.setOrganization('Ericsson, Inc.')
+rbnAlarmObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1))
+rbnAlarmModel = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 1))
+rbnAlarmActive = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 2))
+rbnAlarmClear = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 3))
+rbnAlarmModelTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 1, 1), )
+if mibBuilder.loadTexts: rbnAlarmModelTable.setStatus('current')
+rbnAlarmModelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 1, 1, 1), )
+alarmModelEntry.registerAugmentions(("RBN-ALARM-EXT-MIB", "rbnAlarmModelEntry"))
 rbnAlarmModelEntry.setIndexNames(*alarmModelEntry.getIndexNames())
-rbnAlarmModelGroup=ObjectGroup((1,3,6,1,4,1,2352,5,53,2,2,1))
-rbnAlarmModelGroup.setObjects((_B,_L))
-if mibBuilder.loadTexts:rbnAlarmModelGroup.setStatus(_A)
-rbnAlarmClearGroup=ObjectGroup((1,3,6,1,4,1,2352,5,53,2,2,2))
-rbnAlarmClearGroup.setObjects(*((_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:rbnAlarmClearGroup.setStatus(_A)
-rbnAlarmExtCompliance=ModuleCompliance((1,3,6,1,4,1,2352,5,53,2,1,1))
-rbnAlarmExtCompliance.setObjects(*((_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:rbnAlarmExtCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'rbnAlarmExtMib':rbnAlarmExtMib,'rbnAlarmObjects':rbnAlarmObjects,'rbnAlarmModel':rbnAlarmModel,'rbnAlarmModelTable':rbnAlarmModelTable,_K:rbnAlarmModelEntry,_L:rbnAlarmModelResourceIdx,'rbnAlarmActive':rbnAlarmActive,'rbnAlarmClear':rbnAlarmClear,'rbnAlarmClearResourceTable':rbnAlarmClearResourceTable,'rbnAlarmClearResourceEntry':rbnAlarmClearResourceEntry,_M:rbnAlarmClearResourceID,_N:rbnAlarmClearResourceValueType,_O:rbnAlarmClearResourceCounter32Val,_P:rbnAlarmClearResourceUnsigned32Val,_Q:rbnAlarmClearResourceTimeTicksVal,_R:rbnAlarmClearResourceInteger32Val,_S:rbnAlarmClearResourceOctetStringVal,_T:rbnAlarmClearResourceIpAddressVal,_U:rbnAlarmClearResourceOidVal,_V:rbnAlarmClearResourceCounter64Val,'rbnAlarmExtConformance':rbnAlarmExtConformance,'rbnAlarmExtCompliances':rbnAlarmExtCompliances,'rbnAlarmExtCompliance':rbnAlarmExtCompliance,'rbnAlarmExtGroups':rbnAlarmExtGroups,_W:rbnAlarmModelGroup,_X:rbnAlarmClearGroup})
+if mibBuilder.loadTexts: rbnAlarmModelEntry.setStatus('current')
+rbnAlarmModelResourceIdx = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(3, 512), ))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rbnAlarmModelResourceIdx.setStatus('current')
+rbnAlarmClearResourceTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 3, 1), )
+if mibBuilder.loadTexts: rbnAlarmClearResourceTable.setStatus('current')
+rbnAlarmClearResourceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 3, 1, 1), ).setIndexNames((0, "ALARM-MIB", "alarmListName"), (0, "ALARM-MIB", "alarmClearDateAndTime"), (0, "ALARM-MIB", "alarmClearIndex"))
+if mibBuilder.loadTexts: rbnAlarmClearResourceEntry.setStatus('current')
+rbnAlarmClearResourceID = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 3, 1, 1, 1), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnAlarmClearResourceID.setStatus('current')
+rbnAlarmClearResourceValueType = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("counter32", 1), ("unsigned32", 2), ("timeTicks", 3), ("integer32", 4), ("ipAddress", 5), ("octetString", 6), ("objectId", 7), ("counter64", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnAlarmClearResourceValueType.setStatus('current')
+rbnAlarmClearResourceCounter32Val = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 3, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnAlarmClearResourceCounter32Val.setStatus('current')
+rbnAlarmClearResourceUnsigned32Val = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 3, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnAlarmClearResourceUnsigned32Val.setStatus('current')
+rbnAlarmClearResourceTimeTicksVal = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 3, 1, 1, 6), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnAlarmClearResourceTimeTicksVal.setStatus('current')
+rbnAlarmClearResourceInteger32Val = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 3, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnAlarmClearResourceInteger32Val.setStatus('current')
+rbnAlarmClearResourceOctetStringVal = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 3, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnAlarmClearResourceOctetStringVal.setStatus('current')
+rbnAlarmClearResourceIpAddressVal = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 3, 1, 1, 9), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnAlarmClearResourceIpAddressVal.setStatus('current')
+rbnAlarmClearResourceOidVal = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 3, 1, 1, 10), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnAlarmClearResourceOidVal.setStatus('current')
+rbnAlarmClearResourceCounter64Val = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 5, 53, 1, 3, 1, 1, 11), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnAlarmClearResourceCounter64Val.setStatus('current')
+rbnAlarmExtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 5, 53, 2))
+rbnAlarmExtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 5, 53, 2, 1))
+rbnAlarmExtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 5, 53, 2, 2))
+rbnAlarmExtCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 5, 53, 2, 1, 1)).setObjects(("RBN-ALARM-EXT-MIB", "rbnAlarmModelGroup"), ("RBN-ALARM-EXT-MIB", "rbnAlarmClearGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnAlarmExtCompliance = rbnAlarmExtCompliance.setStatus('current')
+rbnAlarmModelGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 5, 53, 2, 2, 1)).setObjects(("RBN-ALARM-EXT-MIB", "rbnAlarmModelResourceIdx"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnAlarmModelGroup = rbnAlarmModelGroup.setStatus('current')
+rbnAlarmClearGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 5, 53, 2, 2, 2)).setObjects(("RBN-ALARM-EXT-MIB", "rbnAlarmClearResourceID"), ("RBN-ALARM-EXT-MIB", "rbnAlarmClearResourceValueType"), ("RBN-ALARM-EXT-MIB", "rbnAlarmClearResourceCounter32Val"), ("RBN-ALARM-EXT-MIB", "rbnAlarmClearResourceUnsigned32Val"), ("RBN-ALARM-EXT-MIB", "rbnAlarmClearResourceTimeTicksVal"), ("RBN-ALARM-EXT-MIB", "rbnAlarmClearResourceInteger32Val"), ("RBN-ALARM-EXT-MIB", "rbnAlarmClearResourceOctetStringVal"), ("RBN-ALARM-EXT-MIB", "rbnAlarmClearResourceIpAddressVal"), ("RBN-ALARM-EXT-MIB", "rbnAlarmClearResourceOidVal"), ("RBN-ALARM-EXT-MIB", "rbnAlarmClearResourceCounter64Val"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnAlarmClearGroup = rbnAlarmClearGroup.setStatus('current')
+mibBuilder.exportSymbols("RBN-ALARM-EXT-MIB", PYSNMP_MODULE_ID=rbnAlarmExtMib, rbnAlarmClearResourceInteger32Val=rbnAlarmClearResourceInteger32Val, rbnAlarmClearResourceOctetStringVal=rbnAlarmClearResourceOctetStringVal, rbnAlarmClearResourceTimeTicksVal=rbnAlarmClearResourceTimeTicksVal, rbnAlarmObjects=rbnAlarmObjects, rbnAlarmClearResourceCounter32Val=rbnAlarmClearResourceCounter32Val, rbnAlarmClearResourceID=rbnAlarmClearResourceID, rbnAlarmExtGroups=rbnAlarmExtGroups, rbnAlarmClearResourceValueType=rbnAlarmClearResourceValueType, rbnAlarmClearResourceIpAddressVal=rbnAlarmClearResourceIpAddressVal, rbnAlarmClearResourceEntry=rbnAlarmClearResourceEntry, rbnAlarmClearResourceOidVal=rbnAlarmClearResourceOidVal, rbnAlarmExtMib=rbnAlarmExtMib, rbnAlarmClearResourceTable=rbnAlarmClearResourceTable, rbnAlarmClearResourceUnsigned32Val=rbnAlarmClearResourceUnsigned32Val, rbnAlarmExtConformance=rbnAlarmExtConformance, rbnAlarmModelEntry=rbnAlarmModelEntry, rbnAlarmModelGroup=rbnAlarmModelGroup, rbnAlarmModel=rbnAlarmModel, rbnAlarmExtCompliances=rbnAlarmExtCompliances, rbnAlarmModelTable=rbnAlarmModelTable, rbnAlarmClearResourceCounter64Val=rbnAlarmClearResourceCounter64Val, rbnAlarmClear=rbnAlarmClear, rbnAlarmExtCompliance=rbnAlarmExtCompliance, rbnAlarmModelResourceIdx=rbnAlarmModelResourceIdx, rbnAlarmActive=rbnAlarmActive, rbnAlarmClearGroup=rbnAlarmClearGroup)

@@ -1,78 +1,41 @@
-_H='cnVlanPortMemberVID'
-_G='cnVlanPortMemberPort'
-_F='cnVlanPortMemberCard'
-_E='Integer32'
-_D='CENTILLION-VLAN-MIB'
-_C='read-write'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-VlanId,vlan=mibBuilder.importSymbols('CENTILLION-MCAST-MIB','VlanId','vlan')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-_CnVlanMemberGroup_ObjectIdentity=ObjectIdentity
-cnVlanMemberGroup=_CnVlanMemberGroup_ObjectIdentity((1,3,6,1,4,1,930,2,1,2,31,2))
-_CnVlanPortMemberTable_Object=MibTable
-cnVlanPortMemberTable=_CnVlanPortMemberTable_Object((1,3,6,1,4,1,930,2,1,2,31,2,1))
-if mibBuilder.loadTexts:cnVlanPortMemberTable.setStatus(_A)
-_CnVlanPortMemberEntry_Object=MibTableRow
-cnVlanPortMemberEntry=_CnVlanPortMemberEntry_Object((1,3,6,1,4,1,930,2,1,2,31,2,1,1))
-cnVlanPortMemberEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_D,_H))
-if mibBuilder.loadTexts:cnVlanPortMemberEntry.setStatus(_A)
-_CnVlanPortMemberCard_Type=Integer32
-_CnVlanPortMemberCard_Object=MibTableColumn
-cnVlanPortMemberCard=_CnVlanPortMemberCard_Object((1,3,6,1,4,1,930,2,1,2,31,2,1,1,1),_CnVlanPortMemberCard_Type())
-cnVlanPortMemberCard.setMaxAccess(_B)
-if mibBuilder.loadTexts:cnVlanPortMemberCard.setStatus(_A)
-_CnVlanPortMemberPort_Type=Integer32
-_CnVlanPortMemberPort_Object=MibTableColumn
-cnVlanPortMemberPort=_CnVlanPortMemberPort_Object((1,3,6,1,4,1,930,2,1,2,31,2,1,1,2),_CnVlanPortMemberPort_Type())
-cnVlanPortMemberPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:cnVlanPortMemberPort.setStatus(_A)
-_CnVlanPortMemberVID_Type=VlanId
-_CnVlanPortMemberVID_Object=MibTableColumn
-cnVlanPortMemberVID=_CnVlanPortMemberVID_Object((1,3,6,1,4,1,930,2,1,2,31,2,1,1,3),_CnVlanPortMemberVID_Type())
-cnVlanPortMemberVID.setMaxAccess(_B)
-if mibBuilder.loadTexts:cnVlanPortMemberVID.setStatus(_A)
-_CnVlanPortMemberStatus_Type=RowStatus
-_CnVlanPortMemberStatus_Object=MibTableColumn
-cnVlanPortMemberStatus=_CnVlanPortMemberStatus_Object((1,3,6,1,4,1,930,2,1,2,31,2,1,1,4),_CnVlanPortMemberStatus_Type())
-cnVlanPortMemberStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cnVlanPortMemberStatus.setStatus(_A)
-class _CnVlanPortMemberIngressType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('pvid',1),('tag',2),('protocolId',3)))
-_CnVlanPortMemberIngressType_Type.__name__=_E
-_CnVlanPortMemberIngressType_Object=MibTableColumn
-cnVlanPortMemberIngressType=_CnVlanPortMemberIngressType_Object((1,3,6,1,4,1,930,2,1,2,31,2,1,1,5),_CnVlanPortMemberIngressType_Type())
-cnVlanPortMemberIngressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cnVlanPortMemberIngressType.setStatus(_A)
-_CnVlanPortMemberDynamic_Type=TruthValue
-_CnVlanPortMemberDynamic_Object=MibTableColumn
-cnVlanPortMemberDynamic=_CnVlanPortMemberDynamic_Object((1,3,6,1,4,1,930,2,1,2,31,2,1,1,6),_CnVlanPortMemberDynamic_Type())
-cnVlanPortMemberDynamic.setMaxAccess(_B)
-if mibBuilder.loadTexts:cnVlanPortMemberDynamic.setStatus(_A)
-_CnVlanPortMemberIfIndex_Type=InterfaceIndex
-_CnVlanPortMemberIfIndex_Object=MibTableColumn
-cnVlanPortMemberIfIndex=_CnVlanPortMemberIfIndex_Object((1,3,6,1,4,1,930,2,1,2,31,2,1,1,7),_CnVlanPortMemberIfIndex_Type())
-cnVlanPortMemberIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:cnVlanPortMemberIfIndex.setStatus(_A)
-_CnVlanPortMemberRing_Type=Integer32
-_CnVlanPortMemberRing_Object=MibTableColumn
-cnVlanPortMemberRing=_CnVlanPortMemberRing_Object((1,3,6,1,4,1,930,2,1,2,31,2,1,1,8),_CnVlanPortMemberRing_Type())
-cnVlanPortMemberRing.setMaxAccess(_C)
-if mibBuilder.loadTexts:cnVlanPortMemberRing.setStatus(_A)
-_CnVlanENETMgt_Type=VlanId
-_CnVlanENETMgt_Object=MibScalar
-cnVlanENETMgt=_CnVlanENETMgt_Object((1,3,6,1,4,1,930,2,1,2,31,3),_CnVlanENETMgt_Type())
-cnVlanENETMgt.setMaxAccess(_C)
-if mibBuilder.loadTexts:cnVlanENETMgt.setStatus(_A)
-_CnVlanTRMgt_Type=VlanId
-_CnVlanTRMgt_Object=MibScalar
-cnVlanTRMgt=_CnVlanTRMgt_Object((1,3,6,1,4,1,930,2,1,2,31,4),_CnVlanTRMgt_Type())
-cnVlanTRMgt.setMaxAccess(_C)
-if mibBuilder.loadTexts:cnVlanTRMgt.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'cnVlanMemberGroup':cnVlanMemberGroup,'cnVlanPortMemberTable':cnVlanPortMemberTable,'cnVlanPortMemberEntry':cnVlanPortMemberEntry,_F:cnVlanPortMemberCard,_G:cnVlanPortMemberPort,_H:cnVlanPortMemberVID,'cnVlanPortMemberStatus':cnVlanPortMemberStatus,'cnVlanPortMemberIngressType':cnVlanPortMemberIngressType,'cnVlanPortMemberDynamic':cnVlanPortMemberDynamic,'cnVlanPortMemberIfIndex':cnVlanPortMemberIfIndex,'cnVlanPortMemberRing':cnVlanPortMemberRing,'cnVlanENETMgt':cnVlanENETMgt,'cnVlanTRMgt':cnVlanTRMgt})
+#
+# PySNMP MIB module CENTILLION-VLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/CENTILLION-VLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:20 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+vlan, VlanId = mibBuilder.importSymbols("CENTILLION-MCAST-MIB", "vlan", "VlanId")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+cnVlanMemberGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 2))
+cnVlanPortMemberTable = MibTable((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 2, 1), )
+if mibBuilder.loadTexts: cnVlanPortMemberTable.setStatus('mandatory')
+cnVlanPortMemberEntry = MibTableRow((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 2, 1, 1), ).setIndexNames((0, "CENTILLION-VLAN-MIB", "cnVlanPortMemberCard"), (0, "CENTILLION-VLAN-MIB", "cnVlanPortMemberPort"), (0, "CENTILLION-VLAN-MIB", "cnVlanPortMemberVID"))
+if mibBuilder.loadTexts: cnVlanPortMemberEntry.setStatus('mandatory')
+cnVlanPortMemberCard = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cnVlanPortMemberCard.setStatus('mandatory')
+cnVlanPortMemberPort = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 2, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cnVlanPortMemberPort.setStatus('mandatory')
+cnVlanPortMemberVID = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 2, 1, 1, 3), VlanId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cnVlanPortMemberVID.setStatus('mandatory')
+cnVlanPortMemberStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 2, 1, 1, 4), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cnVlanPortMemberStatus.setStatus('mandatory')
+cnVlanPortMemberIngressType = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("pvid", 1), ("tag", 2), ("protocolId", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cnVlanPortMemberIngressType.setStatus('mandatory')
+cnVlanPortMemberDynamic = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 2, 1, 1, 6), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cnVlanPortMemberDynamic.setStatus('mandatory')
+cnVlanPortMemberIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 2, 1, 1, 7), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cnVlanPortMemberIfIndex.setStatus('mandatory')
+cnVlanPortMemberRing = MibTableColumn((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 2, 1, 1, 8), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cnVlanPortMemberRing.setStatus('mandatory')
+cnVlanENETMgt = MibScalar((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 3), VlanId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cnVlanENETMgt.setStatus('mandatory')
+cnVlanTRMgt = MibScalar((1, 3, 6, 1, 4, 1, 930, 2, 1, 2, 31, 4), VlanId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cnVlanTRMgt.setStatus('mandatory')
+mibBuilder.exportSymbols("CENTILLION-VLAN-MIB", cnVlanPortMemberRing=cnVlanPortMemberRing, cnVlanPortMemberTable=cnVlanPortMemberTable, cnVlanMemberGroup=cnVlanMemberGroup, cnVlanPortMemberPort=cnVlanPortMemberPort, cnVlanPortMemberVID=cnVlanPortMemberVID, cnVlanPortMemberIngressType=cnVlanPortMemberIngressType, cnVlanPortMemberDynamic=cnVlanPortMemberDynamic, cnVlanENETMgt=cnVlanENETMgt, cnVlanPortMemberEntry=cnVlanPortMemberEntry, cnVlanPortMemberIfIndex=cnVlanPortMemberIfIndex, cnVlanPortMemberCard=cnVlanPortMemberCard, cnVlanPortMemberStatus=cnVlanPortMemberStatus, cnVlanTRMgt=cnVlanTRMgt)

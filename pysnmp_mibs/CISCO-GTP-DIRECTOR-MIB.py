@@ -1,123 +1,68 @@
-_V='ciscoGtpDirectorNotifGroup'
-_U='ciscoGtpDirectorNotifMgmtGroup'
-_T='ciscoGtpDirectorStatisticsGroup'
-_S='ciscoGtpDirectorStatusGroup'
-_R='ciscoGtpDirectorConfigurationsGroup'
-_Q='ciscoGtpDirectorNotification'
-_P='cgdNotifEnable'
-_O='cgdPdpRequestDropped'
-_N='cgdTotalUnsupportedMessages'
-_M='cgdCreateRequestRejected'
-_L='cgdTotalCreatePdpRequestFwded'
-_K='cgdCreatePdpRequestFwded'
-_J='cgdPendingPdps'
-_I='cgdCreatePdpRequestInfoSaveTimer'
-_H='read-write'
-_G='TruthValue'
-_F='Unsigned32'
-_E='Integer32'
-_D='cgdNotifType'
-_C='read-only'
-_B='current'
-_A='CISCO-GTP-DIRECTOR-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_G)
-ciscoGtpDirectorMIB=ModuleIdentity((1,3,6,1,4,1,9,9,245))
-if mibBuilder.loadTexts:ciscoGtpDirectorMIB.setRevisions(('2001-09-13 14:00',))
-_CiscoGtpDirectorMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoGtpDirectorMIBObjects=_CiscoGtpDirectorMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,245,1))
-_CgdConfigurations_ObjectIdentity=ObjectIdentity
-cgdConfigurations=_CgdConfigurations_ObjectIdentity((1,3,6,1,4,1,9,9,245,1,1))
-class _CgdCreatePdpRequestInfoSaveTimer_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CgdCreatePdpRequestInfoSaveTimer_Type.__name__=_F
-_CgdCreatePdpRequestInfoSaveTimer_Object=MibScalar
-cgdCreatePdpRequestInfoSaveTimer=_CgdCreatePdpRequestInfoSaveTimer_Object((1,3,6,1,4,1,9,9,245,1,1,1),_CgdCreatePdpRequestInfoSaveTimer_Type())
-cgdCreatePdpRequestInfoSaveTimer.setMaxAccess(_H)
-if mibBuilder.loadTexts:cgdCreatePdpRequestInfoSaveTimer.setStatus(_B)
-if mibBuilder.loadTexts:cgdCreatePdpRequestInfoSaveTimer.setUnits('seconds')
-_CgdStatus_ObjectIdentity=ObjectIdentity
-cgdStatus=_CgdStatus_ObjectIdentity((1,3,6,1,4,1,9,9,245,1,2))
-_CgdPendingPdps_Type=Gauge32
-_CgdPendingPdps_Object=MibScalar
-cgdPendingPdps=_CgdPendingPdps_Object((1,3,6,1,4,1,9,9,245,1,2,1),_CgdPendingPdps_Type())
-cgdPendingPdps.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdPendingPdps.setStatus(_B)
-_CgdStatistics_ObjectIdentity=ObjectIdentity
-cgdStatistics=_CgdStatistics_ObjectIdentity((1,3,6,1,4,1,9,9,245,1,3))
-_CgdCreatePdpRequestFwded_Type=Counter32
-_CgdCreatePdpRequestFwded_Object=MibScalar
-cgdCreatePdpRequestFwded=_CgdCreatePdpRequestFwded_Object((1,3,6,1,4,1,9,9,245,1,3,1),_CgdCreatePdpRequestFwded_Type())
-cgdCreatePdpRequestFwded.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdCreatePdpRequestFwded.setStatus(_B)
-_CgdTotalCreatePdpRequestFwded_Type=Counter32
-_CgdTotalCreatePdpRequestFwded_Object=MibScalar
-cgdTotalCreatePdpRequestFwded=_CgdTotalCreatePdpRequestFwded_Object((1,3,6,1,4,1,9,9,245,1,3,2),_CgdTotalCreatePdpRequestFwded_Type())
-cgdTotalCreatePdpRequestFwded.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdTotalCreatePdpRequestFwded.setStatus(_B)
-_CgdCreateRequestRejected_Type=Counter32
-_CgdCreateRequestRejected_Object=MibScalar
-cgdCreateRequestRejected=_CgdCreateRequestRejected_Object((1,3,6,1,4,1,9,9,245,1,3,3),_CgdCreateRequestRejected_Type())
-cgdCreateRequestRejected.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdCreateRequestRejected.setStatus(_B)
-_CgdTotalUnsupportedMessages_Type=Counter32
-_CgdTotalUnsupportedMessages_Object=MibScalar
-cgdTotalUnsupportedMessages=_CgdTotalUnsupportedMessages_Object((1,3,6,1,4,1,9,9,245,1,3,4),_CgdTotalUnsupportedMessages_Type())
-cgdTotalUnsupportedMessages.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdTotalUnsupportedMessages.setStatus(_B)
-_CgdPdpRequestDropped_Type=Counter32
-_CgdPdpRequestDropped_Object=MibScalar
-cgdPdpRequestDropped=_CgdPdpRequestDropped_Object((1,3,6,1,4,1,9,9,245,1,3,5),_CgdPdpRequestDropped_Type())
-cgdPdpRequestDropped.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgdPdpRequestDropped.setStatus(_B)
-_CgdNotifMgmt_ObjectIdentity=ObjectIdentity
-cgdNotifMgmt=_CgdNotifMgmt_ObjectIdentity((1,3,6,1,4,1,9,9,245,1,4))
-class _CgdNotifEnable_Type(TruthValue):defaultValue=2
-_CgdNotifEnable_Type.__name__=_G
-_CgdNotifEnable_Object=MibScalar
-cgdNotifEnable=_CgdNotifEnable_Object((1,3,6,1,4,1,9,9,245,1,4,1),_CgdNotifEnable_Type())
-cgdNotifEnable.setMaxAccess(_H)
-if mibBuilder.loadTexts:cgdNotifEnable.setStatus(_B)
-class _CgdNotifType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('gdmServiceUp',1),('gdmServiceDown',2)))
-_CgdNotifType_Type.__name__=_E
-_CgdNotifType_Object=MibScalar
-cgdNotifType=_CgdNotifType_Object((1,3,6,1,4,1,9,9,245,1,4,2),_CgdNotifType_Type())
-cgdNotifType.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:cgdNotifType.setStatus(_B)
-_CiscoGtpDirectorNotifPrefix_ObjectIdentity=ObjectIdentity
-ciscoGtpDirectorNotifPrefix=_CiscoGtpDirectorNotifPrefix_ObjectIdentity((1,3,6,1,4,1,9,9,245,2))
-_CiscoGtpDirectorNotifications_ObjectIdentity=ObjectIdentity
-ciscoGtpDirectorNotifications=_CiscoGtpDirectorNotifications_ObjectIdentity((1,3,6,1,4,1,9,9,245,2,0))
-_CiscoGtpDirectorMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoGtpDirectorMIBConformance=_CiscoGtpDirectorMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,245,3))
-_CiscoGtpDirectorMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoGtpDirectorMIBCompliances=_CiscoGtpDirectorMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,245,3,1))
-_CiscoGtpDirectorMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoGtpDirectorMIBGroups=_CiscoGtpDirectorMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,245,3,2))
-ciscoGtpDirectorConfigurationsGroup=ObjectGroup((1,3,6,1,4,1,9,9,245,3,2,1))
-ciscoGtpDirectorConfigurationsGroup.setObjects((_A,_I))
-if mibBuilder.loadTexts:ciscoGtpDirectorConfigurationsGroup.setStatus(_B)
-ciscoGtpDirectorStatusGroup=ObjectGroup((1,3,6,1,4,1,9,9,245,3,2,2))
-ciscoGtpDirectorStatusGroup.setObjects((_A,_J))
-if mibBuilder.loadTexts:ciscoGtpDirectorStatusGroup.setStatus(_B)
-ciscoGtpDirectorStatisticsGroup=ObjectGroup((1,3,6,1,4,1,9,9,245,3,2,3))
-ciscoGtpDirectorStatisticsGroup.setObjects(*((_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:ciscoGtpDirectorStatisticsGroup.setStatus(_B)
-ciscoGtpDirectorNotifMgmtGroup=ObjectGroup((1,3,6,1,4,1,9,9,245,3,2,4))
-ciscoGtpDirectorNotifMgmtGroup.setObjects(*((_A,_P),(_A,_D)))
-if mibBuilder.loadTexts:ciscoGtpDirectorNotifMgmtGroup.setStatus(_B)
-ciscoGtpDirectorNotification=NotificationType((1,3,6,1,4,1,9,9,245,2,0,1))
-ciscoGtpDirectorNotification.setObjects((_A,_D))
-if mibBuilder.loadTexts:ciscoGtpDirectorNotification.setStatus(_B)
-ciscoGtpDirectorNotifGroup=NotificationGroup((1,3,6,1,4,1,9,9,245,3,2,5))
-ciscoGtpDirectorNotifGroup.setObjects((_A,_Q))
-if mibBuilder.loadTexts:ciscoGtpDirectorNotifGroup.setStatus(_B)
-ciscoGtpDirectorMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,245,3,1,1))
-ciscoGtpDirectorMIBCompliance.setObjects(*((_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V)))
-if mibBuilder.loadTexts:ciscoGtpDirectorMIBCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ciscoGtpDirectorMIB':ciscoGtpDirectorMIB,'ciscoGtpDirectorMIBObjects':ciscoGtpDirectorMIBObjects,'cgdConfigurations':cgdConfigurations,_I:cgdCreatePdpRequestInfoSaveTimer,'cgdStatus':cgdStatus,_J:cgdPendingPdps,'cgdStatistics':cgdStatistics,_K:cgdCreatePdpRequestFwded,_L:cgdTotalCreatePdpRequestFwded,_M:cgdCreateRequestRejected,_N:cgdTotalUnsupportedMessages,_O:cgdPdpRequestDropped,'cgdNotifMgmt':cgdNotifMgmt,_P:cgdNotifEnable,_D:cgdNotifType,'ciscoGtpDirectorNotifPrefix':ciscoGtpDirectorNotifPrefix,'ciscoGtpDirectorNotifications':ciscoGtpDirectorNotifications,_Q:ciscoGtpDirectorNotification,'ciscoGtpDirectorMIBConformance':ciscoGtpDirectorMIBConformance,'ciscoGtpDirectorMIBCompliances':ciscoGtpDirectorMIBCompliances,'ciscoGtpDirectorMIBCompliance':ciscoGtpDirectorMIBCompliance,'ciscoGtpDirectorMIBGroups':ciscoGtpDirectorMIBGroups,_R:ciscoGtpDirectorConfigurationsGroup,_S:ciscoGtpDirectorStatusGroup,_T:ciscoGtpDirectorStatisticsGroup,_U:ciscoGtpDirectorNotifMgmtGroup,_V:ciscoGtpDirectorNotifGroup})
+#
+# PySNMP MIB module CISCO-GTP-DIRECTOR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-GTP-DIRECTOR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ciscoGtpDirectorMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 245))
+ciscoGtpDirectorMIB.setRevisions(('2001-09-13 14:00',))
+if mibBuilder.loadTexts: ciscoGtpDirectorMIB.setLastUpdated('200109131400Z')
+if mibBuilder.loadTexts: ciscoGtpDirectorMIB.setOrganization('Cisco Systems, Inc.')
+ciscoGtpDirectorMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 245, 1))
+cgdConfigurations = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 245, 1, 1))
+cgdStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 245, 1, 2))
+cgdStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 245, 1, 3))
+cgdNotifMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 245, 1, 4))
+cgdCreatePdpRequestInfoSaveTimer = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 245, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(30)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgdCreatePdpRequestInfoSaveTimer.setStatus('current')
+cgdPendingPdps = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 245, 1, 2, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdPendingPdps.setStatus('current')
+cgdCreatePdpRequestFwded = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 245, 1, 3, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdCreatePdpRequestFwded.setStatus('current')
+cgdTotalCreatePdpRequestFwded = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 245, 1, 3, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdTotalCreatePdpRequestFwded.setStatus('current')
+cgdCreateRequestRejected = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 245, 1, 3, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdCreateRequestRejected.setStatus('current')
+cgdTotalUnsupportedMessages = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 245, 1, 3, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdTotalUnsupportedMessages.setStatus('current')
+cgdPdpRequestDropped = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 245, 1, 3, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgdPdpRequestDropped.setStatus('current')
+cgdNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 245, 1, 4, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgdNotifEnable.setStatus('current')
+cgdNotifType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 245, 1, 4, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("gdmServiceUp", 1), ("gdmServiceDown", 2)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cgdNotifType.setStatus('current')
+ciscoGtpDirectorNotifPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 245, 2))
+ciscoGtpDirectorNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 245, 2, 0))
+ciscoGtpDirectorNotification = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 245, 2, 0, 1)).setObjects(("CISCO-GTP-DIRECTOR-MIB", "cgdNotifType"))
+if mibBuilder.loadTexts: ciscoGtpDirectorNotification.setStatus('current')
+ciscoGtpDirectorMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 245, 3))
+ciscoGtpDirectorMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 245, 3, 1))
+ciscoGtpDirectorMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 245, 3, 2))
+ciscoGtpDirectorMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 245, 3, 1, 1)).setObjects(("CISCO-GTP-DIRECTOR-MIB", "ciscoGtpDirectorConfigurationsGroup"), ("CISCO-GTP-DIRECTOR-MIB", "ciscoGtpDirectorStatusGroup"), ("CISCO-GTP-DIRECTOR-MIB", "ciscoGtpDirectorStatisticsGroup"), ("CISCO-GTP-DIRECTOR-MIB", "ciscoGtpDirectorNotifMgmtGroup"), ("CISCO-GTP-DIRECTOR-MIB", "ciscoGtpDirectorNotifGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGtpDirectorMIBCompliance = ciscoGtpDirectorMIBCompliance.setStatus('current')
+ciscoGtpDirectorConfigurationsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 245, 3, 2, 1)).setObjects(("CISCO-GTP-DIRECTOR-MIB", "cgdCreatePdpRequestInfoSaveTimer"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGtpDirectorConfigurationsGroup = ciscoGtpDirectorConfigurationsGroup.setStatus('current')
+ciscoGtpDirectorStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 245, 3, 2, 2)).setObjects(("CISCO-GTP-DIRECTOR-MIB", "cgdPendingPdps"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGtpDirectorStatusGroup = ciscoGtpDirectorStatusGroup.setStatus('current')
+ciscoGtpDirectorStatisticsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 245, 3, 2, 3)).setObjects(("CISCO-GTP-DIRECTOR-MIB", "cgdCreatePdpRequestFwded"), ("CISCO-GTP-DIRECTOR-MIB", "cgdTotalCreatePdpRequestFwded"), ("CISCO-GTP-DIRECTOR-MIB", "cgdCreateRequestRejected"), ("CISCO-GTP-DIRECTOR-MIB", "cgdTotalUnsupportedMessages"), ("CISCO-GTP-DIRECTOR-MIB", "cgdPdpRequestDropped"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGtpDirectorStatisticsGroup = ciscoGtpDirectorStatisticsGroup.setStatus('current')
+ciscoGtpDirectorNotifMgmtGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 245, 3, 2, 4)).setObjects(("CISCO-GTP-DIRECTOR-MIB", "cgdNotifEnable"), ("CISCO-GTP-DIRECTOR-MIB", "cgdNotifType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGtpDirectorNotifMgmtGroup = ciscoGtpDirectorNotifMgmtGroup.setStatus('current')
+ciscoGtpDirectorNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 245, 3, 2, 5)).setObjects(("CISCO-GTP-DIRECTOR-MIB", "ciscoGtpDirectorNotification"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoGtpDirectorNotifGroup = ciscoGtpDirectorNotifGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-GTP-DIRECTOR-MIB", cgdNotifMgmt=cgdNotifMgmt, cgdPdpRequestDropped=cgdPdpRequestDropped, cgdCreatePdpRequestInfoSaveTimer=cgdCreatePdpRequestInfoSaveTimer, cgdNotifType=cgdNotifType, ciscoGtpDirectorMIBObjects=ciscoGtpDirectorMIBObjects, cgdStatistics=cgdStatistics, cgdCreatePdpRequestFwded=cgdCreatePdpRequestFwded, cgdNotifEnable=cgdNotifEnable, cgdTotalUnsupportedMessages=cgdTotalUnsupportedMessages, cgdStatus=cgdStatus, ciscoGtpDirectorNotifGroup=ciscoGtpDirectorNotifGroup, ciscoGtpDirectorNotifications=ciscoGtpDirectorNotifications, ciscoGtpDirectorNotification=ciscoGtpDirectorNotification, ciscoGtpDirectorMIBGroups=ciscoGtpDirectorMIBGroups, ciscoGtpDirectorNotifMgmtGroup=ciscoGtpDirectorNotifMgmtGroup, cgdConfigurations=cgdConfigurations, cgdPendingPdps=cgdPendingPdps, ciscoGtpDirectorStatusGroup=ciscoGtpDirectorStatusGroup, cgdTotalCreatePdpRequestFwded=cgdTotalCreatePdpRequestFwded, cgdCreateRequestRejected=cgdCreateRequestRejected, ciscoGtpDirectorMIB=ciscoGtpDirectorMIB, PYSNMP_MODULE_ID=ciscoGtpDirectorMIB, ciscoGtpDirectorMIBConformance=ciscoGtpDirectorMIBConformance, ciscoGtpDirectorConfigurationsGroup=ciscoGtpDirectorConfigurationsGroup, ciscoGtpDirectorMIBCompliance=ciscoGtpDirectorMIBCompliance, ciscoGtpDirectorMIBCompliances=ciscoGtpDirectorMIBCompliances, ciscoGtpDirectorNotifPrefix=ciscoGtpDirectorNotifPrefix, ciscoGtpDirectorStatisticsGroup=ciscoGtpDirectorStatisticsGroup)

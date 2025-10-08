@@ -1,429 +1,211 @@
-_e='iveTemperature'
-_d='nodeName'
-_c='newVIP'
-_b='currentVIP'
-_a='vipType'
-_Z='nodeList'
-_Y='clusterName'
-_X='raidDescription'
-_W='psDescription'
-_V='fanDescription'
-_U='ocspResponderURL'
-_T='ivsName'
-_S='iveSwapUtil'
-_R='iveCpuUtil'
-_Q='iveMemoryUtil'
-_P='logDescription'
-_O='logType'
-_N='diskFullPercent'
-_M='meetingCount'
-_L='meetingUserCount'
-_K='fileName'
-_J='authServerName'
-_I='blockedIP'
-_H='logFullPercent'
-_G='ipIndex'
-_F='logName'
-_E='nicEvent'
-_D='accessible-for-notify'
-_C='read-only'
-_B='JUNIPER-IVE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-juniper_ive=ModuleIdentity((1,3,6,1,4,1,12532))
-if mibBuilder.loadTexts:juniper_ive.setRevisions(('2010-02-22 10:00',))
-_LogFullPercent_Type=Gauge32
-_LogFullPercent_Object=MibScalar
-logFullPercent=_LogFullPercent_Object((1,3,6,1,4,1,12532,1),_LogFullPercent_Type())
-logFullPercent.setMaxAccess(_C)
-if mibBuilder.loadTexts:logFullPercent.setStatus(_A)
-_SignedInWebUsers_Type=Gauge32
-_SignedInWebUsers_Object=MibScalar
-signedInWebUsers=_SignedInWebUsers_Object((1,3,6,1,4,1,12532,2),_SignedInWebUsers_Type())
-signedInWebUsers.setMaxAccess(_C)
-if mibBuilder.loadTexts:signedInWebUsers.setStatus(_A)
-_SignedInMailUsers_Type=Gauge32
-_SignedInMailUsers_Object=MibScalar
-signedInMailUsers=_SignedInMailUsers_Object((1,3,6,1,4,1,12532,3),_SignedInMailUsers_Type())
-signedInMailUsers.setMaxAccess(_C)
-if mibBuilder.loadTexts:signedInMailUsers.setStatus(_A)
-_BlockedIP_Type=IpAddress
-_BlockedIP_Object=MibScalar
-blockedIP=_BlockedIP_Object((1,3,6,1,4,1,12532,4),_BlockedIP_Type())
-blockedIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:blockedIP.setStatus(_A)
-_AuthServerName_Type=OctetString
-_AuthServerName_Object=MibScalar
-authServerName=_AuthServerName_Object((1,3,6,1,4,1,12532,5),_AuthServerName_Type())
-authServerName.setMaxAccess(_D)
-if mibBuilder.loadTexts:authServerName.setStatus(_A)
-_ProductName_Type=OctetString
-_ProductName_Object=MibScalar
-productName=_ProductName_Object((1,3,6,1,4,1,12532,6),_ProductName_Type())
-productName.setMaxAccess(_C)
-if mibBuilder.loadTexts:productName.setStatus(_A)
-_ProductVersion_Type=OctetString
-_ProductVersion_Object=MibScalar
-productVersion=_ProductVersion_Object((1,3,6,1,4,1,12532,7),_ProductVersion_Type())
-productVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:productVersion.setStatus(_A)
-_FileName_Type=OctetString
-_FileName_Object=MibScalar
-fileName=_FileName_Object((1,3,6,1,4,1,12532,8),_FileName_Type())
-fileName.setMaxAccess(_D)
-if mibBuilder.loadTexts:fileName.setStatus(_A)
-_MeetingUserCount_Type=Gauge32
-_MeetingUserCount_Object=MibScalar
-meetingUserCount=_MeetingUserCount_Object((1,3,6,1,4,1,12532,9),_MeetingUserCount_Type())
-meetingUserCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:meetingUserCount.setStatus(_A)
-_IveCpuUtil_Type=Gauge32
-_IveCpuUtil_Object=MibScalar
-iveCpuUtil=_IveCpuUtil_Object((1,3,6,1,4,1,12532,10),_IveCpuUtil_Type())
-iveCpuUtil.setMaxAccess(_C)
-if mibBuilder.loadTexts:iveCpuUtil.setStatus(_A)
-_IveMemoryUtil_Type=Gauge32
-_IveMemoryUtil_Object=MibScalar
-iveMemoryUtil=_IveMemoryUtil_Object((1,3,6,1,4,1,12532,11),_IveMemoryUtil_Type())
-iveMemoryUtil.setMaxAccess(_C)
-if mibBuilder.loadTexts:iveMemoryUtil.setStatus(_A)
-_IveConcurrentUsers_Type=Gauge32
-_IveConcurrentUsers_Object=MibScalar
-iveConcurrentUsers=_IveConcurrentUsers_Object((1,3,6,1,4,1,12532,12),_IveConcurrentUsers_Type())
-iveConcurrentUsers.setMaxAccess(_C)
-if mibBuilder.loadTexts:iveConcurrentUsers.setStatus(_A)
-_ClusterConcurrentUsers_Type=Gauge32
-_ClusterConcurrentUsers_Object=MibScalar
-clusterConcurrentUsers=_ClusterConcurrentUsers_Object((1,3,6,1,4,1,12532,13),_ClusterConcurrentUsers_Type())
-clusterConcurrentUsers.setMaxAccess(_C)
-if mibBuilder.loadTexts:clusterConcurrentUsers.setStatus(_A)
-_IveTotalHits_Type=Counter64
-_IveTotalHits_Object=MibScalar
-iveTotalHits=_IveTotalHits_Object((1,3,6,1,4,1,12532,14),_IveTotalHits_Type())
-iveTotalHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:iveTotalHits.setStatus(_A)
-_IveFileHits_Type=Counter64
-_IveFileHits_Object=MibScalar
-iveFileHits=_IveFileHits_Object((1,3,6,1,4,1,12532,15),_IveFileHits_Type())
-iveFileHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:iveFileHits.setStatus(_A)
-_IveWebHits_Type=Counter64
-_IveWebHits_Object=MibScalar
-iveWebHits=_IveWebHits_Object((1,3,6,1,4,1,12532,16),_IveWebHits_Type())
-iveWebHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:iveWebHits.setStatus(_A)
-_IveAppletHits_Type=Counter64
-_IveAppletHits_Object=MibScalar
-iveAppletHits=_IveAppletHits_Object((1,3,6,1,4,1,12532,17),_IveAppletHits_Type())
-iveAppletHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:iveAppletHits.setStatus(_A)
-_IvetermHits_Type=Counter64
-_IvetermHits_Object=MibScalar
-ivetermHits=_IvetermHits_Object((1,3,6,1,4,1,12532,18),_IvetermHits_Type())
-ivetermHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:ivetermHits.setStatus(_A)
-_IveSAMHits_Type=Counter64
-_IveSAMHits_Object=MibScalar
-iveSAMHits=_IveSAMHits_Object((1,3,6,1,4,1,12532,19),_IveSAMHits_Type())
-iveSAMHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:iveSAMHits.setStatus(_A)
-_IveNCHits_Type=Counter64
-_IveNCHits_Object=MibScalar
-iveNCHits=_IveNCHits_Object((1,3,6,1,4,1,12532,20),_IveNCHits_Type())
-iveNCHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:iveNCHits.setStatus(_A)
-_MeetingHits_Type=Counter64
-_MeetingHits_Object=MibScalar
-meetingHits=_MeetingHits_Object((1,3,6,1,4,1,12532,21),_MeetingHits_Type())
-meetingHits.setMaxAccess(_C)
-if mibBuilder.loadTexts:meetingHits.setStatus(_A)
-_MeetingCount_Type=Gauge32
-_MeetingCount_Object=MibScalar
-meetingCount=_MeetingCount_Object((1,3,6,1,4,1,12532,22),_MeetingCount_Type())
-meetingCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:meetingCount.setStatus(_A)
-_LogName_Type=OctetString
-_LogName_Object=MibScalar
-logName=_LogName_Object((1,3,6,1,4,1,12532,23),_LogName_Type())
-logName.setMaxAccess(_D)
-if mibBuilder.loadTexts:logName.setStatus(_A)
-_IveSwapUtil_Type=Gauge32
-_IveSwapUtil_Object=MibScalar
-iveSwapUtil=_IveSwapUtil_Object((1,3,6,1,4,1,12532,24),_IveSwapUtil_Type())
-iveSwapUtil.setMaxAccess(_C)
-if mibBuilder.loadTexts:iveSwapUtil.setStatus(_A)
-_DiskFullPercent_Type=Gauge32
-_DiskFullPercent_Object=MibScalar
-diskFullPercent=_DiskFullPercent_Object((1,3,6,1,4,1,12532,25),_DiskFullPercent_Type())
-diskFullPercent.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskFullPercent.setStatus(_A)
-_BlockedIPList_Object=MibTable
-blockedIPList=_BlockedIPList_Object((1,3,6,1,4,1,12532,26))
-if mibBuilder.loadTexts:blockedIPList.setStatus(_A)
-_IpEntry_Object=MibTableRow
-ipEntry=_IpEntry_Object((1,3,6,1,4,1,12532,26,1))
-ipEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:ipEntry.setStatus(_A)
-_IpIndex_Type=Integer32
-_IpIndex_Object=MibTableColumn
-ipIndex=_IpIndex_Object((1,3,6,1,4,1,12532,26,1,1),_IpIndex_Type())
-ipIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipIndex.setStatus(_A)
-_IpValue_Type=IpAddress
-_IpValue_Object=MibTableColumn
-ipValue=_IpValue_Object((1,3,6,1,4,1,12532,26,1,2),_IpValue_Type())
-ipValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:ipValue.setStatus(_A)
-_LogID_Type=OctetString
-_LogID_Object=MibScalar
-logID=_LogID_Object((1,3,6,1,4,1,12532,27),_LogID_Type())
-logID.setMaxAccess(_D)
-if mibBuilder.loadTexts:logID.setStatus(_A)
-_LogType_Type=OctetString
-_LogType_Object=MibScalar
-logType=_LogType_Object((1,3,6,1,4,1,12532,28),_LogType_Type())
-logType.setMaxAccess(_D)
-if mibBuilder.loadTexts:logType.setStatus(_A)
-_LogDescription_Type=OctetString
-_LogDescription_Object=MibScalar
-logDescription=_LogDescription_Object((1,3,6,1,4,1,12532,29),_LogDescription_Type())
-logDescription.setMaxAccess(_D)
-if mibBuilder.loadTexts:logDescription.setStatus(_A)
-_IvsName_Type=OctetString
-_IvsName_Object=MibScalar
-ivsName=_IvsName_Object((1,3,6,1,4,1,12532,30),_IvsName_Type())
-ivsName.setMaxAccess(_D)
-if mibBuilder.loadTexts:ivsName.setStatus(_A)
-_OcspResponderURL_Type=OctetString
-_OcspResponderURL_Object=MibScalar
-ocspResponderURL=_OcspResponderURL_Object((1,3,6,1,4,1,12532,31),_OcspResponderURL_Type())
-ocspResponderURL.setMaxAccess(_D)
-if mibBuilder.loadTexts:ocspResponderURL.setStatus(_A)
-_FanDescription_Type=OctetString
-_FanDescription_Object=MibScalar
-fanDescription=_FanDescription_Object((1,3,6,1,4,1,12532,32),_FanDescription_Type())
-fanDescription.setMaxAccess(_D)
-if mibBuilder.loadTexts:fanDescription.setStatus(_A)
-_PsDescription_Type=OctetString
-_PsDescription_Object=MibScalar
-psDescription=_PsDescription_Object((1,3,6,1,4,1,12532,33),_PsDescription_Type())
-psDescription.setMaxAccess(_D)
-if mibBuilder.loadTexts:psDescription.setStatus(_A)
-_RaidDescription_Type=OctetString
-_RaidDescription_Object=MibScalar
-raidDescription=_RaidDescription_Object((1,3,6,1,4,1,12532,34),_RaidDescription_Type())
-raidDescription.setMaxAccess(_D)
-if mibBuilder.loadTexts:raidDescription.setStatus(_A)
-_ClusterName_Type=OctetString
-_ClusterName_Object=MibScalar
-clusterName=_ClusterName_Object((1,3,6,1,4,1,12532,35),_ClusterName_Type())
-clusterName.setMaxAccess(_D)
-if mibBuilder.loadTexts:clusterName.setStatus(_A)
-_NodeList_Type=OctetString
-_NodeList_Object=MibScalar
-nodeList=_NodeList_Object((1,3,6,1,4,1,12532,36),_NodeList_Type())
-nodeList.setMaxAccess(_D)
-if mibBuilder.loadTexts:nodeList.setStatus(_A)
-_VipType_Type=OctetString
-_VipType_Object=MibScalar
-vipType=_VipType_Object((1,3,6,1,4,1,12532,37),_VipType_Type())
-vipType.setMaxAccess(_D)
-if mibBuilder.loadTexts:vipType.setStatus(_A)
-_CurrentVIP_Type=OctetString
-_CurrentVIP_Object=MibScalar
-currentVIP=_CurrentVIP_Object((1,3,6,1,4,1,12532,38),_CurrentVIP_Type())
-currentVIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:currentVIP.setStatus(_A)
-_NewVIP_Type=OctetString
-_NewVIP_Object=MibScalar
-newVIP=_NewVIP_Object((1,3,6,1,4,1,12532,39),_NewVIP_Type())
-newVIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:newVIP.setStatus(_A)
-_NicEvent_Type=OctetString
-_NicEvent_Object=MibScalar
-nicEvent=_NicEvent_Object((1,3,6,1,4,1,12532,40),_NicEvent_Type())
-nicEvent.setMaxAccess(_D)
-if mibBuilder.loadTexts:nicEvent.setStatus(_A)
-_NodeName_Type=OctetString
-_NodeName_Object=MibScalar
-nodeName=_NodeName_Object((1,3,6,1,4,1,12532,41),_NodeName_Type())
-nodeName.setMaxAccess(_D)
-if mibBuilder.loadTexts:nodeName.setStatus(_A)
-_IveTemperature_Type=Gauge32
-_IveTemperature_Object=MibScalar
-iveTemperature=_IveTemperature_Object((1,3,6,1,4,1,12532,42),_IveTemperature_Type())
-iveTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:iveTemperature.setStatus(_A)
-_IveTraps_ObjectIdentity=ObjectIdentity
-iveTraps=_IveTraps_ObjectIdentity((1,3,6,1,4,1,12532,251))
-_IveSAProduct_ObjectIdentity=ObjectIdentity
-iveSAProduct=_IveSAProduct_ObjectIdentity((1,3,6,1,4,1,12532,252))
-_IveProductSA700_ObjectIdentity=ObjectIdentity
-iveProductSA700=_IveProductSA700_ObjectIdentity((1,3,6,1,4,1,12532,252,1))
-_IveSA700_ObjectIdentity=ObjectIdentity
-iveSA700=_IveSA700_ObjectIdentity((1,3,6,1,4,1,12532,252,1,1))
-_IveProductSA2000_ObjectIdentity=ObjectIdentity
-iveProductSA2000=_IveProductSA2000_ObjectIdentity((1,3,6,1,4,1,12532,252,2))
-_IveSA2000_ObjectIdentity=ObjectIdentity
-iveSA2000=_IveSA2000_ObjectIdentity((1,3,6,1,4,1,12532,252,2,1))
-_IveProductSA2500_ObjectIdentity=ObjectIdentity
-iveProductSA2500=_IveProductSA2500_ObjectIdentity((1,3,6,1,4,1,12532,252,3))
-_IveSA2500_ObjectIdentity=ObjectIdentity
-iveSA2500=_IveSA2500_ObjectIdentity((1,3,6,1,4,1,12532,252,3,1))
-_IveProductSA4000_ObjectIdentity=ObjectIdentity
-iveProductSA4000=_IveProductSA4000_ObjectIdentity((1,3,6,1,4,1,12532,252,4))
-_IveSA4000_ObjectIdentity=ObjectIdentity
-iveSA4000=_IveSA4000_ObjectIdentity((1,3,6,1,4,1,12532,252,4,1))
-_IveSA4000FIPS_ObjectIdentity=ObjectIdentity
-iveSA4000FIPS=_IveSA4000FIPS_ObjectIdentity((1,3,6,1,4,1,12532,252,4,2))
-_IveProductSA4500_ObjectIdentity=ObjectIdentity
-iveProductSA4500=_IveProductSA4500_ObjectIdentity((1,3,6,1,4,1,12532,252,5))
-_IveSA4500_ObjectIdentity=ObjectIdentity
-iveSA4500=_IveSA4500_ObjectIdentity((1,3,6,1,4,1,12532,252,5,1))
-_IveSA4500FIPS_ObjectIdentity=ObjectIdentity
-iveSA4500FIPS=_IveSA4500FIPS_ObjectIdentity((1,3,6,1,4,1,12532,252,5,2))
-_IveProductSA6000_ObjectIdentity=ObjectIdentity
-iveProductSA6000=_IveProductSA6000_ObjectIdentity((1,3,6,1,4,1,12532,252,6))
-_IveSA6000_ObjectIdentity=ObjectIdentity
-iveSA6000=_IveSA6000_ObjectIdentity((1,3,6,1,4,1,12532,252,6,1))
-_IveSA6000FIPS_ObjectIdentity=ObjectIdentity
-iveSA6000FIPS=_IveSA6000FIPS_ObjectIdentity((1,3,6,1,4,1,12532,252,6,2))
-_IveProductSA6500_ObjectIdentity=ObjectIdentity
-iveProductSA6500=_IveProductSA6500_ObjectIdentity((1,3,6,1,4,1,12532,252,7))
-_IveSA6500_ObjectIdentity=ObjectIdentity
-iveSA6500=_IveSA6500_ObjectIdentity((1,3,6,1,4,1,12532,252,7,1))
-_IveSA6500FIPS_ObjectIdentity=ObjectIdentity
-iveSA6500FIPS=_IveSA6500FIPS_ObjectIdentity((1,3,6,1,4,1,12532,252,7,2))
-_IveICProduct_ObjectIdentity=ObjectIdentity
-iveICProduct=_IveICProduct_ObjectIdentity((1,3,6,1,4,1,12532,253))
-_IveProductIC4000_ObjectIdentity=ObjectIdentity
-iveProductIC4000=_IveProductIC4000_ObjectIdentity((1,3,6,1,4,1,12532,253,1))
-_IveIC4000_ObjectIdentity=ObjectIdentity
-iveIC4000=_IveIC4000_ObjectIdentity((1,3,6,1,4,1,12532,253,1,1))
-_IveProductIC4500_ObjectIdentity=ObjectIdentity
-iveProductIC4500=_IveProductIC4500_ObjectIdentity((1,3,6,1,4,1,12532,253,2))
-_IveIC4500_ObjectIdentity=ObjectIdentity
-iveIC4500=_IveIC4500_ObjectIdentity((1,3,6,1,4,1,12532,253,2,1))
-_IveProductIC6000_ObjectIdentity=ObjectIdentity
-iveProductIC6000=_IveProductIC6000_ObjectIdentity((1,3,6,1,4,1,12532,253,3))
-_IveIC6000_ObjectIdentity=ObjectIdentity
-iveIC6000=_IveIC6000_ObjectIdentity((1,3,6,1,4,1,12532,253,3,1))
-_IveIC6000FIPS_ObjectIdentity=ObjectIdentity
-iveIC6000FIPS=_IveIC6000FIPS_ObjectIdentity((1,3,6,1,4,1,12532,253,3,2))
-_IveProductIC6500_ObjectIdentity=ObjectIdentity
-iveProductIC6500=_IveProductIC6500_ObjectIdentity((1,3,6,1,4,1,12532,253,4))
-_IveIC6500_ObjectIdentity=ObjectIdentity
-iveIC6500=_IveIC6500_ObjectIdentity((1,3,6,1,4,1,12532,253,4,1))
-_IveMAGProduct_ObjectIdentity=ObjectIdentity
-iveMAGProduct=_IveMAGProduct_ObjectIdentity((1,3,6,1,4,1,12532,254))
-_IveProductMAG2600_ObjectIdentity=ObjectIdentity
-iveProductMAG2600=_IveProductMAG2600_ObjectIdentity((1,3,6,1,4,1,12532,254,1))
-_IveMAG2600_ObjectIdentity=ObjectIdentity
-iveMAG2600=_IveMAG2600_ObjectIdentity((1,3,6,1,4,1,12532,254,1,1))
-_IveProductMAG4610_ObjectIdentity=ObjectIdentity
-iveProductMAG4610=_IveProductMAG4610_ObjectIdentity((1,3,6,1,4,1,12532,254,2))
-_IveMAG4610_ObjectIdentity=ObjectIdentity
-iveMAG4610=_IveMAG4610_ObjectIdentity((1,3,6,1,4,1,12532,254,2,1))
-_IveProductSM160_ObjectIdentity=ObjectIdentity
-iveProductSM160=_IveProductSM160_ObjectIdentity((1,3,6,1,4,1,12532,254,3))
-_IveMAGSM160_ObjectIdentity=ObjectIdentity
-iveMAGSM160=_IveMAGSM160_ObjectIdentity((1,3,6,1,4,1,12532,254,3,1))
-_IveProductSM360_ObjectIdentity=ObjectIdentity
-iveProductSM360=_IveProductSM360_ObjectIdentity((1,3,6,1,4,1,12532,254,4))
-_IveMAGSM360_ObjectIdentity=ObjectIdentity
-iveMAGSM360=_IveMAGSM360_ObjectIdentity((1,3,6,1,4,1,12532,254,4,1))
-iveLogNearlyFull=NotificationType((1,3,6,1,4,1,12532,251,4))
-iveLogNearlyFull.setObjects(*((_B,_H),(_B,_F)))
-if mibBuilder.loadTexts:iveLogNearlyFull.setStatus(_A)
-iveLogFull=NotificationType((1,3,6,1,4,1,12532,251,5))
-iveLogFull.setObjects((_B,_F))
-if mibBuilder.loadTexts:iveLogFull.setStatus(_A)
-iveMaxConcurrentUsersSignedIn=NotificationType((1,3,6,1,4,1,12532,251,6))
-if mibBuilder.loadTexts:iveMaxConcurrentUsersSignedIn.setStatus(_A)
-iveTooManyFailedLoginAttempts=NotificationType((1,3,6,1,4,1,12532,251,7))
-iveTooManyFailedLoginAttempts.setObjects((_B,_I))
-if mibBuilder.loadTexts:iveTooManyFailedLoginAttempts.setStatus(_A)
-externalAuthServerUnreachable=NotificationType((1,3,6,1,4,1,12532,251,8))
-externalAuthServerUnreachable.setObjects((_B,_J))
-if mibBuilder.loadTexts:externalAuthServerUnreachable.setStatus(_A)
-iveStart=NotificationType((1,3,6,1,4,1,12532,251,9))
-if mibBuilder.loadTexts:iveStart.setStatus(_A)
-iveShutdown=NotificationType((1,3,6,1,4,1,12532,251,10))
-if mibBuilder.loadTexts:iveShutdown.setStatus(_A)
-iveReboot=NotificationType((1,3,6,1,4,1,12532,251,11))
-if mibBuilder.loadTexts:iveReboot.setStatus(_A)
-archiveServerUnreachable=NotificationType((1,3,6,1,4,1,12532,251,12))
-if mibBuilder.loadTexts:archiveServerUnreachable.setStatus(_A)
-archiveServerLoginFailed=NotificationType((1,3,6,1,4,1,12532,251,13))
-if mibBuilder.loadTexts:archiveServerLoginFailed.setStatus(_A)
-archiveFileTransferFailed=NotificationType((1,3,6,1,4,1,12532,251,14))
-archiveFileTransferFailed.setObjects((_B,_K))
-if mibBuilder.loadTexts:archiveFileTransferFailed.setStatus(_A)
-meetingUserLimit=NotificationType((1,3,6,1,4,1,12532,251,15))
-meetingUserLimit.setObjects((_B,_L))
-if mibBuilder.loadTexts:meetingUserLimit.setStatus(_A)
-iveRestart=NotificationType((1,3,6,1,4,1,12532,251,16))
-if mibBuilder.loadTexts:iveRestart.setStatus(_A)
-meetingLimit=NotificationType((1,3,6,1,4,1,12532,251,17))
-meetingLimit.setObjects((_B,_M))
-if mibBuilder.loadTexts:meetingLimit.setStatus(_A)
-iveDiskNearlyFull=NotificationType((1,3,6,1,4,1,12532,251,18))
-iveDiskNearlyFull.setObjects((_B,_N))
-if mibBuilder.loadTexts:iveDiskNearlyFull.setStatus(_A)
-iveDiskFull=NotificationType((1,3,6,1,4,1,12532,251,19))
-if mibBuilder.loadTexts:iveDiskFull.setStatus(_A)
-logMessageTrap=NotificationType((1,3,6,1,4,1,12532,251,20))
-logMessageTrap.setObjects(*((_B,'logID'),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:logMessageTrap.setStatus(_A)
-memUtilNotify=NotificationType((1,3,6,1,4,1,12532,251,21))
-memUtilNotify.setObjects((_B,_Q))
-if mibBuilder.loadTexts:memUtilNotify.setStatus(_A)
-cpuUtilNotify=NotificationType((1,3,6,1,4,1,12532,251,22))
-cpuUtilNotify.setObjects((_B,_R))
-if mibBuilder.loadTexts:cpuUtilNotify.setStatus(_A)
-swapUtilNotify=NotificationType((1,3,6,1,4,1,12532,251,23))
-swapUtilNotify.setObjects((_B,_S))
-if mibBuilder.loadTexts:swapUtilNotify.setStatus(_A)
-iveMaxConcurrentUsersVirtualSystem=NotificationType((1,3,6,1,4,1,12532,251,24))
-iveMaxConcurrentUsersVirtualSystem.setObjects((_B,_T))
-if mibBuilder.loadTexts:iveMaxConcurrentUsersVirtualSystem.setStatus(_A)
-ocspResponderConnectionFailed=NotificationType((1,3,6,1,4,1,12532,251,25))
-ocspResponderConnectionFailed.setObjects((_B,_U))
-if mibBuilder.loadTexts:ocspResponderConnectionFailed.setStatus(_A)
-iveFanNotify=NotificationType((1,3,6,1,4,1,12532,251,26))
-iveFanNotify.setObjects((_B,_V))
-if mibBuilder.loadTexts:iveFanNotify.setStatus(_A)
-ivePowerSupplyNotify=NotificationType((1,3,6,1,4,1,12532,251,27))
-ivePowerSupplyNotify.setObjects((_B,_W))
-if mibBuilder.loadTexts:ivePowerSupplyNotify.setStatus(_A)
-iveRaidNotify=NotificationType((1,3,6,1,4,1,12532,251,28))
-iveRaidNotify.setObjects((_B,_X))
-if mibBuilder.loadTexts:iveRaidNotify.setStatus(_A)
-iveClusterDisableNodeTrap=NotificationType((1,3,6,1,4,1,12532,251,29))
-iveClusterDisableNodeTrap.setObjects(*((_B,_Y),(_B,_Z)))
-if mibBuilder.loadTexts:iveClusterDisableNodeTrap.setStatus(_A)
-iveClusterChangedVIPTrap=NotificationType((1,3,6,1,4,1,12532,251,30))
-iveClusterChangedVIPTrap.setObjects(*((_B,_a),(_B,_b),(_B,_c)))
-if mibBuilder.loadTexts:iveClusterChangedVIPTrap.setStatus(_A)
-iveNetExternalInterfaceDownTrap=NotificationType((1,3,6,1,4,1,12532,251,31))
-iveNetExternalInterfaceDownTrap.setObjects((_B,_E))
-if mibBuilder.loadTexts:iveNetExternalInterfaceDownTrap.setStatus(_A)
-iveClusterDeleteTrap=NotificationType((1,3,6,1,4,1,12532,251,32))
-iveClusterDeleteTrap.setObjects((_B,_d))
-if mibBuilder.loadTexts:iveClusterDeleteTrap.setStatus(_A)
-iveNetInternalInterfaceDownTrap=NotificationType((1,3,6,1,4,1,12532,251,33))
-iveNetInternalInterfaceDownTrap.setObjects((_B,_E))
-if mibBuilder.loadTexts:iveNetInternalInterfaceDownTrap.setStatus(_A)
-iveNetManagementInterfaceDownTrap=NotificationType((1,3,6,1,4,1,12532,251,34))
-iveNetManagementInterfaceDownTrap.setObjects((_B,_E))
-if mibBuilder.loadTexts:iveNetManagementInterfaceDownTrap.setStatus(_A)
-iveTemperatureNotify=NotificationType((1,3,6,1,4,1,12532,251,35))
-iveTemperatureNotify.setObjects((_B,_e))
-if mibBuilder.loadTexts:iveTemperatureNotify.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'juniper-ive':juniper_ive,_H:logFullPercent,'signedInWebUsers':signedInWebUsers,'signedInMailUsers':signedInMailUsers,_I:blockedIP,_J:authServerName,'productName':productName,'productVersion':productVersion,_K:fileName,_L:meetingUserCount,_R:iveCpuUtil,_Q:iveMemoryUtil,'iveConcurrentUsers':iveConcurrentUsers,'clusterConcurrentUsers':clusterConcurrentUsers,'iveTotalHits':iveTotalHits,'iveFileHits':iveFileHits,'iveWebHits':iveWebHits,'iveAppletHits':iveAppletHits,'ivetermHits':ivetermHits,'iveSAMHits':iveSAMHits,'iveNCHits':iveNCHits,'meetingHits':meetingHits,_M:meetingCount,_F:logName,_S:iveSwapUtil,_N:diskFullPercent,'blockedIPList':blockedIPList,'ipEntry':ipEntry,_G:ipIndex,'ipValue':ipValue,'logID':logID,_O:logType,_P:logDescription,_T:ivsName,_U:ocspResponderURL,_V:fanDescription,_W:psDescription,_X:raidDescription,_Y:clusterName,_Z:nodeList,_a:vipType,_b:currentVIP,_c:newVIP,_E:nicEvent,_d:nodeName,_e:iveTemperature,'iveTraps':iveTraps,'iveLogNearlyFull':iveLogNearlyFull,'iveLogFull':iveLogFull,'iveMaxConcurrentUsersSignedIn':iveMaxConcurrentUsersSignedIn,'iveTooManyFailedLoginAttempts':iveTooManyFailedLoginAttempts,'externalAuthServerUnreachable':externalAuthServerUnreachable,'iveStart':iveStart,'iveShutdown':iveShutdown,'iveReboot':iveReboot,'archiveServerUnreachable':archiveServerUnreachable,'archiveServerLoginFailed':archiveServerLoginFailed,'archiveFileTransferFailed':archiveFileTransferFailed,'meetingUserLimit':meetingUserLimit,'iveRestart':iveRestart,'meetingLimit':meetingLimit,'iveDiskNearlyFull':iveDiskNearlyFull,'iveDiskFull':iveDiskFull,'logMessageTrap':logMessageTrap,'memUtilNotify':memUtilNotify,'cpuUtilNotify':cpuUtilNotify,'swapUtilNotify':swapUtilNotify,'iveMaxConcurrentUsersVirtualSystem':iveMaxConcurrentUsersVirtualSystem,'ocspResponderConnectionFailed':ocspResponderConnectionFailed,'iveFanNotify':iveFanNotify,'ivePowerSupplyNotify':ivePowerSupplyNotify,'iveRaidNotify':iveRaidNotify,'iveClusterDisableNodeTrap':iveClusterDisableNodeTrap,'iveClusterChangedVIPTrap':iveClusterChangedVIPTrap,'iveNetExternalInterfaceDownTrap':iveNetExternalInterfaceDownTrap,'iveClusterDeleteTrap':iveClusterDeleteTrap,'iveNetInternalInterfaceDownTrap':iveNetInternalInterfaceDownTrap,'iveNetManagementInterfaceDownTrap':iveNetManagementInterfaceDownTrap,'iveTemperatureNotify':iveTemperatureNotify,'iveSAProduct':iveSAProduct,'iveProductSA700':iveProductSA700,'iveSA700':iveSA700,'iveProductSA2000':iveProductSA2000,'iveSA2000':iveSA2000,'iveProductSA2500':iveProductSA2500,'iveSA2500':iveSA2500,'iveProductSA4000':iveProductSA4000,'iveSA4000':iveSA4000,'iveSA4000FIPS':iveSA4000FIPS,'iveProductSA4500':iveProductSA4500,'iveSA4500':iveSA4500,'iveSA4500FIPS':iveSA4500FIPS,'iveProductSA6000':iveProductSA6000,'iveSA6000':iveSA6000,'iveSA6000FIPS':iveSA6000FIPS,'iveProductSA6500':iveProductSA6500,'iveSA6500':iveSA6500,'iveSA6500FIPS':iveSA6500FIPS,'iveICProduct':iveICProduct,'iveProductIC4000':iveProductIC4000,'iveIC4000':iveIC4000,'iveProductIC4500':iveProductIC4500,'iveIC4500':iveIC4500,'iveProductIC6000':iveProductIC6000,'iveIC6000':iveIC6000,'iveIC6000FIPS':iveIC6000FIPS,'iveProductIC6500':iveProductIC6500,'iveIC6500':iveIC6500,'iveMAGProduct':iveMAGProduct,'iveProductMAG2600':iveProductMAG2600,'iveMAG2600':iveMAG2600,'iveProductMAG4610':iveProductMAG4610,'iveMAG4610':iveMAG4610,'iveProductSM160':iveProductSM160,'iveMAGSM160':iveMAGSM160,'iveProductSM360':iveProductSM360,'iveMAGSM360':iveMAGSM360})
+#
+# PySNMP MIB module JUNIPER-IVE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/juniper/JUNIPER-IVE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+juniper_ive = ModuleIdentity((1, 3, 6, 1, 4, 1, 12532)).setLabel("juniper-ive")
+juniper_ive.setRevisions(('2010-02-22 10:00',))
+if mibBuilder.loadTexts: juniper_ive.setLastUpdated('201005180000Z')
+if mibBuilder.loadTexts: juniper_ive.setOrganization('Juniper')
+logFullPercent = MibScalar((1, 3, 6, 1, 4, 1, 12532, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: logFullPercent.setStatus('current')
+signedInWebUsers = MibScalar((1, 3, 6, 1, 4, 1, 12532, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: signedInWebUsers.setStatus('current')
+signedInMailUsers = MibScalar((1, 3, 6, 1, 4, 1, 12532, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: signedInMailUsers.setStatus('current')
+blockedIP = MibScalar((1, 3, 6, 1, 4, 1, 12532, 4), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: blockedIP.setStatus('current')
+authServerName = MibScalar((1, 3, 6, 1, 4, 1, 12532, 5), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: authServerName.setStatus('current')
+productName = MibScalar((1, 3, 6, 1, 4, 1, 12532, 6), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: productName.setStatus('current')
+productVersion = MibScalar((1, 3, 6, 1, 4, 1, 12532, 7), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: productVersion.setStatus('current')
+fileName = MibScalar((1, 3, 6, 1, 4, 1, 12532, 8), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: fileName.setStatus('current')
+meetingUserCount = MibScalar((1, 3, 6, 1, 4, 1, 12532, 9), Gauge32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: meetingUserCount.setStatus('current')
+iveCpuUtil = MibScalar((1, 3, 6, 1, 4, 1, 12532, 10), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: iveCpuUtil.setStatus('current')
+iveMemoryUtil = MibScalar((1, 3, 6, 1, 4, 1, 12532, 11), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: iveMemoryUtil.setStatus('current')
+iveConcurrentUsers = MibScalar((1, 3, 6, 1, 4, 1, 12532, 12), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: iveConcurrentUsers.setStatus('current')
+clusterConcurrentUsers = MibScalar((1, 3, 6, 1, 4, 1, 12532, 13), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: clusterConcurrentUsers.setStatus('current')
+iveTotalHits = MibScalar((1, 3, 6, 1, 4, 1, 12532, 14), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: iveTotalHits.setStatus('current')
+iveFileHits = MibScalar((1, 3, 6, 1, 4, 1, 12532, 15), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: iveFileHits.setStatus('current')
+iveWebHits = MibScalar((1, 3, 6, 1, 4, 1, 12532, 16), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: iveWebHits.setStatus('current')
+iveAppletHits = MibScalar((1, 3, 6, 1, 4, 1, 12532, 17), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: iveAppletHits.setStatus('current')
+ivetermHits = MibScalar((1, 3, 6, 1, 4, 1, 12532, 18), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ivetermHits.setStatus('current')
+iveSAMHits = MibScalar((1, 3, 6, 1, 4, 1, 12532, 19), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: iveSAMHits.setStatus('current')
+iveNCHits = MibScalar((1, 3, 6, 1, 4, 1, 12532, 20), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: iveNCHits.setStatus('current')
+meetingHits = MibScalar((1, 3, 6, 1, 4, 1, 12532, 21), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: meetingHits.setStatus('current')
+meetingCount = MibScalar((1, 3, 6, 1, 4, 1, 12532, 22), Gauge32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: meetingCount.setStatus('current')
+logName = MibScalar((1, 3, 6, 1, 4, 1, 12532, 23), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: logName.setStatus('current')
+iveSwapUtil = MibScalar((1, 3, 6, 1, 4, 1, 12532, 24), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: iveSwapUtil.setStatus('current')
+diskFullPercent = MibScalar((1, 3, 6, 1, 4, 1, 12532, 25), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskFullPercent.setStatus('current')
+blockedIPList = MibTable((1, 3, 6, 1, 4, 1, 12532, 26), ).setMaxAccess("readonly")
+if mibBuilder.loadTexts: blockedIPList.setStatus('current')
+ipEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12532, 26, 1), ).setIndexNames((0, "JUNIPER-IVE-MIB", "ipIndex"))
+if mibBuilder.loadTexts: ipEntry.setStatus('current')
+ipIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 12532, 26, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipIndex.setStatus('current')
+ipValue = MibTableColumn((1, 3, 6, 1, 4, 1, 12532, 26, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipValue.setStatus('current')
+logID = MibScalar((1, 3, 6, 1, 4, 1, 12532, 27), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: logID.setStatus('current')
+logType = MibScalar((1, 3, 6, 1, 4, 1, 12532, 28), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: logType.setStatus('current')
+logDescription = MibScalar((1, 3, 6, 1, 4, 1, 12532, 29), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: logDescription.setStatus('current')
+ivsName = MibScalar((1, 3, 6, 1, 4, 1, 12532, 30), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ivsName.setStatus('current')
+ocspResponderURL = MibScalar((1, 3, 6, 1, 4, 1, 12532, 31), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ocspResponderURL.setStatus('current')
+fanDescription = MibScalar((1, 3, 6, 1, 4, 1, 12532, 32), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: fanDescription.setStatus('current')
+psDescription = MibScalar((1, 3, 6, 1, 4, 1, 12532, 33), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: psDescription.setStatus('current')
+raidDescription = MibScalar((1, 3, 6, 1, 4, 1, 12532, 34), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: raidDescription.setStatus('current')
+clusterName = MibScalar((1, 3, 6, 1, 4, 1, 12532, 35), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: clusterName.setStatus('current')
+nodeList = MibScalar((1, 3, 6, 1, 4, 1, 12532, 36), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: nodeList.setStatus('current')
+vipType = MibScalar((1, 3, 6, 1, 4, 1, 12532, 37), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vipType.setStatus('current')
+currentVIP = MibScalar((1, 3, 6, 1, 4, 1, 12532, 38), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: currentVIP.setStatus('current')
+newVIP = MibScalar((1, 3, 6, 1, 4, 1, 12532, 39), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: newVIP.setStatus('current')
+nicEvent = MibScalar((1, 3, 6, 1, 4, 1, 12532, 40), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: nicEvent.setStatus('current')
+nodeName = MibScalar((1, 3, 6, 1, 4, 1, 12532, 41), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: nodeName.setStatus('current')
+iveTemperature = MibScalar((1, 3, 6, 1, 4, 1, 12532, 42), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: iveTemperature.setStatus('current')
+iveTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 251))
+iveLogNearlyFull = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 4)).setObjects(("JUNIPER-IVE-MIB", "logFullPercent"), ("JUNIPER-IVE-MIB", "logName"))
+if mibBuilder.loadTexts: iveLogNearlyFull.setStatus('current')
+iveLogFull = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 5)).setObjects(("JUNIPER-IVE-MIB", "logName"))
+if mibBuilder.loadTexts: iveLogFull.setStatus('current')
+iveMaxConcurrentUsersSignedIn = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 6))
+if mibBuilder.loadTexts: iveMaxConcurrentUsersSignedIn.setStatus('current')
+iveTooManyFailedLoginAttempts = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 7)).setObjects(("JUNIPER-IVE-MIB", "blockedIP"))
+if mibBuilder.loadTexts: iveTooManyFailedLoginAttempts.setStatus('current')
+externalAuthServerUnreachable = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 8)).setObjects(("JUNIPER-IVE-MIB", "authServerName"))
+if mibBuilder.loadTexts: externalAuthServerUnreachable.setStatus('current')
+iveStart = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 9))
+if mibBuilder.loadTexts: iveStart.setStatus('current')
+iveShutdown = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 10))
+if mibBuilder.loadTexts: iveShutdown.setStatus('current')
+iveReboot = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 11))
+if mibBuilder.loadTexts: iveReboot.setStatus('current')
+archiveServerUnreachable = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 12))
+if mibBuilder.loadTexts: archiveServerUnreachable.setStatus('current')
+archiveServerLoginFailed = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 13))
+if mibBuilder.loadTexts: archiveServerLoginFailed.setStatus('current')
+archiveFileTransferFailed = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 14)).setObjects(("JUNIPER-IVE-MIB", "fileName"))
+if mibBuilder.loadTexts: archiveFileTransferFailed.setStatus('current')
+meetingUserLimit = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 15)).setObjects(("JUNIPER-IVE-MIB", "meetingUserCount"))
+if mibBuilder.loadTexts: meetingUserLimit.setStatus('current')
+iveRestart = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 16))
+if mibBuilder.loadTexts: iveRestart.setStatus('current')
+meetingLimit = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 17)).setObjects(("JUNIPER-IVE-MIB", "meetingCount"))
+if mibBuilder.loadTexts: meetingLimit.setStatus('current')
+iveDiskNearlyFull = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 18)).setObjects(("JUNIPER-IVE-MIB", "diskFullPercent"))
+if mibBuilder.loadTexts: iveDiskNearlyFull.setStatus('current')
+iveDiskFull = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 19))
+if mibBuilder.loadTexts: iveDiskFull.setStatus('current')
+logMessageTrap = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 20)).setObjects(("JUNIPER-IVE-MIB", "logID"), ("JUNIPER-IVE-MIB", "logType"), ("JUNIPER-IVE-MIB", "logDescription"))
+if mibBuilder.loadTexts: logMessageTrap.setStatus('current')
+memUtilNotify = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 21)).setObjects(("JUNIPER-IVE-MIB", "iveMemoryUtil"))
+if mibBuilder.loadTexts: memUtilNotify.setStatus('current')
+cpuUtilNotify = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 22)).setObjects(("JUNIPER-IVE-MIB", "iveCpuUtil"))
+if mibBuilder.loadTexts: cpuUtilNotify.setStatus('current')
+swapUtilNotify = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 23)).setObjects(("JUNIPER-IVE-MIB", "iveSwapUtil"))
+if mibBuilder.loadTexts: swapUtilNotify.setStatus('current')
+iveMaxConcurrentUsersVirtualSystem = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 24)).setObjects(("JUNIPER-IVE-MIB", "ivsName"))
+if mibBuilder.loadTexts: iveMaxConcurrentUsersVirtualSystem.setStatus('current')
+ocspResponderConnectionFailed = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 25)).setObjects(("JUNIPER-IVE-MIB", "ocspResponderURL"))
+if mibBuilder.loadTexts: ocspResponderConnectionFailed.setStatus('current')
+iveFanNotify = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 26)).setObjects(("JUNIPER-IVE-MIB", "fanDescription"))
+if mibBuilder.loadTexts: iveFanNotify.setStatus('current')
+ivePowerSupplyNotify = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 27)).setObjects(("JUNIPER-IVE-MIB", "psDescription"))
+if mibBuilder.loadTexts: ivePowerSupplyNotify.setStatus('current')
+iveRaidNotify = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 28)).setObjects(("JUNIPER-IVE-MIB", "raidDescription"))
+if mibBuilder.loadTexts: iveRaidNotify.setStatus('current')
+iveClusterDisableNodeTrap = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 29)).setObjects(("JUNIPER-IVE-MIB", "clusterName"), ("JUNIPER-IVE-MIB", "nodeList"))
+if mibBuilder.loadTexts: iveClusterDisableNodeTrap.setStatus('current')
+iveClusterChangedVIPTrap = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 30)).setObjects(("JUNIPER-IVE-MIB", "vipType"), ("JUNIPER-IVE-MIB", "currentVIP"), ("JUNIPER-IVE-MIB", "newVIP"))
+if mibBuilder.loadTexts: iveClusterChangedVIPTrap.setStatus('current')
+iveNetExternalInterfaceDownTrap = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 31)).setObjects(("JUNIPER-IVE-MIB", "nicEvent"))
+if mibBuilder.loadTexts: iveNetExternalInterfaceDownTrap.setStatus('current')
+iveClusterDeleteTrap = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 32)).setObjects(("JUNIPER-IVE-MIB", "nodeName"))
+if mibBuilder.loadTexts: iveClusterDeleteTrap.setStatus('current')
+iveNetInternalInterfaceDownTrap = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 33)).setObjects(("JUNIPER-IVE-MIB", "nicEvent"))
+if mibBuilder.loadTexts: iveNetInternalInterfaceDownTrap.setStatus('current')
+iveNetManagementInterfaceDownTrap = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 34)).setObjects(("JUNIPER-IVE-MIB", "nicEvent"))
+if mibBuilder.loadTexts: iveNetManagementInterfaceDownTrap.setStatus('current')
+iveTemperatureNotify = NotificationType((1, 3, 6, 1, 4, 1, 12532, 251, 35)).setObjects(("JUNIPER-IVE-MIB", "iveTemperature"))
+if mibBuilder.loadTexts: iveTemperatureNotify.setStatus('current')
+iveSAProduct = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252))
+iveICProduct = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 253))
+iveMAGProduct = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 254))
+iveProductSA700 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 1))
+iveProductSA2000 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 2))
+iveProductSA2500 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 3))
+iveProductSA4000 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 4))
+iveProductSA4500 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 5))
+iveProductSA6000 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 6))
+iveProductSA6500 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 7))
+iveProductIC4000 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 253, 1))
+iveProductIC4500 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 253, 2))
+iveProductIC6000 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 253, 3))
+iveProductIC6500 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 253, 4))
+iveProductMAG2600 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 254, 1))
+iveProductMAG4610 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 254, 2))
+iveProductSM160 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 254, 3))
+iveProductSM360 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 254, 4))
+iveSA700 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 1, 1))
+iveSA2000 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 2, 1))
+iveSA2500 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 3, 1))
+iveSA4000 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 4, 1))
+iveSA4500 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 5, 1))
+iveSA4000FIPS = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 4, 2))
+iveSA4500FIPS = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 5, 2))
+iveSA6000 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 6, 1))
+iveSA6500 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 7, 1))
+iveSA6000FIPS = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 6, 2))
+iveSA6500FIPS = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 252, 7, 2))
+iveIC4000 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 253, 1, 1))
+iveIC6000 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 253, 3, 1))
+iveIC4500 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 253, 2, 1))
+iveIC6500 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 253, 4, 1))
+iveIC6000FIPS = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 253, 3, 2))
+iveMAG2600 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 254, 1, 1))
+iveMAG4610 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 254, 2, 1))
+iveMAGSM160 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 254, 3, 1))
+iveMAGSM360 = MibIdentifier((1, 3, 6, 1, 4, 1, 12532, 254, 4, 1))
+mibBuilder.exportSymbols("JUNIPER-IVE-MIB", iveFileHits=iveFileHits, iveIC4000=iveIC4000, meetingUserCount=meetingUserCount, iveSAMHits=iveSAMHits, iveMemoryUtil=iveMemoryUtil, iveProductSA6000=iveProductSA6000, raidDescription=raidDescription, iveSA4500=iveSA4500, iveSA4500FIPS=iveSA4500FIPS, ocspResponderConnectionFailed=ocspResponderConnectionFailed, iveSA700=iveSA700, blockedIP=blockedIP, clusterConcurrentUsers=clusterConcurrentUsers, memUtilNotify=memUtilNotify, logID=logID, iveDiskNearlyFull=iveDiskNearlyFull, logMessageTrap=logMessageTrap, authServerName=authServerName, iveSA4000FIPS=iveSA4000FIPS, iveProductSM360=iveProductSM360, fileName=fileName, iveRestart=iveRestart, iveMaxConcurrentUsersVirtualSystem=iveMaxConcurrentUsersVirtualSystem, iveProductIC6500=iveProductIC6500, signedInWebUsers=signedInWebUsers, PYSNMP_MODULE_ID=juniper_ive, iveDiskFull=iveDiskFull, iveTemperatureNotify=iveTemperatureNotify, archiveServerUnreachable=archiveServerUnreachable, ivsName=ivsName, iveRaidNotify=iveRaidNotify, iveNetManagementInterfaceDownTrap=iveNetManagementInterfaceDownTrap, iveMaxConcurrentUsersSignedIn=iveMaxConcurrentUsersSignedIn, externalAuthServerUnreachable=externalAuthServerUnreachable, iveICProduct=iveICProduct, ipValue=ipValue, iveIC4500=iveIC4500, iveReboot=iveReboot, iveSA6000=iveSA6000, iveCpuUtil=iveCpuUtil, iveProductIC4000=iveProductIC4000, juniper_ive=juniper_ive, signedInMailUsers=signedInMailUsers, iveSAProduct=iveSAProduct, iveProductIC4500=iveProductIC4500, nicEvent=nicEvent, iveProductSA700=iveProductSA700, archiveServerLoginFailed=archiveServerLoginFailed, productVersion=productVersion, ivetermHits=ivetermHits, iveAppletHits=iveAppletHits, nodeList=nodeList, newVIP=newVIP, iveMAGSM360=iveMAGSM360, iveSA6500FIPS=iveSA6500FIPS, iveClusterDisableNodeTrap=iveClusterDisableNodeTrap, iveClusterChangedVIPTrap=iveClusterChangedVIPTrap, iveNetExternalInterfaceDownTrap=iveNetExternalInterfaceDownTrap, archiveFileTransferFailed=archiveFileTransferFailed, iveIC6000FIPS=iveIC6000FIPS, currentVIP=currentVIP, iveIC6500=iveIC6500, iveTraps=iveTraps, blockedIPList=blockedIPList, iveSA6500=iveSA6500, logType=logType, psDescription=psDescription, diskFullPercent=diskFullPercent, iveProductMAG4610=iveProductMAG4610, iveLogFull=iveLogFull, iveProductSM160=iveProductSM160, iveMAG2600=iveMAG2600, iveTooManyFailedLoginAttempts=iveTooManyFailedLoginAttempts, cpuUtilNotify=cpuUtilNotify, iveMAGSM160=iveMAGSM160, ocspResponderURL=ocspResponderURL, clusterName=clusterName, iveProductSA4500=iveProductSA4500, iveProductSA2000=iveProductSA2000, ipEntry=ipEntry, iveClusterDeleteTrap=iveClusterDeleteTrap, iveConcurrentUsers=iveConcurrentUsers, logDescription=logDescription, ipIndex=ipIndex, meetingLimit=meetingLimit, iveFanNotify=iveFanNotify, vipType=vipType, swapUtilNotify=swapUtilNotify, iveMAGProduct=iveMAGProduct, iveProductIC6000=iveProductIC6000, iveTotalHits=iveTotalHits, iveSA6000FIPS=iveSA6000FIPS, iveLogNearlyFull=iveLogNearlyFull, iveWebHits=iveWebHits, iveShutdown=iveShutdown, iveProductSA6500=iveProductSA6500, iveProductSA4000=iveProductSA4000, iveSA2000=iveSA2000, iveSA4000=iveSA4000, iveStart=iveStart, meetingHits=meetingHits, meetingUserLimit=meetingUserLimit, iveMAG4610=iveMAG4610, fanDescription=fanDescription, iveNCHits=iveNCHits, iveIC6000=iveIC6000, iveProductSA2500=iveProductSA2500, nodeName=nodeName, ivePowerSupplyNotify=ivePowerSupplyNotify, iveNetInternalInterfaceDownTrap=iveNetInternalInterfaceDownTrap, iveTemperature=iveTemperature, logFullPercent=logFullPercent, iveSwapUtil=iveSwapUtil, logName=logName, productName=productName, iveProductMAG2600=iveProductMAG2600, meetingCount=meetingCount, iveSA2500=iveSA2500)

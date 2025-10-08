@@ -1,253 +1,104 @@
-_Z='ipadPPPStartAuthFailureCount'
-_Y='ipadPPPStartIPCPHistoryIndex'
-_X='ipadPPPStartAuthHistoryIndex'
-_W='ipadPPPStartLCPHistoryIndex'
-_V='ipadPPPStartService'
-_U='DisplayString'
-_T='disabled'
-_S='enabled'
-_R='other'
-_Q='unknown'
-_P='ipadServiceIndex'
-_O='IPADv2-MIB'
-_N='opened'
-_M='ackSent'
-_L='ackRcvd'
-_K='reqSent'
-_J='stopping'
-_I='closing'
-_H='stopped'
-_G='closed'
-_F='starting'
-_E='initial'
-_D='IPAD-IPSTART-MIB'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ipadPPP,ipadServiceIndex,ipadTrapsPrefix=mibBuilder.importSymbols(_O,'ipadPPP',_P,'ipadTrapsPrefix')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_U,'PhysAddress','TextualConvention')
-ipadIPStart=ModuleIdentity((1,3,6,1,4,1,321,100,1,7,4))
-_IpadPPPStartTable_Object=MibTable
-ipadPPPStartTable=_IpadPPPStartTable_Object((1,3,6,1,4,1,321,100,1,7,4,1))
-if mibBuilder.loadTexts:ipadPPPStartTable.setStatus(_A)
-_IpadPPPStartTableEntry_Object=MibTableRow
-ipadPPPStartTableEntry=_IpadPPPStartTableEntry_Object((1,3,6,1,4,1,321,100,1,7,4,1,1))
-ipadPPPStartTableEntry.setIndexNames((0,_D,_V))
-if mibBuilder.loadTexts:ipadPPPStartTableEntry.setStatus(_A)
-_IpadPPPStartService_Type=Integer32
-_IpadPPPStartService_Object=MibTableColumn
-ipadPPPStartService=_IpadPPPStartService_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,1),_IpadPPPStartService_Type())
-ipadPPPStartService.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartService.setStatus(_A)
-class _IpadPPPStartLCPState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_E,1),(_F,2),(_G,3),(_H,4),(_I,5),(_J,6),(_K,7),(_L,8),(_M,9),(_N,10)))
-_IpadPPPStartLCPState_Type.__name__=_C
-_IpadPPPStartLCPState_Object=MibTableColumn
-ipadPPPStartLCPState=_IpadPPPStartLCPState_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,2),_IpadPPPStartLCPState_Type())
-ipadPPPStartLCPState.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPState.setStatus(_A)
-_IpadPPPStartLCPStateTime_Type=Integer32
-_IpadPPPStartLCPStateTime_Object=MibTableColumn
-ipadPPPStartLCPStateTime=_IpadPPPStartLCPStateTime_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,3),_IpadPPPStartLCPStateTime_Type())
-ipadPPPStartLCPStateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPStateTime.setStatus(_A)
-_IpadPPPStartLCPStateChanges_Type=Integer32
-_IpadPPPStartLCPStateChanges_Object=MibTableColumn
-ipadPPPStartLCPStateChanges=_IpadPPPStartLCPStateChanges_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,4),_IpadPPPStartLCPStateChanges_Type())
-ipadPPPStartLCPStateChanges.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPStateChanges.setStatus(_A)
-_IpadPPPStartLCPMRU_Type=Integer32
-_IpadPPPStartLCPMRU_Object=MibTableColumn
-ipadPPPStartLCPMRU=_IpadPPPStartLCPMRU_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,5),_IpadPPPStartLCPMRU_Type())
-ipadPPPStartLCPMRU.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPMRU.setStatus(_A)
-class _IpadPPPStartLCPAsyncCCM_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
-_IpadPPPStartLCPAsyncCCM_Type.__name__=_U
-_IpadPPPStartLCPAsyncCCM_Object=MibTableColumn
-ipadPPPStartLCPAsyncCCM=_IpadPPPStartLCPAsyncCCM_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,6),_IpadPPPStartLCPAsyncCCM_Type())
-ipadPPPStartLCPAsyncCCM.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPAsyncCCM.setStatus(_A)
-class _IpadPPPStartLCPAuthProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_Q,1),(_R,2),('pap',3),('chap',4),('spap',5),('eap',6)))
-_IpadPPPStartLCPAuthProtocol_Type.__name__=_C
-_IpadPPPStartLCPAuthProtocol_Object=MibTableColumn
-ipadPPPStartLCPAuthProtocol=_IpadPPPStartLCPAuthProtocol_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,7),_IpadPPPStartLCPAuthProtocol_Type())
-ipadPPPStartLCPAuthProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPAuthProtocol.setStatus(_A)
-class _IpadPPPStartLCPQualityProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_Q,1),(_R,2),('lqr',3)))
-_IpadPPPStartLCPQualityProtocol_Type.__name__=_C
-_IpadPPPStartLCPQualityProtocol_Object=MibTableColumn
-ipadPPPStartLCPQualityProtocol=_IpadPPPStartLCPQualityProtocol_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,8),_IpadPPPStartLCPQualityProtocol_Type())
-ipadPPPStartLCPQualityProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPQualityProtocol.setStatus(_A)
-class _IpadPPPStartLCPMagicNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
-_IpadPPPStartLCPMagicNumber_Type.__name__=_U
-_IpadPPPStartLCPMagicNumber_Object=MibTableColumn
-ipadPPPStartLCPMagicNumber=_IpadPPPStartLCPMagicNumber_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,9),_IpadPPPStartLCPMagicNumber_Type())
-ipadPPPStartLCPMagicNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPMagicNumber.setStatus(_A)
-class _IpadPPPStartLCPPFC_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_S,1),(_T,2)))
-_IpadPPPStartLCPPFC_Type.__name__=_C
-_IpadPPPStartLCPPFC_Object=MibTableColumn
-ipadPPPStartLCPPFC=_IpadPPPStartLCPPFC_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,10),_IpadPPPStartLCPPFC_Type())
-ipadPPPStartLCPPFC.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPPFC.setStatus(_A)
-class _IpadPPPStartLCPACFC_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_S,1),(_T,2)))
-_IpadPPPStartLCPACFC_Type.__name__=_C
-_IpadPPPStartLCPACFC_Object=MibTableColumn
-ipadPPPStartLCPACFC=_IpadPPPStartLCPACFC_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,11),_IpadPPPStartLCPACFC_Type())
-ipadPPPStartLCPACFC.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPACFC.setStatus(_A)
-class _IpadPPPStartLCPFCSAlternatives_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_Q,1),(_R,2),('nullFCS',3),('ccitt16bitFCS',4),('ccitt32bitFCS',5)))
-_IpadPPPStartLCPFCSAlternatives_Type.__name__=_C
-_IpadPPPStartLCPFCSAlternatives_Object=MibTableColumn
-ipadPPPStartLCPFCSAlternatives=_IpadPPPStartLCPFCSAlternatives_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,12),_IpadPPPStartLCPFCSAlternatives_Type())
-ipadPPPStartLCPFCSAlternatives.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPFCSAlternatives.setStatus(_A)
-_IpadPPPStartLCPSDP_Type=Integer32
-_IpadPPPStartLCPSDP_Object=MibTableColumn
-ipadPPPStartLCPSDP=_IpadPPPStartLCPSDP_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,13),_IpadPPPStartLCPSDP_Type())
-ipadPPPStartLCPSDP.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPSDP.setStatus(_A)
-class _IpadPPPStartLCPCompoundFrames_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_S,1),(_T,2)))
-_IpadPPPStartLCPCompoundFrames_Type.__name__=_C
-_IpadPPPStartLCPCompoundFrames_Object=MibTableColumn
-ipadPPPStartLCPCompoundFrames=_IpadPPPStartLCPCompoundFrames_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,14),_IpadPPPStartLCPCompoundFrames_Type())
-ipadPPPStartLCPCompoundFrames.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPCompoundFrames.setStatus(_A)
-class _IpadPPPStartAuthState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_E,1),(_F,2),(_G,3),(_H,4),(_I,5),(_J,6),(_K,7),(_L,8),(_M,9),(_N,10)))
-_IpadPPPStartAuthState_Type.__name__=_C
-_IpadPPPStartAuthState_Object=MibTableColumn
-ipadPPPStartAuthState=_IpadPPPStartAuthState_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,15),_IpadPPPStartAuthState_Type())
-ipadPPPStartAuthState.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartAuthState.setStatus(_A)
-_IpadPPPStartAuthStateTime_Type=Integer32
-_IpadPPPStartAuthStateTime_Object=MibTableColumn
-ipadPPPStartAuthStateTime=_IpadPPPStartAuthStateTime_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,16),_IpadPPPStartAuthStateTime_Type())
-ipadPPPStartAuthStateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartAuthStateTime.setStatus(_A)
-_IpadPPPStartAuthStateChanges_Type=Integer32
-_IpadPPPStartAuthStateChanges_Object=MibTableColumn
-ipadPPPStartAuthStateChanges=_IpadPPPStartAuthStateChanges_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,17),_IpadPPPStartAuthStateChanges_Type())
-ipadPPPStartAuthStateChanges.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartAuthStateChanges.setStatus(_A)
-_IpadPPPStartAuthFailureCount_Type=Integer32
-_IpadPPPStartAuthFailureCount_Object=MibTableColumn
-ipadPPPStartAuthFailureCount=_IpadPPPStartAuthFailureCount_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,18),_IpadPPPStartAuthFailureCount_Type())
-ipadPPPStartAuthFailureCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartAuthFailureCount.setStatus(_A)
-class _IpadPPPStartAuthFailureTrapEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_S,1),(_T,2)))
-_IpadPPPStartAuthFailureTrapEnable_Type.__name__=_C
-_IpadPPPStartAuthFailureTrapEnable_Object=MibTableColumn
-ipadPPPStartAuthFailureTrapEnable=_IpadPPPStartAuthFailureTrapEnable_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,19),_IpadPPPStartAuthFailureTrapEnable_Type())
-ipadPPPStartAuthFailureTrapEnable.setMaxAccess('read-write')
-if mibBuilder.loadTexts:ipadPPPStartAuthFailureTrapEnable.setStatus(_A)
-class _IpadPPPStartIPCPState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_E,1),(_F,2),(_G,3),(_H,4),(_I,5),(_J,6),(_K,7),(_L,8),(_M,9),(_N,10)))
-_IpadPPPStartIPCPState_Type.__name__=_C
-_IpadPPPStartIPCPState_Object=MibTableColumn
-ipadPPPStartIPCPState=_IpadPPPStartIPCPState_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,20),_IpadPPPStartIPCPState_Type())
-ipadPPPStartIPCPState.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartIPCPState.setStatus(_A)
-_IpadPPPStartIPCPStateTime_Type=Integer32
-_IpadPPPStartIPCPStateTime_Object=MibTableColumn
-ipadPPPStartIPCPStateTime=_IpadPPPStartIPCPStateTime_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,21),_IpadPPPStartIPCPStateTime_Type())
-ipadPPPStartIPCPStateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartIPCPStateTime.setStatus(_A)
-_IpadPPPStartIPCPStateChanges_Type=Integer32
-_IpadPPPStartIPCPStateChanges_Object=MibTableColumn
-ipadPPPStartIPCPStateChanges=_IpadPPPStartIPCPStateChanges_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,22),_IpadPPPStartIPCPStateChanges_Type())
-ipadPPPStartIPCPStateChanges.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartIPCPStateChanges.setStatus(_A)
-_IpadPPPStartIPCPIPSource_Type=IpAddress
-_IpadPPPStartIPCPIPSource_Object=MibTableColumn
-ipadPPPStartIPCPIPSource=_IpadPPPStartIPCPIPSource_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,23),_IpadPPPStartIPCPIPSource_Type())
-ipadPPPStartIPCPIPSource.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartIPCPIPSource.setStatus(_A)
-_IpadPPPStartIPCPIPDestAddress_Type=IpAddress
-_IpadPPPStartIPCPIPDestAddress_Object=MibTableColumn
-ipadPPPStartIPCPIPDestAddress=_IpadPPPStartIPCPIPDestAddress_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,24),_IpadPPPStartIPCPIPDestAddress_Type())
-ipadPPPStartIPCPIPDestAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartIPCPIPDestAddress.setStatus(_A)
-class _IpadPPPStartIPCPCompressionProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_Q,1),(_R,2),('regularIPdata',3),('compressedTCP',4),('uncompressedTCP',5)))
-_IpadPPPStartIPCPCompressionProtocol_Type.__name__=_C
-_IpadPPPStartIPCPCompressionProtocol_Object=MibTableColumn
-ipadPPPStartIPCPCompressionProtocol=_IpadPPPStartIPCPCompressionProtocol_Object((1,3,6,1,4,1,321,100,1,7,4,1,1,25),_IpadPPPStartIPCPCompressionProtocol_Type())
-ipadPPPStartIPCPCompressionProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartIPCPCompressionProtocol.setStatus(_A)
-_IpadPPPStartLCPHistoryTable_Object=MibTable
-ipadPPPStartLCPHistoryTable=_IpadPPPStartLCPHistoryTable_Object((1,3,6,1,4,1,321,100,1,7,4,2))
-if mibBuilder.loadTexts:ipadPPPStartLCPHistoryTable.setStatus(_A)
-_IpadPPPStartLCPHistoryTableEntry_Object=MibTableRow
-ipadPPPStartLCPHistoryTableEntry=_IpadPPPStartLCPHistoryTableEntry_Object((1,3,6,1,4,1,321,100,1,7,4,2,1))
-ipadPPPStartLCPHistoryTableEntry.setIndexNames((0,_O,_P),(0,_D,_W))
-if mibBuilder.loadTexts:ipadPPPStartLCPHistoryTableEntry.setStatus(_A)
-_IpadPPPStartLCPHistoryIndex_Type=Integer32
-_IpadPPPStartLCPHistoryIndex_Object=MibTableColumn
-ipadPPPStartLCPHistoryIndex=_IpadPPPStartLCPHistoryIndex_Object((1,3,6,1,4,1,321,100,1,7,4,2,1,1),_IpadPPPStartLCPHistoryIndex_Type())
-ipadPPPStartLCPHistoryIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPHistoryIndex.setStatus(_A)
-class _IpadPPPStartLCPHistoryState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_E,1),(_F,2),(_G,3),(_H,4),(_I,5),(_J,6),(_K,7),(_L,8),(_M,9),(_N,10)))
-_IpadPPPStartLCPHistoryState_Type.__name__=_C
-_IpadPPPStartLCPHistoryState_Object=MibTableColumn
-ipadPPPStartLCPHistoryState=_IpadPPPStartLCPHistoryState_Object((1,3,6,1,4,1,321,100,1,7,4,2,1,2),_IpadPPPStartLCPHistoryState_Type())
-ipadPPPStartLCPHistoryState.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPHistoryState.setStatus(_A)
-_IpadPPPStartLCPHistoryStateTime_Type=Integer32
-_IpadPPPStartLCPHistoryStateTime_Object=MibTableColumn
-ipadPPPStartLCPHistoryStateTime=_IpadPPPStartLCPHistoryStateTime_Object((1,3,6,1,4,1,321,100,1,7,4,2,1,3),_IpadPPPStartLCPHistoryStateTime_Type())
-ipadPPPStartLCPHistoryStateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartLCPHistoryStateTime.setStatus(_A)
-_IpadPPPStartAuthHistoryTable_Object=MibTable
-ipadPPPStartAuthHistoryTable=_IpadPPPStartAuthHistoryTable_Object((1,3,6,1,4,1,321,100,1,7,4,3))
-if mibBuilder.loadTexts:ipadPPPStartAuthHistoryTable.setStatus(_A)
-_IpadPPPStartAuthHistoryTableEntry_Object=MibTableRow
-ipadPPPStartAuthHistoryTableEntry=_IpadPPPStartAuthHistoryTableEntry_Object((1,3,6,1,4,1,321,100,1,7,4,3,1))
-ipadPPPStartAuthHistoryTableEntry.setIndexNames((0,_O,_P),(0,_D,_X))
-if mibBuilder.loadTexts:ipadPPPStartAuthHistoryTableEntry.setStatus(_A)
-_IpadPPPStartAuthHistoryIndex_Type=Integer32
-_IpadPPPStartAuthHistoryIndex_Object=MibTableColumn
-ipadPPPStartAuthHistoryIndex=_IpadPPPStartAuthHistoryIndex_Object((1,3,6,1,4,1,321,100,1,7,4,3,1,1),_IpadPPPStartAuthHistoryIndex_Type())
-ipadPPPStartAuthHistoryIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartAuthHistoryIndex.setStatus(_A)
-class _IpadPPPStartAuthHistoryState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_E,1),(_F,2),(_G,3),(_H,4),(_I,5),(_J,6),(_K,7),(_L,8),(_M,9),(_N,10)))
-_IpadPPPStartAuthHistoryState_Type.__name__=_C
-_IpadPPPStartAuthHistoryState_Object=MibTableColumn
-ipadPPPStartAuthHistoryState=_IpadPPPStartAuthHistoryState_Object((1,3,6,1,4,1,321,100,1,7,4,3,1,2),_IpadPPPStartAuthHistoryState_Type())
-ipadPPPStartAuthHistoryState.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartAuthHistoryState.setStatus(_A)
-_IpadPPPStartAuthHistoryStateTime_Type=Integer32
-_IpadPPPStartAuthHistoryStateTime_Object=MibTableColumn
-ipadPPPStartAuthHistoryStateTime=_IpadPPPStartAuthHistoryStateTime_Object((1,3,6,1,4,1,321,100,1,7,4,3,1,3),_IpadPPPStartAuthHistoryStateTime_Type())
-ipadPPPStartAuthHistoryStateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartAuthHistoryStateTime.setStatus(_A)
-_IpadPPPStartIPCPHistoryTable_Object=MibTable
-ipadPPPStartIPCPHistoryTable=_IpadPPPStartIPCPHistoryTable_Object((1,3,6,1,4,1,321,100,1,7,4,4))
-if mibBuilder.loadTexts:ipadPPPStartIPCPHistoryTable.setStatus(_A)
-_IpadPPPStartIPCPHistoryTableEntry_Object=MibTableRow
-ipadPPPStartIPCPHistoryTableEntry=_IpadPPPStartIPCPHistoryTableEntry_Object((1,3,6,1,4,1,321,100,1,7,4,4,1))
-ipadPPPStartIPCPHistoryTableEntry.setIndexNames((0,_O,_P),(0,_D,_Y))
-if mibBuilder.loadTexts:ipadPPPStartIPCPHistoryTableEntry.setStatus(_A)
-_IpadPPPStartIPCPHistoryIndex_Type=Integer32
-_IpadPPPStartIPCPHistoryIndex_Object=MibTableColumn
-ipadPPPStartIPCPHistoryIndex=_IpadPPPStartIPCPHistoryIndex_Object((1,3,6,1,4,1,321,100,1,7,4,4,1,1),_IpadPPPStartIPCPHistoryIndex_Type())
-ipadPPPStartIPCPHistoryIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartIPCPHistoryIndex.setStatus(_A)
-class _IpadPPPStartIPCPHistoryState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_E,1),(_F,2),(_G,3),(_H,4),(_I,5),(_J,6),(_K,7),(_L,8),(_M,9),(_N,10)))
-_IpadPPPStartIPCPHistoryState_Type.__name__=_C
-_IpadPPPStartIPCPHistoryState_Object=MibTableColumn
-ipadPPPStartIPCPHistoryState=_IpadPPPStartIPCPHistoryState_Object((1,3,6,1,4,1,321,100,1,7,4,4,1,2),_IpadPPPStartIPCPHistoryState_Type())
-ipadPPPStartIPCPHistoryState.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartIPCPHistoryState.setStatus(_A)
-_IpadPPPStartIPCPHistoryStateTime_Type=Integer32
-_IpadPPPStartIPCPHistoryStateTime_Object=MibTableColumn
-ipadPPPStartIPCPHistoryStateTime=_IpadPPPStartIPCPHistoryStateTime_Object((1,3,6,1,4,1,321,100,1,7,4,4,1,3),_IpadPPPStartIPCPHistoryStateTime_Type())
-ipadPPPStartIPCPHistoryStateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadPPPStartIPCPHistoryStateTime.setStatus(_A)
-ipadPPPStartAuthFailureTrap=NotificationType((1,3,6,1,4,1,321,100,1,999,0,25050))
-ipadPPPStartAuthFailureTrap.setObjects((_D,_Z))
-if mibBuilder.loadTexts:ipadPPPStartAuthFailureTrap.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'ipadIPStart':ipadIPStart,'ipadPPPStartTable':ipadPPPStartTable,'ipadPPPStartTableEntry':ipadPPPStartTableEntry,_V:ipadPPPStartService,'ipadPPPStartLCPState':ipadPPPStartLCPState,'ipadPPPStartLCPStateTime':ipadPPPStartLCPStateTime,'ipadPPPStartLCPStateChanges':ipadPPPStartLCPStateChanges,'ipadPPPStartLCPMRU':ipadPPPStartLCPMRU,'ipadPPPStartLCPAsyncCCM':ipadPPPStartLCPAsyncCCM,'ipadPPPStartLCPAuthProtocol':ipadPPPStartLCPAuthProtocol,'ipadPPPStartLCPQualityProtocol':ipadPPPStartLCPQualityProtocol,'ipadPPPStartLCPMagicNumber':ipadPPPStartLCPMagicNumber,'ipadPPPStartLCPPFC':ipadPPPStartLCPPFC,'ipadPPPStartLCPACFC':ipadPPPStartLCPACFC,'ipadPPPStartLCPFCSAlternatives':ipadPPPStartLCPFCSAlternatives,'ipadPPPStartLCPSDP':ipadPPPStartLCPSDP,'ipadPPPStartLCPCompoundFrames':ipadPPPStartLCPCompoundFrames,'ipadPPPStartAuthState':ipadPPPStartAuthState,'ipadPPPStartAuthStateTime':ipadPPPStartAuthStateTime,'ipadPPPStartAuthStateChanges':ipadPPPStartAuthStateChanges,_Z:ipadPPPStartAuthFailureCount,'ipadPPPStartAuthFailureTrapEnable':ipadPPPStartAuthFailureTrapEnable,'ipadPPPStartIPCPState':ipadPPPStartIPCPState,'ipadPPPStartIPCPStateTime':ipadPPPStartIPCPStateTime,'ipadPPPStartIPCPStateChanges':ipadPPPStartIPCPStateChanges,'ipadPPPStartIPCPIPSource':ipadPPPStartIPCPIPSource,'ipadPPPStartIPCPIPDestAddress':ipadPPPStartIPCPIPDestAddress,'ipadPPPStartIPCPCompressionProtocol':ipadPPPStartIPCPCompressionProtocol,'ipadPPPStartLCPHistoryTable':ipadPPPStartLCPHistoryTable,'ipadPPPStartLCPHistoryTableEntry':ipadPPPStartLCPHistoryTableEntry,_W:ipadPPPStartLCPHistoryIndex,'ipadPPPStartLCPHistoryState':ipadPPPStartLCPHistoryState,'ipadPPPStartLCPHistoryStateTime':ipadPPPStartLCPHistoryStateTime,'ipadPPPStartAuthHistoryTable':ipadPPPStartAuthHistoryTable,'ipadPPPStartAuthHistoryTableEntry':ipadPPPStartAuthHistoryTableEntry,_X:ipadPPPStartAuthHistoryIndex,'ipadPPPStartAuthHistoryState':ipadPPPStartAuthHistoryState,'ipadPPPStartAuthHistoryStateTime':ipadPPPStartAuthHistoryStateTime,'ipadPPPStartIPCPHistoryTable':ipadPPPStartIPCPHistoryTable,'ipadPPPStartIPCPHistoryTableEntry':ipadPPPStartIPCPHistoryTableEntry,_Y:ipadPPPStartIPCPHistoryIndex,'ipadPPPStartIPCPHistoryState':ipadPPPStartIPCPHistoryState,'ipadPPPStartIPCPHistoryStateTime':ipadPPPStartIPCPHistoryStateTime,'ipadPPPStartAuthFailureTrap':ipadPPPStartAuthFailureTrap})
+#
+# PySNMP MIB module IPAD-IPSTART-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zhone/IPAD-IPSTART-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ipadServiceIndex, ipadTrapsPrefix, ipadPPP = mibBuilder.importSymbols("IPADv2-MIB", "ipadServiceIndex", "ipadTrapsPrefix", "ipadPPP")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ipadIPStart = ModuleIdentity((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4))
+if mibBuilder.loadTexts: ipadIPStart.setLastUpdated('0008180000Z')
+if mibBuilder.loadTexts: ipadIPStart.setOrganization('Verilink Corporation')
+ipadPPPStartTable = MibTable((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1), )
+if mibBuilder.loadTexts: ipadPPPStartTable.setStatus('current')
+ipadPPPStartTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1), ).setIndexNames((0, "IPAD-IPSTART-MIB", "ipadPPPStartService"))
+if mibBuilder.loadTexts: ipadPPPStartTableEntry.setStatus('current')
+ipadPPPStartService = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartService.setStatus('current')
+ipadPPPStartLCPState = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("initial", 1), ("starting", 2), ("closed", 3), ("stopped", 4), ("closing", 5), ("stopping", 6), ("reqSent", 7), ("ackRcvd", 8), ("ackSent", 9), ("opened", 10)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPState.setStatus('current')
+ipadPPPStartLCPStateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPStateTime.setStatus('current')
+ipadPPPStartLCPStateChanges = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPStateChanges.setStatus('current')
+ipadPPPStartLCPMRU = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPMRU.setStatus('current')
+ipadPPPStartLCPAsyncCCM = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPAsyncCCM.setStatus('current')
+ipadPPPStartLCPAuthProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("unknown", 1), ("other", 2), ("pap", 3), ("chap", 4), ("spap", 5), ("eap", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPAuthProtocol.setStatus('current')
+ipadPPPStartLCPQualityProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("other", 2), ("lqr", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPQualityProtocol.setStatus('current')
+ipadPPPStartLCPMagicNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPMagicNumber.setStatus('current')
+ipadPPPStartLCPPFC = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPPFC.setStatus('current')
+ipadPPPStartLCPACFC = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPACFC.setStatus('current')
+ipadPPPStartLCPFCSAlternatives = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 1), ("other", 2), ("nullFCS", 3), ("ccitt16bitFCS", 4), ("ccitt32bitFCS", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPFCSAlternatives.setStatus('current')
+ipadPPPStartLCPSDP = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPSDP.setStatus('current')
+ipadPPPStartLCPCompoundFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPCompoundFrames.setStatus('current')
+ipadPPPStartAuthState = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("initial", 1), ("starting", 2), ("closed", 3), ("stopped", 4), ("closing", 5), ("stopping", 6), ("reqSent", 7), ("ackRcvd", 8), ("ackSent", 9), ("opened", 10)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartAuthState.setStatus('current')
+ipadPPPStartAuthStateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 16), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartAuthStateTime.setStatus('current')
+ipadPPPStartAuthStateChanges = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartAuthStateChanges.setStatus('current')
+ipadPPPStartAuthFailureCount = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 18), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartAuthFailureCount.setStatus('current')
+ipadPPPStartAuthFailureTrapEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipadPPPStartAuthFailureTrapEnable.setStatus('current')
+ipadPPPStartIPCPState = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("initial", 1), ("starting", 2), ("closed", 3), ("stopped", 4), ("closing", 5), ("stopping", 6), ("reqSent", 7), ("ackRcvd", 8), ("ackSent", 9), ("opened", 10)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartIPCPState.setStatus('current')
+ipadPPPStartIPCPStateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 21), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartIPCPStateTime.setStatus('current')
+ipadPPPStartIPCPStateChanges = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 22), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartIPCPStateChanges.setStatus('current')
+ipadPPPStartIPCPIPSource = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 23), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartIPCPIPSource.setStatus('current')
+ipadPPPStartIPCPIPDestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 24), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartIPCPIPDestAddress.setStatus('current')
+ipadPPPStartIPCPCompressionProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 1, 1, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 1), ("other", 2), ("regularIPdata", 3), ("compressedTCP", 4), ("uncompressedTCP", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartIPCPCompressionProtocol.setStatus('current')
+ipadPPPStartLCPHistoryTable = MibTable((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 2), )
+if mibBuilder.loadTexts: ipadPPPStartLCPHistoryTable.setStatus('current')
+ipadPPPStartLCPHistoryTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 2, 1), ).setIndexNames((0, "IPADv2-MIB", "ipadServiceIndex"), (0, "IPAD-IPSTART-MIB", "ipadPPPStartLCPHistoryIndex"))
+if mibBuilder.loadTexts: ipadPPPStartLCPHistoryTableEntry.setStatus('current')
+ipadPPPStartLCPHistoryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPHistoryIndex.setStatus('current')
+ipadPPPStartLCPHistoryState = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("initial", 1), ("starting", 2), ("closed", 3), ("stopped", 4), ("closing", 5), ("stopping", 6), ("reqSent", 7), ("ackRcvd", 8), ("ackSent", 9), ("opened", 10)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPHistoryState.setStatus('current')
+ipadPPPStartLCPHistoryStateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartLCPHistoryStateTime.setStatus('current')
+ipadPPPStartAuthHistoryTable = MibTable((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 3), )
+if mibBuilder.loadTexts: ipadPPPStartAuthHistoryTable.setStatus('current')
+ipadPPPStartAuthHistoryTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 3, 1), ).setIndexNames((0, "IPADv2-MIB", "ipadServiceIndex"), (0, "IPAD-IPSTART-MIB", "ipadPPPStartAuthHistoryIndex"))
+if mibBuilder.loadTexts: ipadPPPStartAuthHistoryTableEntry.setStatus('current')
+ipadPPPStartAuthHistoryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartAuthHistoryIndex.setStatus('current')
+ipadPPPStartAuthHistoryState = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("initial", 1), ("starting", 2), ("closed", 3), ("stopped", 4), ("closing", 5), ("stopping", 6), ("reqSent", 7), ("ackRcvd", 8), ("ackSent", 9), ("opened", 10)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartAuthHistoryState.setStatus('current')
+ipadPPPStartAuthHistoryStateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 3, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartAuthHistoryStateTime.setStatus('current')
+ipadPPPStartIPCPHistoryTable = MibTable((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 4), )
+if mibBuilder.loadTexts: ipadPPPStartIPCPHistoryTable.setStatus('current')
+ipadPPPStartIPCPHistoryTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 4, 1), ).setIndexNames((0, "IPADv2-MIB", "ipadServiceIndex"), (0, "IPAD-IPSTART-MIB", "ipadPPPStartIPCPHistoryIndex"))
+if mibBuilder.loadTexts: ipadPPPStartIPCPHistoryTableEntry.setStatus('current')
+ipadPPPStartIPCPHistoryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 4, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartIPCPHistoryIndex.setStatus('current')
+ipadPPPStartIPCPHistoryState = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("initial", 1), ("starting", 2), ("closed", 3), ("stopped", 4), ("closing", 5), ("stopping", 6), ("reqSent", 7), ("ackRcvd", 8), ("ackSent", 9), ("opened", 10)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartIPCPHistoryState.setStatus('current')
+ipadPPPStartIPCPHistoryStateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 7, 4, 4, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadPPPStartIPCPHistoryStateTime.setStatus('current')
+ipadPPPStartAuthFailureTrap = NotificationType((1, 3, 6, 1, 4, 1, 321, 100, 1, 999, 0, 25050)).setObjects(("IPAD-IPSTART-MIB", "ipadPPPStartAuthFailureCount"))
+if mibBuilder.loadTexts: ipadPPPStartAuthFailureTrap.setStatus('current')
+mibBuilder.exportSymbols("IPAD-IPSTART-MIB", ipadPPPStartIPCPIPDestAddress=ipadPPPStartIPCPIPDestAddress, ipadPPPStartLCPFCSAlternatives=ipadPPPStartLCPFCSAlternatives, ipadPPPStartAuthHistoryIndex=ipadPPPStartAuthHistoryIndex, ipadPPPStartIPCPHistoryState=ipadPPPStartIPCPHistoryState, ipadPPPStartService=ipadPPPStartService, ipadPPPStartLCPState=ipadPPPStartLCPState, ipadPPPStartLCPMagicNumber=ipadPPPStartLCPMagicNumber, ipadPPPStartLCPHistoryState=ipadPPPStartLCPHistoryState, ipadPPPStartIPCPStateChanges=ipadPPPStartIPCPStateChanges, ipadPPPStartAuthStateTime=ipadPPPStartAuthStateTime, ipadPPPStartAuthHistoryState=ipadPPPStartAuthHistoryState, ipadPPPStartLCPHistoryStateTime=ipadPPPStartLCPHistoryStateTime, ipadPPPStartIPCPCompressionProtocol=ipadPPPStartIPCPCompressionProtocol, ipadPPPStartAuthStateChanges=ipadPPPStartAuthStateChanges, ipadPPPStartIPCPState=ipadPPPStartIPCPState, ipadPPPStartLCPAuthProtocol=ipadPPPStartLCPAuthProtocol, ipadPPPStartAuthFailureTrap=ipadPPPStartAuthFailureTrap, ipadPPPStartAuthHistoryTableEntry=ipadPPPStartAuthHistoryTableEntry, ipadPPPStartIPCPHistoryStateTime=ipadPPPStartIPCPHistoryStateTime, ipadPPPStartTableEntry=ipadPPPStartTableEntry, ipadPPPStartIPCPStateTime=ipadPPPStartIPCPStateTime, ipadPPPStartIPCPHistoryIndex=ipadPPPStartIPCPHistoryIndex, ipadPPPStartLCPHistoryTable=ipadPPPStartLCPHistoryTable, ipadPPPStartIPCPHistoryTable=ipadPPPStartIPCPHistoryTable, ipadPPPStartTable=ipadPPPStartTable, ipadPPPStartLCPMRU=ipadPPPStartLCPMRU, ipadPPPStartLCPACFC=ipadPPPStartLCPACFC, ipadIPStart=ipadIPStart, ipadPPPStartLCPCompoundFrames=ipadPPPStartLCPCompoundFrames, PYSNMP_MODULE_ID=ipadIPStart, ipadPPPStartAuthFailureCount=ipadPPPStartAuthFailureCount, ipadPPPStartLCPPFC=ipadPPPStartLCPPFC, ipadPPPStartAuthHistoryStateTime=ipadPPPStartAuthHistoryStateTime, ipadPPPStartLCPHistoryTableEntry=ipadPPPStartLCPHistoryTableEntry, ipadPPPStartLCPStateTime=ipadPPPStartLCPStateTime, ipadPPPStartLCPAsyncCCM=ipadPPPStartLCPAsyncCCM, ipadPPPStartLCPStateChanges=ipadPPPStartLCPStateChanges, ipadPPPStartIPCPIPSource=ipadPPPStartIPCPIPSource, ipadPPPStartAuthState=ipadPPPStartAuthState, ipadPPPStartLCPHistoryIndex=ipadPPPStartLCPHistoryIndex, ipadPPPStartAuthFailureTrapEnable=ipadPPPStartAuthFailureTrapEnable, ipadPPPStartLCPQualityProtocol=ipadPPPStartLCPQualityProtocol, ipadPPPStartIPCPHistoryTableEntry=ipadPPPStartIPCPHistoryTableEntry, ipadPPPStartAuthHistoryTable=ipadPPPStartAuthHistoryTable, ipadPPPStartLCPSDP=ipadPPPStartLCPSDP)

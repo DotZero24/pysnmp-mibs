@@ -1,65 +1,46 @@
-_F='eltPnacAuthSessionEntry'
-_E='eltMesIssDot1xAuthConfigEntry'
-_D='Integer32'
-_C='ELTEX-MES-ISS-PNAC-MIB'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsPnacAuthSessionEntry,=mibBuilder.importSymbols('ARICENT-PNAC-MIB','fsPnacAuthSessionEntry')
-eltMesIss,=mibBuilder.importSymbols('ELTEX-MES-ISS-MIB','eltMesIss')
-dot1xAuthConfigEntry,=mibBuilder.importSymbols('IEEE8021-PAE-MIB','dot1xAuthConfigEntry')
-VlanId,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanId')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-eltMesIssPnacMIB=ModuleIdentity((1,3,6,1,4,1,35265,1,139,31))
-if mibBuilder.loadTexts:eltMesIssPnacMIB.setRevisions(('2022-08-29 00:00','2022-06-20 00:00','2022-05-04 00:00'))
-_EltMesIssPnacObjects_ObjectIdentity=ObjectIdentity
-eltMesIssPnacObjects=_EltMesIssPnacObjects_ObjectIdentity((1,3,6,1,4,1,35265,1,139,31,1))
-_EltMesIssDot1xGlobals_ObjectIdentity=ObjectIdentity
-eltMesIssDot1xGlobals=_EltMesIssDot1xGlobals_ObjectIdentity((1,3,6,1,4,1,35265,1,139,31,1,1))
-_EltMesIssDot1xPortConfig_ObjectIdentity=ObjectIdentity
-eltMesIssDot1xPortConfig=_EltMesIssDot1xPortConfig_ObjectIdentity((1,3,6,1,4,1,35265,1,139,31,1,2))
-_EltMesIssDot1xAuthConfigTable_Object=MibTable
-eltMesIssDot1xAuthConfigTable=_EltMesIssDot1xAuthConfigTable_Object((1,3,6,1,4,1,35265,1,139,31,1,2,1))
-if mibBuilder.loadTexts:eltMesIssDot1xAuthConfigTable.setStatus(_A)
-_EltMesIssDot1xAuthConfigEntry_Object=MibTableRow
-eltMesIssDot1xAuthConfigEntry=_EltMesIssDot1xAuthConfigEntry_Object((1,3,6,1,4,1,35265,1,139,31,1,2,1,1))
-if mibBuilder.loadTexts:eltMesIssDot1xAuthConfigEntry.setStatus(_A)
-_EltMesIssDot1xGuestVlanId_Type=VlanId
-_EltMesIssDot1xGuestVlanId_Object=MibTableColumn
-eltMesIssDot1xGuestVlanId=_EltMesIssDot1xGuestVlanId_Object((1,3,6,1,4,1,35265,1,139,31,1,2,1,1,1),_EltMesIssDot1xGuestVlanId_Type())
-eltMesIssDot1xGuestVlanId.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssDot1xGuestVlanId.setStatus(_A)
-_EltMesIssDot1xUnauthenticatedVlanId_Type=VlanId
-_EltMesIssDot1xUnauthenticatedVlanId_Object=MibTableColumn
-eltMesIssDot1xUnauthenticatedVlanId=_EltMesIssDot1xUnauthenticatedVlanId_Object((1,3,6,1,4,1,35265,1,139,31,1,2,1,1,2),_EltMesIssDot1xUnauthenticatedVlanId_Type())
-eltMesIssDot1xUnauthenticatedVlanId.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssDot1xUnauthenticatedVlanId.setStatus(_A)
-class _EltMesIssDot1xRadiusAttrVlanIdAction_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('ignore',1),('mandatory',2),('optional',3)))
-_EltMesIssDot1xRadiusAttrVlanIdAction_Type.__name__=_D
-_EltMesIssDot1xRadiusAttrVlanIdAction_Object=MibTableColumn
-eltMesIssDot1xRadiusAttrVlanIdAction=_EltMesIssDot1xRadiusAttrVlanIdAction_Object((1,3,6,1,4,1,35265,1,139,31,1,2,1,1,3),_EltMesIssDot1xRadiusAttrVlanIdAction_Type())
-eltMesIssDot1xRadiusAttrVlanIdAction.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssDot1xRadiusAttrVlanIdAction.setStatus(_A)
-_EltMesIssDot1xAuthSession_ObjectIdentity=ObjectIdentity
-eltMesIssDot1xAuthSession=_EltMesIssDot1xAuthSession_ObjectIdentity((1,3,6,1,4,1,35265,1,139,31,1,3))
-_EltPnacAuthSessionTable_Object=MibTable
-eltPnacAuthSessionTable=_EltPnacAuthSessionTable_Object((1,3,6,1,4,1,35265,1,139,31,1,3,1))
-if mibBuilder.loadTexts:eltPnacAuthSessionTable.setStatus(_A)
-_EltPnacAuthSessionEntry_Object=MibTableRow
-eltPnacAuthSessionEntry=_EltPnacAuthSessionEntry_Object((1,3,6,1,4,1,35265,1,139,31,1,3,1,1))
-if mibBuilder.loadTexts:eltPnacAuthSessionEntry.setStatus(_A)
-_EltPnacAuthSessionCurrentVlanId_Type=VlanId
-_EltPnacAuthSessionCurrentVlanId_Object=MibTableColumn
-eltPnacAuthSessionCurrentVlanId=_EltPnacAuthSessionCurrentVlanId_Object((1,3,6,1,4,1,35265,1,139,31,1,3,1,1,1),_EltPnacAuthSessionCurrentVlanId_Type())
-eltPnacAuthSessionCurrentVlanId.setMaxAccess('read-only')
-if mibBuilder.loadTexts:eltPnacAuthSessionCurrentVlanId.setStatus(_A)
-dot1xAuthConfigEntry.registerAugmentions((_C,_E))
+#
+# PySNMP MIB module ELTEX-MES-ISS-PNAC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-MES-ISS-PNAC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+fsPnacAuthSessionEntry, = mibBuilder.importSymbols("ARICENT-PNAC-MIB", "fsPnacAuthSessionEntry")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltMesIss, = mibBuilder.importSymbols("ELTEX-MES-ISS-MIB", "eltMesIss")
+dot1xAuthConfigEntry, = mibBuilder.importSymbols("IEEE8021-PAE-MIB", "dot1xAuthConfigEntry")
+VlanId, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+eltMesIssPnacMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 139, 31))
+eltMesIssPnacMIB.setRevisions(('2022-08-29 00:00', '2022-06-20 00:00', '2022-05-04 00:00',))
+if mibBuilder.loadTexts: eltMesIssPnacMIB.setLastUpdated('202303020000Z')
+if mibBuilder.loadTexts: eltMesIssPnacMIB.setOrganization('Eltex Enterprise, Ltd.')
+eltMesIssPnacObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 31, 1))
+eltMesIssDot1xGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 31, 1, 1))
+eltMesIssDot1xPortConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 31, 1, 2))
+eltMesIssDot1xAuthSession = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 31, 1, 3))
+eltMesIssDot1xAuthConfigTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 139, 31, 1, 2, 1), )
+if mibBuilder.loadTexts: eltMesIssDot1xAuthConfigTable.setStatus('current')
+eltMesIssDot1xAuthConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 139, 31, 1, 2, 1, 1), )
+dot1xAuthConfigEntry.registerAugmentions(("ELTEX-MES-ISS-PNAC-MIB", "eltMesIssDot1xAuthConfigEntry"))
 eltMesIssDot1xAuthConfigEntry.setIndexNames(*dot1xAuthConfigEntry.getIndexNames())
-fsPnacAuthSessionEntry.registerAugmentions((_C,_F))
+if mibBuilder.loadTexts: eltMesIssDot1xAuthConfigEntry.setStatus('current')
+eltMesIssDot1xGuestVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 31, 1, 2, 1, 1, 1), VlanId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssDot1xGuestVlanId.setStatus('current')
+eltMesIssDot1xUnauthenticatedVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 31, 1, 2, 1, 1, 2), VlanId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssDot1xUnauthenticatedVlanId.setStatus('current')
+eltMesIssDot1xRadiusAttrVlanIdAction = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 31, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ignore", 1), ("mandatory", 2), ("optional", 3))).clone('ignore')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssDot1xRadiusAttrVlanIdAction.setStatus('current')
+eltPnacAuthSessionTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 139, 31, 1, 3, 1), )
+if mibBuilder.loadTexts: eltPnacAuthSessionTable.setStatus('current')
+eltPnacAuthSessionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 139, 31, 1, 3, 1, 1), )
+fsPnacAuthSessionEntry.registerAugmentions(("ELTEX-MES-ISS-PNAC-MIB", "eltPnacAuthSessionEntry"))
 eltPnacAuthSessionEntry.setIndexNames(*fsPnacAuthSessionEntry.getIndexNames())
-mibBuilder.exportSymbols(_C,**{'eltMesIssPnacMIB':eltMesIssPnacMIB,'eltMesIssPnacObjects':eltMesIssPnacObjects,'eltMesIssDot1xGlobals':eltMesIssDot1xGlobals,'eltMesIssDot1xPortConfig':eltMesIssDot1xPortConfig,'eltMesIssDot1xAuthConfigTable':eltMesIssDot1xAuthConfigTable,_E:eltMesIssDot1xAuthConfigEntry,'eltMesIssDot1xGuestVlanId':eltMesIssDot1xGuestVlanId,'eltMesIssDot1xUnauthenticatedVlanId':eltMesIssDot1xUnauthenticatedVlanId,'eltMesIssDot1xRadiusAttrVlanIdAction':eltMesIssDot1xRadiusAttrVlanIdAction,'eltMesIssDot1xAuthSession':eltMesIssDot1xAuthSession,'eltPnacAuthSessionTable':eltPnacAuthSessionTable,_F:eltPnacAuthSessionEntry,'eltPnacAuthSessionCurrentVlanId':eltPnacAuthSessionCurrentVlanId})
+if mibBuilder.loadTexts: eltPnacAuthSessionEntry.setStatus('current')
+eltPnacAuthSessionCurrentVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 31, 1, 3, 1, 1, 1), VlanId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltPnacAuthSessionCurrentVlanId.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-MES-ISS-PNAC-MIB", eltPnacAuthSessionEntry=eltPnacAuthSessionEntry, eltPnacAuthSessionCurrentVlanId=eltPnacAuthSessionCurrentVlanId, eltMesIssDot1xAuthConfigEntry=eltMesIssDot1xAuthConfigEntry, eltMesIssDot1xPortConfig=eltMesIssDot1xPortConfig, eltMesIssPnacMIB=eltMesIssPnacMIB, eltMesIssDot1xGuestVlanId=eltMesIssDot1xGuestVlanId, eltPnacAuthSessionTable=eltPnacAuthSessionTable, PYSNMP_MODULE_ID=eltMesIssPnacMIB, eltMesIssDot1xGlobals=eltMesIssDot1xGlobals, eltMesIssDot1xAuthSession=eltMesIssDot1xAuthSession, eltMesIssDot1xRadiusAttrVlanIdAction=eltMesIssDot1xRadiusAttrVlanIdAction, eltMesIssPnacObjects=eltMesIssPnacObjects, eltMesIssDot1xUnauthenticatedVlanId=eltMesIssDot1xUnauthenticatedVlanId, eltMesIssDot1xAuthConfigTable=eltMesIssDot1xAuthConfigTable)

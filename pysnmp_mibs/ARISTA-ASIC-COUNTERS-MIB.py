@@ -1,114 +1,61 @@
-_R='aristaAsicCountersMibDropTableGroup'
-_Q='aristaAsicCountersMibDropScalarGroup'
-_P='aristaAsicInternalDropStatsLastTime'
-_O='aristaAsicInternalDropStatsFirstTime'
-_N='aristaAsicInternalDropStats1Week'
-_M='aristaAsicInternalDropStats1Day'
-_L='aristaAsicInternalDropStats1Hr'
-_K='aristaAsicInternalDropStats10Min'
-_J='aristaAsicInternalDropStats1Min'
-_I='aristaAsicInternalDropStatsCount'
-_H='aristaAsicInternalDropStatsRatesSupported'
-_G='not-accessible'
-_F='aristaAsicInternalDropStatsCounterName'
-_E='aristaAsicInternalDropStatsChipName'
-_D='DisplayString'
-_C='read-only'
-_B='ARISTA-ASIC-COUNTERS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-aristaMibs,=mibBuilder.importSymbols('ARISTA-SMI-MIB','aristaMibs')
-CounterBasedGauge64,=mibBuilder.importSymbols('HCNUM-TC','CounterBasedGauge64')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention','TimeStamp')
-aristaAsicCountersMIB=ModuleIdentity((1,3,6,1,4,1,30065,3,29))
-if mibBuilder.loadTexts:aristaAsicCountersMIB.setRevisions(('2021-02-03 00:00',))
-_AristaAsicCountersMibNotifications_ObjectIdentity=ObjectIdentity
-aristaAsicCountersMibNotifications=_AristaAsicCountersMibNotifications_ObjectIdentity((1,3,6,1,4,1,30065,3,29,0))
-_AristaAsicCountersMibObjects_ObjectIdentity=ObjectIdentity
-aristaAsicCountersMibObjects=_AristaAsicCountersMibObjects_ObjectIdentity((1,3,6,1,4,1,30065,3,29,1))
-class _AristaAsicInternalDropStatsRatesSupported_Type(Bits):namedValues=NamedValues(*(('last1Min',0),('last10Min',1),('last1Hr',2),('last1Day',3),('last1Week',4)))
-_AristaAsicInternalDropStatsRatesSupported_Type.__name__='Bits'
-_AristaAsicInternalDropStatsRatesSupported_Object=MibScalar
-aristaAsicInternalDropStatsRatesSupported=_AristaAsicInternalDropStatsRatesSupported_Object((1,3,6,1,4,1,30065,3,29,1,1),_AristaAsicInternalDropStatsRatesSupported_Type())
-aristaAsicInternalDropStatsRatesSupported.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaAsicInternalDropStatsRatesSupported.setStatus(_A)
-_AristaAsicInternalDropStatsTable_Object=MibTable
-aristaAsicInternalDropStatsTable=_AristaAsicInternalDropStatsTable_Object((1,3,6,1,4,1,30065,3,29,1,2))
-if mibBuilder.loadTexts:aristaAsicInternalDropStatsTable.setStatus(_A)
-_AristaAsicInternalDropStatsEntry_Object=MibTableRow
-aristaAsicInternalDropStatsEntry=_AristaAsicInternalDropStatsEntry_Object((1,3,6,1,4,1,30065,3,29,1,2,1))
-aristaAsicInternalDropStatsEntry.setIndexNames((0,_B,_E),(0,_B,_F))
-if mibBuilder.loadTexts:aristaAsicInternalDropStatsEntry.setStatus(_A)
-class _AristaAsicInternalDropStatsChipName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_AristaAsicInternalDropStatsChipName_Type.__name__=_D
-_AristaAsicInternalDropStatsChipName_Object=MibTableColumn
-aristaAsicInternalDropStatsChipName=_AristaAsicInternalDropStatsChipName_Object((1,3,6,1,4,1,30065,3,29,1,2,1,1),_AristaAsicInternalDropStatsChipName_Type())
-aristaAsicInternalDropStatsChipName.setMaxAccess(_G)
-if mibBuilder.loadTexts:aristaAsicInternalDropStatsChipName.setStatus(_A)
-class _AristaAsicInternalDropStatsCounterName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_AristaAsicInternalDropStatsCounterName_Type.__name__=_D
-_AristaAsicInternalDropStatsCounterName_Object=MibTableColumn
-aristaAsicInternalDropStatsCounterName=_AristaAsicInternalDropStatsCounterName_Object((1,3,6,1,4,1,30065,3,29,1,2,1,2),_AristaAsicInternalDropStatsCounterName_Type())
-aristaAsicInternalDropStatsCounterName.setMaxAccess(_G)
-if mibBuilder.loadTexts:aristaAsicInternalDropStatsCounterName.setStatus(_A)
-_AristaAsicInternalDropStatsCount_Type=Counter64
-_AristaAsicInternalDropStatsCount_Object=MibTableColumn
-aristaAsicInternalDropStatsCount=_AristaAsicInternalDropStatsCount_Object((1,3,6,1,4,1,30065,3,29,1,2,1,3),_AristaAsicInternalDropStatsCount_Type())
-aristaAsicInternalDropStatsCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaAsicInternalDropStatsCount.setStatus(_A)
-_AristaAsicInternalDropStats1Min_Type=CounterBasedGauge64
-_AristaAsicInternalDropStats1Min_Object=MibTableColumn
-aristaAsicInternalDropStats1Min=_AristaAsicInternalDropStats1Min_Object((1,3,6,1,4,1,30065,3,29,1,2,1,4),_AristaAsicInternalDropStats1Min_Type())
-aristaAsicInternalDropStats1Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaAsicInternalDropStats1Min.setStatus(_A)
-_AristaAsicInternalDropStats10Min_Type=CounterBasedGauge64
-_AristaAsicInternalDropStats10Min_Object=MibTableColumn
-aristaAsicInternalDropStats10Min=_AristaAsicInternalDropStats10Min_Object((1,3,6,1,4,1,30065,3,29,1,2,1,5),_AristaAsicInternalDropStats10Min_Type())
-aristaAsicInternalDropStats10Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaAsicInternalDropStats10Min.setStatus(_A)
-_AristaAsicInternalDropStats1Hr_Type=CounterBasedGauge64
-_AristaAsicInternalDropStats1Hr_Object=MibTableColumn
-aristaAsicInternalDropStats1Hr=_AristaAsicInternalDropStats1Hr_Object((1,3,6,1,4,1,30065,3,29,1,2,1,6),_AristaAsicInternalDropStats1Hr_Type())
-aristaAsicInternalDropStats1Hr.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaAsicInternalDropStats1Hr.setStatus(_A)
-_AristaAsicInternalDropStats1Day_Type=CounterBasedGauge64
-_AristaAsicInternalDropStats1Day_Object=MibTableColumn
-aristaAsicInternalDropStats1Day=_AristaAsicInternalDropStats1Day_Object((1,3,6,1,4,1,30065,3,29,1,2,1,7),_AristaAsicInternalDropStats1Day_Type())
-aristaAsicInternalDropStats1Day.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaAsicInternalDropStats1Day.setStatus(_A)
-_AristaAsicInternalDropStats1Week_Type=CounterBasedGauge64
-_AristaAsicInternalDropStats1Week_Object=MibTableColumn
-aristaAsicInternalDropStats1Week=_AristaAsicInternalDropStats1Week_Object((1,3,6,1,4,1,30065,3,29,1,2,1,8),_AristaAsicInternalDropStats1Week_Type())
-aristaAsicInternalDropStats1Week.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaAsicInternalDropStats1Week.setStatus(_A)
-_AristaAsicInternalDropStatsFirstTime_Type=TimeStamp
-_AristaAsicInternalDropStatsFirstTime_Object=MibTableColumn
-aristaAsicInternalDropStatsFirstTime=_AristaAsicInternalDropStatsFirstTime_Object((1,3,6,1,4,1,30065,3,29,1,2,1,9),_AristaAsicInternalDropStatsFirstTime_Type())
-aristaAsicInternalDropStatsFirstTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaAsicInternalDropStatsFirstTime.setStatus(_A)
-_AristaAsicInternalDropStatsLastTime_Type=TimeStamp
-_AristaAsicInternalDropStatsLastTime_Object=MibTableColumn
-aristaAsicInternalDropStatsLastTime=_AristaAsicInternalDropStatsLastTime_Object((1,3,6,1,4,1,30065,3,29,1,2,1,10),_AristaAsicInternalDropStatsLastTime_Type())
-aristaAsicInternalDropStatsLastTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:aristaAsicInternalDropStatsLastTime.setStatus(_A)
-_AristaAsicCountersMibConformance_ObjectIdentity=ObjectIdentity
-aristaAsicCountersMibConformance=_AristaAsicCountersMibConformance_ObjectIdentity((1,3,6,1,4,1,30065,3,29,2))
-_AristaAsicCountersMibCompliances_ObjectIdentity=ObjectIdentity
-aristaAsicCountersMibCompliances=_AristaAsicCountersMibCompliances_ObjectIdentity((1,3,6,1,4,1,30065,3,29,2,1))
-_AristaAsicCountersMibGroups_ObjectIdentity=ObjectIdentity
-aristaAsicCountersMibGroups=_AristaAsicCountersMibGroups_ObjectIdentity((1,3,6,1,4,1,30065,3,29,2,2))
-aristaAsicCountersMibDropScalarGroup=ObjectGroup((1,3,6,1,4,1,30065,3,29,2,2,1))
-aristaAsicCountersMibDropScalarGroup.setObjects((_B,_H))
-if mibBuilder.loadTexts:aristaAsicCountersMibDropScalarGroup.setStatus(_A)
-aristaAsicCountersMibDropTableGroup=ObjectGroup((1,3,6,1,4,1,30065,3,29,2,2,2))
-aristaAsicCountersMibDropTableGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:aristaAsicCountersMibDropTableGroup.setStatus(_A)
-aristaAsicCountersMibCompliance=ModuleCompliance((1,3,6,1,4,1,30065,3,29,2,1,1))
-aristaAsicCountersMibCompliance.setObjects(*((_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:aristaAsicCountersMibCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'aristaAsicCountersMIB':aristaAsicCountersMIB,'aristaAsicCountersMibNotifications':aristaAsicCountersMibNotifications,'aristaAsicCountersMibObjects':aristaAsicCountersMibObjects,_H:aristaAsicInternalDropStatsRatesSupported,'aristaAsicInternalDropStatsTable':aristaAsicInternalDropStatsTable,'aristaAsicInternalDropStatsEntry':aristaAsicInternalDropStatsEntry,_E:aristaAsicInternalDropStatsChipName,_F:aristaAsicInternalDropStatsCounterName,_I:aristaAsicInternalDropStatsCount,_J:aristaAsicInternalDropStats1Min,_K:aristaAsicInternalDropStats10Min,_L:aristaAsicInternalDropStats1Hr,_M:aristaAsicInternalDropStats1Day,_N:aristaAsicInternalDropStats1Week,_O:aristaAsicInternalDropStatsFirstTime,_P:aristaAsicInternalDropStatsLastTime,'aristaAsicCountersMibConformance':aristaAsicCountersMibConformance,'aristaAsicCountersMibCompliances':aristaAsicCountersMibCompliances,'aristaAsicCountersMibCompliance':aristaAsicCountersMibCompliance,'aristaAsicCountersMibGroups':aristaAsicCountersMibGroups,_Q:aristaAsicCountersMibDropScalarGroup,_R:aristaAsicCountersMibDropTableGroup})
+#
+# PySNMP MIB module ARISTA-ASIC-COUNTERS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/arista/ARISTA-ASIC-COUNTERS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+aristaAsicCountersMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 29))
+aristaAsicCountersMIB.setRevisions(('2021-02-03 00:00',))
+if mibBuilder.loadTexts: aristaAsicCountersMIB.setLastUpdated('202102030000Z')
+if mibBuilder.loadTexts: aristaAsicCountersMIB.setOrganization('Arista Networks, Inc.')
+aristaAsicCountersMibNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 29, 0))
+aristaAsicCountersMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 29, 1))
+aristaAsicCountersMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 29, 2))
+aristaAsicInternalDropStatsRatesSupported = MibScalar((1, 3, 6, 1, 4, 1, 30065, 3, 29, 1, 1), Bits().clone(namedValues=NamedValues(("last1Min", 0), ("last10Min", 1), ("last1Hr", 2), ("last1Day", 3), ("last1Week", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaAsicInternalDropStatsRatesSupported.setStatus('current')
+aristaAsicInternalDropStatsTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 29, 1, 2), )
+if mibBuilder.loadTexts: aristaAsicInternalDropStatsTable.setStatus('current')
+aristaAsicInternalDropStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 29, 1, 2, 1), ).setIndexNames((0, "ARISTA-ASIC-COUNTERS-MIB", "aristaAsicInternalDropStatsChipName"), (0, "ARISTA-ASIC-COUNTERS-MIB", "aristaAsicInternalDropStatsCounterName"))
+if mibBuilder.loadTexts: aristaAsicInternalDropStatsEntry.setStatus('current')
+aristaAsicInternalDropStatsChipName = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 29, 1, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32)))
+if mibBuilder.loadTexts: aristaAsicInternalDropStatsChipName.setStatus('current')
+aristaAsicInternalDropStatsCounterName = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 29, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64)))
+if mibBuilder.loadTexts: aristaAsicInternalDropStatsCounterName.setStatus('current')
+aristaAsicInternalDropStatsCount = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 29, 1, 2, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaAsicInternalDropStatsCount.setStatus('current')
+aristaAsicInternalDropStats1Min = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 29, 1, 2, 1, 4), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaAsicInternalDropStats1Min.setStatus('current')
+aristaAsicInternalDropStats10Min = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 29, 1, 2, 1, 5), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaAsicInternalDropStats10Min.setStatus('current')
+aristaAsicInternalDropStats1Hr = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 29, 1, 2, 1, 6), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaAsicInternalDropStats1Hr.setStatus('current')
+aristaAsicInternalDropStats1Day = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 29, 1, 2, 1, 7), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaAsicInternalDropStats1Day.setStatus('current')
+aristaAsicInternalDropStats1Week = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 29, 1, 2, 1, 8), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaAsicInternalDropStats1Week.setStatus('current')
+aristaAsicInternalDropStatsFirstTime = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 29, 1, 2, 1, 9), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaAsicInternalDropStatsFirstTime.setStatus('current')
+aristaAsicInternalDropStatsLastTime = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 29, 1, 2, 1, 10), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaAsicInternalDropStatsLastTime.setStatus('current')
+aristaAsicCountersMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 29, 2, 1))
+aristaAsicCountersMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 29, 2, 2))
+aristaAsicCountersMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 30065, 3, 29, 2, 1, 1)).setObjects(("ARISTA-ASIC-COUNTERS-MIB", "aristaAsicCountersMibDropScalarGroup"), ("ARISTA-ASIC-COUNTERS-MIB", "aristaAsicCountersMibDropTableGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaAsicCountersMibCompliance = aristaAsicCountersMibCompliance.setStatus('current')
+aristaAsicCountersMibDropScalarGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 29, 2, 2, 1)).setObjects(("ARISTA-ASIC-COUNTERS-MIB", "aristaAsicInternalDropStatsRatesSupported"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaAsicCountersMibDropScalarGroup = aristaAsicCountersMibDropScalarGroup.setStatus('current')
+aristaAsicCountersMibDropTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 29, 2, 2, 2)).setObjects(("ARISTA-ASIC-COUNTERS-MIB", "aristaAsicInternalDropStatsCount"), ("ARISTA-ASIC-COUNTERS-MIB", "aristaAsicInternalDropStats1Min"), ("ARISTA-ASIC-COUNTERS-MIB", "aristaAsicInternalDropStats10Min"), ("ARISTA-ASIC-COUNTERS-MIB", "aristaAsicInternalDropStats1Hr"), ("ARISTA-ASIC-COUNTERS-MIB", "aristaAsicInternalDropStats1Day"), ("ARISTA-ASIC-COUNTERS-MIB", "aristaAsicInternalDropStats1Week"), ("ARISTA-ASIC-COUNTERS-MIB", "aristaAsicInternalDropStatsFirstTime"), ("ARISTA-ASIC-COUNTERS-MIB", "aristaAsicInternalDropStatsLastTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaAsicCountersMibDropTableGroup = aristaAsicCountersMibDropTableGroup.setStatus('current')
+mibBuilder.exportSymbols("ARISTA-ASIC-COUNTERS-MIB", aristaAsicCountersMibObjects=aristaAsicCountersMibObjects, aristaAsicInternalDropStats1Min=aristaAsicInternalDropStats1Min, aristaAsicCountersMibDropScalarGroup=aristaAsicCountersMibDropScalarGroup, aristaAsicCountersMibGroups=aristaAsicCountersMibGroups, aristaAsicCountersMibCompliances=aristaAsicCountersMibCompliances, aristaAsicInternalDropStatsChipName=aristaAsicInternalDropStatsChipName, aristaAsicCountersMibDropTableGroup=aristaAsicCountersMibDropTableGroup, aristaAsicInternalDropStatsFirstTime=aristaAsicInternalDropStatsFirstTime, aristaAsicInternalDropStats10Min=aristaAsicInternalDropStats10Min, aristaAsicCountersMIB=aristaAsicCountersMIB, aristaAsicInternalDropStatsCount=aristaAsicInternalDropStatsCount, aristaAsicInternalDropStats1Day=aristaAsicInternalDropStats1Day, aristaAsicCountersMibCompliance=aristaAsicCountersMibCompliance, aristaAsicInternalDropStatsRatesSupported=aristaAsicInternalDropStatsRatesSupported, PYSNMP_MODULE_ID=aristaAsicCountersMIB, aristaAsicInternalDropStatsTable=aristaAsicInternalDropStatsTable, aristaAsicCountersMibConformance=aristaAsicCountersMibConformance, aristaAsicInternalDropStatsLastTime=aristaAsicInternalDropStatsLastTime, aristaAsicInternalDropStatsEntry=aristaAsicInternalDropStatsEntry, aristaAsicInternalDropStatsCounterName=aristaAsicInternalDropStatsCounterName, aristaAsicInternalDropStats1Hr=aristaAsicInternalDropStats1Hr, aristaAsicInternalDropStats1Week=aristaAsicInternalDropStats1Week, aristaAsicCountersMibNotifications=aristaAsicCountersMibNotifications)

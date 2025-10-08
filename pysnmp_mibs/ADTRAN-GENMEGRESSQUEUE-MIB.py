@@ -1,160 +1,73 @@
-_M='adGenMEgressQueueCongestionMgmtQueueIndex'
-_L='adGenMEgressQueueSchedulerQueueIndex'
-_K='adGenSlotInfoIndex'
-_J='ADTRAN-GENSLOT-MIB'
-_I='writeToHardwareFailed'
-_H='noError'
-_G='ADTRAN-GENMEGRESSQUEUE-MIB'
-_F='ifIndex'
-_E='IF-MIB'
-_D='read-only'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGenSlotInfoIndex,=mibBuilder.importSymbols(_J,_K)
-adGenMEgressQueue,adGenMEgressQueueID=mibBuilder.importSymbols('ADTRAN-SHARED-CND-SYSTEM-MIB','adGenMEgressQueue','adGenMEgressQueueID')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-adGenMEgressQueueIdentity=ModuleIdentity((1,3,6,1,4,1,664,6,10000,70,36,1))
-if mibBuilder.loadTexts:adGenMEgressQueueIdentity.setRevisions(('2010-11-05 14:13',))
-_AdGenMEgressQueueSchedulerProvisioning_ObjectIdentity=ObjectIdentity
-adGenMEgressQueueSchedulerProvisioning=_AdGenMEgressQueueSchedulerProvisioning_ObjectIdentity((1,3,6,1,4,1,664,5,70,36,1))
-_AdGenMEgressQueueSchedulerTable_Object=MibTable
-adGenMEgressQueueSchedulerTable=_AdGenMEgressQueueSchedulerTable_Object((1,3,6,1,4,1,664,5,70,36,1,1))
-if mibBuilder.loadTexts:adGenMEgressQueueSchedulerTable.setStatus(_A)
-_AdGenMEgressQueueSchedulerEntry_Object=MibTableRow
-adGenMEgressQueueSchedulerEntry=_AdGenMEgressQueueSchedulerEntry_Object((1,3,6,1,4,1,664,5,70,36,1,1,1))
-adGenMEgressQueueSchedulerEntry.setIndexNames((0,_E,_F),(0,_G,_L))
-if mibBuilder.loadTexts:adGenMEgressQueueSchedulerEntry.setStatus(_A)
-_AdGenMEgressQueueSchedulerQueueIndex_Type=Unsigned32
-_AdGenMEgressQueueSchedulerQueueIndex_Object=MibTableColumn
-adGenMEgressQueueSchedulerQueueIndex=_AdGenMEgressQueueSchedulerQueueIndex_Object((1,3,6,1,4,1,664,5,70,36,1,1,1,1),_AdGenMEgressQueueSchedulerQueueIndex_Type())
-adGenMEgressQueueSchedulerQueueIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenMEgressQueueSchedulerQueueIndex.setStatus(_A)
-class _AdGenMEgressQueueSchedulerCos_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_AdGenMEgressQueueSchedulerCos_Type.__name__=_B
-_AdGenMEgressQueueSchedulerCos_Object=MibTableColumn
-adGenMEgressQueueSchedulerCos=_AdGenMEgressQueueSchedulerCos_Object((1,3,6,1,4,1,664,5,70,36,1,1,1,2),_AdGenMEgressQueueSchedulerCos_Type())
-adGenMEgressQueueSchedulerCos.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMEgressQueueSchedulerCos.setStatus(_A)
-class _AdGenMEgressQueueSchedulerWeight_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,101))
-_AdGenMEgressQueueSchedulerWeight_Type.__name__=_B
-_AdGenMEgressQueueSchedulerWeight_Object=MibTableColumn
-adGenMEgressQueueSchedulerWeight=_AdGenMEgressQueueSchedulerWeight_Object((1,3,6,1,4,1,664,5,70,36,1,1,1,3),_AdGenMEgressQueueSchedulerWeight_Type())
-adGenMEgressQueueSchedulerWeight.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMEgressQueueSchedulerWeight.setStatus(_A)
-_AdGenMEgressQueueSchedulerLastError_Type=DisplayString
-_AdGenMEgressQueueSchedulerLastError_Object=MibTableColumn
-adGenMEgressQueueSchedulerLastError=_AdGenMEgressQueueSchedulerLastError_Object((1,3,6,1,4,1,664,5,70,36,1,1,1,4),_AdGenMEgressQueueSchedulerLastError_Type())
-adGenMEgressQueueSchedulerLastError.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenMEgressQueueSchedulerLastError.setStatus(_A)
-class _AdGenMEgressQueueSchedulerErrorCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_H,1),(_I,2),('weightSpreadExceeded',3),('weightExceed100',4)))
-_AdGenMEgressQueueSchedulerErrorCode_Type.__name__=_B
-_AdGenMEgressQueueSchedulerErrorCode_Object=MibTableColumn
-adGenMEgressQueueSchedulerErrorCode=_AdGenMEgressQueueSchedulerErrorCode_Object((1,3,6,1,4,1,664,5,70,36,1,1,1,5),_AdGenMEgressQueueSchedulerErrorCode_Type())
-adGenMEgressQueueSchedulerErrorCode.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenMEgressQueueSchedulerErrorCode.setStatus(_A)
-_AdGenMEgressQueueCongestionMgmtProvisioning_ObjectIdentity=ObjectIdentity
-adGenMEgressQueueCongestionMgmtProvisioning=_AdGenMEgressQueueCongestionMgmtProvisioning_ObjectIdentity((1,3,6,1,4,1,664,5,70,36,2))
-_AdGenMEgressQueueCongestionMgmtWREDTimeConstantTable_Object=MibTable
-adGenMEgressQueueCongestionMgmtWREDTimeConstantTable=_AdGenMEgressQueueCongestionMgmtWREDTimeConstantTable_Object((1,3,6,1,4,1,664,5,70,36,2,1))
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtWREDTimeConstantTable.setStatus(_A)
-_AdGenMEgressQueueCongestionMgmtWREDTimeConstantEntry_Object=MibTableRow
-adGenMEgressQueueCongestionMgmtWREDTimeConstantEntry=_AdGenMEgressQueueCongestionMgmtWREDTimeConstantEntry_Object((1,3,6,1,4,1,664,5,70,36,2,1,1))
-adGenMEgressQueueCongestionMgmtWREDTimeConstantEntry.setIndexNames((0,_J,_K))
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtWREDTimeConstantEntry.setStatus(_A)
-class _AdGenMEgressQueueCongestionMgmtWREDTimeConstant_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('delay2ms',1),('delay4ms',2),('delay8ms',3),('delay16ms',4),('delay32ms',5),('delay62ms',6),('delay125ms',7),('delay250ms',8),('delay500ms',9)))
-_AdGenMEgressQueueCongestionMgmtWREDTimeConstant_Type.__name__=_B
-_AdGenMEgressQueueCongestionMgmtWREDTimeConstant_Object=MibTableColumn
-adGenMEgressQueueCongestionMgmtWREDTimeConstant=_AdGenMEgressQueueCongestionMgmtWREDTimeConstant_Object((1,3,6,1,4,1,664,5,70,36,2,1,1,1),_AdGenMEgressQueueCongestionMgmtWREDTimeConstant_Type())
-adGenMEgressQueueCongestionMgmtWREDTimeConstant.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtWREDTimeConstant.setStatus(_A)
-_AdGenMEgressQueueCongestionMgmtWREDTimeConstantLastError_Type=DisplayString
-_AdGenMEgressQueueCongestionMgmtWREDTimeConstantLastError_Object=MibTableColumn
-adGenMEgressQueueCongestionMgmtWREDTimeConstantLastError=_AdGenMEgressQueueCongestionMgmtWREDTimeConstantLastError_Object((1,3,6,1,4,1,664,5,70,36,2,1,1,2),_AdGenMEgressQueueCongestionMgmtWREDTimeConstantLastError_Type())
-adGenMEgressQueueCongestionMgmtWREDTimeConstantLastError.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtWREDTimeConstantLastError.setStatus(_A)
-class _AdGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_H,1),(_I,2),('invalidTimeConstant',3)))
-_AdGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode_Type.__name__=_B
-_AdGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode_Object=MibTableColumn
-adGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode=_AdGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode_Object((1,3,6,1,4,1,664,5,70,36,2,1,1,3),_AdGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode_Type())
-adGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode.setStatus(_A)
-_AdGenMEgressQueueCongestionMgmtTable_Object=MibTable
-adGenMEgressQueueCongestionMgmtTable=_AdGenMEgressQueueCongestionMgmtTable_Object((1,3,6,1,4,1,664,5,70,36,2,2))
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtTable.setStatus(_A)
-_AdGenMEgressQueueCongestionMgmtEntry_Object=MibTableRow
-adGenMEgressQueueCongestionMgmtEntry=_AdGenMEgressQueueCongestionMgmtEntry_Object((1,3,6,1,4,1,664,5,70,36,2,2,1))
-adGenMEgressQueueCongestionMgmtEntry.setIndexNames((0,_E,_F),(0,_G,_M))
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtEntry.setStatus(_A)
-_AdGenMEgressQueueCongestionMgmtQueueIndex_Type=Unsigned32
-_AdGenMEgressQueueCongestionMgmtQueueIndex_Object=MibTableColumn
-adGenMEgressQueueCongestionMgmtQueueIndex=_AdGenMEgressQueueCongestionMgmtQueueIndex_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,1),_AdGenMEgressQueueCongestionMgmtQueueIndex_Type())
-adGenMEgressQueueCongestionMgmtQueueIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtQueueIndex.setStatus(_A)
-class _AdGenMEgressQueueCongestionMgmtQueueMaxDepth_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_AdGenMEgressQueueCongestionMgmtQueueMaxDepth_Type.__name__=_B
-_AdGenMEgressQueueCongestionMgmtQueueMaxDepth_Object=MibTableColumn
-adGenMEgressQueueCongestionMgmtQueueMaxDepth=_AdGenMEgressQueueCongestionMgmtQueueMaxDepth_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,2),_AdGenMEgressQueueCongestionMgmtQueueMaxDepth_Type())
-adGenMEgressQueueCongestionMgmtQueueMaxDepth.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtQueueMaxDepth.setStatus(_A)
-class _AdGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen_Type.__name__=_B
-_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen_Object=MibTableColumn
-adGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen=_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,3),_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen_Type())
-adGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen.setStatus(_A)
-class _AdGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow_Type.__name__=_B
-_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow_Object=MibTableColumn
-adGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow=_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,4),_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow_Type())
-adGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow.setStatus(_A)
-class _AdGenMEgressQueueCongestionMgmtThresholdGreenMax_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_AdGenMEgressQueueCongestionMgmtThresholdGreenMax_Type.__name__=_B
-_AdGenMEgressQueueCongestionMgmtThresholdGreenMax_Object=MibTableColumn
-adGenMEgressQueueCongestionMgmtThresholdGreenMax=_AdGenMEgressQueueCongestionMgmtThresholdGreenMax_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,5),_AdGenMEgressQueueCongestionMgmtThresholdGreenMax_Type())
-adGenMEgressQueueCongestionMgmtThresholdGreenMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtThresholdGreenMax.setStatus(_A)
-class _AdGenMEgressQueueCongestionMgmtThresholdGreenMin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_AdGenMEgressQueueCongestionMgmtThresholdGreenMin_Type.__name__=_B
-_AdGenMEgressQueueCongestionMgmtThresholdGreenMin_Object=MibTableColumn
-adGenMEgressQueueCongestionMgmtThresholdGreenMin=_AdGenMEgressQueueCongestionMgmtThresholdGreenMin_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,6),_AdGenMEgressQueueCongestionMgmtThresholdGreenMin_Type())
-adGenMEgressQueueCongestionMgmtThresholdGreenMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtThresholdGreenMin.setStatus(_A)
-class _AdGenMEgressQueueCongestionMgmtThresholdYellowMax_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_AdGenMEgressQueueCongestionMgmtThresholdYellowMax_Type.__name__=_B
-_AdGenMEgressQueueCongestionMgmtThresholdYellowMax_Object=MibTableColumn
-adGenMEgressQueueCongestionMgmtThresholdYellowMax=_AdGenMEgressQueueCongestionMgmtThresholdYellowMax_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,7),_AdGenMEgressQueueCongestionMgmtThresholdYellowMax_Type())
-adGenMEgressQueueCongestionMgmtThresholdYellowMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtThresholdYellowMax.setStatus(_A)
-class _AdGenMEgressQueueCongestionMgmtThresholdYellowMin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_AdGenMEgressQueueCongestionMgmtThresholdYellowMin_Type.__name__=_B
-_AdGenMEgressQueueCongestionMgmtThresholdYellowMin_Object=MibTableColumn
-adGenMEgressQueueCongestionMgmtThresholdYellowMin=_AdGenMEgressQueueCongestionMgmtThresholdYellowMin_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,8),_AdGenMEgressQueueCongestionMgmtThresholdYellowMin_Type())
-adGenMEgressQueueCongestionMgmtThresholdYellowMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtThresholdYellowMin.setStatus(_A)
-class _AdGenMEgressQueueCongestionMgmtAlgorithm_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('tailDrop',1),('weightedRandomEarlyDetection',2)))
-_AdGenMEgressQueueCongestionMgmtAlgorithm_Type.__name__=_B
-_AdGenMEgressQueueCongestionMgmtAlgorithm_Object=MibTableColumn
-adGenMEgressQueueCongestionMgmtAlgorithm=_AdGenMEgressQueueCongestionMgmtAlgorithm_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,9),_AdGenMEgressQueueCongestionMgmtAlgorithm_Type())
-adGenMEgressQueueCongestionMgmtAlgorithm.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtAlgorithm.setStatus(_A)
-_AdGenMEgressQueueCongestionMgmtLastError_Type=DisplayString
-_AdGenMEgressQueueCongestionMgmtLastError_Object=MibTableColumn
-adGenMEgressQueueCongestionMgmtLastError=_AdGenMEgressQueueCongestionMgmtLastError_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,10),_AdGenMEgressQueueCongestionMgmtLastError_Type())
-adGenMEgressQueueCongestionMgmtLastError.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtLastError.setStatus(_A)
-class _AdGenMEgressQueueCongestionMgmtErrorCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
-_AdGenMEgressQueueCongestionMgmtErrorCode_Type.__name__=_B
-_AdGenMEgressQueueCongestionMgmtErrorCode_Object=MibTableColumn
-adGenMEgressQueueCongestionMgmtErrorCode=_AdGenMEgressQueueCongestionMgmtErrorCode_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,11),_AdGenMEgressQueueCongestionMgmtErrorCode_Type())
-adGenMEgressQueueCongestionMgmtErrorCode.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtErrorCode.setStatus(_A)
-mibBuilder.exportSymbols(_G,**{'adGenMEgressQueueSchedulerProvisioning':adGenMEgressQueueSchedulerProvisioning,'adGenMEgressQueueSchedulerTable':adGenMEgressQueueSchedulerTable,'adGenMEgressQueueSchedulerEntry':adGenMEgressQueueSchedulerEntry,_L:adGenMEgressQueueSchedulerQueueIndex,'adGenMEgressQueueSchedulerCos':adGenMEgressQueueSchedulerCos,'adGenMEgressQueueSchedulerWeight':adGenMEgressQueueSchedulerWeight,'adGenMEgressQueueSchedulerLastError':adGenMEgressQueueSchedulerLastError,'adGenMEgressQueueSchedulerErrorCode':adGenMEgressQueueSchedulerErrorCode,'adGenMEgressQueueCongestionMgmtProvisioning':adGenMEgressQueueCongestionMgmtProvisioning,'adGenMEgressQueueCongestionMgmtWREDTimeConstantTable':adGenMEgressQueueCongestionMgmtWREDTimeConstantTable,'adGenMEgressQueueCongestionMgmtWREDTimeConstantEntry':adGenMEgressQueueCongestionMgmtWREDTimeConstantEntry,'adGenMEgressQueueCongestionMgmtWREDTimeConstant':adGenMEgressQueueCongestionMgmtWREDTimeConstant,'adGenMEgressQueueCongestionMgmtWREDTimeConstantLastError':adGenMEgressQueueCongestionMgmtWREDTimeConstantLastError,'adGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode':adGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode,'adGenMEgressQueueCongestionMgmtTable':adGenMEgressQueueCongestionMgmtTable,'adGenMEgressQueueCongestionMgmtEntry':adGenMEgressQueueCongestionMgmtEntry,_M:adGenMEgressQueueCongestionMgmtQueueIndex,'adGenMEgressQueueCongestionMgmtQueueMaxDepth':adGenMEgressQueueCongestionMgmtQueueMaxDepth,'adGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen':adGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen,'adGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow':adGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow,'adGenMEgressQueueCongestionMgmtThresholdGreenMax':adGenMEgressQueueCongestionMgmtThresholdGreenMax,'adGenMEgressQueueCongestionMgmtThresholdGreenMin':adGenMEgressQueueCongestionMgmtThresholdGreenMin,'adGenMEgressQueueCongestionMgmtThresholdYellowMax':adGenMEgressQueueCongestionMgmtThresholdYellowMax,'adGenMEgressQueueCongestionMgmtThresholdYellowMin':adGenMEgressQueueCongestionMgmtThresholdYellowMin,'adGenMEgressQueueCongestionMgmtAlgorithm':adGenMEgressQueueCongestionMgmtAlgorithm,'adGenMEgressQueueCongestionMgmtLastError':adGenMEgressQueueCongestionMgmtLastError,'adGenMEgressQueueCongestionMgmtErrorCode':adGenMEgressQueueCongestionMgmtErrorCode,'adGenMEgressQueueIdentity':adGenMEgressQueueIdentity})
+#
+# PySNMP MIB module ADTRAN-GENMEGRESSQUEUE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-GENMEGRESSQUEUE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGenSlotInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex")
+adGenMEgressQueue, adGenMEgressQueueID = mibBuilder.importSymbols("ADTRAN-SHARED-CND-SYSTEM-MIB", "adGenMEgressQueue", "adGenMEgressQueueID")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+adGenMEgressQueueIdentity = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 36, 1))
+adGenMEgressQueueIdentity.setRevisions(('2010-11-05 14:13',))
+if mibBuilder.loadTexts: adGenMEgressQueueIdentity.setLastUpdated('201011051413Z')
+if mibBuilder.loadTexts: adGenMEgressQueueIdentity.setOrganization('Adtran, Inc.')
+adGenMEgressQueueSchedulerProvisioning = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 1))
+adGenMEgressQueueCongestionMgmtProvisioning = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2))
+adGenMEgressQueueSchedulerTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 1, 1), )
+if mibBuilder.loadTexts: adGenMEgressQueueSchedulerTable.setStatus('current')
+adGenMEgressQueueSchedulerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ADTRAN-GENMEGRESSQUEUE-MIB", "adGenMEgressQueueSchedulerQueueIndex"))
+if mibBuilder.loadTexts: adGenMEgressQueueSchedulerEntry.setStatus('current')
+adGenMEgressQueueSchedulerQueueIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 1, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenMEgressQueueSchedulerQueueIndex.setStatus('current')
+adGenMEgressQueueSchedulerCos = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenMEgressQueueSchedulerCos.setStatus('current')
+adGenMEgressQueueSchedulerWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 101))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenMEgressQueueSchedulerWeight.setStatus('current')
+adGenMEgressQueueSchedulerLastError = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 1, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenMEgressQueueSchedulerLastError.setStatus('current')
+adGenMEgressQueueSchedulerErrorCode = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("noError", 1), ("writeToHardwareFailed", 2), ("weightSpreadExceeded", 3), ("weightExceed100", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenMEgressQueueSchedulerErrorCode.setStatus('current')
+adGenMEgressQueueCongestionMgmtWREDTimeConstantTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 1), )
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtWREDTimeConstantTable.setStatus('current')
+adGenMEgressQueueCongestionMgmtWREDTimeConstantEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 1, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtWREDTimeConstantEntry.setStatus('current')
+adGenMEgressQueueCongestionMgmtWREDTimeConstant = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("delay2ms", 1), ("delay4ms", 2), ("delay8ms", 3), ("delay16ms", 4), ("delay32ms", 5), ("delay62ms", 6), ("delay125ms", 7), ("delay250ms", 8), ("delay500ms", 9)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtWREDTimeConstant.setStatus('current')
+adGenMEgressQueueCongestionMgmtWREDTimeConstantLastError = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtWREDTimeConstantLastError.setStatus('current')
+adGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noError", 1), ("writeToHardwareFailed", 2), ("invalidTimeConstant", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode.setStatus('current')
+adGenMEgressQueueCongestionMgmtTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 2), )
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtTable.setStatus('current')
+adGenMEgressQueueCongestionMgmtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ADTRAN-GENMEGRESSQUEUE-MIB", "adGenMEgressQueueCongestionMgmtQueueIndex"))
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtEntry.setStatus('current')
+adGenMEgressQueueCongestionMgmtQueueIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 2, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtQueueIndex.setStatus('current')
+adGenMEgressQueueCongestionMgmtQueueMaxDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtQueueMaxDepth.setStatus('current')
+adGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen.setStatus('current')
+adGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow.setStatus('current')
+adGenMEgressQueueCongestionMgmtThresholdGreenMax = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtThresholdGreenMax.setStatus('current')
+adGenMEgressQueueCongestionMgmtThresholdGreenMin = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtThresholdGreenMin.setStatus('current')
+adGenMEgressQueueCongestionMgmtThresholdYellowMax = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtThresholdYellowMax.setStatus('current')
+adGenMEgressQueueCongestionMgmtThresholdYellowMin = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtThresholdYellowMin.setStatus('current')
+adGenMEgressQueueCongestionMgmtAlgorithm = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("tailDrop", 1), ("weightedRandomEarlyDetection", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtAlgorithm.setStatus('current')
+adGenMEgressQueueCongestionMgmtLastError = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 2, 1, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtLastError.setStatus('current')
+adGenMEgressQueueCongestionMgmtErrorCode = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 36, 2, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noError", 1), ("writeToHardwareFailed", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenMEgressQueueCongestionMgmtErrorCode.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-GENMEGRESSQUEUE-MIB", adGenMEgressQueueCongestionMgmtThresholdYellowMax=adGenMEgressQueueCongestionMgmtThresholdYellowMax, adGenMEgressQueueSchedulerErrorCode=adGenMEgressQueueSchedulerErrorCode, adGenMEgressQueueCongestionMgmtErrorCode=adGenMEgressQueueCongestionMgmtErrorCode, adGenMEgressQueueCongestionMgmtWREDTimeConstantTable=adGenMEgressQueueCongestionMgmtWREDTimeConstantTable, adGenMEgressQueueCongestionMgmtProvisioning=adGenMEgressQueueCongestionMgmtProvisioning, adGenMEgressQueueCongestionMgmtThresholdGreenMin=adGenMEgressQueueCongestionMgmtThresholdGreenMin, adGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow=adGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow, PYSNMP_MODULE_ID=adGenMEgressQueueIdentity, adGenMEgressQueueCongestionMgmtThresholdYellowMin=adGenMEgressQueueCongestionMgmtThresholdYellowMin, adGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen=adGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen, adGenMEgressQueueSchedulerCos=adGenMEgressQueueSchedulerCos, adGenMEgressQueueCongestionMgmtQueueIndex=adGenMEgressQueueCongestionMgmtQueueIndex, adGenMEgressQueueCongestionMgmtThresholdGreenMax=adGenMEgressQueueCongestionMgmtThresholdGreenMax, adGenMEgressQueueCongestionMgmtAlgorithm=adGenMEgressQueueCongestionMgmtAlgorithm, adGenMEgressQueueSchedulerLastError=adGenMEgressQueueSchedulerLastError, adGenMEgressQueueSchedulerProvisioning=adGenMEgressQueueSchedulerProvisioning, adGenMEgressQueueCongestionMgmtWREDTimeConstant=adGenMEgressQueueCongestionMgmtWREDTimeConstant, adGenMEgressQueueSchedulerEntry=adGenMEgressQueueSchedulerEntry, adGenMEgressQueueSchedulerQueueIndex=adGenMEgressQueueSchedulerQueueIndex, adGenMEgressQueueCongestionMgmtWREDTimeConstantLastError=adGenMEgressQueueCongestionMgmtWREDTimeConstantLastError, adGenMEgressQueueSchedulerWeight=adGenMEgressQueueSchedulerWeight, adGenMEgressQueueCongestionMgmtQueueMaxDepth=adGenMEgressQueueCongestionMgmtQueueMaxDepth, adGenMEgressQueueIdentity=adGenMEgressQueueIdentity, adGenMEgressQueueSchedulerTable=adGenMEgressQueueSchedulerTable, adGenMEgressQueueCongestionMgmtEntry=adGenMEgressQueueCongestionMgmtEntry, adGenMEgressQueueCongestionMgmtLastError=adGenMEgressQueueCongestionMgmtLastError, adGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode=adGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode, adGenMEgressQueueCongestionMgmtWREDTimeConstantEntry=adGenMEgressQueueCongestionMgmtWREDTimeConstantEntry, adGenMEgressQueueCongestionMgmtTable=adGenMEgressQueueCongestionMgmtTable)

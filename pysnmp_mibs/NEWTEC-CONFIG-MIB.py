@@ -1,106 +1,56 @@
-_Q='ntcCfgConfGrpV1Standard'
-_P='ntcCfgLoadConfigNotForced'
-_O='ntcCfgDeleteConfig'
-_N='ntcCfgSaveConfig'
-_M='ntcCfgLoadConfig'
-_L='ntcCfgBootConfig'
-_K='ntcCfgUnsavedChanges'
-_J='ntcCfgActiveConfig'
-_I='ntcCfgConfigName'
-_H='ntcCfgConfigIndex'
-_G='Unsigned32'
-_F='read-only'
-_E='read-write'
-_D='unknown'
-_C='DisplayString'
-_B='NEWTEC-CONFIG-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ntcFunction,=mibBuilder.importSymbols('NEWTEC-MAIN-MIB','ntcFunction')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_C,'PhysAddress','TextualConvention','TruthValue')
-ntcConfig=ModuleIdentity((1,3,6,1,4,1,5835,5,2,1500))
-if mibBuilder.loadTexts:ntcConfig.setRevisions(('2013-03-27 10:00','2012-06-28 12:00'))
-_NtcCfgObjects_ObjectIdentity=ObjectIdentity
-ntcCfgObjects=_NtcCfgObjects_ObjectIdentity((1,3,6,1,4,1,5835,5,2,1500,1))
-if mibBuilder.loadTexts:ntcCfgObjects.setStatus(_A)
-_NtcCfgConfigTable_Object=MibTable
-ntcCfgConfigTable=_NtcCfgConfigTable_Object((1,3,6,1,4,1,5835,5,2,1500,1,1))
-if mibBuilder.loadTexts:ntcCfgConfigTable.setStatus(_A)
-_NtcCfgConfigEntry_Object=MibTableRow
-ntcCfgConfigEntry=_NtcCfgConfigEntry_Object((1,3,6,1,4,1,5835,5,2,1500,1,1,1))
-ntcCfgConfigEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:ntcCfgConfigEntry.setStatus(_A)
-class _NtcCfgConfigIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_NtcCfgConfigIndex_Type.__name__=_G
-_NtcCfgConfigIndex_Object=MibTableColumn
-ntcCfgConfigIndex=_NtcCfgConfigIndex_Object((1,3,6,1,4,1,5835,5,2,1500,1,1,1,1),_NtcCfgConfigIndex_Type())
-ntcCfgConfigIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:ntcCfgConfigIndex.setStatus(_A)
-class _NtcCfgConfigName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,240))
-_NtcCfgConfigName_Type.__name__=_C
-_NtcCfgConfigName_Object=MibTableColumn
-ntcCfgConfigName=_NtcCfgConfigName_Object((1,3,6,1,4,1,5835,5,2,1500,1,1,1,2),_NtcCfgConfigName_Type())
-ntcCfgConfigName.setMaxAccess(_F)
-if mibBuilder.loadTexts:ntcCfgConfigName.setStatus(_A)
-class _NtcCfgActiveConfig_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,240))
-_NtcCfgActiveConfig_Type.__name__=_C
-_NtcCfgActiveConfig_Object=MibScalar
-ntcCfgActiveConfig=_NtcCfgActiveConfig_Object((1,3,6,1,4,1,5835,5,2,1500,1,2),_NtcCfgActiveConfig_Type())
-ntcCfgActiveConfig.setMaxAccess(_F)
-if mibBuilder.loadTexts:ntcCfgActiveConfig.setStatus(_A)
-_NtcCfgUnsavedChanges_Type=TruthValue
-_NtcCfgUnsavedChanges_Object=MibScalar
-ntcCfgUnsavedChanges=_NtcCfgUnsavedChanges_Object((1,3,6,1,4,1,5835,5,2,1500,1,3),_NtcCfgUnsavedChanges_Type())
-ntcCfgUnsavedChanges.setMaxAccess(_F)
-if mibBuilder.loadTexts:ntcCfgUnsavedChanges.setStatus(_A)
-class _NtcCfgBootConfig_Type(DisplayString):defaultValue=OctetString(_D);subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,240))
-_NtcCfgBootConfig_Type.__name__=_C
-_NtcCfgBootConfig_Object=MibScalar
-ntcCfgBootConfig=_NtcCfgBootConfig_Object((1,3,6,1,4,1,5835,5,2,1500,1,4),_NtcCfgBootConfig_Type())
-ntcCfgBootConfig.setMaxAccess(_E)
-if mibBuilder.loadTexts:ntcCfgBootConfig.setStatus(_A)
-class _NtcCfgLoadConfig_Type(DisplayString):defaultValue=OctetString(_D);subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,240))
-_NtcCfgLoadConfig_Type.__name__=_C
-_NtcCfgLoadConfig_Object=MibScalar
-ntcCfgLoadConfig=_NtcCfgLoadConfig_Object((1,3,6,1,4,1,5835,5,2,1500,1,5),_NtcCfgLoadConfig_Type())
-ntcCfgLoadConfig.setMaxAccess(_E)
-if mibBuilder.loadTexts:ntcCfgLoadConfig.setStatus(_A)
-class _NtcCfgSaveConfig_Type(DisplayString):defaultValue=OctetString(_D);subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,240))
-_NtcCfgSaveConfig_Type.__name__=_C
-_NtcCfgSaveConfig_Object=MibScalar
-ntcCfgSaveConfig=_NtcCfgSaveConfig_Object((1,3,6,1,4,1,5835,5,2,1500,1,6),_NtcCfgSaveConfig_Type())
-ntcCfgSaveConfig.setMaxAccess(_E)
-if mibBuilder.loadTexts:ntcCfgSaveConfig.setStatus(_A)
-class _NtcCfgDeleteConfig_Type(DisplayString):defaultValue=OctetString(_D);subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,240))
-_NtcCfgDeleteConfig_Type.__name__=_C
-_NtcCfgDeleteConfig_Object=MibScalar
-ntcCfgDeleteConfig=_NtcCfgDeleteConfig_Object((1,3,6,1,4,1,5835,5,2,1500,1,7),_NtcCfgDeleteConfig_Type())
-ntcCfgDeleteConfig.setMaxAccess(_E)
-if mibBuilder.loadTexts:ntcCfgDeleteConfig.setStatus(_A)
-class _NtcCfgLoadConfigNotForced_Type(DisplayString):defaultValue=OctetString(_D);subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,240))
-_NtcCfgLoadConfigNotForced_Type.__name__=_C
-_NtcCfgLoadConfigNotForced_Object=MibScalar
-ntcCfgLoadConfigNotForced=_NtcCfgLoadConfigNotForced_Object((1,3,6,1,4,1,5835,5,2,1500,1,8),_NtcCfgLoadConfigNotForced_Type())
-ntcCfgLoadConfigNotForced.setMaxAccess(_E)
-if mibBuilder.loadTexts:ntcCfgLoadConfigNotForced.setStatus(_A)
-_NtcCfgConformance_ObjectIdentity=ObjectIdentity
-ntcCfgConformance=_NtcCfgConformance_ObjectIdentity((1,3,6,1,4,1,5835,5,2,1500,2))
-if mibBuilder.loadTexts:ntcCfgConformance.setStatus(_A)
-_NtcCfgConfCompliance_ObjectIdentity=ObjectIdentity
-ntcCfgConfCompliance=_NtcCfgConfCompliance_ObjectIdentity((1,3,6,1,4,1,5835,5,2,1500,2,1))
-if mibBuilder.loadTexts:ntcCfgConfCompliance.setStatus(_A)
-_NtcCfgConfGroup_ObjectIdentity=ObjectIdentity
-ntcCfgConfGroup=_NtcCfgConfGroup_ObjectIdentity((1,3,6,1,4,1,5835,5,2,1500,2,2))
-if mibBuilder.loadTexts:ntcCfgConfGroup.setStatus(_A)
-ntcCfgConfGrpV1Standard=ObjectGroup((1,3,6,1,4,1,5835,5,2,1500,2,2,1))
-ntcCfgConfGrpV1Standard.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:ntcCfgConfGrpV1Standard.setStatus(_A)
-ntcCfgConfCompV1Standard=ModuleCompliance((1,3,6,1,4,1,5835,5,2,1500,2,1,1))
-ntcCfgConfCompV1Standard.setObjects((_B,_Q))
-if mibBuilder.loadTexts:ntcCfgConfCompV1Standard.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ntcConfig':ntcConfig,'ntcCfgObjects':ntcCfgObjects,'ntcCfgConfigTable':ntcCfgConfigTable,'ntcCfgConfigEntry':ntcCfgConfigEntry,_H:ntcCfgConfigIndex,_I:ntcCfgConfigName,_J:ntcCfgActiveConfig,_K:ntcCfgUnsavedChanges,_L:ntcCfgBootConfig,_M:ntcCfgLoadConfig,_N:ntcCfgSaveConfig,_O:ntcCfgDeleteConfig,_P:ntcCfgLoadConfigNotForced,'ntcCfgConformance':ntcCfgConformance,'ntcCfgConfCompliance':ntcCfgConfCompliance,'ntcCfgConfCompV1Standard':ntcCfgConfCompV1Standard,'ntcCfgConfGroup':ntcCfgConfGroup,_Q:ntcCfgConfGrpV1Standard})
+#
+# PySNMP MIB module NEWTEC-CONFIG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/newtec/NEWTEC-CONFIG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ntcFunction, = mibBuilder.importSymbols("NEWTEC-MAIN-MIB", "ntcFunction")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ntcConfig = ModuleIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500))
+ntcConfig.setRevisions(('2013-03-27 10:00', '2012-06-28 12:00',))
+if mibBuilder.loadTexts: ntcConfig.setLastUpdated('201303271000Z')
+if mibBuilder.loadTexts: ntcConfig.setOrganization('Newtec Cy')
+ntcCfgObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 1))
+if mibBuilder.loadTexts: ntcCfgObjects.setStatus('current')
+ntcCfgConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 2))
+if mibBuilder.loadTexts: ntcCfgConformance.setStatus('current')
+ntcCfgConfCompliance = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 2, 1))
+if mibBuilder.loadTexts: ntcCfgConfCompliance.setStatus('current')
+ntcCfgConfGroup = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 2, 2))
+if mibBuilder.loadTexts: ntcCfgConfGroup.setStatus('current')
+ntcCfgConfigTable = MibTable((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 1, 1), )
+if mibBuilder.loadTexts: ntcCfgConfigTable.setStatus('current')
+ntcCfgConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 1, 1, 1), ).setIndexNames((0, "NEWTEC-CONFIG-MIB", "ntcCfgConfigIndex"))
+if mibBuilder.loadTexts: ntcCfgConfigEntry.setStatus('current')
+ntcCfgConfigIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: ntcCfgConfigIndex.setStatus('current')
+ntcCfgConfigName = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 240))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcCfgConfigName.setStatus('current')
+ntcCfgActiveConfig = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 240))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcCfgActiveConfig.setStatus('current')
+ntcCfgUnsavedChanges = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ntcCfgUnsavedChanges.setStatus('current')
+ntcCfgBootConfig = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 240)).clone('unknown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcCfgBootConfig.setStatus('current')
+ntcCfgLoadConfig = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 240)).clone('unknown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcCfgLoadConfig.setStatus('current')
+ntcCfgSaveConfig = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 240)).clone('unknown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcCfgSaveConfig.setStatus('current')
+ntcCfgDeleteConfig = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 240)).clone('unknown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcCfgDeleteConfig.setStatus('current')
+ntcCfgLoadConfigNotForced = MibScalar((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 240)).clone('unknown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcCfgLoadConfigNotForced.setStatus('current')
+ntcCfgConfGrpV1Standard = ObjectGroup((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 2, 2, 1)).setObjects(("NEWTEC-CONFIG-MIB", "ntcCfgConfigName"), ("NEWTEC-CONFIG-MIB", "ntcCfgActiveConfig"), ("NEWTEC-CONFIG-MIB", "ntcCfgUnsavedChanges"), ("NEWTEC-CONFIG-MIB", "ntcCfgBootConfig"), ("NEWTEC-CONFIG-MIB", "ntcCfgLoadConfig"), ("NEWTEC-CONFIG-MIB", "ntcCfgSaveConfig"), ("NEWTEC-CONFIG-MIB", "ntcCfgDeleteConfig"), ("NEWTEC-CONFIG-MIB", "ntcCfgLoadConfigNotForced"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ntcCfgConfGrpV1Standard = ntcCfgConfGrpV1Standard.setStatus('current')
+ntcCfgConfCompV1Standard = ModuleCompliance((1, 3, 6, 1, 4, 1, 5835, 5, 2, 1500, 2, 1, 1)).setObjects(("NEWTEC-CONFIG-MIB", "ntcCfgConfGrpV1Standard"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ntcCfgConfCompV1Standard = ntcCfgConfCompV1Standard.setStatus('current')
+mibBuilder.exportSymbols("NEWTEC-CONFIG-MIB", ntcCfgObjects=ntcCfgObjects, PYSNMP_MODULE_ID=ntcConfig, ntcCfgDeleteConfig=ntcCfgDeleteConfig, ntcCfgConfigEntry=ntcCfgConfigEntry, ntcCfgUnsavedChanges=ntcCfgUnsavedChanges, ntcCfgConformance=ntcCfgConformance, ntcCfgBootConfig=ntcCfgBootConfig, ntcConfig=ntcConfig, ntcCfgConfGroup=ntcCfgConfGroup, ntcCfgConfigTable=ntcCfgConfigTable, ntcCfgSaveConfig=ntcCfgSaveConfig, ntcCfgLoadConfigNotForced=ntcCfgLoadConfigNotForced, ntcCfgLoadConfig=ntcCfgLoadConfig, ntcCfgActiveConfig=ntcCfgActiveConfig, ntcCfgConfGrpV1Standard=ntcCfgConfGrpV1Standard, ntcCfgConfigIndex=ntcCfgConfigIndex, ntcCfgConfigName=ntcCfgConfigName, ntcCfgConfCompV1Standard=ntcCfgConfCompV1Standard, ntcCfgConfCompliance=ntcCfgConfCompliance)

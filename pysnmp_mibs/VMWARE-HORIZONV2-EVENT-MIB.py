@@ -1,45 +1,39 @@
-_F='vmwHorizonv2ObjectGroup'
-_E='vmwHorizonv2NotificationGroup'
-_D='vmwHorizonv2LicenseEventTrap'
-_C='vmwHorizonv2LicenseFailureStatus'
-_B='current'
-_A='VMWARE-HORIZONV2-EVENT-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-vmwHorizonv2,=mibBuilder.importSymbols('VMWARE-ROOT-MIB','vmwHorizonv2')
-vmwHorizonv2MIB=ModuleIdentity((1,3,6,1,4,1,6876,150,1))
-if mibBuilder.loadTexts:vmwHorizonv2MIB.setRevisions(('2023-07-28 00:00',))
-_VmwHorizonv2Notifications_ObjectIdentity=ObjectIdentity
-vmwHorizonv2Notifications=_VmwHorizonv2Notifications_ObjectIdentity((1,3,6,1,4,1,6876,150,0))
-_VmwHorizonv2MIBConformance_ObjectIdentity=ObjectIdentity
-vmwHorizonv2MIBConformance=_VmwHorizonv2MIBConformance_ObjectIdentity((1,3,6,1,4,1,6876,150,1,1))
-_VmwHorizonv2MIBCompliances_ObjectIdentity=ObjectIdentity
-vmwHorizonv2MIBCompliances=_VmwHorizonv2MIBCompliances_ObjectIdentity((1,3,6,1,4,1,6876,150,1,1,1))
-_VmwHorizonv2MIBGroups_ObjectIdentity=ObjectIdentity
-vmwHorizonv2MIBGroups=_VmwHorizonv2MIBGroups_ObjectIdentity((1,3,6,1,4,1,6876,150,1,1,2))
-_VmwHorizonv2LicenseEvents_ObjectIdentity=ObjectIdentity
-vmwHorizonv2LicenseEvents=_VmwHorizonv2LicenseEvents_ObjectIdentity((1,3,6,1,4,1,6876,150,5))
-_VmwHorizonv2LicenseFailureStatus_Type=SnmpAdminString
-_VmwHorizonv2LicenseFailureStatus_Object=MibScalar
-vmwHorizonv2LicenseFailureStatus=_VmwHorizonv2LicenseFailureStatus_Object((1,3,6,1,4,1,6876,150,5,1),_VmwHorizonv2LicenseFailureStatus_Type())
-vmwHorizonv2LicenseFailureStatus.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:vmwHorizonv2LicenseFailureStatus.setStatus(_B)
-vmwHorizonv2ObjectGroup=ObjectGroup((1,3,6,1,4,1,6876,150,1,1,2,1))
-vmwHorizonv2ObjectGroup.setObjects((_A,_C))
-if mibBuilder.loadTexts:vmwHorizonv2ObjectGroup.setStatus(_B)
-vmwHorizonv2LicenseEventTrap=NotificationType((1,3,6,1,4,1,6876,150,0,2))
-vmwHorizonv2LicenseEventTrap.setObjects((_A,_C))
-if mibBuilder.loadTexts:vmwHorizonv2LicenseEventTrap.setStatus(_B)
-vmwHorizonv2NotificationGroup=NotificationGroup((1,3,6,1,4,1,6876,150,1,1,2,2))
-vmwHorizonv2NotificationGroup.setObjects((_A,_D))
-if mibBuilder.loadTexts:vmwHorizonv2NotificationGroup.setStatus(_B)
-vmwHorizonv2MIBBasicCompliance=ModuleCompliance((1,3,6,1,4,1,6876,150,1,1,1,1))
-vmwHorizonv2MIBBasicCompliance.setObjects(*((_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:vmwHorizonv2MIBBasicCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'vmwHorizonv2Notifications':vmwHorizonv2Notifications,_D:vmwHorizonv2LicenseEventTrap,'vmwHorizonv2MIB':vmwHorizonv2MIB,'vmwHorizonv2MIBConformance':vmwHorizonv2MIBConformance,'vmwHorizonv2MIBCompliances':vmwHorizonv2MIBCompliances,'vmwHorizonv2MIBBasicCompliance':vmwHorizonv2MIBBasicCompliance,'vmwHorizonv2MIBGroups':vmwHorizonv2MIBGroups,_F:vmwHorizonv2ObjectGroup,_E:vmwHorizonv2NotificationGroup,'vmwHorizonv2LicenseEvents':vmwHorizonv2LicenseEvents,_C:vmwHorizonv2LicenseFailureStatus})
+#
+# PySNMP MIB module VMWARE-HORIZONV2-EVENT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/vmware/VMWARE-HORIZONV2-EVENT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+vmwHorizonv2, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwHorizonv2")
+vmwHorizonv2MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 150, 1))
+vmwHorizonv2MIB.setRevisions(('2023-07-28 00:00',))
+if mibBuilder.loadTexts: vmwHorizonv2MIB.setLastUpdated('202307280000Z')
+if mibBuilder.loadTexts: vmwHorizonv2MIB.setOrganization('VMware, Inc.')
+vmwHorizonv2Notifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 150, 0))
+vmwHorizonv2LicenseEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 150, 5))
+vmwHorizonv2LicenseFailureStatus = MibScalar((1, 3, 6, 1, 4, 1, 6876, 150, 5, 1), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwHorizonv2LicenseFailureStatus.setStatus('current')
+vmwHorizonv2LicenseEventTrap = NotificationType((1, 3, 6, 1, 4, 1, 6876, 150, 0, 2)).setObjects(("VMWARE-HORIZONV2-EVENT-MIB", "vmwHorizonv2LicenseFailureStatus"))
+if mibBuilder.loadTexts: vmwHorizonv2LicenseEventTrap.setStatus('current')
+vmwHorizonv2MIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 150, 1, 1))
+vmwHorizonv2MIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 150, 1, 1, 1))
+vmwHorizonv2MIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 150, 1, 1, 2))
+vmwHorizonv2MIBBasicCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 150, 1, 1, 1, 1)).setObjects(("VMWARE-HORIZONV2-EVENT-MIB", "vmwHorizonv2NotificationGroup"), ("VMWARE-HORIZONV2-EVENT-MIB", "vmwHorizonv2ObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    vmwHorizonv2MIBBasicCompliance = vmwHorizonv2MIBBasicCompliance.setStatus('current')
+vmwHorizonv2ObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6876, 150, 1, 1, 2, 1)).setObjects(("VMWARE-HORIZONV2-EVENT-MIB", "vmwHorizonv2LicenseFailureStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    vmwHorizonv2ObjectGroup = vmwHorizonv2ObjectGroup.setStatus('current')
+vmwHorizonv2NotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 150, 1, 1, 2, 2)).setObjects(("VMWARE-HORIZONV2-EVENT-MIB", "vmwHorizonv2LicenseEventTrap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    vmwHorizonv2NotificationGroup = vmwHorizonv2NotificationGroup.setStatus('current')
+mibBuilder.exportSymbols("VMWARE-HORIZONV2-EVENT-MIB", vmwHorizonv2NotificationGroup=vmwHorizonv2NotificationGroup, vmwHorizonv2LicenseEventTrap=vmwHorizonv2LicenseEventTrap, vmwHorizonv2LicenseEvents=vmwHorizonv2LicenseEvents, vmwHorizonv2MIB=vmwHorizonv2MIB, vmwHorizonv2MIBConformance=vmwHorizonv2MIBConformance, vmwHorizonv2LicenseFailureStatus=vmwHorizonv2LicenseFailureStatus, PYSNMP_MODULE_ID=vmwHorizonv2MIB, vmwHorizonv2MIBCompliances=vmwHorizonv2MIBCompliances, vmwHorizonv2MIBGroups=vmwHorizonv2MIBGroups, vmwHorizonv2Notifications=vmwHorizonv2Notifications, vmwHorizonv2MIBBasicCompliance=vmwHorizonv2MIBBasicCompliance, vmwHorizonv2ObjectGroup=vmwHorizonv2ObjectGroup)

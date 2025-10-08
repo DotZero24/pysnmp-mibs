@@ -1,101 +1,49 @@
-_P='etsysRip2ExtGlobalGroup'
-_O='etsysRip2ExtRouteFlushInterval'
-_N='etsysRip2ExtRouteExpiryInterval'
-_M='etsysRip2ExtRouteCheckInterval'
-_L='etsysRip2ExtTriggeredDelayMax'
-_K='etsysRip2ExtTriggeredDelayMin'
-_J='etsysRip2ExtRefreshInterval'
-_I='etsysRip2ExtMaxEcmpHops'
-_H='etsysRip2ExtOperStatus'
-_G='etsysRip2ExtAdminStatus'
-_F='Integer32'
-_E='seconds'
-_D='read-write'
-_C='Unsigned32'
-_B='ENTERASYS-RIPv2-EXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-etsysModules,=mibBuilder.importSymbols('ENTERASYS-MIB-NAMES','etsysModules')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_C,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-etsysRip2ExtMIB=ModuleIdentity((1,3,6,1,4,1,5624,1,2,66))
-if mibBuilder.loadTexts:etsysRip2ExtMIB.setRevisions(('2009-02-06 17:11',))
-_EtsysRip2ExtObjects_ObjectIdentity=ObjectIdentity
-etsysRip2ExtObjects=_EtsysRip2ExtObjects_ObjectIdentity((1,3,6,1,4,1,5624,1,2,66,1))
-_EtsysRip2ExtGlobals_ObjectIdentity=ObjectIdentity
-etsysRip2ExtGlobals=_EtsysRip2ExtGlobals_ObjectIdentity((1,3,6,1,4,1,5624,1,2,66,1,1))
-class _EtsysRip2ExtAdminStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('adminStatusUp',1),('adminStatusDown',2)))
-_EtsysRip2ExtAdminStatus_Type.__name__=_F
-_EtsysRip2ExtAdminStatus_Object=MibScalar
-etsysRip2ExtAdminStatus=_EtsysRip2ExtAdminStatus_Object((1,3,6,1,4,1,5624,1,2,66,1,1,1),_EtsysRip2ExtAdminStatus_Type())
-etsysRip2ExtAdminStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysRip2ExtAdminStatus.setStatus(_A)
-class _EtsysRip2ExtOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('operStatusUp',1),('operStatusDown',2),('operStatusGoingUp',3),('operStatusGoingDown',4),('operStatusActFailed',5)))
-_EtsysRip2ExtOperStatus_Type.__name__=_F
-_EtsysRip2ExtOperStatus_Object=MibScalar
-etsysRip2ExtOperStatus=_EtsysRip2ExtOperStatus_Object((1,3,6,1,4,1,5624,1,2,66,1,1,2),_EtsysRip2ExtOperStatus_Type())
-etsysRip2ExtOperStatus.setMaxAccess('read-only')
-if mibBuilder.loadTexts:etsysRip2ExtOperStatus.setStatus(_A)
-class _EtsysRip2ExtMaxEcmpHops_Type(Unsigned32):defaultValue=4;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_EtsysRip2ExtMaxEcmpHops_Type.__name__=_C
-_EtsysRip2ExtMaxEcmpHops_Object=MibScalar
-etsysRip2ExtMaxEcmpHops=_EtsysRip2ExtMaxEcmpHops_Object((1,3,6,1,4,1,5624,1,2,66,1,1,3),_EtsysRip2ExtMaxEcmpHops_Type())
-etsysRip2ExtMaxEcmpHops.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysRip2ExtMaxEcmpHops.setStatus(_A)
-class _EtsysRip2ExtRefreshInterval_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_EtsysRip2ExtRefreshInterval_Type.__name__=_C
-_EtsysRip2ExtRefreshInterval_Object=MibScalar
-etsysRip2ExtRefreshInterval=_EtsysRip2ExtRefreshInterval_Object((1,3,6,1,4,1,5624,1,2,66,1,1,4),_EtsysRip2ExtRefreshInterval_Type())
-etsysRip2ExtRefreshInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysRip2ExtRefreshInterval.setStatus(_A)
-if mibBuilder.loadTexts:etsysRip2ExtRefreshInterval.setUnits(_E)
-class _EtsysRip2ExtTriggeredDelayMin_Type(Unsigned32):defaultValue=1
-_EtsysRip2ExtTriggeredDelayMin_Type.__name__=_C
-_EtsysRip2ExtTriggeredDelayMin_Object=MibScalar
-etsysRip2ExtTriggeredDelayMin=_EtsysRip2ExtTriggeredDelayMin_Object((1,3,6,1,4,1,5624,1,2,66,1,1,5),_EtsysRip2ExtTriggeredDelayMin_Type())
-etsysRip2ExtTriggeredDelayMin.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysRip2ExtTriggeredDelayMin.setStatus(_A)
-if mibBuilder.loadTexts:etsysRip2ExtTriggeredDelayMin.setUnits(_E)
-class _EtsysRip2ExtTriggeredDelayMax_Type(Unsigned32):defaultValue=5
-_EtsysRip2ExtTriggeredDelayMax_Type.__name__=_C
-_EtsysRip2ExtTriggeredDelayMax_Object=MibScalar
-etsysRip2ExtTriggeredDelayMax=_EtsysRip2ExtTriggeredDelayMax_Object((1,3,6,1,4,1,5624,1,2,66,1,1,6),_EtsysRip2ExtTriggeredDelayMax_Type())
-etsysRip2ExtTriggeredDelayMax.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysRip2ExtTriggeredDelayMax.setStatus(_A)
-if mibBuilder.loadTexts:etsysRip2ExtTriggeredDelayMax.setUnits(_E)
-class _EtsysRip2ExtRouteCheckInterval_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,60))
-_EtsysRip2ExtRouteCheckInterval_Type.__name__=_C
-_EtsysRip2ExtRouteCheckInterval_Object=MibScalar
-etsysRip2ExtRouteCheckInterval=_EtsysRip2ExtRouteCheckInterval_Object((1,3,6,1,4,1,5624,1,2,66,1,1,7),_EtsysRip2ExtRouteCheckInterval_Type())
-etsysRip2ExtRouteCheckInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysRip2ExtRouteCheckInterval.setStatus(_A)
-if mibBuilder.loadTexts:etsysRip2ExtRouteCheckInterval.setUnits(_E)
-class _EtsysRip2ExtRouteExpiryInterval_Type(Unsigned32):defaultValue=180;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_EtsysRip2ExtRouteExpiryInterval_Type.__name__=_C
-_EtsysRip2ExtRouteExpiryInterval_Object=MibScalar
-etsysRip2ExtRouteExpiryInterval=_EtsysRip2ExtRouteExpiryInterval_Object((1,3,6,1,4,1,5624,1,2,66,1,1,8),_EtsysRip2ExtRouteExpiryInterval_Type())
-etsysRip2ExtRouteExpiryInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysRip2ExtRouteExpiryInterval.setStatus(_A)
-class _EtsysRip2ExtRouteFlushInterval_Type(Unsigned32):defaultValue=120;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_EtsysRip2ExtRouteFlushInterval_Type.__name__=_C
-_EtsysRip2ExtRouteFlushInterval_Object=MibScalar
-etsysRip2ExtRouteFlushInterval=_EtsysRip2ExtRouteFlushInterval_Object((1,3,6,1,4,1,5624,1,2,66,1,1,9),_EtsysRip2ExtRouteFlushInterval_Type())
-etsysRip2ExtRouteFlushInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysRip2ExtRouteFlushInterval.setStatus(_A)
-_EtsysRip2ExtConformance_ObjectIdentity=ObjectIdentity
-etsysRip2ExtConformance=_EtsysRip2ExtConformance_ObjectIdentity((1,3,6,1,4,1,5624,1,2,66,2))
-_EtsysRip2ExtGroups_ObjectIdentity=ObjectIdentity
-etsysRip2ExtGroups=_EtsysRip2ExtGroups_ObjectIdentity((1,3,6,1,4,1,5624,1,2,66,2,1))
-_EtsysRip2ExtCompliances_ObjectIdentity=ObjectIdentity
-etsysRip2ExtCompliances=_EtsysRip2ExtCompliances_ObjectIdentity((1,3,6,1,4,1,5624,1,2,66,2,2))
-etsysRip2ExtGlobalGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,66,2,1,1))
-etsysRip2ExtGlobalGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:etsysRip2ExtGlobalGroup.setStatus(_A)
-etsysRip2ExtCompliance=ModuleCompliance((1,3,6,1,4,1,5624,1,2,66,2,2,1))
-etsysRip2ExtCompliance.setObjects((_B,_P))
-if mibBuilder.loadTexts:etsysRip2ExtCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'etsysRip2ExtMIB':etsysRip2ExtMIB,'etsysRip2ExtObjects':etsysRip2ExtObjects,'etsysRip2ExtGlobals':etsysRip2ExtGlobals,_G:etsysRip2ExtAdminStatus,_H:etsysRip2ExtOperStatus,_I:etsysRip2ExtMaxEcmpHops,_J:etsysRip2ExtRefreshInterval,_K:etsysRip2ExtTriggeredDelayMin,_L:etsysRip2ExtTriggeredDelayMax,_M:etsysRip2ExtRouteCheckInterval,_N:etsysRip2ExtRouteExpiryInterval,_O:etsysRip2ExtRouteFlushInterval,'etsysRip2ExtConformance':etsysRip2ExtConformance,'etsysRip2ExtGroups':etsysRip2ExtGroups,_P:etsysRip2ExtGlobalGroup,'etsysRip2ExtCompliances':etsysRip2ExtCompliances,'etsysRip2ExtCompliance':etsysRip2ExtCompliance})
+#
+# PySNMP MIB module ENTERASYS-RIPv2-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/enterasys/ENTERASYS-RIPv2-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:31 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+etsysRip2ExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66))
+etsysRip2ExtMIB.setRevisions(('2009-02-06 17:11',))
+if mibBuilder.loadTexts: etsysRip2ExtMIB.setLastUpdated('200902061711Z')
+if mibBuilder.loadTexts: etsysRip2ExtMIB.setOrganization('Enterasys Networks, Inc.')
+etsysRip2ExtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 1))
+etsysRip2ExtGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 1, 1))
+etsysRip2ExtAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("adminStatusUp", 1), ("adminStatusDown", 2))).clone('adminStatusDown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysRip2ExtAdminStatus.setStatus('current')
+etsysRip2ExtOperStatus = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("operStatusUp", 1), ("operStatusDown", 2), ("operStatusGoingUp", 3), ("operStatusGoingDown", 4), ("operStatusActFailed", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysRip2ExtOperStatus.setStatus('current')
+etsysRip2ExtMaxEcmpHops = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)).clone(4)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysRip2ExtMaxEcmpHops.setStatus('current')
+etsysRip2ExtRefreshInterval = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)).clone(30)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysRip2ExtRefreshInterval.setStatus('current')
+etsysRip2ExtTriggeredDelayMin = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 1, 1, 5), Unsigned32().clone(1)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysRip2ExtTriggeredDelayMin.setStatus('current')
+etsysRip2ExtTriggeredDelayMax = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 1, 1, 6), Unsigned32().clone(5)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysRip2ExtTriggeredDelayMax.setStatus('current')
+etsysRip2ExtRouteCheckInterval = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 60)).clone(1)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysRip2ExtRouteCheckInterval.setStatus('current')
+etsysRip2ExtRouteExpiryInterval = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 1, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(180)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysRip2ExtRouteExpiryInterval.setStatus('current')
+etsysRip2ExtRouteFlushInterval = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(120)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: etsysRip2ExtRouteFlushInterval.setStatus('current')
+etsysRip2ExtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 2))
+etsysRip2ExtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 2, 1))
+etsysRip2ExtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 2, 2))
+etsysRip2ExtGlobalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 2, 1, 1)).setObjects(("ENTERASYS-RIPv2-EXT-MIB", "etsysRip2ExtAdminStatus"), ("ENTERASYS-RIPv2-EXT-MIB", "etsysRip2ExtOperStatus"), ("ENTERASYS-RIPv2-EXT-MIB", "etsysRip2ExtMaxEcmpHops"), ("ENTERASYS-RIPv2-EXT-MIB", "etsysRip2ExtRefreshInterval"), ("ENTERASYS-RIPv2-EXT-MIB", "etsysRip2ExtTriggeredDelayMin"), ("ENTERASYS-RIPv2-EXT-MIB", "etsysRip2ExtTriggeredDelayMax"), ("ENTERASYS-RIPv2-EXT-MIB", "etsysRip2ExtRouteCheckInterval"), ("ENTERASYS-RIPv2-EXT-MIB", "etsysRip2ExtRouteExpiryInterval"), ("ENTERASYS-RIPv2-EXT-MIB", "etsysRip2ExtRouteFlushInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysRip2ExtGlobalGroup = etsysRip2ExtGlobalGroup.setStatus('current')
+etsysRip2ExtCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 66, 2, 2, 1)).setObjects(("ENTERASYS-RIPv2-EXT-MIB", "etsysRip2ExtGlobalGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysRip2ExtCompliance = etsysRip2ExtCompliance.setStatus('current')
+mibBuilder.exportSymbols("ENTERASYS-RIPv2-EXT-MIB", etsysRip2ExtRouteExpiryInterval=etsysRip2ExtRouteExpiryInterval, etsysRip2ExtGlobalGroup=etsysRip2ExtGlobalGroup, etsysRip2ExtMIB=etsysRip2ExtMIB, etsysRip2ExtRouteCheckInterval=etsysRip2ExtRouteCheckInterval, etsysRip2ExtGlobals=etsysRip2ExtGlobals, PYSNMP_MODULE_ID=etsysRip2ExtMIB, etsysRip2ExtOperStatus=etsysRip2ExtOperStatus, etsysRip2ExtAdminStatus=etsysRip2ExtAdminStatus, etsysRip2ExtRefreshInterval=etsysRip2ExtRefreshInterval, etsysRip2ExtConformance=etsysRip2ExtConformance, etsysRip2ExtRouteFlushInterval=etsysRip2ExtRouteFlushInterval, etsysRip2ExtTriggeredDelayMin=etsysRip2ExtTriggeredDelayMin, etsysRip2ExtTriggeredDelayMax=etsysRip2ExtTriggeredDelayMax, etsysRip2ExtGroups=etsysRip2ExtGroups, etsysRip2ExtCompliance=etsysRip2ExtCompliance, etsysRip2ExtObjects=etsysRip2ExtObjects, etsysRip2ExtMaxEcmpHops=etsysRip2ExtMaxEcmpHops, etsysRip2ExtCompliances=etsysRip2ExtCompliances)

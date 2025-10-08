@@ -1,109 +1,59 @@
-_L='bsSourceGuardStatsIfIndex'
-_K='bsSourceGuardAddrMACAddr'
-_J='bsSourceGuardAddrAddress'
-_I='bsSourceGuardAddrType'
-_H='bsSourceGuardAddrIndex'
-_G='bsSourceGuardConfigIfIndex'
-_F='bsSourceGuardConfigMode'
-_E='read-only'
-_D='Integer32'
-_C='not-accessible'
-_B='BAY-STACK-SOURCE-GUARD-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-bayStackMibs,=mibBuilder.importSymbols('SYNOPTICS-ROOT-MIB','bayStackMibs')
-bayStackSourceGuardMib=ModuleIdentity((1,3,6,1,4,1,45,5,20))
-if mibBuilder.loadTexts:bayStackSourceGuardMib.setRevisions(('2020-11-12 00:00','2020-11-02 00:00','2008-10-30 00:00','2008-03-31 00:00','2007-05-07 00:00','2007-03-23 00:00'))
-_BsSourceGuardNotifications_ObjectIdentity=ObjectIdentity
-bsSourceGuardNotifications=_BsSourceGuardNotifications_ObjectIdentity((1,3,6,1,4,1,45,5,20,0))
-_BsSourceGuardObjects_ObjectIdentity=ObjectIdentity
-bsSourceGuardObjects=_BsSourceGuardObjects_ObjectIdentity((1,3,6,1,4,1,45,5,20,1))
-_BsSourceGuardConfigTable_Object=MibTable
-bsSourceGuardConfigTable=_BsSourceGuardConfigTable_Object((1,3,6,1,4,1,45,5,20,1,1))
-if mibBuilder.loadTexts:bsSourceGuardConfigTable.setStatus(_A)
-_BsSourceGuardConfigEntry_Object=MibTableRow
-bsSourceGuardConfigEntry=_BsSourceGuardConfigEntry_Object((1,3,6,1,4,1,45,5,20,1,1,1))
-bsSourceGuardConfigEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:bsSourceGuardConfigEntry.setStatus(_A)
-_BsSourceGuardConfigIfIndex_Type=InterfaceIndex
-_BsSourceGuardConfigIfIndex_Object=MibTableColumn
-bsSourceGuardConfigIfIndex=_BsSourceGuardConfigIfIndex_Object((1,3,6,1,4,1,45,5,20,1,1,1,1),_BsSourceGuardConfigIfIndex_Type())
-bsSourceGuardConfigIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:bsSourceGuardConfigIfIndex.setStatus(_A)
-class _BsSourceGuardConfigMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('disabled',1),('ip',2)))
-_BsSourceGuardConfigMode_Type.__name__=_D
-_BsSourceGuardConfigMode_Object=MibTableColumn
-bsSourceGuardConfigMode=_BsSourceGuardConfigMode_Object((1,3,6,1,4,1,45,5,20,1,1,1,2),_BsSourceGuardConfigMode_Type())
-bsSourceGuardConfigMode.setMaxAccess('read-write')
-if mibBuilder.loadTexts:bsSourceGuardConfigMode.setStatus(_A)
-class _BsSourceGuardOrigin_Type(Bits):namedValues=NamedValues(*(('config',0),('radius',1)))
-_BsSourceGuardOrigin_Type.__name__='Bits'
-_BsSourceGuardOrigin_Object=MibTableColumn
-bsSourceGuardOrigin=_BsSourceGuardOrigin_Object((1,3,6,1,4,1,45,5,20,1,1,1,3),_BsSourceGuardOrigin_Type())
-bsSourceGuardOrigin.setMaxAccess(_E)
-if mibBuilder.loadTexts:bsSourceGuardOrigin.setStatus(_A)
-_BsSourceGuardAddrTable_Object=MibTable
-bsSourceGuardAddrTable=_BsSourceGuardAddrTable_Object((1,3,6,1,4,1,45,5,20,1,2))
-if mibBuilder.loadTexts:bsSourceGuardAddrTable.setStatus(_A)
-_BsSourceGuardAddrEntry_Object=MibTableRow
-bsSourceGuardAddrEntry=_BsSourceGuardAddrEntry_Object((1,3,6,1,4,1,45,5,20,1,2,1))
-bsSourceGuardAddrEntry.setIndexNames((0,_B,_H),(0,_B,_I),(0,_B,_J),(0,_B,_K))
-if mibBuilder.loadTexts:bsSourceGuardAddrEntry.setStatus(_A)
-_BsSourceGuardAddrIndex_Type=InterfaceIndex
-_BsSourceGuardAddrIndex_Object=MibTableColumn
-bsSourceGuardAddrIndex=_BsSourceGuardAddrIndex_Object((1,3,6,1,4,1,45,5,20,1,2,1,1),_BsSourceGuardAddrIndex_Type())
-bsSourceGuardAddrIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:bsSourceGuardAddrIndex.setStatus(_A)
-_BsSourceGuardAddrType_Type=InetAddressType
-_BsSourceGuardAddrType_Object=MibTableColumn
-bsSourceGuardAddrType=_BsSourceGuardAddrType_Object((1,3,6,1,4,1,45,5,20,1,2,1,2),_BsSourceGuardAddrType_Type())
-bsSourceGuardAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:bsSourceGuardAddrType.setStatus(_A)
-_BsSourceGuardAddrAddress_Type=InetAddress
-_BsSourceGuardAddrAddress_Object=MibTableColumn
-bsSourceGuardAddrAddress=_BsSourceGuardAddrAddress_Object((1,3,6,1,4,1,45,5,20,1,2,1,3),_BsSourceGuardAddrAddress_Type())
-bsSourceGuardAddrAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:bsSourceGuardAddrAddress.setStatus(_A)
-_BsSourceGuardAddrMACAddr_Type=MacAddress
-_BsSourceGuardAddrMACAddr_Object=MibTableColumn
-bsSourceGuardAddrMACAddr=_BsSourceGuardAddrMACAddr_Object((1,3,6,1,4,1,45,5,20,1,2,1,4),_BsSourceGuardAddrMACAddr_Type())
-bsSourceGuardAddrMACAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:bsSourceGuardAddrMACAddr.setStatus(_A)
-class _BsSourceGuardAddrSource_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('dhcpSnooping',1))
-_BsSourceGuardAddrSource_Type.__name__=_D
-_BsSourceGuardAddrSource_Object=MibTableColumn
-bsSourceGuardAddrSource=_BsSourceGuardAddrSource_Object((1,3,6,1,4,1,45,5,20,1,2,1,5),_BsSourceGuardAddrSource_Type())
-bsSourceGuardAddrSource.setMaxAccess(_E)
-if mibBuilder.loadTexts:bsSourceGuardAddrSource.setStatus(_A)
-_BsSourceGuardStatsTable_Object=MibTable
-bsSourceGuardStatsTable=_BsSourceGuardStatsTable_Object((1,3,6,1,4,1,45,5,20,1,3))
-if mibBuilder.loadTexts:bsSourceGuardStatsTable.setStatus(_A)
-_BsSourceGuardStatsEntry_Object=MibTableRow
-bsSourceGuardStatsEntry=_BsSourceGuardStatsEntry_Object((1,3,6,1,4,1,45,5,20,1,3,1))
-bsSourceGuardStatsEntry.setIndexNames((0,_B,_L))
-if mibBuilder.loadTexts:bsSourceGuardStatsEntry.setStatus(_A)
-_BsSourceGuardStatsIfIndex_Type=InterfaceIndex
-_BsSourceGuardStatsIfIndex_Object=MibTableColumn
-bsSourceGuardStatsIfIndex=_BsSourceGuardStatsIfIndex_Object((1,3,6,1,4,1,45,5,20,1,3,1,1),_BsSourceGuardStatsIfIndex_Type())
-bsSourceGuardStatsIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:bsSourceGuardStatsIfIndex.setStatus(_A)
-_BsSourceGuardStatsDroppedPackets_Type=Counter32
-_BsSourceGuardStatsDroppedPackets_Object=MibTableColumn
-bsSourceGuardStatsDroppedPackets=_BsSourceGuardStatsDroppedPackets_Object((1,3,6,1,4,1,45,5,20,1,3,1,2),_BsSourceGuardStatsDroppedPackets_Type())
-bsSourceGuardStatsDroppedPackets.setMaxAccess(_E)
-if mibBuilder.loadTexts:bsSourceGuardStatsDroppedPackets.setStatus(_A)
-bsSourceGuardReachedMaxIpEntries=NotificationType((1,3,6,1,4,1,45,5,20,0,1))
-bsSourceGuardReachedMaxIpEntries.setObjects((_B,_F))
-if mibBuilder.loadTexts:bsSourceGuardReachedMaxIpEntries.setStatus(_A)
-bsSourceGuardCannotEnablePort=NotificationType((1,3,6,1,4,1,45,5,20,0,2))
-bsSourceGuardCannotEnablePort.setObjects((_B,_F))
-if mibBuilder.loadTexts:bsSourceGuardCannotEnablePort.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'bayStackSourceGuardMib':bayStackSourceGuardMib,'bsSourceGuardNotifications':bsSourceGuardNotifications,'bsSourceGuardReachedMaxIpEntries':bsSourceGuardReachedMaxIpEntries,'bsSourceGuardCannotEnablePort':bsSourceGuardCannotEnablePort,'bsSourceGuardObjects':bsSourceGuardObjects,'bsSourceGuardConfigTable':bsSourceGuardConfigTable,'bsSourceGuardConfigEntry':bsSourceGuardConfigEntry,_G:bsSourceGuardConfigIfIndex,_F:bsSourceGuardConfigMode,'bsSourceGuardOrigin':bsSourceGuardOrigin,'bsSourceGuardAddrTable':bsSourceGuardAddrTable,'bsSourceGuardAddrEntry':bsSourceGuardAddrEntry,_H:bsSourceGuardAddrIndex,_I:bsSourceGuardAddrType,_J:bsSourceGuardAddrAddress,_K:bsSourceGuardAddrMACAddr,'bsSourceGuardAddrSource':bsSourceGuardAddrSource,'bsSourceGuardStatsTable':bsSourceGuardStatsTable,'bsSourceGuardStatsEntry':bsSourceGuardStatsEntry,_L:bsSourceGuardStatsIfIndex,'bsSourceGuardStatsDroppedPackets':bsSourceGuardStatsDroppedPackets})
+#
+# PySNMP MIB module BAY-STACK-SOURCE-GUARD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/BAY-STACK-SOURCE-GUARD-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:09 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+bayStackMibs, = mibBuilder.importSymbols("SYNOPTICS-ROOT-MIB", "bayStackMibs")
+bayStackSourceGuardMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 5, 20))
+bayStackSourceGuardMib.setRevisions(('2020-11-12 00:00', '2020-11-02 00:00', '2008-10-30 00:00', '2008-03-31 00:00', '2007-05-07 00:00', '2007-03-23 00:00',))
+if mibBuilder.loadTexts: bayStackSourceGuardMib.setLastUpdated('202011120000Z')
+if mibBuilder.loadTexts: bayStackSourceGuardMib.setOrganization('Nortel Ltd.')
+bsSourceGuardNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 5, 20, 0))
+bsSourceGuardObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 5, 20, 1))
+bsSourceGuardConfigTable = MibTable((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 1), )
+if mibBuilder.loadTexts: bsSourceGuardConfigTable.setStatus('current')
+bsSourceGuardConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 1, 1), ).setIndexNames((0, "BAY-STACK-SOURCE-GUARD-MIB", "bsSourceGuardConfigIfIndex"))
+if mibBuilder.loadTexts: bsSourceGuardConfigEntry.setStatus('current')
+bsSourceGuardConfigIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: bsSourceGuardConfigIfIndex.setStatus('current')
+bsSourceGuardConfigMode = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("ip", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bsSourceGuardConfigMode.setStatus('current')
+bsSourceGuardOrigin = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 1, 1, 3), Bits().clone(namedValues=NamedValues(("config", 0), ("radius", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bsSourceGuardOrigin.setStatus('current')
+bsSourceGuardAddrTable = MibTable((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 2), )
+if mibBuilder.loadTexts: bsSourceGuardAddrTable.setStatus('current')
+bsSourceGuardAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 2, 1), ).setIndexNames((0, "BAY-STACK-SOURCE-GUARD-MIB", "bsSourceGuardAddrIndex"), (0, "BAY-STACK-SOURCE-GUARD-MIB", "bsSourceGuardAddrType"), (0, "BAY-STACK-SOURCE-GUARD-MIB", "bsSourceGuardAddrAddress"), (0, "BAY-STACK-SOURCE-GUARD-MIB", "bsSourceGuardAddrMACAddr"))
+if mibBuilder.loadTexts: bsSourceGuardAddrEntry.setStatus('current')
+bsSourceGuardAddrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 2, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: bsSourceGuardAddrIndex.setStatus('current')
+bsSourceGuardAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 2, 1, 2), InetAddressType())
+if mibBuilder.loadTexts: bsSourceGuardAddrType.setStatus('current')
+bsSourceGuardAddrAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 2, 1, 3), InetAddress())
+if mibBuilder.loadTexts: bsSourceGuardAddrAddress.setStatus('current')
+bsSourceGuardAddrMACAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 2, 1, 4), MacAddress())
+if mibBuilder.loadTexts: bsSourceGuardAddrMACAddr.setStatus('current')
+bsSourceGuardAddrSource = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("dhcpSnooping", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bsSourceGuardAddrSource.setStatus('current')
+bsSourceGuardStatsTable = MibTable((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 3), )
+if mibBuilder.loadTexts: bsSourceGuardStatsTable.setStatus('current')
+bsSourceGuardStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 3, 1), ).setIndexNames((0, "BAY-STACK-SOURCE-GUARD-MIB", "bsSourceGuardStatsIfIndex"))
+if mibBuilder.loadTexts: bsSourceGuardStatsEntry.setStatus('current')
+bsSourceGuardStatsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 3, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: bsSourceGuardStatsIfIndex.setStatus('current')
+bsSourceGuardStatsDroppedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 20, 1, 3, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bsSourceGuardStatsDroppedPackets.setStatus('current')
+bsSourceGuardReachedMaxIpEntries = NotificationType((1, 3, 6, 1, 4, 1, 45, 5, 20, 0, 1)).setObjects(("BAY-STACK-SOURCE-GUARD-MIB", "bsSourceGuardConfigMode"))
+if mibBuilder.loadTexts: bsSourceGuardReachedMaxIpEntries.setStatus('current')
+bsSourceGuardCannotEnablePort = NotificationType((1, 3, 6, 1, 4, 1, 45, 5, 20, 0, 2)).setObjects(("BAY-STACK-SOURCE-GUARD-MIB", "bsSourceGuardConfigMode"))
+if mibBuilder.loadTexts: bsSourceGuardCannotEnablePort.setStatus('current')
+mibBuilder.exportSymbols("BAY-STACK-SOURCE-GUARD-MIB", bsSourceGuardAddrMACAddr=bsSourceGuardAddrMACAddr, bsSourceGuardOrigin=bsSourceGuardOrigin, bsSourceGuardAddrEntry=bsSourceGuardAddrEntry, bsSourceGuardAddrAddress=bsSourceGuardAddrAddress, bsSourceGuardStatsTable=bsSourceGuardStatsTable, bsSourceGuardAddrType=bsSourceGuardAddrType, bsSourceGuardStatsDroppedPackets=bsSourceGuardStatsDroppedPackets, bsSourceGuardConfigEntry=bsSourceGuardConfigEntry, bsSourceGuardConfigMode=bsSourceGuardConfigMode, bsSourceGuardAddrTable=bsSourceGuardAddrTable, bsSourceGuardStatsIfIndex=bsSourceGuardStatsIfIndex, bsSourceGuardAddrSource=bsSourceGuardAddrSource, bsSourceGuardCannotEnablePort=bsSourceGuardCannotEnablePort, bsSourceGuardAddrIndex=bsSourceGuardAddrIndex, bsSourceGuardConfigTable=bsSourceGuardConfigTable, PYSNMP_MODULE_ID=bayStackSourceGuardMib, bsSourceGuardObjects=bsSourceGuardObjects, bsSourceGuardConfigIfIndex=bsSourceGuardConfigIfIndex, bsSourceGuardReachedMaxIpEntries=bsSourceGuardReachedMaxIpEntries, bayStackSourceGuardMib=bayStackSourceGuardMib, bsSourceGuardNotifications=bsSourceGuardNotifications, bsSourceGuardStatsEntry=bsSourceGuardStatsEntry)

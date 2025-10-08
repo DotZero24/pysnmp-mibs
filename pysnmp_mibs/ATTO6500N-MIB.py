@@ -1,695 +1,277 @@
-_Az='bridgeTrapsBasicGroup'
-_Ay='bridgeTrapInfoBasicGroup'
-_Ax='bridgeConfigBasicGroup'
-_Aw='bridgeSasPortStatisicsBasicGroup'
-_Av='bridgeSasPortInfoBasicGroup'
-_Au='bridgeFcPortStatisicsBasicGroup'
-_At='bridgFcPortInfoBasicGroup'
-_As='bridgeChassisBasicGroup'
-_Ar='bridgeIdentityBasicGroup'
-_Aq='bridgeThroughputWarning'
-_Ap='sasPortTransition'
-_Ao='fcPortTransition'
-_An='bridgeTemperatureWarning'
-_Am='trapClientFilter'
-_Al='trapClientPort'
-_Ak='trapClientIpAddress'
-_Aj='trapMaxClients'
-_Ai='snmpUpdatesEnabled'
-_Ah='trapsEnabled'
-_Ag='sasPhyStatsErrInvalidDwords'
-_Af='sasPhyStatsErrDisparityCount'
-_Ae='sasPhyStatsErrLossOfSync'
-_Ad='sasPhyStatsErrPhyReset'
-_Ac='sasPhyStatsErrInvalidCRC'
-_Ab='sasPhyStatsErrLinkChanged'
-_Aa='sasPhyStatsTimeSinceReset'
-_AZ='sasPortAddress'
-_AY='sasPortDataRateNegotiated'
-_AX='sasPortDataRateCapability'
-_AW='sasPortAdminState'
-_AV='sasPortPhy4State'
-_AU='sasPortPhy3State'
-_AT='sasPortPhy2State'
-_AS='sasPortPhy1State'
-_AR='fcStatsErrPrimitive'
-_AQ='fcStatsErrSignalLoss'
-_AP='fcStatsErrNOSCount'
-_AO='fcStatsErrLipCount'
-_AN='fcStatsErrInvalidTxWords'
-_AM='fcStatsErrInvalidCRC'
-_AL='fcStatsErrLossOfSync'
-_AK='fcStatsErrLinkFailure'
-_AJ='fcStatsTimeSinceReset'
-_AI='fcStatsRxWords'
-_AH='fcStatsTxWords'
-_AG='fcPortPeerName'
-_AF='fcPortPortName'
-_AE='fcPortNodeName'
-_AD='fcPortDataRateCapability'
-_AC='fcPortConnModeConfigured'
-_AB='fcPortDataRateConfigured'
-_AA='fcPortConnModeNegotiated'
-_A9='fcPortDataRateNegotiated'
-_A8='fcPortAdminState'
-_A7='sasQSFPPartNum'
-_A6='sasQSFPType'
-_A5='sasQSFPSerialNum'
-_A4='sasQSFPVendor'
-_A3='fcSFPDataRateCapability'
-_A2='fcSFPPartNum'
-_A1='fcSFPSerialNum'
-_A0='fcSFPVendor'
-_z='dramSingleBitErrorCount'
-_y='temperatureLowAlertSetting'
-_x='temperatureHighAlertSetting'
-_w='maximumOperatingTemp'
-_v='minimumOperatingTemp'
-_u='lastRebootReason'
-_t='uptime'
-_s='lastReboot'
-_r='bridgeName'
-_q='serialNumber'
-_p='secondaryFirmwareBuildDate'
-_o='secondaryFirmwareRevision'
-_n='hardwareVersion'
-_m='primaryFirmwareBuildDate'
-_l='primaryFirmwareRevision'
-_k='modelName'
-_j='vendorID'
-_i='bridgeUniqueId'
-_h='trapClientIndex'
-_g='sasPhyStatsIndex'
-_f='gb1point5'
-_e='sasPortIndex'
-_d='fcStatsIndex'
-_c='fcPortIndex'
-_b='sasQSFPIndex'
-_a='fcSFPIndex'
-_Z='critical'
-_Y='normal'
-_X='sasPortOperationalState'
-_W='sasPortPortNumber'
-_V='fcPortOperationalState'
-_U='fcPortPortNumber'
-_T='chassisThroughputStatus'
-_S='chassisTemperatureStatus'
-_R='chassisTemperature'
-_Q='warning'
-_P='offline'
-_O='online'
-_N='enabled'
-_M='disabled'
-_L='gb8'
-_K='gb4'
-_J='gb2'
-_I='DateAndTime'
-_H='not-accessible'
-_G='unknown'
-_F='DisplayString'
-_E='read-write'
-_D='Integer32'
-_C='read-only'
-_B='ATTO6500N-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention,TimeInterval=mibBuilder.importSymbols('SNMPv2-TC',_I,_F,'PhysAddress','TextualConvention','TimeInterval')
-bridge=ModuleIdentity((1,3,6,1,4,1,4547,2,3))
-if mibBuilder.loadTexts:bridge.setRevisions(('2013-04-19 00:00','2013-04-16 00:00'))
-class DisplayWWN(TextualConvention,OctetString):status=_A;displayHint='1x ';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
-class QSFPTech(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,1,2,3)));namedValues=NamedValues(*((_G,-1),('optical',1),('activecopper',2),('passivecopper',3)))
-class PHYStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,1,2)));namedValues=NamedValues(*((_G,-1),(_O,1),(_P,2)))
-_Attotech_ObjectIdentity=ObjectIdentity
-attotech=_Attotech_ObjectIdentity((1,3,6,1,4,1,4547))
-_AttoProducts_ObjectIdentity=ObjectIdentity
-attoProducts=_AttoProducts_ObjectIdentity((1,3,6,1,4,1,4547,1))
-_AttoMgmt_ObjectIdentity=ObjectIdentity
-attoMgmt=_AttoMgmt_ObjectIdentity((1,3,6,1,4,1,4547,2))
-_BridgeTraps_ObjectIdentity=ObjectIdentity
-bridgeTraps=_BridgeTraps_ObjectIdentity((1,3,6,1,4,1,4547,2,3,0))
-_BridgeIdentity_ObjectIdentity=ObjectIdentity
-bridgeIdentity=_BridgeIdentity_ObjectIdentity((1,3,6,1,4,1,4547,2,3,1))
-_BridgeUniqueId_Type=DisplayWWN
-_BridgeUniqueId_Object=MibScalar
-bridgeUniqueId=_BridgeUniqueId_Object((1,3,6,1,4,1,4547,2,3,1,1),_BridgeUniqueId_Type())
-bridgeUniqueId.setMaxAccess(_C)
-if mibBuilder.loadTexts:bridgeUniqueId.setStatus(_A)
-class _VendorID_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_VendorID_Type.__name__=_F
-_VendorID_Object=MibScalar
-vendorID=_VendorID_Object((1,3,6,1,4,1,4547,2,3,1,2),_VendorID_Type())
-vendorID.setMaxAccess(_C)
-if mibBuilder.loadTexts:vendorID.setStatus(_A)
-class _ModelName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_ModelName_Type.__name__=_F
-_ModelName_Object=MibScalar
-modelName=_ModelName_Object((1,3,6,1,4,1,4547,2,3,1,3),_ModelName_Type())
-modelName.setMaxAccess(_C)
-if mibBuilder.loadTexts:modelName.setStatus(_A)
-class _PrimaryFirmwareRevision_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_PrimaryFirmwareRevision_Type.__name__=_F
-_PrimaryFirmwareRevision_Object=MibScalar
-primaryFirmwareRevision=_PrimaryFirmwareRevision_Object((1,3,6,1,4,1,4547,2,3,1,4),_PrimaryFirmwareRevision_Type())
-primaryFirmwareRevision.setMaxAccess(_C)
-if mibBuilder.loadTexts:primaryFirmwareRevision.setStatus(_A)
-class _PrimaryFirmwareBuildDate_Type(DateAndTime):subtypeSpec=DateAndTime.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
-_PrimaryFirmwareBuildDate_Type.__name__=_I
-_PrimaryFirmwareBuildDate_Object=MibScalar
-primaryFirmwareBuildDate=_PrimaryFirmwareBuildDate_Object((1,3,6,1,4,1,4547,2,3,1,5),_PrimaryFirmwareBuildDate_Type())
-primaryFirmwareBuildDate.setMaxAccess(_C)
-if mibBuilder.loadTexts:primaryFirmwareBuildDate.setStatus(_A)
-_HardwareVersion_Type=Integer32
-_HardwareVersion_Object=MibScalar
-hardwareVersion=_HardwareVersion_Object((1,3,6,1,4,1,4547,2,3,1,6),_HardwareVersion_Type())
-hardwareVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:hardwareVersion.setStatus(_A)
-class _SecondaryFirmwareRevision_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,12))
-_SecondaryFirmwareRevision_Type.__name__=_F
-_SecondaryFirmwareRevision_Object=MibScalar
-secondaryFirmwareRevision=_SecondaryFirmwareRevision_Object((1,3,6,1,4,1,4547,2,3,1,7),_SecondaryFirmwareRevision_Type())
-secondaryFirmwareRevision.setMaxAccess(_C)
-if mibBuilder.loadTexts:secondaryFirmwareRevision.setStatus(_A)
-class _SecondaryFirmwareBuildDate_Type(DateAndTime):subtypeSpec=DateAndTime.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
-_SecondaryFirmwareBuildDate_Type.__name__=_I
-_SecondaryFirmwareBuildDate_Object=MibScalar
-secondaryFirmwareBuildDate=_SecondaryFirmwareBuildDate_Object((1,3,6,1,4,1,4547,2,3,1,8),_SecondaryFirmwareBuildDate_Type())
-secondaryFirmwareBuildDate.setMaxAccess(_C)
-if mibBuilder.loadTexts:secondaryFirmwareBuildDate.setStatus(_A)
-class _SerialNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_SerialNumber_Type.__name__=_F
-_SerialNumber_Object=MibScalar
-serialNumber=_SerialNumber_Object((1,3,6,1,4,1,4547,2,3,1,9),_SerialNumber_Type())
-serialNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:serialNumber.setStatus(_A)
-class _BridgeName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_BridgeName_Type.__name__=_F
-_BridgeName_Object=MibScalar
-bridgeName=_BridgeName_Object((1,3,6,1,4,1,4547,2,3,1,10),_BridgeName_Type())
-bridgeName.setMaxAccess(_C)
-if mibBuilder.loadTexts:bridgeName.setStatus(_A)
-_BridgeChassis_ObjectIdentity=ObjectIdentity
-bridgeChassis=_BridgeChassis_ObjectIdentity((1,3,6,1,4,1,4547,2,3,2))
-class _LastReboot_Type(DateAndTime):subtypeSpec=DateAndTime.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
-_LastReboot_Type.__name__=_I
-_LastReboot_Object=MibScalar
-lastReboot=_LastReboot_Object((1,3,6,1,4,1,4547,2,3,2,1),_LastReboot_Type())
-lastReboot.setMaxAccess(_C)
-if mibBuilder.loadTexts:lastReboot.setStatus(_A)
-_Uptime_Type=TimeInterval
-_Uptime_Object=MibScalar
-uptime=_Uptime_Object((1,3,6,1,4,1,4547,2,3,2,2),_Uptime_Type())
-uptime.setMaxAccess(_C)
-if mibBuilder.loadTexts:uptime.setStatus(_A)
-class _LastRebootReason_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,100))
-_LastRebootReason_Type.__name__=_F
-_LastRebootReason_Object=MibScalar
-lastRebootReason=_LastRebootReason_Object((1,3,6,1,4,1,4547,2,3,2,3),_LastRebootReason_Type())
-lastRebootReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:lastRebootReason.setStatus(_A)
-_MinimumOperatingTemp_Type=Integer32
-_MinimumOperatingTemp_Object=MibScalar
-minimumOperatingTemp=_MinimumOperatingTemp_Object((1,3,6,1,4,1,4547,2,3,2,4),_MinimumOperatingTemp_Type())
-minimumOperatingTemp.setMaxAccess(_C)
-if mibBuilder.loadTexts:minimumOperatingTemp.setStatus(_A)
-_MaximumOperatingTemp_Type=Integer32
-_MaximumOperatingTemp_Object=MibScalar
-maximumOperatingTemp=_MaximumOperatingTemp_Object((1,3,6,1,4,1,4547,2,3,2,5),_MaximumOperatingTemp_Type())
-maximumOperatingTemp.setMaxAccess(_C)
-if mibBuilder.loadTexts:maximumOperatingTemp.setStatus(_A)
-_TemperatureHighAlertSetting_Type=Integer32
-_TemperatureHighAlertSetting_Object=MibScalar
-temperatureHighAlertSetting=_TemperatureHighAlertSetting_Object((1,3,6,1,4,1,4547,2,3,2,6),_TemperatureHighAlertSetting_Type())
-temperatureHighAlertSetting.setMaxAccess(_C)
-if mibBuilder.loadTexts:temperatureHighAlertSetting.setStatus(_A)
-_TemperatureLowAlertSetting_Type=Integer32
-_TemperatureLowAlertSetting_Object=MibScalar
-temperatureLowAlertSetting=_TemperatureLowAlertSetting_Object((1,3,6,1,4,1,4547,2,3,2,7),_TemperatureLowAlertSetting_Type())
-temperatureLowAlertSetting.setMaxAccess(_C)
-if mibBuilder.loadTexts:temperatureLowAlertSetting.setStatus(_A)
-_ChassisTemperature_Type=Integer32
-_ChassisTemperature_Object=MibScalar
-chassisTemperature=_ChassisTemperature_Object((1,3,6,1,4,1,4547,2,3,2,8),_ChassisTemperature_Type())
-chassisTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:chassisTemperature.setStatus(_A)
-class _ChassisTemperatureStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_Y,1),(_Q,2),(_Z,3)))
-_ChassisTemperatureStatus_Type.__name__=_D
-_ChassisTemperatureStatus_Object=MibScalar
-chassisTemperatureStatus=_ChassisTemperatureStatus_Object((1,3,6,1,4,1,4547,2,3,2,9),_ChassisTemperatureStatus_Type())
-chassisTemperatureStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:chassisTemperatureStatus.setStatus(_A)
-_DramSingleBitErrorCount_Type=Integer32
-_DramSingleBitErrorCount_Object=MibScalar
-dramSingleBitErrorCount=_DramSingleBitErrorCount_Object((1,3,6,1,4,1,4547,2,3,2,10),_DramSingleBitErrorCount_Type())
-dramSingleBitErrorCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:dramSingleBitErrorCount.setStatus(_A)
-class _ChassisThroughputStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Y,1),(_Q,2)))
-_ChassisThroughputStatus_Type.__name__=_D
-_ChassisThroughputStatus_Object=MibScalar
-chassisThroughputStatus=_ChassisThroughputStatus_Object((1,3,6,1,4,1,4547,2,3,2,11),_ChassisThroughputStatus_Type())
-chassisThroughputStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:chassisThroughputStatus.setStatus(_A)
-_FcSFPInfoTable_Object=MibTable
-fcSFPInfoTable=_FcSFPInfoTable_Object((1,3,6,1,4,1,4547,2,3,2,12))
-if mibBuilder.loadTexts:fcSFPInfoTable.setStatus(_A)
-_FcSFPInfoEntry_Object=MibTableRow
-fcSFPInfoEntry=_FcSFPInfoEntry_Object((1,3,6,1,4,1,4547,2,3,2,12,1))
-fcSFPInfoEntry.setIndexNames((0,_B,_a))
-if mibBuilder.loadTexts:fcSFPInfoEntry.setStatus(_A)
-class _FcSFPIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_FcSFPIndex_Type.__name__=_D
-_FcSFPIndex_Object=MibTableColumn
-fcSFPIndex=_FcSFPIndex_Object((1,3,6,1,4,1,4547,2,3,2,12,1,1),_FcSFPIndex_Type())
-fcSFPIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:fcSFPIndex.setStatus(_A)
-class _FcSFPVendor_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_FcSFPVendor_Type.__name__=_F
-_FcSFPVendor_Object=MibTableColumn
-fcSFPVendor=_FcSFPVendor_Object((1,3,6,1,4,1,4547,2,3,2,12,1,2),_FcSFPVendor_Type())
-fcSFPVendor.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcSFPVendor.setStatus(_A)
-class _FcSFPSerialNum_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_FcSFPSerialNum_Type.__name__=_F
-_FcSFPSerialNum_Object=MibTableColumn
-fcSFPSerialNum=_FcSFPSerialNum_Object((1,3,6,1,4,1,4547,2,3,2,12,1,3),_FcSFPSerialNum_Type())
-fcSFPSerialNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcSFPSerialNum.setStatus(_A)
-class _FcSFPPartNum_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_FcSFPPartNum_Type.__name__=_F
-_FcSFPPartNum_Object=MibTableColumn
-fcSFPPartNum=_FcSFPPartNum_Object((1,3,6,1,4,1,4547,2,3,2,12,1,4),_FcSFPPartNum_Type())
-fcSFPPartNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcSFPPartNum.setStatus(_A)
-class _FcSFPDataRateCapability_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,4,8,16)));namedValues=NamedValues(*((_J,2),(_K,4),(_L,8),('gb16',16)))
-_FcSFPDataRateCapability_Type.__name__=_D
-_FcSFPDataRateCapability_Object=MibTableColumn
-fcSFPDataRateCapability=_FcSFPDataRateCapability_Object((1,3,6,1,4,1,4547,2,3,2,12,1,5),_FcSFPDataRateCapability_Type())
-fcSFPDataRateCapability.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcSFPDataRateCapability.setStatus(_A)
-_SasQSFPInfoTable_Object=MibTable
-sasQSFPInfoTable=_SasQSFPInfoTable_Object((1,3,6,1,4,1,4547,2,3,2,13))
-if mibBuilder.loadTexts:sasQSFPInfoTable.setStatus(_A)
-_SasQSFPInfoEntry_Object=MibTableRow
-sasQSFPInfoEntry=_SasQSFPInfoEntry_Object((1,3,6,1,4,1,4547,2,3,2,13,1))
-sasQSFPInfoEntry.setIndexNames((0,_B,_b))
-if mibBuilder.loadTexts:sasQSFPInfoEntry.setStatus(_A)
-class _SasQSFPIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_SasQSFPIndex_Type.__name__=_D
-_SasQSFPIndex_Object=MibTableColumn
-sasQSFPIndex=_SasQSFPIndex_Object((1,3,6,1,4,1,4547,2,3,2,13,1,1),_SasQSFPIndex_Type())
-sasQSFPIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:sasQSFPIndex.setStatus(_A)
-class _SasQSFPVendor_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_SasQSFPVendor_Type.__name__=_F
-_SasQSFPVendor_Object=MibTableColumn
-sasQSFPVendor=_SasQSFPVendor_Object((1,3,6,1,4,1,4547,2,3,2,13,1,2),_SasQSFPVendor_Type())
-sasQSFPVendor.setMaxAccess(_C)
-if mibBuilder.loadTexts:sasQSFPVendor.setStatus(_A)
-class _SasQSFPSerialNum_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_SasQSFPSerialNum_Type.__name__=_F
-_SasQSFPSerialNum_Object=MibTableColumn
-sasQSFPSerialNum=_SasQSFPSerialNum_Object((1,3,6,1,4,1,4547,2,3,2,13,1,3),_SasQSFPSerialNum_Type())
-sasQSFPSerialNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:sasQSFPSerialNum.setStatus(_A)
-_SasQSFPType_Type=QSFPTech
-_SasQSFPType_Object=MibTableColumn
-sasQSFPType=_SasQSFPType_Object((1,3,6,1,4,1,4547,2,3,2,13,1,4),_SasQSFPType_Type())
-sasQSFPType.setMaxAccess(_C)
-if mibBuilder.loadTexts:sasQSFPType.setStatus(_A)
-class _SasQSFPPartNum_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_SasQSFPPartNum_Type.__name__=_F
-_SasQSFPPartNum_Object=MibTableColumn
-sasQSFPPartNum=_SasQSFPPartNum_Object((1,3,6,1,4,1,4547,2,3,2,13,1,5),_SasQSFPPartNum_Type())
-sasQSFPPartNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:sasQSFPPartNum.setStatus(_A)
-_BridgePorts_ObjectIdentity=ObjectIdentity
-bridgePorts=_BridgePorts_ObjectIdentity((1,3,6,1,4,1,4547,2,3,3))
-_FcPortInfoTable_Object=MibTable
-fcPortInfoTable=_FcPortInfoTable_Object((1,3,6,1,4,1,4547,2,3,3,1))
-if mibBuilder.loadTexts:fcPortInfoTable.setStatus(_A)
-_FcPortInfoEntry_Object=MibTableRow
-fcPortInfoEntry=_FcPortInfoEntry_Object((1,3,6,1,4,1,4547,2,3,3,1,1))
-fcPortInfoEntry.setIndexNames((0,_B,_c))
-if mibBuilder.loadTexts:fcPortInfoEntry.setStatus(_A)
-class _FcPortIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_FcPortIndex_Type.__name__=_D
-_FcPortIndex_Object=MibTableColumn
-fcPortIndex=_FcPortIndex_Object((1,3,6,1,4,1,4547,2,3,3,1,1,1),_FcPortIndex_Type())
-fcPortIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:fcPortIndex.setStatus(_A)
-class _FcPortPortNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_FcPortPortNumber_Type.__name__=_D
-_FcPortPortNumber_Object=MibTableColumn
-fcPortPortNumber=_FcPortPortNumber_Object((1,3,6,1,4,1,4547,2,3,3,1,1,2),_FcPortPortNumber_Type())
-fcPortPortNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcPortPortNumber.setStatus(_A)
-class _FcPortOperationalState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,1,2)));namedValues=NamedValues(*((_G,-1),(_O,1),(_P,2)))
-_FcPortOperationalState_Type.__name__=_D
-_FcPortOperationalState_Object=MibTableColumn
-fcPortOperationalState=_FcPortOperationalState_Object((1,3,6,1,4,1,4547,2,3,3,1,1,3),_FcPortOperationalState_Type())
-fcPortOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcPortOperationalState.setStatus(_A)
-class _FcPortAdminState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,1,2)));namedValues=NamedValues(*((_G,-1),(_M,1),(_N,2)))
-_FcPortAdminState_Type.__name__=_D
-_FcPortAdminState_Object=MibTableColumn
-fcPortAdminState=_FcPortAdminState_Object((1,3,6,1,4,1,4547,2,3,3,1,1,4),_FcPortAdminState_Type())
-fcPortAdminState.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcPortAdminState.setStatus(_A)
-class _FcPortDataRateNegotiated_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,2,4,8)));namedValues=NamedValues(*((_G,-1),(_J,2),(_K,4),(_L,8)))
-_FcPortDataRateNegotiated_Type.__name__=_D
-_FcPortDataRateNegotiated_Object=MibTableColumn
-fcPortDataRateNegotiated=_FcPortDataRateNegotiated_Object((1,3,6,1,4,1,4547,2,3,3,1,1,5),_FcPortDataRateNegotiated_Type())
-fcPortDataRateNegotiated.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcPortDataRateNegotiated.setStatus(_A)
-class _FcPortConnModeNegotiated_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,1,2)));namedValues=NamedValues(*((_G,-1),('loop',1),('ptp',2)))
-_FcPortConnModeNegotiated_Type.__name__=_D
-_FcPortConnModeNegotiated_Object=MibTableColumn
-fcPortConnModeNegotiated=_FcPortConnModeNegotiated_Object((1,3,6,1,4,1,4547,2,3,3,1,1,6),_FcPortConnModeNegotiated_Type())
-fcPortConnModeNegotiated.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcPortConnModeNegotiated.setStatus(_A)
-class _FcPortDataRateConfigured_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,2,4,8)));namedValues=NamedValues(*(('auto',-1),(_J,2),(_K,4),(_L,8)))
-_FcPortDataRateConfigured_Type.__name__=_D
-_FcPortDataRateConfigured_Object=MibTableColumn
-fcPortDataRateConfigured=_FcPortDataRateConfigured_Object((1,3,6,1,4,1,4547,2,3,3,1,1,7),_FcPortDataRateConfigured_Type())
-fcPortDataRateConfigured.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcPortDataRateConfigured.setStatus(_A)
-class _FcPortConnModeConfigured_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('loop',1),('ptp',2),('looppreferred',3),('ptppreferred',4)))
-_FcPortConnModeConfigured_Type.__name__=_D
-_FcPortConnModeConfigured_Object=MibTableColumn
-fcPortConnModeConfigured=_FcPortConnModeConfigured_Object((1,3,6,1,4,1,4547,2,3,3,1,1,8),_FcPortConnModeConfigured_Type())
-fcPortConnModeConfigured.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcPortConnModeConfigured.setStatus(_A)
-class _FcPortDataRateCapability_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,4,8)));namedValues=NamedValues(*((_J,2),(_K,4),(_L,8)))
-_FcPortDataRateCapability_Type.__name__=_D
-_FcPortDataRateCapability_Object=MibTableColumn
-fcPortDataRateCapability=_FcPortDataRateCapability_Object((1,3,6,1,4,1,4547,2,3,3,1,1,9),_FcPortDataRateCapability_Type())
-fcPortDataRateCapability.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcPortDataRateCapability.setStatus(_A)
-_FcPortNodeName_Type=DisplayWWN
-_FcPortNodeName_Object=MibTableColumn
-fcPortNodeName=_FcPortNodeName_Object((1,3,6,1,4,1,4547,2,3,3,1,1,10),_FcPortNodeName_Type())
-fcPortNodeName.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcPortNodeName.setStatus(_A)
-_FcPortPortName_Type=DisplayWWN
-_FcPortPortName_Object=MibTableColumn
-fcPortPortName=_FcPortPortName_Object((1,3,6,1,4,1,4547,2,3,3,1,1,11),_FcPortPortName_Type())
-fcPortPortName.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcPortPortName.setStatus(_A)
-_FcPortPeerName_Type=DisplayWWN
-_FcPortPeerName_Object=MibTableColumn
-fcPortPeerName=_FcPortPeerName_Object((1,3,6,1,4,1,4547,2,3,3,1,1,12),_FcPortPeerName_Type())
-fcPortPeerName.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcPortPeerName.setStatus(_A)
-_FcPortStatisticsTable_Object=MibTable
-fcPortStatisticsTable=_FcPortStatisticsTable_Object((1,3,6,1,4,1,4547,2,3,3,2))
-if mibBuilder.loadTexts:fcPortStatisticsTable.setStatus(_A)
-_FcPortStatisticsEntry_Object=MibTableRow
-fcPortStatisticsEntry=_FcPortStatisticsEntry_Object((1,3,6,1,4,1,4547,2,3,3,2,1))
-fcPortStatisticsEntry.setIndexNames((0,_B,_d))
-if mibBuilder.loadTexts:fcPortStatisticsEntry.setStatus(_A)
-class _FcStatsIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_FcStatsIndex_Type.__name__=_D
-_FcStatsIndex_Object=MibTableColumn
-fcStatsIndex=_FcStatsIndex_Object((1,3,6,1,4,1,4547,2,3,3,2,1,1),_FcStatsIndex_Type())
-fcStatsIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:fcStatsIndex.setStatus(_A)
-_FcStatsTxWords_Type=Unsigned32
-_FcStatsTxWords_Object=MibTableColumn
-fcStatsTxWords=_FcStatsTxWords_Object((1,3,6,1,4,1,4547,2,3,3,2,1,2),_FcStatsTxWords_Type())
-fcStatsTxWords.setMaxAccess(_E)
-if mibBuilder.loadTexts:fcStatsTxWords.setStatus(_A)
-_FcStatsRxWords_Type=Unsigned32
-_FcStatsRxWords_Object=MibTableColumn
-fcStatsRxWords=_FcStatsRxWords_Object((1,3,6,1,4,1,4547,2,3,3,2,1,3),_FcStatsRxWords_Type())
-fcStatsRxWords.setMaxAccess(_E)
-if mibBuilder.loadTexts:fcStatsRxWords.setStatus(_A)
-_FcStatsTimeSinceReset_Type=TimeInterval
-_FcStatsTimeSinceReset_Object=MibTableColumn
-fcStatsTimeSinceReset=_FcStatsTimeSinceReset_Object((1,3,6,1,4,1,4547,2,3,3,2,1,4),_FcStatsTimeSinceReset_Type())
-fcStatsTimeSinceReset.setMaxAccess(_C)
-if mibBuilder.loadTexts:fcStatsTimeSinceReset.setStatus(_A)
-_FcStatsErrLinkFailure_Type=Unsigned32
-_FcStatsErrLinkFailure_Object=MibTableColumn
-fcStatsErrLinkFailure=_FcStatsErrLinkFailure_Object((1,3,6,1,4,1,4547,2,3,3,2,1,5),_FcStatsErrLinkFailure_Type())
-fcStatsErrLinkFailure.setMaxAccess(_E)
-if mibBuilder.loadTexts:fcStatsErrLinkFailure.setStatus(_A)
-_FcStatsErrLossOfSync_Type=Unsigned32
-_FcStatsErrLossOfSync_Object=MibTableColumn
-fcStatsErrLossOfSync=_FcStatsErrLossOfSync_Object((1,3,6,1,4,1,4547,2,3,3,2,1,6),_FcStatsErrLossOfSync_Type())
-fcStatsErrLossOfSync.setMaxAccess(_E)
-if mibBuilder.loadTexts:fcStatsErrLossOfSync.setStatus(_A)
-_FcStatsErrInvalidCRC_Type=Unsigned32
-_FcStatsErrInvalidCRC_Object=MibTableColumn
-fcStatsErrInvalidCRC=_FcStatsErrInvalidCRC_Object((1,3,6,1,4,1,4547,2,3,3,2,1,7),_FcStatsErrInvalidCRC_Type())
-fcStatsErrInvalidCRC.setMaxAccess(_E)
-if mibBuilder.loadTexts:fcStatsErrInvalidCRC.setStatus(_A)
-_FcStatsErrInvalidTxWords_Type=Unsigned32
-_FcStatsErrInvalidTxWords_Object=MibTableColumn
-fcStatsErrInvalidTxWords=_FcStatsErrInvalidTxWords_Object((1,3,6,1,4,1,4547,2,3,3,2,1,8),_FcStatsErrInvalidTxWords_Type())
-fcStatsErrInvalidTxWords.setMaxAccess(_E)
-if mibBuilder.loadTexts:fcStatsErrInvalidTxWords.setStatus(_A)
-_FcStatsErrLipCount_Type=Unsigned32
-_FcStatsErrLipCount_Object=MibTableColumn
-fcStatsErrLipCount=_FcStatsErrLipCount_Object((1,3,6,1,4,1,4547,2,3,3,2,1,9),_FcStatsErrLipCount_Type())
-fcStatsErrLipCount.setMaxAccess(_E)
-if mibBuilder.loadTexts:fcStatsErrLipCount.setStatus(_A)
-_FcStatsErrNOSCount_Type=Unsigned32
-_FcStatsErrNOSCount_Object=MibTableColumn
-fcStatsErrNOSCount=_FcStatsErrNOSCount_Object((1,3,6,1,4,1,4547,2,3,3,2,1,10),_FcStatsErrNOSCount_Type())
-fcStatsErrNOSCount.setMaxAccess(_E)
-if mibBuilder.loadTexts:fcStatsErrNOSCount.setStatus(_A)
-_FcStatsErrSignalLoss_Type=Unsigned32
-_FcStatsErrSignalLoss_Object=MibTableColumn
-fcStatsErrSignalLoss=_FcStatsErrSignalLoss_Object((1,3,6,1,4,1,4547,2,3,3,2,1,11),_FcStatsErrSignalLoss_Type())
-fcStatsErrSignalLoss.setMaxAccess(_E)
-if mibBuilder.loadTexts:fcStatsErrSignalLoss.setStatus(_A)
-_FcStatsErrPrimitive_Type=Unsigned32
-_FcStatsErrPrimitive_Object=MibTableColumn
-fcStatsErrPrimitive=_FcStatsErrPrimitive_Object((1,3,6,1,4,1,4547,2,3,3,2,1,12),_FcStatsErrPrimitive_Type())
-fcStatsErrPrimitive.setMaxAccess(_E)
-if mibBuilder.loadTexts:fcStatsErrPrimitive.setStatus(_A)
-_SasPortInfoTable_Object=MibTable
-sasPortInfoTable=_SasPortInfoTable_Object((1,3,6,1,4,1,4547,2,3,3,3))
-if mibBuilder.loadTexts:sasPortInfoTable.setStatus(_A)
-_SasPortInfoEntry_Object=MibTableRow
-sasPortInfoEntry=_SasPortInfoEntry_Object((1,3,6,1,4,1,4547,2,3,3,3,1))
-sasPortInfoEntry.setIndexNames((0,_B,_e))
-if mibBuilder.loadTexts:sasPortInfoEntry.setStatus(_A)
-class _SasPortIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_SasPortIndex_Type.__name__=_D
-_SasPortIndex_Object=MibTableColumn
-sasPortIndex=_SasPortIndex_Object((1,3,6,1,4,1,4547,2,3,3,3,1,1),_SasPortIndex_Type())
-sasPortIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:sasPortIndex.setStatus(_A)
-class _SasPortPortNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_SasPortPortNumber_Type.__name__=_D
-_SasPortPortNumber_Object=MibTableColumn
-sasPortPortNumber=_SasPortPortNumber_Object((1,3,6,1,4,1,4547,2,3,3,3,1,2),_SasPortPortNumber_Type())
-sasPortPortNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:sasPortPortNumber.setStatus(_A)
-class _SasPortOperationalState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,1,2,3)));namedValues=NamedValues(*((_G,-1),(_O,1),(_P,2),('degraded',3)))
-_SasPortOperationalState_Type.__name__=_D
-_SasPortOperationalState_Object=MibTableColumn
-sasPortOperationalState=_SasPortOperationalState_Object((1,3,6,1,4,1,4547,2,3,3,3,1,3),_SasPortOperationalState_Type())
-sasPortOperationalState.setMaxAccess(_C)
-if mibBuilder.loadTexts:sasPortOperationalState.setStatus(_A)
-_SasPortPhy1State_Type=PHYStatus
-_SasPortPhy1State_Object=MibTableColumn
-sasPortPhy1State=_SasPortPhy1State_Object((1,3,6,1,4,1,4547,2,3,3,3,1,4),_SasPortPhy1State_Type())
-sasPortPhy1State.setMaxAccess(_C)
-if mibBuilder.loadTexts:sasPortPhy1State.setStatus(_A)
-_SasPortPhy2State_Type=PHYStatus
-_SasPortPhy2State_Object=MibTableColumn
-sasPortPhy2State=_SasPortPhy2State_Object((1,3,6,1,4,1,4547,2,3,3,3,1,5),_SasPortPhy2State_Type())
-sasPortPhy2State.setMaxAccess(_C)
-if mibBuilder.loadTexts:sasPortPhy2State.setStatus(_A)
-_SasPortPhy3State_Type=PHYStatus
-_SasPortPhy3State_Object=MibTableColumn
-sasPortPhy3State=_SasPortPhy3State_Object((1,3,6,1,4,1,4547,2,3,3,3,1,6),_SasPortPhy3State_Type())
-sasPortPhy3State.setMaxAccess(_C)
-if mibBuilder.loadTexts:sasPortPhy3State.setStatus(_A)
-_SasPortPhy4State_Type=PHYStatus
-_SasPortPhy4State_Object=MibTableColumn
-sasPortPhy4State=_SasPortPhy4State_Object((1,3,6,1,4,1,4547,2,3,3,3,1,7),_SasPortPhy4State_Type())
-sasPortPhy4State.setMaxAccess(_C)
-if mibBuilder.loadTexts:sasPortPhy4State.setStatus(_A)
-class _SasPortAdminState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,1,2)));namedValues=NamedValues(*((_G,-1),(_M,1),(_N,2)))
-_SasPortAdminState_Type.__name__=_D
-_SasPortAdminState_Object=MibTableColumn
-sasPortAdminState=_SasPortAdminState_Object((1,3,6,1,4,1,4547,2,3,3,3,1,8),_SasPortAdminState_Type())
-sasPortAdminState.setMaxAccess(_C)
-if mibBuilder.loadTexts:sasPortAdminState.setStatus(_A)
-class _SasPortDataRateCapability_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3,6)));namedValues=NamedValues(*((_f,1),('gb3',3),('gb6',6)))
-_SasPortDataRateCapability_Type.__name__=_D
-_SasPortDataRateCapability_Object=MibTableColumn
-sasPortDataRateCapability=_SasPortDataRateCapability_Object((1,3,6,1,4,1,4547,2,3,3,3,1,9),_SasPortDataRateCapability_Type())
-sasPortDataRateCapability.setMaxAccess(_C)
-if mibBuilder.loadTexts:sasPortDataRateCapability.setStatus(_A)
-class _SasPortDataRateNegotiated_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3,6)));namedValues=NamedValues(*((_f,1),('gb3',3),('gb6',6)))
-_SasPortDataRateNegotiated_Type.__name__=_D
-_SasPortDataRateNegotiated_Object=MibTableColumn
-sasPortDataRateNegotiated=_SasPortDataRateNegotiated_Object((1,3,6,1,4,1,4547,2,3,3,3,1,10),_SasPortDataRateNegotiated_Type())
-sasPortDataRateNegotiated.setMaxAccess(_C)
-if mibBuilder.loadTexts:sasPortDataRateNegotiated.setStatus(_A)
-_SasPortAddress_Type=DisplayWWN
-_SasPortAddress_Object=MibTableColumn
-sasPortAddress=_SasPortAddress_Object((1,3,6,1,4,1,4547,2,3,3,3,1,11),_SasPortAddress_Type())
-sasPortAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:sasPortAddress.setStatus(_A)
-_SasPhyStatisticsTable_Object=MibTable
-sasPhyStatisticsTable=_SasPhyStatisticsTable_Object((1,3,6,1,4,1,4547,2,3,3,4))
-if mibBuilder.loadTexts:sasPhyStatisticsTable.setStatus(_A)
-_SasPhyStatisticsEntry_Object=MibTableRow
-sasPhyStatisticsEntry=_SasPhyStatisticsEntry_Object((1,3,6,1,4,1,4547,2,3,3,4,1))
-sasPhyStatisticsEntry.setIndexNames((0,_B,_g))
-if mibBuilder.loadTexts:sasPhyStatisticsEntry.setStatus(_A)
-class _SasPhyStatsIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_SasPhyStatsIndex_Type.__name__=_D
-_SasPhyStatsIndex_Object=MibTableColumn
-sasPhyStatsIndex=_SasPhyStatsIndex_Object((1,3,6,1,4,1,4547,2,3,3,4,1,1),_SasPhyStatsIndex_Type())
-sasPhyStatsIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:sasPhyStatsIndex.setStatus(_A)
-_SasPhyStatsTimeSinceReset_Type=TimeInterval
-_SasPhyStatsTimeSinceReset_Object=MibTableColumn
-sasPhyStatsTimeSinceReset=_SasPhyStatsTimeSinceReset_Object((1,3,6,1,4,1,4547,2,3,3,4,1,2),_SasPhyStatsTimeSinceReset_Type())
-sasPhyStatsTimeSinceReset.setMaxAccess(_C)
-if mibBuilder.loadTexts:sasPhyStatsTimeSinceReset.setStatus(_A)
-_SasPhyStatsErrLinkChanged_Type=Unsigned32
-_SasPhyStatsErrLinkChanged_Object=MibTableColumn
-sasPhyStatsErrLinkChanged=_SasPhyStatsErrLinkChanged_Object((1,3,6,1,4,1,4547,2,3,3,4,1,3),_SasPhyStatsErrLinkChanged_Type())
-sasPhyStatsErrLinkChanged.setMaxAccess(_E)
-if mibBuilder.loadTexts:sasPhyStatsErrLinkChanged.setStatus(_A)
-_SasPhyStatsErrInvalidCRC_Type=Unsigned32
-_SasPhyStatsErrInvalidCRC_Object=MibTableColumn
-sasPhyStatsErrInvalidCRC=_SasPhyStatsErrInvalidCRC_Object((1,3,6,1,4,1,4547,2,3,3,4,1,4),_SasPhyStatsErrInvalidCRC_Type())
-sasPhyStatsErrInvalidCRC.setMaxAccess(_E)
-if mibBuilder.loadTexts:sasPhyStatsErrInvalidCRC.setStatus(_A)
-_SasPhyStatsErrPhyReset_Type=Unsigned32
-_SasPhyStatsErrPhyReset_Object=MibTableColumn
-sasPhyStatsErrPhyReset=_SasPhyStatsErrPhyReset_Object((1,3,6,1,4,1,4547,2,3,3,4,1,5),_SasPhyStatsErrPhyReset_Type())
-sasPhyStatsErrPhyReset.setMaxAccess(_E)
-if mibBuilder.loadTexts:sasPhyStatsErrPhyReset.setStatus(_A)
-_SasPhyStatsErrLossOfSync_Type=Unsigned32
-_SasPhyStatsErrLossOfSync_Object=MibTableColumn
-sasPhyStatsErrLossOfSync=_SasPhyStatsErrLossOfSync_Object((1,3,6,1,4,1,4547,2,3,3,4,1,6),_SasPhyStatsErrLossOfSync_Type())
-sasPhyStatsErrLossOfSync.setMaxAccess(_E)
-if mibBuilder.loadTexts:sasPhyStatsErrLossOfSync.setStatus(_A)
-_SasPhyStatsErrDisparityCount_Type=Unsigned32
-_SasPhyStatsErrDisparityCount_Object=MibTableColumn
-sasPhyStatsErrDisparityCount=_SasPhyStatsErrDisparityCount_Object((1,3,6,1,4,1,4547,2,3,3,4,1,7),_SasPhyStatsErrDisparityCount_Type())
-sasPhyStatsErrDisparityCount.setMaxAccess(_E)
-if mibBuilder.loadTexts:sasPhyStatsErrDisparityCount.setStatus(_A)
-_SasPhyStatsErrInvalidDwords_Type=Unsigned32
-_SasPhyStatsErrInvalidDwords_Object=MibTableColumn
-sasPhyStatsErrInvalidDwords=_SasPhyStatsErrInvalidDwords_Object((1,3,6,1,4,1,4547,2,3,3,4,1,8),_SasPhyStatsErrInvalidDwords_Type())
-sasPhyStatsErrInvalidDwords.setMaxAccess(_E)
-if mibBuilder.loadTexts:sasPhyStatsErrInvalidDwords.setStatus(_A)
-_BridgeConfig_ObjectIdentity=ObjectIdentity
-bridgeConfig=_BridgeConfig_ObjectIdentity((1,3,6,1,4,1,4547,2,3,4))
-class _TrapsEnabled_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_M,1),(_N,2)))
-_TrapsEnabled_Type.__name__=_D
-_TrapsEnabled_Object=MibScalar
-trapsEnabled=_TrapsEnabled_Object((1,3,6,1,4,1,4547,2,3,4,1),_TrapsEnabled_Type())
-trapsEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:trapsEnabled.setStatus(_A)
-class _SnmpUpdatesEnabled_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_M,1),(_N,2)))
-_SnmpUpdatesEnabled_Type.__name__=_D
-_SnmpUpdatesEnabled_Object=MibScalar
-snmpUpdatesEnabled=_SnmpUpdatesEnabled_Object((1,3,6,1,4,1,4547,2,3,4,2),_SnmpUpdatesEnabled_Type())
-snmpUpdatesEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:snmpUpdatesEnabled.setStatus(_A)
-_BridgeTrapInfo_ObjectIdentity=ObjectIdentity
-bridgeTrapInfo=_BridgeTrapInfo_ObjectIdentity((1,3,6,1,4,1,4547,2,3,5))
-_TrapMaxClients_Type=Integer32
-_TrapMaxClients_Object=MibScalar
-trapMaxClients=_TrapMaxClients_Object((1,3,6,1,4,1,4547,2,3,5,1),_TrapMaxClients_Type())
-trapMaxClients.setMaxAccess(_C)
-if mibBuilder.loadTexts:trapMaxClients.setStatus(_A)
-_TrapClientTable_Object=MibTable
-trapClientTable=_TrapClientTable_Object((1,3,6,1,4,1,4547,2,3,5,2))
-if mibBuilder.loadTexts:trapClientTable.setStatus(_A)
-_TrapClientEntry_Object=MibTableRow
-trapClientEntry=_TrapClientEntry_Object((1,3,6,1,4,1,4547,2,3,5,2,1))
-trapClientEntry.setIndexNames((0,_B,_h))
-if mibBuilder.loadTexts:trapClientEntry.setStatus(_A)
-class _TrapClientIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,8))
-_TrapClientIndex_Type.__name__=_D
-_TrapClientIndex_Object=MibTableColumn
-trapClientIndex=_TrapClientIndex_Object((1,3,6,1,4,1,4547,2,3,5,2,1,1),_TrapClientIndex_Type())
-trapClientIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:trapClientIndex.setStatus(_A)
-class _TrapClientIpAddress_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,48))
-_TrapClientIpAddress_Type.__name__=_F
-_TrapClientIpAddress_Object=MibTableColumn
-trapClientIpAddress=_TrapClientIpAddress_Object((1,3,6,1,4,1,4547,2,3,5,2,1,2),_TrapClientIpAddress_Type())
-trapClientIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:trapClientIpAddress.setStatus(_A)
-class _TrapClientPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_TrapClientPort_Type.__name__=_D
-_TrapClientPort_Object=MibTableColumn
-trapClientPort=_TrapClientPort_Object((1,3,6,1,4,1,4547,2,3,5,2,1,3),_TrapClientPort_Type())
-trapClientPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:trapClientPort.setStatus(_A)
-class _TrapClientFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('none',1),(_Z,2),(_Q,3),('informational',4),('all',5)))
-_TrapClientFilter_Type.__name__=_D
-_TrapClientFilter_Object=MibTableColumn
-trapClientFilter=_TrapClientFilter_Object((1,3,6,1,4,1,4547,2,3,5,2,1,4),_TrapClientFilter_Type())
-trapClientFilter.setMaxAccess(_C)
-if mibBuilder.loadTexts:trapClientFilter.setStatus(_A)
-_BridgeMIBConformance_ObjectIdentity=ObjectIdentity
-bridgeMIBConformance=_BridgeMIBConformance_ObjectIdentity((1,3,6,1,4,1,4547,2,3,6))
-_BridgeMIBCompliances_ObjectIdentity=ObjectIdentity
-bridgeMIBCompliances=_BridgeMIBCompliances_ObjectIdentity((1,3,6,1,4,1,4547,2,3,6,1))
-_BridgeMIBGroups_ObjectIdentity=ObjectIdentity
-bridgeMIBGroups=_BridgeMIBGroups_ObjectIdentity((1,3,6,1,4,1,4547,2,3,6,2))
-_AttoModules_ObjectIdentity=ObjectIdentity
-attoModules=_AttoModules_ObjectIdentity((1,3,6,1,4,1,4547,3))
-_AttoAgentCapability_ObjectIdentity=ObjectIdentity
-attoAgentCapability=_AttoAgentCapability_ObjectIdentity((1,3,6,1,4,1,4547,4))
-bridgeIdentityBasicGroup=ObjectGroup((1,3,6,1,4,1,4547,2,3,6,2,1))
-bridgeIdentityBasicGroup.setObjects(*((_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r)))
-if mibBuilder.loadTexts:bridgeIdentityBasicGroup.setStatus(_A)
-bridgeChassisBasicGroup=ObjectGroup((1,3,6,1,4,1,4547,2,3,6,2,2))
-bridgeChassisBasicGroup.setObjects(*((_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_R),(_B,_S),(_B,_z),(_B,_T),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7)))
-if mibBuilder.loadTexts:bridgeChassisBasicGroup.setStatus(_A)
-bridgFcPortInfoBasicGroup=ObjectGroup((1,3,6,1,4,1,4547,2,3,6,2,3))
-bridgFcPortInfoBasicGroup.setObjects(*((_B,_U),(_B,_V),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG)))
-if mibBuilder.loadTexts:bridgFcPortInfoBasicGroup.setStatus(_A)
-bridgeFcPortStatisicsBasicGroup=ObjectGroup((1,3,6,1,4,1,4547,2,3,6,2,4))
-bridgeFcPortStatisicsBasicGroup.setObjects(*((_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR)))
-if mibBuilder.loadTexts:bridgeFcPortStatisicsBasicGroup.setStatus(_A)
-bridgeSasPortInfoBasicGroup=ObjectGroup((1,3,6,1,4,1,4547,2,3,6,2,5))
-bridgeSasPortInfoBasicGroup.setObjects(*((_B,_W),(_B,_X),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ)))
-if mibBuilder.loadTexts:bridgeSasPortInfoBasicGroup.setStatus(_A)
-bridgeSasPortStatisicsBasicGroup=ObjectGroup((1,3,6,1,4,1,4547,2,3,6,2,6))
-bridgeSasPortStatisicsBasicGroup.setObjects(*((_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag)))
-if mibBuilder.loadTexts:bridgeSasPortStatisicsBasicGroup.setStatus(_A)
-bridgeConfigBasicGroup=ObjectGroup((1,3,6,1,4,1,4547,2,3,6,2,7))
-bridgeConfigBasicGroup.setObjects(*((_B,_Ah),(_B,_Ai)))
-if mibBuilder.loadTexts:bridgeConfigBasicGroup.setStatus(_A)
-bridgeTrapInfoBasicGroup=ObjectGroup((1,3,6,1,4,1,4547,2,3,6,2,8))
-bridgeTrapInfoBasicGroup.setObjects(*((_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am)))
-if mibBuilder.loadTexts:bridgeTrapInfoBasicGroup.setStatus(_A)
-bridgeTemperatureWarning=NotificationType((1,3,6,1,4,1,4547,2,3,0,1))
-bridgeTemperatureWarning.setObjects(*((_B,_S),(_B,_R)))
-if mibBuilder.loadTexts:bridgeTemperatureWarning.setStatus(_A)
-fcPortTransition=NotificationType((1,3,6,1,4,1,4547,2,3,0,2))
-fcPortTransition.setObjects(*((_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:fcPortTransition.setStatus(_A)
-sasPortTransition=NotificationType((1,3,6,1,4,1,4547,2,3,0,3))
-sasPortTransition.setObjects(*((_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:sasPortTransition.setStatus(_A)
-bridgeThroughputWarning=NotificationType((1,3,6,1,4,1,4547,2,3,0,4))
-bridgeThroughputWarning.setObjects((_B,_T))
-if mibBuilder.loadTexts:bridgeThroughputWarning.setStatus(_A)
-bridgeTrapsBasicGroup=NotificationGroup((1,3,6,1,4,1,4547,2,3,6,2,9))
-bridgeTrapsBasicGroup.setObjects(*((_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq)))
-if mibBuilder.loadTexts:bridgeTrapsBasicGroup.setStatus(_A)
-bridgeBasicCompliance=ModuleCompliance((1,3,6,1,4,1,4547,2,3,6,1,1))
-bridgeBasicCompliance.setObjects(*((_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az)))
-if mibBuilder.loadTexts:bridgeBasicCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'DisplayWWN':DisplayWWN,'QSFPTech':QSFPTech,'PHYStatus':PHYStatus,'attotech':attotech,'attoProducts':attoProducts,'attoMgmt':attoMgmt,'bridge':bridge,'bridgeTraps':bridgeTraps,_An:bridgeTemperatureWarning,_Ao:fcPortTransition,_Ap:sasPortTransition,_Aq:bridgeThroughputWarning,'bridgeIdentity':bridgeIdentity,_i:bridgeUniqueId,_j:vendorID,_k:modelName,_l:primaryFirmwareRevision,_m:primaryFirmwareBuildDate,_n:hardwareVersion,_o:secondaryFirmwareRevision,_p:secondaryFirmwareBuildDate,_q:serialNumber,_r:bridgeName,'bridgeChassis':bridgeChassis,_s:lastReboot,_t:uptime,_u:lastRebootReason,_v:minimumOperatingTemp,_w:maximumOperatingTemp,_x:temperatureHighAlertSetting,_y:temperatureLowAlertSetting,_R:chassisTemperature,_S:chassisTemperatureStatus,_z:dramSingleBitErrorCount,_T:chassisThroughputStatus,'fcSFPInfoTable':fcSFPInfoTable,'fcSFPInfoEntry':fcSFPInfoEntry,_a:fcSFPIndex,_A0:fcSFPVendor,_A1:fcSFPSerialNum,_A2:fcSFPPartNum,_A3:fcSFPDataRateCapability,'sasQSFPInfoTable':sasQSFPInfoTable,'sasQSFPInfoEntry':sasQSFPInfoEntry,_b:sasQSFPIndex,_A4:sasQSFPVendor,_A5:sasQSFPSerialNum,_A6:sasQSFPType,_A7:sasQSFPPartNum,'bridgePorts':bridgePorts,'fcPortInfoTable':fcPortInfoTable,'fcPortInfoEntry':fcPortInfoEntry,_c:fcPortIndex,_U:fcPortPortNumber,_V:fcPortOperationalState,_A8:fcPortAdminState,_A9:fcPortDataRateNegotiated,_AA:fcPortConnModeNegotiated,_AB:fcPortDataRateConfigured,_AC:fcPortConnModeConfigured,_AD:fcPortDataRateCapability,_AE:fcPortNodeName,_AF:fcPortPortName,_AG:fcPortPeerName,'fcPortStatisticsTable':fcPortStatisticsTable,'fcPortStatisticsEntry':fcPortStatisticsEntry,_d:fcStatsIndex,_AH:fcStatsTxWords,_AI:fcStatsRxWords,_AJ:fcStatsTimeSinceReset,_AK:fcStatsErrLinkFailure,_AL:fcStatsErrLossOfSync,_AM:fcStatsErrInvalidCRC,_AN:fcStatsErrInvalidTxWords,_AO:fcStatsErrLipCount,_AP:fcStatsErrNOSCount,_AQ:fcStatsErrSignalLoss,_AR:fcStatsErrPrimitive,'sasPortInfoTable':sasPortInfoTable,'sasPortInfoEntry':sasPortInfoEntry,_e:sasPortIndex,_W:sasPortPortNumber,_X:sasPortOperationalState,_AS:sasPortPhy1State,_AT:sasPortPhy2State,_AU:sasPortPhy3State,_AV:sasPortPhy4State,_AW:sasPortAdminState,_AX:sasPortDataRateCapability,_AY:sasPortDataRateNegotiated,_AZ:sasPortAddress,'sasPhyStatisticsTable':sasPhyStatisticsTable,'sasPhyStatisticsEntry':sasPhyStatisticsEntry,_g:sasPhyStatsIndex,_Aa:sasPhyStatsTimeSinceReset,_Ab:sasPhyStatsErrLinkChanged,_Ac:sasPhyStatsErrInvalidCRC,_Ad:sasPhyStatsErrPhyReset,_Ae:sasPhyStatsErrLossOfSync,_Af:sasPhyStatsErrDisparityCount,_Ag:sasPhyStatsErrInvalidDwords,'bridgeConfig':bridgeConfig,_Ah:trapsEnabled,_Ai:snmpUpdatesEnabled,'bridgeTrapInfo':bridgeTrapInfo,_Aj:trapMaxClients,'trapClientTable':trapClientTable,'trapClientEntry':trapClientEntry,_h:trapClientIndex,_Ak:trapClientIpAddress,_Al:trapClientPort,_Am:trapClientFilter,'bridgeMIBConformance':bridgeMIBConformance,'bridgeMIBCompliances':bridgeMIBCompliances,'bridgeBasicCompliance':bridgeBasicCompliance,'bridgeMIBGroups':bridgeMIBGroups,_Ar:bridgeIdentityBasicGroup,_As:bridgeChassisBasicGroup,_At:bridgFcPortInfoBasicGroup,_Au:bridgeFcPortStatisicsBasicGroup,_Av:bridgeSasPortInfoBasicGroup,_Aw:bridgeSasPortStatisicsBasicGroup,_Ax:bridgeConfigBasicGroup,_Ay:bridgeTrapInfoBasicGroup,_Az:bridgeTrapsBasicGroup,'attoModules':attoModules,'attoAgentCapability':attoAgentCapability})
+#
+# PySNMP MIB module ATTO6500N-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/atto/ATTO6500N-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:03 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, DateAndTime, TextualConvention, TimeInterval = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention", "TimeInterval")
+bridge = ModuleIdentity((1, 3, 6, 1, 4, 1, 4547, 2, 3))
+bridge.setRevisions(('2013-04-19 00:00', '2013-04-16 00:00',))
+if mibBuilder.loadTexts: bridge.setLastUpdated('201304190000Z')
+if mibBuilder.loadTexts: bridge.setOrganization('ATTO Technology, Inc.')
+attotech = MibIdentifier((1, 3, 6, 1, 4, 1, 4547))
+attoProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 4547, 1))
+attoMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 4547, 2))
+attoModules = MibIdentifier((1, 3, 6, 1, 4, 1, 4547, 3))
+attoAgentCapability = MibIdentifier((1, 3, 6, 1, 4, 1, 4547, 4))
+bridgeTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 4547, 2, 3, 0))
+bridgeIdentity = MibIdentifier((1, 3, 6, 1, 4, 1, 4547, 2, 3, 1))
+bridgeChassis = MibIdentifier((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2))
+bridgePorts = MibIdentifier((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3))
+bridgeConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 4547, 2, 3, 4))
+bridgeTrapInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 4547, 2, 3, 5))
+bridgeMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4547, 2, 3, 6))
+bridgeMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4547, 2, 3, 6, 1))
+bridgeMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4547, 2, 3, 6, 2))
+class DisplayWWN(TextualConvention, OctetString):
+    status = 'current'
+    displayHint = '1x '
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(8, 8)
+    fixedLength = 8
+
+class QSFPTech(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(-1, 1, 2, 3))
+    namedValues = NamedValues(("unknown", -1), ("optical", 1), ("activecopper", 2), ("passivecopper", 3))
+
+class PHYStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(-1, 1, 2))
+    namedValues = NamedValues(("unknown", -1), ("online", 1), ("offline", 2))
+
+bridgeBasicCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4547, 2, 3, 6, 1, 1)).setObjects(("ATTO6500N-MIB", "bridgeIdentityBasicGroup"), ("ATTO6500N-MIB", "bridgeChassisBasicGroup"), ("ATTO6500N-MIB", "bridgFcPortInfoBasicGroup"), ("ATTO6500N-MIB", "bridgeFcPortStatisicsBasicGroup"), ("ATTO6500N-MIB", "bridgeSasPortInfoBasicGroup"), ("ATTO6500N-MIB", "bridgeSasPortStatisicsBasicGroup"), ("ATTO6500N-MIB", "bridgeConfigBasicGroup"), ("ATTO6500N-MIB", "bridgeTrapInfoBasicGroup"), ("ATTO6500N-MIB", "bridgeTrapsBasicGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bridgeBasicCompliance = bridgeBasicCompliance.setStatus('current')
+bridgeIdentityBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4547, 2, 3, 6, 2, 1)).setObjects(("ATTO6500N-MIB", "bridgeUniqueId"), ("ATTO6500N-MIB", "vendorID"), ("ATTO6500N-MIB", "modelName"), ("ATTO6500N-MIB", "primaryFirmwareRevision"), ("ATTO6500N-MIB", "primaryFirmwareBuildDate"), ("ATTO6500N-MIB", "hardwareVersion"), ("ATTO6500N-MIB", "secondaryFirmwareRevision"), ("ATTO6500N-MIB", "secondaryFirmwareBuildDate"), ("ATTO6500N-MIB", "serialNumber"), ("ATTO6500N-MIB", "bridgeName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bridgeIdentityBasicGroup = bridgeIdentityBasicGroup.setStatus('current')
+bridgeChassisBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4547, 2, 3, 6, 2, 2)).setObjects(("ATTO6500N-MIB", "lastReboot"), ("ATTO6500N-MIB", "uptime"), ("ATTO6500N-MIB", "lastRebootReason"), ("ATTO6500N-MIB", "minimumOperatingTemp"), ("ATTO6500N-MIB", "maximumOperatingTemp"), ("ATTO6500N-MIB", "temperatureHighAlertSetting"), ("ATTO6500N-MIB", "temperatureLowAlertSetting"), ("ATTO6500N-MIB", "chassisTemperature"), ("ATTO6500N-MIB", "chassisTemperatureStatus"), ("ATTO6500N-MIB", "dramSingleBitErrorCount"), ("ATTO6500N-MIB", "chassisThroughputStatus"), ("ATTO6500N-MIB", "fcSFPVendor"), ("ATTO6500N-MIB", "fcSFPSerialNum"), ("ATTO6500N-MIB", "fcSFPPartNum"), ("ATTO6500N-MIB", "fcSFPDataRateCapability"), ("ATTO6500N-MIB", "sasQSFPVendor"), ("ATTO6500N-MIB", "sasQSFPSerialNum"), ("ATTO6500N-MIB", "sasQSFPType"), ("ATTO6500N-MIB", "sasQSFPPartNum"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bridgeChassisBasicGroup = bridgeChassisBasicGroup.setStatus('current')
+bridgFcPortInfoBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4547, 2, 3, 6, 2, 3)).setObjects(("ATTO6500N-MIB", "fcPortPortNumber"), ("ATTO6500N-MIB", "fcPortOperationalState"), ("ATTO6500N-MIB", "fcPortAdminState"), ("ATTO6500N-MIB", "fcPortDataRateNegotiated"), ("ATTO6500N-MIB", "fcPortConnModeNegotiated"), ("ATTO6500N-MIB", "fcPortDataRateConfigured"), ("ATTO6500N-MIB", "fcPortConnModeConfigured"), ("ATTO6500N-MIB", "fcPortDataRateCapability"), ("ATTO6500N-MIB", "fcPortNodeName"), ("ATTO6500N-MIB", "fcPortPortName"), ("ATTO6500N-MIB", "fcPortPeerName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bridgFcPortInfoBasicGroup = bridgFcPortInfoBasicGroup.setStatus('current')
+bridgeFcPortStatisicsBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4547, 2, 3, 6, 2, 4)).setObjects(("ATTO6500N-MIB", "fcStatsTxWords"), ("ATTO6500N-MIB", "fcStatsRxWords"), ("ATTO6500N-MIB", "fcStatsTimeSinceReset"), ("ATTO6500N-MIB", "fcStatsErrLinkFailure"), ("ATTO6500N-MIB", "fcStatsErrLossOfSync"), ("ATTO6500N-MIB", "fcStatsErrInvalidCRC"), ("ATTO6500N-MIB", "fcStatsErrInvalidTxWords"), ("ATTO6500N-MIB", "fcStatsErrLipCount"), ("ATTO6500N-MIB", "fcStatsErrNOSCount"), ("ATTO6500N-MIB", "fcStatsErrSignalLoss"), ("ATTO6500N-MIB", "fcStatsErrPrimitive"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bridgeFcPortStatisicsBasicGroup = bridgeFcPortStatisicsBasicGroup.setStatus('current')
+bridgeSasPortInfoBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4547, 2, 3, 6, 2, 5)).setObjects(("ATTO6500N-MIB", "sasPortPortNumber"), ("ATTO6500N-MIB", "sasPortOperationalState"), ("ATTO6500N-MIB", "sasPortPhy1State"), ("ATTO6500N-MIB", "sasPortPhy2State"), ("ATTO6500N-MIB", "sasPortPhy3State"), ("ATTO6500N-MIB", "sasPortPhy4State"), ("ATTO6500N-MIB", "sasPortAdminState"), ("ATTO6500N-MIB", "sasPortDataRateCapability"), ("ATTO6500N-MIB", "sasPortDataRateNegotiated"), ("ATTO6500N-MIB", "sasPortAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bridgeSasPortInfoBasicGroup = bridgeSasPortInfoBasicGroup.setStatus('current')
+bridgeSasPortStatisicsBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4547, 2, 3, 6, 2, 6)).setObjects(("ATTO6500N-MIB", "sasPhyStatsTimeSinceReset"), ("ATTO6500N-MIB", "sasPhyStatsErrLinkChanged"), ("ATTO6500N-MIB", "sasPhyStatsErrInvalidCRC"), ("ATTO6500N-MIB", "sasPhyStatsErrPhyReset"), ("ATTO6500N-MIB", "sasPhyStatsErrLossOfSync"), ("ATTO6500N-MIB", "sasPhyStatsErrDisparityCount"), ("ATTO6500N-MIB", "sasPhyStatsErrInvalidDwords"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bridgeSasPortStatisicsBasicGroup = bridgeSasPortStatisicsBasicGroup.setStatus('current')
+bridgeConfigBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4547, 2, 3, 6, 2, 7)).setObjects(("ATTO6500N-MIB", "trapsEnabled"), ("ATTO6500N-MIB", "snmpUpdatesEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bridgeConfigBasicGroup = bridgeConfigBasicGroup.setStatus('current')
+bridgeTrapInfoBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4547, 2, 3, 6, 2, 8)).setObjects(("ATTO6500N-MIB", "trapMaxClients"), ("ATTO6500N-MIB", "trapClientIpAddress"), ("ATTO6500N-MIB", "trapClientPort"), ("ATTO6500N-MIB", "trapClientFilter"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bridgeTrapInfoBasicGroup = bridgeTrapInfoBasicGroup.setStatus('current')
+bridgeTrapsBasicGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 4547, 2, 3, 6, 2, 9)).setObjects(("ATTO6500N-MIB", "bridgeTemperatureWarning"), ("ATTO6500N-MIB", "fcPortTransition"), ("ATTO6500N-MIB", "sasPortTransition"), ("ATTO6500N-MIB", "bridgeThroughputWarning"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bridgeTrapsBasicGroup = bridgeTrapsBasicGroup.setStatus('current')
+bridgeUniqueId = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 1, 1), DisplayWWN()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bridgeUniqueId.setStatus('current')
+vendorID = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vendorID.setStatus('current')
+modelName = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: modelName.setStatus('current')
+primaryFirmwareRevision = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: primaryFirmwareRevision.setStatus('current')
+primaryFirmwareBuildDate = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 1, 5), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: primaryFirmwareBuildDate.setStatus('current')
+hardwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hardwareVersion.setStatus('current')
+secondaryFirmwareRevision = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 12))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: secondaryFirmwareRevision.setStatus('current')
+secondaryFirmwareBuildDate = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 1, 8), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: secondaryFirmwareBuildDate.setStatus('current')
+serialNumber = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: serialNumber.setStatus('current')
+bridgeName = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bridgeName.setStatus('current')
+lastReboot = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 1), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lastReboot.setStatus('current')
+uptime = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 2), TimeInterval()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: uptime.setStatus('current')
+lastRebootReason = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lastRebootReason.setStatus('current')
+minimumOperatingTemp = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: minimumOperatingTemp.setStatus('current')
+maximumOperatingTemp = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: maximumOperatingTemp.setStatus('current')
+temperatureHighAlertSetting = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: temperatureHighAlertSetting.setStatus('current')
+temperatureLowAlertSetting = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: temperatureLowAlertSetting.setStatus('current')
+chassisTemperature = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: chassisTemperature.setStatus('current')
+chassisTemperatureStatus = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("normal", 1), ("warning", 2), ("critical", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: chassisTemperatureStatus.setStatus('current')
+dramSingleBitErrorCount = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dramSingleBitErrorCount.setStatus('current')
+chassisThroughputStatus = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("normal", 1), ("warning", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: chassisThroughputStatus.setStatus('current')
+fcSFPInfoTable = MibTable((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 12), )
+if mibBuilder.loadTexts: fcSFPInfoTable.setStatus('current')
+sasQSFPInfoTable = MibTable((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 13), )
+if mibBuilder.loadTexts: sasQSFPInfoTable.setStatus('current')
+fcSFPInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 12, 1), ).setIndexNames((0, "ATTO6500N-MIB", "fcSFPIndex"))
+if mibBuilder.loadTexts: fcSFPInfoEntry.setStatus('current')
+fcSFPIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 12, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2)))
+if mibBuilder.loadTexts: fcSFPIndex.setStatus('current')
+fcSFPVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 12, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcSFPVendor.setStatus('current')
+fcSFPSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 12, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcSFPSerialNum.setStatus('current')
+fcSFPPartNum = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 12, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcSFPPartNum.setStatus('current')
+fcSFPDataRateCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 12, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 4, 8, 16))).clone(namedValues=NamedValues(("gb2", 2), ("gb4", 4), ("gb8", 8), ("gb16", 16)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcSFPDataRateCapability.setStatus('current')
+sasQSFPInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 13, 1), ).setIndexNames((0, "ATTO6500N-MIB", "sasQSFPIndex"))
+if mibBuilder.loadTexts: sasQSFPInfoEntry.setStatus('current')
+sasQSFPIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 13, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2)))
+if mibBuilder.loadTexts: sasQSFPIndex.setStatus('current')
+sasQSFPVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 13, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sasQSFPVendor.setStatus('current')
+sasQSFPSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 13, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sasQSFPSerialNum.setStatus('current')
+sasQSFPType = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 13, 1, 4), QSFPTech()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sasQSFPType.setStatus('current')
+sasQSFPPartNum = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 2, 13, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sasQSFPPartNum.setStatus('current')
+fcPortInfoTable = MibTable((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 1), )
+if mibBuilder.loadTexts: fcPortInfoTable.setStatus('current')
+fcPortStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 2), )
+if mibBuilder.loadTexts: fcPortStatisticsTable.setStatus('current')
+sasPortInfoTable = MibTable((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 3), )
+if mibBuilder.loadTexts: sasPortInfoTable.setStatus('current')
+sasPhyStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 4), )
+if mibBuilder.loadTexts: sasPhyStatisticsTable.setStatus('current')
+fcPortInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 1, 1), ).setIndexNames((0, "ATTO6500N-MIB", "fcPortIndex"))
+if mibBuilder.loadTexts: fcPortInfoEntry.setStatus('current')
+fcPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2)))
+if mibBuilder.loadTexts: fcPortIndex.setStatus('current')
+fcPortPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcPortPortNumber.setStatus('current')
+fcPortOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 1, 2))).clone(namedValues=NamedValues(("unknown", -1), ("online", 1), ("offline", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcPortOperationalState.setStatus('current')
+fcPortAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 1, 2))).clone(namedValues=NamedValues(("unknown", -1), ("disabled", 1), ("enabled", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcPortAdminState.setStatus('current')
+fcPortDataRateNegotiated = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 2, 4, 8))).clone(namedValues=NamedValues(("unknown", -1), ("gb2", 2), ("gb4", 4), ("gb8", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcPortDataRateNegotiated.setStatus('current')
+fcPortConnModeNegotiated = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 1, 2))).clone(namedValues=NamedValues(("unknown", -1), ("loop", 1), ("ptp", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcPortConnModeNegotiated.setStatus('current')
+fcPortDataRateConfigured = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 2, 4, 8))).clone(namedValues=NamedValues(("auto", -1), ("gb2", 2), ("gb4", 4), ("gb8", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcPortDataRateConfigured.setStatus('current')
+fcPortConnModeConfigured = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("loop", 1), ("ptp", 2), ("looppreferred", 3), ("ptppreferred", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcPortConnModeConfigured.setStatus('current')
+fcPortDataRateCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 4, 8))).clone(namedValues=NamedValues(("gb2", 2), ("gb4", 4), ("gb8", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcPortDataRateCapability.setStatus('current')
+fcPortNodeName = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 1, 1, 10), DisplayWWN()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcPortNodeName.setStatus('current')
+fcPortPortName = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 1, 1, 11), DisplayWWN()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcPortPortName.setStatus('current')
+fcPortPeerName = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 1, 1, 12), DisplayWWN()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcPortPeerName.setStatus('current')
+fcPortStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 2, 1), ).setIndexNames((0, "ATTO6500N-MIB", "fcStatsIndex"))
+if mibBuilder.loadTexts: fcPortStatisticsEntry.setStatus('current')
+fcStatsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2)))
+if mibBuilder.loadTexts: fcStatsIndex.setStatus('current')
+fcStatsTxWords = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 2, 1, 2), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fcStatsTxWords.setStatus('current')
+fcStatsRxWords = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 2, 1, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fcStatsRxWords.setStatus('current')
+fcStatsTimeSinceReset = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 2, 1, 4), TimeInterval()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fcStatsTimeSinceReset.setStatus('current')
+fcStatsErrLinkFailure = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 2, 1, 5), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fcStatsErrLinkFailure.setStatus('current')
+fcStatsErrLossOfSync = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 2, 1, 6), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fcStatsErrLossOfSync.setStatus('current')
+fcStatsErrInvalidCRC = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 2, 1, 7), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fcStatsErrInvalidCRC.setStatus('current')
+fcStatsErrInvalidTxWords = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 2, 1, 8), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fcStatsErrInvalidTxWords.setStatus('current')
+fcStatsErrLipCount = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 2, 1, 9), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fcStatsErrLipCount.setStatus('current')
+fcStatsErrNOSCount = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 2, 1, 10), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fcStatsErrNOSCount.setStatus('current')
+fcStatsErrSignalLoss = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 2, 1, 11), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fcStatsErrSignalLoss.setStatus('current')
+fcStatsErrPrimitive = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 2, 1, 12), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fcStatsErrPrimitive.setStatus('current')
+sasPortInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 3, 1), ).setIndexNames((0, "ATTO6500N-MIB", "sasPortIndex"))
+if mibBuilder.loadTexts: sasPortInfoEntry.setStatus('current')
+sasPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2)))
+if mibBuilder.loadTexts: sasPortIndex.setStatus('current')
+sasPortPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sasPortPortNumber.setStatus('current')
+sasPortOperationalState = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 1, 2, 3))).clone(namedValues=NamedValues(("unknown", -1), ("online", 1), ("offline", 2), ("degraded", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sasPortOperationalState.setStatus('current')
+sasPortPhy1State = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 3, 1, 4), PHYStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sasPortPhy1State.setStatus('current')
+sasPortPhy2State = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 3, 1, 5), PHYStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sasPortPhy2State.setStatus('current')
+sasPortPhy3State = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 3, 1, 6), PHYStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sasPortPhy3State.setStatus('current')
+sasPortPhy4State = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 3, 1, 7), PHYStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sasPortPhy4State.setStatus('current')
+sasPortAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 1, 2))).clone(namedValues=NamedValues(("unknown", -1), ("disabled", 1), ("enabled", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sasPortAdminState.setStatus('current')
+sasPortDataRateCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 3, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 6))).clone(namedValues=NamedValues(("gb1point5", 1), ("gb3", 3), ("gb6", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sasPortDataRateCapability.setStatus('current')
+sasPortDataRateNegotiated = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 6))).clone(namedValues=NamedValues(("gb1point5", 1), ("gb3", 3), ("gb6", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sasPortDataRateNegotiated.setStatus('current')
+sasPortAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 3, 1, 11), DisplayWWN()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sasPortAddress.setStatus('current')
+sasPhyStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 4, 1), ).setIndexNames((0, "ATTO6500N-MIB", "sasPhyStatsIndex"))
+if mibBuilder.loadTexts: sasPhyStatisticsEntry.setStatus('current')
+sasPhyStatsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)))
+if mibBuilder.loadTexts: sasPhyStatsIndex.setStatus('current')
+sasPhyStatsTimeSinceReset = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 4, 1, 2), TimeInterval()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sasPhyStatsTimeSinceReset.setStatus('current')
+sasPhyStatsErrLinkChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 4, 1, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sasPhyStatsErrLinkChanged.setStatus('current')
+sasPhyStatsErrInvalidCRC = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 4, 1, 4), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sasPhyStatsErrInvalidCRC.setStatus('current')
+sasPhyStatsErrPhyReset = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 4, 1, 5), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sasPhyStatsErrPhyReset.setStatus('current')
+sasPhyStatsErrLossOfSync = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 4, 1, 6), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sasPhyStatsErrLossOfSync.setStatus('current')
+sasPhyStatsErrDisparityCount = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 4, 1, 7), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sasPhyStatsErrDisparityCount.setStatus('current')
+sasPhyStatsErrInvalidDwords = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 3, 4, 1, 8), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sasPhyStatsErrInvalidDwords.setStatus('current')
+trapsEnabled = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trapsEnabled.setStatus('current')
+snmpUpdatesEnabled = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 4, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snmpUpdatesEnabled.setStatus('current')
+trapMaxClients = MibScalar((1, 3, 6, 1, 4, 1, 4547, 2, 3, 5, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trapMaxClients.setStatus('current')
+trapClientTable = MibTable((1, 3, 6, 1, 4, 1, 4547, 2, 3, 5, 2), )
+if mibBuilder.loadTexts: trapClientTable.setStatus('current')
+trapClientEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4547, 2, 3, 5, 2, 1), ).setIndexNames((0, "ATTO6500N-MIB", "trapClientIndex"))
+if mibBuilder.loadTexts: trapClientEntry.setStatus('current')
+trapClientIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 5, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8)))
+if mibBuilder.loadTexts: trapClientIndex.setStatus('current')
+trapClientIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 5, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 48))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trapClientIpAddress.setStatus('current')
+trapClientPort = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 5, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trapClientPort.setStatus('current')
+trapClientFilter = MibTableColumn((1, 3, 6, 1, 4, 1, 4547, 2, 3, 5, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("critical", 2), ("warning", 3), ("informational", 4), ("all", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trapClientFilter.setStatus('current')
+bridgeTemperatureWarning = NotificationType((1, 3, 6, 1, 4, 1, 4547, 2, 3, 0, 1)).setObjects(("ATTO6500N-MIB", "chassisTemperatureStatus"), ("ATTO6500N-MIB", "chassisTemperature"))
+if mibBuilder.loadTexts: bridgeTemperatureWarning.setStatus('current')
+fcPortTransition = NotificationType((1, 3, 6, 1, 4, 1, 4547, 2, 3, 0, 2)).setObjects(("ATTO6500N-MIB", "fcPortPortNumber"), ("ATTO6500N-MIB", "fcPortOperationalState"))
+if mibBuilder.loadTexts: fcPortTransition.setStatus('current')
+sasPortTransition = NotificationType((1, 3, 6, 1, 4, 1, 4547, 2, 3, 0, 3)).setObjects(("ATTO6500N-MIB", "sasPortPortNumber"), ("ATTO6500N-MIB", "sasPortOperationalState"))
+if mibBuilder.loadTexts: sasPortTransition.setStatus('current')
+bridgeThroughputWarning = NotificationType((1, 3, 6, 1, 4, 1, 4547, 2, 3, 0, 4)).setObjects(("ATTO6500N-MIB", "chassisThroughputStatus"))
+if mibBuilder.loadTexts: bridgeThroughputWarning.setStatus('current')
+mibBuilder.exportSymbols("ATTO6500N-MIB", sasQSFPType=sasQSFPType, sasPhyStatisticsTable=sasPhyStatisticsTable, trapClientEntry=trapClientEntry, attoMgmt=attoMgmt, bridgeName=bridgeName, QSFPTech=QSFPTech, bridgeChassis=bridgeChassis, bridgeIdentityBasicGroup=bridgeIdentityBasicGroup, bridgeTrapsBasicGroup=bridgeTrapsBasicGroup, sasQSFPInfoEntry=sasQSFPInfoEntry, sasPhyStatsTimeSinceReset=sasPhyStatsTimeSinceReset, sasQSFPSerialNum=sasQSFPSerialNum, bridgeTrapInfoBasicGroup=bridgeTrapInfoBasicGroup, sasPortDataRateCapability=sasPortDataRateCapability, bridgeTemperatureWarning=bridgeTemperatureWarning, bridgFcPortInfoBasicGroup=bridgFcPortInfoBasicGroup, chassisThroughputStatus=chassisThroughputStatus, fcStatsErrLossOfSync=fcStatsErrLossOfSync, fcPortDataRateConfigured=fcPortDataRateConfigured, fcPortInfoTable=fcPortInfoTable, fcPortInfoEntry=fcPortInfoEntry, sasPortOperationalState=sasPortOperationalState, fcSFPIndex=fcSFPIndex, attoModules=attoModules, sasPortIndex=sasPortIndex, trapMaxClients=trapMaxClients, attoAgentCapability=attoAgentCapability, fcStatsErrLinkFailure=fcStatsErrLinkFailure, sasPortPhy4State=sasPortPhy4State, chassisTemperature=chassisTemperature, sasPhyStatsErrPhyReset=sasPhyStatsErrPhyReset, secondaryFirmwareBuildDate=secondaryFirmwareBuildDate, fcPortTransition=fcPortTransition, sasPhyStatsErrInvalidDwords=sasPhyStatsErrInvalidDwords, fcSFPPartNum=fcSFPPartNum, DisplayWWN=DisplayWWN, bridgeSasPortStatisicsBasicGroup=bridgeSasPortStatisicsBasicGroup, fcStatsIndex=fcStatsIndex, sasQSFPIndex=sasQSFPIndex, bridgeUniqueId=bridgeUniqueId, serialNumber=serialNumber, attotech=attotech, fcStatsErrPrimitive=fcStatsErrPrimitive, attoProducts=attoProducts, PHYStatus=PHYStatus, sasQSFPInfoTable=sasQSFPInfoTable, fcStatsErrInvalidCRC=fcStatsErrInvalidCRC, fcSFPSerialNum=fcSFPSerialNum, modelName=modelName, bridgeMIBConformance=bridgeMIBConformance, hardwareVersion=hardwareVersion, fcPortDataRateNegotiated=fcPortDataRateNegotiated, sasPortTransition=sasPortTransition, bridgeSasPortInfoBasicGroup=bridgeSasPortInfoBasicGroup, sasPortInfoTable=sasPortInfoTable, bridgeTraps=bridgeTraps, bridgeMIBGroups=bridgeMIBGroups, fcPortAdminState=fcPortAdminState, sasPortPhy2State=sasPortPhy2State, sasPhyStatsErrLossOfSync=sasPhyStatsErrLossOfSync, fcPortPeerName=fcPortPeerName, sasPortAdminState=sasPortAdminState, sasPortPhy1State=sasPortPhy1State, sasPortAddress=sasPortAddress, maximumOperatingTemp=maximumOperatingTemp, sasPortInfoEntry=sasPortInfoEntry, fcPortNodeName=fcPortNodeName, chassisTemperatureStatus=chassisTemperatureStatus, sasPhyStatsIndex=sasPhyStatsIndex, bridgeMIBCompliances=bridgeMIBCompliances, primaryFirmwareBuildDate=primaryFirmwareBuildDate, fcStatsTxWords=fcStatsTxWords, uptime=uptime, bridgeTrapInfo=bridgeTrapInfo, bridgeConfigBasicGroup=bridgeConfigBasicGroup, fcStatsErrInvalidTxWords=fcStatsErrInvalidTxWords, sasPhyStatsErrLinkChanged=sasPhyStatsErrLinkChanged, bridgeChassisBasicGroup=bridgeChassisBasicGroup, trapsEnabled=trapsEnabled, fcStatsErrNOSCount=fcStatsErrNOSCount, primaryFirmwareRevision=primaryFirmwareRevision, fcStatsErrLipCount=fcStatsErrLipCount, sasPortPhy3State=sasPortPhy3State, snmpUpdatesEnabled=snmpUpdatesEnabled, bridgeConfig=bridgeConfig, fcPortOperationalState=fcPortOperationalState, lastReboot=lastReboot, fcPortStatisticsTable=fcPortStatisticsTable, fcSFPVendor=fcSFPVendor, temperatureLowAlertSetting=temperatureLowAlertSetting, fcStatsRxWords=fcStatsRxWords, fcSFPInfoEntry=fcSFPInfoEntry, vendorID=vendorID, bridgeIdentity=bridgeIdentity, PYSNMP_MODULE_ID=bridge, fcPortConnModeConfigured=fcPortConnModeConfigured, fcPortPortNumber=fcPortPortNumber, fcPortStatisticsEntry=fcPortStatisticsEntry, bridgeBasicCompliance=bridgeBasicCompliance, sasPortPortNumber=sasPortPortNumber, fcPortPortName=fcPortPortName, sasPortDataRateNegotiated=sasPortDataRateNegotiated, trapClientIpAddress=trapClientIpAddress, dramSingleBitErrorCount=dramSingleBitErrorCount, fcSFPDataRateCapability=fcSFPDataRateCapability, secondaryFirmwareRevision=secondaryFirmwareRevision, trapClientFilter=trapClientFilter, bridgePorts=bridgePorts, bridgeFcPortStatisicsBasicGroup=bridgeFcPortStatisicsBasicGroup, fcStatsErrSignalLoss=fcStatsErrSignalLoss, temperatureHighAlertSetting=temperatureHighAlertSetting, lastRebootReason=lastRebootReason, sasQSFPVendor=sasQSFPVendor, fcSFPInfoTable=fcSFPInfoTable, sasPhyStatsErrInvalidCRC=sasPhyStatsErrInvalidCRC, trapClientTable=trapClientTable, fcPortConnModeNegotiated=fcPortConnModeNegotiated, trapClientIndex=trapClientIndex, sasPhyStatsErrDisparityCount=sasPhyStatsErrDisparityCount, trapClientPort=trapClientPort, fcStatsTimeSinceReset=fcStatsTimeSinceReset, sasQSFPPartNum=sasQSFPPartNum, bridgeThroughputWarning=bridgeThroughputWarning, sasPhyStatisticsEntry=sasPhyStatisticsEntry, fcPortIndex=fcPortIndex, bridge=bridge, fcPortDataRateCapability=fcPortDataRateCapability, minimumOperatingTemp=minimumOperatingTemp)

@@ -1,125 +1,67 @@
-_Q='dppsIfEeeCfgGroup'
-_P='dppsShutdownCfgGroup'
-_O='dppsDimLedCfgGroup'
-_N='dppsIfEeeStatus'
-_M='dppsPortShutdownTimeRange'
-_L='dppsPortShutdownEnabled'
-_K='dppsDimLedTimeRange'
-_J='dppsLedAdminEnabled'
-_I='dppsDimLedEnabled'
-_H='Integer32'
-_G='ifIndex'
-_F='IF-MIB'
-_E='DisplayString'
-_D='TruthValue'
-_C='read-write'
-_B='DLINKPRIME-POWER-SAVING-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlinkPrimeCommon,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlinkPrimeCommon')
-ifIndex,=mibBuilder.importSymbols(_F,_G)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_E,'PhysAddress','TextualConvention',_D)
-dlinkPrimePowerSavingMIB=ModuleIdentity((1,3,6,1,4,1,171,15,12))
-if mibBuilder.loadTexts:dlinkPrimePowerSavingMIB.setRevisions(('2013-01-31 00:00','2014-04-26 00:00'))
-_DpPowerSavingMIBNotifications_ObjectIdentity=ObjectIdentity
-dpPowerSavingMIBNotifications=_DpPowerSavingMIBNotifications_ObjectIdentity((1,3,6,1,4,1,171,15,12,0))
-_DpPowerSavingMIBObjects_ObjectIdentity=ObjectIdentity
-dpPowerSavingMIBObjects=_DpPowerSavingMIBObjects_ObjectIdentity((1,3,6,1,4,1,171,15,12,1))
-_DpPowerSavingGeneral_ObjectIdentity=ObjectIdentity
-dpPowerSavingGeneral=_DpPowerSavingGeneral_ObjectIdentity((1,3,6,1,4,1,171,15,12,1,1))
-class _DppsLinkDetectionEnabled_Type(TruthValue):defaultValue=2
-_DppsLinkDetectionEnabled_Type.__name__=_D
-_DppsLinkDetectionEnabled_Object=MibScalar
-dppsLinkDetectionEnabled=_DppsLinkDetectionEnabled_Object((1,3,6,1,4,1,171,15,12,1,1,1),_DppsLinkDetectionEnabled_Type())
-dppsLinkDetectionEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:dppsLinkDetectionEnabled.setStatus(_A)
-class _DppsHibernationEnabled_Type(TruthValue):defaultValue=2
-_DppsHibernationEnabled_Type.__name__=_D
-_DppsHibernationEnabled_Object=MibScalar
-dppsHibernationEnabled=_DppsHibernationEnabled_Object((1,3,6,1,4,1,171,15,12,1,1,2),_DppsHibernationEnabled_Type())
-dppsHibernationEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:dppsHibernationEnabled.setStatus(_A)
-class _DppsDimLedEnabled_Type(TruthValue):defaultValue=2
-_DppsDimLedEnabled_Type.__name__=_D
-_DppsDimLedEnabled_Object=MibScalar
-dppsDimLedEnabled=_DppsDimLedEnabled_Object((1,3,6,1,4,1,171,15,12,1,1,3),_DppsDimLedEnabled_Type())
-dppsDimLedEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:dppsDimLedEnabled.setStatus(_A)
-class _DppsLedAdminEnabled_Type(TruthValue):defaultValue=1
-_DppsLedAdminEnabled_Type.__name__=_D
-_DppsLedAdminEnabled_Object=MibScalar
-dppsLedAdminEnabled=_DppsLedAdminEnabled_Object((1,3,6,1,4,1,171,15,12,1,1,4),_DppsLedAdminEnabled_Type())
-dppsLedAdminEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:dppsLedAdminEnabled.setStatus(_A)
-class _DppsPortShutdownEnabled_Type(TruthValue):defaultValue=2
-_DppsPortShutdownEnabled_Type.__name__=_D
-_DppsPortShutdownEnabled_Object=MibScalar
-dppsPortShutdownEnabled=_DppsPortShutdownEnabled_Object((1,3,6,1,4,1,171,15,12,1,1,5),_DppsPortShutdownEnabled_Type())
-dppsPortShutdownEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:dppsPortShutdownEnabled.setStatus(_A)
-_DpPowerSavingIfObjects_ObjectIdentity=ObjectIdentity
-dpPowerSavingIfObjects=_DpPowerSavingIfObjects_ObjectIdentity((1,3,6,1,4,1,171,15,12,1,2))
-_DppsIfEeeTable_Object=MibTable
-dppsIfEeeTable=_DppsIfEeeTable_Object((1,3,6,1,4,1,171,15,12,1,2,1))
-if mibBuilder.loadTexts:dppsIfEeeTable.setStatus(_A)
-_DppsIfEeeEntry_Object=MibTableRow
-dppsIfEeeEntry=_DppsIfEeeEntry_Object((1,3,6,1,4,1,171,15,12,1,2,1,1))
-dppsIfEeeEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:dppsIfEeeEntry.setStatus(_A)
-class _DppsIfEeeStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_DppsIfEeeStatus_Type.__name__=_H
-_DppsIfEeeStatus_Object=MibTableColumn
-dppsIfEeeStatus=_DppsIfEeeStatus_Object((1,3,6,1,4,1,171,15,12,1,2,1,1,2),_DppsIfEeeStatus_Type())
-dppsIfEeeStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:dppsIfEeeStatus.setStatus(_A)
-_DppsScheduleCtrl_ObjectIdentity=ObjectIdentity
-dppsScheduleCtrl=_DppsScheduleCtrl_ObjectIdentity((1,3,6,1,4,1,171,15,12,1,3))
-class _DppsHibernationTimeRange_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_DppsHibernationTimeRange_Type.__name__=_E
-_DppsHibernationTimeRange_Object=MibScalar
-dppsHibernationTimeRange=_DppsHibernationTimeRange_Object((1,3,6,1,4,1,171,15,12,1,3,1),_DppsHibernationTimeRange_Type())
-dppsHibernationTimeRange.setMaxAccess(_C)
-if mibBuilder.loadTexts:dppsHibernationTimeRange.setStatus(_A)
-class _DppsDimLedTimeRange_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_DppsDimLedTimeRange_Type.__name__=_E
-_DppsDimLedTimeRange_Object=MibScalar
-dppsDimLedTimeRange=_DppsDimLedTimeRange_Object((1,3,6,1,4,1,171,15,12,1,3,2),_DppsDimLedTimeRange_Type())
-dppsDimLedTimeRange.setMaxAccess(_C)
-if mibBuilder.loadTexts:dppsDimLedTimeRange.setStatus(_A)
-_DppsPortShutdownScheduleTable_Object=MibTable
-dppsPortShutdownScheduleTable=_DppsPortShutdownScheduleTable_Object((1,3,6,1,4,1,171,15,12,1,3,3))
-if mibBuilder.loadTexts:dppsPortShutdownScheduleTable.setStatus(_A)
-_DppsPortShutdownScheduleEntry_Object=MibTableRow
-dppsPortShutdownScheduleEntry=_DppsPortShutdownScheduleEntry_Object((1,3,6,1,4,1,171,15,12,1,3,3,1))
-dppsPortShutdownScheduleEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:dppsPortShutdownScheduleEntry.setStatus(_A)
-class _DppsPortShutdownTimeRange_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_DppsPortShutdownTimeRange_Type.__name__=_E
-_DppsPortShutdownTimeRange_Object=MibTableColumn
-dppsPortShutdownTimeRange=_DppsPortShutdownTimeRange_Object((1,3,6,1,4,1,171,15,12,1,3,3,1,1),_DppsPortShutdownTimeRange_Type())
-dppsPortShutdownTimeRange.setMaxAccess(_C)
-if mibBuilder.loadTexts:dppsPortShutdownTimeRange.setStatus(_A)
-_DpPowerSavingMIBConformance_ObjectIdentity=ObjectIdentity
-dpPowerSavingMIBConformance=_DpPowerSavingMIBConformance_ObjectIdentity((1,3,6,1,4,1,171,15,12,2))
-_DppsMIBCompliances_ObjectIdentity=ObjectIdentity
-dppsMIBCompliances=_DppsMIBCompliances_ObjectIdentity((1,3,6,1,4,1,171,15,12,2,1))
-_DppsMIBGroups_ObjectIdentity=ObjectIdentity
-dppsMIBGroups=_DppsMIBGroups_ObjectIdentity((1,3,6,1,4,1,171,15,12,2,2))
-dppsDimLedCfgGroup=ObjectGroup((1,3,6,1,4,1,171,15,12,2,2,1))
-dppsDimLedCfgGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:dppsDimLedCfgGroup.setStatus(_A)
-dppsShutdownCfgGroup=ObjectGroup((1,3,6,1,4,1,171,15,12,2,2,2))
-dppsShutdownCfgGroup.setObjects(*((_B,_L),(_B,_M)))
-if mibBuilder.loadTexts:dppsShutdownCfgGroup.setStatus(_A)
-dppsIfEeeCfgGroup=ObjectGroup((1,3,6,1,4,1,171,15,12,2,2,3))
-dppsIfEeeCfgGroup.setObjects((_B,_N))
-if mibBuilder.loadTexts:dppsIfEeeCfgGroup.setStatus(_A)
-dppsMIBCompliance=ModuleCompliance((1,3,6,1,4,1,171,15,12,2,1,1))
-dppsMIBCompliance.setObjects(*((_B,'dppsLinkCfgGroup'),(_B,'dppsLenCfgGroup'),(_B,'dppsHiberCfgGroup'),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:dppsMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'dlinkPrimePowerSavingMIB':dlinkPrimePowerSavingMIB,'dpPowerSavingMIBNotifications':dpPowerSavingMIBNotifications,'dpPowerSavingMIBObjects':dpPowerSavingMIBObjects,'dpPowerSavingGeneral':dpPowerSavingGeneral,'dppsLinkDetectionEnabled':dppsLinkDetectionEnabled,'dppsHibernationEnabled':dppsHibernationEnabled,_I:dppsDimLedEnabled,_J:dppsLedAdminEnabled,_L:dppsPortShutdownEnabled,'dpPowerSavingIfObjects':dpPowerSavingIfObjects,'dppsIfEeeTable':dppsIfEeeTable,'dppsIfEeeEntry':dppsIfEeeEntry,_N:dppsIfEeeStatus,'dppsScheduleCtrl':dppsScheduleCtrl,'dppsHibernationTimeRange':dppsHibernationTimeRange,_K:dppsDimLedTimeRange,'dppsPortShutdownScheduleTable':dppsPortShutdownScheduleTable,'dppsPortShutdownScheduleEntry':dppsPortShutdownScheduleEntry,_M:dppsPortShutdownTimeRange,'dpPowerSavingMIBConformance':dpPowerSavingMIBConformance,'dppsMIBCompliances':dppsMIBCompliances,'dppsMIBCompliance':dppsMIBCompliance,'dppsMIBGroups':dppsMIBGroups,_O:dppsDimLedCfgGroup,_P:dppsShutdownCfgGroup,_Q:dppsIfEeeCfgGroup})
+#
+# PySNMP MIB module DLINKPRIME-POWER-SAVING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DLINKPRIME-POWER-SAVING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:33:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlinkPrimeCommon, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlinkPrimeCommon")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+dlinkPrimePowerSavingMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 15, 12))
+dlinkPrimePowerSavingMIB.setRevisions(('2013-01-31 00:00', '2014-04-26 00:00',))
+if mibBuilder.loadTexts: dlinkPrimePowerSavingMIB.setLastUpdated('201404260000Z')
+if mibBuilder.loadTexts: dlinkPrimePowerSavingMIB.setOrganization('D-Link Corp.')
+dpPowerSavingMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 12, 0))
+dpPowerSavingMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 12, 1))
+dpPowerSavingMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 12, 2))
+dpPowerSavingGeneral = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 1))
+dppsLinkDetectionEnabled = MibScalar((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dppsLinkDetectionEnabled.setStatus('current')
+dppsHibernationEnabled = MibScalar((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dppsHibernationEnabled.setStatus('current')
+dppsDimLedEnabled = MibScalar((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dppsDimLedEnabled.setStatus('current')
+dppsLedAdminEnabled = MibScalar((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 1, 4), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dppsLedAdminEnabled.setStatus('current')
+dppsPortShutdownEnabled = MibScalar((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 1, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dppsPortShutdownEnabled.setStatus('current')
+dpPowerSavingIfObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 2))
+dppsIfEeeTable = MibTable((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 2, 1), )
+if mibBuilder.loadTexts: dppsIfEeeTable.setStatus('current')
+dppsIfEeeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: dppsIfEeeEntry.setStatus('current')
+dppsIfEeeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dppsIfEeeStatus.setStatus('current')
+dppsScheduleCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 3))
+dppsHibernationTimeRange = MibScalar((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 3, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dppsHibernationTimeRange.setStatus('current')
+dppsDimLedTimeRange = MibScalar((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 3, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dppsDimLedTimeRange.setStatus('current')
+dppsPortShutdownScheduleTable = MibTable((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 3, 3), )
+if mibBuilder.loadTexts: dppsPortShutdownScheduleTable.setStatus('current')
+dppsPortShutdownScheduleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 3, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: dppsPortShutdownScheduleEntry.setStatus('current')
+dppsPortShutdownTimeRange = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 12, 1, 3, 3, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dppsPortShutdownTimeRange.setStatus('current')
+dppsMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 12, 2, 1))
+dppsMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 12, 2, 2))
+dppsMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 15, 12, 2, 1, 1)).setObjects(("DLINKPRIME-POWER-SAVING-MIB", "dppsLinkCfgGroup"), ("DLINKPRIME-POWER-SAVING-MIB", "dppsLenCfgGroup"), ("DLINKPRIME-POWER-SAVING-MIB", "dppsHiberCfgGroup"), ("DLINKPRIME-POWER-SAVING-MIB", "dppsDimLedCfgGroup"), ("DLINKPRIME-POWER-SAVING-MIB", "dppsShutdownCfgGroup"), ("DLINKPRIME-POWER-SAVING-MIB", "dppsIfEeeCfgGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dppsMIBCompliance = dppsMIBCompliance.setStatus('current')
+dppsDimLedCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 15, 12, 2, 2, 1)).setObjects(("DLINKPRIME-POWER-SAVING-MIB", "dppsDimLedEnabled"), ("DLINKPRIME-POWER-SAVING-MIB", "dppsLedAdminEnabled"), ("DLINKPRIME-POWER-SAVING-MIB", "dppsDimLedTimeRange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dppsDimLedCfgGroup = dppsDimLedCfgGroup.setStatus('current')
+dppsShutdownCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 15, 12, 2, 2, 2)).setObjects(("DLINKPRIME-POWER-SAVING-MIB", "dppsPortShutdownEnabled"), ("DLINKPRIME-POWER-SAVING-MIB", "dppsPortShutdownTimeRange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dppsShutdownCfgGroup = dppsShutdownCfgGroup.setStatus('current')
+dppsIfEeeCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 15, 12, 2, 2, 3)).setObjects(("DLINKPRIME-POWER-SAVING-MIB", "dppsIfEeeStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dppsIfEeeCfgGroup = dppsIfEeeCfgGroup.setStatus('current')
+mibBuilder.exportSymbols("DLINKPRIME-POWER-SAVING-MIB", dppsShutdownCfgGroup=dppsShutdownCfgGroup, dppsDimLedEnabled=dppsDimLedEnabled, dppsHibernationTimeRange=dppsHibernationTimeRange, dppsIfEeeCfgGroup=dppsIfEeeCfgGroup, dpPowerSavingGeneral=dpPowerSavingGeneral, dppsPortShutdownTimeRange=dppsPortShutdownTimeRange, dppsScheduleCtrl=dppsScheduleCtrl, dppsMIBGroups=dppsMIBGroups, dppsDimLedCfgGroup=dppsDimLedCfgGroup, dpPowerSavingMIBObjects=dpPowerSavingMIBObjects, dppsPortShutdownScheduleTable=dppsPortShutdownScheduleTable, dppsMIBCompliances=dppsMIBCompliances, dppsIfEeeTable=dppsIfEeeTable, dppsDimLedTimeRange=dppsDimLedTimeRange, dppsPortShutdownScheduleEntry=dppsPortShutdownScheduleEntry, dppsMIBCompliance=dppsMIBCompliance, dpPowerSavingIfObjects=dpPowerSavingIfObjects, dpPowerSavingMIBNotifications=dpPowerSavingMIBNotifications, dppsLedAdminEnabled=dppsLedAdminEnabled, dpPowerSavingMIBConformance=dpPowerSavingMIBConformance, dppsIfEeeEntry=dppsIfEeeEntry, dppsPortShutdownEnabled=dppsPortShutdownEnabled, PYSNMP_MODULE_ID=dlinkPrimePowerSavingMIB, dppsIfEeeStatus=dppsIfEeeStatus, dlinkPrimePowerSavingMIB=dlinkPrimePowerSavingMIB, dppsLinkDetectionEnabled=dppsLinkDetectionEnabled, dppsHibernationEnabled=dppsHibernationEnabled)

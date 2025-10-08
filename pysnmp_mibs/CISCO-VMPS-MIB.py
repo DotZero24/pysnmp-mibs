@@ -1,289 +1,134 @@
-_w='ciscoVlanMemberPolicyServerRcpGroup2'
-_v='ciscoVlanMemberPolicyServerRcpGroup'
-_u='vmpsRcpRemoteUserName2'
-_t='vmpsAutoBackupFileName'
-_s='vmpsAutoBackupEnable'
-_r='vmpsRcpRemoteUserName'
-_q='vmpsVlanConfigStatus'
-_p='vmpsMacConfigStatus'
-_o='vmpsMacConfigLastResponseStatus'
-_n='vmpsMacConfigLastRequestPortId'
-_m='vmpsMacConfigLastRequestor'
-_l='vmpsMacConfigLastAccessed'
-_k='vmpsMacConfigVlan'
-_j='vmpsRowStatus'
-_i='vmpsManagementDomain'
-_h='vmpsSecureMode'
-_g='vmpsFallbackVlan'
-_f='vmpsTriggerDownload'
-_e='vmpsConfigFileName'
-_d='vmpsDownloadServerAddress'
-_c='vmpsAdminStatus'
-_b='vmpsOperStatus'
-_a='vmpsLastFailClient'
-_Z='vmpsOutConfigFails'
-_Y='vmpsInConfigErrors'
-_X='vmpsInConfigReqs'
-_W='vmpsLastRestart'
-_V='vmpsStatsEntry'
-_U='read-write'
-_T='vmpsPortName'
-_S='vmpsDeviceId'
-_R='vmpsVlanName'
-_Q='vmpsMacConfigAddress'
-_P='VlanName'
-_O='inactive'
-_N='active'
-_M='IpAddress'
-_L='SnmpAdminString'
-_K='ciscoVmpsAutoBackupGroup'
-_J='DisplayString'
-_I='ciscoVlanMemberPolicyServerGroup'
-_H='deprecated'
-_G='vmpsIndex'
-_F='not-accessible'
-_E='Integer32'
-_D='read-only'
-_C='read-create'
-_B='CISCO-VMPS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_L)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,_M,'ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_J,'MacAddress','PhysAddress','RowStatus','TextualConvention','TimeStamp','TruthValue')
-ciscoVmpsMIB=ModuleIdentity((1,3,6,1,4,1,9,9,53))
-if mibBuilder.loadTexts:ciscoVmpsMIB.setRevisions(('2004-01-20 00:00','2003-10-16 10:00','2002-06-19 10:00','2002-04-04 10:00','2001-01-30 13:04'))
-class VlanName(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CiscoVlanMemberPolicyServerMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoVlanMemberPolicyServerMIBObjects=_CiscoVlanMemberPolicyServerMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,53,1))
-_VmpsInfo_ObjectIdentity=ObjectIdentity
-vmpsInfo=_VmpsInfo_ObjectIdentity((1,3,6,1,4,1,9,9,53,1,1))
-_VmpsConfigTable_Object=MibTable
-vmpsConfigTable=_VmpsConfigTable_Object((1,3,6,1,4,1,9,9,53,1,1,1))
-if mibBuilder.loadTexts:vmpsConfigTable.setStatus(_A)
-_VmpsConfigEntry_Object=MibTableRow
-vmpsConfigEntry=_VmpsConfigEntry_Object((1,3,6,1,4,1,9,9,53,1,1,1,1))
-vmpsConfigEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:vmpsConfigEntry.setStatus(_A)
-class _VmpsIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_VmpsIndex_Type.__name__=_E
-_VmpsIndex_Object=MibTableColumn
-vmpsIndex=_VmpsIndex_Object((1,3,6,1,4,1,9,9,53,1,1,1,1,1),_VmpsIndex_Type())
-vmpsIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:vmpsIndex.setStatus(_A)
-class _VmpsAdminStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_N,1),(_O,2)))
-_VmpsAdminStatus_Type.__name__=_E
-_VmpsAdminStatus_Object=MibTableColumn
-vmpsAdminStatus=_VmpsAdminStatus_Object((1,3,6,1,4,1,9,9,53,1,1,1,1,2),_VmpsAdminStatus_Type())
-vmpsAdminStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmpsAdminStatus.setStatus(_A)
-class _VmpsDownloadServerAddress_Type(IpAddress):defaultHexValue='00000000'
-_VmpsDownloadServerAddress_Type.__name__=_M
-_VmpsDownloadServerAddress_Object=MibTableColumn
-vmpsDownloadServerAddress=_VmpsDownloadServerAddress_Object((1,3,6,1,4,1,9,9,53,1,1,1,1,3),_VmpsDownloadServerAddress_Type())
-vmpsDownloadServerAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmpsDownloadServerAddress.setStatus(_A)
-class _VmpsConfigFileName_Type(DisplayString):defaultHexValue=''
-_VmpsConfigFileName_Type.__name__=_J
-_VmpsConfigFileName_Object=MibTableColumn
-vmpsConfigFileName=_VmpsConfigFileName_Object((1,3,6,1,4,1,9,9,53,1,1,1,1,4),_VmpsConfigFileName_Type())
-vmpsConfigFileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmpsConfigFileName.setStatus(_A)
-class _VmpsTriggerDownload_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('noOperation',1),('loadDatabase',2),('loadRcpDataBase',3)))
-_VmpsTriggerDownload_Type.__name__=_E
-_VmpsTriggerDownload_Object=MibTableColumn
-vmpsTriggerDownload=_VmpsTriggerDownload_Object((1,3,6,1,4,1,9,9,53,1,1,1,1,5),_VmpsTriggerDownload_Type())
-vmpsTriggerDownload.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmpsTriggerDownload.setStatus(_A)
-class _VmpsFallbackVlan_Type(VlanName):defaultHexValue=''
-_VmpsFallbackVlan_Type.__name__=_P
-_VmpsFallbackVlan_Object=MibTableColumn
-vmpsFallbackVlan=_VmpsFallbackVlan_Object((1,3,6,1,4,1,9,9,53,1,1,1,1,6),_VmpsFallbackVlan_Type())
-vmpsFallbackVlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmpsFallbackVlan.setStatus(_A)
-class _VmpsSecureMode_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('secure',1),('open',2)))
-_VmpsSecureMode_Type.__name__=_E
-_VmpsSecureMode_Object=MibTableColumn
-vmpsSecureMode=_VmpsSecureMode_Object((1,3,6,1,4,1,9,9,53,1,1,1,1,7),_VmpsSecureMode_Type())
-vmpsSecureMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmpsSecureMode.setStatus(_A)
-class _VmpsManagementDomain_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_VmpsManagementDomain_Type.__name__=_J
-_VmpsManagementDomain_Object=MibTableColumn
-vmpsManagementDomain=_VmpsManagementDomain_Object((1,3,6,1,4,1,9,9,53,1,1,1,1,8),_VmpsManagementDomain_Type())
-vmpsManagementDomain.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmpsManagementDomain.setStatus(_A)
-_VmpsRowStatus_Type=RowStatus
-_VmpsRowStatus_Object=MibTableColumn
-vmpsRowStatus=_VmpsRowStatus_Object((1,3,6,1,4,1,9,9,53,1,1,1,1,9),_VmpsRowStatus_Type())
-vmpsRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmpsRowStatus.setStatus(_A)
-class _VmpsRcpRemoteUserName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_VmpsRcpRemoteUserName_Type.__name__=_L
-_VmpsRcpRemoteUserName_Object=MibTableColumn
-vmpsRcpRemoteUserName=_VmpsRcpRemoteUserName_Object((1,3,6,1,4,1,9,9,53,1,1,1,1,10),_VmpsRcpRemoteUserName_Type())
-vmpsRcpRemoteUserName.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmpsRcpRemoteUserName.setStatus(_H)
-_VmpsRcpRemoteUserName2_Type=SnmpAdminString
-_VmpsRcpRemoteUserName2_Object=MibTableColumn
-vmpsRcpRemoteUserName2=_VmpsRcpRemoteUserName2_Object((1,3,6,1,4,1,9,9,53,1,1,1,1,11),_VmpsRcpRemoteUserName2_Type())
-vmpsRcpRemoteUserName2.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmpsRcpRemoteUserName2.setStatus(_A)
-_VmpsStatsTable_Object=MibTable
-vmpsStatsTable=_VmpsStatsTable_Object((1,3,6,1,4,1,9,9,53,1,1,2))
-if mibBuilder.loadTexts:vmpsStatsTable.setStatus(_A)
-_VmpsStatsEntry_Object=MibTableRow
-vmpsStatsEntry=_VmpsStatsEntry_Object((1,3,6,1,4,1,9,9,53,1,1,2,1))
-if mibBuilder.loadTexts:vmpsStatsEntry.setStatus(_A)
-_VmpsLastRestart_Type=TimeStamp
-_VmpsLastRestart_Object=MibTableColumn
-vmpsLastRestart=_VmpsLastRestart_Object((1,3,6,1,4,1,9,9,53,1,1,2,1,1),_VmpsLastRestart_Type())
-vmpsLastRestart.setMaxAccess(_D)
-if mibBuilder.loadTexts:vmpsLastRestart.setStatus(_A)
-_VmpsInConfigReqs_Type=Counter32
-_VmpsInConfigReqs_Object=MibTableColumn
-vmpsInConfigReqs=_VmpsInConfigReqs_Object((1,3,6,1,4,1,9,9,53,1,1,2,1,2),_VmpsInConfigReqs_Type())
-vmpsInConfigReqs.setMaxAccess(_D)
-if mibBuilder.loadTexts:vmpsInConfigReqs.setStatus(_A)
-_VmpsInConfigErrors_Type=Counter32
-_VmpsInConfigErrors_Object=MibTableColumn
-vmpsInConfigErrors=_VmpsInConfigErrors_Object((1,3,6,1,4,1,9,9,53,1,1,2,1,3),_VmpsInConfigErrors_Type())
-vmpsInConfigErrors.setMaxAccess(_D)
-if mibBuilder.loadTexts:vmpsInConfigErrors.setStatus(_A)
-_VmpsOutConfigFails_Type=Counter32
-_VmpsOutConfigFails_Object=MibTableColumn
-vmpsOutConfigFails=_VmpsOutConfigFails_Object((1,3,6,1,4,1,9,9,53,1,1,2,1,4),_VmpsOutConfigFails_Type())
-vmpsOutConfigFails.setMaxAccess(_D)
-if mibBuilder.loadTexts:vmpsOutConfigFails.setStatus(_A)
-_VmpsLastFailClient_Type=MacAddress
-_VmpsLastFailClient_Object=MibTableColumn
-vmpsLastFailClient=_VmpsLastFailClient_Object((1,3,6,1,4,1,9,9,53,1,1,2,1,5),_VmpsLastFailClient_Type())
-vmpsLastFailClient.setMaxAccess(_D)
-if mibBuilder.loadTexts:vmpsLastFailClient.setStatus(_A)
-class _VmpsOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_N,1),(_O,2),('loading',3)))
-_VmpsOperStatus_Type.__name__=_E
-_VmpsOperStatus_Object=MibTableColumn
-vmpsOperStatus=_VmpsOperStatus_Object((1,3,6,1,4,1,9,9,53,1,1,2,1,6),_VmpsOperStatus_Type())
-vmpsOperStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:vmpsOperStatus.setStatus(_A)
-_VmpsDatabase_ObjectIdentity=ObjectIdentity
-vmpsDatabase=_VmpsDatabase_ObjectIdentity((1,3,6,1,4,1,9,9,53,1,2))
-_VmpsMacConfigTable_Object=MibTable
-vmpsMacConfigTable=_VmpsMacConfigTable_Object((1,3,6,1,4,1,9,9,53,1,2,1))
-if mibBuilder.loadTexts:vmpsMacConfigTable.setStatus(_A)
-_VmpsMacConfigEntry_Object=MibTableRow
-vmpsMacConfigEntry=_VmpsMacConfigEntry_Object((1,3,6,1,4,1,9,9,53,1,2,1,1))
-vmpsMacConfigEntry.setIndexNames((0,_B,_G),(0,_B,_Q))
-if mibBuilder.loadTexts:vmpsMacConfigEntry.setStatus(_A)
-_VmpsMacConfigAddress_Type=MacAddress
-_VmpsMacConfigAddress_Object=MibTableColumn
-vmpsMacConfigAddress=_VmpsMacConfigAddress_Object((1,3,6,1,4,1,9,9,53,1,2,1,1,1),_VmpsMacConfigAddress_Type())
-vmpsMacConfigAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:vmpsMacConfigAddress.setStatus(_A)
-_VmpsMacConfigVlan_Type=VlanName
-_VmpsMacConfigVlan_Object=MibTableColumn
-vmpsMacConfigVlan=_VmpsMacConfigVlan_Object((1,3,6,1,4,1,9,9,53,1,2,1,1,2),_VmpsMacConfigVlan_Type())
-vmpsMacConfigVlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmpsMacConfigVlan.setStatus(_A)
-_VmpsMacConfigLastAccessed_Type=TimeStamp
-_VmpsMacConfigLastAccessed_Object=MibTableColumn
-vmpsMacConfigLastAccessed=_VmpsMacConfigLastAccessed_Object((1,3,6,1,4,1,9,9,53,1,2,1,1,3),_VmpsMacConfigLastAccessed_Type())
-vmpsMacConfigLastAccessed.setMaxAccess(_D)
-if mibBuilder.loadTexts:vmpsMacConfigLastAccessed.setStatus(_A)
-_VmpsMacConfigLastRequestor_Type=IpAddress
-_VmpsMacConfigLastRequestor_Object=MibTableColumn
-vmpsMacConfigLastRequestor=_VmpsMacConfigLastRequestor_Object((1,3,6,1,4,1,9,9,53,1,2,1,1,4),_VmpsMacConfigLastRequestor_Type())
-vmpsMacConfigLastRequestor.setMaxAccess(_D)
-if mibBuilder.loadTexts:vmpsMacConfigLastRequestor.setStatus(_A)
-_VmpsMacConfigLastRequestPortId_Type=DisplayString
-_VmpsMacConfigLastRequestPortId_Object=MibTableColumn
-vmpsMacConfigLastRequestPortId=_VmpsMacConfigLastRequestPortId_Object((1,3,6,1,4,1,9,9,53,1,2,1,1,5),_VmpsMacConfigLastRequestPortId_Type())
-vmpsMacConfigLastRequestPortId.setMaxAccess(_D)
-if mibBuilder.loadTexts:vmpsMacConfigLastRequestPortId.setStatus(_A)
-class _VmpsMacConfigLastResponseStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('success',1),('versionNotSupported',2),('insufficientResources',3),('accessDenied',4),('portShutdown',5),('unknownManagementDomain',6)))
-_VmpsMacConfigLastResponseStatus_Type.__name__=_E
-_VmpsMacConfigLastResponseStatus_Object=MibTableColumn
-vmpsMacConfigLastResponseStatus=_VmpsMacConfigLastResponseStatus_Object((1,3,6,1,4,1,9,9,53,1,2,1,1,6),_VmpsMacConfigLastResponseStatus_Type())
-vmpsMacConfigLastResponseStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:vmpsMacConfigLastResponseStatus.setStatus(_A)
-_VmpsMacConfigStatus_Type=RowStatus
-_VmpsMacConfigStatus_Object=MibTableColumn
-vmpsMacConfigStatus=_VmpsMacConfigStatus_Object((1,3,6,1,4,1,9,9,53,1,2,1,1,7),_VmpsMacConfigStatus_Type())
-vmpsMacConfigStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmpsMacConfigStatus.setStatus(_A)
-_VmpsVlanConfigTable_Object=MibTable
-vmpsVlanConfigTable=_VmpsVlanConfigTable_Object((1,3,6,1,4,1,9,9,53,1,2,2))
-if mibBuilder.loadTexts:vmpsVlanConfigTable.setStatus(_A)
-_VmpsVlanConfigEntry_Object=MibTableRow
-vmpsVlanConfigEntry=_VmpsVlanConfigEntry_Object((1,3,6,1,4,1,9,9,53,1,2,2,1))
-vmpsVlanConfigEntry.setIndexNames((0,_B,_G),(0,_B,_R),(0,_B,_S),(0,_B,_T))
-if mibBuilder.loadTexts:vmpsVlanConfigEntry.setStatus(_A)
-_VmpsVlanName_Type=VlanName
-_VmpsVlanName_Object=MibTableColumn
-vmpsVlanName=_VmpsVlanName_Object((1,3,6,1,4,1,9,9,53,1,2,2,1,1),_VmpsVlanName_Type())
-vmpsVlanName.setMaxAccess(_F)
-if mibBuilder.loadTexts:vmpsVlanName.setStatus(_A)
-_VmpsDeviceId_Type=IpAddress
-_VmpsDeviceId_Object=MibTableColumn
-vmpsDeviceId=_VmpsDeviceId_Object((1,3,6,1,4,1,9,9,53,1,2,2,1,2),_VmpsDeviceId_Type())
-vmpsDeviceId.setMaxAccess(_F)
-if mibBuilder.loadTexts:vmpsDeviceId.setStatus(_A)
-_VmpsPortName_Type=DisplayString
-_VmpsPortName_Object=MibTableColumn
-vmpsPortName=_VmpsPortName_Object((1,3,6,1,4,1,9,9,53,1,2,2,1,3),_VmpsPortName_Type())
-vmpsPortName.setMaxAccess(_F)
-if mibBuilder.loadTexts:vmpsPortName.setStatus(_A)
-_VmpsVlanConfigStatus_Type=RowStatus
-_VmpsVlanConfigStatus_Object=MibTableColumn
-vmpsVlanConfigStatus=_VmpsVlanConfigStatus_Object((1,3,6,1,4,1,9,9,53,1,2,2,1,4),_VmpsVlanConfigStatus_Type())
-vmpsVlanConfigStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmpsVlanConfigStatus.setStatus(_A)
-_VmpsGlobalConfig_ObjectIdentity=ObjectIdentity
-vmpsGlobalConfig=_VmpsGlobalConfig_ObjectIdentity((1,3,6,1,4,1,9,9,53,1,3))
-_VmpsAutoBackupEnable_Type=TruthValue
-_VmpsAutoBackupEnable_Object=MibScalar
-vmpsAutoBackupEnable=_VmpsAutoBackupEnable_Object((1,3,6,1,4,1,9,9,53,1,3,1),_VmpsAutoBackupEnable_Type())
-vmpsAutoBackupEnable.setMaxAccess(_U)
-if mibBuilder.loadTexts:vmpsAutoBackupEnable.setStatus(_A)
-_VmpsAutoBackupFileName_Type=SnmpAdminString
-_VmpsAutoBackupFileName_Object=MibScalar
-vmpsAutoBackupFileName=_VmpsAutoBackupFileName_Object((1,3,6,1,4,1,9,9,53,1,3,2),_VmpsAutoBackupFileName_Type())
-vmpsAutoBackupFileName.setMaxAccess(_U)
-if mibBuilder.loadTexts:vmpsAutoBackupFileName.setStatus(_A)
-_CiscoVlanMemberPolicyServerMIBNotifications_ObjectIdentity=ObjectIdentity
-ciscoVlanMemberPolicyServerMIBNotifications=_CiscoVlanMemberPolicyServerMIBNotifications_ObjectIdentity((1,3,6,1,4,1,9,9,53,2))
-_CiscoVlanMemberPolicyServerMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoVlanMemberPolicyServerMIBConformance=_CiscoVlanMemberPolicyServerMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,53,3))
-_CiscoVlanMemberPolicyServerMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoVlanMemberPolicyServerMIBCompliances=_CiscoVlanMemberPolicyServerMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,53,3,1))
-_CiscoVlanMemberPolicyServerMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoVlanMemberPolicyServerMIBGroups=_CiscoVlanMemberPolicyServerMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,53,3,2))
-vmpsConfigEntry.registerAugmentions((_B,_V))
+#
+# PySNMP MIB module CISCO-VMPS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-VMPS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TimeStamp, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeStamp", "RowStatus", "TruthValue", "TextualConvention")
+ciscoVmpsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 53))
+ciscoVmpsMIB.setRevisions(('2004-01-20 00:00', '2003-10-16 10:00', '2002-06-19 10:00', '2002-04-04 10:00', '2001-01-30 13:04',))
+if mibBuilder.loadTexts: ciscoVmpsMIB.setLastUpdated('200401200000Z')
+if mibBuilder.loadTexts: ciscoVmpsMIB.setOrganization('Cisco System Inc. ')
+ciscoVlanMemberPolicyServerMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 53, 1))
+vmpsInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1))
+vmpsDatabase = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2))
+vmpsGlobalConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 3))
+class VlanName(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 32)
+
+vmpsConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 1), )
+if mibBuilder.loadTexts: vmpsConfigTable.setStatus('current')
+vmpsConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-VMPS-MIB", "vmpsIndex"))
+if mibBuilder.loadTexts: vmpsConfigEntry.setStatus('current')
+vmpsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: vmpsIndex.setStatus('current')
+vmpsAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2))).clone('active')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vmpsAdminStatus.setStatus('current')
+vmpsDownloadServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 1, 1, 3), IpAddress().clone(hexValue="00000000")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vmpsDownloadServerAddress.setStatus('current')
+vmpsConfigFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 1, 1, 4), DisplayString().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vmpsConfigFileName.setStatus('current')
+vmpsTriggerDownload = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noOperation", 1), ("loadDatabase", 2), ("loadRcpDataBase", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vmpsTriggerDownload.setStatus('current')
+vmpsFallbackVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 1, 1, 6), VlanName().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vmpsFallbackVlan.setStatus('current')
+vmpsSecureMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("secure", 1), ("open", 2))).clone('open')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vmpsSecureMode.setStatus('current')
+vmpsManagementDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 1, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vmpsManagementDomain.setStatus('current')
+vmpsRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 1, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vmpsRowStatus.setStatus('current')
+vmpsRcpRemoteUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 1, 1, 10), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vmpsRcpRemoteUserName.setStatus('deprecated')
+vmpsRcpRemoteUserName2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 1, 1, 11), SnmpAdminString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vmpsRcpRemoteUserName2.setStatus('current')
+vmpsStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 2), )
+if mibBuilder.loadTexts: vmpsStatsTable.setStatus('current')
+vmpsStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 2, 1), )
+vmpsConfigEntry.registerAugmentions(("CISCO-VMPS-MIB", "vmpsStatsEntry"))
 vmpsStatsEntry.setIndexNames(*vmpsConfigEntry.getIndexNames())
-ciscoVlanMemberPolicyServerGroup=ObjectGroup((1,3,6,1,4,1,9,9,53,3,2,1))
-ciscoVlanMemberPolicyServerGroup.setObjects(*((_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q)))
-if mibBuilder.loadTexts:ciscoVlanMemberPolicyServerGroup.setStatus(_A)
-ciscoVlanMemberPolicyServerRcpGroup=ObjectGroup((1,3,6,1,4,1,9,9,53,3,2,2))
-ciscoVlanMemberPolicyServerRcpGroup.setObjects((_B,_r))
-if mibBuilder.loadTexts:ciscoVlanMemberPolicyServerRcpGroup.setStatus(_H)
-ciscoVmpsAutoBackupGroup=ObjectGroup((1,3,6,1,4,1,9,9,53,3,2,3))
-ciscoVmpsAutoBackupGroup.setObjects(*((_B,_s),(_B,_t)))
-if mibBuilder.loadTexts:ciscoVmpsAutoBackupGroup.setStatus(_A)
-ciscoVlanMemberPolicyServerRcpGroup2=ObjectGroup((1,3,6,1,4,1,9,9,53,3,2,4))
-ciscoVlanMemberPolicyServerRcpGroup2.setObjects((_B,_u))
-if mibBuilder.loadTexts:ciscoVlanMemberPolicyServerRcpGroup2.setStatus(_A)
-ciscoVlanMemberPolicyServerMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,53,3,1,1))
-ciscoVlanMemberPolicyServerMIBCompliance.setObjects((_B,_I))
-if mibBuilder.loadTexts:ciscoVlanMemberPolicyServerMIBCompliance.setStatus(_H)
-ciscoVmpsMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,9,9,53,3,1,2))
-ciscoVmpsMIBCompliance2.setObjects(*((_B,_I),(_B,_v),(_B,_K)))
-if mibBuilder.loadTexts:ciscoVmpsMIBCompliance2.setStatus(_H)
-ciscoVmpsMIBCompliance3=ModuleCompliance((1,3,6,1,4,1,9,9,53,3,1,3))
-ciscoVmpsMIBCompliance3.setObjects(*((_B,_I),(_B,_K),(_B,_w)))
-if mibBuilder.loadTexts:ciscoVmpsMIBCompliance3.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_P:VlanName,'ciscoVmpsMIB':ciscoVmpsMIB,'ciscoVlanMemberPolicyServerMIBObjects':ciscoVlanMemberPolicyServerMIBObjects,'vmpsInfo':vmpsInfo,'vmpsConfigTable':vmpsConfigTable,'vmpsConfigEntry':vmpsConfigEntry,_G:vmpsIndex,_c:vmpsAdminStatus,_d:vmpsDownloadServerAddress,_e:vmpsConfigFileName,_f:vmpsTriggerDownload,_g:vmpsFallbackVlan,_h:vmpsSecureMode,_i:vmpsManagementDomain,_j:vmpsRowStatus,_r:vmpsRcpRemoteUserName,_u:vmpsRcpRemoteUserName2,'vmpsStatsTable':vmpsStatsTable,_V:vmpsStatsEntry,_W:vmpsLastRestart,_X:vmpsInConfigReqs,_Y:vmpsInConfigErrors,_Z:vmpsOutConfigFails,_a:vmpsLastFailClient,_b:vmpsOperStatus,'vmpsDatabase':vmpsDatabase,'vmpsMacConfigTable':vmpsMacConfigTable,'vmpsMacConfigEntry':vmpsMacConfigEntry,_Q:vmpsMacConfigAddress,_k:vmpsMacConfigVlan,_l:vmpsMacConfigLastAccessed,_m:vmpsMacConfigLastRequestor,_n:vmpsMacConfigLastRequestPortId,_o:vmpsMacConfigLastResponseStatus,_p:vmpsMacConfigStatus,'vmpsVlanConfigTable':vmpsVlanConfigTable,'vmpsVlanConfigEntry':vmpsVlanConfigEntry,_R:vmpsVlanName,_S:vmpsDeviceId,_T:vmpsPortName,_q:vmpsVlanConfigStatus,'vmpsGlobalConfig':vmpsGlobalConfig,_s:vmpsAutoBackupEnable,_t:vmpsAutoBackupFileName,'ciscoVlanMemberPolicyServerMIBNotifications':ciscoVlanMemberPolicyServerMIBNotifications,'ciscoVlanMemberPolicyServerMIBConformance':ciscoVlanMemberPolicyServerMIBConformance,'ciscoVlanMemberPolicyServerMIBCompliances':ciscoVlanMemberPolicyServerMIBCompliances,'ciscoVlanMemberPolicyServerMIBCompliance':ciscoVlanMemberPolicyServerMIBCompliance,'ciscoVmpsMIBCompliance2':ciscoVmpsMIBCompliance2,'ciscoVmpsMIBCompliance3':ciscoVmpsMIBCompliance3,'ciscoVlanMemberPolicyServerMIBGroups':ciscoVlanMemberPolicyServerMIBGroups,_I:ciscoVlanMemberPolicyServerGroup,_v:ciscoVlanMemberPolicyServerRcpGroup,_K:ciscoVmpsAutoBackupGroup,_w:ciscoVlanMemberPolicyServerRcpGroup2})
+if mibBuilder.loadTexts: vmpsStatsEntry.setStatus('current')
+vmpsLastRestart = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 2, 1, 1), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vmpsLastRestart.setStatus('current')
+vmpsInConfigReqs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 2, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vmpsInConfigReqs.setStatus('current')
+vmpsInConfigErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vmpsInConfigErrors.setStatus('current')
+vmpsOutConfigFails = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vmpsOutConfigFails.setStatus('current')
+vmpsLastFailClient = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 2, 1, 5), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vmpsLastFailClient.setStatus('current')
+vmpsOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2), ("loading", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vmpsOperStatus.setStatus('current')
+vmpsAutoBackupEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 3, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: vmpsAutoBackupEnable.setStatus('current')
+vmpsAutoBackupFileName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 3, 2), SnmpAdminString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: vmpsAutoBackupFileName.setStatus('current')
+vmpsMacConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2, 1), )
+if mibBuilder.loadTexts: vmpsMacConfigTable.setStatus('current')
+vmpsMacConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-VMPS-MIB", "vmpsIndex"), (0, "CISCO-VMPS-MIB", "vmpsMacConfigAddress"))
+if mibBuilder.loadTexts: vmpsMacConfigEntry.setStatus('current')
+vmpsMacConfigAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2, 1, 1, 1), MacAddress())
+if mibBuilder.loadTexts: vmpsMacConfigAddress.setStatus('current')
+vmpsMacConfigVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2, 1, 1, 2), VlanName()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vmpsMacConfigVlan.setStatus('current')
+vmpsMacConfigLastAccessed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2, 1, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vmpsMacConfigLastAccessed.setStatus('current')
+vmpsMacConfigLastRequestor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vmpsMacConfigLastRequestor.setStatus('current')
+vmpsMacConfigLastRequestPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vmpsMacConfigLastRequestPortId.setStatus('current')
+vmpsMacConfigLastResponseStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("success", 1), ("versionNotSupported", 2), ("insufficientResources", 3), ("accessDenied", 4), ("portShutdown", 5), ("unknownManagementDomain", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vmpsMacConfigLastResponseStatus.setStatus('current')
+vmpsMacConfigStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vmpsMacConfigStatus.setStatus('current')
+vmpsVlanConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2, 2), )
+if mibBuilder.loadTexts: vmpsVlanConfigTable.setStatus('current')
+vmpsVlanConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2, 2, 1), ).setIndexNames((0, "CISCO-VMPS-MIB", "vmpsIndex"), (0, "CISCO-VMPS-MIB", "vmpsVlanName"), (0, "CISCO-VMPS-MIB", "vmpsDeviceId"), (0, "CISCO-VMPS-MIB", "vmpsPortName"))
+if mibBuilder.loadTexts: vmpsVlanConfigEntry.setStatus('current')
+vmpsVlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2, 2, 1, 1), VlanName())
+if mibBuilder.loadTexts: vmpsVlanName.setStatus('current')
+vmpsDeviceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2, 2, 1, 2), IpAddress())
+if mibBuilder.loadTexts: vmpsDeviceId.setStatus('current')
+vmpsPortName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2, 2, 1, 3), DisplayString())
+if mibBuilder.loadTexts: vmpsPortName.setStatus('current')
+vmpsVlanConfigStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 53, 1, 2, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vmpsVlanConfigStatus.setStatus('current')
+ciscoVlanMemberPolicyServerMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 53, 2))
+ciscoVlanMemberPolicyServerMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 53, 3))
+ciscoVlanMemberPolicyServerMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 53, 3, 1))
+ciscoVlanMemberPolicyServerMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 53, 3, 2))
+ciscoVlanMemberPolicyServerMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 53, 3, 1, 1)).setObjects(("CISCO-VMPS-MIB", "ciscoVlanMemberPolicyServerGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoVlanMemberPolicyServerMIBCompliance = ciscoVlanMemberPolicyServerMIBCompliance.setStatus('deprecated')
+ciscoVmpsMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 53, 3, 1, 2)).setObjects(("CISCO-VMPS-MIB", "ciscoVlanMemberPolicyServerGroup"), ("CISCO-VMPS-MIB", "ciscoVlanMemberPolicyServerRcpGroup"), ("CISCO-VMPS-MIB", "ciscoVmpsAutoBackupGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoVmpsMIBCompliance2 = ciscoVmpsMIBCompliance2.setStatus('deprecated')
+ciscoVmpsMIBCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 53, 3, 1, 3)).setObjects(("CISCO-VMPS-MIB", "ciscoVlanMemberPolicyServerGroup"), ("CISCO-VMPS-MIB", "ciscoVmpsAutoBackupGroup"), ("CISCO-VMPS-MIB", "ciscoVlanMemberPolicyServerRcpGroup2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoVmpsMIBCompliance3 = ciscoVmpsMIBCompliance3.setStatus('current')
+ciscoVlanMemberPolicyServerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 53, 3, 2, 1)).setObjects(("CISCO-VMPS-MIB", "vmpsLastRestart"), ("CISCO-VMPS-MIB", "vmpsInConfigReqs"), ("CISCO-VMPS-MIB", "vmpsInConfigErrors"), ("CISCO-VMPS-MIB", "vmpsOutConfigFails"), ("CISCO-VMPS-MIB", "vmpsLastFailClient"), ("CISCO-VMPS-MIB", "vmpsOperStatus"), ("CISCO-VMPS-MIB", "vmpsAdminStatus"), ("CISCO-VMPS-MIB", "vmpsDownloadServerAddress"), ("CISCO-VMPS-MIB", "vmpsConfigFileName"), ("CISCO-VMPS-MIB", "vmpsTriggerDownload"), ("CISCO-VMPS-MIB", "vmpsFallbackVlan"), ("CISCO-VMPS-MIB", "vmpsSecureMode"), ("CISCO-VMPS-MIB", "vmpsManagementDomain"), ("CISCO-VMPS-MIB", "vmpsRowStatus"), ("CISCO-VMPS-MIB", "vmpsMacConfigVlan"), ("CISCO-VMPS-MIB", "vmpsMacConfigLastAccessed"), ("CISCO-VMPS-MIB", "vmpsMacConfigLastRequestor"), ("CISCO-VMPS-MIB", "vmpsMacConfigLastRequestPortId"), ("CISCO-VMPS-MIB", "vmpsMacConfigLastResponseStatus"), ("CISCO-VMPS-MIB", "vmpsMacConfigStatus"), ("CISCO-VMPS-MIB", "vmpsVlanConfigStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoVlanMemberPolicyServerGroup = ciscoVlanMemberPolicyServerGroup.setStatus('current')
+ciscoVlanMemberPolicyServerRcpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 53, 3, 2, 2)).setObjects(("CISCO-VMPS-MIB", "vmpsRcpRemoteUserName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoVlanMemberPolicyServerRcpGroup = ciscoVlanMemberPolicyServerRcpGroup.setStatus('deprecated')
+ciscoVmpsAutoBackupGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 53, 3, 2, 3)).setObjects(("CISCO-VMPS-MIB", "vmpsAutoBackupEnable"), ("CISCO-VMPS-MIB", "vmpsAutoBackupFileName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoVmpsAutoBackupGroup = ciscoVmpsAutoBackupGroup.setStatus('current')
+ciscoVlanMemberPolicyServerRcpGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 53, 3, 2, 4)).setObjects(("CISCO-VMPS-MIB", "vmpsRcpRemoteUserName2"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoVlanMemberPolicyServerRcpGroup2 = ciscoVlanMemberPolicyServerRcpGroup2.setStatus('current')
+mibBuilder.exportSymbols("CISCO-VMPS-MIB", vmpsStatsTable=vmpsStatsTable, ciscoVlanMemberPolicyServerMIBObjects=ciscoVlanMemberPolicyServerMIBObjects, vmpsConfigEntry=vmpsConfigEntry, vmpsTriggerDownload=vmpsTriggerDownload, vmpsIndex=vmpsIndex, vmpsInConfigReqs=vmpsInConfigReqs, vmpsOutConfigFails=vmpsOutConfigFails, vmpsAutoBackupFileName=vmpsAutoBackupFileName, vmpsConfigFileName=vmpsConfigFileName, vmpsDatabase=vmpsDatabase, vmpsMacConfigLastRequestPortId=vmpsMacConfigLastRequestPortId, vmpsGlobalConfig=vmpsGlobalConfig, vmpsFallbackVlan=vmpsFallbackVlan, vmpsSecureMode=vmpsSecureMode, vmpsLastFailClient=vmpsLastFailClient, vmpsPortName=vmpsPortName, ciscoVlanMemberPolicyServerMIBNotifications=ciscoVlanMemberPolicyServerMIBNotifications, ciscoVlanMemberPolicyServerRcpGroup2=ciscoVlanMemberPolicyServerRcpGroup2, vmpsMacConfigTable=vmpsMacConfigTable, vmpsMacConfigStatus=vmpsMacConfigStatus, vmpsVlanName=vmpsVlanName, ciscoVlanMemberPolicyServerMIBCompliance=ciscoVlanMemberPolicyServerMIBCompliance, vmpsRcpRemoteUserName=vmpsRcpRemoteUserName, vmpsLastRestart=vmpsLastRestart, PYSNMP_MODULE_ID=ciscoVmpsMIB, ciscoVmpsMIBCompliance3=ciscoVmpsMIBCompliance3, vmpsMacConfigEntry=vmpsMacConfigEntry, vmpsVlanConfigTable=vmpsVlanConfigTable, vmpsInConfigErrors=vmpsInConfigErrors, vmpsRowStatus=vmpsRowStatus, vmpsAutoBackupEnable=vmpsAutoBackupEnable, ciscoVlanMemberPolicyServerMIBGroups=ciscoVlanMemberPolicyServerMIBGroups, ciscoVlanMemberPolicyServerRcpGroup=ciscoVlanMemberPolicyServerRcpGroup, ciscoVmpsAutoBackupGroup=ciscoVmpsAutoBackupGroup, vmpsManagementDomain=vmpsManagementDomain, vmpsMacConfigLastAccessed=vmpsMacConfigLastAccessed, ciscoVlanMemberPolicyServerMIBConformance=ciscoVlanMemberPolicyServerMIBConformance, vmpsDownloadServerAddress=vmpsDownloadServerAddress, vmpsConfigTable=vmpsConfigTable, vmpsRcpRemoteUserName2=vmpsRcpRemoteUserName2, ciscoVlanMemberPolicyServerGroup=ciscoVlanMemberPolicyServerGroup, ciscoVlanMemberPolicyServerMIBCompliances=ciscoVlanMemberPolicyServerMIBCompliances, ciscoVmpsMIBCompliance2=ciscoVmpsMIBCompliance2, VlanName=VlanName, vmpsVlanConfigStatus=vmpsVlanConfigStatus, vmpsOperStatus=vmpsOperStatus, ciscoVmpsMIB=ciscoVmpsMIB, vmpsMacConfigLastRequestor=vmpsMacConfigLastRequestor, vmpsVlanConfigEntry=vmpsVlanConfigEntry, vmpsInfo=vmpsInfo, vmpsAdminStatus=vmpsAdminStatus, vmpsDeviceId=vmpsDeviceId, vmpsStatsEntry=vmpsStatsEntry, vmpsMacConfigAddress=vmpsMacConfigAddress, vmpsMacConfigLastResponseStatus=vmpsMacConfigLastResponseStatus, vmpsMacConfigVlan=vmpsMacConfigVlan)

@@ -1,53 +1,40 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-nortelGenericMIBs,=mibBuilder.importSymbols('NORTEL-GENERIC-MIB','nortelGenericMIBs')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-nnEntityVendorType=ModuleIdentity((1,3,6,1,4,1,562,29,5))
-if mibBuilder.loadTexts:nnEntityVendorType.setRevisions(('2008-12-02 00:00','2000-06-28 00:00'))
-_NnEntityVendorTypeOther_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeOther=_NnEntityVendorTypeOther_ObjectIdentity((1,3,6,1,4,1,562,29,5,1))
-_NnEntityVendorTypeUnknown_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeUnknown=_NnEntityVendorTypeUnknown_ObjectIdentity((1,3,6,1,4,1,562,29,5,2))
-_NnEntityVendorTypeChassis_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeChassis=_NnEntityVendorTypeChassis_ObjectIdentity((1,3,6,1,4,1,562,29,5,3))
-_NnEntityVendorTypeChassisUnknown_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeChassisUnknown=_NnEntityVendorTypeChassisUnknown_ObjectIdentity((1,3,6,1,4,1,562,29,5,3,1))
-_NnEntityVendorTypeBackplane_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeBackplane=_NnEntityVendorTypeBackplane_ObjectIdentity((1,3,6,1,4,1,562,29,5,4))
-_NnEntityVendorTypeBackplaneUnknown_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeBackplaneUnknown=_NnEntityVendorTypeBackplaneUnknown_ObjectIdentity((1,3,6,1,4,1,562,29,5,4,1))
-_NnEntityVendorTypeContainer_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeContainer=_NnEntityVendorTypeContainer_ObjectIdentity((1,3,6,1,4,1,562,29,5,5))
-_NnEntityVendorTypeContainerUnknown_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeContainerUnknown=_NnEntityVendorTypeContainerUnknown_ObjectIdentity((1,3,6,1,4,1,562,29,5,5,1))
-_NnEntityVendorTypePowerSupply_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypePowerSupply=_NnEntityVendorTypePowerSupply_ObjectIdentity((1,3,6,1,4,1,562,29,5,6))
-_NnEntityVendorTypePowerSupplyUnknown_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypePowerSupplyUnknown=_NnEntityVendorTypePowerSupplyUnknown_ObjectIdentity((1,3,6,1,4,1,562,29,5,6,1))
-_NnEntityVendorTypeFan_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeFan=_NnEntityVendorTypeFan_ObjectIdentity((1,3,6,1,4,1,562,29,5,7))
-_NnEntityVendorTypeFanUnknown_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeFanUnknown=_NnEntityVendorTypeFanUnknown_ObjectIdentity((1,3,6,1,4,1,562,29,5,7,1))
-_NnEntityVendorTypeSensor_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeSensor=_NnEntityVendorTypeSensor_ObjectIdentity((1,3,6,1,4,1,562,29,5,8))
-_NnEntityVendorTypeSensorUnknown_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeSensorUnknown=_NnEntityVendorTypeSensorUnknown_ObjectIdentity((1,3,6,1,4,1,562,29,5,8,1))
-_NnEntityVendorTypeModule_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeModule=_NnEntityVendorTypeModule_ObjectIdentity((1,3,6,1,4,1,562,29,5,9))
-_NnEntityVendorTypeModuleUnknown_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeModuleUnknown=_NnEntityVendorTypeModuleUnknown_ObjectIdentity((1,3,6,1,4,1,562,29,5,9,1))
-_NnEntityVendorTypePort_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypePort=_NnEntityVendorTypePort_ObjectIdentity((1,3,6,1,4,1,562,29,5,10))
-_NnEntityVendorTypePortUnknown_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypePortUnknown=_NnEntityVendorTypePortUnknown_ObjectIdentity((1,3,6,1,4,1,562,29,5,10,1))
-_NnEntityVendorTypeStack_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeStack=_NnEntityVendorTypeStack_ObjectIdentity((1,3,6,1,4,1,562,29,5,11))
-_NnEntityVendorTypeStackUnknown_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypeStackUnknown=_NnEntityVendorTypeStackUnknown_ObjectIdentity((1,3,6,1,4,1,562,29,5,11,1))
-_NnEntityVendorTypePecCodes_ObjectIdentity=ObjectIdentity
-nnEntityVendorTypePecCodes=_NnEntityVendorTypePecCodes_ObjectIdentity((1,3,6,1,4,1,562,29,5,12))
-mibBuilder.exportSymbols('NORTEL-ENTITY-VENDORTYPE-MIB',**{'nnEntityVendorType':nnEntityVendorType,'nnEntityVendorTypeOther':nnEntityVendorTypeOther,'nnEntityVendorTypeUnknown':nnEntityVendorTypeUnknown,'nnEntityVendorTypeChassis':nnEntityVendorTypeChassis,'nnEntityVendorTypeChassisUnknown':nnEntityVendorTypeChassisUnknown,'nnEntityVendorTypeBackplane':nnEntityVendorTypeBackplane,'nnEntityVendorTypeBackplaneUnknown':nnEntityVendorTypeBackplaneUnknown,'nnEntityVendorTypeContainer':nnEntityVendorTypeContainer,'nnEntityVendorTypeContainerUnknown':nnEntityVendorTypeContainerUnknown,'nnEntityVendorTypePowerSupply':nnEntityVendorTypePowerSupply,'nnEntityVendorTypePowerSupplyUnknown':nnEntityVendorTypePowerSupplyUnknown,'nnEntityVendorTypeFan':nnEntityVendorTypeFan,'nnEntityVendorTypeFanUnknown':nnEntityVendorTypeFanUnknown,'nnEntityVendorTypeSensor':nnEntityVendorTypeSensor,'nnEntityVendorTypeSensorUnknown':nnEntityVendorTypeSensorUnknown,'nnEntityVendorTypeModule':nnEntityVendorTypeModule,'nnEntityVendorTypeModuleUnknown':nnEntityVendorTypeModuleUnknown,'nnEntityVendorTypePort':nnEntityVendorTypePort,'nnEntityVendorTypePortUnknown':nnEntityVendorTypePortUnknown,'nnEntityVendorTypeStack':nnEntityVendorTypeStack,'nnEntityVendorTypeStackUnknown':nnEntityVendorTypeStackUnknown,'nnEntityVendorTypePecCodes':nnEntityVendorTypePecCodes})
+#
+# PySNMP MIB module NORTEL-ENTITY-VENDORTYPE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/NORTEL-ENTITY-VENDORTYPE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:20 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+nortelGenericMIBs, = mibBuilder.importSymbols("NORTEL-GENERIC-MIB", "nortelGenericMIBs")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+nnEntityVendorType = ModuleIdentity((1, 3, 6, 1, 4, 1, 562, 29, 5))
+nnEntityVendorType.setRevisions(('2008-12-02 00:00', '2000-06-28 00:00',))
+if mibBuilder.loadTexts: nnEntityVendorType.setLastUpdated('200812020000Z')
+if mibBuilder.loadTexts: nnEntityVendorType.setOrganization('Nortel Networks')
+nnEntityVendorTypeOther = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 1))
+nnEntityVendorTypeUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 2))
+nnEntityVendorTypeChassis = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 3))
+nnEntityVendorTypeBackplane = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 4))
+nnEntityVendorTypeContainer = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 5))
+nnEntityVendorTypePowerSupply = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 6))
+nnEntityVendorTypeFan = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 7))
+nnEntityVendorTypeSensor = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 8))
+nnEntityVendorTypeModule = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 9))
+nnEntityVendorTypePort = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 10))
+nnEntityVendorTypeStack = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 11))
+nnEntityVendorTypePecCodes = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 12))
+nnEntityVendorTypeChassisUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 3, 1))
+nnEntityVendorTypeBackplaneUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 4, 1))
+nnEntityVendorTypeContainerUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 5, 1))
+nnEntityVendorTypePowerSupplyUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 6, 1))
+nnEntityVendorTypeFanUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 7, 1))
+nnEntityVendorTypeSensorUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 8, 1))
+nnEntityVendorTypeModuleUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 9, 1))
+nnEntityVendorTypePortUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 10, 1))
+nnEntityVendorTypeStackUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29, 5, 11, 1))
+mibBuilder.exportSymbols("NORTEL-ENTITY-VENDORTYPE-MIB", nnEntityVendorTypeOther=nnEntityVendorTypeOther, nnEntityVendorTypeStackUnknown=nnEntityVendorTypeStackUnknown, nnEntityVendorTypeBackplane=nnEntityVendorTypeBackplane, nnEntityVendorTypeSensorUnknown=nnEntityVendorTypeSensorUnknown, nnEntityVendorTypePowerSupplyUnknown=nnEntityVendorTypePowerSupplyUnknown, nnEntityVendorTypeSensor=nnEntityVendorTypeSensor, nnEntityVendorTypeChassisUnknown=nnEntityVendorTypeChassisUnknown, nnEntityVendorTypePortUnknown=nnEntityVendorTypePortUnknown, nnEntityVendorTypeContainer=nnEntityVendorTypeContainer, nnEntityVendorTypeModuleUnknown=nnEntityVendorTypeModuleUnknown, nnEntityVendorTypeBackplaneUnknown=nnEntityVendorTypeBackplaneUnknown, nnEntityVendorTypePort=nnEntityVendorTypePort, nnEntityVendorTypePecCodes=nnEntityVendorTypePecCodes, nnEntityVendorType=nnEntityVendorType, PYSNMP_MODULE_ID=nnEntityVendorType, nnEntityVendorTypeFan=nnEntityVendorTypeFan, nnEntityVendorTypePowerSupply=nnEntityVendorTypePowerSupply, nnEntityVendorTypeChassis=nnEntityVendorTypeChassis, nnEntityVendorTypeFanUnknown=nnEntityVendorTypeFanUnknown, nnEntityVendorTypeModule=nnEntityVendorTypeModule, nnEntityVendorTypeContainerUnknown=nnEntityVendorTypeContainerUnknown, nnEntityVendorTypeStack=nnEntityVendorTypeStack, nnEntityVendorTypeUnknown=nnEntityVendorTypeUnknown)

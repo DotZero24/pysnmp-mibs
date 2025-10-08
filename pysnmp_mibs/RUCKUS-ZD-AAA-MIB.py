@@ -1,122 +1,59 @@
-_F='ruckusZDAAAConfigID'
-_E='RUCKUS-ZD-AAA-MIB'
-_D='OctetString'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,ifIndex=mibBuilder.importSymbols('IF-MIB','InterfaceIndex','ifIndex')
-ruckusZDWLANModule,=mibBuilder.importSymbols('RUCKUS-ROOT-MIB','ruckusZDWLANModule')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-ruckusZDAAAMIB=ModuleIdentity((1,3,6,1,4,1,25053,1,2,2,3))
-_RuckusZDAAAObjects_ObjectIdentity=ObjectIdentity
-ruckusZDAAAObjects=_RuckusZDAAAObjects_ObjectIdentity((1,3,6,1,4,1,25053,1,2,2,3,1))
-_RuckusZDAAAConfig_ObjectIdentity=ObjectIdentity
-ruckusZDAAAConfig=_RuckusZDAAAConfig_ObjectIdentity((1,3,6,1,4,1,25053,1,2,2,3,1,1))
-_RuckusZDAAAConfigTable_Object=MibTable
-ruckusZDAAAConfigTable=_RuckusZDAAAConfigTable_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,1))
-if mibBuilder.loadTexts:ruckusZDAAAConfigTable.setStatus(_A)
-_RuckusZDAAAConfigEntry_Object=MibTableRow
-ruckusZDAAAConfigEntry=_RuckusZDAAAConfigEntry_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,1,1))
-ruckusZDAAAConfigEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:ruckusZDAAAConfigEntry.setStatus(_A)
-class _RuckusZDAAAConfigID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3,32))
-_RuckusZDAAAConfigID_Type.__name__=_C
-_RuckusZDAAAConfigID_Object=MibTableColumn
-ruckusZDAAAConfigID=_RuckusZDAAAConfigID_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,1,1,1),_RuckusZDAAAConfigID_Type())
-ruckusZDAAAConfigID.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:ruckusZDAAAConfigID.setStatus(_A)
-class _RuckusZDAAAConfigName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,63))
-_RuckusZDAAAConfigName_Type.__name__=_D
-_RuckusZDAAAConfigName_Object=MibTableColumn
-ruckusZDAAAConfigName=_RuckusZDAAAConfigName_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,1,1,2),_RuckusZDAAAConfigName_Type())
-ruckusZDAAAConfigName.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusZDAAAConfigName.setStatus(_A)
-class _RuckusZDAAAConfigServiceType_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('active-directory',1),('ldap-directory',2),('aaa-authentication',3),('aaa-accounting',4)))
-_RuckusZDAAAConfigServiceType_Type.__name__=_C
-_RuckusZDAAAConfigServiceType_Object=MibTableColumn
-ruckusZDAAAConfigServiceType=_RuckusZDAAAConfigServiceType_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,1,1,3),_RuckusZDAAAConfigServiceType_Type())
-ruckusZDAAAConfigServiceType.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusZDAAAConfigServiceType.setStatus(_A)
-_RuckusZDAAAConfigRowStatus_Type=RowStatus
-_RuckusZDAAAConfigRowStatus_Object=MibTableColumn
-ruckusZDAAAConfigRowStatus=_RuckusZDAAAConfigRowStatus_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,1,1,10),_RuckusZDAAAConfigRowStatus_Type())
-ruckusZDAAAConfigRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:ruckusZDAAAConfigRowStatus.setStatus(_A)
-_RuckusZDAAASvrTable_Object=MibTable
-ruckusZDAAASvrTable=_RuckusZDAAASvrTable_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,2))
-if mibBuilder.loadTexts:ruckusZDAAASvrTable.setStatus(_A)
-_RuckusZDAAASvrEntry_Object=MibTableRow
-ruckusZDAAASvrEntry=_RuckusZDAAASvrEntry_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,2,1))
-ruckusZDAAASvrEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:ruckusZDAAASvrEntry.setStatus(_A)
-class _RuckusZDAAARadiusBackupControl_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_RuckusZDAAARadiusBackupControl_Type.__name__=_C
-_RuckusZDAAARadiusBackupControl_Object=MibTableColumn
-ruckusZDAAARadiusBackupControl=_RuckusZDAAARadiusBackupControl_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,2,1,5),_RuckusZDAAARadiusBackupControl_Type())
-ruckusZDAAARadiusBackupControl.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusZDAAARadiusBackupControl.setStatus(_A)
-class _RuckusZDAAARadiusPrimarySvrIpAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,40))
-_RuckusZDAAARadiusPrimarySvrIpAddress_Type.__name__=_D
-_RuckusZDAAARadiusPrimarySvrIpAddress_Object=MibTableColumn
-ruckusZDAAARadiusPrimarySvrIpAddress=_RuckusZDAAARadiusPrimarySvrIpAddress_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,2,1,10),_RuckusZDAAARadiusPrimarySvrIpAddress_Type())
-ruckusZDAAARadiusPrimarySvrIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusZDAAARadiusPrimarySvrIpAddress.setStatus(_A)
-_RuckusZDAAARadiusPrimarySvrPort_Type=Integer32
-_RuckusZDAAARadiusPrimarySvrPort_Object=MibTableColumn
-ruckusZDAAARadiusPrimarySvrPort=_RuckusZDAAARadiusPrimarySvrPort_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,2,1,11),_RuckusZDAAARadiusPrimarySvrPort_Type())
-ruckusZDAAARadiusPrimarySvrPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusZDAAARadiusPrimarySvrPort.setStatus(_A)
-class _RuckusZDAAARadiusPrimarySvrPasswd_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_RuckusZDAAARadiusPrimarySvrPasswd_Type.__name__=_D
-_RuckusZDAAARadiusPrimarySvrPasswd_Object=MibTableColumn
-ruckusZDAAARadiusPrimarySvrPasswd=_RuckusZDAAARadiusPrimarySvrPasswd_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,2,1,12),_RuckusZDAAARadiusPrimarySvrPasswd_Type())
-ruckusZDAAARadiusPrimarySvrPasswd.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusZDAAARadiusPrimarySvrPasswd.setStatus(_A)
-class _RuckusZDAAARadiusSecondarySvrIpAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,40))
-_RuckusZDAAARadiusSecondarySvrIpAddress_Type.__name__=_D
-_RuckusZDAAARadiusSecondarySvrIpAddress_Object=MibTableColumn
-ruckusZDAAARadiusSecondarySvrIpAddress=_RuckusZDAAARadiusSecondarySvrIpAddress_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,2,1,15),_RuckusZDAAARadiusSecondarySvrIpAddress_Type())
-ruckusZDAAARadiusSecondarySvrIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusZDAAARadiusSecondarySvrIpAddress.setStatus(_A)
-_RuckusZDAAARadiusSecondarySvrPort_Type=Integer32
-_RuckusZDAAARadiusSecondarySvrPort_Object=MibTableColumn
-ruckusZDAAARadiusSecondarySvrPort=_RuckusZDAAARadiusSecondarySvrPort_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,2,1,16),_RuckusZDAAARadiusSecondarySvrPort_Type())
-ruckusZDAAARadiusSecondarySvrPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusZDAAARadiusSecondarySvrPort.setStatus(_A)
-class _RuckusZDAAARadiusSecondarySvrPasswd_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_RuckusZDAAARadiusSecondarySvrPasswd_Type.__name__=_D
-_RuckusZDAAARadiusSecondarySvrPasswd_Object=MibTableColumn
-ruckusZDAAARadiusSecondarySvrPasswd=_RuckusZDAAARadiusSecondarySvrPasswd_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,2,1,17),_RuckusZDAAARadiusSecondarySvrPasswd_Type())
-ruckusZDAAARadiusSecondarySvrPasswd.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusZDAAARadiusSecondarySvrPasswd.setStatus(_A)
-class _RuckusZDAAARadiusFailoverTimeout_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,20))
-_RuckusZDAAARadiusFailoverTimeout_Type.__name__=_C
-_RuckusZDAAARadiusFailoverTimeout_Object=MibTableColumn
-ruckusZDAAARadiusFailoverTimeout=_RuckusZDAAARadiusFailoverTimeout_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,2,1,20),_RuckusZDAAARadiusFailoverTimeout_Type())
-ruckusZDAAARadiusFailoverTimeout.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusZDAAARadiusFailoverTimeout.setStatus(_A)
-class _RuckusZDAAARadiusFailoverRetry_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,10))
-_RuckusZDAAARadiusFailoverRetry_Type.__name__=_C
-_RuckusZDAAARadiusFailoverRetry_Object=MibTableColumn
-ruckusZDAAARadiusFailoverRetry=_RuckusZDAAARadiusFailoverRetry_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,2,1,21),_RuckusZDAAARadiusFailoverRetry_Type())
-ruckusZDAAARadiusFailoverRetry.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusZDAAARadiusFailoverRetry.setStatus(_A)
-class _RuckusZDAAARadiusFailoverReconnectPrimary_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,86400))
-_RuckusZDAAARadiusFailoverReconnectPrimary_Type.__name__=_C
-_RuckusZDAAARadiusFailoverReconnectPrimary_Object=MibTableColumn
-ruckusZDAAARadiusFailoverReconnectPrimary=_RuckusZDAAARadiusFailoverReconnectPrimary_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,2,1,22),_RuckusZDAAARadiusFailoverReconnectPrimary_Type())
-ruckusZDAAARadiusFailoverReconnectPrimary.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusZDAAARadiusFailoverReconnectPrimary.setStatus(_A)
-class _RuckusZDAAARadiusFailoverConsecutiveDropPkts_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_RuckusZDAAARadiusFailoverConsecutiveDropPkts_Type.__name__=_C
-_RuckusZDAAARadiusFailoverConsecutiveDropPkts_Object=MibTableColumn
-ruckusZDAAARadiusFailoverConsecutiveDropPkts=_RuckusZDAAARadiusFailoverConsecutiveDropPkts_Object((1,3,6,1,4,1,25053,1,2,2,3,1,1,2,1,23),_RuckusZDAAARadiusFailoverConsecutiveDropPkts_Type())
-ruckusZDAAARadiusFailoverConsecutiveDropPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:ruckusZDAAARadiusFailoverConsecutiveDropPkts.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'ruckusZDAAAMIB':ruckusZDAAAMIB,'ruckusZDAAAObjects':ruckusZDAAAObjects,'ruckusZDAAAConfig':ruckusZDAAAConfig,'ruckusZDAAAConfigTable':ruckusZDAAAConfigTable,'ruckusZDAAAConfigEntry':ruckusZDAAAConfigEntry,_F:ruckusZDAAAConfigID,'ruckusZDAAAConfigName':ruckusZDAAAConfigName,'ruckusZDAAAConfigServiceType':ruckusZDAAAConfigServiceType,'ruckusZDAAAConfigRowStatus':ruckusZDAAAConfigRowStatus,'ruckusZDAAASvrTable':ruckusZDAAASvrTable,'ruckusZDAAASvrEntry':ruckusZDAAASvrEntry,'ruckusZDAAARadiusBackupControl':ruckusZDAAARadiusBackupControl,'ruckusZDAAARadiusPrimarySvrIpAddress':ruckusZDAAARadiusPrimarySvrIpAddress,'ruckusZDAAARadiusPrimarySvrPort':ruckusZDAAARadiusPrimarySvrPort,'ruckusZDAAARadiusPrimarySvrPasswd':ruckusZDAAARadiusPrimarySvrPasswd,'ruckusZDAAARadiusSecondarySvrIpAddress':ruckusZDAAARadiusSecondarySvrIpAddress,'ruckusZDAAARadiusSecondarySvrPort':ruckusZDAAARadiusSecondarySvrPort,'ruckusZDAAARadiusSecondarySvrPasswd':ruckusZDAAARadiusSecondarySvrPasswd,'ruckusZDAAARadiusFailoverTimeout':ruckusZDAAARadiusFailoverTimeout,'ruckusZDAAARadiusFailoverRetry':ruckusZDAAARadiusFailoverRetry,'ruckusZDAAARadiusFailoverReconnectPrimary':ruckusZDAAARadiusFailoverReconnectPrimary,'ruckusZDAAARadiusFailoverConsecutiveDropPkts':ruckusZDAAARadiusFailoverConsecutiveDropPkts})
+#
+# PySNMP MIB module RUCKUS-ZD-AAA-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ruckus/RUCKUS-ZD-AAA-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
+ruckusZDWLANModule, = mibBuilder.importSymbols("RUCKUS-ROOT-MIB", "ruckusZDWLANModule")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ruckusZDAAAMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3))
+if mibBuilder.loadTexts: ruckusZDAAAMIB.setLastUpdated('201010150800Z')
+if mibBuilder.loadTexts: ruckusZDAAAMIB.setOrganization('Ruckus Wireless, Inc.')
+ruckusZDAAAObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1))
+ruckusZDAAAConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1))
+ruckusZDAAAConfigTable = MibTable((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 1), )
+if mibBuilder.loadTexts: ruckusZDAAAConfigTable.setStatus('current')
+ruckusZDAAAConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 1, 1), ).setIndexNames((0, "RUCKUS-ZD-AAA-MIB", "ruckusZDAAAConfigID"))
+if mibBuilder.loadTexts: ruckusZDAAAConfigEntry.setStatus('current')
+ruckusZDAAAConfigID = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(3, 32)))
+if mibBuilder.loadTexts: ruckusZDAAAConfigID.setStatus('current')
+ruckusZDAAAConfigName = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 63))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusZDAAAConfigName.setStatus('current')
+ruckusZDAAAConfigServiceType = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("active-directory", 1), ("ldap-directory", 2), ("aaa-authentication", 3), ("aaa-accounting", 4))).clone('aaa-authentication')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusZDAAAConfigServiceType.setStatus('current')
+ruckusZDAAAConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 1, 1, 10), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ruckusZDAAAConfigRowStatus.setStatus('current')
+ruckusZDAAASvrTable = MibTable((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 2), )
+if mibBuilder.loadTexts: ruckusZDAAASvrTable.setStatus('current')
+ruckusZDAAASvrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 2, 1), ).setIndexNames((0, "RUCKUS-ZD-AAA-MIB", "ruckusZDAAAConfigID"))
+if mibBuilder.loadTexts: ruckusZDAAASvrEntry.setStatus('current')
+ruckusZDAAARadiusBackupControl = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusZDAAARadiusBackupControl.setStatus('current')
+ruckusZDAAARadiusPrimarySvrIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 2, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 40))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusZDAAARadiusPrimarySvrIpAddress.setStatus('current')
+ruckusZDAAARadiusPrimarySvrPort = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 2, 1, 11), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusZDAAARadiusPrimarySvrPort.setStatus('current')
+ruckusZDAAARadiusPrimarySvrPasswd = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 2, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusZDAAARadiusPrimarySvrPasswd.setStatus('current')
+ruckusZDAAARadiusSecondarySvrIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 2, 1, 15), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 40))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusZDAAARadiusSecondarySvrIpAddress.setStatus('current')
+ruckusZDAAARadiusSecondarySvrPort = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 2, 1, 16), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusZDAAARadiusSecondarySvrPort.setStatus('current')
+ruckusZDAAARadiusSecondarySvrPasswd = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 2, 1, 17), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusZDAAARadiusSecondarySvrPasswd.setStatus('current')
+ruckusZDAAARadiusFailoverTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 2, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(2, 20)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusZDAAARadiusFailoverTimeout.setStatus('current')
+ruckusZDAAARadiusFailoverRetry = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 2, 1, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(2, 10)).clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusZDAAARadiusFailoverRetry.setStatus('current')
+ruckusZDAAARadiusFailoverReconnectPrimary = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 2, 1, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 86400)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusZDAAARadiusFailoverReconnectPrimary.setStatus('current')
+ruckusZDAAARadiusFailoverConsecutiveDropPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 25053, 1, 2, 2, 3, 1, 1, 2, 1, 23), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ruckusZDAAARadiusFailoverConsecutiveDropPkts.setStatus('current')
+mibBuilder.exportSymbols("RUCKUS-ZD-AAA-MIB", ruckusZDAAAConfigID=ruckusZDAAAConfigID, ruckusZDAAAConfigEntry=ruckusZDAAAConfigEntry, ruckusZDAAARadiusFailoverRetry=ruckusZDAAARadiusFailoverRetry, ruckusZDAAARadiusBackupControl=ruckusZDAAARadiusBackupControl, ruckusZDAAARadiusPrimarySvrPasswd=ruckusZDAAARadiusPrimarySvrPasswd, ruckusZDAAARadiusFailoverConsecutiveDropPkts=ruckusZDAAARadiusFailoverConsecutiveDropPkts, ruckusZDAAASvrEntry=ruckusZDAAASvrEntry, ruckusZDAAARadiusSecondarySvrIpAddress=ruckusZDAAARadiusSecondarySvrIpAddress, ruckusZDAAAObjects=ruckusZDAAAObjects, ruckusZDAAARadiusPrimarySvrPort=ruckusZDAAARadiusPrimarySvrPort, ruckusZDAAAMIB=ruckusZDAAAMIB, ruckusZDAAAConfigName=ruckusZDAAAConfigName, ruckusZDAAAConfigServiceType=ruckusZDAAAConfigServiceType, ruckusZDAAAConfigRowStatus=ruckusZDAAAConfigRowStatus, ruckusZDAAARadiusFailoverReconnectPrimary=ruckusZDAAARadiusFailoverReconnectPrimary, ruckusZDAAAConfig=ruckusZDAAAConfig, PYSNMP_MODULE_ID=ruckusZDAAAMIB, ruckusZDAAARadiusSecondarySvrPasswd=ruckusZDAAARadiusSecondarySvrPasswd, ruckusZDAAAConfigTable=ruckusZDAAAConfigTable, ruckusZDAAARadiusSecondarySvrPort=ruckusZDAAARadiusSecondarySvrPort, ruckusZDAAARadiusFailoverTimeout=ruckusZDAAARadiusFailoverTimeout, ruckusZDAAARadiusPrimarySvrIpAddress=ruckusZDAAARadiusPrimarySvrIpAddress, ruckusZDAAASvrTable=ruckusZDAAASvrTable)

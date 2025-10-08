@@ -1,134 +1,104 @@
-_H='mitelGrpCmnInterfaces'
-_G='mitelIfTblType'
-_F='mitelIfNumber'
-_E='read-only'
-_D='ifIndex'
-_C='IF-MIB'
-_B='MITEL-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_C,_D)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-mitel=ModuleIdentity((1,3,6,1,4,1,1027))
-if mibBuilder.loadTexts:mitel.setRevisions(('2014-02-11 12:00','2011-07-14 00:00','2006-01-01 00:00','2005-04-12 21:34','2004-02-23 00:00','1999-02-23 00:00','1996-04-26 00:00'))
-class MitelIfType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('dnic',1))
-class MitelNotifyTransportType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('mitelNotifTransV1Trap',1),('mitelNotifTransV2Trap',2),('mitelNotifTransInform',3)))
-_MitelIdentification_ObjectIdentity=ObjectIdentity
-mitelIdentification=_MitelIdentification_ObjectIdentity((1,3,6,1,4,1,1027,1))
-if mibBuilder.loadTexts:mitelIdentification.setStatus(_A)
-_MitelIdMgmtPlatforms_ObjectIdentity=ObjectIdentity
-mitelIdMgmtPlatforms=_MitelIdMgmtPlatforms_ObjectIdentity((1,3,6,1,4,1,1027,1,1))
-if mibBuilder.loadTexts:mitelIdMgmtPlatforms.setStatus(_A)
-_MitelIdCallServers_ObjectIdentity=ObjectIdentity
-mitelIdCallServers=_MitelIdCallServers_ObjectIdentity((1,3,6,1,4,1,1027,1,2))
-if mibBuilder.loadTexts:mitelIdCallServers.setStatus(_A)
-_MitelIdCsMc2_ObjectIdentity=ObjectIdentity
-mitelIdCsMc2=_MitelIdCsMc2_ObjectIdentity((1,3,6,1,4,1,1027,1,2,1))
-if mibBuilder.loadTexts:mitelIdCsMc2.setStatus(_A)
-_MitelIdCs2000Light_ObjectIdentity=ObjectIdentity
-mitelIdCs2000Light=_MitelIdCs2000Light_ObjectIdentity((1,3,6,1,4,1,1027,1,2,2))
-if mibBuilder.loadTexts:mitelIdCs2000Light.setStatus(_A)
-_MitelIdCsIpera3000_ObjectIdentity=ObjectIdentity
-mitelIdCsIpera3000=_MitelIdCsIpera3000_ObjectIdentity((1,3,6,1,4,1,1027,1,2,3))
-if mibBuilder.loadTexts:mitelIdCsIpera3000.setStatus(_A)
-_MitelIdTerminals_ObjectIdentity=ObjectIdentity
-mitelIdTerminals=_MitelIdTerminals_ObjectIdentity((1,3,6,1,4,1,1027,1,3))
-if mibBuilder.loadTexts:mitelIdTerminals.setStatus(_A)
-_MitelIdInterfaces_ObjectIdentity=ObjectIdentity
-mitelIdInterfaces=_MitelIdInterfaces_ObjectIdentity((1,3,6,1,4,1,1027,1,4))
-if mibBuilder.loadTexts:mitelIdInterfaces.setStatus(_A)
-_MitelIdCtiPlatforms_ObjectIdentity=ObjectIdentity
-mitelIdCtiPlatforms=_MitelIdCtiPlatforms_ObjectIdentity((1,3,6,1,4,1,1027,1,5))
-if mibBuilder.loadTexts:mitelIdCtiPlatforms.setStatus(_A)
-_MitelIdApplicationPlatforms_ObjectIdentity=ObjectIdentity
-mitelIdApplicationPlatforms=_MitelIdApplicationPlatforms_ObjectIdentity((1,3,6,1,4,1,1027,1,6))
-if mibBuilder.loadTexts:mitelIdApplicationPlatforms.setStatus(_A)
-_MitelExperimental_ObjectIdentity=ObjectIdentity
-mitelExperimental=_MitelExperimental_ObjectIdentity((1,3,6,1,4,1,1027,2))
-if mibBuilder.loadTexts:mitelExperimental.setStatus(_A)
-_MitelExtensions_ObjectIdentity=ObjectIdentity
-mitelExtensions=_MitelExtensions_ObjectIdentity((1,3,6,1,4,1,1027,3))
-if mibBuilder.loadTexts:mitelExtensions.setStatus(_A)
-_MitelExtInterfaces_ObjectIdentity=ObjectIdentity
-mitelExtInterfaces=_MitelExtInterfaces_ObjectIdentity((1,3,6,1,4,1,1027,3,2))
-if mibBuilder.loadTexts:mitelExtInterfaces.setStatus(_A)
-_MitelIfNumber_Type=Integer32
-_MitelIfNumber_Object=MibScalar
-mitelIfNumber=_MitelIfNumber_Object((1,3,6,1,4,1,1027,3,2,1),_MitelIfNumber_Type())
-mitelIfNumber.setMaxAccess(_E)
-if mibBuilder.loadTexts:mitelIfNumber.setStatus(_A)
-_MitelIfTable_Object=MibTable
-mitelIfTable=_MitelIfTable_Object((1,3,6,1,4,1,1027,3,2,2))
-if mibBuilder.loadTexts:mitelIfTable.setStatus(_A)
-_MitelIfTableEntry_Object=MibTableRow
-mitelIfTableEntry=_MitelIfTableEntry_Object((1,3,6,1,4,1,1027,3,2,2,1))
-mitelIfTableEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:mitelIfTableEntry.setStatus(_A)
-_MitelIfTblType_Type=MitelIfType
-_MitelIfTblType_Object=MibTableColumn
-mitelIfTblType=_MitelIfTblType_Object((1,3,6,1,4,1,1027,3,2,2,1,1),_MitelIfTblType_Type())
-mitelIfTblType.setMaxAccess(_E)
-if mibBuilder.loadTexts:mitelIfTblType.setStatus(_A)
-_MitelProprietary_ObjectIdentity=ObjectIdentity
-mitelProprietary=_MitelProprietary_ObjectIdentity((1,3,6,1,4,1,1027,4))
-if mibBuilder.loadTexts:mitelProprietary.setStatus(_A)
-_MitelPropApplications_ObjectIdentity=ObjectIdentity
-mitelPropApplications=_MitelPropApplications_ObjectIdentity((1,3,6,1,4,1,1027,4,1))
-if mibBuilder.loadTexts:mitelPropApplications.setStatus(_A)
-_MitelAppCallServer_ObjectIdentity=ObjectIdentity
-mitelAppCallServer=_MitelAppCallServer_ObjectIdentity((1,3,6,1,4,1,1027,4,1,1))
-if mibBuilder.loadTexts:mitelAppCallServer.setStatus(_A)
-_MitelPropTransmission_ObjectIdentity=ObjectIdentity
-mitelPropTransmission=_MitelPropTransmission_ObjectIdentity((1,3,6,1,4,1,1027,4,2))
-if mibBuilder.loadTexts:mitelPropTransmission.setStatus(_A)
-_MitelPropProtocols_ObjectIdentity=ObjectIdentity
-mitelPropProtocols=_MitelPropProtocols_ObjectIdentity((1,3,6,1,4,1,1027,4,3))
-if mibBuilder.loadTexts:mitelPropProtocols.setStatus(_A)
-_MitelPropUtilities_ObjectIdentity=ObjectIdentity
-mitelPropUtilities=_MitelPropUtilities_ObjectIdentity((1,3,6,1,4,1,1027,4,4))
-if mibBuilder.loadTexts:mitelPropUtilities.setStatus(_A)
-_MitelPropHardware_ObjectIdentity=ObjectIdentity
-mitelPropHardware=_MitelPropHardware_ObjectIdentity((1,3,6,1,4,1,1027,4,5))
-if mibBuilder.loadTexts:mitelPropHardware.setStatus(_A)
-_MitelPropNotifications_ObjectIdentity=ObjectIdentity
-mitelPropNotifications=_MitelPropNotifications_ObjectIdentity((1,3,6,1,4,1,1027,4,6))
-if mibBuilder.loadTexts:mitelPropNotifications.setStatus(_A)
-_MitelPropReset_ObjectIdentity=ObjectIdentity
-mitelPropReset=_MitelPropReset_ObjectIdentity((1,3,6,1,4,1,1027,4,7))
-if mibBuilder.loadTexts:mitelPropReset.setStatus(_A)
-_MitelPropCommon_ObjectIdentity=ObjectIdentity
-mitelPropCommon=_MitelPropCommon_ObjectIdentity((1,3,6,1,4,1,1027,4,9))
-if mibBuilder.loadTexts:mitelPropCommon.setStatus(_A)
-_MitelConformance_ObjectIdentity=ObjectIdentity
-mitelConformance=_MitelConformance_ObjectIdentity((1,3,6,1,4,1,1027,5))
-if mibBuilder.loadTexts:mitelConformance.setStatus(_A)
-_MitelConfCompliances_ObjectIdentity=ObjectIdentity
-mitelConfCompliances=_MitelConfCompliances_ObjectIdentity((1,3,6,1,4,1,1027,5,1))
-if mibBuilder.loadTexts:mitelConfCompliances.setStatus(_A)
-_MitelConfGroups_ObjectIdentity=ObjectIdentity
-mitelConfGroups=_MitelConfGroups_ObjectIdentity((1,3,6,1,4,1,1027,5,2))
-if mibBuilder.loadTexts:mitelConfGroups.setStatus(_A)
-_MitelGrpCommon_ObjectIdentity=ObjectIdentity
-mitelGrpCommon=_MitelGrpCommon_ObjectIdentity((1,3,6,1,4,1,1027,5,2,1))
-if mibBuilder.loadTexts:mitelGrpCommon.setStatus(_A)
-_MitelGrpCs2000_ObjectIdentity=ObjectIdentity
-mitelGrpCs2000=_MitelGrpCs2000_ObjectIdentity((1,3,6,1,4,1,1027,5,2,3))
-if mibBuilder.loadTexts:mitelGrpCs2000.setStatus(_A)
-_MitelGrpIpera3000_ObjectIdentity=ObjectIdentity
-mitelGrpIpera3000=_MitelGrpIpera3000_ObjectIdentity((1,3,6,1,4,1,1027,5,2,4))
-if mibBuilder.loadTexts:mitelGrpIpera3000.setStatus(_A)
-_MitelConfAgents_ObjectIdentity=ObjectIdentity
-mitelConfAgents=_MitelConfAgents_ObjectIdentity((1,3,6,1,4,1,1027,5,3))
-if mibBuilder.loadTexts:mitelConfAgents.setStatus(_A)
-mitelGrpCmnInterfaces=ObjectGroup((1,3,6,1,4,1,1027,5,2,1,6))
-mitelGrpCmnInterfaces.setObjects(*((_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:mitelGrpCmnInterfaces.setStatus(_A)
-mitelComplMitel=ModuleCompliance((1,3,6,1,4,1,1027,5,1,1))
-mitelComplMitel.setObjects((_B,_H))
-if mibBuilder.loadTexts:mitelComplMitel.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'MitelIfType':MitelIfType,'MitelNotifyTransportType':MitelNotifyTransportType,'mitel':mitel,'mitelIdentification':mitelIdentification,'mitelIdMgmtPlatforms':mitelIdMgmtPlatforms,'mitelIdCallServers':mitelIdCallServers,'mitelIdCsMc2':mitelIdCsMc2,'mitelIdCs2000Light':mitelIdCs2000Light,'mitelIdCsIpera3000':mitelIdCsIpera3000,'mitelIdTerminals':mitelIdTerminals,'mitelIdInterfaces':mitelIdInterfaces,'mitelIdCtiPlatforms':mitelIdCtiPlatforms,'mitelIdApplicationPlatforms':mitelIdApplicationPlatforms,'mitelExperimental':mitelExperimental,'mitelExtensions':mitelExtensions,'mitelExtInterfaces':mitelExtInterfaces,_F:mitelIfNumber,'mitelIfTable':mitelIfTable,'mitelIfTableEntry':mitelIfTableEntry,_G:mitelIfTblType,'mitelProprietary':mitelProprietary,'mitelPropApplications':mitelPropApplications,'mitelAppCallServer':mitelAppCallServer,'mitelPropTransmission':mitelPropTransmission,'mitelPropProtocols':mitelPropProtocols,'mitelPropUtilities':mitelPropUtilities,'mitelPropHardware':mitelPropHardware,'mitelPropNotifications':mitelPropNotifications,'mitelPropReset':mitelPropReset,'mitelPropCommon':mitelPropCommon,'mitelConformance':mitelConformance,'mitelConfCompliances':mitelConfCompliances,'mitelComplMitel':mitelComplMitel,'mitelConfGroups':mitelConfGroups,'mitelGrpCommon':mitelGrpCommon,_H:mitelGrpCmnInterfaces,'mitelGrpCs2000':mitelGrpCs2000,'mitelGrpIpera3000':mitelGrpIpera3000,'mitelConfAgents':mitelConfAgents})
+#
+# PySNMP MIB module MITEL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mitel/MITEL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:41 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+mitel = ModuleIdentity((1, 3, 6, 1, 4, 1, 1027))
+mitel.setRevisions(('2014-02-11 12:00', '2011-07-14 00:00', '2006-01-01 00:00', '2005-04-12 21:34', '2004-02-23 00:00', '1999-02-23 00:00', '1996-04-26 00:00',))
+if mibBuilder.loadTexts: mitel.setLastUpdated('201402111200Z')
+if mibBuilder.loadTexts: mitel.setOrganization('MITEL Networks Corporation')
+class MitelIfType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1))
+    namedValues = NamedValues(("dnic", 1))
+
+class MitelNotifyTransportType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("mitelNotifTransV1Trap", 1), ("mitelNotifTransV2Trap", 2), ("mitelNotifTransInform", 3))
+
+mitelIdentification = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 1))
+if mibBuilder.loadTexts: mitelIdentification.setStatus('current')
+mitelExperimental = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 2))
+if mibBuilder.loadTexts: mitelExperimental.setStatus('current')
+mitelExtensions = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 3))
+if mibBuilder.loadTexts: mitelExtensions.setStatus('current')
+mitelProprietary = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 4))
+if mibBuilder.loadTexts: mitelProprietary.setStatus('current')
+mitelConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 5))
+if mibBuilder.loadTexts: mitelConformance.setStatus('current')
+mitelIdMgmtPlatforms = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 1, 1))
+if mibBuilder.loadTexts: mitelIdMgmtPlatforms.setStatus('current')
+mitelIdCallServers = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 1, 2))
+if mibBuilder.loadTexts: mitelIdCallServers.setStatus('current')
+mitelIdTerminals = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 1, 3))
+if mibBuilder.loadTexts: mitelIdTerminals.setStatus('current')
+mitelIdInterfaces = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 1, 4))
+if mibBuilder.loadTexts: mitelIdInterfaces.setStatus('current')
+mitelIdCtiPlatforms = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 1, 5))
+if mibBuilder.loadTexts: mitelIdCtiPlatforms.setStatus('current')
+mitelIdApplicationPlatforms = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 1, 6))
+if mibBuilder.loadTexts: mitelIdApplicationPlatforms.setStatus('current')
+mitelIdCsMc2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 1, 2, 1))
+if mibBuilder.loadTexts: mitelIdCsMc2.setStatus('current')
+mitelIdCs2000Light = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 1, 2, 2))
+if mibBuilder.loadTexts: mitelIdCs2000Light.setStatus('current')
+mitelIdCsIpera3000 = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 1, 2, 3))
+if mibBuilder.loadTexts: mitelIdCsIpera3000.setStatus('current')
+mitelExtInterfaces = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 3, 2))
+if mibBuilder.loadTexts: mitelExtInterfaces.setStatus('current')
+mitelIfNumber = MibScalar((1, 3, 6, 1, 4, 1, 1027, 3, 2, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mitelIfNumber.setStatus('current')
+mitelIfTable = MibTable((1, 3, 6, 1, 4, 1, 1027, 3, 2, 2), )
+if mibBuilder.loadTexts: mitelIfTable.setStatus('current')
+mitelIfTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1027, 3, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: mitelIfTableEntry.setStatus('current')
+mitelIfTblType = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 3, 2, 2, 1, 1), MitelIfType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mitelIfTblType.setStatus('current')
+mitelPropApplications = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 4, 1))
+if mibBuilder.loadTexts: mitelPropApplications.setStatus('current')
+mitelPropTransmission = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 4, 2))
+if mibBuilder.loadTexts: mitelPropTransmission.setStatus('current')
+mitelPropProtocols = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 4, 3))
+if mibBuilder.loadTexts: mitelPropProtocols.setStatus('current')
+mitelPropUtilities = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 4, 4))
+if mibBuilder.loadTexts: mitelPropUtilities.setStatus('current')
+mitelPropHardware = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 4, 5))
+if mibBuilder.loadTexts: mitelPropHardware.setStatus('current')
+mitelPropNotifications = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 4, 6))
+if mibBuilder.loadTexts: mitelPropNotifications.setStatus('current')
+mitelPropReset = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 4, 7))
+if mibBuilder.loadTexts: mitelPropReset.setStatus('current')
+mitelPropCommon = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 4, 9))
+if mibBuilder.loadTexts: mitelPropCommon.setStatus('current')
+mitelAppCallServer = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 4, 1, 1))
+if mibBuilder.loadTexts: mitelAppCallServer.setStatus('current')
+mitelConfCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 5, 1))
+if mibBuilder.loadTexts: mitelConfCompliances.setStatus('current')
+mitelConfGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 5, 2))
+if mibBuilder.loadTexts: mitelConfGroups.setStatus('current')
+mitelGrpCommon = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 5, 2, 1))
+if mibBuilder.loadTexts: mitelGrpCommon.setStatus('current')
+mitelGrpCs2000 = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 5, 2, 3))
+if mibBuilder.loadTexts: mitelGrpCs2000.setStatus('current')
+mitelGrpIpera3000 = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 5, 2, 4))
+if mibBuilder.loadTexts: mitelGrpIpera3000.setStatus('current')
+mitelConfAgents = ObjectIdentity((1, 3, 6, 1, 4, 1, 1027, 5, 3))
+if mibBuilder.loadTexts: mitelConfAgents.setStatus('current')
+mitelComplMitel = ModuleCompliance((1, 3, 6, 1, 4, 1, 1027, 5, 1, 1)).setObjects(("MITEL-MIB", "mitelGrpCmnInterfaces"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mitelComplMitel = mitelComplMitel.setStatus('current')
+mitelGrpCmnInterfaces = ObjectGroup((1, 3, 6, 1, 4, 1, 1027, 5, 2, 1, 6)).setObjects(("MITEL-MIB", "mitelIfNumber"), ("MITEL-MIB", "mitelIfTblType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mitelGrpCmnInterfaces = mitelGrpCmnInterfaces.setStatus('current')
+mibBuilder.exportSymbols("MITEL-MIB", mitelPropHardware=mitelPropHardware, mitelIdentification=mitelIdentification, mitelIfTblType=mitelIfTblType, mitelIdCs2000Light=mitelIdCs2000Light, mitelConfCompliances=mitelConfCompliances, mitelGrpIpera3000=mitelGrpIpera3000, mitelIdCallServers=mitelIdCallServers, mitelPropReset=mitelPropReset, mitelIfTable=mitelIfTable, mitel=mitel, MitelIfType=MitelIfType, mitelPropCommon=mitelPropCommon, mitelIdApplicationPlatforms=mitelIdApplicationPlatforms, mitelPropProtocols=mitelPropProtocols, PYSNMP_MODULE_ID=mitel, mitelGrpCs2000=mitelGrpCs2000, mitelAppCallServer=mitelAppCallServer, mitelIdTerminals=mitelIdTerminals, mitelIdCsMc2=mitelIdCsMc2, mitelExtInterfaces=mitelExtInterfaces, mitelGrpCommon=mitelGrpCommon, mitelComplMitel=mitelComplMitel, mitelIdMgmtPlatforms=mitelIdMgmtPlatforms, mitelConformance=mitelConformance, mitelIdCtiPlatforms=mitelIdCtiPlatforms, mitelPropUtilities=mitelPropUtilities, mitelIfTableEntry=mitelIfTableEntry, mitelPropTransmission=mitelPropTransmission, mitelPropNotifications=mitelPropNotifications, mitelConfAgents=mitelConfAgents, mitelIdInterfaces=mitelIdInterfaces, mitelGrpCmnInterfaces=mitelGrpCmnInterfaces, mitelConfGroups=mitelConfGroups, mitelPropApplications=mitelPropApplications, mitelProprietary=mitelProprietary, MitelNotifyTransportType=MitelNotifyTransportType, mitelExtensions=mitelExtensions, mitelIfNumber=mitelIfNumber, mitelIdCsIpera3000=mitelIdCsIpera3000, mitelExperimental=mitelExperimental)

@@ -1,227 +1,102 @@
-_q='tnOspfv3MultiAreaConfigGroup'
-_p='tnOspfMultiAreaConfigGroup'
-_o='tnOspfPortGroup'
-_n='tnOspfAreaGroup'
-_m='tnOspfv3MultiAreaConfigRowStatus'
-_l='tnOspfv3MultiAreaConfigVirtualLinkIp'
-_k='tnOspfv3MultiAreaConfigDefaultCost'
-_j='tnOspfv3MultiAreaConfigNssaTranslate'
-_i='tnOspfv3MultiAreaConfigWavekeyOpaqueLsa'
-_h='tnOspfv3MultiAreaConfigDnsOpaqueLsa'
-_g='tnOspfv3MultiAreaConfigType'
-_f='tnOspfv3MultiAreaId'
-_e='tnOspfMultiAreaConfigRowStatus'
-_d='tnOspfMultiAreaConfigVirtualLinkIp'
-_c='tnOspfMultiAreaConfigDefaultCost'
-_b='tnOspfMultiAreaConfigNssaTranslate'
-_a='tnOspfMultiAreaConfigWavekeyOpaqueLsa'
-_Z='tnOspfMultiAreaConfigDnsOpaqueLsa'
-_Y='tnOspfMultiAreaConfigType'
-_X='tnOspfMultiAreaId'
-_W='tnOspfv3PortTopologyId'
-_V='tnOspfPortTopologyId'
-_U='tnOspfv3MultiAreaTopologyId'
-_T='00000000'
-_S='notApplicable'
-_R='always'
-_Q='candidate'
-_P='nssaTotallyStub'
-_O='totallyStub'
-_N='normal'
-_M='ifIndex'
-_L='IF-MIB'
-_K='not-accessible'
-_J='tnOspfAreaId'
-_I='RowStatus'
-_H='IpAddress'
-_G='no'
-_F='yes'
-_E='tnOspfAreaTopologyId'
-_D='Integer32'
-_C='read-create'
-_B='TROPIC-OSPF-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_L,_M)
-AreaID,=mibBuilder.importSymbols('OSPF-MIB','AreaID')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,_H,'ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress',_I,'TextualConvention')
-tnOspfMIB,tnProtocolModules=mibBuilder.importSymbols('TROPIC-GLOBAL-REG','tnOspfMIB','tnProtocolModules')
-tnOspfMibModule=ModuleIdentity((1,3,6,1,4,1,7483,1,1,2,4,3))
-if mibBuilder.loadTexts:tnOspfMibModule.setRevisions(('2021-08-20 12:00','2021-07-23 12:00','2018-02-23 12:00','2016-11-16 12:00','2015-04-03 12:00','2012-06-13 12:00','2011-09-28 12:00','2011-08-31 12:00','2011-04-15 12:00','2009-01-09 12:00','2008-12-18 12:00','2008-07-24 12:00','2008-06-09 12:00','2008-03-28 12:00','2008-03-06 12:00'))
-class TnTopologyId(TextualConvention,Unsigned32):status=_A
-_TnOspfConf_ObjectIdentity=ObjectIdentity
-tnOspfConf=_TnOspfConf_ObjectIdentity((1,3,6,1,4,1,7483,2,5,1,1))
-_TnOspfGroups_ObjectIdentity=ObjectIdentity
-tnOspfGroups=_TnOspfGroups_ObjectIdentity((1,3,6,1,4,1,7483,2,5,1,1,1))
-_TnOspfCompliances_ObjectIdentity=ObjectIdentity
-tnOspfCompliances=_TnOspfCompliances_ObjectIdentity((1,3,6,1,4,1,7483,2,5,1,1,2))
-_TnOspfObjs_ObjectIdentity=ObjectIdentity
-tnOspfObjs=_TnOspfObjs_ObjectIdentity((1,3,6,1,4,1,7483,2,5,1,2))
-_TnOspfAreaTable_Object=MibTable
-tnOspfAreaTable=_TnOspfAreaTable_Object((1,3,6,1,4,1,7483,2,5,1,2,2))
-if mibBuilder.loadTexts:tnOspfAreaTable.setStatus(_A)
-_TnOspfAreaEntry_Object=MibTableRow
-tnOspfAreaEntry=_TnOspfAreaEntry_Object((1,3,6,1,4,1,7483,2,5,1,2,2,1))
-tnOspfAreaEntry.setIndexNames((0,_B,_E),(0,_B,_J))
-if mibBuilder.loadTexts:tnOspfAreaEntry.setStatus(_A)
-_TnOspfAreaTopologyId_Type=TnTopologyId
-_TnOspfAreaTopologyId_Object=MibTableColumn
-tnOspfAreaTopologyId=_TnOspfAreaTopologyId_Object((1,3,6,1,4,1,7483,2,5,1,2,2,1,1),_TnOspfAreaTopologyId_Type())
-tnOspfAreaTopologyId.setMaxAccess(_K)
-if mibBuilder.loadTexts:tnOspfAreaTopologyId.setStatus(_A)
-_TnOspfAreaId_Type=AreaID
-_TnOspfAreaId_Object=MibTableColumn
-tnOspfAreaId=_TnOspfAreaId_Object((1,3,6,1,4,1,7483,2,5,1,2,2,1,2),_TnOspfAreaId_Type())
-tnOspfAreaId.setMaxAccess(_K)
-if mibBuilder.loadTexts:tnOspfAreaId.setStatus(_A)
-_TnOspfPortTable_Object=MibTable
-tnOspfPortTable=_TnOspfPortTable_Object((1,3,6,1,4,1,7483,2,5,1,2,21))
-if mibBuilder.loadTexts:tnOspfPortTable.setStatus(_A)
-_TnOspfPortEntry_Object=MibTableRow
-tnOspfPortEntry=_TnOspfPortEntry_Object((1,3,6,1,4,1,7483,2,5,1,2,21,1))
-tnOspfPortEntry.setIndexNames((0,_L,_M))
-if mibBuilder.loadTexts:tnOspfPortEntry.setStatus(_A)
-_TnOspfPortTopologyId_Type=TnTopologyId
-_TnOspfPortTopologyId_Object=MibTableColumn
-tnOspfPortTopologyId=_TnOspfPortTopologyId_Object((1,3,6,1,4,1,7483,2,5,1,2,21,1,1),_TnOspfPortTopologyId_Type())
-tnOspfPortTopologyId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfPortTopologyId.setStatus(_A)
-_TnOspfv3PortTopologyId_Type=TnTopologyId
-_TnOspfv3PortTopologyId_Object=MibTableColumn
-tnOspfv3PortTopologyId=_TnOspfv3PortTopologyId_Object((1,3,6,1,4,1,7483,2,5,1,2,21,1,2),_TnOspfv3PortTopologyId_Type())
-tnOspfv3PortTopologyId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfv3PortTopologyId.setStatus(_A)
-_TnOspfMultiAreaConfigTable_Object=MibTable
-tnOspfMultiAreaConfigTable=_TnOspfMultiAreaConfigTable_Object((1,3,6,1,4,1,7483,2,5,1,2,22))
-if mibBuilder.loadTexts:tnOspfMultiAreaConfigTable.setStatus(_A)
-_TnOspfMultiAreaConfigEntry_Object=MibTableRow
-tnOspfMultiAreaConfigEntry=_TnOspfMultiAreaConfigEntry_Object((1,3,6,1,4,1,7483,2,5,1,2,22,1))
-tnOspfMultiAreaConfigEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:tnOspfMultiAreaConfigEntry.setStatus(_A)
-_TnOspfMultiAreaId_Type=AreaID
-_TnOspfMultiAreaId_Object=MibTableColumn
-tnOspfMultiAreaId=_TnOspfMultiAreaId_Object((1,3,6,1,4,1,7483,2,5,1,2,22,1,1),_TnOspfMultiAreaId_Type())
-tnOspfMultiAreaId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfMultiAreaId.setStatus(_A)
-class _TnOspfMultiAreaConfigType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_N,1),('stub',2),(_O,3),('nssa',4),(_P,5)))
-_TnOspfMultiAreaConfigType_Type.__name__=_D
-_TnOspfMultiAreaConfigType_Object=MibTableColumn
-tnOspfMultiAreaConfigType=_TnOspfMultiAreaConfigType_Object((1,3,6,1,4,1,7483,2,5,1,2,22,1,2),_TnOspfMultiAreaConfigType_Type())
-tnOspfMultiAreaConfigType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfMultiAreaConfigType.setStatus(_A)
-class _TnOspfMultiAreaConfigDnsOpaqueLsa_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_TnOspfMultiAreaConfigDnsOpaqueLsa_Type.__name__=_D
-_TnOspfMultiAreaConfigDnsOpaqueLsa_Object=MibTableColumn
-tnOspfMultiAreaConfigDnsOpaqueLsa=_TnOspfMultiAreaConfigDnsOpaqueLsa_Object((1,3,6,1,4,1,7483,2,5,1,2,22,1,3),_TnOspfMultiAreaConfigDnsOpaqueLsa_Type())
-tnOspfMultiAreaConfigDnsOpaqueLsa.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfMultiAreaConfigDnsOpaqueLsa.setStatus(_A)
-class _TnOspfMultiAreaConfigWavekeyOpaqueLsa_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_TnOspfMultiAreaConfigWavekeyOpaqueLsa_Type.__name__=_D
-_TnOspfMultiAreaConfigWavekeyOpaqueLsa_Object=MibTableColumn
-tnOspfMultiAreaConfigWavekeyOpaqueLsa=_TnOspfMultiAreaConfigWavekeyOpaqueLsa_Object((1,3,6,1,4,1,7483,2,5,1,2,22,1,4),_TnOspfMultiAreaConfigWavekeyOpaqueLsa_Type())
-tnOspfMultiAreaConfigWavekeyOpaqueLsa.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfMultiAreaConfigWavekeyOpaqueLsa.setStatus(_A)
-class _TnOspfMultiAreaConfigNssaTranslate_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_Q,1),(_R,2),('never',3),(_S,4)))
-_TnOspfMultiAreaConfigNssaTranslate_Type.__name__=_D
-_TnOspfMultiAreaConfigNssaTranslate_Object=MibTableColumn
-tnOspfMultiAreaConfigNssaTranslate=_TnOspfMultiAreaConfigNssaTranslate_Object((1,3,6,1,4,1,7483,2,5,1,2,22,1,5),_TnOspfMultiAreaConfigNssaTranslate_Type())
-tnOspfMultiAreaConfigNssaTranslate.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfMultiAreaConfigNssaTranslate.setStatus(_A)
-class _TnOspfMultiAreaConfigDefaultCost_Type(Integer32):defaultValue=10
-_TnOspfMultiAreaConfigDefaultCost_Type.__name__=_D
-_TnOspfMultiAreaConfigDefaultCost_Object=MibTableColumn
-tnOspfMultiAreaConfigDefaultCost=_TnOspfMultiAreaConfigDefaultCost_Object((1,3,6,1,4,1,7483,2,5,1,2,22,1,6),_TnOspfMultiAreaConfigDefaultCost_Type())
-tnOspfMultiAreaConfigDefaultCost.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfMultiAreaConfigDefaultCost.setStatus(_A)
-class _TnOspfMultiAreaConfigVirtualLinkIp_Type(IpAddress):defaultHexValue=_T
-_TnOspfMultiAreaConfigVirtualLinkIp_Type.__name__=_H
-_TnOspfMultiAreaConfigVirtualLinkIp_Object=MibTableColumn
-tnOspfMultiAreaConfigVirtualLinkIp=_TnOspfMultiAreaConfigVirtualLinkIp_Object((1,3,6,1,4,1,7483,2,5,1,2,22,1,7),_TnOspfMultiAreaConfigVirtualLinkIp_Type())
-tnOspfMultiAreaConfigVirtualLinkIp.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfMultiAreaConfigVirtualLinkIp.setStatus(_A)
-class _TnOspfMultiAreaConfigRowStatus_Type(RowStatus):defaultValue=6
-_TnOspfMultiAreaConfigRowStatus_Type.__name__=_I
-_TnOspfMultiAreaConfigRowStatus_Object=MibTableColumn
-tnOspfMultiAreaConfigRowStatus=_TnOspfMultiAreaConfigRowStatus_Object((1,3,6,1,4,1,7483,2,5,1,2,22,1,8),_TnOspfMultiAreaConfigRowStatus_Type())
-tnOspfMultiAreaConfigRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfMultiAreaConfigRowStatus.setStatus(_A)
-_TnOspfv3MultiAreaConfigTable_Object=MibTable
-tnOspfv3MultiAreaConfigTable=_TnOspfv3MultiAreaConfigTable_Object((1,3,6,1,4,1,7483,2,5,1,2,23))
-if mibBuilder.loadTexts:tnOspfv3MultiAreaConfigTable.setStatus(_A)
-_TnOspfv3MultiAreaConfigEntry_Object=MibTableRow
-tnOspfv3MultiAreaConfigEntry=_TnOspfv3MultiAreaConfigEntry_Object((1,3,6,1,4,1,7483,2,5,1,2,23,1))
-tnOspfv3MultiAreaConfigEntry.setIndexNames((0,_B,_U))
-if mibBuilder.loadTexts:tnOspfv3MultiAreaConfigEntry.setStatus(_A)
-_TnOspfv3MultiAreaTopologyId_Type=TnTopologyId
-_TnOspfv3MultiAreaTopologyId_Object=MibTableColumn
-tnOspfv3MultiAreaTopologyId=_TnOspfv3MultiAreaTopologyId_Object((1,3,6,1,4,1,7483,2,5,1,2,23,1,1),_TnOspfv3MultiAreaTopologyId_Type())
-tnOspfv3MultiAreaTopologyId.setMaxAccess(_K)
-if mibBuilder.loadTexts:tnOspfv3MultiAreaTopologyId.setStatus(_A)
-_TnOspfv3MultiAreaId_Type=AreaID
-_TnOspfv3MultiAreaId_Object=MibTableColumn
-tnOspfv3MultiAreaId=_TnOspfv3MultiAreaId_Object((1,3,6,1,4,1,7483,2,5,1,2,23,1,2),_TnOspfv3MultiAreaId_Type())
-tnOspfv3MultiAreaId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfv3MultiAreaId.setStatus(_A)
-class _TnOspfv3MultiAreaConfigType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_N,1),('stub',2),(_O,3),('nssa',4),(_P,5)))
-_TnOspfv3MultiAreaConfigType_Type.__name__=_D
-_TnOspfv3MultiAreaConfigType_Object=MibTableColumn
-tnOspfv3MultiAreaConfigType=_TnOspfv3MultiAreaConfigType_Object((1,3,6,1,4,1,7483,2,5,1,2,23,1,3),_TnOspfv3MultiAreaConfigType_Type())
-tnOspfv3MultiAreaConfigType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfv3MultiAreaConfigType.setStatus(_A)
-class _TnOspfv3MultiAreaConfigDnsOpaqueLsa_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_TnOspfv3MultiAreaConfigDnsOpaqueLsa_Type.__name__=_D
-_TnOspfv3MultiAreaConfigDnsOpaqueLsa_Object=MibTableColumn
-tnOspfv3MultiAreaConfigDnsOpaqueLsa=_TnOspfv3MultiAreaConfigDnsOpaqueLsa_Object((1,3,6,1,4,1,7483,2,5,1,2,23,1,4),_TnOspfv3MultiAreaConfigDnsOpaqueLsa_Type())
-tnOspfv3MultiAreaConfigDnsOpaqueLsa.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfv3MultiAreaConfigDnsOpaqueLsa.setStatus(_A)
-class _TnOspfv3MultiAreaConfigWavekeyOpaqueLsa_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_TnOspfv3MultiAreaConfigWavekeyOpaqueLsa_Type.__name__=_D
-_TnOspfv3MultiAreaConfigWavekeyOpaqueLsa_Object=MibTableColumn
-tnOspfv3MultiAreaConfigWavekeyOpaqueLsa=_TnOspfv3MultiAreaConfigWavekeyOpaqueLsa_Object((1,3,6,1,4,1,7483,2,5,1,2,23,1,5),_TnOspfv3MultiAreaConfigWavekeyOpaqueLsa_Type())
-tnOspfv3MultiAreaConfigWavekeyOpaqueLsa.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfv3MultiAreaConfigWavekeyOpaqueLsa.setStatus(_A)
-class _TnOspfv3MultiAreaConfigNssaTranslate_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_Q,1),(_R,2),('never',3),(_S,4)))
-_TnOspfv3MultiAreaConfigNssaTranslate_Type.__name__=_D
-_TnOspfv3MultiAreaConfigNssaTranslate_Object=MibTableColumn
-tnOspfv3MultiAreaConfigNssaTranslate=_TnOspfv3MultiAreaConfigNssaTranslate_Object((1,3,6,1,4,1,7483,2,5,1,2,23,1,6),_TnOspfv3MultiAreaConfigNssaTranslate_Type())
-tnOspfv3MultiAreaConfigNssaTranslate.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfv3MultiAreaConfigNssaTranslate.setStatus(_A)
-class _TnOspfv3MultiAreaConfigDefaultCost_Type(Integer32):defaultValue=10
-_TnOspfv3MultiAreaConfigDefaultCost_Type.__name__=_D
-_TnOspfv3MultiAreaConfigDefaultCost_Object=MibTableColumn
-tnOspfv3MultiAreaConfigDefaultCost=_TnOspfv3MultiAreaConfigDefaultCost_Object((1,3,6,1,4,1,7483,2,5,1,2,23,1,7),_TnOspfv3MultiAreaConfigDefaultCost_Type())
-tnOspfv3MultiAreaConfigDefaultCost.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfv3MultiAreaConfigDefaultCost.setStatus(_A)
-class _TnOspfv3MultiAreaConfigVirtualLinkIp_Type(IpAddress):defaultHexValue=_T
-_TnOspfv3MultiAreaConfigVirtualLinkIp_Type.__name__=_H
-_TnOspfv3MultiAreaConfigVirtualLinkIp_Object=MibTableColumn
-tnOspfv3MultiAreaConfigVirtualLinkIp=_TnOspfv3MultiAreaConfigVirtualLinkIp_Object((1,3,6,1,4,1,7483,2,5,1,2,23,1,8),_TnOspfv3MultiAreaConfigVirtualLinkIp_Type())
-tnOspfv3MultiAreaConfigVirtualLinkIp.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfv3MultiAreaConfigVirtualLinkIp.setStatus(_A)
-class _TnOspfv3MultiAreaConfigRowStatus_Type(RowStatus):defaultValue=6
-_TnOspfv3MultiAreaConfigRowStatus_Type.__name__=_I
-_TnOspfv3MultiAreaConfigRowStatus_Object=MibTableColumn
-tnOspfv3MultiAreaConfigRowStatus=_TnOspfv3MultiAreaConfigRowStatus_Object((1,3,6,1,4,1,7483,2,5,1,2,23,1,9),_TnOspfv3MultiAreaConfigRowStatus_Type())
-tnOspfv3MultiAreaConfigRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tnOspfv3MultiAreaConfigRowStatus.setStatus(_A)
-tnOspfAreaGroup=ObjectGroup((1,3,6,1,4,1,7483,2,5,1,1,1,2))
-tnOspfAreaGroup.setObjects(*((_B,_E),(_B,_J)))
-if mibBuilder.loadTexts:tnOspfAreaGroup.setStatus(_A)
-tnOspfPortGroup=ObjectGroup((1,3,6,1,4,1,7483,2,5,1,1,1,21))
-tnOspfPortGroup.setObjects(*((_B,_V),(_B,_W)))
-if mibBuilder.loadTexts:tnOspfPortGroup.setStatus(_A)
-tnOspfMultiAreaConfigGroup=ObjectGroup((1,3,6,1,4,1,7483,2,5,1,1,1,22))
-tnOspfMultiAreaConfigGroup.setObjects(*((_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e)))
-if mibBuilder.loadTexts:tnOspfMultiAreaConfigGroup.setStatus(_A)
-tnOspfv3MultiAreaConfigGroup=ObjectGroup((1,3,6,1,4,1,7483,2,5,1,1,1,23))
-tnOspfv3MultiAreaConfigGroup.setObjects(*((_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m)))
-if mibBuilder.loadTexts:tnOspfv3MultiAreaConfigGroup.setStatus(_A)
-tnOspfCompliance=ModuleCompliance((1,3,6,1,4,1,7483,2,5,1,1,2,1))
-tnOspfCompliance.setObjects(*((_B,_n),(_B,_o),(_B,_p),(_B,_q)))
-if mibBuilder.loadTexts:tnOspfCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'TnTopologyId':TnTopologyId,'tnOspfMibModule':tnOspfMibModule,'tnOspfConf':tnOspfConf,'tnOspfGroups':tnOspfGroups,_n:tnOspfAreaGroup,_o:tnOspfPortGroup,_p:tnOspfMultiAreaConfigGroup,_q:tnOspfv3MultiAreaConfigGroup,'tnOspfCompliances':tnOspfCompliances,'tnOspfCompliance':tnOspfCompliance,'tnOspfObjs':tnOspfObjs,'tnOspfAreaTable':tnOspfAreaTable,'tnOspfAreaEntry':tnOspfAreaEntry,_E:tnOspfAreaTopologyId,_J:tnOspfAreaId,'tnOspfPortTable':tnOspfPortTable,'tnOspfPortEntry':tnOspfPortEntry,_V:tnOspfPortTopologyId,_W:tnOspfv3PortTopologyId,'tnOspfMultiAreaConfigTable':tnOspfMultiAreaConfigTable,'tnOspfMultiAreaConfigEntry':tnOspfMultiAreaConfigEntry,_X:tnOspfMultiAreaId,_Y:tnOspfMultiAreaConfigType,_Z:tnOspfMultiAreaConfigDnsOpaqueLsa,_a:tnOspfMultiAreaConfigWavekeyOpaqueLsa,_b:tnOspfMultiAreaConfigNssaTranslate,_c:tnOspfMultiAreaConfigDefaultCost,_d:tnOspfMultiAreaConfigVirtualLinkIp,_e:tnOspfMultiAreaConfigRowStatus,'tnOspfv3MultiAreaConfigTable':tnOspfv3MultiAreaConfigTable,'tnOspfv3MultiAreaConfigEntry':tnOspfv3MultiAreaConfigEntry,_U:tnOspfv3MultiAreaTopologyId,_f:tnOspfv3MultiAreaId,_g:tnOspfv3MultiAreaConfigType,_h:tnOspfv3MultiAreaConfigDnsOpaqueLsa,_i:tnOspfv3MultiAreaConfigWavekeyOpaqueLsa,_j:tnOspfv3MultiAreaConfigNssaTranslate,_k:tnOspfv3MultiAreaConfigDefaultCost,_l:tnOspfv3MultiAreaConfigVirtualLinkIp,_m:tnOspfv3MultiAreaConfigRowStatus})
+#
+# PySNMP MIB module TROPIC-OSPF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TROPIC-OSPF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:18:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+AreaID, = mibBuilder.importSymbols("OSPF-MIB", "AreaID")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+tnOspfMIB, tnProtocolModules = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnOspfMIB", "tnProtocolModules")
+tnOspfMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 1, 1, 2, 4, 3))
+tnOspfMibModule.setRevisions(('2021-08-20 12:00', '2021-07-23 12:00', '2018-02-23 12:00', '2016-11-16 12:00', '2015-04-03 12:00', '2012-06-13 12:00', '2011-09-28 12:00', '2011-08-31 12:00', '2011-04-15 12:00', '2009-01-09 12:00', '2008-12-18 12:00', '2008-07-24 12:00', '2008-06-09 12:00', '2008-03-28 12:00', '2008-03-06 12:00',))
+if mibBuilder.loadTexts: tnOspfMibModule.setLastUpdated('202108201200Z')
+if mibBuilder.loadTexts: tnOspfMibModule.setOrganization('Nokia')
+tnOspfConf = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 1))
+tnOspfGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 1, 1))
+tnOspfCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 1, 2))
+tnOspfObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2))
+class TnTopologyId(TextualConvention, Unsigned32):
+    status = 'current'
+
+tnOspfAreaTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 2), )
+if mibBuilder.loadTexts: tnOspfAreaTable.setStatus('current')
+tnOspfAreaEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 2, 1), ).setIndexNames((0, "TROPIC-OSPF-MIB", "tnOspfAreaTopologyId"), (0, "TROPIC-OSPF-MIB", "tnOspfAreaId"))
+if mibBuilder.loadTexts: tnOspfAreaEntry.setStatus('current')
+tnOspfAreaTopologyId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 2, 1, 1), TnTopologyId())
+if mibBuilder.loadTexts: tnOspfAreaTopologyId.setStatus('current')
+tnOspfAreaId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 2, 1, 2), AreaID())
+if mibBuilder.loadTexts: tnOspfAreaId.setStatus('current')
+tnOspfPortTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 21), )
+if mibBuilder.loadTexts: tnOspfPortTable.setStatus('current')
+tnOspfPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 21, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: tnOspfPortEntry.setStatus('current')
+tnOspfPortTopologyId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 21, 1, 1), TnTopologyId()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfPortTopologyId.setStatus('current')
+tnOspfv3PortTopologyId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 21, 1, 2), TnTopologyId()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfv3PortTopologyId.setStatus('current')
+tnOspfMultiAreaConfigTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 22), )
+if mibBuilder.loadTexts: tnOspfMultiAreaConfigTable.setStatus('current')
+tnOspfMultiAreaConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 22, 1), ).setIndexNames((0, "TROPIC-OSPF-MIB", "tnOspfAreaTopologyId"))
+if mibBuilder.loadTexts: tnOspfMultiAreaConfigEntry.setStatus('current')
+tnOspfMultiAreaId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 22, 1, 1), AreaID()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfMultiAreaId.setStatus('current')
+tnOspfMultiAreaConfigType = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 22, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("normal", 1), ("stub", 2), ("totallyStub", 3), ("nssa", 4), ("nssaTotallyStub", 5))).clone('normal')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfMultiAreaConfigType.setStatus('current')
+tnOspfMultiAreaConfigDnsOpaqueLsa = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 22, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("yes", 1), ("no", 2))).clone('yes')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfMultiAreaConfigDnsOpaqueLsa.setStatus('current')
+tnOspfMultiAreaConfigWavekeyOpaqueLsa = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 22, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("yes", 1), ("no", 2))).clone('yes')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfMultiAreaConfigWavekeyOpaqueLsa.setStatus('current')
+tnOspfMultiAreaConfigNssaTranslate = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 22, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("candidate", 1), ("always", 2), ("never", 3), ("notApplicable", 4))).clone('candidate')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfMultiAreaConfigNssaTranslate.setStatus('current')
+tnOspfMultiAreaConfigDefaultCost = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 22, 1, 6), Integer32().clone(10)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfMultiAreaConfigDefaultCost.setStatus('current')
+tnOspfMultiAreaConfigVirtualLinkIp = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 22, 1, 7), IpAddress().clone(hexValue="00000000")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfMultiAreaConfigVirtualLinkIp.setStatus('current')
+tnOspfMultiAreaConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 22, 1, 8), RowStatus().clone('destroy')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfMultiAreaConfigRowStatus.setStatus('current')
+tnOspfv3MultiAreaConfigTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 23), )
+if mibBuilder.loadTexts: tnOspfv3MultiAreaConfigTable.setStatus('current')
+tnOspfv3MultiAreaConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 23, 1), ).setIndexNames((0, "TROPIC-OSPF-MIB", "tnOspfv3MultiAreaTopologyId"))
+if mibBuilder.loadTexts: tnOspfv3MultiAreaConfigEntry.setStatus('current')
+tnOspfv3MultiAreaTopologyId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 23, 1, 1), TnTopologyId())
+if mibBuilder.loadTexts: tnOspfv3MultiAreaTopologyId.setStatus('current')
+tnOspfv3MultiAreaId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 23, 1, 2), AreaID()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfv3MultiAreaId.setStatus('current')
+tnOspfv3MultiAreaConfigType = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 23, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("normal", 1), ("stub", 2), ("totallyStub", 3), ("nssa", 4), ("nssaTotallyStub", 5))).clone('normal')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfv3MultiAreaConfigType.setStatus('current')
+tnOspfv3MultiAreaConfigDnsOpaqueLsa = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 23, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("yes", 1), ("no", 2))).clone('yes')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfv3MultiAreaConfigDnsOpaqueLsa.setStatus('current')
+tnOspfv3MultiAreaConfigWavekeyOpaqueLsa = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 23, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("yes", 1), ("no", 2))).clone('yes')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfv3MultiAreaConfigWavekeyOpaqueLsa.setStatus('current')
+tnOspfv3MultiAreaConfigNssaTranslate = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 23, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("candidate", 1), ("always", 2), ("never", 3), ("notApplicable", 4))).clone('candidate')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfv3MultiAreaConfigNssaTranslate.setStatus('current')
+tnOspfv3MultiAreaConfigDefaultCost = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 23, 1, 7), Integer32().clone(10)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfv3MultiAreaConfigDefaultCost.setStatus('current')
+tnOspfv3MultiAreaConfigVirtualLinkIp = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 23, 1, 8), IpAddress().clone(hexValue="00000000")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfv3MultiAreaConfigVirtualLinkIp.setStatus('current')
+tnOspfv3MultiAreaConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 2, 23, 1, 9), RowStatus().clone('destroy')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tnOspfv3MultiAreaConfigRowStatus.setStatus('current')
+tnOspfAreaGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 1, 1, 2)).setObjects(("TROPIC-OSPF-MIB", "tnOspfAreaTopologyId"), ("TROPIC-OSPF-MIB", "tnOspfAreaId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tnOspfAreaGroup = tnOspfAreaGroup.setStatus('current')
+tnOspfPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 1, 1, 21)).setObjects(("TROPIC-OSPF-MIB", "tnOspfPortTopologyId"), ("TROPIC-OSPF-MIB", "tnOspfv3PortTopologyId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tnOspfPortGroup = tnOspfPortGroup.setStatus('current')
+tnOspfMultiAreaConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 1, 1, 22)).setObjects(("TROPIC-OSPF-MIB", "tnOspfMultiAreaId"), ("TROPIC-OSPF-MIB", "tnOspfMultiAreaConfigType"), ("TROPIC-OSPF-MIB", "tnOspfMultiAreaConfigDnsOpaqueLsa"), ("TROPIC-OSPF-MIB", "tnOspfMultiAreaConfigWavekeyOpaqueLsa"), ("TROPIC-OSPF-MIB", "tnOspfMultiAreaConfigNssaTranslate"), ("TROPIC-OSPF-MIB", "tnOspfMultiAreaConfigDefaultCost"), ("TROPIC-OSPF-MIB", "tnOspfMultiAreaConfigVirtualLinkIp"), ("TROPIC-OSPF-MIB", "tnOspfMultiAreaConfigRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tnOspfMultiAreaConfigGroup = tnOspfMultiAreaConfigGroup.setStatus('current')
+tnOspfv3MultiAreaConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 1, 1, 23)).setObjects(("TROPIC-OSPF-MIB", "tnOspfv3MultiAreaId"), ("TROPIC-OSPF-MIB", "tnOspfv3MultiAreaConfigType"), ("TROPIC-OSPF-MIB", "tnOspfv3MultiAreaConfigDnsOpaqueLsa"), ("TROPIC-OSPF-MIB", "tnOspfv3MultiAreaConfigWavekeyOpaqueLsa"), ("TROPIC-OSPF-MIB", "tnOspfv3MultiAreaConfigNssaTranslate"), ("TROPIC-OSPF-MIB", "tnOspfv3MultiAreaConfigDefaultCost"), ("TROPIC-OSPF-MIB", "tnOspfv3MultiAreaConfigVirtualLinkIp"), ("TROPIC-OSPF-MIB", "tnOspfv3MultiAreaConfigRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tnOspfv3MultiAreaConfigGroup = tnOspfv3MultiAreaConfigGroup.setStatus('current')
+tnOspfCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 7483, 2, 5, 1, 1, 2, 1)).setObjects(("TROPIC-OSPF-MIB", "tnOspfAreaGroup"), ("TROPIC-OSPF-MIB", "tnOspfPortGroup"), ("TROPIC-OSPF-MIB", "tnOspfMultiAreaConfigGroup"), ("TROPIC-OSPF-MIB", "tnOspfv3MultiAreaConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tnOspfCompliance = tnOspfCompliance.setStatus('current')
+mibBuilder.exportSymbols("TROPIC-OSPF-MIB", tnOspfMultiAreaConfigEntry=tnOspfMultiAreaConfigEntry, tnOspfAreaId=tnOspfAreaId, tnOspfMultiAreaConfigType=tnOspfMultiAreaConfigType, tnOspfMultiAreaConfigRowStatus=tnOspfMultiAreaConfigRowStatus, tnOspfCompliance=tnOspfCompliance, tnOspfv3MultiAreaConfigVirtualLinkIp=tnOspfv3MultiAreaConfigVirtualLinkIp, tnOspfMibModule=tnOspfMibModule, tnOspfMultiAreaConfigNssaTranslate=tnOspfMultiAreaConfigNssaTranslate, tnOspfMultiAreaId=tnOspfMultiAreaId, tnOspfAreaTable=tnOspfAreaTable, tnOspfConf=tnOspfConf, tnOspfCompliances=tnOspfCompliances, tnOspfv3MultiAreaConfigEntry=tnOspfv3MultiAreaConfigEntry, tnOspfPortEntry=tnOspfPortEntry, tnOspfv3MultiAreaConfigTable=tnOspfv3MultiAreaConfigTable, tnOspfAreaGroup=tnOspfAreaGroup, tnOspfMultiAreaConfigDnsOpaqueLsa=tnOspfMultiAreaConfigDnsOpaqueLsa, tnOspfMultiAreaConfigWavekeyOpaqueLsa=tnOspfMultiAreaConfigWavekeyOpaqueLsa, tnOspfMultiAreaConfigVirtualLinkIp=tnOspfMultiAreaConfigVirtualLinkIp, tnOspfv3PortTopologyId=tnOspfv3PortTopologyId, tnOspfv3MultiAreaId=tnOspfv3MultiAreaId, tnOspfv3MultiAreaConfigNssaTranslate=tnOspfv3MultiAreaConfigNssaTranslate, tnOspfAreaTopologyId=tnOspfAreaTopologyId, tnOspfv3MultiAreaConfigType=tnOspfv3MultiAreaConfigType, tnOspfv3MultiAreaConfigDnsOpaqueLsa=tnOspfv3MultiAreaConfigDnsOpaqueLsa, tnOspfv3MultiAreaConfigRowStatus=tnOspfv3MultiAreaConfigRowStatus, tnOspfMultiAreaConfigGroup=tnOspfMultiAreaConfigGroup, tnOspfGroups=tnOspfGroups, PYSNMP_MODULE_ID=tnOspfMibModule, tnOspfPortTable=tnOspfPortTable, tnOspfv3MultiAreaConfigWavekeyOpaqueLsa=tnOspfv3MultiAreaConfigWavekeyOpaqueLsa, tnOspfv3MultiAreaConfigDefaultCost=tnOspfv3MultiAreaConfigDefaultCost, tnOspfMultiAreaConfigTable=tnOspfMultiAreaConfigTable, tnOspfObjs=tnOspfObjs, tnOspfMultiAreaConfigDefaultCost=tnOspfMultiAreaConfigDefaultCost, tnOspfv3MultiAreaConfigGroup=tnOspfv3MultiAreaConfigGroup, tnOspfPortTopologyId=tnOspfPortTopologyId, tnOspfPortGroup=tnOspfPortGroup, tnOspfAreaEntry=tnOspfAreaEntry, tnOspfv3MultiAreaTopologyId=tnOspfv3MultiAreaTopologyId, TnTopologyId=TnTopologyId)

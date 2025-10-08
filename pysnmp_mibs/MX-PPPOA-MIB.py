@@ -1,37 +1,33 @@
-_E='pppoaConnectionCustomizationVer1'
-_D='pppoaEnable'
-_C='MxEnableState'
-_B='MX-PPPOA-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mediatrixConfig,=mibBuilder.importSymbols('MX-SMI','mediatrixConfig')
-MxEnableState,=mibBuilder.importSymbols('MX-TC',_C)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-pppoaMIB=ModuleIdentity((1,3,6,1,4,1,4935,15,350))
-if mibBuilder.loadTexts:pppoaMIB.setRevisions(('2006-03-06 00:00','2005-04-12 00:00'))
-_PppoaMIBObjects_ObjectIdentity=ObjectIdentity
-pppoaMIBObjects=_PppoaMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,15,350,1))
-class _PppoaEnable_Type(MxEnableState):defaultValue=0
-_PppoaEnable_Type.__name__=_C
-_PppoaEnable_Object=MibScalar
-pppoaEnable=_PppoaEnable_Object((1,3,6,1,4,1,4935,15,350,1,50),_PppoaEnable_Type())
-pppoaEnable.setMaxAccess('read-write')
-if mibBuilder.loadTexts:pppoaEnable.setStatus(_A)
-_PppoaConformance_ObjectIdentity=ObjectIdentity
-pppoaConformance=_PppoaConformance_ObjectIdentity((1,3,6,1,4,1,4935,15,350,5))
-_PppoaCompliances_ObjectIdentity=ObjectIdentity
-pppoaCompliances=_PppoaCompliances_ObjectIdentity((1,3,6,1,4,1,4935,15,350,5,1))
-_PppoaGroups_ObjectIdentity=ObjectIdentity
-pppoaGroups=_PppoaGroups_ObjectIdentity((1,3,6,1,4,1,4935,15,350,5,5))
-pppoaConnectionCustomizationVer1=ObjectGroup((1,3,6,1,4,1,4935,15,350,5,5,10))
-pppoaConnectionCustomizationVer1.setObjects((_B,_D))
-if mibBuilder.loadTexts:pppoaConnectionCustomizationVer1.setStatus(_A)
-pppoaComplVer1=ModuleCompliance((1,3,6,1,4,1,4935,15,350,5,1,1))
-pppoaComplVer1.setObjects((_B,_E))
-if mibBuilder.loadTexts:pppoaComplVer1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'pppoaMIB':pppoaMIB,'pppoaMIBObjects':pppoaMIBObjects,_D:pppoaEnable,'pppoaConformance':pppoaConformance,'pppoaCompliances':pppoaCompliances,'pppoaComplVer1':pppoaComplVer1,'pppoaGroups':pppoaGroups,_E:pppoaConnectionCustomizationVer1})
+#
+# PySNMP MIB module MX-PPPOA-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-PPPOA-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:22 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mediatrixConfig, = mibBuilder.importSymbols("MX-SMI", "mediatrixConfig")
+MxEnableState, = mibBuilder.importSymbols("MX-TC", "MxEnableState")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+pppoaMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 15, 350))
+pppoaMIB.setRevisions(('2006-03-06 00:00', '2005-04-12 00:00',))
+if mibBuilder.loadTexts: pppoaMIB.setLastUpdated('200603060000Z')
+if mibBuilder.loadTexts: pppoaMIB.setOrganization('Mediatrix Telecom, Inc.')
+pppoaMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 350, 1))
+pppoaConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 350, 5))
+pppoaEnable = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 350, 1, 50), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoaEnable.setStatus('current')
+pppoaCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 350, 5, 1))
+pppoaComplVer1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4935, 15, 350, 5, 1, 1)).setObjects(("MX-PPPOA-MIB", "pppoaConnectionCustomizationVer1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pppoaComplVer1 = pppoaComplVer1.setStatus('current')
+pppoaGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 350, 5, 5))
+pppoaConnectionCustomizationVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 350, 5, 5, 10)).setObjects(("MX-PPPOA-MIB", "pppoaEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pppoaConnectionCustomizationVer1 = pppoaConnectionCustomizationVer1.setStatus('current')
+mibBuilder.exportSymbols("MX-PPPOA-MIB", pppoaComplVer1=pppoaComplVer1, pppoaCompliances=pppoaCompliances, pppoaMIBObjects=pppoaMIBObjects, pppoaGroups=pppoaGroups, pppoaMIB=pppoaMIB, pppoaEnable=pppoaEnable, pppoaConnectionCustomizationVer1=pppoaConnectionCustomizationVer1, pppoaConformance=pppoaConformance, PYSNMP_MODULE_ID=pppoaMIB)

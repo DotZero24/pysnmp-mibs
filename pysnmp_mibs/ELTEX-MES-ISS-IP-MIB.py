@@ -1,94 +1,52 @@
-_K='eltMesIssIpAuthMgrIpPrefixLength'
-_J='eltMesIssIpAuthMgrIpAddr'
-_I='eltMesIssIpAuthMgrIpAddrType'
-_H='TruthValue'
-_G='Integer32'
-_F='ifIndex'
-_E='IF-MIB'
-_D='not-accessible'
-_C='ELTEX-MES-ISS-IP-MIB'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-eltMesIss,=mibBuilder.importSymbols('ELTEX-MES-ISS-MIB','eltMesIss')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-InetAddress,InetAddressPrefixLength,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressPrefixLength','InetAddressType')
-PortList,VlanId=mibBuilder.importSymbols('Q-BRIDGE-MIB','PortList','VlanId')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_H)
-eltMesIssIpMIB=ModuleIdentity((1,3,6,1,4,1,35265,1,139,24))
-if mibBuilder.loadTexts:eltMesIssIpMIB.setRevisions(('2021-01-12 00:00','2021-01-19 00:00'))
-_EltMesIssIpObjects_ObjectIdentity=ObjectIdentity
-eltMesIssIpObjects=_EltMesIssIpObjects_ObjectIdentity((1,3,6,1,4,1,35265,1,139,24,1))
-_EltMesIssIpMgmt_ObjectIdentity=ObjectIdentity
-eltMesIssIpMgmt=_EltMesIssIpMgmt_ObjectIdentity((1,3,6,1,4,1,35265,1,139,24,1,1))
-_EltMesIssIpMgmtInterfaceTable_Object=MibTable
-eltMesIssIpMgmtInterfaceTable=_EltMesIssIpMgmtInterfaceTable_Object((1,3,6,1,4,1,35265,1,139,24,1,1,1))
-if mibBuilder.loadTexts:eltMesIssIpMgmtInterfaceTable.setStatus(_A)
-_EltMesIssIpMgmtInterfaceEntry_Object=MibTableRow
-eltMesIssIpMgmtInterfaceEntry=_EltMesIssIpMgmtInterfaceEntry_Object((1,3,6,1,4,1,35265,1,139,24,1,1,1,1))
-eltMesIssIpMgmtInterfaceEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:eltMesIssIpMgmtInterfaceEntry.setStatus(_A)
-_EltMesIssIpMgmtInterfaceOuterVlanId_Type=VlanId
-_EltMesIssIpMgmtInterfaceOuterVlanId_Object=MibTableColumn
-eltMesIssIpMgmtInterfaceOuterVlanId=_EltMesIssIpMgmtInterfaceOuterVlanId_Object((1,3,6,1,4,1,35265,1,139,24,1,1,1,1,1),_EltMesIssIpMgmtInterfaceOuterVlanId_Type())
-eltMesIssIpMgmtInterfaceOuterVlanId.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssIpMgmtInterfaceOuterVlanId.setStatus(_A)
-_EltMesIssIpAuthMgr_ObjectIdentity=ObjectIdentity
-eltMesIssIpAuthMgr=_EltMesIssIpAuthMgr_ObjectIdentity((1,3,6,1,4,1,35265,1,139,24,1,2))
-_EltMesIssIpAuthMgrTable_Object=MibTable
-eltMesIssIpAuthMgrTable=_EltMesIssIpAuthMgrTable_Object((1,3,6,1,4,1,35265,1,139,24,1,2,1))
-if mibBuilder.loadTexts:eltMesIssIpAuthMgrTable.setStatus(_A)
-_EltMesIssIpAuthMgrEntry_Object=MibTableRow
-eltMesIssIpAuthMgrEntry=_EltMesIssIpAuthMgrEntry_Object((1,3,6,1,4,1,35265,1,139,24,1,2,1,1))
-eltMesIssIpAuthMgrEntry.setIndexNames((0,_C,_I),(0,_C,_J),(0,_C,_K))
-if mibBuilder.loadTexts:eltMesIssIpAuthMgrEntry.setStatus(_A)
-_EltMesIssIpAuthMgrIpAddrType_Type=InetAddressType
-_EltMesIssIpAuthMgrIpAddrType_Object=MibTableColumn
-eltMesIssIpAuthMgrIpAddrType=_EltMesIssIpAuthMgrIpAddrType_Object((1,3,6,1,4,1,35265,1,139,24,1,2,1,1,1),_EltMesIssIpAuthMgrIpAddrType_Type())
-eltMesIssIpAuthMgrIpAddrType.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltMesIssIpAuthMgrIpAddrType.setStatus(_A)
-_EltMesIssIpAuthMgrIpAddr_Type=InetAddress
-_EltMesIssIpAuthMgrIpAddr_Object=MibTableColumn
-eltMesIssIpAuthMgrIpAddr=_EltMesIssIpAuthMgrIpAddr_Object((1,3,6,1,4,1,35265,1,139,24,1,2,1,1,2),_EltMesIssIpAuthMgrIpAddr_Type())
-eltMesIssIpAuthMgrIpAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltMesIssIpAuthMgrIpAddr.setStatus(_A)
-_EltMesIssIpAuthMgrIpPrefixLength_Type=InetAddressPrefixLength
-_EltMesIssIpAuthMgrIpPrefixLength_Object=MibTableColumn
-eltMesIssIpAuthMgrIpPrefixLength=_EltMesIssIpAuthMgrIpPrefixLength_Object((1,3,6,1,4,1,35265,1,139,24,1,2,1,1,3),_EltMesIssIpAuthMgrIpPrefixLength_Type())
-eltMesIssIpAuthMgrIpPrefixLength.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltMesIssIpAuthMgrIpPrefixLength.setStatus(_A)
-_EltMesIssIpAuthMgrPortList_Type=PortList
-_EltMesIssIpAuthMgrPortList_Object=MibTableColumn
-eltMesIssIpAuthMgrPortList=_EltMesIssIpAuthMgrPortList_Object((1,3,6,1,4,1,35265,1,139,24,1,2,1,1,4),_EltMesIssIpAuthMgrPortList_Type())
-eltMesIssIpAuthMgrPortList.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssIpAuthMgrPortList.setStatus(_A)
-_EltMesIssIpAuthMgrVlanList_Type=OctetString
-_EltMesIssIpAuthMgrVlanList_Object=MibTableColumn
-eltMesIssIpAuthMgrVlanList=_EltMesIssIpAuthMgrVlanList_Object((1,3,6,1,4,1,35265,1,139,24,1,2,1,1,5),_EltMesIssIpAuthMgrVlanList_Type())
-eltMesIssIpAuthMgrVlanList.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssIpAuthMgrVlanList.setStatus(_A)
-class _EltMesIssIpAuthMgrOOBPort_Type(TruthValue):defaultValue=2
-_EltMesIssIpAuthMgrOOBPort_Type.__name__=_H
-_EltMesIssIpAuthMgrOOBPort_Object=MibTableColumn
-eltMesIssIpAuthMgrOOBPort=_EltMesIssIpAuthMgrOOBPort_Object((1,3,6,1,4,1,35265,1,139,24,1,2,1,1,6),_EltMesIssIpAuthMgrOOBPort_Type())
-eltMesIssIpAuthMgrOOBPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssIpAuthMgrOOBPort.setStatus(_A)
-class _EltMesIssIpAuthMgrAllowedServices_Type(Integer32):defaultValue=31
-_EltMesIssIpAuthMgrAllowedServices_Type.__name__=_G
-_EltMesIssIpAuthMgrAllowedServices_Object=MibTableColumn
-eltMesIssIpAuthMgrAllowedServices=_EltMesIssIpAuthMgrAllowedServices_Object((1,3,6,1,4,1,35265,1,139,24,1,2,1,1,7),_EltMesIssIpAuthMgrAllowedServices_Type())
-eltMesIssIpAuthMgrAllowedServices.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssIpAuthMgrAllowedServices.setStatus(_A)
-_EltMesIssIpAuthMgrRowStatus_Type=RowStatus
-_EltMesIssIpAuthMgrRowStatus_Object=MibTableColumn
-eltMesIssIpAuthMgrRowStatus=_EltMesIssIpAuthMgrRowStatus_Object((1,3,6,1,4,1,35265,1,139,24,1,2,1,1,8),_EltMesIssIpAuthMgrRowStatus_Type())
-eltMesIssIpAuthMgrRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:eltMesIssIpAuthMgrRowStatus.setStatus(_A)
-_EltMesIssIpNotifications_ObjectIdentity=ObjectIdentity
-eltMesIssIpNotifications=_EltMesIssIpNotifications_ObjectIdentity((1,3,6,1,4,1,35265,1,139,24,2))
-mibBuilder.exportSymbols(_C,**{'eltMesIssIpMIB':eltMesIssIpMIB,'eltMesIssIpObjects':eltMesIssIpObjects,'eltMesIssIpMgmt':eltMesIssIpMgmt,'eltMesIssIpMgmtInterfaceTable':eltMesIssIpMgmtInterfaceTable,'eltMesIssIpMgmtInterfaceEntry':eltMesIssIpMgmtInterfaceEntry,'eltMesIssIpMgmtInterfaceOuterVlanId':eltMesIssIpMgmtInterfaceOuterVlanId,'eltMesIssIpAuthMgr':eltMesIssIpAuthMgr,'eltMesIssIpAuthMgrTable':eltMesIssIpAuthMgrTable,'eltMesIssIpAuthMgrEntry':eltMesIssIpAuthMgrEntry,_I:eltMesIssIpAuthMgrIpAddrType,_J:eltMesIssIpAuthMgrIpAddr,_K:eltMesIssIpAuthMgrIpPrefixLength,'eltMesIssIpAuthMgrPortList':eltMesIssIpAuthMgrPortList,'eltMesIssIpAuthMgrVlanList':eltMesIssIpAuthMgrVlanList,'eltMesIssIpAuthMgrOOBPort':eltMesIssIpAuthMgrOOBPort,'eltMesIssIpAuthMgrAllowedServices':eltMesIssIpAuthMgrAllowedServices,'eltMesIssIpAuthMgrRowStatus':eltMesIssIpAuthMgrRowStatus,'eltMesIssIpNotifications':eltMesIssIpNotifications})
+#
+# PySNMP MIB module ELTEX-MES-ISS-IP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-MES-ISS-IP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltMesIss, = mibBuilder.importSymbols("ELTEX-MES-ISS-MIB", "eltMesIss")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+InetAddressPrefixLength, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetAddressType", "InetAddress")
+PortList, VlanId = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList", "VlanId")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+eltMesIssIpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24))
+eltMesIssIpMIB.setRevisions(('2021-01-12 00:00', '2021-01-19 00:00',))
+if mibBuilder.loadTexts: eltMesIssIpMIB.setLastUpdated('202101120000Z')
+if mibBuilder.loadTexts: eltMesIssIpMIB.setOrganization('Eltex Enterprise, Ltd.')
+eltMesIssIpObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1))
+eltMesIssIpNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 2))
+eltMesIssIpMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1, 1))
+eltMesIssIpAuthMgr = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1, 2))
+eltMesIssIpMgmtInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1, 1, 1), )
+if mibBuilder.loadTexts: eltMesIssIpMgmtInterfaceTable.setStatus('current')
+eltMesIssIpMgmtInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: eltMesIssIpMgmtInterfaceEntry.setStatus('current')
+eltMesIssIpMgmtInterfaceOuterVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1, 1, 1, 1, 1), VlanId().clone(4095)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssIpMgmtInterfaceOuterVlanId.setStatus('current')
+eltMesIssIpAuthMgrTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1, 2, 1), )
+if mibBuilder.loadTexts: eltMesIssIpAuthMgrTable.setStatus('current')
+eltMesIssIpAuthMgrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1, 2, 1, 1), ).setIndexNames((0, "ELTEX-MES-ISS-IP-MIB", "eltMesIssIpAuthMgrIpAddrType"), (0, "ELTEX-MES-ISS-IP-MIB", "eltMesIssIpAuthMgrIpAddr"), (0, "ELTEX-MES-ISS-IP-MIB", "eltMesIssIpAuthMgrIpPrefixLength"))
+if mibBuilder.loadTexts: eltMesIssIpAuthMgrEntry.setStatus('current')
+eltMesIssIpAuthMgrIpAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1, 2, 1, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: eltMesIssIpAuthMgrIpAddrType.setStatus('current')
+eltMesIssIpAuthMgrIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1, 2, 1, 1, 2), InetAddress())
+if mibBuilder.loadTexts: eltMesIssIpAuthMgrIpAddr.setStatus('current')
+eltMesIssIpAuthMgrIpPrefixLength = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1, 2, 1, 1, 3), InetAddressPrefixLength())
+if mibBuilder.loadTexts: eltMesIssIpAuthMgrIpPrefixLength.setStatus('current')
+eltMesIssIpAuthMgrPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1, 2, 1, 1, 4), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssIpAuthMgrPortList.setStatus('current')
+eltMesIssIpAuthMgrVlanList = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1, 2, 1, 1, 5), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssIpAuthMgrVlanList.setStatus('current')
+eltMesIssIpAuthMgrOOBPort = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1, 2, 1, 1, 6), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssIpAuthMgrOOBPort.setStatus('current')
+eltMesIssIpAuthMgrAllowedServices = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1, 2, 1, 1, 7), Integer32().clone(31)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssIpAuthMgrAllowedServices.setStatus('current')
+eltMesIssIpAuthMgrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24, 1, 2, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eltMesIssIpAuthMgrRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-MES-ISS-IP-MIB", eltMesIssIpAuthMgrIpAddr=eltMesIssIpAuthMgrIpAddr, eltMesIssIpNotifications=eltMesIssIpNotifications, eltMesIssIpAuthMgrOOBPort=eltMesIssIpAuthMgrOOBPort, eltMesIssIpMgmtInterfaceEntry=eltMesIssIpMgmtInterfaceEntry, eltMesIssIpAuthMgrEntry=eltMesIssIpAuthMgrEntry, eltMesIssIpMgmtInterfaceTable=eltMesIssIpMgmtInterfaceTable, eltMesIssIpMgmt=eltMesIssIpMgmt, PYSNMP_MODULE_ID=eltMesIssIpMIB, eltMesIssIpAuthMgrAllowedServices=eltMesIssIpAuthMgrAllowedServices, eltMesIssIpAuthMgrIpPrefixLength=eltMesIssIpAuthMgrIpPrefixLength, eltMesIssIpAuthMgrRowStatus=eltMesIssIpAuthMgrRowStatus, eltMesIssIpAuthMgr=eltMesIssIpAuthMgr, eltMesIssIpAuthMgrPortList=eltMesIssIpAuthMgrPortList, eltMesIssIpObjects=eltMesIssIpObjects, eltMesIssIpAuthMgrVlanList=eltMesIssIpAuthMgrVlanList, eltMesIssIpAuthMgrTable=eltMesIssIpAuthMgrTable, eltMesIssIpMIB=eltMesIssIpMIB, eltMesIssIpMgmtInterfaceOuterVlanId=eltMesIssIpMgmtInterfaceOuterVlanId, eltMesIssIpAuthMgrIpAddrType=eltMesIssIpAuthMgrIpAddrType)

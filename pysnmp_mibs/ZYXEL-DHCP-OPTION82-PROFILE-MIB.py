@@ -1,79 +1,46 @@
-_D='zyDhcpOption82ProfileName'
-_C='ZYXEL-DHCP-OPTION82-PROFILE-MIB'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelDhcpOption82Profile=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,17))
-_ZyxelDhcpOption82ProfileSetup_ObjectIdentity=ObjectIdentity
-zyxelDhcpOption82ProfileSetup=_ZyxelDhcpOption82ProfileSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,17,1))
-_ZyDhcpOption82ProfileMaxNumberOfProfiles_Type=Integer32
-_ZyDhcpOption82ProfileMaxNumberOfProfiles_Object=MibScalar
-zyDhcpOption82ProfileMaxNumberOfProfiles=_ZyDhcpOption82ProfileMaxNumberOfProfiles_Object((1,3,6,1,4,1,890,1,15,3,17,1,1),_ZyDhcpOption82ProfileMaxNumberOfProfiles_Type())
-zyDhcpOption82ProfileMaxNumberOfProfiles.setMaxAccess('read-only')
-if mibBuilder.loadTexts:zyDhcpOption82ProfileMaxNumberOfProfiles.setStatus(_A)
-_ZyxelDhcpOption82ProfileTable_Object=MibTable
-zyxelDhcpOption82ProfileTable=_ZyxelDhcpOption82ProfileTable_Object((1,3,6,1,4,1,890,1,15,3,17,1,2))
-if mibBuilder.loadTexts:zyxelDhcpOption82ProfileTable.setStatus(_A)
-_ZyxelDhcpOption82ProfileEntry_Object=MibTableRow
-zyxelDhcpOption82ProfileEntry=_ZyxelDhcpOption82ProfileEntry_Object((1,3,6,1,4,1,890,1,15,3,17,1,2,1))
-zyxelDhcpOption82ProfileEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:zyxelDhcpOption82ProfileEntry.setStatus(_A)
-_ZyDhcpOption82ProfileName_Type=DisplayString
-_ZyDhcpOption82ProfileName_Object=MibTableColumn
-zyDhcpOption82ProfileName=_ZyDhcpOption82ProfileName_Object((1,3,6,1,4,1,890,1,15,3,17,1,2,1,1),_ZyDhcpOption82ProfileName_Type())
-zyDhcpOption82ProfileName.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:zyDhcpOption82ProfileName.setStatus(_A)
-_ZyDhcpOption82ProfileCircuitIdState_Type=EnabledStatus
-_ZyDhcpOption82ProfileCircuitIdState_Object=MibTableColumn
-zyDhcpOption82ProfileCircuitIdState=_ZyDhcpOption82ProfileCircuitIdState_Object((1,3,6,1,4,1,890,1,15,3,17,1,2,1,2),_ZyDhcpOption82ProfileCircuitIdState_Type())
-zyDhcpOption82ProfileCircuitIdState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyDhcpOption82ProfileCircuitIdState.setStatus(_A)
-_ZyDhcpOption82ProfileCircuitIdSlotPortState_Type=EnabledStatus
-_ZyDhcpOption82ProfileCircuitIdSlotPortState_Object=MibTableColumn
-zyDhcpOption82ProfileCircuitIdSlotPortState=_ZyDhcpOption82ProfileCircuitIdSlotPortState_Object((1,3,6,1,4,1,890,1,15,3,17,1,2,1,3),_ZyDhcpOption82ProfileCircuitIdSlotPortState_Type())
-zyDhcpOption82ProfileCircuitIdSlotPortState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyDhcpOption82ProfileCircuitIdSlotPortState.setStatus(_A)
-_ZyDhcpOption82ProfileCircuitIdVidState_Type=EnabledStatus
-_ZyDhcpOption82ProfileCircuitIdVidState_Object=MibTableColumn
-zyDhcpOption82ProfileCircuitIdVidState=_ZyDhcpOption82ProfileCircuitIdVidState_Object((1,3,6,1,4,1,890,1,15,3,17,1,2,1,4),_ZyDhcpOption82ProfileCircuitIdVidState_Type())
-zyDhcpOption82ProfileCircuitIdVidState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyDhcpOption82ProfileCircuitIdVidState.setStatus(_A)
-_ZyDhcpOption82ProfileCircuitIdHostnameState_Type=EnabledStatus
-_ZyDhcpOption82ProfileCircuitIdHostnameState_Object=MibTableColumn
-zyDhcpOption82ProfileCircuitIdHostnameState=_ZyDhcpOption82ProfileCircuitIdHostnameState_Object((1,3,6,1,4,1,890,1,15,3,17,1,2,1,5),_ZyDhcpOption82ProfileCircuitIdHostnameState_Type())
-zyDhcpOption82ProfileCircuitIdHostnameState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyDhcpOption82ProfileCircuitIdHostnameState.setStatus(_A)
-_ZyDhcpOption82ProfileCircuitIdString_Type=DisplayString
-_ZyDhcpOption82ProfileCircuitIdString_Object=MibTableColumn
-zyDhcpOption82ProfileCircuitIdString=_ZyDhcpOption82ProfileCircuitIdString_Object((1,3,6,1,4,1,890,1,15,3,17,1,2,1,6),_ZyDhcpOption82ProfileCircuitIdString_Type())
-zyDhcpOption82ProfileCircuitIdString.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyDhcpOption82ProfileCircuitIdString.setStatus(_A)
-_ZyDhcpOption82ProfileRemoteIdState_Type=EnabledStatus
-_ZyDhcpOption82ProfileRemoteIdState_Object=MibTableColumn
-zyDhcpOption82ProfileRemoteIdState=_ZyDhcpOption82ProfileRemoteIdState_Object((1,3,6,1,4,1,890,1,15,3,17,1,2,1,7),_ZyDhcpOption82ProfileRemoteIdState_Type())
-zyDhcpOption82ProfileRemoteIdState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyDhcpOption82ProfileRemoteIdState.setStatus(_A)
-_ZyDhcpOption82ProfileRemoteIdMacAddressState_Type=EnabledStatus
-_ZyDhcpOption82ProfileRemoteIdMacAddressState_Object=MibTableColumn
-zyDhcpOption82ProfileRemoteIdMacAddressState=_ZyDhcpOption82ProfileRemoteIdMacAddressState_Object((1,3,6,1,4,1,890,1,15,3,17,1,2,1,8),_ZyDhcpOption82ProfileRemoteIdMacAddressState_Type())
-zyDhcpOption82ProfileRemoteIdMacAddressState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyDhcpOption82ProfileRemoteIdMacAddressState.setStatus(_A)
-_ZyDhcpOption82ProfileRemoteIdString_Type=DisplayString
-_ZyDhcpOption82ProfileRemoteIdString_Object=MibTableColumn
-zyDhcpOption82ProfileRemoteIdString=_ZyDhcpOption82ProfileRemoteIdString_Object((1,3,6,1,4,1,890,1,15,3,17,1,2,1,9),_ZyDhcpOption82ProfileRemoteIdString_Type())
-zyDhcpOption82ProfileRemoteIdString.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyDhcpOption82ProfileRemoteIdString.setStatus(_A)
-_ZyDhcpOption82ProfileRowstatus_Type=RowStatus
-_ZyDhcpOption82ProfileRowstatus_Object=MibTableColumn
-zyDhcpOption82ProfileRowstatus=_ZyDhcpOption82ProfileRowstatus_Object((1,3,6,1,4,1,890,1,15,3,17,1,2,1,10),_ZyDhcpOption82ProfileRowstatus_Type())
-zyDhcpOption82ProfileRowstatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyDhcpOption82ProfileRowstatus.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'zyxelDhcpOption82Profile':zyxelDhcpOption82Profile,'zyxelDhcpOption82ProfileSetup':zyxelDhcpOption82ProfileSetup,'zyDhcpOption82ProfileMaxNumberOfProfiles':zyDhcpOption82ProfileMaxNumberOfProfiles,'zyxelDhcpOption82ProfileTable':zyxelDhcpOption82ProfileTable,'zyxelDhcpOption82ProfileEntry':zyxelDhcpOption82ProfileEntry,_D:zyDhcpOption82ProfileName,'zyDhcpOption82ProfileCircuitIdState':zyDhcpOption82ProfileCircuitIdState,'zyDhcpOption82ProfileCircuitIdSlotPortState':zyDhcpOption82ProfileCircuitIdSlotPortState,'zyDhcpOption82ProfileCircuitIdVidState':zyDhcpOption82ProfileCircuitIdVidState,'zyDhcpOption82ProfileCircuitIdHostnameState':zyDhcpOption82ProfileCircuitIdHostnameState,'zyDhcpOption82ProfileCircuitIdString':zyDhcpOption82ProfileCircuitIdString,'zyDhcpOption82ProfileRemoteIdState':zyDhcpOption82ProfileRemoteIdState,'zyDhcpOption82ProfileRemoteIdMacAddressState':zyDhcpOption82ProfileRemoteIdMacAddressState,'zyDhcpOption82ProfileRemoteIdString':zyDhcpOption82ProfileRemoteIdString,'zyDhcpOption82ProfileRowstatus':zyDhcpOption82ProfileRowstatus})
+#
+# PySNMP MIB module ZYXEL-DHCP-OPTION82-PROFILE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-DHCP-OPTION82-PROFILE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:37:38 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelDhcpOption82Profile = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 17))
+if mibBuilder.loadTexts: zyxelDhcpOption82Profile.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelDhcpOption82Profile.setOrganization('Enterprise Solution ZyXEL')
+zyxelDhcpOption82ProfileSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 17, 1))
+zyDhcpOption82ProfileMaxNumberOfProfiles = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 17, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zyDhcpOption82ProfileMaxNumberOfProfiles.setStatus('current')
+zyxelDhcpOption82ProfileTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 17, 1, 2), )
+if mibBuilder.loadTexts: zyxelDhcpOption82ProfileTable.setStatus('current')
+zyxelDhcpOption82ProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 17, 1, 2, 1), ).setIndexNames((0, "ZYXEL-DHCP-OPTION82-PROFILE-MIB", "zyDhcpOption82ProfileName"))
+if mibBuilder.loadTexts: zyxelDhcpOption82ProfileEntry.setStatus('current')
+zyDhcpOption82ProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 17, 1, 2, 1, 1), DisplayString())
+if mibBuilder.loadTexts: zyDhcpOption82ProfileName.setStatus('current')
+zyDhcpOption82ProfileCircuitIdState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 17, 1, 2, 1, 2), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyDhcpOption82ProfileCircuitIdState.setStatus('current')
+zyDhcpOption82ProfileCircuitIdSlotPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 17, 1, 2, 1, 3), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyDhcpOption82ProfileCircuitIdSlotPortState.setStatus('current')
+zyDhcpOption82ProfileCircuitIdVidState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 17, 1, 2, 1, 4), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyDhcpOption82ProfileCircuitIdVidState.setStatus('current')
+zyDhcpOption82ProfileCircuitIdHostnameState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 17, 1, 2, 1, 5), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyDhcpOption82ProfileCircuitIdHostnameState.setStatus('current')
+zyDhcpOption82ProfileCircuitIdString = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 17, 1, 2, 1, 6), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyDhcpOption82ProfileCircuitIdString.setStatus('current')
+zyDhcpOption82ProfileRemoteIdState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 17, 1, 2, 1, 7), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyDhcpOption82ProfileRemoteIdState.setStatus('current')
+zyDhcpOption82ProfileRemoteIdMacAddressState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 17, 1, 2, 1, 8), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyDhcpOption82ProfileRemoteIdMacAddressState.setStatus('current')
+zyDhcpOption82ProfileRemoteIdString = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 17, 1, 2, 1, 9), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyDhcpOption82ProfileRemoteIdString.setStatus('current')
+zyDhcpOption82ProfileRowstatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 17, 1, 2, 1, 10), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyDhcpOption82ProfileRowstatus.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-DHCP-OPTION82-PROFILE-MIB", zyxelDhcpOption82ProfileTable=zyxelDhcpOption82ProfileTable, zyDhcpOption82ProfileMaxNumberOfProfiles=zyDhcpOption82ProfileMaxNumberOfProfiles, zyDhcpOption82ProfileRemoteIdString=zyDhcpOption82ProfileRemoteIdString, zyxelDhcpOption82Profile=zyxelDhcpOption82Profile, zyDhcpOption82ProfileCircuitIdState=zyDhcpOption82ProfileCircuitIdState, PYSNMP_MODULE_ID=zyxelDhcpOption82Profile, zyDhcpOption82ProfileRemoteIdState=zyDhcpOption82ProfileRemoteIdState, zyxelDhcpOption82ProfileSetup=zyxelDhcpOption82ProfileSetup, zyDhcpOption82ProfileRowstatus=zyDhcpOption82ProfileRowstatus, zyDhcpOption82ProfileCircuitIdVidState=zyDhcpOption82ProfileCircuitIdVidState, zyDhcpOption82ProfileCircuitIdHostnameState=zyDhcpOption82ProfileCircuitIdHostnameState, zyDhcpOption82ProfileName=zyDhcpOption82ProfileName, zyDhcpOption82ProfileCircuitIdString=zyDhcpOption82ProfileCircuitIdString, zyDhcpOption82ProfileCircuitIdSlotPortState=zyDhcpOption82ProfileCircuitIdSlotPortState, zyDhcpOption82ProfileRemoteIdMacAddressState=zyDhcpOption82ProfileRemoteIdMacAddressState, zyxelDhcpOption82ProfileEntry=zyxelDhcpOption82ProfileEntry)

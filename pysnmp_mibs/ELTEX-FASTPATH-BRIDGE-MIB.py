@@ -1,42 +1,37 @@
-_D='EfpBridgeStpGroupMacAddressType'
-_C='dot1dBasePort'
-_B='BRIDGE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_B,_C)
-eltMesFastpath,=mibBuilder.importSymbols('ELTEX-MES-FASTPATH-MIB','eltMesFastpath')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-eltFastpathBridgeMIB=ModuleIdentity((1,3,6,1,4,1,35265,1,103,3))
-if mibBuilder.loadTexts:eltFastpathBridgeMIB.setRevisions(('2017-09-05 00:00',))
-class EfpBridgeStpGroupMacAddressType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('dot1d',1),('dot1ad',2),('auto',3)))
-_EfpBridgeObjects_ObjectIdentity=ObjectIdentity
-efpBridgeObjects=_EfpBridgeObjects_ObjectIdentity((1,3,6,1,4,1,35265,1,103,3,1))
-_EfpBridgeConfigs_ObjectIdentity=ObjectIdentity
-efpBridgeConfigs=_EfpBridgeConfigs_ObjectIdentity((1,3,6,1,4,1,35265,1,103,3,1,2))
-_EfpBridgeConfigsStp_ObjectIdentity=ObjectIdentity
-efpBridgeConfigsStp=_EfpBridgeConfigsStp_ObjectIdentity((1,3,6,1,4,1,35265,1,103,3,1,2,1))
-_EfpBridgeStpConfigPortTable_Object=MibTable
-efpBridgeStpConfigPortTable=_EfpBridgeStpConfigPortTable_Object((1,3,6,1,4,1,35265,1,103,3,1,2,1,1))
-if mibBuilder.loadTexts:efpBridgeStpConfigPortTable.setStatus(_A)
-_EfpBridgeStpConfigPortEntry_Object=MibTableRow
-efpBridgeStpConfigPortEntry=_EfpBridgeStpConfigPortEntry_Object((1,3,6,1,4,1,35265,1,103,3,1,2,1,1,1))
-efpBridgeStpConfigPortEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:efpBridgeStpConfigPortEntry.setStatus(_A)
-class _EfpBridgeStpConfigPortGroupMacAddress_Type(EfpBridgeStpGroupMacAddressType):defaultValue=1
-_EfpBridgeStpConfigPortGroupMacAddress_Type.__name__=_D
-_EfpBridgeStpConfigPortGroupMacAddress_Object=MibTableColumn
-efpBridgeStpConfigPortGroupMacAddress=_EfpBridgeStpConfigPortGroupMacAddress_Object((1,3,6,1,4,1,35265,1,103,3,1,2,1,1,1,1),_EfpBridgeStpConfigPortGroupMacAddress_Type())
-efpBridgeStpConfigPortGroupMacAddress.setMaxAccess('read-write')
-if mibBuilder.loadTexts:efpBridgeStpConfigPortGroupMacAddress.setStatus(_A)
-_EfpBridgeNotifications_ObjectIdentity=ObjectIdentity
-efpBridgeNotifications=_EfpBridgeNotifications_ObjectIdentity((1,3,6,1,4,1,35265,1,103,3,2))
-_EfpBridgeNotificationsPrefix_ObjectIdentity=ObjectIdentity
-efpBridgeNotificationsPrefix=_EfpBridgeNotificationsPrefix_ObjectIdentity((1,3,6,1,4,1,35265,1,103,3,2,0))
-_EfpBridgeConformance_ObjectIdentity=ObjectIdentity
-efpBridgeConformance=_EfpBridgeConformance_ObjectIdentity((1,3,6,1,4,1,35265,1,103,3,3))
-mibBuilder.exportSymbols('ELTEX-FASTPATH-BRIDGE-MIB',**{_D:EfpBridgeStpGroupMacAddressType,'eltFastpathBridgeMIB':eltFastpathBridgeMIB,'efpBridgeObjects':efpBridgeObjects,'efpBridgeConfigs':efpBridgeConfigs,'efpBridgeConfigsStp':efpBridgeConfigsStp,'efpBridgeStpConfigPortTable':efpBridgeStpConfigPortTable,'efpBridgeStpConfigPortEntry':efpBridgeStpConfigPortEntry,'efpBridgeStpConfigPortGroupMacAddress':efpBridgeStpConfigPortGroupMacAddress,'efpBridgeNotifications':efpBridgeNotifications,'efpBridgeNotificationsPrefix':efpBridgeNotificationsPrefix,'efpBridgeConformance':efpBridgeConformance})
+#
+# PySNMP MIB module ELTEX-FASTPATH-BRIDGE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-FASTPATH-BRIDGE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+eltMesFastpath, = mibBuilder.importSymbols("ELTEX-MES-FASTPATH-MIB", "eltMesFastpath")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+eltFastpathBridgeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 103, 3))
+eltFastpathBridgeMIB.setRevisions(('2017-09-05 00:00',))
+if mibBuilder.loadTexts: eltFastpathBridgeMIB.setLastUpdated('201709050000Z')
+if mibBuilder.loadTexts: eltFastpathBridgeMIB.setOrganization('Eltex Enterprise Co, Ltd.')
+efpBridgeObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 103, 3, 1))
+efpBridgeConfigs = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 103, 3, 1, 2))
+class EfpBridgeStpGroupMacAddressType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("dot1d", 1), ("dot1ad", 2), ("auto", 3))
+
+efpBridgeConfigsStp = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 103, 3, 1, 2, 1))
+efpBridgeStpConfigPortTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 103, 3, 1, 2, 1, 1), )
+if mibBuilder.loadTexts: efpBridgeStpConfigPortTable.setStatus('current')
+efpBridgeStpConfigPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 103, 3, 1, 2, 1, 1, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: efpBridgeStpConfigPortEntry.setStatus('current')
+efpBridgeStpConfigPortGroupMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 103, 3, 1, 2, 1, 1, 1, 1), EfpBridgeStpGroupMacAddressType().clone('dot1d')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: efpBridgeStpConfigPortGroupMacAddress.setStatus('current')
+efpBridgeNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 103, 3, 2))
+efpBridgeNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 103, 3, 2, 0))
+efpBridgeConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 103, 3, 3))
+mibBuilder.exportSymbols("ELTEX-FASTPATH-BRIDGE-MIB", efpBridgeConfigsStp=efpBridgeConfigsStp, efpBridgeObjects=efpBridgeObjects, efpBridgeNotificationsPrefix=efpBridgeNotificationsPrefix, efpBridgeConfigs=efpBridgeConfigs, efpBridgeNotifications=efpBridgeNotifications, efpBridgeStpConfigPortEntry=efpBridgeStpConfigPortEntry, eltFastpathBridgeMIB=eltFastpathBridgeMIB, PYSNMP_MODULE_ID=eltFastpathBridgeMIB, EfpBridgeStpGroupMacAddressType=EfpBridgeStpGroupMacAddressType, efpBridgeStpConfigPortGroupMacAddress=efpBridgeStpConfigPortGroupMacAddress, efpBridgeConformance=efpBridgeConformance, efpBridgeStpConfigPortTable=efpBridgeStpConfigPortTable)

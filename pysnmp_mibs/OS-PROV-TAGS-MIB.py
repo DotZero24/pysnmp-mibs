@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module OS-PROV-TAGS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/OS-PROV-TAGS-MIB
-# Produced by pysmi-1.1.12 at Mon Aug  4 17:02:17 2025
-# On host macmini.vegmond.io platform Darwin version 24.5.0 by user rob
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/OS-PROV-TAGS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:22 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
 # Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 VlanIdOrNone, = mibBuilder.importSymbols("IEEE8021-CFM-MIB", "VlanIdOrNone")
-oaOptiSwitch, PortIndex, TagList, EntryValidator = mibBuilder.importSymbols("OS-COMMON-TC-MIB", "oaOptiSwitch", "PortIndex", "TagList", "EntryValidator")
+PortIndex, EntryValidator, oaOptiSwitch, TagList = mibBuilder.importSymbols("OS-COMMON-TC-MIB", "PortIndex", "EntryValidator", "oaOptiSwitch", "TagList")
 osEthServId, = mibBuilder.importSymbols("OS-ETH-SERV-MIB", "osEthServId")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Unsigned32, Integer32, Gauge32, ModuleIdentity, TimeTicks, NotificationType, Counter32, Bits, IpAddress, iso, ObjectIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Unsigned32", "Integer32", "Gauge32", "ModuleIdentity", "TimeTicks", "NotificationType", "Counter32", "Bits", "IpAddress", "iso", "ObjectIdentity", "Counter64")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 osProvTags = ModuleIdentity((1, 3, 6, 1, 4, 1, 6926, 2, 9))
 osProvTags.setRevisions(('2020-07-26 00:00', '2010-10-26 00:00',))
 if mibBuilder.loadTexts: osProvTags.setLastUpdated('202007260000Z')
@@ -67,4 +67,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 osProvTagsMandatoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6926, 2, 9, 100, 2, 1)).setObjects(("OS-PROV-TAGS-MIB", "osProvTagsAction"), ("OS-PROV-TAGS-MIB", "osProvTagsAdminStatus"), ("OS-PROV-TAGS-MIB", "osEvcUniExceptionPortTxSVlan"), ("OS-PROV-TAGS-MIB", "osEvcUniExceptionPortRxSVlans"), ("OS-PROV-TAGS-MIB", "osEvcUniExceptionPortAdminStatus"), ("OS-PROV-TAGS-MIB", "osEvcNniExceptionPortTagsAction"), ("OS-PROV-TAGS-MIB", "osEvcNniExceptionPortAdminStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     osProvTagsMandatoryGroup = osProvTagsMandatoryGroup.setStatus('current')
-mibBuilder.exportSymbols("OS-PROV-TAGS-MIB", osProvTagsEntry=osProvTagsEntry, PYSNMP_MODULE_ID=osProvTags, osProvTagsAdminStatus=osProvTagsAdminStatus, osEvcNniExceptionPortTable=osEvcNniExceptionPortTable, osEvcUniExceptionPortRxSVlans=osEvcUniExceptionPortRxSVlans, osEvcUniExceptionPortTxSVlan=osEvcUniExceptionPortTxSVlan, osProvTags=osProvTags, osProvTagsTable=osProvTagsTable, osProvTagsMIBCompliance=osProvTagsMIBCompliance, osProvTagsMIBGroups=osProvTagsMIBGroups, osProvTagsObjects=osProvTagsObjects, TagAction=TagAction, osEvcNniExceptionPortTagsAction=osEvcNniExceptionPortTagsAction, osProvTagsAction=osProvTagsAction, osProvTagsConformance=osProvTagsConformance, osEvcNniExceptionPortEntry=osEvcNniExceptionPortEntry, osEvcNniExceptionPortId=osEvcNniExceptionPortId, osEvcUniExceptionPortEntry=osEvcUniExceptionPortEntry, osEvcNniExceptionPortAdminStatus=osEvcNniExceptionPortAdminStatus, osEvcUniExceptionPortAdminStatus=osEvcUniExceptionPortAdminStatus, osProvTagsDir=osProvTagsDir, osProvTagsRxTag=osProvTagsRxTag, osProvTagsMIBCompliances=osProvTagsMIBCompliances, osEvcUniExceptionPortId=osEvcUniExceptionPortId, osEvcUniExceptionPortTable=osEvcUniExceptionPortTable, osProvTagsMandatoryGroup=osProvTagsMandatoryGroup)
+mibBuilder.exportSymbols("OS-PROV-TAGS-MIB", osProvTagsRxTag=osProvTagsRxTag, TagAction=TagAction, osEvcUniExceptionPortAdminStatus=osEvcUniExceptionPortAdminStatus, PYSNMP_MODULE_ID=osProvTags, osProvTagsDir=osProvTagsDir, osEvcUniExceptionPortTable=osEvcUniExceptionPortTable, osProvTagsEntry=osProvTagsEntry, osProvTagsConformance=osProvTagsConformance, osProvTagsObjects=osProvTagsObjects, osEvcUniExceptionPortId=osEvcUniExceptionPortId, osProvTagsTable=osProvTagsTable, osEvcUniExceptionPortTxSVlan=osEvcUniExceptionPortTxSVlan, osEvcNniExceptionPortAdminStatus=osEvcNniExceptionPortAdminStatus, osEvcUniExceptionPortEntry=osEvcUniExceptionPortEntry, osProvTagsMIBGroups=osProvTagsMIBGroups, osProvTags=osProvTags, osEvcNniExceptionPortTable=osEvcNniExceptionPortTable, osEvcNniExceptionPortEntry=osEvcNniExceptionPortEntry, osProvTagsAdminStatus=osProvTagsAdminStatus, osEvcNniExceptionPortTagsAction=osEvcNniExceptionPortTagsAction, osEvcNniExceptionPortId=osEvcNniExceptionPortId, osProvTagsMIBCompliances=osProvTagsMIBCompliances, osProvTagsMIBCompliance=osProvTagsMIBCompliance, osEvcUniExceptionPortRxSVlans=osEvcUniExceptionPortRxSVlans, osProvTagsMandatoryGroup=osProvTagsMandatoryGroup, osProvTagsAction=osProvTagsAction)

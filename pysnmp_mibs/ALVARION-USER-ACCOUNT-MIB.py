@@ -1,95 +1,52 @@
-_N='alvarionUserAccountStatusMIBGroup'
-_M='coUserAccExpirationTime'
-_L='coUserAccStatus'
-_K='coUserAccRemainingSessionTime'
-_J='coUserAccFirstLoginTime'
-_I='coUserAccRemainingOnlineTime'
-_H='coUserAccPlanName'
-_G='coUserAccUserName'
-_F='seconds'
-_E='coUserAccIndex'
-_D='Integer32'
-_C='read-only'
-_B='ALVARION-USER-ACCOUNT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-alvarionMgmtV2,=mibBuilder.importSymbols('ALVARION-SMI','alvarionMgmtV2')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-alvarionUserAccountMIB=ModuleIdentity((1,3,6,1,4,1,12394,1,10,5,35))
-_AlvarionUserAccountMIBObjects_ObjectIdentity=ObjectIdentity
-alvarionUserAccountMIBObjects=_AlvarionUserAccountMIBObjects_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,35,1))
-_CoUserAccountStatusGroup_ObjectIdentity=ObjectIdentity
-coUserAccountStatusGroup=_CoUserAccountStatusGroup_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,35,1,1))
-_CoUserAccountStatusTable_Object=MibTable
-coUserAccountStatusTable=_CoUserAccountStatusTable_Object((1,3,6,1,4,1,12394,1,10,5,35,1,1,1))
-if mibBuilder.loadTexts:coUserAccountStatusTable.setStatus(_A)
-_CoUserAccountStatusEntry_Object=MibTableRow
-coUserAccountStatusEntry=_CoUserAccountStatusEntry_Object((1,3,6,1,4,1,12394,1,10,5,35,1,1,1,1))
-coUserAccountStatusEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:coUserAccountStatusEntry.setStatus(_A)
-class _CoUserAccIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_CoUserAccIndex_Type.__name__=_D
-_CoUserAccIndex_Object=MibTableColumn
-coUserAccIndex=_CoUserAccIndex_Object((1,3,6,1,4,1,12394,1,10,5,35,1,1,1,1,1),_CoUserAccIndex_Type())
-coUserAccIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:coUserAccIndex.setStatus(_A)
-_CoUserAccUserName_Type=DisplayString
-_CoUserAccUserName_Object=MibTableColumn
-coUserAccUserName=_CoUserAccUserName_Object((1,3,6,1,4,1,12394,1,10,5,35,1,1,1,1,2),_CoUserAccUserName_Type())
-coUserAccUserName.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUserAccUserName.setStatus(_A)
-_CoUserAccPlanName_Type=DisplayString
-_CoUserAccPlanName_Object=MibTableColumn
-coUserAccPlanName=_CoUserAccPlanName_Object((1,3,6,1,4,1,12394,1,10,5,35,1,1,1,1,3),_CoUserAccPlanName_Type())
-coUserAccPlanName.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUserAccPlanName.setStatus(_A)
-_CoUserAccRemainingOnlineTime_Type=Integer32
-_CoUserAccRemainingOnlineTime_Object=MibTableColumn
-coUserAccRemainingOnlineTime=_CoUserAccRemainingOnlineTime_Object((1,3,6,1,4,1,12394,1,10,5,35,1,1,1,1,4),_CoUserAccRemainingOnlineTime_Type())
-coUserAccRemainingOnlineTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUserAccRemainingOnlineTime.setStatus(_A)
-if mibBuilder.loadTexts:coUserAccRemainingOnlineTime.setUnits(_F)
-_CoUserAccFirstLoginTime_Type=DisplayString
-_CoUserAccFirstLoginTime_Object=MibTableColumn
-coUserAccFirstLoginTime=_CoUserAccFirstLoginTime_Object((1,3,6,1,4,1,12394,1,10,5,35,1,1,1,1,5),_CoUserAccFirstLoginTime_Type())
-coUserAccFirstLoginTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUserAccFirstLoginTime.setStatus(_A)
-_CoUserAccRemainingSessionTime_Type=Integer32
-_CoUserAccRemainingSessionTime_Object=MibTableColumn
-coUserAccRemainingSessionTime=_CoUserAccRemainingSessionTime_Object((1,3,6,1,4,1,12394,1,10,5,35,1,1,1,1,6),_CoUserAccRemainingSessionTime_Type())
-coUserAccRemainingSessionTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUserAccRemainingSessionTime.setStatus(_A)
-if mibBuilder.loadTexts:coUserAccRemainingSessionTime.setUnits(_F)
-class _CoUserAccStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('valid',1),('invalid',2)))
-_CoUserAccStatus_Type.__name__=_D
-_CoUserAccStatus_Object=MibTableColumn
-coUserAccStatus=_CoUserAccStatus_Object((1,3,6,1,4,1,12394,1,10,5,35,1,1,1,1,7),_CoUserAccStatus_Type())
-coUserAccStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUserAccStatus.setStatus(_A)
-_CoUserAccExpirationTime_Type=DisplayString
-_CoUserAccExpirationTime_Object=MibTableColumn
-coUserAccExpirationTime=_CoUserAccExpirationTime_Object((1,3,6,1,4,1,12394,1,10,5,35,1,1,1,1,8),_CoUserAccExpirationTime_Type())
-coUserAccExpirationTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUserAccExpirationTime.setStatus(_A)
-_AlvarionUserAccountMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
-alvarionUserAccountMIBNotificationPrefix=_AlvarionUserAccountMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,35,2))
-_AlvarionUserAccountMIBNotifications_ObjectIdentity=ObjectIdentity
-alvarionUserAccountMIBNotifications=_AlvarionUserAccountMIBNotifications_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,35,2,0))
-_AlvarionUserAccountMIBConformance_ObjectIdentity=ObjectIdentity
-alvarionUserAccountMIBConformance=_AlvarionUserAccountMIBConformance_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,35,3))
-_AlvarionUserAccountMIBCompliances_ObjectIdentity=ObjectIdentity
-alvarionUserAccountMIBCompliances=_AlvarionUserAccountMIBCompliances_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,35,3,1))
-_AlvarionUserAccountMIBGroups_ObjectIdentity=ObjectIdentity
-alvarionUserAccountMIBGroups=_AlvarionUserAccountMIBGroups_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,35,3,2))
-alvarionUserAccountStatusMIBGroup=ObjectGroup((1,3,6,1,4,1,12394,1,10,5,35,3,2,1))
-alvarionUserAccountStatusMIBGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M)))
-if mibBuilder.loadTexts:alvarionUserAccountStatusMIBGroup.setStatus(_A)
-alvarionUserAccountMIBCompliance=ModuleCompliance((1,3,6,1,4,1,12394,1,10,5,35,3,1,1))
-alvarionUserAccountMIBCompliance.setObjects((_B,_N))
-if mibBuilder.loadTexts:alvarionUserAccountMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'alvarionUserAccountMIB':alvarionUserAccountMIB,'alvarionUserAccountMIBObjects':alvarionUserAccountMIBObjects,'coUserAccountStatusGroup':coUserAccountStatusGroup,'coUserAccountStatusTable':coUserAccountStatusTable,'coUserAccountStatusEntry':coUserAccountStatusEntry,_E:coUserAccIndex,_G:coUserAccUserName,_H:coUserAccPlanName,_I:coUserAccRemainingOnlineTime,_J:coUserAccFirstLoginTime,_K:coUserAccRemainingSessionTime,_L:coUserAccStatus,_M:coUserAccExpirationTime,'alvarionUserAccountMIBNotificationPrefix':alvarionUserAccountMIBNotificationPrefix,'alvarionUserAccountMIBNotifications':alvarionUserAccountMIBNotifications,'alvarionUserAccountMIBConformance':alvarionUserAccountMIBConformance,'alvarionUserAccountMIBCompliances':alvarionUserAccountMIBCompliances,'alvarionUserAccountMIBCompliance':alvarionUserAccountMIBCompliance,'alvarionUserAccountMIBGroups':alvarionUserAccountMIBGroups,_N:alvarionUserAccountStatusMIBGroup})
+#
+# PySNMP MIB module ALVARION-USER-ACCOUNT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alvarion/ALVARION-USER-ACCOUNT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:03 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+alvarionMgmtV2, = mibBuilder.importSymbols("ALVARION-SMI", "alvarionMgmtV2")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+alvarionUserAccountMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35))
+if mibBuilder.loadTexts: alvarionUserAccountMIB.setLastUpdated('200710310000Z')
+if mibBuilder.loadTexts: alvarionUserAccountMIB.setOrganization('Alvarion Ltd.')
+alvarionUserAccountMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 1))
+coUserAccountStatusGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 1, 1))
+coUserAccountStatusTable = MibTable((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 1, 1, 1), )
+if mibBuilder.loadTexts: coUserAccountStatusTable.setStatus('current')
+coUserAccountStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 1, 1, 1, 1), ).setIndexNames((0, "ALVARION-USER-ACCOUNT-MIB", "coUserAccIndex"))
+if mibBuilder.loadTexts: coUserAccountStatusEntry.setStatus('current')
+coUserAccIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: coUserAccIndex.setStatus('current')
+coUserAccUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 1, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUserAccUserName.setStatus('current')
+coUserAccPlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 1, 1, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUserAccPlanName.setStatus('current')
+coUserAccRemainingOnlineTime = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 1, 1, 1, 1, 4), Integer32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUserAccRemainingOnlineTime.setStatus('current')
+coUserAccFirstLoginTime = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 1, 1, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUserAccFirstLoginTime.setStatus('current')
+coUserAccRemainingSessionTime = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 1, 1, 1, 1, 6), Integer32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUserAccRemainingSessionTime.setStatus('current')
+coUserAccStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUserAccStatus.setStatus('current')
+coUserAccExpirationTime = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 1, 1, 1, 1, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUserAccExpirationTime.setStatus('current')
+alvarionUserAccountMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 2))
+alvarionUserAccountMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 2, 0))
+alvarionUserAccountMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 3))
+alvarionUserAccountMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 3, 1))
+alvarionUserAccountMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 3, 2))
+alvarionUserAccountMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 3, 1, 1)).setObjects(("ALVARION-USER-ACCOUNT-MIB", "alvarionUserAccountStatusMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alvarionUserAccountMIBCompliance = alvarionUserAccountMIBCompliance.setStatus('current')
+alvarionUserAccountStatusMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 35, 3, 2, 1)).setObjects(("ALVARION-USER-ACCOUNT-MIB", "coUserAccUserName"), ("ALVARION-USER-ACCOUNT-MIB", "coUserAccPlanName"), ("ALVARION-USER-ACCOUNT-MIB", "coUserAccRemainingOnlineTime"), ("ALVARION-USER-ACCOUNT-MIB", "coUserAccFirstLoginTime"), ("ALVARION-USER-ACCOUNT-MIB", "coUserAccRemainingSessionTime"), ("ALVARION-USER-ACCOUNT-MIB", "coUserAccStatus"), ("ALVARION-USER-ACCOUNT-MIB", "coUserAccExpirationTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alvarionUserAccountStatusMIBGroup = alvarionUserAccountStatusMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("ALVARION-USER-ACCOUNT-MIB", alvarionUserAccountMIBGroups=alvarionUserAccountMIBGroups, coUserAccountStatusTable=coUserAccountStatusTable, alvarionUserAccountMIBNotifications=alvarionUserAccountMIBNotifications, coUserAccExpirationTime=coUserAccExpirationTime, alvarionUserAccountMIBObjects=alvarionUserAccountMIBObjects, coUserAccountStatusEntry=coUserAccountStatusEntry, coUserAccRemainingOnlineTime=coUserAccRemainingOnlineTime, coUserAccFirstLoginTime=coUserAccFirstLoginTime, coUserAccPlanName=coUserAccPlanName, coUserAccRemainingSessionTime=coUserAccRemainingSessionTime, PYSNMP_MODULE_ID=alvarionUserAccountMIB, alvarionUserAccountMIBCompliances=alvarionUserAccountMIBCompliances, coUserAccUserName=coUserAccUserName, alvarionUserAccountMIBNotificationPrefix=alvarionUserAccountMIBNotificationPrefix, alvarionUserAccountMIB=alvarionUserAccountMIB, coUserAccIndex=coUserAccIndex, alvarionUserAccountMIBConformance=alvarionUserAccountMIBConformance, alvarionUserAccountMIBCompliance=alvarionUserAccountMIBCompliance, alvarionUserAccountStatusMIBGroup=alvarionUserAccountStatusMIBGroup, coUserAccStatus=coUserAccStatus, coUserAccountStatusGroup=coUserAccountStatusGroup)

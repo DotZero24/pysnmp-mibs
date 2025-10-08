@@ -1,179 +1,91 @@
-_l='alaEvbModuleGroup'
-_k='evbVdpKeepaliveExpiredTrap'
-_j='evbUnknownVsiManagerTrap'
-_i='evbTlvExpiredTrap'
-_h='evbCdcpLldpExpiredTrap'
-_g='evbVdpAssocTlvTrap'
-_f='evbFailedCdcpTlvTrap'
-_e='evbFailedEvbTlvTrap'
-_d='evbRowStatus'
-_c='evbPortMode'
-_b='evbSAPServiceId'
-_a='evbSAPServiceType'
-_Z='evbSAPPortId'
-_Y='evbSAPEncapValue'
-_X='evbDefaultType'
-_W='evbPortAutoMode'
-_V='read-create'
-_U='evbVSIVlanID'
-_T='evbVSIID'
-_S='evbVSIPortNumber'
-_R='undefined'
-_Q='read-write'
-_P='2011-07-11 00:00'
-_O='RowStatus'
-_N='ieee8021BridgeEvbVSIVlanId'
-_M='ieee8021BridgeEvbVSITypeVersion'
-_L='ieee8021BridgeEvbVSIMvFormat'
-_K='ieee8021BridgeEvbVSIIDType'
-_J='ieee8021BridgeEvbVSIID'
-_I='OctetString'
-_H='ieee8021BridgeEvbSbpPortNumber'
-_G='read-only'
-_F='not-accessible'
-_E='Integer32'
-_D='evbPortId'
-_C='IEEE8021-EVB-MIB'
-_B='ALCATEL-ENT1-EVB-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_I,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-softentIND1EvbMib,=mibBuilder.importSymbols('ALCATEL-ENT1-BASE','softentIND1EvbMib')
-TmnxEncapVal,TmnxPortID,TmnxServId=mibBuilder.importSymbols('ALCATEL-ENT1-TIMETRA-TC-MIB','TmnxEncapVal','TmnxPortID','TmnxServId')
-ieee8021BridgeEvbSbpPortNumber,ieee8021BridgeEvbVSIID,ieee8021BridgeEvbVSIIDType,ieee8021BridgeEvbVSIMvFormat,ieee8021BridgeEvbVSITypeVersion,ieee8021BridgeEvbVSIVlanId=mibBuilder.importSymbols(_C,_H,_J,_K,_L,_M,_N)
-IEEE8021BridgePortNumber,=mibBuilder.importSymbols('IEEE8021-TC-MIB','IEEE8021BridgePortNumber')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-VlanIndex,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress',_O,'TextualConvention')
-alcatelIND1EVBMIB=ModuleIdentity((1,3,6,1,4,1,6486,801,1,2,1,70,1))
-if mibBuilder.loadTexts:alcatelIND1EVBMIB.setRevisions((_P,_P))
-_AlcatelIND1EvbMIBObjects_ObjectIdentity=ObjectIdentity
-alcatelIND1EvbMIBObjects=_AlcatelIND1EvbMIBObjects_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,70,1,1))
-if mibBuilder.loadTexts:alcatelIND1EvbMIBObjects.setStatus(_A)
-_EvbMIBNotifications_ObjectIdentity=ObjectIdentity
-evbMIBNotifications=_EvbMIBNotifications_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,0))
-_EvbMIBScalarObjects_ObjectIdentity=ObjectIdentity
-evbMIBScalarObjects=_EvbMIBScalarObjects_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,1))
-class _EvbPortAutoMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disable',0),('enable',1)))
-_EvbPortAutoMode_Type.__name__=_E
-_EvbPortAutoMode_Object=MibScalar
-evbPortAutoMode=_EvbPortAutoMode_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,1,1),_EvbPortAutoMode_Type())
-evbPortAutoMode.setMaxAccess(_Q)
-if mibBuilder.loadTexts:evbPortAutoMode.setStatus(_A)
-class _EvbDefaultType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_R,0),('vlanBridging',1),('serviceAccess',2)))
-_EvbDefaultType_Type.__name__=_E
-_EvbDefaultType_Object=MibScalar
-evbDefaultType=_EvbDefaultType_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,1,2),_EvbDefaultType_Type())
-evbDefaultType.setMaxAccess(_Q)
-if mibBuilder.loadTexts:evbDefaultType.setStatus(_A)
-_EvbSapMIB_ObjectIdentity=ObjectIdentity
-evbSapMIB=_EvbSapMIB_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,2))
-_EvbVSISAPTable_Object=MibTable
-evbVSISAPTable=_EvbVSISAPTable_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,2,1))
-if mibBuilder.loadTexts:evbVSISAPTable.setStatus(_A)
-_EvbVSISAPEntry_Object=MibTableRow
-evbVSISAPEntry=_EvbVSISAPEntry_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,2,1,1))
-evbVSISAPEntry.setIndexNames((0,_B,_S),(0,_B,_T),(0,_B,_U))
-if mibBuilder.loadTexts:evbVSISAPEntry.setStatus(_A)
-_EvbVSIPortNumber_Type=IEEE8021BridgePortNumber
-_EvbVSIPortNumber_Object=MibTableColumn
-evbVSIPortNumber=_EvbVSIPortNumber_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,2,1,1,1),_EvbVSIPortNumber_Type())
-evbVSIPortNumber.setMaxAccess(_F)
-if mibBuilder.loadTexts:evbVSIPortNumber.setStatus(_A)
-class _EvbVSIID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
-_EvbVSIID_Type.__name__=_I
-_EvbVSIID_Object=MibTableColumn
-evbVSIID=_EvbVSIID_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,2,1,1,2),_EvbVSIID_Type())
-evbVSIID.setMaxAccess(_F)
-if mibBuilder.loadTexts:evbVSIID.setStatus(_A)
-_EvbVSIVlanID_Type=VlanIndex
-_EvbVSIVlanID_Object=MibTableColumn
-evbVSIVlanID=_EvbVSIVlanID_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,2,1,1,3),_EvbVSIVlanID_Type())
-evbVSIVlanID.setMaxAccess(_F)
-if mibBuilder.loadTexts:evbVSIVlanID.setStatus(_A)
-_EvbSAPPortId_Type=TmnxPortID
-_EvbSAPPortId_Object=MibTableColumn
-evbSAPPortId=_EvbSAPPortId_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,2,1,1,4),_EvbSAPPortId_Type())
-evbSAPPortId.setMaxAccess(_G)
-if mibBuilder.loadTexts:evbSAPPortId.setStatus(_A)
-class _EvbSAPServiceType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('spb',1),('vpls',2)))
-_EvbSAPServiceType_Type.__name__=_E
-_EvbSAPServiceType_Object=MibTableColumn
-evbSAPServiceType=_EvbSAPServiceType_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,2,1,1,5),_EvbSAPServiceType_Type())
-evbSAPServiceType.setMaxAccess(_G)
-if mibBuilder.loadTexts:evbSAPServiceType.setStatus(_A)
-_EvbSAPEncapValue_Type=TmnxEncapVal
-_EvbSAPEncapValue_Object=MibTableColumn
-evbSAPEncapValue=_EvbSAPEncapValue_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,2,1,1,6),_EvbSAPEncapValue_Type())
-evbSAPEncapValue.setMaxAccess(_G)
-if mibBuilder.loadTexts:evbSAPEncapValue.setStatus(_A)
-_EvbSAPServiceId_Type=TmnxServId
-_EvbSAPServiceId_Object=MibTableColumn
-evbSAPServiceId=_EvbSAPServiceId_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,2,1,1,7),_EvbSAPServiceId_Type())
-evbSAPServiceId.setMaxAccess(_G)
-if mibBuilder.loadTexts:evbSAPServiceId.setStatus(_A)
-_EvbPortModeTable_Object=MibTable
-evbPortModeTable=_EvbPortModeTable_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,2,2))
-if mibBuilder.loadTexts:evbPortModeTable.setStatus(_A)
-_EvbPortModeEntry_Object=MibTableRow
-evbPortModeEntry=_EvbPortModeEntry_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,2,2,1))
-evbPortModeEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:evbPortModeEntry.setStatus(_A)
-_EvbPortId_Type=InterfaceIndex
-_EvbPortId_Object=MibTableColumn
-evbPortId=_EvbPortId_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,2,2,1,1),_EvbPortId_Type())
-evbPortId.setMaxAccess(_F)
-if mibBuilder.loadTexts:evbPortId.setStatus(_A)
-class _EvbPortMode_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_R,0),('vlan',1),('access',2)))
-_EvbPortMode_Type.__name__=_E
-_EvbPortMode_Object=MibTableColumn
-evbPortMode=_EvbPortMode_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,2,2,1,2),_EvbPortMode_Type())
-evbPortMode.setMaxAccess(_V)
-if mibBuilder.loadTexts:evbPortMode.setStatus(_A)
-class _EvbRowStatus_Type(RowStatus):defaultValue=2
-_EvbRowStatus_Type.__name__=_O
-_EvbRowStatus_Object=MibTableColumn
-evbRowStatus=_EvbRowStatus_Object((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,2,2,1,3),_EvbRowStatus_Type())
-evbRowStatus.setMaxAccess(_V)
-if mibBuilder.loadTexts:evbRowStatus.setStatus(_A)
-_AlcatelIND1EvbMIBConformance_ObjectIdentity=ObjectIdentity
-alcatelIND1EvbMIBConformance=_AlcatelIND1EvbMIBConformance_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,70,1,2))
-if mibBuilder.loadTexts:alcatelIND1EvbMIBConformance.setStatus(_A)
-_AlcatelIND1EvbMIBGroups_ObjectIdentity=ObjectIdentity
-alcatelIND1EvbMIBGroups=_AlcatelIND1EvbMIBGroups_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,70,1,2,1))
-if mibBuilder.loadTexts:alcatelIND1EvbMIBGroups.setStatus(_A)
-_AlcatelIND1EvbMIBCompliances_ObjectIdentity=ObjectIdentity
-alcatelIND1EvbMIBCompliances=_AlcatelIND1EvbMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,70,1,2,2))
-if mibBuilder.loadTexts:alcatelIND1EvbMIBCompliances.setStatus(_A)
-alaEvbModuleGroup=ObjectGroup((1,3,6,1,4,1,6486,801,1,2,1,70,1,2,1,1))
-alaEvbModuleGroup.setObjects(*((_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d)))
-if mibBuilder.loadTexts:alaEvbModuleGroup.setStatus(_A)
-evbFailedCdcpTlvTrap=NotificationType((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,0,1))
-evbFailedCdcpTlvTrap.setObjects((_B,_D))
-if mibBuilder.loadTexts:evbFailedCdcpTlvTrap.setStatus(_A)
-evbFailedEvbTlvTrap=NotificationType((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,0,2))
-evbFailedEvbTlvTrap.setObjects(*((_B,_D),(_C,_N)))
-if mibBuilder.loadTexts:evbFailedEvbTlvTrap.setStatus(_A)
-evbUnknownVsiManagerTrap=NotificationType((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,0,3))
-evbUnknownVsiManagerTrap.setObjects(*((_B,_D),(_C,_H)))
-if mibBuilder.loadTexts:evbUnknownVsiManagerTrap.setStatus(_A)
-evbVdpAssocTlvTrap=NotificationType((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,0,4))
-evbVdpAssocTlvTrap.setObjects(*((_B,_D),(_C,_H),(_C,_J),(_C,_K),(_C,_M),(_C,_L)))
-if mibBuilder.loadTexts:evbVdpAssocTlvTrap.setStatus(_A)
-evbCdcpLldpExpiredTrap=NotificationType((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,0,5))
-if mibBuilder.loadTexts:evbCdcpLldpExpiredTrap.setStatus(_A)
-evbTlvExpiredTrap=NotificationType((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,0,6))
-if mibBuilder.loadTexts:evbTlvExpiredTrap.setStatus(_A)
-evbVdpKeepaliveExpiredTrap=NotificationType((1,3,6,1,4,1,6486,801,1,2,1,70,1,1,0,7))
-if mibBuilder.loadTexts:evbVdpKeepaliveExpiredTrap.setStatus(_A)
-alaEvbNotificationsGroup=NotificationGroup((1,3,6,1,4,1,6486,801,1,2,1,70,1,2,1,2))
-alaEvbNotificationsGroup.setObjects(*((_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k)))
-if mibBuilder.loadTexts:alaEvbNotificationsGroup.setStatus(_A)
-alcatelIND1EvbMIBCompliance=ModuleCompliance((1,3,6,1,4,1,6486,801,1,2,1,70,1,2,2,1))
-alcatelIND1EvbMIBCompliance.setObjects((_B,_l))
-if mibBuilder.loadTexts:alcatelIND1EvbMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'alcatelIND1EVBMIB':alcatelIND1EVBMIB,'alcatelIND1EvbMIBObjects':alcatelIND1EvbMIBObjects,'evbMIBNotifications':evbMIBNotifications,_f:evbFailedCdcpTlvTrap,_e:evbFailedEvbTlvTrap,_j:evbUnknownVsiManagerTrap,_g:evbVdpAssocTlvTrap,_h:evbCdcpLldpExpiredTrap,_i:evbTlvExpiredTrap,_k:evbVdpKeepaliveExpiredTrap,'evbMIBScalarObjects':evbMIBScalarObjects,_W:evbPortAutoMode,_X:evbDefaultType,'evbSapMIB':evbSapMIB,'evbVSISAPTable':evbVSISAPTable,'evbVSISAPEntry':evbVSISAPEntry,_S:evbVSIPortNumber,_T:evbVSIID,_U:evbVSIVlanID,_Z:evbSAPPortId,_a:evbSAPServiceType,_Y:evbSAPEncapValue,_b:evbSAPServiceId,'evbPortModeTable':evbPortModeTable,'evbPortModeEntry':evbPortModeEntry,_D:evbPortId,_c:evbPortMode,_d:evbRowStatus,'alcatelIND1EvbMIBConformance':alcatelIND1EvbMIBConformance,'alcatelIND1EvbMIBGroups':alcatelIND1EvbMIBGroups,_l:alaEvbModuleGroup,'alaEvbNotificationsGroup':alaEvbNotificationsGroup,'alcatelIND1EvbMIBCompliances':alcatelIND1EvbMIBCompliances,'alcatelIND1EvbMIBCompliance':alcatelIND1EvbMIBCompliance})
+#
+# PySNMP MIB module ALCATEL-ENT1-EVB-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel-ent1/ALCATEL-ENT1-EVB-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:51 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+softentIND1EvbMib, = mibBuilder.importSymbols("ALCATEL-ENT1-BASE", "softentIND1EvbMib")
+TmnxPortID, TmnxEncapVal, TmnxServId = mibBuilder.importSymbols("ALCATEL-ENT1-TIMETRA-TC-MIB", "TmnxPortID", "TmnxEncapVal", "TmnxServId")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ieee8021BridgeEvbSbpPortNumber, ieee8021BridgeEvbVSIMvFormat, ieee8021BridgeEvbVSIVlanId, ieee8021BridgeEvbVSIID, ieee8021BridgeEvbVSIIDType, ieee8021BridgeEvbVSITypeVersion = mibBuilder.importSymbols("IEEE8021-EVB-MIB", "ieee8021BridgeEvbSbpPortNumber", "ieee8021BridgeEvbVSIMvFormat", "ieee8021BridgeEvbVSIVlanId", "ieee8021BridgeEvbVSIID", "ieee8021BridgeEvbVSIIDType", "ieee8021BridgeEvbVSITypeVersion")
+IEEE8021BridgePortNumber, = mibBuilder.importSymbols("IEEE8021-TC-MIB", "IEEE8021BridgePortNumber")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+VlanIndex, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+alcatelIND1EVBMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1))
+alcatelIND1EVBMIB.setRevisions(('2011-07-11 00:00', '2011-07-11 00:00',))
+if mibBuilder.loadTexts: alcatelIND1EVBMIB.setLastUpdated('201107110000Z')
+if mibBuilder.loadTexts: alcatelIND1EVBMIB.setOrganization('Alcatel-Lucent')
+alcatelIND1EvbMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1))
+if mibBuilder.loadTexts: alcatelIND1EvbMIBObjects.setStatus('current')
+evbMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 0))
+evbMIBScalarObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 1))
+evbPortAutoMode = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: evbPortAutoMode.setStatus('current')
+evbDefaultType = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("undefined", 0), ("vlanBridging", 1), ("serviceAccess", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: evbDefaultType.setStatus('current')
+evbSapMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 2))
+evbVSISAPTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 2, 1), )
+if mibBuilder.loadTexts: evbVSISAPTable.setStatus('current')
+evbVSISAPEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 2, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-EVB-MIB", "evbVSIPortNumber"), (0, "ALCATEL-ENT1-EVB-MIB", "evbVSIID"), (0, "ALCATEL-ENT1-EVB-MIB", "evbVSIVlanID"))
+if mibBuilder.loadTexts: evbVSISAPEntry.setStatus('current')
+evbVSIPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 2, 1, 1, 1), IEEE8021BridgePortNumber())
+if mibBuilder.loadTexts: evbVSIPortNumber.setStatus('current')
+evbVSIID = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 2, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16))
+if mibBuilder.loadTexts: evbVSIID.setStatus('current')
+evbVSIVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 2, 1, 1, 3), VlanIndex())
+if mibBuilder.loadTexts: evbVSIVlanID.setStatus('current')
+evbSAPPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 2, 1, 1, 4), TmnxPortID()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evbSAPPortId.setStatus('current')
+evbSAPServiceType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("spb", 1), ("vpls", 2))).clone('spb')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evbSAPServiceType.setStatus('current')
+evbSAPEncapValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 2, 1, 1, 6), TmnxEncapVal()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evbSAPEncapValue.setStatus('current')
+evbSAPServiceId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 2, 1, 1, 7), TmnxServId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evbSAPServiceId.setStatus('current')
+evbPortModeTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 2, 2), )
+if mibBuilder.loadTexts: evbPortModeTable.setStatus('current')
+evbPortModeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 2, 2, 1), ).setIndexNames((0, "ALCATEL-ENT1-EVB-MIB", "evbPortId"))
+if mibBuilder.loadTexts: evbPortModeEntry.setStatus('current')
+evbPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 2, 2, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: evbPortId.setStatus('current')
+evbPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("undefined", 0), ("vlan", 1), ("access", 2))).clone('undefined')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: evbPortMode.setStatus('current')
+evbRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 2, 2, 1, 3), RowStatus().clone('notInService')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: evbRowStatus.setStatus('current')
+alcatelIND1EvbMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 2))
+if mibBuilder.loadTexts: alcatelIND1EvbMIBConformance.setStatus('current')
+alcatelIND1EvbMIBGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 2, 1))
+if mibBuilder.loadTexts: alcatelIND1EvbMIBGroups.setStatus('current')
+alcatelIND1EvbMIBCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 2, 2))
+if mibBuilder.loadTexts: alcatelIND1EvbMIBCompliances.setStatus('current')
+evbFailedCdcpTlvTrap = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 0, 1)).setObjects(("ALCATEL-ENT1-EVB-MIB", "evbPortId"))
+if mibBuilder.loadTexts: evbFailedCdcpTlvTrap.setStatus('current')
+evbFailedEvbTlvTrap = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 0, 2)).setObjects(("ALCATEL-ENT1-EVB-MIB", "evbPortId"), ("IEEE8021-EVB-MIB", "ieee8021BridgeEvbVSIVlanId"))
+if mibBuilder.loadTexts: evbFailedEvbTlvTrap.setStatus('current')
+evbUnknownVsiManagerTrap = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 0, 3)).setObjects(("ALCATEL-ENT1-EVB-MIB", "evbPortId"), ("IEEE8021-EVB-MIB", "ieee8021BridgeEvbSbpPortNumber"))
+if mibBuilder.loadTexts: evbUnknownVsiManagerTrap.setStatus('current')
+evbVdpAssocTlvTrap = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 0, 4)).setObjects(("ALCATEL-ENT1-EVB-MIB", "evbPortId"), ("IEEE8021-EVB-MIB", "ieee8021BridgeEvbSbpPortNumber"), ("IEEE8021-EVB-MIB", "ieee8021BridgeEvbVSIID"), ("IEEE8021-EVB-MIB", "ieee8021BridgeEvbVSIIDType"), ("IEEE8021-EVB-MIB", "ieee8021BridgeEvbVSITypeVersion"), ("IEEE8021-EVB-MIB", "ieee8021BridgeEvbVSIMvFormat"))
+if mibBuilder.loadTexts: evbVdpAssocTlvTrap.setStatus('current')
+evbCdcpLldpExpiredTrap = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 0, 5))
+if mibBuilder.loadTexts: evbCdcpLldpExpiredTrap.setStatus('current')
+evbTlvExpiredTrap = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 0, 6))
+if mibBuilder.loadTexts: evbTlvExpiredTrap.setStatus('current')
+evbVdpKeepaliveExpiredTrap = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 1, 0, 7))
+if mibBuilder.loadTexts: evbVdpKeepaliveExpiredTrap.setStatus('current')
+alcatelIND1EvbMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 2, 2, 1)).setObjects(("ALCATEL-ENT1-EVB-MIB", "alaEvbModuleGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alcatelIND1EvbMIBCompliance = alcatelIND1EvbMIBCompliance.setStatus('current')
+alaEvbModuleGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 2, 1, 1)).setObjects(("ALCATEL-ENT1-EVB-MIB", "evbPortAutoMode"), ("ALCATEL-ENT1-EVB-MIB", "evbDefaultType"), ("ALCATEL-ENT1-EVB-MIB", "evbSAPEncapValue"), ("ALCATEL-ENT1-EVB-MIB", "evbSAPPortId"), ("ALCATEL-ENT1-EVB-MIB", "evbSAPServiceType"), ("ALCATEL-ENT1-EVB-MIB", "evbSAPServiceId"), ("ALCATEL-ENT1-EVB-MIB", "evbPortMode"), ("ALCATEL-ENT1-EVB-MIB", "evbRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaEvbModuleGroup = alaEvbModuleGroup.setStatus('current')
+alaEvbNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 70, 1, 2, 1, 2)).setObjects(("ALCATEL-ENT1-EVB-MIB", "evbFailedEvbTlvTrap"), ("ALCATEL-ENT1-EVB-MIB", "evbFailedCdcpTlvTrap"), ("ALCATEL-ENT1-EVB-MIB", "evbVdpAssocTlvTrap"), ("ALCATEL-ENT1-EVB-MIB", "evbCdcpLldpExpiredTrap"), ("ALCATEL-ENT1-EVB-MIB", "evbTlvExpiredTrap"), ("ALCATEL-ENT1-EVB-MIB", "evbUnknownVsiManagerTrap"), ("ALCATEL-ENT1-EVB-MIB", "evbVdpKeepaliveExpiredTrap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaEvbNotificationsGroup = alaEvbNotificationsGroup.setStatus('current')
+mibBuilder.exportSymbols("ALCATEL-ENT1-EVB-MIB", evbMIBNotifications=evbMIBNotifications, evbVSIID=evbVSIID, evbCdcpLldpExpiredTrap=evbCdcpLldpExpiredTrap, evbMIBScalarObjects=evbMIBScalarObjects, evbVdpKeepaliveExpiredTrap=evbVdpKeepaliveExpiredTrap, evbVSIPortNumber=evbVSIPortNumber, evbSAPServiceId=evbSAPServiceId, alcatelIND1EVBMIB=alcatelIND1EVBMIB, evbSAPEncapValue=evbSAPEncapValue, evbSAPPortId=evbSAPPortId, alcatelIND1EvbMIBConformance=alcatelIND1EvbMIBConformance, evbUnknownVsiManagerTrap=evbUnknownVsiManagerTrap, evbFailedCdcpTlvTrap=evbFailedCdcpTlvTrap, evbPortMode=evbPortMode, evbDefaultType=evbDefaultType, evbVdpAssocTlvTrap=evbVdpAssocTlvTrap, evbPortModeTable=evbPortModeTable, evbVSISAPTable=evbVSISAPTable, alcatelIND1EvbMIBCompliance=alcatelIND1EvbMIBCompliance, evbTlvExpiredTrap=evbTlvExpiredTrap, evbVSISAPEntry=evbVSISAPEntry, alaEvbNotificationsGroup=alaEvbNotificationsGroup, alcatelIND1EvbMIBObjects=alcatelIND1EvbMIBObjects, alaEvbModuleGroup=alaEvbModuleGroup, evbSapMIB=evbSapMIB, alcatelIND1EvbMIBCompliances=alcatelIND1EvbMIBCompliances, alcatelIND1EvbMIBGroups=alcatelIND1EvbMIBGroups, evbPortModeEntry=evbPortModeEntry, evbPortId=evbPortId, evbFailedEvbTlvTrap=evbFailedEvbTlvTrap, evbVSIVlanID=evbVSIVlanID, PYSNMP_MODULE_ID=alcatelIND1EVBMIB, evbSAPServiceType=evbSAPServiceType, evbRowStatus=evbRowStatus, evbPortAutoMode=evbPortAutoMode)

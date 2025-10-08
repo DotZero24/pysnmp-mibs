@@ -1,174 +1,78 @@
-_b='altigaPPPoEStatsGroup'
-_a='alPPPoEStatsIfRelaySessID'
-_Z='alPPPoEStatsIfHostUnique'
-_Y='alPPPoEStatsIfACCookie'
-_X='alPPPoEStatsIfPeerName'
-_W='alPPPoEStatsIfDuration'
-_V='alPPPoEStatsIfConnectTime'
-_U='alPPPoEStatsIfType'
-_T='alPPPoEStatsIfVersion'
-_S='alPPPoEStatsIfSessionState'
-_R='alPPPoEStatsIfPeerAddr'
-_Q='alPPPoEStatsIfSessionID'
-_P='alPPPoEStatsIfMultPADORx'
-_O='alPPPoEStatsIfPADRTimeouts'
-_N='alPPPoEStatsIfPADITimeouts'
-_M='alPPPoEStatsIfMalformedPacketsRx'
-_L='alPPPoEStatsIfGenericErrorsRx'
-_K='alPPPoEStatsIfPADTTx'
-_J='alPPPoEStatsIfPADTRx'
-_I='alPPPoEStatsMaxSessions'
-_H='alPPPoEStatsTotalSessions'
-_G='alPPPoEStatsActiveSessions'
-_F='alPPPoEStatsIfIndex'
-_E='Integer32'
-_D='OctetString'
-_C='read-only'
-_B='ALTIGA-PPPOE-STATS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-alPPPoEMibModule,=mibBuilder.importSymbols('ALTIGA-GLOBAL-REG','alPPPoEMibModule')
-alPPPoEGroup,alStatsPPPoE=mibBuilder.importSymbols('ALTIGA-MIB','alPPPoEGroup','alStatsPPPoE')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-altigaPPPoEStatsMibModule=ModuleIdentity((1,3,6,1,4,1,3076,1,1,45,2))
-if mibBuilder.loadTexts:altigaPPPoEStatsMibModule.setRevisions(('2007-07-11 00:00','2002-09-05 13:00','2002-07-10 00:00'))
-_AltigaPPPoEStatsMibConformance_ObjectIdentity=ObjectIdentity
-altigaPPPoEStatsMibConformance=_AltigaPPPoEStatsMibConformance_ObjectIdentity((1,3,6,1,4,1,3076,1,1,45,2,1))
-_AltigaPPPoEStatsMibCompliances_ObjectIdentity=ObjectIdentity
-altigaPPPoEStatsMibCompliances=_AltigaPPPoEStatsMibCompliances_ObjectIdentity((1,3,6,1,4,1,3076,1,1,45,2,1,1))
-_AlStatsPPPoEGlobal_ObjectIdentity=ObjectIdentity
-alStatsPPPoEGlobal=_AlStatsPPPoEGlobal_ObjectIdentity((1,3,6,1,4,1,3076,2,1,2,40,1))
-_AlPPPoEStatsActiveSessions_Type=Gauge32
-_AlPPPoEStatsActiveSessions_Object=MibScalar
-alPPPoEStatsActiveSessions=_AlPPPoEStatsActiveSessions_Object((1,3,6,1,4,1,3076,2,1,2,40,1,1),_AlPPPoEStatsActiveSessions_Type())
-alPPPoEStatsActiveSessions.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsActiveSessions.setStatus(_A)
-_AlPPPoEStatsTotalSessions_Type=Counter32
-_AlPPPoEStatsTotalSessions_Object=MibScalar
-alPPPoEStatsTotalSessions=_AlPPPoEStatsTotalSessions_Object((1,3,6,1,4,1,3076,2,1,2,40,1,2),_AlPPPoEStatsTotalSessions_Type())
-alPPPoEStatsTotalSessions.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsTotalSessions.setStatus(_A)
-_AlPPPoEStatsMaxSessions_Type=Counter32
-_AlPPPoEStatsMaxSessions_Object=MibScalar
-alPPPoEStatsMaxSessions=_AlPPPoEStatsMaxSessions_Object((1,3,6,1,4,1,3076,2,1,2,40,1,3),_AlPPPoEStatsMaxSessions_Type())
-alPPPoEStatsMaxSessions.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsMaxSessions.setStatus(_A)
-_AlPPPoEStatsIfTable_Object=MibTable
-alPPPoEStatsIfTable=_AlPPPoEStatsIfTable_Object((1,3,6,1,4,1,3076,2,1,2,40,2))
-if mibBuilder.loadTexts:alPPPoEStatsIfTable.setStatus(_A)
-_AlPPPoEStatsIfEntry_Object=MibTableRow
-alPPPoEStatsIfEntry=_AlPPPoEStatsIfEntry_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1))
-alPPPoEStatsIfEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:alPPPoEStatsIfEntry.setStatus(_A)
-class _AlPPPoEStatsIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_AlPPPoEStatsIfIndex_Type.__name__=_E
-_AlPPPoEStatsIfIndex_Object=MibTableColumn
-alPPPoEStatsIfIndex=_AlPPPoEStatsIfIndex_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,1),_AlPPPoEStatsIfIndex_Type())
-alPPPoEStatsIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfIndex.setStatus(_A)
-_AlPPPoEStatsIfPADTRx_Type=Counter32
-_AlPPPoEStatsIfPADTRx_Object=MibTableColumn
-alPPPoEStatsIfPADTRx=_AlPPPoEStatsIfPADTRx_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,2),_AlPPPoEStatsIfPADTRx_Type())
-alPPPoEStatsIfPADTRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfPADTRx.setStatus(_A)
-_AlPPPoEStatsIfPADTTx_Type=Counter32
-_AlPPPoEStatsIfPADTTx_Object=MibTableColumn
-alPPPoEStatsIfPADTTx=_AlPPPoEStatsIfPADTTx_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,3),_AlPPPoEStatsIfPADTTx_Type())
-alPPPoEStatsIfPADTTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfPADTTx.setStatus(_A)
-_AlPPPoEStatsIfGenericErrorsRx_Type=Counter32
-_AlPPPoEStatsIfGenericErrorsRx_Object=MibTableColumn
-alPPPoEStatsIfGenericErrorsRx=_AlPPPoEStatsIfGenericErrorsRx_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,4),_AlPPPoEStatsIfGenericErrorsRx_Type())
-alPPPoEStatsIfGenericErrorsRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfGenericErrorsRx.setStatus(_A)
-_AlPPPoEStatsIfMalformedPacketsRx_Type=Counter32
-_AlPPPoEStatsIfMalformedPacketsRx_Object=MibTableColumn
-alPPPoEStatsIfMalformedPacketsRx=_AlPPPoEStatsIfMalformedPacketsRx_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,5),_AlPPPoEStatsIfMalformedPacketsRx_Type())
-alPPPoEStatsIfMalformedPacketsRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfMalformedPacketsRx.setStatus(_A)
-_AlPPPoEStatsIfPADITimeouts_Type=Counter32
-_AlPPPoEStatsIfPADITimeouts_Object=MibTableColumn
-alPPPoEStatsIfPADITimeouts=_AlPPPoEStatsIfPADITimeouts_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,6),_AlPPPoEStatsIfPADITimeouts_Type())
-alPPPoEStatsIfPADITimeouts.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfPADITimeouts.setStatus(_A)
-_AlPPPoEStatsIfPADRTimeouts_Type=Counter32
-_AlPPPoEStatsIfPADRTimeouts_Object=MibTableColumn
-alPPPoEStatsIfPADRTimeouts=_AlPPPoEStatsIfPADRTimeouts_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,7),_AlPPPoEStatsIfPADRTimeouts_Type())
-alPPPoEStatsIfPADRTimeouts.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfPADRTimeouts.setStatus(_A)
-_AlPPPoEStatsIfMultPADORx_Type=Counter32
-_AlPPPoEStatsIfMultPADORx_Object=MibTableColumn
-alPPPoEStatsIfMultPADORx=_AlPPPoEStatsIfMultPADORx_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,8),_AlPPPoEStatsIfMultPADORx_Type())
-alPPPoEStatsIfMultPADORx.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfMultPADORx.setStatus(_A)
-_AlPPPoEStatsIfSessionID_Type=Integer32
-_AlPPPoEStatsIfSessionID_Object=MibTableColumn
-alPPPoEStatsIfSessionID=_AlPPPoEStatsIfSessionID_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,9),_AlPPPoEStatsIfSessionID_Type())
-alPPPoEStatsIfSessionID.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfSessionID.setStatus(_A)
-_AlPPPoEStatsIfPeerAddr_Type=MacAddress
-_AlPPPoEStatsIfPeerAddr_Object=MibTableColumn
-alPPPoEStatsIfPeerAddr=_AlPPPoEStatsIfPeerAddr_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,10),_AlPPPoEStatsIfPeerAddr_Type())
-alPPPoEStatsIfPeerAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfPeerAddr.setStatus(_A)
-class _AlPPPoEStatsIfSessionState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*(('noState',1),('pADISent',2),('pADIRcvd',3),('pADOSent',4),('pADORcvd',5),('pADRSent',6),('pADRRcvd',7),('pADSSent',8),('pADSRcvd',9),('sessionStage',10)))
-_AlPPPoEStatsIfSessionState_Type.__name__=_E
-_AlPPPoEStatsIfSessionState_Object=MibTableColumn
-alPPPoEStatsIfSessionState=_AlPPPoEStatsIfSessionState_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,11),_AlPPPoEStatsIfSessionState_Type())
-alPPPoEStatsIfSessionState.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfSessionState.setStatus(_A)
-_AlPPPoEStatsIfVersion_Type=Integer32
-_AlPPPoEStatsIfVersion_Object=MibTableColumn
-alPPPoEStatsIfVersion=_AlPPPoEStatsIfVersion_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,12),_AlPPPoEStatsIfVersion_Type())
-alPPPoEStatsIfVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfVersion.setStatus(_A)
-_AlPPPoEStatsIfType_Type=Integer32
-_AlPPPoEStatsIfType_Object=MibTableColumn
-alPPPoEStatsIfType=_AlPPPoEStatsIfType_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,13),_AlPPPoEStatsIfType_Type())
-alPPPoEStatsIfType.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfType.setStatus(_A)
-_AlPPPoEStatsIfConnectTime_Type=Unsigned32
-_AlPPPoEStatsIfConnectTime_Object=MibTableColumn
-alPPPoEStatsIfConnectTime=_AlPPPoEStatsIfConnectTime_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,14),_AlPPPoEStatsIfConnectTime_Type())
-alPPPoEStatsIfConnectTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfConnectTime.setStatus(_A)
-_AlPPPoEStatsIfDuration_Type=Unsigned32
-_AlPPPoEStatsIfDuration_Object=MibTableColumn
-alPPPoEStatsIfDuration=_AlPPPoEStatsIfDuration_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,15),_AlPPPoEStatsIfDuration_Type())
-alPPPoEStatsIfDuration.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfDuration.setStatus(_A)
-_AlPPPoEStatsIfPeerName_Type=DisplayString
-_AlPPPoEStatsIfPeerName_Object=MibTableColumn
-alPPPoEStatsIfPeerName=_AlPPPoEStatsIfPeerName_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,16),_AlPPPoEStatsIfPeerName_Type())
-alPPPoEStatsIfPeerName.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfPeerName.setStatus(_A)
-class _AlPPPoEStatsIfACCookie_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_AlPPPoEStatsIfACCookie_Type.__name__=_D
-_AlPPPoEStatsIfACCookie_Object=MibTableColumn
-alPPPoEStatsIfACCookie=_AlPPPoEStatsIfACCookie_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,17),_AlPPPoEStatsIfACCookie_Type())
-alPPPoEStatsIfACCookie.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfACCookie.setStatus(_A)
-class _AlPPPoEStatsIfHostUnique_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
-_AlPPPoEStatsIfHostUnique_Type.__name__=_D
-_AlPPPoEStatsIfHostUnique_Object=MibTableColumn
-alPPPoEStatsIfHostUnique=_AlPPPoEStatsIfHostUnique_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,18),_AlPPPoEStatsIfHostUnique_Type())
-alPPPoEStatsIfHostUnique.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfHostUnique.setStatus(_A)
-class _AlPPPoEStatsIfRelaySessID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
-_AlPPPoEStatsIfRelaySessID_Type.__name__=_D
-_AlPPPoEStatsIfRelaySessID_Object=MibTableColumn
-alPPPoEStatsIfRelaySessID=_AlPPPoEStatsIfRelaySessID_Object((1,3,6,1,4,1,3076,2,1,2,40,2,1,19),_AlPPPoEStatsIfRelaySessID_Type())
-alPPPoEStatsIfRelaySessID.setMaxAccess(_C)
-if mibBuilder.loadTexts:alPPPoEStatsIfRelaySessID.setStatus(_A)
-altigaPPPoEStatsGroup=ObjectGroup((1,3,6,1,4,1,3076,2,1,1,1,40,2))
-altigaPPPoEStatsGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_F),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a)))
-if mibBuilder.loadTexts:altigaPPPoEStatsGroup.setStatus(_A)
-altigaPPPoEStatsMibCompliance=ModuleCompliance((1,3,6,1,4,1,3076,1,1,45,2,1,1,1))
-altigaPPPoEStatsMibCompliance.setObjects((_B,_b))
-if mibBuilder.loadTexts:altigaPPPoEStatsMibCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'altigaPPPoEStatsMibModule':altigaPPPoEStatsMibModule,'altigaPPPoEStatsMibConformance':altigaPPPoEStatsMibConformance,'altigaPPPoEStatsMibCompliances':altigaPPPoEStatsMibCompliances,'altigaPPPoEStatsMibCompliance':altigaPPPoEStatsMibCompliance,_b:altigaPPPoEStatsGroup,'alStatsPPPoEGlobal':alStatsPPPoEGlobal,_G:alPPPoEStatsActiveSessions,_H:alPPPoEStatsTotalSessions,_I:alPPPoEStatsMaxSessions,'alPPPoEStatsIfTable':alPPPoEStatsIfTable,'alPPPoEStatsIfEntry':alPPPoEStatsIfEntry,_F:alPPPoEStatsIfIndex,_J:alPPPoEStatsIfPADTRx,_K:alPPPoEStatsIfPADTTx,_L:alPPPoEStatsIfGenericErrorsRx,_M:alPPPoEStatsIfMalformedPacketsRx,_N:alPPPoEStatsIfPADITimeouts,_O:alPPPoEStatsIfPADRTimeouts,_P:alPPPoEStatsIfMultPADORx,_Q:alPPPoEStatsIfSessionID,_R:alPPPoEStatsIfPeerAddr,_S:alPPPoEStatsIfSessionState,_T:alPPPoEStatsIfVersion,_U:alPPPoEStatsIfType,_V:alPPPoEStatsIfConnectTime,_W:alPPPoEStatsIfDuration,_X:alPPPoEStatsIfPeerName,_Y:alPPPoEStatsIfACCookie,_Z:alPPPoEStatsIfHostUnique,_a:alPPPoEStatsIfRelaySessID})
+#
+# PySNMP MIB module ALTIGA-PPPOE-STATS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/ALTIGA-PPPOE-STATS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:42 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+alPPPoEMibModule, = mibBuilder.importSymbols("ALTIGA-GLOBAL-REG", "alPPPoEMibModule")
+alStatsPPPoE, alPPPoEGroup = mibBuilder.importSymbols("ALTIGA-MIB", "alStatsPPPoE", "alPPPoEGroup")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+altigaPPPoEStatsMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3076, 1, 1, 45, 2))
+altigaPPPoEStatsMibModule.setRevisions(('2007-07-11 00:00', '2002-09-05 13:00', '2002-07-10 00:00',))
+if mibBuilder.loadTexts: altigaPPPoEStatsMibModule.setLastUpdated('200707110000Z')
+if mibBuilder.loadTexts: altigaPPPoEStatsMibModule.setOrganization('Cisco Systems, Inc.')
+alStatsPPPoEGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 1))
+alPPPoEStatsActiveSessions = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 1, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsActiveSessions.setStatus('current')
+alPPPoEStatsTotalSessions = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsTotalSessions.setStatus('current')
+alPPPoEStatsMaxSessions = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsMaxSessions.setStatus('current')
+alPPPoEStatsIfTable = MibTable((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2), )
+if mibBuilder.loadTexts: alPPPoEStatsIfTable.setStatus('current')
+alPPPoEStatsIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1), ).setIndexNames((0, "ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfIndex"))
+if mibBuilder.loadTexts: alPPPoEStatsIfEntry.setStatus('current')
+alPPPoEStatsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfIndex.setStatus('current')
+alPPPoEStatsIfPADTRx = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfPADTRx.setStatus('current')
+alPPPoEStatsIfPADTTx = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfPADTTx.setStatus('current')
+alPPPoEStatsIfGenericErrorsRx = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfGenericErrorsRx.setStatus('current')
+alPPPoEStatsIfMalformedPacketsRx = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfMalformedPacketsRx.setStatus('current')
+alPPPoEStatsIfPADITimeouts = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfPADITimeouts.setStatus('current')
+alPPPoEStatsIfPADRTimeouts = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfPADRTimeouts.setStatus('current')
+alPPPoEStatsIfMultPADORx = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfMultPADORx.setStatus('current')
+alPPPoEStatsIfSessionID = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfSessionID.setStatus('current')
+alPPPoEStatsIfPeerAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 10), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfPeerAddr.setStatus('current')
+alPPPoEStatsIfSessionState = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("noState", 1), ("pADISent", 2), ("pADIRcvd", 3), ("pADOSent", 4), ("pADORcvd", 5), ("pADRSent", 6), ("pADRRcvd", 7), ("pADSSent", 8), ("pADSRcvd", 9), ("sessionStage", 10)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfSessionState.setStatus('current')
+alPPPoEStatsIfVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfVersion.setStatus('current')
+alPPPoEStatsIfType = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfType.setStatus('current')
+alPPPoEStatsIfConnectTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 14), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfConnectTime.setStatus('current')
+alPPPoEStatsIfDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 15), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfDuration.setStatus('current')
+alPPPoEStatsIfPeerName = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 16), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfPeerName.setStatus('current')
+alPPPoEStatsIfACCookie = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 17), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfACCookie.setStatus('current')
+alPPPoEStatsIfHostUnique = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 18), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfHostUnique.setStatus('current')
+alPPPoEStatsIfRelaySessID = MibTableColumn((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 40, 2, 1, 19), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alPPPoEStatsIfRelaySessID.setStatus('current')
+altigaPPPoEStatsMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 3076, 1, 1, 45, 2, 1))
+altigaPPPoEStatsMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 3076, 1, 1, 45, 2, 1, 1))
+altigaPPPoEStatsMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 3076, 1, 1, 45, 2, 1, 1, 1)).setObjects(("ALTIGA-PPPOE-STATS-MIB", "altigaPPPoEStatsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    altigaPPPoEStatsMibCompliance = altigaPPPoEStatsMibCompliance.setStatus('current')
+altigaPPPoEStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3076, 2, 1, 1, 1, 40, 2)).setObjects(("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsActiveSessions"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsTotalSessions"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsMaxSessions"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfIndex"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfPADTRx"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfPADTTx"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfGenericErrorsRx"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfMalformedPacketsRx"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfPADITimeouts"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfPADRTimeouts"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfMultPADORx"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfSessionID"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfPeerAddr"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfSessionState"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfVersion"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfType"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfConnectTime"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfDuration"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfPeerName"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfACCookie"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfHostUnique"), ("ALTIGA-PPPOE-STATS-MIB", "alPPPoEStatsIfRelaySessID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    altigaPPPoEStatsGroup = altigaPPPoEStatsGroup.setStatus('current')
+mibBuilder.exportSymbols("ALTIGA-PPPOE-STATS-MIB", alStatsPPPoEGlobal=alStatsPPPoEGlobal, alPPPoEStatsIfType=alPPPoEStatsIfType, alPPPoEStatsIfPADRTimeouts=alPPPoEStatsIfPADRTimeouts, alPPPoEStatsIfRelaySessID=alPPPoEStatsIfRelaySessID, altigaPPPoEStatsMibModule=altigaPPPoEStatsMibModule, alPPPoEStatsIfSessionID=alPPPoEStatsIfSessionID, alPPPoEStatsIfPADTRx=alPPPoEStatsIfPADTRx, alPPPoEStatsIfEntry=alPPPoEStatsIfEntry, alPPPoEStatsIfPeerName=alPPPoEStatsIfPeerName, alPPPoEStatsIfSessionState=alPPPoEStatsIfSessionState, alPPPoEStatsMaxSessions=alPPPoEStatsMaxSessions, alPPPoEStatsIfIndex=alPPPoEStatsIfIndex, PYSNMP_MODULE_ID=altigaPPPoEStatsMibModule, alPPPoEStatsIfPADITimeouts=alPPPoEStatsIfPADITimeouts, alPPPoEStatsIfTable=alPPPoEStatsIfTable, altigaPPPoEStatsMibConformance=altigaPPPoEStatsMibConformance, alPPPoEStatsIfACCookie=alPPPoEStatsIfACCookie, altigaPPPoEStatsGroup=altigaPPPoEStatsGroup, alPPPoEStatsActiveSessions=alPPPoEStatsActiveSessions, alPPPoEStatsIfPADTTx=alPPPoEStatsIfPADTTx, alPPPoEStatsTotalSessions=alPPPoEStatsTotalSessions, altigaPPPoEStatsMibCompliance=altigaPPPoEStatsMibCompliance, alPPPoEStatsIfConnectTime=alPPPoEStatsIfConnectTime, alPPPoEStatsIfPeerAddr=alPPPoEStatsIfPeerAddr, alPPPoEStatsIfMultPADORx=alPPPoEStatsIfMultPADORx, alPPPoEStatsIfDuration=alPPPoEStatsIfDuration, altigaPPPoEStatsMibCompliances=altigaPPPoEStatsMibCompliances, alPPPoEStatsIfGenericErrorsRx=alPPPoEStatsIfGenericErrorsRx, alPPPoEStatsIfVersion=alPPPoEStatsIfVersion, alPPPoEStatsIfMalformedPacketsRx=alPPPoEStatsIfMalformedPacketsRx, alPPPoEStatsIfHostUnique=alPPPoEStatsIfHostUnique)

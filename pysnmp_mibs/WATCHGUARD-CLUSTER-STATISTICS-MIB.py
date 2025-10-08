@@ -1,93 +1,47 @@
-_I='standby'
-_H='master'
-_G='backup'
-_F='worker'
-_E='disabled'
-_D='OctetString'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-watchguard,=mibBuilder.importSymbols('WATCHGUARD-SMI','watchguard')
-wgInfoModule=ModuleIdentity((1,3,6,1,4,1,3097,6))
-if mibBuilder.loadTexts:wgInfoModule.setRevisions(('2007-01-25 12:00',))
-_WgClusterStatusMIB_ObjectIdentity=ObjectIdentity
-wgClusterStatusMIB=_WgClusterStatusMIB_ObjectIdentity((1,3,6,1,4,1,3097,6,6))
-if mibBuilder.loadTexts:wgClusterStatusMIB.setStatus(_A)
-class _WgClusterEnabled_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_E,0),('enabled',1)))
-_WgClusterEnabled_Type.__name__=_C
-_WgClusterEnabled_Object=MibScalar
-wgClusterEnabled=_WgClusterEnabled_Object((1,3,6,1,4,1,3097,6,6,1),_WgClusterEnabled_Type())
-wgClusterEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:wgClusterEnabled.setStatus(_A)
-class _WgFirstMemberId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_WgFirstMemberId_Type.__name__=_D
-_WgFirstMemberId_Object=MibScalar
-wgFirstMemberId=_WgFirstMemberId_Object((1,3,6,1,4,1,3097,6,6,2),_WgFirstMemberId_Type())
-wgFirstMemberId.setMaxAccess(_B)
-if mibBuilder.loadTexts:wgFirstMemberId.setStatus(_A)
-class _WgFirstMemberRole_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*((_E,0),(_F,1),(_G,2),(_H,3),('idle',4),(_I,5)))
-_WgFirstMemberRole_Type.__name__=_C
-_WgFirstMemberRole_Object=MibScalar
-wgFirstMemberRole=_WgFirstMemberRole_Object((1,3,6,1,4,1,3097,6,6,3),_WgFirstMemberRole_Type())
-wgFirstMemberRole.setMaxAccess(_B)
-if mibBuilder.loadTexts:wgFirstMemberRole.setStatus(_A)
-_WgFirstMemberSystemHealth_Type=Integer32
-_WgFirstMemberSystemHealth_Object=MibScalar
-wgFirstMemberSystemHealth=_WgFirstMemberSystemHealth_Object((1,3,6,1,4,1,3097,6,6,4),_WgFirstMemberSystemHealth_Type())
-wgFirstMemberSystemHealth.setMaxAccess(_B)
-if mibBuilder.loadTexts:wgFirstMemberSystemHealth.setStatus(_A)
-_WgFirstMemberHardwareHealth_Type=Integer32
-_WgFirstMemberHardwareHealth_Object=MibScalar
-wgFirstMemberHardwareHealth=_WgFirstMemberHardwareHealth_Object((1,3,6,1,4,1,3097,6,6,5),_WgFirstMemberHardwareHealth_Type())
-wgFirstMemberHardwareHealth.setMaxAccess(_B)
-if mibBuilder.loadTexts:wgFirstMemberHardwareHealth.setStatus(_A)
-_WgFirstMemberMonitorPortHealth_Type=Integer32
-_WgFirstMemberMonitorPortHealth_Object=MibScalar
-wgFirstMemberMonitorPortHealth=_WgFirstMemberMonitorPortHealth_Object((1,3,6,1,4,1,3097,6,6,6),_WgFirstMemberMonitorPortHealth_Type())
-wgFirstMemberMonitorPortHealth.setMaxAccess(_B)
-if mibBuilder.loadTexts:wgFirstMemberMonitorPortHealth.setStatus(_A)
-_WgFirstMemberWeightAvg_Type=Integer32
-_WgFirstMemberWeightAvg_Object=MibScalar
-wgFirstMemberWeightAvg=_WgFirstMemberWeightAvg_Object((1,3,6,1,4,1,3097,6,6,7),_WgFirstMemberWeightAvg_Type())
-wgFirstMemberWeightAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:wgFirstMemberWeightAvg.setStatus(_A)
-class _WgSecondMemberId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_WgSecondMemberId_Type.__name__=_D
-_WgSecondMemberId_Object=MibScalar
-wgSecondMemberId=_WgSecondMemberId_Object((1,3,6,1,4,1,3097,6,6,8),_WgSecondMemberId_Type())
-wgSecondMemberId.setMaxAccess(_B)
-if mibBuilder.loadTexts:wgSecondMemberId.setStatus(_A)
-class _WgSecondMemberRole_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*((_E,0),(_F,1),(_G,2),(_H,3),('idle',4),(_I,5)))
-_WgSecondMemberRole_Type.__name__=_C
-_WgSecondMemberRole_Object=MibScalar
-wgSecondMemberRole=_WgSecondMemberRole_Object((1,3,6,1,4,1,3097,6,6,9),_WgSecondMemberRole_Type())
-wgSecondMemberRole.setMaxAccess(_B)
-if mibBuilder.loadTexts:wgSecondMemberRole.setStatus(_A)
-_WgSecondMemberSystemHealth_Type=Integer32
-_WgSecondMemberSystemHealth_Object=MibScalar
-wgSecondMemberSystemHealth=_WgSecondMemberSystemHealth_Object((1,3,6,1,4,1,3097,6,6,10),_WgSecondMemberSystemHealth_Type())
-wgSecondMemberSystemHealth.setMaxAccess(_B)
-if mibBuilder.loadTexts:wgSecondMemberSystemHealth.setStatus(_A)
-_WgSecondMemberHardwareHealth_Type=Integer32
-_WgSecondMemberHardwareHealth_Object=MibScalar
-wgSecondMemberHardwareHealth=_WgSecondMemberHardwareHealth_Object((1,3,6,1,4,1,3097,6,6,11),_WgSecondMemberHardwareHealth_Type())
-wgSecondMemberHardwareHealth.setMaxAccess(_B)
-if mibBuilder.loadTexts:wgSecondMemberHardwareHealth.setStatus(_A)
-_WgSecondMemberMonitorPortHealth_Type=Integer32
-_WgSecondMemberMonitorPortHealth_Object=MibScalar
-wgSecondMemberMonitorPortHealth=_WgSecondMemberMonitorPortHealth_Object((1,3,6,1,4,1,3097,6,6,12),_WgSecondMemberMonitorPortHealth_Type())
-wgSecondMemberMonitorPortHealth.setMaxAccess(_B)
-if mibBuilder.loadTexts:wgSecondMemberMonitorPortHealth.setStatus(_A)
-_WgSecondMemberWeightAvg_Type=Integer32
-_WgSecondMemberWeightAvg_Object=MibScalar
-wgSecondMemberWeightAvg=_WgSecondMemberWeightAvg_Object((1,3,6,1,4,1,3097,6,6,13),_WgSecondMemberWeightAvg_Type())
-wgSecondMemberWeightAvg.setMaxAccess(_B)
-if mibBuilder.loadTexts:wgSecondMemberWeightAvg.setStatus(_A)
-mibBuilder.exportSymbols('WATCHGUARD-CLUSTER-STATISTICS-MIB',**{'wgInfoModule':wgInfoModule,'wgClusterStatusMIB':wgClusterStatusMIB,'wgClusterEnabled':wgClusterEnabled,'wgFirstMemberId':wgFirstMemberId,'wgFirstMemberRole':wgFirstMemberRole,'wgFirstMemberSystemHealth':wgFirstMemberSystemHealth,'wgFirstMemberHardwareHealth':wgFirstMemberHardwareHealth,'wgFirstMemberMonitorPortHealth':wgFirstMemberMonitorPortHealth,'wgFirstMemberWeightAvg':wgFirstMemberWeightAvg,'wgSecondMemberId':wgSecondMemberId,'wgSecondMemberRole':wgSecondMemberRole,'wgSecondMemberSystemHealth':wgSecondMemberSystemHealth,'wgSecondMemberHardwareHealth':wgSecondMemberHardwareHealth,'wgSecondMemberMonitorPortHealth':wgSecondMemberMonitorPortHealth,'wgSecondMemberWeightAvg':wgSecondMemberWeightAvg})
+#
+# PySNMP MIB module WATCHGUARD-CLUSTER-STATISTICS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/watchguard/WATCHGUARD-CLUSTER-STATISTICS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:58 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+watchguard, = mibBuilder.importSymbols("WATCHGUARD-SMI", "watchguard")
+wgInfoModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3097, 6))
+wgInfoModule.setRevisions(('2007-01-25 12:00',))
+if mibBuilder.loadTexts: wgInfoModule.setLastUpdated('200701251200Z')
+if mibBuilder.loadTexts: wgInfoModule.setOrganization('WatchGuard Technologies, Inc.')
+wgClusterStatusMIB = ObjectIdentity((1, 3, 6, 1, 4, 1, 3097, 6, 6))
+if mibBuilder.loadTexts: wgClusterStatusMIB.setStatus('current')
+wgClusterEnabled = MibScalar((1, 3, 6, 1, 4, 1, 3097, 6, 6, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wgClusterEnabled.setStatus('current')
+wgFirstMemberId = MibScalar((1, 3, 6, 1, 4, 1, 3097, 6, 6, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wgFirstMemberId.setStatus('current')
+wgFirstMemberRole = MibScalar((1, 3, 6, 1, 4, 1, 3097, 6, 6, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("disabled", 0), ("worker", 1), ("backup", 2), ("master", 3), ("idle", 4), ("standby", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wgFirstMemberRole.setStatus('current')
+wgFirstMemberSystemHealth = MibScalar((1, 3, 6, 1, 4, 1, 3097, 6, 6, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wgFirstMemberSystemHealth.setStatus('current')
+wgFirstMemberHardwareHealth = MibScalar((1, 3, 6, 1, 4, 1, 3097, 6, 6, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wgFirstMemberHardwareHealth.setStatus('current')
+wgFirstMemberMonitorPortHealth = MibScalar((1, 3, 6, 1, 4, 1, 3097, 6, 6, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wgFirstMemberMonitorPortHealth.setStatus('current')
+wgFirstMemberWeightAvg = MibScalar((1, 3, 6, 1, 4, 1, 3097, 6, 6, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wgFirstMemberWeightAvg.setStatus('current')
+wgSecondMemberId = MibScalar((1, 3, 6, 1, 4, 1, 3097, 6, 6, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wgSecondMemberId.setStatus('current')
+wgSecondMemberRole = MibScalar((1, 3, 6, 1, 4, 1, 3097, 6, 6, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("disabled", 0), ("worker", 1), ("backup", 2), ("master", 3), ("idle", 4), ("standby", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wgSecondMemberRole.setStatus('current')
+wgSecondMemberSystemHealth = MibScalar((1, 3, 6, 1, 4, 1, 3097, 6, 6, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wgSecondMemberSystemHealth.setStatus('current')
+wgSecondMemberHardwareHealth = MibScalar((1, 3, 6, 1, 4, 1, 3097, 6, 6, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wgSecondMemberHardwareHealth.setStatus('current')
+wgSecondMemberMonitorPortHealth = MibScalar((1, 3, 6, 1, 4, 1, 3097, 6, 6, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wgSecondMemberMonitorPortHealth.setStatus('current')
+wgSecondMemberWeightAvg = MibScalar((1, 3, 6, 1, 4, 1, 3097, 6, 6, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wgSecondMemberWeightAvg.setStatus('current')
+mibBuilder.exportSymbols("WATCHGUARD-CLUSTER-STATISTICS-MIB", wgFirstMemberHardwareHealth=wgFirstMemberHardwareHealth, wgFirstMemberWeightAvg=wgFirstMemberWeightAvg, wgSecondMemberSystemHealth=wgSecondMemberSystemHealth, wgSecondMemberWeightAvg=wgSecondMemberWeightAvg, wgClusterEnabled=wgClusterEnabled, wgSecondMemberId=wgSecondMemberId, wgFirstMemberMonitorPortHealth=wgFirstMemberMonitorPortHealth, PYSNMP_MODULE_ID=wgInfoModule, wgFirstMemberRole=wgFirstMemberRole, wgSecondMemberMonitorPortHealth=wgSecondMemberMonitorPortHealth, wgInfoModule=wgInfoModule, wgSecondMemberHardwareHealth=wgSecondMemberHardwareHealth, wgFirstMemberSystemHealth=wgFirstMemberSystemHealth, wgSecondMemberRole=wgSecondMemberRole, wgFirstMemberId=wgFirstMemberId, wgClusterStatusMIB=wgClusterStatusMIB)

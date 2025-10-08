@@ -1,83 +1,45 @@
-_I='userConfigIndex'
-_H='userInfoIndex'
-_G='userInfoType'
-_F='Integer32'
-_E='not-accessible'
-_D='AT-USER-MIB'
-_C='Unsigned32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-sysinfo,=mibBuilder.importSymbols('AT-SMI-MIB','sysinfo')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_C,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-user=ModuleIdentity((1,3,6,1,4,1,207,8,4,4,3,20))
-if mibBuilder.loadTexts:user.setRevisions(('2008-10-16 12:00','2008-08-26 00:00'))
-_UserInfoTable_Object=MibTable
-userInfoTable=_UserInfoTable_Object((1,3,6,1,4,1,207,8,4,4,3,20,1))
-if mibBuilder.loadTexts:userInfoTable.setStatus(_A)
-_UserInfoEntry_Object=MibTableRow
-userInfoEntry=_UserInfoEntry_Object((1,3,6,1,4,1,207,8,4,4,3,20,1,1))
-userInfoEntry.setIndexNames((0,_D,_G),(0,_D,_H))
-if mibBuilder.loadTexts:userInfoEntry.setStatus(_A)
-class _UserInfoType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('console',1),('aux',2),('telnet',3),('script',4),('stack',5)))
-_UserInfoType_Type.__name__=_F
-_UserInfoType_Object=MibTableColumn
-userInfoType=_UserInfoType_Object((1,3,6,1,4,1,207,8,4,4,3,20,1,1,1),_UserInfoType_Type())
-userInfoType.setMaxAccess(_E)
-if mibBuilder.loadTexts:userInfoType.setStatus(_A)
-class _UserInfoIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_UserInfoIndex_Type.__name__=_C
-_UserInfoIndex_Object=MibTableColumn
-userInfoIndex=_UserInfoIndex_Object((1,3,6,1,4,1,207,8,4,4,3,20,1,1,2),_UserInfoIndex_Type())
-userInfoIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:userInfoIndex.setStatus(_A)
-_UserInfoUserName_Type=DisplayString
-_UserInfoUserName_Object=MibTableColumn
-userInfoUserName=_UserInfoUserName_Object((1,3,6,1,4,1,207,8,4,4,3,20,1,1,3),_UserInfoUserName_Type())
-userInfoUserName.setMaxAccess(_B)
-if mibBuilder.loadTexts:userInfoUserName.setStatus(_A)
-class _UserInfoPrivilegeLevel_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,15))
-_UserInfoPrivilegeLevel_Type.__name__=_C
-_UserInfoPrivilegeLevel_Object=MibTableColumn
-userInfoPrivilegeLevel=_UserInfoPrivilegeLevel_Object((1,3,6,1,4,1,207,8,4,4,3,20,1,1,4),_UserInfoPrivilegeLevel_Type())
-userInfoPrivilegeLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:userInfoPrivilegeLevel.setStatus(_A)
-_UserInfoIdleTime_Type=DisplayString
-_UserInfoIdleTime_Object=MibTableColumn
-userInfoIdleTime=_UserInfoIdleTime_Object((1,3,6,1,4,1,207,8,4,4,3,20,1,1,5),_UserInfoIdleTime_Type())
-userInfoIdleTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:userInfoIdleTime.setStatus(_A)
-_UserInfoLocation_Type=DisplayString
-_UserInfoLocation_Object=MibTableColumn
-userInfoLocation=_UserInfoLocation_Object((1,3,6,1,4,1,207,8,4,4,3,20,1,1,6),_UserInfoLocation_Type())
-userInfoLocation.setMaxAccess(_B)
-if mibBuilder.loadTexts:userInfoLocation.setStatus(_A)
-_UserConfigTable_Object=MibTable
-userConfigTable=_UserConfigTable_Object((1,3,6,1,4,1,207,8,4,4,3,20,2))
-if mibBuilder.loadTexts:userConfigTable.setStatus(_A)
-_UserConfigEntry_Object=MibTableRow
-userConfigEntry=_UserConfigEntry_Object((1,3,6,1,4,1,207,8,4,4,3,20,2,1))
-userConfigEntry.setIndexNames((0,_D,_I))
-if mibBuilder.loadTexts:userConfigEntry.setStatus(_A)
-_UserConfigIndex_Type=Unsigned32
-_UserConfigIndex_Object=MibTableColumn
-userConfigIndex=_UserConfigIndex_Object((1,3,6,1,4,1,207,8,4,4,3,20,2,1,1),_UserConfigIndex_Type())
-userConfigIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:userConfigIndex.setStatus(_A)
-_UserConfigUsername_Type=DisplayString
-_UserConfigUsername_Object=MibTableColumn
-userConfigUsername=_UserConfigUsername_Object((1,3,6,1,4,1,207,8,4,4,3,20,2,1,2),_UserConfigUsername_Type())
-userConfigUsername.setMaxAccess(_B)
-if mibBuilder.loadTexts:userConfigUsername.setStatus(_A)
-class _UserConfigPrivilegeLevel_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,15))
-_UserConfigPrivilegeLevel_Type.__name__=_C
-_UserConfigPrivilegeLevel_Object=MibTableColumn
-userConfigPrivilegeLevel=_UserConfigPrivilegeLevel_Object((1,3,6,1,4,1,207,8,4,4,3,20,2,1,3),_UserConfigPrivilegeLevel_Type())
-userConfigPrivilegeLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:userConfigPrivilegeLevel.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'user':user,'userInfoTable':userInfoTable,'userInfoEntry':userInfoEntry,_G:userInfoType,_H:userInfoIndex,'userInfoUserName':userInfoUserName,'userInfoPrivilegeLevel':userInfoPrivilegeLevel,'userInfoIdleTime':userInfoIdleTime,'userInfoLocation':userInfoLocation,'userConfigTable':userConfigTable,'userConfigEntry':userConfigEntry,_I:userConfigIndex,'userConfigUsername':userConfigUsername,'userConfigPrivilegeLevel':userConfigPrivilegeLevel})
+#
+# PySNMP MIB module AT-USER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allied-old/AT-USER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+sysinfo, = mibBuilder.importSymbols("AT-SMI-MIB", "sysinfo")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+user = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20))
+user.setRevisions(('2008-10-16 12:00', '2008-08-26 00:00',))
+if mibBuilder.loadTexts: user.setLastUpdated('200811251200Z')
+if mibBuilder.loadTexts: user.setOrganization('Allied Telesis, Inc.')
+userInfoTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20, 1), )
+if mibBuilder.loadTexts: userInfoTable.setStatus('current')
+userInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20, 1, 1), ).setIndexNames((0, "AT-USER-MIB", "userInfoType"), (0, "AT-USER-MIB", "userInfoIndex"))
+if mibBuilder.loadTexts: userInfoEntry.setStatus('current')
+userInfoType = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("console", 1), ("aux", 2), ("telnet", 3), ("script", 4), ("stack", 5))))
+if mibBuilder.loadTexts: userInfoType.setStatus('current')
+userInfoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
+if mibBuilder.loadTexts: userInfoIndex.setStatus('current')
+userInfoUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: userInfoUserName.setStatus('current')
+userInfoPrivilegeLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: userInfoPrivilegeLevel.setStatus('current')
+userInfoIdleTime = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: userInfoIdleTime.setStatus('current')
+userInfoLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: userInfoLocation.setStatus('current')
+userConfigTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20, 2), )
+if mibBuilder.loadTexts: userConfigTable.setStatus('current')
+userConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20, 2, 1), ).setIndexNames((0, "AT-USER-MIB", "userConfigIndex"))
+if mibBuilder.loadTexts: userConfigEntry.setStatus('current')
+userConfigIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: userConfigIndex.setStatus('current')
+userConfigUsername = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: userConfigUsername.setStatus('current')
+userConfigPrivilegeLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 20, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: userConfigPrivilegeLevel.setStatus('current')
+mibBuilder.exportSymbols("AT-USER-MIB", userInfoType=userInfoType, userConfigPrivilegeLevel=userConfigPrivilegeLevel, user=user, userConfigUsername=userConfigUsername, userInfoEntry=userInfoEntry, userInfoLocation=userInfoLocation, userConfigEntry=userConfigEntry, PYSNMP_MODULE_ID=user, userInfoTable=userInfoTable, userInfoPrivilegeLevel=userInfoPrivilegeLevel, userInfoUserName=userInfoUserName, userInfoIndex=userInfoIndex, userConfigIndex=userConfigIndex, userConfigTable=userConfigTable, userInfoIdleTime=userInfoIdleTime)

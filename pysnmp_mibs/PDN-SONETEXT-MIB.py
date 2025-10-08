@@ -1,58 +1,31 @@
-_L='devSonetStatusLastChange'
-_K='read-write'
-_J='read-only'
-_I='devSonetIfIndex'
-_H='sonetSectionCurrentStatus'
-_G='sonetPathCurrentStatus'
-_F='sonetLineCurrentStatus'
-_E='NotificationType'
-_D='PDN-SONETEXT-MIB'
-_C='Integer32'
-_B='SONET-MIB'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-pdnSonetMIB,=mibBuilder.importSymbols('PDN-HEADER-MIB','pdnSonetMIB')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier',_E,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_E,'TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-sonetLineCurrentStatus,sonetPathCurrentStatus,sonetSectionCurrentStatus=mibBuilder.importSymbols(_B,_F,_G,_H)
-_DevSonetConfig_ObjectIdentity=ObjectIdentity
-devSonetConfig=_DevSonetConfig_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,6,13,1))
-_DevSonetConfigTable_Object=MibTable
-devSonetConfigTable=_DevSonetConfigTable_Object((1,3,6,1,4,1,1795,2,24,2,6,13,1,1))
-if mibBuilder.loadTexts:devSonetConfigTable.setStatus(_A)
-_DevSonetConfigEntry_Object=MibTableRow
-devSonetConfigEntry=_DevSonetConfigEntry_Object((1,3,6,1,4,1,1795,2,24,2,6,13,1,1,1))
-devSonetConfigEntry.setIndexNames((0,_D,_I))
-if mibBuilder.loadTexts:devSonetConfigEntry.setStatus(_A)
-_DevSonetIfIndex_Type=Integer32
-_DevSonetIfIndex_Object=MibTableColumn
-devSonetIfIndex=_DevSonetIfIndex_Object((1,3,6,1,4,1,1795,2,24,2,6,13,1,1,1,1),_DevSonetIfIndex_Type())
-devSonetIfIndex.setMaxAccess(_J)
-if mibBuilder.loadTexts:devSonetIfIndex.setStatus(_A)
-class _DevSonetXmitClkSrc_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('loopTiming',1),('localTiming',2),('throughTiming',3),('systemTiming',4)))
-_DevSonetXmitClkSrc_Type.__name__=_C
-_DevSonetXmitClkSrc_Object=MibTableColumn
-devSonetXmitClkSrc=_DevSonetXmitClkSrc_Object((1,3,6,1,4,1,1795,2,24,2,6,13,1,1,1,2),_DevSonetXmitClkSrc_Type())
-devSonetXmitClkSrc.setMaxAccess(_K)
-if mibBuilder.loadTexts:devSonetXmitClkSrc.setStatus(_A)
-_DevSonetStatusLastChange_Type=TimeTicks
-_DevSonetStatusLastChange_Object=MibTableColumn
-devSonetStatusLastChange=_DevSonetStatusLastChange_Object((1,3,6,1,4,1,1795,2,24,2,6,13,1,1,1,3),_DevSonetStatusLastChange_Type())
-devSonetStatusLastChange.setMaxAccess(_J)
-if mibBuilder.loadTexts:devSonetStatusLastChange.setStatus(_A)
-class _DevSonetStatusChangeTrapEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_DevSonetStatusChangeTrapEnable_Type.__name__=_C
-_DevSonetStatusChangeTrapEnable_Object=MibTableColumn
-devSonetStatusChangeTrapEnable=_DevSonetStatusChangeTrapEnable_Object((1,3,6,1,4,1,1795,2,24,2,6,13,1,1,1,4),_DevSonetStatusChangeTrapEnable_Type())
-devSonetStatusChangeTrapEnable.setMaxAccess(_K)
-if mibBuilder.loadTexts:devSonetStatusChangeTrapEnable.setStatus(_A)
-_DevSonetTraps_ObjectIdentity=ObjectIdentity
-devSonetTraps=_DevSonetTraps_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,6,13,2))
-devSonetStatusChange=NotificationType((1,3,6,1,4,1,1795,2,24,2,6,13,2,0,1))
-devSonetStatusChange.setObjects(*((_D,_L),(_B,_H),(_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:devSonetStatusChange.setStatus('')
-mibBuilder.exportSymbols(_D,**{'devSonetConfig':devSonetConfig,'devSonetConfigTable':devSonetConfigTable,'devSonetConfigEntry':devSonetConfigEntry,_I:devSonetIfIndex,'devSonetXmitClkSrc':devSonetXmitClkSrc,_L:devSonetStatusLastChange,'devSonetStatusChangeTrapEnable':devSonetStatusChangeTrapEnable,'devSonetTraps':devSonetTraps,'devSonetStatusChange':devSonetStatusChange})
+#
+# PySNMP MIB module PDN-SONETEXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/paradyne/PDN-SONETEXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+pdnSonetMIB, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdnSonetMIB")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Integer32, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Integer32", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+sonetSectionCurrentStatus, sonetLineCurrentStatus, sonetPathCurrentStatus = mibBuilder.importSymbols("SONET-MIB", "sonetSectionCurrentStatus", "sonetLineCurrentStatus", "sonetPathCurrentStatus")
+devSonetConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 13, 1))
+devSonetTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 13, 2))
+devSonetConfigTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 13, 1, 1), )
+if mibBuilder.loadTexts: devSonetConfigTable.setStatus('mandatory')
+devSonetConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 13, 1, 1, 1), ).setIndexNames((0, "PDN-SONETEXT-MIB", "devSonetIfIndex"))
+if mibBuilder.loadTexts: devSonetConfigEntry.setStatus('mandatory')
+devSonetIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 13, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devSonetIfIndex.setStatus('mandatory')
+devSonetXmitClkSrc = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 13, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("loopTiming", 1), ("localTiming", 2), ("throughTiming", 3), ("systemTiming", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devSonetXmitClkSrc.setStatus('mandatory')
+devSonetStatusLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 13, 1, 1, 1, 3), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devSonetStatusLastChange.setStatus('mandatory')
+devSonetStatusChangeTrapEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 13, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devSonetStatusChangeTrapEnable.setStatus('mandatory')
+devSonetStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 13, 2) + (0,1)).setObjects(("PDN-SONETEXT-MIB", "devSonetStatusLastChange"), ("SONET-MIB", "sonetSectionCurrentStatus"), ("SONET-MIB", "sonetLineCurrentStatus"), ("SONET-MIB", "sonetPathCurrentStatus"))
+mibBuilder.exportSymbols("PDN-SONETEXT-MIB", devSonetXmitClkSrc=devSonetXmitClkSrc, devSonetIfIndex=devSonetIfIndex, devSonetStatusChange=devSonetStatusChange, devSonetStatusChangeTrapEnable=devSonetStatusChangeTrapEnable, devSonetConfigTable=devSonetConfigTable, devSonetTraps=devSonetTraps, devSonetConfigEntry=devSonetConfigEntry, devSonetConfig=devSonetConfig, devSonetStatusLastChange=devSonetStatusLastChange)

@@ -1,68 +1,35 @@
-_C='mandatory'
-_B='read-write'
-_A='Integer32'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_A,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_A3Com_ObjectIdentity=ObjectIdentity
-a3Com=_A3Com_ObjectIdentity((1,3,6,1,4,1,43))
-_BrouterMIB_ObjectIdentity=ObjectIdentity
-brouterMIB=_BrouterMIB_ObjectIdentity((1,3,6,1,4,1,43,2))
-_A3ComAuditLog_ObjectIdentity=ObjectIdentity
-a3ComAuditLog=_A3ComAuditLog_ObjectIdentity((1,3,6,1,4,1,43,2,29))
-_A3ComAudlControl_ObjectIdentity=ObjectIdentity
-a3ComAudlControl=_A3ComAudlControl_ObjectIdentity((1,3,6,1,4,1,43,2,29,1))
-class _A3ComAudlControlAuditTrail_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('auditTrail',1),('noAuditTrail',2)))
-_A3ComAudlControlAuditTrail_Type.__name__=_A
-_A3ComAudlControlAuditTrail_Object=MibScalar
-a3ComAudlControlAuditTrail=_A3ComAudlControlAuditTrail_Object((1,3,6,1,4,1,43,2,29,1,1),_A3ComAudlControlAuditTrail_Type())
-a3ComAudlControlAuditTrail.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComAudlControlAuditTrail.setStatus(_C)
-class _A3ComAudlControlConfig_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('config',1),('noConfig',2)))
-_A3ComAudlControlConfig_Type.__name__=_A
-_A3ComAudlControlConfig_Object=MibScalar
-a3ComAudlControlConfig=_A3ComAudlControlConfig_Object((1,3,6,1,4,1,43,2,29,1,2),_A3ComAudlControlConfig_Type())
-a3ComAudlControlConfig.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComAudlControlConfig.setStatus(_C)
-class _A3ComAudlControlMessages_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('messages',1),('noMessages',2)))
-_A3ComAudlControlMessages_Type.__name__=_A
-_A3ComAudlControlMessages_Object=MibScalar
-a3ComAudlControlMessages=_A3ComAudlControlMessages_Object((1,3,6,1,4,1,43,2,29,1,3),_A3ComAudlControlMessages_Type())
-a3ComAudlControlMessages.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComAudlControlMessages.setStatus(_C)
-class _A3ComAudlControlSecurity_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('security',1),('noSecurity',2)))
-_A3ComAudlControlSecurity_Type.__name__=_A
-_A3ComAudlControlSecurity_Object=MibScalar
-a3ComAudlControlSecurity=_A3ComAudlControlSecurity_Object((1,3,6,1,4,1,43,2,29,1,4),_A3ComAudlControlSecurity_Type())
-a3ComAudlControlSecurity.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComAudlControlSecurity.setStatus(_C)
-_A3ComAudlConfig_ObjectIdentity=ObjectIdentity
-a3ComAudlConfig=_A3ComAudlConfig_ObjectIdentity((1,3,6,1,4,1,43,2,29,2))
-_A3ComAudlLogServerAddr_Type=IpAddress
-_A3ComAudlLogServerAddr_Object=MibScalar
-a3ComAudlLogServerAddr=_A3ComAudlLogServerAddr_Object((1,3,6,1,4,1,43,2,29,2,1),_A3ComAudlLogServerAddr_Type())
-a3ComAudlLogServerAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComAudlLogServerAddr.setStatus(_C)
-class _A3ComAudlPriorityLevel_Type(Integer32):defaultValue=7;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('log-EMERG',1),('log-ALERT',2),('log-CRITICAL',3),('log-ERROR',4),('log-WARNING',5),('log-NOTICE',6),('log-INFO',7),('log-DEBUG',8)))
-_A3ComAudlPriorityLevel_Type.__name__=_A
-_A3ComAudlPriorityLevel_Object=MibScalar
-a3ComAudlPriorityLevel=_A3ComAudlPriorityLevel_Object((1,3,6,1,4,1,43,2,29,2,2),_A3ComAudlPriorityLevel_Type())
-a3ComAudlPriorityLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComAudlPriorityLevel.setStatus(_C)
-class _A3ComAudlMaxLog_Type(Integer32):defaultValue=10;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,30))
-_A3ComAudlMaxLog_Type.__name__=_A
-_A3ComAudlMaxLog_Object=MibScalar
-a3ComAudlMaxLog=_A3ComAudlMaxLog_Object((1,3,6,1,4,1,43,2,29,2,3),_A3ComAudlMaxLog_Type())
-a3ComAudlMaxLog.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComAudlMaxLog.setStatus(_C)
-class _A3ComAudlIdleTime_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,480))
-_A3ComAudlIdleTime_Type.__name__=_A
-_A3ComAudlIdleTime_Object=MibScalar
-a3ComAudlIdleTime=_A3ComAudlIdleTime_Object((1,3,6,1,4,1,43,2,29,2,4),_A3ComAudlIdleTime_Type())
-a3ComAudlIdleTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:a3ComAudlIdleTime.setStatus(_C)
-mibBuilder.exportSymbols('A3COM-AUDL-r1-MIB',**{'a3Com':a3Com,'brouterMIB':brouterMIB,'a3ComAuditLog':a3ComAuditLog,'a3ComAudlControl':a3ComAudlControl,'a3ComAudlControlAuditTrail':a3ComAudlControlAuditTrail,'a3ComAudlControlConfig':a3ComAudlControlConfig,'a3ComAudlControlMessages':a3ComAudlControlMessages,'a3ComAudlControlSecurity':a3ComAudlControlSecurity,'a3ComAudlConfig':a3ComAudlConfig,'a3ComAudlLogServerAddr':a3ComAudlLogServerAddr,'a3ComAudlPriorityLevel':a3ComAudlPriorityLevel,'a3ComAudlMaxLog':a3ComAudlMaxLog,'a3ComAudlIdleTime':a3ComAudlIdleTime})
+#
+# PySNMP MIB module A3COM-AUDL-r1-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-AUDL-r1-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:39 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+a3Com = MibIdentifier((1, 3, 6, 1, 4, 1, 43))
+brouterMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2))
+a3ComAuditLog = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2, 29))
+a3ComAudlControl = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2, 29, 1))
+a3ComAudlConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2, 29, 2))
+a3ComAudlControlAuditTrail = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("auditTrail", 1), ("noAuditTrail", 2))).clone('noAuditTrail')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: a3ComAudlControlAuditTrail.setStatus('mandatory')
+a3ComAudlControlConfig = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("config", 1), ("noConfig", 2))).clone('noConfig')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: a3ComAudlControlConfig.setStatus('mandatory')
+a3ComAudlControlMessages = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("messages", 1), ("noMessages", 2))).clone('noMessages')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: a3ComAudlControlMessages.setStatus('mandatory')
+a3ComAudlControlSecurity = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("security", 1), ("noSecurity", 2))).clone('noSecurity')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: a3ComAudlControlSecurity.setStatus('mandatory')
+a3ComAudlLogServerAddr = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 2, 1), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: a3ComAudlLogServerAddr.setStatus('mandatory')
+a3ComAudlPriorityLevel = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("log-EMERG", 1), ("log-ALERT", 2), ("log-CRITICAL", 3), ("log-ERROR", 4), ("log-WARNING", 5), ("log-NOTICE", 6), ("log-INFO", 7), ("log-DEBUG", 8))).clone('log-INFO')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: a3ComAudlPriorityLevel.setStatus('mandatory')
+a3ComAudlMaxLog = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 30)).clone(10)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: a3ComAudlMaxLog.setStatus('mandatory')
+a3ComAudlIdleTime = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 29, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 480)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: a3ComAudlIdleTime.setStatus('mandatory')
+mibBuilder.exportSymbols("A3COM-AUDL-r1-MIB", a3ComAudlMaxLog=a3ComAudlMaxLog, a3ComAudlIdleTime=a3ComAudlIdleTime, a3ComAudlPriorityLevel=a3ComAudlPriorityLevel, a3ComAuditLog=a3ComAuditLog, a3ComAudlLogServerAddr=a3ComAudlLogServerAddr, a3ComAudlControlAuditTrail=a3ComAudlControlAuditTrail, brouterMIB=brouterMIB, a3ComAudlControlSecurity=a3ComAudlControlSecurity, a3Com=a3Com, a3ComAudlConfig=a3ComAudlConfig, a3ComAudlControlMessages=a3ComAudlControlMessages, a3ComAudlControl=a3ComAudlControl, a3ComAudlControlConfig=a3ComAudlControlConfig)

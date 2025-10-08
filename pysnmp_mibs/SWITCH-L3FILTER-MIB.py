@@ -1,46 +1,32 @@
-_F='read-create'
-_E='not-accessible'
-_D='rcL3IpSubnetFilterIPAclNumber'
-_C='rcL3IpSubnetFilterIfIndex'
-_B='SWITCH-L3FILTER-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-iscomSwitch,=mibBuilder.importSymbols('RAISECOM-BASE-MIB','iscomSwitch')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-PortList,=mibBuilder.importSymbols('SWITCH-TC','PortList')
-rcL3Filter=ModuleIdentity((1,3,6,1,4,1,8886,6,1,15))
-_RcL3IpSubnetFilter_ObjectIdentity=ObjectIdentity
-rcL3IpSubnetFilter=_RcL3IpSubnetFilter_ObjectIdentity((1,3,6,1,4,1,8886,6,1,15,1))
-_RcL3IpSubnetFilterTable_Object=MibTable
-rcL3IpSubnetFilterTable=_RcL3IpSubnetFilterTable_Object((1,3,6,1,4,1,8886,6,1,15,1,1))
-if mibBuilder.loadTexts:rcL3IpSubnetFilterTable.setStatus(_A)
-_RcL3IpSubnetFilterEntry_Object=MibTableRow
-rcL3IpSubnetFilterEntry=_RcL3IpSubnetFilterEntry_Object((1,3,6,1,4,1,8886,6,1,15,1,1,1))
-rcL3IpSubnetFilterEntry.setIndexNames((0,_B,_C),(0,_B,_D))
-if mibBuilder.loadTexts:rcL3IpSubnetFilterEntry.setStatus(_A)
-_RcL3IpSubnetFilterIfIndex_Type=Integer32
-_RcL3IpSubnetFilterIfIndex_Object=MibTableColumn
-rcL3IpSubnetFilterIfIndex=_RcL3IpSubnetFilterIfIndex_Object((1,3,6,1,4,1,8886,6,1,15,1,1,1,1),_RcL3IpSubnetFilterIfIndex_Type())
-rcL3IpSubnetFilterIfIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:rcL3IpSubnetFilterIfIndex.setStatus(_A)
-_RcL3IpSubnetFilterIPAclNumber_Type=Integer32
-_RcL3IpSubnetFilterIPAclNumber_Object=MibTableColumn
-rcL3IpSubnetFilterIPAclNumber=_RcL3IpSubnetFilterIPAclNumber_Object((1,3,6,1,4,1,8886,6,1,15,1,1,1,2),_RcL3IpSubnetFilterIPAclNumber_Type())
-rcL3IpSubnetFilterIPAclNumber.setMaxAccess(_E)
-if mibBuilder.loadTexts:rcL3IpSubnetFilterIPAclNumber.setStatus(_A)
-_RcL3IpSubnetFilterStatus_Type=RowStatus
-_RcL3IpSubnetFilterStatus_Object=MibTableColumn
-rcL3IpSubnetFilterStatus=_RcL3IpSubnetFilterStatus_Object((1,3,6,1,4,1,8886,6,1,15,1,1,1,3),_RcL3IpSubnetFilterStatus_Type())
-rcL3IpSubnetFilterStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:rcL3IpSubnetFilterStatus.setStatus(_A)
-_RcL3IpSubnetFilterPorts_Type=PortList
-_RcL3IpSubnetFilterPorts_Object=MibTableColumn
-rcL3IpSubnetFilterPorts=_RcL3IpSubnetFilterPorts_Object((1,3,6,1,4,1,8886,6,1,15,1,1,1,4),_RcL3IpSubnetFilterPorts_Type())
-rcL3IpSubnetFilterPorts.setMaxAccess(_F)
-if mibBuilder.loadTexts:rcL3IpSubnetFilterPorts.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'rcL3Filter':rcL3Filter,'rcL3IpSubnetFilter':rcL3IpSubnetFilter,'rcL3IpSubnetFilterTable':rcL3IpSubnetFilterTable,'rcL3IpSubnetFilterEntry':rcL3IpSubnetFilterEntry,_C:rcL3IpSubnetFilterIfIndex,_D:rcL3IpSubnetFilterIPAclNumber,'rcL3IpSubnetFilterStatus':rcL3IpSubnetFilterStatus,'rcL3IpSubnetFilterPorts':rcL3IpSubnetFilterPorts})
+#
+# PySNMP MIB module SWITCH-L3FILTER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/SWITCH-L3FILTER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+iscomSwitch, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "iscomSwitch")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+PortList, = mibBuilder.importSymbols("SWITCH-TC", "PortList")
+rcL3Filter = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 6, 1, 15))
+if mibBuilder.loadTexts: rcL3Filter.setLastUpdated('200504120000Z')
+if mibBuilder.loadTexts: rcL3Filter.setOrganization('Raisecom, Inc.')
+rcL3IpSubnetFilter = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 6, 1, 15, 1))
+rcL3IpSubnetFilterTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 15, 1, 1), )
+if mibBuilder.loadTexts: rcL3IpSubnetFilterTable.setStatus('current')
+rcL3IpSubnetFilterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 15, 1, 1, 1), ).setIndexNames((0, "SWITCH-L3FILTER-MIB", "rcL3IpSubnetFilterIfIndex"), (0, "SWITCH-L3FILTER-MIB", "rcL3IpSubnetFilterIPAclNumber"))
+if mibBuilder.loadTexts: rcL3IpSubnetFilterEntry.setStatus('current')
+rcL3IpSubnetFilterIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 15, 1, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: rcL3IpSubnetFilterIfIndex.setStatus('current')
+rcL3IpSubnetFilterIPAclNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 15, 1, 1, 1, 2), Integer32())
+if mibBuilder.loadTexts: rcL3IpSubnetFilterIPAclNumber.setStatus('current')
+rcL3IpSubnetFilterStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 15, 1, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcL3IpSubnetFilterStatus.setStatus('current')
+rcL3IpSubnetFilterPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 15, 1, 1, 1, 4), PortList()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rcL3IpSubnetFilterPorts.setStatus('current')
+mibBuilder.exportSymbols("SWITCH-L3FILTER-MIB", rcL3Filter=rcL3Filter, rcL3IpSubnetFilter=rcL3IpSubnetFilter, rcL3IpSubnetFilterIPAclNumber=rcL3IpSubnetFilterIPAclNumber, rcL3IpSubnetFilterIfIndex=rcL3IpSubnetFilterIfIndex, rcL3IpSubnetFilterTable=rcL3IpSubnetFilterTable, rcL3IpSubnetFilterStatus=rcL3IpSubnetFilterStatus, rcL3IpSubnetFilterEntry=rcL3IpSubnetFilterEntry, rcL3IpSubnetFilterPorts=rcL3IpSubnetFilterPorts, PYSNMP_MODULE_ID=rcL3Filter)

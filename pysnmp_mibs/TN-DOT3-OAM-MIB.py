@@ -1,111 +1,61 @@
-_M='tnDot3OamLoopbackEntry'
-_L='tnDot3OamEntry'
-_K='Integer32'
-_J='dot3OamPeerMacAddress'
-_I='DOT3-OAM-MIB'
-_H='TN-DOT3-OAM-MIB'
-_G='read-only'
-_F='TruthValue'
-_E='ifIndex'
-_D='IF-MIB'
-_C='Unsigned32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot3OamEntry,dot3OamLoopbackEntry,dot3OamPeerMacAddress=mibBuilder.importSymbols(_I,'dot3OamEntry','dot3OamLoopbackEntry',_J)
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_K,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_C,'iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp',_F)
-tnSRMIBModules,tnSRNotifyPrefix,tnSRObjs=mibBuilder.importSymbols('TROPIC-GLOBAL-REG','tnSRMIBModules','tnSRNotifyPrefix','tnSRObjs')
-tnDOT3OAMMIBModule=ModuleIdentity((1,3,6,1,4,1,7483,5,1,3,42))
-if mibBuilder.loadTexts:tnDOT3OAMMIBModule.setRevisions(('2008-07-01 00:00','2008-01-01 00:00','2006-08-01 00:00'))
-_TnDot3OamObjs_ObjectIdentity=ObjectIdentity
-tnDot3OamObjs=_TnDot3OamObjs_ObjectIdentity((1,3,6,1,4,1,7483,6,1,2,42))
-_TnDot3OamEntryObjs_ObjectIdentity=ObjectIdentity
-tnDot3OamEntryObjs=_TnDot3OamEntryObjs_ObjectIdentity((1,3,6,1,4,1,7483,6,1,2,42,1))
-_TnDot3OamTable_Object=MibTable
-tnDot3OamTable=_TnDot3OamTable_Object((1,3,6,1,4,1,7483,6,1,2,42,1,1))
-if mibBuilder.loadTexts:tnDot3OamTable.setStatus(_A)
-_TnDot3OamEntry_Object=MibTableRow
-tnDot3OamEntry=_TnDot3OamEntry_Object((1,3,6,1,4,1,7483,6,1,2,42,1,1,1))
-if mibBuilder.loadTexts:tnDot3OamEntry.setStatus(_A)
-_TnDot3OamLastChanged_Type=TimeStamp
-_TnDot3OamLastChanged_Object=MibTableColumn
-tnDot3OamLastChanged=_TnDot3OamLastChanged_Object((1,3,6,1,4,1,7483,6,1,2,42,1,1,1,1),_TnDot3OamLastChanged_Type())
-tnDot3OamLastChanged.setMaxAccess(_G)
-if mibBuilder.loadTexts:tnDot3OamLastChanged.setStatus(_A)
-class _TnDot3OamInterval_Type(Unsigned32):defaultValue=10;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,600))
-_TnDot3OamInterval_Type.__name__=_C
-_TnDot3OamInterval_Object=MibTableColumn
-tnDot3OamInterval=_TnDot3OamInterval_Object((1,3,6,1,4,1,7483,6,1,2,42,1,1,1,2),_TnDot3OamInterval_Type())
-tnDot3OamInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:tnDot3OamInterval.setStatus(_A)
-if mibBuilder.loadTexts:tnDot3OamInterval.setUnits('100s of milliseconds')
-class _TnDot3OamMultiplier_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,5))
-_TnDot3OamMultiplier_Type.__name__=_C
-_TnDot3OamMultiplier_Object=MibTableColumn
-tnDot3OamMultiplier=_TnDot3OamMultiplier_Object((1,3,6,1,4,1,7483,6,1,2,42,1,1,1,3),_TnDot3OamMultiplier_Type())
-tnDot3OamMultiplier.setMaxAccess(_B)
-if mibBuilder.loadTexts:tnDot3OamMultiplier.setStatus(_A)
-class _TnDot3OamTunneling_Type(TruthValue):defaultValue=2
-_TnDot3OamTunneling_Type.__name__=_F
-_TnDot3OamTunneling_Object=MibTableColumn
-tnDot3OamTunneling=_TnDot3OamTunneling_Object((1,3,6,1,4,1,7483,6,1,2,42,1,1,1,4),_TnDot3OamTunneling_Type())
-tnDot3OamTunneling.setMaxAccess(_B)
-if mibBuilder.loadTexts:tnDot3OamTunneling.setStatus(_A)
-class _TnDot3OamLooped_Type(TruthValue):defaultValue=2
-_TnDot3OamLooped_Type.__name__=_F
-_TnDot3OamLooped_Object=MibTableColumn
-tnDot3OamLooped=_TnDot3OamLooped_Object((1,3,6,1,4,1,7483,6,1,2,42,1,1,1,5),_TnDot3OamLooped_Type())
-tnDot3OamLooped.setMaxAccess(_G)
-if mibBuilder.loadTexts:tnDot3OamLooped.setStatus(_A)
-class _TnDot3OamHoldTime_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,50))
-_TnDot3OamHoldTime_Type.__name__=_C
-_TnDot3OamHoldTime_Object=MibTableColumn
-tnDot3OamHoldTime=_TnDot3OamHoldTime_Object((1,3,6,1,4,1,7483,6,1,2,42,1,1,1,6),_TnDot3OamHoldTime_Type())
-tnDot3OamHoldTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:tnDot3OamHoldTime.setStatus(_A)
-if mibBuilder.loadTexts:tnDot3OamHoldTime.setUnits('seconds')
-_TnDot3OamLoopbackObjs_ObjectIdentity=ObjectIdentity
-tnDot3OamLoopbackObjs=_TnDot3OamLoopbackObjs_ObjectIdentity((1,3,6,1,4,1,7483,6,1,2,42,2))
-_TnDot3OamLoopbackTable_Object=MibTable
-tnDot3OamLoopbackTable=_TnDot3OamLoopbackTable_Object((1,3,6,1,4,1,7483,6,1,2,42,2,1))
-if mibBuilder.loadTexts:tnDot3OamLoopbackTable.setStatus(_A)
-_TnDot3OamLoopbackEntry_Object=MibTableRow
-tnDot3OamLoopbackEntry=_TnDot3OamLoopbackEntry_Object((1,3,6,1,4,1,7483,6,1,2,42,2,1,1))
-if mibBuilder.loadTexts:tnDot3OamLoopbackEntry.setStatus(_A)
-_TnDot3OamLoopbackLastChanged_Type=TimeStamp
-_TnDot3OamLoopbackLastChanged_Object=MibTableColumn
-tnDot3OamLoopbackLastChanged=_TnDot3OamLoopbackLastChanged_Object((1,3,6,1,4,1,7483,6,1,2,42,2,1,1,1),_TnDot3OamLoopbackLastChanged_Type())
-tnDot3OamLoopbackLastChanged.setMaxAccess(_G)
-if mibBuilder.loadTexts:tnDot3OamLoopbackLastChanged.setStatus(_A)
-class _TnDot3OamLoopbackLocalStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('noLoopback',1),('localLoopback',2)))
-_TnDot3OamLoopbackLocalStatus_Type.__name__=_K
-_TnDot3OamLoopbackLocalStatus_Object=MibTableColumn
-tnDot3OamLoopbackLocalStatus=_TnDot3OamLoopbackLocalStatus_Object((1,3,6,1,4,1,7483,6,1,2,42,2,1,1,2),_TnDot3OamLoopbackLocalStatus_Type())
-tnDot3OamLoopbackLocalStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:tnDot3OamLoopbackLocalStatus.setStatus(_A)
-_TnDot3OamNotifyPrefix_ObjectIdentity=ObjectIdentity
-tnDot3OamNotifyPrefix=_TnDot3OamNotifyPrefix_ObjectIdentity((1,3,6,1,4,1,7483,6,1,3,42))
-_TnDot3OamNotificationsPrefix_ObjectIdentity=ObjectIdentity
-tnDot3OamNotificationsPrefix=_TnDot3OamNotificationsPrefix_ObjectIdentity((1,3,6,1,4,1,7483,6,1,3,42,42))
-_TnDot3OamNotifications_ObjectIdentity=ObjectIdentity
-tnDot3OamNotifications=_TnDot3OamNotifications_ObjectIdentity((1,3,6,1,4,1,7483,6,1,3,42,42,0))
-dot3OamEntry.registerAugmentions((_H,_L))
+#
+# PySNMP MIB module TN-DOT3-OAM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TN-DOT3-OAM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:18:37 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot3OamEntry, dot3OamLoopbackEntry, dot3OamPeerMacAddress = mibBuilder.importSymbols("DOT3-OAM-MIB", "dot3OamEntry", "dot3OamLoopbackEntry", "dot3OamPeerMacAddress")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TruthValue", "TextualConvention")
+tnSRMIBModules, tnSRNotifyPrefix, tnSRObjs = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnSRMIBModules", "tnSRNotifyPrefix", "tnSRObjs")
+tnDOT3OAMMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 5, 1, 3, 42))
+tnDOT3OAMMIBModule.setRevisions(('2008-07-01 00:00', '2008-01-01 00:00', '2006-08-01 00:00',))
+if mibBuilder.loadTexts: tnDOT3OAMMIBModule.setLastUpdated('200807010000Z')
+if mibBuilder.loadTexts: tnDOT3OAMMIBModule.setOrganization('Nokia')
+tnDot3OamObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 42))
+tnDot3OamEntryObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 42, 1))
+tnDot3OamLoopbackObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 42, 2))
+tnDot3OamNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 3, 42))
+tnDot3OamNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 3, 42, 42))
+tnDot3OamNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 3, 42, 42, 0))
+tnDot3OamTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 42, 1, 1), )
+if mibBuilder.loadTexts: tnDot3OamTable.setStatus('current')
+tnDot3OamEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 42, 1, 1, 1), )
+dot3OamEntry.registerAugmentions(("TN-DOT3-OAM-MIB", "tnDot3OamEntry"))
 tnDot3OamEntry.setIndexNames(*dot3OamEntry.getIndexNames())
-dot3OamLoopbackEntry.registerAugmentions((_H,_M))
+if mibBuilder.loadTexts: tnDot3OamEntry.setStatus('current')
+tnDot3OamLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 42, 1, 1, 1, 1), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnDot3OamLastChanged.setStatus('current')
+tnDot3OamInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 42, 1, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 600)).clone(10)).setUnits('100s of milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tnDot3OamInterval.setStatus('current')
+tnDot3OamMultiplier = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 42, 1, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(2, 5)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tnDot3OamMultiplier.setStatus('current')
+tnDot3OamTunneling = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 42, 1, 1, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tnDot3OamTunneling.setStatus('current')
+tnDot3OamLooped = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 42, 1, 1, 1, 5), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnDot3OamLooped.setStatus('current')
+tnDot3OamHoldTime = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 42, 1, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 50))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tnDot3OamHoldTime.setStatus('current')
+tnDot3OamLoopbackTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 42, 2, 1), )
+if mibBuilder.loadTexts: tnDot3OamLoopbackTable.setStatus('current')
+tnDot3OamLoopbackEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 42, 2, 1, 1), )
+dot3OamLoopbackEntry.registerAugmentions(("TN-DOT3-OAM-MIB", "tnDot3OamLoopbackEntry"))
 tnDot3OamLoopbackEntry.setIndexNames(*dot3OamLoopbackEntry.getIndexNames())
-tnDot3OamPeerChanged=NotificationType((1,3,6,1,4,1,7483,6,1,3,42,42,0,1))
-tnDot3OamPeerChanged.setObjects((_I,_J))
-if mibBuilder.loadTexts:tnDot3OamPeerChanged.setStatus(_A)
-tnDot3OamLoopDetected=NotificationType((1,3,6,1,4,1,7483,6,1,3,42,42,0,2))
-tnDot3OamLoopDetected.setObjects((_D,_E))
-if mibBuilder.loadTexts:tnDot3OamLoopDetected.setStatus(_A)
-tnDot3OamLoopCleared=NotificationType((1,3,6,1,4,1,7483,6,1,3,42,42,0,3))
-tnDot3OamLoopCleared.setObjects((_D,_E))
-if mibBuilder.loadTexts:tnDot3OamLoopCleared.setStatus(_A)
-mibBuilder.exportSymbols(_H,**{'tnDOT3OAMMIBModule':tnDOT3OAMMIBModule,'tnDot3OamObjs':tnDot3OamObjs,'tnDot3OamEntryObjs':tnDot3OamEntryObjs,'tnDot3OamTable':tnDot3OamTable,_L:tnDot3OamEntry,'tnDot3OamLastChanged':tnDot3OamLastChanged,'tnDot3OamInterval':tnDot3OamInterval,'tnDot3OamMultiplier':tnDot3OamMultiplier,'tnDot3OamTunneling':tnDot3OamTunneling,'tnDot3OamLooped':tnDot3OamLooped,'tnDot3OamHoldTime':tnDot3OamHoldTime,'tnDot3OamLoopbackObjs':tnDot3OamLoopbackObjs,'tnDot3OamLoopbackTable':tnDot3OamLoopbackTable,_M:tnDot3OamLoopbackEntry,'tnDot3OamLoopbackLastChanged':tnDot3OamLoopbackLastChanged,'tnDot3OamLoopbackLocalStatus':tnDot3OamLoopbackLocalStatus,'tnDot3OamNotifyPrefix':tnDot3OamNotifyPrefix,'tnDot3OamNotificationsPrefix':tnDot3OamNotificationsPrefix,'tnDot3OamNotifications':tnDot3OamNotifications,'tnDot3OamPeerChanged':tnDot3OamPeerChanged,'tnDot3OamLoopDetected':tnDot3OamLoopDetected,'tnDot3OamLoopCleared':tnDot3OamLoopCleared})
+if mibBuilder.loadTexts: tnDot3OamLoopbackEntry.setStatus('current')
+tnDot3OamLoopbackLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 42, 2, 1, 1, 1), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tnDot3OamLoopbackLastChanged.setStatus('current')
+tnDot3OamLoopbackLocalStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 42, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noLoopback", 1), ("localLoopback", 2))).clone('noLoopback')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tnDot3OamLoopbackLocalStatus.setStatus('current')
+tnDot3OamPeerChanged = NotificationType((1, 3, 6, 1, 4, 1, 7483, 6, 1, 3, 42, 42, 0, 1)).setObjects(("DOT3-OAM-MIB", "dot3OamPeerMacAddress"))
+if mibBuilder.loadTexts: tnDot3OamPeerChanged.setStatus('current')
+tnDot3OamLoopDetected = NotificationType((1, 3, 6, 1, 4, 1, 7483, 6, 1, 3, 42, 42, 0, 2)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: tnDot3OamLoopDetected.setStatus('current')
+tnDot3OamLoopCleared = NotificationType((1, 3, 6, 1, 4, 1, 7483, 6, 1, 3, 42, 42, 0, 3)).setObjects(("IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: tnDot3OamLoopCleared.setStatus('current')
+mibBuilder.exportSymbols("TN-DOT3-OAM-MIB", tnDot3OamTunneling=tnDot3OamTunneling, tnDot3OamNotifyPrefix=tnDot3OamNotifyPrefix, tnDot3OamMultiplier=tnDot3OamMultiplier, tnDot3OamLoopbackTable=tnDot3OamLoopbackTable, tnDot3OamNotificationsPrefix=tnDot3OamNotificationsPrefix, tnDOT3OAMMIBModule=tnDOT3OAMMIBModule, tnDot3OamPeerChanged=tnDot3OamPeerChanged, tnDot3OamEntry=tnDot3OamEntry, tnDot3OamTable=tnDot3OamTable, tnDot3OamLoopbackEntry=tnDot3OamLoopbackEntry, tnDot3OamLooped=tnDot3OamLooped, tnDot3OamLoopbackLastChanged=tnDot3OamLoopbackLastChanged, tnDot3OamHoldTime=tnDot3OamHoldTime, tnDot3OamLoopCleared=tnDot3OamLoopCleared, tnDot3OamLastChanged=tnDot3OamLastChanged, tnDot3OamNotifications=tnDot3OamNotifications, tnDot3OamLoopDetected=tnDot3OamLoopDetected, PYSNMP_MODULE_ID=tnDOT3OAMMIBModule, tnDot3OamObjs=tnDot3OamObjs, tnDot3OamLoopbackObjs=tnDot3OamLoopbackObjs, tnDot3OamLoopbackLocalStatus=tnDot3OamLoopbackLocalStatus, tnDot3OamEntryObjs=tnDot3OamEntryObjs, tnDot3OamInterval=tnDot3OamInterval)

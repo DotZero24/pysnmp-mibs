@@ -1,37 +1,33 @@
-_E='bootBehaviorGroupVer1'
-_D='checkTcpIpStackForSuccessfulBoot'
-_C='MxEnableState'
-_B='MX-BOOT-BEHAVIOR-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mediatrixExperimental,=mibBuilder.importSymbols('MX-SMI','mediatrixExperimental')
-MxEnableState,=mibBuilder.importSymbols('MX-TC',_C)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-bootBehaviorMIB=ModuleIdentity((1,3,6,1,4,1,4935,99,70))
-if mibBuilder.loadTexts:bootBehaviorMIB.setRevisions(('2004-08-12 00:00',))
-_BootBehaviorMIBObjects_ObjectIdentity=ObjectIdentity
-bootBehaviorMIBObjects=_BootBehaviorMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,99,70,1))
-class _CheckTcpIpStackForSuccessfulBoot_Type(MxEnableState):defaultValue=1
-_CheckTcpIpStackForSuccessfulBoot_Type.__name__=_C
-_CheckTcpIpStackForSuccessfulBoot_Object=MibScalar
-checkTcpIpStackForSuccessfulBoot=_CheckTcpIpStackForSuccessfulBoot_Object((1,3,6,1,4,1,4935,99,70,1,1),_CheckTcpIpStackForSuccessfulBoot_Type())
-checkTcpIpStackForSuccessfulBoot.setMaxAccess('read-write')
-if mibBuilder.loadTexts:checkTcpIpStackForSuccessfulBoot.setStatus(_A)
-_BootBehaviorConformance_ObjectIdentity=ObjectIdentity
-bootBehaviorConformance=_BootBehaviorConformance_ObjectIdentity((1,3,6,1,4,1,4935,99,70,2))
-_BootBehaviorCompliances_ObjectIdentity=ObjectIdentity
-bootBehaviorCompliances=_BootBehaviorCompliances_ObjectIdentity((1,3,6,1,4,1,4935,99,70,2,1))
-_BootBehaviorGroups_ObjectIdentity=ObjectIdentity
-bootBehaviorGroups=_BootBehaviorGroups_ObjectIdentity((1,3,6,1,4,1,4935,99,70,2,2))
-bootBehaviorGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,99,70,2,2,10))
-bootBehaviorGroupVer1.setObjects((_B,_D))
-if mibBuilder.loadTexts:bootBehaviorGroupVer1.setStatus(_A)
-bootBehaviorComplVer1=ModuleCompliance((1,3,6,1,4,1,4935,99,70,2,1,10))
-bootBehaviorComplVer1.setObjects((_B,_E))
-if mibBuilder.loadTexts:bootBehaviorComplVer1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'bootBehaviorMIB':bootBehaviorMIB,'bootBehaviorMIBObjects':bootBehaviorMIBObjects,_D:checkTcpIpStackForSuccessfulBoot,'bootBehaviorConformance':bootBehaviorConformance,'bootBehaviorCompliances':bootBehaviorCompliances,'bootBehaviorComplVer1':bootBehaviorComplVer1,'bootBehaviorGroups':bootBehaviorGroups,_E:bootBehaviorGroupVer1})
+#
+# PySNMP MIB module MX-BOOT-BEHAVIOR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-BOOT-BEHAVIOR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mediatrixExperimental, = mibBuilder.importSymbols("MX-SMI", "mediatrixExperimental")
+MxEnableState, = mibBuilder.importSymbols("MX-TC", "MxEnableState")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+bootBehaviorMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 99, 70))
+bootBehaviorMIB.setRevisions(('2004-08-12 00:00',))
+if mibBuilder.loadTexts: bootBehaviorMIB.setLastUpdated('200408120000Z')
+if mibBuilder.loadTexts: bootBehaviorMIB.setOrganization('Mediatrix Telecom, Inc.')
+bootBehaviorMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 70, 1))
+bootBehaviorConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 70, 2))
+checkTcpIpStackForSuccessfulBoot = MibScalar((1, 3, 6, 1, 4, 1, 4935, 99, 70, 1, 1), MxEnableState().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: checkTcpIpStackForSuccessfulBoot.setStatus('current')
+bootBehaviorCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 70, 2, 1))
+bootBehaviorComplVer1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4935, 99, 70, 2, 1, 10)).setObjects(("MX-BOOT-BEHAVIOR-MIB", "bootBehaviorGroupVer1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bootBehaviorComplVer1 = bootBehaviorComplVer1.setStatus('current')
+bootBehaviorGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 70, 2, 2))
+bootBehaviorGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 99, 70, 2, 2, 10)).setObjects(("MX-BOOT-BEHAVIOR-MIB", "checkTcpIpStackForSuccessfulBoot"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bootBehaviorGroupVer1 = bootBehaviorGroupVer1.setStatus('current')
+mibBuilder.exportSymbols("MX-BOOT-BEHAVIOR-MIB", bootBehaviorMIB=bootBehaviorMIB, checkTcpIpStackForSuccessfulBoot=checkTcpIpStackForSuccessfulBoot, bootBehaviorCompliances=bootBehaviorCompliances, bootBehaviorGroupVer1=bootBehaviorGroupVer1, bootBehaviorGroups=bootBehaviorGroups, PYSNMP_MODULE_ID=bootBehaviorMIB, bootBehaviorConformance=bootBehaviorConformance, bootBehaviorMIBObjects=bootBehaviorMIBObjects, bootBehaviorComplVer1=bootBehaviorComplVer1)

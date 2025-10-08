@@ -1,126 +1,70 @@
-_S='cvtPortTranslationGroup'
-_R='cvtGlobalTranslationGroup'
-_Q='cvtPortTranslationStatus'
-_P='cvtPortTranslatedVlan'
-_O='cvtPortTranslationMax'
-_N='cvtPortTranslationEnabled'
-_M='cvtGlobalTranslationStatus'
-_L='cvtGlobalTranslationEffective'
-_K='cvtGlobalTranslatedVlan'
-_J='cvtGlobalTranslationMax'
-_I='cvtPortOriginalVlan'
-_H='not-accessible'
-_G='cvtGlobalOriginalVlan'
-_F='read-only'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-create'
-_B='CISCO-VLAN-TRANSLATION-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-VlanIndex,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-ciscoVlanTranslationMIB=ModuleIdentity((1,3,6,1,4,1,9,9,411))
-if mibBuilder.loadTexts:ciscoVlanTranslationMIB.setRevisions(('2004-06-01 00:00',))
-_CiscoVlanTranslationMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoVlanTranslationMIBNotifs=_CiscoVlanTranslationMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,411,0))
-_CiscoVlanTranslationMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoVlanTranslationMIBObjects=_CiscoVlanTranslationMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,411,1))
-_CvtGlobalTranslation_ObjectIdentity=ObjectIdentity
-cvtGlobalTranslation=_CvtGlobalTranslation_ObjectIdentity((1,3,6,1,4,1,9,9,411,1,1))
-_CvtGlobalTranslationMax_Type=Unsigned32
-_CvtGlobalTranslationMax_Object=MibScalar
-cvtGlobalTranslationMax=_CvtGlobalTranslationMax_Object((1,3,6,1,4,1,9,9,411,1,1,1),_CvtGlobalTranslationMax_Type())
-cvtGlobalTranslationMax.setMaxAccess(_F)
-if mibBuilder.loadTexts:cvtGlobalTranslationMax.setStatus(_A)
-_CvtGlobalTranslationTable_Object=MibTable
-cvtGlobalTranslationTable=_CvtGlobalTranslationTable_Object((1,3,6,1,4,1,9,9,411,1,1,2))
-if mibBuilder.loadTexts:cvtGlobalTranslationTable.setStatus(_A)
-_CvtGlobalTranslationEntry_Object=MibTableRow
-cvtGlobalTranslationEntry=_CvtGlobalTranslationEntry_Object((1,3,6,1,4,1,9,9,411,1,1,2,1))
-cvtGlobalTranslationEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:cvtGlobalTranslationEntry.setStatus(_A)
-_CvtGlobalOriginalVlan_Type=VlanIndex
-_CvtGlobalOriginalVlan_Object=MibTableColumn
-cvtGlobalOriginalVlan=_CvtGlobalOriginalVlan_Object((1,3,6,1,4,1,9,9,411,1,1,2,1,1),_CvtGlobalOriginalVlan_Type())
-cvtGlobalOriginalVlan.setMaxAccess(_H)
-if mibBuilder.loadTexts:cvtGlobalOriginalVlan.setStatus(_A)
-_CvtGlobalTranslatedVlan_Type=VlanIndex
-_CvtGlobalTranslatedVlan_Object=MibTableColumn
-cvtGlobalTranslatedVlan=_CvtGlobalTranslatedVlan_Object((1,3,6,1,4,1,9,9,411,1,1,2,1,2),_CvtGlobalTranslatedVlan_Type())
-cvtGlobalTranslatedVlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtGlobalTranslatedVlan.setStatus(_A)
-_CvtGlobalTranslationEffective_Type=TruthValue
-_CvtGlobalTranslationEffective_Object=MibTableColumn
-cvtGlobalTranslationEffective=_CvtGlobalTranslationEffective_Object((1,3,6,1,4,1,9,9,411,1,1,2,1,3),_CvtGlobalTranslationEffective_Type())
-cvtGlobalTranslationEffective.setMaxAccess(_F)
-if mibBuilder.loadTexts:cvtGlobalTranslationEffective.setStatus(_A)
-_CvtGlobalTranslationStatus_Type=RowStatus
-_CvtGlobalTranslationStatus_Object=MibTableColumn
-cvtGlobalTranslationStatus=_CvtGlobalTranslationStatus_Object((1,3,6,1,4,1,9,9,411,1,1,2,1,4),_CvtGlobalTranslationStatus_Type())
-cvtGlobalTranslationStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtGlobalTranslationStatus.setStatus(_A)
-_CvtPortBasedTranslation_ObjectIdentity=ObjectIdentity
-cvtPortBasedTranslation=_CvtPortBasedTranslation_ObjectIdentity((1,3,6,1,4,1,9,9,411,1,2))
-_CvtPortConfigTable_Object=MibTable
-cvtPortConfigTable=_CvtPortConfigTable_Object((1,3,6,1,4,1,9,9,411,1,2,1))
-if mibBuilder.loadTexts:cvtPortConfigTable.setStatus(_A)
-_CvtPortConfigEntry_Object=MibTableRow
-cvtPortConfigEntry=_CvtPortConfigEntry_Object((1,3,6,1,4,1,9,9,411,1,2,1,1))
-cvtPortConfigEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:cvtPortConfigEntry.setStatus(_A)
-_CvtPortTranslationEnabled_Type=TruthValue
-_CvtPortTranslationEnabled_Object=MibTableColumn
-cvtPortTranslationEnabled=_CvtPortTranslationEnabled_Object((1,3,6,1,4,1,9,9,411,1,2,1,1,1),_CvtPortTranslationEnabled_Type())
-cvtPortTranslationEnabled.setMaxAccess('read-write')
-if mibBuilder.loadTexts:cvtPortTranslationEnabled.setStatus(_A)
-_CvtPortTranslationMax_Type=Unsigned32
-_CvtPortTranslationMax_Object=MibTableColumn
-cvtPortTranslationMax=_CvtPortTranslationMax_Object((1,3,6,1,4,1,9,9,411,1,2,1,1,2),_CvtPortTranslationMax_Type())
-cvtPortTranslationMax.setMaxAccess(_F)
-if mibBuilder.loadTexts:cvtPortTranslationMax.setStatus(_A)
-_CvtPortTranslationTable_Object=MibTable
-cvtPortTranslationTable=_CvtPortTranslationTable_Object((1,3,6,1,4,1,9,9,411,1,2,2))
-if mibBuilder.loadTexts:cvtPortTranslationTable.setStatus(_A)
-_CvtPortTranslationEntry_Object=MibTableRow
-cvtPortTranslationEntry=_CvtPortTranslationEntry_Object((1,3,6,1,4,1,9,9,411,1,2,2,1))
-cvtPortTranslationEntry.setIndexNames((0,_D,_E),(0,_B,_I))
-if mibBuilder.loadTexts:cvtPortTranslationEntry.setStatus(_A)
-_CvtPortOriginalVlan_Type=VlanIndex
-_CvtPortOriginalVlan_Object=MibTableColumn
-cvtPortOriginalVlan=_CvtPortOriginalVlan_Object((1,3,6,1,4,1,9,9,411,1,2,2,1,1),_CvtPortOriginalVlan_Type())
-cvtPortOriginalVlan.setMaxAccess(_H)
-if mibBuilder.loadTexts:cvtPortOriginalVlan.setStatus(_A)
-_CvtPortTranslatedVlan_Type=VlanIndex
-_CvtPortTranslatedVlan_Object=MibTableColumn
-cvtPortTranslatedVlan=_CvtPortTranslatedVlan_Object((1,3,6,1,4,1,9,9,411,1,2,2,1,2),_CvtPortTranslatedVlan_Type())
-cvtPortTranslatedVlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtPortTranslatedVlan.setStatus(_A)
-_CvtPortTranslationStatus_Type=RowStatus
-_CvtPortTranslationStatus_Object=MibTableColumn
-cvtPortTranslationStatus=_CvtPortTranslationStatus_Object((1,3,6,1,4,1,9,9,411,1,2,2,1,3),_CvtPortTranslationStatus_Type())
-cvtPortTranslationStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cvtPortTranslationStatus.setStatus(_A)
-_CiscoVlanTranslationMIBConform_ObjectIdentity=ObjectIdentity
-ciscoVlanTranslationMIBConform=_CiscoVlanTranslationMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,411,2))
-_CvtMIBCompliances_ObjectIdentity=ObjectIdentity
-cvtMIBCompliances=_CvtMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,411,2,1))
-_CvtMIBGroups_ObjectIdentity=ObjectIdentity
-cvtMIBGroups=_CvtMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,411,2,2))
-cvtGlobalTranslationGroup=ObjectGroup((1,3,6,1,4,1,9,9,411,2,2,1))
-cvtGlobalTranslationGroup.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M)))
-if mibBuilder.loadTexts:cvtGlobalTranslationGroup.setStatus(_A)
-cvtPortTranslationGroup=ObjectGroup((1,3,6,1,4,1,9,9,411,2,2,2))
-cvtPortTranslationGroup.setObjects(*((_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:cvtPortTranslationGroup.setStatus(_A)
-cvtMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,411,2,1,1))
-cvtMIBCompliance.setObjects(*((_B,_R),(_B,_S)))
-if mibBuilder.loadTexts:cvtMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoVlanTranslationMIB':ciscoVlanTranslationMIB,'ciscoVlanTranslationMIBNotifs':ciscoVlanTranslationMIBNotifs,'ciscoVlanTranslationMIBObjects':ciscoVlanTranslationMIBObjects,'cvtGlobalTranslation':cvtGlobalTranslation,_J:cvtGlobalTranslationMax,'cvtGlobalTranslationTable':cvtGlobalTranslationTable,'cvtGlobalTranslationEntry':cvtGlobalTranslationEntry,_G:cvtGlobalOriginalVlan,_K:cvtGlobalTranslatedVlan,_L:cvtGlobalTranslationEffective,_M:cvtGlobalTranslationStatus,'cvtPortBasedTranslation':cvtPortBasedTranslation,'cvtPortConfigTable':cvtPortConfigTable,'cvtPortConfigEntry':cvtPortConfigEntry,_N:cvtPortTranslationEnabled,_O:cvtPortTranslationMax,'cvtPortTranslationTable':cvtPortTranslationTable,'cvtPortTranslationEntry':cvtPortTranslationEntry,_I:cvtPortOriginalVlan,_P:cvtPortTranslatedVlan,_Q:cvtPortTranslationStatus,'ciscoVlanTranslationMIBConform':ciscoVlanTranslationMIBConform,'cvtMIBCompliances':cvtMIBCompliances,'cvtMIBCompliance':cvtMIBCompliance,'cvtMIBGroups':cvtMIBGroups,_R:cvtGlobalTranslationGroup,_S:cvtPortTranslationGroup})
+#
+# PySNMP MIB module CISCO-VLAN-TRANSLATION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-VLAN-TRANSLATION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+VlanIndex, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ciscoVlanTranslationMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 411))
+ciscoVlanTranslationMIB.setRevisions(('2004-06-01 00:00',))
+if mibBuilder.loadTexts: ciscoVlanTranslationMIB.setLastUpdated('200406010000Z')
+if mibBuilder.loadTexts: ciscoVlanTranslationMIB.setOrganization('Cisco Systems, Inc.')
+ciscoVlanTranslationMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 411, 0))
+ciscoVlanTranslationMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 411, 1))
+ciscoVlanTranslationMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 411, 2))
+cvtGlobalTranslation = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 1))
+cvtGlobalTranslationMax = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvtGlobalTranslationMax.setStatus('current')
+cvtGlobalTranslationTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 1, 2), )
+if mibBuilder.loadTexts: cvtGlobalTranslationTable.setStatus('current')
+cvtGlobalTranslationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 1, 2, 1), ).setIndexNames((0, "CISCO-VLAN-TRANSLATION-MIB", "cvtGlobalOriginalVlan"))
+if mibBuilder.loadTexts: cvtGlobalTranslationEntry.setStatus('current')
+cvtGlobalOriginalVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 1, 2, 1, 1), VlanIndex())
+if mibBuilder.loadTexts: cvtGlobalOriginalVlan.setStatus('current')
+cvtGlobalTranslatedVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 1, 2, 1, 2), VlanIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtGlobalTranslatedVlan.setStatus('current')
+cvtGlobalTranslationEffective = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 1, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvtGlobalTranslationEffective.setStatus('current')
+cvtGlobalTranslationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtGlobalTranslationStatus.setStatus('current')
+cvtPortBasedTranslation = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 2))
+cvtPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 2, 1), )
+if mibBuilder.loadTexts: cvtPortConfigTable.setStatus('current')
+cvtPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cvtPortConfigEntry.setStatus('current')
+cvtPortTranslationEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 2, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cvtPortTranslationEnabled.setStatus('current')
+cvtPortTranslationMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 2, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cvtPortTranslationMax.setStatus('current')
+cvtPortTranslationTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 2, 2), )
+if mibBuilder.loadTexts: cvtPortTranslationTable.setStatus('current')
+cvtPortTranslationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-VLAN-TRANSLATION-MIB", "cvtPortOriginalVlan"))
+if mibBuilder.loadTexts: cvtPortTranslationEntry.setStatus('current')
+cvtPortOriginalVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 2, 2, 1, 1), VlanIndex())
+if mibBuilder.loadTexts: cvtPortOriginalVlan.setStatus('current')
+cvtPortTranslatedVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 2, 2, 1, 2), VlanIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtPortTranslatedVlan.setStatus('current')
+cvtPortTranslationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 411, 1, 2, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvtPortTranslationStatus.setStatus('current')
+cvtMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 411, 2, 1))
+cvtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 411, 2, 1, 1)).setObjects(("CISCO-VLAN-TRANSLATION-MIB", "cvtGlobalTranslationGroup"), ("CISCO-VLAN-TRANSLATION-MIB", "cvtPortTranslationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cvtMIBCompliance = cvtMIBCompliance.setStatus('current')
+cvtMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 411, 2, 2))
+cvtGlobalTranslationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 411, 2, 2, 1)).setObjects(("CISCO-VLAN-TRANSLATION-MIB", "cvtGlobalTranslationMax"), ("CISCO-VLAN-TRANSLATION-MIB", "cvtGlobalTranslatedVlan"), ("CISCO-VLAN-TRANSLATION-MIB", "cvtGlobalTranslationEffective"), ("CISCO-VLAN-TRANSLATION-MIB", "cvtGlobalTranslationStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cvtGlobalTranslationGroup = cvtGlobalTranslationGroup.setStatus('current')
+cvtPortTranslationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 411, 2, 2, 2)).setObjects(("CISCO-VLAN-TRANSLATION-MIB", "cvtPortTranslationEnabled"), ("CISCO-VLAN-TRANSLATION-MIB", "cvtPortTranslationMax"), ("CISCO-VLAN-TRANSLATION-MIB", "cvtPortTranslatedVlan"), ("CISCO-VLAN-TRANSLATION-MIB", "cvtPortTranslationStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cvtPortTranslationGroup = cvtPortTranslationGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-VLAN-TRANSLATION-MIB", ciscoVlanTranslationMIBObjects=ciscoVlanTranslationMIBObjects, cvtGlobalOriginalVlan=cvtGlobalOriginalVlan, cvtPortTranslationMax=cvtPortTranslationMax, cvtGlobalTranslationEntry=cvtGlobalTranslationEntry, cvtPortOriginalVlan=cvtPortOriginalVlan, cvtPortTranslatedVlan=cvtPortTranslatedVlan, cvtGlobalTranslationMax=cvtGlobalTranslationMax, cvtMIBGroups=cvtMIBGroups, cvtPortTranslationEnabled=cvtPortTranslationEnabled, cvtPortConfigEntry=cvtPortConfigEntry, cvtGlobalTranslationGroup=cvtGlobalTranslationGroup, ciscoVlanTranslationMIBNotifs=ciscoVlanTranslationMIBNotifs, PYSNMP_MODULE_ID=ciscoVlanTranslationMIB, cvtMIBCompliances=cvtMIBCompliances, cvtPortTranslationTable=cvtPortTranslationTable, cvtGlobalTranslatedVlan=cvtGlobalTranslatedVlan, cvtMIBCompliance=cvtMIBCompliance, cvtGlobalTranslation=cvtGlobalTranslation, cvtPortConfigTable=cvtPortConfigTable, ciscoVlanTranslationMIBConform=ciscoVlanTranslationMIBConform, cvtPortTranslationGroup=cvtPortTranslationGroup, cvtPortTranslationStatus=cvtPortTranslationStatus, cvtGlobalTranslationTable=cvtGlobalTranslationTable, cvtGlobalTranslationEffective=cvtGlobalTranslationEffective, cvtPortTranslationEntry=cvtPortTranslationEntry, cvtGlobalTranslationStatus=cvtGlobalTranslationStatus, ciscoVlanTranslationMIB=ciscoVlanTranslationMIB, cvtPortBasedTranslation=cvtPortBasedTranslation)

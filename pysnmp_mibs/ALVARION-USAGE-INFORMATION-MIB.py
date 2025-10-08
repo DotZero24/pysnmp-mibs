@@ -1,129 +1,60 @@
-_S='alvarionUsageInformationMIBGroup'
-_R='coUsInfoStorageUseTemporary'
-_Q='coUsInfoStorageUsePermanent'
-_P='coUsInfoRamCached'
-_O='coUsInfoRamBuffer'
-_N='coUsInfoRamFree'
-_M='coUsInfoRamTotal'
-_L='coUsInfoCpuUse20Sec'
-_K='coUsInfoCpuUse10Sec'
-_J='coUsInfoCpuUse5Sec'
-_I='coUsInfoCpuUseNow'
-_H='coUsInfoLoadAverage15Min'
-_G='coUsInfoLoadAverage5Min'
-_F='coUsInfoLoadAverage1Min'
-_E='coUsInfoUpTime'
-_D='Kb'
-_C='read-only'
-_B='ALVARION-USAGE-INFORMATION-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-alvarionMgmtV2,=mibBuilder.importSymbols('ALVARION-SMI','alvarionMgmtV2')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-alvarionUsageInformationMIB=ModuleIdentity((1,3,6,1,4,1,12394,1,10,5,21))
-_AlvarionUsageInformationMIBObjects_ObjectIdentity=ObjectIdentity
-alvarionUsageInformationMIBObjects=_AlvarionUsageInformationMIBObjects_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,21,1))
-_CoUsageInformationGroup_ObjectIdentity=ObjectIdentity
-coUsageInformationGroup=_CoUsageInformationGroup_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,21,1,1))
-_CoUsInfoUpTime_Type=TimeTicks
-_CoUsInfoUpTime_Object=MibScalar
-coUsInfoUpTime=_CoUsInfoUpTime_Object((1,3,6,1,4,1,12394,1,10,5,21,1,1,1),_CoUsInfoUpTime_Type())
-coUsInfoUpTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUsInfoUpTime.setStatus(_A)
-_CoUsInfoLoadAverage1Min_Type=Unsigned32
-_CoUsInfoLoadAverage1Min_Object=MibScalar
-coUsInfoLoadAverage1Min=_CoUsInfoLoadAverage1Min_Object((1,3,6,1,4,1,12394,1,10,5,21,1,1,2),_CoUsInfoLoadAverage1Min_Type())
-coUsInfoLoadAverage1Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUsInfoLoadAverage1Min.setStatus(_A)
-_CoUsInfoLoadAverage5Min_Type=Unsigned32
-_CoUsInfoLoadAverage5Min_Object=MibScalar
-coUsInfoLoadAverage5Min=_CoUsInfoLoadAverage5Min_Object((1,3,6,1,4,1,12394,1,10,5,21,1,1,3),_CoUsInfoLoadAverage5Min_Type())
-coUsInfoLoadAverage5Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUsInfoLoadAverage5Min.setStatus(_A)
-_CoUsInfoLoadAverage15Min_Type=Unsigned32
-_CoUsInfoLoadAverage15Min_Object=MibScalar
-coUsInfoLoadAverage15Min=_CoUsInfoLoadAverage15Min_Object((1,3,6,1,4,1,12394,1,10,5,21,1,1,4),_CoUsInfoLoadAverage15Min_Type())
-coUsInfoLoadAverage15Min.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUsInfoLoadAverage15Min.setStatus(_A)
-_CoUsInfoCpuUseNow_Type=Unsigned32
-_CoUsInfoCpuUseNow_Object=MibScalar
-coUsInfoCpuUseNow=_CoUsInfoCpuUseNow_Object((1,3,6,1,4,1,12394,1,10,5,21,1,1,5),_CoUsInfoCpuUseNow_Type())
-coUsInfoCpuUseNow.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUsInfoCpuUseNow.setStatus(_A)
-if mibBuilder.loadTexts:coUsInfoCpuUseNow.setUnits('%')
-_CoUsInfoCpuUse5Sec_Type=Unsigned32
-_CoUsInfoCpuUse5Sec_Object=MibScalar
-coUsInfoCpuUse5Sec=_CoUsInfoCpuUse5Sec_Object((1,3,6,1,4,1,12394,1,10,5,21,1,1,6),_CoUsInfoCpuUse5Sec_Type())
-coUsInfoCpuUse5Sec.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUsInfoCpuUse5Sec.setStatus(_A)
-if mibBuilder.loadTexts:coUsInfoCpuUse5Sec.setUnits('%')
-_CoUsInfoCpuUse10Sec_Type=Unsigned32
-_CoUsInfoCpuUse10Sec_Object=MibScalar
-coUsInfoCpuUse10Sec=_CoUsInfoCpuUse10Sec_Object((1,3,6,1,4,1,12394,1,10,5,21,1,1,7),_CoUsInfoCpuUse10Sec_Type())
-coUsInfoCpuUse10Sec.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUsInfoCpuUse10Sec.setStatus(_A)
-if mibBuilder.loadTexts:coUsInfoCpuUse10Sec.setUnits('%')
-_CoUsInfoCpuUse20Sec_Type=Unsigned32
-_CoUsInfoCpuUse20Sec_Object=MibScalar
-coUsInfoCpuUse20Sec=_CoUsInfoCpuUse20Sec_Object((1,3,6,1,4,1,12394,1,10,5,21,1,1,8),_CoUsInfoCpuUse20Sec_Type())
-coUsInfoCpuUse20Sec.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUsInfoCpuUse20Sec.setStatus(_A)
-if mibBuilder.loadTexts:coUsInfoCpuUse20Sec.setUnits('%')
-_CoUsInfoRamTotal_Type=Unsigned32
-_CoUsInfoRamTotal_Object=MibScalar
-coUsInfoRamTotal=_CoUsInfoRamTotal_Object((1,3,6,1,4,1,12394,1,10,5,21,1,1,9),_CoUsInfoRamTotal_Type())
-coUsInfoRamTotal.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUsInfoRamTotal.setStatus(_A)
-if mibBuilder.loadTexts:coUsInfoRamTotal.setUnits(_D)
-_CoUsInfoRamFree_Type=Unsigned32
-_CoUsInfoRamFree_Object=MibScalar
-coUsInfoRamFree=_CoUsInfoRamFree_Object((1,3,6,1,4,1,12394,1,10,5,21,1,1,10),_CoUsInfoRamFree_Type())
-coUsInfoRamFree.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUsInfoRamFree.setStatus(_A)
-if mibBuilder.loadTexts:coUsInfoRamFree.setUnits(_D)
-_CoUsInfoRamBuffer_Type=Unsigned32
-_CoUsInfoRamBuffer_Object=MibScalar
-coUsInfoRamBuffer=_CoUsInfoRamBuffer_Object((1,3,6,1,4,1,12394,1,10,5,21,1,1,11),_CoUsInfoRamBuffer_Type())
-coUsInfoRamBuffer.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUsInfoRamBuffer.setStatus(_A)
-if mibBuilder.loadTexts:coUsInfoRamBuffer.setUnits(_D)
-_CoUsInfoRamCached_Type=Unsigned32
-_CoUsInfoRamCached_Object=MibScalar
-coUsInfoRamCached=_CoUsInfoRamCached_Object((1,3,6,1,4,1,12394,1,10,5,21,1,1,12),_CoUsInfoRamCached_Type())
-coUsInfoRamCached.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUsInfoRamCached.setStatus(_A)
-if mibBuilder.loadTexts:coUsInfoRamCached.setUnits(_D)
-_CoUsInfoStorageUsePermanent_Type=Unsigned32
-_CoUsInfoStorageUsePermanent_Object=MibScalar
-coUsInfoStorageUsePermanent=_CoUsInfoStorageUsePermanent_Object((1,3,6,1,4,1,12394,1,10,5,21,1,1,13),_CoUsInfoStorageUsePermanent_Type())
-coUsInfoStorageUsePermanent.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUsInfoStorageUsePermanent.setStatus(_A)
-if mibBuilder.loadTexts:coUsInfoStorageUsePermanent.setUnits('%')
-_CoUsInfoStorageUseTemporary_Type=Unsigned32
-_CoUsInfoStorageUseTemporary_Object=MibScalar
-coUsInfoStorageUseTemporary=_CoUsInfoStorageUseTemporary_Object((1,3,6,1,4,1,12394,1,10,5,21,1,1,14),_CoUsInfoStorageUseTemporary_Type())
-coUsInfoStorageUseTemporary.setMaxAccess(_C)
-if mibBuilder.loadTexts:coUsInfoStorageUseTemporary.setStatus(_A)
-if mibBuilder.loadTexts:coUsInfoStorageUseTemporary.setUnits('%')
-_AlvarionUsageInformationMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
-alvarionUsageInformationMIBNotificationPrefix=_AlvarionUsageInformationMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,21,2))
-_AlvarionUsageInformationMIBNotifications_ObjectIdentity=ObjectIdentity
-alvarionUsageInformationMIBNotifications=_AlvarionUsageInformationMIBNotifications_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,21,2,0))
-_AlvarionUsageInformationMIBConformance_ObjectIdentity=ObjectIdentity
-alvarionUsageInformationMIBConformance=_AlvarionUsageInformationMIBConformance_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,21,3))
-_AlvarionUsageInformationMIBCompliances_ObjectIdentity=ObjectIdentity
-alvarionUsageInformationMIBCompliances=_AlvarionUsageInformationMIBCompliances_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,21,3,1))
-_AlvarionUsageInformationMIBGroups_ObjectIdentity=ObjectIdentity
-alvarionUsageInformationMIBGroups=_AlvarionUsageInformationMIBGroups_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,21,3,2))
-alvarionUsageInformationMIBGroup=ObjectGroup((1,3,6,1,4,1,12394,1,10,5,21,3,2,1))
-alvarionUsageInformationMIBGroup.setObjects(*((_B,_E),(_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:alvarionUsageInformationMIBGroup.setStatus(_A)
-alvarionUsageInformationMIBCompliance=ModuleCompliance((1,3,6,1,4,1,12394,1,10,5,21,3,1,1))
-alvarionUsageInformationMIBCompliance.setObjects((_B,_S))
-if mibBuilder.loadTexts:alvarionUsageInformationMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'alvarionUsageInformationMIB':alvarionUsageInformationMIB,'alvarionUsageInformationMIBObjects':alvarionUsageInformationMIBObjects,'coUsageInformationGroup':coUsageInformationGroup,_E:coUsInfoUpTime,_F:coUsInfoLoadAverage1Min,_G:coUsInfoLoadAverage5Min,_H:coUsInfoLoadAverage15Min,_I:coUsInfoCpuUseNow,_J:coUsInfoCpuUse5Sec,_K:coUsInfoCpuUse10Sec,_L:coUsInfoCpuUse20Sec,_M:coUsInfoRamTotal,_N:coUsInfoRamFree,_O:coUsInfoRamBuffer,_P:coUsInfoRamCached,_Q:coUsInfoStorageUsePermanent,_R:coUsInfoStorageUseTemporary,'alvarionUsageInformationMIBNotificationPrefix':alvarionUsageInformationMIBNotificationPrefix,'alvarionUsageInformationMIBNotifications':alvarionUsageInformationMIBNotifications,'alvarionUsageInformationMIBConformance':alvarionUsageInformationMIBConformance,'alvarionUsageInformationMIBCompliances':alvarionUsageInformationMIBCompliances,'alvarionUsageInformationMIBCompliance':alvarionUsageInformationMIBCompliance,'alvarionUsageInformationMIBGroups':alvarionUsageInformationMIBGroups,_S:alvarionUsageInformationMIBGroup})
+#
+# PySNMP MIB module ALVARION-USAGE-INFORMATION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alvarion/ALVARION-USAGE-INFORMATION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:05 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+alvarionMgmtV2, = mibBuilder.importSymbols("ALVARION-SMI", "alvarionMgmtV2")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+alvarionUsageInformationMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21))
+if mibBuilder.loadTexts: alvarionUsageInformationMIB.setLastUpdated('200710310000Z')
+if mibBuilder.loadTexts: alvarionUsageInformationMIB.setOrganization('Alvarion Ltd.')
+alvarionUsageInformationMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1))
+coUsageInformationGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1, 1))
+coUsInfoUpTime = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1, 1, 1), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUsInfoUpTime.setStatus('current')
+coUsInfoLoadAverage1Min = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUsInfoLoadAverage1Min.setStatus('current')
+coUsInfoLoadAverage5Min = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUsInfoLoadAverage5Min.setStatus('current')
+coUsInfoLoadAverage15Min = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUsInfoLoadAverage15Min.setStatus('current')
+coUsInfoCpuUseNow = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1, 1, 5), Unsigned32()).setUnits('%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUsInfoCpuUseNow.setStatus('current')
+coUsInfoCpuUse5Sec = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1, 1, 6), Unsigned32()).setUnits('%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUsInfoCpuUse5Sec.setStatus('current')
+coUsInfoCpuUse10Sec = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1, 1, 7), Unsigned32()).setUnits('%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUsInfoCpuUse10Sec.setStatus('current')
+coUsInfoCpuUse20Sec = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1, 1, 8), Unsigned32()).setUnits('%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUsInfoCpuUse20Sec.setStatus('current')
+coUsInfoRamTotal = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1, 1, 9), Unsigned32()).setUnits('Kb').setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUsInfoRamTotal.setStatus('current')
+coUsInfoRamFree = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1, 1, 10), Unsigned32()).setUnits('Kb').setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUsInfoRamFree.setStatus('current')
+coUsInfoRamBuffer = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1, 1, 11), Unsigned32()).setUnits('Kb').setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUsInfoRamBuffer.setStatus('current')
+coUsInfoRamCached = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1, 1, 12), Unsigned32()).setUnits('Kb').setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUsInfoRamCached.setStatus('current')
+coUsInfoStorageUsePermanent = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1, 1, 13), Unsigned32()).setUnits('%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUsInfoStorageUsePermanent.setStatus('current')
+coUsInfoStorageUseTemporary = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 1, 1, 14), Unsigned32()).setUnits('%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: coUsInfoStorageUseTemporary.setStatus('current')
+alvarionUsageInformationMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 2))
+alvarionUsageInformationMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 2, 0))
+alvarionUsageInformationMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 3))
+alvarionUsageInformationMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 3, 1))
+alvarionUsageInformationMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 3, 2))
+alvarionUsageInformationMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 3, 1, 1)).setObjects(("ALVARION-USAGE-INFORMATION-MIB", "alvarionUsageInformationMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alvarionUsageInformationMIBCompliance = alvarionUsageInformationMIBCompliance.setStatus('current')
+alvarionUsageInformationMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 21, 3, 2, 1)).setObjects(("ALVARION-USAGE-INFORMATION-MIB", "coUsInfoUpTime"), ("ALVARION-USAGE-INFORMATION-MIB", "coUsInfoLoadAverage1Min"), ("ALVARION-USAGE-INFORMATION-MIB", "coUsInfoLoadAverage5Min"), ("ALVARION-USAGE-INFORMATION-MIB", "coUsInfoLoadAverage15Min"), ("ALVARION-USAGE-INFORMATION-MIB", "coUsInfoCpuUseNow"), ("ALVARION-USAGE-INFORMATION-MIB", "coUsInfoCpuUse5Sec"), ("ALVARION-USAGE-INFORMATION-MIB", "coUsInfoCpuUse10Sec"), ("ALVARION-USAGE-INFORMATION-MIB", "coUsInfoCpuUse20Sec"), ("ALVARION-USAGE-INFORMATION-MIB", "coUsInfoRamTotal"), ("ALVARION-USAGE-INFORMATION-MIB", "coUsInfoRamFree"), ("ALVARION-USAGE-INFORMATION-MIB", "coUsInfoRamBuffer"), ("ALVARION-USAGE-INFORMATION-MIB", "coUsInfoRamCached"), ("ALVARION-USAGE-INFORMATION-MIB", "coUsInfoStorageUsePermanent"), ("ALVARION-USAGE-INFORMATION-MIB", "coUsInfoStorageUseTemporary"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alvarionUsageInformationMIBGroup = alvarionUsageInformationMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("ALVARION-USAGE-INFORMATION-MIB", coUsInfoRamBuffer=coUsInfoRamBuffer, coUsageInformationGroup=coUsageInformationGroup, coUsInfoLoadAverage15Min=coUsInfoLoadAverage15Min, coUsInfoRamFree=coUsInfoRamFree, coUsInfoCpuUse5Sec=coUsInfoCpuUse5Sec, coUsInfoStorageUsePermanent=coUsInfoStorageUsePermanent, alvarionUsageInformationMIBGroups=alvarionUsageInformationMIBGroups, coUsInfoCpuUseNow=coUsInfoCpuUseNow, alvarionUsageInformationMIBNotifications=alvarionUsageInformationMIBNotifications, coUsInfoRamCached=coUsInfoRamCached, alvarionUsageInformationMIBNotificationPrefix=alvarionUsageInformationMIBNotificationPrefix, coUsInfoCpuUse20Sec=coUsInfoCpuUse20Sec, alvarionUsageInformationMIB=alvarionUsageInformationMIB, coUsInfoLoadAverage1Min=coUsInfoLoadAverage1Min, alvarionUsageInformationMIBCompliances=alvarionUsageInformationMIBCompliances, alvarionUsageInformationMIBGroup=alvarionUsageInformationMIBGroup, coUsInfoStorageUseTemporary=coUsInfoStorageUseTemporary, coUsInfoLoadAverage5Min=coUsInfoLoadAverage5Min, PYSNMP_MODULE_ID=alvarionUsageInformationMIB, coUsInfoUpTime=coUsInfoUpTime, alvarionUsageInformationMIBObjects=alvarionUsageInformationMIBObjects, alvarionUsageInformationMIBConformance=alvarionUsageInformationMIBConformance, coUsInfoCpuUse10Sec=coUsInfoCpuUse10Sec, alvarionUsageInformationMIBCompliance=alvarionUsageInformationMIBCompliance, coUsInfoRamTotal=coUsInfoRamTotal)

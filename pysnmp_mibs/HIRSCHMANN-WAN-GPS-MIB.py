@@ -1,58 +1,37 @@
-_B='current'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hmWanMgmt,=mibBuilder.importSymbols('HIRSCHMANN-WAN-MIB','hmWanMgmt')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hmWanGpsMib=ModuleIdentity((1,3,6,1,4,1,248,40,1,7))
-if mibBuilder.loadTexts:hmWanGpsMib.setRevisions(('2015-02-13 00:00',))
-_HmWanGpsTimeUTC_Type=OctetString
-_HmWanGpsTimeUTC_Object=MibScalar
-hmWanGpsTimeUTC=_HmWanGpsTimeUTC_Object((1,3,6,1,4,1,248,40,1,7,1),_HmWanGpsTimeUTC_Type())
-hmWanGpsTimeUTC.setMaxAccess(_A)
-if mibBuilder.loadTexts:hmWanGpsTimeUTC.setStatus(_B)
-_HmWanGpsLatitude_Type=OctetString
-_HmWanGpsLatitude_Object=MibScalar
-hmWanGpsLatitude=_HmWanGpsLatitude_Object((1,3,6,1,4,1,248,40,1,7,2),_HmWanGpsLatitude_Type())
-hmWanGpsLatitude.setMaxAccess(_A)
-if mibBuilder.loadTexts:hmWanGpsLatitude.setStatus(_B)
-_HmWanGpsLongitude_Type=OctetString
-_HmWanGpsLongitude_Object=MibScalar
-hmWanGpsLongitude=_HmWanGpsLongitude_Object((1,3,6,1,4,1,248,40,1,7,3),_HmWanGpsLongitude_Type())
-hmWanGpsLongitude.setMaxAccess(_A)
-if mibBuilder.loadTexts:hmWanGpsLongitude.setStatus(_B)
-_HmWanGpsAltitude_Type=OctetString
-_HmWanGpsAltitude_Object=MibScalar
-hmWanGpsAltitude=_HmWanGpsAltitude_Object((1,3,6,1,4,1,248,40,1,7,4),_HmWanGpsAltitude_Type())
-hmWanGpsAltitude.setMaxAccess(_A)
-if mibBuilder.loadTexts:hmWanGpsAltitude.setStatus(_B)
-_HmWanGpsSatellites_Type=Integer32
-_HmWanGpsSatellites_Object=MibScalar
-hmWanGpsSatellites=_HmWanGpsSatellites_Object((1,3,6,1,4,1,248,40,1,7,5),_HmWanGpsSatellites_Type())
-hmWanGpsSatellites.setMaxAccess(_A)
-if mibBuilder.loadTexts:hmWanGpsSatellites.setStatus(_B)
-_HmWanGpsFixStatus_Type=OctetString
-_HmWanGpsFixStatus_Object=MibScalar
-hmWanGpsFixStatus=_HmWanGpsFixStatus_Object((1,3,6,1,4,1,248,40,1,7,6),_HmWanGpsFixStatus_Type())
-hmWanGpsFixStatus.setMaxAccess(_A)
-if mibBuilder.loadTexts:hmWanGpsFixStatus.setStatus(_B)
-_HmWanGpsSpeedOverGround_Type=OctetString
-_HmWanGpsSpeedOverGround_Object=MibScalar
-hmWanGpsSpeedOverGround=_HmWanGpsSpeedOverGround_Object((1,3,6,1,4,1,248,40,1,7,7),_HmWanGpsSpeedOverGround_Type())
-hmWanGpsSpeedOverGround.setMaxAccess(_A)
-if mibBuilder.loadTexts:hmWanGpsSpeedOverGround.setStatus(_B)
-_HmWanGpsCourseOverGround_Type=OctetString
-_HmWanGpsCourseOverGround_Object=MibScalar
-hmWanGpsCourseOverGround=_HmWanGpsCourseOverGround_Object((1,3,6,1,4,1,248,40,1,7,8),_HmWanGpsCourseOverGround_Type())
-hmWanGpsCourseOverGround.setMaxAccess(_A)
-if mibBuilder.loadTexts:hmWanGpsCourseOverGround.setStatus(_B)
-_HmWanGpsDate_Type=OctetString
-_HmWanGpsDate_Object=MibScalar
-hmWanGpsDate=_HmWanGpsDate_Object((1,3,6,1,4,1,248,40,1,7,9),_HmWanGpsDate_Type())
-hmWanGpsDate.setMaxAccess(_A)
-if mibBuilder.loadTexts:hmWanGpsDate.setStatus(_B)
-mibBuilder.exportSymbols('HIRSCHMANN-WAN-GPS-MIB',**{'hmWanGpsMib':hmWanGpsMib,'hmWanGpsTimeUTC':hmWanGpsTimeUTC,'hmWanGpsLatitude':hmWanGpsLatitude,'hmWanGpsLongitude':hmWanGpsLongitude,'hmWanGpsAltitude':hmWanGpsAltitude,'hmWanGpsSatellites':hmWanGpsSatellites,'hmWanGpsFixStatus':hmWanGpsFixStatus,'hmWanGpsSpeedOverGround':hmWanGpsSpeedOverGround,'hmWanGpsCourseOverGround':hmWanGpsCourseOverGround,'hmWanGpsDate':hmWanGpsDate})
+#
+# PySNMP MIB module HIRSCHMANN-WAN-GPS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/HIRSCHMANN-WAN-GPS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:15 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hmWanMgmt, = mibBuilder.importSymbols("HIRSCHMANN-WAN-MIB", "hmWanMgmt")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hmWanGpsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 40, 1, 7))
+hmWanGpsMib.setRevisions(('2015-02-13 00:00',))
+if mibBuilder.loadTexts: hmWanGpsMib.setLastUpdated('201502130000Z')
+if mibBuilder.loadTexts: hmWanGpsMib.setOrganization('Hirschmann Automation and Control GmbH')
+hmWanGpsTimeUTC = MibScalar((1, 3, 6, 1, 4, 1, 248, 40, 1, 7, 1), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmWanGpsTimeUTC.setStatus('current')
+hmWanGpsLatitude = MibScalar((1, 3, 6, 1, 4, 1, 248, 40, 1, 7, 2), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmWanGpsLatitude.setStatus('current')
+hmWanGpsLongitude = MibScalar((1, 3, 6, 1, 4, 1, 248, 40, 1, 7, 3), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmWanGpsLongitude.setStatus('current')
+hmWanGpsAltitude = MibScalar((1, 3, 6, 1, 4, 1, 248, 40, 1, 7, 4), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmWanGpsAltitude.setStatus('current')
+hmWanGpsSatellites = MibScalar((1, 3, 6, 1, 4, 1, 248, 40, 1, 7, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmWanGpsSatellites.setStatus('current')
+hmWanGpsFixStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 40, 1, 7, 6), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmWanGpsFixStatus.setStatus('current')
+hmWanGpsSpeedOverGround = MibScalar((1, 3, 6, 1, 4, 1, 248, 40, 1, 7, 7), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmWanGpsSpeedOverGround.setStatus('current')
+hmWanGpsCourseOverGround = MibScalar((1, 3, 6, 1, 4, 1, 248, 40, 1, 7, 8), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmWanGpsCourseOverGround.setStatus('current')
+hmWanGpsDate = MibScalar((1, 3, 6, 1, 4, 1, 248, 40, 1, 7, 9), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hmWanGpsDate.setStatus('current')
+mibBuilder.exportSymbols("HIRSCHMANN-WAN-GPS-MIB", hmWanGpsTimeUTC=hmWanGpsTimeUTC, hmWanGpsLongitude=hmWanGpsLongitude, hmWanGpsAltitude=hmWanGpsAltitude, PYSNMP_MODULE_ID=hmWanGpsMib, hmWanGpsMib=hmWanGpsMib, hmWanGpsSpeedOverGround=hmWanGpsSpeedOverGround, hmWanGpsCourseOverGround=hmWanGpsCourseOverGround, hmWanGpsFixStatus=hmWanGpsFixStatus, hmWanGpsSatellites=hmWanGpsSatellites, hmWanGpsLatitude=hmWanGpsLatitude, hmWanGpsDate=hmWanGpsDate)

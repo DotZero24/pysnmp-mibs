@@ -1,109 +1,61 @@
-_Q='lefthandNetworksNsmDnsGroup'
-_P='dnsSuffixRowStatus'
-_O='dnsRowStatus'
-_N='dnsSuffix'
-_M='dnsServer'
-_L='dnsSuffixCount'
-_K='dnsDomainName'
-_J='dnsMode'
-_I='dnsNameserverCount'
-_H='dnsSuffixIndex'
-_G='not-accessible'
-_F='dnsIndex'
-_E='Integer32'
-_D='obsolete'
-_C='read-only'
-_B='LEFTHAND-NETWORKS-NSM-DNS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-lhnModules,lhnNsm=mibBuilder.importSymbols('LEFTHAND-NETWORKS-GLOBAL-REG-MIB','lhnModules','lhnNsm')
-lhnNsmDNS,=mibBuilder.importSymbols('LEFTHAND-NETWORKS-NSM-MIB','lhnNsmDNS')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-lhnNsmDNSModule=ModuleIdentity((1,3,6,1,4,1,9804,2,1,4))
-if mibBuilder.loadTexts:lhnNsmDNSModule.setRevisions(('2013-11-14 00:00','2013-06-25 00:00','2012-09-04 00:00','2011-06-21 00:00','2010-09-07 00:00','2010-07-19 00:00','2009-11-20 00:00','2009-03-10 00:00','2008-01-24 00:00'))
-_LhnNsmDNSModuleConformance_ObjectIdentity=ObjectIdentity
-lhnNsmDNSModuleConformance=_LhnNsmDNSModuleConformance_ObjectIdentity((1,3,6,1,4,1,9804,2,1,4,1))
-_LhnNsmDNSModuleCompliances_ObjectIdentity=ObjectIdentity
-lhnNsmDNSModuleCompliances=_LhnNsmDNSModuleCompliances_ObjectIdentity((1,3,6,1,4,1,9804,2,1,4,1,1))
-_LhnNsmDNSModuleGroups_ObjectIdentity=ObjectIdentity
-lhnNsmDNSModuleGroups=_LhnNsmDNSModuleGroups_ObjectIdentity((1,3,6,1,4,1,9804,2,1,4,1,2))
-_DnsNameserverCount_Type=Integer32
-_DnsNameserverCount_Object=MibScalar
-dnsNameserverCount=_DnsNameserverCount_Object((1,3,6,1,4,1,9804,3,1,1,2,3,1),_DnsNameserverCount_Type())
-dnsNameserverCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:dnsNameserverCount.setStatus(_A)
-class _DnsMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('static',1),('auto',2)))
-_DnsMode_Type.__name__=_E
-_DnsMode_Object=MibScalar
-dnsMode=_DnsMode_Object((1,3,6,1,4,1,9804,3,1,1,2,3,2),_DnsMode_Type())
-dnsMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:dnsMode.setStatus(_A)
-_DnsNameserverTable_Object=MibTable
-dnsNameserverTable=_DnsNameserverTable_Object((1,3,6,1,4,1,9804,3,1,1,2,3,3))
-if mibBuilder.loadTexts:dnsNameserverTable.setStatus(_A)
-_DnsNameserverEntry_Object=MibTableRow
-dnsNameserverEntry=_DnsNameserverEntry_Object((1,3,6,1,4,1,9804,3,1,1,2,3,3,1))
-dnsNameserverEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:dnsNameserverEntry.setStatus(_A)
-_DnsIndex_Type=Unsigned32
-_DnsIndex_Object=MibTableColumn
-dnsIndex=_DnsIndex_Object((1,3,6,1,4,1,9804,3,1,1,2,3,3,1,1),_DnsIndex_Type())
-dnsIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:dnsIndex.setStatus(_A)
-_DnsServer_Type=DisplayString
-_DnsServer_Object=MibTableColumn
-dnsServer=_DnsServer_Object((1,3,6,1,4,1,9804,3,1,1,2,3,3,1,2),_DnsServer_Type())
-dnsServer.setMaxAccess(_C)
-if mibBuilder.loadTexts:dnsServer.setStatus(_A)
-_DnsRowStatus_Type=RowStatus
-_DnsRowStatus_Object=MibTableColumn
-dnsRowStatus=_DnsRowStatus_Object((1,3,6,1,4,1,9804,3,1,1,2,3,3,1,3),_DnsRowStatus_Type())
-dnsRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:dnsRowStatus.setStatus(_D)
-_DnsDomainName_Type=DisplayString
-_DnsDomainName_Object=MibScalar
-dnsDomainName=_DnsDomainName_Object((1,3,6,1,4,1,9804,3,1,1,2,3,4),_DnsDomainName_Type())
-dnsDomainName.setMaxAccess(_C)
-if mibBuilder.loadTexts:dnsDomainName.setStatus(_A)
-_DnsSuffixCount_Type=Integer32
-_DnsSuffixCount_Object=MibScalar
-dnsSuffixCount=_DnsSuffixCount_Object((1,3,6,1,4,1,9804,3,1,1,2,3,5),_DnsSuffixCount_Type())
-dnsSuffixCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:dnsSuffixCount.setStatus(_A)
-_DnsSuffixTable_Object=MibTable
-dnsSuffixTable=_DnsSuffixTable_Object((1,3,6,1,4,1,9804,3,1,1,2,3,6))
-if mibBuilder.loadTexts:dnsSuffixTable.setStatus(_A)
-_DnsSuffixEntry_Object=MibTableRow
-dnsSuffixEntry=_DnsSuffixEntry_Object((1,3,6,1,4,1,9804,3,1,1,2,3,6,1))
-dnsSuffixEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:dnsSuffixEntry.setStatus(_A)
-_DnsSuffixIndex_Type=Unsigned32
-_DnsSuffixIndex_Object=MibTableColumn
-dnsSuffixIndex=_DnsSuffixIndex_Object((1,3,6,1,4,1,9804,3,1,1,2,3,6,1,1),_DnsSuffixIndex_Type())
-dnsSuffixIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:dnsSuffixIndex.setStatus(_A)
-_DnsSuffix_Type=DisplayString
-_DnsSuffix_Object=MibTableColumn
-dnsSuffix=_DnsSuffix_Object((1,3,6,1,4,1,9804,3,1,1,2,3,6,1,2),_DnsSuffix_Type())
-dnsSuffix.setMaxAccess(_C)
-if mibBuilder.loadTexts:dnsSuffix.setStatus(_A)
-_DnsSuffixRowStatus_Type=RowStatus
-_DnsSuffixRowStatus_Object=MibTableColumn
-dnsSuffixRowStatus=_DnsSuffixRowStatus_Object((1,3,6,1,4,1,9804,3,1,1,2,3,6,1,3),_DnsSuffixRowStatus_Type())
-dnsSuffixRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:dnsSuffixRowStatus.setStatus(_D)
-lefthandNetworksNsmDnsGroup=ObjectGroup((1,3,6,1,4,1,9804,2,1,4,1,2,1))
-lefthandNetworksNsmDnsGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:lefthandNetworksNsmDnsGroup.setStatus(_A)
-lefthandNetworksNsmDnsGroupObsolete=ObjectGroup((1,3,6,1,4,1,9804,2,1,4,1,2,2))
-lefthandNetworksNsmDnsGroupObsolete.setObjects(*((_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:lefthandNetworksNsmDnsGroupObsolete.setStatus(_D)
-lefthandNetworksNsmDNSMibCompliance=ModuleCompliance((1,3,6,1,4,1,9804,2,1,4,1,1,1))
-lefthandNetworksNsmDNSMibCompliance.setObjects((_B,_Q))
-if mibBuilder.loadTexts:lefthandNetworksNsmDNSMibCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'lhnNsmDNSModule':lhnNsmDNSModule,'lhnNsmDNSModuleConformance':lhnNsmDNSModuleConformance,'lhnNsmDNSModuleCompliances':lhnNsmDNSModuleCompliances,'lefthandNetworksNsmDNSMibCompliance':lefthandNetworksNsmDNSMibCompliance,'lhnNsmDNSModuleGroups':lhnNsmDNSModuleGroups,_Q:lefthandNetworksNsmDnsGroup,'lefthandNetworksNsmDnsGroupObsolete':lefthandNetworksNsmDnsGroupObsolete,_I:dnsNameserverCount,_J:dnsMode,'dnsNameserverTable':dnsNameserverTable,'dnsNameserverEntry':dnsNameserverEntry,_F:dnsIndex,_M:dnsServer,_O:dnsRowStatus,_K:dnsDomainName,_L:dnsSuffixCount,'dnsSuffixTable':dnsSuffixTable,'dnsSuffixEntry':dnsSuffixEntry,_H:dnsSuffixIndex,_N:dnsSuffix,_P:dnsSuffixRowStatus})
+#
+# PySNMP MIB module LEFTHAND-NETWORKS-NSM-DNS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/LEFTHAND-NETWORKS-NSM-DNS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:24 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+lhnNsm, lhnModules = mibBuilder.importSymbols("LEFTHAND-NETWORKS-GLOBAL-REG-MIB", "lhnNsm", "lhnModules")
+lhnNsmDNS, = mibBuilder.importSymbols("LEFTHAND-NETWORKS-NSM-MIB", "lhnNsmDNS")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+lhnNsmDNSModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9804, 2, 1, 4))
+lhnNsmDNSModule.setRevisions(('2013-11-14 00:00', '2013-06-25 00:00', '2012-09-04 00:00', '2011-06-21 00:00', '2010-09-07 00:00', '2010-07-19 00:00', '2009-11-20 00:00', '2009-03-10 00:00', '2008-01-24 00:00',))
+if mibBuilder.loadTexts: lhnNsmDNSModule.setLastUpdated('201311140000Z')
+if mibBuilder.loadTexts: lhnNsmDNSModule.setOrganization('Hewlett Packard Company, StorageWorks Division')
+lhnNsmDNSModuleConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 2, 1, 4, 1))
+lhnNsmDNSModuleCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 2, 1, 4, 1, 1))
+lhnNsmDNSModuleGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9804, 2, 1, 4, 1, 2))
+lefthandNetworksNsmDNSMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9804, 2, 1, 4, 1, 1, 1)).setObjects(("LEFTHAND-NETWORKS-NSM-DNS-MIB", "lefthandNetworksNsmDnsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lefthandNetworksNsmDNSMibCompliance = lefthandNetworksNsmDNSMibCompliance.setStatus('current')
+lefthandNetworksNsmDnsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9804, 2, 1, 4, 1, 2, 1)).setObjects(("LEFTHAND-NETWORKS-NSM-DNS-MIB", "dnsNameserverCount"), ("LEFTHAND-NETWORKS-NSM-DNS-MIB", "dnsMode"), ("LEFTHAND-NETWORKS-NSM-DNS-MIB", "dnsDomainName"), ("LEFTHAND-NETWORKS-NSM-DNS-MIB", "dnsSuffixCount"), ("LEFTHAND-NETWORKS-NSM-DNS-MIB", "dnsServer"), ("LEFTHAND-NETWORKS-NSM-DNS-MIB", "dnsSuffix"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lefthandNetworksNsmDnsGroup = lefthandNetworksNsmDnsGroup.setStatus('current')
+lefthandNetworksNsmDnsGroupObsolete = ObjectGroup((1, 3, 6, 1, 4, 1, 9804, 2, 1, 4, 1, 2, 2)).setObjects(("LEFTHAND-NETWORKS-NSM-DNS-MIB", "dnsRowStatus"), ("LEFTHAND-NETWORKS-NSM-DNS-MIB", "dnsSuffixRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lefthandNetworksNsmDnsGroupObsolete = lefthandNetworksNsmDnsGroupObsolete.setStatus('obsolete')
+dnsNameserverCount = MibScalar((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 3, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dnsNameserverCount.setStatus('current')
+dnsMode = MibScalar((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("static", 1), ("auto", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dnsMode.setStatus('current')
+dnsNameserverTable = MibTable((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 3, 3), )
+if mibBuilder.loadTexts: dnsNameserverTable.setStatus('current')
+dnsNameserverEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 3, 3, 1), ).setIndexNames((0, "LEFTHAND-NETWORKS-NSM-DNS-MIB", "dnsIndex"))
+if mibBuilder.loadTexts: dnsNameserverEntry.setStatus('current')
+dnsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 3, 3, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: dnsIndex.setStatus('current')
+dnsServer = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 3, 3, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dnsServer.setStatus('current')
+dnsRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 3, 3, 1, 3), RowStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dnsRowStatus.setStatus('obsolete')
+dnsDomainName = MibScalar((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 3, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dnsDomainName.setStatus('current')
+dnsSuffixCount = MibScalar((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 3, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dnsSuffixCount.setStatus('current')
+dnsSuffixTable = MibTable((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 3, 6), )
+if mibBuilder.loadTexts: dnsSuffixTable.setStatus('current')
+dnsSuffixEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 3, 6, 1), ).setIndexNames((0, "LEFTHAND-NETWORKS-NSM-DNS-MIB", "dnsSuffixIndex"))
+if mibBuilder.loadTexts: dnsSuffixEntry.setStatus('current')
+dnsSuffixIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 3, 6, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: dnsSuffixIndex.setStatus('current')
+dnsSuffix = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 3, 6, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dnsSuffix.setStatus('current')
+dnsSuffixRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 3, 6, 1, 3), RowStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dnsSuffixRowStatus.setStatus('obsolete')
+mibBuilder.exportSymbols("LEFTHAND-NETWORKS-NSM-DNS-MIB", dnsSuffixTable=dnsSuffixTable, dnsRowStatus=dnsRowStatus, dnsServer=dnsServer, lefthandNetworksNsmDnsGroup=lefthandNetworksNsmDnsGroup, lefthandNetworksNsmDnsGroupObsolete=lefthandNetworksNsmDnsGroupObsolete, lhnNsmDNSModuleConformance=lhnNsmDNSModuleConformance, dnsNameserverEntry=dnsNameserverEntry, dnsMode=dnsMode, dnsSuffixCount=dnsSuffixCount, dnsDomainName=dnsDomainName, PYSNMP_MODULE_ID=lhnNsmDNSModule, dnsIndex=dnsIndex, lhnNsmDNSModuleCompliances=lhnNsmDNSModuleCompliances, dnsNameserverTable=dnsNameserverTable, dnsNameserverCount=dnsNameserverCount, lhnNsmDNSModule=lhnNsmDNSModule, lefthandNetworksNsmDNSMibCompliance=lefthandNetworksNsmDNSMibCompliance, lhnNsmDNSModuleGroups=lhnNsmDNSModuleGroups, dnsSuffixRowStatus=dnsSuffixRowStatus, dnsSuffix=dnsSuffix, dnsSuffixIndex=dnsSuffixIndex, dnsSuffixEntry=dnsSuffixEntry)

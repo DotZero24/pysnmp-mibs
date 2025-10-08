@@ -1,319 +1,124 @@
-_u='atmStatusVer1'
-_t='atmOamVer1'
-_s='atmVcVer1'
-_r='oamFarEndF4LoopBackCount'
-_q='oamFarEndF5LoopBackCount'
-_p='oamNearEndF4LoopBackCount'
-_o='oamNearEndF5LoopBackCount'
-_n='aal5RxTotalErrorCounts'
-_m='aal5TxTotalErrorCounts'
-_l='aal5RxTotalBytes'
-_k='aal5TxTotalBytes'
-_j='aal5RxPdu'
-_i='aal5TxPdu'
-_h='oamTimeOut'
-_g='oamMode'
-_f='oamVci'
-_e='oamVpi'
-_d='oamPingType'
-_c='generateOamPing'
-_b='oamResult'
-_a='atmRxMaximumSdu'
-_Z='atmRxMinimumCellRate'
-_Y='atmRxCellDelayVariationTolerance'
-_X='atmRxMaximumBurstSize'
-_W='atmRxSustainableCellRate'
-_V='atmRxPeakCellRate'
-_U='atmRxTrafficClass'
-_T='atmTxMaximumSdu'
-_S='atmTxMinimumCellRate'
-_R='atmTxCellDelayVariationTolerance'
-_Q='atmTxMaximumBurstSize'
-_P='atmTxSustainableCellRate'
-_O='atmTxPeakCellRate'
-_N='atmTxTrafficClass'
-_M='atmEncapsulation'
-_L='atmVci'
-_K='atmVpi'
-_J='atmVcInUse'
-_I='MxEnableState'
-_H='OctetString'
-_G='atmVcIndex'
-_F='Integer32'
-_E='read-only'
-_D='Unsigned32'
-_C='read-write'
-_B='MX-ATM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_H,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mediatrixConfig,mediatrixMgmt=mibBuilder.importSymbols('MX-SMI','mediatrixConfig','mediatrixMgmt')
-MxEnableState,=mibBuilder.importSymbols('MX-TC',_I)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-atmMIB=ModuleIdentity((1,3,6,1,4,1,4935,15,300))
-if mibBuilder.loadTexts:atmMIB.setRevisions(('2008-08-25 00:00','2005-01-27 00:00','2005-01-31 00:00','2005-02-08 00:00','2005-09-01 00:00'))
-_AtmStatus_ObjectIdentity=ObjectIdentity
-atmStatus=_AtmStatus_ObjectIdentity((1,3,6,1,4,1,4935,10,150))
-_Aal5Stats_ObjectIdentity=ObjectIdentity
-aal5Stats=_Aal5Stats_ObjectIdentity((1,3,6,1,4,1,4935,10,150,200))
-_Aal5TxPdu_Type=Unsigned32
-_Aal5TxPdu_Object=MibScalar
-aal5TxPdu=_Aal5TxPdu_Object((1,3,6,1,4,1,4935,10,150,200,50),_Aal5TxPdu_Type())
-aal5TxPdu.setMaxAccess(_E)
-if mibBuilder.loadTexts:aal5TxPdu.setStatus(_A)
-_Aal5RxPdu_Type=Unsigned32
-_Aal5RxPdu_Object=MibScalar
-aal5RxPdu=_Aal5RxPdu_Object((1,3,6,1,4,1,4935,10,150,200,100),_Aal5RxPdu_Type())
-aal5RxPdu.setMaxAccess(_E)
-if mibBuilder.loadTexts:aal5RxPdu.setStatus(_A)
-_Aal5TxTotalBytes_Type=Unsigned32
-_Aal5TxTotalBytes_Object=MibScalar
-aal5TxTotalBytes=_Aal5TxTotalBytes_Object((1,3,6,1,4,1,4935,10,150,200,150),_Aal5TxTotalBytes_Type())
-aal5TxTotalBytes.setMaxAccess(_E)
-if mibBuilder.loadTexts:aal5TxTotalBytes.setStatus(_A)
-_Aal5RxTotalBytes_Type=Unsigned32
-_Aal5RxTotalBytes_Object=MibScalar
-aal5RxTotalBytes=_Aal5RxTotalBytes_Object((1,3,6,1,4,1,4935,10,150,200,200),_Aal5RxTotalBytes_Type())
-aal5RxTotalBytes.setMaxAccess(_E)
-if mibBuilder.loadTexts:aal5RxTotalBytes.setStatus(_A)
-_Aal5TxTotalErrorCounts_Type=Unsigned32
-_Aal5TxTotalErrorCounts_Object=MibScalar
-aal5TxTotalErrorCounts=_Aal5TxTotalErrorCounts_Object((1,3,6,1,4,1,4935,10,150,200,250),_Aal5TxTotalErrorCounts_Type())
-aal5TxTotalErrorCounts.setMaxAccess(_E)
-if mibBuilder.loadTexts:aal5TxTotalErrorCounts.setStatus(_A)
-_Aal5RxTotalErrorCounts_Type=Unsigned32
-_Aal5RxTotalErrorCounts_Object=MibScalar
-aal5RxTotalErrorCounts=_Aal5RxTotalErrorCounts_Object((1,3,6,1,4,1,4935,10,150,200,300),_Aal5RxTotalErrorCounts_Type())
-aal5RxTotalErrorCounts.setMaxAccess(_E)
-if mibBuilder.loadTexts:aal5RxTotalErrorCounts.setStatus(_A)
-_OamStats_ObjectIdentity=ObjectIdentity
-oamStats=_OamStats_ObjectIdentity((1,3,6,1,4,1,4935,10,150,250))
-_OamNearEndF5LoopBackCount_Type=Unsigned32
-_OamNearEndF5LoopBackCount_Object=MibScalar
-oamNearEndF5LoopBackCount=_OamNearEndF5LoopBackCount_Object((1,3,6,1,4,1,4935,10,150,250,50),_OamNearEndF5LoopBackCount_Type())
-oamNearEndF5LoopBackCount.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamNearEndF5LoopBackCount.setStatus(_A)
-_OamNearEndF4LoopBackCount_Type=Unsigned32
-_OamNearEndF4LoopBackCount_Object=MibScalar
-oamNearEndF4LoopBackCount=_OamNearEndF4LoopBackCount_Object((1,3,6,1,4,1,4935,10,150,250,100),_OamNearEndF4LoopBackCount_Type())
-oamNearEndF4LoopBackCount.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamNearEndF4LoopBackCount.setStatus(_A)
-_OamFarEndF5LoopBackCount_Type=Unsigned32
-_OamFarEndF5LoopBackCount_Object=MibScalar
-oamFarEndF5LoopBackCount=_OamFarEndF5LoopBackCount_Object((1,3,6,1,4,1,4935,10,150,250,150),_OamFarEndF5LoopBackCount_Type())
-oamFarEndF5LoopBackCount.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamFarEndF5LoopBackCount.setStatus(_A)
-_OamFarEndF4LoopBackCount_Type=Unsigned32
-_OamFarEndF4LoopBackCount_Object=MibScalar
-oamFarEndF4LoopBackCount=_OamFarEndF4LoopBackCount_Object((1,3,6,1,4,1,4935,10,150,250,200),_OamFarEndF4LoopBackCount_Type())
-oamFarEndF4LoopBackCount.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamFarEndF4LoopBackCount.setStatus(_A)
-_AtmMIBObjects_ObjectIdentity=ObjectIdentity
-atmMIBObjects=_AtmMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,15,300,1))
-_AtmVcTable_Object=MibTable
-atmVcTable=_AtmVcTable_Object((1,3,6,1,4,1,4935,15,300,1,50))
-if mibBuilder.loadTexts:atmVcTable.setStatus(_A)
-_AtmVcEntry_Object=MibTableRow
-atmVcEntry=_AtmVcEntry_Object((1,3,6,1,4,1,4935,15,300,1,50,5))
-atmVcEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:atmVcEntry.setStatus(_A)
-_AtmVcIndex_Type=Unsigned32
-_AtmVcIndex_Object=MibTableColumn
-atmVcIndex=_AtmVcIndex_Object((1,3,6,1,4,1,4935,15,300,1,50,5,50),_AtmVcIndex_Type())
-atmVcIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:atmVcIndex.setStatus(_A)
-class _AtmVcName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_AtmVcName_Type.__name__=_H
-_AtmVcName_Object=MibTableColumn
-atmVcName=_AtmVcName_Object((1,3,6,1,4,1,4935,15,300,1,50,5,55),_AtmVcName_Type())
-atmVcName.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmVcName.setStatus(_A)
-class _AtmVcEnable_Type(MxEnableState):defaultValue=0
-_AtmVcEnable_Type.__name__=_I
-_AtmVcEnable_Object=MibTableColumn
-atmVcEnable=_AtmVcEnable_Object((1,3,6,1,4,1,4935,15,300,1,50,5,60),_AtmVcEnable_Type())
-atmVcEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmVcEnable.setStatus(_A)
-class _AtmVcType_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('bridge',0),('wan',1)))
-_AtmVcType_Type.__name__=_F
-_AtmVcType_Object=MibTableColumn
-atmVcType=_AtmVcType_Object((1,3,6,1,4,1,4935,15,300,1,50,5,65),_AtmVcType_Type())
-atmVcType.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmVcType.setStatus(_A)
-class _AtmVcInUse_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('notUsed',0),('inUse',1)))
-_AtmVcInUse_Type.__name__=_F
-_AtmVcInUse_Object=MibTableColumn
-atmVcInUse=_AtmVcInUse_Object((1,3,6,1,4,1,4935,15,300,1,50,5,75),_AtmVcInUse_Type())
-atmVcInUse.setMaxAccess(_E)
-if mibBuilder.loadTexts:atmVcInUse.setStatus(_A)
-class _AtmVpi_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_AtmVpi_Type.__name__=_D
-_AtmVpi_Object=MibTableColumn
-atmVpi=_AtmVpi_Object((1,3,6,1,4,1,4935,15,300,1,50,5,100),_AtmVpi_Type())
-atmVpi.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmVpi.setStatus(_A)
-class _AtmVci_Type(Unsigned32):defaultValue=32;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(32,65535))
-_AtmVci_Type.__name__=_D
-_AtmVci_Object=MibTableColumn
-atmVci=_AtmVci_Object((1,3,6,1,4,1,4935,15,300,1,50,5,150),_AtmVci_Type())
-atmVci.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmVci.setStatus(_A)
-class _AtmEncapsulation_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,3,4)));namedValues=NamedValues(*(('llcBridged',0),('vcMuxBridged',1),('llcRouted',3),('vcMuxRouted',4)))
-_AtmEncapsulation_Type.__name__=_F
-_AtmEncapsulation_Object=MibTableColumn
-atmEncapsulation=_AtmEncapsulation_Object((1,3,6,1,4,1,4935,15,300,1,50,5,200),_AtmEncapsulation_Type())
-atmEncapsulation.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmEncapsulation.setStatus(_A)
-class _AtmTxTrafficClass_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('ubr',1),('cbr',2),('vbr',3)))
-_AtmTxTrafficClass_Type.__name__=_F
-_AtmTxTrafficClass_Object=MibTableColumn
-atmTxTrafficClass=_AtmTxTrafficClass_Object((1,3,6,1,4,1,4935,15,300,1,50,5,250),_AtmTxTrafficClass_Type())
-atmTxTrafficClass.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmTxTrafficClass.setStatus(_A)
-class _AtmTxPeakCellRate_Type(Unsigned32):defaultValue=0
-_AtmTxPeakCellRate_Type.__name__=_D
-_AtmTxPeakCellRate_Object=MibTableColumn
-atmTxPeakCellRate=_AtmTxPeakCellRate_Object((1,3,6,1,4,1,4935,15,300,1,50,5,300),_AtmTxPeakCellRate_Type())
-atmTxPeakCellRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmTxPeakCellRate.setStatus(_A)
-class _AtmTxSustainableCellRate_Type(Unsigned32):defaultValue=0
-_AtmTxSustainableCellRate_Type.__name__=_D
-_AtmTxSustainableCellRate_Object=MibTableColumn
-atmTxSustainableCellRate=_AtmTxSustainableCellRate_Object((1,3,6,1,4,1,4935,15,300,1,50,5,350),_AtmTxSustainableCellRate_Type())
-atmTxSustainableCellRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmTxSustainableCellRate.setStatus(_A)
-class _AtmTxMaximumBurstSize_Type(Unsigned32):defaultValue=0
-_AtmTxMaximumBurstSize_Type.__name__=_D
-_AtmTxMaximumBurstSize_Object=MibTableColumn
-atmTxMaximumBurstSize=_AtmTxMaximumBurstSize_Object((1,3,6,1,4,1,4935,15,300,1,50,5,400),_AtmTxMaximumBurstSize_Type())
-atmTxMaximumBurstSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmTxMaximumBurstSize.setStatus(_A)
-class _AtmTxCellDelayVariationTolerance_Type(Unsigned32):defaultValue=0
-_AtmTxCellDelayVariationTolerance_Type.__name__=_D
-_AtmTxCellDelayVariationTolerance_Object=MibTableColumn
-atmTxCellDelayVariationTolerance=_AtmTxCellDelayVariationTolerance_Object((1,3,6,1,4,1,4935,15,300,1,50,5,450),_AtmTxCellDelayVariationTolerance_Type())
-atmTxCellDelayVariationTolerance.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmTxCellDelayVariationTolerance.setStatus(_A)
-class _AtmTxMinimumCellRate_Type(Unsigned32):defaultValue=0
-_AtmTxMinimumCellRate_Type.__name__=_D
-_AtmTxMinimumCellRate_Object=MibTableColumn
-atmTxMinimumCellRate=_AtmTxMinimumCellRate_Object((1,3,6,1,4,1,4935,15,300,1,50,5,500),_AtmTxMinimumCellRate_Type())
-atmTxMinimumCellRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmTxMinimumCellRate.setStatus(_A)
-class _AtmTxMaximumSdu_Type(Unsigned32):defaultValue=1524
-_AtmTxMaximumSdu_Type.__name__=_D
-_AtmTxMaximumSdu_Object=MibTableColumn
-atmTxMaximumSdu=_AtmTxMaximumSdu_Object((1,3,6,1,4,1,4935,15,300,1,50,5,550),_AtmTxMaximumSdu_Type())
-atmTxMaximumSdu.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmTxMaximumSdu.setStatus(_A)
-class _AtmRxTrafficClass_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('ubr',1),('cbr',2),('vbr',3)))
-_AtmRxTrafficClass_Type.__name__=_F
-_AtmRxTrafficClass_Object=MibTableColumn
-atmRxTrafficClass=_AtmRxTrafficClass_Object((1,3,6,1,4,1,4935,15,300,1,50,5,575),_AtmRxTrafficClass_Type())
-atmRxTrafficClass.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmRxTrafficClass.setStatus(_A)
-class _AtmRxPeakCellRate_Type(Unsigned32):defaultValue=0
-_AtmRxPeakCellRate_Type.__name__=_D
-_AtmRxPeakCellRate_Object=MibTableColumn
-atmRxPeakCellRate=_AtmRxPeakCellRate_Object((1,3,6,1,4,1,4935,15,300,1,50,5,600),_AtmRxPeakCellRate_Type())
-atmRxPeakCellRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmRxPeakCellRate.setStatus(_A)
-class _AtmRxSustainableCellRate_Type(Unsigned32):defaultValue=0
-_AtmRxSustainableCellRate_Type.__name__=_D
-_AtmRxSustainableCellRate_Object=MibTableColumn
-atmRxSustainableCellRate=_AtmRxSustainableCellRate_Object((1,3,6,1,4,1,4935,15,300,1,50,5,650),_AtmRxSustainableCellRate_Type())
-atmRxSustainableCellRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmRxSustainableCellRate.setStatus(_A)
-class _AtmRxMaximumBurstSize_Type(Unsigned32):defaultValue=0
-_AtmRxMaximumBurstSize_Type.__name__=_D
-_AtmRxMaximumBurstSize_Object=MibTableColumn
-atmRxMaximumBurstSize=_AtmRxMaximumBurstSize_Object((1,3,6,1,4,1,4935,15,300,1,50,5,700),_AtmRxMaximumBurstSize_Type())
-atmRxMaximumBurstSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmRxMaximumBurstSize.setStatus(_A)
-class _AtmRxCellDelayVariationTolerance_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,9999))
-_AtmRxCellDelayVariationTolerance_Type.__name__=_D
-_AtmRxCellDelayVariationTolerance_Object=MibTableColumn
-atmRxCellDelayVariationTolerance=_AtmRxCellDelayVariationTolerance_Object((1,3,6,1,4,1,4935,15,300,1,50,5,750),_AtmRxCellDelayVariationTolerance_Type())
-atmRxCellDelayVariationTolerance.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmRxCellDelayVariationTolerance.setStatus(_A)
-class _AtmRxMinimumCellRate_Type(Unsigned32):defaultValue=0
-_AtmRxMinimumCellRate_Type.__name__=_D
-_AtmRxMinimumCellRate_Object=MibTableColumn
-atmRxMinimumCellRate=_AtmRxMinimumCellRate_Object((1,3,6,1,4,1,4935,15,300,1,50,5,800),_AtmRxMinimumCellRate_Type())
-atmRxMinimumCellRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmRxMinimumCellRate.setStatus(_A)
-class _AtmRxMaximumSdu_Type(Unsigned32):defaultValue=1524
-_AtmRxMaximumSdu_Type.__name__=_D
-_AtmRxMaximumSdu_Object=MibTableColumn
-atmRxMaximumSdu=_AtmRxMaximumSdu_Object((1,3,6,1,4,1,4935,15,300,1,50,5,850),_AtmRxMaximumSdu_Type())
-atmRxMaximumSdu.setMaxAccess(_C)
-if mibBuilder.loadTexts:atmRxMaximumSdu.setStatus(_A)
-_OamTools_ObjectIdentity=ObjectIdentity
-oamTools=_OamTools_ObjectIdentity((1,3,6,1,4,1,4935,15,300,1,100))
-class _OamResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('failed',0),('success',1),('pending',2),('notStarted',3)))
-_OamResult_Type.__name__=_F
-_OamResult_Object=MibScalar
-oamResult=_OamResult_Object((1,3,6,1,4,1,4935,15,300,1,100,50),_OamResult_Type())
-oamResult.setMaxAccess(_E)
-if mibBuilder.loadTexts:oamResult.setStatus(_A)
-class _GenerateOamPing_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('noOp',0),('ping',1)))
-_GenerateOamPing_Type.__name__=_F
-_GenerateOamPing_Object=MibScalar
-generateOamPing=_GenerateOamPing_Object((1,3,6,1,4,1,4935,15,300,1,100,100),_GenerateOamPing_Type())
-generateOamPing.setMaxAccess(_C)
-if mibBuilder.loadTexts:generateOamPing.setStatus(_A)
-_OamToolsParameters_ObjectIdentity=ObjectIdentity
-oamToolsParameters=_OamToolsParameters_ObjectIdentity((1,3,6,1,4,1,4935,15,300,1,100,1000))
-class _OamPingType_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('f4OamPing',0),('f5OamPing',1)))
-_OamPingType_Type.__name__=_F
-_OamPingType_Object=MibScalar
-oamPingType=_OamPingType_Object((1,3,6,1,4,1,4935,15,300,1,100,1000,100),_OamPingType_Type())
-oamPingType.setMaxAccess(_C)
-if mibBuilder.loadTexts:oamPingType.setStatus(_A)
-class _OamVpi_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_OamVpi_Type.__name__=_D
-_OamVpi_Object=MibScalar
-oamVpi=_OamVpi_Object((1,3,6,1,4,1,4935,15,300,1,100,1000,150),_OamVpi_Type())
-oamVpi.setMaxAccess(_C)
-if mibBuilder.loadTexts:oamVpi.setStatus(_A)
-class _OamVci_Type(Unsigned32):defaultValue=32;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_OamVci_Type.__name__=_D
-_OamVci_Object=MibScalar
-oamVci=_OamVci_Object((1,3,6,1,4,1,4935,15,300,1,100,1000,200),_OamVci_Type())
-oamVci.setMaxAccess(_C)
-if mibBuilder.loadTexts:oamVci.setStatus(_A)
-class _OamMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('segmented',0),('endToEnd',1)))
-_OamMode_Type.__name__=_F
-_OamMode_Object=MibScalar
-oamMode=_OamMode_Object((1,3,6,1,4,1,4935,15,300,1,100,1000,250),_OamMode_Type())
-oamMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:oamMode.setStatus(_A)
-class _OamTimeOut_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(10,60000))
-_OamTimeOut_Type.__name__=_D
-_OamTimeOut_Object=MibScalar
-oamTimeOut=_OamTimeOut_Object((1,3,6,1,4,1,4935,15,300,1,100,1000,300),_OamTimeOut_Type())
-oamTimeOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:oamTimeOut.setStatus(_A)
-_AtmConformance_ObjectIdentity=ObjectIdentity
-atmConformance=_AtmConformance_ObjectIdentity((1,3,6,1,4,1,4935,15,300,2))
-_AtmCompliances_ObjectIdentity=ObjectIdentity
-atmCompliances=_AtmCompliances_ObjectIdentity((1,3,6,1,4,1,4935,15,300,2,1))
-_AtmGroups_ObjectIdentity=ObjectIdentity
-atmGroups=_AtmGroups_ObjectIdentity((1,3,6,1,4,1,4935,15,300,2,5))
-atmVcVer1=ObjectGroup((1,3,6,1,4,1,4935,15,300,2,5,50))
-atmVcVer1.setObjects(*((_B,_G),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a)))
-if mibBuilder.loadTexts:atmVcVer1.setStatus(_A)
-atmOamVer1=ObjectGroup((1,3,6,1,4,1,4935,15,300,2,5,100))
-atmOamVer1.setObjects(*((_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h)))
-if mibBuilder.loadTexts:atmOamVer1.setStatus(_A)
-atmStatusVer1=ObjectGroup((1,3,6,1,4,1,4935,15,300,2,5,150))
-atmStatusVer1.setObjects(*((_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r)))
-if mibBuilder.loadTexts:atmStatusVer1.setStatus(_A)
-atmComplVer1=ModuleCompliance((1,3,6,1,4,1,4935,15,300,2,1,1))
-atmComplVer1.setObjects(*((_B,_s),(_B,_t),(_B,_u)))
-if mibBuilder.loadTexts:atmComplVer1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'atmStatus':atmStatus,'aal5Stats':aal5Stats,_i:aal5TxPdu,_j:aal5RxPdu,_k:aal5TxTotalBytes,_l:aal5RxTotalBytes,_m:aal5TxTotalErrorCounts,_n:aal5RxTotalErrorCounts,'oamStats':oamStats,_o:oamNearEndF5LoopBackCount,_p:oamNearEndF4LoopBackCount,_q:oamFarEndF5LoopBackCount,_r:oamFarEndF4LoopBackCount,'atmMIB':atmMIB,'atmMIBObjects':atmMIBObjects,'atmVcTable':atmVcTable,'atmVcEntry':atmVcEntry,_G:atmVcIndex,'atmVcName':atmVcName,'atmVcEnable':atmVcEnable,'atmVcType':atmVcType,_J:atmVcInUse,_K:atmVpi,_L:atmVci,_M:atmEncapsulation,_N:atmTxTrafficClass,_O:atmTxPeakCellRate,_P:atmTxSustainableCellRate,_Q:atmTxMaximumBurstSize,_R:atmTxCellDelayVariationTolerance,_S:atmTxMinimumCellRate,_T:atmTxMaximumSdu,_U:atmRxTrafficClass,_V:atmRxPeakCellRate,_W:atmRxSustainableCellRate,_X:atmRxMaximumBurstSize,_Y:atmRxCellDelayVariationTolerance,_Z:atmRxMinimumCellRate,_a:atmRxMaximumSdu,'oamTools':oamTools,_b:oamResult,_c:generateOamPing,'oamToolsParameters':oamToolsParameters,_d:oamPingType,_e:oamVpi,_f:oamVci,_g:oamMode,_h:oamTimeOut,'atmConformance':atmConformance,'atmCompliances':atmCompliances,'atmComplVer1':atmComplVer1,'atmGroups':atmGroups,_s:atmVcVer1,_t:atmOamVer1,_u:atmStatusVer1})
+#
+# PySNMP MIB module MX-ATM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-ATM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mediatrixConfig, mediatrixMgmt = mibBuilder.importSymbols("MX-SMI", "mediatrixConfig", "mediatrixMgmt")
+MxEnableState, = mibBuilder.importSymbols("MX-TC", "MxEnableState")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+atmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 15, 300))
+atmMIB.setRevisions(('2008-08-25 00:00', '2005-01-27 00:00', '2005-01-31 00:00', '2005-02-08 00:00', '2005-09-01 00:00',))
+if mibBuilder.loadTexts: atmMIB.setLastUpdated('200501270000Z')
+if mibBuilder.loadTexts: atmMIB.setOrganization('Mediatrix Telecom, Inc.')
+atmMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1))
+atmConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 300, 2))
+atmStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 10, 150))
+atmVcTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50), )
+if mibBuilder.loadTexts: atmVcTable.setStatus('current')
+atmVcEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5), ).setIndexNames((0, "MX-ATM-MIB", "atmVcIndex"))
+if mibBuilder.loadTexts: atmVcEntry.setStatus('current')
+atmVcIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 50), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atmVcIndex.setStatus('current')
+atmVcName = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 55), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmVcName.setStatus('current')
+atmVcEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 60), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmVcEnable.setStatus('current')
+atmVcType = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 65), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("bridge", 0), ("wan", 1))).clone('bridge')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmVcType.setStatus('current')
+atmVcInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 75), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("notUsed", 0), ("inUse", 1))).clone('notUsed')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atmVcInUse.setStatus('current')
+atmVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 100), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmVpi.setStatus('current')
+atmVci = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 150), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(32, 65535)).clone(32)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmVci.setStatus('current')
+atmEncapsulation = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 200), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 3, 4))).clone(namedValues=NamedValues(("llcBridged", 0), ("vcMuxBridged", 1), ("llcRouted", 3), ("vcMuxRouted", 4))).clone('llcBridged')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmEncapsulation.setStatus('current')
+atmTxTrafficClass = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 250), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ubr", 1), ("cbr", 2), ("vbr", 3))).clone('ubr')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmTxTrafficClass.setStatus('current')
+atmTxPeakCellRate = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 300), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmTxPeakCellRate.setStatus('current')
+atmTxSustainableCellRate = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 350), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmTxSustainableCellRate.setStatus('current')
+atmTxMaximumBurstSize = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 400), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmTxMaximumBurstSize.setStatus('current')
+atmTxCellDelayVariationTolerance = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 450), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmTxCellDelayVariationTolerance.setStatus('current')
+atmTxMinimumCellRate = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 500), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmTxMinimumCellRate.setStatus('current')
+atmTxMaximumSdu = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 550), Unsigned32().clone(1524)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmTxMaximumSdu.setStatus('current')
+atmRxTrafficClass = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 575), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ubr", 1), ("cbr", 2), ("vbr", 3))).clone('ubr')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmRxTrafficClass.setStatus('current')
+atmRxPeakCellRate = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 600), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmRxPeakCellRate.setStatus('current')
+atmRxSustainableCellRate = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 650), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmRxSustainableCellRate.setStatus('current')
+atmRxMaximumBurstSize = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 700), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmRxMaximumBurstSize.setStatus('current')
+atmRxCellDelayVariationTolerance = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 750), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 9999))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmRxCellDelayVariationTolerance.setStatus('current')
+atmRxMinimumCellRate = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 800), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmRxMinimumCellRate.setStatus('current')
+atmRxMaximumSdu = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 50, 5, 850), Unsigned32().clone(1524)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atmRxMaximumSdu.setStatus('current')
+oamTools = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 100))
+oamResult = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 100, 50), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("failed", 0), ("success", 1), ("pending", 2), ("notStarted", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamResult.setStatus('current')
+generateOamPing = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 100, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("noOp", 0), ("ping", 1))).clone('noOp')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: generateOamPing.setStatus('current')
+oamToolsParameters = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 100, 1000))
+oamPingType = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 100, 1000, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("f4OamPing", 0), ("f5OamPing", 1))).clone('f4OamPing')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oamPingType.setStatus('current')
+oamVpi = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 100, 1000, 150), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oamVpi.setStatus('current')
+oamVci = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 100, 1000, 200), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(32)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oamVci.setStatus('current')
+oamMode = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 100, 1000, 250), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("segmented", 0), ("endToEnd", 1))).clone('endToEnd')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oamMode.setStatus('current')
+oamTimeOut = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 300, 1, 100, 1000, 300), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(10, 60000), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oamTimeOut.setStatus('current')
+aal5Stats = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 10, 150, 200))
+aal5TxPdu = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 150, 200, 50), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aal5TxPdu.setStatus('current')
+aal5RxPdu = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 150, 200, 100), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aal5RxPdu.setStatus('current')
+aal5TxTotalBytes = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 150, 200, 150), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aal5TxTotalBytes.setStatus('current')
+aal5RxTotalBytes = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 150, 200, 200), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aal5RxTotalBytes.setStatus('current')
+aal5TxTotalErrorCounts = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 150, 200, 250), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aal5TxTotalErrorCounts.setStatus('current')
+aal5RxTotalErrorCounts = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 150, 200, 300), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aal5RxTotalErrorCounts.setStatus('current')
+oamStats = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 10, 150, 250))
+oamNearEndF5LoopBackCount = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 150, 250, 50), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamNearEndF5LoopBackCount.setStatus('current')
+oamNearEndF4LoopBackCount = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 150, 250, 100), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamNearEndF4LoopBackCount.setStatus('current')
+oamFarEndF5LoopBackCount = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 150, 250, 150), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamFarEndF5LoopBackCount.setStatus('current')
+oamFarEndF4LoopBackCount = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 150, 250, 200), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oamFarEndF4LoopBackCount.setStatus('current')
+atmCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 300, 2, 1))
+atmComplVer1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4935, 15, 300, 2, 1, 1)).setObjects(("MX-ATM-MIB", "atmVcVer1"), ("MX-ATM-MIB", "atmOamVer1"), ("MX-ATM-MIB", "atmStatusVer1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    atmComplVer1 = atmComplVer1.setStatus('current')
+atmGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 300, 2, 5))
+atmVcVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 300, 2, 5, 50)).setObjects(("MX-ATM-MIB", "atmVcIndex"), ("MX-ATM-MIB", "atmVcInUse"), ("MX-ATM-MIB", "atmVpi"), ("MX-ATM-MIB", "atmVci"), ("MX-ATM-MIB", "atmEncapsulation"), ("MX-ATM-MIB", "atmTxTrafficClass"), ("MX-ATM-MIB", "atmTxPeakCellRate"), ("MX-ATM-MIB", "atmTxSustainableCellRate"), ("MX-ATM-MIB", "atmTxMaximumBurstSize"), ("MX-ATM-MIB", "atmTxCellDelayVariationTolerance"), ("MX-ATM-MIB", "atmTxMinimumCellRate"), ("MX-ATM-MIB", "atmTxMaximumSdu"), ("MX-ATM-MIB", "atmRxTrafficClass"), ("MX-ATM-MIB", "atmRxPeakCellRate"), ("MX-ATM-MIB", "atmRxSustainableCellRate"), ("MX-ATM-MIB", "atmRxMaximumBurstSize"), ("MX-ATM-MIB", "atmRxCellDelayVariationTolerance"), ("MX-ATM-MIB", "atmRxMinimumCellRate"), ("MX-ATM-MIB", "atmRxMaximumSdu"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    atmVcVer1 = atmVcVer1.setStatus('current')
+atmOamVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 300, 2, 5, 100)).setObjects(("MX-ATM-MIB", "oamResult"), ("MX-ATM-MIB", "generateOamPing"), ("MX-ATM-MIB", "oamPingType"), ("MX-ATM-MIB", "oamVpi"), ("MX-ATM-MIB", "oamVci"), ("MX-ATM-MIB", "oamMode"), ("MX-ATM-MIB", "oamTimeOut"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    atmOamVer1 = atmOamVer1.setStatus('current')
+atmStatusVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 300, 2, 5, 150)).setObjects(("MX-ATM-MIB", "aal5TxPdu"), ("MX-ATM-MIB", "aal5RxPdu"), ("MX-ATM-MIB", "aal5TxTotalBytes"), ("MX-ATM-MIB", "aal5RxTotalBytes"), ("MX-ATM-MIB", "aal5TxTotalErrorCounts"), ("MX-ATM-MIB", "aal5RxTotalErrorCounts"), ("MX-ATM-MIB", "oamNearEndF5LoopBackCount"), ("MX-ATM-MIB", "oamNearEndF4LoopBackCount"), ("MX-ATM-MIB", "oamFarEndF5LoopBackCount"), ("MX-ATM-MIB", "oamFarEndF4LoopBackCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    atmStatusVer1 = atmStatusVer1.setStatus('current')
+mibBuilder.exportSymbols("MX-ATM-MIB", atmTxMaximumSdu=atmTxMaximumSdu, oamFarEndF4LoopBackCount=oamFarEndF4LoopBackCount, atmOamVer1=atmOamVer1, oamVci=oamVci, atmVcType=atmVcType, atmTxSustainableCellRate=atmTxSustainableCellRate, atmTxCellDelayVariationTolerance=atmTxCellDelayVariationTolerance, oamTools=oamTools, atmVcName=atmVcName, atmRxMaximumBurstSize=atmRxMaximumBurstSize, oamVpi=oamVpi, oamStats=oamStats, atmGroups=atmGroups, atmStatusVer1=atmStatusVer1, aal5RxPdu=aal5RxPdu, atmConformance=atmConformance, atmVcInUse=atmVcInUse, atmRxCellDelayVariationTolerance=atmRxCellDelayVariationTolerance, atmMIBObjects=atmMIBObjects, PYSNMP_MODULE_ID=atmMIB, atmVcVer1=atmVcVer1, atmVcIndex=atmVcIndex, atmComplVer1=atmComplVer1, generateOamPing=generateOamPing, oamToolsParameters=oamToolsParameters, aal5RxTotalErrorCounts=aal5RxTotalErrorCounts, atmRxPeakCellRate=atmRxPeakCellRate, atmVcEnable=atmVcEnable, atmVcEntry=atmVcEntry, oamPingType=oamPingType, atmTxPeakCellRate=atmTxPeakCellRate, atmVpi=atmVpi, atmRxTrafficClass=atmRxTrafficClass, aal5RxTotalBytes=aal5RxTotalBytes, oamMode=oamMode, aal5TxPdu=aal5TxPdu, oamNearEndF4LoopBackCount=oamNearEndF4LoopBackCount, oamResult=oamResult, oamFarEndF5LoopBackCount=oamFarEndF5LoopBackCount, atmCompliances=atmCompliances, atmMIB=atmMIB, atmRxMaximumSdu=atmRxMaximumSdu, atmTxMinimumCellRate=atmTxMinimumCellRate, oamTimeOut=oamTimeOut, atmTxTrafficClass=atmTxTrafficClass, atmStatus=atmStatus, aal5Stats=aal5Stats, atmVcTable=atmVcTable, atmEncapsulation=atmEncapsulation, atmRxSustainableCellRate=atmRxSustainableCellRate, atmVci=atmVci, aal5TxTotalBytes=aal5TxTotalBytes, atmTxMaximumBurstSize=atmTxMaximumBurstSize, atmRxMinimumCellRate=atmRxMinimumCellRate, aal5TxTotalErrorCounts=aal5TxTotalErrorCounts, oamNearEndF5LoopBackCount=oamNearEndF5LoopBackCount)

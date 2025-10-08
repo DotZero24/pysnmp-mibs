@@ -1,41 +1,27 @@
-_E='hpnicfdot1qVlanStatEnableIndex'
-_D='HPN-ICF-LswSMON-MIB'
-_C='read-only'
-_B='Integer32'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpnicfRhw,=mibBuilder.importSymbols('HPN-ICF-OID-MIB','hpnicfRhw')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_HpnicfSmonExtend_ObjectIdentity=ObjectIdentity
-hpnicfSmonExtend=_HpnicfSmonExtend_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,8,26))
-_HpnicfsmonExtendObject_ObjectIdentity=ObjectIdentity
-hpnicfsmonExtendObject=_HpnicfsmonExtendObject_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,8,26,1))
-_Hpnicfdot1qVlanStatNumber_Type=Integer32
-_Hpnicfdot1qVlanStatNumber_Object=MibScalar
-hpnicfdot1qVlanStatNumber=_Hpnicfdot1qVlanStatNumber_Object((1,3,6,1,4,1,11,2,14,11,15,8,26,1,1),_Hpnicfdot1qVlanStatNumber_Type())
-hpnicfdot1qVlanStatNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfdot1qVlanStatNumber.setStatus(_A)
-_Hpnicfdot1qVlanStatStatusTable_Object=MibTable
-hpnicfdot1qVlanStatStatusTable=_Hpnicfdot1qVlanStatStatusTable_Object((1,3,6,1,4,1,11,2,14,11,15,8,26,1,2))
-if mibBuilder.loadTexts:hpnicfdot1qVlanStatStatusTable.setStatus(_A)
-_Hpnicfdot1qVlanStatStatusEntry_Object=MibTableRow
-hpnicfdot1qVlanStatStatusEntry=_Hpnicfdot1qVlanStatStatusEntry_Object((1,3,6,1,4,1,11,2,14,11,15,8,26,1,2,1))
-hpnicfdot1qVlanStatStatusEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:hpnicfdot1qVlanStatStatusEntry.setStatus(_A)
-_Hpnicfdot1qVlanStatEnableIndex_Type=Integer32
-_Hpnicfdot1qVlanStatEnableIndex_Object=MibTableColumn
-hpnicfdot1qVlanStatEnableIndex=_Hpnicfdot1qVlanStatEnableIndex_Object((1,3,6,1,4,1,11,2,14,11,15,8,26,1,2,1,1),_Hpnicfdot1qVlanStatEnableIndex_Type())
-hpnicfdot1qVlanStatEnableIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfdot1qVlanStatEnableIndex.setStatus(_A)
-class _Hpnicfdot1qVlanStatEnableStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_Hpnicfdot1qVlanStatEnableStatus_Type.__name__=_B
-_Hpnicfdot1qVlanStatEnableStatus_Object=MibTableColumn
-hpnicfdot1qVlanStatEnableStatus=_Hpnicfdot1qVlanStatEnableStatus_Object((1,3,6,1,4,1,11,2,14,11,15,8,26,1,2,1,2),_Hpnicfdot1qVlanStatEnableStatus_Type())
-hpnicfdot1qVlanStatEnableStatus.setMaxAccess('read-write')
-if mibBuilder.loadTexts:hpnicfdot1qVlanStatEnableStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'hpnicfSmonExtend':hpnicfSmonExtend,'hpnicfsmonExtendObject':hpnicfsmonExtendObject,'hpnicfdot1qVlanStatNumber':hpnicfdot1qVlanStatNumber,'hpnicfdot1qVlanStatStatusTable':hpnicfdot1qVlanStatStatusTable,'hpnicfdot1qVlanStatStatusEntry':hpnicfdot1qVlanStatStatusEntry,_E:hpnicfdot1qVlanStatEnableIndex,'hpnicfdot1qVlanStatEnableStatus':hpnicfdot1qVlanStatEnableStatus})
+#
+# PySNMP MIB module HPN-ICF-LswSMON-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-LswSMON-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:34 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpnicfRhw, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfRhw")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hpnicfSmonExtend = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 26))
+hpnicfsmonExtendObject = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 26, 1))
+hpnicfdot1qVlanStatNumber = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 26, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfdot1qVlanStatNumber.setStatus('mandatory')
+hpnicfdot1qVlanStatStatusTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 26, 1, 2), )
+if mibBuilder.loadTexts: hpnicfdot1qVlanStatStatusTable.setStatus('mandatory')
+hpnicfdot1qVlanStatStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 26, 1, 2, 1), ).setIndexNames((0, "HPN-ICF-LswSMON-MIB", "hpnicfdot1qVlanStatEnableIndex"))
+if mibBuilder.loadTexts: hpnicfdot1qVlanStatStatusEntry.setStatus('mandatory')
+hpnicfdot1qVlanStatEnableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 26, 1, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfdot1qVlanStatEnableIndex.setStatus('mandatory')
+hpnicfdot1qVlanStatEnableStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 8, 26, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfdot1qVlanStatEnableStatus.setStatus('mandatory')
+mibBuilder.exportSymbols("HPN-ICF-LswSMON-MIB", hpnicfdot1qVlanStatStatusEntry=hpnicfdot1qVlanStatStatusEntry, hpnicfSmonExtend=hpnicfSmonExtend, hpnicfsmonExtendObject=hpnicfsmonExtendObject, hpnicfdot1qVlanStatEnableStatus=hpnicfdot1qVlanStatEnableStatus, hpnicfdot1qVlanStatEnableIndex=hpnicfdot1qVlanStatEnableIndex, hpnicfdot1qVlanStatStatusTable=hpnicfdot1qVlanStatStatusTable, hpnicfdot1qVlanStatNumber=hpnicfdot1qVlanStatNumber)

@@ -1,65 +1,57 @@
-_H='rbtwsPortConfigGroup'
-_G='rbtwsPortConfigTrunkMaster'
-_F='rbtwsPortConfigPoeMode'
-_E='rbtwsPortConfigPortMode'
-_D='rbtwsPortConfigPortNumber'
-_C='read-only'
-_B='RBTWS-PORT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-rbtwsMibs,=mibBuilder.importSymbols('RBTWS-ROOT-MIB','rbtwsMibs')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-rbtwsPortMib=ModuleIdentity((1,3,6,1,4,1,52,4,15,1,4,6))
-if mibBuilder.loadTexts:rbtwsPortMib.setRevisions(('2008-05-19 00:04','2006-11-09 00:01','2006-04-06 00:00'))
-class RbtwsPhysPortNumber(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1024))
-class RbtwsPortMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('directAttachAP',1),('networkPort',2),('wired',3)))
-class RbtwsPortPoeMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('poeEnable',1),('poeDisable',2)))
-_RbtwsPortObjects_ObjectIdentity=ObjectIdentity
-rbtwsPortObjects=_RbtwsPortObjects_ObjectIdentity((1,3,6,1,4,1,52,4,15,1,4,6,1))
-_RbtwsPortDataObjects_ObjectIdentity=ObjectIdentity
-rbtwsPortDataObjects=_RbtwsPortDataObjects_ObjectIdentity((1,3,6,1,4,1,52,4,15,1,4,6,1,1))
-_RbtwsPortConfigTable_Object=MibTable
-rbtwsPortConfigTable=_RbtwsPortConfigTable_Object((1,3,6,1,4,1,52,4,15,1,4,6,1,1,1))
-if mibBuilder.loadTexts:rbtwsPortConfigTable.setStatus(_A)
-_RbtwsPortConfigEntry_Object=MibTableRow
-rbtwsPortConfigEntry=_RbtwsPortConfigEntry_Object((1,3,6,1,4,1,52,4,15,1,4,6,1,1,1,1))
-rbtwsPortConfigEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:rbtwsPortConfigEntry.setStatus(_A)
-_RbtwsPortConfigPortNumber_Type=RbtwsPhysPortNumber
-_RbtwsPortConfigPortNumber_Object=MibTableColumn
-rbtwsPortConfigPortNumber=_RbtwsPortConfigPortNumber_Object((1,3,6,1,4,1,52,4,15,1,4,6,1,1,1,1,1),_RbtwsPortConfigPortNumber_Type())
-rbtwsPortConfigPortNumber.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:rbtwsPortConfigPortNumber.setStatus(_A)
-_RbtwsPortConfigPortMode_Type=RbtwsPortMode
-_RbtwsPortConfigPortMode_Object=MibTableColumn
-rbtwsPortConfigPortMode=_RbtwsPortConfigPortMode_Object((1,3,6,1,4,1,52,4,15,1,4,6,1,1,1,1,2),_RbtwsPortConfigPortMode_Type())
-rbtwsPortConfigPortMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbtwsPortConfigPortMode.setStatus(_A)
-_RbtwsPortConfigPoeMode_Type=RbtwsPortPoeMode
-_RbtwsPortConfigPoeMode_Object=MibTableColumn
-rbtwsPortConfigPoeMode=_RbtwsPortConfigPoeMode_Object((1,3,6,1,4,1,52,4,15,1,4,6,1,1,1,1,3),_RbtwsPortConfigPoeMode_Type())
-rbtwsPortConfigPoeMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbtwsPortConfigPoeMode.setStatus(_A)
-_RbtwsPortConfigTrunkMaster_Type=RbtwsPhysPortNumber
-_RbtwsPortConfigTrunkMaster_Object=MibTableColumn
-rbtwsPortConfigTrunkMaster=_RbtwsPortConfigTrunkMaster_Object((1,3,6,1,4,1,52,4,15,1,4,6,1,1,1,1,4),_RbtwsPortConfigTrunkMaster_Type())
-rbtwsPortConfigTrunkMaster.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbtwsPortConfigTrunkMaster.setStatus(_A)
-_RbtwsPortConformance_ObjectIdentity=ObjectIdentity
-rbtwsPortConformance=_RbtwsPortConformance_ObjectIdentity((1,3,6,1,4,1,52,4,15,1,4,6,1,2))
-_RbtwsPortCompliances_ObjectIdentity=ObjectIdentity
-rbtwsPortCompliances=_RbtwsPortCompliances_ObjectIdentity((1,3,6,1,4,1,52,4,15,1,4,6,1,2,1))
-_RbtwsPortGroups_ObjectIdentity=ObjectIdentity
-rbtwsPortGroups=_RbtwsPortGroups_ObjectIdentity((1,3,6,1,4,1,52,4,15,1,4,6,1,2,2))
-rbtwsPortConfigGroup=ObjectGroup((1,3,6,1,4,1,52,4,15,1,4,6,1,2,2,1))
-rbtwsPortConfigGroup.setObjects(*((_B,_E),(_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:rbtwsPortConfigGroup.setStatus(_A)
-rbtwsPortCompliance=ModuleCompliance((1,3,6,1,4,1,52,4,15,1,4,6,1,2,1,1))
-rbtwsPortCompliance.setObjects((_B,_H))
-if mibBuilder.loadTexts:rbtwsPortCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'RbtwsPhysPortNumber':RbtwsPhysPortNumber,'RbtwsPortMode':RbtwsPortMode,'RbtwsPortPoeMode':RbtwsPortPoeMode,'rbtwsPortMib':rbtwsPortMib,'rbtwsPortObjects':rbtwsPortObjects,'rbtwsPortDataObjects':rbtwsPortDataObjects,'rbtwsPortConfigTable':rbtwsPortConfigTable,'rbtwsPortConfigEntry':rbtwsPortConfigEntry,_D:rbtwsPortConfigPortNumber,_E:rbtwsPortConfigPortMode,_F:rbtwsPortConfigPoeMode,_G:rbtwsPortConfigTrunkMaster,'rbtwsPortConformance':rbtwsPortConformance,'rbtwsPortCompliances':rbtwsPortCompliances,'rbtwsPortCompliance':rbtwsPortCompliance,'rbtwsPortGroups':rbtwsPortGroups,_H:rbtwsPortConfigGroup})
+#
+# PySNMP MIB module RBTWS-PORT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/RBTWS-PORT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+rbtwsMibs, = mibBuilder.importSymbols("RBTWS-ROOT-MIB", "rbtwsMibs")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+rbtwsPortMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 6))
+rbtwsPortMib.setRevisions(('2008-05-19 00:04', '2006-11-09 00:01', '2006-04-06 00:00',))
+if mibBuilder.loadTexts: rbtwsPortMib.setLastUpdated('200805191722Z')
+if mibBuilder.loadTexts: rbtwsPortMib.setOrganization('Enterasys Networks')
+class RbtwsPhysPortNumber(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 1024)
+
+class RbtwsPortMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("directAttachAP", 1), ("networkPort", 2), ("wired", 3))
+
+class RbtwsPortPoeMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("poeEnable", 1), ("poeDisable", 2))
+
+rbtwsPortObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 6, 1))
+rbtwsPortDataObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 6, 1, 1))
+rbtwsPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 6, 1, 1, 1), )
+if mibBuilder.loadTexts: rbtwsPortConfigTable.setStatus('current')
+rbtwsPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 6, 1, 1, 1, 1), ).setIndexNames((0, "RBTWS-PORT-MIB", "rbtwsPortConfigPortNumber"))
+if mibBuilder.loadTexts: rbtwsPortConfigEntry.setStatus('current')
+rbtwsPortConfigPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 6, 1, 1, 1, 1, 1), RbtwsPhysPortNumber())
+if mibBuilder.loadTexts: rbtwsPortConfigPortNumber.setStatus('current')
+rbtwsPortConfigPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 6, 1, 1, 1, 1, 2), RbtwsPortMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbtwsPortConfigPortMode.setStatus('current')
+rbtwsPortConfigPoeMode = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 6, 1, 1, 1, 1, 3), RbtwsPortPoeMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbtwsPortConfigPoeMode.setStatus('current')
+rbtwsPortConfigTrunkMaster = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 6, 1, 1, 1, 1, 4), RbtwsPhysPortNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbtwsPortConfigTrunkMaster.setStatus('current')
+rbtwsPortConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 6, 1, 2))
+rbtwsPortCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 6, 1, 2, 1))
+rbtwsPortGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 6, 1, 2, 2))
+rbtwsPortCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 6, 1, 2, 1, 1)).setObjects(("RBTWS-PORT-MIB", "rbtwsPortConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbtwsPortCompliance = rbtwsPortCompliance.setStatus('current')
+rbtwsPortConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 6, 1, 2, 2, 1)).setObjects(("RBTWS-PORT-MIB", "rbtwsPortConfigPortMode"), ("RBTWS-PORT-MIB", "rbtwsPortConfigPoeMode"), ("RBTWS-PORT-MIB", "rbtwsPortConfigTrunkMaster"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbtwsPortConfigGroup = rbtwsPortConfigGroup.setStatus('current')
+mibBuilder.exportSymbols("RBTWS-PORT-MIB", RbtwsPhysPortNumber=RbtwsPhysPortNumber, rbtwsPortConfigPortNumber=rbtwsPortConfigPortNumber, rbtwsPortConfigPoeMode=rbtwsPortConfigPoeMode, rbtwsPortMib=rbtwsPortMib, rbtwsPortConfigTrunkMaster=rbtwsPortConfigTrunkMaster, RbtwsPortPoeMode=RbtwsPortPoeMode, rbtwsPortConformance=rbtwsPortConformance, rbtwsPortGroups=rbtwsPortGroups, rbtwsPortConfigEntry=rbtwsPortConfigEntry, rbtwsPortDataObjects=rbtwsPortDataObjects, rbtwsPortCompliance=rbtwsPortCompliance, PYSNMP_MODULE_ID=rbtwsPortMib, rbtwsPortObjects=rbtwsPortObjects, rbtwsPortConfigTable=rbtwsPortConfigTable, RbtwsPortMode=RbtwsPortMode, rbtwsPortConfigGroup=rbtwsPortConfigGroup, rbtwsPortConfigPortMode=rbtwsPortConfigPortMode, rbtwsPortCompliances=rbtwsPortCompliances)

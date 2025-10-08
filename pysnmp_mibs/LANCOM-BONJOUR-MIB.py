@@ -1,22 +1,23 @@
-_A='Integer32'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fastPath,=mibBuilder.importSymbols('LANCOM-REF-MIB','fastPath')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_A,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-fastPathBonjour=ModuleIdentity((1,3,6,1,4,1,2356,16,1,71))
-if mibBuilder.loadTexts:fastPathBonjour.setRevisions(('2017-06-06 00:00',))
-_AgentBonjourObjects_ObjectIdentity=ObjectIdentity
-agentBonjourObjects=_AgentBonjourObjects_ObjectIdentity((1,3,6,1,4,1,2356,16,1,71,1))
-_AgentBonjourGlobal_ObjectIdentity=ObjectIdentity
-agentBonjourGlobal=_AgentBonjourGlobal_ObjectIdentity((1,3,6,1,4,1,2356,16,1,71,1,1))
-class _AgentBonjourAdminMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disable',0),('enable',1)))
-_AgentBonjourAdminMode_Type.__name__=_A
-_AgentBonjourAdminMode_Object=MibScalar
-agentBonjourAdminMode=_AgentBonjourAdminMode_Object((1,3,6,1,4,1,2356,16,1,71,1,1,1),_AgentBonjourAdminMode_Type())
-agentBonjourAdminMode.setMaxAccess('read-write')
-if mibBuilder.loadTexts:agentBonjourAdminMode.setStatus('current')
-mibBuilder.exportSymbols('LANCOM-BONJOUR-MIB',**{'fastPathBonjour':fastPathBonjour,'agentBonjourObjects':agentBonjourObjects,'agentBonjourGlobal':agentBonjourGlobal,'agentBonjourAdminMode':agentBonjourAdminMode})
+#
+# PySNMP MIB module LANCOM-BONJOUR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/lancom/LANCOM-BONJOUR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:33 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fastPath, = mibBuilder.importSymbols("LANCOM-REF-MIB", "fastPath")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+fastPathBonjour = ModuleIdentity((1, 3, 6, 1, 4, 1, 2356, 16, 1, 71))
+fastPathBonjour.setRevisions(('2017-06-06 00:00',))
+if mibBuilder.loadTexts: fastPathBonjour.setLastUpdated('201706060000Z')
+if mibBuilder.loadTexts: fastPathBonjour.setOrganization('Broadcom ')
+agentBonjourObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 71, 1))
+agentBonjourGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 71, 1, 1))
+agentBonjourAdminMode = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 71, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentBonjourAdminMode.setStatus('current')
+mibBuilder.exportSymbols("LANCOM-BONJOUR-MIB", agentBonjourAdminMode=agentBonjourAdminMode, fastPathBonjour=fastPathBonjour, agentBonjourGlobal=agentBonjourGlobal, PYSNMP_MODULE_ID=fastPathBonjour, agentBonjourObjects=agentBonjourObjects)

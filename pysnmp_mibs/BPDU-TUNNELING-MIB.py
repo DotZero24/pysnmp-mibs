@@ -1,71 +1,39 @@
-_H='swBPDUTunnelPortIndex'
-_G='BPDU-TUNNELING-MIB'
-_F='read-only'
-_E='disabled'
-_D='enabled'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_common_mgmt,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-common-mgmt')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-swBPDUTunnelMIB=ModuleIdentity((1,3,6,1,4,1,171,12,60))
-_SwBPDUTunnelCtrl_ObjectIdentity=ObjectIdentity
-swBPDUTunnelCtrl=_SwBPDUTunnelCtrl_ObjectIdentity((1,3,6,1,4,1,171,12,60,1))
-class _SwBPDUTunnelState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_SwBPDUTunnelState_Type.__name__=_B
-_SwBPDUTunnelState_Object=MibScalar
-swBPDUTunnelState=_SwBPDUTunnelState_Object((1,3,6,1,4,1,171,12,60,1,1),_SwBPDUTunnelState_Type())
-swBPDUTunnelState.setMaxAccess(_C)
-if mibBuilder.loadTexts:swBPDUTunnelState.setStatus(_A)
-_SwBPDUTunnelInfo_ObjectIdentity=ObjectIdentity
-swBPDUTunnelInfo=_SwBPDUTunnelInfo_ObjectIdentity((1,3,6,1,4,1,171,12,60,2))
-_SwBPDUTunnelSTPMcastAddress_Type=MacAddress
-_SwBPDUTunnelSTPMcastAddress_Object=MibScalar
-swBPDUTunnelSTPMcastAddress=_SwBPDUTunnelSTPMcastAddress_Object((1,3,6,1,4,1,171,12,60,2,1),_SwBPDUTunnelSTPMcastAddress_Type())
-swBPDUTunnelSTPMcastAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:swBPDUTunnelSTPMcastAddress.setStatus(_A)
-_SwBPDUTunnelGVRPMcastAddress_Type=MacAddress
-_SwBPDUTunnelGVRPMcastAddress_Object=MibScalar
-swBPDUTunnelGVRPMcastAddress=_SwBPDUTunnelGVRPMcastAddress_Object((1,3,6,1,4,1,171,12,60,2,2),_SwBPDUTunnelGVRPMcastAddress_Type())
-swBPDUTunnelGVRPMcastAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:swBPDUTunnelGVRPMcastAddress.setStatus(_A)
-_SwBPDUTunnelMgmt_ObjectIdentity=ObjectIdentity
-swBPDUTunnelMgmt=_SwBPDUTunnelMgmt_ObjectIdentity((1,3,6,1,4,1,171,12,60,3))
-_SwBPDUTunnelTable_Object=MibTable
-swBPDUTunnelTable=_SwBPDUTunnelTable_Object((1,3,6,1,4,1,171,12,60,3,1))
-if mibBuilder.loadTexts:swBPDUTunnelTable.setStatus(_A)
-_SwBPDUTunnelEntry_Object=MibTableRow
-swBPDUTunnelEntry=_SwBPDUTunnelEntry_Object((1,3,6,1,4,1,171,12,60,3,1,1))
-swBPDUTunnelEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:swBPDUTunnelEntry.setStatus(_A)
-class _SwBPDUTunnelPortIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_SwBPDUTunnelPortIndex_Type.__name__=_B
-_SwBPDUTunnelPortIndex_Object=MibTableColumn
-swBPDUTunnelPortIndex=_SwBPDUTunnelPortIndex_Object((1,3,6,1,4,1,171,12,60,3,1,1,1),_SwBPDUTunnelPortIndex_Type())
-swBPDUTunnelPortIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:swBPDUTunnelPortIndex.setStatus(_A)
-class _SwBPDUTunnelPortType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('tunnel',2),('uplink',3)))
-_SwBPDUTunnelPortType_Type.__name__=_B
-_SwBPDUTunnelPortType_Object=MibTableColumn
-swBPDUTunnelPortType=_SwBPDUTunnelPortType_Object((1,3,6,1,4,1,171,12,60,3,1,1,2),_SwBPDUTunnelPortType_Type())
-swBPDUTunnelPortType.setMaxAccess(_C)
-if mibBuilder.loadTexts:swBPDUTunnelPortType.setStatus(_A)
-class _SwBPDUTunnelSTPState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_SwBPDUTunnelSTPState_Type.__name__=_B
-_SwBPDUTunnelSTPState_Object=MibTableColumn
-swBPDUTunnelSTPState=_SwBPDUTunnelSTPState_Object((1,3,6,1,4,1,171,12,60,3,1,1,3),_SwBPDUTunnelSTPState_Type())
-swBPDUTunnelSTPState.setMaxAccess(_C)
-if mibBuilder.loadTexts:swBPDUTunnelSTPState.setStatus(_A)
-class _SwBPDUTunnelGVRPState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_SwBPDUTunnelGVRPState_Type.__name__=_B
-_SwBPDUTunnelGVRPState_Object=MibTableColumn
-swBPDUTunnelGVRPState=_SwBPDUTunnelGVRPState_Object((1,3,6,1,4,1,171,12,60,3,1,1,4),_SwBPDUTunnelGVRPState_Type())
-swBPDUTunnelGVRPState.setMaxAccess(_C)
-if mibBuilder.loadTexts:swBPDUTunnelGVRPState.setStatus(_A)
-mibBuilder.exportSymbols(_G,**{'swBPDUTunnelMIB':swBPDUTunnelMIB,'swBPDUTunnelCtrl':swBPDUTunnelCtrl,'swBPDUTunnelState':swBPDUTunnelState,'swBPDUTunnelInfo':swBPDUTunnelInfo,'swBPDUTunnelSTPMcastAddress':swBPDUTunnelSTPMcastAddress,'swBPDUTunnelGVRPMcastAddress':swBPDUTunnelGVRPMcastAddress,'swBPDUTunnelMgmt':swBPDUTunnelMgmt,'swBPDUTunnelTable':swBPDUTunnelTable,'swBPDUTunnelEntry':swBPDUTunnelEntry,_H:swBPDUTunnelPortIndex,'swBPDUTunnelPortType':swBPDUTunnelPortType,'swBPDUTunnelSTPState':swBPDUTunnelSTPState,'swBPDUTunnelGVRPState':swBPDUTunnelGVRPState})
+#
+# PySNMP MIB module BPDU-TUNNELING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/BPDU-TUNNELING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:33:33 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+swBPDUTunnelMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 60))
+if mibBuilder.loadTexts: swBPDUTunnelMIB.setLastUpdated('200802260000Z')
+if mibBuilder.loadTexts: swBPDUTunnelMIB.setOrganization('D-Link Corp.')
+swBPDUTunnelCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 60, 1))
+swBPDUTunnelInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 60, 2))
+swBPDUTunnelMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 60, 3))
+swBPDUTunnelState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 60, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swBPDUTunnelState.setStatus('current')
+swBPDUTunnelSTPMcastAddress = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 60, 2, 1), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swBPDUTunnelSTPMcastAddress.setStatus('current')
+swBPDUTunnelGVRPMcastAddress = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 60, 2, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swBPDUTunnelGVRPMcastAddress.setStatus('current')
+swBPDUTunnelTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 60, 3, 1), )
+if mibBuilder.loadTexts: swBPDUTunnelTable.setStatus('current')
+swBPDUTunnelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 60, 3, 1, 1), ).setIndexNames((0, "BPDU-TUNNELING-MIB", "swBPDUTunnelPortIndex"))
+if mibBuilder.loadTexts: swBPDUTunnelEntry.setStatus('current')
+swBPDUTunnelPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 60, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swBPDUTunnelPortIndex.setStatus('current')
+swBPDUTunnelPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 60, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("tunnel", 2), ("uplink", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swBPDUTunnelPortType.setStatus('current')
+swBPDUTunnelSTPState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 60, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swBPDUTunnelSTPState.setStatus('current')
+swBPDUTunnelGVRPState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 60, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swBPDUTunnelGVRPState.setStatus('current')
+mibBuilder.exportSymbols("BPDU-TUNNELING-MIB", swBPDUTunnelGVRPState=swBPDUTunnelGVRPState, swBPDUTunnelSTPState=swBPDUTunnelSTPState, swBPDUTunnelCtrl=swBPDUTunnelCtrl, swBPDUTunnelTable=swBPDUTunnelTable, swBPDUTunnelSTPMcastAddress=swBPDUTunnelSTPMcastAddress, PYSNMP_MODULE_ID=swBPDUTunnelMIB, swBPDUTunnelGVRPMcastAddress=swBPDUTunnelGVRPMcastAddress, swBPDUTunnelPortType=swBPDUTunnelPortType, swBPDUTunnelPortIndex=swBPDUTunnelPortIndex, swBPDUTunnelMgmt=swBPDUTunnelMgmt, swBPDUTunnelState=swBPDUTunnelState, swBPDUTunnelMIB=swBPDUTunnelMIB, swBPDUTunnelInfo=swBPDUTunnelInfo, swBPDUTunnelEntry=swBPDUTunnelEntry)

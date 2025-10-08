@@ -1,76 +1,48 @@
-_K='adMefPerEvcTotalCountGroup'
-_J='adMefPerEvcTotalIngressRedFrames'
-_I='adMefPerEvcTotalIngressYellowFrames'
-_H='adMefPerEvcTotalIngressYellowOctets'
-_G='adMefPerEvcTotalIngressGreenFrames'
-_F='adMefPerEvcTotalIngressGreenOctets'
-_E='adMefPerEvcTcEvcNameFixedLen'
-_D='OctetString'
-_C='read-only'
-_B='ADTRAN-MEF-PER-EVC-TOTAL-COUNT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGenAOSConformance,adGenAOSMef=mibBuilder.importSymbols('ADTRAN-AOS','adGenAOSConformance','adGenAOSMef')
-adIdentity,=mibBuilder.importSymbols('ADTRAN-MIB','adIdentity')
-HCPerfCurrentCount,HCPerfIntervalCount,HCPerfInvalidIntervals,HCPerfTimeElapsed,HCPerfTotalCount,HCPerfValidIntervals=mibBuilder.importSymbols('HC-PerfHist-TC-MIB','HCPerfCurrentCount','HCPerfIntervalCount','HCPerfInvalidIntervals','HCPerfTimeElapsed','HCPerfTotalCount','HCPerfValidIntervals')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-adGenAosMefPerEvcTotalCountMib=ModuleIdentity((1,3,6,1,4,1,664,6,10000,53,9,7))
-if mibBuilder.loadTexts:adGenAosMefPerEvcTotalCountMib.setRevisions(('2017-10-14 00:00',))
-_AdGenAosMefPerEvcTotalCount_ObjectIdentity=ObjectIdentity
-adGenAosMefPerEvcTotalCount=_AdGenAosMefPerEvcTotalCount_ObjectIdentity((1,3,6,1,4,1,664,5,53,9,7))
-_AdMefPerEvcTcTable_Object=MibTable
-adMefPerEvcTcTable=_AdMefPerEvcTcTable_Object((1,3,6,1,4,1,664,5,53,9,7,1))
-if mibBuilder.loadTexts:adMefPerEvcTcTable.setStatus(_A)
-_AdMefPerEvcTcEntry_Object=MibTableRow
-adMefPerEvcTcEntry=_AdMefPerEvcTcEntry_Object((1,3,6,1,4,1,664,5,53,9,7,1,1))
-adMefPerEvcTcEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:adMefPerEvcTcEntry.setStatus(_A)
-class _AdMefPerEvcTcEvcNameFixedLen_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(50,50));fixedLength=50
-_AdMefPerEvcTcEvcNameFixedLen_Type.__name__=_D
-_AdMefPerEvcTcEvcNameFixedLen_Object=MibTableColumn
-adMefPerEvcTcEvcNameFixedLen=_AdMefPerEvcTcEvcNameFixedLen_Object((1,3,6,1,4,1,664,5,53,9,7,1,1,1),_AdMefPerEvcTcEvcNameFixedLen_Type())
-adMefPerEvcTcEvcNameFixedLen.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:adMefPerEvcTcEvcNameFixedLen.setStatus(_A)
-_AdMefPerEvcTotalIngressGreenOctets_Type=HCPerfCurrentCount
-_AdMefPerEvcTotalIngressGreenOctets_Object=MibTableColumn
-adMefPerEvcTotalIngressGreenOctets=_AdMefPerEvcTotalIngressGreenOctets_Object((1,3,6,1,4,1,664,5,53,9,7,1,1,2),_AdMefPerEvcTotalIngressGreenOctets_Type())
-adMefPerEvcTotalIngressGreenOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:adMefPerEvcTotalIngressGreenOctets.setStatus(_A)
-_AdMefPerEvcTotalIngressGreenFrames_Type=HCPerfCurrentCount
-_AdMefPerEvcTotalIngressGreenFrames_Object=MibTableColumn
-adMefPerEvcTotalIngressGreenFrames=_AdMefPerEvcTotalIngressGreenFrames_Object((1,3,6,1,4,1,664,5,53,9,7,1,1,3),_AdMefPerEvcTotalIngressGreenFrames_Type())
-adMefPerEvcTotalIngressGreenFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:adMefPerEvcTotalIngressGreenFrames.setStatus(_A)
-_AdMefPerEvcTotalIngressYellowOctets_Type=HCPerfCurrentCount
-_AdMefPerEvcTotalIngressYellowOctets_Object=MibTableColumn
-adMefPerEvcTotalIngressYellowOctets=_AdMefPerEvcTotalIngressYellowOctets_Object((1,3,6,1,4,1,664,5,53,9,7,1,1,4),_AdMefPerEvcTotalIngressYellowOctets_Type())
-adMefPerEvcTotalIngressYellowOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:adMefPerEvcTotalIngressYellowOctets.setStatus(_A)
-_AdMefPerEvcTotalIngressYellowFrames_Type=HCPerfCurrentCount
-_AdMefPerEvcTotalIngressYellowFrames_Object=MibTableColumn
-adMefPerEvcTotalIngressYellowFrames=_AdMefPerEvcTotalIngressYellowFrames_Object((1,3,6,1,4,1,664,5,53,9,7,1,1,5),_AdMefPerEvcTotalIngressYellowFrames_Type())
-adMefPerEvcTotalIngressYellowFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:adMefPerEvcTotalIngressYellowFrames.setStatus(_A)
-_AdMefPerEvcTotalIngressRedFrames_Type=HCPerfCurrentCount
-_AdMefPerEvcTotalIngressRedFrames_Object=MibTableColumn
-adMefPerEvcTotalIngressRedFrames=_AdMefPerEvcTotalIngressRedFrames_Object((1,3,6,1,4,1,664,5,53,9,7,1,1,6),_AdMefPerEvcTotalIngressRedFrames_Type())
-adMefPerEvcTotalIngressRedFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:adMefPerEvcTotalIngressRedFrames.setStatus(_A)
-_AdGenAosMefPerEvcTotalCountConformance_ObjectIdentity=ObjectIdentity
-adGenAosMefPerEvcTotalCountConformance=_AdGenAosMefPerEvcTotalCountConformance_ObjectIdentity((1,3,6,1,4,1,664,5,53,99,29))
-_AdMefPerEvcTotalCountGroups_ObjectIdentity=ObjectIdentity
-adMefPerEvcTotalCountGroups=_AdMefPerEvcTotalCountGroups_ObjectIdentity((1,3,6,1,4,1,664,5,53,99,29,1))
-_AdGenAosMefPerEvcTotalCountCompliances_ObjectIdentity=ObjectIdentity
-adGenAosMefPerEvcTotalCountCompliances=_AdGenAosMefPerEvcTotalCountCompliances_ObjectIdentity((1,3,6,1,4,1,664,5,53,99,29,2))
-adMefPerEvcTotalCountGroup=ObjectGroup((1,3,6,1,4,1,664,5,53,99,29,1,1))
-adMefPerEvcTotalCountGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J)))
-if mibBuilder.loadTexts:adMefPerEvcTotalCountGroup.setStatus(_A)
-adGenAosMefPerEvcTotalCountCompliance=ModuleCompliance((1,3,6,1,4,1,664,5,53,99,29,2,1))
-adGenAosMefPerEvcTotalCountCompliance.setObjects((_B,_K))
-if mibBuilder.loadTexts:adGenAosMefPerEvcTotalCountCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'adGenAosMefPerEvcTotalCount':adGenAosMefPerEvcTotalCount,'adMefPerEvcTcTable':adMefPerEvcTcTable,'adMefPerEvcTcEntry':adMefPerEvcTcEntry,_E:adMefPerEvcTcEvcNameFixedLen,_F:adMefPerEvcTotalIngressGreenOctets,_G:adMefPerEvcTotalIngressGreenFrames,_H:adMefPerEvcTotalIngressYellowOctets,_I:adMefPerEvcTotalIngressYellowFrames,_J:adMefPerEvcTotalIngressRedFrames,'adGenAosMefPerEvcTotalCountConformance':adGenAosMefPerEvcTotalCountConformance,'adMefPerEvcTotalCountGroups':adMefPerEvcTotalCountGroups,_K:adMefPerEvcTotalCountGroup,'adGenAosMefPerEvcTotalCountCompliances':adGenAosMefPerEvcTotalCountCompliances,'adGenAosMefPerEvcTotalCountCompliance':adGenAosMefPerEvcTotalCountCompliance,'adGenAosMefPerEvcTotalCountMib':adGenAosMefPerEvcTotalCountMib})
+#
+# PySNMP MIB module ADTRAN-MEF-PER-EVC-TOTAL-COUNT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-MEF-PER-EVC-TOTAL-COUNT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGenAOSConformance, adGenAOSMef = mibBuilder.importSymbols("ADTRAN-AOS", "adGenAOSConformance", "adGenAOSMef")
+adIdentity, = mibBuilder.importSymbols("ADTRAN-MIB", "adIdentity")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+HCPerfTotalCount, HCPerfValidIntervals, HCPerfInvalidIntervals, HCPerfTimeElapsed, HCPerfIntervalCount, HCPerfCurrentCount = mibBuilder.importSymbols("HC-PerfHist-TC-MIB", "HCPerfTotalCount", "HCPerfValidIntervals", "HCPerfInvalidIntervals", "HCPerfTimeElapsed", "HCPerfIntervalCount", "HCPerfCurrentCount")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+adGenAosMefPerEvcTotalCountMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 53, 9, 7))
+adGenAosMefPerEvcTotalCountMib.setRevisions(('2017-10-14 00:00',))
+if mibBuilder.loadTexts: adGenAosMefPerEvcTotalCountMib.setLastUpdated('201710140000Z')
+if mibBuilder.loadTexts: adGenAosMefPerEvcTotalCountMib.setOrganization('ADTRAN Inc.')
+adGenAosMefPerEvcTotalCount = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 7))
+adMefPerEvcTcTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 7, 1), )
+if mibBuilder.loadTexts: adMefPerEvcTcTable.setStatus('current')
+adMefPerEvcTcEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 7, 1, 1), ).setIndexNames((0, "ADTRAN-MEF-PER-EVC-TOTAL-COUNT-MIB", "adMefPerEvcTcEvcNameFixedLen"))
+if mibBuilder.loadTexts: adMefPerEvcTcEntry.setStatus('current')
+adMefPerEvcTcEvcNameFixedLen = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 7, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(50, 50)).setFixedLength(50))
+if mibBuilder.loadTexts: adMefPerEvcTcEvcNameFixedLen.setStatus('current')
+adMefPerEvcTotalIngressGreenOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 7, 1, 1, 2), HCPerfCurrentCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adMefPerEvcTotalIngressGreenOctets.setStatus('current')
+adMefPerEvcTotalIngressGreenFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 7, 1, 1, 3), HCPerfCurrentCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adMefPerEvcTotalIngressGreenFrames.setStatus('current')
+adMefPerEvcTotalIngressYellowOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 7, 1, 1, 4), HCPerfCurrentCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adMefPerEvcTotalIngressYellowOctets.setStatus('current')
+adMefPerEvcTotalIngressYellowFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 7, 1, 1, 5), HCPerfCurrentCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adMefPerEvcTotalIngressYellowFrames.setStatus('current')
+adMefPerEvcTotalIngressRedFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 7, 1, 1, 6), HCPerfCurrentCount()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adMefPerEvcTotalIngressRedFrames.setStatus('current')
+adGenAosMefPerEvcTotalCountConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 29))
+adMefPerEvcTotalCountGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 29, 1))
+adGenAosMefPerEvcTotalCountCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 29, 2))
+adGenAosMefPerEvcTotalCountCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 29, 2, 1)).setObjects(("ADTRAN-MEF-PER-EVC-TOTAL-COUNT-MIB", "adMefPerEvcTotalCountGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    adGenAosMefPerEvcTotalCountCompliance = adGenAosMefPerEvcTotalCountCompliance.setStatus('current')
+adMefPerEvcTotalCountGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 29, 1, 1)).setObjects(("ADTRAN-MEF-PER-EVC-TOTAL-COUNT-MIB", "adMefPerEvcTotalIngressGreenOctets"), ("ADTRAN-MEF-PER-EVC-TOTAL-COUNT-MIB", "adMefPerEvcTotalIngressGreenFrames"), ("ADTRAN-MEF-PER-EVC-TOTAL-COUNT-MIB", "adMefPerEvcTotalIngressYellowOctets"), ("ADTRAN-MEF-PER-EVC-TOTAL-COUNT-MIB", "adMefPerEvcTotalIngressYellowFrames"), ("ADTRAN-MEF-PER-EVC-TOTAL-COUNT-MIB", "adMefPerEvcTotalIngressRedFrames"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    adMefPerEvcTotalCountGroup = adMefPerEvcTotalCountGroup.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-MEF-PER-EVC-TOTAL-COUNT-MIB", adGenAosMefPerEvcTotalCountCompliance=adGenAosMefPerEvcTotalCountCompliance, adGenAosMefPerEvcTotalCountMib=adGenAosMefPerEvcTotalCountMib, adMefPerEvcTotalIngressGreenOctets=adMefPerEvcTotalIngressGreenOctets, adMefPerEvcTotalIngressYellowOctets=adMefPerEvcTotalIngressYellowOctets, adMefPerEvcTotalIngressGreenFrames=adMefPerEvcTotalIngressGreenFrames, adMefPerEvcTotalIngressRedFrames=adMefPerEvcTotalIngressRedFrames, adMefPerEvcTotalCountGroup=adMefPerEvcTotalCountGroup, adMefPerEvcTcTable=adMefPerEvcTcTable, PYSNMP_MODULE_ID=adGenAosMefPerEvcTotalCountMib, adMefPerEvcTcEntry=adMefPerEvcTcEntry, adGenAosMefPerEvcTotalCount=adGenAosMefPerEvcTotalCount, adMefPerEvcTotalIngressYellowFrames=adMefPerEvcTotalIngressYellowFrames, adGenAosMefPerEvcTotalCountCompliances=adGenAosMefPerEvcTotalCountCompliances, adMefPerEvcTotalCountGroups=adMefPerEvcTotalCountGroups, adGenAosMefPerEvcTotalCountConformance=adGenAosMefPerEvcTotalCountConformance, adMefPerEvcTcEvcNameFixedLen=adMefPerEvcTcEvcNameFixedLen)

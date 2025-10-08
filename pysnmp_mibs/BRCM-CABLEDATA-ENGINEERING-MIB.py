@@ -1,131 +1,65 @@
-_H='cdEngrEJTAGDBChannel'
-_G='cdEngrEJTAGIBChannel'
-_F='Unsigned32'
-_E='BRCM-CABLEDATA-ENGINEERING-MIB'
-_D='read-only'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-cableDataPrivateMIBObjects,=mibBuilder.importSymbols('BRCM-CABLEDATA-PRIVATE-MIB','cableDataPrivateMIBObjects')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TruthValue')
-cableDataEngineering=ModuleIdentity((1,3,6,1,4,1,4413,2,99,1,1,3))
-if mibBuilder.loadTexts:cableDataEngineering.setRevisions(('2007-02-05 00:00','2006-11-17 00:00','2002-06-04 00:00'))
-_CableDataEngineeringBase_ObjectIdentity=ObjectIdentity
-cableDataEngineeringBase=_CableDataEngineeringBase_ObjectIdentity((1,3,6,1,4,1,4413,2,99,1,1,3,1))
-_CdEngrMemAccessAddress_Type=Unsigned32
-_CdEngrMemAccessAddress_Object=MibScalar
-cdEngrMemAccessAddress=_CdEngrMemAccessAddress_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,1),_CdEngrMemAccessAddress_Type())
-cdEngrMemAccessAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cdEngrMemAccessAddress.setStatus(_A)
-class _CdEngrMemAccessNumBytes_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_CdEngrMemAccessNumBytes_Type.__name__=_F
-_CdEngrMemAccessNumBytes_Object=MibScalar
-cdEngrMemAccessNumBytes=_CdEngrMemAccessNumBytes_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,2),_CdEngrMemAccessNumBytes_Type())
-cdEngrMemAccessNumBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:cdEngrMemAccessNumBytes.setStatus(_A)
-_CdEngrMemAccessData_Type=Unsigned32
-_CdEngrMemAccessData_Object=MibScalar
-cdEngrMemAccessData=_CdEngrMemAccessData_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,3),_CdEngrMemAccessData_Type())
-cdEngrMemAccessData.setMaxAccess(_B)
-if mibBuilder.loadTexts:cdEngrMemAccessData.setStatus(_A)
-class _CdEngrMemAccessCommand_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('read',0),('write',1)))
-_CdEngrMemAccessCommand_Type.__name__=_C
-_CdEngrMemAccessCommand_Object=MibScalar
-cdEngrMemAccessCommand=_CdEngrMemAccessCommand_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,4),_CdEngrMemAccessCommand_Type())
-cdEngrMemAccessCommand.setMaxAccess(_B)
-if mibBuilder.loadTexts:cdEngrMemAccessCommand.setStatus(_A)
-_CableDataEngineeringEjtag_ObjectIdentity=ObjectIdentity
-cableDataEngineeringEjtag=_CableDataEngineeringEjtag_ObjectIdentity((1,3,6,1,4,1,4413,2,99,1,1,3,1,20))
-_CdEngrEJTAGTPSelect_Type=Integer32
-_CdEngrEJTAGTPSelect_Object=MibScalar
-cdEngrEJTAGTPSelect=_CdEngrEJTAGTPSelect_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,1),_CdEngrEJTAGTPSelect_Type())
-cdEngrEJTAGTPSelect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cdEngrEJTAGTPSelect.setStatus(_A)
-_CdEngrEJTAGDisableAll_Type=TruthValue
-_CdEngrEJTAGDisableAll_Object=MibScalar
-cdEngrEJTAGDisableAll=_CdEngrEJTAGDisableAll_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,2),_CdEngrEJTAGDisableAll_Type())
-cdEngrEJTAGDisableAll.setMaxAccess(_B)
-if mibBuilder.loadTexts:cdEngrEJTAGDisableAll.setStatus(_A)
-_CdEngrEJTAGInstrBrkTable_Object=MibTable
-cdEngrEJTAGInstrBrkTable=_CdEngrEJTAGInstrBrkTable_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,3))
-if mibBuilder.loadTexts:cdEngrEJTAGInstrBrkTable.setStatus(_A)
-_CdEngrEJTAGInstrBrkEntry_Object=MibTableRow
-cdEngrEJTAGInstrBrkEntry=_CdEngrEJTAGInstrBrkEntry_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,3,1))
-cdEngrEJTAGInstrBrkEntry.setIndexNames((0,_E,_G))
-if mibBuilder.loadTexts:cdEngrEJTAGInstrBrkEntry.setStatus(_A)
-class _CdEngrEJTAGIBChannel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16))
-_CdEngrEJTAGIBChannel_Type.__name__=_C
-_CdEngrEJTAGIBChannel_Object=MibTableColumn
-cdEngrEJTAGIBChannel=_CdEngrEJTAGIBChannel_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,3,1,1),_CdEngrEJTAGIBChannel_Type())
-cdEngrEJTAGIBChannel.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdEngrEJTAGIBChannel.setStatus(_A)
-_CdEngrEJTAGIBEnabled_Type=TruthValue
-_CdEngrEJTAGIBEnabled_Object=MibTableColumn
-cdEngrEJTAGIBEnabled=_CdEngrEJTAGIBEnabled_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,3,1,2),_CdEngrEJTAGIBEnabled_Type())
-cdEngrEJTAGIBEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:cdEngrEJTAGIBEnabled.setStatus(_A)
-_CdEngrEJTAGIBAddress_Type=OctetString
-_CdEngrEJTAGIBAddress_Object=MibTableColumn
-cdEngrEJTAGIBAddress=_CdEngrEJTAGIBAddress_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,3,1,3),_CdEngrEJTAGIBAddress_Type())
-cdEngrEJTAGIBAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cdEngrEJTAGIBAddress.setStatus(_A)
-_CdEngrEJTAGIBAddrMask_Type=OctetString
-_CdEngrEJTAGIBAddrMask_Object=MibTableColumn
-cdEngrEJTAGIBAddrMask=_CdEngrEJTAGIBAddrMask_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,3,1,4),_CdEngrEJTAGIBAddrMask_Type())
-cdEngrEJTAGIBAddrMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:cdEngrEJTAGIBAddrMask.setStatus(_A)
-_CdEngrEJTAGIBControl_Type=OctetString
-_CdEngrEJTAGIBControl_Object=MibTableColumn
-cdEngrEJTAGIBControl=_CdEngrEJTAGIBControl_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,3,1,5),_CdEngrEJTAGIBControl_Type())
-cdEngrEJTAGIBControl.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdEngrEJTAGIBControl.setStatus(_A)
-_CdEngrEJTAGDataBrkTable_Object=MibTable
-cdEngrEJTAGDataBrkTable=_CdEngrEJTAGDataBrkTable_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,4))
-if mibBuilder.loadTexts:cdEngrEJTAGDataBrkTable.setStatus(_A)
-_CdEngrEJTAGDataBrkEntry_Object=MibTableRow
-cdEngrEJTAGDataBrkEntry=_CdEngrEJTAGDataBrkEntry_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,4,1))
-cdEngrEJTAGDataBrkEntry.setIndexNames((0,_E,_H))
-if mibBuilder.loadTexts:cdEngrEJTAGDataBrkEntry.setStatus(_A)
-class _CdEngrEJTAGDBChannel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16))
-_CdEngrEJTAGDBChannel_Type.__name__=_C
-_CdEngrEJTAGDBChannel_Object=MibTableColumn
-cdEngrEJTAGDBChannel=_CdEngrEJTAGDBChannel_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,4,1,1),_CdEngrEJTAGDBChannel_Type())
-cdEngrEJTAGDBChannel.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdEngrEJTAGDBChannel.setStatus(_A)
-_CdEngrEJTAGDBEnabled_Type=TruthValue
-_CdEngrEJTAGDBEnabled_Object=MibTableColumn
-cdEngrEJTAGDBEnabled=_CdEngrEJTAGDBEnabled_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,4,1,2),_CdEngrEJTAGDBEnabled_Type())
-cdEngrEJTAGDBEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:cdEngrEJTAGDBEnabled.setStatus(_A)
-_CdEngrEJTAGDBAddress_Type=OctetString
-_CdEngrEJTAGDBAddress_Object=MibTableColumn
-cdEngrEJTAGDBAddress=_CdEngrEJTAGDBAddress_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,4,1,3),_CdEngrEJTAGDBAddress_Type())
-cdEngrEJTAGDBAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cdEngrEJTAGDBAddress.setStatus(_A)
-_CdEngrEJTAGDBAddrMask_Type=OctetString
-_CdEngrEJTAGDBAddrMask_Object=MibTableColumn
-cdEngrEJTAGDBAddrMask=_CdEngrEJTAGDBAddrMask_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,4,1,4),_CdEngrEJTAGDBAddrMask_Type())
-cdEngrEJTAGDBAddrMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:cdEngrEJTAGDBAddrMask.setStatus(_A)
-_CdEngrEJTAGDBDataVal_Type=OctetString
-_CdEngrEJTAGDBDataVal_Object=MibTableColumn
-cdEngrEJTAGDBDataVal=_CdEngrEJTAGDBDataVal_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,4,1,5),_CdEngrEJTAGDBDataVal_Type())
-cdEngrEJTAGDBDataVal.setMaxAccess(_B)
-if mibBuilder.loadTexts:cdEngrEJTAGDBDataVal.setStatus(_A)
-_CdEngrEJTAGDBDataMask_Type=OctetString
-_CdEngrEJTAGDBDataMask_Object=MibTableColumn
-cdEngrEJTAGDBDataMask=_CdEngrEJTAGDBDataMask_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,4,1,6),_CdEngrEJTAGDBDataMask_Type())
-cdEngrEJTAGDBDataMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:cdEngrEJTAGDBDataMask.setStatus(_A)
-_CdEngrEJTAGDBControl_Type=OctetString
-_CdEngrEJTAGDBControl_Object=MibTableColumn
-cdEngrEJTAGDBControl=_CdEngrEJTAGDBControl_Object((1,3,6,1,4,1,4413,2,99,1,1,3,1,20,4,1,7),_CdEngrEJTAGDBControl_Type())
-cdEngrEJTAGDBControl.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdEngrEJTAGDBControl.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'cableDataEngineering':cableDataEngineering,'cableDataEngineeringBase':cableDataEngineeringBase,'cdEngrMemAccessAddress':cdEngrMemAccessAddress,'cdEngrMemAccessNumBytes':cdEngrMemAccessNumBytes,'cdEngrMemAccessData':cdEngrMemAccessData,'cdEngrMemAccessCommand':cdEngrMemAccessCommand,'cableDataEngineeringEjtag':cableDataEngineeringEjtag,'cdEngrEJTAGTPSelect':cdEngrEJTAGTPSelect,'cdEngrEJTAGDisableAll':cdEngrEJTAGDisableAll,'cdEngrEJTAGInstrBrkTable':cdEngrEJTAGInstrBrkTable,'cdEngrEJTAGInstrBrkEntry':cdEngrEJTAGInstrBrkEntry,_G:cdEngrEJTAGIBChannel,'cdEngrEJTAGIBEnabled':cdEngrEJTAGIBEnabled,'cdEngrEJTAGIBAddress':cdEngrEJTAGIBAddress,'cdEngrEJTAGIBAddrMask':cdEngrEJTAGIBAddrMask,'cdEngrEJTAGIBControl':cdEngrEJTAGIBControl,'cdEngrEJTAGDataBrkTable':cdEngrEJTAGDataBrkTable,'cdEngrEJTAGDataBrkEntry':cdEngrEJTAGDataBrkEntry,_H:cdEngrEJTAGDBChannel,'cdEngrEJTAGDBEnabled':cdEngrEJTAGDBEnabled,'cdEngrEJTAGDBAddress':cdEngrEJTAGDBAddress,'cdEngrEJTAGDBAddrMask':cdEngrEJTAGDBAddrMask,'cdEngrEJTAGDBDataVal':cdEngrEJTAGDBDataVal,'cdEngrEJTAGDBDataMask':cdEngrEJTAGDBDataMask,'cdEngrEJTAGDBControl':cdEngrEJTAGDBControl})
+#
+# PySNMP MIB module BRCM-CABLEDATA-ENGINEERING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/broadcom/BRCM-CABLEDATA-ENGINEERING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:17 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cableDataPrivateMIBObjects, = mibBuilder.importSymbols("BRCM-CABLEDATA-PRIVATE-MIB", "cableDataPrivateMIBObjects")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+MacAddress, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TruthValue", "TextualConvention")
+cableDataEngineering = ModuleIdentity((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3))
+cableDataEngineering.setRevisions(('2007-02-05 00:00', '2006-11-17 00:00', '2002-06-04 00:00',))
+if mibBuilder.loadTexts: cableDataEngineering.setLastUpdated('200702050000Z')
+if mibBuilder.loadTexts: cableDataEngineering.setOrganization('Broadcom Corporation')
+cableDataEngineeringBase = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1))
+cableDataEngineeringEjtag = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20))
+cdEngrMemAccessAddress = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 1), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdEngrMemAccessAddress.setStatus('current')
+cdEngrMemAccessNumBytes = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdEngrMemAccessNumBytes.setStatus('current')
+cdEngrMemAccessData = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdEngrMemAccessData.setStatus('current')
+cdEngrMemAccessCommand = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("read", 0), ("write", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdEngrMemAccessCommand.setStatus('current')
+cdEngrEJTAGTPSelect = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdEngrEJTAGTPSelect.setStatus('current')
+cdEngrEJTAGDisableAll = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdEngrEJTAGDisableAll.setStatus('current')
+cdEngrEJTAGInstrBrkTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 3), )
+if mibBuilder.loadTexts: cdEngrEJTAGInstrBrkTable.setStatus('current')
+cdEngrEJTAGInstrBrkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 3, 1), ).setIndexNames((0, "BRCM-CABLEDATA-ENGINEERING-MIB", "cdEngrEJTAGIBChannel"))
+if mibBuilder.loadTexts: cdEngrEJTAGInstrBrkEntry.setStatus('current')
+cdEngrEJTAGIBChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdEngrEJTAGIBChannel.setStatus('current')
+cdEngrEJTAGIBEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 3, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdEngrEJTAGIBEnabled.setStatus('current')
+cdEngrEJTAGIBAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 3, 1, 3), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdEngrEJTAGIBAddress.setStatus('current')
+cdEngrEJTAGIBAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 3, 1, 4), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdEngrEJTAGIBAddrMask.setStatus('current')
+cdEngrEJTAGIBControl = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 3, 1, 5), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdEngrEJTAGIBControl.setStatus('current')
+cdEngrEJTAGDataBrkTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 4), )
+if mibBuilder.loadTexts: cdEngrEJTAGDataBrkTable.setStatus('current')
+cdEngrEJTAGDataBrkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 4, 1), ).setIndexNames((0, "BRCM-CABLEDATA-ENGINEERING-MIB", "cdEngrEJTAGDBChannel"))
+if mibBuilder.loadTexts: cdEngrEJTAGDataBrkEntry.setStatus('current')
+cdEngrEJTAGDBChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdEngrEJTAGDBChannel.setStatus('current')
+cdEngrEJTAGDBEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 4, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdEngrEJTAGDBEnabled.setStatus('current')
+cdEngrEJTAGDBAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 4, 1, 3), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdEngrEJTAGDBAddress.setStatus('current')
+cdEngrEJTAGDBAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 4, 1, 4), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdEngrEJTAGDBAddrMask.setStatus('current')
+cdEngrEJTAGDBDataVal = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 4, 1, 5), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdEngrEJTAGDBDataVal.setStatus('current')
+cdEngrEJTAGDBDataMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 4, 1, 6), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdEngrEJTAGDBDataMask.setStatus('current')
+cdEngrEJTAGDBControl = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 2, 99, 1, 1, 3, 1, 20, 4, 1, 7), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdEngrEJTAGDBControl.setStatus('current')
+mibBuilder.exportSymbols("BRCM-CABLEDATA-ENGINEERING-MIB", cdEngrEJTAGDisableAll=cdEngrEJTAGDisableAll, cableDataEngineeringEjtag=cableDataEngineeringEjtag, cdEngrEJTAGInstrBrkEntry=cdEngrEJTAGInstrBrkEntry, cdEngrEJTAGDBAddress=cdEngrEJTAGDBAddress, cdEngrMemAccessNumBytes=cdEngrMemAccessNumBytes, cdEngrMemAccessCommand=cdEngrMemAccessCommand, cdEngrEJTAGIBControl=cdEngrEJTAGIBControl, cdEngrEJTAGDBDataMask=cdEngrEJTAGDBDataMask, cdEngrEJTAGDataBrkEntry=cdEngrEJTAGDataBrkEntry, cdEngrEJTAGDBChannel=cdEngrEJTAGDBChannel, PYSNMP_MODULE_ID=cableDataEngineering, cdEngrEJTAGIBEnabled=cdEngrEJTAGIBEnabled, cableDataEngineeringBase=cableDataEngineeringBase, cdEngrEJTAGIBAddress=cdEngrEJTAGIBAddress, cdEngrEJTAGIBAddrMask=cdEngrEJTAGIBAddrMask, cdEngrEJTAGIBChannel=cdEngrEJTAGIBChannel, cdEngrEJTAGDBControl=cdEngrEJTAGDBControl, cdEngrEJTAGDBDataVal=cdEngrEJTAGDBDataVal, cdEngrEJTAGTPSelect=cdEngrEJTAGTPSelect, cableDataEngineering=cableDataEngineering, cdEngrMemAccessData=cdEngrMemAccessData, cdEngrEJTAGDBEnabled=cdEngrEJTAGDBEnabled, cdEngrEJTAGDataBrkTable=cdEngrEJTAGDataBrkTable, cdEngrMemAccessAddress=cdEngrMemAccessAddress, cdEngrEJTAGDBAddrMask=cdEngrEJTAGDBAddrMask, cdEngrEJTAGInstrBrkTable=cdEngrEJTAGInstrBrkTable)

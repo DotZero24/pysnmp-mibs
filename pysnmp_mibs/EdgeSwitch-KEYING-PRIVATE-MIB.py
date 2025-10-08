@@ -1,52 +1,34 @@
-_F='read-only'
-_E='agentFeatureKeyingIndex'
-_D='EdgeSwitch-KEYING-PRIVATE-MIB'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fastPath,=mibBuilder.importSymbols('EdgeSwitch-REF-MIB','fastPath')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowPointer,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowPointer','RowStatus','TextualConvention')
-fastPathKeyingPrivate=ModuleIdentity((1,3,6,1,4,1,4413,1,1,24))
-if mibBuilder.loadTexts:fastPathKeyingPrivate.setRevisions(('2011-01-26 00:00','2007-05-23 00:00'))
-_AgentFeatureKeyingGroup_ObjectIdentity=ObjectIdentity
-agentFeatureKeyingGroup=_AgentFeatureKeyingGroup_ObjectIdentity((1,3,6,1,4,1,4413,1,1,24,1))
-_AgentFeatureKeyingEnableKey_Type=DisplayString
-_AgentFeatureKeyingEnableKey_Object=MibScalar
-agentFeatureKeyingEnableKey=_AgentFeatureKeyingEnableKey_Object((1,3,6,1,4,1,4413,1,1,24,1,1),_AgentFeatureKeyingEnableKey_Type())
-agentFeatureKeyingEnableKey.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentFeatureKeyingEnableKey.setStatus(_A)
-_AgentFeatureKeyingDisableKey_Type=DisplayString
-_AgentFeatureKeyingDisableKey_Object=MibScalar
-agentFeatureKeyingDisableKey=_AgentFeatureKeyingDisableKey_Object((1,3,6,1,4,1,4413,1,1,24,1,2),_AgentFeatureKeyingDisableKey_Type())
-agentFeatureKeyingDisableKey.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentFeatureKeyingDisableKey.setStatus(_A)
-_AgentFeatureKeyingTable_Object=MibTable
-agentFeatureKeyingTable=_AgentFeatureKeyingTable_Object((1,3,6,1,4,1,4413,1,1,24,1,3))
-if mibBuilder.loadTexts:agentFeatureKeyingTable.setStatus(_A)
-_AgentFeatureKeyingEntry_Object=MibTableRow
-agentFeatureKeyingEntry=_AgentFeatureKeyingEntry_Object((1,3,6,1,4,1,4413,1,1,24,1,3,1))
-agentFeatureKeyingEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:agentFeatureKeyingEntry.setStatus(_A)
-_AgentFeatureKeyingIndex_Type=Unsigned32
-_AgentFeatureKeyingIndex_Object=MibTableColumn
-agentFeatureKeyingIndex=_AgentFeatureKeyingIndex_Object((1,3,6,1,4,1,4413,1,1,24,1,3,1,1),_AgentFeatureKeyingIndex_Type())
-agentFeatureKeyingIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:agentFeatureKeyingIndex.setStatus(_A)
-_AgentFeatureKeyingName_Type=DisplayString
-_AgentFeatureKeyingName_Object=MibTableColumn
-agentFeatureKeyingName=_AgentFeatureKeyingName_Object((1,3,6,1,4,1,4413,1,1,24,1,3,1,2),_AgentFeatureKeyingName_Type())
-agentFeatureKeyingName.setMaxAccess(_F)
-if mibBuilder.loadTexts:agentFeatureKeyingName.setStatus(_A)
-class _AgentFeatureKeyingStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_AgentFeatureKeyingStatus_Type.__name__=_B
-_AgentFeatureKeyingStatus_Object=MibTableColumn
-agentFeatureKeyingStatus=_AgentFeatureKeyingStatus_Object((1,3,6,1,4,1,4413,1,1,24,1,3,1,3),_AgentFeatureKeyingStatus_Type())
-agentFeatureKeyingStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:agentFeatureKeyingStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'fastPathKeyingPrivate':fastPathKeyingPrivate,'agentFeatureKeyingGroup':agentFeatureKeyingGroup,'agentFeatureKeyingEnableKey':agentFeatureKeyingEnableKey,'agentFeatureKeyingDisableKey':agentFeatureKeyingDisableKey,'agentFeatureKeyingTable':agentFeatureKeyingTable,'agentFeatureKeyingEntry':agentFeatureKeyingEntry,_E:agentFeatureKeyingIndex,'agentFeatureKeyingName':agentFeatureKeyingName,'agentFeatureKeyingStatus':agentFeatureKeyingStatus})
+#
+# PySNMP MIB module EdgeSwitch-KEYING-PRIVATE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ubiquiti/EdgeSwitch-KEYING-PRIVATE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:33 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fastPath, = mibBuilder.importSymbols("EdgeSwitch-REF-MIB", "fastPath")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowPointer, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowPointer", "RowStatus", "TextualConvention")
+fastPathKeyingPrivate = ModuleIdentity((1, 3, 6, 1, 4, 1, 4413, 1, 1, 24))
+fastPathKeyingPrivate.setRevisions(('2011-01-26 00:00', '2007-05-23 00:00',))
+if mibBuilder.loadTexts: fastPathKeyingPrivate.setLastUpdated('201101260000Z')
+if mibBuilder.loadTexts: fastPathKeyingPrivate.setOrganization('Broadcom Inc')
+agentFeatureKeyingGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 1, 24, 1))
+agentFeatureKeyingEnableKey = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 24, 1, 1), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentFeatureKeyingEnableKey.setStatus('current')
+agentFeatureKeyingDisableKey = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 24, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentFeatureKeyingDisableKey.setStatus('current')
+agentFeatureKeyingTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 24, 1, 3), )
+if mibBuilder.loadTexts: agentFeatureKeyingTable.setStatus('current')
+agentFeatureKeyingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 24, 1, 3, 1), ).setIndexNames((0, "EdgeSwitch-KEYING-PRIVATE-MIB", "agentFeatureKeyingIndex"))
+if mibBuilder.loadTexts: agentFeatureKeyingEntry.setStatus('current')
+agentFeatureKeyingIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 24, 1, 3, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: agentFeatureKeyingIndex.setStatus('current')
+agentFeatureKeyingName = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 24, 1, 3, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentFeatureKeyingName.setStatus('current')
+agentFeatureKeyingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 24, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentFeatureKeyingStatus.setStatus('current')
+mibBuilder.exportSymbols("EdgeSwitch-KEYING-PRIVATE-MIB", agentFeatureKeyingEnableKey=agentFeatureKeyingEnableKey, agentFeatureKeyingStatus=agentFeatureKeyingStatus, agentFeatureKeyingTable=agentFeatureKeyingTable, agentFeatureKeyingGroup=agentFeatureKeyingGroup, PYSNMP_MODULE_ID=fastPathKeyingPrivate, agentFeatureKeyingIndex=agentFeatureKeyingIndex, agentFeatureKeyingName=agentFeatureKeyingName, agentFeatureKeyingEntry=agentFeatureKeyingEntry, fastPathKeyingPrivate=fastPathKeyingPrivate, agentFeatureKeyingDisableKey=agentFeatureKeyingDisableKey)

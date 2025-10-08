@@ -1,175 +1,86 @@
-_b='ciscoSibuManagersSnmpTrapManagerGroup'
-_a='ciscoSibuManagersSnmpSetManagerGroup'
-_Z='ciscoSibuManagersWebConsoleGroup'
-_Y='ciscoSibuManagersCLIConsoleGroup'
-_X='ciscoSibuManagersIpConfigGroup'
-_W='cmSnmpTrapManagerRowStatus'
-_V='cmSnmpTrapManagerCommunity'
-_U='cmSnmpSetManagerRowStatus'
-_T='cmConsoleWebHttpPort'
-_S='cmConsoleWebAdminState'
-_R='cmConsoleCLISilentTime'
-_Q='cmConsoleCLIPasswordMaxAttempts'
-_P='cmConsoleCLIInactiveTimeout'
-_O='cmIpConfigDefaultGateway'
-_N='cmIpConfigSubnetMask'
-_M='cmIpConfigAddress'
-_L='cmIpConfigMethod'
-_K='cmSnmpTrapManagerAddr'
-_J='not-accessible'
-_I='cmSnmpSetManagerAddr'
-_H='DisplayString'
-_G='read-create'
-_F='00000000'
-_E='IpAddress'
-_D='Integer32'
-_C='read-write'
-_B='CISCO-SIBU-MANAGERS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoExperiment,=mibBuilder.importSymbols('CISCO-SMI','ciscoExperiment')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,_E,'ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_H,'PhysAddress','RowStatus','TextualConvention')
-ciscoSibuManagersMIB=ModuleIdentity((1,3,6,1,4,1,9,10,46))
-if mibBuilder.loadTexts:ciscoSibuManagersMIB.setRevisions(('1998-10-23 00:00',))
-_CiscoSibuManagersMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoSibuManagersMIBObjects=_CiscoSibuManagersMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,10,46,1))
-_CmIpConfig_ObjectIdentity=ObjectIdentity
-cmIpConfig=_CmIpConfig_ObjectIdentity((1,3,6,1,4,1,9,10,46,1,1))
-class _CmIpConfigMethod_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('manual',1),('bootp',2)))
-_CmIpConfigMethod_Type.__name__=_D
-_CmIpConfigMethod_Object=MibScalar
-cmIpConfigMethod=_CmIpConfigMethod_Object((1,3,6,1,4,1,9,10,46,1,1,1),_CmIpConfigMethod_Type())
-cmIpConfigMethod.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmIpConfigMethod.setStatus(_A)
-class _CmIpConfigAddress_Type(IpAddress):defaultHexValue=_F
-_CmIpConfigAddress_Type.__name__=_E
-_CmIpConfigAddress_Object=MibScalar
-cmIpConfigAddress=_CmIpConfigAddress_Object((1,3,6,1,4,1,9,10,46,1,1,2),_CmIpConfigAddress_Type())
-cmIpConfigAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmIpConfigAddress.setStatus(_A)
-class _CmIpConfigSubnetMask_Type(IpAddress):defaultHexValue=_F
-_CmIpConfigSubnetMask_Type.__name__=_E
-_CmIpConfigSubnetMask_Object=MibScalar
-cmIpConfigSubnetMask=_CmIpConfigSubnetMask_Object((1,3,6,1,4,1,9,10,46,1,1,3),_CmIpConfigSubnetMask_Type())
-cmIpConfigSubnetMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmIpConfigSubnetMask.setStatus(_A)
-class _CmIpConfigDefaultGateway_Type(IpAddress):defaultHexValue=_F
-_CmIpConfigDefaultGateway_Type.__name__=_E
-_CmIpConfigDefaultGateway_Object=MibScalar
-cmIpConfigDefaultGateway=_CmIpConfigDefaultGateway_Object((1,3,6,1,4,1,9,10,46,1,1,4),_CmIpConfigDefaultGateway_Type())
-cmIpConfigDefaultGateway.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmIpConfigDefaultGateway.setStatus(_A)
-_CmConsoleConfig_ObjectIdentity=ObjectIdentity
-cmConsoleConfig=_CmConsoleConfig_ObjectIdentity((1,3,6,1,4,1,9,10,46,1,2))
-class _CmConsoleCLIInactiveTimeout_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(30,65500))
-_CmConsoleCLIInactiveTimeout_Type.__name__=_D
-_CmConsoleCLIInactiveTimeout_Object=MibScalar
-cmConsoleCLIInactiveTimeout=_CmConsoleCLIInactiveTimeout_Object((1,3,6,1,4,1,9,10,46,1,2,1),_CmConsoleCLIInactiveTimeout_Type())
-cmConsoleCLIInactiveTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmConsoleCLIInactiveTimeout.setStatus(_A)
-if mibBuilder.loadTexts:cmConsoleCLIInactiveTimeout.setUnits('seconds')
-class _CmConsoleCLIPasswordMaxAttempts_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65500))
-_CmConsoleCLIPasswordMaxAttempts_Type.__name__=_D
-_CmConsoleCLIPasswordMaxAttempts_Object=MibScalar
-cmConsoleCLIPasswordMaxAttempts=_CmConsoleCLIPasswordMaxAttempts_Object((1,3,6,1,4,1,9,10,46,1,2,2),_CmConsoleCLIPasswordMaxAttempts_Type())
-cmConsoleCLIPasswordMaxAttempts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmConsoleCLIPasswordMaxAttempts.setStatus(_A)
-if mibBuilder.loadTexts:cmConsoleCLIPasswordMaxAttempts.setUnits('attempts')
-class _CmConsoleCLISilentTime_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65500))
-_CmConsoleCLISilentTime_Type.__name__=_D
-_CmConsoleCLISilentTime_Object=MibScalar
-cmConsoleCLISilentTime=_CmConsoleCLISilentTime_Object((1,3,6,1,4,1,9,10,46,1,2,3),_CmConsoleCLISilentTime_Type())
-cmConsoleCLISilentTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmConsoleCLISilentTime.setStatus(_A)
-class _CmConsoleWebAdminState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_CmConsoleWebAdminState_Type.__name__=_D
-_CmConsoleWebAdminState_Object=MibScalar
-cmConsoleWebAdminState=_CmConsoleWebAdminState_Object((1,3,6,1,4,1,9,10,46,1,2,4),_CmConsoleWebAdminState_Type())
-cmConsoleWebAdminState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmConsoleWebAdminState.setStatus(_A)
-class _CmConsoleWebHttpPort_Type(Integer32):defaultValue=80;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CmConsoleWebHttpPort_Type.__name__=_D
-_CmConsoleWebHttpPort_Object=MibScalar
-cmConsoleWebHttpPort=_CmConsoleWebHttpPort_Object((1,3,6,1,4,1,9,10,46,1,2,5),_CmConsoleWebHttpPort_Type())
-cmConsoleWebHttpPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmConsoleWebHttpPort.setStatus(_A)
-_CmSnmpSetManager_ObjectIdentity=ObjectIdentity
-cmSnmpSetManager=_CmSnmpSetManager_ObjectIdentity((1,3,6,1,4,1,9,10,46,1,3))
-_CmSnmpSetManagerTable_Object=MibTable
-cmSnmpSetManagerTable=_CmSnmpSetManagerTable_Object((1,3,6,1,4,1,9,10,46,1,3,1))
-if mibBuilder.loadTexts:cmSnmpSetManagerTable.setStatus(_A)
-_CmSnmpSetManagerEntry_Object=MibTableRow
-cmSnmpSetManagerEntry=_CmSnmpSetManagerEntry_Object((1,3,6,1,4,1,9,10,46,1,3,1,1))
-cmSnmpSetManagerEntry.setIndexNames((0,_B,_I))
-if mibBuilder.loadTexts:cmSnmpSetManagerEntry.setStatus(_A)
-_CmSnmpSetManagerAddr_Type=IpAddress
-_CmSnmpSetManagerAddr_Object=MibTableColumn
-cmSnmpSetManagerAddr=_CmSnmpSetManagerAddr_Object((1,3,6,1,4,1,9,10,46,1,3,1,1,1),_CmSnmpSetManagerAddr_Type())
-cmSnmpSetManagerAddr.setMaxAccess(_J)
-if mibBuilder.loadTexts:cmSnmpSetManagerAddr.setStatus(_A)
-_CmSnmpSetManagerRowStatus_Type=RowStatus
-_CmSnmpSetManagerRowStatus_Object=MibTableColumn
-cmSnmpSetManagerRowStatus=_CmSnmpSetManagerRowStatus_Object((1,3,6,1,4,1,9,10,46,1,3,1,1,2),_CmSnmpSetManagerRowStatus_Type())
-cmSnmpSetManagerRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:cmSnmpSetManagerRowStatus.setStatus(_A)
-_CmSnmpTrapManager_ObjectIdentity=ObjectIdentity
-cmSnmpTrapManager=_CmSnmpTrapManager_ObjectIdentity((1,3,6,1,4,1,9,10,46,1,4))
-_CmSnmpTrapManagerTable_Object=MibTable
-cmSnmpTrapManagerTable=_CmSnmpTrapManagerTable_Object((1,3,6,1,4,1,9,10,46,1,4,1))
-if mibBuilder.loadTexts:cmSnmpTrapManagerTable.setStatus(_A)
-_CmSnmpTrapManagerEntry_Object=MibTableRow
-cmSnmpTrapManagerEntry=_CmSnmpTrapManagerEntry_Object((1,3,6,1,4,1,9,10,46,1,4,1,1))
-cmSnmpTrapManagerEntry.setIndexNames((0,_B,_K))
-if mibBuilder.loadTexts:cmSnmpTrapManagerEntry.setStatus(_A)
-_CmSnmpTrapManagerAddr_Type=IpAddress
-_CmSnmpTrapManagerAddr_Object=MibTableColumn
-cmSnmpTrapManagerAddr=_CmSnmpTrapManagerAddr_Object((1,3,6,1,4,1,9,10,46,1,4,1,1,1),_CmSnmpTrapManagerAddr_Type())
-cmSnmpTrapManagerAddr.setMaxAccess(_J)
-if mibBuilder.loadTexts:cmSnmpTrapManagerAddr.setStatus(_A)
-class _CmSnmpTrapManagerCommunity_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CmSnmpTrapManagerCommunity_Type.__name__=_H
-_CmSnmpTrapManagerCommunity_Object=MibTableColumn
-cmSnmpTrapManagerCommunity=_CmSnmpTrapManagerCommunity_Object((1,3,6,1,4,1,9,10,46,1,4,1,1,2),_CmSnmpTrapManagerCommunity_Type())
-cmSnmpTrapManagerCommunity.setMaxAccess(_G)
-if mibBuilder.loadTexts:cmSnmpTrapManagerCommunity.setStatus(_A)
-_CmSnmpTrapManagerRowStatus_Type=RowStatus
-_CmSnmpTrapManagerRowStatus_Object=MibTableColumn
-cmSnmpTrapManagerRowStatus=_CmSnmpTrapManagerRowStatus_Object((1,3,6,1,4,1,9,10,46,1,4,1,1,3),_CmSnmpTrapManagerRowStatus_Type())
-cmSnmpTrapManagerRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:cmSnmpTrapManagerRowStatus.setStatus(_A)
-_CiscoSibuManagersNotifications_ObjectIdentity=ObjectIdentity
-ciscoSibuManagersNotifications=_CiscoSibuManagersNotifications_ObjectIdentity((1,3,6,1,4,1,9,10,46,2))
-_CiscoSibuManagersNotificationsPrefix_ObjectIdentity=ObjectIdentity
-ciscoSibuManagersNotificationsPrefix=_CiscoSibuManagersNotificationsPrefix_ObjectIdentity((1,3,6,1,4,1,9,10,46,2,0))
-_CiscoSibuManagersMIBComformance_ObjectIdentity=ObjectIdentity
-ciscoSibuManagersMIBComformance=_CiscoSibuManagersMIBComformance_ObjectIdentity((1,3,6,1,4,1,9,10,46,3))
-_CiscoSibuManagersMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoSibuManagersMIBCompliances=_CiscoSibuManagersMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,10,46,3,1))
-_CiscoSibuManagersMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoSibuManagersMIBGroups=_CiscoSibuManagersMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,10,46,3,2))
-ciscoSibuManagersIpConfigGroup=ObjectGroup((1,3,6,1,4,1,9,10,46,3,2,1))
-ciscoSibuManagersIpConfigGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:ciscoSibuManagersIpConfigGroup.setStatus(_A)
-ciscoSibuManagersCLIConsoleGroup=ObjectGroup((1,3,6,1,4,1,9,10,46,3,2,2))
-ciscoSibuManagersCLIConsoleGroup.setObjects(*((_B,_P),(_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:ciscoSibuManagersCLIConsoleGroup.setStatus(_A)
-ciscoSibuManagersWebConsoleGroup=ObjectGroup((1,3,6,1,4,1,9,10,46,3,2,3))
-ciscoSibuManagersWebConsoleGroup.setObjects(*((_B,_S),(_B,_T)))
-if mibBuilder.loadTexts:ciscoSibuManagersWebConsoleGroup.setStatus(_A)
-ciscoSibuManagersSnmpSetManagerGroup=ObjectGroup((1,3,6,1,4,1,9,10,46,3,2,4))
-ciscoSibuManagersSnmpSetManagerGroup.setObjects((_B,_U))
-if mibBuilder.loadTexts:ciscoSibuManagersSnmpSetManagerGroup.setStatus(_A)
-ciscoSibuManagersSnmpTrapManagerGroup=ObjectGroup((1,3,6,1,4,1,9,10,46,3,2,5))
-ciscoSibuManagersSnmpTrapManagerGroup.setObjects(*((_B,_V),(_B,_W)))
-if mibBuilder.loadTexts:ciscoSibuManagersSnmpTrapManagerGroup.setStatus(_A)
-ciscoSibuManagersConsoleLogonIntruder=NotificationType((1,3,6,1,4,1,9,10,46,2,0,1))
-if mibBuilder.loadTexts:ciscoSibuManagersConsoleLogonIntruder.setStatus(_A)
-ciscoSibuManagersCompliance=ModuleCompliance((1,3,6,1,4,1,9,10,46,3,1,1))
-ciscoSibuManagersCompliance.setObjects(*((_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b)))
-if mibBuilder.loadTexts:ciscoSibuManagersCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoSibuManagersMIB':ciscoSibuManagersMIB,'ciscoSibuManagersMIBObjects':ciscoSibuManagersMIBObjects,'cmIpConfig':cmIpConfig,_L:cmIpConfigMethod,_M:cmIpConfigAddress,_N:cmIpConfigSubnetMask,_O:cmIpConfigDefaultGateway,'cmConsoleConfig':cmConsoleConfig,_P:cmConsoleCLIInactiveTimeout,_Q:cmConsoleCLIPasswordMaxAttempts,_R:cmConsoleCLISilentTime,_S:cmConsoleWebAdminState,_T:cmConsoleWebHttpPort,'cmSnmpSetManager':cmSnmpSetManager,'cmSnmpSetManagerTable':cmSnmpSetManagerTable,'cmSnmpSetManagerEntry':cmSnmpSetManagerEntry,_I:cmSnmpSetManagerAddr,_U:cmSnmpSetManagerRowStatus,'cmSnmpTrapManager':cmSnmpTrapManager,'cmSnmpTrapManagerTable':cmSnmpTrapManagerTable,'cmSnmpTrapManagerEntry':cmSnmpTrapManagerEntry,_K:cmSnmpTrapManagerAddr,_V:cmSnmpTrapManagerCommunity,_W:cmSnmpTrapManagerRowStatus,'ciscoSibuManagersNotifications':ciscoSibuManagersNotifications,'ciscoSibuManagersNotificationsPrefix':ciscoSibuManagersNotificationsPrefix,'ciscoSibuManagersConsoleLogonIntruder':ciscoSibuManagersConsoleLogonIntruder,'ciscoSibuManagersMIBComformance':ciscoSibuManagersMIBComformance,'ciscoSibuManagersMIBCompliances':ciscoSibuManagersMIBCompliances,'ciscoSibuManagersCompliance':ciscoSibuManagersCompliance,'ciscoSibuManagersMIBGroups':ciscoSibuManagersMIBGroups,_X:ciscoSibuManagersIpConfigGroup,_Y:ciscoSibuManagersCLIConsoleGroup,_Z:ciscoSibuManagersWebConsoleGroup,_a:ciscoSibuManagersSnmpSetManagerGroup,_b:ciscoSibuManagersSnmpTrapManagerGroup})
+#
+# PySNMP MIB module CISCO-SIBU-MANAGERS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-SIBU-MANAGERS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:53 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ciscoSibuManagersMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 46))
+ciscoSibuManagersMIB.setRevisions(('1998-10-23 00:00',))
+if mibBuilder.loadTexts: ciscoSibuManagersMIB.setLastUpdated('9810230000Z')
+if mibBuilder.loadTexts: ciscoSibuManagersMIB.setOrganization('Cisco Systems Inc.')
+ciscoSibuManagersMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 46, 1))
+cmIpConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 1))
+cmConsoleConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 2))
+cmSnmpSetManager = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 3))
+cmSnmpTrapManager = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 4))
+cmIpConfigMethod = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("manual", 1), ("bootp", 2))).clone('manual')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmIpConfigMethod.setStatus('current')
+cmIpConfigAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 1, 2), IpAddress().clone(hexValue="00000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmIpConfigAddress.setStatus('current')
+cmIpConfigSubnetMask = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 1, 3), IpAddress().clone(hexValue="00000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmIpConfigSubnetMask.setStatus('current')
+cmIpConfigDefaultGateway = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 1, 4), IpAddress().clone(hexValue="00000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmIpConfigDefaultGateway.setStatus('current')
+cmConsoleCLIInactiveTimeout = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(30, 65500), ))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmConsoleCLIInactiveTimeout.setStatus('current')
+cmConsoleCLIPasswordMaxAttempts = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65500)).clone(3)).setUnits('attempts').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmConsoleCLIPasswordMaxAttempts.setStatus('current')
+cmConsoleCLISilentTime = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65500))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmConsoleCLISilentTime.setStatus('current')
+cmConsoleWebAdminState = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 2, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmConsoleWebAdminState.setStatus('current')
+cmConsoleWebHttpPort = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 2, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(80)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmConsoleWebHttpPort.setStatus('current')
+cmSnmpSetManagerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 3, 1), )
+if mibBuilder.loadTexts: cmSnmpSetManagerTable.setStatus('current')
+cmSnmpSetManagerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 3, 1, 1), ).setIndexNames((0, "CISCO-SIBU-MANAGERS-MIB", "cmSnmpSetManagerAddr"))
+if mibBuilder.loadTexts: cmSnmpSetManagerEntry.setStatus('current')
+cmSnmpSetManagerAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 3, 1, 1, 1), IpAddress())
+if mibBuilder.loadTexts: cmSnmpSetManagerAddr.setStatus('current')
+cmSnmpSetManagerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 3, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cmSnmpSetManagerRowStatus.setStatus('current')
+cmSnmpTrapManagerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 4, 1), )
+if mibBuilder.loadTexts: cmSnmpTrapManagerTable.setStatus('current')
+cmSnmpTrapManagerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 4, 1, 1), ).setIndexNames((0, "CISCO-SIBU-MANAGERS-MIB", "cmSnmpTrapManagerAddr"))
+if mibBuilder.loadTexts: cmSnmpTrapManagerEntry.setStatus('current')
+cmSnmpTrapManagerAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 4, 1, 1, 1), IpAddress())
+if mibBuilder.loadTexts: cmSnmpTrapManagerAddr.setStatus('current')
+cmSnmpTrapManagerCommunity = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 4, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cmSnmpTrapManagerCommunity.setStatus('current')
+cmSnmpTrapManagerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 46, 1, 4, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cmSnmpTrapManagerRowStatus.setStatus('current')
+ciscoSibuManagersNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 46, 2))
+ciscoSibuManagersNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 46, 2, 0))
+ciscoSibuManagersConsoleLogonIntruder = NotificationType((1, 3, 6, 1, 4, 1, 9, 10, 46, 2, 0, 1))
+if mibBuilder.loadTexts: ciscoSibuManagersConsoleLogonIntruder.setStatus('current')
+ciscoSibuManagersMIBComformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 46, 3))
+ciscoSibuManagersMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 46, 3, 1))
+ciscoSibuManagersMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 46, 3, 2))
+ciscoSibuManagersCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 46, 3, 1, 1)).setObjects(("CISCO-SIBU-MANAGERS-MIB", "ciscoSibuManagersIpConfigGroup"), ("CISCO-SIBU-MANAGERS-MIB", "ciscoSibuManagersCLIConsoleGroup"), ("CISCO-SIBU-MANAGERS-MIB", "ciscoSibuManagersWebConsoleGroup"), ("CISCO-SIBU-MANAGERS-MIB", "ciscoSibuManagersSnmpSetManagerGroup"), ("CISCO-SIBU-MANAGERS-MIB", "ciscoSibuManagersSnmpTrapManagerGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSibuManagersCompliance = ciscoSibuManagersCompliance.setStatus('current')
+ciscoSibuManagersIpConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 46, 3, 2, 1)).setObjects(("CISCO-SIBU-MANAGERS-MIB", "cmIpConfigMethod"), ("CISCO-SIBU-MANAGERS-MIB", "cmIpConfigAddress"), ("CISCO-SIBU-MANAGERS-MIB", "cmIpConfigSubnetMask"), ("CISCO-SIBU-MANAGERS-MIB", "cmIpConfigDefaultGateway"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSibuManagersIpConfigGroup = ciscoSibuManagersIpConfigGroup.setStatus('current')
+ciscoSibuManagersCLIConsoleGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 46, 3, 2, 2)).setObjects(("CISCO-SIBU-MANAGERS-MIB", "cmConsoleCLIInactiveTimeout"), ("CISCO-SIBU-MANAGERS-MIB", "cmConsoleCLIPasswordMaxAttempts"), ("CISCO-SIBU-MANAGERS-MIB", "cmConsoleCLISilentTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSibuManagersCLIConsoleGroup = ciscoSibuManagersCLIConsoleGroup.setStatus('current')
+ciscoSibuManagersWebConsoleGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 46, 3, 2, 3)).setObjects(("CISCO-SIBU-MANAGERS-MIB", "cmConsoleWebAdminState"), ("CISCO-SIBU-MANAGERS-MIB", "cmConsoleWebHttpPort"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSibuManagersWebConsoleGroup = ciscoSibuManagersWebConsoleGroup.setStatus('current')
+ciscoSibuManagersSnmpSetManagerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 46, 3, 2, 4)).setObjects(("CISCO-SIBU-MANAGERS-MIB", "cmSnmpSetManagerRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSibuManagersSnmpSetManagerGroup = ciscoSibuManagersSnmpSetManagerGroup.setStatus('current')
+ciscoSibuManagersSnmpTrapManagerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 46, 3, 2, 5)).setObjects(("CISCO-SIBU-MANAGERS-MIB", "cmSnmpTrapManagerCommunity"), ("CISCO-SIBU-MANAGERS-MIB", "cmSnmpTrapManagerRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSibuManagersSnmpTrapManagerGroup = ciscoSibuManagersSnmpTrapManagerGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-SIBU-MANAGERS-MIB", ciscoSibuManagersMIBCompliances=ciscoSibuManagersMIBCompliances, ciscoSibuManagersCompliance=ciscoSibuManagersCompliance, cmIpConfigSubnetMask=cmIpConfigSubnetMask, cmIpConfigDefaultGateway=cmIpConfigDefaultGateway, ciscoSibuManagersIpConfigGroup=ciscoSibuManagersIpConfigGroup, ciscoSibuManagersWebConsoleGroup=ciscoSibuManagersWebConsoleGroup, cmSnmpSetManagerTable=cmSnmpSetManagerTable, cmSnmpSetManagerRowStatus=cmSnmpSetManagerRowStatus, cmIpConfigAddress=cmIpConfigAddress, cmConsoleConfig=cmConsoleConfig, cmSnmpSetManagerEntry=cmSnmpSetManagerEntry, cmSnmpSetManager=cmSnmpSetManager, cmSnmpTrapManagerTable=cmSnmpTrapManagerTable, cmConsoleCLISilentTime=cmConsoleCLISilentTime, ciscoSibuManagersSnmpTrapManagerGroup=ciscoSibuManagersSnmpTrapManagerGroup, cmConsoleWebHttpPort=cmConsoleWebHttpPort, ciscoSibuManagersCLIConsoleGroup=ciscoSibuManagersCLIConsoleGroup, ciscoSibuManagersMIB=ciscoSibuManagersMIB, cmSnmpTrapManagerRowStatus=cmSnmpTrapManagerRowStatus, cmConsoleCLIPasswordMaxAttempts=cmConsoleCLIPasswordMaxAttempts, cmConsoleWebAdminState=cmConsoleWebAdminState, ciscoSibuManagersMIBGroups=ciscoSibuManagersMIBGroups, cmSnmpTrapManager=cmSnmpTrapManager, PYSNMP_MODULE_ID=ciscoSibuManagersMIB, ciscoSibuManagersSnmpSetManagerGroup=ciscoSibuManagersSnmpSetManagerGroup, ciscoSibuManagersConsoleLogonIntruder=ciscoSibuManagersConsoleLogonIntruder, cmSnmpTrapManagerEntry=cmSnmpTrapManagerEntry, cmSnmpTrapManagerAddr=cmSnmpTrapManagerAddr, ciscoSibuManagersNotificationsPrefix=ciscoSibuManagersNotificationsPrefix, cmConsoleCLIInactiveTimeout=cmConsoleCLIInactiveTimeout, cmSnmpTrapManagerCommunity=cmSnmpTrapManagerCommunity, ciscoSibuManagersMIBObjects=ciscoSibuManagersMIBObjects, ciscoSibuManagersNotifications=ciscoSibuManagersNotifications, ciscoSibuManagersMIBComformance=ciscoSibuManagersMIBComformance, cmIpConfigMethod=cmIpConfigMethod, cmSnmpSetManagerAddr=cmSnmpSetManagerAddr, cmIpConfig=cmIpConfig)

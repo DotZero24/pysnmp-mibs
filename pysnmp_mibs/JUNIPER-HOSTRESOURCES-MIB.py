@@ -1,38 +1,32 @@
-_D='jnxHrStorageEntry'
-_C='JUNIPER-HOSTRESOURCES-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hrStorageEntry,=mibBuilder.importSymbols('HOST-RESOURCES-MIB','hrStorageEntry')
-jnxMibs,=mibBuilder.importSymbols('JUNIPER-SMI','jnxMibs')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-jnxHostResourcesMIB=ModuleIdentity((1,3,6,1,4,1,2636,3,31))
-if mibBuilder.loadTexts:jnxHostResourcesMIB.setRevisions(('2004-08-18 00:00','2004-05-05 00:00'))
-_JnxHrStorage_ObjectIdentity=ObjectIdentity
-jnxHrStorage=_JnxHrStorage_ObjectIdentity((1,3,6,1,4,1,2636,3,31,1))
-_JnxHrStorageTable_Object=MibTable
-jnxHrStorageTable=_JnxHrStorageTable_Object((1,3,6,1,4,1,2636,3,31,1,1))
-if mibBuilder.loadTexts:jnxHrStorageTable.setStatus(_A)
-_JnxHrStorageEntry_Object=MibTableRow
-jnxHrStorageEntry=_JnxHrStorageEntry_Object((1,3,6,1,4,1,2636,3,31,1,1,1))
-if mibBuilder.loadTexts:jnxHrStorageEntry.setStatus(_A)
-_JnxHrStoragePercentUsed_Type=Gauge32
-_JnxHrStoragePercentUsed_Object=MibTableColumn
-jnxHrStoragePercentUsed=_JnxHrStoragePercentUsed_Object((1,3,6,1,4,1,2636,3,31,1,1,1,1),_JnxHrStoragePercentUsed_Type())
-jnxHrStoragePercentUsed.setMaxAccess(_B)
-if mibBuilder.loadTexts:jnxHrStoragePercentUsed.setStatus(_A)
-_JnxHrSystem_ObjectIdentity=ObjectIdentity
-jnxHrSystem=_JnxHrSystem_ObjectIdentity((1,3,6,1,4,1,2636,3,31,2))
-_JnxHrSystemOpenFiles_Type=Gauge32
-_JnxHrSystemOpenFiles_Object=MibScalar
-jnxHrSystemOpenFiles=_JnxHrSystemOpenFiles_Object((1,3,6,1,4,1,2636,3,31,2,1),_JnxHrSystemOpenFiles_Type())
-jnxHrSystemOpenFiles.setMaxAccess(_B)
-if mibBuilder.loadTexts:jnxHrSystemOpenFiles.setStatus(_A)
-hrStorageEntry.registerAugmentions((_C,_D))
+#
+# PySNMP MIB module JUNIPER-HOSTRESOURCES-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/juniper/JUNIPER-HOSTRESOURCES-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:40 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hrStorageEntry, = mibBuilder.importSymbols("HOST-RESOURCES-MIB", "hrStorageEntry")
+jnxMibs, = mibBuilder.importSymbols("JUNIPER-SMI", "jnxMibs")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+jnxHostResourcesMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 31))
+jnxHostResourcesMIB.setRevisions(('2004-08-18 00:00', '2004-05-05 00:00',))
+if mibBuilder.loadTexts: jnxHostResourcesMIB.setLastUpdated('200408180000Z')
+if mibBuilder.loadTexts: jnxHostResourcesMIB.setOrganization('Juniper Networks, Inc.')
+jnxHrStorage = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 31, 1))
+jnxHrSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 31, 2))
+jnxHrStorageTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 31, 1, 1), )
+if mibBuilder.loadTexts: jnxHrStorageTable.setStatus('current')
+jnxHrStorageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 31, 1, 1, 1), )
+hrStorageEntry.registerAugmentions(("JUNIPER-HOSTRESOURCES-MIB", "jnxHrStorageEntry"))
 jnxHrStorageEntry.setIndexNames(*hrStorageEntry.getIndexNames())
-mibBuilder.exportSymbols(_C,**{'jnxHostResourcesMIB':jnxHostResourcesMIB,'jnxHrStorage':jnxHrStorage,'jnxHrStorageTable':jnxHrStorageTable,_D:jnxHrStorageEntry,'jnxHrStoragePercentUsed':jnxHrStoragePercentUsed,'jnxHrSystem':jnxHrSystem,'jnxHrSystemOpenFiles':jnxHrSystemOpenFiles})
+if mibBuilder.loadTexts: jnxHrStorageEntry.setStatus('current')
+jnxHrStoragePercentUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 31, 1, 1, 1, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxHrStoragePercentUsed.setStatus('current')
+jnxHrSystemOpenFiles = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 31, 2, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxHrSystemOpenFiles.setStatus('current')
+mibBuilder.exportSymbols("JUNIPER-HOSTRESOURCES-MIB", jnxHrSystemOpenFiles=jnxHrSystemOpenFiles, jnxHostResourcesMIB=jnxHostResourcesMIB, jnxHrStoragePercentUsed=jnxHrStoragePercentUsed, PYSNMP_MODULE_ID=jnxHostResourcesMIB, jnxHrStorageEntry=jnxHrStorageEntry, jnxHrSystem=jnxHrSystem, jnxHrStorage=jnxHrStorage, jnxHrStorageTable=jnxHrStorageTable)

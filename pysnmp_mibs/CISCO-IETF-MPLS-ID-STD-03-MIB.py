@@ -1,54 +1,43 @@
-_G='cmplsIcc'
-_F='cmplsNodeId'
-_E='cmplsGlobalId'
-_D='cmplsIdScalarGroup'
-_C='read-write'
-_B='CISCO-IETF-MPLS-ID-STD-03-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CMplsGlobalId,CMplsIccId,CMplsNodeId=mibBuilder.importSymbols('CISCO-MPLS-TC-EXT-STD-MIB','CMplsGlobalId','CMplsIccId','CMplsNodeId')
-ciscoExperiment,=mibBuilder.importSymbols('CISCO-SMI','ciscoExperiment')
-mplsStdMIB,=mibBuilder.importSymbols('MPLS-TC-STD-MIB','mplsStdMIB')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-cmplsIdStdMIB=ModuleIdentity((1,3,6,1,4,1,9,10,147))
-if mibBuilder.loadTexts:cmplsIdStdMIB.setRevisions(('2012-04-08 00:00',))
-_CmplsIdNotifications_ObjectIdentity=ObjectIdentity
-cmplsIdNotifications=_CmplsIdNotifications_ObjectIdentity((1,3,6,1,4,1,9,10,147,0))
-_CmplsIdObjects_ObjectIdentity=ObjectIdentity
-cmplsIdObjects=_CmplsIdObjects_ObjectIdentity((1,3,6,1,4,1,9,10,147,1))
-_CmplsGlobalId_Type=CMplsGlobalId
-_CmplsGlobalId_Object=MibScalar
-cmplsGlobalId=_CmplsGlobalId_Object((1,3,6,1,4,1,9,10,147,1,1),_CmplsGlobalId_Type())
-cmplsGlobalId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmplsGlobalId.setStatus(_A)
-_CmplsIcc_Type=CMplsIccId
-_CmplsIcc_Object=MibScalar
-cmplsIcc=_CmplsIcc_Object((1,3,6,1,4,1,9,10,147,1,2),_CmplsIcc_Type())
-cmplsIcc.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmplsIcc.setStatus(_A)
-_CmplsNodeId_Type=CMplsNodeId
-_CmplsNodeId_Object=MibScalar
-cmplsNodeId=_CmplsNodeId_Object((1,3,6,1,4,1,9,10,147,1,3),_CmplsNodeId_Type())
-cmplsNodeId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmplsNodeId.setStatus(_A)
-_CmplsIdConformance_ObjectIdentity=ObjectIdentity
-cmplsIdConformance=_CmplsIdConformance_ObjectIdentity((1,3,6,1,4,1,9,10,147,2))
-_CmplsIdGroups_ObjectIdentity=ObjectIdentity
-cmplsIdGroups=_CmplsIdGroups_ObjectIdentity((1,3,6,1,4,1,9,10,147,2,1))
-_CmplsIdCompliances_ObjectIdentity=ObjectIdentity
-cmplsIdCompliances=_CmplsIdCompliances_ObjectIdentity((1,3,6,1,4,1,9,10,147,2,2))
-cmplsIdScalarGroup=ObjectGroup((1,3,6,1,4,1,9,10,147,2,1,1))
-cmplsIdScalarGroup.setObjects(*((_B,_E),(_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:cmplsIdScalarGroup.setStatus(_A)
-cmplsIdModuleFullCompliance=ModuleCompliance((1,3,6,1,4,1,9,10,147,2,2,1))
-cmplsIdModuleFullCompliance.setObjects((_B,_D))
-if mibBuilder.loadTexts:cmplsIdModuleFullCompliance.setStatus(_A)
-cmplsIdModuleReadOnlyCompliance=ModuleCompliance((1,3,6,1,4,1,9,10,147,2,2,2))
-cmplsIdModuleReadOnlyCompliance.setObjects((_B,_D))
-if mibBuilder.loadTexts:cmplsIdModuleReadOnlyCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'cmplsIdStdMIB':cmplsIdStdMIB,'cmplsIdNotifications':cmplsIdNotifications,'cmplsIdObjects':cmplsIdObjects,_E:cmplsGlobalId,_G:cmplsIcc,_F:cmplsNodeId,'cmplsIdConformance':cmplsIdConformance,'cmplsIdGroups':cmplsIdGroups,_D:cmplsIdScalarGroup,'cmplsIdCompliances':cmplsIdCompliances,'cmplsIdModuleFullCompliance':cmplsIdModuleFullCompliance,'cmplsIdModuleReadOnlyCompliance':cmplsIdModuleReadOnlyCompliance})
+#
+# PySNMP MIB module CISCO-IETF-MPLS-ID-STD-03-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-IETF-MPLS-ID-STD-03-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:18 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+CMplsGlobalId, CMplsNodeId, CMplsIccId = mibBuilder.importSymbols("CISCO-MPLS-TC-EXT-STD-MIB", "CMplsGlobalId", "CMplsNodeId", "CMplsIccId")
+ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
+mplsStdMIB, = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "mplsStdMIB")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+cmplsIdStdMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 147))
+cmplsIdStdMIB.setRevisions(('2012-04-08 00:00',))
+if mibBuilder.loadTexts: cmplsIdStdMIB.setLastUpdated('201206070000Z')
+if mibBuilder.loadTexts: cmplsIdStdMIB.setOrganization('Multiprotocol Label Switching (MPLS) Working Group')
+cmplsIdNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 147, 0))
+cmplsIdObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 147, 1))
+cmplsIdConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 147, 2))
+cmplsGlobalId = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 147, 1, 1), CMplsGlobalId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmplsGlobalId.setStatus('current')
+cmplsIcc = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 147, 1, 2), CMplsIccId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmplsIcc.setStatus('current')
+cmplsNodeId = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 147, 1, 3), CMplsNodeId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmplsNodeId.setStatus('current')
+cmplsIdGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 147, 2, 1))
+cmplsIdCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 147, 2, 2))
+cmplsIdModuleFullCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 147, 2, 2, 1)).setObjects(("CISCO-IETF-MPLS-ID-STD-03-MIB", "cmplsIdScalarGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmplsIdModuleFullCompliance = cmplsIdModuleFullCompliance.setStatus('current')
+cmplsIdModuleReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 147, 2, 2, 2)).setObjects(("CISCO-IETF-MPLS-ID-STD-03-MIB", "cmplsIdScalarGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmplsIdModuleReadOnlyCompliance = cmplsIdModuleReadOnlyCompliance.setStatus('current')
+cmplsIdScalarGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 147, 2, 1, 1)).setObjects(("CISCO-IETF-MPLS-ID-STD-03-MIB", "cmplsGlobalId"), ("CISCO-IETF-MPLS-ID-STD-03-MIB", "cmplsNodeId"), ("CISCO-IETF-MPLS-ID-STD-03-MIB", "cmplsIcc"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmplsIdScalarGroup = cmplsIdScalarGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-IETF-MPLS-ID-STD-03-MIB", cmplsIcc=cmplsIcc, cmplsIdStdMIB=cmplsIdStdMIB, cmplsIdScalarGroup=cmplsIdScalarGroup, cmplsIdModuleFullCompliance=cmplsIdModuleFullCompliance, cmplsIdConformance=cmplsIdConformance, PYSNMP_MODULE_ID=cmplsIdStdMIB, cmplsGlobalId=cmplsGlobalId, cmplsIdGroups=cmplsIdGroups, cmplsIdModuleReadOnlyCompliance=cmplsIdModuleReadOnlyCompliance, cmplsIdObjects=cmplsIdObjects, cmplsNodeId=cmplsNodeId, cmplsIdCompliances=cmplsIdCompliances, cmplsIdNotifications=cmplsIdNotifications)

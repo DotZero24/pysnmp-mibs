@@ -1,105 +1,56 @@
-_K='adGenMonitorSessionDestifIndex'
-_J='not-accessible'
-_I='adGenMonitorSessionSrcifIndex'
-_H='read-only'
-_G='adGenMonitorSessionNum'
-_F='Integer32'
-_E='adGenSlotInfoIndex'
-_D='ADTRAN-GENSLOT-MIB'
-_C='read-create'
-_B='ADTRAN-GEN-MONITOR-SESSION-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGenSlotInfoIndex,=mibBuilder.importSymbols(_D,_E)
-adGenMonitorSession,adGenMonitorSessionID=mibBuilder.importSymbols('ADTRAN-SHARED-CND-SYSTEM-MIB','adGenMonitorSession','adGenMonitorSessionID')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-adGenMonitorSessionMIB=ModuleIdentity((1,3,6,1,4,1,664,6,10000,70,61,1))
-if mibBuilder.loadTexts:adGenMonitorSessionMIB.setRevisions(('2017-12-15 00:00',))
-_AdGenMonitorSessionProv_ObjectIdentity=ObjectIdentity
-adGenMonitorSessionProv=_AdGenMonitorSessionProv_ObjectIdentity((1,3,6,1,4,1,664,5,70,61,1))
-_AdGenMonitorSessionTable_Object=MibTable
-adGenMonitorSessionTable=_AdGenMonitorSessionTable_Object((1,3,6,1,4,1,664,5,70,61,1,1))
-if mibBuilder.loadTexts:adGenMonitorSessionTable.setStatus(_A)
-_AdGenMonitorSessionEntry_Object=MibTableRow
-adGenMonitorSessionEntry=_AdGenMonitorSessionEntry_Object((1,3,6,1,4,1,664,5,70,61,1,1,1))
-adGenMonitorSessionEntry.setIndexNames((0,_D,_E),(0,_B,_G))
-if mibBuilder.loadTexts:adGenMonitorSessionEntry.setStatus(_A)
-class _AdGenMonitorSessionNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1))
-_AdGenMonitorSessionNum_Type.__name__=_F
-_AdGenMonitorSessionNum_Object=MibTableColumn
-adGenMonitorSessionNum=_AdGenMonitorSessionNum_Object((1,3,6,1,4,1,664,5,70,61,1,1,1,1),_AdGenMonitorSessionNum_Type())
-adGenMonitorSessionNum.setMaxAccess(_H)
-if mibBuilder.loadTexts:adGenMonitorSessionNum.setStatus(_A)
-class _AdGenMonitorSessionAdminState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_AdGenMonitorSessionAdminState_Type.__name__=_F
-_AdGenMonitorSessionAdminState_Object=MibTableColumn
-adGenMonitorSessionAdminState=_AdGenMonitorSessionAdminState_Object((1,3,6,1,4,1,664,5,70,61,1,1,1,2),_AdGenMonitorSessionAdminState_Type())
-adGenMonitorSessionAdminState.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMonitorSessionAdminState.setStatus(_A)
-_AdGenMonitorSessionLastError_Type=DisplayString
-_AdGenMonitorSessionLastError_Object=MibTableColumn
-adGenMonitorSessionLastError=_AdGenMonitorSessionLastError_Object((1,3,6,1,4,1,664,5,70,61,1,1,1,3),_AdGenMonitorSessionLastError_Type())
-adGenMonitorSessionLastError.setMaxAccess(_H)
-if mibBuilder.loadTexts:adGenMonitorSessionLastError.setStatus(_A)
-_AdGenMonitorSessionRowStatus_Type=RowStatus
-_AdGenMonitorSessionRowStatus_Object=MibTableColumn
-adGenMonitorSessionRowStatus=_AdGenMonitorSessionRowStatus_Object((1,3,6,1,4,1,664,5,70,61,1,1,1,4),_AdGenMonitorSessionRowStatus_Type())
-adGenMonitorSessionRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMonitorSessionRowStatus.setStatus(_A)
-_AdGenMonitorSessionSrcProvTable_Object=MibTable
-adGenMonitorSessionSrcProvTable=_AdGenMonitorSessionSrcProvTable_Object((1,3,6,1,4,1,664,5,70,61,1,2))
-if mibBuilder.loadTexts:adGenMonitorSessionSrcProvTable.setStatus(_A)
-_AdGenMonitorSessionSrcProvEntry_Object=MibTableRow
-adGenMonitorSessionSrcProvEntry=_AdGenMonitorSessionSrcProvEntry_Object((1,3,6,1,4,1,664,5,70,61,1,2,1))
-adGenMonitorSessionSrcProvEntry.setIndexNames((0,_D,_E),(0,_B,_G),(0,_B,_I))
-if mibBuilder.loadTexts:adGenMonitorSessionSrcProvEntry.setStatus(_A)
-_AdGenMonitorSessionSrcifIndex_Type=InterfaceIndex
-_AdGenMonitorSessionSrcifIndex_Object=MibTableColumn
-adGenMonitorSessionSrcifIndex=_AdGenMonitorSessionSrcifIndex_Object((1,3,6,1,4,1,664,5,70,61,1,2,1,1),_AdGenMonitorSessionSrcifIndex_Type())
-adGenMonitorSessionSrcifIndex.setMaxAccess(_J)
-if mibBuilder.loadTexts:adGenMonitorSessionSrcifIndex.setStatus(_A)
-class _AdGenMonitorSessionSrcDirection_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('rx',0),('tx',1),('both',2)))
-_AdGenMonitorSessionSrcDirection_Type.__name__=_F
-_AdGenMonitorSessionSrcDirection_Object=MibTableColumn
-adGenMonitorSessionSrcDirection=_AdGenMonitorSessionSrcDirection_Object((1,3,6,1,4,1,664,5,70,61,1,2,1,2),_AdGenMonitorSessionSrcDirection_Type())
-adGenMonitorSessionSrcDirection.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMonitorSessionSrcDirection.setStatus(_A)
-_AdGenMonitorSessionSrcLastError_Type=DisplayString
-_AdGenMonitorSessionSrcLastError_Object=MibTableColumn
-adGenMonitorSessionSrcLastError=_AdGenMonitorSessionSrcLastError_Object((1,3,6,1,4,1,664,5,70,61,1,2,1,3),_AdGenMonitorSessionSrcLastError_Type())
-adGenMonitorSessionSrcLastError.setMaxAccess(_H)
-if mibBuilder.loadTexts:adGenMonitorSessionSrcLastError.setStatus(_A)
-_AdGenMonitorSessionSrcRowStatus_Type=RowStatus
-_AdGenMonitorSessionSrcRowStatus_Object=MibTableColumn
-adGenMonitorSessionSrcRowStatus=_AdGenMonitorSessionSrcRowStatus_Object((1,3,6,1,4,1,664,5,70,61,1,2,1,4),_AdGenMonitorSessionSrcRowStatus_Type())
-adGenMonitorSessionSrcRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMonitorSessionSrcRowStatus.setStatus(_A)
-_AdGenMonitorSessionDestProvTable_Object=MibTable
-adGenMonitorSessionDestProvTable=_AdGenMonitorSessionDestProvTable_Object((1,3,6,1,4,1,664,5,70,61,1,3))
-if mibBuilder.loadTexts:adGenMonitorSessionDestProvTable.setStatus(_A)
-_AdGenMonitorSessionDestProvEntry_Object=MibTableRow
-adGenMonitorSessionDestProvEntry=_AdGenMonitorSessionDestProvEntry_Object((1,3,6,1,4,1,664,5,70,61,1,3,1))
-adGenMonitorSessionDestProvEntry.setIndexNames((0,_D,_E),(0,_B,_G),(0,_B,_K))
-if mibBuilder.loadTexts:adGenMonitorSessionDestProvEntry.setStatus(_A)
-_AdGenMonitorSessionDestifIndex_Type=InterfaceIndex
-_AdGenMonitorSessionDestifIndex_Object=MibTableColumn
-adGenMonitorSessionDestifIndex=_AdGenMonitorSessionDestifIndex_Object((1,3,6,1,4,1,664,5,70,61,1,3,1,1),_AdGenMonitorSessionDestifIndex_Type())
-adGenMonitorSessionDestifIndex.setMaxAccess(_J)
-if mibBuilder.loadTexts:adGenMonitorSessionDestifIndex.setStatus(_A)
-_AdGenMonitorSessionDestLastError_Type=DisplayString
-_AdGenMonitorSessionDestLastError_Object=MibTableColumn
-adGenMonitorSessionDestLastError=_AdGenMonitorSessionDestLastError_Object((1,3,6,1,4,1,664,5,70,61,1,3,1,2),_AdGenMonitorSessionDestLastError_Type())
-adGenMonitorSessionDestLastError.setMaxAccess(_H)
-if mibBuilder.loadTexts:adGenMonitorSessionDestLastError.setStatus(_A)
-_AdGenMonitorSessionDestRowStatus_Type=RowStatus
-_AdGenMonitorSessionDestRowStatus_Object=MibTableColumn
-adGenMonitorSessionDestRowStatus=_AdGenMonitorSessionDestRowStatus_Object((1,3,6,1,4,1,664,5,70,61,1,3,1,3),_AdGenMonitorSessionDestRowStatus_Type())
-adGenMonitorSessionDestRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenMonitorSessionDestRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'adGenMonitorSessionProv':adGenMonitorSessionProv,'adGenMonitorSessionTable':adGenMonitorSessionTable,'adGenMonitorSessionEntry':adGenMonitorSessionEntry,_G:adGenMonitorSessionNum,'adGenMonitorSessionAdminState':adGenMonitorSessionAdminState,'adGenMonitorSessionLastError':adGenMonitorSessionLastError,'adGenMonitorSessionRowStatus':adGenMonitorSessionRowStatus,'adGenMonitorSessionSrcProvTable':adGenMonitorSessionSrcProvTable,'adGenMonitorSessionSrcProvEntry':adGenMonitorSessionSrcProvEntry,_I:adGenMonitorSessionSrcifIndex,'adGenMonitorSessionSrcDirection':adGenMonitorSessionSrcDirection,'adGenMonitorSessionSrcLastError':adGenMonitorSessionSrcLastError,'adGenMonitorSessionSrcRowStatus':adGenMonitorSessionSrcRowStatus,'adGenMonitorSessionDestProvTable':adGenMonitorSessionDestProvTable,'adGenMonitorSessionDestProvEntry':adGenMonitorSessionDestProvEntry,_K:adGenMonitorSessionDestifIndex,'adGenMonitorSessionDestLastError':adGenMonitorSessionDestLastError,'adGenMonitorSessionDestRowStatus':adGenMonitorSessionDestRowStatus,'adGenMonitorSessionMIB':adGenMonitorSessionMIB})
+#
+# PySNMP MIB module ADTRAN-GEN-MONITOR-SESSION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-GEN-MONITOR-SESSION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGenSlotInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex")
+adGenMonitorSession, adGenMonitorSessionID = mibBuilder.importSymbols("ADTRAN-SHARED-CND-SYSTEM-MIB", "adGenMonitorSession", "adGenMonitorSessionID")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+adGenMonitorSessionMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 61, 1))
+adGenMonitorSessionMIB.setRevisions(('2017-12-15 00:00',))
+if mibBuilder.loadTexts: adGenMonitorSessionMIB.setLastUpdated('201712150000Z')
+if mibBuilder.loadTexts: adGenMonitorSessionMIB.setOrganization('Adtran, Inc.')
+adGenMonitorSessionProv = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1))
+adGenMonitorSessionTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 1), )
+if mibBuilder.loadTexts: adGenMonitorSessionTable.setStatus('current')
+adGenMonitorSessionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 1, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"), (0, "ADTRAN-GEN-MONITOR-SESSION-MIB", "adGenMonitorSessionNum"))
+if mibBuilder.loadTexts: adGenMonitorSessionEntry.setStatus('current')
+adGenMonitorSessionNum = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenMonitorSessionNum.setStatus('current')
+adGenMonitorSessionAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: adGenMonitorSessionAdminState.setStatus('current')
+adGenMonitorSessionLastError = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenMonitorSessionLastError.setStatus('current')
+adGenMonitorSessionRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: adGenMonitorSessionRowStatus.setStatus('current')
+adGenMonitorSessionSrcProvTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 2), )
+if mibBuilder.loadTexts: adGenMonitorSessionSrcProvTable.setStatus('current')
+adGenMonitorSessionSrcProvEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 2, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"), (0, "ADTRAN-GEN-MONITOR-SESSION-MIB", "adGenMonitorSessionNum"), (0, "ADTRAN-GEN-MONITOR-SESSION-MIB", "adGenMonitorSessionSrcifIndex"))
+if mibBuilder.loadTexts: adGenMonitorSessionSrcProvEntry.setStatus('current')
+adGenMonitorSessionSrcifIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 2, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: adGenMonitorSessionSrcifIndex.setStatus('current')
+adGenMonitorSessionSrcDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("rx", 0), ("tx", 1), ("both", 2))).clone('both')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: adGenMonitorSessionSrcDirection.setStatus('current')
+adGenMonitorSessionSrcLastError = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenMonitorSessionSrcLastError.setStatus('current')
+adGenMonitorSessionSrcRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: adGenMonitorSessionSrcRowStatus.setStatus('current')
+adGenMonitorSessionDestProvTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 3), )
+if mibBuilder.loadTexts: adGenMonitorSessionDestProvTable.setStatus('current')
+adGenMonitorSessionDestProvEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 3, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"), (0, "ADTRAN-GEN-MONITOR-SESSION-MIB", "adGenMonitorSessionNum"), (0, "ADTRAN-GEN-MONITOR-SESSION-MIB", "adGenMonitorSessionDestifIndex"))
+if mibBuilder.loadTexts: adGenMonitorSessionDestProvEntry.setStatus('current')
+adGenMonitorSessionDestifIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 3, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: adGenMonitorSessionDestifIndex.setStatus('current')
+adGenMonitorSessionDestLastError = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 3, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenMonitorSessionDestLastError.setStatus('current')
+adGenMonitorSessionDestRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 61, 1, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: adGenMonitorSessionDestRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-GEN-MONITOR-SESSION-MIB", adGenMonitorSessionProv=adGenMonitorSessionProv, adGenMonitorSessionSrcProvEntry=adGenMonitorSessionSrcProvEntry, adGenMonitorSessionDestProvEntry=adGenMonitorSessionDestProvEntry, adGenMonitorSessionAdminState=adGenMonitorSessionAdminState, adGenMonitorSessionDestProvTable=adGenMonitorSessionDestProvTable, PYSNMP_MODULE_ID=adGenMonitorSessionMIB, adGenMonitorSessionRowStatus=adGenMonitorSessionRowStatus, adGenMonitorSessionSrcDirection=adGenMonitorSessionSrcDirection, adGenMonitorSessionEntry=adGenMonitorSessionEntry, adGenMonitorSessionTable=adGenMonitorSessionTable, adGenMonitorSessionDestLastError=adGenMonitorSessionDestLastError, adGenMonitorSessionMIB=adGenMonitorSessionMIB, adGenMonitorSessionLastError=adGenMonitorSessionLastError, adGenMonitorSessionSrcLastError=adGenMonitorSessionSrcLastError, adGenMonitorSessionNum=adGenMonitorSessionNum, adGenMonitorSessionSrcProvTable=adGenMonitorSessionSrcProvTable, adGenMonitorSessionDestRowStatus=adGenMonitorSessionDestRowStatus, adGenMonitorSessionSrcRowStatus=adGenMonitorSessionSrcRowStatus, adGenMonitorSessionDestifIndex=adGenMonitorSessionDestifIndex, adGenMonitorSessionSrcifIndex=adGenMonitorSessionSrcifIndex)

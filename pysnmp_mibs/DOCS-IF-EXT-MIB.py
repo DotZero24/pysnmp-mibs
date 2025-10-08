@@ -1,62 +1,53 @@
-_I='docsIfExtGroup'
-_H='docsIfCmtsCmStatusDocsisMode'
-_G='docsIfDocsisOperMode'
-_F='docsIfDocsisCapability'
-_E='docsIfCmtsCmStatusExtEntry'
-_D='docsIfDocsisVersionGroup'
-_C='read-only'
-_B='DOCS-IF-EXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-docsIfCmtsCmStatusEntry,docsIfMib=mibBuilder.importSymbols('DOCS-IF-MIB','docsIfCmtsCmStatusEntry','docsIfMib')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-docsIfExtMib=ModuleIdentity((1,3,6,1,2,1,10,127,21))
-if mibBuilder.loadTexts:docsIfExtMib.setRevisions(('2000-10-08 00:00',))
-class DocsisVersion(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('docsis10',1),('docsis11',2)))
-_DocsIfDocsisCapability_Type=DocsisVersion
-_DocsIfDocsisCapability_Object=MibScalar
-docsIfDocsisCapability=_DocsIfDocsisCapability_Object((1,3,6,1,2,1,10,127,21,1),_DocsIfDocsisCapability_Type())
-docsIfDocsisCapability.setMaxAccess(_C)
-if mibBuilder.loadTexts:docsIfDocsisCapability.setStatus(_A)
-_DocsIfDocsisOperMode_Type=DocsisVersion
-_DocsIfDocsisOperMode_Object=MibScalar
-docsIfDocsisOperMode=_DocsIfDocsisOperMode_Object((1,3,6,1,2,1,10,127,21,2),_DocsIfDocsisOperMode_Type())
-docsIfDocsisOperMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:docsIfDocsisOperMode.setStatus(_A)
-_DocsIfCmtsCmStatusExtTable_Object=MibTable
-docsIfCmtsCmStatusExtTable=_DocsIfCmtsCmStatusExtTable_Object((1,3,6,1,2,1,10,127,21,3))
-if mibBuilder.loadTexts:docsIfCmtsCmStatusExtTable.setStatus(_A)
-_DocsIfCmtsCmStatusExtEntry_Object=MibTableRow
-docsIfCmtsCmStatusExtEntry=_DocsIfCmtsCmStatusExtEntry_Object((1,3,6,1,2,1,10,127,21,3,1))
-if mibBuilder.loadTexts:docsIfCmtsCmStatusExtEntry.setStatus(_A)
-_DocsIfCmtsCmStatusDocsisMode_Type=DocsisVersion
-_DocsIfCmtsCmStatusDocsisMode_Object=MibTableColumn
-docsIfCmtsCmStatusDocsisMode=_DocsIfCmtsCmStatusDocsisMode_Object((1,3,6,1,2,1,10,127,21,3,1,1),_DocsIfCmtsCmStatusDocsisMode_Type())
-docsIfCmtsCmStatusDocsisMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:docsIfCmtsCmStatusDocsisMode.setStatus(_A)
-_DocsIfExtConformance_ObjectIdentity=ObjectIdentity
-docsIfExtConformance=_DocsIfExtConformance_ObjectIdentity((1,3,6,1,2,1,10,127,21,4))
-_DocsIfExtCompliances_ObjectIdentity=ObjectIdentity
-docsIfExtCompliances=_DocsIfExtCompliances_ObjectIdentity((1,3,6,1,2,1,10,127,21,4,1))
-_DocsIfExtGroups_ObjectIdentity=ObjectIdentity
-docsIfExtGroups=_DocsIfExtGroups_ObjectIdentity((1,3,6,1,2,1,10,127,21,4,2))
-docsIfCmtsCmStatusEntry.registerAugmentions((_B,_E))
+#
+# PySNMP MIB module DOCS-IF-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/DOCS-IF-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:26:10 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+docsIfMib, docsIfCmtsCmStatusEntry = mibBuilder.importSymbols("DOCS-IF-MIB", "docsIfMib", "docsIfCmtsCmStatusEntry")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+docsIfExtMib = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 127, 21))
+docsIfExtMib.setRevisions(('2000-10-08 00:00',))
+if mibBuilder.loadTexts: docsIfExtMib.setLastUpdated('200011160000Z')
+if mibBuilder.loadTexts: docsIfExtMib.setOrganization('IETF IPCDN Working Group')
+class DocsisVersion(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("docsis10", 1), ("docsis11", 2))
+
+docsIfDocsisCapability = MibScalar((1, 3, 6, 1, 2, 1, 10, 127, 21, 1), DocsisVersion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: docsIfDocsisCapability.setStatus('current')
+docsIfDocsisOperMode = MibScalar((1, 3, 6, 1, 2, 1, 10, 127, 21, 2), DocsisVersion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: docsIfDocsisOperMode.setStatus('current')
+docsIfCmtsCmStatusExtTable = MibTable((1, 3, 6, 1, 2, 1, 10, 127, 21, 3), )
+if mibBuilder.loadTexts: docsIfCmtsCmStatusExtTable.setStatus('current')
+docsIfCmtsCmStatusExtEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 127, 21, 3, 1), )
+docsIfCmtsCmStatusEntry.registerAugmentions(("DOCS-IF-EXT-MIB", "docsIfCmtsCmStatusExtEntry"))
 docsIfCmtsCmStatusExtEntry.setIndexNames(*docsIfCmtsCmStatusEntry.getIndexNames())
-docsIfDocsisVersionGroup=ObjectGroup((1,3,6,1,2,1,10,127,21,4,2,1))
-docsIfDocsisVersionGroup.setObjects(*((_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:docsIfDocsisVersionGroup.setStatus(_A)
-docsIfExtGroup=ObjectGroup((1,3,6,1,2,1,10,127,21,4,2,2))
-docsIfExtGroup.setObjects((_B,_H))
-if mibBuilder.loadTexts:docsIfExtGroup.setStatus(_A)
-docsIfExtCmCompliance=ModuleCompliance((1,3,6,1,2,1,10,127,21,4,1,1))
-docsIfExtCmCompliance.setObjects((_B,_D))
-if mibBuilder.loadTexts:docsIfExtCmCompliance.setStatus(_A)
-docsIfExtCmtsCompliance=ModuleCompliance((1,3,6,1,2,1,10,127,21,4,1,2))
-docsIfExtCmtsCompliance.setObjects(*((_B,_I),(_B,_D)))
-if mibBuilder.loadTexts:docsIfExtCmtsCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'DocsisVersion':DocsisVersion,'docsIfExtMib':docsIfExtMib,_F:docsIfDocsisCapability,_G:docsIfDocsisOperMode,'docsIfCmtsCmStatusExtTable':docsIfCmtsCmStatusExtTable,_E:docsIfCmtsCmStatusExtEntry,_H:docsIfCmtsCmStatusDocsisMode,'docsIfExtConformance':docsIfExtConformance,'docsIfExtCompliances':docsIfExtCompliances,'docsIfExtCmCompliance':docsIfExtCmCompliance,'docsIfExtCmtsCompliance':docsIfExtCmtsCompliance,'docsIfExtGroups':docsIfExtGroups,_D:docsIfDocsisVersionGroup,_I:docsIfExtGroup})
+if mibBuilder.loadTexts: docsIfCmtsCmStatusExtEntry.setStatus('current')
+docsIfCmtsCmStatusDocsisMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 127, 21, 3, 1, 1), DocsisVersion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: docsIfCmtsCmStatusDocsisMode.setStatus('current')
+docsIfExtConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 127, 21, 4))
+docsIfExtCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 127, 21, 4, 1))
+docsIfExtGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 127, 21, 4, 2))
+docsIfExtCmCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 127, 21, 4, 1, 1)).setObjects(("DOCS-IF-EXT-MIB", "docsIfDocsisVersionGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    docsIfExtCmCompliance = docsIfExtCmCompliance.setStatus('current')
+docsIfDocsisVersionGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 127, 21, 4, 2, 1)).setObjects(("DOCS-IF-EXT-MIB", "docsIfDocsisCapability"), ("DOCS-IF-EXT-MIB", "docsIfDocsisOperMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    docsIfDocsisVersionGroup = docsIfDocsisVersionGroup.setStatus('current')
+docsIfExtCmtsCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 127, 21, 4, 1, 2)).setObjects(("DOCS-IF-EXT-MIB", "docsIfExtGroup"), ("DOCS-IF-EXT-MIB", "docsIfDocsisVersionGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    docsIfExtCmtsCompliance = docsIfExtCmtsCompliance.setStatus('current')
+docsIfExtGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 127, 21, 4, 2, 2)).setObjects(("DOCS-IF-EXT-MIB", "docsIfCmtsCmStatusDocsisMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    docsIfExtGroup = docsIfExtGroup.setStatus('current')
+mibBuilder.exportSymbols("DOCS-IF-EXT-MIB", docsIfExtCmtsCompliance=docsIfExtCmtsCompliance, docsIfExtCmCompliance=docsIfExtCmCompliance, docsIfExtGroup=docsIfExtGroup, PYSNMP_MODULE_ID=docsIfExtMib, docsIfExtMib=docsIfExtMib, docsIfDocsisCapability=docsIfDocsisCapability, docsIfExtConformance=docsIfExtConformance, docsIfExtCompliances=docsIfExtCompliances, docsIfExtGroups=docsIfExtGroups, docsIfDocsisVersionGroup=docsIfDocsisVersionGroup, docsIfCmtsCmStatusExtTable=docsIfCmtsCmStatusExtTable, docsIfCmtsCmStatusDocsisMode=docsIfCmtsCmStatusDocsisMode, docsIfDocsisOperMode=docsIfDocsisOperMode, DocsisVersion=DocsisVersion, docsIfCmtsCmStatusExtEntry=docsIfCmtsCmStatusExtEntry)

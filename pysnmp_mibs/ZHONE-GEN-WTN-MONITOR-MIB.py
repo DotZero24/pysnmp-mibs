@@ -1,38 +1,30 @@
-_C='read-only'
-_B='Bits'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI',_B,'Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-zhoneGenWtn,zhoneModules=mibBuilder.importSymbols('Zhone','zhoneGenWtn','zhoneModules')
-zhoneGenWtnMonitorModule=ModuleIdentity((1,3,6,1,4,1,5504,6,102))
-if mibBuilder.loadTexts:zhoneGenWtnMonitorModule.setRevisions(('1901-05-25 21:36',))
-_WtnMonitor_ObjectIdentity=ObjectIdentity
-wtnMonitor=_WtnMonitor_ObjectIdentity((1,3,6,1,4,1,5504,3,9,1))
-if mibBuilder.loadTexts:wtnMonitor.setStatus(_A)
-class _WtnLedStatus_Type(Bits):namedValues=NamedValues(*(('diag',0),('operational',1),('lineInterface',2),('radio',3),('local',4),('remote',5)))
-_WtnLedStatus_Type.__name__=_B
-_WtnLedStatus_Object=MibScalar
-wtnLedStatus=_WtnLedStatus_Object((1,3,6,1,4,1,5504,3,9,1,1),_WtnLedStatus_Type())
-wtnLedStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:wtnLedStatus.setStatus(_A)
-class _WtnAlarmStatus_Type(Bits):namedValues=NamedValues(*(('minorAlarm',0),('criticalAlarm',1)))
-_WtnAlarmStatus_Type.__name__=_B
-_WtnAlarmStatus_Object=MibScalar
-wtnAlarmStatus=_WtnAlarmStatus_Object((1,3,6,1,4,1,5504,3,9,1,2),_WtnAlarmStatus_Type())
-wtnAlarmStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:wtnAlarmStatus.setStatus(_A)
-_RadioLinkConfiguration_ObjectIdentity=ObjectIdentity
-radioLinkConfiguration=_RadioLinkConfiguration_ObjectIdentity((1,3,6,1,4,1,5504,3,9,2))
-if mibBuilder.loadTexts:radioLinkConfiguration.setStatus(_A)
-_WtnLinkName_Type=SnmpAdminString
-_WtnLinkName_Object=MibScalar
-wtnLinkName=_WtnLinkName_Object((1,3,6,1,4,1,5504,3,9,2,1),_WtnLinkName_Type())
-wtnLinkName.setMaxAccess('read-write')
-if mibBuilder.loadTexts:wtnLinkName.setStatus(_A)
-mibBuilder.exportSymbols('ZHONE-GEN-WTN-MONITOR-MIB',**{'wtnMonitor':wtnMonitor,'wtnLedStatus':wtnLedStatus,'wtnAlarmStatus':wtnAlarmStatus,'radioLinkConfiguration':radioLinkConfiguration,'wtnLinkName':wtnLinkName,'zhoneGenWtnMonitorModule':zhoneGenWtnMonitorModule})
+#
+# PySNMP MIB module ZHONE-GEN-WTN-MONITOR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zhone/ZHONE-GEN-WTN-MONITOR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:10 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+zhoneModules, zhoneGenWtn = mibBuilder.importSymbols("Zhone", "zhoneModules", "zhoneGenWtn")
+zhoneGenWtnMonitorModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 5504, 6, 102))
+zhoneGenWtnMonitorModule.setRevisions(('1901-05-25 21:36',))
+if mibBuilder.loadTexts: zhoneGenWtnMonitorModule.setLastUpdated('0009281216Z')
+if mibBuilder.loadTexts: zhoneGenWtnMonitorModule.setOrganization('Zhone Technologies, Inc.')
+wtnMonitor = ObjectIdentity((1, 3, 6, 1, 4, 1, 5504, 3, 9, 1))
+if mibBuilder.loadTexts: wtnMonitor.setStatus('current')
+wtnLedStatus = MibScalar((1, 3, 6, 1, 4, 1, 5504, 3, 9, 1, 1), Bits().clone(namedValues=NamedValues(("diag", 0), ("operational", 1), ("lineInterface", 2), ("radio", 3), ("local", 4), ("remote", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wtnLedStatus.setStatus('current')
+wtnAlarmStatus = MibScalar((1, 3, 6, 1, 4, 1, 5504, 3, 9, 1, 2), Bits().clone(namedValues=NamedValues(("minorAlarm", 0), ("criticalAlarm", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wtnAlarmStatus.setStatus('current')
+radioLinkConfiguration = ObjectIdentity((1, 3, 6, 1, 4, 1, 5504, 3, 9, 2))
+if mibBuilder.loadTexts: radioLinkConfiguration.setStatus('current')
+wtnLinkName = MibScalar((1, 3, 6, 1, 4, 1, 5504, 3, 9, 2, 1), SnmpAdminString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wtnLinkName.setStatus('current')
+mibBuilder.exportSymbols("ZHONE-GEN-WTN-MONITOR-MIB", PYSNMP_MODULE_ID=zhoneGenWtnMonitorModule, wtnMonitor=wtnMonitor, wtnAlarmStatus=wtnAlarmStatus, radioLinkConfiguration=radioLinkConfiguration, zhoneGenWtnMonitorModule=zhoneGenWtnMonitorModule, wtnLinkName=wtnLinkName, wtnLedStatus=wtnLedStatus)

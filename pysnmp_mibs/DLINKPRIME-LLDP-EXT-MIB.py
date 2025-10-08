@@ -1,107 +1,56 @@
-_R='dpLldpExtBasicCfgGroup'
-_Q='dpLldpExtLldpTrapEnabled'
-_P='dpLldpExtLldpEnabled'
-_O='interfaceName'
-_N='networkAddress'
-_M='macAddress'
-_L='portComponent'
-_K='interfaceAlias'
-_J='not-accessible'
-_I='dpLldpExtRemIndex'
-_H='dpLldpExtRemLocalPortNum'
-_G='read-write'
-_F='SnmpAdminString'
-_E='OctetString'
-_D='read-only'
-_C='Integer32'
-_B='DLINKPRIME-LLDP-EXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlinkPrimeCommon,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlinkPrimeCommon')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-dlinkPrimeLldpExtMIB=ModuleIdentity((1,3,6,1,4,1,171,15,8))
-if mibBuilder.loadTexts:dlinkPrimeLldpExtMIB.setRevisions(('2014-06-03 00:00',))
-_DpLldpExtMIBNotifications_ObjectIdentity=ObjectIdentity
-dpLldpExtMIBNotifications=_DpLldpExtMIBNotifications_ObjectIdentity((1,3,6,1,4,1,171,15,8,0))
-_DpLldpExtMIBObjects_ObjectIdentity=ObjectIdentity
-dpLldpExtMIBObjects=_DpLldpExtMIBObjects_ObjectIdentity((1,3,6,1,4,1,171,15,8,1))
-_DpLldpExtLldpEnabled_Type=TruthValue
-_DpLldpExtLldpEnabled_Object=MibScalar
-dpLldpExtLldpEnabled=_DpLldpExtLldpEnabled_Object((1,3,6,1,4,1,171,15,8,1,1),_DpLldpExtLldpEnabled_Type())
-dpLldpExtLldpEnabled.setMaxAccess(_G)
-if mibBuilder.loadTexts:dpLldpExtLldpEnabled.setStatus(_A)
-_DpLldpExtLldpTrapEnabled_Type=TruthValue
-_DpLldpExtLldpTrapEnabled_Object=MibScalar
-dpLldpExtLldpTrapEnabled=_DpLldpExtLldpTrapEnabled_Object((1,3,6,1,4,1,171,15,8,1,2),_DpLldpExtLldpTrapEnabled_Type())
-dpLldpExtLldpTrapEnabled.setMaxAccess(_G)
-if mibBuilder.loadTexts:dpLldpExtLldpTrapEnabled.setStatus(_A)
-_DpLldpExtRemTable_Object=MibTable
-dpLldpExtRemTable=_DpLldpExtRemTable_Object((1,3,6,1,4,1,171,15,8,1,3))
-if mibBuilder.loadTexts:dpLldpExtRemTable.setStatus(_A)
-_DpLldpExtRemEntry_Object=MibTableRow
-dpLldpExtRemEntry=_DpLldpExtRemEntry_Object((1,3,6,1,4,1,171,15,8,1,3,1))
-dpLldpExtRemEntry.setIndexNames((0,_B,_H),(0,_B,_I))
-if mibBuilder.loadTexts:dpLldpExtRemEntry.setStatus(_A)
-class _DpLldpExtRemLocalPortNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4096))
-_DpLldpExtRemLocalPortNum_Type.__name__=_C
-_DpLldpExtRemLocalPortNum_Object=MibTableColumn
-dpLldpExtRemLocalPortNum=_DpLldpExtRemLocalPortNum_Object((1,3,6,1,4,1,171,15,8,1,3,1,1),_DpLldpExtRemLocalPortNum_Type())
-dpLldpExtRemLocalPortNum.setMaxAccess(_J)
-if mibBuilder.loadTexts:dpLldpExtRemLocalPortNum.setStatus(_A)
-class _DpLldpExtRemIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_DpLldpExtRemIndex_Type.__name__=_C
-_DpLldpExtRemIndex_Object=MibTableColumn
-dpLldpExtRemIndex=_DpLldpExtRemIndex_Object((1,3,6,1,4,1,171,15,8,1,3,1,2),_DpLldpExtRemIndex_Type())
-dpLldpExtRemIndex.setMaxAccess(_J)
-if mibBuilder.loadTexts:dpLldpExtRemIndex.setStatus(_A)
-class _DpLldpExtRemChassisIdSubtype_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('chassisComponent',1),(_K,2),(_L,3),(_M,4),(_N,5),(_O,6),('local',7)))
-_DpLldpExtRemChassisIdSubtype_Type.__name__=_C
-_DpLldpExtRemChassisIdSubtype_Object=MibTableColumn
-dpLldpExtRemChassisIdSubtype=_DpLldpExtRemChassisIdSubtype_Object((1,3,6,1,4,1,171,15,8,1,3,1,3),_DpLldpExtRemChassisIdSubtype_Type())
-dpLldpExtRemChassisIdSubtype.setMaxAccess(_D)
-if mibBuilder.loadTexts:dpLldpExtRemChassisIdSubtype.setStatus(_A)
-class _DpLldpExtRemChassisId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_DpLldpExtRemChassisId_Type.__name__=_E
-_DpLldpExtRemChassisId_Object=MibTableColumn
-dpLldpExtRemChassisId=_DpLldpExtRemChassisId_Object((1,3,6,1,4,1,171,15,8,1,3,1,4),_DpLldpExtRemChassisId_Type())
-dpLldpExtRemChassisId.setMaxAccess(_D)
-if mibBuilder.loadTexts:dpLldpExtRemChassisId.setStatus(_A)
-class _DpLldpExtRemPortIdSubtype_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*((_K,1),(_L,2),(_M,3),(_N,4),(_O,5),('agentCircuitId',6),('local',7)))
-_DpLldpExtRemPortIdSubtype_Type.__name__=_C
-_DpLldpExtRemPortIdSubtype_Object=MibTableColumn
-dpLldpExtRemPortIdSubtype=_DpLldpExtRemPortIdSubtype_Object((1,3,6,1,4,1,171,15,8,1,3,1,5),_DpLldpExtRemPortIdSubtype_Type())
-dpLldpExtRemPortIdSubtype.setMaxAccess(_D)
-if mibBuilder.loadTexts:dpLldpExtRemPortIdSubtype.setStatus(_A)
-class _DpLldpExtRemPortId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_DpLldpExtRemPortId_Type.__name__=_E
-_DpLldpExtRemPortId_Object=MibTableColumn
-dpLldpExtRemPortId=_DpLldpExtRemPortId_Object((1,3,6,1,4,1,171,15,8,1,3,1,6),_DpLldpExtRemPortId_Type())
-dpLldpExtRemPortId.setMaxAccess(_D)
-if mibBuilder.loadTexts:dpLldpExtRemPortId.setStatus(_A)
-class _DpLldpExtRemPortDesc_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_DpLldpExtRemPortDesc_Type.__name__=_F
-_DpLldpExtRemPortDesc_Object=MibTableColumn
-dpLldpExtRemPortDesc=_DpLldpExtRemPortDesc_Object((1,3,6,1,4,1,171,15,8,1,3,1,7),_DpLldpExtRemPortDesc_Type())
-dpLldpExtRemPortDesc.setMaxAccess(_D)
-if mibBuilder.loadTexts:dpLldpExtRemPortDesc.setStatus(_A)
-_DpLldpExtMIBConformance_ObjectIdentity=ObjectIdentity
-dpLldpExtMIBConformance=_DpLldpExtMIBConformance_ObjectIdentity((1,3,6,1,4,1,171,15,8,2))
-_DpLldpExtMIBCompliances_ObjectIdentity=ObjectIdentity
-dpLldpExtMIBCompliances=_DpLldpExtMIBCompliances_ObjectIdentity((1,3,6,1,4,1,171,15,8,2,1))
-_DpLldpExtMIBGroups_ObjectIdentity=ObjectIdentity
-dpLldpExtMIBGroups=_DpLldpExtMIBGroups_ObjectIdentity((1,3,6,1,4,1,171,15,8,2,2))
-dpLldpExtBasicCfgGroup=ObjectGroup((1,3,6,1,4,1,171,15,8,2,2,1))
-dpLldpExtBasicCfgGroup.setObjects(*((_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:dpLldpExtBasicCfgGroup.setStatus(_A)
-dpLldpExtDatabaseChanged=NotificationType((1,3,6,1,4,1,171,15,8,0,1))
-if mibBuilder.loadTexts:dpLldpExtDatabaseChanged.setStatus(_A)
-dpLldpExtMIBCompliance=ModuleCompliance((1,3,6,1,4,1,171,15,8,2,1,1))
-dpLldpExtMIBCompliance.setObjects((_B,_R))
-if mibBuilder.loadTexts:dpLldpExtMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'dlinkPrimeLldpExtMIB':dlinkPrimeLldpExtMIB,'dpLldpExtMIBNotifications':dpLldpExtMIBNotifications,'dpLldpExtDatabaseChanged':dpLldpExtDatabaseChanged,'dpLldpExtMIBObjects':dpLldpExtMIBObjects,_P:dpLldpExtLldpEnabled,_Q:dpLldpExtLldpTrapEnabled,'dpLldpExtRemTable':dpLldpExtRemTable,'dpLldpExtRemEntry':dpLldpExtRemEntry,_H:dpLldpExtRemLocalPortNum,_I:dpLldpExtRemIndex,'dpLldpExtRemChassisIdSubtype':dpLldpExtRemChassisIdSubtype,'dpLldpExtRemChassisId':dpLldpExtRemChassisId,'dpLldpExtRemPortIdSubtype':dpLldpExtRemPortIdSubtype,'dpLldpExtRemPortId':dpLldpExtRemPortId,'dpLldpExtRemPortDesc':dpLldpExtRemPortDesc,'dpLldpExtMIBConformance':dpLldpExtMIBConformance,'dpLldpExtMIBCompliances':dpLldpExtMIBCompliances,'dpLldpExtMIBCompliance':dpLldpExtMIBCompliance,'dpLldpExtMIBGroups':dpLldpExtMIBGroups,_R:dpLldpExtBasicCfgGroup})
+#
+# PySNMP MIB module DLINKPRIME-LLDP-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DLINKPRIME-LLDP-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:33:51 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlinkPrimeCommon, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlinkPrimeCommon")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+dlinkPrimeLldpExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 15, 8))
+dlinkPrimeLldpExtMIB.setRevisions(('2014-06-03 00:00',))
+if mibBuilder.loadTexts: dlinkPrimeLldpExtMIB.setLastUpdated('201406030000Z')
+if mibBuilder.loadTexts: dlinkPrimeLldpExtMIB.setOrganization('D-Link Corp.')
+dpLldpExtMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 8, 0))
+dpLldpExtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 8, 1))
+dpLldpExtMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 8, 2))
+dpLldpExtLldpEnabled = MibScalar((1, 3, 6, 1, 4, 1, 171, 15, 8, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpLldpExtLldpEnabled.setStatus('current')
+dpLldpExtLldpTrapEnabled = MibScalar((1, 3, 6, 1, 4, 1, 171, 15, 8, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpLldpExtLldpTrapEnabled.setStatus('current')
+dpLldpExtRemTable = MibTable((1, 3, 6, 1, 4, 1, 171, 15, 8, 1, 3), )
+if mibBuilder.loadTexts: dpLldpExtRemTable.setStatus('current')
+dpLldpExtRemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 15, 8, 1, 3, 1), ).setIndexNames((0, "DLINKPRIME-LLDP-EXT-MIB", "dpLldpExtRemLocalPortNum"), (0, "DLINKPRIME-LLDP-EXT-MIB", "dpLldpExtRemIndex"))
+if mibBuilder.loadTexts: dpLldpExtRemEntry.setStatus('current')
+dpLldpExtRemLocalPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 8, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4096)))
+if mibBuilder.loadTexts: dpLldpExtRemLocalPortNum.setStatus('current')
+dpLldpExtRemIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 8, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: dpLldpExtRemIndex.setStatus('current')
+dpLldpExtRemChassisIdSubtype = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 8, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("chassisComponent", 1), ("interfaceAlias", 2), ("portComponent", 3), ("macAddress", 4), ("networkAddress", 5), ("interfaceName", 6), ("local", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpLldpExtRemChassisIdSubtype.setStatus('current')
+dpLldpExtRemChassisId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 8, 1, 3, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpLldpExtRemChassisId.setStatus('current')
+dpLldpExtRemPortIdSubtype = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 8, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("interfaceAlias", 1), ("portComponent", 2), ("macAddress", 3), ("networkAddress", 4), ("interfaceName", 5), ("agentCircuitId", 6), ("local", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpLldpExtRemPortIdSubtype.setStatus('current')
+dpLldpExtRemPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 8, 1, 3, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpLldpExtRemPortId.setStatus('current')
+dpLldpExtRemPortDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 8, 1, 3, 1, 7), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpLldpExtRemPortDesc.setStatus('current')
+dpLldpExtDatabaseChanged = NotificationType((1, 3, 6, 1, 4, 1, 171, 15, 8, 0, 1))
+if mibBuilder.loadTexts: dpLldpExtDatabaseChanged.setStatus('current')
+dpLldpExtMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 8, 2, 1))
+dpLldpExtMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 8, 2, 2))
+dpLldpExtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 15, 8, 2, 1, 1)).setObjects(("DLINKPRIME-LLDP-EXT-MIB", "dpLldpExtBasicCfgGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpLldpExtMIBCompliance = dpLldpExtMIBCompliance.setStatus('current')
+dpLldpExtBasicCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 15, 8, 2, 2, 1)).setObjects(("DLINKPRIME-LLDP-EXT-MIB", "dpLldpExtLldpEnabled"), ("DLINKPRIME-LLDP-EXT-MIB", "dpLldpExtLldpTrapEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpLldpExtBasicCfgGroup = dpLldpExtBasicCfgGroup.setStatus('current')
+mibBuilder.exportSymbols("DLINKPRIME-LLDP-EXT-MIB", dpLldpExtBasicCfgGroup=dpLldpExtBasicCfgGroup, dpLldpExtMIBConformance=dpLldpExtMIBConformance, dpLldpExtDatabaseChanged=dpLldpExtDatabaseChanged, dpLldpExtMIBObjects=dpLldpExtMIBObjects, dpLldpExtLldpEnabled=dpLldpExtLldpEnabled, dpLldpExtRemPortDesc=dpLldpExtRemPortDesc, dpLldpExtMIBCompliance=dpLldpExtMIBCompliance, dpLldpExtMIBCompliances=dpLldpExtMIBCompliances, dpLldpExtRemLocalPortNum=dpLldpExtRemLocalPortNum, dpLldpExtRemIndex=dpLldpExtRemIndex, dpLldpExtRemPortId=dpLldpExtRemPortId, dpLldpExtRemTable=dpLldpExtRemTable, dpLldpExtRemChassisIdSubtype=dpLldpExtRemChassisIdSubtype, dpLldpExtRemEntry=dpLldpExtRemEntry, dpLldpExtMIBGroups=dpLldpExtMIBGroups, PYSNMP_MODULE_ID=dlinkPrimeLldpExtMIB, dpLldpExtRemPortIdSubtype=dpLldpExtRemPortIdSubtype, dpLldpExtMIBNotifications=dpLldpExtMIBNotifications, dpLldpExtRemChassisId=dpLldpExtRemChassisId, dpLldpExtLldpTrapEnabled=dpLldpExtLldpTrapEnabled, dlinkPrimeLldpExtMIB=dlinkPrimeLldpExtMIB)

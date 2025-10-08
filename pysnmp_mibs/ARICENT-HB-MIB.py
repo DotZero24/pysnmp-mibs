@@ -1,76 +1,41 @@
-_F='TruthValue'
-_E='Integer32'
-_D='Unsigned32'
-_C='read-only'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ZeroBasedCounter32,=mibBuilder.importSymbols('RMON2-MIB','ZeroBasedCounter32')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'enterprises','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_F)
-fsHb=ModuleIdentity((1,3,6,1,4,1,29601,2,93))
-if mibBuilder.loadTexts:fsHb.setRevisions(('2014-12-10 00:00',))
-_FsHbScalar_ObjectIdentity=ObjectIdentity
-fsHbScalar=_FsHbScalar_ObjectIdentity((1,3,6,1,4,1,29601,2,93,0))
-class _FsHbInterval_Type(Unsigned32):defaultValue=500;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,5000))
-_FsHbInterval_Type.__name__=_D
-_FsHbInterval_Object=MibScalar
-fsHbInterval=_FsHbInterval_Object((1,3,6,1,4,1,29601,2,93,0,1),_FsHbInterval_Type())
-fsHbInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsHbInterval.setStatus(_A)
-class _FsHbPeerDeadIntMultiplier_Type(Unsigned32):defaultValue=4;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(4,10))
-_FsHbPeerDeadIntMultiplier_Type.__name__=_D
-_FsHbPeerDeadIntMultiplier_Object=MibScalar
-fsHbPeerDeadIntMultiplier=_FsHbPeerDeadIntMultiplier_Object((1,3,6,1,4,1,29601,2,93,0,2),_FsHbPeerDeadIntMultiplier_Type())
-fsHbPeerDeadIntMultiplier.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsHbPeerDeadIntMultiplier.setStatus(_A)
-class _FsHbTrcLevel_Type(Unsigned32):defaultValue=0
-_FsHbTrcLevel_Type.__name__=_D
-_FsHbTrcLevel_Object=MibScalar
-fsHbTrcLevel=_FsHbTrcLevel_Object((1,3,6,1,4,1,29601,2,93,0,3),_FsHbTrcLevel_Type())
-fsHbTrcLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsHbTrcLevel.setStatus(_A)
-class _FsHbStatsEnable_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_FsHbStatsEnable_Type.__name__=_E
-_FsHbStatsEnable_Object=MibScalar
-fsHbStatsEnable=_FsHbStatsEnable_Object((1,3,6,1,4,1,29601,2,93,0,4),_FsHbStatsEnable_Type())
-fsHbStatsEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsHbStatsEnable.setStatus(_A)
-class _FsHbClearStats_Type(TruthValue):defaultValue=2
-_FsHbClearStats_Type.__name__=_F
-_FsHbClearStats_Object=MibScalar
-fsHbClearStats=_FsHbClearStats_Object((1,3,6,1,4,1,29601,2,93,0,5),_FsHbClearStats_Type())
-fsHbClearStats.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsHbClearStats.setStatus(_A)
-_FsHbStatistics_ObjectIdentity=ObjectIdentity
-fsHbStatistics=_FsHbStatistics_ObjectIdentity((1,3,6,1,4,1,29601,2,93,1))
-_FsHbStatsMsgTxCount_Type=ZeroBasedCounter32
-_FsHbStatsMsgTxCount_Object=MibScalar
-fsHbStatsMsgTxCount=_FsHbStatsMsgTxCount_Object((1,3,6,1,4,1,29601,2,93,1,1),_FsHbStatsMsgTxCount_Type())
-fsHbStatsMsgTxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsHbStatsMsgTxCount.setStatus(_A)
-_FsHbStatsMsgTxFailedCount_Type=ZeroBasedCounter32
-_FsHbStatsMsgTxFailedCount_Object=MibScalar
-fsHbStatsMsgTxFailedCount=_FsHbStatsMsgTxFailedCount_Object((1,3,6,1,4,1,29601,2,93,1,2),_FsHbStatsMsgTxFailedCount_Type())
-fsHbStatsMsgTxFailedCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsHbStatsMsgTxFailedCount.setStatus(_A)
-_FsHbStatsMsgRxCount_Type=ZeroBasedCounter32
-_FsHbStatsMsgRxCount_Object=MibScalar
-fsHbStatsMsgRxCount=_FsHbStatsMsgRxCount_Object((1,3,6,1,4,1,29601,2,93,1,3),_FsHbStatsMsgRxCount_Type())
-fsHbStatsMsgRxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsHbStatsMsgRxCount.setStatus(_A)
-_FsHbStatsMsgRxProcCount_Type=ZeroBasedCounter32
-_FsHbStatsMsgRxProcCount_Object=MibScalar
-fsHbStatsMsgRxProcCount=_FsHbStatsMsgRxProcCount_Object((1,3,6,1,4,1,29601,2,93,1,4),_FsHbStatsMsgRxProcCount_Type())
-fsHbStatsMsgRxProcCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsHbStatsMsgRxProcCount.setStatus(_A)
-_FsHbStatsRxFailedCount_Type=ZeroBasedCounter32
-_FsHbStatsRxFailedCount_Object=MibScalar
-fsHbStatsRxFailedCount=_FsHbStatsRxFailedCount_Object((1,3,6,1,4,1,29601,2,93,1,5),_FsHbStatsRxFailedCount_Type())
-fsHbStatsRxFailedCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsHbStatsRxFailedCount.setStatus(_A)
-mibBuilder.exportSymbols('ARICENT-HB-MIB',**{'fsHb':fsHb,'fsHbScalar':fsHbScalar,'fsHbInterval':fsHbInterval,'fsHbPeerDeadIntMultiplier':fsHbPeerDeadIntMultiplier,'fsHbTrcLevel':fsHbTrcLevel,'fsHbStatsEnable':fsHbStatsEnable,'fsHbClearStats':fsHbClearStats,'fsHbStatistics':fsHbStatistics,'fsHbStatsMsgTxCount':fsHbStatsMsgTxCount,'fsHbStatsMsgTxFailedCount':fsHbStatsMsgTxFailedCount,'fsHbStatsMsgRxCount':fsHbStatsMsgRxCount,'fsHbStatsMsgRxProcCount':fsHbStatsMsgRxProcCount,'fsHbStatsRxFailedCount':fsHbStatsRxFailedCount})
+#
+# PySNMP MIB module ARICENT-HB-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aricent/ARICENT-HB-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:33:04 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ZeroBasedCounter32, = mibBuilder.importSymbols("RMON2-MIB", "ZeroBasedCounter32")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+fsHb = ModuleIdentity((1, 3, 6, 1, 4, 1, 29601, 2, 93))
+fsHb.setRevisions(('2014-12-10 00:00',))
+if mibBuilder.loadTexts: fsHb.setLastUpdated('201412100000Z')
+if mibBuilder.loadTexts: fsHb.setOrganization('ARICENT COMMUNICATIONS SOFTWARE')
+fsHbScalar = MibIdentifier((1, 3, 6, 1, 4, 1, 29601, 2, 93, 0))
+fsHbStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 29601, 2, 93, 1))
+fsHbInterval = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 93, 0, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10, 5000)).clone(500)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsHbInterval.setStatus('current')
+fsHbPeerDeadIntMultiplier = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 93, 0, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(4, 10)).clone(4)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsHbPeerDeadIntMultiplier.setStatus('current')
+fsHbTrcLevel = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 93, 0, 3), Unsigned32().clone(0)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsHbTrcLevel.setStatus('current')
+fsHbStatsEnable = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 93, 0, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsHbStatsEnable.setStatus('current')
+fsHbClearStats = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 93, 0, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsHbClearStats.setStatus('current')
+fsHbStatsMsgTxCount = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 93, 1, 1), ZeroBasedCounter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsHbStatsMsgTxCount.setStatus('current')
+fsHbStatsMsgTxFailedCount = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 93, 1, 2), ZeroBasedCounter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsHbStatsMsgTxFailedCount.setStatus('current')
+fsHbStatsMsgRxCount = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 93, 1, 3), ZeroBasedCounter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsHbStatsMsgRxCount.setStatus('current')
+fsHbStatsMsgRxProcCount = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 93, 1, 4), ZeroBasedCounter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsHbStatsMsgRxProcCount.setStatus('current')
+fsHbStatsRxFailedCount = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 93, 1, 5), ZeroBasedCounter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsHbStatsRxFailedCount.setStatus('current')
+mibBuilder.exportSymbols("ARICENT-HB-MIB", fsHbStatsMsgRxCount=fsHbStatsMsgRxCount, fsHbStatsMsgRxProcCount=fsHbStatsMsgRxProcCount, fsHbInterval=fsHbInterval, PYSNMP_MODULE_ID=fsHb, fsHbClearStats=fsHbClearStats, fsHbStatsRxFailedCount=fsHbStatsRxFailedCount, fsHbPeerDeadIntMultiplier=fsHbPeerDeadIntMultiplier, fsHbStatistics=fsHbStatistics, fsHbScalar=fsHbScalar, fsHb=fsHb, fsHbStatsMsgTxCount=fsHbStatsMsgTxCount, fsHbStatsEnable=fsHbStatsEnable, fsHbTrcLevel=fsHbTrcLevel, fsHbStatsMsgTxFailedCount=fsHbStatsMsgTxFailedCount)

@@ -1,117 +1,63 @@
-_Q='cSdwanAppCflowdTemplateGroup'
-_P='cSdwanAppCflowdStatisticsGroup'
-_O='appCflowdTemplateTemplateRefresh'
-_N='appCflowdTemplateFlowInactiveTimeout'
-_M='appCflowdTemplateFlowActiveTimeout'
-_L='appCflowdTemplateName'
-_K='appCflowdStatisticsFlowRateLimitDrop'
-_J='appCflowdStatisticsFlowEndForced'
-_I='appCflowdStatisticsFlowEndDetected'
-_H='appCflowdStatisticsFlowAgeout'
-_G='appCflowdStatisticsFlowRefresh'
-_F='appCflowdStatisticsTotalPackets'
-_E='appCflowdStatisticsTemplatePackets'
-_D='appCflowdStatisticsDataPackets'
-_C='read-only'
-_B='CISCO-SDWAN-OPER-APP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-ciscoSdwanOperAppMIB=ModuleIdentity((1,3,6,1,4,1,9,9,1007))
-if mibBuilder.loadTexts:ciscoSdwanOperAppMIB.setRevisions(('2021-05-26 00:00',))
-_CiscoSdwanOperAppMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoSdwanOperAppMIBNotifs=_CiscoSdwanOperAppMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,1007,0))
-_CiscoSdwanOperAppMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoSdwanOperAppMIBObjects=_CiscoSdwanOperAppMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,1007,1))
-_App_ObjectIdentity=ObjectIdentity
-app=_App_ObjectIdentity((1,3,6,1,4,1,9,9,1007,1,6))
-_AppCflowd_ObjectIdentity=ObjectIdentity
-appCflowd=_AppCflowd_ObjectIdentity((1,3,6,1,4,1,9,9,1007,1,6,1))
-_AppCflowdStatistics_ObjectIdentity=ObjectIdentity
-appCflowdStatistics=_AppCflowdStatistics_ObjectIdentity((1,3,6,1,4,1,9,9,1007,1,6,1,3))
-_AppCflowdStatisticsDataPackets_Type=Counter64
-_AppCflowdStatisticsDataPackets_Object=MibScalar
-appCflowdStatisticsDataPackets=_AppCflowdStatisticsDataPackets_Object((1,3,6,1,4,1,9,9,1007,1,6,1,3,1),_AppCflowdStatisticsDataPackets_Type())
-appCflowdStatisticsDataPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:appCflowdStatisticsDataPackets.setStatus(_A)
-_AppCflowdStatisticsTemplatePackets_Type=Counter64
-_AppCflowdStatisticsTemplatePackets_Object=MibScalar
-appCflowdStatisticsTemplatePackets=_AppCflowdStatisticsTemplatePackets_Object((1,3,6,1,4,1,9,9,1007,1,6,1,3,2),_AppCflowdStatisticsTemplatePackets_Type())
-appCflowdStatisticsTemplatePackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:appCflowdStatisticsTemplatePackets.setStatus(_A)
-_AppCflowdStatisticsTotalPackets_Type=Counter64
-_AppCflowdStatisticsTotalPackets_Object=MibScalar
-appCflowdStatisticsTotalPackets=_AppCflowdStatisticsTotalPackets_Object((1,3,6,1,4,1,9,9,1007,1,6,1,3,3),_AppCflowdStatisticsTotalPackets_Type())
-appCflowdStatisticsTotalPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:appCflowdStatisticsTotalPackets.setStatus(_A)
-_AppCflowdStatisticsFlowRefresh_Type=Counter64
-_AppCflowdStatisticsFlowRefresh_Object=MibScalar
-appCflowdStatisticsFlowRefresh=_AppCflowdStatisticsFlowRefresh_Object((1,3,6,1,4,1,9,9,1007,1,6,1,3,4),_AppCflowdStatisticsFlowRefresh_Type())
-appCflowdStatisticsFlowRefresh.setMaxAccess(_C)
-if mibBuilder.loadTexts:appCflowdStatisticsFlowRefresh.setStatus(_A)
-_AppCflowdStatisticsFlowAgeout_Type=Counter64
-_AppCflowdStatisticsFlowAgeout_Object=MibScalar
-appCflowdStatisticsFlowAgeout=_AppCflowdStatisticsFlowAgeout_Object((1,3,6,1,4,1,9,9,1007,1,6,1,3,5),_AppCflowdStatisticsFlowAgeout_Type())
-appCflowdStatisticsFlowAgeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:appCflowdStatisticsFlowAgeout.setStatus(_A)
-_AppCflowdStatisticsFlowEndDetected_Type=Counter64
-_AppCflowdStatisticsFlowEndDetected_Object=MibScalar
-appCflowdStatisticsFlowEndDetected=_AppCflowdStatisticsFlowEndDetected_Object((1,3,6,1,4,1,9,9,1007,1,6,1,3,6),_AppCflowdStatisticsFlowEndDetected_Type())
-appCflowdStatisticsFlowEndDetected.setMaxAccess(_C)
-if mibBuilder.loadTexts:appCflowdStatisticsFlowEndDetected.setStatus(_A)
-_AppCflowdStatisticsFlowEndForced_Type=Counter64
-_AppCflowdStatisticsFlowEndForced_Object=MibScalar
-appCflowdStatisticsFlowEndForced=_AppCflowdStatisticsFlowEndForced_Object((1,3,6,1,4,1,9,9,1007,1,6,1,3,7),_AppCflowdStatisticsFlowEndForced_Type())
-appCflowdStatisticsFlowEndForced.setMaxAccess(_C)
-if mibBuilder.loadTexts:appCflowdStatisticsFlowEndForced.setStatus(_A)
-_AppCflowdStatisticsFlowRateLimitDrop_Type=Counter64
-_AppCflowdStatisticsFlowRateLimitDrop_Object=MibScalar
-appCflowdStatisticsFlowRateLimitDrop=_AppCflowdStatisticsFlowRateLimitDrop_Object((1,3,6,1,4,1,9,9,1007,1,6,1,3,8),_AppCflowdStatisticsFlowRateLimitDrop_Type())
-appCflowdStatisticsFlowRateLimitDrop.setMaxAccess(_C)
-if mibBuilder.loadTexts:appCflowdStatisticsFlowRateLimitDrop.setStatus(_A)
-_AppCflowdTemplate_ObjectIdentity=ObjectIdentity
-appCflowdTemplate=_AppCflowdTemplate_ObjectIdentity((1,3,6,1,4,1,9,9,1007,1,6,1,4))
-_AppCflowdTemplateName_Type=OctetString
-_AppCflowdTemplateName_Object=MibScalar
-appCflowdTemplateName=_AppCflowdTemplateName_Object((1,3,6,1,4,1,9,9,1007,1,6,1,4,1),_AppCflowdTemplateName_Type())
-appCflowdTemplateName.setMaxAccess(_C)
-if mibBuilder.loadTexts:appCflowdTemplateName.setStatus(_A)
-_AppCflowdTemplateFlowActiveTimeout_Type=Unsigned32
-_AppCflowdTemplateFlowActiveTimeout_Object=MibScalar
-appCflowdTemplateFlowActiveTimeout=_AppCflowdTemplateFlowActiveTimeout_Object((1,3,6,1,4,1,9,9,1007,1,6,1,4,2),_AppCflowdTemplateFlowActiveTimeout_Type())
-appCflowdTemplateFlowActiveTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:appCflowdTemplateFlowActiveTimeout.setStatus(_A)
-_AppCflowdTemplateFlowInactiveTimeout_Type=Unsigned32
-_AppCflowdTemplateFlowInactiveTimeout_Object=MibScalar
-appCflowdTemplateFlowInactiveTimeout=_AppCflowdTemplateFlowInactiveTimeout_Object((1,3,6,1,4,1,9,9,1007,1,6,1,4,3),_AppCflowdTemplateFlowInactiveTimeout_Type())
-appCflowdTemplateFlowInactiveTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:appCflowdTemplateFlowInactiveTimeout.setStatus(_A)
-_AppCflowdTemplateTemplateRefresh_Type=Unsigned32
-_AppCflowdTemplateTemplateRefresh_Object=MibScalar
-appCflowdTemplateTemplateRefresh=_AppCflowdTemplateTemplateRefresh_Object((1,3,6,1,4,1,9,9,1007,1,6,1,4,4),_AppCflowdTemplateTemplateRefresh_Type())
-appCflowdTemplateTemplateRefresh.setMaxAccess(_C)
-if mibBuilder.loadTexts:appCflowdTemplateTemplateRefresh.setStatus(_A)
-_CiscoSdwanOperAppMIBNotifObjects_ObjectIdentity=ObjectIdentity
-ciscoSdwanOperAppMIBNotifObjects=_CiscoSdwanOperAppMIBNotifObjects_ObjectIdentity((1,3,6,1,4,1,9,9,1007,2))
-_CiscoSdwanOperAppMIBConform_ObjectIdentity=ObjectIdentity
-ciscoSdwanOperAppMIBConform=_CiscoSdwanOperAppMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,1007,3))
-_CiscoSdwanOperAppMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoSdwanOperAppMIBCompliances=_CiscoSdwanOperAppMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,1007,3,1))
-_CiscoSdwanOperAppMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoSdwanOperAppMIBGroups=_CiscoSdwanOperAppMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,1007,3,2))
-cSdwanAppCflowdStatisticsGroup=ObjectGroup((1,3,6,1,4,1,9,9,1007,3,2,1))
-cSdwanAppCflowdStatisticsGroup.setObjects(*((_B,_D),(_B,_E),(_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:cSdwanAppCflowdStatisticsGroup.setStatus(_A)
-cSdwanAppCflowdTemplateGroup=ObjectGroup((1,3,6,1,4,1,9,9,1007,3,2,2))
-cSdwanAppCflowdTemplateGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:cSdwanAppCflowdTemplateGroup.setStatus(_A)
-ciscoSdwanOperAppMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,1007,3,1,1))
-ciscoSdwanOperAppMIBCompliance.setObjects(*((_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:ciscoSdwanOperAppMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoSdwanOperAppMIB':ciscoSdwanOperAppMIB,'ciscoSdwanOperAppMIBNotifs':ciscoSdwanOperAppMIBNotifs,'ciscoSdwanOperAppMIBObjects':ciscoSdwanOperAppMIBObjects,'app':app,'appCflowd':appCflowd,'appCflowdStatistics':appCflowdStatistics,_D:appCflowdStatisticsDataPackets,_E:appCflowdStatisticsTemplatePackets,_F:appCflowdStatisticsTotalPackets,_G:appCflowdStatisticsFlowRefresh,_H:appCflowdStatisticsFlowAgeout,_I:appCflowdStatisticsFlowEndDetected,_J:appCflowdStatisticsFlowEndForced,_K:appCflowdStatisticsFlowRateLimitDrop,'appCflowdTemplate':appCflowdTemplate,_L:appCflowdTemplateName,_M:appCflowdTemplateFlowActiveTimeout,_N:appCflowdTemplateFlowInactiveTimeout,_O:appCflowdTemplateTemplateRefresh,'ciscoSdwanOperAppMIBNotifObjects':ciscoSdwanOperAppMIBNotifObjects,'ciscoSdwanOperAppMIBConform':ciscoSdwanOperAppMIBConform,'ciscoSdwanOperAppMIBCompliances':ciscoSdwanOperAppMIBCompliances,'ciscoSdwanOperAppMIBCompliance':ciscoSdwanOperAppMIBCompliance,'ciscoSdwanOperAppMIBGroups':ciscoSdwanOperAppMIBGroups,_P:cSdwanAppCflowdStatisticsGroup,_Q:cSdwanAppCflowdTemplateGroup})
+#
+# PySNMP MIB module CISCO-SDWAN-OPER-APP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-SDWAN-OPER-APP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:41 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ciscoSdwanOperAppMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 1007))
+ciscoSdwanOperAppMIB.setRevisions(('2021-05-26 00:00',))
+if mibBuilder.loadTexts: ciscoSdwanOperAppMIB.setLastUpdated('202105260000Z')
+if mibBuilder.loadTexts: ciscoSdwanOperAppMIB.setOrganization('Cisco Systems, Inc. ')
+ciscoSdwanOperAppMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 1007, 0))
+ciscoSdwanOperAppMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1))
+ciscoSdwanOperAppMIBNotifObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 1007, 2))
+ciscoSdwanOperAppMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 1007, 3))
+app = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6))
+appCflowd = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6, 1))
+appCflowdStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6, 1, 3))
+appCflowdTemplate = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6, 1, 4))
+appCflowdStatisticsDataPackets = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6, 1, 3, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: appCflowdStatisticsDataPackets.setStatus('current')
+appCflowdStatisticsTemplatePackets = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6, 1, 3, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: appCflowdStatisticsTemplatePackets.setStatus('current')
+appCflowdStatisticsTotalPackets = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6, 1, 3, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: appCflowdStatisticsTotalPackets.setStatus('current')
+appCflowdStatisticsFlowRefresh = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6, 1, 3, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: appCflowdStatisticsFlowRefresh.setStatus('current')
+appCflowdStatisticsFlowAgeout = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6, 1, 3, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: appCflowdStatisticsFlowAgeout.setStatus('current')
+appCflowdStatisticsFlowEndDetected = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6, 1, 3, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: appCflowdStatisticsFlowEndDetected.setStatus('current')
+appCflowdStatisticsFlowEndForced = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6, 1, 3, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: appCflowdStatisticsFlowEndForced.setStatus('current')
+appCflowdStatisticsFlowRateLimitDrop = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6, 1, 3, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: appCflowdStatisticsFlowRateLimitDrop.setStatus('current')
+appCflowdTemplateName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6, 1, 4, 1), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: appCflowdTemplateName.setStatus('current')
+appCflowdTemplateFlowActiveTimeout = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6, 1, 4, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: appCflowdTemplateFlowActiveTimeout.setStatus('current')
+appCflowdTemplateFlowInactiveTimeout = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6, 1, 4, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: appCflowdTemplateFlowInactiveTimeout.setStatus('current')
+appCflowdTemplateTemplateRefresh = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 1007, 1, 6, 1, 4, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: appCflowdTemplateTemplateRefresh.setStatus('current')
+ciscoSdwanOperAppMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 1007, 3, 1))
+ciscoSdwanOperAppMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 1007, 3, 2))
+ciscoSdwanOperAppMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 1007, 3, 1, 1)).setObjects(("CISCO-SDWAN-OPER-APP-MIB", "cSdwanAppCflowdStatisticsGroup"), ("CISCO-SDWAN-OPER-APP-MIB", "cSdwanAppCflowdTemplateGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSdwanOperAppMIBCompliance = ciscoSdwanOperAppMIBCompliance.setStatus('current')
+cSdwanAppCflowdStatisticsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 1007, 3, 2, 1)).setObjects(("CISCO-SDWAN-OPER-APP-MIB", "appCflowdStatisticsDataPackets"), ("CISCO-SDWAN-OPER-APP-MIB", "appCflowdStatisticsTemplatePackets"), ("CISCO-SDWAN-OPER-APP-MIB", "appCflowdStatisticsTotalPackets"), ("CISCO-SDWAN-OPER-APP-MIB", "appCflowdStatisticsFlowRefresh"), ("CISCO-SDWAN-OPER-APP-MIB", "appCflowdStatisticsFlowAgeout"), ("CISCO-SDWAN-OPER-APP-MIB", "appCflowdStatisticsFlowEndDetected"), ("CISCO-SDWAN-OPER-APP-MIB", "appCflowdStatisticsFlowEndForced"), ("CISCO-SDWAN-OPER-APP-MIB", "appCflowdStatisticsFlowRateLimitDrop"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cSdwanAppCflowdStatisticsGroup = cSdwanAppCflowdStatisticsGroup.setStatus('current')
+cSdwanAppCflowdTemplateGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 1007, 3, 2, 2)).setObjects(("CISCO-SDWAN-OPER-APP-MIB", "appCflowdTemplateName"), ("CISCO-SDWAN-OPER-APP-MIB", "appCflowdTemplateFlowActiveTimeout"), ("CISCO-SDWAN-OPER-APP-MIB", "appCflowdTemplateFlowInactiveTimeout"), ("CISCO-SDWAN-OPER-APP-MIB", "appCflowdTemplateTemplateRefresh"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cSdwanAppCflowdTemplateGroup = cSdwanAppCflowdTemplateGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-SDWAN-OPER-APP-MIB", appCflowdStatisticsDataPackets=appCflowdStatisticsDataPackets, appCflowdStatisticsFlowAgeout=appCflowdStatisticsFlowAgeout, appCflowd=appCflowd, appCflowdTemplate=appCflowdTemplate, appCflowdStatistics=appCflowdStatistics, ciscoSdwanOperAppMIBGroups=ciscoSdwanOperAppMIBGroups, appCflowdStatisticsFlowRateLimitDrop=appCflowdStatisticsFlowRateLimitDrop, app=app, appCflowdStatisticsFlowEndForced=appCflowdStatisticsFlowEndForced, appCflowdTemplateTemplateRefresh=appCflowdTemplateTemplateRefresh, PYSNMP_MODULE_ID=ciscoSdwanOperAppMIB, ciscoSdwanOperAppMIBObjects=ciscoSdwanOperAppMIBObjects, ciscoSdwanOperAppMIBNotifObjects=ciscoSdwanOperAppMIBNotifObjects, appCflowdStatisticsTotalPackets=appCflowdStatisticsTotalPackets, appCflowdTemplateFlowInactiveTimeout=appCflowdTemplateFlowInactiveTimeout, appCflowdStatisticsFlowRefresh=appCflowdStatisticsFlowRefresh, appCflowdStatisticsFlowEndDetected=appCflowdStatisticsFlowEndDetected, ciscoSdwanOperAppMIBCompliances=ciscoSdwanOperAppMIBCompliances, cSdwanAppCflowdStatisticsGroup=cSdwanAppCflowdStatisticsGroup, appCflowdTemplateFlowActiveTimeout=appCflowdTemplateFlowActiveTimeout, cSdwanAppCflowdTemplateGroup=cSdwanAppCflowdTemplateGroup, ciscoSdwanOperAppMIB=ciscoSdwanOperAppMIB, ciscoSdwanOperAppMIBConform=ciscoSdwanOperAppMIBConform, appCflowdTemplateName=appCflowdTemplateName, ciscoSdwanOperAppMIBCompliance=ciscoSdwanOperAppMIBCompliance, ciscoSdwanOperAppMIBNotifs=ciscoSdwanOperAppMIBNotifs, appCflowdStatisticsTemplatePackets=appCflowdStatisticsTemplatePackets)

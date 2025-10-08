@@ -1,55 +1,39 @@
-_H='synologyCoredumpGroup'
-_G='coredumpTimestamp'
-_F='coredumpFilePath'
-_E='read-only'
-_D='coredumpInfoIndex'
-_C='Integer32'
-_B='SYNOLOGY-COREDUMPS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-synologyCoredump=ModuleIdentity((1,3,6,1,4,1,6574,201))
-if mibBuilder.loadTexts:synologyCoredump.setRevisions(('2016-05-24 00:00',))
-_Synology_ObjectIdentity=ObjectIdentity
-synology=_Synology_ObjectIdentity((1,3,6,1,4,1,6574))
-_CoredumpTable_Object=MibTable
-coredumpTable=_CoredumpTable_Object((1,3,6,1,4,1,6574,201,1))
-if mibBuilder.loadTexts:coredumpTable.setStatus(_A)
-_CoredumpEntry_Object=MibTableRow
-coredumpEntry=_CoredumpEntry_Object((1,3,6,1,4,1,6574,201,1,1))
-coredumpEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:coredumpEntry.setStatus(_A)
-class _CoredumpInfoIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CoredumpInfoIndex_Type.__name__=_C
-_CoredumpInfoIndex_Object=MibTableColumn
-coredumpInfoIndex=_CoredumpInfoIndex_Object((1,3,6,1,4,1,6574,201,1,1,1),_CoredumpInfoIndex_Type())
-coredumpInfoIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:coredumpInfoIndex.setStatus(_A)
-_CoredumpFilePath_Type=OctetString
-_CoredumpFilePath_Object=MibTableColumn
-coredumpFilePath=_CoredumpFilePath_Object((1,3,6,1,4,1,6574,201,1,1,2),_CoredumpFilePath_Type())
-coredumpFilePath.setMaxAccess(_E)
-if mibBuilder.loadTexts:coredumpFilePath.setStatus(_A)
-_CoredumpTimestamp_Type=Integer32
-_CoredumpTimestamp_Object=MibTableColumn
-coredumpTimestamp=_CoredumpTimestamp_Object((1,3,6,1,4,1,6574,201,1,1,3),_CoredumpTimestamp_Type())
-coredumpTimestamp.setMaxAccess(_E)
-if mibBuilder.loadTexts:coredumpTimestamp.setStatus(_A)
-_SynologyCoredumpConformance_ObjectIdentity=ObjectIdentity
-synologyCoredumpConformance=_SynologyCoredumpConformance_ObjectIdentity((1,3,6,1,4,1,6574,201,2))
-_SynologyCoredumpCompliances_ObjectIdentity=ObjectIdentity
-synologyCoredumpCompliances=_SynologyCoredumpCompliances_ObjectIdentity((1,3,6,1,4,1,6574,201,2,1))
-_SynologyCoredumpGroups_ObjectIdentity=ObjectIdentity
-synologyCoredumpGroups=_SynologyCoredumpGroups_ObjectIdentity((1,3,6,1,4,1,6574,201,2,2))
-synologyCoredumpGroup=ObjectGroup((1,3,6,1,4,1,6574,201,2,2,1))
-synologyCoredumpGroup.setObjects(*((_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:synologyCoredumpGroup.setStatus(_A)
-synologyCoredumpCompliance=ModuleCompliance((1,3,6,1,4,1,6574,201,2,1,1))
-synologyCoredumpCompliance.setObjects((_B,_H))
-if mibBuilder.loadTexts:synologyCoredumpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'synology':synology,'synologyCoredump':synologyCoredump,'coredumpTable':coredumpTable,'coredumpEntry':coredumpEntry,_D:coredumpInfoIndex,_F:coredumpFilePath,_G:coredumpTimestamp,'synologyCoredumpConformance':synologyCoredumpConformance,'synologyCoredumpCompliances':synologyCoredumpCompliances,'synologyCoredumpCompliance':synologyCoredumpCompliance,'synologyCoredumpGroups':synologyCoredumpGroups,_H:synologyCoredumpGroup})
+#
+# PySNMP MIB module SYNOLOGY-COREDUMPS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/synology/SYNOLOGY-COREDUMPS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+synologyCoredump = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 201))
+synologyCoredump.setRevisions(('2016-05-24 00:00',))
+if mibBuilder.loadTexts: synologyCoredump.setLastUpdated('201605240000Z')
+if mibBuilder.loadTexts: synologyCoredump.setOrganization('www.synology.com')
+synology = MibIdentifier((1, 3, 6, 1, 4, 1, 6574))
+coredumpTable = MibTable((1, 3, 6, 1, 4, 1, 6574, 201, 1), )
+if mibBuilder.loadTexts: coredumpTable.setStatus('current')
+coredumpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6574, 201, 1, 1), ).setIndexNames((0, "SYNOLOGY-COREDUMPS-MIB", "coredumpInfoIndex"))
+if mibBuilder.loadTexts: coredumpEntry.setStatus('current')
+coredumpInfoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 201, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: coredumpInfoIndex.setStatus('current')
+coredumpFilePath = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 201, 1, 1, 2), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coredumpFilePath.setStatus('current')
+coredumpTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 6574, 201, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coredumpTimestamp.setStatus('current')
+synologyCoredumpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 201, 2))
+synologyCoredumpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 201, 2, 1))
+synologyCoredumpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 201, 2, 2))
+synologyCoredumpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6574, 201, 2, 1, 1)).setObjects(("SYNOLOGY-COREDUMPS-MIB", "synologyCoredumpGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    synologyCoredumpCompliance = synologyCoredumpCompliance.setStatus('current')
+synologyCoredumpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 201, 2, 2, 1)).setObjects(("SYNOLOGY-COREDUMPS-MIB", "coredumpFilePath"), ("SYNOLOGY-COREDUMPS-MIB", "coredumpTimestamp"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    synologyCoredumpGroup = synologyCoredumpGroup.setStatus('current')
+mibBuilder.exportSymbols("SYNOLOGY-COREDUMPS-MIB", synologyCoredumpConformance=synologyCoredumpConformance, synologyCoredumpGroups=synologyCoredumpGroups, coredumpInfoIndex=coredumpInfoIndex, coredumpTable=coredumpTable, synologyCoredumpCompliance=synologyCoredumpCompliance, synologyCoredumpCompliances=synologyCoredumpCompliances, coredumpTimestamp=coredumpTimestamp, coredumpFilePath=coredumpFilePath, synologyCoredumpGroup=synologyCoredumpGroup, synologyCoredump=synologyCoredump, synology=synology, coredumpEntry=coredumpEntry, PYSNMP_MODULE_ID=synologyCoredump)

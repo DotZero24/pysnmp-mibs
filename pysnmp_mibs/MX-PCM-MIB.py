@@ -1,32 +1,27 @@
-_B='current'
-_A='Integer32'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mediatrixServices,=mibBuilder.importSymbols('MX-SMI2','mediatrixServices')
-MxActivationState,MxAdvancedIpPort,MxDigitMap,MxEnableState,MxIpAddress,MxIpHostName,MxIpPort,MxIpSubnetMask=mibBuilder.importSymbols('MX-TC','MxActivationState','MxAdvancedIpPort','MxDigitMap','MxEnableState','MxIpAddress','MxIpHostName','MxIpPort','MxIpSubnetMask')
-MxFloat32,MxIpAddr,MxIpAddrMask,MxIpAddrPort,MxIpHostNamePort,MxUInt64,MxUri,MxUrl=mibBuilder.importSymbols('MX-TC2','MxFloat32','MxIpAddr','MxIpAddrMask','MxIpAddrPort','MxIpHostNamePort','MxUInt64','MxUri','MxUrl')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_A,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-pcmMIB=ModuleIdentity((1,3,6,1,4,1,4935,1000,100,200,100,300))
-_PcmMIBObjects_ObjectIdentity=ObjectIdentity
-pcmMIBObjects=_PcmMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,300,1))
-_NotificationsGroup_ObjectIdentity=ObjectIdentity
-notificationsGroup=_NotificationsGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,300,1,60010))
-class _MinSeverity_Type(Integer32):defaultValue=300;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,100,200,300,400,500)));namedValues=NamedValues(*(('disable',0),('debug',100),('info',200),('warning',300),('error',400),('critical',500)))
-_MinSeverity_Type.__name__=_A
-_MinSeverity_Object=MibScalar
-minSeverity=_MinSeverity_Object((1,3,6,1,4,1,4935,1000,100,200,100,300,1,60010,100),_MinSeverity_Type())
-minSeverity.setMaxAccess('read-write')
-if mibBuilder.loadTexts:minSeverity.setStatus(_B)
-_ConfigurationGroup_ObjectIdentity=ObjectIdentity
-configurationGroup=_ConfigurationGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,300,1,60020))
-class _NeedRestartInfo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,100)));namedValues=NamedValues(*(('no',0),('yes',100)))
-_NeedRestartInfo_Type.__name__=_A
-_NeedRestartInfo_Object=MibScalar
-needRestartInfo=_NeedRestartInfo_Object((1,3,6,1,4,1,4935,1000,100,200,100,300,1,60020,100),_NeedRestartInfo_Type())
-needRestartInfo.setMaxAccess('read-only')
-if mibBuilder.loadTexts:needRestartInfo.setStatus(_B)
-mibBuilder.exportSymbols('MX-PCM-MIB',**{'pcmMIB':pcmMIB,'pcmMIBObjects':pcmMIBObjects,'notificationsGroup':notificationsGroup,'minSeverity':minSeverity,'configurationGroup':configurationGroup,'needRestartInfo':needRestartInfo})
+#
+# PySNMP MIB module MX-PCM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-PCM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mediatrixServices, = mibBuilder.importSymbols("MX-SMI2", "mediatrixServices")
+MxActivationState, MxEnableState, MxIpAddress, MxAdvancedIpPort, MxDigitMap, MxIpPort, MxIpHostName, MxIpSubnetMask = mibBuilder.importSymbols("MX-TC", "MxActivationState", "MxEnableState", "MxIpAddress", "MxAdvancedIpPort", "MxDigitMap", "MxIpPort", "MxIpHostName", "MxIpSubnetMask")
+MxIpHostNamePort, MxIpAddrMask, MxUri, MxIpAddr, MxIpAddrPort, MxUrl, MxUInt64, MxFloat32 = mibBuilder.importSymbols("MX-TC2", "MxIpHostNamePort", "MxIpAddrMask", "MxUri", "MxIpAddr", "MxIpAddrPort", "MxUrl", "MxUInt64", "MxFloat32")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+pcmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 300))
+if mibBuilder.loadTexts: pcmMIB.setLastUpdated('1910210000Z')
+if mibBuilder.loadTexts: pcmMIB.setOrganization(' Mediatrix Telecom, Inc. ')
+pcmMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 300, 1))
+notificationsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 300, 1, 60010))
+minSeverity = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 300, 1, 60010, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100, 200, 300, 400, 500))).clone(namedValues=NamedValues(("disable", 0), ("debug", 100), ("info", 200), ("warning", 300), ("error", 400), ("critical", 500))).clone('warning')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: minSeverity.setStatus('current')
+configurationGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 300, 1, 60020))
+needRestartInfo = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 300, 1, 60020, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100))).clone(namedValues=NamedValues(("no", 0), ("yes", 100)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: needRestartInfo.setStatus('current')
+mibBuilder.exportSymbols("MX-PCM-MIB", pcmMIB=pcmMIB, pcmMIBObjects=pcmMIBObjects, notificationsGroup=notificationsGroup, PYSNMP_MODULE_ID=pcmMIB, minSeverity=minSeverity, configurationGroup=configurationGroup, needRestartInfo=needRestartInfo)

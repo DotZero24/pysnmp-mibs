@@ -1,133 +1,77 @@
-_I='egrUsedTCAMEntries'
-_H='egrUsedTCAMPercent'
-_G='ingUsedTCAMEntries'
-_F='ingUsedTCAMPercent'
-_E='egrTCAMGroupName'
-_D='ingTCAMGroupName'
-_C='IPI-TCAM-UTILIZATION-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ipi,=mibBuilder.importSymbols('OCNOS-IPI-MODULE-MIB','ipi')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention')
-ipiTCAMutilization=ModuleIdentity((1,3,6,1,4,1,36673,108))
-class CodeType(TextualConvention,Unsigned32):status=_A;displayHint='x'
-class UnitType(TextualConvention,Unsigned32):status=_A;displayHint='x'
-_TCAMUtilizationObjects_ObjectIdentity=ObjectIdentity
-TCAMUtilizationObjects=_TCAMUtilizationObjects_ObjectIdentity((1,3,6,1,4,1,36673,108,1))
-_IngressTCAMUtilizationTable_Object=MibTable
-ingressTCAMUtilizationTable=_IngressTCAMUtilizationTable_Object((1,3,6,1,4,1,36673,108,1,1))
-if mibBuilder.loadTexts:ingressTCAMUtilizationTable.setStatus(_A)
-_IngressTCAMUtilizationEntry_Object=MibTableRow
-ingressTCAMUtilizationEntry=_IngressTCAMUtilizationEntry_Object((1,3,6,1,4,1,36673,108,1,1,1))
-ingressTCAMUtilizationEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:ingressTCAMUtilizationEntry.setStatus(_A)
-_IngTCAMGroupName_Type=DisplayString
-_IngTCAMGroupName_Object=MibTableColumn
-ingTCAMGroupName=_IngTCAMGroupName_Object((1,3,6,1,4,1,36673,108,1,1,1,1),_IngTCAMGroupName_Type())
-ingTCAMGroupName.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingTCAMGroupName.setStatus(_A)
-_IngFreeTCAMEntries_Type=Integer
-_IngFreeTCAMEntries_Object=MibTableColumn
-ingFreeTCAMEntries=_IngFreeTCAMEntries_Object((1,3,6,1,4,1,36673,108,1,1,1,2),_IngFreeTCAMEntries_Type())
-ingFreeTCAMEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingFreeTCAMEntries.setStatus(_A)
-_IngUsedTCAMPercent_Type=Integer
-_IngUsedTCAMPercent_Object=MibTableColumn
-ingUsedTCAMPercent=_IngUsedTCAMPercent_Object((1,3,6,1,4,1,36673,108,1,1,1,3),_IngUsedTCAMPercent_Type())
-ingUsedTCAMPercent.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingUsedTCAMPercent.setStatus(_A)
-_IngUsedTCAMEntries_Type=Integer
-_IngUsedTCAMEntries_Object=MibTableColumn
-ingUsedTCAMEntries=_IngUsedTCAMEntries_Object((1,3,6,1,4,1,36673,108,1,1,1,4),_IngUsedTCAMEntries_Type())
-ingUsedTCAMEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingUsedTCAMEntries.setStatus(_A)
-_IngTotalTCAMEntries_Type=Integer
-_IngTotalTCAMEntries_Object=MibTableColumn
-ingTotalTCAMEntries=_IngTotalTCAMEntries_Object((1,3,6,1,4,1,36673,108,1,1,1,5),_IngTotalTCAMEntries_Type())
-ingTotalTCAMEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingTotalTCAMEntries.setStatus(_A)
-_IngDedicatedTCAMEntries_Type=Integer
-_IngDedicatedTCAMEntries_Object=MibTableColumn
-ingDedicatedTCAMEntries=_IngDedicatedTCAMEntries_Object((1,3,6,1,4,1,36673,108,1,1,1,6),_IngDedicatedTCAMEntries_Type())
-ingDedicatedTCAMEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingDedicatedTCAMEntries.setStatus(_A)
-_IngSharedTCAMEntries_Type=Integer
-_IngSharedTCAMEntries_Object=MibTableColumn
-ingSharedTCAMEntries=_IngSharedTCAMEntries_Object((1,3,6,1,4,1,36673,108,1,1,1,7),_IngSharedTCAMEntries_Type())
-ingSharedTCAMEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:ingSharedTCAMEntries.setStatus(_A)
-_EgressTCAMUtilizationTable_Object=MibTable
-egressTCAMUtilizationTable=_EgressTCAMUtilizationTable_Object((1,3,6,1,4,1,36673,108,1,2))
-if mibBuilder.loadTexts:egressTCAMUtilizationTable.setStatus(_A)
-_EgressTCAMUtilizationEntry_Object=MibTableRow
-egressTCAMUtilizationEntry=_EgressTCAMUtilizationEntry_Object((1,3,6,1,4,1,36673,108,1,2,1))
-egressTCAMUtilizationEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:egressTCAMUtilizationEntry.setStatus(_A)
-_EgrTCAMGroupName_Type=DisplayString
-_EgrTCAMGroupName_Object=MibTableColumn
-egrTCAMGroupName=_EgrTCAMGroupName_Object((1,3,6,1,4,1,36673,108,1,2,1,1),_EgrTCAMGroupName_Type())
-egrTCAMGroupName.setMaxAccess(_B)
-if mibBuilder.loadTexts:egrTCAMGroupName.setStatus(_A)
-_EgrFreeTCAMEntries_Type=Integer
-_EgrFreeTCAMEntries_Object=MibTableColumn
-egrFreeTCAMEntries=_EgrFreeTCAMEntries_Object((1,3,6,1,4,1,36673,108,1,2,1,2),_EgrFreeTCAMEntries_Type())
-egrFreeTCAMEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:egrFreeTCAMEntries.setStatus(_A)
-_EgrUsedTCAMPercent_Type=Integer
-_EgrUsedTCAMPercent_Object=MibTableColumn
-egrUsedTCAMPercent=_EgrUsedTCAMPercent_Object((1,3,6,1,4,1,36673,108,1,2,1,3),_EgrUsedTCAMPercent_Type())
-egrUsedTCAMPercent.setMaxAccess(_B)
-if mibBuilder.loadTexts:egrUsedTCAMPercent.setStatus(_A)
-_EgrUsedTCAMEntries_Type=Integer
-_EgrUsedTCAMEntries_Object=MibTableColumn
-egrUsedTCAMEntries=_EgrUsedTCAMEntries_Object((1,3,6,1,4,1,36673,108,1,2,1,4),_EgrUsedTCAMEntries_Type())
-egrUsedTCAMEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:egrUsedTCAMEntries.setStatus(_A)
-_EgrTotalTCAMEntries_Type=Integer
-_EgrTotalTCAMEntries_Object=MibTableColumn
-egrTotalTCAMEntries=_EgrTotalTCAMEntries_Object((1,3,6,1,4,1,36673,108,1,2,1,5),_EgrTotalTCAMEntries_Type())
-egrTotalTCAMEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:egrTotalTCAMEntries.setStatus(_A)
-_EgrDedicatedTCAMEntries_Type=Integer
-_EgrDedicatedTCAMEntries_Object=MibTableColumn
-egrDedicatedTCAMEntries=_EgrDedicatedTCAMEntries_Object((1,3,6,1,4,1,36673,108,1,2,1,6),_EgrDedicatedTCAMEntries_Type())
-egrDedicatedTCAMEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:egrDedicatedTCAMEntries.setStatus(_A)
-_EgrSharedTCAMEntries_Type=Integer
-_EgrSharedTCAMEntries_Object=MibTableColumn
-egrSharedTCAMEntries=_EgrSharedTCAMEntries_Object((1,3,6,1,4,1,36673,108,1,2,1,7),_EgrSharedTCAMEntries_Type())
-egrSharedTCAMEntries.setMaxAccess(_B)
-if mibBuilder.loadTexts:egrSharedTCAMEntries.setStatus(_A)
-_TCAMWarningThresholdLevel_Type=Integer
-_TCAMWarningThresholdLevel_Object=MibScalar
-tCAMWarningThresholdLevel=_TCAMWarningThresholdLevel_Object((1,3,6,1,4,1,36673,108,1,3),_TCAMWarningThresholdLevel_Type())
-tCAMWarningThresholdLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:tCAMWarningThresholdLevel.setStatus(_A)
-_TCAMAlertThresholdLevel_Type=Integer
-_TCAMAlertThresholdLevel_Object=MibScalar
-tCAMAlertThresholdLevel=_TCAMAlertThresholdLevel_Object((1,3,6,1,4,1,36673,108,1,4),_TCAMAlertThresholdLevel_Type())
-tCAMAlertThresholdLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:tCAMAlertThresholdLevel.setStatus(_A)
-_TCAMUtilizationAlarmObjects_ObjectIdentity=ObjectIdentity
-TCAMUtilizationAlarmObjects=_TCAMUtilizationAlarmObjects_ObjectIdentity((1,3,6,1,4,1,36673,108,2))
-_TCAMUtilizationAlarmNotifications_ObjectIdentity=ObjectIdentity
-TCAMUtilizationAlarmNotifications=_TCAMUtilizationAlarmNotifications_ObjectIdentity((1,3,6,1,4,1,36673,108,2,1))
-ingTCAMWarningThresholdTrap=NotificationType((1,3,6,1,4,1,36673,108,2,1,1))
-ingTCAMWarningThresholdTrap.setObjects(*((_C,_D),(_C,_F),(_C,_G)))
-if mibBuilder.loadTexts:ingTCAMWarningThresholdTrap.setStatus(_A)
-ingTCAMCriticalThresholdTrap=NotificationType((1,3,6,1,4,1,36673,108,2,1,2))
-ingTCAMCriticalThresholdTrap.setObjects(*((_C,_D),(_C,_F),(_C,_G)))
-if mibBuilder.loadTexts:ingTCAMCriticalThresholdTrap.setStatus(_A)
-egrTCAMWarningThresholdTrap=NotificationType((1,3,6,1,4,1,36673,108,2,1,3))
-egrTCAMWarningThresholdTrap.setObjects(*((_C,_E),(_C,_H),(_C,_I)))
-if mibBuilder.loadTexts:egrTCAMWarningThresholdTrap.setStatus(_A)
-egrTCAMCriticalThresholdTrap=NotificationType((1,3,6,1,4,1,36673,108,2,1,4))
-egrTCAMCriticalThresholdTrap.setObjects(*((_C,_E),(_C,_H),(_C,_I)))
-if mibBuilder.loadTexts:egrTCAMCriticalThresholdTrap.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'CodeType':CodeType,'UnitType':UnitType,'ipiTCAMutilization':ipiTCAMutilization,'TCAMUtilizationObjects':TCAMUtilizationObjects,'ingressTCAMUtilizationTable':ingressTCAMUtilizationTable,'ingressTCAMUtilizationEntry':ingressTCAMUtilizationEntry,_D:ingTCAMGroupName,'ingFreeTCAMEntries':ingFreeTCAMEntries,_F:ingUsedTCAMPercent,_G:ingUsedTCAMEntries,'ingTotalTCAMEntries':ingTotalTCAMEntries,'ingDedicatedTCAMEntries':ingDedicatedTCAMEntries,'ingSharedTCAMEntries':ingSharedTCAMEntries,'egressTCAMUtilizationTable':egressTCAMUtilizationTable,'egressTCAMUtilizationEntry':egressTCAMUtilizationEntry,_E:egrTCAMGroupName,'egrFreeTCAMEntries':egrFreeTCAMEntries,_H:egrUsedTCAMPercent,_I:egrUsedTCAMEntries,'egrTotalTCAMEntries':egrTotalTCAMEntries,'egrDedicatedTCAMEntries':egrDedicatedTCAMEntries,'egrSharedTCAMEntries':egrSharedTCAMEntries,'tCAMWarningThresholdLevel':tCAMWarningThresholdLevel,'tCAMAlertThresholdLevel':tCAMAlertThresholdLevel,'TCAMUtilizationAlarmObjects':TCAMUtilizationAlarmObjects,'TCAMUtilizationAlarmNotifications':TCAMUtilizationAlarmNotifications,'ingTCAMWarningThresholdTrap':ingTCAMWarningThresholdTrap,'ingTCAMCriticalThresholdTrap':ingTCAMCriticalThresholdTrap,'egrTCAMWarningThresholdTrap':egrTCAMWarningThresholdTrap,'egrTCAMCriticalThresholdTrap':egrTCAMCriticalThresholdTrap})
+#
+# PySNMP MIB module IPI-TCAM-UTILIZATION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ipinfusion/IPI-TCAM-UTILIZATION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ipi, = mibBuilder.importSymbols("OCNOS-IPI-MODULE-MIB", "ipi")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, enterprises, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "enterprises", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, MacAddress, RowStatus, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TextualConvention")
+ipiTCAMutilization = ModuleIdentity((1, 3, 6, 1, 4, 1, 36673, 108))
+if mibBuilder.loadTexts: ipiTCAMutilization.setLastUpdated('201603301200Z')
+if mibBuilder.loadTexts: ipiTCAMutilization.setOrganization('IPI.')
+TCAMUtilizationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 36673, 108, 1))
+TCAMUtilizationAlarmObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 36673, 108, 2))
+class CodeType(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'x'
+
+class UnitType(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'x'
+
+ingressTCAMUtilizationTable = MibTable((1, 3, 6, 1, 4, 1, 36673, 108, 1, 1), )
+if mibBuilder.loadTexts: ingressTCAMUtilizationTable.setStatus('current')
+ingressTCAMUtilizationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 36673, 108, 1, 1, 1), ).setIndexNames((0, "IPI-TCAM-UTILIZATION-MIB", "ingTCAMGroupName"))
+if mibBuilder.loadTexts: ingressTCAMUtilizationEntry.setStatus('current')
+ingTCAMGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 36673, 108, 1, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingTCAMGroupName.setStatus('current')
+ingFreeTCAMEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 36673, 108, 1, 1, 1, 2), Integer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingFreeTCAMEntries.setStatus('current')
+ingUsedTCAMPercent = MibTableColumn((1, 3, 6, 1, 4, 1, 36673, 108, 1, 1, 1, 3), Integer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingUsedTCAMPercent.setStatus('current')
+ingUsedTCAMEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 36673, 108, 1, 1, 1, 4), Integer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingUsedTCAMEntries.setStatus('current')
+ingTotalTCAMEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 36673, 108, 1, 1, 1, 5), Integer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingTotalTCAMEntries.setStatus('current')
+ingDedicatedTCAMEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 36673, 108, 1, 1, 1, 6), Integer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingDedicatedTCAMEntries.setStatus('current')
+ingSharedTCAMEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 36673, 108, 1, 1, 1, 7), Integer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ingSharedTCAMEntries.setStatus('current')
+egressTCAMUtilizationTable = MibTable((1, 3, 6, 1, 4, 1, 36673, 108, 1, 2), )
+if mibBuilder.loadTexts: egressTCAMUtilizationTable.setStatus('current')
+egressTCAMUtilizationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 36673, 108, 1, 2, 1), ).setIndexNames((0, "IPI-TCAM-UTILIZATION-MIB", "egrTCAMGroupName"))
+if mibBuilder.loadTexts: egressTCAMUtilizationEntry.setStatus('current')
+egrTCAMGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 36673, 108, 1, 2, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egrTCAMGroupName.setStatus('current')
+egrFreeTCAMEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 36673, 108, 1, 2, 1, 2), Integer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egrFreeTCAMEntries.setStatus('current')
+egrUsedTCAMPercent = MibTableColumn((1, 3, 6, 1, 4, 1, 36673, 108, 1, 2, 1, 3), Integer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egrUsedTCAMPercent.setStatus('current')
+egrUsedTCAMEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 36673, 108, 1, 2, 1, 4), Integer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egrUsedTCAMEntries.setStatus('current')
+egrTotalTCAMEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 36673, 108, 1, 2, 1, 5), Integer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egrTotalTCAMEntries.setStatus('current')
+egrDedicatedTCAMEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 36673, 108, 1, 2, 1, 6), Integer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egrDedicatedTCAMEntries.setStatus('current')
+egrSharedTCAMEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 36673, 108, 1, 2, 1, 7), Integer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: egrSharedTCAMEntries.setStatus('current')
+tCAMWarningThresholdLevel = MibScalar((1, 3, 6, 1, 4, 1, 36673, 108, 1, 3), Integer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tCAMWarningThresholdLevel.setStatus('current')
+tCAMAlertThresholdLevel = MibScalar((1, 3, 6, 1, 4, 1, 36673, 108, 1, 4), Integer()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tCAMAlertThresholdLevel.setStatus('current')
+TCAMUtilizationAlarmNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 36673, 108, 2, 1))
+ingTCAMWarningThresholdTrap = NotificationType((1, 3, 6, 1, 4, 1, 36673, 108, 2, 1, 1)).setObjects(("IPI-TCAM-UTILIZATION-MIB", "ingTCAMGroupName"), ("IPI-TCAM-UTILIZATION-MIB", "ingUsedTCAMPercent"), ("IPI-TCAM-UTILIZATION-MIB", "ingUsedTCAMEntries"))
+if mibBuilder.loadTexts: ingTCAMWarningThresholdTrap.setStatus('current')
+ingTCAMCriticalThresholdTrap = NotificationType((1, 3, 6, 1, 4, 1, 36673, 108, 2, 1, 2)).setObjects(("IPI-TCAM-UTILIZATION-MIB", "ingTCAMGroupName"), ("IPI-TCAM-UTILIZATION-MIB", "ingUsedTCAMPercent"), ("IPI-TCAM-UTILIZATION-MIB", "ingUsedTCAMEntries"))
+if mibBuilder.loadTexts: ingTCAMCriticalThresholdTrap.setStatus('current')
+egrTCAMWarningThresholdTrap = NotificationType((1, 3, 6, 1, 4, 1, 36673, 108, 2, 1, 3)).setObjects(("IPI-TCAM-UTILIZATION-MIB", "egrTCAMGroupName"), ("IPI-TCAM-UTILIZATION-MIB", "egrUsedTCAMPercent"), ("IPI-TCAM-UTILIZATION-MIB", "egrUsedTCAMEntries"))
+if mibBuilder.loadTexts: egrTCAMWarningThresholdTrap.setStatus('current')
+egrTCAMCriticalThresholdTrap = NotificationType((1, 3, 6, 1, 4, 1, 36673, 108, 2, 1, 4)).setObjects(("IPI-TCAM-UTILIZATION-MIB", "egrTCAMGroupName"), ("IPI-TCAM-UTILIZATION-MIB", "egrUsedTCAMPercent"), ("IPI-TCAM-UTILIZATION-MIB", "egrUsedTCAMEntries"))
+if mibBuilder.loadTexts: egrTCAMCriticalThresholdTrap.setStatus('current')
+mibBuilder.exportSymbols("IPI-TCAM-UTILIZATION-MIB", ingFreeTCAMEntries=ingFreeTCAMEntries, ingUsedTCAMEntries=ingUsedTCAMEntries, UnitType=UnitType, tCAMWarningThresholdLevel=tCAMWarningThresholdLevel, egrTCAMCriticalThresholdTrap=egrTCAMCriticalThresholdTrap, ingSharedTCAMEntries=ingSharedTCAMEntries, egrFreeTCAMEntries=egrFreeTCAMEntries, ingTCAMWarningThresholdTrap=ingTCAMWarningThresholdTrap, CodeType=CodeType, ingTotalTCAMEntries=ingTotalTCAMEntries, TCAMUtilizationAlarmNotifications=TCAMUtilizationAlarmNotifications, ingTCAMGroupName=ingTCAMGroupName, TCAMUtilizationObjects=TCAMUtilizationObjects, egrDedicatedTCAMEntries=egrDedicatedTCAMEntries, egrTCAMWarningThresholdTrap=egrTCAMWarningThresholdTrap, ingTCAMCriticalThresholdTrap=ingTCAMCriticalThresholdTrap, egrTCAMGroupName=egrTCAMGroupName, TCAMUtilizationAlarmObjects=TCAMUtilizationAlarmObjects, egrTotalTCAMEntries=egrTotalTCAMEntries, egrSharedTCAMEntries=egrSharedTCAMEntries, ingDedicatedTCAMEntries=ingDedicatedTCAMEntries, PYSNMP_MODULE_ID=ipiTCAMutilization, egrUsedTCAMEntries=egrUsedTCAMEntries, ipiTCAMutilization=ipiTCAMutilization, ingUsedTCAMPercent=ingUsedTCAMPercent, tCAMAlertThresholdLevel=tCAMAlertThresholdLevel, ingressTCAMUtilizationEntry=ingressTCAMUtilizationEntry, egrUsedTCAMPercent=egrUsedTCAMPercent, ingressTCAMUtilizationTable=ingressTCAMUtilizationTable, egressTCAMUtilizationEntry=egressTCAMUtilizationEntry, egressTCAMUtilizationTable=egressTCAMUtilizationTable)

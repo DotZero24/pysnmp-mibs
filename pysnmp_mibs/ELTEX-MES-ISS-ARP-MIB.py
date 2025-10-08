@@ -1,86 +1,49 @@
-_G='Integer32'
-_F='read-write'
-_E='TruthValue'
-_D='ifIndex'
-_C='IF-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-eltMesIss,=mibBuilder.importSymbols('ELTEX-MES-ISS-MIB','eltMesIss')
-ifIndex,=mibBuilder.importSymbols(_C,_D)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_E)
-eltMesIssArpMIB=ModuleIdentity((1,3,6,1,4,1,35265,1,139,26))
-if mibBuilder.loadTexts:eltMesIssArpMIB.setRevisions(('1970-01-01 00:00','2021-03-09 00:00'))
-_EltMesIssArpObjects_ObjectIdentity=ObjectIdentity
-eltMesIssArpObjects=_EltMesIssArpObjects_ObjectIdentity((1,3,6,1,4,1,35265,1,139,26,1))
-_EltMesIssArpInterfaceConfigs_ObjectIdentity=ObjectIdentity
-eltMesIssArpInterfaceConfigs=_EltMesIssArpInterfaceConfigs_ObjectIdentity((1,3,6,1,4,1,35265,1,139,26,1,1))
-_EltMesIssArpInterfaceTable_Object=MibTable
-eltMesIssArpInterfaceTable=_EltMesIssArpInterfaceTable_Object((1,3,6,1,4,1,35265,1,139,26,1,1,1))
-if mibBuilder.loadTexts:eltMesIssArpInterfaceTable.setStatus(_A)
-_EltMesIssArpInterfaceEntry_Object=MibTableRow
-eltMesIssArpInterfaceEntry=_EltMesIssArpInterfaceEntry_Object((1,3,6,1,4,1,35265,1,139,26,1,1,1,1))
-eltMesIssArpInterfaceEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:eltMesIssArpInterfaceEntry.setStatus(_A)
-class _EltMesIssArpGratuitousPeriodicEnable_Type(TruthValue):defaultValue=1
-_EltMesIssArpGratuitousPeriodicEnable_Type.__name__=_E
-_EltMesIssArpGratuitousPeriodicEnable_Object=MibTableColumn
-eltMesIssArpGratuitousPeriodicEnable=_EltMesIssArpGratuitousPeriodicEnable_Object((1,3,6,1,4,1,35265,1,139,26,1,1,1,1,1),_EltMesIssArpGratuitousPeriodicEnable_Type())
-eltMesIssArpGratuitousPeriodicEnable.setMaxAccess(_F)
-if mibBuilder.loadTexts:eltMesIssArpGratuitousPeriodicEnable.setStatus(_A)
-_EltMesIssArpGlobals_ObjectIdentity=ObjectIdentity
-eltMesIssArpGlobals=_EltMesIssArpGlobals_ObjectIdentity((1,3,6,1,4,1,35265,1,139,26,1,2))
-class _EltMesIssArpGratuitousInterval_Type(Integer32):defaultValue=150;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(15,86400))
-_EltMesIssArpGratuitousInterval_Type.__name__=_G
-_EltMesIssArpGratuitousInterval_Object=MibScalar
-eltMesIssArpGratuitousInterval=_EltMesIssArpGratuitousInterval_Object((1,3,6,1,4,1,35265,1,139,26,1,2,1),_EltMesIssArpGratuitousInterval_Type())
-eltMesIssArpGratuitousInterval.setMaxAccess(_F)
-if mibBuilder.loadTexts:eltMesIssArpGratuitousInterval.setStatus(_A)
-_EltMesIssArpInspection_ObjectIdentity=ObjectIdentity
-eltMesIssArpInspection=_EltMesIssArpInspection_ObjectIdentity((1,3,6,1,4,1,35265,1,139,26,1,3))
-_EltMesIssArpInspectionStats_ObjectIdentity=ObjectIdentity
-eltMesIssArpInspectionStats=_EltMesIssArpInspectionStats_ObjectIdentity((1,3,6,1,4,1,35265,1,139,26,1,3,1))
-_EltMesIssArpInspectionIfStatsTable_Object=MibTable
-eltMesIssArpInspectionIfStatsTable=_EltMesIssArpInspectionIfStatsTable_Object((1,3,6,1,4,1,35265,1,139,26,1,3,1,1))
-if mibBuilder.loadTexts:eltMesIssArpInspectionIfStatsTable.setStatus(_A)
-_EltMesIssArpInspectionIfStatsEntry_Object=MibTableRow
-eltMesIssArpInspectionIfStatsEntry=_EltMesIssArpInspectionIfStatsEntry_Object((1,3,6,1,4,1,35265,1,139,26,1,3,1,1,1))
-eltMesIssArpInspectionIfStatsEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:eltMesIssArpInspectionIfStatsEntry.setStatus(_A)
-_EltMesIssArpInspectionIfForwardedPackets_Type=Integer32
-_EltMesIssArpInspectionIfForwardedPackets_Object=MibTableColumn
-eltMesIssArpInspectionIfForwardedPackets=_EltMesIssArpInspectionIfForwardedPackets_Object((1,3,6,1,4,1,35265,1,139,26,1,3,1,1,1,1),_EltMesIssArpInspectionIfForwardedPackets_Type())
-eltMesIssArpInspectionIfForwardedPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssArpInspectionIfForwardedPackets.setStatus(_A)
-_EltMesIssArpInspectionIfDroppedPackets_Type=Integer32
-_EltMesIssArpInspectionIfDroppedPackets_Object=MibTableColumn
-eltMesIssArpInspectionIfDroppedPackets=_EltMesIssArpInspectionIfDroppedPackets_Object((1,3,6,1,4,1,35265,1,139,26,1,3,1,1,1,2),_EltMesIssArpInspectionIfDroppedPackets_Type())
-eltMesIssArpInspectionIfDroppedPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssArpInspectionIfDroppedPackets.setStatus(_A)
-_EltMesIssArpInspectionIfIPValidFailures_Type=Integer32
-_EltMesIssArpInspectionIfIPValidFailures_Object=MibTableColumn
-eltMesIssArpInspectionIfIPValidFailures=_EltMesIssArpInspectionIfIPValidFailures_Object((1,3,6,1,4,1,35265,1,139,26,1,3,1,1,1,3),_EltMesIssArpInspectionIfIPValidFailures_Type())
-eltMesIssArpInspectionIfIPValidFailures.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssArpInspectionIfIPValidFailures.setStatus(_A)
-_EltMesIssArpInspectionIfDestMacFailures_Type=Integer32
-_EltMesIssArpInspectionIfDestMacFailures_Object=MibTableColumn
-eltMesIssArpInspectionIfDestMacFailures=_EltMesIssArpInspectionIfDestMacFailures_Object((1,3,6,1,4,1,35265,1,139,26,1,3,1,1,1,4),_EltMesIssArpInspectionIfDestMacFailures_Type())
-eltMesIssArpInspectionIfDestMacFailures.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssArpInspectionIfDestMacFailures.setStatus(_A)
-_EltMesIssArpInspectionIfSrcMacFailures_Type=Integer32
-_EltMesIssArpInspectionIfSrcMacFailures_Object=MibTableColumn
-eltMesIssArpInspectionIfSrcMacFailures=_EltMesIssArpInspectionIfSrcMacFailures_Object((1,3,6,1,4,1,35265,1,139,26,1,3,1,1,1,5),_EltMesIssArpInspectionIfSrcMacFailures_Type())
-eltMesIssArpInspectionIfSrcMacFailures.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssArpInspectionIfSrcMacFailures.setStatus(_A)
-class _EltMesIssArpInsectionIfStatsClear_Type(TruthValue):defaultValue=2
-_EltMesIssArpInsectionIfStatsClear_Type.__name__=_E
-_EltMesIssArpInsectionIfStatsClear_Object=MibTableColumn
-eltMesIssArpInsectionIfStatsClear=_EltMesIssArpInsectionIfStatsClear_Object((1,3,6,1,4,1,35265,1,139,26,1,3,1,1,1,6),_EltMesIssArpInsectionIfStatsClear_Type())
-eltMesIssArpInsectionIfStatsClear.setMaxAccess(_F)
-if mibBuilder.loadTexts:eltMesIssArpInsectionIfStatsClear.setStatus(_A)
-mibBuilder.exportSymbols('ELTEX-MES-ISS-ARP-MIB',**{'eltMesIssArpMIB':eltMesIssArpMIB,'eltMesIssArpObjects':eltMesIssArpObjects,'eltMesIssArpInterfaceConfigs':eltMesIssArpInterfaceConfigs,'eltMesIssArpInterfaceTable':eltMesIssArpInterfaceTable,'eltMesIssArpInterfaceEntry':eltMesIssArpInterfaceEntry,'eltMesIssArpGratuitousPeriodicEnable':eltMesIssArpGratuitousPeriodicEnable,'eltMesIssArpGlobals':eltMesIssArpGlobals,'eltMesIssArpGratuitousInterval':eltMesIssArpGratuitousInterval,'eltMesIssArpInspection':eltMesIssArpInspection,'eltMesIssArpInspectionStats':eltMesIssArpInspectionStats,'eltMesIssArpInspectionIfStatsTable':eltMesIssArpInspectionIfStatsTable,'eltMesIssArpInspectionIfStatsEntry':eltMesIssArpInspectionIfStatsEntry,'eltMesIssArpInspectionIfForwardedPackets':eltMesIssArpInspectionIfForwardedPackets,'eltMesIssArpInspectionIfDroppedPackets':eltMesIssArpInspectionIfDroppedPackets,'eltMesIssArpInspectionIfIPValidFailures':eltMesIssArpInspectionIfIPValidFailures,'eltMesIssArpInspectionIfDestMacFailures':eltMesIssArpInspectionIfDestMacFailures,'eltMesIssArpInspectionIfSrcMacFailures':eltMesIssArpInspectionIfSrcMacFailures,'eltMesIssArpInsectionIfStatsClear':eltMesIssArpInsectionIfStatsClear})
+#
+# PySNMP MIB module ELTEX-MES-ISS-ARP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-MES-ISS-ARP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:24 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltMesIss, = mibBuilder.importSymbols("ELTEX-MES-ISS-MIB", "eltMesIss")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+eltMesIssArpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26))
+eltMesIssArpMIB.setRevisions(('1970-01-01 00:00', '2021-03-09 00:00',))
+if mibBuilder.loadTexts: eltMesIssArpMIB.setLastUpdated('202225100000Z')
+if mibBuilder.loadTexts: eltMesIssArpMIB.setOrganization('Eltex Enterprise, Ltd.')
+eltMesIssArpObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1))
+eltMesIssArpInterfaceConfigs = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 1))
+eltMesIssArpGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 2))
+eltMesIssArpInspection = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 3))
+eltMesIssArpInspectionStats = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 3, 1))
+eltMesIssArpGratuitousInterval = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(15, 86400)).clone(150)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssArpGratuitousInterval.setStatus('current')
+eltMesIssArpInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 1, 1), )
+if mibBuilder.loadTexts: eltMesIssArpInterfaceTable.setStatus('current')
+eltMesIssArpInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: eltMesIssArpInterfaceEntry.setStatus('current')
+eltMesIssArpGratuitousPeriodicEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 1, 1, 1, 1), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssArpGratuitousPeriodicEnable.setStatus('current')
+eltMesIssArpInspectionIfStatsTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 3, 1, 1), )
+if mibBuilder.loadTexts: eltMesIssArpInspectionIfStatsTable.setStatus('current')
+eltMesIssArpInspectionIfStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 3, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: eltMesIssArpInspectionIfStatsEntry.setStatus('current')
+eltMesIssArpInspectionIfForwardedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 3, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssArpInspectionIfForwardedPackets.setStatus('current')
+eltMesIssArpInspectionIfDroppedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 3, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssArpInspectionIfDroppedPackets.setStatus('current')
+eltMesIssArpInspectionIfIPValidFailures = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 3, 1, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssArpInspectionIfIPValidFailures.setStatus('current')
+eltMesIssArpInspectionIfDestMacFailures = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 3, 1, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssArpInspectionIfDestMacFailures.setStatus('current')
+eltMesIssArpInspectionIfSrcMacFailures = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 3, 1, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssArpInspectionIfSrcMacFailures.setStatus('current')
+eltMesIssArpInsectionIfStatsClear = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26, 1, 3, 1, 1, 1, 6), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssArpInsectionIfStatsClear.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-MES-ISS-ARP-MIB", eltMesIssArpInspectionIfSrcMacFailures=eltMesIssArpInspectionIfSrcMacFailures, eltMesIssArpInspectionIfForwardedPackets=eltMesIssArpInspectionIfForwardedPackets, eltMesIssArpInspectionIfDroppedPackets=eltMesIssArpInspectionIfDroppedPackets, eltMesIssArpInsectionIfStatsClear=eltMesIssArpInsectionIfStatsClear, eltMesIssArpGratuitousInterval=eltMesIssArpGratuitousInterval, eltMesIssArpMIB=eltMesIssArpMIB, eltMesIssArpGlobals=eltMesIssArpGlobals, eltMesIssArpInterfaceConfigs=eltMesIssArpInterfaceConfigs, eltMesIssArpInterfaceTable=eltMesIssArpInterfaceTable, eltMesIssArpGratuitousPeriodicEnable=eltMesIssArpGratuitousPeriodicEnable, eltMesIssArpInterfaceEntry=eltMesIssArpInterfaceEntry, eltMesIssArpInspectionIfDestMacFailures=eltMesIssArpInspectionIfDestMacFailures, eltMesIssArpObjects=eltMesIssArpObjects, eltMesIssArpInspectionIfIPValidFailures=eltMesIssArpInspectionIfIPValidFailures, PYSNMP_MODULE_ID=eltMesIssArpMIB, eltMesIssArpInspectionStats=eltMesIssArpInspectionStats, eltMesIssArpInspection=eltMesIssArpInspection, eltMesIssArpInspectionIfStatsEntry=eltMesIssArpInspectionIfStatsEntry, eltMesIssArpInspectionIfStatsTable=eltMesIssArpInspectionIfStatsTable)

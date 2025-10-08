@@ -1,96 +1,63 @@
-_L='eltVlanMulticastTvEntry'
-_K='read-create'
-_J='not-accessible'
-_I='eltVlanTriplePlayInputPort'
-_H='eltVlanTriplePlayInnerVID'
-_G='2013-11-18 00:00'
-_F='Integer32'
-_E='dot1qVlanIndex'
-_D='Q-BRIDGE-MIB'
-_C='ELTEX-MES-VLAN-MIB'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols('BRIDGE-MIB','dot1dBasePort')
-eltMes,=mibBuilder.importSymbols('ELTEX-MES','eltMes')
-InterfaceIndexOrZero,ifIndex=mibBuilder.importSymbols('IF-MIB','InterfaceIndexOrZero','ifIndex')
-InetAddressType,=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressType')
-PortList,VlanIndex,dot1qVlanIndex=mibBuilder.importSymbols(_D,'PortList','VlanIndex',_E)
-rnd,=mibBuilder.importSymbols('RADLAN-MIB','rnd')
-vlanMulticastTvEntry,=mibBuilder.importSymbols('RADLAN-vlan-MIB','vlanMulticastTvEntry')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-eltMesVlan=ModuleIdentity((1,3,6,1,4,1,35265,1,23,5))
-if mibBuilder.loadTexts:eltMesVlan.setRevisions(('2018-08-07 00:00','2017-06-05 00:00',_G,_G))
-class EltVlanMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('basic',1),('tr101',2)))
-_EltVlanMulticastTvTable_Object=MibTable
-eltVlanMulticastTvTable=_EltVlanMulticastTvTable_Object((1,3,6,1,4,1,35265,1,23,5,1))
-if mibBuilder.loadTexts:eltVlanMulticastTvTable.setStatus(_A)
-_EltVlanMulticastTvEntry_Object=MibTableRow
-eltVlanMulticastTvEntry=_EltVlanMulticastTvEntry_Object((1,3,6,1,4,1,35265,1,23,5,1,1))
-if mibBuilder.loadTexts:eltVlanMulticastTvEntry.setStatus(_A)
-_EltVlanMulticastTvVIDIsTagged_Type=TruthValue
-_EltVlanMulticastTvVIDIsTagged_Object=MibTableColumn
-eltVlanMulticastTvVIDIsTagged=_EltVlanMulticastTvVIDIsTagged_Object((1,3,6,1,4,1,35265,1,23,5,1,1,1),_EltVlanMulticastTvVIDIsTagged_Type())
-eltVlanMulticastTvVIDIsTagged.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltVlanMulticastTvVIDIsTagged.setStatus(_A)
-_EltVlanMode_Type=EltVlanMode
-_EltVlanMode_Object=MibScalar
-eltVlanMode=_EltVlanMode_Object((1,3,6,1,4,1,35265,1,23,5,2),_EltVlanMode_Type())
-eltVlanMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltVlanMode.setStatus(_A)
-_EltDot1qVlanStaticTable_Object=MibTable
-eltDot1qVlanStaticTable=_EltDot1qVlanStaticTable_Object((1,3,6,1,4,1,35265,1,23,5,4))
-if mibBuilder.loadTexts:eltDot1qVlanStaticTable.setStatus(_A)
-_EltDot1qVlanStaticEntry_Object=MibTableRow
-eltDot1qVlanStaticEntry=_EltDot1qVlanStaticEntry_Object((1,3,6,1,4,1,35265,1,23,5,4,1))
-eltDot1qVlanStaticEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:eltDot1qVlanStaticEntry.setStatus(_A)
-class _EltDot1qVlanStaticCos_Type(Integer32):defaultValue=255;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7),ValueRangeConstraint(255,255))
-_EltDot1qVlanStaticCos_Type.__name__=_F
-_EltDot1qVlanStaticCos_Object=MibTableColumn
-eltDot1qVlanStaticCos=_EltDot1qVlanStaticCos_Object((1,3,6,1,4,1,35265,1,23,5,4,1,1),_EltDot1qVlanStaticCos_Type())
-eltDot1qVlanStaticCos.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltDot1qVlanStaticCos.setStatus(_A)
-_EltMesVlanDefault_ObjectIdentity=ObjectIdentity
-eltMesVlanDefault=_EltMesVlanDefault_ObjectIdentity((1,3,6,1,4,1,35265,1,23,5,5))
-_EltVlanDefaultForbiddenPorts_Type=PortList
-_EltVlanDefaultForbiddenPorts_Object=MibScalar
-eltVlanDefaultForbiddenPorts=_EltVlanDefaultForbiddenPorts_Object((1,3,6,1,4,1,35265,1,23,5,5,1),_EltVlanDefaultForbiddenPorts_Type())
-eltVlanDefaultForbiddenPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltVlanDefaultForbiddenPorts.setStatus(_A)
-_EltVlanTriplePlayTable_Object=MibTable
-eltVlanTriplePlayTable=_EltVlanTriplePlayTable_Object((1,3,6,1,4,1,35265,1,23,5,6))
-if mibBuilder.loadTexts:eltVlanTriplePlayTable.setStatus(_A)
-_EltVlanTriplePlayEntry_Object=MibTableRow
-eltVlanTriplePlayEntry=_EltVlanTriplePlayEntry_Object((1,3,6,1,4,1,35265,1,23,5,6,1))
-eltVlanTriplePlayEntry.setIndexNames((0,_C,_H),(0,_C,_I))
-if mibBuilder.loadTexts:eltVlanTriplePlayEntry.setStatus(_A)
-_EltVlanTriplePlayInnerVID_Type=VlanIndex
-_EltVlanTriplePlayInnerVID_Object=MibTableColumn
-eltVlanTriplePlayInnerVID=_EltVlanTriplePlayInnerVID_Object((1,3,6,1,4,1,35265,1,23,5,6,1,1),_EltVlanTriplePlayInnerVID_Type())
-eltVlanTriplePlayInnerVID.setMaxAccess(_J)
-if mibBuilder.loadTexts:eltVlanTriplePlayInnerVID.setStatus(_A)
-_EltVlanTriplePlayInputPort_Type=InterfaceIndexOrZero
-_EltVlanTriplePlayInputPort_Object=MibTableColumn
-eltVlanTriplePlayInputPort=_EltVlanTriplePlayInputPort_Object((1,3,6,1,4,1,35265,1,23,5,6,1,2),_EltVlanTriplePlayInputPort_Type())
-eltVlanTriplePlayInputPort.setMaxAccess(_J)
-if mibBuilder.loadTexts:eltVlanTriplePlayInputPort.setStatus(_A)
-_EltVlanTriplePlayMulticastTvVID_Type=VlanIndex
-_EltVlanTriplePlayMulticastTvVID_Object=MibTableColumn
-eltVlanTriplePlayMulticastTvVID=_EltVlanTriplePlayMulticastTvVID_Object((1,3,6,1,4,1,35265,1,23,5,6,1,3),_EltVlanTriplePlayMulticastTvVID_Type())
-eltVlanTriplePlayMulticastTvVID.setMaxAccess(_K)
-if mibBuilder.loadTexts:eltVlanTriplePlayMulticastTvVID.setStatus(_A)
-_EltVlanTriplePlayRowStatus_Type=RowStatus
-_EltVlanTriplePlayRowStatus_Object=MibTableColumn
-eltVlanTriplePlayRowStatus=_EltVlanTriplePlayRowStatus_Object((1,3,6,1,4,1,35265,1,23,5,6,1,4),_EltVlanTriplePlayRowStatus_Type())
-eltVlanTriplePlayRowStatus.setMaxAccess(_K)
-if mibBuilder.loadTexts:eltVlanTriplePlayRowStatus.setStatus(_A)
-vlanMulticastTvEntry.registerAugmentions((_C,_L))
+#
+# PySNMP MIB module ELTEX-MES-VLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-MES-VLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+eltMes, = mibBuilder.importSymbols("ELTEX-MES", "eltMes")
+ifIndex, InterfaceIndexOrZero = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndexOrZero")
+InetAddressType, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType")
+PortList, VlanIndex, dot1qVlanIndex = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList", "VlanIndex", "dot1qVlanIndex")
+rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
+vlanMulticastTvEntry, = mibBuilder.importSymbols("RADLAN-vlan-MIB", "vlanMulticastTvEntry")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+eltMesVlan = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5))
+eltMesVlan.setRevisions(('2018-08-07 00:00', '2017-06-05 00:00', '2013-11-18 00:00', '2013-11-18 00:00',))
+if mibBuilder.loadTexts: eltMesVlan.setLastUpdated('201808070000Z')
+if mibBuilder.loadTexts: eltMesVlan.setOrganization('Eltex Ltd.')
+class EltVlanMode(TextualConvention, Integer32):
+    reference = 'TR-101'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("basic", 1), ("tr101", 2))
+
+eltVlanMulticastTvTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 1), )
+if mibBuilder.loadTexts: eltVlanMulticastTvTable.setStatus('current')
+eltVlanMulticastTvEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 1, 1), )
+vlanMulticastTvEntry.registerAugmentions(("ELTEX-MES-VLAN-MIB", "eltVlanMulticastTvEntry"))
 eltVlanMulticastTvEntry.setIndexNames(*vlanMulticastTvEntry.getIndexNames())
-mibBuilder.exportSymbols(_C,**{'EltVlanMode':EltVlanMode,'eltMesVlan':eltMesVlan,'eltVlanMulticastTvTable':eltVlanMulticastTvTable,_L:eltVlanMulticastTvEntry,'eltVlanMulticastTvVIDIsTagged':eltVlanMulticastTvVIDIsTagged,'eltVlanMode':eltVlanMode,'eltDot1qVlanStaticTable':eltDot1qVlanStaticTable,'eltDot1qVlanStaticEntry':eltDot1qVlanStaticEntry,'eltDot1qVlanStaticCos':eltDot1qVlanStaticCos,'eltMesVlanDefault':eltMesVlanDefault,'eltVlanDefaultForbiddenPorts':eltVlanDefaultForbiddenPorts,'eltVlanTriplePlayTable':eltVlanTriplePlayTable,'eltVlanTriplePlayEntry':eltVlanTriplePlayEntry,_H:eltVlanTriplePlayInnerVID,_I:eltVlanTriplePlayInputPort,'eltVlanTriplePlayMulticastTvVID':eltVlanTriplePlayMulticastTvVID,'eltVlanTriplePlayRowStatus':eltVlanTriplePlayRowStatus})
+if mibBuilder.loadTexts: eltVlanMulticastTvEntry.setStatus('current')
+eltVlanMulticastTvVIDIsTagged = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltVlanMulticastTvVIDIsTagged.setStatus('current')
+eltVlanMode = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 2), EltVlanMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltVlanMode.setStatus('current')
+eltDot1qVlanStaticTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 4), )
+if mibBuilder.loadTexts: eltDot1qVlanStaticTable.setStatus('current')
+eltDot1qVlanStaticEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 4, 1), ).setIndexNames((0, "Q-BRIDGE-MIB", "dot1qVlanIndex"))
+if mibBuilder.loadTexts: eltDot1qVlanStaticEntry.setStatus('current')
+eltDot1qVlanStaticCos = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 7), ValueRangeConstraint(255, 255), )).clone(255)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltDot1qVlanStaticCos.setStatus('current')
+eltMesVlanDefault = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 5))
+eltVlanDefaultForbiddenPorts = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 5, 1), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltVlanDefaultForbiddenPorts.setStatus('current')
+eltVlanTriplePlayTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 6), )
+if mibBuilder.loadTexts: eltVlanTriplePlayTable.setStatus('current')
+eltVlanTriplePlayEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 6, 1), ).setIndexNames((0, "ELTEX-MES-VLAN-MIB", "eltVlanTriplePlayInnerVID"), (0, "ELTEX-MES-VLAN-MIB", "eltVlanTriplePlayInputPort"))
+if mibBuilder.loadTexts: eltVlanTriplePlayEntry.setStatus('current')
+eltVlanTriplePlayInnerVID = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 6, 1, 1), VlanIndex())
+if mibBuilder.loadTexts: eltVlanTriplePlayInnerVID.setStatus('current')
+eltVlanTriplePlayInputPort = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 6, 1, 2), InterfaceIndexOrZero())
+if mibBuilder.loadTexts: eltVlanTriplePlayInputPort.setStatus('current')
+eltVlanTriplePlayMulticastTvVID = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 6, 1, 3), VlanIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eltVlanTriplePlayMulticastTvVID.setStatus('current')
+eltVlanTriplePlayRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 5, 6, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: eltVlanTriplePlayRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-MES-VLAN-MIB", PYSNMP_MODULE_ID=eltMesVlan, eltVlanMulticastTvVIDIsTagged=eltVlanMulticastTvVIDIsTagged, eltMesVlan=eltMesVlan, eltVlanMulticastTvEntry=eltVlanMulticastTvEntry, eltDot1qVlanStaticEntry=eltDot1qVlanStaticEntry, eltDot1qVlanStaticCos=eltDot1qVlanStaticCos, eltVlanTriplePlayInnerVID=eltVlanTriplePlayInnerVID, eltDot1qVlanStaticTable=eltDot1qVlanStaticTable, eltVlanMode=eltVlanMode, eltVlanTriplePlayMulticastTvVID=eltVlanTriplePlayMulticastTvVID, eltVlanTriplePlayEntry=eltVlanTriplePlayEntry, eltVlanTriplePlayTable=eltVlanTriplePlayTable, eltVlanTriplePlayInputPort=eltVlanTriplePlayInputPort, eltVlanDefaultForbiddenPorts=eltVlanDefaultForbiddenPorts, eltVlanMulticastTvTable=eltVlanMulticastTvTable, eltVlanTriplePlayRowStatus=eltVlanTriplePlayRowStatus, EltVlanMode=EltVlanMode, eltMesVlanDefault=eltMesVlanDefault)

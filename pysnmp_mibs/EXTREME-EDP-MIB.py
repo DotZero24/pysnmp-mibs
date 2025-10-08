@@ -1,103 +1,53 @@
-_K='extremeEdpNeighborVlanName'
-_J='accessible-for-notify'
-_I='DisplayString'
-_H='ifIndex'
-_G='IF-MIB'
-_F='extremeEdpNeighborId'
-_E='extremeEdpPortIfIndex'
-_D='Integer32'
-_C='EXTREME-EDP-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ExtremeDeviceId,extremeAgent=mibBuilder.importSymbols('EXTREME-BASE-MIB','ExtremeDeviceId','extremeAgent')
-ifIndex,=mibBuilder.importSymbols(_G,_H)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_I,'PhysAddress','TextualConvention','TruthValue')
-extremeEdp=ModuleIdentity((1,3,6,1,4,1,1916,1,13))
-_ExtremeEdpTable_Object=MibTable
-extremeEdpTable=_ExtremeEdpTable_Object((1,3,6,1,4,1,1916,1,13,2))
-if mibBuilder.loadTexts:extremeEdpTable.setStatus(_A)
-_ExtremeEdpEntry_Object=MibTableRow
-extremeEdpEntry=_ExtremeEdpEntry_Object((1,3,6,1,4,1,1916,1,13,2,1))
-extremeEdpEntry.setIndexNames((0,_C,_E),(0,_C,_F))
-if mibBuilder.loadTexts:extremeEdpEntry.setStatus(_A)
-class _ExtremeEdpPortIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_ExtremeEdpPortIfIndex_Type.__name__=_D
-_ExtremeEdpPortIfIndex_Object=MibTableColumn
-extremeEdpPortIfIndex=_ExtremeEdpPortIfIndex_Object((1,3,6,1,4,1,1916,1,13,2,1,1),_ExtremeEdpPortIfIndex_Type())
-extremeEdpPortIfIndex.setMaxAccess(_J)
-if mibBuilder.loadTexts:extremeEdpPortIfIndex.setStatus(_A)
-_ExtremeEdpNeighborId_Type=ExtremeDeviceId
-_ExtremeEdpNeighborId_Object=MibTableColumn
-extremeEdpNeighborId=_ExtremeEdpNeighborId_Object((1,3,6,1,4,1,1916,1,13,2,1,2),_ExtremeEdpNeighborId_Type())
-extremeEdpNeighborId.setMaxAccess(_J)
-if mibBuilder.loadTexts:extremeEdpNeighborId.setStatus(_A)
-_ExtremeEdpNeighborName_Type=DisplayString
-_ExtremeEdpNeighborName_Object=MibTableColumn
-extremeEdpNeighborName=_ExtremeEdpNeighborName_Object((1,3,6,1,4,1,1916,1,13,2,1,3),_ExtremeEdpNeighborName_Type())
-extremeEdpNeighborName.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeEdpNeighborName.setStatus(_A)
-_ExtremeEdpNeighborSoftwareVersion_Type=DisplayString
-_ExtremeEdpNeighborSoftwareVersion_Object=MibTableColumn
-extremeEdpNeighborSoftwareVersion=_ExtremeEdpNeighborSoftwareVersion_Object((1,3,6,1,4,1,1916,1,13,2,1,4),_ExtremeEdpNeighborSoftwareVersion_Type())
-extremeEdpNeighborSoftwareVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeEdpNeighborSoftwareVersion.setStatus(_A)
-class _ExtremeEdpNeighborSlot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_ExtremeEdpNeighborSlot_Type.__name__=_D
-_ExtremeEdpNeighborSlot_Object=MibTableColumn
-extremeEdpNeighborSlot=_ExtremeEdpNeighborSlot_Object((1,3,6,1,4,1,1916,1,13,2,1,5),_ExtremeEdpNeighborSlot_Type())
-extremeEdpNeighborSlot.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeEdpNeighborSlot.setStatus(_A)
-class _ExtremeEdpNeighborPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_ExtremeEdpNeighborPort_Type.__name__=_D
-_ExtremeEdpNeighborPort_Object=MibTableColumn
-extremeEdpNeighborPort=_ExtremeEdpNeighborPort_Object((1,3,6,1,4,1,1916,1,13,2,1,6),_ExtremeEdpNeighborPort_Type())
-extremeEdpNeighborPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeEdpNeighborPort.setStatus(_A)
-_ExtremeEdpEntryAge_Type=Integer32
-_ExtremeEdpEntryAge_Object=MibTableColumn
-extremeEdpEntryAge=_ExtremeEdpEntryAge_Object((1,3,6,1,4,1,1916,1,13,2,1,7),_ExtremeEdpEntryAge_Type())
-extremeEdpEntryAge.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeEdpEntryAge.setStatus(_A)
-_ExtremeEdpNeighborTable_Object=MibTable
-extremeEdpNeighborTable=_ExtremeEdpNeighborTable_Object((1,3,6,1,4,1,1916,1,13,3))
-if mibBuilder.loadTexts:extremeEdpNeighborTable.setStatus(_A)
-_ExtremeEdpNeighborEntry_Object=MibTableRow
-extremeEdpNeighborEntry=_ExtremeEdpNeighborEntry_Object((1,3,6,1,4,1,1916,1,13,3,1))
-extremeEdpNeighborEntry.setIndexNames((0,_C,_E),(0,_C,_F),(0,_C,_K))
-if mibBuilder.loadTexts:extremeEdpNeighborEntry.setStatus(_A)
-class _ExtremeEdpNeighborVlanName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,81))
-_ExtremeEdpNeighborVlanName_Type.__name__=_I
-_ExtremeEdpNeighborVlanName_Object=MibTableColumn
-extremeEdpNeighborVlanName=_ExtremeEdpNeighborVlanName_Object((1,3,6,1,4,1,1916,1,13,3,1,1),_ExtremeEdpNeighborVlanName_Type())
-extremeEdpNeighborVlanName.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:extremeEdpNeighborVlanName.setStatus(_A)
-class _ExtremeEdpNeighborVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_ExtremeEdpNeighborVlanId_Type.__name__=_D
-_ExtremeEdpNeighborVlanId_Object=MibTableColumn
-extremeEdpNeighborVlanId=_ExtremeEdpNeighborVlanId_Object((1,3,6,1,4,1,1916,1,13,3,1,2),_ExtremeEdpNeighborVlanId_Type())
-extremeEdpNeighborVlanId.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeEdpNeighborVlanId.setStatus(_A)
-_ExtremeEdpNeighborVlanIpAddress_Type=IpAddress
-_ExtremeEdpNeighborVlanIpAddress_Object=MibTableColumn
-extremeEdpNeighborVlanIpAddress=_ExtremeEdpNeighborVlanIpAddress_Object((1,3,6,1,4,1,1916,1,13,3,1,3),_ExtremeEdpNeighborVlanIpAddress_Type())
-extremeEdpNeighborVlanIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:extremeEdpNeighborVlanIpAddress.setStatus(_A)
-_ExtremeEdpPortTable_Object=MibTable
-extremeEdpPortTable=_ExtremeEdpPortTable_Object((1,3,6,1,4,1,1916,1,13,4))
-if mibBuilder.loadTexts:extremeEdpPortTable.setStatus(_A)
-_ExtremeEdpPortEntry_Object=MibTableRow
-extremeEdpPortEntry=_ExtremeEdpPortEntry_Object((1,3,6,1,4,1,1916,1,13,4,1))
-extremeEdpPortEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:extremeEdpPortEntry.setStatus(_A)
-_ExtremeEdpPortState_Type=TruthValue
-_ExtremeEdpPortState_Object=MibTableColumn
-extremeEdpPortState=_ExtremeEdpPortState_Object((1,3,6,1,4,1,1916,1,13,4,1,1),_ExtremeEdpPortState_Type())
-extremeEdpPortState.setMaxAccess('read-write')
-if mibBuilder.loadTexts:extremeEdpPortState.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'extremeEdp':extremeEdp,'extremeEdpTable':extremeEdpTable,'extremeEdpEntry':extremeEdpEntry,_E:extremeEdpPortIfIndex,_F:extremeEdpNeighborId,'extremeEdpNeighborName':extremeEdpNeighborName,'extremeEdpNeighborSoftwareVersion':extremeEdpNeighborSoftwareVersion,'extremeEdpNeighborSlot':extremeEdpNeighborSlot,'extremeEdpNeighborPort':extremeEdpNeighborPort,'extremeEdpEntryAge':extremeEdpEntryAge,'extremeEdpNeighborTable':extremeEdpNeighborTable,'extremeEdpNeighborEntry':extremeEdpNeighborEntry,_K:extremeEdpNeighborVlanName,'extremeEdpNeighborVlanId':extremeEdpNeighborVlanId,'extremeEdpNeighborVlanIpAddress':extremeEdpNeighborVlanIpAddress,'extremeEdpPortTable':extremeEdpPortTable,'extremeEdpPortEntry':extremeEdpPortEntry,'extremeEdpPortState':extremeEdpPortState})
+#
+# PySNMP MIB module EXTREME-EDP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/extreme/EXTREME-EDP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+extremeAgent, ExtremeDeviceId = mibBuilder.importSymbols("EXTREME-BASE-MIB", "extremeAgent", "ExtremeDeviceId")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+extremeEdp = ModuleIdentity((1, 3, 6, 1, 4, 1, 1916, 1, 13))
+if mibBuilder.loadTexts: extremeEdp.setLastUpdated('9910200000Z')
+if mibBuilder.loadTexts: extremeEdp.setOrganization('Extreme Networks, Inc.')
+extremeEdpTable = MibTable((1, 3, 6, 1, 4, 1, 1916, 1, 13, 2), )
+if mibBuilder.loadTexts: extremeEdpTable.setStatus('current')
+extremeEdpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1916, 1, 13, 2, 1), ).setIndexNames((0, "EXTREME-EDP-MIB", "extremeEdpPortIfIndex"), (0, "EXTREME-EDP-MIB", "extremeEdpNeighborId"))
+if mibBuilder.loadTexts: extremeEdpEntry.setStatus('current')
+extremeEdpPortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 13, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: extremeEdpPortIfIndex.setStatus('current')
+extremeEdpNeighborId = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 13, 2, 1, 2), ExtremeDeviceId()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: extremeEdpNeighborId.setStatus('current')
+extremeEdpNeighborName = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 13, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeEdpNeighborName.setStatus('current')
+extremeEdpNeighborSoftwareVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 13, 2, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeEdpNeighborSoftwareVersion.setStatus('current')
+extremeEdpNeighborSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 13, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeEdpNeighborSlot.setStatus('current')
+extremeEdpNeighborPort = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 13, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeEdpNeighborPort.setStatus('current')
+extremeEdpEntryAge = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 13, 2, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeEdpEntryAge.setStatus('current')
+extremeEdpNeighborTable = MibTable((1, 3, 6, 1, 4, 1, 1916, 1, 13, 3), )
+if mibBuilder.loadTexts: extremeEdpNeighborTable.setStatus('current')
+extremeEdpNeighborEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1916, 1, 13, 3, 1), ).setIndexNames((0, "EXTREME-EDP-MIB", "extremeEdpPortIfIndex"), (0, "EXTREME-EDP-MIB", "extremeEdpNeighborId"), (0, "EXTREME-EDP-MIB", "extremeEdpNeighborVlanName"))
+if mibBuilder.loadTexts: extremeEdpNeighborEntry.setStatus('current')
+extremeEdpNeighborVlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 13, 3, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 81)))
+if mibBuilder.loadTexts: extremeEdpNeighborVlanName.setStatus('current')
+extremeEdpNeighborVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 13, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeEdpNeighborVlanId.setStatus('current')
+extremeEdpNeighborVlanIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 13, 3, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeEdpNeighborVlanIpAddress.setStatus('current')
+extremeEdpPortTable = MibTable((1, 3, 6, 1, 4, 1, 1916, 1, 13, 4), )
+if mibBuilder.loadTexts: extremeEdpPortTable.setStatus('current')
+extremeEdpPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1916, 1, 13, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: extremeEdpPortEntry.setStatus('current')
+extremeEdpPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 13, 4, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: extremeEdpPortState.setStatus('current')
+mibBuilder.exportSymbols("EXTREME-EDP-MIB", extremeEdpPortIfIndex=extremeEdpPortIfIndex, PYSNMP_MODULE_ID=extremeEdp, extremeEdpNeighborTable=extremeEdpNeighborTable, extremeEdpPortTable=extremeEdpPortTable, extremeEdpPortState=extremeEdpPortState, extremeEdpEntryAge=extremeEdpEntryAge, extremeEdpNeighborSlot=extremeEdpNeighborSlot, extremeEdpNeighborSoftwareVersion=extremeEdpNeighborSoftwareVersion, extremeEdpNeighborEntry=extremeEdpNeighborEntry, extremeEdpNeighborVlanId=extremeEdpNeighborVlanId, extremeEdp=extremeEdp, extremeEdpNeighborName=extremeEdpNeighborName, extremeEdpTable=extremeEdpTable, extremeEdpEntry=extremeEdpEntry, extremeEdpNeighborVlanName=extremeEdpNeighborVlanName, extremeEdpNeighborId=extremeEdpNeighborId, extremeEdpNeighborVlanIpAddress=extremeEdpNeighborVlanIpAddress, extremeEdpNeighborPort=extremeEdpNeighborPort, extremeEdpPortEntry=extremeEdpPortEntry)

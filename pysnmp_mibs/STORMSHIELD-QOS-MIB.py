@@ -1,74 +1,43 @@
-_E='snsQosEntryIndex'
-_D='STORMSHIELD-QOS-MIB'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-stormshieldMIB,=mibBuilder.importSymbols('STORMSHIELD-SMI-MIB','stormshieldMIB')
-snsQos=ModuleIdentity((1,3,6,1,4,1,11256,1,15))
-if mibBuilder.loadTexts:snsQos.setRevisions(('2017-02-20 00:00',))
-_SnsQosStatsTable_Object=MibTable
-snsQosStatsTable=_SnsQosStatsTable_Object((1,3,6,1,4,1,11256,1,15,1))
-if mibBuilder.loadTexts:snsQosStatsTable.setStatus(_A)
-_SnsQosStatsEntry_Object=MibTableRow
-snsQosStatsEntry=_SnsQosStatsEntry_Object((1,3,6,1,4,1,11256,1,15,1,1))
-snsQosStatsEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:snsQosStatsEntry.setStatus(_A)
-class _SnsQosEntryIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_SnsQosEntryIndex_Type.__name__=_C
-_SnsQosEntryIndex_Object=MibTableColumn
-snsQosEntryIndex=_SnsQosEntryIndex_Object((1,3,6,1,4,1,11256,1,15,1,1,1),_SnsQosEntryIndex_Type())
-snsQosEntryIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsQosEntryIndex.setStatus(_A)
-_SnsQosEntryName_Type=DisplayString
-_SnsQosEntryName_Object=MibTableColumn
-snsQosEntryName=_SnsQosEntryName_Object((1,3,6,1,4,1,11256,1,15,1,1,2),_SnsQosEntryName_Type())
-snsQosEntryName.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsQosEntryName.setStatus(_A)
-_SnsQosEntryType_Type=DisplayString
-_SnsQosEntryType_Object=MibTableColumn
-snsQosEntryType=_SnsQosEntryType_Object((1,3,6,1,4,1,11256,1,15,1,1,3),_SnsQosEntryType_Type())
-snsQosEntryType.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsQosEntryType.setStatus(_A)
-_SnsQosEntryInCounter_Type=Counter64
-_SnsQosEntryInCounter_Object=MibTableColumn
-snsQosEntryInCounter=_SnsQosEntryInCounter_Object((1,3,6,1,4,1,11256,1,15,1,1,4),_SnsQosEntryInCounter_Type())
-snsQosEntryInCounter.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsQosEntryInCounter.setStatus(_A)
-_SnsQosEntryInMaxPeak_Type=Counter64
-_SnsQosEntryInMaxPeak_Object=MibTableColumn
-snsQosEntryInMaxPeak=_SnsQosEntryInMaxPeak_Object((1,3,6,1,4,1,11256,1,15,1,1,5),_SnsQosEntryInMaxPeak_Type())
-snsQosEntryInMaxPeak.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsQosEntryInMaxPeak.setStatus(_A)
-_SnsQosEntryInSpeedLimit_Type=Counter64
-_SnsQosEntryInSpeedLimit_Object=MibTableColumn
-snsQosEntryInSpeedLimit=_SnsQosEntryInSpeedLimit_Object((1,3,6,1,4,1,11256,1,15,1,1,6),_SnsQosEntryInSpeedLimit_Type())
-snsQosEntryInSpeedLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsQosEntryInSpeedLimit.setStatus(_A)
-_SnsQosEntryOutCounter_Type=Counter64
-_SnsQosEntryOutCounter_Object=MibTableColumn
-snsQosEntryOutCounter=_SnsQosEntryOutCounter_Object((1,3,6,1,4,1,11256,1,15,1,1,7),_SnsQosEntryOutCounter_Type())
-snsQosEntryOutCounter.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsQosEntryOutCounter.setStatus(_A)
-_SnsQosEntryOutMaxPeak_Type=Counter64
-_SnsQosEntryOutMaxPeak_Object=MibTableColumn
-snsQosEntryOutMaxPeak=_SnsQosEntryOutMaxPeak_Object((1,3,6,1,4,1,11256,1,15,1,1,8),_SnsQosEntryOutMaxPeak_Type())
-snsQosEntryOutMaxPeak.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsQosEntryOutMaxPeak.setStatus(_A)
-_SnsQosEntryOutSpeedLimit_Type=Counter64
-_SnsQosEntryOutSpeedLimit_Object=MibTableColumn
-snsQosEntryOutSpeedLimit=_SnsQosEntryOutSpeedLimit_Object((1,3,6,1,4,1,11256,1,15,1,1,9),_SnsQosEntryOutSpeedLimit_Type())
-snsQosEntryOutSpeedLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsQosEntryOutSpeedLimit.setStatus(_A)
-_SnsQosEntryComment_Type=DisplayString
-_SnsQosEntryComment_Object=MibTableColumn
-snsQosEntryComment=_SnsQosEntryComment_Object((1,3,6,1,4,1,11256,1,15,1,1,10),_SnsQosEntryComment_Type())
-snsQosEntryComment.setMaxAccess(_B)
-if mibBuilder.loadTexts:snsQosEntryComment.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'snsQos':snsQos,'snsQosStatsTable':snsQosStatsTable,'snsQosStatsEntry':snsQosStatsEntry,_E:snsQosEntryIndex,'snsQosEntryName':snsQosEntryName,'snsQosEntryType':snsQosEntryType,'snsQosEntryInCounter':snsQosEntryInCounter,'snsQosEntryInMaxPeak':snsQosEntryInMaxPeak,'snsQosEntryInSpeedLimit':snsQosEntryInSpeedLimit,'snsQosEntryOutCounter':snsQosEntryOutCounter,'snsQosEntryOutMaxPeak':snsQosEntryOutMaxPeak,'snsQosEntryOutSpeedLimit':snsQosEntryOutSpeedLimit,'snsQosEntryComment':snsQosEntryComment})
+#
+# PySNMP MIB module STORMSHIELD-QOS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/stormshield/STORMSHIELD-QOS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:17 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
+snsQos = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 15))
+snsQos.setRevisions(('2017-02-20 00:00',))
+if mibBuilder.loadTexts: snsQos.setLastUpdated('201702200000Z')
+if mibBuilder.loadTexts: snsQos.setOrganization('Stormshield')
+snsQosStatsTable = MibTable((1, 3, 6, 1, 4, 1, 11256, 1, 15, 1), )
+if mibBuilder.loadTexts: snsQosStatsTable.setStatus('current')
+snsQosStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11256, 1, 15, 1, 1), ).setIndexNames((0, "STORMSHIELD-QOS-MIB", "snsQosEntryIndex"))
+if mibBuilder.loadTexts: snsQosStatsEntry.setStatus('current')
+snsQosEntryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 15, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsQosEntryIndex.setStatus('current')
+snsQosEntryName = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 15, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsQosEntryName.setStatus('current')
+snsQosEntryType = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 15, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsQosEntryType.setStatus('current')
+snsQosEntryInCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 15, 1, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsQosEntryInCounter.setStatus('current')
+snsQosEntryInMaxPeak = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 15, 1, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsQosEntryInMaxPeak.setStatus('current')
+snsQosEntryInSpeedLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 15, 1, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsQosEntryInSpeedLimit.setStatus('current')
+snsQosEntryOutCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 15, 1, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsQosEntryOutCounter.setStatus('current')
+snsQosEntryOutMaxPeak = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 15, 1, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsQosEntryOutMaxPeak.setStatus('current')
+snsQosEntryOutSpeedLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 15, 1, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsQosEntryOutSpeedLimit.setStatus('current')
+snsQosEntryComment = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 15, 1, 1, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsQosEntryComment.setStatus('current')
+mibBuilder.exportSymbols("STORMSHIELD-QOS-MIB", snsQosEntryInMaxPeak=snsQosEntryInMaxPeak, snsQosEntryInSpeedLimit=snsQosEntryInSpeedLimit, snsQosEntryIndex=snsQosEntryIndex, snsQos=snsQos, snsQosEntryInCounter=snsQosEntryInCounter, snsQosEntryOutCounter=snsQosEntryOutCounter, snsQosEntryOutMaxPeak=snsQosEntryOutMaxPeak, snsQosEntryComment=snsQosEntryComment, snsQosEntryName=snsQosEntryName, snsQosStatsEntry=snsQosStatsEntry, PYSNMP_MODULE_ID=snsQos, snsQosEntryType=snsQosEntryType, snsQosEntryOutSpeedLimit=snsQosEntryOutSpeedLimit, snsQosStatsTable=snsQosStatsTable)

@@ -1,290 +1,174 @@
-_Z='sensUnit'
-_Y='sensValue'
-_X='sensState'
-_W='sensID'
-_V='sensName'
-_U='inpAlarmState'
-_T='inpValue'
-_S='inpName'
-_R='sensSetupIndex'
-_Q='tsAlarmIdx'
-_P='sensIndex'
-_O='outIndex'
-_N='inpIndex'
-_M='normal'
-_L='DisplayString'
-_K='Integer32'
-_J='tsAlarmDescr'
-_I='tsAlarmId'
-_H='infoAddressMAC'
-_G='not-accessible'
-_F='sysName'
-_E='SNMPv2-MIB'
-_D='read-write'
-_C='read-only'
-_B='DAMOCLES-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-sysName,=mibBuilder.importSymbols(_E,_F)
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_K,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_L,'PhysAddress','TextualConvention')
-class PositiveInteger(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-class NonNegativeInteger(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-class OnOff(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('off',0),('on',1)))
-class OutputType(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('onOff',0),('rts',1),('dtr',2)))
-class OutputMode(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('manual',0),('autoAlarm',1),('autoTriggerEq',2),('autoTriggerHi',3),('autoTriggerLo',4)))
-class UnitType(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10,11,12)));namedValues=NamedValues(*(('celsius',0),('fahrenheit',1),('kelvin',2),('percent',3),('volt',4),('miliAmper',5),('noUnit',6),('pulse',7),('switch',8),('dewPoint',9),('absoluteHumidity',10),('pressure',11),('universal',12)))
-class InputAlarmSetup(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('inactive',0),('activeOff',1),('activeOn',2)))
-class InputAlarmState(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_M,0),('alarm',1)))
-class SensorState(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('invalid',0),(_M,1),('alarmstate',2),('alarm',3)))
-class SensorID(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-class IOName(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-class SensorName(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-class SensorValue(Integer32):0
-class SensorString(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,10))
-class SensorUnitString(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,4))
-class SensorFlags(Integer32):0
-class TimeStamp(TimeTicks):0
-_Hwgroup_ObjectIdentity=ObjectIdentity
-hwgroup=_Hwgroup_ObjectIdentity((1,3,6,1,4,1,21796))
-_CharonII_ObjectIdentity=ObjectIdentity
-charonII=_CharonII_ObjectIdentity((1,3,6,1,4,1,21796,3))
-_Damocles_ObjectIdentity=ObjectIdentity
-damocles=_Damocles_ObjectIdentity((1,3,6,1,4,1,21796,3,4))
-_InpTable_Object=MibTable
-inpTable=_InpTable_Object((1,3,6,1,4,1,21796,3,4,1))
-if mibBuilder.loadTexts:inpTable.setStatus(_A)
-_InpEntry_Object=MibTableRow
-inpEntry=_InpEntry_Object((1,3,6,1,4,1,21796,3,4,1,1))
-inpEntry.setIndexNames((0,_B,_N))
-if mibBuilder.loadTexts:inpEntry.setStatus(_A)
-_InpIndex_Type=PositiveInteger
-_InpIndex_Object=MibTableColumn
-inpIndex=_InpIndex_Object((1,3,6,1,4,1,21796,3,4,1,1,1),_InpIndex_Type())
-inpIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:inpIndex.setStatus(_A)
-_InpValue_Type=OnOff
-_InpValue_Object=MibTableColumn
-inpValue=_InpValue_Object((1,3,6,1,4,1,21796,3,4,1,1,2),_InpValue_Type())
-inpValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:inpValue.setStatus(_A)
-_InpName_Type=IOName
-_InpName_Object=MibTableColumn
-inpName=_InpName_Object((1,3,6,1,4,1,21796,3,4,1,1,3),_InpName_Type())
-inpName.setMaxAccess(_D)
-if mibBuilder.loadTexts:inpName.setStatus(_A)
-_InpAlarmSetup_Type=InputAlarmSetup
-_InpAlarmSetup_Object=MibTableColumn
-inpAlarmSetup=_InpAlarmSetup_Object((1,3,6,1,4,1,21796,3,4,1,1,4),_InpAlarmSetup_Type())
-inpAlarmSetup.setMaxAccess(_D)
-if mibBuilder.loadTexts:inpAlarmSetup.setStatus(_A)
-_InpAlarmState_Type=InputAlarmState
-_InpAlarmState_Object=MibTableColumn
-inpAlarmState=_InpAlarmState_Object((1,3,6,1,4,1,21796,3,4,1,1,5),_InpAlarmState_Type())
-inpAlarmState.setMaxAccess(_C)
-if mibBuilder.loadTexts:inpAlarmState.setStatus(_A)
-_InpCounter_Type=NonNegativeInteger
-_InpCounter_Object=MibTableColumn
-inpCounter=_InpCounter_Object((1,3,6,1,4,1,21796,3,4,1,1,6),_InpCounter_Type())
-inpCounter.setMaxAccess(_D)
-if mibBuilder.loadTexts:inpCounter.setStatus(_A)
-_OutTable_Object=MibTable
-outTable=_OutTable_Object((1,3,6,1,4,1,21796,3,4,2))
-if mibBuilder.loadTexts:outTable.setStatus(_A)
-_OutEntry_Object=MibTableRow
-outEntry=_OutEntry_Object((1,3,6,1,4,1,21796,3,4,2,1))
-outEntry.setIndexNames((0,_B,_O))
-if mibBuilder.loadTexts:outEntry.setStatus(_A)
-_OutIndex_Type=PositiveInteger
-_OutIndex_Object=MibTableColumn
-outIndex=_OutIndex_Object((1,3,6,1,4,1,21796,3,4,2,1,1),_OutIndex_Type())
-outIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:outIndex.setStatus(_A)
-_OutValue_Type=OnOff
-_OutValue_Object=MibTableColumn
-outValue=_OutValue_Object((1,3,6,1,4,1,21796,3,4,2,1,2),_OutValue_Type())
-outValue.setMaxAccess(_D)
-if mibBuilder.loadTexts:outValue.setStatus(_A)
-_OutName_Type=IOName
-_OutName_Object=MibTableColumn
-outName=_OutName_Object((1,3,6,1,4,1,21796,3,4,2,1,3),_OutName_Type())
-outName.setMaxAccess(_D)
-if mibBuilder.loadTexts:outName.setStatus(_A)
-_OutType_Type=OutputType
-_OutType_Object=MibTableColumn
-outType=_OutType_Object((1,3,6,1,4,1,21796,3,4,2,1,4),_OutType_Type())
-outType.setMaxAccess(_C)
-if mibBuilder.loadTexts:outType.setStatus(_A)
-_OutMode_Type=OutputMode
-_OutMode_Object=MibTableColumn
-outMode=_OutMode_Object((1,3,6,1,4,1,21796,3,4,2,1,5),_OutMode_Type())
-outMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:outMode.setStatus(_A)
-_OutInit_Type=OnOff
-_OutInit_Object=MibTableColumn
-outInit=_OutInit_Object((1,3,6,1,4,1,21796,3,4,2,1,6),_OutInit_Type())
-outInit.setMaxAccess(_D)
-if mibBuilder.loadTexts:outInit.setStatus(_A)
-_SensTable_Object=MibTable
-sensTable=_SensTable_Object((1,3,6,1,4,1,21796,3,4,3))
-if mibBuilder.loadTexts:sensTable.setStatus(_A)
-_SensEntry_Object=MibTableRow
-sensEntry=_SensEntry_Object((1,3,6,1,4,1,21796,3,4,3,1))
-sensEntry.setIndexNames((0,_B,_P))
-if mibBuilder.loadTexts:sensEntry.setStatus(_A)
-_SensIndex_Type=PositiveInteger
-_SensIndex_Object=MibTableColumn
-sensIndex=_SensIndex_Object((1,3,6,1,4,1,21796,3,4,3,1,1),_SensIndex_Type())
-sensIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:sensIndex.setStatus(_A)
-_SensName_Type=SensorName
-_SensName_Object=MibTableColumn
-sensName=_SensName_Object((1,3,6,1,4,1,21796,3,4,3,1,2),_SensName_Type())
-sensName.setMaxAccess(_C)
-if mibBuilder.loadTexts:sensName.setStatus(_A)
-_SensState_Type=SensorState
-_SensState_Object=MibTableColumn
-sensState=_SensState_Object((1,3,6,1,4,1,21796,3,4,3,1,4),_SensState_Type())
-sensState.setMaxAccess(_C)
-if mibBuilder.loadTexts:sensState.setStatus(_A)
-_SensString_Type=SensorString
-_SensString_Object=MibTableColumn
-sensString=_SensString_Object((1,3,6,1,4,1,21796,3,4,3,1,5),_SensString_Type())
-sensString.setMaxAccess(_C)
-if mibBuilder.loadTexts:sensString.setStatus(_A)
-_SensValue_Type=SensorValue
-_SensValue_Object=MibTableColumn
-sensValue=_SensValue_Object((1,3,6,1,4,1,21796,3,4,3,1,6),_SensValue_Type())
-sensValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:sensValue.setStatus(_A)
-_SensValueRaw_Type=SensorValue
-_SensValueRaw_Object=MibTableColumn
-sensValueRaw=_SensValueRaw_Object((1,3,6,1,4,1,21796,3,4,3,1,7),_SensValueRaw_Type())
-sensValueRaw.setMaxAccess(_C)
-if mibBuilder.loadTexts:sensValueRaw.setStatus(_A)
-_SensID_Type=SensorID
-_SensID_Object=MibTableColumn
-sensID=_SensID_Object((1,3,6,1,4,1,21796,3,4,3,1,8),_SensID_Type())
-sensID.setMaxAccess(_C)
-if mibBuilder.loadTexts:sensID.setStatus(_A)
-_SensUnit_Type=UnitType
-_SensUnit_Object=MibTableColumn
-sensUnit=_SensUnit_Object((1,3,6,1,4,1,21796,3,4,3,1,9),_SensUnit_Type())
-sensUnit.setMaxAccess(_C)
-if mibBuilder.loadTexts:sensUnit.setStatus(_A)
-_SensUnitString_Type=SensorUnitString
-_SensUnitString_Object=MibTableColumn
-sensUnitString=_SensUnitString_Object((1,3,6,1,4,1,21796,3,4,3,1,10),_SensUnitString_Type())
-sensUnitString.setMaxAccess(_C)
-if mibBuilder.loadTexts:sensUnitString.setStatus(_A)
-_TsAlarm_ObjectIdentity=ObjectIdentity
-tsAlarm=_TsAlarm_ObjectIdentity((1,3,6,1,4,1,21796,3,4,50))
-_TsAlarmsPresent_Type=Gauge32
-_TsAlarmsPresent_Object=MibScalar
-tsAlarmsPresent=_TsAlarmsPresent_Object((1,3,6,1,4,1,21796,3,4,50,1),_TsAlarmsPresent_Type())
-tsAlarmsPresent.setMaxAccess(_C)
-if mibBuilder.loadTexts:tsAlarmsPresent.setStatus(_A)
-_TsAlarmTable_Object=MibTable
-tsAlarmTable=_TsAlarmTable_Object((1,3,6,1,4,1,21796,3,4,50,2))
-if mibBuilder.loadTexts:tsAlarmTable.setStatus(_A)
-_TsAlarmEntry_Object=MibTableRow
-tsAlarmEntry=_TsAlarmEntry_Object((1,3,6,1,4,1,21796,3,4,50,2,1))
-tsAlarmEntry.setIndexNames((0,_B,_Q))
-if mibBuilder.loadTexts:tsAlarmEntry.setStatus(_A)
-_TsAlarmIdx_Type=PositiveInteger
-_TsAlarmIdx_Object=MibTableColumn
-tsAlarmIdx=_TsAlarmIdx_Object((1,3,6,1,4,1,21796,3,4,50,2,1,1),_TsAlarmIdx_Type())
-tsAlarmIdx.setMaxAccess(_G)
-if mibBuilder.loadTexts:tsAlarmIdx.setStatus(_A)
-_TsAlarmId_Type=PositiveInteger
-_TsAlarmId_Object=MibTableColumn
-tsAlarmId=_TsAlarmId_Object((1,3,6,1,4,1,21796,3,4,50,2,1,2),_TsAlarmId_Type())
-tsAlarmId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tsAlarmId.setStatus(_A)
-class _TsAlarmDescr_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('inputStateAlarm',1),('temperatureOutOfRange',2)))
-_TsAlarmDescr_Type.__name__=_K
-_TsAlarmDescr_Object=MibTableColumn
-tsAlarmDescr=_TsAlarmDescr_Object((1,3,6,1,4,1,21796,3,4,50,2,1,3),_TsAlarmDescr_Type())
-tsAlarmDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tsAlarmDescr.setStatus(_A)
-_TsAlarmSensName_Type=SensorName
-_TsAlarmSensName_Object=MibTableColumn
-tsAlarmSensName=_TsAlarmSensName_Object((1,3,6,1,4,1,21796,3,4,50,2,1,4),_TsAlarmSensName_Type())
-tsAlarmSensName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tsAlarmSensName.setStatus(_A)
-_TsAlarmTime_Type=TimeStamp
-_TsAlarmTime_Object=MibTableColumn
-tsAlarmTime=_TsAlarmTime_Object((1,3,6,1,4,1,21796,3,4,50,2,1,5),_TsAlarmTime_Type())
-tsAlarmTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tsAlarmTime.setStatus(_A)
-_Info_ObjectIdentity=ObjectIdentity
-info=_Info_ObjectIdentity((1,3,6,1,4,1,21796,3,4,70))
-class _InfoAddressMAC_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,17))
-_InfoAddressMAC_Type.__name__=_L
-_InfoAddressMAC_Object=MibScalar
-infoAddressMAC=_InfoAddressMAC_Object((1,3,6,1,4,1,21796,3,4,70,1),_InfoAddressMAC_Type())
-infoAddressMAC.setMaxAccess(_C)
-if mibBuilder.loadTexts:infoAddressMAC.setStatus(_A)
-_Setup_ObjectIdentity=ObjectIdentity
-setup=_Setup_ObjectIdentity((1,3,6,1,4,1,21796,3,4,99))
-_SensSetup_ObjectIdentity=ObjectIdentity
-sensSetup=_SensSetup_ObjectIdentity((1,3,6,1,4,1,21796,3,4,99,1))
-_UnitType_Type=UnitType
-_UnitType_Object=MibScalar
-unitType=_UnitType_Object((1,3,6,1,4,1,21796,3,4,99,1,1),_UnitType_Type())
-unitType.setMaxAccess(_D)
-if mibBuilder.loadTexts:unitType.setStatus(_A)
-_SensSetupTable_Object=MibTable
-sensSetupTable=_SensSetupTable_Object((1,3,6,1,4,1,21796,3,4,99,1,2))
-if mibBuilder.loadTexts:sensSetupTable.setStatus(_A)
-_SensSetupEntry_Object=MibTableRow
-sensSetupEntry=_SensSetupEntry_Object((1,3,6,1,4,1,21796,3,4,99,1,2,1))
-sensSetupEntry.setIndexNames((0,_B,_R))
-if mibBuilder.loadTexts:sensSetupEntry.setStatus(_A)
-_SensSetupIndex_Type=PositiveInteger
-_SensSetupIndex_Object=MibTableColumn
-sensSetupIndex=_SensSetupIndex_Object((1,3,6,1,4,1,21796,3,4,99,1,2,1,1),_SensSetupIndex_Type())
-sensSetupIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:sensSetupIndex.setStatus(_A)
-_SensSetupName_Type=SensorName
-_SensSetupName_Object=MibTableColumn
-sensSetupName=_SensSetupName_Object((1,3,6,1,4,1,21796,3,4,99,1,2,1,2),_SensSetupName_Type())
-sensSetupName.setMaxAccess(_D)
-if mibBuilder.loadTexts:sensSetupName.setStatus(_A)
-_SensFlags_Type=SensorFlags
-_SensFlags_Object=MibTableColumn
-sensFlags=_SensFlags_Object((1,3,6,1,4,1,21796,3,4,99,1,2,1,5),_SensFlags_Type())
-sensFlags.setMaxAccess(_D)
-if mibBuilder.loadTexts:sensFlags.setStatus(_A)
-_SensLimitMin_Type=SensorValue
-_SensLimitMin_Object=MibTableColumn
-sensLimitMin=_SensLimitMin_Object((1,3,6,1,4,1,21796,3,4,99,1,2,1,6),_SensLimitMin_Type())
-sensLimitMin.setMaxAccess(_D)
-if mibBuilder.loadTexts:sensLimitMin.setStatus(_A)
-_SensLimitMax_Type=SensorValue
-_SensLimitMax_Object=MibTableColumn
-sensLimitMax=_SensLimitMax_Object((1,3,6,1,4,1,21796,3,4,99,1,2,1,7),_SensLimitMax_Type())
-sensLimitMax.setMaxAccess(_D)
-if mibBuilder.loadTexts:sensLimitMax.setStatus(_A)
-_SensHysteresis_Type=SensorValue
-_SensHysteresis_Object=MibTableColumn
-sensHysteresis=_SensHysteresis_Object((1,3,6,1,4,1,21796,3,4,99,1,2,1,8),_SensHysteresis_Type())
-sensHysteresis.setMaxAccess(_D)
-if mibBuilder.loadTexts:sensHysteresis.setStatus(_A)
-inpAlarmStateChanged=NotificationType((1,3,6,1,4,1,21796,3,4,0,1))
-inpAlarmStateChanged.setObjects(*((_E,_F),(_B,_H),(_B,_S),(_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:inpAlarmStateChanged.setStatus('')
-sensAlarmStateChanged=NotificationType((1,3,6,1,4,1,21796,3,4,0,2))
-sensAlarmStateChanged.setObjects(*((_E,_F),(_B,_H),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z)))
-if mibBuilder.loadTexts:sensAlarmStateChanged.setStatus('')
-tsTrapAlarmStart=NotificationType((1,3,6,1,4,1,21796,3,4,0,3))
-tsTrapAlarmStart.setObjects(*((_E,_F),(_B,_H),(_B,_I),(_B,_J)))
-if mibBuilder.loadTexts:tsTrapAlarmStart.setStatus('')
-tsTrapAlarmEnd=NotificationType((1,3,6,1,4,1,21796,3,4,0,4))
-tsTrapAlarmEnd.setObjects(*((_E,_F),(_B,_H),(_B,_I),(_B,_J)))
-if mibBuilder.loadTexts:tsTrapAlarmEnd.setStatus('')
-mibBuilder.exportSymbols(_B,**{'PositiveInteger':PositiveInteger,'NonNegativeInteger':NonNegativeInteger,'OnOff':OnOff,'OutputType':OutputType,'OutputMode':OutputMode,'UnitType':UnitType,'InputAlarmSetup':InputAlarmSetup,'InputAlarmState':InputAlarmState,'SensorState':SensorState,'SensorID':SensorID,'IOName':IOName,'SensorName':SensorName,'SensorValue':SensorValue,'SensorString':SensorString,'SensorUnitString':SensorUnitString,'SensorFlags':SensorFlags,'TimeStamp':TimeStamp,'hwgroup':hwgroup,'charonII':charonII,'damocles':damocles,'inpAlarmStateChanged':inpAlarmStateChanged,'sensAlarmStateChanged':sensAlarmStateChanged,'tsTrapAlarmStart':tsTrapAlarmStart,'tsTrapAlarmEnd':tsTrapAlarmEnd,'inpTable':inpTable,'inpEntry':inpEntry,_N:inpIndex,_T:inpValue,_S:inpName,'inpAlarmSetup':inpAlarmSetup,_U:inpAlarmState,'inpCounter':inpCounter,'outTable':outTable,'outEntry':outEntry,_O:outIndex,'outValue':outValue,'outName':outName,'outType':outType,'outMode':outMode,'outInit':outInit,'sensTable':sensTable,'sensEntry':sensEntry,_P:sensIndex,_V:sensName,_X:sensState,'sensString':sensString,_Y:sensValue,'sensValueRaw':sensValueRaw,_W:sensID,_Z:sensUnit,'sensUnitString':sensUnitString,'tsAlarm':tsAlarm,'tsAlarmsPresent':tsAlarmsPresent,'tsAlarmTable':tsAlarmTable,'tsAlarmEntry':tsAlarmEntry,_Q:tsAlarmIdx,_I:tsAlarmId,_J:tsAlarmDescr,'tsAlarmSensName':tsAlarmSensName,'tsAlarmTime':tsAlarmTime,'info':info,_H:infoAddressMAC,'setup':setup,'sensSetup':sensSetup,'unitType':unitType,'sensSetupTable':sensSetupTable,'sensSetupEntry':sensSetupEntry,_R:sensSetupIndex,'sensSetupName':sensSetupName,'sensFlags':sensFlags,'sensLimitMin':sensLimitMin,'sensLimitMax':sensLimitMax,'sensHysteresis':sensHysteresis})
+#
+# PySNMP MIB module DAMOCLES-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hwgroup/DAMOCLES-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:00 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+class PositiveInteger(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 2147483647)
+
+class NonNegativeInteger(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+
+class OnOff(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
+    namedValues = NamedValues(("off", 0), ("on", 1))
+
+class OutputType(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("onOff", 0), ("rts", 1), ("dtr", 2))
+
+class OutputMode(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
+    namedValues = NamedValues(("manual", 0), ("autoAlarm", 1), ("autoTriggerEq", 2), ("autoTriggerHi", 3), ("autoTriggerLo", 4))
+
+class UnitType(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
+    namedValues = NamedValues(("celsius", 0), ("fahrenheit", 1), ("kelvin", 2), ("percent", 3), ("volt", 4), ("miliAmper", 5), ("noUnit", 6), ("pulse", 7), ("switch", 8), ("dewPoint", 9), ("absoluteHumidity", 10), ("pressure", 11), ("universal", 12))
+
+class InputAlarmSetup(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("inactive", 0), ("activeOff", 1), ("activeOn", 2))
+
+class InputAlarmState(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
+    namedValues = NamedValues(("normal", 0), ("alarm", 1))
+
+class SensorState(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
+    namedValues = NamedValues(("invalid", 0), ("normal", 1), ("alarmstate", 2), ("alarm", 3))
+
+class SensorID(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 65535)
+
+class IOName(DisplayString):
+    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 20)
+
+class SensorName(DisplayString):
+    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 15)
+
+class SensorValue(Integer32):
+    pass
+
+class SensorString(DisplayString):
+    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 10)
+
+class SensorUnitString(DisplayString):
+    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 4)
+
+class SensorFlags(Integer32):
+    pass
+
+class TimeStamp(TimeTicks):
+    pass
+
+hwgroup = MibIdentifier((1, 3, 6, 1, 4, 1, 21796))
+charonII = MibIdentifier((1, 3, 6, 1, 4, 1, 21796, 3))
+damocles = MibIdentifier((1, 3, 6, 1, 4, 1, 21796, 3, 4))
+info = MibIdentifier((1, 3, 6, 1, 4, 1, 21796, 3, 4, 70))
+setup = MibIdentifier((1, 3, 6, 1, 4, 1, 21796, 3, 4, 99))
+inpTable = MibTable((1, 3, 6, 1, 4, 1, 21796, 3, 4, 1), )
+if mibBuilder.loadTexts: inpTable.setStatus('current')
+inpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21796, 3, 4, 1, 1), ).setIndexNames((0, "DAMOCLES-MIB", "inpIndex"))
+if mibBuilder.loadTexts: inpEntry.setStatus('current')
+inpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 1, 1, 1), PositiveInteger())
+if mibBuilder.loadTexts: inpIndex.setStatus('current')
+inpValue = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 1, 1, 2), OnOff()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: inpValue.setStatus('current')
+inpName = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 1, 1, 3), IOName()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: inpName.setStatus('current')
+inpAlarmSetup = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 1, 1, 4), InputAlarmSetup()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: inpAlarmSetup.setStatus('current')
+inpAlarmState = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 1, 1, 5), InputAlarmState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: inpAlarmState.setStatus('current')
+inpCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 1, 1, 6), NonNegativeInteger()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: inpCounter.setStatus('current')
+outTable = MibTable((1, 3, 6, 1, 4, 1, 21796, 3, 4, 2), )
+if mibBuilder.loadTexts: outTable.setStatus('current')
+outEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21796, 3, 4, 2, 1), ).setIndexNames((0, "DAMOCLES-MIB", "outIndex"))
+if mibBuilder.loadTexts: outEntry.setStatus('current')
+outIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 2, 1, 1), PositiveInteger())
+if mibBuilder.loadTexts: outIndex.setStatus('current')
+outValue = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 2, 1, 2), OnOff()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: outValue.setStatus('current')
+outName = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 2, 1, 3), IOName()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: outName.setStatus('current')
+outType = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 2, 1, 4), OutputType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: outType.setStatus('current')
+outMode = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 2, 1, 5), OutputMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: outMode.setStatus('current')
+outInit = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 2, 1, 6), OnOff()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: outInit.setStatus('current')
+sensTable = MibTable((1, 3, 6, 1, 4, 1, 21796, 3, 4, 3), )
+if mibBuilder.loadTexts: sensTable.setStatus('current')
+sensEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21796, 3, 4, 3, 1), ).setIndexNames((0, "DAMOCLES-MIB", "sensIndex"))
+if mibBuilder.loadTexts: sensEntry.setStatus('current')
+sensIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 3, 1, 1), PositiveInteger())
+if mibBuilder.loadTexts: sensIndex.setStatus('current')
+sensName = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 3, 1, 2), SensorName()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensName.setStatus('current')
+sensState = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 3, 1, 4), SensorState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensState.setStatus('current')
+sensString = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 3, 1, 5), SensorString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensString.setStatus('current')
+sensValue = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 3, 1, 6), SensorValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensValue.setStatus('current')
+sensValueRaw = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 3, 1, 7), SensorValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensValueRaw.setStatus('current')
+sensID = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 3, 1, 8), SensorID()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensID.setStatus('current')
+sensUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 3, 1, 9), UnitType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensUnit.setStatus('current')
+sensUnitString = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 3, 1, 10), SensorUnitString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensUnitString.setStatus('current')
+tsAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 21796, 3, 4, 50))
+tsAlarmsPresent = MibScalar((1, 3, 6, 1, 4, 1, 21796, 3, 4, 50, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tsAlarmsPresent.setStatus('current')
+tsAlarmTable = MibTable((1, 3, 6, 1, 4, 1, 21796, 3, 4, 50, 2), )
+if mibBuilder.loadTexts: tsAlarmTable.setStatus('current')
+tsAlarmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21796, 3, 4, 50, 2, 1), ).setIndexNames((0, "DAMOCLES-MIB", "tsAlarmIdx"))
+if mibBuilder.loadTexts: tsAlarmEntry.setStatus('current')
+tsAlarmIdx = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 50, 2, 1, 1), PositiveInteger())
+if mibBuilder.loadTexts: tsAlarmIdx.setStatus('current')
+tsAlarmId = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 50, 2, 1, 2), PositiveInteger()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tsAlarmId.setStatus('current')
+tsAlarmDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 50, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inputStateAlarm", 1), ("temperatureOutOfRange", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tsAlarmDescr.setStatus('current')
+tsAlarmSensName = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 50, 2, 1, 4), SensorName()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tsAlarmSensName.setStatus('current')
+tsAlarmTime = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 50, 2, 1, 5), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tsAlarmTime.setStatus('current')
+infoAddressMAC = MibScalar((1, 3, 6, 1, 4, 1, 21796, 3, 4, 70, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 17))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: infoAddressMAC.setStatus('current')
+sensSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 21796, 3, 4, 99, 1))
+unitType = MibScalar((1, 3, 6, 1, 4, 1, 21796, 3, 4, 99, 1, 1), UnitType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: unitType.setStatus('current')
+sensSetupTable = MibTable((1, 3, 6, 1, 4, 1, 21796, 3, 4, 99, 1, 2), )
+if mibBuilder.loadTexts: sensSetupTable.setStatus('current')
+sensSetupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21796, 3, 4, 99, 1, 2, 1), ).setIndexNames((0, "DAMOCLES-MIB", "sensSetupIndex"))
+if mibBuilder.loadTexts: sensSetupEntry.setStatus('current')
+sensSetupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 99, 1, 2, 1, 1), PositiveInteger())
+if mibBuilder.loadTexts: sensSetupIndex.setStatus('current')
+sensSetupName = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 99, 1, 2, 1, 2), SensorName()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sensSetupName.setStatus('current')
+sensFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 99, 1, 2, 1, 5), SensorFlags()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sensFlags.setStatus('current')
+sensLimitMin = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 99, 1, 2, 1, 6), SensorValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sensLimitMin.setStatus('current')
+sensLimitMax = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 99, 1, 2, 1, 7), SensorValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sensLimitMax.setStatus('current')
+sensHysteresis = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 3, 4, 99, 1, 2, 1, 8), SensorValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sensHysteresis.setStatus('current')
+inpAlarmStateChanged = NotificationType((1, 3, 6, 1, 4, 1, 21796, 3, 4) + (0,1)).setObjects(("SNMPv2-MIB", "sysName"), ("DAMOCLES-MIB", "infoAddressMAC"), ("DAMOCLES-MIB", "inpName"), ("DAMOCLES-MIB", "inpValue"), ("DAMOCLES-MIB", "inpAlarmState"))
+sensAlarmStateChanged = NotificationType((1, 3, 6, 1, 4, 1, 21796, 3, 4) + (0,2)).setObjects(("SNMPv2-MIB", "sysName"), ("DAMOCLES-MIB", "infoAddressMAC"), ("DAMOCLES-MIB", "sensName"), ("DAMOCLES-MIB", "sensID"), ("DAMOCLES-MIB", "sensState"), ("DAMOCLES-MIB", "sensValue"), ("DAMOCLES-MIB", "sensUnit"))
+tsTrapAlarmStart = NotificationType((1, 3, 6, 1, 4, 1, 21796, 3, 4) + (0,3)).setObjects(("SNMPv2-MIB", "sysName"), ("DAMOCLES-MIB", "infoAddressMAC"), ("DAMOCLES-MIB", "tsAlarmId"), ("DAMOCLES-MIB", "tsAlarmDescr"))
+tsTrapAlarmEnd = NotificationType((1, 3, 6, 1, 4, 1, 21796, 3, 4) + (0,4)).setObjects(("SNMPv2-MIB", "sysName"), ("DAMOCLES-MIB", "infoAddressMAC"), ("DAMOCLES-MIB", "tsAlarmId"), ("DAMOCLES-MIB", "tsAlarmDescr"))
+mibBuilder.exportSymbols("DAMOCLES-MIB", info=info, InputAlarmSetup=InputAlarmSetup, tsAlarmTime=tsAlarmTime, SensorState=SensorState, tsAlarmsPresent=tsAlarmsPresent, outMode=outMode, sensSetup=sensSetup, inpCounter=inpCounter, sensSetupTable=sensSetupTable, outIndex=outIndex, UnitType=UnitType, SensorString=SensorString, SensorFlags=SensorFlags, inpIndex=inpIndex, setup=setup, infoAddressMAC=infoAddressMAC, tsAlarmIdx=tsAlarmIdx, tsAlarmId=tsAlarmId, sensLimitMax=sensLimitMax, sensSetupIndex=sensSetupIndex, SensorValue=SensorValue, inpAlarmSetup=inpAlarmSetup, sensValue=sensValue, sensSetupName=sensSetupName, inpAlarmStateChanged=inpAlarmStateChanged, SensorUnitString=SensorUnitString, outName=outName, sensTable=sensTable, tsTrapAlarmStart=tsTrapAlarmStart, sensEntry=sensEntry, tsAlarmTable=tsAlarmTable, inpName=inpName, tsAlarmSensName=tsAlarmSensName, inpTable=inpTable, inpValue=inpValue, sensID=sensID, sensLimitMin=sensLimitMin, outValue=outValue, damocles=damocles, tsTrapAlarmEnd=tsTrapAlarmEnd, sensUnit=sensUnit, tsAlarmEntry=tsAlarmEntry, inpAlarmState=inpAlarmState, sensName=sensName, inpEntry=inpEntry, unitType=unitType, NonNegativeInteger=NonNegativeInteger, sensFlags=sensFlags, outEntry=outEntry, sensState=sensState, sensIndex=sensIndex, SensorID=SensorID, InputAlarmState=InputAlarmState, tsAlarmDescr=tsAlarmDescr, OutputType=OutputType, sensAlarmStateChanged=sensAlarmStateChanged, OnOff=OnOff, TimeStamp=TimeStamp, SensorName=SensorName, sensHysteresis=sensHysteresis, OutputMode=OutputMode, PositiveInteger=PositiveInteger, charonII=charonII, sensSetupEntry=sensSetupEntry, sensUnitString=sensUnitString, outType=outType, hwgroup=hwgroup, outTable=outTable, sensValueRaw=sensValueRaw, sensString=sensString, tsAlarm=tsAlarm, IOName=IOName, outInit=outInit)

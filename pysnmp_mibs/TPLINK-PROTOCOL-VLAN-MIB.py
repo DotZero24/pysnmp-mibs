@@ -1,93 +1,51 @@
-_G='protocolName'
-_F='templateProtocolName'
-_E='TPLINK-PROTOCOL-VLAN-MIB'
-_D='Integer32'
-_C='OctetString'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tplinkMgmt,=mibBuilder.importSymbols('TPLINK-MIB','tplinkMgmt')
-TPRowStatus,=mibBuilder.importSymbols('TPLINK-TC-MIB','TPRowStatus')
-tplinkProtocolVlanMIB=ModuleIdentity((1,3,6,1,4,1,11863,6,16))
-if mibBuilder.loadTexts:tplinkProtocolVlanMIB.setRevisions(('2009-08-03 00:00',))
-_TplinkProtocolVlanMIBObjects_ObjectIdentity=ObjectIdentity
-tplinkProtocolVlanMIBObjects=_TplinkProtocolVlanMIBObjects_ObjectIdentity((1,3,6,1,4,1,11863,6,16,1))
-_ProtocolTemplate_ObjectIdentity=ObjectIdentity
-protocolTemplate=_ProtocolTemplate_ObjectIdentity((1,3,6,1,4,1,11863,6,16,1,1))
-_ProtocolTemplateTable_Object=MibTable
-protocolTemplateTable=_ProtocolTemplateTable_Object((1,3,6,1,4,1,11863,6,16,1,1,1))
-if mibBuilder.loadTexts:protocolTemplateTable.setStatus(_A)
-_TemplateEntry_Object=MibTableRow
-templateEntry=_TemplateEntry_Object((1,3,6,1,4,1,11863,6,16,1,1,1,1))
-templateEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:templateEntry.setStatus(_A)
-class _TemplateProtocolName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_TemplateProtocolName_Type.__name__=_C
-_TemplateProtocolName_Object=MibTableColumn
-templateProtocolName=_TemplateProtocolName_Object((1,3,6,1,4,1,11863,6,16,1,1,1,1,1),_TemplateProtocolName_Type())
-templateProtocolName.setMaxAccess(_B)
-if mibBuilder.loadTexts:templateProtocolName.setStatus(_A)
-class _TemplateEtherType_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
-_TemplateEtherType_Type.__name__=_C
-_TemplateEtherType_Object=MibTableColumn
-templateEtherType=_TemplateEtherType_Object((1,3,6,1,4,1,11863,6,16,1,1,1,1,2),_TemplateEtherType_Type())
-templateEtherType.setMaxAccess(_B)
-if mibBuilder.loadTexts:templateEtherType.setStatus(_A)
-class _TemplateFrameType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('ethernet8023',0),('ethernetII',1),('snap',2),('llc',3)))
-_TemplateFrameType_Type.__name__=_D
-_TemplateFrameType_Object=MibTableColumn
-templateFrameType=_TemplateFrameType_Object((1,3,6,1,4,1,11863,6,16,1,1,1,1,3),_TemplateFrameType_Type())
-templateFrameType.setMaxAccess(_B)
-if mibBuilder.loadTexts:templateFrameType.setStatus(_A)
-_TemplateStatus_Type=TPRowStatus
-_TemplateStatus_Object=MibTableColumn
-templateStatus=_TemplateStatus_Object((1,3,6,1,4,1,11863,6,16,1,1,1,1,4),_TemplateStatus_Type())
-templateStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:templateStatus.setStatus(_A)
-_ProtocolGroup_ObjectIdentity=ObjectIdentity
-protocolGroup=_ProtocolGroup_ObjectIdentity((1,3,6,1,4,1,11863,6,16,1,2))
-_ProtocolGroupTable_Object=MibTable
-protocolGroupTable=_ProtocolGroupTable_Object((1,3,6,1,4,1,11863,6,16,1,2,1))
-if mibBuilder.loadTexts:protocolGroupTable.setStatus(_A)
-_ProtocolVlanEntry_Object=MibTableRow
-protocolVlanEntry=_ProtocolVlanEntry_Object((1,3,6,1,4,1,11863,6,16,1,2,1,1))
-protocolVlanEntry.setIndexNames((0,_E,_G))
-if mibBuilder.loadTexts:protocolVlanEntry.setStatus(_A)
-class _ProtocolName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_ProtocolName_Type.__name__=_C
-_ProtocolName_Object=MibTableColumn
-protocolName=_ProtocolName_Object((1,3,6,1,4,1,11863,6,16,1,2,1,1,1),_ProtocolName_Type())
-protocolName.setMaxAccess('read-only')
-if mibBuilder.loadTexts:protocolName.setStatus(_A)
-class _ProtocolVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_ProtocolVlanId_Type.__name__=_D
-_ProtocolVlanId_Object=MibTableColumn
-protocolVlanId=_ProtocolVlanId_Object((1,3,6,1,4,1,11863,6,16,1,2,1,1,2),_ProtocolVlanId_Type())
-protocolVlanId.setMaxAccess(_B)
-if mibBuilder.loadTexts:protocolVlanId.setStatus(_A)
-class _ProtocolPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_ProtocolPriority_Type.__name__=_D
-_ProtocolPriority_Object=MibTableColumn
-protocolPriority=_ProtocolPriority_Object((1,3,6,1,4,1,11863,6,16,1,2,1,1,3),_ProtocolPriority_Type())
-protocolPriority.setMaxAccess(_B)
-if mibBuilder.loadTexts:protocolPriority.setStatus(_A)
-_ProtocolPortMember_Type=OctetString
-_ProtocolPortMember_Object=MibTableColumn
-protocolPortMember=_ProtocolPortMember_Object((1,3,6,1,4,1,11863,6,16,1,2,1,1,4),_ProtocolPortMember_Type())
-protocolPortMember.setMaxAccess(_B)
-if mibBuilder.loadTexts:protocolPortMember.setStatus(_A)
-_ProtocolVlanStatus_Type=TPRowStatus
-_ProtocolVlanStatus_Object=MibTableColumn
-protocolVlanStatus=_ProtocolVlanStatus_Object((1,3,6,1,4,1,11863,6,16,1,2,1,1,5),_ProtocolVlanStatus_Type())
-protocolVlanStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:protocolVlanStatus.setStatus(_A)
-_TplinkProtocolVlanNotifications_ObjectIdentity=ObjectIdentity
-tplinkProtocolVlanNotifications=_TplinkProtocolVlanNotifications_ObjectIdentity((1,3,6,1,4,1,11863,6,16,2))
-mibBuilder.exportSymbols(_E,**{'tplinkProtocolVlanMIB':tplinkProtocolVlanMIB,'tplinkProtocolVlanMIBObjects':tplinkProtocolVlanMIBObjects,'protocolTemplate':protocolTemplate,'protocolTemplateTable':protocolTemplateTable,'templateEntry':templateEntry,_F:templateProtocolName,'templateEtherType':templateEtherType,'templateFrameType':templateFrameType,'templateStatus':templateStatus,'protocolGroup':protocolGroup,'protocolGroupTable':protocolGroupTable,'protocolVlanEntry':protocolVlanEntry,_G:protocolName,'protocolVlanId':protocolVlanId,'protocolPriority':protocolPriority,'protocolPortMember':protocolPortMember,'protocolVlanStatus':protocolVlanStatus,'tplinkProtocolVlanNotifications':tplinkProtocolVlanNotifications})
+#
+# PySNMP MIB module TPLINK-PROTOCOL-VLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-PROTOCOL-VLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:24 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
+TPRowStatus, = mibBuilder.importSymbols("TPLINK-TC-MIB", "TPRowStatus")
+tplinkProtocolVlanMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 16))
+tplinkProtocolVlanMIB.setRevisions(('2009-08-03 00:00',))
+if mibBuilder.loadTexts: tplinkProtocolVlanMIB.setLastUpdated('200812160000Z')
+if mibBuilder.loadTexts: tplinkProtocolVlanMIB.setOrganization('TPLINK')
+tplinkProtocolVlanMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1))
+tplinkProtocolVlanNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 16, 2))
+protocolTemplate = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1, 1))
+protocolGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1, 2))
+protocolTemplateTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1, 1, 1), )
+if mibBuilder.loadTexts: protocolTemplateTable.setStatus('current')
+templateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1, 1, 1, 1), ).setIndexNames((0, "TPLINK-PROTOCOL-VLAN-MIB", "templateProtocolName"))
+if mibBuilder.loadTexts: templateEntry.setStatus('current')
+templateProtocolName = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1, 1, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: templateProtocolName.setStatus('current')
+templateEtherType = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1, 1, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: templateEtherType.setStatus('current')
+templateFrameType = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("ethernet8023", 0), ("ethernetII", 1), ("snap", 2), ("llc", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: templateFrameType.setStatus('current')
+templateStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1, 1, 1, 1, 4), TPRowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: templateStatus.setStatus('current')
+protocolGroupTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1, 2, 1), )
+if mibBuilder.loadTexts: protocolGroupTable.setStatus('current')
+protocolVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1, 2, 1, 1), ).setIndexNames((0, "TPLINK-PROTOCOL-VLAN-MIB", "protocolName"))
+if mibBuilder.loadTexts: protocolVlanEntry.setStatus('current')
+protocolName = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1, 2, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: protocolName.setStatus('current')
+protocolVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: protocolVlanId.setStatus('current')
+protocolPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: protocolPriority.setStatus('current')
+protocolPortMember = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1, 2, 1, 1, 4), OctetString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: protocolPortMember.setStatus('current')
+protocolVlanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 16, 1, 2, 1, 1, 5), TPRowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: protocolVlanStatus.setStatus('current')
+mibBuilder.exportSymbols("TPLINK-PROTOCOL-VLAN-MIB", protocolTemplate=protocolTemplate, templateEtherType=templateEtherType, templateProtocolName=templateProtocolName, protocolGroup=protocolGroup, protocolGroupTable=protocolGroupTable, protocolName=protocolName, protocolPortMember=protocolPortMember, tplinkProtocolVlanNotifications=tplinkProtocolVlanNotifications, protocolVlanEntry=protocolVlanEntry, templateFrameType=templateFrameType, templateEntry=templateEntry, protocolTemplateTable=protocolTemplateTable, protocolVlanStatus=protocolVlanStatus, tplinkProtocolVlanMIBObjects=tplinkProtocolVlanMIBObjects, PYSNMP_MODULE_ID=tplinkProtocolVlanMIB, tplinkProtocolVlanMIB=tplinkProtocolVlanMIB, protocolPriority=protocolPriority, protocolVlanId=protocolVlanId, templateStatus=templateStatus)

@@ -1,61 +1,37 @@
-_G='read-write'
-_F='zyStaticRouteGateway'
-_E='zyStaticRouteSubnetMask'
-_D='zyStaticRouteIpAddress'
-_C='not-accessible'
-_B='ZYXEL-STATIC-ROUTE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelStaticRoute=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,77))
-_ZyxelStaticRouteSetup_ObjectIdentity=ObjectIdentity
-zyxelStaticRouteSetup=_ZyxelStaticRouteSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,77,1))
-_ZyStaticRouteMaxNumberOfRoutes_Type=Integer32
-_ZyStaticRouteMaxNumberOfRoutes_Object=MibScalar
-zyStaticRouteMaxNumberOfRoutes=_ZyStaticRouteMaxNumberOfRoutes_Object((1,3,6,1,4,1,890,1,15,3,77,1,1),_ZyStaticRouteMaxNumberOfRoutes_Type())
-zyStaticRouteMaxNumberOfRoutes.setMaxAccess('read-only')
-if mibBuilder.loadTexts:zyStaticRouteMaxNumberOfRoutes.setStatus(_A)
-_ZyxelStaticRouteTable_Object=MibTable
-zyxelStaticRouteTable=_ZyxelStaticRouteTable_Object((1,3,6,1,4,1,890,1,15,3,77,1,2))
-if mibBuilder.loadTexts:zyxelStaticRouteTable.setStatus(_A)
-_ZyxelStaticRouteEntry_Object=MibTableRow
-zyxelStaticRouteEntry=_ZyxelStaticRouteEntry_Object((1,3,6,1,4,1,890,1,15,3,77,1,2,1))
-zyxelStaticRouteEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_F))
-if mibBuilder.loadTexts:zyxelStaticRouteEntry.setStatus(_A)
-_ZyStaticRouteName_Type=DisplayString
-_ZyStaticRouteName_Object=MibTableColumn
-zyStaticRouteName=_ZyStaticRouteName_Object((1,3,6,1,4,1,890,1,15,3,77,1,2,1,1),_ZyStaticRouteName_Type())
-zyStaticRouteName.setMaxAccess(_G)
-if mibBuilder.loadTexts:zyStaticRouteName.setStatus(_A)
-_ZyStaticRouteIpAddress_Type=IpAddress
-_ZyStaticRouteIpAddress_Object=MibTableColumn
-zyStaticRouteIpAddress=_ZyStaticRouteIpAddress_Object((1,3,6,1,4,1,890,1,15,3,77,1,2,1,2),_ZyStaticRouteIpAddress_Type())
-zyStaticRouteIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:zyStaticRouteIpAddress.setStatus(_A)
-_ZyStaticRouteSubnetMask_Type=IpAddress
-_ZyStaticRouteSubnetMask_Object=MibTableColumn
-zyStaticRouteSubnetMask=_ZyStaticRouteSubnetMask_Object((1,3,6,1,4,1,890,1,15,3,77,1,2,1,3),_ZyStaticRouteSubnetMask_Type())
-zyStaticRouteSubnetMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:zyStaticRouteSubnetMask.setStatus(_A)
-_ZyStaticRouteGateway_Type=IpAddress
-_ZyStaticRouteGateway_Object=MibTableColumn
-zyStaticRouteGateway=_ZyStaticRouteGateway_Object((1,3,6,1,4,1,890,1,15,3,77,1,2,1,4),_ZyStaticRouteGateway_Type())
-zyStaticRouteGateway.setMaxAccess(_C)
-if mibBuilder.loadTexts:zyStaticRouteGateway.setStatus(_A)
-_ZyStaticRouteMetric_Type=Integer32
-_ZyStaticRouteMetric_Object=MibTableColumn
-zyStaticRouteMetric=_ZyStaticRouteMetric_Object((1,3,6,1,4,1,890,1,15,3,77,1,2,1,5),_ZyStaticRouteMetric_Type())
-zyStaticRouteMetric.setMaxAccess(_G)
-if mibBuilder.loadTexts:zyStaticRouteMetric.setStatus(_A)
-_ZyStaticRouteRowStatus_Type=RowStatus
-_ZyStaticRouteRowStatus_Object=MibTableColumn
-zyStaticRouteRowStatus=_ZyStaticRouteRowStatus_Object((1,3,6,1,4,1,890,1,15,3,77,1,2,1,6),_ZyStaticRouteRowStatus_Type())
-zyStaticRouteRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:zyStaticRouteRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'zyxelStaticRoute':zyxelStaticRoute,'zyxelStaticRouteSetup':zyxelStaticRouteSetup,'zyStaticRouteMaxNumberOfRoutes':zyStaticRouteMaxNumberOfRoutes,'zyxelStaticRouteTable':zyxelStaticRouteTable,'zyxelStaticRouteEntry':zyxelStaticRouteEntry,'zyStaticRouteName':zyStaticRouteName,_D:zyStaticRouteIpAddress,_E:zyStaticRouteSubnetMask,_F:zyStaticRouteGateway,'zyStaticRouteMetric':zyStaticRouteMetric,'zyStaticRouteRowStatus':zyStaticRouteRowStatus})
+#
+# PySNMP MIB module ZYXEL-STATIC-ROUTE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-STATIC-ROUTE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:37:37 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelStaticRoute = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 77))
+if mibBuilder.loadTexts: zyxelStaticRoute.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelStaticRoute.setOrganization('Enterprise Solution ZyXEL')
+zyxelStaticRouteSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 77, 1))
+zyStaticRouteMaxNumberOfRoutes = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 77, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zyStaticRouteMaxNumberOfRoutes.setStatus('current')
+zyxelStaticRouteTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 77, 1, 2), )
+if mibBuilder.loadTexts: zyxelStaticRouteTable.setStatus('current')
+zyxelStaticRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 77, 1, 2, 1), ).setIndexNames((0, "ZYXEL-STATIC-ROUTE-MIB", "zyStaticRouteIpAddress"), (0, "ZYXEL-STATIC-ROUTE-MIB", "zyStaticRouteSubnetMask"), (0, "ZYXEL-STATIC-ROUTE-MIB", "zyStaticRouteGateway"))
+if mibBuilder.loadTexts: zyxelStaticRouteEntry.setStatus('current')
+zyStaticRouteName = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 77, 1, 2, 1, 1), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyStaticRouteName.setStatus('current')
+zyStaticRouteIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 77, 1, 2, 1, 2), IpAddress())
+if mibBuilder.loadTexts: zyStaticRouteIpAddress.setStatus('current')
+zyStaticRouteSubnetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 77, 1, 2, 1, 3), IpAddress())
+if mibBuilder.loadTexts: zyStaticRouteSubnetMask.setStatus('current')
+zyStaticRouteGateway = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 77, 1, 2, 1, 4), IpAddress())
+if mibBuilder.loadTexts: zyStaticRouteGateway.setStatus('current')
+zyStaticRouteMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 77, 1, 2, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyStaticRouteMetric.setStatus('current')
+zyStaticRouteRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 77, 1, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zyStaticRouteRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-STATIC-ROUTE-MIB", zyStaticRouteName=zyStaticRouteName, zyStaticRouteIpAddress=zyStaticRouteIpAddress, zyStaticRouteMaxNumberOfRoutes=zyStaticRouteMaxNumberOfRoutes, PYSNMP_MODULE_ID=zyxelStaticRoute, zyxelStaticRoute=zyxelStaticRoute, zyStaticRouteRowStatus=zyStaticRouteRowStatus, zyStaticRouteGateway=zyStaticRouteGateway, zyStaticRouteSubnetMask=zyStaticRouteSubnetMask, zyStaticRouteMetric=zyStaticRouteMetric, zyxelStaticRouteSetup=zyxelStaticRouteSetup, zyxelStaticRouteEntry=zyxelStaticRouteEntry, zyxelStaticRouteTable=zyxelStaticRouteTable)

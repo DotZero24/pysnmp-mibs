@@ -1,46 +1,33 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Watchguard_ObjectIdentity=ObjectIdentity
-watchguard=_Watchguard_ObjectIdentity((1,3,6,1,4,1,3097))
-_WgProducts_ObjectIdentity=ObjectIdentity
-wgProducts=_WgProducts_ObjectIdentity((1,3,6,1,4,1,3097,1))
-_FbXSeries_ObjectIdentity=ObjectIdentity
-fbXSeries=_FbXSeries_ObjectIdentity((1,3,6,1,4,1,3097,1,4))
-_FbX500_ObjectIdentity=ObjectIdentity
-fbX500=_FbX500_ObjectIdentity((1,3,6,1,4,1,3097,1,4,1))
-_FbX550e_ObjectIdentity=ObjectIdentity
-fbX550e=_FbX550e_ObjectIdentity((1,3,6,1,4,1,3097,1,4,2))
-_FbX700_ObjectIdentity=ObjectIdentity
-fbX700=_FbX700_ObjectIdentity((1,3,6,1,4,1,3097,1,4,3))
-_FbX750e_ObjectIdentity=ObjectIdentity
-fbX750e=_FbX750e_ObjectIdentity((1,3,6,1,4,1,3097,1,4,4))
-_FbX750e_4_ObjectIdentity=ObjectIdentity
-fbX750e_4=_FbX750e_4_ObjectIdentity((1,3,6,1,4,1,3097,1,4,5))
-_FbX1000_ObjectIdentity=ObjectIdentity
-fbX1000=_FbX1000_ObjectIdentity((1,3,6,1,4,1,3097,1,4,6))
-_FbX1250e_ObjectIdentity=ObjectIdentity
-fbX1250e=_FbX1250e_ObjectIdentity((1,3,6,1,4,1,3097,1,4,7))
-_FbX1250e_4_ObjectIdentity=ObjectIdentity
-fbX1250e_4=_FbX1250e_4_ObjectIdentity((1,3,6,1,4,1,3097,1,4,8))
-_FbX2500_ObjectIdentity=ObjectIdentity
-fbX2500=_FbX2500_ObjectIdentity((1,3,6,1,4,1,3097,1,4,9))
-_FbX5000_ObjectIdentity=ObjectIdentity
-fbX5000=_FbX5000_ObjectIdentity((1,3,6,1,4,1,3097,1,4,10))
-_FbX5500e_ObjectIdentity=ObjectIdentity
-fbX5500e=_FbX5500e_ObjectIdentity((1,3,6,1,4,1,3097,1,4,11))
-_FbX6000_ObjectIdentity=ObjectIdentity
-fbX6000=_FbX6000_ObjectIdentity((1,3,6,1,4,1,3097,1,4,12))
-_FbX6500e_ObjectIdentity=ObjectIdentity
-fbX6500e=_FbX6500e_ObjectIdentity((1,3,6,1,4,1,3097,1,4,13))
-_FbX8000_ObjectIdentity=ObjectIdentity
-fbX8000=_FbX8000_ObjectIdentity((1,3,6,1,4,1,3097,1,4,14))
-_FbX8500e_ObjectIdentity=ObjectIdentity
-fbX8500e=_FbX8500e_ObjectIdentity((1,3,6,1,4,1,3097,1,4,15))
-_FbX8500e_F_ObjectIdentity=ObjectIdentity
-fbX8500e_F=_FbX8500e_F_ObjectIdentity((1,3,6,1,4,1,3097,1,4,16))
-mibBuilder.exportSymbols('WATCHGUARD-MIB',**{'watchguard':watchguard,'wgProducts':wgProducts,'fbXSeries':fbXSeries,'fbX500':fbX500,'fbX550e':fbX550e,'fbX700':fbX700,'fbX750e':fbX750e,'fbX750e-4':fbX750e_4,'fbX1000':fbX1000,'fbX1250e':fbX1250e,'fbX1250e-4':fbX1250e_4,'fbX2500':fbX2500,'fbX5000':fbX5000,'fbX5500e':fbX5500e,'fbX6000':fbX6000,'fbX6500e':fbX6500e,'fbX8000':fbX8000,'fbX8500e':fbX8500e,'fbX8500e-F':fbX8500e_F})
+#
+# PySNMP MIB module WATCHGUARD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/watchguard/WATCHGUARD-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+watchguard = MibIdentifier((1, 3, 6, 1, 4, 1, 3097))
+wgProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1))
+fbXSeries = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4))
+fbX500 = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 1))
+fbX550e = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 2))
+fbX700 = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 3))
+fbX750e = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 4))
+fbX750e_4 = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 5)).setLabel("fbX750e-4")
+fbX1000 = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 6))
+fbX1250e = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 7))
+fbX1250e_4 = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 8)).setLabel("fbX1250e-4")
+fbX2500 = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 9))
+fbX5000 = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 10))
+fbX5500e = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 11))
+fbX6000 = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 12))
+fbX6500e = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 13))
+fbX8000 = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 14))
+fbX8500e = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 15))
+fbX8500e_F = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 16)).setLabel("fbX8500e-F")
+mibBuilder.exportSymbols("WATCHGUARD-MIB", fbX700=fbX700, fbX5500e=fbX5500e, fbX500=fbX500, fbX1250e_4=fbX1250e_4, fbX8500e_F=fbX8500e_F, wgProducts=wgProducts, fbX6500e=fbX6500e, fbX1000=fbX1000, fbX550e=fbX550e, fbX5000=fbX5000, fbX8000=fbX8000, fbX1250e=fbX1250e, fbX6000=fbX6000, watchguard=watchguard, fbX750e_4=fbX750e_4, fbX2500=fbX2500, fbXSeries=fbXSeries, fbX8500e=fbX8500e, fbX750e=fbX750e)

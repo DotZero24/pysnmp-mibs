@@ -1,87 +1,49 @@
-_H='ifIndex'
-_G='IF-MIB'
-_F='Unsigned32'
-_E='dot1xPaePortNumber'
-_D='IEEE8021-PAE-MIB'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGen802dot1x,adGen802dot1xID=mibBuilder.importSymbols('ADTRAN-SHARED-CND-SYSTEM-MIB','adGen802dot1x','adGen802dot1xID')
-dot1xPaePortNumber,=mibBuilder.importSymbols(_D,_E)
-InterfaceIndex,ifIndex=mibBuilder.importSymbols(_G,'InterfaceIndex',_H)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-adGen802dot1xMIB=ModuleIdentity((1,3,6,1,4,1,664,6,10000,70,17,1))
-if mibBuilder.loadTexts:adGen802dot1xMIB.setRevisions(('2013-06-27 00:00','2013-06-19 00:00'))
-_AdGen802dot1xEapolConfigTable_Object=MibTable
-adGen802dot1xEapolConfigTable=_AdGen802dot1xEapolConfigTable_Object((1,3,6,1,4,1,664,5,70,17,1))
-if mibBuilder.loadTexts:adGen802dot1xEapolConfigTable.setStatus(_A)
-_AdGen802dot1xEapolConfigEntry_Object=MibTableRow
-adGen802dot1xEapolConfigEntry=_AdGen802dot1xEapolConfigEntry_Object((1,3,6,1,4,1,664,5,70,17,1,1))
-adGen802dot1xEapolConfigEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:adGen802dot1xEapolConfigEntry.setStatus(_A)
-class _AdGen802dot1xEapRespTimeout_Type(Unsigned32):defaultValue=30
-_AdGen802dot1xEapRespTimeout_Type.__name__=_F
-_AdGen802dot1xEapRespTimeout_Object=MibTableColumn
-adGen802dot1xEapRespTimeout=_AdGen802dot1xEapRespTimeout_Object((1,3,6,1,4,1,664,5,70,17,1,1,1),_AdGen802dot1xEapRespTimeout_Type())
-adGen802dot1xEapRespTimeout.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGen802dot1xEapRespTimeout.setStatus(_A)
-class _AdGen802dot1xMaxEapReq_Type(Unsigned32):defaultValue=2
-_AdGen802dot1xMaxEapReq_Type.__name__=_F
-_AdGen802dot1xMaxEapReq_Object=MibTableColumn
-adGen802dot1xMaxEapReq=_AdGen802dot1xMaxEapReq_Object((1,3,6,1,4,1,664,5,70,17,1,1,2),_AdGen802dot1xMaxEapReq_Type())
-adGen802dot1xMaxEapReq.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGen802dot1xMaxEapReq.setStatus(_A)
-_AdGen802dot1xPortConfigTable_Object=MibTable
-adGen802dot1xPortConfigTable=_AdGen802dot1xPortConfigTable_Object((1,3,6,1,4,1,664,5,70,17,2))
-if mibBuilder.loadTexts:adGen802dot1xPortConfigTable.setStatus(_A)
-_AdGen802dot1xPortConfigEntry_Object=MibTableRow
-adGen802dot1xPortConfigEntry=_AdGen802dot1xPortConfigEntry_Object((1,3,6,1,4,1,664,5,70,17,2,1))
-adGen802dot1xPortConfigEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:adGen802dot1xPortConfigEntry.setStatus(_A)
-class _AdGen802dot1xPortIPEntity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('ipHost',2),('subtendedHost',3)))
-_AdGen802dot1xPortIPEntity_Type.__name__=_C
-_AdGen802dot1xPortIPEntity_Object=MibTableColumn
-adGen802dot1xPortIPEntity=_AdGen802dot1xPortIPEntity_Object((1,3,6,1,4,1,664,5,70,17,2,1,1),_AdGen802dot1xPortIPEntity_Type())
-adGen802dot1xPortIPEntity.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGen802dot1xPortIPEntity.setStatus(_A)
-_AdGen802dot1xPortIPHostName_Type=DisplayString
-_AdGen802dot1xPortIPHostName_Object=MibTableColumn
-adGen802dot1xPortIPHostName=_AdGen802dot1xPortIPHostName_Object((1,3,6,1,4,1,664,5,70,17,2,1,2),_AdGen802dot1xPortIPHostName_Type())
-adGen802dot1xPortIPHostName.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGen802dot1xPortIPHostName.setStatus(_A)
-class _AdGen802dot1xPortAuthServerType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('radius',1))
-_AdGen802dot1xPortAuthServerType_Type.__name__=_C
-_AdGen802dot1xPortAuthServerType_Object=MibTableColumn
-adGen802dot1xPortAuthServerType=_AdGen802dot1xPortAuthServerType_Object((1,3,6,1,4,1,664,5,70,17,2,1,3),_AdGen802dot1xPortAuthServerType_Type())
-adGen802dot1xPortAuthServerType.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGen802dot1xPortAuthServerType.setStatus(_A)
-_AdGen802dot1xPortRadiusServerGroupName_Type=DisplayString
-_AdGen802dot1xPortRadiusServerGroupName_Object=MibTableColumn
-adGen802dot1xPortRadiusServerGroupName=_AdGen802dot1xPortRadiusServerGroupName_Object((1,3,6,1,4,1,664,5,70,17,2,1,4),_AdGen802dot1xPortRadiusServerGroupName_Type())
-adGen802dot1xPortRadiusServerGroupName.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGen802dot1xPortRadiusServerGroupName.setStatus(_A)
-_AdGen802dot1xPortStatusTable_Object=MibTable
-adGen802dot1xPortStatusTable=_AdGen802dot1xPortStatusTable_Object((1,3,6,1,4,1,664,5,70,17,3))
-if mibBuilder.loadTexts:adGen802dot1xPortStatusTable.setStatus(_A)
-_AdGen802dot1xPortStatusEntry_Object=MibTableRow
-adGen802dot1xPortStatusEntry=_AdGen802dot1xPortStatusEntry_Object((1,3,6,1,4,1,664,5,70,17,3,1))
-adGen802dot1xPortStatusEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:adGen802dot1xPortStatusEntry.setStatus(_A)
-_AdGen802dot1xPortStatusLastError_Type=DisplayString
-_AdGen802dot1xPortStatusLastError_Object=MibTableColumn
-adGen802dot1xPortStatusLastError=_AdGen802dot1xPortStatusLastError_Object((1,3,6,1,4,1,664,5,70,17,3,1,1),_AdGen802dot1xPortStatusLastError_Type())
-adGen802dot1xPortStatusLastError.setMaxAccess('read-only')
-if mibBuilder.loadTexts:adGen802dot1xPortStatusLastError.setStatus(_A)
-class _AdGen802dot1xPortStatusClearCounters_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('clear',1))
-_AdGen802dot1xPortStatusClearCounters_Type.__name__=_C
-_AdGen802dot1xPortStatusClearCounters_Object=MibTableColumn
-adGen802dot1xPortStatusClearCounters=_AdGen802dot1xPortStatusClearCounters_Object((1,3,6,1,4,1,664,5,70,17,3,1,2),_AdGen802dot1xPortStatusClearCounters_Type())
-adGen802dot1xPortStatusClearCounters.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGen802dot1xPortStatusClearCounters.setStatus(_A)
-mibBuilder.exportSymbols('ADTRAN-IEEE8021X-MIB',**{'adGen802dot1xEapolConfigTable':adGen802dot1xEapolConfigTable,'adGen802dot1xEapolConfigEntry':adGen802dot1xEapolConfigEntry,'adGen802dot1xEapRespTimeout':adGen802dot1xEapRespTimeout,'adGen802dot1xMaxEapReq':adGen802dot1xMaxEapReq,'adGen802dot1xPortConfigTable':adGen802dot1xPortConfigTable,'adGen802dot1xPortConfigEntry':adGen802dot1xPortConfigEntry,'adGen802dot1xPortIPEntity':adGen802dot1xPortIPEntity,'adGen802dot1xPortIPHostName':adGen802dot1xPortIPHostName,'adGen802dot1xPortAuthServerType':adGen802dot1xPortAuthServerType,'adGen802dot1xPortRadiusServerGroupName':adGen802dot1xPortRadiusServerGroupName,'adGen802dot1xPortStatusTable':adGen802dot1xPortStatusTable,'adGen802dot1xPortStatusEntry':adGen802dot1xPortStatusEntry,'adGen802dot1xPortStatusLastError':adGen802dot1xPortStatusLastError,'adGen802dot1xPortStatusClearCounters':adGen802dot1xPortStatusClearCounters,'adGen802dot1xMIB':adGen802dot1xMIB})
+#
+# PySNMP MIB module ADTRAN-IEEE8021X-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-IEEE8021X-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:31 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGen802dot1xID, adGen802dot1x = mibBuilder.importSymbols("ADTRAN-SHARED-CND-SYSTEM-MIB", "adGen802dot1xID", "adGen802dot1x")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1xPaePortNumber, = mibBuilder.importSymbols("IEEE8021-PAE-MIB", "dot1xPaePortNumber")
+ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+adGen802dot1xMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 17, 1))
+adGen802dot1xMIB.setRevisions(('2013-06-27 00:00', '2013-06-19 00:00',))
+if mibBuilder.loadTexts: adGen802dot1xMIB.setLastUpdated('201306270000Z')
+if mibBuilder.loadTexts: adGen802dot1xMIB.setOrganization('ADTRAN, Inc.')
+adGen802dot1xEapolConfigTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 17, 1), )
+if mibBuilder.loadTexts: adGen802dot1xEapolConfigTable.setStatus('current')
+adGen802dot1xEapolConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 17, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: adGen802dot1xEapolConfigEntry.setStatus('current')
+adGen802dot1xEapRespTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 17, 1, 1, 1), Unsigned32().clone(30)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGen802dot1xEapRespTimeout.setStatus('current')
+adGen802dot1xMaxEapReq = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 17, 1, 1, 2), Unsigned32().clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGen802dot1xMaxEapReq.setStatus('current')
+adGen802dot1xPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 17, 2), )
+if mibBuilder.loadTexts: adGen802dot1xPortConfigTable.setStatus('current')
+adGen802dot1xPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 17, 2, 1), ).setIndexNames((0, "IEEE8021-PAE-MIB", "dot1xPaePortNumber"))
+if mibBuilder.loadTexts: adGen802dot1xPortConfigEntry.setStatus('current')
+adGen802dot1xPortIPEntity = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 17, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("ipHost", 2), ("subtendedHost", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGen802dot1xPortIPEntity.setStatus('current')
+adGen802dot1xPortIPHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 17, 2, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGen802dot1xPortIPHostName.setStatus('current')
+adGen802dot1xPortAuthServerType = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 17, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("radius", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGen802dot1xPortAuthServerType.setStatus('current')
+adGen802dot1xPortRadiusServerGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 17, 2, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGen802dot1xPortRadiusServerGroupName.setStatus('current')
+adGen802dot1xPortStatusTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 17, 3), )
+if mibBuilder.loadTexts: adGen802dot1xPortStatusTable.setStatus('current')
+adGen802dot1xPortStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 17, 3, 1), ).setIndexNames((0, "IEEE8021-PAE-MIB", "dot1xPaePortNumber"))
+if mibBuilder.loadTexts: adGen802dot1xPortStatusEntry.setStatus('current')
+adGen802dot1xPortStatusLastError = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 17, 3, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGen802dot1xPortStatusLastError.setStatus('current')
+adGen802dot1xPortStatusClearCounters = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 17, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("clear", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGen802dot1xPortStatusClearCounters.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-IEEE8021X-MIB", adGen802dot1xPortAuthServerType=adGen802dot1xPortAuthServerType, adGen802dot1xPortRadiusServerGroupName=adGen802dot1xPortRadiusServerGroupName, adGen802dot1xMaxEapReq=adGen802dot1xMaxEapReq, adGen802dot1xPortStatusEntry=adGen802dot1xPortStatusEntry, adGen802dot1xPortIPEntity=adGen802dot1xPortIPEntity, adGen802dot1xPortStatusClearCounters=adGen802dot1xPortStatusClearCounters, adGen802dot1xEapolConfigTable=adGen802dot1xEapolConfigTable, adGen802dot1xPortConfigEntry=adGen802dot1xPortConfigEntry, PYSNMP_MODULE_ID=adGen802dot1xMIB, adGen802dot1xPortStatusTable=adGen802dot1xPortStatusTable, adGen802dot1xPortStatusLastError=adGen802dot1xPortStatusLastError, adGen802dot1xEapolConfigEntry=adGen802dot1xEapolConfigEntry, adGen802dot1xPortIPHostName=adGen802dot1xPortIPHostName, adGen802dot1xEapRespTimeout=adGen802dot1xEapRespTimeout, adGen802dot1xMIB=adGen802dot1xMIB, adGen802dot1xPortConfigTable=adGen802dot1xPortConfigTable)

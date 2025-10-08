@@ -1,2406 +1,806 @@
-_ET='smNatRFPubDHCPClientEvent'
-_ES='smNatWanDHCPClientEvent'
-_ER='whispRadarEnd'
-_EQ='whispRadarDetected'
-_EP='availableSpectrumAnalysis'
-_EO='enterSpectrumAnalysis'
-_EN='radioModeStatus'
-_EM='bridgeCbErrStatBridgeDropCount'
-_EL='bridgecbUplinkMaxBurstBitRate'
-_EK='bridgecbDownlinkMaxBurstBitRate'
-_EJ='bridgecbDownlinkCreditLimit'
-_EI='bridgecbDownlinkCreditRate'
-_EH='bridgecbUplinkCreditLimit'
-_EG='bridgecbUplinkCreditRate'
-_EF='maxReceivePower'
-_EE='beaconsPercentReceivedSnapshot'
-_ED='beaconsPercentMaxReceived'
-_EC='beaconsPercentMinReceived'
-_EB='mapsPercentReceived'
-_EA='beaconsPercentReceived'
-_E9='fragmentsReceived4XHorizontal'
-_E8='fragmentsReceived3XHorizontal'
-_E7='fragmentsReceived2XHorizontal'
-_E6='fragmentsReceived1XHorizontal'
-_E5='fragmentsReceived4XVertical'
-_E4='fragmentsReceived3XVertical'
-_E3='fragmentsReceived2XVertical'
-_E2='fragmentsReceived1XVertical'
-_E1='receiveFragmentsModulationPercentage'
-_E0='rfStatTxSuppressionCount'
-_D_='radioDbmVertical'
-_Dz='radioDbmHorizontal'
-_Dy='signalStrengthRatio'
-_Dx='signalToNoiseRatioSMHorizontal'
-_Dw='signalToNoiseRatioSMVertical'
-_Dv='linkQualityData4XHorizontal'
-_Du='linkQualityData3XHorizontal'
-_Dt='linkQualityData2XHorizontal'
-_Ds='linkQualityData1XHorizontal'
-_Dr='linkQualityData4XVertical'
-_Dq='linkQualityData3XVertical'
-_Dp='linkQualityData2XVertical'
-_Do='linkQualityData1XVertical'
-_Dn='rawBERPwrRxPathB'
-_Dm='rawBERPwrRxPathA'
-_Dl='berPwrRxFPGAPathB'
-_Dk='berPwrRxFPGAPathA'
-_Dj='currentBandwidth'
-_Di='currentCyclicPrefix'
-_Dh='linkQualityBeacon'
-_Dg='currentChanFreq'
-_Df='currentColorCodePri'
-_De='currentColorCode'
-_Dd='scanCycleCount'
-_Dc='smSectorID'
-_Db='airDelayns'
-_Da='zoltarSWFreqOffset'
-_DZ='zoltarFPGAFreqOffset'
-_DY='radioDbmAvg'
-_DX='pppoeSessIdleTime'
-_DW='maxRadioDbmDeprecated'
-_DV='maxRadioDbm'
-_DU='minRadioDbm'
-_DT='mimoBerRcvModulationType'
-_DS='mimo256QamBerDisplay'
-_DR='mimo64QamBerDisplay'
-_DQ='mimo16QamBerDisplay'
-_DP='mimoQpskBerDisplay'
-_DO='totalBERDisplay'
-_DN='secondaryBERDisplay'
-_DM='primaryBERDisplay'
-_DL='pppoeSessUptime'
-_DK='pppoeSvcNameStatus'
-_DJ='pppoeACNameStatus'
-_DI='pppoeTCPMSSClampEnableStatus'
-_DH='pppoeEnabledStatus'
-_DG='pppoeDataBytesReceived'
-_DF='pppoeDataBytesSent'
-_DE='pppoeControlBytesReceived'
-_DD='pppoeControlBytesSent'
-_DC='pppoeDNSServer2'
-_DB='pppoeDNSServer1'
-_DA='pppoeTimeoutValue'
-_D9='pppoeTimerTypeValue'
-_D8='pppoeMTUValue'
-_D7='pppoeMTUOverrideEn'
-_D6='pppoeIPCPAddress'
-_D5='pppoeSessionID'
-_D4='pppoeSessionStatus'
-_D3='smSessionTimer'
-_D2='maxJitter'
-_D1='minJitter'
-_D0='secondaryBER'
-_C_='primaryBER'
-_Cz='nbSndBitsErr'
-_Cy='nbPriBitsErr'
-_Cx='nbBitsRcvd'
-_Cw='snmpBerLevel'
-_Cv='activeRegion'
-_Cu='radioTxPwr'
-_Ct='radioDbmInt'
-_Cs='bitsReceivedPerPathModulation'
-_Cr='bitErrors256QAMpathB'
-_Cq='bitErrors256QAMpathA'
-_Cp='bitErrors64QAMpathB'
-_Co='bitErrors64QAMpathA'
-_Cn='bitErrors16QAMpathB'
-_Cm='bitErrors16QAMpathA'
-_Cl='bitErrorsQSPKpathB'
-_Ck='bitErrorsQSPKpathA'
-_Cj='adaptRateHighPri'
-_Ci='adaptRateLowPri'
-_Ch='adaptRate'
-_Cg='dhcpDomName'
-_Cf='dhcpcdns3'
-_Ce='dhcpcdns2'
-_Cd='dhcpcdns1'
-_Cc='dhcpDfltRterIP'
-_Cb='dhcpCSMask'
-_Ca='dhcpClientLease'
-_CZ='registeredToAp'
-_CY='calibrationStatus'
-_CX='radioTxGainSm'
-_CW='radioSlicingSm'
-_CV='sessionStatus'
-_CU='natTslTableEntries'
-_CT='pmp430ApRegistrationOptions'
-_CS='eapPeerAAAServerCommonName'
-_CR='txPowerControl'
-_CQ='maxTxPower'
-_CP='maxTxPowerEnable'
-_CO='naptRemoteManage'
-_CN='bCastMIRUnits'
-_CM='syslogSMXmitControl'
-_CL='syslogSMXmitSetting'
-_CK='syslogMinLevelApPreferred'
-_CJ='syslogServerApPreferred'
-_CI='multicastVCRcvRate'
-_CH='berDeModSelect'
-_CG='bridgeTableRestrict'
-_CF='bridgeTableSize'
-_CE='deleteAdditionalColorCode'
-_CD='additionalColorCodePriority'
-_CC='additionalColorCode'
-_CB='colorCodepriority10'
-_CA='colorCode10'
-_C9='colorCodepriority9'
-_C8='colorCode9'
-_C7='colorCodepriority8'
-_C6='colorCode8'
-_C5='colorCodepriority7'
-_C4='colorCode7'
-_C3='colorCodepriority6'
-_C2='colorCode6'
-_C1='colorCodepriority5'
-_C0='colorCode5'
-_B_='colorCodepriority4'
-_Bz='colorCode4'
-_By='colorCodepriority3'
-_Bx='colorCode3'
-_Bw='colorCodepriority2'
-_Bv='colorCode2'
-_Bu='packetFilterDirection'
-_Bt='wanPingReplyEnable'
-_Bs='natConnectionType'
-_Br='smAntennaType'
-_Bq='pppoeDisconnectOD'
-_Bp='pppoeConnectOD'
-_Bo='spectrumAnalysisAction'
-_Bn='spectrumAnalysisOnBoot'
-_Bm='spectrumAnalysisScanBandwidth'
-_Bl='timedSpectrumAnalysisDuration'
-_Bk='pppoeTimeoutPeriod'
-_Bj='pppoeTimerType'
-_Bi='pppoeMTUOverrideValue'
-_Bh='pppoeMTUOverrideEnable'
-_Bg='pppoeTCPMSSClampEnable'
-_Bf='pppoePassword'
-_Be='pppoeUserName'
-_Bd='pppoeServiceName'
-_Bc='pppoeAccessConcentrator'
-_Bb='pppoeAuthenticationType'
-_Ba='pppoeEnable'
-_BZ='ethAccessEnable'
-_BY='smLEDModeFlag'
-_BX='rfDhcpState'
-_BW='allowedIPAccessNMLength3'
-_BV='allowedIPAccessNMLength2'
-_BU='allowedIPAccessNMLength1'
-_BT='allowedIPAccess3'
-_BS='allowedIPAccess2'
-_BR='allowedIPAccess1'
-_BQ='ipAccessFilterEnable'
-_BP='ethAccessFilterEnable'
-_BO='dfsConfig'
-_BN='dwnLnkLimit'
-_BM='dwnLnkDataRate'
-_BL='testSMBER'
-_BK='berrautoupdateflag'
-_BJ='clearBerrResults'
-_BI='forcepoweradjust'
-_BH='radioBandscanConfig'
-_BG='apSelection'
-_BF='bandwidthScan'
-_BE='cyclicPrefixScan'
-_BD='dwnLnkMaxBurstDataRate'
-_BC='upLnkLimit'
-_BB='upLnkDataRate'
-_BA='upLnkMaxBurstDataRate'
-_B9='smRateAdapt'
-_B8='hiPriorityDownlinkCIR'
-_B7='hiPriorityUplinkCIR'
-_B6='hiPriorityChannel'
-_B5='lowPriorityDownlinkCIR'
-_B4='lowPriorityUplinkCIR'
-_B3='providerVIDPriorityMode'
-_B2='providerVIDPriority'
-_B1='ingressVIDPriorityMode'
-_B0='ingressVIDPriority'
-_A_='ingressVID'
-_Az='ip4MultFilter'
-_Ay='bootpsFilter'
-_Ax='bootpcFilter'
-_Aw='port3UDPFilter'
-_Av='port3TCPFilter'
-_Au='userDefinedPort3'
-_At='port2UDPFilter'
-_As='port2TCPFilter'
-_Ar='userDefinedPort2'
-_Aq='port1UDPFilter'
-_Ap='port1TCPFilter'
-_Ao='userDefinedPort1'
-_An='allOthersFilter'
-_Am='arpFilter'
-_Al='upLinkBCastFilter'
-_Ak='allIpv4Filter'
-_Aj='allOtherIpFilter'
-_Ai='userP3Filter'
-_Ah='userP2Filter'
-_Ag='userP1Filter'
-_Af='snmpFilter'
-_Ae='smbFilter'
-_Ad='pppoeFilter'
-_Ac='dhcpNumIPsToLease'
-_Ab='dmzEnable'
-_Aa='spectrumAnalysisDisplay'
-_AZ='natDNSProxyEnable'
-_AY='alternateDNSIP'
-_AX='prefferedDNSIP'
-_AW='dnsAutomatic'
-_AV='dhcpIPStart'
-_AU='dhcpServerLeaseTime'
-_AT='dhcpServerEnable'
-_AS='dhcpClientEnable'
-_AR='natTslTableSize'
-_AQ='udpGarbageCollectTmout'
-_AP='tcpGarbageCollectTmout'
-_AO='arpCacheTimeout'
-_AN='naptEnable'
-_AM='naptRFPublicGateway'
-_AL='naptRFPublicSubnetMask'
-_AK='naptRFPublicIP'
-_AJ='naptPublicGatewayIP'
-_AI='naptPublicSubnetMask'
-_AH='naptPublicIP'
-_AG='naptPrivateSubnetMask'
-_AF='naptPrivateIP'
-_AE='timingPulseGated'
-_AD='authKeyOption'
-_AC='enable8023link'
-_AB='authKeySm'
-_AA='networkAccess'
-_A9='defaultGwSm'
-_A8='lanMaskSm'
-_A7='powerUpMode'
-_A6='rfScanList'
-_A5='rfScanListBandFilter'
-_A4='not-supported'
-_A3='evalIndex'
-_A2='entryColorCode'
-_A1='certIndex'
-_A0='whispTranslationTableIndex'
-_z='rate4X'
-_y='rete3X'
-_x='rate2X'
-_w='rate1X'
-_v='noSession'
-_u='bandwidth40MHz'
-_t='one-sixteenth'
-_s='one-eighth'
-_r='one-quarter'
-_q='hostIp'
-_p='rfScanListFrequency'
-_o='define-priority'
-_n='promote-IP-priority'
-_m='pmp430'
-_l='bandwidth30MHz'
-_k='bandwidth15MHz'
-_j='bandwidth20MHz'
-_i='bandwidth10MHz'
-_h='bandwidth5MHz'
-_g='Kilobits/sec'
-_f='use-AP-preferred'
-_e='use-local'
-_d='idleTimeout'
-_c='keepAlive'
-_b='dhcpRfPublicIp'
-_a='OctetString'
-_Z='dhcpCip'
-_Y='true'
-_X='false'
-_W='tableIndex'
-_V='switchRadioModeAndReboot'
-_U='bandwidth7MHz'
-_T='dfsStatus'
-_S='Gauge32'
-_R='whispBoxEsn'
-_Q='WHISP-BOX-MIBV2-MIB'
-_P='tertiary'
-_O='secondary'
-_N='primary'
-_M='enabled'
-_L='disabled'
-_K='enable'
-_J='filterOn'
-_I='filterOff'
-_H='deprecated'
-_G='disable'
-_F='obsolete'
-_E='Integer32'
-_D='read-write'
-_C='read-only'
-_B='WHISP-SM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_a,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64',_S,_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-dhcpRfPublicIp,whispBoxEsn=mibBuilder.importSymbols(_Q,_b,_R)
-whispAps,whispBox,whispModules,whispSm=mibBuilder.importSymbols('WHISP-GLOBAL-REG-MIB','whispAps','whispBox','whispModules','whispSm')
-WhispLUID,WhispMACAddress=mibBuilder.importSymbols('WHISP-TCV2-MIB','WhispLUID','WhispMACAddress')
-whispSmMibModule=ModuleIdentity((1,3,6,1,4,1,161,19,1,1,13))
-_WhispSmConfig_ObjectIdentity=ObjectIdentity
-whispSmConfig=_WhispSmConfig_ObjectIdentity((1,3,6,1,4,1,161,19,3,2,1))
-_RfScanList_Type=DisplayString
-_RfScanList_Object=MibScalar
-rfScanList=_RfScanList_Object((1,3,6,1,4,1,161,19,3,2,1,1),_RfScanList_Type())
-rfScanList.setMaxAccess(_D)
-if mibBuilder.loadTexts:rfScanList.setStatus(_A)
-class _PowerUpMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('operational',0),('aim',1)))
-_PowerUpMode_Type.__name__=_E
-_PowerUpMode_Object=MibScalar
-powerUpMode=_PowerUpMode_Object((1,3,6,1,4,1,161,19,3,2,1,2),_PowerUpMode_Type())
-powerUpMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:powerUpMode.setStatus(_A)
-_LanIpSm_Type=IpAddress
-_LanIpSm_Object=MibScalar
-lanIpSm=_LanIpSm_Object((1,3,6,1,4,1,161,19,3,2,1,3),_LanIpSm_Type())
-lanIpSm.setMaxAccess(_D)
-if mibBuilder.loadTexts:lanIpSm.setStatus(_A)
-_LanMaskSm_Type=IpAddress
-_LanMaskSm_Object=MibScalar
-lanMaskSm=_LanMaskSm_Object((1,3,6,1,4,1,161,19,3,2,1,4),_LanMaskSm_Type())
-lanMaskSm.setMaxAccess(_D)
-if mibBuilder.loadTexts:lanMaskSm.setStatus(_A)
-_DefaultGwSm_Type=IpAddress
-_DefaultGwSm_Object=MibScalar
-defaultGwSm=_DefaultGwSm_Object((1,3,6,1,4,1,161,19,3,2,1,5),_DefaultGwSm_Type())
-defaultGwSm.setMaxAccess(_D)
-if mibBuilder.loadTexts:defaultGwSm.setStatus(_A)
-class _NetworkAccess_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('localIP',0),('publicIP',1)))
-_NetworkAccess_Type.__name__=_E
-_NetworkAccess_Object=MibScalar
-networkAccess=_NetworkAccess_Object((1,3,6,1,4,1,161,19,3,2,1,6),_NetworkAccess_Type())
-networkAccess.setMaxAccess(_D)
-if mibBuilder.loadTexts:networkAccess.setStatus(_A)
-_AuthKeySm_Type=DisplayString
-_AuthKeySm_Object=MibScalar
-authKeySm=_AuthKeySm_Object((1,3,6,1,4,1,161,19,3,2,1,7),_AuthKeySm_Type())
-authKeySm.setMaxAccess(_D)
-if mibBuilder.loadTexts:authKeySm.setStatus(_A)
-class _Enable8023link_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_L,0),(_M,1)))
-_Enable8023link_Type.__name__=_E
-_Enable8023link_Object=MibScalar
-enable8023link=_Enable8023link_Object((1,3,6,1,4,1,161,19,3,2,1,8),_Enable8023link_Type())
-enable8023link.setMaxAccess(_D)
-if mibBuilder.loadTexts:enable8023link.setStatus(_H)
-class _AuthKeyOption_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('useDefault',0),('useKeySet',1)))
-_AuthKeyOption_Type.__name__=_E
-_AuthKeyOption_Object=MibScalar
-authKeyOption=_AuthKeyOption_Object((1,3,6,1,4,1,161,19,3,2,1,9),_AuthKeyOption_Type())
-authKeyOption.setMaxAccess(_D)
-if mibBuilder.loadTexts:authKeyOption.setStatus(_A)
-class _TimingPulseGated_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_K,1)))
-_TimingPulseGated_Type.__name__=_E
-_TimingPulseGated_Object=MibScalar
-timingPulseGated=_TimingPulseGated_Object((1,3,6,1,4,1,161,19,3,2,1,10),_TimingPulseGated_Type())
-timingPulseGated.setMaxAccess(_D)
-if mibBuilder.loadTexts:timingPulseGated.setStatus(_A)
-_NaptPrivateIP_Type=IpAddress
-_NaptPrivateIP_Object=MibScalar
-naptPrivateIP=_NaptPrivateIP_Object((1,3,6,1,4,1,161,19,3,2,1,11),_NaptPrivateIP_Type())
-naptPrivateIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:naptPrivateIP.setStatus(_A)
-_NaptPrivateSubnetMask_Type=IpAddress
-_NaptPrivateSubnetMask_Object=MibScalar
-naptPrivateSubnetMask=_NaptPrivateSubnetMask_Object((1,3,6,1,4,1,161,19,3,2,1,12),_NaptPrivateSubnetMask_Type())
-naptPrivateSubnetMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:naptPrivateSubnetMask.setStatus(_A)
-_NaptPublicIP_Type=IpAddress
-_NaptPublicIP_Object=MibScalar
-naptPublicIP=_NaptPublicIP_Object((1,3,6,1,4,1,161,19,3,2,1,13),_NaptPublicIP_Type())
-naptPublicIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:naptPublicIP.setStatus(_A)
-_NaptPublicSubnetMask_Type=IpAddress
-_NaptPublicSubnetMask_Object=MibScalar
-naptPublicSubnetMask=_NaptPublicSubnetMask_Object((1,3,6,1,4,1,161,19,3,2,1,14),_NaptPublicSubnetMask_Type())
-naptPublicSubnetMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:naptPublicSubnetMask.setStatus(_A)
-_NaptPublicGatewayIP_Type=IpAddress
-_NaptPublicGatewayIP_Object=MibScalar
-naptPublicGatewayIP=_NaptPublicGatewayIP_Object((1,3,6,1,4,1,161,19,3,2,1,15),_NaptPublicGatewayIP_Type())
-naptPublicGatewayIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:naptPublicGatewayIP.setStatus(_A)
-_NaptRFPublicIP_Type=IpAddress
-_NaptRFPublicIP_Object=MibScalar
-naptRFPublicIP=_NaptRFPublicIP_Object((1,3,6,1,4,1,161,19,3,2,1,16),_NaptRFPublicIP_Type())
-naptRFPublicIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:naptRFPublicIP.setStatus(_A)
-_NaptRFPublicSubnetMask_Type=IpAddress
-_NaptRFPublicSubnetMask_Object=MibScalar
-naptRFPublicSubnetMask=_NaptRFPublicSubnetMask_Object((1,3,6,1,4,1,161,19,3,2,1,17),_NaptRFPublicSubnetMask_Type())
-naptRFPublicSubnetMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:naptRFPublicSubnetMask.setStatus(_A)
-_NaptRFPublicGateway_Type=IpAddress
-_NaptRFPublicGateway_Object=MibScalar
-naptRFPublicGateway=_NaptRFPublicGateway_Object((1,3,6,1,4,1,161,19,3,2,1,18),_NaptRFPublicGateway_Type())
-naptRFPublicGateway.setMaxAccess(_D)
-if mibBuilder.loadTexts:naptRFPublicGateway.setStatus(_A)
-class _NaptEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_L,0),(_M,1)))
-_NaptEnable_Type.__name__=_E
-_NaptEnable_Object=MibScalar
-naptEnable=_NaptEnable_Object((1,3,6,1,4,1,161,19,3,2,1,19),_NaptEnable_Type())
-naptEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:naptEnable.setStatus(_A)
-_ArpCacheTimeout_Type=Integer32
-_ArpCacheTimeout_Object=MibScalar
-arpCacheTimeout=_ArpCacheTimeout_Object((1,3,6,1,4,1,161,19,3,2,1,20),_ArpCacheTimeout_Type())
-arpCacheTimeout.setMaxAccess(_D)
-if mibBuilder.loadTexts:arpCacheTimeout.setStatus(_A)
-_TcpGarbageCollectTmout_Type=Integer32
-_TcpGarbageCollectTmout_Object=MibScalar
-tcpGarbageCollectTmout=_TcpGarbageCollectTmout_Object((1,3,6,1,4,1,161,19,3,2,1,21),_TcpGarbageCollectTmout_Type())
-tcpGarbageCollectTmout.setMaxAccess(_D)
-if mibBuilder.loadTexts:tcpGarbageCollectTmout.setStatus(_A)
-_UdpGarbageCollectTmout_Type=Integer32
-_UdpGarbageCollectTmout_Object=MibScalar
-udpGarbageCollectTmout=_UdpGarbageCollectTmout_Object((1,3,6,1,4,1,161,19,3,2,1,22),_UdpGarbageCollectTmout_Type())
-udpGarbageCollectTmout.setMaxAccess(_D)
-if mibBuilder.loadTexts:udpGarbageCollectTmout.setStatus(_A)
-class _DhcpClientEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_L,0),(_M,1)))
-_DhcpClientEnable_Type.__name__=_E
-_DhcpClientEnable_Object=MibScalar
-dhcpClientEnable=_DhcpClientEnable_Object((1,3,6,1,4,1,161,19,3,2,1,23),_DhcpClientEnable_Type())
-dhcpClientEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:dhcpClientEnable.setStatus(_F)
-class _DhcpServerEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_L,0),(_M,1)))
-_DhcpServerEnable_Type.__name__=_E
-_DhcpServerEnable_Object=MibScalar
-dhcpServerEnable=_DhcpServerEnable_Object((1,3,6,1,4,1,161,19,3,2,1,24),_DhcpServerEnable_Type())
-dhcpServerEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:dhcpServerEnable.setStatus(_A)
-_DhcpServerLeaseTime_Type=Integer32
-_DhcpServerLeaseTime_Object=MibScalar
-dhcpServerLeaseTime=_DhcpServerLeaseTime_Object((1,3,6,1,4,1,161,19,3,2,1,25),_DhcpServerLeaseTime_Type())
-dhcpServerLeaseTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:dhcpServerLeaseTime.setStatus(_A)
-_DhcpIPStart_Type=IpAddress
-_DhcpIPStart_Object=MibScalar
-dhcpIPStart=_DhcpIPStart_Object((1,3,6,1,4,1,161,19,3,2,1,26),_DhcpIPStart_Type())
-dhcpIPStart.setMaxAccess(_D)
-if mibBuilder.loadTexts:dhcpIPStart.setStatus(_A)
-class _DnsAutomatic_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('manually',0),('automatically',1)))
-_DnsAutomatic_Type.__name__=_E
-_DnsAutomatic_Object=MibScalar
-dnsAutomatic=_DnsAutomatic_Object((1,3,6,1,4,1,161,19,3,2,1,27),_DnsAutomatic_Type())
-dnsAutomatic.setMaxAccess(_D)
-if mibBuilder.loadTexts:dnsAutomatic.setStatus(_A)
-_PrefferedDNSIP_Type=IpAddress
-_PrefferedDNSIP_Object=MibScalar
-prefferedDNSIP=_PrefferedDNSIP_Object((1,3,6,1,4,1,161,19,3,2,1,28),_PrefferedDNSIP_Type())
-prefferedDNSIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:prefferedDNSIP.setStatus(_A)
-_AlternateDNSIP_Type=IpAddress
-_AlternateDNSIP_Object=MibScalar
-alternateDNSIP=_AlternateDNSIP_Object((1,3,6,1,4,1,161,19,3,2,1,29),_AlternateDNSIP_Type())
-alternateDNSIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:alternateDNSIP.setStatus(_A)
-_DmzIP_Type=IpAddress
-_DmzIP_Object=MibScalar
-dmzIP=_DmzIP_Object((1,3,6,1,4,1,161,19,3,2,1,30),_DmzIP_Type())
-dmzIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:dmzIP.setStatus(_A)
-class _DmzEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_L,0),(_M,1)))
-_DmzEnable_Type.__name__=_E
-_DmzEnable_Object=MibScalar
-dmzEnable=_DmzEnable_Object((1,3,6,1,4,1,161,19,3,2,1,31),_DmzEnable_Type())
-dmzEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:dmzEnable.setStatus(_A)
-_DhcpNumIPsToLease_Type=Integer32
-_DhcpNumIPsToLease_Object=MibScalar
-dhcpNumIPsToLease=_DhcpNumIPsToLease_Object((1,3,6,1,4,1,161,19,3,2,1,32),_DhcpNumIPsToLease_Type())
-dhcpNumIPsToLease.setMaxAccess(_D)
-if mibBuilder.loadTexts:dhcpNumIPsToLease.setStatus(_A)
-class _PppoeFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_PppoeFilter_Type.__name__=_E
-_PppoeFilter_Object=MibScalar
-pppoeFilter=_PppoeFilter_Object((1,3,6,1,4,1,161,19,3,2,1,33),_PppoeFilter_Type())
-pppoeFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeFilter.setStatus(_F)
-class _SmbFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_SmbFilter_Type.__name__=_E
-_SmbFilter_Object=MibScalar
-smbFilter=_SmbFilter_Object((1,3,6,1,4,1,161,19,3,2,1,34),_SmbFilter_Type())
-smbFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:smbFilter.setStatus(_F)
-class _SnmpFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_SnmpFilter_Type.__name__=_E
-_SnmpFilter_Object=MibScalar
-snmpFilter=_SnmpFilter_Object((1,3,6,1,4,1,161,19,3,2,1,35),_SnmpFilter_Type())
-snmpFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:snmpFilter.setStatus(_F)
-class _UserP1Filter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_UserP1Filter_Type.__name__=_E
-_UserP1Filter_Object=MibScalar
-userP1Filter=_UserP1Filter_Object((1,3,6,1,4,1,161,19,3,2,1,36),_UserP1Filter_Type())
-userP1Filter.setMaxAccess(_D)
-if mibBuilder.loadTexts:userP1Filter.setStatus(_F)
-class _UserP2Filter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_UserP2Filter_Type.__name__=_E
-_UserP2Filter_Object=MibScalar
-userP2Filter=_UserP2Filter_Object((1,3,6,1,4,1,161,19,3,2,1,37),_UserP2Filter_Type())
-userP2Filter.setMaxAccess(_D)
-if mibBuilder.loadTexts:userP2Filter.setStatus(_F)
-class _UserP3Filter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_UserP3Filter_Type.__name__=_E
-_UserP3Filter_Object=MibScalar
-userP3Filter=_UserP3Filter_Object((1,3,6,1,4,1,161,19,3,2,1,38),_UserP3Filter_Type())
-userP3Filter.setMaxAccess(_D)
-if mibBuilder.loadTexts:userP3Filter.setStatus(_F)
-class _AllOtherIpFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_AllOtherIpFilter_Type.__name__=_E
-_AllOtherIpFilter_Object=MibScalar
-allOtherIpFilter=_AllOtherIpFilter_Object((1,3,6,1,4,1,161,19,3,2,1,39),_AllOtherIpFilter_Type())
-allOtherIpFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:allOtherIpFilter.setStatus(_F)
-class _UpLinkBCastFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_UpLinkBCastFilter_Type.__name__=_E
-_UpLinkBCastFilter_Object=MibScalar
-upLinkBCastFilter=_UpLinkBCastFilter_Object((1,3,6,1,4,1,161,19,3,2,1,40),_UpLinkBCastFilter_Type())
-upLinkBCastFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:upLinkBCastFilter.setStatus(_F)
-class _ArpFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_ArpFilter_Type.__name__=_E
-_ArpFilter_Object=MibScalar
-arpFilter=_ArpFilter_Object((1,3,6,1,4,1,161,19,3,2,1,41),_ArpFilter_Type())
-arpFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:arpFilter.setStatus(_F)
-class _AllOthersFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_AllOthersFilter_Type.__name__=_E
-_AllOthersFilter_Object=MibScalar
-allOthersFilter=_AllOthersFilter_Object((1,3,6,1,4,1,161,19,3,2,1,42),_AllOthersFilter_Type())
-allOthersFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:allOthersFilter.setStatus(_F)
-_UserDefinedPort1_Type=Integer32
-_UserDefinedPort1_Object=MibScalar
-userDefinedPort1=_UserDefinedPort1_Object((1,3,6,1,4,1,161,19,3,2,1,43),_UserDefinedPort1_Type())
-userDefinedPort1.setMaxAccess(_D)
-if mibBuilder.loadTexts:userDefinedPort1.setStatus(_F)
-class _Port1TCPFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_Port1TCPFilter_Type.__name__=_E
-_Port1TCPFilter_Object=MibScalar
-port1TCPFilter=_Port1TCPFilter_Object((1,3,6,1,4,1,161,19,3,2,1,44),_Port1TCPFilter_Type())
-port1TCPFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:port1TCPFilter.setStatus(_F)
-class _Port1UDPFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_Port1UDPFilter_Type.__name__=_E
-_Port1UDPFilter_Object=MibScalar
-port1UDPFilter=_Port1UDPFilter_Object((1,3,6,1,4,1,161,19,3,2,1,45),_Port1UDPFilter_Type())
-port1UDPFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:port1UDPFilter.setStatus(_F)
-_UserDefinedPort2_Type=Integer32
-_UserDefinedPort2_Object=MibScalar
-userDefinedPort2=_UserDefinedPort2_Object((1,3,6,1,4,1,161,19,3,2,1,46),_UserDefinedPort2_Type())
-userDefinedPort2.setMaxAccess(_D)
-if mibBuilder.loadTexts:userDefinedPort2.setStatus(_F)
-class _Port2TCPFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_Port2TCPFilter_Type.__name__=_E
-_Port2TCPFilter_Object=MibScalar
-port2TCPFilter=_Port2TCPFilter_Object((1,3,6,1,4,1,161,19,3,2,1,47),_Port2TCPFilter_Type())
-port2TCPFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:port2TCPFilter.setStatus(_F)
-class _Port2UDPFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_Port2UDPFilter_Type.__name__=_E
-_Port2UDPFilter_Object=MibScalar
-port2UDPFilter=_Port2UDPFilter_Object((1,3,6,1,4,1,161,19,3,2,1,48),_Port2UDPFilter_Type())
-port2UDPFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:port2UDPFilter.setStatus(_F)
-_UserDefinedPort3_Type=Integer32
-_UserDefinedPort3_Object=MibScalar
-userDefinedPort3=_UserDefinedPort3_Object((1,3,6,1,4,1,161,19,3,2,1,49),_UserDefinedPort3_Type())
-userDefinedPort3.setMaxAccess(_D)
-if mibBuilder.loadTexts:userDefinedPort3.setStatus(_F)
-class _Port3TCPFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_Port3TCPFilter_Type.__name__=_E
-_Port3TCPFilter_Object=MibScalar
-port3TCPFilter=_Port3TCPFilter_Object((1,3,6,1,4,1,161,19,3,2,1,50),_Port3TCPFilter_Type())
-port3TCPFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:port3TCPFilter.setStatus(_F)
-class _Port3UDPFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_Port3UDPFilter_Type.__name__=_E
-_Port3UDPFilter_Object=MibScalar
-port3UDPFilter=_Port3UDPFilter_Object((1,3,6,1,4,1,161,19,3,2,1,51),_Port3UDPFilter_Type())
-port3UDPFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:port3UDPFilter.setStatus(_F)
-class _BootpcFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_BootpcFilter_Type.__name__=_E
-_BootpcFilter_Object=MibScalar
-bootpcFilter=_BootpcFilter_Object((1,3,6,1,4,1,161,19,3,2,1,52),_BootpcFilter_Type())
-bootpcFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:bootpcFilter.setStatus(_F)
-class _BootpsFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_BootpsFilter_Type.__name__=_E
-_BootpsFilter_Object=MibScalar
-bootpsFilter=_BootpsFilter_Object((1,3,6,1,4,1,161,19,3,2,1,53),_BootpsFilter_Type())
-bootpsFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:bootpsFilter.setStatus(_F)
-class _Ip4MultFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_Ip4MultFilter_Type.__name__=_E
-_Ip4MultFilter_Object=MibScalar
-ip4MultFilter=_Ip4MultFilter_Object((1,3,6,1,4,1,161,19,3,2,1,54),_Ip4MultFilter_Type())
-ip4MultFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:ip4MultFilter.setStatus(_F)
-_IngressVID_Type=Integer32
-_IngressVID_Object=MibScalar
-ingressVID=_IngressVID_Object((1,3,6,1,4,1,161,19,3,2,1,55),_IngressVID_Type())
-ingressVID.setMaxAccess(_D)
-if mibBuilder.loadTexts:ingressVID.setStatus(_A)
-_LowPriorityUplinkCIR_Type=Integer32
-_LowPriorityUplinkCIR_Object=MibScalar
-lowPriorityUplinkCIR=_LowPriorityUplinkCIR_Object((1,3,6,1,4,1,161,19,3,2,1,56),_LowPriorityUplinkCIR_Type())
-lowPriorityUplinkCIR.setMaxAccess(_D)
-if mibBuilder.loadTexts:lowPriorityUplinkCIR.setStatus(_A)
-_LowPriorityDownlinkCIR_Type=Integer32
-_LowPriorityDownlinkCIR_Object=MibScalar
-lowPriorityDownlinkCIR=_LowPriorityDownlinkCIR_Object((1,3,6,1,4,1,161,19,3,2,1,57),_LowPriorityDownlinkCIR_Type())
-lowPriorityDownlinkCIR.setMaxAccess(_D)
-if mibBuilder.loadTexts:lowPriorityDownlinkCIR.setStatus(_A)
-class _HiPriorityChannel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_L,0),(_K,1)))
-_HiPriorityChannel_Type.__name__=_E
-_HiPriorityChannel_Object=MibScalar
-hiPriorityChannel=_HiPriorityChannel_Object((1,3,6,1,4,1,161,19,3,2,1,58),_HiPriorityChannel_Type())
-hiPriorityChannel.setMaxAccess(_D)
-if mibBuilder.loadTexts:hiPriorityChannel.setStatus(_A)
-_HiPriorityUplinkCIR_Type=Integer32
-_HiPriorityUplinkCIR_Object=MibScalar
-hiPriorityUplinkCIR=_HiPriorityUplinkCIR_Object((1,3,6,1,4,1,161,19,3,2,1,59),_HiPriorityUplinkCIR_Type())
-hiPriorityUplinkCIR.setMaxAccess(_D)
-if mibBuilder.loadTexts:hiPriorityUplinkCIR.setStatus(_A)
-_HiPriorityDownlinkCIR_Type=Integer32
-_HiPriorityDownlinkCIR_Object=MibScalar
-hiPriorityDownlinkCIR=_HiPriorityDownlinkCIR_Object((1,3,6,1,4,1,161,19,3,2,1,60),_HiPriorityDownlinkCIR_Type())
-hiPriorityDownlinkCIR.setMaxAccess(_D)
-if mibBuilder.loadTexts:hiPriorityDownlinkCIR.setStatus(_A)
-class _SmRateAdapt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('onex',0),('onextwox',1),('onextwoxthreex',2)))
-_SmRateAdapt_Type.__name__=_E
-_SmRateAdapt_Object=MibScalar
-smRateAdapt=_SmRateAdapt_Object((1,3,6,1,4,1,161,19,3,2,1,61),_SmRateAdapt_Type())
-smRateAdapt.setMaxAccess(_D)
-if mibBuilder.loadTexts:smRateAdapt.setStatus(_F)
-_UpLnkDataRate_Type=Integer32
-_UpLnkDataRate_Object=MibScalar
-upLnkDataRate=_UpLnkDataRate_Object((1,3,6,1,4,1,161,19,3,2,1,62),_UpLnkDataRate_Type())
-upLnkDataRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:upLnkDataRate.setStatus(_A)
-_UpLnkLimit_Type=Integer32
-_UpLnkLimit_Object=MibScalar
-upLnkLimit=_UpLnkLimit_Object((1,3,6,1,4,1,161,19,3,2,1,63),_UpLnkLimit_Type())
-upLnkLimit.setMaxAccess(_D)
-if mibBuilder.loadTexts:upLnkLimit.setStatus(_A)
-_DwnLnkDataRate_Type=Integer32
-_DwnLnkDataRate_Object=MibScalar
-dwnLnkDataRate=_DwnLnkDataRate_Object((1,3,6,1,4,1,161,19,3,2,1,64),_DwnLnkDataRate_Type())
-dwnLnkDataRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:dwnLnkDataRate.setStatus(_A)
-_DwnLnkLimit_Type=Integer32
-_DwnLnkLimit_Object=MibScalar
-dwnLnkLimit=_DwnLnkLimit_Object((1,3,6,1,4,1,161,19,3,2,1,65),_DwnLnkLimit_Type())
-dwnLnkLimit.setMaxAccess(_D)
-if mibBuilder.loadTexts:dwnLnkLimit.setStatus(_A)
-class _DfsConfig_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_K,1)))
-_DfsConfig_Type.__name__=_E
-_DfsConfig_Object=MibScalar
-dfsConfig=_DfsConfig_Object((1,3,6,1,4,1,161,19,3,2,1,66),_DfsConfig_Type())
-dfsConfig.setMaxAccess(_D)
-if mibBuilder.loadTexts:dfsConfig.setStatus(_F)
-class _EthAccessFilterEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_K,1)))
-_EthAccessFilterEnable_Type.__name__=_E
-_EthAccessFilterEnable_Object=MibScalar
-ethAccessFilterEnable=_EthAccessFilterEnable_Object((1,3,6,1,4,1,161,19,3,2,1,67),_EthAccessFilterEnable_Type())
-ethAccessFilterEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethAccessFilterEnable.setStatus(_F)
-class _IpAccessFilterEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_K,1)))
-_IpAccessFilterEnable_Type.__name__=_E
-_IpAccessFilterEnable_Object=MibScalar
-ipAccessFilterEnable=_IpAccessFilterEnable_Object((1,3,6,1,4,1,161,19,3,2,1,68),_IpAccessFilterEnable_Type())
-ipAccessFilterEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:ipAccessFilterEnable.setStatus(_A)
-_AllowedIPAccess1_Type=IpAddress
-_AllowedIPAccess1_Object=MibScalar
-allowedIPAccess1=_AllowedIPAccess1_Object((1,3,6,1,4,1,161,19,3,2,1,69),_AllowedIPAccess1_Type())
-allowedIPAccess1.setMaxAccess(_D)
-if mibBuilder.loadTexts:allowedIPAccess1.setStatus(_A)
-_AllowedIPAccess2_Type=IpAddress
-_AllowedIPAccess2_Object=MibScalar
-allowedIPAccess2=_AllowedIPAccess2_Object((1,3,6,1,4,1,161,19,3,2,1,70),_AllowedIPAccess2_Type())
-allowedIPAccess2.setMaxAccess(_D)
-if mibBuilder.loadTexts:allowedIPAccess2.setStatus(_A)
-_AllowedIPAccess3_Type=IpAddress
-_AllowedIPAccess3_Object=MibScalar
-allowedIPAccess3=_AllowedIPAccess3_Object((1,3,6,1,4,1,161,19,3,2,1,71),_AllowedIPAccess3_Type())
-allowedIPAccess3.setMaxAccess(_D)
-if mibBuilder.loadTexts:allowedIPAccess3.setStatus(_A)
-class _RfDhcpState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_L,0),(_M,1)))
-_RfDhcpState_Type.__name__=_E
-_RfDhcpState_Object=MibScalar
-rfDhcpState=_RfDhcpState_Object((1,3,6,1,4,1,161,19,3,2,1,72),_RfDhcpState_Type())
-rfDhcpState.setMaxAccess(_D)
-if mibBuilder.loadTexts:rfDhcpState.setStatus(_A)
-class _BCastMIR_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues((_L,0))
-_BCastMIR_Type.__name__=_E
-_BCastMIR_Object=MibScalar
-bCastMIR=_BCastMIR_Object((1,3,6,1,4,1,161,19,3,2,1,73),_BCastMIR_Type())
-bCastMIR.setMaxAccess(_D)
-if mibBuilder.loadTexts:bCastMIR.setStatus(_A)
-class _BhsReReg_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_L,0),(_M,1)))
-_BhsReReg_Type.__name__=_E
-_BhsReReg_Object=MibScalar
-bhsReReg=_BhsReReg_Object((1,3,6,1,4,1,161,19,3,2,1,74),_BhsReReg_Type())
-bhsReReg.setMaxAccess(_D)
-if mibBuilder.loadTexts:bhsReReg.setStatus(_F)
-class _SmLEDModeFlag_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('legacy',0),('revised',1)))
-_SmLEDModeFlag_Type.__name__=_E
-_SmLEDModeFlag_Object=MibScalar
-smLEDModeFlag=_SmLEDModeFlag_Object((1,3,6,1,4,1,161,19,3,2,1,75),_SmLEDModeFlag_Type())
-smLEDModeFlag.setMaxAccess(_D)
-if mibBuilder.loadTexts:smLEDModeFlag.setStatus(_A)
-class _EthAccessEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_K,1)))
-_EthAccessEnable_Type.__name__=_E
-_EthAccessEnable_Object=MibScalar
-ethAccessEnable=_EthAccessEnable_Object((1,3,6,1,4,1,161,19,3,2,1,76),_EthAccessEnable_Type())
-ethAccessEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:ethAccessEnable.setStatus(_A)
-class _PppoeEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_K,1)))
-_PppoeEnable_Type.__name__=_E
-_PppoeEnable_Object=MibScalar
-pppoeEnable=_PppoeEnable_Object((1,3,6,1,4,1,161,19,3,2,1,77),_PppoeEnable_Type())
-pppoeEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeEnable.setStatus(_A)
-class _PppoeAuthenticationType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('none',0),('chap-pap',1)))
-_PppoeAuthenticationType_Type.__name__=_E
-_PppoeAuthenticationType_Object=MibScalar
-pppoeAuthenticationType=_PppoeAuthenticationType_Object((1,3,6,1,4,1,161,19,3,2,1,78),_PppoeAuthenticationType_Type())
-pppoeAuthenticationType.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeAuthenticationType.setStatus(_A)
-_PppoeAccessConcentrator_Type=DisplayString
-_PppoeAccessConcentrator_Object=MibScalar
-pppoeAccessConcentrator=_PppoeAccessConcentrator_Object((1,3,6,1,4,1,161,19,3,2,1,79),_PppoeAccessConcentrator_Type())
-pppoeAccessConcentrator.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeAccessConcentrator.setStatus(_A)
-_PppoeServiceName_Type=DisplayString
-_PppoeServiceName_Object=MibScalar
-pppoeServiceName=_PppoeServiceName_Object((1,3,6,1,4,1,161,19,3,2,1,80),_PppoeServiceName_Type())
-pppoeServiceName.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeServiceName.setStatus(_A)
-_PppoeUserName_Type=DisplayString
-_PppoeUserName_Object=MibScalar
-pppoeUserName=_PppoeUserName_Object((1,3,6,1,4,1,161,19,3,2,1,81),_PppoeUserName_Type())
-pppoeUserName.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeUserName.setStatus(_A)
-_PppoePassword_Type=DisplayString
-_PppoePassword_Object=MibScalar
-pppoePassword=_PppoePassword_Object((1,3,6,1,4,1,161,19,3,2,1,82),_PppoePassword_Type())
-pppoePassword.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoePassword.setStatus(_A)
-class _PppoeTCPMSSClampEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_K,1)))
-_PppoeTCPMSSClampEnable_Type.__name__=_E
-_PppoeTCPMSSClampEnable_Object=MibScalar
-pppoeTCPMSSClampEnable=_PppoeTCPMSSClampEnable_Object((1,3,6,1,4,1,161,19,3,2,1,83),_PppoeTCPMSSClampEnable_Type())
-pppoeTCPMSSClampEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeTCPMSSClampEnable.setStatus(_A)
-class _PppoeMTUOverrideEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_K,1)))
-_PppoeMTUOverrideEnable_Type.__name__=_E
-_PppoeMTUOverrideEnable_Object=MibScalar
-pppoeMTUOverrideEnable=_PppoeMTUOverrideEnable_Object((1,3,6,1,4,1,161,19,3,2,1,84),_PppoeMTUOverrideEnable_Type())
-pppoeMTUOverrideEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeMTUOverrideEnable.setStatus(_A)
-class _PppoeMTUOverrideValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1492))
-_PppoeMTUOverrideValue_Type.__name__=_E
-_PppoeMTUOverrideValue_Object=MibScalar
-pppoeMTUOverrideValue=_PppoeMTUOverrideValue_Object((1,3,6,1,4,1,161,19,3,2,1,85),_PppoeMTUOverrideValue_Type())
-pppoeMTUOverrideValue.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeMTUOverrideValue.setStatus(_A)
-class _PppoeTimerType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_c,1),(_d,2)))
-_PppoeTimerType_Type.__name__=_E
-_PppoeTimerType_Object=MibScalar
-pppoeTimerType=_PppoeTimerType_Object((1,3,6,1,4,1,161,19,3,2,1,86),_PppoeTimerType_Type())
-pppoeTimerType.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeTimerType.setStatus(_A)
-_PppoeTimeoutPeriod_Type=Integer32
-_PppoeTimeoutPeriod_Object=MibScalar
-pppoeTimeoutPeriod=_PppoeTimeoutPeriod_Object((1,3,6,1,4,1,161,19,3,2,1,87),_PppoeTimeoutPeriod_Type())
-pppoeTimeoutPeriod.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeTimeoutPeriod.setStatus(_A)
-class _TimedSpectrumAnalysisDuration_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,1000))
-_TimedSpectrumAnalysisDuration_Type.__name__=_E
-_TimedSpectrumAnalysisDuration_Object=MibScalar
-timedSpectrumAnalysisDuration=_TimedSpectrumAnalysisDuration_Object((1,3,6,1,4,1,161,19,3,2,1,88),_TimedSpectrumAnalysisDuration_Type())
-timedSpectrumAnalysisDuration.setMaxAccess(_D)
-if mibBuilder.loadTexts:timedSpectrumAnalysisDuration.setStatus(_H)
-class _SpectrumAnalysisOnBoot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_K,1)))
-_SpectrumAnalysisOnBoot_Type.__name__=_E
-_SpectrumAnalysisOnBoot_Object=MibScalar
-spectrumAnalysisOnBoot=_SpectrumAnalysisOnBoot_Object((1,3,6,1,4,1,161,19,3,2,1,89),_SpectrumAnalysisOnBoot_Type())
-spectrumAnalysisOnBoot.setMaxAccess(_D)
-if mibBuilder.loadTexts:spectrumAnalysisOnBoot.setStatus(_A)
-class _SpectrumAnalysisAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*(('stopSpectrumAnalysis',0),('startTimedSpectrumAnalysis',1),('startContinuousSpectrumAnalysis',2),('idleNoSpectrumAnalysis',3),('idleCompleteSpectrumAnalysis',4),('inProgressTimedSpectrumAnalysis',5),('inProgressContinuousSpectrumAnalysis',6)))
-_SpectrumAnalysisAction_Type.__name__=_E
-_SpectrumAnalysisAction_Object=MibScalar
-spectrumAnalysisAction=_SpectrumAnalysisAction_Object((1,3,6,1,4,1,161,19,3,2,1,90),_SpectrumAnalysisAction_Type())
-spectrumAnalysisAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:spectrumAnalysisAction.setStatus(_H)
-class _PppoeConnectOD_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('connectOnDemand',1))
-_PppoeConnectOD_Type.__name__=_E
-_PppoeConnectOD_Object=MibScalar
-pppoeConnectOD=_PppoeConnectOD_Object((1,3,6,1,4,1,161,19,3,2,1,91),_PppoeConnectOD_Type())
-pppoeConnectOD.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeConnectOD.setStatus(_A)
-class _PppoeDisconnectOD_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('disconnectOnDemand',1))
-_PppoeDisconnectOD_Type.__name__=_E
-_PppoeDisconnectOD_Object=MibScalar
-pppoeDisconnectOD=_PppoeDisconnectOD_Object((1,3,6,1,4,1,161,19,3,2,1,92),_PppoeDisconnectOD_Type())
-pppoeDisconnectOD.setMaxAccess(_D)
-if mibBuilder.loadTexts:pppoeDisconnectOD.setStatus(_A)
-class _SmAntennaType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('integrated',0),('external',1)))
-_SmAntennaType_Type.__name__=_E
-_SmAntennaType_Object=MibScalar
-smAntennaType=_SmAntennaType_Object((1,3,6,1,4,1,161,19,3,2,1,93),_SmAntennaType_Type())
-smAntennaType.setMaxAccess(_D)
-if mibBuilder.loadTexts:smAntennaType.setStatus(_F)
-class _NatConnectionType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('staticIP',0),('dhcp',1),('pppoe',2)))
-_NatConnectionType_Type.__name__=_E
-_NatConnectionType_Object=MibScalar
-natConnectionType=_NatConnectionType_Object((1,3,6,1,4,1,161,19,3,2,1,94),_NatConnectionType_Type())
-natConnectionType.setMaxAccess(_D)
-if mibBuilder.loadTexts:natConnectionType.setStatus(_A)
-class _WanPingReplyEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_K,1)))
-_WanPingReplyEnable_Type.__name__=_E
-_WanPingReplyEnable_Object=MibScalar
-wanPingReplyEnable=_WanPingReplyEnable_Object((1,3,6,1,4,1,161,19,3,2,1,95),_WanPingReplyEnable_Type())
-wanPingReplyEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:wanPingReplyEnable.setStatus(_A)
-class _PacketFilterDirection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('upstream',1),('downstream',2)))
-_PacketFilterDirection_Type.__name__=_E
-_PacketFilterDirection_Object=MibScalar
-packetFilterDirection=_PacketFilterDirection_Object((1,3,6,1,4,1,161,19,3,2,1,96),_PacketFilterDirection_Type())
-packetFilterDirection.setMaxAccess(_D)
-if mibBuilder.loadTexts:packetFilterDirection.setStatus(_F)
-class _ColorCode2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
-_ColorCode2_Type.__name__=_E
-_ColorCode2_Object=MibScalar
-colorCode2=_ColorCode2_Object((1,3,6,1,4,1,161,19,3,2,1,97),_ColorCode2_Type())
-colorCode2.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCode2.setStatus(_H)
-class _ColorCodepriority2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_G,0),(_N,1),(_O,2),(_P,3)))
-_ColorCodepriority2_Type.__name__=_E
-_ColorCodepriority2_Object=MibScalar
-colorCodepriority2=_ColorCodepriority2_Object((1,3,6,1,4,1,161,19,3,2,1,98),_ColorCodepriority2_Type())
-colorCodepriority2.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCodepriority2.setStatus(_H)
-class _ColorCode3_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
-_ColorCode3_Type.__name__=_E
-_ColorCode3_Object=MibScalar
-colorCode3=_ColorCode3_Object((1,3,6,1,4,1,161,19,3,2,1,99),_ColorCode3_Type())
-colorCode3.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCode3.setStatus(_H)
-class _ColorCodepriority3_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_G,0),(_N,1),(_O,2),(_P,3)))
-_ColorCodepriority3_Type.__name__=_E
-_ColorCodepriority3_Object=MibScalar
-colorCodepriority3=_ColorCodepriority3_Object((1,3,6,1,4,1,161,19,3,2,1,100),_ColorCodepriority3_Type())
-colorCodepriority3.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCodepriority3.setStatus(_H)
-class _ColorCode4_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
-_ColorCode4_Type.__name__=_E
-_ColorCode4_Object=MibScalar
-colorCode4=_ColorCode4_Object((1,3,6,1,4,1,161,19,3,2,1,101),_ColorCode4_Type())
-colorCode4.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCode4.setStatus(_H)
-class _ColorCodepriority4_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_G,0),(_N,1),(_O,2),(_P,3)))
-_ColorCodepriority4_Type.__name__=_E
-_ColorCodepriority4_Object=MibScalar
-colorCodepriority4=_ColorCodepriority4_Object((1,3,6,1,4,1,161,19,3,2,1,102),_ColorCodepriority4_Type())
-colorCodepriority4.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCodepriority4.setStatus(_H)
-class _ColorCode5_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
-_ColorCode5_Type.__name__=_E
-_ColorCode5_Object=MibScalar
-colorCode5=_ColorCode5_Object((1,3,6,1,4,1,161,19,3,2,1,103),_ColorCode5_Type())
-colorCode5.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCode5.setStatus(_H)
-class _ColorCodepriority5_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_G,0),(_N,1),(_O,2),(_P,3)))
-_ColorCodepriority5_Type.__name__=_E
-_ColorCodepriority5_Object=MibScalar
-colorCodepriority5=_ColorCodepriority5_Object((1,3,6,1,4,1,161,19,3,2,1,104),_ColorCodepriority5_Type())
-colorCodepriority5.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCodepriority5.setStatus(_H)
-class _ColorCode6_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
-_ColorCode6_Type.__name__=_E
-_ColorCode6_Object=MibScalar
-colorCode6=_ColorCode6_Object((1,3,6,1,4,1,161,19,3,2,1,105),_ColorCode6_Type())
-colorCode6.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCode6.setStatus(_H)
-class _ColorCodepriority6_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_G,0),(_N,1),(_O,2),(_P,3)))
-_ColorCodepriority6_Type.__name__=_E
-_ColorCodepriority6_Object=MibScalar
-colorCodepriority6=_ColorCodepriority6_Object((1,3,6,1,4,1,161,19,3,2,1,106),_ColorCodepriority6_Type())
-colorCodepriority6.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCodepriority6.setStatus(_H)
-class _ColorCode7_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
-_ColorCode7_Type.__name__=_E
-_ColorCode7_Object=MibScalar
-colorCode7=_ColorCode7_Object((1,3,6,1,4,1,161,19,3,2,1,107),_ColorCode7_Type())
-colorCode7.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCode7.setStatus(_H)
-class _ColorCodepriority7_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_G,0),(_N,1),(_O,2),(_P,3)))
-_ColorCodepriority7_Type.__name__=_E
-_ColorCodepriority7_Object=MibScalar
-colorCodepriority7=_ColorCodepriority7_Object((1,3,6,1,4,1,161,19,3,2,1,108),_ColorCodepriority7_Type())
-colorCodepriority7.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCodepriority7.setStatus(_H)
-class _ColorCode8_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
-_ColorCode8_Type.__name__=_E
-_ColorCode8_Object=MibScalar
-colorCode8=_ColorCode8_Object((1,3,6,1,4,1,161,19,3,2,1,109),_ColorCode8_Type())
-colorCode8.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCode8.setStatus(_H)
-class _ColorCodepriority8_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_G,0),(_N,1),(_O,2),(_P,3)))
-_ColorCodepriority8_Type.__name__=_E
-_ColorCodepriority8_Object=MibScalar
-colorCodepriority8=_ColorCodepriority8_Object((1,3,6,1,4,1,161,19,3,2,1,110),_ColorCodepriority8_Type())
-colorCodepriority8.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCodepriority8.setStatus(_H)
-class _ColorCode9_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
-_ColorCode9_Type.__name__=_E
-_ColorCode9_Object=MibScalar
-colorCode9=_ColorCode9_Object((1,3,6,1,4,1,161,19,3,2,1,111),_ColorCode9_Type())
-colorCode9.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCode9.setStatus(_H)
-class _ColorCodepriority9_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_G,0),(_N,1),(_O,2),(_P,3)))
-_ColorCodepriority9_Type.__name__=_E
-_ColorCodepriority9_Object=MibScalar
-colorCodepriority9=_ColorCodepriority9_Object((1,3,6,1,4,1,161,19,3,2,1,112),_ColorCodepriority9_Type())
-colorCodepriority9.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCodepriority9.setStatus(_H)
-class _ColorCode10_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
-_ColorCode10_Type.__name__=_E
-_ColorCode10_Object=MibScalar
-colorCode10=_ColorCode10_Object((1,3,6,1,4,1,161,19,3,2,1,113),_ColorCode10_Type())
-colorCode10.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCode10.setStatus(_H)
-class _ColorCodepriority10_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_G,0),(_N,1),(_O,2),(_P,3)))
-_ColorCodepriority10_Type.__name__=_E
-_ColorCodepriority10_Object=MibScalar
-colorCodepriority10=_ColorCodepriority10_Object((1,3,6,1,4,1,161,19,3,2,1,114),_ColorCodepriority10_Type())
-colorCodepriority10.setMaxAccess(_D)
-if mibBuilder.loadTexts:colorCodepriority10.setStatus(_H)
-class _NatDNSProxyEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_L,0),(_M,1)))
-_NatDNSProxyEnable_Type.__name__=_E
-_NatDNSProxyEnable_Object=MibScalar
-natDNSProxyEnable=_NatDNSProxyEnable_Object((1,3,6,1,4,1,161,19,3,2,1,115),_NatDNSProxyEnable_Type())
-natDNSProxyEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:natDNSProxyEnable.setStatus(_A)
-class _AllIpv4Filter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_I,0),(_J,1)))
-_AllIpv4Filter_Type.__name__=_E
-_AllIpv4Filter_Object=MibScalar
-allIpv4Filter=_AllIpv4Filter_Object((1,3,6,1,4,1,161,19,3,2,1,116),_AllIpv4Filter_Type())
-allIpv4Filter.setMaxAccess(_D)
-if mibBuilder.loadTexts:allIpv4Filter.setStatus(_F)
-class _SpectrumAnalysisDisplay_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('averaging',0),('instantaneous',1)))
-_SpectrumAnalysisDisplay_Type.__name__=_E
-_SpectrumAnalysisDisplay_Object=MibScalar
-spectrumAnalysisDisplay=_SpectrumAnalysisDisplay_Object((1,3,6,1,4,1,161,19,3,2,1,117),_SpectrumAnalysisDisplay_Type())
-spectrumAnalysisDisplay.setMaxAccess(_D)
-if mibBuilder.loadTexts:spectrumAnalysisDisplay.setStatus(_A)
-class _SyslogSMXmitSetting_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('obtain-from-AP',0),(_K,1),(_G,2)))
-_SyslogSMXmitSetting_Type.__name__=_E
-_SyslogSMXmitSetting_Object=MibScalar
-syslogSMXmitSetting=_SyslogSMXmitSetting_Object((1,3,6,1,4,1,161,19,3,2,1,118),_SyslogSMXmitSetting_Type())
-syslogSMXmitSetting.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogSMXmitSetting.setStatus(_H)
-class _SyslogServerApPreferred_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_e,0),(_f,1)))
-_SyslogServerApPreferred_Type.__name__=_E
-_SyslogServerApPreferred_Object=MibScalar
-syslogServerApPreferred=_SyslogServerApPreferred_Object((1,3,6,1,4,1,161,19,3,2,1,119),_SyslogServerApPreferred_Type())
-syslogServerApPreferred.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogServerApPreferred.setStatus(_A)
-class _SyslogMinLevelApPreferred_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_e,0),(_f,1)))
-_SyslogMinLevelApPreferred_Type.__name__=_E
-_SyslogMinLevelApPreferred_Object=MibScalar
-syslogMinLevelApPreferred=_SyslogMinLevelApPreferred_Object((1,3,6,1,4,1,161,19,3,2,1,120),_SyslogMinLevelApPreferred_Type())
-syslogMinLevelApPreferred.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogMinLevelApPreferred.setStatus(_A)
-class _SyslogSMXmitControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('obtain-from-AP-default-disabled',0),('obtain-from-AP-default-enabled',1),(_G,2),(_K,3)))
-_SyslogSMXmitControl_Type.__name__=_E
-_SyslogSMXmitControl_Object=MibScalar
-syslogSMXmitControl=_SyslogSMXmitControl_Object((1,3,6,1,4,1,161,19,3,2,1,121),_SyslogSMXmitControl_Type())
-syslogSMXmitControl.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogSMXmitControl.setStatus(_A)
-_EapPeerAAAServerCommonName_Type=DisplayString
-_EapPeerAAAServerCommonName_Object=MibScalar
-eapPeerAAAServerCommonName=_EapPeerAAAServerCommonName_Object((1,3,6,1,4,1,161,19,3,2,1,126),_EapPeerAAAServerCommonName_Type())
-eapPeerAAAServerCommonName.setMaxAccess(_D)
-if mibBuilder.loadTexts:eapPeerAAAServerCommonName.setStatus(_A)
-class _RfScanListBandFilter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(8,9)));namedValues=NamedValues(*(('band5400',8),('band5700',9)))
-_RfScanListBandFilter_Type.__name__=_E
-_RfScanListBandFilter_Object=MibScalar
-rfScanListBandFilter=_RfScanListBandFilter_Object((1,3,6,1,4,1,161,19,3,2,1,127),_RfScanListBandFilter_Type())
-rfScanListBandFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:rfScanListBandFilter.setStatus(_F)
-_UpLnkMaxBurstDataRate_Type=Integer32
-_UpLnkMaxBurstDataRate_Object=MibScalar
-upLnkMaxBurstDataRate=_UpLnkMaxBurstDataRate_Object((1,3,6,1,4,1,161,19,3,2,1,128),_UpLnkMaxBurstDataRate_Type())
-upLnkMaxBurstDataRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:upLnkMaxBurstDataRate.setStatus(_A)
-if mibBuilder.loadTexts:upLnkMaxBurstDataRate.setUnits(_g)
-_DwnLnkMaxBurstDataRate_Type=Integer32
-_DwnLnkMaxBurstDataRate_Object=MibScalar
-dwnLnkMaxBurstDataRate=_DwnLnkMaxBurstDataRate_Object((1,3,6,1,4,1,161,19,3,2,1,129),_DwnLnkMaxBurstDataRate_Type())
-dwnLnkMaxBurstDataRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:dwnLnkMaxBurstDataRate.setStatus(_A)
-if mibBuilder.loadTexts:dwnLnkMaxBurstDataRate.setUnits(_g)
-_CyclicPrefixScan_Type=DisplayString
-_CyclicPrefixScan_Object=MibScalar
-cyclicPrefixScan=_CyclicPrefixScan_Object((1,3,6,1,4,1,161,19,3,2,1,130),_CyclicPrefixScan_Type())
-cyclicPrefixScan.setMaxAccess(_D)
-if mibBuilder.loadTexts:cyclicPrefixScan.setStatus(_A)
-_BandwidthScan_Type=DisplayString
-_BandwidthScan_Object=MibScalar
-bandwidthScan=_BandwidthScan_Object((1,3,6,1,4,1,161,19,3,2,1,131),_BandwidthScan_Type())
-bandwidthScan.setMaxAccess(_D)
-if mibBuilder.loadTexts:bandwidthScan.setStatus(_A)
-class _ApSelection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('optimizeForThroughput',0),('powerLevel',1)))
-_ApSelection_Type.__name__=_E
-_ApSelection_Object=MibScalar
-apSelection=_ApSelection_Object((1,3,6,1,4,1,161,19,3,2,1,132),_ApSelection_Type())
-apSelection.setMaxAccess(_D)
-if mibBuilder.loadTexts:apSelection.setStatus(_A)
-class _RadioBandscanConfig_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('instant',0),('delayed',1),('apply',2)))
-_RadioBandscanConfig_Type.__name__=_E
-_RadioBandscanConfig_Object=MibScalar
-radioBandscanConfig=_RadioBandscanConfig_Object((1,3,6,1,4,1,161,19,3,2,1,133),_RadioBandscanConfig_Type())
-radioBandscanConfig.setMaxAccess(_D)
-if mibBuilder.loadTexts:radioBandscanConfig.setStatus(_A)
-_Forcepoweradjust_Type=Integer32
-_Forcepoweradjust_Object=MibScalar
-forcepoweradjust=_Forcepoweradjust_Object((1,3,6,1,4,1,161,19,3,2,1,134),_Forcepoweradjust_Type())
-forcepoweradjust.setMaxAccess(_D)
-if mibBuilder.loadTexts:forcepoweradjust.setStatus(_A)
-_ClearBerrResults_Type=Integer32
-_ClearBerrResults_Object=MibScalar
-clearBerrResults=_ClearBerrResults_Object((1,3,6,1,4,1,161,19,3,2,1,135),_ClearBerrResults_Type())
-clearBerrResults.setMaxAccess(_D)
-if mibBuilder.loadTexts:clearBerrResults.setStatus(_A)
-_Berrautoupdateflag_Type=Integer32
-_Berrautoupdateflag_Object=MibScalar
-berrautoupdateflag=_Berrautoupdateflag_Object((1,3,6,1,4,1,161,19,3,2,1,136),_Berrautoupdateflag_Type())
-berrautoupdateflag.setMaxAccess(_D)
-if mibBuilder.loadTexts:berrautoupdateflag.setStatus(_A)
-class _TestSMBER_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_K,1)))
-_TestSMBER_Type.__name__=_E
-_TestSMBER_Object=MibScalar
-testSMBER=_TestSMBER_Object((1,3,6,1,4,1,161,19,3,2,1,137),_TestSMBER_Type())
-testSMBER.setMaxAccess(_D)
-if mibBuilder.loadTexts:testSMBER.setStatus(_A)
-class _AllowedIPAccessNMLength1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_AllowedIPAccessNMLength1_Type.__name__=_E
-_AllowedIPAccessNMLength1_Object=MibScalar
-allowedIPAccessNMLength1=_AllowedIPAccessNMLength1_Object((1,3,6,1,4,1,161,19,3,2,1,138),_AllowedIPAccessNMLength1_Type())
-allowedIPAccessNMLength1.setMaxAccess(_D)
-if mibBuilder.loadTexts:allowedIPAccessNMLength1.setStatus(_A)
-class _AllowedIPAccessNMLength2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_AllowedIPAccessNMLength2_Type.__name__=_E
-_AllowedIPAccessNMLength2_Object=MibScalar
-allowedIPAccessNMLength2=_AllowedIPAccessNMLength2_Object((1,3,6,1,4,1,161,19,3,2,1,139),_AllowedIPAccessNMLength2_Type())
-allowedIPAccessNMLength2.setMaxAccess(_D)
-if mibBuilder.loadTexts:allowedIPAccessNMLength2.setStatus(_A)
-class _AllowedIPAccessNMLength3_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_AllowedIPAccessNMLength3_Type.__name__=_E
-_AllowedIPAccessNMLength3_Object=MibScalar
-allowedIPAccessNMLength3=_AllowedIPAccessNMLength3_Object((1,3,6,1,4,1,161,19,3,2,1,140),_AllowedIPAccessNMLength3_Type())
-allowedIPAccessNMLength3.setMaxAccess(_D)
-if mibBuilder.loadTexts:allowedIPAccessNMLength3.setStatus(_A)
-class _NaptRemoteManage_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_G,0),('enable-standalone',1),('enable-wan',2)))
-_NaptRemoteManage_Type.__name__=_E
-_NaptRemoteManage_Object=MibScalar
-naptRemoteManage=_NaptRemoteManage_Object((1,3,6,1,4,1,161,19,3,2,1,141),_NaptRemoteManage_Type())
-naptRemoteManage.setMaxAccess(_D)
-if mibBuilder.loadTexts:naptRemoteManage.setStatus(_A)
-class _SpectrumAnalysisScanBandwidth_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*((_h,0),(_i,1),(_j,2),(_U,3),(_k,4),(_l,5)))
-_SpectrumAnalysisScanBandwidth_Type.__name__=_E
-_SpectrumAnalysisScanBandwidth_Object=MibScalar
-spectrumAnalysisScanBandwidth=_SpectrumAnalysisScanBandwidth_Object((1,3,6,1,4,1,161,19,3,2,1,142),_SpectrumAnalysisScanBandwidth_Type())
-spectrumAnalysisScanBandwidth.setMaxAccess(_D)
-if mibBuilder.loadTexts:spectrumAnalysisScanBandwidth.setStatus(_A)
-class _BerDeModSelect_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('qpsk',0),('qam-16',1),('qam-64',2),('qam-256',3)))
-_BerDeModSelect_Type.__name__=_E
-_BerDeModSelect_Object=MibScalar
-berDeModSelect=_BerDeModSelect_Object((1,3,6,1,4,1,161,19,3,2,1,143),_BerDeModSelect_Type())
-berDeModSelect.setMaxAccess(_D)
-if mibBuilder.loadTexts:berDeModSelect.setStatus(_A)
-_MulticastVCRcvRate_Type=DisplayString
-_MulticastVCRcvRate_Object=MibScalar
-multicastVCRcvRate=_MulticastVCRcvRate_Object((1,3,6,1,4,1,161,19,3,2,1,144),_MulticastVCRcvRate_Type())
-multicastVCRcvRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:multicastVCRcvRate.setStatus(_A)
-class _Pmp430ApRegistrationOptions_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_m,1),('pmp450',2),('both',3)))
-_Pmp430ApRegistrationOptions_Type.__name__=_E
-_Pmp430ApRegistrationOptions_Object=MibScalar
-pmp430ApRegistrationOptions=_Pmp430ApRegistrationOptions_Object((1,3,6,1,4,1,161,19,3,2,1,145),_Pmp430ApRegistrationOptions_Type())
-pmp430ApRegistrationOptions.setMaxAccess(_D)
-if mibBuilder.loadTexts:pmp430ApRegistrationOptions.setStatus(_H)
-class _SwitchRadioModeAndReboot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('finishedReboot',0),(_V,1)))
-_SwitchRadioModeAndReboot_Type.__name__=_E
-_SwitchRadioModeAndReboot_Object=MibScalar
-switchRadioModeAndReboot=_SwitchRadioModeAndReboot_Object((1,3,6,1,4,1,161,19,3,2,1,146),_SwitchRadioModeAndReboot_Type())
-switchRadioModeAndReboot.setMaxAccess(_D)
-if mibBuilder.loadTexts:switchRadioModeAndReboot.setStatus(_F)
-class _NatTslTableSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1024,8192))
-_NatTslTableSize_Type.__name__=_E
-_NatTslTableSize_Object=MibScalar
-natTslTableSize=_NatTslTableSize_Object((1,3,6,1,4,1,161,19,3,2,1,147),_NatTslTableSize_Type())
-natTslTableSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:natTslTableSize.setStatus(_A)
-class _IngressVIDPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_IngressVIDPriority_Type.__name__=_E
-_IngressVIDPriority_Object=MibScalar
-ingressVIDPriority=_IngressVIDPriority_Object((1,3,6,1,4,1,161,19,3,2,1,148),_IngressVIDPriority_Type())
-ingressVIDPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:ingressVIDPriority.setStatus(_A)
-class _IngressVIDPriorityMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_n,0),(_o,1)))
-_IngressVIDPriorityMode_Type.__name__=_E
-_IngressVIDPriorityMode_Object=MibScalar
-ingressVIDPriorityMode=_IngressVIDPriorityMode_Object((1,3,6,1,4,1,161,19,3,2,1,149),_IngressVIDPriorityMode_Type())
-ingressVIDPriorityMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:ingressVIDPriorityMode.setStatus(_A)
-class _ProviderVIDPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_ProviderVIDPriority_Type.__name__=_E
-_ProviderVIDPriority_Object=MibScalar
-providerVIDPriority=_ProviderVIDPriority_Object((1,3,6,1,4,1,161,19,3,2,1,150),_ProviderVIDPriority_Type())
-providerVIDPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:providerVIDPriority.setStatus(_A)
-class _ProviderVIDPriorityMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_n,0),(_o,1),('copy-inner-tag-priority',2)))
-_ProviderVIDPriorityMode_Type.__name__=_E
-_ProviderVIDPriorityMode_Object=MibScalar
-providerVIDPriorityMode=_ProviderVIDPriorityMode_Object((1,3,6,1,4,1,161,19,3,2,1,151),_ProviderVIDPriorityMode_Type())
-providerVIDPriorityMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:providerVIDPriorityMode.setStatus(_A)
-class _AdditionalColorCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
-_AdditionalColorCode_Type.__name__=_E
-_AdditionalColorCode_Object=MibScalar
-additionalColorCode=_AdditionalColorCode_Object((1,3,6,1,4,1,161,19,3,2,1,152),_AdditionalColorCode_Type())
-additionalColorCode.setMaxAccess(_D)
-if mibBuilder.loadTexts:additionalColorCode.setStatus(_A)
-class _AdditionalColorCodePriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_N,1),(_O,2),(_P,3)))
-_AdditionalColorCodePriority_Type.__name__=_E
-_AdditionalColorCodePriority_Object=MibScalar
-additionalColorCodePriority=_AdditionalColorCodePriority_Object((1,3,6,1,4,1,161,19,3,2,1,153),_AdditionalColorCodePriority_Type())
-additionalColorCodePriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:additionalColorCodePriority.setStatus(_A)
-class _DeleteAdditionalColorCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
-_DeleteAdditionalColorCode_Type.__name__=_E
-_DeleteAdditionalColorCode_Object=MibScalar
-deleteAdditionalColorCode=_DeleteAdditionalColorCode_Object((1,3,6,1,4,1,161,19,3,2,1,154),_DeleteAdditionalColorCode_Type())
-deleteAdditionalColorCode.setMaxAccess(_D)
-if mibBuilder.loadTexts:deleteAdditionalColorCode.setStatus(_A)
-class _BCastMIRUnits_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('kbps',0),('pps',1)))
-_BCastMIRUnits_Type.__name__=_E
-_BCastMIRUnits_Object=MibScalar
-bCastMIRUnits=_BCastMIRUnits_Object((1,3,6,1,4,1,161,19,3,2,1,155),_BCastMIRUnits_Type())
-bCastMIRUnits.setMaxAccess(_D)
-if mibBuilder.loadTexts:bCastMIRUnits.setStatus(_A)
-_RfScanListTable_Object=MibTable
-rfScanListTable=_RfScanListTable_Object((1,3,6,1,4,1,161,19,3,2,1,156))
-if mibBuilder.loadTexts:rfScanListTable.setStatus(_A)
-_RfScanListEntry_Object=MibTableRow
-rfScanListEntry=_RfScanListEntry_Object((1,3,6,1,4,1,161,19,3,2,1,156,1))
-rfScanListEntry.setIndexNames((0,_B,_p))
-if mibBuilder.loadTexts:rfScanListEntry.setStatus(_A)
-class _RfScanListFrequency_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,9000000))
-_RfScanListFrequency_Type.__name__=_E
-_RfScanListFrequency_Object=MibTableColumn
-rfScanListFrequency=_RfScanListFrequency_Object((1,3,6,1,4,1,161,19,3,2,1,156,1,1),_RfScanListFrequency_Type())
-rfScanListFrequency.setMaxAccess(_D)
-if mibBuilder.loadTexts:rfScanListFrequency.setStatus(_A)
-class _TxPowerControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_K,1)))
-_TxPowerControl_Type.__name__=_E
-_TxPowerControl_Object=MibScalar
-txPowerControl=_TxPowerControl_Object((1,3,6,1,4,1,161,19,3,2,1,157),_TxPowerControl_Type())
-txPowerControl.setMaxAccess(_D)
-if mibBuilder.loadTexts:txPowerControl.setStatus(_A)
-class _BridgeTableSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(4,4096))
-_BridgeTableSize_Type.__name__=_E
-_BridgeTableSize_Object=MibScalar
-bridgeTableSize=_BridgeTableSize_Object((1,3,6,1,4,1,161,19,3,2,1,158),_BridgeTableSize_Type())
-bridgeTableSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:bridgeTableSize.setStatus(_A)
-class _BridgeTableRestrict_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_K,1)))
-_BridgeTableRestrict_Type.__name__=_E
-_BridgeTableRestrict_Object=MibScalar
-bridgeTableRestrict=_BridgeTableRestrict_Object((1,3,6,1,4,1,161,19,3,2,1,159),_BridgeTableRestrict_Type())
-bridgeTableRestrict.setMaxAccess(_D)
-if mibBuilder.loadTexts:bridgeTableRestrict.setStatus(_A)
-class _MaxTxPowerEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_K,1)))
-_MaxTxPowerEnable_Type.__name__=_E
-_MaxTxPowerEnable_Object=MibScalar
-maxTxPowerEnable=_MaxTxPowerEnable_Object((1,3,6,1,4,1,161,19,3,2,1,160),_MaxTxPowerEnable_Type())
-maxTxPowerEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:maxTxPowerEnable.setStatus(_A)
-class _MaxTxPower_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-30,27))
-_MaxTxPower_Type.__name__=_E
-_MaxTxPower_Object=MibScalar
-maxTxPower=_MaxTxPower_Object((1,3,6,1,4,1,161,19,3,2,1,161),_MaxTxPower_Type())
-maxTxPower.setMaxAccess(_D)
-if mibBuilder.loadTexts:maxTxPower.setStatus(_A)
-_WhispSmStatus_ObjectIdentity=ObjectIdentity
-whispSmStatus=_WhispSmStatus_ObjectIdentity((1,3,6,1,4,1,161,19,3,2,2))
-_SessionStatus_Type=DisplayString
-_SessionStatus_Object=MibScalar
-sessionStatus=_SessionStatus_Object((1,3,6,1,4,1,161,19,3,2,2,1),_SessionStatus_Type())
-sessionStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:sessionStatus.setStatus(_A)
-_Rssi_Type=Integer32
-_Rssi_Object=MibScalar
-rssi=_Rssi_Object((1,3,6,1,4,1,161,19,3,2,2,2),_Rssi_Type())
-rssi.setMaxAccess(_C)
-if mibBuilder.loadTexts:rssi.setStatus(_A)
-class _Jitter_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
-_Jitter_Type.__name__=_S
-_Jitter_Object=MibScalar
-jitter=_Jitter_Object((1,3,6,1,4,1,161,19,3,2,2,3),_Jitter_Type())
-jitter.setMaxAccess(_C)
-if mibBuilder.loadTexts:jitter.setStatus(_A)
-_AirDelay_Type=Unsigned32
-_AirDelay_Object=MibScalar
-airDelay=_AirDelay_Object((1,3,6,1,4,1,161,19,3,2,2,4),_AirDelay_Type())
-airDelay.setMaxAccess(_C)
-if mibBuilder.loadTexts:airDelay.setStatus(_A)
-_RadioSlicingSm_Type=Integer32
-_RadioSlicingSm_Object=MibScalar
-radioSlicingSm=_RadioSlicingSm_Object((1,3,6,1,4,1,161,19,3,2,2,5),_RadioSlicingSm_Type())
-radioSlicingSm.setMaxAccess(_C)
-if mibBuilder.loadTexts:radioSlicingSm.setStatus(_F)
-_RadioTxGainSm_Type=Integer32
-_RadioTxGainSm_Object=MibScalar
-radioTxGainSm=_RadioTxGainSm_Object((1,3,6,1,4,1,161,19,3,2,2,6),_RadioTxGainSm_Type())
-radioTxGainSm.setMaxAccess(_C)
-if mibBuilder.loadTexts:radioTxGainSm.setStatus(_A)
-_CalibrationStatus_Type=DisplayString
-_CalibrationStatus_Object=MibScalar
-calibrationStatus=_CalibrationStatus_Object((1,3,6,1,4,1,161,19,3,2,2,7),_CalibrationStatus_Type())
-calibrationStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:calibrationStatus.setStatus(_H)
-_RadioDbm_Type=DisplayString
-_RadioDbm_Object=MibScalar
-radioDbm=_RadioDbm_Object((1,3,6,1,4,1,161,19,3,2,2,8),_RadioDbm_Type())
-radioDbm.setMaxAccess(_C)
-if mibBuilder.loadTexts:radioDbm.setStatus(_A)
-_RegisteredToAp_Type=DisplayString
-_RegisteredToAp_Object=MibScalar
-registeredToAp=_RegisteredToAp_Object((1,3,6,1,4,1,161,19,3,2,2,9),_RegisteredToAp_Type())
-registeredToAp.setMaxAccess(_C)
-if mibBuilder.loadTexts:registeredToAp.setStatus(_A)
-_DhcpCip_Type=IpAddress
-_DhcpCip_Object=MibScalar
-dhcpCip=_DhcpCip_Object((1,3,6,1,4,1,161,19,3,2,2,10),_DhcpCip_Type())
-dhcpCip.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpCip.setStatus(_A)
-_DhcpSip_Type=IpAddress
-_DhcpSip_Object=MibScalar
-dhcpSip=_DhcpSip_Object((1,3,6,1,4,1,161,19,3,2,2,11),_DhcpSip_Type())
-dhcpSip.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpSip.setStatus(_A)
-_DhcpClientLease_Type=TimeTicks
-_DhcpClientLease_Object=MibScalar
-dhcpClientLease=_DhcpClientLease_Object((1,3,6,1,4,1,161,19,3,2,2,12),_DhcpClientLease_Type())
-dhcpClientLease.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpClientLease.setStatus(_A)
-_DhcpCSMask_Type=IpAddress
-_DhcpCSMask_Object=MibScalar
-dhcpCSMask=_DhcpCSMask_Object((1,3,6,1,4,1,161,19,3,2,2,13),_DhcpCSMask_Type())
-dhcpCSMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpCSMask.setStatus(_A)
-_DhcpDfltRterIP_Type=IpAddress
-_DhcpDfltRterIP_Object=MibScalar
-dhcpDfltRterIP=_DhcpDfltRterIP_Object((1,3,6,1,4,1,161,19,3,2,2,14),_DhcpDfltRterIP_Type())
-dhcpDfltRterIP.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpDfltRterIP.setStatus(_A)
-_Dhcpcdns1_Type=IpAddress
-_Dhcpcdns1_Object=MibScalar
-dhcpcdns1=_Dhcpcdns1_Object((1,3,6,1,4,1,161,19,3,2,2,15),_Dhcpcdns1_Type())
-dhcpcdns1.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpcdns1.setStatus(_A)
-_Dhcpcdns2_Type=IpAddress
-_Dhcpcdns2_Object=MibScalar
-dhcpcdns2=_Dhcpcdns2_Object((1,3,6,1,4,1,161,19,3,2,2,16),_Dhcpcdns2_Type())
-dhcpcdns2.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpcdns2.setStatus(_A)
-_Dhcpcdns3_Type=IpAddress
-_Dhcpcdns3_Object=MibScalar
-dhcpcdns3=_Dhcpcdns3_Object((1,3,6,1,4,1,161,19,3,2,2,17),_Dhcpcdns3_Type())
-dhcpcdns3.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpcdns3.setStatus(_A)
-_DhcpDomName_Type=DisplayString
-_DhcpDomName_Object=MibScalar
-dhcpDomName=_DhcpDomName_Object((1,3,6,1,4,1,161,19,3,2,2,18),_DhcpDomName_Type())
-dhcpDomName.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpDomName.setStatus(_A)
-_DhcpServerTable_Object=MibTable
-dhcpServerTable=_DhcpServerTable_Object((1,3,6,1,4,1,161,19,3,2,2,19))
-if mibBuilder.loadTexts:dhcpServerTable.setStatus(_A)
-_DhcpServerEntry_Object=MibTableRow
-dhcpServerEntry=_DhcpServerEntry_Object((1,3,6,1,4,1,161,19,3,2,2,19,1))
-dhcpServerEntry.setIndexNames((0,_B,_q))
-if mibBuilder.loadTexts:dhcpServerEntry.setStatus(_A)
-_HostIp_Type=IpAddress
-_HostIp_Object=MibTableColumn
-hostIp=_HostIp_Object((1,3,6,1,4,1,161,19,3,2,2,19,1,1),_HostIp_Type())
-hostIp.setMaxAccess(_C)
-if mibBuilder.loadTexts:hostIp.setStatus(_A)
-_HostMacAddress_Type=PhysAddress
-_HostMacAddress_Object=MibTableColumn
-hostMacAddress=_HostMacAddress_Object((1,3,6,1,4,1,161,19,3,2,2,19,1,2),_HostMacAddress_Type())
-hostMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:hostMacAddress.setStatus(_A)
-_HostLease_Type=TimeTicks
-_HostLease_Object=MibTableColumn
-hostLease=_HostLease_Object((1,3,6,1,4,1,161,19,3,2,2,19,1,3),_HostLease_Type())
-hostLease.setMaxAccess(_C)
-if mibBuilder.loadTexts:hostLease.setStatus(_A)
-_AdaptRate_Type=DisplayString
-_AdaptRate_Object=MibScalar
-adaptRate=_AdaptRate_Object((1,3,6,1,4,1,161,19,3,2,2,20),_AdaptRate_Type())
-adaptRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:adaptRate.setStatus(_A)
-_RadioDbmInt_Type=Integer32
-_RadioDbmInt_Object=MibScalar
-radioDbmInt=_RadioDbmInt_Object((1,3,6,1,4,1,161,19,3,2,2,21),_RadioDbmInt_Type())
-radioDbmInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:radioDbmInt.setStatus(_A)
-_DfsStatus_Type=DisplayString
-_DfsStatus_Object=MibScalar
-dfsStatus=_DfsStatus_Object((1,3,6,1,4,1,161,19,3,2,2,22),_DfsStatus_Type())
-dfsStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:dfsStatus.setStatus(_A)
-_RadioTxPwr_Type=DisplayString
-_RadioTxPwr_Object=MibScalar
-radioTxPwr=_RadioTxPwr_Object((1,3,6,1,4,1,161,19,3,2,2,23),_RadioTxPwr_Type())
-radioTxPwr.setMaxAccess(_C)
-if mibBuilder.loadTexts:radioTxPwr.setStatus(_A)
-_ActiveRegion_Type=DisplayString
-_ActiveRegion_Object=MibScalar
-activeRegion=_ActiveRegion_Object((1,3,6,1,4,1,161,19,3,2,2,24),_ActiveRegion_Type())
-activeRegion.setMaxAccess(_C)
-if mibBuilder.loadTexts:activeRegion.setStatus(_A)
-class _SnmpBerLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,4,6,8)));namedValues=NamedValues(*(('twoLevelOrMimoQPSK',2),('fourLevelOrMimo16QAM',4),('mimo64QAM',6),('mimo256QAM',8)))
-_SnmpBerLevel_Type.__name__=_E
-_SnmpBerLevel_Object=MibScalar
-snmpBerLevel=_SnmpBerLevel_Object((1,3,6,1,4,1,161,19,3,2,2,25),_SnmpBerLevel_Type())
-snmpBerLevel.setMaxAccess(_C)
-if mibBuilder.loadTexts:snmpBerLevel.setStatus(_A)
-_NbBitsRcvd_Type=Counter64
-_NbBitsRcvd_Object=MibScalar
-nbBitsRcvd=_NbBitsRcvd_Object((1,3,6,1,4,1,161,19,3,2,2,26),_NbBitsRcvd_Type())
-nbBitsRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbBitsRcvd.setStatus(_A)
-_NbPriBitsErr_Type=Counter32
-_NbPriBitsErr_Object=MibScalar
-nbPriBitsErr=_NbPriBitsErr_Object((1,3,6,1,4,1,161,19,3,2,2,27),_NbPriBitsErr_Type())
-nbPriBitsErr.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbPriBitsErr.setStatus(_A)
-_NbSndBitsErr_Type=Counter32
-_NbSndBitsErr_Object=MibScalar
-nbSndBitsErr=_NbSndBitsErr_Object((1,3,6,1,4,1,161,19,3,2,2,28),_NbSndBitsErr_Type())
-nbSndBitsErr.setMaxAccess(_C)
-if mibBuilder.loadTexts:nbSndBitsErr.setStatus(_A)
-_PrimaryBER_Type=Integer32
-_PrimaryBER_Object=MibScalar
-primaryBER=_PrimaryBER_Object((1,3,6,1,4,1,161,19,3,2,2,29),_PrimaryBER_Type())
-primaryBER.setMaxAccess(_C)
-if mibBuilder.loadTexts:primaryBER.setStatus(_F)
-_SecondaryBER_Type=Integer32
-_SecondaryBER_Object=MibScalar
-secondaryBER=_SecondaryBER_Object((1,3,6,1,4,1,161,19,3,2,2,30),_SecondaryBER_Type())
-secondaryBER.setMaxAccess(_C)
-if mibBuilder.loadTexts:secondaryBER.setStatus(_F)
-_TotalBER_Type=Integer32
-_TotalBER_Object=MibScalar
-totalBER=_TotalBER_Object((1,3,6,1,4,1,161,19,3,2,2,31),_TotalBER_Type())
-totalBER.setMaxAccess(_C)
-if mibBuilder.loadTexts:totalBER.setStatus(_F)
-_MinRSSI_Type=Integer32
-_MinRSSI_Object=MibScalar
-minRSSI=_MinRSSI_Object((1,3,6,1,4,1,161,19,3,2,2,32),_MinRSSI_Type())
-minRSSI.setMaxAccess(_C)
-if mibBuilder.loadTexts:minRSSI.setStatus(_A)
-_MaxRSSI_Type=Integer32
-_MaxRSSI_Object=MibScalar
-maxRSSI=_MaxRSSI_Object((1,3,6,1,4,1,161,19,3,2,2,33),_MaxRSSI_Type())
-maxRSSI.setMaxAccess(_C)
-if mibBuilder.loadTexts:maxRSSI.setStatus(_A)
-class _MinJitter_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
-_MinJitter_Type.__name__=_S
-_MinJitter_Object=MibScalar
-minJitter=_MinJitter_Object((1,3,6,1,4,1,161,19,3,2,2,34),_MinJitter_Type())
-minJitter.setMaxAccess(_C)
-if mibBuilder.loadTexts:minJitter.setStatus(_A)
-class _MaxJitter_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
-_MaxJitter_Type.__name__=_S
-_MaxJitter_Object=MibScalar
-maxJitter=_MaxJitter_Object((1,3,6,1,4,1,161,19,3,2,2,35),_MaxJitter_Type())
-maxJitter.setMaxAccess(_C)
-if mibBuilder.loadTexts:maxJitter.setStatus(_A)
-_SmSessionTimer_Type=TimeTicks
-_SmSessionTimer_Object=MibScalar
-smSessionTimer=_SmSessionTimer_Object((1,3,6,1,4,1,161,19,3,2,2,36),_SmSessionTimer_Type())
-smSessionTimer.setMaxAccess(_C)
-if mibBuilder.loadTexts:smSessionTimer.setStatus(_A)
-_PppoeSessionStatus_Type=DisplayString
-_PppoeSessionStatus_Object=MibScalar
-pppoeSessionStatus=_PppoeSessionStatus_Object((1,3,6,1,4,1,161,19,3,2,2,37),_PppoeSessionStatus_Type())
-pppoeSessionStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeSessionStatus.setStatus(_A)
-_PppoeSessionID_Type=Integer32
-_PppoeSessionID_Object=MibScalar
-pppoeSessionID=_PppoeSessionID_Object((1,3,6,1,4,1,161,19,3,2,2,38),_PppoeSessionID_Type())
-pppoeSessionID.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeSessionID.setStatus(_A)
-_PppoeIPCPAddress_Type=IpAddress
-_PppoeIPCPAddress_Object=MibScalar
-pppoeIPCPAddress=_PppoeIPCPAddress_Object((1,3,6,1,4,1,161,19,3,2,2,39),_PppoeIPCPAddress_Type())
-pppoeIPCPAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeIPCPAddress.setStatus(_A)
-class _PppoeMTUOverrideEn_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_L,0),(_M,1)))
-_PppoeMTUOverrideEn_Type.__name__=_E
-_PppoeMTUOverrideEn_Object=MibScalar
-pppoeMTUOverrideEn=_PppoeMTUOverrideEn_Object((1,3,6,1,4,1,161,19,3,2,2,40),_PppoeMTUOverrideEn_Type())
-pppoeMTUOverrideEn.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeMTUOverrideEn.setStatus(_A)
-_PppoeMTUValue_Type=Integer32
-_PppoeMTUValue_Object=MibScalar
-pppoeMTUValue=_PppoeMTUValue_Object((1,3,6,1,4,1,161,19,3,2,2,41),_PppoeMTUValue_Type())
-pppoeMTUValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeMTUValue.setStatus(_A)
-class _PppoeTimerTypeValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_L,0),(_c,1),(_d,2)))
-_PppoeTimerTypeValue_Type.__name__=_E
-_PppoeTimerTypeValue_Object=MibScalar
-pppoeTimerTypeValue=_PppoeTimerTypeValue_Object((1,3,6,1,4,1,161,19,3,2,2,42),_PppoeTimerTypeValue_Type())
-pppoeTimerTypeValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeTimerTypeValue.setStatus(_A)
-_PppoeTimeoutValue_Type=Integer32
-_PppoeTimeoutValue_Object=MibScalar
-pppoeTimeoutValue=_PppoeTimeoutValue_Object((1,3,6,1,4,1,161,19,3,2,2,43),_PppoeTimeoutValue_Type())
-pppoeTimeoutValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeTimeoutValue.setStatus(_A)
-_PppoeDNSServer1_Type=IpAddress
-_PppoeDNSServer1_Object=MibScalar
-pppoeDNSServer1=_PppoeDNSServer1_Object((1,3,6,1,4,1,161,19,3,2,2,44),_PppoeDNSServer1_Type())
-pppoeDNSServer1.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeDNSServer1.setStatus(_A)
-_PppoeDNSServer2_Type=IpAddress
-_PppoeDNSServer2_Object=MibScalar
-pppoeDNSServer2=_PppoeDNSServer2_Object((1,3,6,1,4,1,161,19,3,2,2,45),_PppoeDNSServer2_Type())
-pppoeDNSServer2.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeDNSServer2.setStatus(_A)
-_PppoeControlBytesSent_Type=Counter32
-_PppoeControlBytesSent_Object=MibScalar
-pppoeControlBytesSent=_PppoeControlBytesSent_Object((1,3,6,1,4,1,161,19,3,2,2,46),_PppoeControlBytesSent_Type())
-pppoeControlBytesSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeControlBytesSent.setStatus(_A)
-_PppoeControlBytesReceived_Type=Counter32
-_PppoeControlBytesReceived_Object=MibScalar
-pppoeControlBytesReceived=_PppoeControlBytesReceived_Object((1,3,6,1,4,1,161,19,3,2,2,47),_PppoeControlBytesReceived_Type())
-pppoeControlBytesReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeControlBytesReceived.setStatus(_A)
-_PppoeDataBytesSent_Type=Counter32
-_PppoeDataBytesSent_Object=MibScalar
-pppoeDataBytesSent=_PppoeDataBytesSent_Object((1,3,6,1,4,1,161,19,3,2,2,48),_PppoeDataBytesSent_Type())
-pppoeDataBytesSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeDataBytesSent.setStatus(_A)
-_PppoeDataBytesReceived_Type=Counter32
-_PppoeDataBytesReceived_Object=MibScalar
-pppoeDataBytesReceived=_PppoeDataBytesReceived_Object((1,3,6,1,4,1,161,19,3,2,2,49),_PppoeDataBytesReceived_Type())
-pppoeDataBytesReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeDataBytesReceived.setStatus(_A)
-class _PppoeEnabledStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_L,0),(_M,1)))
-_PppoeEnabledStatus_Type.__name__=_E
-_PppoeEnabledStatus_Object=MibScalar
-pppoeEnabledStatus=_PppoeEnabledStatus_Object((1,3,6,1,4,1,161,19,3,2,2,50),_PppoeEnabledStatus_Type())
-pppoeEnabledStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeEnabledStatus.setStatus(_A)
-class _PppoeTCPMSSClampEnableStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_L,0),(_M,1)))
-_PppoeTCPMSSClampEnableStatus_Type.__name__=_E
-_PppoeTCPMSSClampEnableStatus_Object=MibScalar
-pppoeTCPMSSClampEnableStatus=_PppoeTCPMSSClampEnableStatus_Object((1,3,6,1,4,1,161,19,3,2,2,51),_PppoeTCPMSSClampEnableStatus_Type())
-pppoeTCPMSSClampEnableStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeTCPMSSClampEnableStatus.setStatus(_A)
-_PppoeACNameStatus_Type=DisplayString
-_PppoeACNameStatus_Object=MibScalar
-pppoeACNameStatus=_PppoeACNameStatus_Object((1,3,6,1,4,1,161,19,3,2,2,52),_PppoeACNameStatus_Type())
-pppoeACNameStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeACNameStatus.setStatus(_A)
-_PppoeSvcNameStatus_Type=DisplayString
-_PppoeSvcNameStatus_Object=MibScalar
-pppoeSvcNameStatus=_PppoeSvcNameStatus_Object((1,3,6,1,4,1,161,19,3,2,2,53),_PppoeSvcNameStatus_Type())
-pppoeSvcNameStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeSvcNameStatus.setStatus(_A)
-_PppoeSessUptime_Type=TimeTicks
-_PppoeSessUptime_Object=MibScalar
-pppoeSessUptime=_PppoeSessUptime_Object((1,3,6,1,4,1,161,19,3,2,2,54),_PppoeSessUptime_Type())
-pppoeSessUptime.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeSessUptime.setStatus(_A)
-_PrimaryBERDisplay_Type=DisplayString
-_PrimaryBERDisplay_Object=MibScalar
-primaryBERDisplay=_PrimaryBERDisplay_Object((1,3,6,1,4,1,161,19,3,2,2,55),_PrimaryBERDisplay_Type())
-primaryBERDisplay.setMaxAccess(_C)
-if mibBuilder.loadTexts:primaryBERDisplay.setStatus(_A)
-_SecondaryBERDisplay_Type=DisplayString
-_SecondaryBERDisplay_Object=MibScalar
-secondaryBERDisplay=_SecondaryBERDisplay_Object((1,3,6,1,4,1,161,19,3,2,2,56),_SecondaryBERDisplay_Type())
-secondaryBERDisplay.setMaxAccess(_C)
-if mibBuilder.loadTexts:secondaryBERDisplay.setStatus(_A)
-_TotalBERDisplay_Type=DisplayString
-_TotalBERDisplay_Object=MibScalar
-totalBERDisplay=_TotalBERDisplay_Object((1,3,6,1,4,1,161,19,3,2,2,57),_TotalBERDisplay_Type())
-totalBERDisplay.setMaxAccess(_C)
-if mibBuilder.loadTexts:totalBERDisplay.setStatus(_A)
-_MinRadioDbm_Type=Integer32
-_MinRadioDbm_Object=MibScalar
-minRadioDbm=_MinRadioDbm_Object((1,3,6,1,4,1,161,19,3,2,2,58),_MinRadioDbm_Type())
-minRadioDbm.setMaxAccess(_C)
-if mibBuilder.loadTexts:minRadioDbm.setStatus(_A)
-_MaxRadioDbm_Type=Integer32
-_MaxRadioDbm_Object=MibScalar
-maxRadioDbm=_MaxRadioDbm_Object((1,3,6,1,4,1,161,19,3,2,2,59),_MaxRadioDbm_Type())
-maxRadioDbm.setMaxAccess(_C)
-if mibBuilder.loadTexts:maxRadioDbm.setStatus(_A)
-_PppoeSessIdleTime_Type=TimeTicks
-_PppoeSessIdleTime_Object=MibScalar
-pppoeSessIdleTime=_PppoeSessIdleTime_Object((1,3,6,1,4,1,161,19,3,2,2,60),_PppoeSessIdleTime_Type())
-pppoeSessIdleTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:pppoeSessIdleTime.setStatus(_A)
-_RadioDbmAvg_Type=Integer32
-_RadioDbmAvg_Object=MibScalar
-radioDbmAvg=_RadioDbmAvg_Object((1,3,6,1,4,1,161,19,3,2,2,61),_RadioDbmAvg_Type())
-radioDbmAvg.setMaxAccess(_C)
-if mibBuilder.loadTexts:radioDbmAvg.setStatus(_A)
-_ZoltarFPGAFreqOffset_Type=Integer32
-_ZoltarFPGAFreqOffset_Object=MibScalar
-zoltarFPGAFreqOffset=_ZoltarFPGAFreqOffset_Object((1,3,6,1,4,1,161,19,3,2,2,62),_ZoltarFPGAFreqOffset_Type())
-zoltarFPGAFreqOffset.setMaxAccess(_C)
-if mibBuilder.loadTexts:zoltarFPGAFreqOffset.setStatus(_A)
-_ZoltarSWFreqOffset_Type=Integer32
-_ZoltarSWFreqOffset_Object=MibScalar
-zoltarSWFreqOffset=_ZoltarSWFreqOffset_Object((1,3,6,1,4,1,161,19,3,2,2,63),_ZoltarSWFreqOffset_Type())
-zoltarSWFreqOffset.setMaxAccess(_C)
-if mibBuilder.loadTexts:zoltarSWFreqOffset.setStatus(_A)
-_AirDelayns_Type=Unsigned32
-_AirDelayns_Object=MibScalar
-airDelayns=_AirDelayns_Object((1,3,6,1,4,1,161,19,3,2,2,64),_AirDelayns_Type())
-airDelayns.setMaxAccess(_C)
-if mibBuilder.loadTexts:airDelayns.setStatus(_A)
-_CurrentColorCode_Type=Integer32
-_CurrentColorCode_Object=MibScalar
-currentColorCode=_CurrentColorCode_Object((1,3,6,1,4,1,161,19,3,2,2,65),_CurrentColorCode_Type())
-currentColorCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:currentColorCode.setStatus(_A)
-class _CurrentColorCodePri_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('none',0),(_N,1),(_O,2),(_P,3)))
-_CurrentColorCodePri_Type.__name__=_E
-_CurrentColorCodePri_Object=MibScalar
-currentColorCodePri=_CurrentColorCodePri_Object((1,3,6,1,4,1,161,19,3,2,2,66),_CurrentColorCodePri_Type())
-currentColorCodePri.setMaxAccess(_C)
-if mibBuilder.loadTexts:currentColorCodePri.setStatus(_A)
-_CurrentChanFreq_Type=Unsigned32
-_CurrentChanFreq_Object=MibScalar
-currentChanFreq=_CurrentChanFreq_Object((1,3,6,1,4,1,161,19,3,2,2,67),_CurrentChanFreq_Type())
-currentChanFreq.setMaxAccess(_C)
-if mibBuilder.loadTexts:currentChanFreq.setStatus(_A)
-_LinkQualityBeacon_Type=DisplayString
-_LinkQualityBeacon_Object=MibScalar
-linkQualityBeacon=_LinkQualityBeacon_Object((1,3,6,1,4,1,161,19,3,2,2,68),_LinkQualityBeacon_Type())
-linkQualityBeacon.setMaxAccess(_C)
-if mibBuilder.loadTexts:linkQualityBeacon.setStatus(_A)
-_DhcpServerPktXmt_Type=Counter32
-_DhcpServerPktXmt_Object=MibScalar
-dhcpServerPktXmt=_DhcpServerPktXmt_Object((1,3,6,1,4,1,161,19,3,2,2,72),_DhcpServerPktXmt_Type())
-dhcpServerPktXmt.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpServerPktXmt.setStatus(_A)
-_DhcpServerPktRcv_Type=Counter32
-_DhcpServerPktRcv_Object=MibScalar
-dhcpServerPktRcv=_DhcpServerPktRcv_Object((1,3,6,1,4,1,161,19,3,2,2,73),_DhcpServerPktRcv_Type())
-dhcpServerPktRcv.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpServerPktRcv.setStatus(_A)
-_DhcpServerPktToss_Type=Counter32
-_DhcpServerPktToss_Object=MibScalar
-dhcpServerPktToss=_DhcpServerPktToss_Object((1,3,6,1,4,1,161,19,3,2,2,74),_DhcpServerPktToss_Type())
-dhcpServerPktToss.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpServerPktToss.setStatus(_A)
-_ReceiveFragmentsModulationPercentage_Type=DisplayString
-_ReceiveFragmentsModulationPercentage_Object=MibScalar
-receiveFragmentsModulationPercentage=_ReceiveFragmentsModulationPercentage_Object((1,3,6,1,4,1,161,19,3,2,2,86),_ReceiveFragmentsModulationPercentage_Type())
-receiveFragmentsModulationPercentage.setMaxAccess(_C)
-if mibBuilder.loadTexts:receiveFragmentsModulationPercentage.setStatus(_A)
-_FragmentsReceived1XVertical_Type=Counter32
-_FragmentsReceived1XVertical_Object=MibScalar
-fragmentsReceived1XVertical=_FragmentsReceived1XVertical_Object((1,3,6,1,4,1,161,19,3,2,2,87),_FragmentsReceived1XVertical_Type())
-fragmentsReceived1XVertical.setMaxAccess(_C)
-if mibBuilder.loadTexts:fragmentsReceived1XVertical.setStatus(_A)
-_FragmentsReceived2XVertical_Type=Counter32
-_FragmentsReceived2XVertical_Object=MibScalar
-fragmentsReceived2XVertical=_FragmentsReceived2XVertical_Object((1,3,6,1,4,1,161,19,3,2,2,88),_FragmentsReceived2XVertical_Type())
-fragmentsReceived2XVertical.setMaxAccess(_C)
-if mibBuilder.loadTexts:fragmentsReceived2XVertical.setStatus(_A)
-_FragmentsReceived3XVertical_Type=Counter32
-_FragmentsReceived3XVertical_Object=MibScalar
-fragmentsReceived3XVertical=_FragmentsReceived3XVertical_Object((1,3,6,1,4,1,161,19,3,2,2,89),_FragmentsReceived3XVertical_Type())
-fragmentsReceived3XVertical.setMaxAccess(_C)
-if mibBuilder.loadTexts:fragmentsReceived3XVertical.setStatus(_A)
-_FragmentsReceived4XVertical_Type=Counter32
-_FragmentsReceived4XVertical_Object=MibScalar
-fragmentsReceived4XVertical=_FragmentsReceived4XVertical_Object((1,3,6,1,4,1,161,19,3,2,2,90),_FragmentsReceived4XVertical_Type())
-fragmentsReceived4XVertical.setMaxAccess(_C)
-if mibBuilder.loadTexts:fragmentsReceived4XVertical.setStatus(_A)
-_LinkQualityData1XVertical_Type=DisplayString
-_LinkQualityData1XVertical_Object=MibScalar
-linkQualityData1XVertical=_LinkQualityData1XVertical_Object((1,3,6,1,4,1,161,19,3,2,2,91),_LinkQualityData1XVertical_Type())
-linkQualityData1XVertical.setMaxAccess(_C)
-if mibBuilder.loadTexts:linkQualityData1XVertical.setStatus(_A)
-_LinkQualityData2XVertical_Type=DisplayString
-_LinkQualityData2XVertical_Object=MibScalar
-linkQualityData2XVertical=_LinkQualityData2XVertical_Object((1,3,6,1,4,1,161,19,3,2,2,92),_LinkQualityData2XVertical_Type())
-linkQualityData2XVertical.setMaxAccess(_C)
-if mibBuilder.loadTexts:linkQualityData2XVertical.setStatus(_A)
-_LinkQualityData3XVertical_Type=DisplayString
-_LinkQualityData3XVertical_Object=MibScalar
-linkQualityData3XVertical=_LinkQualityData3XVertical_Object((1,3,6,1,4,1,161,19,3,2,2,93),_LinkQualityData3XVertical_Type())
-linkQualityData3XVertical.setMaxAccess(_C)
-if mibBuilder.loadTexts:linkQualityData3XVertical.setStatus(_A)
-_LinkQualityData4XVertical_Type=DisplayString
-_LinkQualityData4XVertical_Object=MibScalar
-linkQualityData4XVertical=_LinkQualityData4XVertical_Object((1,3,6,1,4,1,161,19,3,2,2,94),_LinkQualityData4XVertical_Type())
-linkQualityData4XVertical.setMaxAccess(_C)
-if mibBuilder.loadTexts:linkQualityData4XVertical.setStatus(_A)
-_SignalToNoiseRatioSMVertical_Type=Integer32
-_SignalToNoiseRatioSMVertical_Object=MibScalar
-signalToNoiseRatioSMVertical=_SignalToNoiseRatioSMVertical_Object((1,3,6,1,4,1,161,19,3,2,2,95),_SignalToNoiseRatioSMVertical_Type())
-signalToNoiseRatioSMVertical.setMaxAccess(_C)
-if mibBuilder.loadTexts:signalToNoiseRatioSMVertical.setStatus(_A)
-_RfStatTxSuppressionCount_Type=Counter32
-_RfStatTxSuppressionCount_Object=MibScalar
-rfStatTxSuppressionCount=_RfStatTxSuppressionCount_Object((1,3,6,1,4,1,161,19,3,2,2,96),_RfStatTxSuppressionCount_Type())
-rfStatTxSuppressionCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:rfStatTxSuppressionCount.setStatus(_A)
-_BridgecbUplinkCreditRate_Type=Unsigned32
-_BridgecbUplinkCreditRate_Object=MibScalar
-bridgecbUplinkCreditRate=_BridgecbUplinkCreditRate_Object((1,3,6,1,4,1,161,19,3,2,2,97),_BridgecbUplinkCreditRate_Type())
-bridgecbUplinkCreditRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:bridgecbUplinkCreditRate.setStatus(_A)
-_BridgecbUplinkCreditLimit_Type=Unsigned32
-_BridgecbUplinkCreditLimit_Object=MibScalar
-bridgecbUplinkCreditLimit=_BridgecbUplinkCreditLimit_Object((1,3,6,1,4,1,161,19,3,2,2,98),_BridgecbUplinkCreditLimit_Type())
-bridgecbUplinkCreditLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:bridgecbUplinkCreditLimit.setStatus(_A)
-_BridgecbDownlinkCreditRate_Type=Unsigned32
-_BridgecbDownlinkCreditRate_Object=MibScalar
-bridgecbDownlinkCreditRate=_BridgecbDownlinkCreditRate_Object((1,3,6,1,4,1,161,19,3,2,2,99),_BridgecbDownlinkCreditRate_Type())
-bridgecbDownlinkCreditRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:bridgecbDownlinkCreditRate.setStatus(_A)
-_BridgecbDownlinkCreditLimit_Type=Unsigned32
-_BridgecbDownlinkCreditLimit_Object=MibScalar
-bridgecbDownlinkCreditLimit=_BridgecbDownlinkCreditLimit_Object((1,3,6,1,4,1,161,19,3,2,2,100),_BridgecbDownlinkCreditLimit_Type())
-bridgecbDownlinkCreditLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:bridgecbDownlinkCreditLimit.setStatus(_A)
-_MimoQpskBerDisplay_Type=DisplayString
-_MimoQpskBerDisplay_Object=MibScalar
-mimoQpskBerDisplay=_MimoQpskBerDisplay_Object((1,3,6,1,4,1,161,19,3,2,2,101),_MimoQpskBerDisplay_Type())
-mimoQpskBerDisplay.setMaxAccess(_C)
-if mibBuilder.loadTexts:mimoQpskBerDisplay.setStatus(_A)
-_Mimo16QamBerDisplay_Type=DisplayString
-_Mimo16QamBerDisplay_Object=MibScalar
-mimo16QamBerDisplay=_Mimo16QamBerDisplay_Object((1,3,6,1,4,1,161,19,3,2,2,102),_Mimo16QamBerDisplay_Type())
-mimo16QamBerDisplay.setMaxAccess(_C)
-if mibBuilder.loadTexts:mimo16QamBerDisplay.setStatus(_A)
-_Mimo64QamBerDisplay_Type=DisplayString
-_Mimo64QamBerDisplay_Object=MibScalar
-mimo64QamBerDisplay=_Mimo64QamBerDisplay_Object((1,3,6,1,4,1,161,19,3,2,2,103),_Mimo64QamBerDisplay_Type())
-mimo64QamBerDisplay.setMaxAccess(_C)
-if mibBuilder.loadTexts:mimo64QamBerDisplay.setStatus(_A)
-_Mimo256QamBerDisplay_Type=DisplayString
-_Mimo256QamBerDisplay_Object=MibScalar
-mimo256QamBerDisplay=_Mimo256QamBerDisplay_Object((1,3,6,1,4,1,161,19,3,2,2,104),_Mimo256QamBerDisplay_Type())
-mimo256QamBerDisplay.setMaxAccess(_C)
-if mibBuilder.loadTexts:mimo256QamBerDisplay.setStatus(_A)
-_MimoBerRcvModulationType_Type=DisplayString
-_MimoBerRcvModulationType_Object=MibScalar
-mimoBerRcvModulationType=_MimoBerRcvModulationType_Object((1,3,6,1,4,1,161,19,3,2,2,105),_MimoBerRcvModulationType_Type())
-mimoBerRcvModulationType.setMaxAccess(_C)
-if mibBuilder.loadTexts:mimoBerRcvModulationType.setStatus(_A)
-_SignalToNoiseRatioSMHorizontal_Type=Integer32
-_SignalToNoiseRatioSMHorizontal_Object=MibScalar
-signalToNoiseRatioSMHorizontal=_SignalToNoiseRatioSMHorizontal_Object((1,3,6,1,4,1,161,19,3,2,2,106),_SignalToNoiseRatioSMHorizontal_Type())
-signalToNoiseRatioSMHorizontal.setMaxAccess(_C)
-if mibBuilder.loadTexts:signalToNoiseRatioSMHorizontal.setStatus(_A)
-_MaxRadioDbmDeprecated_Type=Integer32
-_MaxRadioDbmDeprecated_Object=MibScalar
-maxRadioDbmDeprecated=_MaxRadioDbmDeprecated_Object((1,3,6,1,4,1,161,19,3,2,2,107),_MaxRadioDbmDeprecated_Type())
-maxRadioDbmDeprecated.setMaxAccess(_C)
-if mibBuilder.loadTexts:maxRadioDbmDeprecated.setStatus(_H)
-_SignalStrengthRatio_Type=DisplayString
-_SignalStrengthRatio_Object=MibScalar
-signalStrengthRatio=_SignalStrengthRatio_Object((1,3,6,1,4,1,161,19,3,2,2,108),_SignalStrengthRatio_Type())
-signalStrengthRatio.setMaxAccess(_C)
-if mibBuilder.loadTexts:signalStrengthRatio.setStatus(_A)
-_FragmentsReceived1XHorizontal_Type=Counter32
-_FragmentsReceived1XHorizontal_Object=MibScalar
-fragmentsReceived1XHorizontal=_FragmentsReceived1XHorizontal_Object((1,3,6,1,4,1,161,19,3,2,2,109),_FragmentsReceived1XHorizontal_Type())
-fragmentsReceived1XHorizontal.setMaxAccess(_C)
-if mibBuilder.loadTexts:fragmentsReceived1XHorizontal.setStatus(_A)
-_FragmentsReceived2XHorizontal_Type=Counter32
-_FragmentsReceived2XHorizontal_Object=MibScalar
-fragmentsReceived2XHorizontal=_FragmentsReceived2XHorizontal_Object((1,3,6,1,4,1,161,19,3,2,2,110),_FragmentsReceived2XHorizontal_Type())
-fragmentsReceived2XHorizontal.setMaxAccess(_C)
-if mibBuilder.loadTexts:fragmentsReceived2XHorizontal.setStatus(_A)
-_FragmentsReceived3XHorizontal_Type=Counter32
-_FragmentsReceived3XHorizontal_Object=MibScalar
-fragmentsReceived3XHorizontal=_FragmentsReceived3XHorizontal_Object((1,3,6,1,4,1,161,19,3,2,2,111),_FragmentsReceived3XHorizontal_Type())
-fragmentsReceived3XHorizontal.setMaxAccess(_C)
-if mibBuilder.loadTexts:fragmentsReceived3XHorizontal.setStatus(_A)
-_FragmentsReceived4XHorizontal_Type=Counter32
-_FragmentsReceived4XHorizontal_Object=MibScalar
-fragmentsReceived4XHorizontal=_FragmentsReceived4XHorizontal_Object((1,3,6,1,4,1,161,19,3,2,2,112),_FragmentsReceived4XHorizontal_Type())
-fragmentsReceived4XHorizontal.setMaxAccess(_C)
-if mibBuilder.loadTexts:fragmentsReceived4XHorizontal.setStatus(_A)
-_LinkQualityData1XHorizontal_Type=DisplayString
-_LinkQualityData1XHorizontal_Object=MibScalar
-linkQualityData1XHorizontal=_LinkQualityData1XHorizontal_Object((1,3,6,1,4,1,161,19,3,2,2,113),_LinkQualityData1XHorizontal_Type())
-linkQualityData1XHorizontal.setMaxAccess(_C)
-if mibBuilder.loadTexts:linkQualityData1XHorizontal.setStatus(_A)
-_LinkQualityData2XHorizontal_Type=DisplayString
-_LinkQualityData2XHorizontal_Object=MibScalar
-linkQualityData2XHorizontal=_LinkQualityData2XHorizontal_Object((1,3,6,1,4,1,161,19,3,2,2,114),_LinkQualityData2XHorizontal_Type())
-linkQualityData2XHorizontal.setMaxAccess(_C)
-if mibBuilder.loadTexts:linkQualityData2XHorizontal.setStatus(_A)
-_LinkQualityData3XHorizontal_Type=DisplayString
-_LinkQualityData3XHorizontal_Object=MibScalar
-linkQualityData3XHorizontal=_LinkQualityData3XHorizontal_Object((1,3,6,1,4,1,161,19,3,2,2,115),_LinkQualityData3XHorizontal_Type())
-linkQualityData3XHorizontal.setMaxAccess(_C)
-if mibBuilder.loadTexts:linkQualityData3XHorizontal.setStatus(_A)
-_LinkQualityData4XHorizontal_Type=DisplayString
-_LinkQualityData4XHorizontal_Object=MibScalar
-linkQualityData4XHorizontal=_LinkQualityData4XHorizontal_Object((1,3,6,1,4,1,161,19,3,2,2,116),_LinkQualityData4XHorizontal_Type())
-linkQualityData4XHorizontal.setMaxAccess(_C)
-if mibBuilder.loadTexts:linkQualityData4XHorizontal.setStatus(_A)
-_RadioDbmHorizontal_Type=DisplayString
-_RadioDbmHorizontal_Object=MibScalar
-radioDbmHorizontal=_RadioDbmHorizontal_Object((1,3,6,1,4,1,161,19,3,2,2,117),_RadioDbmHorizontal_Type())
-radioDbmHorizontal.setMaxAccess(_C)
-if mibBuilder.loadTexts:radioDbmHorizontal.setStatus(_A)
-_RadioDbmVertical_Type=DisplayString
-_RadioDbmVertical_Object=MibScalar
-radioDbmVertical=_RadioDbmVertical_Object((1,3,6,1,4,1,161,19,3,2,2,118),_RadioDbmVertical_Type())
-radioDbmVertical.setMaxAccess(_C)
-if mibBuilder.loadTexts:radioDbmVertical.setStatus(_A)
-_BridgecbDownlinkMaxBurstBitRate_Type=Unsigned32
-_BridgecbDownlinkMaxBurstBitRate_Object=MibScalar
-bridgecbDownlinkMaxBurstBitRate=_BridgecbDownlinkMaxBurstBitRate_Object((1,3,6,1,4,1,161,19,3,2,2,119),_BridgecbDownlinkMaxBurstBitRate_Type())
-bridgecbDownlinkMaxBurstBitRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:bridgecbDownlinkMaxBurstBitRate.setStatus(_A)
-_BridgecbUplinkMaxBurstBitRate_Type=Unsigned32
-_BridgecbUplinkMaxBurstBitRate_Object=MibScalar
-bridgecbUplinkMaxBurstBitRate=_BridgecbUplinkMaxBurstBitRate_Object((1,3,6,1,4,1,161,19,3,2,2,120),_BridgecbUplinkMaxBurstBitRate_Type())
-bridgecbUplinkMaxBurstBitRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:bridgecbUplinkMaxBurstBitRate.setStatus(_A)
-class _CurrentCyclicPrefix_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_r,0),(_s,1),(_t,2)))
-_CurrentCyclicPrefix_Type.__name__=_E
-_CurrentCyclicPrefix_Object=MibScalar
-currentCyclicPrefix=_CurrentCyclicPrefix_Object((1,3,6,1,4,1,161,19,3,2,2,121),_CurrentCyclicPrefix_Type())
-currentCyclicPrefix.setMaxAccess(_C)
-if mibBuilder.loadTexts:currentCyclicPrefix.setStatus(_A)
-class _CurrentBandwidth_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('bandwidth5mhz',1),(_U,2),('bandwidth10mhz',3),('bandwidth15mhz',4),('bandwidth20mhz',5),('bandwidth30mhz',6),(_u,7)))
-_CurrentBandwidth_Type.__name__=_E
-_CurrentBandwidth_Object=MibScalar
-currentBandwidth=_CurrentBandwidth_Object((1,3,6,1,4,1,161,19,3,2,2,122),_CurrentBandwidth_Type())
-currentBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:currentBandwidth.setStatus(_A)
-_BerPwrRxFPGAPathA_Type=Integer32
-_BerPwrRxFPGAPathA_Object=MibScalar
-berPwrRxFPGAPathA=_BerPwrRxFPGAPathA_Object((1,3,6,1,4,1,161,19,3,2,2,123),_BerPwrRxFPGAPathA_Type())
-berPwrRxFPGAPathA.setMaxAccess(_C)
-if mibBuilder.loadTexts:berPwrRxFPGAPathA.setStatus(_A)
-_BerPwrRxFPGAPathB_Type=Integer32
-_BerPwrRxFPGAPathB_Object=MibScalar
-berPwrRxFPGAPathB=_BerPwrRxFPGAPathB_Object((1,3,6,1,4,1,161,19,3,2,2,124),_BerPwrRxFPGAPathB_Type())
-berPwrRxFPGAPathB.setMaxAccess(_C)
-if mibBuilder.loadTexts:berPwrRxFPGAPathB.setStatus(_A)
-_RawBERPwrRxPathA_Type=Integer32
-_RawBERPwrRxPathA_Object=MibScalar
-rawBERPwrRxPathA=_RawBERPwrRxPathA_Object((1,3,6,1,4,1,161,19,3,2,2,125),_RawBERPwrRxPathA_Type())
-rawBERPwrRxPathA.setMaxAccess(_C)
-if mibBuilder.loadTexts:rawBERPwrRxPathA.setStatus(_A)
-_RawBERPwrRxPathB_Type=Integer32
-_RawBERPwrRxPathB_Object=MibScalar
-rawBERPwrRxPathB=_RawBERPwrRxPathB_Object((1,3,6,1,4,1,161,19,3,2,2,126),_RawBERPwrRxPathB_Type())
-rawBERPwrRxPathB.setMaxAccess(_C)
-if mibBuilder.loadTexts:rawBERPwrRxPathB.setStatus(_A)
-class _RadioModeStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('undefined',0),(_m,1),('pmp450Interoperability',2)))
-_RadioModeStatus_Type.__name__=_E
-_RadioModeStatus_Object=MibScalar
-radioModeStatus=_RadioModeStatus_Object((1,3,6,1,4,1,161,19,3,2,2,127),_RadioModeStatus_Type())
-radioModeStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:radioModeStatus.setStatus(_H)
-class _AdaptRateLowPri_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,6,8)));namedValues=NamedValues(*((_v,0),(_w,1),(_x,2),(_y,3),(_z,4),('rate6X',6),('rate8X',8)))
-_AdaptRateLowPri_Type.__name__=_E
-_AdaptRateLowPri_Object=MibScalar
-adaptRateLowPri=_AdaptRateLowPri_Object((1,3,6,1,4,1,161,19,3,2,2,128),_AdaptRateLowPri_Type())
-adaptRateLowPri.setMaxAccess(_C)
-if mibBuilder.loadTexts:adaptRateLowPri.setStatus(_A)
-class _AdaptRateHighPri_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,0,1,2,3,4,6,8)));namedValues=NamedValues(*(('noHighPriorityChannel',-1),(_v,0),(_w,1),(_x,2),(_y,3),(_z,4),('rate6X',6),('rate8X',8)))
-_AdaptRateHighPri_Type.__name__=_E
-_AdaptRateHighPri_Object=MibScalar
-adaptRateHighPri=_AdaptRateHighPri_Object((1,3,6,1,4,1,161,19,3,2,2,129),_AdaptRateHighPri_Type())
-adaptRateHighPri.setMaxAccess(_C)
-if mibBuilder.loadTexts:adaptRateHighPri.setStatus(_A)
-_BitErrorsQSPKpathA_Type=Counter64
-_BitErrorsQSPKpathA_Object=MibScalar
-bitErrorsQSPKpathA=_BitErrorsQSPKpathA_Object((1,3,6,1,4,1,161,19,3,2,2,130),_BitErrorsQSPKpathA_Type())
-bitErrorsQSPKpathA.setMaxAccess(_C)
-if mibBuilder.loadTexts:bitErrorsQSPKpathA.setStatus(_A)
-_BitErrorsQSPKpathB_Type=Counter64
-_BitErrorsQSPKpathB_Object=MibScalar
-bitErrorsQSPKpathB=_BitErrorsQSPKpathB_Object((1,3,6,1,4,1,161,19,3,2,2,131),_BitErrorsQSPKpathB_Type())
-bitErrorsQSPKpathB.setMaxAccess(_C)
-if mibBuilder.loadTexts:bitErrorsQSPKpathB.setStatus(_A)
-_BitErrors16QAMpathA_Type=Counter64
-_BitErrors16QAMpathA_Object=MibScalar
-bitErrors16QAMpathA=_BitErrors16QAMpathA_Object((1,3,6,1,4,1,161,19,3,2,2,132),_BitErrors16QAMpathA_Type())
-bitErrors16QAMpathA.setMaxAccess(_C)
-if mibBuilder.loadTexts:bitErrors16QAMpathA.setStatus(_A)
-_BitErrors16QAMpathB_Type=Counter64
-_BitErrors16QAMpathB_Object=MibScalar
-bitErrors16QAMpathB=_BitErrors16QAMpathB_Object((1,3,6,1,4,1,161,19,3,2,2,133),_BitErrors16QAMpathB_Type())
-bitErrors16QAMpathB.setMaxAccess(_C)
-if mibBuilder.loadTexts:bitErrors16QAMpathB.setStatus(_A)
-_BitErrors64QAMpathA_Type=Counter64
-_BitErrors64QAMpathA_Object=MibScalar
-bitErrors64QAMpathA=_BitErrors64QAMpathA_Object((1,3,6,1,4,1,161,19,3,2,2,134),_BitErrors64QAMpathA_Type())
-bitErrors64QAMpathA.setMaxAccess(_C)
-if mibBuilder.loadTexts:bitErrors64QAMpathA.setStatus(_A)
-_BitErrors64QAMpathB_Type=Counter64
-_BitErrors64QAMpathB_Object=MibScalar
-bitErrors64QAMpathB=_BitErrors64QAMpathB_Object((1,3,6,1,4,1,161,19,3,2,2,135),_BitErrors64QAMpathB_Type())
-bitErrors64QAMpathB.setMaxAccess(_C)
-if mibBuilder.loadTexts:bitErrors64QAMpathB.setStatus(_A)
-_BitErrors256QAMpathA_Type=Counter64
-_BitErrors256QAMpathA_Object=MibScalar
-bitErrors256QAMpathA=_BitErrors256QAMpathA_Object((1,3,6,1,4,1,161,19,3,2,2,136),_BitErrors256QAMpathA_Type())
-bitErrors256QAMpathA.setMaxAccess(_C)
-if mibBuilder.loadTexts:bitErrors256QAMpathA.setStatus(_A)
-_BitErrors256QAMpathB_Type=Counter64
-_BitErrors256QAMpathB_Object=MibScalar
-bitErrors256QAMpathB=_BitErrors256QAMpathB_Object((1,3,6,1,4,1,161,19,3,2,2,137),_BitErrors256QAMpathB_Type())
-bitErrors256QAMpathB.setMaxAccess(_C)
-if mibBuilder.loadTexts:bitErrors256QAMpathB.setStatus(_A)
-_BitsReceivedPerPathModulation_Type=Counter64
-_BitsReceivedPerPathModulation_Object=MibScalar
-bitsReceivedPerPathModulation=_BitsReceivedPerPathModulation_Object((1,3,6,1,4,1,161,19,3,2,2,138),_BitsReceivedPerPathModulation_Type())
-bitsReceivedPerPathModulation.setMaxAccess(_C)
-if mibBuilder.loadTexts:bitsReceivedPerPathModulation.setStatus(_A)
-class _BeaconsPercentReceived_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_BeaconsPercentReceived_Type.__name__=_E
-_BeaconsPercentReceived_Object=MibScalar
-beaconsPercentReceived=_BeaconsPercentReceived_Object((1,3,6,1,4,1,161,19,3,2,2,139),_BeaconsPercentReceived_Type())
-beaconsPercentReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:beaconsPercentReceived.setStatus(_A)
-class _MapsPercentReceived_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_MapsPercentReceived_Type.__name__=_E
-_MapsPercentReceived_Object=MibScalar
-mapsPercentReceived=_MapsPercentReceived_Object((1,3,6,1,4,1,161,19,3,2,2,140),_MapsPercentReceived_Type())
-mapsPercentReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:mapsPercentReceived.setStatus(_A)
-_NatTslTableEntries_Type=Integer32
-_NatTslTableEntries_Object=MibScalar
-natTslTableEntries=_NatTslTableEntries_Object((1,3,6,1,4,1,161,19,3,2,2,141),_NatTslTableEntries_Type())
-natTslTableEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:natTslTableEntries.setStatus(_A)
-_MaxReceivePower_Type=DisplayString
-_MaxReceivePower_Object=MibScalar
-maxReceivePower=_MaxReceivePower_Object((1,3,6,1,4,1,161,19,3,2,2,142),_MaxReceivePower_Type())
-maxReceivePower.setMaxAccess(_C)
-if mibBuilder.loadTexts:maxReceivePower.setStatus(_A)
-class _BeaconsPercentMinReceived_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_BeaconsPercentMinReceived_Type.__name__=_E
-_BeaconsPercentMinReceived_Object=MibScalar
-beaconsPercentMinReceived=_BeaconsPercentMinReceived_Object((1,3,6,1,4,1,161,19,3,2,2,143),_BeaconsPercentMinReceived_Type())
-beaconsPercentMinReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:beaconsPercentMinReceived.setStatus(_A)
-class _BeaconsPercentMaxReceived_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_BeaconsPercentMaxReceived_Type.__name__=_E
-_BeaconsPercentMaxReceived_Object=MibScalar
-beaconsPercentMaxReceived=_BeaconsPercentMaxReceived_Object((1,3,6,1,4,1,161,19,3,2,2,144),_BeaconsPercentMaxReceived_Type())
-beaconsPercentMaxReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:beaconsPercentMaxReceived.setStatus(_A)
-class _BeaconsPercentReceivedSnapshot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_BeaconsPercentReceivedSnapshot_Type.__name__=_E
-_BeaconsPercentReceivedSnapshot_Object=MibScalar
-beaconsPercentReceivedSnapshot=_BeaconsPercentReceivedSnapshot_Object((1,3,6,1,4,1,161,19,3,2,2,145),_BeaconsPercentReceivedSnapshot_Type())
-beaconsPercentReceivedSnapshot.setMaxAccess(_C)
-if mibBuilder.loadTexts:beaconsPercentReceivedSnapshot.setStatus(_A)
-_SmSectorID_Type=Integer32
-_SmSectorID_Object=MibScalar
-smSectorID=_SmSectorID_Object((1,3,6,1,4,1,161,19,3,2,2,146),_SmSectorID_Type())
-smSectorID.setMaxAccess(_C)
-if mibBuilder.loadTexts:smSectorID.setStatus(_A)
-_ScanCycleCount_Type=Counter32
-_ScanCycleCount_Object=MibScalar
-scanCycleCount=_ScanCycleCount_Object((1,3,6,1,4,1,161,19,3,2,2,147),_ScanCycleCount_Type())
-scanCycleCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:scanCycleCount.setStatus(_A)
-_BridgeCbErrStatBridgeDropCount_Type=Counter32
-_BridgeCbErrStatBridgeDropCount_Object=MibScalar
-bridgeCbErrStatBridgeDropCount=_BridgeCbErrStatBridgeDropCount_Object((1,3,6,1,4,1,161,19,3,2,2,148),_BridgeCbErrStatBridgeDropCount_Type())
-bridgeCbErrStatBridgeDropCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:bridgeCbErrStatBridgeDropCount.setStatus(_A)
-_WhispSmGroups_ObjectIdentity=ObjectIdentity
-whispSmGroups=_WhispSmGroups_ObjectIdentity((1,3,6,1,4,1,161,19,3,2,3))
-_WhispSmEvent_ObjectIdentity=ObjectIdentity
-whispSmEvent=_WhispSmEvent_ObjectIdentity((1,3,6,1,4,1,161,19,3,2,4))
-_WhispSmDfsEvent_ObjectIdentity=ObjectIdentity
-whispSmDfsEvent=_WhispSmDfsEvent_ObjectIdentity((1,3,6,1,4,1,161,19,3,2,4,1))
-_WhispSmSpAnEvent_ObjectIdentity=ObjectIdentity
-whispSmSpAnEvent=_WhispSmSpAnEvent_ObjectIdentity((1,3,6,1,4,1,161,19,3,2,4,2))
-_WhispSmDHCPClientEvent_ObjectIdentity=ObjectIdentity
-whispSmDHCPClientEvent=_WhispSmDHCPClientEvent_ObjectIdentity((1,3,6,1,4,1,161,19,3,2,4,3))
-_WhispMappingTable_Object=MibTable
-whispMappingTable=_WhispMappingTable_Object((1,3,6,1,4,1,161,19,3,2,5))
-if mibBuilder.loadTexts:whispMappingTable.setStatus(_A)
-_WhispMappingEntry_Object=MibTableRow
-whispMappingEntry=_WhispMappingEntry_Object((1,3,6,1,4,1,161,19,3,2,5,1))
-whispMappingEntry.setIndexNames((0,_B,_W))
-if mibBuilder.loadTexts:whispMappingEntry.setStatus(_A)
-class _TableIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_TableIndex_Type.__name__=_E
-_TableIndex_Object=MibTableColumn
-tableIndex=_TableIndex_Object((1,3,6,1,4,1,161,19,3,2,5,1,1),_TableIndex_Type())
-tableIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:tableIndex.setStatus(_A)
-_Protocol_Type=Integer32
-_Protocol_Object=MibTableColumn
-protocol=_Protocol_Object((1,3,6,1,4,1,161,19,3,2,5,1,2),_Protocol_Type())
-protocol.setMaxAccess(_D)
-if mibBuilder.loadTexts:protocol.setStatus(_A)
-_Port_Type=Integer32
-_Port_Object=MibTableColumn
-port=_Port_Object((1,3,6,1,4,1,161,19,3,2,5,1,3),_Port_Type())
-port.setMaxAccess(_D)
-if mibBuilder.loadTexts:port.setStatus(_A)
-_LocalIp_Type=IpAddress
-_LocalIp_Object=MibTableColumn
-localIp=_LocalIp_Object((1,3,6,1,4,1,161,19,3,2,5,1,4),_LocalIp_Type())
-localIp.setMaxAccess(_D)
-if mibBuilder.loadTexts:localIp.setStatus(_A)
-_WhispSmTranslationTable_Object=MibTable
-whispSmTranslationTable=_WhispSmTranslationTable_Object((1,3,6,1,4,1,161,19,3,2,6))
-if mibBuilder.loadTexts:whispSmTranslationTable.setStatus(_A)
-_WhispSmTranslationTableEntry_Object=MibTableRow
-whispSmTranslationTableEntry=_WhispSmTranslationTableEntry_Object((1,3,6,1,4,1,161,19,3,2,6,1))
-whispSmTranslationTableEntry.setIndexNames((0,_B,_A0))
-if mibBuilder.loadTexts:whispSmTranslationTableEntry.setStatus(_A)
-class _WhispTranslationTableIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,127))
-_WhispTranslationTableIndex_Type.__name__=_E
-_WhispTranslationTableIndex_Object=MibTableColumn
-whispTranslationTableIndex=_WhispTranslationTableIndex_Object((1,3,6,1,4,1,161,19,3,2,6,1,1),_WhispTranslationTableIndex_Type())
-whispTranslationTableIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:whispTranslationTableIndex.setStatus(_A)
-_WhispTranslationTableMacAddr_Type=MacAddress
-_WhispTranslationTableMacAddr_Object=MibTableColumn
-whispTranslationTableMacAddr=_WhispTranslationTableMacAddr_Object((1,3,6,1,4,1,161,19,3,2,6,1,2),_WhispTranslationTableMacAddr_Type())
-whispTranslationTableMacAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:whispTranslationTableMacAddr.setStatus(_A)
-_WhispTranslationTableIpAddr_Type=IpAddress
-_WhispTranslationTableIpAddr_Object=MibTableColumn
-whispTranslationTableIpAddr=_WhispTranslationTableIpAddr_Object((1,3,6,1,4,1,161,19,3,2,6,1,3),_WhispTranslationTableIpAddr_Type())
-whispTranslationTableIpAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:whispTranslationTableIpAddr.setStatus(_A)
-_WhispTranslationTableAge_Type=Counter32
-_WhispTranslationTableAge_Object=MibTableColumn
-whispTranslationTableAge=_WhispTranslationTableAge_Object((1,3,6,1,4,1,161,19,3,2,6,1,4),_WhispTranslationTableAge_Type())
-whispTranslationTableAge.setMaxAccess(_C)
-if mibBuilder.loadTexts:whispTranslationTableAge.setStatus(_A)
-_WhispSmSecurity_ObjectIdentity=ObjectIdentity
-whispSmSecurity=_WhispSmSecurity_ObjectIdentity((1,3,6,1,4,1,161,19,3,2,7))
-_CertTable_Object=MibTable
-certTable=_CertTable_Object((1,3,6,1,4,1,161,19,3,2,7,1))
-if mibBuilder.loadTexts:certTable.setStatus(_A)
-_CertEntry_Object=MibTableRow
-certEntry=_CertEntry_Object((1,3,6,1,4,1,161,19,3,2,7,1,1))
-certEntry.setIndexNames((0,_B,_A1))
-if mibBuilder.loadTexts:certEntry.setStatus(_A)
-class _CertIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_CertIndex_Type.__name__=_E
-_CertIndex_Object=MibTableColumn
-certIndex=_CertIndex_Object((1,3,6,1,4,1,161,19,3,2,7,1,1,1),_CertIndex_Type())
-certIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:certIndex.setStatus(_A)
-class _Cert_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('inactive',0),('active',1)))
-_Cert_Type.__name__=_E
-_Cert_Object=MibTableColumn
-cert=_Cert_Object((1,3,6,1,4,1,161,19,3,2,7,1,1,2),_Cert_Type())
-cert.setMaxAccess(_C)
-if mibBuilder.loadTexts:cert.setStatus(_A)
-class _Action_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('noop',0),('delete',1)))
-_Action_Type.__name__=_E
-_Action_Object=MibTableColumn
-action=_Action_Object((1,3,6,1,4,1,161,19,3,2,7,1,1,3),_Action_Type())
-action.setMaxAccess(_D)
-if mibBuilder.loadTexts:action.setStatus(_A)
-_CertificateDN_Type=DisplayString
-_CertificateDN_Object=MibTableColumn
-certificateDN=_CertificateDN_Object((1,3,6,1,4,1,161,19,3,2,7,1,1,4),_CertificateDN_Type())
-certificateDN.setMaxAccess(_C)
-if mibBuilder.loadTexts:certificateDN.setStatus(_A)
-_NumAuthCerts_Type=Integer32
-_NumAuthCerts_Object=MibScalar
-numAuthCerts=_NumAuthCerts_Object((1,3,6,1,4,1,161,19,3,2,7,2),_NumAuthCerts_Type())
-numAuthCerts.setMaxAccess(_C)
-if mibBuilder.loadTexts:numAuthCerts.setStatus(_A)
-class _AuthenticationEnforce_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_G,0),('aaa',1),('presharedkey',2)))
-_AuthenticationEnforce_Type.__name__=_E
-_AuthenticationEnforce_Object=MibScalar
-authenticationEnforce=_AuthenticationEnforce_Object((1,3,6,1,4,1,161,19,3,2,7,3),_AuthenticationEnforce_Type())
-authenticationEnforce.setMaxAccess(_D)
-if mibBuilder.loadTexts:authenticationEnforce.setStatus(_A)
-class _Phase1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('eapttls',0),('eapMSChapV2',1),('eappeap',2)))
-_Phase1_Type.__name__=_E
-_Phase1_Object=MibScalar
-phase1=_Phase1_Object((1,3,6,1,4,1,161,19,3,2,7,4),_Phase1_Type())
-phase1.setMaxAccess(_D)
-if mibBuilder.loadTexts:phase1.setStatus(_A)
-class _Phase2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('pap',0),('chap',1),('mschapv2',2)))
-_Phase2_Type.__name__=_E
-_Phase2_Object=MibScalar
-phase2=_Phase2_Object((1,3,6,1,4,1,161,19,3,2,7,5),_Phase2_Type())
-phase2.setMaxAccess(_D)
-if mibBuilder.loadTexts:phase2.setStatus(_A)
-class _AuthOuterId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,253))
-_AuthOuterId_Type.__name__=_a
-_AuthOuterId_Object=MibScalar
-authOuterId=_AuthOuterId_Object((1,3,6,1,4,1,161,19,3,2,7,6),_AuthOuterId_Type())
-authOuterId.setMaxAccess(_D)
-if mibBuilder.loadTexts:authOuterId.setStatus(_A)
-_AuthPassword_Type=DisplayString
-_AuthPassword_Object=MibScalar
-authPassword=_AuthPassword_Object((1,3,6,1,4,1,161,19,3,2,7,7),_AuthPassword_Type())
-authPassword.setMaxAccess(_D)
-if mibBuilder.loadTexts:authPassword.setStatus(_A)
-_AuthUsername_Type=DisplayString
-_AuthUsername_Object=MibScalar
-authUsername=_AuthUsername_Object((1,3,6,1,4,1,161,19,3,2,7,8),_AuthUsername_Type())
-authUsername.setMaxAccess(_D)
-if mibBuilder.loadTexts:authUsername.setStatus(_A)
-class _UseRealm_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_K,1)))
-_UseRealm_Type.__name__=_E
-_UseRealm_Object=MibScalar
-useRealm=_UseRealm_Object((1,3,6,1,4,1,161,19,3,2,7,9),_UseRealm_Type())
-useRealm.setMaxAccess(_D)
-if mibBuilder.loadTexts:useRealm.setStatus(_A)
-_Realm_Type=DisplayString
-_Realm_Object=MibScalar
-realm=_Realm_Object((1,3,6,1,4,1,161,19,3,2,7,10),_Realm_Type())
-realm.setMaxAccess(_D)
-if mibBuilder.loadTexts:realm.setStatus(_A)
-_WhispSmControls_ObjectIdentity=ObjectIdentity
-whispSmControls=_WhispSmControls_ObjectIdentity((1,3,6,1,4,1,161,19,3,2,8))
-_ClearLinkStats_Type=Integer32
-_ClearLinkStats_Object=MibScalar
-clearLinkStats=_ClearLinkStats_Object((1,3,6,1,4,1,161,19,3,2,8,1),_ClearLinkStats_Type())
-clearLinkStats.setMaxAccess(_D)
-if mibBuilder.loadTexts:clearLinkStats.setStatus(_A)
-_Rescan_Type=Integer32
-_Rescan_Object=MibScalar
-rescan=_Rescan_Object((1,3,6,1,4,1,161,19,3,2,8,2),_Rescan_Type())
-rescan.setMaxAccess(_D)
-if mibBuilder.loadTexts:rescan.setStatus(_A)
-_ApEvalControl_Type=Integer32
-_ApEvalControl_Object=MibScalar
-apEvalControl=_ApEvalControl_Object((1,3,6,1,4,1,161,19,3,2,8,3),_ApEvalControl_Type())
-apEvalControl.setMaxAccess(_D)
-if mibBuilder.loadTexts:apEvalControl.setStatus(_A)
-_WhispSmColorCodeTable_Object=MibTable
-whispSmColorCodeTable=_WhispSmColorCodeTable_Object((1,3,6,1,4,1,161,19,3,2,9))
-if mibBuilder.loadTexts:whispSmColorCodeTable.setStatus(_A)
-_WhispSmColorCodeEntry_Object=MibTableRow
-whispSmColorCodeEntry=_WhispSmColorCodeEntry_Object((1,3,6,1,4,1,161,19,3,2,9,1))
-whispSmColorCodeEntry.setIndexNames((0,_B,_A2))
-if mibBuilder.loadTexts:whispSmColorCodeEntry.setStatus(_A)
-class _EntryColorCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
-_EntryColorCode_Type.__name__=_E
-_EntryColorCode_Object=MibTableColumn
-entryColorCode=_EntryColorCode_Object((1,3,6,1,4,1,161,19,3,2,9,1,1),_EntryColorCode_Type())
-entryColorCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:entryColorCode.setStatus(_A)
-class _EntryColorCodePriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_N,1),(_O,2),(_P,3)))
-_EntryColorCodePriority_Type.__name__=_E
-_EntryColorCodePriority_Object=MibTableColumn
-entryColorCodePriority=_EntryColorCodePriority_Object((1,3,6,1,4,1,161,19,3,2,9,1,2),_EntryColorCodePriority_Type())
-entryColorCodePriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:entryColorCodePriority.setStatus(_A)
-_WhispSmAPEvalTable_Object=MibTable
-whispSmAPEvalTable=_WhispSmAPEvalTable_Object((1,3,6,1,4,1,161,19,3,2,10))
-if mibBuilder.loadTexts:whispSmAPEvalTable.setStatus(_A)
-_WhispSmAPEvalEntry_Object=MibTableRow
-whispSmAPEvalEntry=_WhispSmAPEvalEntry_Object((1,3,6,1,4,1,161,19,3,2,10,1))
-whispSmAPEvalEntry.setIndexNames((0,_B,_A3))
-if mibBuilder.loadTexts:whispSmAPEvalEntry.setStatus(_A)
-class _EvalIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_EvalIndex_Type.__name__=_E
-_EvalIndex_Object=MibTableColumn
-evalIndex=_EvalIndex_Object((1,3,6,1,4,1,161,19,3,2,10,1,1),_EvalIndex_Type())
-evalIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalIndex.setStatus(_A)
-_EvalFrequency_Type=Integer32
-_EvalFrequency_Object=MibTableColumn
-evalFrequency=_EvalFrequency_Object((1,3,6,1,4,1,161,19,3,2,10,1,2),_EvalFrequency_Type())
-evalFrequency.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalFrequency.setStatus(_A)
-class _EvalChannelBandwidth_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7)));namedValues=NamedValues(*(('bandwidth3Point5MHz',0),(_h,1),(_U,2),(_i,3),(_k,4),(_j,5),(_l,6),(_u,7)))
-_EvalChannelBandwidth_Type.__name__=_E
-_EvalChannelBandwidth_Object=MibTableColumn
-evalChannelBandwidth=_EvalChannelBandwidth_Object((1,3,6,1,4,1,161,19,3,2,10,1,3),_EvalChannelBandwidth_Type())
-evalChannelBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalChannelBandwidth.setStatus(_A)
-class _EvalCyclicPrefix_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_r,0),(_s,1),(_t,2)))
-_EvalCyclicPrefix_Type.__name__=_E
-_EvalCyclicPrefix_Object=MibTableColumn
-evalCyclicPrefix=_EvalCyclicPrefix_Object((1,3,6,1,4,1,161,19,3,2,10,1,4),_EvalCyclicPrefix_Type())
-evalCyclicPrefix.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalCyclicPrefix.setStatus(_A)
-_EvalESN_Type=PhysAddress
-_EvalESN_Object=MibTableColumn
-evalESN=_EvalESN_Object((1,3,6,1,4,1,161,19,3,2,10,1,5),_EvalESN_Type())
-evalESN.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalESN.setStatus(_A)
-_EvalRegion_Type=DisplayString
-_EvalRegion_Object=MibTableColumn
-evalRegion=_EvalRegion_Object((1,3,6,1,4,1,161,19,3,2,10,1,6),_EvalRegion_Type())
-evalRegion.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalRegion.setStatus(_A)
-_EvalBeaconReceivePowerCombined_Type=Integer32
-_EvalBeaconReceivePowerCombined_Object=MibTableColumn
-evalBeaconReceivePowerCombined=_EvalBeaconReceivePowerCombined_Object((1,3,6,1,4,1,161,19,3,2,10,1,7),_EvalBeaconReceivePowerCombined_Type())
-evalBeaconReceivePowerCombined.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalBeaconReceivePowerCombined.setStatus(_A)
-_EvalBeaconReceivePowerH_Type=Integer32
-_EvalBeaconReceivePowerH_Object=MibTableColumn
-evalBeaconReceivePowerH=_EvalBeaconReceivePowerH_Object((1,3,6,1,4,1,161,19,3,2,10,1,8),_EvalBeaconReceivePowerH_Type())
-evalBeaconReceivePowerH.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalBeaconReceivePowerH.setStatus(_A)
-_EvalBeaconReceivePowerV_Type=Integer32
-_EvalBeaconReceivePowerV_Object=MibTableColumn
-evalBeaconReceivePowerV=_EvalBeaconReceivePowerV_Object((1,3,6,1,4,1,161,19,3,2,10,1,9),_EvalBeaconReceivePowerV_Type())
-evalBeaconReceivePowerV.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalBeaconReceivePowerV.setStatus(_A)
-class _EvalFECEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_L,0),(_M,1)))
-_EvalFECEnable_Type.__name__=_E
-_EvalFECEnable_Object=MibTableColumn
-evalFECEnable=_EvalFECEnable_Object((1,3,6,1,4,1,161,19,3,2,10,1,10),_EvalFECEnable_Type())
-evalFECEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalFECEnable.setStatus(_A)
-class _EvalType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('multipoint',0),('point-to-point',1)))
-_EvalType_Type.__name__=_E
-_EvalType_Object=MibTableColumn
-evalType=_EvalType_Object((1,3,6,1,4,1,161,19,3,2,10,1,11),_EvalType_Type())
-evalType.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalType.setStatus(_A)
-class _EvalAvail_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_X,0),(_Y,1)))
-_EvalAvail_Type.__name__=_E
-_EvalAvail_Object=MibTableColumn
-evalAvail=_EvalAvail_Object((1,3,6,1,4,1,161,19,3,2,10,1,12),_EvalAvail_Type())
-evalAvail.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalAvail.setStatus(_A)
-_EvalAge_Type=Integer32
-_EvalAge_Object=MibTableColumn
-evalAge=_EvalAge_Object((1,3,6,1,4,1,161,19,3,2,10,1,13),_EvalAge_Type())
-evalAge.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalAge.setStatus(_A)
-_EvalLockout_Type=Integer32
-_EvalLockout_Object=MibTableColumn
-evalLockout=_EvalLockout_Object((1,3,6,1,4,1,161,19,3,2,10,1,14),_EvalLockout_Type())
-evalLockout.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalLockout.setStatus(_A)
-_EvalRegFail_Type=Integer32
-_EvalRegFail_Object=MibTableColumn
-evalRegFail=_EvalRegFail_Object((1,3,6,1,4,1,161,19,3,2,10,1,15),_EvalRegFail_Type())
-evalRegFail.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalRegFail.setStatus(_A)
-_EvalRange_Type=Integer32
-_EvalRange_Object=MibTableColumn
-evalRange=_EvalRange_Object((1,3,6,1,4,1,161,19,3,2,10,1,16),_EvalRange_Type())
-evalRange.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalRange.setStatus(_A)
-_EvalMaxRange_Type=Integer32
-_EvalMaxRange_Object=MibTableColumn
-evalMaxRange=_EvalMaxRange_Object((1,3,6,1,4,1,161,19,3,2,10,1,17),_EvalMaxRange_Type())
-evalMaxRange.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalMaxRange.setStatus(_A)
-class _EvalTxBER_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_X,0),(_Y,1)))
-_EvalTxBER_Type.__name__=_E
-_EvalTxBER_Object=MibTableColumn
-evalTxBER=_EvalTxBER_Object((1,3,6,1,4,1,161,19,3,2,10,1,18),_EvalTxBER_Type())
-evalTxBER.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalTxBER.setStatus(_A)
-class _EvalEBCast_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_X,0),(_Y,1)))
-_EvalEBCast_Type.__name__=_E
-_EvalEBCast_Object=MibTableColumn
-evalEBCast=_EvalEBCast_Object((1,3,6,1,4,1,161,19,3,2,10,1,19),_EvalEBCast_Type())
-evalEBCast.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalEBCast.setStatus(_A)
-_EvalSessionCount_Type=Integer32
-_EvalSessionCount_Object=MibTableColumn
-evalSessionCount=_EvalSessionCount_Object((1,3,6,1,4,1,161,19,3,2,10,1,20),_EvalSessionCount_Type())
-evalSessionCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalSessionCount.setStatus(_A)
-_EvalNoLuid_Type=Integer32
-_EvalNoLuid_Object=MibTableColumn
-evalNoLuid=_EvalNoLuid_Object((1,3,6,1,4,1,161,19,3,2,10,1,21),_EvalNoLuid_Type())
-evalNoLuid.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalNoLuid.setStatus(_A)
-_EvalOutOfRange_Type=Integer32
-_EvalOutOfRange_Object=MibTableColumn
-evalOutOfRange=_EvalOutOfRange_Object((1,3,6,1,4,1,161,19,3,2,10,1,22),_EvalOutOfRange_Type())
-evalOutOfRange.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalOutOfRange.setStatus(_A)
-_EvalAuthFail_Type=Integer32
-_EvalAuthFail_Object=MibTableColumn
-evalAuthFail=_EvalAuthFail_Object((1,3,6,1,4,1,161,19,3,2,10,1,23),_EvalAuthFail_Type())
-evalAuthFail.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalAuthFail.setStatus(_A)
-_EvalEncryptFail_Type=Integer32
-_EvalEncryptFail_Object=MibTableColumn
-evalEncryptFail=_EvalEncryptFail_Object((1,3,6,1,4,1,161,19,3,2,10,1,24),_EvalEncryptFail_Type())
-evalEncryptFail.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalEncryptFail.setStatus(_A)
-_EvalReScanReq_Type=Integer32
-_EvalReScanReq_Object=MibTableColumn
-evalReScanReq=_EvalReScanReq_Object((1,3,6,1,4,1,161,19,3,2,10,1,25),_EvalReScanReq_Type())
-evalReScanReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalReScanReq.setStatus(_A)
-_EvalLimitReached_Type=Integer32
-_EvalLimitReached_Object=MibTableColumn
-evalLimitReached=_EvalLimitReached_Object((1,3,6,1,4,1,161,19,3,2,10,1,26),_EvalLimitReached_Type())
-evalLimitReached.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalLimitReached.setStatus(_A)
-_EvalNoVCs_Type=Integer32
-_EvalNoVCs_Object=MibTableColumn
-evalNoVCs=_EvalNoVCs_Object((1,3,6,1,4,1,161,19,3,2,10,1,27),_EvalNoVCs_Type())
-evalNoVCs.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalNoVCs.setStatus(_A)
-_EvalVCReserveFail_Type=Integer32
-_EvalVCReserveFail_Object=MibTableColumn
-evalVCReserveFail=_EvalVCReserveFail_Object((1,3,6,1,4,1,161,19,3,2,10,1,28),_EvalVCReserveFail_Type())
-evalVCReserveFail.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalVCReserveFail.setStatus(_A)
-_EvalVCActFail_Type=Integer32
-_EvalVCActFail_Object=MibTableColumn
-evalVCActFail=_EvalVCActFail_Object((1,3,6,1,4,1,161,19,3,2,10,1,29),_EvalVCActFail_Type())
-evalVCActFail.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalVCActFail.setStatus(_A)
-_EvalTxPower_Type=Integer32
-_EvalTxPower_Object=MibTableColumn
-evalTxPower=_EvalTxPower_Object((1,3,6,1,4,1,161,19,3,2,10,1,30),_EvalTxPower_Type())
-evalTxPower.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalTxPower.setStatus(_A)
-_EvalReceiveTargetLevel_Type=Integer32
-_EvalReceiveTargetLevel_Object=MibTableColumn
-evalReceiveTargetLevel=_EvalReceiveTargetLevel_Object((1,3,6,1,4,1,161,19,3,2,10,1,31),_EvalReceiveTargetLevel_Type())
-evalReceiveTargetLevel.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalReceiveTargetLevel.setStatus(_A)
-_EvalColorCode_Type=Integer32
-_EvalColorCode_Object=MibTableColumn
-evalColorCode=_EvalColorCode_Object((1,3,6,1,4,1,161,19,3,2,10,1,32),_EvalColorCode_Type())
-evalColorCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalColorCode.setStatus(_A)
-_EvalBeaconVersion_Type=Integer32
-_EvalBeaconVersion_Object=MibTableColumn
-evalBeaconVersion=_EvalBeaconVersion_Object((1,3,6,1,4,1,161,19,3,2,10,1,33),_EvalBeaconVersion_Type())
-evalBeaconVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalBeaconVersion.setStatus(_A)
-_EvalSectorUserCount_Type=Integer32
-_EvalSectorUserCount_Object=MibTableColumn
-evalSectorUserCount=_EvalSectorUserCount_Object((1,3,6,1,4,1,161,19,3,2,10,1,34),_EvalSectorUserCount_Type())
-evalSectorUserCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalSectorUserCount.setStatus(_A)
-class _EvalSyncSrc_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('generate-sync',0),('gps-sync',1)))
-_EvalSyncSrc_Type.__name__=_E
-_EvalSyncSrc_Object=MibTableColumn
-evalSyncSrc=_EvalSyncSrc_Object((1,3,6,1,4,1,161,19,3,2,10,1,35),_EvalSyncSrc_Type())
-evalSyncSrc.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalSyncSrc.setStatus(_A)
-_EvalNumULSlots_Type=Integer32
-_EvalNumULSlots_Object=MibTableColumn
-evalNumULSlots=_EvalNumULSlots_Object((1,3,6,1,4,1,161,19,3,2,10,1,36),_EvalNumULSlots_Type())
-evalNumULSlots.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalNumULSlots.setStatus(_A)
-_EvalNumDLSlots_Type=Integer32
-_EvalNumDLSlots_Object=MibTableColumn
-evalNumDLSlots=_EvalNumDLSlots_Object((1,3,6,1,4,1,161,19,3,2,10,1,37),_EvalNumDLSlots_Type())
-evalNumDLSlots.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalNumDLSlots.setStatus(_A)
-_EvalNumULContSlots_Type=Integer32
-_EvalNumULContSlots_Object=MibTableColumn
-evalNumULContSlots=_EvalNumULContSlots_Object((1,3,6,1,4,1,161,19,3,2,10,1,38),_EvalNumULContSlots_Type())
-evalNumULContSlots.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalNumULContSlots.setStatus(_A)
-class _EvalICC_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_L,0),(_M,1)))
-_EvalICC_Type.__name__=_E
-_EvalICC_Object=MibTableColumn
-evalICC=_EvalICC_Object((1,3,6,1,4,1,161,19,3,2,10,1,39),_EvalICC_Type())
-evalICC.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalICC.setStatus(_A)
-class _EvalAuthentication_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_L,0),(_M,1)))
-_EvalAuthentication_Type.__name__=_E
-_EvalAuthentication_Object=MibTableColumn
-evalAuthentication=_EvalAuthentication_Object((1,3,6,1,4,1,161,19,3,2,10,1,40),_EvalAuthentication_Type())
-evalAuthentication.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalAuthentication.setStatus(_A)
-class _EvalSMPPPoE_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_A4,0),('suported',1)))
-_EvalSMPPPoE_Type.__name__=_E
-_EvalSMPPPoE_Object=MibTableColumn
-evalSMPPPoE=_EvalSMPPPoE_Object((1,3,6,1,4,1,161,19,3,2,10,1,41),_EvalSMPPPoE_Type())
-evalSMPPPoE.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalSMPPPoE.setStatus(_A)
-class _EvalPToPVLAN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_A4,0),('suported',1)))
-_EvalPToPVLAN_Type.__name__=_E
-_EvalPToPVLAN_Object=MibTableColumn
-evalPToPVLAN=_EvalPToPVLAN_Object((1,3,6,1,4,1,161,19,3,2,10,1,42),_EvalPToPVLAN_Type())
-evalPToPVLAN.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalPToPVLAN.setStatus(_A)
-class _EvalFramePeriod_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('twoPointFiveMs',0),('fiveMs',1)))
-_EvalFramePeriod_Type.__name__=_E
-_EvalFramePeriod_Object=MibTableColumn
-evalFramePeriod=_EvalFramePeriod_Object((1,3,6,1,4,1,161,19,3,2,10,1,43),_EvalFramePeriod_Type())
-evalFramePeriod.setMaxAccess(_C)
-if mibBuilder.loadTexts:evalFramePeriod.setStatus(_A)
-whispSmConfigGroup=ObjectGroup((1,3,6,1,4,1,161,19,3,2,3,1))
-whispSmConfigGroup.setObjects(*((_B,_A5),(_B,_A6),(_B,_A7),(_B,'lanIpSm'),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,'dmzIP'),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_BU),(_B,_BV),(_B,_BW),(_B,_BX),(_B,'bCastMIR'),(_B,'bhsReReg'),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,_Bb),(_B,_Bc),(_B,_Bd),(_B,_Be),(_B,_Bf),(_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm),(_B,_Bn),(_B,_Bo),(_B,_Bp),(_B,_Bq),(_B,_Br),(_B,_Bs),(_B,_Bt),(_B,_Bu),(_B,_Bv),(_B,_Bw),(_B,_Bx),(_B,_By),(_B,_Bz),(_B,_B_),(_B,_C0),(_B,_C1),(_B,_C2),(_B,_C3),(_B,_C4),(_B,_C5),(_B,_C6),(_B,_C7),(_B,_C8),(_B,_C9),(_B,_CA),(_B,_CB),(_B,_CC),(_B,_CD),(_B,_CE),(_B,_CF),(_B,_CG),(_B,_CH),(_B,_CI),(_B,_CJ),(_B,_CK),(_B,_CL),(_B,_CM),(_B,_CN),(_B,_CO),(_B,_CP),(_B,_CQ),(_B,_CR),(_B,_CS),(_B,_CT),(_B,_V)))
-if mibBuilder.loadTexts:whispSmConfigGroup.setStatus(_A)
-whispSmStatusGroup=ObjectGroup((1,3,6,1,4,1,161,19,3,2,3,2))
-whispSmStatusGroup.setObjects(*((_B,_CU),(_B,_CV),(_B,'rssi'),(_B,'jitter'),(_B,'airDelay'),(_B,_CW),(_B,_CX),(_B,_CY),(_B,'radioDbm'),(_B,_CZ),(_B,_Z),(_B,'dhcpSip'),(_B,_Ca),(_B,_Cb),(_B,_Cc),(_B,_Cd),(_B,_Ce),(_B,_Cf),(_B,_Cg),(_B,_Ch),(_B,_Ci),(_B,_Cj),(_B,_Ck),(_B,_Cl),(_B,_Cm),(_B,_Cn),(_B,_Co),(_B,_Cp),(_B,_Cq),(_B,_Cr),(_B,_Cs),(_B,_Ct),(_B,_T),(_B,_Cu),(_B,_Cv),(_B,_Cw),(_B,_Cx),(_B,_Cy),(_B,_Cz),(_B,_C_),(_B,_D0),(_B,'totalBER'),(_B,'minRSSI'),(_B,'maxRSSI'),(_B,_D1),(_B,_D2),(_B,_D3),(_B,_D4),(_B,_D5),(_B,_D6),(_B,_D7),(_B,_D8),(_B,_D9),(_B,_DA),(_B,_DB),(_B,_DC),(_B,_DD),(_B,_DE),(_B,_DF),(_B,_DG),(_B,_DH),(_B,_DI),(_B,_DJ),(_B,_DK),(_B,_DL),(_B,_DM),(_B,_DN),(_B,_DO),(_B,_DP),(_B,_DQ),(_B,_DR),(_B,_DS),(_B,_DT),(_B,_DU),(_B,_DV),(_B,_DW),(_B,_DX),(_B,_DY),(_B,_DZ),(_B,_Da),(_B,_Db),(_B,_Dc),(_B,_Dd),(_B,_De),(_B,_Df),(_B,_Dg),(_B,_Dh),(_B,_Di),(_B,_Dj),(_B,_Dk),(_B,_Dl),(_B,_Dm),(_B,_Dn),(_B,_Do),(_B,_Dp),(_B,_Dq),(_B,_Dr),(_B,_Ds),(_B,_Dt),(_B,_Du),(_B,_Dv),(_B,_Dw),(_B,_Dx),(_B,_Dy),(_B,_Dz),(_B,_D_),(_B,_E0),(_B,_E1),(_B,_E2),(_B,_E3),(_B,_E4),(_B,_E5),(_B,_E6),(_B,_E7),(_B,_E8),(_B,_E9),(_B,_EA),(_B,_EB),(_B,_EC),(_B,_ED),(_B,_EE),(_B,_EF),(_B,_EG),(_B,_EH),(_B,_EI),(_B,_EJ),(_B,_EK),(_B,_EL),(_B,_EM),(_B,_EN)))
-if mibBuilder.loadTexts:whispSmStatusGroup.setStatus(_A)
-whispMappingTableGroup=ObjectGroup((1,3,6,1,4,1,161,19,3,2,3,4))
-whispMappingTableGroup.setObjects(*((_B,_W),(_B,'protocol'),(_B,'port'),(_B,'localIp')))
-if mibBuilder.loadTexts:whispMappingTableGroup.setStatus(_A)
-whispRadarDetected=NotificationType((1,3,6,1,4,1,161,19,3,2,4,1,1))
-whispRadarDetected.setObjects(*((_B,_T),(_Q,_R)))
-if mibBuilder.loadTexts:whispRadarDetected.setStatus(_A)
-whispRadarEnd=NotificationType((1,3,6,1,4,1,161,19,3,2,4,1,2))
-whispRadarEnd.setObjects(*((_B,_T),(_Q,_R)))
-if mibBuilder.loadTexts:whispRadarEnd.setStatus(_A)
-enterSpectrumAnalysis=NotificationType((1,3,6,1,4,1,161,19,3,2,4,2,1))
-enterSpectrumAnalysis.setObjects((_Q,_R))
-if mibBuilder.loadTexts:enterSpectrumAnalysis.setStatus(_A)
-availableSpectrumAnalysis=NotificationType((1,3,6,1,4,1,161,19,3,2,4,2,2))
-availableSpectrumAnalysis.setObjects((_Q,_R))
-if mibBuilder.loadTexts:availableSpectrumAnalysis.setStatus(_A)
-smNatWanDHCPClientEvent=NotificationType((1,3,6,1,4,1,161,19,3,2,4,3,1))
-smNatWanDHCPClientEvent.setObjects(*((_B,_Z),(_Q,_R)))
-if mibBuilder.loadTexts:smNatWanDHCPClientEvent.setStatus(_A)
-smNatRFPubDHCPClientEvent=NotificationType((1,3,6,1,4,1,161,19,3,2,4,3,2))
-smNatRFPubDHCPClientEvent.setObjects(*((_Q,_b),(_Q,_R)))
-if mibBuilder.loadTexts:smNatRFPubDHCPClientEvent.setStatus(_A)
-whispSmNotifGroup=NotificationGroup((1,3,6,1,4,1,161,19,3,2,3,3))
-whispSmNotifGroup.setObjects(*((_B,_EO),(_B,_EP),(_B,_EQ),(_B,_ER),(_B,_ES),(_B,_ET)))
-if mibBuilder.loadTexts:whispSmNotifGroup.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'whispSmMibModule':whispSmMibModule,'whispSmConfig':whispSmConfig,_A6:rfScanList,_A7:powerUpMode,'lanIpSm':lanIpSm,_A8:lanMaskSm,_A9:defaultGwSm,_AA:networkAccess,_AB:authKeySm,_AC:enable8023link,_AD:authKeyOption,_AE:timingPulseGated,_AF:naptPrivateIP,_AG:naptPrivateSubnetMask,_AH:naptPublicIP,_AI:naptPublicSubnetMask,_AJ:naptPublicGatewayIP,_AK:naptRFPublicIP,_AL:naptRFPublicSubnetMask,_AM:naptRFPublicGateway,_AN:naptEnable,_AO:arpCacheTimeout,_AP:tcpGarbageCollectTmout,_AQ:udpGarbageCollectTmout,_AS:dhcpClientEnable,_AT:dhcpServerEnable,_AU:dhcpServerLeaseTime,_AV:dhcpIPStart,_AW:dnsAutomatic,_AX:prefferedDNSIP,_AY:alternateDNSIP,'dmzIP':dmzIP,_Ab:dmzEnable,_Ac:dhcpNumIPsToLease,_Ad:pppoeFilter,_Ae:smbFilter,_Af:snmpFilter,_Ag:userP1Filter,_Ah:userP2Filter,_Ai:userP3Filter,_Aj:allOtherIpFilter,_Al:upLinkBCastFilter,_Am:arpFilter,_An:allOthersFilter,_Ao:userDefinedPort1,_Ap:port1TCPFilter,_Aq:port1UDPFilter,_Ar:userDefinedPort2,_As:port2TCPFilter,_At:port2UDPFilter,_Au:userDefinedPort3,_Av:port3TCPFilter,_Aw:port3UDPFilter,_Ax:bootpcFilter,_Ay:bootpsFilter,_Az:ip4MultFilter,_A_:ingressVID,_B4:lowPriorityUplinkCIR,_B5:lowPriorityDownlinkCIR,_B6:hiPriorityChannel,_B7:hiPriorityUplinkCIR,_B8:hiPriorityDownlinkCIR,_B9:smRateAdapt,_BB:upLnkDataRate,_BC:upLnkLimit,_BM:dwnLnkDataRate,_BN:dwnLnkLimit,_BO:dfsConfig,_BP:ethAccessFilterEnable,_BQ:ipAccessFilterEnable,_BR:allowedIPAccess1,_BS:allowedIPAccess2,_BT:allowedIPAccess3,_BX:rfDhcpState,'bCastMIR':bCastMIR,'bhsReReg':bhsReReg,_BY:smLEDModeFlag,_BZ:ethAccessEnable,_Ba:pppoeEnable,_Bb:pppoeAuthenticationType,_Bc:pppoeAccessConcentrator,_Bd:pppoeServiceName,_Be:pppoeUserName,_Bf:pppoePassword,_Bg:pppoeTCPMSSClampEnable,_Bh:pppoeMTUOverrideEnable,_Bi:pppoeMTUOverrideValue,_Bj:pppoeTimerType,_Bk:pppoeTimeoutPeriod,_Bl:timedSpectrumAnalysisDuration,_Bn:spectrumAnalysisOnBoot,_Bo:spectrumAnalysisAction,_Bp:pppoeConnectOD,_Bq:pppoeDisconnectOD,_Br:smAntennaType,_Bs:natConnectionType,_Bt:wanPingReplyEnable,_Bu:packetFilterDirection,_Bv:colorCode2,_Bw:colorCodepriority2,_Bx:colorCode3,_By:colorCodepriority3,_Bz:colorCode4,_B_:colorCodepriority4,_C0:colorCode5,_C1:colorCodepriority5,_C2:colorCode6,_C3:colorCodepriority6,_C4:colorCode7,_C5:colorCodepriority7,_C6:colorCode8,_C7:colorCodepriority8,_C8:colorCode9,_C9:colorCodepriority9,_CA:colorCode10,_CB:colorCodepriority10,_AZ:natDNSProxyEnable,_Ak:allIpv4Filter,_Aa:spectrumAnalysisDisplay,_CL:syslogSMXmitSetting,_CJ:syslogServerApPreferred,_CK:syslogMinLevelApPreferred,_CM:syslogSMXmitControl,_CS:eapPeerAAAServerCommonName,_A5:rfScanListBandFilter,_BA:upLnkMaxBurstDataRate,_BD:dwnLnkMaxBurstDataRate,_BE:cyclicPrefixScan,_BF:bandwidthScan,_BG:apSelection,_BH:radioBandscanConfig,_BI:forcepoweradjust,_BJ:clearBerrResults,_BK:berrautoupdateflag,_BL:testSMBER,_BU:allowedIPAccessNMLength1,_BV:allowedIPAccessNMLength2,_BW:allowedIPAccessNMLength3,_CO:naptRemoteManage,_Bm:spectrumAnalysisScanBandwidth,_CH:berDeModSelect,_CI:multicastVCRcvRate,_CT:pmp430ApRegistrationOptions,_V:switchRadioModeAndReboot,_AR:natTslTableSize,_B0:ingressVIDPriority,_B1:ingressVIDPriorityMode,_B2:providerVIDPriority,_B3:providerVIDPriorityMode,_CC:additionalColorCode,_CD:additionalColorCodePriority,_CE:deleteAdditionalColorCode,_CN:bCastMIRUnits,'rfScanListTable':rfScanListTable,'rfScanListEntry':rfScanListEntry,_p:rfScanListFrequency,_CR:txPowerControl,_CF:bridgeTableSize,_CG:bridgeTableRestrict,_CP:maxTxPowerEnable,_CQ:maxTxPower,'whispSmStatus':whispSmStatus,_CV:sessionStatus,'rssi':rssi,'jitter':jitter,'airDelay':airDelay,_CW:radioSlicingSm,_CX:radioTxGainSm,_CY:calibrationStatus,'radioDbm':radioDbm,_CZ:registeredToAp,_Z:dhcpCip,'dhcpSip':dhcpSip,_Ca:dhcpClientLease,_Cb:dhcpCSMask,_Cc:dhcpDfltRterIP,_Cd:dhcpcdns1,_Ce:dhcpcdns2,_Cf:dhcpcdns3,_Cg:dhcpDomName,'dhcpServerTable':dhcpServerTable,'dhcpServerEntry':dhcpServerEntry,_q:hostIp,'hostMacAddress':hostMacAddress,'hostLease':hostLease,_Ch:adaptRate,_Ct:radioDbmInt,_T:dfsStatus,_Cu:radioTxPwr,_Cv:activeRegion,_Cw:snmpBerLevel,_Cx:nbBitsRcvd,_Cy:nbPriBitsErr,_Cz:nbSndBitsErr,_C_:primaryBER,_D0:secondaryBER,'totalBER':totalBER,'minRSSI':minRSSI,'maxRSSI':maxRSSI,_D1:minJitter,_D2:maxJitter,_D3:smSessionTimer,_D4:pppoeSessionStatus,_D5:pppoeSessionID,_D6:pppoeIPCPAddress,_D7:pppoeMTUOverrideEn,_D8:pppoeMTUValue,_D9:pppoeTimerTypeValue,_DA:pppoeTimeoutValue,_DB:pppoeDNSServer1,_DC:pppoeDNSServer2,_DD:pppoeControlBytesSent,_DE:pppoeControlBytesReceived,_DF:pppoeDataBytesSent,_DG:pppoeDataBytesReceived,_DH:pppoeEnabledStatus,_DI:pppoeTCPMSSClampEnableStatus,_DJ:pppoeACNameStatus,_DK:pppoeSvcNameStatus,_DL:pppoeSessUptime,_DM:primaryBERDisplay,_DN:secondaryBERDisplay,_DO:totalBERDisplay,_DU:minRadioDbm,_DV:maxRadioDbm,_DX:pppoeSessIdleTime,_DY:radioDbmAvg,_DZ:zoltarFPGAFreqOffset,_Da:zoltarSWFreqOffset,_Db:airDelayns,_De:currentColorCode,_Df:currentColorCodePri,_Dg:currentChanFreq,_Dh:linkQualityBeacon,'dhcpServerPktXmt':dhcpServerPktXmt,'dhcpServerPktRcv':dhcpServerPktRcv,'dhcpServerPktToss':dhcpServerPktToss,_E1:receiveFragmentsModulationPercentage,_E2:fragmentsReceived1XVertical,_E3:fragmentsReceived2XVertical,_E4:fragmentsReceived3XVertical,_E5:fragmentsReceived4XVertical,_Do:linkQualityData1XVertical,_Dp:linkQualityData2XVertical,_Dq:linkQualityData3XVertical,_Dr:linkQualityData4XVertical,_Dw:signalToNoiseRatioSMVertical,_E0:rfStatTxSuppressionCount,_EG:bridgecbUplinkCreditRate,_EH:bridgecbUplinkCreditLimit,_EI:bridgecbDownlinkCreditRate,_EJ:bridgecbDownlinkCreditLimit,_DP:mimoQpskBerDisplay,_DQ:mimo16QamBerDisplay,_DR:mimo64QamBerDisplay,_DS:mimo256QamBerDisplay,_DT:mimoBerRcvModulationType,_Dx:signalToNoiseRatioSMHorizontal,_DW:maxRadioDbmDeprecated,_Dy:signalStrengthRatio,_E6:fragmentsReceived1XHorizontal,_E7:fragmentsReceived2XHorizontal,_E8:fragmentsReceived3XHorizontal,_E9:fragmentsReceived4XHorizontal,_Ds:linkQualityData1XHorizontal,_Dt:linkQualityData2XHorizontal,_Du:linkQualityData3XHorizontal,_Dv:linkQualityData4XHorizontal,_Dz:radioDbmHorizontal,_D_:radioDbmVertical,_EK:bridgecbDownlinkMaxBurstBitRate,_EL:bridgecbUplinkMaxBurstBitRate,_Di:currentCyclicPrefix,_Dj:currentBandwidth,_Dk:berPwrRxFPGAPathA,_Dl:berPwrRxFPGAPathB,_Dm:rawBERPwrRxPathA,_Dn:rawBERPwrRxPathB,_EN:radioModeStatus,_Ci:adaptRateLowPri,_Cj:adaptRateHighPri,_Ck:bitErrorsQSPKpathA,_Cl:bitErrorsQSPKpathB,_Cm:bitErrors16QAMpathA,_Cn:bitErrors16QAMpathB,_Co:bitErrors64QAMpathA,_Cp:bitErrors64QAMpathB,_Cq:bitErrors256QAMpathA,_Cr:bitErrors256QAMpathB,_Cs:bitsReceivedPerPathModulation,_EA:beaconsPercentReceived,_EB:mapsPercentReceived,_CU:natTslTableEntries,_EF:maxReceivePower,_EC:beaconsPercentMinReceived,_ED:beaconsPercentMaxReceived,_EE:beaconsPercentReceivedSnapshot,_Dc:smSectorID,_Dd:scanCycleCount,_EM:bridgeCbErrStatBridgeDropCount,'whispSmGroups':whispSmGroups,'whispSmConfigGroup':whispSmConfigGroup,'whispSmStatusGroup':whispSmStatusGroup,'whispSmNotifGroup':whispSmNotifGroup,'whispMappingTableGroup':whispMappingTableGroup,'whispSmEvent':whispSmEvent,'whispSmDfsEvent':whispSmDfsEvent,_EQ:whispRadarDetected,_ER:whispRadarEnd,'whispSmSpAnEvent':whispSmSpAnEvent,_EO:enterSpectrumAnalysis,_EP:availableSpectrumAnalysis,'whispSmDHCPClientEvent':whispSmDHCPClientEvent,_ES:smNatWanDHCPClientEvent,_ET:smNatRFPubDHCPClientEvent,'whispMappingTable':whispMappingTable,'whispMappingEntry':whispMappingEntry,_W:tableIndex,'protocol':protocol,'port':port,'localIp':localIp,'whispSmTranslationTable':whispSmTranslationTable,'whispSmTranslationTableEntry':whispSmTranslationTableEntry,_A0:whispTranslationTableIndex,'whispTranslationTableMacAddr':whispTranslationTableMacAddr,'whispTranslationTableIpAddr':whispTranslationTableIpAddr,'whispTranslationTableAge':whispTranslationTableAge,'whispSmSecurity':whispSmSecurity,'certTable':certTable,'certEntry':certEntry,_A1:certIndex,'cert':cert,'action':action,'certificateDN':certificateDN,'numAuthCerts':numAuthCerts,'authenticationEnforce':authenticationEnforce,'phase1':phase1,'phase2':phase2,'authOuterId':authOuterId,'authPassword':authPassword,'authUsername':authUsername,'useRealm':useRealm,'realm':realm,'whispSmControls':whispSmControls,'clearLinkStats':clearLinkStats,'rescan':rescan,'apEvalControl':apEvalControl,'whispSmColorCodeTable':whispSmColorCodeTable,'whispSmColorCodeEntry':whispSmColorCodeEntry,_A2:entryColorCode,'entryColorCodePriority':entryColorCodePriority,'whispSmAPEvalTable':whispSmAPEvalTable,'whispSmAPEvalEntry':whispSmAPEvalEntry,_A3:evalIndex,'evalFrequency':evalFrequency,'evalChannelBandwidth':evalChannelBandwidth,'evalCyclicPrefix':evalCyclicPrefix,'evalESN':evalESN,'evalRegion':evalRegion,'evalBeaconReceivePowerCombined':evalBeaconReceivePowerCombined,'evalBeaconReceivePowerH':evalBeaconReceivePowerH,'evalBeaconReceivePowerV':evalBeaconReceivePowerV,'evalFECEnable':evalFECEnable,'evalType':evalType,'evalAvail':evalAvail,'evalAge':evalAge,'evalLockout':evalLockout,'evalRegFail':evalRegFail,'evalRange':evalRange,'evalMaxRange':evalMaxRange,'evalTxBER':evalTxBER,'evalEBCast':evalEBCast,'evalSessionCount':evalSessionCount,'evalNoLuid':evalNoLuid,'evalOutOfRange':evalOutOfRange,'evalAuthFail':evalAuthFail,'evalEncryptFail':evalEncryptFail,'evalReScanReq':evalReScanReq,'evalLimitReached':evalLimitReached,'evalNoVCs':evalNoVCs,'evalVCReserveFail':evalVCReserveFail,'evalVCActFail':evalVCActFail,'evalTxPower':evalTxPower,'evalReceiveTargetLevel':evalReceiveTargetLevel,'evalColorCode':evalColorCode,'evalBeaconVersion':evalBeaconVersion,'evalSectorUserCount':evalSectorUserCount,'evalSyncSrc':evalSyncSrc,'evalNumULSlots':evalNumULSlots,'evalNumDLSlots':evalNumDLSlots,'evalNumULContSlots':evalNumULContSlots,'evalICC':evalICC,'evalAuthentication':evalAuthentication,'evalSMPPPoE':evalSMPPPoE,'evalPToPVLAN':evalPToPVLAN,'evalFramePeriod':evalFramePeriod})
+#
+# PySNMP MIB module WHISP-SM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cambium/WHISP-SM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention", "PhysAddress")
+dhcpRfPublicIp, whispBoxEsn = mibBuilder.importSymbols("WHISP-BOX-MIBV2-MIB", "dhcpRfPublicIp", "whispBoxEsn")
+whispSm, whispBox, whispModules, whispAps = mibBuilder.importSymbols("WHISP-GLOBAL-REG-MIB", "whispSm", "whispBox", "whispModules", "whispAps")
+WhispLUID, WhispMACAddress = mibBuilder.importSymbols("WHISP-TCV2-MIB", "WhispLUID", "WhispMACAddress")
+whispSmMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 161, 19, 1, 1, 13))
+if mibBuilder.loadTexts: whispSmMibModule.setLastUpdated('200304150000Z')
+if mibBuilder.loadTexts: whispSmMibModule.setOrganization('Cambium Networks')
+whispSmConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1))
+whispSmSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7))
+whispSmStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2))
+whispSmGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 3))
+whispSmEvent = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 4))
+whispSmDfsEvent = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 4, 1))
+whispSmSpAnEvent = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 4, 2))
+whispSmDHCPClientEvent = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 4, 3))
+whispSmControls = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 8))
+rfScanList = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 1), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rfScanList.setStatus('current')
+powerUpMode = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("operational", 0), ("aim", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: powerUpMode.setStatus('current')
+lanIpSm = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lanIpSm.setStatus('current')
+lanMaskSm = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 4), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lanMaskSm.setStatus('current')
+defaultGwSm = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 5), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: defaultGwSm.setStatus('current')
+networkAccess = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("localIP", 0), ("publicIP", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: networkAccess.setStatus('current')
+authKeySm = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 7), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: authKeySm.setStatus('current')
+enable8023link = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: enable8023link.setStatus('deprecated')
+authKeyOption = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("useDefault", 0), ("useKeySet", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: authKeyOption.setStatus('current')
+timingPulseGated = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: timingPulseGated.setStatus('current')
+naptPrivateIP = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 11), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: naptPrivateIP.setStatus('current')
+naptPrivateSubnetMask = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 12), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: naptPrivateSubnetMask.setStatus('current')
+naptPublicIP = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 13), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: naptPublicIP.setStatus('current')
+naptPublicSubnetMask = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 14), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: naptPublicSubnetMask.setStatus('current')
+naptPublicGatewayIP = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 15), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: naptPublicGatewayIP.setStatus('current')
+naptRFPublicIP = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 16), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: naptRFPublicIP.setStatus('current')
+naptRFPublicSubnetMask = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 17), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: naptRFPublicSubnetMask.setStatus('current')
+naptRFPublicGateway = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 18), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: naptRFPublicGateway.setStatus('current')
+naptEnable = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: naptEnable.setStatus('current')
+arpCacheTimeout = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 20), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: arpCacheTimeout.setStatus('current')
+tcpGarbageCollectTmout = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 21), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tcpGarbageCollectTmout.setStatus('current')
+udpGarbageCollectTmout = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 22), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: udpGarbageCollectTmout.setStatus('current')
+dhcpClientEnable = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dhcpClientEnable.setStatus('obsolete')
+dhcpServerEnable = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dhcpServerEnable.setStatus('current')
+dhcpServerLeaseTime = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 25), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dhcpServerLeaseTime.setStatus('current')
+dhcpIPStart = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 26), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dhcpIPStart.setStatus('current')
+dnsAutomatic = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("manually", 0), ("automatically", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dnsAutomatic.setStatus('current')
+prefferedDNSIP = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 28), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prefferedDNSIP.setStatus('current')
+alternateDNSIP = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 29), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alternateDNSIP.setStatus('current')
+dmzIP = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 30), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dmzIP.setStatus('current')
+dmzEnable = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 31), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dmzEnable.setStatus('current')
+dhcpNumIPsToLease = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 32), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dhcpNumIPsToLease.setStatus('current')
+pppoeFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 33), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeFilter.setStatus('obsolete')
+smbFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 34), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: smbFilter.setStatus('obsolete')
+snmpFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 35), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: snmpFilter.setStatus('obsolete')
+userP1Filter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 36), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: userP1Filter.setStatus('obsolete')
+userP2Filter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 37), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: userP2Filter.setStatus('obsolete')
+userP3Filter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 38), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: userP3Filter.setStatus('obsolete')
+allOtherIpFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 39), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: allOtherIpFilter.setStatus('obsolete')
+upLinkBCastFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 40), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: upLinkBCastFilter.setStatus('obsolete')
+arpFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 41), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: arpFilter.setStatus('obsolete')
+allOthersFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 42), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: allOthersFilter.setStatus('obsolete')
+userDefinedPort1 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 43), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: userDefinedPort1.setStatus('obsolete')
+port1TCPFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 44), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: port1TCPFilter.setStatus('obsolete')
+port1UDPFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 45), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: port1UDPFilter.setStatus('obsolete')
+userDefinedPort2 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 46), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: userDefinedPort2.setStatus('obsolete')
+port2TCPFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 47), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: port2TCPFilter.setStatus('obsolete')
+port2UDPFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 48), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: port2UDPFilter.setStatus('obsolete')
+userDefinedPort3 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 49), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: userDefinedPort3.setStatus('obsolete')
+port3TCPFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 50), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: port3TCPFilter.setStatus('obsolete')
+port3UDPFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 51), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: port3UDPFilter.setStatus('obsolete')
+bootpcFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 52), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bootpcFilter.setStatus('obsolete')
+bootpsFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 53), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bootpsFilter.setStatus('obsolete')
+ip4MultFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 54), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ip4MultFilter.setStatus('obsolete')
+ingressVID = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 55), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ingressVID.setStatus('current')
+lowPriorityUplinkCIR = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 56), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lowPriorityUplinkCIR.setStatus('current')
+lowPriorityDownlinkCIR = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 57), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lowPriorityDownlinkCIR.setStatus('current')
+hiPriorityChannel = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 58), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hiPriorityChannel.setStatus('current')
+hiPriorityUplinkCIR = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 59), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hiPriorityUplinkCIR.setStatus('current')
+hiPriorityDownlinkCIR = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 60), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hiPriorityDownlinkCIR.setStatus('current')
+smRateAdapt = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 61), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("onex", 0), ("onextwox", 1), ("onextwoxthreex", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: smRateAdapt.setStatus('obsolete')
+upLnkDataRate = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 62), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: upLnkDataRate.setStatus('current')
+upLnkLimit = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 63), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: upLnkLimit.setStatus('current')
+dwnLnkDataRate = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 64), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dwnLnkDataRate.setStatus('current')
+dwnLnkLimit = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 65), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dwnLnkLimit.setStatus('current')
+dfsConfig = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 66), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dfsConfig.setStatus('obsolete')
+ethAccessFilterEnable = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 67), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethAccessFilterEnable.setStatus('obsolete')
+ipAccessFilterEnable = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 68), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipAccessFilterEnable.setStatus('current')
+allowedIPAccess1 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 69), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: allowedIPAccess1.setStatus('current')
+allowedIPAccess2 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 70), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: allowedIPAccess2.setStatus('current')
+allowedIPAccess3 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 71), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: allowedIPAccess3.setStatus('current')
+rfDhcpState = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 72), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rfDhcpState.setStatus('current')
+bCastMIR = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 73), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("disabled", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bCastMIR.setStatus('current')
+bhsReReg = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 74), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bhsReReg.setStatus('obsolete')
+smLEDModeFlag = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 75), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("legacy", 0), ("revised", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: smLEDModeFlag.setStatus('current')
+ethAccessEnable = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 76), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethAccessEnable.setStatus('current')
+pppoeEnable = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 77), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeEnable.setStatus('current')
+pppoeAuthenticationType = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 78), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("chap-pap", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeAuthenticationType.setStatus('current')
+pppoeAccessConcentrator = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 79), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeAccessConcentrator.setStatus('current')
+pppoeServiceName = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 80), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeServiceName.setStatus('current')
+pppoeUserName = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 81), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeUserName.setStatus('current')
+pppoePassword = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 82), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoePassword.setStatus('current')
+pppoeTCPMSSClampEnable = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 83), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeTCPMSSClampEnable.setStatus('current')
+pppoeMTUOverrideEnable = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 84), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeMTUOverrideEnable.setStatus('current')
+pppoeMTUOverrideValue = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 85), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1492))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeMTUOverrideValue.setStatus('current')
+pppoeTimerType = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 86), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("keepAlive", 1), ("idleTimeout", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeTimerType.setStatus('current')
+pppoeTimeoutPeriod = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 87), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeTimeoutPeriod.setStatus('current')
+timedSpectrumAnalysisDuration = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 88), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 1000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: timedSpectrumAnalysisDuration.setStatus('deprecated')
+spectrumAnalysisOnBoot = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 89), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spectrumAnalysisOnBoot.setStatus('current')
+spectrumAnalysisAction = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 90), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("stopSpectrumAnalysis", 0), ("startTimedSpectrumAnalysis", 1), ("startContinuousSpectrumAnalysis", 2), ("idleNoSpectrumAnalysis", 3), ("idleCompleteSpectrumAnalysis", 4), ("inProgressTimedSpectrumAnalysis", 5), ("inProgressContinuousSpectrumAnalysis", 6)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spectrumAnalysisAction.setStatus('deprecated')
+pppoeConnectOD = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 91), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("connectOnDemand", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeConnectOD.setStatus('current')
+pppoeDisconnectOD = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 92), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("disconnectOnDemand", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pppoeDisconnectOD.setStatus('current')
+smAntennaType = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 93), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("integrated", 0), ("external", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: smAntennaType.setStatus('obsolete')
+natConnectionType = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 94), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("staticIP", 0), ("dhcp", 1), ("pppoe", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: natConnectionType.setStatus('current')
+wanPingReplyEnable = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 95), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wanPingReplyEnable.setStatus('current')
+packetFilterDirection = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 96), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("upstream", 1), ("downstream", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: packetFilterDirection.setStatus('obsolete')
+colorCode2 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 97), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 254))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCode2.setStatus('deprecated')
+colorCodepriority2 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 98), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 0))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("tertiary", 3), ("disable", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCodepriority2.setStatus('deprecated')
+colorCode3 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 99), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 254))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCode3.setStatus('deprecated')
+colorCodepriority3 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 0))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("tertiary", 3), ("disable", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCodepriority3.setStatus('deprecated')
+colorCode4 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 101), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 254))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCode4.setStatus('deprecated')
+colorCodepriority4 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 102), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 0))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("tertiary", 3), ("disable", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCodepriority4.setStatus('deprecated')
+colorCode5 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 103), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 254))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCode5.setStatus('deprecated')
+colorCodepriority5 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 104), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 0))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("tertiary", 3), ("disable", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCodepriority5.setStatus('deprecated')
+colorCode6 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 105), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 254))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCode6.setStatus('deprecated')
+colorCodepriority6 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 106), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 0))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("tertiary", 3), ("disable", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCodepriority6.setStatus('deprecated')
+colorCode7 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 107), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 254))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCode7.setStatus('deprecated')
+colorCodepriority7 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 108), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 0))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("tertiary", 3), ("disable", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCodepriority7.setStatus('deprecated')
+colorCode8 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 109), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 254))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCode8.setStatus('deprecated')
+colorCodepriority8 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 110), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 0))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("tertiary", 3), ("disable", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCodepriority8.setStatus('deprecated')
+colorCode9 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 111), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 254))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCode9.setStatus('deprecated')
+colorCodepriority9 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 112), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 0))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("tertiary", 3), ("disable", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCodepriority9.setStatus('deprecated')
+colorCode10 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 113), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 254))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCode10.setStatus('deprecated')
+colorCodepriority10 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 114), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 0))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("tertiary", 3), ("disable", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: colorCodepriority10.setStatus('deprecated')
+natDNSProxyEnable = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 115), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: natDNSProxyEnable.setStatus('current')
+allIpv4Filter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 116), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("filterOff", 0), ("filterOn", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: allIpv4Filter.setStatus('obsolete')
+spectrumAnalysisDisplay = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 117), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("averaging", 0), ("instantaneous", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spectrumAnalysisDisplay.setStatus('current')
+syslogSMXmitSetting = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 118), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("obtain-from-AP", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: syslogSMXmitSetting.setStatus('deprecated')
+syslogServerApPreferred = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 119), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("use-local", 0), ("use-AP-preferred", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: syslogServerApPreferred.setStatus('current')
+syslogMinLevelApPreferred = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 120), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("use-local", 0), ("use-AP-preferred", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: syslogMinLevelApPreferred.setStatus('current')
+syslogSMXmitControl = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 121), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("obtain-from-AP-default-disabled", 0), ("obtain-from-AP-default-enabled", 1), ("disable", 2), ("enable", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: syslogSMXmitControl.setStatus('current')
+eapPeerAAAServerCommonName = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 126), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eapPeerAAAServerCommonName.setStatus('current')
+rfScanListBandFilter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 127), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(8, 9))).clone(namedValues=NamedValues(("band5400", 8), ("band5700", 9)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rfScanListBandFilter.setStatus('obsolete')
+upLnkMaxBurstDataRate = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 128), Integer32()).setUnits('Kilobits/sec').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: upLnkMaxBurstDataRate.setStatus('current')
+dwnLnkMaxBurstDataRate = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 129), Integer32()).setUnits('Kilobits/sec').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dwnLnkMaxBurstDataRate.setStatus('current')
+cyclicPrefixScan = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 130), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cyclicPrefixScan.setStatus('current')
+bandwidthScan = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 131), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bandwidthScan.setStatus('current')
+apSelection = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 132), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 0))).clone(namedValues=NamedValues(("powerLevel", 1), ("optimizeForThroughput", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: apSelection.setStatus('current')
+radioBandscanConfig = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 133), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("instant", 0), ("delayed", 1), ("apply", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: radioBandscanConfig.setStatus('current')
+forcepoweradjust = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 134), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: forcepoweradjust.setStatus('current')
+clearBerrResults = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 135), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: clearBerrResults.setStatus('current')
+berrautoupdateflag = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 136), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: berrautoupdateflag.setStatus('current')
+testSMBER = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 137), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: testSMBER.setStatus('current')
+allowedIPAccessNMLength1 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 138), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: allowedIPAccessNMLength1.setStatus('current')
+allowedIPAccessNMLength2 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 139), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: allowedIPAccessNMLength2.setStatus('current')
+allowedIPAccessNMLength3 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 140), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: allowedIPAccessNMLength3.setStatus('current')
+naptRemoteManage = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 141), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disable", 0), ("enable-standalone", 1), ("enable-wan", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: naptRemoteManage.setStatus('current')
+spectrumAnalysisScanBandwidth = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 142), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("bandwidth5MHz", 0), ("bandwidth10MHz", 1), ("bandwidth20MHz", 2), ("bandwidth7MHz", 3), ("bandwidth15MHz", 4), ("bandwidth30MHz", 5)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: spectrumAnalysisScanBandwidth.setStatus('current')
+berDeModSelect = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 143), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("qpsk", 0), ("qam-16", 1), ("qam-64", 2), ("qam-256", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: berDeModSelect.setStatus('current')
+multicastVCRcvRate = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 144), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: multicastVCRcvRate.setStatus('current')
+pmp430ApRegistrationOptions = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 145), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("pmp430", 1), ("pmp450", 2), ("both", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pmp430ApRegistrationOptions.setStatus('deprecated')
+switchRadioModeAndReboot = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 146), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("finishedReboot", 0), ("switchRadioModeAndReboot", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: switchRadioModeAndReboot.setStatus('obsolete')
+natTslTableSize = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 147), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1024, 8192))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: natTslTableSize.setStatus('current')
+ingressVIDPriority = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 148), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ingressVIDPriority.setStatus('current')
+ingressVIDPriorityMode = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 149), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("promote-IP-priority", 0), ("define-priority", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ingressVIDPriorityMode.setStatus('current')
+providerVIDPriority = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 150), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: providerVIDPriority.setStatus('current')
+providerVIDPriorityMode = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 151), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("promote-IP-priority", 0), ("define-priority", 1), ("copy-inner-tag-priority", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: providerVIDPriorityMode.setStatus('current')
+additionalColorCode = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 152), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 254))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: additionalColorCode.setStatus('current')
+additionalColorCodePriority = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 153), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("tertiary", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: additionalColorCodePriority.setStatus('current')
+deleteAdditionalColorCode = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 154), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 254))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: deleteAdditionalColorCode.setStatus('current')
+bCastMIRUnits = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 155), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("kbps", 0), ("pps", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bCastMIRUnits.setStatus('current')
+txPowerControl = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 157), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: txPowerControl.setStatus('current')
+bridgeTableSize = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 158), Integer32().subtype(subtypeSpec=ValueRangeConstraint(4, 4096))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bridgeTableSize.setStatus('current')
+bridgeTableRestrict = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 159), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bridgeTableRestrict.setStatus('current')
+maxTxPowerEnable = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 160), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: maxTxPowerEnable.setStatus('current')
+maxTxPower = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 161), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-30, 27))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: maxTxPower.setStatus('current')
+rfScanListTable = MibTable((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 156), )
+if mibBuilder.loadTexts: rfScanListTable.setStatus('current')
+rfScanListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 156, 1), ).setIndexNames((0, "WHISP-SM-MIB", "rfScanListFrequency"))
+if mibBuilder.loadTexts: rfScanListEntry.setStatus('current')
+rfScanListFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 1, 156, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 9000000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rfScanListFrequency.setStatus('current')
+numAuthCerts = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: numAuthCerts.setStatus('current')
+authenticationEnforce = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disable", 0), ("aaa", 1), ("presharedkey", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: authenticationEnforce.setStatus('current')
+phase1 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("eapttls", 0), ("eapMSChapV2", 1), ("eappeap", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: phase1.setStatus('current')
+phase2 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("pap", 0), ("chap", 1), ("mschapv2", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: phase2.setStatus('current')
+authOuterId = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 253))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: authOuterId.setStatus('current')
+authPassword = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7, 7), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: authPassword.setStatus('current')
+authUsername = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7, 8), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: authUsername.setStatus('current')
+useRealm = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: useRealm.setStatus('current')
+realm = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7, 10), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: realm.setStatus('current')
+certTable = MibTable((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7, 1), )
+if mibBuilder.loadTexts: certTable.setStatus('current')
+certEntry = MibTableRow((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7, 1, 1), ).setIndexNames((0, "WHISP-SM-MIB", "certIndex"))
+if mibBuilder.loadTexts: certEntry.setStatus('current')
+certIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: certIndex.setStatus('current')
+cert = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("inactive", 0), ("active", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cert.setStatus('current')
+action = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("noop", 0), ("delete", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: action.setStatus('current')
+certificateDN = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 7, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: certificateDN.setStatus('current')
+sessionStatus = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sessionStatus.setStatus('current')
+rssi = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rssi.setStatus('current')
+jitter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 3), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jitter.setStatus('current')
+airDelay = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: airDelay.setStatus('current')
+radioSlicingSm = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: radioSlicingSm.setStatus('obsolete')
+radioTxGainSm = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: radioTxGainSm.setStatus('current')
+calibrationStatus = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: calibrationStatus.setStatus('deprecated')
+radioDbm = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: radioDbm.setStatus('current')
+registeredToAp = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: registeredToAp.setStatus('current')
+dhcpCip = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 10), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcpCip.setStatus('current')
+dhcpSip = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 11), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcpSip.setStatus('current')
+dhcpClientLease = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 12), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcpClientLease.setStatus('current')
+dhcpCSMask = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 13), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcpCSMask.setStatus('current')
+dhcpDfltRterIP = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 14), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcpDfltRterIP.setStatus('current')
+dhcpcdns1 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 15), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcpcdns1.setStatus('current')
+dhcpcdns2 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 16), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcpcdns2.setStatus('current')
+dhcpcdns3 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 17), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcpcdns3.setStatus('current')
+dhcpDomName = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 18), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcpDomName.setStatus('current')
+adaptRate = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 20), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adaptRate.setStatus('current')
+radioDbmInt = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 21), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: radioDbmInt.setStatus('current')
+dfsStatus = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 22), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dfsStatus.setStatus('current')
+radioTxPwr = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 23), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: radioTxPwr.setStatus('current')
+activeRegion = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 24), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: activeRegion.setStatus('current')
+snmpBerLevel = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 4, 6, 8))).clone(namedValues=NamedValues(("twoLevelOrMimoQPSK", 2), ("fourLevelOrMimo16QAM", 4), ("mimo64QAM", 6), ("mimo256QAM", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snmpBerLevel.setStatus('current')
+nbBitsRcvd = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 26), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbBitsRcvd.setStatus('current')
+nbPriBitsErr = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 27), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbPriBitsErr.setStatus('current')
+nbSndBitsErr = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 28), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nbSndBitsErr.setStatus('current')
+primaryBER = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 29), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: primaryBER.setStatus('obsolete')
+secondaryBER = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 30), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: secondaryBER.setStatus('obsolete')
+totalBER = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 31), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: totalBER.setStatus('obsolete')
+minRSSI = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 32), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: minRSSI.setStatus('current')
+maxRSSI = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 33), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: maxRSSI.setStatus('current')
+minJitter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 34), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: minJitter.setStatus('current')
+maxJitter = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 35), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: maxJitter.setStatus('current')
+smSessionTimer = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 36), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: smSessionTimer.setStatus('current')
+pppoeSessionStatus = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 37), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeSessionStatus.setStatus('current')
+pppoeSessionID = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 38), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeSessionID.setStatus('current')
+pppoeIPCPAddress = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 39), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeIPCPAddress.setStatus('current')
+pppoeMTUOverrideEn = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 40), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeMTUOverrideEn.setStatus('current')
+pppoeMTUValue = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 41), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeMTUValue.setStatus('current')
+pppoeTimerTypeValue = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 42), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disabled", 0), ("keepAlive", 1), ("idleTimeout", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeTimerTypeValue.setStatus('current')
+pppoeTimeoutValue = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 43), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeTimeoutValue.setStatus('current')
+pppoeDNSServer1 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 44), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeDNSServer1.setStatus('current')
+pppoeDNSServer2 = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 45), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeDNSServer2.setStatus('current')
+pppoeControlBytesSent = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 46), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeControlBytesSent.setStatus('current')
+pppoeControlBytesReceived = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 47), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeControlBytesReceived.setStatus('current')
+pppoeDataBytesSent = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 48), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeDataBytesSent.setStatus('current')
+pppoeDataBytesReceived = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 49), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeDataBytesReceived.setStatus('current')
+pppoeEnabledStatus = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 50), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeEnabledStatus.setStatus('current')
+pppoeTCPMSSClampEnableStatus = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 51), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeTCPMSSClampEnableStatus.setStatus('current')
+pppoeACNameStatus = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 52), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeACNameStatus.setStatus('current')
+pppoeSvcNameStatus = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 53), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeSvcNameStatus.setStatus('current')
+pppoeSessUptime = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 54), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeSessUptime.setStatus('current')
+primaryBERDisplay = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 55), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: primaryBERDisplay.setStatus('current')
+secondaryBERDisplay = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 56), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: secondaryBERDisplay.setStatus('current')
+totalBERDisplay = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 57), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: totalBERDisplay.setStatus('current')
+minRadioDbm = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 58), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: minRadioDbm.setStatus('current')
+maxRadioDbm = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 59), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: maxRadioDbm.setStatus('current')
+pppoeSessIdleTime = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 60), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pppoeSessIdleTime.setStatus('current')
+radioDbmAvg = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 61), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: radioDbmAvg.setStatus('current')
+zoltarFPGAFreqOffset = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 62), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zoltarFPGAFreqOffset.setStatus('current')
+zoltarSWFreqOffset = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 63), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zoltarSWFreqOffset.setStatus('current')
+airDelayns = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 64), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: airDelayns.setStatus('current')
+currentColorCode = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 65), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: currentColorCode.setStatus('current')
+currentColorCodePri = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 66), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("none", 0), ("primary", 1), ("secondary", 2), ("tertiary", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: currentColorCodePri.setStatus('current')
+currentChanFreq = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 67), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: currentChanFreq.setStatus('current')
+linkQualityBeacon = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 68), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: linkQualityBeacon.setStatus('current')
+dhcpServerPktXmt = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 72), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcpServerPktXmt.setStatus('current')
+dhcpServerPktRcv = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 73), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcpServerPktRcv.setStatus('current')
+dhcpServerPktToss = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 74), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcpServerPktToss.setStatus('current')
+receiveFragmentsModulationPercentage = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 86), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: receiveFragmentsModulationPercentage.setStatus('current')
+fragmentsReceived1XVertical = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 87), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fragmentsReceived1XVertical.setStatus('current')
+fragmentsReceived2XVertical = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 88), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fragmentsReceived2XVertical.setStatus('current')
+fragmentsReceived3XVertical = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 89), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fragmentsReceived3XVertical.setStatus('current')
+fragmentsReceived4XVertical = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 90), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fragmentsReceived4XVertical.setStatus('current')
+linkQualityData1XVertical = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 91), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: linkQualityData1XVertical.setStatus('current')
+linkQualityData2XVertical = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 92), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: linkQualityData2XVertical.setStatus('current')
+linkQualityData3XVertical = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 93), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: linkQualityData3XVertical.setStatus('current')
+linkQualityData4XVertical = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 94), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: linkQualityData4XVertical.setStatus('current')
+signalToNoiseRatioSMVertical = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 95), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: signalToNoiseRatioSMVertical.setStatus('current')
+rfStatTxSuppressionCount = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 96), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rfStatTxSuppressionCount.setStatus('current')
+bridgecbUplinkCreditRate = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 97), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bridgecbUplinkCreditRate.setStatus('current')
+bridgecbUplinkCreditLimit = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 98), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bridgecbUplinkCreditLimit.setStatus('current')
+bridgecbDownlinkCreditRate = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 99), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bridgecbDownlinkCreditRate.setStatus('current')
+bridgecbDownlinkCreditLimit = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 100), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bridgecbDownlinkCreditLimit.setStatus('current')
+mimoQpskBerDisplay = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 101), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mimoQpskBerDisplay.setStatus('current')
+mimo16QamBerDisplay = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 102), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mimo16QamBerDisplay.setStatus('current')
+mimo64QamBerDisplay = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 103), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mimo64QamBerDisplay.setStatus('current')
+mimo256QamBerDisplay = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 104), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mimo256QamBerDisplay.setStatus('current')
+mimoBerRcvModulationType = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 105), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mimoBerRcvModulationType.setStatus('current')
+signalToNoiseRatioSMHorizontal = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 106), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: signalToNoiseRatioSMHorizontal.setStatus('current')
+maxRadioDbmDeprecated = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 107), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: maxRadioDbmDeprecated.setStatus('deprecated')
+signalStrengthRatio = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 108), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: signalStrengthRatio.setStatus('current')
+fragmentsReceived1XHorizontal = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 109), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fragmentsReceived1XHorizontal.setStatus('current')
+fragmentsReceived2XHorizontal = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 110), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fragmentsReceived2XHorizontal.setStatus('current')
+fragmentsReceived3XHorizontal = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 111), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fragmentsReceived3XHorizontal.setStatus('current')
+fragmentsReceived4XHorizontal = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 112), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fragmentsReceived4XHorizontal.setStatus('current')
+linkQualityData1XHorizontal = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 113), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: linkQualityData1XHorizontal.setStatus('current')
+linkQualityData2XHorizontal = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 114), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: linkQualityData2XHorizontal.setStatus('current')
+linkQualityData3XHorizontal = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 115), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: linkQualityData3XHorizontal.setStatus('current')
+linkQualityData4XHorizontal = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 116), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: linkQualityData4XHorizontal.setStatus('current')
+radioDbmHorizontal = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 117), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: radioDbmHorizontal.setStatus('current')
+radioDbmVertical = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 118), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: radioDbmVertical.setStatus('current')
+bridgecbDownlinkMaxBurstBitRate = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 119), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bridgecbDownlinkMaxBurstBitRate.setStatus('current')
+bridgecbUplinkMaxBurstBitRate = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 120), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bridgecbUplinkMaxBurstBitRate.setStatus('current')
+currentCyclicPrefix = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 121), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("one-quarter", 0), ("one-eighth", 1), ("one-sixteenth", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: currentCyclicPrefix.setStatus('current')
+currentBandwidth = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 122), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("bandwidth5mhz", 1), ("bandwidth7MHz", 2), ("bandwidth10mhz", 3), ("bandwidth15mhz", 4), ("bandwidth20mhz", 5), ("bandwidth30mhz", 6), ("bandwidth40MHz", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: currentBandwidth.setStatus('current')
+berPwrRxFPGAPathA = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 123), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: berPwrRxFPGAPathA.setStatus('current')
+berPwrRxFPGAPathB = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 124), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: berPwrRxFPGAPathB.setStatus('current')
+rawBERPwrRxPathA = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 125), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rawBERPwrRxPathA.setStatus('current')
+rawBERPwrRxPathB = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 126), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rawBERPwrRxPathB.setStatus('current')
+radioModeStatus = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 127), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("undefined", 0), ("pmp430", 1), ("pmp450Interoperability", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: radioModeStatus.setStatus('deprecated')
+adaptRateLowPri = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 128), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 6, 8))).clone(namedValues=NamedValues(("noSession", 0), ("rate1X", 1), ("rate2X", 2), ("rete3X", 3), ("rate4X", 4), ("rate6X", 6), ("rate8X", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adaptRateLowPri.setStatus('current')
+adaptRateHighPri = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 129), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 0, 1, 2, 3, 4, 6, 8))).clone(namedValues=NamedValues(("noHighPriorityChannel", -1), ("noSession", 0), ("rate1X", 1), ("rate2X", 2), ("rete3X", 3), ("rate4X", 4), ("rate6X", 6), ("rate8X", 8)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adaptRateHighPri.setStatus('current')
+bitErrorsQSPKpathA = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 130), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bitErrorsQSPKpathA.setStatus('current')
+bitErrorsQSPKpathB = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 131), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bitErrorsQSPKpathB.setStatus('current')
+bitErrors16QAMpathA = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 132), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bitErrors16QAMpathA.setStatus('current')
+bitErrors16QAMpathB = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 133), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bitErrors16QAMpathB.setStatus('current')
+bitErrors64QAMpathA = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 134), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bitErrors64QAMpathA.setStatus('current')
+bitErrors64QAMpathB = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 135), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bitErrors64QAMpathB.setStatus('current')
+bitErrors256QAMpathA = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 136), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bitErrors256QAMpathA.setStatus('current')
+bitErrors256QAMpathB = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 137), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bitErrors256QAMpathB.setStatus('current')
+bitsReceivedPerPathModulation = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 138), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bitsReceivedPerPathModulation.setStatus('current')
+beaconsPercentReceived = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 139), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: beaconsPercentReceived.setStatus('current')
+mapsPercentReceived = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 140), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mapsPercentReceived.setStatus('current')
+natTslTableEntries = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 141), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: natTslTableEntries.setStatus('current')
+maxReceivePower = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 142), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: maxReceivePower.setStatus('current')
+beaconsPercentMinReceived = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 143), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: beaconsPercentMinReceived.setStatus('current')
+beaconsPercentMaxReceived = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 144), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: beaconsPercentMaxReceived.setStatus('current')
+beaconsPercentReceivedSnapshot = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 145), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: beaconsPercentReceivedSnapshot.setStatus('current')
+smSectorID = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 146), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: smSectorID.setStatus('current')
+scanCycleCount = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 147), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scanCycleCount.setStatus('current')
+bridgeCbErrStatBridgeDropCount = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 148), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bridgeCbErrStatBridgeDropCount.setStatus('current')
+dhcpServerTable = MibTable((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 19), )
+if mibBuilder.loadTexts: dhcpServerTable.setStatus('current')
+dhcpServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 19, 1), ).setIndexNames((0, "WHISP-SM-MIB", "hostIp"))
+if mibBuilder.loadTexts: dhcpServerEntry.setStatus('current')
+hostIp = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 19, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hostIp.setStatus('current')
+hostMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 19, 1, 2), PhysAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hostMacAddress.setStatus('current')
+hostLease = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 2, 19, 1, 3), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hostLease.setStatus('current')
+whispSmConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 3, 1)).setObjects(("WHISP-SM-MIB", "rfScanListBandFilter"), ("WHISP-SM-MIB", "rfScanList"), ("WHISP-SM-MIB", "powerUpMode"), ("WHISP-SM-MIB", "lanIpSm"), ("WHISP-SM-MIB", "lanMaskSm"), ("WHISP-SM-MIB", "defaultGwSm"), ("WHISP-SM-MIB", "networkAccess"), ("WHISP-SM-MIB", "authKeySm"), ("WHISP-SM-MIB", "enable8023link"), ("WHISP-SM-MIB", "authKeyOption"), ("WHISP-SM-MIB", "timingPulseGated"), ("WHISP-SM-MIB", "naptPrivateIP"), ("WHISP-SM-MIB", "naptPrivateSubnetMask"), ("WHISP-SM-MIB", "naptPublicIP"), ("WHISP-SM-MIB", "naptPublicSubnetMask"), ("WHISP-SM-MIB", "naptPublicGatewayIP"), ("WHISP-SM-MIB", "naptRFPublicIP"), ("WHISP-SM-MIB", "naptRFPublicSubnetMask"), ("WHISP-SM-MIB", "naptRFPublicGateway"), ("WHISP-SM-MIB", "naptEnable"), ("WHISP-SM-MIB", "arpCacheTimeout"), ("WHISP-SM-MIB", "tcpGarbageCollectTmout"), ("WHISP-SM-MIB", "udpGarbageCollectTmout"), ("WHISP-SM-MIB", "natTslTableSize"), ("WHISP-SM-MIB", "dhcpClientEnable"), ("WHISP-SM-MIB", "dhcpServerEnable"), ("WHISP-SM-MIB", "dhcpServerLeaseTime"), ("WHISP-SM-MIB", "dhcpIPStart"), ("WHISP-SM-MIB", "dnsAutomatic"), ("WHISP-SM-MIB", "prefferedDNSIP"), ("WHISP-SM-MIB", "alternateDNSIP"), ("WHISP-SM-MIB", "natDNSProxyEnable"), ("WHISP-SM-MIB", "spectrumAnalysisDisplay"), ("WHISP-SM-MIB", "dmzIP"), ("WHISP-SM-MIB", "dmzEnable"), ("WHISP-SM-MIB", "dhcpNumIPsToLease"), ("WHISP-SM-MIB", "pppoeFilter"), ("WHISP-SM-MIB", "smbFilter"), ("WHISP-SM-MIB", "snmpFilter"), ("WHISP-SM-MIB", "userP1Filter"), ("WHISP-SM-MIB", "userP2Filter"), ("WHISP-SM-MIB", "userP3Filter"), ("WHISP-SM-MIB", "allOtherIpFilter"), ("WHISP-SM-MIB", "allIpv4Filter"), ("WHISP-SM-MIB", "upLinkBCastFilter"), ("WHISP-SM-MIB", "arpFilter"), ("WHISP-SM-MIB", "allOthersFilter"), ("WHISP-SM-MIB", "userDefinedPort1"), ("WHISP-SM-MIB", "port1TCPFilter"), ("WHISP-SM-MIB", "port1UDPFilter"), ("WHISP-SM-MIB", "userDefinedPort2"), ("WHISP-SM-MIB", "port2TCPFilter"), ("WHISP-SM-MIB", "port2UDPFilter"), ("WHISP-SM-MIB", "userDefinedPort3"), ("WHISP-SM-MIB", "port3TCPFilter"), ("WHISP-SM-MIB", "port3UDPFilter"), ("WHISP-SM-MIB", "bootpcFilter"), ("WHISP-SM-MIB", "bootpsFilter"), ("WHISP-SM-MIB", "ip4MultFilter"), ("WHISP-SM-MIB", "ingressVID"), ("WHISP-SM-MIB", "ingressVIDPriority"), ("WHISP-SM-MIB", "ingressVIDPriorityMode"), ("WHISP-SM-MIB", "providerVIDPriority"), ("WHISP-SM-MIB", "providerVIDPriorityMode"), ("WHISP-SM-MIB", "lowPriorityUplinkCIR"), ("WHISP-SM-MIB", "lowPriorityDownlinkCIR"), ("WHISP-SM-MIB", "hiPriorityChannel"), ("WHISP-SM-MIB", "hiPriorityUplinkCIR"), ("WHISP-SM-MIB", "hiPriorityDownlinkCIR"), ("WHISP-SM-MIB", "smRateAdapt"), ("WHISP-SM-MIB", "upLnkMaxBurstDataRate"), ("WHISP-SM-MIB", "upLnkDataRate"), ("WHISP-SM-MIB", "upLnkLimit"), ("WHISP-SM-MIB", "dwnLnkMaxBurstDataRate"), ("WHISP-SM-MIB", "cyclicPrefixScan"), ("WHISP-SM-MIB", "bandwidthScan"), ("WHISP-SM-MIB", "apSelection"), ("WHISP-SM-MIB", "radioBandscanConfig"), ("WHISP-SM-MIB", "forcepoweradjust"), ("WHISP-SM-MIB", "clearBerrResults"), ("WHISP-SM-MIB", "berrautoupdateflag"), ("WHISP-SM-MIB", "testSMBER"), ("WHISP-SM-MIB", "dwnLnkDataRate"), ("WHISP-SM-MIB", "dwnLnkLimit"), ("WHISP-SM-MIB", "dfsConfig"), ("WHISP-SM-MIB", "ethAccessFilterEnable"), ("WHISP-SM-MIB", "ipAccessFilterEnable"), ("WHISP-SM-MIB", "allowedIPAccess1"), ("WHISP-SM-MIB", "allowedIPAccess2"), ("WHISP-SM-MIB", "allowedIPAccess3"), ("WHISP-SM-MIB", "allowedIPAccessNMLength1"), ("WHISP-SM-MIB", "allowedIPAccessNMLength2"), ("WHISP-SM-MIB", "allowedIPAccessNMLength3"), ("WHISP-SM-MIB", "rfDhcpState"), ("WHISP-SM-MIB", "bCastMIR"), ("WHISP-SM-MIB", "bhsReReg"), ("WHISP-SM-MIB", "smLEDModeFlag"), ("WHISP-SM-MIB", "ethAccessEnable"), ("WHISP-SM-MIB", "pppoeEnable"), ("WHISP-SM-MIB", "pppoeAuthenticationType"), ("WHISP-SM-MIB", "pppoeAccessConcentrator"), ("WHISP-SM-MIB", "pppoeServiceName"), ("WHISP-SM-MIB", "pppoeUserName"), ("WHISP-SM-MIB", "pppoePassword"), ("WHISP-SM-MIB", "pppoeTCPMSSClampEnable"), ("WHISP-SM-MIB", "pppoeMTUOverrideEnable"), ("WHISP-SM-MIB", "pppoeMTUOverrideValue"), ("WHISP-SM-MIB", "pppoeTimerType"), ("WHISP-SM-MIB", "pppoeTimeoutPeriod"), ("WHISP-SM-MIB", "timedSpectrumAnalysisDuration"), ("WHISP-SM-MIB", "spectrumAnalysisScanBandwidth"), ("WHISP-SM-MIB", "spectrumAnalysisOnBoot"), ("WHISP-SM-MIB", "spectrumAnalysisAction"), ("WHISP-SM-MIB", "pppoeConnectOD"), ("WHISP-SM-MIB", "pppoeDisconnectOD"), ("WHISP-SM-MIB", "smAntennaType"), ("WHISP-SM-MIB", "natConnectionType"), ("WHISP-SM-MIB", "wanPingReplyEnable"), ("WHISP-SM-MIB", "packetFilterDirection"), ("WHISP-SM-MIB", "colorCode2"), ("WHISP-SM-MIB", "colorCodepriority2"), ("WHISP-SM-MIB", "colorCode3"), ("WHISP-SM-MIB", "colorCodepriority3"), ("WHISP-SM-MIB", "colorCode4"), ("WHISP-SM-MIB", "colorCodepriority4"), ("WHISP-SM-MIB", "colorCode5"), ("WHISP-SM-MIB", "colorCodepriority5"), ("WHISP-SM-MIB", "colorCode6"), ("WHISP-SM-MIB", "colorCodepriority6"), ("WHISP-SM-MIB", "colorCode7"), ("WHISP-SM-MIB", "colorCodepriority7"), ("WHISP-SM-MIB", "colorCode8"), ("WHISP-SM-MIB", "colorCodepriority8"), ("WHISP-SM-MIB", "colorCode9"), ("WHISP-SM-MIB", "colorCodepriority9"), ("WHISP-SM-MIB", "colorCode10"), ("WHISP-SM-MIB", "colorCodepriority10"), ("WHISP-SM-MIB", "additionalColorCode"), ("WHISP-SM-MIB", "additionalColorCodePriority"), ("WHISP-SM-MIB", "deleteAdditionalColorCode"), ("WHISP-SM-MIB", "bridgeTableSize"), ("WHISP-SM-MIB", "bridgeTableRestrict"), ("WHISP-SM-MIB", "berDeModSelect"), ("WHISP-SM-MIB", "multicastVCRcvRate"), ("WHISP-SM-MIB", "syslogServerApPreferred"), ("WHISP-SM-MIB", "syslogMinLevelApPreferred"), ("WHISP-SM-MIB", "syslogSMXmitSetting"), ("WHISP-SM-MIB", "syslogSMXmitControl"), ("WHISP-SM-MIB", "bCastMIRUnits"), ("WHISP-SM-MIB", "naptRemoteManage"), ("WHISP-SM-MIB", "maxTxPowerEnable"), ("WHISP-SM-MIB", "maxTxPower"), ("WHISP-SM-MIB", "txPowerControl"), ("WHISP-SM-MIB", "eapPeerAAAServerCommonName"), ("WHISP-SM-MIB", "pmp430ApRegistrationOptions"), ("WHISP-SM-MIB", "switchRadioModeAndReboot"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    whispSmConfigGroup = whispSmConfigGroup.setStatus('current')
+whispSmStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 3, 2)).setObjects(("WHISP-SM-MIB", "natTslTableEntries"), ("WHISP-SM-MIB", "sessionStatus"), ("WHISP-SM-MIB", "rssi"), ("WHISP-SM-MIB", "jitter"), ("WHISP-SM-MIB", "airDelay"), ("WHISP-SM-MIB", "radioSlicingSm"), ("WHISP-SM-MIB", "radioTxGainSm"), ("WHISP-SM-MIB", "calibrationStatus"), ("WHISP-SM-MIB", "radioDbm"), ("WHISP-SM-MIB", "registeredToAp"), ("WHISP-SM-MIB", "dhcpCip"), ("WHISP-SM-MIB", "dhcpSip"), ("WHISP-SM-MIB", "dhcpClientLease"), ("WHISP-SM-MIB", "dhcpCSMask"), ("WHISP-SM-MIB", "dhcpDfltRterIP"), ("WHISP-SM-MIB", "dhcpcdns1"), ("WHISP-SM-MIB", "dhcpcdns2"), ("WHISP-SM-MIB", "dhcpcdns3"), ("WHISP-SM-MIB", "dhcpDomName"), ("WHISP-SM-MIB", "adaptRate"), ("WHISP-SM-MIB", "adaptRateLowPri"), ("WHISP-SM-MIB", "adaptRateHighPri"), ("WHISP-SM-MIB", "bitErrorsQSPKpathA"), ("WHISP-SM-MIB", "bitErrorsQSPKpathB"), ("WHISP-SM-MIB", "bitErrors16QAMpathA"), ("WHISP-SM-MIB", "bitErrors16QAMpathB"), ("WHISP-SM-MIB", "bitErrors64QAMpathA"), ("WHISP-SM-MIB", "bitErrors64QAMpathB"), ("WHISP-SM-MIB", "bitErrors256QAMpathA"), ("WHISP-SM-MIB", "bitErrors256QAMpathB"), ("WHISP-SM-MIB", "bitsReceivedPerPathModulation"), ("WHISP-SM-MIB", "radioDbmInt"), ("WHISP-SM-MIB", "dfsStatus"), ("WHISP-SM-MIB", "radioTxPwr"), ("WHISP-SM-MIB", "activeRegion"), ("WHISP-SM-MIB", "snmpBerLevel"), ("WHISP-SM-MIB", "nbBitsRcvd"), ("WHISP-SM-MIB", "nbPriBitsErr"), ("WHISP-SM-MIB", "nbSndBitsErr"), ("WHISP-SM-MIB", "primaryBER"), ("WHISP-SM-MIB", "secondaryBER"), ("WHISP-SM-MIB", "totalBER"), ("WHISP-SM-MIB", "minRSSI"), ("WHISP-SM-MIB", "maxRSSI"), ("WHISP-SM-MIB", "minJitter"), ("WHISP-SM-MIB", "maxJitter"), ("WHISP-SM-MIB", "smSessionTimer"), ("WHISP-SM-MIB", "pppoeSessionStatus"), ("WHISP-SM-MIB", "pppoeSessionID"), ("WHISP-SM-MIB", "pppoeIPCPAddress"), ("WHISP-SM-MIB", "pppoeMTUOverrideEn"), ("WHISP-SM-MIB", "pppoeMTUValue"), ("WHISP-SM-MIB", "pppoeTimerTypeValue"), ("WHISP-SM-MIB", "pppoeTimeoutValue"), ("WHISP-SM-MIB", "pppoeDNSServer1"), ("WHISP-SM-MIB", "pppoeDNSServer2"), ("WHISP-SM-MIB", "pppoeControlBytesSent"), ("WHISP-SM-MIB", "pppoeControlBytesReceived"), ("WHISP-SM-MIB", "pppoeDataBytesSent"), ("WHISP-SM-MIB", "pppoeDataBytesReceived"), ("WHISP-SM-MIB", "pppoeEnabledStatus"), ("WHISP-SM-MIB", "pppoeTCPMSSClampEnableStatus"), ("WHISP-SM-MIB", "pppoeACNameStatus"), ("WHISP-SM-MIB", "pppoeSvcNameStatus"), ("WHISP-SM-MIB", "pppoeSessUptime"), ("WHISP-SM-MIB", "primaryBERDisplay"), ("WHISP-SM-MIB", "secondaryBERDisplay"), ("WHISP-SM-MIB", "totalBERDisplay"), ("WHISP-SM-MIB", "mimoQpskBerDisplay"), ("WHISP-SM-MIB", "mimo16QamBerDisplay"), ("WHISP-SM-MIB", "mimo64QamBerDisplay"), ("WHISP-SM-MIB", "mimo256QamBerDisplay"), ("WHISP-SM-MIB", "mimoBerRcvModulationType"), ("WHISP-SM-MIB", "minRadioDbm"), ("WHISP-SM-MIB", "maxRadioDbm"), ("WHISP-SM-MIB", "maxRadioDbmDeprecated"), ("WHISP-SM-MIB", "pppoeSessIdleTime"), ("WHISP-SM-MIB", "radioDbmAvg"), ("WHISP-SM-MIB", "zoltarFPGAFreqOffset"), ("WHISP-SM-MIB", "zoltarSWFreqOffset"), ("WHISP-SM-MIB", "airDelayns"), ("WHISP-SM-MIB", "smSectorID"), ("WHISP-SM-MIB", "scanCycleCount"), ("WHISP-SM-MIB", "currentColorCode"), ("WHISP-SM-MIB", "currentColorCodePri"), ("WHISP-SM-MIB", "currentChanFreq"), ("WHISP-SM-MIB", "linkQualityBeacon"), ("WHISP-SM-MIB", "currentCyclicPrefix"), ("WHISP-SM-MIB", "currentBandwidth"), ("WHISP-SM-MIB", "berPwrRxFPGAPathA"), ("WHISP-SM-MIB", "berPwrRxFPGAPathB"), ("WHISP-SM-MIB", "rawBERPwrRxPathA"), ("WHISP-SM-MIB", "rawBERPwrRxPathB"), ("WHISP-SM-MIB", "linkQualityData1XVertical"), ("WHISP-SM-MIB", "linkQualityData2XVertical"), ("WHISP-SM-MIB", "linkQualityData3XVertical"), ("WHISP-SM-MIB", "linkQualityData4XVertical"), ("WHISP-SM-MIB", "linkQualityData1XHorizontal"), ("WHISP-SM-MIB", "linkQualityData2XHorizontal"), ("WHISP-SM-MIB", "linkQualityData3XHorizontal"), ("WHISP-SM-MIB", "linkQualityData4XHorizontal"), ("WHISP-SM-MIB", "signalToNoiseRatioSMVertical"), ("WHISP-SM-MIB", "signalToNoiseRatioSMHorizontal"), ("WHISP-SM-MIB", "signalStrengthRatio"), ("WHISP-SM-MIB", "radioDbmHorizontal"), ("WHISP-SM-MIB", "radioDbmVertical"), ("WHISP-SM-MIB", "rfStatTxSuppressionCount"), ("WHISP-SM-MIB", "receiveFragmentsModulationPercentage"), ("WHISP-SM-MIB", "fragmentsReceived1XVertical"), ("WHISP-SM-MIB", "fragmentsReceived2XVertical"), ("WHISP-SM-MIB", "fragmentsReceived3XVertical"), ("WHISP-SM-MIB", "fragmentsReceived4XVertical"), ("WHISP-SM-MIB", "fragmentsReceived1XHorizontal"), ("WHISP-SM-MIB", "fragmentsReceived2XHorizontal"), ("WHISP-SM-MIB", "fragmentsReceived3XHorizontal"), ("WHISP-SM-MIB", "fragmentsReceived4XHorizontal"), ("WHISP-SM-MIB", "beaconsPercentReceived"), ("WHISP-SM-MIB", "mapsPercentReceived"), ("WHISP-SM-MIB", "beaconsPercentMinReceived"), ("WHISP-SM-MIB", "beaconsPercentMaxReceived"), ("WHISP-SM-MIB", "beaconsPercentReceivedSnapshot"), ("WHISP-SM-MIB", "maxReceivePower"), ("WHISP-SM-MIB", "bridgecbUplinkCreditRate"), ("WHISP-SM-MIB", "bridgecbUplinkCreditLimit"), ("WHISP-SM-MIB", "bridgecbDownlinkCreditRate"), ("WHISP-SM-MIB", "bridgecbDownlinkCreditLimit"), ("WHISP-SM-MIB", "bridgecbDownlinkMaxBurstBitRate"), ("WHISP-SM-MIB", "bridgecbUplinkMaxBurstBitRate"), ("WHISP-SM-MIB", "bridgeCbErrStatBridgeDropCount"), ("WHISP-SM-MIB", "radioModeStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    whispSmStatusGroup = whispSmStatusGroup.setStatus('current')
+whispSmNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 3, 3)).setObjects(("WHISP-SM-MIB", "enterSpectrumAnalysis"), ("WHISP-SM-MIB", "availableSpectrumAnalysis"), ("WHISP-SM-MIB", "whispRadarDetected"), ("WHISP-SM-MIB", "whispRadarEnd"), ("WHISP-SM-MIB", "smNatWanDHCPClientEvent"), ("WHISP-SM-MIB", "smNatRFPubDHCPClientEvent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    whispSmNotifGroup = whispSmNotifGroup.setStatus('current')
+whispMappingTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 3, 4)).setObjects(("WHISP-SM-MIB", "tableIndex"), ("WHISP-SM-MIB", "protocol"), ("WHISP-SM-MIB", "port"), ("WHISP-SM-MIB", "localIp"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    whispMappingTableGroup = whispMappingTableGroup.setStatus('current')
+whispRadarDetected = NotificationType((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 4, 1, 1)).setObjects(("WHISP-SM-MIB", "dfsStatus"), ("WHISP-BOX-MIBV2-MIB", "whispBoxEsn"))
+if mibBuilder.loadTexts: whispRadarDetected.setStatus('current')
+whispRadarEnd = NotificationType((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 4, 1, 2)).setObjects(("WHISP-SM-MIB", "dfsStatus"), ("WHISP-BOX-MIBV2-MIB", "whispBoxEsn"))
+if mibBuilder.loadTexts: whispRadarEnd.setStatus('current')
+enterSpectrumAnalysis = NotificationType((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 4, 2, 1)).setObjects(("WHISP-BOX-MIBV2-MIB", "whispBoxEsn"))
+if mibBuilder.loadTexts: enterSpectrumAnalysis.setStatus('current')
+availableSpectrumAnalysis = NotificationType((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 4, 2, 2)).setObjects(("WHISP-BOX-MIBV2-MIB", "whispBoxEsn"))
+if mibBuilder.loadTexts: availableSpectrumAnalysis.setStatus('current')
+smNatWanDHCPClientEvent = NotificationType((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 4, 3, 1)).setObjects(("WHISP-SM-MIB", "dhcpCip"), ("WHISP-BOX-MIBV2-MIB", "whispBoxEsn"))
+if mibBuilder.loadTexts: smNatWanDHCPClientEvent.setStatus('current')
+smNatRFPubDHCPClientEvent = NotificationType((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 4, 3, 2)).setObjects(("WHISP-BOX-MIBV2-MIB", "dhcpRfPublicIp"), ("WHISP-BOX-MIBV2-MIB", "whispBoxEsn"))
+if mibBuilder.loadTexts: smNatRFPubDHCPClientEvent.setStatus('current')
+clearLinkStats = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 8, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: clearLinkStats.setStatus('current')
+rescan = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 8, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rescan.setStatus('current')
+apEvalControl = MibScalar((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 8, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: apEvalControl.setStatus('current')
+whispMappingTable = MibTable((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 5), )
+if mibBuilder.loadTexts: whispMappingTable.setStatus('current')
+whispMappingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 5, 1), ).setIndexNames((0, "WHISP-SM-MIB", "tableIndex"))
+if mibBuilder.loadTexts: whispMappingEntry.setStatus('current')
+tableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tableIndex.setStatus('current')
+protocol = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 5, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: protocol.setStatus('current')
+port = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 5, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: port.setStatus('current')
+localIp = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 5, 1, 4), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: localIp.setStatus('current')
+whispSmTranslationTable = MibTable((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 6), )
+if mibBuilder.loadTexts: whispSmTranslationTable.setStatus('current')
+whispSmTranslationTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 6, 1), ).setIndexNames((0, "WHISP-SM-MIB", "whispTranslationTableIndex"))
+if mibBuilder.loadTexts: whispSmTranslationTableEntry.setStatus('current')
+whispTranslationTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 127))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: whispTranslationTableIndex.setStatus('current')
+whispTranslationTableMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 6, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: whispTranslationTableMacAddr.setStatus('current')
+whispTranslationTableIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 6, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: whispTranslationTableIpAddr.setStatus('current')
+whispTranslationTableAge = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 6, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: whispTranslationTableAge.setStatus('current')
+whispSmColorCodeTable = MibTable((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 9), )
+if mibBuilder.loadTexts: whispSmColorCodeTable.setStatus('current')
+whispSmColorCodeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 9, 1), ).setIndexNames((0, "WHISP-SM-MIB", "entryColorCode"))
+if mibBuilder.loadTexts: whispSmColorCodeEntry.setStatus('current')
+entryColorCode = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 9, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 254))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: entryColorCode.setStatus('current')
+entryColorCodePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 9, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("tertiary", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: entryColorCodePriority.setStatus('current')
+whispSmAPEvalTable = MibTable((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10), )
+if mibBuilder.loadTexts: whispSmAPEvalTable.setStatus('current')
+whispSmAPEvalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1), ).setIndexNames((0, "WHISP-SM-MIB", "evalIndex"))
+if mibBuilder.loadTexts: whispSmAPEvalEntry.setStatus('current')
+evalIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalIndex.setStatus('current')
+evalFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalFrequency.setStatus('current')
+evalChannelBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("bandwidth3Point5MHz", 0), ("bandwidth5MHz", 1), ("bandwidth7MHz", 2), ("bandwidth10MHz", 3), ("bandwidth15MHz", 4), ("bandwidth20MHz", 5), ("bandwidth30MHz", 6), ("bandwidth40MHz", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalChannelBandwidth.setStatus('current')
+evalCyclicPrefix = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("one-quarter", 0), ("one-eighth", 1), ("one-sixteenth", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalCyclicPrefix.setStatus('current')
+evalESN = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 5), PhysAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalESN.setStatus('current')
+evalRegion = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalRegion.setStatus('current')
+evalBeaconReceivePowerCombined = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalBeaconReceivePowerCombined.setStatus('current')
+evalBeaconReceivePowerH = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalBeaconReceivePowerH.setStatus('current')
+evalBeaconReceivePowerV = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalBeaconReceivePowerV.setStatus('current')
+evalFECEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalFECEnable.setStatus('current')
+evalType = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("multipoint", 0), ("point-to-point", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalType.setStatus('current')
+evalAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalAvail.setStatus('current')
+evalAge = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalAge.setStatus('current')
+evalLockout = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalLockout.setStatus('current')
+evalRegFail = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalRegFail.setStatus('current')
+evalRange = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 16), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalRange.setStatus('current')
+evalMaxRange = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalMaxRange.setStatus('current')
+evalTxBER = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalTxBER.setStatus('current')
+evalEBCast = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalEBCast.setStatus('current')
+evalSessionCount = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 20), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalSessionCount.setStatus('current')
+evalNoLuid = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 21), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalNoLuid.setStatus('current')
+evalOutOfRange = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 22), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalOutOfRange.setStatus('current')
+evalAuthFail = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 23), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalAuthFail.setStatus('current')
+evalEncryptFail = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 24), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalEncryptFail.setStatus('current')
+evalReScanReq = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 25), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalReScanReq.setStatus('current')
+evalLimitReached = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 26), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalLimitReached.setStatus('current')
+evalNoVCs = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 27), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalNoVCs.setStatus('current')
+evalVCReserveFail = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 28), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalVCReserveFail.setStatus('current')
+evalVCActFail = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 29), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalVCActFail.setStatus('current')
+evalTxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 30), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalTxPower.setStatus('current')
+evalReceiveTargetLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 31), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalReceiveTargetLevel.setStatus('current')
+evalColorCode = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 32), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalColorCode.setStatus('current')
+evalBeaconVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 33), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalBeaconVersion.setStatus('current')
+evalSectorUserCount = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 34), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalSectorUserCount.setStatus('current')
+evalSyncSrc = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 35), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("generate-sync", 0), ("gps-sync", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalSyncSrc.setStatus('current')
+evalNumULSlots = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 36), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalNumULSlots.setStatus('current')
+evalNumDLSlots = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 37), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalNumDLSlots.setStatus('current')
+evalNumULContSlots = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 38), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalNumULContSlots.setStatus('current')
+evalICC = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 39), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalICC.setStatus('current')
+evalAuthentication = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 40), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalAuthentication.setStatus('current')
+evalSMPPPoE = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 41), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("not-supported", 0), ("suported", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalSMPPPoE.setStatus('current')
+evalPToPVLAN = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 42), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("not-supported", 0), ("suported", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalPToPVLAN.setStatus('current')
+evalFramePeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 161, 19, 3, 2, 10, 1, 43), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("twoPointFiveMs", 0), ("fiveMs", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: evalFramePeriod.setStatus('current')
+mibBuilder.exportSymbols("WHISP-SM-MIB", cyclicPrefixScan=cyclicPrefixScan, additionalColorCodePriority=additionalColorCodePriority, port1UDPFilter=port1UDPFilter, evalICC=evalICC, scanCycleCount=scanCycleCount, pppoeMTUOverrideEnable=pppoeMTUOverrideEnable, port1TCPFilter=port1TCPFilter, naptRemoteManage=naptRemoteManage, bridgecbUplinkMaxBurstBitRate=bridgecbUplinkMaxBurstBitRate, totalBERDisplay=totalBERDisplay, evalSessionCount=evalSessionCount, pppoeServiceName=pppoeServiceName, adaptRate=adaptRate, ipAccessFilterEnable=ipAccessFilterEnable, rawBERPwrRxPathA=rawBERPwrRxPathA, powerUpMode=powerUpMode, evalIndex=evalIndex, whispSmMibModule=whispSmMibModule, clearBerrResults=clearBerrResults, deleteAdditionalColorCode=deleteAdditionalColorCode, pppoeDNSServer2=pppoeDNSServer2, userP1Filter=userP1Filter, arpFilter=arpFilter, providerVIDPriority=providerVIDPriority, natConnectionType=natConnectionType, lowPriorityUplinkCIR=lowPriorityUplinkCIR, whispSmSpAnEvent=whispSmSpAnEvent, upLnkMaxBurstDataRate=upLnkMaxBurstDataRate, mapsPercentReceived=mapsPercentReceived, rfScanListBandFilter=rfScanListBandFilter, evalNoLuid=evalNoLuid, spectrumAnalysisAction=spectrumAnalysisAction, colorCode5=colorCode5, phase1=phase1, authUsername=authUsername, bridgecbDownlinkMaxBurstBitRate=bridgecbDownlinkMaxBurstBitRate, allOthersFilter=allOthersFilter, dhcpcdns1=dhcpcdns1, evalBeaconVersion=evalBeaconVersion, natTslTableEntries=natTslTableEntries, fragmentsReceived3XHorizontal=fragmentsReceived3XHorizontal, pppoeConnectOD=pppoeConnectOD, whispSmAPEvalTable=whispSmAPEvalTable, apSelection=apSelection, beaconsPercentMaxReceived=beaconsPercentMaxReceived, bitsReceivedPerPathModulation=bitsReceivedPerPathModulation, pppoeControlBytesSent=pppoeControlBytesSent, whispSmControls=whispSmControls, radioDbmInt=radioDbmInt, authKeyOption=authKeyOption, dfsStatus=dfsStatus, certTable=certTable, allowedIPAccess1=allowedIPAccess1, smNatRFPubDHCPClientEvent=smNatRFPubDHCPClientEvent, dhcpServerEnable=dhcpServerEnable, allowedIPAccess2=allowedIPAccess2, rfScanListFrequency=rfScanListFrequency, whispSmTranslationTableEntry=whispSmTranslationTableEntry, evalBeaconReceivePowerCombined=evalBeaconReceivePowerCombined, userDefinedPort3=userDefinedPort3, bridgeTableRestrict=bridgeTableRestrict, evalReceiveTargetLevel=evalReceiveTargetLevel, pppoeTimerTypeValue=pppoeTimerTypeValue, pppoeAccessConcentrator=pppoeAccessConcentrator, dhcpServerPktRcv=dhcpServerPktRcv, whispSmEvent=whispSmEvent, maxRadioDbm=maxRadioDbm, registeredToAp=registeredToAp, radioDbmHorizontal=radioDbmHorizontal, zoltarSWFreqOffset=zoltarSWFreqOffset, bCastMIRUnits=bCastMIRUnits, rfDhcpState=rfDhcpState, action=action, additionalColorCode=additionalColorCode, allowedIPAccessNMLength3=allowedIPAccessNMLength3, evalSectorUserCount=evalSectorUserCount, rescan=rescan, evalType=evalType, allIpv4Filter=allIpv4Filter, dhcpClientEnable=dhcpClientEnable, allowedIPAccessNMLength2=allowedIPAccessNMLength2, evalEBCast=evalEBCast, linkQualityData1XHorizontal=linkQualityData1XHorizontal, certIndex=certIndex, evalChannelBandwidth=evalChannelBandwidth, dmzEnable=dmzEnable, signalToNoiseRatioSMHorizontal=signalToNoiseRatioSMHorizontal, pppoeDataBytesSent=pppoeDataBytesSent, evalBeaconReceivePowerV=evalBeaconReceivePowerV, currentChanFreq=currentChanFreq, udpGarbageCollectTmout=udpGarbageCollectTmout, spectrumAnalysisScanBandwidth=spectrumAnalysisScanBandwidth, colorCodepriority2=colorCodepriority2, evalVCReserveFail=evalVCReserveFail, dhcpcdns3=dhcpcdns3, numAuthCerts=numAuthCerts, colorCodepriority8=colorCodepriority8, timingPulseGated=timingPulseGated, syslogMinLevelApPreferred=syslogMinLevelApPreferred, naptPublicGatewayIP=naptPublicGatewayIP, apEvalControl=apEvalControl, evalNoVCs=evalNoVCs, hostIp=hostIp, wanPingReplyEnable=wanPingReplyEnable, nbSndBitsErr=nbSndBitsErr, evalReScanReq=evalReScanReq, radioDbmVertical=radioDbmVertical, linkQualityData3XVertical=linkQualityData3XVertical, signalToNoiseRatioSMVertical=signalToNoiseRatioSMVertical, naptEnable=naptEnable, dhcpServerEntry=dhcpServerEntry, primaryBERDisplay=primaryBERDisplay, networkAccess=networkAccess, userDefinedPort1=userDefinedPort1, airDelayns=airDelayns, useRealm=useRealm, bootpsFilter=bootpsFilter, evalTxBER=evalTxBER, defaultGwSm=defaultGwSm, hiPriorityChannel=hiPriorityChannel, dhcpClientLease=dhcpClientLease, jitter=jitter, maxRadioDbmDeprecated=maxRadioDbmDeprecated, authKeySm=authKeySm, lowPriorityDownlinkCIR=lowPriorityDownlinkCIR, pppoeSessionStatus=pppoeSessionStatus, mimo64QamBerDisplay=mimo64QamBerDisplay, evalAvail=evalAvail, fragmentsReceived4XVertical=fragmentsReceived4XVertical, port3UDPFilter=port3UDPFilter, spectrumAnalysisDisplay=spectrumAnalysisDisplay, bridgecbDownlinkCreditRate=bridgecbDownlinkCreditRate, switchRadioModeAndReboot=switchRadioModeAndReboot, fragmentsReceived1XHorizontal=fragmentsReceived1XHorizontal, allowedIPAccessNMLength1=allowedIPAccessNMLength1, tcpGarbageCollectTmout=tcpGarbageCollectTmout, linkQualityData4XVertical=linkQualityData4XVertical, whispSmDHCPClientEvent=whispSmDHCPClientEvent, evalSyncSrc=evalSyncSrc, dhcpServerTable=dhcpServerTable, colorCodepriority9=colorCodepriority9, upLnkLimit=upLnkLimit, colorCodepriority7=colorCodepriority7, pmp430ApRegistrationOptions=pmp430ApRegistrationOptions, entryColorCode=entryColorCode, tableIndex=tableIndex, bridgecbUplinkCreditLimit=bridgecbUplinkCreditLimit, bitErrorsQSPKpathA=bitErrorsQSPKpathA, testSMBER=testSMBER, totalBER=totalBER, naptPrivateIP=naptPrivateIP, evalEncryptFail=evalEncryptFail, smLEDModeFlag=smLEDModeFlag, fragmentsReceived2XVertical=fragmentsReceived2XVertical, port2UDPFilter=port2UDPFilter, pppoeTimeoutValue=pppoeTimeoutValue, dhcpIPStart=dhcpIPStart, entryColorCodePriority=entryColorCodePriority, bitErrors16QAMpathA=bitErrors16QAMpathA, evalAge=evalAge, clearLinkStats=clearLinkStats, evalRange=evalRange, whispTranslationTableIndex=whispTranslationTableIndex, userDefinedPort2=userDefinedPort2, pppoeEnabledStatus=pppoeEnabledStatus, radioDbmAvg=radioDbmAvg, pppoeUserName=pppoeUserName, currentColorCode=currentColorCode, linkQualityData2XHorizontal=linkQualityData2XHorizontal, evalAuthentication=evalAuthentication, evalColorCode=evalColorCode, rfScanListTable=rfScanListTable, dhcpCSMask=dhcpCSMask, berPwrRxFPGAPathB=berPwrRxFPGAPathB, cert=cert, naptPublicSubnetMask=naptPublicSubnetMask, whispMappingEntry=whispMappingEntry, dhcpcdns2=dhcpcdns2, zoltarFPGAFreqOffset=zoltarFPGAFreqOffset, bridgecbDownlinkCreditLimit=bridgecbDownlinkCreditLimit, rfStatTxSuppressionCount=rfStatTxSuppressionCount, forcepoweradjust=forcepoweradjust, bridgeCbErrStatBridgeDropCount=bridgeCbErrStatBridgeDropCount, activeRegion=activeRegion, bitErrors256QAMpathA=bitErrors256QAMpathA, eapPeerAAAServerCommonName=eapPeerAAAServerCommonName, whispSmStatusGroup=whispSmStatusGroup, bandwidthScan=bandwidthScan, arpCacheTimeout=arpCacheTimeout, nbBitsRcvd=nbBitsRcvd, ingressVID=ingressVID, pppoeDisconnectOD=pppoeDisconnectOD, linkQualityBeacon=linkQualityBeacon, pppoePassword=pppoePassword, evalRegion=evalRegion, maxReceivePower=maxReceivePower, secondaryBER=secondaryBER, syslogSMXmitControl=syslogSMXmitControl, mimoBerRcvModulationType=mimoBerRcvModulationType, radioTxGainSm=radioTxGainSm, sessionStatus=sessionStatus, dhcpServerPktXmt=dhcpServerPktXmt, whispMappingTableGroup=whispMappingTableGroup, phase2=phase2, upLnkDataRate=upLnkDataRate, userP2Filter=userP2Filter, authenticationEnforce=authenticationEnforce, hiPriorityDownlinkCIR=hiPriorityDownlinkCIR, pppoeSessUptime=pppoeSessUptime, linkQualityData2XVertical=linkQualityData2XVertical, colorCodepriority3=colorCodepriority3, naptRFPublicGateway=naptRFPublicGateway, allowedIPAccess3=allowedIPAccess3, colorCode7=colorCode7, pppoeAuthenticationType=pppoeAuthenticationType, snmpBerLevel=snmpBerLevel, whispSmConfig=whispSmConfig, whispSmAPEvalEntry=whispSmAPEvalEntry, colorCodepriority5=colorCodepriority5, enable8023link=enable8023link, whispRadarDetected=whispRadarDetected, beaconsPercentMinReceived=beaconsPercentMinReceived, ethAccessFilterEnable=ethAccessFilterEnable, fragmentsReceived1XVertical=fragmentsReceived1XVertical, protocol=protocol, rawBERPwrRxPathB=rawBERPwrRxPathB, dhcpCip=dhcpCip, rfScanListEntry=rfScanListEntry, bootpcFilter=bootpcFilter, hiPriorityUplinkCIR=hiPriorityUplinkCIR, colorCode2=colorCode2, hostLease=hostLease, pppoeEnable=pppoeEnable, bitErrors16QAMpathB=bitErrors16QAMpathB, dwnLnkMaxBurstDataRate=dwnLnkMaxBurstDataRate, pppoeSessIdleTime=pppoeSessIdleTime, secondaryBERDisplay=secondaryBERDisplay, evalNumULContSlots=evalNumULContSlots, beaconsPercentReceivedSnapshot=beaconsPercentReceivedSnapshot, pppoeMTUOverrideEn=pppoeMTUOverrideEn, signalStrengthRatio=signalStrengthRatio, rfScanList=rfScanList, colorCode9=colorCode9, whispMappingTable=whispMappingTable, whispSmTranslationTable=whispSmTranslationTable, port3TCPFilter=port3TCPFilter, authOuterId=authOuterId, radioTxPwr=radioTxPwr, PYSNMP_MODULE_ID=whispSmMibModule, evalMaxRange=evalMaxRange, mimo256QamBerDisplay=mimo256QamBerDisplay, evalOutOfRange=evalOutOfRange, smRateAdapt=smRateAdapt, fragmentsReceived2XHorizontal=fragmentsReceived2XHorizontal)
+mibBuilder.exportSymbols("WHISP-SM-MIB", colorCode6=colorCode6, evalRegFail=evalRegFail, whispRadarEnd=whispRadarEnd, naptRFPublicIP=naptRFPublicIP, pppoeSvcNameStatus=pppoeSvcNameStatus, linkQualityData1XVertical=linkQualityData1XVertical, whispSmConfigGroup=whispSmConfigGroup, mimoQpskBerDisplay=mimoQpskBerDisplay, userP3Filter=userP3Filter, ip4MultFilter=ip4MultFilter, pppoeMTUValue=pppoeMTUValue, ingressVIDPriority=ingressVIDPriority, whispSmColorCodeEntry=whispSmColorCodeEntry, radioSlicingSm=radioSlicingSm, smAntennaType=smAntennaType, dmzIP=dmzIP, syslogSMXmitSetting=syslogSMXmitSetting, upLinkBCastFilter=upLinkBCastFilter, whispTranslationTableIpAddr=whispTranslationTableIpAddr, pppoeTCPMSSClampEnable=pppoeTCPMSSClampEnable, evalNumDLSlots=evalNumDLSlots, naptRFPublicSubnetMask=naptRFPublicSubnetMask, evalCyclicPrefix=evalCyclicPrefix, bridgeTableSize=bridgeTableSize, bridgecbUplinkCreditRate=bridgecbUplinkCreditRate, port=port, smSectorID=smSectorID, prefferedDNSIP=prefferedDNSIP, colorCodepriority6=colorCodepriority6, evalBeaconReceivePowerH=evalBeaconReceivePowerH, smSessionTimer=smSessionTimer, primaryBER=primaryBER, beaconsPercentReceived=beaconsPercentReceived, pppoeControlBytesReceived=pppoeControlBytesReceived, dwnLnkDataRate=dwnLnkDataRate, pppoeMTUOverrideValue=pppoeMTUOverrideValue, availableSpectrumAnalysis=availableSpectrumAnalysis, whispSmNotifGroup=whispSmNotifGroup, maxRSSI=maxRSSI, dhcpDfltRterIP=dhcpDfltRterIP, alternateDNSIP=alternateDNSIP, whispSmColorCodeTable=whispSmColorCodeTable, minJitter=minJitter, fragmentsReceived3XVertical=fragmentsReceived3XVertical, bitErrorsQSPKpathB=bitErrorsQSPKpathB, evalAuthFail=evalAuthFail, maxTxPowerEnable=maxTxPowerEnable, lanIpSm=lanIpSm, hostMacAddress=hostMacAddress, natTslTableSize=natTslTableSize, minRSSI=minRSSI, bitErrors64QAMpathB=bitErrors64QAMpathB, allOtherIpFilter=allOtherIpFilter, port2TCPFilter=port2TCPFilter, evalFramePeriod=evalFramePeriod, currentCyclicPrefix=currentCyclicPrefix, whispTranslationTableAge=whispTranslationTableAge, maxJitter=maxJitter, adaptRateLowPri=adaptRateLowPri, evalFECEnable=evalFECEnable, adaptRateHighPri=adaptRateHighPri, colorCodepriority10=colorCodepriority10, whispSmSecurity=whispSmSecurity, ethAccessEnable=ethAccessEnable, evalLockout=evalLockout, bitErrors256QAMpathB=bitErrors256QAMpathB, pppoeTimeoutPeriod=pppoeTimeoutPeriod, pppoeDataBytesReceived=pppoeDataBytesReceived, pppoeFilter=pppoeFilter, calibrationStatus=calibrationStatus, minRadioDbm=minRadioDbm, radioBandscanConfig=radioBandscanConfig, whispTranslationTableMacAddr=whispTranslationTableMacAddr, dhcpNumIPsToLease=dhcpNumIPsToLease, dfsConfig=dfsConfig, providerVIDPriorityMode=providerVIDPriorityMode, pppoeTimerType=pppoeTimerType, dhcpServerLeaseTime=dhcpServerLeaseTime, naptPrivateSubnetMask=naptPrivateSubnetMask, naptPublicIP=naptPublicIP, smNatWanDHCPClientEvent=smNatWanDHCPClientEvent, radioDbm=radioDbm, currentColorCodePri=currentColorCodePri, multicastVCRcvRate=multicastVCRcvRate, pppoeSessionID=pppoeSessionID, timedSpectrumAnalysisDuration=timedSpectrumAnalysisDuration, evalVCActFail=evalVCActFail, berrautoupdateflag=berrautoupdateflag, currentBandwidth=currentBandwidth, evalFrequency=evalFrequency, whispSmStatus=whispSmStatus, bCastMIR=bCastMIR, ingressVIDPriorityMode=ingressVIDPriorityMode, smbFilter=smbFilter, lanMaskSm=lanMaskSm, colorCode10=colorCode10, enterSpectrumAnalysis=enterSpectrumAnalysis, evalSMPPPoE=evalSMPPPoE, colorCode8=colorCode8, snmpFilter=snmpFilter, pppoeIPCPAddress=pppoeIPCPAddress, whispSmDfsEvent=whispSmDfsEvent, evalPToPVLAN=evalPToPVLAN, airDelay=airDelay, colorCodepriority4=colorCodepriority4, evalESN=evalESN, dhcpDomName=dhcpDomName, evalNumULSlots=evalNumULSlots, mimo16QamBerDisplay=mimo16QamBerDisplay, certificateDN=certificateDN, bhsReReg=bhsReReg, bitErrors64QAMpathA=bitErrors64QAMpathA, authPassword=authPassword, natDNSProxyEnable=natDNSProxyEnable, realm=realm, nbPriBitsErr=nbPriBitsErr, linkQualityData4XHorizontal=linkQualityData4XHorizontal, dwnLnkLimit=dwnLnkLimit, syslogServerApPreferred=syslogServerApPreferred, maxTxPower=maxTxPower, evalLimitReached=evalLimitReached, spectrumAnalysisOnBoot=spectrumAnalysisOnBoot, fragmentsReceived4XHorizontal=fragmentsReceived4XHorizontal, rssi=rssi, berPwrRxFPGAPathA=berPwrRxFPGAPathA, pppoeDNSServer1=pppoeDNSServer1, linkQualityData3XHorizontal=linkQualityData3XHorizontal, whispSmGroups=whispSmGroups, pppoeTCPMSSClampEnableStatus=pppoeTCPMSSClampEnableStatus, pppoeACNameStatus=pppoeACNameStatus, certEntry=certEntry, dhcpServerPktToss=dhcpServerPktToss, receiveFragmentsModulationPercentage=receiveFragmentsModulationPercentage, berDeModSelect=berDeModSelect, packetFilterDirection=packetFilterDirection, colorCode3=colorCode3, dnsAutomatic=dnsAutomatic, radioModeStatus=radioModeStatus, evalTxPower=evalTxPower, localIp=localIp, colorCode4=colorCode4, dhcpSip=dhcpSip, txPowerControl=txPowerControl)

@@ -1,404 +1,155 @@
-_z='hwSecStatExtModuleLicenseNum'
-_y='hwSecStatExtModuleName'
-_x='hwSecStatExtVcpuUseage'
-_w='hwSecStatExtVcpuID'
-_v='hwSecStatExtL2tpSessionNum'
-_u='hwSecStatExtL2tpTunnelNum'
-_t='hwSecStatHrpPacketsSend'
-_s='hwSecStatL2tpUserTotalNum'
-_r='hwSecStatIpsecPacketsDorp'
-_q='hwSecStatIpsecPacketsOut'
-_p='hwSecStatIpsecPacketsIn'
-_o='hwSecStatIkeNum'
-_n='hwSecStatExtIpv6ServerMapTotalNum'
-_m='hwSecStatExtIpv6SessionNum'
-_l='hwSecStatExtArplistTotalNum'
-_k='hwSecStatExt802dot1xUserOnlineNum'
-_j='hwSecStatExtWifiUserOnlineNum'
-_i='hwSecStatExtServerMapDynamicNum'
-_h='hwSecStatExtServerMapTotalNum'
-_g='hwSecStatExtIpMonitorListNum'
-_f='hwSecStatExtNatServerNum'
-_e='hwSecStatExtBlackListNum'
-_d='hwSecStatExtMacAddrListNum'
-_c='hwSecStatExtSessionNum'
-_b='hwSecStatExtIpv6BgpNum'
-_a='hwSecStatExtIpv6IsisNum'
-_Z='hwSecStatExtIpv6RipNum'
-_Y='hwSecStatExtIpv6OspfNum'
-_X='hwSecStatExtIpv6StaticRouteNum'
-_W='hwSecStatExtBgpNum'
-_V='hwSecStatExtIsisNum'
-_U='hwSecStatExtRipNum'
-_T='hwSecStatExtOspfNum'
-_S='hwSecStatExtStaticRouteNum'
-_R='hwSecStatExtAcl6RuleNum'
-_Q='hwSecStatExtMacAclRuleNum'
-_P='hwSecStatExtAdvanceAclRuleNum'
-_O='hwSecStatExtBasicAclRuleNum'
-_N='hwSecStatExtAcl6GroupNum'
-_M='hwSecStatExtMacAclGroupNum'
-_L='hwSecStatExtAdvanceAclGroupNum'
-_K='hwSecStatExtBasicAclGroupNum'
-_J='hwSecStatExtModuleIndex'
-_I='hwSecStatExtVcpuIndex'
-_H='hwSecStatExtL2tpCpuIndex'
-_G='hwSecStatExtL2tpSlotIndex'
-_F='OctetString'
-_E='not-accessible'
-_D='read-only'
-_C='Integer32'
-_B='HUAWEI-SECURITY-STATEXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-hwSecStatExtMib=ModuleIdentity((1,3,6,1,4,1,2011,6,122,38))
-_Huawei_ObjectIdentity=ObjectIdentity
-huawei=_Huawei_ObjectIdentity((1,3,6,1,4,1,2011))
-_HuaweiUtility_ObjectIdentity=ObjectIdentity
-huaweiUtility=_HuaweiUtility_ObjectIdentity((1,3,6,1,4,1,2011,6))
-_HwSecurity_ObjectIdentity=ObjectIdentity
-hwSecurity=_HwSecurity_ObjectIdentity((1,3,6,1,4,1,2011,6,122))
-_HwSecStatExtMibObjects_ObjectIdentity=ObjectIdentity
-hwSecStatExtMibObjects=_HwSecStatExtMibObjects_ObjectIdentity((1,3,6,1,4,1,2011,6,122,38,1))
-_HwSecStatExtAcl_ObjectIdentity=ObjectIdentity
-hwSecStatExtAcl=_HwSecStatExtAcl_ObjectIdentity((1,3,6,1,4,1,2011,6,122,38,1,1))
-class _HwSecStatExtBasicAclGroupNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtBasicAclGroupNum_Type.__name__=_C
-_HwSecStatExtBasicAclGroupNum_Object=MibScalar
-hwSecStatExtBasicAclGroupNum=_HwSecStatExtBasicAclGroupNum_Object((1,3,6,1,4,1,2011,6,122,38,1,1,1),_HwSecStatExtBasicAclGroupNum_Type())
-hwSecStatExtBasicAclGroupNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtBasicAclGroupNum.setStatus(_A)
-class _HwSecStatExtAdvanceAclGroupNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtAdvanceAclGroupNum_Type.__name__=_C
-_HwSecStatExtAdvanceAclGroupNum_Object=MibScalar
-hwSecStatExtAdvanceAclGroupNum=_HwSecStatExtAdvanceAclGroupNum_Object((1,3,6,1,4,1,2011,6,122,38,1,1,2),_HwSecStatExtAdvanceAclGroupNum_Type())
-hwSecStatExtAdvanceAclGroupNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtAdvanceAclGroupNum.setStatus(_A)
-class _HwSecStatExtMacAclGroupNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtMacAclGroupNum_Type.__name__=_C
-_HwSecStatExtMacAclGroupNum_Object=MibScalar
-hwSecStatExtMacAclGroupNum=_HwSecStatExtMacAclGroupNum_Object((1,3,6,1,4,1,2011,6,122,38,1,1,3),_HwSecStatExtMacAclGroupNum_Type())
-hwSecStatExtMacAclGroupNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtMacAclGroupNum.setStatus(_A)
-class _HwSecStatExtAcl6GroupNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtAcl6GroupNum_Type.__name__=_C
-_HwSecStatExtAcl6GroupNum_Object=MibScalar
-hwSecStatExtAcl6GroupNum=_HwSecStatExtAcl6GroupNum_Object((1,3,6,1,4,1,2011,6,122,38,1,1,4),_HwSecStatExtAcl6GroupNum_Type())
-hwSecStatExtAcl6GroupNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtAcl6GroupNum.setStatus(_A)
-class _HwSecStatExtBasicAclRuleNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtBasicAclRuleNum_Type.__name__=_C
-_HwSecStatExtBasicAclRuleNum_Object=MibScalar
-hwSecStatExtBasicAclRuleNum=_HwSecStatExtBasicAclRuleNum_Object((1,3,6,1,4,1,2011,6,122,38,1,1,5),_HwSecStatExtBasicAclRuleNum_Type())
-hwSecStatExtBasicAclRuleNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtBasicAclRuleNum.setStatus(_A)
-class _HwSecStatExtAdvanceAclRuleNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtAdvanceAclRuleNum_Type.__name__=_C
-_HwSecStatExtAdvanceAclRuleNum_Object=MibScalar
-hwSecStatExtAdvanceAclRuleNum=_HwSecStatExtAdvanceAclRuleNum_Object((1,3,6,1,4,1,2011,6,122,38,1,1,6),_HwSecStatExtAdvanceAclRuleNum_Type())
-hwSecStatExtAdvanceAclRuleNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtAdvanceAclRuleNum.setStatus(_A)
-class _HwSecStatExtMacAclRuleNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtMacAclRuleNum_Type.__name__=_C
-_HwSecStatExtMacAclRuleNum_Object=MibScalar
-hwSecStatExtMacAclRuleNum=_HwSecStatExtMacAclRuleNum_Object((1,3,6,1,4,1,2011,6,122,38,1,1,7),_HwSecStatExtMacAclRuleNum_Type())
-hwSecStatExtMacAclRuleNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtMacAclRuleNum.setStatus(_A)
-class _HwSecStatExtAcl6RuleNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtAcl6RuleNum_Type.__name__=_C
-_HwSecStatExtAcl6RuleNum_Object=MibScalar
-hwSecStatExtAcl6RuleNum=_HwSecStatExtAcl6RuleNum_Object((1,3,6,1,4,1,2011,6,122,38,1,1,8),_HwSecStatExtAcl6RuleNum_Type())
-hwSecStatExtAcl6RuleNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtAcl6RuleNum.setStatus(_A)
-_HwSecStatExtRoute_ObjectIdentity=ObjectIdentity
-hwSecStatExtRoute=_HwSecStatExtRoute_ObjectIdentity((1,3,6,1,4,1,2011,6,122,38,1,2))
-class _HwSecStatExtStaticRouteNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtStaticRouteNum_Type.__name__=_C
-_HwSecStatExtStaticRouteNum_Object=MibScalar
-hwSecStatExtStaticRouteNum=_HwSecStatExtStaticRouteNum_Object((1,3,6,1,4,1,2011,6,122,38,1,2,1),_HwSecStatExtStaticRouteNum_Type())
-hwSecStatExtStaticRouteNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtStaticRouteNum.setStatus(_A)
-class _HwSecStatExtOspfNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtOspfNum_Type.__name__=_C
-_HwSecStatExtOspfNum_Object=MibScalar
-hwSecStatExtOspfNum=_HwSecStatExtOspfNum_Object((1,3,6,1,4,1,2011,6,122,38,1,2,2),_HwSecStatExtOspfNum_Type())
-hwSecStatExtOspfNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtOspfNum.setStatus(_A)
-class _HwSecStatExtRipNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtRipNum_Type.__name__=_C
-_HwSecStatExtRipNum_Object=MibScalar
-hwSecStatExtRipNum=_HwSecStatExtRipNum_Object((1,3,6,1,4,1,2011,6,122,38,1,2,3),_HwSecStatExtRipNum_Type())
-hwSecStatExtRipNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtRipNum.setStatus(_A)
-class _HwSecStatExtIsisNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtIsisNum_Type.__name__=_C
-_HwSecStatExtIsisNum_Object=MibScalar
-hwSecStatExtIsisNum=_HwSecStatExtIsisNum_Object((1,3,6,1,4,1,2011,6,122,38,1,2,4),_HwSecStatExtIsisNum_Type())
-hwSecStatExtIsisNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtIsisNum.setStatus(_A)
-class _HwSecStatExtBgpNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtBgpNum_Type.__name__=_C
-_HwSecStatExtBgpNum_Object=MibScalar
-hwSecStatExtBgpNum=_HwSecStatExtBgpNum_Object((1,3,6,1,4,1,2011,6,122,38,1,2,5),_HwSecStatExtBgpNum_Type())
-hwSecStatExtBgpNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtBgpNum.setStatus(_A)
-class _HwSecStatExtIpv6StaticRouteNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtIpv6StaticRouteNum_Type.__name__=_C
-_HwSecStatExtIpv6StaticRouteNum_Object=MibScalar
-hwSecStatExtIpv6StaticRouteNum=_HwSecStatExtIpv6StaticRouteNum_Object((1,3,6,1,4,1,2011,6,122,38,1,2,6),_HwSecStatExtIpv6StaticRouteNum_Type())
-hwSecStatExtIpv6StaticRouteNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtIpv6StaticRouteNum.setStatus(_A)
-class _HwSecStatExtIpv6OspfNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtIpv6OspfNum_Type.__name__=_C
-_HwSecStatExtIpv6OspfNum_Object=MibScalar
-hwSecStatExtIpv6OspfNum=_HwSecStatExtIpv6OspfNum_Object((1,3,6,1,4,1,2011,6,122,38,1,2,7),_HwSecStatExtIpv6OspfNum_Type())
-hwSecStatExtIpv6OspfNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtIpv6OspfNum.setStatus(_A)
-class _HwSecStatExtIpv6RipNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtIpv6RipNum_Type.__name__=_C
-_HwSecStatExtIpv6RipNum_Object=MibScalar
-hwSecStatExtIpv6RipNum=_HwSecStatExtIpv6RipNum_Object((1,3,6,1,4,1,2011,6,122,38,1,2,8),_HwSecStatExtIpv6RipNum_Type())
-hwSecStatExtIpv6RipNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtIpv6RipNum.setStatus(_A)
-class _HwSecStatExtIpv6IsisNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtIpv6IsisNum_Type.__name__=_C
-_HwSecStatExtIpv6IsisNum_Object=MibScalar
-hwSecStatExtIpv6IsisNum=_HwSecStatExtIpv6IsisNum_Object((1,3,6,1,4,1,2011,6,122,38,1,2,9),_HwSecStatExtIpv6IsisNum_Type())
-hwSecStatExtIpv6IsisNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtIpv6IsisNum.setStatus(_A)
-class _HwSecStatExtIpv6BgpNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwSecStatExtIpv6BgpNum_Type.__name__=_C
-_HwSecStatExtIpv6BgpNum_Object=MibScalar
-hwSecStatExtIpv6BgpNum=_HwSecStatExtIpv6BgpNum_Object((1,3,6,1,4,1,2011,6,122,38,1,2,10),_HwSecStatExtIpv6BgpNum_Type())
-hwSecStatExtIpv6BgpNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtIpv6BgpNum.setStatus(_A)
-_HwSecStatExtSession_ObjectIdentity=ObjectIdentity
-hwSecStatExtSession=_HwSecStatExtSession_ObjectIdentity((1,3,6,1,4,1,2011,6,122,38,1,3))
-class _HwSecStatExtSessionNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtSessionNum_Type.__name__=_C
-_HwSecStatExtSessionNum_Object=MibScalar
-hwSecStatExtSessionNum=_HwSecStatExtSessionNum_Object((1,3,6,1,4,1,2011,6,122,38,1,3,1),_HwSecStatExtSessionNum_Type())
-hwSecStatExtSessionNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtSessionNum.setStatus(_A)
-class _HwSecStatExtMacAddrListNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtMacAddrListNum_Type.__name__=_C
-_HwSecStatExtMacAddrListNum_Object=MibScalar
-hwSecStatExtMacAddrListNum=_HwSecStatExtMacAddrListNum_Object((1,3,6,1,4,1,2011,6,122,38,1,3,2),_HwSecStatExtMacAddrListNum_Type())
-hwSecStatExtMacAddrListNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtMacAddrListNum.setStatus(_A)
-class _HwSecStatExtBlackListNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtBlackListNum_Type.__name__=_C
-_HwSecStatExtBlackListNum_Object=MibScalar
-hwSecStatExtBlackListNum=_HwSecStatExtBlackListNum_Object((1,3,6,1,4,1,2011,6,122,38,1,3,3),_HwSecStatExtBlackListNum_Type())
-hwSecStatExtBlackListNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtBlackListNum.setStatus(_A)
-class _HwSecStatExtNatServerNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtNatServerNum_Type.__name__=_C
-_HwSecStatExtNatServerNum_Object=MibScalar
-hwSecStatExtNatServerNum=_HwSecStatExtNatServerNum_Object((1,3,6,1,4,1,2011,6,122,38,1,3,4),_HwSecStatExtNatServerNum_Type())
-hwSecStatExtNatServerNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtNatServerNum.setStatus(_A)
-class _HwSecStatExtIpMonitorListNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtIpMonitorListNum_Type.__name__=_C
-_HwSecStatExtIpMonitorListNum_Object=MibScalar
-hwSecStatExtIpMonitorListNum=_HwSecStatExtIpMonitorListNum_Object((1,3,6,1,4,1,2011,6,122,38,1,3,5),_HwSecStatExtIpMonitorListNum_Type())
-hwSecStatExtIpMonitorListNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtIpMonitorListNum.setStatus(_A)
-class _HwSecStatExtServerMapTotalNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtServerMapTotalNum_Type.__name__=_C
-_HwSecStatExtServerMapTotalNum_Object=MibScalar
-hwSecStatExtServerMapTotalNum=_HwSecStatExtServerMapTotalNum_Object((1,3,6,1,4,1,2011,6,122,38,1,3,6),_HwSecStatExtServerMapTotalNum_Type())
-hwSecStatExtServerMapTotalNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtServerMapTotalNum.setStatus(_A)
-class _HwSecStatExtServerMapDynamicNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtServerMapDynamicNum_Type.__name__=_C
-_HwSecStatExtServerMapDynamicNum_Object=MibScalar
-hwSecStatExtServerMapDynamicNum=_HwSecStatExtServerMapDynamicNum_Object((1,3,6,1,4,1,2011,6,122,38,1,3,7),_HwSecStatExtServerMapDynamicNum_Type())
-hwSecStatExtServerMapDynamicNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtServerMapDynamicNum.setStatus(_A)
-class _HwSecStatExtWifiUserOnlineNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtWifiUserOnlineNum_Type.__name__=_C
-_HwSecStatExtWifiUserOnlineNum_Object=MibScalar
-hwSecStatExtWifiUserOnlineNum=_HwSecStatExtWifiUserOnlineNum_Object((1,3,6,1,4,1,2011,6,122,38,1,3,8),_HwSecStatExtWifiUserOnlineNum_Type())
-hwSecStatExtWifiUserOnlineNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtWifiUserOnlineNum.setStatus(_A)
-class _HwSecStatExt802dot1xUserOnlineNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExt802dot1xUserOnlineNum_Type.__name__=_C
-_HwSecStatExt802dot1xUserOnlineNum_Object=MibScalar
-hwSecStatExt802dot1xUserOnlineNum=_HwSecStatExt802dot1xUserOnlineNum_Object((1,3,6,1,4,1,2011,6,122,38,1,3,9),_HwSecStatExt802dot1xUserOnlineNum_Type())
-hwSecStatExt802dot1xUserOnlineNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExt802dot1xUserOnlineNum.setStatus(_A)
-class _HwSecStatExtArplistTotalNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtArplistTotalNum_Type.__name__=_C
-_HwSecStatExtArplistTotalNum_Object=MibScalar
-hwSecStatExtArplistTotalNum=_HwSecStatExtArplistTotalNum_Object((1,3,6,1,4,1,2011,6,122,38,1,3,10),_HwSecStatExtArplistTotalNum_Type())
-hwSecStatExtArplistTotalNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtArplistTotalNum.setStatus(_A)
-class _HwSecStatExtFiblistTotoleNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtFiblistTotoleNum_Type.__name__=_C
-_HwSecStatExtFiblistTotoleNum_Object=MibScalar
-hwSecStatExtFiblistTotoleNum=_HwSecStatExtFiblistTotoleNum_Object((1,3,6,1,4,1,2011,6,122,38,1,3,11),_HwSecStatExtFiblistTotoleNum_Type())
-hwSecStatExtFiblistTotoleNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtFiblistTotoleNum.setStatus(_A)
-class _HwSecStatExtIpv6SessionNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtIpv6SessionNum_Type.__name__=_C
-_HwSecStatExtIpv6SessionNum_Object=MibScalar
-hwSecStatExtIpv6SessionNum=_HwSecStatExtIpv6SessionNum_Object((1,3,6,1,4,1,2011,6,122,38,1,3,12),_HwSecStatExtIpv6SessionNum_Type())
-hwSecStatExtIpv6SessionNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtIpv6SessionNum.setStatus(_A)
-class _HwSecStatExtIpv6ServerMapTotalNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtIpv6ServerMapTotalNum_Type.__name__=_C
-_HwSecStatExtIpv6ServerMapTotalNum_Object=MibScalar
-hwSecStatExtIpv6ServerMapTotalNum=_HwSecStatExtIpv6ServerMapTotalNum_Object((1,3,6,1,4,1,2011,6,122,38,1,3,13),_HwSecStatExtIpv6ServerMapTotalNum_Type())
-hwSecStatExtIpv6ServerMapTotalNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtIpv6ServerMapTotalNum.setStatus(_A)
-_HwSecStatExtTotalNum_ObjectIdentity=ObjectIdentity
-hwSecStatExtTotalNum=_HwSecStatExtTotalNum_ObjectIdentity((1,3,6,1,4,1,2011,6,122,38,1,4))
-class _HwSecStatIkeNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatIkeNum_Type.__name__=_C
-_HwSecStatIkeNum_Object=MibScalar
-hwSecStatIkeNum=_HwSecStatIkeNum_Object((1,3,6,1,4,1,2011,6,122,38,1,4,1),_HwSecStatIkeNum_Type())
-hwSecStatIkeNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatIkeNum.setStatus(_A)
-_HwSecStatIpsecPacketsIn_Type=Counter64
-_HwSecStatIpsecPacketsIn_Object=MibScalar
-hwSecStatIpsecPacketsIn=_HwSecStatIpsecPacketsIn_Object((1,3,6,1,4,1,2011,6,122,38,1,4,2),_HwSecStatIpsecPacketsIn_Type())
-hwSecStatIpsecPacketsIn.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatIpsecPacketsIn.setStatus(_A)
-_HwSecStatIpsecPacketsOut_Type=Counter64
-_HwSecStatIpsecPacketsOut_Object=MibScalar
-hwSecStatIpsecPacketsOut=_HwSecStatIpsecPacketsOut_Object((1,3,6,1,4,1,2011,6,122,38,1,4,3),_HwSecStatIpsecPacketsOut_Type())
-hwSecStatIpsecPacketsOut.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatIpsecPacketsOut.setStatus(_A)
-_HwSecStatIpsecPacketsDorp_Type=Counter64
-_HwSecStatIpsecPacketsDorp_Object=MibScalar
-hwSecStatIpsecPacketsDorp=_HwSecStatIpsecPacketsDorp_Object((1,3,6,1,4,1,2011,6,122,38,1,4,4),_HwSecStatIpsecPacketsDorp_Type())
-hwSecStatIpsecPacketsDorp.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatIpsecPacketsDorp.setStatus(_A)
-class _HwSecStatL2tpUserTotalNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatL2tpUserTotalNum_Type.__name__=_C
-_HwSecStatL2tpUserTotalNum_Object=MibScalar
-hwSecStatL2tpUserTotalNum=_HwSecStatL2tpUserTotalNum_Object((1,3,6,1,4,1,2011,6,122,38,1,4,5),_HwSecStatL2tpUserTotalNum_Type())
-hwSecStatL2tpUserTotalNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatL2tpUserTotalNum.setStatus(_A)
-class _HwSecStatHrpPacketsSend_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatHrpPacketsSend_Type.__name__=_C
-_HwSecStatHrpPacketsSend_Object=MibScalar
-hwSecStatHrpPacketsSend=_HwSecStatHrpPacketsSend_Object((1,3,6,1,4,1,2011,6,122,38,1,4,6),_HwSecStatHrpPacketsSend_Type())
-hwSecStatHrpPacketsSend.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatHrpPacketsSend.setStatus(_A)
-_HwSecStatExtL2tpTable_Object=MibTable
-hwSecStatExtL2tpTable=_HwSecStatExtL2tpTable_Object((1,3,6,1,4,1,2011,6,122,38,1,5))
-if mibBuilder.loadTexts:hwSecStatExtL2tpTable.setStatus(_A)
-_HwSecStatExtL2tpEntry_Object=MibTableRow
-hwSecStatExtL2tpEntry=_HwSecStatExtL2tpEntry_Object((1,3,6,1,4,1,2011,6,122,38,1,5,1))
-hwSecStatExtL2tpEntry.setIndexNames((0,_B,_G),(0,_B,_H))
-if mibBuilder.loadTexts:hwSecStatExtL2tpEntry.setStatus(_A)
-class _HwSecStatExtL2tpSlotIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_HwSecStatExtL2tpSlotIndex_Type.__name__=_C
-_HwSecStatExtL2tpSlotIndex_Object=MibTableColumn
-hwSecStatExtL2tpSlotIndex=_HwSecStatExtL2tpSlotIndex_Object((1,3,6,1,4,1,2011,6,122,38,1,5,1,1),_HwSecStatExtL2tpSlotIndex_Type())
-hwSecStatExtL2tpSlotIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:hwSecStatExtL2tpSlotIndex.setStatus(_A)
-class _HwSecStatExtL2tpCpuIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_HwSecStatExtL2tpCpuIndex_Type.__name__=_C
-_HwSecStatExtL2tpCpuIndex_Object=MibTableColumn
-hwSecStatExtL2tpCpuIndex=_HwSecStatExtL2tpCpuIndex_Object((1,3,6,1,4,1,2011,6,122,38,1,5,1,2),_HwSecStatExtL2tpCpuIndex_Type())
-hwSecStatExtL2tpCpuIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:hwSecStatExtL2tpCpuIndex.setStatus(_A)
-class _HwSecStatExtL2tpTunnelNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtL2tpTunnelNum_Type.__name__=_C
-_HwSecStatExtL2tpTunnelNum_Object=MibTableColumn
-hwSecStatExtL2tpTunnelNum=_HwSecStatExtL2tpTunnelNum_Object((1,3,6,1,4,1,2011,6,122,38,1,5,1,3),_HwSecStatExtL2tpTunnelNum_Type())
-hwSecStatExtL2tpTunnelNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtL2tpTunnelNum.setStatus(_A)
-class _HwSecStatExtL2tpSessionNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtL2tpSessionNum_Type.__name__=_C
-_HwSecStatExtL2tpSessionNum_Object=MibTableColumn
-hwSecStatExtL2tpSessionNum=_HwSecStatExtL2tpSessionNum_Object((1,3,6,1,4,1,2011,6,122,38,1,5,1,4),_HwSecStatExtL2tpSessionNum_Type())
-hwSecStatExtL2tpSessionNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtL2tpSessionNum.setStatus(_A)
-_HwSecStatExtVcpuTable_Object=MibTable
-hwSecStatExtVcpuTable=_HwSecStatExtVcpuTable_Object((1,3,6,1,4,1,2011,6,122,38,1,6))
-if mibBuilder.loadTexts:hwSecStatExtVcpuTable.setStatus(_A)
-_HwSecStatExtVcpuEntry_Object=MibTableRow
-hwSecStatExtVcpuEntry=_HwSecStatExtVcpuEntry_Object((1,3,6,1,4,1,2011,6,122,38,1,6,1))
-hwSecStatExtVcpuEntry.setIndexNames((0,_B,_I))
-if mibBuilder.loadTexts:hwSecStatExtVcpuEntry.setStatus(_A)
-class _HwSecStatExtVcpuIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,64))
-_HwSecStatExtVcpuIndex_Type.__name__=_C
-_HwSecStatExtVcpuIndex_Object=MibTableColumn
-hwSecStatExtVcpuIndex=_HwSecStatExtVcpuIndex_Object((1,3,6,1,4,1,2011,6,122,38,1,6,1,1),_HwSecStatExtVcpuIndex_Type())
-hwSecStatExtVcpuIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:hwSecStatExtVcpuIndex.setStatus(_A)
-class _HwSecStatExtVcpuID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,64))
-_HwSecStatExtVcpuID_Type.__name__=_C
-_HwSecStatExtVcpuID_Object=MibTableColumn
-hwSecStatExtVcpuID=_HwSecStatExtVcpuID_Object((1,3,6,1,4,1,2011,6,122,38,1,6,1,2),_HwSecStatExtVcpuID_Type())
-hwSecStatExtVcpuID.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtVcpuID.setStatus(_A)
-class _HwSecStatExtVcpuUseage_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtVcpuUseage_Type.__name__=_C
-_HwSecStatExtVcpuUseage_Object=MibTableColumn
-hwSecStatExtVcpuUseage=_HwSecStatExtVcpuUseage_Object((1,3,6,1,4,1,2011,6,122,38,1,6,1,3),_HwSecStatExtVcpuUseage_Type())
-hwSecStatExtVcpuUseage.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtVcpuUseage.setStatus(_A)
-_HwSecStatExtLicenseTable_Object=MibTable
-hwSecStatExtLicenseTable=_HwSecStatExtLicenseTable_Object((1,3,6,1,4,1,2011,6,122,38,1,7))
-if mibBuilder.loadTexts:hwSecStatExtLicenseTable.setStatus(_A)
-_HwSecStatExtLicenseEntry_Object=MibTableRow
-hwSecStatExtLicenseEntry=_HwSecStatExtLicenseEntry_Object((1,3,6,1,4,1,2011,6,122,38,1,7,1))
-hwSecStatExtLicenseEntry.setIndexNames((0,_B,_J))
-if mibBuilder.loadTexts:hwSecStatExtLicenseEntry.setStatus(_A)
-class _HwSecStatExtModuleIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,256))
-_HwSecStatExtModuleIndex_Type.__name__=_C
-_HwSecStatExtModuleIndex_Object=MibTableColumn
-hwSecStatExtModuleIndex=_HwSecStatExtModuleIndex_Object((1,3,6,1,4,1,2011,6,122,38,1,7,1,1),_HwSecStatExtModuleIndex_Type())
-hwSecStatExtModuleIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:hwSecStatExtModuleIndex.setStatus(_A)
-class _HwSecStatExtModuleName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_HwSecStatExtModuleName_Type.__name__=_F
-_HwSecStatExtModuleName_Object=MibTableColumn
-hwSecStatExtModuleName=_HwSecStatExtModuleName_Object((1,3,6,1,4,1,2011,6,122,38,1,7,1,2),_HwSecStatExtModuleName_Type())
-hwSecStatExtModuleName.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtModuleName.setStatus(_A)
-class _HwSecStatExtModuleLicenseNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_HwSecStatExtModuleLicenseNum_Type.__name__=_C
-_HwSecStatExtModuleLicenseNum_Object=MibTableColumn
-hwSecStatExtModuleLicenseNum=_HwSecStatExtModuleLicenseNum_Object((1,3,6,1,4,1,2011,6,122,38,1,7,1,3),_HwSecStatExtModuleLicenseNum_Type())
-hwSecStatExtModuleLicenseNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:hwSecStatExtModuleLicenseNum.setStatus(_A)
-_HwSecStatExtConformance_ObjectIdentity=ObjectIdentity
-hwSecStatExtConformance=_HwSecStatExtConformance_ObjectIdentity((1,3,6,1,4,1,2011,6,122,38,2))
-_HwSecStatExtCompliance_ObjectIdentity=ObjectIdentity
-hwSecStatExtCompliance=_HwSecStatExtCompliance_ObjectIdentity((1,3,6,1,4,1,2011,6,122,38,2,1))
-_HwSecStatExtMibGroups_ObjectIdentity=ObjectIdentity
-hwSecStatExtMibGroups=_HwSecStatExtMibGroups_ObjectIdentity((1,3,6,1,4,1,2011,6,122,38,2,2))
-hwSecStatExtAclGroup=ObjectGroup((1,3,6,1,4,1,2011,6,122,38,2,2,1))
-hwSecStatExtAclGroup.setObjects(*((_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:hwSecStatExtAclGroup.setStatus(_A)
-hwSecStatExtRouteGroup=ObjectGroup((1,3,6,1,4,1,2011,6,122,38,2,2,2))
-hwSecStatExtRouteGroup.setObjects(*((_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b)))
-if mibBuilder.loadTexts:hwSecStatExtRouteGroup.setStatus(_A)
-hwSecStatExtSessionGroup=ObjectGroup((1,3,6,1,4,1,2011,6,122,38,2,2,3))
-hwSecStatExtSessionGroup.setObjects(*((_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n)))
-if mibBuilder.loadTexts:hwSecStatExtSessionGroup.setStatus(_A)
-hwSecStatExtIPsecGroup=ObjectGroup((1,3,6,1,4,1,2011,6,122,38,2,2,4))
-hwSecStatExtIPsecGroup.setObjects(*((_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t)))
-if mibBuilder.loadTexts:hwSecStatExtIPsecGroup.setStatus(_A)
-hwSecStatExtL2tpGroup=ObjectGroup((1,3,6,1,4,1,2011,6,122,38,2,2,5))
-hwSecStatExtL2tpGroup.setObjects(*((_B,_u),(_B,_v)))
-if mibBuilder.loadTexts:hwSecStatExtL2tpGroup.setStatus(_A)
-hwSecStatExtVcpuGroup=ObjectGroup((1,3,6,1,4,1,2011,6,122,38,2,2,6))
-hwSecStatExtVcpuGroup.setObjects(*((_B,_w),(_B,_x)))
-if mibBuilder.loadTexts:hwSecStatExtVcpuGroup.setStatus(_A)
-hwSecStatExtLicenseGroup=ObjectGroup((1,3,6,1,4,1,2011,6,122,38,2,2,7))
-hwSecStatExtLicenseGroup.setObjects(*((_B,_y),(_B,_z)))
-if mibBuilder.loadTexts:hwSecStatExtLicenseGroup.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'huawei':huawei,'huaweiUtility':huaweiUtility,'hwSecurity':hwSecurity,'hwSecStatExtMib':hwSecStatExtMib,'hwSecStatExtMibObjects':hwSecStatExtMibObjects,'hwSecStatExtAcl':hwSecStatExtAcl,_K:hwSecStatExtBasicAclGroupNum,_L:hwSecStatExtAdvanceAclGroupNum,_M:hwSecStatExtMacAclGroupNum,_N:hwSecStatExtAcl6GroupNum,_O:hwSecStatExtBasicAclRuleNum,_P:hwSecStatExtAdvanceAclRuleNum,_Q:hwSecStatExtMacAclRuleNum,_R:hwSecStatExtAcl6RuleNum,'hwSecStatExtRoute':hwSecStatExtRoute,_S:hwSecStatExtStaticRouteNum,_T:hwSecStatExtOspfNum,_U:hwSecStatExtRipNum,_V:hwSecStatExtIsisNum,_W:hwSecStatExtBgpNum,_X:hwSecStatExtIpv6StaticRouteNum,_Y:hwSecStatExtIpv6OspfNum,_Z:hwSecStatExtIpv6RipNum,_a:hwSecStatExtIpv6IsisNum,_b:hwSecStatExtIpv6BgpNum,'hwSecStatExtSession':hwSecStatExtSession,_c:hwSecStatExtSessionNum,_d:hwSecStatExtMacAddrListNum,_e:hwSecStatExtBlackListNum,_f:hwSecStatExtNatServerNum,_g:hwSecStatExtIpMonitorListNum,_h:hwSecStatExtServerMapTotalNum,_i:hwSecStatExtServerMapDynamicNum,_j:hwSecStatExtWifiUserOnlineNum,_k:hwSecStatExt802dot1xUserOnlineNum,_l:hwSecStatExtArplistTotalNum,'hwSecStatExtFiblistTotoleNum':hwSecStatExtFiblistTotoleNum,_m:hwSecStatExtIpv6SessionNum,_n:hwSecStatExtIpv6ServerMapTotalNum,'hwSecStatExtTotalNum':hwSecStatExtTotalNum,_o:hwSecStatIkeNum,_p:hwSecStatIpsecPacketsIn,_q:hwSecStatIpsecPacketsOut,_r:hwSecStatIpsecPacketsDorp,_s:hwSecStatL2tpUserTotalNum,_t:hwSecStatHrpPacketsSend,'hwSecStatExtL2tpTable':hwSecStatExtL2tpTable,'hwSecStatExtL2tpEntry':hwSecStatExtL2tpEntry,_G:hwSecStatExtL2tpSlotIndex,_H:hwSecStatExtL2tpCpuIndex,_u:hwSecStatExtL2tpTunnelNum,_v:hwSecStatExtL2tpSessionNum,'hwSecStatExtVcpuTable':hwSecStatExtVcpuTable,'hwSecStatExtVcpuEntry':hwSecStatExtVcpuEntry,_I:hwSecStatExtVcpuIndex,_w:hwSecStatExtVcpuID,_x:hwSecStatExtVcpuUseage,'hwSecStatExtLicenseTable':hwSecStatExtLicenseTable,'hwSecStatExtLicenseEntry':hwSecStatExtLicenseEntry,_J:hwSecStatExtModuleIndex,_y:hwSecStatExtModuleName,_z:hwSecStatExtModuleLicenseNum,'hwSecStatExtConformance':hwSecStatExtConformance,'hwSecStatExtCompliance':hwSecStatExtCompliance,'hwSecStatExtMibGroups':hwSecStatExtMibGroups,'hwSecStatExtAclGroup':hwSecStatExtAclGroup,'hwSecStatExtRouteGroup':hwSecStatExtRouteGroup,'hwSecStatExtSessionGroup':hwSecStatExtSessionGroup,'hwSecStatExtIPsecGroup':hwSecStatExtIPsecGroup,'hwSecStatExtL2tpGroup':hwSecStatExtL2tpGroup,'hwSecStatExtVcpuGroup':hwSecStatExtVcpuGroup,'hwSecStatExtLicenseGroup':hwSecStatExtLicenseGroup})
+#
+# PySNMP MIB module HUAWEI-SECURITY-STATEXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/huawei/HUAWEI-SECURITY-STATEXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:00:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+hwSecStatExtMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38))
+if mibBuilder.loadTexts: hwSecStatExtMib.setLastUpdated('201007190900Z')
+if mibBuilder.loadTexts: hwSecStatExtMib.setOrganization('Huawei Symantec Technologies co.,Ltd.')
+huawei = MibIdentifier((1, 3, 6, 1, 4, 1, 2011))
+huaweiUtility = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6))
+hwSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122))
+hwSecStatExtMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1))
+hwSecStatExtAcl = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 1))
+hwSecStatExtBasicAclGroupNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtBasicAclGroupNum.setStatus('current')
+hwSecStatExtAdvanceAclGroupNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtAdvanceAclGroupNum.setStatus('current')
+hwSecStatExtMacAclGroupNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtMacAclGroupNum.setStatus('current')
+hwSecStatExtAcl6GroupNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtAcl6GroupNum.setStatus('current')
+hwSecStatExtBasicAclRuleNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtBasicAclRuleNum.setStatus('current')
+hwSecStatExtAdvanceAclRuleNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtAdvanceAclRuleNum.setStatus('current')
+hwSecStatExtMacAclRuleNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtMacAclRuleNum.setStatus('current')
+hwSecStatExtAcl6RuleNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtAcl6RuleNum.setStatus('current')
+hwSecStatExtRoute = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 2))
+hwSecStatExtStaticRouteNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtStaticRouteNum.setStatus('current')
+hwSecStatExtOspfNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtOspfNum.setStatus('current')
+hwSecStatExtRipNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtRipNum.setStatus('current')
+hwSecStatExtIsisNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtIsisNum.setStatus('current')
+hwSecStatExtBgpNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 2, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtBgpNum.setStatus('current')
+hwSecStatExtIpv6StaticRouteNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 2, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtIpv6StaticRouteNum.setStatus('current')
+hwSecStatExtIpv6OspfNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 2, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtIpv6OspfNum.setStatus('current')
+hwSecStatExtIpv6RipNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 2, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtIpv6RipNum.setStatus('current')
+hwSecStatExtIpv6IsisNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 2, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtIpv6IsisNum.setStatus('current')
+hwSecStatExtIpv6BgpNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 2, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtIpv6BgpNum.setStatus('current')
+hwSecStatExtSession = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 3))
+hwSecStatExtSessionNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 3, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtSessionNum.setStatus('current')
+hwSecStatExtMacAddrListNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 3, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtMacAddrListNum.setStatus('current')
+hwSecStatExtBlackListNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 3, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtBlackListNum.setStatus('current')
+hwSecStatExtNatServerNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 3, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtNatServerNum.setStatus('current')
+hwSecStatExtIpMonitorListNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 3, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtIpMonitorListNum.setStatus('current')
+hwSecStatExtServerMapTotalNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 3, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtServerMapTotalNum.setStatus('current')
+hwSecStatExtServerMapDynamicNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 3, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtServerMapDynamicNum.setStatus('current')
+hwSecStatExtWifiUserOnlineNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 3, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtWifiUserOnlineNum.setStatus('current')
+hwSecStatExt802dot1xUserOnlineNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 3, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExt802dot1xUserOnlineNum.setStatus('current')
+hwSecStatExtArplistTotalNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 3, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtArplistTotalNum.setStatus('current')
+hwSecStatExtFiblistTotoleNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 3, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtFiblistTotoleNum.setStatus('current')
+hwSecStatExtIpv6SessionNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 3, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtIpv6SessionNum.setStatus('current')
+hwSecStatExtIpv6ServerMapTotalNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 3, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtIpv6ServerMapTotalNum.setStatus('current')
+hwSecStatExtTotalNum = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 4))
+hwSecStatIkeNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 4, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatIkeNum.setStatus('current')
+hwSecStatIpsecPacketsIn = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 4, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatIpsecPacketsIn.setStatus('current')
+hwSecStatIpsecPacketsOut = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 4, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatIpsecPacketsOut.setStatus('current')
+hwSecStatIpsecPacketsDorp = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 4, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatIpsecPacketsDorp.setStatus('current')
+hwSecStatL2tpUserTotalNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 4, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatL2tpUserTotalNum.setStatus('current')
+hwSecStatHrpPacketsSend = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 4, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatHrpPacketsSend.setStatus('current')
+hwSecStatExtL2tpTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 5), )
+if mibBuilder.loadTexts: hwSecStatExtL2tpTable.setStatus('current')
+hwSecStatExtL2tpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 5, 1), ).setIndexNames((0, "HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtL2tpSlotIndex"), (0, "HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtL2tpCpuIndex"))
+if mibBuilder.loadTexts: hwSecStatExtL2tpEntry.setStatus('current')
+hwSecStatExtL2tpSlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: hwSecStatExtL2tpSlotIndex.setStatus('current')
+hwSecStatExtL2tpCpuIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: hwSecStatExtL2tpCpuIndex.setStatus('current')
+hwSecStatExtL2tpTunnelNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 5, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtL2tpTunnelNum.setStatus('current')
+hwSecStatExtL2tpSessionNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 5, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtL2tpSessionNum.setStatus('current')
+hwSecStatExtVcpuTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 6), )
+if mibBuilder.loadTexts: hwSecStatExtVcpuTable.setStatus('current')
+hwSecStatExtVcpuEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 6, 1), ).setIndexNames((0, "HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtVcpuIndex"))
+if mibBuilder.loadTexts: hwSecStatExtVcpuEntry.setStatus('current')
+hwSecStatExtVcpuIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64)))
+if mibBuilder.loadTexts: hwSecStatExtVcpuIndex.setStatus('current')
+hwSecStatExtVcpuID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 6, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtVcpuID.setStatus('current')
+hwSecStatExtVcpuUseage = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtVcpuUseage.setStatus('current')
+hwSecStatExtLicenseTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 7), )
+if mibBuilder.loadTexts: hwSecStatExtLicenseTable.setStatus('current')
+hwSecStatExtLicenseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 7, 1), ).setIndexNames((0, "HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtModuleIndex"))
+if mibBuilder.loadTexts: hwSecStatExtLicenseEntry.setStatus('current')
+hwSecStatExtModuleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 256)))
+if mibBuilder.loadTexts: hwSecStatExtModuleIndex.setStatus('current')
+hwSecStatExtModuleName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 7, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtModuleName.setStatus('current')
+hwSecStatExtModuleLicenseNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 1, 7, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSecStatExtModuleLicenseNum.setStatus('current')
+hwSecStatExtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 2))
+hwSecStatExtCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 2, 1))
+hwSecStatExtMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 2, 2))
+hwSecStatExtAclGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 2, 2, 1)).setObjects(("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtBasicAclGroupNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtAdvanceAclGroupNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtMacAclGroupNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtAcl6GroupNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtBasicAclRuleNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtAdvanceAclRuleNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtMacAclRuleNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtAcl6RuleNum"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hwSecStatExtAclGroup = hwSecStatExtAclGroup.setStatus('current')
+hwSecStatExtRouteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 2, 2, 2)).setObjects(("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtStaticRouteNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtOspfNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtRipNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtIsisNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtBgpNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtIpv6StaticRouteNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtIpv6OspfNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtIpv6RipNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtIpv6IsisNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtIpv6BgpNum"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hwSecStatExtRouteGroup = hwSecStatExtRouteGroup.setStatus('current')
+hwSecStatExtSessionGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 2, 2, 3)).setObjects(("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtSessionNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtMacAddrListNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtBlackListNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtNatServerNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtIpMonitorListNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtServerMapTotalNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtServerMapDynamicNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtWifiUserOnlineNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExt802dot1xUserOnlineNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtArplistTotalNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtIpv6SessionNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtIpv6ServerMapTotalNum"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hwSecStatExtSessionGroup = hwSecStatExtSessionGroup.setStatus('current')
+hwSecStatExtIPsecGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 2, 2, 4)).setObjects(("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatIkeNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatIpsecPacketsIn"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatIpsecPacketsOut"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatIpsecPacketsDorp"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatL2tpUserTotalNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatHrpPacketsSend"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hwSecStatExtIPsecGroup = hwSecStatExtIPsecGroup.setStatus('current')
+hwSecStatExtL2tpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 2, 2, 5)).setObjects(("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtL2tpTunnelNum"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtL2tpSessionNum"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hwSecStatExtL2tpGroup = hwSecStatExtL2tpGroup.setStatus('current')
+hwSecStatExtVcpuGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 2, 2, 6)).setObjects(("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtVcpuID"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtVcpuUseage"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hwSecStatExtVcpuGroup = hwSecStatExtVcpuGroup.setStatus('current')
+hwSecStatExtLicenseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 6, 122, 38, 2, 2, 7)).setObjects(("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtModuleName"), ("HUAWEI-SECURITY-STATEXT-MIB", "hwSecStatExtModuleLicenseNum"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hwSecStatExtLicenseGroup = hwSecStatExtLicenseGroup.setStatus('current')
+mibBuilder.exportSymbols("HUAWEI-SECURITY-STATEXT-MIB", hwSecStatExtLicenseEntry=hwSecStatExtLicenseEntry, hwSecStatExtAcl6GroupNum=hwSecStatExtAcl6GroupNum, hwSecStatExtSessionNum=hwSecStatExtSessionNum, hwSecStatExtMacAddrListNum=hwSecStatExtMacAddrListNum, hwSecStatExtL2tpGroup=hwSecStatExtL2tpGroup, hwSecStatIpsecPacketsOut=hwSecStatIpsecPacketsOut, hwSecStatExtIPsecGroup=hwSecStatExtIPsecGroup, hwSecStatExtOspfNum=hwSecStatExtOspfNum, hwSecStatExtArplistTotalNum=hwSecStatExtArplistTotalNum, hwSecStatExtMacAclRuleNum=hwSecStatExtMacAclRuleNum, hwSecStatIpsecPacketsIn=hwSecStatIpsecPacketsIn, hwSecStatExtIpv6SessionNum=hwSecStatExtIpv6SessionNum, hwSecStatExtBasicAclRuleNum=hwSecStatExtBasicAclRuleNum, huawei=huawei, huaweiUtility=huaweiUtility, hwSecStatExtServerMapDynamicNum=hwSecStatExtServerMapDynamicNum, hwSecStatExtMib=hwSecStatExtMib, hwSecStatExtNatServerNum=hwSecStatExtNatServerNum, hwSecStatExtMibGroups=hwSecStatExtMibGroups, hwSecStatExtL2tpSessionNum=hwSecStatExtL2tpSessionNum, hwSecStatExtIpv6RipNum=hwSecStatExtIpv6RipNum, hwSecStatExt802dot1xUserOnlineNum=hwSecStatExt802dot1xUserOnlineNum, hwSecStatExtBgpNum=hwSecStatExtBgpNum, hwSecStatExtAdvanceAclGroupNum=hwSecStatExtAdvanceAclGroupNum, hwSecStatExtConformance=hwSecStatExtConformance, hwSecStatExtAclGroup=hwSecStatExtAclGroup, hwSecStatExtRouteGroup=hwSecStatExtRouteGroup, hwSecStatExtBasicAclGroupNum=hwSecStatExtBasicAclGroupNum, hwSecStatExtMacAclGroupNum=hwSecStatExtMacAclGroupNum, hwSecStatExtIpv6StaticRouteNum=hwSecStatExtIpv6StaticRouteNum, hwSecStatExtSession=hwSecStatExtSession, hwSecStatExtIpv6ServerMapTotalNum=hwSecStatExtIpv6ServerMapTotalNum, hwSecStatExtLicenseTable=hwSecStatExtLicenseTable, hwSecStatExtSessionGroup=hwSecStatExtSessionGroup, hwSecStatExtIsisNum=hwSecStatExtIsisNum, hwSecStatExtRipNum=hwSecStatExtRipNum, hwSecStatExtIpv6BgpNum=hwSecStatExtIpv6BgpNum, hwSecStatExtVcpuEntry=hwSecStatExtVcpuEntry, hwSecStatExtL2tpEntry=hwSecStatExtL2tpEntry, hwSecStatExtModuleLicenseNum=hwSecStatExtModuleLicenseNum, hwSecStatExtVcpuGroup=hwSecStatExtVcpuGroup, hwSecStatExtModuleIndex=hwSecStatExtModuleIndex, hwSecStatIpsecPacketsDorp=hwSecStatIpsecPacketsDorp, hwSecStatExtL2tpSlotIndex=hwSecStatExtL2tpSlotIndex, hwSecStatExtAcl6RuleNum=hwSecStatExtAcl6RuleNum, hwSecStatExtFiblistTotoleNum=hwSecStatExtFiblistTotoleNum, hwSecStatIkeNum=hwSecStatIkeNum, hwSecStatExtVcpuIndex=hwSecStatExtVcpuIndex, hwSecStatExtL2tpTable=hwSecStatExtL2tpTable, hwSecStatExtAcl=hwSecStatExtAcl, hwSecStatExtL2tpCpuIndex=hwSecStatExtL2tpCpuIndex, hwSecStatExtTotalNum=hwSecStatExtTotalNum, hwSecStatExtVcpuID=hwSecStatExtVcpuID, hwSecStatExtModuleName=hwSecStatExtModuleName, hwSecStatExtIpv6IsisNum=hwSecStatExtIpv6IsisNum, hwSecStatExtIpMonitorListNum=hwSecStatExtIpMonitorListNum, hwSecStatExtMibObjects=hwSecStatExtMibObjects, hwSecStatHrpPacketsSend=hwSecStatHrpPacketsSend, hwSecStatExtIpv6OspfNum=hwSecStatExtIpv6OspfNum, hwSecStatExtBlackListNum=hwSecStatExtBlackListNum, hwSecStatExtVcpuUseage=hwSecStatExtVcpuUseage, hwSecStatExtRoute=hwSecStatExtRoute, hwSecStatExtCompliance=hwSecStatExtCompliance, hwSecurity=hwSecurity, hwSecStatExtL2tpTunnelNum=hwSecStatExtL2tpTunnelNum, hwSecStatL2tpUserTotalNum=hwSecStatL2tpUserTotalNum, hwSecStatExtVcpuTable=hwSecStatExtVcpuTable, PYSNMP_MODULE_ID=hwSecStatExtMib, hwSecStatExtLicenseGroup=hwSecStatExtLicenseGroup, hwSecStatExtStaticRouteNum=hwSecStatExtStaticRouteNum, hwSecStatExtAdvanceAclRuleNum=hwSecStatExtAdvanceAclRuleNum, hwSecStatExtServerMapTotalNum=hwSecStatExtServerMapTotalNum, hwSecStatExtWifiUserOnlineNum=hwSecStatExtWifiUserOnlineNum)

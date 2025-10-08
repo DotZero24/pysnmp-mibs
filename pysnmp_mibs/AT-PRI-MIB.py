@@ -1,93 +1,50 @@
-_G='priChanChannelIndex'
-_F='priChanIntIndex'
-_E='priIntIndex'
-_D='AT-PRI-MIB'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-DisplayStringUnsized,modules=mibBuilder.importSymbols('AT-SMI-MIB','DisplayStringUnsized','modules')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-pri=ModuleIdentity((1,3,6,1,4,1,207,8,4,4,4,42))
-if mibBuilder.loadTexts:pri.setRevisions(('2006-06-28 12:22',))
-_PriIntTable_Object=MibTable
-priIntTable=_PriIntTable_Object((1,3,6,1,4,1,207,8,4,4,4,42,1))
-if mibBuilder.loadTexts:priIntTable.setStatus(_A)
-_PriIntEntry_Object=MibTableRow
-priIntEntry=_PriIntEntry_Object((1,3,6,1,4,1,207,8,4,4,4,42,1,1))
-priIntEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:priIntEntry.setStatus(_A)
-_PriIntIndex_Type=Integer32
-_PriIntIndex_Object=MibTableColumn
-priIntIndex=_PriIntIndex_Object((1,3,6,1,4,1,207,8,4,4,4,42,1,1,1),_PriIntIndex_Type())
-priIntIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:priIntIndex.setStatus(_A)
-_PriIntBoardIndex_Type=Integer32
-_PriIntBoardIndex_Object=MibTableColumn
-priIntBoardIndex=_PriIntBoardIndex_Object((1,3,6,1,4,1,207,8,4,4,4,42,1,1,2),_PriIntBoardIndex_Type())
-priIntBoardIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:priIntBoardIndex.setStatus(_A)
-_PriIntBoardPosition_Type=Integer32
-_PriIntBoardPosition_Object=MibTableColumn
-priIntBoardPosition=_PriIntBoardPosition_Object((1,3,6,1,4,1,207,8,4,4,4,42,1,1,3),_PriIntBoardPosition_Type())
-priIntBoardPosition.setMaxAccess(_B)
-if mibBuilder.loadTexts:priIntBoardPosition.setStatus(_A)
-class _PriIntMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('isdn',1),('tdm',2),('mixed',3)))
-_PriIntMode_Type.__name__=_C
-_PriIntMode_Object=MibTableColumn
-priIntMode=_PriIntMode_Object((1,3,6,1,4,1,207,8,4,4,4,42,1,1,4),_PriIntMode_Type())
-priIntMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:priIntMode.setStatus(_A)
-_PriIntTdmChannelMap_Type=Integer32
-_PriIntTdmChannelMap_Object=MibTableColumn
-priIntTdmChannelMap=_PriIntTdmChannelMap_Object((1,3,6,1,4,1,207,8,4,4,4,42,1,1,5),_PriIntTdmChannelMap_Type())
-priIntTdmChannelMap.setMaxAccess(_B)
-if mibBuilder.loadTexts:priIntTdmChannelMap.setStatus(_A)
-_PriIntIsdnChannelMap_Type=Integer32
-_PriIntIsdnChannelMap_Object=MibTableColumn
-priIntIsdnChannelMap=_PriIntIsdnChannelMap_Object((1,3,6,1,4,1,207,8,4,4,4,42,1,1,6),_PriIntIsdnChannelMap_Type())
-priIntIsdnChannelMap.setMaxAccess(_B)
-if mibBuilder.loadTexts:priIntIsdnChannelMap.setStatus(_A)
-class _PriIntType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('e1',1),('t1',2),('unknown',3)))
-_PriIntType_Type.__name__=_C
-_PriIntType_Object=MibTableColumn
-priIntType=_PriIntType_Object((1,3,6,1,4,1,207,8,4,4,4,42,1,1,7),_PriIntType_Type())
-priIntType.setMaxAccess(_B)
-if mibBuilder.loadTexts:priIntType.setStatus(_A)
-_PriChanTable_Object=MibTable
-priChanTable=_PriChanTable_Object((1,3,6,1,4,1,207,8,4,4,4,42,2))
-if mibBuilder.loadTexts:priChanTable.setStatus(_A)
-_PriChanEntry_Object=MibTableRow
-priChanEntry=_PriChanEntry_Object((1,3,6,1,4,1,207,8,4,4,4,42,2,1))
-priChanEntry.setIndexNames((0,_D,_F),(0,_D,_G))
-if mibBuilder.loadTexts:priChanEntry.setStatus(_A)
-_PriChanIntIndex_Type=Integer32
-_PriChanIntIndex_Object=MibTableColumn
-priChanIntIndex=_PriChanIntIndex_Object((1,3,6,1,4,1,207,8,4,4,4,42,2,1,1),_PriChanIntIndex_Type())
-priChanIntIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:priChanIntIndex.setStatus(_A)
-class _PriChanChannelIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,31))
-_PriChanChannelIndex_Type.__name__=_C
-_PriChanChannelIndex_Object=MibTableColumn
-priChanChannelIndex=_PriChanChannelIndex_Object((1,3,6,1,4,1,207,8,4,4,4,42,2,1,2),_PriChanChannelIndex_Type())
-priChanChannelIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:priChanChannelIndex.setStatus(_A)
-class _PriChanMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('isdn',1),('tdm',2),('neither',3)))
-_PriChanMode_Type.__name__=_C
-_PriChanMode_Object=MibTableColumn
-priChanMode=_PriChanMode_Object((1,3,6,1,4,1,207,8,4,4,4,42,2,1,3),_PriChanMode_Type())
-priChanMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:priChanMode.setStatus(_A)
-class _PriChanState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('inactive',1),('active',2)))
-_PriChanState_Type.__name__=_C
-_PriChanState_Object=MibTableColumn
-priChanState=_PriChanState_Object((1,3,6,1,4,1,207,8,4,4,4,42,2,1,4),_PriChanState_Type())
-priChanState.setMaxAccess(_B)
-if mibBuilder.loadTexts:priChanState.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'pri':pri,'priIntTable':priIntTable,'priIntEntry':priIntEntry,_E:priIntIndex,'priIntBoardIndex':priIntBoardIndex,'priIntBoardPosition':priIntBoardPosition,'priIntMode':priIntMode,'priIntTdmChannelMap':priIntTdmChannelMap,'priIntIsdnChannelMap':priIntIsdnChannelMap,'priIntType':priIntType,'priChanTable':priChanTable,'priChanEntry':priChanEntry,_F:priChanIntIndex,_G:priChanChannelIndex,'priChanMode':priChanMode,'priChanState':priChanState})
+#
+# PySNMP MIB module AT-PRI-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allied-old/AT-PRI-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+DisplayStringUnsized, modules = mibBuilder.importSymbols("AT-SMI-MIB", "DisplayStringUnsized", "modules")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+pri = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42))
+pri.setRevisions(('2006-06-28 12:22',))
+if mibBuilder.loadTexts: pri.setLastUpdated('200606281222Z')
+if mibBuilder.loadTexts: pri.setOrganization('Allied Telesis, Inc')
+priIntTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42, 1), )
+if mibBuilder.loadTexts: priIntTable.setStatus('current')
+priIntEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42, 1, 1), ).setIndexNames((0, "AT-PRI-MIB", "priIntIndex"))
+if mibBuilder.loadTexts: priIntEntry.setStatus('current')
+priIntIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: priIntIndex.setStatus('current')
+priIntBoardIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: priIntBoardIndex.setStatus('current')
+priIntBoardPosition = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: priIntBoardPosition.setStatus('current')
+priIntMode = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("isdn", 1), ("tdm", 2), ("mixed", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: priIntMode.setStatus('current')
+priIntTdmChannelMap = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: priIntTdmChannelMap.setStatus('current')
+priIntIsdnChannelMap = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: priIntIsdnChannelMap.setStatus('current')
+priIntType = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("e1", 1), ("t1", 2), ("unknown", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: priIntType.setStatus('current')
+priChanTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42, 2), )
+if mibBuilder.loadTexts: priChanTable.setStatus('current')
+priChanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42, 2, 1), ).setIndexNames((0, "AT-PRI-MIB", "priChanIntIndex"), (0, "AT-PRI-MIB", "priChanChannelIndex"))
+if mibBuilder.loadTexts: priChanEntry.setStatus('current')
+priChanIntIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: priChanIntIndex.setStatus('current')
+priChanChannelIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 31))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: priChanChannelIndex.setStatus('current')
+priChanMode = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("isdn", 1), ("tdm", 2), ("neither", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: priChanMode.setStatus('current')
+priChanState = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 42, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: priChanState.setStatus('current')
+mibBuilder.exportSymbols("AT-PRI-MIB", priChanChannelIndex=priChanChannelIndex, priIntIsdnChannelMap=priIntIsdnChannelMap, priChanMode=priChanMode, PYSNMP_MODULE_ID=pri, priChanTable=priChanTable, priChanEntry=priChanEntry, priChanIntIndex=priChanIntIndex, priIntBoardPosition=priIntBoardPosition, priIntType=priIntType, priIntMode=priIntMode, priChanState=priChanState, priIntTable=priIntTable, priIntTdmChannelMap=priIntTdmChannelMap, priIntIndex=priIntIndex, priIntEntry=priIntEntry, pri=pri, priIntBoardIndex=priIntBoardIndex)

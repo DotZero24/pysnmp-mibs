@@ -1,128 +1,56 @@
-_J='milliseconds'
-_I='InetAddressType'
-_H='InetAddress'
-_G='bytes'
-_F='TruthValue'
-_E='Integer32'
-_D='Unsigned32'
-_C='read-only'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-cableDataMgmtBase,=mibBuilder.importSymbols('BRCM-CABLEDATA-MGMT-MIB','cableDataMgmtBase')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB',_H,_I)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_F)
-pingMgmt=ModuleIdentity((1,3,6,1,4,1,4413,2,2,2,1,1,5))
-if mibBuilder.loadTexts:pingMgmt.setRevisions(('2007-02-05 00:00','2006-06-15 00:00'))
-class _PingTargetAddressType_Type(InetAddressType):defaultValue=1
-_PingTargetAddressType_Type.__name__=_I
-_PingTargetAddressType_Object=MibScalar
-pingTargetAddressType=_PingTargetAddressType_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,1),_PingTargetAddressType_Type())
-pingTargetAddressType.setMaxAccess(_B)
-if mibBuilder.loadTexts:pingTargetAddressType.setStatus(_A)
-class _PingTargetAddress_Type(InetAddress):defaultHexValue='00000000'
-_PingTargetAddress_Type.__name__=_H
-_PingTargetAddress_Object=MibScalar
-pingTargetAddress=_PingTargetAddress_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,2),_PingTargetAddress_Type())
-pingTargetAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:pingTargetAddress.setStatus(_A)
-class _PingNumPkts_Type(Unsigned32):defaultValue=3
-_PingNumPkts_Type.__name__=_D
-_PingNumPkts_Object=MibScalar
-pingNumPkts=_PingNumPkts_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,3),_PingNumPkts_Type())
-pingNumPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:pingNumPkts.setStatus(_A)
-class _PingPktStartSize_Type(Unsigned32):defaultValue=64;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(64,1518))
-_PingPktStartSize_Type.__name__=_D
-_PingPktStartSize_Object=MibScalar
-pingPktStartSize=_PingPktStartSize_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,4),_PingPktStartSize_Type())
-pingPktStartSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:pingPktStartSize.setStatus(_A)
-if mibBuilder.loadTexts:pingPktStartSize.setUnits(_G)
-class _PingPktEndSize_Type(Unsigned32):defaultValue=64;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(64,1518))
-_PingPktEndSize_Type.__name__=_D
-_PingPktEndSize_Object=MibScalar
-pingPktEndSize=_PingPktEndSize_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,5),_PingPktEndSize_Type())
-pingPktEndSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:pingPktEndSize.setStatus(_A)
-if mibBuilder.loadTexts:pingPktEndSize.setUnits(_G)
-class _PingPktStepSize_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1454,1454))
-_PingPktStepSize_Type.__name__=_E
-_PingPktStepSize_Object=MibScalar
-pingPktStepSize=_PingPktStepSize_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,6),_PingPktStepSize_Type())
-pingPktStepSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:pingPktStepSize.setStatus(_A)
-if mibBuilder.loadTexts:pingPktStepSize.setUnits(_G)
-class _PingInterval_Type(Unsigned32):defaultValue=0
-_PingInterval_Type.__name__=_D
-_PingInterval_Object=MibScalar
-pingInterval=_PingInterval_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,7),_PingInterval_Type())
-pingInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:pingInterval.setStatus(_A)
-if mibBuilder.loadTexts:pingInterval.setUnits(_J)
-class _PingTimeout_Type(Integer32):defaultValue=5000;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,65535))
-_PingTimeout_Type.__name__=_E
-_PingTimeout_Object=MibScalar
-pingTimeout=_PingTimeout_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,8),_PingTimeout_Type())
-pingTimeout.setMaxAccess(_B)
-if mibBuilder.loadTexts:pingTimeout.setStatus(_A)
-if mibBuilder.loadTexts:pingTimeout.setUnits(_J)
-class _PingVerifyReply_Type(TruthValue):defaultValue=1
-_PingVerifyReply_Type.__name__=_F
-_PingVerifyReply_Object=MibScalar
-pingVerifyReply=_PingVerifyReply_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,9),_PingVerifyReply_Type())
-pingVerifyReply.setMaxAccess(_B)
-if mibBuilder.loadTexts:pingVerifyReply.setStatus(_A)
-class _PingIpStackNumber_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,8))
-_PingIpStackNumber_Type.__name__=_E
-_PingIpStackNumber_Object=MibScalar
-pingIpStackNumber=_PingIpStackNumber_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,10),_PingIpStackNumber_Type())
-pingIpStackNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:pingIpStackNumber.setStatus(_A)
-class _PingNow_Type(TruthValue):defaultValue=1
-_PingNow_Type.__name__=_F
-_PingNow_Object=MibScalar
-pingNow=_PingNow_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,11),_PingNow_Type())
-pingNow.setMaxAccess(_B)
-if mibBuilder.loadTexts:pingNow.setStatus(_A)
-_PingPktsSent_Type=Counter32
-_PingPktsSent_Object=MibScalar
-pingPktsSent=_PingPktsSent_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,12),_PingPktsSent_Type())
-pingPktsSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:pingPktsSent.setStatus(_A)
-_PingRepliesReceived_Type=Counter32
-_PingRepliesReceived_Object=MibScalar
-pingRepliesReceived=_PingRepliesReceived_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,13),_PingRepliesReceived_Type())
-pingRepliesReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:pingRepliesReceived.setStatus(_A)
-_PingRepliesVerified_Type=Counter32
-_PingRepliesVerified_Object=MibScalar
-pingRepliesVerified=_PingRepliesVerified_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,14),_PingRepliesVerified_Type())
-pingRepliesVerified.setMaxAccess(_C)
-if mibBuilder.loadTexts:pingRepliesVerified.setStatus(_A)
-_PingOctetsSent_Type=Counter32
-_PingOctetsSent_Object=MibScalar
-pingOctetsSent=_PingOctetsSent_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,15),_PingOctetsSent_Type())
-pingOctetsSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:pingOctetsSent.setStatus(_A)
-_PingOctetsReceived_Type=Counter32
-_PingOctetsReceived_Object=MibScalar
-pingOctetsReceived=_PingOctetsReceived_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,16),_PingOctetsReceived_Type())
-pingOctetsReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:pingOctetsReceived.setStatus(_A)
-_PingIcmpErrors_Type=Counter32
-_PingIcmpErrors_Object=MibScalar
-pingIcmpErrors=_PingIcmpErrors_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,17),_PingIcmpErrors_Type())
-pingIcmpErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:pingIcmpErrors.setStatus(_A)
-_PingLastIcmpError_Type=Unsigned32
-_PingLastIcmpError_Object=MibScalar
-pingLastIcmpError=_PingLastIcmpError_Object((1,3,6,1,4,1,4413,2,2,2,1,1,5,18),_PingLastIcmpError_Type())
-pingLastIcmpError.setMaxAccess(_C)
-if mibBuilder.loadTexts:pingLastIcmpError.setStatus(_A)
-mibBuilder.exportSymbols('BRCM-PING-MGMT-MIB',**{'pingMgmt':pingMgmt,'pingTargetAddressType':pingTargetAddressType,'pingTargetAddress':pingTargetAddress,'pingNumPkts':pingNumPkts,'pingPktStartSize':pingPktStartSize,'pingPktEndSize':pingPktEndSize,'pingPktStepSize':pingPktStepSize,'pingInterval':pingInterval,'pingTimeout':pingTimeout,'pingVerifyReply':pingVerifyReply,'pingIpStackNumber':pingIpStackNumber,'pingNow':pingNow,'pingPktsSent':pingPktsSent,'pingRepliesReceived':pingRepliesReceived,'pingRepliesVerified':pingRepliesVerified,'pingOctetsSent':pingOctetsSent,'pingOctetsReceived':pingOctetsReceived,'pingIcmpErrors':pingIcmpErrors,'pingLastIcmpError':pingLastIcmpError})
+#
+# PySNMP MIB module BRCM-PING-MGMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/broadcom/BRCM-PING-MGMT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:17 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+cableDataMgmtBase, = mibBuilder.importSymbols("BRCM-CABLEDATA-MGMT-MIB", "cableDataMgmtBase")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+pingMgmt = ModuleIdentity((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5))
+pingMgmt.setRevisions(('2007-02-05 00:00', '2006-06-15 00:00',))
+if mibBuilder.loadTexts: pingMgmt.setLastUpdated('200702050000Z')
+if mibBuilder.loadTexts: pingMgmt.setOrganization('Broadcom Corporation')
+pingTargetAddressType = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 1), InetAddressType().clone('ipv4')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pingTargetAddressType.setStatus('current')
+pingTargetAddress = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 2), InetAddress().clone(hexValue="00000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pingTargetAddress.setStatus('current')
+pingNumPkts = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 3), Unsigned32().clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pingNumPkts.setStatus('current')
+pingPktStartSize = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(64, 1518)).clone(64)).setUnits('bytes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pingPktStartSize.setStatus('current')
+pingPktEndSize = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(64, 1518)).clone(64)).setUnits('bytes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pingPktEndSize.setStatus('current')
+pingPktStepSize = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1454, 1454))).setUnits('bytes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pingPktStepSize.setStatus('current')
+pingInterval = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 7), Unsigned32()).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pingInterval.setStatus('current')
+pingTimeout = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 65535)).clone(5000)).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pingTimeout.setStatus('current')
+pingVerifyReply = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 9), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pingVerifyReply.setStatus('current')
+pingIpStackNumber = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pingIpStackNumber.setStatus('current')
+pingNow = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 11), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pingNow.setStatus('current')
+pingPktsSent = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pingPktsSent.setStatus('current')
+pingRepliesReceived = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pingRepliesReceived.setStatus('current')
+pingRepliesVerified = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pingRepliesVerified.setStatus('current')
+pingOctetsSent = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pingOctetsSent.setStatus('current')
+pingOctetsReceived = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pingOctetsReceived.setStatus('current')
+pingIcmpErrors = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pingIcmpErrors.setStatus('current')
+pingLastIcmpError = MibScalar((1, 3, 6, 1, 4, 1, 4413, 2, 2, 2, 1, 1, 5, 18), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pingLastIcmpError.setStatus('current')
+mibBuilder.exportSymbols("BRCM-PING-MGMT-MIB", PYSNMP_MODULE_ID=pingMgmt, pingTargetAddress=pingTargetAddress, pingPktStepSize=pingPktStepSize, pingInterval=pingInterval, pingPktStartSize=pingPktStartSize, pingPktsSent=pingPktsSent, pingPktEndSize=pingPktEndSize, pingRepliesReceived=pingRepliesReceived, pingNumPkts=pingNumPkts, pingLastIcmpError=pingLastIcmpError, pingIcmpErrors=pingIcmpErrors, pingOctetsReceived=pingOctetsReceived, pingTargetAddressType=pingTargetAddressType, pingMgmt=pingMgmt, pingTimeout=pingTimeout, pingVerifyReply=pingVerifyReply, pingOctetsSent=pingOctetsSent, pingIpStackNumber=pingIpStackNumber, pingNow=pingNow, pingRepliesVerified=pingRepliesVerified)

@@ -1,527 +1,246 @@
-_a='maintMstpBridgeIndex'
-_Z='provMstpPortMstIndex'
-_Y='provMstpPortMstIfIndex'
-_X='provMstpPortCistIfIndex'
-_W='provMstpBridgeMstIndex'
-_V='provMstpBridgeCistIndex'
-_U='provMstpBridgeIndex'
-_T='asMstpPortMstIndex'
-_S='asMstpPortMstIfIndex'
-_R='asMstpPortCistIfIndex'
-_Q='asMstpBridgeMstIndex'
-_P='asMstpBridgeCistIndex'
-_O='disabled'
-_N='DisplayString'
-_M='IpePortPriority'
-_L='IpeBridgePriority'
-_K='read-create'
-_J='seconds'
-_I='invalid'
-_H='obsolete'
-_G='EnableDisableValue'
-_F='IPE-MSTP-MIB'
-_E='Integer32'
-_D='read-write'
-_C='not-accessible'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-BridgeId,=mibBuilder.importSymbols('BRIDGE-MIB','BridgeId')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,Opaque,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','Opaque','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_N,'PhysAddress','RowStatus','TextualConvention')
-class EnableDisableValue(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_I,0),('disable',1),('enable',2)))
-class IpeBridgePriority(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,61440))
-class IpePortPathCost(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,200000000))
-class IpePortPriority(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,240))
-class IpePortRole(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*((_I,0),(_O,1),('alternate',2),('backup',3),('root',4),('designated',5)))
-class IpePortState(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,8,9)));namedValues=NamedValues(*((_I,0),(_O,1),('blocking',2),('listening',3),('learning',4),('forwarding',5),('restricted',8),('guarded',9)))
-class IpeVlanList(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(512,512));fixedLength=512
-_Nec_ObjectIdentity=ObjectIdentity
-nec=_Nec_ObjectIdentity((1,3,6,1,4,1,119))
-_Nec_mib_ObjectIdentity=ObjectIdentity
-nec_mib=_Nec_mib_ObjectIdentity((1,3,6,1,4,1,119,2))
-_NecProductDepend_ObjectIdentity=ObjectIdentity
-necProductDepend=_NecProductDepend_ObjectIdentity((1,3,6,1,4,1,119,2,3))
-_RadioEquipment_ObjectIdentity=ObjectIdentity
-radioEquipment=_RadioEquipment_ObjectIdentity((1,3,6,1,4,1,119,2,3,69))
-_PasoNeoIpe_common_ObjectIdentity=ObjectIdentity
-pasoNeoIpe_common=_PasoNeoIpe_common_ObjectIdentity((1,3,6,1,4,1,119,2,3,69,501))
-_AlarmStatusGroup_ObjectIdentity=ObjectIdentity
-alarmStatusGroup=_AlarmStatusGroup_ObjectIdentity((1,3,6,1,4,1,119,2,3,69,501,3))
-_AsMstpGroup_ObjectIdentity=ObjectIdentity
-asMstpGroup=_AsMstpGroup_ObjectIdentity((1,3,6,1,4,1,119,2,3,69,501,3,44))
-_AsMstpBridgeCistTable_Object=MibTable
-asMstpBridgeCistTable=_AsMstpBridgeCistTable_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,1))
-if mibBuilder.loadTexts:asMstpBridgeCistTable.setStatus(_A)
-_AsMstpBridgeCistEntry_Object=MibTableRow
-asMstpBridgeCistEntry=_AsMstpBridgeCistEntry_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,1,1))
-asMstpBridgeCistEntry.setIndexNames((0,_F,_P))
-if mibBuilder.loadTexts:asMstpBridgeCistEntry.setStatus(_A)
-class _AsMstpBridgeCistIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1))
-_AsMstpBridgeCistIndex_Type.__name__=_E
-_AsMstpBridgeCistIndex_Object=MibTableColumn
-asMstpBridgeCistIndex=_AsMstpBridgeCistIndex_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,1,1,1),_AsMstpBridgeCistIndex_Type())
-asMstpBridgeCistIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMstpBridgeCistIndex.setStatus(_A)
-_AsMstpBridgeCistNEAddress_Type=IpAddress
-_AsMstpBridgeCistNEAddress_Object=MibTableColumn
-asMstpBridgeCistNEAddress=_AsMstpBridgeCistNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,1,1,2),_AsMstpBridgeCistNEAddress_Type())
-asMstpBridgeCistNEAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMstpBridgeCistNEAddress.setStatus(_H)
-_AsMstpBridgeCistRegionalRoot_Type=BridgeId
-_AsMstpBridgeCistRegionalRoot_Object=MibTableColumn
-asMstpBridgeCistRegionalRoot=_AsMstpBridgeCistRegionalRoot_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,1,1,3),_AsMstpBridgeCistRegionalRoot_Type())
-asMstpBridgeCistRegionalRoot.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpBridgeCistRegionalRoot.setStatus(_A)
-_AsMstpBridgeCistTopChanges_Type=Counter32
-_AsMstpBridgeCistTopChanges_Object=MibTableColumn
-asMstpBridgeCistTopChanges=_AsMstpBridgeCistTopChanges_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,1,1,4),_AsMstpBridgeCistTopChanges_Type())
-asMstpBridgeCistTopChanges.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpBridgeCistTopChanges.setStatus(_A)
-_AsMstpBridgeCistRoot_Type=BridgeId
-_AsMstpBridgeCistRoot_Object=MibTableColumn
-asMstpBridgeCistRoot=_AsMstpBridgeCistRoot_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,1,1,5),_AsMstpBridgeCistRoot_Type())
-asMstpBridgeCistRoot.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpBridgeCistRoot.setStatus(_A)
-_AsMstpBridgeMstTable_Object=MibTable
-asMstpBridgeMstTable=_AsMstpBridgeMstTable_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,2))
-if mibBuilder.loadTexts:asMstpBridgeMstTable.setStatus(_A)
-_AsMstpBridgeMstEntry_Object=MibTableRow
-asMstpBridgeMstEntry=_AsMstpBridgeMstEntry_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,2,1))
-asMstpBridgeMstEntry.setIndexNames((0,_F,_Q))
-if mibBuilder.loadTexts:asMstpBridgeMstEntry.setStatus(_A)
-class _AsMstpBridgeMstIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_AsMstpBridgeMstIndex_Type.__name__=_E
-_AsMstpBridgeMstIndex_Object=MibTableColumn
-asMstpBridgeMstIndex=_AsMstpBridgeMstIndex_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,2,1,1),_AsMstpBridgeMstIndex_Type())
-asMstpBridgeMstIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMstpBridgeMstIndex.setStatus(_A)
-_AsMstpBridgeMstNEAddress_Type=IpAddress
-_AsMstpBridgeMstNEAddress_Object=MibTableColumn
-asMstpBridgeMstNEAddress=_AsMstpBridgeMstNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,2,1,2),_AsMstpBridgeMstNEAddress_Type())
-asMstpBridgeMstNEAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMstpBridgeMstNEAddress.setStatus(_H)
-_AsMstpBridgeMstRegionalRoot_Type=BridgeId
-_AsMstpBridgeMstRegionalRoot_Object=MibTableColumn
-asMstpBridgeMstRegionalRoot=_AsMstpBridgeMstRegionalRoot_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,2,1,3),_AsMstpBridgeMstRegionalRoot_Type())
-asMstpBridgeMstRegionalRoot.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpBridgeMstRegionalRoot.setStatus(_A)
-_AsMstpBridgeMstTopChanges_Type=Counter32
-_AsMstpBridgeMstTopChanges_Object=MibTableColumn
-asMstpBridgeMstTopChanges=_AsMstpBridgeMstTopChanges_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,2,1,4),_AsMstpBridgeMstTopChanges_Type())
-asMstpBridgeMstTopChanges.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpBridgeMstTopChanges.setStatus(_A)
-_AsMstpPortCistTable_Object=MibTable
-asMstpPortCistTable=_AsMstpPortCistTable_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,3))
-if mibBuilder.loadTexts:asMstpPortCistTable.setStatus(_A)
-_AsMstpPortCistEntry_Object=MibTableRow
-asMstpPortCistEntry=_AsMstpPortCistEntry_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,3,1))
-asMstpPortCistEntry.setIndexNames((0,_F,_R))
-if mibBuilder.loadTexts:asMstpPortCistEntry.setStatus(_A)
-_AsMstpPortCistIfIndex_Type=InterfaceIndex
-_AsMstpPortCistIfIndex_Object=MibTableColumn
-asMstpPortCistIfIndex=_AsMstpPortCistIfIndex_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,3,1,1),_AsMstpPortCistIfIndex_Type())
-asMstpPortCistIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMstpPortCistIfIndex.setStatus(_A)
-_AsMstpPortCistNEAddress_Type=IpAddress
-_AsMstpPortCistNEAddress_Object=MibTableColumn
-asMstpPortCistNEAddress=_AsMstpPortCistNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,3,1,2),_AsMstpPortCistNEAddress_Type())
-asMstpPortCistNEAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMstpPortCistNEAddress.setStatus(_H)
-_AsMstpPortCistRole_Type=IpePortRole
-_AsMstpPortCistRole_Object=MibTableColumn
-asMstpPortCistRole=_AsMstpPortCistRole_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,3,1,3),_AsMstpPortCistRole_Type())
-asMstpPortCistRole.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortCistRole.setStatus(_A)
-_AsMstpPortCistState_Type=IpePortState
-_AsMstpPortCistState_Object=MibTableColumn
-asMstpPortCistState=_AsMstpPortCistState_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,3,1,4),_AsMstpPortCistState_Type())
-asMstpPortCistState.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortCistState.setStatus(_A)
-_AsMstpPortCistRegionalRoot_Type=BridgeId
-_AsMstpPortCistRegionalRoot_Object=MibTableColumn
-asMstpPortCistRegionalRoot=_AsMstpPortCistRegionalRoot_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,3,1,5),_AsMstpPortCistRegionalRoot_Type())
-asMstpPortCistRegionalRoot.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortCistRegionalRoot.setStatus(_A)
-class _AsMstpPortCistProtoVersion_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_I,0),('stp',1),('rstp',2),('mstp',3)))
-_AsMstpPortCistProtoVersion_Type.__name__=_E
-_AsMstpPortCistProtoVersion_Object=MibTableColumn
-asMstpPortCistProtoVersion=_AsMstpPortCistProtoVersion_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,3,1,6),_AsMstpPortCistProtoVersion_Type())
-asMstpPortCistProtoVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortCistProtoVersion.setStatus(_A)
-_AsMstpPortCistPathCost_Type=Integer32
-_AsMstpPortCistPathCost_Object=MibTableColumn
-asMstpPortCistPathCost=_AsMstpPortCistPathCost_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,3,1,7),_AsMstpPortCistPathCost_Type())
-asMstpPortCistPathCost.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortCistPathCost.setStatus(_A)
-class _AsMstpPortCistInvalidBpdu_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues((_I,0))
-_AsMstpPortCistInvalidBpdu_Type.__name__=_E
-_AsMstpPortCistInvalidBpdu_Object=MibTableColumn
-asMstpPortCistInvalidBpdu=_AsMstpPortCistInvalidBpdu_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,3,1,8),_AsMstpPortCistInvalidBpdu_Type())
-asMstpPortCistInvalidBpdu.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortCistInvalidBpdu.setStatus(_A)
-_AsMstpPortCistDesignatedPathCost_Type=Integer32
-_AsMstpPortCistDesignatedPathCost_Object=MibTableColumn
-asMstpPortCistDesignatedPathCost=_AsMstpPortCistDesignatedPathCost_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,3,1,9),_AsMstpPortCistDesignatedPathCost_Type())
-asMstpPortCistDesignatedPathCost.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortCistDesignatedPathCost.setStatus(_A)
-_AsMstpPortCistDesignatedBridge_Type=BridgeId
-_AsMstpPortCistDesignatedBridge_Object=MibTableColumn
-asMstpPortCistDesignatedBridge=_AsMstpPortCistDesignatedBridge_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,3,1,10),_AsMstpPortCistDesignatedBridge_Type())
-asMstpPortCistDesignatedBridge.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortCistDesignatedBridge.setStatus(_A)
-_AsMstpPortCistDesignatedPort_Type=OctetString
-_AsMstpPortCistDesignatedPort_Object=MibTableColumn
-asMstpPortCistDesignatedPort=_AsMstpPortCistDesignatedPort_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,3,1,11),_AsMstpPortCistDesignatedPort_Type())
-asMstpPortCistDesignatedPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortCistDesignatedPort.setStatus(_A)
-_AsMstpPortCistForwardTransitions_Type=Counter32
-_AsMstpPortCistForwardTransitions_Object=MibTableColumn
-asMstpPortCistForwardTransitions=_AsMstpPortCistForwardTransitions_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,3,1,12),_AsMstpPortCistForwardTransitions_Type())
-asMstpPortCistForwardTransitions.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortCistForwardTransitions.setStatus(_A)
-class _AsMstpPortCistOperEdgePort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('alarmOff',0),('alarmOn',1)))
-_AsMstpPortCistOperEdgePort_Type.__name__=_E
-_AsMstpPortCistOperEdgePort_Object=MibTableColumn
-asMstpPortCistOperEdgePort=_AsMstpPortCistOperEdgePort_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,3,1,13),_AsMstpPortCistOperEdgePort_Type())
-asMstpPortCistOperEdgePort.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortCistOperEdgePort.setStatus(_A)
-_AsMstpPortMstTable_Object=MibTable
-asMstpPortMstTable=_AsMstpPortMstTable_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,4))
-if mibBuilder.loadTexts:asMstpPortMstTable.setStatus(_A)
-_AsMstpPortMstEntry_Object=MibTableRow
-asMstpPortMstEntry=_AsMstpPortMstEntry_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,4,1))
-asMstpPortMstEntry.setIndexNames((0,_F,_S),(0,_F,_T))
-if mibBuilder.loadTexts:asMstpPortMstEntry.setStatus(_A)
-_AsMstpPortMstIfIndex_Type=InterfaceIndex
-_AsMstpPortMstIfIndex_Object=MibTableColumn
-asMstpPortMstIfIndex=_AsMstpPortMstIfIndex_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,4,1,1),_AsMstpPortMstIfIndex_Type())
-asMstpPortMstIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMstpPortMstIfIndex.setStatus(_A)
-class _AsMstpPortMstIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_AsMstpPortMstIndex_Type.__name__=_E
-_AsMstpPortMstIndex_Object=MibTableColumn
-asMstpPortMstIndex=_AsMstpPortMstIndex_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,4,1,2),_AsMstpPortMstIndex_Type())
-asMstpPortMstIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMstpPortMstIndex.setStatus(_A)
-_AsMstpPortMstNEAddress_Type=IpAddress
-_AsMstpPortMstNEAddress_Object=MibTableColumn
-asMstpPortMstNEAddress=_AsMstpPortMstNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,4,1,3),_AsMstpPortMstNEAddress_Type())
-asMstpPortMstNEAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:asMstpPortMstNEAddress.setStatus(_H)
-_AsMstpPortMstRole_Type=IpePortRole
-_AsMstpPortMstRole_Object=MibTableColumn
-asMstpPortMstRole=_AsMstpPortMstRole_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,4,1,4),_AsMstpPortMstRole_Type())
-asMstpPortMstRole.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortMstRole.setStatus(_A)
-_AsMstpPortMstState_Type=IpePortState
-_AsMstpPortMstState_Object=MibTableColumn
-asMstpPortMstState=_AsMstpPortMstState_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,4,1,5),_AsMstpPortMstState_Type())
-asMstpPortMstState.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortMstState.setStatus(_A)
-_AsMstpPortMstRegionalRoot_Type=BridgeId
-_AsMstpPortMstRegionalRoot_Object=MibTableColumn
-asMstpPortMstRegionalRoot=_AsMstpPortMstRegionalRoot_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,4,1,6),_AsMstpPortMstRegionalRoot_Type())
-asMstpPortMstRegionalRoot.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortMstRegionalRoot.setStatus(_A)
-_AsMstpPortMstPathCost_Type=Integer32
-_AsMstpPortMstPathCost_Object=MibTableColumn
-asMstpPortMstPathCost=_AsMstpPortMstPathCost_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,4,1,7),_AsMstpPortMstPathCost_Type())
-asMstpPortMstPathCost.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortMstPathCost.setStatus(_A)
-_AsMstpPortMstDesignatedPathCost_Type=Integer32
-_AsMstpPortMstDesignatedPathCost_Object=MibTableColumn
-asMstpPortMstDesignatedPathCost=_AsMstpPortMstDesignatedPathCost_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,4,1,8),_AsMstpPortMstDesignatedPathCost_Type())
-asMstpPortMstDesignatedPathCost.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortMstDesignatedPathCost.setStatus(_A)
-_AsMstpPortMstDesignatedBridge_Type=BridgeId
-_AsMstpPortMstDesignatedBridge_Object=MibTableColumn
-asMstpPortMstDesignatedBridge=_AsMstpPortMstDesignatedBridge_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,4,1,9),_AsMstpPortMstDesignatedBridge_Type())
-asMstpPortMstDesignatedBridge.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortMstDesignatedBridge.setStatus(_A)
-_AsMstpPortMstDesignatedPort_Type=OctetString
-_AsMstpPortMstDesignatedPort_Object=MibTableColumn
-asMstpPortMstDesignatedPort=_AsMstpPortMstDesignatedPort_Object((1,3,6,1,4,1,119,2,3,69,501,3,44,4,1,10),_AsMstpPortMstDesignatedPort_Type())
-asMstpPortMstDesignatedPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:asMstpPortMstDesignatedPort.setStatus(_A)
-_ProvisioningGroup_ObjectIdentity=ObjectIdentity
-provisioningGroup=_ProvisioningGroup_ObjectIdentity((1,3,6,1,4,1,119,2,3,69,501,5))
-_ProvMstpGroup_ObjectIdentity=ObjectIdentity
-provMstpGroup=_ProvMstpGroup_ObjectIdentity((1,3,6,1,4,1,119,2,3,69,501,5,44))
-_ProvMstpBridgeTable_Object=MibTable
-provMstpBridgeTable=_ProvMstpBridgeTable_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,1))
-if mibBuilder.loadTexts:provMstpBridgeTable.setStatus(_A)
-_ProvMstpBridgeEntry_Object=MibTableRow
-provMstpBridgeEntry=_ProvMstpBridgeEntry_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,1,1))
-provMstpBridgeEntry.setIndexNames((0,_F,_U))
-if mibBuilder.loadTexts:provMstpBridgeEntry.setStatus(_A)
-class _ProvMstpBridgeIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1))
-_ProvMstpBridgeIndex_Type.__name__=_E
-_ProvMstpBridgeIndex_Object=MibTableColumn
-provMstpBridgeIndex=_ProvMstpBridgeIndex_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,1,1,1),_ProvMstpBridgeIndex_Type())
-provMstpBridgeIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:provMstpBridgeIndex.setStatus(_A)
-_ProvMstpBridgeNEAddress_Type=IpAddress
-_ProvMstpBridgeNEAddress_Object=MibTableColumn
-provMstpBridgeNEAddress=_ProvMstpBridgeNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,1,1,2),_ProvMstpBridgeNEAddress_Type())
-provMstpBridgeNEAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:provMstpBridgeNEAddress.setStatus(_A)
-class _ProvMstpBridgeEnable_Type(EnableDisableValue):defaultValue=1
-_ProvMstpBridgeEnable_Type.__name__=_G
-_ProvMstpBridgeEnable_Object=MibTableColumn
-provMstpBridgeEnable=_ProvMstpBridgeEnable_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,1,1,3),_ProvMstpBridgeEnable_Type())
-provMstpBridgeEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpBridgeEnable.setStatus(_A)
-class _ProvMstpBridgeMaxAge_Type(Integer32):defaultValue=20;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(6,40))
-_ProvMstpBridgeMaxAge_Type.__name__=_E
-_ProvMstpBridgeMaxAge_Object=MibTableColumn
-provMstpBridgeMaxAge=_ProvMstpBridgeMaxAge_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,1,1,4),_ProvMstpBridgeMaxAge_Type())
-provMstpBridgeMaxAge.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpBridgeMaxAge.setStatus(_A)
-if mibBuilder.loadTexts:provMstpBridgeMaxAge.setUnits(_J)
-class _ProvMstpBridgeHelloTime_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_ProvMstpBridgeHelloTime_Type.__name__=_E
-_ProvMstpBridgeHelloTime_Object=MibTableColumn
-provMstpBridgeHelloTime=_ProvMstpBridgeHelloTime_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,1,1,5),_ProvMstpBridgeHelloTime_Type())
-provMstpBridgeHelloTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpBridgeHelloTime.setStatus(_A)
-if mibBuilder.loadTexts:provMstpBridgeHelloTime.setUnits(_J)
-class _ProvMstpBridgeForwardDelay_Type(Integer32):defaultValue=15;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(4,30))
-_ProvMstpBridgeForwardDelay_Type.__name__=_E
-_ProvMstpBridgeForwardDelay_Object=MibTableColumn
-provMstpBridgeForwardDelay=_ProvMstpBridgeForwardDelay_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,1,1,6),_ProvMstpBridgeForwardDelay_Type())
-provMstpBridgeForwardDelay.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpBridgeForwardDelay.setStatus(_A)
-if mibBuilder.loadTexts:provMstpBridgeForwardDelay.setUnits(_J)
-class _ProvMstpBridgeTxHoldCount_Type(Integer32):defaultValue=6;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_ProvMstpBridgeTxHoldCount_Type.__name__=_E
-_ProvMstpBridgeTxHoldCount_Object=MibTableColumn
-provMstpBridgeTxHoldCount=_ProvMstpBridgeTxHoldCount_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,1,1,7),_ProvMstpBridgeTxHoldCount_Type())
-provMstpBridgeTxHoldCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpBridgeTxHoldCount.setStatus(_A)
-class _ProvMstpBridgeMaxHopCount_Type(Integer32):defaultValue=20;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,40))
-_ProvMstpBridgeMaxHopCount_Type.__name__=_E
-_ProvMstpBridgeMaxHopCount_Object=MibTableColumn
-provMstpBridgeMaxHopCount=_ProvMstpBridgeMaxHopCount_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,1,1,12),_ProvMstpBridgeMaxHopCount_Type())
-provMstpBridgeMaxHopCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpBridgeMaxHopCount.setStatus(_A)
-class _ProvMstpBridgeRegionName_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_ProvMstpBridgeRegionName_Type.__name__=_N
-_ProvMstpBridgeRegionName_Object=MibTableColumn
-provMstpBridgeRegionName=_ProvMstpBridgeRegionName_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,1,1,13),_ProvMstpBridgeRegionName_Type())
-provMstpBridgeRegionName.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpBridgeRegionName.setStatus(_A)
-class _ProvMstpBridgeRevisionNum_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_ProvMstpBridgeRevisionNum_Type.__name__=_E
-_ProvMstpBridgeRevisionNum_Object=MibTableColumn
-provMstpBridgeRevisionNum=_ProvMstpBridgeRevisionNum_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,1,1,14),_ProvMstpBridgeRevisionNum_Type())
-provMstpBridgeRevisionNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpBridgeRevisionNum.setStatus(_A)
-class _ProvMstpBridgeBpduFilter_Type(EnableDisableValue):defaultValue=1
-_ProvMstpBridgeBpduFilter_Type.__name__=_G
-_ProvMstpBridgeBpduFilter_Object=MibTableColumn
-provMstpBridgeBpduFilter=_ProvMstpBridgeBpduFilter_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,1,1,15),_ProvMstpBridgeBpduFilter_Type())
-provMstpBridgeBpduFilter.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpBridgeBpduFilter.setStatus(_A)
-class _ProvMstpBridgeBpduGuardTimer_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(10,1000000))
-_ProvMstpBridgeBpduGuardTimer_Type.__name__=_E
-_ProvMstpBridgeBpduGuardTimer_Object=MibTableColumn
-provMstpBridgeBpduGuardTimer=_ProvMstpBridgeBpduGuardTimer_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,1,1,16),_ProvMstpBridgeBpduGuardTimer_Type())
-provMstpBridgeBpduGuardTimer.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpBridgeBpduGuardTimer.setStatus(_A)
-if mibBuilder.loadTexts:provMstpBridgeBpduGuardTimer.setUnits(_J)
-_ProvMstpBridgeCistTable_Object=MibTable
-provMstpBridgeCistTable=_ProvMstpBridgeCistTable_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,2))
-if mibBuilder.loadTexts:provMstpBridgeCistTable.setStatus(_A)
-_ProvMstpBridgeCistEntry_Object=MibTableRow
-provMstpBridgeCistEntry=_ProvMstpBridgeCistEntry_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,2,1))
-provMstpBridgeCistEntry.setIndexNames((0,_F,_V))
-if mibBuilder.loadTexts:provMstpBridgeCistEntry.setStatus(_A)
-class _ProvMstpBridgeCistIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1))
-_ProvMstpBridgeCistIndex_Type.__name__=_E
-_ProvMstpBridgeCistIndex_Object=MibTableColumn
-provMstpBridgeCistIndex=_ProvMstpBridgeCistIndex_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,2,1,1),_ProvMstpBridgeCistIndex_Type())
-provMstpBridgeCistIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:provMstpBridgeCistIndex.setStatus(_A)
-_ProvMstpBridgeCistNEAddress_Type=IpAddress
-_ProvMstpBridgeCistNEAddress_Object=MibTableColumn
-provMstpBridgeCistNEAddress=_ProvMstpBridgeCistNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,2,1,2),_ProvMstpBridgeCistNEAddress_Type())
-provMstpBridgeCistNEAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:provMstpBridgeCistNEAddress.setStatus(_A)
-class _ProvMstpBridgeCistPriority_Type(IpeBridgePriority):defaultValue=32768
-_ProvMstpBridgeCistPriority_Type.__name__=_L
-_ProvMstpBridgeCistPriority_Object=MibTableColumn
-provMstpBridgeCistPriority=_ProvMstpBridgeCistPriority_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,2,1,3),_ProvMstpBridgeCistPriority_Type())
-provMstpBridgeCistPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpBridgeCistPriority.setStatus(_A)
-_ProvMstpBridgeCistVlanList_Type=IpeVlanList
-_ProvMstpBridgeCistVlanList_Object=MibTableColumn
-provMstpBridgeCistVlanList=_ProvMstpBridgeCistVlanList_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,2,1,4),_ProvMstpBridgeCistVlanList_Type())
-provMstpBridgeCistVlanList.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpBridgeCistVlanList.setStatus(_A)
-_ProvMstpBridgeMstTable_Object=MibTable
-provMstpBridgeMstTable=_ProvMstpBridgeMstTable_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,3))
-if mibBuilder.loadTexts:provMstpBridgeMstTable.setStatus(_A)
-_ProvMstpBridgeMstEntry_Object=MibTableRow
-provMstpBridgeMstEntry=_ProvMstpBridgeMstEntry_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,3,1))
-provMstpBridgeMstEntry.setIndexNames((0,_F,_W))
-if mibBuilder.loadTexts:provMstpBridgeMstEntry.setStatus(_A)
-class _ProvMstpBridgeMstIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_ProvMstpBridgeMstIndex_Type.__name__=_E
-_ProvMstpBridgeMstIndex_Object=MibTableColumn
-provMstpBridgeMstIndex=_ProvMstpBridgeMstIndex_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,3,1,1),_ProvMstpBridgeMstIndex_Type())
-provMstpBridgeMstIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:provMstpBridgeMstIndex.setStatus(_A)
-_ProvMstpBridgeMstNEAddress_Type=IpAddress
-_ProvMstpBridgeMstNEAddress_Object=MibTableColumn
-provMstpBridgeMstNEAddress=_ProvMstpBridgeMstNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,3,1,2),_ProvMstpBridgeMstNEAddress_Type())
-provMstpBridgeMstNEAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:provMstpBridgeMstNEAddress.setStatus(_H)
-class _ProvMstpBridgeMstPriority_Type(IpeBridgePriority):defaultValue=32768
-_ProvMstpBridgeMstPriority_Type.__name__=_L
-_ProvMstpBridgeMstPriority_Object=MibTableColumn
-provMstpBridgeMstPriority=_ProvMstpBridgeMstPriority_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,3,1,3),_ProvMstpBridgeMstPriority_Type())
-provMstpBridgeMstPriority.setMaxAccess(_K)
-if mibBuilder.loadTexts:provMstpBridgeMstPriority.setStatus(_A)
-_ProvMstpBridgeMstVlanList_Type=IpeVlanList
-_ProvMstpBridgeMstVlanList_Object=MibTableColumn
-provMstpBridgeMstVlanList=_ProvMstpBridgeMstVlanList_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,3,1,4),_ProvMstpBridgeMstVlanList_Type())
-provMstpBridgeMstVlanList.setMaxAccess(_K)
-if mibBuilder.loadTexts:provMstpBridgeMstVlanList.setStatus(_A)
-class _ProvMstpBridgeMstInstanceNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4093))
-_ProvMstpBridgeMstInstanceNum_Type.__name__=_E
-_ProvMstpBridgeMstInstanceNum_Object=MibTableColumn
-provMstpBridgeMstInstanceNum=_ProvMstpBridgeMstInstanceNum_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,3,1,5),_ProvMstpBridgeMstInstanceNum_Type())
-provMstpBridgeMstInstanceNum.setMaxAccess(_K)
-if mibBuilder.loadTexts:provMstpBridgeMstInstanceNum.setStatus(_A)
-_ProvMstpBridgeMstRowStatus_Type=RowStatus
-_ProvMstpBridgeMstRowStatus_Object=MibTableColumn
-provMstpBridgeMstRowStatus=_ProvMstpBridgeMstRowStatus_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,3,1,6),_ProvMstpBridgeMstRowStatus_Type())
-provMstpBridgeMstRowStatus.setMaxAccess(_K)
-if mibBuilder.loadTexts:provMstpBridgeMstRowStatus.setStatus(_A)
-_ProvMstpPortCistTable_Object=MibTable
-provMstpPortCistTable=_ProvMstpPortCistTable_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,4))
-if mibBuilder.loadTexts:provMstpPortCistTable.setStatus(_A)
-_ProvMstpPortCistEntry_Object=MibTableRow
-provMstpPortCistEntry=_ProvMstpPortCistEntry_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,4,1))
-provMstpPortCistEntry.setIndexNames((0,_F,_X))
-if mibBuilder.loadTexts:provMstpPortCistEntry.setStatus(_A)
-_ProvMstpPortCistIfIndex_Type=InterfaceIndex
-_ProvMstpPortCistIfIndex_Object=MibTableColumn
-provMstpPortCistIfIndex=_ProvMstpPortCistIfIndex_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,4,1,1),_ProvMstpPortCistIfIndex_Type())
-provMstpPortCistIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:provMstpPortCistIfIndex.setStatus(_A)
-_ProvMstpPortCistNEAddress_Type=IpAddress
-_ProvMstpPortCistNEAddress_Object=MibTableColumn
-provMstpPortCistNEAddress=_ProvMstpPortCistNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,4,1,2),_ProvMstpPortCistNEAddress_Type())
-provMstpPortCistNEAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:provMstpPortCistNEAddress.setStatus(_H)
-class _ProvMstpPortCistPriority_Type(IpePortPriority):defaultValue=0
-_ProvMstpPortCistPriority_Type.__name__=_M
-_ProvMstpPortCistPriority_Object=MibTableColumn
-provMstpPortCistPriority=_ProvMstpPortCistPriority_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,4,1,3),_ProvMstpPortCistPriority_Type())
-provMstpPortCistPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpPortCistPriority.setStatus(_A)
-class _ProvMstpPortCistEnable_Type(EnableDisableValue):defaultValue=1
-_ProvMstpPortCistEnable_Type.__name__=_G
-_ProvMstpPortCistEnable_Object=MibTableColumn
-provMstpPortCistEnable=_ProvMstpPortCistEnable_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,4,1,4),_ProvMstpPortCistEnable_Type())
-provMstpPortCistEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpPortCistEnable.setStatus(_A)
-class _ProvMstpPortCistEdgePort_Type(EnableDisableValue):defaultValue=1
-_ProvMstpPortCistEdgePort_Type.__name__=_G
-_ProvMstpPortCistEdgePort_Object=MibTableColumn
-provMstpPortCistEdgePort=_ProvMstpPortCistEdgePort_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,4,1,5),_ProvMstpPortCistEdgePort_Type())
-provMstpPortCistEdgePort.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpPortCistEdgePort.setStatus(_A)
-_ProvMstpPortCistPathCost_Type=IpePortPathCost
-_ProvMstpPortCistPathCost_Object=MibTableColumn
-provMstpPortCistPathCost=_ProvMstpPortCistPathCost_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,4,1,6),_ProvMstpPortCistPathCost_Type())
-provMstpPortCistPathCost.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpPortCistPathCost.setStatus(_A)
-class _ProvMstpPortCistBpduGuard_Type(EnableDisableValue):defaultValue=1
-_ProvMstpPortCistBpduGuard_Type.__name__=_G
-_ProvMstpPortCistBpduGuard_Object=MibTableColumn
-provMstpPortCistBpduGuard=_ProvMstpPortCistBpduGuard_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,4,1,7),_ProvMstpPortCistBpduGuard_Type())
-provMstpPortCistBpduGuard.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpPortCistBpduGuard.setStatus(_A)
-class _ProvMstpPortCistRestrictRole_Type(EnableDisableValue):defaultValue=1
-_ProvMstpPortCistRestrictRole_Type.__name__=_G
-_ProvMstpPortCistRestrictRole_Object=MibTableColumn
-provMstpPortCistRestrictRole=_ProvMstpPortCistRestrictRole_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,4,1,8),_ProvMstpPortCistRestrictRole_Type())
-provMstpPortCistRestrictRole.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpPortCistRestrictRole.setStatus(_A)
-_ProvMstpPortMstTable_Object=MibTable
-provMstpPortMstTable=_ProvMstpPortMstTable_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,5))
-if mibBuilder.loadTexts:provMstpPortMstTable.setStatus(_A)
-_ProvMstpPortMstEntry_Object=MibTableRow
-provMstpPortMstEntry=_ProvMstpPortMstEntry_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,5,1))
-provMstpPortMstEntry.setIndexNames((0,_F,_Y),(0,_F,_Z))
-if mibBuilder.loadTexts:provMstpPortMstEntry.setStatus(_A)
-_ProvMstpPortMstIfIndex_Type=InterfaceIndex
-_ProvMstpPortMstIfIndex_Object=MibTableColumn
-provMstpPortMstIfIndex=_ProvMstpPortMstIfIndex_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,5,1,1),_ProvMstpPortMstIfIndex_Type())
-provMstpPortMstIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:provMstpPortMstIfIndex.setStatus(_A)
-class _ProvMstpPortMstIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_ProvMstpPortMstIndex_Type.__name__=_E
-_ProvMstpPortMstIndex_Object=MibTableColumn
-provMstpPortMstIndex=_ProvMstpPortMstIndex_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,5,1,2),_ProvMstpPortMstIndex_Type())
-provMstpPortMstIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:provMstpPortMstIndex.setStatus(_A)
-_ProvMstpPortMstNEAddress_Type=IpAddress
-_ProvMstpPortMstNEAddress_Object=MibTableColumn
-provMstpPortMstNEAddress=_ProvMstpPortMstNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,5,1,3),_ProvMstpPortMstNEAddress_Type())
-provMstpPortMstNEAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:provMstpPortMstNEAddress.setStatus(_H)
-class _ProvMstpPortMstPriority_Type(IpePortPriority):defaultValue=0
-_ProvMstpPortMstPriority_Type.__name__=_M
-_ProvMstpPortMstPriority_Object=MibTableColumn
-provMstpPortMstPriority=_ProvMstpPortMstPriority_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,5,1,4),_ProvMstpPortMstPriority_Type())
-provMstpPortMstPriority.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpPortMstPriority.setStatus(_A)
-class _ProvMstpPortMstEnable_Type(EnableDisableValue):defaultValue=1
-_ProvMstpPortMstEnable_Type.__name__=_G
-_ProvMstpPortMstEnable_Object=MibTableColumn
-provMstpPortMstEnable=_ProvMstpPortMstEnable_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,5,1,5),_ProvMstpPortMstEnable_Type())
-provMstpPortMstEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpPortMstEnable.setStatus(_A)
-_ProvMstpPortMstPathCost_Type=IpePortPathCost
-_ProvMstpPortMstPathCost_Object=MibTableColumn
-provMstpPortMstPathCost=_ProvMstpPortMstPathCost_Object((1,3,6,1,4,1,119,2,3,69,501,5,44,5,1,6),_ProvMstpPortMstPathCost_Type())
-provMstpPortMstPathCost.setMaxAccess(_D)
-if mibBuilder.loadTexts:provMstpPortMstPathCost.setStatus(_A)
-_MaintenanceGroup_ObjectIdentity=ObjectIdentity
-maintenanceGroup=_MaintenanceGroup_ObjectIdentity((1,3,6,1,4,1,119,2,3,69,501,6))
-_MaintMstpGroup_ObjectIdentity=ObjectIdentity
-maintMstpGroup=_MaintMstpGroup_ObjectIdentity((1,3,6,1,4,1,119,2,3,69,501,6,44))
-_MaintMstpBridgeTable_Object=MibTable
-maintMstpBridgeTable=_MaintMstpBridgeTable_Object((1,3,6,1,4,1,119,2,3,69,501,6,44,1))
-if mibBuilder.loadTexts:maintMstpBridgeTable.setStatus(_A)
-_MaintMstpBridgeEntry_Object=MibTableRow
-maintMstpBridgeEntry=_MaintMstpBridgeEntry_Object((1,3,6,1,4,1,119,2,3,69,501,6,44,1,1))
-maintMstpBridgeEntry.setIndexNames((0,_F,_a))
-if mibBuilder.loadTexts:maintMstpBridgeEntry.setStatus(_A)
-class _MaintMstpBridgeIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1))
-_MaintMstpBridgeIndex_Type.__name__=_E
-_MaintMstpBridgeIndex_Object=MibTableColumn
-maintMstpBridgeIndex=_MaintMstpBridgeIndex_Object((1,3,6,1,4,1,119,2,3,69,501,6,44,1,1,1),_MaintMstpBridgeIndex_Type())
-maintMstpBridgeIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:maintMstpBridgeIndex.setStatus(_A)
-_MaintMstpBridgeNEAddress_Type=IpAddress
-_MaintMstpBridgeNEAddress_Object=MibTableColumn
-maintMstpBridgeNEAddress=_MaintMstpBridgeNEAddress_Object((1,3,6,1,4,1,119,2,3,69,501,6,44,1,1,2),_MaintMstpBridgeNEAddress_Type())
-maintMstpBridgeNEAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:maintMstpBridgeNEAddress.setStatus(_A)
-class _MaintMstpBridgeModeClear_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('none',1),('clear',2)))
-_MaintMstpBridgeModeClear_Type.__name__=_E
-_MaintMstpBridgeModeClear_Object=MibTableColumn
-maintMstpBridgeModeClear=_MaintMstpBridgeModeClear_Object((1,3,6,1,4,1,119,2,3,69,501,6,44,1,1,3),_MaintMstpBridgeModeClear_Type())
-maintMstpBridgeModeClear.setMaxAccess(_D)
-if mibBuilder.loadTexts:maintMstpBridgeModeClear.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{_G:EnableDisableValue,_L:IpeBridgePriority,'IpePortPathCost':IpePortPathCost,_M:IpePortPriority,'IpePortRole':IpePortRole,'IpePortState':IpePortState,'IpeVlanList':IpeVlanList,'nec':nec,'nec-mib':nec_mib,'necProductDepend':necProductDepend,'radioEquipment':radioEquipment,'pasoNeoIpe-common':pasoNeoIpe_common,'alarmStatusGroup':alarmStatusGroup,'asMstpGroup':asMstpGroup,'asMstpBridgeCistTable':asMstpBridgeCistTable,'asMstpBridgeCistEntry':asMstpBridgeCistEntry,_P:asMstpBridgeCistIndex,'asMstpBridgeCistNEAddress':asMstpBridgeCistNEAddress,'asMstpBridgeCistRegionalRoot':asMstpBridgeCistRegionalRoot,'asMstpBridgeCistTopChanges':asMstpBridgeCistTopChanges,'asMstpBridgeCistRoot':asMstpBridgeCistRoot,'asMstpBridgeMstTable':asMstpBridgeMstTable,'asMstpBridgeMstEntry':asMstpBridgeMstEntry,_Q:asMstpBridgeMstIndex,'asMstpBridgeMstNEAddress':asMstpBridgeMstNEAddress,'asMstpBridgeMstRegionalRoot':asMstpBridgeMstRegionalRoot,'asMstpBridgeMstTopChanges':asMstpBridgeMstTopChanges,'asMstpPortCistTable':asMstpPortCistTable,'asMstpPortCistEntry':asMstpPortCistEntry,_R:asMstpPortCistIfIndex,'asMstpPortCistNEAddress':asMstpPortCistNEAddress,'asMstpPortCistRole':asMstpPortCistRole,'asMstpPortCistState':asMstpPortCistState,'asMstpPortCistRegionalRoot':asMstpPortCistRegionalRoot,'asMstpPortCistProtoVersion':asMstpPortCistProtoVersion,'asMstpPortCistPathCost':asMstpPortCistPathCost,'asMstpPortCistInvalidBpdu':asMstpPortCistInvalidBpdu,'asMstpPortCistDesignatedPathCost':asMstpPortCistDesignatedPathCost,'asMstpPortCistDesignatedBridge':asMstpPortCistDesignatedBridge,'asMstpPortCistDesignatedPort':asMstpPortCistDesignatedPort,'asMstpPortCistForwardTransitions':asMstpPortCistForwardTransitions,'asMstpPortCistOperEdgePort':asMstpPortCistOperEdgePort,'asMstpPortMstTable':asMstpPortMstTable,'asMstpPortMstEntry':asMstpPortMstEntry,_S:asMstpPortMstIfIndex,_T:asMstpPortMstIndex,'asMstpPortMstNEAddress':asMstpPortMstNEAddress,'asMstpPortMstRole':asMstpPortMstRole,'asMstpPortMstState':asMstpPortMstState,'asMstpPortMstRegionalRoot':asMstpPortMstRegionalRoot,'asMstpPortMstPathCost':asMstpPortMstPathCost,'asMstpPortMstDesignatedPathCost':asMstpPortMstDesignatedPathCost,'asMstpPortMstDesignatedBridge':asMstpPortMstDesignatedBridge,'asMstpPortMstDesignatedPort':asMstpPortMstDesignatedPort,'provisioningGroup':provisioningGroup,'provMstpGroup':provMstpGroup,'provMstpBridgeTable':provMstpBridgeTable,'provMstpBridgeEntry':provMstpBridgeEntry,_U:provMstpBridgeIndex,'provMstpBridgeNEAddress':provMstpBridgeNEAddress,'provMstpBridgeEnable':provMstpBridgeEnable,'provMstpBridgeMaxAge':provMstpBridgeMaxAge,'provMstpBridgeHelloTime':provMstpBridgeHelloTime,'provMstpBridgeForwardDelay':provMstpBridgeForwardDelay,'provMstpBridgeTxHoldCount':provMstpBridgeTxHoldCount,'provMstpBridgeMaxHopCount':provMstpBridgeMaxHopCount,'provMstpBridgeRegionName':provMstpBridgeRegionName,'provMstpBridgeRevisionNum':provMstpBridgeRevisionNum,'provMstpBridgeBpduFilter':provMstpBridgeBpduFilter,'provMstpBridgeBpduGuardTimer':provMstpBridgeBpduGuardTimer,'provMstpBridgeCistTable':provMstpBridgeCistTable,'provMstpBridgeCistEntry':provMstpBridgeCistEntry,_V:provMstpBridgeCistIndex,'provMstpBridgeCistNEAddress':provMstpBridgeCistNEAddress,'provMstpBridgeCistPriority':provMstpBridgeCistPriority,'provMstpBridgeCistVlanList':provMstpBridgeCistVlanList,'provMstpBridgeMstTable':provMstpBridgeMstTable,'provMstpBridgeMstEntry':provMstpBridgeMstEntry,_W:provMstpBridgeMstIndex,'provMstpBridgeMstNEAddress':provMstpBridgeMstNEAddress,'provMstpBridgeMstPriority':provMstpBridgeMstPriority,'provMstpBridgeMstVlanList':provMstpBridgeMstVlanList,'provMstpBridgeMstInstanceNum':provMstpBridgeMstInstanceNum,'provMstpBridgeMstRowStatus':provMstpBridgeMstRowStatus,'provMstpPortCistTable':provMstpPortCistTable,'provMstpPortCistEntry':provMstpPortCistEntry,_X:provMstpPortCistIfIndex,'provMstpPortCistNEAddress':provMstpPortCistNEAddress,'provMstpPortCistPriority':provMstpPortCistPriority,'provMstpPortCistEnable':provMstpPortCistEnable,'provMstpPortCistEdgePort':provMstpPortCistEdgePort,'provMstpPortCistPathCost':provMstpPortCistPathCost,'provMstpPortCistBpduGuard':provMstpPortCistBpduGuard,'provMstpPortCistRestrictRole':provMstpPortCistRestrictRole,'provMstpPortMstTable':provMstpPortMstTable,'provMstpPortMstEntry':provMstpPortMstEntry,_Y:provMstpPortMstIfIndex,_Z:provMstpPortMstIndex,'provMstpPortMstNEAddress':provMstpPortMstNEAddress,'provMstpPortMstPriority':provMstpPortMstPriority,'provMstpPortMstEnable':provMstpPortMstEnable,'provMstpPortMstPathCost':provMstpPortMstPathCost,'maintenanceGroup':maintenanceGroup,'maintMstpGroup':maintMstpGroup,'maintMstpBridgeTable':maintMstpBridgeTable,'maintMstpBridgeEntry':maintMstpBridgeEntry,_a:maintMstpBridgeIndex,'maintMstpBridgeNEAddress':maintMstpBridgeNEAddress,'maintMstpBridgeModeClear':maintMstpBridgeModeClear})
+#
+# PySNMP MIB module IPE-MSTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nec/IPE-MSTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:46 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+BridgeId, = mibBuilder.importSymbols("BRIDGE-MIB", "BridgeId")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, Opaque, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "Opaque", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+class EnableDisableValue(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("invalid", 0), ("disable", 1), ("enable", 2))
+
+class IpeBridgePriority(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 61440)
+
+class IpePortPathCost(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 200000000)
+
+class IpePortPriority(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 240)
+
+class IpePortRole(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))
+    namedValues = NamedValues(("invalid", 0), ("disabled", 1), ("alternate", 2), ("backup", 3), ("root", 4), ("designated", 5))
+
+class IpePortState(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 8, 9))
+    namedValues = NamedValues(("invalid", 0), ("disabled", 1), ("blocking", 2), ("listening", 3), ("learning", 4), ("forwarding", 5), ("restricted", 8), ("guarded", 9))
+
+class IpeVlanList(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(512, 512)
+    fixedLength = 512
+
+nec = MibIdentifier((1, 3, 6, 1, 4, 1, 119))
+nec_mib = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2)).setLabel("nec-mib")
+necProductDepend = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3))
+radioEquipment = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3, 69))
+pasoNeoIpe_common = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501)).setLabel("pasoNeoIpe-common")
+alarmStatusGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3))
+provisioningGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5))
+maintenanceGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 6))
+asMstpGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44))
+asMstpBridgeCistTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 1), )
+if mibBuilder.loadTexts: asMstpBridgeCistTable.setStatus('current')
+asMstpBridgeCistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 1, 1), ).setIndexNames((0, "IPE-MSTP-MIB", "asMstpBridgeCistIndex"))
+if mibBuilder.loadTexts: asMstpBridgeCistEntry.setStatus('current')
+asMstpBridgeCistIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
+if mibBuilder.loadTexts: asMstpBridgeCistIndex.setStatus('current')
+asMstpBridgeCistNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 1, 1, 2), IpAddress())
+if mibBuilder.loadTexts: asMstpBridgeCistNEAddress.setStatus('obsolete')
+asMstpBridgeCistRegionalRoot = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 1, 1, 3), BridgeId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpBridgeCistRegionalRoot.setStatus('current')
+asMstpBridgeCistTopChanges = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpBridgeCistTopChanges.setStatus('current')
+asMstpBridgeCistRoot = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 1, 1, 5), BridgeId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpBridgeCistRoot.setStatus('current')
+asMstpBridgeMstTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 2), )
+if mibBuilder.loadTexts: asMstpBridgeMstTable.setStatus('current')
+asMstpBridgeMstEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 2, 1), ).setIndexNames((0, "IPE-MSTP-MIB", "asMstpBridgeMstIndex"))
+if mibBuilder.loadTexts: asMstpBridgeMstEntry.setStatus('current')
+asMstpBridgeMstIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4)))
+if mibBuilder.loadTexts: asMstpBridgeMstIndex.setStatus('current')
+asMstpBridgeMstNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 2, 1, 2), IpAddress())
+if mibBuilder.loadTexts: asMstpBridgeMstNEAddress.setStatus('obsolete')
+asMstpBridgeMstRegionalRoot = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 2, 1, 3), BridgeId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpBridgeMstRegionalRoot.setStatus('current')
+asMstpBridgeMstTopChanges = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpBridgeMstTopChanges.setStatus('current')
+asMstpPortCistTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 3), )
+if mibBuilder.loadTexts: asMstpPortCistTable.setStatus('current')
+asMstpPortCistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 3, 1), ).setIndexNames((0, "IPE-MSTP-MIB", "asMstpPortCistIfIndex"))
+if mibBuilder.loadTexts: asMstpPortCistEntry.setStatus('current')
+asMstpPortCistIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 3, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: asMstpPortCistIfIndex.setStatus('current')
+asMstpPortCistNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 3, 1, 2), IpAddress())
+if mibBuilder.loadTexts: asMstpPortCistNEAddress.setStatus('obsolete')
+asMstpPortCistRole = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 3, 1, 3), IpePortRole()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortCistRole.setStatus('current')
+asMstpPortCistState = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 3, 1, 4), IpePortState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortCistState.setStatus('current')
+asMstpPortCistRegionalRoot = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 3, 1, 5), BridgeId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortCistRegionalRoot.setStatus('current')
+asMstpPortCistProtoVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("invalid", 0), ("stp", 1), ("rstp", 2), ("mstp", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortCistProtoVersion.setStatus('current')
+asMstpPortCistPathCost = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 3, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortCistPathCost.setStatus('current')
+asMstpPortCistInvalidBpdu = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("invalid", 0)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortCistInvalidBpdu.setStatus('current')
+asMstpPortCistDesignatedPathCost = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 3, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortCistDesignatedPathCost.setStatus('current')
+asMstpPortCistDesignatedBridge = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 3, 1, 10), BridgeId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortCistDesignatedBridge.setStatus('current')
+asMstpPortCistDesignatedPort = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 3, 1, 11), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortCistDesignatedPort.setStatus('current')
+asMstpPortCistForwardTransitions = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 3, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortCistForwardTransitions.setStatus('current')
+asMstpPortCistOperEdgePort = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 3, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("alarmOff", 0), ("alarmOn", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortCistOperEdgePort.setStatus('current')
+asMstpPortMstTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 4), )
+if mibBuilder.loadTexts: asMstpPortMstTable.setStatus('current')
+asMstpPortMstEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 4, 1), ).setIndexNames((0, "IPE-MSTP-MIB", "asMstpPortMstIfIndex"), (0, "IPE-MSTP-MIB", "asMstpPortMstIndex"))
+if mibBuilder.loadTexts: asMstpPortMstEntry.setStatus('current')
+asMstpPortMstIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 4, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: asMstpPortMstIfIndex.setStatus('current')
+asMstpPortMstIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4)))
+if mibBuilder.loadTexts: asMstpPortMstIndex.setStatus('current')
+asMstpPortMstNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 4, 1, 3), IpAddress())
+if mibBuilder.loadTexts: asMstpPortMstNEAddress.setStatus('obsolete')
+asMstpPortMstRole = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 4, 1, 4), IpePortRole()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortMstRole.setStatus('current')
+asMstpPortMstState = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 4, 1, 5), IpePortState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortMstState.setStatus('current')
+asMstpPortMstRegionalRoot = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 4, 1, 6), BridgeId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortMstRegionalRoot.setStatus('current')
+asMstpPortMstPathCost = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 4, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortMstPathCost.setStatus('current')
+asMstpPortMstDesignatedPathCost = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 4, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortMstDesignatedPathCost.setStatus('current')
+asMstpPortMstDesignatedBridge = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 4, 1, 9), BridgeId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortMstDesignatedBridge.setStatus('current')
+asMstpPortMstDesignatedPort = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 3, 44, 4, 1, 10), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: asMstpPortMstDesignatedPort.setStatus('current')
+provMstpGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44))
+provMstpBridgeTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 1), )
+if mibBuilder.loadTexts: provMstpBridgeTable.setStatus('current')
+provMstpBridgeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 1, 1), ).setIndexNames((0, "IPE-MSTP-MIB", "provMstpBridgeIndex"))
+if mibBuilder.loadTexts: provMstpBridgeEntry.setStatus('current')
+provMstpBridgeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
+if mibBuilder.loadTexts: provMstpBridgeIndex.setStatus('current')
+provMstpBridgeNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 1, 1, 2), IpAddress())
+if mibBuilder.loadTexts: provMstpBridgeNEAddress.setStatus('current')
+provMstpBridgeEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 1, 1, 3), EnableDisableValue().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpBridgeEnable.setStatus('current')
+provMstpBridgeMaxAge = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(6, 40)).clone(20)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpBridgeMaxAge.setStatus('current')
+provMstpBridgeHelloTime = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2)).clone(2)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpBridgeHelloTime.setStatus('current')
+provMstpBridgeForwardDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(4, 30)).clone(15)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpBridgeForwardDelay.setStatus('current')
+provMstpBridgeTxHoldCount = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(6)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpBridgeTxHoldCount.setStatus('current')
+provMstpBridgeMaxHopCount = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 40)).clone(20)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpBridgeMaxHopCount.setStatus('current')
+provMstpBridgeRegionName = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 1, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpBridgeRegionName.setStatus('current')
+provMstpBridgeRevisionNum = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 1, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpBridgeRevisionNum.setStatus('current')
+provMstpBridgeBpduFilter = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 1, 1, 15), EnableDisableValue().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpBridgeBpduFilter.setStatus('current')
+provMstpBridgeBpduGuardTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(10, 1000000), ))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpBridgeBpduGuardTimer.setStatus('current')
+provMstpBridgeCistTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 2), )
+if mibBuilder.loadTexts: provMstpBridgeCistTable.setStatus('current')
+provMstpBridgeCistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 2, 1), ).setIndexNames((0, "IPE-MSTP-MIB", "provMstpBridgeCistIndex"))
+if mibBuilder.loadTexts: provMstpBridgeCistEntry.setStatus('current')
+provMstpBridgeCistIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
+if mibBuilder.loadTexts: provMstpBridgeCistIndex.setStatus('current')
+provMstpBridgeCistNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 2, 1, 2), IpAddress())
+if mibBuilder.loadTexts: provMstpBridgeCistNEAddress.setStatus('current')
+provMstpBridgeCistPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 2, 1, 3), IpeBridgePriority().clone(32768)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpBridgeCistPriority.setStatus('current')
+provMstpBridgeCistVlanList = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 2, 1, 4), IpeVlanList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpBridgeCistVlanList.setStatus('current')
+provMstpBridgeMstTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 3), )
+if mibBuilder.loadTexts: provMstpBridgeMstTable.setStatus('current')
+provMstpBridgeMstEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 3, 1), ).setIndexNames((0, "IPE-MSTP-MIB", "provMstpBridgeMstIndex"))
+if mibBuilder.loadTexts: provMstpBridgeMstEntry.setStatus('current')
+provMstpBridgeMstIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4)))
+if mibBuilder.loadTexts: provMstpBridgeMstIndex.setStatus('current')
+provMstpBridgeMstNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 3, 1, 2), IpAddress())
+if mibBuilder.loadTexts: provMstpBridgeMstNEAddress.setStatus('obsolete')
+provMstpBridgeMstPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 3, 1, 3), IpeBridgePriority().clone(32768)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: provMstpBridgeMstPriority.setStatus('current')
+provMstpBridgeMstVlanList = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 3, 1, 4), IpeVlanList()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: provMstpBridgeMstVlanList.setStatus('current')
+provMstpBridgeMstInstanceNum = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4093))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: provMstpBridgeMstInstanceNum.setStatus('current')
+provMstpBridgeMstRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 3, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: provMstpBridgeMstRowStatus.setStatus('current')
+provMstpPortCistTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 4), )
+if mibBuilder.loadTexts: provMstpPortCistTable.setStatus('current')
+provMstpPortCistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 4, 1), ).setIndexNames((0, "IPE-MSTP-MIB", "provMstpPortCistIfIndex"))
+if mibBuilder.loadTexts: provMstpPortCistEntry.setStatus('current')
+provMstpPortCistIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 4, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: provMstpPortCistIfIndex.setStatus('current')
+provMstpPortCistNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 4, 1, 2), IpAddress())
+if mibBuilder.loadTexts: provMstpPortCistNEAddress.setStatus('obsolete')
+provMstpPortCistPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 4, 1, 3), IpePortPriority()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpPortCistPriority.setStatus('current')
+provMstpPortCistEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 4, 1, 4), EnableDisableValue().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpPortCistEnable.setStatus('current')
+provMstpPortCistEdgePort = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 4, 1, 5), EnableDisableValue().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpPortCistEdgePort.setStatus('current')
+provMstpPortCistPathCost = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 4, 1, 6), IpePortPathCost()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpPortCistPathCost.setStatus('current')
+provMstpPortCistBpduGuard = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 4, 1, 7), EnableDisableValue().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpPortCistBpduGuard.setStatus('current')
+provMstpPortCistRestrictRole = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 4, 1, 8), EnableDisableValue().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpPortCistRestrictRole.setStatus('current')
+provMstpPortMstTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 5), )
+if mibBuilder.loadTexts: provMstpPortMstTable.setStatus('current')
+provMstpPortMstEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 5, 1), ).setIndexNames((0, "IPE-MSTP-MIB", "provMstpPortMstIfIndex"), (0, "IPE-MSTP-MIB", "provMstpPortMstIndex"))
+if mibBuilder.loadTexts: provMstpPortMstEntry.setStatus('current')
+provMstpPortMstIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 5, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: provMstpPortMstIfIndex.setStatus('current')
+provMstpPortMstIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4)))
+if mibBuilder.loadTexts: provMstpPortMstIndex.setStatus('current')
+provMstpPortMstNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 5, 1, 3), IpAddress())
+if mibBuilder.loadTexts: provMstpPortMstNEAddress.setStatus('obsolete')
+provMstpPortMstPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 5, 1, 4), IpePortPriority()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpPortMstPriority.setStatus('current')
+provMstpPortMstEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 5, 1, 5), EnableDisableValue().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpPortMstEnable.setStatus('current')
+provMstpPortMstPathCost = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 5, 44, 5, 1, 6), IpePortPathCost()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: provMstpPortMstPathCost.setStatus('current')
+maintMstpGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 6, 44))
+maintMstpBridgeTable = MibTable((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 6, 44, 1), )
+if mibBuilder.loadTexts: maintMstpBridgeTable.setStatus('current')
+maintMstpBridgeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 6, 44, 1, 1), ).setIndexNames((0, "IPE-MSTP-MIB", "maintMstpBridgeIndex"))
+if mibBuilder.loadTexts: maintMstpBridgeEntry.setStatus('current')
+maintMstpBridgeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 6, 44, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
+if mibBuilder.loadTexts: maintMstpBridgeIndex.setStatus('current')
+maintMstpBridgeNEAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 6, 44, 1, 1, 2), IpAddress())
+if mibBuilder.loadTexts: maintMstpBridgeNEAddress.setStatus('current')
+maintMstpBridgeModeClear = MibTableColumn((1, 3, 6, 1, 4, 1, 119, 2, 3, 69, 501, 6, 44, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("clear", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: maintMstpBridgeModeClear.setStatus('current')
+mibBuilder.exportSymbols("IPE-MSTP-MIB", provMstpBridgeMstVlanList=provMstpBridgeMstVlanList, nec_mib=nec_mib, provMstpPortCistRestrictRole=provMstpPortCistRestrictRole, pasoNeoIpe_common=pasoNeoIpe_common, asMstpBridgeMstNEAddress=asMstpBridgeMstNEAddress, asMstpPortCistRole=asMstpPortCistRole, asMstpBridgeCistTable=asMstpBridgeCistTable, asMstpPortMstIndex=asMstpPortMstIndex, asMstpBridgeCistNEAddress=asMstpBridgeCistNEAddress, asMstpPortCistForwardTransitions=asMstpPortCistForwardTransitions, provMstpBridgeRegionName=provMstpBridgeRegionName, provMstpPortMstPriority=provMstpPortMstPriority, asMstpPortCistEntry=asMstpPortCistEntry, provMstpPortCistPriority=provMstpPortCistPriority, provMstpBridgeMstIndex=provMstpBridgeMstIndex, provMstpBridgeEnable=provMstpBridgeEnable, asMstpPortMstState=asMstpPortMstState, provMstpBridgeMstNEAddress=provMstpBridgeMstNEAddress, asMstpBridgeCistRegionalRoot=asMstpBridgeCistRegionalRoot, asMstpPortCistTable=asMstpPortCistTable, provMstpBridgeBpduGuardTimer=provMstpBridgeBpduGuardTimer, maintMstpBridgeModeClear=maintMstpBridgeModeClear, provMstpPortCistEnable=provMstpPortCistEnable, asMstpBridgeMstTable=asMstpBridgeMstTable, provMstpBridgeRevisionNum=provMstpBridgeRevisionNum, asMstpPortMstEntry=asMstpPortMstEntry, asMstpPortCistDesignatedPathCost=asMstpPortCistDesignatedPathCost, IpePortPathCost=IpePortPathCost, provMstpBridgeCistPriority=provMstpBridgeCistPriority, provMstpBridgeMstRowStatus=provMstpBridgeMstRowStatus, provMstpPortCistIfIndex=provMstpPortCistIfIndex, asMstpPortCistDesignatedBridge=asMstpPortCistDesignatedBridge, asMstpPortCistState=asMstpPortCistState, provMstpPortMstNEAddress=provMstpPortMstNEAddress, asMstpPortCistNEAddress=asMstpPortCistNEAddress, provMstpBridgeTxHoldCount=provMstpBridgeTxHoldCount, IpeVlanList=IpeVlanList, asMstpPortMstDesignatedPathCost=asMstpPortMstDesignatedPathCost, provMstpBridgeCistEntry=provMstpBridgeCistEntry, provMstpBridgeMaxAge=provMstpBridgeMaxAge, radioEquipment=radioEquipment, asMstpPortCistDesignatedPort=asMstpPortCistDesignatedPort, asMstpPortMstIfIndex=asMstpPortMstIfIndex, provMstpBridgeCistIndex=provMstpBridgeCistIndex, asMstpPortMstDesignatedPort=asMstpPortMstDesignatedPort, nec=nec, asMstpPortCistOperEdgePort=asMstpPortCistOperEdgePort, provMstpPortMstIfIndex=provMstpPortMstIfIndex, asMstpBridgeMstTopChanges=asMstpBridgeMstTopChanges, provMstpPortCistBpduGuard=provMstpPortCistBpduGuard, asMstpPortMstRegionalRoot=asMstpPortMstRegionalRoot, asMstpPortMstDesignatedBridge=asMstpPortMstDesignatedBridge, asMstpPortMstRole=asMstpPortMstRole, provMstpPortCistTable=provMstpPortCistTable, provisioningGroup=provisioningGroup, alarmStatusGroup=alarmStatusGroup, provMstpPortCistNEAddress=provMstpPortCistNEAddress, IpePortRole=IpePortRole, provMstpPortMstPathCost=provMstpPortMstPathCost, maintMstpBridgeEntry=maintMstpBridgeEntry, provMstpBridgeIndex=provMstpBridgeIndex, EnableDisableValue=EnableDisableValue, provMstpPortCistEdgePort=provMstpPortCistEdgePort, asMstpPortCistProtoVersion=asMstpPortCistProtoVersion, provMstpBridgeNEAddress=provMstpBridgeNEAddress, asMstpPortCistIfIndex=asMstpPortCistIfIndex, asMstpBridgeCistIndex=asMstpBridgeCistIndex, provMstpPortMstTable=provMstpPortMstTable, provMstpPortMstEnable=provMstpPortMstEnable, maintMstpBridgeIndex=maintMstpBridgeIndex, maintMstpBridgeNEAddress=maintMstpBridgeNEAddress, necProductDepend=necProductDepend, provMstpGroup=provMstpGroup, provMstpBridgeBpduFilter=provMstpBridgeBpduFilter, asMstpPortMstTable=asMstpPortMstTable, asMstpPortMstNEAddress=asMstpPortMstNEAddress, provMstpBridgeTable=provMstpBridgeTable, IpePortPriority=IpePortPriority, provMstpBridgeMstEntry=provMstpBridgeMstEntry, asMstpGroup=asMstpGroup, maintMstpGroup=maintMstpGroup, IpeBridgePriority=IpeBridgePriority, asMstpPortCistInvalidBpdu=asMstpPortCistInvalidBpdu, asMstpBridgeMstIndex=asMstpBridgeMstIndex, IpePortState=IpePortState, asMstpBridgeCistEntry=asMstpBridgeCistEntry, asMstpBridgeCistRoot=asMstpBridgeCistRoot, provMstpBridgeCistVlanList=provMstpBridgeCistVlanList, provMstpPortMstEntry=provMstpPortMstEntry, asMstpPortCistPathCost=asMstpPortCistPathCost, provMstpBridgeMstPriority=provMstpBridgeMstPriority, provMstpBridgeMstInstanceNum=provMstpBridgeMstInstanceNum, provMstpPortCistEntry=provMstpPortCistEntry, asMstpBridgeCistTopChanges=asMstpBridgeCistTopChanges, asMstpPortCistRegionalRoot=asMstpPortCistRegionalRoot, maintMstpBridgeTable=maintMstpBridgeTable, provMstpBridgeMstTable=provMstpBridgeMstTable, provMstpPortCistPathCost=provMstpPortCistPathCost, asMstpBridgeMstEntry=asMstpBridgeMstEntry, provMstpBridgeHelloTime=provMstpBridgeHelloTime, asMstpPortMstPathCost=asMstpPortMstPathCost, provMstpBridgeForwardDelay=provMstpBridgeForwardDelay, provMstpBridgeCistTable=provMstpBridgeCistTable, provMstpBridgeCistNEAddress=provMstpBridgeCistNEAddress, maintenanceGroup=maintenanceGroup, provMstpPortMstIndex=provMstpPortMstIndex, provMstpBridgeEntry=provMstpBridgeEntry, asMstpBridgeMstRegionalRoot=asMstpBridgeMstRegionalRoot, provMstpBridgeMaxHopCount=provMstpBridgeMaxHopCount)

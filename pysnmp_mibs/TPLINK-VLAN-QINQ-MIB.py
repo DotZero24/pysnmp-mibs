@@ -1,123 +1,59 @@
-_M='vpnConfigVlanMappingPort'
-_L='vpnConfigVlanMappingCVlan'
-_K='read-only'
-_J='ifIndex'
-_I='IF-MIB'
-_H='TPLINK-VLAN-QINQ-MIB'
-_G='enable'
-_F='disable'
-_E='OctetString'
-_D='read-create'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_I,_J)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-tplinkMgmt,=mibBuilder.importSymbols('TPLINK-MIB','tplinkMgmt')
-TPRowStatus,=mibBuilder.importSymbols('TPLINK-TC-MIB','TPRowStatus')
-tplinkQinqVlanMIB=ModuleIdentity((1,3,6,1,4,1,11863,6,17))
-if mibBuilder.loadTexts:tplinkQinqVlanMIB.setRevisions(('2008-12-16 00:00',))
-_TplinkQinqVlanMIBObjects_ObjectIdentity=ObjectIdentity
-tplinkQinqVlanMIBObjects=_TplinkQinqVlanMIBObjects_ObjectIdentity((1,3,6,1,4,1,11863,6,17,1))
-class _VpnConfigVpnMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_F,0),(_G,1)))
-_VpnConfigVpnMode_Type.__name__=_B
-_VpnConfigVpnMode_Object=MibScalar
-vpnConfigVpnMode=_VpnConfigVpnMode_Object((1,3,6,1,4,1,11863,6,17,1,1),_VpnConfigVpnMode_Type())
-vpnConfigVpnMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:vpnConfigVpnMode.setStatus(_A)
-_VpnConfigPort_ObjectIdentity=ObjectIdentity
-vpnConfigPort=_VpnConfigPort_ObjectIdentity((1,3,6,1,4,1,11863,6,17,1,2))
-_VpnConfigPortTable_Object=MibTable
-vpnConfigPortTable=_VpnConfigPortTable_Object((1,3,6,1,4,1,11863,6,17,1,2,1))
-if mibBuilder.loadTexts:vpnConfigPortTable.setStatus(_A)
-_VpnConfigPortEntry_Object=MibTableRow
-vpnConfigPortEntry=_VpnConfigPortEntry_Object((1,3,6,1,4,1,11863,6,17,1,2,1,1))
-vpnConfigPortEntry.setIndexNames((0,_I,_J))
-if mibBuilder.loadTexts:vpnConfigPortEntry.setStatus(_A)
-class _VpnConfigPortNumber_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_VpnConfigPortNumber_Type.__name__=_E
-_VpnConfigPortNumber_Object=MibTableColumn
-vpnConfigPortNumber=_VpnConfigPortNumber_Object((1,3,6,1,4,1,11863,6,17,1,2,1,1,1),_VpnConfigPortNumber_Type())
-vpnConfigPortNumber.setMaxAccess(_K)
-if mibBuilder.loadTexts:vpnConfigPortNumber.setStatus(_A)
-class _VpnConfigPortType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('none',0),('nni',1),('uni',2)))
-_VpnConfigPortType_Type.__name__=_B
-_VpnConfigPortType_Object=MibTableColumn
-vpnConfigPortType=_VpnConfigPortType_Object((1,3,6,1,4,1,11863,6,17,1,2,1,1,2),_VpnConfigPortType_Type())
-vpnConfigPortType.setMaxAccess(_C)
-if mibBuilder.loadTexts:vpnConfigPortType.setStatus(_A)
-class _VpnConfigPortTpid_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
-_VpnConfigPortTpid_Type.__name__=_E
-_VpnConfigPortTpid_Object=MibTableColumn
-vpnConfigPortTpid=_VpnConfigPortTpid_Object((1,3,6,1,4,1,11863,6,17,1,2,1,1,3),_VpnConfigPortTpid_Type())
-vpnConfigPortTpid.setMaxAccess(_C)
-if mibBuilder.loadTexts:vpnConfigPortTpid.setStatus(_A)
-class _VpnConfigUseInnerPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_F,0),(_G,1)))
-_VpnConfigUseInnerPriority_Type.__name__=_B
-_VpnConfigUseInnerPriority_Object=MibTableColumn
-vpnConfigUseInnerPriority=_VpnConfigUseInnerPriority_Object((1,3,6,1,4,1,11863,6,17,1,2,1,1,4),_VpnConfigUseInnerPriority_Type())
-vpnConfigUseInnerPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:vpnConfigUseInnerPriority.setStatus(_A)
-class _VpnConfigMissdrop_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_F,0),(_G,1)))
-_VpnConfigMissdrop_Type.__name__=_B
-_VpnConfigMissdrop_Object=MibTableColumn
-vpnConfigMissdrop=_VpnConfigMissdrop_Object((1,3,6,1,4,1,11863,6,17,1,2,1,1,5),_VpnConfigMissdrop_Type())
-vpnConfigMissdrop.setMaxAccess(_C)
-if mibBuilder.loadTexts:vpnConfigMissdrop.setStatus(_A)
-class _VpnConfigPortLag_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_VpnConfigPortLag_Type.__name__=_E
-_VpnConfigPortLag_Object=MibTableColumn
-vpnConfigPortLag=_VpnConfigPortLag_Object((1,3,6,1,4,1,11863,6,17,1,2,1,1,6),_VpnConfigPortLag_Type())
-vpnConfigPortLag.setMaxAccess(_K)
-if mibBuilder.loadTexts:vpnConfigPortLag.setStatus(_A)
-_VpnConfigVlanMapping_ObjectIdentity=ObjectIdentity
-vpnConfigVlanMapping=_VpnConfigVlanMapping_ObjectIdentity((1,3,6,1,4,1,11863,6,17,1,3))
-class _VpnConfigVlanMappingMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_F,0),(_G,1)))
-_VpnConfigVlanMappingMode_Type.__name__=_B
-_VpnConfigVlanMappingMode_Object=MibScalar
-vpnConfigVlanMappingMode=_VpnConfigVlanMappingMode_Object((1,3,6,1,4,1,11863,6,17,1,3,1),_VpnConfigVlanMappingMode_Type())
-vpnConfigVlanMappingMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:vpnConfigVlanMappingMode.setStatus(_A)
-_VpnConfigVlanMappingTable_Object=MibTable
-vpnConfigVlanMappingTable=_VpnConfigVlanMappingTable_Object((1,3,6,1,4,1,11863,6,17,1,3,2))
-if mibBuilder.loadTexts:vpnConfigVlanMappingTable.setStatus(_A)
-_VpnConfigVlanMappingEntry_Object=MibTableRow
-vpnConfigVlanMappingEntry=_VpnConfigVlanMappingEntry_Object((1,3,6,1,4,1,11863,6,17,1,3,2,1))
-vpnConfigVlanMappingEntry.setIndexNames((0,_H,_L),(0,_H,_M))
-if mibBuilder.loadTexts:vpnConfigVlanMappingEntry.setStatus(_A)
-_VpnConfigVlanMappingPort_Type=OctetString
-_VpnConfigVlanMappingPort_Object=MibTableColumn
-vpnConfigVlanMappingPort=_VpnConfigVlanMappingPort_Object((1,3,6,1,4,1,11863,6,17,1,3,2,1,1),_VpnConfigVlanMappingPort_Type())
-vpnConfigVlanMappingPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:vpnConfigVlanMappingPort.setStatus(_A)
-class _VpnConfigVlanMappingCVlan_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_VpnConfigVlanMappingCVlan_Type.__name__=_B
-_VpnConfigVlanMappingCVlan_Object=MibTableColumn
-vpnConfigVlanMappingCVlan=_VpnConfigVlanMappingCVlan_Object((1,3,6,1,4,1,11863,6,17,1,3,2,1,2),_VpnConfigVlanMappingCVlan_Type())
-vpnConfigVlanMappingCVlan.setMaxAccess(_D)
-if mibBuilder.loadTexts:vpnConfigVlanMappingCVlan.setStatus(_A)
-class _VpnConfigVlanMappingSPVlan_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_VpnConfigVlanMappingSPVlan_Type.__name__=_B
-_VpnConfigVlanMappingSPVlan_Object=MibTableColumn
-vpnConfigVlanMappingSPVlan=_VpnConfigVlanMappingSPVlan_Object((1,3,6,1,4,1,11863,6,17,1,3,2,1,3),_VpnConfigVlanMappingSPVlan_Type())
-vpnConfigVlanMappingSPVlan.setMaxAccess(_D)
-if mibBuilder.loadTexts:vpnConfigVlanMappingSPVlan.setStatus(_A)
-_VpnConfigVlanMappingDesc_Type=OctetString
-_VpnConfigVlanMappingDesc_Object=MibTableColumn
-vpnConfigVlanMappingDesc=_VpnConfigVlanMappingDesc_Object((1,3,6,1,4,1,11863,6,17,1,3,2,1,4),_VpnConfigVlanMappingDesc_Type())
-vpnConfigVlanMappingDesc.setMaxAccess(_D)
-if mibBuilder.loadTexts:vpnConfigVlanMappingDesc.setStatus(_A)
-_VpnConfigVlanMappingStatus_Type=TPRowStatus
-_VpnConfigVlanMappingStatus_Object=MibTableColumn
-vpnConfigVlanMappingStatus=_VpnConfigVlanMappingStatus_Object((1,3,6,1,4,1,11863,6,17,1,3,2,1,5),_VpnConfigVlanMappingStatus_Type())
-vpnConfigVlanMappingStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:vpnConfigVlanMappingStatus.setStatus(_A)
-_TplinkQinqVlanMIBNotifications_ObjectIdentity=ObjectIdentity
-tplinkQinqVlanMIBNotifications=_TplinkQinqVlanMIBNotifications_ObjectIdentity((1,3,6,1,4,1,11863,6,17,2))
-mibBuilder.exportSymbols(_H,**{'tplinkQinqVlanMIB':tplinkQinqVlanMIB,'tplinkQinqVlanMIBObjects':tplinkQinqVlanMIBObjects,'vpnConfigVpnMode':vpnConfigVpnMode,'vpnConfigPort':vpnConfigPort,'vpnConfigPortTable':vpnConfigPortTable,'vpnConfigPortEntry':vpnConfigPortEntry,'vpnConfigPortNumber':vpnConfigPortNumber,'vpnConfigPortType':vpnConfigPortType,'vpnConfigPortTpid':vpnConfigPortTpid,'vpnConfigUseInnerPriority':vpnConfigUseInnerPriority,'vpnConfigMissdrop':vpnConfigMissdrop,'vpnConfigPortLag':vpnConfigPortLag,'vpnConfigVlanMapping':vpnConfigVlanMapping,'vpnConfigVlanMappingMode':vpnConfigVlanMappingMode,'vpnConfigVlanMappingTable':vpnConfigVlanMappingTable,'vpnConfigVlanMappingEntry':vpnConfigVlanMappingEntry,_M:vpnConfigVlanMappingPort,_L:vpnConfigVlanMappingCVlan,'vpnConfigVlanMappingSPVlan':vpnConfigVlanMappingSPVlan,'vpnConfigVlanMappingDesc':vpnConfigVlanMappingDesc,'vpnConfigVlanMappingStatus':vpnConfigVlanMappingStatus,'tplinkQinqVlanMIBNotifications':tplinkQinqVlanMIBNotifications})
+#
+# PySNMP MIB module TPLINK-VLAN-QINQ-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-VLAN-QINQ-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
+TPRowStatus, = mibBuilder.importSymbols("TPLINK-TC-MIB", "TPRowStatus")
+tplinkQinqVlanMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 17))
+tplinkQinqVlanMIB.setRevisions(('2008-12-16 00:00',))
+if mibBuilder.loadTexts: tplinkQinqVlanMIB.setLastUpdated('200812160000Z')
+if mibBuilder.loadTexts: tplinkQinqVlanMIB.setOrganization('TPLINK')
+tplinkQinqVlanMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1))
+tplinkQinqVlanMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 17, 2))
+vpnConfigVpnMode = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: vpnConfigVpnMode.setStatus('current')
+vpnConfigPort = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 2))
+vpnConfigPortTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 2, 1), )
+if mibBuilder.loadTexts: vpnConfigPortTable.setStatus('current')
+vpnConfigPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: vpnConfigPortEntry.setStatus('current')
+vpnConfigPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 2, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vpnConfigPortNumber.setStatus('current')
+vpnConfigPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("nni", 1), ("uni", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: vpnConfigPortType.setStatus('current')
+vpnConfigPortTpid = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 2, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: vpnConfigPortTpid.setStatus('current')
+vpnConfigUseInnerPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: vpnConfigUseInnerPriority.setStatus('current')
+vpnConfigMissdrop = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: vpnConfigMissdrop.setStatus('current')
+vpnConfigPortLag = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 2, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: vpnConfigPortLag.setStatus('current')
+vpnConfigVlanMapping = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 3))
+vpnConfigVlanMappingMode = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: vpnConfigVlanMappingMode.setStatus('current')
+vpnConfigVlanMappingTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 3, 2), )
+if mibBuilder.loadTexts: vpnConfigVlanMappingTable.setStatus('current')
+vpnConfigVlanMappingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 3, 2, 1), ).setIndexNames((0, "TPLINK-VLAN-QINQ-MIB", "vpnConfigVlanMappingCVlan"), (0, "TPLINK-VLAN-QINQ-MIB", "vpnConfigVlanMappingPort"))
+if mibBuilder.loadTexts: vpnConfigVlanMappingEntry.setStatus('current')
+vpnConfigVlanMappingPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 3, 2, 1, 1), OctetString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vpnConfigVlanMappingPort.setStatus('current')
+vpnConfigVlanMappingCVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vpnConfigVlanMappingCVlan.setStatus('current')
+vpnConfigVlanMappingSPVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vpnConfigVlanMappingSPVlan.setStatus('current')
+vpnConfigVlanMappingDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 3, 2, 1, 4), OctetString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vpnConfigVlanMappingDesc.setStatus('current')
+vpnConfigVlanMappingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 17, 1, 3, 2, 1, 5), TPRowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: vpnConfigVlanMappingStatus.setStatus('current')
+mibBuilder.exportSymbols("TPLINK-VLAN-QINQ-MIB", vpnConfigVlanMappingTable=vpnConfigVlanMappingTable, vpnConfigVlanMappingSPVlan=vpnConfigVlanMappingSPVlan, vpnConfigVlanMappingDesc=vpnConfigVlanMappingDesc, tplinkQinqVlanMIBObjects=tplinkQinqVlanMIBObjects, vpnConfigPortTable=vpnConfigPortTable, vpnConfigUseInnerPriority=vpnConfigUseInnerPriority, vpnConfigPortNumber=vpnConfigPortNumber, vpnConfigVlanMappingPort=vpnConfigVlanMappingPort, vpnConfigVpnMode=vpnConfigVpnMode, PYSNMP_MODULE_ID=tplinkQinqVlanMIB, vpnConfigVlanMappingStatus=vpnConfigVlanMappingStatus, tplinkQinqVlanMIBNotifications=tplinkQinqVlanMIBNotifications, vpnConfigVlanMapping=vpnConfigVlanMapping, vpnConfigVlanMappingCVlan=vpnConfigVlanMappingCVlan, vpnConfigPortTpid=vpnConfigPortTpid, vpnConfigPortType=vpnConfigPortType, vpnConfigPortLag=vpnConfigPortLag, tplinkQinqVlanMIB=tplinkQinqVlanMIB, vpnConfigPortEntry=vpnConfigPortEntry, vpnConfigVlanMappingEntry=vpnConfigVlanMappingEntry, vpnConfigVlanMappingMode=vpnConfigVlanMappingMode, vpnConfigMissdrop=vpnConfigMissdrop, vpnConfigPort=vpnConfigPort)

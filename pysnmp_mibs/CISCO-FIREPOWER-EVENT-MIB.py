@@ -1,337 +1,155 @@
-_J='cfprEventRecordInstanceId'
-_I='cfprEventPolicyInstanceId'
-_H='cfprEventLogInstanceId'
-_G='cfprEventInstInstanceId'
-_F='cfprEventHolderInstanceId'
-_E='cfprEventEpCtrlInstanceId'
-_D='not-accessible'
-_C='CISCO-FIREPOWER-EVENT-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CfprManagedObjectDn,CfprManagedObjectId,ciscoFirepowerMIBObjects=mibBuilder.importSymbols('CISCO-FIREPOWER-MIB','CfprManagedObjectDn','CfprManagedObjectId','ciscoFirepowerMIBObjects')
-CfprConditionActionIndicator,CfprConditionCause,CfprConditionCode,CfprConditionRule,CfprConditionSeverity,CfprConditionTag,CfprConditionType,CfprEventEpCtrlLevel,CfprPolicyPolicyOwner=mibBuilder.importSymbols('CISCO-FIREPOWER-TC-MIB','CfprConditionActionIndicator','CfprConditionCause','CfprConditionCode','CfprConditionRule','CfprConditionSeverity','CfprConditionTag','CfprConditionType','CfprEventEpCtrlLevel','CfprPolicyPolicyOwner')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
-InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
-cfprEventObjects=ModuleIdentity((1,3,6,1,4,1,9,9,826,1,22))
-_CfprEventEpCtrlTable_Object=MibTable
-cfprEventEpCtrlTable=_CfprEventEpCtrlTable_Object((1,3,6,1,4,1,9,9,826,1,22,1))
-if mibBuilder.loadTexts:cfprEventEpCtrlTable.setStatus(_A)
-_CfprEventEpCtrlEntry_Object=MibTableRow
-cfprEventEpCtrlEntry=_CfprEventEpCtrlEntry_Object((1,3,6,1,4,1,9,9,826,1,22,1,1))
-cfprEventEpCtrlEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:cfprEventEpCtrlEntry.setStatus(_A)
-_CfprEventEpCtrlInstanceId_Type=CfprManagedObjectId
-_CfprEventEpCtrlInstanceId_Object=MibTableColumn
-cfprEventEpCtrlInstanceId=_CfprEventEpCtrlInstanceId_Object((1,3,6,1,4,1,9,9,826,1,22,1,1,1),_CfprEventEpCtrlInstanceId_Type())
-cfprEventEpCtrlInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprEventEpCtrlInstanceId.setStatus(_A)
-_CfprEventEpCtrlDn_Type=CfprManagedObjectDn
-_CfprEventEpCtrlDn_Object=MibTableColumn
-cfprEventEpCtrlDn=_CfprEventEpCtrlDn_Object((1,3,6,1,4,1,9,9,826,1,22,1,1,2),_CfprEventEpCtrlDn_Type())
-cfprEventEpCtrlDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventEpCtrlDn.setStatus(_A)
-_CfprEventEpCtrlRn_Type=SnmpAdminString
-_CfprEventEpCtrlRn_Object=MibTableColumn
-cfprEventEpCtrlRn=_CfprEventEpCtrlRn_Object((1,3,6,1,4,1,9,9,826,1,22,1,1,3),_CfprEventEpCtrlRn_Type())
-cfprEventEpCtrlRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventEpCtrlRn.setStatus(_A)
-_CfprEventEpCtrlLevel_Type=CfprEventEpCtrlLevel
-_CfprEventEpCtrlLevel_Object=MibTableColumn
-cfprEventEpCtrlLevel=_CfprEventEpCtrlLevel_Object((1,3,6,1,4,1,9,9,826,1,22,1,1,4),_CfprEventEpCtrlLevel_Type())
-cfprEventEpCtrlLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventEpCtrlLevel.setStatus(_A)
-_CfprEventEpCtrlRevertTimeout_Type=TimeIntervalSec
-_CfprEventEpCtrlRevertTimeout_Object=MibTableColumn
-cfprEventEpCtrlRevertTimeout=_CfprEventEpCtrlRevertTimeout_Object((1,3,6,1,4,1,9,9,826,1,22,1,1,5),_CfprEventEpCtrlRevertTimeout_Type())
-cfprEventEpCtrlRevertTimeout.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventEpCtrlRevertTimeout.setStatus(_A)
-_CfprEventHolderTable_Object=MibTable
-cfprEventHolderTable=_CfprEventHolderTable_Object((1,3,6,1,4,1,9,9,826,1,22,2))
-if mibBuilder.loadTexts:cfprEventHolderTable.setStatus(_A)
-_CfprEventHolderEntry_Object=MibTableRow
-cfprEventHolderEntry=_CfprEventHolderEntry_Object((1,3,6,1,4,1,9,9,826,1,22,2,1))
-cfprEventHolderEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:cfprEventHolderEntry.setStatus(_A)
-_CfprEventHolderInstanceId_Type=CfprManagedObjectId
-_CfprEventHolderInstanceId_Object=MibTableColumn
-cfprEventHolderInstanceId=_CfprEventHolderInstanceId_Object((1,3,6,1,4,1,9,9,826,1,22,2,1,1),_CfprEventHolderInstanceId_Type())
-cfprEventHolderInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprEventHolderInstanceId.setStatus(_A)
-_CfprEventHolderDn_Type=CfprManagedObjectDn
-_CfprEventHolderDn_Object=MibTableColumn
-cfprEventHolderDn=_CfprEventHolderDn_Object((1,3,6,1,4,1,9,9,826,1,22,2,1,2),_CfprEventHolderDn_Type())
-cfprEventHolderDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventHolderDn.setStatus(_A)
-_CfprEventHolderRn_Type=SnmpAdminString
-_CfprEventHolderRn_Object=MibTableColumn
-cfprEventHolderRn=_CfprEventHolderRn_Object((1,3,6,1,4,1,9,9,826,1,22,2,1,3),_CfprEventHolderRn_Type())
-cfprEventHolderRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventHolderRn.setStatus(_A)
-_CfprEventHolderName_Type=SnmpAdminString
-_CfprEventHolderName_Object=MibTableColumn
-cfprEventHolderName=_CfprEventHolderName_Object((1,3,6,1,4,1,9,9,826,1,22,2,1,4),_CfprEventHolderName_Type())
-cfprEventHolderName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventHolderName.setStatus(_A)
-_CfprEventInstTable_Object=MibTable
-cfprEventInstTable=_CfprEventInstTable_Object((1,3,6,1,4,1,9,9,826,1,22,3))
-if mibBuilder.loadTexts:cfprEventInstTable.setStatus(_A)
-_CfprEventInstEntry_Object=MibTableRow
-cfprEventInstEntry=_CfprEventInstEntry_Object((1,3,6,1,4,1,9,9,826,1,22,3,1))
-cfprEventInstEntry.setIndexNames((0,_C,_G))
-if mibBuilder.loadTexts:cfprEventInstEntry.setStatus(_A)
-_CfprEventInstInstanceId_Type=CfprManagedObjectId
-_CfprEventInstInstanceId_Object=MibTableColumn
-cfprEventInstInstanceId=_CfprEventInstInstanceId_Object((1,3,6,1,4,1,9,9,826,1,22,3,1,1),_CfprEventInstInstanceId_Type())
-cfprEventInstInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprEventInstInstanceId.setStatus(_A)
-_CfprEventInstDn_Type=CfprManagedObjectDn
-_CfprEventInstDn_Object=MibTableColumn
-cfprEventInstDn=_CfprEventInstDn_Object((1,3,6,1,4,1,9,9,826,1,22,3,1,2),_CfprEventInstDn_Type())
-cfprEventInstDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventInstDn.setStatus(_A)
-_CfprEventInstRn_Type=SnmpAdminString
-_CfprEventInstRn_Object=MibTableColumn
-cfprEventInstRn=_CfprEventInstRn_Object((1,3,6,1,4,1,9,9,826,1,22,3,1,3),_CfprEventInstRn_Type())
-cfprEventInstRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventInstRn.setStatus(_A)
-_CfprEventInstCause_Type=CfprConditionCause
-_CfprEventInstCause_Object=MibTableColumn
-cfprEventInstCause=_CfprEventInstCause_Object((1,3,6,1,4,1,9,9,826,1,22,3,1,4),_CfprEventInstCause_Type())
-cfprEventInstCause.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventInstCause.setStatus(_A)
-_CfprEventInstChangeSet_Type=SnmpAdminString
-_CfprEventInstChangeSet_Object=MibTableColumn
-cfprEventInstChangeSet=_CfprEventInstChangeSet_Object((1,3,6,1,4,1,9,9,826,1,22,3,1,5),_CfprEventInstChangeSet_Type())
-cfprEventInstChangeSet.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventInstChangeSet.setStatus(_A)
-_CfprEventInstCode_Type=CfprConditionCode
-_CfprEventInstCode_Object=MibTableColumn
-cfprEventInstCode=_CfprEventInstCode_Object((1,3,6,1,4,1,9,9,826,1,22,3,1,6),_CfprEventInstCode_Type())
-cfprEventInstCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventInstCode.setStatus(_A)
-_CfprEventInstCreated_Type=DateAndTime
-_CfprEventInstCreated_Object=MibTableColumn
-cfprEventInstCreated=_CfprEventInstCreated_Object((1,3,6,1,4,1,9,9,826,1,22,3,1,7),_CfprEventInstCreated_Type())
-cfprEventInstCreated.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventInstCreated.setStatus(_A)
-_CfprEventInstDescr_Type=SnmpAdminString
-_CfprEventInstDescr_Object=MibTableColumn
-cfprEventInstDescr=_CfprEventInstDescr_Object((1,3,6,1,4,1,9,9,826,1,22,3,1,8),_CfprEventInstDescr_Type())
-cfprEventInstDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventInstDescr.setStatus(_A)
-_CfprEventInstId_Type=Unsigned64
-_CfprEventInstId_Object=MibTableColumn
-cfprEventInstId=_CfprEventInstId_Object((1,3,6,1,4,1,9,9,826,1,22,3,1,9),_CfprEventInstId_Type())
-cfprEventInstId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventInstId.setStatus(_A)
-_CfprEventInstRule_Type=CfprConditionRule
-_CfprEventInstRule_Object=MibTableColumn
-cfprEventInstRule=_CfprEventInstRule_Object((1,3,6,1,4,1,9,9,826,1,22,3,1,10),_CfprEventInstRule_Type())
-cfprEventInstRule.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventInstRule.setStatus(_A)
-_CfprEventInstSeverity_Type=CfprConditionSeverity
-_CfprEventInstSeverity_Object=MibTableColumn
-cfprEventInstSeverity=_CfprEventInstSeverity_Object((1,3,6,1,4,1,9,9,826,1,22,3,1,11),_CfprEventInstSeverity_Type())
-cfprEventInstSeverity.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventInstSeverity.setStatus(_A)
-_CfprEventInstTags_Type=CfprConditionTag
-_CfprEventInstTags_Object=MibTableColumn
-cfprEventInstTags=_CfprEventInstTags_Object((1,3,6,1,4,1,9,9,826,1,22,3,1,12),_CfprEventInstTags_Type())
-cfprEventInstTags.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventInstTags.setStatus(_A)
-_CfprEventInstType_Type=CfprConditionType
-_CfprEventInstType_Object=MibTableColumn
-cfprEventInstType=_CfprEventInstType_Object((1,3,6,1,4,1,9,9,826,1,22,3,1,13),_CfprEventInstType_Type())
-cfprEventInstType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventInstType.setStatus(_A)
-_CfprEventLogTable_Object=MibTable
-cfprEventLogTable=_CfprEventLogTable_Object((1,3,6,1,4,1,9,9,826,1,22,4))
-if mibBuilder.loadTexts:cfprEventLogTable.setStatus(_A)
-_CfprEventLogEntry_Object=MibTableRow
-cfprEventLogEntry=_CfprEventLogEntry_Object((1,3,6,1,4,1,9,9,826,1,22,4,1))
-cfprEventLogEntry.setIndexNames((0,_C,_H))
-if mibBuilder.loadTexts:cfprEventLogEntry.setStatus(_A)
-_CfprEventLogInstanceId_Type=CfprManagedObjectId
-_CfprEventLogInstanceId_Object=MibTableColumn
-cfprEventLogInstanceId=_CfprEventLogInstanceId_Object((1,3,6,1,4,1,9,9,826,1,22,4,1,1),_CfprEventLogInstanceId_Type())
-cfprEventLogInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprEventLogInstanceId.setStatus(_A)
-_CfprEventLogDn_Type=CfprManagedObjectDn
-_CfprEventLogDn_Object=MibTableColumn
-cfprEventLogDn=_CfprEventLogDn_Object((1,3,6,1,4,1,9,9,826,1,22,4,1,2),_CfprEventLogDn_Type())
-cfprEventLogDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventLogDn.setStatus(_A)
-_CfprEventLogRn_Type=SnmpAdminString
-_CfprEventLogRn_Object=MibTableColumn
-cfprEventLogRn=_CfprEventLogRn_Object((1,3,6,1,4,1,9,9,826,1,22,4,1,3),_CfprEventLogRn_Type())
-cfprEventLogRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventLogRn.setStatus(_A)
-_CfprEventLogMaxSize_Type=Gauge32
-_CfprEventLogMaxSize_Object=MibTableColumn
-cfprEventLogMaxSize=_CfprEventLogMaxSize_Object((1,3,6,1,4,1,9,9,826,1,22,4,1,4),_CfprEventLogMaxSize_Type())
-cfprEventLogMaxSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventLogMaxSize.setStatus(_A)
-_CfprEventLogPurgeWindow_Type=Gauge32
-_CfprEventLogPurgeWindow_Object=MibTableColumn
-cfprEventLogPurgeWindow=_CfprEventLogPurgeWindow_Object((1,3,6,1,4,1,9,9,826,1,22,4,1,5),_CfprEventLogPurgeWindow_Type())
-cfprEventLogPurgeWindow.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventLogPurgeWindow.setStatus(_A)
-_CfprEventLogSize_Type=Gauge32
-_CfprEventLogSize_Object=MibTableColumn
-cfprEventLogSize=_CfprEventLogSize_Object((1,3,6,1,4,1,9,9,826,1,22,4,1,6),_CfprEventLogSize_Type())
-cfprEventLogSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventLogSize.setStatus(_A)
-_CfprEventPolicyTable_Object=MibTable
-cfprEventPolicyTable=_CfprEventPolicyTable_Object((1,3,6,1,4,1,9,9,826,1,22,5))
-if mibBuilder.loadTexts:cfprEventPolicyTable.setStatus(_A)
-_CfprEventPolicyEntry_Object=MibTableRow
-cfprEventPolicyEntry=_CfprEventPolicyEntry_Object((1,3,6,1,4,1,9,9,826,1,22,5,1))
-cfprEventPolicyEntry.setIndexNames((0,_C,_I))
-if mibBuilder.loadTexts:cfprEventPolicyEntry.setStatus(_A)
-_CfprEventPolicyInstanceId_Type=CfprManagedObjectId
-_CfprEventPolicyInstanceId_Object=MibTableColumn
-cfprEventPolicyInstanceId=_CfprEventPolicyInstanceId_Object((1,3,6,1,4,1,9,9,826,1,22,5,1,1),_CfprEventPolicyInstanceId_Type())
-cfprEventPolicyInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprEventPolicyInstanceId.setStatus(_A)
-_CfprEventPolicyDn_Type=CfprManagedObjectDn
-_CfprEventPolicyDn_Object=MibTableColumn
-cfprEventPolicyDn=_CfprEventPolicyDn_Object((1,3,6,1,4,1,9,9,826,1,22,5,1,2),_CfprEventPolicyDn_Type())
-cfprEventPolicyDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventPolicyDn.setStatus(_A)
-_CfprEventPolicyRn_Type=SnmpAdminString
-_CfprEventPolicyRn_Object=MibTableColumn
-cfprEventPolicyRn=_CfprEventPolicyRn_Object((1,3,6,1,4,1,9,9,826,1,22,5,1,3),_CfprEventPolicyRn_Type())
-cfprEventPolicyRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventPolicyRn.setStatus(_A)
-_CfprEventPolicyDescr_Type=SnmpAdminString
-_CfprEventPolicyDescr_Object=MibTableColumn
-cfprEventPolicyDescr=_CfprEventPolicyDescr_Object((1,3,6,1,4,1,9,9,826,1,22,5,1,4),_CfprEventPolicyDescr_Type())
-cfprEventPolicyDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventPolicyDescr.setStatus(_A)
-_CfprEventPolicyIntId_Type=SnmpAdminString
-_CfprEventPolicyIntId_Object=MibTableColumn
-cfprEventPolicyIntId=_CfprEventPolicyIntId_Object((1,3,6,1,4,1,9,9,826,1,22,5,1,5),_CfprEventPolicyIntId_Type())
-cfprEventPolicyIntId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventPolicyIntId.setStatus(_A)
-_CfprEventPolicyName_Type=SnmpAdminString
-_CfprEventPolicyName_Object=MibTableColumn
-cfprEventPolicyName=_CfprEventPolicyName_Object((1,3,6,1,4,1,9,9,826,1,22,5,1,6),_CfprEventPolicyName_Type())
-cfprEventPolicyName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventPolicyName.setStatus(_A)
-_CfprEventPolicyPolicyLevel_Type=Gauge32
-_CfprEventPolicyPolicyLevel_Object=MibTableColumn
-cfprEventPolicyPolicyLevel=_CfprEventPolicyPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,22,5,1,7),_CfprEventPolicyPolicyLevel_Type())
-cfprEventPolicyPolicyLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventPolicyPolicyLevel.setStatus(_A)
-_CfprEventPolicyPolicyOwner_Type=CfprPolicyPolicyOwner
-_CfprEventPolicyPolicyOwner_Object=MibTableColumn
-cfprEventPolicyPolicyOwner=_CfprEventPolicyPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,22,5,1,8),_CfprEventPolicyPolicyOwner_Type())
-cfprEventPolicyPolicyOwner.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventPolicyPolicyOwner.setStatus(_A)
-_CfprEventPolicyRetentionInterval_Type=TimeIntervalSec
-_CfprEventPolicyRetentionInterval_Object=MibTableColumn
-cfprEventPolicyRetentionInterval=_CfprEventPolicyRetentionInterval_Object((1,3,6,1,4,1,9,9,826,1,22,5,1,9),_CfprEventPolicyRetentionInterval_Type())
-cfprEventPolicyRetentionInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventPolicyRetentionInterval.setStatus(_A)
-_CfprEventPolicySizeLimit_Type=Gauge32
-_CfprEventPolicySizeLimit_Object=MibTableColumn
-cfprEventPolicySizeLimit=_CfprEventPolicySizeLimit_Object((1,3,6,1,4,1,9,9,826,1,22,5,1,10),_CfprEventPolicySizeLimit_Type())
-cfprEventPolicySizeLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventPolicySizeLimit.setStatus(_A)
-_CfprEventRecordTable_Object=MibTable
-cfprEventRecordTable=_CfprEventRecordTable_Object((1,3,6,1,4,1,9,9,826,1,22,6))
-if mibBuilder.loadTexts:cfprEventRecordTable.setStatus(_A)
-_CfprEventRecordEntry_Object=MibTableRow
-cfprEventRecordEntry=_CfprEventRecordEntry_Object((1,3,6,1,4,1,9,9,826,1,22,6,1))
-cfprEventRecordEntry.setIndexNames((0,_C,_J))
-if mibBuilder.loadTexts:cfprEventRecordEntry.setStatus(_A)
-_CfprEventRecordInstanceId_Type=CfprManagedObjectId
-_CfprEventRecordInstanceId_Object=MibTableColumn
-cfprEventRecordInstanceId=_CfprEventRecordInstanceId_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,1),_CfprEventRecordInstanceId_Type())
-cfprEventRecordInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfprEventRecordInstanceId.setStatus(_A)
-_CfprEventRecordDn_Type=CfprManagedObjectDn
-_CfprEventRecordDn_Object=MibTableColumn
-cfprEventRecordDn=_CfprEventRecordDn_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,2),_CfprEventRecordDn_Type())
-cfprEventRecordDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventRecordDn.setStatus(_A)
-_CfprEventRecordRn_Type=SnmpAdminString
-_CfprEventRecordRn_Object=MibTableColumn
-cfprEventRecordRn=_CfprEventRecordRn_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,3),_CfprEventRecordRn_Type())
-cfprEventRecordRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventRecordRn.setStatus(_A)
-_CfprEventRecordAffected_Type=SnmpAdminString
-_CfprEventRecordAffected_Object=MibTableColumn
-cfprEventRecordAffected=_CfprEventRecordAffected_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,4),_CfprEventRecordAffected_Type())
-cfprEventRecordAffected.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventRecordAffected.setStatus(_A)
-_CfprEventRecordCause_Type=CfprConditionCause
-_CfprEventRecordCause_Object=MibTableColumn
-cfprEventRecordCause=_CfprEventRecordCause_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,5),_CfprEventRecordCause_Type())
-cfprEventRecordCause.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventRecordCause.setStatus(_A)
-_CfprEventRecordChangeSet_Type=SnmpAdminString
-_CfprEventRecordChangeSet_Object=MibTableColumn
-cfprEventRecordChangeSet=_CfprEventRecordChangeSet_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,6),_CfprEventRecordChangeSet_Type())
-cfprEventRecordChangeSet.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventRecordChangeSet.setStatus(_A)
-_CfprEventRecordCode_Type=CfprConditionCode
-_CfprEventRecordCode_Object=MibTableColumn
-cfprEventRecordCode=_CfprEventRecordCode_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,7),_CfprEventRecordCode_Type())
-cfprEventRecordCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventRecordCode.setStatus(_A)
-_CfprEventRecordCreated_Type=DateAndTime
-_CfprEventRecordCreated_Object=MibTableColumn
-cfprEventRecordCreated=_CfprEventRecordCreated_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,8),_CfprEventRecordCreated_Type())
-cfprEventRecordCreated.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventRecordCreated.setStatus(_A)
-_CfprEventRecordDescr_Type=SnmpAdminString
-_CfprEventRecordDescr_Object=MibTableColumn
-cfprEventRecordDescr=_CfprEventRecordDescr_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,9),_CfprEventRecordDescr_Type())
-cfprEventRecordDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventRecordDescr.setStatus(_A)
-_CfprEventRecordId_Type=Gauge32
-_CfprEventRecordId_Object=MibTableColumn
-cfprEventRecordId=_CfprEventRecordId_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,10),_CfprEventRecordId_Type())
-cfprEventRecordId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventRecordId.setStatus(_A)
-_CfprEventRecordInd_Type=CfprConditionActionIndicator
-_CfprEventRecordInd_Object=MibTableColumn
-cfprEventRecordInd=_CfprEventRecordInd_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,11),_CfprEventRecordInd_Type())
-cfprEventRecordInd.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventRecordInd.setStatus(_A)
-_CfprEventRecordSessionId_Type=SnmpAdminString
-_CfprEventRecordSessionId_Object=MibTableColumn
-cfprEventRecordSessionId=_CfprEventRecordSessionId_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,12),_CfprEventRecordSessionId_Type())
-cfprEventRecordSessionId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventRecordSessionId.setStatus(_A)
-_CfprEventRecordSeverity_Type=CfprConditionSeverity
-_CfprEventRecordSeverity_Object=MibTableColumn
-cfprEventRecordSeverity=_CfprEventRecordSeverity_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,13),_CfprEventRecordSeverity_Type())
-cfprEventRecordSeverity.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventRecordSeverity.setStatus(_A)
-_CfprEventRecordTrig_Type=Gauge32
-_CfprEventRecordTrig_Object=MibTableColumn
-cfprEventRecordTrig=_CfprEventRecordTrig_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,14),_CfprEventRecordTrig_Type())
-cfprEventRecordTrig.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventRecordTrig.setStatus(_A)
-_CfprEventRecordTxId_Type=Unsigned64
-_CfprEventRecordTxId_Object=MibTableColumn
-cfprEventRecordTxId=_CfprEventRecordTxId_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,15),_CfprEventRecordTxId_Type())
-cfprEventRecordTxId.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventRecordTxId.setStatus(_A)
-_CfprEventRecordUser_Type=SnmpAdminString
-_CfprEventRecordUser_Object=MibTableColumn
-cfprEventRecordUser=_CfprEventRecordUser_Object((1,3,6,1,4,1,9,9,826,1,22,6,1,16),_CfprEventRecordUser_Type())
-cfprEventRecordUser.setMaxAccess(_B)
-if mibBuilder.loadTexts:cfprEventRecordUser.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'cfprEventObjects':cfprEventObjects,'cfprEventEpCtrlTable':cfprEventEpCtrlTable,'cfprEventEpCtrlEntry':cfprEventEpCtrlEntry,_E:cfprEventEpCtrlInstanceId,'cfprEventEpCtrlDn':cfprEventEpCtrlDn,'cfprEventEpCtrlRn':cfprEventEpCtrlRn,'cfprEventEpCtrlLevel':cfprEventEpCtrlLevel,'cfprEventEpCtrlRevertTimeout':cfprEventEpCtrlRevertTimeout,'cfprEventHolderTable':cfprEventHolderTable,'cfprEventHolderEntry':cfprEventHolderEntry,_F:cfprEventHolderInstanceId,'cfprEventHolderDn':cfprEventHolderDn,'cfprEventHolderRn':cfprEventHolderRn,'cfprEventHolderName':cfprEventHolderName,'cfprEventInstTable':cfprEventInstTable,'cfprEventInstEntry':cfprEventInstEntry,_G:cfprEventInstInstanceId,'cfprEventInstDn':cfprEventInstDn,'cfprEventInstRn':cfprEventInstRn,'cfprEventInstCause':cfprEventInstCause,'cfprEventInstChangeSet':cfprEventInstChangeSet,'cfprEventInstCode':cfprEventInstCode,'cfprEventInstCreated':cfprEventInstCreated,'cfprEventInstDescr':cfprEventInstDescr,'cfprEventInstId':cfprEventInstId,'cfprEventInstRule':cfprEventInstRule,'cfprEventInstSeverity':cfprEventInstSeverity,'cfprEventInstTags':cfprEventInstTags,'cfprEventInstType':cfprEventInstType,'cfprEventLogTable':cfprEventLogTable,'cfprEventLogEntry':cfprEventLogEntry,_H:cfprEventLogInstanceId,'cfprEventLogDn':cfprEventLogDn,'cfprEventLogRn':cfprEventLogRn,'cfprEventLogMaxSize':cfprEventLogMaxSize,'cfprEventLogPurgeWindow':cfprEventLogPurgeWindow,'cfprEventLogSize':cfprEventLogSize,'cfprEventPolicyTable':cfprEventPolicyTable,'cfprEventPolicyEntry':cfprEventPolicyEntry,_I:cfprEventPolicyInstanceId,'cfprEventPolicyDn':cfprEventPolicyDn,'cfprEventPolicyRn':cfprEventPolicyRn,'cfprEventPolicyDescr':cfprEventPolicyDescr,'cfprEventPolicyIntId':cfprEventPolicyIntId,'cfprEventPolicyName':cfprEventPolicyName,'cfprEventPolicyPolicyLevel':cfprEventPolicyPolicyLevel,'cfprEventPolicyPolicyOwner':cfprEventPolicyPolicyOwner,'cfprEventPolicyRetentionInterval':cfprEventPolicyRetentionInterval,'cfprEventPolicySizeLimit':cfprEventPolicySizeLimit,'cfprEventRecordTable':cfprEventRecordTable,'cfprEventRecordEntry':cfprEventRecordEntry,_J:cfprEventRecordInstanceId,'cfprEventRecordDn':cfprEventRecordDn,'cfprEventRecordRn':cfprEventRecordRn,'cfprEventRecordAffected':cfprEventRecordAffected,'cfprEventRecordCause':cfprEventRecordCause,'cfprEventRecordChangeSet':cfprEventRecordChangeSet,'cfprEventRecordCode':cfprEventRecordCode,'cfprEventRecordCreated':cfprEventRecordCreated,'cfprEventRecordDescr':cfprEventRecordDescr,'cfprEventRecordId':cfprEventRecordId,'cfprEventRecordInd':cfprEventRecordInd,'cfprEventRecordSessionId':cfprEventRecordSessionId,'cfprEventRecordSeverity':cfprEventRecordSeverity,'cfprEventRecordTrig':cfprEventRecordTrig,'cfprEventRecordTxId':cfprEventRecordTxId,'cfprEventRecordUser':cfprEventRecordUser})
+#
+# PySNMP MIB module CISCO-FIREPOWER-EVENT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-FIREPOWER-EVENT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:53 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoFirepowerMIBObjects, CfprManagedObjectId, CfprManagedObjectDn = mibBuilder.importSymbols("CISCO-FIREPOWER-MIB", "ciscoFirepowerMIBObjects", "CfprManagedObjectId", "CfprManagedObjectDn")
+CfprConditionCode, CfprConditionType, CfprConditionSeverity, CfprConditionCause, CfprConditionActionIndicator, CfprEventEpCtrlLevel, CfprConditionTag, CfprPolicyPolicyOwner, CfprConditionRule = mibBuilder.importSymbols("CISCO-FIREPOWER-TC-MIB", "CfprConditionCode", "CfprConditionType", "CfprConditionSeverity", "CfprConditionCause", "CfprConditionActionIndicator", "CfprEventEpCtrlLevel", "CfprConditionTag", "CfprPolicyPolicyOwner", "CfprConditionRule")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+Unsigned64, CiscoAlarmSeverity, CiscoInetAddressMask, TimeIntervalSec, CiscoNetworkAddress = mibBuilder.importSymbols("CISCO-TC", "Unsigned64", "CiscoAlarmSeverity", "CiscoInetAddressMask", "TimeIntervalSec", "CiscoNetworkAddress")
+InetAddressIPv6, InetAddressIPv4 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6", "InetAddressIPv4")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, TruthValue, DateAndTime, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "TruthValue", "DateAndTime", "RowPointer", "TextualConvention")
+cfprEventObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22))
+if mibBuilder.loadTexts: cfprEventObjects.setLastUpdated('202003100000Z')
+if mibBuilder.loadTexts: cfprEventObjects.setOrganization('Cisco Systems Inc.')
+cfprEventEpCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 1), )
+if mibBuilder.loadTexts: cfprEventEpCtrlTable.setStatus('current')
+cfprEventEpCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 1, 1), ).setIndexNames((0, "CISCO-FIREPOWER-EVENT-MIB", "cfprEventEpCtrlInstanceId"))
+if mibBuilder.loadTexts: cfprEventEpCtrlEntry.setStatus('current')
+cfprEventEpCtrlInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 1, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprEventEpCtrlInstanceId.setStatus('current')
+cfprEventEpCtrlDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 1, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventEpCtrlDn.setStatus('current')
+cfprEventEpCtrlRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventEpCtrlRn.setStatus('current')
+cfprEventEpCtrlLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 1, 1, 4), CfprEventEpCtrlLevel()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventEpCtrlLevel.setStatus('current')
+cfprEventEpCtrlRevertTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 1, 1, 5), TimeIntervalSec()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventEpCtrlRevertTimeout.setStatus('current')
+cfprEventHolderTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 2), )
+if mibBuilder.loadTexts: cfprEventHolderTable.setStatus('current')
+cfprEventHolderEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 2, 1), ).setIndexNames((0, "CISCO-FIREPOWER-EVENT-MIB", "cfprEventHolderInstanceId"))
+if mibBuilder.loadTexts: cfprEventHolderEntry.setStatus('current')
+cfprEventHolderInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 2, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprEventHolderInstanceId.setStatus('current')
+cfprEventHolderDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 2, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventHolderDn.setStatus('current')
+cfprEventHolderRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventHolderRn.setStatus('current')
+cfprEventHolderName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 2, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventHolderName.setStatus('current')
+cfprEventInstTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 3), )
+if mibBuilder.loadTexts: cfprEventInstTable.setStatus('current')
+cfprEventInstEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 3, 1), ).setIndexNames((0, "CISCO-FIREPOWER-EVENT-MIB", "cfprEventInstInstanceId"))
+if mibBuilder.loadTexts: cfprEventInstEntry.setStatus('current')
+cfprEventInstInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 3, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprEventInstInstanceId.setStatus('current')
+cfprEventInstDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 3, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventInstDn.setStatus('current')
+cfprEventInstRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 3, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventInstRn.setStatus('current')
+cfprEventInstCause = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 3, 1, 4), CfprConditionCause()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventInstCause.setStatus('current')
+cfprEventInstChangeSet = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 3, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventInstChangeSet.setStatus('current')
+cfprEventInstCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 3, 1, 6), CfprConditionCode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventInstCode.setStatus('current')
+cfprEventInstCreated = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 3, 1, 7), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventInstCreated.setStatus('current')
+cfprEventInstDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 3, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventInstDescr.setStatus('current')
+cfprEventInstId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 3, 1, 9), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventInstId.setStatus('current')
+cfprEventInstRule = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 3, 1, 10), CfprConditionRule()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventInstRule.setStatus('current')
+cfprEventInstSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 3, 1, 11), CfprConditionSeverity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventInstSeverity.setStatus('current')
+cfprEventInstTags = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 3, 1, 12), CfprConditionTag()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventInstTags.setStatus('current')
+cfprEventInstType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 3, 1, 13), CfprConditionType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventInstType.setStatus('current')
+cfprEventLogTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 4), )
+if mibBuilder.loadTexts: cfprEventLogTable.setStatus('current')
+cfprEventLogEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 4, 1), ).setIndexNames((0, "CISCO-FIREPOWER-EVENT-MIB", "cfprEventLogInstanceId"))
+if mibBuilder.loadTexts: cfprEventLogEntry.setStatus('current')
+cfprEventLogInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 4, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprEventLogInstanceId.setStatus('current')
+cfprEventLogDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 4, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventLogDn.setStatus('current')
+cfprEventLogRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 4, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventLogRn.setStatus('current')
+cfprEventLogMaxSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 4, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventLogMaxSize.setStatus('current')
+cfprEventLogPurgeWindow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 4, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventLogPurgeWindow.setStatus('current')
+cfprEventLogSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 4, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventLogSize.setStatus('current')
+cfprEventPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 5), )
+if mibBuilder.loadTexts: cfprEventPolicyTable.setStatus('current')
+cfprEventPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 5, 1), ).setIndexNames((0, "CISCO-FIREPOWER-EVENT-MIB", "cfprEventPolicyInstanceId"))
+if mibBuilder.loadTexts: cfprEventPolicyEntry.setStatus('current')
+cfprEventPolicyInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 5, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprEventPolicyInstanceId.setStatus('current')
+cfprEventPolicyDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 5, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventPolicyDn.setStatus('current')
+cfprEventPolicyRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 5, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventPolicyRn.setStatus('current')
+cfprEventPolicyDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 5, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventPolicyDescr.setStatus('current')
+cfprEventPolicyIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 5, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventPolicyIntId.setStatus('current')
+cfprEventPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 5, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventPolicyName.setStatus('current')
+cfprEventPolicyPolicyLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 5, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventPolicyPolicyLevel.setStatus('current')
+cfprEventPolicyPolicyOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 5, 1, 8), CfprPolicyPolicyOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventPolicyPolicyOwner.setStatus('current')
+cfprEventPolicyRetentionInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 5, 1, 9), TimeIntervalSec()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventPolicyRetentionInterval.setStatus('current')
+cfprEventPolicySizeLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 5, 1, 10), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventPolicySizeLimit.setStatus('current')
+cfprEventRecordTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6), )
+if mibBuilder.loadTexts: cfprEventRecordTable.setStatus('current')
+cfprEventRecordEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1), ).setIndexNames((0, "CISCO-FIREPOWER-EVENT-MIB", "cfprEventRecordInstanceId"))
+if mibBuilder.loadTexts: cfprEventRecordEntry.setStatus('current')
+cfprEventRecordInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 1), CfprManagedObjectId())
+if mibBuilder.loadTexts: cfprEventRecordInstanceId.setStatus('current')
+cfprEventRecordDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventRecordDn.setStatus('current')
+cfprEventRecordRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventRecordRn.setStatus('current')
+cfprEventRecordAffected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventRecordAffected.setStatus('current')
+cfprEventRecordCause = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 5), CfprConditionCause()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventRecordCause.setStatus('current')
+cfprEventRecordChangeSet = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventRecordChangeSet.setStatus('current')
+cfprEventRecordCode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 7), CfprConditionCode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventRecordCode.setStatus('current')
+cfprEventRecordCreated = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 8), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventRecordCreated.setStatus('current')
+cfprEventRecordDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventRecordDescr.setStatus('current')
+cfprEventRecordId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 10), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventRecordId.setStatus('current')
+cfprEventRecordInd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 11), CfprConditionActionIndicator()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventRecordInd.setStatus('current')
+cfprEventRecordSessionId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventRecordSessionId.setStatus('current')
+cfprEventRecordSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 13), CfprConditionSeverity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventRecordSeverity.setStatus('current')
+cfprEventRecordTrig = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 14), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventRecordTrig.setStatus('current')
+cfprEventRecordTxId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 15), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventRecordTxId.setStatus('current')
+cfprEventRecordUser = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 22, 6, 1, 16), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfprEventRecordUser.setStatus('current')
+mibBuilder.exportSymbols("CISCO-FIREPOWER-EVENT-MIB", cfprEventPolicyIntId=cfprEventPolicyIntId, cfprEventEpCtrlInstanceId=cfprEventEpCtrlInstanceId, cfprEventInstType=cfprEventInstType, cfprEventLogEntry=cfprEventLogEntry, cfprEventRecordRn=cfprEventRecordRn, cfprEventInstDescr=cfprEventInstDescr, cfprEventPolicyTable=cfprEventPolicyTable, cfprEventInstId=cfprEventInstId, cfprEventInstCode=cfprEventInstCode, cfprEventObjects=cfprEventObjects, cfprEventHolderEntry=cfprEventHolderEntry, cfprEventRecordSessionId=cfprEventRecordSessionId, cfprEventRecordTxId=cfprEventRecordTxId, cfprEventInstTags=cfprEventInstTags, cfprEventLogTable=cfprEventLogTable, cfprEventInstInstanceId=cfprEventInstInstanceId, cfprEventInstChangeSet=cfprEventInstChangeSet, cfprEventRecordDn=cfprEventRecordDn, cfprEventHolderName=cfprEventHolderName, cfprEventEpCtrlLevel=cfprEventEpCtrlLevel, cfprEventHolderRn=cfprEventHolderRn, cfprEventRecordEntry=cfprEventRecordEntry, cfprEventHolderInstanceId=cfprEventHolderInstanceId, cfprEventLogRn=cfprEventLogRn, cfprEventLogInstanceId=cfprEventLogInstanceId, cfprEventHolderTable=cfprEventHolderTable, cfprEventEpCtrlEntry=cfprEventEpCtrlEntry, cfprEventPolicyRn=cfprEventPolicyRn, cfprEventRecordChangeSet=cfprEventRecordChangeSet, PYSNMP_MODULE_ID=cfprEventObjects, cfprEventPolicyInstanceId=cfprEventPolicyInstanceId, cfprEventPolicyPolicyLevel=cfprEventPolicyPolicyLevel, cfprEventPolicyRetentionInterval=cfprEventPolicyRetentionInterval, cfprEventEpCtrlTable=cfprEventEpCtrlTable, cfprEventRecordCause=cfprEventRecordCause, cfprEventPolicyDn=cfprEventPolicyDn, cfprEventRecordTrig=cfprEventRecordTrig, cfprEventRecordTable=cfprEventRecordTable, cfprEventRecordDescr=cfprEventRecordDescr, cfprEventPolicyEntry=cfprEventPolicyEntry, cfprEventInstDn=cfprEventInstDn, cfprEventRecordAffected=cfprEventRecordAffected, cfprEventPolicyDescr=cfprEventPolicyDescr, cfprEventLogPurgeWindow=cfprEventLogPurgeWindow, cfprEventRecordInstanceId=cfprEventRecordInstanceId, cfprEventInstEntry=cfprEventInstEntry, cfprEventPolicySizeLimit=cfprEventPolicySizeLimit, cfprEventLogDn=cfprEventLogDn, cfprEventEpCtrlDn=cfprEventEpCtrlDn, cfprEventPolicyName=cfprEventPolicyName, cfprEventRecordUser=cfprEventRecordUser, cfprEventRecordCreated=cfprEventRecordCreated, cfprEventInstTable=cfprEventInstTable, cfprEventInstCause=cfprEventInstCause, cfprEventRecordId=cfprEventRecordId, cfprEventRecordInd=cfprEventRecordInd, cfprEventPolicyPolicyOwner=cfprEventPolicyPolicyOwner, cfprEventRecordCode=cfprEventRecordCode, cfprEventInstRule=cfprEventInstRule, cfprEventInstCreated=cfprEventInstCreated, cfprEventRecordSeverity=cfprEventRecordSeverity, cfprEventEpCtrlRn=cfprEventEpCtrlRn, cfprEventHolderDn=cfprEventHolderDn, cfprEventEpCtrlRevertTimeout=cfprEventEpCtrlRevertTimeout, cfprEventInstSeverity=cfprEventInstSeverity, cfprEventInstRn=cfprEventInstRn, cfprEventLogMaxSize=cfprEventLogMaxSize, cfprEventLogSize=cfprEventLogSize)

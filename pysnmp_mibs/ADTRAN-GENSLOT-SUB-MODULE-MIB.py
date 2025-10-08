@@ -1,65 +1,40 @@
-_F='adGenSubSlotProdInfoIndex'
-_E='ADTRAN-GENSLOT-SUB-MODULE-MIB'
-_D='adGenSlotInfoIndex'
-_C='ADTRAN-GENSLOT-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGenSlot,adGenSlotInfoIndex=mibBuilder.importSymbols(_C,'adGenSlot',_D)
-AdProductIdentifier,=mibBuilder.importSymbols('ADTRAN-TC','AdProductIdentifier')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-sysName,=mibBuilder.importSymbols('SNMPv2-MIB','sysName')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-adGenSubSlotModule=ModuleIdentity((1,3,6,1,4,1,664,5,13,2,7))
-_AdGenSubSlotProdTable_Object=MibTable
-adGenSubSlotProdTable=_AdGenSubSlotProdTable_Object((1,3,6,1,4,1,664,5,13,2,8))
-if mibBuilder.loadTexts:adGenSubSlotProdTable.setStatus(_A)
-_AdGenSubSlotProdEntry_Object=MibTableRow
-adGenSubSlotProdEntry=_AdGenSubSlotProdEntry_Object((1,3,6,1,4,1,664,5,13,2,8,1))
-adGenSubSlotProdEntry.setIndexNames((0,_C,_D),(0,_E,_F))
-if mibBuilder.loadTexts:adGenSubSlotProdEntry.setStatus(_A)
-_AdGenSubSlotProdInfoIndex_Type=Integer32
-_AdGenSubSlotProdInfoIndex_Object=MibTableColumn
-adGenSubSlotProdInfoIndex=_AdGenSubSlotProdInfoIndex_Object((1,3,6,1,4,1,664,5,13,2,8,1,1),_AdGenSubSlotProdInfoIndex_Type())
-adGenSubSlotProdInfoIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubSlotProdInfoIndex.setStatus(_A)
-_AdGenSubSlotProdName_Type=DisplayString
-_AdGenSubSlotProdName_Object=MibTableColumn
-adGenSubSlotProdName=_AdGenSubSlotProdName_Object((1,3,6,1,4,1,664,5,13,2,8,1,2),_AdGenSubSlotProdName_Type())
-adGenSubSlotProdName.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubSlotProdName.setStatus(_A)
-_AdGenSubSlotProdPartNumber_Type=DisplayString
-_AdGenSubSlotProdPartNumber_Object=MibTableColumn
-adGenSubSlotProdPartNumber=_AdGenSubSlotProdPartNumber_Object((1,3,6,1,4,1,664,5,13,2,8,1,3),_AdGenSubSlotProdPartNumber_Type())
-adGenSubSlotProdPartNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubSlotProdPartNumber.setStatus(_A)
-_AdGenSubSlotProdCLEIcode_Type=DisplayString
-_AdGenSubSlotProdCLEIcode_Object=MibTableColumn
-adGenSubSlotProdCLEIcode=_AdGenSubSlotProdCLEIcode_Object((1,3,6,1,4,1,664,5,13,2,8,1,4),_AdGenSubSlotProdCLEIcode_Type())
-adGenSubSlotProdCLEIcode.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubSlotProdCLEIcode.setStatus(_A)
-_AdGenSubSlotProdSerialNumber_Type=DisplayString
-_AdGenSubSlotProdSerialNumber_Object=MibTableColumn
-adGenSubSlotProdSerialNumber=_AdGenSubSlotProdSerialNumber_Object((1,3,6,1,4,1,664,5,13,2,8,1,5),_AdGenSubSlotProdSerialNumber_Type())
-adGenSubSlotProdSerialNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubSlotProdSerialNumber.setStatus(_A)
-_AdGenSubSlotProdRevision_Type=DisplayString
-_AdGenSubSlotProdRevision_Object=MibTableColumn
-adGenSubSlotProdRevision=_AdGenSubSlotProdRevision_Object((1,3,6,1,4,1,664,5,13,2,8,1,6),_AdGenSubSlotProdRevision_Type())
-adGenSubSlotProdRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubSlotProdRevision.setStatus(_A)
-_AdGenSubSlotProdSwVersion_Type=DisplayString
-_AdGenSubSlotProdSwVersion_Object=MibTableColumn
-adGenSubSlotProdSwVersion=_AdGenSubSlotProdSwVersion_Object((1,3,6,1,4,1,664,5,13,2,8,1,7),_AdGenSubSlotProdSwVersion_Type())
-adGenSubSlotProdSwVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubSlotProdSwVersion.setStatus(_A)
-_AdGenSubSlotProdDateOfManufacturing_Type=DisplayString
-_AdGenSubSlotProdDateOfManufacturing_Object=MibTableColumn
-adGenSubSlotProdDateOfManufacturing=_AdGenSubSlotProdDateOfManufacturing_Object((1,3,6,1,4,1,664,5,13,2,8,1,8),_AdGenSubSlotProdDateOfManufacturing_Type())
-adGenSubSlotProdDateOfManufacturing.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenSubSlotProdDateOfManufacturing.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'adGenSubSlotModule':adGenSubSlotModule,'adGenSubSlotProdTable':adGenSubSlotProdTable,'adGenSubSlotProdEntry':adGenSubSlotProdEntry,_F:adGenSubSlotProdInfoIndex,'adGenSubSlotProdName':adGenSubSlotProdName,'adGenSubSlotProdPartNumber':adGenSubSlotProdPartNumber,'adGenSubSlotProdCLEIcode':adGenSubSlotProdCLEIcode,'adGenSubSlotProdSerialNumber':adGenSubSlotProdSerialNumber,'adGenSubSlotProdRevision':adGenSubSlotProdRevision,'adGenSubSlotProdSwVersion':adGenSubSlotProdSwVersion,'adGenSubSlotProdDateOfManufacturing':adGenSubSlotProdDateOfManufacturing})
+#
+# PySNMP MIB module ADTRAN-GENSLOT-SUB-MODULE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-GENSLOT-SUB-MODULE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGenSlotInfoIndex, adGenSlot = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex", "adGenSlot")
+AdProductIdentifier, = mibBuilder.importSymbols("ADTRAN-TC", "AdProductIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "PhysAddress")
+adGenSubSlotModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 7))
+if mibBuilder.loadTexts: adGenSubSlotModule.setLastUpdated('201102280000Z')
+if mibBuilder.loadTexts: adGenSubSlotModule.setOrganization('ADTRAN, Inc.')
+adGenSubSlotProdTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 8), )
+if mibBuilder.loadTexts: adGenSubSlotProdTable.setStatus('current')
+adGenSubSlotProdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 8, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"), (0, "ADTRAN-GENSLOT-SUB-MODULE-MIB", "adGenSubSlotProdInfoIndex"))
+if mibBuilder.loadTexts: adGenSubSlotProdEntry.setStatus('current')
+adGenSubSlotProdInfoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 8, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubSlotProdInfoIndex.setStatus('current')
+adGenSubSlotProdName = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 8, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubSlotProdName.setStatus('current')
+adGenSubSlotProdPartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 8, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubSlotProdPartNumber.setStatus('current')
+adGenSubSlotProdCLEIcode = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 8, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubSlotProdCLEIcode.setStatus('current')
+adGenSubSlotProdSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 8, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubSlotProdSerialNumber.setStatus('current')
+adGenSubSlotProdRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 8, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubSlotProdRevision.setStatus('current')
+adGenSubSlotProdSwVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 8, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubSlotProdSwVersion.setStatus('current')
+adGenSubSlotProdDateOfManufacturing = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 8, 1, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSubSlotProdDateOfManufacturing.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-GENSLOT-SUB-MODULE-MIB", adGenSubSlotProdDateOfManufacturing=adGenSubSlotProdDateOfManufacturing, adGenSubSlotProdTable=adGenSubSlotProdTable, adGenSubSlotProdSerialNumber=adGenSubSlotProdSerialNumber, adGenSubSlotModule=adGenSubSlotModule, adGenSubSlotProdName=adGenSubSlotProdName, adGenSubSlotProdCLEIcode=adGenSubSlotProdCLEIcode, adGenSubSlotProdInfoIndex=adGenSubSlotProdInfoIndex, PYSNMP_MODULE_ID=adGenSubSlotModule, adGenSubSlotProdRevision=adGenSubSlotProdRevision, adGenSubSlotProdPartNumber=adGenSubSlotProdPartNumber, adGenSubSlotProdSwVersion=adGenSubSlotProdSwVersion, adGenSubSlotProdEntry=adGenSubSlotProdEntry)

@@ -1,50 +1,35 @@
-_F='DisplayString'
-_E='Integer32'
-_D='h3cContextName'
-_C='h3cContextIndex'
-_B='H3C-CONTEXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','h3cCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_F,'PhysAddress','TextualConvention')
-h3cContext=ModuleIdentity((1,3,6,1,4,1,2011,10,2,154))
-if mibBuilder.loadTexts:h3cContext.setRevisions(('2014-03-18 00:00',))
-_H3cContextTables_ObjectIdentity=ObjectIdentity
-h3cContextTables=_H3cContextTables_ObjectIdentity((1,3,6,1,4,1,2011,10,2,154,1))
-_H3cContextControl_ObjectIdentity=ObjectIdentity
-h3cContextControl=_H3cContextControl_ObjectIdentity((1,3,6,1,4,1,2011,10,2,154,1,1))
-_H3cContextControlTable_Object=MibTable
-h3cContextControlTable=_H3cContextControlTable_Object((1,3,6,1,4,1,2011,10,2,154,1,1,1))
-if mibBuilder.loadTexts:h3cContextControlTable.setStatus(_A)
-_H3cContextControlEntry_Object=MibTableRow
-h3cContextControlEntry=_H3cContextControlEntry_Object((1,3,6,1,4,1,2011,10,2,154,1,1,1,1))
-h3cContextControlEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:h3cContextControlEntry.setStatus(_A)
-class _H3cContextIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_H3cContextIndex_Type.__name__=_E
-_H3cContextIndex_Object=MibTableColumn
-h3cContextIndex=_H3cContextIndex_Object((1,3,6,1,4,1,2011,10,2,154,1,1,1,1,1),_H3cContextIndex_Type())
-h3cContextIndex.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:h3cContextIndex.setStatus(_A)
-class _H3cContextName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,15))
-_H3cContextName_Type.__name__=_F
-_H3cContextName_Object=MibTableColumn
-h3cContextName=_H3cContextName_Object((1,3,6,1,4,1,2011,10,2,154,1,1,1,1,2),_H3cContextName_Type())
-h3cContextName.setMaxAccess('read-only')
-if mibBuilder.loadTexts:h3cContextName.setStatus(_A)
-_H3cContextNotification_ObjectIdentity=ObjectIdentity
-h3cContextNotification=_H3cContextNotification_ObjectIdentity((1,3,6,1,4,1,2011,10,2,154,8))
-_H3cContextNotificationObjects_ObjectIdentity=ObjectIdentity
-h3cContextNotificationObjects=_H3cContextNotificationObjects_ObjectIdentity((1,3,6,1,4,1,2011,10,2,154,8,0))
-h3cContextStateChangeToActive=NotificationType((1,3,6,1,4,1,2011,10,2,154,8,0,1))
-h3cContextStateChangeToActive.setObjects(*((_B,_C),(_B,_D)))
-if mibBuilder.loadTexts:h3cContextStateChangeToActive.setStatus(_A)
-h3cContextStateChangeToInactive=NotificationType((1,3,6,1,4,1,2011,10,2,154,8,0,2))
-h3cContextStateChangeToInactive.setObjects(*((_B,_C),(_B,_D)))
-if mibBuilder.loadTexts:h3cContextStateChangeToInactive.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'h3cContext':h3cContext,'h3cContextTables':h3cContextTables,'h3cContextControl':h3cContextControl,'h3cContextControlTable':h3cContextControlTable,'h3cContextControlEntry':h3cContextControlEntry,_C:h3cContextIndex,_D:h3cContextName,'h3cContextNotification':h3cContextNotification,'h3cContextNotificationObjects':h3cContextNotificationObjects,'h3cContextStateChangeToActive':h3cContextStateChangeToActive,'h3cContextStateChangeToInactive':h3cContextStateChangeToInactive})
+#
+# PySNMP MIB module H3C-CONTEXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-CONTEXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+h3cContext = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 154))
+h3cContext.setRevisions(('2014-03-18 00:00',))
+if mibBuilder.loadTexts: h3cContext.setLastUpdated('201403180000Z')
+if mibBuilder.loadTexts: h3cContext.setOrganization('Hangzhou H3C Technologies. Co., Ltd.')
+h3cContextTables = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 154, 1))
+h3cContextControl = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 154, 1, 1))
+h3cContextControlTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 154, 1, 1, 1), )
+if mibBuilder.loadTexts: h3cContextControlTable.setStatus('current')
+h3cContextControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 154, 1, 1, 1, 1), ).setIndexNames((0, "H3C-CONTEXT-MIB", "h3cContextIndex"))
+if mibBuilder.loadTexts: h3cContextControlEntry.setStatus('current')
+h3cContextIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 154, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cContextIndex.setStatus('current')
+h3cContextName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 154, 1, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cContextName.setStatus('current')
+h3cContextNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 154, 8))
+h3cContextNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 154, 8, 0))
+h3cContextStateChangeToActive = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 154, 8, 0, 1)).setObjects(("H3C-CONTEXT-MIB", "h3cContextIndex"), ("H3C-CONTEXT-MIB", "h3cContextName"))
+if mibBuilder.loadTexts: h3cContextStateChangeToActive.setStatus('current')
+h3cContextStateChangeToInactive = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 154, 8, 0, 2)).setObjects(("H3C-CONTEXT-MIB", "h3cContextIndex"), ("H3C-CONTEXT-MIB", "h3cContextName"))
+if mibBuilder.loadTexts: h3cContextStateChangeToInactive.setStatus('current')
+mibBuilder.exportSymbols("H3C-CONTEXT-MIB", h3cContextNotificationObjects=h3cContextNotificationObjects, h3cContextStateChangeToActive=h3cContextStateChangeToActive, h3cContextStateChangeToInactive=h3cContextStateChangeToInactive, h3cContextControl=h3cContextControl, h3cContextTables=h3cContextTables, h3cContextControlTable=h3cContextControlTable, h3cContextName=h3cContextName, h3cContextIndex=h3cContextIndex, h3cContext=h3cContext, h3cContextNotification=h3cContextNotification, PYSNMP_MODULE_ID=h3cContext, h3cContextControlEntry=h3cContextControlEntry)

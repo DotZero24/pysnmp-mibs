@@ -1,71 +1,40 @@
-_G='disable'
-_F='enable'
-_E='agentMabIfIndex'
-_D='LANCOM-MAB-MIB'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-fastPath,=mibBuilder.importSymbols('LANCOM-REF-MIB','fastPath')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention')
-fastPathMab=ModuleIdentity((1,3,6,1,4,1,2356,16,1,75))
-if mibBuilder.loadTexts:fastPathMab.setRevisions(('2017-12-15 00:00',))
-_AgentMabGlobalConfigGroup_ObjectIdentity=ObjectIdentity
-agentMabGlobalConfigGroup=_AgentMabGlobalConfigGroup_ObjectIdentity((1,3,6,1,4,1,2356,16,1,75,1))
-class _AgentMABRequestAttr1GroupSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,4,12)));namedValues=NamedValues(*(('one',1),('two',2),('four',4),('twelve',12)))
-_AgentMABRequestAttr1GroupSize_Type.__name__=_B
-_AgentMABRequestAttr1GroupSize_Object=MibScalar
-agentMABRequestAttr1GroupSize=_AgentMABRequestAttr1GroupSize_Object((1,3,6,1,4,1,2356,16,1,75,1,1),_AgentMABRequestAttr1GroupSize_Type())
-agentMABRequestAttr1GroupSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentMABRequestAttr1GroupSize.setStatus(_A)
-class _AgentMABRequestAttr1Separator_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('ieft',1),('legacy',2),('dot',3)))
-_AgentMABRequestAttr1Separator_Type.__name__=_B
-_AgentMABRequestAttr1Separator_Object=MibScalar
-agentMABRequestAttr1Separator=_AgentMABRequestAttr1Separator_Object((1,3,6,1,4,1,2356,16,1,75,1,2),_AgentMABRequestAttr1Separator_Type())
-agentMABRequestAttr1Separator.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentMABRequestAttr1Separator.setStatus(_A)
-class _AgentMABRequestAttr1Case_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('upper',1),('lower',2)))
-_AgentMABRequestAttr1Case_Type.__name__=_B
-_AgentMABRequestAttr1Case_Object=MibScalar
-agentMABRequestAttr1Case=_AgentMABRequestAttr1Case_Object((1,3,6,1,4,1,2356,16,1,75,1,3),_AgentMABRequestAttr1Case_Type())
-agentMABRequestAttr1Case.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentMABRequestAttr1Case.setStatus(_A)
-_AgentMabPortConfigGroup_ObjectIdentity=ObjectIdentity
-agentMabPortConfigGroup=_AgentMabPortConfigGroup_ObjectIdentity((1,3,6,1,4,1,2356,16,1,75,2))
-_AgentMabPortConfigTable_Object=MibTable
-agentMabPortConfigTable=_AgentMabPortConfigTable_Object((1,3,6,1,4,1,2356,16,1,75,2,1))
-if mibBuilder.loadTexts:agentMabPortConfigTable.setStatus(_A)
-_AgentMabPortConfigEntry_Object=MibTableRow
-agentMabPortConfigEntry=_AgentMabPortConfigEntry_Object((1,3,6,1,4,1,2356,16,1,75,2,1,1))
-agentMabPortConfigEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:agentMabPortConfigEntry.setStatus(_A)
-_AgentMabIfIndex_Type=InterfaceIndex
-_AgentMabIfIndex_Object=MibTableColumn
-agentMabIfIndex=_AgentMabIfIndex_Object((1,3,6,1,4,1,2356,16,1,75,2,1,1,1),_AgentMabIfIndex_Type())
-agentMabIfIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:agentMabIfIndex.setStatus(_A)
-class _AgentMABPortEnabled_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentMABPortEnabled_Type.__name__=_B
-_AgentMABPortEnabled_Object=MibTableColumn
-agentMABPortEnabled=_AgentMABPortEnabled_Object((1,3,6,1,4,1,2356,16,1,75,2,1,1,2),_AgentMABPortEnabled_Type())
-agentMABPortEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentMABPortEnabled.setStatus(_A)
-class _AgentMabPortOperational_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentMabPortOperational_Type.__name__=_B
-_AgentMabPortOperational_Object=MibTableColumn
-agentMabPortOperational=_AgentMabPortOperational_Object((1,3,6,1,4,1,2356,16,1,75,2,1,1,3),_AgentMabPortOperational_Type())
-agentMabPortOperational.setMaxAccess('read-only')
-if mibBuilder.loadTexts:agentMabPortOperational.setStatus(_A)
-class _AgentMabPortAuthType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('eapMd5',1),('pap',2),('chap',3)))
-_AgentMabPortAuthType_Type.__name__=_B
-_AgentMabPortAuthType_Object=MibTableColumn
-agentMabPortAuthType=_AgentMabPortAuthType_Object((1,3,6,1,4,1,2356,16,1,75,2,1,1,4),_AgentMabPortAuthType_Type())
-agentMabPortAuthType.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentMabPortAuthType.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'fastPathMab':fastPathMab,'agentMabGlobalConfigGroup':agentMabGlobalConfigGroup,'agentMABRequestAttr1GroupSize':agentMABRequestAttr1GroupSize,'agentMABRequestAttr1Separator':agentMABRequestAttr1Separator,'agentMABRequestAttr1Case':agentMABRequestAttr1Case,'agentMabPortConfigGroup':agentMabPortConfigGroup,'agentMabPortConfigTable':agentMabPortConfigTable,'agentMabPortConfigEntry':agentMabPortConfigEntry,_E:agentMabIfIndex,'agentMABPortEnabled':agentMABPortEnabled,'agentMabPortOperational':agentMabPortOperational,'agentMabPortAuthType':agentMabPortAuthType})
+#
+# PySNMP MIB module LANCOM-MAB-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/lancom/LANCOM-MAB-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:37 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+fastPath, = mibBuilder.importSymbols("LANCOM-REF-MIB", "fastPath")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, MacAddress, RowStatus, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TextualConvention")
+fastPathMab = ModuleIdentity((1, 3, 6, 1, 4, 1, 2356, 16, 1, 75))
+fastPathMab.setRevisions(('2017-12-15 00:00',))
+if mibBuilder.loadTexts: fastPathMab.setLastUpdated('201805050000Z')
+if mibBuilder.loadTexts: fastPathMab.setOrganization('Broadcom')
+agentMabGlobalConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 75, 1))
+agentMABRequestAttr1GroupSize = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 75, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 12))).clone(namedValues=NamedValues(("one", 1), ("two", 2), ("four", 4), ("twelve", 12)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentMABRequestAttr1GroupSize.setStatus('current')
+agentMABRequestAttr1Separator = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 75, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ieft", 1), ("legacy", 2), ("dot", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentMABRequestAttr1Separator.setStatus('current')
+agentMABRequestAttr1Case = MibScalar((1, 3, 6, 1, 4, 1, 2356, 16, 1, 75, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("upper", 1), ("lower", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentMABRequestAttr1Case.setStatus('current')
+agentMabPortConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2356, 16, 1, 75, 2))
+agentMabPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2356, 16, 1, 75, 2, 1), )
+if mibBuilder.loadTexts: agentMabPortConfigTable.setStatus('current')
+agentMabPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2356, 16, 1, 75, 2, 1, 1), ).setIndexNames((0, "LANCOM-MAB-MIB", "agentMabIfIndex"))
+if mibBuilder.loadTexts: agentMabPortConfigEntry.setStatus('current')
+agentMabIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 75, 2, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: agentMabIfIndex.setStatus('current')
+agentMABPortEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 75, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentMABPortEnabled.setStatus('current')
+agentMabPortOperational = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 75, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentMabPortOperational.setStatus('current')
+agentMabPortAuthType = MibTableColumn((1, 3, 6, 1, 4, 1, 2356, 16, 1, 75, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("eapMd5", 1), ("pap", 2), ("chap", 3))).clone('eapMd5')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentMabPortAuthType.setStatus('current')
+mibBuilder.exportSymbols("LANCOM-MAB-MIB", agentMabPortAuthType=agentMabPortAuthType, agentMabGlobalConfigGroup=agentMabGlobalConfigGroup, PYSNMP_MODULE_ID=fastPathMab, agentMabIfIndex=agentMabIfIndex, agentMABPortEnabled=agentMABPortEnabled, fastPathMab=fastPathMab, agentMABRequestAttr1GroupSize=agentMABRequestAttr1GroupSize, agentMabPortConfigTable=agentMabPortConfigTable, agentMABRequestAttr1Case=agentMABRequestAttr1Case, agentMabPortConfigEntry=agentMabPortConfigEntry, agentMabPortConfigGroup=agentMabPortConfigGroup, agentMabPortOperational=agentMabPortOperational, agentMABRequestAttr1Separator=agentMABRequestAttr1Separator)

@@ -1,58 +1,34 @@
-_E='nsVpnMonSACountType'
-_D='NETSCREEN-VPN-MON-SA-COUNT-MIB'
-_C='Integer32'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-netscreenVpn,=mibBuilder.importSymbols('NETSCREEN-SMI','netscreenVpn')
-netscreenVpnMon,=mibBuilder.importSymbols('NETSCREEN-VPN-MON-MIB','netscreenVpnMon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_NsVpnMonSACountTable_Object=MibTable
-nsVpnMonSACountTable=_NsVpnMonSACountTable_Object((1,3,6,1,4,1,3224,4,1,2))
-if mibBuilder.loadTexts:nsVpnMonSACountTable.setStatus(_A)
-_NsVpnMonSACountEntry_Object=MibTableRow
-nsVpnMonSACountEntry=_NsVpnMonSACountEntry_Object((1,3,6,1,4,1,3224,4,1,2,1))
-nsVpnMonSACountEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:nsVpnMonSACountEntry.setStatus(_A)
-class _NsVpnMonSACountType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ipv4',1),('ipv6',2)))
-_NsVpnMonSACountType_Type.__name__=_C
-_NsVpnMonSACountType_Object=MibTableColumn
-nsVpnMonSACountType=_NsVpnMonSACountType_Object((1,3,6,1,4,1,3224,4,1,2,1,1),_NsVpnMonSACountType_Type())
-nsVpnMonSACountType.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnMonSACountType.setStatus(_A)
-_NsVpnMonSACountTotal_Type=Counter32
-_NsVpnMonSACountTotal_Object=MibTableColumn
-nsVpnMonSACountTotal=_NsVpnMonSACountTotal_Object((1,3,6,1,4,1,3224,4,1,2,1,2),_NsVpnMonSACountTotal_Type())
-nsVpnMonSACountTotal.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnMonSACountTotal.setStatus(_A)
-_NsVpnMonSACountAct_Type=Counter32
-_NsVpnMonSACountAct_Object=MibTableColumn
-nsVpnMonSACountAct=_NsVpnMonSACountAct_Object((1,3,6,1,4,1,3224,4,1,2,1,3),_NsVpnMonSACountAct_Type())
-nsVpnMonSACountAct.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnMonSACountAct.setStatus(_A)
-_NsVpnMonSACountInTotal_Type=Counter32
-_NsVpnMonSACountInTotal_Object=MibTableColumn
-nsVpnMonSACountInTotal=_NsVpnMonSACountInTotal_Object((1,3,6,1,4,1,3224,4,1,2,1,4),_NsVpnMonSACountInTotal_Type())
-nsVpnMonSACountInTotal.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnMonSACountInTotal.setStatus(_A)
-_NsVpnMonSACountInAct_Type=Counter32
-_NsVpnMonSACountInAct_Object=MibTableColumn
-nsVpnMonSACountInAct=_NsVpnMonSACountInAct_Object((1,3,6,1,4,1,3224,4,1,2,1,5),_NsVpnMonSACountInAct_Type())
-nsVpnMonSACountInAct.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnMonSACountInAct.setStatus(_A)
-_NsVpnMonSACountOutTotal_Type=Counter32
-_NsVpnMonSACountOutTotal_Object=MibTableColumn
-nsVpnMonSACountOutTotal=_NsVpnMonSACountOutTotal_Object((1,3,6,1,4,1,3224,4,1,2,1,6),_NsVpnMonSACountOutTotal_Type())
-nsVpnMonSACountOutTotal.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnMonSACountOutTotal.setStatus(_A)
-_NsVpnMonSACountOutAct_Type=Counter32
-_NsVpnMonSACountOutAct_Object=MibTableColumn
-nsVpnMonSACountOutAct=_NsVpnMonSACountOutAct_Object((1,3,6,1,4,1,3224,4,1,2,1,7),_NsVpnMonSACountOutAct_Type())
-nsVpnMonSACountOutAct.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnMonSACountOutAct.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'nsVpnMonSACountTable':nsVpnMonSACountTable,'nsVpnMonSACountEntry':nsVpnMonSACountEntry,_E:nsVpnMonSACountType,'nsVpnMonSACountTotal':nsVpnMonSACountTotal,'nsVpnMonSACountAct':nsVpnMonSACountAct,'nsVpnMonSACountInTotal':nsVpnMonSACountInTotal,'nsVpnMonSACountInAct':nsVpnMonSACountInAct,'nsVpnMonSACountOutTotal':nsVpnMonSACountOutTotal,'nsVpnMonSACountOutAct':nsVpnMonSACountOutAct})
+#
+# PySNMP MIB module NETSCREEN-VPN-MON-SA-COUNT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netscreen/NETSCREEN-VPN-MON-SA-COUNT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+netscreenVpn, = mibBuilder.importSymbols("NETSCREEN-SMI", "netscreenVpn")
+netscreenVpnMon, = mibBuilder.importSymbols("NETSCREEN-VPN-MON-MIB", "netscreenVpnMon")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+nsVpnMonSACountTable = MibTable((1, 3, 6, 1, 4, 1, 3224, 4, 1, 2), )
+if mibBuilder.loadTexts: nsVpnMonSACountTable.setStatus('mandatory')
+nsVpnMonSACountEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3224, 4, 1, 2, 1), ).setIndexNames((0, "NETSCREEN-VPN-MON-SA-COUNT-MIB", "nsVpnMonSACountType"))
+if mibBuilder.loadTexts: nsVpnMonSACountEntry.setStatus('mandatory')
+nsVpnMonSACountType = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ipv4", 1), ("ipv6", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnMonSACountType.setStatus('mandatory')
+nsVpnMonSACountTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 1, 2, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnMonSACountTotal.setStatus('mandatory')
+nsVpnMonSACountAct = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 1, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnMonSACountAct.setStatus('mandatory')
+nsVpnMonSACountInTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 1, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnMonSACountInTotal.setStatus('mandatory')
+nsVpnMonSACountInAct = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 1, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnMonSACountInAct.setStatus('mandatory')
+nsVpnMonSACountOutTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 1, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnMonSACountOutTotal.setStatus('mandatory')
+nsVpnMonSACountOutAct = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 1, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnMonSACountOutAct.setStatus('mandatory')
+mibBuilder.exportSymbols("NETSCREEN-VPN-MON-SA-COUNT-MIB", nsVpnMonSACountTotal=nsVpnMonSACountTotal, nsVpnMonSACountAct=nsVpnMonSACountAct, nsVpnMonSACountInTotal=nsVpnMonSACountInTotal, nsVpnMonSACountOutAct=nsVpnMonSACountOutAct, nsVpnMonSACountInAct=nsVpnMonSACountInAct, nsVpnMonSACountOutTotal=nsVpnMonSACountOutTotal, nsVpnMonSACountType=nsVpnMonSACountType, nsVpnMonSACountEntry=nsVpnMonSACountEntry, nsVpnMonSACountTable=nsVpnMonSACountTable)

@@ -1,280 +1,134 @@
-_s='rbnCardStatsMIBObjectGroup2'
-_r='rbnCardAlarm'
-_q='rbnCardStatsIpv6v4AutoCircuits'
-_p='rbnCardStatsIpv6v4ManualCircuits'
-_o='rbnCardStatsIpipCircuits'
-_n='rbnCardStatsVplsCircuits'
-_m='rbnCardAlarmServiceAffecting'
-_l='rbnCardStatsSlot'
-_k='rbnCardAlarmActiveIndex'
-_j='rbnCardAlarmSlot'
-_i='Unsigned32'
-_h='SnmpAdminString'
-_g='rbnCardMonMIBObjectGroup2'
-_f='rbnCardStatsMIBObjectGroup'
-_e='rbnCardMonMIBObjectGroup'
-_d='rbnCardStatsClipsCircuits'
-_c='rbnCardStatsMplsCircuits'
-_b='rbnCardStatsGreCircuits'
-_a='rbnCardStatsChdlcCircuits'
-_Z='rbnCardStatsFrCircuits'
-_Y='rbnCardStatsDot1qCircuits'
-_X='rbnCardStatsPppoeCircuits'
-_W='rbnCardStatsPppCircuits'
-_V='rbnCardStatsEthCircuits'
-_U='rbnCardStatsAtmCircuits'
-_T='rbnCardStatsBindSubCircuits'
-_S='rbnCardStatsBindAuthCircuits'
-_R='rbnCardStatsBindIfCircuits'
-_Q='rbnCardStatsBindTotalCircuits'
-_P='rbnCardStatsNoBindCircuits'
-_O='rbnCardStatsUnboundCircuits'
-_N='rbnCardStatsDownCircuits'
-_M='rbnCardStatsUpCircuits'
-_L='rbnCardStatsTotalCircuits'
-_K='not-accessible'
-_J='rbnCardAlarmSeverity'
-_I='rbnCardAlarmProbableCause'
-_H='rbnCardAlarmDescription'
-_G='rbnCardAlarmDateAndTime'
-_F='rbnCardAlarmType'
-_E='rbnCardAlarmId'
-_D='rbnCardMonMIBNotificationGroup'
-_C='read-only'
-_B='current'
-_A='RBN-CARDMON-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-RbnAlarmId,RbnAlarmPerceivedSeverity,RbnAlarmProbableCause,RbnAlarmServiceAffecting,RbnAlarmType=mibBuilder.importSymbols('RBN-ALARM-TC','RbnAlarmId','RbnAlarmPerceivedSeverity','RbnAlarmProbableCause','RbnAlarmServiceAffecting','RbnAlarmType')
-rbnMgmt,=mibBuilder.importSymbols('RBN-SMI','rbnMgmt')
-RbnSlot,=mibBuilder.importSymbols('RBN-TC','RbnSlot')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_h)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_i,'iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
-rbnCardMonMIB=ModuleIdentity((1,3,6,1,4,1,2352,2,31))
-if mibBuilder.loadTexts:rbnCardMonMIB.setRevisions(('2006-10-02 00:00','2005-05-09 00:00','2004-09-27 00:00','2004-06-29 00:00'))
-_RbnCardMonMIBNotifications_ObjectIdentity=ObjectIdentity
-rbnCardMonMIBNotifications=_RbnCardMonMIBNotifications_ObjectIdentity((1,3,6,1,4,1,2352,2,31,0))
-_RbnCardMonMIBObjects_ObjectIdentity=ObjectIdentity
-rbnCardMonMIBObjects=_RbnCardMonMIBObjects_ObjectIdentity((1,3,6,1,4,1,2352,2,31,1))
-_RbnCardAlarmActiveTable_Object=MibTable
-rbnCardAlarmActiveTable=_RbnCardAlarmActiveTable_Object((1,3,6,1,4,1,2352,2,31,1,1))
-if mibBuilder.loadTexts:rbnCardAlarmActiveTable.setStatus(_B)
-_RbnCardAlarmActiveEntry_Object=MibTableRow
-rbnCardAlarmActiveEntry=_RbnCardAlarmActiveEntry_Object((1,3,6,1,4,1,2352,2,31,1,1,1))
-rbnCardAlarmActiveEntry.setIndexNames((0,_A,_j),(0,_A,_k))
-if mibBuilder.loadTexts:rbnCardAlarmActiveEntry.setStatus(_B)
-_RbnCardAlarmSlot_Type=RbnSlot
-_RbnCardAlarmSlot_Object=MibTableColumn
-rbnCardAlarmSlot=_RbnCardAlarmSlot_Object((1,3,6,1,4,1,2352,2,31,1,1,1,1),_RbnCardAlarmSlot_Type())
-rbnCardAlarmSlot.setMaxAccess(_K)
-if mibBuilder.loadTexts:rbnCardAlarmSlot.setStatus(_B)
-class _RbnCardAlarmActiveIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_RbnCardAlarmActiveIndex_Type.__name__=_i
-_RbnCardAlarmActiveIndex_Object=MibTableColumn
-rbnCardAlarmActiveIndex=_RbnCardAlarmActiveIndex_Object((1,3,6,1,4,1,2352,2,31,1,1,1,2),_RbnCardAlarmActiveIndex_Type())
-rbnCardAlarmActiveIndex.setMaxAccess(_K)
-if mibBuilder.loadTexts:rbnCardAlarmActiveIndex.setStatus(_B)
-_RbnCardAlarmId_Type=RbnAlarmId
-_RbnCardAlarmId_Object=MibTableColumn
-rbnCardAlarmId=_RbnCardAlarmId_Object((1,3,6,1,4,1,2352,2,31,1,1,1,3),_RbnCardAlarmId_Type())
-rbnCardAlarmId.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardAlarmId.setStatus(_B)
-_RbnCardAlarmType_Type=RbnAlarmType
-_RbnCardAlarmType_Object=MibTableColumn
-rbnCardAlarmType=_RbnCardAlarmType_Object((1,3,6,1,4,1,2352,2,31,1,1,1,4),_RbnCardAlarmType_Type())
-rbnCardAlarmType.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardAlarmType.setStatus(_B)
-_RbnCardAlarmDateAndTime_Type=DateAndTime
-_RbnCardAlarmDateAndTime_Object=MibTableColumn
-rbnCardAlarmDateAndTime=_RbnCardAlarmDateAndTime_Object((1,3,6,1,4,1,2352,2,31,1,1,1,5),_RbnCardAlarmDateAndTime_Type())
-rbnCardAlarmDateAndTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardAlarmDateAndTime.setStatus(_B)
-class _RbnCardAlarmDescription_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_RbnCardAlarmDescription_Type.__name__=_h
-_RbnCardAlarmDescription_Object=MibTableColumn
-rbnCardAlarmDescription=_RbnCardAlarmDescription_Object((1,3,6,1,4,1,2352,2,31,1,1,1,6),_RbnCardAlarmDescription_Type())
-rbnCardAlarmDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardAlarmDescription.setStatus(_B)
-_RbnCardAlarmProbableCause_Type=RbnAlarmProbableCause
-_RbnCardAlarmProbableCause_Object=MibTableColumn
-rbnCardAlarmProbableCause=_RbnCardAlarmProbableCause_Object((1,3,6,1,4,1,2352,2,31,1,1,1,7),_RbnCardAlarmProbableCause_Type())
-rbnCardAlarmProbableCause.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardAlarmProbableCause.setStatus(_B)
-_RbnCardAlarmSeverity_Type=RbnAlarmPerceivedSeverity
-_RbnCardAlarmSeverity_Object=MibTableColumn
-rbnCardAlarmSeverity=_RbnCardAlarmSeverity_Object((1,3,6,1,4,1,2352,2,31,1,1,1,8),_RbnCardAlarmSeverity_Type())
-rbnCardAlarmSeverity.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardAlarmSeverity.setStatus(_B)
-_RbnCardAlarmServiceAffecting_Type=RbnAlarmServiceAffecting
-_RbnCardAlarmServiceAffecting_Object=MibTableColumn
-rbnCardAlarmServiceAffecting=_RbnCardAlarmServiceAffecting_Object((1,3,6,1,4,1,2352,2,31,1,1,1,9),_RbnCardAlarmServiceAffecting_Type())
-rbnCardAlarmServiceAffecting.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardAlarmServiceAffecting.setStatus(_B)
-_RbnCardStatsTable_Object=MibTable
-rbnCardStatsTable=_RbnCardStatsTable_Object((1,3,6,1,4,1,2352,2,31,1,2))
-if mibBuilder.loadTexts:rbnCardStatsTable.setStatus(_B)
-_RbnCardStatsEntry_Object=MibTableRow
-rbnCardStatsEntry=_RbnCardStatsEntry_Object((1,3,6,1,4,1,2352,2,31,1,2,1))
-rbnCardStatsEntry.setIndexNames((0,_A,_l))
-if mibBuilder.loadTexts:rbnCardStatsEntry.setStatus(_B)
-_RbnCardStatsSlot_Type=RbnSlot
-_RbnCardStatsSlot_Object=MibTableColumn
-rbnCardStatsSlot=_RbnCardStatsSlot_Object((1,3,6,1,4,1,2352,2,31,1,2,1,1),_RbnCardStatsSlot_Type())
-rbnCardStatsSlot.setMaxAccess(_K)
-if mibBuilder.loadTexts:rbnCardStatsSlot.setStatus(_B)
-_RbnCardStatsTotalCircuits_Type=Gauge32
-_RbnCardStatsTotalCircuits_Object=MibTableColumn
-rbnCardStatsTotalCircuits=_RbnCardStatsTotalCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,2),_RbnCardStatsTotalCircuits_Type())
-rbnCardStatsTotalCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsTotalCircuits.setStatus(_B)
-_RbnCardStatsUpCircuits_Type=Gauge32
-_RbnCardStatsUpCircuits_Object=MibTableColumn
-rbnCardStatsUpCircuits=_RbnCardStatsUpCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,3),_RbnCardStatsUpCircuits_Type())
-rbnCardStatsUpCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsUpCircuits.setStatus(_B)
-_RbnCardStatsDownCircuits_Type=Gauge32
-_RbnCardStatsDownCircuits_Object=MibTableColumn
-rbnCardStatsDownCircuits=_RbnCardStatsDownCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,4),_RbnCardStatsDownCircuits_Type())
-rbnCardStatsDownCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsDownCircuits.setStatus(_B)
-_RbnCardStatsUnboundCircuits_Type=Gauge32
-_RbnCardStatsUnboundCircuits_Object=MibTableColumn
-rbnCardStatsUnboundCircuits=_RbnCardStatsUnboundCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,5),_RbnCardStatsUnboundCircuits_Type())
-rbnCardStatsUnboundCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsUnboundCircuits.setStatus(_B)
-_RbnCardStatsNoBindCircuits_Type=Gauge32
-_RbnCardStatsNoBindCircuits_Object=MibTableColumn
-rbnCardStatsNoBindCircuits=_RbnCardStatsNoBindCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,6),_RbnCardStatsNoBindCircuits_Type())
-rbnCardStatsNoBindCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsNoBindCircuits.setStatus(_B)
-_RbnCardStatsBindTotalCircuits_Type=Gauge32
-_RbnCardStatsBindTotalCircuits_Object=MibTableColumn
-rbnCardStatsBindTotalCircuits=_RbnCardStatsBindTotalCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,7),_RbnCardStatsBindTotalCircuits_Type())
-rbnCardStatsBindTotalCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsBindTotalCircuits.setStatus(_B)
-_RbnCardStatsBindIfCircuits_Type=Gauge32
-_RbnCardStatsBindIfCircuits_Object=MibTableColumn
-rbnCardStatsBindIfCircuits=_RbnCardStatsBindIfCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,8),_RbnCardStatsBindIfCircuits_Type())
-rbnCardStatsBindIfCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsBindIfCircuits.setStatus(_B)
-_RbnCardStatsBindAuthCircuits_Type=Gauge32
-_RbnCardStatsBindAuthCircuits_Object=MibTableColumn
-rbnCardStatsBindAuthCircuits=_RbnCardStatsBindAuthCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,9),_RbnCardStatsBindAuthCircuits_Type())
-rbnCardStatsBindAuthCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsBindAuthCircuits.setStatus(_B)
-_RbnCardStatsBindSubCircuits_Type=Gauge32
-_RbnCardStatsBindSubCircuits_Object=MibTableColumn
-rbnCardStatsBindSubCircuits=_RbnCardStatsBindSubCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,10),_RbnCardStatsBindSubCircuits_Type())
-rbnCardStatsBindSubCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsBindSubCircuits.setStatus(_B)
-_RbnCardStatsAtmCircuits_Type=Gauge32
-_RbnCardStatsAtmCircuits_Object=MibTableColumn
-rbnCardStatsAtmCircuits=_RbnCardStatsAtmCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,11),_RbnCardStatsAtmCircuits_Type())
-rbnCardStatsAtmCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsAtmCircuits.setStatus(_B)
-_RbnCardStatsEthCircuits_Type=Gauge32
-_RbnCardStatsEthCircuits_Object=MibTableColumn
-rbnCardStatsEthCircuits=_RbnCardStatsEthCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,12),_RbnCardStatsEthCircuits_Type())
-rbnCardStatsEthCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsEthCircuits.setStatus(_B)
-_RbnCardStatsPppCircuits_Type=Gauge32
-_RbnCardStatsPppCircuits_Object=MibTableColumn
-rbnCardStatsPppCircuits=_RbnCardStatsPppCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,13),_RbnCardStatsPppCircuits_Type())
-rbnCardStatsPppCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsPppCircuits.setStatus(_B)
-_RbnCardStatsPppoeCircuits_Type=Gauge32
-_RbnCardStatsPppoeCircuits_Object=MibTableColumn
-rbnCardStatsPppoeCircuits=_RbnCardStatsPppoeCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,14),_RbnCardStatsPppoeCircuits_Type())
-rbnCardStatsPppoeCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsPppoeCircuits.setStatus(_B)
-_RbnCardStatsDot1qCircuits_Type=Gauge32
-_RbnCardStatsDot1qCircuits_Object=MibTableColumn
-rbnCardStatsDot1qCircuits=_RbnCardStatsDot1qCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,15),_RbnCardStatsDot1qCircuits_Type())
-rbnCardStatsDot1qCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsDot1qCircuits.setStatus(_B)
-_RbnCardStatsFrCircuits_Type=Gauge32
-_RbnCardStatsFrCircuits_Object=MibTableColumn
-rbnCardStatsFrCircuits=_RbnCardStatsFrCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,16),_RbnCardStatsFrCircuits_Type())
-rbnCardStatsFrCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsFrCircuits.setStatus(_B)
-_RbnCardStatsChdlcCircuits_Type=Gauge32
-_RbnCardStatsChdlcCircuits_Object=MibTableColumn
-rbnCardStatsChdlcCircuits=_RbnCardStatsChdlcCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,17),_RbnCardStatsChdlcCircuits_Type())
-rbnCardStatsChdlcCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsChdlcCircuits.setStatus(_B)
-_RbnCardStatsGreCircuits_Type=Gauge32
-_RbnCardStatsGreCircuits_Object=MibTableColumn
-rbnCardStatsGreCircuits=_RbnCardStatsGreCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,18),_RbnCardStatsGreCircuits_Type())
-rbnCardStatsGreCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsGreCircuits.setStatus(_B)
-_RbnCardStatsMplsCircuits_Type=Gauge32
-_RbnCardStatsMplsCircuits_Object=MibTableColumn
-rbnCardStatsMplsCircuits=_RbnCardStatsMplsCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,19),_RbnCardStatsMplsCircuits_Type())
-rbnCardStatsMplsCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsMplsCircuits.setStatus(_B)
-_RbnCardStatsClipsCircuits_Type=Gauge32
-_RbnCardStatsClipsCircuits_Object=MibTableColumn
-rbnCardStatsClipsCircuits=_RbnCardStatsClipsCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,20),_RbnCardStatsClipsCircuits_Type())
-rbnCardStatsClipsCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsClipsCircuits.setStatus(_B)
-_RbnCardStatsVplsCircuits_Type=Gauge32
-_RbnCardStatsVplsCircuits_Object=MibTableColumn
-rbnCardStatsVplsCircuits=_RbnCardStatsVplsCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,21),_RbnCardStatsVplsCircuits_Type())
-rbnCardStatsVplsCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsVplsCircuits.setStatus(_B)
-_RbnCardStatsIpipCircuits_Type=Gauge32
-_RbnCardStatsIpipCircuits_Object=MibTableColumn
-rbnCardStatsIpipCircuits=_RbnCardStatsIpipCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,22),_RbnCardStatsIpipCircuits_Type())
-rbnCardStatsIpipCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsIpipCircuits.setStatus(_B)
-_RbnCardStatsIpv6v4ManualCircuits_Type=Gauge32
-_RbnCardStatsIpv6v4ManualCircuits_Object=MibTableColumn
-rbnCardStatsIpv6v4ManualCircuits=_RbnCardStatsIpv6v4ManualCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,23),_RbnCardStatsIpv6v4ManualCircuits_Type())
-rbnCardStatsIpv6v4ManualCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsIpv6v4ManualCircuits.setStatus(_B)
-_RbnCardStatsIpv6v4AutoCircuits_Type=Gauge32
-_RbnCardStatsIpv6v4AutoCircuits_Object=MibTableColumn
-rbnCardStatsIpv6v4AutoCircuits=_RbnCardStatsIpv6v4AutoCircuits_Object((1,3,6,1,4,1,2352,2,31,1,2,1,24),_RbnCardStatsIpv6v4AutoCircuits_Type())
-rbnCardStatsIpv6v4AutoCircuits.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnCardStatsIpv6v4AutoCircuits.setStatus(_B)
-_RbnCardMonMIBConformance_ObjectIdentity=ObjectIdentity
-rbnCardMonMIBConformance=_RbnCardMonMIBConformance_ObjectIdentity((1,3,6,1,4,1,2352,2,31,2))
-_RbnCardMonMIBGroups_ObjectIdentity=ObjectIdentity
-rbnCardMonMIBGroups=_RbnCardMonMIBGroups_ObjectIdentity((1,3,6,1,4,1,2352,2,31,2,1))
-_RbnCardMonMIBCompliances_ObjectIdentity=ObjectIdentity
-rbnCardMonMIBCompliances=_RbnCardMonMIBCompliances_ObjectIdentity((1,3,6,1,4,1,2352,2,31,2,2))
-rbnCardMonMIBObjectGroup=ObjectGroup((1,3,6,1,4,1,2352,2,31,2,1,1))
-rbnCardMonMIBObjectGroup.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J)))
-if mibBuilder.loadTexts:rbnCardMonMIBObjectGroup.setStatus(_B)
-rbnCardStatsMIBObjectGroup=ObjectGroup((1,3,6,1,4,1,2352,2,31,2,1,3))
-rbnCardStatsMIBObjectGroup.setObjects(*((_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d)))
-if mibBuilder.loadTexts:rbnCardStatsMIBObjectGroup.setStatus(_B)
-rbnCardMonMIBObjectGroup2=ObjectGroup((1,3,6,1,4,1,2352,2,31,2,1,4))
-rbnCardMonMIBObjectGroup2.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_m)))
-if mibBuilder.loadTexts:rbnCardMonMIBObjectGroup2.setStatus(_B)
-rbnCardStatsMIBObjectGroup2=ObjectGroup((1,3,6,1,4,1,2352,2,31,2,1,5))
-rbnCardStatsMIBObjectGroup2.setObjects(*((_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_n),(_A,_o),(_A,_p),(_A,_q)))
-if mibBuilder.loadTexts:rbnCardStatsMIBObjectGroup2.setStatus(_B)
-rbnCardAlarm=NotificationType((1,3,6,1,4,1,2352,2,31,0,1))
-rbnCardAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J)))
-if mibBuilder.loadTexts:rbnCardAlarm.setStatus(_B)
-rbnCardMonMIBNotificationGroup=NotificationGroup((1,3,6,1,4,1,2352,2,31,2,1,2))
-rbnCardMonMIBNotificationGroup.setObjects((_A,_r))
-if mibBuilder.loadTexts:rbnCardMonMIBNotificationGroup.setStatus(_B)
-rbnCardMonMIBCompliance=ModuleCompliance((1,3,6,1,4,1,2352,2,31,2,2,1))
-rbnCardMonMIBCompliance.setObjects(*((_A,_e),(_A,_D)))
-if mibBuilder.loadTexts:rbnCardMonMIBCompliance.setStatus(_B)
-rbnCardMonMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,2352,2,31,2,2,2))
-rbnCardMonMIBCompliance2.setObjects(*((_A,_e),(_A,_D),(_A,_f)))
-if mibBuilder.loadTexts:rbnCardMonMIBCompliance2.setStatus(_B)
-rbnCardMonMIBCompliance3=ModuleCompliance((1,3,6,1,4,1,2352,2,31,2,2,3))
-rbnCardMonMIBCompliance3.setObjects(*((_A,_g),(_A,_D),(_A,_f)))
-if mibBuilder.loadTexts:rbnCardMonMIBCompliance3.setStatus(_B)
-rbnCardMonMIBCompliance4=ModuleCompliance((1,3,6,1,4,1,2352,2,31,2,2,4))
-rbnCardMonMIBCompliance4.setObjects(*((_A,_g),(_A,_D),(_A,_s)))
-if mibBuilder.loadTexts:rbnCardMonMIBCompliance4.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'rbnCardMonMIB':rbnCardMonMIB,'rbnCardMonMIBNotifications':rbnCardMonMIBNotifications,_r:rbnCardAlarm,'rbnCardMonMIBObjects':rbnCardMonMIBObjects,'rbnCardAlarmActiveTable':rbnCardAlarmActiveTable,'rbnCardAlarmActiveEntry':rbnCardAlarmActiveEntry,_j:rbnCardAlarmSlot,_k:rbnCardAlarmActiveIndex,_E:rbnCardAlarmId,_F:rbnCardAlarmType,_G:rbnCardAlarmDateAndTime,_H:rbnCardAlarmDescription,_I:rbnCardAlarmProbableCause,_J:rbnCardAlarmSeverity,_m:rbnCardAlarmServiceAffecting,'rbnCardStatsTable':rbnCardStatsTable,'rbnCardStatsEntry':rbnCardStatsEntry,_l:rbnCardStatsSlot,_L:rbnCardStatsTotalCircuits,_M:rbnCardStatsUpCircuits,_N:rbnCardStatsDownCircuits,_O:rbnCardStatsUnboundCircuits,_P:rbnCardStatsNoBindCircuits,_Q:rbnCardStatsBindTotalCircuits,_R:rbnCardStatsBindIfCircuits,_S:rbnCardStatsBindAuthCircuits,_T:rbnCardStatsBindSubCircuits,_U:rbnCardStatsAtmCircuits,_V:rbnCardStatsEthCircuits,_W:rbnCardStatsPppCircuits,_X:rbnCardStatsPppoeCircuits,_Y:rbnCardStatsDot1qCircuits,_Z:rbnCardStatsFrCircuits,_a:rbnCardStatsChdlcCircuits,_b:rbnCardStatsGreCircuits,_c:rbnCardStatsMplsCircuits,_d:rbnCardStatsClipsCircuits,_n:rbnCardStatsVplsCircuits,_o:rbnCardStatsIpipCircuits,_p:rbnCardStatsIpv6v4ManualCircuits,_q:rbnCardStatsIpv6v4AutoCircuits,'rbnCardMonMIBConformance':rbnCardMonMIBConformance,'rbnCardMonMIBGroups':rbnCardMonMIBGroups,_e:rbnCardMonMIBObjectGroup,_D:rbnCardMonMIBNotificationGroup,_f:rbnCardStatsMIBObjectGroup,_g:rbnCardMonMIBObjectGroup2,_s:rbnCardStatsMIBObjectGroup2,'rbnCardMonMIBCompliances':rbnCardMonMIBCompliances,'rbnCardMonMIBCompliance':rbnCardMonMIBCompliance,'rbnCardMonMIBCompliance2':rbnCardMonMIBCompliance2,'rbnCardMonMIBCompliance3':rbnCardMonMIBCompliance3,'rbnCardMonMIBCompliance4':rbnCardMonMIBCompliance4})
+#
+# PySNMP MIB module RBN-CARDMON-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ericsson/RBN-CARDMON-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:51 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+RbnAlarmType, RbnAlarmId, RbnAlarmProbableCause, RbnAlarmServiceAffecting, RbnAlarmPerceivedSeverity = mibBuilder.importSymbols("RBN-ALARM-TC", "RbnAlarmType", "RbnAlarmId", "RbnAlarmProbableCause", "RbnAlarmServiceAffecting", "RbnAlarmPerceivedSeverity")
+rbnMgmt, = mibBuilder.importSymbols("RBN-SMI", "rbnMgmt")
+RbnSlot, = mibBuilder.importSymbols("RBN-TC", "RbnSlot")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+rbnCardMonMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2352, 2, 31))
+rbnCardMonMIB.setRevisions(('2006-10-02 00:00', '2005-05-09 00:00', '2004-09-27 00:00', '2004-06-29 00:00',))
+if mibBuilder.loadTexts: rbnCardMonMIB.setLastUpdated('200610020000Z')
+if mibBuilder.loadTexts: rbnCardMonMIB.setOrganization('RedBack Networks, Inc.')
+rbnCardMonMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 31, 0))
+rbnCardMonMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1))
+rbnCardMonMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 31, 2))
+rbnCardAlarmActiveTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 1), )
+if mibBuilder.loadTexts: rbnCardAlarmActiveTable.setStatus('current')
+rbnCardAlarmActiveEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 1, 1), ).setIndexNames((0, "RBN-CARDMON-MIB", "rbnCardAlarmSlot"), (0, "RBN-CARDMON-MIB", "rbnCardAlarmActiveIndex"))
+if mibBuilder.loadTexts: rbnCardAlarmActiveEntry.setStatus('current')
+rbnCardAlarmSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 1, 1, 1), RbnSlot())
+if mibBuilder.loadTexts: rbnCardAlarmSlot.setStatus('current')
+rbnCardAlarmActiveIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: rbnCardAlarmActiveIndex.setStatus('current')
+rbnCardAlarmId = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 1, 1, 3), RbnAlarmId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardAlarmId.setStatus('current')
+rbnCardAlarmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 1, 1, 4), RbnAlarmType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardAlarmType.setStatus('current')
+rbnCardAlarmDateAndTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 1, 1, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardAlarmDateAndTime.setStatus('current')
+rbnCardAlarmDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 1, 1, 6), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardAlarmDescription.setStatus('current')
+rbnCardAlarmProbableCause = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 1, 1, 7), RbnAlarmProbableCause()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardAlarmProbableCause.setStatus('current')
+rbnCardAlarmSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 1, 1, 8), RbnAlarmPerceivedSeverity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardAlarmSeverity.setStatus('current')
+rbnCardAlarmServiceAffecting = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 1, 1, 9), RbnAlarmServiceAffecting()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardAlarmServiceAffecting.setStatus('current')
+rbnCardStatsTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2), )
+if mibBuilder.loadTexts: rbnCardStatsTable.setStatus('current')
+rbnCardStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1), ).setIndexNames((0, "RBN-CARDMON-MIB", "rbnCardStatsSlot"))
+if mibBuilder.loadTexts: rbnCardStatsEntry.setStatus('current')
+rbnCardStatsSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 1), RbnSlot())
+if mibBuilder.loadTexts: rbnCardStatsSlot.setStatus('current')
+rbnCardStatsTotalCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsTotalCircuits.setStatus('current')
+rbnCardStatsUpCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsUpCircuits.setStatus('current')
+rbnCardStatsDownCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsDownCircuits.setStatus('current')
+rbnCardStatsUnboundCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsUnboundCircuits.setStatus('current')
+rbnCardStatsNoBindCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsNoBindCircuits.setStatus('current')
+rbnCardStatsBindTotalCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsBindTotalCircuits.setStatus('current')
+rbnCardStatsBindIfCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsBindIfCircuits.setStatus('current')
+rbnCardStatsBindAuthCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsBindAuthCircuits.setStatus('current')
+rbnCardStatsBindSubCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 10), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsBindSubCircuits.setStatus('current')
+rbnCardStatsAtmCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 11), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsAtmCircuits.setStatus('current')
+rbnCardStatsEthCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 12), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsEthCircuits.setStatus('current')
+rbnCardStatsPppCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 13), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsPppCircuits.setStatus('current')
+rbnCardStatsPppoeCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 14), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsPppoeCircuits.setStatus('current')
+rbnCardStatsDot1qCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 15), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsDot1qCircuits.setStatus('current')
+rbnCardStatsFrCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 16), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsFrCircuits.setStatus('current')
+rbnCardStatsChdlcCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 17), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsChdlcCircuits.setStatus('current')
+rbnCardStatsGreCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 18), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsGreCircuits.setStatus('current')
+rbnCardStatsMplsCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 19), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsMplsCircuits.setStatus('current')
+rbnCardStatsClipsCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 20), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsClipsCircuits.setStatus('current')
+rbnCardStatsVplsCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 21), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsVplsCircuits.setStatus('current')
+rbnCardStatsIpipCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 22), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsIpipCircuits.setStatus('current')
+rbnCardStatsIpv6v4ManualCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 23), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsIpv6v4ManualCircuits.setStatus('current')
+rbnCardStatsIpv6v4AutoCircuits = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 31, 1, 2, 1, 24), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnCardStatsIpv6v4AutoCircuits.setStatus('current')
+rbnCardAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2352, 2, 31, 0, 1)).setObjects(("RBN-CARDMON-MIB", "rbnCardAlarmId"), ("RBN-CARDMON-MIB", "rbnCardAlarmType"), ("RBN-CARDMON-MIB", "rbnCardAlarmDateAndTime"), ("RBN-CARDMON-MIB", "rbnCardAlarmDescription"), ("RBN-CARDMON-MIB", "rbnCardAlarmProbableCause"), ("RBN-CARDMON-MIB", "rbnCardAlarmSeverity"))
+if mibBuilder.loadTexts: rbnCardAlarm.setStatus('current')
+rbnCardMonMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 31, 2, 1))
+rbnCardMonMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 31, 2, 2))
+rbnCardMonMIBObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 31, 2, 1, 1)).setObjects(("RBN-CARDMON-MIB", "rbnCardAlarmId"), ("RBN-CARDMON-MIB", "rbnCardAlarmType"), ("RBN-CARDMON-MIB", "rbnCardAlarmDateAndTime"), ("RBN-CARDMON-MIB", "rbnCardAlarmDescription"), ("RBN-CARDMON-MIB", "rbnCardAlarmProbableCause"), ("RBN-CARDMON-MIB", "rbnCardAlarmSeverity"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnCardMonMIBObjectGroup = rbnCardMonMIBObjectGroup.setStatus('current')
+rbnCardMonMIBObjectGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 31, 2, 1, 4)).setObjects(("RBN-CARDMON-MIB", "rbnCardAlarmId"), ("RBN-CARDMON-MIB", "rbnCardAlarmType"), ("RBN-CARDMON-MIB", "rbnCardAlarmDateAndTime"), ("RBN-CARDMON-MIB", "rbnCardAlarmDescription"), ("RBN-CARDMON-MIB", "rbnCardAlarmProbableCause"), ("RBN-CARDMON-MIB", "rbnCardAlarmSeverity"), ("RBN-CARDMON-MIB", "rbnCardAlarmServiceAffecting"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnCardMonMIBObjectGroup2 = rbnCardMonMIBObjectGroup2.setStatus('current')
+rbnCardMonMIBNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 2352, 2, 31, 2, 1, 2)).setObjects(("RBN-CARDMON-MIB", "rbnCardAlarm"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnCardMonMIBNotificationGroup = rbnCardMonMIBNotificationGroup.setStatus('current')
+rbnCardStatsMIBObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 31, 2, 1, 3)).setObjects(("RBN-CARDMON-MIB", "rbnCardStatsTotalCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsUpCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsDownCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsUnboundCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsNoBindCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsBindTotalCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsBindIfCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsBindAuthCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsBindSubCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsAtmCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsEthCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsPppCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsPppoeCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsDot1qCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsFrCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsChdlcCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsGreCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsMplsCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsClipsCircuits"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnCardStatsMIBObjectGroup = rbnCardStatsMIBObjectGroup.setStatus('current')
+rbnCardStatsMIBObjectGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 31, 2, 1, 5)).setObjects(("RBN-CARDMON-MIB", "rbnCardStatsTotalCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsUpCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsDownCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsUnboundCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsNoBindCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsBindTotalCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsBindIfCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsBindAuthCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsBindSubCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsAtmCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsEthCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsPppCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsPppoeCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsDot1qCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsFrCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsChdlcCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsGreCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsMplsCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsClipsCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsVplsCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsIpipCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsIpv6v4ManualCircuits"), ("RBN-CARDMON-MIB", "rbnCardStatsIpv6v4AutoCircuits"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnCardStatsMIBObjectGroup2 = rbnCardStatsMIBObjectGroup2.setStatus('current')
+rbnCardMonMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 31, 2, 2, 1)).setObjects(("RBN-CARDMON-MIB", "rbnCardMonMIBObjectGroup"), ("RBN-CARDMON-MIB", "rbnCardMonMIBNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnCardMonMIBCompliance = rbnCardMonMIBCompliance.setStatus('current')
+rbnCardMonMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 31, 2, 2, 2)).setObjects(("RBN-CARDMON-MIB", "rbnCardMonMIBObjectGroup"), ("RBN-CARDMON-MIB", "rbnCardMonMIBNotificationGroup"), ("RBN-CARDMON-MIB", "rbnCardStatsMIBObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnCardMonMIBCompliance2 = rbnCardMonMIBCompliance2.setStatus('current')
+rbnCardMonMIBCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 31, 2, 2, 3)).setObjects(("RBN-CARDMON-MIB", "rbnCardMonMIBObjectGroup2"), ("RBN-CARDMON-MIB", "rbnCardMonMIBNotificationGroup"), ("RBN-CARDMON-MIB", "rbnCardStatsMIBObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnCardMonMIBCompliance3 = rbnCardMonMIBCompliance3.setStatus('current')
+rbnCardMonMIBCompliance4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 31, 2, 2, 4)).setObjects(("RBN-CARDMON-MIB", "rbnCardMonMIBObjectGroup2"), ("RBN-CARDMON-MIB", "rbnCardMonMIBNotificationGroup"), ("RBN-CARDMON-MIB", "rbnCardStatsMIBObjectGroup2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnCardMonMIBCompliance4 = rbnCardMonMIBCompliance4.setStatus('current')
+mibBuilder.exportSymbols("RBN-CARDMON-MIB", rbnCardMonMIBObjects=rbnCardMonMIBObjects, rbnCardStatsBindTotalCircuits=rbnCardStatsBindTotalCircuits, rbnCardStatsPppCircuits=rbnCardStatsPppCircuits, rbnCardAlarmProbableCause=rbnCardAlarmProbableCause, rbnCardStatsClipsCircuits=rbnCardStatsClipsCircuits, rbnCardStatsDownCircuits=rbnCardStatsDownCircuits, rbnCardAlarmServiceAffecting=rbnCardAlarmServiceAffecting, rbnCardMonMIBGroups=rbnCardMonMIBGroups, rbnCardMonMIBObjectGroup=rbnCardMonMIBObjectGroup, rbnCardMonMIBConformance=rbnCardMonMIBConformance, rbnCardAlarmActiveEntry=rbnCardAlarmActiveEntry, rbnCardMonMIBCompliance=rbnCardMonMIBCompliance, rbnCardStatsTable=rbnCardStatsTable, rbnCardStatsVplsCircuits=rbnCardStatsVplsCircuits, rbnCardAlarmDateAndTime=rbnCardAlarmDateAndTime, rbnCardStatsUnboundCircuits=rbnCardStatsUnboundCircuits, rbnCardStatsGreCircuits=rbnCardStatsGreCircuits, rbnCardStatsMIBObjectGroup2=rbnCardStatsMIBObjectGroup2, rbnCardStatsFrCircuits=rbnCardStatsFrCircuits, rbnCardAlarmType=rbnCardAlarmType, rbnCardStatsMplsCircuits=rbnCardStatsMplsCircuits, rbnCardMonMIB=rbnCardMonMIB, rbnCardMonMIBCompliance2=rbnCardMonMIBCompliance2, rbnCardMonMIBCompliance3=rbnCardMonMIBCompliance3, rbnCardAlarmActiveTable=rbnCardAlarmActiveTable, rbnCardStatsMIBObjectGroup=rbnCardStatsMIBObjectGroup, rbnCardStatsChdlcCircuits=rbnCardStatsChdlcCircuits, rbnCardStatsIpipCircuits=rbnCardStatsIpipCircuits, rbnCardStatsNoBindCircuits=rbnCardStatsNoBindCircuits, rbnCardMonMIBNotifications=rbnCardMonMIBNotifications, rbnCardStatsBindSubCircuits=rbnCardStatsBindSubCircuits, rbnCardStatsIpv6v4ManualCircuits=rbnCardStatsIpv6v4ManualCircuits, rbnCardMonMIBCompliances=rbnCardMonMIBCompliances, rbnCardStatsTotalCircuits=rbnCardStatsTotalCircuits, rbnCardStatsUpCircuits=rbnCardStatsUpCircuits, rbnCardAlarmId=rbnCardAlarmId, rbnCardMonMIBNotificationGroup=rbnCardMonMIBNotificationGroup, rbnCardStatsSlot=rbnCardStatsSlot, rbnCardStatsBindAuthCircuits=rbnCardStatsBindAuthCircuits, rbnCardAlarmSlot=rbnCardAlarmSlot, rbnCardAlarm=rbnCardAlarm, rbnCardStatsEntry=rbnCardStatsEntry, PYSNMP_MODULE_ID=rbnCardMonMIB, rbnCardStatsAtmCircuits=rbnCardStatsAtmCircuits, rbnCardStatsDot1qCircuits=rbnCardStatsDot1qCircuits, rbnCardStatsIpv6v4AutoCircuits=rbnCardStatsIpv6v4AutoCircuits, rbnCardAlarmActiveIndex=rbnCardAlarmActiveIndex, rbnCardAlarmDescription=rbnCardAlarmDescription, rbnCardStatsBindIfCircuits=rbnCardStatsBindIfCircuits, rbnCardMonMIBCompliance4=rbnCardMonMIBCompliance4, rbnCardAlarmSeverity=rbnCardAlarmSeverity, rbnCardStatsPppoeCircuits=rbnCardStatsPppoeCircuits, rbnCardStatsEthCircuits=rbnCardStatsEthCircuits, rbnCardMonMIBObjectGroup2=rbnCardMonMIBObjectGroup2)

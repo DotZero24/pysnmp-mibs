@@ -1,46 +1,37 @@
-_G='hpicfLayer3VlanStatus'
-_F='Integer32'
-_E='ifIndex'
-_D='IF-MIB'
-_C='hpicfLayer3VlanConfigGroup'
-_B='HP-ICF-LAYER3VLAN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpSwitch,=mibBuilder.importSymbols('HP-ICF-OID','hpSwitch')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hpicfLayer3VlanConfigMIB=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,5,1,70))
-if mibBuilder.loadTexts:hpicfLayer3VlanConfigMIB.setRevisions(('2010-03-23 00:00',))
-_HpicfLayer3VlanConfig_ObjectIdentity=ObjectIdentity
-hpicfLayer3VlanConfig=_HpicfLayer3VlanConfig_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,70,1))
-_HpicfLayer3VlanConfigTable_Object=MibTable
-hpicfLayer3VlanConfigTable=_HpicfLayer3VlanConfigTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,70,1,1))
-if mibBuilder.loadTexts:hpicfLayer3VlanConfigTable.setStatus(_A)
-_HpicfLayer3VlanConfigEntry_Object=MibTableRow
-hpicfLayer3VlanConfigEntry=_HpicfLayer3VlanConfigEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,70,1,1,1))
-hpicfLayer3VlanConfigEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:hpicfLayer3VlanConfigEntry.setStatus(_A)
-class _HpicfLayer3VlanStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_HpicfLayer3VlanStatus_Type.__name__=_F
-_HpicfLayer3VlanStatus_Object=MibTableColumn
-hpicfLayer3VlanStatus=_HpicfLayer3VlanStatus_Object((1,3,6,1,4,1,11,2,14,11,5,1,70,1,1,1,1),_HpicfLayer3VlanStatus_Type())
-hpicfLayer3VlanStatus.setMaxAccess('read-write')
-if mibBuilder.loadTexts:hpicfLayer3VlanStatus.setStatus(_A)
-_HpicfLayer3VlanConfigConformance_ObjectIdentity=ObjectIdentity
-hpicfLayer3VlanConfigConformance=_HpicfLayer3VlanConfigConformance_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,70,2))
-_HpicfL3VlanConfigMIBCompliances_ObjectIdentity=ObjectIdentity
-hpicfL3VlanConfigMIBCompliances=_HpicfL3VlanConfigMIBCompliances_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,70,2,1))
-_HpicfLayer3VlanConfigMIBGroups_ObjectIdentity=ObjectIdentity
-hpicfLayer3VlanConfigMIBGroups=_HpicfLayer3VlanConfigMIBGroups_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,70,2,2))
-hpicfLayer3VlanConfigGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,70,2,2,1))
-hpicfLayer3VlanConfigGroup.setObjects((_B,_G))
-if mibBuilder.loadTexts:hpicfLayer3VlanConfigGroup.setStatus(_A)
-hpicfL3VlanConfigMIBCompliance=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,70,2,1,1))
-hpicfL3VlanConfigMIBCompliance.setObjects(*((_B,_C),(_B,_C)))
-if mibBuilder.loadTexts:hpicfL3VlanConfigMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'hpicfLayer3VlanConfigMIB':hpicfLayer3VlanConfigMIB,'hpicfLayer3VlanConfig':hpicfLayer3VlanConfig,'hpicfLayer3VlanConfigTable':hpicfLayer3VlanConfigTable,'hpicfLayer3VlanConfigEntry':hpicfLayer3VlanConfigEntry,_G:hpicfLayer3VlanStatus,'hpicfLayer3VlanConfigConformance':hpicfLayer3VlanConfigConformance,'hpicfL3VlanConfigMIBCompliances':hpicfL3VlanConfigMIBCompliances,'hpicfL3VlanConfigMIBCompliance':hpicfL3VlanConfigMIBCompliance,'hpicfLayer3VlanConfigMIBGroups':hpicfLayer3VlanConfigMIBGroups,_C:hpicfLayer3VlanConfigGroup})
+#
+# PySNMP MIB module HP-ICF-LAYER3VLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HP-ICF-LAYER3VLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:12 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hpicfLayer3VlanConfigMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 70))
+hpicfLayer3VlanConfigMIB.setRevisions(('2010-03-23 00:00',))
+if mibBuilder.loadTexts: hpicfLayer3VlanConfigMIB.setLastUpdated('201003230000Z')
+if mibBuilder.loadTexts: hpicfLayer3VlanConfigMIB.setOrganization('HP Networking')
+hpicfLayer3VlanConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 70, 1))
+hpicfLayer3VlanConfigConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 70, 2))
+hpicfLayer3VlanConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 70, 1, 1), )
+if mibBuilder.loadTexts: hpicfLayer3VlanConfigTable.setStatus('current')
+hpicfLayer3VlanConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 70, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hpicfLayer3VlanConfigEntry.setStatus('current')
+hpicfLayer3VlanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 70, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfLayer3VlanStatus.setStatus('current')
+hpicfL3VlanConfigMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 70, 2, 1))
+hpicfLayer3VlanConfigMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 70, 2, 2))
+hpicfL3VlanConfigMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 70, 2, 1, 1)).setObjects(("HP-ICF-LAYER3VLAN-MIB", "hpicfLayer3VlanConfigGroup"), ("HP-ICF-LAYER3VLAN-MIB", "hpicfLayer3VlanConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfL3VlanConfigMIBCompliance = hpicfL3VlanConfigMIBCompliance.setStatus('current')
+hpicfLayer3VlanConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 70, 2, 2, 1)).setObjects(("HP-ICF-LAYER3VLAN-MIB", "hpicfLayer3VlanStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfLayer3VlanConfigGroup = hpicfLayer3VlanConfigGroup.setStatus('current')
+mibBuilder.exportSymbols("HP-ICF-LAYER3VLAN-MIB", hpicfLayer3VlanConfigTable=hpicfLayer3VlanConfigTable, hpicfL3VlanConfigMIBCompliance=hpicfL3VlanConfigMIBCompliance, hpicfLayer3VlanConfigConformance=hpicfLayer3VlanConfigConformance, hpicfLayer3VlanConfig=hpicfLayer3VlanConfig, PYSNMP_MODULE_ID=hpicfLayer3VlanConfigMIB, hpicfLayer3VlanConfigMIB=hpicfLayer3VlanConfigMIB, hpicfL3VlanConfigMIBCompliances=hpicfL3VlanConfigMIBCompliances, hpicfLayer3VlanConfigGroup=hpicfLayer3VlanConfigGroup, hpicfLayer3VlanConfigEntry=hpicfLayer3VlanConfigEntry, hpicfLayer3VlanStatus=hpicfLayer3VlanStatus, hpicfLayer3VlanConfigMIBGroups=hpicfLayer3VlanConfigMIBGroups)

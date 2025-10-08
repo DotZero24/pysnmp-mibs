@@ -1,227 +1,97 @@
-_q='lldpXPnoMRPGroup'
-_p='lldpXPnoRemGroup'
-_o='lldpXPnoLocGroup'
-_n='lldpXPnoConfigGroup'
-_m='lldpXPnoRemPortMrrtStatus'
-_l='lldpXPnoRemPortMrpUuId'
-_k='lldpXPnoLocPortMrrtStatus'
-_j='lldpXPnoLocPortMrpUuId'
-_i='lldpXPnoConfigMrpTxEnable'
-_h='lldpXPnoRemPortNoS'
-_g='lldpXPnoRemPortStatusRT3'
-_f='lldpXPnoRemPortStatusRT2'
-_e='lldpXPnoRemPortRxDValue'
-_d='lldpXPnoRemPortTxDValue'
-_c='lldpXPnoRemLPDValue'
-_b='lldpXPnoLocPortNoS'
-_a='lldpXPnoLocPortStatusRT3'
-_Z='lldpXPnoLocPortStatusRT2'
-_Y='lldpXPnoLocPortRxDValue'
-_X='lldpXPnoLocPortTxDValue'
-_W='lldpXPnoLocLPDValue'
-_V='lldpXPnoConfigAliasTxEnable'
-_U='lldpXPnoConfigPortStatusTxEnable'
-_T='lldpXPnoConfigSPDTxEnable'
-_S='lldpXPnoConfigEntry'
-_R='lldpRemTimeMark'
-_Q='lldpRemLocalPortNum'
-_P='lldpRemIndex'
-_O='lldpLocPortNum'
-_N='OctetString'
-_M='up'
-_L='running'
-_K='read-write'
-_J='Unsigned32'
-_I='TruthValue'
-_H='LLDP-MIB'
-_G='configured'
-_F='off'
-_E='ns'
-_D='Integer32'
-_C='read-only'
-_B='LLDP-EXT-PNO-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_N,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-lldpExtensions,lldpLocPortNum,lldpPortConfigEntry,lldpRemIndex,lldpRemLocalPortNum,lldpRemTimeMark=mibBuilder.importSymbols(_H,'lldpExtensions',_O,'lldpPortConfigEntry',_P,_Q,_R)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_J,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_I)
-lldpXPnoMIB=ModuleIdentity((1,0,8802,1,1,2,1,5,3791))
-if mibBuilder.loadTexts:lldpXPnoMIB.setRevisions(('2006-03-09 00:00','2006-02-28 00:00','2005-08-31 00:00','2005-05-30 00:00'))
-_LldpXPnoObjects_ObjectIdentity=ObjectIdentity
-lldpXPnoObjects=_LldpXPnoObjects_ObjectIdentity((1,0,8802,1,1,2,1,5,3791,1))
-_LldpXPnoConfig_ObjectIdentity=ObjectIdentity
-lldpXPnoConfig=_LldpXPnoConfig_ObjectIdentity((1,0,8802,1,1,2,1,5,3791,1,1))
-_LldpXPnoConfigTable_Object=MibTable
-lldpXPnoConfigTable=_LldpXPnoConfigTable_Object((1,0,8802,1,1,2,1,5,3791,1,1,1))
-if mibBuilder.loadTexts:lldpXPnoConfigTable.setStatus(_A)
-_LldpXPnoConfigEntry_Object=MibTableRow
-lldpXPnoConfigEntry=_LldpXPnoConfigEntry_Object((1,0,8802,1,1,2,1,5,3791,1,1,1,1))
-if mibBuilder.loadTexts:lldpXPnoConfigEntry.setStatus(_A)
-class _LldpXPnoConfigSPDTxEnable_Type(TruthValue):defaultValue=1
-_LldpXPnoConfigSPDTxEnable_Type.__name__=_I
-_LldpXPnoConfigSPDTxEnable_Object=MibTableColumn
-lldpXPnoConfigSPDTxEnable=_LldpXPnoConfigSPDTxEnable_Object((1,0,8802,1,1,2,1,5,3791,1,1,1,1,1),_LldpXPnoConfigSPDTxEnable_Type())
-lldpXPnoConfigSPDTxEnable.setMaxAccess(_K)
-if mibBuilder.loadTexts:lldpXPnoConfigSPDTxEnable.setStatus(_A)
-class _LldpXPnoConfigPortStatusTxEnable_Type(TruthValue):defaultValue=1
-_LldpXPnoConfigPortStatusTxEnable_Type.__name__=_I
-_LldpXPnoConfigPortStatusTxEnable_Object=MibTableColumn
-lldpXPnoConfigPortStatusTxEnable=_LldpXPnoConfigPortStatusTxEnable_Object((1,0,8802,1,1,2,1,5,3791,1,1,1,1,2),_LldpXPnoConfigPortStatusTxEnable_Type())
-lldpXPnoConfigPortStatusTxEnable.setMaxAccess(_K)
-if mibBuilder.loadTexts:lldpXPnoConfigPortStatusTxEnable.setStatus(_A)
-class _LldpXPnoConfigAliasTxEnable_Type(TruthValue):defaultValue=2
-_LldpXPnoConfigAliasTxEnable_Type.__name__=_I
-_LldpXPnoConfigAliasTxEnable_Object=MibTableColumn
-lldpXPnoConfigAliasTxEnable=_LldpXPnoConfigAliasTxEnable_Object((1,0,8802,1,1,2,1,5,3791,1,1,1,1,3),_LldpXPnoConfigAliasTxEnable_Type())
-lldpXPnoConfigAliasTxEnable.setMaxAccess(_K)
-if mibBuilder.loadTexts:lldpXPnoConfigAliasTxEnable.setStatus(_A)
-class _LldpXPnoConfigMrpTxEnable_Type(TruthValue):defaultValue=1
-_LldpXPnoConfigMrpTxEnable_Type.__name__=_I
-_LldpXPnoConfigMrpTxEnable_Object=MibTableColumn
-lldpXPnoConfigMrpTxEnable=_LldpXPnoConfigMrpTxEnable_Object((1,0,8802,1,1,2,1,5,3791,1,1,1,1,4),_LldpXPnoConfigMrpTxEnable_Type())
-lldpXPnoConfigMrpTxEnable.setMaxAccess(_K)
-if mibBuilder.loadTexts:lldpXPnoConfigMrpTxEnable.setStatus(_A)
-_LldpXPnoLocalData_ObjectIdentity=ObjectIdentity
-lldpXPnoLocalData=_LldpXPnoLocalData_ObjectIdentity((1,0,8802,1,1,2,1,5,3791,1,2))
-_LldpXPnoLocTable_Object=MibTable
-lldpXPnoLocTable=_LldpXPnoLocTable_Object((1,0,8802,1,1,2,1,5,3791,1,2,1))
-if mibBuilder.loadTexts:lldpXPnoLocTable.setStatus(_A)
-_LldpXPnoLocEntry_Object=MibTableRow
-lldpXPnoLocEntry=_LldpXPnoLocEntry_Object((1,0,8802,1,1,2,1,5,3791,1,2,1,1))
-lldpXPnoLocEntry.setIndexNames((0,_H,_O))
-if mibBuilder.loadTexts:lldpXPnoLocEntry.setStatus(_A)
-class _LldpXPnoLocLPDValue_Type(Unsigned32):defaultValue=0
-_LldpXPnoLocLPDValue_Type.__name__=_J
-_LldpXPnoLocLPDValue_Object=MibTableColumn
-lldpXPnoLocLPDValue=_LldpXPnoLocLPDValue_Object((1,0,8802,1,1,2,1,5,3791,1,2,1,1,1),_LldpXPnoLocLPDValue_Type())
-lldpXPnoLocLPDValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoLocLPDValue.setStatus(_A)
-if mibBuilder.loadTexts:lldpXPnoLocLPDValue.setUnits(_E)
-class _LldpXPnoLocPortTxDValue_Type(Unsigned32):defaultValue=0
-_LldpXPnoLocPortTxDValue_Type.__name__=_J
-_LldpXPnoLocPortTxDValue_Object=MibTableColumn
-lldpXPnoLocPortTxDValue=_LldpXPnoLocPortTxDValue_Object((1,0,8802,1,1,2,1,5,3791,1,2,1,1,2),_LldpXPnoLocPortTxDValue_Type())
-lldpXPnoLocPortTxDValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoLocPortTxDValue.setStatus(_A)
-if mibBuilder.loadTexts:lldpXPnoLocPortTxDValue.setUnits(_E)
-class _LldpXPnoLocPortRxDValue_Type(Unsigned32):defaultValue=0
-_LldpXPnoLocPortRxDValue_Type.__name__=_J
-_LldpXPnoLocPortRxDValue_Object=MibTableColumn
-lldpXPnoLocPortRxDValue=_LldpXPnoLocPortRxDValue_Object((1,0,8802,1,1,2,1,5,3791,1,2,1,1,3),_LldpXPnoLocPortRxDValue_Type())
-lldpXPnoLocPortRxDValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoLocPortRxDValue.setStatus(_A)
-if mibBuilder.loadTexts:lldpXPnoLocPortRxDValue.setUnits(_E)
-class _LldpXPnoLocPortStatusRT2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_F,0),(_G,1),(_L,2)))
-_LldpXPnoLocPortStatusRT2_Type.__name__=_D
-_LldpXPnoLocPortStatusRT2_Object=MibTableColumn
-lldpXPnoLocPortStatusRT2=_LldpXPnoLocPortStatusRT2_Object((1,0,8802,1,1,2,1,5,3791,1,2,1,1,4),_LldpXPnoLocPortStatusRT2_Type())
-lldpXPnoLocPortStatusRT2.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoLocPortStatusRT2.setStatus(_A)
-class _LldpXPnoLocPortStatusRT3_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*((_F,0),(_G,1),(_M,2),('down',3),(_L,4)))
-_LldpXPnoLocPortStatusRT3_Type.__name__=_D
-_LldpXPnoLocPortStatusRT3_Object=MibTableColumn
-lldpXPnoLocPortStatusRT3=_LldpXPnoLocPortStatusRT3_Object((1,0,8802,1,1,2,1,5,3791,1,2,1,1,5),_LldpXPnoLocPortStatusRT3_Type())
-lldpXPnoLocPortStatusRT3.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoLocPortStatusRT3.setStatus(_A)
-_LldpXPnoLocPortNoS_Type=DisplayString
-_LldpXPnoLocPortNoS_Object=MibTableColumn
-lldpXPnoLocPortNoS=_LldpXPnoLocPortNoS_Object((1,0,8802,1,1,2,1,5,3791,1,2,1,1,6),_LldpXPnoLocPortNoS_Type())
-lldpXPnoLocPortNoS.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoLocPortNoS.setStatus(_A)
-class _LldpXPnoLocPortMrpUuId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
-_LldpXPnoLocPortMrpUuId_Type.__name__=_N
-_LldpXPnoLocPortMrpUuId_Object=MibTableColumn
-lldpXPnoLocPortMrpUuId=_LldpXPnoLocPortMrpUuId_Object((1,0,8802,1,1,2,1,5,3791,1,2,1,1,7),_LldpXPnoLocPortMrpUuId_Type())
-lldpXPnoLocPortMrpUuId.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoLocPortMrpUuId.setStatus(_A)
-class _LldpXPnoLocPortMrrtStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_F,0),(_G,1),(_M,2)))
-_LldpXPnoLocPortMrrtStatus_Type.__name__=_D
-_LldpXPnoLocPortMrrtStatus_Object=MibTableColumn
-lldpXPnoLocPortMrrtStatus=_LldpXPnoLocPortMrrtStatus_Object((1,0,8802,1,1,2,1,5,3791,1,2,1,1,8),_LldpXPnoLocPortMrrtStatus_Type())
-lldpXPnoLocPortMrrtStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoLocPortMrrtStatus.setStatus(_A)
-_LldpXPnoRemoteData_ObjectIdentity=ObjectIdentity
-lldpXPnoRemoteData=_LldpXPnoRemoteData_ObjectIdentity((1,0,8802,1,1,2,1,5,3791,1,3))
-_LldpXPnoRemTable_Object=MibTable
-lldpXPnoRemTable=_LldpXPnoRemTable_Object((1,0,8802,1,1,2,1,5,3791,1,3,1))
-if mibBuilder.loadTexts:lldpXPnoRemTable.setStatus(_A)
-_LldpXPnoRemEntry_Object=MibTableRow
-lldpXPnoRemEntry=_LldpXPnoRemEntry_Object((1,0,8802,1,1,2,1,5,3791,1,3,1,1))
-lldpXPnoRemEntry.setIndexNames((0,_H,_R),(0,_H,_Q),(0,_H,_P))
-if mibBuilder.loadTexts:lldpXPnoRemEntry.setStatus(_A)
-_LldpXPnoRemLPDValue_Type=Unsigned32
-_LldpXPnoRemLPDValue_Object=MibTableColumn
-lldpXPnoRemLPDValue=_LldpXPnoRemLPDValue_Object((1,0,8802,1,1,2,1,5,3791,1,3,1,1,1),_LldpXPnoRemLPDValue_Type())
-lldpXPnoRemLPDValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoRemLPDValue.setStatus(_A)
-if mibBuilder.loadTexts:lldpXPnoRemLPDValue.setUnits(_E)
-_LldpXPnoRemPortTxDValue_Type=Unsigned32
-_LldpXPnoRemPortTxDValue_Object=MibTableColumn
-lldpXPnoRemPortTxDValue=_LldpXPnoRemPortTxDValue_Object((1,0,8802,1,1,2,1,5,3791,1,3,1,1,2),_LldpXPnoRemPortTxDValue_Type())
-lldpXPnoRemPortTxDValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoRemPortTxDValue.setStatus(_A)
-if mibBuilder.loadTexts:lldpXPnoRemPortTxDValue.setUnits(_E)
-_LldpXPnoRemPortRxDValue_Type=Unsigned32
-_LldpXPnoRemPortRxDValue_Object=MibTableColumn
-lldpXPnoRemPortRxDValue=_LldpXPnoRemPortRxDValue_Object((1,0,8802,1,1,2,1,5,3791,1,3,1,1,3),_LldpXPnoRemPortRxDValue_Type())
-lldpXPnoRemPortRxDValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoRemPortRxDValue.setStatus(_A)
-if mibBuilder.loadTexts:lldpXPnoRemPortRxDValue.setUnits(_E)
-class _LldpXPnoRemPortStatusRT2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_F,0),(_G,1),(_L,2)))
-_LldpXPnoRemPortStatusRT2_Type.__name__=_D
-_LldpXPnoRemPortStatusRT2_Object=MibTableColumn
-lldpXPnoRemPortStatusRT2=_LldpXPnoRemPortStatusRT2_Object((1,0,8802,1,1,2,1,5,3791,1,3,1,1,4),_LldpXPnoRemPortStatusRT2_Type())
-lldpXPnoRemPortStatusRT2.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoRemPortStatusRT2.setStatus(_A)
-class _LldpXPnoRemPortStatusRT3_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*((_F,0),(_G,1),(_M,2),('down',3),(_L,4)))
-_LldpXPnoRemPortStatusRT3_Type.__name__=_D
-_LldpXPnoRemPortStatusRT3_Object=MibTableColumn
-lldpXPnoRemPortStatusRT3=_LldpXPnoRemPortStatusRT3_Object((1,0,8802,1,1,2,1,5,3791,1,3,1,1,5),_LldpXPnoRemPortStatusRT3_Type())
-lldpXPnoRemPortStatusRT3.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoRemPortStatusRT3.setStatus(_A)
-_LldpXPnoRemPortNoS_Type=DisplayString
-_LldpXPnoRemPortNoS_Object=MibTableColumn
-lldpXPnoRemPortNoS=_LldpXPnoRemPortNoS_Object((1,0,8802,1,1,2,1,5,3791,1,3,1,1,6),_LldpXPnoRemPortNoS_Type())
-lldpXPnoRemPortNoS.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoRemPortNoS.setStatus(_A)
-class _LldpXPnoRemPortMrpUuId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
-_LldpXPnoRemPortMrpUuId_Type.__name__=_N
-_LldpXPnoRemPortMrpUuId_Object=MibTableColumn
-lldpXPnoRemPortMrpUuId=_LldpXPnoRemPortMrpUuId_Object((1,0,8802,1,1,2,1,5,3791,1,3,1,1,7),_LldpXPnoRemPortMrpUuId_Type())
-lldpXPnoRemPortMrpUuId.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoRemPortMrpUuId.setStatus(_A)
-class _LldpXPnoRemPortMrrtStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_F,0),(_G,1),(_M,2)))
-_LldpXPnoRemPortMrrtStatus_Type.__name__=_D
-_LldpXPnoRemPortMrrtStatus_Object=MibTableColumn
-lldpXPnoRemPortMrrtStatus=_LldpXPnoRemPortMrrtStatus_Object((1,0,8802,1,1,2,1,5,3791,1,3,1,1,8),_LldpXPnoRemPortMrrtStatus_Type())
-lldpXPnoRemPortMrrtStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:lldpXPnoRemPortMrrtStatus.setStatus(_A)
-_LldpXPnoConformance_ObjectIdentity=ObjectIdentity
-lldpXPnoConformance=_LldpXPnoConformance_ObjectIdentity((1,0,8802,1,1,2,1,5,3791,2))
-_LldpXPnoCompliances_ObjectIdentity=ObjectIdentity
-lldpXPnoCompliances=_LldpXPnoCompliances_ObjectIdentity((1,0,8802,1,1,2,1,5,3791,2,1))
-_LldpXPnoGroups_ObjectIdentity=ObjectIdentity
-lldpXPnoGroups=_LldpXPnoGroups_ObjectIdentity((1,0,8802,1,1,2,1,5,3791,2,2))
-lldpPortConfigEntry.registerAugmentions((_B,_S))
+#
+# PySNMP MIB module LLDP-EXT-PNO-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/LLDP-EXT-PNO-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:55:58 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+lldpExtensions, lldpLocPortNum, lldpRemLocalPortNum, lldpRemTimeMark, lldpRemIndex, lldpPortConfigEntry = mibBuilder.importSymbols("LLDP-MIB", "lldpExtensions", "lldpLocPortNum", "lldpRemLocalPortNum", "lldpRemTimeMark", "lldpRemIndex", "lldpPortConfigEntry")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+lldpXPnoMIB = ModuleIdentity((1, 0, 8802, 1, 1, 2, 1, 5, 3791))
+lldpXPnoMIB.setRevisions(('2006-03-09 00:00', '2006-02-28 00:00', '2005-08-31 00:00', '2005-05-30 00:00',))
+if mibBuilder.loadTexts: lldpXPnoMIB.setLastUpdated('200603090000Z')
+if mibBuilder.loadTexts: lldpXPnoMIB.setOrganization('PROFIBUS International (PNO)')
+lldpXPnoObjects = MibIdentifier((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1))
+lldpXPnoConfig = MibIdentifier((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 1))
+lldpXPnoLocalData = MibIdentifier((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 2))
+lldpXPnoRemoteData = MibIdentifier((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 3))
+lldpXPnoConfigTable = MibTable((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 1, 1), )
+if mibBuilder.loadTexts: lldpXPnoConfigTable.setStatus('current')
+lldpXPnoConfigEntry = MibTableRow((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 1, 1, 1), )
+lldpPortConfigEntry.registerAugmentions(("LLDP-EXT-PNO-MIB", "lldpXPnoConfigEntry"))
 lldpXPnoConfigEntry.setIndexNames(*lldpPortConfigEntry.getIndexNames())
-lldpXPnoConfigGroup=ObjectGroup((1,0,8802,1,1,2,1,5,3791,2,2,1))
-lldpXPnoConfigGroup.setObjects(*((_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:lldpXPnoConfigGroup.setStatus(_A)
-lldpXPnoLocGroup=ObjectGroup((1,0,8802,1,1,2,1,5,3791,2,2,2))
-lldpXPnoLocGroup.setObjects(*((_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b)))
-if mibBuilder.loadTexts:lldpXPnoLocGroup.setStatus(_A)
-lldpXPnoRemGroup=ObjectGroup((1,0,8802,1,1,2,1,5,3791,2,2,3))
-lldpXPnoRemGroup.setObjects(*((_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h)))
-if mibBuilder.loadTexts:lldpXPnoRemGroup.setStatus(_A)
-lldpXPnoMRPGroup=ObjectGroup((1,0,8802,1,1,2,1,5,3791,2,2,4))
-lldpXPnoMRPGroup.setObjects(*((_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m)))
-if mibBuilder.loadTexts:lldpXPnoMRPGroup.setStatus(_A)
-lldpXPnoCompliance=ModuleCompliance((1,0,8802,1,1,2,1,5,3791,2,1,1))
-lldpXPnoCompliance.setObjects(*((_B,_n),(_B,_o),(_B,_p),(_B,_q)))
-if mibBuilder.loadTexts:lldpXPnoCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'lldpXPnoMIB':lldpXPnoMIB,'lldpXPnoObjects':lldpXPnoObjects,'lldpXPnoConfig':lldpXPnoConfig,'lldpXPnoConfigTable':lldpXPnoConfigTable,_S:lldpXPnoConfigEntry,_T:lldpXPnoConfigSPDTxEnable,_U:lldpXPnoConfigPortStatusTxEnable,_V:lldpXPnoConfigAliasTxEnable,_i:lldpXPnoConfigMrpTxEnable,'lldpXPnoLocalData':lldpXPnoLocalData,'lldpXPnoLocTable':lldpXPnoLocTable,'lldpXPnoLocEntry':lldpXPnoLocEntry,_W:lldpXPnoLocLPDValue,_X:lldpXPnoLocPortTxDValue,_Y:lldpXPnoLocPortRxDValue,_Z:lldpXPnoLocPortStatusRT2,_a:lldpXPnoLocPortStatusRT3,_b:lldpXPnoLocPortNoS,_j:lldpXPnoLocPortMrpUuId,_k:lldpXPnoLocPortMrrtStatus,'lldpXPnoRemoteData':lldpXPnoRemoteData,'lldpXPnoRemTable':lldpXPnoRemTable,'lldpXPnoRemEntry':lldpXPnoRemEntry,_c:lldpXPnoRemLPDValue,_d:lldpXPnoRemPortTxDValue,_e:lldpXPnoRemPortRxDValue,_f:lldpXPnoRemPortStatusRT2,_g:lldpXPnoRemPortStatusRT3,_h:lldpXPnoRemPortNoS,_l:lldpXPnoRemPortMrpUuId,_m:lldpXPnoRemPortMrrtStatus,'lldpXPnoConformance':lldpXPnoConformance,'lldpXPnoCompliances':lldpXPnoCompliances,'lldpXPnoCompliance':lldpXPnoCompliance,'lldpXPnoGroups':lldpXPnoGroups,_n:lldpXPnoConfigGroup,_o:lldpXPnoLocGroup,_p:lldpXPnoRemGroup,_q:lldpXPnoMRPGroup})
+if mibBuilder.loadTexts: lldpXPnoConfigEntry.setStatus('current')
+lldpXPnoConfigSPDTxEnable = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 1, 1, 1, 1), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXPnoConfigSPDTxEnable.setStatus('current')
+lldpXPnoConfigPortStatusTxEnable = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 1, 1, 1, 2), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXPnoConfigPortStatusTxEnable.setStatus('current')
+lldpXPnoConfigAliasTxEnable = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 1, 1, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXPnoConfigAliasTxEnable.setStatus('current')
+lldpXPnoConfigMrpTxEnable = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 1, 1, 1, 4), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lldpXPnoConfigMrpTxEnable.setStatus('current')
+lldpXPnoLocTable = MibTable((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 2, 1), )
+if mibBuilder.loadTexts: lldpXPnoLocTable.setStatus('current')
+lldpXPnoLocEntry = MibTableRow((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 2, 1, 1), ).setIndexNames((0, "LLDP-MIB", "lldpLocPortNum"))
+if mibBuilder.loadTexts: lldpXPnoLocEntry.setStatus('current')
+lldpXPnoLocLPDValue = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 2, 1, 1, 1), Unsigned32()).setUnits('ns').setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoLocLPDValue.setStatus('current')
+lldpXPnoLocPortTxDValue = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 2, 1, 1, 2), Unsigned32()).setUnits('ns').setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoLocPortTxDValue.setStatus('current')
+lldpXPnoLocPortRxDValue = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 2, 1, 1, 3), Unsigned32()).setUnits('ns').setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoLocPortRxDValue.setStatus('current')
+lldpXPnoLocPortStatusRT2 = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("off", 0), ("configured", 1), ("running", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoLocPortStatusRT2.setStatus('current')
+lldpXPnoLocPortStatusRT3 = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 0), ("configured", 1), ("up", 2), ("down", 3), ("running", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoLocPortStatusRT3.setStatus('current')
+lldpXPnoLocPortNoS = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 2, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoLocPortNoS.setStatus('current')
+lldpXPnoLocPortMrpUuId = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 2, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoLocPortMrpUuId.setStatus('current')
+lldpXPnoLocPortMrrtStatus = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("off", 0), ("configured", 1), ("up", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoLocPortMrrtStatus.setStatus('current')
+lldpXPnoRemTable = MibTable((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 3, 1), )
+if mibBuilder.loadTexts: lldpXPnoRemTable.setStatus('current')
+lldpXPnoRemEntry = MibTableRow((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 3, 1, 1), ).setIndexNames((0, "LLDP-MIB", "lldpRemTimeMark"), (0, "LLDP-MIB", "lldpRemLocalPortNum"), (0, "LLDP-MIB", "lldpRemIndex"))
+if mibBuilder.loadTexts: lldpXPnoRemEntry.setStatus('current')
+lldpXPnoRemLPDValue = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 3, 1, 1, 1), Unsigned32()).setUnits('ns').setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoRemLPDValue.setStatus('current')
+lldpXPnoRemPortTxDValue = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 3, 1, 1, 2), Unsigned32()).setUnits('ns').setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoRemPortTxDValue.setStatus('current')
+lldpXPnoRemPortRxDValue = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 3, 1, 1, 3), Unsigned32()).setUnits('ns').setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoRemPortRxDValue.setStatus('current')
+lldpXPnoRemPortStatusRT2 = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("off", 0), ("configured", 1), ("running", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoRemPortStatusRT2.setStatus('current')
+lldpXPnoRemPortStatusRT3 = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 0), ("configured", 1), ("up", 2), ("down", 3), ("running", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoRemPortStatusRT3.setStatus('current')
+lldpXPnoRemPortNoS = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 3, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoRemPortNoS.setStatus('current')
+lldpXPnoRemPortMrpUuId = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 3, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoRemPortMrpUuId.setStatus('current')
+lldpXPnoRemPortMrrtStatus = MibTableColumn((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 1, 3, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("off", 0), ("configured", 1), ("up", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lldpXPnoRemPortMrrtStatus.setStatus('current')
+lldpXPnoConformance = MibIdentifier((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 2))
+lldpXPnoCompliances = MibIdentifier((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 2, 1))
+lldpXPnoGroups = MibIdentifier((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 2, 2))
+lldpXPnoCompliance = ModuleCompliance((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 2, 1, 1)).setObjects(("LLDP-EXT-PNO-MIB", "lldpXPnoConfigGroup"), ("LLDP-EXT-PNO-MIB", "lldpXPnoLocGroup"), ("LLDP-EXT-PNO-MIB", "lldpXPnoRemGroup"), ("LLDP-EXT-PNO-MIB", "lldpXPnoMRPGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lldpXPnoCompliance = lldpXPnoCompliance.setStatus('current')
+lldpXPnoConfigGroup = ObjectGroup((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 2, 2, 1)).setObjects(("LLDP-EXT-PNO-MIB", "lldpXPnoConfigSPDTxEnable"), ("LLDP-EXT-PNO-MIB", "lldpXPnoConfigPortStatusTxEnable"), ("LLDP-EXT-PNO-MIB", "lldpXPnoConfigAliasTxEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lldpXPnoConfigGroup = lldpXPnoConfigGroup.setStatus('current')
+lldpXPnoLocGroup = ObjectGroup((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 2, 2, 2)).setObjects(("LLDP-EXT-PNO-MIB", "lldpXPnoLocLPDValue"), ("LLDP-EXT-PNO-MIB", "lldpXPnoLocPortTxDValue"), ("LLDP-EXT-PNO-MIB", "lldpXPnoLocPortRxDValue"), ("LLDP-EXT-PNO-MIB", "lldpXPnoLocPortStatusRT2"), ("LLDP-EXT-PNO-MIB", "lldpXPnoLocPortStatusRT3"), ("LLDP-EXT-PNO-MIB", "lldpXPnoLocPortNoS"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lldpXPnoLocGroup = lldpXPnoLocGroup.setStatus('current')
+lldpXPnoRemGroup = ObjectGroup((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 2, 2, 3)).setObjects(("LLDP-EXT-PNO-MIB", "lldpXPnoRemLPDValue"), ("LLDP-EXT-PNO-MIB", "lldpXPnoRemPortTxDValue"), ("LLDP-EXT-PNO-MIB", "lldpXPnoRemPortRxDValue"), ("LLDP-EXT-PNO-MIB", "lldpXPnoRemPortStatusRT2"), ("LLDP-EXT-PNO-MIB", "lldpXPnoRemPortStatusRT3"), ("LLDP-EXT-PNO-MIB", "lldpXPnoRemPortNoS"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lldpXPnoRemGroup = lldpXPnoRemGroup.setStatus('current')
+lldpXPnoMRPGroup = ObjectGroup((1, 0, 8802, 1, 1, 2, 1, 5, 3791, 2, 2, 4)).setObjects(("LLDP-EXT-PNO-MIB", "lldpXPnoConfigMrpTxEnable"), ("LLDP-EXT-PNO-MIB", "lldpXPnoLocPortMrpUuId"), ("LLDP-EXT-PNO-MIB", "lldpXPnoLocPortMrrtStatus"), ("LLDP-EXT-PNO-MIB", "lldpXPnoRemPortMrpUuId"), ("LLDP-EXT-PNO-MIB", "lldpXPnoRemPortMrrtStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lldpXPnoMRPGroup = lldpXPnoMRPGroup.setStatus('current')
+mibBuilder.exportSymbols("LLDP-EXT-PNO-MIB", PYSNMP_MODULE_ID=lldpXPnoMIB, lldpXPnoLocPortRxDValue=lldpXPnoLocPortRxDValue, lldpXPnoLocTable=lldpXPnoLocTable, lldpXPnoGroups=lldpXPnoGroups, lldpXPnoLocPortStatusRT3=lldpXPnoLocPortStatusRT3, lldpXPnoLocLPDValue=lldpXPnoLocLPDValue, lldpXPnoRemPortStatusRT3=lldpXPnoRemPortStatusRT3, lldpXPnoConformance=lldpXPnoConformance, lldpXPnoLocEntry=lldpXPnoLocEntry, lldpXPnoLocPortTxDValue=lldpXPnoLocPortTxDValue, lldpXPnoCompliances=lldpXPnoCompliances, lldpXPnoLocPortNoS=lldpXPnoLocPortNoS, lldpXPnoRemPortRxDValue=lldpXPnoRemPortRxDValue, lldpXPnoConfigAliasTxEnable=lldpXPnoConfigAliasTxEnable, lldpXPnoConfigGroup=lldpXPnoConfigGroup, lldpXPnoRemTable=lldpXPnoRemTable, lldpXPnoRemoteData=lldpXPnoRemoteData, lldpXPnoConfig=lldpXPnoConfig, lldpXPnoConfigEntry=lldpXPnoConfigEntry, lldpXPnoConfigSPDTxEnable=lldpXPnoConfigSPDTxEnable, lldpXPnoConfigMrpTxEnable=lldpXPnoConfigMrpTxEnable, lldpXPnoRemPortNoS=lldpXPnoRemPortNoS, lldpXPnoCompliance=lldpXPnoCompliance, lldpXPnoLocPortMrrtStatus=lldpXPnoLocPortMrrtStatus, lldpXPnoObjects=lldpXPnoObjects, lldpXPnoConfigTable=lldpXPnoConfigTable, lldpXPnoConfigPortStatusTxEnable=lldpXPnoConfigPortStatusTxEnable, lldpXPnoLocGroup=lldpXPnoLocGroup, lldpXPnoLocPortMrpUuId=lldpXPnoLocPortMrpUuId, lldpXPnoMRPGroup=lldpXPnoMRPGroup, lldpXPnoRemGroup=lldpXPnoRemGroup, lldpXPnoMIB=lldpXPnoMIB, lldpXPnoLocPortStatusRT2=lldpXPnoLocPortStatusRT2, lldpXPnoRemPortMrpUuId=lldpXPnoRemPortMrpUuId, lldpXPnoLocalData=lldpXPnoLocalData, lldpXPnoRemPortStatusRT2=lldpXPnoRemPortStatusRT2, lldpXPnoRemPortMrrtStatus=lldpXPnoRemPortMrrtStatus, lldpXPnoRemPortTxDValue=lldpXPnoRemPortTxDValue, lldpXPnoRemEntry=lldpXPnoRemEntry, lldpXPnoRemLPDValue=lldpXPnoRemLPDValue)

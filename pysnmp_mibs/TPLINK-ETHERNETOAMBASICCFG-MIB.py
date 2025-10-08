@@ -1,47 +1,28 @@
-_G='read-write'
-_F='read-only'
-_E='ifIndex'
-_D='IF-MIB'
-_C='OctetString'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ethernetOamBasicConfig,=mibBuilder.importSymbols('TPLINK-ETHERNETOAM-MIB','ethernetOamBasicConfig')
-_EthernetOamBasicCfgTable_Object=MibTable
-ethernetOamBasicCfgTable=_EthernetOamBasicCfgTable_Object((1,3,6,1,4,1,11863,6,60,1,1,1))
-if mibBuilder.loadTexts:ethernetOamBasicCfgTable.setStatus(_A)
-_EthernetOamBasicCfgEntry_Object=MibTableRow
-ethernetOamBasicCfgEntry=_EthernetOamBasicCfgEntry_Object((1,3,6,1,4,1,11863,6,60,1,1,1,1))
-ethernetOamBasicCfgEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:ethernetOamBasicCfgEntry.setStatus(_A)
-_EthernetOamBasicCfgPort_Type=DisplayString
-_EthernetOamBasicCfgPort_Object=MibTableColumn
-ethernetOamBasicCfgPort=_EthernetOamBasicCfgPort_Object((1,3,6,1,4,1,11863,6,60,1,1,1,1,1),_EthernetOamBasicCfgPort_Type())
-ethernetOamBasicCfgPort.setMaxAccess(_F)
-if mibBuilder.loadTexts:ethernetOamBasicCfgPort.setStatus(_A)
-class _EthernetOamBasicCfgMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('passive',0),('active',1)))
-_EthernetOamBasicCfgMode_Type.__name__=_B
-_EthernetOamBasicCfgMode_Object=MibTableColumn
-ethernetOamBasicCfgMode=_EthernetOamBasicCfgMode_Object((1,3,6,1,4,1,11863,6,60,1,1,1,1,2),_EthernetOamBasicCfgMode_Type())
-ethernetOamBasicCfgMode.setMaxAccess(_G)
-if mibBuilder.loadTexts:ethernetOamBasicCfgMode.setStatus(_A)
-class _EthernetOamBasicCfgState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disable',0),('enable',1)))
-_EthernetOamBasicCfgState_Type.__name__=_B
-_EthernetOamBasicCfgState_Object=MibTableColumn
-ethernetOamBasicCfgState=_EthernetOamBasicCfgState_Object((1,3,6,1,4,1,11863,6,60,1,1,1,1,3),_EthernetOamBasicCfgState_Type())
-ethernetOamBasicCfgState.setMaxAccess(_G)
-if mibBuilder.loadTexts:ethernetOamBasicCfgState.setStatus(_A)
-class _EthernetOamBasicCfgLAG_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,10))
-_EthernetOamBasicCfgLAG_Type.__name__=_C
-_EthernetOamBasicCfgLAG_Object=MibTableColumn
-ethernetOamBasicCfgLAG=_EthernetOamBasicCfgLAG_Object((1,3,6,1,4,1,11863,6,60,1,1,1,1,4),_EthernetOamBasicCfgLAG_Type())
-ethernetOamBasicCfgLAG.setMaxAccess(_F)
-if mibBuilder.loadTexts:ethernetOamBasicCfgLAG.setStatus(_A)
-mibBuilder.exportSymbols('TPLINK-ETHERNETOAMBASICCFG-MIB',**{'ethernetOamBasicCfgTable':ethernetOamBasicCfgTable,'ethernetOamBasicCfgEntry':ethernetOamBasicCfgEntry,'ethernetOamBasicCfgPort':ethernetOamBasicCfgPort,'ethernetOamBasicCfgMode':ethernetOamBasicCfgMode,'ethernetOamBasicCfgState':ethernetOamBasicCfgState,'ethernetOamBasicCfgLAG':ethernetOamBasicCfgLAG})
+#
+# PySNMP MIB module TPLINK-ETHERNETOAMBASICCFG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-ETHERNETOAMBASICCFG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:31 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ethernetOamBasicConfig, = mibBuilder.importSymbols("TPLINK-ETHERNETOAM-MIB", "ethernetOamBasicConfig")
+ethernetOamBasicCfgTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 1, 1), )
+if mibBuilder.loadTexts: ethernetOamBasicCfgTable.setStatus('current')
+ethernetOamBasicCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: ethernetOamBasicCfgEntry.setStatus('current')
+ethernetOamBasicCfgPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 1, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamBasicCfgPort.setStatus('current')
+ethernetOamBasicCfgMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("passive", 0), ("active", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetOamBasicCfgMode.setStatus('current')
+ethernetOamBasicCfgState = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethernetOamBasicCfgState.setStatus('current')
+ethernetOamBasicCfgLAG = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 60, 1, 1, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethernetOamBasicCfgLAG.setStatus('current')
+mibBuilder.exportSymbols("TPLINK-ETHERNETOAMBASICCFG-MIB", ethernetOamBasicCfgTable=ethernetOamBasicCfgTable, ethernetOamBasicCfgEntry=ethernetOamBasicCfgEntry, ethernetOamBasicCfgState=ethernetOamBasicCfgState, ethernetOamBasicCfgLAG=ethernetOamBasicCfgLAG, ethernetOamBasicCfgMode=ethernetOamBasicCfgMode, ethernetOamBasicCfgPort=ethernetOamBasicCfgPort)

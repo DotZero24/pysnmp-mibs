@@ -1,102 +1,51 @@
-_Q='adGenSeltDeltTestRemoteDevice'
-_P='adGenSeltDeltEnumTestStatus'
-_O='adGenSeltDeltRetrieveData'
-_N='adGenSeltDeltLastTestStatus'
-_M='adGenSeltDeltCurrentTestStatus'
-_L='adGenSeltDeltStopTest'
-_K='adGenSeltDeltStartDELTTest'
-_J='adGenSeltDeltStartSELTTest'
-_I='adGenSeltDeltTestFilename'
-_H='adGenSeltDeltTestPortNumber'
-_G='adGenSlotInfoIndex'
-_F='ADTRAN-GENSLOT-MIB'
-_E='read-only'
-_D='read-write'
-_C='Integer32'
-_B='ADTRAN-GEN-SELTDELT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGenSlotInfoIndex,=mibBuilder.importSymbols(_F,_G)
-adGenXdsl,adGenXdslID=mibBuilder.importSymbols('ADTRAN-SHARED-XDSL-MIB','adGenXdsl','adGenXdslID')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-adGenSeltDeltMIB=ModuleIdentity((1,3,6,1,4,1,664,6,10000,73,1,1))
-if mibBuilder.loadTexts:adGenSeltDeltMIB.setRevisions(('2013-12-03 00:00','2008-07-17 00:00'))
-_AdGenSeltDelt_ObjectIdentity=ObjectIdentity
-adGenSeltDelt=_AdGenSeltDelt_ObjectIdentity((1,3,6,1,4,1,664,5,73,1,1))
-_AdGenSeltDeltTable_Object=MibTable
-adGenSeltDeltTable=_AdGenSeltDeltTable_Object((1,3,6,1,4,1,664,5,73,1,1,1))
-if mibBuilder.loadTexts:adGenSeltDeltTable.setStatus(_A)
-_AdGenSeltDeltEntry_Object=MibTableRow
-adGenSeltDeltEntry=_AdGenSeltDeltEntry_Object((1,3,6,1,4,1,664,5,73,1,1,1,1))
-adGenSeltDeltEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:adGenSeltDeltEntry.setStatus(_A)
-class _AdGenSeltDeltTestPortNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AdGenSeltDeltTestPortNumber_Type.__name__=_C
-_AdGenSeltDeltTestPortNumber_Object=MibTableColumn
-adGenSeltDeltTestPortNumber=_AdGenSeltDeltTestPortNumber_Object((1,3,6,1,4,1,664,5,73,1,1,1,1,1),_AdGenSeltDeltTestPortNumber_Type())
-adGenSeltDeltTestPortNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenSeltDeltTestPortNumber.setStatus(_A)
-_AdGenSeltDeltTestFilename_Type=DisplayString
-_AdGenSeltDeltTestFilename_Object=MibTableColumn
-adGenSeltDeltTestFilename=_AdGenSeltDeltTestFilename_Object((1,3,6,1,4,1,664,5,73,1,1,1,1,2),_AdGenSeltDeltTestFilename_Type())
-adGenSeltDeltTestFilename.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenSeltDeltTestFilename.setStatus(_A)
-class _AdGenSeltDeltStartSELTTest_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('start',1))
-_AdGenSeltDeltStartSELTTest_Type.__name__=_C
-_AdGenSeltDeltStartSELTTest_Object=MibTableColumn
-adGenSeltDeltStartSELTTest=_AdGenSeltDeltStartSELTTest_Object((1,3,6,1,4,1,664,5,73,1,1,1,1,3),_AdGenSeltDeltStartSELTTest_Type())
-adGenSeltDeltStartSELTTest.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenSeltDeltStartSELTTest.setStatus(_A)
-class _AdGenSeltDeltStartDELTTest_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('start',1))
-_AdGenSeltDeltStartDELTTest_Type.__name__=_C
-_AdGenSeltDeltStartDELTTest_Object=MibTableColumn
-adGenSeltDeltStartDELTTest=_AdGenSeltDeltStartDELTTest_Object((1,3,6,1,4,1,664,5,73,1,1,1,1,4),_AdGenSeltDeltStartDELTTest_Type())
-adGenSeltDeltStartDELTTest.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenSeltDeltStartDELTTest.setStatus(_A)
-class _AdGenSeltDeltStopTest_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('stop',1))
-_AdGenSeltDeltStopTest_Type.__name__=_C
-_AdGenSeltDeltStopTest_Object=MibTableColumn
-adGenSeltDeltStopTest=_AdGenSeltDeltStopTest_Object((1,3,6,1,4,1,664,5,73,1,1,1,1,5),_AdGenSeltDeltStopTest_Type())
-adGenSeltDeltStopTest.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenSeltDeltStopTest.setStatus(_A)
-_AdGenSeltDeltCurrentTestStatus_Type=DisplayString
-_AdGenSeltDeltCurrentTestStatus_Object=MibTableColumn
-adGenSeltDeltCurrentTestStatus=_AdGenSeltDeltCurrentTestStatus_Object((1,3,6,1,4,1,664,5,73,1,1,1,1,6),_AdGenSeltDeltCurrentTestStatus_Type())
-adGenSeltDeltCurrentTestStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:adGenSeltDeltCurrentTestStatus.setStatus(_A)
-_AdGenSeltDeltLastTestStatus_Type=DisplayString
-_AdGenSeltDeltLastTestStatus_Object=MibTableColumn
-adGenSeltDeltLastTestStatus=_AdGenSeltDeltLastTestStatus_Object((1,3,6,1,4,1,664,5,73,1,1,1,1,7),_AdGenSeltDeltLastTestStatus_Type())
-adGenSeltDeltLastTestStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:adGenSeltDeltLastTestStatus.setStatus(_A)
-class _AdGenSeltDeltRetrieveData_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('beginTransfer',1))
-_AdGenSeltDeltRetrieveData_Type.__name__=_C
-_AdGenSeltDeltRetrieveData_Object=MibTableColumn
-adGenSeltDeltRetrieveData=_AdGenSeltDeltRetrieveData_Object((1,3,6,1,4,1,664,5,73,1,1,1,1,8),_AdGenSeltDeltRetrieveData_Type())
-adGenSeltDeltRetrieveData.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenSeltDeltRetrieveData.setStatus(_A)
-class _AdGenSeltDeltEnumTestStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('idle',1),('active',2),('collectingData',3),('dataAvailable',4),('testFailed',5)))
-_AdGenSeltDeltEnumTestStatus_Type.__name__=_C
-_AdGenSeltDeltEnumTestStatus_Object=MibTableColumn
-adGenSeltDeltEnumTestStatus=_AdGenSeltDeltEnumTestStatus_Object((1,3,6,1,4,1,664,5,73,1,1,1,1,9),_AdGenSeltDeltEnumTestStatus_Type())
-adGenSeltDeltEnumTestStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:adGenSeltDeltEnumTestStatus.setStatus(_A)
-_AdGenSeltDeltTestRemoteDevice_Type=InterfaceIndex
-_AdGenSeltDeltTestRemoteDevice_Object=MibTableColumn
-adGenSeltDeltTestRemoteDevice=_AdGenSeltDeltTestRemoteDevice_Object((1,3,6,1,4,1,664,5,73,1,1,1,1,10),_AdGenSeltDeltTestRemoteDevice_Type())
-adGenSeltDeltTestRemoteDevice.setMaxAccess(_D)
-if mibBuilder.loadTexts:adGenSeltDeltTestRemoteDevice.setStatus(_A)
-_AdGenXdslMibConformance_ObjectIdentity=ObjectIdentity
-adGenXdslMibConformance=_AdGenXdslMibConformance_ObjectIdentity((1,3,6,1,4,1,664,5,73,1,2))
-_AdGenXdslMibGroups_ObjectIdentity=ObjectIdentity
-adGenXdslMibGroups=_AdGenXdslMibGroups_ObjectIdentity((1,3,6,1,4,1,664,5,73,1,2,1))
-adGenXdslSeltDeltGroup=ObjectGroup((1,3,6,1,4,1,664,5,73,1,2,1,1))
-adGenXdslSeltDeltGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:adGenXdslSeltDeltGroup.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'adGenSeltDelt':adGenSeltDelt,'adGenSeltDeltTable':adGenSeltDeltTable,'adGenSeltDeltEntry':adGenSeltDeltEntry,_H:adGenSeltDeltTestPortNumber,_I:adGenSeltDeltTestFilename,_J:adGenSeltDeltStartSELTTest,_K:adGenSeltDeltStartDELTTest,_L:adGenSeltDeltStopTest,_M:adGenSeltDeltCurrentTestStatus,_N:adGenSeltDeltLastTestStatus,_O:adGenSeltDeltRetrieveData,_P:adGenSeltDeltEnumTestStatus,_Q:adGenSeltDeltTestRemoteDevice,'adGenXdslMibConformance':adGenXdslMibConformance,'adGenXdslMibGroups':adGenXdslMibGroups,'adGenXdslSeltDeltGroup':adGenXdslSeltDeltGroup,'adGenSeltDeltMIB':adGenSeltDeltMIB})
+#
+# PySNMP MIB module ADTRAN-GEN-SELTDELT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-GEN-SELTDELT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:03 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGenSlotInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex")
+adGenXdslID, adGenXdsl = mibBuilder.importSymbols("ADTRAN-SHARED-XDSL-MIB", "adGenXdslID", "adGenXdsl")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+adGenSeltDeltMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 73, 1, 1))
+adGenSeltDeltMIB.setRevisions(('2013-12-03 00:00', '2008-07-17 00:00',))
+if mibBuilder.loadTexts: adGenSeltDeltMIB.setLastUpdated('201312030000Z')
+if mibBuilder.loadTexts: adGenSeltDeltMIB.setOrganization('ADTRAN, Inc.')
+adGenSeltDelt = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 1))
+adGenXdslMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 2))
+adGenXdslMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 2, 1))
+adGenSeltDeltTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 1, 1), )
+if mibBuilder.loadTexts: adGenSeltDeltTable.setStatus('current')
+adGenSeltDeltEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 1, 1, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenSeltDeltEntry.setStatus('current')
+adGenSeltDeltTestPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSeltDeltTestPortNumber.setStatus('current')
+adGenSeltDeltTestFilename = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 1, 1, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSeltDeltTestFilename.setStatus('current')
+adGenSeltDeltStartSELTTest = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("start", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSeltDeltStartSELTTest.setStatus('current')
+adGenSeltDeltStartDELTTest = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("start", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSeltDeltStartDELTTest.setStatus('current')
+adGenSeltDeltStopTest = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("stop", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSeltDeltStopTest.setStatus('current')
+adGenSeltDeltCurrentTestStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 1, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSeltDeltCurrentTestStatus.setStatus('current')
+adGenSeltDeltLastTestStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 1, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSeltDeltLastTestStatus.setStatus('current')
+adGenSeltDeltRetrieveData = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("beginTransfer", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSeltDeltRetrieveData.setStatus('current')
+adGenSeltDeltEnumTestStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("idle", 1), ("active", 2), ("collectingData", 3), ("dataAvailable", 4), ("testFailed", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSeltDeltEnumTestStatus.setStatus('current')
+adGenSeltDeltTestRemoteDevice = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 1, 1, 1, 10), InterfaceIndex()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSeltDeltTestRemoteDevice.setStatus('current')
+adGenXdslSeltDeltGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 5, 73, 1, 2, 1, 1)).setObjects(("ADTRAN-GEN-SELTDELT-MIB", "adGenSeltDeltTestPortNumber"), ("ADTRAN-GEN-SELTDELT-MIB", "adGenSeltDeltTestFilename"), ("ADTRAN-GEN-SELTDELT-MIB", "adGenSeltDeltStartSELTTest"), ("ADTRAN-GEN-SELTDELT-MIB", "adGenSeltDeltStartDELTTest"), ("ADTRAN-GEN-SELTDELT-MIB", "adGenSeltDeltStopTest"), ("ADTRAN-GEN-SELTDELT-MIB", "adGenSeltDeltCurrentTestStatus"), ("ADTRAN-GEN-SELTDELT-MIB", "adGenSeltDeltLastTestStatus"), ("ADTRAN-GEN-SELTDELT-MIB", "adGenSeltDeltRetrieveData"), ("ADTRAN-GEN-SELTDELT-MIB", "adGenSeltDeltEnumTestStatus"), ("ADTRAN-GEN-SELTDELT-MIB", "adGenSeltDeltTestRemoteDevice"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    adGenXdslSeltDeltGroup = adGenXdslSeltDeltGroup.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-GEN-SELTDELT-MIB", adGenSeltDeltTestRemoteDevice=adGenSeltDeltTestRemoteDevice, PYSNMP_MODULE_ID=adGenSeltDeltMIB, adGenSeltDelt=adGenSeltDelt, adGenSeltDeltEntry=adGenSeltDeltEntry, adGenSeltDeltTestFilename=adGenSeltDeltTestFilename, adGenSeltDeltStopTest=adGenSeltDeltStopTest, adGenSeltDeltTestPortNumber=adGenSeltDeltTestPortNumber, adGenXdslSeltDeltGroup=adGenXdslSeltDeltGroup, adGenSeltDeltEnumTestStatus=adGenSeltDeltEnumTestStatus, adGenSeltDeltMIB=adGenSeltDeltMIB, adGenXdslMibConformance=adGenXdslMibConformance, adGenSeltDeltStartDELTTest=adGenSeltDeltStartDELTTest, adGenSeltDeltStartSELTTest=adGenSeltDeltStartSELTTest, adGenSeltDeltTable=adGenSeltDeltTable, adGenXdslMibGroups=adGenXdslMibGroups, adGenSeltDeltRetrieveData=adGenSeltDeltRetrieveData, adGenSeltDeltCurrentTestStatus=adGenSeltDeltCurrentTestStatus, adGenSeltDeltLastTestStatus=adGenSeltDeltLastTestStatus)

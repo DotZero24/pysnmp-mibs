@@ -1,36 +1,31 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-globalRegModule=ModuleIdentity((1,3,6,1,4,1,20246,2,1,1,1))
-_Delta_ObjectIdentity=ObjectIdentity
-delta=_Delta_ObjectIdentity((1,3,6,1,4,1,20246))
-_Root_ObjectIdentity=ObjectIdentity
-root=_Root_ObjectIdentity((1,3,6,1,4,1,20246,2))
-_Reg_ObjectIdentity=ObjectIdentity
-reg=_Reg_ObjectIdentity((1,3,6,1,4,1,20246,2,1))
-_Modules_ObjectIdentity=ObjectIdentity
-modules=_Modules_ObjectIdentity((1,3,6,1,4,1,20246,2,1,1))
-_ControllerReg_ObjectIdentity=ObjectIdentity
-controllerReg=_ControllerReg_ObjectIdentity((1,3,6,1,4,1,20246,2,1,2))
-_ControllerOrionReg_ObjectIdentity=ObjectIdentity
-controllerOrionReg=_ControllerOrionReg_ObjectIdentity((1,3,6,1,4,1,20246,2,1,2,1))
-if mibBuilder.loadTexts:controllerOrionReg.setStatus('current')
-_Generic_ObjectIdentity=ObjectIdentity
-generic=_Generic_ObjectIdentity((1,3,6,1,4,1,20246,2,2))
-_Products_ObjectIdentity=ObjectIdentity
-products=_Products_ObjectIdentity((1,3,6,1,4,1,20246,2,3))
-_Controller_ObjectIdentity=ObjectIdentity
-controller=_Controller_ObjectIdentity((1,3,6,1,4,1,20246,2,3,1))
-_Orion_ObjectIdentity=ObjectIdentity
-orion=_Orion_ObjectIdentity((1,3,6,1,4,1,20246,2,3,1,1))
-_Caps_ObjectIdentity=ObjectIdentity
-caps=_Caps_ObjectIdentity((1,3,6,1,4,1,20246,2,4))
-_Regs_ObjectIdentity=ObjectIdentity
-regs=_Regs_ObjectIdentity((1,3,6,1,4,1,20246,2,5))
-_Expr_ObjectIdentity=ObjectIdentity
-expr=_Expr_ObjectIdentity((1,3,6,1,4,1,20246,2,6))
-mibBuilder.exportSymbols('GLOBAL-REG',**{'delta':delta,'root':root,'reg':reg,'modules':modules,'globalRegModule':globalRegModule,'controllerReg':controllerReg,'controllerOrionReg':controllerOrionReg,'generic':generic,'products':products,'controller':controller,'orion':orion,'caps':caps,'regs':regs,'expr':expr})
+#
+# PySNMP MIB module GLOBAL-REG (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/delta/GLOBAL-REG
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+globalRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 20246, 2, 1, 1, 1))
+if mibBuilder.loadTexts: globalRegModule.setLastUpdated('201309131218Z')
+if mibBuilder.loadTexts: globalRegModule.setOrganization('Delta Energy Systems (Switzerland) AG')
+delta = MibIdentifier((1, 3, 6, 1, 4, 1, 20246))
+root = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2))
+reg = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 1))
+modules = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 1, 1))
+generic = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 2))
+products = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 3))
+controller = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 3, 1))
+orion = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 3, 1, 1))
+caps = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 4))
+regs = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 5))
+expr = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 6))
+controllerReg = MibIdentifier((1, 3, 6, 1, 4, 1, 20246, 2, 1, 2))
+controllerOrionReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 20246, 2, 1, 2, 1))
+if mibBuilder.loadTexts: controllerOrionReg.setStatus('current')
+mibBuilder.exportSymbols("GLOBAL-REG", PYSNMP_MODULE_ID=globalRegModule, regs=regs, orion=orion, controllerOrionReg=controllerOrionReg, controllerReg=controllerReg, products=products, globalRegModule=globalRegModule, reg=reg, modules=modules, caps=caps, delta=delta, controller=controller, root=root, generic=generic, expr=expr)

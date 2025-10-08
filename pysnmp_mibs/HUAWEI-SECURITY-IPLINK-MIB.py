@@ -1,62 +1,45 @@
-_I='hwIpLinkTrapGroup'
-_H='hwIpLinkObjectGroup'
-_G='hwIpLinkDown'
-_F='hwIpLinkUp'
-_E='accessible-for-notify'
-_D='hwIpLinkStatus'
-_C='hwIpLinkName'
-_B='current'
-_A='HUAWEI-SECURITY-IPLINK-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hwIplink=ModuleIdentity((1,3,6,1,4,1,2011,6,122,45))
-if mibBuilder.loadTexts:hwIplink.setRevisions(('2012-03-19 19:33',))
-_Huawei_ObjectIdentity=ObjectIdentity
-huawei=_Huawei_ObjectIdentity((1,3,6,1,4,1,2011))
-_HuaweiUtility_ObjectIdentity=ObjectIdentity
-huaweiUtility=_HuaweiUtility_ObjectIdentity((1,3,6,1,4,1,2011,6))
-_HwSecurity_ObjectIdentity=ObjectIdentity
-hwSecurity=_HwSecurity_ObjectIdentity((1,3,6,1,4,1,2011,6,122))
-_HwIpLinkNotification_ObjectIdentity=ObjectIdentity
-hwIpLinkNotification=_HwIpLinkNotification_ObjectIdentity((1,3,6,1,4,1,2011,6,122,45,1))
-_HwIpLinkTrapObjects_ObjectIdentity=ObjectIdentity
-hwIpLinkTrapObjects=_HwIpLinkTrapObjects_ObjectIdentity((1,3,6,1,4,1,2011,6,122,45,1,1))
-_HwIpLinkName_Type=OctetString
-_HwIpLinkName_Object=MibScalar
-hwIpLinkName=_HwIpLinkName_Object((1,3,6,1,4,1,2011,6,122,45,1,1,1),_HwIpLinkName_Type())
-hwIpLinkName.setMaxAccess(_E)
-if mibBuilder.loadTexts:hwIpLinkName.setStatus(_B)
-_HwIpLinkStatus_Type=OctetString
-_HwIpLinkStatus_Object=MibScalar
-hwIpLinkStatus=_HwIpLinkStatus_Object((1,3,6,1,4,1,2011,6,122,45,1,1,2),_HwIpLinkStatus_Type())
-hwIpLinkStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:hwIpLinkStatus.setStatus(_B)
-_HwIpLinkTraps_ObjectIdentity=ObjectIdentity
-hwIpLinkTraps=_HwIpLinkTraps_ObjectIdentity((1,3,6,1,4,1,2011,6,122,45,2))
-_HwIpLinkConformance_ObjectIdentity=ObjectIdentity
-hwIpLinkConformance=_HwIpLinkConformance_ObjectIdentity((1,3,6,1,4,1,2011,6,122,45,3))
-_HwIpLinkCompliances_ObjectIdentity=ObjectIdentity
-hwIpLinkCompliances=_HwIpLinkCompliances_ObjectIdentity((1,3,6,1,4,1,2011,6,122,45,3,1))
-_HwIpLinkMibGroups_ObjectIdentity=ObjectIdentity
-hwIpLinkMibGroups=_HwIpLinkMibGroups_ObjectIdentity((1,3,6,1,4,1,2011,6,122,45,3,2))
-hwIpLinkObjectGroup=ObjectGroup((1,3,6,1,4,1,2011,6,122,45,3,2,1))
-hwIpLinkObjectGroup.setObjects(*((_A,_C),(_A,_D)))
-if mibBuilder.loadTexts:hwIpLinkObjectGroup.setStatus(_B)
-hwIpLinkUp=NotificationType((1,3,6,1,4,1,2011,6,122,45,2,1))
-hwIpLinkUp.setObjects(*((_A,_C),(_A,_D)))
-if mibBuilder.loadTexts:hwIpLinkUp.setStatus(_B)
-hwIpLinkDown=NotificationType((1,3,6,1,4,1,2011,6,122,45,2,2))
-hwIpLinkDown.setObjects(*((_A,_C),(_A,_D)))
-if mibBuilder.loadTexts:hwIpLinkDown.setStatus(_B)
-hwIpLinkTrapGroup=NotificationGroup((1,3,6,1,4,1,2011,6,122,45,3,2,2))
-hwIpLinkTrapGroup.setObjects(*((_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:hwIpLinkTrapGroup.setStatus(_B)
-hwIpLinkCompliance=ModuleCompliance((1,3,6,1,4,1,2011,6,122,45,3,1,1))
-hwIpLinkCompliance.setObjects(*((_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:hwIpLinkCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'huawei':huawei,'huaweiUtility':huaweiUtility,'hwSecurity':hwSecurity,'hwIplink':hwIplink,'hwIpLinkNotification':hwIpLinkNotification,'hwIpLinkTrapObjects':hwIpLinkTrapObjects,_C:hwIpLinkName,_D:hwIpLinkStatus,'hwIpLinkTraps':hwIpLinkTraps,_F:hwIpLinkUp,_G:hwIpLinkDown,'hwIpLinkConformance':hwIpLinkConformance,'hwIpLinkCompliances':hwIpLinkCompliances,'hwIpLinkCompliance':hwIpLinkCompliance,'hwIpLinkMibGroups':hwIpLinkMibGroups,_H:hwIpLinkObjectGroup,_I:hwIpLinkTrapGroup})
+#
+# PySNMP MIB module HUAWEI-SECURITY-IPLINK-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/huawei/HUAWEI-SECURITY-IPLINK-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:01:31 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hwIplink = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 6, 122, 45))
+hwIplink.setRevisions(('2012-03-19 19:33',))
+if mibBuilder.loadTexts: hwIplink.setLastUpdated('201203191933Z')
+if mibBuilder.loadTexts: hwIplink.setOrganization('Huawei Technologies Co.,Ltd.')
+huawei = MibIdentifier((1, 3, 6, 1, 4, 1, 2011))
+huaweiUtility = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6))
+hwSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122))
+hwIpLinkNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 45, 1))
+hwIpLinkTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 45, 1, 1))
+hwIpLinkName = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 45, 1, 1, 1), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: hwIpLinkName.setStatus('current')
+hwIpLinkStatus = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 45, 1, 1, 2), OctetString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: hwIpLinkStatus.setStatus('current')
+hwIpLinkTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 45, 2))
+hwIpLinkUp = NotificationType((1, 3, 6, 1, 4, 1, 2011, 6, 122, 45, 2, 1)).setObjects(("HUAWEI-SECURITY-IPLINK-MIB", "hwIpLinkName"), ("HUAWEI-SECURITY-IPLINK-MIB", "hwIpLinkStatus"))
+if mibBuilder.loadTexts: hwIpLinkUp.setStatus('current')
+hwIpLinkDown = NotificationType((1, 3, 6, 1, 4, 1, 2011, 6, 122, 45, 2, 2)).setObjects(("HUAWEI-SECURITY-IPLINK-MIB", "hwIpLinkName"), ("HUAWEI-SECURITY-IPLINK-MIB", "hwIpLinkStatus"))
+if mibBuilder.loadTexts: hwIpLinkDown.setStatus('current')
+hwIpLinkConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 45, 3))
+hwIpLinkCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 45, 3, 1))
+hwIpLinkCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2011, 6, 122, 45, 3, 1, 1)).setObjects(("HUAWEI-SECURITY-IPLINK-MIB", "hwIpLinkObjectGroup"), ("HUAWEI-SECURITY-IPLINK-MIB", "hwIpLinkTrapGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hwIpLinkCompliance = hwIpLinkCompliance.setStatus('current')
+hwIpLinkMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 45, 3, 2))
+hwIpLinkObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 6, 122, 45, 3, 2, 1)).setObjects(("HUAWEI-SECURITY-IPLINK-MIB", "hwIpLinkName"), ("HUAWEI-SECURITY-IPLINK-MIB", "hwIpLinkStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hwIpLinkObjectGroup = hwIpLinkObjectGroup.setStatus('current')
+hwIpLinkTrapGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 2011, 6, 122, 45, 3, 2, 2)).setObjects(("HUAWEI-SECURITY-IPLINK-MIB", "hwIpLinkUp"), ("HUAWEI-SECURITY-IPLINK-MIB", "hwIpLinkDown"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hwIpLinkTrapGroup = hwIpLinkTrapGroup.setStatus('current')
+mibBuilder.exportSymbols("HUAWEI-SECURITY-IPLINK-MIB", hwIpLinkCompliance=hwIpLinkCompliance, hwIpLinkName=hwIpLinkName, hwIplink=hwIplink, hwIpLinkCompliances=hwIpLinkCompliances, hwIpLinkTrapObjects=hwIpLinkTrapObjects, hwIpLinkConformance=hwIpLinkConformance, hwIpLinkObjectGroup=hwIpLinkObjectGroup, PYSNMP_MODULE_ID=hwIplink, hwSecurity=hwSecurity, hwIpLinkStatus=hwIpLinkStatus, hwIpLinkMibGroups=hwIpLinkMibGroups, huawei=huawei, huaweiUtility=huaweiUtility, hwIpLinkDown=hwIpLinkDown, hwIpLinkNotification=hwIpLinkNotification, hwIpLinkTrapGroup=hwIpLinkTrapGroup, hwIpLinkTraps=hwIpLinkTraps, hwIpLinkUp=hwIpLinkUp)

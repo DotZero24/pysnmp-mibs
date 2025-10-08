@@ -1,145 +1,68 @@
-_J='tpIpMRouteStarGGroup'
-_I='pimSparseMode'
-_H='pimDenseMode'
-_G='tpIpMRouteSGSource'
-_F='tpIpMRouteSGGroup'
-_E='TPLINK-IPMROUTE-MIB'
-_D='OctetString'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tplinkMgmt,=mibBuilder.importSymbols('TPLINK-MIB','tplinkMgmt')
-tplinkIpMrouteMIB=ModuleIdentity((1,3,6,1,4,1,11863,6,78))
-if mibBuilder.loadTexts:tplinkIpMrouteMIB.setRevisions(('2012-12-13 09:30',))
-_TplinkIpMrouteMIBObjects_ObjectIdentity=ObjectIdentity
-tplinkIpMrouteMIBObjects=_TplinkIpMrouteMIBObjects_ObjectIdentity((1,3,6,1,4,1,11863,6,78,1))
-_TpIpMRoute_ObjectIdentity=ObjectIdentity
-tpIpMRoute=_TpIpMRoute_ObjectIdentity((1,3,6,1,4,1,11863,6,78,1,1))
-class _TpIpMRouteEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_TpIpMRouteEnable_Type.__name__=_C
-_TpIpMRouteEnable_Object=MibScalar
-tpIpMRouteEnable=_TpIpMRouteEnable_Object((1,3,6,1,4,1,11863,6,78,1,1,1),_TpIpMRouteEnable_Type())
-tpIpMRouteEnable.setMaxAccess('read-write')
-if mibBuilder.loadTexts:tpIpMRouteEnable.setStatus(_A)
-_TpIpMRouteSGTable_Object=MibTable
-tpIpMRouteSGTable=_TpIpMRouteSGTable_Object((1,3,6,1,4,1,11863,6,78,1,1,2))
-if mibBuilder.loadTexts:tpIpMRouteSGTable.setStatus(_A)
-_TpIpMRouteSGEntry_Object=MibTableRow
-tpIpMRouteSGEntry=_TpIpMRouteSGEntry_Object((1,3,6,1,4,1,11863,6,78,1,1,2,1))
-tpIpMRouteSGEntry.setIndexNames((0,_E,_F),(0,_E,_G))
-if mibBuilder.loadTexts:tpIpMRouteSGEntry.setStatus(_A)
-_TpIpMRouteSGGroup_Type=IpAddress
-_TpIpMRouteSGGroup_Object=MibTableColumn
-tpIpMRouteSGGroup=_TpIpMRouteSGGroup_Object((1,3,6,1,4,1,11863,6,78,1,1,2,1,1),_TpIpMRouteSGGroup_Type())
-tpIpMRouteSGGroup.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteSGGroup.setStatus(_A)
-_TpIpMRouteSGSource_Type=IpAddress
-_TpIpMRouteSGSource_Object=MibTableColumn
-tpIpMRouteSGSource=_TpIpMRouteSGSource_Object((1,3,6,1,4,1,11863,6,78,1,1,2,1,2),_TpIpMRouteSGSource_Type())
-tpIpMRouteSGSource.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteSGSource.setStatus(_A)
-class _TpIpMRouteSGIncomingInterface_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_TpIpMRouteSGIncomingInterface_Type.__name__=_D
-_TpIpMRouteSGIncomingInterface_Object=MibTableColumn
-tpIpMRouteSGIncomingInterface=_TpIpMRouteSGIncomingInterface_Object((1,3,6,1,4,1,11863,6,78,1,1,2,1,3),_TpIpMRouteSGIncomingInterface_Type())
-tpIpMRouteSGIncomingInterface.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteSGIncomingInterface.setStatus(_A)
-class _TpIpMRouteSGOutgoingInterface_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
-_TpIpMRouteSGOutgoingInterface_Type.__name__=_D
-_TpIpMRouteSGOutgoingInterface_Object=MibTableColumn
-tpIpMRouteSGOutgoingInterface=_TpIpMRouteSGOutgoingInterface_Object((1,3,6,1,4,1,11863,6,78,1,1,2,1,4),_TpIpMRouteSGOutgoingInterface_Type())
-tpIpMRouteSGOutgoingInterface.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteSGOutgoingInterface.setStatus(_A)
-_TpIpMRouteSGRpfNeighbor_Type=IpAddress
-_TpIpMRouteSGRpfNeighbor_Object=MibTableColumn
-tpIpMRouteSGRpfNeighbor=_TpIpMRouteSGRpfNeighbor_Object((1,3,6,1,4,1,11863,6,78,1,1,2,1,5),_TpIpMRouteSGRpfNeighbor_Type())
-tpIpMRouteSGRpfNeighbor.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteSGRpfNeighbor.setStatus(_A)
-_TpIpMRouteSGUpTime_Type=TimeTicks
-_TpIpMRouteSGUpTime_Object=MibTableColumn
-tpIpMRouteSGUpTime=_TpIpMRouteSGUpTime_Object((1,3,6,1,4,1,11863,6,78,1,1,2,1,6),_TpIpMRouteSGUpTime_Type())
-tpIpMRouteSGUpTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteSGUpTime.setStatus(_A)
-_TpIpMRouteSGExpiryTime_Type=TimeTicks
-_TpIpMRouteSGExpiryTime_Object=MibTableColumn
-tpIpMRouteSGExpiryTime=_TpIpMRouteSGExpiryTime_Object((1,3,6,1,4,1,11863,6,78,1,1,2,1,7),_TpIpMRouteSGExpiryTime_Type())
-tpIpMRouteSGExpiryTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteSGExpiryTime.setStatus(_A)
-class _TpIpMRouteSGProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
-_TpIpMRouteSGProtocol_Type.__name__=_C
-_TpIpMRouteSGProtocol_Object=MibTableColumn
-tpIpMRouteSGProtocol=_TpIpMRouteSGProtocol_Object((1,3,6,1,4,1,11863,6,78,1,1,2,1,8),_TpIpMRouteSGProtocol_Type())
-tpIpMRouteSGProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteSGProtocol.setStatus(_A)
-class _TpIpMRouteSGFlags_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('spt',1),('rpt',2)))
-_TpIpMRouteSGFlags_Type.__name__=_C
-_TpIpMRouteSGFlags_Object=MibTableColumn
-tpIpMRouteSGFlags=_TpIpMRouteSGFlags_Object((1,3,6,1,4,1,11863,6,78,1,1,2,1,9),_TpIpMRouteSGFlags_Type())
-tpIpMRouteSGFlags.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteSGFlags.setStatus(_A)
-_TpIpMRouteStarGTable_Object=MibTable
-tpIpMRouteStarGTable=_TpIpMRouteStarGTable_Object((1,3,6,1,4,1,11863,6,78,1,1,3))
-if mibBuilder.loadTexts:tpIpMRouteStarGTable.setStatus(_A)
-_TpIpMRouteStarGEntry_Object=MibTableRow
-tpIpMRouteStarGEntry=_TpIpMRouteStarGEntry_Object((1,3,6,1,4,1,11863,6,78,1,1,3,1))
-tpIpMRouteStarGEntry.setIndexNames((0,_E,_J))
-if mibBuilder.loadTexts:tpIpMRouteStarGEntry.setStatus(_A)
-_TpIpMRouteStarGGroup_Type=IpAddress
-_TpIpMRouteStarGGroup_Object=MibTableColumn
-tpIpMRouteStarGGroup=_TpIpMRouteStarGGroup_Object((1,3,6,1,4,1,11863,6,78,1,1,3,1,1),_TpIpMRouteStarGGroup_Type())
-tpIpMRouteStarGGroup.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteStarGGroup.setStatus(_A)
-_TpIpMRouteStarGSource_Type=IpAddress
-_TpIpMRouteStarGSource_Object=MibTableColumn
-tpIpMRouteStarGSource=_TpIpMRouteStarGSource_Object((1,3,6,1,4,1,11863,6,78,1,1,3,1,2),_TpIpMRouteStarGSource_Type())
-tpIpMRouteStarGSource.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteStarGSource.setStatus(_A)
-class _TpIpMRouteStarGIncomingInterface_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_TpIpMRouteStarGIncomingInterface_Type.__name__=_D
-_TpIpMRouteStarGIncomingInterface_Object=MibTableColumn
-tpIpMRouteStarGIncomingInterface=_TpIpMRouteStarGIncomingInterface_Object((1,3,6,1,4,1,11863,6,78,1,1,3,1,3),_TpIpMRouteStarGIncomingInterface_Type())
-tpIpMRouteStarGIncomingInterface.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteStarGIncomingInterface.setStatus(_A)
-class _TpIpMRouteStarGOutgoingInterface_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
-_TpIpMRouteStarGOutgoingInterface_Type.__name__=_D
-_TpIpMRouteStarGOutgoingInterface_Object=MibTableColumn
-tpIpMRouteStarGOutgoingInterface=_TpIpMRouteStarGOutgoingInterface_Object((1,3,6,1,4,1,11863,6,78,1,1,3,1,4),_TpIpMRouteStarGOutgoingInterface_Type())
-tpIpMRouteStarGOutgoingInterface.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteStarGOutgoingInterface.setStatus(_A)
-_TpIpMRouteStarGRpfNeighbor_Type=IpAddress
-_TpIpMRouteStarGRpfNeighbor_Object=MibTableColumn
-tpIpMRouteStarGRpfNeighbor=_TpIpMRouteStarGRpfNeighbor_Object((1,3,6,1,4,1,11863,6,78,1,1,3,1,5),_TpIpMRouteStarGRpfNeighbor_Type())
-tpIpMRouteStarGRpfNeighbor.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteStarGRpfNeighbor.setStatus(_A)
-_TpIpMRouteStarGUpTime_Type=TimeTicks
-_TpIpMRouteStarGUpTime_Object=MibTableColumn
-tpIpMRouteStarGUpTime=_TpIpMRouteStarGUpTime_Object((1,3,6,1,4,1,11863,6,78,1,1,3,1,6),_TpIpMRouteStarGUpTime_Type())
-tpIpMRouteStarGUpTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteStarGUpTime.setStatus(_A)
-_TpIpMRouteStarGExpiryTime_Type=TimeTicks
-_TpIpMRouteStarGExpiryTime_Object=MibTableColumn
-tpIpMRouteStarGExpiryTime=_TpIpMRouteStarGExpiryTime_Object((1,3,6,1,4,1,11863,6,78,1,1,3,1,7),_TpIpMRouteStarGExpiryTime_Type())
-tpIpMRouteStarGExpiryTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteStarGExpiryTime.setStatus(_A)
-class _TpIpMRouteStarGProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
-_TpIpMRouteStarGProtocol_Type.__name__=_C
-_TpIpMRouteStarGProtocol_Object=MibTableColumn
-tpIpMRouteStarGProtocol=_TpIpMRouteStarGProtocol_Object((1,3,6,1,4,1,11863,6,78,1,1,3,1,8),_TpIpMRouteStarGProtocol_Type())
-tpIpMRouteStarGProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteStarGProtocol.setStatus(_A)
-class _TpIpMRouteStarGFlags_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('spt',1),('rpt',2)))
-_TpIpMRouteStarGFlags_Type.__name__=_C
-_TpIpMRouteStarGFlags_Object=MibTableColumn
-tpIpMRouteStarGFlags=_TpIpMRouteStarGFlags_Object((1,3,6,1,4,1,11863,6,78,1,1,3,1,9),_TpIpMRouteStarGFlags_Type())
-tpIpMRouteStarGFlags.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpIpMRouteStarGFlags.setStatus(_A)
-_TplinkIpMrouteNotifications_ObjectIdentity=ObjectIdentity
-tplinkIpMrouteNotifications=_TplinkIpMrouteNotifications_ObjectIdentity((1,3,6,1,4,1,11863,6,78,2))
-mibBuilder.exportSymbols(_E,**{'tplinkIpMrouteMIB':tplinkIpMrouteMIB,'tplinkIpMrouteMIBObjects':tplinkIpMrouteMIBObjects,'tpIpMRoute':tpIpMRoute,'tpIpMRouteEnable':tpIpMRouteEnable,'tpIpMRouteSGTable':tpIpMRouteSGTable,'tpIpMRouteSGEntry':tpIpMRouteSGEntry,_F:tpIpMRouteSGGroup,_G:tpIpMRouteSGSource,'tpIpMRouteSGIncomingInterface':tpIpMRouteSGIncomingInterface,'tpIpMRouteSGOutgoingInterface':tpIpMRouteSGOutgoingInterface,'tpIpMRouteSGRpfNeighbor':tpIpMRouteSGRpfNeighbor,'tpIpMRouteSGUpTime':tpIpMRouteSGUpTime,'tpIpMRouteSGExpiryTime':tpIpMRouteSGExpiryTime,'tpIpMRouteSGProtocol':tpIpMRouteSGProtocol,'tpIpMRouteSGFlags':tpIpMRouteSGFlags,'tpIpMRouteStarGTable':tpIpMRouteStarGTable,'tpIpMRouteStarGEntry':tpIpMRouteStarGEntry,_J:tpIpMRouteStarGGroup,'tpIpMRouteStarGSource':tpIpMRouteStarGSource,'tpIpMRouteStarGIncomingInterface':tpIpMRouteStarGIncomingInterface,'tpIpMRouteStarGOutgoingInterface':tpIpMRouteStarGOutgoingInterface,'tpIpMRouteStarGRpfNeighbor':tpIpMRouteStarGRpfNeighbor,'tpIpMRouteStarGUpTime':tpIpMRouteStarGUpTime,'tpIpMRouteStarGExpiryTime':tpIpMRouteStarGExpiryTime,'tpIpMRouteStarGProtocol':tpIpMRouteStarGProtocol,'tpIpMRouteStarGFlags':tpIpMRouteStarGFlags,'tplinkIpMrouteNotifications':tplinkIpMrouteNotifications})
+#
+# PySNMP MIB module TPLINK-IPMROUTE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-IPMROUTE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
+tplinkIpMrouteMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 78))
+tplinkIpMrouteMIB.setRevisions(('2012-12-13 09:30',))
+if mibBuilder.loadTexts: tplinkIpMrouteMIB.setLastUpdated('201212130930Z')
+if mibBuilder.loadTexts: tplinkIpMrouteMIB.setOrganization('TPLINK')
+tplinkIpMrouteMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1))
+tplinkIpMrouteNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 78, 2))
+tpIpMRoute = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1))
+tpIpMRouteEnable = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpIpMRouteEnable.setStatus('current')
+tpIpMRouteSGTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 2), )
+if mibBuilder.loadTexts: tpIpMRouteSGTable.setStatus('current')
+tpIpMRouteSGEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 2, 1), ).setIndexNames((0, "TPLINK-IPMROUTE-MIB", "tpIpMRouteSGGroup"), (0, "TPLINK-IPMROUTE-MIB", "tpIpMRouteSGSource"))
+if mibBuilder.loadTexts: tpIpMRouteSGEntry.setStatus('current')
+tpIpMRouteSGGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 2, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteSGGroup.setStatus('current')
+tpIpMRouteSGSource = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteSGSource.setStatus('current')
+tpIpMRouteSGIncomingInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 2, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteSGIncomingInterface.setStatus('current')
+tpIpMRouteSGOutgoingInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 2, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 1024))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteSGOutgoingInterface.setStatus('current')
+tpIpMRouteSGRpfNeighbor = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 2, 1, 5), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteSGRpfNeighbor.setStatus('current')
+tpIpMRouteSGUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 2, 1, 6), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteSGUpTime.setStatus('current')
+tpIpMRouteSGExpiryTime = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 2, 1, 7), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteSGExpiryTime.setStatus('current')
+tpIpMRouteSGProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("pimDenseMode", 1), ("pimSparseMode", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteSGProtocol.setStatus('current')
+tpIpMRouteSGFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("spt", 1), ("rpt", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteSGFlags.setStatus('current')
+tpIpMRouteStarGTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 3), )
+if mibBuilder.loadTexts: tpIpMRouteStarGTable.setStatus('current')
+tpIpMRouteStarGEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 3, 1), ).setIndexNames((0, "TPLINK-IPMROUTE-MIB", "tpIpMRouteStarGGroup"))
+if mibBuilder.loadTexts: tpIpMRouteStarGEntry.setStatus('current')
+tpIpMRouteStarGGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 3, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteStarGGroup.setStatus('current')
+tpIpMRouteStarGSource = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 3, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteStarGSource.setStatus('current')
+tpIpMRouteStarGIncomingInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 3, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteStarGIncomingInterface.setStatus('current')
+tpIpMRouteStarGOutgoingInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 3, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 1024))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteStarGOutgoingInterface.setStatus('current')
+tpIpMRouteStarGRpfNeighbor = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 3, 1, 5), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteStarGRpfNeighbor.setStatus('current')
+tpIpMRouteStarGUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 3, 1, 6), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteStarGUpTime.setStatus('current')
+tpIpMRouteStarGExpiryTime = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 3, 1, 7), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteStarGExpiryTime.setStatus('current')
+tpIpMRouteStarGProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("pimDenseMode", 1), ("pimSparseMode", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteStarGProtocol.setStatus('current')
+tpIpMRouteStarGFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 78, 1, 1, 3, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("spt", 1), ("rpt", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpIpMRouteStarGFlags.setStatus('current')
+mibBuilder.exportSymbols("TPLINK-IPMROUTE-MIB", tpIpMRouteSGRpfNeighbor=tpIpMRouteSGRpfNeighbor, tpIpMRouteSGOutgoingInterface=tpIpMRouteSGOutgoingInterface, tpIpMRouteSGFlags=tpIpMRouteSGFlags, tpIpMRouteStarGFlags=tpIpMRouteStarGFlags, tpIpMRouteSGTable=tpIpMRouteSGTable, tpIpMRouteStarGOutgoingInterface=tpIpMRouteStarGOutgoingInterface, tpIpMRouteStarGUpTime=tpIpMRouteStarGUpTime, tplinkIpMrouteNotifications=tplinkIpMrouteNotifications, tpIpMRoute=tpIpMRoute, tpIpMRouteStarGProtocol=tpIpMRouteStarGProtocol, tpIpMRouteStarGGroup=tpIpMRouteStarGGroup, tpIpMRouteSGIncomingInterface=tpIpMRouteSGIncomingInterface, PYSNMP_MODULE_ID=tplinkIpMrouteMIB, tpIpMRouteSGEntry=tpIpMRouteSGEntry, tpIpMRouteSGProtocol=tpIpMRouteSGProtocol, tpIpMRouteStarGRpfNeighbor=tpIpMRouteStarGRpfNeighbor, tpIpMRouteSGSource=tpIpMRouteSGSource, tpIpMRouteSGGroup=tpIpMRouteSGGroup, tpIpMRouteStarGSource=tpIpMRouteStarGSource, tplinkIpMrouteMIBObjects=tplinkIpMrouteMIBObjects, tpIpMRouteStarGEntry=tpIpMRouteStarGEntry, tpIpMRouteSGUpTime=tpIpMRouteSGUpTime, tplinkIpMrouteMIB=tplinkIpMrouteMIB, tpIpMRouteSGExpiryTime=tpIpMRouteSGExpiryTime, tpIpMRouteStarGTable=tpIpMRouteStarGTable, tpIpMRouteEnable=tpIpMRouteEnable, tpIpMRouteStarGExpiryTime=tpIpMRouteStarGExpiryTime, tpIpMRouteStarGIncomingInterface=tpIpMRouteStarGIncomingInterface)

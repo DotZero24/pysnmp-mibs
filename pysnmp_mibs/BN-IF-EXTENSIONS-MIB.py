@@ -1,83 +1,40 @@
-_R='advertise2500Full'
-_Q='advertise40000Full'
-_P='advertise10000Full'
-_O='advertiseAsymmPauseFrame'
-_N='advertisePauseFrame'
-_M='advertise1000Full'
-_L='advertise1000Half'
-_K='advertise100Full'
-_J='advertise100Half'
-_I='advertise10Full'
-_H='advertise10Half'
-_G='bnIfExtnIndex'
-_F='BN-IF-EXTENSIONS-MIB'
-_E='read-write'
-_D='Bits'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-s5IfExt,=mibBuilder.importSymbols('S5-ROOT-MIB','s5IfExt')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI',_D,'Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-bnIfExtensionsMib=ModuleIdentity((1,3,6,1,4,1,45,1,6,15,2))
-if mibBuilder.loadTexts:bnIfExtensionsMib.setRevisions(('2016-11-28 00:00','2013-07-26 00:00','2011-10-05 00:00','2011-09-16 00:00','2004-07-20 00:00'))
-_BnIfExtensions_ObjectIdentity=ObjectIdentity
-bnIfExtensions=_BnIfExtensions_ObjectIdentity((1,3,6,1,4,1,45,1,6,15,1))
-_BnIfExtnTable_Object=MibTable
-bnIfExtnTable=_BnIfExtnTable_Object((1,3,6,1,4,1,45,1,6,15,1,1))
-if mibBuilder.loadTexts:bnIfExtnTable.setStatus(_A)
-_BnIfExtnEntry_Object=MibTableRow
-bnIfExtnEntry=_BnIfExtnEntry_Object((1,3,6,1,4,1,45,1,6,15,1,1,1))
-bnIfExtnEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:bnIfExtnEntry.setStatus(_A)
-_BnIfExtnIndex_Type=Integer32
-_BnIfExtnIndex_Object=MibTableColumn
-bnIfExtnIndex=_BnIfExtnIndex_Object((1,3,6,1,4,1,45,1,6,15,1,1,1,1),_BnIfExtnIndex_Type())
-bnIfExtnIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:bnIfExtnIndex.setStatus(_A)
-_BnIfExtnSlot_Type=Integer32
-_BnIfExtnSlot_Object=MibTableColumn
-bnIfExtnSlot=_BnIfExtnSlot_Object((1,3,6,1,4,1,45,1,6,15,1,1,1,2),_BnIfExtnSlot_Type())
-bnIfExtnSlot.setMaxAccess(_B)
-if mibBuilder.loadTexts:bnIfExtnSlot.setStatus(_A)
-_BnIfExtnPort_Type=Integer32
-_BnIfExtnPort_Object=MibTableColumn
-bnIfExtnPort=_BnIfExtnPort_Object((1,3,6,1,4,1,45,1,6,15,1,1,1,3),_BnIfExtnPort_Type())
-bnIfExtnPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:bnIfExtnPort.setStatus(_A)
-class _BnIfExtnIsPortShared_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('portShared',1),('portNotShared',2)))
-_BnIfExtnIsPortShared_Type.__name__=_C
-_BnIfExtnIsPortShared_Object=MibTableColumn
-bnIfExtnIsPortShared=_BnIfExtnIsPortShared_Object((1,3,6,1,4,1,45,1,6,15,1,1,1,4),_BnIfExtnIsPortShared_Type())
-bnIfExtnIsPortShared.setMaxAccess(_B)
-if mibBuilder.loadTexts:bnIfExtnIsPortShared.setStatus(_A)
-class _BnIfExtnPortActiveComponent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('fixedPort',1),('gbicPort',2),('mdaPort',3)))
-_BnIfExtnPortActiveComponent_Type.__name__=_C
-_BnIfExtnPortActiveComponent_Object=MibTableColumn
-bnIfExtnPortActiveComponent=_BnIfExtnPortActiveComponent_Object((1,3,6,1,4,1,45,1,6,15,1,1,1,5),_BnIfExtnPortActiveComponent_Type())
-bnIfExtnPortActiveComponent.setMaxAccess(_E)
-if mibBuilder.loadTexts:bnIfExtnPortActiveComponent.setStatus(_A)
-class _BnIfExtnPoweredDeviceDetectType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('compliantWith802dot3af',1),('compliantWith802dot3afAndLegacySupport',2),('compliantWith802dot3at',3),('compliantWith802dot3atAndLegacySupport',4)))
-_BnIfExtnPoweredDeviceDetectType_Type.__name__=_C
-_BnIfExtnPoweredDeviceDetectType_Object=MibTableColumn
-bnIfExtnPoweredDeviceDetectType=_BnIfExtnPoweredDeviceDetectType_Object((1,3,6,1,4,1,45,1,6,15,1,1,1,6),_BnIfExtnPoweredDeviceDetectType_Type())
-bnIfExtnPoweredDeviceDetectType.setMaxAccess(_E)
-if mibBuilder.loadTexts:bnIfExtnPoweredDeviceDetectType.setStatus(_A)
-class _BnIfExtnAutoNegotiationExtAdv_Type(Bits):namedValues=NamedValues(*((_H,0),(_I,1),(_J,2),(_K,3),(_L,4),(_M,5),(_N,6),(_O,7),(_P,8),(_Q,9),(_R,10)))
-_BnIfExtnAutoNegotiationExtAdv_Type.__name__=_D
-_BnIfExtnAutoNegotiationExtAdv_Object=MibTableColumn
-bnIfExtnAutoNegotiationExtAdv=_BnIfExtnAutoNegotiationExtAdv_Object((1,3,6,1,4,1,45,1,6,15,1,1,1,7),_BnIfExtnAutoNegotiationExtAdv_Type())
-bnIfExtnAutoNegotiationExtAdv.setMaxAccess(_E)
-if mibBuilder.loadTexts:bnIfExtnAutoNegotiationExtAdv.setStatus(_A)
-class _BnIfExtnExtHwAdvCapability_Type(Bits):namedValues=NamedValues(*((_H,0),(_I,1),(_J,2),(_K,3),(_L,4),(_M,5),(_N,6),(_O,7),(_P,8),(_Q,9),(_R,10)))
-_BnIfExtnExtHwAdvCapability_Type.__name__=_D
-_BnIfExtnExtHwAdvCapability_Object=MibTableColumn
-bnIfExtnExtHwAdvCapability=_BnIfExtnExtHwAdvCapability_Object((1,3,6,1,4,1,45,1,6,15,1,1,1,8),_BnIfExtnExtHwAdvCapability_Type())
-bnIfExtnExtHwAdvCapability.setMaxAccess(_B)
-if mibBuilder.loadTexts:bnIfExtnExtHwAdvCapability.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'bnIfExtensions':bnIfExtensions,'bnIfExtnTable':bnIfExtnTable,'bnIfExtnEntry':bnIfExtnEntry,_G:bnIfExtnIndex,'bnIfExtnSlot':bnIfExtnSlot,'bnIfExtnPort':bnIfExtnPort,'bnIfExtnIsPortShared':bnIfExtnIsPortShared,'bnIfExtnPortActiveComponent':bnIfExtnPortActiveComponent,'bnIfExtnPoweredDeviceDetectType':bnIfExtnPoweredDeviceDetectType,'bnIfExtnAutoNegotiationExtAdv':bnIfExtnAutoNegotiationExtAdv,'bnIfExtnExtHwAdvCapability':bnIfExtnExtHwAdvCapability,'bnIfExtensionsMib':bnIfExtensionsMib})
+#
+# PySNMP MIB module BN-IF-EXTENSIONS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/BN-IF-EXTENSIONS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:07 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+s5IfExt, = mibBuilder.importSymbols("S5-ROOT-MIB", "s5IfExt")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+bnIfExtensionsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 1, 6, 15, 2))
+bnIfExtensionsMib.setRevisions(('2016-11-28 00:00', '2013-07-26 00:00', '2011-10-05 00:00', '2011-09-16 00:00', '2004-07-20 00:00',))
+if mibBuilder.loadTexts: bnIfExtensionsMib.setLastUpdated('201611280000Z')
+if mibBuilder.loadTexts: bnIfExtensionsMib.setOrganization('Avaya')
+bnIfExtensions = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 1, 6, 15, 1))
+bnIfExtnTable = MibTable((1, 3, 6, 1, 4, 1, 45, 1, 6, 15, 1, 1), )
+if mibBuilder.loadTexts: bnIfExtnTable.setStatus('current')
+bnIfExtnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 45, 1, 6, 15, 1, 1, 1), ).setIndexNames((0, "BN-IF-EXTENSIONS-MIB", "bnIfExtnIndex"))
+if mibBuilder.loadTexts: bnIfExtnEntry.setStatus('current')
+bnIfExtnIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 1, 6, 15, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bnIfExtnIndex.setStatus('current')
+bnIfExtnSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 1, 6, 15, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bnIfExtnSlot.setStatus('current')
+bnIfExtnPort = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 1, 6, 15, 1, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bnIfExtnPort.setStatus('current')
+bnIfExtnIsPortShared = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 1, 6, 15, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("portShared", 1), ("portNotShared", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bnIfExtnIsPortShared.setStatus('current')
+bnIfExtnPortActiveComponent = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 1, 6, 15, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("fixedPort", 1), ("gbicPort", 2), ("mdaPort", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bnIfExtnPortActiveComponent.setStatus('current')
+bnIfExtnPoweredDeviceDetectType = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 1, 6, 15, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("compliantWith802dot3af", 1), ("compliantWith802dot3afAndLegacySupport", 2), ("compliantWith802dot3at", 3), ("compliantWith802dot3atAndLegacySupport", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bnIfExtnPoweredDeviceDetectType.setStatus('current')
+bnIfExtnAutoNegotiationExtAdv = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 1, 6, 15, 1, 1, 1, 7), Bits().clone(namedValues=NamedValues(("advertise10Half", 0), ("advertise10Full", 1), ("advertise100Half", 2), ("advertise100Full", 3), ("advertise1000Half", 4), ("advertise1000Full", 5), ("advertisePauseFrame", 6), ("advertiseAsymmPauseFrame", 7), ("advertise10000Full", 8), ("advertise40000Full", 9), ("advertise2500Full", 10)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bnIfExtnAutoNegotiationExtAdv.setStatus('current')
+bnIfExtnExtHwAdvCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 1, 6, 15, 1, 1, 1, 8), Bits().clone(namedValues=NamedValues(("advertise10Half", 0), ("advertise10Full", 1), ("advertise100Half", 2), ("advertise100Full", 3), ("advertise1000Half", 4), ("advertise1000Full", 5), ("advertisePauseFrame", 6), ("advertiseAsymmPauseFrame", 7), ("advertise10000Full", 8), ("advertise40000Full", 9), ("advertise2500Full", 10)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bnIfExtnExtHwAdvCapability.setStatus('current')
+mibBuilder.exportSymbols("BN-IF-EXTENSIONS-MIB", bnIfExtnSlot=bnIfExtnSlot, bnIfExtnPortActiveComponent=bnIfExtnPortActiveComponent, bnIfExtnTable=bnIfExtnTable, bnIfExtnExtHwAdvCapability=bnIfExtnExtHwAdvCapability, bnIfExtnPort=bnIfExtnPort, bnIfExtensionsMib=bnIfExtensionsMib, bnIfExtnEntry=bnIfExtnEntry, bnIfExtnAutoNegotiationExtAdv=bnIfExtnAutoNegotiationExtAdv, bnIfExtnPoweredDeviceDetectType=bnIfExtnPoweredDeviceDetectType, bnIfExtensions=bnIfExtensions, PYSNMP_MODULE_ID=bnIfExtensionsMib, bnIfExtnIndex=bnIfExtnIndex, bnIfExtnIsPortShared=bnIfExtnIsPortShared)

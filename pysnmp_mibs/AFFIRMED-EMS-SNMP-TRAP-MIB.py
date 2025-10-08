@@ -1,36 +1,28 @@
-_I='current'
-_H='affirmedAlarmSourceId'
-_G='affirmedAlarmSeverity'
-_F='affirmedAlarmSeqId'
-_E='affirmedAlarmRefSeqId'
-_D='affirmedAlarmDetails'
-_C='affirmedAlarmDateTime'
-_B='affirmedAlarmChassisName'
-_A='AFFIRMED-ALARM-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-affirmedAlarmChassisName,affirmedAlarmDateTime,affirmedAlarmDetails,affirmedAlarmRefSeqId,affirmedAlarmSeqId,affirmedAlarmSeverity,affirmedAlarmSourceId=mibBuilder.importSymbols(_A,_B,_C,_D,_E,_F,_G,_H)
-affirmedSnmp,affirmedSnmpNotifications=mibBuilder.importSymbols('AFFIRMED-SNMP-MIB','affirmedSnmp','affirmedSnmpNotifications')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-affirmedSnmpTraps=ModuleIdentity((1,3,6,1,4,1,37963,4,0,5))
-_AffirmedSnmpTrapsScalars_ObjectIdentity=ObjectIdentity
-affirmedSnmpTrapsScalars=_AffirmedSnmpTrapsScalars_ObjectIdentity((1,3,6,1,4,1,37963,4,0,5,1))
-_AffirmedSnmpTrapsTables_ObjectIdentity=ObjectIdentity
-affirmedSnmpTrapsTables=_AffirmedSnmpTrapsTables_ObjectIdentity((1,3,6,1,4,1,37963,4,0,5,2))
-_AffirmedSnmpTrapsNotifications_ObjectIdentity=ObjectIdentity
-affirmedSnmpTrapsNotifications=_AffirmedSnmpTrapsNotifications_ObjectIdentity((1,3,6,1,4,1,37963,4,0,5,3))
-_AffirmedSnmpTrapsNotificationPrefix_ObjectIdentity=ObjectIdentity
-affirmedSnmpTrapsNotificationPrefix=_AffirmedSnmpTrapsNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,37963,4,0,5,3,0))
-_AffirmedSnmpTrapsNotificationObjects_ObjectIdentity=ObjectIdentity
-affirmedSnmpTrapsNotificationObjects=_AffirmedSnmpTrapsNotificationObjects_ObjectIdentity((1,3,6,1,4,1,37963,4,0,5,3,1))
-emsDBReplicationDown=NotificationType((1,3,6,1,4,1,37963,4,0,5,3,0,1))
-emsDBReplicationDown.setObjects(*((_A,_F),(_A,_C),(_A,_B),(_A,_H),(_A,_G),(_A,_E),(_A,_D)))
-if mibBuilder.loadTexts:emsDBReplicationDown.setStatus(_I)
-emsDBReplicationLagBehind=NotificationType((1,3,6,1,4,1,37963,4,0,5,3,0,2))
-emsDBReplicationLagBehind.setObjects(*((_A,_F),(_A,_C),(_A,_B),(_A,_H),(_A,_G),(_A,_E),(_A,_D)))
-if mibBuilder.loadTexts:emsDBReplicationLagBehind.setStatus(_I)
-mibBuilder.exportSymbols('AFFIRMED-EMS-SNMP-TRAP-MIB',**{'affirmedSnmpTraps':affirmedSnmpTraps,'affirmedSnmpTrapsScalars':affirmedSnmpTrapsScalars,'affirmedSnmpTrapsTables':affirmedSnmpTrapsTables,'affirmedSnmpTrapsNotifications':affirmedSnmpTrapsNotifications,'affirmedSnmpTrapsNotificationPrefix':affirmedSnmpTrapsNotificationPrefix,'emsDBReplicationDown':emsDBReplicationDown,'emsDBReplicationLagBehind':emsDBReplicationLagBehind,'affirmedSnmpTrapsNotificationObjects':affirmedSnmpTrapsNotificationObjects})
+#
+# PySNMP MIB module AFFIRMED-EMS-SNMP-TRAP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/microsoft/AFFIRMED-EMS-SNMP-TRAP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:49 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+affirmedAlarmChassisName, affirmedAlarmDetails, affirmedAlarmSeverity, affirmedAlarmSeqId, affirmedAlarmRefSeqId, affirmedAlarmSourceId, affirmedAlarmDateTime = mibBuilder.importSymbols("AFFIRMED-ALARM-MIB", "affirmedAlarmChassisName", "affirmedAlarmDetails", "affirmedAlarmSeverity", "affirmedAlarmSeqId", "affirmedAlarmRefSeqId", "affirmedAlarmSourceId", "affirmedAlarmDateTime")
+affirmedSnmpNotifications, affirmedSnmp = mibBuilder.importSymbols("AFFIRMED-SNMP-MIB", "affirmedSnmpNotifications", "affirmedSnmp")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+affirmedSnmpTraps = ModuleIdentity((1, 3, 6, 1, 4, 1, 37963, 4, 0, 5))
+if mibBuilder.loadTexts: affirmedSnmpTraps.setLastUpdated('201105160000Z')
+if mibBuilder.loadTexts: affirmedSnmpTraps.setOrganization('Affired Networks, Inc.')
+affirmedSnmpTrapsScalars = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 4, 0, 5, 1))
+affirmedSnmpTrapsTables = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 4, 0, 5, 2))
+affirmedSnmpTrapsNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 4, 0, 5, 3))
+affirmedSnmpTrapsNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 4, 0, 5, 3, 0))
+affirmedSnmpTrapsNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 4, 0, 5, 3, 1))
+emsDBReplicationDown = NotificationType((1, 3, 6, 1, 4, 1, 37963, 4, 0, 5, 3, 0, 1)).setObjects(("AFFIRMED-ALARM-MIB", "affirmedAlarmSeqId"), ("AFFIRMED-ALARM-MIB", "affirmedAlarmDateTime"), ("AFFIRMED-ALARM-MIB", "affirmedAlarmChassisName"), ("AFFIRMED-ALARM-MIB", "affirmedAlarmSourceId"), ("AFFIRMED-ALARM-MIB", "affirmedAlarmSeverity"), ("AFFIRMED-ALARM-MIB", "affirmedAlarmRefSeqId"), ("AFFIRMED-ALARM-MIB", "affirmedAlarmDetails"))
+if mibBuilder.loadTexts: emsDBReplicationDown.setStatus('current')
+emsDBReplicationLagBehind = NotificationType((1, 3, 6, 1, 4, 1, 37963, 4, 0, 5, 3, 0, 2)).setObjects(("AFFIRMED-ALARM-MIB", "affirmedAlarmSeqId"), ("AFFIRMED-ALARM-MIB", "affirmedAlarmDateTime"), ("AFFIRMED-ALARM-MIB", "affirmedAlarmChassisName"), ("AFFIRMED-ALARM-MIB", "affirmedAlarmSourceId"), ("AFFIRMED-ALARM-MIB", "affirmedAlarmSeverity"), ("AFFIRMED-ALARM-MIB", "affirmedAlarmRefSeqId"), ("AFFIRMED-ALARM-MIB", "affirmedAlarmDetails"))
+if mibBuilder.loadTexts: emsDBReplicationLagBehind.setStatus('current')
+mibBuilder.exportSymbols("AFFIRMED-EMS-SNMP-TRAP-MIB", emsDBReplicationLagBehind=emsDBReplicationLagBehind, emsDBReplicationDown=emsDBReplicationDown, PYSNMP_MODULE_ID=affirmedSnmpTraps, affirmedSnmpTrapsNotificationObjects=affirmedSnmpTrapsNotificationObjects, affirmedSnmpTrapsNotificationPrefix=affirmedSnmpTrapsNotificationPrefix, affirmedSnmpTraps=affirmedSnmpTraps, affirmedSnmpTrapsTables=affirmedSnmpTrapsTables, affirmedSnmpTrapsNotifications=affirmedSnmpTrapsNotifications, affirmedSnmpTrapsScalars=affirmedSnmpTrapsScalars)

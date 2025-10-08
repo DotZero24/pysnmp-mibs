@@ -1,113 +1,57 @@
-_R='alvarionCdpMIBGroup'
-_Q='coCdpGlobalHoldTime'
-_P='coCdpGlobalMessageInterval'
-_O='coCdpCachePortId'
-_N='coCdpCachePlatform'
-_M='coCdpCacheVersion'
-_L='coCdpCacheCapabilities'
-_K='coCdpCacheTimeToLive'
-_J='coCdpCacheDeviceId'
-_I='coCdpCacheAddress'
-_H='coCdpCacheLocalInterface'
-_G='seconds'
-_F='read-write'
-_E='coCdpCacheDeviceIndex'
-_D='Integer32'
-_C='read-only'
-_B='ALVARION-CDP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-alvarionMgmtV2,=mibBuilder.importSymbols('ALVARION-SMI','alvarionMgmtV2')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-alvarionCdpMIB=ModuleIdentity((1,3,6,1,4,1,12394,1,10,5,9))
-_AlvarionCdpMIBObjects_ObjectIdentity=ObjectIdentity
-alvarionCdpMIBObjects=_AlvarionCdpMIBObjects_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,9,1))
-_CoCdpCache_ObjectIdentity=ObjectIdentity
-coCdpCache=_CoCdpCache_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,9,1,1))
-_CoCdpCacheTable_Object=MibTable
-coCdpCacheTable=_CoCdpCacheTable_Object((1,3,6,1,4,1,12394,1,10,5,9,1,1,1))
-if mibBuilder.loadTexts:coCdpCacheTable.setStatus(_A)
-_CoCdpCacheEntry_Object=MibTableRow
-coCdpCacheEntry=_CoCdpCacheEntry_Object((1,3,6,1,4,1,12394,1,10,5,9,1,1,1,1))
-coCdpCacheEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:coCdpCacheEntry.setStatus(_A)
-class _CoCdpCacheDeviceIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_CoCdpCacheDeviceIndex_Type.__name__=_D
-_CoCdpCacheDeviceIndex_Object=MibTableColumn
-coCdpCacheDeviceIndex=_CoCdpCacheDeviceIndex_Object((1,3,6,1,4,1,12394,1,10,5,9,1,1,1,1,1),_CoCdpCacheDeviceIndex_Type())
-coCdpCacheDeviceIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:coCdpCacheDeviceIndex.setStatus(_A)
-_CoCdpCacheLocalInterface_Type=DisplayString
-_CoCdpCacheLocalInterface_Object=MibTableColumn
-coCdpCacheLocalInterface=_CoCdpCacheLocalInterface_Object((1,3,6,1,4,1,12394,1,10,5,9,1,1,1,1,2),_CoCdpCacheLocalInterface_Type())
-coCdpCacheLocalInterface.setMaxAccess(_C)
-if mibBuilder.loadTexts:coCdpCacheLocalInterface.setStatus(_A)
-_CoCdpCacheAddress_Type=MacAddress
-_CoCdpCacheAddress_Object=MibTableColumn
-coCdpCacheAddress=_CoCdpCacheAddress_Object((1,3,6,1,4,1,12394,1,10,5,9,1,1,1,1,3),_CoCdpCacheAddress_Type())
-coCdpCacheAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:coCdpCacheAddress.setStatus(_A)
-_CoCdpCacheDeviceId_Type=DisplayString
-_CoCdpCacheDeviceId_Object=MibTableColumn
-coCdpCacheDeviceId=_CoCdpCacheDeviceId_Object((1,3,6,1,4,1,12394,1,10,5,9,1,1,1,1,4),_CoCdpCacheDeviceId_Type())
-coCdpCacheDeviceId.setMaxAccess(_C)
-if mibBuilder.loadTexts:coCdpCacheDeviceId.setStatus(_A)
-_CoCdpCacheTimeToLive_Type=Unsigned32
-_CoCdpCacheTimeToLive_Object=MibTableColumn
-coCdpCacheTimeToLive=_CoCdpCacheTimeToLive_Object((1,3,6,1,4,1,12394,1,10,5,9,1,1,1,1,5),_CoCdpCacheTimeToLive_Type())
-coCdpCacheTimeToLive.setMaxAccess(_C)
-if mibBuilder.loadTexts:coCdpCacheTimeToLive.setStatus(_A)
-_CoCdpCacheCapabilities_Type=DisplayString
-_CoCdpCacheCapabilities_Object=MibTableColumn
-coCdpCacheCapabilities=_CoCdpCacheCapabilities_Object((1,3,6,1,4,1,12394,1,10,5,9,1,1,1,1,6),_CoCdpCacheCapabilities_Type())
-coCdpCacheCapabilities.setMaxAccess(_C)
-if mibBuilder.loadTexts:coCdpCacheCapabilities.setStatus(_A)
-_CoCdpCacheVersion_Type=DisplayString
-_CoCdpCacheVersion_Object=MibTableColumn
-coCdpCacheVersion=_CoCdpCacheVersion_Object((1,3,6,1,4,1,12394,1,10,5,9,1,1,1,1,7),_CoCdpCacheVersion_Type())
-coCdpCacheVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:coCdpCacheVersion.setStatus(_A)
-_CoCdpCachePlatform_Type=DisplayString
-_CoCdpCachePlatform_Object=MibTableColumn
-coCdpCachePlatform=_CoCdpCachePlatform_Object((1,3,6,1,4,1,12394,1,10,5,9,1,1,1,1,8),_CoCdpCachePlatform_Type())
-coCdpCachePlatform.setMaxAccess(_C)
-if mibBuilder.loadTexts:coCdpCachePlatform.setStatus(_A)
-_CoCdpCachePortId_Type=DisplayString
-_CoCdpCachePortId_Object=MibTableColumn
-coCdpCachePortId=_CoCdpCachePortId_Object((1,3,6,1,4,1,12394,1,10,5,9,1,1,1,1,9),_CoCdpCachePortId_Type())
-coCdpCachePortId.setMaxAccess(_C)
-if mibBuilder.loadTexts:coCdpCachePortId.setStatus(_A)
-_CoCdpGlobal_ObjectIdentity=ObjectIdentity
-coCdpGlobal=_CoCdpGlobal_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,9,1,2))
-class _CoCdpGlobalMessageInterval_Type(Integer32):defaultValue=60;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,254))
-_CoCdpGlobalMessageInterval_Type.__name__=_D
-_CoCdpGlobalMessageInterval_Object=MibScalar
-coCdpGlobalMessageInterval=_CoCdpGlobalMessageInterval_Object((1,3,6,1,4,1,12394,1,10,5,9,1,2,1),_CoCdpGlobalMessageInterval_Type())
-coCdpGlobalMessageInterval.setMaxAccess(_F)
-if mibBuilder.loadTexts:coCdpGlobalMessageInterval.setStatus(_A)
-if mibBuilder.loadTexts:coCdpGlobalMessageInterval.setUnits(_G)
-class _CoCdpGlobalHoldTime_Type(Integer32):defaultValue=180;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,255))
-_CoCdpGlobalHoldTime_Type.__name__=_D
-_CoCdpGlobalHoldTime_Object=MibScalar
-coCdpGlobalHoldTime=_CoCdpGlobalHoldTime_Object((1,3,6,1,4,1,12394,1,10,5,9,1,2,2),_CoCdpGlobalHoldTime_Type())
-coCdpGlobalHoldTime.setMaxAccess(_F)
-if mibBuilder.loadTexts:coCdpGlobalHoldTime.setStatus(_A)
-if mibBuilder.loadTexts:coCdpGlobalHoldTime.setUnits(_G)
-_AlvarionCdpMIBConformance_ObjectIdentity=ObjectIdentity
-alvarionCdpMIBConformance=_AlvarionCdpMIBConformance_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,9,2))
-_AlvarionCdpMIBCompliances_ObjectIdentity=ObjectIdentity
-alvarionCdpMIBCompliances=_AlvarionCdpMIBCompliances_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,9,2,1))
-_AlvarionCdpMIBGroups_ObjectIdentity=ObjectIdentity
-alvarionCdpMIBGroups=_AlvarionCdpMIBGroups_ObjectIdentity((1,3,6,1,4,1,12394,1,10,5,9,2,2))
-alvarionCdpMIBGroup=ObjectGroup((1,3,6,1,4,1,12394,1,10,5,9,2,2,1))
-alvarionCdpMIBGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:alvarionCdpMIBGroup.setStatus(_A)
-alvarionCdpMIBCompliance=ModuleCompliance((1,3,6,1,4,1,12394,1,10,5,9,2,1,1))
-alvarionCdpMIBCompliance.setObjects((_B,_R))
-if mibBuilder.loadTexts:alvarionCdpMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'alvarionCdpMIB':alvarionCdpMIB,'alvarionCdpMIBObjects':alvarionCdpMIBObjects,'coCdpCache':coCdpCache,'coCdpCacheTable':coCdpCacheTable,'coCdpCacheEntry':coCdpCacheEntry,_E:coCdpCacheDeviceIndex,_H:coCdpCacheLocalInterface,_I:coCdpCacheAddress,_J:coCdpCacheDeviceId,_K:coCdpCacheTimeToLive,_L:coCdpCacheCapabilities,_M:coCdpCacheVersion,_N:coCdpCachePlatform,_O:coCdpCachePortId,'coCdpGlobal':coCdpGlobal,_P:coCdpGlobalMessageInterval,_Q:coCdpGlobalHoldTime,'alvarionCdpMIBConformance':alvarionCdpMIBConformance,'alvarionCdpMIBCompliances':alvarionCdpMIBCompliances,'alvarionCdpMIBCompliance':alvarionCdpMIBCompliance,'alvarionCdpMIBGroups':alvarionCdpMIBGroups,_R:alvarionCdpMIBGroup})
+#
+# PySNMP MIB module ALVARION-CDP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alvarion/ALVARION-CDP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:04 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+alvarionMgmtV2, = mibBuilder.importSymbols("ALVARION-SMI", "alvarionMgmtV2")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+alvarionCdpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9))
+if mibBuilder.loadTexts: alvarionCdpMIB.setLastUpdated('200710310000Z')
+if mibBuilder.loadTexts: alvarionCdpMIB.setOrganization('Alvarion Ltd.')
+alvarionCdpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1))
+coCdpCache = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1, 1))
+coCdpGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1, 2))
+coCdpCacheTable = MibTable((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1, 1, 1), )
+if mibBuilder.loadTexts: coCdpCacheTable.setStatus('current')
+coCdpCacheEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1, 1, 1, 1), ).setIndexNames((0, "ALVARION-CDP-MIB", "coCdpCacheDeviceIndex"))
+if mibBuilder.loadTexts: coCdpCacheEntry.setStatus('current')
+coCdpCacheDeviceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: coCdpCacheDeviceIndex.setStatus('current')
+coCdpCacheLocalInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coCdpCacheLocalInterface.setStatus('current')
+coCdpCacheAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1, 1, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coCdpCacheAddress.setStatus('current')
+coCdpCacheDeviceId = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1, 1, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coCdpCacheDeviceId.setStatus('current')
+coCdpCacheTimeToLive = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coCdpCacheTimeToLive.setStatus('current')
+coCdpCacheCapabilities = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1, 1, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coCdpCacheCapabilities.setStatus('current')
+coCdpCacheVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1, 1, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coCdpCacheVersion.setStatus('current')
+coCdpCachePlatform = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1, 1, 1, 1, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coCdpCachePlatform.setStatus('current')
+coCdpCachePortId = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1, 1, 1, 1, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coCdpCachePortId.setStatus('current')
+coCdpGlobalMessageInterval = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 254)).clone(60)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coCdpGlobalMessageInterval.setStatus('current')
+coCdpGlobalHoldTime = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 1, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 255)).clone(180)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coCdpGlobalHoldTime.setStatus('current')
+alvarionCdpMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 2))
+alvarionCdpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 2, 1))
+alvarionCdpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 2, 2))
+alvarionCdpMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 2, 1, 1)).setObjects(("ALVARION-CDP-MIB", "alvarionCdpMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alvarionCdpMIBCompliance = alvarionCdpMIBCompliance.setStatus('current')
+alvarionCdpMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 9, 2, 2, 1)).setObjects(("ALVARION-CDP-MIB", "coCdpCacheLocalInterface"), ("ALVARION-CDP-MIB", "coCdpCacheAddress"), ("ALVARION-CDP-MIB", "coCdpCacheDeviceId"), ("ALVARION-CDP-MIB", "coCdpCacheTimeToLive"), ("ALVARION-CDP-MIB", "coCdpCacheCapabilities"), ("ALVARION-CDP-MIB", "coCdpCacheVersion"), ("ALVARION-CDP-MIB", "coCdpCachePlatform"), ("ALVARION-CDP-MIB", "coCdpCachePortId"), ("ALVARION-CDP-MIB", "coCdpGlobalMessageInterval"), ("ALVARION-CDP-MIB", "coCdpGlobalHoldTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alvarionCdpMIBGroup = alvarionCdpMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("ALVARION-CDP-MIB", alvarionCdpMIB=alvarionCdpMIB, coCdpCacheTable=coCdpCacheTable, coCdpCacheEntry=coCdpCacheEntry, alvarionCdpMIBGroup=alvarionCdpMIBGroup, coCdpCache=coCdpCache, alvarionCdpMIBGroups=alvarionCdpMIBGroups, coCdpCacheVersion=coCdpCacheVersion, coCdpCacheDeviceIndex=coCdpCacheDeviceIndex, coCdpCacheLocalInterface=coCdpCacheLocalInterface, coCdpGlobalHoldTime=coCdpGlobalHoldTime, coCdpCacheCapabilities=coCdpCacheCapabilities, alvarionCdpMIBCompliance=alvarionCdpMIBCompliance, coCdpGlobal=coCdpGlobal, coCdpGlobalMessageInterval=coCdpGlobalMessageInterval, coCdpCachePortId=coCdpCachePortId, alvarionCdpMIBConformance=alvarionCdpMIBConformance, alvarionCdpMIBCompliances=alvarionCdpMIBCompliances, coCdpCacheDeviceId=coCdpCacheDeviceId, alvarionCdpMIBObjects=alvarionCdpMIBObjects, coCdpCachePlatform=coCdpCachePlatform, coCdpCacheTimeToLive=coCdpCacheTimeToLive, coCdpCacheAddress=coCdpCacheAddress, PYSNMP_MODULE_ID=alvarionCdpMIB)

@@ -1,67 +1,45 @@
-_I='slSonetAlarmServiceAffect'
-_H='slSonetAlarmSeverity'
-_G='slSonetAlarmStatus'
-_F='Integer32'
-_E='slSonetAlarmType'
-_D='slSonetAlarmIfIndex'
-_C='read-only'
-_B='SL-SONET-ALARM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-PerfCurrentCount,PerfIntervalCount,PerfTotalCount=mibBuilder.importSymbols('PerfHist-TC-MIB','PerfCurrentCount','PerfIntervalCount','PerfTotalCount')
-slSonetMib,=mibBuilder.importSymbols('SL-SONET-MIB','slSonetMib')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-slSonetAlarmMib=ModuleIdentity((1,3,6,1,4,1,4515,1,6,4))
-class SonetAlarmType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('losSonetAlarm',1),('lofSonetAlarm',2),('lopSonetAlarm',3),('aisSonetAlarm',4),('rfiSonetAlarm',5),('uneqSonetAlarm',6),('tim',7),('slm',8),('sd',9),('sf',10),('hwfail',11)))
-_SlSonetAlarmConfig_ObjectIdentity=ObjectIdentity
-slSonetAlarmConfig=_SlSonetAlarmConfig_ObjectIdentity((1,3,6,1,4,1,4515,1,6,4,1))
-_SlSonetAlarmConfigTable_Object=MibTable
-slSonetAlarmConfigTable=_SlSonetAlarmConfigTable_Object((1,3,6,1,4,1,4515,1,6,4,1,1))
-if mibBuilder.loadTexts:slSonetAlarmConfigTable.setStatus(_A)
-_SlSonetAlarmConfigEntry_Object=MibTableRow
-slSonetAlarmConfigEntry=_SlSonetAlarmConfigEntry_Object((1,3,6,1,4,1,4515,1,6,4,1,1,1))
-slSonetAlarmConfigEntry.setIndexNames((0,_B,_D),(0,_B,_E))
-if mibBuilder.loadTexts:slSonetAlarmConfigEntry.setStatus(_A)
-_SlSonetAlarmIfIndex_Type=InterfaceIndex
-_SlSonetAlarmIfIndex_Object=MibTableColumn
-slSonetAlarmIfIndex=_SlSonetAlarmIfIndex_Object((1,3,6,1,4,1,4515,1,6,4,1,1,1,1),_SlSonetAlarmIfIndex_Type())
-slSonetAlarmIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:slSonetAlarmIfIndex.setStatus(_A)
-_SlSonetAlarmType_Type=SonetAlarmType
-_SlSonetAlarmType_Object=MibTableColumn
-slSonetAlarmType=_SlSonetAlarmType_Object((1,3,6,1,4,1,4515,1,6,4,1,1,1,2),_SlSonetAlarmType_Type())
-slSonetAlarmType.setMaxAccess(_C)
-if mibBuilder.loadTexts:slSonetAlarmType.setStatus(_A)
-_SlSonetAlarmMask_Type=TruthValue
-_SlSonetAlarmMask_Object=MibTableColumn
-slSonetAlarmMask=_SlSonetAlarmMask_Object((1,3,6,1,4,1,4515,1,6,4,1,1,1,3),_SlSonetAlarmMask_Type())
-slSonetAlarmMask.setMaxAccess('read-write')
-if mibBuilder.loadTexts:slSonetAlarmMask.setStatus(_A)
-_SlSonetAlarmStatus_Type=TruthValue
-_SlSonetAlarmStatus_Object=MibTableColumn
-slSonetAlarmStatus=_SlSonetAlarmStatus_Object((1,3,6,1,4,1,4515,1,6,4,1,1,1,4),_SlSonetAlarmStatus_Type())
-slSonetAlarmStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:slSonetAlarmStatus.setStatus(_A)
-_SlSonetAlarmTraps_ObjectIdentity=ObjectIdentity
-slSonetAlarmTraps=_SlSonetAlarmTraps_ObjectIdentity((1,3,6,1,4,1,4515,1,6,4,2))
-class _SlSonetAlarmSeverity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('noAlarm',0),('critical',1),('major',2),('minor',3)))
-_SlSonetAlarmSeverity_Type.__name__=_F
-_SlSonetAlarmSeverity_Object=MibScalar
-slSonetAlarmSeverity=_SlSonetAlarmSeverity_Object((1,3,6,1,4,1,4515,1,6,4,2,1),_SlSonetAlarmSeverity_Type())
-slSonetAlarmSeverity.setMaxAccess(_C)
-if mibBuilder.loadTexts:slSonetAlarmSeverity.setStatus(_A)
-_SlSonetAlarmServiceAffect_Type=TruthValue
-_SlSonetAlarmServiceAffect_Object=MibScalar
-slSonetAlarmServiceAffect=_SlSonetAlarmServiceAffect_Object((1,3,6,1,4,1,4515,1,6,4,2,2),_SlSonetAlarmServiceAffect_Type())
-slSonetAlarmServiceAffect.setMaxAccess(_C)
-if mibBuilder.loadTexts:slSonetAlarmServiceAffect.setStatus(_A)
-slSonetAlarmTrap=NotificationType((1,3,6,1,4,1,4515,1,6,4,2,3))
-slSonetAlarmTrap.setObjects(*((_B,_D),(_B,_E),(_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:slSonetAlarmTrap.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'SonetAlarmType':SonetAlarmType,'slSonetAlarmMib':slSonetAlarmMib,'slSonetAlarmConfig':slSonetAlarmConfig,'slSonetAlarmConfigTable':slSonetAlarmConfigTable,'slSonetAlarmConfigEntry':slSonetAlarmConfigEntry,_D:slSonetAlarmIfIndex,_E:slSonetAlarmType,'slSonetAlarmMask':slSonetAlarmMask,_G:slSonetAlarmStatus,'slSonetAlarmTraps':slSonetAlarmTraps,_H:slSonetAlarmSeverity,_I:slSonetAlarmServiceAffect,'slSonetAlarmTrap':slSonetAlarmTrap})
+#
+# PySNMP MIB module SL-SONET-ALARM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/smartoptics/SL-SONET-ALARM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:00 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+PerfCurrentCount, PerfTotalCount, PerfIntervalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfTotalCount", "PerfIntervalCount")
+slSonetMib, = mibBuilder.importSymbols("SL-SONET-MIB", "slSonetMib")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+slSonetAlarmMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 6, 4))
+if mibBuilder.loadTexts: slSonetAlarmMib.setLastUpdated('0008280000Z')
+if mibBuilder.loadTexts: slSonetAlarmMib.setOrganization('Smartoptics AS')
+class SonetAlarmType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+    namedValues = NamedValues(("losSonetAlarm", 1), ("lofSonetAlarm", 2), ("lopSonetAlarm", 3), ("aisSonetAlarm", 4), ("rfiSonetAlarm", 5), ("uneqSonetAlarm", 6), ("tim", 7), ("slm", 8), ("sd", 9), ("sf", 10), ("hwfail", 11))
+
+slSonetAlarmConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 6, 4, 1))
+slSonetAlarmTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 6, 4, 2))
+slSonetAlarmConfigTable = MibTable((1, 3, 6, 1, 4, 1, 4515, 1, 6, 4, 1, 1), )
+if mibBuilder.loadTexts: slSonetAlarmConfigTable.setStatus('current')
+slSonetAlarmConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4515, 1, 6, 4, 1, 1, 1), ).setIndexNames((0, "SL-SONET-ALARM-MIB", "slSonetAlarmIfIndex"), (0, "SL-SONET-ALARM-MIB", "slSonetAlarmType"))
+if mibBuilder.loadTexts: slSonetAlarmConfigEntry.setStatus('current')
+slSonetAlarmIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 6, 4, 1, 1, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slSonetAlarmIfIndex.setStatus('current')
+slSonetAlarmType = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 6, 4, 1, 1, 1, 2), SonetAlarmType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slSonetAlarmType.setStatus('current')
+slSonetAlarmMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 6, 4, 1, 1, 1, 3), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slSonetAlarmMask.setStatus('current')
+slSonetAlarmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 6, 4, 1, 1, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slSonetAlarmStatus.setStatus('current')
+slSonetAlarmSeverity = MibScalar((1, 3, 6, 1, 4, 1, 4515, 1, 6, 4, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("noAlarm", 0), ("critical", 1), ("major", 2), ("minor", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slSonetAlarmSeverity.setStatus('current')
+slSonetAlarmServiceAffect = MibScalar((1, 3, 6, 1, 4, 1, 4515, 1, 6, 4, 2, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slSonetAlarmServiceAffect.setStatus('current')
+slSonetAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 6, 4, 2, 3)).setObjects(("SL-SONET-ALARM-MIB", "slSonetAlarmIfIndex"), ("SL-SONET-ALARM-MIB", "slSonetAlarmType"), ("SL-SONET-ALARM-MIB", "slSonetAlarmStatus"), ("SL-SONET-ALARM-MIB", "slSonetAlarmSeverity"), ("SL-SONET-ALARM-MIB", "slSonetAlarmServiceAffect"))
+if mibBuilder.loadTexts: slSonetAlarmTrap.setStatus('current')
+mibBuilder.exportSymbols("SL-SONET-ALARM-MIB", slSonetAlarmConfig=slSonetAlarmConfig, slSonetAlarmTraps=slSonetAlarmTraps, slSonetAlarmMask=slSonetAlarmMask, slSonetAlarmConfigTable=slSonetAlarmConfigTable, slSonetAlarmConfigEntry=slSonetAlarmConfigEntry, slSonetAlarmServiceAffect=slSonetAlarmServiceAffect, SonetAlarmType=SonetAlarmType, slSonetAlarmTrap=slSonetAlarmTrap, slSonetAlarmSeverity=slSonetAlarmSeverity, slSonetAlarmStatus=slSonetAlarmStatus, PYSNMP_MODULE_ID=slSonetAlarmMib, slSonetAlarmIfIndex=slSonetAlarmIfIndex, slSonetAlarmMib=slSonetAlarmMib, slSonetAlarmType=slSonetAlarmType)

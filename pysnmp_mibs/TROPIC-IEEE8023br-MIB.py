@@ -1,220 +1,95 @@
-_j='ieee8023brGroup'
-_i='aMACMergeAcctPolicyId'
-_h='aMACMergeHoldCount'
-_g='aMACMergeFragCountTx'
-_f='aMACMergeFragCountRx'
-_e='aMACMergeFrameAssOkCount'
-_d='aMACMergeFrameSmdErrorCount'
-_c='aMACMergeFrameAssErrorCount'
-_b='aMACMergeAddFragSize'
-_a='aMACMergeVerifyTime'
-_Z='aMACMergeStatusTx'
-_Y='aMACMergeVerifyDisableTx'
-_X='aMACMergeEnableTx'
-_W='aMACMergeStatusVerify'
-_V='aMACMergeSupport'
-_U='aLldpXdot3RemAddFragSize'
-_T='aLldpXdot3RemPreemptActive'
-_S='aLldpXdot3RemPreemptEnabled'
-_R='aLldpXdot3RemPreemptSupported'
-_Q='aLldpXdot3LocAddFragSize'
-_P='aLldpXdot3LocPreemptActive'
-_O='aLldpXdot3LocPreemptEnabled'
-_N='aLldpXdot3LocPreemptSupported'
-_M='unknown'
-_L='aMACMergePortID'
-_K='aLldpXdot3RemPortID'
-_J='aLldpXdot3LocPortID'
-_I='Unsigned32'
-_H='false'
-_G='true'
-_F='not-accessible'
-_E='read-create'
-_D='Integer32'
-_C='read-only'
-_B='TROPIC-IEEE8023br-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_I,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-TmnxPortID,=mibBuilder.importSymbols('TN-TC-MIB','TmnxPortID')
-tnIEEE8023brMIB,tnPortModules=mibBuilder.importSymbols('TROPIC-GLOBAL-REG','tnIEEE8023brMIB','tnPortModules')
-tnIEEE8023brMibModule=ModuleIdentity((1,3,6,1,4,1,7483,1,1,2,2,4,9))
-if mibBuilder.loadTexts:tnIEEE8023brMibModule.setRevisions(('2016-08-15 00:00',))
-_TnIEEE8023brEquipmentObjectsNotifications_ObjectIdentity=ObjectIdentity
-tnIEEE8023brEquipmentObjectsNotifications=_TnIEEE8023brEquipmentObjectsNotifications_ObjectIdentity((1,3,6,1,4,1,7483,2,2,4,11,0))
-_TnIEEE8023brObjects_ObjectIdentity=ObjectIdentity
-tnIEEE8023brObjects=_TnIEEE8023brObjects_ObjectIdentity((1,3,6,1,4,1,7483,2,2,4,11,1))
-_TnIEEE8023brObjectsParameters_ObjectIdentity=ObjectIdentity
-tnIEEE8023brObjectsParameters=_TnIEEE8023brObjectsParameters_ObjectIdentity((1,3,6,1,4,1,7483,2,2,4,11,1,1))
-_LldpXdot3LocSystemsGroupTable_Object=MibTable
-lldpXdot3LocSystemsGroupTable=_LldpXdot3LocSystemsGroupTable_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,1))
-if mibBuilder.loadTexts:lldpXdot3LocSystemsGroupTable.setStatus(_A)
-_LldpXdot3LocSystemsGroupEntry_Object=MibTableRow
-lldpXdot3LocSystemsGroupEntry=_LldpXdot3LocSystemsGroupEntry_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,1,1))
-lldpXdot3LocSystemsGroupEntry.setIndexNames((0,_B,_J))
-if mibBuilder.loadTexts:lldpXdot3LocSystemsGroupEntry.setStatus(_A)
-_ALldpXdot3LocPortID_Type=TmnxPortID
-_ALldpXdot3LocPortID_Object=MibTableColumn
-aLldpXdot3LocPortID=_ALldpXdot3LocPortID_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,1,1,1),_ALldpXdot3LocPortID_Type())
-aLldpXdot3LocPortID.setMaxAccess(_F)
-if mibBuilder.loadTexts:aLldpXdot3LocPortID.setStatus(_A)
-_ALldpXdot3LocPreemptSupported_Type=TruthValue
-_ALldpXdot3LocPreemptSupported_Object=MibTableColumn
-aLldpXdot3LocPreemptSupported=_ALldpXdot3LocPreemptSupported_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,1,1,2),_ALldpXdot3LocPreemptSupported_Type())
-aLldpXdot3LocPreemptSupported.setMaxAccess(_C)
-if mibBuilder.loadTexts:aLldpXdot3LocPreemptSupported.setStatus(_A)
-_ALldpXdot3LocPreemptEnabled_Type=TruthValue
-_ALldpXdot3LocPreemptEnabled_Object=MibTableColumn
-aLldpXdot3LocPreemptEnabled=_ALldpXdot3LocPreemptEnabled_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,1,1,3),_ALldpXdot3LocPreemptEnabled_Type())
-aLldpXdot3LocPreemptEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:aLldpXdot3LocPreemptEnabled.setStatus(_A)
-_ALldpXdot3LocPreemptActive_Type=TruthValue
-_ALldpXdot3LocPreemptActive_Object=MibTableColumn
-aLldpXdot3LocPreemptActive=_ALldpXdot3LocPreemptActive_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,1,1,4),_ALldpXdot3LocPreemptActive_Type())
-aLldpXdot3LocPreemptActive.setMaxAccess(_C)
-if mibBuilder.loadTexts:aLldpXdot3LocPreemptActive.setStatus(_A)
-_ALldpXdot3LocAddFragSize_Type=TruthValue
-_ALldpXdot3LocAddFragSize_Object=MibTableColumn
-aLldpXdot3LocAddFragSize=_ALldpXdot3LocAddFragSize_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,1,1,5),_ALldpXdot3LocAddFragSize_Type())
-aLldpXdot3LocAddFragSize.setMaxAccess(_E)
-if mibBuilder.loadTexts:aLldpXdot3LocAddFragSize.setStatus(_A)
-_LldpXdot3RemSystemsGroupTable_Object=MibTable
-lldpXdot3RemSystemsGroupTable=_LldpXdot3RemSystemsGroupTable_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,2))
-if mibBuilder.loadTexts:lldpXdot3RemSystemsGroupTable.setStatus(_A)
-_LldpXdot3RemSystemsGroupEntry_Object=MibTableRow
-lldpXdot3RemSystemsGroupEntry=_LldpXdot3RemSystemsGroupEntry_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,2,1))
-lldpXdot3RemSystemsGroupEntry.setIndexNames((0,_B,_K))
-if mibBuilder.loadTexts:lldpXdot3RemSystemsGroupEntry.setStatus(_A)
-_ALldpXdot3RemPortID_Type=TmnxPortID
-_ALldpXdot3RemPortID_Object=MibTableColumn
-aLldpXdot3RemPortID=_ALldpXdot3RemPortID_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,2,1,1),_ALldpXdot3RemPortID_Type())
-aLldpXdot3RemPortID.setMaxAccess(_F)
-if mibBuilder.loadTexts:aLldpXdot3RemPortID.setStatus(_A)
-_ALldpXdot3RemPreemptSupported_Type=TruthValue
-_ALldpXdot3RemPreemptSupported_Object=MibTableColumn
-aLldpXdot3RemPreemptSupported=_ALldpXdot3RemPreemptSupported_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,2,1,2),_ALldpXdot3RemPreemptSupported_Type())
-aLldpXdot3RemPreemptSupported.setMaxAccess(_C)
-if mibBuilder.loadTexts:aLldpXdot3RemPreemptSupported.setStatus(_A)
-_ALldpXdot3RemPreemptEnabled_Type=TruthValue
-_ALldpXdot3RemPreemptEnabled_Object=MibTableColumn
-aLldpXdot3RemPreemptEnabled=_ALldpXdot3RemPreemptEnabled_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,2,1,3),_ALldpXdot3RemPreemptEnabled_Type())
-aLldpXdot3RemPreemptEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:aLldpXdot3RemPreemptEnabled.setStatus(_A)
-_ALldpXdot3RemPreemptActive_Type=TruthValue
-_ALldpXdot3RemPreemptActive_Object=MibTableColumn
-aLldpXdot3RemPreemptActive=_ALldpXdot3RemPreemptActive_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,2,1,4),_ALldpXdot3RemPreemptActive_Type())
-aLldpXdot3RemPreemptActive.setMaxAccess(_C)
-if mibBuilder.loadTexts:aLldpXdot3RemPreemptActive.setStatus(_A)
-_ALldpXdot3RemAddFragSize_Type=TruthValue
-_ALldpXdot3RemAddFragSize_Object=MibTableColumn
-aLldpXdot3RemAddFragSize=_ALldpXdot3RemAddFragSize_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,2,1,5),_ALldpXdot3RemAddFragSize_Type())
-aLldpXdot3RemAddFragSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:aLldpXdot3RemAddFragSize.setStatus(_A)
-_MacMergeEntityTable_Object=MibTable
-macMergeEntityTable=_MacMergeEntityTable_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3))
-if mibBuilder.loadTexts:macMergeEntityTable.setStatus(_A)
-_MacMergeEntityEntry_Object=MibTableRow
-macMergeEntityEntry=_MacMergeEntityEntry_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1))
-macMergeEntityEntry.setIndexNames((0,_B,_L))
-if mibBuilder.loadTexts:macMergeEntityEntry.setStatus(_A)
-_AMACMergePortID_Type=TmnxPortID
-_AMACMergePortID_Object=MibTableColumn
-aMACMergePortID=_AMACMergePortID_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1,1),_AMACMergePortID_Type())
-aMACMergePortID.setMaxAccess(_F)
-if mibBuilder.loadTexts:aMACMergePortID.setStatus(_A)
-class _AMACMergeSupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_AMACMergeSupport_Type.__name__=_D
-_AMACMergeSupport_Object=MibTableColumn
-aMACMergeSupport=_AMACMergeSupport_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1,2),_AMACMergeSupport_Type())
-aMACMergeSupport.setMaxAccess(_C)
-if mibBuilder.loadTexts:aMACMergeSupport.setStatus(_A)
-class _AMACMergeStatusVerify_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*((_M,0),('initial',1),('verifying',2),('succeeded',3),('failed',4),('disabled',5)))
-_AMACMergeStatusVerify_Type.__name__=_D
-_AMACMergeStatusVerify_Object=MibTableColumn
-aMACMergeStatusVerify=_AMACMergeStatusVerify_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1,3),_AMACMergeStatusVerify_Type())
-aMACMergeStatusVerify.setMaxAccess(_C)
-if mibBuilder.loadTexts:aMACMergeStatusVerify.setStatus(_A)
-class _AMACMergeEnableTx_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_AMACMergeEnableTx_Type.__name__=_D
-_AMACMergeEnableTx_Object=MibTableColumn
-aMACMergeEnableTx=_AMACMergeEnableTx_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1,4),_AMACMergeEnableTx_Type())
-aMACMergeEnableTx.setMaxAccess(_E)
-if mibBuilder.loadTexts:aMACMergeEnableTx.setStatus(_A)
-class _AMACMergeVerifyDisableTx_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_AMACMergeVerifyDisableTx_Type.__name__=_D
-_AMACMergeVerifyDisableTx_Object=MibTableColumn
-aMACMergeVerifyDisableTx=_AMACMergeVerifyDisableTx_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1,5),_AMACMergeVerifyDisableTx_Type())
-aMACMergeVerifyDisableTx.setMaxAccess(_E)
-if mibBuilder.loadTexts:aMACMergeVerifyDisableTx.setStatus(_A)
-class _AMACMergeStatusTx_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_M,0),('inactive',1),('active',2)))
-_AMACMergeStatusTx_Type.__name__=_D
-_AMACMergeStatusTx_Object=MibTableColumn
-aMACMergeStatusTx=_AMACMergeStatusTx_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1,6),_AMACMergeStatusTx_Type())
-aMACMergeStatusTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:aMACMergeStatusTx.setStatus(_A)
-class _AMACMergeVerifyTime_Type(Integer32):defaultValue=10;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,128))
-_AMACMergeVerifyTime_Type.__name__=_D
-_AMACMergeVerifyTime_Object=MibTableColumn
-aMACMergeVerifyTime=_AMACMergeVerifyTime_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1,7),_AMACMergeVerifyTime_Type())
-aMACMergeVerifyTime.setMaxAccess(_E)
-if mibBuilder.loadTexts:aMACMergeVerifyTime.setStatus(_A)
-class _AMACMergeAddFragSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3))
-_AMACMergeAddFragSize_Type.__name__=_D
-_AMACMergeAddFragSize_Object=MibTableColumn
-aMACMergeAddFragSize=_AMACMergeAddFragSize_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1,8),_AMACMergeAddFragSize_Type())
-aMACMergeAddFragSize.setMaxAccess(_E)
-if mibBuilder.loadTexts:aMACMergeAddFragSize.setStatus(_A)
-_AMACMergeFrameAssErrorCount_Type=Counter64
-_AMACMergeFrameAssErrorCount_Object=MibTableColumn
-aMACMergeFrameAssErrorCount=_AMACMergeFrameAssErrorCount_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1,9),_AMACMergeFrameAssErrorCount_Type())
-aMACMergeFrameAssErrorCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:aMACMergeFrameAssErrorCount.setStatus(_A)
-_AMACMergeFrameSmdErrorCount_Type=Counter64
-_AMACMergeFrameSmdErrorCount_Object=MibTableColumn
-aMACMergeFrameSmdErrorCount=_AMACMergeFrameSmdErrorCount_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1,10),_AMACMergeFrameSmdErrorCount_Type())
-aMACMergeFrameSmdErrorCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:aMACMergeFrameSmdErrorCount.setStatus(_A)
-_AMACMergeFrameAssOkCount_Type=Counter64
-_AMACMergeFrameAssOkCount_Object=MibTableColumn
-aMACMergeFrameAssOkCount=_AMACMergeFrameAssOkCount_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1,11),_AMACMergeFrameAssOkCount_Type())
-aMACMergeFrameAssOkCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:aMACMergeFrameAssOkCount.setStatus(_A)
-_AMACMergeFragCountRx_Type=Counter64
-_AMACMergeFragCountRx_Object=MibTableColumn
-aMACMergeFragCountRx=_AMACMergeFragCountRx_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1,12),_AMACMergeFragCountRx_Type())
-aMACMergeFragCountRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:aMACMergeFragCountRx.setStatus(_A)
-_AMACMergeFragCountTx_Type=Counter64
-_AMACMergeFragCountTx_Object=MibTableColumn
-aMACMergeFragCountTx=_AMACMergeFragCountTx_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1,13),_AMACMergeFragCountTx_Type())
-aMACMergeFragCountTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:aMACMergeFragCountTx.setStatus(_A)
-_AMACMergeHoldCount_Type=Counter64
-_AMACMergeHoldCount_Object=MibTableColumn
-aMACMergeHoldCount=_AMACMergeHoldCount_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1,14),_AMACMergeHoldCount_Type())
-aMACMergeHoldCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:aMACMergeHoldCount.setStatus(_A)
-class _AMACMergeAcctPolicyId_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,99))
-_AMACMergeAcctPolicyId_Type.__name__=_I
-_AMACMergeAcctPolicyId_Object=MibTableColumn
-aMACMergeAcctPolicyId=_AMACMergeAcctPolicyId_Object((1,3,6,1,4,1,7483,2,2,4,11,1,1,3,1,15),_AMACMergeAcctPolicyId_Type())
-aMACMergeAcctPolicyId.setMaxAccess(_E)
-if mibBuilder.loadTexts:aMACMergeAcctPolicyId.setStatus(_A)
-_TnIEEE8023brObjectsConformance_ObjectIdentity=ObjectIdentity
-tnIEEE8023brObjectsConformance=_TnIEEE8023brObjectsConformance_ObjectIdentity((1,3,6,1,4,1,7483,2,2,4,11,2))
-_Ieee8023brCompliances_ObjectIdentity=ObjectIdentity
-ieee8023brCompliances=_Ieee8023brCompliances_ObjectIdentity((1,3,6,1,4,1,7483,2,2,4,11,2,1))
-_Ieee8023brGroups_ObjectIdentity=ObjectIdentity
-ieee8023brGroups=_Ieee8023brGroups_ObjectIdentity((1,3,6,1,4,1,7483,2,2,4,11,2,2))
-ieee8023brGroup=ObjectGroup((1,3,6,1,4,1,7483,2,2,4,11,2,2,1))
-ieee8023brGroup.setObjects(*((_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i)))
-if mibBuilder.loadTexts:ieee8023brGroup.setStatus(_A)
-ieee8023brCompliance=ModuleCompliance((1,3,6,1,4,1,7483,2,2,4,11,2,1,1))
-ieee8023brCompliance.setObjects((_B,_j))
-if mibBuilder.loadTexts:ieee8023brCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'tnIEEE8023brMibModule':tnIEEE8023brMibModule,'tnIEEE8023brEquipmentObjectsNotifications':tnIEEE8023brEquipmentObjectsNotifications,'tnIEEE8023brObjects':tnIEEE8023brObjects,'tnIEEE8023brObjectsParameters':tnIEEE8023brObjectsParameters,'lldpXdot3LocSystemsGroupTable':lldpXdot3LocSystemsGroupTable,'lldpXdot3LocSystemsGroupEntry':lldpXdot3LocSystemsGroupEntry,_J:aLldpXdot3LocPortID,_N:aLldpXdot3LocPreemptSupported,_O:aLldpXdot3LocPreemptEnabled,_P:aLldpXdot3LocPreemptActive,_Q:aLldpXdot3LocAddFragSize,'lldpXdot3RemSystemsGroupTable':lldpXdot3RemSystemsGroupTable,'lldpXdot3RemSystemsGroupEntry':lldpXdot3RemSystemsGroupEntry,_K:aLldpXdot3RemPortID,_R:aLldpXdot3RemPreemptSupported,_S:aLldpXdot3RemPreemptEnabled,_T:aLldpXdot3RemPreemptActive,_U:aLldpXdot3RemAddFragSize,'macMergeEntityTable':macMergeEntityTable,'macMergeEntityEntry':macMergeEntityEntry,_L:aMACMergePortID,_V:aMACMergeSupport,_W:aMACMergeStatusVerify,_X:aMACMergeEnableTx,_Y:aMACMergeVerifyDisableTx,_Z:aMACMergeStatusTx,_a:aMACMergeVerifyTime,_b:aMACMergeAddFragSize,_c:aMACMergeFrameAssErrorCount,_d:aMACMergeFrameSmdErrorCount,_e:aMACMergeFrameAssOkCount,_f:aMACMergeFragCountRx,_g:aMACMergeFragCountTx,_h:aMACMergeHoldCount,_i:aMACMergeAcctPolicyId,'tnIEEE8023brObjectsConformance':tnIEEE8023brObjectsConformance,'ieee8023brCompliances':ieee8023brCompliances,'ieee8023brCompliance':ieee8023brCompliance,'ieee8023brGroups':ieee8023brGroups,_j:ieee8023brGroup})
+#
+# PySNMP MIB module TROPIC-IEEE8023br-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TROPIC-IEEE8023br-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:19:04 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+TmnxPortID, = mibBuilder.importSymbols("TN-TC-MIB", "TmnxPortID")
+tnPortModules, tnIEEE8023brMIB = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnPortModules", "tnIEEE8023brMIB")
+tnIEEE8023brMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 1, 1, 2, 2, 4, 9))
+tnIEEE8023brMibModule.setRevisions(('2016-08-15 00:00',))
+if mibBuilder.loadTexts: tnIEEE8023brMibModule.setLastUpdated('201608150000Z')
+if mibBuilder.loadTexts: tnIEEE8023brMibModule.setOrganization('Nokia')
+tnIEEE8023brEquipmentObjectsNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 0))
+tnIEEE8023brObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1))
+tnIEEE8023brObjectsConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 2))
+ieee8023brCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 2, 1))
+ieee8023brGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 2, 2))
+tnIEEE8023brObjectsParameters = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1))
+lldpXdot3LocSystemsGroupTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 1), )
+if mibBuilder.loadTexts: lldpXdot3LocSystemsGroupTable.setStatus('current')
+lldpXdot3LocSystemsGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 1, 1), ).setIndexNames((0, "TROPIC-IEEE8023br-MIB", "aLldpXdot3LocPortID"))
+if mibBuilder.loadTexts: lldpXdot3LocSystemsGroupEntry.setStatus('current')
+aLldpXdot3LocPortID = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 1, 1, 1), TmnxPortID())
+if mibBuilder.loadTexts: aLldpXdot3LocPortID.setStatus('current')
+aLldpXdot3LocPreemptSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 1, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aLldpXdot3LocPreemptSupported.setStatus('current')
+aLldpXdot3LocPreemptEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 1, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aLldpXdot3LocPreemptEnabled.setStatus('current')
+aLldpXdot3LocPreemptActive = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 1, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aLldpXdot3LocPreemptActive.setStatus('current')
+aLldpXdot3LocAddFragSize = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 1, 1, 5), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aLldpXdot3LocAddFragSize.setStatus('current')
+lldpXdot3RemSystemsGroupTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 2), )
+if mibBuilder.loadTexts: lldpXdot3RemSystemsGroupTable.setStatus('current')
+lldpXdot3RemSystemsGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 2, 1), ).setIndexNames((0, "TROPIC-IEEE8023br-MIB", "aLldpXdot3RemPortID"))
+if mibBuilder.loadTexts: lldpXdot3RemSystemsGroupEntry.setStatus('current')
+aLldpXdot3RemPortID = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 2, 1, 1), TmnxPortID())
+if mibBuilder.loadTexts: aLldpXdot3RemPortID.setStatus('current')
+aLldpXdot3RemPreemptSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 2, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aLldpXdot3RemPreemptSupported.setStatus('current')
+aLldpXdot3RemPreemptEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aLldpXdot3RemPreemptEnabled.setStatus('current')
+aLldpXdot3RemPreemptActive = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 2, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aLldpXdot3RemPreemptActive.setStatus('current')
+aLldpXdot3RemAddFragSize = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 2, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aLldpXdot3RemAddFragSize.setStatus('current')
+macMergeEntityTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3), )
+if mibBuilder.loadTexts: macMergeEntityTable.setStatus('current')
+macMergeEntityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1), ).setIndexNames((0, "TROPIC-IEEE8023br-MIB", "aMACMergePortID"))
+if mibBuilder.loadTexts: macMergeEntityEntry.setStatus('current')
+aMACMergePortID = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1, 1), TmnxPortID())
+if mibBuilder.loadTexts: aMACMergePortID.setStatus('current')
+aMACMergeSupport = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("true", 1), ("false", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aMACMergeSupport.setStatus('current')
+aMACMergeStatusVerify = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 0), ("initial", 1), ("verifying", 2), ("succeeded", 3), ("failed", 4), ("disabled", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aMACMergeStatusVerify.setStatus('current')
+aMACMergeEnableTx = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("true", 1), ("false", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aMACMergeEnableTx.setStatus('current')
+aMACMergeVerifyDisableTx = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("true", 1), ("false", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aMACMergeVerifyDisableTx.setStatus('current')
+aMACMergeStatusTx = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("unknown", 0), ("inactive", 1), ("active", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aMACMergeStatusTx.setStatus('current')
+aMACMergeVerifyTime = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 128)).clone(10)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aMACMergeVerifyTime.setStatus('current')
+aMACMergeAddFragSize = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aMACMergeAddFragSize.setStatus('current')
+aMACMergeFrameAssErrorCount = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aMACMergeFrameAssErrorCount.setStatus('current')
+aMACMergeFrameSmdErrorCount = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1, 10), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aMACMergeFrameSmdErrorCount.setStatus('current')
+aMACMergeFrameAssOkCount = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1, 11), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aMACMergeFrameAssOkCount.setStatus('current')
+aMACMergeFragCountRx = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1, 12), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aMACMergeFragCountRx.setStatus('current')
+aMACMergeFragCountTx = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1, 13), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aMACMergeFragCountTx.setStatus('current')
+aMACMergeHoldCount = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1, 14), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aMACMergeHoldCount.setStatus('current')
+aMACMergeAcctPolicyId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 1, 1, 3, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 99))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: aMACMergeAcctPolicyId.setStatus('current')
+ieee8023brGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 2, 2, 1)).setObjects(("TROPIC-IEEE8023br-MIB", "aLldpXdot3LocPreemptSupported"), ("TROPIC-IEEE8023br-MIB", "aLldpXdot3LocPreemptEnabled"), ("TROPIC-IEEE8023br-MIB", "aLldpXdot3LocPreemptActive"), ("TROPIC-IEEE8023br-MIB", "aLldpXdot3LocAddFragSize"), ("TROPIC-IEEE8023br-MIB", "aLldpXdot3RemPreemptSupported"), ("TROPIC-IEEE8023br-MIB", "aLldpXdot3RemPreemptEnabled"), ("TROPIC-IEEE8023br-MIB", "aLldpXdot3RemPreemptActive"), ("TROPIC-IEEE8023br-MIB", "aLldpXdot3RemAddFragSize"), ("TROPIC-IEEE8023br-MIB", "aMACMergeSupport"), ("TROPIC-IEEE8023br-MIB", "aMACMergeStatusVerify"), ("TROPIC-IEEE8023br-MIB", "aMACMergeEnableTx"), ("TROPIC-IEEE8023br-MIB", "aMACMergeVerifyDisableTx"), ("TROPIC-IEEE8023br-MIB", "aMACMergeStatusTx"), ("TROPIC-IEEE8023br-MIB", "aMACMergeVerifyTime"), ("TROPIC-IEEE8023br-MIB", "aMACMergeAddFragSize"), ("TROPIC-IEEE8023br-MIB", "aMACMergeFrameAssErrorCount"), ("TROPIC-IEEE8023br-MIB", "aMACMergeFrameSmdErrorCount"), ("TROPIC-IEEE8023br-MIB", "aMACMergeFrameAssOkCount"), ("TROPIC-IEEE8023br-MIB", "aMACMergeFragCountRx"), ("TROPIC-IEEE8023br-MIB", "aMACMergeFragCountTx"), ("TROPIC-IEEE8023br-MIB", "aMACMergeHoldCount"), ("TROPIC-IEEE8023br-MIB", "aMACMergeAcctPolicyId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8023brGroup = ieee8023brGroup.setStatus('current')
+ieee8023brCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 7483, 2, 2, 4, 11, 2, 1, 1)).setObjects(("TROPIC-IEEE8023br-MIB", "ieee8023brGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8023brCompliance = ieee8023brCompliance.setStatus('current')
+mibBuilder.exportSymbols("TROPIC-IEEE8023br-MIB", ieee8023brCompliance=ieee8023brCompliance, aLldpXdot3RemPortID=aLldpXdot3RemPortID, tnIEEE8023brEquipmentObjectsNotifications=tnIEEE8023brEquipmentObjectsNotifications, aLldpXdot3LocPreemptActive=aLldpXdot3LocPreemptActive, PYSNMP_MODULE_ID=tnIEEE8023brMibModule, aMACMergeFrameSmdErrorCount=aMACMergeFrameSmdErrorCount, aLldpXdot3RemAddFragSize=aLldpXdot3RemAddFragSize, aMACMergeVerifyDisableTx=aMACMergeVerifyDisableTx, aLldpXdot3RemPreemptActive=aLldpXdot3RemPreemptActive, aLldpXdot3LocPreemptEnabled=aLldpXdot3LocPreemptEnabled, aMACMergeEnableTx=aMACMergeEnableTx, aLldpXdot3LocAddFragSize=aLldpXdot3LocAddFragSize, aLldpXdot3RemPreemptSupported=aLldpXdot3RemPreemptSupported, aLldpXdot3LocPortID=aLldpXdot3LocPortID, tnIEEE8023brObjectsParameters=tnIEEE8023brObjectsParameters, tnIEEE8023brMibModule=tnIEEE8023brMibModule, tnIEEE8023brObjectsConformance=tnIEEE8023brObjectsConformance, macMergeEntityEntry=macMergeEntityEntry, lldpXdot3LocSystemsGroupEntry=lldpXdot3LocSystemsGroupEntry, aMACMergeAddFragSize=aMACMergeAddFragSize, lldpXdot3RemSystemsGroupEntry=lldpXdot3RemSystemsGroupEntry, aMACMergeFrameAssOkCount=aMACMergeFrameAssOkCount, ieee8023brGroups=ieee8023brGroups, aMACMergeStatusTx=aMACMergeStatusTx, lldpXdot3LocSystemsGroupTable=lldpXdot3LocSystemsGroupTable, aMACMergeStatusVerify=aMACMergeStatusVerify, aMACMergeAcctPolicyId=aMACMergeAcctPolicyId, aMACMergeSupport=aMACMergeSupport, aMACMergeFragCountRx=aMACMergeFragCountRx, aMACMergeFragCountTx=aMACMergeFragCountTx, aLldpXdot3RemPreemptEnabled=aLldpXdot3RemPreemptEnabled, lldpXdot3RemSystemsGroupTable=lldpXdot3RemSystemsGroupTable, aMACMergeVerifyTime=aMACMergeVerifyTime, aMACMergePortID=aMACMergePortID, ieee8023brGroup=ieee8023brGroup, macMergeEntityTable=macMergeEntityTable, aMACMergeFrameAssErrorCount=aMACMergeFrameAssErrorCount, ieee8023brCompliances=ieee8023brCompliances, aMACMergeHoldCount=aMACMergeHoldCount, aLldpXdot3LocPreemptSupported=aLldpXdot3LocPreemptSupported, tnIEEE8023brObjects=tnIEEE8023brObjects)

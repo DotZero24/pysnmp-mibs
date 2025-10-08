@@ -1,62 +1,43 @@
-_M='ciscoDtiExtNotifsGroup'
-_L='ciscoDtiExtNotifsControlGroup'
-_K='cdeClientStatusChange'
-_J='cdeServerStatusChange'
-_I='cdeClientStatusChangeEnable'
-_H='cdeServerStatusChangeEnable'
-_G='read-write'
-_F='dtiProtocolServerStatusFlag'
-_E='dtiProtocolClientStatusFlag'
-_D='TruthValue'
-_C='DTI-MIB'
-_B='CISCO-DTI-EXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-dtiProtocolClientStatusFlag,dtiProtocolServerStatusFlag=mibBuilder.importSymbols(_C,_E,_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_D)
-ciscoDtiExtMIB=ModuleIdentity((1,3,6,1,4,1,9,9,822))
-if mibBuilder.loadTexts:ciscoDtiExtMIB.setRevisions(('2014-08-22 00:00',))
-_CiscoDtiExtNotifs_ObjectIdentity=ObjectIdentity
-ciscoDtiExtNotifs=_CiscoDtiExtNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,822,0))
-_CiscoDtiExtObjects_ObjectIdentity=ObjectIdentity
-ciscoDtiExtObjects=_CiscoDtiExtObjects_ObjectIdentity((1,3,6,1,4,1,9,9,822,1))
-class _CdeServerStatusChangeEnable_Type(TruthValue):defaultValue=2
-_CdeServerStatusChangeEnable_Type.__name__=_D
-_CdeServerStatusChangeEnable_Object=MibScalar
-cdeServerStatusChangeEnable=_CdeServerStatusChangeEnable_Object((1,3,6,1,4,1,9,9,822,1,1),_CdeServerStatusChangeEnable_Type())
-cdeServerStatusChangeEnable.setMaxAccess(_G)
-if mibBuilder.loadTexts:cdeServerStatusChangeEnable.setStatus(_A)
-class _CdeClientStatusChangeEnable_Type(TruthValue):defaultValue=2
-_CdeClientStatusChangeEnable_Type.__name__=_D
-_CdeClientStatusChangeEnable_Object=MibScalar
-cdeClientStatusChangeEnable=_CdeClientStatusChangeEnable_Object((1,3,6,1,4,1,9,9,822,1,2),_CdeClientStatusChangeEnable_Type())
-cdeClientStatusChangeEnable.setMaxAccess(_G)
-if mibBuilder.loadTexts:cdeClientStatusChangeEnable.setStatus(_A)
-_CiscoDtiExtConform_ObjectIdentity=ObjectIdentity
-ciscoDtiExtConform=_CiscoDtiExtConform_ObjectIdentity((1,3,6,1,4,1,9,9,822,2))
-_CiscoDtiExtCompliances_ObjectIdentity=ObjectIdentity
-ciscoDtiExtCompliances=_CiscoDtiExtCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,822,2,1))
-_CiscoDtiExtGroups_ObjectIdentity=ObjectIdentity
-ciscoDtiExtGroups=_CiscoDtiExtGroups_ObjectIdentity((1,3,6,1,4,1,9,9,822,2,2))
-ciscoDtiExtNotifsControlGroup=ObjectGroup((1,3,6,1,4,1,9,9,822,2,2,1))
-ciscoDtiExtNotifsControlGroup.setObjects(*((_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:ciscoDtiExtNotifsControlGroup.setStatus(_A)
-cdeServerStatusChange=NotificationType((1,3,6,1,4,1,9,9,822,0,1))
-cdeServerStatusChange.setObjects((_C,_F))
-if mibBuilder.loadTexts:cdeServerStatusChange.setStatus(_A)
-cdeClientStatusChange=NotificationType((1,3,6,1,4,1,9,9,822,0,2))
-cdeClientStatusChange.setObjects((_C,_E))
-if mibBuilder.loadTexts:cdeClientStatusChange.setStatus(_A)
-ciscoDtiExtNotifsGroup=NotificationGroup((1,3,6,1,4,1,9,9,822,2,2,2))
-ciscoDtiExtNotifsGroup.setObjects(*((_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:ciscoDtiExtNotifsGroup.setStatus(_A)
-ciscoDtiExtCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,822,2,1,1))
-ciscoDtiExtCompliance.setObjects(*((_B,_L),(_B,_M)))
-if mibBuilder.loadTexts:ciscoDtiExtCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoDtiExtMIB':ciscoDtiExtMIB,'ciscoDtiExtNotifs':ciscoDtiExtNotifs,_J:cdeServerStatusChange,_K:cdeClientStatusChange,'ciscoDtiExtObjects':ciscoDtiExtObjects,_H:cdeServerStatusChangeEnable,_I:cdeClientStatusChangeEnable,'ciscoDtiExtConform':ciscoDtiExtConform,'ciscoDtiExtCompliances':ciscoDtiExtCompliances,'ciscoDtiExtCompliance':ciscoDtiExtCompliance,'ciscoDtiExtGroups':ciscoDtiExtGroups,_L:ciscoDtiExtNotifsControlGroup,_M:ciscoDtiExtNotifsGroup})
+#
+# PySNMP MIB module CISCO-DTI-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-DTI-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:10 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+dtiProtocolServerStatusFlag, dtiProtocolClientStatusFlag = mibBuilder.importSymbols("DTI-MIB", "dtiProtocolServerStatusFlag", "dtiProtocolClientStatusFlag")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ciscoDtiExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 822))
+ciscoDtiExtMIB.setRevisions(('2014-08-22 00:00',))
+if mibBuilder.loadTexts: ciscoDtiExtMIB.setLastUpdated('201408220000Z')
+if mibBuilder.loadTexts: ciscoDtiExtMIB.setOrganization('Cisco Systems, Inc.')
+ciscoDtiExtNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 822, 0))
+ciscoDtiExtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 822, 1))
+ciscoDtiExtConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 822, 2))
+cdeServerStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 822, 0, 1)).setObjects(("DTI-MIB", "dtiProtocolServerStatusFlag"))
+if mibBuilder.loadTexts: cdeServerStatusChange.setStatus('current')
+cdeClientStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 822, 0, 2)).setObjects(("DTI-MIB", "dtiProtocolClientStatusFlag"))
+if mibBuilder.loadTexts: cdeClientStatusChange.setStatus('current')
+ciscoDtiExtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 822, 2, 1))
+cdeServerStatusChangeEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 822, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdeServerStatusChangeEnable.setStatus('current')
+cdeClientStatusChangeEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 822, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdeClientStatusChangeEnable.setStatus('current')
+ciscoDtiExtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 822, 2, 2))
+ciscoDtiExtCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 822, 2, 1, 1)).setObjects(("CISCO-DTI-EXT-MIB", "ciscoDtiExtNotifsControlGroup"), ("CISCO-DTI-EXT-MIB", "ciscoDtiExtNotifsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoDtiExtCompliance = ciscoDtiExtCompliance.setStatus('current')
+ciscoDtiExtNotifsControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 822, 2, 2, 1)).setObjects(("CISCO-DTI-EXT-MIB", "cdeServerStatusChangeEnable"), ("CISCO-DTI-EXT-MIB", "cdeClientStatusChangeEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoDtiExtNotifsControlGroup = ciscoDtiExtNotifsControlGroup.setStatus('current')
+ciscoDtiExtNotifsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 822, 2, 2, 2)).setObjects(("CISCO-DTI-EXT-MIB", "cdeServerStatusChange"), ("CISCO-DTI-EXT-MIB", "cdeClientStatusChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoDtiExtNotifsGroup = ciscoDtiExtNotifsGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-DTI-EXT-MIB", ciscoDtiExtCompliances=ciscoDtiExtCompliances, cdeServerStatusChange=cdeServerStatusChange, ciscoDtiExtNotifsControlGroup=ciscoDtiExtNotifsControlGroup, ciscoDtiExtConform=ciscoDtiExtConform, ciscoDtiExtGroups=ciscoDtiExtGroups, cdeServerStatusChangeEnable=cdeServerStatusChangeEnable, PYSNMP_MODULE_ID=ciscoDtiExtMIB, ciscoDtiExtCompliance=ciscoDtiExtCompliance, ciscoDtiExtObjects=ciscoDtiExtObjects, cdeClientStatusChangeEnable=cdeClientStatusChangeEnable, ciscoDtiExtNotifs=ciscoDtiExtNotifs, cdeClientStatusChange=cdeClientStatusChange, ciscoDtiExtMIB=ciscoDtiExtMIB, ciscoDtiExtNotifsGroup=ciscoDtiExtNotifsGroup)

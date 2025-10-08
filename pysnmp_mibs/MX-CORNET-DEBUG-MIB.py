@@ -1,36 +1,32 @@
-_E='corNetDebugGroupVer1'
-_D='corNetDebugToMSecTraceLevel'
-_C='Integer32'
-_B='MX-CORNET-DEBUG-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mediatrixExperimental,=mibBuilder.importSymbols('MX-SMI','mediatrixExperimental')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-corNetDebugMIB=ModuleIdentity((1,3,6,1,4,1,4935,99,110))
-if mibBuilder.loadTexts:corNetDebugMIB.setRevisions(('2005-05-18 00:00',))
-_CorNetDebugMIBObjects_ObjectIdentity=ObjectIdentity
-corNetDebugMIBObjects=_CorNetDebugMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,99,110,1))
-class _CorNetDebugToMSecTraceLevel_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,10,20,30,40,50,1000)));namedValues=NamedValues(*(('disabled',0),('error',10),('warning',20),('highPriorityInfo',30),('mediumPriorityInfo',40),('lowPriorityInfo',50),('all',1000)))
-_CorNetDebugToMSecTraceLevel_Type.__name__=_C
-_CorNetDebugToMSecTraceLevel_Object=MibScalar
-corNetDebugToMSecTraceLevel=_CorNetDebugToMSecTraceLevel_Object((1,3,6,1,4,1,4935,99,110,1,50),_CorNetDebugToMSecTraceLevel_Type())
-corNetDebugToMSecTraceLevel.setMaxAccess('read-write')
-if mibBuilder.loadTexts:corNetDebugToMSecTraceLevel.setStatus(_A)
-_CorNetDebugConformance_ObjectIdentity=ObjectIdentity
-corNetDebugConformance=_CorNetDebugConformance_ObjectIdentity((1,3,6,1,4,1,4935,99,110,2))
-_CorNetDebugCompliances_ObjectIdentity=ObjectIdentity
-corNetDebugCompliances=_CorNetDebugCompliances_ObjectIdentity((1,3,6,1,4,1,4935,99,110,2,1))
-_CorNetDebugGroups_ObjectIdentity=ObjectIdentity
-corNetDebugGroups=_CorNetDebugGroups_ObjectIdentity((1,3,6,1,4,1,4935,99,110,2,2))
-corNetDebugGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,99,110,2,2,5))
-corNetDebugGroupVer1.setObjects((_B,_D))
-if mibBuilder.loadTexts:corNetDebugGroupVer1.setStatus(_A)
-corNetDebugBasicComplVer1=ModuleCompliance((1,3,6,1,4,1,4935,99,110,2,1,5))
-corNetDebugBasicComplVer1.setObjects((_B,_E))
-if mibBuilder.loadTexts:corNetDebugBasicComplVer1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'corNetDebugMIB':corNetDebugMIB,'corNetDebugMIBObjects':corNetDebugMIBObjects,_D:corNetDebugToMSecTraceLevel,'corNetDebugConformance':corNetDebugConformance,'corNetDebugCompliances':corNetDebugCompliances,'corNetDebugBasicComplVer1':corNetDebugBasicComplVer1,'corNetDebugGroups':corNetDebugGroups,_E:corNetDebugGroupVer1})
+#
+# PySNMP MIB module MX-CORNET-DEBUG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-CORNET-DEBUG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:11 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mediatrixExperimental, = mibBuilder.importSymbols("MX-SMI", "mediatrixExperimental")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+corNetDebugMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 99, 110))
+corNetDebugMIB.setRevisions(('2005-05-18 00:00',))
+if mibBuilder.loadTexts: corNetDebugMIB.setLastUpdated('200505180000Z')
+if mibBuilder.loadTexts: corNetDebugMIB.setOrganization('Mediatrix Telecom, Inc.')
+corNetDebugMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 110, 1))
+corNetDebugConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 110, 2))
+corNetDebugToMSecTraceLevel = MibScalar((1, 3, 6, 1, 4, 1, 4935, 99, 110, 1, 50), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 10, 20, 30, 40, 50, 1000))).clone(namedValues=NamedValues(("disabled", 0), ("error", 10), ("warning", 20), ("highPriorityInfo", 30), ("mediumPriorityInfo", 40), ("lowPriorityInfo", 50), ("all", 1000))).clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: corNetDebugToMSecTraceLevel.setStatus('current')
+corNetDebugCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 110, 2, 1))
+corNetDebugBasicComplVer1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4935, 99, 110, 2, 1, 5)).setObjects(("MX-CORNET-DEBUG-MIB", "corNetDebugGroupVer1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    corNetDebugBasicComplVer1 = corNetDebugBasicComplVer1.setStatus('current')
+corNetDebugGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 110, 2, 2))
+corNetDebugGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 99, 110, 2, 2, 5)).setObjects(("MX-CORNET-DEBUG-MIB", "corNetDebugToMSecTraceLevel"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    corNetDebugGroupVer1 = corNetDebugGroupVer1.setStatus('current')
+mibBuilder.exportSymbols("MX-CORNET-DEBUG-MIB", corNetDebugMIBObjects=corNetDebugMIBObjects, corNetDebugGroupVer1=corNetDebugGroupVer1, corNetDebugMIB=corNetDebugMIB, corNetDebugCompliances=corNetDebugCompliances, corNetDebugBasicComplVer1=corNetDebugBasicComplVer1, corNetDebugGroups=corNetDebugGroups, corNetDebugConformance=corNetDebugConformance, PYSNMP_MODULE_ID=corNetDebugMIB, corNetDebugToMSecTraceLevel=corNetDebugToMSecTraceLevel)

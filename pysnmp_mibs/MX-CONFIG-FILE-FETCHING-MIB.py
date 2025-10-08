@@ -1,225 +1,94 @@
-_o='configFileFetchingTransferServerGroupVer1'
-_n='configFilePrivacyGroupVer1'
-_m='configFileAutomaticUpdateGroupVer1'
-_l='configFileTransferGroupVer1'
-_k='configFileFetchingBasicGroupVer1'
-_j='configFilePrivacySpecificSecret'
-_i='configFilePrivacyGenericSecret'
-_h='configFilePrivacyEnable'
-_g='configFileFetchingDhcpSiteSpecificCode'
-_f='configFileFetchingStaticPort'
-_e='configFileFetchingStaticHost'
-_d='configFileFetchingSelectConfigSource'
-_c='configFileFetchingPort'
-_b='configFileFetchingHost'
-_a='configFileFetchingConfigSource'
-_Z='configFileAutoUpdateTimeRange'
-_Y='configFileAutoUpdateTimeOfDay'
-_X='configFileAutoUpdatePeriod'
-_W='configFileAutoUpdateTimeUnit'
-_V='configFileAutoUpdatePeriodicEnable'
-_U='configFileAutoUpdateOnRestartEnable'
-_T='configFileTransferPassword'
-_S='configFileTransferUsername'
-_R='configFileTransferProtocol'
-_Q='configFileFetchingFileLocation'
-_P='configFileFetchingSpecificFileName'
-_O='configFileFetchingFileName'
-_N='192.168.0.10'
-_M='Unsigned32'
-_L='MxIpSelectConfigSource'
-_K='MxIpDhcpSiteSpecificCode'
-_J='MxIpConfigSource'
-_I='read-only'
-_H='MxIpPort'
-_G='MxIpHostName'
-_F='Integer32'
-_E='MxEnableState'
-_D='OctetString'
-_C='read-write'
-_B='current'
-_A='MX-CONFIG-FILE-FETCHING-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ipAddressConfig,ipAddressStatus,mediatrixConfig=mibBuilder.importSymbols('MX-SMI','ipAddressConfig','ipAddressStatus','mediatrixConfig')
-MxEnableState,MxIpConfigSource,MxIpDhcpSiteSpecificCode,MxIpHostName,MxIpPort,MxIpSelectConfigSource=mibBuilder.importSymbols('MX-TC',_E,_J,_K,_G,_H,_L)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_M,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-configFileFetchingMIB=ModuleIdentity((1,3,6,1,4,1,4935,15,11))
-if mibBuilder.loadTexts:configFileFetchingMIB.setRevisions(('2010-12-15 00:00','2006-03-06 00:00','2005-04-25 00:00','2004-04-27 00:00','2004-03-10 00:00','2004-02-12 00:00','2003-11-14 00:00'))
-_IpAddressStatusConfigFileFetching_ObjectIdentity=ObjectIdentity
-ipAddressStatusConfigFileFetching=_IpAddressStatusConfigFileFetching_ObjectIdentity((1,3,6,1,4,1,4935,10,1,9))
-class _ConfigFileFetchingConfigSource_Type(MxIpConfigSource):defaultValue=1
-_ConfigFileFetchingConfigSource_Type.__name__=_J
-_ConfigFileFetchingConfigSource_Object=MibScalar
-configFileFetchingConfigSource=_ConfigFileFetchingConfigSource_Object((1,3,6,1,4,1,4935,10,1,9,50),_ConfigFileFetchingConfigSource_Type())
-configFileFetchingConfigSource.setMaxAccess(_I)
-if mibBuilder.loadTexts:configFileFetchingConfigSource.setStatus(_B)
-class _ConfigFileFetchingHost_Type(MxIpHostName):defaultValue=OctetString(_N)
-_ConfigFileFetchingHost_Type.__name__=_G
-_ConfigFileFetchingHost_Object=MibScalar
-configFileFetchingHost=_ConfigFileFetchingHost_Object((1,3,6,1,4,1,4935,10,1,9,100),_ConfigFileFetchingHost_Type())
-configFileFetchingHost.setMaxAccess(_I)
-if mibBuilder.loadTexts:configFileFetchingHost.setStatus(_B)
-class _ConfigFileFetchingPort_Type(MxIpPort):defaultValue=69
-_ConfigFileFetchingPort_Type.__name__=_H
-_ConfigFileFetchingPort_Object=MibScalar
-configFileFetchingPort=_ConfigFileFetchingPort_Object((1,3,6,1,4,1,4935,10,1,9,150),_ConfigFileFetchingPort_Type())
-configFileFetchingPort.setMaxAccess(_I)
-if mibBuilder.loadTexts:configFileFetchingPort.setStatus(_B)
-_IpAddressConfigFileFetching_ObjectIdentity=ObjectIdentity
-ipAddressConfigFileFetching=_IpAddressConfigFileFetching_ObjectIdentity((1,3,6,1,4,1,4935,15,1,9))
-class _ConfigFileFetchingSelectConfigSource_Type(MxIpSelectConfigSource):defaultValue=1
-_ConfigFileFetchingSelectConfigSource_Type.__name__=_L
-_ConfigFileFetchingSelectConfigSource_Object=MibScalar
-configFileFetchingSelectConfigSource=_ConfigFileFetchingSelectConfigSource_Object((1,3,6,1,4,1,4935,15,1,9,50),_ConfigFileFetchingSelectConfigSource_Type())
-configFileFetchingSelectConfigSource.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileFetchingSelectConfigSource.setStatus(_B)
-_IpAddressConfigFileFetchingStatic_ObjectIdentity=ObjectIdentity
-ipAddressConfigFileFetchingStatic=_IpAddressConfigFileFetchingStatic_ObjectIdentity((1,3,6,1,4,1,4935,15,1,9,100))
-class _ConfigFileFetchingStaticHost_Type(MxIpHostName):defaultValue=OctetString(_N)
-_ConfigFileFetchingStaticHost_Type.__name__=_G
-_ConfigFileFetchingStaticHost_Object=MibScalar
-configFileFetchingStaticHost=_ConfigFileFetchingStaticHost_Object((1,3,6,1,4,1,4935,15,1,9,100,50),_ConfigFileFetchingStaticHost_Type())
-configFileFetchingStaticHost.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileFetchingStaticHost.setStatus(_B)
-class _ConfigFileFetchingStaticPort_Type(MxIpPort):defaultValue=69
-_ConfigFileFetchingStaticPort_Type.__name__=_H
-_ConfigFileFetchingStaticPort_Object=MibScalar
-configFileFetchingStaticPort=_ConfigFileFetchingStaticPort_Object((1,3,6,1,4,1,4935,15,1,9,100,100),_ConfigFileFetchingStaticPort_Type())
-configFileFetchingStaticPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileFetchingStaticPort.setStatus(_B)
-_IpAddressConfigFileFetchingDhcp_ObjectIdentity=ObjectIdentity
-ipAddressConfigFileFetchingDhcp=_IpAddressConfigFileFetchingDhcp_ObjectIdentity((1,3,6,1,4,1,4935,15,1,9,150))
-class _ConfigFileFetchingDhcpSiteSpecificCode_Type(MxIpDhcpSiteSpecificCode):defaultValue=0
-_ConfigFileFetchingDhcpSiteSpecificCode_Type.__name__=_K
-_ConfigFileFetchingDhcpSiteSpecificCode_Object=MibScalar
-configFileFetchingDhcpSiteSpecificCode=_ConfigFileFetchingDhcpSiteSpecificCode_Object((1,3,6,1,4,1,4935,15,1,9,150,50),_ConfigFileFetchingDhcpSiteSpecificCode_Type())
-configFileFetchingDhcpSiteSpecificCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileFetchingDhcpSiteSpecificCode.setStatus(_B)
-_ConfigFileFetchingMIBObjects_ObjectIdentity=ObjectIdentity
-configFileFetchingMIBObjects=_ConfigFileFetchingMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,15,11,50))
-class _ConfigFileFetchingFileName_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_ConfigFileFetchingFileName_Type.__name__=_D
-_ConfigFileFetchingFileName_Object=MibScalar
-configFileFetchingFileName=_ConfigFileFetchingFileName_Object((1,3,6,1,4,1,4935,15,11,50,50),_ConfigFileFetchingFileName_Type())
-configFileFetchingFileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileFetchingFileName.setStatus(_B)
-class _ConfigFileFetchingSpecificFileName_Type(OctetString):defaultValue=OctetString('%mac%.cfg');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_ConfigFileFetchingSpecificFileName_Type.__name__=_D
-_ConfigFileFetchingSpecificFileName_Object=MibScalar
-configFileFetchingSpecificFileName=_ConfigFileFetchingSpecificFileName_Object((1,3,6,1,4,1,4935,15,11,50,60),_ConfigFileFetchingSpecificFileName_Type())
-configFileFetchingSpecificFileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileFetchingSpecificFileName.setStatus(_B)
-class _ConfigFileFetchingFileLocation_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_ConfigFileFetchingFileLocation_Type.__name__=_D
-_ConfigFileFetchingFileLocation_Object=MibScalar
-configFileFetchingFileLocation=_ConfigFileFetchingFileLocation_Object((1,3,6,1,4,1,4935,15,11,50,100),_ConfigFileFetchingFileLocation_Type())
-configFileFetchingFileLocation.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileFetchingFileLocation.setStatus(_B)
-_ConfigFileTransfer_ObjectIdentity=ObjectIdentity
-configFileTransfer=_ConfigFileTransfer_ObjectIdentity((1,3,6,1,4,1,4935,15,11,50,150))
-class _ConfigFileTransferProtocol_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('tftp',0),('http',1),('https',2)))
-_ConfigFileTransferProtocol_Type.__name__=_F
-_ConfigFileTransferProtocol_Object=MibScalar
-configFileTransferProtocol=_ConfigFileTransferProtocol_Object((1,3,6,1,4,1,4935,15,11,50,150,50),_ConfigFileTransferProtocol_Type())
-configFileTransferProtocol.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileTransferProtocol.setStatus(_B)
-class _ConfigFileTransferUsername_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_ConfigFileTransferUsername_Type.__name__=_D
-_ConfigFileTransferUsername_Object=MibScalar
-configFileTransferUsername=_ConfigFileTransferUsername_Object((1,3,6,1,4,1,4935,15,11,50,150,100),_ConfigFileTransferUsername_Type())
-configFileTransferUsername.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileTransferUsername.setStatus(_B)
-class _ConfigFileTransferPassword_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_ConfigFileTransferPassword_Type.__name__=_D
-_ConfigFileTransferPassword_Object=MibScalar
-configFileTransferPassword=_ConfigFileTransferPassword_Object((1,3,6,1,4,1,4935,15,11,50,150,150),_ConfigFileTransferPassword_Type())
-configFileTransferPassword.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileTransferPassword.setStatus(_B)
-_ConfigFileAutomaticUpdate_ObjectIdentity=ObjectIdentity
-configFileAutomaticUpdate=_ConfigFileAutomaticUpdate_ObjectIdentity((1,3,6,1,4,1,4935,15,11,50,200))
-class _ConfigFileAutoUpdateOnRestartEnable_Type(MxEnableState):defaultValue=1
-_ConfigFileAutoUpdateOnRestartEnable_Type.__name__=_E
-_ConfigFileAutoUpdateOnRestartEnable_Object=MibScalar
-configFileAutoUpdateOnRestartEnable=_ConfigFileAutoUpdateOnRestartEnable_Object((1,3,6,1,4,1,4935,15,11,50,200,50),_ConfigFileAutoUpdateOnRestartEnable_Type())
-configFileAutoUpdateOnRestartEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileAutoUpdateOnRestartEnable.setStatus(_B)
-class _ConfigFileAutoUpdatePeriodicEnable_Type(MxEnableState):defaultValue=0
-_ConfigFileAutoUpdatePeriodicEnable_Type.__name__=_E
-_ConfigFileAutoUpdatePeriodicEnable_Object=MibScalar
-configFileAutoUpdatePeriodicEnable=_ConfigFileAutoUpdatePeriodicEnable_Object((1,3,6,1,4,1,4935,15,11,50,200,100),_ConfigFileAutoUpdatePeriodicEnable_Type())
-configFileAutoUpdatePeriodicEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileAutoUpdatePeriodicEnable.setStatus(_B)
-class _ConfigFileAutoUpdateTimeUnit_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,20)));namedValues=NamedValues(*(('hours',0),('days',1),('minutes',20)))
-_ConfigFileAutoUpdateTimeUnit_Type.__name__=_F
-_ConfigFileAutoUpdateTimeUnit_Object=MibScalar
-configFileAutoUpdateTimeUnit=_ConfigFileAutoUpdateTimeUnit_Object((1,3,6,1,4,1,4935,15,11,50,200,150),_ConfigFileAutoUpdateTimeUnit_Type())
-configFileAutoUpdateTimeUnit.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileAutoUpdateTimeUnit.setStatus(_B)
-class _ConfigFileAutoUpdatePeriod_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,48))
-_ConfigFileAutoUpdatePeriod_Type.__name__=_M
-_ConfigFileAutoUpdatePeriod_Object=MibScalar
-configFileAutoUpdatePeriod=_ConfigFileAutoUpdatePeriod_Object((1,3,6,1,4,1,4935,15,11,50,200,200),_ConfigFileAutoUpdatePeriod_Type())
-configFileAutoUpdatePeriod.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileAutoUpdatePeriod.setStatus(_B)
-class _ConfigFileAutoUpdateTimeOfDay_Type(Integer32):defaultValue=-1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(0,23))
-_ConfigFileAutoUpdateTimeOfDay_Type.__name__=_F
-_ConfigFileAutoUpdateTimeOfDay_Object=MibScalar
-configFileAutoUpdateTimeOfDay=_ConfigFileAutoUpdateTimeOfDay_Object((1,3,6,1,4,1,4935,15,11,50,200,250),_ConfigFileAutoUpdateTimeOfDay_Type())
-configFileAutoUpdateTimeOfDay.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileAutoUpdateTimeOfDay.setStatus('deprecated')
-class _ConfigFileAutoUpdateTimeRange_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,24))
-_ConfigFileAutoUpdateTimeRange_Type.__name__=_D
-_ConfigFileAutoUpdateTimeRange_Object=MibScalar
-configFileAutoUpdateTimeRange=_ConfigFileAutoUpdateTimeRange_Object((1,3,6,1,4,1,4935,15,11,50,200,300),_ConfigFileAutoUpdateTimeRange_Type())
-configFileAutoUpdateTimeRange.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFileAutoUpdateTimeRange.setStatus(_B)
-_ConfigFilePrivacy_ObjectIdentity=ObjectIdentity
-configFilePrivacy=_ConfigFilePrivacy_ObjectIdentity((1,3,6,1,4,1,4935,15,11,50,250))
-class _ConfigFilePrivacyEnable_Type(MxEnableState):defaultValue=0
-_ConfigFilePrivacyEnable_Type.__name__=_E
-_ConfigFilePrivacyEnable_Object=MibScalar
-configFilePrivacyEnable=_ConfigFilePrivacyEnable_Object((1,3,6,1,4,1,4935,15,11,50,250,50),_ConfigFilePrivacyEnable_Type())
-configFilePrivacyEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFilePrivacyEnable.setStatus(_B)
-class _ConfigFilePrivacyGenericSecret_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_ConfigFilePrivacyGenericSecret_Type.__name__=_D
-_ConfigFilePrivacyGenericSecret_Object=MibScalar
-configFilePrivacyGenericSecret=_ConfigFilePrivacyGenericSecret_Object((1,3,6,1,4,1,4935,15,11,50,250,100),_ConfigFilePrivacyGenericSecret_Type())
-configFilePrivacyGenericSecret.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFilePrivacyGenericSecret.setStatus(_B)
-class _ConfigFilePrivacySpecificSecret_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_ConfigFilePrivacySpecificSecret_Type.__name__=_D
-_ConfigFilePrivacySpecificSecret_Object=MibScalar
-configFilePrivacySpecificSecret=_ConfigFilePrivacySpecificSecret_Object((1,3,6,1,4,1,4935,15,11,50,250,150),_ConfigFilePrivacySpecificSecret_Type())
-configFilePrivacySpecificSecret.setMaxAccess(_C)
-if mibBuilder.loadTexts:configFilePrivacySpecificSecret.setStatus(_B)
-_ConfigFileFetchingConformance_ObjectIdentity=ObjectIdentity
-configFileFetchingConformance=_ConfigFileFetchingConformance_ObjectIdentity((1,3,6,1,4,1,4935,15,11,100))
-_ConfigFileFetchingCompliances_ObjectIdentity=ObjectIdentity
-configFileFetchingCompliances=_ConfigFileFetchingCompliances_ObjectIdentity((1,3,6,1,4,1,4935,15,11,100,50))
-_ConfigFileFetchingGroups_ObjectIdentity=ObjectIdentity
-configFileFetchingGroups=_ConfigFileFetchingGroups_ObjectIdentity((1,3,6,1,4,1,4935,15,11,100,100))
-configFileFetchingBasicGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,15,11,100,100,50))
-configFileFetchingBasicGroupVer1.setObjects(*((_A,_O),(_A,_P),(_A,_Q)))
-if mibBuilder.loadTexts:configFileFetchingBasicGroupVer1.setStatus(_B)
-configFileTransferGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,15,11,100,100,65))
-configFileTransferGroupVer1.setObjects(*((_A,_R),(_A,_S),(_A,_T)))
-if mibBuilder.loadTexts:configFileTransferGroupVer1.setStatus(_B)
-configFileAutomaticUpdateGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,15,11,100,100,85))
-configFileAutomaticUpdateGroupVer1.setObjects(*((_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z)))
-if mibBuilder.loadTexts:configFileAutomaticUpdateGroupVer1.setStatus(_B)
-configFileFetchingTransferServerGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,15,11,100,100,100))
-configFileFetchingTransferServerGroupVer1.setObjects(*((_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g)))
-if mibBuilder.loadTexts:configFileFetchingTransferServerGroupVer1.setStatus(_B)
-configFilePrivacyGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,15,11,100,100,105))
-configFilePrivacyGroupVer1.setObjects(*((_A,_h),(_A,_i),(_A,_j)))
-if mibBuilder.loadTexts:configFilePrivacyGroupVer1.setStatus(_B)
-configFileFetchingBasicComplVer1=ModuleCompliance((1,3,6,1,4,1,4935,15,11,100,50,50))
-configFileFetchingBasicComplVer1.setObjects(*((_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o)))
-if mibBuilder.loadTexts:configFileFetchingBasicComplVer1.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ipAddressStatusConfigFileFetching':ipAddressStatusConfigFileFetching,_a:configFileFetchingConfigSource,_b:configFileFetchingHost,_c:configFileFetchingPort,'ipAddressConfigFileFetching':ipAddressConfigFileFetching,_d:configFileFetchingSelectConfigSource,'ipAddressConfigFileFetchingStatic':ipAddressConfigFileFetchingStatic,_e:configFileFetchingStaticHost,_f:configFileFetchingStaticPort,'ipAddressConfigFileFetchingDhcp':ipAddressConfigFileFetchingDhcp,_g:configFileFetchingDhcpSiteSpecificCode,'configFileFetchingMIB':configFileFetchingMIB,'configFileFetchingMIBObjects':configFileFetchingMIBObjects,_O:configFileFetchingFileName,_P:configFileFetchingSpecificFileName,_Q:configFileFetchingFileLocation,'configFileTransfer':configFileTransfer,_R:configFileTransferProtocol,_S:configFileTransferUsername,_T:configFileTransferPassword,'configFileAutomaticUpdate':configFileAutomaticUpdate,_U:configFileAutoUpdateOnRestartEnable,_V:configFileAutoUpdatePeriodicEnable,_W:configFileAutoUpdateTimeUnit,_X:configFileAutoUpdatePeriod,_Y:configFileAutoUpdateTimeOfDay,_Z:configFileAutoUpdateTimeRange,'configFilePrivacy':configFilePrivacy,_h:configFilePrivacyEnable,_i:configFilePrivacyGenericSecret,_j:configFilePrivacySpecificSecret,'configFileFetchingConformance':configFileFetchingConformance,'configFileFetchingCompliances':configFileFetchingCompliances,'configFileFetchingBasicComplVer1':configFileFetchingBasicComplVer1,'configFileFetchingGroups':configFileFetchingGroups,_k:configFileFetchingBasicGroupVer1,_l:configFileTransferGroupVer1,_m:configFileAutomaticUpdateGroupVer1,_o:configFileFetchingTransferServerGroupVer1,_n:configFilePrivacyGroupVer1})
+#
+# PySNMP MIB module MX-CONFIG-FILE-FETCHING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-CONFIG-FILE-FETCHING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ipAddressStatus, mediatrixConfig, ipAddressConfig = mibBuilder.importSymbols("MX-SMI", "ipAddressStatus", "mediatrixConfig", "ipAddressConfig")
+MxIpSelectConfigSource, MxEnableState, MxIpConfigSource, MxIpPort, MxIpHostName, MxIpDhcpSiteSpecificCode = mibBuilder.importSymbols("MX-TC", "MxIpSelectConfigSource", "MxEnableState", "MxIpConfigSource", "MxIpPort", "MxIpHostName", "MxIpDhcpSiteSpecificCode")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+configFileFetchingMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 15, 11))
+configFileFetchingMIB.setRevisions(('2010-12-15 00:00', '2006-03-06 00:00', '2005-04-25 00:00', '2004-04-27 00:00', '2004-03-10 00:00', '2004-02-12 00:00', '2003-11-14 00:00',))
+if mibBuilder.loadTexts: configFileFetchingMIB.setLastUpdated('201012150000Z')
+if mibBuilder.loadTexts: configFileFetchingMIB.setOrganization('Mediatrix Telecom, Inc.')
+configFileFetchingMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50))
+configFileFetchingConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 11, 100))
+configFileFetchingFileName = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 50), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileFetchingFileName.setStatus('current')
+configFileFetchingSpecificFileName = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 60), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 63)).clone('%mac%.cfg')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileFetchingSpecificFileName.setStatus('current')
+configFileFetchingFileLocation = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 100), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileFetchingFileLocation.setStatus('current')
+configFileTransfer = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 150))
+configFileTransferProtocol = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 150, 50), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("tftp", 0), ("http", 1), ("https", 2))).clone('tftp')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileTransferProtocol.setStatus('current')
+configFileTransferUsername = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 150, 100), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileTransferUsername.setStatus('current')
+configFileTransferPassword = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 150, 150), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileTransferPassword.setStatus('current')
+configFileAutomaticUpdate = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 200))
+configFileAutoUpdateOnRestartEnable = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 200, 50), MxEnableState().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileAutoUpdateOnRestartEnable.setStatus('current')
+configFileAutoUpdatePeriodicEnable = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 200, 100), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileAutoUpdatePeriodicEnable.setStatus('current')
+configFileAutoUpdateTimeUnit = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 200, 150), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 20))).clone(namedValues=NamedValues(("hours", 0), ("days", 1), ("minutes", 20))).clone('days')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileAutoUpdateTimeUnit.setStatus('current')
+configFileAutoUpdatePeriod = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 200, 200), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 48)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileAutoUpdatePeriod.setStatus('current')
+configFileAutoUpdateTimeOfDay = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 200, 250), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(0, 23), )).clone(-1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileAutoUpdateTimeOfDay.setStatus('deprecated')
+configFileAutoUpdateTimeRange = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 200, 300), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 24))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileAutoUpdateTimeRange.setStatus('current')
+configFilePrivacy = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 250))
+configFilePrivacyEnable = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 250, 50), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFilePrivacyEnable.setStatus('current')
+configFilePrivacyGenericSecret = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 250, 100), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFilePrivacyGenericSecret.setStatus('current')
+configFilePrivacySpecificSecret = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 11, 50, 250, 150), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFilePrivacySpecificSecret.setStatus('current')
+ipAddressStatusConfigFileFetching = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 10, 1, 9))
+ipAddressConfigFileFetching = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 1, 9))
+configFileFetchingConfigSource = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 1, 9, 50), MxIpConfigSource().clone('dhcp')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: configFileFetchingConfigSource.setStatus('current')
+configFileFetchingHost = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 1, 9, 100), MxIpHostName().clone('192.168.0.10')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: configFileFetchingHost.setStatus('current')
+configFileFetchingPort = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 1, 9, 150), MxIpPort().clone(69)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: configFileFetchingPort.setStatus('current')
+configFileFetchingSelectConfigSource = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 1, 9, 50), MxIpSelectConfigSource().clone('dhcp')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileFetchingSelectConfigSource.setStatus('current')
+ipAddressConfigFileFetchingStatic = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 1, 9, 100))
+configFileFetchingStaticHost = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 1, 9, 100, 50), MxIpHostName().clone('192.168.0.10')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileFetchingStaticHost.setStatus('current')
+configFileFetchingStaticPort = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 1, 9, 100, 100), MxIpPort().clone(69)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileFetchingStaticPort.setStatus('current')
+ipAddressConfigFileFetchingDhcp = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 1, 9, 150))
+configFileFetchingDhcpSiteSpecificCode = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 1, 9, 150, 50), MxIpDhcpSiteSpecificCode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configFileFetchingDhcpSiteSpecificCode.setStatus('current')
+configFileFetchingCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 11, 100, 50))
+configFileFetchingBasicComplVer1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4935, 15, 11, 100, 50, 50)).setObjects(("MX-CONFIG-FILE-FETCHING-MIB", "configFileFetchingBasicGroupVer1"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileTransferGroupVer1"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileAutomaticUpdateGroupVer1"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFilePrivacyGroupVer1"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileFetchingTransferServerGroupVer1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    configFileFetchingBasicComplVer1 = configFileFetchingBasicComplVer1.setStatus('current')
+configFileFetchingGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 11, 100, 100))
+configFileFetchingBasicGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 11, 100, 100, 50)).setObjects(("MX-CONFIG-FILE-FETCHING-MIB", "configFileFetchingFileName"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileFetchingSpecificFileName"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileFetchingFileLocation"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    configFileFetchingBasicGroupVer1 = configFileFetchingBasicGroupVer1.setStatus('current')
+configFileTransferGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 11, 100, 100, 65)).setObjects(("MX-CONFIG-FILE-FETCHING-MIB", "configFileTransferProtocol"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileTransferUsername"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileTransferPassword"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    configFileTransferGroupVer1 = configFileTransferGroupVer1.setStatus('current')
+configFileAutomaticUpdateGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 11, 100, 100, 85)).setObjects(("MX-CONFIG-FILE-FETCHING-MIB", "configFileAutoUpdateOnRestartEnable"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileAutoUpdatePeriodicEnable"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileAutoUpdateTimeUnit"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileAutoUpdatePeriod"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileAutoUpdateTimeOfDay"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileAutoUpdateTimeRange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    configFileAutomaticUpdateGroupVer1 = configFileAutomaticUpdateGroupVer1.setStatus('current')
+configFilePrivacyGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 11, 100, 100, 105)).setObjects(("MX-CONFIG-FILE-FETCHING-MIB", "configFilePrivacyEnable"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFilePrivacyGenericSecret"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFilePrivacySpecificSecret"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    configFilePrivacyGroupVer1 = configFilePrivacyGroupVer1.setStatus('current')
+configFileFetchingTransferServerGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 11, 100, 100, 100)).setObjects(("MX-CONFIG-FILE-FETCHING-MIB", "configFileFetchingConfigSource"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileFetchingHost"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileFetchingPort"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileFetchingSelectConfigSource"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileFetchingStaticHost"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileFetchingStaticPort"), ("MX-CONFIG-FILE-FETCHING-MIB", "configFileFetchingDhcpSiteSpecificCode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    configFileFetchingTransferServerGroupVer1 = configFileFetchingTransferServerGroupVer1.setStatus('current')
+mibBuilder.exportSymbols("MX-CONFIG-FILE-FETCHING-MIB", configFileAutomaticUpdate=configFileAutomaticUpdate, configFileFetchingStaticPort=configFileFetchingStaticPort, configFileFetchingConformance=configFileFetchingConformance, configFileFetchingStaticHost=configFileFetchingStaticHost, configFileFetchingMIB=configFileFetchingMIB, configFileAutomaticUpdateGroupVer1=configFileAutomaticUpdateGroupVer1, configFileTransferProtocol=configFileTransferProtocol, ipAddressConfigFileFetching=ipAddressConfigFileFetching, configFilePrivacyGroupVer1=configFilePrivacyGroupVer1, configFileFetchingDhcpSiteSpecificCode=configFileFetchingDhcpSiteSpecificCode, configFileFetchingBasicGroupVer1=configFileFetchingBasicGroupVer1, configFileFetchingPort=configFileFetchingPort, ipAddressConfigFileFetchingStatic=ipAddressConfigFileFetchingStatic, configFileAutoUpdateTimeRange=configFileAutoUpdateTimeRange, configFileFetchingTransferServerGroupVer1=configFileFetchingTransferServerGroupVer1, configFileFetchingCompliances=configFileFetchingCompliances, configFilePrivacyEnable=configFilePrivacyEnable, configFileTransferGroupVer1=configFileTransferGroupVer1, configFileAutoUpdatePeriodicEnable=configFileAutoUpdatePeriodicEnable, configFileFetchingFileName=configFileFetchingFileName, configFilePrivacySpecificSecret=configFilePrivacySpecificSecret, configFileFetchingConfigSource=configFileFetchingConfigSource, configFileTransfer=configFileTransfer, configFileTransferUsername=configFileTransferUsername, configFilePrivacy=configFilePrivacy, configFileFetchingSelectConfigSource=configFileFetchingSelectConfigSource, configFileTransferPassword=configFileTransferPassword, configFileFetchingMIBObjects=configFileFetchingMIBObjects, configFileFetchingHost=configFileFetchingHost, configFileFetchingGroups=configFileFetchingGroups, ipAddressStatusConfigFileFetching=ipAddressStatusConfigFileFetching, configFileFetchingSpecificFileName=configFileFetchingSpecificFileName, configFileFetchingBasicComplVer1=configFileFetchingBasicComplVer1, configFileAutoUpdatePeriod=configFileAutoUpdatePeriod, PYSNMP_MODULE_ID=configFileFetchingMIB, configFileAutoUpdateTimeUnit=configFileAutoUpdateTimeUnit, ipAddressConfigFileFetchingDhcp=ipAddressConfigFileFetchingDhcp, configFileAutoUpdateTimeOfDay=configFileAutoUpdateTimeOfDay, configFilePrivacyGenericSecret=configFilePrivacyGenericSecret, configFileFetchingFileLocation=configFileFetchingFileLocation, configFileAutoUpdateOnRestartEnable=configFileAutoUpdateOnRestartEnable)

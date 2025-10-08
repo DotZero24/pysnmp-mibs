@@ -1,55 +1,34 @@
-_G='not-accessible'
-_F='jnxIpv4AdEntAddr'
-_E='jnxIpv4AdEntIfIndex'
-_D='read-only'
-_C='JUNIPER-IPv4-MIB'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-jnxMibs,=mibBuilder.importSymbols('JUNIPER-SMI','jnxMibs')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-jnxIpv4=ModuleIdentity((1,3,6,1,4,1,2636,3,12))
-if mibBuilder.loadTexts:jnxIpv4.setRevisions(('2001-08-31 00:00',))
-_JnxIpv4Config_ObjectIdentity=ObjectIdentity
-jnxIpv4Config=_JnxIpv4Config_ObjectIdentity((1,3,6,1,4,1,2636,3,12,1))
-_JnxIpv4AddrTable_Object=MibTable
-jnxIpv4AddrTable=_JnxIpv4AddrTable_Object((1,3,6,1,4,1,2636,3,12,1,1))
-if mibBuilder.loadTexts:jnxIpv4AddrTable.setStatus(_A)
-_JnxIpv4AddrEntry_Object=MibTableRow
-jnxIpv4AddrEntry=_JnxIpv4AddrEntry_Object((1,3,6,1,4,1,2636,3,12,1,1,1))
-jnxIpv4AddrEntry.setIndexNames((0,_C,_E),(0,_C,_F))
-if mibBuilder.loadTexts:jnxIpv4AddrEntry.setStatus(_A)
-class _JnxIpv4AdEntIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_JnxIpv4AdEntIfIndex_Type.__name__=_B
-_JnxIpv4AdEntIfIndex_Object=MibTableColumn
-jnxIpv4AdEntIfIndex=_JnxIpv4AdEntIfIndex_Object((1,3,6,1,4,1,2636,3,12,1,1,1,1),_JnxIpv4AdEntIfIndex_Type())
-jnxIpv4AdEntIfIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:jnxIpv4AdEntIfIndex.setStatus(_A)
-_JnxIpv4AdEntAddr_Type=IpAddress
-_JnxIpv4AdEntAddr_Object=MibTableColumn
-jnxIpv4AdEntAddr=_JnxIpv4AdEntAddr_Object((1,3,6,1,4,1,2636,3,12,1,1,1,2),_JnxIpv4AdEntAddr_Type())
-jnxIpv4AdEntAddr.setMaxAccess(_G)
-if mibBuilder.loadTexts:jnxIpv4AdEntAddr.setStatus(_A)
-_JnxIpv4AdEntNetMask_Type=IpAddress
-_JnxIpv4AdEntNetMask_Object=MibTableColumn
-jnxIpv4AdEntNetMask=_JnxIpv4AdEntNetMask_Object((1,3,6,1,4,1,2636,3,12,1,1,1,3),_JnxIpv4AdEntNetMask_Type())
-jnxIpv4AdEntNetMask.setMaxAccess(_D)
-if mibBuilder.loadTexts:jnxIpv4AdEntNetMask.setStatus(_A)
-class _JnxIpv4AdEntBcastAddr_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
-_JnxIpv4AdEntBcastAddr_Type.__name__=_B
-_JnxIpv4AdEntBcastAddr_Object=MibTableColumn
-jnxIpv4AdEntBcastAddr=_JnxIpv4AdEntBcastAddr_Object((1,3,6,1,4,1,2636,3,12,1,1,1,4),_JnxIpv4AdEntBcastAddr_Type())
-jnxIpv4AdEntBcastAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:jnxIpv4AdEntBcastAddr.setStatus(_A)
-class _JnxIpv4AdEntReasmMaxSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_JnxIpv4AdEntReasmMaxSize_Type.__name__=_B
-_JnxIpv4AdEntReasmMaxSize_Object=MibTableColumn
-jnxIpv4AdEntReasmMaxSize=_JnxIpv4AdEntReasmMaxSize_Object((1,3,6,1,4,1,2636,3,12,1,1,1,5),_JnxIpv4AdEntReasmMaxSize_Type())
-jnxIpv4AdEntReasmMaxSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:jnxIpv4AdEntReasmMaxSize.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'jnxIpv4':jnxIpv4,'jnxIpv4Config':jnxIpv4Config,'jnxIpv4AddrTable':jnxIpv4AddrTable,'jnxIpv4AddrEntry':jnxIpv4AddrEntry,_E:jnxIpv4AdEntIfIndex,_F:jnxIpv4AdEntAddr,'jnxIpv4AdEntNetMask':jnxIpv4AdEntNetMask,'jnxIpv4AdEntBcastAddr':jnxIpv4AdEntBcastAddr,'jnxIpv4AdEntReasmMaxSize':jnxIpv4AdEntReasmMaxSize})
+#
+# PySNMP MIB module JUNIPER-IPv4-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/juniper/JUNIPER-IPv4-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+jnxMibs, = mibBuilder.importSymbols("JUNIPER-SMI", "jnxMibs")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+jnxIpv4 = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 12))
+jnxIpv4.setRevisions(('2001-08-31 00:00',))
+if mibBuilder.loadTexts: jnxIpv4.setLastUpdated('200307182153Z')
+if mibBuilder.loadTexts: jnxIpv4.setOrganization('Juniper Networks, Inc.')
+jnxIpv4Config = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 12, 1))
+jnxIpv4AddrTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 12, 1, 1), )
+if mibBuilder.loadTexts: jnxIpv4AddrTable.setStatus('current')
+jnxIpv4AddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 12, 1, 1, 1), ).setIndexNames((0, "JUNIPER-IPv4-MIB", "jnxIpv4AdEntIfIndex"), (0, "JUNIPER-IPv4-MIB", "jnxIpv4AdEntAddr"))
+if mibBuilder.loadTexts: jnxIpv4AddrEntry.setStatus('current')
+jnxIpv4AdEntIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 12, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: jnxIpv4AdEntIfIndex.setStatus('current')
+jnxIpv4AdEntAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 12, 1, 1, 1, 2), IpAddress())
+if mibBuilder.loadTexts: jnxIpv4AdEntAddr.setStatus('current')
+jnxIpv4AdEntNetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 12, 1, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxIpv4AdEntNetMask.setStatus('current')
+jnxIpv4AdEntBcastAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 12, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxIpv4AdEntBcastAddr.setStatus('current')
+jnxIpv4AdEntReasmMaxSize = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 12, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxIpv4AdEntReasmMaxSize.setStatus('current')
+mibBuilder.exportSymbols("JUNIPER-IPv4-MIB", jnxIpv4AdEntAddr=jnxIpv4AdEntAddr, jnxIpv4AdEntNetMask=jnxIpv4AdEntNetMask, PYSNMP_MODULE_ID=jnxIpv4, jnxIpv4AddrTable=jnxIpv4AddrTable, jnxIpv4AdEntIfIndex=jnxIpv4AdEntIfIndex, jnxIpv4AdEntReasmMaxSize=jnxIpv4AdEntReasmMaxSize, jnxIpv4Config=jnxIpv4Config, jnxIpv4AdEntBcastAddr=jnxIpv4AdEntBcastAddr, jnxIpv4AddrEntry=jnxIpv4AddrEntry, jnxIpv4=jnxIpv4)

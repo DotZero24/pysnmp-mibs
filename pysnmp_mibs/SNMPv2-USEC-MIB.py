@@ -1,107 +1,60 @@
-_R='usecStatsGroup'
-_Q='usecBasicGroup'
-_P='usecStatsUnauthorizedOperations'
-_O='usecStatsBadParameters'
-_N='usecStatsUnknownContexts'
-_M='usecStatsWrongDigestValues'
-_L='usecStatsUnknownUserNames'
-_K='usecStatsNotInWindows'
-_J='usecStatsUnsupportedQoS'
-_I='agentSize'
-_H='agentTime'
-_G='agentBoots'
-_F='agentID'
-_E='Unsigned32'
-_D='Integer32'
-_C='read-only'
-_B='SNMPv2-USEC-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,snmpModules=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso','snmpModules')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-usecMIB=ModuleIdentity((1,3,6,1,6,3,6))
-class AgentID(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(12,12));fixedLength=12
-_UsecMIBObjects_ObjectIdentity=ObjectIdentity
-usecMIBObjects=_UsecMIBObjects_ObjectIdentity((1,3,6,1,6,3,6,1))
-_UsecAgent_ObjectIdentity=ObjectIdentity
-usecAgent=_UsecAgent_ObjectIdentity((1,3,6,1,6,3,6,1,1))
-_AgentID_Type=AgentID
-_AgentID_Object=MibScalar
-agentID=_AgentID_Object((1,3,6,1,6,3,6,1,1,1),_AgentID_Type())
-agentID.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentID.setStatus(_A)
-_AgentBoots_Type=Unsigned32
-_AgentBoots_Object=MibScalar
-agentBoots=_AgentBoots_Object((1,3,6,1,6,3,6,1,1,2),_AgentBoots_Type())
-agentBoots.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentBoots.setStatus(_A)
-class _AgentTime_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_AgentTime_Type.__name__=_E
-_AgentTime_Object=MibScalar
-agentTime=_AgentTime_Object((1,3,6,1,6,3,6,1,1,3),_AgentTime_Type())
-agentTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentTime.setStatus(_A)
-if mibBuilder.loadTexts:agentTime.setUnits('seconds')
-class _AgentSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(484,65507))
-_AgentSize_Type.__name__=_D
-_AgentSize_Object=MibScalar
-agentSize=_AgentSize_Object((1,3,6,1,6,3,6,1,1,4),_AgentSize_Type())
-agentSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:agentSize.setStatus(_A)
-_UsecStats_ObjectIdentity=ObjectIdentity
-usecStats=_UsecStats_ObjectIdentity((1,3,6,1,6,3,6,1,2))
-_UsecStatsUnsupportedQoS_Type=Counter32
-_UsecStatsUnsupportedQoS_Object=MibScalar
-usecStatsUnsupportedQoS=_UsecStatsUnsupportedQoS_Object((1,3,6,1,6,3,6,1,2,1),_UsecStatsUnsupportedQoS_Type())
-usecStatsUnsupportedQoS.setMaxAccess(_C)
-if mibBuilder.loadTexts:usecStatsUnsupportedQoS.setStatus(_A)
-_UsecStatsNotInWindows_Type=Counter32
-_UsecStatsNotInWindows_Object=MibScalar
-usecStatsNotInWindows=_UsecStatsNotInWindows_Object((1,3,6,1,6,3,6,1,2,2),_UsecStatsNotInWindows_Type())
-usecStatsNotInWindows.setMaxAccess(_C)
-if mibBuilder.loadTexts:usecStatsNotInWindows.setStatus(_A)
-_UsecStatsUnknownUserNames_Type=Counter32
-_UsecStatsUnknownUserNames_Object=MibScalar
-usecStatsUnknownUserNames=_UsecStatsUnknownUserNames_Object((1,3,6,1,6,3,6,1,2,3),_UsecStatsUnknownUserNames_Type())
-usecStatsUnknownUserNames.setMaxAccess(_C)
-if mibBuilder.loadTexts:usecStatsUnknownUserNames.setStatus(_A)
-_UsecStatsWrongDigestValues_Type=Counter32
-_UsecStatsWrongDigestValues_Object=MibScalar
-usecStatsWrongDigestValues=_UsecStatsWrongDigestValues_Object((1,3,6,1,6,3,6,1,2,4),_UsecStatsWrongDigestValues_Type())
-usecStatsWrongDigestValues.setMaxAccess(_C)
-if mibBuilder.loadTexts:usecStatsWrongDigestValues.setStatus(_A)
-_UsecStatsUnknownContexts_Type=Counter32
-_UsecStatsUnknownContexts_Object=MibScalar
-usecStatsUnknownContexts=_UsecStatsUnknownContexts_Object((1,3,6,1,6,3,6,1,2,5),_UsecStatsUnknownContexts_Type())
-usecStatsUnknownContexts.setMaxAccess(_C)
-if mibBuilder.loadTexts:usecStatsUnknownContexts.setStatus(_A)
-_UsecStatsBadParameters_Type=Counter32
-_UsecStatsBadParameters_Object=MibScalar
-usecStatsBadParameters=_UsecStatsBadParameters_Object((1,3,6,1,6,3,6,1,2,6),_UsecStatsBadParameters_Type())
-usecStatsBadParameters.setMaxAccess(_C)
-if mibBuilder.loadTexts:usecStatsBadParameters.setStatus(_A)
-_UsecStatsUnauthorizedOperations_Type=Counter32
-_UsecStatsUnauthorizedOperations_Object=MibScalar
-usecStatsUnauthorizedOperations=_UsecStatsUnauthorizedOperations_Object((1,3,6,1,6,3,6,1,2,7),_UsecStatsUnauthorizedOperations_Type())
-usecStatsUnauthorizedOperations.setMaxAccess(_C)
-if mibBuilder.loadTexts:usecStatsUnauthorizedOperations.setStatus(_A)
-_UsecMIBConformance_ObjectIdentity=ObjectIdentity
-usecMIBConformance=_UsecMIBConformance_ObjectIdentity((1,3,6,1,6,3,6,2))
-_UsecMIBCompliances_ObjectIdentity=ObjectIdentity
-usecMIBCompliances=_UsecMIBCompliances_ObjectIdentity((1,3,6,1,6,3,6,2,1))
-_UsecMIBGroups_ObjectIdentity=ObjectIdentity
-usecMIBGroups=_UsecMIBGroups_ObjectIdentity((1,3,6,1,6,3,6,2,2))
-usecBasicGroup=ObjectGroup((1,3,6,1,6,3,6,2,2,1))
-usecBasicGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:usecBasicGroup.setStatus(_A)
-usecStatsGroup=ObjectGroup((1,3,6,1,6,3,6,2,2,2))
-usecStatsGroup.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:usecStatsGroup.setStatus(_A)
-usecMIBCompliance=ModuleCompliance((1,3,6,1,6,3,6,2,1,1))
-usecMIBCompliance.setObjects(*((_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:usecMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'AgentID':AgentID,'usecMIB':usecMIB,'usecMIBObjects':usecMIBObjects,'usecAgent':usecAgent,_F:agentID,_G:agentBoots,_H:agentTime,_I:agentSize,'usecStats':usecStats,_J:usecStatsUnsupportedQoS,_K:usecStatsNotInWindows,_L:usecStatsUnknownUserNames,_M:usecStatsWrongDigestValues,_N:usecStatsUnknownContexts,_O:usecStatsBadParameters,_P:usecStatsUnauthorizedOperations,'usecMIBConformance':usecMIBConformance,'usecMIBCompliances':usecMIBCompliances,'usecMIBCompliance':usecMIBCompliance,'usecMIBGroups':usecMIBGroups,_Q:usecBasicGroup,_R:usecStatsGroup})
+#
+# PySNMP MIB module SNMPv2-USEC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/SNMPv2-USEC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:27:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, snmpModules, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "snmpModules", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+usecMIB = ModuleIdentity((1, 3, 6, 1, 6, 3, 6))
+if mibBuilder.loadTexts: usecMIB.setLastUpdated('9601120000Z')
+if mibBuilder.loadTexts: usecMIB.setOrganization('IETF SNMPv2 Working Group')
+usecMIBObjects = MibIdentifier((1, 3, 6, 1, 6, 3, 6, 1))
+class AgentID(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(12, 12)
+    fixedLength = 12
+
+usecAgent = MibIdentifier((1, 3, 6, 1, 6, 3, 6, 1, 1))
+agentID = MibScalar((1, 3, 6, 1, 6, 3, 6, 1, 1, 1), AgentID()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentID.setStatus('current')
+agentBoots = MibScalar((1, 3, 6, 1, 6, 3, 6, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentBoots.setStatus('current')
+agentTime = MibScalar((1, 3, 6, 1, 6, 3, 6, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentTime.setStatus('current')
+agentSize = MibScalar((1, 3, 6, 1, 6, 3, 6, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(484, 65507))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentSize.setStatus('current')
+usecStats = MibIdentifier((1, 3, 6, 1, 6, 3, 6, 1, 2))
+usecStatsUnsupportedQoS = MibScalar((1, 3, 6, 1, 6, 3, 6, 1, 2, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: usecStatsUnsupportedQoS.setStatus('current')
+usecStatsNotInWindows = MibScalar((1, 3, 6, 1, 6, 3, 6, 1, 2, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: usecStatsNotInWindows.setStatus('current')
+usecStatsUnknownUserNames = MibScalar((1, 3, 6, 1, 6, 3, 6, 1, 2, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: usecStatsUnknownUserNames.setStatus('current')
+usecStatsWrongDigestValues = MibScalar((1, 3, 6, 1, 6, 3, 6, 1, 2, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: usecStatsWrongDigestValues.setStatus('current')
+usecStatsUnknownContexts = MibScalar((1, 3, 6, 1, 6, 3, 6, 1, 2, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: usecStatsUnknownContexts.setStatus('current')
+usecStatsBadParameters = MibScalar((1, 3, 6, 1, 6, 3, 6, 1, 2, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: usecStatsBadParameters.setStatus('current')
+usecStatsUnauthorizedOperations = MibScalar((1, 3, 6, 1, 6, 3, 6, 1, 2, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: usecStatsUnauthorizedOperations.setStatus('current')
+usecMIBConformance = MibIdentifier((1, 3, 6, 1, 6, 3, 6, 2))
+usecMIBCompliances = MibIdentifier((1, 3, 6, 1, 6, 3, 6, 2, 1))
+usecMIBGroups = MibIdentifier((1, 3, 6, 1, 6, 3, 6, 2, 2))
+usecMIBCompliance = ModuleCompliance((1, 3, 6, 1, 6, 3, 6, 2, 1, 1)).setObjects(("SNMPv2-USEC-MIB", "usecBasicGroup"), ("SNMPv2-USEC-MIB", "usecStatsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    usecMIBCompliance = usecMIBCompliance.setStatus('current')
+usecBasicGroup = ObjectGroup((1, 3, 6, 1, 6, 3, 6, 2, 2, 1)).setObjects(("SNMPv2-USEC-MIB", "agentID"), ("SNMPv2-USEC-MIB", "agentBoots"), ("SNMPv2-USEC-MIB", "agentTime"), ("SNMPv2-USEC-MIB", "agentSize"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    usecBasicGroup = usecBasicGroup.setStatus('current')
+usecStatsGroup = ObjectGroup((1, 3, 6, 1, 6, 3, 6, 2, 2, 2)).setObjects(("SNMPv2-USEC-MIB", "usecStatsUnsupportedQoS"), ("SNMPv2-USEC-MIB", "usecStatsNotInWindows"), ("SNMPv2-USEC-MIB", "usecStatsUnknownUserNames"), ("SNMPv2-USEC-MIB", "usecStatsWrongDigestValues"), ("SNMPv2-USEC-MIB", "usecStatsUnknownContexts"), ("SNMPv2-USEC-MIB", "usecStatsBadParameters"), ("SNMPv2-USEC-MIB", "usecStatsUnauthorizedOperations"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    usecStatsGroup = usecStatsGroup.setStatus('current')
+mibBuilder.exportSymbols("SNMPv2-USEC-MIB", usecMIB=usecMIB, usecStatsBadParameters=usecStatsBadParameters, usecBasicGroup=usecBasicGroup, usecMIBObjects=usecMIBObjects, usecStatsUnknownUserNames=usecStatsUnknownUserNames, usecAgent=usecAgent, AgentID=AgentID, usecStatsNotInWindows=usecStatsNotInWindows, agentBoots=agentBoots, usecMIBCompliance=usecMIBCompliance, usecStatsUnsupportedQoS=usecStatsUnsupportedQoS, usecStatsUnknownContexts=usecStatsUnknownContexts, usecStatsGroup=usecStatsGroup, usecStatsUnauthorizedOperations=usecStatsUnauthorizedOperations, usecStatsWrongDigestValues=usecStatsWrongDigestValues, usecMIBCompliances=usecMIBCompliances, usecMIBConformance=usecMIBConformance, agentID=agentID, agentTime=agentTime, usecStats=usecStats, agentSize=agentSize, PYSNMP_MODULE_ID=usecMIB, usecMIBGroups=usecMIBGroups)

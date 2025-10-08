@@ -1,151 +1,73 @@
-_G='atFilev2SDcardStackMemberId'
-_F='atFilev2Filename'
-_E='AT-FILEv2-MIB'
-_D='read-only'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-modules,=mibBuilder.importSymbols('AT-SMI-MIB','modules')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-atFilev2=ModuleIdentity((1,3,6,1,4,1,207,8,4,4,4,600))
-if mibBuilder.loadTexts:atFilev2.setRevisions(('2008-09-24 00:00',))
-_AtFilev2TableOptions_ObjectIdentity=ObjectIdentity
-atFilev2TableOptions=_AtFilev2TableOptions_ObjectIdentity((1,3,6,1,4,1,207,8,4,4,4,600,1))
-class _AtFilev2Recursive_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
-_AtFilev2Recursive_Type.__name__=_C
-_AtFilev2Recursive_Object=MibScalar
-atFilev2Recursive=_AtFilev2Recursive_Object((1,3,6,1,4,1,207,8,4,4,4,600,1,1),_AtFilev2Recursive_Type())
-atFilev2Recursive.setMaxAccess(_B)
-if mibBuilder.loadTexts:atFilev2Recursive.setStatus(_A)
-class _AtFilev2AllFiles_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
-_AtFilev2AllFiles_Type.__name__=_C
-_AtFilev2AllFiles_Object=MibScalar
-atFilev2AllFiles=_AtFilev2AllFiles_Object((1,3,6,1,4,1,207,8,4,4,4,600,1,2),_AtFilev2AllFiles_Type())
-atFilev2AllFiles.setMaxAccess(_B)
-if mibBuilder.loadTexts:atFilev2AllFiles.setStatus(_A)
-class _AtFilev2Device_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3))
-_AtFilev2Device_Type.__name__=_C
-_AtFilev2Device_Object=MibScalar
-atFilev2Device=_AtFilev2Device_Object((1,3,6,1,4,1,207,8,4,4,4,600,1,3),_AtFilev2Device_Type())
-atFilev2Device.setMaxAccess(_B)
-if mibBuilder.loadTexts:atFilev2Device.setStatus(_A)
-class _AtFilev2StackID_Type(Integer32):defaultValue=1
-_AtFilev2StackID_Type.__name__=_C
-_AtFilev2StackID_Object=MibScalar
-atFilev2StackID=_AtFilev2StackID_Object((1,3,6,1,4,1,207,8,4,4,4,600,1,4),_AtFilev2StackID_Type())
-atFilev2StackID.setMaxAccess(_B)
-if mibBuilder.loadTexts:atFilev2StackID.setStatus(_A)
-_AtFilev2Table_Object=MibTable
-atFilev2Table=_AtFilev2Table_Object((1,3,6,1,4,1,207,8,4,4,4,600,2))
-if mibBuilder.loadTexts:atFilev2Table.setStatus(_A)
-_AtFilev2Entry_Object=MibTableRow
-atFilev2Entry=_AtFilev2Entry_Object((1,3,6,1,4,1,207,8,4,4,4,600,2,1))
-atFilev2Entry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:atFilev2Entry.setStatus(_A)
-_AtFilev2Filename_Type=OctetString
-_AtFilev2Filename_Object=MibTableColumn
-atFilev2Filename=_AtFilev2Filename_Object((1,3,6,1,4,1,207,8,4,4,4,600,2,1,1),_AtFilev2Filename_Type())
-atFilev2Filename.setMaxAccess(_D)
-if mibBuilder.loadTexts:atFilev2Filename.setStatus(_A)
-_AtFilev2FileSize_Type=Integer32
-_AtFilev2FileSize_Object=MibTableColumn
-atFilev2FileSize=_AtFilev2FileSize_Object((1,3,6,1,4,1,207,8,4,4,4,600,2,1,2),_AtFilev2FileSize_Type())
-atFilev2FileSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:atFilev2FileSize.setStatus(_A)
-_AtFilev2FileCreationTime_Type=OctetString
-_AtFilev2FileCreationTime_Object=MibTableColumn
-atFilev2FileCreationTime=_AtFilev2FileCreationTime_Object((1,3,6,1,4,1,207,8,4,4,4,600,2,1,3),_AtFilev2FileCreationTime_Type())
-atFilev2FileCreationTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:atFilev2FileCreationTime.setStatus(_A)
-_AtFilev2FileAttribs_Type=OctetString
-_AtFilev2FileAttribs_Object=MibTableColumn
-atFilev2FileAttribs=_AtFilev2FileAttribs_Object((1,3,6,1,4,1,207,8,4,4,4,600,2,1,4),_AtFilev2FileAttribs_Type())
-atFilev2FileAttribs.setMaxAccess(_D)
-if mibBuilder.loadTexts:atFilev2FileAttribs.setStatus(_A)
-_AtFilev2FileOperation_ObjectIdentity=ObjectIdentity
-atFilev2FileOperation=_AtFilev2FileOperation_ObjectIdentity((1,3,6,1,4,1,207,8,4,4,4,600,3))
-_AtFilev2SourceStackID_Type=Integer32
-_AtFilev2SourceStackID_Object=MibScalar
-atFilev2SourceStackID=_AtFilev2SourceStackID_Object((1,3,6,1,4,1,207,8,4,4,4,600,3,1),_AtFilev2SourceStackID_Type())
-atFilev2SourceStackID.setMaxAccess(_B)
-if mibBuilder.loadTexts:atFilev2SourceStackID.setStatus(_A)
-class _AtFilev2SourceDevice_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4))
-_AtFilev2SourceDevice_Type.__name__=_C
-_AtFilev2SourceDevice_Object=MibScalar
-atFilev2SourceDevice=_AtFilev2SourceDevice_Object((1,3,6,1,4,1,207,8,4,4,4,600,3,2),_AtFilev2SourceDevice_Type())
-atFilev2SourceDevice.setMaxAccess(_B)
-if mibBuilder.loadTexts:atFilev2SourceDevice.setStatus(_A)
-_AtFilev2SourceFilename_Type=DisplayString
-_AtFilev2SourceFilename_Object=MibScalar
-atFilev2SourceFilename=_AtFilev2SourceFilename_Object((1,3,6,1,4,1,207,8,4,4,4,600,3,3),_AtFilev2SourceFilename_Type())
-atFilev2SourceFilename.setMaxAccess(_B)
-if mibBuilder.loadTexts:atFilev2SourceFilename.setStatus(_A)
-_AtFilev2DestinationStackID_Type=Integer32
-_AtFilev2DestinationStackID_Object=MibScalar
-atFilev2DestinationStackID=_AtFilev2DestinationStackID_Object((1,3,6,1,4,1,207,8,4,4,4,600,3,4),_AtFilev2DestinationStackID_Type())
-atFilev2DestinationStackID.setMaxAccess(_B)
-if mibBuilder.loadTexts:atFilev2DestinationStackID.setStatus(_A)
-class _AtFilev2DestinationDevice_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4))
-_AtFilev2DestinationDevice_Type.__name__=_C
-_AtFilev2DestinationDevice_Object=MibScalar
-atFilev2DestinationDevice=_AtFilev2DestinationDevice_Object((1,3,6,1,4,1,207,8,4,4,4,600,3,5),_AtFilev2DestinationDevice_Type())
-atFilev2DestinationDevice.setMaxAccess(_B)
-if mibBuilder.loadTexts:atFilev2DestinationDevice.setStatus(_A)
-_AtFilev2DestinationFilename_Type=DisplayString
-_AtFilev2DestinationFilename_Object=MibScalar
-atFilev2DestinationFilename=_AtFilev2DestinationFilename_Object((1,3,6,1,4,1,207,8,4,4,4,600,3,6),_AtFilev2DestinationFilename_Type())
-atFilev2DestinationFilename.setMaxAccess(_B)
-if mibBuilder.loadTexts:atFilev2DestinationFilename.setStatus(_A)
-_AtFilev2CopyBegin_Type=OctetString
-_AtFilev2CopyBegin_Object=MibScalar
-atFilev2CopyBegin=_AtFilev2CopyBegin_Object((1,3,6,1,4,1,207,8,4,4,4,600,3,7),_AtFilev2CopyBegin_Type())
-atFilev2CopyBegin.setMaxAccess(_B)
-if mibBuilder.loadTexts:atFilev2CopyBegin.setStatus(_A)
-_AtFilev2MoveBegin_Type=OctetString
-_AtFilev2MoveBegin_Object=MibScalar
-atFilev2MoveBegin=_AtFilev2MoveBegin_Object((1,3,6,1,4,1,207,8,4,4,4,600,3,8),_AtFilev2MoveBegin_Type())
-atFilev2MoveBegin.setMaxAccess(_B)
-if mibBuilder.loadTexts:atFilev2MoveBegin.setStatus(_A)
-_AtFilev2DeleteBegin_Type=OctetString
-_AtFilev2DeleteBegin_Object=MibScalar
-atFilev2DeleteBegin=_AtFilev2DeleteBegin_Object((1,3,6,1,4,1,207,8,4,4,4,600,3,9),_AtFilev2DeleteBegin_Type())
-atFilev2DeleteBegin.setMaxAccess(_B)
-if mibBuilder.loadTexts:atFilev2DeleteBegin.setStatus(_A)
-_AtFilev2Flash1_ObjectIdentity=ObjectIdentity
-atFilev2Flash1=_AtFilev2Flash1_ObjectIdentity((1,3,6,1,4,1,207,8,4,4,4,600,3,10))
-_AtFilev2Card2_ObjectIdentity=ObjectIdentity
-atFilev2Card2=_AtFilev2Card2_ObjectIdentity((1,3,6,1,4,1,207,8,4,4,4,600,3,11))
-_AtFilev2Nvs3_ObjectIdentity=ObjectIdentity
-atFilev2Nvs3=_AtFilev2Nvs3_ObjectIdentity((1,3,6,1,4,1,207,8,4,4,4,600,3,12))
-_AtFilev2Tftp4_ObjectIdentity=ObjectIdentity
-atFilev2Tftp4=_AtFilev2Tftp4_ObjectIdentity((1,3,6,1,4,1,207,8,4,4,4,600,3,13))
-_AtFilev2TftpIPAddr_Type=IpAddress
-_AtFilev2TftpIPAddr_Object=MibScalar
-atFilev2TftpIPAddr=_AtFilev2TftpIPAddr_Object((1,3,6,1,4,1,207,8,4,4,4,600,3,13,1),_AtFilev2TftpIPAddr_Type())
-atFilev2TftpIPAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:atFilev2TftpIPAddr.setStatus(_A)
-_AtFilev2SDcardTable_Object=MibTable
-atFilev2SDcardTable=_AtFilev2SDcardTable_Object((1,3,6,1,4,1,207,8,4,4,4,600,4))
-if mibBuilder.loadTexts:atFilev2SDcardTable.setStatus(_A)
-_AtFilev2SDcardEntry_Object=MibTableRow
-atFilev2SDcardEntry=_AtFilev2SDcardEntry_Object((1,3,6,1,4,1,207,8,4,4,4,600,4,1))
-atFilev2SDcardEntry.setIndexNames((0,_E,_G))
-if mibBuilder.loadTexts:atFilev2SDcardEntry.setStatus(_A)
-_AtFilev2SDcardStackMemberId_Type=Unsigned32
-_AtFilev2SDcardStackMemberId_Object=MibTableColumn
-atFilev2SDcardStackMemberId=_AtFilev2SDcardStackMemberId_Object((1,3,6,1,4,1,207,8,4,4,4,600,4,1,1),_AtFilev2SDcardStackMemberId_Type())
-atFilev2SDcardStackMemberId.setMaxAccess(_D)
-if mibBuilder.loadTexts:atFilev2SDcardStackMemberId.setStatus(_A)
-class _AtFilev2SDcardPresence_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('notPresent',1),('present',2)))
-_AtFilev2SDcardPresence_Type.__name__=_C
-_AtFilev2SDcardPresence_Object=MibTableColumn
-atFilev2SDcardPresence=_AtFilev2SDcardPresence_Object((1,3,6,1,4,1,207,8,4,4,4,600,4,1,2),_AtFilev2SDcardPresence_Type())
-atFilev2SDcardPresence.setMaxAccess(_D)
-if mibBuilder.loadTexts:atFilev2SDcardPresence.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'atFilev2':atFilev2,'atFilev2TableOptions':atFilev2TableOptions,'atFilev2Recursive':atFilev2Recursive,'atFilev2AllFiles':atFilev2AllFiles,'atFilev2Device':atFilev2Device,'atFilev2StackID':atFilev2StackID,'atFilev2Table':atFilev2Table,'atFilev2Entry':atFilev2Entry,_F:atFilev2Filename,'atFilev2FileSize':atFilev2FileSize,'atFilev2FileCreationTime':atFilev2FileCreationTime,'atFilev2FileAttribs':atFilev2FileAttribs,'atFilev2FileOperation':atFilev2FileOperation,'atFilev2SourceStackID':atFilev2SourceStackID,'atFilev2SourceDevice':atFilev2SourceDevice,'atFilev2SourceFilename':atFilev2SourceFilename,'atFilev2DestinationStackID':atFilev2DestinationStackID,'atFilev2DestinationDevice':atFilev2DestinationDevice,'atFilev2DestinationFilename':atFilev2DestinationFilename,'atFilev2CopyBegin':atFilev2CopyBegin,'atFilev2MoveBegin':atFilev2MoveBegin,'atFilev2DeleteBegin':atFilev2DeleteBegin,'atFilev2Flash1':atFilev2Flash1,'atFilev2Card2':atFilev2Card2,'atFilev2Nvs3':atFilev2Nvs3,'atFilev2Tftp4':atFilev2Tftp4,'atFilev2TftpIPAddr':atFilev2TftpIPAddr,'atFilev2SDcardTable':atFilev2SDcardTable,'atFilev2SDcardEntry':atFilev2SDcardEntry,_G:atFilev2SDcardStackMemberId,'atFilev2SDcardPresence':atFilev2SDcardPresence})
+#
+# PySNMP MIB module AT-FILEv2-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/allied-old/AT-FILEv2-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+atFilev2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600))
+atFilev2.setRevisions(('2008-09-24 00:00',))
+if mibBuilder.loadTexts: atFilev2.setLastUpdated('200809240000Z')
+if mibBuilder.loadTexts: atFilev2.setOrganization('Allied Telesis Labs New Zealand')
+atFilev2TableOptions = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 1))
+atFilev2Recursive = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atFilev2Recursive.setStatus('current')
+atFilev2AllFiles = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atFilev2AllFiles.setStatus('current')
+atFilev2Device = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atFilev2Device.setStatus('current')
+atFilev2StackID = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 1, 4), Integer32().clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atFilev2StackID.setStatus('current')
+atFilev2Table = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 2), )
+if mibBuilder.loadTexts: atFilev2Table.setStatus('current')
+atFilev2Entry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 2, 1), ).setIndexNames((0, "AT-FILEv2-MIB", "atFilev2Filename"))
+if mibBuilder.loadTexts: atFilev2Entry.setStatus('current')
+atFilev2Filename = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 2, 1, 1), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atFilev2Filename.setStatus('current')
+atFilev2FileSize = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atFilev2FileSize.setStatus('current')
+atFilev2FileCreationTime = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 2, 1, 3), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atFilev2FileCreationTime.setStatus('current')
+atFilev2FileAttribs = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 2, 1, 4), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atFilev2FileAttribs.setStatus('current')
+atFilev2FileOperation = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 3))
+atFilev2SourceStackID = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 3, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atFilev2SourceStackID.setStatus('current')
+atFilev2SourceDevice = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 3, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atFilev2SourceDevice.setStatus('current')
+atFilev2SourceFilename = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 3, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atFilev2SourceFilename.setStatus('current')
+atFilev2DestinationStackID = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 3, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atFilev2DestinationStackID.setStatus('current')
+atFilev2DestinationDevice = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 3, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atFilev2DestinationDevice.setStatus('current')
+atFilev2DestinationFilename = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 3, 6), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atFilev2DestinationFilename.setStatus('current')
+atFilev2CopyBegin = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 3, 7), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atFilev2CopyBegin.setStatus('current')
+atFilev2MoveBegin = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 3, 8), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atFilev2MoveBegin.setStatus('current')
+atFilev2DeleteBegin = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 3, 9), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atFilev2DeleteBegin.setStatus('current')
+atFilev2Flash1 = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 3, 10))
+atFilev2Card2 = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 3, 11))
+atFilev2Nvs3 = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 3, 12))
+atFilev2Tftp4 = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 3, 13))
+atFilev2TftpIPAddr = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 3, 13, 1), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: atFilev2TftpIPAddr.setStatus('current')
+atFilev2SDcardTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 4), )
+if mibBuilder.loadTexts: atFilev2SDcardTable.setStatus('current')
+atFilev2SDcardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 4, 1), ).setIndexNames((0, "AT-FILEv2-MIB", "atFilev2SDcardStackMemberId"))
+if mibBuilder.loadTexts: atFilev2SDcardEntry.setStatus('current')
+atFilev2SDcardStackMemberId = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 4, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atFilev2SDcardStackMemberId.setStatus('current')
+atFilev2SDcardPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 600, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("notPresent", 1), ("present", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: atFilev2SDcardPresence.setStatus('current')
+mibBuilder.exportSymbols("AT-FILEv2-MIB", atFilev2Device=atFilev2Device, atFilev2Card2=atFilev2Card2, atFilev2StackID=atFilev2StackID, atFilev2Table=atFilev2Table, atFilev2FileAttribs=atFilev2FileAttribs, atFilev2Nvs3=atFilev2Nvs3, atFilev2FileSize=atFilev2FileSize, atFilev2DestinationFilename=atFilev2DestinationFilename, atFilev2=atFilev2, atFilev2Flash1=atFilev2Flash1, atFilev2MoveBegin=atFilev2MoveBegin, atFilev2SDcardStackMemberId=atFilev2SDcardStackMemberId, atFilev2SourceStackID=atFilev2SourceStackID, atFilev2SDcardTable=atFilev2SDcardTable, atFilev2SourceFilename=atFilev2SourceFilename, atFilev2Entry=atFilev2Entry, atFilev2Tftp4=atFilev2Tftp4, atFilev2DestinationStackID=atFilev2DestinationStackID, atFilev2AllFiles=atFilev2AllFiles, atFilev2SDcardEntry=atFilev2SDcardEntry, PYSNMP_MODULE_ID=atFilev2, atFilev2FileOperation=atFilev2FileOperation, atFilev2DestinationDevice=atFilev2DestinationDevice, atFilev2CopyBegin=atFilev2CopyBegin, atFilev2DeleteBegin=atFilev2DeleteBegin, atFilev2Recursive=atFilev2Recursive, atFilev2SourceDevice=atFilev2SourceDevice, atFilev2TftpIPAddr=atFilev2TftpIPAddr, atFilev2Filename=atFilev2Filename, atFilev2TableOptions=atFilev2TableOptions, atFilev2FileCreationTime=atFilev2FileCreationTime, atFilev2SDcardPresence=atFilev2SDcardPresence)

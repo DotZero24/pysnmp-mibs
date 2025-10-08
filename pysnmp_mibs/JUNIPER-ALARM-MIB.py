@@ -1,58 +1,35 @@
-_D='other'
-_C='Integer32'
-_B='current'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-jnxMibs,=mibBuilder.importSymbols('JUNIPER-SMI','jnxMibs')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp')
-jnxAlarms=ModuleIdentity((1,3,6,1,4,1,2636,3,4))
-_JnxCraftAlarms_ObjectIdentity=ObjectIdentity
-jnxCraftAlarms=_JnxCraftAlarms_ObjectIdentity((1,3,6,1,4,1,2636,3,4,2))
-class _JnxAlarmRelayMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_D,1),('passOn',2),('cutOff',3)))
-_JnxAlarmRelayMode_Type.__name__=_C
-_JnxAlarmRelayMode_Object=MibScalar
-jnxAlarmRelayMode=_JnxAlarmRelayMode_Object((1,3,6,1,4,1,2636,3,4,2,1),_JnxAlarmRelayMode_Type())
-jnxAlarmRelayMode.setMaxAccess(_A)
-if mibBuilder.loadTexts:jnxAlarmRelayMode.setStatus(_B)
-_JnxYellowAlarms_ObjectIdentity=ObjectIdentity
-jnxYellowAlarms=_JnxYellowAlarms_ObjectIdentity((1,3,6,1,4,1,2636,3,4,2,2))
-class _JnxYellowAlarmState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_D,1),('off',2),('on',3)))
-_JnxYellowAlarmState_Type.__name__=_C
-_JnxYellowAlarmState_Object=MibScalar
-jnxYellowAlarmState=_JnxYellowAlarmState_Object((1,3,6,1,4,1,2636,3,4,2,2,1),_JnxYellowAlarmState_Type())
-jnxYellowAlarmState.setMaxAccess(_A)
-if mibBuilder.loadTexts:jnxYellowAlarmState.setStatus(_B)
-_JnxYellowAlarmCount_Type=Gauge32
-_JnxYellowAlarmCount_Object=MibScalar
-jnxYellowAlarmCount=_JnxYellowAlarmCount_Object((1,3,6,1,4,1,2636,3,4,2,2,2),_JnxYellowAlarmCount_Type())
-jnxYellowAlarmCount.setMaxAccess(_A)
-if mibBuilder.loadTexts:jnxYellowAlarmCount.setStatus(_B)
-_JnxYellowAlarmLastChange_Type=TimeStamp
-_JnxYellowAlarmLastChange_Object=MibScalar
-jnxYellowAlarmLastChange=_JnxYellowAlarmLastChange_Object((1,3,6,1,4,1,2636,3,4,2,2,3),_JnxYellowAlarmLastChange_Type())
-jnxYellowAlarmLastChange.setMaxAccess(_A)
-if mibBuilder.loadTexts:jnxYellowAlarmLastChange.setStatus(_B)
-_JnxRedAlarms_ObjectIdentity=ObjectIdentity
-jnxRedAlarms=_JnxRedAlarms_ObjectIdentity((1,3,6,1,4,1,2636,3,4,2,3))
-class _JnxRedAlarmState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_D,1),('off',2),('on',3)))
-_JnxRedAlarmState_Type.__name__=_C
-_JnxRedAlarmState_Object=MibScalar
-jnxRedAlarmState=_JnxRedAlarmState_Object((1,3,6,1,4,1,2636,3,4,2,3,1),_JnxRedAlarmState_Type())
-jnxRedAlarmState.setMaxAccess(_A)
-if mibBuilder.loadTexts:jnxRedAlarmState.setStatus(_B)
-_JnxRedAlarmCount_Type=Gauge32
-_JnxRedAlarmCount_Object=MibScalar
-jnxRedAlarmCount=_JnxRedAlarmCount_Object((1,3,6,1,4,1,2636,3,4,2,3,2),_JnxRedAlarmCount_Type())
-jnxRedAlarmCount.setMaxAccess(_A)
-if mibBuilder.loadTexts:jnxRedAlarmCount.setStatus(_B)
-_JnxRedAlarmLastChange_Type=TimeStamp
-_JnxRedAlarmLastChange_Object=MibScalar
-jnxRedAlarmLastChange=_JnxRedAlarmLastChange_Object((1,3,6,1,4,1,2636,3,4,2,3,3),_JnxRedAlarmLastChange_Type())
-jnxRedAlarmLastChange.setMaxAccess(_A)
-if mibBuilder.loadTexts:jnxRedAlarmLastChange.setStatus(_B)
-mibBuilder.exportSymbols('JUNIPER-ALARM-MIB',**{'jnxAlarms':jnxAlarms,'jnxCraftAlarms':jnxCraftAlarms,'jnxAlarmRelayMode':jnxAlarmRelayMode,'jnxYellowAlarms':jnxYellowAlarms,'jnxYellowAlarmState':jnxYellowAlarmState,'jnxYellowAlarmCount':jnxYellowAlarmCount,'jnxYellowAlarmLastChange':jnxYellowAlarmLastChange,'jnxRedAlarms':jnxRedAlarms,'jnxRedAlarmState':jnxRedAlarmState,'jnxRedAlarmCount':jnxRedAlarmCount,'jnxRedAlarmLastChange':jnxRedAlarmLastChange})
+#
+# PySNMP MIB module JUNIPER-ALARM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/juniper/JUNIPER-ALARM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+jnxMibs, = mibBuilder.importSymbols("JUNIPER-SMI", "jnxMibs")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+jnxAlarms = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 4))
+if mibBuilder.loadTexts: jnxAlarms.setLastUpdated('200307182153Z')
+if mibBuilder.loadTexts: jnxAlarms.setOrganization('Juniper Networks, Inc.')
+jnxCraftAlarms = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 4, 2))
+jnxAlarmRelayMode = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 4, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("passOn", 2), ("cutOff", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxAlarmRelayMode.setStatus('current')
+jnxYellowAlarms = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 4, 2, 2))
+jnxYellowAlarmState = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 4, 2, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("off", 2), ("on", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxYellowAlarmState.setStatus('current')
+jnxYellowAlarmCount = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 4, 2, 2, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxYellowAlarmCount.setStatus('current')
+jnxYellowAlarmLastChange = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 4, 2, 2, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxYellowAlarmLastChange.setStatus('current')
+jnxRedAlarms = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 4, 2, 3))
+jnxRedAlarmState = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 4, 2, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("off", 2), ("on", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxRedAlarmState.setStatus('current')
+jnxRedAlarmCount = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 4, 2, 3, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxRedAlarmCount.setStatus('current')
+jnxRedAlarmLastChange = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 4, 2, 3, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxRedAlarmLastChange.setStatus('current')
+mibBuilder.exportSymbols("JUNIPER-ALARM-MIB", jnxYellowAlarmState=jnxYellowAlarmState, jnxAlarmRelayMode=jnxAlarmRelayMode, jnxYellowAlarmLastChange=jnxYellowAlarmLastChange, jnxCraftAlarms=jnxCraftAlarms, jnxRedAlarmState=jnxRedAlarmState, jnxRedAlarmCount=jnxRedAlarmCount, jnxRedAlarms=jnxRedAlarms, jnxYellowAlarmCount=jnxYellowAlarmCount, jnxAlarms=jnxAlarms, PYSNMP_MODULE_ID=jnxAlarms, jnxYellowAlarms=jnxYellowAlarms, jnxRedAlarmLastChange=jnxRedAlarmLastChange)

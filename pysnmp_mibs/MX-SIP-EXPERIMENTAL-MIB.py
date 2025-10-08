@@ -1,97 +1,50 @@
-_O='sipExperimentalGroupVer1'
-_N='sipAllowAudioAndImageNegotiationEnable'
-_M='sipAllowMediaReactivationInAnswerEnable'
-_L='sipRtpUdpChecksumEnable'
-_K='sipEnforceOfferAnswerModel'
-_J='sipOutboundProxyConfig'
-_I='sipUnregisteredPortBehavior'
-_H='sipNatCustomPublicAddress'
-_G='sipNatCustomEnable'
-_F='MxIpHostName'
-_E='Integer32'
-_D='MxEnableState'
-_C='read-write'
-_B='MX-SIP-EXPERIMENTAL-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mediatrixExperimental,=mibBuilder.importSymbols('MX-SMI','mediatrixExperimental')
-MxEnableState,MxIpHostName=mibBuilder.importSymbols('MX-TC',_D,_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-sipExperimentalMIB=ModuleIdentity((1,3,6,1,4,1,4935,99,10))
-if mibBuilder.loadTexts:sipExperimentalMIB.setRevisions(('2009-08-17 00:00','2008-04-03 00:00','2007-10-31 00:00','2006-02-28 00:00','2003-04-30 00:00','2003-03-11 00:00','2003-01-23 00:00','2002-12-17 00:00','2002-12-02 00:00','2002-07-05 00:00','2002-02-13 00:00'))
-_SipExperimentalMIBObjects_ObjectIdentity=ObjectIdentity
-sipExperimentalMIBObjects=_SipExperimentalMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,99,10,1))
-_SipNatCustom_ObjectIdentity=ObjectIdentity
-sipNatCustom=_SipNatCustom_ObjectIdentity((1,3,6,1,4,1,4935,99,10,1,5))
-class _SipNatCustomEnable_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disable',0),('enable',1)))
-_SipNatCustomEnable_Type.__name__=_E
-_SipNatCustomEnable_Object=MibScalar
-sipNatCustomEnable=_SipNatCustomEnable_Object((1,3,6,1,4,1,4935,99,10,1,5,5),_SipNatCustomEnable_Type())
-sipNatCustomEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:sipNatCustomEnable.setStatus(_A)
-class _SipNatCustomPublicAddress_Type(MxIpHostName):defaultValue=OctetString('0.0.0.0')
-_SipNatCustomPublicAddress_Type.__name__=_F
-_SipNatCustomPublicAddress_Object=MibScalar
-sipNatCustomPublicAddress=_SipNatCustomPublicAddress_Object((1,3,6,1,4,1,4935,99,10,1,5,10),_SipNatCustomPublicAddress_Type())
-sipNatCustomPublicAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:sipNatCustomPublicAddress.setStatus(_A)
-class _SipUnregisteredPortBehavior_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disablePort',0),('enablePort',1)))
-_SipUnregisteredPortBehavior_Type.__name__=_E
-_SipUnregisteredPortBehavior_Object=MibScalar
-sipUnregisteredPortBehavior=_SipUnregisteredPortBehavior_Object((1,3,6,1,4,1,4935,99,10,1,25),_SipUnregisteredPortBehavior_Type())
-sipUnregisteredPortBehavior.setMaxAccess(_C)
-if mibBuilder.loadTexts:sipUnregisteredPortBehavior.setStatus(_A)
-class _SipOutboundProxyConfig_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('looseRouter',0),('strictRouter',1)))
-_SipOutboundProxyConfig_Type.__name__=_E
-_SipOutboundProxyConfig_Object=MibScalar
-sipOutboundProxyConfig=_SipOutboundProxyConfig_Object((1,3,6,1,4,1,4935,99,10,1,30),_SipOutboundProxyConfig_Type())
-sipOutboundProxyConfig.setMaxAccess(_C)
-if mibBuilder.loadTexts:sipOutboundProxyConfig.setStatus(_A)
-class _SipEnforceOfferAnswerModel_Type(MxEnableState):defaultValue=1
-_SipEnforceOfferAnswerModel_Type.__name__=_D
-_SipEnforceOfferAnswerModel_Object=MibScalar
-sipEnforceOfferAnswerModel=_SipEnforceOfferAnswerModel_Object((1,3,6,1,4,1,4935,99,10,1,80),_SipEnforceOfferAnswerModel_Type())
-sipEnforceOfferAnswerModel.setMaxAccess(_C)
-if mibBuilder.loadTexts:sipEnforceOfferAnswerModel.setStatus(_A)
-class _SipAllowMediaReactivationInAnswerEnable_Type(MxEnableState):defaultValue=0
-_SipAllowMediaReactivationInAnswerEnable_Type.__name__=_D
-_SipAllowMediaReactivationInAnswerEnable_Object=MibScalar
-sipAllowMediaReactivationInAnswerEnable=_SipAllowMediaReactivationInAnswerEnable_Object((1,3,6,1,4,1,4935,99,10,1,85),_SipAllowMediaReactivationInAnswerEnable_Type())
-sipAllowMediaReactivationInAnswerEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:sipAllowMediaReactivationInAnswerEnable.setStatus(_A)
-class _SipAllowAudioAndImageNegotiationEnable_Type(MxEnableState):defaultValue=0
-_SipAllowAudioAndImageNegotiationEnable_Type.__name__=_D
-_SipAllowAudioAndImageNegotiationEnable_Object=MibScalar
-sipAllowAudioAndImageNegotiationEnable=_SipAllowAudioAndImageNegotiationEnable_Object((1,3,6,1,4,1,4935,99,10,1,90),_SipAllowAudioAndImageNegotiationEnable_Type())
-sipAllowAudioAndImageNegotiationEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:sipAllowAudioAndImageNegotiationEnable.setStatus(_A)
-class _SipCodecOrderInAnswer_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('localOrder',0),('offerOrder',1)))
-_SipCodecOrderInAnswer_Type.__name__=_E
-_SipCodecOrderInAnswer_Object=MibScalar
-sipCodecOrderInAnswer=_SipCodecOrderInAnswer_Object((1,3,6,1,4,1,4935,99,10,1,95),_SipCodecOrderInAnswer_Type())
-sipCodecOrderInAnswer.setMaxAccess(_C)
-if mibBuilder.loadTexts:sipCodecOrderInAnswer.setStatus(_A)
-class _SipRtpUdpChecksumEnable_Type(MxEnableState):defaultValue=0
-_SipRtpUdpChecksumEnable_Type.__name__=_D
-_SipRtpUdpChecksumEnable_Object=MibScalar
-sipRtpUdpChecksumEnable=_SipRtpUdpChecksumEnable_Object((1,3,6,1,4,1,4935,99,10,1,130),_SipRtpUdpChecksumEnable_Type())
-sipRtpUdpChecksumEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:sipRtpUdpChecksumEnable.setStatus(_A)
-_SipExperimentalConformance_ObjectIdentity=ObjectIdentity
-sipExperimentalConformance=_SipExperimentalConformance_ObjectIdentity((1,3,6,1,4,1,4935,99,10,2))
-_SipExperimentalCompliances_ObjectIdentity=ObjectIdentity
-sipExperimentalCompliances=_SipExperimentalCompliances_ObjectIdentity((1,3,6,1,4,1,4935,99,10,2,1))
-_SipExperimentalGroups_ObjectIdentity=ObjectIdentity
-sipExperimentalGroups=_SipExperimentalGroups_ObjectIdentity((1,3,6,1,4,1,4935,99,10,2,2))
-sipExperimentalGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,99,10,2,2,5))
-sipExperimentalGroupVer1.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:sipExperimentalGroupVer1.setStatus(_A)
-sipExperimentalBasicComplVer1=ModuleCompliance((1,3,6,1,4,1,4935,99,10,2,1,1))
-sipExperimentalBasicComplVer1.setObjects((_B,_O))
-if mibBuilder.loadTexts:sipExperimentalBasicComplVer1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'sipExperimentalMIB':sipExperimentalMIB,'sipExperimentalMIBObjects':sipExperimentalMIBObjects,'sipNatCustom':sipNatCustom,_G:sipNatCustomEnable,_H:sipNatCustomPublicAddress,_I:sipUnregisteredPortBehavior,_J:sipOutboundProxyConfig,_K:sipEnforceOfferAnswerModel,_M:sipAllowMediaReactivationInAnswerEnable,_N:sipAllowAudioAndImageNegotiationEnable,'sipCodecOrderInAnswer':sipCodecOrderInAnswer,_L:sipRtpUdpChecksumEnable,'sipExperimentalConformance':sipExperimentalConformance,'sipExperimentalCompliances':sipExperimentalCompliances,'sipExperimentalBasicComplVer1':sipExperimentalBasicComplVer1,'sipExperimentalGroups':sipExperimentalGroups,_O:sipExperimentalGroupVer1})
+#
+# PySNMP MIB module MX-SIP-EXPERIMENTAL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-SIP-EXPERIMENTAL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mediatrixExperimental, = mibBuilder.importSymbols("MX-SMI", "mediatrixExperimental")
+MxIpHostName, MxEnableState = mibBuilder.importSymbols("MX-TC", "MxIpHostName", "MxEnableState")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+sipExperimentalMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 99, 10))
+sipExperimentalMIB.setRevisions(('2009-08-17 00:00', '2008-04-03 00:00', '2007-10-31 00:00', '2006-02-28 00:00', '2003-04-30 00:00', '2003-03-11 00:00', '2003-01-23 00:00', '2002-12-17 00:00', '2002-12-02 00:00', '2002-07-05 00:00', '2002-02-13 00:00',))
+if mibBuilder.loadTexts: sipExperimentalMIB.setLastUpdated('200908170000Z')
+if mibBuilder.loadTexts: sipExperimentalMIB.setOrganization('Mediatrix Telecom, Inc.')
+sipExperimentalMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 10, 1))
+sipExperimentalConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 10, 2))
+sipNatCustom = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 10, 1, 5))
+sipNatCustomEnable = MibScalar((1, 3, 6, 1, 4, 1, 4935, 99, 10, 1, 5, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sipNatCustomEnable.setStatus('current')
+sipNatCustomPublicAddress = MibScalar((1, 3, 6, 1, 4, 1, 4935, 99, 10, 1, 5, 10), MxIpHostName().clone('0.0.0.0')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sipNatCustomPublicAddress.setStatus('current')
+sipUnregisteredPortBehavior = MibScalar((1, 3, 6, 1, 4, 1, 4935, 99, 10, 1, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disablePort", 0), ("enablePort", 1))).clone('disablePort')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sipUnregisteredPortBehavior.setStatus('current')
+sipOutboundProxyConfig = MibScalar((1, 3, 6, 1, 4, 1, 4935, 99, 10, 1, 30), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("looseRouter", 0), ("strictRouter", 1))).clone('looseRouter')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sipOutboundProxyConfig.setStatus('current')
+sipEnforceOfferAnswerModel = MibScalar((1, 3, 6, 1, 4, 1, 4935, 99, 10, 1, 80), MxEnableState().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sipEnforceOfferAnswerModel.setStatus('current')
+sipAllowMediaReactivationInAnswerEnable = MibScalar((1, 3, 6, 1, 4, 1, 4935, 99, 10, 1, 85), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sipAllowMediaReactivationInAnswerEnable.setStatus('current')
+sipAllowAudioAndImageNegotiationEnable = MibScalar((1, 3, 6, 1, 4, 1, 4935, 99, 10, 1, 90), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sipAllowAudioAndImageNegotiationEnable.setStatus('current')
+sipCodecOrderInAnswer = MibScalar((1, 3, 6, 1, 4, 1, 4935, 99, 10, 1, 95), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("localOrder", 0), ("offerOrder", 1))).clone('localOrder')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sipCodecOrderInAnswer.setStatus('current')
+sipRtpUdpChecksumEnable = MibScalar((1, 3, 6, 1, 4, 1, 4935, 99, 10, 1, 130), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sipRtpUdpChecksumEnable.setStatus('current')
+sipExperimentalCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 10, 2, 1))
+sipExperimentalBasicComplVer1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4935, 99, 10, 2, 1, 1)).setObjects(("MX-SIP-EXPERIMENTAL-MIB", "sipExperimentalGroupVer1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    sipExperimentalBasicComplVer1 = sipExperimentalBasicComplVer1.setStatus('current')
+sipExperimentalGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 99, 10, 2, 2))
+sipExperimentalGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 99, 10, 2, 2, 5)).setObjects(("MX-SIP-EXPERIMENTAL-MIB", "sipNatCustomEnable"), ("MX-SIP-EXPERIMENTAL-MIB", "sipNatCustomPublicAddress"), ("MX-SIP-EXPERIMENTAL-MIB", "sipUnregisteredPortBehavior"), ("MX-SIP-EXPERIMENTAL-MIB", "sipOutboundProxyConfig"), ("MX-SIP-EXPERIMENTAL-MIB", "sipEnforceOfferAnswerModel"), ("MX-SIP-EXPERIMENTAL-MIB", "sipRtpUdpChecksumEnable"), ("MX-SIP-EXPERIMENTAL-MIB", "sipAllowMediaReactivationInAnswerEnable"), ("MX-SIP-EXPERIMENTAL-MIB", "sipAllowAudioAndImageNegotiationEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    sipExperimentalGroupVer1 = sipExperimentalGroupVer1.setStatus('current')
+mibBuilder.exportSymbols("MX-SIP-EXPERIMENTAL-MIB", sipUnregisteredPortBehavior=sipUnregisteredPortBehavior, sipAllowAudioAndImageNegotiationEnable=sipAllowAudioAndImageNegotiationEnable, sipRtpUdpChecksumEnable=sipRtpUdpChecksumEnable, sipEnforceOfferAnswerModel=sipEnforceOfferAnswerModel, sipAllowMediaReactivationInAnswerEnable=sipAllowMediaReactivationInAnswerEnable, sipNatCustomEnable=sipNatCustomEnable, sipExperimentalCompliances=sipExperimentalCompliances, sipExperimentalGroupVer1=sipExperimentalGroupVer1, sipOutboundProxyConfig=sipOutboundProxyConfig, sipExperimentalGroups=sipExperimentalGroups, sipExperimentalMIBObjects=sipExperimentalMIBObjects, sipNatCustomPublicAddress=sipNatCustomPublicAddress, sipNatCustom=sipNatCustom, sipExperimentalMIB=sipExperimentalMIB, sipExperimentalConformance=sipExperimentalConformance, PYSNMP_MODULE_ID=sipExperimentalMIB, sipCodecOrderInAnswer=sipCodecOrderInAnswer, sipExperimentalBasicComplVer1=sipExperimentalBasicComplVer1)

@@ -1,111 +1,53 @@
-_X='dpTimeRangeProfileCfgGroup'
-_W='dpTimeRangeProfileRowStatus'
-_V='notApplicable'
-_U='saturday'
-_T='friday'
-_S='thursday'
-_R='wednesday'
-_Q='tuesday'
-_P='monday'
-_O='sunday'
-_N='dpTimeRangeProfileEndMinute'
-_M='dpTimeRangeProfileEndHour'
-_L='dpTimeRangeProfileEndDayOfWeek'
-_K='dpTimeRangeProfileStartMinute'
-_J='dpTimeRangeProfileStartHour'
-_I='dpTimeRangeProfileStartDayOfWeek'
-_H='dpTimeRangeProfilePeriodType'
-_G='dpTimeRangeProfileName'
-_F='DisplayString'
-_E='Integer32'
-_D='Unsigned32'
-_C='not-accessible'
-_B='DLINKPRIME-TIME-RANGE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlinkPrimeCommon,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlinkPrimeCommon')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_F,'PhysAddress','RowStatus','TextualConvention')
-dlinkPrimeTimeRangeMIB=ModuleIdentity((1,3,6,1,4,1,171,15,24))
-if mibBuilder.loadTexts:dlinkPrimeTimeRangeMIB.setRevisions(('2014-04-26 00:00',))
-_DpTimeRangeMIBNotifications_ObjectIdentity=ObjectIdentity
-dpTimeRangeMIBNotifications=_DpTimeRangeMIBNotifications_ObjectIdentity((1,3,6,1,4,1,171,15,24,0))
-_DpTimeRangeMIBObjects_ObjectIdentity=ObjectIdentity
-dpTimeRangeMIBObjects=_DpTimeRangeMIBObjects_ObjectIdentity((1,3,6,1,4,1,171,15,24,1))
-_DpTimeRangeProfileTable_Object=MibTable
-dpTimeRangeProfileTable=_DpTimeRangeProfileTable_Object((1,3,6,1,4,1,171,15,24,1,1))
-if mibBuilder.loadTexts:dpTimeRangeProfileTable.setStatus(_A)
-_DpTimeRangeProfileEntry_Object=MibTableRow
-dpTimeRangeProfileEntry=_DpTimeRangeProfileEntry_Object((1,3,6,1,4,1,171,15,24,1,1,1))
-dpTimeRangeProfileEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_I),(0,_B,_J),(0,_B,_K),(0,_B,_L),(0,_B,_M),(0,_B,_N))
-if mibBuilder.loadTexts:dpTimeRangeProfileEntry.setStatus(_A)
-class _DpTimeRangeProfileName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
-_DpTimeRangeProfileName_Type.__name__=_F
-_DpTimeRangeProfileName_Object=MibTableColumn
-dpTimeRangeProfileName=_DpTimeRangeProfileName_Object((1,3,6,1,4,1,171,15,24,1,1,1,1),_DpTimeRangeProfileName_Type())
-dpTimeRangeProfileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpTimeRangeProfileName.setStatus(_A)
-class _DpTimeRangeProfilePeriodType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('daily',1),('weekly',2)))
-_DpTimeRangeProfilePeriodType_Type.__name__=_E
-_DpTimeRangeProfilePeriodType_Object=MibTableColumn
-dpTimeRangeProfilePeriodType=_DpTimeRangeProfilePeriodType_Object((1,3,6,1,4,1,171,15,24,1,1,1,2),_DpTimeRangeProfilePeriodType_Type())
-dpTimeRangeProfilePeriodType.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpTimeRangeProfilePeriodType.setStatus(_A)
-class _DpTimeRangeProfileStartDayOfWeek_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_O,1),(_P,2),(_Q,3),(_R,4),(_S,5),(_T,6),(_U,7),(_V,8)))
-_DpTimeRangeProfileStartDayOfWeek_Type.__name__=_E
-_DpTimeRangeProfileStartDayOfWeek_Object=MibTableColumn
-dpTimeRangeProfileStartDayOfWeek=_DpTimeRangeProfileStartDayOfWeek_Object((1,3,6,1,4,1,171,15,24,1,1,1,3),_DpTimeRangeProfileStartDayOfWeek_Type())
-dpTimeRangeProfileStartDayOfWeek.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpTimeRangeProfileStartDayOfWeek.setStatus(_A)
-class _DpTimeRangeProfileStartHour_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,23))
-_DpTimeRangeProfileStartHour_Type.__name__=_D
-_DpTimeRangeProfileStartHour_Object=MibTableColumn
-dpTimeRangeProfileStartHour=_DpTimeRangeProfileStartHour_Object((1,3,6,1,4,1,171,15,24,1,1,1,4),_DpTimeRangeProfileStartHour_Type())
-dpTimeRangeProfileStartHour.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpTimeRangeProfileStartHour.setStatus(_A)
-class _DpTimeRangeProfileStartMinute_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,59))
-_DpTimeRangeProfileStartMinute_Type.__name__=_D
-_DpTimeRangeProfileStartMinute_Object=MibTableColumn
-dpTimeRangeProfileStartMinute=_DpTimeRangeProfileStartMinute_Object((1,3,6,1,4,1,171,15,24,1,1,1,5),_DpTimeRangeProfileStartMinute_Type())
-dpTimeRangeProfileStartMinute.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpTimeRangeProfileStartMinute.setStatus(_A)
-class _DpTimeRangeProfileEndDayOfWeek_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_O,1),(_P,2),(_Q,3),(_R,4),(_S,5),(_T,6),(_U,7),(_V,8)))
-_DpTimeRangeProfileEndDayOfWeek_Type.__name__=_E
-_DpTimeRangeProfileEndDayOfWeek_Object=MibTableColumn
-dpTimeRangeProfileEndDayOfWeek=_DpTimeRangeProfileEndDayOfWeek_Object((1,3,6,1,4,1,171,15,24,1,1,1,6),_DpTimeRangeProfileEndDayOfWeek_Type())
-dpTimeRangeProfileEndDayOfWeek.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpTimeRangeProfileEndDayOfWeek.setStatus(_A)
-class _DpTimeRangeProfileEndHour_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,23))
-_DpTimeRangeProfileEndHour_Type.__name__=_D
-_DpTimeRangeProfileEndHour_Object=MibTableColumn
-dpTimeRangeProfileEndHour=_DpTimeRangeProfileEndHour_Object((1,3,6,1,4,1,171,15,24,1,1,1,7),_DpTimeRangeProfileEndHour_Type())
-dpTimeRangeProfileEndHour.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpTimeRangeProfileEndHour.setStatus(_A)
-class _DpTimeRangeProfileEndMinute_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,59))
-_DpTimeRangeProfileEndMinute_Type.__name__=_D
-_DpTimeRangeProfileEndMinute_Object=MibTableColumn
-dpTimeRangeProfileEndMinute=_DpTimeRangeProfileEndMinute_Object((1,3,6,1,4,1,171,15,24,1,1,1,8),_DpTimeRangeProfileEndMinute_Type())
-dpTimeRangeProfileEndMinute.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpTimeRangeProfileEndMinute.setStatus(_A)
-_DpTimeRangeProfileRowStatus_Type=RowStatus
-_DpTimeRangeProfileRowStatus_Object=MibTableColumn
-dpTimeRangeProfileRowStatus=_DpTimeRangeProfileRowStatus_Object((1,3,6,1,4,1,171,15,24,1,1,1,9),_DpTimeRangeProfileRowStatus_Type())
-dpTimeRangeProfileRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:dpTimeRangeProfileRowStatus.setStatus(_A)
-_DpTimeRangeMIBConformance_ObjectIdentity=ObjectIdentity
-dpTimeRangeMIBConformance=_DpTimeRangeMIBConformance_ObjectIdentity((1,3,6,1,4,1,171,15,24,2))
-_DpTimeRangeCompliances_ObjectIdentity=ObjectIdentity
-dpTimeRangeCompliances=_DpTimeRangeCompliances_ObjectIdentity((1,3,6,1,4,1,171,15,24,2,1))
-_DpTimeRangeGroups_ObjectIdentity=ObjectIdentity
-dpTimeRangeGroups=_DpTimeRangeGroups_ObjectIdentity((1,3,6,1,4,1,171,15,24,2,2))
-dpTimeRangeProfileCfgGroup=ObjectGroup((1,3,6,1,4,1,171,15,24,2,2,1))
-dpTimeRangeProfileCfgGroup.setObjects((_B,_W))
-if mibBuilder.loadTexts:dpTimeRangeProfileCfgGroup.setStatus(_A)
-dpTimeRangeCompliance=ModuleCompliance((1,3,6,1,4,1,171,15,24,2,1,1))
-dpTimeRangeCompliance.setObjects((_B,_X))
-if mibBuilder.loadTexts:dpTimeRangeCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'dlinkPrimeTimeRangeMIB':dlinkPrimeTimeRangeMIB,'dpTimeRangeMIBNotifications':dpTimeRangeMIBNotifications,'dpTimeRangeMIBObjects':dpTimeRangeMIBObjects,'dpTimeRangeProfileTable':dpTimeRangeProfileTable,'dpTimeRangeProfileEntry':dpTimeRangeProfileEntry,_G:dpTimeRangeProfileName,_H:dpTimeRangeProfilePeriodType,_I:dpTimeRangeProfileStartDayOfWeek,_J:dpTimeRangeProfileStartHour,_K:dpTimeRangeProfileStartMinute,_L:dpTimeRangeProfileEndDayOfWeek,_M:dpTimeRangeProfileEndHour,_N:dpTimeRangeProfileEndMinute,_W:dpTimeRangeProfileRowStatus,'dpTimeRangeMIBConformance':dpTimeRangeMIBConformance,'dpTimeRangeCompliances':dpTimeRangeCompliances,'dpTimeRangeCompliance':dpTimeRangeCompliance,'dpTimeRangeGroups':dpTimeRangeGroups,_X:dpTimeRangeProfileCfgGroup})
+#
+# PySNMP MIB module DLINKPRIME-TIME-RANGE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DLINKPRIME-TIME-RANGE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:33:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlinkPrimeCommon, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlinkPrimeCommon")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+dlinkPrimeTimeRangeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 15, 24))
+dlinkPrimeTimeRangeMIB.setRevisions(('2014-04-26 00:00',))
+if mibBuilder.loadTexts: dlinkPrimeTimeRangeMIB.setLastUpdated('201404260000Z')
+if mibBuilder.loadTexts: dlinkPrimeTimeRangeMIB.setOrganization('D-Link Corp.')
+dpTimeRangeMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 24, 0))
+dpTimeRangeMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 24, 1))
+dpTimeRangeMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 24, 2))
+dpTimeRangeProfileTable = MibTable((1, 3, 6, 1, 4, 1, 171, 15, 24, 1, 1), )
+if mibBuilder.loadTexts: dpTimeRangeProfileTable.setStatus('current')
+dpTimeRangeProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 15, 24, 1, 1, 1), ).setIndexNames((0, "DLINKPRIME-TIME-RANGE-MIB", "dpTimeRangeProfileName"), (0, "DLINKPRIME-TIME-RANGE-MIB", "dpTimeRangeProfilePeriodType"), (0, "DLINKPRIME-TIME-RANGE-MIB", "dpTimeRangeProfileStartDayOfWeek"), (0, "DLINKPRIME-TIME-RANGE-MIB", "dpTimeRangeProfileStartHour"), (0, "DLINKPRIME-TIME-RANGE-MIB", "dpTimeRangeProfileStartMinute"), (0, "DLINKPRIME-TIME-RANGE-MIB", "dpTimeRangeProfileEndDayOfWeek"), (0, "DLINKPRIME-TIME-RANGE-MIB", "dpTimeRangeProfileEndHour"), (0, "DLINKPRIME-TIME-RANGE-MIB", "dpTimeRangeProfileEndMinute"))
+if mibBuilder.loadTexts: dpTimeRangeProfileEntry.setStatus('current')
+dpTimeRangeProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 24, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 8)))
+if mibBuilder.loadTexts: dpTimeRangeProfileName.setStatus('current')
+dpTimeRangeProfilePeriodType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 24, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("daily", 1), ("weekly", 2))))
+if mibBuilder.loadTexts: dpTimeRangeProfilePeriodType.setStatus('current')
+dpTimeRangeProfileStartDayOfWeek = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 24, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("sunday", 1), ("monday", 2), ("tuesday", 3), ("wednesday", 4), ("thursday", 5), ("friday", 6), ("saturday", 7), ("notApplicable", 8))))
+if mibBuilder.loadTexts: dpTimeRangeProfileStartDayOfWeek.setStatus('current')
+dpTimeRangeProfileStartHour = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 24, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 23)))
+if mibBuilder.loadTexts: dpTimeRangeProfileStartHour.setStatus('current')
+dpTimeRangeProfileStartMinute = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 24, 1, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 59)))
+if mibBuilder.loadTexts: dpTimeRangeProfileStartMinute.setStatus('current')
+dpTimeRangeProfileEndDayOfWeek = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 24, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("sunday", 1), ("monday", 2), ("tuesday", 3), ("wednesday", 4), ("thursday", 5), ("friday", 6), ("saturday", 7), ("notApplicable", 8))))
+if mibBuilder.loadTexts: dpTimeRangeProfileEndDayOfWeek.setStatus('current')
+dpTimeRangeProfileEndHour = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 24, 1, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 23)))
+if mibBuilder.loadTexts: dpTimeRangeProfileEndHour.setStatus('current')
+dpTimeRangeProfileEndMinute = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 24, 1, 1, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 59)))
+if mibBuilder.loadTexts: dpTimeRangeProfileEndMinute.setStatus('current')
+dpTimeRangeProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 24, 1, 1, 1, 9), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dpTimeRangeProfileRowStatus.setStatus('current')
+dpTimeRangeCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 24, 2, 1))
+dpTimeRangeCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 15, 24, 2, 1, 1)).setObjects(("DLINKPRIME-TIME-RANGE-MIB", "dpTimeRangeProfileCfgGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpTimeRangeCompliance = dpTimeRangeCompliance.setStatus('current')
+dpTimeRangeGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 24, 2, 2))
+dpTimeRangeProfileCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 15, 24, 2, 2, 1)).setObjects(("DLINKPRIME-TIME-RANGE-MIB", "dpTimeRangeProfileRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpTimeRangeProfileCfgGroup = dpTimeRangeProfileCfgGroup.setStatus('current')
+mibBuilder.exportSymbols("DLINKPRIME-TIME-RANGE-MIB", dpTimeRangeCompliances=dpTimeRangeCompliances, dpTimeRangeProfilePeriodType=dpTimeRangeProfilePeriodType, dpTimeRangeProfileEntry=dpTimeRangeProfileEntry, dpTimeRangeProfileName=dpTimeRangeProfileName, dpTimeRangeMIBObjects=dpTimeRangeMIBObjects, dpTimeRangeMIBConformance=dpTimeRangeMIBConformance, dpTimeRangeProfileStartMinute=dpTimeRangeProfileStartMinute, dpTimeRangeProfileEndHour=dpTimeRangeProfileEndHour, dpTimeRangeProfileEndDayOfWeek=dpTimeRangeProfileEndDayOfWeek, dpTimeRangeProfileEndMinute=dpTimeRangeProfileEndMinute, dpTimeRangeProfileTable=dpTimeRangeProfileTable, dlinkPrimeTimeRangeMIB=dlinkPrimeTimeRangeMIB, dpTimeRangeProfileCfgGroup=dpTimeRangeProfileCfgGroup, dpTimeRangeProfileStartDayOfWeek=dpTimeRangeProfileStartDayOfWeek, dpTimeRangeProfileStartHour=dpTimeRangeProfileStartHour, dpTimeRangeProfileRowStatus=dpTimeRangeProfileRowStatus, dpTimeRangeMIBNotifications=dpTimeRangeMIBNotifications, dpTimeRangeGroups=dpTimeRangeGroups, PYSNMP_MODULE_ID=dlinkPrimeTimeRangeMIB, dpTimeRangeCompliance=dpTimeRangeCompliance)

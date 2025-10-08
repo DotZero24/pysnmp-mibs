@@ -1,72 +1,52 @@
-_L='cfmConfigurationGroup'
-_K='cfmMulticastRootRowStatus'
-_J='cfmMulticastRootDomainId'
-_I='cfmMulticastRootOperMode'
-_H='cfmMulticastRootConfigMode'
-_G='read-only'
-_F='read-create'
-_E='CfmMulticastRootMode'
-_D='vsanIndex'
-_C='CISCO-VSAN-MIB'
-_B='CISCO-FC-MULTICAST-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-DomainIdOrZero,=mibBuilder.importSymbols('CISCO-ST-TC','DomainIdOrZero')
-vsanIndex,=mibBuilder.importSymbols(_C,_D)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-ciscoFcMulticastMIB=ModuleIdentity((1,3,6,1,4,1,9,9,435))
-if mibBuilder.loadTexts:ciscoFcMulticastMIB.setRevisions(('2004-10-07 00:00',))
-class CfmMulticastRootMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('principalSwitch',1),('lowestDomainSwitch',2)))
-_CiscoFcMulticastNotifications_ObjectIdentity=ObjectIdentity
-ciscoFcMulticastNotifications=_CiscoFcMulticastNotifications_ObjectIdentity((1,3,6,1,4,1,9,9,435,0))
-_CiscoFcMulticastMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoFcMulticastMIBObjects=_CiscoFcMulticastMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,435,1))
-_CfmConfiguration_ObjectIdentity=ObjectIdentity
-cfmConfiguration=_CfmConfiguration_ObjectIdentity((1,3,6,1,4,1,9,9,435,1,1))
-_CfmMulticastRootTable_Object=MibTable
-cfmMulticastRootTable=_CfmMulticastRootTable_Object((1,3,6,1,4,1,9,9,435,1,1,1))
-if mibBuilder.loadTexts:cfmMulticastRootTable.setStatus(_A)
-_CfmMulticastRootEntry_Object=MibTableRow
-cfmMulticastRootEntry=_CfmMulticastRootEntry_Object((1,3,6,1,4,1,9,9,435,1,1,1,1))
-cfmMulticastRootEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:cfmMulticastRootEntry.setStatus(_A)
-class _CfmMulticastRootConfigMode_Type(CfmMulticastRootMode):defaultValue=1
-_CfmMulticastRootConfigMode_Type.__name__=_E
-_CfmMulticastRootConfigMode_Object=MibTableColumn
-cfmMulticastRootConfigMode=_CfmMulticastRootConfigMode_Object((1,3,6,1,4,1,9,9,435,1,1,1,1,1),_CfmMulticastRootConfigMode_Type())
-cfmMulticastRootConfigMode.setMaxAccess(_F)
-if mibBuilder.loadTexts:cfmMulticastRootConfigMode.setStatus(_A)
-_CfmMulticastRootOperMode_Type=CfmMulticastRootMode
-_CfmMulticastRootOperMode_Object=MibTableColumn
-cfmMulticastRootOperMode=_CfmMulticastRootOperMode_Object((1,3,6,1,4,1,9,9,435,1,1,1,1,2),_CfmMulticastRootOperMode_Type())
-cfmMulticastRootOperMode.setMaxAccess(_G)
-if mibBuilder.loadTexts:cfmMulticastRootOperMode.setStatus(_A)
-_CfmMulticastRootDomainId_Type=DomainIdOrZero
-_CfmMulticastRootDomainId_Object=MibTableColumn
-cfmMulticastRootDomainId=_CfmMulticastRootDomainId_Object((1,3,6,1,4,1,9,9,435,1,1,1,1,3),_CfmMulticastRootDomainId_Type())
-cfmMulticastRootDomainId.setMaxAccess(_G)
-if mibBuilder.loadTexts:cfmMulticastRootDomainId.setStatus(_A)
-_CfmMulticastRootRowStatus_Type=RowStatus
-_CfmMulticastRootRowStatus_Object=MibTableColumn
-cfmMulticastRootRowStatus=_CfmMulticastRootRowStatus_Object((1,3,6,1,4,1,9,9,435,1,1,1,1,4),_CfmMulticastRootRowStatus_Type())
-cfmMulticastRootRowStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:cfmMulticastRootRowStatus.setStatus(_A)
-_CiscoFcMulticaseConformance_ObjectIdentity=ObjectIdentity
-ciscoFcMulticaseConformance=_CiscoFcMulticaseConformance_ObjectIdentity((1,3,6,1,4,1,9,9,435,2))
-_CiscoFcMulticastMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoFcMulticastMIBCompliances=_CiscoFcMulticastMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,435,2,1))
-_CiscoFcMulticastMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoFcMulticastMIBGroups=_CiscoFcMulticastMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,435,2,2))
-cfmConfigurationGroup=ObjectGroup((1,3,6,1,4,1,9,9,435,2,2,1))
-cfmConfigurationGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:cfmConfigurationGroup.setStatus(_A)
-ciscoFcMulticastMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,435,2,1,1))
-ciscoFcMulticastMIBCompliance.setObjects((_B,_L))
-if mibBuilder.loadTexts:ciscoFcMulticastMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_E:CfmMulticastRootMode,'ciscoFcMulticastMIB':ciscoFcMulticastMIB,'ciscoFcMulticastNotifications':ciscoFcMulticastNotifications,'ciscoFcMulticastMIBObjects':ciscoFcMulticastMIBObjects,'cfmConfiguration':cfmConfiguration,'cfmMulticastRootTable':cfmMulticastRootTable,'cfmMulticastRootEntry':cfmMulticastRootEntry,_H:cfmMulticastRootConfigMode,_I:cfmMulticastRootOperMode,_J:cfmMulticastRootDomainId,_K:cfmMulticastRootRowStatus,'ciscoFcMulticaseConformance':ciscoFcMulticaseConformance,'ciscoFcMulticastMIBCompliances':ciscoFcMulticastMIBCompliances,'ciscoFcMulticastMIBCompliance':ciscoFcMulticastMIBCompliance,'ciscoFcMulticastMIBGroups':ciscoFcMulticastMIBGroups,_L:cfmConfigurationGroup})
+#
+# PySNMP MIB module CISCO-FC-MULTICAST-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-FC-MULTICAST-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+DomainIdOrZero, = mibBuilder.importSymbols("CISCO-ST-TC", "DomainIdOrZero")
+vsanIndex, = mibBuilder.importSymbols("CISCO-VSAN-MIB", "vsanIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ciscoFcMulticastMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 435))
+ciscoFcMulticastMIB.setRevisions(('2004-10-07 00:00',))
+if mibBuilder.loadTexts: ciscoFcMulticastMIB.setLastUpdated('200410070000Z')
+if mibBuilder.loadTexts: ciscoFcMulticastMIB.setOrganization('Cisco Systems Inc. ')
+ciscoFcMulticastNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 435, 0))
+ciscoFcMulticastMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 435, 1))
+ciscoFcMulticaseConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 435, 2))
+cfmConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 435, 1, 1))
+class CfmMulticastRootMode(TextualConvention, Integer32):
+    reference = 'Refer to FC-SW-2 REV 5.4 for information on principal switch and lowest domain id switch.'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("principalSwitch", 1), ("lowestDomainSwitch", 2))
+
+cfmMulticastRootTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 435, 1, 1, 1), )
+if mibBuilder.loadTexts: cfmMulticastRootTable.setStatus('current')
+cfmMulticastRootEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 435, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-VSAN-MIB", "vsanIndex"))
+if mibBuilder.loadTexts: cfmMulticastRootEntry.setStatus('current')
+cfmMulticastRootConfigMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 435, 1, 1, 1, 1, 1), CfmMulticastRootMode().clone('principalSwitch')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmMulticastRootConfigMode.setStatus('current')
+cfmMulticastRootOperMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 435, 1, 1, 1, 1, 2), CfmMulticastRootMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmMulticastRootOperMode.setStatus('current')
+cfmMulticastRootDomainId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 435, 1, 1, 1, 1, 3), DomainIdOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmMulticastRootDomainId.setStatus('current')
+cfmMulticastRootRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 435, 1, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmMulticastRootRowStatus.setStatus('current')
+ciscoFcMulticastMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 435, 2, 1))
+ciscoFcMulticastMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 435, 2, 2))
+ciscoFcMulticastMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 435, 2, 1, 1)).setObjects(("CISCO-FC-MULTICAST-MIB", "cfmConfigurationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoFcMulticastMIBCompliance = ciscoFcMulticastMIBCompliance.setStatus('current')
+cfmConfigurationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 435, 2, 2, 1)).setObjects(("CISCO-FC-MULTICAST-MIB", "cfmMulticastRootConfigMode"), ("CISCO-FC-MULTICAST-MIB", "cfmMulticastRootOperMode"), ("CISCO-FC-MULTICAST-MIB", "cfmMulticastRootDomainId"), ("CISCO-FC-MULTICAST-MIB", "cfmMulticastRootRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfmConfigurationGroup = cfmConfigurationGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-FC-MULTICAST-MIB", ciscoFcMulticastNotifications=ciscoFcMulticastNotifications, CfmMulticastRootMode=CfmMulticastRootMode, cfmMulticastRootConfigMode=cfmMulticastRootConfigMode, ciscoFcMulticastMIBGroups=ciscoFcMulticastMIBGroups, cfmConfigurationGroup=cfmConfigurationGroup, cfmMulticastRootEntry=cfmMulticastRootEntry, ciscoFcMulticaseConformance=ciscoFcMulticaseConformance, ciscoFcMulticastMIBCompliance=ciscoFcMulticastMIBCompliance, ciscoFcMulticastMIB=ciscoFcMulticastMIB, cfmConfiguration=cfmConfiguration, cfmMulticastRootTable=cfmMulticastRootTable, cfmMulticastRootOperMode=cfmMulticastRootOperMode, cfmMulticastRootDomainId=cfmMulticastRootDomainId, ciscoFcMulticastMIBCompliances=ciscoFcMulticastMIBCompliances, cfmMulticastRootRowStatus=cfmMulticastRootRowStatus, ciscoFcMulticastMIBObjects=ciscoFcMulticastMIBObjects, PYSNMP_MODULE_ID=ciscoFcMulticastMIB)

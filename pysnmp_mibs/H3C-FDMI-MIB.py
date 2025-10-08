@@ -1,143 +1,72 @@
-_J='h3cFdmiHbaPortId'
-_I='OctetString'
-_H='not-accessible'
-_G='h3cFdmiHbaInfoId'
-_F='h3cFdmiHbaInfoFabricIndex'
-_E='fcmInstanceIndex'
-_D='FC-MGMT-MIB'
-_C='H3C-FDMI-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_I,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-FcNameIdOrZero,fcmInstanceIndex=mibBuilder.importSymbols(_D,'FcNameIdOrZero',_E)
-h3cSan,=mibBuilder.importSymbols('H3C-VSAN-MIB','h3cSan')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-T11FabricIndex,=mibBuilder.importSymbols('T11-TC-MIB','T11FabricIndex')
-h3cFdmi=ModuleIdentity((1,3,6,1,4,1,2011,10,2,127,7))
-if mibBuilder.loadTexts:h3cFdmi.setRevisions(('2012-06-18 00:00',))
-_H3cFdmiObjects_ObjectIdentity=ObjectIdentity
-h3cFdmiObjects=_H3cFdmiObjects_ObjectIdentity((1,3,6,1,4,1,2011,10,2,127,7,1))
-_H3cFdmiInfo_ObjectIdentity=ObjectIdentity
-h3cFdmiInfo=_H3cFdmiInfo_ObjectIdentity((1,3,6,1,4,1,2011,10,2,127,7,1,1))
-_H3cFdmiHbaInfoTable_Object=MibTable
-h3cFdmiHbaInfoTable=_H3cFdmiHbaInfoTable_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,1))
-if mibBuilder.loadTexts:h3cFdmiHbaInfoTable.setStatus(_A)
-_H3cFdmiHbaInfoEntry_Object=MibTableRow
-h3cFdmiHbaInfoEntry=_H3cFdmiHbaInfoEntry_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,1,1))
-h3cFdmiHbaInfoEntry.setIndexNames((0,_D,_E),(0,_C,_F),(0,_C,_G))
-if mibBuilder.loadTexts:h3cFdmiHbaInfoEntry.setStatus(_A)
-_H3cFdmiHbaInfoFabricIndex_Type=T11FabricIndex
-_H3cFdmiHbaInfoFabricIndex_Object=MibTableColumn
-h3cFdmiHbaInfoFabricIndex=_H3cFdmiHbaInfoFabricIndex_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,1,1,1),_H3cFdmiHbaInfoFabricIndex_Type())
-h3cFdmiHbaInfoFabricIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:h3cFdmiHbaInfoFabricIndex.setStatus(_A)
-_H3cFdmiHbaInfoId_Type=FcNameIdOrZero
-_H3cFdmiHbaInfoId_Object=MibTableColumn
-h3cFdmiHbaInfoId=_H3cFdmiHbaInfoId_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,1,1,2),_H3cFdmiHbaInfoId_Type())
-h3cFdmiHbaInfoId.setMaxAccess(_H)
-if mibBuilder.loadTexts:h3cFdmiHbaInfoId.setStatus(_A)
-_H3cFdmiHbaInfoNodeName_Type=FcNameIdOrZero
-_H3cFdmiHbaInfoNodeName_Object=MibTableColumn
-h3cFdmiHbaInfoNodeName=_H3cFdmiHbaInfoNodeName_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,1,1,3),_H3cFdmiHbaInfoNodeName_Type())
-h3cFdmiHbaInfoNodeName.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaInfoNodeName.setStatus(_A)
-_H3cFdmiHbaInfoMfg_Type=SnmpAdminString
-_H3cFdmiHbaInfoMfg_Object=MibTableColumn
-h3cFdmiHbaInfoMfg=_H3cFdmiHbaInfoMfg_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,1,1,4),_H3cFdmiHbaInfoMfg_Type())
-h3cFdmiHbaInfoMfg.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaInfoMfg.setStatus(_A)
-_H3cFdmiHbaInfoSn_Type=SnmpAdminString
-_H3cFdmiHbaInfoSn_Object=MibTableColumn
-h3cFdmiHbaInfoSn=_H3cFdmiHbaInfoSn_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,1,1,5),_H3cFdmiHbaInfoSn_Type())
-h3cFdmiHbaInfoSn.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaInfoSn.setStatus(_A)
-_H3cFdmiHbaInfoModel_Type=SnmpAdminString
-_H3cFdmiHbaInfoModel_Object=MibTableColumn
-h3cFdmiHbaInfoModel=_H3cFdmiHbaInfoModel_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,1,1,6),_H3cFdmiHbaInfoModel_Type())
-h3cFdmiHbaInfoModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaInfoModel.setStatus(_A)
-_H3cFdmiHbaInfoModelDescr_Type=SnmpAdminString
-_H3cFdmiHbaInfoModelDescr_Object=MibTableColumn
-h3cFdmiHbaInfoModelDescr=_H3cFdmiHbaInfoModelDescr_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,1,1,7),_H3cFdmiHbaInfoModelDescr_Type())
-h3cFdmiHbaInfoModelDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaInfoModelDescr.setStatus(_A)
-_H3cFdmiHbaInfoHwVer_Type=SnmpAdminString
-_H3cFdmiHbaInfoHwVer_Object=MibTableColumn
-h3cFdmiHbaInfoHwVer=_H3cFdmiHbaInfoHwVer_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,1,1,8),_H3cFdmiHbaInfoHwVer_Type())
-h3cFdmiHbaInfoHwVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaInfoHwVer.setStatus(_A)
-_H3cFdmiHbaInfoDriverVer_Type=SnmpAdminString
-_H3cFdmiHbaInfoDriverVer_Object=MibTableColumn
-h3cFdmiHbaInfoDriverVer=_H3cFdmiHbaInfoDriverVer_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,1,1,9),_H3cFdmiHbaInfoDriverVer_Type())
-h3cFdmiHbaInfoDriverVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaInfoDriverVer.setStatus(_A)
-_H3cFdmiHbaInfoOptROMVer_Type=SnmpAdminString
-_H3cFdmiHbaInfoOptROMVer_Object=MibTableColumn
-h3cFdmiHbaInfoOptROMVer=_H3cFdmiHbaInfoOptROMVer_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,1,1,10),_H3cFdmiHbaInfoOptROMVer_Type())
-h3cFdmiHbaInfoOptROMVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaInfoOptROMVer.setStatus(_A)
-_H3cFdmiHbaInfoFwVer_Type=SnmpAdminString
-_H3cFdmiHbaInfoFwVer_Object=MibTableColumn
-h3cFdmiHbaInfoFwVer=_H3cFdmiHbaInfoFwVer_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,1,1,11),_H3cFdmiHbaInfoFwVer_Type())
-h3cFdmiHbaInfoFwVer.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaInfoFwVer.setStatus(_A)
-_H3cFdmiHbaInfoOSInfo_Type=SnmpAdminString
-_H3cFdmiHbaInfoOSInfo_Object=MibTableColumn
-h3cFdmiHbaInfoOSInfo=_H3cFdmiHbaInfoOSInfo_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,1,1,12),_H3cFdmiHbaInfoOSInfo_Type())
-h3cFdmiHbaInfoOSInfo.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaInfoOSInfo.setStatus(_A)
-_H3cFdmiHbaInfoMaxCTPayload_Type=Unsigned32
-_H3cFdmiHbaInfoMaxCTPayload_Object=MibTableColumn
-h3cFdmiHbaInfoMaxCTPayload=_H3cFdmiHbaInfoMaxCTPayload_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,1,1,13),_H3cFdmiHbaInfoMaxCTPayload_Type())
-h3cFdmiHbaInfoMaxCTPayload.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaInfoMaxCTPayload.setStatus(_A)
-_H3cFdmiHbaPortTable_Object=MibTable
-h3cFdmiHbaPortTable=_H3cFdmiHbaPortTable_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,2))
-if mibBuilder.loadTexts:h3cFdmiHbaPortTable.setStatus(_A)
-_H3cFdmiHbaPortEntry_Object=MibTableRow
-h3cFdmiHbaPortEntry=_H3cFdmiHbaPortEntry_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,2,1))
-h3cFdmiHbaPortEntry.setIndexNames((0,_D,_E),(0,_C,_F),(0,_C,_G),(0,_C,_J))
-if mibBuilder.loadTexts:h3cFdmiHbaPortEntry.setStatus(_A)
-_H3cFdmiHbaPortId_Type=FcNameIdOrZero
-_H3cFdmiHbaPortId_Object=MibTableColumn
-h3cFdmiHbaPortId=_H3cFdmiHbaPortId_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,2,1,1),_H3cFdmiHbaPortId_Type())
-h3cFdmiHbaPortId.setMaxAccess(_H)
-if mibBuilder.loadTexts:h3cFdmiHbaPortId.setStatus(_A)
-class _H3cFdmiHbaPortSupportedFC4Type_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(32,32))
-_H3cFdmiHbaPortSupportedFC4Type_Type.__name__=_I
-_H3cFdmiHbaPortSupportedFC4Type_Object=MibTableColumn
-h3cFdmiHbaPortSupportedFC4Type=_H3cFdmiHbaPortSupportedFC4Type_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,2,1,2),_H3cFdmiHbaPortSupportedFC4Type_Type())
-h3cFdmiHbaPortSupportedFC4Type.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaPortSupportedFC4Type.setStatus(_A)
-_H3cFdmiHbaPortSupportedSpeed_Type=Unsigned32
-_H3cFdmiHbaPortSupportedSpeed_Object=MibTableColumn
-h3cFdmiHbaPortSupportedSpeed=_H3cFdmiHbaPortSupportedSpeed_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,2,1,3),_H3cFdmiHbaPortSupportedSpeed_Type())
-h3cFdmiHbaPortSupportedSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaPortSupportedSpeed.setStatus(_A)
-_H3cFdmiHbaPortCurrentSpeed_Type=Unsigned32
-_H3cFdmiHbaPortCurrentSpeed_Object=MibTableColumn
-h3cFdmiHbaPortCurrentSpeed=_H3cFdmiHbaPortCurrentSpeed_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,2,1,4),_H3cFdmiHbaPortCurrentSpeed_Type())
-h3cFdmiHbaPortCurrentSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaPortCurrentSpeed.setStatus(_A)
-_H3cFdmiHbaPortMaxFrameSize_Type=Unsigned32
-_H3cFdmiHbaPortMaxFrameSize_Object=MibTableColumn
-h3cFdmiHbaPortMaxFrameSize=_H3cFdmiHbaPortMaxFrameSize_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,2,1,5),_H3cFdmiHbaPortMaxFrameSize_Type())
-h3cFdmiHbaPortMaxFrameSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaPortMaxFrameSize.setStatus(_A)
-_H3cFdmiHbaPortOsDevName_Type=SnmpAdminString
-_H3cFdmiHbaPortOsDevName_Object=MibTableColumn
-h3cFdmiHbaPortOsDevName=_H3cFdmiHbaPortOsDevName_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,2,1,6),_H3cFdmiHbaPortOsDevName_Type())
-h3cFdmiHbaPortOsDevName.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaPortOsDevName.setStatus(_A)
-_H3cFdmiHbaPortHostName_Type=SnmpAdminString
-_H3cFdmiHbaPortHostName_Object=MibTableColumn
-h3cFdmiHbaPortHostName=_H3cFdmiHbaPortHostName_Object((1,3,6,1,4,1,2011,10,2,127,7,1,1,2,1,7),_H3cFdmiHbaPortHostName_Type())
-h3cFdmiHbaPortHostName.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cFdmiHbaPortHostName.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'h3cFdmi':h3cFdmi,'h3cFdmiObjects':h3cFdmiObjects,'h3cFdmiInfo':h3cFdmiInfo,'h3cFdmiHbaInfoTable':h3cFdmiHbaInfoTable,'h3cFdmiHbaInfoEntry':h3cFdmiHbaInfoEntry,_F:h3cFdmiHbaInfoFabricIndex,_G:h3cFdmiHbaInfoId,'h3cFdmiHbaInfoNodeName':h3cFdmiHbaInfoNodeName,'h3cFdmiHbaInfoMfg':h3cFdmiHbaInfoMfg,'h3cFdmiHbaInfoSn':h3cFdmiHbaInfoSn,'h3cFdmiHbaInfoModel':h3cFdmiHbaInfoModel,'h3cFdmiHbaInfoModelDescr':h3cFdmiHbaInfoModelDescr,'h3cFdmiHbaInfoHwVer':h3cFdmiHbaInfoHwVer,'h3cFdmiHbaInfoDriverVer':h3cFdmiHbaInfoDriverVer,'h3cFdmiHbaInfoOptROMVer':h3cFdmiHbaInfoOptROMVer,'h3cFdmiHbaInfoFwVer':h3cFdmiHbaInfoFwVer,'h3cFdmiHbaInfoOSInfo':h3cFdmiHbaInfoOSInfo,'h3cFdmiHbaInfoMaxCTPayload':h3cFdmiHbaInfoMaxCTPayload,'h3cFdmiHbaPortTable':h3cFdmiHbaPortTable,'h3cFdmiHbaPortEntry':h3cFdmiHbaPortEntry,_J:h3cFdmiHbaPortId,'h3cFdmiHbaPortSupportedFC4Type':h3cFdmiHbaPortSupportedFC4Type,'h3cFdmiHbaPortSupportedSpeed':h3cFdmiHbaPortSupportedSpeed,'h3cFdmiHbaPortCurrentSpeed':h3cFdmiHbaPortCurrentSpeed,'h3cFdmiHbaPortMaxFrameSize':h3cFdmiHbaPortMaxFrameSize,'h3cFdmiHbaPortOsDevName':h3cFdmiHbaPortOsDevName,'h3cFdmiHbaPortHostName':h3cFdmiHbaPortHostName})
+#
+# PySNMP MIB module H3C-FDMI-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-FDMI-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fcmInstanceIndex, FcNameIdOrZero = mibBuilder.importSymbols("FC-MGMT-MIB", "fcmInstanceIndex", "FcNameIdOrZero")
+h3cSan, = mibBuilder.importSymbols("H3C-VSAN-MIB", "h3cSan")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+T11FabricIndex, = mibBuilder.importSymbols("T11-TC-MIB", "T11FabricIndex")
+h3cFdmi = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7))
+h3cFdmi.setRevisions(('2012-06-18 00:00',))
+if mibBuilder.loadTexts: h3cFdmi.setLastUpdated('201206180000Z')
+if mibBuilder.loadTexts: h3cFdmi.setOrganization('Hangzhou H3C Technologies Co., Ltd.')
+h3cFdmiObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1))
+h3cFdmiInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1))
+h3cFdmiHbaInfoTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 1), )
+if mibBuilder.loadTexts: h3cFdmiHbaInfoTable.setStatus('current')
+h3cFdmiHbaInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 1, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "H3C-FDMI-MIB", "h3cFdmiHbaInfoFabricIndex"), (0, "H3C-FDMI-MIB", "h3cFdmiHbaInfoId"))
+if mibBuilder.loadTexts: h3cFdmiHbaInfoEntry.setStatus('current')
+h3cFdmiHbaInfoFabricIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 1, 1, 1), T11FabricIndex())
+if mibBuilder.loadTexts: h3cFdmiHbaInfoFabricIndex.setStatus('current')
+h3cFdmiHbaInfoId = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 1, 1, 2), FcNameIdOrZero())
+if mibBuilder.loadTexts: h3cFdmiHbaInfoId.setStatus('current')
+h3cFdmiHbaInfoNodeName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 1, 1, 3), FcNameIdOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaInfoNodeName.setStatus('current')
+h3cFdmiHbaInfoMfg = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaInfoMfg.setStatus('current')
+h3cFdmiHbaInfoSn = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaInfoSn.setStatus('current')
+h3cFdmiHbaInfoModel = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaInfoModel.setStatus('current')
+h3cFdmiHbaInfoModelDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 1, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaInfoModelDescr.setStatus('current')
+h3cFdmiHbaInfoHwVer = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaInfoHwVer.setStatus('current')
+h3cFdmiHbaInfoDriverVer = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 1, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaInfoDriverVer.setStatus('current')
+h3cFdmiHbaInfoOptROMVer = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 1, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaInfoOptROMVer.setStatus('current')
+h3cFdmiHbaInfoFwVer = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 1, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaInfoFwVer.setStatus('current')
+h3cFdmiHbaInfoOSInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 1, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaInfoOSInfo.setStatus('current')
+h3cFdmiHbaInfoMaxCTPayload = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 1, 1, 13), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaInfoMaxCTPayload.setStatus('current')
+h3cFdmiHbaPortTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 2), )
+if mibBuilder.loadTexts: h3cFdmiHbaPortTable.setStatus('current')
+h3cFdmiHbaPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 2, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "H3C-FDMI-MIB", "h3cFdmiHbaInfoFabricIndex"), (0, "H3C-FDMI-MIB", "h3cFdmiHbaInfoId"), (0, "H3C-FDMI-MIB", "h3cFdmiHbaPortId"))
+if mibBuilder.loadTexts: h3cFdmiHbaPortEntry.setStatus('current')
+h3cFdmiHbaPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 2, 1, 1), FcNameIdOrZero())
+if mibBuilder.loadTexts: h3cFdmiHbaPortId.setStatus('current')
+h3cFdmiHbaPortSupportedFC4Type = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 2, 1, 2), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(32, 32), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaPortSupportedFC4Type.setStatus('current')
+h3cFdmiHbaPortSupportedSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaPortSupportedSpeed.setStatus('current')
+h3cFdmiHbaPortCurrentSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 2, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaPortCurrentSpeed.setStatus('current')
+h3cFdmiHbaPortMaxFrameSize = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 2, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaPortMaxFrameSize.setStatus('current')
+h3cFdmiHbaPortOsDevName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 2, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaPortOsDevName.setStatus('current')
+h3cFdmiHbaPortHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 127, 7, 1, 1, 2, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cFdmiHbaPortHostName.setStatus('current')
+mibBuilder.exportSymbols("H3C-FDMI-MIB", h3cFdmiHbaInfoNodeName=h3cFdmiHbaInfoNodeName, h3cFdmiHbaPortId=h3cFdmiHbaPortId, h3cFdmiObjects=h3cFdmiObjects, h3cFdmiHbaInfoMfg=h3cFdmiHbaInfoMfg, h3cFdmiHbaInfoTable=h3cFdmiHbaInfoTable, h3cFdmiHbaInfoOSInfo=h3cFdmiHbaInfoOSInfo, h3cFdmiInfo=h3cFdmiInfo, h3cFdmiHbaInfoSn=h3cFdmiHbaInfoSn, h3cFdmi=h3cFdmi, h3cFdmiHbaPortCurrentSpeed=h3cFdmiHbaPortCurrentSpeed, h3cFdmiHbaInfoFabricIndex=h3cFdmiHbaInfoFabricIndex, h3cFdmiHbaPortSupportedFC4Type=h3cFdmiHbaPortSupportedFC4Type, h3cFdmiHbaInfoMaxCTPayload=h3cFdmiHbaInfoMaxCTPayload, h3cFdmiHbaPortSupportedSpeed=h3cFdmiHbaPortSupportedSpeed, h3cFdmiHbaPortHostName=h3cFdmiHbaPortHostName, h3cFdmiHbaPortMaxFrameSize=h3cFdmiHbaPortMaxFrameSize, h3cFdmiHbaPortEntry=h3cFdmiHbaPortEntry, h3cFdmiHbaInfoHwVer=h3cFdmiHbaInfoHwVer, h3cFdmiHbaPortTable=h3cFdmiHbaPortTable, h3cFdmiHbaInfoEntry=h3cFdmiHbaInfoEntry, h3cFdmiHbaInfoModelDescr=h3cFdmiHbaInfoModelDescr, h3cFdmiHbaPortOsDevName=h3cFdmiHbaPortOsDevName, h3cFdmiHbaInfoId=h3cFdmiHbaInfoId, h3cFdmiHbaInfoFwVer=h3cFdmiHbaInfoFwVer, h3cFdmiHbaInfoOptROMVer=h3cFdmiHbaInfoOptROMVer, PYSNMP_MODULE_ID=h3cFdmi, h3cFdmiHbaInfoDriverVer=h3cFdmiHbaInfoDriverVer, h3cFdmiHbaInfoModel=h3cFdmiHbaInfoModel)

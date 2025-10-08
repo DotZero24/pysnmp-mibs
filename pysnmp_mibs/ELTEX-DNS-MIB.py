@@ -1,124 +1,64 @@
-_I='eltexDnsServerAnswer'
-_H='not-accessible'
-_G='eltexDnsServerQueryType'
-_F='eltexDnsServerQueryQuestion'
-_E='read-write'
-_D='Integer32'
-_C='ELTEX-DNS-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-eltexLtd,=mibBuilder.importSymbols('ELTEX-SMI-ACTUAL','eltexLtd')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-eltexDnsMIB=ModuleIdentity((1,3,6,1,4,1,35265,46))
-if mibBuilder.loadTexts:eltexDnsMIB.setRevisions(('2018-01-14 00:00',))
-_EltexDnsObjects_ObjectIdentity=ObjectIdentity
-eltexDnsObjects=_EltexDnsObjects_ObjectIdentity((1,3,6,1,4,1,35265,46,1))
-_EltexDnsServer_ObjectIdentity=ObjectIdentity
-eltexDnsServer=_EltexDnsServer_ObjectIdentity((1,3,6,1,4,1,35265,46,1,1))
-_EltexDnsServerGlobals_ObjectIdentity=ObjectIdentity
-eltexDnsServerGlobals=_EltexDnsServerGlobals_ObjectIdentity((1,3,6,1,4,1,35265,46,1,1,1))
-_EltexDnsServerEnable_Type=TruthValue
-_EltexDnsServerEnable_Object=MibScalar
-eltexDnsServerEnable=_EltexDnsServerEnable_Object((1,3,6,1,4,1,35265,46,1,1,1,1),_EltexDnsServerEnable_Type())
-eltexDnsServerEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:eltexDnsServerEnable.setStatus(_A)
-_EltexDnsServerClearCache_Type=TruthValue
-_EltexDnsServerClearCache_Object=MibScalar
-eltexDnsServerClearCache=_EltexDnsServerClearCache_Object((1,3,6,1,4,1,35265,46,1,1,1,2),_EltexDnsServerClearCache_Type())
-eltexDnsServerClearCache.setMaxAccess(_E)
-if mibBuilder.loadTexts:eltexDnsServerClearCache.setStatus(_A)
-_EltexDnsServerClearCounters_Type=TruthValue
-_EltexDnsServerClearCounters_Object=MibScalar
-eltexDnsServerClearCounters=_EltexDnsServerClearCounters_Object((1,3,6,1,4,1,35265,46,1,1,1,3),_EltexDnsServerClearCounters_Type())
-eltexDnsServerClearCounters.setMaxAccess(_E)
-if mibBuilder.loadTexts:eltexDnsServerClearCounters.setStatus(_A)
-_EltexDnsServerCounters_ObjectIdentity=ObjectIdentity
-eltexDnsServerCounters=_EltexDnsServerCounters_ObjectIdentity((1,3,6,1,4,1,35265,46,1,1,2))
-_EltexDnsServerQueriesCounter_Type=Counter32
-_EltexDnsServerQueriesCounter_Object=MibScalar
-eltexDnsServerQueriesCounter=_EltexDnsServerQueriesCounter_Object((1,3,6,1,4,1,35265,46,1,1,2,1),_EltexDnsServerQueriesCounter_Type())
-eltexDnsServerQueriesCounter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexDnsServerQueriesCounter.setStatus(_A)
-_EltexDnsServerPendingQueriesCounter_Type=Counter32
-_EltexDnsServerPendingQueriesCounter_Object=MibScalar
-eltexDnsServerPendingQueriesCounter=_EltexDnsServerPendingQueriesCounter_Object((1,3,6,1,4,1,35265,46,1,1,2,2),_EltexDnsServerPendingQueriesCounter_Type())
-eltexDnsServerPendingQueriesCounter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexDnsServerPendingQueriesCounter.setStatus(_A)
-_EltexDnsServerCacheResponsesCounter_Type=Counter32
-_EltexDnsServerCacheResponsesCounter_Object=MibScalar
-eltexDnsServerCacheResponsesCounter=_EltexDnsServerCacheResponsesCounter_Object((1,3,6,1,4,1,35265,46,1,1,2,3),_EltexDnsServerCacheResponsesCounter_Type())
-eltexDnsServerCacheResponsesCounter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexDnsServerCacheResponsesCounter.setStatus(_A)
-_EltexDnsServerCacheHitCounter_Type=Counter32
-_EltexDnsServerCacheHitCounter_Object=MibScalar
-eltexDnsServerCacheHitCounter=_EltexDnsServerCacheHitCounter_Object((1,3,6,1,4,1,35265,46,1,1,2,4),_EltexDnsServerCacheHitCounter_Type())
-eltexDnsServerCacheHitCounter.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexDnsServerCacheHitCounter.setStatus(_A)
-_EltexDnsServerCache_ObjectIdentity=ObjectIdentity
-eltexDnsServerCache=_EltexDnsServerCache_ObjectIdentity((1,3,6,1,4,1,35265,46,1,1,3))
-_EltexDnsServerQueryTable_Object=MibTable
-eltexDnsServerQueryTable=_EltexDnsServerQueryTable_Object((1,3,6,1,4,1,35265,46,1,1,3,1))
-if mibBuilder.loadTexts:eltexDnsServerQueryTable.setStatus(_A)
-_EltexDnsServerQueryEntry_Object=MibTableRow
-eltexDnsServerQueryEntry=_EltexDnsServerQueryEntry_Object((1,3,6,1,4,1,35265,46,1,1,3,1,1))
-eltexDnsServerQueryEntry.setIndexNames((0,_C,_F),(0,_C,_G))
-if mibBuilder.loadTexts:eltexDnsServerQueryEntry.setStatus(_A)
-_EltexDnsServerQueryQuestion_Type=OctetString
-_EltexDnsServerQueryQuestion_Object=MibTableColumn
-eltexDnsServerQueryQuestion=_EltexDnsServerQueryQuestion_Object((1,3,6,1,4,1,35265,46,1,1,3,1,1,1),_EltexDnsServerQueryQuestion_Type())
-eltexDnsServerQueryQuestion.setMaxAccess(_H)
-if mibBuilder.loadTexts:eltexDnsServerQueryQuestion.setStatus(_A)
-class _EltexDnsServerQueryType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_EltexDnsServerQueryType_Type.__name__=_D
-_EltexDnsServerQueryType_Object=MibTableColumn
-eltexDnsServerQueryType=_EltexDnsServerQueryType_Object((1,3,6,1,4,1,35265,46,1,1,3,1,1,2),_EltexDnsServerQueryType_Type())
-eltexDnsServerQueryType.setMaxAccess(_H)
-if mibBuilder.loadTexts:eltexDnsServerQueryType.setStatus(_A)
-_EltexDnsServerQueryRemainingTTL_Type=Integer32
-_EltexDnsServerQueryRemainingTTL_Object=MibTableColumn
-eltexDnsServerQueryRemainingTTL=_EltexDnsServerQueryRemainingTTL_Object((1,3,6,1,4,1,35265,46,1,1,3,1,1,3),_EltexDnsServerQueryRemainingTTL_Type())
-eltexDnsServerQueryRemainingTTL.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexDnsServerQueryRemainingTTL.setStatus(_A)
-_EltexDnsServerQuerySourceInetAddressType_Type=InetAddressType
-_EltexDnsServerQuerySourceInetAddressType_Object=MibTableColumn
-eltexDnsServerQuerySourceInetAddressType=_EltexDnsServerQuerySourceInetAddressType_Object((1,3,6,1,4,1,35265,46,1,1,3,1,1,4),_EltexDnsServerQuerySourceInetAddressType_Type())
-eltexDnsServerQuerySourceInetAddressType.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexDnsServerQuerySourceInetAddressType.setStatus(_A)
-_EltexDnsServerQuerySourceInetAddress_Type=InetAddress
-_EltexDnsServerQuerySourceInetAddress_Object=MibTableColumn
-eltexDnsServerQuerySourceInetAddress=_EltexDnsServerQuerySourceInetAddress_Object((1,3,6,1,4,1,35265,46,1,1,3,1,1,5),_EltexDnsServerQuerySourceInetAddress_Type())
-eltexDnsServerQuerySourceInetAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexDnsServerQuerySourceInetAddress.setStatus(_A)
-_EltexDnsServerAnswerTable_Object=MibTable
-eltexDnsServerAnswerTable=_EltexDnsServerAnswerTable_Object((1,3,6,1,4,1,35265,46,1,1,3,2))
-if mibBuilder.loadTexts:eltexDnsServerAnswerTable.setStatus(_A)
-_EltexDnsServerAnswerEntry_Object=MibTableRow
-eltexDnsServerAnswerEntry=_EltexDnsServerAnswerEntry_Object((1,3,6,1,4,1,35265,46,1,1,3,2,1))
-eltexDnsServerAnswerEntry.setIndexNames((0,_C,_F),(0,_C,_G),(0,_C,_I))
-if mibBuilder.loadTexts:eltexDnsServerAnswerEntry.setStatus(_A)
-_EltexDnsServerAnswer_Type=OctetString
-_EltexDnsServerAnswer_Object=MibTableColumn
-eltexDnsServerAnswer=_EltexDnsServerAnswer_Object((1,3,6,1,4,1,35265,46,1,1,3,2,1,1),_EltexDnsServerAnswer_Type())
-eltexDnsServerAnswer.setMaxAccess(_H)
-if mibBuilder.loadTexts:eltexDnsServerAnswer.setStatus(_A)
-class _EltexDnsServerAnswerType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_EltexDnsServerAnswerType_Type.__name__=_D
-_EltexDnsServerAnswerType_Object=MibTableColumn
-eltexDnsServerAnswerType=_EltexDnsServerAnswerType_Object((1,3,6,1,4,1,35265,46,1,1,3,2,1,2),_EltexDnsServerAnswerType_Type())
-eltexDnsServerAnswerType.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexDnsServerAnswerType.setStatus(_A)
-_EltexDnsServerAnswerTTL_Type=Integer32
-_EltexDnsServerAnswerTTL_Object=MibTableColumn
-eltexDnsServerAnswerTTL=_EltexDnsServerAnswerTTL_Object((1,3,6,1,4,1,35265,46,1,1,3,2,1,3),_EltexDnsServerAnswerTTL_Type())
-eltexDnsServerAnswerTTL.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltexDnsServerAnswerTTL.setStatus(_A)
-_EltexDnsClient_ObjectIdentity=ObjectIdentity
-eltexDnsClient=_EltexDnsClient_ObjectIdentity((1,3,6,1,4,1,35265,46,1,2))
-mibBuilder.exportSymbols(_C,**{'eltexDnsMIB':eltexDnsMIB,'eltexDnsObjects':eltexDnsObjects,'eltexDnsServer':eltexDnsServer,'eltexDnsServerGlobals':eltexDnsServerGlobals,'eltexDnsServerEnable':eltexDnsServerEnable,'eltexDnsServerClearCache':eltexDnsServerClearCache,'eltexDnsServerClearCounters':eltexDnsServerClearCounters,'eltexDnsServerCounters':eltexDnsServerCounters,'eltexDnsServerQueriesCounter':eltexDnsServerQueriesCounter,'eltexDnsServerPendingQueriesCounter':eltexDnsServerPendingQueriesCounter,'eltexDnsServerCacheResponsesCounter':eltexDnsServerCacheResponsesCounter,'eltexDnsServerCacheHitCounter':eltexDnsServerCacheHitCounter,'eltexDnsServerCache':eltexDnsServerCache,'eltexDnsServerQueryTable':eltexDnsServerQueryTable,'eltexDnsServerQueryEntry':eltexDnsServerQueryEntry,_F:eltexDnsServerQueryQuestion,_G:eltexDnsServerQueryType,'eltexDnsServerQueryRemainingTTL':eltexDnsServerQueryRemainingTTL,'eltexDnsServerQuerySourceInetAddressType':eltexDnsServerQuerySourceInetAddressType,'eltexDnsServerQuerySourceInetAddress':eltexDnsServerQuerySourceInetAddress,'eltexDnsServerAnswerTable':eltexDnsServerAnswerTable,'eltexDnsServerAnswerEntry':eltexDnsServerAnswerEntry,_I:eltexDnsServerAnswer,'eltexDnsServerAnswerType':eltexDnsServerAnswerType,'eltexDnsServerAnswerTTL':eltexDnsServerAnswerTTL,'eltexDnsClient':eltexDnsClient})
+#
+# PySNMP MIB module ELTEX-DNS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-DNS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:31 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltexLtd, = mibBuilder.importSymbols("ELTEX-SMI-ACTUAL", "eltexLtd")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+eltexDnsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 46))
+eltexDnsMIB.setRevisions(('2018-01-14 00:00',))
+if mibBuilder.loadTexts: eltexDnsMIB.setLastUpdated('201801140000Z')
+if mibBuilder.loadTexts: eltexDnsMIB.setOrganization('Eltex Enterprise, Ltd.')
+eltexDnsObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 46, 1))
+eltexDnsServer = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1))
+eltexDnsClient = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 46, 1, 2))
+eltexDnsServerGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 1))
+eltexDnsServerCounters = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 2))
+eltexDnsServerCache = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 3))
+eltexDnsServerEnable = MibScalar((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexDnsServerEnable.setStatus('current')
+eltexDnsServerClearCache = MibScalar((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexDnsServerClearCache.setStatus('current')
+eltexDnsServerClearCounters = MibScalar((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 1, 3), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltexDnsServerClearCounters.setStatus('current')
+eltexDnsServerQueriesCounter = MibScalar((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 2, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexDnsServerQueriesCounter.setStatus('current')
+eltexDnsServerPendingQueriesCounter = MibScalar((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 2, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexDnsServerPendingQueriesCounter.setStatus('current')
+eltexDnsServerCacheResponsesCounter = MibScalar((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 2, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexDnsServerCacheResponsesCounter.setStatus('current')
+eltexDnsServerCacheHitCounter = MibScalar((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 2, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexDnsServerCacheHitCounter.setStatus('current')
+eltexDnsServerQueryTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 3, 1), )
+if mibBuilder.loadTexts: eltexDnsServerQueryTable.setStatus('current')
+eltexDnsServerQueryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 3, 1, 1), ).setIndexNames((0, "ELTEX-DNS-MIB", "eltexDnsServerQueryQuestion"), (0, "ELTEX-DNS-MIB", "eltexDnsServerQueryType"))
+if mibBuilder.loadTexts: eltexDnsServerQueryEntry.setStatus('current')
+eltexDnsServerQueryQuestion = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 3, 1, 1, 1), OctetString())
+if mibBuilder.loadTexts: eltexDnsServerQueryQuestion.setStatus('current')
+eltexDnsServerQueryType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: eltexDnsServerQueryType.setStatus('current')
+eltexDnsServerQueryRemainingTTL = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 3, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexDnsServerQueryRemainingTTL.setStatus('current')
+eltexDnsServerQuerySourceInetAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 3, 1, 1, 4), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexDnsServerQuerySourceInetAddressType.setStatus('current')
+eltexDnsServerQuerySourceInetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 3, 1, 1, 5), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexDnsServerQuerySourceInetAddress.setStatus('current')
+eltexDnsServerAnswerTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 3, 2), )
+if mibBuilder.loadTexts: eltexDnsServerAnswerTable.setStatus('current')
+eltexDnsServerAnswerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 3, 2, 1), ).setIndexNames((0, "ELTEX-DNS-MIB", "eltexDnsServerQueryQuestion"), (0, "ELTEX-DNS-MIB", "eltexDnsServerQueryType"), (0, "ELTEX-DNS-MIB", "eltexDnsServerAnswer"))
+if mibBuilder.loadTexts: eltexDnsServerAnswerEntry.setStatus('current')
+eltexDnsServerAnswer = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 3, 2, 1, 1), OctetString())
+if mibBuilder.loadTexts: eltexDnsServerAnswer.setStatus('current')
+eltexDnsServerAnswerType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexDnsServerAnswerType.setStatus('current')
+eltexDnsServerAnswerTTL = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 46, 1, 1, 3, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltexDnsServerAnswerTTL.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-DNS-MIB", eltexDnsServerQueriesCounter=eltexDnsServerQueriesCounter, eltexDnsServerClearCounters=eltexDnsServerClearCounters, eltexDnsServerAnswer=eltexDnsServerAnswer, eltexDnsServerAnswerTTL=eltexDnsServerAnswerTTL, eltexDnsServerQueryType=eltexDnsServerQueryType, eltexDnsServerAnswerEntry=eltexDnsServerAnswerEntry, eltexDnsClient=eltexDnsClient, eltexDnsServerQueryQuestion=eltexDnsServerQueryQuestion, eltexDnsServerClearCache=eltexDnsServerClearCache, eltexDnsServer=eltexDnsServer, eltexDnsServerGlobals=eltexDnsServerGlobals, eltexDnsServerQuerySourceInetAddress=eltexDnsServerQuerySourceInetAddress, eltexDnsServerQueryEntry=eltexDnsServerQueryEntry, eltexDnsServerCacheResponsesCounter=eltexDnsServerCacheResponsesCounter, eltexDnsServerQuerySourceInetAddressType=eltexDnsServerQuerySourceInetAddressType, eltexDnsServerQueryRemainingTTL=eltexDnsServerQueryRemainingTTL, eltexDnsServerPendingQueriesCounter=eltexDnsServerPendingQueriesCounter, eltexDnsServerCacheHitCounter=eltexDnsServerCacheHitCounter, eltexDnsServerCounters=eltexDnsServerCounters, eltexDnsServerAnswerType=eltexDnsServerAnswerType, eltexDnsObjects=eltexDnsObjects, eltexDnsServerAnswerTable=eltexDnsServerAnswerTable, eltexDnsServerQueryTable=eltexDnsServerQueryTable, eltexDnsMIB=eltexDnsMIB, eltexDnsServerCache=eltexDnsServerCache, PYSNMP_MODULE_ID=eltexDnsMIB, eltexDnsServerEnable=eltexDnsServerEnable)

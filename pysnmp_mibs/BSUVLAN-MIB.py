@@ -1,44 +1,29 @@
-_C='current'
-_B='read-only'
-_A='Integer32'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-bsu,=mibBuilder.importSymbols('ANIROOT-MIB','bsu')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_A,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-aniBsuVlan=ModuleIdentity((1,3,6,1,4,1,4325,3,11))
-_AniBsuVlanConf_ObjectIdentity=ObjectIdentity
-aniBsuVlanConf=_AniBsuVlanConf_ObjectIdentity((1,3,6,1,4,1,4325,3,11,1))
-class _AniBsuVlanConfMgmtVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_AniBsuVlanConfMgmtVlanId_Type.__name__=_A
-_AniBsuVlanConfMgmtVlanId_Object=MibScalar
-aniBsuVlanConfMgmtVlanId=_AniBsuVlanConfMgmtVlanId_Object((1,3,6,1,4,1,4325,3,11,1,1),_AniBsuVlanConfMgmtVlanId_Type())
-aniBsuVlanConfMgmtVlanId.setMaxAccess(_B)
-if mibBuilder.loadTexts:aniBsuVlanConfMgmtVlanId.setStatus(_C)
-class _AniBsuVlanConfOuterTagId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_AniBsuVlanConfOuterTagId_Type.__name__=_A
-_AniBsuVlanConfOuterTagId_Object=MibScalar
-aniBsuVlanConfOuterTagId=_AniBsuVlanConfOuterTagId_Object((1,3,6,1,4,1,4325,3,11,1,4),_AniBsuVlanConfOuterTagId_Type())
-aniBsuVlanConfOuterTagId.setMaxAccess(_B)
-if mibBuilder.loadTexts:aniBsuVlanConfOuterTagId.setStatus(_C)
-class _AniBsuVlanConfMgmtVlanIdPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_AniBsuVlanConfMgmtVlanIdPriority_Type.__name__=_A
-_AniBsuVlanConfMgmtVlanIdPriority_Object=MibScalar
-aniBsuVlanConfMgmtVlanIdPriority=_AniBsuVlanConfMgmtVlanIdPriority_Object((1,3,6,1,4,1,4325,3,11,1,5),_AniBsuVlanConfMgmtVlanIdPriority_Type())
-aniBsuVlanConfMgmtVlanIdPriority.setMaxAccess(_B)
-if mibBuilder.loadTexts:aniBsuVlanConfMgmtVlanIdPriority.setStatus(_C)
-class _AniBsuVlanConfOuterTagPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_AniBsuVlanConfOuterTagPriority_Type.__name__=_A
-_AniBsuVlanConfOuterTagPriority_Object=MibScalar
-aniBsuVlanConfOuterTagPriority=_AniBsuVlanConfOuterTagPriority_Object((1,3,6,1,4,1,4325,3,11,1,6),_AniBsuVlanConfOuterTagPriority_Type())
-aniBsuVlanConfOuterTagPriority.setMaxAccess(_B)
-if mibBuilder.loadTexts:aniBsuVlanConfOuterTagPriority.setStatus(_C)
-_AniBsuVlanConfSUMgmtVlanIdList_Type=DisplayString
-_AniBsuVlanConfSUMgmtVlanIdList_Object=MibScalar
-aniBsuVlanConfSUMgmtVlanIdList=_AniBsuVlanConfSUMgmtVlanIdList_Object((1,3,6,1,4,1,4325,3,11,1,7),_AniBsuVlanConfSUMgmtVlanIdList_Type())
-aniBsuVlanConfSUMgmtVlanIdList.setMaxAccess(_B)
-if mibBuilder.loadTexts:aniBsuVlanConfSUMgmtVlanIdList.setStatus(_C)
-mibBuilder.exportSymbols('BSUVLAN-MIB',**{'aniBsuVlan':aniBsuVlan,'aniBsuVlanConf':aniBsuVlanConf,'aniBsuVlanConfMgmtVlanId':aniBsuVlanConfMgmtVlanId,'aniBsuVlanConfOuterTagId':aniBsuVlanConfOuterTagId,'aniBsuVlanConfMgmtVlanIdPriority':aniBsuVlanConfMgmtVlanIdPriority,'aniBsuVlanConfOuterTagPriority':aniBsuVlanConfOuterTagPriority,'aniBsuVlanConfSUMgmtVlanIdList':aniBsuVlanConfSUMgmtVlanIdList})
+#
+# PySNMP MIB module BSUVLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aperto/BSUVLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+bsu, = mibBuilder.importSymbols("ANIROOT-MIB", "bsu")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+aniBsuVlan = ModuleIdentity((1, 3, 6, 1, 4, 1, 4325, 3, 11))
+if mibBuilder.loadTexts: aniBsuVlan.setLastUpdated('0210251725Z')
+if mibBuilder.loadTexts: aniBsuVlan.setOrganization('Aperto Networks')
+aniBsuVlanConf = MibIdentifier((1, 3, 6, 1, 4, 1, 4325, 3, 11, 1))
+aniBsuVlanConfMgmtVlanId = MibScalar((1, 3, 6, 1, 4, 1, 4325, 3, 11, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aniBsuVlanConfMgmtVlanId.setStatus('current')
+aniBsuVlanConfOuterTagId = MibScalar((1, 3, 6, 1, 4, 1, 4325, 3, 11, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aniBsuVlanConfOuterTagId.setStatus('current')
+aniBsuVlanConfMgmtVlanIdPriority = MibScalar((1, 3, 6, 1, 4, 1, 4325, 3, 11, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aniBsuVlanConfMgmtVlanIdPriority.setStatus('current')
+aniBsuVlanConfOuterTagPriority = MibScalar((1, 3, 6, 1, 4, 1, 4325, 3, 11, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aniBsuVlanConfOuterTagPriority.setStatus('current')
+aniBsuVlanConfSUMgmtVlanIdList = MibScalar((1, 3, 6, 1, 4, 1, 4325, 3, 11, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aniBsuVlanConfSUMgmtVlanIdList.setStatus('current')
+mibBuilder.exportSymbols("BSUVLAN-MIB", aniBsuVlanConfOuterTagId=aniBsuVlanConfOuterTagId, PYSNMP_MODULE_ID=aniBsuVlan, aniBsuVlanConfMgmtVlanId=aniBsuVlanConfMgmtVlanId, aniBsuVlanConf=aniBsuVlanConf, aniBsuVlanConfMgmtVlanIdPriority=aniBsuVlanConfMgmtVlanIdPriority, aniBsuVlan=aniBsuVlan, aniBsuVlanConfOuterTagPriority=aniBsuVlanConfOuterTagPriority, aniBsuVlanConfSUMgmtVlanIdList=aniBsuVlanConfSUMgmtVlanIdList)

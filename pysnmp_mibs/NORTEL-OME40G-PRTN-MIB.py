@@ -1,115 +1,56 @@
-_K='lockout'
-_J='read-create'
-_I='protectionIfIndex'
-_H='workingIfIndex'
-_G='ifIndex'
-_F='IF-MIB'
-_E='read-only'
-_D='NORTEL-OME40G-PRTN-MIB'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-entPhysicalIndex,=mibBuilder.importSymbols('ENTITY-MIB','entPhysicalIndex')
-InterfaceIndex,ifIndex=mibBuilder.importSymbols(_F,'InterfaceIndex',_G)
-nnOme40G,=mibBuilder.importSymbols('NORTEL-OME40G-MIB','nnOme40G')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-nnOme40GProtection=ModuleIdentity((1,3,6,1,4,1,562,68,11,3,3))
-if mibBuilder.loadTexts:nnOme40GProtection.setRevisions(('2007-02-02 00:00','2008-02-07 00:00'))
-_NnOme40Gotm3Protection_ObjectIdentity=ObjectIdentity
-nnOme40Gotm3Protection=_NnOme40Gotm3Protection_ObjectIdentity((1,3,6,1,4,1,562,68,11,3,3,1))
-_NnOTM3protectionGroupTable_Object=MibTable
-nnOTM3protectionGroupTable=_NnOTM3protectionGroupTable_Object((1,3,6,1,4,1,562,68,11,3,3,1,1))
-if mibBuilder.loadTexts:nnOTM3protectionGroupTable.setStatus(_A)
-_NnOTM3protectionGroupEntry_Object=MibTableRow
-nnOTM3protectionGroupEntry=_NnOTM3protectionGroupEntry_Object((1,3,6,1,4,1,562,68,11,3,3,1,1,1))
-nnOTM3protectionGroupEntry.setIndexNames((0,_D,_H),(0,_D,_I))
-if mibBuilder.loadTexts:nnOTM3protectionGroupEntry.setStatus(_A)
-_WorkingIfIndex_Type=InterfaceIndex
-_WorkingIfIndex_Object=MibTableColumn
-workingIfIndex=_WorkingIfIndex_Object((1,3,6,1,4,1,562,68,11,3,3,1,1,1,1),_WorkingIfIndex_Type())
-workingIfIndex.setMaxAccess(_J)
-if mibBuilder.loadTexts:workingIfIndex.setStatus(_A)
-_ProtectionIfIndex_Type=InterfaceIndex
-_ProtectionIfIndex_Object=MibTableColumn
-protectionIfIndex=_ProtectionIfIndex_Object((1,3,6,1,4,1,562,68,11,3,3,1,1,1,2),_ProtectionIfIndex_Type())
-protectionIfIndex.setMaxAccess(_J)
-if mibBuilder.loadTexts:protectionIfIndex.setStatus(_A)
-_PtRowStatus_Type=RowStatus
-_PtRowStatus_Object=MibTableColumn
-ptRowStatus=_PtRowStatus_Object((1,3,6,1,4,1,562,68,11,3,3,1,1,1,3),_PtRowStatus_Type())
-ptRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ptRowStatus.setStatus(_A)
-class _ProtectionSwitchDir_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('bidirectional',1),('unidirectional',2)))
-_ProtectionSwitchDir_Type.__name__=_B
-_ProtectionSwitchDir_Object=MibTableColumn
-protectionSwitchDir=_ProtectionSwitchDir_Object((1,3,6,1,4,1,562,68,11,3,3,1,1,1,4),_ProtectionSwitchDir_Type())
-protectionSwitchDir.setMaxAccess(_C)
-if mibBuilder.loadTexts:protectionSwitchDir.setStatus(_A)
-class _ProtectionScheme_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('one-plus-one',1))
-_ProtectionScheme_Type.__name__=_B
-_ProtectionScheme_Object=MibTableColumn
-protectionScheme=_ProtectionScheme_Object((1,3,6,1,4,1,562,68,11,3,3,1,1,1,5),_ProtectionScheme_Type())
-protectionScheme.setMaxAccess(_C)
-if mibBuilder.loadTexts:protectionScheme.setStatus(_A)
-class _WaitToRestore_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12)));namedValues=NamedValues(*(('one-minute',1),('two-minutes',2),('three-minutes',3),('four-minutes',4),('five-minutes',5),('six-minutes',6),('seven-minutes',7),('eight-minutes',8),('nine-minutes',9),('ten-minutes',10),('eleven-minutes',11),('twelve-minutes',12)))
-_WaitToRestore_Type.__name__=_B
-_WaitToRestore_Object=MibTableColumn
-waitToRestore=_WaitToRestore_Object((1,3,6,1,4,1,562,68,11,3,3,1,1,1,6),_WaitToRestore_Type())
-waitToRestore.setMaxAccess(_C)
-if mibBuilder.loadTexts:waitToRestore.setStatus(_A)
-class _Revertive_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('yes',1),('no',2)))
-_Revertive_Type.__name__=_B
-_Revertive_Object=MibTableColumn
-revertive=_Revertive_Object((1,3,6,1,4,1,562,68,11,3,3,1,1,1,7),_Revertive_Type())
-revertive.setMaxAccess(_C)
-if mibBuilder.loadTexts:revertive.setStatus(_A)
-class _RemoteStandardMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('otn-g-873-1',1))
-_RemoteStandardMode_Type.__name__=_B
-_RemoteStandardMode_Object=MibTableColumn
-remoteStandardMode=_RemoteStandardMode_Object((1,3,6,1,4,1,562,68,11,3,3,1,1,1,8),_RemoteStandardMode_Type())
-remoteStandardMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:remoteStandardMode.setStatus(_A)
-class _RouteDiversity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('off',0))
-_RouteDiversity_Type.__name__=_B
-_RouteDiversity_Object=MibTableColumn
-routeDiversity=_RouteDiversity_Object((1,3,6,1,4,1,562,68,11,3,3,1,1,1,9),_RouteDiversity_Type())
-routeDiversity.setMaxAccess(_C)
-if mibBuilder.loadTexts:routeDiversity.setStatus(_A)
-_NnOTM3protectionSwitchTable_Object=MibTable
-nnOTM3protectionSwitchTable=_NnOTM3protectionSwitchTable_Object((1,3,6,1,4,1,562,68,11,3,3,1,2))
-if mibBuilder.loadTexts:nnOTM3protectionSwitchTable.setStatus(_A)
-_NnOTM3protectionSwitchEntry_Object=MibTableRow
-nnOTM3protectionSwitchEntry=_NnOTM3protectionSwitchEntry_Object((1,3,6,1,4,1,562,68,11,3,3,1,2,1))
-nnOTM3protectionSwitchEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:nnOTM3protectionSwitchEntry.setStatus(_A)
-class _SwitchCommand_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('man',1),('frcd',2),(_K,3),('release',4)))
-_SwitchCommand_Type.__name__=_B
-_SwitchCommand_Object=MibTableColumn
-switchCommand=_SwitchCommand_Object((1,3,6,1,4,1,562,68,11,3,3,1,2,1,1),_SwitchCommand_Type())
-switchCommand.setMaxAccess(_C)
-if mibBuilder.loadTexts:switchCommand.setStatus(_A)
-class _SwitchStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('idle',1),('auto',2),('man',3),('frcd',4),(_K,5)))
-_SwitchStatus_Type.__name__=_B
-_SwitchStatus_Object=MibTableColumn
-switchStatus=_SwitchStatus_Object((1,3,6,1,4,1,562,68,11,3,3,1,2,1,2),_SwitchStatus_Type())
-switchStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:switchStatus.setStatus(_A)
-class _EndInitiatingSwitch_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('remote',1),('local',2)))
-_EndInitiatingSwitch_Type.__name__=_B
-_EndInitiatingSwitch_Object=MibTableColumn
-endInitiatingSwitch=_EndInitiatingSwitch_Object((1,3,6,1,4,1,562,68,11,3,3,1,2,1,3),_EndInitiatingSwitch_Type())
-endInitiatingSwitch.setMaxAccess(_E)
-if mibBuilder.loadTexts:endInitiatingSwitch.setStatus(_A)
-class _ReasonForAutoSwitch_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('sigok',1),('sf',2),('sd',3),('eber',4),('eqpfl',5),('facoos',6),('eqpoos',7),('osc',8),('wr',9)))
-_ReasonForAutoSwitch_Type.__name__=_B
-_ReasonForAutoSwitch_Object=MibTableColumn
-reasonForAutoSwitch=_ReasonForAutoSwitch_Object((1,3,6,1,4,1,562,68,11,3,3,1,2,1,4),_ReasonForAutoSwitch_Type())
-reasonForAutoSwitch.setMaxAccess(_E)
-if mibBuilder.loadTexts:reasonForAutoSwitch.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'nnOme40GProtection':nnOme40GProtection,'nnOme40Gotm3Protection':nnOme40Gotm3Protection,'nnOTM3protectionGroupTable':nnOTM3protectionGroupTable,'nnOTM3protectionGroupEntry':nnOTM3protectionGroupEntry,_H:workingIfIndex,_I:protectionIfIndex,'ptRowStatus':ptRowStatus,'protectionSwitchDir':protectionSwitchDir,'protectionScheme':protectionScheme,'waitToRestore':waitToRestore,'revertive':revertive,'remoteStandardMode':remoteStandardMode,'routeDiversity':routeDiversity,'nnOTM3protectionSwitchTable':nnOTM3protectionSwitchTable,'nnOTM3protectionSwitchEntry':nnOTM3protectionSwitchEntry,'switchCommand':switchCommand,'switchStatus':switchStatus,'endInitiatingSwitch':endInitiatingSwitch,'reasonForAutoSwitch':reasonForAutoSwitch})
+#
+# PySNMP MIB module NORTEL-OME40G-PRTN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/NORTEL-OME40G-PRTN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:01 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
+nnOme40G, = mibBuilder.importSymbols("NORTEL-OME40G-MIB", "nnOme40G")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+nnOme40GProtection = ModuleIdentity((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3))
+nnOme40GProtection.setRevisions(('2007-02-02 00:00', '2008-02-07 00:00',))
+if mibBuilder.loadTexts: nnOme40GProtection.setLastUpdated('200802070000Z')
+if mibBuilder.loadTexts: nnOme40GProtection.setOrganization('Nortel')
+nnOme40Gotm3Protection = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1))
+nnOTM3protectionGroupTable = MibTable((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 1), )
+if mibBuilder.loadTexts: nnOTM3protectionGroupTable.setStatus('current')
+nnOTM3protectionGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 1, 1), ).setIndexNames((0, "NORTEL-OME40G-PRTN-MIB", "workingIfIndex"), (0, "NORTEL-OME40G-PRTN-MIB", "protectionIfIndex"))
+if mibBuilder.loadTexts: nnOTM3protectionGroupEntry.setStatus('current')
+workingIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 1, 1, 1), InterfaceIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: workingIfIndex.setStatus('current')
+protectionIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 1, 1, 2), InterfaceIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: protectionIfIndex.setStatus('current')
+ptRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 1, 1, 3), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ptRowStatus.setStatus('current')
+protectionSwitchDir = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("bidirectional", 1), ("unidirectional", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: protectionSwitchDir.setStatus('current')
+protectionScheme = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("one-plus-one", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: protectionScheme.setStatus('current')
+waitToRestore = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("one-minute", 1), ("two-minutes", 2), ("three-minutes", 3), ("four-minutes", 4), ("five-minutes", 5), ("six-minutes", 6), ("seven-minutes", 7), ("eight-minutes", 8), ("nine-minutes", 9), ("ten-minutes", 10), ("eleven-minutes", 11), ("twelve-minutes", 12)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: waitToRestore.setStatus('current')
+revertive = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("yes", 1), ("no", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: revertive.setStatus('current')
+remoteStandardMode = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("otn-g-873-1", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: remoteStandardMode.setStatus('current')
+routeDiversity = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("off", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: routeDiversity.setStatus('current')
+nnOTM3protectionSwitchTable = MibTable((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 2), )
+if mibBuilder.loadTexts: nnOTM3protectionSwitchTable.setStatus('current')
+nnOTM3protectionSwitchEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: nnOTM3protectionSwitchEntry.setStatus('current')
+switchCommand = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("man", 1), ("frcd", 2), ("lockout", 3), ("release", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: switchCommand.setStatus('current')
+switchStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("idle", 1), ("auto", 2), ("man", 3), ("frcd", 4), ("lockout", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: switchStatus.setStatus('current')
+endInitiatingSwitch = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("remote", 1), ("local", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: endInitiatingSwitch.setStatus('current')
+reasonForAutoSwitch = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 68, 11, 3, 3, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("sigok", 1), ("sf", 2), ("sd", 3), ("eber", 4), ("eqpfl", 5), ("facoos", 6), ("eqpoos", 7), ("osc", 8), ("wr", 9)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: reasonForAutoSwitch.setStatus('current')
+mibBuilder.exportSymbols("NORTEL-OME40G-PRTN-MIB", waitToRestore=waitToRestore, nnOme40GProtection=nnOme40GProtection, protectionSwitchDir=protectionSwitchDir, switchStatus=switchStatus, nnOTM3protectionGroupTable=nnOTM3protectionGroupTable, protectionIfIndex=protectionIfIndex, PYSNMP_MODULE_ID=nnOme40GProtection, nnOTM3protectionGroupEntry=nnOTM3protectionGroupEntry, nnOTM3protectionSwitchTable=nnOTM3protectionSwitchTable, workingIfIndex=workingIfIndex, switchCommand=switchCommand, routeDiversity=routeDiversity, ptRowStatus=ptRowStatus, protectionScheme=protectionScheme, nnOme40Gotm3Protection=nnOme40Gotm3Protection, nnOTM3protectionSwitchEntry=nnOTM3protectionSwitchEntry, endInitiatingSwitch=endInitiatingSwitch, revertive=revertive, remoteStandardMode=remoteStandardMode, reasonForAutoSwitch=reasonForAutoSwitch)

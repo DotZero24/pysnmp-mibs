@@ -1,516 +1,214 @@
-_Ab='hpnicfDot3OamNotificationGroup'
-_Aa='hpnicfDot3OamEventLogGroup'
-_AZ='hpnicfDot3OamErrFrameSecsSummaryEventGroup'
-_AY='hpnicfDot3OamErrFrameEventGroup'
-_AX='hpnicfDot3OamErrFramePeriodEventGroup'
-_AW='hpnicfDot3OamErrSymbolPeriodEventGroup'
-_AV='hpnicfDot3OamLoopbackGroup'
-_AU='hpnicfDot3OamStatsBaseGroup'
-_AT='hpnicfDot3OamPeerGroup'
-_AS='hpnicfDot3OamControlGroup'
-_AR='hpnicfDot3OamNonThresholdEvent'
-_AQ='hpnicfDot3OamThresholdEvent'
-_AP='hpnicfDot3OamErrFrameSecsEvNotifEnable'
-_AO='hpnicfDot3OamErrFrameSecsSummaryThreshold'
-_AN='hpnicfDot3OamErrFrameSecsSummaryWindow'
-_AM='hpnicfDot3OamErrFrameEvNotifEnable'
-_AL='hpnicfDot3OamErrFrameThreshold'
-_AK='hpnicfDot3OamErrFrameWindow'
-_AJ='hpnicfDot3OamErrFramePeriodEvNotifEnable'
-_AI='hpnicfDot3OamErrFramePeriodThreshold'
-_AH='hpnicfDot3OamErrFramePeriodWindow'
-_AG='hpnicfDot3OamErrSymPeriodEvNotifEnable'
-_AF='hpnicfDot3OamErrSymPeriodThresholdLo'
-_AE='hpnicfDot3OamErrSymPeriodThresholdHi'
-_AD='hpnicfDot3OamErrSymPeriodWindowLo'
-_AC='hpnicfDot3OamErrSymPeriodWindowHi'
-_AB='hpnicfDot3OamLoopbackIgnoreRx'
-_AA='hpnicfDot3OamLoopbackStatus'
-_A9='hpnicfDot3OamLoopbackCommand'
-_A8='hpnicfDot3OamFramesLostDueToOam'
-_A7='hpnicfDot3OamUnsupportedCodesRx'
-_A6='hpnicfDot3OamUnsupportedCodesTx'
-_A5='hpnicfDot3OamOrgSpecificRx'
-_A4='hpnicfDot3OamOrgSpecificTx'
-_A3='hpnicfDot3OamVariableResponseRx'
-_A2='hpnicfDot3OamVariableResponseTx'
-_A1='hpnicfDot3OamVariableRequestRx'
-_A0='hpnicfDot3OamVariableRequestTx'
-_z='hpnicfDot3OamLoopbackControlRx'
-_y='hpnicfDot3OamLoopbackControlTx'
-_x='hpnicfDot3OamDuplicateEventNotificationRx'
-_w='hpnicfDot3OamDuplicateEventNotificationTx'
-_v='hpnicfDot3OamUniqueEventNotificationRx'
-_u='hpnicfDot3OamUniqueEventNotificationTx'
-_t='hpnicfDot3OamInformationRx'
-_s='hpnicfDot3OamInformationTx'
-_r='hpnicfDot3OamPeerConfigRevision'
-_q='hpnicfDot3OamPeerMaxOamPduSize'
-_p='hpnicfDot3OamPeerFunctionsSupported'
-_o='hpnicfDot3OamPeerMode'
-_n='hpnicfDot3OamPeerVendorInfo'
-_m='hpnicfDot3OamPeerVendorOui'
-_l='hpnicfDot3OamPeerMacAddress'
-_k='hpnicfDot3OamPeerStatus'
-_j='hpnicfDot3OamFunctionsSupported'
-_i='hpnicfDot3OamConfigRevision'
-_h='hpnicfDot3OamMaxOamPduSize'
-_g='hpnicfDot3OamMode'
-_f='hpnicfDot3OamOperStatus'
-_e='hpnicfDot3OamAdminState'
-_d='hpnicfDot3OamEventLogIndex'
-_c='noLoopback'
-_b='unknown'
-_a='variableSupport'
-_Z='eventSupport'
-_Y='loopbackSupport'
-_X='unidirectionalSupport'
-_W='passive'
-_V='hpnicfDot3OamEventLogRunningTotal'
-_U='hpnicfDot3OamEventLogValue'
-_T='hpnicfDot3OamEventLogThresholdLo'
-_S='hpnicfDot3OamEventLogThresholdHi'
-_R='hpnicfDot3OamEventLogWindowLo'
-_Q='hpnicfDot3OamEventLogWindowHi'
-_P='active'
-_O='Bits'
-_N='hpnicfDot3OamEventLogEventTotal'
-_M='hpnicfDot3OamEventLogLocation'
-_L='hpnicfDot3OamEventLogType'
-_K='hpnicfDot3OamEventLogOui'
-_J='hpnicfDot3OamEventLogTimestamp'
-_I='enabled'
-_H='disabled'
-_G='ifIndex'
-_F='IF-MIB'
-_E='read-write'
-_D='Integer32'
-_C='read-only'
-_B='current'
-_A='HPN-ICF-EFM-COMMON-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CounterBasedGauge64,=mibBuilder.importSymbols('HCNUM-TC','CounterBasedGauge64')
-hpnicfEpon,=mibBuilder.importSymbols('HPN-ICF-OID-MIB','hpnicfEpon')
-ifIndex,=mibBuilder.importSymbols(_F,_G)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI',_O,'Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
-DateAndTime,DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','TextualConvention')
-hpnicfEfmOamMIB=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,15,2,42,3))
-if mibBuilder.loadTexts:hpnicfEfmOamMIB.setRevisions(('2004-10-24 00:00',))
-class Dot3Oui(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,3));fixedLength=3
-_HpnicfDot3OamMIB_ObjectIdentity=ObjectIdentity
-hpnicfDot3OamMIB=_HpnicfDot3OamMIB_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1))
-_HpnicfDot3OamTable_Object=MibTable
-hpnicfDot3OamTable=_HpnicfDot3OamTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,1))
-if mibBuilder.loadTexts:hpnicfDot3OamTable.setStatus(_B)
-_HpnicfDot3OamEntry_Object=MibTableRow
-hpnicfDot3OamEntry=_HpnicfDot3OamEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,1,1))
-hpnicfDot3OamEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:hpnicfDot3OamEntry.setStatus(_B)
-class _HpnicfDot3OamAdminState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
-_HpnicfDot3OamAdminState_Type.__name__=_D
-_HpnicfDot3OamAdminState_Object=MibTableColumn
-hpnicfDot3OamAdminState=_HpnicfDot3OamAdminState_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,1,1,1),_HpnicfDot3OamAdminState_Type())
-hpnicfDot3OamAdminState.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamAdminState.setStatus(_B)
-class _HpnicfDot3OamOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*((_H,1),('linkfault',2),('passiveWait',3),('activeSendLocal',4),('sendLocalAndRemote',5),('sendLocalAndRemoteOk',6),('oamPeeringLocallyRejected',7),('oamPeeringRemotelyRejected',8),('operational',9)))
-_HpnicfDot3OamOperStatus_Type.__name__=_D
-_HpnicfDot3OamOperStatus_Object=MibTableColumn
-hpnicfDot3OamOperStatus=_HpnicfDot3OamOperStatus_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,1,1,2),_HpnicfDot3OamOperStatus_Type())
-hpnicfDot3OamOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamOperStatus.setStatus(_B)
-class _HpnicfDot3OamMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_P,1),(_W,2)))
-_HpnicfDot3OamMode_Type.__name__=_D
-_HpnicfDot3OamMode_Object=MibTableColumn
-hpnicfDot3OamMode=_HpnicfDot3OamMode_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,1,1,3),_HpnicfDot3OamMode_Type())
-hpnicfDot3OamMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamMode.setStatus(_B)
-class _HpnicfDot3OamMaxOamPduSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(64,1522))
-_HpnicfDot3OamMaxOamPduSize_Type.__name__=_D
-_HpnicfDot3OamMaxOamPduSize_Object=MibTableColumn
-hpnicfDot3OamMaxOamPduSize=_HpnicfDot3OamMaxOamPduSize_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,1,1,4),_HpnicfDot3OamMaxOamPduSize_Type())
-hpnicfDot3OamMaxOamPduSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamMaxOamPduSize.setStatus(_B)
-_HpnicfDot3OamConfigRevision_Type=Unsigned32
-_HpnicfDot3OamConfigRevision_Object=MibTableColumn
-hpnicfDot3OamConfigRevision=_HpnicfDot3OamConfigRevision_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,1,1,5),_HpnicfDot3OamConfigRevision_Type())
-hpnicfDot3OamConfigRevision.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamConfigRevision.setStatus(_B)
-class _HpnicfDot3OamFunctionsSupported_Type(Bits):namedValues=NamedValues(*((_X,0),(_Y,1),(_Z,2),(_a,3)))
-_HpnicfDot3OamFunctionsSupported_Type.__name__=_O
-_HpnicfDot3OamFunctionsSupported_Object=MibTableColumn
-hpnicfDot3OamFunctionsSupported=_HpnicfDot3OamFunctionsSupported_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,1,1,6),_HpnicfDot3OamFunctionsSupported_Type())
-hpnicfDot3OamFunctionsSupported.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamFunctionsSupported.setStatus(_B)
-_HpnicfDot3OamPeerTable_Object=MibTable
-hpnicfDot3OamPeerTable=_HpnicfDot3OamPeerTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,2))
-if mibBuilder.loadTexts:hpnicfDot3OamPeerTable.setStatus(_B)
-_HpnicfDot3OamPeerEntry_Object=MibTableRow
-hpnicfDot3OamPeerEntry=_HpnicfDot3OamPeerEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,2,1))
-hpnicfDot3OamPeerEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:hpnicfDot3OamPeerEntry.setStatus(_B)
-class _HpnicfDot3OamPeerStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_P,1),('inactive',2)))
-_HpnicfDot3OamPeerStatus_Type.__name__=_D
-_HpnicfDot3OamPeerStatus_Object=MibTableColumn
-hpnicfDot3OamPeerStatus=_HpnicfDot3OamPeerStatus_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,2,1,1),_HpnicfDot3OamPeerStatus_Type())
-hpnicfDot3OamPeerStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamPeerStatus.setStatus(_B)
-_HpnicfDot3OamPeerMacAddress_Type=MacAddress
-_HpnicfDot3OamPeerMacAddress_Object=MibTableColumn
-hpnicfDot3OamPeerMacAddress=_HpnicfDot3OamPeerMacAddress_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,2,1,2),_HpnicfDot3OamPeerMacAddress_Type())
-hpnicfDot3OamPeerMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamPeerMacAddress.setStatus(_B)
-_HpnicfDot3OamPeerVendorOui_Type=Dot3Oui
-_HpnicfDot3OamPeerVendorOui_Object=MibTableColumn
-hpnicfDot3OamPeerVendorOui=_HpnicfDot3OamPeerVendorOui_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,2,1,3),_HpnicfDot3OamPeerVendorOui_Type())
-hpnicfDot3OamPeerVendorOui.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamPeerVendorOui.setStatus(_B)
-_HpnicfDot3OamPeerVendorInfo_Type=Unsigned32
-_HpnicfDot3OamPeerVendorInfo_Object=MibTableColumn
-hpnicfDot3OamPeerVendorInfo=_HpnicfDot3OamPeerVendorInfo_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,2,1,4),_HpnicfDot3OamPeerVendorInfo_Type())
-hpnicfDot3OamPeerVendorInfo.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamPeerVendorInfo.setStatus(_B)
-class _HpnicfDot3OamPeerMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_P,1),(_W,2),(_b,3)))
-_HpnicfDot3OamPeerMode_Type.__name__=_D
-_HpnicfDot3OamPeerMode_Object=MibTableColumn
-hpnicfDot3OamPeerMode=_HpnicfDot3OamPeerMode_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,2,1,5),_HpnicfDot3OamPeerMode_Type())
-hpnicfDot3OamPeerMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamPeerMode.setStatus(_B)
-class _HpnicfDot3OamPeerMaxOamPduSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(64,1522))
-_HpnicfDot3OamPeerMaxOamPduSize_Type.__name__=_D
-_HpnicfDot3OamPeerMaxOamPduSize_Object=MibTableColumn
-hpnicfDot3OamPeerMaxOamPduSize=_HpnicfDot3OamPeerMaxOamPduSize_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,2,1,6),_HpnicfDot3OamPeerMaxOamPduSize_Type())
-hpnicfDot3OamPeerMaxOamPduSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamPeerMaxOamPduSize.setStatus(_B)
-_HpnicfDot3OamPeerConfigRevision_Type=Unsigned32
-_HpnicfDot3OamPeerConfigRevision_Object=MibTableColumn
-hpnicfDot3OamPeerConfigRevision=_HpnicfDot3OamPeerConfigRevision_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,2,1,7),_HpnicfDot3OamPeerConfigRevision_Type())
-hpnicfDot3OamPeerConfigRevision.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamPeerConfigRevision.setStatus(_B)
-class _HpnicfDot3OamPeerFunctionsSupported_Type(Bits):namedValues=NamedValues(*((_X,0),(_Y,1),(_Z,2),(_a,3)))
-_HpnicfDot3OamPeerFunctionsSupported_Type.__name__=_O
-_HpnicfDot3OamPeerFunctionsSupported_Object=MibTableColumn
-hpnicfDot3OamPeerFunctionsSupported=_HpnicfDot3OamPeerFunctionsSupported_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,2,1,8),_HpnicfDot3OamPeerFunctionsSupported_Type())
-hpnicfDot3OamPeerFunctionsSupported.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamPeerFunctionsSupported.setStatus(_B)
-_HpnicfDot3OamLoopbackTable_Object=MibTable
-hpnicfDot3OamLoopbackTable=_HpnicfDot3OamLoopbackTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,3))
-if mibBuilder.loadTexts:hpnicfDot3OamLoopbackTable.setStatus(_B)
-_HpnicfDot3OamLoopbackEntry_Object=MibTableRow
-hpnicfDot3OamLoopbackEntry=_HpnicfDot3OamLoopbackEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,3,1))
-hpnicfDot3OamLoopbackEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:hpnicfDot3OamLoopbackEntry.setStatus(_B)
-class _HpnicfDot3OamLoopbackCommand_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_c,1),('startRemoteLoopback',2),('stopRemoteLoopback',3)))
-_HpnicfDot3OamLoopbackCommand_Type.__name__=_D
-_HpnicfDot3OamLoopbackCommand_Object=MibTableColumn
-hpnicfDot3OamLoopbackCommand=_HpnicfDot3OamLoopbackCommand_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,3,1,1),_HpnicfDot3OamLoopbackCommand_Type())
-hpnicfDot3OamLoopbackCommand.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamLoopbackCommand.setStatus(_B)
-class _HpnicfDot3OamLoopbackStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_c,1),('initiatingLoopback',2),('remoteLoopback',3),('terminatingLoopback',4),('localLoopback',5),(_b,6)))
-_HpnicfDot3OamLoopbackStatus_Type.__name__=_D
-_HpnicfDot3OamLoopbackStatus_Object=MibTableColumn
-hpnicfDot3OamLoopbackStatus=_HpnicfDot3OamLoopbackStatus_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,3,1,2),_HpnicfDot3OamLoopbackStatus_Type())
-hpnicfDot3OamLoopbackStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamLoopbackStatus.setStatus(_B)
-class _HpnicfDot3OamLoopbackIgnoreRx_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ignore',1),('process',2)))
-_HpnicfDot3OamLoopbackIgnoreRx_Type.__name__=_D
-_HpnicfDot3OamLoopbackIgnoreRx_Object=MibTableColumn
-hpnicfDot3OamLoopbackIgnoreRx=_HpnicfDot3OamLoopbackIgnoreRx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,3,1,3),_HpnicfDot3OamLoopbackIgnoreRx_Type())
-hpnicfDot3OamLoopbackIgnoreRx.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamLoopbackIgnoreRx.setStatus(_B)
-_HpnicfDot3OamStatsTable_Object=MibTable
-hpnicfDot3OamStatsTable=_HpnicfDot3OamStatsTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4))
-if mibBuilder.loadTexts:hpnicfDot3OamStatsTable.setStatus(_B)
-_HpnicfDot3OamStatsEntry_Object=MibTableRow
-hpnicfDot3OamStatsEntry=_HpnicfDot3OamStatsEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1))
-hpnicfDot3OamStatsEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:hpnicfDot3OamStatsEntry.setStatus(_B)
-_HpnicfDot3OamInformationTx_Type=Counter32
-_HpnicfDot3OamInformationTx_Object=MibTableColumn
-hpnicfDot3OamInformationTx=_HpnicfDot3OamInformationTx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,1),_HpnicfDot3OamInformationTx_Type())
-hpnicfDot3OamInformationTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamInformationTx.setStatus(_B)
-_HpnicfDot3OamInformationRx_Type=Counter32
-_HpnicfDot3OamInformationRx_Object=MibTableColumn
-hpnicfDot3OamInformationRx=_HpnicfDot3OamInformationRx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,2),_HpnicfDot3OamInformationRx_Type())
-hpnicfDot3OamInformationRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamInformationRx.setStatus(_B)
-_HpnicfDot3OamUniqueEventNotificationTx_Type=Counter32
-_HpnicfDot3OamUniqueEventNotificationTx_Object=MibTableColumn
-hpnicfDot3OamUniqueEventNotificationTx=_HpnicfDot3OamUniqueEventNotificationTx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,3),_HpnicfDot3OamUniqueEventNotificationTx_Type())
-hpnicfDot3OamUniqueEventNotificationTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamUniqueEventNotificationTx.setStatus(_B)
-_HpnicfDot3OamUniqueEventNotificationRx_Type=Counter32
-_HpnicfDot3OamUniqueEventNotificationRx_Object=MibTableColumn
-hpnicfDot3OamUniqueEventNotificationRx=_HpnicfDot3OamUniqueEventNotificationRx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,4),_HpnicfDot3OamUniqueEventNotificationRx_Type())
-hpnicfDot3OamUniqueEventNotificationRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamUniqueEventNotificationRx.setStatus(_B)
-_HpnicfDot3OamDuplicateEventNotificationTx_Type=Counter32
-_HpnicfDot3OamDuplicateEventNotificationTx_Object=MibTableColumn
-hpnicfDot3OamDuplicateEventNotificationTx=_HpnicfDot3OamDuplicateEventNotificationTx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,5),_HpnicfDot3OamDuplicateEventNotificationTx_Type())
-hpnicfDot3OamDuplicateEventNotificationTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamDuplicateEventNotificationTx.setStatus(_B)
-_HpnicfDot3OamDuplicateEventNotificationRx_Type=Counter32
-_HpnicfDot3OamDuplicateEventNotificationRx_Object=MibTableColumn
-hpnicfDot3OamDuplicateEventNotificationRx=_HpnicfDot3OamDuplicateEventNotificationRx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,6),_HpnicfDot3OamDuplicateEventNotificationRx_Type())
-hpnicfDot3OamDuplicateEventNotificationRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamDuplicateEventNotificationRx.setStatus(_B)
-_HpnicfDot3OamLoopbackControlTx_Type=Counter32
-_HpnicfDot3OamLoopbackControlTx_Object=MibTableColumn
-hpnicfDot3OamLoopbackControlTx=_HpnicfDot3OamLoopbackControlTx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,7),_HpnicfDot3OamLoopbackControlTx_Type())
-hpnicfDot3OamLoopbackControlTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamLoopbackControlTx.setStatus(_B)
-_HpnicfDot3OamLoopbackControlRx_Type=Counter32
-_HpnicfDot3OamLoopbackControlRx_Object=MibTableColumn
-hpnicfDot3OamLoopbackControlRx=_HpnicfDot3OamLoopbackControlRx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,8),_HpnicfDot3OamLoopbackControlRx_Type())
-hpnicfDot3OamLoopbackControlRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamLoopbackControlRx.setStatus(_B)
-_HpnicfDot3OamVariableRequestTx_Type=Counter32
-_HpnicfDot3OamVariableRequestTx_Object=MibTableColumn
-hpnicfDot3OamVariableRequestTx=_HpnicfDot3OamVariableRequestTx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,9),_HpnicfDot3OamVariableRequestTx_Type())
-hpnicfDot3OamVariableRequestTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamVariableRequestTx.setStatus(_B)
-_HpnicfDot3OamVariableRequestRx_Type=Counter32
-_HpnicfDot3OamVariableRequestRx_Object=MibTableColumn
-hpnicfDot3OamVariableRequestRx=_HpnicfDot3OamVariableRequestRx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,10),_HpnicfDot3OamVariableRequestRx_Type())
-hpnicfDot3OamVariableRequestRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamVariableRequestRx.setStatus(_B)
-_HpnicfDot3OamVariableResponseTx_Type=Counter32
-_HpnicfDot3OamVariableResponseTx_Object=MibTableColumn
-hpnicfDot3OamVariableResponseTx=_HpnicfDot3OamVariableResponseTx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,11),_HpnicfDot3OamVariableResponseTx_Type())
-hpnicfDot3OamVariableResponseTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamVariableResponseTx.setStatus(_B)
-_HpnicfDot3OamVariableResponseRx_Type=Counter32
-_HpnicfDot3OamVariableResponseRx_Object=MibTableColumn
-hpnicfDot3OamVariableResponseRx=_HpnicfDot3OamVariableResponseRx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,12),_HpnicfDot3OamVariableResponseRx_Type())
-hpnicfDot3OamVariableResponseRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamVariableResponseRx.setStatus(_B)
-_HpnicfDot3OamOrgSpecificTx_Type=Counter32
-_HpnicfDot3OamOrgSpecificTx_Object=MibTableColumn
-hpnicfDot3OamOrgSpecificTx=_HpnicfDot3OamOrgSpecificTx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,13),_HpnicfDot3OamOrgSpecificTx_Type())
-hpnicfDot3OamOrgSpecificTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamOrgSpecificTx.setStatus(_B)
-_HpnicfDot3OamOrgSpecificRx_Type=Counter32
-_HpnicfDot3OamOrgSpecificRx_Object=MibTableColumn
-hpnicfDot3OamOrgSpecificRx=_HpnicfDot3OamOrgSpecificRx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,14),_HpnicfDot3OamOrgSpecificRx_Type())
-hpnicfDot3OamOrgSpecificRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamOrgSpecificRx.setStatus(_B)
-_HpnicfDot3OamUnsupportedCodesTx_Type=Counter32
-_HpnicfDot3OamUnsupportedCodesTx_Object=MibTableColumn
-hpnicfDot3OamUnsupportedCodesTx=_HpnicfDot3OamUnsupportedCodesTx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,15),_HpnicfDot3OamUnsupportedCodesTx_Type())
-hpnicfDot3OamUnsupportedCodesTx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamUnsupportedCodesTx.setStatus(_B)
-_HpnicfDot3OamUnsupportedCodesRx_Type=Counter32
-_HpnicfDot3OamUnsupportedCodesRx_Object=MibTableColumn
-hpnicfDot3OamUnsupportedCodesRx=_HpnicfDot3OamUnsupportedCodesRx_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,16),_HpnicfDot3OamUnsupportedCodesRx_Type())
-hpnicfDot3OamUnsupportedCodesRx.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamUnsupportedCodesRx.setStatus(_B)
-_HpnicfDot3OamFramesLostDueToOam_Type=Counter32
-_HpnicfDot3OamFramesLostDueToOam_Object=MibTableColumn
-hpnicfDot3OamFramesLostDueToOam=_HpnicfDot3OamFramesLostDueToOam_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,4,1,17),_HpnicfDot3OamFramesLostDueToOam_Type())
-hpnicfDot3OamFramesLostDueToOam.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamFramesLostDueToOam.setStatus(_B)
-_HpnicfDot3OamEventConfigTable_Object=MibTable
-hpnicfDot3OamEventConfigTable=_HpnicfDot3OamEventConfigTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5))
-if mibBuilder.loadTexts:hpnicfDot3OamEventConfigTable.setStatus(_B)
-_HpnicfDot3OamEventConfigEntry_Object=MibTableRow
-hpnicfDot3OamEventConfigEntry=_HpnicfDot3OamEventConfigEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5,1))
-hpnicfDot3OamEventConfigEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:hpnicfDot3OamEventConfigEntry.setStatus(_B)
-_HpnicfDot3OamErrSymPeriodWindowHi_Type=Unsigned32
-_HpnicfDot3OamErrSymPeriodWindowHi_Object=MibTableColumn
-hpnicfDot3OamErrSymPeriodWindowHi=_HpnicfDot3OamErrSymPeriodWindowHi_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5,1,1),_HpnicfDot3OamErrSymPeriodWindowHi_Type())
-hpnicfDot3OamErrSymPeriodWindowHi.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamErrSymPeriodWindowHi.setStatus(_B)
-_HpnicfDot3OamErrSymPeriodWindowLo_Type=Unsigned32
-_HpnicfDot3OamErrSymPeriodWindowLo_Object=MibTableColumn
-hpnicfDot3OamErrSymPeriodWindowLo=_HpnicfDot3OamErrSymPeriodWindowLo_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5,1,2),_HpnicfDot3OamErrSymPeriodWindowLo_Type())
-hpnicfDot3OamErrSymPeriodWindowLo.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamErrSymPeriodWindowLo.setStatus(_B)
-_HpnicfDot3OamErrSymPeriodThresholdHi_Type=Unsigned32
-_HpnicfDot3OamErrSymPeriodThresholdHi_Object=MibTableColumn
-hpnicfDot3OamErrSymPeriodThresholdHi=_HpnicfDot3OamErrSymPeriodThresholdHi_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5,1,3),_HpnicfDot3OamErrSymPeriodThresholdHi_Type())
-hpnicfDot3OamErrSymPeriodThresholdHi.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamErrSymPeriodThresholdHi.setStatus(_B)
-_HpnicfDot3OamErrSymPeriodThresholdLo_Type=Unsigned32
-_HpnicfDot3OamErrSymPeriodThresholdLo_Object=MibTableColumn
-hpnicfDot3OamErrSymPeriodThresholdLo=_HpnicfDot3OamErrSymPeriodThresholdLo_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5,1,4),_HpnicfDot3OamErrSymPeriodThresholdLo_Type())
-hpnicfDot3OamErrSymPeriodThresholdLo.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamErrSymPeriodThresholdLo.setStatus(_B)
-class _HpnicfDot3OamErrSymPeriodEvNotifEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_I,1),(_H,2)))
-_HpnicfDot3OamErrSymPeriodEvNotifEnable_Type.__name__=_D
-_HpnicfDot3OamErrSymPeriodEvNotifEnable_Object=MibTableColumn
-hpnicfDot3OamErrSymPeriodEvNotifEnable=_HpnicfDot3OamErrSymPeriodEvNotifEnable_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5,1,5),_HpnicfDot3OamErrSymPeriodEvNotifEnable_Type())
-hpnicfDot3OamErrSymPeriodEvNotifEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamErrSymPeriodEvNotifEnable.setStatus(_B)
-_HpnicfDot3OamErrFramePeriodWindow_Type=Unsigned32
-_HpnicfDot3OamErrFramePeriodWindow_Object=MibTableColumn
-hpnicfDot3OamErrFramePeriodWindow=_HpnicfDot3OamErrFramePeriodWindow_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5,1,6),_HpnicfDot3OamErrFramePeriodWindow_Type())
-hpnicfDot3OamErrFramePeriodWindow.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamErrFramePeriodWindow.setStatus(_B)
-_HpnicfDot3OamErrFramePeriodThreshold_Type=Unsigned32
-_HpnicfDot3OamErrFramePeriodThreshold_Object=MibTableColumn
-hpnicfDot3OamErrFramePeriodThreshold=_HpnicfDot3OamErrFramePeriodThreshold_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5,1,7),_HpnicfDot3OamErrFramePeriodThreshold_Type())
-hpnicfDot3OamErrFramePeriodThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamErrFramePeriodThreshold.setStatus(_B)
-class _HpnicfDot3OamErrFramePeriodEvNotifEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_I,1),(_H,2)))
-_HpnicfDot3OamErrFramePeriodEvNotifEnable_Type.__name__=_D
-_HpnicfDot3OamErrFramePeriodEvNotifEnable_Object=MibTableColumn
-hpnicfDot3OamErrFramePeriodEvNotifEnable=_HpnicfDot3OamErrFramePeriodEvNotifEnable_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5,1,8),_HpnicfDot3OamErrFramePeriodEvNotifEnable_Type())
-hpnicfDot3OamErrFramePeriodEvNotifEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamErrFramePeriodEvNotifEnable.setStatus(_B)
-_HpnicfDot3OamErrFrameWindow_Type=Unsigned32
-_HpnicfDot3OamErrFrameWindow_Object=MibTableColumn
-hpnicfDot3OamErrFrameWindow=_HpnicfDot3OamErrFrameWindow_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5,1,9),_HpnicfDot3OamErrFrameWindow_Type())
-hpnicfDot3OamErrFrameWindow.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamErrFrameWindow.setStatus(_B)
-_HpnicfDot3OamErrFrameThreshold_Type=Unsigned32
-_HpnicfDot3OamErrFrameThreshold_Object=MibTableColumn
-hpnicfDot3OamErrFrameThreshold=_HpnicfDot3OamErrFrameThreshold_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5,1,10),_HpnicfDot3OamErrFrameThreshold_Type())
-hpnicfDot3OamErrFrameThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamErrFrameThreshold.setStatus(_B)
-class _HpnicfDot3OamErrFrameEvNotifEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_I,1),(_H,2)))
-_HpnicfDot3OamErrFrameEvNotifEnable_Type.__name__=_D
-_HpnicfDot3OamErrFrameEvNotifEnable_Object=MibTableColumn
-hpnicfDot3OamErrFrameEvNotifEnable=_HpnicfDot3OamErrFrameEvNotifEnable_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5,1,11),_HpnicfDot3OamErrFrameEvNotifEnable_Type())
-hpnicfDot3OamErrFrameEvNotifEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamErrFrameEvNotifEnable.setStatus(_B)
-class _HpnicfDot3OamErrFrameSecsSummaryWindow_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,9000))
-_HpnicfDot3OamErrFrameSecsSummaryWindow_Type.__name__=_D
-_HpnicfDot3OamErrFrameSecsSummaryWindow_Object=MibTableColumn
-hpnicfDot3OamErrFrameSecsSummaryWindow=_HpnicfDot3OamErrFrameSecsSummaryWindow_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5,1,12),_HpnicfDot3OamErrFrameSecsSummaryWindow_Type())
-hpnicfDot3OamErrFrameSecsSummaryWindow.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamErrFrameSecsSummaryWindow.setStatus(_B)
-class _HpnicfDot3OamErrFrameSecsSummaryThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,900))
-_HpnicfDot3OamErrFrameSecsSummaryThreshold_Type.__name__=_D
-_HpnicfDot3OamErrFrameSecsSummaryThreshold_Object=MibTableColumn
-hpnicfDot3OamErrFrameSecsSummaryThreshold=_HpnicfDot3OamErrFrameSecsSummaryThreshold_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5,1,13),_HpnicfDot3OamErrFrameSecsSummaryThreshold_Type())
-hpnicfDot3OamErrFrameSecsSummaryThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamErrFrameSecsSummaryThreshold.setStatus(_B)
-class _HpnicfDot3OamErrFrameSecsEvNotifEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_I,1),(_H,2)))
-_HpnicfDot3OamErrFrameSecsEvNotifEnable_Type.__name__=_D
-_HpnicfDot3OamErrFrameSecsEvNotifEnable_Object=MibTableColumn
-hpnicfDot3OamErrFrameSecsEvNotifEnable=_HpnicfDot3OamErrFrameSecsEvNotifEnable_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,5,1,14),_HpnicfDot3OamErrFrameSecsEvNotifEnable_Type())
-hpnicfDot3OamErrFrameSecsEvNotifEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpnicfDot3OamErrFrameSecsEvNotifEnable.setStatus(_B)
-_HpnicfDot3OamEventLogTable_Object=MibTable
-hpnicfDot3OamEventLogTable=_HpnicfDot3OamEventLogTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,6))
-if mibBuilder.loadTexts:hpnicfDot3OamEventLogTable.setStatus(_B)
-_HpnicfDot3OamEventLogEntry_Object=MibTableRow
-hpnicfDot3OamEventLogEntry=_HpnicfDot3OamEventLogEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,6,1))
-hpnicfDot3OamEventLogEntry.setIndexNames((0,_F,_G),(0,_A,_d))
-if mibBuilder.loadTexts:hpnicfDot3OamEventLogEntry.setStatus(_B)
-_HpnicfDot3OamEventLogIndex_Type=Unsigned32
-_HpnicfDot3OamEventLogIndex_Object=MibTableColumn
-hpnicfDot3OamEventLogIndex=_HpnicfDot3OamEventLogIndex_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,6,1,1),_HpnicfDot3OamEventLogIndex_Type())
-hpnicfDot3OamEventLogIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:hpnicfDot3OamEventLogIndex.setStatus(_B)
-_HpnicfDot3OamEventLogTimestamp_Type=DateAndTime
-_HpnicfDot3OamEventLogTimestamp_Object=MibTableColumn
-hpnicfDot3OamEventLogTimestamp=_HpnicfDot3OamEventLogTimestamp_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,6,1,2),_HpnicfDot3OamEventLogTimestamp_Type())
-hpnicfDot3OamEventLogTimestamp.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamEventLogTimestamp.setStatus(_B)
-_HpnicfDot3OamEventLogOui_Type=Dot3Oui
-_HpnicfDot3OamEventLogOui_Object=MibTableColumn
-hpnicfDot3OamEventLogOui=_HpnicfDot3OamEventLogOui_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,6,1,3),_HpnicfDot3OamEventLogOui_Type())
-hpnicfDot3OamEventLogOui.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamEventLogOui.setStatus(_B)
-_HpnicfDot3OamEventLogType_Type=Unsigned32
-_HpnicfDot3OamEventLogType_Object=MibTableColumn
-hpnicfDot3OamEventLogType=_HpnicfDot3OamEventLogType_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,6,1,4),_HpnicfDot3OamEventLogType_Type())
-hpnicfDot3OamEventLogType.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamEventLogType.setStatus(_B)
-class _HpnicfDot3OamEventLogLocation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('local',1),('remote',2)))
-_HpnicfDot3OamEventLogLocation_Type.__name__=_D
-_HpnicfDot3OamEventLogLocation_Object=MibTableColumn
-hpnicfDot3OamEventLogLocation=_HpnicfDot3OamEventLogLocation_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,6,1,5),_HpnicfDot3OamEventLogLocation_Type())
-hpnicfDot3OamEventLogLocation.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamEventLogLocation.setStatus(_B)
-_HpnicfDot3OamEventLogWindowHi_Type=Unsigned32
-_HpnicfDot3OamEventLogWindowHi_Object=MibTableColumn
-hpnicfDot3OamEventLogWindowHi=_HpnicfDot3OamEventLogWindowHi_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,6,1,6),_HpnicfDot3OamEventLogWindowHi_Type())
-hpnicfDot3OamEventLogWindowHi.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamEventLogWindowHi.setStatus(_B)
-_HpnicfDot3OamEventLogWindowLo_Type=Unsigned32
-_HpnicfDot3OamEventLogWindowLo_Object=MibTableColumn
-hpnicfDot3OamEventLogWindowLo=_HpnicfDot3OamEventLogWindowLo_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,6,1,7),_HpnicfDot3OamEventLogWindowLo_Type())
-hpnicfDot3OamEventLogWindowLo.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamEventLogWindowLo.setStatus(_B)
-_HpnicfDot3OamEventLogThresholdHi_Type=Unsigned32
-_HpnicfDot3OamEventLogThresholdHi_Object=MibTableColumn
-hpnicfDot3OamEventLogThresholdHi=_HpnicfDot3OamEventLogThresholdHi_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,6,1,8),_HpnicfDot3OamEventLogThresholdHi_Type())
-hpnicfDot3OamEventLogThresholdHi.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamEventLogThresholdHi.setStatus(_B)
-_HpnicfDot3OamEventLogThresholdLo_Type=Unsigned32
-_HpnicfDot3OamEventLogThresholdLo_Object=MibTableColumn
-hpnicfDot3OamEventLogThresholdLo=_HpnicfDot3OamEventLogThresholdLo_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,6,1,9),_HpnicfDot3OamEventLogThresholdLo_Type())
-hpnicfDot3OamEventLogThresholdLo.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamEventLogThresholdLo.setStatus(_B)
-_HpnicfDot3OamEventLogValue_Type=CounterBasedGauge64
-_HpnicfDot3OamEventLogValue_Object=MibTableColumn
-hpnicfDot3OamEventLogValue=_HpnicfDot3OamEventLogValue_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,6,1,10),_HpnicfDot3OamEventLogValue_Type())
-hpnicfDot3OamEventLogValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamEventLogValue.setStatus(_B)
-_HpnicfDot3OamEventLogRunningTotal_Type=CounterBasedGauge64
-_HpnicfDot3OamEventLogRunningTotal_Object=MibTableColumn
-hpnicfDot3OamEventLogRunningTotal=_HpnicfDot3OamEventLogRunningTotal_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,6,1,11),_HpnicfDot3OamEventLogRunningTotal_Type())
-hpnicfDot3OamEventLogRunningTotal.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamEventLogRunningTotal.setStatus(_B)
-_HpnicfDot3OamEventLogEventTotal_Type=Unsigned32
-_HpnicfDot3OamEventLogEventTotal_Object=MibTableColumn
-hpnicfDot3OamEventLogEventTotal=_HpnicfDot3OamEventLogEventTotal_Object((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,6,1,12),_HpnicfDot3OamEventLogEventTotal_Type())
-hpnicfDot3OamEventLogEventTotal.setMaxAccess(_C)
-if mibBuilder.loadTexts:hpnicfDot3OamEventLogEventTotal.setStatus(_B)
-_HpnicfDot3OamTraps_ObjectIdentity=ObjectIdentity
-hpnicfDot3OamTraps=_HpnicfDot3OamTraps_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,7))
-_HpnicfDot3OamTrapsPrefix_ObjectIdentity=ObjectIdentity
-hpnicfDot3OamTrapsPrefix=_HpnicfDot3OamTrapsPrefix_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,7,0))
-_HpnicfDot3OamConformance_ObjectIdentity=ObjectIdentity
-hpnicfDot3OamConformance=_HpnicfDot3OamConformance_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,42,3,2))
-_HpnicfDot3OamGroups_ObjectIdentity=ObjectIdentity
-hpnicfDot3OamGroups=_HpnicfDot3OamGroups_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,42,3,2,1))
-_HpnicfDot3OamCompliances_ObjectIdentity=ObjectIdentity
-hpnicfDot3OamCompliances=_HpnicfDot3OamCompliances_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,42,3,2,2))
-hpnicfDot3OamControlGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,15,2,42,3,2,1,1))
-hpnicfDot3OamControlGroup.setObjects(*((_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j)))
-if mibBuilder.loadTexts:hpnicfDot3OamControlGroup.setStatus(_B)
-hpnicfDot3OamPeerGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,15,2,42,3,2,1,2))
-hpnicfDot3OamPeerGroup.setObjects(*((_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r)))
-if mibBuilder.loadTexts:hpnicfDot3OamPeerGroup.setStatus(_B)
-hpnicfDot3OamStatsBaseGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,15,2,42,3,2,1,3))
-hpnicfDot3OamStatsBaseGroup.setObjects(*((_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8)))
-if mibBuilder.loadTexts:hpnicfDot3OamStatsBaseGroup.setStatus(_B)
-hpnicfDot3OamLoopbackGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,15,2,42,3,2,1,4))
-hpnicfDot3OamLoopbackGroup.setObjects(*((_A,_A9),(_A,_AA),(_A,_AB)))
-if mibBuilder.loadTexts:hpnicfDot3OamLoopbackGroup.setStatus(_B)
-hpnicfDot3OamErrSymbolPeriodEventGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,15,2,42,3,2,1,5))
-hpnicfDot3OamErrSymbolPeriodEventGroup.setObjects(*((_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG)))
-if mibBuilder.loadTexts:hpnicfDot3OamErrSymbolPeriodEventGroup.setStatus(_B)
-hpnicfDot3OamErrFramePeriodEventGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,15,2,42,3,2,1,6))
-hpnicfDot3OamErrFramePeriodEventGroup.setObjects(*((_A,_AH),(_A,_AI),(_A,_AJ)))
-if mibBuilder.loadTexts:hpnicfDot3OamErrFramePeriodEventGroup.setStatus(_B)
-hpnicfDot3OamErrFrameEventGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,15,2,42,3,2,1,7))
-hpnicfDot3OamErrFrameEventGroup.setObjects(*((_A,_AK),(_A,_AL),(_A,_AM)))
-if mibBuilder.loadTexts:hpnicfDot3OamErrFrameEventGroup.setStatus(_B)
-hpnicfDot3OamErrFrameSecsSummaryEventGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,15,2,42,3,2,1,8))
-hpnicfDot3OamErrFrameSecsSummaryEventGroup.setObjects(*((_A,_AN),(_A,_AO),(_A,_AP)))
-if mibBuilder.loadTexts:hpnicfDot3OamErrFrameSecsSummaryEventGroup.setStatus(_B)
-hpnicfDot3OamEventLogGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,15,2,42,3,2,1,9))
-hpnicfDot3OamEventLogGroup.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_N)))
-if mibBuilder.loadTexts:hpnicfDot3OamEventLogGroup.setStatus(_B)
-hpnicfDot3OamThresholdEvent=NotificationType((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,7,0,1))
-hpnicfDot3OamThresholdEvent.setObjects(*((_F,_G),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_N)))
-if mibBuilder.loadTexts:hpnicfDot3OamThresholdEvent.setStatus(_B)
-hpnicfDot3OamNonThresholdEvent=NotificationType((1,3,6,1,4,1,11,2,14,11,15,2,42,3,1,7,0,2))
-hpnicfDot3OamNonThresholdEvent.setObjects(*((_F,_G),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:hpnicfDot3OamNonThresholdEvent.setStatus(_B)
-hpnicfDot3OamNotificationGroup=NotificationGroup((1,3,6,1,4,1,11,2,14,11,15,2,42,3,2,1,10))
-hpnicfDot3OamNotificationGroup.setObjects(*((_A,_AQ),(_A,_AR)))
-if mibBuilder.loadTexts:hpnicfDot3OamNotificationGroup.setStatus(_B)
-hpnicfDot3OamCompliance=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,15,2,42,3,2,2,1))
-hpnicfDot3OamCompliance.setObjects(*((_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab)))
-if mibBuilder.loadTexts:hpnicfDot3OamCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'Dot3Oui':Dot3Oui,'hpnicfEfmOamMIB':hpnicfEfmOamMIB,'hpnicfDot3OamMIB':hpnicfDot3OamMIB,'hpnicfDot3OamTable':hpnicfDot3OamTable,'hpnicfDot3OamEntry':hpnicfDot3OamEntry,_e:hpnicfDot3OamAdminState,_f:hpnicfDot3OamOperStatus,_g:hpnicfDot3OamMode,_h:hpnicfDot3OamMaxOamPduSize,_i:hpnicfDot3OamConfigRevision,_j:hpnicfDot3OamFunctionsSupported,'hpnicfDot3OamPeerTable':hpnicfDot3OamPeerTable,'hpnicfDot3OamPeerEntry':hpnicfDot3OamPeerEntry,_k:hpnicfDot3OamPeerStatus,_l:hpnicfDot3OamPeerMacAddress,_m:hpnicfDot3OamPeerVendorOui,_n:hpnicfDot3OamPeerVendorInfo,_o:hpnicfDot3OamPeerMode,_q:hpnicfDot3OamPeerMaxOamPduSize,_r:hpnicfDot3OamPeerConfigRevision,_p:hpnicfDot3OamPeerFunctionsSupported,'hpnicfDot3OamLoopbackTable':hpnicfDot3OamLoopbackTable,'hpnicfDot3OamLoopbackEntry':hpnicfDot3OamLoopbackEntry,_A9:hpnicfDot3OamLoopbackCommand,_AA:hpnicfDot3OamLoopbackStatus,_AB:hpnicfDot3OamLoopbackIgnoreRx,'hpnicfDot3OamStatsTable':hpnicfDot3OamStatsTable,'hpnicfDot3OamStatsEntry':hpnicfDot3OamStatsEntry,_s:hpnicfDot3OamInformationTx,_t:hpnicfDot3OamInformationRx,_u:hpnicfDot3OamUniqueEventNotificationTx,_v:hpnicfDot3OamUniqueEventNotificationRx,_w:hpnicfDot3OamDuplicateEventNotificationTx,_x:hpnicfDot3OamDuplicateEventNotificationRx,_y:hpnicfDot3OamLoopbackControlTx,_z:hpnicfDot3OamLoopbackControlRx,_A0:hpnicfDot3OamVariableRequestTx,_A1:hpnicfDot3OamVariableRequestRx,_A2:hpnicfDot3OamVariableResponseTx,_A3:hpnicfDot3OamVariableResponseRx,_A4:hpnicfDot3OamOrgSpecificTx,_A5:hpnicfDot3OamOrgSpecificRx,_A6:hpnicfDot3OamUnsupportedCodesTx,_A7:hpnicfDot3OamUnsupportedCodesRx,_A8:hpnicfDot3OamFramesLostDueToOam,'hpnicfDot3OamEventConfigTable':hpnicfDot3OamEventConfigTable,'hpnicfDot3OamEventConfigEntry':hpnicfDot3OamEventConfigEntry,_AC:hpnicfDot3OamErrSymPeriodWindowHi,_AD:hpnicfDot3OamErrSymPeriodWindowLo,_AE:hpnicfDot3OamErrSymPeriodThresholdHi,_AF:hpnicfDot3OamErrSymPeriodThresholdLo,_AG:hpnicfDot3OamErrSymPeriodEvNotifEnable,_AH:hpnicfDot3OamErrFramePeriodWindow,_AI:hpnicfDot3OamErrFramePeriodThreshold,_AJ:hpnicfDot3OamErrFramePeriodEvNotifEnable,_AK:hpnicfDot3OamErrFrameWindow,_AL:hpnicfDot3OamErrFrameThreshold,_AM:hpnicfDot3OamErrFrameEvNotifEnable,_AN:hpnicfDot3OamErrFrameSecsSummaryWindow,_AO:hpnicfDot3OamErrFrameSecsSummaryThreshold,_AP:hpnicfDot3OamErrFrameSecsEvNotifEnable,'hpnicfDot3OamEventLogTable':hpnicfDot3OamEventLogTable,'hpnicfDot3OamEventLogEntry':hpnicfDot3OamEventLogEntry,_d:hpnicfDot3OamEventLogIndex,_J:hpnicfDot3OamEventLogTimestamp,_K:hpnicfDot3OamEventLogOui,_L:hpnicfDot3OamEventLogType,_M:hpnicfDot3OamEventLogLocation,_Q:hpnicfDot3OamEventLogWindowHi,_R:hpnicfDot3OamEventLogWindowLo,_S:hpnicfDot3OamEventLogThresholdHi,_T:hpnicfDot3OamEventLogThresholdLo,_U:hpnicfDot3OamEventLogValue,_V:hpnicfDot3OamEventLogRunningTotal,_N:hpnicfDot3OamEventLogEventTotal,'hpnicfDot3OamTraps':hpnicfDot3OamTraps,'hpnicfDot3OamTrapsPrefix':hpnicfDot3OamTrapsPrefix,_AQ:hpnicfDot3OamThresholdEvent,_AR:hpnicfDot3OamNonThresholdEvent,'hpnicfDot3OamConformance':hpnicfDot3OamConformance,'hpnicfDot3OamGroups':hpnicfDot3OamGroups,_AS:hpnicfDot3OamControlGroup,_AT:hpnicfDot3OamPeerGroup,_AU:hpnicfDot3OamStatsBaseGroup,_AV:hpnicfDot3OamLoopbackGroup,_AW:hpnicfDot3OamErrSymbolPeriodEventGroup,_AX:hpnicfDot3OamErrFramePeriodEventGroup,_AY:hpnicfDot3OamErrFrameEventGroup,_AZ:hpnicfDot3OamErrFrameSecsSummaryEventGroup,_Aa:hpnicfDot3OamEventLogGroup,_Ab:hpnicfDot3OamNotificationGroup,'hpnicfDot3OamCompliances':hpnicfDot3OamCompliances,'hpnicfDot3OamCompliance':hpnicfDot3OamCompliance})
+#
+# PySNMP MIB module HPN-ICF-EFM-COMMON-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-EFM-COMMON-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
+hpnicfEpon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfEpon")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, TimeTicks, MibIdentifier, Integer32, Bits, mib_2, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "TimeTicks", "MibIdentifier", "Integer32", "Bits", "mib-2", "IpAddress")
+DisplayString, MacAddress, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "DateAndTime", "TextualConvention")
+hpnicfEfmOamMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3))
+hpnicfEfmOamMIB.setRevisions(('2004-10-24 00:00',))
+if mibBuilder.loadTexts: hpnicfEfmOamMIB.setLastUpdated('200410240000Z')
+if mibBuilder.loadTexts: hpnicfEfmOamMIB.setOrganization('')
+hpnicfDot3OamMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1))
+hpnicfDot3OamConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 2))
+class Dot3Oui(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(3, 3)
+    fixedLength = 3
+
+hpnicfDot3OamTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 1), )
+if mibBuilder.loadTexts: hpnicfDot3OamTable.setStatus('current')
+hpnicfDot3OamEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hpnicfDot3OamEntry.setStatus('current')
+hpnicfDot3OamAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamAdminState.setStatus('current')
+hpnicfDot3OamOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("disabled", 1), ("linkfault", 2), ("passiveWait", 3), ("activeSendLocal", 4), ("sendLocalAndRemote", 5), ("sendLocalAndRemoteOk", 6), ("oamPeeringLocallyRejected", 7), ("oamPeeringRemotelyRejected", 8), ("operational", 9)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamOperStatus.setStatus('current')
+hpnicfDot3OamMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("passive", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamMode.setStatus('current')
+hpnicfDot3OamMaxOamPduSize = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(64, 1522))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamMaxOamPduSize.setStatus('current')
+hpnicfDot3OamConfigRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamConfigRevision.setStatus('current')
+hpnicfDot3OamFunctionsSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 1, 1, 6), Bits().clone(namedValues=NamedValues(("unidirectionalSupport", 0), ("loopbackSupport", 1), ("eventSupport", 2), ("variableSupport", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamFunctionsSupported.setStatus('current')
+hpnicfDot3OamPeerTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 2), )
+if mibBuilder.loadTexts: hpnicfDot3OamPeerTable.setStatus('current')
+hpnicfDot3OamPeerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hpnicfDot3OamPeerEntry.setStatus('current')
+hpnicfDot3OamPeerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamPeerStatus.setStatus('current')
+hpnicfDot3OamPeerMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 2, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamPeerMacAddress.setStatus('current')
+hpnicfDot3OamPeerVendorOui = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 2, 1, 3), Dot3Oui()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamPeerVendorOui.setStatus('current')
+hpnicfDot3OamPeerVendorInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 2, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamPeerVendorInfo.setStatus('current')
+hpnicfDot3OamPeerMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("active", 1), ("passive", 2), ("unknown", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamPeerMode.setStatus('current')
+hpnicfDot3OamPeerMaxOamPduSize = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(64, 1522))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamPeerMaxOamPduSize.setStatus('current')
+hpnicfDot3OamPeerConfigRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 2, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamPeerConfigRevision.setStatus('current')
+hpnicfDot3OamPeerFunctionsSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 2, 1, 8), Bits().clone(namedValues=NamedValues(("unidirectionalSupport", 0), ("loopbackSupport", 1), ("eventSupport", 2), ("variableSupport", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamPeerFunctionsSupported.setStatus('current')
+hpnicfDot3OamLoopbackTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 3), )
+if mibBuilder.loadTexts: hpnicfDot3OamLoopbackTable.setStatus('current')
+hpnicfDot3OamLoopbackEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hpnicfDot3OamLoopbackEntry.setStatus('current')
+hpnicfDot3OamLoopbackCommand = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noLoopback", 1), ("startRemoteLoopback", 2), ("stopRemoteLoopback", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamLoopbackCommand.setStatus('current')
+hpnicfDot3OamLoopbackStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("noLoopback", 1), ("initiatingLoopback", 2), ("remoteLoopback", 3), ("terminatingLoopback", 4), ("localLoopback", 5), ("unknown", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamLoopbackStatus.setStatus('current')
+hpnicfDot3OamLoopbackIgnoreRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ignore", 1), ("process", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamLoopbackIgnoreRx.setStatus('current')
+hpnicfDot3OamStatsTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4), )
+if mibBuilder.loadTexts: hpnicfDot3OamStatsTable.setStatus('current')
+hpnicfDot3OamStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hpnicfDot3OamStatsEntry.setStatus('current')
+hpnicfDot3OamInformationTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamInformationTx.setStatus('current')
+hpnicfDot3OamInformationRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamInformationRx.setStatus('current')
+hpnicfDot3OamUniqueEventNotificationTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamUniqueEventNotificationTx.setStatus('current')
+hpnicfDot3OamUniqueEventNotificationRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamUniqueEventNotificationRx.setStatus('current')
+hpnicfDot3OamDuplicateEventNotificationTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamDuplicateEventNotificationTx.setStatus('current')
+hpnicfDot3OamDuplicateEventNotificationRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamDuplicateEventNotificationRx.setStatus('current')
+hpnicfDot3OamLoopbackControlTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamLoopbackControlTx.setStatus('current')
+hpnicfDot3OamLoopbackControlRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamLoopbackControlRx.setStatus('current')
+hpnicfDot3OamVariableRequestTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamVariableRequestTx.setStatus('current')
+hpnicfDot3OamVariableRequestRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamVariableRequestRx.setStatus('current')
+hpnicfDot3OamVariableResponseTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamVariableResponseTx.setStatus('current')
+hpnicfDot3OamVariableResponseRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamVariableResponseRx.setStatus('current')
+hpnicfDot3OamOrgSpecificTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamOrgSpecificTx.setStatus('current')
+hpnicfDot3OamOrgSpecificRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamOrgSpecificRx.setStatus('current')
+hpnicfDot3OamUnsupportedCodesTx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamUnsupportedCodesTx.setStatus('current')
+hpnicfDot3OamUnsupportedCodesRx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamUnsupportedCodesRx.setStatus('current')
+hpnicfDot3OamFramesLostDueToOam = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 4, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamFramesLostDueToOam.setStatus('current')
+hpnicfDot3OamEventConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5), )
+if mibBuilder.loadTexts: hpnicfDot3OamEventConfigTable.setStatus('current')
+hpnicfDot3OamEventConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hpnicfDot3OamEventConfigEntry.setStatus('current')
+hpnicfDot3OamErrSymPeriodWindowHi = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5, 1, 1), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamErrSymPeriodWindowHi.setStatus('current')
+hpnicfDot3OamErrSymPeriodWindowLo = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5, 1, 2), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamErrSymPeriodWindowLo.setStatus('current')
+hpnicfDot3OamErrSymPeriodThresholdHi = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5, 1, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamErrSymPeriodThresholdHi.setStatus('current')
+hpnicfDot3OamErrSymPeriodThresholdLo = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5, 1, 4), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamErrSymPeriodThresholdLo.setStatus('current')
+hpnicfDot3OamErrSymPeriodEvNotifEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamErrSymPeriodEvNotifEnable.setStatus('current')
+hpnicfDot3OamErrFramePeriodWindow = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5, 1, 6), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamErrFramePeriodWindow.setStatus('current')
+hpnicfDot3OamErrFramePeriodThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5, 1, 7), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamErrFramePeriodThreshold.setStatus('current')
+hpnicfDot3OamErrFramePeriodEvNotifEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamErrFramePeriodEvNotifEnable.setStatus('current')
+hpnicfDot3OamErrFrameWindow = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5, 1, 9), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamErrFrameWindow.setStatus('current')
+hpnicfDot3OamErrFrameThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5, 1, 10), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamErrFrameThreshold.setStatus('current')
+hpnicfDot3OamErrFrameEvNotifEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamErrFrameEvNotifEnable.setStatus('current')
+hpnicfDot3OamErrFrameSecsSummaryWindow = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100, 9000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamErrFrameSecsSummaryWindow.setStatus('current')
+hpnicfDot3OamErrFrameSecsSummaryThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 900))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamErrFrameSecsSummaryThreshold.setStatus('current')
+hpnicfDot3OamErrFrameSecsEvNotifEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 5, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnicfDot3OamErrFrameSecsEvNotifEnable.setStatus('current')
+hpnicfDot3OamEventLogTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 6), )
+if mibBuilder.loadTexts: hpnicfDot3OamEventLogTable.setStatus('current')
+hpnicfDot3OamEventLogEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogIndex"))
+if mibBuilder.loadTexts: hpnicfDot3OamEventLogEntry.setStatus('current')
+hpnicfDot3OamEventLogIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 6, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: hpnicfDot3OamEventLogIndex.setStatus('current')
+hpnicfDot3OamEventLogTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 6, 1, 2), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamEventLogTimestamp.setStatus('current')
+hpnicfDot3OamEventLogOui = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 6, 1, 3), Dot3Oui()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamEventLogOui.setStatus('current')
+hpnicfDot3OamEventLogType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 6, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamEventLogType.setStatus('current')
+hpnicfDot3OamEventLogLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 6, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("local", 1), ("remote", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamEventLogLocation.setStatus('current')
+hpnicfDot3OamEventLogWindowHi = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 6, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamEventLogWindowHi.setStatus('current')
+hpnicfDot3OamEventLogWindowLo = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 6, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamEventLogWindowLo.setStatus('current')
+hpnicfDot3OamEventLogThresholdHi = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 6, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamEventLogThresholdHi.setStatus('current')
+hpnicfDot3OamEventLogThresholdLo = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 6, 1, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamEventLogThresholdLo.setStatus('current')
+hpnicfDot3OamEventLogValue = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 6, 1, 10), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamEventLogValue.setStatus('current')
+hpnicfDot3OamEventLogRunningTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 6, 1, 11), CounterBasedGauge64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamEventLogRunningTotal.setStatus('current')
+hpnicfDot3OamEventLogEventTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 6, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfDot3OamEventLogEventTotal.setStatus('current')
+hpnicfDot3OamTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 7))
+hpnicfDot3OamTrapsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 7, 0))
+hpnicfDot3OamThresholdEvent = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 7, 0, 1)).setObjects(("IF-MIB", "ifIndex"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogTimestamp"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogOui"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogType"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogLocation"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogWindowHi"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogWindowLo"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogThresholdHi"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogThresholdLo"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogValue"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogRunningTotal"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogEventTotal"))
+if mibBuilder.loadTexts: hpnicfDot3OamThresholdEvent.setStatus('current')
+hpnicfDot3OamNonThresholdEvent = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 1, 7, 0, 2)).setObjects(("IF-MIB", "ifIndex"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogTimestamp"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogOui"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogType"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogLocation"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogEventTotal"))
+if mibBuilder.loadTexts: hpnicfDot3OamNonThresholdEvent.setStatus('current')
+hpnicfDot3OamGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 2, 1))
+hpnicfDot3OamCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 2, 2))
+hpnicfDot3OamCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 2, 2, 1)).setObjects(("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamControlGroup"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamPeerGroup"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamStatsBaseGroup"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamLoopbackGroup"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrSymbolPeriodEventGroup"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrFramePeriodEventGroup"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrFrameEventGroup"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrFrameSecsSummaryEventGroup"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogGroup"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpnicfDot3OamCompliance = hpnicfDot3OamCompliance.setStatus('current')
+hpnicfDot3OamControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 2, 1, 1)).setObjects(("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamAdminState"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamOperStatus"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamMode"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamMaxOamPduSize"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamConfigRevision"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamFunctionsSupported"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpnicfDot3OamControlGroup = hpnicfDot3OamControlGroup.setStatus('current')
+hpnicfDot3OamPeerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 2, 1, 2)).setObjects(("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamPeerStatus"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamPeerMacAddress"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamPeerVendorOui"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamPeerVendorInfo"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamPeerMode"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamPeerFunctionsSupported"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamPeerMaxOamPduSize"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamPeerConfigRevision"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpnicfDot3OamPeerGroup = hpnicfDot3OamPeerGroup.setStatus('current')
+hpnicfDot3OamStatsBaseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 2, 1, 3)).setObjects(("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamInformationTx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamInformationRx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamUniqueEventNotificationTx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamUniqueEventNotificationRx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamDuplicateEventNotificationTx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamDuplicateEventNotificationRx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamLoopbackControlTx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamLoopbackControlRx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamVariableRequestTx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamVariableRequestRx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamVariableResponseTx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamVariableResponseRx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamOrgSpecificTx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamOrgSpecificRx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamUnsupportedCodesTx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamUnsupportedCodesRx"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamFramesLostDueToOam"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpnicfDot3OamStatsBaseGroup = hpnicfDot3OamStatsBaseGroup.setStatus('current')
+hpnicfDot3OamLoopbackGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 2, 1, 4)).setObjects(("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamLoopbackCommand"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamLoopbackStatus"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamLoopbackIgnoreRx"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpnicfDot3OamLoopbackGroup = hpnicfDot3OamLoopbackGroup.setStatus('current')
+hpnicfDot3OamErrSymbolPeriodEventGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 2, 1, 5)).setObjects(("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrSymPeriodWindowHi"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrSymPeriodWindowLo"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrSymPeriodThresholdHi"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrSymPeriodThresholdLo"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrSymPeriodEvNotifEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpnicfDot3OamErrSymbolPeriodEventGroup = hpnicfDot3OamErrSymbolPeriodEventGroup.setStatus('current')
+hpnicfDot3OamErrFramePeriodEventGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 2, 1, 6)).setObjects(("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrFramePeriodWindow"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrFramePeriodThreshold"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrFramePeriodEvNotifEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpnicfDot3OamErrFramePeriodEventGroup = hpnicfDot3OamErrFramePeriodEventGroup.setStatus('current')
+hpnicfDot3OamErrFrameEventGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 2, 1, 7)).setObjects(("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrFrameWindow"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrFrameThreshold"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrFrameEvNotifEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpnicfDot3OamErrFrameEventGroup = hpnicfDot3OamErrFrameEventGroup.setStatus('current')
+hpnicfDot3OamErrFrameSecsSummaryEventGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 2, 1, 8)).setObjects(("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrFrameSecsSummaryWindow"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrFrameSecsSummaryThreshold"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamErrFrameSecsEvNotifEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpnicfDot3OamErrFrameSecsSummaryEventGroup = hpnicfDot3OamErrFrameSecsSummaryEventGroup.setStatus('current')
+hpnicfDot3OamEventLogGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 2, 1, 9)).setObjects(("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogTimestamp"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogOui"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogType"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogLocation"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogWindowHi"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogWindowLo"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogThresholdHi"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogThresholdLo"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogValue"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogRunningTotal"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamEventLogEventTotal"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpnicfDot3OamEventLogGroup = hpnicfDot3OamEventLogGroup.setStatus('current')
+hpnicfDot3OamNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 42, 3, 2, 1, 10)).setObjects(("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamThresholdEvent"), ("HPN-ICF-EFM-COMMON-MIB", "hpnicfDot3OamNonThresholdEvent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpnicfDot3OamNotificationGroup = hpnicfDot3OamNotificationGroup.setStatus('current')
+mibBuilder.exportSymbols("HPN-ICF-EFM-COMMON-MIB", hpnicfDot3OamAdminState=hpnicfDot3OamAdminState, hpnicfDot3OamEventLogOui=hpnicfDot3OamEventLogOui, hpnicfDot3OamErrFrameSecsEvNotifEnable=hpnicfDot3OamErrFrameSecsEvNotifEnable, hpnicfDot3OamNonThresholdEvent=hpnicfDot3OamNonThresholdEvent, hpnicfDot3OamEventLogWindowHi=hpnicfDot3OamEventLogWindowHi, hpnicfDot3OamMode=hpnicfDot3OamMode, hpnicfDot3OamErrFrameThreshold=hpnicfDot3OamErrFrameThreshold, hpnicfDot3OamStatsEntry=hpnicfDot3OamStatsEntry, hpnicfDot3OamEventLogValue=hpnicfDot3OamEventLogValue, hpnicfDot3OamEventLogTimestamp=hpnicfDot3OamEventLogTimestamp, hpnicfDot3OamPeerEntry=hpnicfDot3OamPeerEntry, hpnicfEfmOamMIB=hpnicfEfmOamMIB, hpnicfDot3OamLoopbackCommand=hpnicfDot3OamLoopbackCommand, hpnicfDot3OamDuplicateEventNotificationTx=hpnicfDot3OamDuplicateEventNotificationTx, hpnicfDot3OamPeerGroup=hpnicfDot3OamPeerGroup, hpnicfDot3OamMIB=hpnicfDot3OamMIB, hpnicfDot3OamInformationTx=hpnicfDot3OamInformationTx, hpnicfDot3OamVariableResponseTx=hpnicfDot3OamVariableResponseTx, hpnicfDot3OamTraps=hpnicfDot3OamTraps, hpnicfDot3OamEventLogWindowLo=hpnicfDot3OamEventLogWindowLo, hpnicfDot3OamMaxOamPduSize=hpnicfDot3OamMaxOamPduSize, hpnicfDot3OamErrFrameEventGroup=hpnicfDot3OamErrFrameEventGroup, hpnicfDot3OamOrgSpecificRx=hpnicfDot3OamOrgSpecificRx, PYSNMP_MODULE_ID=hpnicfEfmOamMIB, hpnicfDot3OamDuplicateEventNotificationRx=hpnicfDot3OamDuplicateEventNotificationRx, hpnicfDot3OamConfigRevision=hpnicfDot3OamConfigRevision, hpnicfDot3OamEventLogGroup=hpnicfDot3OamEventLogGroup, hpnicfDot3OamPeerVendorInfo=hpnicfDot3OamPeerVendorInfo, hpnicfDot3OamLoopbackControlTx=hpnicfDot3OamLoopbackControlTx, hpnicfDot3OamLoopbackEntry=hpnicfDot3OamLoopbackEntry, hpnicfDot3OamVariableRequestTx=hpnicfDot3OamVariableRequestTx, hpnicfDot3OamLoopbackStatus=hpnicfDot3OamLoopbackStatus, hpnicfDot3OamErrSymbolPeriodEventGroup=hpnicfDot3OamErrSymbolPeriodEventGroup, hpnicfDot3OamGroups=hpnicfDot3OamGroups, hpnicfDot3OamEntry=hpnicfDot3OamEntry, hpnicfDot3OamEventLogRunningTotal=hpnicfDot3OamEventLogRunningTotal, hpnicfDot3OamTrapsPrefix=hpnicfDot3OamTrapsPrefix, hpnicfDot3OamLoopbackGroup=hpnicfDot3OamLoopbackGroup, hpnicfDot3OamEventConfigTable=hpnicfDot3OamEventConfigTable, hpnicfDot3OamPeerMode=hpnicfDot3OamPeerMode, hpnicfDot3OamPeerMaxOamPduSize=hpnicfDot3OamPeerMaxOamPduSize, hpnicfDot3OamStatsBaseGroup=hpnicfDot3OamStatsBaseGroup, hpnicfDot3OamVariableRequestRx=hpnicfDot3OamVariableRequestRx, hpnicfDot3OamLoopbackControlRx=hpnicfDot3OamLoopbackControlRx, hpnicfDot3OamPeerFunctionsSupported=hpnicfDot3OamPeerFunctionsSupported, hpnicfDot3OamTable=hpnicfDot3OamTable, hpnicfDot3OamConformance=hpnicfDot3OamConformance, hpnicfDot3OamErrSymPeriodThresholdLo=hpnicfDot3OamErrSymPeriodThresholdLo, Dot3Oui=Dot3Oui, hpnicfDot3OamCompliances=hpnicfDot3OamCompliances, hpnicfDot3OamErrSymPeriodEvNotifEnable=hpnicfDot3OamErrSymPeriodEvNotifEnable, hpnicfDot3OamPeerVendorOui=hpnicfDot3OamPeerVendorOui, hpnicfDot3OamErrFramePeriodWindow=hpnicfDot3OamErrFramePeriodWindow, hpnicfDot3OamErrFrameSecsSummaryThreshold=hpnicfDot3OamErrFrameSecsSummaryThreshold, hpnicfDot3OamEventLogThresholdHi=hpnicfDot3OamEventLogThresholdHi, hpnicfDot3OamErrFrameSecsSummaryWindow=hpnicfDot3OamErrFrameSecsSummaryWindow, hpnicfDot3OamErrSymPeriodThresholdHi=hpnicfDot3OamErrSymPeriodThresholdHi, hpnicfDot3OamStatsTable=hpnicfDot3OamStatsTable, hpnicfDot3OamErrFramePeriodThreshold=hpnicfDot3OamErrFramePeriodThreshold, hpnicfDot3OamErrSymPeriodWindowHi=hpnicfDot3OamErrSymPeriodWindowHi, hpnicfDot3OamErrSymPeriodWindowLo=hpnicfDot3OamErrSymPeriodWindowLo, hpnicfDot3OamEventLogIndex=hpnicfDot3OamEventLogIndex, hpnicfDot3OamOrgSpecificTx=hpnicfDot3OamOrgSpecificTx, hpnicfDot3OamControlGroup=hpnicfDot3OamControlGroup, hpnicfDot3OamEventLogThresholdLo=hpnicfDot3OamEventLogThresholdLo, hpnicfDot3OamEventConfigEntry=hpnicfDot3OamEventConfigEntry, hpnicfDot3OamUniqueEventNotificationRx=hpnicfDot3OamUniqueEventNotificationRx, hpnicfDot3OamFramesLostDueToOam=hpnicfDot3OamFramesLostDueToOam, hpnicfDot3OamFunctionsSupported=hpnicfDot3OamFunctionsSupported, hpnicfDot3OamEventLogTable=hpnicfDot3OamEventLogTable, hpnicfDot3OamEventLogLocation=hpnicfDot3OamEventLogLocation, hpnicfDot3OamVariableResponseRx=hpnicfDot3OamVariableResponseRx, hpnicfDot3OamUnsupportedCodesRx=hpnicfDot3OamUnsupportedCodesRx, hpnicfDot3OamEventLogEntry=hpnicfDot3OamEventLogEntry, hpnicfDot3OamErrFrameEvNotifEnable=hpnicfDot3OamErrFrameEvNotifEnable, hpnicfDot3OamPeerTable=hpnicfDot3OamPeerTable, hpnicfDot3OamUniqueEventNotificationTx=hpnicfDot3OamUniqueEventNotificationTx, hpnicfDot3OamPeerMacAddress=hpnicfDot3OamPeerMacAddress, hpnicfDot3OamUnsupportedCodesTx=hpnicfDot3OamUnsupportedCodesTx, hpnicfDot3OamLoopbackTable=hpnicfDot3OamLoopbackTable, hpnicfDot3OamCompliance=hpnicfDot3OamCompliance, hpnicfDot3OamErrFramePeriodEvNotifEnable=hpnicfDot3OamErrFramePeriodEvNotifEnable, hpnicfDot3OamThresholdEvent=hpnicfDot3OamThresholdEvent, hpnicfDot3OamInformationRx=hpnicfDot3OamInformationRx, hpnicfDot3OamPeerStatus=hpnicfDot3OamPeerStatus, hpnicfDot3OamErrFramePeriodEventGroup=hpnicfDot3OamErrFramePeriodEventGroup, hpnicfDot3OamPeerConfigRevision=hpnicfDot3OamPeerConfigRevision, hpnicfDot3OamLoopbackIgnoreRx=hpnicfDot3OamLoopbackIgnoreRx, hpnicfDot3OamNotificationGroup=hpnicfDot3OamNotificationGroup, hpnicfDot3OamEventLogType=hpnicfDot3OamEventLogType, hpnicfDot3OamEventLogEventTotal=hpnicfDot3OamEventLogEventTotal, hpnicfDot3OamErrFrameSecsSummaryEventGroup=hpnicfDot3OamErrFrameSecsSummaryEventGroup, hpnicfDot3OamErrFrameWindow=hpnicfDot3OamErrFrameWindow, hpnicfDot3OamOperStatus=hpnicfDot3OamOperStatus)

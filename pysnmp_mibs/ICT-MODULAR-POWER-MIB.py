@@ -1,219 +1,93 @@
-_K='notInstalled'
-_J='NotificationType'
-_I='alarmNumber'
-_H='moduleNumber'
-_G='read-write'
-_F='disabled'
-_E='enabled'
-_D='ICT-MODULAR-POWER-MIB'
-_C='Integer32'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier',_J,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_J,'TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_IctPower_ObjectIdentity=ObjectIdentity
-ictPower=_IctPower_ObjectIdentity((1,3,6,1,4,1,39145))
-_PowerSystem_ObjectIdentity=ObjectIdentity
-powerSystem=_PowerSystem_ObjectIdentity((1,3,6,1,4,1,39145,13))
-_DeviceModel_Type=DisplayString
-_DeviceModel_Object=MibScalar
-deviceModel=_DeviceModel_Object((1,3,6,1,4,1,39145,13,1),_DeviceModel_Type())
-deviceModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceModel.setStatus(_A)
-_DeviceName_Type=DisplayString
-_DeviceName_Object=MibScalar
-deviceName=_DeviceName_Object((1,3,6,1,4,1,39145,13,2),_DeviceName_Type())
-deviceName.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceName.setStatus(_A)
-class _DeviceHardware_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,127))
-_DeviceHardware_Type.__name__=_C
-_DeviceHardware_Object=MibScalar
-deviceHardware=_DeviceHardware_Object((1,3,6,1,4,1,39145,13,3),_DeviceHardware_Type())
-deviceHardware.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceHardware.setStatus(_A)
-_DeviceFirmware_Type=DisplayString
-_DeviceFirmware_Object=MibScalar
-deviceFirmware=_DeviceFirmware_Object((1,3,6,1,4,1,39145,13,4),_DeviceFirmware_Type())
-deviceFirmware.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceFirmware.setStatus(_A)
-_DeviceMacAddress_Type=DisplayString
-_DeviceMacAddress_Object=MibScalar
-deviceMacAddress=_DeviceMacAddress_Object((1,3,6,1,4,1,39145,13,5),_DeviceMacAddress_Type())
-deviceMacAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceMacAddress.setStatus(_A)
-_InputVoltage_Type=DisplayString
-_InputVoltage_Object=MibScalar
-inputVoltage=_InputVoltage_Object((1,3,6,1,4,1,39145,13,6),_InputVoltage_Type())
-inputVoltage.setMaxAccess(_B)
-if mibBuilder.loadTexts:inputVoltage.setStatus(_A)
-_OutputVoltage_Type=DisplayString
-_OutputVoltage_Object=MibScalar
-outputVoltage=_OutputVoltage_Object((1,3,6,1,4,1,39145,13,7),_OutputVoltage_Type())
-outputVoltage.setMaxAccess(_B)
-if mibBuilder.loadTexts:outputVoltage.setStatus(_A)
-_OutputCurrent_Type=DisplayString
-_OutputCurrent_Object=MibScalar
-outputCurrent=_OutputCurrent_Object((1,3,6,1,4,1,39145,13,8),_OutputCurrent_Type())
-outputCurrent.setMaxAccess(_B)
-if mibBuilder.loadTexts:outputCurrent.setStatus(_A)
-class _OutputEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_OutputEnable_Type.__name__=_C
-_OutputEnable_Object=MibScalar
-outputEnable=_OutputEnable_Object((1,3,6,1,4,1,39145,13,9),_OutputEnable_Type())
-outputEnable.setMaxAccess(_G)
-if mibBuilder.loadTexts:outputEnable.setStatus(_A)
-_ModuleTable_Object=MibTable
-moduleTable=_ModuleTable_Object((1,3,6,1,4,1,39145,13,10))
-if mibBuilder.loadTexts:moduleTable.setStatus(_A)
-_ModuleEntry_Object=MibTableRow
-moduleEntry=_ModuleEntry_Object((1,3,6,1,4,1,39145,13,10,1))
-moduleEntry.setIndexNames((0,_D,_H))
-if mibBuilder.loadTexts:moduleEntry.setStatus(_A)
-class _ModuleNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_ModuleNumber_Type.__name__=_C
-_ModuleNumber_Object=MibTableColumn
-moduleNumber=_ModuleNumber_Object((1,3,6,1,4,1,39145,13,10,1,1),_ModuleNumber_Type())
-moduleNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:moduleNumber.setStatus(_A)
-class _ModuleStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),('ok',2),('alarm',3)))
-_ModuleStatus_Type.__name__=_C
-_ModuleStatus_Object=MibTableColumn
-moduleStatus=_ModuleStatus_Object((1,3,6,1,4,1,39145,13,10,1,2),_ModuleStatus_Type())
-moduleStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:moduleStatus.setStatus(_A)
-class _ModuleType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_K,1),('power',2),('battery',3),('distribution',4),('converter',5)))
-_ModuleType_Type.__name__=_C
-_ModuleType_Object=MibTableColumn
-moduleType=_ModuleType_Object((1,3,6,1,4,1,39145,13,10,1,3),_ModuleType_Type())
-moduleType.setMaxAccess(_B)
-if mibBuilder.loadTexts:moduleType.setStatus(_A)
-_ModuleVoltage_Type=DisplayString
-_ModuleVoltage_Object=MibTableColumn
-moduleVoltage=_ModuleVoltage_Object((1,3,6,1,4,1,39145,13,10,1,4),_ModuleVoltage_Type())
-moduleVoltage.setMaxAccess(_B)
-if mibBuilder.loadTexts:moduleVoltage.setStatus(_A)
-_ModuleCurrentA_Type=DisplayString
-_ModuleCurrentA_Object=MibTableColumn
-moduleCurrentA=_ModuleCurrentA_Object((1,3,6,1,4,1,39145,13,10,1,5),_ModuleCurrentA_Type())
-moduleCurrentA.setMaxAccess(_B)
-if mibBuilder.loadTexts:moduleCurrentA.setStatus(_A)
-_ModuleCurrentB_Type=DisplayString
-_ModuleCurrentB_Object=MibTableColumn
-moduleCurrentB=_ModuleCurrentB_Object((1,3,6,1,4,1,39145,13,10,1,6),_ModuleCurrentB_Type())
-moduleCurrentB.setMaxAccess(_B)
-if mibBuilder.loadTexts:moduleCurrentB.setStatus(_A)
-_ModuleCurrentC_Type=DisplayString
-_ModuleCurrentC_Object=MibTableColumn
-moduleCurrentC=_ModuleCurrentC_Object((1,3,6,1,4,1,39145,13,10,1,7),_ModuleCurrentC_Type())
-moduleCurrentC.setMaxAccess(_B)
-if mibBuilder.loadTexts:moduleCurrentC.setStatus(_A)
-_ModuleCurrentD_Type=DisplayString
-_ModuleCurrentD_Object=MibTableColumn
-moduleCurrentD=_ModuleCurrentD_Object((1,3,6,1,4,1,39145,13,10,1,8),_ModuleCurrentD_Type())
-moduleCurrentD.setMaxAccess(_B)
-if mibBuilder.loadTexts:moduleCurrentD.setStatus(_A)
-class _ModuleControlA_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_ModuleControlA_Type.__name__=_C
-_ModuleControlA_Object=MibTableColumn
-moduleControlA=_ModuleControlA_Object((1,3,6,1,4,1,39145,13,10,1,9),_ModuleControlA_Type())
-moduleControlA.setMaxAccess(_G)
-if mibBuilder.loadTexts:moduleControlA.setStatus(_A)
-class _ModuleControlB_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_ModuleControlB_Type.__name__=_C
-_ModuleControlB_Object=MibTableColumn
-moduleControlB=_ModuleControlB_Object((1,3,6,1,4,1,39145,13,10,1,10),_ModuleControlB_Type())
-moduleControlB.setMaxAccess(_G)
-if mibBuilder.loadTexts:moduleControlB.setStatus(_A)
-class _ModuleControlC_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_ModuleControlC_Type.__name__=_C
-_ModuleControlC_Object=MibTableColumn
-moduleControlC=_ModuleControlC_Object((1,3,6,1,4,1,39145,13,10,1,11),_ModuleControlC_Type())
-moduleControlC.setMaxAccess(_G)
-if mibBuilder.loadTexts:moduleControlC.setStatus(_A)
-class _ModuleControlD_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_ModuleControlD_Type.__name__=_C
-_ModuleControlD_Object=MibTableColumn
-moduleControlD=_ModuleControlD_Object((1,3,6,1,4,1,39145,13,10,1,12),_ModuleControlD_Type())
-moduleControlD.setMaxAccess(_G)
-if mibBuilder.loadTexts:moduleControlD.setStatus(_A)
-_AlarmTable_Object=MibTable
-alarmTable=_AlarmTable_Object((1,3,6,1,4,1,39145,13,11))
-if mibBuilder.loadTexts:alarmTable.setStatus(_A)
-_AlarmEntry_Object=MibTableRow
-alarmEntry=_AlarmEntry_Object((1,3,6,1,4,1,39145,13,11,1))
-alarmEntry.setIndexNames((0,_D,_I))
-if mibBuilder.loadTexts:alarmEntry.setStatus(_A)
-class _AlarmNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_AlarmNumber_Type.__name__=_C
-_AlarmNumber_Object=MibTableColumn
-alarmNumber=_AlarmNumber_Object((1,3,6,1,4,1,39145,13,11,1,1),_AlarmNumber_Type())
-alarmNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:alarmNumber.setStatus(_A)
-_AlarmName_Type=DisplayString
-_AlarmName_Object=MibTableColumn
-alarmName=_AlarmName_Object((1,3,6,1,4,1,39145,13,11,1,2),_AlarmName_Type())
-alarmName.setMaxAccess(_B)
-if mibBuilder.loadTexts:alarmName.setStatus(_A)
-class _AlarmStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('inactive',1),('ready',2),('alarm',3)))
-_AlarmStatus_Type.__name__=_C
-_AlarmStatus_Object=MibTableColumn
-alarmStatus=_AlarmStatus_Object((1,3,6,1,4,1,39145,13,11,1,3),_AlarmStatus_Type())
-alarmStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:alarmStatus.setStatus(_A)
-_BatteryTemperature_Type=Integer32
-_BatteryTemperature_Object=MibScalar
-batteryTemperature=_BatteryTemperature_Object((1,3,6,1,4,1,39145,13,12),_BatteryTemperature_Type())
-batteryTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:batteryTemperature.setStatus(_A)
-class _BatterySoc_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_BatterySoc_Type.__name__=_C
-_BatterySoc_Object=MibScalar
-batterySoc=_BatterySoc_Object((1,3,6,1,4,1,39145,13,13),_BatterySoc_Type())
-batterySoc.setMaxAccess(_B)
-if mibBuilder.loadTexts:batterySoc.setStatus(_A)
-_BatteryNetAh_Type=Integer32
-_BatteryNetAh_Object=MibScalar
-batteryNetAh=_BatteryNetAh_Object((1,3,6,1,4,1,39145,13,14),_BatteryNetAh_Type())
-batteryNetAh.setMaxAccess(_B)
-if mibBuilder.loadTexts:batteryNetAh.setStatus(_A)
-_BatteryRunTime_Type=Integer32
-_BatteryRunTime_Object=MibScalar
-batteryRunTime=_BatteryRunTime_Object((1,3,6,1,4,1,39145,13,15),_BatteryRunTime_Type())
-batteryRunTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:batteryRunTime.setStatus(_A)
-moduleAlarmTrap=NotificationType((1,3,6,1,4,1,39145,13,0,101))
-moduleAlarmTrap.setObjects((_D,_H))
-if mibBuilder.loadTexts:moduleAlarmTrap.setStatus('')
-alarmInputTrap=NotificationType((1,3,6,1,4,1,39145,13,0,102))
-alarmInputTrap.setObjects((_D,_I))
-if mibBuilder.loadTexts:alarmInputTrap.setStatus('')
-acFailAlarmTrap=NotificationType((1,3,6,1,4,1,39145,13,0,103))
-if mibBuilder.loadTexts:acFailAlarmTrap.setStatus('')
-sysCurrentLimitTrap=NotificationType((1,3,6,1,4,1,39145,13,0,104))
-if mibBuilder.loadTexts:sysCurrentLimitTrap.setStatus('')
-moduleAlarmClear=NotificationType((1,3,6,1,4,1,39145,13,0,111))
-moduleAlarmClear.setObjects((_D,_H))
-if mibBuilder.loadTexts:moduleAlarmClear.setStatus('')
-alarmInputClear=NotificationType((1,3,6,1,4,1,39145,13,0,112))
-alarmInputClear.setObjects((_D,_I))
-if mibBuilder.loadTexts:alarmInputClear.setStatus('')
-acFailAlarmClear=NotificationType((1,3,6,1,4,1,39145,13,0,113))
-if mibBuilder.loadTexts:acFailAlarmClear.setStatus('')
-sysCurrentLimitClear=NotificationType((1,3,6,1,4,1,39145,13,0,114))
-if mibBuilder.loadTexts:sysCurrentLimitClear.setStatus('')
-batteryTestStart=NotificationType((1,3,6,1,4,1,39145,13,0,121))
-if mibBuilder.loadTexts:batteryTestStart.setStatus('')
-batteryTestComplete=NotificationType((1,3,6,1,4,1,39145,13,0,122))
-if mibBuilder.loadTexts:batteryTestComplete.setStatus('')
-batteryTestFail=NotificationType((1,3,6,1,4,1,39145,13,0,123))
-if mibBuilder.loadTexts:batteryTestFail.setStatus('')
-batteryEqualiseStart=NotificationType((1,3,6,1,4,1,39145,13,0,124))
-if mibBuilder.loadTexts:batteryEqualiseStart.setStatus('')
-batteryEqualiseComplete=NotificationType((1,3,6,1,4,1,39145,13,0,125))
-if mibBuilder.loadTexts:batteryEqualiseComplete.setStatus('')
-mibBuilder.exportSymbols(_D,**{'ictPower':ictPower,'powerSystem':powerSystem,'moduleAlarmTrap':moduleAlarmTrap,'alarmInputTrap':alarmInputTrap,'acFailAlarmTrap':acFailAlarmTrap,'sysCurrentLimitTrap':sysCurrentLimitTrap,'moduleAlarmClear':moduleAlarmClear,'alarmInputClear':alarmInputClear,'acFailAlarmClear':acFailAlarmClear,'sysCurrentLimitClear':sysCurrentLimitClear,'batteryTestStart':batteryTestStart,'batteryTestComplete':batteryTestComplete,'batteryTestFail':batteryTestFail,'batteryEqualiseStart':batteryEqualiseStart,'batteryEqualiseComplete':batteryEqualiseComplete,'deviceModel':deviceModel,'deviceName':deviceName,'deviceHardware':deviceHardware,'deviceFirmware':deviceFirmware,'deviceMacAddress':deviceMacAddress,'inputVoltage':inputVoltage,'outputVoltage':outputVoltage,'outputCurrent':outputCurrent,'outputEnable':outputEnable,'moduleTable':moduleTable,'moduleEntry':moduleEntry,_H:moduleNumber,'moduleStatus':moduleStatus,'moduleType':moduleType,'moduleVoltage':moduleVoltage,'moduleCurrentA':moduleCurrentA,'moduleCurrentB':moduleCurrentB,'moduleCurrentC':moduleCurrentC,'moduleCurrentD':moduleCurrentD,'moduleControlA':moduleControlA,'moduleControlB':moduleControlB,'moduleControlC':moduleControlC,'moduleControlD':moduleControlD,'alarmTable':alarmTable,'alarmEntry':alarmEntry,_I:alarmNumber,'alarmName':alarmName,'alarmStatus':alarmStatus,'batteryTemperature':batteryTemperature,'batterySoc':batterySoc,'batteryNetAh':batteryNetAh,'batteryRunTime':batteryRunTime})
+#
+# PySNMP MIB module ICT-MODULAR-POWER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ict/ICT-MODULAR-POWER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ictPower = MibIdentifier((1, 3, 6, 1, 4, 1, 39145))
+powerSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 39145, 13))
+deviceModel = MibScalar((1, 3, 6, 1, 4, 1, 39145, 13, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceModel.setStatus('mandatory')
+deviceName = MibScalar((1, 3, 6, 1, 4, 1, 39145, 13, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceName.setStatus('mandatory')
+deviceHardware = MibScalar((1, 3, 6, 1, 4, 1, 39145, 13, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 127))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceHardware.setStatus('mandatory')
+deviceFirmware = MibScalar((1, 3, 6, 1, 4, 1, 39145, 13, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceFirmware.setStatus('mandatory')
+deviceMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 39145, 13, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceMacAddress.setStatus('mandatory')
+inputVoltage = MibScalar((1, 3, 6, 1, 4, 1, 39145, 13, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: inputVoltage.setStatus('mandatory')
+outputVoltage = MibScalar((1, 3, 6, 1, 4, 1, 39145, 13, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: outputVoltage.setStatus('mandatory')
+outputCurrent = MibScalar((1, 3, 6, 1, 4, 1, 39145, 13, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: outputCurrent.setStatus('mandatory')
+outputEnable = MibScalar((1, 3, 6, 1, 4, 1, 39145, 13, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: outputEnable.setStatus('mandatory')
+moduleTable = MibTable((1, 3, 6, 1, 4, 1, 39145, 13, 10), )
+if mibBuilder.loadTexts: moduleTable.setStatus('mandatory')
+moduleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 39145, 13, 10, 1), ).setIndexNames((0, "ICT-MODULAR-POWER-MIB", "moduleNumber"))
+if mibBuilder.loadTexts: moduleEntry.setStatus('mandatory')
+moduleNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 13, 10, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: moduleNumber.setStatus('mandatory')
+moduleStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 13, 10, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notInstalled", 1), ("ok", 2), ("alarm", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: moduleStatus.setStatus('mandatory')
+moduleType = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 13, 10, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("notInstalled", 1), ("power", 2), ("battery", 3), ("distribution", 4), ("converter", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: moduleType.setStatus('mandatory')
+moduleVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 13, 10, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: moduleVoltage.setStatus('mandatory')
+moduleCurrentA = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 13, 10, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: moduleCurrentA.setStatus('mandatory')
+moduleCurrentB = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 13, 10, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: moduleCurrentB.setStatus('mandatory')
+moduleCurrentC = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 13, 10, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: moduleCurrentC.setStatus('mandatory')
+moduleCurrentD = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 13, 10, 1, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: moduleCurrentD.setStatus('mandatory')
+moduleControlA = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 13, 10, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: moduleControlA.setStatus('mandatory')
+moduleControlB = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 13, 10, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: moduleControlB.setStatus('mandatory')
+moduleControlC = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 13, 10, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: moduleControlC.setStatus('mandatory')
+moduleControlD = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 13, 10, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: moduleControlD.setStatus('mandatory')
+alarmTable = MibTable((1, 3, 6, 1, 4, 1, 39145, 13, 11), )
+if mibBuilder.loadTexts: alarmTable.setStatus('mandatory')
+alarmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 39145, 13, 11, 1), ).setIndexNames((0, "ICT-MODULAR-POWER-MIB", "alarmNumber"))
+if mibBuilder.loadTexts: alarmEntry.setStatus('mandatory')
+alarmNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 13, 11, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alarmNumber.setStatus('mandatory')
+alarmName = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 13, 11, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alarmName.setStatus('mandatory')
+alarmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 13, 11, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("inactive", 1), ("ready", 2), ("alarm", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alarmStatus.setStatus('mandatory')
+batteryTemperature = MibScalar((1, 3, 6, 1, 4, 1, 39145, 13, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: batteryTemperature.setStatus('mandatory')
+batterySoc = MibScalar((1, 3, 6, 1, 4, 1, 39145, 13, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: batterySoc.setStatus('mandatory')
+batteryNetAh = MibScalar((1, 3, 6, 1, 4, 1, 39145, 13, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: batteryNetAh.setStatus('mandatory')
+batteryRunTime = MibScalar((1, 3, 6, 1, 4, 1, 39145, 13, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: batteryRunTime.setStatus('mandatory')
+moduleAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 39145, 13) + (0,101)).setObjects(("ICT-MODULAR-POWER-MIB", "moduleNumber"))
+alarmInputTrap = NotificationType((1, 3, 6, 1, 4, 1, 39145, 13) + (0,102)).setObjects(("ICT-MODULAR-POWER-MIB", "alarmNumber"))
+acFailAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 39145, 13) + (0,103))
+sysCurrentLimitTrap = NotificationType((1, 3, 6, 1, 4, 1, 39145, 13) + (0,104))
+moduleAlarmClear = NotificationType((1, 3, 6, 1, 4, 1, 39145, 13) + (0,111)).setObjects(("ICT-MODULAR-POWER-MIB", "moduleNumber"))
+alarmInputClear = NotificationType((1, 3, 6, 1, 4, 1, 39145, 13) + (0,112)).setObjects(("ICT-MODULAR-POWER-MIB", "alarmNumber"))
+acFailAlarmClear = NotificationType((1, 3, 6, 1, 4, 1, 39145, 13) + (0,113))
+sysCurrentLimitClear = NotificationType((1, 3, 6, 1, 4, 1, 39145, 13) + (0,114))
+batteryTestStart = NotificationType((1, 3, 6, 1, 4, 1, 39145, 13) + (0,121))
+batteryTestComplete = NotificationType((1, 3, 6, 1, 4, 1, 39145, 13) + (0,122))
+batteryTestFail = NotificationType((1, 3, 6, 1, 4, 1, 39145, 13) + (0,123))
+batteryEqualiseStart = NotificationType((1, 3, 6, 1, 4, 1, 39145, 13) + (0,124))
+batteryEqualiseComplete = NotificationType((1, 3, 6, 1, 4, 1, 39145, 13) + (0,125))
+mibBuilder.exportSymbols("ICT-MODULAR-POWER-MIB", moduleControlA=moduleControlA, inputVoltage=inputVoltage, acFailAlarmClear=acFailAlarmClear, deviceName=deviceName, moduleType=moduleType, ictPower=ictPower, alarmTable=alarmTable, moduleControlB=moduleControlB, alarmName=alarmName, outputEnable=outputEnable, acFailAlarmTrap=acFailAlarmTrap, alarmNumber=alarmNumber, moduleEntry=moduleEntry, powerSystem=powerSystem, deviceFirmware=deviceFirmware, moduleCurrentB=moduleCurrentB, sysCurrentLimitTrap=sysCurrentLimitTrap, batteryNetAh=batteryNetAh, sysCurrentLimitClear=sysCurrentLimitClear, batteryTestStart=batteryTestStart, batteryEqualiseStart=batteryEqualiseStart, batteryEqualiseComplete=batteryEqualiseComplete, batteryRunTime=batteryRunTime, moduleNumber=moduleNumber, moduleControlD=moduleControlD, batteryTemperature=batteryTemperature, outputCurrent=outputCurrent, deviceHardware=deviceHardware, moduleTable=moduleTable, moduleCurrentA=moduleCurrentA, deviceModel=deviceModel, batteryTestFail=batteryTestFail, moduleAlarmClear=moduleAlarmClear, moduleCurrentD=moduleCurrentD, batteryTestComplete=batteryTestComplete, alarmEntry=alarmEntry, moduleStatus=moduleStatus, alarmInputClear=alarmInputClear, alarmInputTrap=alarmInputTrap, moduleCurrentC=moduleCurrentC, outputVoltage=outputVoltage, moduleAlarmTrap=moduleAlarmTrap, deviceMacAddress=deviceMacAddress, moduleVoltage=moduleVoltage, moduleControlC=moduleControlC, batterySoc=batterySoc, alarmStatus=alarmStatus)

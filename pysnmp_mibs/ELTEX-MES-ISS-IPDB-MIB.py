@@ -1,143 +1,74 @@
-_O='eltMesIssIpDbv6BindingEntry'
-_N='eltMesIssIpDbBindingEntry'
-_M='disable'
-_L='enable'
-_K='eltMesIssIpDbSrcGuardVlanId'
-_J='read-only'
-_I='eltMesIssIpDbIntfStatIndex'
-_H='eltMesIssIpDbIntfConfIndex'
-_G='Unsigned32'
-_F='not-accessible'
-_E='TruthValue'
-_D='ELTEX-MES-ISS-IPDB-MIB'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsIpDbBindingEntry,fsIpDbv6BindingEntry=mibBuilder.importSymbols('ARICENT-IPDB-MIB','fsIpDbBindingEntry','fsIpDbv6BindingEntry')
-eltMesIss,=mibBuilder.importSymbols('ELTEX-MES-ISS-MIB','eltMesIss')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'enterprises','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention',_E)
-eltMesIssIpDbMIB=ModuleIdentity((1,3,6,1,4,1,35265,1,139,9))
-if mibBuilder.loadTexts:eltMesIssIpDbMIB.setRevisions(('2022-06-10 00:00','2022-03-17 00:00','2022-03-04 00:00','2020-05-21 00:00','2019-02-06 00:00'))
-_EltMesIssIpDbObjects_ObjectIdentity=ObjectIdentity
-eltMesIssIpDbObjects=_EltMesIssIpDbObjects_ObjectIdentity((1,3,6,1,4,1,35265,1,139,9,1))
-_EltMesIssIpDbInterfaces_ObjectIdentity=ObjectIdentity
-eltMesIssIpDbInterfaces=_EltMesIssIpDbInterfaces_ObjectIdentity((1,3,6,1,4,1,35265,1,139,9,1,1))
-_EltMesIssIpDbIntfConfTable_Object=MibTable
-eltMesIssIpDbIntfConfTable=_EltMesIssIpDbIntfConfTable_Object((1,3,6,1,4,1,35265,1,139,9,1,1,1))
-if mibBuilder.loadTexts:eltMesIssIpDbIntfConfTable.setStatus(_A)
-_EltMesIssIpDbIntfConfEntry_Object=MibTableRow
-eltMesIssIpDbIntfConfEntry=_EltMesIssIpDbIntfConfEntry_Object((1,3,6,1,4,1,35265,1,139,9,1,1,1,1))
-eltMesIssIpDbIntfConfEntry.setIndexNames((0,_D,_H))
-if mibBuilder.loadTexts:eltMesIssIpDbIntfConfEntry.setStatus(_A)
-_EltMesIssIpDbIntfConfIndex_Type=InterfaceIndex
-_EltMesIssIpDbIntfConfIndex_Object=MibTableColumn
-eltMesIssIpDbIntfConfIndex=_EltMesIssIpDbIntfConfIndex_Object((1,3,6,1,4,1,35265,1,139,9,1,1,1,1,1),_EltMesIssIpDbIntfConfIndex_Type())
-eltMesIssIpDbIntfConfIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:eltMesIssIpDbIntfConfIndex.setStatus(_A)
-class _EltMesIssIpDbIntfConfBindingLimit_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1024))
-_EltMesIssIpDbIntfConfBindingLimit_Type.__name__=_G
-_EltMesIssIpDbIntfConfBindingLimit_Object=MibTableColumn
-eltMesIssIpDbIntfConfBindingLimit=_EltMesIssIpDbIntfConfBindingLimit_Object((1,3,6,1,4,1,35265,1,139,9,1,1,1,1,2),_EltMesIssIpDbIntfConfBindingLimit_Type())
-eltMesIssIpDbIntfConfBindingLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssIpDbIntfConfBindingLimit.setStatus(_A)
-class _EltMesIssIpDbIntfConfBindingLimitControl_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_EltMesIssIpDbIntfConfBindingLimitControl_Type.__name__=_C
-_EltMesIssIpDbIntfConfBindingLimitControl_Object=MibTableColumn
-eltMesIssIpDbIntfConfBindingLimitControl=_EltMesIssIpDbIntfConfBindingLimitControl_Object((1,3,6,1,4,1,35265,1,139,9,1,1,1,1,3),_EltMesIssIpDbIntfConfBindingLimitControl_Type())
-eltMesIssIpDbIntfConfBindingLimitControl.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssIpDbIntfConfBindingLimitControl.setStatus(_A)
-_EltMesIssIpDbIntfStatTable_Object=MibTable
-eltMesIssIpDbIntfStatTable=_EltMesIssIpDbIntfStatTable_Object((1,3,6,1,4,1,35265,1,139,9,1,1,2))
-if mibBuilder.loadTexts:eltMesIssIpDbIntfStatTable.setStatus(_A)
-_EltMesIssIpDbIntfStatEntry_Object=MibTableRow
-eltMesIssIpDbIntfStatEntry=_EltMesIssIpDbIntfStatEntry_Object((1,3,6,1,4,1,35265,1,139,9,1,1,2,1))
-eltMesIssIpDbIntfStatEntry.setIndexNames((0,_D,_I))
-if mibBuilder.loadTexts:eltMesIssIpDbIntfStatEntry.setStatus(_A)
-_EltMesIssIpDbIntfStatIndex_Type=InterfaceIndex
-_EltMesIssIpDbIntfStatIndex_Object=MibTableColumn
-eltMesIssIpDbIntfStatIndex=_EltMesIssIpDbIntfStatIndex_Object((1,3,6,1,4,1,35265,1,139,9,1,1,2,1,1),_EltMesIssIpDbIntfStatIndex_Type())
-eltMesIssIpDbIntfStatIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:eltMesIssIpDbIntfStatIndex.setStatus(_A)
-_EltMesIssIpDbIntfStatNoOfStaticBindings_Type=Counter32
-_EltMesIssIpDbIntfStatNoOfStaticBindings_Object=MibTableColumn
-eltMesIssIpDbIntfStatNoOfStaticBindings=_EltMesIssIpDbIntfStatNoOfStaticBindings_Object((1,3,6,1,4,1,35265,1,139,9,1,1,2,1,2),_EltMesIssIpDbIntfStatNoOfStaticBindings_Type())
-eltMesIssIpDbIntfStatNoOfStaticBindings.setMaxAccess(_J)
-if mibBuilder.loadTexts:eltMesIssIpDbIntfStatNoOfStaticBindings.setStatus(_A)
-_EltMesIssIpDbIntfStatNoOfDHCPBindings_Type=Counter32
-_EltMesIssIpDbIntfStatNoOfDHCPBindings_Object=MibTableColumn
-eltMesIssIpDbIntfStatNoOfDHCPBindings=_EltMesIssIpDbIntfStatNoOfDHCPBindings_Object((1,3,6,1,4,1,35265,1,139,9,1,1,2,1,3),_EltMesIssIpDbIntfStatNoOfDHCPBindings_Type())
-eltMesIssIpDbIntfStatNoOfDHCPBindings.setMaxAccess(_J)
-if mibBuilder.loadTexts:eltMesIssIpDbIntfStatNoOfDHCPBindings.setStatus(_A)
-_EltMesIssIpDbSrcGuardVlanTable_Object=MibTable
-eltMesIssIpDbSrcGuardVlanTable=_EltMesIssIpDbSrcGuardVlanTable_Object((1,3,6,1,4,1,35265,1,139,9,1,1,3))
-if mibBuilder.loadTexts:eltMesIssIpDbSrcGuardVlanTable.setStatus(_A)
-_EltMesIssIpDbSrcGuardVlanEntry_Object=MibTableRow
-eltMesIssIpDbSrcGuardVlanEntry=_EltMesIssIpDbSrcGuardVlanEntry_Object((1,3,6,1,4,1,35265,1,139,9,1,1,3,1))
-eltMesIssIpDbSrcGuardVlanEntry.setIndexNames((0,_D,_K))
-if mibBuilder.loadTexts:eltMesIssIpDbSrcGuardVlanEntry.setStatus(_A)
-class _EltMesIssIpDbSrcGuardVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_EltMesIssIpDbSrcGuardVlanId_Type.__name__=_C
-_EltMesIssIpDbSrcGuardVlanId_Object=MibTableColumn
-eltMesIssIpDbSrcGuardVlanId=_EltMesIssIpDbSrcGuardVlanId_Object((1,3,6,1,4,1,35265,1,139,9,1,1,3,1,1),_EltMesIssIpDbSrcGuardVlanId_Type())
-eltMesIssIpDbSrcGuardVlanId.setMaxAccess(_F)
-if mibBuilder.loadTexts:eltMesIssIpDbSrcGuardVlanId.setStatus(_A)
-class _EltMesIssIpDbSrcGuardVlanStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_M,2)))
-_EltMesIssIpDbSrcGuardVlanStatus_Type.__name__=_C
-_EltMesIssIpDbSrcGuardVlanStatus_Object=MibTableColumn
-eltMesIssIpDbSrcGuardVlanStatus=_EltMesIssIpDbSrcGuardVlanStatus_Object((1,3,6,1,4,1,35265,1,139,9,1,1,3,1,2),_EltMesIssIpDbSrcGuardVlanStatus_Type())
-eltMesIssIpDbSrcGuardVlanStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssIpDbSrcGuardVlanStatus.setStatus(_A)
-class _EltMesIssIpDbv6SrcGuardVlanStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_M,2)))
-_EltMesIssIpDbv6SrcGuardVlanStatus_Type.__name__=_C
-_EltMesIssIpDbv6SrcGuardVlanStatus_Object=MibTableColumn
-eltMesIssIpDbv6SrcGuardVlanStatus=_EltMesIssIpDbv6SrcGuardVlanStatus_Object((1,3,6,1,4,1,35265,1,139,9,1,1,3,1,3),_EltMesIssIpDbv6SrcGuardVlanStatus_Type())
-eltMesIssIpDbv6SrcGuardVlanStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssIpDbv6SrcGuardVlanStatus.setStatus(_A)
-_EltMesIssIpDbBinding_ObjectIdentity=ObjectIdentity
-eltMesIssIpDbBinding=_EltMesIssIpDbBinding_ObjectIdentity((1,3,6,1,4,1,35265,1,139,9,1,2))
-_EltMesIssIpDbBindingTable_Object=MibTable
-eltMesIssIpDbBindingTable=_EltMesIssIpDbBindingTable_Object((1,3,6,1,4,1,35265,1,139,9,1,2,1))
-if mibBuilder.loadTexts:eltMesIssIpDbBindingTable.setStatus(_A)
-_EltMesIssIpDbBindingEntry_Object=MibTableRow
-eltMesIssIpDbBindingEntry=_EltMesIssIpDbBindingEntry_Object((1,3,6,1,4,1,35265,1,139,9,1,2,1,1))
-if mibBuilder.loadTexts:eltMesIssIpDbBindingEntry.setStatus(_A)
-class _EltMesIssIpDbBindingEntryClearFlag_Type(TruthValue):defaultValue=2
-_EltMesIssIpDbBindingEntryClearFlag_Type.__name__=_E
-_EltMesIssIpDbBindingEntryClearFlag_Object=MibTableColumn
-eltMesIssIpDbBindingEntryClearFlag=_EltMesIssIpDbBindingEntryClearFlag_Object((1,3,6,1,4,1,35265,1,139,9,1,2,1,1,1),_EltMesIssIpDbBindingEntryClearFlag_Type())
-eltMesIssIpDbBindingEntryClearFlag.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssIpDbBindingEntryClearFlag.setStatus(_A)
-class _EltMesIssIpDbBindingDynamicEntriesPortDownAction_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('retain',1),('clear',2)))
-_EltMesIssIpDbBindingDynamicEntriesPortDownAction_Type.__name__=_C
-_EltMesIssIpDbBindingDynamicEntriesPortDownAction_Object=MibScalar
-eltMesIssIpDbBindingDynamicEntriesPortDownAction=_EltMesIssIpDbBindingDynamicEntriesPortDownAction_Object((1,3,6,1,4,1,35265,1,139,9,1,2,2),_EltMesIssIpDbBindingDynamicEntriesPortDownAction_Type())
-eltMesIssIpDbBindingDynamicEntriesPortDownAction.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssIpDbBindingDynamicEntriesPortDownAction.setStatus(_A)
-_EltMesIssIpDbv6Binding_ObjectIdentity=ObjectIdentity
-eltMesIssIpDbv6Binding=_EltMesIssIpDbv6Binding_ObjectIdentity((1,3,6,1,4,1,35265,1,139,9,1,3))
-_EltMesIssIpDbv6BindingTable_Object=MibTable
-eltMesIssIpDbv6BindingTable=_EltMesIssIpDbv6BindingTable_Object((1,3,6,1,4,1,35265,1,139,9,1,3,1))
-if mibBuilder.loadTexts:eltMesIssIpDbv6BindingTable.setStatus(_A)
-_EltMesIssIpDbv6BindingEntry_Object=MibTableRow
-eltMesIssIpDbv6BindingEntry=_EltMesIssIpDbv6BindingEntry_Object((1,3,6,1,4,1,35265,1,139,9,1,3,1,1))
-if mibBuilder.loadTexts:eltMesIssIpDbv6BindingEntry.setStatus(_A)
-class _EltMesIssIpDbv6BindingEntryClearFlag_Type(TruthValue):defaultValue=2
-_EltMesIssIpDbv6BindingEntryClearFlag_Type.__name__=_E
-_EltMesIssIpDbv6BindingEntryClearFlag_Object=MibTableColumn
-eltMesIssIpDbv6BindingEntryClearFlag=_EltMesIssIpDbv6BindingEntryClearFlag_Object((1,3,6,1,4,1,35265,1,139,9,1,3,1,1,1),_EltMesIssIpDbv6BindingEntryClearFlag_Type())
-eltMesIssIpDbv6BindingEntryClearFlag.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesIssIpDbv6BindingEntryClearFlag.setStatus(_A)
-_EltMesIssIpDbNotifications_ObjectIdentity=ObjectIdentity
-eltMesIssIpDbNotifications=_EltMesIssIpDbNotifications_ObjectIdentity((1,3,6,1,4,1,35265,1,139,9,2))
-fsIpDbBindingEntry.registerAugmentions((_D,_N))
+#
+# PySNMP MIB module ELTEX-MES-ISS-IPDB-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-MES-ISS-IPDB-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+fsIpDbv6BindingEntry, fsIpDbBindingEntry = mibBuilder.importSymbols("ARICENT-IPDB-MIB", "fsIpDbv6BindingEntry", "fsIpDbBindingEntry")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltMesIss, = mibBuilder.importSymbols("ELTEX-MES-ISS-MIB", "eltMesIss")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+eltMesIssIpDbMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9))
+eltMesIssIpDbMIB.setRevisions(('2022-06-10 00:00', '2022-03-17 00:00', '2022-03-04 00:00', '2020-05-21 00:00', '2019-02-06 00:00',))
+if mibBuilder.loadTexts: eltMesIssIpDbMIB.setLastUpdated('202206100000Z')
+if mibBuilder.loadTexts: eltMesIssIpDbMIB.setOrganization('Eltex Enterprise, Ltd.')
+eltMesIssIpDbObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1))
+eltMesIssIpDbNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 2))
+eltMesIssIpDbInterfaces = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1))
+eltMesIssIpDbBinding = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 2))
+eltMesIssIpDbv6Binding = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 3))
+eltMesIssIpDbIntfConfTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1, 1), )
+if mibBuilder.loadTexts: eltMesIssIpDbIntfConfTable.setStatus('current')
+eltMesIssIpDbIntfConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1, 1, 1), ).setIndexNames((0, "ELTEX-MES-ISS-IPDB-MIB", "eltMesIssIpDbIntfConfIndex"))
+if mibBuilder.loadTexts: eltMesIssIpDbIntfConfEntry.setStatus('current')
+eltMesIssIpDbIntfConfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: eltMesIssIpDbIntfConfIndex.setStatus('current')
+eltMesIssIpDbIntfConfBindingLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1024))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssIpDbIntfConfBindingLimit.setStatus('current')
+eltMesIssIpDbIntfConfBindingLimitControl = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssIpDbIntfConfBindingLimitControl.setStatus('current')
+eltMesIssIpDbIntfStatTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1, 2), )
+if mibBuilder.loadTexts: eltMesIssIpDbIntfStatTable.setStatus('current')
+eltMesIssIpDbIntfStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1, 2, 1), ).setIndexNames((0, "ELTEX-MES-ISS-IPDB-MIB", "eltMesIssIpDbIntfStatIndex"))
+if mibBuilder.loadTexts: eltMesIssIpDbIntfStatEntry.setStatus('current')
+eltMesIssIpDbIntfStatIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1, 2, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: eltMesIssIpDbIntfStatIndex.setStatus('current')
+eltMesIssIpDbIntfStatNoOfStaticBindings = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1, 2, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssIpDbIntfStatNoOfStaticBindings.setStatus('current')
+eltMesIssIpDbIntfStatNoOfDHCPBindings = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesIssIpDbIntfStatNoOfDHCPBindings.setStatus('current')
+eltMesIssIpDbSrcGuardVlanTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1, 3), )
+if mibBuilder.loadTexts: eltMesIssIpDbSrcGuardVlanTable.setStatus('current')
+eltMesIssIpDbSrcGuardVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1, 3, 1), ).setIndexNames((0, "ELTEX-MES-ISS-IPDB-MIB", "eltMesIssIpDbSrcGuardVlanId"))
+if mibBuilder.loadTexts: eltMesIssIpDbSrcGuardVlanEntry.setStatus('current')
+eltMesIssIpDbSrcGuardVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
+if mibBuilder.loadTexts: eltMesIssIpDbSrcGuardVlanId.setStatus('current')
+eltMesIssIpDbSrcGuardVlanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssIpDbSrcGuardVlanStatus.setStatus('current')
+eltMesIssIpDbv6SrcGuardVlanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssIpDbv6SrcGuardVlanStatus.setStatus('current')
+eltMesIssIpDbBindingTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 2, 1), )
+if mibBuilder.loadTexts: eltMesIssIpDbBindingTable.setStatus('current')
+eltMesIssIpDbBindingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 2, 1, 1), )
+fsIpDbBindingEntry.registerAugmentions(("ELTEX-MES-ISS-IPDB-MIB", "eltMesIssIpDbBindingEntry"))
 eltMesIssIpDbBindingEntry.setIndexNames(*fsIpDbBindingEntry.getIndexNames())
-fsIpDbv6BindingEntry.registerAugmentions((_D,_O))
+if mibBuilder.loadTexts: eltMesIssIpDbBindingEntry.setStatus('current')
+eltMesIssIpDbBindingEntryClearFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 2, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssIpDbBindingEntryClearFlag.setStatus('current')
+eltMesIssIpDbBindingDynamicEntriesPortDownAction = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("retain", 1), ("clear", 2))).clone('retain')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssIpDbBindingDynamicEntriesPortDownAction.setStatus('current')
+eltMesIssIpDbv6BindingTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 3, 1), )
+if mibBuilder.loadTexts: eltMesIssIpDbv6BindingTable.setStatus('current')
+eltMesIssIpDbv6BindingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 3, 1, 1), )
+fsIpDbv6BindingEntry.registerAugmentions(("ELTEX-MES-ISS-IPDB-MIB", "eltMesIssIpDbv6BindingEntry"))
 eltMesIssIpDbv6BindingEntry.setIndexNames(*fsIpDbv6BindingEntry.getIndexNames())
-mibBuilder.exportSymbols(_D,**{'eltMesIssIpDbMIB':eltMesIssIpDbMIB,'eltMesIssIpDbObjects':eltMesIssIpDbObjects,'eltMesIssIpDbInterfaces':eltMesIssIpDbInterfaces,'eltMesIssIpDbIntfConfTable':eltMesIssIpDbIntfConfTable,'eltMesIssIpDbIntfConfEntry':eltMesIssIpDbIntfConfEntry,_H:eltMesIssIpDbIntfConfIndex,'eltMesIssIpDbIntfConfBindingLimit':eltMesIssIpDbIntfConfBindingLimit,'eltMesIssIpDbIntfConfBindingLimitControl':eltMesIssIpDbIntfConfBindingLimitControl,'eltMesIssIpDbIntfStatTable':eltMesIssIpDbIntfStatTable,'eltMesIssIpDbIntfStatEntry':eltMesIssIpDbIntfStatEntry,_I:eltMesIssIpDbIntfStatIndex,'eltMesIssIpDbIntfStatNoOfStaticBindings':eltMesIssIpDbIntfStatNoOfStaticBindings,'eltMesIssIpDbIntfStatNoOfDHCPBindings':eltMesIssIpDbIntfStatNoOfDHCPBindings,'eltMesIssIpDbSrcGuardVlanTable':eltMesIssIpDbSrcGuardVlanTable,'eltMesIssIpDbSrcGuardVlanEntry':eltMesIssIpDbSrcGuardVlanEntry,_K:eltMesIssIpDbSrcGuardVlanId,'eltMesIssIpDbSrcGuardVlanStatus':eltMesIssIpDbSrcGuardVlanStatus,'eltMesIssIpDbv6SrcGuardVlanStatus':eltMesIssIpDbv6SrcGuardVlanStatus,'eltMesIssIpDbBinding':eltMesIssIpDbBinding,'eltMesIssIpDbBindingTable':eltMesIssIpDbBindingTable,_N:eltMesIssIpDbBindingEntry,'eltMesIssIpDbBindingEntryClearFlag':eltMesIssIpDbBindingEntryClearFlag,'eltMesIssIpDbBindingDynamicEntriesPortDownAction':eltMesIssIpDbBindingDynamicEntriesPortDownAction,'eltMesIssIpDbv6Binding':eltMesIssIpDbv6Binding,'eltMesIssIpDbv6BindingTable':eltMesIssIpDbv6BindingTable,_O:eltMesIssIpDbv6BindingEntry,'eltMesIssIpDbv6BindingEntryClearFlag':eltMesIssIpDbv6BindingEntryClearFlag,'eltMesIssIpDbNotifications':eltMesIssIpDbNotifications})
+if mibBuilder.loadTexts: eltMesIssIpDbv6BindingEntry.setStatus('current')
+eltMesIssIpDbv6BindingEntryClearFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9, 1, 3, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesIssIpDbv6BindingEntryClearFlag.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-MES-ISS-IPDB-MIB", eltMesIssIpDbIntfStatTable=eltMesIssIpDbIntfStatTable, eltMesIssIpDbIntfStatEntry=eltMesIssIpDbIntfStatEntry, eltMesIssIpDbIntfConfBindingLimit=eltMesIssIpDbIntfConfBindingLimit, PYSNMP_MODULE_ID=eltMesIssIpDbMIB, eltMesIssIpDbIntfConfIndex=eltMesIssIpDbIntfConfIndex, eltMesIssIpDbInterfaces=eltMesIssIpDbInterfaces, eltMesIssIpDbv6BindingEntryClearFlag=eltMesIssIpDbv6BindingEntryClearFlag, eltMesIssIpDbIntfConfBindingLimitControl=eltMesIssIpDbIntfConfBindingLimitControl, eltMesIssIpDbSrcGuardVlanStatus=eltMesIssIpDbSrcGuardVlanStatus, eltMesIssIpDbBindingTable=eltMesIssIpDbBindingTable, eltMesIssIpDbv6BindingEntry=eltMesIssIpDbv6BindingEntry, eltMesIssIpDbIntfConfTable=eltMesIssIpDbIntfConfTable, eltMesIssIpDbv6BindingTable=eltMesIssIpDbv6BindingTable, eltMesIssIpDbIntfConfEntry=eltMesIssIpDbIntfConfEntry, eltMesIssIpDbSrcGuardVlanId=eltMesIssIpDbSrcGuardVlanId, eltMesIssIpDbIntfStatIndex=eltMesIssIpDbIntfStatIndex, eltMesIssIpDbMIB=eltMesIssIpDbMIB, eltMesIssIpDbBindingDynamicEntriesPortDownAction=eltMesIssIpDbBindingDynamicEntriesPortDownAction, eltMesIssIpDbBindingEntryClearFlag=eltMesIssIpDbBindingEntryClearFlag, eltMesIssIpDbIntfStatNoOfStaticBindings=eltMesIssIpDbIntfStatNoOfStaticBindings, eltMesIssIpDbv6SrcGuardVlanStatus=eltMesIssIpDbv6SrcGuardVlanStatus, eltMesIssIpDbNotifications=eltMesIssIpDbNotifications, eltMesIssIpDbv6Binding=eltMesIssIpDbv6Binding, eltMesIssIpDbBinding=eltMesIssIpDbBinding, eltMesIssIpDbSrcGuardVlanTable=eltMesIssIpDbSrcGuardVlanTable, eltMesIssIpDbBindingEntry=eltMesIssIpDbBindingEntry, eltMesIssIpDbObjects=eltMesIssIpDbObjects, eltMesIssIpDbSrcGuardVlanEntry=eltMesIssIpDbSrcGuardVlanEntry, eltMesIssIpDbIntfStatNoOfDHCPBindings=eltMesIssIpDbIntfStatNoOfDHCPBindings)

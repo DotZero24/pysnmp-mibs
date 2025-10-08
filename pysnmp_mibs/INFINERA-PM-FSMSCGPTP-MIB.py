@@ -1,121 +1,68 @@
-_T='fsmScgPtpPmRealGroup'
-_S='fsmScgPtpPmGroup'
-_R='fsmScgPtpPmRealCmnScgOpr'
-_Q='fsmScgPtpPmRealCmnScgOpt'
-_P='fsmScgPtpPmCmnScgOprAve'
-_O='fsmScgPtpPmCmnScgOprMax'
-_N='fsmScgPtpPmCmnScgOprMin'
-_M='fsmScgPtpPmCmnScgOptAve'
-_L='fsmScgPtpPmCmnScgOptMax'
-_K='fsmScgPtpPmCmnScgOptMin'
-_J='fsmScgPtpPmValidity'
-_I='not-accessible'
-_H='Integer32'
-_G='fsmScgPtpPmTimestamp'
-_F='fsmScgPtpPmSampleDuration'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-only'
-_B='INFINERA-PM-FSMSCGPTP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-perfMon,=mibBuilder.importSymbols('INFINERA-REG-MIB','perfMon')
-FloatHundredths,InfnSampleDuration=mibBuilder.importSymbols('INFINERA-TC-MIB','FloatHundredths','InfnSampleDuration')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-fsmScgPtpPmMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,3,40))
-if mibBuilder.loadTexts:fsmScgPtpPmMIB.setRevisions(('2013-10-08 00:00',))
-_FsmScgPtpPmRealTable_Object=MibTable
-fsmScgPtpPmRealTable=_FsmScgPtpPmRealTable_Object((1,3,6,1,4,1,21296,2,2,2,3,40,1))
-if mibBuilder.loadTexts:fsmScgPtpPmRealTable.setStatus(_A)
-_FsmScgPtpPmRealEntry_Object=MibTableRow
-fsmScgPtpPmRealEntry=_FsmScgPtpPmRealEntry_Object((1,3,6,1,4,1,21296,2,2,2,3,40,1,1))
-fsmScgPtpPmRealEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:fsmScgPtpPmRealEntry.setStatus(_A)
-_FsmScgPtpPmRealCmnScgOpt_Type=FloatHundredths
-_FsmScgPtpPmRealCmnScgOpt_Object=MibTableColumn
-fsmScgPtpPmRealCmnScgOpt=_FsmScgPtpPmRealCmnScgOpt_Object((1,3,6,1,4,1,21296,2,2,2,3,40,1,1,1),_FsmScgPtpPmRealCmnScgOpt_Type())
-fsmScgPtpPmRealCmnScgOpt.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsmScgPtpPmRealCmnScgOpt.setStatus(_A)
-_FsmScgPtpPmRealCmnScgOpr_Type=FloatHundredths
-_FsmScgPtpPmRealCmnScgOpr_Object=MibTableColumn
-fsmScgPtpPmRealCmnScgOpr=_FsmScgPtpPmRealCmnScgOpr_Object((1,3,6,1,4,1,21296,2,2,2,3,40,1,1,2),_FsmScgPtpPmRealCmnScgOpr_Type())
-fsmScgPtpPmRealCmnScgOpr.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsmScgPtpPmRealCmnScgOpr.setStatus(_A)
-_FsmScgPtpPmTable_Object=MibTable
-fsmScgPtpPmTable=_FsmScgPtpPmTable_Object((1,3,6,1,4,1,21296,2,2,2,3,40,2))
-if mibBuilder.loadTexts:fsmScgPtpPmTable.setStatus(_A)
-_FsmScgPtpPmEntry_Object=MibTableRow
-fsmScgPtpPmEntry=_FsmScgPtpPmEntry_Object((1,3,6,1,4,1,21296,2,2,2,3,40,2,1))
-fsmScgPtpPmEntry.setIndexNames((0,_D,_E),(0,_B,_F),(0,_B,_G))
-if mibBuilder.loadTexts:fsmScgPtpPmEntry.setStatus(_A)
-class _FsmScgPtpPmTimestamp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_FsmScgPtpPmTimestamp_Type.__name__=_H
-_FsmScgPtpPmTimestamp_Object=MibTableColumn
-fsmScgPtpPmTimestamp=_FsmScgPtpPmTimestamp_Object((1,3,6,1,4,1,21296,2,2,2,3,40,2,1,1),_FsmScgPtpPmTimestamp_Type())
-fsmScgPtpPmTimestamp.setMaxAccess(_I)
-if mibBuilder.loadTexts:fsmScgPtpPmTimestamp.setStatus(_A)
-_FsmScgPtpPmSampleDuration_Type=InfnSampleDuration
-_FsmScgPtpPmSampleDuration_Object=MibTableColumn
-fsmScgPtpPmSampleDuration=_FsmScgPtpPmSampleDuration_Object((1,3,6,1,4,1,21296,2,2,2,3,40,2,1,2),_FsmScgPtpPmSampleDuration_Type())
-fsmScgPtpPmSampleDuration.setMaxAccess(_I)
-if mibBuilder.loadTexts:fsmScgPtpPmSampleDuration.setStatus(_A)
-_FsmScgPtpPmValidity_Type=TruthValue
-_FsmScgPtpPmValidity_Object=MibTableColumn
-fsmScgPtpPmValidity=_FsmScgPtpPmValidity_Object((1,3,6,1,4,1,21296,2,2,2,3,40,2,1,3),_FsmScgPtpPmValidity_Type())
-fsmScgPtpPmValidity.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsmScgPtpPmValidity.setStatus(_A)
-_FsmScgPtpPmCmnScgOptMin_Type=FloatHundredths
-_FsmScgPtpPmCmnScgOptMin_Object=MibTableColumn
-fsmScgPtpPmCmnScgOptMin=_FsmScgPtpPmCmnScgOptMin_Object((1,3,6,1,4,1,21296,2,2,2,3,40,2,1,4),_FsmScgPtpPmCmnScgOptMin_Type())
-fsmScgPtpPmCmnScgOptMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsmScgPtpPmCmnScgOptMin.setStatus(_A)
-_FsmScgPtpPmCmnScgOptMax_Type=FloatHundredths
-_FsmScgPtpPmCmnScgOptMax_Object=MibTableColumn
-fsmScgPtpPmCmnScgOptMax=_FsmScgPtpPmCmnScgOptMax_Object((1,3,6,1,4,1,21296,2,2,2,3,40,2,1,5),_FsmScgPtpPmCmnScgOptMax_Type())
-fsmScgPtpPmCmnScgOptMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsmScgPtpPmCmnScgOptMax.setStatus(_A)
-_FsmScgPtpPmCmnScgOptAve_Type=FloatHundredths
-_FsmScgPtpPmCmnScgOptAve_Object=MibTableColumn
-fsmScgPtpPmCmnScgOptAve=_FsmScgPtpPmCmnScgOptAve_Object((1,3,6,1,4,1,21296,2,2,2,3,40,2,1,6),_FsmScgPtpPmCmnScgOptAve_Type())
-fsmScgPtpPmCmnScgOptAve.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsmScgPtpPmCmnScgOptAve.setStatus(_A)
-_FsmScgPtpPmCmnScgOprMin_Type=FloatHundredths
-_FsmScgPtpPmCmnScgOprMin_Object=MibTableColumn
-fsmScgPtpPmCmnScgOprMin=_FsmScgPtpPmCmnScgOprMin_Object((1,3,6,1,4,1,21296,2,2,2,3,40,2,1,7),_FsmScgPtpPmCmnScgOprMin_Type())
-fsmScgPtpPmCmnScgOprMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsmScgPtpPmCmnScgOprMin.setStatus(_A)
-_FsmScgPtpPmCmnScgOprMax_Type=FloatHundredths
-_FsmScgPtpPmCmnScgOprMax_Object=MibTableColumn
-fsmScgPtpPmCmnScgOprMax=_FsmScgPtpPmCmnScgOprMax_Object((1,3,6,1,4,1,21296,2,2,2,3,40,2,1,8),_FsmScgPtpPmCmnScgOprMax_Type())
-fsmScgPtpPmCmnScgOprMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsmScgPtpPmCmnScgOprMax.setStatus(_A)
-_FsmScgPtpPmCmnScgOprAve_Type=FloatHundredths
-_FsmScgPtpPmCmnScgOprAve_Object=MibTableColumn
-fsmScgPtpPmCmnScgOprAve=_FsmScgPtpPmCmnScgOprAve_Object((1,3,6,1,4,1,21296,2,2,2,3,40,2,1,9),_FsmScgPtpPmCmnScgOprAve_Type())
-fsmScgPtpPmCmnScgOprAve.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsmScgPtpPmCmnScgOprAve.setStatus(_A)
-_FsmScgPtpPmConformance_ObjectIdentity=ObjectIdentity
-fsmScgPtpPmConformance=_FsmScgPtpPmConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,3,40,3))
-_FsmScgPtpPmCompliances_ObjectIdentity=ObjectIdentity
-fsmScgPtpPmCompliances=_FsmScgPtpPmCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,3,40,3,1))
-_FsmScgPtpPmGroups_ObjectIdentity=ObjectIdentity
-fsmScgPtpPmGroups=_FsmScgPtpPmGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,3,40,3,2))
-fsmScgPtpPmGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,3,40,3,2,1))
-fsmScgPtpPmGroup.setObjects(*((_B,_G),(_B,_F),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:fsmScgPtpPmGroup.setStatus(_A)
-fsmScgPtpPmRealGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,3,40,3,2,2))
-fsmScgPtpPmRealGroup.setObjects(*((_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:fsmScgPtpPmRealGroup.setStatus(_A)
-fsmScgPtpPmCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,3,40,3,1,1))
-fsmScgPtpPmCompliance.setObjects((_B,_S))
-if mibBuilder.loadTexts:fsmScgPtpPmCompliance.setStatus(_A)
-fsmScgPtpPmRealCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,3,40,3,1,2))
-fsmScgPtpPmRealCompliance.setObjects((_B,_T))
-if mibBuilder.loadTexts:fsmScgPtpPmRealCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'fsmScgPtpPmMIB':fsmScgPtpPmMIB,'fsmScgPtpPmRealTable':fsmScgPtpPmRealTable,'fsmScgPtpPmRealEntry':fsmScgPtpPmRealEntry,_Q:fsmScgPtpPmRealCmnScgOpt,_R:fsmScgPtpPmRealCmnScgOpr,'fsmScgPtpPmTable':fsmScgPtpPmTable,'fsmScgPtpPmEntry':fsmScgPtpPmEntry,_G:fsmScgPtpPmTimestamp,_F:fsmScgPtpPmSampleDuration,_J:fsmScgPtpPmValidity,_K:fsmScgPtpPmCmnScgOptMin,_L:fsmScgPtpPmCmnScgOptMax,_M:fsmScgPtpPmCmnScgOptAve,_N:fsmScgPtpPmCmnScgOprMin,_O:fsmScgPtpPmCmnScgOprMax,_P:fsmScgPtpPmCmnScgOprAve,'fsmScgPtpPmConformance':fsmScgPtpPmConformance,'fsmScgPtpPmCompliances':fsmScgPtpPmCompliances,'fsmScgPtpPmCompliance':fsmScgPtpPmCompliance,'fsmScgPtpPmRealCompliance':fsmScgPtpPmRealCompliance,'fsmScgPtpPmGroups':fsmScgPtpPmGroups,_S:fsmScgPtpPmGroup,_T:fsmScgPtpPmRealGroup})
+#
+# PySNMP MIB module INFINERA-PM-FSMSCGPTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-PM-FSMSCGPTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:47 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+perfMon, = mibBuilder.importSymbols("INFINERA-REG-MIB", "perfMon")
+FloatHundredths, InfnSampleDuration = mibBuilder.importSymbols("INFINERA-TC-MIB", "FloatHundredths", "InfnSampleDuration")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+fsmScgPtpPmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40))
+fsmScgPtpPmMIB.setRevisions(('2013-10-08 00:00',))
+if mibBuilder.loadTexts: fsmScgPtpPmMIB.setLastUpdated('201310080000Z')
+if mibBuilder.loadTexts: fsmScgPtpPmMIB.setOrganization('Infinera')
+fsmScgPtpPmTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 2), )
+if mibBuilder.loadTexts: fsmScgPtpPmTable.setStatus('current')
+fsmScgPtpPmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "INFINERA-PM-FSMSCGPTP-MIB", "fsmScgPtpPmSampleDuration"), (0, "INFINERA-PM-FSMSCGPTP-MIB", "fsmScgPtpPmTimestamp"))
+if mibBuilder.loadTexts: fsmScgPtpPmEntry.setStatus('current')
+fsmScgPtpPmTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
+if mibBuilder.loadTexts: fsmScgPtpPmTimestamp.setStatus('current')
+fsmScgPtpPmSampleDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 2, 1, 2), InfnSampleDuration())
+if mibBuilder.loadTexts: fsmScgPtpPmSampleDuration.setStatus('current')
+fsmScgPtpPmValidity = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsmScgPtpPmValidity.setStatus('current')
+fsmScgPtpPmCmnScgOptMin = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 2, 1, 4), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsmScgPtpPmCmnScgOptMin.setStatus('current')
+fsmScgPtpPmCmnScgOptMax = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 2, 1, 5), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsmScgPtpPmCmnScgOptMax.setStatus('current')
+fsmScgPtpPmCmnScgOptAve = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 2, 1, 6), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsmScgPtpPmCmnScgOptAve.setStatus('current')
+fsmScgPtpPmCmnScgOprMin = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 2, 1, 7), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsmScgPtpPmCmnScgOprMin.setStatus('current')
+fsmScgPtpPmCmnScgOprMax = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 2, 1, 8), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsmScgPtpPmCmnScgOprMax.setStatus('current')
+fsmScgPtpPmCmnScgOprAve = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 2, 1, 9), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsmScgPtpPmCmnScgOprAve.setStatus('current')
+fsmScgPtpPmRealTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 1), )
+if mibBuilder.loadTexts: fsmScgPtpPmRealTable.setStatus('current')
+fsmScgPtpPmRealEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: fsmScgPtpPmRealEntry.setStatus('current')
+fsmScgPtpPmRealCmnScgOpt = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 1, 1, 1), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsmScgPtpPmRealCmnScgOpt.setStatus('current')
+fsmScgPtpPmRealCmnScgOpr = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 1, 1, 2), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsmScgPtpPmRealCmnScgOpr.setStatus('current')
+fsmScgPtpPmConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 3))
+fsmScgPtpPmCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 3, 1))
+fsmScgPtpPmGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 3, 2))
+fsmScgPtpPmCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 3, 1, 1)).setObjects(("INFINERA-PM-FSMSCGPTP-MIB", "fsmScgPtpPmGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsmScgPtpPmCompliance = fsmScgPtpPmCompliance.setStatus('current')
+fsmScgPtpPmRealCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 3, 1, 2)).setObjects(("INFINERA-PM-FSMSCGPTP-MIB", "fsmScgPtpPmRealGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsmScgPtpPmRealCompliance = fsmScgPtpPmRealCompliance.setStatus('current')
+fsmScgPtpPmGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 3, 2, 1)).setObjects(("INFINERA-PM-FSMSCGPTP-MIB", "fsmScgPtpPmTimestamp"), ("INFINERA-PM-FSMSCGPTP-MIB", "fsmScgPtpPmSampleDuration"), ("INFINERA-PM-FSMSCGPTP-MIB", "fsmScgPtpPmValidity"), ("INFINERA-PM-FSMSCGPTP-MIB", "fsmScgPtpPmCmnScgOptMin"), ("INFINERA-PM-FSMSCGPTP-MIB", "fsmScgPtpPmCmnScgOptMax"), ("INFINERA-PM-FSMSCGPTP-MIB", "fsmScgPtpPmCmnScgOptAve"), ("INFINERA-PM-FSMSCGPTP-MIB", "fsmScgPtpPmCmnScgOprMin"), ("INFINERA-PM-FSMSCGPTP-MIB", "fsmScgPtpPmCmnScgOprMax"), ("INFINERA-PM-FSMSCGPTP-MIB", "fsmScgPtpPmCmnScgOprAve"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsmScgPtpPmGroup = fsmScgPtpPmGroup.setStatus('current')
+fsmScgPtpPmRealGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 40, 3, 2, 2)).setObjects(("INFINERA-PM-FSMSCGPTP-MIB", "fsmScgPtpPmRealCmnScgOpt"), ("INFINERA-PM-FSMSCGPTP-MIB", "fsmScgPtpPmRealCmnScgOpr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsmScgPtpPmRealGroup = fsmScgPtpPmRealGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-PM-FSMSCGPTP-MIB", PYSNMP_MODULE_ID=fsmScgPtpPmMIB, fsmScgPtpPmRealCmnScgOpr=fsmScgPtpPmRealCmnScgOpr, fsmScgPtpPmTable=fsmScgPtpPmTable, fsmScgPtpPmRealCmnScgOpt=fsmScgPtpPmRealCmnScgOpt, fsmScgPtpPmRealCompliance=fsmScgPtpPmRealCompliance, fsmScgPtpPmEntry=fsmScgPtpPmEntry, fsmScgPtpPmGroup=fsmScgPtpPmGroup, fsmScgPtpPmCmnScgOprAve=fsmScgPtpPmCmnScgOprAve, fsmScgPtpPmCmnScgOprMax=fsmScgPtpPmCmnScgOprMax, fsmScgPtpPmRealEntry=fsmScgPtpPmRealEntry, fsmScgPtpPmRealTable=fsmScgPtpPmRealTable, fsmScgPtpPmGroups=fsmScgPtpPmGroups, fsmScgPtpPmCmnScgOptAve=fsmScgPtpPmCmnScgOptAve, fsmScgPtpPmCmnScgOptMin=fsmScgPtpPmCmnScgOptMin, fsmScgPtpPmCmnScgOptMax=fsmScgPtpPmCmnScgOptMax, fsmScgPtpPmSampleDuration=fsmScgPtpPmSampleDuration, fsmScgPtpPmValidity=fsmScgPtpPmValidity, fsmScgPtpPmCmnScgOprMin=fsmScgPtpPmCmnScgOprMin, fsmScgPtpPmCompliance=fsmScgPtpPmCompliance, fsmScgPtpPmRealGroup=fsmScgPtpPmRealGroup, fsmScgPtpPmConformance=fsmScgPtpPmConformance, fsmScgPtpPmTimestamp=fsmScgPtpPmTimestamp, fsmScgPtpPmMIB=fsmScgPtpPmMIB, fsmScgPtpPmCompliances=fsmScgPtpPmCompliances)

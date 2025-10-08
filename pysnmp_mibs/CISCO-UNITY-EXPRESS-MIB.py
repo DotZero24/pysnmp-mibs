@@ -1,712 +1,259 @@
-_Av='cueSystemGroupRev1'
-_Au='cueSystemGroup'
-_At='ciscoUnityExpressNTPAlert'
-_As='ciscoUnityExpressBackupAlert'
-_Ar='ciscoUnityExpressRescExhausted'
-_Aq='ciscoUnityExpressCallMgrAlert'
-_Ap='ciscoUnityExpressSecurityAlert'
-_Ao='ciscoUnityExpressStorageAlert'
-_An='ciscoUnityExpressApplAlert'
-_Am='cueBRHistoryResult'
-_Al='cueBRHistoryDate'
-_Ak='cueBRHistoryOperation'
-_Aj='cuePINResetThresh'
-_Ai='cuePINPasswordThresh'
-_Ah='cuePINUidThresh'
-_Ag='cueLoginPasswordThresh'
-_Af='cueLoginUsernameThresh'
-_Ae='cueNotifEnable'
-_Ad='cuePINPasswordFailures'
-_Ac='cuePINUidFailures'
-_Ab='cuePINResets'
-_Aa='cuePINAttempts'
-_AZ='cueLoginPasswordFailures'
-_AY='cueLoginUsernameFailures'
-_AX='cueLoginAttempts'
-_AW='cueMailboxesAbove90PercentFull'
-_AV='cueLicensedMailboxesMax'
-_AU='cueMessagesDeleted'
-_AT='cueMessagesRetrieved'
-_AS='cueMessagesLeft'
-_AR='cueMboxMWIState'
-_AQ='cueMboxBusy'
-_AP='cueMboxEnabled'
-_AO='cueMboxGreetingType'
-_AN='cueMboxPlayTutorial'
-_AM='cueMboxMessageExpiryTime'
-_AL='cueMboxMessageSizeMax'
-_AK='cueMboxNumberOfSavedMessages'
-_AJ='cueMboxNumberOfNewMessages'
-_AI='cueMboxNumberOfMessages'
-_AH='cueMboxPercentTimeUsed'
-_AG='cueMboxTimeUsed'
-_AF='cueMboxSize'
-_AE='cueMboxDescription'
-_AD='cueMboxType'
-_AC='cueMboxPrimaryExtension'
-_AB='cueMboxOwner'
-_AA='cueAverageGreetingLength'
-_A9='cueGreetingCount'
-_A8='cueGreetingTimeUsed'
-_A7='cueAverageMessageLength'
-_A6='cueMessageCount'
-_A5='cueMessageTimeUsed'
-_A4='cuePercentTimeUsed'
-_A3='cueTotalTimeUsed'
-_A2='cueAllocatedCapacity'
-_A1='cueCapacityOfVoicemail'
-_A0='cueOrphanedMailboxes'
-_z='cueGeneralDeliveryMailboxes'
-_y='cuePersonalMailboxes'
-_x='cueActiveCalls'
-_w='cueLicensedPortsMax'
-_v='cueHardwareModuleType'
-_u='cueBRHistoryIndex'
-_t='cueMboxIndex'
-_s='percent'
-_r='cueJTAPIServerIndex'
-_q='deprecated'
-_p='read-write'
-_o='TruthValue'
-_n='cueBackupRestoreGroup'
-_m='ciscoUnityExpressMIBNotificationsGroup'
-_l='cueNotifGroup'
-_k='cueSecurityGroup'
-_j='cueUsageGroup'
-_i='cueDefaultMessageExpiryTime'
-_h='cueDefaultMessageSizeMax'
-_g='cueDefaultGreetingSize'
-_f='cueDefaultMailboxSize'
-_e='cueJTAPIPortsRegistered'
-_d='cueJTAPISoftwareVersion'
-_c='cueJTAPIUsername'
-_b='cueJTAPISubsystemState'
-_a='cueJTAPIServerIP'
-_Z='cueJTAPIServerIPType'
-_Y='cueJTAPIServerName'
-_X='cueSIPPort'
-_W='cueSIPGatewayIP'
-_V='cueSIPGatewayIPType'
-_U='cueSIPGatewayName'
-_T='cueCallControlAgentType'
-_S='cueAANumber'
-_R='cueVoicemailNumber'
-_Q='cueAVTNumber'
-_P='cueShutdownRequest'
-_O='minutes'
-_N='not-accessible'
-_M='accessible-for-notify'
-_L='cueNotifDetail'
-_K='cueNotifDescription'
-_J='cueNotifDate'
-_I='cueNotifSeverity'
-_H='Integer32'
-_G='seconds'
-_F='SnmpAdminString'
-_E='Unsigned32'
-_D='Gauge32'
-_C='read-only'
-_B='current'
-_A='CISCO-UNITY-EXPRESS-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType','InetPortNumber')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64',_D,_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention',_o)
-ciscoUnityExpressMIB=ModuleIdentity((1,3,6,1,4,1,9,9,420))
-if mibBuilder.loadTexts:ciscoUnityExpressMIB.setRevisions(('2007-01-08 00:00','2005-09-02 00:00'))
-_CiscoUnityExpressMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoUnityExpressMIBNotifs=_CiscoUnityExpressMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,420,0))
-_CiscoUnityExpressMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoUnityExpressMIBObjects=_CiscoUnityExpressMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,420,1))
-_CueSystem_ObjectIdentity=ObjectIdentity
-cueSystem=_CueSystem_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,1))
-_CueSystemControl_ObjectIdentity=ObjectIdentity
-cueSystemControl=_CueSystemControl_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,1,1))
-_CueShutdownRequest_Type=TruthValue
-_CueShutdownRequest_Object=MibScalar
-cueShutdownRequest=_CueShutdownRequest_Object((1,3,6,1,4,1,9,9,420,1,1,1,1),_CueShutdownRequest_Type())
-cueShutdownRequest.setMaxAccess(_p)
-if mibBuilder.loadTexts:cueShutdownRequest.setStatus(_B)
-_CueSystemScalars_ObjectIdentity=ObjectIdentity
-cueSystemScalars=_CueSystemScalars_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,1,2))
-class _CueAVTNumber_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_CueAVTNumber_Type.__name__=_F
-_CueAVTNumber_Object=MibScalar
-cueAVTNumber=_CueAVTNumber_Object((1,3,6,1,4,1,9,9,420,1,1,2,1),_CueAVTNumber_Type())
-cueAVTNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueAVTNumber.setStatus(_B)
-class _CueVoicemailNumber_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_CueVoicemailNumber_Type.__name__=_F
-_CueVoicemailNumber_Object=MibScalar
-cueVoicemailNumber=_CueVoicemailNumber_Object((1,3,6,1,4,1,9,9,420,1,1,2,2),_CueVoicemailNumber_Type())
-cueVoicemailNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueVoicemailNumber.setStatus(_B)
-class _CueAANumber_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_CueAANumber_Type.__name__=_F
-_CueAANumber_Object=MibScalar
-cueAANumber=_CueAANumber_Object((1,3,6,1,4,1,9,9,420,1,1,2,3),_CueAANumber_Type())
-cueAANumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueAANumber.setStatus(_B)
-class _CueHardwareModuleType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('aim',1),('nm',2),('other',3)))
-_CueHardwareModuleType_Type.__name__=_H
-_CueHardwareModuleType_Object=MibScalar
-cueHardwareModuleType=_CueHardwareModuleType_Object((1,3,6,1,4,1,9,9,420,1,1,2,4),_CueHardwareModuleType_Type())
-cueHardwareModuleType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueHardwareModuleType.setStatus(_q)
-class _CueCallControlAgentType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ccm',1),('ccme',2)))
-_CueCallControlAgentType_Type.__name__=_H
-_CueCallControlAgentType_Object=MibScalar
-cueCallControlAgentType=_CueCallControlAgentType_Object((1,3,6,1,4,1,9,9,420,1,1,2,5),_CueCallControlAgentType_Type())
-cueCallControlAgentType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueCallControlAgentType.setStatus(_B)
-_CueSIPInfo_ObjectIdentity=ObjectIdentity
-cueSIPInfo=_CueSIPInfo_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,1,3))
-class _CueSIPGatewayName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_CueSIPGatewayName_Type.__name__=_F
-_CueSIPGatewayName_Object=MibScalar
-cueSIPGatewayName=_CueSIPGatewayName_Object((1,3,6,1,4,1,9,9,420,1,1,3,1),_CueSIPGatewayName_Type())
-cueSIPGatewayName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueSIPGatewayName.setStatus(_B)
-_CueSIPGatewayIPType_Type=InetAddressType
-_CueSIPGatewayIPType_Object=MibScalar
-cueSIPGatewayIPType=_CueSIPGatewayIPType_Object((1,3,6,1,4,1,9,9,420,1,1,3,2),_CueSIPGatewayIPType_Type())
-cueSIPGatewayIPType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueSIPGatewayIPType.setStatus(_B)
-_CueSIPGatewayIP_Type=InetAddress
-_CueSIPGatewayIP_Object=MibScalar
-cueSIPGatewayIP=_CueSIPGatewayIP_Object((1,3,6,1,4,1,9,9,420,1,1,3,3),_CueSIPGatewayIP_Type())
-cueSIPGatewayIP.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueSIPGatewayIP.setStatus(_B)
-_CueSIPPort_Type=InetPortNumber
-_CueSIPPort_Object=MibScalar
-cueSIPPort=_CueSIPPort_Object((1,3,6,1,4,1,9,9,420,1,1,3,4),_CueSIPPort_Type())
-cueSIPPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueSIPPort.setStatus(_B)
-_CueJTAPIInfo_ObjectIdentity=ObjectIdentity
-cueJTAPIInfo=_CueJTAPIInfo_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,1,4))
-_CueJTAPIServerTable_Object=MibTable
-cueJTAPIServerTable=_CueJTAPIServerTable_Object((1,3,6,1,4,1,9,9,420,1,1,4,1))
-if mibBuilder.loadTexts:cueJTAPIServerTable.setStatus(_B)
-_CueJTAPIServerEntry_Object=MibTableRow
-cueJTAPIServerEntry=_CueJTAPIServerEntry_Object((1,3,6,1,4,1,9,9,420,1,1,4,1,1))
-cueJTAPIServerEntry.setIndexNames((0,_A,_r))
-if mibBuilder.loadTexts:cueJTAPIServerEntry.setStatus(_B)
-class _CueJTAPIServerIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CueJTAPIServerIndex_Type.__name__=_E
-_CueJTAPIServerIndex_Object=MibTableColumn
-cueJTAPIServerIndex=_CueJTAPIServerIndex_Object((1,3,6,1,4,1,9,9,420,1,1,4,1,1,1),_CueJTAPIServerIndex_Type())
-cueJTAPIServerIndex.setMaxAccess(_N)
-if mibBuilder.loadTexts:cueJTAPIServerIndex.setStatus(_B)
-class _CueJTAPIServerName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_CueJTAPIServerName_Type.__name__=_F
-_CueJTAPIServerName_Object=MibTableColumn
-cueJTAPIServerName=_CueJTAPIServerName_Object((1,3,6,1,4,1,9,9,420,1,1,4,1,1,2),_CueJTAPIServerName_Type())
-cueJTAPIServerName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueJTAPIServerName.setStatus(_B)
-_CueJTAPIServerIPType_Type=InetAddressType
-_CueJTAPIServerIPType_Object=MibTableColumn
-cueJTAPIServerIPType=_CueJTAPIServerIPType_Object((1,3,6,1,4,1,9,9,420,1,1,4,1,1,3),_CueJTAPIServerIPType_Type())
-cueJTAPIServerIPType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueJTAPIServerIPType.setStatus(_B)
-_CueJTAPIServerIP_Type=InetAddress
-_CueJTAPIServerIP_Object=MibTableColumn
-cueJTAPIServerIP=_CueJTAPIServerIP_Object((1,3,6,1,4,1,9,9,420,1,1,4,1,1,4),_CueJTAPIServerIP_Type())
-cueJTAPIServerIP.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueJTAPIServerIP.setStatus(_B)
-class _CueJTAPISubsystemState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('unknown',1),('initializing',2),('inService',3),('outOfService',4),('shuttingDown',5),('shutDown',6),('partialService',7)))
-_CueJTAPISubsystemState_Type.__name__=_H
-_CueJTAPISubsystemState_Object=MibScalar
-cueJTAPISubsystemState=_CueJTAPISubsystemState_Object((1,3,6,1,4,1,9,9,420,1,1,4,2),_CueJTAPISubsystemState_Type())
-cueJTAPISubsystemState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueJTAPISubsystemState.setStatus(_B)
-class _CueJTAPIUsername_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_CueJTAPIUsername_Type.__name__=_F
-_CueJTAPIUsername_Object=MibScalar
-cueJTAPIUsername=_CueJTAPIUsername_Object((1,3,6,1,4,1,9,9,420,1,1,4,3),_CueJTAPIUsername_Type())
-cueJTAPIUsername.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueJTAPIUsername.setStatus(_B)
-class _CueJTAPISoftwareVersion_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_CueJTAPISoftwareVersion_Type.__name__=_F
-_CueJTAPISoftwareVersion_Object=MibScalar
-cueJTAPISoftwareVersion=_CueJTAPISoftwareVersion_Object((1,3,6,1,4,1,9,9,420,1,1,4,4),_CueJTAPISoftwareVersion_Type())
-cueJTAPISoftwareVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueJTAPISoftwareVersion.setStatus(_B)
-class _CueJTAPIPortsRegistered_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1023))
-_CueJTAPIPortsRegistered_Type.__name__=_D
-_CueJTAPIPortsRegistered_Object=MibScalar
-cueJTAPIPortsRegistered=_CueJTAPIPortsRegistered_Object((1,3,6,1,4,1,9,9,420,1,1,4,5),_CueJTAPIPortsRegistered_Type())
-cueJTAPIPortsRegistered.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueJTAPIPortsRegistered.setStatus(_B)
-_CueSystemDefaults_ObjectIdentity=ObjectIdentity
-cueSystemDefaults=_CueSystemDefaults_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,1,5))
-class _CueDefaultMailboxSize_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueDefaultMailboxSize_Type.__name__=_E
-_CueDefaultMailboxSize_Object=MibScalar
-cueDefaultMailboxSize=_CueDefaultMailboxSize_Object((1,3,6,1,4,1,9,9,420,1,1,5,1),_CueDefaultMailboxSize_Type())
-cueDefaultMailboxSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueDefaultMailboxSize.setStatus(_B)
-if mibBuilder.loadTexts:cueDefaultMailboxSize.setUnits(_G)
-class _CueDefaultGreetingSize_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueDefaultGreetingSize_Type.__name__=_E
-_CueDefaultGreetingSize_Object=MibScalar
-cueDefaultGreetingSize=_CueDefaultGreetingSize_Object((1,3,6,1,4,1,9,9,420,1,1,5,2),_CueDefaultGreetingSize_Type())
-cueDefaultGreetingSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueDefaultGreetingSize.setStatus(_B)
-if mibBuilder.loadTexts:cueDefaultGreetingSize.setUnits(_G)
-class _CueDefaultMessageSizeMax_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueDefaultMessageSizeMax_Type.__name__=_E
-_CueDefaultMessageSizeMax_Object=MibScalar
-cueDefaultMessageSizeMax=_CueDefaultMessageSizeMax_Object((1,3,6,1,4,1,9,9,420,1,1,5,3),_CueDefaultMessageSizeMax_Type())
-cueDefaultMessageSizeMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueDefaultMessageSizeMax.setStatus(_B)
-if mibBuilder.loadTexts:cueDefaultMessageSizeMax.setUnits(_G)
-class _CueDefaultMessageExpiryTime_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueDefaultMessageExpiryTime_Type.__name__=_E
-_CueDefaultMessageExpiryTime_Object=MibScalar
-cueDefaultMessageExpiryTime=_CueDefaultMessageExpiryTime_Object((1,3,6,1,4,1,9,9,420,1,1,5,4),_CueDefaultMessageExpiryTime_Type())
-cueDefaultMessageExpiryTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueDefaultMessageExpiryTime.setStatus(_B)
-if mibBuilder.loadTexts:cueDefaultMessageExpiryTime.setUnits('days')
-_CueUsage_ObjectIdentity=ObjectIdentity
-cueUsage=_CueUsage_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,2))
-_CueUsageScalars_ObjectIdentity=ObjectIdentity
-cueUsageScalars=_CueUsageScalars_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,2,1))
-class _CueLicensedPortsMax_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1023))
-_CueLicensedPortsMax_Type.__name__=_E
-_CueLicensedPortsMax_Object=MibScalar
-cueLicensedPortsMax=_CueLicensedPortsMax_Object((1,3,6,1,4,1,9,9,420,1,2,1,1),_CueLicensedPortsMax_Type())
-cueLicensedPortsMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueLicensedPortsMax.setStatus(_B)
-class _CueActiveCalls_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1023))
-_CueActiveCalls_Type.__name__=_D
-_CueActiveCalls_Object=MibScalar
-cueActiveCalls=_CueActiveCalls_Object((1,3,6,1,4,1,9,9,420,1,2,1,2),_CueActiveCalls_Type())
-cueActiveCalls.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueActiveCalls.setStatus(_B)
-class _CuePersonalMailboxes_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CuePersonalMailboxes_Type.__name__=_D
-_CuePersonalMailboxes_Object=MibScalar
-cuePersonalMailboxes=_CuePersonalMailboxes_Object((1,3,6,1,4,1,9,9,420,1,2,1,3),_CuePersonalMailboxes_Type())
-cuePersonalMailboxes.setMaxAccess(_C)
-if mibBuilder.loadTexts:cuePersonalMailboxes.setStatus(_B)
-class _CueGeneralDeliveryMailboxes_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueGeneralDeliveryMailboxes_Type.__name__=_D
-_CueGeneralDeliveryMailboxes_Object=MibScalar
-cueGeneralDeliveryMailboxes=_CueGeneralDeliveryMailboxes_Object((1,3,6,1,4,1,9,9,420,1,2,1,4),_CueGeneralDeliveryMailboxes_Type())
-cueGeneralDeliveryMailboxes.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueGeneralDeliveryMailboxes.setStatus(_B)
-class _CueOrphanedMailboxes_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueOrphanedMailboxes_Type.__name__=_D
-_CueOrphanedMailboxes_Object=MibScalar
-cueOrphanedMailboxes=_CueOrphanedMailboxes_Object((1,3,6,1,4,1,9,9,420,1,2,1,5),_CueOrphanedMailboxes_Type())
-cueOrphanedMailboxes.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueOrphanedMailboxes.setStatus(_B)
-class _CueCapacityOfVoicemail_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CueCapacityOfVoicemail_Type.__name__=_E
-_CueCapacityOfVoicemail_Object=MibScalar
-cueCapacityOfVoicemail=_CueCapacityOfVoicemail_Object((1,3,6,1,4,1,9,9,420,1,2,1,6),_CueCapacityOfVoicemail_Type())
-cueCapacityOfVoicemail.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueCapacityOfVoicemail.setStatus(_B)
-if mibBuilder.loadTexts:cueCapacityOfVoicemail.setUnits(_O)
-class _CueAllocatedCapacity_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CueAllocatedCapacity_Type.__name__=_E
-_CueAllocatedCapacity_Object=MibScalar
-cueAllocatedCapacity=_CueAllocatedCapacity_Object((1,3,6,1,4,1,9,9,420,1,2,1,7),_CueAllocatedCapacity_Type())
-cueAllocatedCapacity.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueAllocatedCapacity.setStatus(_B)
-if mibBuilder.loadTexts:cueAllocatedCapacity.setUnits(_O)
-class _CueTotalTimeUsed_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CueTotalTimeUsed_Type.__name__=_D
-_CueTotalTimeUsed_Object=MibScalar
-cueTotalTimeUsed=_CueTotalTimeUsed_Object((1,3,6,1,4,1,9,9,420,1,2,1,8),_CueTotalTimeUsed_Type())
-cueTotalTimeUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueTotalTimeUsed.setStatus(_B)
-if mibBuilder.loadTexts:cueTotalTimeUsed.setUnits(_O)
-class _CuePercentTimeUsed_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_CuePercentTimeUsed_Type.__name__=_D
-_CuePercentTimeUsed_Object=MibScalar
-cuePercentTimeUsed=_CuePercentTimeUsed_Object((1,3,6,1,4,1,9,9,420,1,2,1,9),_CuePercentTimeUsed_Type())
-cuePercentTimeUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:cuePercentTimeUsed.setStatus(_B)
-if mibBuilder.loadTexts:cuePercentTimeUsed.setUnits(_s)
-class _CueMessageTimeUsed_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CueMessageTimeUsed_Type.__name__=_D
-_CueMessageTimeUsed_Object=MibScalar
-cueMessageTimeUsed=_CueMessageTimeUsed_Object((1,3,6,1,4,1,9,9,420,1,2,1,10),_CueMessageTimeUsed_Type())
-cueMessageTimeUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMessageTimeUsed.setStatus(_B)
-if mibBuilder.loadTexts:cueMessageTimeUsed.setUnits(_G)
-class _CueMessageCount_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueMessageCount_Type.__name__=_D
-_CueMessageCount_Object=MibScalar
-cueMessageCount=_CueMessageCount_Object((1,3,6,1,4,1,9,9,420,1,2,1,11),_CueMessageCount_Type())
-cueMessageCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMessageCount.setStatus(_B)
-class _CueAverageMessageLength_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueAverageMessageLength_Type.__name__=_D
-_CueAverageMessageLength_Object=MibScalar
-cueAverageMessageLength=_CueAverageMessageLength_Object((1,3,6,1,4,1,9,9,420,1,2,1,12),_CueAverageMessageLength_Type())
-cueAverageMessageLength.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueAverageMessageLength.setStatus(_B)
-if mibBuilder.loadTexts:cueAverageMessageLength.setUnits(_G)
-class _CueGreetingTimeUsed_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CueGreetingTimeUsed_Type.__name__=_D
-_CueGreetingTimeUsed_Object=MibScalar
-cueGreetingTimeUsed=_CueGreetingTimeUsed_Object((1,3,6,1,4,1,9,9,420,1,2,1,13),_CueGreetingTimeUsed_Type())
-cueGreetingTimeUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueGreetingTimeUsed.setStatus(_B)
-if mibBuilder.loadTexts:cueGreetingTimeUsed.setUnits(_G)
-class _CueGreetingCount_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueGreetingCount_Type.__name__=_D
-_CueGreetingCount_Object=MibScalar
-cueGreetingCount=_CueGreetingCount_Object((1,3,6,1,4,1,9,9,420,1,2,1,14),_CueGreetingCount_Type())
-cueGreetingCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueGreetingCount.setStatus(_B)
-class _CueAverageGreetingLength_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueAverageGreetingLength_Type.__name__=_D
-_CueAverageGreetingLength_Object=MibScalar
-cueAverageGreetingLength=_CueAverageGreetingLength_Object((1,3,6,1,4,1,9,9,420,1,2,1,15),_CueAverageGreetingLength_Type())
-cueAverageGreetingLength.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueAverageGreetingLength.setStatus(_B)
-if mibBuilder.loadTexts:cueAverageGreetingLength.setUnits(_G)
-_CueMessagesLeft_Type=Counter32
-_CueMessagesLeft_Object=MibScalar
-cueMessagesLeft=_CueMessagesLeft_Object((1,3,6,1,4,1,9,9,420,1,2,1,16),_CueMessagesLeft_Type())
-cueMessagesLeft.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMessagesLeft.setStatus(_B)
-_CueMessagesRetrieved_Type=Counter32
-_CueMessagesRetrieved_Object=MibScalar
-cueMessagesRetrieved=_CueMessagesRetrieved_Object((1,3,6,1,4,1,9,9,420,1,2,1,17),_CueMessagesRetrieved_Type())
-cueMessagesRetrieved.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMessagesRetrieved.setStatus(_B)
-_CueMessagesDeleted_Type=Counter32
-_CueMessagesDeleted_Object=MibScalar
-cueMessagesDeleted=_CueMessagesDeleted_Object((1,3,6,1,4,1,9,9,420,1,2,1,18),_CueMessagesDeleted_Type())
-cueMessagesDeleted.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMessagesDeleted.setStatus(_B)
-class _CueLicensedMailboxesMax_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CueLicensedMailboxesMax_Type.__name__=_E
-_CueLicensedMailboxesMax_Object=MibScalar
-cueLicensedMailboxesMax=_CueLicensedMailboxesMax_Object((1,3,6,1,4,1,9,9,420,1,2,1,19),_CueLicensedMailboxesMax_Type())
-cueLicensedMailboxesMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueLicensedMailboxesMax.setStatus(_B)
-class _CueMailboxesAbove90PercentFull_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CueMailboxesAbove90PercentFull_Type.__name__=_E
-_CueMailboxesAbove90PercentFull_Object=MibScalar
-cueMailboxesAbove90PercentFull=_CueMailboxesAbove90PercentFull_Object((1,3,6,1,4,1,9,9,420,1,2,1,20),_CueMailboxesAbove90PercentFull_Type())
-cueMailboxesAbove90PercentFull.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMailboxesAbove90PercentFull.setStatus(_B)
-_CueMboxTable_Object=MibTable
-cueMboxTable=_CueMboxTable_Object((1,3,6,1,4,1,9,9,420,1,2,2))
-if mibBuilder.loadTexts:cueMboxTable.setStatus(_B)
-_CueMboxEntry_Object=MibTableRow
-cueMboxEntry=_CueMboxEntry_Object((1,3,6,1,4,1,9,9,420,1,2,2,1))
-cueMboxEntry.setIndexNames((0,_A,_t))
-if mibBuilder.loadTexts:cueMboxEntry.setStatus(_B)
-class _CueMboxIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CueMboxIndex_Type.__name__=_E
-_CueMboxIndex_Object=MibTableColumn
-cueMboxIndex=_CueMboxIndex_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,1),_CueMboxIndex_Type())
-cueMboxIndex.setMaxAccess(_N)
-if mibBuilder.loadTexts:cueMboxIndex.setStatus(_B)
-class _CueMboxOwner_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
-_CueMboxOwner_Type.__name__=_F
-_CueMboxOwner_Object=MibTableColumn
-cueMboxOwner=_CueMboxOwner_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,2),_CueMboxOwner_Type())
-cueMboxOwner.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxOwner.setStatus(_B)
-class _CueMboxPrimaryExtension_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_CueMboxPrimaryExtension_Type.__name__=_F
-_CueMboxPrimaryExtension_Object=MibTableColumn
-cueMboxPrimaryExtension=_CueMboxPrimaryExtension_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,3),_CueMboxPrimaryExtension_Type())
-cueMboxPrimaryExtension.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxPrimaryExtension.setStatus(_B)
-class _CueMboxType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('personal',1),('generalDelivery',2)))
-_CueMboxType_Type.__name__=_H
-_CueMboxType_Object=MibTableColumn
-cueMboxType=_CueMboxType_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,4),_CueMboxType_Type())
-cueMboxType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxType.setStatus(_B)
-_CueMboxDescription_Type=SnmpAdminString
-_CueMboxDescription_Object=MibTableColumn
-cueMboxDescription=_CueMboxDescription_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,5),_CueMboxDescription_Type())
-cueMboxDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxDescription.setStatus(_B)
-class _CueMboxSize_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueMboxSize_Type.__name__=_D
-_CueMboxSize_Object=MibTableColumn
-cueMboxSize=_CueMboxSize_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,6),_CueMboxSize_Type())
-cueMboxSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxSize.setStatus(_B)
-if mibBuilder.loadTexts:cueMboxSize.setUnits(_G)
-class _CueMboxTimeUsed_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueMboxTimeUsed_Type.__name__=_D
-_CueMboxTimeUsed_Object=MibTableColumn
-cueMboxTimeUsed=_CueMboxTimeUsed_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,7),_CueMboxTimeUsed_Type())
-cueMboxTimeUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxTimeUsed.setStatus(_B)
-if mibBuilder.loadTexts:cueMboxTimeUsed.setUnits(_G)
-class _CueMboxPercentTimeUsed_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_CueMboxPercentTimeUsed_Type.__name__=_D
-_CueMboxPercentTimeUsed_Object=MibTableColumn
-cueMboxPercentTimeUsed=_CueMboxPercentTimeUsed_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,8),_CueMboxPercentTimeUsed_Type())
-cueMboxPercentTimeUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxPercentTimeUsed.setStatus(_B)
-if mibBuilder.loadTexts:cueMboxPercentTimeUsed.setUnits(_s)
-class _CueMboxNumberOfMessages_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueMboxNumberOfMessages_Type.__name__=_D
-_CueMboxNumberOfMessages_Object=MibTableColumn
-cueMboxNumberOfMessages=_CueMboxNumberOfMessages_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,9),_CueMboxNumberOfMessages_Type())
-cueMboxNumberOfMessages.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxNumberOfMessages.setStatus(_B)
-class _CueMboxNumberOfNewMessages_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueMboxNumberOfNewMessages_Type.__name__=_D
-_CueMboxNumberOfNewMessages_Object=MibTableColumn
-cueMboxNumberOfNewMessages=_CueMboxNumberOfNewMessages_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,10),_CueMboxNumberOfNewMessages_Type())
-cueMboxNumberOfNewMessages.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxNumberOfNewMessages.setStatus(_B)
-class _CueMboxNumberOfSavedMessages_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueMboxNumberOfSavedMessages_Type.__name__=_D
-_CueMboxNumberOfSavedMessages_Object=MibTableColumn
-cueMboxNumberOfSavedMessages=_CueMboxNumberOfSavedMessages_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,11),_CueMboxNumberOfSavedMessages_Type())
-cueMboxNumberOfSavedMessages.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxNumberOfSavedMessages.setStatus(_B)
-class _CueMboxMessageSizeMax_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueMboxMessageSizeMax_Type.__name__=_E
-_CueMboxMessageSizeMax_Object=MibTableColumn
-cueMboxMessageSizeMax=_CueMboxMessageSizeMax_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,12),_CueMboxMessageSizeMax_Type())
-cueMboxMessageSizeMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxMessageSizeMax.setStatus(_B)
-if mibBuilder.loadTexts:cueMboxMessageSizeMax.setUnits(_G)
-class _CueMboxMessageExpiryTime_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueMboxMessageExpiryTime_Type.__name__=_E
-_CueMboxMessageExpiryTime_Object=MibTableColumn
-cueMboxMessageExpiryTime=_CueMboxMessageExpiryTime_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,13),_CueMboxMessageExpiryTime_Type())
-cueMboxMessageExpiryTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxMessageExpiryTime.setStatus(_B)
-if mibBuilder.loadTexts:cueMboxMessageExpiryTime.setUnits('days')
-_CueMboxPlayTutorial_Type=TruthValue
-_CueMboxPlayTutorial_Object=MibTableColumn
-cueMboxPlayTutorial=_CueMboxPlayTutorial_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,14),_CueMboxPlayTutorial_Type())
-cueMboxPlayTutorial.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxPlayTutorial.setStatus(_B)
-class _CueMboxGreetingType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('standard',1),('alternate',2)))
-_CueMboxGreetingType_Type.__name__=_H
-_CueMboxGreetingType_Object=MibTableColumn
-cueMboxGreetingType=_CueMboxGreetingType_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,15),_CueMboxGreetingType_Type())
-cueMboxGreetingType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxGreetingType.setStatus(_B)
-_CueMboxEnabled_Type=TruthValue
-_CueMboxEnabled_Object=MibTableColumn
-cueMboxEnabled=_CueMboxEnabled_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,16),_CueMboxEnabled_Type())
-cueMboxEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxEnabled.setStatus(_B)
-_CueMboxBusy_Type=TruthValue
-_CueMboxBusy_Object=MibTableColumn
-cueMboxBusy=_CueMboxBusy_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,17),_CueMboxBusy_Type())
-cueMboxBusy.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxBusy.setStatus(_B)
-_CueMboxMWIState_Type=TruthValue
-_CueMboxMWIState_Object=MibTableColumn
-cueMboxMWIState=_CueMboxMWIState_Object((1,3,6,1,4,1,9,9,420,1,2,2,1,18),_CueMboxMWIState_Type())
-cueMboxMWIState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueMboxMWIState.setStatus(_B)
-_CueSecurity_ObjectIdentity=ObjectIdentity
-cueSecurity=_CueSecurity_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,3))
-_CueLoginInfo_ObjectIdentity=ObjectIdentity
-cueLoginInfo=_CueLoginInfo_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,3,1))
-_CueLoginAttempts_Type=Counter32
-_CueLoginAttempts_Object=MibScalar
-cueLoginAttempts=_CueLoginAttempts_Object((1,3,6,1,4,1,9,9,420,1,3,1,1),_CueLoginAttempts_Type())
-cueLoginAttempts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueLoginAttempts.setStatus(_B)
-_CueLoginUsernameFailures_Type=Counter32
-_CueLoginUsernameFailures_Object=MibScalar
-cueLoginUsernameFailures=_CueLoginUsernameFailures_Object((1,3,6,1,4,1,9,9,420,1,3,1,2),_CueLoginUsernameFailures_Type())
-cueLoginUsernameFailures.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueLoginUsernameFailures.setStatus(_B)
-_CueLoginPasswordFailures_Type=Counter32
-_CueLoginPasswordFailures_Object=MibScalar
-cueLoginPasswordFailures=_CueLoginPasswordFailures_Object((1,3,6,1,4,1,9,9,420,1,3,1,3),_CueLoginPasswordFailures_Type())
-cueLoginPasswordFailures.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueLoginPasswordFailures.setStatus(_B)
-_CuePINInfo_ObjectIdentity=ObjectIdentity
-cuePINInfo=_CuePINInfo_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,3,2))
-_CuePINAttempts_Type=Counter32
-_CuePINAttempts_Object=MibScalar
-cuePINAttempts=_CuePINAttempts_Object((1,3,6,1,4,1,9,9,420,1,3,2,1),_CuePINAttempts_Type())
-cuePINAttempts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cuePINAttempts.setStatus(_B)
-_CuePINResets_Type=Counter32
-_CuePINResets_Object=MibScalar
-cuePINResets=_CuePINResets_Object((1,3,6,1,4,1,9,9,420,1,3,2,2),_CuePINResets_Type())
-cuePINResets.setMaxAccess(_C)
-if mibBuilder.loadTexts:cuePINResets.setStatus(_B)
-_CuePINUidFailures_Type=Counter32
-_CuePINUidFailures_Object=MibScalar
-cuePINUidFailures=_CuePINUidFailures_Object((1,3,6,1,4,1,9,9,420,1,3,2,3),_CuePINUidFailures_Type())
-cuePINUidFailures.setMaxAccess(_C)
-if mibBuilder.loadTexts:cuePINUidFailures.setStatus(_B)
-_CuePINPasswordFailures_Type=Counter32
-_CuePINPasswordFailures_Object=MibScalar
-cuePINPasswordFailures=_CuePINPasswordFailures_Object((1,3,6,1,4,1,9,9,420,1,3,2,4),_CuePINPasswordFailures_Type())
-cuePINPasswordFailures.setMaxAccess(_C)
-if mibBuilder.loadTexts:cuePINPasswordFailures.setStatus(_B)
-_CueNotif_ObjectIdentity=ObjectIdentity
-cueNotif=_CueNotif_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,4))
-_CueNotifConfig_ObjectIdentity=ObjectIdentity
-cueNotifConfig=_CueNotifConfig_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,4,1))
-class _CueNotifEnable_Type(TruthValue):defaultValue=1
-_CueNotifEnable_Type.__name__=_o
-_CueNotifEnable_Object=MibScalar
-cueNotifEnable=_CueNotifEnable_Object((1,3,6,1,4,1,9,9,420,1,4,1,1),_CueNotifEnable_Type())
-cueNotifEnable.setMaxAccess(_p)
-if mibBuilder.loadTexts:cueNotifEnable.setStatus(_B)
-_CueNotifInfo_ObjectIdentity=ObjectIdentity
-cueNotifInfo=_CueNotifInfo_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,4,2))
-class _CueNotifSeverity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('error',1),('warning',2),('informational',3)))
-_CueNotifSeverity_Type.__name__=_H
-_CueNotifSeverity_Object=MibScalar
-cueNotifSeverity=_CueNotifSeverity_Object((1,3,6,1,4,1,9,9,420,1,4,2,1),_CueNotifSeverity_Type())
-cueNotifSeverity.setMaxAccess(_M)
-if mibBuilder.loadTexts:cueNotifSeverity.setStatus(_B)
-_CueNotifDate_Type=DateAndTime
-_CueNotifDate_Object=MibScalar
-cueNotifDate=_CueNotifDate_Object((1,3,6,1,4,1,9,9,420,1,4,2,2),_CueNotifDate_Type())
-cueNotifDate.setMaxAccess(_M)
-if mibBuilder.loadTexts:cueNotifDate.setStatus(_B)
-_CueNotifDescription_Type=SnmpAdminString
-_CueNotifDescription_Object=MibScalar
-cueNotifDescription=_CueNotifDescription_Object((1,3,6,1,4,1,9,9,420,1,4,2,3),_CueNotifDescription_Type())
-cueNotifDescription.setMaxAccess(_M)
-if mibBuilder.loadTexts:cueNotifDescription.setStatus(_B)
-_CueNotifDetail_Type=SnmpAdminString
-_CueNotifDetail_Object=MibScalar
-cueNotifDetail=_CueNotifDetail_Object((1,3,6,1,4,1,9,9,420,1,4,2,4),_CueNotifDetail_Type())
-cueNotifDetail.setMaxAccess(_M)
-if mibBuilder.loadTexts:cueNotifDetail.setStatus(_B)
-_CueNotifSecurity_ObjectIdentity=ObjectIdentity
-cueNotifSecurity=_CueNotifSecurity_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,4,3))
-class _CueLoginUsernameThresh_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueLoginUsernameThresh_Type.__name__=_E
-_CueLoginUsernameThresh_Object=MibScalar
-cueLoginUsernameThresh=_CueLoginUsernameThresh_Object((1,3,6,1,4,1,9,9,420,1,4,3,1),_CueLoginUsernameThresh_Type())
-cueLoginUsernameThresh.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueLoginUsernameThresh.setStatus(_B)
-class _CueLoginPasswordThresh_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CueLoginPasswordThresh_Type.__name__=_E
-_CueLoginPasswordThresh_Object=MibScalar
-cueLoginPasswordThresh=_CueLoginPasswordThresh_Object((1,3,6,1,4,1,9,9,420,1,4,3,2),_CueLoginPasswordThresh_Type())
-cueLoginPasswordThresh.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueLoginPasswordThresh.setStatus(_B)
-class _CuePINUidThresh_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CuePINUidThresh_Type.__name__=_E
-_CuePINUidThresh_Object=MibScalar
-cuePINUidThresh=_CuePINUidThresh_Object((1,3,6,1,4,1,9,9,420,1,4,3,3),_CuePINUidThresh_Type())
-cuePINUidThresh.setMaxAccess(_C)
-if mibBuilder.loadTexts:cuePINUidThresh.setStatus(_B)
-class _CuePINPasswordThresh_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CuePINPasswordThresh_Type.__name__=_E
-_CuePINPasswordThresh_Object=MibScalar
-cuePINPasswordThresh=_CuePINPasswordThresh_Object((1,3,6,1,4,1,9,9,420,1,4,3,4),_CuePINPasswordThresh_Type())
-cuePINPasswordThresh.setMaxAccess(_C)
-if mibBuilder.loadTexts:cuePINPasswordThresh.setStatus(_B)
-class _CuePINResetThresh_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CuePINResetThresh_Type.__name__=_E
-_CuePINResetThresh_Object=MibScalar
-cuePINResetThresh=_CuePINResetThresh_Object((1,3,6,1,4,1,9,9,420,1,4,3,5),_CuePINResetThresh_Type())
-cuePINResetThresh.setMaxAccess(_C)
-if mibBuilder.loadTexts:cuePINResetThresh.setStatus(_B)
-_CueBackupRestore_ObjectIdentity=ObjectIdentity
-cueBackupRestore=_CueBackupRestore_ObjectIdentity((1,3,6,1,4,1,9,9,420,1,5))
-_CueBRHistoryTable_Object=MibTable
-cueBRHistoryTable=_CueBRHistoryTable_Object((1,3,6,1,4,1,9,9,420,1,5,1))
-if mibBuilder.loadTexts:cueBRHistoryTable.setStatus(_B)
-_CueBRHistoryEntry_Object=MibTableRow
-cueBRHistoryEntry=_CueBRHistoryEntry_Object((1,3,6,1,4,1,9,9,420,1,5,1,1))
-cueBRHistoryEntry.setIndexNames((0,_A,_u))
-if mibBuilder.loadTexts:cueBRHistoryEntry.setStatus(_B)
-class _CueBRHistoryIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CueBRHistoryIndex_Type.__name__=_E
-_CueBRHistoryIndex_Object=MibTableColumn
-cueBRHistoryIndex=_CueBRHistoryIndex_Object((1,3,6,1,4,1,9,9,420,1,5,1,1,1),_CueBRHistoryIndex_Type())
-cueBRHistoryIndex.setMaxAccess(_N)
-if mibBuilder.loadTexts:cueBRHistoryIndex.setStatus(_B)
-class _CueBRHistoryOperation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('backup',1),('restore',2)))
-_CueBRHistoryOperation_Type.__name__=_H
-_CueBRHistoryOperation_Object=MibTableColumn
-cueBRHistoryOperation=_CueBRHistoryOperation_Object((1,3,6,1,4,1,9,9,420,1,5,1,1,2),_CueBRHistoryOperation_Type())
-cueBRHistoryOperation.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueBRHistoryOperation.setStatus(_B)
-_CueBRHistoryDate_Type=DateAndTime
-_CueBRHistoryDate_Object=MibTableColumn
-cueBRHistoryDate=_CueBRHistoryDate_Object((1,3,6,1,4,1,9,9,420,1,5,1,1,3),_CueBRHistoryDate_Type())
-cueBRHistoryDate.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueBRHistoryDate.setStatus(_B)
-class _CueBRHistoryResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('success',1),('failure',2)))
-_CueBRHistoryResult_Type.__name__=_H
-_CueBRHistoryResult_Object=MibTableColumn
-cueBRHistoryResult=_CueBRHistoryResult_Object((1,3,6,1,4,1,9,9,420,1,5,1,1,4),_CueBRHistoryResult_Type())
-cueBRHistoryResult.setMaxAccess(_C)
-if mibBuilder.loadTexts:cueBRHistoryResult.setStatus(_B)
-_CiscoUnityExpressMIBConform_ObjectIdentity=ObjectIdentity
-ciscoUnityExpressMIBConform=_CiscoUnityExpressMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,420,2))
-_CiscoUnityExpressMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoUnityExpressMIBCompliances=_CiscoUnityExpressMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,420,2,1))
-_CiscoUnityExpressMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoUnityExpressMIBGroups=_CiscoUnityExpressMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,420,2,2))
-cueSystemGroup=ObjectGroup((1,3,6,1,4,1,9,9,420,2,2,1))
-cueSystemGroup.setObjects(*((_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_v),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i)))
-if mibBuilder.loadTexts:cueSystemGroup.setStatus(_q)
-cueUsageGroup=ObjectGroup((1,3,6,1,4,1,9,9,420,2,2,2))
-cueUsageGroup.setObjects(*((_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW)))
-if mibBuilder.loadTexts:cueUsageGroup.setStatus(_B)
-cueSecurityGroup=ObjectGroup((1,3,6,1,4,1,9,9,420,2,2,3))
-cueSecurityGroup.setObjects(*((_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad)))
-if mibBuilder.loadTexts:cueSecurityGroup.setStatus(_B)
-cueNotifGroup=ObjectGroup((1,3,6,1,4,1,9,9,420,2,2,4))
-cueNotifGroup.setObjects(*((_A,_Ae),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj)))
-if mibBuilder.loadTexts:cueNotifGroup.setStatus(_B)
-cueBackupRestoreGroup=ObjectGroup((1,3,6,1,4,1,9,9,420,2,2,6))
-cueBackupRestoreGroup.setObjects(*((_A,_Ak),(_A,_Al),(_A,_Am)))
-if mibBuilder.loadTexts:cueBackupRestoreGroup.setStatus(_B)
-cueSystemGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,420,2,2,7))
-cueSystemGroupRev1.setObjects(*((_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i)))
-if mibBuilder.loadTexts:cueSystemGroupRev1.setStatus(_B)
-ciscoUnityExpressApplAlert=NotificationType((1,3,6,1,4,1,9,9,420,0,1))
-ciscoUnityExpressApplAlert.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ciscoUnityExpressApplAlert.setStatus(_B)
-ciscoUnityExpressStorageAlert=NotificationType((1,3,6,1,4,1,9,9,420,0,2))
-ciscoUnityExpressStorageAlert.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ciscoUnityExpressStorageAlert.setStatus(_B)
-ciscoUnityExpressSecurityAlert=NotificationType((1,3,6,1,4,1,9,9,420,0,3))
-ciscoUnityExpressSecurityAlert.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ciscoUnityExpressSecurityAlert.setStatus(_B)
-ciscoUnityExpressCallMgrAlert=NotificationType((1,3,6,1,4,1,9,9,420,0,4))
-ciscoUnityExpressCallMgrAlert.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ciscoUnityExpressCallMgrAlert.setStatus(_B)
-ciscoUnityExpressRescExhausted=NotificationType((1,3,6,1,4,1,9,9,420,0,5))
-ciscoUnityExpressRescExhausted.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ciscoUnityExpressRescExhausted.setStatus(_B)
-ciscoUnityExpressBackupAlert=NotificationType((1,3,6,1,4,1,9,9,420,0,6))
-ciscoUnityExpressBackupAlert.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ciscoUnityExpressBackupAlert.setStatus(_B)
-ciscoUnityExpressNTPAlert=NotificationType((1,3,6,1,4,1,9,9,420,0,7))
-ciscoUnityExpressNTPAlert.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ciscoUnityExpressNTPAlert.setStatus(_B)
-ciscoUnityExpressMIBNotificationsGroup=NotificationGroup((1,3,6,1,4,1,9,9,420,2,2,5))
-ciscoUnityExpressMIBNotificationsGroup.setObjects(*((_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At)))
-if mibBuilder.loadTexts:ciscoUnityExpressMIBNotificationsGroup.setStatus(_B)
-ciscoUnityExpressMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,420,2,1,1))
-ciscoUnityExpressMIBCompliance.setObjects(*((_A,_Au),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n)))
-if mibBuilder.loadTexts:ciscoUnityExpressMIBCompliance.setStatus(_B)
-ciscoUnityExpressMIBComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,9,420,2,1,2))
-ciscoUnityExpressMIBComplianceRev1.setObjects(*((_A,_Av),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n)))
-if mibBuilder.loadTexts:ciscoUnityExpressMIBComplianceRev1.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ciscoUnityExpressMIB':ciscoUnityExpressMIB,'ciscoUnityExpressMIBNotifs':ciscoUnityExpressMIBNotifs,_An:ciscoUnityExpressApplAlert,_Ao:ciscoUnityExpressStorageAlert,_Ap:ciscoUnityExpressSecurityAlert,_Aq:ciscoUnityExpressCallMgrAlert,_Ar:ciscoUnityExpressRescExhausted,_As:ciscoUnityExpressBackupAlert,_At:ciscoUnityExpressNTPAlert,'ciscoUnityExpressMIBObjects':ciscoUnityExpressMIBObjects,'cueSystem':cueSystem,'cueSystemControl':cueSystemControl,_P:cueShutdownRequest,'cueSystemScalars':cueSystemScalars,_Q:cueAVTNumber,_R:cueVoicemailNumber,_S:cueAANumber,_v:cueHardwareModuleType,_T:cueCallControlAgentType,'cueSIPInfo':cueSIPInfo,_U:cueSIPGatewayName,_V:cueSIPGatewayIPType,_W:cueSIPGatewayIP,_X:cueSIPPort,'cueJTAPIInfo':cueJTAPIInfo,'cueJTAPIServerTable':cueJTAPIServerTable,'cueJTAPIServerEntry':cueJTAPIServerEntry,_r:cueJTAPIServerIndex,_Y:cueJTAPIServerName,_Z:cueJTAPIServerIPType,_a:cueJTAPIServerIP,_b:cueJTAPISubsystemState,_c:cueJTAPIUsername,_d:cueJTAPISoftwareVersion,_e:cueJTAPIPortsRegistered,'cueSystemDefaults':cueSystemDefaults,_f:cueDefaultMailboxSize,_g:cueDefaultGreetingSize,_h:cueDefaultMessageSizeMax,_i:cueDefaultMessageExpiryTime,'cueUsage':cueUsage,'cueUsageScalars':cueUsageScalars,_w:cueLicensedPortsMax,_x:cueActiveCalls,_y:cuePersonalMailboxes,_z:cueGeneralDeliveryMailboxes,_A0:cueOrphanedMailboxes,_A1:cueCapacityOfVoicemail,_A2:cueAllocatedCapacity,_A3:cueTotalTimeUsed,_A4:cuePercentTimeUsed,_A5:cueMessageTimeUsed,_A6:cueMessageCount,_A7:cueAverageMessageLength,_A8:cueGreetingTimeUsed,_A9:cueGreetingCount,_AA:cueAverageGreetingLength,_AS:cueMessagesLeft,_AT:cueMessagesRetrieved,_AU:cueMessagesDeleted,_AV:cueLicensedMailboxesMax,_AW:cueMailboxesAbove90PercentFull,'cueMboxTable':cueMboxTable,'cueMboxEntry':cueMboxEntry,_t:cueMboxIndex,_AB:cueMboxOwner,_AC:cueMboxPrimaryExtension,_AD:cueMboxType,_AE:cueMboxDescription,_AF:cueMboxSize,_AG:cueMboxTimeUsed,_AH:cueMboxPercentTimeUsed,_AI:cueMboxNumberOfMessages,_AJ:cueMboxNumberOfNewMessages,_AK:cueMboxNumberOfSavedMessages,_AL:cueMboxMessageSizeMax,_AM:cueMboxMessageExpiryTime,_AN:cueMboxPlayTutorial,_AO:cueMboxGreetingType,_AP:cueMboxEnabled,_AQ:cueMboxBusy,_AR:cueMboxMWIState,'cueSecurity':cueSecurity,'cueLoginInfo':cueLoginInfo,_AX:cueLoginAttempts,_AY:cueLoginUsernameFailures,_AZ:cueLoginPasswordFailures,'cuePINInfo':cuePINInfo,_Aa:cuePINAttempts,_Ab:cuePINResets,_Ac:cuePINUidFailures,_Ad:cuePINPasswordFailures,'cueNotif':cueNotif,'cueNotifConfig':cueNotifConfig,_Ae:cueNotifEnable,'cueNotifInfo':cueNotifInfo,_I:cueNotifSeverity,_J:cueNotifDate,_K:cueNotifDescription,_L:cueNotifDetail,'cueNotifSecurity':cueNotifSecurity,_Af:cueLoginUsernameThresh,_Ag:cueLoginPasswordThresh,_Ah:cuePINUidThresh,_Ai:cuePINPasswordThresh,_Aj:cuePINResetThresh,'cueBackupRestore':cueBackupRestore,'cueBRHistoryTable':cueBRHistoryTable,'cueBRHistoryEntry':cueBRHistoryEntry,_u:cueBRHistoryIndex,_Ak:cueBRHistoryOperation,_Al:cueBRHistoryDate,_Am:cueBRHistoryResult,'ciscoUnityExpressMIBConform':ciscoUnityExpressMIBConform,'ciscoUnityExpressMIBCompliances':ciscoUnityExpressMIBCompliances,'ciscoUnityExpressMIBCompliance':ciscoUnityExpressMIBCompliance,'ciscoUnityExpressMIBComplianceRev1':ciscoUnityExpressMIBComplianceRev1,'ciscoUnityExpressMIBGroups':ciscoUnityExpressMIBGroups,_Au:cueSystemGroup,_j:cueUsageGroup,_k:cueSecurityGroup,_l:cueNotifGroup,_m:ciscoUnityExpressMIBNotificationsGroup,_n:cueBackupRestoreGroup,_Av:cueSystemGroupRev1})
+#
+# PySNMP MIB module CISCO-UNITY-EXPRESS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-UNITY-EXPRESS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "DateAndTime", "TextualConvention")
+ciscoUnityExpressMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 420))
+ciscoUnityExpressMIB.setRevisions(('2007-01-08 00:00', '2005-09-02 00:00',))
+if mibBuilder.loadTexts: ciscoUnityExpressMIB.setLastUpdated('200509020000Z')
+if mibBuilder.loadTexts: ciscoUnityExpressMIB.setOrganization('Cisco Systems, Inc.')
+ciscoUnityExpressMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 0))
+ciscoUnityExpressMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1))
+ciscoUnityExpressMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 2))
+cueSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1))
+cueSystemControl = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 1))
+cueShutdownRequest = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cueShutdownRequest.setStatus('current')
+cueSystemScalars = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 2))
+cueAVTNumber = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 2, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueAVTNumber.setStatus('current')
+cueVoicemailNumber = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 2, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueVoicemailNumber.setStatus('current')
+cueAANumber = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 2, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueAANumber.setStatus('current')
+cueHardwareModuleType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 2, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("aim", 1), ("nm", 2), ("other", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueHardwareModuleType.setStatus('deprecated')
+cueCallControlAgentType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ccm", 1), ("ccme", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueCallControlAgentType.setStatus('current')
+cueSIPInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 3))
+cueSIPGatewayName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 3, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueSIPGatewayName.setStatus('current')
+cueSIPGatewayIPType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 3, 2), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueSIPGatewayIPType.setStatus('current')
+cueSIPGatewayIP = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 3, 3), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueSIPGatewayIP.setStatus('current')
+cueSIPPort = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 3, 4), InetPortNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueSIPPort.setStatus('current')
+cueJTAPIInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 4))
+cueJTAPIServerTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 4, 1), )
+if mibBuilder.loadTexts: cueJTAPIServerTable.setStatus('current')
+cueJTAPIServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 4, 1, 1), ).setIndexNames((0, "CISCO-UNITY-EXPRESS-MIB", "cueJTAPIServerIndex"))
+if mibBuilder.loadTexts: cueJTAPIServerEntry.setStatus('current')
+cueJTAPIServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 4, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cueJTAPIServerIndex.setStatus('current')
+cueJTAPIServerName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 4, 1, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueJTAPIServerName.setStatus('current')
+cueJTAPIServerIPType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 4, 1, 1, 3), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueJTAPIServerIPType.setStatus('current')
+cueJTAPIServerIP = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 4, 1, 1, 4), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueJTAPIServerIP.setStatus('current')
+cueJTAPISubsystemState = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 4, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("unknown", 1), ("initializing", 2), ("inService", 3), ("outOfService", 4), ("shuttingDown", 5), ("shutDown", 6), ("partialService", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueJTAPISubsystemState.setStatus('current')
+cueJTAPIUsername = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 4, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueJTAPIUsername.setStatus('current')
+cueJTAPISoftwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 4, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueJTAPISoftwareVersion.setStatus('current')
+cueJTAPIPortsRegistered = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 4, 5), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 1023))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueJTAPIPortsRegistered.setStatus('current')
+cueSystemDefaults = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 5))
+cueDefaultMailboxSize = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 5, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueDefaultMailboxSize.setStatus('current')
+cueDefaultGreetingSize = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 5, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueDefaultGreetingSize.setStatus('current')
+cueDefaultMessageSizeMax = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 5, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueDefaultMessageSizeMax.setStatus('current')
+cueDefaultMessageExpiryTime = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 1, 5, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('days').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueDefaultMessageExpiryTime.setStatus('current')
+cueUsage = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2))
+cueUsageScalars = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1))
+cueLicensedPortsMax = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1023))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueLicensedPortsMax.setStatus('current')
+cueActiveCalls = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 2), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 1023))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueActiveCalls.setStatus('current')
+cuePersonalMailboxes = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 3), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cuePersonalMailboxes.setStatus('current')
+cueGeneralDeliveryMailboxes = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 4), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueGeneralDeliveryMailboxes.setStatus('current')
+cueOrphanedMailboxes = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 5), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueOrphanedMailboxes.setStatus('current')
+cueCapacityOfVoicemail = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('minutes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueCapacityOfVoicemail.setStatus('current')
+cueAllocatedCapacity = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('minutes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueAllocatedCapacity.setStatus('current')
+cueTotalTimeUsed = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 8), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('minutes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueTotalTimeUsed.setStatus('current')
+cuePercentTimeUsed = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 9), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cuePercentTimeUsed.setStatus('current')
+cueMessageTimeUsed = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 10), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMessageTimeUsed.setStatus('current')
+cueMessageCount = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 11), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMessageCount.setStatus('current')
+cueAverageMessageLength = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 12), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueAverageMessageLength.setStatus('current')
+cueGreetingTimeUsed = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 13), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueGreetingTimeUsed.setStatus('current')
+cueGreetingCount = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 14), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueGreetingCount.setStatus('current')
+cueAverageGreetingLength = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 15), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueAverageGreetingLength.setStatus('current')
+cueMessagesLeft = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMessagesLeft.setStatus('current')
+cueMessagesRetrieved = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMessagesRetrieved.setStatus('current')
+cueMessagesDeleted = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 18), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMessagesDeleted.setStatus('current')
+cueLicensedMailboxesMax = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 19), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueLicensedMailboxesMax.setStatus('current')
+cueMailboxesAbove90PercentFull = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 1, 20), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMailboxesAbove90PercentFull.setStatus('current')
+cueMboxTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2), )
+if mibBuilder.loadTexts: cueMboxTable.setStatus('current')
+cueMboxEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1), ).setIndexNames((0, "CISCO-UNITY-EXPRESS-MIB", "cueMboxIndex"))
+if mibBuilder.loadTexts: cueMboxEntry.setStatus('current')
+cueMboxIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cueMboxIndex.setStatus('current')
+cueMboxOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxOwner.setStatus('current')
+cueMboxPrimaryExtension = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxPrimaryExtension.setStatus('current')
+cueMboxType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("personal", 1), ("generalDelivery", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxType.setStatus('current')
+cueMboxDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxDescription.setStatus('current')
+cueMboxSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 6), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxSize.setStatus('current')
+cueMboxTimeUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 7), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxTimeUsed.setStatus('current')
+cueMboxPercentTimeUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 8), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxPercentTimeUsed.setStatus('current')
+cueMboxNumberOfMessages = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 9), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxNumberOfMessages.setStatus('current')
+cueMboxNumberOfNewMessages = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 10), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxNumberOfNewMessages.setStatus('current')
+cueMboxNumberOfSavedMessages = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 11), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxNumberOfSavedMessages.setStatus('current')
+cueMboxMessageSizeMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxMessageSizeMax.setStatus('current')
+cueMboxMessageExpiryTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('days').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxMessageExpiryTime.setStatus('current')
+cueMboxPlayTutorial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 14), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxPlayTutorial.setStatus('current')
+cueMboxGreetingType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("standard", 1), ("alternate", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxGreetingType.setStatus('current')
+cueMboxEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 16), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxEnabled.setStatus('current')
+cueMboxBusy = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 17), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxBusy.setStatus('current')
+cueMboxMWIState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 2, 2, 1, 18), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueMboxMWIState.setStatus('current')
+cueSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 3))
+cueLoginInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 3, 1))
+cueLoginAttempts = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 3, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueLoginAttempts.setStatus('current')
+cueLoginUsernameFailures = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 3, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueLoginUsernameFailures.setStatus('current')
+cueLoginPasswordFailures = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 3, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueLoginPasswordFailures.setStatus('current')
+cuePINInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 3, 2))
+cuePINAttempts = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 3, 2, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cuePINAttempts.setStatus('current')
+cuePINResets = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 3, 2, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cuePINResets.setStatus('current')
+cuePINUidFailures = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 3, 2, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cuePINUidFailures.setStatus('current')
+cuePINPasswordFailures = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 3, 2, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cuePINPasswordFailures.setStatus('current')
+cueNotif = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 4))
+cueNotifConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 4, 1))
+cueNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 4, 1, 1), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cueNotifEnable.setStatus('current')
+cueNotifInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 4, 2))
+cueNotifSeverity = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 4, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("error", 1), ("warning", 2), ("informational", 3)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cueNotifSeverity.setStatus('current')
+cueNotifDate = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 4, 2, 2), DateAndTime()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cueNotifDate.setStatus('current')
+cueNotifDescription = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 4, 2, 3), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cueNotifDescription.setStatus('current')
+cueNotifDetail = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 4, 2, 4), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cueNotifDetail.setStatus('current')
+cueNotifSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 4, 3))
+cueLoginUsernameThresh = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 4, 3, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueLoginUsernameThresh.setStatus('current')
+cueLoginPasswordThresh = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 4, 3, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueLoginPasswordThresh.setStatus('current')
+cuePINUidThresh = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 4, 3, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cuePINUidThresh.setStatus('current')
+cuePINPasswordThresh = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 4, 3, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cuePINPasswordThresh.setStatus('current')
+cuePINResetThresh = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 4, 3, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cuePINResetThresh.setStatus('current')
+cueBackupRestore = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 5))
+cueBRHistoryTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 5, 1), )
+if mibBuilder.loadTexts: cueBRHistoryTable.setStatus('current')
+cueBRHistoryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 5, 1, 1), ).setIndexNames((0, "CISCO-UNITY-EXPRESS-MIB", "cueBRHistoryIndex"))
+if mibBuilder.loadTexts: cueBRHistoryEntry.setStatus('current')
+cueBRHistoryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 5, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cueBRHistoryIndex.setStatus('current')
+cueBRHistoryOperation = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 5, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("backup", 1), ("restore", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueBRHistoryOperation.setStatus('current')
+cueBRHistoryDate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 5, 1, 1, 3), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueBRHistoryDate.setStatus('current')
+cueBRHistoryResult = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 420, 1, 5, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("success", 1), ("failure", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cueBRHistoryResult.setStatus('current')
+ciscoUnityExpressApplAlert = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 420, 0, 1)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "cueNotifSeverity"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDate"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDescription"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDetail"))
+if mibBuilder.loadTexts: ciscoUnityExpressApplAlert.setStatus('current')
+ciscoUnityExpressStorageAlert = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 420, 0, 2)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "cueNotifSeverity"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDate"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDescription"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDetail"))
+if mibBuilder.loadTexts: ciscoUnityExpressStorageAlert.setStatus('current')
+ciscoUnityExpressSecurityAlert = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 420, 0, 3)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "cueNotifSeverity"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDate"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDescription"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDetail"))
+if mibBuilder.loadTexts: ciscoUnityExpressSecurityAlert.setStatus('current')
+ciscoUnityExpressCallMgrAlert = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 420, 0, 4)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "cueNotifSeverity"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDate"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDescription"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDetail"))
+if mibBuilder.loadTexts: ciscoUnityExpressCallMgrAlert.setStatus('current')
+ciscoUnityExpressRescExhausted = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 420, 0, 5)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "cueNotifSeverity"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDate"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDescription"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDetail"))
+if mibBuilder.loadTexts: ciscoUnityExpressRescExhausted.setStatus('current')
+ciscoUnityExpressBackupAlert = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 420, 0, 6)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "cueNotifSeverity"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDate"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDescription"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDetail"))
+if mibBuilder.loadTexts: ciscoUnityExpressBackupAlert.setStatus('current')
+ciscoUnityExpressNTPAlert = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 420, 0, 7)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "cueNotifSeverity"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDate"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDescription"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDetail"))
+if mibBuilder.loadTexts: ciscoUnityExpressNTPAlert.setStatus('current')
+ciscoUnityExpressMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 2, 1))
+ciscoUnityExpressMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 420, 2, 2))
+ciscoUnityExpressMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 420, 2, 1, 1)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "cueSystemGroup"), ("CISCO-UNITY-EXPRESS-MIB", "cueUsageGroup"), ("CISCO-UNITY-EXPRESS-MIB", "cueSecurityGroup"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifGroup"), ("CISCO-UNITY-EXPRESS-MIB", "ciscoUnityExpressMIBNotificationsGroup"), ("CISCO-UNITY-EXPRESS-MIB", "cueBackupRestoreGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoUnityExpressMIBCompliance = ciscoUnityExpressMIBCompliance.setStatus('current')
+ciscoUnityExpressMIBComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 420, 2, 1, 2)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "cueSystemGroupRev1"), ("CISCO-UNITY-EXPRESS-MIB", "cueUsageGroup"), ("CISCO-UNITY-EXPRESS-MIB", "cueSecurityGroup"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifGroup"), ("CISCO-UNITY-EXPRESS-MIB", "ciscoUnityExpressMIBNotificationsGroup"), ("CISCO-UNITY-EXPRESS-MIB", "cueBackupRestoreGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoUnityExpressMIBComplianceRev1 = ciscoUnityExpressMIBComplianceRev1.setStatus('current')
+cueSystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 420, 2, 2, 1)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "cueShutdownRequest"), ("CISCO-UNITY-EXPRESS-MIB", "cueAVTNumber"), ("CISCO-UNITY-EXPRESS-MIB", "cueVoicemailNumber"), ("CISCO-UNITY-EXPRESS-MIB", "cueAANumber"), ("CISCO-UNITY-EXPRESS-MIB", "cueHardwareModuleType"), ("CISCO-UNITY-EXPRESS-MIB", "cueCallControlAgentType"), ("CISCO-UNITY-EXPRESS-MIB", "cueSIPGatewayName"), ("CISCO-UNITY-EXPRESS-MIB", "cueSIPGatewayIPType"), ("CISCO-UNITY-EXPRESS-MIB", "cueSIPGatewayIP"), ("CISCO-UNITY-EXPRESS-MIB", "cueSIPPort"), ("CISCO-UNITY-EXPRESS-MIB", "cueJTAPIServerName"), ("CISCO-UNITY-EXPRESS-MIB", "cueJTAPIServerIPType"), ("CISCO-UNITY-EXPRESS-MIB", "cueJTAPIServerIP"), ("CISCO-UNITY-EXPRESS-MIB", "cueJTAPISubsystemState"), ("CISCO-UNITY-EXPRESS-MIB", "cueJTAPIUsername"), ("CISCO-UNITY-EXPRESS-MIB", "cueJTAPISoftwareVersion"), ("CISCO-UNITY-EXPRESS-MIB", "cueJTAPIPortsRegistered"), ("CISCO-UNITY-EXPRESS-MIB", "cueDefaultMailboxSize"), ("CISCO-UNITY-EXPRESS-MIB", "cueDefaultGreetingSize"), ("CISCO-UNITY-EXPRESS-MIB", "cueDefaultMessageSizeMax"), ("CISCO-UNITY-EXPRESS-MIB", "cueDefaultMessageExpiryTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cueSystemGroup = cueSystemGroup.setStatus('deprecated')
+cueUsageGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 420, 2, 2, 2)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "cueLicensedPortsMax"), ("CISCO-UNITY-EXPRESS-MIB", "cueActiveCalls"), ("CISCO-UNITY-EXPRESS-MIB", "cuePersonalMailboxes"), ("CISCO-UNITY-EXPRESS-MIB", "cueGeneralDeliveryMailboxes"), ("CISCO-UNITY-EXPRESS-MIB", "cueOrphanedMailboxes"), ("CISCO-UNITY-EXPRESS-MIB", "cueCapacityOfVoicemail"), ("CISCO-UNITY-EXPRESS-MIB", "cueAllocatedCapacity"), ("CISCO-UNITY-EXPRESS-MIB", "cueTotalTimeUsed"), ("CISCO-UNITY-EXPRESS-MIB", "cuePercentTimeUsed"), ("CISCO-UNITY-EXPRESS-MIB", "cueMessageTimeUsed"), ("CISCO-UNITY-EXPRESS-MIB", "cueMessageCount"), ("CISCO-UNITY-EXPRESS-MIB", "cueAverageMessageLength"), ("CISCO-UNITY-EXPRESS-MIB", "cueGreetingTimeUsed"), ("CISCO-UNITY-EXPRESS-MIB", "cueGreetingCount"), ("CISCO-UNITY-EXPRESS-MIB", "cueAverageGreetingLength"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxOwner"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxPrimaryExtension"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxType"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxDescription"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxSize"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxTimeUsed"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxPercentTimeUsed"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxNumberOfMessages"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxNumberOfNewMessages"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxNumberOfSavedMessages"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxMessageSizeMax"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxMessageExpiryTime"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxPlayTutorial"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxGreetingType"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxEnabled"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxBusy"), ("CISCO-UNITY-EXPRESS-MIB", "cueMboxMWIState"), ("CISCO-UNITY-EXPRESS-MIB", "cueMessagesLeft"), ("CISCO-UNITY-EXPRESS-MIB", "cueMessagesRetrieved"), ("CISCO-UNITY-EXPRESS-MIB", "cueMessagesDeleted"), ("CISCO-UNITY-EXPRESS-MIB", "cueLicensedMailboxesMax"), ("CISCO-UNITY-EXPRESS-MIB", "cueMailboxesAbove90PercentFull"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cueUsageGroup = cueUsageGroup.setStatus('current')
+cueSecurityGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 420, 2, 2, 3)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "cueLoginAttempts"), ("CISCO-UNITY-EXPRESS-MIB", "cueLoginUsernameFailures"), ("CISCO-UNITY-EXPRESS-MIB", "cueLoginPasswordFailures"), ("CISCO-UNITY-EXPRESS-MIB", "cuePINAttempts"), ("CISCO-UNITY-EXPRESS-MIB", "cuePINResets"), ("CISCO-UNITY-EXPRESS-MIB", "cuePINUidFailures"), ("CISCO-UNITY-EXPRESS-MIB", "cuePINPasswordFailures"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cueSecurityGroup = cueSecurityGroup.setStatus('current')
+cueNotifGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 420, 2, 2, 4)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "cueNotifEnable"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifSeverity"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDate"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDescription"), ("CISCO-UNITY-EXPRESS-MIB", "cueNotifDetail"), ("CISCO-UNITY-EXPRESS-MIB", "cueLoginUsernameThresh"), ("CISCO-UNITY-EXPRESS-MIB", "cueLoginPasswordThresh"), ("CISCO-UNITY-EXPRESS-MIB", "cuePINUidThresh"), ("CISCO-UNITY-EXPRESS-MIB", "cuePINPasswordThresh"), ("CISCO-UNITY-EXPRESS-MIB", "cuePINResetThresh"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cueNotifGroup = cueNotifGroup.setStatus('current')
+ciscoUnityExpressMIBNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 420, 2, 2, 5)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "ciscoUnityExpressApplAlert"), ("CISCO-UNITY-EXPRESS-MIB", "ciscoUnityExpressStorageAlert"), ("CISCO-UNITY-EXPRESS-MIB", "ciscoUnityExpressSecurityAlert"), ("CISCO-UNITY-EXPRESS-MIB", "ciscoUnityExpressCallMgrAlert"), ("CISCO-UNITY-EXPRESS-MIB", "ciscoUnityExpressRescExhausted"), ("CISCO-UNITY-EXPRESS-MIB", "ciscoUnityExpressBackupAlert"), ("CISCO-UNITY-EXPRESS-MIB", "ciscoUnityExpressNTPAlert"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoUnityExpressMIBNotificationsGroup = ciscoUnityExpressMIBNotificationsGroup.setStatus('current')
+cueBackupRestoreGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 420, 2, 2, 6)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "cueBRHistoryOperation"), ("CISCO-UNITY-EXPRESS-MIB", "cueBRHistoryDate"), ("CISCO-UNITY-EXPRESS-MIB", "cueBRHistoryResult"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cueBackupRestoreGroup = cueBackupRestoreGroup.setStatus('current')
+cueSystemGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 420, 2, 2, 7)).setObjects(("CISCO-UNITY-EXPRESS-MIB", "cueShutdownRequest"), ("CISCO-UNITY-EXPRESS-MIB", "cueAVTNumber"), ("CISCO-UNITY-EXPRESS-MIB", "cueVoicemailNumber"), ("CISCO-UNITY-EXPRESS-MIB", "cueAANumber"), ("CISCO-UNITY-EXPRESS-MIB", "cueCallControlAgentType"), ("CISCO-UNITY-EXPRESS-MIB", "cueSIPGatewayName"), ("CISCO-UNITY-EXPRESS-MIB", "cueSIPGatewayIPType"), ("CISCO-UNITY-EXPRESS-MIB", "cueSIPGatewayIP"), ("CISCO-UNITY-EXPRESS-MIB", "cueSIPPort"), ("CISCO-UNITY-EXPRESS-MIB", "cueJTAPIServerName"), ("CISCO-UNITY-EXPRESS-MIB", "cueJTAPIServerIPType"), ("CISCO-UNITY-EXPRESS-MIB", "cueJTAPIServerIP"), ("CISCO-UNITY-EXPRESS-MIB", "cueJTAPISubsystemState"), ("CISCO-UNITY-EXPRESS-MIB", "cueJTAPIUsername"), ("CISCO-UNITY-EXPRESS-MIB", "cueJTAPISoftwareVersion"), ("CISCO-UNITY-EXPRESS-MIB", "cueJTAPIPortsRegistered"), ("CISCO-UNITY-EXPRESS-MIB", "cueDefaultMailboxSize"), ("CISCO-UNITY-EXPRESS-MIB", "cueDefaultGreetingSize"), ("CISCO-UNITY-EXPRESS-MIB", "cueDefaultMessageSizeMax"), ("CISCO-UNITY-EXPRESS-MIB", "cueDefaultMessageExpiryTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cueSystemGroupRev1 = cueSystemGroupRev1.setStatus('current')
+mibBuilder.exportSymbols("CISCO-UNITY-EXPRESS-MIB", cueAverageMessageLength=cueAverageMessageLength, cuePINPasswordThresh=cuePINPasswordThresh, ciscoUnityExpressMIBNotifs=ciscoUnityExpressMIBNotifs, cueUsageGroup=cueUsageGroup, cueDefaultMessageSizeMax=cueDefaultMessageSizeMax, cueNotifSecurity=cueNotifSecurity, cueBackupRestoreGroup=cueBackupRestoreGroup, cueAVTNumber=cueAVTNumber, cueMessageTimeUsed=cueMessageTimeUsed, ciscoUnityExpressMIBNotificationsGroup=ciscoUnityExpressMIBNotificationsGroup, ciscoUnityExpressMIBCompliance=ciscoUnityExpressMIBCompliance, cueNotifConfig=cueNotifConfig, ciscoUnityExpressStorageAlert=ciscoUnityExpressStorageAlert, cueSIPGatewayName=cueSIPGatewayName, cueNotifInfo=cueNotifInfo, cueMessagesRetrieved=cueMessagesRetrieved, cueSecurity=cueSecurity, cueMboxEnabled=cueMboxEnabled, cueSecurityGroup=cueSecurityGroup, cueBRHistoryOperation=cueBRHistoryOperation, ciscoUnityExpressMIBGroups=ciscoUnityExpressMIBGroups, cueLicensedMailboxesMax=cueLicensedMailboxesMax, cueNotifDescription=cueNotifDescription, cueMboxBusy=cueMboxBusy, cueShutdownRequest=cueShutdownRequest, cueLoginUsernameFailures=cueLoginUsernameFailures, cueMboxNumberOfMessages=cueMboxNumberOfMessages, cueDefaultMessageExpiryTime=cueDefaultMessageExpiryTime, cueTotalTimeUsed=cueTotalTimeUsed, cueJTAPIServerEntry=cueJTAPIServerEntry, cueHardwareModuleType=cueHardwareModuleType, cueNotifDetail=cueNotifDetail, cueBRHistoryTable=cueBRHistoryTable, cueSIPGatewayIP=cueSIPGatewayIP, cuePINResets=cuePINResets, cueSystem=cueSystem, cueMboxTable=cueMboxTable, ciscoUnityExpressMIB=ciscoUnityExpressMIB, cueLoginPasswordFailures=cueLoginPasswordFailures, ciscoUnityExpressMIBCompliances=ciscoUnityExpressMIBCompliances, cueNotifEnable=cueNotifEnable, cuePersonalMailboxes=cuePersonalMailboxes, cueNotifDate=cueNotifDate, cueJTAPIServerIndex=cueJTAPIServerIndex, cueSystemControl=cueSystemControl, cueMboxNumberOfSavedMessages=cueMboxNumberOfSavedMessages, cueBRHistoryIndex=cueBRHistoryIndex, cueJTAPIServerIPType=cueJTAPIServerIPType, cueJTAPIPortsRegistered=cueJTAPIPortsRegistered, ciscoUnityExpressMIBComplianceRev1=ciscoUnityExpressMIBComplianceRev1, cuePINInfo=cuePINInfo, cueAverageGreetingLength=cueAverageGreetingLength, cueMboxSize=cueMboxSize, cueSystemGroupRev1=cueSystemGroupRev1, cueMboxPlayTutorial=cueMboxPlayTutorial, cueMboxOwner=cueMboxOwner, cueJTAPIUsername=cueJTAPIUsername, ciscoUnityExpressApplAlert=ciscoUnityExpressApplAlert, cueNotif=cueNotif, cueGreetingCount=cueGreetingCount, cueMailboxesAbove90PercentFull=cueMailboxesAbove90PercentFull, cueLoginUsernameThresh=cueLoginUsernameThresh, cueActiveCalls=cueActiveCalls, cueMboxPercentTimeUsed=cueMboxPercentTimeUsed, cueSystemDefaults=cueSystemDefaults, cueNotifSeverity=cueNotifSeverity, cueBackupRestore=cueBackupRestore, cueGeneralDeliveryMailboxes=cueGeneralDeliveryMailboxes, cueSIPInfo=cueSIPInfo, cueNotifGroup=cueNotifGroup, cueJTAPIServerTable=cueJTAPIServerTable, ciscoUnityExpressCallMgrAlert=ciscoUnityExpressCallMgrAlert, cueCallControlAgentType=cueCallControlAgentType, cuePINResetThresh=cuePINResetThresh, cueVoicemailNumber=cueVoicemailNumber, cueMessagesDeleted=cueMessagesDeleted, cuePINAttempts=cuePINAttempts, cueLoginAttempts=cueLoginAttempts, cueMboxMWIState=cueMboxMWIState, ciscoUnityExpressSecurityAlert=ciscoUnityExpressSecurityAlert, ciscoUnityExpressMIBObjects=ciscoUnityExpressMIBObjects, cueMboxMessageExpiryTime=cueMboxMessageExpiryTime, cueJTAPIServerIP=cueJTAPIServerIP, cueAANumber=cueAANumber, cueSystemGroup=cueSystemGroup, cueDefaultGreetingSize=cueDefaultGreetingSize, cueBRHistoryEntry=cueBRHistoryEntry, cuePINPasswordFailures=cuePINPasswordFailures, cueGreetingTimeUsed=cueGreetingTimeUsed, cueMboxPrimaryExtension=cueMboxPrimaryExtension, cueLoginPasswordThresh=cueLoginPasswordThresh, cueUsageScalars=cueUsageScalars, cueSystemScalars=cueSystemScalars, cuePercentTimeUsed=cuePercentTimeUsed, cueSIPPort=cueSIPPort, cueJTAPISubsystemState=cueJTAPISubsystemState, ciscoUnityExpressBackupAlert=ciscoUnityExpressBackupAlert, cueJTAPIServerName=cueJTAPIServerName, cueMboxEntry=cueMboxEntry, cueCapacityOfVoicemail=cueCapacityOfVoicemail, cueUsage=cueUsage, cueMessageCount=cueMessageCount, cueBRHistoryDate=cueBRHistoryDate, cueBRHistoryResult=cueBRHistoryResult, PYSNMP_MODULE_ID=ciscoUnityExpressMIB, cueOrphanedMailboxes=cueOrphanedMailboxes, cueMboxType=cueMboxType, cueMboxIndex=cueMboxIndex, cuePINUidThresh=cuePINUidThresh, ciscoUnityExpressRescExhausted=ciscoUnityExpressRescExhausted, cueLicensedPortsMax=cueLicensedPortsMax, cueMboxNumberOfNewMessages=cueMboxNumberOfNewMessages, ciscoUnityExpressMIBConform=ciscoUnityExpressMIBConform, cueSIPGatewayIPType=cueSIPGatewayIPType, cueDefaultMailboxSize=cueDefaultMailboxSize, cueMboxDescription=cueMboxDescription, cueMboxGreetingType=cueMboxGreetingType, cuePINUidFailures=cuePINUidFailures, cueMboxMessageSizeMax=cueMboxMessageSizeMax, cueMessagesLeft=cueMessagesLeft, cueLoginInfo=cueLoginInfo, ciscoUnityExpressNTPAlert=ciscoUnityExpressNTPAlert, cueAllocatedCapacity=cueAllocatedCapacity, cueMboxTimeUsed=cueMboxTimeUsed, cueJTAPISoftwareVersion=cueJTAPISoftwareVersion, cueJTAPIInfo=cueJTAPIInfo)

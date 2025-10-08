@@ -1,248 +1,109 @@
-_n='alaOSPF3ConfigMIBGroup'
-_m='alaOspf3AreaSummarizationRangeCount'
-_l='alaOspf3AreaInterfaceCount'
-_k='alaOspf3AreaHostCount'
-_j='alaOspf3AreaInterAreaRouterLsaCount'
-_i='alaOspf3AreaInterAreaPrefixLsaCount'
-_h='alaOspf3AreaIntraAreaPrefixLsaCount'
-_g='alaOspf3AreaNetworkLsaCount'
-_f='alaOspf3AreaRouterLsaCount'
-_e='alaOspf3IfBfdStatus'
-_d='alaOspf3IfBfdDrsOnly'
-_c='alaOspf3BfdAllInterfaceStatus'
-_b='alaOspf3BfdStatus'
-_a='alaOspf3RouteMetric2'
-_Z='alaOspf3RouteMetric1'
-_Y='alaOspf3RoutePathType'
-_X='alaOspf3RouteType'
-_W='alaOspf3MTUCheck'
-_V='alaOspf3RestartInitiate'
-_U='alaOspf3RestartStrictLsaChecking'
-_T='alaOspf3RestartHelperSupport'
-_S='alaOspf3TimerSpfHold'
-_R='alaOspf3TimerSpfDelay'
-_Q='alaOspf3OrigRouteTag'
-_P='alaOspf3AreaAugEntry'
-_O='alaOspf3IfAugEntry'
-_N='read-create'
-_M='alaOspf3RouteIfIndex'
-_L='alaOspf3RouteNextHop'
-_K='alaOspf3RoutePfxLength'
-_J='alaOspf3RouteDest'
-_I='Unsigned32'
-_H='not-accessible'
-_G='disable'
-_F='enable'
-_E='read-write'
-_D='read-only'
-_C='Integer32'
-_B='ALCATEL-ENT1-OSPF3-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-routingIND1Ospf3,=mibBuilder.importSymbols('ALCATEL-ENT1-BASE','routingIND1Ospf3')
-Ipv6Address,Ipv6IfIndexOrZero=mibBuilder.importSymbols('IPV6-TC','Ipv6Address','Ipv6IfIndexOrZero')
-ospfv3AreaEntry,ospfv3IfEntry=mibBuilder.importSymbols('OSPFV3-MIB','ospfv3AreaEntry','ospfv3IfEntry')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_I,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-alcatelIND1OSPF3MIB=ModuleIdentity((1,3,6,1,4,1,6486,801,1,2,1,10,13,1))
-if mibBuilder.loadTexts:alcatelIND1OSPF3MIB.setRevisions(('2014-10-06 00:00','2007-04-03 00:00'))
-_AlcatelIND1OSPF3MIBObjects_ObjectIdentity=ObjectIdentity
-alcatelIND1OSPF3MIBObjects=_AlcatelIND1OSPF3MIBObjects_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1))
-_AlaProtocolOspf3_ObjectIdentity=ObjectIdentity
-alaProtocolOspf3=_AlaProtocolOspf3_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1))
-class _AlaOspf3OrigRouteTag_Type(Unsigned32):defaultValue=0
-_AlaOspf3OrigRouteTag_Type.__name__=_I
-_AlaOspf3OrigRouteTag_Object=MibScalar
-alaOspf3OrigRouteTag=_AlaOspf3OrigRouteTag_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,1),_AlaOspf3OrigRouteTag_Type())
-alaOspf3OrigRouteTag.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaOspf3OrigRouteTag.setStatus(_A)
-class _AlaOspf3TimerSpfDelay_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AlaOspf3TimerSpfDelay_Type.__name__=_C
-_AlaOspf3TimerSpfDelay_Object=MibScalar
-alaOspf3TimerSpfDelay=_AlaOspf3TimerSpfDelay_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,2),_AlaOspf3TimerSpfDelay_Type())
-alaOspf3TimerSpfDelay.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaOspf3TimerSpfDelay.setStatus(_A)
-class _AlaOspf3TimerSpfHold_Type(Integer32):defaultValue=10;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_AlaOspf3TimerSpfHold_Type.__name__=_C
-_AlaOspf3TimerSpfHold_Object=MibScalar
-alaOspf3TimerSpfHold=_AlaOspf3TimerSpfHold_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,3),_AlaOspf3TimerSpfHold_Type())
-alaOspf3TimerSpfHold.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaOspf3TimerSpfHold.setStatus(_A)
-class _AlaOspf3RestartHelperSupport_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AlaOspf3RestartHelperSupport_Type.__name__=_C
-_AlaOspf3RestartHelperSupport_Object=MibScalar
-alaOspf3RestartHelperSupport=_AlaOspf3RestartHelperSupport_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,4),_AlaOspf3RestartHelperSupport_Type())
-alaOspf3RestartHelperSupport.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaOspf3RestartHelperSupport.setStatus(_A)
-class _AlaOspf3RestartStrictLsaChecking_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AlaOspf3RestartStrictLsaChecking_Type.__name__=_C
-_AlaOspf3RestartStrictLsaChecking_Object=MibScalar
-alaOspf3RestartStrictLsaChecking=_AlaOspf3RestartStrictLsaChecking_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,5),_AlaOspf3RestartStrictLsaChecking_Type())
-alaOspf3RestartStrictLsaChecking.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaOspf3RestartStrictLsaChecking.setStatus(_A)
-class _AlaOspf3RestartInitiate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AlaOspf3RestartInitiate_Type.__name__=_C
-_AlaOspf3RestartInitiate_Object=MibScalar
-alaOspf3RestartInitiate=_AlaOspf3RestartInitiate_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,6),_AlaOspf3RestartInitiate_Type())
-alaOspf3RestartInitiate.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaOspf3RestartInitiate.setStatus(_A)
-class _AlaOspf3MTUCheck_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AlaOspf3MTUCheck_Type.__name__=_C
-_AlaOspf3MTUCheck_Object=MibScalar
-alaOspf3MTUCheck=_AlaOspf3MTUCheck_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,7),_AlaOspf3MTUCheck_Type())
-alaOspf3MTUCheck.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaOspf3MTUCheck.setStatus(_A)
-_AlaOspf3RouteTable_Object=MibTable
-alaOspf3RouteTable=_AlaOspf3RouteTable_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,8))
-if mibBuilder.loadTexts:alaOspf3RouteTable.setStatus(_A)
-_AlaOspf3RouteEntry_Object=MibTableRow
-alaOspf3RouteEntry=_AlaOspf3RouteEntry_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,8,1))
-alaOspf3RouteEntry.setIndexNames((0,_B,_J),(0,_B,_K),(0,_B,_L),(0,_B,_M))
-if mibBuilder.loadTexts:alaOspf3RouteEntry.setStatus(_A)
-_AlaOspf3RouteDest_Type=Ipv6Address
-_AlaOspf3RouteDest_Object=MibTableColumn
-alaOspf3RouteDest=_AlaOspf3RouteDest_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,8,1,1),_AlaOspf3RouteDest_Type())
-alaOspf3RouteDest.setMaxAccess(_H)
-if mibBuilder.loadTexts:alaOspf3RouteDest.setStatus(_A)
-class _AlaOspf3RoutePfxLength_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_AlaOspf3RoutePfxLength_Type.__name__=_C
-_AlaOspf3RoutePfxLength_Object=MibTableColumn
-alaOspf3RoutePfxLength=_AlaOspf3RoutePfxLength_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,8,1,2),_AlaOspf3RoutePfxLength_Type())
-alaOspf3RoutePfxLength.setMaxAccess(_H)
-if mibBuilder.loadTexts:alaOspf3RoutePfxLength.setStatus(_A)
-if mibBuilder.loadTexts:alaOspf3RoutePfxLength.setUnits('bits')
-_AlaOspf3RouteNextHop_Type=Ipv6Address
-_AlaOspf3RouteNextHop_Object=MibTableColumn
-alaOspf3RouteNextHop=_AlaOspf3RouteNextHop_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,8,1,3),_AlaOspf3RouteNextHop_Type())
-alaOspf3RouteNextHop.setMaxAccess(_H)
-if mibBuilder.loadTexts:alaOspf3RouteNextHop.setStatus(_A)
-_AlaOspf3RouteIfIndex_Type=Ipv6IfIndexOrZero
-_AlaOspf3RouteIfIndex_Object=MibTableColumn
-alaOspf3RouteIfIndex=_AlaOspf3RouteIfIndex_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,8,1,4),_AlaOspf3RouteIfIndex_Type())
-alaOspf3RouteIfIndex.setMaxAccess(_H)
-if mibBuilder.loadTexts:alaOspf3RouteIfIndex.setStatus(_A)
-class _AlaOspf3RouteType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('host',1),('other',2)))
-_AlaOspf3RouteType_Type.__name__=_C
-_AlaOspf3RouteType_Object=MibTableColumn
-alaOspf3RouteType=_AlaOspf3RouteType_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,8,1,5),_AlaOspf3RouteType_Type())
-alaOspf3RouteType.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaOspf3RouteType.setStatus(_A)
-class _AlaOspf3RoutePathType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('intraArea',1),('interArea',2),('externalType1',3),('externalType2',4)))
-_AlaOspf3RoutePathType_Type.__name__=_C
-_AlaOspf3RoutePathType_Object=MibTableColumn
-alaOspf3RoutePathType=_AlaOspf3RoutePathType_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,8,1,6),_AlaOspf3RoutePathType_Type())
-alaOspf3RoutePathType.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaOspf3RoutePathType.setStatus(_A)
-_AlaOspf3RouteMetric1_Type=Unsigned32
-_AlaOspf3RouteMetric1_Object=MibTableColumn
-alaOspf3RouteMetric1=_AlaOspf3RouteMetric1_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,8,1,7),_AlaOspf3RouteMetric1_Type())
-alaOspf3RouteMetric1.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaOspf3RouteMetric1.setStatus(_A)
-_AlaOspf3RouteMetric2_Type=Unsigned32
-_AlaOspf3RouteMetric2_Object=MibTableColumn
-alaOspf3RouteMetric2=_AlaOspf3RouteMetric2_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,8,1,8),_AlaOspf3RouteMetric2_Type())
-alaOspf3RouteMetric2.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaOspf3RouteMetric2.setStatus(_A)
-class _AlaOspf3BfdStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AlaOspf3BfdStatus_Type.__name__=_C
-_AlaOspf3BfdStatus_Object=MibScalar
-alaOspf3BfdStatus=_AlaOspf3BfdStatus_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,9),_AlaOspf3BfdStatus_Type())
-alaOspf3BfdStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaOspf3BfdStatus.setStatus(_A)
-class _AlaOspf3BfdAllInterfaceStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AlaOspf3BfdAllInterfaceStatus_Type.__name__=_C
-_AlaOspf3BfdAllInterfaceStatus_Object=MibScalar
-alaOspf3BfdAllInterfaceStatus=_AlaOspf3BfdAllInterfaceStatus_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,10),_AlaOspf3BfdAllInterfaceStatus_Type())
-alaOspf3BfdAllInterfaceStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaOspf3BfdAllInterfaceStatus.setStatus(_A)
-_AlaOspf3IfAugTable_Object=MibTable
-alaOspf3IfAugTable=_AlaOspf3IfAugTable_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,11))
-if mibBuilder.loadTexts:alaOspf3IfAugTable.setStatus(_A)
-_AlaOspf3IfAugEntry_Object=MibTableRow
-alaOspf3IfAugEntry=_AlaOspf3IfAugEntry_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,11,1))
-if mibBuilder.loadTexts:alaOspf3IfAugEntry.setStatus(_A)
-class _AlaOspf3IfBfdStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AlaOspf3IfBfdStatus_Type.__name__=_C
-_AlaOspf3IfBfdStatus_Object=MibTableColumn
-alaOspf3IfBfdStatus=_AlaOspf3IfBfdStatus_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,11,1,1),_AlaOspf3IfBfdStatus_Type())
-alaOspf3IfBfdStatus.setMaxAccess(_N)
-if mibBuilder.loadTexts:alaOspf3IfBfdStatus.setStatus(_A)
-class _AlaOspf3IfBfdDrsOnly_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AlaOspf3IfBfdDrsOnly_Type.__name__=_C
-_AlaOspf3IfBfdDrsOnly_Object=MibTableColumn
-alaOspf3IfBfdDrsOnly=_AlaOspf3IfBfdDrsOnly_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,11,1,2),_AlaOspf3IfBfdDrsOnly_Type())
-alaOspf3IfBfdDrsOnly.setMaxAccess(_N)
-if mibBuilder.loadTexts:alaOspf3IfBfdDrsOnly.setStatus(_A)
-_AlaOspf3AreaAugTable_Object=MibTable
-alaOspf3AreaAugTable=_AlaOspf3AreaAugTable_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,12))
-if mibBuilder.loadTexts:alaOspf3AreaAugTable.setStatus(_A)
-_AlaOspf3AreaAugEntry_Object=MibTableRow
-alaOspf3AreaAugEntry=_AlaOspf3AreaAugEntry_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,12,1))
-if mibBuilder.loadTexts:alaOspf3AreaAugEntry.setStatus(_A)
-_AlaOspf3AreaRouterLsaCount_Type=Gauge32
-_AlaOspf3AreaRouterLsaCount_Object=MibTableColumn
-alaOspf3AreaRouterLsaCount=_AlaOspf3AreaRouterLsaCount_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,12,1,1),_AlaOspf3AreaRouterLsaCount_Type())
-alaOspf3AreaRouterLsaCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaOspf3AreaRouterLsaCount.setStatus(_A)
-_AlaOspf3AreaNetworkLsaCount_Type=Gauge32
-_AlaOspf3AreaNetworkLsaCount_Object=MibTableColumn
-alaOspf3AreaNetworkLsaCount=_AlaOspf3AreaNetworkLsaCount_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,12,1,2),_AlaOspf3AreaNetworkLsaCount_Type())
-alaOspf3AreaNetworkLsaCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaOspf3AreaNetworkLsaCount.setStatus(_A)
-_AlaOspf3AreaIntraAreaPrefixLsaCount_Type=Gauge32
-_AlaOspf3AreaIntraAreaPrefixLsaCount_Object=MibTableColumn
-alaOspf3AreaIntraAreaPrefixLsaCount=_AlaOspf3AreaIntraAreaPrefixLsaCount_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,12,1,3),_AlaOspf3AreaIntraAreaPrefixLsaCount_Type())
-alaOspf3AreaIntraAreaPrefixLsaCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaOspf3AreaIntraAreaPrefixLsaCount.setStatus(_A)
-_AlaOspf3AreaInterAreaPrefixLsaCount_Type=Gauge32
-_AlaOspf3AreaInterAreaPrefixLsaCount_Object=MibTableColumn
-alaOspf3AreaInterAreaPrefixLsaCount=_AlaOspf3AreaInterAreaPrefixLsaCount_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,12,1,4),_AlaOspf3AreaInterAreaPrefixLsaCount_Type())
-alaOspf3AreaInterAreaPrefixLsaCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaOspf3AreaInterAreaPrefixLsaCount.setStatus(_A)
-_AlaOspf3AreaInterAreaRouterLsaCount_Type=Gauge32
-_AlaOspf3AreaInterAreaRouterLsaCount_Object=MibTableColumn
-alaOspf3AreaInterAreaRouterLsaCount=_AlaOspf3AreaInterAreaRouterLsaCount_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,12,1,5),_AlaOspf3AreaInterAreaRouterLsaCount_Type())
-alaOspf3AreaInterAreaRouterLsaCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaOspf3AreaInterAreaRouterLsaCount.setStatus(_A)
-_AlaOspf3AreaHostCount_Type=Gauge32
-_AlaOspf3AreaHostCount_Object=MibTableColumn
-alaOspf3AreaHostCount=_AlaOspf3AreaHostCount_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,12,1,6),_AlaOspf3AreaHostCount_Type())
-alaOspf3AreaHostCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaOspf3AreaHostCount.setStatus(_A)
-_AlaOspf3AreaInterfaceCount_Type=Gauge32
-_AlaOspf3AreaInterfaceCount_Object=MibTableColumn
-alaOspf3AreaInterfaceCount=_AlaOspf3AreaInterfaceCount_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,12,1,7),_AlaOspf3AreaInterfaceCount_Type())
-alaOspf3AreaInterfaceCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaOspf3AreaInterfaceCount.setStatus(_A)
-_AlaOspf3AreaSummarizationRangeCount_Type=Gauge32
-_AlaOspf3AreaSummarizationRangeCount_Object=MibTableColumn
-alaOspf3AreaSummarizationRangeCount=_AlaOspf3AreaSummarizationRangeCount_Object((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,1,1,12,1,8),_AlaOspf3AreaSummarizationRangeCount_Type())
-alaOspf3AreaSummarizationRangeCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaOspf3AreaSummarizationRangeCount.setStatus(_A)
-_AlcatelIND1OSPF3MIBConformance_ObjectIdentity=ObjectIdentity
-alcatelIND1OSPF3MIBConformance=_AlcatelIND1OSPF3MIBConformance_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,2))
-_AlcatelIND1OSPF3MIBCompliances_ObjectIdentity=ObjectIdentity
-alcatelIND1OSPF3MIBCompliances=_AlcatelIND1OSPF3MIBCompliances_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,2,1))
-_AlcatelIND1OSPF3MIBGroups_ObjectIdentity=ObjectIdentity
-alcatelIND1OSPF3MIBGroups=_AlcatelIND1OSPF3MIBGroups_ObjectIdentity((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,2,2))
-ospfv3IfEntry.registerAugmentions((_B,_O))
+#
+# PySNMP MIB module ALCATEL-ENT1-OSPF3-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel-ent1/ALCATEL-ENT1-OSPF3-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:00 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+routingIND1Ospf3, = mibBuilder.importSymbols("ALCATEL-ENT1-BASE", "routingIND1Ospf3")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+Ipv6IfIndexOrZero, Ipv6Address = mibBuilder.importSymbols("IPV6-TC", "Ipv6IfIndexOrZero", "Ipv6Address")
+ospfv3AreaEntry, ospfv3IfEntry = mibBuilder.importSymbols("OSPFV3-MIB", "ospfv3AreaEntry", "ospfv3IfEntry")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+alcatelIND1OSPF3MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1))
+alcatelIND1OSPF3MIB.setRevisions(('2014-10-06 00:00', '2007-04-03 00:00',))
+if mibBuilder.loadTexts: alcatelIND1OSPF3MIB.setLastUpdated('201410060000Z')
+if mibBuilder.loadTexts: alcatelIND1OSPF3MIB.setOrganization('Alcatel-Lucent')
+alcatelIND1OSPF3MIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1))
+alaProtocolOspf3 = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1))
+alaOspf3OrigRouteTag = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 1), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3OrigRouteTag.setStatus('current')
+alaOspf3TimerSpfDelay = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3TimerSpfDelay.setStatus('current')
+alaOspf3TimerSpfHold = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(10)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3TimerSpfHold.setStatus('current')
+alaOspf3RestartHelperSupport = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3RestartHelperSupport.setStatus('current')
+alaOspf3RestartStrictLsaChecking = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3RestartStrictLsaChecking.setStatus('current')
+alaOspf3RestartInitiate = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3RestartInitiate.setStatus('current')
+alaOspf3MTUCheck = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3MTUCheck.setStatus('current')
+alaOspf3RouteTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 8), )
+if mibBuilder.loadTexts: alaOspf3RouteTable.setStatus('current')
+alaOspf3RouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 8, 1), ).setIndexNames((0, "ALCATEL-ENT1-OSPF3-MIB", "alaOspf3RouteDest"), (0, "ALCATEL-ENT1-OSPF3-MIB", "alaOspf3RoutePfxLength"), (0, "ALCATEL-ENT1-OSPF3-MIB", "alaOspf3RouteNextHop"), (0, "ALCATEL-ENT1-OSPF3-MIB", "alaOspf3RouteIfIndex"))
+if mibBuilder.loadTexts: alaOspf3RouteEntry.setStatus('current')
+alaOspf3RouteDest = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 8, 1, 1), Ipv6Address())
+if mibBuilder.loadTexts: alaOspf3RouteDest.setStatus('current')
+alaOspf3RoutePfxLength = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 8, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 128))).setUnits('bits')
+if mibBuilder.loadTexts: alaOspf3RoutePfxLength.setStatus('current')
+alaOspf3RouteNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 8, 1, 3), Ipv6Address())
+if mibBuilder.loadTexts: alaOspf3RouteNextHop.setStatus('current')
+alaOspf3RouteIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 8, 1, 4), Ipv6IfIndexOrZero())
+if mibBuilder.loadTexts: alaOspf3RouteIfIndex.setStatus('current')
+alaOspf3RouteType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 8, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("host", 1), ("other", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaOspf3RouteType.setStatus('current')
+alaOspf3RoutePathType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 8, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("intraArea", 1), ("interArea", 2), ("externalType1", 3), ("externalType2", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaOspf3RoutePathType.setStatus('current')
+alaOspf3RouteMetric1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 8, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaOspf3RouteMetric1.setStatus('current')
+alaOspf3RouteMetric2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 8, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaOspf3RouteMetric2.setStatus('current')
+alaOspf3BfdStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3BfdStatus.setStatus('current')
+alaOspf3BfdAllInterfaceStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaOspf3BfdAllInterfaceStatus.setStatus('current')
+alaOspf3IfAugTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 11), )
+if mibBuilder.loadTexts: alaOspf3IfAugTable.setStatus('current')
+alaOspf3IfAugEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 11, 1), )
+ospfv3IfEntry.registerAugmentions(("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3IfAugEntry"))
 alaOspf3IfAugEntry.setIndexNames(*ospfv3IfEntry.getIndexNames())
-ospfv3AreaEntry.registerAugmentions((_B,_P))
+if mibBuilder.loadTexts: alaOspf3IfAugEntry.setStatus('current')
+alaOspf3IfBfdStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 11, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: alaOspf3IfBfdStatus.setStatus('current')
+alaOspf3IfBfdDrsOnly = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 11, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: alaOspf3IfBfdDrsOnly.setStatus('current')
+alaOspf3AreaAugTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 12), )
+if mibBuilder.loadTexts: alaOspf3AreaAugTable.setStatus('current')
+alaOspf3AreaAugEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 12, 1), )
+ospfv3AreaEntry.registerAugmentions(("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3AreaAugEntry"))
 alaOspf3AreaAugEntry.setIndexNames(*ospfv3AreaEntry.getIndexNames())
-alaOSPF3ConfigMIBGroup=ObjectGroup((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,2,2,1))
-alaOSPF3ConfigMIBGroup.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W)))
-if mibBuilder.loadTexts:alaOSPF3ConfigMIBGroup.setStatus(_A)
-alaOspf3RouteGroup=ObjectGroup((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,2,2,2))
-alaOspf3RouteGroup.setObjects(*((_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e)))
-if mibBuilder.loadTexts:alaOspf3RouteGroup.setStatus(_A)
-alaOspf3AreaGroup=ObjectGroup((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,2,2,3))
-alaOspf3AreaGroup.setObjects(*((_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m)))
-if mibBuilder.loadTexts:alaOspf3AreaGroup.setStatus(_A)
-alcatelIND1OSPF3MIBCompliance=ModuleCompliance((1,3,6,1,4,1,6486,801,1,2,1,10,13,1,2,1,1))
-alcatelIND1OSPF3MIBCompliance.setObjects((_B,_n))
-if mibBuilder.loadTexts:alcatelIND1OSPF3MIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'alcatelIND1OSPF3MIB':alcatelIND1OSPF3MIB,'alcatelIND1OSPF3MIBObjects':alcatelIND1OSPF3MIBObjects,'alaProtocolOspf3':alaProtocolOspf3,_Q:alaOspf3OrigRouteTag,_R:alaOspf3TimerSpfDelay,_S:alaOspf3TimerSpfHold,_T:alaOspf3RestartHelperSupport,_U:alaOspf3RestartStrictLsaChecking,_V:alaOspf3RestartInitiate,_W:alaOspf3MTUCheck,'alaOspf3RouteTable':alaOspf3RouteTable,'alaOspf3RouteEntry':alaOspf3RouteEntry,_J:alaOspf3RouteDest,_K:alaOspf3RoutePfxLength,_L:alaOspf3RouteNextHop,_M:alaOspf3RouteIfIndex,_X:alaOspf3RouteType,_Y:alaOspf3RoutePathType,_Z:alaOspf3RouteMetric1,_a:alaOspf3RouteMetric2,_b:alaOspf3BfdStatus,_c:alaOspf3BfdAllInterfaceStatus,'alaOspf3IfAugTable':alaOspf3IfAugTable,_O:alaOspf3IfAugEntry,_e:alaOspf3IfBfdStatus,_d:alaOspf3IfBfdDrsOnly,'alaOspf3AreaAugTable':alaOspf3AreaAugTable,_P:alaOspf3AreaAugEntry,_f:alaOspf3AreaRouterLsaCount,_g:alaOspf3AreaNetworkLsaCount,_h:alaOspf3AreaIntraAreaPrefixLsaCount,_i:alaOspf3AreaInterAreaPrefixLsaCount,_j:alaOspf3AreaInterAreaRouterLsaCount,_k:alaOspf3AreaHostCount,_l:alaOspf3AreaInterfaceCount,_m:alaOspf3AreaSummarizationRangeCount,'alcatelIND1OSPF3MIBConformance':alcatelIND1OSPF3MIBConformance,'alcatelIND1OSPF3MIBCompliances':alcatelIND1OSPF3MIBCompliances,'alcatelIND1OSPF3MIBCompliance':alcatelIND1OSPF3MIBCompliance,'alcatelIND1OSPF3MIBGroups':alcatelIND1OSPF3MIBGroups,_n:alaOSPF3ConfigMIBGroup,'alaOspf3RouteGroup':alaOspf3RouteGroup,'alaOspf3AreaGroup':alaOspf3AreaGroup})
+if mibBuilder.loadTexts: alaOspf3AreaAugEntry.setStatus('current')
+alaOspf3AreaRouterLsaCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 12, 1, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaOspf3AreaRouterLsaCount.setStatus('current')
+alaOspf3AreaNetworkLsaCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 12, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaOspf3AreaNetworkLsaCount.setStatus('current')
+alaOspf3AreaIntraAreaPrefixLsaCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 12, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaOspf3AreaIntraAreaPrefixLsaCount.setStatus('current')
+alaOspf3AreaInterAreaPrefixLsaCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 12, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaOspf3AreaInterAreaPrefixLsaCount.setStatus('current')
+alaOspf3AreaInterAreaRouterLsaCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 12, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaOspf3AreaInterAreaRouterLsaCount.setStatus('current')
+alaOspf3AreaHostCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 12, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaOspf3AreaHostCount.setStatus('current')
+alaOspf3AreaInterfaceCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 12, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaOspf3AreaInterfaceCount.setStatus('current')
+alaOspf3AreaSummarizationRangeCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 1, 1, 12, 1, 8), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaOspf3AreaSummarizationRangeCount.setStatus('current')
+alcatelIND1OSPF3MIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 2))
+alcatelIND1OSPF3MIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 2, 1))
+alcatelIND1OSPF3MIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 2, 2))
+alcatelIND1OSPF3MIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 2, 1, 1)).setObjects(("ALCATEL-ENT1-OSPF3-MIB", "alaOSPF3ConfigMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alcatelIND1OSPF3MIBCompliance = alcatelIND1OSPF3MIBCompliance.setStatus('current')
+alaOSPF3ConfigMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 2, 2, 1)).setObjects(("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3OrigRouteTag"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3TimerSpfDelay"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3TimerSpfHold"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3RestartHelperSupport"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3RestartStrictLsaChecking"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3RestartInitiate"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3MTUCheck"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaOSPF3ConfigMIBGroup = alaOSPF3ConfigMIBGroup.setStatus('current')
+alaOspf3RouteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 2, 2, 2)).setObjects(("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3RouteType"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3RoutePathType"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3RouteMetric1"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3RouteMetric2"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3BfdStatus"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3BfdAllInterfaceStatus"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3IfBfdDrsOnly"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3IfBfdStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaOspf3RouteGroup = alaOspf3RouteGroup.setStatus('current')
+alaOspf3AreaGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 13, 1, 2, 2, 3)).setObjects(("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3AreaRouterLsaCount"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3AreaNetworkLsaCount"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3AreaIntraAreaPrefixLsaCount"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3AreaInterAreaPrefixLsaCount"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3AreaInterAreaRouterLsaCount"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3AreaHostCount"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3AreaInterfaceCount"), ("ALCATEL-ENT1-OSPF3-MIB", "alaOspf3AreaSummarizationRangeCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaOspf3AreaGroup = alaOspf3AreaGroup.setStatus('current')
+mibBuilder.exportSymbols("ALCATEL-ENT1-OSPF3-MIB", alaProtocolOspf3=alaProtocolOspf3, alaOspf3BfdAllInterfaceStatus=alaOspf3BfdAllInterfaceStatus, alcatelIND1OSPF3MIBObjects=alcatelIND1OSPF3MIBObjects, alaOspf3RouteGroup=alaOspf3RouteGroup, alaOspf3RouteDest=alaOspf3RouteDest, alaOspf3AreaRouterLsaCount=alaOspf3AreaRouterLsaCount, alaOspf3RouteNextHop=alaOspf3RouteNextHop, alaOspf3RestartInitiate=alaOspf3RestartInitiate, alaOspf3BfdStatus=alaOspf3BfdStatus, alaOspf3RouteTable=alaOspf3RouteTable, alaOspf3AreaInterfaceCount=alaOspf3AreaInterfaceCount, alaOspf3AreaHostCount=alaOspf3AreaHostCount, alaOspf3AreaSummarizationRangeCount=alaOspf3AreaSummarizationRangeCount, alaOspf3IfBfdStatus=alaOspf3IfBfdStatus, alcatelIND1OSPF3MIB=alcatelIND1OSPF3MIB, alaOspf3RouteMetric2=alaOspf3RouteMetric2, alaOspf3AreaIntraAreaPrefixLsaCount=alaOspf3AreaIntraAreaPrefixLsaCount, alcatelIND1OSPF3MIBCompliances=alcatelIND1OSPF3MIBCompliances, alaOspf3RouteMetric1=alaOspf3RouteMetric1, alaOspf3TimerSpfDelay=alaOspf3TimerSpfDelay, alaOspf3IfAugTable=alaOspf3IfAugTable, alaOspf3AreaAugTable=alaOspf3AreaAugTable, alcatelIND1OSPF3MIBCompliance=alcatelIND1OSPF3MIBCompliance, alaOspf3AreaNetworkLsaCount=alaOspf3AreaNetworkLsaCount, alaOspf3IfAugEntry=alaOspf3IfAugEntry, alaOspf3RouteIfIndex=alaOspf3RouteIfIndex, alaOspf3AreaAugEntry=alaOspf3AreaAugEntry, PYSNMP_MODULE_ID=alcatelIND1OSPF3MIB, alaOspf3AreaInterAreaPrefixLsaCount=alaOspf3AreaInterAreaPrefixLsaCount, alaOspf3TimerSpfHold=alaOspf3TimerSpfHold, alcatelIND1OSPF3MIBGroups=alcatelIND1OSPF3MIBGroups, alaOspf3RouteType=alaOspf3RouteType, alaOspf3RoutePathType=alaOspf3RoutePathType, alaOspf3RoutePfxLength=alaOspf3RoutePfxLength, alaOSPF3ConfigMIBGroup=alaOSPF3ConfigMIBGroup, alaOspf3AreaInterAreaRouterLsaCount=alaOspf3AreaInterAreaRouterLsaCount, alaOspf3OrigRouteTag=alaOspf3OrigRouteTag, alaOspf3MTUCheck=alaOspf3MTUCheck, alcatelIND1OSPF3MIBConformance=alcatelIND1OSPF3MIBConformance, alaOspf3RestartHelperSupport=alaOspf3RestartHelperSupport, alaOspf3RestartStrictLsaChecking=alaOspf3RestartStrictLsaChecking, alaOspf3IfBfdDrsOnly=alaOspf3IfBfdDrsOnly, alaOspf3AreaGroup=alaOspf3AreaGroup, alaOspf3RouteEntry=alaOspf3RouteEntry)

@@ -1,454 +1,217 @@
-_z='ccLicenseTerminatedReason'
-_y='ccLicensedFeature'
-_x='ccTransferOperation'
-_w='ccFileType'
-_v='ccClusterOperationStatus'
-_u='ccClusterOperation'
-_t='ccDominionPXFirmwareVersion'
-_s='ccSystemMonitorNotificationMessage'
-_r='ccSystemMonitorNotificationLevel'
-_q='ccNewNumberOfOutlets'
-_p='ccOldNumberOfOutlets'
-_o='ccMOTDChanges'
-_n='ccBannerChanges'
-_m='ccScheduledTaskFailureReason'
-_l='ccScheduledTaskDescription'
-_k='ccDeviceName'
-_j='ccHardDisk'
-_i='ccLanCard'
-_h='ccUserNameTerminated'
-_g='ccUserNameInitiated'
-_f='modified'
-_e='disabled'
-_d='enabled'
-_c='backup'
-_b='failure'
-_a='success'
-_Z='ccDiagnosticConsoleMAX-ACCESSLevel'
-_Y='ccLeafNodeFirmwareVersion'
-_X='ccUserWhoDeleted'
-_W='ccUserWhoAdded'
-_V='ccImageVersionStatus'
-_U='ccImageVersion'
-_T='ccImageType'
-_S='primary'
-_R='ccLicenseServer'
-_Q='ccClusterPeer'
-_P='ccUserGroupName'
-_O='ccPortName'
-_N='ccNodeName'
-_M='ccUserSessionId'
-_L='ccSessionType'
-_K='ccLeafNodeName'
-_J='ccClusterState'
-_I='ccUserWhoModified'
-_H='ccLeafNodeIPAddress'
-_G='Integer32'
-_F='ccUserName'
-_E='read-write'
-_D='ccObjectInstance'
-_C='ccObjectName'
-_B='current'
-_A='RARITANCCv2-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,internet,iso,mgmt=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','internet','iso','mgmt')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-raritan=ModuleIdentity((1,3,6,1,4,1,13742))
-if mibBuilder.loadTexts:raritan.setRevisions(('2011-04-11 11:08',))
-_Products_ObjectIdentity=ObjectIdentity
-products=_Products_ObjectIdentity((1,3,6,1,4,1,13742,1))
-_EnterpriseManagement_ObjectIdentity=ObjectIdentity
-enterpriseManagement=_EnterpriseManagement_ObjectIdentity((1,3,6,1,4,1,13742,1,1))
-_CommandCenter_ObjectIdentity=ObjectIdentity
-commandCenter=_CommandCenter_ObjectIdentity((1,3,6,1,4,1,13742,1,1,1))
-_CcObject_ObjectIdentity=ObjectIdentity
-ccObject=_CcObject_ObjectIdentity((1,3,6,1,4,1,13742,1,1,1,0))
-_CcObjectName_Type=DisplayString
-_CcObjectName_Object=MibScalar
-ccObjectName=_CcObjectName_Object((1,3,6,1,4,1,13742,1,1,1,0,1),_CcObjectName_Type())
-ccObjectName.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccObjectName.setStatus(_B)
-_CcObjectInstance_Type=DisplayString
-_CcObjectInstance_Object=MibScalar
-ccObjectInstance=_CcObjectInstance_Object((1,3,6,1,4,1,13742,1,1,1,0,2),_CcObjectInstance_Type())
-ccObjectInstance.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccObjectInstance.setStatus(_B)
-_CcUserName_Type=DisplayString
-_CcUserName_Object=MibScalar
-ccUserName=_CcUserName_Object((1,3,6,1,4,1,13742,1,1,1,0,3),_CcUserName_Type())
-ccUserName.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccUserName.setStatus(_B)
-_CcUserSessionId_Type=DisplayString
-_CcUserSessionId_Object=MibScalar
-ccUserSessionId=_CcUserSessionId_Object((1,3,6,1,4,1,13742,1,1,1,0,4),_CcUserSessionId_Type())
-ccUserSessionId.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccUserSessionId.setStatus(_B)
-_CcUserNameInitiated_Type=DisplayString
-_CcUserNameInitiated_Object=MibScalar
-ccUserNameInitiated=_CcUserNameInitiated_Object((1,3,6,1,4,1,13742,1,1,1,0,5),_CcUserNameInitiated_Type())
-ccUserNameInitiated.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccUserNameInitiated.setStatus(_B)
-_CcUserNameTerminated_Type=DisplayString
-_CcUserNameTerminated_Object=MibScalar
-ccUserNameTerminated=_CcUserNameTerminated_Object((1,3,6,1,4,1,13742,1,1,1,0,6),_CcUserNameTerminated_Type())
-ccUserNameTerminated.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccUserNameTerminated.setStatus(_B)
-_CcImageType_Type=DisplayString
-_CcImageType_Object=MibScalar
-ccImageType=_CcImageType_Object((1,3,6,1,4,1,13742,1,1,1,0,7),_CcImageType_Type())
-ccImageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccImageType.setStatus(_B)
-_CcImageVersion_Type=DisplayString
-_CcImageVersion_Object=MibScalar
-ccImageVersion=_CcImageVersion_Object((1,3,6,1,4,1,13742,1,1,1,0,8),_CcImageVersion_Type())
-ccImageVersion.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccImageVersion.setStatus(_B)
-class _CcImageVersionStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_a,1),(_b,2)))
-_CcImageVersionStatus_Type.__name__=_G
-_CcImageVersionStatus_Object=MibScalar
-ccImageVersionStatus=_CcImageVersionStatus_Object((1,3,6,1,4,1,13742,1,1,1,0,9),_CcImageVersionStatus_Type())
-ccImageVersionStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccImageVersionStatus.setStatus(_B)
-_CcUserWhoAdded_Type=DisplayString
-_CcUserWhoAdded_Object=MibScalar
-ccUserWhoAdded=_CcUserWhoAdded_Object((1,3,6,1,4,1,13742,1,1,1,0,10),_CcUserWhoAdded_Type())
-ccUserWhoAdded.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccUserWhoAdded.setStatus(_B)
-_CcUserWhoDeleted_Type=DisplayString
-_CcUserWhoDeleted_Object=MibScalar
-ccUserWhoDeleted=_CcUserWhoDeleted_Object((1,3,6,1,4,1,13742,1,1,1,0,11),_CcUserWhoDeleted_Type())
-ccUserWhoDeleted.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccUserWhoDeleted.setStatus(_B)
-_CcUserWhoModified_Type=DisplayString
-_CcUserWhoModified_Object=MibScalar
-ccUserWhoModified=_CcUserWhoModified_Object((1,3,6,1,4,1,13742,1,1,1,0,12),_CcUserWhoModified_Type())
-ccUserWhoModified.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccUserWhoModified.setStatus(_B)
-_CcNodeName_Type=DisplayString
-_CcNodeName_Object=MibScalar
-ccNodeName=_CcNodeName_Object((1,3,6,1,4,1,13742,1,1,1,0,13),_CcNodeName_Type())
-ccNodeName.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccNodeName.setStatus(_B)
-class _CcLanCard_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_S,1),(_c,2)))
-_CcLanCard_Type.__name__=_G
-_CcLanCard_Object=MibScalar
-ccLanCard=_CcLanCard_Object((1,3,6,1,4,1,13742,1,1,1,0,14),_CcLanCard_Type())
-ccLanCard.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccLanCard.setStatus(_B)
-class _CcHardDisk_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_S,1),(_c,2)))
-_CcHardDisk_Type.__name__=_G
-_CcHardDisk_Object=MibScalar
-ccHardDisk=_CcHardDisk_Object((1,3,6,1,4,1,13742,1,1,1,0,15),_CcHardDisk_Type())
-ccHardDisk.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccHardDisk.setStatus(_B)
-class _CcSessionType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('serial',1),('kvm',2),('powerOutlet',3),('admin',4),('diagnostics',5)))
-_CcSessionType_Type.__name__=_G
-_CcSessionType_Object=MibScalar
-ccSessionType=_CcSessionType_Object((1,3,6,1,4,1,13742,1,1,1,0,16),_CcSessionType_Type())
-ccSessionType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccSessionType.setStatus(_B)
-class _CcClusterState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_S,1),('secondary',2),('standAlone',3)))
-_CcClusterState_Type.__name__=_G
-_CcClusterState_Object=MibScalar
-ccClusterState=_CcClusterState_Object((1,3,6,1,4,1,13742,1,1,1,0,17),_CcClusterState_Type())
-ccClusterState.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccClusterState.setStatus(_B)
-_CcLeafNodeName_Type=DisplayString
-_CcLeafNodeName_Object=MibScalar
-ccLeafNodeName=_CcLeafNodeName_Object((1,3,6,1,4,1,13742,1,1,1,0,18),_CcLeafNodeName_Type())
-ccLeafNodeName.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccLeafNodeName.setStatus(_B)
-_CcLeafNodeIPAddress_Type=DisplayString
-_CcLeafNodeIPAddress_Object=MibScalar
-ccLeafNodeIPAddress=_CcLeafNodeIPAddress_Object((1,3,6,1,4,1,13742,1,1,1,0,19),_CcLeafNodeIPAddress_Type())
-ccLeafNodeIPAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccLeafNodeIPAddress.setStatus(_B)
-_CcLeafNodeFirmwareVersion_Type=DisplayString
-_CcLeafNodeFirmwareVersion_Object=MibScalar
-ccLeafNodeFirmwareVersion=_CcLeafNodeFirmwareVersion_Object((1,3,6,1,4,1,13742,1,1,1,0,20),_CcLeafNodeFirmwareVersion_Type())
-ccLeafNodeFirmwareVersion.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccLeafNodeFirmwareVersion.setStatus(_B)
-_CcScheduledTaskDescription_Type=DisplayString
-_CcScheduledTaskDescription_Object=MibScalar
-ccScheduledTaskDescription=_CcScheduledTaskDescription_Object((1,3,6,1,4,1,13742,1,1,1,0,21),_CcScheduledTaskDescription_Type())
-ccScheduledTaskDescription.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccScheduledTaskDescription.setStatus(_B)
-_CcScheduledTaskFailureReason_Type=DisplayString
-_CcScheduledTaskFailureReason_Object=MibScalar
-ccScheduledTaskFailureReason=_CcScheduledTaskFailureReason_Object((1,3,6,1,4,1,13742,1,1,1,0,22),_CcScheduledTaskFailureReason_Type())
-ccScheduledTaskFailureReason.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccScheduledTaskFailureReason.setStatus(_B)
-_CcDiagnosticConsoleMAX_ACCESSLevel_Type=DisplayString
-_CcDiagnosticConsoleMAX_ACCESSLevel_Object=MibScalar
-ccDiagnosticConsoleMAX_ACCESSLevel=_CcDiagnosticConsoleMAX_ACCESSLevel_Object((1,3,6,1,4,1,13742,1,1,1,0,23),_CcDiagnosticConsoleMAX_ACCESSLevel_Type())
-ccDiagnosticConsoleMAX_ACCESSLevel.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccDiagnosticConsoleMAX_ACCESSLevel.setStatus(_B)
-_CcDeviceName_Type=DisplayString
-_CcDeviceName_Object=MibScalar
-ccDeviceName=_CcDeviceName_Object((1,3,6,1,4,1,13742,1,1,1,0,24),_CcDeviceName_Type())
-ccDeviceName.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccDeviceName.setStatus(_B)
-_CcUserGroupName_Type=DisplayString
-_CcUserGroupName_Object=MibScalar
-ccUserGroupName=_CcUserGroupName_Object((1,3,6,1,4,1,13742,1,1,1,0,25),_CcUserGroupName_Type())
-ccUserGroupName.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccUserGroupName.setStatus(_B)
-class _CcBannerChanges_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_d,1),(_e,2),(_f,3)))
-_CcBannerChanges_Type.__name__=_G
-_CcBannerChanges_Object=MibScalar
-ccBannerChanges=_CcBannerChanges_Object((1,3,6,1,4,1,13742,1,1,1,0,26),_CcBannerChanges_Type())
-ccBannerChanges.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccBannerChanges.setStatus(_B)
-class _CcMOTDChanges_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_d,1),(_e,2),(_f,3)))
-_CcMOTDChanges_Type.__name__=_G
-_CcMOTDChanges_Object=MibScalar
-ccMOTDChanges=_CcMOTDChanges_Object((1,3,6,1,4,1,13742,1,1,1,0,27),_CcMOTDChanges_Type())
-ccMOTDChanges.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccMOTDChanges.setStatus(_B)
-_CcOldNumberOfOutlets_Type=DisplayString
-_CcOldNumberOfOutlets_Object=MibScalar
-ccOldNumberOfOutlets=_CcOldNumberOfOutlets_Object((1,3,6,1,4,1,13742,1,1,1,0,28),_CcOldNumberOfOutlets_Type())
-ccOldNumberOfOutlets.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccOldNumberOfOutlets.setStatus(_B)
-_CcNewNumberOfOutlets_Type=DisplayString
-_CcNewNumberOfOutlets_Object=MibScalar
-ccNewNumberOfOutlets=_CcNewNumberOfOutlets_Object((1,3,6,1,4,1,13742,1,1,1,0,29),_CcNewNumberOfOutlets_Type())
-ccNewNumberOfOutlets.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccNewNumberOfOutlets.setStatus(_B)
-_CcSystemMonitorNotificationLevel_Type=DisplayString
-_CcSystemMonitorNotificationLevel_Object=MibScalar
-ccSystemMonitorNotificationLevel=_CcSystemMonitorNotificationLevel_Object((1,3,6,1,4,1,13742,1,1,1,0,30),_CcSystemMonitorNotificationLevel_Type())
-ccSystemMonitorNotificationLevel.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccSystemMonitorNotificationLevel.setStatus(_B)
-_CcSystemMonitorNotificationMessage_Type=DisplayString
-_CcSystemMonitorNotificationMessage_Object=MibScalar
-ccSystemMonitorNotificationMessage=_CcSystemMonitorNotificationMessage_Object((1,3,6,1,4,1,13742,1,1,1,0,31),_CcSystemMonitorNotificationMessage_Type())
-ccSystemMonitorNotificationMessage.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccSystemMonitorNotificationMessage.setStatus(_B)
-_CcDominionPXFirmwareVersion_Type=DisplayString
-_CcDominionPXFirmwareVersion_Object=MibScalar
-ccDominionPXFirmwareVersion=_CcDominionPXFirmwareVersion_Object((1,3,6,1,4,1,13742,1,1,1,0,32),_CcDominionPXFirmwareVersion_Type())
-ccDominionPXFirmwareVersion.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccDominionPXFirmwareVersion.setStatus(_B)
-_CcClusterPeer_Type=DisplayString
-_CcClusterPeer_Object=MibScalar
-ccClusterPeer=_CcClusterPeer_Object((1,3,6,1,4,1,13742,1,1,1,0,33),_CcClusterPeer_Type())
-ccClusterPeer.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccClusterPeer.setStatus(_B)
-_CcClusterOperation_Type=DisplayString
-_CcClusterOperation_Object=MibScalar
-ccClusterOperation=_CcClusterOperation_Object((1,3,6,1,4,1,13742,1,1,1,0,34),_CcClusterOperation_Type())
-ccClusterOperation.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccClusterOperation.setStatus(_B)
-class _CcClusterOperationStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_a,1),(_b,2)))
-_CcClusterOperationStatus_Type.__name__=_G
-_CcClusterOperationStatus_Object=MibScalar
-ccClusterOperationStatus=_CcClusterOperationStatus_Object((1,3,6,1,4,1,13742,1,1,1,0,35),_CcClusterOperationStatus_Type())
-ccClusterOperationStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccClusterOperationStatus.setStatus(_B)
-class _CcTransferOperation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('export',1),('import',2)))
-_CcTransferOperation_Type.__name__=_G
-_CcTransferOperation_Object=MibScalar
-ccTransferOperation=_CcTransferOperation_Object((1,3,6,1,4,1,13742,1,1,1,0,36),_CcTransferOperation_Type())
-ccTransferOperation.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccTransferOperation.setStatus(_B)
-_CcFileType_Type=DisplayString
-_CcFileType_Object=MibScalar
-ccFileType=_CcFileType_Object((1,3,6,1,4,1,13742,1,1,1,0,37),_CcFileType_Type())
-ccFileType.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccFileType.setStatus(_B)
-_CcLicensedFeature_Type=DisplayString
-_CcLicensedFeature_Object=MibScalar
-ccLicensedFeature=_CcLicensedFeature_Object((1,3,6,1,4,1,13742,1,1,1,0,38),_CcLicensedFeature_Type())
-ccLicensedFeature.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccLicensedFeature.setStatus(_B)
-_CcLicenseServer_Type=DisplayString
-_CcLicenseServer_Object=MibScalar
-ccLicenseServer=_CcLicenseServer_Object((1,3,6,1,4,1,13742,1,1,1,0,39),_CcLicenseServer_Type())
-ccLicenseServer.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccLicenseServer.setStatus(_B)
-_CcLicenseTerminatedReason_Type=DisplayString
-_CcLicenseTerminatedReason_Object=MibScalar
-ccLicenseTerminatedReason=_CcLicenseTerminatedReason_Object((1,3,6,1,4,1,13742,1,1,1,0,40),_CcLicenseTerminatedReason_Type())
-ccLicenseTerminatedReason.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccLicenseTerminatedReason.setStatus(_B)
-_CcPortName_Type=DisplayString
-_CcPortName_Object=MibScalar
-ccPortName=_CcPortName_Object((1,3,6,1,4,1,13742,1,1,1,0,41),_CcPortName_Type())
-ccPortName.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccPortName.setStatus(_B)
-_CcNotify_ObjectIdentity=ObjectIdentity
-ccNotify=_CcNotify_ObjectIdentity((1,3,6,1,4,1,13742,1,1,1,1))
-ccUnavailable=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,1))
-ccUnavailable.setObjects(*((_A,_C),(_A,_D),(_A,_F),(_A,_J)))
-if mibBuilder.loadTexts:ccUnavailable.setStatus(_B)
-ccAvailable=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,2))
-ccAvailable.setObjects(*((_A,_C),(_A,_D),(_A,_F),(_A,_J)))
-if mibBuilder.loadTexts:ccAvailable.setStatus(_B)
-ccUserLogin=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,3))
-ccUserLogin.setObjects(*((_A,_C),(_A,_D),(_A,_F)))
-if mibBuilder.loadTexts:ccUserLogin.setStatus(_B)
-ccUserLogout=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,4))
-ccUserLogout.setObjects(*((_A,_C),(_A,_D),(_A,_F)))
-if mibBuilder.loadTexts:ccUserLogout.setStatus(_B)
-ccSPortConnectionStarted=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,5))
-ccSPortConnectionStarted.setObjects(*((_A,_C),(_A,_D),(_A,_F),(_A,_L),(_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:ccSPortConnectionStarted.setStatus(_B)
-ccPortConnectionStopped=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,6))
-ccPortConnectionStopped.setObjects(*((_A,_C),(_A,_D),(_A,_F),(_A,_L),(_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:ccPortConnectionStopped.setStatus(_B)
-ccPortConnectionTerminated=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,7))
-ccPortConnectionTerminated.setObjects(*((_A,_C),(_A,_D),(_A,_g),(_A,_h),(_A,_L),(_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:ccPortConnectionTerminated.setStatus(_B)
-ccImageUpgradeStarted=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,8))
-ccImageUpgradeStarted.setObjects(*((_A,_C),(_A,_D),(_A,_F),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:ccImageUpgradeStarted.setStatus(_B)
-ccImageUpgradeResults=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,9))
-ccImageUpgradeResults.setObjects(*((_A,_C),(_A,_D),(_A,_F),(_A,_T),(_A,_U),(_A,_V)))
-if mibBuilder.loadTexts:ccImageUpgradeResults.setStatus(_B)
-ccUserAdded=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,10))
-ccUserAdded.setObjects(*((_A,_C),(_A,_D),(_A,_F),(_A,_W)))
-if mibBuilder.loadTexts:ccUserAdded.setStatus(_B)
-ccUserDeleted=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,11))
-ccUserDeleted.setObjects(*((_A,_C),(_A,_D),(_A,_F),(_A,_X)))
-if mibBuilder.loadTexts:ccUserDeleted.setStatus(_B)
-ccUserModified=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,12))
-ccUserModified.setObjects(*((_A,_C),(_A,_D),(_A,_F),(_A,_I)))
-if mibBuilder.loadTexts:ccUserModified.setStatus(_B)
-ccUserAuthenticationFailure=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,13))
-ccUserAuthenticationFailure.setObjects(*((_A,_C),(_A,_D),(_A,_F)))
-if mibBuilder.loadTexts:ccUserAuthenticationFailure.setStatus(_B)
-ccRootPasswordChanged=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,14))
-ccRootPasswordChanged.setObjects(*((_A,_C),(_A,_D),(_A,_I)))
-if mibBuilder.loadTexts:ccRootPasswordChanged.setStatus(_B)
-ccLanCardFailure=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,15))
-ccLanCardFailure.setObjects(*((_A,_C),(_A,_D),(_A,_i),(_A,_J)))
-if mibBuilder.loadTexts:ccLanCardFailure.setStatus(_B)
-ccHardDiskFailure=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,16))
-ccHardDiskFailure.setObjects(*((_A,_C),(_A,_D),(_A,_j),(_A,_J)))
-if mibBuilder.loadTexts:ccHardDiskFailure.setStatus(_B)
-ccLeafNodeUnavailable=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,17))
-ccLeafNodeUnavailable.setObjects(*((_A,_C),(_A,_D),(_A,_K),(_A,_H)))
-if mibBuilder.loadTexts:ccLeafNodeUnavailable.setStatus(_B)
-ccLeafNodeAvailable=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,18))
-ccLeafNodeAvailable.setObjects(*((_A,_C),(_A,_D),(_A,_K),(_A,_H)))
-if mibBuilder.loadTexts:ccLeafNodeAvailable.setStatus(_B)
-ccIncompatibleDeviceFirmware=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,19))
-ccIncompatibleDeviceFirmware.setObjects(*((_A,_C),(_A,_D),(_A,_F),(_A,_H),(_A,_Y)))
-if mibBuilder.loadTexts:ccIncompatibleDeviceFirmware.setStatus(_B)
-ccDeviceUpgrade=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,20))
-ccDeviceUpgrade.setObjects(*((_A,_C),(_A,_D),(_A,_F),(_A,_H),(_A,_Y),(_A,_V)))
-if mibBuilder.loadTexts:ccDeviceUpgrade.setStatus(_B)
-ccEnterMaintenanceMode=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,21))
-ccEnterMaintenanceMode.setObjects(*((_A,_C),(_A,_D),(_A,_F)))
-if mibBuilder.loadTexts:ccEnterMaintenanceMode.setStatus(_B)
-ccExitMaintenanceMode=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,22))
-ccExitMaintenanceMode.setObjects(*((_A,_C),(_A,_D),(_A,_F)))
-if mibBuilder.loadTexts:ccExitMaintenanceMode.setStatus(_B)
-ccUserLockedOut=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,23))
-ccUserLockedOut.setObjects(*((_A,_C),(_A,_D),(_A,_F)))
-if mibBuilder.loadTexts:ccUserLockedOut.setStatus(_B)
-ccDeviceAddedAfterCCNOCNotification=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,24))
-ccDeviceAddedAfterCCNOCNotification.setObjects(*((_A,_C),(_A,_D),(_A,_k),(_A,_H)))
-if mibBuilder.loadTexts:ccDeviceAddedAfterCCNOCNotification.setStatus(_B)
-ccScheduledTaskExecutionFailure=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,25))
-ccScheduledTaskExecutionFailure.setObjects(*((_A,_C),(_A,_D),(_A,_l),(_A,_m)))
-if mibBuilder.loadTexts:ccScheduledTaskExecutionFailure.setStatus(_B)
-ccDiagnosticConsoleLogin=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,26))
-ccDiagnosticConsoleLogin.setObjects(*((_A,_C),(_A,_D),(_A,_F),(_A,_Z)))
-if mibBuilder.loadTexts:ccDiagnosticConsoleLogin.setStatus(_B)
-ccDiagnosticConsoleLogout=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,27))
-ccDiagnosticConsoleLogout.setObjects(*((_A,_C),(_A,_D),(_A,_F),(_A,_Z)))
-if mibBuilder.loadTexts:ccDiagnosticConsoleLogout.setStatus(_B)
-ccNOCAvailable=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,28))
-ccNOCAvailable.setObjects(*((_A,_C),(_A,_D),(_A,_H)))
-if mibBuilder.loadTexts:ccNOCAvailable.setStatus(_B)
-ccNOCUnavailable=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,29))
-ccNOCUnavailable.setObjects(*((_A,_C),(_A,_D),(_A,_H)))
-if mibBuilder.loadTexts:ccNOCUnavailable.setStatus(_B)
-ccUserGroupAdded=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,30))
-ccUserGroupAdded.setObjects(*((_A,_C),(_A,_D),(_A,_P),(_A,_W)))
-if mibBuilder.loadTexts:ccUserGroupAdded.setStatus(_B)
-ccUserGroupDeleted=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,31))
-ccUserGroupDeleted.setObjects(*((_A,_C),(_A,_D),(_A,_P),(_A,_X)))
-if mibBuilder.loadTexts:ccUserGroupDeleted.setStatus(_B)
-ccUserGroupModified=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,32))
-ccUserGroupModified.setObjects(*((_A,_C),(_A,_D),(_A,_P),(_A,_I)))
-if mibBuilder.loadTexts:ccUserGroupModified.setStatus(_B)
-ccSuperuserNameChanged=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,33))
-ccSuperuserNameChanged.setObjects(*((_A,_C),(_A,_D),(_A,_I)))
-if mibBuilder.loadTexts:ccSuperuserNameChanged.setStatus(_B)
-ccSuperuserPasswordChanged=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,34))
-ccSuperuserPasswordChanged.setObjects(*((_A,_C),(_A,_D),(_A,_I)))
-if mibBuilder.loadTexts:ccSuperuserPasswordChanged.setStatus(_B)
-ccLoginBannerChanged=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,35))
-ccLoginBannerChanged.setObjects(*((_A,_C),(_A,_D),(_A,_I),(_A,_n)))
-if mibBuilder.loadTexts:ccLoginBannerChanged.setStatus(_B)
-ccMOTDChanged=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,36))
-ccMOTDChanged.setObjects(*((_A,_C),(_A,_D),(_A,_I),(_A,_o)))
-if mibBuilder.loadTexts:ccMOTDChanged.setStatus(_B)
-ccDominionPXReplaced=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,37))
-ccDominionPXReplaced.setObjects(*((_A,_C),(_A,_D),(_A,_p),(_A,_q)))
-if mibBuilder.loadTexts:ccDominionPXReplaced.setStatus(_B)
-ccSystemMonitorNotification=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,38))
-ccSystemMonitorNotification.setObjects(*((_A,_C),(_A,_D),(_A,_r),(_A,_s)))
-if mibBuilder.loadTexts:ccSystemMonitorNotification.setStatus(_B)
-ccNeighborhoodActivated=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,39))
-ccNeighborhoodActivated.setObjects(*((_A,_C),(_A,_D)))
-if mibBuilder.loadTexts:ccNeighborhoodActivated.setStatus(_B)
-ccNeighborhoodUpdated=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,40))
-ccNeighborhoodUpdated.setObjects(*((_A,_C),(_A,_D)))
-if mibBuilder.loadTexts:ccNeighborhoodUpdated.setStatus(_B)
-ccDominionPXFirmwareChanged=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,41))
-ccDominionPXFirmwareChanged.setObjects(*((_A,_C),(_A,_D),(_A,_t)))
-if mibBuilder.loadTexts:ccDominionPXFirmwareChanged.setStatus(_B)
-ccClusterFailover=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,42))
-ccClusterFailover.setObjects(*((_A,_C),(_A,_D),(_A,_Q)))
-if mibBuilder.loadTexts:ccClusterFailover.setStatus(_B)
-ccClusterBackupFailed=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,43))
-ccClusterBackupFailed.setObjects(*((_A,_C),(_A,_D),(_A,_Q)))
-if mibBuilder.loadTexts:ccClusterBackupFailed.setStatus(_B)
-ccClusterWaitingPeerDetected=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,44))
-ccClusterWaitingPeerDetected.setObjects(*((_A,_C),(_A,_D),(_A,_Q)))
-if mibBuilder.loadTexts:ccClusterWaitingPeerDetected.setStatus(_B)
-ccClusterAction=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,45))
-ccClusterAction.setObjects(*((_A,_C),(_A,_D),(_A,_u),(_A,_v)))
-if mibBuilder.loadTexts:ccClusterAction.setStatus(_B)
-ccCSVFileTransferred=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,46))
-ccCSVFileTransferred.setObjects(*((_A,_C),(_A,_D),(_A,_F),(_A,_w),(_A,_x)))
-if mibBuilder.loadTexts:ccCSVFileTransferred.setStatus(_B)
-ccPIQUnavailable=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,47))
-ccPIQUnavailable.setObjects(*((_A,_C),(_A,_D),(_A,_K),(_A,_H)))
-if mibBuilder.loadTexts:ccPIQUnavailable.setStatus(_B)
-ccPIQAvailable=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,48))
-ccPIQAvailable.setObjects(*((_A,_C),(_A,_D),(_A,_K),(_A,_H)))
-if mibBuilder.loadTexts:ccPIQAvailable.setStatus(_B)
-ccLicenseServerUnavailable=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,49))
-ccLicenseServerUnavailable.setObjects(*((_A,_C),(_A,_D),(_A,_R)))
-if mibBuilder.loadTexts:ccLicenseServerUnavailable.setStatus(_B)
-ccLicenseServerFailover=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,50))
-ccLicenseServerFailover.setObjects(*((_A,_C),(_A,_D),(_A,_R)))
-if mibBuilder.loadTexts:ccLicenseServerFailover.setStatus(_B)
-ccLicenseServerAvailable=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,51))
-ccLicenseServerAvailable.setObjects(*((_A,_C),(_A,_D),(_A,_R)))
-if mibBuilder.loadTexts:ccLicenseServerAvailable.setStatus(_B)
-ccLicenseTerminated=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,52))
-ccLicenseTerminated.setObjects(*((_A,_C),(_A,_D)))
-if mibBuilder.loadTexts:ccLicenseTerminated.setStatus(_B)
-ccAddLicenseFailure=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,53))
-ccAddLicenseFailure.setObjects(*((_A,_C),(_A,_D)))
-if mibBuilder.loadTexts:ccAddLicenseFailure.setStatus(_B)
-ccAddFeatureFailure=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,54))
-ccAddFeatureFailure.setObjects(*((_A,_C),(_A,_D),(_A,_y)))
-if mibBuilder.loadTexts:ccAddFeatureFailure.setStatus(_B)
-ccLicenseTerminatedWithReason=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,55))
-ccLicenseTerminatedWithReason.setObjects(*((_A,_C),(_A,_D),(_A,_z)))
-if mibBuilder.loadTexts:ccLicenseTerminatedWithReason.setStatus(_B)
-ccUserPasswordChanged=NotificationType((1,3,6,1,4,1,13742,1,1,1,1,56))
-ccUserPasswordChanged.setObjects(*((_A,_C),(_A,_D),(_A,_F),(_A,_I)))
-if mibBuilder.loadTexts:ccUserPasswordChanged.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'raritan':raritan,'products':products,'enterpriseManagement':enterpriseManagement,'commandCenter':commandCenter,'ccObject':ccObject,_C:ccObjectName,_D:ccObjectInstance,_F:ccUserName,_M:ccUserSessionId,_g:ccUserNameInitiated,_h:ccUserNameTerminated,_T:ccImageType,_U:ccImageVersion,_V:ccImageVersionStatus,_W:ccUserWhoAdded,_X:ccUserWhoDeleted,_I:ccUserWhoModified,_N:ccNodeName,_i:ccLanCard,_j:ccHardDisk,_L:ccSessionType,_J:ccClusterState,_K:ccLeafNodeName,_H:ccLeafNodeIPAddress,_Y:ccLeafNodeFirmwareVersion,_l:ccScheduledTaskDescription,_m:ccScheduledTaskFailureReason,_Z:ccDiagnosticConsoleMAX_ACCESSLevel,_k:ccDeviceName,_P:ccUserGroupName,_n:ccBannerChanges,_o:ccMOTDChanges,_p:ccOldNumberOfOutlets,_q:ccNewNumberOfOutlets,_r:ccSystemMonitorNotificationLevel,_s:ccSystemMonitorNotificationMessage,_t:ccDominionPXFirmwareVersion,_Q:ccClusterPeer,_u:ccClusterOperation,_v:ccClusterOperationStatus,_x:ccTransferOperation,_w:ccFileType,_y:ccLicensedFeature,_R:ccLicenseServer,_z:ccLicenseTerminatedReason,_O:ccPortName,'ccNotify':ccNotify,'ccUnavailable':ccUnavailable,'ccAvailable':ccAvailable,'ccUserLogin':ccUserLogin,'ccUserLogout':ccUserLogout,'ccSPortConnectionStarted':ccSPortConnectionStarted,'ccPortConnectionStopped':ccPortConnectionStopped,'ccPortConnectionTerminated':ccPortConnectionTerminated,'ccImageUpgradeStarted':ccImageUpgradeStarted,'ccImageUpgradeResults':ccImageUpgradeResults,'ccUserAdded':ccUserAdded,'ccUserDeleted':ccUserDeleted,'ccUserModified':ccUserModified,'ccUserAuthenticationFailure':ccUserAuthenticationFailure,'ccRootPasswordChanged':ccRootPasswordChanged,'ccLanCardFailure':ccLanCardFailure,'ccHardDiskFailure':ccHardDiskFailure,'ccLeafNodeUnavailable':ccLeafNodeUnavailable,'ccLeafNodeAvailable':ccLeafNodeAvailable,'ccIncompatibleDeviceFirmware':ccIncompatibleDeviceFirmware,'ccDeviceUpgrade':ccDeviceUpgrade,'ccEnterMaintenanceMode':ccEnterMaintenanceMode,'ccExitMaintenanceMode':ccExitMaintenanceMode,'ccUserLockedOut':ccUserLockedOut,'ccDeviceAddedAfterCCNOCNotification':ccDeviceAddedAfterCCNOCNotification,'ccScheduledTaskExecutionFailure':ccScheduledTaskExecutionFailure,'ccDiagnosticConsoleLogin':ccDiagnosticConsoleLogin,'ccDiagnosticConsoleLogout':ccDiagnosticConsoleLogout,'ccNOCAvailable':ccNOCAvailable,'ccNOCUnavailable':ccNOCUnavailable,'ccUserGroupAdded':ccUserGroupAdded,'ccUserGroupDeleted':ccUserGroupDeleted,'ccUserGroupModified':ccUserGroupModified,'ccSuperuserNameChanged':ccSuperuserNameChanged,'ccSuperuserPasswordChanged':ccSuperuserPasswordChanged,'ccLoginBannerChanged':ccLoginBannerChanged,'ccMOTDChanged':ccMOTDChanged,'ccDominionPXReplaced':ccDominionPXReplaced,'ccSystemMonitorNotification':ccSystemMonitorNotification,'ccNeighborhoodActivated':ccNeighborhoodActivated,'ccNeighborhoodUpdated':ccNeighborhoodUpdated,'ccDominionPXFirmwareChanged':ccDominionPXFirmwareChanged,'ccClusterFailover':ccClusterFailover,'ccClusterBackupFailed':ccClusterBackupFailed,'ccClusterWaitingPeerDetected':ccClusterWaitingPeerDetected,'ccClusterAction':ccClusterAction,'ccCSVFileTransferred':ccCSVFileTransferred,'ccPIQUnavailable':ccPIQUnavailable,'ccPIQAvailable':ccPIQAvailable,'ccLicenseServerUnavailable':ccLicenseServerUnavailable,'ccLicenseServerFailover':ccLicenseServerFailover,'ccLicenseServerAvailable':ccLicenseServerAvailable,'ccLicenseTerminated':ccLicenseTerminated,'ccAddLicenseFailure':ccAddLicenseFailure,'ccAddFeatureFailure':ccAddFeatureFailure,'ccLicenseTerminatedWithReason':ccLicenseTerminatedWithReason,'ccUserPasswordChanged':ccUserPasswordChanged})
+#
+# PySNMP MIB module RARITANCCv2-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raritan/RARITANCCv2-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Integer32, internet, Unsigned32, enterprises, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, ObjectIdentity, MibIdentifier, Counter64, mgmt, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "internet", "Unsigned32", "enterprises", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "ObjectIdentity", "MibIdentifier", "Counter64", "mgmt", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+raritan = ModuleIdentity((1, 3, 6, 1, 4, 1, 13742))
+raritan.setRevisions(('2011-04-11 11:08',))
+if mibBuilder.loadTexts: raritan.setLastUpdated('201104111108Z')
+if mibBuilder.loadTexts: raritan.setOrganization('Raritan Inc.')
+products = MibIdentifier((1, 3, 6, 1, 4, 1, 13742, 1))
+enterpriseManagement = MibIdentifier((1, 3, 6, 1, 4, 1, 13742, 1, 1))
+commandCenter = MibIdentifier((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1))
+ccObject = MibIdentifier((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0))
+ccNotify = MibIdentifier((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1))
+ccObjectName = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 1), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccObjectName.setStatus('current')
+ccObjectInstance = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccObjectInstance.setStatus('current')
+ccUserName = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccUserName.setStatus('current')
+ccUserSessionId = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccUserSessionId.setStatus('current')
+ccUserNameInitiated = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 5), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccUserNameInitiated.setStatus('current')
+ccUserNameTerminated = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 6), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccUserNameTerminated.setStatus('current')
+ccImageType = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 7), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccImageType.setStatus('current')
+ccImageVersion = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 8), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccImageVersion.setStatus('current')
+ccImageVersionStatus = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("success", 1), ("failure", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccImageVersionStatus.setStatus('current')
+ccUserWhoAdded = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 10), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccUserWhoAdded.setStatus('current')
+ccUserWhoDeleted = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 11), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccUserWhoDeleted.setStatus('current')
+ccUserWhoModified = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 12), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccUserWhoModified.setStatus('current')
+ccNodeName = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 13), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccNodeName.setStatus('current')
+ccLanCard = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primary", 1), ("backup", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccLanCard.setStatus('current')
+ccHardDisk = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primary", 1), ("backup", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccHardDisk.setStatus('current')
+ccSessionType = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("serial", 1), ("kvm", 2), ("powerOutlet", 3), ("admin", 4), ("diagnostics", 5)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccSessionType.setStatus('current')
+ccClusterState = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("standAlone", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccClusterState.setStatus('current')
+ccLeafNodeName = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 18), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccLeafNodeName.setStatus('current')
+ccLeafNodeIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 19), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccLeafNodeIPAddress.setStatus('current')
+ccLeafNodeFirmwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 20), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccLeafNodeFirmwareVersion.setStatus('current')
+ccScheduledTaskDescription = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 21), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccScheduledTaskDescription.setStatus('current')
+ccScheduledTaskFailureReason = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 22), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccScheduledTaskFailureReason.setStatus('current')
+ccDiagnosticConsoleMAX_ACCESSLevel = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 23), DisplayString()).setLabel("ccDiagnosticConsoleMAX-ACCESSLevel").setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccDiagnosticConsoleMAX_ACCESSLevel.setStatus('current')
+ccDeviceName = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 24), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccDeviceName.setStatus('current')
+ccUserGroupName = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 25), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccUserGroupName.setStatus('current')
+ccBannerChanges = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 26), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2), ("modified", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccBannerChanges.setStatus('current')
+ccMOTDChanges = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2), ("modified", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccMOTDChanges.setStatus('current')
+ccOldNumberOfOutlets = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 28), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccOldNumberOfOutlets.setStatus('current')
+ccNewNumberOfOutlets = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 29), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccNewNumberOfOutlets.setStatus('current')
+ccSystemMonitorNotificationLevel = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 30), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccSystemMonitorNotificationLevel.setStatus('current')
+ccSystemMonitorNotificationMessage = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 31), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccSystemMonitorNotificationMessage.setStatus('current')
+ccDominionPXFirmwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 32), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccDominionPXFirmwareVersion.setStatus('current')
+ccClusterPeer = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 33), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccClusterPeer.setStatus('current')
+ccClusterOperation = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 34), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccClusterOperation.setStatus('current')
+ccClusterOperationStatus = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 35), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("success", 1), ("failure", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccClusterOperationStatus.setStatus('current')
+ccTransferOperation = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 36), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("export", 1), ("import", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccTransferOperation.setStatus('current')
+ccFileType = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 37), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccFileType.setStatus('current')
+ccLicensedFeature = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 38), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccLicensedFeature.setStatus('current')
+ccLicenseServer = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 39), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccLicenseServer.setStatus('current')
+ccPortName = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 41), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccPortName.setStatus('current')
+ccLicenseTerminatedReason = MibScalar((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 0, 40), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccLicenseTerminatedReason.setStatus('current')
+ccUnavailable = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 1)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"), ("RARITANCCv2-MIB", "ccClusterState"))
+if mibBuilder.loadTexts: ccUnavailable.setStatus('current')
+ccAvailable = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 2)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"), ("RARITANCCv2-MIB", "ccClusterState"))
+if mibBuilder.loadTexts: ccAvailable.setStatus('current')
+ccUserLogin = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 3)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"))
+if mibBuilder.loadTexts: ccUserLogin.setStatus('current')
+ccUserLogout = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 4)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"))
+if mibBuilder.loadTexts: ccUserLogout.setStatus('current')
+ccSPortConnectionStarted = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 5)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"), ("RARITANCCv2-MIB", "ccSessionType"), ("RARITANCCv2-MIB", "ccUserSessionId"), ("RARITANCCv2-MIB", "ccNodeName"), ("RARITANCCv2-MIB", "ccPortName"))
+if mibBuilder.loadTexts: ccSPortConnectionStarted.setStatus('current')
+ccPortConnectionStopped = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 6)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"), ("RARITANCCv2-MIB", "ccSessionType"), ("RARITANCCv2-MIB", "ccUserSessionId"), ("RARITANCCv2-MIB", "ccNodeName"), ("RARITANCCv2-MIB", "ccPortName"))
+if mibBuilder.loadTexts: ccPortConnectionStopped.setStatus('current')
+ccPortConnectionTerminated = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 7)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserNameInitiated"), ("RARITANCCv2-MIB", "ccUserNameTerminated"), ("RARITANCCv2-MIB", "ccSessionType"), ("RARITANCCv2-MIB", "ccUserSessionId"), ("RARITANCCv2-MIB", "ccNodeName"), ("RARITANCCv2-MIB", "ccPortName"))
+if mibBuilder.loadTexts: ccPortConnectionTerminated.setStatus('current')
+ccImageUpgradeStarted = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 8)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"), ("RARITANCCv2-MIB", "ccImageType"), ("RARITANCCv2-MIB", "ccImageVersion"))
+if mibBuilder.loadTexts: ccImageUpgradeStarted.setStatus('current')
+ccImageUpgradeResults = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 9)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"), ("RARITANCCv2-MIB", "ccImageType"), ("RARITANCCv2-MIB", "ccImageVersion"), ("RARITANCCv2-MIB", "ccImageVersionStatus"))
+if mibBuilder.loadTexts: ccImageUpgradeResults.setStatus('current')
+ccUserAdded = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 10)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"), ("RARITANCCv2-MIB", "ccUserWhoAdded"))
+if mibBuilder.loadTexts: ccUserAdded.setStatus('current')
+ccUserDeleted = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 11)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"), ("RARITANCCv2-MIB", "ccUserWhoDeleted"))
+if mibBuilder.loadTexts: ccUserDeleted.setStatus('current')
+ccUserModified = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 12)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"), ("RARITANCCv2-MIB", "ccUserWhoModified"))
+if mibBuilder.loadTexts: ccUserModified.setStatus('current')
+ccUserAuthenticationFailure = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 13)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"))
+if mibBuilder.loadTexts: ccUserAuthenticationFailure.setStatus('current')
+ccRootPasswordChanged = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 14)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserWhoModified"))
+if mibBuilder.loadTexts: ccRootPasswordChanged.setStatus('current')
+ccLanCardFailure = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 15)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccLanCard"), ("RARITANCCv2-MIB", "ccClusterState"))
+if mibBuilder.loadTexts: ccLanCardFailure.setStatus('current')
+ccHardDiskFailure = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 16)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccHardDisk"), ("RARITANCCv2-MIB", "ccClusterState"))
+if mibBuilder.loadTexts: ccHardDiskFailure.setStatus('current')
+ccLeafNodeUnavailable = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 17)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccLeafNodeName"), ("RARITANCCv2-MIB", "ccLeafNodeIPAddress"))
+if mibBuilder.loadTexts: ccLeafNodeUnavailable.setStatus('current')
+ccLeafNodeAvailable = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 18)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccLeafNodeName"), ("RARITANCCv2-MIB", "ccLeafNodeIPAddress"))
+if mibBuilder.loadTexts: ccLeafNodeAvailable.setStatus('current')
+ccIncompatibleDeviceFirmware = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 19)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"), ("RARITANCCv2-MIB", "ccLeafNodeIPAddress"), ("RARITANCCv2-MIB", "ccLeafNodeFirmwareVersion"))
+if mibBuilder.loadTexts: ccIncompatibleDeviceFirmware.setStatus('current')
+ccDeviceUpgrade = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 20)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"), ("RARITANCCv2-MIB", "ccLeafNodeIPAddress"), ("RARITANCCv2-MIB", "ccLeafNodeFirmwareVersion"), ("RARITANCCv2-MIB", "ccImageVersionStatus"))
+if mibBuilder.loadTexts: ccDeviceUpgrade.setStatus('current')
+ccEnterMaintenanceMode = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 21)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"))
+if mibBuilder.loadTexts: ccEnterMaintenanceMode.setStatus('current')
+ccExitMaintenanceMode = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 22)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"))
+if mibBuilder.loadTexts: ccExitMaintenanceMode.setStatus('current')
+ccUserLockedOut = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 23)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"))
+if mibBuilder.loadTexts: ccUserLockedOut.setStatus('current')
+ccDeviceAddedAfterCCNOCNotification = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 24)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccDeviceName"), ("RARITANCCv2-MIB", "ccLeafNodeIPAddress"))
+if mibBuilder.loadTexts: ccDeviceAddedAfterCCNOCNotification.setStatus('current')
+ccScheduledTaskExecutionFailure = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 25)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccScheduledTaskDescription"), ("RARITANCCv2-MIB", "ccScheduledTaskFailureReason"))
+if mibBuilder.loadTexts: ccScheduledTaskExecutionFailure.setStatus('current')
+ccDiagnosticConsoleLogin = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 26)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"), ("RARITANCCv2-MIB", "ccDiagnosticConsoleMAX_ACCESSLevel"))
+if mibBuilder.loadTexts: ccDiagnosticConsoleLogin.setStatus('current')
+ccDiagnosticConsoleLogout = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 27)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"), ("RARITANCCv2-MIB", "ccDiagnosticConsoleMAX_ACCESSLevel"))
+if mibBuilder.loadTexts: ccDiagnosticConsoleLogout.setStatus('current')
+ccNOCAvailable = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 28)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccLeafNodeIPAddress"))
+if mibBuilder.loadTexts: ccNOCAvailable.setStatus('current')
+ccNOCUnavailable = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 29)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccLeafNodeIPAddress"))
+if mibBuilder.loadTexts: ccNOCUnavailable.setStatus('current')
+ccUserGroupAdded = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 30)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserGroupName"), ("RARITANCCv2-MIB", "ccUserWhoAdded"))
+if mibBuilder.loadTexts: ccUserGroupAdded.setStatus('current')
+ccUserGroupDeleted = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 31)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserGroupName"), ("RARITANCCv2-MIB", "ccUserWhoDeleted"))
+if mibBuilder.loadTexts: ccUserGroupDeleted.setStatus('current')
+ccUserGroupModified = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 32)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserGroupName"), ("RARITANCCv2-MIB", "ccUserWhoModified"))
+if mibBuilder.loadTexts: ccUserGroupModified.setStatus('current')
+ccSuperuserNameChanged = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 33)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserWhoModified"))
+if mibBuilder.loadTexts: ccSuperuserNameChanged.setStatus('current')
+ccSuperuserPasswordChanged = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 34)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserWhoModified"))
+if mibBuilder.loadTexts: ccSuperuserPasswordChanged.setStatus('current')
+ccLoginBannerChanged = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 35)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserWhoModified"), ("RARITANCCv2-MIB", "ccBannerChanges"))
+if mibBuilder.loadTexts: ccLoginBannerChanged.setStatus('current')
+ccMOTDChanged = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 36)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserWhoModified"), ("RARITANCCv2-MIB", "ccMOTDChanges"))
+if mibBuilder.loadTexts: ccMOTDChanged.setStatus('current')
+ccDominionPXReplaced = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 37)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccOldNumberOfOutlets"), ("RARITANCCv2-MIB", "ccNewNumberOfOutlets"))
+if mibBuilder.loadTexts: ccDominionPXReplaced.setStatus('current')
+ccSystemMonitorNotification = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 38)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccSystemMonitorNotificationLevel"), ("RARITANCCv2-MIB", "ccSystemMonitorNotificationMessage"))
+if mibBuilder.loadTexts: ccSystemMonitorNotification.setStatus('current')
+ccNeighborhoodActivated = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 39)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"))
+if mibBuilder.loadTexts: ccNeighborhoodActivated.setStatus('current')
+ccNeighborhoodUpdated = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 40)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"))
+if mibBuilder.loadTexts: ccNeighborhoodUpdated.setStatus('current')
+ccDominionPXFirmwareChanged = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 41)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccDominionPXFirmwareVersion"))
+if mibBuilder.loadTexts: ccDominionPXFirmwareChanged.setStatus('current')
+ccClusterFailover = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 42)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccClusterPeer"))
+if mibBuilder.loadTexts: ccClusterFailover.setStatus('current')
+ccClusterBackupFailed = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 43)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccClusterPeer"))
+if mibBuilder.loadTexts: ccClusterBackupFailed.setStatus('current')
+ccClusterWaitingPeerDetected = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 44)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccClusterPeer"))
+if mibBuilder.loadTexts: ccClusterWaitingPeerDetected.setStatus('current')
+ccClusterAction = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 45)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccClusterOperation"), ("RARITANCCv2-MIB", "ccClusterOperationStatus"))
+if mibBuilder.loadTexts: ccClusterAction.setStatus('current')
+ccCSVFileTransferred = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 46)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"), ("RARITANCCv2-MIB", "ccFileType"), ("RARITANCCv2-MIB", "ccTransferOperation"))
+if mibBuilder.loadTexts: ccCSVFileTransferred.setStatus('current')
+ccPIQUnavailable = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 47)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccLeafNodeName"), ("RARITANCCv2-MIB", "ccLeafNodeIPAddress"))
+if mibBuilder.loadTexts: ccPIQUnavailable.setStatus('current')
+ccPIQAvailable = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 48)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccLeafNodeName"), ("RARITANCCv2-MIB", "ccLeafNodeIPAddress"))
+if mibBuilder.loadTexts: ccPIQAvailable.setStatus('current')
+ccLicenseServerUnavailable = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 49)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccLicenseServer"))
+if mibBuilder.loadTexts: ccLicenseServerUnavailable.setStatus('current')
+ccLicenseServerFailover = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 50)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccLicenseServer"))
+if mibBuilder.loadTexts: ccLicenseServerFailover.setStatus('current')
+ccLicenseServerAvailable = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 51)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccLicenseServer"))
+if mibBuilder.loadTexts: ccLicenseServerAvailable.setStatus('current')
+ccLicenseTerminated = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 52)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"))
+if mibBuilder.loadTexts: ccLicenseTerminated.setStatus('current')
+ccAddLicenseFailure = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 53)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"))
+if mibBuilder.loadTexts: ccAddLicenseFailure.setStatus('current')
+ccAddFeatureFailure = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 54)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccLicensedFeature"))
+if mibBuilder.loadTexts: ccAddFeatureFailure.setStatus('current')
+ccLicenseTerminatedWithReason = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 55)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccLicenseTerminatedReason"))
+if mibBuilder.loadTexts: ccLicenseTerminatedWithReason.setStatus('current')
+ccUserPasswordChanged = NotificationType((1, 3, 6, 1, 4, 1, 13742, 1, 1, 1, 1, 56)).setObjects(("RARITANCCv2-MIB", "ccObjectName"), ("RARITANCCv2-MIB", "ccObjectInstance"), ("RARITANCCv2-MIB", "ccUserName"), ("RARITANCCv2-MIB", "ccUserWhoModified"))
+if mibBuilder.loadTexts: ccUserPasswordChanged.setStatus('current')
+mibBuilder.exportSymbols("RARITANCCv2-MIB", ccBannerChanges=ccBannerChanges, ccSuperuserNameChanged=ccSuperuserNameChanged, enterpriseManagement=enterpriseManagement, ccCSVFileTransferred=ccCSVFileTransferred, ccNodeName=ccNodeName, ccUnavailable=ccUnavailable, ccUserLogout=ccUserLogout, ccLanCard=ccLanCard, ccSPortConnectionStarted=ccSPortConnectionStarted, ccEnterMaintenanceMode=ccEnterMaintenanceMode, ccNOCUnavailable=ccNOCUnavailable, ccClusterPeer=ccClusterPeer, ccUserNameInitiated=ccUserNameInitiated, ccUserSessionId=ccUserSessionId, ccScheduledTaskExecutionFailure=ccScheduledTaskExecutionFailure, ccLicenseTerminatedReason=ccLicenseTerminatedReason, ccImageUpgradeResults=ccImageUpgradeResults, ccAddLicenseFailure=ccAddLicenseFailure, ccExitMaintenanceMode=ccExitMaintenanceMode, ccUserWhoModified=ccUserWhoModified, ccSystemMonitorNotificationMessage=ccSystemMonitorNotificationMessage, ccFileType=ccFileType, ccLicenseTerminatedWithReason=ccLicenseTerminatedWithReason, ccImageType=ccImageType, ccUserLockedOut=ccUserLockedOut, ccPortConnectionTerminated=ccPortConnectionTerminated, ccOldNumberOfOutlets=ccOldNumberOfOutlets, ccUserLogin=ccUserLogin, ccDeviceName=ccDeviceName, ccMOTDChanged=ccMOTDChanged, ccClusterState=ccClusterState, ccObjectInstance=ccObjectInstance, ccImageVersionStatus=ccImageVersionStatus, ccTransferOperation=ccTransferOperation, ccLicenseServerAvailable=ccLicenseServerAvailable, ccUserWhoAdded=ccUserWhoAdded, ccLoginBannerChanged=ccLoginBannerChanged, ccScheduledTaskFailureReason=ccScheduledTaskFailureReason, ccDominionPXFirmwareChanged=ccDominionPXFirmwareChanged, ccNeighborhoodActivated=ccNeighborhoodActivated, ccUserGroupModified=ccUserGroupModified, ccClusterOperation=ccClusterOperation, ccAddFeatureFailure=ccAddFeatureFailure, ccDiagnosticConsoleLogin=ccDiagnosticConsoleLogin, ccDiagnosticConsoleMAX_ACCESSLevel=ccDiagnosticConsoleMAX_ACCESSLevel, ccAvailable=ccAvailable, ccUserDeleted=ccUserDeleted, ccClusterBackupFailed=ccClusterBackupFailed, ccClusterWaitingPeerDetected=ccClusterWaitingPeerDetected, commandCenter=commandCenter, ccScheduledTaskDescription=ccScheduledTaskDescription, ccUserModified=ccUserModified, ccNeighborhoodUpdated=ccNeighborhoodUpdated, ccUserName=ccUserName, ccLeafNodeFirmwareVersion=ccLeafNodeFirmwareVersion, ccUserAdded=ccUserAdded, ccLeafNodeName=ccLeafNodeName, raritan=raritan, ccLeafNodeUnavailable=ccLeafNodeUnavailable, ccUserWhoDeleted=ccUserWhoDeleted, ccClusterOperationStatus=ccClusterOperationStatus, ccObject=ccObject, ccUserGroupAdded=ccUserGroupAdded, ccNotify=ccNotify, ccSystemMonitorNotification=ccSystemMonitorNotification, ccUserGroupDeleted=ccUserGroupDeleted, ccRootPasswordChanged=ccRootPasswordChanged, ccLicenseServer=ccLicenseServer, ccMOTDChanges=ccMOTDChanges, ccDeviceAddedAfterCCNOCNotification=ccDeviceAddedAfterCCNOCNotification, ccIncompatibleDeviceFirmware=ccIncompatibleDeviceFirmware, ccLicenseTerminated=ccLicenseTerminated, ccNewNumberOfOutlets=ccNewNumberOfOutlets, ccImageVersion=ccImageVersion, ccHardDiskFailure=ccHardDiskFailure, ccLanCardFailure=ccLanCardFailure, ccDiagnosticConsoleLogout=ccDiagnosticConsoleLogout, ccUserGroupName=ccUserGroupName, ccDominionPXFirmwareVersion=ccDominionPXFirmwareVersion, ccUserAuthenticationFailure=ccUserAuthenticationFailure, ccSessionType=ccSessionType, ccLicensedFeature=ccLicensedFeature, ccLicenseServerFailover=ccLicenseServerFailover, ccPIQAvailable=ccPIQAvailable, ccClusterAction=ccClusterAction, ccSystemMonitorNotificationLevel=ccSystemMonitorNotificationLevel, ccDominionPXReplaced=ccDominionPXReplaced, ccUserPasswordChanged=ccUserPasswordChanged, ccClusterFailover=ccClusterFailover, ccLicenseServerUnavailable=ccLicenseServerUnavailable, ccLeafNodeAvailable=ccLeafNodeAvailable, ccPortName=ccPortName, ccObjectName=ccObjectName, ccUserNameTerminated=ccUserNameTerminated, ccDeviceUpgrade=ccDeviceUpgrade, ccLeafNodeIPAddress=ccLeafNodeIPAddress, ccNOCAvailable=ccNOCAvailable, PYSNMP_MODULE_ID=raritan, ccPortConnectionStopped=ccPortConnectionStopped, ccImageUpgradeStarted=ccImageUpgradeStarted, products=products, ccPIQUnavailable=ccPIQUnavailable, ccHardDisk=ccHardDisk, ccSuperuserPasswordChanged=ccSuperuserPasswordChanged)

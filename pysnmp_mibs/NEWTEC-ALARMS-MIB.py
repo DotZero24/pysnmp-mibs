@@ -1,71 +1,46 @@
-_K='ntcAlmsConfGrpV1Standard'
-_J='ntcAlmsConfigGeneralDevice'
-_I='ntcAlmsConfigGeneralInterface'
-_H='ntcAlmsConfigMask'
-_G='ntcAlmsConfigName'
-_F='DisplayString'
-_E='read-write'
-_D='off'
-_C='Integer32'
-_B='NEWTEC-ALARMS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ntcFunction,=mibBuilder.importSymbols('NEWTEC-MAIN-MIB','ntcFunction')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_F,'PhysAddress','TextualConvention')
-ntcAlarms=ModuleIdentity((1,3,6,1,4,1,5835,5,2,5600))
-if mibBuilder.loadTexts:ntcAlarms.setRevisions(('2013-09-20 10:00','2013-09-20 08:00'))
-_NtcAlmsObjects_ObjectIdentity=ObjectIdentity
-ntcAlmsObjects=_NtcAlmsObjects_ObjectIdentity((1,3,6,1,4,1,5835,5,2,5600,1))
-if mibBuilder.loadTexts:ntcAlmsObjects.setStatus(_A)
-_NtcAlmsConfigTable_Object=MibTable
-ntcAlmsConfigTable=_NtcAlmsConfigTable_Object((1,3,6,1,4,1,5835,5,2,5600,1,1))
-if mibBuilder.loadTexts:ntcAlmsConfigTable.setStatus(_A)
-_NtcAlmsConfigEntry_Object=MibTableRow
-ntcAlmsConfigEntry=_NtcAlmsConfigEntry_Object((1,3,6,1,4,1,5835,5,2,5600,1,1,1))
-ntcAlmsConfigEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:ntcAlmsConfigEntry.setStatus(_A)
-class _NtcAlmsConfigName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,30))
-_NtcAlmsConfigName_Type.__name__=_F
-_NtcAlmsConfigName_Object=MibTableColumn
-ntcAlmsConfigName=_NtcAlmsConfigName_Object((1,3,6,1,4,1,5835,5,2,5600,1,1,1,1),_NtcAlmsConfigName_Type())
-ntcAlmsConfigName.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:ntcAlmsConfigName.setStatus(_A)
-class _NtcAlmsConfigMask_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),('on',1)))
-_NtcAlmsConfigMask_Type.__name__=_C
-_NtcAlmsConfigMask_Object=MibTableColumn
-ntcAlmsConfigMask=_NtcAlmsConfigMask_Object((1,3,6,1,4,1,5835,5,2,5600,1,1,1,2),_NtcAlmsConfigMask_Type())
-ntcAlmsConfigMask.setMaxAccess(_E)
-if mibBuilder.loadTexts:ntcAlmsConfigMask.setStatus(_A)
-class _NtcAlmsConfigGeneralInterface_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),('on',1)))
-_NtcAlmsConfigGeneralInterface_Type.__name__=_C
-_NtcAlmsConfigGeneralInterface_Object=MibTableColumn
-ntcAlmsConfigGeneralInterface=_NtcAlmsConfigGeneralInterface_Object((1,3,6,1,4,1,5835,5,2,5600,1,1,1,3),_NtcAlmsConfigGeneralInterface_Type())
-ntcAlmsConfigGeneralInterface.setMaxAccess(_E)
-if mibBuilder.loadTexts:ntcAlmsConfigGeneralInterface.setStatus(_A)
-class _NtcAlmsConfigGeneralDevice_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),('on',1)))
-_NtcAlmsConfigGeneralDevice_Type.__name__=_C
-_NtcAlmsConfigGeneralDevice_Object=MibTableColumn
-ntcAlmsConfigGeneralDevice=_NtcAlmsConfigGeneralDevice_Object((1,3,6,1,4,1,5835,5,2,5600,1,1,1,4),_NtcAlmsConfigGeneralDevice_Type())
-ntcAlmsConfigGeneralDevice.setMaxAccess(_E)
-if mibBuilder.loadTexts:ntcAlmsConfigGeneralDevice.setStatus(_A)
-_NtcAlmsConformance_ObjectIdentity=ObjectIdentity
-ntcAlmsConformance=_NtcAlmsConformance_ObjectIdentity((1,3,6,1,4,1,5835,5,2,5600,2))
-if mibBuilder.loadTexts:ntcAlmsConformance.setStatus(_A)
-_NtcAlmsConfCompliance_ObjectIdentity=ObjectIdentity
-ntcAlmsConfCompliance=_NtcAlmsConfCompliance_ObjectIdentity((1,3,6,1,4,1,5835,5,2,5600,2,1))
-if mibBuilder.loadTexts:ntcAlmsConfCompliance.setStatus(_A)
-_NtcAlmsConfGroup_ObjectIdentity=ObjectIdentity
-ntcAlmsConfGroup=_NtcAlmsConfGroup_ObjectIdentity((1,3,6,1,4,1,5835,5,2,5600,2,2))
-if mibBuilder.loadTexts:ntcAlmsConfGroup.setStatus(_A)
-ntcAlmsConfGrpV1Standard=ObjectGroup((1,3,6,1,4,1,5835,5,2,5600,2,2,1))
-ntcAlmsConfGrpV1Standard.setObjects(*((_B,_H),(_B,_I),(_B,_J)))
-if mibBuilder.loadTexts:ntcAlmsConfGrpV1Standard.setStatus(_A)
-ntcAlmsConfCompV1Standard=ModuleCompliance((1,3,6,1,4,1,5835,5,2,5600,2,1,1))
-ntcAlmsConfCompV1Standard.setObjects((_B,_K))
-if mibBuilder.loadTexts:ntcAlmsConfCompV1Standard.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ntcAlarms':ntcAlarms,'ntcAlmsObjects':ntcAlmsObjects,'ntcAlmsConfigTable':ntcAlmsConfigTable,'ntcAlmsConfigEntry':ntcAlmsConfigEntry,_G:ntcAlmsConfigName,_H:ntcAlmsConfigMask,_I:ntcAlmsConfigGeneralInterface,_J:ntcAlmsConfigGeneralDevice,'ntcAlmsConformance':ntcAlmsConformance,'ntcAlmsConfCompliance':ntcAlmsConfCompliance,'ntcAlmsConfCompV1Standard':ntcAlmsConfCompV1Standard,'ntcAlmsConfGroup':ntcAlmsConfGroup,_K:ntcAlmsConfGrpV1Standard})
+#
+# PySNMP MIB module NEWTEC-ALARMS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/newtec/NEWTEC-ALARMS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:33 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ntcFunction, = mibBuilder.importSymbols("NEWTEC-MAIN-MIB", "ntcFunction")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ntcAlarms = ModuleIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5600))
+ntcAlarms.setRevisions(('2013-09-20 10:00', '2013-09-20 08:00',))
+if mibBuilder.loadTexts: ntcAlarms.setLastUpdated('201309201000Z')
+if mibBuilder.loadTexts: ntcAlarms.setOrganization('Newtec Cy')
+ntcAlmsObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5600, 1))
+if mibBuilder.loadTexts: ntcAlmsObjects.setStatus('current')
+ntcAlmsConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5600, 2))
+if mibBuilder.loadTexts: ntcAlmsConformance.setStatus('current')
+ntcAlmsConfCompliance = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5600, 2, 1))
+if mibBuilder.loadTexts: ntcAlmsConfCompliance.setStatus('current')
+ntcAlmsConfGroup = ObjectIdentity((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5600, 2, 2))
+if mibBuilder.loadTexts: ntcAlmsConfGroup.setStatus('current')
+ntcAlmsConfigTable = MibTable((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5600, 1, 1), )
+if mibBuilder.loadTexts: ntcAlmsConfigTable.setStatus('current')
+ntcAlmsConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5600, 1, 1, 1), ).setIndexNames((0, "NEWTEC-ALARMS-MIB", "ntcAlmsConfigName"))
+if mibBuilder.loadTexts: ntcAlmsConfigEntry.setStatus('current')
+ntcAlmsConfigName = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5600, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30)))
+if mibBuilder.loadTexts: ntcAlmsConfigName.setStatus('current')
+ntcAlmsConfigMask = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5600, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1))).clone('off')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcAlmsConfigMask.setStatus('current')
+ntcAlmsConfigGeneralInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5600, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1))).clone('off')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcAlmsConfigGeneralInterface.setStatus('current')
+ntcAlmsConfigGeneralDevice = MibTableColumn((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5600, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1))).clone('off')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ntcAlmsConfigGeneralDevice.setStatus('current')
+ntcAlmsConfGrpV1Standard = ObjectGroup((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5600, 2, 2, 1)).setObjects(("NEWTEC-ALARMS-MIB", "ntcAlmsConfigMask"), ("NEWTEC-ALARMS-MIB", "ntcAlmsConfigGeneralInterface"), ("NEWTEC-ALARMS-MIB", "ntcAlmsConfigGeneralDevice"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ntcAlmsConfGrpV1Standard = ntcAlmsConfGrpV1Standard.setStatus('current')
+ntcAlmsConfCompV1Standard = ModuleCompliance((1, 3, 6, 1, 4, 1, 5835, 5, 2, 5600, 2, 1, 1)).setObjects(("NEWTEC-ALARMS-MIB", "ntcAlmsConfGrpV1Standard"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ntcAlmsConfCompV1Standard = ntcAlmsConfCompV1Standard.setStatus('current')
+mibBuilder.exportSymbols("NEWTEC-ALARMS-MIB", ntcAlmsConfigTable=ntcAlmsConfigTable, ntcAlmsConfigMask=ntcAlmsConfigMask, ntcAlmsConfigGeneralDevice=ntcAlmsConfigGeneralDevice, ntcAlmsConfGrpV1Standard=ntcAlmsConfGrpV1Standard, ntcAlmsConfigEntry=ntcAlmsConfigEntry, ntcAlmsConfigName=ntcAlmsConfigName, ntcAlmsObjects=ntcAlmsObjects, ntcAlmsConformance=ntcAlmsConformance, PYSNMP_MODULE_ID=ntcAlarms, ntcAlmsConfCompV1Standard=ntcAlmsConfCompV1Standard, ntcAlarms=ntcAlarms, ntcAlmsConfCompliance=ntcAlmsConfCompliance, ntcAlmsConfigGeneralInterface=ntcAlmsConfigGeneralInterface, ntcAlmsConfGroup=ntcAlmsConfGroup)

@@ -1,63 +1,34 @@
-_D='NotificationType'
-_C='Integer32'
-_B='mandatory'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier',_D,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_D,'TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_IctPower_ObjectIdentity=ObjectIdentity
-ictPower=_IctPower_ObjectIdentity((1,3,6,1,4,1,39145))
-_DigitalSeries_ObjectIdentity=ObjectIdentity
-digitalSeries=_DigitalSeries_ObjectIdentity((1,3,6,1,4,1,39145,11))
-_DeviceModel_Type=DisplayString
-_DeviceModel_Object=MibScalar
-deviceModel=_DeviceModel_Object((1,3,6,1,4,1,39145,11,1),_DeviceModel_Type())
-deviceModel.setMaxAccess(_A)
-if mibBuilder.loadTexts:deviceModel.setStatus(_B)
-_DeviceName_Type=DisplayString
-_DeviceName_Object=MibScalar
-deviceName=_DeviceName_Object((1,3,6,1,4,1,39145,11,2),_DeviceName_Type())
-deviceName.setMaxAccess(_A)
-if mibBuilder.loadTexts:deviceName.setStatus(_B)
-class _DeviceHardware_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,127))
-_DeviceHardware_Type.__name__=_C
-_DeviceHardware_Object=MibScalar
-deviceHardware=_DeviceHardware_Object((1,3,6,1,4,1,39145,11,3),_DeviceHardware_Type())
-deviceHardware.setMaxAccess(_A)
-if mibBuilder.loadTexts:deviceHardware.setStatus(_B)
-_DeviceFirmware_Type=DisplayString
-_DeviceFirmware_Object=MibScalar
-deviceFirmware=_DeviceFirmware_Object((1,3,6,1,4,1,39145,11,4),_DeviceFirmware_Type())
-deviceFirmware.setMaxAccess(_A)
-if mibBuilder.loadTexts:deviceFirmware.setStatus(_B)
-_DeviceMacAddress_Type=DisplayString
-_DeviceMacAddress_Object=MibScalar
-deviceMacAddress=_DeviceMacAddress_Object((1,3,6,1,4,1,39145,11,5),_DeviceMacAddress_Type())
-deviceMacAddress.setMaxAccess(_A)
-if mibBuilder.loadTexts:deviceMacAddress.setStatus(_B)
-_InputVoltage_Type=DisplayString
-_InputVoltage_Object=MibScalar
-inputVoltage=_InputVoltage_Object((1,3,6,1,4,1,39145,11,6),_InputVoltage_Type())
-inputVoltage.setMaxAccess(_A)
-if mibBuilder.loadTexts:inputVoltage.setStatus(_B)
-_OutputVoltage_Type=DisplayString
-_OutputVoltage_Object=MibScalar
-outputVoltage=_OutputVoltage_Object((1,3,6,1,4,1,39145,11,7),_OutputVoltage_Type())
-outputVoltage.setMaxAccess(_A)
-if mibBuilder.loadTexts:outputVoltage.setStatus(_B)
-_OutputCurrent_Type=DisplayString
-_OutputCurrent_Object=MibScalar
-outputCurrent=_OutputCurrent_Object((1,3,6,1,4,1,39145,11,8),_OutputCurrent_Type())
-outputCurrent.setMaxAccess(_A)
-if mibBuilder.loadTexts:outputCurrent.setStatus(_B)
-class _OutputEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ENABLED',1),('DISABLED',2)))
-_OutputEnable_Type.__name__=_C
-_OutputEnable_Object=MibScalar
-outputEnable=_OutputEnable_Object((1,3,6,1,4,1,39145,11,9),_OutputEnable_Type())
-outputEnable.setMaxAccess(_A)
-if mibBuilder.loadTexts:outputEnable.setStatus(_B)
-mibBuilder.exportSymbols('ICT-DIGITAL-SERIES-MIB',**{'ictPower':ictPower,'digitalSeries':digitalSeries,'deviceModel':deviceModel,'deviceName':deviceName,'deviceHardware':deviceHardware,'deviceFirmware':deviceFirmware,'deviceMacAddress':deviceMacAddress,'inputVoltage':inputVoltage,'outputVoltage':outputVoltage,'outputCurrent':outputCurrent,'outputEnable':outputEnable})
+#
+# PySNMP MIB module ICT-DIGITAL-SERIES-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ict/ICT-DIGITAL-SERIES-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ictPower = MibIdentifier((1, 3, 6, 1, 4, 1, 39145))
+digitalSeries = MibIdentifier((1, 3, 6, 1, 4, 1, 39145, 11))
+deviceModel = MibScalar((1, 3, 6, 1, 4, 1, 39145, 11, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceModel.setStatus('mandatory')
+deviceName = MibScalar((1, 3, 6, 1, 4, 1, 39145, 11, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceName.setStatus('mandatory')
+deviceHardware = MibScalar((1, 3, 6, 1, 4, 1, 39145, 11, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 127))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceHardware.setStatus('mandatory')
+deviceFirmware = MibScalar((1, 3, 6, 1, 4, 1, 39145, 11, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceFirmware.setStatus('mandatory')
+deviceMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 39145, 11, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceMacAddress.setStatus('mandatory')
+inputVoltage = MibScalar((1, 3, 6, 1, 4, 1, 39145, 11, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: inputVoltage.setStatus('mandatory')
+outputVoltage = MibScalar((1, 3, 6, 1, 4, 1, 39145, 11, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: outputVoltage.setStatus('mandatory')
+outputCurrent = MibScalar((1, 3, 6, 1, 4, 1, 39145, 11, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: outputCurrent.setStatus('mandatory')
+outputEnable = MibScalar((1, 3, 6, 1, 4, 1, 39145, 11, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ENABLED", 1), ("DISABLED", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: outputEnable.setStatus('mandatory')
+mibBuilder.exportSymbols("ICT-DIGITAL-SERIES-MIB", inputVoltage=inputVoltage, deviceName=deviceName, ictPower=ictPower, deviceFirmware=deviceFirmware, outputCurrent=outputCurrent, deviceHardware=deviceHardware, outputVoltage=outputVoltage, outputEnable=outputEnable, deviceMacAddress=deviceMacAddress, deviceModel=deviceModel, digitalSeries=digitalSeries)

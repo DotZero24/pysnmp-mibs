@@ -1,31 +1,24 @@
-_C='current'
-_B='read-only'
-_A='Integer32'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mpMgmt,=mibBuilder.importSymbols('MAIPU-SMI','mpMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,ObjectName,ObjectSyntax,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_A,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','ObjectName','ObjectSyntax','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-mpSysPerfMib=ModuleIdentity((1,3,6,1,4,1,5651,3,901))
-class _MpSysRamUsage_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_MpSysRamUsage_Type.__name__=_A
-_MpSysRamUsage_Object=MibScalar
-mpSysRamUsage=_MpSysRamUsage_Object((1,3,6,1,4,1,5651,3,901,1),_MpSysRamUsage_Type())
-mpSysRamUsage.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpSysRamUsage.setStatus(_C)
-class _MpSysCpuUsage_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_MpSysCpuUsage_Type.__name__=_A
-_MpSysCpuUsage_Object=MibScalar
-mpSysCpuUsage=_MpSysCpuUsage_Object((1,3,6,1,4,1,5651,3,901,2),_MpSysCpuUsage_Type())
-mpSysCpuUsage.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpSysCpuUsage.setStatus(_C)
-class _MpSysCpuPeakLoad_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_MpSysCpuPeakLoad_Type.__name__=_A
-_MpSysCpuPeakLoad_Object=MibScalar
-mpSysCpuPeakLoad=_MpSysCpuPeakLoad_Object((1,3,6,1,4,1,5651,3,901,3),_MpSysCpuPeakLoad_Type())
-mpSysCpuPeakLoad.setMaxAccess(_B)
-if mibBuilder.loadTexts:mpSysCpuPeakLoad.setStatus(_C)
-mibBuilder.exportSymbols('MPSYSPERF-MIB',**{'mpSysPerfMib':mpSysPerfMib,'mpSysRamUsage':mpSysRamUsage,'mpSysCpuUsage':mpSysCpuUsage,'mpSysCpuPeakLoad':mpSysCpuPeakLoad})
+#
+# PySNMP MIB module MPSYSPERF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/maipu/MPSYSPERF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:08:58 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mpMgmt, = mibBuilder.importSymbols("MAIPU-SMI", "mpMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, ObjectSyntax, iso, MibIdentifier, ObjectName, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "ObjectSyntax", "iso", "MibIdentifier", "ObjectName", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+mpSysPerfMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 5651, 3, 901))
+if mibBuilder.loadTexts: mpSysPerfMib.setLastUpdated('0707311414Z')
+if mibBuilder.loadTexts: mpSysPerfMib.setOrganization('Maipu (Sichuan) Communication Technology Co. LTD.')
+mpSysRamUsage = MibScalar((1, 3, 6, 1, 4, 1, 5651, 3, 901, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpSysRamUsage.setStatus('current')
+mpSysCpuUsage = MibScalar((1, 3, 6, 1, 4, 1, 5651, 3, 901, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpSysCpuUsage.setStatus('current')
+mpSysCpuPeakLoad = MibScalar((1, 3, 6, 1, 4, 1, 5651, 3, 901, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mpSysCpuPeakLoad.setStatus('current')
+mibBuilder.exportSymbols("MPSYSPERF-MIB", PYSNMP_MODULE_ID=mpSysPerfMib, mpSysCpuPeakLoad=mpSysCpuPeakLoad, mpSysCpuUsage=mpSysCpuUsage, mpSysRamUsage=mpSysRamUsage, mpSysPerfMib=mpSysPerfMib)

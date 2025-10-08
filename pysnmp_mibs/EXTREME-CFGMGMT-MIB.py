@@ -1,125 +1,64 @@
-_P='read-write'
-_O='extremeLastChangeCfgSlotId'
-_N='remoteDevice'
-_M='extremeLastSaveConfigSlotId'
-_L='extremeLastChangeConfigSource'
-_K='extremeLastChangeConfigFileName'
-_J='extremeLastChangeConfigTime'
-_I='extremeLastSaveConfigSource'
-_H='extremeLastSaveConfigFileName'
-_G='extremeLastSaveConfigTime'
-_F='TruthValue'
-_E='DisplayString'
-_D='Integer32'
-_C='read-only'
-_B='EXTREME-CFGMGMT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-PortList,extremeAgent=mibBuilder.importSymbols('EXTREME-BASE-MIB','PortList','extremeAgent')
-ifDescr,=mibBuilder.importSymbols('IF-MIB','ifDescr')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-sysDescr,sysUpTime=mibBuilder.importSymbols('SNMPv2-MIB','sysDescr','sysUpTime')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_E,'PhysAddress','TextualConvention',_F)
-extremeCfgMgmt=ModuleIdentity((1,3,6,1,4,1,1916,1,42))
-if mibBuilder.loadTexts:extremeCfgMgmt.setRevisions(('2017-09-12 00:00',))
-_ExtremeCfgMgmtCommon_ObjectIdentity=ObjectIdentity
-extremeCfgMgmtCommon=_ExtremeCfgMgmtCommon_ObjectIdentity((1,3,6,1,4,1,1916,1,42,1))
-_ExtremeLastSaveCfgTable_Object=MibTable
-extremeLastSaveCfgTable=_ExtremeLastSaveCfgTable_Object((1,3,6,1,4,1,1916,1,42,1,1))
-if mibBuilder.loadTexts:extremeLastSaveCfgTable.setStatus(_A)
-_ExtremeLastSavedEntry_Object=MibTableRow
-extremeLastSavedEntry=_ExtremeLastSavedEntry_Object((1,3,6,1,4,1,1916,1,42,1,1,1))
-extremeLastSavedEntry.setIndexNames((0,_B,_M))
-if mibBuilder.loadTexts:extremeLastSavedEntry.setStatus(_A)
-class _ExtremeLastSaveConfigSlotId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_ExtremeLastSaveConfigSlotId_Type.__name__=_D
-_ExtremeLastSaveConfigSlotId_Object=MibTableColumn
-extremeLastSaveConfigSlotId=_ExtremeLastSaveConfigSlotId_Object((1,3,6,1,4,1,1916,1,42,1,1,1,1),_ExtremeLastSaveConfigSlotId_Type())
-extremeLastSaveConfigSlotId.setMaxAccess(_C)
-if mibBuilder.loadTexts:extremeLastSaveConfigSlotId.setStatus(_A)
-class _ExtremeLastSaveConfigTime_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_ExtremeLastSaveConfigTime_Type.__name__=_E
-_ExtremeLastSaveConfigTime_Object=MibTableColumn
-extremeLastSaveConfigTime=_ExtremeLastSaveConfigTime_Object((1,3,6,1,4,1,1916,1,42,1,1,1,2),_ExtremeLastSaveConfigTime_Type())
-extremeLastSaveConfigTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:extremeLastSaveConfigTime.setStatus(_A)
-class _ExtremeLastSaveConfigFileName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_ExtremeLastSaveConfigFileName_Type.__name__=_E
-_ExtremeLastSaveConfigFileName_Object=MibTableColumn
-extremeLastSaveConfigFileName=_ExtremeLastSaveConfigFileName_Object((1,3,6,1,4,1,1916,1,42,1,1,1,3),_ExtremeLastSaveConfigFileName_Type())
-extremeLastSaveConfigFileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:extremeLastSaveConfigFileName.setStatus(_A)
-class _ExtremeLastSaveConfigSource_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('snmp',1),(_N,2),('none',3)))
-_ExtremeLastSaveConfigSource_Type.__name__=_D
-_ExtremeLastSaveConfigSource_Object=MibTableColumn
-extremeLastSaveConfigSource=_ExtremeLastSaveConfigSource_Object((1,3,6,1,4,1,1916,1,42,1,1,1,4),_ExtremeLastSaveConfigSource_Type())
-extremeLastSaveConfigSource.setMaxAccess(_C)
-if mibBuilder.loadTexts:extremeLastSaveConfigSource.setStatus(_A)
-_ExtremeLastChangeCfgTable_Object=MibTable
-extremeLastChangeCfgTable=_ExtremeLastChangeCfgTable_Object((1,3,6,1,4,1,1916,1,42,1,2))
-if mibBuilder.loadTexts:extremeLastChangeCfgTable.setStatus(_A)
-_ExtremeLastChangeCfgEntry_Object=MibTableRow
-extremeLastChangeCfgEntry=_ExtremeLastChangeCfgEntry_Object((1,3,6,1,4,1,1916,1,42,1,2,1))
-extremeLastChangeCfgEntry.setIndexNames((0,_B,_O))
-if mibBuilder.loadTexts:extremeLastChangeCfgEntry.setStatus(_A)
-class _ExtremeLastChangeCfgSlotId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_ExtremeLastChangeCfgSlotId_Type.__name__=_D
-_ExtremeLastChangeCfgSlotId_Object=MibTableColumn
-extremeLastChangeCfgSlotId=_ExtremeLastChangeCfgSlotId_Object((1,3,6,1,4,1,1916,1,42,1,2,1,1),_ExtremeLastChangeCfgSlotId_Type())
-extremeLastChangeCfgSlotId.setMaxAccess(_C)
-if mibBuilder.loadTexts:extremeLastChangeCfgSlotId.setStatus(_A)
-class _ExtremeLastChangeConfigTime_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_ExtremeLastChangeConfigTime_Type.__name__=_E
-_ExtremeLastChangeConfigTime_Object=MibTableColumn
-extremeLastChangeConfigTime=_ExtremeLastChangeConfigTime_Object((1,3,6,1,4,1,1916,1,42,1,2,1,2),_ExtremeLastChangeConfigTime_Type())
-extremeLastChangeConfigTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:extremeLastChangeConfigTime.setStatus(_A)
-class _ExtremeLastChangeConfigFileName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_ExtremeLastChangeConfigFileName_Type.__name__=_E
-_ExtremeLastChangeConfigFileName_Object=MibTableColumn
-extremeLastChangeConfigFileName=_ExtremeLastChangeConfigFileName_Object((1,3,6,1,4,1,1916,1,42,1,2,1,3),_ExtremeLastChangeConfigFileName_Type())
-extremeLastChangeConfigFileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:extremeLastChangeConfigFileName.setStatus(_A)
-class _ExtremeLastChangeConfigSource_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('snmp',1),(_N,2),('none',3)))
-_ExtremeLastChangeConfigSource_Type.__name__=_D
-_ExtremeLastChangeConfigSource_Object=MibTableColumn
-extremeLastChangeConfigSource=_ExtremeLastChangeConfigSource_Object((1,3,6,1,4,1,1916,1,42,1,2,1,4),_ExtremeLastChangeConfigSource_Type())
-extremeLastChangeConfigSource.setMaxAccess(_C)
-if mibBuilder.loadTexts:extremeLastChangeConfigSource.setStatus(_A)
-_ExtremeCfgGroups_ObjectIdentity=ObjectIdentity
-extremeCfgGroups=_ExtremeCfgGroups_ObjectIdentity((1,3,6,1,4,1,1916,1,42,9))
-_ExtremeCfgMgmtTrapPrefix_ObjectIdentity=ObjectIdentity
-extremeCfgMgmtTrapPrefix=_ExtremeCfgMgmtTrapPrefix_ObjectIdentity((1,3,6,1,4,1,1916,1,42,10))
-_CfgMgmtTraps_ObjectIdentity=ObjectIdentity
-cfgMgmtTraps=_CfgMgmtTraps_ObjectIdentity((1,3,6,1,4,1,1916,1,42,10,0))
-_CfgMgmtControl_ObjectIdentity=ObjectIdentity
-cfgMgmtControl=_CfgMgmtControl_ObjectIdentity((1,3,6,1,4,1,1916,1,42,11))
-class _CfgMgmtConfigSaveTrapEnable_Type(TruthValue):defaultValue=2
-_CfgMgmtConfigSaveTrapEnable_Type.__name__=_F
-_CfgMgmtConfigSaveTrapEnable_Object=MibScalar
-cfgMgmtConfigSaveTrapEnable=_CfgMgmtConfigSaveTrapEnable_Object((1,3,6,1,4,1,1916,1,42,11,1),_CfgMgmtConfigSaveTrapEnable_Type())
-cfgMgmtConfigSaveTrapEnable.setMaxAccess(_P)
-if mibBuilder.loadTexts:cfgMgmtConfigSaveTrapEnable.setStatus(_A)
-class _CfgMgmtConfigChangeTrapEnable_Type(TruthValue):defaultValue=2
-_CfgMgmtConfigChangeTrapEnable_Type.__name__=_F
-_CfgMgmtConfigChangeTrapEnable_Object=MibScalar
-cfgMgmtConfigChangeTrapEnable=_CfgMgmtConfigChangeTrapEnable_Object((1,3,6,1,4,1,1916,1,42,11,2),_CfgMgmtConfigChangeTrapEnable_Type())
-cfgMgmtConfigChangeTrapEnable.setMaxAccess(_P)
-if mibBuilder.loadTexts:cfgMgmtConfigChangeTrapEnable.setStatus(_A)
-extremeRunningLastSavedCfgGroup=ObjectGroup((1,3,6,1,4,1,1916,1,42,9,1))
-extremeRunningLastSavedCfgGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:extremeRunningLastSavedCfgGroup.setStatus(_A)
-extremeRunningLastChangeCfgGroup=ObjectGroup((1,3,6,1,4,1,1916,1,42,9,2))
-extremeRunningLastChangeCfgGroup.setObjects(*((_B,_J),(_B,_K),(_B,_L)))
-if mibBuilder.loadTexts:extremeRunningLastChangeCfgGroup.setStatus(_A)
-cfgMgmtConfigSaveTrap=NotificationType((1,3,6,1,4,1,1916,1,42,10,0,1))
-cfgMgmtConfigSaveTrap.setObjects(*((_B,_G),(_B,_H),(_B,_I)))
-if mibBuilder.loadTexts:cfgMgmtConfigSaveTrap.setStatus(_A)
-cfgMgmtConfigChangeTrap=NotificationType((1,3,6,1,4,1,1916,1,42,10,0,2))
-cfgMgmtConfigChangeTrap.setObjects(*((_B,_J),(_B,_K),(_B,_L)))
-if mibBuilder.loadTexts:cfgMgmtConfigChangeTrap.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'extremeCfgMgmt':extremeCfgMgmt,'extremeCfgMgmtCommon':extremeCfgMgmtCommon,'extremeLastSaveCfgTable':extremeLastSaveCfgTable,'extremeLastSavedEntry':extremeLastSavedEntry,_M:extremeLastSaveConfigSlotId,_G:extremeLastSaveConfigTime,_H:extremeLastSaveConfigFileName,_I:extremeLastSaveConfigSource,'extremeLastChangeCfgTable':extremeLastChangeCfgTable,'extremeLastChangeCfgEntry':extremeLastChangeCfgEntry,_O:extremeLastChangeCfgSlotId,_J:extremeLastChangeConfigTime,_K:extremeLastChangeConfigFileName,_L:extremeLastChangeConfigSource,'extremeCfgGroups':extremeCfgGroups,'extremeRunningLastSavedCfgGroup':extremeRunningLastSavedCfgGroup,'extremeRunningLastChangeCfgGroup':extremeRunningLastChangeCfgGroup,'extremeCfgMgmtTrapPrefix':extremeCfgMgmtTrapPrefix,'cfgMgmtTraps':cfgMgmtTraps,'cfgMgmtConfigSaveTrap':cfgMgmtConfigSaveTrap,'cfgMgmtConfigChangeTrap':cfgMgmtConfigChangeTrap,'cfgMgmtControl':cfgMgmtControl,'cfgMgmtConfigSaveTrapEnable':cfgMgmtConfigSaveTrapEnable,'cfgMgmtConfigChangeTrapEnable':cfgMgmtConfigChangeTrapEnable})
+#
+# PySNMP MIB module EXTREME-CFGMGMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/extreme/EXTREME-CFGMGMT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+PortList, extremeAgent = mibBuilder.importSymbols("EXTREME-BASE-MIB", "PortList", "extremeAgent")
+ifDescr, = mibBuilder.importSymbols("IF-MIB", "ifDescr")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+sysUpTime, sysDescr = mibBuilder.importSymbols("SNMPv2-MIB", "sysUpTime", "sysDescr")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+extremeCfgMgmt = ModuleIdentity((1, 3, 6, 1, 4, 1, 1916, 1, 42))
+extremeCfgMgmt.setRevisions(('2017-09-12 00:00',))
+if mibBuilder.loadTexts: extremeCfgMgmt.setLastUpdated('201709120000Z')
+if mibBuilder.loadTexts: extremeCfgMgmt.setOrganization('Extreme Networks, Inc.')
+extremeCfgMgmtCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 1916, 1, 42, 1))
+extremeLastSaveCfgTable = MibTable((1, 3, 6, 1, 4, 1, 1916, 1, 42, 1, 1), )
+if mibBuilder.loadTexts: extremeLastSaveCfgTable.setStatus('current')
+extremeLastSavedEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1916, 1, 42, 1, 1, 1), ).setIndexNames((0, "EXTREME-CFGMGMT-MIB", "extremeLastSaveConfigSlotId"))
+if mibBuilder.loadTexts: extremeLastSavedEntry.setStatus('current')
+extremeLastSaveConfigSlotId = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 42, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeLastSaveConfigSlotId.setStatus('current')
+extremeLastSaveConfigTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 42, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeLastSaveConfigTime.setStatus('current')
+extremeLastSaveConfigFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 42, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeLastSaveConfigFileName.setStatus('current')
+extremeLastSaveConfigSource = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 42, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("snmp", 1), ("remoteDevice", 2), ("none", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeLastSaveConfigSource.setStatus('current')
+extremeLastChangeCfgTable = MibTable((1, 3, 6, 1, 4, 1, 1916, 1, 42, 1, 2), )
+if mibBuilder.loadTexts: extremeLastChangeCfgTable.setStatus('current')
+extremeLastChangeCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1916, 1, 42, 1, 2, 1), ).setIndexNames((0, "EXTREME-CFGMGMT-MIB", "extremeLastChangeCfgSlotId"))
+if mibBuilder.loadTexts: extremeLastChangeCfgEntry.setStatus('current')
+extremeLastChangeCfgSlotId = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 42, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeLastChangeCfgSlotId.setStatus('current')
+extremeLastChangeConfigTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 42, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeLastChangeConfigTime.setStatus('current')
+extremeLastChangeConfigFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 42, 1, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeLastChangeConfigFileName.setStatus('current')
+extremeLastChangeConfigSource = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 42, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("snmp", 1), ("remoteDevice", 2), ("none", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: extremeLastChangeConfigSource.setStatus('current')
+extremeCfgGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1916, 1, 42, 9))
+extremeRunningLastSavedCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1916, 1, 42, 9, 1)).setObjects(("EXTREME-CFGMGMT-MIB", "extremeLastSaveConfigTime"), ("EXTREME-CFGMGMT-MIB", "extremeLastSaveConfigFileName"), ("EXTREME-CFGMGMT-MIB", "extremeLastSaveConfigSource"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    extremeRunningLastSavedCfgGroup = extremeRunningLastSavedCfgGroup.setStatus('current')
+extremeRunningLastChangeCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1916, 1, 42, 9, 2)).setObjects(("EXTREME-CFGMGMT-MIB", "extremeLastChangeConfigTime"), ("EXTREME-CFGMGMT-MIB", "extremeLastChangeConfigFileName"), ("EXTREME-CFGMGMT-MIB", "extremeLastChangeConfigSource"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    extremeRunningLastChangeCfgGroup = extremeRunningLastChangeCfgGroup.setStatus('current')
+extremeCfgMgmtTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 1916, 1, 42, 10))
+cfgMgmtTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1916, 1, 42, 10, 0))
+cfgMgmtControl = MibIdentifier((1, 3, 6, 1, 4, 1, 1916, 1, 42, 11))
+cfgMgmtConfigSaveTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 1916, 1, 42, 11, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cfgMgmtConfigSaveTrapEnable.setStatus('current')
+cfgMgmtConfigChangeTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 1916, 1, 42, 11, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cfgMgmtConfigChangeTrapEnable.setStatus('current')
+cfgMgmtConfigSaveTrap = NotificationType((1, 3, 6, 1, 4, 1, 1916, 1, 42, 10, 0, 1)).setObjects(("EXTREME-CFGMGMT-MIB", "extremeLastSaveConfigTime"), ("EXTREME-CFGMGMT-MIB", "extremeLastSaveConfigFileName"), ("EXTREME-CFGMGMT-MIB", "extremeLastSaveConfigSource"))
+if mibBuilder.loadTexts: cfgMgmtConfigSaveTrap.setStatus('current')
+cfgMgmtConfigChangeTrap = NotificationType((1, 3, 6, 1, 4, 1, 1916, 1, 42, 10, 0, 2)).setObjects(("EXTREME-CFGMGMT-MIB", "extremeLastChangeConfigTime"), ("EXTREME-CFGMGMT-MIB", "extremeLastChangeConfigFileName"), ("EXTREME-CFGMGMT-MIB", "extremeLastChangeConfigSource"))
+if mibBuilder.loadTexts: cfgMgmtConfigChangeTrap.setStatus('current')
+mibBuilder.exportSymbols("EXTREME-CFGMGMT-MIB", extremeCfgMgmtCommon=extremeCfgMgmtCommon, extremeRunningLastChangeCfgGroup=extremeRunningLastChangeCfgGroup, extremeLastSavedEntry=extremeLastSavedEntry, extremeRunningLastSavedCfgGroup=extremeRunningLastSavedCfgGroup, extremeCfgMgmtTrapPrefix=extremeCfgMgmtTrapPrefix, cfgMgmtConfigSaveTrap=cfgMgmtConfigSaveTrap, extremeCfgGroups=extremeCfgGroups, extremeCfgMgmt=extremeCfgMgmt, extremeLastSaveConfigTime=extremeLastSaveConfigTime, extremeLastChangeConfigFileName=extremeLastChangeConfigFileName, extremeLastChangeCfgEntry=extremeLastChangeCfgEntry, cfgMgmtTraps=cfgMgmtTraps, extremeLastSaveConfigFileName=extremeLastSaveConfigFileName, PYSNMP_MODULE_ID=extremeCfgMgmt, cfgMgmtConfigChangeTrap=cfgMgmtConfigChangeTrap, extremeLastChangeConfigTime=extremeLastChangeConfigTime, extremeLastSaveConfigSource=extremeLastSaveConfigSource, cfgMgmtConfigChangeTrapEnable=cfgMgmtConfigChangeTrapEnable, extremeLastSaveCfgTable=extremeLastSaveCfgTable, extremeLastChangeCfgSlotId=extremeLastChangeCfgSlotId, extremeLastChangeConfigSource=extremeLastChangeConfigSource, extremeLastSaveConfigSlotId=extremeLastSaveConfigSlotId, extremeLastChangeCfgTable=extremeLastChangeCfgTable, cfgMgmtConfigSaveTrapEnable=cfgMgmtConfigSaveTrapEnable, cfgMgmtControl=cfgMgmtControl)

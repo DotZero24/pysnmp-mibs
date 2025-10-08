@@ -1,48 +1,37 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-contivity=ModuleIdentity((1,3,6,1,4,1,2505,1))
-if mibBuilder.loadTexts:contivity.setRevisions(('1900-05-12 20:45',))
-_Newoak_ObjectIdentity=ObjectIdentity
-newoak=_Newoak_ObjectIdentity((1,3,6,1,4,1,2505))
-_VpnRouter2000_ObjectIdentity=ObjectIdentity
-vpnRouter2000=_VpnRouter2000_ObjectIdentity((1,3,6,1,4,1,2505,2))
-_VpnRouter1000_ObjectIdentity=ObjectIdentity
-vpnRouter1000=_VpnRouter1000_ObjectIdentity((1,3,6,1,4,1,2505,3))
-_VpnRouter4500_ObjectIdentity=ObjectIdentity
-vpnRouter4500=_VpnRouter4500_ObjectIdentity((1,3,6,1,4,1,2505,4))
-_VpnRouter15XX_ObjectIdentity=ObjectIdentity
-vpnRouter15XX=_VpnRouter15XX_ObjectIdentity((1,3,6,1,4,1,2505,5))
-_VpnRouter2500_ObjectIdentity=ObjectIdentity
-vpnRouter2500=_VpnRouter2500_ObjectIdentity((1,3,6,1,4,1,2505,6))
-_VpnRouter1600_ObjectIdentity=ObjectIdentity
-vpnRouter1600=_VpnRouter1600_ObjectIdentity((1,3,6,1,4,1,2505,7))
-_VpnRouter2600_ObjectIdentity=ObjectIdentity
-vpnRouter2600=_VpnRouter2600_ObjectIdentity((1,3,6,1,4,1,2505,8))
-_VpnRouter4600_ObjectIdentity=ObjectIdentity
-vpnRouter4600=_VpnRouter4600_ObjectIdentity((1,3,6,1,4,1,2505,9))
-_VpnRouter600_ObjectIdentity=ObjectIdentity
-vpnRouter600=_VpnRouter600_ObjectIdentity((1,3,6,1,4,1,2505,600))
-_VpnRouter1010_ObjectIdentity=ObjectIdentity
-vpnRouter1010=_VpnRouter1010_ObjectIdentity((1,3,6,1,4,1,2505,1010))
-_VpnRouter1050_ObjectIdentity=ObjectIdentity
-vpnRouter1050=_VpnRouter1050_ObjectIdentity((1,3,6,1,4,1,2505,1050))
-_VpnRouter1100_ObjectIdentity=ObjectIdentity
-vpnRouter1100=_VpnRouter1100_ObjectIdentity((1,3,6,1,4,1,2505,1100))
-_VpnRouter1700_ObjectIdentity=ObjectIdentity
-vpnRouter1700=_VpnRouter1700_ObjectIdentity((1,3,6,1,4,1,2505,1700))
-_VpnRouter1740_ObjectIdentity=ObjectIdentity
-vpnRouter1740=_VpnRouter1740_ObjectIdentity((1,3,6,1,4,1,2505,1740))
-_VpnRouter1750_ObjectIdentity=ObjectIdentity
-vpnRouter1750=_VpnRouter1750_ObjectIdentity((1,3,6,1,4,1,2505,1750))
-_VpnRouter2700_ObjectIdentity=ObjectIdentity
-vpnRouter2700=_VpnRouter2700_ObjectIdentity((1,3,6,1,4,1,2505,2700))
-_VpnRouter2750_ObjectIdentity=ObjectIdentity
-vpnRouter2750=_VpnRouter2750_ObjectIdentity((1,3,6,1,4,1,2505,2750))
-_VpnRouter5000_ObjectIdentity=ObjectIdentity
-vpnRouter5000=_VpnRouter5000_ObjectIdentity((1,3,6,1,4,1,2505,5000))
-mibBuilder.exportSymbols('NEWOAK-MIB',**{'newoak':newoak,'contivity':contivity,'vpnRouter2000':vpnRouter2000,'vpnRouter1000':vpnRouter1000,'vpnRouter4500':vpnRouter4500,'vpnRouter15XX':vpnRouter15XX,'vpnRouter2500':vpnRouter2500,'vpnRouter1600':vpnRouter1600,'vpnRouter2600':vpnRouter2600,'vpnRouter4600':vpnRouter4600,'vpnRouter600':vpnRouter600,'vpnRouter1010':vpnRouter1010,'vpnRouter1050':vpnRouter1050,'vpnRouter1100':vpnRouter1100,'vpnRouter1700':vpnRouter1700,'vpnRouter1740':vpnRouter1740,'vpnRouter1750':vpnRouter1750,'vpnRouter2700':vpnRouter2700,'vpnRouter2750':vpnRouter2750,'vpnRouter5000':vpnRouter5000})
+#
+# PySNMP MIB module NEWOAK-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/NEWOAK-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+newoak = MibIdentifier((1, 3, 6, 1, 4, 1, 2505))
+contivity = ModuleIdentity((1, 3, 6, 1, 4, 1, 2505, 1))
+contivity.setRevisions(('1900-05-12 20:45',))
+if mibBuilder.loadTexts: contivity.setLastUpdated('0004252130Z')
+if mibBuilder.loadTexts: contivity.setOrganization('Nortel')
+vpnRouter2000 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 2))
+vpnRouter1000 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 3))
+vpnRouter4500 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 4))
+vpnRouter15XX = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 5))
+vpnRouter2500 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 6))
+vpnRouter1600 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 7))
+vpnRouter2600 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 8))
+vpnRouter4600 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 9))
+vpnRouter1700 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 1700))
+vpnRouter1740 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 1740))
+vpnRouter1750 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 1750))
+vpnRouter2700 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 2700))
+vpnRouter1010 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 1010))
+vpnRouter1050 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 1050))
+vpnRouter1100 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 1100))
+vpnRouter600 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 600))
+vpnRouter5000 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 5000))
+vpnRouter2750 = MibIdentifier((1, 3, 6, 1, 4, 1, 2505, 2750))
+mibBuilder.exportSymbols("NEWOAK-MIB", vpnRouter1600=vpnRouter1600, vpnRouter600=vpnRouter600, newoak=newoak, vpnRouter15XX=vpnRouter15XX, vpnRouter2700=vpnRouter2700, contivity=contivity, vpnRouter1000=vpnRouter1000, vpnRouter2500=vpnRouter2500, vpnRouter2000=vpnRouter2000, vpnRouter1740=vpnRouter1740, vpnRouter2750=vpnRouter2750, vpnRouter1050=vpnRouter1050, vpnRouter1700=vpnRouter1700, vpnRouter5000=vpnRouter5000, vpnRouter2600=vpnRouter2600, vpnRouter1100=vpnRouter1100, vpnRouter4500=vpnRouter4500, vpnRouter4600=vpnRouter4600, PYSNMP_MODULE_ID=contivity, vpnRouter1010=vpnRouter1010, vpnRouter1750=vpnRouter1750)

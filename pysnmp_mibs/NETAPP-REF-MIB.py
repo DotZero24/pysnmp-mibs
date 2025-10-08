@@ -1,17 +1,24 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-broadcom=ModuleIdentity((1,3,6,1,4,1,789,4413))
-if mibBuilder.loadTexts:broadcom.setRevisions(('2007-05-23 00:00','2003-11-21 00:00','2003-02-06 12:00'))
-class AgentPortMask(TextualConvention,OctetString):status='current'
-_Netapp_ObjectIdentity=ObjectIdentity
-netapp=_Netapp_ObjectIdentity((1,3,6,1,4,1,789))
-_BroadcomProducts_ObjectIdentity=ObjectIdentity
-broadcomProducts=_BroadcomProducts_ObjectIdentity((1,3,6,1,4,1,789,4413,1))
-_FastPath_ObjectIdentity=ObjectIdentity
-fastPath=_FastPath_ObjectIdentity((1,3,6,1,4,1,789,4413,1,1))
-mibBuilder.exportSymbols('NETAPP-REF-MIB',**{'AgentPortMask':AgentPortMask,'netapp':netapp,'broadcom':broadcom,'broadcomProducts':broadcomProducts,'fastPath':fastPath})
+#
+# PySNMP MIB module NETAPP-REF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netapp/NETAPP-REF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:34 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+broadcom = ModuleIdentity((1, 3, 6, 1, 4, 1, 789, 4413))
+broadcom.setRevisions(('2007-05-23 00:00', '2003-11-21 00:00', '2003-02-06 12:00',))
+if mibBuilder.loadTexts: broadcom.setLastUpdated('200705230000Z')
+if mibBuilder.loadTexts: broadcom.setOrganization('Broadcom Corporation')
+netapp = MibIdentifier((1, 3, 6, 1, 4, 1, 789))
+broadcomProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 789, 4413, 1))
+fastPath = MibIdentifier((1, 3, 6, 1, 4, 1, 789, 4413, 1, 1))
+class AgentPortMask(TextualConvention, OctetString):
+    status = 'current'
+
+mibBuilder.exportSymbols("NETAPP-REF-MIB", broadcomProducts=broadcomProducts, PYSNMP_MODULE_ID=broadcom, broadcom=broadcom, AgentPortMask=AgentPortMask, netapp=netapp, fastPath=fastPath)

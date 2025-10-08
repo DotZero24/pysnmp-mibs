@@ -1,175 +1,86 @@
-_c='vmwVROPSNotificationGroup'
-_b='vmwVROPSNotificationInfoGroup'
-_a='vmwTrapProblemChange'
-_Z='vmwTrapProblemClear'
-_Y='vmwTrapProblemActive'
-_X='vmwTrapTest'
-_W='vmwAlertNotificationRules'
-_V='vmwAlertImpact'
-_U='vmwAlertDefinitionDesc'
-_T='vmwAlertDefinitionName'
-_S='vmwAlertEfficiency'
-_R='vmwAlertRisk'
-_Q='vmwAlertHealth'
-_P='vmwAlertResourceKind'
-_O='vmwAlertMetricName'
-_N='vmwAlertSubtype'
-_M='vmwAlertType'
-_L='vmwAlertMessage'
-_K='vmwAlertID'
-_J='vmwAlertURL'
-_I='vmwAlertRootCause'
-_H='vmwAlertCriticality'
-_G='vmwAlertTimestamp'
-_F='vmwAlertEntityType'
-_E='vmwAlertEntityName'
-_D='vmwAlertAliveServerName'
-_C='accessible-for-notify'
-_B='current'
-_A='VMWARE-VROPS-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-vmwVrops,=mibBuilder.importSymbols('VMWARE-PRODUCTS-MIB','vmwVrops')
-VmwLongDisplayString,=mibBuilder.importSymbols('VMWARE-TC-MIB','VmwLongDisplayString')
-vmwVropsMIB=ModuleIdentity((1,3,6,1,4,1,6876,4,50,1))
-if mibBuilder.loadTexts:vmwVropsMIB.setRevisions(('2018-06-27 00:00',))
-_VmwAlertTrap_ObjectIdentity=ObjectIdentity
-vmwAlertTrap=_VmwAlertTrap_ObjectIdentity((1,3,6,1,4,1,6876,4,50,1,0))
-if mibBuilder.loadTexts:vmwAlertTrap.setStatus(_B)
-_VmwGenericAlertData_ObjectIdentity=ObjectIdentity
-vmwGenericAlertData=_VmwGenericAlertData_ObjectIdentity((1,3,6,1,4,1,6876,4,50,1,2))
-if mibBuilder.loadTexts:vmwGenericAlertData.setStatus(_B)
-_VmwAlertAliveServerName_Type=VmwLongDisplayString
-_VmwAlertAliveServerName_Object=MibScalar
-vmwAlertAliveServerName=_VmwAlertAliveServerName_Object((1,3,6,1,4,1,6876,4,50,1,2,1),_VmwAlertAliveServerName_Type())
-vmwAlertAliveServerName.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertAliveServerName.setStatus(_B)
-_VmwAlertEntityName_Type=VmwLongDisplayString
-_VmwAlertEntityName_Object=MibScalar
-vmwAlertEntityName=_VmwAlertEntityName_Object((1,3,6,1,4,1,6876,4,50,1,2,2),_VmwAlertEntityName_Type())
-vmwAlertEntityName.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertEntityName.setStatus(_B)
-_VmwAlertEntityType_Type=VmwLongDisplayString
-_VmwAlertEntityType_Object=MibScalar
-vmwAlertEntityType=_VmwAlertEntityType_Object((1,3,6,1,4,1,6876,4,50,1,2,3),_VmwAlertEntityType_Type())
-vmwAlertEntityType.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertEntityType.setStatus(_B)
-_VmwAlertTimestamp_Type=VmwLongDisplayString
-_VmwAlertTimestamp_Object=MibScalar
-vmwAlertTimestamp=_VmwAlertTimestamp_Object((1,3,6,1,4,1,6876,4,50,1,2,4),_VmwAlertTimestamp_Type())
-vmwAlertTimestamp.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertTimestamp.setStatus(_B)
-_VmwAlertCriticality_Type=VmwLongDisplayString
-_VmwAlertCriticality_Object=MibScalar
-vmwAlertCriticality=_VmwAlertCriticality_Object((1,3,6,1,4,1,6876,4,50,1,2,5),_VmwAlertCriticality_Type())
-vmwAlertCriticality.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertCriticality.setStatus(_B)
-_VmwAlertRootCause_Type=VmwLongDisplayString
-_VmwAlertRootCause_Object=MibScalar
-vmwAlertRootCause=_VmwAlertRootCause_Object((1,3,6,1,4,1,6876,4,50,1,2,6),_VmwAlertRootCause_Type())
-vmwAlertRootCause.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertRootCause.setStatus(_B)
-_VmwAlertURL_Type=VmwLongDisplayString
-_VmwAlertURL_Object=MibScalar
-vmwAlertURL=_VmwAlertURL_Object((1,3,6,1,4,1,6876,4,50,1,2,7),_VmwAlertURL_Type())
-vmwAlertURL.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertURL.setStatus(_B)
-_VmwAlertID_Type=VmwLongDisplayString
-_VmwAlertID_Object=MibScalar
-vmwAlertID=_VmwAlertID_Object((1,3,6,1,4,1,6876,4,50,1,2,8),_VmwAlertID_Type())
-vmwAlertID.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertID.setStatus(_B)
-_VmwAlertMessage_Type=VmwLongDisplayString
-_VmwAlertMessage_Object=MibScalar
-vmwAlertMessage=_VmwAlertMessage_Object((1,3,6,1,4,1,6876,4,50,1,2,9),_VmwAlertMessage_Type())
-vmwAlertMessage.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertMessage.setStatus(_B)
-_VmwAlertType_Type=VmwLongDisplayString
-_VmwAlertType_Object=MibScalar
-vmwAlertType=_VmwAlertType_Object((1,3,6,1,4,1,6876,4,50,1,2,10),_VmwAlertType_Type())
-vmwAlertType.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertType.setStatus(_B)
-_VmwAlertSubtype_Type=VmwLongDisplayString
-_VmwAlertSubtype_Object=MibScalar
-vmwAlertSubtype=_VmwAlertSubtype_Object((1,3,6,1,4,1,6876,4,50,1,2,11),_VmwAlertSubtype_Type())
-vmwAlertSubtype.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertSubtype.setStatus(_B)
-_VmwAlertHealth_Type=SnmpAdminString
-_VmwAlertHealth_Object=MibScalar
-vmwAlertHealth=_VmwAlertHealth_Object((1,3,6,1,4,1,6876,4,50,1,2,12),_VmwAlertHealth_Type())
-vmwAlertHealth.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertHealth.setStatus(_B)
-_VmwAlertRisk_Type=SnmpAdminString
-_VmwAlertRisk_Object=MibScalar
-vmwAlertRisk=_VmwAlertRisk_Object((1,3,6,1,4,1,6876,4,50,1,2,13),_VmwAlertRisk_Type())
-vmwAlertRisk.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertRisk.setStatus(_B)
-_VmwAlertEfficiency_Type=SnmpAdminString
-_VmwAlertEfficiency_Object=MibScalar
-vmwAlertEfficiency=_VmwAlertEfficiency_Object((1,3,6,1,4,1,6876,4,50,1,2,14),_VmwAlertEfficiency_Type())
-vmwAlertEfficiency.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertEfficiency.setStatus(_B)
-_VmwAlertMetricName_Type=SnmpAdminString
-_VmwAlertMetricName_Object=MibScalar
-vmwAlertMetricName=_VmwAlertMetricName_Object((1,3,6,1,4,1,6876,4,50,1,2,15),_VmwAlertMetricName_Type())
-vmwAlertMetricName.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertMetricName.setStatus(_B)
-_VmwAlertResourceKind_Type=SnmpAdminString
-_VmwAlertResourceKind_Object=MibScalar
-vmwAlertResourceKind=_VmwAlertResourceKind_Object((1,3,6,1,4,1,6876,4,50,1,2,16),_VmwAlertResourceKind_Type())
-vmwAlertResourceKind.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertResourceKind.setStatus(_B)
-_VmwAlertDefinitionName_Type=SnmpAdminString
-_VmwAlertDefinitionName_Object=MibScalar
-vmwAlertDefinitionName=_VmwAlertDefinitionName_Object((1,3,6,1,4,1,6876,4,50,1,2,17),_VmwAlertDefinitionName_Type())
-vmwAlertDefinitionName.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertDefinitionName.setStatus(_B)
-_VmwAlertDefinitionDesc_Type=SnmpAdminString
-_VmwAlertDefinitionDesc_Object=MibScalar
-vmwAlertDefinitionDesc=_VmwAlertDefinitionDesc_Object((1,3,6,1,4,1,6876,4,50,1,2,18),_VmwAlertDefinitionDesc_Type())
-vmwAlertDefinitionDesc.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertDefinitionDesc.setStatus(_B)
-_VmwAlertImpact_Type=SnmpAdminString
-_VmwAlertImpact_Object=MibScalar
-vmwAlertImpact=_VmwAlertImpact_Object((1,3,6,1,4,1,6876,4,50,1,2,19),_VmwAlertImpact_Type())
-vmwAlertImpact.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertImpact.setStatus(_B)
-_VmwAlertNotificationRules_Type=VmwLongDisplayString
-_VmwAlertNotificationRules_Object=MibScalar
-vmwAlertNotificationRules=_VmwAlertNotificationRules_Object((1,3,6,1,4,1,6876,4,50,1,2,20),_VmwAlertNotificationRules_Type())
-vmwAlertNotificationRules.setMaxAccess(_C)
-if mibBuilder.loadTexts:vmwAlertNotificationRules.setStatus(_B)
-_VmwVROPSMIBConformance_ObjectIdentity=ObjectIdentity
-vmwVROPSMIBConformance=_VmwVROPSMIBConformance_ObjectIdentity((1,3,6,1,4,1,6876,4,50,1,99))
-_VmwVROPSMIBCompliances_ObjectIdentity=ObjectIdentity
-vmwVROPSMIBCompliances=_VmwVROPSMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6876,4,50,1,99,1))
-_VmwVROPSMIBGroups_ObjectIdentity=ObjectIdentity
-vmwVROPSMIBGroups=_VmwVROPSMIBGroups_ObjectIdentity((1,3,6,1,4,1,6876,4,50,1,99,2))
-vmwVROPSNotificationInfoGroup=ObjectGroup((1,3,6,1,4,1,6876,4,50,1,99,2,1))
-vmwVROPSNotificationInfoGroup.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W)))
-if mibBuilder.loadTexts:vmwVROPSNotificationInfoGroup.setStatus(_B)
-vmwTrapProblemActive=NotificationType((1,3,6,1,4,1,6876,4,50,1,0,46))
-vmwTrapProblemActive.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_Q),(_A,_R),(_A,_S),(_A,_O),(_A,_P),(_A,_T),(_A,_U),(_A,_V),(_A,_W)))
-if mibBuilder.loadTexts:vmwTrapProblemActive.setStatus(_B)
-vmwTrapProblemClear=NotificationType((1,3,6,1,4,1,6876,4,50,1,0,47))
-vmwTrapProblemClear.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_Q),(_A,_R),(_A,_S),(_A,_O),(_A,_P),(_A,_T),(_A,_U),(_A,_V),(_A,_W)))
-if mibBuilder.loadTexts:vmwTrapProblemClear.setStatus(_B)
-vmwTrapProblemChange=NotificationType((1,3,6,1,4,1,6876,4,50,1,0,48))
-vmwTrapProblemChange.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W)))
-if mibBuilder.loadTexts:vmwTrapProblemChange.setStatus(_B)
-vmwTrapTest=NotificationType((1,3,6,1,4,1,6876,4,50,1,0,200))
-vmwTrapTest.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W)))
-if mibBuilder.loadTexts:vmwTrapTest.setStatus(_B)
-vmwVROPSNotificationGroup=NotificationGroup((1,3,6,1,4,1,6876,4,50,1,99,2,2))
-vmwVROPSNotificationGroup.setObjects(*((_A,_X),(_A,_Y),(_A,_Z),(_A,_a)))
-if mibBuilder.loadTexts:vmwVROPSNotificationGroup.setStatus(_B)
-vmwVROPSMIBBasicCompliance=ModuleCompliance((1,3,6,1,4,1,6876,4,50,1,99,1,1))
-vmwVROPSMIBBasicCompliance.setObjects(*((_A,_b),(_A,_c)))
-if mibBuilder.loadTexts:vmwVROPSMIBBasicCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'vmwVropsMIB':vmwVropsMIB,'vmwAlertTrap':vmwAlertTrap,_Y:vmwTrapProblemActive,_Z:vmwTrapProblemClear,_a:vmwTrapProblemChange,_X:vmwTrapTest,'vmwGenericAlertData':vmwGenericAlertData,_D:vmwAlertAliveServerName,_E:vmwAlertEntityName,_F:vmwAlertEntityType,_G:vmwAlertTimestamp,_H:vmwAlertCriticality,_I:vmwAlertRootCause,_J:vmwAlertURL,_K:vmwAlertID,_L:vmwAlertMessage,_M:vmwAlertType,_N:vmwAlertSubtype,_Q:vmwAlertHealth,_R:vmwAlertRisk,_S:vmwAlertEfficiency,_O:vmwAlertMetricName,_P:vmwAlertResourceKind,_T:vmwAlertDefinitionName,_U:vmwAlertDefinitionDesc,_V:vmwAlertImpact,_W:vmwAlertNotificationRules,'vmwVROPSMIBConformance':vmwVROPSMIBConformance,'vmwVROPSMIBCompliances':vmwVROPSMIBCompliances,'vmwVROPSMIBBasicCompliance':vmwVROPSMIBBasicCompliance,'vmwVROPSMIBGroups':vmwVROPSMIBGroups,_b:vmwVROPSNotificationInfoGroup,_c:vmwVROPSNotificationGroup})
+#
+# PySNMP MIB module VMWARE-VROPS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/vmware/VMWARE-VROPS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:44:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+vmwVrops, = mibBuilder.importSymbols("VMWARE-PRODUCTS-MIB", "vmwVrops")
+VmwLongDisplayString, = mibBuilder.importSymbols("VMWARE-TC-MIB", "VmwLongDisplayString")
+vmwVropsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1))
+vmwVropsMIB.setRevisions(('2018-06-27 00:00',))
+if mibBuilder.loadTexts: vmwVropsMIB.setLastUpdated('201806270000Z')
+if mibBuilder.loadTexts: vmwVropsMIB.setOrganization('VMware, Inc')
+vmwAlertTrap = ObjectIdentity((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 0))
+if mibBuilder.loadTexts: vmwAlertTrap.setStatus('current')
+vmwGenericAlertData = ObjectIdentity((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2))
+if mibBuilder.loadTexts: vmwGenericAlertData.setStatus('current')
+vmwAlertAliveServerName = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 1), VmwLongDisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertAliveServerName.setStatus('current')
+vmwAlertEntityName = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 2), VmwLongDisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertEntityName.setStatus('current')
+vmwAlertEntityType = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 3), VmwLongDisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertEntityType.setStatus('current')
+vmwAlertTimestamp = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 4), VmwLongDisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertTimestamp.setStatus('current')
+vmwAlertCriticality = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 5), VmwLongDisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertCriticality.setStatus('current')
+vmwAlertRootCause = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 6), VmwLongDisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertRootCause.setStatus('current')
+vmwAlertURL = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 7), VmwLongDisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertURL.setStatus('current')
+vmwAlertID = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 8), VmwLongDisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertID.setStatus('current')
+vmwAlertMessage = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 9), VmwLongDisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertMessage.setStatus('current')
+vmwAlertType = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 10), VmwLongDisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertType.setStatus('current')
+vmwAlertSubtype = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 11), VmwLongDisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertSubtype.setStatus('current')
+vmwAlertHealth = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 12), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertHealth.setStatus('current')
+vmwAlertRisk = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 13), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertRisk.setStatus('current')
+vmwAlertEfficiency = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 14), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertEfficiency.setStatus('current')
+vmwAlertMetricName = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 15), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertMetricName.setStatus('current')
+vmwAlertResourceKind = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 16), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertResourceKind.setStatus('current')
+vmwAlertDefinitionName = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 17), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertDefinitionName.setStatus('current')
+vmwAlertDefinitionDesc = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 18), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertDefinitionDesc.setStatus('current')
+vmwAlertImpact = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 19), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertImpact.setStatus('current')
+vmwAlertNotificationRules = MibScalar((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 2, 20), VmwLongDisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: vmwAlertNotificationRules.setStatus('current')
+vmwTrapProblemActive = NotificationType((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 0, 46)).setObjects(("VMWARE-VROPS-MIB", "vmwAlertAliveServerName"), ("VMWARE-VROPS-MIB", "vmwAlertEntityName"), ("VMWARE-VROPS-MIB", "vmwAlertEntityType"), ("VMWARE-VROPS-MIB", "vmwAlertTimestamp"), ("VMWARE-VROPS-MIB", "vmwAlertCriticality"), ("VMWARE-VROPS-MIB", "vmwAlertRootCause"), ("VMWARE-VROPS-MIB", "vmwAlertURL"), ("VMWARE-VROPS-MIB", "vmwAlertID"), ("VMWARE-VROPS-MIB", "vmwAlertMessage"), ("VMWARE-VROPS-MIB", "vmwAlertType"), ("VMWARE-VROPS-MIB", "vmwAlertSubtype"), ("VMWARE-VROPS-MIB", "vmwAlertHealth"), ("VMWARE-VROPS-MIB", "vmwAlertRisk"), ("VMWARE-VROPS-MIB", "vmwAlertEfficiency"), ("VMWARE-VROPS-MIB", "vmwAlertMetricName"), ("VMWARE-VROPS-MIB", "vmwAlertResourceKind"), ("VMWARE-VROPS-MIB", "vmwAlertDefinitionName"), ("VMWARE-VROPS-MIB", "vmwAlertDefinitionDesc"), ("VMWARE-VROPS-MIB", "vmwAlertImpact"), ("VMWARE-VROPS-MIB", "vmwAlertNotificationRules"))
+if mibBuilder.loadTexts: vmwTrapProblemActive.setStatus('current')
+vmwTrapProblemClear = NotificationType((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 0, 47)).setObjects(("VMWARE-VROPS-MIB", "vmwAlertAliveServerName"), ("VMWARE-VROPS-MIB", "vmwAlertEntityName"), ("VMWARE-VROPS-MIB", "vmwAlertEntityType"), ("VMWARE-VROPS-MIB", "vmwAlertTimestamp"), ("VMWARE-VROPS-MIB", "vmwAlertCriticality"), ("VMWARE-VROPS-MIB", "vmwAlertRootCause"), ("VMWARE-VROPS-MIB", "vmwAlertURL"), ("VMWARE-VROPS-MIB", "vmwAlertID"), ("VMWARE-VROPS-MIB", "vmwAlertMessage"), ("VMWARE-VROPS-MIB", "vmwAlertType"), ("VMWARE-VROPS-MIB", "vmwAlertSubtype"), ("VMWARE-VROPS-MIB", "vmwAlertHealth"), ("VMWARE-VROPS-MIB", "vmwAlertRisk"), ("VMWARE-VROPS-MIB", "vmwAlertEfficiency"), ("VMWARE-VROPS-MIB", "vmwAlertMetricName"), ("VMWARE-VROPS-MIB", "vmwAlertResourceKind"), ("VMWARE-VROPS-MIB", "vmwAlertDefinitionName"), ("VMWARE-VROPS-MIB", "vmwAlertDefinitionDesc"), ("VMWARE-VROPS-MIB", "vmwAlertImpact"), ("VMWARE-VROPS-MIB", "vmwAlertNotificationRules"))
+if mibBuilder.loadTexts: vmwTrapProblemClear.setStatus('current')
+vmwTrapProblemChange = NotificationType((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 0, 48)).setObjects(("VMWARE-VROPS-MIB", "vmwAlertAliveServerName"), ("VMWARE-VROPS-MIB", "vmwAlertEntityName"), ("VMWARE-VROPS-MIB", "vmwAlertEntityType"), ("VMWARE-VROPS-MIB", "vmwAlertTimestamp"), ("VMWARE-VROPS-MIB", "vmwAlertCriticality"), ("VMWARE-VROPS-MIB", "vmwAlertRootCause"), ("VMWARE-VROPS-MIB", "vmwAlertURL"), ("VMWARE-VROPS-MIB", "vmwAlertID"), ("VMWARE-VROPS-MIB", "vmwAlertMessage"), ("VMWARE-VROPS-MIB", "vmwAlertType"), ("VMWARE-VROPS-MIB", "vmwAlertSubtype"), ("VMWARE-VROPS-MIB", "vmwAlertMetricName"), ("VMWARE-VROPS-MIB", "vmwAlertResourceKind"), ("VMWARE-VROPS-MIB", "vmwAlertHealth"), ("VMWARE-VROPS-MIB", "vmwAlertRisk"), ("VMWARE-VROPS-MIB", "vmwAlertEfficiency"), ("VMWARE-VROPS-MIB", "vmwAlertDefinitionName"), ("VMWARE-VROPS-MIB", "vmwAlertDefinitionDesc"), ("VMWARE-VROPS-MIB", "vmwAlertImpact"), ("VMWARE-VROPS-MIB", "vmwAlertNotificationRules"))
+if mibBuilder.loadTexts: vmwTrapProblemChange.setStatus('current')
+vmwTrapTest = NotificationType((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 0, 200)).setObjects(("VMWARE-VROPS-MIB", "vmwAlertAliveServerName"), ("VMWARE-VROPS-MIB", "vmwAlertEntityName"), ("VMWARE-VROPS-MIB", "vmwAlertEntityType"), ("VMWARE-VROPS-MIB", "vmwAlertTimestamp"), ("VMWARE-VROPS-MIB", "vmwAlertCriticality"), ("VMWARE-VROPS-MIB", "vmwAlertRootCause"), ("VMWARE-VROPS-MIB", "vmwAlertURL"), ("VMWARE-VROPS-MIB", "vmwAlertID"), ("VMWARE-VROPS-MIB", "vmwAlertMessage"), ("VMWARE-VROPS-MIB", "vmwAlertType"), ("VMWARE-VROPS-MIB", "vmwAlertSubtype"), ("VMWARE-VROPS-MIB", "vmwAlertMetricName"), ("VMWARE-VROPS-MIB", "vmwAlertResourceKind"), ("VMWARE-VROPS-MIB", "vmwAlertHealth"), ("VMWARE-VROPS-MIB", "vmwAlertRisk"), ("VMWARE-VROPS-MIB", "vmwAlertEfficiency"), ("VMWARE-VROPS-MIB", "vmwAlertDefinitionName"), ("VMWARE-VROPS-MIB", "vmwAlertDefinitionDesc"), ("VMWARE-VROPS-MIB", "vmwAlertImpact"), ("VMWARE-VROPS-MIB", "vmwAlertNotificationRules"))
+if mibBuilder.loadTexts: vmwTrapTest.setStatus('current')
+vmwVROPSMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 99))
+vmwVROPSMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 99, 1))
+vmwVROPSMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 99, 2))
+vmwVROPSMIBBasicCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 99, 1, 1)).setObjects(("VMWARE-VROPS-MIB", "vmwVROPSNotificationInfoGroup"), ("VMWARE-VROPS-MIB", "vmwVROPSNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    vmwVROPSMIBBasicCompliance = vmwVROPSMIBBasicCompliance.setStatus('current')
+vmwVROPSNotificationInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 99, 2, 1)).setObjects(("VMWARE-VROPS-MIB", "vmwAlertAliveServerName"), ("VMWARE-VROPS-MIB", "vmwAlertEntityName"), ("VMWARE-VROPS-MIB", "vmwAlertEntityType"), ("VMWARE-VROPS-MIB", "vmwAlertTimestamp"), ("VMWARE-VROPS-MIB", "vmwAlertCriticality"), ("VMWARE-VROPS-MIB", "vmwAlertRootCause"), ("VMWARE-VROPS-MIB", "vmwAlertURL"), ("VMWARE-VROPS-MIB", "vmwAlertID"), ("VMWARE-VROPS-MIB", "vmwAlertMessage"), ("VMWARE-VROPS-MIB", "vmwAlertType"), ("VMWARE-VROPS-MIB", "vmwAlertSubtype"), ("VMWARE-VROPS-MIB", "vmwAlertMetricName"), ("VMWARE-VROPS-MIB", "vmwAlertResourceKind"), ("VMWARE-VROPS-MIB", "vmwAlertHealth"), ("VMWARE-VROPS-MIB", "vmwAlertRisk"), ("VMWARE-VROPS-MIB", "vmwAlertEfficiency"), ("VMWARE-VROPS-MIB", "vmwAlertDefinitionName"), ("VMWARE-VROPS-MIB", "vmwAlertDefinitionDesc"), ("VMWARE-VROPS-MIB", "vmwAlertImpact"), ("VMWARE-VROPS-MIB", "vmwAlertNotificationRules"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    vmwVROPSNotificationInfoGroup = vmwVROPSNotificationInfoGroup.setStatus('current')
+vmwVROPSNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 4, 50, 1, 99, 2, 2)).setObjects(("VMWARE-VROPS-MIB", "vmwTrapTest"), ("VMWARE-VROPS-MIB", "vmwTrapProblemActive"), ("VMWARE-VROPS-MIB", "vmwTrapProblemClear"), ("VMWARE-VROPS-MIB", "vmwTrapProblemChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    vmwVROPSNotificationGroup = vmwVROPSNotificationGroup.setStatus('current')
+mibBuilder.exportSymbols("VMWARE-VROPS-MIB", vmwAlertID=vmwAlertID, vmwTrapProblemChange=vmwTrapProblemChange, vmwAlertRisk=vmwAlertRisk, vmwAlertResourceKind=vmwAlertResourceKind, vmwAlertSubtype=vmwAlertSubtype, vmwAlertImpact=vmwAlertImpact, vmwVROPSMIBConformance=vmwVROPSMIBConformance, vmwTrapProblemClear=vmwTrapProblemClear, vmwAlertTrap=vmwAlertTrap, vmwAlertURL=vmwAlertURL, PYSNMP_MODULE_ID=vmwVropsMIB, vmwAlertDefinitionDesc=vmwAlertDefinitionDesc, vmwAlertAliveServerName=vmwAlertAliveServerName, vmwAlertTimestamp=vmwAlertTimestamp, vmwVROPSMIBCompliances=vmwVROPSMIBCompliances, vmwAlertHealth=vmwAlertHealth, vmwVROPSNotificationGroup=vmwVROPSNotificationGroup, vmwAlertEfficiency=vmwAlertEfficiency, vmwVropsMIB=vmwVropsMIB, vmwAlertDefinitionName=vmwAlertDefinitionName, vmwAlertCriticality=vmwAlertCriticality, vmwAlertMetricName=vmwAlertMetricName, vmwTrapProblemActive=vmwTrapProblemActive, vmwVROPSMIBGroups=vmwVROPSMIBGroups, vmwVROPSNotificationInfoGroup=vmwVROPSNotificationInfoGroup, vmwAlertRootCause=vmwAlertRootCause, vmwAlertNotificationRules=vmwAlertNotificationRules, vmwVROPSMIBBasicCompliance=vmwVROPSMIBBasicCompliance, vmwAlertMessage=vmwAlertMessage, vmwAlertEntityName=vmwAlertEntityName, vmwAlertType=vmwAlertType, vmwTrapTest=vmwTrapTest, vmwAlertEntityType=vmwAlertEntityType, vmwGenericAlertData=vmwGenericAlertData)

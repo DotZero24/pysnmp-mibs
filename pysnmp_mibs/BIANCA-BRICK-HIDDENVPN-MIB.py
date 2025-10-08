@@ -1,59 +1,30 @@
-_G='flash'
-_F='read-only'
-_E='blink'
-_D='on'
-_C='off'
-_B='mandatory'
-_A='Integer32'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_A,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Bintec_ObjectIdentity=ObjectIdentity
-bintec=_Bintec_ObjectIdentity((1,3,6,1,4,1,272))
-_Bibo_ObjectIdentity=ObjectIdentity
-bibo=_Bibo_ObjectIdentity((1,3,6,1,4,1,272,4))
-_Admin_ObjectIdentity=ObjectIdentity
-admin=_Admin_ObjectIdentity((1,3,6,1,4,1,272,4,1))
-_BiboAdmLed_ObjectIdentity=ObjectIdentity
-biboAdmLed=_BiboAdmLed_ObjectIdentity((1,3,6,1,4,1,272,253))
-class _BiboAdmLedStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_C,1),(_D,2),(_E,3),(_G,4)))
-_BiboAdmLedStatus_Type.__name__=_A
-_BiboAdmLedStatus_Object=MibScalar
-biboAdmLedStatus=_BiboAdmLedStatus_Object((1,3,6,1,4,1,272,253,1),_BiboAdmLedStatus_Type())
-biboAdmLedStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:biboAdmLedStatus.setStatus(_B)
-class _BiboAdmLedMgmt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_C,1),(_D,2),(_E,3),(_G,4)))
-_BiboAdmLedMgmt_Type.__name__=_A
-_BiboAdmLedMgmt_Object=MibScalar
-biboAdmLedMgmt=_BiboAdmLedMgmt_Object((1,3,6,1,4,1,272,253,2),_BiboAdmLedMgmt_Type())
-biboAdmLedMgmt.setMaxAccess(_F)
-if mibBuilder.loadTexts:biboAdmLedMgmt.setStatus(_B)
-class _BiboAdmLedHA_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_C,1),(_D,2),(_E,3),(_G,4)))
-_BiboAdmLedHA_Type.__name__=_A
-_BiboAdmLedHA_Object=MibScalar
-biboAdmLedHA=_BiboAdmLedHA_Object((1,3,6,1,4,1,272,253,3),_BiboAdmLedHA_Type())
-biboAdmLedHA.setMaxAccess(_F)
-if mibBuilder.loadTexts:biboAdmLedHA.setStatus(_B)
-class _BiboAdmLedInternet_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_C,1),(_D,2),(_E,3),(_G,4)))
-_BiboAdmLedInternet_Type.__name__=_A
-_BiboAdmLedInternet_Object=MibScalar
-biboAdmLedInternet=_BiboAdmLedInternet_Object((1,3,6,1,4,1,272,253,4),_BiboAdmLedInternet_Type())
-biboAdmLedInternet.setMaxAccess(_F)
-if mibBuilder.loadTexts:biboAdmLedInternet.setStatus(_B)
-class _BiboAdmLedSwitch_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_C,1),(_D,2),(_E,3),('linkact',4)))
-_BiboAdmLedSwitch_Type.__name__=_A
-_BiboAdmLedSwitch_Object=MibScalar
-biboAdmLedSwitch=_BiboAdmLedSwitch_Object((1,3,6,1,4,1,272,253,5),_BiboAdmLedSwitch_Type())
-biboAdmLedSwitch.setMaxAccess(_F)
-if mibBuilder.loadTexts:biboAdmLedSwitch.setStatus(_B)
-class _BiboAdmLedMeter_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_BiboAdmLedMeter_Type.__name__=_A
-_BiboAdmLedMeter_Object=MibScalar
-biboAdmLedMeter=_BiboAdmLedMeter_Object((1,3,6,1,4,1,272,253,6),_BiboAdmLedMeter_Type())
-biboAdmLedMeter.setMaxAccess('read-write')
-if mibBuilder.loadTexts:biboAdmLedMeter.setStatus(_B)
-mibBuilder.exportSymbols('BIANCA-BRICK-HIDDENVPN-MIB',**{'bintec':bintec,'bibo':bibo,'admin':admin,'biboAdmLed':biboAdmLed,'biboAdmLedStatus':biboAdmLedStatus,'biboAdmLedMgmt':biboAdmLedMgmt,'biboAdmLedHA':biboAdmLedHA,'biboAdmLedInternet':biboAdmLedInternet,'biboAdmLedSwitch':biboAdmLedSwitch,'biboAdmLedMeter':biboAdmLedMeter})
+#
+# PySNMP MIB module BIANCA-BRICK-HIDDENVPN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/bintec/BIANCA-BRICK-HIDDENVPN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:23 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+bintec = MibIdentifier((1, 3, 6, 1, 4, 1, 272))
+bibo = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4))
+admin = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4, 1))
+biboAdmLed = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 253))
+biboAdmLedStatus = MibScalar((1, 3, 6, 1, 4, 1, 272, 253, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("on", 2), ("blink", 3), ("flash", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: biboAdmLedStatus.setStatus('mandatory')
+biboAdmLedMgmt = MibScalar((1, 3, 6, 1, 4, 1, 272, 253, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("on", 2), ("blink", 3), ("flash", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: biboAdmLedMgmt.setStatus('mandatory')
+biboAdmLedHA = MibScalar((1, 3, 6, 1, 4, 1, 272, 253, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("on", 2), ("blink", 3), ("flash", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: biboAdmLedHA.setStatus('mandatory')
+biboAdmLedInternet = MibScalar((1, 3, 6, 1, 4, 1, 272, 253, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("on", 2), ("blink", 3), ("flash", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: biboAdmLedInternet.setStatus('mandatory')
+biboAdmLedSwitch = MibScalar((1, 3, 6, 1, 4, 1, 272, 253, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("on", 2), ("blink", 3), ("linkact", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: biboAdmLedSwitch.setStatus('mandatory')
+biboAdmLedMeter = MibScalar((1, 3, 6, 1, 4, 1, 272, 253, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: biboAdmLedMeter.setStatus('mandatory')
+mibBuilder.exportSymbols("BIANCA-BRICK-HIDDENVPN-MIB", biboAdmLedStatus=biboAdmLedStatus, biboAdmLedHA=biboAdmLedHA, biboAdmLedMeter=biboAdmLedMeter, biboAdmLedInternet=biboAdmLedInternet, bintec=bintec, bibo=bibo, biboAdmLedSwitch=biboAdmLedSwitch, biboAdmLedMgmt=biboAdmLedMgmt, admin=admin, biboAdmLed=biboAdmLed)

@@ -1,122 +1,66 @@
-_P='cLNetflowConfigGroup'
-_O='cLNetflowMonitorMappingRowStatus'
-_N='cLNetflowExporterRowStatus'
-_M='cLNetflowExporterPortNumber'
-_L='cLNetflowExporterIPAddress'
-_K='cLNetflowExporterIPAddressType'
-_J='cLNetflowMonitorRowStatus'
-_I='cLNetflowMonitorRecordName'
-_H='cLNetflowMonitorMappingExporterName'
-_G='cLNetflowExporterName'
-_F='not-accessible'
-_E='cLNetflowMonitorName'
-_D='SnmpAdminString'
-_C='read-create'
-_B='CISCO-LWAPP-NETFLOW-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType','InetPortNumber')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_D)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-ciscoLwappNetflowMIB=ModuleIdentity((1,3,6,1,4,1,9,9,840))
-if mibBuilder.loadTexts:ciscoLwappNetflowMIB.setRevisions(('2017-04-27 00:00',))
-_CiscoLwappNetflowMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoLwappNetflowMIBNotifs=_CiscoLwappNetflowMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,840,0))
-_CiscoLwappNetflowMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoLwappNetflowMIBObjects=_CiscoLwappNetflowMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,840,1))
-_CiscoLwappNetflowTableObjects_ObjectIdentity=ObjectIdentity
-ciscoLwappNetflowTableObjects=_CiscoLwappNetflowTableObjects_ObjectIdentity((1,3,6,1,4,1,9,9,840,1,1))
-_CLNetflowMonitorTable_Object=MibTable
-cLNetflowMonitorTable=_CLNetflowMonitorTable_Object((1,3,6,1,4,1,9,9,840,1,1,1))
-if mibBuilder.loadTexts:cLNetflowMonitorTable.setStatus(_A)
-_CLNetflowMonitorEntry_Object=MibTableRow
-cLNetflowMonitorEntry=_CLNetflowMonitorEntry_Object((1,3,6,1,4,1,9,9,840,1,1,1,1))
-cLNetflowMonitorEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:cLNetflowMonitorEntry.setStatus(_A)
-class _CLNetflowMonitorName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_CLNetflowMonitorName_Type.__name__=_D
-_CLNetflowMonitorName_Object=MibTableColumn
-cLNetflowMonitorName=_CLNetflowMonitorName_Object((1,3,6,1,4,1,9,9,840,1,1,1,1,1),_CLNetflowMonitorName_Type())
-cLNetflowMonitorName.setMaxAccess(_F)
-if mibBuilder.loadTexts:cLNetflowMonitorName.setStatus(_A)
-class _CLNetflowMonitorRecordName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_CLNetflowMonitorRecordName_Type.__name__=_D
-_CLNetflowMonitorRecordName_Object=MibTableColumn
-cLNetflowMonitorRecordName=_CLNetflowMonitorRecordName_Object((1,3,6,1,4,1,9,9,840,1,1,1,1,2),_CLNetflowMonitorRecordName_Type())
-cLNetflowMonitorRecordName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cLNetflowMonitorRecordName.setStatus(_A)
-_CLNetflowMonitorRowStatus_Type=RowStatus
-_CLNetflowMonitorRowStatus_Object=MibTableColumn
-cLNetflowMonitorRowStatus=_CLNetflowMonitorRowStatus_Object((1,3,6,1,4,1,9,9,840,1,1,1,1,3),_CLNetflowMonitorRowStatus_Type())
-cLNetflowMonitorRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cLNetflowMonitorRowStatus.setStatus(_A)
-_CLNetflowExporterTable_Object=MibTable
-cLNetflowExporterTable=_CLNetflowExporterTable_Object((1,3,6,1,4,1,9,9,840,1,1,2))
-if mibBuilder.loadTexts:cLNetflowExporterTable.setStatus(_A)
-_CLNetflowExporterEntry_Object=MibTableRow
-cLNetflowExporterEntry=_CLNetflowExporterEntry_Object((1,3,6,1,4,1,9,9,840,1,1,2,1))
-cLNetflowExporterEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:cLNetflowExporterEntry.setStatus(_A)
-class _CLNetflowExporterName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_CLNetflowExporterName_Type.__name__=_D
-_CLNetflowExporterName_Object=MibTableColumn
-cLNetflowExporterName=_CLNetflowExporterName_Object((1,3,6,1,4,1,9,9,840,1,1,2,1,1),_CLNetflowExporterName_Type())
-cLNetflowExporterName.setMaxAccess(_F)
-if mibBuilder.loadTexts:cLNetflowExporterName.setStatus(_A)
-_CLNetflowExporterIPAddressType_Type=InetAddressType
-_CLNetflowExporterIPAddressType_Object=MibTableColumn
-cLNetflowExporterIPAddressType=_CLNetflowExporterIPAddressType_Object((1,3,6,1,4,1,9,9,840,1,1,2,1,2),_CLNetflowExporterIPAddressType_Type())
-cLNetflowExporterIPAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cLNetflowExporterIPAddressType.setStatus(_A)
-_CLNetflowExporterIPAddress_Type=InetAddress
-_CLNetflowExporterIPAddress_Object=MibTableColumn
-cLNetflowExporterIPAddress=_CLNetflowExporterIPAddress_Object((1,3,6,1,4,1,9,9,840,1,1,2,1,3),_CLNetflowExporterIPAddress_Type())
-cLNetflowExporterIPAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cLNetflowExporterIPAddress.setStatus(_A)
-_CLNetflowExporterPortNumber_Type=InetPortNumber
-_CLNetflowExporterPortNumber_Object=MibTableColumn
-cLNetflowExporterPortNumber=_CLNetflowExporterPortNumber_Object((1,3,6,1,4,1,9,9,840,1,1,2,1,4),_CLNetflowExporterPortNumber_Type())
-cLNetflowExporterPortNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:cLNetflowExporterPortNumber.setStatus(_A)
-_CLNetflowExporterRowStatus_Type=RowStatus
-_CLNetflowExporterRowStatus_Object=MibTableColumn
-cLNetflowExporterRowStatus=_CLNetflowExporterRowStatus_Object((1,3,6,1,4,1,9,9,840,1,1,2,1,5),_CLNetflowExporterRowStatus_Type())
-cLNetflowExporterRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cLNetflowExporterRowStatus.setStatus(_A)
-_CLNetflowMonitorMappingTable_Object=MibTable
-cLNetflowMonitorMappingTable=_CLNetflowMonitorMappingTable_Object((1,3,6,1,4,1,9,9,840,1,1,3))
-if mibBuilder.loadTexts:cLNetflowMonitorMappingTable.setStatus(_A)
-_CLNetflowMonitorMappingEntry_Object=MibTableRow
-cLNetflowMonitorMappingEntry=_CLNetflowMonitorMappingEntry_Object((1,3,6,1,4,1,9,9,840,1,1,3,1))
-cLNetflowMonitorMappingEntry.setIndexNames((0,_B,_E),(0,_B,_H))
-if mibBuilder.loadTexts:cLNetflowMonitorMappingEntry.setStatus(_A)
-class _CLNetflowMonitorMappingExporterName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_CLNetflowMonitorMappingExporterName_Type.__name__=_D
-_CLNetflowMonitorMappingExporterName_Object=MibTableColumn
-cLNetflowMonitorMappingExporterName=_CLNetflowMonitorMappingExporterName_Object((1,3,6,1,4,1,9,9,840,1,1,3,1,1),_CLNetflowMonitorMappingExporterName_Type())
-cLNetflowMonitorMappingExporterName.setMaxAccess(_F)
-if mibBuilder.loadTexts:cLNetflowMonitorMappingExporterName.setStatus(_A)
-_CLNetflowMonitorMappingRowStatus_Type=RowStatus
-_CLNetflowMonitorMappingRowStatus_Object=MibTableColumn
-cLNetflowMonitorMappingRowStatus=_CLNetflowMonitorMappingRowStatus_Object((1,3,6,1,4,1,9,9,840,1,1,3,1,2),_CLNetflowMonitorMappingRowStatus_Type())
-cLNetflowMonitorMappingRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cLNetflowMonitorMappingRowStatus.setStatus(_A)
-_CiscoLwappNetflowMIBConform_ObjectIdentity=ObjectIdentity
-ciscoLwappNetflowMIBConform=_CiscoLwappNetflowMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,840,2))
-_CiscoLwappNetflowMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoLwappNetflowMIBCompliances=_CiscoLwappNetflowMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,840,2,1))
-_CiscoLwappNetflowMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoLwappNetflowMIBGroups=_CiscoLwappNetflowMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,840,2,2))
-cLNetflowConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,840,2,2,1))
-cLNetflowConfigGroup.setObjects(*((_B,_E),(_B,_I),(_B,_J),(_B,_G),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_H),(_B,_O)))
-if mibBuilder.loadTexts:cLNetflowConfigGroup.setStatus(_A)
-ciscoLwappNetflowMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,840,2,1,1))
-ciscoLwappNetflowMIBCompliance.setObjects((_B,_P))
-if mibBuilder.loadTexts:ciscoLwappNetflowMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoLwappNetflowMIB':ciscoLwappNetflowMIB,'ciscoLwappNetflowMIBNotifs':ciscoLwappNetflowMIBNotifs,'ciscoLwappNetflowMIBObjects':ciscoLwappNetflowMIBObjects,'ciscoLwappNetflowTableObjects':ciscoLwappNetflowTableObjects,'cLNetflowMonitorTable':cLNetflowMonitorTable,'cLNetflowMonitorEntry':cLNetflowMonitorEntry,_E:cLNetflowMonitorName,_I:cLNetflowMonitorRecordName,_J:cLNetflowMonitorRowStatus,'cLNetflowExporterTable':cLNetflowExporterTable,'cLNetflowExporterEntry':cLNetflowExporterEntry,_G:cLNetflowExporterName,_K:cLNetflowExporterIPAddressType,_L:cLNetflowExporterIPAddress,_M:cLNetflowExporterPortNumber,_N:cLNetflowExporterRowStatus,'cLNetflowMonitorMappingTable':cLNetflowMonitorMappingTable,'cLNetflowMonitorMappingEntry':cLNetflowMonitorMappingEntry,_H:cLNetflowMonitorMappingExporterName,_O:cLNetflowMonitorMappingRowStatus,'ciscoLwappNetflowMIBConform':ciscoLwappNetflowMIBConform,'ciscoLwappNetflowMIBCompliances':ciscoLwappNetflowMIBCompliances,'ciscoLwappNetflowMIBCompliance':ciscoLwappNetflowMIBCompliance,'ciscoLwappNetflowMIBGroups':ciscoLwappNetflowMIBGroups,_P:cLNetflowConfigGroup})
+#
+# PySNMP MIB module CISCO-LWAPP-NETFLOW-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-LWAPP-NETFLOW-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:38 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ciscoLwappNetflowMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 840))
+ciscoLwappNetflowMIB.setRevisions(('2017-04-27 00:00',))
+if mibBuilder.loadTexts: ciscoLwappNetflowMIB.setLastUpdated('201704270000Z')
+if mibBuilder.loadTexts: ciscoLwappNetflowMIB.setOrganization('Cisco Systems Inc.')
+ciscoLwappNetflowMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 840, 0))
+ciscoLwappNetflowMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 840, 1))
+ciscoLwappNetflowMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 840, 2))
+ciscoLwappNetflowTableObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1))
+cLNetflowMonitorTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 1), )
+if mibBuilder.loadTexts: cLNetflowMonitorTable.setStatus('current')
+cLNetflowMonitorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-LWAPP-NETFLOW-MIB", "cLNetflowMonitorName"))
+if mibBuilder.loadTexts: cLNetflowMonitorEntry.setStatus('current')
+cLNetflowMonitorName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32)))
+if mibBuilder.loadTexts: cLNetflowMonitorName.setStatus('current')
+cLNetflowMonitorRecordName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 1, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cLNetflowMonitorRecordName.setStatus('current')
+cLNetflowMonitorRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cLNetflowMonitorRowStatus.setStatus('current')
+cLNetflowExporterTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 2), )
+if mibBuilder.loadTexts: cLNetflowExporterTable.setStatus('current')
+cLNetflowExporterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 2, 1), ).setIndexNames((0, "CISCO-LWAPP-NETFLOW-MIB", "cLNetflowExporterName"))
+if mibBuilder.loadTexts: cLNetflowExporterEntry.setStatus('current')
+cLNetflowExporterName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 2, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32)))
+if mibBuilder.loadTexts: cLNetflowExporterName.setStatus('current')
+cLNetflowExporterIPAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 2, 1, 2), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cLNetflowExporterIPAddressType.setStatus('current')
+cLNetflowExporterIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 2, 1, 3), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cLNetflowExporterIPAddress.setStatus('current')
+cLNetflowExporterPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 2, 1, 4), InetPortNumber()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cLNetflowExporterPortNumber.setStatus('current')
+cLNetflowExporterRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cLNetflowExporterRowStatus.setStatus('current')
+cLNetflowMonitorMappingTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 3), )
+if mibBuilder.loadTexts: cLNetflowMonitorMappingTable.setStatus('current')
+cLNetflowMonitorMappingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 3, 1), ).setIndexNames((0, "CISCO-LWAPP-NETFLOW-MIB", "cLNetflowMonitorName"), (0, "CISCO-LWAPP-NETFLOW-MIB", "cLNetflowMonitorMappingExporterName"))
+if mibBuilder.loadTexts: cLNetflowMonitorMappingEntry.setStatus('current')
+cLNetflowMonitorMappingExporterName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 3, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32)))
+if mibBuilder.loadTexts: cLNetflowMonitorMappingExporterName.setStatus('current')
+cLNetflowMonitorMappingRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 840, 1, 1, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cLNetflowMonitorMappingRowStatus.setStatus('current')
+ciscoLwappNetflowMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 840, 2, 1))
+ciscoLwappNetflowMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 840, 2, 2))
+ciscoLwappNetflowMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 840, 2, 1, 1)).setObjects(("CISCO-LWAPP-NETFLOW-MIB", "cLNetflowConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoLwappNetflowMIBCompliance = ciscoLwappNetflowMIBCompliance.setStatus('current')
+cLNetflowConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 840, 2, 2, 1)).setObjects(("CISCO-LWAPP-NETFLOW-MIB", "cLNetflowMonitorName"), ("CISCO-LWAPP-NETFLOW-MIB", "cLNetflowMonitorRecordName"), ("CISCO-LWAPP-NETFLOW-MIB", "cLNetflowMonitorRowStatus"), ("CISCO-LWAPP-NETFLOW-MIB", "cLNetflowExporterName"), ("CISCO-LWAPP-NETFLOW-MIB", "cLNetflowExporterIPAddressType"), ("CISCO-LWAPP-NETFLOW-MIB", "cLNetflowExporterIPAddress"), ("CISCO-LWAPP-NETFLOW-MIB", "cLNetflowExporterPortNumber"), ("CISCO-LWAPP-NETFLOW-MIB", "cLNetflowExporterRowStatus"), ("CISCO-LWAPP-NETFLOW-MIB", "cLNetflowMonitorMappingExporterName"), ("CISCO-LWAPP-NETFLOW-MIB", "cLNetflowMonitorMappingRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cLNetflowConfigGroup = cLNetflowConfigGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-LWAPP-NETFLOW-MIB", cLNetflowMonitorMappingEntry=cLNetflowMonitorMappingEntry, cLNetflowMonitorMappingExporterName=cLNetflowMonitorMappingExporterName, cLNetflowExporterEntry=cLNetflowExporterEntry, cLNetflowConfigGroup=cLNetflowConfigGroup, ciscoLwappNetflowTableObjects=ciscoLwappNetflowTableObjects, ciscoLwappNetflowMIBGroups=ciscoLwappNetflowMIBGroups, cLNetflowMonitorName=cLNetflowMonitorName, cLNetflowExporterIPAddress=cLNetflowExporterIPAddress, cLNetflowMonitorMappingTable=cLNetflowMonitorMappingTable, cLNetflowMonitorRowStatus=cLNetflowMonitorRowStatus, ciscoLwappNetflowMIBNotifs=ciscoLwappNetflowMIBNotifs, ciscoLwappNetflowMIBCompliance=ciscoLwappNetflowMIBCompliance, cLNetflowMonitorRecordName=cLNetflowMonitorRecordName, ciscoLwappNetflowMIBCompliances=ciscoLwappNetflowMIBCompliances, cLNetflowMonitorEntry=cLNetflowMonitorEntry, ciscoLwappNetflowMIBObjects=ciscoLwappNetflowMIBObjects, cLNetflowExporterName=cLNetflowExporterName, PYSNMP_MODULE_ID=ciscoLwappNetflowMIB, ciscoLwappNetflowMIB=ciscoLwappNetflowMIB, ciscoLwappNetflowMIBConform=ciscoLwappNetflowMIBConform, cLNetflowExporterRowStatus=cLNetflowExporterRowStatus, cLNetflowMonitorTable=cLNetflowMonitorTable, cLNetflowExporterPortNumber=cLNetflowExporterPortNumber, cLNetflowExporterTable=cLNetflowExporterTable, cLNetflowMonitorMappingRowStatus=cLNetflowMonitorMappingRowStatus, cLNetflowExporterIPAddressType=cLNetflowExporterIPAddressType)

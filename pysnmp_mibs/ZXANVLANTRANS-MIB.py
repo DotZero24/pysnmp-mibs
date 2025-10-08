@@ -1,75 +1,43 @@
-_H='zxAnVlanTransOriginalCvlan'
-_G='zxAnOnuPortId'
-_F='not-accessible'
-_E='zxAnPonOnuId'
-_D='Integer32'
-_C='read-write'
-_B='ZXANVLANTRANS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-VlanId,=mibBuilder.importSymbols('ZTE-AN-TC-MIB','VlanId')
-zxAnPonMib,=mibBuilder.importSymbols('ZTE-MASTER-MIB','zxAnPonMib')
-zxAnVlanTrans=ModuleIdentity((1,3,6,1,4,1,3902,1015,1010,10))
-_ZxAnVlanTransRuleTable_Object=MibTable
-zxAnVlanTransRuleTable=_ZxAnVlanTransRuleTable_Object((1,3,6,1,4,1,3902,1015,1010,10,1))
-if mibBuilder.loadTexts:zxAnVlanTransRuleTable.setStatus(_A)
-_ZxAnVlanTransRuleEntry_Object=MibTableRow
-zxAnVlanTransRuleEntry=_ZxAnVlanTransRuleEntry_Object((1,3,6,1,4,1,3902,1015,1010,10,1,1))
-zxAnVlanTransRuleEntry.setIndexNames((0,_B,_E),(0,_B,_G),(0,_B,_H))
-if mibBuilder.loadTexts:zxAnVlanTransRuleEntry.setStatus(_A)
-_ZxAnPonOnuId_Type=Integer32
-_ZxAnPonOnuId_Object=MibTableColumn
-zxAnPonOnuId=_ZxAnPonOnuId_Object((1,3,6,1,4,1,3902,1015,1010,10,1,1,1),_ZxAnPonOnuId_Type())
-zxAnPonOnuId.setMaxAccess(_F)
-if mibBuilder.loadTexts:zxAnPonOnuId.setStatus(_A)
-_ZxAnOnuPortId_Type=Integer32
-_ZxAnOnuPortId_Object=MibTableColumn
-zxAnOnuPortId=_ZxAnOnuPortId_Object((1,3,6,1,4,1,3902,1015,1010,10,1,1,2),_ZxAnOnuPortId_Type())
-zxAnOnuPortId.setMaxAccess(_F)
-if mibBuilder.loadTexts:zxAnOnuPortId.setStatus(_A)
-_ZxAnVlanTransOriginalCvlan_Type=VlanId
-_ZxAnVlanTransOriginalCvlan_Object=MibTableColumn
-zxAnVlanTransOriginalCvlan=_ZxAnVlanTransOriginalCvlan_Object((1,3,6,1,4,1,3902,1015,1010,10,1,1,3),_ZxAnVlanTransOriginalCvlan_Type())
-zxAnVlanTransOriginalCvlan.setMaxAccess(_F)
-if mibBuilder.loadTexts:zxAnVlanTransOriginalCvlan.setStatus(_A)
-_ZxAnVlanTransNewCvlan_Type=VlanId
-_ZxAnVlanTransNewCvlan_Object=MibTableColumn
-zxAnVlanTransNewCvlan=_ZxAnVlanTransNewCvlan_Object((1,3,6,1,4,1,3902,1015,1010,10,1,1,4),_ZxAnVlanTransNewCvlan_Type())
-zxAnVlanTransNewCvlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnVlanTransNewCvlan.setStatus(_A)
-class _ZxAnVlanTransBroadcast_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disable',0),('enable',1)))
-_ZxAnVlanTransBroadcast_Type.__name__=_D
-_ZxAnVlanTransBroadcast_Object=MibTableColumn
-zxAnVlanTransBroadcast=_ZxAnVlanTransBroadcast_Object((1,3,6,1,4,1,3902,1015,1010,10,1,1,5),_ZxAnVlanTransBroadcast_Type())
-zxAnVlanTransBroadcast.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnVlanTransBroadcast.setStatus(_A)
-class _ZxAnVlanTransMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('oneToOne',1),('nToOne',2)))
-_ZxAnVlanTransMode_Type.__name__=_D
-_ZxAnVlanTransMode_Object=MibTableColumn
-zxAnVlanTransMode=_ZxAnVlanTransMode_Object((1,3,6,1,4,1,3902,1015,1010,10,1,1,6),_ZxAnVlanTransMode_Type())
-zxAnVlanTransMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnVlanTransMode.setStatus(_A)
-_ZxAnVlanTransEntryStatus_Type=RowStatus
-_ZxAnVlanTransEntryStatus_Object=MibTableColumn
-zxAnVlanTransEntryStatus=_ZxAnVlanTransEntryStatus_Object((1,3,6,1,4,1,3902,1015,1010,10,1,1,10),_ZxAnVlanTransEntryStatus_Type())
-zxAnVlanTransEntryStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnVlanTransEntryStatus.setStatus(_A)
-_ZxAnVlanTransGlobalTable_Object=MibTable
-zxAnVlanTransGlobalTable=_ZxAnVlanTransGlobalTable_Object((1,3,6,1,4,1,3902,1015,1010,10,2))
-if mibBuilder.loadTexts:zxAnVlanTransGlobalTable.setStatus(_A)
-_ZxAnVlanTransGlobalEntry_Object=MibTableRow
-zxAnVlanTransGlobalEntry=_ZxAnVlanTransGlobalEntry_Object((1,3,6,1,4,1,3902,1015,1010,10,2,1))
-zxAnVlanTransGlobalEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:zxAnVlanTransGlobalEntry.setStatus(_A)
-_ZxAnVlanTransSvlanBase_Type=VlanId
-_ZxAnVlanTransSvlanBase_Object=MibTableColumn
-zxAnVlanTransSvlanBase=_ZxAnVlanTransSvlanBase_Object((1,3,6,1,4,1,3902,1015,1010,10,2,1,1),_ZxAnVlanTransSvlanBase_Type())
-zxAnVlanTransSvlanBase.setMaxAccess(_C)
-if mibBuilder.loadTexts:zxAnVlanTransSvlanBase.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'zxAnVlanTrans':zxAnVlanTrans,'zxAnVlanTransRuleTable':zxAnVlanTransRuleTable,'zxAnVlanTransRuleEntry':zxAnVlanTransRuleEntry,_E:zxAnPonOnuId,_G:zxAnOnuPortId,_H:zxAnVlanTransOriginalCvlan,'zxAnVlanTransNewCvlan':zxAnVlanTransNewCvlan,'zxAnVlanTransBroadcast':zxAnVlanTransBroadcast,'zxAnVlanTransMode':zxAnVlanTransMode,'zxAnVlanTransEntryStatus':zxAnVlanTransEntryStatus,'zxAnVlanTransGlobalTable':zxAnVlanTransGlobalTable,'zxAnVlanTransGlobalEntry':zxAnVlanTransGlobalEntry,'zxAnVlanTransSvlanBase':zxAnVlanTransSvlanBase})
+#
+# PySNMP MIB module ZXANVLANTRANS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZXANVLANTRANS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+VlanId, = mibBuilder.importSymbols("ZTE-AN-TC-MIB", "VlanId")
+zxAnPonMib, = mibBuilder.importSymbols("ZTE-MASTER-MIB", "zxAnPonMib")
+zxAnVlanTrans = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1015, 1010, 10))
+if mibBuilder.loadTexts: zxAnVlanTrans.setLastUpdated('200806100000Z')
+if mibBuilder.loadTexts: zxAnVlanTrans.setOrganization('ZTE Corp.')
+zxAnVlanTransRuleTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 1010, 10, 1), )
+if mibBuilder.loadTexts: zxAnVlanTransRuleTable.setStatus('current')
+zxAnVlanTransRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 1010, 10, 1, 1), ).setIndexNames((0, "ZXANVLANTRANS-MIB", "zxAnPonOnuId"), (0, "ZXANVLANTRANS-MIB", "zxAnOnuPortId"), (0, "ZXANVLANTRANS-MIB", "zxAnVlanTransOriginalCvlan"))
+if mibBuilder.loadTexts: zxAnVlanTransRuleEntry.setStatus('current')
+zxAnPonOnuId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1010, 10, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: zxAnPonOnuId.setStatus('current')
+zxAnOnuPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1010, 10, 1, 1, 2), Integer32())
+if mibBuilder.loadTexts: zxAnOnuPortId.setStatus('current')
+zxAnVlanTransOriginalCvlan = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1010, 10, 1, 1, 3), VlanId())
+if mibBuilder.loadTexts: zxAnVlanTransOriginalCvlan.setStatus('current')
+zxAnVlanTransNewCvlan = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1010, 10, 1, 1, 4), VlanId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnVlanTransNewCvlan.setStatus('current')
+zxAnVlanTransBroadcast = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1010, 10, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnVlanTransBroadcast.setStatus('current')
+zxAnVlanTransMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1010, 10, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("oneToOne", 1), ("nToOne", 2))).clone('oneToOne')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnVlanTransMode.setStatus('current')
+zxAnVlanTransEntryStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1010, 10, 1, 1, 10), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnVlanTransEntryStatus.setStatus('current')
+zxAnVlanTransGlobalTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 1010, 10, 2), )
+if mibBuilder.loadTexts: zxAnVlanTransGlobalTable.setStatus('current')
+zxAnVlanTransGlobalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 1010, 10, 2, 1), ).setIndexNames((0, "ZXANVLANTRANS-MIB", "zxAnPonOnuId"))
+if mibBuilder.loadTexts: zxAnVlanTransGlobalEntry.setStatus('current')
+zxAnVlanTransSvlanBase = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 1010, 10, 2, 1, 1), VlanId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxAnVlanTransSvlanBase.setStatus('current')
+mibBuilder.exportSymbols("ZXANVLANTRANS-MIB", zxAnVlanTransSvlanBase=zxAnVlanTransSvlanBase, zxAnVlanTransMode=zxAnVlanTransMode, zxAnVlanTransBroadcast=zxAnVlanTransBroadcast, zxAnVlanTransOriginalCvlan=zxAnVlanTransOriginalCvlan, PYSNMP_MODULE_ID=zxAnVlanTrans, zxAnPonOnuId=zxAnPonOnuId, zxAnVlanTransGlobalTable=zxAnVlanTransGlobalTable, zxAnVlanTransGlobalEntry=zxAnVlanTransGlobalEntry, zxAnOnuPortId=zxAnOnuPortId, zxAnVlanTransRuleEntry=zxAnVlanTransRuleEntry, zxAnVlanTransEntryStatus=zxAnVlanTransEntryStatus, zxAnVlanTransRuleTable=zxAnVlanTransRuleTable, zxAnVlanTrans=zxAnVlanTrans, zxAnVlanTransNewCvlan=zxAnVlanTransNewCvlan)

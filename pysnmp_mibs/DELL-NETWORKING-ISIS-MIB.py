@@ -1,114 +1,63 @@
-_S='dellNetIsisNotificationGroup'
-_R='dellNetIsisSystemGroup'
-_Q='dellNetIsisAdjChanges'
-_P='dellNetIsisSysOloadV6WaitForBgp'
-_O='dellNetIsisSysLevelV6OverloadState'
-_N='dellNetIsisSysLevelOverloadState'
-_M='dellNetIsisSysOloadV6SetOloadOnStartupUntil'
-_L='dellNetIsisSysOloadV6SetOverload'
-_K='dellNetIsisSysOloadWaitForBgp'
-_J='dellNetIsisSysOloadSetOloadOnStartupUntil'
-_I='dellNetIsisSysOloadSetOverload'
-_H='read-only'
-_G='dellNetIsisSysLevelIndex'
-_F='TruthValue'
-_E='Seconds'
-_D='Unsigned32'
-_C='read-write'
-_B='DELL-NETWORKING-ISIS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dellNetMgmt,=mibBuilder.importSymbols('DELL-NETWORKING-SMI','dellNetMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_F)
-dellNetIsisMib=ModuleIdentity((1,3,6,1,4,1,6027,3,18))
-if mibBuilder.loadTexts:dellNetIsisMib.setRevisions(('2011-07-01 00:00',))
-class DellNetIsisISLevel(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('area',1),('domain',2)))
-_DellNetIsisNotifications_ObjectIdentity=ObjectIdentity
-dellNetIsisNotifications=_DellNetIsisNotifications_ObjectIdentity((1,3,6,1,4,1,6027,3,18,0))
-_DellNetIsisObjects_ObjectIdentity=ObjectIdentity
-dellNetIsisObjects=_DellNetIsisObjects_ObjectIdentity((1,3,6,1,4,1,6027,3,18,1))
-class _DellNetIsisSysOloadSetOverload_Type(TruthValue):defaultValue=2
-_DellNetIsisSysOloadSetOverload_Type.__name__=_F
-_DellNetIsisSysOloadSetOverload_Object=MibScalar
-dellNetIsisSysOloadSetOverload=_DellNetIsisSysOloadSetOverload_Object((1,3,6,1,4,1,6027,3,18,1,1),_DellNetIsisSysOloadSetOverload_Type())
-dellNetIsisSysOloadSetOverload.setMaxAccess(_C)
-if mibBuilder.loadTexts:dellNetIsisSysOloadSetOverload.setStatus(_A)
-class _DellNetIsisSysOloadSetOloadOnStartupUntil_Type(Unsigned32):defaultValue=600;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,86400))
-_DellNetIsisSysOloadSetOloadOnStartupUntil_Type.__name__=_D
-_DellNetIsisSysOloadSetOloadOnStartupUntil_Object=MibScalar
-dellNetIsisSysOloadSetOloadOnStartupUntil=_DellNetIsisSysOloadSetOloadOnStartupUntil_Object((1,3,6,1,4,1,6027,3,18,1,2),_DellNetIsisSysOloadSetOloadOnStartupUntil_Type())
-dellNetIsisSysOloadSetOloadOnStartupUntil.setMaxAccess(_C)
-if mibBuilder.loadTexts:dellNetIsisSysOloadSetOloadOnStartupUntil.setStatus(_A)
-if mibBuilder.loadTexts:dellNetIsisSysOloadSetOloadOnStartupUntil.setUnits(_E)
-class _DellNetIsisSysOloadWaitForBgp_Type(Unsigned32):defaultValue=600;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,86400))
-_DellNetIsisSysOloadWaitForBgp_Type.__name__=_D
-_DellNetIsisSysOloadWaitForBgp_Object=MibScalar
-dellNetIsisSysOloadWaitForBgp=_DellNetIsisSysOloadWaitForBgp_Object((1,3,6,1,4,1,6027,3,18,1,3),_DellNetIsisSysOloadWaitForBgp_Type())
-dellNetIsisSysOloadWaitForBgp.setMaxAccess(_C)
-if mibBuilder.loadTexts:dellNetIsisSysOloadWaitForBgp.setStatus(_A)
-if mibBuilder.loadTexts:dellNetIsisSysOloadWaitForBgp.setUnits(_E)
-class _DellNetIsisSysOloadV6SetOverload_Type(TruthValue):defaultValue=2
-_DellNetIsisSysOloadV6SetOverload_Type.__name__=_F
-_DellNetIsisSysOloadV6SetOverload_Object=MibScalar
-dellNetIsisSysOloadV6SetOverload=_DellNetIsisSysOloadV6SetOverload_Object((1,3,6,1,4,1,6027,3,18,1,4),_DellNetIsisSysOloadV6SetOverload_Type())
-dellNetIsisSysOloadV6SetOverload.setMaxAccess(_C)
-if mibBuilder.loadTexts:dellNetIsisSysOloadV6SetOverload.setStatus(_A)
-class _DellNetIsisSysOloadV6SetOloadOnStartupUntil_Type(Unsigned32):defaultValue=600;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,86400))
-_DellNetIsisSysOloadV6SetOloadOnStartupUntil_Type.__name__=_D
-_DellNetIsisSysOloadV6SetOloadOnStartupUntil_Object=MibScalar
-dellNetIsisSysOloadV6SetOloadOnStartupUntil=_DellNetIsisSysOloadV6SetOloadOnStartupUntil_Object((1,3,6,1,4,1,6027,3,18,1,5),_DellNetIsisSysOloadV6SetOloadOnStartupUntil_Type())
-dellNetIsisSysOloadV6SetOloadOnStartupUntil.setMaxAccess(_C)
-if mibBuilder.loadTexts:dellNetIsisSysOloadV6SetOloadOnStartupUntil.setStatus(_A)
-if mibBuilder.loadTexts:dellNetIsisSysOloadV6SetOloadOnStartupUntil.setUnits(_E)
-class _DellNetIsisSysOloadV6WaitForBgp_Type(Unsigned32):defaultValue=600;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,86400))
-_DellNetIsisSysOloadV6WaitForBgp_Type.__name__=_D
-_DellNetIsisSysOloadV6WaitForBgp_Object=MibScalar
-dellNetIsisSysOloadV6WaitForBgp=_DellNetIsisSysOloadV6WaitForBgp_Object((1,3,6,1,4,1,6027,3,18,1,6),_DellNetIsisSysOloadV6WaitForBgp_Type())
-dellNetIsisSysOloadV6WaitForBgp.setMaxAccess(_C)
-if mibBuilder.loadTexts:dellNetIsisSysOloadV6WaitForBgp.setStatus(_A)
-if mibBuilder.loadTexts:dellNetIsisSysOloadV6WaitForBgp.setUnits(_E)
-_DellNetIsisSysLevelTable_Object=MibTable
-dellNetIsisSysLevelTable=_DellNetIsisSysLevelTable_Object((1,3,6,1,4,1,6027,3,18,1,7))
-if mibBuilder.loadTexts:dellNetIsisSysLevelTable.setStatus(_A)
-_DellNetIsisSysLevelEntry_Object=MibTableRow
-dellNetIsisSysLevelEntry=_DellNetIsisSysLevelEntry_Object((1,3,6,1,4,1,6027,3,18,1,7,1))
-dellNetIsisSysLevelEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:dellNetIsisSysLevelEntry.setStatus(_A)
-_DellNetIsisSysLevelIndex_Type=DellNetIsisISLevel
-_DellNetIsisSysLevelIndex_Object=MibTableColumn
-dellNetIsisSysLevelIndex=_DellNetIsisSysLevelIndex_Object((1,3,6,1,4,1,6027,3,18,1,7,1,1),_DellNetIsisSysLevelIndex_Type())
-dellNetIsisSysLevelIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:dellNetIsisSysLevelIndex.setStatus(_A)
-_DellNetIsisSysLevelOverloadState_Type=TruthValue
-_DellNetIsisSysLevelOverloadState_Object=MibTableColumn
-dellNetIsisSysLevelOverloadState=_DellNetIsisSysLevelOverloadState_Object((1,3,6,1,4,1,6027,3,18,1,7,1,2),_DellNetIsisSysLevelOverloadState_Type())
-dellNetIsisSysLevelOverloadState.setMaxAccess(_H)
-if mibBuilder.loadTexts:dellNetIsisSysLevelOverloadState.setStatus(_A)
-_DellNetIsisSysLevelV6OverloadState_Type=TruthValue
-_DellNetIsisSysLevelV6OverloadState_Object=MibTableColumn
-dellNetIsisSysLevelV6OverloadState=_DellNetIsisSysLevelV6OverloadState_Object((1,3,6,1,4,1,6027,3,18,1,7,1,3),_DellNetIsisSysLevelV6OverloadState_Type())
-dellNetIsisSysLevelV6OverloadState.setMaxAccess(_H)
-if mibBuilder.loadTexts:dellNetIsisSysLevelV6OverloadState.setStatus(_A)
-_DellNetIsisConformance_ObjectIdentity=ObjectIdentity
-dellNetIsisConformance=_DellNetIsisConformance_ObjectIdentity((1,3,6,1,4,1,6027,3,18,2))
-_DellNetIsisGroups_ObjectIdentity=ObjectIdentity
-dellNetIsisGroups=_DellNetIsisGroups_ObjectIdentity((1,3,6,1,4,1,6027,3,18,2,1))
-_DellNetIsisCompliances_ObjectIdentity=ObjectIdentity
-dellNetIsisCompliances=_DellNetIsisCompliances_ObjectIdentity((1,3,6,1,4,1,6027,3,18,2,2))
-dellNetIsisSystemGroup=ObjectGroup((1,3,6,1,4,1,6027,3,18,2,1,1))
-dellNetIsisSystemGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:dellNetIsisSystemGroup.setStatus(_A)
-dellNetIsisAdjChanges=NotificationType((1,3,6,1,4,1,6027,3,18,0,1))
-if mibBuilder.loadTexts:dellNetIsisAdjChanges.setStatus(_A)
-dellNetIsisNotificationGroup=NotificationGroup((1,3,6,1,4,1,6027,3,18,2,1,2))
-dellNetIsisNotificationGroup.setObjects((_B,_Q))
-if mibBuilder.loadTexts:dellNetIsisNotificationGroup.setStatus(_A)
-dellNetIsisCompliance=ModuleCompliance((1,3,6,1,4,1,6027,3,18,2,2,1))
-dellNetIsisCompliance.setObjects(*((_B,_R),(_B,_S)))
-if mibBuilder.loadTexts:dellNetIsisCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'DellNetIsisISLevel':DellNetIsisISLevel,'dellNetIsisMib':dellNetIsisMib,'dellNetIsisNotifications':dellNetIsisNotifications,_Q:dellNetIsisAdjChanges,'dellNetIsisObjects':dellNetIsisObjects,_I:dellNetIsisSysOloadSetOverload,_J:dellNetIsisSysOloadSetOloadOnStartupUntil,_K:dellNetIsisSysOloadWaitForBgp,_L:dellNetIsisSysOloadV6SetOverload,_M:dellNetIsisSysOloadV6SetOloadOnStartupUntil,_P:dellNetIsisSysOloadV6WaitForBgp,'dellNetIsisSysLevelTable':dellNetIsisSysLevelTable,'dellNetIsisSysLevelEntry':dellNetIsisSysLevelEntry,_G:dellNetIsisSysLevelIndex,_N:dellNetIsisSysLevelOverloadState,_O:dellNetIsisSysLevelV6OverloadState,'dellNetIsisConformance':dellNetIsisConformance,'dellNetIsisGroups':dellNetIsisGroups,_R:dellNetIsisSystemGroup,_S:dellNetIsisNotificationGroup,'dellNetIsisCompliances':dellNetIsisCompliances,'dellNetIsisCompliance':dellNetIsisCompliance})
+#
+# PySNMP MIB module DELL-NETWORKING-ISIS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/dell/DELL-NETWORKING-ISIS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dellNetMgmt, = mibBuilder.importSymbols("DELL-NETWORKING-SMI", "dellNetMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+dellNetIsisMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 6027, 3, 18))
+dellNetIsisMib.setRevisions(('2011-07-01 00:00',))
+if mibBuilder.loadTexts: dellNetIsisMib.setLastUpdated('201107010000Z')
+if mibBuilder.loadTexts: dellNetIsisMib.setOrganization('Dell Inc')
+class DellNetIsisISLevel(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("area", 1), ("domain", 2))
+
+dellNetIsisNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 18, 0))
+dellNetIsisObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1))
+dellNetIsisConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 18, 2))
+dellNetIsisSysOloadSetOverload = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dellNetIsisSysOloadSetOverload.setStatus('current')
+dellNetIsisSysOloadSetOloadOnStartupUntil = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(5, 86400)).clone(600)).setUnits('Seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dellNetIsisSysOloadSetOloadOnStartupUntil.setStatus('current')
+dellNetIsisSysOloadWaitForBgp = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(5, 86400)).clone(600)).setUnits('Seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dellNetIsisSysOloadWaitForBgp.setStatus('current')
+dellNetIsisSysOloadV6SetOverload = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dellNetIsisSysOloadV6SetOverload.setStatus('current')
+dellNetIsisSysOloadV6SetOloadOnStartupUntil = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(5, 86400)).clone(600)).setUnits('Seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dellNetIsisSysOloadV6SetOloadOnStartupUntil.setStatus('current')
+dellNetIsisSysOloadV6WaitForBgp = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(5, 86400)).clone(600)).setUnits('Seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dellNetIsisSysOloadV6WaitForBgp.setStatus('current')
+dellNetIsisSysLevelTable = MibTable((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 7), )
+if mibBuilder.loadTexts: dellNetIsisSysLevelTable.setStatus('current')
+dellNetIsisSysLevelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 7, 1), ).setIndexNames((0, "DELL-NETWORKING-ISIS-MIB", "dellNetIsisSysLevelIndex"))
+if mibBuilder.loadTexts: dellNetIsisSysLevelEntry.setStatus('current')
+dellNetIsisSysLevelIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 7, 1, 1), DellNetIsisISLevel())
+if mibBuilder.loadTexts: dellNetIsisSysLevelIndex.setStatus('current')
+dellNetIsisSysLevelOverloadState = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 7, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dellNetIsisSysLevelOverloadState.setStatus('current')
+dellNetIsisSysLevelV6OverloadState = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 18, 1, 7, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dellNetIsisSysLevelV6OverloadState.setStatus('current')
+dellNetIsisAdjChanges = NotificationType((1, 3, 6, 1, 4, 1, 6027, 3, 18, 0, 1))
+if mibBuilder.loadTexts: dellNetIsisAdjChanges.setStatus('current')
+dellNetIsisGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 18, 2, 1))
+dellNetIsisCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 18, 2, 2))
+dellNetIsisCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6027, 3, 18, 2, 2, 1)).setObjects(("DELL-NETWORKING-ISIS-MIB", "dellNetIsisSystemGroup"), ("DELL-NETWORKING-ISIS-MIB", "dellNetIsisNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dellNetIsisCompliance = dellNetIsisCompliance.setStatus('current')
+dellNetIsisSystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6027, 3, 18, 2, 1, 1)).setObjects(("DELL-NETWORKING-ISIS-MIB", "dellNetIsisSysOloadSetOverload"), ("DELL-NETWORKING-ISIS-MIB", "dellNetIsisSysOloadSetOloadOnStartupUntil"), ("DELL-NETWORKING-ISIS-MIB", "dellNetIsisSysOloadWaitForBgp"), ("DELL-NETWORKING-ISIS-MIB", "dellNetIsisSysOloadV6SetOverload"), ("DELL-NETWORKING-ISIS-MIB", "dellNetIsisSysOloadV6SetOloadOnStartupUntil"), ("DELL-NETWORKING-ISIS-MIB", "dellNetIsisSysLevelOverloadState"), ("DELL-NETWORKING-ISIS-MIB", "dellNetIsisSysLevelV6OverloadState"), ("DELL-NETWORKING-ISIS-MIB", "dellNetIsisSysOloadV6WaitForBgp"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dellNetIsisSystemGroup = dellNetIsisSystemGroup.setStatus('current')
+dellNetIsisNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6027, 3, 18, 2, 1, 2)).setObjects(("DELL-NETWORKING-ISIS-MIB", "dellNetIsisAdjChanges"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dellNetIsisNotificationGroup = dellNetIsisNotificationGroup.setStatus('current')
+mibBuilder.exportSymbols("DELL-NETWORKING-ISIS-MIB", dellNetIsisSysOloadWaitForBgp=dellNetIsisSysOloadWaitForBgp, dellNetIsisObjects=dellNetIsisObjects, dellNetIsisSysOloadV6SetOloadOnStartupUntil=dellNetIsisSysOloadV6SetOloadOnStartupUntil, DellNetIsisISLevel=DellNetIsisISLevel, dellNetIsisGroups=dellNetIsisGroups, dellNetIsisSysOloadSetOloadOnStartupUntil=dellNetIsisSysOloadSetOloadOnStartupUntil, dellNetIsisSysLevelOverloadState=dellNetIsisSysLevelOverloadState, dellNetIsisCompliances=dellNetIsisCompliances, dellNetIsisNotificationGroup=dellNetIsisNotificationGroup, dellNetIsisMib=dellNetIsisMib, dellNetIsisSysLevelIndex=dellNetIsisSysLevelIndex, dellNetIsisSysLevelTable=dellNetIsisSysLevelTable, dellNetIsisSysLevelEntry=dellNetIsisSysLevelEntry, dellNetIsisSysOloadV6SetOverload=dellNetIsisSysOloadV6SetOverload, dellNetIsisConformance=dellNetIsisConformance, dellNetIsisSysOloadSetOverload=dellNetIsisSysOloadSetOverload, dellNetIsisCompliance=dellNetIsisCompliance, dellNetIsisSystemGroup=dellNetIsisSystemGroup, dellNetIsisAdjChanges=dellNetIsisAdjChanges, dellNetIsisNotifications=dellNetIsisNotifications, PYSNMP_MODULE_ID=dellNetIsisMib, dellNetIsisSysOloadV6WaitForBgp=dellNetIsisSysOloadV6WaitForBgp, dellNetIsisSysLevelV6OverloadState=dellNetIsisSysLevelV6OverloadState)

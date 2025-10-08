@@ -1,67 +1,43 @@
-_N='rbnXAal5VclStatGroup'
-_M='current'
-_L='rbnXAtmAal5VclOutOctets'
-_K='rbnXAtmAal5VclInOctets'
-_J='rbnXAtmAal5VclOutPkts'
-_I='rbnXAtmAal5VclInPkts'
-_H='ifIndex'
-_G='IF-MIB'
-_F='atmVclVpi'
-_E='atmVclVci'
-_D='ATM-MIB'
-_C='read-only'
-_B='RBN-X-AAL5-VCL-STAT-MIB'
-_A='deprecated'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-atmVclVci,atmVclVpi=mibBuilder.importSymbols(_D,_E,_F)
-ifIndex,=mibBuilder.importSymbols(_G,_H)
-rbnExperiment,=mibBuilder.importSymbols('RBN-SMI','rbnExperiment')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-rbnXAal5VclStatMIB=ModuleIdentity((1,3,6,1,4,1,2352,3,1))
-_RbnXAal5VclStatMIBObjects_ObjectIdentity=ObjectIdentity
-rbnXAal5VclStatMIBObjects=_RbnXAal5VclStatMIBObjects_ObjectIdentity((1,3,6,1,4,1,2352,3,1,1))
-_RbnXAtmAal5VclStatTable_Object=MibTable
-rbnXAtmAal5VclStatTable=_RbnXAtmAal5VclStatTable_Object((1,3,6,1,4,1,2352,3,1,1,1))
-if mibBuilder.loadTexts:rbnXAtmAal5VclStatTable.setStatus(_A)
-_RbnXAtmAal5VclStatEntry_Object=MibTableRow
-rbnXAtmAal5VclStatEntry=_RbnXAtmAal5VclStatEntry_Object((1,3,6,1,4,1,2352,3,1,1,1,1))
-rbnXAtmAal5VclStatEntry.setIndexNames((0,_G,_H),(0,_D,_F),(0,_D,_E))
-if mibBuilder.loadTexts:rbnXAtmAal5VclStatEntry.setStatus(_A)
-_RbnXAtmAal5VclInPkts_Type=Counter32
-_RbnXAtmAal5VclInPkts_Object=MibTableColumn
-rbnXAtmAal5VclInPkts=_RbnXAtmAal5VclInPkts_Object((1,3,6,1,4,1,2352,3,1,1,1,1,1),_RbnXAtmAal5VclInPkts_Type())
-rbnXAtmAal5VclInPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnXAtmAal5VclInPkts.setStatus(_A)
-_RbnXAtmAal5VclOutPkts_Type=Counter32
-_RbnXAtmAal5VclOutPkts_Object=MibTableColumn
-rbnXAtmAal5VclOutPkts=_RbnXAtmAal5VclOutPkts_Object((1,3,6,1,4,1,2352,3,1,1,1,1,2),_RbnXAtmAal5VclOutPkts_Type())
-rbnXAtmAal5VclOutPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnXAtmAal5VclOutPkts.setStatus(_A)
-_RbnXAtmAal5VclInOctets_Type=Counter32
-_RbnXAtmAal5VclInOctets_Object=MibTableColumn
-rbnXAtmAal5VclInOctets=_RbnXAtmAal5VclInOctets_Object((1,3,6,1,4,1,2352,3,1,1,1,1,3),_RbnXAtmAal5VclInOctets_Type())
-rbnXAtmAal5VclInOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnXAtmAal5VclInOctets.setStatus(_A)
-_RbnXAtmAal5VclOutOctets_Type=Counter32
-_RbnXAtmAal5VclOutOctets_Object=MibTableColumn
-rbnXAtmAal5VclOutOctets=_RbnXAtmAal5VclOutOctets_Object((1,3,6,1,4,1,2352,3,1,1,1,1,4),_RbnXAtmAal5VclOutOctets_Type())
-rbnXAtmAal5VclOutOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:rbnXAtmAal5VclOutOctets.setStatus(_A)
-_RbnXAal5VclStatMIBConformance_ObjectIdentity=ObjectIdentity
-rbnXAal5VclStatMIBConformance=_RbnXAal5VclStatMIBConformance_ObjectIdentity((1,3,6,1,4,1,2352,3,1,2))
-_RbnXAal5VclStatMIBGroups_ObjectIdentity=ObjectIdentity
-rbnXAal5VclStatMIBGroups=_RbnXAal5VclStatMIBGroups_ObjectIdentity((1,3,6,1,4,1,2352,3,1,2,1))
-_RbnXAal5VclStatMIBCompliances_ObjectIdentity=ObjectIdentity
-rbnXAal5VclStatMIBCompliances=_RbnXAal5VclStatMIBCompliances_ObjectIdentity((1,3,6,1,4,1,2352,3,1,2,2))
-rbnXAal5VclStatGroup=ObjectGroup((1,3,6,1,4,1,2352,3,1,2,1,1))
-rbnXAal5VclStatGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_B,_L)))
-if mibBuilder.loadTexts:rbnXAal5VclStatGroup.setStatus(_M)
-rbnXAal5VclStatMIBCompliance=ModuleCompliance((1,3,6,1,4,1,2352,3,1,2,2,1))
-rbnXAal5VclStatMIBCompliance.setObjects((_B,_N))
-if mibBuilder.loadTexts:rbnXAal5VclStatMIBCompliance.setStatus(_M)
-mibBuilder.exportSymbols(_B,**{'rbnXAal5VclStatMIB':rbnXAal5VclStatMIB,'rbnXAal5VclStatMIBObjects':rbnXAal5VclStatMIBObjects,'rbnXAtmAal5VclStatTable':rbnXAtmAal5VclStatTable,'rbnXAtmAal5VclStatEntry':rbnXAtmAal5VclStatEntry,_I:rbnXAtmAal5VclInPkts,_J:rbnXAtmAal5VclOutPkts,_K:rbnXAtmAal5VclInOctets,_L:rbnXAtmAal5VclOutOctets,'rbnXAal5VclStatMIBConformance':rbnXAal5VclStatMIBConformance,'rbnXAal5VclStatMIBGroups':rbnXAal5VclStatMIBGroups,_N:rbnXAal5VclStatGroup,'rbnXAal5VclStatMIBCompliances':rbnXAal5VclStatMIBCompliances,'rbnXAal5VclStatMIBCompliance':rbnXAal5VclStatMIBCompliance})
+#
+# PySNMP MIB module RBN-X-AAL5-VCL-STAT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ericsson/RBN-X-AAL5-VCL-STAT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+atmVclVpi, atmVclVci = mibBuilder.importSymbols("ATM-MIB", "atmVclVpi", "atmVclVci")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+rbnExperiment, = mibBuilder.importSymbols("RBN-SMI", "rbnExperiment")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+rbnXAal5VclStatMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2352, 3, 1))
+if mibBuilder.loadTexts: rbnXAal5VclStatMIB.setLastUpdated('9804171645Z')
+if mibBuilder.loadTexts: rbnXAal5VclStatMIB.setOrganization('RedBack Networks, Inc.')
+rbnXAal5VclStatMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 3, 1, 1))
+rbnXAtmAal5VclStatTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 3, 1, 1, 1), )
+if mibBuilder.loadTexts: rbnXAtmAal5VclStatTable.setStatus('deprecated')
+rbnXAtmAal5VclStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 3, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ATM-MIB", "atmVclVpi"), (0, "ATM-MIB", "atmVclVci"))
+if mibBuilder.loadTexts: rbnXAtmAal5VclStatEntry.setStatus('deprecated')
+rbnXAtmAal5VclInPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 3, 1, 1, 1, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnXAtmAal5VclInPkts.setStatus('deprecated')
+rbnXAtmAal5VclOutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 3, 1, 1, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnXAtmAal5VclOutPkts.setStatus('deprecated')
+rbnXAtmAal5VclInOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 3, 1, 1, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnXAtmAal5VclInOctets.setStatus('deprecated')
+rbnXAtmAal5VclOutOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 3, 1, 1, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnXAtmAal5VclOutOctets.setStatus('deprecated')
+rbnXAal5VclStatMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 3, 1, 2))
+rbnXAal5VclStatMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 3, 1, 2, 1))
+rbnXAal5VclStatMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 3, 1, 2, 2))
+rbnXAal5VclStatMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 3, 1, 2, 2, 1)).setObjects(("RBN-X-AAL5-VCL-STAT-MIB", "rbnXAal5VclStatGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnXAal5VclStatMIBCompliance = rbnXAal5VclStatMIBCompliance.setStatus('current')
+rbnXAal5VclStatGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 3, 1, 2, 1, 1)).setObjects(("RBN-X-AAL5-VCL-STAT-MIB", "rbnXAtmAal5VclInPkts"), ("RBN-X-AAL5-VCL-STAT-MIB", "rbnXAtmAal5VclOutPkts"), ("RBN-X-AAL5-VCL-STAT-MIB", "rbnXAtmAal5VclInOctets"), ("RBN-X-AAL5-VCL-STAT-MIB", "rbnXAtmAal5VclOutOctets"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnXAal5VclStatGroup = rbnXAal5VclStatGroup.setStatus('current')
+mibBuilder.exportSymbols("RBN-X-AAL5-VCL-STAT-MIB", rbnXAtmAal5VclOutOctets=rbnXAtmAal5VclOutOctets, rbnXAtmAal5VclStatEntry=rbnXAtmAal5VclStatEntry, rbnXAal5VclStatGroup=rbnXAal5VclStatGroup, rbnXAal5VclStatMIB=rbnXAal5VclStatMIB, rbnXAal5VclStatMIBCompliance=rbnXAal5VclStatMIBCompliance, rbnXAal5VclStatMIBConformance=rbnXAal5VclStatMIBConformance, PYSNMP_MODULE_ID=rbnXAal5VclStatMIB, rbnXAtmAal5VclInOctets=rbnXAtmAal5VclInOctets, rbnXAtmAal5VclStatTable=rbnXAtmAal5VclStatTable, rbnXAal5VclStatMIBGroups=rbnXAal5VclStatMIBGroups, rbnXAal5VclStatMIBObjects=rbnXAal5VclStatMIBObjects, rbnXAtmAal5VclInPkts=rbnXAtmAal5VclInPkts, rbnXAtmAal5VclOutPkts=rbnXAtmAal5VclOutPkts, rbnXAal5VclStatMIBCompliances=rbnXAal5VclStatMIBCompliances)

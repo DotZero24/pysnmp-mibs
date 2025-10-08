@@ -1,62 +1,34 @@
-_G='read-write'
-_F='ctBroadcastCtlInterface'
-_E='ctBroadcastCtlSlotID'
-_D='CT-BROADCAST-MIB'
-_C='Integer32'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ctBroadcast,=mibBuilder.importSymbols('CTRON-MIB-NAMES','ctBroadcast')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_CtBroadcastCtl_ObjectIdentity=ObjectIdentity
-ctBroadcastCtl=_CtBroadcastCtl_ObjectIdentity((1,3,6,1,4,1,52,4,1,2,13,1))
-_CtBroadcastCtlTable_Object=MibTable
-ctBroadcastCtlTable=_CtBroadcastCtlTable_Object((1,3,6,1,4,1,52,4,1,2,13,1,1))
-if mibBuilder.loadTexts:ctBroadcastCtlTable.setStatus(_A)
-_CtBroadcastCtlEntry_Object=MibTableRow
-ctBroadcastCtlEntry=_CtBroadcastCtlEntry_Object((1,3,6,1,4,1,52,4,1,2,13,1,1,1))
-ctBroadcastCtlEntry.setIndexNames((0,_D,_E),(0,_D,_F))
-if mibBuilder.loadTexts:ctBroadcastCtlEntry.setStatus(_A)
-_CtBroadcastCtlSlotID_Type=Integer32
-_CtBroadcastCtlSlotID_Object=MibTableColumn
-ctBroadcastCtlSlotID=_CtBroadcastCtlSlotID_Object((1,3,6,1,4,1,52,4,1,2,13,1,1,1,1),_CtBroadcastCtlSlotID_Type())
-ctBroadcastCtlSlotID.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctBroadcastCtlSlotID.setStatus(_A)
-_CtBroadcastCtlInterface_Type=Integer32
-_CtBroadcastCtlInterface_Object=MibTableColumn
-ctBroadcastCtlInterface=_CtBroadcastCtlInterface_Object((1,3,6,1,4,1,52,4,1,2,13,1,1,1,2),_CtBroadcastCtlInterface_Type())
-ctBroadcastCtlInterface.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctBroadcastCtlInterface.setStatus(_A)
-_CtBroadcastTotalBroadcastFrames_Type=Counter32
-_CtBroadcastTotalBroadcastFrames_Object=MibTableColumn
-ctBroadcastTotalBroadcastFrames=_CtBroadcastTotalBroadcastFrames_Object((1,3,6,1,4,1,52,4,1,2,13,1,1,1,3),_CtBroadcastTotalBroadcastFrames_Type())
-ctBroadcastTotalBroadcastFrames.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctBroadcastTotalBroadcastFrames.setStatus(_A)
-_CtBroadcastPeakBroadcastRate_Type=Integer32
-_CtBroadcastPeakBroadcastRate_Object=MibTableColumn
-ctBroadcastPeakBroadcastRate=_CtBroadcastPeakBroadcastRate_Object((1,3,6,1,4,1,52,4,1,2,13,1,1,1,4),_CtBroadcastPeakBroadcastRate_Type())
-ctBroadcastPeakBroadcastRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctBroadcastPeakBroadcastRate.setStatus(_A)
-_CtBroadcastPeakBroadcastRateTime_Type=TimeTicks
-_CtBroadcastPeakBroadcastRateTime_Object=MibTableColumn
-ctBroadcastPeakBroadcastRateTime=_CtBroadcastPeakBroadcastRateTime_Object((1,3,6,1,4,1,52,4,1,2,13,1,1,1,5),_CtBroadcastPeakBroadcastRateTime_Type())
-ctBroadcastPeakBroadcastRateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctBroadcastPeakBroadcastRateTime.setStatus(_A)
-class _CtBroadcastPeakBroadcastClear_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('clear',1),('noClear',2)))
-_CtBroadcastPeakBroadcastClear_Type.__name__=_C
-_CtBroadcastPeakBroadcastClear_Object=MibTableColumn
-ctBroadcastPeakBroadcastClear=_CtBroadcastPeakBroadcastClear_Object((1,3,6,1,4,1,52,4,1,2,13,1,1,1,6),_CtBroadcastPeakBroadcastClear_Type())
-ctBroadcastPeakBroadcastClear.setMaxAccess(_G)
-if mibBuilder.loadTexts:ctBroadcastPeakBroadcastClear.setStatus(_A)
-class _CtBroadcastDesiredBroadcastThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_CtBroadcastDesiredBroadcastThreshold_Type.__name__=_C
-_CtBroadcastDesiredBroadcastThreshold_Object=MibTableColumn
-ctBroadcastDesiredBroadcastThreshold=_CtBroadcastDesiredBroadcastThreshold_Object((1,3,6,1,4,1,52,4,1,2,13,1,1,1,7),_CtBroadcastDesiredBroadcastThreshold_Type())
-ctBroadcastDesiredBroadcastThreshold.setMaxAccess(_G)
-if mibBuilder.loadTexts:ctBroadcastDesiredBroadcastThreshold.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'ctBroadcastCtl':ctBroadcastCtl,'ctBroadcastCtlTable':ctBroadcastCtlTable,'ctBroadcastCtlEntry':ctBroadcastCtlEntry,_E:ctBroadcastCtlSlotID,_F:ctBroadcastCtlInterface,'ctBroadcastTotalBroadcastFrames':ctBroadcastTotalBroadcastFrames,'ctBroadcastPeakBroadcastRate':ctBroadcastPeakBroadcastRate,'ctBroadcastPeakBroadcastRateTime':ctBroadcastPeakBroadcastRateTime,'ctBroadcastPeakBroadcastClear':ctBroadcastPeakBroadcastClear,'ctBroadcastDesiredBroadcastThreshold':ctBroadcastDesiredBroadcastThreshold})
+#
+# PySNMP MIB module CT-BROADCAST-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CT-BROADCAST-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ctBroadcast, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctBroadcast")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ctBroadcastCtl = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 13, 1))
+ctBroadcastCtlTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 13, 1, 1), )
+if mibBuilder.loadTexts: ctBroadcastCtlTable.setStatus('mandatory')
+ctBroadcastCtlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 13, 1, 1, 1), ).setIndexNames((0, "CT-BROADCAST-MIB", "ctBroadcastCtlSlotID"), (0, "CT-BROADCAST-MIB", "ctBroadcastCtlInterface"))
+if mibBuilder.loadTexts: ctBroadcastCtlEntry.setStatus('mandatory')
+ctBroadcastCtlSlotID = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 13, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctBroadcastCtlSlotID.setStatus('mandatory')
+ctBroadcastCtlInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 13, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctBroadcastCtlInterface.setStatus('mandatory')
+ctBroadcastTotalBroadcastFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 13, 1, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctBroadcastTotalBroadcastFrames.setStatus('mandatory')
+ctBroadcastPeakBroadcastRate = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 13, 1, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctBroadcastPeakBroadcastRate.setStatus('mandatory')
+ctBroadcastPeakBroadcastRateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 13, 1, 1, 1, 5), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctBroadcastPeakBroadcastRateTime.setStatus('mandatory')
+ctBroadcastPeakBroadcastClear = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 13, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("clear", 1), ("noClear", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctBroadcastPeakBroadcastClear.setStatus('mandatory')
+ctBroadcastDesiredBroadcastThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 13, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctBroadcastDesiredBroadcastThreshold.setStatus('mandatory')
+mibBuilder.exportSymbols("CT-BROADCAST-MIB", ctBroadcastCtlInterface=ctBroadcastCtlInterface, ctBroadcastCtlSlotID=ctBroadcastCtlSlotID, ctBroadcastDesiredBroadcastThreshold=ctBroadcastDesiredBroadcastThreshold, ctBroadcastTotalBroadcastFrames=ctBroadcastTotalBroadcastFrames, ctBroadcastCtlEntry=ctBroadcastCtlEntry, ctBroadcastPeakBroadcastRate=ctBroadcastPeakBroadcastRate, ctBroadcastCtl=ctBroadcastCtl, ctBroadcastPeakBroadcastRateTime=ctBroadcastPeakBroadcastRateTime, ctBroadcastCtlTable=ctBroadcastCtlTable, ctBroadcastPeakBroadcastClear=ctBroadcastPeakBroadcastClear)

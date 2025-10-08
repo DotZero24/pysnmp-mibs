@@ -1,139 +1,78 @@
-_b='mbgFDMTrapsGroup'
-_a='mbgFDMObjectsGroup'
-_Z='mbgFDMNormalOperation'
-_Y='mbgFDMXPTReboot'
-_X='mbgFDMTrapFreqLimitExceeded'
-_W='mbgFDMTrapA2Overflow'
-_V='mbgFDMTrapA1Overflow'
-_U='mbgFDMTrapTimeDeviationOverflow'
-_T='mbgFDMTrapNoPowerline'
-_S='mbgFDMTrapNoPPS'
-_R='mbgFDMTrapNo10Mhz'
-_Q='mbgFDMTrapNoTimeString'
-_P='mbgFDMTrapInternalError'
-_O='mbgFDMErrorStatus'
-_N='mbgFDMTimeDevVal'
-_M='mbgFDMTimeDev'
-_L='mbgFDMFreqDevVal'
-_K='mbgFDMFreqDev'
-_J='mbgFDMPLTime'
-_I='mbgFDMRefTime'
-_H='mbgFDMFrequencyVal'
-_G='mbgFDMFrequency'
-_F='mbgFDMModeVal'
-_E='mbgFDMMode'
-_D='Integer32'
-_C='read-only'
-_B='MBG-SNMP-FDMXPT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mbgSnmpRoot,=mibBuilder.importSymbols('MBG-SNMP-ROOT-MIB','mbgSnmpRoot')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-mbgFDM=ModuleIdentity((1,3,6,1,4,1,5597,15))
-if mibBuilder.loadTexts:mbgFDM.setRevisions(('2012-01-25 00:00','2006-01-20 00:00'))
-_MbgFDMData_ObjectIdentity=ObjectIdentity
-mbgFDMData=_MbgFDMData_ObjectIdentity((1,3,6,1,4,1,5597,15,2))
-_MbgFDMMode_Type=DisplayString
-_MbgFDMMode_Object=MibScalar
-mbgFDMMode=_MbgFDMMode_Object((1,3,6,1,4,1,5597,15,2,1),_MbgFDMMode_Type())
-mbgFDMMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgFDMMode.setStatus(_A)
-class _MbgFDMModeVal_Type(Integer32):defaultValue=0
-_MbgFDMModeVal_Type.__name__=_D
-_MbgFDMModeVal_Object=MibScalar
-mbgFDMModeVal=_MbgFDMModeVal_Object((1,3,6,1,4,1,5597,15,2,2),_MbgFDMModeVal_Type())
-mbgFDMModeVal.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgFDMModeVal.setStatus(_A)
-_MbgFDMFrequency_Type=DisplayString
-_MbgFDMFrequency_Object=MibScalar
-mbgFDMFrequency=_MbgFDMFrequency_Object((1,3,6,1,4,1,5597,15,2,3),_MbgFDMFrequency_Type())
-mbgFDMFrequency.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgFDMFrequency.setStatus(_A)
-class _MbgFDMFrequencyVal_Type(Integer32):defaultValue=0
-_MbgFDMFrequencyVal_Type.__name__=_D
-_MbgFDMFrequencyVal_Object=MibScalar
-mbgFDMFrequencyVal=_MbgFDMFrequencyVal_Object((1,3,6,1,4,1,5597,15,2,4),_MbgFDMFrequencyVal_Type())
-mbgFDMFrequencyVal.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgFDMFrequencyVal.setStatus(_A)
-_MbgFDMRefTime_Type=DisplayString
-_MbgFDMRefTime_Object=MibScalar
-mbgFDMRefTime=_MbgFDMRefTime_Object((1,3,6,1,4,1,5597,15,2,5),_MbgFDMRefTime_Type())
-mbgFDMRefTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgFDMRefTime.setStatus(_A)
-_MbgFDMPLTime_Type=DisplayString
-_MbgFDMPLTime_Object=MibScalar
-mbgFDMPLTime=_MbgFDMPLTime_Object((1,3,6,1,4,1,5597,15,2,6),_MbgFDMPLTime_Type())
-mbgFDMPLTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgFDMPLTime.setStatus(_A)
-_MbgFDMFreqDev_Type=DisplayString
-_MbgFDMFreqDev_Object=MibScalar
-mbgFDMFreqDev=_MbgFDMFreqDev_Object((1,3,6,1,4,1,5597,15,2,7),_MbgFDMFreqDev_Type())
-mbgFDMFreqDev.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgFDMFreqDev.setStatus(_A)
-class _MbgFDMFreqDevVal_Type(Integer32):defaultValue=0
-_MbgFDMFreqDevVal_Type.__name__=_D
-_MbgFDMFreqDevVal_Object=MibScalar
-mbgFDMFreqDevVal=_MbgFDMFreqDevVal_Object((1,3,6,1,4,1,5597,15,2,8),_MbgFDMFreqDevVal_Type())
-mbgFDMFreqDevVal.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgFDMFreqDevVal.setStatus(_A)
-_MbgFDMTimeDev_Type=DisplayString
-_MbgFDMTimeDev_Object=MibScalar
-mbgFDMTimeDev=_MbgFDMTimeDev_Object((1,3,6,1,4,1,5597,15,2,9),_MbgFDMTimeDev_Type())
-mbgFDMTimeDev.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgFDMTimeDev.setStatus(_A)
-class _MbgFDMTimeDevVal_Type(Integer32):defaultValue=0
-_MbgFDMTimeDevVal_Type.__name__=_D
-_MbgFDMTimeDevVal_Object=MibScalar
-mbgFDMTimeDevVal=_MbgFDMTimeDevVal_Object((1,3,6,1,4,1,5597,15,2,10),_MbgFDMTimeDevVal_Type())
-mbgFDMTimeDevVal.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgFDMTimeDevVal.setStatus(_A)
-_MbgFDMErrorStatus_Type=DisplayString
-_MbgFDMErrorStatus_Object=MibScalar
-mbgFDMErrorStatus=_MbgFDMErrorStatus_Object((1,3,6,1,4,1,5597,15,2,11),_MbgFDMErrorStatus_Type())
-mbgFDMErrorStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:mbgFDMErrorStatus.setStatus(_A)
-_MbgFDMTraps_ObjectIdentity=ObjectIdentity
-mbgFDMTraps=_MbgFDMTraps_ObjectIdentity((1,3,6,1,4,1,5597,15,3))
-_MbgFDMConformance_ObjectIdentity=ObjectIdentity
-mbgFDMConformance=_MbgFDMConformance_ObjectIdentity((1,3,6,1,4,1,5597,15,90))
-_MbgFDMCompliances_ObjectIdentity=ObjectIdentity
-mbgFDMCompliances=_MbgFDMCompliances_ObjectIdentity((1,3,6,1,4,1,5597,15,90,1))
-_MbgFDMGroups_ObjectIdentity=ObjectIdentity
-mbgFDMGroups=_MbgFDMGroups_ObjectIdentity((1,3,6,1,4,1,5597,15,90,2))
-mbgFDMObjectsGroup=ObjectGroup((1,3,6,1,4,1,5597,15,90,2,1))
-mbgFDMObjectsGroup.setObjects(*((_B,_E),(_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:mbgFDMObjectsGroup.setStatus(_A)
-mbgFDMTrapInternalError=NotificationType((1,3,6,1,4,1,5597,15,3,1))
-if mibBuilder.loadTexts:mbgFDMTrapInternalError.setStatus(_A)
-mbgFDMTrapNoTimeString=NotificationType((1,3,6,1,4,1,5597,15,3,2))
-if mibBuilder.loadTexts:mbgFDMTrapNoTimeString.setStatus(_A)
-mbgFDMTrapNo10Mhz=NotificationType((1,3,6,1,4,1,5597,15,3,3))
-if mibBuilder.loadTexts:mbgFDMTrapNo10Mhz.setStatus(_A)
-mbgFDMTrapNoPPS=NotificationType((1,3,6,1,4,1,5597,15,3,4))
-if mibBuilder.loadTexts:mbgFDMTrapNoPPS.setStatus(_A)
-mbgFDMTrapNoPowerline=NotificationType((1,3,6,1,4,1,5597,15,3,5))
-if mibBuilder.loadTexts:mbgFDMTrapNoPowerline.setStatus(_A)
-mbgFDMTrapTimeDeviationOverflow=NotificationType((1,3,6,1,4,1,5597,15,3,6))
-if mibBuilder.loadTexts:mbgFDMTrapTimeDeviationOverflow.setStatus(_A)
-mbgFDMTrapA1Overflow=NotificationType((1,3,6,1,4,1,5597,15,3,7))
-if mibBuilder.loadTexts:mbgFDMTrapA1Overflow.setStatus(_A)
-mbgFDMTrapA2Overflow=NotificationType((1,3,6,1,4,1,5597,15,3,8))
-if mibBuilder.loadTexts:mbgFDMTrapA2Overflow.setStatus(_A)
-mbgFDMTrapFreqLimitExceeded=NotificationType((1,3,6,1,4,1,5597,15,3,9))
-if mibBuilder.loadTexts:mbgFDMTrapFreqLimitExceeded.setStatus(_A)
-mbgFDMXPTReboot=NotificationType((1,3,6,1,4,1,5597,15,3,10))
-if mibBuilder.loadTexts:mbgFDMXPTReboot.setStatus(_A)
-mbgFDMNormalOperation=NotificationType((1,3,6,1,4,1,5597,15,3,99))
-if mibBuilder.loadTexts:mbgFDMNormalOperation.setStatus(_A)
-mbgFDMTrapsGroup=NotificationGroup((1,3,6,1,4,1,5597,15,90,2,2))
-mbgFDMTrapsGroup.setObjects(*((_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z)))
-if mibBuilder.loadTexts:mbgFDMTrapsGroup.setStatus(_A)
-mbgFDMCompliance=ModuleCompliance((1,3,6,1,4,1,5597,15,90,1,1))
-mbgFDMCompliance.setObjects(*((_B,_a),(_B,_b)))
-if mibBuilder.loadTexts:mbgFDMCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'mbgFDM':mbgFDM,'mbgFDMData':mbgFDMData,_E:mbgFDMMode,_F:mbgFDMModeVal,_G:mbgFDMFrequency,_H:mbgFDMFrequencyVal,_I:mbgFDMRefTime,_J:mbgFDMPLTime,_K:mbgFDMFreqDev,_L:mbgFDMFreqDevVal,_M:mbgFDMTimeDev,_N:mbgFDMTimeDevVal,_O:mbgFDMErrorStatus,'mbgFDMTraps':mbgFDMTraps,_P:mbgFDMTrapInternalError,_Q:mbgFDMTrapNoTimeString,_R:mbgFDMTrapNo10Mhz,_S:mbgFDMTrapNoPPS,_T:mbgFDMTrapNoPowerline,_U:mbgFDMTrapTimeDeviationOverflow,_V:mbgFDMTrapA1Overflow,_W:mbgFDMTrapA2Overflow,_X:mbgFDMTrapFreqLimitExceeded,_Y:mbgFDMXPTReboot,_Z:mbgFDMNormalOperation,'mbgFDMConformance':mbgFDMConformance,'mbgFDMCompliances':mbgFDMCompliances,'mbgFDMCompliance':mbgFDMCompliance,'mbgFDMGroups':mbgFDMGroups,_a:mbgFDMObjectsGroup,_b:mbgFDMTrapsGroup})
+#
+# PySNMP MIB module MBG-SNMP-FDMXPT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/meinberg/MBG-SNMP-FDMXPT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mbgSnmpRoot, = mibBuilder.importSymbols("MBG-SNMP-ROOT-MIB", "mbgSnmpRoot")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+mbgFDM = ModuleIdentity((1, 3, 6, 1, 4, 1, 5597, 15))
+mbgFDM.setRevisions(('2012-01-25 00:00', '2006-01-20 00:00',))
+if mibBuilder.loadTexts: mbgFDM.setLastUpdated('201201250000Z')
+if mibBuilder.loadTexts: mbgFDM.setOrganization('www.meinberg.de')
+mbgFDMData = MibIdentifier((1, 3, 6, 1, 4, 1, 5597, 15, 2))
+mbgFDMTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 5597, 15, 3))
+mbgFDMMode = MibScalar((1, 3, 6, 1, 4, 1, 5597, 15, 2, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgFDMMode.setStatus('current')
+mbgFDMModeVal = MibScalar((1, 3, 6, 1, 4, 1, 5597, 15, 2, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgFDMModeVal.setStatus('current')
+mbgFDMFrequency = MibScalar((1, 3, 6, 1, 4, 1, 5597, 15, 2, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgFDMFrequency.setStatus('current')
+mbgFDMFrequencyVal = MibScalar((1, 3, 6, 1, 4, 1, 5597, 15, 2, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgFDMFrequencyVal.setStatus('current')
+mbgFDMRefTime = MibScalar((1, 3, 6, 1, 4, 1, 5597, 15, 2, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgFDMRefTime.setStatus('current')
+mbgFDMPLTime = MibScalar((1, 3, 6, 1, 4, 1, 5597, 15, 2, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgFDMPLTime.setStatus('current')
+mbgFDMFreqDev = MibScalar((1, 3, 6, 1, 4, 1, 5597, 15, 2, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgFDMFreqDev.setStatus('current')
+mbgFDMFreqDevVal = MibScalar((1, 3, 6, 1, 4, 1, 5597, 15, 2, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgFDMFreqDevVal.setStatus('current')
+mbgFDMTimeDev = MibScalar((1, 3, 6, 1, 4, 1, 5597, 15, 2, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgFDMTimeDev.setStatus('current')
+mbgFDMTimeDevVal = MibScalar((1, 3, 6, 1, 4, 1, 5597, 15, 2, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgFDMTimeDevVal.setStatus('current')
+mbgFDMErrorStatus = MibScalar((1, 3, 6, 1, 4, 1, 5597, 15, 2, 11), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mbgFDMErrorStatus.setStatus('current')
+mbgFDMTrapInternalError = NotificationType((1, 3, 6, 1, 4, 1, 5597, 15, 3, 1))
+if mibBuilder.loadTexts: mbgFDMTrapInternalError.setStatus('current')
+mbgFDMTrapNoTimeString = NotificationType((1, 3, 6, 1, 4, 1, 5597, 15, 3, 2))
+if mibBuilder.loadTexts: mbgFDMTrapNoTimeString.setStatus('current')
+mbgFDMTrapNo10Mhz = NotificationType((1, 3, 6, 1, 4, 1, 5597, 15, 3, 3))
+if mibBuilder.loadTexts: mbgFDMTrapNo10Mhz.setStatus('current')
+mbgFDMTrapNoPPS = NotificationType((1, 3, 6, 1, 4, 1, 5597, 15, 3, 4))
+if mibBuilder.loadTexts: mbgFDMTrapNoPPS.setStatus('current')
+mbgFDMTrapNoPowerline = NotificationType((1, 3, 6, 1, 4, 1, 5597, 15, 3, 5))
+if mibBuilder.loadTexts: mbgFDMTrapNoPowerline.setStatus('current')
+mbgFDMTrapTimeDeviationOverflow = NotificationType((1, 3, 6, 1, 4, 1, 5597, 15, 3, 6))
+if mibBuilder.loadTexts: mbgFDMTrapTimeDeviationOverflow.setStatus('current')
+mbgFDMTrapA1Overflow = NotificationType((1, 3, 6, 1, 4, 1, 5597, 15, 3, 7))
+if mibBuilder.loadTexts: mbgFDMTrapA1Overflow.setStatus('current')
+mbgFDMTrapA2Overflow = NotificationType((1, 3, 6, 1, 4, 1, 5597, 15, 3, 8))
+if mibBuilder.loadTexts: mbgFDMTrapA2Overflow.setStatus('current')
+mbgFDMTrapFreqLimitExceeded = NotificationType((1, 3, 6, 1, 4, 1, 5597, 15, 3, 9))
+if mibBuilder.loadTexts: mbgFDMTrapFreqLimitExceeded.setStatus('current')
+mbgFDMXPTReboot = NotificationType((1, 3, 6, 1, 4, 1, 5597, 15, 3, 10))
+if mibBuilder.loadTexts: mbgFDMXPTReboot.setStatus('current')
+mbgFDMNormalOperation = NotificationType((1, 3, 6, 1, 4, 1, 5597, 15, 3, 99))
+if mibBuilder.loadTexts: mbgFDMNormalOperation.setStatus('current')
+mbgFDMConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5597, 15, 90))
+mbgFDMCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5597, 15, 90, 1))
+mbgFDMGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5597, 15, 90, 2))
+mbgFDMCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5597, 15, 90, 1, 1)).setObjects(("MBG-SNMP-FDMXPT-MIB", "mbgFDMObjectsGroup"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMTrapsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mbgFDMCompliance = mbgFDMCompliance.setStatus('current')
+mbgFDMObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5597, 15, 90, 2, 1)).setObjects(("MBG-SNMP-FDMXPT-MIB", "mbgFDMMode"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMModeVal"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMFrequency"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMFrequencyVal"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMRefTime"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMPLTime"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMFreqDev"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMFreqDevVal"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMTimeDev"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMTimeDevVal"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMErrorStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mbgFDMObjectsGroup = mbgFDMObjectsGroup.setStatus('current')
+mbgFDMTrapsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 5597, 15, 90, 2, 2)).setObjects(("MBG-SNMP-FDMXPT-MIB", "mbgFDMTrapInternalError"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMTrapNoTimeString"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMTrapNo10Mhz"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMTrapNoPPS"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMTrapNoPowerline"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMTrapTimeDeviationOverflow"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMTrapA1Overflow"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMTrapA2Overflow"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMTrapFreqLimitExceeded"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMXPTReboot"), ("MBG-SNMP-FDMXPT-MIB", "mbgFDMNormalOperation"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mbgFDMTrapsGroup = mbgFDMTrapsGroup.setStatus('current')
+mibBuilder.exportSymbols("MBG-SNMP-FDMXPT-MIB", mbgFDMMode=mbgFDMMode, mbgFDMFrequencyVal=mbgFDMFrequencyVal, mbgFDMTrapNo10Mhz=mbgFDMTrapNo10Mhz, PYSNMP_MODULE_ID=mbgFDM, mbgFDMFreqDevVal=mbgFDMFreqDevVal, mbgFDMFrequency=mbgFDMFrequency, mbgFDMFreqDev=mbgFDMFreqDev, mbgFDMXPTReboot=mbgFDMXPTReboot, mbgFDMTrapNoTimeString=mbgFDMTrapNoTimeString, mbgFDMTrapFreqLimitExceeded=mbgFDMTrapFreqLimitExceeded, mbgFDMCompliances=mbgFDMCompliances, mbgFDMCompliance=mbgFDMCompliance, mbgFDMRefTime=mbgFDMRefTime, mbgFDMPLTime=mbgFDMPLTime, mbgFDMErrorStatus=mbgFDMErrorStatus, mbgFDMTrapA2Overflow=mbgFDMTrapA2Overflow, mbgFDMData=mbgFDMData, mbgFDMTrapsGroup=mbgFDMTrapsGroup, mbgFDMNormalOperation=mbgFDMNormalOperation, mbgFDMTimeDevVal=mbgFDMTimeDevVal, mbgFDMGroups=mbgFDMGroups, mbgFDMTrapNoPowerline=mbgFDMTrapNoPowerline, mbgFDMTraps=mbgFDMTraps, mbgFDM=mbgFDM, mbgFDMTrapNoPPS=mbgFDMTrapNoPPS, mbgFDMTrapTimeDeviationOverflow=mbgFDMTrapTimeDeviationOverflow, mbgFDMTrapA1Overflow=mbgFDMTrapA1Overflow, mbgFDMObjectsGroup=mbgFDMObjectsGroup, mbgFDMTimeDev=mbgFDMTimeDev, mbgFDMConformance=mbgFDMConformance, mbgFDMModeVal=mbgFDMModeVal, mbgFDMTrapInternalError=mbgFDMTrapInternalError)

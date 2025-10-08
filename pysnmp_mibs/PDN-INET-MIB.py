@@ -1,86 +1,46 @@
-_I='pdnInetIpAddress'
-_H='PDN-INET-MIB'
-_G='read-only'
-_F='ifIndex'
-_E='IF-MIB'
-_D='read-write'
-_C='read-create'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-pdn_common,=mibBuilder.importSymbols('PDN-HEADER-MIB','pdn-common')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-pdn_inet=ModuleIdentity((1,3,6,1,4,1,1795,2,24,2,26))
-if mibBuilder.loadTexts:pdn_inet.setRevisions(('1902-02-21 00:00','1900-05-10 00:00','1900-04-27 00:00'))
-_PdnInetMIBObjects_ObjectIdentity=ObjectIdentity
-pdnInetMIBObjects=_PdnInetMIBObjects_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,26,1))
-class _PdnInetTelnetServerPort_Type(Integer32):defaultValue=23;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_PdnInetTelnetServerPort_Type.__name__=_B
-_PdnInetTelnetServerPort_Object=MibScalar
-pdnInetTelnetServerPort=_PdnInetTelnetServerPort_Object((1,3,6,1,4,1,1795,2,24,2,26,1,1),_PdnInetTelnetServerPort_Type())
-pdnInetTelnetServerPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:pdnInetTelnetServerPort.setStatus(_A)
-class _PdnInetFtpServerControlPort_Type(Integer32):defaultValue=21;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_PdnInetFtpServerControlPort_Type.__name__=_B
-_PdnInetFtpServerControlPort_Object=MibScalar
-pdnInetFtpServerControlPort=_PdnInetFtpServerControlPort_Object((1,3,6,1,4,1,1795,2,24,2,26,1,2),_PdnInetFtpServerControlPort_Type())
-pdnInetFtpServerControlPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:pdnInetFtpServerControlPort.setStatus(_A)
-class _PdnInetFtpServerDataPort_Type(Integer32):defaultValue=20;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_PdnInetFtpServerDataPort_Type.__name__=_B
-_PdnInetFtpServerDataPort_Object=MibScalar
-pdnInetFtpServerDataPort=_PdnInetFtpServerDataPort_Object((1,3,6,1,4,1,1795,2,24,2,26,1,3),_PdnInetFtpServerDataPort_Type())
-pdnInetFtpServerDataPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:pdnInetFtpServerDataPort.setStatus(_A)
-_PdnInetIpAddressTableMaxIpSubnets_Type=Integer32
-_PdnInetIpAddressTableMaxIpSubnets_Object=MibScalar
-pdnInetIpAddressTableMaxIpSubnets=_PdnInetIpAddressTableMaxIpSubnets_Object((1,3,6,1,4,1,1795,2,24,2,26,1,4),_PdnInetIpAddressTableMaxIpSubnets_Type())
-pdnInetIpAddressTableMaxIpSubnets.setMaxAccess(_G)
-if mibBuilder.loadTexts:pdnInetIpAddressTableMaxIpSubnets.setStatus(_A)
-_PdnInetIpAddressTableCurrentIpSubnets_Type=Integer32
-_PdnInetIpAddressTableCurrentIpSubnets_Object=MibScalar
-pdnInetIpAddressTableCurrentIpSubnets=_PdnInetIpAddressTableCurrentIpSubnets_Object((1,3,6,1,4,1,1795,2,24,2,26,1,5),_PdnInetIpAddressTableCurrentIpSubnets_Type())
-pdnInetIpAddressTableCurrentIpSubnets.setMaxAccess(_G)
-if mibBuilder.loadTexts:pdnInetIpAddressTableCurrentIpSubnets.setStatus(_A)
-_PdnInetIpAddressTable_Object=MibTable
-pdnInetIpAddressTable=_PdnInetIpAddressTable_Object((1,3,6,1,4,1,1795,2,24,2,26,1,6))
-if mibBuilder.loadTexts:pdnInetIpAddressTable.setStatus(_A)
-_PdnInetIpAddressTableEntry_Object=MibTableRow
-pdnInetIpAddressTableEntry=_PdnInetIpAddressTableEntry_Object((1,3,6,1,4,1,1795,2,24,2,26,1,6,1))
-pdnInetIpAddressTableEntry.setIndexNames((0,_E,_F),(0,_H,_I))
-if mibBuilder.loadTexts:pdnInetIpAddressTableEntry.setStatus(_A)
-_PdnInetIpAddress_Type=IpAddress
-_PdnInetIpAddress_Object=MibTableColumn
-pdnInetIpAddress=_PdnInetIpAddress_Object((1,3,6,1,4,1,1795,2,24,2,26,1,6,1,1),_PdnInetIpAddress_Type())
-pdnInetIpAddress.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:pdnInetIpAddress.setStatus(_A)
-_PdnInetIpSubnetMask_Type=IpAddress
-_PdnInetIpSubnetMask_Object=MibTableColumn
-pdnInetIpSubnetMask=_PdnInetIpSubnetMask_Object((1,3,6,1,4,1,1795,2,24,2,26,1,6,1,2),_PdnInetIpSubnetMask_Type())
-pdnInetIpSubnetMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:pdnInetIpSubnetMask.setStatus(_A)
-class _PdnInetIpAddressType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('primary',1),('secondary',2),('primaryBootp',3),('secondaryBootp',4)))
-_PdnInetIpAddressType_Type.__name__=_B
-_PdnInetIpAddressType_Object=MibTableColumn
-pdnInetIpAddressType=_PdnInetIpAddressType_Object((1,3,6,1,4,1,1795,2,24,2,26,1,6,1,3),_PdnInetIpAddressType_Type())
-pdnInetIpAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:pdnInetIpAddressType.setStatus(_A)
-_PdnInetIpRowStatus_Type=RowStatus
-_PdnInetIpRowStatus_Object=MibTableColumn
-pdnInetIpRowStatus=_PdnInetIpRowStatus_Object((1,3,6,1,4,1,1795,2,24,2,26,1,6,1,4),_PdnInetIpRowStatus_Type())
-pdnInetIpRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:pdnInetIpRowStatus.setStatus(_A)
-_PdnInetIpGateway_Type=IpAddress
-_PdnInetIpGateway_Object=MibTableColumn
-pdnInetIpGateway=_PdnInetIpGateway_Object((1,3,6,1,4,1,1795,2,24,2,26,1,6,1,5),_PdnInetIpGateway_Type())
-pdnInetIpGateway.setMaxAccess(_C)
-if mibBuilder.loadTexts:pdnInetIpGateway.setStatus(_A)
-_PdnInetMIBTraps_ObjectIdentity=ObjectIdentity
-pdnInetMIBTraps=_PdnInetMIBTraps_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,26,2))
-mibBuilder.exportSymbols(_H,**{'pdn-inet':pdn_inet,'pdnInetMIBObjects':pdnInetMIBObjects,'pdnInetTelnetServerPort':pdnInetTelnetServerPort,'pdnInetFtpServerControlPort':pdnInetFtpServerControlPort,'pdnInetFtpServerDataPort':pdnInetFtpServerDataPort,'pdnInetIpAddressTableMaxIpSubnets':pdnInetIpAddressTableMaxIpSubnets,'pdnInetIpAddressTableCurrentIpSubnets':pdnInetIpAddressTableCurrentIpSubnets,'pdnInetIpAddressTable':pdnInetIpAddressTable,'pdnInetIpAddressTableEntry':pdnInetIpAddressTableEntry,_I:pdnInetIpAddress,'pdnInetIpSubnetMask':pdnInetIpSubnetMask,'pdnInetIpAddressType':pdnInetIpAddressType,'pdnInetIpRowStatus':pdnInetIpRowStatus,'pdnInetIpGateway':pdnInetIpGateway,'pdnInetMIBTraps':pdnInetMIBTraps})
+#
+# PySNMP MIB module PDN-INET-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/paradyne/PDN-INET-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:39 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+pdn_common, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-common")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+pdn_inet = ModuleIdentity((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 26)).setLabel("pdn-inet")
+pdn_inet.setRevisions(('1902-02-21 00:00', '1900-05-10 00:00', '1900-04-27 00:00',))
+if mibBuilder.loadTexts: pdn_inet.setLastUpdated('0202210000Z')
+if mibBuilder.loadTexts: pdn_inet.setOrganization('Paradyne Corporation MIB Working Group')
+pdnInetMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 26, 1))
+pdnInetMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 26, 2))
+pdnInetTelnetServerPort = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 26, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(23)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pdnInetTelnetServerPort.setStatus('current')
+pdnInetFtpServerControlPort = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 26, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(21)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pdnInetFtpServerControlPort.setStatus('current')
+pdnInetFtpServerDataPort = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 26, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(20)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pdnInetFtpServerDataPort.setStatus('current')
+pdnInetIpAddressTableMaxIpSubnets = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 26, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pdnInetIpAddressTableMaxIpSubnets.setStatus('current')
+pdnInetIpAddressTableCurrentIpSubnets = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 26, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pdnInetIpAddressTableCurrentIpSubnets.setStatus('current')
+pdnInetIpAddressTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 26, 1, 6), )
+if mibBuilder.loadTexts: pdnInetIpAddressTable.setStatus('current')
+pdnInetIpAddressTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 26, 1, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "PDN-INET-MIB", "pdnInetIpAddress"))
+if mibBuilder.loadTexts: pdnInetIpAddressTableEntry.setStatus('current')
+pdnInetIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 26, 1, 6, 1, 1), IpAddress())
+if mibBuilder.loadTexts: pdnInetIpAddress.setStatus('current')
+pdnInetIpSubnetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 26, 1, 6, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: pdnInetIpSubnetMask.setStatus('current')
+pdnInetIpAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 26, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("primaryBootp", 3), ("secondaryBootp", 4)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: pdnInetIpAddressType.setStatus('current')
+pdnInetIpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 26, 1, 6, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: pdnInetIpRowStatus.setStatus('current')
+pdnInetIpGateway = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 26, 1, 6, 1, 5), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: pdnInetIpGateway.setStatus('current')
+mibBuilder.exportSymbols("PDN-INET-MIB", pdnInetIpAddressTable=pdnInetIpAddressTable, PYSNMP_MODULE_ID=pdn_inet, pdnInetIpAddressTableMaxIpSubnets=pdnInetIpAddressTableMaxIpSubnets, pdnInetIpSubnetMask=pdnInetIpSubnetMask, pdnInetIpAddressType=pdnInetIpAddressType, pdnInetMIBTraps=pdnInetMIBTraps, pdnInetIpAddressTableEntry=pdnInetIpAddressTableEntry, pdnInetIpAddress=pdnInetIpAddress, pdnInetIpAddressTableCurrentIpSubnets=pdnInetIpAddressTableCurrentIpSubnets, pdnInetIpGateway=pdnInetIpGateway, pdnInetFtpServerDataPort=pdnInetFtpServerDataPort, pdnInetMIBObjects=pdnInetMIBObjects, pdnInetIpRowStatus=pdnInetIpRowStatus, pdnInetFtpServerControlPort=pdnInetFtpServerControlPort, pdn_inet=pdn_inet, pdnInetTelnetServerPort=pdnInetTelnetServerPort)

@@ -1,160 +1,83 @@
-_Z='myClusterCandidateGroup'
-_Y='myClusterMemberGroup'
-_X='myClusterMemberStatusGroup'
-_W='myClusterStatusGroup'
-_V='scMemberRowStatus'
-_U='scMemberDeviceID'
-_T='scMemberNumber'
-_S='scStatusCommanderMacAddress'
-_R='scStatusLastFailureAddMember'
-_Q='scStatusMaxNumberOfMembers'
-_P='scStatusTimeOfLastChange'
-_O='read-create'
-_N='scMemberMacAddress'
-_M='read-write'
-_L='TimeStamp'
-_K='DisplayString'
-_J='EnabledStatus'
-_I='scMemberOperStatus'
-_H='scStatusClusterStatus'
-_G='scStatusClusterMode'
-_F='scStatusClusterName'
-_E='scCandidateMacAddress'
-_D='Integer32'
-_C='read-only'
-_B='DES7200-CLUSTER-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-myMgmt,=mibBuilder.importSymbols('DES7200-SMI','myMgmt')
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB',_J)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC',_K,'MacAddress','PhysAddress','RowStatus','TextualConvention',_L)
-myClusterMIB=ModuleIdentity((1,3,6,1,4,1,171,10,97,2,31))
-if mibBuilder.loadTexts:myClusterMIB.setRevisions(('2003-04-01 00:00',))
-_MyClusterMIBObjects_ObjectIdentity=ObjectIdentity
-myClusterMIBObjects=_MyClusterMIBObjects_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,31,1))
-_ScStatus_ObjectIdentity=ObjectIdentity
-scStatus=_ScStatus_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,31,1,1))
-class _ScStatusClusterName_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_ScStatusClusterName_Type.__name__=_K
-_ScStatusClusterName_Object=MibScalar
-scStatusClusterName=_ScStatusClusterName_Object((1,3,6,1,4,1,171,10,97,2,31,1,1,1),_ScStatusClusterName_Type())
-scStatusClusterName.setMaxAccess(_M)
-if mibBuilder.loadTexts:scStatusClusterName.setStatus(_A)
-class _ScStatusClusterMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('commandDevice',1),('memberDevice',2),('none',3)))
-_ScStatusClusterMode_Type.__name__=_D
-_ScStatusClusterMode_Object=MibScalar
-scStatusClusterMode=_ScStatusClusterMode_Object((1,3,6,1,4,1,171,10,97,2,31,1,1,2),_ScStatusClusterMode_Type())
-scStatusClusterMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:scStatusClusterMode.setStatus(_A)
-class _ScStatusClusterStatus_Type(EnabledStatus):defaultValue=1
-_ScStatusClusterStatus_Type.__name__=_J
-_ScStatusClusterStatus_Object=MibScalar
-scStatusClusterStatus=_ScStatusClusterStatus_Object((1,3,6,1,4,1,171,10,97,2,31,1,1,3),_ScStatusClusterStatus_Type())
-scStatusClusterStatus.setMaxAccess(_M)
-if mibBuilder.loadTexts:scStatusClusterStatus.setStatus(_A)
-_ScStatusCommanderMacAddress_Type=MacAddress
-_ScStatusCommanderMacAddress_Object=MibScalar
-scStatusCommanderMacAddress=_ScStatusCommanderMacAddress_Object((1,3,6,1,4,1,171,10,97,2,31,1,1,4),_ScStatusCommanderMacAddress_Type())
-scStatusCommanderMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:scStatusCommanderMacAddress.setStatus(_A)
-class _ScStatusTimeOfLastChange_Type(TimeStamp):defaultValue=0
-_ScStatusTimeOfLastChange_Type.__name__=_L
-_ScStatusTimeOfLastChange_Object=MibScalar
-scStatusTimeOfLastChange=_ScStatusTimeOfLastChange_Object((1,3,6,1,4,1,171,10,97,2,31,1,1,5),_ScStatusTimeOfLastChange_Type())
-scStatusTimeOfLastChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:scStatusTimeOfLastChange.setStatus(_A)
-_ScStatusMaxNumberOfMembers_Type=Unsigned32
-_ScStatusMaxNumberOfMembers_Object=MibScalar
-scStatusMaxNumberOfMembers=_ScStatusMaxNumberOfMembers_Object((1,3,6,1,4,1,171,10,97,2,31,1,1,6),_ScStatusMaxNumberOfMembers_Type())
-scStatusMaxNumberOfMembers.setMaxAccess(_C)
-if mibBuilder.loadTexts:scStatusMaxNumberOfMembers.setStatus(_A)
-class _ScStatusLastFailureAddMember_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('none',1),('password',2),('overmax',3),('noncandidate',4),('memberNumberInUse',5),('unreachable',6),('communityStringFull',7)))
-_ScStatusLastFailureAddMember_Type.__name__=_D
-_ScStatusLastFailureAddMember_Object=MibScalar
-scStatusLastFailureAddMember=_ScStatusLastFailureAddMember_Object((1,3,6,1,4,1,171,10,97,2,31,1,1,7),_ScStatusLastFailureAddMember_Type())
-scStatusLastFailureAddMember.setMaxAccess(_C)
-if mibBuilder.loadTexts:scStatusLastFailureAddMember.setStatus(_A)
-_ScMember_ObjectIdentity=ObjectIdentity
-scMember=_ScMember_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,31,1,2))
-_ScMemberTable_Object=MibTable
-scMemberTable=_ScMemberTable_Object((1,3,6,1,4,1,171,10,97,2,31,1,2,1))
-if mibBuilder.loadTexts:scMemberTable.setStatus(_A)
-_ScMemberEntry_Object=MibTableRow
-scMemberEntry=_ScMemberEntry_Object((1,3,6,1,4,1,171,10,97,2,31,1,2,1,1))
-scMemberEntry.setIndexNames((0,_B,_N))
-if mibBuilder.loadTexts:scMemberEntry.setStatus(_A)
-_ScMemberMacAddress_Type=MacAddress
-_ScMemberMacAddress_Object=MibTableColumn
-scMemberMacAddress=_ScMemberMacAddress_Object((1,3,6,1,4,1,171,10,97,2,31,1,2,1,1,1),_ScMemberMacAddress_Type())
-scMemberMacAddress.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:scMemberMacAddress.setStatus(_A)
-_ScMemberNumber_Type=Unsigned32
-_ScMemberNumber_Object=MibTableColumn
-scMemberNumber=_ScMemberNumber_Object((1,3,6,1,4,1,171,10,97,2,31,1,2,1,1,2),_ScMemberNumber_Type())
-scMemberNumber.setMaxAccess(_O)
-if mibBuilder.loadTexts:scMemberNumber.setStatus(_A)
-class _ScMemberOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('active',1),('inactive',2)))
-_ScMemberOperStatus_Type.__name__=_D
-_ScMemberOperStatus_Object=MibTableColumn
-scMemberOperStatus=_ScMemberOperStatus_Object((1,3,6,1,4,1,171,10,97,2,31,1,2,1,1,3),_ScMemberOperStatus_Type())
-scMemberOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:scMemberOperStatus.setStatus(_A)
-_ScMemberDeviceID_Type=MacAddress
-_ScMemberDeviceID_Object=MibTableColumn
-scMemberDeviceID=_ScMemberDeviceID_Object((1,3,6,1,4,1,171,10,97,2,31,1,2,1,1,4),_ScMemberDeviceID_Type())
-scMemberDeviceID.setMaxAccess(_C)
-if mibBuilder.loadTexts:scMemberDeviceID.setStatus(_A)
-_ScMemberRowStatus_Type=RowStatus
-_ScMemberRowStatus_Object=MibTableColumn
-scMemberRowStatus=_ScMemberRowStatus_Object((1,3,6,1,4,1,171,10,97,2,31,1,2,1,1,5),_ScMemberRowStatus_Type())
-scMemberRowStatus.setMaxAccess(_O)
-if mibBuilder.loadTexts:scMemberRowStatus.setStatus(_A)
-_ScCandidate_ObjectIdentity=ObjectIdentity
-scCandidate=_ScCandidate_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,31,1,3))
-_ScCandidateTable_Object=MibTable
-scCandidateTable=_ScCandidateTable_Object((1,3,6,1,4,1,171,10,97,2,31,1,3,1))
-if mibBuilder.loadTexts:scCandidateTable.setStatus(_A)
-_ScCandidateEntry_Object=MibTableRow
-scCandidateEntry=_ScCandidateEntry_Object((1,3,6,1,4,1,171,10,97,2,31,1,3,1,1))
-scCandidateEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:scCandidateEntry.setStatus(_A)
-_ScCandidateMacAddress_Type=MacAddress
-_ScCandidateMacAddress_Object=MibTableColumn
-scCandidateMacAddress=_ScCandidateMacAddress_Object((1,3,6,1,4,1,171,10,97,2,31,1,3,1,1,1),_ScCandidateMacAddress_Type())
-scCandidateMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:scCandidateMacAddress.setStatus(_A)
-_MyClusterTraps_ObjectIdentity=ObjectIdentity
-myClusterTraps=_MyClusterTraps_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,31,2))
-_MyClusterMIBConformance_ObjectIdentity=ObjectIdentity
-myClusterMIBConformance=_MyClusterMIBConformance_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,31,3))
-_MyClusterMIBCompliances_ObjectIdentity=ObjectIdentity
-myClusterMIBCompliances=_MyClusterMIBCompliances_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,31,3,1))
-_MyClusterMIBGroups_ObjectIdentity=ObjectIdentity
-myClusterMIBGroups=_MyClusterMIBGroups_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,31,3,2))
-myClusterStatusGroup=ObjectGroup((1,3,6,1,4,1,171,10,97,2,31,3,2,1))
-myClusterStatusGroup.setObjects(*((_B,_P),(_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:myClusterStatusGroup.setStatus(_A)
-myClusterMemberStatusGroup=ObjectGroup((1,3,6,1,4,1,171,10,97,2,31,3,2,2))
-myClusterMemberStatusGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H),(_B,_S)))
-if mibBuilder.loadTexts:myClusterMemberStatusGroup.setStatus(_A)
-myClusterCandidateStatusGroup=ObjectGroup((1,3,6,1,4,1,171,10,97,2,31,3,2,3))
-myClusterCandidateStatusGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:myClusterCandidateStatusGroup.setStatus(_A)
-myClusterMemberGroup=ObjectGroup((1,3,6,1,4,1,171,10,97,2,31,3,2,4))
-myClusterMemberGroup.setObjects(*((_B,_I),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:myClusterMemberGroup.setStatus(_A)
-myClusterCandidateGroup=ObjectGroup((1,3,6,1,4,1,171,10,97,2,31,3,2,5))
-myClusterCandidateGroup.setObjects((_B,_E))
-if mibBuilder.loadTexts:myClusterCandidateGroup.setStatus(_A)
-memberStateChangeTrap=NotificationType((1,3,6,1,4,1,171,10,97,2,31,2,1))
-memberStateChangeTrap.setObjects((_B,_I))
-if mibBuilder.loadTexts:memberStateChangeTrap.setStatus(_A)
-myClusterCompliance=ModuleCompliance((1,3,6,1,4,1,171,10,97,2,31,3,1,1))
-myClusterCompliance.setObjects(*((_B,_W),(_B,_X),(_B,_Y),(_B,_Z)))
-if mibBuilder.loadTexts:myClusterCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'myClusterMIB':myClusterMIB,'myClusterMIBObjects':myClusterMIBObjects,'scStatus':scStatus,_F:scStatusClusterName,_G:scStatusClusterMode,_H:scStatusClusterStatus,_S:scStatusCommanderMacAddress,_P:scStatusTimeOfLastChange,_Q:scStatusMaxNumberOfMembers,_R:scStatusLastFailureAddMember,'scMember':scMember,'scMemberTable':scMemberTable,'scMemberEntry':scMemberEntry,_N:scMemberMacAddress,_T:scMemberNumber,_I:scMemberOperStatus,_U:scMemberDeviceID,_V:scMemberRowStatus,'scCandidate':scCandidate,'scCandidateTable':scCandidateTable,'scCandidateEntry':scCandidateEntry,_E:scCandidateMacAddress,'myClusterTraps':myClusterTraps,'memberStateChangeTrap':memberStateChangeTrap,'myClusterMIBConformance':myClusterMIBConformance,'myClusterMIBCompliances':myClusterMIBCompliances,'myClusterCompliance':myClusterCompliance,'myClusterMIBGroups':myClusterMIBGroups,_W:myClusterStatusGroup,_X:myClusterMemberStatusGroup,'myClusterCandidateStatusGroup':myClusterCandidateStatusGroup,_Y:myClusterMemberGroup,_Z:myClusterCandidateGroup})
+#
+# PySNMP MIB module DES7200-CLUSTER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DES7200-CLUSTER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:34:36 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+myMgmt, = mibBuilder.importSymbols("DES7200-SMI", "myMgmt")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TimeStamp, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeStamp", "RowStatus", "TextualConvention")
+myClusterMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31))
+myClusterMIB.setRevisions(('2003-04-01 00:00',))
+if mibBuilder.loadTexts: myClusterMIB.setLastUpdated('200304010000Z')
+if mibBuilder.loadTexts: myClusterMIB.setOrganization('$Company$')
+myClusterMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1))
+scStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 1))
+scMember = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 2))
+scCandidate = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 3))
+scStatusClusterName = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: scStatusClusterName.setStatus('current')
+scStatusClusterMode = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("commandDevice", 1), ("memberDevice", 2), ("none", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scStatusClusterMode.setStatus('current')
+scStatusClusterStatus = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 1, 3), EnabledStatus().clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: scStatusClusterStatus.setStatus('current')
+scStatusCommanderMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 1, 4), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scStatusCommanderMacAddress.setStatus('current')
+scStatusTimeOfLastChange = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 1, 5), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scStatusTimeOfLastChange.setStatus('current')
+scStatusMaxNumberOfMembers = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scStatusMaxNumberOfMembers.setStatus('current')
+scStatusLastFailureAddMember = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("none", 1), ("password", 2), ("overmax", 3), ("noncandidate", 4), ("memberNumberInUse", 5), ("unreachable", 6), ("communityStringFull", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scStatusLastFailureAddMember.setStatus('current')
+scMemberTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 2, 1), )
+if mibBuilder.loadTexts: scMemberTable.setStatus('current')
+scMemberEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 2, 1, 1), ).setIndexNames((0, "DES7200-CLUSTER-MIB", "scMemberMacAddress"))
+if mibBuilder.loadTexts: scMemberEntry.setStatus('current')
+scMemberMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 2, 1, 1, 1), MacAddress())
+if mibBuilder.loadTexts: scMemberMacAddress.setStatus('current')
+scMemberNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 2, 1, 1, 2), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: scMemberNumber.setStatus('current')
+scMemberOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scMemberOperStatus.setStatus('current')
+scMemberDeviceID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 2, 1, 1, 4), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scMemberDeviceID.setStatus('current')
+scMemberRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 2, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: scMemberRowStatus.setStatus('current')
+scCandidateTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 3, 1), )
+if mibBuilder.loadTexts: scCandidateTable.setStatus('current')
+scCandidateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 3, 1, 1), ).setIndexNames((0, "DES7200-CLUSTER-MIB", "scCandidateMacAddress"))
+if mibBuilder.loadTexts: scCandidateEntry.setStatus('current')
+scCandidateMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 1, 3, 1, 1, 1), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: scCandidateMacAddress.setStatus('current')
+myClusterTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 2))
+memberStateChangeTrap = NotificationType((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 2, 1)).setObjects(("DES7200-CLUSTER-MIB", "scMemberOperStatus"))
+if mibBuilder.loadTexts: memberStateChangeTrap.setStatus('current')
+myClusterMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 3))
+myClusterMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 3, 1))
+myClusterMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 3, 2))
+myClusterCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 3, 1, 1)).setObjects(("DES7200-CLUSTER-MIB", "myClusterStatusGroup"), ("DES7200-CLUSTER-MIB", "myClusterMemberStatusGroup"), ("DES7200-CLUSTER-MIB", "myClusterMemberGroup"), ("DES7200-CLUSTER-MIB", "myClusterCandidateGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    myClusterCompliance = myClusterCompliance.setStatus('current')
+myClusterStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 3, 2, 1)).setObjects(("DES7200-CLUSTER-MIB", "scStatusTimeOfLastChange"), ("DES7200-CLUSTER-MIB", "scStatusMaxNumberOfMembers"), ("DES7200-CLUSTER-MIB", "scStatusLastFailureAddMember"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    myClusterStatusGroup = myClusterStatusGroup.setStatus('current')
+myClusterMemberStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 3, 2, 2)).setObjects(("DES7200-CLUSTER-MIB", "scStatusClusterName"), ("DES7200-CLUSTER-MIB", "scStatusClusterMode"), ("DES7200-CLUSTER-MIB", "scStatusClusterStatus"), ("DES7200-CLUSTER-MIB", "scStatusCommanderMacAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    myClusterMemberStatusGroup = myClusterMemberStatusGroup.setStatus('current')
+myClusterCandidateStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 3, 2, 3)).setObjects(("DES7200-CLUSTER-MIB", "scStatusClusterName"), ("DES7200-CLUSTER-MIB", "scStatusClusterMode"), ("DES7200-CLUSTER-MIB", "scStatusClusterStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    myClusterCandidateStatusGroup = myClusterCandidateStatusGroup.setStatus('current')
+myClusterMemberGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 3, 2, 4)).setObjects(("DES7200-CLUSTER-MIB", "scMemberOperStatus"), ("DES7200-CLUSTER-MIB", "scMemberNumber"), ("DES7200-CLUSTER-MIB", "scMemberDeviceID"), ("DES7200-CLUSTER-MIB", "scMemberRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    myClusterMemberGroup = myClusterMemberGroup.setStatus('current')
+myClusterCandidateGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 31, 3, 2, 5)).setObjects(("DES7200-CLUSTER-MIB", "scCandidateMacAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    myClusterCandidateGroup = myClusterCandidateGroup.setStatus('current')
+mibBuilder.exportSymbols("DES7200-CLUSTER-MIB", scStatusCommanderMacAddress=scStatusCommanderMacAddress, myClusterStatusGroup=myClusterStatusGroup, PYSNMP_MODULE_ID=myClusterMIB, scStatusTimeOfLastChange=scStatusTimeOfLastChange, myClusterMIB=myClusterMIB, memberStateChangeTrap=memberStateChangeTrap, myClusterMemberStatusGroup=myClusterMemberStatusGroup, myClusterCompliance=myClusterCompliance, scCandidateMacAddress=scCandidateMacAddress, scCandidateEntry=scCandidateEntry, myClusterMIBCompliances=myClusterMIBCompliances, myClusterTraps=myClusterTraps, myClusterMIBConformance=myClusterMIBConformance, myClusterCandidateStatusGroup=myClusterCandidateStatusGroup, scMemberRowStatus=scMemberRowStatus, scStatusMaxNumberOfMembers=scStatusMaxNumberOfMembers, scMemberTable=scMemberTable, scStatus=scStatus, scStatusClusterName=scStatusClusterName, scStatusClusterStatus=scStatusClusterStatus, scMember=scMember, myClusterCandidateGroup=myClusterCandidateGroup, scStatusLastFailureAddMember=scStatusLastFailureAddMember, scMemberMacAddress=scMemberMacAddress, scCandidate=scCandidate, myClusterMIBObjects=myClusterMIBObjects, scMemberEntry=scMemberEntry, scStatusClusterMode=scStatusClusterMode, myClusterMemberGroup=myClusterMemberGroup, scCandidateTable=scCandidateTable, scMemberNumber=scMemberNumber, scMemberDeviceID=scMemberDeviceID, scMemberOperStatus=scMemberOperStatus, myClusterMIBGroups=myClusterMIBGroups)

@@ -1,87 +1,46 @@
-_G='rlLocalizationLanguagesName'
-_F='NETGEAR-RADLAN-LOCALIZATION-MIB'
-_E='SnmpAdminString'
-_D='Integer32'
-_C='DisplayString'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-rnd,=mibBuilder.importSymbols('NETGEAR-RADLAN-MIB','rnd')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_E)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_C,'PhysAddress','RowStatus','TextualConvention','TruthValue')
-rlLocalization=ModuleIdentity((1,3,6,1,4,1,4526,17,103))
-if mibBuilder.loadTexts:rlLocalization.setRevisions(('2005-03-15 00:00',))
-class _RlLocalizationActivelanguage_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,50))
-_RlLocalizationActivelanguage_Type.__name__=_C
-_RlLocalizationActivelanguage_Object=MibScalar
-rlLocalizationActivelanguage=_RlLocalizationActivelanguage_Object((1,3,6,1,4,1,4526,17,103,8),_RlLocalizationActivelanguage_Type())
-rlLocalizationActivelanguage.setMaxAccess('read-write')
-if mibBuilder.loadTexts:rlLocalizationActivelanguage.setStatus(_A)
-_RlLocalizationLoginlanguage_Type=DisplayString
-_RlLocalizationLoginlanguage_Object=MibScalar
-rlLocalizationLoginlanguage=_RlLocalizationLoginlanguage_Object((1,3,6,1,4,1,4526,17,103,9),_RlLocalizationLoginlanguage_Type())
-rlLocalizationLoginlanguage.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlLocalizationLoginlanguage.setStatus(_A)
-_RlLocalizationLanguagesTable_Object=MibTable
-rlLocalizationLanguagesTable=_RlLocalizationLanguagesTable_Object((1,3,6,1,4,1,4526,17,103,10))
-if mibBuilder.loadTexts:rlLocalizationLanguagesTable.setStatus(_A)
-_RlLocalizationLanguagesEntry_Object=MibTableRow
-rlLocalizationLanguagesEntry=_RlLocalizationLanguagesEntry_Object((1,3,6,1,4,1,4526,17,103,10,1))
-rlLocalizationLanguagesEntry.setIndexNames((1,_F,_G))
-if mibBuilder.loadTexts:rlLocalizationLanguagesEntry.setStatus(_A)
-class _RlLocalizationLanguagesName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,50))
-_RlLocalizationLanguagesName_Type.__name__=_C
-_RlLocalizationLanguagesName_Object=MibTableColumn
-rlLocalizationLanguagesName=_RlLocalizationLanguagesName_Object((1,3,6,1,4,1,4526,17,103,10,1,1),_RlLocalizationLanguagesName_Type())
-rlLocalizationLanguagesName.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:rlLocalizationLanguagesName.setStatus(_A)
-class _RlLocalizationLanguagesUnicodeName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_RlLocalizationLanguagesUnicodeName_Type.__name__=_E
-_RlLocalizationLanguagesUnicodeName_Object=MibTableColumn
-rlLocalizationLanguagesUnicodeName=_RlLocalizationLanguagesUnicodeName_Object((1,3,6,1,4,1,4526,17,103,10,1,2),_RlLocalizationLanguagesUnicodeName_Type())
-rlLocalizationLanguagesUnicodeName.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlLocalizationLanguagesUnicodeName.setStatus(_A)
-_RlLocalizationLanguagesUrlDir_Type=DisplayString
-_RlLocalizationLanguagesUrlDir_Object=MibTableColumn
-rlLocalizationLanguagesUrlDir=_RlLocalizationLanguagesUrlDir_Object((1,3,6,1,4,1,4526,17,103,10,1,3),_RlLocalizationLanguagesUrlDir_Type())
-rlLocalizationLanguagesUrlDir.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlLocalizationLanguagesUrlDir.setStatus(_A)
-_RlLocalizationLanguagesUrlHelpDir_Type=DisplayString
-_RlLocalizationLanguagesUrlHelpDir_Object=MibTableColumn
-rlLocalizationLanguagesUrlHelpDir=_RlLocalizationLanguagesUrlHelpDir_Object((1,3,6,1,4,1,4526,17,103,10,1,4),_RlLocalizationLanguagesUrlHelpDir_Type())
-rlLocalizationLanguagesUrlHelpDir.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlLocalizationLanguagesUrlHelpDir.setStatus(_A)
-_RlLocalizationLanguageCode_Type=DisplayString
-_RlLocalizationLanguageCode_Object=MibTableColumn
-rlLocalizationLanguageCode=_RlLocalizationLanguageCode_Object((1,3,6,1,4,1,4526,17,103,10,1,5),_RlLocalizationLanguageCode_Type())
-rlLocalizationLanguageCode.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlLocalizationLanguageCode.setStatus(_A)
-class _RlLocalizationNumOfSections_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_RlLocalizationNumOfSections_Type.__name__=_D
-_RlLocalizationNumOfSections_Object=MibTableColumn
-rlLocalizationNumOfSections=_RlLocalizationNumOfSections_Object((1,3,6,1,4,1,4526,17,103,10,1,6),_RlLocalizationNumOfSections_Type())
-rlLocalizationNumOfSections.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlLocalizationNumOfSections.setStatus(_A)
-class _RlLocalizationNumOfEmbSections_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_RlLocalizationNumOfEmbSections_Type.__name__=_D
-_RlLocalizationNumOfEmbSections_Object=MibTableColumn
-rlLocalizationNumOfEmbSections=_RlLocalizationNumOfEmbSections_Object((1,3,6,1,4,1,4526,17,103,10,1,7),_RlLocalizationNumOfEmbSections_Type())
-rlLocalizationNumOfEmbSections.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlLocalizationNumOfEmbSections.setStatus(_A)
-class _RlLocalizationVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_RlLocalizationVersion_Type.__name__=_C
-_RlLocalizationVersion_Object=MibTableColumn
-rlLocalizationVersion=_RlLocalizationVersion_Object((1,3,6,1,4,1,4526,17,103,10,1,8),_RlLocalizationVersion_Type())
-rlLocalizationVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlLocalizationVersion.setStatus(_A)
-_RlLocalizationMd5ChksumFile_Type=DisplayString
-_RlLocalizationMd5ChksumFile_Object=MibTableColumn
-rlLocalizationMd5ChksumFile=_RlLocalizationMd5ChksumFile_Object((1,3,6,1,4,1,4526,17,103,10,1,9),_RlLocalizationMd5ChksumFile_Type())
-rlLocalizationMd5ChksumFile.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlLocalizationMd5ChksumFile.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'rlLocalization':rlLocalization,'rlLocalizationActivelanguage':rlLocalizationActivelanguage,'rlLocalizationLoginlanguage':rlLocalizationLoginlanguage,'rlLocalizationLanguagesTable':rlLocalizationLanguagesTable,'rlLocalizationLanguagesEntry':rlLocalizationLanguagesEntry,_G:rlLocalizationLanguagesName,'rlLocalizationLanguagesUnicodeName':rlLocalizationLanguagesUnicodeName,'rlLocalizationLanguagesUrlDir':rlLocalizationLanguagesUrlDir,'rlLocalizationLanguagesUrlHelpDir':rlLocalizationLanguagesUrlHelpDir,'rlLocalizationLanguageCode':rlLocalizationLanguageCode,'rlLocalizationNumOfSections':rlLocalizationNumOfSections,'rlLocalizationNumOfEmbSections':rlLocalizationNumOfEmbSections,'rlLocalizationVersion':rlLocalizationVersion,'rlLocalizationMd5ChksumFile':rlLocalizationMd5ChksumFile})
+#
+# PySNMP MIB module NETGEAR-RADLAN-LOCALIZATION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netgear/NETGEAR-RADLAN-LOCALIZATION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:28:05 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+rnd, = mibBuilder.importSymbols("NETGEAR-RADLAN-MIB", "rnd")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+rlLocalization = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 17, 103))
+rlLocalization.setRevisions(('2005-03-15 00:00',))
+if mibBuilder.loadTexts: rlLocalization.setLastUpdated('200503150000Z')
+if mibBuilder.loadTexts: rlLocalization.setOrganization('Radlan Computer Communications Ltd.')
+rlLocalizationActivelanguage = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 103, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 50))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlLocalizationActivelanguage.setStatus('current')
+rlLocalizationLoginlanguage = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 103, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlLocalizationLoginlanguage.setStatus('current')
+rlLocalizationLanguagesTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 17, 103, 10), )
+if mibBuilder.loadTexts: rlLocalizationLanguagesTable.setStatus('current')
+rlLocalizationLanguagesEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 17, 103, 10, 1), ).setIndexNames((1, "NETGEAR-RADLAN-LOCALIZATION-MIB", "rlLocalizationLanguagesName"))
+if mibBuilder.loadTexts: rlLocalizationLanguagesEntry.setStatus('current')
+rlLocalizationLanguagesName = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 103, 10, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 50)))
+if mibBuilder.loadTexts: rlLocalizationLanguagesName.setStatus('current')
+rlLocalizationLanguagesUnicodeName = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 103, 10, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlLocalizationLanguagesUnicodeName.setStatus('current')
+rlLocalizationLanguagesUrlDir = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 103, 10, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlLocalizationLanguagesUrlDir.setStatus('current')
+rlLocalizationLanguagesUrlHelpDir = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 103, 10, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlLocalizationLanguagesUrlHelpDir.setStatus('current')
+rlLocalizationLanguageCode = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 103, 10, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlLocalizationLanguageCode.setStatus('current')
+rlLocalizationNumOfSections = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 103, 10, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlLocalizationNumOfSections.setStatus('current')
+rlLocalizationNumOfEmbSections = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 103, 10, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlLocalizationNumOfEmbSections.setStatus('current')
+rlLocalizationVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 103, 10, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlLocalizationVersion.setStatus('current')
+rlLocalizationMd5ChksumFile = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 103, 10, 1, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlLocalizationMd5ChksumFile.setStatus('current')
+mibBuilder.exportSymbols("NETGEAR-RADLAN-LOCALIZATION-MIB", rlLocalizationLanguageCode=rlLocalizationLanguageCode, rlLocalizationNumOfSections=rlLocalizationNumOfSections, rlLocalizationVersion=rlLocalizationVersion, rlLocalizationLoginlanguage=rlLocalizationLoginlanguage, rlLocalizationLanguagesUrlDir=rlLocalizationLanguagesUrlDir, rlLocalizationNumOfEmbSections=rlLocalizationNumOfEmbSections, rlLocalizationActivelanguage=rlLocalizationActivelanguage, rlLocalization=rlLocalization, rlLocalizationLanguagesUrlHelpDir=rlLocalizationLanguagesUrlHelpDir, rlLocalizationLanguagesTable=rlLocalizationLanguagesTable, rlLocalizationLanguagesEntry=rlLocalizationLanguagesEntry, rlLocalizationLanguagesUnicodeName=rlLocalizationLanguagesUnicodeName, rlLocalizationMd5ChksumFile=rlLocalizationMd5ChksumFile, rlLocalizationLanguagesName=rlLocalizationLanguagesName, PYSNMP_MODULE_ID=rlLocalization)

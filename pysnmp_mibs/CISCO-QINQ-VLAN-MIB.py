@@ -1,129 +1,78 @@
-_T='ciscoQinqVlanTranslationGroup'
-_S='ciscoQinqVlanTerminationGroup'
-_R='cqvTranslationRowStatus'
-_Q='cqvTranslationCosPBits'
-_P='cqvTranslationType'
-_O='cqvTranslationTrunkCeVlanId'
-_N='cqvTranslationTrunkPeVlanId'
-_M='cqvTerminationRowStatus'
-_L='cqvTerminationPeEncap'
-_K='cqvTranslationInternalCeVlanId'
-_J='cqvTranslationInternalPeVlanId'
-_I='cqvTerminationCeVlanId'
-_H='cqvTerminationPeVlanId'
-_G='Integer32'
-_F='ifIndex'
-_E='IF-MIB'
-_D='not-accessible'
-_C='read-create'
-_B='CISCO-QINQ-VLAN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-VlanId,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanId')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-ciscoQinqVlanMIB=ModuleIdentity((1,3,6,1,4,1,9,9,445))
-if mibBuilder.loadTexts:ciscoQinqVlanMIB.setRevisions(('2004-11-29 00:00',))
-class CqvVlanIdOrZero(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4094))
-class CqvEncapsulationType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('isl',1),('dot1Q',2)))
-_CiscoQinqVlanMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoQinqVlanMIBNotifs=_CiscoQinqVlanMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,445,0))
-_CiscoQinqVlanMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoQinqVlanMIBObjects=_CiscoQinqVlanMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,445,1))
-_CqvTermination_ObjectIdentity=ObjectIdentity
-cqvTermination=_CqvTermination_ObjectIdentity((1,3,6,1,4,1,9,9,445,1,1))
-_CqvTerminationTable_Object=MibTable
-cqvTerminationTable=_CqvTerminationTable_Object((1,3,6,1,4,1,9,9,445,1,1,1))
-if mibBuilder.loadTexts:cqvTerminationTable.setStatus(_A)
-_CqvTerminationEntry_Object=MibTableRow
-cqvTerminationEntry=_CqvTerminationEntry_Object((1,3,6,1,4,1,9,9,445,1,1,1,1))
-cqvTerminationEntry.setIndexNames((0,_E,_F),(0,_B,_H),(0,_B,_I))
-if mibBuilder.loadTexts:cqvTerminationEntry.setStatus(_A)
-_CqvTerminationPeVlanId_Type=VlanId
-_CqvTerminationPeVlanId_Object=MibTableColumn
-cqvTerminationPeVlanId=_CqvTerminationPeVlanId_Object((1,3,6,1,4,1,9,9,445,1,1,1,1,1),_CqvTerminationPeVlanId_Type())
-cqvTerminationPeVlanId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cqvTerminationPeVlanId.setStatus(_A)
-_CqvTerminationCeVlanId_Type=VlanId
-_CqvTerminationCeVlanId_Object=MibTableColumn
-cqvTerminationCeVlanId=_CqvTerminationCeVlanId_Object((1,3,6,1,4,1,9,9,445,1,1,1,1,2),_CqvTerminationCeVlanId_Type())
-cqvTerminationCeVlanId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cqvTerminationCeVlanId.setStatus(_A)
-_CqvTerminationPeEncap_Type=CqvEncapsulationType
-_CqvTerminationPeEncap_Object=MibTableColumn
-cqvTerminationPeEncap=_CqvTerminationPeEncap_Object((1,3,6,1,4,1,9,9,445,1,1,1,1,3),_CqvTerminationPeEncap_Type())
-cqvTerminationPeEncap.setMaxAccess(_C)
-if mibBuilder.loadTexts:cqvTerminationPeEncap.setStatus(_A)
-_CqvTerminationRowStatus_Type=RowStatus
-_CqvTerminationRowStatus_Object=MibTableColumn
-cqvTerminationRowStatus=_CqvTerminationRowStatus_Object((1,3,6,1,4,1,9,9,445,1,1,1,1,4),_CqvTerminationRowStatus_Type())
-cqvTerminationRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cqvTerminationRowStatus.setStatus(_A)
-_CqvTranslation_ObjectIdentity=ObjectIdentity
-cqvTranslation=_CqvTranslation_ObjectIdentity((1,3,6,1,4,1,9,9,445,1,2))
-_CqvTranslationTable_Object=MibTable
-cqvTranslationTable=_CqvTranslationTable_Object((1,3,6,1,4,1,9,9,445,1,2,1))
-if mibBuilder.loadTexts:cqvTranslationTable.setStatus(_A)
-_CqvTranslationEntry_Object=MibTableRow
-cqvTranslationEntry=_CqvTranslationEntry_Object((1,3,6,1,4,1,9,9,445,1,2,1,1))
-cqvTranslationEntry.setIndexNames((0,_E,_F),(0,_B,_J),(0,_B,_K))
-if mibBuilder.loadTexts:cqvTranslationEntry.setStatus(_A)
-_CqvTranslationInternalPeVlanId_Type=CqvVlanIdOrZero
-_CqvTranslationInternalPeVlanId_Object=MibTableColumn
-cqvTranslationInternalPeVlanId=_CqvTranslationInternalPeVlanId_Object((1,3,6,1,4,1,9,9,445,1,2,1,1,1),_CqvTranslationInternalPeVlanId_Type())
-cqvTranslationInternalPeVlanId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cqvTranslationInternalPeVlanId.setStatus(_A)
-_CqvTranslationInternalCeVlanId_Type=CqvVlanIdOrZero
-_CqvTranslationInternalCeVlanId_Object=MibTableColumn
-cqvTranslationInternalCeVlanId=_CqvTranslationInternalCeVlanId_Object((1,3,6,1,4,1,9,9,445,1,2,1,1,2),_CqvTranslationInternalCeVlanId_Type())
-cqvTranslationInternalCeVlanId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cqvTranslationInternalCeVlanId.setStatus(_A)
-_CqvTranslationTrunkPeVlanId_Type=CqvVlanIdOrZero
-_CqvTranslationTrunkPeVlanId_Object=MibTableColumn
-cqvTranslationTrunkPeVlanId=_CqvTranslationTrunkPeVlanId_Object((1,3,6,1,4,1,9,9,445,1,2,1,1,3),_CqvTranslationTrunkPeVlanId_Type())
-cqvTranslationTrunkPeVlanId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cqvTranslationTrunkPeVlanId.setStatus(_A)
-_CqvTranslationTrunkCeVlanId_Type=CqvVlanIdOrZero
-_CqvTranslationTrunkCeVlanId_Object=MibTableColumn
-cqvTranslationTrunkCeVlanId=_CqvTranslationTrunkCeVlanId_Object((1,3,6,1,4,1,9,9,445,1,2,1,1,4),_CqvTranslationTrunkCeVlanId_Type())
-cqvTranslationTrunkCeVlanId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cqvTranslationTrunkCeVlanId.setStatus(_A)
-class _CqvTranslationType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('doubleToSingle',1),('doubleToDouble',2),('doubleToDoubleOutOfRange',3)))
-_CqvTranslationType_Type.__name__=_G
-_CqvTranslationType_Object=MibTableColumn
-cqvTranslationType=_CqvTranslationType_Object((1,3,6,1,4,1,9,9,445,1,2,1,1,5),_CqvTranslationType_Type())
-cqvTranslationType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cqvTranslationType.setStatus(_A)
-class _CqvTranslationCosPBits_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('copyFromOuterTag',1),('copyFromInnerTag',2)))
-_CqvTranslationCosPBits_Type.__name__=_G
-_CqvTranslationCosPBits_Object=MibTableColumn
-cqvTranslationCosPBits=_CqvTranslationCosPBits_Object((1,3,6,1,4,1,9,9,445,1,2,1,1,6),_CqvTranslationCosPBits_Type())
-cqvTranslationCosPBits.setMaxAccess(_C)
-if mibBuilder.loadTexts:cqvTranslationCosPBits.setStatus(_A)
-_CqvTranslationRowStatus_Type=RowStatus
-_CqvTranslationRowStatus_Object=MibTableColumn
-cqvTranslationRowStatus=_CqvTranslationRowStatus_Object((1,3,6,1,4,1,9,9,445,1,2,1,1,7),_CqvTranslationRowStatus_Type())
-cqvTranslationRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cqvTranslationRowStatus.setStatus(_A)
-_CiscoQinqVlanMIBConform_ObjectIdentity=ObjectIdentity
-ciscoQinqVlanMIBConform=_CiscoQinqVlanMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,445,2))
-_CiscoQinqVlanMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoQinqVlanMIBCompliances=_CiscoQinqVlanMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,445,2,1))
-_CiscoQinqVlanMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoQinqVlanMIBGroups=_CiscoQinqVlanMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,445,2,2))
-ciscoQinqVlanTerminationGroup=ObjectGroup((1,3,6,1,4,1,9,9,445,2,2,1))
-ciscoQinqVlanTerminationGroup.setObjects(*((_B,_L),(_B,_M)))
-if mibBuilder.loadTexts:ciscoQinqVlanTerminationGroup.setStatus(_A)
-ciscoQinqVlanTranslationGroup=ObjectGroup((1,3,6,1,4,1,9,9,445,2,2,2))
-ciscoQinqVlanTranslationGroup.setObjects(*((_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:ciscoQinqVlanTranslationGroup.setStatus(_A)
-ciscoQinQVlanMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,445,2,1,1))
-ciscoQinQVlanMIBCompliance.setObjects(*((_B,_S),(_B,_T)))
-if mibBuilder.loadTexts:ciscoQinQVlanMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CqvVlanIdOrZero':CqvVlanIdOrZero,'CqvEncapsulationType':CqvEncapsulationType,'ciscoQinqVlanMIB':ciscoQinqVlanMIB,'ciscoQinqVlanMIBNotifs':ciscoQinqVlanMIBNotifs,'ciscoQinqVlanMIBObjects':ciscoQinqVlanMIBObjects,'cqvTermination':cqvTermination,'cqvTerminationTable':cqvTerminationTable,'cqvTerminationEntry':cqvTerminationEntry,_H:cqvTerminationPeVlanId,_I:cqvTerminationCeVlanId,_L:cqvTerminationPeEncap,_M:cqvTerminationRowStatus,'cqvTranslation':cqvTranslation,'cqvTranslationTable':cqvTranslationTable,'cqvTranslationEntry':cqvTranslationEntry,_J:cqvTranslationInternalPeVlanId,_K:cqvTranslationInternalCeVlanId,_N:cqvTranslationTrunkPeVlanId,_O:cqvTranslationTrunkCeVlanId,_P:cqvTranslationType,_Q:cqvTranslationCosPBits,_R:cqvTranslationRowStatus,'ciscoQinqVlanMIBConform':ciscoQinqVlanMIBConform,'ciscoQinqVlanMIBCompliances':ciscoQinqVlanMIBCompliances,'ciscoQinQVlanMIBCompliance':ciscoQinQVlanMIBCompliance,'ciscoQinqVlanMIBGroups':ciscoQinqVlanMIBGroups,_S:ciscoQinqVlanTerminationGroup,_T:ciscoQinqVlanTranslationGroup})
+#
+# PySNMP MIB module CISCO-QINQ-VLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-QINQ-VLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:46 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+VlanId, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ciscoQinqVlanMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 445))
+ciscoQinqVlanMIB.setRevisions(('2004-11-29 00:00',))
+if mibBuilder.loadTexts: ciscoQinqVlanMIB.setLastUpdated('200411290000Z')
+if mibBuilder.loadTexts: ciscoQinqVlanMIB.setOrganization('Cisco Systems, Inc.')
+ciscoQinqVlanMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 445, 0))
+ciscoQinqVlanMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 445, 1))
+ciscoQinqVlanMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 445, 2))
+cqvTermination = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 1))
+cqvTranslation = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 2))
+class CqvVlanIdOrZero(TextualConvention, Unsigned32):
+    reference = 'RFC-2674, Bridge MIB Extensions, August 1999, Q-BRIDGE-MIB, E. Bell.'
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 4094)
+
+class CqvEncapsulationType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("isl", 1), ("dot1Q", 2))
+
+cqvTerminationTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 1, 1), )
+if mibBuilder.loadTexts: cqvTerminationTable.setStatus('current')
+cqvTerminationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-QINQ-VLAN-MIB", "cqvTerminationPeVlanId"), (0, "CISCO-QINQ-VLAN-MIB", "cqvTerminationCeVlanId"))
+if mibBuilder.loadTexts: cqvTerminationEntry.setStatus('current')
+cqvTerminationPeVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 1, 1, 1, 1), VlanId())
+if mibBuilder.loadTexts: cqvTerminationPeVlanId.setStatus('current')
+cqvTerminationCeVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 1, 1, 1, 2), VlanId())
+if mibBuilder.loadTexts: cqvTerminationCeVlanId.setStatus('current')
+cqvTerminationPeEncap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 1, 1, 1, 3), CqvEncapsulationType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cqvTerminationPeEncap.setStatus('current')
+cqvTerminationRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cqvTerminationRowStatus.setStatus('current')
+cqvTranslationTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 2, 1), )
+if mibBuilder.loadTexts: cqvTranslationTable.setStatus('current')
+cqvTranslationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-QINQ-VLAN-MIB", "cqvTranslationInternalPeVlanId"), (0, "CISCO-QINQ-VLAN-MIB", "cqvTranslationInternalCeVlanId"))
+if mibBuilder.loadTexts: cqvTranslationEntry.setStatus('current')
+cqvTranslationInternalPeVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 2, 1, 1, 1), CqvVlanIdOrZero())
+if mibBuilder.loadTexts: cqvTranslationInternalPeVlanId.setStatus('current')
+cqvTranslationInternalCeVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 2, 1, 1, 2), CqvVlanIdOrZero())
+if mibBuilder.loadTexts: cqvTranslationInternalCeVlanId.setStatus('current')
+cqvTranslationTrunkPeVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 2, 1, 1, 3), CqvVlanIdOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cqvTranslationTrunkPeVlanId.setStatus('current')
+cqvTranslationTrunkCeVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 2, 1, 1, 4), CqvVlanIdOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cqvTranslationTrunkCeVlanId.setStatus('current')
+cqvTranslationType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("doubleToSingle", 1), ("doubleToDouble", 2), ("doubleToDoubleOutOfRange", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cqvTranslationType.setStatus('current')
+cqvTranslationCosPBits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("copyFromOuterTag", 1), ("copyFromInnerTag", 2))).clone('copyFromOuterTag')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cqvTranslationCosPBits.setStatus('current')
+cqvTranslationRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 445, 1, 2, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cqvTranslationRowStatus.setStatus('current')
+ciscoQinqVlanMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 445, 2, 1))
+ciscoQinqVlanMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 445, 2, 2))
+ciscoQinQVlanMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 445, 2, 1, 1)).setObjects(("CISCO-QINQ-VLAN-MIB", "ciscoQinqVlanTerminationGroup"), ("CISCO-QINQ-VLAN-MIB", "ciscoQinqVlanTranslationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoQinQVlanMIBCompliance = ciscoQinQVlanMIBCompliance.setStatus('current')
+ciscoQinqVlanTerminationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 445, 2, 2, 1)).setObjects(("CISCO-QINQ-VLAN-MIB", "cqvTerminationPeEncap"), ("CISCO-QINQ-VLAN-MIB", "cqvTerminationRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoQinqVlanTerminationGroup = ciscoQinqVlanTerminationGroup.setStatus('current')
+ciscoQinqVlanTranslationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 445, 2, 2, 2)).setObjects(("CISCO-QINQ-VLAN-MIB", "cqvTranslationTrunkPeVlanId"), ("CISCO-QINQ-VLAN-MIB", "cqvTranslationTrunkCeVlanId"), ("CISCO-QINQ-VLAN-MIB", "cqvTranslationType"), ("CISCO-QINQ-VLAN-MIB", "cqvTranslationCosPBits"), ("CISCO-QINQ-VLAN-MIB", "cqvTranslationRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoQinqVlanTranslationGroup = ciscoQinqVlanTranslationGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-QINQ-VLAN-MIB", ciscoQinqVlanMIBCompliances=ciscoQinqVlanMIBCompliances, cqvTranslationTrunkCeVlanId=cqvTranslationTrunkCeVlanId, cqvTranslationType=cqvTranslationType, cqvTermination=cqvTermination, ciscoQinqVlanMIBNotifs=ciscoQinqVlanMIBNotifs, cqvTerminationPeVlanId=cqvTerminationPeVlanId, ciscoQinqVlanTranslationGroup=ciscoQinqVlanTranslationGroup, cqvTranslationRowStatus=cqvTranslationRowStatus, cqvTerminationRowStatus=cqvTerminationRowStatus, PYSNMP_MODULE_ID=ciscoQinqVlanMIB, ciscoQinqVlanMIB=ciscoQinqVlanMIB, cqvTranslationCosPBits=cqvTranslationCosPBits, ciscoQinqVlanTerminationGroup=ciscoQinqVlanTerminationGroup, cqvTranslationInternalCeVlanId=cqvTranslationInternalCeVlanId, CqvVlanIdOrZero=CqvVlanIdOrZero, cqvTranslationInternalPeVlanId=cqvTranslationInternalPeVlanId, cqvTranslationEntry=cqvTranslationEntry, CqvEncapsulationType=CqvEncapsulationType, cqvTerminationPeEncap=cqvTerminationPeEncap, ciscoQinqVlanMIBObjects=ciscoQinqVlanMIBObjects, cqvTranslationTable=cqvTranslationTable, cqvTerminationEntry=cqvTerminationEntry, ciscoQinqVlanMIBConform=ciscoQinqVlanMIBConform, cqvTranslationTrunkPeVlanId=cqvTranslationTrunkPeVlanId, cqvTerminationCeVlanId=cqvTerminationCeVlanId, ciscoQinqVlanMIBGroups=ciscoQinqVlanMIBGroups, cqvTranslation=cqvTranslation, cqvTerminationTable=cqvTerminationTable, ciscoQinQVlanMIBCompliance=ciscoQinQVlanMIBCompliance)

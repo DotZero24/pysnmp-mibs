@@ -1,96 +1,55 @@
-_Q='h3cAal5NotificationGroup'
-_P='h3cAal5MIBGroup'
-_O='h3cAal5VccStateChange'
-_N='h3cAal5VccState'
-_M='h3cAal5VccOutOctets'
-_L='h3cAal5VccInOctets'
-_K='h3cAal5VccOutPkts'
-_J='h3cAal5VccInPkts'
-_I='not-accessible'
-_H='h3cAal5VccVci'
-_G='h3cAal5VccVpi'
-_F='ifIndex'
-_E='IF-MIB'
-_D='Integer32'
-_C='read-only'
-_B='H3C-AAL5-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cAAL5,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','h3cAAL5')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-h3cAAL5MIB=ModuleIdentity((1,3,6,1,4,1,2011,10,2,21,1))
-if mibBuilder.loadTexts:h3cAAL5MIB.setRevisions(('2004-11-04 13:50',))
-_H3cAal5MIBTraps_ObjectIdentity=ObjectIdentity
-h3cAal5MIBTraps=_H3cAal5MIBTraps_ObjectIdentity((1,3,6,1,4,1,2011,10,2,21,1,0))
-_H3cAal5MIBObjects_ObjectIdentity=ObjectIdentity
-h3cAal5MIBObjects=_H3cAal5MIBObjects_ObjectIdentity((1,3,6,1,4,1,2011,10,2,21,1,1))
-_H3cAal5VccTable_Object=MibTable
-h3cAal5VccTable=_H3cAal5VccTable_Object((1,3,6,1,4,1,2011,10,2,21,1,1,1))
-if mibBuilder.loadTexts:h3cAal5VccTable.setStatus(_A)
-_H3cAal5VccEntry_Object=MibTableRow
-h3cAal5VccEntry=_H3cAal5VccEntry_Object((1,3,6,1,4,1,2011,10,2,21,1,1,1,1))
-h3cAal5VccEntry.setIndexNames((0,_E,_F),(0,_B,_G),(0,_B,_H))
-if mibBuilder.loadTexts:h3cAal5VccEntry.setStatus(_A)
-class _H3cAal5VccVpi_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_H3cAal5VccVpi_Type.__name__=_D
-_H3cAal5VccVpi_Object=MibTableColumn
-h3cAal5VccVpi=_H3cAal5VccVpi_Object((1,3,6,1,4,1,2011,10,2,21,1,1,1,1,1),_H3cAal5VccVpi_Type())
-h3cAal5VccVpi.setMaxAccess(_I)
-if mibBuilder.loadTexts:h3cAal5VccVpi.setStatus(_A)
-class _H3cAal5VccVci_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_H3cAal5VccVci_Type.__name__=_D
-_H3cAal5VccVci_Object=MibTableColumn
-h3cAal5VccVci=_H3cAal5VccVci_Object((1,3,6,1,4,1,2011,10,2,21,1,1,1,1,2),_H3cAal5VccVci_Type())
-h3cAal5VccVci.setMaxAccess(_I)
-if mibBuilder.loadTexts:h3cAal5VccVci.setStatus(_A)
-_H3cAal5VccInPkts_Type=Counter32
-_H3cAal5VccInPkts_Object=MibTableColumn
-h3cAal5VccInPkts=_H3cAal5VccInPkts_Object((1,3,6,1,4,1,2011,10,2,21,1,1,1,1,3),_H3cAal5VccInPkts_Type())
-h3cAal5VccInPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cAal5VccInPkts.setStatus(_A)
-_H3cAal5VccOutPkts_Type=Counter32
-_H3cAal5VccOutPkts_Object=MibTableColumn
-h3cAal5VccOutPkts=_H3cAal5VccOutPkts_Object((1,3,6,1,4,1,2011,10,2,21,1,1,1,1,4),_H3cAal5VccOutPkts_Type())
-h3cAal5VccOutPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cAal5VccOutPkts.setStatus(_A)
-_H3cAal5VccInOctets_Type=Counter32
-_H3cAal5VccInOctets_Object=MibTableColumn
-h3cAal5VccInOctets=_H3cAal5VccInOctets_Object((1,3,6,1,4,1,2011,10,2,21,1,1,1,1,5),_H3cAal5VccInOctets_Type())
-h3cAal5VccInOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cAal5VccInOctets.setStatus(_A)
-_H3cAal5VccOutOctets_Type=Counter32
-_H3cAal5VccOutOctets_Object=MibTableColumn
-h3cAal5VccOutOctets=_H3cAal5VccOutOctets_Object((1,3,6,1,4,1,2011,10,2,21,1,1,1,1,6),_H3cAal5VccOutOctets_Type())
-h3cAal5VccOutOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cAal5VccOutOctets.setStatus(_A)
-class _H3cAal5VccState_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('invalid',1),('active',2),('inactive',3)))
-_H3cAal5VccState_Type.__name__=_D
-_H3cAal5VccState_Object=MibTableColumn
-h3cAal5VccState=_H3cAal5VccState_Object((1,3,6,1,4,1,2011,10,2,21,1,1,1,1,7),_H3cAal5VccState_Type())
-h3cAal5VccState.setMaxAccess(_C)
-if mibBuilder.loadTexts:h3cAal5VccState.setStatus(_A)
-_H3cAal5MIBConformance_ObjectIdentity=ObjectIdentity
-h3cAal5MIBConformance=_H3cAal5MIBConformance_ObjectIdentity((1,3,6,1,4,1,2011,10,2,21,1,3))
-_H3cAal5MIBCompliances_ObjectIdentity=ObjectIdentity
-h3cAal5MIBCompliances=_H3cAal5MIBCompliances_ObjectIdentity((1,3,6,1,4,1,2011,10,2,21,1,3,1))
-_H3cAal5MIBGroups_ObjectIdentity=ObjectIdentity
-h3cAal5MIBGroups=_H3cAal5MIBGroups_ObjectIdentity((1,3,6,1,4,1,2011,10,2,21,1,3,2))
-h3cAal5MIBGroup=ObjectGroup((1,3,6,1,4,1,2011,10,2,21,1,3,2,1))
-h3cAal5MIBGroup.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M)))
-if mibBuilder.loadTexts:h3cAal5MIBGroup.setStatus(_A)
-h3cAal5VccStateChange=NotificationType((1,3,6,1,4,1,2011,10,2,21,1,0,1))
-h3cAal5VccStateChange.setObjects((_B,_N))
-if mibBuilder.loadTexts:h3cAal5VccStateChange.setStatus(_A)
-h3cAal5NotificationGroup=NotificationGroup((1,3,6,1,4,1,2011,10,2,21,1,3,2,2))
-h3cAal5NotificationGroup.setObjects((_B,_O))
-if mibBuilder.loadTexts:h3cAal5NotificationGroup.setStatus(_A)
-h3cAal5MIBCompliance=ModuleCompliance((1,3,6,1,4,1,2011,10,2,21,1,3,1,1))
-h3cAal5MIBCompliance.setObjects(*((_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:h3cAal5MIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'h3cAAL5MIB':h3cAAL5MIB,'h3cAal5MIBTraps':h3cAal5MIBTraps,_O:h3cAal5VccStateChange,'h3cAal5MIBObjects':h3cAal5MIBObjects,'h3cAal5VccTable':h3cAal5VccTable,'h3cAal5VccEntry':h3cAal5VccEntry,_G:h3cAal5VccVpi,_H:h3cAal5VccVci,_J:h3cAal5VccInPkts,_K:h3cAal5VccOutPkts,_L:h3cAal5VccInOctets,_M:h3cAal5VccOutOctets,_N:h3cAal5VccState,'h3cAal5MIBConformance':h3cAal5MIBConformance,'h3cAal5MIBCompliances':h3cAal5MIBCompliances,'h3cAal5MIBCompliance':h3cAal5MIBCompliance,'h3cAal5MIBGroups':h3cAal5MIBGroups,_P:h3cAal5MIBGroup,_Q:h3cAal5NotificationGroup})
+#
+# PySNMP MIB module H3C-AAL5-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-AAL5-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+h3cAAL5, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cAAL5")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+h3cAAL5MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1))
+h3cAAL5MIB.setRevisions(('2004-11-04 13:50',))
+if mibBuilder.loadTexts: h3cAAL5MIB.setLastUpdated('200411041350Z')
+if mibBuilder.loadTexts: h3cAAL5MIB.setOrganization('Hangzhou H3C Technologies Co., Ltd.')
+h3cAal5MIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 1))
+h3cAal5MIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 0))
+h3cAal5VccTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 1, 1), )
+if mibBuilder.loadTexts: h3cAal5VccTable.setStatus('current')
+h3cAal5VccEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "H3C-AAL5-MIB", "h3cAal5VccVpi"), (0, "H3C-AAL5-MIB", "h3cAal5VccVci"))
+if mibBuilder.loadTexts: h3cAal5VccEntry.setStatus('current')
+h3cAal5VccVpi = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095)))
+if mibBuilder.loadTexts: h3cAal5VccVpi.setStatus('current')
+h3cAal5VccVci = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: h3cAal5VccVci.setStatus('current')
+h3cAal5VccInPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 1, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cAal5VccInPkts.setStatus('current')
+h3cAal5VccOutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 1, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cAal5VccOutPkts.setStatus('current')
+h3cAal5VccInOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 1, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cAal5VccInOctets.setStatus('current')
+h3cAal5VccOutOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 1, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cAal5VccOutOctets.setStatus('current')
+h3cAal5VccState = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("invalid", 1), ("active", 2), ("inactive", 3))).clone('active')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cAal5VccState.setStatus('current')
+h3cAal5VccStateChange = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 0, 1)).setObjects(("H3C-AAL5-MIB", "h3cAal5VccState"))
+if mibBuilder.loadTexts: h3cAal5VccStateChange.setStatus('current')
+h3cAal5MIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 3))
+h3cAal5MIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 3, 1))
+h3cAal5MIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 3, 2))
+h3cAal5MIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 3, 1, 1)).setObjects(("H3C-AAL5-MIB", "h3cAal5MIBGroup"), ("H3C-AAL5-MIB", "h3cAal5NotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    h3cAal5MIBCompliance = h3cAal5MIBCompliance.setStatus('current')
+h3cAal5MIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 3, 2, 1)).setObjects(("H3C-AAL5-MIB", "h3cAal5VccInPkts"), ("H3C-AAL5-MIB", "h3cAal5VccOutPkts"), ("H3C-AAL5-MIB", "h3cAal5VccInOctets"), ("H3C-AAL5-MIB", "h3cAal5VccOutOctets"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    h3cAal5MIBGroup = h3cAal5MIBGroup.setStatus('current')
+h3cAal5NotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 2011, 10, 2, 21, 1, 3, 2, 2)).setObjects(("H3C-AAL5-MIB", "h3cAal5VccStateChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    h3cAal5NotificationGroup = h3cAal5NotificationGroup.setStatus('current')
+mibBuilder.exportSymbols("H3C-AAL5-MIB", h3cAal5VccOutPkts=h3cAal5VccOutPkts, h3cAal5MIBConformance=h3cAal5MIBConformance, h3cAal5VccTable=h3cAal5VccTable, h3cAal5MIBGroups=h3cAal5MIBGroups, h3cAal5VccInPkts=h3cAal5VccInPkts, h3cAal5NotificationGroup=h3cAal5NotificationGroup, h3cAal5VccOutOctets=h3cAal5VccOutOctets, h3cAal5VccStateChange=h3cAal5VccStateChange, h3cAal5VccEntry=h3cAal5VccEntry, h3cAal5MIBCompliances=h3cAal5MIBCompliances, h3cAal5MIBGroup=h3cAal5MIBGroup, h3cAal5VccState=h3cAal5VccState, h3cAal5VccVpi=h3cAal5VccVpi, h3cAal5VccInOctets=h3cAal5VccInOctets, PYSNMP_MODULE_ID=h3cAAL5MIB, h3cAal5MIBCompliance=h3cAal5MIBCompliance, h3cAal5MIBTraps=h3cAal5MIBTraps, h3cAal5VccVci=h3cAal5VccVci, h3cAal5MIBObjects=h3cAal5MIBObjects, h3cAAL5MIB=h3cAAL5MIB)

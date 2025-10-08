@@ -1,157 +1,84 @@
-_W='adGenBondingPortStatusGroup'
-_V='adGenBondingPortsGroup'
-_U='adGenBondingGroupGroup'
-_T='adGenBondingPortRxId'
-_S='adGenBondingPortTxId'
-_R='adGenBondingPortDiffDelay'
-_Q='adGenBondingPortGroupState'
-_P='adGenBondingPortsGroupMembership'
-_O='adGenBondingGroupNumPorts'
-_N='adGenBondingGroupPortsString'
-_M='adGenBondingGroupRowStatus'
-_L='adGenBondingGroupNumberNext'
-_K='adGenBondingPortStatusPortIndex'
-_J='adGenBondingPortsIndex'
-_I='Integer32'
-_H='read-create'
-_G='not-accessible'
-_F='adGenBondingGroupIndex'
-_E='adGenSlotInfoIndex'
-_D='ADTRAN-GENSLOT-MIB'
-_C='read-only'
-_B='ADTRAN-GENBONDING-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGenBondingID,=mibBuilder.importSymbols('ADTRAN-GENMINIDSLAM-MIB','adGenBondingID')
-adGenSlotInfoIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-adGenBonding=ModuleIdentity((1,3,6,1,4,1,664,6,10000,61,4,1))
-class AdGenBondingPort(TextualConvention,Integer32):status=_A
-_AdGenBondingMib_ObjectIdentity=ObjectIdentity
-adGenBondingMib=_AdGenBondingMib_ObjectIdentity((1,3,6,1,4,1,664,6,10000,61,4,1,1))
-_AdGenBondingMibObjects_ObjectIdentity=ObjectIdentity
-adGenBondingMibObjects=_AdGenBondingMibObjects_ObjectIdentity((1,3,6,1,4,1,664,6,10000,61,4,1,1,1))
-_AdGenBondingSlotInfoTable_Object=MibTable
-adGenBondingSlotInfoTable=_AdGenBondingSlotInfoTable_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,1))
-if mibBuilder.loadTexts:adGenBondingSlotInfoTable.setStatus(_A)
-_AdGenBondingSlotInfoEntry_Object=MibTableRow
-adGenBondingSlotInfoEntry=_AdGenBondingSlotInfoEntry_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,1,1))
-adGenBondingSlotInfoEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:adGenBondingSlotInfoEntry.setStatus(_A)
-_AdGenBondingGroupNumberNext_Type=Integer32
-_AdGenBondingGroupNumberNext_Object=MibTableColumn
-adGenBondingGroupNumberNext=_AdGenBondingGroupNumberNext_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,1,1,1),_AdGenBondingGroupNumberNext_Type())
-adGenBondingGroupNumberNext.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenBondingGroupNumberNext.setStatus(_A)
-_AdGenGenBondingSlotStatus_Type=DisplayString
-_AdGenGenBondingSlotStatus_Object=MibTableColumn
-adGenGenBondingSlotStatus=_AdGenGenBondingSlotStatus_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,1,1,2),_AdGenGenBondingSlotStatus_Type())
-adGenGenBondingSlotStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenGenBondingSlotStatus.setStatus(_A)
-_AdGenBondingGroupTable_Object=MibTable
-adGenBondingGroupTable=_AdGenBondingGroupTable_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,2))
-if mibBuilder.loadTexts:adGenBondingGroupTable.setStatus(_A)
-_AdGenBondingGroupEntry_Object=MibTableRow
-adGenBondingGroupEntry=_AdGenBondingGroupEntry_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,2,1))
-adGenBondingGroupEntry.setIndexNames((0,_D,_E),(0,_B,_F))
-if mibBuilder.loadTexts:adGenBondingGroupEntry.setStatus(_A)
-_AdGenBondingGroupIndex_Type=Integer32
-_AdGenBondingGroupIndex_Object=MibTableColumn
-adGenBondingGroupIndex=_AdGenBondingGroupIndex_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,2,1,1),_AdGenBondingGroupIndex_Type())
-adGenBondingGroupIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:adGenBondingGroupIndex.setStatus(_A)
-_AdGenBondingGroupRowStatus_Type=RowStatus
-_AdGenBondingGroupRowStatus_Object=MibTableColumn
-adGenBondingGroupRowStatus=_AdGenBondingGroupRowStatus_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,2,1,2),_AdGenBondingGroupRowStatus_Type())
-adGenBondingGroupRowStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:adGenBondingGroupRowStatus.setStatus(_A)
-_AdGenBondingGroupName_Type=DisplayString
-_AdGenBondingGroupName_Object=MibTableColumn
-adGenBondingGroupName=_AdGenBondingGroupName_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,2,1,3),_AdGenBondingGroupName_Type())
-adGenBondingGroupName.setMaxAccess(_H)
-if mibBuilder.loadTexts:adGenBondingGroupName.setStatus(_A)
-_AdGenBondingGroupPortsString_Type=DisplayString
-_AdGenBondingGroupPortsString_Object=MibTableColumn
-adGenBondingGroupPortsString=_AdGenBondingGroupPortsString_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,2,1,4),_AdGenBondingGroupPortsString_Type())
-adGenBondingGroupPortsString.setMaxAccess(_H)
-if mibBuilder.loadTexts:adGenBondingGroupPortsString.setStatus(_A)
-_AdGenBondingGroupNumPorts_Type=Integer32
-_AdGenBondingGroupNumPorts_Object=MibTableColumn
-adGenBondingGroupNumPorts=_AdGenBondingGroupNumPorts_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,2,1,5),_AdGenBondingGroupNumPorts_Type())
-adGenBondingGroupNumPorts.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenBondingGroupNumPorts.setStatus(_A)
-_AdGenBondingPortsTable_Object=MibTable
-adGenBondingPortsTable=_AdGenBondingPortsTable_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,3))
-if mibBuilder.loadTexts:adGenBondingPortsTable.setStatus(_A)
-_AdGenBondingPortsEntry_Object=MibTableRow
-adGenBondingPortsEntry=_AdGenBondingPortsEntry_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,3,1))
-adGenBondingPortsEntry.setIndexNames((0,_D,_E),(0,_B,_J))
-if mibBuilder.loadTexts:adGenBondingPortsEntry.setStatus(_A)
-_AdGenBondingPortsIndex_Type=AdGenBondingPort
-_AdGenBondingPortsIndex_Object=MibTableColumn
-adGenBondingPortsIndex=_AdGenBondingPortsIndex_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,3,1,1),_AdGenBondingPortsIndex_Type())
-adGenBondingPortsIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:adGenBondingPortsIndex.setStatus(_A)
-_AdGenBondingPortsGroupMembership_Type=Integer32
-_AdGenBondingPortsGroupMembership_Object=MibTableColumn
-adGenBondingPortsGroupMembership=_AdGenBondingPortsGroupMembership_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,3,1,2),_AdGenBondingPortsGroupMembership_Type())
-adGenBondingPortsGroupMembership.setMaxAccess('read-write')
-if mibBuilder.loadTexts:adGenBondingPortsGroupMembership.setStatus(_A)
-_AdGenBondingPortStatusTable_Object=MibTable
-adGenBondingPortStatusTable=_AdGenBondingPortStatusTable_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,4))
-if mibBuilder.loadTexts:adGenBondingPortStatusTable.setStatus(_A)
-_AdGenBondingPortStatusEntry_Object=MibTableRow
-adGenBondingPortStatusEntry=_AdGenBondingPortStatusEntry_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,4,1))
-adGenBondingPortStatusEntry.setIndexNames((0,_D,_E),(0,_B,_F),(0,_B,_K))
-if mibBuilder.loadTexts:adGenBondingPortStatusEntry.setStatus(_A)
-_AdGenBondingPortStatusPortIndex_Type=AdGenBondingPort
-_AdGenBondingPortStatusPortIndex_Object=MibTableColumn
-adGenBondingPortStatusPortIndex=_AdGenBondingPortStatusPortIndex_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,4,1,1),_AdGenBondingPortStatusPortIndex_Type())
-adGenBondingPortStatusPortIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:adGenBondingPortStatusPortIndex.setStatus(_A)
-class _AdGenBondingPortGroupState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('notProvisioned',1),('notUsable',2),('readyForTraffic',3),('carryingTraffic',4)))
-_AdGenBondingPortGroupState_Type.__name__=_I
-_AdGenBondingPortGroupState_Object=MibTableColumn
-adGenBondingPortGroupState=_AdGenBondingPortGroupState_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,4,1,2),_AdGenBondingPortGroupState_Type())
-adGenBondingPortGroupState.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenBondingPortGroupState.setStatus(_A)
-_AdGenBondingPortDiffDelay_Type=Integer32
-_AdGenBondingPortDiffDelay_Object=MibTableColumn
-adGenBondingPortDiffDelay=_AdGenBondingPortDiffDelay_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,4,1,3),_AdGenBondingPortDiffDelay_Type())
-adGenBondingPortDiffDelay.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenBondingPortDiffDelay.setStatus(_A)
-if mibBuilder.loadTexts:adGenBondingPortDiffDelay.setUnits('100 microseconds')
-_AdGenBondingPortTxId_Type=Integer32
-_AdGenBondingPortTxId_Object=MibTableColumn
-adGenBondingPortTxId=_AdGenBondingPortTxId_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,4,1,4),_AdGenBondingPortTxId_Type())
-adGenBondingPortTxId.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenBondingPortTxId.setStatus(_A)
-_AdGenBondingPortRxId_Type=Integer32
-_AdGenBondingPortRxId_Object=MibTableColumn
-adGenBondingPortRxId=_AdGenBondingPortRxId_Object((1,3,6,1,4,1,664,6,10000,61,4,1,1,1,4,1,5),_AdGenBondingPortRxId_Type())
-adGenBondingPortRxId.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenBondingPortRxId.setStatus(_A)
-_AdGenBondingMibConformance_ObjectIdentity=ObjectIdentity
-adGenBondingMibConformance=_AdGenBondingMibConformance_ObjectIdentity((1,3,6,1,4,1,664,6,10000,61,4,1,1,2))
-_AdGenBondingMibGroups_ObjectIdentity=ObjectIdentity
-adGenBondingMibGroups=_AdGenBondingMibGroups_ObjectIdentity((1,3,6,1,4,1,664,6,10000,61,4,1,1,2,1))
-_AdGenBondingMibCompliances_ObjectIdentity=ObjectIdentity
-adGenBondingMibCompliances=_AdGenBondingMibCompliances_ObjectIdentity((1,3,6,1,4,1,664,6,10000,61,4,1,1,2,2))
-adGenBondingGroupGroup=ObjectGroup((1,3,6,1,4,1,664,6,10000,61,4,1,1,2,1,1))
-adGenBondingGroupGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:adGenBondingGroupGroup.setStatus(_A)
-adGenBondingPortsGroup=ObjectGroup((1,3,6,1,4,1,664,6,10000,61,4,1,1,2,1,2))
-adGenBondingPortsGroup.setObjects((_B,_P))
-if mibBuilder.loadTexts:adGenBondingPortsGroup.setStatus(_A)
-adGenBondingPortStatusGroup=ObjectGroup((1,3,6,1,4,1,664,6,10000,61,4,1,1,2,1,3))
-adGenBondingPortStatusGroup.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_T)))
-if mibBuilder.loadTexts:adGenBondingPortStatusGroup.setStatus(_A)
-adGenBondingMibCompliance=ModuleCompliance((1,3,6,1,4,1,664,6,10000,61,4,1,1,2,2,1))
-adGenBondingMibCompliance.setObjects(*((_B,_U),(_B,_V),(_B,_W)))
-if mibBuilder.loadTexts:adGenBondingMibCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'AdGenBondingPort':AdGenBondingPort,'adGenBonding':adGenBonding,'adGenBondingMib':adGenBondingMib,'adGenBondingMibObjects':adGenBondingMibObjects,'adGenBondingSlotInfoTable':adGenBondingSlotInfoTable,'adGenBondingSlotInfoEntry':adGenBondingSlotInfoEntry,_L:adGenBondingGroupNumberNext,'adGenGenBondingSlotStatus':adGenGenBondingSlotStatus,'adGenBondingGroupTable':adGenBondingGroupTable,'adGenBondingGroupEntry':adGenBondingGroupEntry,_F:adGenBondingGroupIndex,_M:adGenBondingGroupRowStatus,'adGenBondingGroupName':adGenBondingGroupName,_N:adGenBondingGroupPortsString,_O:adGenBondingGroupNumPorts,'adGenBondingPortsTable':adGenBondingPortsTable,'adGenBondingPortsEntry':adGenBondingPortsEntry,_J:adGenBondingPortsIndex,_P:adGenBondingPortsGroupMembership,'adGenBondingPortStatusTable':adGenBondingPortStatusTable,'adGenBondingPortStatusEntry':adGenBondingPortStatusEntry,_K:adGenBondingPortStatusPortIndex,_Q:adGenBondingPortGroupState,_R:adGenBondingPortDiffDelay,_S:adGenBondingPortTxId,_T:adGenBondingPortRxId,'adGenBondingMibConformance':adGenBondingMibConformance,'adGenBondingMibGroups':adGenBondingMibGroups,_U:adGenBondingGroupGroup,_V:adGenBondingPortsGroup,_W:adGenBondingPortStatusGroup,'adGenBondingMibCompliances':adGenBondingMibCompliances,'adGenBondingMibCompliance':adGenBondingMibCompliance})
+#
+# PySNMP MIB module ADTRAN-GENBONDING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-GENBONDING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGenBondingID, = mibBuilder.importSymbols("ADTRAN-GENMINIDSLAM-MIB", "adGenBondingID")
+adGenSlotInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+adGenBonding = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1))
+if mibBuilder.loadTexts: adGenBonding.setLastUpdated('200608041650Z')
+if mibBuilder.loadTexts: adGenBonding.setOrganization('ADTRAN, Inc.')
+adGenBondingMib = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1))
+adGenBondingMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1))
+adGenBondingMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 2))
+class AdGenBondingPort(TextualConvention, Integer32):
+    status = 'current'
+
+adGenBondingSlotInfoTable = MibTable((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 1), )
+if mibBuilder.loadTexts: adGenBondingSlotInfoTable.setStatus('current')
+adGenBondingSlotInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 1, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenBondingSlotInfoEntry.setStatus('current')
+adGenBondingGroupNumberNext = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenBondingGroupNumberNext.setStatus('current')
+adGenGenBondingSlotStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenGenBondingSlotStatus.setStatus('current')
+adGenBondingGroupTable = MibTable((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 2), )
+if mibBuilder.loadTexts: adGenBondingGroupTable.setStatus('current')
+adGenBondingGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 2, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"), (0, "ADTRAN-GENBONDING-MIB", "adGenBondingGroupIndex"))
+if mibBuilder.loadTexts: adGenBondingGroupEntry.setStatus('current')
+adGenBondingGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 2, 1, 1), Integer32())
+if mibBuilder.loadTexts: adGenBondingGroupIndex.setStatus('current')
+adGenBondingGroupRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: adGenBondingGroupRowStatus.setStatus('current')
+adGenBondingGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 2, 1, 3), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: adGenBondingGroupName.setStatus('current')
+adGenBondingGroupPortsString = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 2, 1, 4), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: adGenBondingGroupPortsString.setStatus('current')
+adGenBondingGroupNumPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenBondingGroupNumPorts.setStatus('current')
+adGenBondingPortsTable = MibTable((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 3), )
+if mibBuilder.loadTexts: adGenBondingPortsTable.setStatus('current')
+adGenBondingPortsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 3, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"), (0, "ADTRAN-GENBONDING-MIB", "adGenBondingPortsIndex"))
+if mibBuilder.loadTexts: adGenBondingPortsEntry.setStatus('current')
+adGenBondingPortsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 3, 1, 1), AdGenBondingPort())
+if mibBuilder.loadTexts: adGenBondingPortsIndex.setStatus('current')
+adGenBondingPortsGroupMembership = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 3, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenBondingPortsGroupMembership.setStatus('current')
+adGenBondingPortStatusTable = MibTable((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 4), )
+if mibBuilder.loadTexts: adGenBondingPortStatusTable.setStatus('current')
+adGenBondingPortStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 4, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"), (0, "ADTRAN-GENBONDING-MIB", "adGenBondingGroupIndex"), (0, "ADTRAN-GENBONDING-MIB", "adGenBondingPortStatusPortIndex"))
+if mibBuilder.loadTexts: adGenBondingPortStatusEntry.setStatus('current')
+adGenBondingPortStatusPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 4, 1, 1), AdGenBondingPort())
+if mibBuilder.loadTexts: adGenBondingPortStatusPortIndex.setStatus('current')
+adGenBondingPortGroupState = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("notProvisioned", 1), ("notUsable", 2), ("readyForTraffic", 3), ("carryingTraffic", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenBondingPortGroupState.setStatus('current')
+adGenBondingPortDiffDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 4, 1, 3), Integer32()).setUnits('100 microseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenBondingPortDiffDelay.setStatus('current')
+adGenBondingPortTxId = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 4, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenBondingPortTxId.setStatus('current')
+adGenBondingPortRxId = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 1, 4, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenBondingPortRxId.setStatus('current')
+adGenBondingMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 2, 1))
+adGenBondingMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 2, 2))
+adGenBondingMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 2, 2, 1)).setObjects(("ADTRAN-GENBONDING-MIB", "adGenBondingGroupGroup"), ("ADTRAN-GENBONDING-MIB", "adGenBondingPortsGroup"), ("ADTRAN-GENBONDING-MIB", "adGenBondingPortStatusGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    adGenBondingMibCompliance = adGenBondingMibCompliance.setStatus('current')
+adGenBondingGroupGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 2, 1, 1)).setObjects(("ADTRAN-GENBONDING-MIB", "adGenBondingGroupNumberNext"), ("ADTRAN-GENBONDING-MIB", "adGenBondingGroupRowStatus"), ("ADTRAN-GENBONDING-MIB", "adGenBondingGroupPortsString"), ("ADTRAN-GENBONDING-MIB", "adGenBondingGroupNumPorts"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    adGenBondingGroupGroup = adGenBondingGroupGroup.setStatus('current')
+adGenBondingPortsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 2, 1, 2)).setObjects(("ADTRAN-GENBONDING-MIB", "adGenBondingPortsGroupMembership"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    adGenBondingPortsGroup = adGenBondingPortsGroup.setStatus('current')
+adGenBondingPortStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 6, 10000, 61, 4, 1, 1, 2, 1, 3)).setObjects(("ADTRAN-GENBONDING-MIB", "adGenBondingPortGroupState"), ("ADTRAN-GENBONDING-MIB", "adGenBondingPortDiffDelay"), ("ADTRAN-GENBONDING-MIB", "adGenBondingPortTxId"), ("ADTRAN-GENBONDING-MIB", "adGenBondingPortRxId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    adGenBondingPortStatusGroup = adGenBondingPortStatusGroup.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-GENBONDING-MIB", adGenBondingPortsGroupMembership=adGenBondingPortsGroupMembership, adGenBondingMibCompliance=adGenBondingMibCompliance, adGenBondingMib=adGenBondingMib, adGenBondingPortDiffDelay=adGenBondingPortDiffDelay, adGenBondingMibConformance=adGenBondingMibConformance, adGenBondingPortsGroup=adGenBondingPortsGroup, adGenBondingPortStatusTable=adGenBondingPortStatusTable, adGenBondingMibObjects=adGenBondingMibObjects, adGenBondingGroupGroup=adGenBondingGroupGroup, adGenBondingPortsIndex=adGenBondingPortsIndex, adGenBonding=adGenBonding, adGenBondingPortsTable=adGenBondingPortsTable, adGenBondingGroupIndex=adGenBondingGroupIndex, AdGenBondingPort=AdGenBondingPort, adGenGenBondingSlotStatus=adGenGenBondingSlotStatus, adGenBondingGroupName=adGenBondingGroupName, adGenBondingPortStatusGroup=adGenBondingPortStatusGroup, adGenBondingGroupEntry=adGenBondingGroupEntry, PYSNMP_MODULE_ID=adGenBonding, adGenBondingGroupNumberNext=adGenBondingGroupNumberNext, adGenBondingPortRxId=adGenBondingPortRxId, adGenBondingGroupPortsString=adGenBondingGroupPortsString, adGenBondingPortGroupState=adGenBondingPortGroupState, adGenBondingGroupNumPorts=adGenBondingGroupNumPorts, adGenBondingPortStatusPortIndex=adGenBondingPortStatusPortIndex, adGenBondingMibGroups=adGenBondingMibGroups, adGenBondingSlotInfoTable=adGenBondingSlotInfoTable, adGenBondingPortsEntry=adGenBondingPortsEntry, adGenBondingMibCompliances=adGenBondingMibCompliances, adGenBondingPortStatusEntry=adGenBondingPortStatusEntry, adGenBondingPortTxId=adGenBondingPortTxId, adGenBondingGroupTable=adGenBondingGroupTable, adGenBondingGroupRowStatus=adGenBondingGroupRowStatus, adGenBondingSlotInfoEntry=adGenBondingSlotInfoEntry)

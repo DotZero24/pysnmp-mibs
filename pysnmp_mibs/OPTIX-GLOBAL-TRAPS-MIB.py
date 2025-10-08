@@ -1,113 +1,59 @@
-_C='Integer32'
-_B='current'
-_A='accessible-for-notify'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-AlarmEventType,AlmDataNtfcnCdeType,AlmDataSrvEffType,DataPmEventType,ObjType,PerformanceEventType,ValidflagType=mibBuilder.importSymbols('OPTIX-GLOBAL-TC-MIB','AlarmEventType','AlmDataNtfcnCdeType','AlmDataSrvEffType','DataPmEventType','ObjType','PerformanceEventType','ValidflagType')
-optixCommonGlobal,=mibBuilder.importSymbols('OPTIX-OID-MIB','optixCommonGlobal')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
-optixGlobalTrap=ModuleIdentity((1,3,6,1,4,1,2011,2,25,3,40,40))
-if mibBuilder.loadTexts:optixGlobalTrap.setRevisions(('2008-05-24 00:00',))
-_OptixTrapsCommon_ObjectIdentity=ObjectIdentity
-optixTrapsCommon=_OptixTrapsCommon_ObjectIdentity((1,3,6,1,4,1,2011,2,25,3,40,40,10))
-_RptAlmName_Type=AlarmEventType
-_RptAlmName_Object=MibScalar
-rptAlmName=_RptAlmName_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,10),_RptAlmName_Type())
-rptAlmName.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptAlmName.setStatus(_B)
-_RptEvtDateTime_Type=DateAndTime
-_RptEvtDateTime_Object=MibScalar
-rptEvtDateTime=_RptEvtDateTime_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,40),_RptEvtDateTime_Type())
-rptEvtDateTime.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtDateTime.setStatus(_B)
-_RptEvtSrvEff_Type=AlmDataSrvEffType
-_RptEvtSrvEff_Object=MibScalar
-rptEvtSrvEff=_RptEvtSrvEff_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,50),_RptEvtSrvEff_Type())
-rptEvtSrvEff.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtSrvEff.setStatus(_B)
-_RptEvtNtfcnCde_Type=AlmDataNtfcnCdeType
-_RptEvtNtfcnCde_Object=MibScalar
-rptEvtNtfcnCde=_RptEvtNtfcnCde_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,60),_RptEvtNtfcnCde_Type())
-rptEvtNtfcnCde.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtNtfcnCde.setStatus(_B)
-_RptEvtMonValue_Type=Counter64
-_RptEvtMonValue_Object=MibScalar
-rptEvtMonValue=_RptEvtMonValue_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,90),_RptEvtMonValue_Type())
-rptEvtMonValue.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtMonValue.setStatus(_B)
-_RptEvtThValue_Type=Counter64
-_RptEvtThValue_Object=MibScalar
-rptEvtThValue=_RptEvtThValue_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,100),_RptEvtThValue_Type())
-rptEvtThValue.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtThValue.setStatus(_B)
-_RptEvtNumber_Type=Unsigned32
-_RptEvtNumber_Object=MibScalar
-rptEvtNumber=_RptEvtNumber_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,120),_RptEvtNumber_Type())
-rptEvtNumber.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtNumber.setStatus(_B)
-class _RptEvtPeriod_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('null',0),('period15m',1),('period1day',2)))
-_RptEvtPeriod_Type.__name__=_C
-_RptEvtPeriod_Object=MibScalar
-rptEvtPeriod=_RptEvtPeriod_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,130),_RptEvtPeriod_Type())
-rptEvtPeriod.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtPeriod.setStatus(_B)
-_RptEvtVldty_Type=ValidflagType
-_RptEvtVldty_Object=MibScalar
-rptEvtVldty=_RptEvtVldty_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,140),_RptEvtVldty_Type())
-rptEvtVldty.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtVldty.setStatus(_B)
-class _RptEvtState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3)));namedValues=NamedValues(*(('start',1),('clear',3)))
-_RptEvtState_Type.__name__=_C
-_RptEvtState_Object=MibScalar
-rptEvtState=_RptEvtState_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,160),_RptEvtState_Type())
-rptEvtState.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtState.setStatus(_B)
-_RptPmName_Type=PerformanceEventType
-_RptPmName_Object=MibScalar
-rptPmName=_RptPmName_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,190),_RptPmName_Type())
-rptPmName.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptPmName.setStatus(_B)
-_RptEvtValue_Type=DisplayString
-_RptEvtValue_Object=MibScalar
-rptEvtValue=_RptEvtValue_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,210),_RptEvtValue_Type())
-rptEvtValue.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtValue.setStatus(_B)
-_RptEvtObjType_Type=ObjType
-_RptEvtObjType_Object=MibScalar
-rptEvtObjType=_RptEvtObjType_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,220),_RptEvtObjType_Type())
-rptEvtObjType.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtObjType.setStatus(_B)
-_RptEvtParaLen_Type=Counter32
-_RptEvtParaLen_Object=MibScalar
-rptEvtParaLen=_RptEvtParaLen_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,230),_RptEvtParaLen_Type())
-rptEvtParaLen.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtParaLen.setStatus(_B)
-_RptEvtPara_Type=DisplayString
-_RptEvtPara_Object=MibScalar
-rptEvtPara=_RptEvtPara_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,240),_RptEvtPara_Type())
-rptEvtPara.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtPara.setStatus(_B)
-_RptEvtStartTime_Type=DateAndTime
-_RptEvtStartTime_Object=MibScalar
-rptEvtStartTime=_RptEvtStartTime_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,250),_RptEvtStartTime_Type())
-rptEvtStartTime.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtStartTime.setStatus(_B)
-_RptEvtEndTime_Type=DateAndTime
-_RptEvtEndTime_Object=MibScalar
-rptEvtEndTime=_RptEvtEndTime_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,260),_RptEvtEndTime_Type())
-rptEvtEndTime.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtEndTime.setStatus(_B)
-_RptEvtDataPmName_Type=DataPmEventType
-_RptEvtDataPmName_Object=MibScalar
-rptEvtDataPmName=_RptEvtDataPmName_Object((1,3,6,1,4,1,2011,2,25,3,40,40,10,270),_RptEvtDataPmName_Type())
-rptEvtDataPmName.setMaxAccess(_A)
-if mibBuilder.loadTexts:rptEvtDataPmName.setStatus(_B)
-_OptixTrapsPM_ObjectIdentity=ObjectIdentity
-optixTrapsPM=_OptixTrapsPM_ObjectIdentity((1,3,6,1,4,1,2011,2,25,3,40,40,20))
-_OptixTrapsTrPer_ObjectIdentity=ObjectIdentity
-optixTrapsTrPer=_OptixTrapsTrPer_ObjectIdentity((1,3,6,1,4,1,2011,2,25,3,40,40,50))
-mibBuilder.exportSymbols('OPTIX-GLOBAL-TRAPS-MIB',**{'optixGlobalTrap':optixGlobalTrap,'optixTrapsCommon':optixTrapsCommon,'rptAlmName':rptAlmName,'rptEvtDateTime':rptEvtDateTime,'rptEvtSrvEff':rptEvtSrvEff,'rptEvtNtfcnCde':rptEvtNtfcnCde,'rptEvtMonValue':rptEvtMonValue,'rptEvtThValue':rptEvtThValue,'rptEvtNumber':rptEvtNumber,'rptEvtPeriod':rptEvtPeriod,'rptEvtVldty':rptEvtVldty,'rptEvtState':rptEvtState,'rptPmName':rptPmName,'rptEvtValue':rptEvtValue,'rptEvtObjType':rptEvtObjType,'rptEvtParaLen':rptEvtParaLen,'rptEvtPara':rptEvtPara,'rptEvtStartTime':rptEvtStartTime,'rptEvtEndTime':rptEvtEndTime,'rptEvtDataPmName':rptEvtDataPmName,'optixTrapsPM':optixTrapsPM,'optixTrapsTrPer':optixTrapsTrPer})
+#
+# PySNMP MIB module OPTIX-GLOBAL-TRAPS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/huawei/OPTIX-GLOBAL-TRAPS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:01:47 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValidflagType, AlarmEventType, DataPmEventType, PerformanceEventType, AlmDataNtfcnCdeType, ObjType, AlmDataSrvEffType = mibBuilder.importSymbols("OPTIX-GLOBAL-TC-MIB", "ValidflagType", "AlarmEventType", "DataPmEventType", "PerformanceEventType", "AlmDataNtfcnCdeType", "ObjType", "AlmDataSrvEffType")
+optixCommonGlobal, = mibBuilder.importSymbols("OPTIX-OID-MIB", "optixCommonGlobal")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+optixGlobalTrap = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40))
+optixGlobalTrap.setRevisions(('2008-05-24 00:00',))
+if mibBuilder.loadTexts: optixGlobalTrap.setLastUpdated('200805240000Z')
+if mibBuilder.loadTexts: optixGlobalTrap.setOrganization('Huawei Technologies co.,Ltd.')
+optixTrapsCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10))
+rptAlmName = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 10), AlarmEventType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptAlmName.setStatus('current')
+rptEvtDateTime = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 40), DateAndTime()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtDateTime.setStatus('current')
+rptEvtSrvEff = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 50), AlmDataSrvEffType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtSrvEff.setStatus('current')
+rptEvtNtfcnCde = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 60), AlmDataNtfcnCdeType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtNtfcnCde.setStatus('current')
+rptEvtMonValue = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 90), Counter64()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtMonValue.setStatus('current')
+rptEvtThValue = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 100), Counter64()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtThValue.setStatus('current')
+rptEvtNumber = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 120), Unsigned32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtNumber.setStatus('current')
+rptEvtPeriod = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 130), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("null", 0), ("period15m", 1), ("period1day", 2)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtPeriod.setStatus('current')
+rptEvtVldty = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 140), ValidflagType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtVldty.setStatus('current')
+rptEvtState = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 160), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3))).clone(namedValues=NamedValues(("start", 1), ("clear", 3)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtState.setStatus('current')
+rptPmName = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 190), PerformanceEventType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptPmName.setStatus('current')
+rptEvtValue = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 210), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtValue.setStatus('current')
+rptEvtObjType = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 220), ObjType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtObjType.setStatus('current')
+rptEvtParaLen = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 230), Counter32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtParaLen.setStatus('current')
+rptEvtPara = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 240), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtPara.setStatus('current')
+rptEvtStartTime = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 250), DateAndTime()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtStartTime.setStatus('current')
+rptEvtEndTime = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 260), DateAndTime()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtEndTime.setStatus('current')
+rptEvtDataPmName = MibScalar((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 10, 270), DataPmEventType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: rptEvtDataPmName.setStatus('current')
+optixTrapsPM = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 20))
+optixTrapsTrPer = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40, 40, 50))
+mibBuilder.exportSymbols("OPTIX-GLOBAL-TRAPS-MIB", rptEvtPeriod=rptEvtPeriod, rptEvtStartTime=rptEvtStartTime, rptEvtDataPmName=rptEvtDataPmName, rptPmName=rptPmName, rptEvtNtfcnCde=rptEvtNtfcnCde, optixTrapsCommon=optixTrapsCommon, rptAlmName=rptAlmName, rptEvtThValue=rptEvtThValue, rptEvtVldty=rptEvtVldty, optixTrapsTrPer=optixTrapsTrPer, rptEvtValue=rptEvtValue, optixTrapsPM=optixTrapsPM, rptEvtPara=rptEvtPara, rptEvtSrvEff=rptEvtSrvEff, rptEvtEndTime=rptEvtEndTime, PYSNMP_MODULE_ID=optixGlobalTrap, rptEvtDateTime=rptEvtDateTime, rptEvtMonValue=rptEvtMonValue, rptEvtState=rptEvtState, optixGlobalTrap=optixGlobalTrap, rptEvtParaLen=rptEvtParaLen, rptEvtNumber=rptEvtNumber, rptEvtObjType=rptEvtObjType)

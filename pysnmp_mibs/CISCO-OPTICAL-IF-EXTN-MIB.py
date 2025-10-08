@@ -1,239 +1,116 @@
-_l='coIfXcvrLSCMIBGroup'
-_k='coIfXcvrTunableLaserMIBGroup'
-_j='coIfXcvrBaseMIBGroup'
-_i='coIfXcvrLSCPulseRepetitionTime'
-_h='coIfXcvrLSCTestPulseLength'
-_g='coIfXcvrLSCPulseLength'
-_f='coIfXcvrLSCManualRestart'
-_e='coIfXcvrLSCRestartMode'
-_d='coIfXcvrLSCProtocol'
-_c='coIfXcvrLaserSafetyControl'
-_b='coIfXcvrLaserFrequencyBitmap'
-_a='coIfXcvrLaserFrequencySpacing'
-_Z='coIfXcvrMinLaserFrequency'
-_Y='coIfXcvrForwardLaserControl'
-_X='coIfXcvrLaserOperStatus'
-_W='coIfXcvrLaserAdminStatus'
-_V='coIfDwdmChannelGroupBitmap'
-_U='coIfDwdmChannelGroupBitmapLogic'
-_T='coIfDwdmChannelGroupSpacing'
-_S='coIfDwdmChannelGroupMinFrequency'
-_R='coIfDwdmFrequency'
-_Q='coIfTypeExtn'
-_P='seconds'
-_O='disable'
-_N='enable'
-_M='coIfDwdmChannelGroupMIBGroup'
-_L='coIfTypeExtnMIBGroup'
-_K='coIfWavelengthMIBGroup'
-_J='read-only'
-_I='OctetString'
-_H='GHz'
-_G='ifIndex'
-_F='IF-MIB'
-_E='Unsigned32'
-_D='Integer32'
-_C='read-write'
-_B='CISCO-OPTICAL-IF-EXTN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_I,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoExperiment,=mibBuilder.importSymbols('CISCO-SMI','ciscoExperiment')
-ifIndex,=mibBuilder.importSymbols(_F,_G)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoOpticalIfExtnMIB=ModuleIdentity((1,3,6,1,4,1,9,10,66))
-if mibBuilder.loadTexts:ciscoOpticalIfExtnMIB.setRevisions(('2004-11-19 00:00','2003-12-29 00:00','2002-05-23 00:00','2001-04-20 00:00'))
-class CoDwdmFrequency(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000000))
-class CoDwdmFrequencyOrZero(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000000))
-_CoIfExtnMIBObjects_ObjectIdentity=ObjectIdentity
-coIfExtnMIBObjects=_CoIfExtnMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,10,66,1))
-_CoIfTypeExtnGroup_ObjectIdentity=ObjectIdentity
-coIfTypeExtnGroup=_CoIfTypeExtnGroup_ObjectIdentity((1,3,6,1,4,1,9,10,66,1,1))
-_CoIfTypeExtnTable_Object=MibTable
-coIfTypeExtnTable=_CoIfTypeExtnTable_Object((1,3,6,1,4,1,9,10,66,1,1,1))
-if mibBuilder.loadTexts:coIfTypeExtnTable.setStatus(_A)
-_CoIfTypeExtnEntry_Object=MibTableRow
-coIfTypeExtnEntry=_CoIfTypeExtnEntry_Object((1,3,6,1,4,1,9,10,66,1,1,1,1))
-coIfTypeExtnEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:coIfTypeExtnEntry.setStatus(_A)
-class _CoIfTypeExtn_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('opticalTransponder',1),('wdmTransport',2),('wdmChannel',3),('wdmChannelGroup',4),('wavelengthTransport',5),('ethernetPhy',6),('esconPhy',7),('gigabitPhy',8),('twoGigabitPhy',9),('sonetPhy',10),('multiRate',11)))
-_CoIfTypeExtn_Type.__name__=_D
-_CoIfTypeExtn_Object=MibTableColumn
-coIfTypeExtn=_CoIfTypeExtn_Object((1,3,6,1,4,1,9,10,66,1,1,1,1,1),_CoIfTypeExtn_Type())
-coIfTypeExtn.setMaxAccess(_J)
-if mibBuilder.loadTexts:coIfTypeExtn.setStatus(_A)
-_CoIfWavelengthGroup_ObjectIdentity=ObjectIdentity
-coIfWavelengthGroup=_CoIfWavelengthGroup_ObjectIdentity((1,3,6,1,4,1,9,10,66,1,2))
-_CoIfWavelengthTable_Object=MibTable
-coIfWavelengthTable=_CoIfWavelengthTable_Object((1,3,6,1,4,1,9,10,66,1,2,1))
-if mibBuilder.loadTexts:coIfWavelengthTable.setStatus(_A)
-_CoIfWavelengthEntry_Object=MibTableRow
-coIfWavelengthEntry=_CoIfWavelengthEntry_Object((1,3,6,1,4,1,9,10,66,1,2,1,1))
-coIfWavelengthEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:coIfWavelengthEntry.setStatus(_A)
-_CoIfDwdmFrequency_Type=CoDwdmFrequency
-_CoIfDwdmFrequency_Object=MibTableColumn
-coIfDwdmFrequency=_CoIfDwdmFrequency_Object((1,3,6,1,4,1,9,10,66,1,2,1,1,1),_CoIfDwdmFrequency_Type())
-coIfDwdmFrequency.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfDwdmFrequency.setStatus(_A)
-if mibBuilder.loadTexts:coIfDwdmFrequency.setUnits(_H)
-_CoIfDwdmChannelGroup_ObjectIdentity=ObjectIdentity
-coIfDwdmChannelGroup=_CoIfDwdmChannelGroup_ObjectIdentity((1,3,6,1,4,1,9,10,66,1,3))
-_CoIfDwdmChannelGroupTable_Object=MibTable
-coIfDwdmChannelGroupTable=_CoIfDwdmChannelGroupTable_Object((1,3,6,1,4,1,9,10,66,1,3,3))
-if mibBuilder.loadTexts:coIfDwdmChannelGroupTable.setStatus(_A)
-_CoIfDwdmChannelGroupEntry_Object=MibTableRow
-coIfDwdmChannelGroupEntry=_CoIfDwdmChannelGroupEntry_Object((1,3,6,1,4,1,9,10,66,1,3,3,1))
-coIfDwdmChannelGroupEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:coIfDwdmChannelGroupEntry.setStatus(_A)
-_CoIfDwdmChannelGroupMinFrequency_Type=CoDwdmFrequency
-_CoIfDwdmChannelGroupMinFrequency_Object=MibTableColumn
-coIfDwdmChannelGroupMinFrequency=_CoIfDwdmChannelGroupMinFrequency_Object((1,3,6,1,4,1,9,10,66,1,3,3,1,1),_CoIfDwdmChannelGroupMinFrequency_Type())
-coIfDwdmChannelGroupMinFrequency.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfDwdmChannelGroupMinFrequency.setStatus(_A)
-if mibBuilder.loadTexts:coIfDwdmChannelGroupMinFrequency.setUnits(_H)
-class _CoIfDwdmChannelGroupSpacing_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000))
-_CoIfDwdmChannelGroupSpacing_Type.__name__=_E
-_CoIfDwdmChannelGroupSpacing_Object=MibTableColumn
-coIfDwdmChannelGroupSpacing=_CoIfDwdmChannelGroupSpacing_Object((1,3,6,1,4,1,9,10,66,1,3,3,1,2),_CoIfDwdmChannelGroupSpacing_Type())
-coIfDwdmChannelGroupSpacing.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfDwdmChannelGroupSpacing.setStatus(_A)
-if mibBuilder.loadTexts:coIfDwdmChannelGroupSpacing.setUnits(_H)
-class _CoIfDwdmChannelGroupBitmapLogic_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('carried',1),('blocked',2)))
-_CoIfDwdmChannelGroupBitmapLogic_Type.__name__=_D
-_CoIfDwdmChannelGroupBitmapLogic_Object=MibTableColumn
-coIfDwdmChannelGroupBitmapLogic=_CoIfDwdmChannelGroupBitmapLogic_Object((1,3,6,1,4,1,9,10,66,1,3,3,1,3),_CoIfDwdmChannelGroupBitmapLogic_Type())
-coIfDwdmChannelGroupBitmapLogic.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfDwdmChannelGroupBitmapLogic.setStatus(_A)
-class _CoIfDwdmChannelGroupBitmap_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CoIfDwdmChannelGroupBitmap_Type.__name__=_I
-_CoIfDwdmChannelGroupBitmap_Object=MibTableColumn
-coIfDwdmChannelGroupBitmap=_CoIfDwdmChannelGroupBitmap_Object((1,3,6,1,4,1,9,10,66,1,3,3,1,4),_CoIfDwdmChannelGroupBitmap_Type())
-coIfDwdmChannelGroupBitmap.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfDwdmChannelGroupBitmap.setStatus(_A)
-_CoIfXcvrGroup_ObjectIdentity=ObjectIdentity
-coIfXcvrGroup=_CoIfXcvrGroup_ObjectIdentity((1,3,6,1,4,1,9,10,66,1,4))
-_CoIfXcvrTable_Object=MibTable
-coIfXcvrTable=_CoIfXcvrTable_Object((1,3,6,1,4,1,9,10,66,1,4,1))
-if mibBuilder.loadTexts:coIfXcvrTable.setStatus(_A)
-_CoIfXcvrEntry_Object=MibTableRow
-coIfXcvrEntry=_CoIfXcvrEntry_Object((1,3,6,1,4,1,9,10,66,1,4,1,1))
-coIfXcvrEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:coIfXcvrEntry.setStatus(_A)
-class _CoIfXcvrLaserAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_CoIfXcvrLaserAdminStatus_Type.__name__=_D
-_CoIfXcvrLaserAdminStatus_Object=MibTableColumn
-coIfXcvrLaserAdminStatus=_CoIfXcvrLaserAdminStatus_Object((1,3,6,1,4,1,9,10,66,1,4,1,1,1),_CoIfXcvrLaserAdminStatus_Type())
-coIfXcvrLaserAdminStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfXcvrLaserAdminStatus.setStatus(_A)
-class _CoIfXcvrLaserOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('transmitting',1),('degraded',2),('down',3),('lscDown',4),('flcDown',5),('unknown',6)))
-_CoIfXcvrLaserOperStatus_Type.__name__=_D
-_CoIfXcvrLaserOperStatus_Object=MibTableColumn
-coIfXcvrLaserOperStatus=_CoIfXcvrLaserOperStatus_Object((1,3,6,1,4,1,9,10,66,1,4,1,1,2),_CoIfXcvrLaserOperStatus_Type())
-coIfXcvrLaserOperStatus.setMaxAccess(_J)
-if mibBuilder.loadTexts:coIfXcvrLaserOperStatus.setStatus(_A)
-_CoIfXcvrMinLaserFrequency_Type=CoDwdmFrequencyOrZero
-_CoIfXcvrMinLaserFrequency_Object=MibTableColumn
-coIfXcvrMinLaserFrequency=_CoIfXcvrMinLaserFrequency_Object((1,3,6,1,4,1,9,10,66,1,4,1,1,3),_CoIfXcvrMinLaserFrequency_Type())
-coIfXcvrMinLaserFrequency.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfXcvrMinLaserFrequency.setStatus(_A)
-if mibBuilder.loadTexts:coIfXcvrMinLaserFrequency.setUnits(_H)
-class _CoIfXcvrLaserFrequencySpacing_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1000))
-_CoIfXcvrLaserFrequencySpacing_Type.__name__=_E
-_CoIfXcvrLaserFrequencySpacing_Object=MibTableColumn
-coIfXcvrLaserFrequencySpacing=_CoIfXcvrLaserFrequencySpacing_Object((1,3,6,1,4,1,9,10,66,1,4,1,1,4),_CoIfXcvrLaserFrequencySpacing_Type())
-coIfXcvrLaserFrequencySpacing.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfXcvrLaserFrequencySpacing.setStatus(_A)
-if mibBuilder.loadTexts:coIfXcvrLaserFrequencySpacing.setUnits(_H)
-class _CoIfXcvrLaserFrequencyBitmap_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CoIfXcvrLaserFrequencyBitmap_Type.__name__=_I
-_CoIfXcvrLaserFrequencyBitmap_Object=MibTableColumn
-coIfXcvrLaserFrequencyBitmap=_CoIfXcvrLaserFrequencyBitmap_Object((1,3,6,1,4,1,9,10,66,1,4,1,1,5),_CoIfXcvrLaserFrequencyBitmap_Type())
-coIfXcvrLaserFrequencyBitmap.setMaxAccess(_J)
-if mibBuilder.loadTexts:coIfXcvrLaserFrequencyBitmap.setStatus(_A)
-class _CoIfXcvrForwardLaserControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_N,1),(_O,2)))
-_CoIfXcvrForwardLaserControl_Type.__name__=_D
-_CoIfXcvrForwardLaserControl_Object=MibTableColumn
-coIfXcvrForwardLaserControl=_CoIfXcvrForwardLaserControl_Object((1,3,6,1,4,1,9,10,66,1,4,1,1,6),_CoIfXcvrForwardLaserControl_Type())
-coIfXcvrForwardLaserControl.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfXcvrForwardLaserControl.setStatus(_A)
-class _CoIfXcvrLaserSafetyControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_N,1),(_O,2)))
-_CoIfXcvrLaserSafetyControl_Type.__name__=_D
-_CoIfXcvrLaserSafetyControl_Object=MibTableColumn
-coIfXcvrLaserSafetyControl=_CoIfXcvrLaserSafetyControl_Object((1,3,6,1,4,1,9,10,66,1,4,1,1,7),_CoIfXcvrLaserSafetyControl_Type())
-coIfXcvrLaserSafetyControl.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfXcvrLaserSafetyControl.setStatus(_A)
-class _CoIfXcvrLSCProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('proprietary',1),('g664',2)))
-_CoIfXcvrLSCProtocol_Type.__name__=_D
-_CoIfXcvrLSCProtocol_Object=MibTableColumn
-coIfXcvrLSCProtocol=_CoIfXcvrLSCProtocol_Object((1,3,6,1,4,1,9,10,66,1,4,1,1,8),_CoIfXcvrLSCProtocol_Type())
-coIfXcvrLSCProtocol.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfXcvrLSCProtocol.setStatus(_A)
-class _CoIfXcvrLSCRestartMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('automaticRestart',1),('manualRestart',2)))
-_CoIfXcvrLSCRestartMode_Type.__name__=_D
-_CoIfXcvrLSCRestartMode_Object=MibTableColumn
-coIfXcvrLSCRestartMode=_CoIfXcvrLSCRestartMode_Object((1,3,6,1,4,1,9,10,66,1,4,1,1,9),_CoIfXcvrLSCRestartMode_Type())
-coIfXcvrLSCRestartMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfXcvrLSCRestartMode.setStatus(_A)
-class _CoIfXcvrLSCManualRestart_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('noop',1),('restart',2),('restartForTest',3)))
-_CoIfXcvrLSCManualRestart_Type.__name__=_D
-_CoIfXcvrLSCManualRestart_Object=MibTableColumn
-coIfXcvrLSCManualRestart=_CoIfXcvrLSCManualRestart_Object((1,3,6,1,4,1,9,10,66,1,4,1,1,10),_CoIfXcvrLSCManualRestart_Type())
-coIfXcvrLSCManualRestart.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfXcvrLSCManualRestart.setStatus(_A)
-class _CoIfXcvrLSCPulseLength_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,20000))
-_CoIfXcvrLSCPulseLength_Type.__name__=_E
-_CoIfXcvrLSCPulseLength_Object=MibTableColumn
-coIfXcvrLSCPulseLength=_CoIfXcvrLSCPulseLength_Object((1,3,6,1,4,1,9,10,66,1,4,1,1,11),_CoIfXcvrLSCPulseLength_Type())
-coIfXcvrLSCPulseLength.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfXcvrLSCPulseLength.setStatus(_A)
-if mibBuilder.loadTexts:coIfXcvrLSCPulseLength.setUnits('milliseconds')
-class _CoIfXcvrLSCTestPulseLength_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,300))
-_CoIfXcvrLSCTestPulseLength_Type.__name__=_E
-_CoIfXcvrLSCTestPulseLength_Object=MibTableColumn
-coIfXcvrLSCTestPulseLength=_CoIfXcvrLSCTestPulseLength_Object((1,3,6,1,4,1,9,10,66,1,4,1,1,12),_CoIfXcvrLSCTestPulseLength_Type())
-coIfXcvrLSCTestPulseLength.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfXcvrLSCTestPulseLength.setStatus(_A)
-if mibBuilder.loadTexts:coIfXcvrLSCTestPulseLength.setUnits(_P)
-class _CoIfXcvrLSCPulseRepetitionTime_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,300))
-_CoIfXcvrLSCPulseRepetitionTime_Type.__name__=_E
-_CoIfXcvrLSCPulseRepetitionTime_Object=MibTableColumn
-coIfXcvrLSCPulseRepetitionTime=_CoIfXcvrLSCPulseRepetitionTime_Object((1,3,6,1,4,1,9,10,66,1,4,1,1,13),_CoIfXcvrLSCPulseRepetitionTime_Type())
-coIfXcvrLSCPulseRepetitionTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:coIfXcvrLSCPulseRepetitionTime.setStatus(_A)
-if mibBuilder.loadTexts:coIfXcvrLSCPulseRepetitionTime.setUnits(_P)
-_CoIfExtnMIBConformance_ObjectIdentity=ObjectIdentity
-coIfExtnMIBConformance=_CoIfExtnMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,10,66,3))
-_CoIfExtnMIBCompliances_ObjectIdentity=ObjectIdentity
-coIfExtnMIBCompliances=_CoIfExtnMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,10,66,3,1))
-_CoIfExtnMIBGroups_ObjectIdentity=ObjectIdentity
-coIfExtnMIBGroups=_CoIfExtnMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,10,66,3,2))
-coIfTypeExtnMIBGroup=ObjectGroup((1,3,6,1,4,1,9,10,66,3,2,1))
-coIfTypeExtnMIBGroup.setObjects((_B,_Q))
-if mibBuilder.loadTexts:coIfTypeExtnMIBGroup.setStatus(_A)
-coIfWavelengthMIBGroup=ObjectGroup((1,3,6,1,4,1,9,10,66,3,2,2))
-coIfWavelengthMIBGroup.setObjects((_B,_R))
-if mibBuilder.loadTexts:coIfWavelengthMIBGroup.setStatus(_A)
-coIfDwdmChannelGroupMIBGroup=ObjectGroup((1,3,6,1,4,1,9,10,66,3,2,3))
-coIfDwdmChannelGroupMIBGroup.setObjects(*((_B,_S),(_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:coIfDwdmChannelGroupMIBGroup.setStatus(_A)
-coIfXcvrBaseMIBGroup=ObjectGroup((1,3,6,1,4,1,9,10,66,3,2,4))
-coIfXcvrBaseMIBGroup.setObjects(*((_B,_W),(_B,_X),(_B,_Y)))
-if mibBuilder.loadTexts:coIfXcvrBaseMIBGroup.setStatus(_A)
-coIfXcvrTunableLaserMIBGroup=ObjectGroup((1,3,6,1,4,1,9,10,66,3,2,5))
-coIfXcvrTunableLaserMIBGroup.setObjects(*((_B,_Z),(_B,_a),(_B,_b)))
-if mibBuilder.loadTexts:coIfXcvrTunableLaserMIBGroup.setStatus(_A)
-coIfXcvrLSCMIBGroup=ObjectGroup((1,3,6,1,4,1,9,10,66,3,2,6))
-coIfXcvrLSCMIBGroup.setObjects(*((_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i)))
-if mibBuilder.loadTexts:coIfXcvrLSCMIBGroup.setStatus(_A)
-coIfExtnMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,10,66,3,1,1))
-coIfExtnMIBCompliance.setObjects(*((_B,_K),(_B,_L),(_B,_M)))
-if mibBuilder.loadTexts:coIfExtnMIBCompliance.setStatus('deprecated')
-coIfExtnMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,9,10,66,3,1,2))
-coIfExtnMIBCompliance2.setObjects(*((_B,_K),(_B,_L),(_B,_M),(_B,_j),(_B,_k),(_B,_l)))
-if mibBuilder.loadTexts:coIfExtnMIBCompliance2.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CoDwdmFrequency':CoDwdmFrequency,'CoDwdmFrequencyOrZero':CoDwdmFrequencyOrZero,'ciscoOpticalIfExtnMIB':ciscoOpticalIfExtnMIB,'coIfExtnMIBObjects':coIfExtnMIBObjects,'coIfTypeExtnGroup':coIfTypeExtnGroup,'coIfTypeExtnTable':coIfTypeExtnTable,'coIfTypeExtnEntry':coIfTypeExtnEntry,_Q:coIfTypeExtn,'coIfWavelengthGroup':coIfWavelengthGroup,'coIfWavelengthTable':coIfWavelengthTable,'coIfWavelengthEntry':coIfWavelengthEntry,_R:coIfDwdmFrequency,'coIfDwdmChannelGroup':coIfDwdmChannelGroup,'coIfDwdmChannelGroupTable':coIfDwdmChannelGroupTable,'coIfDwdmChannelGroupEntry':coIfDwdmChannelGroupEntry,_S:coIfDwdmChannelGroupMinFrequency,_T:coIfDwdmChannelGroupSpacing,_U:coIfDwdmChannelGroupBitmapLogic,_V:coIfDwdmChannelGroupBitmap,'coIfXcvrGroup':coIfXcvrGroup,'coIfXcvrTable':coIfXcvrTable,'coIfXcvrEntry':coIfXcvrEntry,_W:coIfXcvrLaserAdminStatus,_X:coIfXcvrLaserOperStatus,_Z:coIfXcvrMinLaserFrequency,_a:coIfXcvrLaserFrequencySpacing,_b:coIfXcvrLaserFrequencyBitmap,_Y:coIfXcvrForwardLaserControl,_c:coIfXcvrLaserSafetyControl,_d:coIfXcvrLSCProtocol,_e:coIfXcvrLSCRestartMode,_f:coIfXcvrLSCManualRestart,_g:coIfXcvrLSCPulseLength,_h:coIfXcvrLSCTestPulseLength,_i:coIfXcvrLSCPulseRepetitionTime,'coIfExtnMIBConformance':coIfExtnMIBConformance,'coIfExtnMIBCompliances':coIfExtnMIBCompliances,'coIfExtnMIBCompliance':coIfExtnMIBCompliance,'coIfExtnMIBCompliance2':coIfExtnMIBCompliance2,'coIfExtnMIBGroups':coIfExtnMIBGroups,_L:coIfTypeExtnMIBGroup,_K:coIfWavelengthMIBGroup,_M:coIfDwdmChannelGroupMIBGroup,_j:coIfXcvrBaseMIBGroup,_k:coIfXcvrTunableLaserMIBGroup,_l:coIfXcvrLSCMIBGroup})
+#
+# PySNMP MIB module CISCO-OPTICAL-IF-EXTN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-OPTICAL-IF-EXTN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoOpticalIfExtnMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 66))
+ciscoOpticalIfExtnMIB.setRevisions(('2004-11-19 00:00', '2003-12-29 00:00', '2002-05-23 00:00', '2001-04-20 00:00',))
+if mibBuilder.loadTexts: ciscoOpticalIfExtnMIB.setLastUpdated('200411190000Z')
+if mibBuilder.loadTexts: ciscoOpticalIfExtnMIB.setOrganization('Cisco Systems, Inc.')
+coIfExtnMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 66, 1))
+coIfTypeExtnGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 1))
+coIfWavelengthGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 2))
+coIfDwdmChannelGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 3))
+coIfXcvrGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4))
+class CoDwdmFrequency(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 1000000)
+
+class CoDwdmFrequencyOrZero(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 1000000)
+
+coIfTypeExtnTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 1, 1), )
+if mibBuilder.loadTexts: coIfTypeExtnTable.setStatus('current')
+coIfTypeExtnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: coIfTypeExtnEntry.setStatus('current')
+coIfTypeExtn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("opticalTransponder", 1), ("wdmTransport", 2), ("wdmChannel", 3), ("wdmChannelGroup", 4), ("wavelengthTransport", 5), ("ethernetPhy", 6), ("esconPhy", 7), ("gigabitPhy", 8), ("twoGigabitPhy", 9), ("sonetPhy", 10), ("multiRate", 11)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coIfTypeExtn.setStatus('current')
+coIfWavelengthTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 2, 1), )
+if mibBuilder.loadTexts: coIfWavelengthTable.setStatus('current')
+coIfWavelengthEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: coIfWavelengthEntry.setStatus('current')
+coIfDwdmFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 2, 1, 1, 1), CoDwdmFrequency()).setUnits('GHz').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfDwdmFrequency.setStatus('current')
+coIfDwdmChannelGroupTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 3, 3), )
+if mibBuilder.loadTexts: coIfDwdmChannelGroupTable.setStatus('current')
+coIfDwdmChannelGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 3, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: coIfDwdmChannelGroupEntry.setStatus('current')
+coIfDwdmChannelGroupMinFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 3, 3, 1, 1), CoDwdmFrequency()).setUnits('GHz').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfDwdmChannelGroupMinFrequency.setStatus('current')
+coIfDwdmChannelGroupSpacing = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 3, 3, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000))).setUnits('GHz').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfDwdmChannelGroupSpacing.setStatus('current')
+coIfDwdmChannelGroupBitmapLogic = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 3, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("carried", 1), ("blocked", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfDwdmChannelGroupBitmapLogic.setStatus('current')
+coIfDwdmChannelGroupBitmap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 3, 3, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfDwdmChannelGroupBitmap.setStatus('current')
+coIfXcvrTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4, 1), )
+if mibBuilder.loadTexts: coIfXcvrTable.setStatus('current')
+coIfXcvrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: coIfXcvrEntry.setStatus('current')
+coIfXcvrLaserAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfXcvrLaserAdminStatus.setStatus('current')
+coIfXcvrLaserOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("transmitting", 1), ("degraded", 2), ("down", 3), ("lscDown", 4), ("flcDown", 5), ("unknown", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coIfXcvrLaserOperStatus.setStatus('current')
+coIfXcvrMinLaserFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4, 1, 1, 3), CoDwdmFrequencyOrZero()).setUnits('GHz').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfXcvrMinLaserFrequency.setStatus('current')
+coIfXcvrLaserFrequencySpacing = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000))).setUnits('GHz').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfXcvrLaserFrequencySpacing.setStatus('current')
+coIfXcvrLaserFrequencyBitmap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coIfXcvrLaserFrequencyBitmap.setStatus('current')
+coIfXcvrForwardLaserControl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfXcvrForwardLaserControl.setStatus('current')
+coIfXcvrLaserSafetyControl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfXcvrLaserSafetyControl.setStatus('current')
+coIfXcvrLSCProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("proprietary", 1), ("g664", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfXcvrLSCProtocol.setStatus('current')
+coIfXcvrLSCRestartMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("automaticRestart", 1), ("manualRestart", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfXcvrLSCRestartMode.setStatus('current')
+coIfXcvrLSCManualRestart = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noop", 1), ("restart", 2), ("restartForTest", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfXcvrLSCManualRestart.setStatus('current')
+coIfXcvrLSCPulseLength = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4, 1, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(100, 20000))).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfXcvrLSCPulseLength.setStatus('current')
+coIfXcvrLSCTestPulseLength = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4, 1, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 300))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfXcvrLSCTestPulseLength.setStatus('current')
+coIfXcvrLSCPulseRepetitionTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 66, 1, 4, 1, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 300))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coIfXcvrLSCPulseRepetitionTime.setStatus('current')
+coIfExtnMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 66, 3))
+coIfExtnMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 66, 3, 1))
+coIfExtnMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 66, 3, 2))
+coIfExtnMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 66, 3, 1, 1)).setObjects(("CISCO-OPTICAL-IF-EXTN-MIB", "coIfWavelengthMIBGroup"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfTypeExtnMIBGroup"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfDwdmChannelGroupMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    coIfExtnMIBCompliance = coIfExtnMIBCompliance.setStatus('deprecated')
+coIfExtnMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 66, 3, 1, 2)).setObjects(("CISCO-OPTICAL-IF-EXTN-MIB", "coIfWavelengthMIBGroup"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfTypeExtnMIBGroup"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfDwdmChannelGroupMIBGroup"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrBaseMIBGroup"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrTunableLaserMIBGroup"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrLSCMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    coIfExtnMIBCompliance2 = coIfExtnMIBCompliance2.setStatus('current')
+coIfTypeExtnMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 66, 3, 2, 1)).setObjects(("CISCO-OPTICAL-IF-EXTN-MIB", "coIfTypeExtn"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    coIfTypeExtnMIBGroup = coIfTypeExtnMIBGroup.setStatus('current')
+coIfWavelengthMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 66, 3, 2, 2)).setObjects(("CISCO-OPTICAL-IF-EXTN-MIB", "coIfDwdmFrequency"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    coIfWavelengthMIBGroup = coIfWavelengthMIBGroup.setStatus('current')
+coIfDwdmChannelGroupMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 66, 3, 2, 3)).setObjects(("CISCO-OPTICAL-IF-EXTN-MIB", "coIfDwdmChannelGroupMinFrequency"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfDwdmChannelGroupSpacing"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfDwdmChannelGroupBitmapLogic"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfDwdmChannelGroupBitmap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    coIfDwdmChannelGroupMIBGroup = coIfDwdmChannelGroupMIBGroup.setStatus('current')
+coIfXcvrBaseMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 66, 3, 2, 4)).setObjects(("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrLaserAdminStatus"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrLaserOperStatus"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrForwardLaserControl"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    coIfXcvrBaseMIBGroup = coIfXcvrBaseMIBGroup.setStatus('current')
+coIfXcvrTunableLaserMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 66, 3, 2, 5)).setObjects(("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrMinLaserFrequency"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrLaserFrequencySpacing"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrLaserFrequencyBitmap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    coIfXcvrTunableLaserMIBGroup = coIfXcvrTunableLaserMIBGroup.setStatus('current')
+coIfXcvrLSCMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 66, 3, 2, 6)).setObjects(("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrLaserSafetyControl"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrLSCProtocol"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrLSCRestartMode"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrLSCManualRestart"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrLSCPulseLength"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrLSCTestPulseLength"), ("CISCO-OPTICAL-IF-EXTN-MIB", "coIfXcvrLSCPulseRepetitionTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    coIfXcvrLSCMIBGroup = coIfXcvrLSCMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-OPTICAL-IF-EXTN-MIB", coIfXcvrTunableLaserMIBGroup=coIfXcvrTunableLaserMIBGroup, coIfXcvrLSCPulseRepetitionTime=coIfXcvrLSCPulseRepetitionTime, coIfTypeExtnGroup=coIfTypeExtnGroup, coIfXcvrLSCProtocol=coIfXcvrLSCProtocol, coIfTypeExtnMIBGroup=coIfTypeExtnMIBGroup, coIfXcvrLSCMIBGroup=coIfXcvrLSCMIBGroup, coIfWavelengthEntry=coIfWavelengthEntry, coIfXcvrLSCManualRestart=coIfXcvrLSCManualRestart, coIfExtnMIBObjects=coIfExtnMIBObjects, coIfExtnMIBConformance=coIfExtnMIBConformance, coIfXcvrEntry=coIfXcvrEntry, coIfTypeExtnTable=coIfTypeExtnTable, coIfXcvrForwardLaserControl=coIfXcvrForwardLaserControl, coIfXcvrLaserOperStatus=coIfXcvrLaserOperStatus, coIfXcvrLaserFrequencySpacing=coIfXcvrLaserFrequencySpacing, PYSNMP_MODULE_ID=ciscoOpticalIfExtnMIB, coIfXcvrLaserAdminStatus=coIfXcvrLaserAdminStatus, coIfTypeExtn=coIfTypeExtn, ciscoOpticalIfExtnMIB=ciscoOpticalIfExtnMIB, coIfDwdmChannelGroupTable=coIfDwdmChannelGroupTable, coIfDwdmChannelGroupMinFrequency=coIfDwdmChannelGroupMinFrequency, coIfDwdmChannelGroupSpacing=coIfDwdmChannelGroupSpacing, coIfXcvrLSCTestPulseLength=coIfXcvrLSCTestPulseLength, coIfDwdmChannelGroupBitmapLogic=coIfDwdmChannelGroupBitmapLogic, coIfXcvrMinLaserFrequency=coIfXcvrMinLaserFrequency, coIfTypeExtnEntry=coIfTypeExtnEntry, coIfDwdmFrequency=coIfDwdmFrequency, coIfExtnMIBCompliance2=coIfExtnMIBCompliance2, coIfWavelengthTable=coIfWavelengthTable, coIfXcvrBaseMIBGroup=coIfXcvrBaseMIBGroup, coIfXcvrLSCPulseLength=coIfXcvrLSCPulseLength, coIfXcvrGroup=coIfXcvrGroup, coIfDwdmChannelGroup=coIfDwdmChannelGroup, coIfExtnMIBGroups=coIfExtnMIBGroups, coIfDwdmChannelGroupMIBGroup=coIfDwdmChannelGroupMIBGroup, coIfXcvrLaserFrequencyBitmap=coIfXcvrLaserFrequencyBitmap, coIfExtnMIBCompliances=coIfExtnMIBCompliances, coIfWavelengthGroup=coIfWavelengthGroup, coIfXcvrTable=coIfXcvrTable, coIfWavelengthMIBGroup=coIfWavelengthMIBGroup, CoDwdmFrequencyOrZero=CoDwdmFrequencyOrZero, coIfExtnMIBCompliance=coIfExtnMIBCompliance, coIfXcvrLaserSafetyControl=coIfXcvrLaserSafetyControl, CoDwdmFrequency=CoDwdmFrequency, coIfXcvrLSCRestartMode=coIfXcvrLSCRestartMode, coIfDwdmChannelGroupEntry=coIfDwdmChannelGroupEntry, coIfDwdmChannelGroupBitmap=coIfDwdmChannelGroupBitmap)

@@ -1,279 +1,127 @@
-_q='alaCoroL3HreChangeObjects'
-_p='alaCoroL3HrePerCoronadoObjects'
-_o='alaCoroL3HrePerModeObjects'
-_n='alaCoroL3HreChangeClear'
-_m='alaCoroL3HreChangeHashFunction'
-_l='alaCoroL3HreChangeHashTableSize'
-_k='alaCoroL3HreUpdateChanges'
-_j='alaCoroL3HreIpxBytesDiscarded'
-_i='alaCoroL3HreIpxPacketsDiscarded'
-_h='alaCoroL3HreIpxBytesForwarded'
-_g='alaCoroL3HreIpxPacketsForwarded'
-_f='alaCoroL3HreIpxBytesReceived'
-_e='alaCoroL3HreIpxPacketsReceived'
-_d='alaCoroL3HreIpPacketsFailedToFrag'
-_c='alaCoroL3HreIpPacketsFragsGenerated'
-_b='alaCoroL3HreIpPacketsFragmented'
-_a='alaCoroL3HreIpBytesDiscarded'
-_Z='alaCoroL3HreIpPacketsDiscarded'
-_Y='alaCoroL3HreIpBytesForwarded'
-_X='alaCoroL3HreIpPacketsForwarded'
-_W='alaCoroL3HreIpBytesReceived'
-_V='alaCoroL3HreIpPacketsReceived'
-_U='alaCoroL3HreRouteCacheEntriesInUse'
-_T='alaCoroL3HreRouteCacheEntriesTotal'
-_S='alaCoroL3HreAvgCollChainLen'
-_R='alaCoroL3HreMaxCollChainLen'
-_Q='alaCoroL3HreModeCurrentHashFunction'
-_P='alaCoroL3HreModeCollEntriesInUse'
-_O='alaCoroL3HreModeHashEntriesInUse'
-_N='alaCoroL3HreModeHashTableSize'
-_M='alaCoroL3HreChangeModeNumber'
-_L='alaCoroL3HreChangeSliceNumber'
-_K='alaCoroL3HreChangeSlotNumber'
-_J='alaCoroL3HreSliceNumber'
-_I='alaCoroL3HreSlotNumber'
-_H='alaCoroL3HrePerModeModeNumber'
-_G='alaCoroL3HrePerModeSliceNumber'
-_F='alaCoroL3HrePerModeSlotNumber'
-_E='read-write'
-_D='Integer32'
-_C='read-only'
-_B='ALCATEL-IND1-PCAM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hardentIND1Pcam,=mibBuilder.importSymbols('ALCATEL-IND1-BASE','hardentIND1Pcam')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-alcatelIND1PCAMMIB=ModuleIdentity((1,3,6,1,4,1,6486,800,1,1,1,4,1))
-if mibBuilder.loadTexts:alcatelIND1PCAMMIB.setRevisions(('2007-04-03 00:00',))
-class CoroL3HashFunction(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(10,10));fixedLength=10
-_AlcatelIND1PCAMMIBObjects_ObjectIdentity=ObjectIdentity
-alcatelIND1PCAMMIBObjects=_AlcatelIND1PCAMMIBObjects_ObjectIdentity((1,3,6,1,4,1,6486,800,1,1,1,4,1,1))
-if mibBuilder.loadTexts:alcatelIND1PCAMMIBObjects.setStatus(_A)
-_AlaCoroL3HrePerModeTable_Object=MibTable
-alaCoroL3HrePerModeTable=_AlaCoroL3HrePerModeTable_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,1))
-if mibBuilder.loadTexts:alaCoroL3HrePerModeTable.setStatus(_A)
-_AlaCoroL3HrePerModeTableEntry_Object=MibTableRow
-alaCoroL3HrePerModeTableEntry=_AlaCoroL3HrePerModeTableEntry_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,1,1))
-alaCoroL3HrePerModeTableEntry.setIndexNames((0,_B,_F),(0,_B,_G),(0,_B,_H))
-if mibBuilder.loadTexts:alaCoroL3HrePerModeTableEntry.setStatus(_A)
-_AlaCoroL3HrePerModeSlotNumber_Type=Unsigned32
-_AlaCoroL3HrePerModeSlotNumber_Object=MibTableColumn
-alaCoroL3HrePerModeSlotNumber=_AlaCoroL3HrePerModeSlotNumber_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,1,1,1),_AlaCoroL3HrePerModeSlotNumber_Type())
-alaCoroL3HrePerModeSlotNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HrePerModeSlotNumber.setStatus(_A)
-_AlaCoroL3HrePerModeSliceNumber_Type=Unsigned32
-_AlaCoroL3HrePerModeSliceNumber_Object=MibTableColumn
-alaCoroL3HrePerModeSliceNumber=_AlaCoroL3HrePerModeSliceNumber_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,1,1,2),_AlaCoroL3HrePerModeSliceNumber_Type())
-alaCoroL3HrePerModeSliceNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HrePerModeSliceNumber.setStatus(_A)
-class _AlaCoroL3HrePerModeModeNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3))
-_AlaCoroL3HrePerModeModeNumber_Type.__name__=_D
-_AlaCoroL3HrePerModeModeNumber_Object=MibTableColumn
-alaCoroL3HrePerModeModeNumber=_AlaCoroL3HrePerModeModeNumber_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,1,1,3),_AlaCoroL3HrePerModeModeNumber_Type())
-alaCoroL3HrePerModeModeNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HrePerModeModeNumber.setStatus(_A)
-_AlaCoroL3HreModeHashTableSize_Type=Unsigned32
-_AlaCoroL3HreModeHashTableSize_Object=MibTableColumn
-alaCoroL3HreModeHashTableSize=_AlaCoroL3HreModeHashTableSize_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,1,1,4),_AlaCoroL3HreModeHashTableSize_Type())
-alaCoroL3HreModeHashTableSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreModeHashTableSize.setStatus(_A)
-_AlaCoroL3HreModeHashEntriesInUse_Type=Unsigned32
-_AlaCoroL3HreModeHashEntriesInUse_Object=MibTableColumn
-alaCoroL3HreModeHashEntriesInUse=_AlaCoroL3HreModeHashEntriesInUse_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,1,1,5),_AlaCoroL3HreModeHashEntriesInUse_Type())
-alaCoroL3HreModeHashEntriesInUse.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreModeHashEntriesInUse.setStatus(_A)
-_AlaCoroL3HreModeCollEntriesInUse_Type=Unsigned32
-_AlaCoroL3HreModeCollEntriesInUse_Object=MibTableColumn
-alaCoroL3HreModeCollEntriesInUse=_AlaCoroL3HreModeCollEntriesInUse_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,1,1,6),_AlaCoroL3HreModeCollEntriesInUse_Type())
-alaCoroL3HreModeCollEntriesInUse.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreModeCollEntriesInUse.setStatus(_A)
-_AlaCoroL3HreModeCurrentHashFunction_Type=CoroL3HashFunction
-_AlaCoroL3HreModeCurrentHashFunction_Object=MibTableColumn
-alaCoroL3HreModeCurrentHashFunction=_AlaCoroL3HreModeCurrentHashFunction_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,1,1,7),_AlaCoroL3HreModeCurrentHashFunction_Type())
-alaCoroL3HreModeCurrentHashFunction.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreModeCurrentHashFunction.setStatus(_A)
-_AlaCoroL3HreMaxCollChainLen_Type=Unsigned32
-_AlaCoroL3HreMaxCollChainLen_Object=MibTableColumn
-alaCoroL3HreMaxCollChainLen=_AlaCoroL3HreMaxCollChainLen_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,1,1,8),_AlaCoroL3HreMaxCollChainLen_Type())
-alaCoroL3HreMaxCollChainLen.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreMaxCollChainLen.setStatus(_A)
-_AlaCoroL3HreAvgCollChainLen_Type=Unsigned32
-_AlaCoroL3HreAvgCollChainLen_Object=MibTableColumn
-alaCoroL3HreAvgCollChainLen=_AlaCoroL3HreAvgCollChainLen_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,1,1,9),_AlaCoroL3HreAvgCollChainLen_Type())
-alaCoroL3HreAvgCollChainLen.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreAvgCollChainLen.setStatus(_A)
-_AlaCoroL3HrePerCoronadoStatsTable_Object=MibTable
-alaCoroL3HrePerCoronadoStatsTable=_AlaCoroL3HrePerCoronadoStatsTable_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2))
-if mibBuilder.loadTexts:alaCoroL3HrePerCoronadoStatsTable.setStatus(_A)
-_AlaCoroL3HrePerCoronadoStatsTableEntry_Object=MibTableRow
-alaCoroL3HrePerCoronadoStatsTableEntry=_AlaCoroL3HrePerCoronadoStatsTableEntry_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1))
-alaCoroL3HrePerCoronadoStatsTableEntry.setIndexNames((0,_B,_I),(0,_B,_J))
-if mibBuilder.loadTexts:alaCoroL3HrePerCoronadoStatsTableEntry.setStatus(_A)
-_AlaCoroL3HreSlotNumber_Type=Unsigned32
-_AlaCoroL3HreSlotNumber_Object=MibTableColumn
-alaCoroL3HreSlotNumber=_AlaCoroL3HreSlotNumber_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,1),_AlaCoroL3HreSlotNumber_Type())
-alaCoroL3HreSlotNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreSlotNumber.setStatus(_A)
-_AlaCoroL3HreSliceNumber_Type=Unsigned32
-_AlaCoroL3HreSliceNumber_Object=MibTableColumn
-alaCoroL3HreSliceNumber=_AlaCoroL3HreSliceNumber_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,2),_AlaCoroL3HreSliceNumber_Type())
-alaCoroL3HreSliceNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreSliceNumber.setStatus(_A)
-_AlaCoroL3HreRouteCacheEntriesTotal_Type=Unsigned32
-_AlaCoroL3HreRouteCacheEntriesTotal_Object=MibTableColumn
-alaCoroL3HreRouteCacheEntriesTotal=_AlaCoroL3HreRouteCacheEntriesTotal_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,3),_AlaCoroL3HreRouteCacheEntriesTotal_Type())
-alaCoroL3HreRouteCacheEntriesTotal.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreRouteCacheEntriesTotal.setStatus(_A)
-_AlaCoroL3HreRouteCacheEntriesInUse_Type=Unsigned32
-_AlaCoroL3HreRouteCacheEntriesInUse_Object=MibTableColumn
-alaCoroL3HreRouteCacheEntriesInUse=_AlaCoroL3HreRouteCacheEntriesInUse_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,4),_AlaCoroL3HreRouteCacheEntriesInUse_Type())
-alaCoroL3HreRouteCacheEntriesInUse.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreRouteCacheEntriesInUse.setStatus(_A)
-_AlaCoroL3HreIpPacketsReceived_Type=Counter64
-_AlaCoroL3HreIpPacketsReceived_Object=MibTableColumn
-alaCoroL3HreIpPacketsReceived=_AlaCoroL3HreIpPacketsReceived_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,5),_AlaCoroL3HreIpPacketsReceived_Type())
-alaCoroL3HreIpPacketsReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreIpPacketsReceived.setStatus(_A)
-_AlaCoroL3HreIpBytesReceived_Type=Counter64
-_AlaCoroL3HreIpBytesReceived_Object=MibTableColumn
-alaCoroL3HreIpBytesReceived=_AlaCoroL3HreIpBytesReceived_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,6),_AlaCoroL3HreIpBytesReceived_Type())
-alaCoroL3HreIpBytesReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreIpBytesReceived.setStatus(_A)
-_AlaCoroL3HreIpPacketsForwarded_Type=Counter64
-_AlaCoroL3HreIpPacketsForwarded_Object=MibTableColumn
-alaCoroL3HreIpPacketsForwarded=_AlaCoroL3HreIpPacketsForwarded_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,7),_AlaCoroL3HreIpPacketsForwarded_Type())
-alaCoroL3HreIpPacketsForwarded.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreIpPacketsForwarded.setStatus(_A)
-_AlaCoroL3HreIpBytesForwarded_Type=Counter64
-_AlaCoroL3HreIpBytesForwarded_Object=MibTableColumn
-alaCoroL3HreIpBytesForwarded=_AlaCoroL3HreIpBytesForwarded_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,8),_AlaCoroL3HreIpBytesForwarded_Type())
-alaCoroL3HreIpBytesForwarded.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreIpBytesForwarded.setStatus(_A)
-_AlaCoroL3HreIpPacketsDiscarded_Type=Counter64
-_AlaCoroL3HreIpPacketsDiscarded_Object=MibTableColumn
-alaCoroL3HreIpPacketsDiscarded=_AlaCoroL3HreIpPacketsDiscarded_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,9),_AlaCoroL3HreIpPacketsDiscarded_Type())
-alaCoroL3HreIpPacketsDiscarded.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreIpPacketsDiscarded.setStatus(_A)
-_AlaCoroL3HreIpBytesDiscarded_Type=Counter64
-_AlaCoroL3HreIpBytesDiscarded_Object=MibTableColumn
-alaCoroL3HreIpBytesDiscarded=_AlaCoroL3HreIpBytesDiscarded_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,10),_AlaCoroL3HreIpBytesDiscarded_Type())
-alaCoroL3HreIpBytesDiscarded.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreIpBytesDiscarded.setStatus(_A)
-_AlaCoroL3HreIpPacketsFragmented_Type=Counter64
-_AlaCoroL3HreIpPacketsFragmented_Object=MibTableColumn
-alaCoroL3HreIpPacketsFragmented=_AlaCoroL3HreIpPacketsFragmented_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,11),_AlaCoroL3HreIpPacketsFragmented_Type())
-alaCoroL3HreIpPacketsFragmented.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreIpPacketsFragmented.setStatus(_A)
-_AlaCoroL3HreIpPacketsFragsGenerated_Type=Counter64
-_AlaCoroL3HreIpPacketsFragsGenerated_Object=MibTableColumn
-alaCoroL3HreIpPacketsFragsGenerated=_AlaCoroL3HreIpPacketsFragsGenerated_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,12),_AlaCoroL3HreIpPacketsFragsGenerated_Type())
-alaCoroL3HreIpPacketsFragsGenerated.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreIpPacketsFragsGenerated.setStatus(_A)
-_AlaCoroL3HreIpPacketsFailedToFrag_Type=Counter64
-_AlaCoroL3HreIpPacketsFailedToFrag_Object=MibTableColumn
-alaCoroL3HreIpPacketsFailedToFrag=_AlaCoroL3HreIpPacketsFailedToFrag_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,13),_AlaCoroL3HreIpPacketsFailedToFrag_Type())
-alaCoroL3HreIpPacketsFailedToFrag.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreIpPacketsFailedToFrag.setStatus(_A)
-_AlaCoroL3HreIpxPacketsReceived_Type=Counter64
-_AlaCoroL3HreIpxPacketsReceived_Object=MibTableColumn
-alaCoroL3HreIpxPacketsReceived=_AlaCoroL3HreIpxPacketsReceived_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,14),_AlaCoroL3HreIpxPacketsReceived_Type())
-alaCoroL3HreIpxPacketsReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreIpxPacketsReceived.setStatus(_A)
-_AlaCoroL3HreIpxBytesReceived_Type=Counter64
-_AlaCoroL3HreIpxBytesReceived_Object=MibTableColumn
-alaCoroL3HreIpxBytesReceived=_AlaCoroL3HreIpxBytesReceived_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,15),_AlaCoroL3HreIpxBytesReceived_Type())
-alaCoroL3HreIpxBytesReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreIpxBytesReceived.setStatus(_A)
-_AlaCoroL3HreIpxPacketsForwarded_Type=Counter64
-_AlaCoroL3HreIpxPacketsForwarded_Object=MibTableColumn
-alaCoroL3HreIpxPacketsForwarded=_AlaCoroL3HreIpxPacketsForwarded_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,16),_AlaCoroL3HreIpxPacketsForwarded_Type())
-alaCoroL3HreIpxPacketsForwarded.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreIpxPacketsForwarded.setStatus(_A)
-_AlaCoroL3HreIpxBytesForwarded_Type=Counter64
-_AlaCoroL3HreIpxBytesForwarded_Object=MibTableColumn
-alaCoroL3HreIpxBytesForwarded=_AlaCoroL3HreIpxBytesForwarded_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,17),_AlaCoroL3HreIpxBytesForwarded_Type())
-alaCoroL3HreIpxBytesForwarded.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreIpxBytesForwarded.setStatus(_A)
-_AlaCoroL3HreIpxPacketsDiscarded_Type=Counter64
-_AlaCoroL3HreIpxPacketsDiscarded_Object=MibTableColumn
-alaCoroL3HreIpxPacketsDiscarded=_AlaCoroL3HreIpxPacketsDiscarded_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,18),_AlaCoroL3HreIpxPacketsDiscarded_Type())
-alaCoroL3HreIpxPacketsDiscarded.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreIpxPacketsDiscarded.setStatus(_A)
-_AlaCoroL3HreIpxBytesDiscarded_Type=Counter64
-_AlaCoroL3HreIpxBytesDiscarded_Object=MibTableColumn
-alaCoroL3HreIpxBytesDiscarded=_AlaCoroL3HreIpxBytesDiscarded_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,2,1,19),_AlaCoroL3HreIpxBytesDiscarded_Type())
-alaCoroL3HreIpxBytesDiscarded.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreIpxBytesDiscarded.setStatus(_A)
-class _AlaCoroL3HreUpdateChanges_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('apply',0),('clear',1)))
-_AlaCoroL3HreUpdateChanges_Type.__name__=_D
-_AlaCoroL3HreUpdateChanges_Object=MibScalar
-alaCoroL3HreUpdateChanges=_AlaCoroL3HreUpdateChanges_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,3),_AlaCoroL3HreUpdateChanges_Type())
-alaCoroL3HreUpdateChanges.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaCoroL3HreUpdateChanges.setStatus(_A)
-_AlaCoroL3HreChangeTable_Object=MibTable
-alaCoroL3HreChangeTable=_AlaCoroL3HreChangeTable_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,4))
-if mibBuilder.loadTexts:alaCoroL3HreChangeTable.setStatus(_A)
-_AlaCoroL3HreChangeTableEntry_Object=MibTableRow
-alaCoroL3HreChangeTableEntry=_AlaCoroL3HreChangeTableEntry_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,4,1))
-alaCoroL3HreChangeTableEntry.setIndexNames((0,_B,_K),(0,_B,_L),(0,_B,_M))
-if mibBuilder.loadTexts:alaCoroL3HreChangeTableEntry.setStatus(_A)
-_AlaCoroL3HreChangeSlotNumber_Type=Unsigned32
-_AlaCoroL3HreChangeSlotNumber_Object=MibTableColumn
-alaCoroL3HreChangeSlotNumber=_AlaCoroL3HreChangeSlotNumber_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,4,1,1),_AlaCoroL3HreChangeSlotNumber_Type())
-alaCoroL3HreChangeSlotNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreChangeSlotNumber.setStatus(_A)
-_AlaCoroL3HreChangeSliceNumber_Type=Unsigned32
-_AlaCoroL3HreChangeSliceNumber_Object=MibTableColumn
-alaCoroL3HreChangeSliceNumber=_AlaCoroL3HreChangeSliceNumber_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,4,1,2),_AlaCoroL3HreChangeSliceNumber_Type())
-alaCoroL3HreChangeSliceNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreChangeSliceNumber.setStatus(_A)
-class _AlaCoroL3HreChangeModeNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3))
-_AlaCoroL3HreChangeModeNumber_Type.__name__=_D
-_AlaCoroL3HreChangeModeNumber_Object=MibTableColumn
-alaCoroL3HreChangeModeNumber=_AlaCoroL3HreChangeModeNumber_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,4,1,3),_AlaCoroL3HreChangeModeNumber_Type())
-alaCoroL3HreChangeModeNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:alaCoroL3HreChangeModeNumber.setStatus(_A)
-_AlaCoroL3HreChangeHashTableSize_Type=Unsigned32
-_AlaCoroL3HreChangeHashTableSize_Object=MibTableColumn
-alaCoroL3HreChangeHashTableSize=_AlaCoroL3HreChangeHashTableSize_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,4,1,4),_AlaCoroL3HreChangeHashTableSize_Type())
-alaCoroL3HreChangeHashTableSize.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaCoroL3HreChangeHashTableSize.setStatus(_A)
-_AlaCoroL3HreChangeHashFunction_Type=CoroL3HashFunction
-_AlaCoroL3HreChangeHashFunction_Object=MibTableColumn
-alaCoroL3HreChangeHashFunction=_AlaCoroL3HreChangeHashFunction_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,4,1,5),_AlaCoroL3HreChangeHashFunction_Type())
-alaCoroL3HreChangeHashFunction.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaCoroL3HreChangeHashFunction.setStatus(_A)
-class _AlaCoroL3HreChangeClear_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(0));namedValues=NamedValues(('clear',0))
-_AlaCoroL3HreChangeClear_Type.__name__=_D
-_AlaCoroL3HreChangeClear_Object=MibTableColumn
-alaCoroL3HreChangeClear=_AlaCoroL3HreChangeClear_Object((1,3,6,1,4,1,6486,800,1,1,1,4,1,1,4,1,6),_AlaCoroL3HreChangeClear_Type())
-alaCoroL3HreChangeClear.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaCoroL3HreChangeClear.setStatus(_A)
-_AlcatelIND1PCAMMIBConformance_ObjectIdentity=ObjectIdentity
-alcatelIND1PCAMMIBConformance=_AlcatelIND1PCAMMIBConformance_ObjectIdentity((1,3,6,1,4,1,6486,800,1,1,1,4,1,2))
-if mibBuilder.loadTexts:alcatelIND1PCAMMIBConformance.setStatus(_A)
-_AlcatelIND1PCAMMIBGroups_ObjectIdentity=ObjectIdentity
-alcatelIND1PCAMMIBGroups=_AlcatelIND1PCAMMIBGroups_ObjectIdentity((1,3,6,1,4,1,6486,800,1,1,1,4,1,2,1))
-if mibBuilder.loadTexts:alcatelIND1PCAMMIBGroups.setStatus(_A)
-_AlcatelIND1PCAMMIBCompliances_ObjectIdentity=ObjectIdentity
-alcatelIND1PCAMMIBCompliances=_AlcatelIND1PCAMMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6486,800,1,1,1,4,1,2,2))
-if mibBuilder.loadTexts:alcatelIND1PCAMMIBCompliances.setStatus(_A)
-alaCoroL3HrePerModeObjects=ObjectGroup((1,3,6,1,4,1,6486,800,1,1,1,4,1,2,1,1))
-alaCoroL3HrePerModeObjects.setObjects(*((_B,_F),(_B,_G),(_B,_H),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S)))
-if mibBuilder.loadTexts:alaCoroL3HrePerModeObjects.setStatus(_A)
-alaCoroL3HrePerCoronadoObjects=ObjectGroup((1,3,6,1,4,1,6486,800,1,1,1,4,1,2,1,2))
-alaCoroL3HrePerCoronadoObjects.setObjects(*((_B,_I),(_B,_J),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j)))
-if mibBuilder.loadTexts:alaCoroL3HrePerCoronadoObjects.setStatus(_A)
-alaCoroL3HreChangeObjects=ObjectGroup((1,3,6,1,4,1,6486,800,1,1,1,4,1,2,1,3))
-alaCoroL3HreChangeObjects.setObjects(*((_B,_k),(_B,_K),(_B,_L),(_B,_M),(_B,_l),(_B,_m),(_B,_n)))
-if mibBuilder.loadTexts:alaCoroL3HreChangeObjects.setStatus(_A)
-alcatelInd1PCAMMIBCompliance=ModuleCompliance((1,3,6,1,4,1,6486,800,1,1,1,4,1,2,2,1))
-alcatelInd1PCAMMIBCompliance.setObjects(*((_B,_o),(_B,_p),(_B,_q)))
-if mibBuilder.loadTexts:alcatelInd1PCAMMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CoroL3HashFunction':CoroL3HashFunction,'alcatelIND1PCAMMIB':alcatelIND1PCAMMIB,'alcatelIND1PCAMMIBObjects':alcatelIND1PCAMMIBObjects,'alaCoroL3HrePerModeTable':alaCoroL3HrePerModeTable,'alaCoroL3HrePerModeTableEntry':alaCoroL3HrePerModeTableEntry,_F:alaCoroL3HrePerModeSlotNumber,_G:alaCoroL3HrePerModeSliceNumber,_H:alaCoroL3HrePerModeModeNumber,_N:alaCoroL3HreModeHashTableSize,_O:alaCoroL3HreModeHashEntriesInUse,_P:alaCoroL3HreModeCollEntriesInUse,_Q:alaCoroL3HreModeCurrentHashFunction,_R:alaCoroL3HreMaxCollChainLen,_S:alaCoroL3HreAvgCollChainLen,'alaCoroL3HrePerCoronadoStatsTable':alaCoroL3HrePerCoronadoStatsTable,'alaCoroL3HrePerCoronadoStatsTableEntry':alaCoroL3HrePerCoronadoStatsTableEntry,_I:alaCoroL3HreSlotNumber,_J:alaCoroL3HreSliceNumber,_T:alaCoroL3HreRouteCacheEntriesTotal,_U:alaCoroL3HreRouteCacheEntriesInUse,_V:alaCoroL3HreIpPacketsReceived,_W:alaCoroL3HreIpBytesReceived,_X:alaCoroL3HreIpPacketsForwarded,_Y:alaCoroL3HreIpBytesForwarded,_Z:alaCoroL3HreIpPacketsDiscarded,_a:alaCoroL3HreIpBytesDiscarded,_b:alaCoroL3HreIpPacketsFragmented,_c:alaCoroL3HreIpPacketsFragsGenerated,_d:alaCoroL3HreIpPacketsFailedToFrag,_e:alaCoroL3HreIpxPacketsReceived,_f:alaCoroL3HreIpxBytesReceived,_g:alaCoroL3HreIpxPacketsForwarded,_h:alaCoroL3HreIpxBytesForwarded,_i:alaCoroL3HreIpxPacketsDiscarded,_j:alaCoroL3HreIpxBytesDiscarded,_k:alaCoroL3HreUpdateChanges,'alaCoroL3HreChangeTable':alaCoroL3HreChangeTable,'alaCoroL3HreChangeTableEntry':alaCoroL3HreChangeTableEntry,_K:alaCoroL3HreChangeSlotNumber,_L:alaCoroL3HreChangeSliceNumber,_M:alaCoroL3HreChangeModeNumber,_l:alaCoroL3HreChangeHashTableSize,_m:alaCoroL3HreChangeHashFunction,_n:alaCoroL3HreChangeClear,'alcatelIND1PCAMMIBConformance':alcatelIND1PCAMMIBConformance,'alcatelIND1PCAMMIBGroups':alcatelIND1PCAMMIBGroups,_o:alaCoroL3HrePerModeObjects,_p:alaCoroL3HrePerCoronadoObjects,_q:alaCoroL3HreChangeObjects,'alcatelIND1PCAMMIBCompliances':alcatelIND1PCAMMIBCompliances,'alcatelInd1PCAMMIBCompliance':alcatelInd1PCAMMIBCompliance})
+#
+# PySNMP MIB module ALCATEL-IND1-PCAM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel/ALCATEL-IND1-PCAM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:49 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+hardentIND1Pcam, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "hardentIND1Pcam")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+alcatelIND1PCAMMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1))
+alcatelIND1PCAMMIB.setRevisions(('2007-04-03 00:00',))
+if mibBuilder.loadTexts: alcatelIND1PCAMMIB.setLastUpdated('200704030000Z')
+if mibBuilder.loadTexts: alcatelIND1PCAMMIB.setOrganization('Alcatel-Lucent')
+alcatelIND1PCAMMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1))
+if mibBuilder.loadTexts: alcatelIND1PCAMMIBObjects.setStatus('current')
+alcatelIND1PCAMMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 2))
+if mibBuilder.loadTexts: alcatelIND1PCAMMIBConformance.setStatus('current')
+alcatelIND1PCAMMIBGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 2, 1))
+if mibBuilder.loadTexts: alcatelIND1PCAMMIBGroups.setStatus('current')
+alcatelIND1PCAMMIBCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 2, 2))
+if mibBuilder.loadTexts: alcatelIND1PCAMMIBCompliances.setStatus('current')
+class CoroL3HashFunction(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(10, 10)
+    fixedLength = 10
+
+alaCoroL3HrePerModeTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 1), )
+if mibBuilder.loadTexts: alaCoroL3HrePerModeTable.setStatus('current')
+alaCoroL3HrePerModeTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 1, 1), ).setIndexNames((0, "ALCATEL-IND1-PCAM-MIB", "alaCoroL3HrePerModeSlotNumber"), (0, "ALCATEL-IND1-PCAM-MIB", "alaCoroL3HrePerModeSliceNumber"), (0, "ALCATEL-IND1-PCAM-MIB", "alaCoroL3HrePerModeModeNumber"))
+if mibBuilder.loadTexts: alaCoroL3HrePerModeTableEntry.setStatus('current')
+alaCoroL3HrePerModeSlotNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HrePerModeSlotNumber.setStatus('current')
+alaCoroL3HrePerModeSliceNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HrePerModeSliceNumber.setStatus('current')
+alaCoroL3HrePerModeModeNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HrePerModeModeNumber.setStatus('current')
+alaCoroL3HreModeHashTableSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreModeHashTableSize.setStatus('current')
+alaCoroL3HreModeHashEntriesInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreModeHashEntriesInUse.setStatus('current')
+alaCoroL3HreModeCollEntriesInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreModeCollEntriesInUse.setStatus('current')
+alaCoroL3HreModeCurrentHashFunction = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 1, 1, 7), CoroL3HashFunction()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreModeCurrentHashFunction.setStatus('current')
+alaCoroL3HreMaxCollChainLen = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 1, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreMaxCollChainLen.setStatus('current')
+alaCoroL3HreAvgCollChainLen = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 1, 1, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreAvgCollChainLen.setStatus('current')
+alaCoroL3HrePerCoronadoStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2), )
+if mibBuilder.loadTexts: alaCoroL3HrePerCoronadoStatsTable.setStatus('current')
+alaCoroL3HrePerCoronadoStatsTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1), ).setIndexNames((0, "ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreSlotNumber"), (0, "ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreSliceNumber"))
+if mibBuilder.loadTexts: alaCoroL3HrePerCoronadoStatsTableEntry.setStatus('current')
+alaCoroL3HreSlotNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreSlotNumber.setStatus('current')
+alaCoroL3HreSliceNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreSliceNumber.setStatus('current')
+alaCoroL3HreRouteCacheEntriesTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreRouteCacheEntriesTotal.setStatus('current')
+alaCoroL3HreRouteCacheEntriesInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreRouteCacheEntriesInUse.setStatus('current')
+alaCoroL3HreIpPacketsReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreIpPacketsReceived.setStatus('current')
+alaCoroL3HreIpBytesReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreIpBytesReceived.setStatus('current')
+alaCoroL3HreIpPacketsForwarded = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreIpPacketsForwarded.setStatus('current')
+alaCoroL3HreIpBytesForwarded = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreIpBytesForwarded.setStatus('current')
+alaCoroL3HreIpPacketsDiscarded = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreIpPacketsDiscarded.setStatus('current')
+alaCoroL3HreIpBytesDiscarded = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 10), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreIpBytesDiscarded.setStatus('current')
+alaCoroL3HreIpPacketsFragmented = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 11), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreIpPacketsFragmented.setStatus('current')
+alaCoroL3HreIpPacketsFragsGenerated = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 12), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreIpPacketsFragsGenerated.setStatus('current')
+alaCoroL3HreIpPacketsFailedToFrag = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 13), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreIpPacketsFailedToFrag.setStatus('current')
+alaCoroL3HreIpxPacketsReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 14), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreIpxPacketsReceived.setStatus('current')
+alaCoroL3HreIpxBytesReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 15), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreIpxBytesReceived.setStatus('current')
+alaCoroL3HreIpxPacketsForwarded = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 16), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreIpxPacketsForwarded.setStatus('current')
+alaCoroL3HreIpxBytesForwarded = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 17), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreIpxBytesForwarded.setStatus('current')
+alaCoroL3HreIpxPacketsDiscarded = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 18), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreIpxPacketsDiscarded.setStatus('current')
+alaCoroL3HreIpxBytesDiscarded = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 2, 1, 19), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreIpxBytesDiscarded.setStatus('current')
+alaCoroL3HreUpdateChanges = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("apply", 0), ("clear", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaCoroL3HreUpdateChanges.setStatus('current')
+alaCoroL3HreChangeTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 4), )
+if mibBuilder.loadTexts: alaCoroL3HreChangeTable.setStatus('current')
+alaCoroL3HreChangeTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 4, 1), ).setIndexNames((0, "ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreChangeSlotNumber"), (0, "ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreChangeSliceNumber"), (0, "ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreChangeModeNumber"))
+if mibBuilder.loadTexts: alaCoroL3HreChangeTableEntry.setStatus('current')
+alaCoroL3HreChangeSlotNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 4, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreChangeSlotNumber.setStatus('current')
+alaCoroL3HreChangeSliceNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 4, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreChangeSliceNumber.setStatus('current')
+alaCoroL3HreChangeModeNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaCoroL3HreChangeModeNumber.setStatus('current')
+alaCoroL3HreChangeHashTableSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 4, 1, 4), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaCoroL3HreChangeHashTableSize.setStatus('current')
+alaCoroL3HreChangeHashFunction = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 4, 1, 5), CoroL3HashFunction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaCoroL3HreChangeHashFunction.setStatus('current')
+alaCoroL3HreChangeClear = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 1, 4, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("clear", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaCoroL3HreChangeClear.setStatus('current')
+alaCoroL3HrePerModeObjects = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 2, 1, 1)).setObjects(("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HrePerModeSlotNumber"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HrePerModeSliceNumber"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HrePerModeModeNumber"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreModeHashTableSize"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreModeHashEntriesInUse"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreModeCollEntriesInUse"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreModeCurrentHashFunction"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreMaxCollChainLen"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreAvgCollChainLen"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaCoroL3HrePerModeObjects = alaCoroL3HrePerModeObjects.setStatus('current')
+alaCoroL3HrePerCoronadoObjects = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 2, 1, 2)).setObjects(("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreSlotNumber"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreSliceNumber"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreRouteCacheEntriesTotal"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreRouteCacheEntriesInUse"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreIpPacketsReceived"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreIpBytesReceived"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreIpPacketsForwarded"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreIpBytesForwarded"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreIpPacketsDiscarded"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreIpBytesDiscarded"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreIpPacketsFragmented"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreIpPacketsFragsGenerated"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreIpPacketsFailedToFrag"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreIpxPacketsReceived"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreIpxBytesReceived"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreIpxPacketsForwarded"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreIpxBytesForwarded"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreIpxPacketsDiscarded"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreIpxBytesDiscarded"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaCoroL3HrePerCoronadoObjects = alaCoroL3HrePerCoronadoObjects.setStatus('current')
+alaCoroL3HreChangeObjects = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 2, 1, 3)).setObjects(("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreUpdateChanges"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreChangeSlotNumber"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreChangeSliceNumber"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreChangeModeNumber"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreChangeHashTableSize"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreChangeHashFunction"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreChangeClear"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaCoroL3HreChangeObjects = alaCoroL3HreChangeObjects.setStatus('current')
+alcatelInd1PCAMMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 4, 1, 2, 2, 1)).setObjects(("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HrePerModeObjects"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HrePerCoronadoObjects"), ("ALCATEL-IND1-PCAM-MIB", "alaCoroL3HreChangeObjects"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alcatelInd1PCAMMIBCompliance = alcatelInd1PCAMMIBCompliance.setStatus('current')
+mibBuilder.exportSymbols("ALCATEL-IND1-PCAM-MIB", alaCoroL3HreModeHashTableSize=alaCoroL3HreModeHashTableSize, alaCoroL3HreIpxBytesForwarded=alaCoroL3HreIpxBytesForwarded, alcatelIND1PCAMMIBCompliances=alcatelIND1PCAMMIBCompliances, alaCoroL3HrePerModeSliceNumber=alaCoroL3HrePerModeSliceNumber, alcatelIND1PCAMMIB=alcatelIND1PCAMMIB, alaCoroL3HreSlotNumber=alaCoroL3HreSlotNumber, alaCoroL3HreIpPacketsFragsGenerated=alaCoroL3HreIpPacketsFragsGenerated, alaCoroL3HreIpBytesForwarded=alaCoroL3HreIpBytesForwarded, alaCoroL3HreIpxPacketsReceived=alaCoroL3HreIpxPacketsReceived, alaCoroL3HreChangeClear=alaCoroL3HreChangeClear, alcatelIND1PCAMMIBGroups=alcatelIND1PCAMMIBGroups, alaCoroL3HreSliceNumber=alaCoroL3HreSliceNumber, alcatelIND1PCAMMIBObjects=alcatelIND1PCAMMIBObjects, alaCoroL3HreIpPacketsReceived=alaCoroL3HreIpPacketsReceived, alaCoroL3HreChangeSlotNumber=alaCoroL3HreChangeSlotNumber, CoroL3HashFunction=CoroL3HashFunction, PYSNMP_MODULE_ID=alcatelIND1PCAMMIB, alaCoroL3HreIpPacketsForwarded=alaCoroL3HreIpPacketsForwarded, alaCoroL3HreUpdateChanges=alaCoroL3HreUpdateChanges, alaCoroL3HreIpPacketsFailedToFrag=alaCoroL3HreIpPacketsFailedToFrag, alaCoroL3HreChangeObjects=alaCoroL3HreChangeObjects, alaCoroL3HreAvgCollChainLen=alaCoroL3HreAvgCollChainLen, alaCoroL3HreChangeSliceNumber=alaCoroL3HreChangeSliceNumber, alaCoroL3HreIpxPacketsForwarded=alaCoroL3HreIpxPacketsForwarded, alaCoroL3HreChangeTable=alaCoroL3HreChangeTable, alaCoroL3HrePerModeTableEntry=alaCoroL3HrePerModeTableEntry, alaCoroL3HrePerModeModeNumber=alaCoroL3HrePerModeModeNumber, alaCoroL3HreIpBytesDiscarded=alaCoroL3HreIpBytesDiscarded, alaCoroL3HreChangeModeNumber=alaCoroL3HreChangeModeNumber, alaCoroL3HreIpPacketsFragmented=alaCoroL3HreIpPacketsFragmented, alaCoroL3HreRouteCacheEntriesTotal=alaCoroL3HreRouteCacheEntriesTotal, alaCoroL3HreIpBytesReceived=alaCoroL3HreIpBytesReceived, alaCoroL3HreChangeHashTableSize=alaCoroL3HreChangeHashTableSize, alaCoroL3HreIpPacketsDiscarded=alaCoroL3HreIpPacketsDiscarded, alaCoroL3HrePerModeObjects=alaCoroL3HrePerModeObjects, alaCoroL3HrePerModeSlotNumber=alaCoroL3HrePerModeSlotNumber, alaCoroL3HreChangeTableEntry=alaCoroL3HreChangeTableEntry, alaCoroL3HreRouteCacheEntriesInUse=alaCoroL3HreRouteCacheEntriesInUse, alaCoroL3HrePerCoronadoStatsTableEntry=alaCoroL3HrePerCoronadoStatsTableEntry, alaCoroL3HreModeHashEntriesInUse=alaCoroL3HreModeHashEntriesInUse, alaCoroL3HreChangeHashFunction=alaCoroL3HreChangeHashFunction, alaCoroL3HreModeCurrentHashFunction=alaCoroL3HreModeCurrentHashFunction, alaCoroL3HrePerCoronadoObjects=alaCoroL3HrePerCoronadoObjects, alaCoroL3HrePerCoronadoStatsTable=alaCoroL3HrePerCoronadoStatsTable, alaCoroL3HreIpxBytesReceived=alaCoroL3HreIpxBytesReceived, alaCoroL3HreMaxCollChainLen=alaCoroL3HreMaxCollChainLen, alcatelInd1PCAMMIBCompliance=alcatelInd1PCAMMIBCompliance, alaCoroL3HreIpxPacketsDiscarded=alaCoroL3HreIpxPacketsDiscarded, alaCoroL3HrePerModeTable=alaCoroL3HrePerModeTable, alaCoroL3HreModeCollEntriesInUse=alaCoroL3HreModeCollEntriesInUse, alaCoroL3HreIpxBytesDiscarded=alaCoroL3HreIpxBytesDiscarded, alcatelIND1PCAMMIBConformance=alcatelIND1PCAMMIBConformance)

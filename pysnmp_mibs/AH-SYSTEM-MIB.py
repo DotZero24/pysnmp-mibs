@@ -1,86 +1,42 @@
-_D='Integer32'
-_C='DisplayString'
-_B='current'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ahProduct,=mibBuilder.importSymbols('AH-SMI-MIB','ahProduct')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_C,'PhysAddress','TextualConvention')
-ahSystem=ModuleIdentity((1,3,6,1,4,1,26928,1,2))
-class _AhSystemName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_AhSystemName_Type.__name__=_C
-_AhSystemName_Object=MibScalar
-ahSystemName=_AhSystemName_Object((1,3,6,1,4,1,26928,1,2,1),_AhSystemName_Type())
-ahSystemName.setMaxAccess(_A)
-if mibBuilder.loadTexts:ahSystemName.setStatus(_B)
-class _AhSystemDescription_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_AhSystemDescription_Type.__name__=_C
-_AhSystemDescription_Object=MibScalar
-ahSystemDescription=_AhSystemDescription_Object((1,3,6,1,4,1,26928,1,2,2),_AhSystemDescription_Type())
-ahSystemDescription.setMaxAccess(_A)
-if mibBuilder.loadTexts:ahSystemDescription.setStatus(_B)
-class _AhCpuUtilization_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_AhCpuUtilization_Type.__name__=_D
-_AhCpuUtilization_Object=MibScalar
-ahCpuUtilization=_AhCpuUtilization_Object((1,3,6,1,4,1,26928,1,2,3),_AhCpuUtilization_Type())
-ahCpuUtilization.setMaxAccess(_A)
-if mibBuilder.loadTexts:ahCpuUtilization.setStatus(_B)
-class _AhMemUtilization_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_AhMemUtilization_Type.__name__=_D
-_AhMemUtilization_Object=MibScalar
-ahMemUtilization=_AhMemUtilization_Object((1,3,6,1,4,1,26928,1,2,4),_AhMemUtilization_Type())
-ahMemUtilization.setMaxAccess(_A)
-if mibBuilder.loadTexts:ahMemUtilization.setStatus(_B)
-class _AhSystemSerial_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_AhSystemSerial_Type.__name__=_C
-_AhSystemSerial_Object=MibScalar
-ahSystemSerial=_AhSystemSerial_Object((1,3,6,1,4,1,26928,1,2,5),_AhSystemSerial_Type())
-ahSystemSerial.setMaxAccess(_A)
-if mibBuilder.loadTexts:ahSystemSerial.setStatus(_B)
-class _AhDeviceMode_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_AhDeviceMode_Type.__name__=_C
-_AhDeviceMode_Object=MibScalar
-ahDeviceMode=_AhDeviceMode_Object((1,3,6,1,4,1,26928,1,2,6),_AhDeviceMode_Type())
-ahDeviceMode.setMaxAccess(_A)
-if mibBuilder.loadTexts:ahDeviceMode.setStatus(_B)
-class _AhUpTime_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_AhUpTime_Type.__name__=_C
-_AhUpTime_Object=MibScalar
-ahUpTime=_AhUpTime_Object((1,3,6,1,4,1,26928,1,2,7),_AhUpTime_Type())
-ahUpTime.setMaxAccess(_A)
-if mibBuilder.loadTexts:ahUpTime.setStatus(_B)
-class _AhHwVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_AhHwVersion_Type.__name__=_C
-_AhHwVersion_Object=MibScalar
-ahHwVersion=_AhHwVersion_Object((1,3,6,1,4,1,26928,1,2,8),_AhHwVersion_Type())
-ahHwVersion.setMaxAccess(_A)
-if mibBuilder.loadTexts:ahHwVersion.setStatus(_B)
-class _AhClientCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-_AhClientCount_Type.__name__=_D
-_AhClientCount_Object=MibScalar
-ahClientCount=_AhClientCount_Object((1,3,6,1,4,1,26928,1,2,9),_AhClientCount_Type())
-ahClientCount.setMaxAccess(_A)
-if mibBuilder.loadTexts:ahClientCount.setStatus(_B)
-class _AhEnvirmentTemp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_AhEnvirmentTemp_Type.__name__=_D
-_AhEnvirmentTemp_Object=MibScalar
-ahEnvirmentTemp=_AhEnvirmentTemp_Object((1,3,6,1,4,1,26928,1,2,10),_AhEnvirmentTemp_Type())
-ahEnvirmentTemp.setMaxAccess(_A)
-if mibBuilder.loadTexts:ahEnvirmentTemp.setStatus(_B)
-class _AhEnvirmentFan_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-_AhEnvirmentFan_Type.__name__=_D
-_AhEnvirmentFan_Object=MibScalar
-ahEnvirmentFan=_AhEnvirmentFan_Object((1,3,6,1,4,1,26928,1,2,11),_AhEnvirmentFan_Type())
-ahEnvirmentFan.setMaxAccess(_A)
-if mibBuilder.loadTexts:ahEnvirmentFan.setStatus(_B)
-class _AhFirmwareVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_AhFirmwareVersion_Type.__name__=_C
-_AhFirmwareVersion_Object=MibScalar
-ahFirmwareVersion=_AhFirmwareVersion_Object((1,3,6,1,4,1,26928,1,2,12),_AhFirmwareVersion_Type())
-ahFirmwareVersion.setMaxAccess(_A)
-if mibBuilder.loadTexts:ahFirmwareVersion.setStatus(_B)
-mibBuilder.exportSymbols('AH-SYSTEM-MIB',**{'ahSystem':ahSystem,'ahSystemName':ahSystemName,'ahSystemDescription':ahSystemDescription,'ahCpuUtilization':ahCpuUtilization,'ahMemUtilization':ahMemUtilization,'ahSystemSerial':ahSystemSerial,'ahDeviceMode':ahDeviceMode,'ahUpTime':ahUpTime,'ahHwVersion':ahHwVersion,'ahClientCount':ahClientCount,'ahEnvirmentTemp':ahEnvirmentTemp,'ahEnvirmentFan':ahEnvirmentFan,'ahFirmwareVersion':ahFirmwareVersion})
+#
+# PySNMP MIB module AH-SYSTEM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aerohive/AH-SYSTEM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:15 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+ahProduct, = mibBuilder.importSymbols("AH-SMI-MIB", "ahProduct")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ahSystem = ModuleIdentity((1, 3, 6, 1, 4, 1, 26928, 1, 2))
+if mibBuilder.loadTexts: ahSystem.setLastUpdated('201608310000Z')
+if mibBuilder.loadTexts: ahSystem.setOrganization('Aerohive Networks, Inc')
+ahSystemName = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ahSystemName.setStatus('current')
+ahSystemDescription = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ahSystemDescription.setStatus('current')
+ahCpuUtilization = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ahCpuUtilization.setStatus('current')
+ahMemUtilization = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ahMemUtilization.setStatus('current')
+ahSystemSerial = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ahSystemSerial.setStatus('current')
+ahDeviceMode = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ahDeviceMode.setStatus('current')
+ahUpTime = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ahUpTime.setStatus('current')
+ahHwVersion = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ahHwVersion.setStatus('current')
+ahClientCount = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ahClientCount.setStatus('current')
+ahEnvirmentTemp = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ahEnvirmentTemp.setStatus('current')
+ahEnvirmentFan = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ahEnvirmentFan.setStatus('current')
+ahFirmwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ahFirmwareVersion.setStatus('current')
+mibBuilder.exportSymbols("AH-SYSTEM-MIB", ahMemUtilization=ahMemUtilization, ahHwVersion=ahHwVersion, PYSNMP_MODULE_ID=ahSystem, ahClientCount=ahClientCount, ahEnvirmentTemp=ahEnvirmentTemp, ahUpTime=ahUpTime, ahFirmwareVersion=ahFirmwareVersion, ahSystemSerial=ahSystemSerial, ahEnvirmentFan=ahEnvirmentFan, ahSystem=ahSystem, ahSystemName=ahSystemName, ahCpuUtilization=ahCpuUtilization, ahSystemDescription=ahSystemDescription, ahDeviceMode=ahDeviceMode)

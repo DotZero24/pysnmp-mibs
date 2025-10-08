@@ -1,145 +1,68 @@
-_K='hysteresis'
-_J='alarmed'
-_I='cleared'
-_H='DisplayString'
-_G='sensorTempIndex'
-_F='SIAE-SENSOR-TEMP-MIB'
-_E='AlarmSeverityCode'
-_D='read-write'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-AlarmSeverityCode,AlarmStatus=mibBuilder.importSymbols('SIAE-ALARM-MIB',_E,'AlarmStatus')
-siaeMib,=mibBuilder.importSymbols('SIAE-TREE-MIB','siaeMib')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_H,'PhysAddress','TextualConvention')
-sensorTemp=ModuleIdentity((1,3,6,1,4,1,3373,1103,77))
-if mibBuilder.loadTexts:sensorTemp.setRevisions(('2016-05-03 00:00','2014-03-31 00:00'))
-_SensorTempMibVersion_Type=Integer32
-_SensorTempMibVersion_Object=MibScalar
-sensorTempMibVersion=_SensorTempMibVersion_Object((1,3,6,1,4,1,3373,1103,77,1),_SensorTempMibVersion_Type())
-sensorTempMibVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempMibVersion.setStatus(_A)
-_SensorTempTable_Object=MibTable
-sensorTempTable=_SensorTempTable_Object((1,3,6,1,4,1,3373,1103,77,2))
-if mibBuilder.loadTexts:sensorTempTable.setStatus(_A)
-_SensorTempEntry_Object=MibTableRow
-sensorTempEntry=_SensorTempEntry_Object((1,3,6,1,4,1,3373,1103,77,2,1))
-sensorTempEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:sensorTempEntry.setStatus(_A)
-_SensorTempIndex_Type=Integer32
-_SensorTempIndex_Object=MibTableColumn
-sensorTempIndex=_SensorTempIndex_Object((1,3,6,1,4,1,3373,1103,77,2,1,1),_SensorTempIndex_Type())
-sensorTempIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempIndex.setStatus(_A)
-_SensorTempValue_Type=Integer32
-_SensorTempValue_Object=MibTableColumn
-sensorTempValue=_SensorTempValue_Object((1,3,6,1,4,1,3373,1103,77,2,1,2),_SensorTempValue_Type())
-sensorTempValue.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempValue.setStatus(_A)
-_SensorTempThreshold1_Type=Integer32
-_SensorTempThreshold1_Object=MibTableColumn
-sensorTempThreshold1=_SensorTempThreshold1_Object((1,3,6,1,4,1,3373,1103,77,2,1,3),_SensorTempThreshold1_Type())
-sensorTempThreshold1.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempThreshold1.setStatus(_A)
-_SensorTempThreshold2_Type=Integer32
-_SensorTempThreshold2_Object=MibTableColumn
-sensorTempThreshold2=_SensorTempThreshold2_Object((1,3,6,1,4,1,3373,1103,77,2,1,4),_SensorTempThreshold2_Type())
-sensorTempThreshold2.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempThreshold2.setStatus(_A)
-_SensorTempHysteresis1_Type=Integer32
-_SensorTempHysteresis1_Object=MibTableColumn
-sensorTempHysteresis1=_SensorTempHysteresis1_Object((1,3,6,1,4,1,3373,1103,77,2,1,5),_SensorTempHysteresis1_Type())
-sensorTempHysteresis1.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempHysteresis1.setStatus(_A)
-_SensorTempHysteresis2_Type=Integer32
-_SensorTempHysteresis2_Object=MibTableColumn
-sensorTempHysteresis2=_SensorTempHysteresis2_Object((1,3,6,1,4,1,3373,1103,77,2,1,6),_SensorTempHysteresis2_Type())
-sensorTempHysteresis2.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempHysteresis2.setStatus(_A)
-class _SensorTempStatus1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),(_J,2),(_K,3)))
-_SensorTempStatus1_Type.__name__=_C
-_SensorTempStatus1_Object=MibTableColumn
-sensorTempStatus1=_SensorTempStatus1_Object((1,3,6,1,4,1,3373,1103,77,2,1,7),_SensorTempStatus1_Type())
-sensorTempStatus1.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempStatus1.setStatus(_A)
-class _SensorTempStatus2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),(_J,2),(_K,3)))
-_SensorTempStatus2_Type.__name__=_C
-_SensorTempStatus2_Object=MibTableColumn
-sensorTempStatus2=_SensorTempStatus2_Object((1,3,6,1,4,1,3373,1103,77,2,1,8),_SensorTempStatus2_Type())
-sensorTempStatus2.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempStatus2.setStatus(_A)
-class _SensorTempLabel_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_SensorTempLabel_Type.__name__=_H
-_SensorTempLabel_Object=MibTableColumn
-sensorTempLabel=_SensorTempLabel_Object((1,3,6,1,4,1,3373,1103,77,2,1,9),_SensorTempLabel_Type())
-sensorTempLabel.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempLabel.setStatus(_A)
-_SensorTempAlarmThreshold1_Type=AlarmStatus
-_SensorTempAlarmThreshold1_Object=MibScalar
-sensorTempAlarmThreshold1=_SensorTempAlarmThreshold1_Object((1,3,6,1,4,1,3373,1103,77,3),_SensorTempAlarmThreshold1_Type())
-sensorTempAlarmThreshold1.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempAlarmThreshold1.setStatus(_A)
-_SensorTempAlarmThreshold2_Type=AlarmStatus
-_SensorTempAlarmThreshold2_Object=MibScalar
-sensorTempAlarmThreshold2=_SensorTempAlarmThreshold2_Object((1,3,6,1,4,1,3373,1103,77,4),_SensorTempAlarmThreshold2_Type())
-sensorTempAlarmThreshold2.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempAlarmThreshold2.setStatus(_A)
-class _SensorTempAlarmThreshold1Severity_Type(AlarmSeverityCode):defaultValue=3
-_SensorTempAlarmThreshold1Severity_Type.__name__=_E
-_SensorTempAlarmThreshold1Severity_Object=MibScalar
-sensorTempAlarmThreshold1Severity=_SensorTempAlarmThreshold1Severity_Object((1,3,6,1,4,1,3373,1103,77,5),_SensorTempAlarmThreshold1Severity_Type())
-sensorTempAlarmThreshold1Severity.setMaxAccess(_D)
-if mibBuilder.loadTexts:sensorTempAlarmThreshold1Severity.setStatus(_A)
-class _SensorTempAlarmThreshold2Severity_Type(AlarmSeverityCode):defaultValue=6
-_SensorTempAlarmThreshold2Severity_Type.__name__=_E
-_SensorTempAlarmThreshold2Severity_Object=MibScalar
-sensorTempAlarmThreshold2Severity=_SensorTempAlarmThreshold2Severity_Object((1,3,6,1,4,1,3373,1103,77,6),_SensorTempAlarmThreshold2Severity_Type())
-sensorTempAlarmThreshold2Severity.setMaxAccess(_D)
-if mibBuilder.loadTexts:sensorTempAlarmThreshold2Severity.setStatus(_A)
-_SensorTempMonitorTable_Object=MibTable
-sensorTempMonitorTable=_SensorTempMonitorTable_Object((1,3,6,1,4,1,3373,1103,77,7))
-if mibBuilder.loadTexts:sensorTempMonitorTable.setStatus(_A)
-_SensorTempMonitorEntry_Object=MibTableRow
-sensorTempMonitorEntry=_SensorTempMonitorEntry_Object((1,3,6,1,4,1,3373,1103,77,7,1))
-sensorTempMonitorEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:sensorTempMonitorEntry.setStatus(_A)
-class _SensorTempMonitorAdminStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_SensorTempMonitorAdminStatus_Type.__name__=_C
-_SensorTempMonitorAdminStatus_Object=MibTableColumn
-sensorTempMonitorAdminStatus=_SensorTempMonitorAdminStatus_Object((1,3,6,1,4,1,3373,1103,77,7,1,1),_SensorTempMonitorAdminStatus_Type())
-sensorTempMonitorAdminStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:sensorTempMonitorAdminStatus.setStatus(_A)
-class _SensorTempMonitorOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_SensorTempMonitorOperStatus_Type.__name__=_C
-_SensorTempMonitorOperStatus_Object=MibTableColumn
-sensorTempMonitorOperStatus=_SensorTempMonitorOperStatus_Object((1,3,6,1,4,1,3373,1103,77,7,1,2),_SensorTempMonitorOperStatus_Type())
-sensorTempMonitorOperStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempMonitorOperStatus.setStatus(_A)
-_SensorTempMonitorMinTemp_Type=Integer32
-_SensorTempMonitorMinTemp_Object=MibTableColumn
-sensorTempMonitorMinTemp=_SensorTempMonitorMinTemp_Object((1,3,6,1,4,1,3373,1103,77,7,1,3),_SensorTempMonitorMinTemp_Type())
-sensorTempMonitorMinTemp.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempMonitorMinTemp.setStatus(_A)
-_SensorTempMonitorMaxTemp_Type=Integer32
-_SensorTempMonitorMaxTemp_Object=MibTableColumn
-sensorTempMonitorMaxTemp=_SensorTempMonitorMaxTemp_Object((1,3,6,1,4,1,3373,1103,77,7,1,4),_SensorTempMonitorMaxTemp_Type())
-sensorTempMonitorMaxTemp.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempMonitorMaxTemp.setStatus(_A)
-_SensorTempMonitorAverageTemp_Type=Integer32
-_SensorTempMonitorAverageTemp_Object=MibTableColumn
-sensorTempMonitorAverageTemp=_SensorTempMonitorAverageTemp_Object((1,3,6,1,4,1,3373,1103,77,7,1,5),_SensorTempMonitorAverageTemp_Type())
-sensorTempMonitorAverageTemp.setMaxAccess(_B)
-if mibBuilder.loadTexts:sensorTempMonitorAverageTemp.setStatus(_A)
-class _SensorTempMonitorSystemControl_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('start',1),('shutdown',2)))
-_SensorTempMonitorSystemControl_Type.__name__=_C
-_SensorTempMonitorSystemControl_Object=MibScalar
-sensorTempMonitorSystemControl=_SensorTempMonitorSystemControl_Object((1,3,6,1,4,1,3373,1103,77,8),_SensorTempMonitorSystemControl_Type())
-sensorTempMonitorSystemControl.setMaxAccess(_D)
-if mibBuilder.loadTexts:sensorTempMonitorSystemControl.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'sensorTemp':sensorTemp,'sensorTempMibVersion':sensorTempMibVersion,'sensorTempTable':sensorTempTable,'sensorTempEntry':sensorTempEntry,_G:sensorTempIndex,'sensorTempValue':sensorTempValue,'sensorTempThreshold1':sensorTempThreshold1,'sensorTempThreshold2':sensorTempThreshold2,'sensorTempHysteresis1':sensorTempHysteresis1,'sensorTempHysteresis2':sensorTempHysteresis2,'sensorTempStatus1':sensorTempStatus1,'sensorTempStatus2':sensorTempStatus2,'sensorTempLabel':sensorTempLabel,'sensorTempAlarmThreshold1':sensorTempAlarmThreshold1,'sensorTempAlarmThreshold2':sensorTempAlarmThreshold2,'sensorTempAlarmThreshold1Severity':sensorTempAlarmThreshold1Severity,'sensorTempAlarmThreshold2Severity':sensorTempAlarmThreshold2Severity,'sensorTempMonitorTable':sensorTempMonitorTable,'sensorTempMonitorEntry':sensorTempMonitorEntry,'sensorTempMonitorAdminStatus':sensorTempMonitorAdminStatus,'sensorTempMonitorOperStatus':sensorTempMonitorOperStatus,'sensorTempMonitorMinTemp':sensorTempMonitorMinTemp,'sensorTempMonitorMaxTemp':sensorTempMonitorMaxTemp,'sensorTempMonitorAverageTemp':sensorTempMonitorAverageTemp,'sensorTempMonitorSystemControl':sensorTempMonitorSystemControl})
+#
+# PySNMP MIB module SIAE-SENSOR-TEMP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/siaemic/SIAE-SENSOR-TEMP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+AlarmStatus, AlarmSeverityCode = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmStatus", "AlarmSeverityCode")
+siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+sensorTemp = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 77))
+sensorTemp.setRevisions(('2016-05-03 00:00', '2014-03-31 00:00',))
+if mibBuilder.loadTexts: sensorTemp.setLastUpdated('201605030000Z')
+if mibBuilder.loadTexts: sensorTemp.setOrganization('SIAE MICROELETTRONICA spa')
+sensorTempMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempMibVersion.setStatus('current')
+sensorTempTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 2), )
+if mibBuilder.loadTexts: sensorTempTable.setStatus('current')
+sensorTempEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 2, 1), ).setIndexNames((0, "SIAE-SENSOR-TEMP-MIB", "sensorTempIndex"))
+if mibBuilder.loadTexts: sensorTempEntry.setStatus('current')
+sensorTempIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempIndex.setStatus('current')
+sensorTempValue = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempValue.setStatus('current')
+sensorTempThreshold1 = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempThreshold1.setStatus('current')
+sensorTempThreshold2 = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempThreshold2.setStatus('current')
+sensorTempHysteresis1 = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempHysteresis1.setStatus('current')
+sensorTempHysteresis2 = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 2, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempHysteresis2.setStatus('current')
+sensorTempStatus1 = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("cleared", 1), ("alarmed", 2), ("hysteresis", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempStatus1.setStatus('current')
+sensorTempStatus2 = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("cleared", 1), ("alarmed", 2), ("hysteresis", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempStatus2.setStatus('current')
+sensorTempLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 2, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempLabel.setStatus('current')
+sensorTempAlarmThreshold1 = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 3), AlarmStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempAlarmThreshold1.setStatus('current')
+sensorTempAlarmThreshold2 = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 4), AlarmStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempAlarmThreshold2.setStatus('current')
+sensorTempAlarmThreshold1Severity = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 5), AlarmSeverityCode().clone('warningTrapEnable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sensorTempAlarmThreshold1Severity.setStatus('current')
+sensorTempAlarmThreshold2Severity = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 6), AlarmSeverityCode().clone('criticalTrapEnable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sensorTempAlarmThreshold2Severity.setStatus('current')
+sensorTempMonitorTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 7), )
+if mibBuilder.loadTexts: sensorTempMonitorTable.setStatus('current')
+sensorTempMonitorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 7, 1), ).setIndexNames((0, "SIAE-SENSOR-TEMP-MIB", "sensorTempIndex"))
+if mibBuilder.loadTexts: sensorTempMonitorEntry.setStatus('current')
+sensorTempMonitorAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 7, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2))).clone('down')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sensorTempMonitorAdminStatus.setStatus('current')
+sensorTempMonitorOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 7, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempMonitorOperStatus.setStatus('current')
+sensorTempMonitorMinTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 7, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempMonitorMinTemp.setStatus('current')
+sensorTempMonitorMaxTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 7, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempMonitorMaxTemp.setStatus('current')
+sensorTempMonitorAverageTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 7, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sensorTempMonitorAverageTemp.setStatus('current')
+sensorTempMonitorSystemControl = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("start", 1), ("shutdown", 2))).clone('shutdown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sensorTempMonitorSystemControl.setStatus('current')
+mibBuilder.exportSymbols("SIAE-SENSOR-TEMP-MIB", sensorTempMonitorTable=sensorTempMonitorTable, sensorTempThreshold1=sensorTempThreshold1, sensorTempValue=sensorTempValue, sensorTempHysteresis2=sensorTempHysteresis2, sensorTempEntry=sensorTempEntry, sensorTempMonitorAdminStatus=sensorTempMonitorAdminStatus, sensorTempAlarmThreshold1Severity=sensorTempAlarmThreshold1Severity, sensorTempStatus2=sensorTempStatus2, sensorTempThreshold2=sensorTempThreshold2, sensorTempTable=sensorTempTable, sensorTempMonitorEntry=sensorTempMonitorEntry, sensorTemp=sensorTemp, sensorTempStatus1=sensorTempStatus1, sensorTempMonitorAverageTemp=sensorTempMonitorAverageTemp, sensorTempIndex=sensorTempIndex, sensorTempAlarmThreshold1=sensorTempAlarmThreshold1, sensorTempMonitorMinTemp=sensorTempMonitorMinTemp, PYSNMP_MODULE_ID=sensorTemp, sensorTempHysteresis1=sensorTempHysteresis1, sensorTempMibVersion=sensorTempMibVersion, sensorTempMonitorMaxTemp=sensorTempMonitorMaxTemp, sensorTempAlarmThreshold2=sensorTempAlarmThreshold2, sensorTempMonitorOperStatus=sensorTempMonitorOperStatus, sensorTempLabel=sensorTempLabel, sensorTempAlarmThreshold2Severity=sensorTempAlarmThreshold2Severity, sensorTempMonitorSystemControl=sensorTempMonitorSystemControl)

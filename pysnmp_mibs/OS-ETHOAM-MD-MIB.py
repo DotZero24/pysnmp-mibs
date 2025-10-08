@@ -1,78 +1,46 @@
-_L='osEthOamMdMandatoryGroup'
-_K='osEthOamMdAdminStatus'
-_J='osEthOamMdCPorts'
-_I='osEthOamMdName'
-_H='osEthOamMdFormat'
-_G='osEthOamMdSupport'
-_F='osEthOamMdLevel'
-_E='OctetString'
-_D='read-create'
-_C='Integer32'
-_B='OS-ETHOAM-MD-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-EntryValidator,PortList,oaOptiSwitch=mibBuilder.importSymbols('OS-COMMON-TC-MIB','EntryValidator','PortList','oaOptiSwitch')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-osEthOamMd=ModuleIdentity((1,3,6,1,4,1,6926,2,13))
-if mibBuilder.loadTexts:osEthOamMd.setRevisions(('2010-08-01 00:00',))
-_OsEthOamMdCapabilities_ObjectIdentity=ObjectIdentity
-osEthOamMdCapabilities=_OsEthOamMdCapabilities_ObjectIdentity((1,3,6,1,4,1,6926,2,13,1))
-class _OsEthOamMdSupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('notSupported',1),('supported',2)))
-_OsEthOamMdSupport_Type.__name__=_C
-_OsEthOamMdSupport_Object=MibScalar
-osEthOamMdSupport=_OsEthOamMdSupport_Object((1,3,6,1,4,1,6926,2,13,1,1),_OsEthOamMdSupport_Type())
-osEthOamMdSupport.setMaxAccess('read-only')
-if mibBuilder.loadTexts:osEthOamMdSupport.setStatus(_A)
-_OsEthOamMdTable_Object=MibTable
-osEthOamMdTable=_OsEthOamMdTable_Object((1,3,6,1,4,1,6926,2,13,2))
-if mibBuilder.loadTexts:osEthOamMdTable.setStatus(_A)
-_OsEthOamMdEntry_Object=MibTableRow
-osEthOamMdEntry=_OsEthOamMdEntry_Object((1,3,6,1,4,1,6926,2,13,2,1))
-osEthOamMdEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:osEthOamMdEntry.setStatus(_A)
-class _OsEthOamMdLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_OsEthOamMdLevel_Type.__name__=_C
-_OsEthOamMdLevel_Object=MibTableColumn
-osEthOamMdLevel=_OsEthOamMdLevel_Object((1,3,6,1,4,1,6926,2,13,2,1,1),_OsEthOamMdLevel_Type())
-osEthOamMdLevel.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:osEthOamMdLevel.setStatus(_A)
-class _OsEthOamMdFormat_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('none',1),('dnsLikeName',2),('macAddressAndUint',3),('charString',4)))
-_OsEthOamMdFormat_Type.__name__=_C
-_OsEthOamMdFormat_Object=MibTableColumn
-osEthOamMdFormat=_OsEthOamMdFormat_Object((1,3,6,1,4,1,6926,2,13,2,1,2),_OsEthOamMdFormat_Type())
-osEthOamMdFormat.setMaxAccess(_D)
-if mibBuilder.loadTexts:osEthOamMdFormat.setStatus(_A)
-class _OsEthOamMdName_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,43))
-_OsEthOamMdName_Type.__name__=_E
-_OsEthOamMdName_Object=MibTableColumn
-osEthOamMdName=_OsEthOamMdName_Object((1,3,6,1,4,1,6926,2,13,2,1,3),_OsEthOamMdName_Type())
-osEthOamMdName.setMaxAccess(_D)
-if mibBuilder.loadTexts:osEthOamMdName.setStatus(_A)
-_OsEthOamMdCPorts_Type=PortList
-_OsEthOamMdCPorts_Object=MibTableColumn
-osEthOamMdCPorts=_OsEthOamMdCPorts_Object((1,3,6,1,4,1,6926,2,13,2,1,4),_OsEthOamMdCPorts_Type())
-osEthOamMdCPorts.setMaxAccess('read-write')
-if mibBuilder.loadTexts:osEthOamMdCPorts.setStatus(_A)
-_OsEthOamMdAdminStatus_Type=EntryValidator
-_OsEthOamMdAdminStatus_Object=MibTableColumn
-osEthOamMdAdminStatus=_OsEthOamMdAdminStatus_Object((1,3,6,1,4,1,6926,2,13,2,1,90),_OsEthOamMdAdminStatus_Type())
-osEthOamMdAdminStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:osEthOamMdAdminStatus.setStatus(_A)
-_OsEthOamMdConformance_ObjectIdentity=ObjectIdentity
-osEthOamMdConformance=_OsEthOamMdConformance_ObjectIdentity((1,3,6,1,4,1,6926,2,13,100))
-_OsEthOamMdMIBCompliances_ObjectIdentity=ObjectIdentity
-osEthOamMdMIBCompliances=_OsEthOamMdMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6926,2,13,100,1))
-_OsEthOamMdMIBGroups_ObjectIdentity=ObjectIdentity
-osEthOamMdMIBGroups=_OsEthOamMdMIBGroups_ObjectIdentity((1,3,6,1,4,1,6926,2,13,100,2))
-osEthOamMdMandatoryGroup=ObjectGroup((1,3,6,1,4,1,6926,2,13,100,2,1))
-osEthOamMdMandatoryGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:osEthOamMdMandatoryGroup.setStatus(_A)
-osEthOamMdMIBCompliance=ModuleCompliance((1,3,6,1,4,1,6926,2,13,100,1,1))
-osEthOamMdMIBCompliance.setObjects((_B,_L))
-if mibBuilder.loadTexts:osEthOamMdMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'osEthOamMd':osEthOamMd,'osEthOamMdCapabilities':osEthOamMdCapabilities,_G:osEthOamMdSupport,'osEthOamMdTable':osEthOamMdTable,'osEthOamMdEntry':osEthOamMdEntry,_F:osEthOamMdLevel,_H:osEthOamMdFormat,_I:osEthOamMdName,_J:osEthOamMdCPorts,_K:osEthOamMdAdminStatus,'osEthOamMdConformance':osEthOamMdConformance,'osEthOamMdMIBCompliances':osEthOamMdMIBCompliances,'osEthOamMdMIBCompliance':osEthOamMdMIBCompliance,'osEthOamMdMIBGroups':osEthOamMdMIBGroups,_L:osEthOamMdMandatoryGroup})
+#
+# PySNMP MIB module OS-ETHOAM-MD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/OS-ETHOAM-MD-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:42 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+PortList, EntryValidator, oaOptiSwitch = mibBuilder.importSymbols("OS-COMMON-TC-MIB", "PortList", "EntryValidator", "oaOptiSwitch")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+osEthOamMd = ModuleIdentity((1, 3, 6, 1, 4, 1, 6926, 2, 13))
+osEthOamMd.setRevisions(('2010-08-01 00:00',))
+if mibBuilder.loadTexts: osEthOamMd.setLastUpdated('201008010000Z')
+if mibBuilder.loadTexts: osEthOamMd.setOrganization('MRV Communications, Inc.')
+osEthOamMdCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 2, 13, 1))
+osEthOamMdConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 2, 13, 100))
+osEthOamMdMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 2, 13, 100, 1))
+osEthOamMdMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 2, 13, 100, 2))
+osEthOamMdSupport = MibScalar((1, 3, 6, 1, 4, 1, 6926, 2, 13, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("notSupported", 1), ("supported", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: osEthOamMdSupport.setStatus('current')
+osEthOamMdTable = MibTable((1, 3, 6, 1, 4, 1, 6926, 2, 13, 2), )
+if mibBuilder.loadTexts: osEthOamMdTable.setStatus('current')
+osEthOamMdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6926, 2, 13, 2, 1), ).setIndexNames((0, "OS-ETHOAM-MD-MIB", "osEthOamMdLevel"))
+if mibBuilder.loadTexts: osEthOamMdEntry.setStatus('current')
+osEthOamMdLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 2, 13, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)))
+if mibBuilder.loadTexts: osEthOamMdLevel.setStatus('current')
+osEthOamMdFormat = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 2, 13, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("dnsLikeName", 2), ("macAddressAndUint", 3), ("charString", 4))).clone('none')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: osEthOamMdFormat.setStatus('current')
+osEthOamMdName = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 2, 13, 2, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 43))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: osEthOamMdName.setStatus('current')
+osEthOamMdCPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 2, 13, 2, 1, 4), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: osEthOamMdCPorts.setStatus('current')
+osEthOamMdAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 2, 13, 2, 1, 90), EntryValidator()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: osEthOamMdAdminStatus.setStatus('current')
+osEthOamMdMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6926, 2, 13, 100, 1, 1)).setObjects(("OS-ETHOAM-MD-MIB", "osEthOamMdMandatoryGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    osEthOamMdMIBCompliance = osEthOamMdMIBCompliance.setStatus('current')
+osEthOamMdMandatoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6926, 2, 13, 100, 2, 1)).setObjects(("OS-ETHOAM-MD-MIB", "osEthOamMdSupport"), ("OS-ETHOAM-MD-MIB", "osEthOamMdFormat"), ("OS-ETHOAM-MD-MIB", "osEthOamMdName"), ("OS-ETHOAM-MD-MIB", "osEthOamMdCPorts"), ("OS-ETHOAM-MD-MIB", "osEthOamMdAdminStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    osEthOamMdMandatoryGroup = osEthOamMdMandatoryGroup.setStatus('current')
+mibBuilder.exportSymbols("OS-ETHOAM-MD-MIB", osEthOamMdMIBCompliance=osEthOamMdMIBCompliance, osEthOamMdLevel=osEthOamMdLevel, osEthOamMdMIBGroups=osEthOamMdMIBGroups, PYSNMP_MODULE_ID=osEthOamMd, osEthOamMdMandatoryGroup=osEthOamMdMandatoryGroup, osEthOamMd=osEthOamMd, osEthOamMdEntry=osEthOamMdEntry, osEthOamMdCapabilities=osEthOamMdCapabilities, osEthOamMdTable=osEthOamMdTable, osEthOamMdName=osEthOamMdName, osEthOamMdMIBCompliances=osEthOamMdMIBCompliances, osEthOamMdCPorts=osEthOamMdCPorts, osEthOamMdFormat=osEthOamMdFormat, osEthOamMdAdminStatus=osEthOamMdAdminStatus, osEthOamMdSupport=osEthOamMdSupport, osEthOamMdConformance=osEthOamMdConformance)

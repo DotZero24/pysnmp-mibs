@@ -1,25 +1,26 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-casa,=mibBuilder.importSymbols('CASA-MIB','casa')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-casaIdMib=ModuleIdentity((1,3,6,1,4,1,20858,2))
-if mibBuilder.loadTexts:casaIdMib.setRevisions(('1900-04-07 00:00',))
-_Casa2100System_ObjectIdentity=ObjectIdentity
-casa2100System=_Casa2100System_ObjectIdentity((1,3,6,1,4,1,20858,2,1))
-_Casa2200System_ObjectIdentity=ObjectIdentity
-casa2200System=_Casa2200System_ObjectIdentity((1,3,6,1,4,1,20858,2,20))
-_Casa2300System_ObjectIdentity=ObjectIdentity
-casa2300System=_Casa2300System_ObjectIdentity((1,3,6,1,4,1,20858,2,30))
-_Casa2800System_ObjectIdentity=ObjectIdentity
-casa2800System=_Casa2800System_ObjectIdentity((1,3,6,1,4,1,20858,2,40))
-_Casa3000System_ObjectIdentity=ObjectIdentity
-casa3000System=_Casa3000System_ObjectIdentity((1,3,6,1,4,1,20858,2,50))
-_Casa6000System_ObjectIdentity=ObjectIdentity
-casa6000System=_Casa6000System_ObjectIdentity((1,3,6,1,4,1,20858,2,100))
-_Casa10000System_ObjectIdentity=ObjectIdentity
-casa10000System=_Casa10000System_ObjectIdentity((1,3,6,1,4,1,20858,2,200))
-mibBuilder.exportSymbols('CASA-ID-MIB',**{'casaIdMib':casaIdMib,'casa2100System':casa2100System,'casa2200System':casa2200System,'casa2300System':casa2300System,'casa2800System':casa2800System,'casa3000System':casa3000System,'casa6000System':casa6000System,'casa10000System':casa10000System})
+#
+# PySNMP MIB module CASA-ID-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/casa/CASA-ID-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+casa, = mibBuilder.importSymbols("CASA-MIB", "casa")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+casaIdMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 20858, 2))
+casaIdMib.setRevisions(('1900-04-07 00:00',))
+if mibBuilder.loadTexts: casaIdMib.setLastUpdated('200608150000Z')
+if mibBuilder.loadTexts: casaIdMib.setOrganization('CASA SYSTEMS INC')
+casa2100System = MibIdentifier((1, 3, 6, 1, 4, 1, 20858, 2, 1))
+casa2200System = MibIdentifier((1, 3, 6, 1, 4, 1, 20858, 2, 20))
+casa2300System = MibIdentifier((1, 3, 6, 1, 4, 1, 20858, 2, 30))
+casa2800System = MibIdentifier((1, 3, 6, 1, 4, 1, 20858, 2, 40))
+casa3000System = MibIdentifier((1, 3, 6, 1, 4, 1, 20858, 2, 50))
+casa6000System = MibIdentifier((1, 3, 6, 1, 4, 1, 20858, 2, 100))
+casa10000System = MibIdentifier((1, 3, 6, 1, 4, 1, 20858, 2, 200))
+mibBuilder.exportSymbols("CASA-ID-MIB", casa2100System=casa2100System, casa6000System=casa6000System, PYSNMP_MODULE_ID=casaIdMib, casaIdMib=casaIdMib, casa2300System=casa2300System, casa2800System=casa2800System, casa3000System=casa3000System, casa10000System=casa10000System, casa2200System=casa2200System)

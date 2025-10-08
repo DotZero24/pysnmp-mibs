@@ -1,118 +1,58 @@
-_B='mandatory'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-temporary,=mibBuilder.importSymbols('CISCO-SMI','temporary')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Tmpxns_ObjectIdentity=ObjectIdentity
-tmpxns=_Tmpxns_ObjectIdentity((1,3,6,1,4,1,9,3,2))
-_XnsInput_Type=Integer32
-_XnsInput_Object=MibScalar
-xnsInput=_XnsInput_Object((1,3,6,1,4,1,9,3,2,1),_XnsInput_Type())
-xnsInput.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsInput.setStatus(_B)
-_XnsLocal_Type=Integer32
-_XnsLocal_Object=MibScalar
-xnsLocal=_XnsLocal_Object((1,3,6,1,4,1,9,3,2,2),_XnsLocal_Type())
-xnsLocal.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsLocal.setStatus(_B)
-_XnsBcastin_Type=Integer32
-_XnsBcastin_Object=MibScalar
-xnsBcastin=_XnsBcastin_Object((1,3,6,1,4,1,9,3,2,3),_XnsBcastin_Type())
-xnsBcastin.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsBcastin.setStatus(_B)
-_XnsForward_Type=Integer32
-_XnsForward_Object=MibScalar
-xnsForward=_XnsForward_Object((1,3,6,1,4,1,9,3,2,4),_XnsForward_Type())
-xnsForward.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsForward.setStatus(_B)
-_XnsBcastout_Type=Integer32
-_XnsBcastout_Object=MibScalar
-xnsBcastout=_XnsBcastout_Object((1,3,6,1,4,1,9,3,2,5),_XnsBcastout_Type())
-xnsBcastout.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsBcastout.setStatus(_B)
-_XnsErrin_Type=Integer32
-_XnsErrin_Object=MibScalar
-xnsErrin=_XnsErrin_Object((1,3,6,1,4,1,9,3,2,6),_XnsErrin_Type())
-xnsErrin.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsErrin.setStatus(_B)
-_XnsErrout_Type=Integer32
-_XnsErrout_Object=MibScalar
-xnsErrout=_XnsErrout_Object((1,3,6,1,4,1,9,3,2,7),_XnsErrout_Type())
-xnsErrout.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsErrout.setStatus(_B)
-_XnsFormerr_Type=Integer32
-_XnsFormerr_Object=MibScalar
-xnsFormerr=_XnsFormerr_Object((1,3,6,1,4,1,9,3,2,8),_XnsFormerr_Type())
-xnsFormerr.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsFormerr.setStatus(_B)
-_XnsChksum_Type=Integer32
-_XnsChksum_Object=MibScalar
-xnsChksum=_XnsChksum_Object((1,3,6,1,4,1,9,3,2,9),_XnsChksum_Type())
-xnsChksum.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsChksum.setStatus(_B)
-_XnsNotgate_Type=Integer32
-_XnsNotgate_Object=MibScalar
-xnsNotgate=_XnsNotgate_Object((1,3,6,1,4,1,9,3,2,10),_XnsNotgate_Type())
-xnsNotgate.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsNotgate.setStatus(_B)
-_XnsHopcnt_Type=Integer32
-_XnsHopcnt_Object=MibScalar
-xnsHopcnt=_XnsHopcnt_Object((1,3,6,1,4,1,9,3,2,11),_XnsHopcnt_Type())
-xnsHopcnt.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsHopcnt.setStatus(_B)
-_XnsNoroute_Type=Integer32
-_XnsNoroute_Object=MibScalar
-xnsNoroute=_XnsNoroute_Object((1,3,6,1,4,1,9,3,2,12),_XnsNoroute_Type())
-xnsNoroute.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsNoroute.setStatus(_B)
-_XnsNoencap_Type=Integer32
-_XnsNoencap_Object=MibScalar
-xnsNoencap=_XnsNoencap_Object((1,3,6,1,4,1,9,3,2,13),_XnsNoencap_Type())
-xnsNoencap.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsNoencap.setStatus(_B)
-_XnsOutput_Type=Integer32
-_XnsOutput_Object=MibScalar
-xnsOutput=_XnsOutput_Object((1,3,6,1,4,1,9,3,2,14),_XnsOutput_Type())
-xnsOutput.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsOutput.setStatus(_B)
-_XnsInmult_Type=Integer32
-_XnsInmult_Object=MibScalar
-xnsInmult=_XnsInmult_Object((1,3,6,1,4,1,9,3,2,15),_XnsInmult_Type())
-xnsInmult.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsInmult.setStatus(_B)
-_XnsUnknown_Type=Integer32
-_XnsUnknown_Object=MibScalar
-xnsUnknown=_XnsUnknown_Object((1,3,6,1,4,1,9,3,2,16),_XnsUnknown_Type())
-xnsUnknown.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsUnknown.setStatus(_B)
-_XnsFwdbrd_Type=Integer32
-_XnsFwdbrd_Object=MibScalar
-xnsFwdbrd=_XnsFwdbrd_Object((1,3,6,1,4,1,9,3,2,17),_XnsFwdbrd_Type())
-xnsFwdbrd.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsFwdbrd.setStatus(_B)
-_XnsEchoreqin_Type=Integer32
-_XnsEchoreqin_Object=MibScalar
-xnsEchoreqin=_XnsEchoreqin_Object((1,3,6,1,4,1,9,3,2,18),_XnsEchoreqin_Type())
-xnsEchoreqin.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsEchoreqin.setStatus(_B)
-_XnsEchoreqout_Type=Integer32
-_XnsEchoreqout_Object=MibScalar
-xnsEchoreqout=_XnsEchoreqout_Object((1,3,6,1,4,1,9,3,2,19),_XnsEchoreqout_Type())
-xnsEchoreqout.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsEchoreqout.setStatus(_B)
-_XnsEchorepin_Type=Integer32
-_XnsEchorepin_Object=MibScalar
-xnsEchorepin=_XnsEchorepin_Object((1,3,6,1,4,1,9,3,2,20),_XnsEchorepin_Type())
-xnsEchorepin.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsEchorepin.setStatus(_B)
-_XnsEchorepout_Type=Integer32
-_XnsEchorepout_Object=MibScalar
-xnsEchorepout=_XnsEchorepout_Object((1,3,6,1,4,1,9,3,2,21),_XnsEchorepout_Type())
-xnsEchorepout.setMaxAccess(_A)
-if mibBuilder.loadTexts:xnsEchorepout.setStatus(_B)
-mibBuilder.exportSymbols('OLD-CISCO-XNS-MIB',**{'tmpxns':tmpxns,'xnsInput':xnsInput,'xnsLocal':xnsLocal,'xnsBcastin':xnsBcastin,'xnsForward':xnsForward,'xnsBcastout':xnsBcastout,'xnsErrin':xnsErrin,'xnsErrout':xnsErrout,'xnsFormerr':xnsFormerr,'xnsChksum':xnsChksum,'xnsNotgate':xnsNotgate,'xnsHopcnt':xnsHopcnt,'xnsNoroute':xnsNoroute,'xnsNoencap':xnsNoencap,'xnsOutput':xnsOutput,'xnsInmult':xnsInmult,'xnsUnknown':xnsUnknown,'xnsFwdbrd':xnsFwdbrd,'xnsEchoreqin':xnsEchoreqin,'xnsEchoreqout':xnsEchoreqout,'xnsEchorepin':xnsEchorepin,'xnsEchorepout':xnsEchorepout})
+#
+# PySNMP MIB module OLD-CISCO-XNS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/OLD-CISCO-XNS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+temporary, = mibBuilder.importSymbols("CISCO-SMI", "temporary")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tmpxns = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 3, 2))
+xnsInput = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsInput.setStatus('mandatory')
+xnsLocal = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsLocal.setStatus('mandatory')
+xnsBcastin = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsBcastin.setStatus('mandatory')
+xnsForward = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsForward.setStatus('mandatory')
+xnsBcastout = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsBcastout.setStatus('mandatory')
+xnsErrin = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsErrin.setStatus('mandatory')
+xnsErrout = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsErrout.setStatus('mandatory')
+xnsFormerr = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsFormerr.setStatus('mandatory')
+xnsChksum = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsChksum.setStatus('mandatory')
+xnsNotgate = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsNotgate.setStatus('mandatory')
+xnsHopcnt = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsHopcnt.setStatus('mandatory')
+xnsNoroute = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsNoroute.setStatus('mandatory')
+xnsNoencap = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsNoencap.setStatus('mandatory')
+xnsOutput = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsOutput.setStatus('mandatory')
+xnsInmult = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsInmult.setStatus('mandatory')
+xnsUnknown = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 16), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsUnknown.setStatus('mandatory')
+xnsFwdbrd = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsFwdbrd.setStatus('mandatory')
+xnsEchoreqin = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 18), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsEchoreqin.setStatus('mandatory')
+xnsEchoreqout = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 19), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsEchoreqout.setStatus('mandatory')
+xnsEchorepin = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 20), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsEchorepin.setStatus('mandatory')
+xnsEchorepout = MibScalar((1, 3, 6, 1, 4, 1, 9, 3, 2, 21), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: xnsEchorepout.setStatus('mandatory')
+mibBuilder.exportSymbols("OLD-CISCO-XNS-MIB", xnsEchorepin=xnsEchorepin, xnsEchorepout=xnsEchorepout, xnsNoencap=xnsNoencap, xnsInmult=xnsInmult, xnsBcastin=xnsBcastin, xnsNoroute=xnsNoroute, xnsEchoreqout=xnsEchoreqout, tmpxns=tmpxns, xnsForward=xnsForward, xnsEchoreqin=xnsEchoreqin, xnsBcastout=xnsBcastout, xnsErrout=xnsErrout, xnsLocal=xnsLocal, xnsFwdbrd=xnsFwdbrd, xnsFormerr=xnsFormerr, xnsNotgate=xnsNotgate, xnsInput=xnsInput, xnsChksum=xnsChksum, xnsHopcnt=xnsHopcnt, xnsUnknown=xnsUnknown, xnsErrin=xnsErrin, xnsOutput=xnsOutput)

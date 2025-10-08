@@ -1,254 +1,109 @@
-_k='qtechWlogNotifyStaOperReason'
-_j='qtechWlogNotifyStaAbnormalOperType'
-_i='qtechWlogNotifyStaOperType'
-_h='qtechWlogNotifySsid'
-_g='qtechWlogNotifyStaLinkrate'
-_f='qtechWlogNotifyStaRssi'
-_e='qtechWlogNotifyApRadioD1xStaNum'
-_d='qtechWlogNotifyApRadioWebStaNum'
-_c='qtechWlogNotifyApRadioTotalStaNum'
-_b='qtechWlogNotifyApRadioRetrsmit'
-_a='qtechWlogNotifyApRadioErrFrame'
-_Z='qtechWlogNotifyApRadioRssi'
-_Y='qtechWlogNotifyApRadioPower'
-_X='qtechWlogNotifyApRadioWorkChnl'
-_W='qtechWlogNotifyApIntfErrorOutputPkts'
-_V='qtechWlogNotifyApIntfErrorInputPkts'
-_U='qtechWlogNotifyApIntfBroadcastOutputPkts'
-_T='qtechWlogNotifyApIntfBroadcastInputPkts'
-_S='qtechWlogNotifyApIntfMulticastOutputPkts'
-_R='qtechWlogNotifyApIntfMulticastInputPkts'
-_Q='qtechWlogNotifyApIntfUnicastOutputPkts'
-_P='qtechWlogNotifyApIntfUnicastInputPkts'
-_O='qtechWlogNotifyApIntfOutputRate'
-_N='qtechWlogNotifyApIntfInputRate'
-_M='qtechWlogNotifyApCwDownReason'
-_L='qtechWlogNotifyStaIpv6'
-_K='qtechWlogNotifyStaIp'
-_J='qtechWlogNotifyStaMac'
-_I='qtechWlogNotifyApRadioId'
-_H='qtechWlogNotifyApIntfName'
-_G='qtechWlogNotifyApCwDownId'
-_F='qtechWlogNotifyApIp'
-_E='qtechWlogNotifyApMac'
-_D='qtechWlogNotifyApName'
-_C='accessible-for-notify'
-_B='current'
-_A='QTECH-WLAN-WLOG-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-qtechMgmt,=mibBuilder.importSymbols('QTECH-SMI','qtechMgmt')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-qtechWlanWlogMIB=ModuleIdentity((1,3,6,1,4,1,27514,1,1,10,2,118))
-if mibBuilder.loadTexts:qtechWlanWlogMIB.setRevisions(('2012-10-10 00:00',))
-_QtechWlanWlogNotificationsMIBObjects_ObjectIdentity=ObjectIdentity
-qtechWlanWlogNotificationsMIBObjects=_QtechWlanWlogNotificationsMIBObjects_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,118,1))
-_QtechWlanWlogNtfObjects_ObjectIdentity=ObjectIdentity
-qtechWlanWlogNtfObjects=_QtechWlanWlogNtfObjects_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,118,1,1))
-_QtechWlogNotifyApName_Type=DisplayString
-_QtechWlogNotifyApName_Object=MibScalar
-qtechWlogNotifyApName=_QtechWlogNotifyApName_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,1),_QtechWlogNotifyApName_Type())
-qtechWlogNotifyApName.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApName.setStatus(_B)
-_QtechWlogNotifyApMac_Type=MacAddress
-_QtechWlogNotifyApMac_Object=MibScalar
-qtechWlogNotifyApMac=_QtechWlogNotifyApMac_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,2),_QtechWlogNotifyApMac_Type())
-qtechWlogNotifyApMac.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApMac.setStatus(_B)
-_QtechWlogNotifyApIp_Type=InetAddress
-_QtechWlogNotifyApIp_Object=MibScalar
-qtechWlogNotifyApIp=_QtechWlogNotifyApIp_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,3),_QtechWlogNotifyApIp_Type())
-qtechWlogNotifyApIp.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApIp.setStatus(_B)
-_QtechWlogNotifyApCwDownId_Type=Integer32
-_QtechWlogNotifyApCwDownId_Object=MibScalar
-qtechWlogNotifyApCwDownId=_QtechWlogNotifyApCwDownId_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,4),_QtechWlogNotifyApCwDownId_Type())
-qtechWlogNotifyApCwDownId.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApCwDownId.setStatus(_B)
-_QtechWlogNotifyApCwDownReason_Type=DisplayString
-_QtechWlogNotifyApCwDownReason_Object=MibScalar
-qtechWlogNotifyApCwDownReason=_QtechWlogNotifyApCwDownReason_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,5),_QtechWlogNotifyApCwDownReason_Type())
-qtechWlogNotifyApCwDownReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApCwDownReason.setStatus(_B)
-_QtechWlogNotifyApIntfStatTable_Object=MibTable
-qtechWlogNotifyApIntfStatTable=_QtechWlogNotifyApIntfStatTable_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,6))
-if mibBuilder.loadTexts:qtechWlogNotifyApIntfStatTable.setStatus(_B)
-_QtechWlogNotifyApIntfStatEntry_Object=MibTableRow
-qtechWlogNotifyApIntfStatEntry=_QtechWlogNotifyApIntfStatEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,6,1))
-qtechWlogNotifyApIntfStatEntry.setIndexNames((0,_A,_H))
-if mibBuilder.loadTexts:qtechWlogNotifyApIntfStatEntry.setStatus(_B)
-_QtechWlogNotifyApIntfName_Type=DisplayString
-_QtechWlogNotifyApIntfName_Object=MibTableColumn
-qtechWlogNotifyApIntfName=_QtechWlogNotifyApIntfName_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,6,1,1),_QtechWlogNotifyApIntfName_Type())
-qtechWlogNotifyApIntfName.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApIntfName.setStatus(_B)
-_QtechWlogNotifyApIntfInputRate_Type=Integer32
-_QtechWlogNotifyApIntfInputRate_Object=MibTableColumn
-qtechWlogNotifyApIntfInputRate=_QtechWlogNotifyApIntfInputRate_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,6,1,2),_QtechWlogNotifyApIntfInputRate_Type())
-qtechWlogNotifyApIntfInputRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApIntfInputRate.setStatus(_B)
-_QtechWlogNotifyApIntfOutputRate_Type=Integer32
-_QtechWlogNotifyApIntfOutputRate_Object=MibTableColumn
-qtechWlogNotifyApIntfOutputRate=_QtechWlogNotifyApIntfOutputRate_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,6,1,3),_QtechWlogNotifyApIntfOutputRate_Type())
-qtechWlogNotifyApIntfOutputRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApIntfOutputRate.setStatus(_B)
-_QtechWlogNotifyApIntfUnicastInputPkts_Type=Integer32
-_QtechWlogNotifyApIntfUnicastInputPkts_Object=MibTableColumn
-qtechWlogNotifyApIntfUnicastInputPkts=_QtechWlogNotifyApIntfUnicastInputPkts_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,6,1,4),_QtechWlogNotifyApIntfUnicastInputPkts_Type())
-qtechWlogNotifyApIntfUnicastInputPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApIntfUnicastInputPkts.setStatus(_B)
-_QtechWlogNotifyApIntfUnicastOutputPkts_Type=Integer32
-_QtechWlogNotifyApIntfUnicastOutputPkts_Object=MibTableColumn
-qtechWlogNotifyApIntfUnicastOutputPkts=_QtechWlogNotifyApIntfUnicastOutputPkts_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,6,1,5),_QtechWlogNotifyApIntfUnicastOutputPkts_Type())
-qtechWlogNotifyApIntfUnicastOutputPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApIntfUnicastOutputPkts.setStatus(_B)
-_QtechWlogNotifyApIntfMulticastInputPkts_Type=Integer32
-_QtechWlogNotifyApIntfMulticastInputPkts_Object=MibTableColumn
-qtechWlogNotifyApIntfMulticastInputPkts=_QtechWlogNotifyApIntfMulticastInputPkts_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,6,1,6),_QtechWlogNotifyApIntfMulticastInputPkts_Type())
-qtechWlogNotifyApIntfMulticastInputPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApIntfMulticastInputPkts.setStatus(_B)
-_QtechWlogNotifyApIntfMulticastOutputPkts_Type=Integer32
-_QtechWlogNotifyApIntfMulticastOutputPkts_Object=MibTableColumn
-qtechWlogNotifyApIntfMulticastOutputPkts=_QtechWlogNotifyApIntfMulticastOutputPkts_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,6,1,7),_QtechWlogNotifyApIntfMulticastOutputPkts_Type())
-qtechWlogNotifyApIntfMulticastOutputPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApIntfMulticastOutputPkts.setStatus(_B)
-_QtechWlogNotifyApIntfBroadcastInputPkts_Type=Integer32
-_QtechWlogNotifyApIntfBroadcastInputPkts_Object=MibTableColumn
-qtechWlogNotifyApIntfBroadcastInputPkts=_QtechWlogNotifyApIntfBroadcastInputPkts_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,6,1,8),_QtechWlogNotifyApIntfBroadcastInputPkts_Type())
-qtechWlogNotifyApIntfBroadcastInputPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApIntfBroadcastInputPkts.setStatus(_B)
-_QtechWlogNotifyApIntfBroadcastOutputPkts_Type=Integer32
-_QtechWlogNotifyApIntfBroadcastOutputPkts_Object=MibTableColumn
-qtechWlogNotifyApIntfBroadcastOutputPkts=_QtechWlogNotifyApIntfBroadcastOutputPkts_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,6,1,9),_QtechWlogNotifyApIntfBroadcastOutputPkts_Type())
-qtechWlogNotifyApIntfBroadcastOutputPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApIntfBroadcastOutputPkts.setStatus(_B)
-_QtechWlogNotifyApIntfErrorInputPkts_Type=Integer32
-_QtechWlogNotifyApIntfErrorInputPkts_Object=MibTableColumn
-qtechWlogNotifyApIntfErrorInputPkts=_QtechWlogNotifyApIntfErrorInputPkts_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,6,1,10),_QtechWlogNotifyApIntfErrorInputPkts_Type())
-qtechWlogNotifyApIntfErrorInputPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApIntfErrorInputPkts.setStatus(_B)
-_QtechWlogNotifyApIntfErrorOutputPkts_Type=Integer32
-_QtechWlogNotifyApIntfErrorOutputPkts_Object=MibTableColumn
-qtechWlogNotifyApIntfErrorOutputPkts=_QtechWlogNotifyApIntfErrorOutputPkts_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,6,1,11),_QtechWlogNotifyApIntfErrorOutputPkts_Type())
-qtechWlogNotifyApIntfErrorOutputPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApIntfErrorOutputPkts.setStatus(_B)
-_QtechWlogNotifyApRadioStatTable_Object=MibTable
-qtechWlogNotifyApRadioStatTable=_QtechWlogNotifyApRadioStatTable_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,7))
-if mibBuilder.loadTexts:qtechWlogNotifyApRadioStatTable.setStatus(_B)
-_QtechWlogNotifyApRadioStatEntry_Object=MibTableRow
-qtechWlogNotifyApRadioStatEntry=_QtechWlogNotifyApRadioStatEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,7,1))
-qtechWlogNotifyApRadioStatEntry.setIndexNames((0,_A,_I))
-if mibBuilder.loadTexts:qtechWlogNotifyApRadioStatEntry.setStatus(_B)
-_QtechWlogNotifyApRadioId_Type=Integer32
-_QtechWlogNotifyApRadioId_Object=MibTableColumn
-qtechWlogNotifyApRadioId=_QtechWlogNotifyApRadioId_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,7,1,1),_QtechWlogNotifyApRadioId_Type())
-qtechWlogNotifyApRadioId.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApRadioId.setStatus(_B)
-_QtechWlogNotifyApRadioWorkChnl_Type=Integer32
-_QtechWlogNotifyApRadioWorkChnl_Object=MibTableColumn
-qtechWlogNotifyApRadioWorkChnl=_QtechWlogNotifyApRadioWorkChnl_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,7,1,2),_QtechWlogNotifyApRadioWorkChnl_Type())
-qtechWlogNotifyApRadioWorkChnl.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApRadioWorkChnl.setStatus(_B)
-_QtechWlogNotifyApRadioPower_Type=Integer32
-_QtechWlogNotifyApRadioPower_Object=MibTableColumn
-qtechWlogNotifyApRadioPower=_QtechWlogNotifyApRadioPower_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,7,1,3),_QtechWlogNotifyApRadioPower_Type())
-qtechWlogNotifyApRadioPower.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApRadioPower.setStatus(_B)
-_QtechWlogNotifyApRadioRssi_Type=Integer32
-_QtechWlogNotifyApRadioRssi_Object=MibTableColumn
-qtechWlogNotifyApRadioRssi=_QtechWlogNotifyApRadioRssi_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,7,1,4),_QtechWlogNotifyApRadioRssi_Type())
-qtechWlogNotifyApRadioRssi.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApRadioRssi.setStatus(_B)
-_QtechWlogNotifyApRadioErrFrame_Type=Integer32
-_QtechWlogNotifyApRadioErrFrame_Object=MibTableColumn
-qtechWlogNotifyApRadioErrFrame=_QtechWlogNotifyApRadioErrFrame_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,7,1,5),_QtechWlogNotifyApRadioErrFrame_Type())
-qtechWlogNotifyApRadioErrFrame.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApRadioErrFrame.setStatus(_B)
-_QtechWlogNotifyApRadioRetrsmit_Type=Integer32
-_QtechWlogNotifyApRadioRetrsmit_Object=MibTableColumn
-qtechWlogNotifyApRadioRetrsmit=_QtechWlogNotifyApRadioRetrsmit_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,7,1,6),_QtechWlogNotifyApRadioRetrsmit_Type())
-qtechWlogNotifyApRadioRetrsmit.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApRadioRetrsmit.setStatus(_B)
-_QtechWlogNotifyApRadioTotalStaNum_Type=Integer32
-_QtechWlogNotifyApRadioTotalStaNum_Object=MibTableColumn
-qtechWlogNotifyApRadioTotalStaNum=_QtechWlogNotifyApRadioTotalStaNum_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,7,1,7),_QtechWlogNotifyApRadioTotalStaNum_Type())
-qtechWlogNotifyApRadioTotalStaNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApRadioTotalStaNum.setStatus(_B)
-_QtechWlogNotifyApRadioWebStaNum_Type=Integer32
-_QtechWlogNotifyApRadioWebStaNum_Object=MibTableColumn
-qtechWlogNotifyApRadioWebStaNum=_QtechWlogNotifyApRadioWebStaNum_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,7,1,8),_QtechWlogNotifyApRadioWebStaNum_Type())
-qtechWlogNotifyApRadioWebStaNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApRadioWebStaNum.setStatus(_B)
-_QtechWlogNotifyApRadioD1xStaNum_Type=Integer32
-_QtechWlogNotifyApRadioD1xStaNum_Object=MibTableColumn
-qtechWlogNotifyApRadioD1xStaNum=_QtechWlogNotifyApRadioD1xStaNum_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,7,1,9),_QtechWlogNotifyApRadioD1xStaNum_Type())
-qtechWlogNotifyApRadioD1xStaNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyApRadioD1xStaNum.setStatus(_B)
-_QtechWlogNotifyStaMac_Type=MacAddress
-_QtechWlogNotifyStaMac_Object=MibScalar
-qtechWlogNotifyStaMac=_QtechWlogNotifyStaMac_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,8),_QtechWlogNotifyStaMac_Type())
-qtechWlogNotifyStaMac.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyStaMac.setStatus(_B)
-_QtechWlogNotifyStaIp_Type=IpAddress
-_QtechWlogNotifyStaIp_Object=MibScalar
-qtechWlogNotifyStaIp=_QtechWlogNotifyStaIp_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,9),_QtechWlogNotifyStaIp_Type())
-qtechWlogNotifyStaIp.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyStaIp.setStatus(_B)
-_QtechWlogNotifyStaIpv6_Type=InetAddress
-_QtechWlogNotifyStaIpv6_Object=MibScalar
-qtechWlogNotifyStaIpv6=_QtechWlogNotifyStaIpv6_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,10),_QtechWlogNotifyStaIpv6_Type())
-qtechWlogNotifyStaIpv6.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyStaIpv6.setStatus(_B)
-_QtechWlogNotifySsid_Type=DisplayString
-_QtechWlogNotifySsid_Object=MibScalar
-qtechWlogNotifySsid=_QtechWlogNotifySsid_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,11),_QtechWlogNotifySsid_Type())
-qtechWlogNotifySsid.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifySsid.setStatus(_B)
-_QtechWlogNotifyStaRssi_Type=Integer32
-_QtechWlogNotifyStaRssi_Object=MibScalar
-qtechWlogNotifyStaRssi=_QtechWlogNotifyStaRssi_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,12),_QtechWlogNotifyStaRssi_Type())
-qtechWlogNotifyStaRssi.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyStaRssi.setStatus(_B)
-_QtechWlogNotifyStaLinkrate_Type=Integer32
-_QtechWlogNotifyStaLinkrate_Object=MibScalar
-qtechWlogNotifyStaLinkrate=_QtechWlogNotifyStaLinkrate_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,13),_QtechWlogNotifyStaLinkrate_Type())
-qtechWlogNotifyStaLinkrate.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyStaLinkrate.setStatus(_B)
-_QtechWlogNotifyStaOperType_Type=Integer32
-_QtechWlogNotifyStaOperType_Object=MibScalar
-qtechWlogNotifyStaOperType=_QtechWlogNotifyStaOperType_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,14),_QtechWlogNotifyStaOperType_Type())
-qtechWlogNotifyStaOperType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyStaOperType.setStatus(_B)
-_QtechWlogNotifyStaAbnormalOperType_Type=Integer32
-_QtechWlogNotifyStaAbnormalOperType_Object=MibScalar
-qtechWlogNotifyStaAbnormalOperType=_QtechWlogNotifyStaAbnormalOperType_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,15),_QtechWlogNotifyStaAbnormalOperType_Type())
-qtechWlogNotifyStaAbnormalOperType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyStaAbnormalOperType.setStatus(_B)
-_QtechWlogNotifyStaOperReason_Type=DisplayString
-_QtechWlogNotifyStaOperReason_Object=MibScalar
-qtechWlogNotifyStaOperReason=_QtechWlogNotifyStaOperReason_Object((1,3,6,1,4,1,27514,1,1,10,2,118,1,1,16),_QtechWlogNotifyStaOperReason_Type())
-qtechWlogNotifyStaOperReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtechWlogNotifyStaOperReason.setStatus(_B)
-_QtechWlanWlogNotifications_ObjectIdentity=ObjectIdentity
-qtechWlanWlogNotifications=_QtechWlanWlogNotifications_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,118,1,2))
-qtechNotifyApCapwapDownReason=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,118,1,2,1))
-qtechNotifyApCapwapDownReason.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_M)))
-if mibBuilder.loadTexts:qtechNotifyApCapwapDownReason.setStatus(_B)
-qtechNotifyApCapwapDownIntf=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,118,1,2,2))
-qtechNotifyApCapwapDownIntf.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W)))
-if mibBuilder.loadTexts:qtechNotifyApCapwapDownIntf.setStatus(_B)
-qtechNotifyApCapwapDownRadio=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,118,1,2,3))
-qtechNotifyApCapwapDownRadio.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_I),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e)))
-if mibBuilder.loadTexts:qtechNotifyApCapwapDownRadio.setStatus(_B)
-qtechNotifyStaOper=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,118,1,2,4))
-qtechNotifyStaOper.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_f),(_A,_g),(_A,_D),(_A,_h),(_A,_i)))
-if mibBuilder.loadTexts:qtechNotifyStaOper.setStatus(_B)
-qtechNotifyStaAbnormalOper=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,118,1,2,5))
-qtechNotifyStaAbnormalOper.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_j),(_A,_k)))
-if mibBuilder.loadTexts:qtechNotifyStaAbnormalOper.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'qtechWlanWlogMIB':qtechWlanWlogMIB,'qtechWlanWlogNotificationsMIBObjects':qtechWlanWlogNotificationsMIBObjects,'qtechWlanWlogNtfObjects':qtechWlanWlogNtfObjects,_D:qtechWlogNotifyApName,_E:qtechWlogNotifyApMac,_F:qtechWlogNotifyApIp,_G:qtechWlogNotifyApCwDownId,_M:qtechWlogNotifyApCwDownReason,'qtechWlogNotifyApIntfStatTable':qtechWlogNotifyApIntfStatTable,'qtechWlogNotifyApIntfStatEntry':qtechWlogNotifyApIntfStatEntry,_H:qtechWlogNotifyApIntfName,_N:qtechWlogNotifyApIntfInputRate,_O:qtechWlogNotifyApIntfOutputRate,_P:qtechWlogNotifyApIntfUnicastInputPkts,_Q:qtechWlogNotifyApIntfUnicastOutputPkts,_R:qtechWlogNotifyApIntfMulticastInputPkts,_S:qtechWlogNotifyApIntfMulticastOutputPkts,_T:qtechWlogNotifyApIntfBroadcastInputPkts,_U:qtechWlogNotifyApIntfBroadcastOutputPkts,_V:qtechWlogNotifyApIntfErrorInputPkts,_W:qtechWlogNotifyApIntfErrorOutputPkts,'qtechWlogNotifyApRadioStatTable':qtechWlogNotifyApRadioStatTable,'qtechWlogNotifyApRadioStatEntry':qtechWlogNotifyApRadioStatEntry,_I:qtechWlogNotifyApRadioId,_X:qtechWlogNotifyApRadioWorkChnl,_Y:qtechWlogNotifyApRadioPower,_Z:qtechWlogNotifyApRadioRssi,_a:qtechWlogNotifyApRadioErrFrame,_b:qtechWlogNotifyApRadioRetrsmit,_c:qtechWlogNotifyApRadioTotalStaNum,_d:qtechWlogNotifyApRadioWebStaNum,_e:qtechWlogNotifyApRadioD1xStaNum,_J:qtechWlogNotifyStaMac,_K:qtechWlogNotifyStaIp,_L:qtechWlogNotifyStaIpv6,_h:qtechWlogNotifySsid,_f:qtechWlogNotifyStaRssi,_g:qtechWlogNotifyStaLinkrate,_i:qtechWlogNotifyStaOperType,_j:qtechWlogNotifyStaAbnormalOperType,_k:qtechWlogNotifyStaOperReason,'qtechWlanWlogNotifications':qtechWlanWlogNotifications,'qtechNotifyApCapwapDownReason':qtechNotifyApCapwapDownReason,'qtechNotifyApCapwapDownIntf':qtechNotifyApCapwapDownIntf,'qtechNotifyApCapwapDownRadio':qtechNotifyApCapwapDownRadio,'qtechNotifyStaOper':qtechNotifyStaOper,'qtechNotifyStaAbnormalOper':qtechNotifyStaAbnormalOper})
+#
+# PySNMP MIB module QTECH-WLAN-WLOG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-WLAN-WLOG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:34 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+qtechWlanWlogMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118))
+qtechWlanWlogMIB.setRevisions(('2012-10-10 00:00',))
+if mibBuilder.loadTexts: qtechWlanWlogMIB.setLastUpdated('201210100000Z')
+if mibBuilder.loadTexts: qtechWlanWlogMIB.setOrganization('Qtech Networks Co.,Ltd.')
+qtechWlanWlogNotificationsMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1))
+qtechWlanWlogNtfObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1))
+qtechWlanWlogNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 2))
+qtechWlogNotifyApName = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 1), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApName.setStatus('current')
+qtechWlogNotifyApMac = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 2), MacAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApMac.setStatus('current')
+qtechWlogNotifyApIp = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 3), InetAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApIp.setStatus('current')
+qtechWlogNotifyApCwDownId = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 4), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApCwDownId.setStatus('current')
+qtechWlogNotifyApCwDownReason = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 5), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApCwDownReason.setStatus('current')
+qtechWlogNotifyApIntfStatTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 6), ).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApIntfStatTable.setStatus('current')
+qtechWlogNotifyApIntfStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 6, 1), ).setMaxAccess("accessiblefornotify").setIndexNames((0, "QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApIntfName"))
+if mibBuilder.loadTexts: qtechWlogNotifyApIntfStatEntry.setStatus('current')
+qtechWlogNotifyApIntfName = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 6, 1, 1), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApIntfName.setStatus('current')
+qtechWlogNotifyApIntfInputRate = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 6, 1, 2), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApIntfInputRate.setStatus('current')
+qtechWlogNotifyApIntfOutputRate = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 6, 1, 3), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApIntfOutputRate.setStatus('current')
+qtechWlogNotifyApIntfUnicastInputPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 6, 1, 4), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApIntfUnicastInputPkts.setStatus('current')
+qtechWlogNotifyApIntfUnicastOutputPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 6, 1, 5), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApIntfUnicastOutputPkts.setStatus('current')
+qtechWlogNotifyApIntfMulticastInputPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 6, 1, 6), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApIntfMulticastInputPkts.setStatus('current')
+qtechWlogNotifyApIntfMulticastOutputPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 6, 1, 7), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApIntfMulticastOutputPkts.setStatus('current')
+qtechWlogNotifyApIntfBroadcastInputPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 6, 1, 8), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApIntfBroadcastInputPkts.setStatus('current')
+qtechWlogNotifyApIntfBroadcastOutputPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 6, 1, 9), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApIntfBroadcastOutputPkts.setStatus('current')
+qtechWlogNotifyApIntfErrorInputPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 6, 1, 10), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApIntfErrorInputPkts.setStatus('current')
+qtechWlogNotifyApIntfErrorOutputPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 6, 1, 11), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApIntfErrorOutputPkts.setStatus('current')
+qtechWlogNotifyApRadioStatTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 7), ).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApRadioStatTable.setStatus('current')
+qtechWlogNotifyApRadioStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 7, 1), ).setMaxAccess("accessiblefornotify").setIndexNames((0, "QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApRadioId"))
+if mibBuilder.loadTexts: qtechWlogNotifyApRadioStatEntry.setStatus('current')
+qtechWlogNotifyApRadioId = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 7, 1, 1), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApRadioId.setStatus('current')
+qtechWlogNotifyApRadioWorkChnl = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 7, 1, 2), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApRadioWorkChnl.setStatus('current')
+qtechWlogNotifyApRadioPower = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 7, 1, 3), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApRadioPower.setStatus('current')
+qtechWlogNotifyApRadioRssi = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 7, 1, 4), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApRadioRssi.setStatus('current')
+qtechWlogNotifyApRadioErrFrame = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 7, 1, 5), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApRadioErrFrame.setStatus('current')
+qtechWlogNotifyApRadioRetrsmit = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 7, 1, 6), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApRadioRetrsmit.setStatus('current')
+qtechWlogNotifyApRadioTotalStaNum = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 7, 1, 7), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApRadioTotalStaNum.setStatus('current')
+qtechWlogNotifyApRadioWebStaNum = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 7, 1, 8), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApRadioWebStaNum.setStatus('current')
+qtechWlogNotifyApRadioD1xStaNum = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 7, 1, 9), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyApRadioD1xStaNum.setStatus('current')
+qtechWlogNotifyStaMac = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 8), MacAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyStaMac.setStatus('current')
+qtechWlogNotifyStaIp = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 9), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyStaIp.setStatus('current')
+qtechWlogNotifyStaIpv6 = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 10), InetAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyStaIpv6.setStatus('current')
+qtechWlogNotifySsid = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 11), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifySsid.setStatus('current')
+qtechWlogNotifyStaRssi = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 12), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyStaRssi.setStatus('current')
+qtechWlogNotifyStaLinkrate = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 13), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyStaLinkrate.setStatus('current')
+qtechWlogNotifyStaOperType = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 14), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyStaOperType.setStatus('current')
+qtechWlogNotifyStaAbnormalOperType = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 15), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyStaAbnormalOperType.setStatus('current')
+qtechWlogNotifyStaOperReason = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 1, 16), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: qtechWlogNotifyStaOperReason.setStatus('current')
+qtechNotifyApCapwapDownReason = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 2, 1)).setObjects(("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApName"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApMac"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApIp"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApCwDownId"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApCwDownReason"))
+if mibBuilder.loadTexts: qtechNotifyApCapwapDownReason.setStatus('current')
+qtechNotifyApCapwapDownIntf = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 2, 2)).setObjects(("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApName"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApMac"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApIp"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApCwDownId"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApIntfName"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApIntfInputRate"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApIntfOutputRate"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApIntfUnicastInputPkts"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApIntfUnicastOutputPkts"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApIntfMulticastInputPkts"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApIntfMulticastOutputPkts"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApIntfBroadcastInputPkts"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApIntfBroadcastOutputPkts"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApIntfErrorInputPkts"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApIntfErrorOutputPkts"))
+if mibBuilder.loadTexts: qtechNotifyApCapwapDownIntf.setStatus('current')
+qtechNotifyApCapwapDownRadio = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 2, 3)).setObjects(("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApName"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApMac"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApIp"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApCwDownId"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApRadioId"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApRadioWorkChnl"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApRadioPower"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApRadioRssi"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApRadioErrFrame"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApRadioRetrsmit"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApRadioTotalStaNum"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApRadioWebStaNum"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApRadioD1xStaNum"))
+if mibBuilder.loadTexts: qtechNotifyApCapwapDownRadio.setStatus('current')
+qtechNotifyStaOper = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 2, 4)).setObjects(("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyStaMac"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyStaIp"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyStaIpv6"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyStaRssi"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyStaLinkrate"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyApName"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifySsid"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyStaOperType"))
+if mibBuilder.loadTexts: qtechNotifyStaOper.setStatus('current')
+qtechNotifyStaAbnormalOper = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 118, 1, 2, 5)).setObjects(("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyStaMac"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyStaIp"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyStaIpv6"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyStaAbnormalOperType"), ("QTECH-WLAN-WLOG-MIB", "qtechWlogNotifyStaOperReason"))
+if mibBuilder.loadTexts: qtechNotifyStaAbnormalOper.setStatus('current')
+mibBuilder.exportSymbols("QTECH-WLAN-WLOG-MIB", qtechWlogNotifyApRadioTotalStaNum=qtechWlogNotifyApRadioTotalStaNum, qtechWlogNotifyApIntfBroadcastOutputPkts=qtechWlogNotifyApIntfBroadcastOutputPkts, qtechWlogNotifyStaMac=qtechWlogNotifyStaMac, qtechWlanWlogNotificationsMIBObjects=qtechWlanWlogNotificationsMIBObjects, qtechWlogNotifyApName=qtechWlogNotifyApName, qtechWlogNotifyStaIp=qtechWlogNotifyStaIp, qtechWlogNotifyStaAbnormalOperType=qtechWlogNotifyStaAbnormalOperType, qtechWlogNotifyApIntfStatEntry=qtechWlogNotifyApIntfStatEntry, qtechWlanWlogMIB=qtechWlanWlogMIB, qtechWlogNotifyStaOperReason=qtechWlogNotifyStaOperReason, qtechWlanWlogNotifications=qtechWlanWlogNotifications, qtechNotifyStaOper=qtechNotifyStaOper, qtechWlogNotifyApIntfInputRate=qtechWlogNotifyApIntfInputRate, qtechNotifyStaAbnormalOper=qtechNotifyStaAbnormalOper, qtechWlogNotifyApIntfErrorInputPkts=qtechWlogNotifyApIntfErrorInputPkts, qtechWlogNotifyApRadioErrFrame=qtechWlogNotifyApRadioErrFrame, qtechWlogNotifyApRadioRssi=qtechWlogNotifyApRadioRssi, qtechWlogNotifyApCwDownId=qtechWlogNotifyApCwDownId, qtechNotifyApCapwapDownReason=qtechNotifyApCapwapDownReason, qtechWlogNotifyStaLinkrate=qtechWlogNotifyStaLinkrate, qtechWlogNotifyStaOperType=qtechWlogNotifyStaOperType, qtechWlogNotifyApRadioWebStaNum=qtechWlogNotifyApRadioWebStaNum, qtechWlogNotifyApIntfErrorOutputPkts=qtechWlogNotifyApIntfErrorOutputPkts, qtechNotifyApCapwapDownIntf=qtechNotifyApCapwapDownIntf, qtechWlogNotifyApIntfBroadcastInputPkts=qtechWlogNotifyApIntfBroadcastInputPkts, qtechWlogNotifyStaIpv6=qtechWlogNotifyStaIpv6, qtechWlogNotifyStaRssi=qtechWlogNotifyStaRssi, qtechWlogNotifyApCwDownReason=qtechWlogNotifyApCwDownReason, qtechWlogNotifyApIntfMulticastInputPkts=qtechWlogNotifyApIntfMulticastInputPkts, qtechWlogNotifyApRadioWorkChnl=qtechWlogNotifyApRadioWorkChnl, qtechWlogNotifyApIntfMulticastOutputPkts=qtechWlogNotifyApIntfMulticastOutputPkts, qtechWlogNotifyApRadioPower=qtechWlogNotifyApRadioPower, qtechWlogNotifyApRadioId=qtechWlogNotifyApRadioId, qtechWlogNotifyApMac=qtechWlogNotifyApMac, qtechWlogNotifyApRadioD1xStaNum=qtechWlogNotifyApRadioD1xStaNum, qtechWlogNotifyApIntfName=qtechWlogNotifyApIntfName, qtechWlogNotifyApIntfUnicastOutputPkts=qtechWlogNotifyApIntfUnicastOutputPkts, PYSNMP_MODULE_ID=qtechWlanWlogMIB, qtechNotifyApCapwapDownRadio=qtechNotifyApCapwapDownRadio, qtechWlogNotifyApRadioRetrsmit=qtechWlogNotifyApRadioRetrsmit, qtechWlogNotifyApRadioStatTable=qtechWlogNotifyApRadioStatTable, qtechWlogNotifyApRadioStatEntry=qtechWlogNotifyApRadioStatEntry, qtechWlanWlogNtfObjects=qtechWlanWlogNtfObjects, qtechWlogNotifyApIp=qtechWlogNotifyApIp, qtechWlogNotifySsid=qtechWlogNotifySsid, qtechWlogNotifyApIntfUnicastInputPkts=qtechWlogNotifyApIntfUnicastInputPkts, qtechWlogNotifyApIntfStatTable=qtechWlogNotifyApIntfStatTable, qtechWlogNotifyApIntfOutputRate=qtechWlogNotifyApIntfOutputRate)

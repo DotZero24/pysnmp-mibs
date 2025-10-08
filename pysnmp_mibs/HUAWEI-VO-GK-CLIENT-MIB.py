@@ -1,106 +1,50 @@
-_G='obsolete'
-_F='disable'
-_E='enable'
-_D='OctetString'
-_C='Integer32'
-_B='current'
-_A='read-write'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-voice,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','voice')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hwVoiceGKClientMIB=ModuleIdentity((1,3,6,1,4,1,2011,5,25,1,8))
-if mibBuilder.loadTexts:hwVoiceGKClientMIB.setRevisions(('2004-04-08 13:45',))
-_HwVoGKClientObjects_ObjectIdentity=ObjectIdentity
-hwVoGKClientObjects=_HwVoGKClientObjects_ObjectIdentity((1,3,6,1,4,1,2011,5,25,1,8,1))
-class _HwVoRasOn_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_HwVoRasOn_Type.__name__=_C
-_HwVoRasOn_Object=MibScalar
-hwVoRasOn=_HwVoRasOn_Object((1,3,6,1,4,1,2011,5,25,1,8,1,1),_HwVoRasOn_Type())
-hwVoRasOn.setMaxAccess(_A)
-if mibBuilder.loadTexts:hwVoRasOn.setStatus(_B)
-_HwVoH323InterfaceIndex_Type=Integer32
-_HwVoH323InterfaceIndex_Object=MibScalar
-hwVoH323InterfaceIndex=_HwVoH323InterfaceIndex_Object((1,3,6,1,4,1,2011,5,25,1,8,1,2),_HwVoH323InterfaceIndex_Type())
-hwVoH323InterfaceIndex.setMaxAccess(_A)
-if mibBuilder.loadTexts:hwVoH323InterfaceIndex.setStatus(_G)
-_HwVoGwIPAddress_Type=IpAddress
-_HwVoGwIPAddress_Object=MibScalar
-hwVoGwIPAddress=_HwVoGwIPAddress_Object((1,3,6,1,4,1,2011,5,25,1,8,1,3),_HwVoGwIPAddress_Type())
-hwVoGwIPAddress.setMaxAccess(_A)
-if mibBuilder.loadTexts:hwVoGwIPAddress.setStatus(_B)
-class _HwVoH323GWID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_HwVoH323GWID_Type.__name__=_D
-_HwVoH323GWID_Object=MibScalar
-hwVoH323GWID=_HwVoH323GWID_Object((1,3,6,1,4,1,2011,5,25,1,8,1,4),_HwVoH323GWID_Type())
-hwVoH323GWID.setMaxAccess(_A)
-if mibBuilder.loadTexts:hwVoH323GWID.setStatus(_B)
-class _HwVoH323GWSupportMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('nonstandard-compatible',1),('huawei',2)))
-_HwVoH323GWSupportMode_Type.__name__=_C
-_HwVoH323GWSupportMode_Object=MibScalar
-hwVoH323GWSupportMode=_HwVoH323GWSupportMode_Object((1,3,6,1,4,1,2011,5,25,1,8,1,5),_HwVoH323GWSupportMode_Type())
-hwVoH323GWSupportMode.setMaxAccess(_A)
-if mibBuilder.loadTexts:hwVoH323GWSupportMode.setStatus(_G)
-class _HwVoH323GWAreaID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,960))
-_HwVoH323GWAreaID_Type.__name__=_D
-_HwVoH323GWAreaID_Object=MibScalar
-hwVoH323GWAreaID=_HwVoH323GWAreaID_Object((1,3,6,1,4,1,2011,5,25,1,8,1,6),_HwVoH323GWAreaID_Type())
-hwVoH323GWAreaID.setMaxAccess(_A)
-if mibBuilder.loadTexts:hwVoH323GWAreaID.setStatus(_B)
-class _HwVoH323GKID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_HwVoH323GKID_Type.__name__=_D
-_HwVoH323GKID_Object=MibScalar
-hwVoH323GKID=_HwVoH323GKID_Object((1,3,6,1,4,1,2011,5,25,1,8,1,7),_HwVoH323GKID_Type())
-hwVoH323GKID.setMaxAccess(_A)
-if mibBuilder.loadTexts:hwVoH323GKID.setStatus(_B)
-_HwVoH323GKIPAddress_Type=IpAddress
-_HwVoH323GKIPAddress_Object=MibScalar
-hwVoH323GKIPAddress=_HwVoH323GKIPAddress_Object((1,3,6,1,4,1,2011,5,25,1,8,1,8),_HwVoH323GKIPAddress_Type())
-hwVoH323GKIPAddress.setMaxAccess(_A)
-if mibBuilder.loadTexts:hwVoH323GKIPAddress.setStatus(_B)
-class _HwVoH323GKPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_HwVoH323GKPort_Type.__name__=_C
-_HwVoH323GKPort_Object=MibScalar
-hwVoH323GKPort=_HwVoH323GKPort_Object((1,3,6,1,4,1,2011,5,25,1,8,1,9),_HwVoH323GKPort_Type())
-hwVoH323GKPort.setMaxAccess(_A)
-if mibBuilder.loadTexts:hwVoH323GKPort.setStatus(_B)
-class _HwVoH323GK2ID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_HwVoH323GK2ID_Type.__name__=_D
-_HwVoH323GK2ID_Object=MibScalar
-hwVoH323GK2ID=_HwVoH323GK2ID_Object((1,3,6,1,4,1,2011,5,25,1,8,1,10),_HwVoH323GK2ID_Type())
-hwVoH323GK2ID.setMaxAccess(_A)
-if mibBuilder.loadTexts:hwVoH323GK2ID.setStatus(_B)
-_HwVoH323GK2IPAddress_Type=IpAddress
-_HwVoH323GK2IPAddress_Object=MibScalar
-hwVoH323GK2IPAddress=_HwVoH323GK2IPAddress_Object((1,3,6,1,4,1,2011,5,25,1,8,1,11),_HwVoH323GK2IPAddress_Type())
-hwVoH323GK2IPAddress.setMaxAccess(_A)
-if mibBuilder.loadTexts:hwVoH323GK2IPAddress.setStatus(_B)
-class _HwVoH323GK2Port_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_HwVoH323GK2Port_Type.__name__=_C
-_HwVoH323GK2Port_Object=MibScalar
-hwVoH323GK2Port=_HwVoH323GK2Port_Object((1,3,6,1,4,1,2011,5,25,1,8,1,12),_HwVoH323GK2Port_Type())
-hwVoH323GK2Port.setMaxAccess(_A)
-if mibBuilder.loadTexts:hwVoH323GK2Port.setStatus(_B)
-class _HwVoH323GKSecurityCall_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_HwVoH323GKSecurityCall_Type.__name__=_C
-_HwVoH323GKSecurityCall_Object=MibScalar
-hwVoH323GKSecurityCall=_HwVoH323GKSecurityCall_Object((1,3,6,1,4,1,2011,5,25,1,8,1,13),_HwVoH323GKSecurityCall_Type())
-hwVoH323GKSecurityCall.setMaxAccess(_A)
-if mibBuilder.loadTexts:hwVoH323GKSecurityCall.setStatus(_B)
-class _HwVoH323GKSecurityPWDType_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('cipher',1),('simple',2)))
-_HwVoH323GKSecurityPWDType_Type.__name__=_C
-_HwVoH323GKSecurityPWDType_Object=MibScalar
-hwVoH323GKSecurityPWDType=_HwVoH323GKSecurityPWDType_Object((1,3,6,1,4,1,2011,5,25,1,8,1,14),_HwVoH323GKSecurityPWDType_Type())
-hwVoH323GKSecurityPWDType.setMaxAccess(_A)
-if mibBuilder.loadTexts:hwVoH323GKSecurityPWDType.setStatus(_B)
-class _HwVoH323GKSecurityPWD_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,24))
-_HwVoH323GKSecurityPWD_Type.__name__=_D
-_HwVoH323GKSecurityPWD_Object=MibScalar
-hwVoH323GKSecurityPWD=_HwVoH323GKSecurityPWD_Object((1,3,6,1,4,1,2011,5,25,1,8,1,15),_HwVoH323GKSecurityPWD_Type())
-hwVoH323GKSecurityPWD.setMaxAccess(_A)
-if mibBuilder.loadTexts:hwVoH323GKSecurityPWD.setStatus(_B)
-mibBuilder.exportSymbols('HUAWEI-VO-GK-CLIENT-MIB',**{'hwVoiceGKClientMIB':hwVoiceGKClientMIB,'hwVoGKClientObjects':hwVoGKClientObjects,'hwVoRasOn':hwVoRasOn,'hwVoH323InterfaceIndex':hwVoH323InterfaceIndex,'hwVoGwIPAddress':hwVoGwIPAddress,'hwVoH323GWID':hwVoH323GWID,'hwVoH323GWSupportMode':hwVoH323GWSupportMode,'hwVoH323GWAreaID':hwVoH323GWAreaID,'hwVoH323GKID':hwVoH323GKID,'hwVoH323GKIPAddress':hwVoH323GKIPAddress,'hwVoH323GKPort':hwVoH323GKPort,'hwVoH323GK2ID':hwVoH323GK2ID,'hwVoH323GK2IPAddress':hwVoH323GK2IPAddress,'hwVoH323GK2Port':hwVoH323GK2Port,'hwVoH323GKSecurityCall':hwVoH323GKSecurityCall,'hwVoH323GKSecurityPWDType':hwVoH323GKSecurityPWDType,'hwVoH323GKSecurityPWD':hwVoH323GKSecurityPWD})
+#
+# PySNMP MIB module HUAWEI-VO-GK-CLIENT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/HUAWEI-VO-GK-CLIENT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+voice, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "voice")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hwVoiceGKClientMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8))
+hwVoiceGKClientMIB.setRevisions(('2004-04-08 13:45',))
+if mibBuilder.loadTexts: hwVoiceGKClientMIB.setLastUpdated('200410200000Z')
+if mibBuilder.loadTexts: hwVoiceGKClientMIB.setOrganization('Huawei-3COM Technologies Co., Ltd.')
+hwVoGKClientObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1))
+hwVoRasOn = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoRasOn.setStatus('current')
+hwVoH323InterfaceIndex = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoH323InterfaceIndex.setStatus('obsolete')
+hwVoGwIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoGwIPAddress.setStatus('current')
+hwVoH323GWID = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoH323GWID.setStatus('current')
+hwVoH323GWSupportMode = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("nonstandard-compatible", 1), ("huawei", 2))).clone('nonstandard-compatible')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoH323GWSupportMode.setStatus('obsolete')
+hwVoH323GWAreaID = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 960))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoH323GWAreaID.setStatus('current')
+hwVoH323GKID = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoH323GKID.setStatus('current')
+hwVoH323GKIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1, 8), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoH323GKIPAddress.setStatus('current')
+hwVoH323GKPort = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoH323GKPort.setStatus('current')
+hwVoH323GK2ID = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoH323GK2ID.setStatus('current')
+hwVoH323GK2IPAddress = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1, 11), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoH323GK2IPAddress.setStatus('current')
+hwVoH323GK2Port = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoH323GK2Port.setStatus('current')
+hwVoH323GKSecurityCall = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoH323GKSecurityCall.setStatus('current')
+hwVoH323GKSecurityPWDType = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("cipher", 1), ("simple", 2))).clone('simple')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoH323GKSecurityPWDType.setStatus('current')
+hwVoH323GKSecurityPWD = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 8, 1, 15), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 24))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoH323GKSecurityPWD.setStatus('current')
+mibBuilder.exportSymbols("HUAWEI-VO-GK-CLIENT-MIB", hwVoH323GWID=hwVoH323GWID, hwVoiceGKClientMIB=hwVoiceGKClientMIB, hwVoGKClientObjects=hwVoGKClientObjects, hwVoH323InterfaceIndex=hwVoH323InterfaceIndex, hwVoH323GKID=hwVoH323GKID, hwVoH323GKSecurityPWD=hwVoH323GKSecurityPWD, hwVoH323GK2ID=hwVoH323GK2ID, hwVoH323GK2Port=hwVoH323GK2Port, hwVoRasOn=hwVoRasOn, hwVoH323GKSecurityPWDType=hwVoH323GKSecurityPWDType, hwVoH323GK2IPAddress=hwVoH323GK2IPAddress, PYSNMP_MODULE_ID=hwVoiceGKClientMIB, hwVoH323GWSupportMode=hwVoH323GWSupportMode, hwVoH323GKPort=hwVoH323GKPort, hwVoH323GKSecurityCall=hwVoH323GKSecurityCall, hwVoGwIPAddress=hwVoGwIPAddress, hwVoH323GWAreaID=hwVoH323GWAreaID, hwVoH323GKIPAddress=hwVoH323GKIPAddress)

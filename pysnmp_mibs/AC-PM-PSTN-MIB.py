@@ -1,357 +1,142 @@
-_Q='acPMPSTNNumOfChannelsInMaintenanceInterval'
-_P='acPMPSTNNumOfChannelsInMaintenanceTrunkNum'
-_O='acPMPSTNNumOfChannelsOutOfServiceInterval'
-_N='acPMPSTNNumOfChannelsOutOfServiceTrunkNum'
-_M='acPMPSTNNumOfChannelsInServiceInterval'
-_L='acPMPSTNNumOfChannelsInServiceTrunkNum'
-_K='acPMPSTNTrunkActivitySecondsInterval'
-_J='acPMPSTNTrunkActivitySecondsTrunkNum'
-_I='acPMTrunkUtilizationInterval'
-_H='acPMTrunkUtilizationTrunkNum'
-_G='not-accessible'
-_F='read-write'
-_E='AC-PM-PSTN-MIB'
-_D='Integer32'
-_C='Unsigned32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-acBoardMibs,acGeneric,acPerformance,acProducts,acRegistrations,audioCodes=mibBuilder.importSymbols('AUDIOCODES-TYPES-MIB','acBoardMibs','acGeneric','acPerformance','acProducts','acRegistrations','audioCodes')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_C,'enterprises','iso')
-DateAndTime,DisplayString,PhysAddress,TAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TAddress','TextualConvention')
-acPMPSTN=ModuleIdentity((1,3,6,1,4,1,5003,10,10))
-_AcPMPSTNConfiguration_ObjectIdentity=ObjectIdentity
-acPMPSTNConfiguration=_AcPMPSTNConfiguration_ObjectIdentity((1,3,6,1,4,1,5003,10,10,1))
-class _AcPMPSTNConfigurationPeriodLength_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,894780))
-_AcPMPSTNConfigurationPeriodLength_Type.__name__=_C
-_AcPMPSTNConfigurationPeriodLength_Object=MibScalar
-acPMPSTNConfigurationPeriodLength=_AcPMPSTNConfigurationPeriodLength_Object((1,3,6,1,4,1,5003,10,10,1,1),_AcPMPSTNConfigurationPeriodLength_Type())
-acPMPSTNConfigurationPeriodLength.setMaxAccess(_F)
-if mibBuilder.loadTexts:acPMPSTNConfigurationPeriodLength.setStatus(_A)
-class _AcPMPSTNConfigurationResetTotalCounters_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('resetCountersDone',1),('resetTotalCounters',2)))
-_AcPMPSTNConfigurationResetTotalCounters_Type.__name__=_D
-_AcPMPSTNConfigurationResetTotalCounters_Object=MibScalar
-acPMPSTNConfigurationResetTotalCounters=_AcPMPSTNConfigurationResetTotalCounters_Object((1,3,6,1,4,1,5003,10,10,1,2),_AcPMPSTNConfigurationResetTotalCounters_Type())
-acPMPSTNConfigurationResetTotalCounters.setMaxAccess(_F)
-if mibBuilder.loadTexts:acPMPSTNConfigurationResetTotalCounters.setStatus(_A)
-_AcPMTrunkUtilizationAttributes_ObjectIdentity=ObjectIdentity
-acPMTrunkUtilizationAttributes=_AcPMTrunkUtilizationAttributes_ObjectIdentity((1,3,6,1,4,1,5003,10,10,1,31))
-class _AcPMTrunkUtilizationAttributesHighThreshold_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_AcPMTrunkUtilizationAttributesHighThreshold_Type.__name__=_C
-_AcPMTrunkUtilizationAttributesHighThreshold_Object=MibScalar
-acPMTrunkUtilizationAttributesHighThreshold=_AcPMTrunkUtilizationAttributesHighThreshold_Object((1,3,6,1,4,1,5003,10,10,1,31,1),_AcPMTrunkUtilizationAttributesHighThreshold_Type())
-acPMTrunkUtilizationAttributesHighThreshold.setMaxAccess(_F)
-if mibBuilder.loadTexts:acPMTrunkUtilizationAttributesHighThreshold.setStatus(_A)
-class _AcPMTrunkUtilizationAttributesLowThreshold_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_AcPMTrunkUtilizationAttributesLowThreshold_Type.__name__=_C
-_AcPMTrunkUtilizationAttributesLowThreshold_Object=MibScalar
-acPMTrunkUtilizationAttributesLowThreshold=_AcPMTrunkUtilizationAttributesLowThreshold_Object((1,3,6,1,4,1,5003,10,10,1,31,2),_AcPMTrunkUtilizationAttributesLowThreshold_Type())
-acPMTrunkUtilizationAttributesLowThreshold.setMaxAccess(_F)
-if mibBuilder.loadTexts:acPMTrunkUtilizationAttributesLowThreshold.setStatus(_A)
-_AcPMPSTNChannelsAttributes_ObjectIdentity=ObjectIdentity
-acPMPSTNChannelsAttributes=_AcPMPSTNChannelsAttributes_ObjectIdentity((1,3,6,1,4,1,5003,10,10,1,32))
-class _AcPMPSTNChannelsAttributesInServiceHighThreshold_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_AcPMPSTNChannelsAttributesInServiceHighThreshold_Type.__name__=_C
-_AcPMPSTNChannelsAttributesInServiceHighThreshold_Object=MibScalar
-acPMPSTNChannelsAttributesInServiceHighThreshold=_AcPMPSTNChannelsAttributesInServiceHighThreshold_Object((1,3,6,1,4,1,5003,10,10,1,32,1),_AcPMPSTNChannelsAttributesInServiceHighThreshold_Type())
-acPMPSTNChannelsAttributesInServiceHighThreshold.setMaxAccess(_F)
-if mibBuilder.loadTexts:acPMPSTNChannelsAttributesInServiceHighThreshold.setStatus(_A)
-class _AcPMPSTNChannelsAttributesInServiceLowThreshold_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_AcPMPSTNChannelsAttributesInServiceLowThreshold_Type.__name__=_C
-_AcPMPSTNChannelsAttributesInServiceLowThreshold_Object=MibScalar
-acPMPSTNChannelsAttributesInServiceLowThreshold=_AcPMPSTNChannelsAttributesInServiceLowThreshold_Object((1,3,6,1,4,1,5003,10,10,1,32,2),_AcPMPSTNChannelsAttributesInServiceLowThreshold_Type())
-acPMPSTNChannelsAttributesInServiceLowThreshold.setMaxAccess(_F)
-if mibBuilder.loadTexts:acPMPSTNChannelsAttributesInServiceLowThreshold.setStatus(_A)
-class _AcPMPSTNChannelsAttributesOutOfServiceHighThreshold_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_AcPMPSTNChannelsAttributesOutOfServiceHighThreshold_Type.__name__=_C
-_AcPMPSTNChannelsAttributesOutOfServiceHighThreshold_Object=MibScalar
-acPMPSTNChannelsAttributesOutOfServiceHighThreshold=_AcPMPSTNChannelsAttributesOutOfServiceHighThreshold_Object((1,3,6,1,4,1,5003,10,10,1,32,3),_AcPMPSTNChannelsAttributesOutOfServiceHighThreshold_Type())
-acPMPSTNChannelsAttributesOutOfServiceHighThreshold.setMaxAccess(_F)
-if mibBuilder.loadTexts:acPMPSTNChannelsAttributesOutOfServiceHighThreshold.setStatus(_A)
-class _AcPMPSTNChannelsAttributesOutOfServiceLowThreshold_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_AcPMPSTNChannelsAttributesOutOfServiceLowThreshold_Type.__name__=_C
-_AcPMPSTNChannelsAttributesOutOfServiceLowThreshold_Object=MibScalar
-acPMPSTNChannelsAttributesOutOfServiceLowThreshold=_AcPMPSTNChannelsAttributesOutOfServiceLowThreshold_Object((1,3,6,1,4,1,5003,10,10,1,32,4),_AcPMPSTNChannelsAttributesOutOfServiceLowThreshold_Type())
-acPMPSTNChannelsAttributesOutOfServiceLowThreshold.setMaxAccess(_F)
-if mibBuilder.loadTexts:acPMPSTNChannelsAttributesOutOfServiceLowThreshold.setStatus(_A)
-class _AcPMPSTNChannelsAttributesInMaintenanceHighThreshold_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_AcPMPSTNChannelsAttributesInMaintenanceHighThreshold_Type.__name__=_C
-_AcPMPSTNChannelsAttributesInMaintenanceHighThreshold_Object=MibScalar
-acPMPSTNChannelsAttributesInMaintenanceHighThreshold=_AcPMPSTNChannelsAttributesInMaintenanceHighThreshold_Object((1,3,6,1,4,1,5003,10,10,1,32,5),_AcPMPSTNChannelsAttributesInMaintenanceHighThreshold_Type())
-acPMPSTNChannelsAttributesInMaintenanceHighThreshold.setMaxAccess(_F)
-if mibBuilder.loadTexts:acPMPSTNChannelsAttributesInMaintenanceHighThreshold.setStatus(_A)
-class _AcPMPSTNChannelsAttributesInMaintenanceLowThreshold_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_AcPMPSTNChannelsAttributesInMaintenanceLowThreshold_Type.__name__=_C
-_AcPMPSTNChannelsAttributesInMaintenanceLowThreshold_Object=MibScalar
-acPMPSTNChannelsAttributesInMaintenanceLowThreshold=_AcPMPSTNChannelsAttributesInMaintenanceLowThreshold_Object((1,3,6,1,4,1,5003,10,10,1,32,6),_AcPMPSTNChannelsAttributesInMaintenanceLowThreshold_Type())
-acPMPSTNChannelsAttributesInMaintenanceLowThreshold.setMaxAccess(_F)
-if mibBuilder.loadTexts:acPMPSTNChannelsAttributesInMaintenanceLowThreshold.setStatus(_A)
-_AcPMPSTNData_ObjectIdentity=ObjectIdentity
-acPMPSTNData=_AcPMPSTNData_ObjectIdentity((1,3,6,1,4,1,5003,10,10,2))
-class _AcPMPSTNDataAcPMPSTNTimeFromStartOfInterval_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_AcPMPSTNDataAcPMPSTNTimeFromStartOfInterval_Type.__name__=_C
-_AcPMPSTNDataAcPMPSTNTimeFromStartOfInterval_Object=MibScalar
-acPMPSTNDataAcPMPSTNTimeFromStartOfInterval=_AcPMPSTNDataAcPMPSTNTimeFromStartOfInterval_Object((1,3,6,1,4,1,5003,10,10,2,1),_AcPMPSTNDataAcPMPSTNTimeFromStartOfInterval_Type())
-acPMPSTNDataAcPMPSTNTimeFromStartOfInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNDataAcPMPSTNTimeFromStartOfInterval.setStatus(_A)
-_AcPMTrunkUtilizationTable_Object=MibTable
-acPMTrunkUtilizationTable=_AcPMTrunkUtilizationTable_Object((1,3,6,1,4,1,5003,10,10,2,21))
-if mibBuilder.loadTexts:acPMTrunkUtilizationTable.setStatus(_A)
-_AcPMTrunkUtilizationEntry_Object=MibTableRow
-acPMTrunkUtilizationEntry=_AcPMTrunkUtilizationEntry_Object((1,3,6,1,4,1,5003,10,10,2,21,1))
-acPMTrunkUtilizationEntry.setIndexNames((0,_E,_H),(0,_E,_I))
-if mibBuilder.loadTexts:acPMTrunkUtilizationEntry.setStatus(_A)
-class _AcPMTrunkUtilizationTrunkNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,83))
-_AcPMTrunkUtilizationTrunkNum_Type.__name__=_C
-_AcPMTrunkUtilizationTrunkNum_Object=MibTableColumn
-acPMTrunkUtilizationTrunkNum=_AcPMTrunkUtilizationTrunkNum_Object((1,3,6,1,4,1,5003,10,10,2,21,1,1),_AcPMTrunkUtilizationTrunkNum_Type())
-acPMTrunkUtilizationTrunkNum.setMaxAccess(_G)
-if mibBuilder.loadTexts:acPMTrunkUtilizationTrunkNum.setStatus(_A)
-class _AcPMTrunkUtilizationInterval_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
-_AcPMTrunkUtilizationInterval_Type.__name__=_C
-_AcPMTrunkUtilizationInterval_Object=MibTableColumn
-acPMTrunkUtilizationInterval=_AcPMTrunkUtilizationInterval_Object((1,3,6,1,4,1,5003,10,10,2,21,1,2),_AcPMTrunkUtilizationInterval_Type())
-acPMTrunkUtilizationInterval.setMaxAccess(_G)
-if mibBuilder.loadTexts:acPMTrunkUtilizationInterval.setStatus(_A)
-_AcPMTrunkUtilizationVal_Type=Gauge32
-_AcPMTrunkUtilizationVal_Object=MibTableColumn
-acPMTrunkUtilizationVal=_AcPMTrunkUtilizationVal_Object((1,3,6,1,4,1,5003,10,10,2,21,1,3),_AcPMTrunkUtilizationVal_Type())
-acPMTrunkUtilizationVal.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMTrunkUtilizationVal.setStatus(_A)
-class _AcPMTrunkUtilizationAverage_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_AcPMTrunkUtilizationAverage_Type.__name__=_D
-_AcPMTrunkUtilizationAverage_Object=MibTableColumn
-acPMTrunkUtilizationAverage=_AcPMTrunkUtilizationAverage_Object((1,3,6,1,4,1,5003,10,10,2,21,1,4),_AcPMTrunkUtilizationAverage_Type())
-acPMTrunkUtilizationAverage.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMTrunkUtilizationAverage.setStatus(_A)
-class _AcPMTrunkUtilizationMax_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_AcPMTrunkUtilizationMax_Type.__name__=_D
-_AcPMTrunkUtilizationMax_Object=MibTableColumn
-acPMTrunkUtilizationMax=_AcPMTrunkUtilizationMax_Object((1,3,6,1,4,1,5003,10,10,2,21,1,5),_AcPMTrunkUtilizationMax_Type())
-acPMTrunkUtilizationMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMTrunkUtilizationMax.setStatus(_A)
-class _AcPMTrunkUtilizationMin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_AcPMTrunkUtilizationMin_Type.__name__=_D
-_AcPMTrunkUtilizationMin_Object=MibTableColumn
-acPMTrunkUtilizationMin=_AcPMTrunkUtilizationMin_Object((1,3,6,1,4,1,5003,10,10,2,21,1,6),_AcPMTrunkUtilizationMin_Type())
-acPMTrunkUtilizationMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMTrunkUtilizationMin.setStatus(_A)
-_AcPMTrunkUtilizationVolume_Type=Counter32
-_AcPMTrunkUtilizationVolume_Object=MibTableColumn
-acPMTrunkUtilizationVolume=_AcPMTrunkUtilizationVolume_Object((1,3,6,1,4,1,5003,10,10,2,21,1,7),_AcPMTrunkUtilizationVolume_Type())
-acPMTrunkUtilizationVolume.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMTrunkUtilizationVolume.setStatus(_A)
-class _AcPMTrunkUtilizationTimeBelowLowThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,100))
-_AcPMTrunkUtilizationTimeBelowLowThreshold_Type.__name__=_D
-_AcPMTrunkUtilizationTimeBelowLowThreshold_Object=MibTableColumn
-acPMTrunkUtilizationTimeBelowLowThreshold=_AcPMTrunkUtilizationTimeBelowLowThreshold_Object((1,3,6,1,4,1,5003,10,10,2,21,1,8),_AcPMTrunkUtilizationTimeBelowLowThreshold_Type())
-acPMTrunkUtilizationTimeBelowLowThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMTrunkUtilizationTimeBelowLowThreshold.setStatus(_A)
-class _AcPMTrunkUtilizationTimeBetweenThresholds_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,100))
-_AcPMTrunkUtilizationTimeBetweenThresholds_Type.__name__=_D
-_AcPMTrunkUtilizationTimeBetweenThresholds_Object=MibTableColumn
-acPMTrunkUtilizationTimeBetweenThresholds=_AcPMTrunkUtilizationTimeBetweenThresholds_Object((1,3,6,1,4,1,5003,10,10,2,21,1,9),_AcPMTrunkUtilizationTimeBetweenThresholds_Type())
-acPMTrunkUtilizationTimeBetweenThresholds.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMTrunkUtilizationTimeBetweenThresholds.setStatus(_A)
-class _AcPMTrunkUtilizationTimeAboveHighThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,100))
-_AcPMTrunkUtilizationTimeAboveHighThreshold_Type.__name__=_D
-_AcPMTrunkUtilizationTimeAboveHighThreshold_Object=MibTableColumn
-acPMTrunkUtilizationTimeAboveHighThreshold=_AcPMTrunkUtilizationTimeAboveHighThreshold_Object((1,3,6,1,4,1,5003,10,10,2,21,1,10),_AcPMTrunkUtilizationTimeAboveHighThreshold_Type())
-acPMTrunkUtilizationTimeAboveHighThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMTrunkUtilizationTimeAboveHighThreshold.setStatus(_A)
-class _AcPMTrunkUtilizationFullDayAverage_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_AcPMTrunkUtilizationFullDayAverage_Type.__name__=_D
-_AcPMTrunkUtilizationFullDayAverage_Object=MibTableColumn
-acPMTrunkUtilizationFullDayAverage=_AcPMTrunkUtilizationFullDayAverage_Object((1,3,6,1,4,1,5003,10,10,2,21,1,11),_AcPMTrunkUtilizationFullDayAverage_Type())
-acPMTrunkUtilizationFullDayAverage.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMTrunkUtilizationFullDayAverage.setStatus(_A)
-class _AcPMTrunkUtilizationTotal_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_AcPMTrunkUtilizationTotal_Type.__name__=_D
-_AcPMTrunkUtilizationTotal_Object=MibTableColumn
-acPMTrunkUtilizationTotal=_AcPMTrunkUtilizationTotal_Object((1,3,6,1,4,1,5003,10,10,2,21,1,12),_AcPMTrunkUtilizationTotal_Type())
-acPMTrunkUtilizationTotal.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMTrunkUtilizationTotal.setStatus(_A)
-_AcPMPSTNTrunkActivitySecondsTable_Object=MibTable
-acPMPSTNTrunkActivitySecondsTable=_AcPMPSTNTrunkActivitySecondsTable_Object((1,3,6,1,4,1,5003,10,10,2,22))
-if mibBuilder.loadTexts:acPMPSTNTrunkActivitySecondsTable.setStatus(_A)
-_AcPMPSTNTrunkActivitySecondsEntry_Object=MibTableRow
-acPMPSTNTrunkActivitySecondsEntry=_AcPMPSTNTrunkActivitySecondsEntry_Object((1,3,6,1,4,1,5003,10,10,2,22,1))
-acPMPSTNTrunkActivitySecondsEntry.setIndexNames((0,_E,_J),(0,_E,_K))
-if mibBuilder.loadTexts:acPMPSTNTrunkActivitySecondsEntry.setStatus(_A)
-class _AcPMPSTNTrunkActivitySecondsTrunkNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,83))
-_AcPMPSTNTrunkActivitySecondsTrunkNum_Type.__name__=_C
-_AcPMPSTNTrunkActivitySecondsTrunkNum_Object=MibTableColumn
-acPMPSTNTrunkActivitySecondsTrunkNum=_AcPMPSTNTrunkActivitySecondsTrunkNum_Object((1,3,6,1,4,1,5003,10,10,2,22,1,1),_AcPMPSTNTrunkActivitySecondsTrunkNum_Type())
-acPMPSTNTrunkActivitySecondsTrunkNum.setMaxAccess(_G)
-if mibBuilder.loadTexts:acPMPSTNTrunkActivitySecondsTrunkNum.setStatus(_A)
-class _AcPMPSTNTrunkActivitySecondsInterval_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
-_AcPMPSTNTrunkActivitySecondsInterval_Type.__name__=_C
-_AcPMPSTNTrunkActivitySecondsInterval_Object=MibTableColumn
-acPMPSTNTrunkActivitySecondsInterval=_AcPMPSTNTrunkActivitySecondsInterval_Object((1,3,6,1,4,1,5003,10,10,2,22,1,2),_AcPMPSTNTrunkActivitySecondsInterval_Type())
-acPMPSTNTrunkActivitySecondsInterval.setMaxAccess(_G)
-if mibBuilder.loadTexts:acPMPSTNTrunkActivitySecondsInterval.setStatus(_A)
-_AcPMPSTNTrunkActivitySecondsVal_Type=Gauge32
-_AcPMPSTNTrunkActivitySecondsVal_Object=MibTableColumn
-acPMPSTNTrunkActivitySecondsVal=_AcPMPSTNTrunkActivitySecondsVal_Object((1,3,6,1,4,1,5003,10,10,2,22,1,3),_AcPMPSTNTrunkActivitySecondsVal_Type())
-acPMPSTNTrunkActivitySecondsVal.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNTrunkActivitySecondsVal.setStatus(_A)
-class _AcPMPSTNTrunkActivitySecondsTotal_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_AcPMPSTNTrunkActivitySecondsTotal_Type.__name__=_D
-_AcPMPSTNTrunkActivitySecondsTotal_Object=MibTableColumn
-acPMPSTNTrunkActivitySecondsTotal=_AcPMPSTNTrunkActivitySecondsTotal_Object((1,3,6,1,4,1,5003,10,10,2,22,1,4),_AcPMPSTNTrunkActivitySecondsTotal_Type())
-acPMPSTNTrunkActivitySecondsTotal.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNTrunkActivitySecondsTotal.setStatus(_A)
-_AcPMPSTNTrunkActivitySecondsVolume_Type=Counter32
-_AcPMPSTNTrunkActivitySecondsVolume_Object=MibTableColumn
-acPMPSTNTrunkActivitySecondsVolume=_AcPMPSTNTrunkActivitySecondsVolume_Object((1,3,6,1,4,1,5003,10,10,2,22,1,5),_AcPMPSTNTrunkActivitySecondsVolume_Type())
-acPMPSTNTrunkActivitySecondsVolume.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNTrunkActivitySecondsVolume.setStatus(_A)
-_AcPMPSTNChannels_ObjectIdentity=ObjectIdentity
-acPMPSTNChannels=_AcPMPSTNChannels_ObjectIdentity((1,3,6,1,4,1,5003,10,10,2,31))
-_AcPMPSTNNumOfChannelsInServiceTable_Object=MibTable
-acPMPSTNNumOfChannelsInServiceTable=_AcPMPSTNNumOfChannelsInServiceTable_Object((1,3,6,1,4,1,5003,10,10,2,31,1))
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInServiceTable.setStatus(_A)
-_AcPMPSTNNumOfChannelsInServiceEntry_Object=MibTableRow
-acPMPSTNNumOfChannelsInServiceEntry=_AcPMPSTNNumOfChannelsInServiceEntry_Object((1,3,6,1,4,1,5003,10,10,2,31,1,1))
-acPMPSTNNumOfChannelsInServiceEntry.setIndexNames((0,_E,_L),(0,_E,_M))
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInServiceEntry.setStatus(_A)
-class _AcPMPSTNNumOfChannelsInServiceTrunkNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,83))
-_AcPMPSTNNumOfChannelsInServiceTrunkNum_Type.__name__=_C
-_AcPMPSTNNumOfChannelsInServiceTrunkNum_Object=MibTableColumn
-acPMPSTNNumOfChannelsInServiceTrunkNum=_AcPMPSTNNumOfChannelsInServiceTrunkNum_Object((1,3,6,1,4,1,5003,10,10,2,31,1,1,1),_AcPMPSTNNumOfChannelsInServiceTrunkNum_Type())
-acPMPSTNNumOfChannelsInServiceTrunkNum.setMaxAccess(_G)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInServiceTrunkNum.setStatus(_A)
-class _AcPMPSTNNumOfChannelsInServiceInterval_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
-_AcPMPSTNNumOfChannelsInServiceInterval_Type.__name__=_C
-_AcPMPSTNNumOfChannelsInServiceInterval_Object=MibTableColumn
-acPMPSTNNumOfChannelsInServiceInterval=_AcPMPSTNNumOfChannelsInServiceInterval_Object((1,3,6,1,4,1,5003,10,10,2,31,1,1,2),_AcPMPSTNNumOfChannelsInServiceInterval_Type())
-acPMPSTNNumOfChannelsInServiceInterval.setMaxAccess(_G)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInServiceInterval.setStatus(_A)
-_AcPMPSTNNumOfChannelsInServiceVal_Type=Gauge32
-_AcPMPSTNNumOfChannelsInServiceVal_Object=MibTableColumn
-acPMPSTNNumOfChannelsInServiceVal=_AcPMPSTNNumOfChannelsInServiceVal_Object((1,3,6,1,4,1,5003,10,10,2,31,1,1,3),_AcPMPSTNNumOfChannelsInServiceVal_Type())
-acPMPSTNNumOfChannelsInServiceVal.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInServiceVal.setStatus(_A)
-class _AcPMPSTNNumOfChannelsInServiceAverage_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_AcPMPSTNNumOfChannelsInServiceAverage_Type.__name__=_D
-_AcPMPSTNNumOfChannelsInServiceAverage_Object=MibTableColumn
-acPMPSTNNumOfChannelsInServiceAverage=_AcPMPSTNNumOfChannelsInServiceAverage_Object((1,3,6,1,4,1,5003,10,10,2,31,1,1,4),_AcPMPSTNNumOfChannelsInServiceAverage_Type())
-acPMPSTNNumOfChannelsInServiceAverage.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInServiceAverage.setStatus(_A)
-class _AcPMPSTNNumOfChannelsInServiceMax_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_AcPMPSTNNumOfChannelsInServiceMax_Type.__name__=_D
-_AcPMPSTNNumOfChannelsInServiceMax_Object=MibTableColumn
-acPMPSTNNumOfChannelsInServiceMax=_AcPMPSTNNumOfChannelsInServiceMax_Object((1,3,6,1,4,1,5003,10,10,2,31,1,1,5),_AcPMPSTNNumOfChannelsInServiceMax_Type())
-acPMPSTNNumOfChannelsInServiceMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInServiceMax.setStatus(_A)
-class _AcPMPSTNNumOfChannelsInServiceMin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_AcPMPSTNNumOfChannelsInServiceMin_Type.__name__=_D
-_AcPMPSTNNumOfChannelsInServiceMin_Object=MibTableColumn
-acPMPSTNNumOfChannelsInServiceMin=_AcPMPSTNNumOfChannelsInServiceMin_Object((1,3,6,1,4,1,5003,10,10,2,31,1,1,6),_AcPMPSTNNumOfChannelsInServiceMin_Type())
-acPMPSTNNumOfChannelsInServiceMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInServiceMin.setStatus(_A)
-_AcPMPSTNNumOfChannelsInServiceVolume_Type=Counter32
-_AcPMPSTNNumOfChannelsInServiceVolume_Object=MibTableColumn
-acPMPSTNNumOfChannelsInServiceVolume=_AcPMPSTNNumOfChannelsInServiceVolume_Object((1,3,6,1,4,1,5003,10,10,2,31,1,1,7),_AcPMPSTNNumOfChannelsInServiceVolume_Type())
-acPMPSTNNumOfChannelsInServiceVolume.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInServiceVolume.setStatus(_A)
-_AcPMPSTNNumOfChannelsOutOfServiceTable_Object=MibTable
-acPMPSTNNumOfChannelsOutOfServiceTable=_AcPMPSTNNumOfChannelsOutOfServiceTable_Object((1,3,6,1,4,1,5003,10,10,2,31,2))
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsOutOfServiceTable.setStatus(_A)
-_AcPMPSTNNumOfChannelsOutOfServiceEntry_Object=MibTableRow
-acPMPSTNNumOfChannelsOutOfServiceEntry=_AcPMPSTNNumOfChannelsOutOfServiceEntry_Object((1,3,6,1,4,1,5003,10,10,2,31,2,1))
-acPMPSTNNumOfChannelsOutOfServiceEntry.setIndexNames((0,_E,_N),(0,_E,_O))
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsOutOfServiceEntry.setStatus(_A)
-class _AcPMPSTNNumOfChannelsOutOfServiceTrunkNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,83))
-_AcPMPSTNNumOfChannelsOutOfServiceTrunkNum_Type.__name__=_C
-_AcPMPSTNNumOfChannelsOutOfServiceTrunkNum_Object=MibTableColumn
-acPMPSTNNumOfChannelsOutOfServiceTrunkNum=_AcPMPSTNNumOfChannelsOutOfServiceTrunkNum_Object((1,3,6,1,4,1,5003,10,10,2,31,2,1,1),_AcPMPSTNNumOfChannelsOutOfServiceTrunkNum_Type())
-acPMPSTNNumOfChannelsOutOfServiceTrunkNum.setMaxAccess(_G)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsOutOfServiceTrunkNum.setStatus(_A)
-class _AcPMPSTNNumOfChannelsOutOfServiceInterval_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
-_AcPMPSTNNumOfChannelsOutOfServiceInterval_Type.__name__=_C
-_AcPMPSTNNumOfChannelsOutOfServiceInterval_Object=MibTableColumn
-acPMPSTNNumOfChannelsOutOfServiceInterval=_AcPMPSTNNumOfChannelsOutOfServiceInterval_Object((1,3,6,1,4,1,5003,10,10,2,31,2,1,2),_AcPMPSTNNumOfChannelsOutOfServiceInterval_Type())
-acPMPSTNNumOfChannelsOutOfServiceInterval.setMaxAccess(_G)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsOutOfServiceInterval.setStatus(_A)
-_AcPMPSTNNumOfChannelsOutOfServiceVal_Type=Gauge32
-_AcPMPSTNNumOfChannelsOutOfServiceVal_Object=MibTableColumn
-acPMPSTNNumOfChannelsOutOfServiceVal=_AcPMPSTNNumOfChannelsOutOfServiceVal_Object((1,3,6,1,4,1,5003,10,10,2,31,2,1,3),_AcPMPSTNNumOfChannelsOutOfServiceVal_Type())
-acPMPSTNNumOfChannelsOutOfServiceVal.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsOutOfServiceVal.setStatus(_A)
-class _AcPMPSTNNumOfChannelsOutOfServiceAverage_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_AcPMPSTNNumOfChannelsOutOfServiceAverage_Type.__name__=_D
-_AcPMPSTNNumOfChannelsOutOfServiceAverage_Object=MibTableColumn
-acPMPSTNNumOfChannelsOutOfServiceAverage=_AcPMPSTNNumOfChannelsOutOfServiceAverage_Object((1,3,6,1,4,1,5003,10,10,2,31,2,1,4),_AcPMPSTNNumOfChannelsOutOfServiceAverage_Type())
-acPMPSTNNumOfChannelsOutOfServiceAverage.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsOutOfServiceAverage.setStatus(_A)
-class _AcPMPSTNNumOfChannelsOutOfServiceMax_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_AcPMPSTNNumOfChannelsOutOfServiceMax_Type.__name__=_D
-_AcPMPSTNNumOfChannelsOutOfServiceMax_Object=MibTableColumn
-acPMPSTNNumOfChannelsOutOfServiceMax=_AcPMPSTNNumOfChannelsOutOfServiceMax_Object((1,3,6,1,4,1,5003,10,10,2,31,2,1,5),_AcPMPSTNNumOfChannelsOutOfServiceMax_Type())
-acPMPSTNNumOfChannelsOutOfServiceMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsOutOfServiceMax.setStatus(_A)
-class _AcPMPSTNNumOfChannelsOutOfServiceMin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_AcPMPSTNNumOfChannelsOutOfServiceMin_Type.__name__=_D
-_AcPMPSTNNumOfChannelsOutOfServiceMin_Object=MibTableColumn
-acPMPSTNNumOfChannelsOutOfServiceMin=_AcPMPSTNNumOfChannelsOutOfServiceMin_Object((1,3,6,1,4,1,5003,10,10,2,31,2,1,6),_AcPMPSTNNumOfChannelsOutOfServiceMin_Type())
-acPMPSTNNumOfChannelsOutOfServiceMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsOutOfServiceMin.setStatus(_A)
-_AcPMPSTNNumOfChannelsOutOfServiceVolume_Type=Counter32
-_AcPMPSTNNumOfChannelsOutOfServiceVolume_Object=MibTableColumn
-acPMPSTNNumOfChannelsOutOfServiceVolume=_AcPMPSTNNumOfChannelsOutOfServiceVolume_Object((1,3,6,1,4,1,5003,10,10,2,31,2,1,7),_AcPMPSTNNumOfChannelsOutOfServiceVolume_Type())
-acPMPSTNNumOfChannelsOutOfServiceVolume.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsOutOfServiceVolume.setStatus(_A)
-_AcPMPSTNNumOfChannelsInMaintenanceTable_Object=MibTable
-acPMPSTNNumOfChannelsInMaintenanceTable=_AcPMPSTNNumOfChannelsInMaintenanceTable_Object((1,3,6,1,4,1,5003,10,10,2,31,3))
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInMaintenanceTable.setStatus(_A)
-_AcPMPSTNNumOfChannelsInMaintenanceEntry_Object=MibTableRow
-acPMPSTNNumOfChannelsInMaintenanceEntry=_AcPMPSTNNumOfChannelsInMaintenanceEntry_Object((1,3,6,1,4,1,5003,10,10,2,31,3,1))
-acPMPSTNNumOfChannelsInMaintenanceEntry.setIndexNames((0,_E,_P),(0,_E,_Q))
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInMaintenanceEntry.setStatus(_A)
-class _AcPMPSTNNumOfChannelsInMaintenanceTrunkNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,83))
-_AcPMPSTNNumOfChannelsInMaintenanceTrunkNum_Type.__name__=_C
-_AcPMPSTNNumOfChannelsInMaintenanceTrunkNum_Object=MibTableColumn
-acPMPSTNNumOfChannelsInMaintenanceTrunkNum=_AcPMPSTNNumOfChannelsInMaintenanceTrunkNum_Object((1,3,6,1,4,1,5003,10,10,2,31,3,1,1),_AcPMPSTNNumOfChannelsInMaintenanceTrunkNum_Type())
-acPMPSTNNumOfChannelsInMaintenanceTrunkNum.setMaxAccess(_G)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInMaintenanceTrunkNum.setStatus(_A)
-class _AcPMPSTNNumOfChannelsInMaintenanceInterval_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
-_AcPMPSTNNumOfChannelsInMaintenanceInterval_Type.__name__=_C
-_AcPMPSTNNumOfChannelsInMaintenanceInterval_Object=MibTableColumn
-acPMPSTNNumOfChannelsInMaintenanceInterval=_AcPMPSTNNumOfChannelsInMaintenanceInterval_Object((1,3,6,1,4,1,5003,10,10,2,31,3,1,2),_AcPMPSTNNumOfChannelsInMaintenanceInterval_Type())
-acPMPSTNNumOfChannelsInMaintenanceInterval.setMaxAccess(_G)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInMaintenanceInterval.setStatus(_A)
-_AcPMPSTNNumOfChannelsInMaintenanceVal_Type=Gauge32
-_AcPMPSTNNumOfChannelsInMaintenanceVal_Object=MibTableColumn
-acPMPSTNNumOfChannelsInMaintenanceVal=_AcPMPSTNNumOfChannelsInMaintenanceVal_Object((1,3,6,1,4,1,5003,10,10,2,31,3,1,3),_AcPMPSTNNumOfChannelsInMaintenanceVal_Type())
-acPMPSTNNumOfChannelsInMaintenanceVal.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInMaintenanceVal.setStatus(_A)
-class _AcPMPSTNNumOfChannelsInMaintenanceAverage_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_AcPMPSTNNumOfChannelsInMaintenanceAverage_Type.__name__=_D
-_AcPMPSTNNumOfChannelsInMaintenanceAverage_Object=MibTableColumn
-acPMPSTNNumOfChannelsInMaintenanceAverage=_AcPMPSTNNumOfChannelsInMaintenanceAverage_Object((1,3,6,1,4,1,5003,10,10,2,31,3,1,4),_AcPMPSTNNumOfChannelsInMaintenanceAverage_Type())
-acPMPSTNNumOfChannelsInMaintenanceAverage.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInMaintenanceAverage.setStatus(_A)
-class _AcPMPSTNNumOfChannelsInMaintenanceMax_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_AcPMPSTNNumOfChannelsInMaintenanceMax_Type.__name__=_D
-_AcPMPSTNNumOfChannelsInMaintenanceMax_Object=MibTableColumn
-acPMPSTNNumOfChannelsInMaintenanceMax=_AcPMPSTNNumOfChannelsInMaintenanceMax_Object((1,3,6,1,4,1,5003,10,10,2,31,3,1,5),_AcPMPSTNNumOfChannelsInMaintenanceMax_Type())
-acPMPSTNNumOfChannelsInMaintenanceMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInMaintenanceMax.setStatus(_A)
-class _AcPMPSTNNumOfChannelsInMaintenanceMin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_AcPMPSTNNumOfChannelsInMaintenanceMin_Type.__name__=_D
-_AcPMPSTNNumOfChannelsInMaintenanceMin_Object=MibTableColumn
-acPMPSTNNumOfChannelsInMaintenanceMin=_AcPMPSTNNumOfChannelsInMaintenanceMin_Object((1,3,6,1,4,1,5003,10,10,2,31,3,1,6),_AcPMPSTNNumOfChannelsInMaintenanceMin_Type())
-acPMPSTNNumOfChannelsInMaintenanceMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInMaintenanceMin.setStatus(_A)
-_AcPMPSTNNumOfChannelsInMaintenanceVolume_Type=Counter32
-_AcPMPSTNNumOfChannelsInMaintenanceVolume_Object=MibTableColumn
-acPMPSTNNumOfChannelsInMaintenanceVolume=_AcPMPSTNNumOfChannelsInMaintenanceVolume_Object((1,3,6,1,4,1,5003,10,10,2,31,3,1,7),_AcPMPSTNNumOfChannelsInMaintenanceVolume_Type())
-acPMPSTNNumOfChannelsInMaintenanceVolume.setMaxAccess(_B)
-if mibBuilder.loadTexts:acPMPSTNNumOfChannelsInMaintenanceVolume.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'acPMPSTN':acPMPSTN,'acPMPSTNConfiguration':acPMPSTNConfiguration,'acPMPSTNConfigurationPeriodLength':acPMPSTNConfigurationPeriodLength,'acPMPSTNConfigurationResetTotalCounters':acPMPSTNConfigurationResetTotalCounters,'acPMTrunkUtilizationAttributes':acPMTrunkUtilizationAttributes,'acPMTrunkUtilizationAttributesHighThreshold':acPMTrunkUtilizationAttributesHighThreshold,'acPMTrunkUtilizationAttributesLowThreshold':acPMTrunkUtilizationAttributesLowThreshold,'acPMPSTNChannelsAttributes':acPMPSTNChannelsAttributes,'acPMPSTNChannelsAttributesInServiceHighThreshold':acPMPSTNChannelsAttributesInServiceHighThreshold,'acPMPSTNChannelsAttributesInServiceLowThreshold':acPMPSTNChannelsAttributesInServiceLowThreshold,'acPMPSTNChannelsAttributesOutOfServiceHighThreshold':acPMPSTNChannelsAttributesOutOfServiceHighThreshold,'acPMPSTNChannelsAttributesOutOfServiceLowThreshold':acPMPSTNChannelsAttributesOutOfServiceLowThreshold,'acPMPSTNChannelsAttributesInMaintenanceHighThreshold':acPMPSTNChannelsAttributesInMaintenanceHighThreshold,'acPMPSTNChannelsAttributesInMaintenanceLowThreshold':acPMPSTNChannelsAttributesInMaintenanceLowThreshold,'acPMPSTNData':acPMPSTNData,'acPMPSTNDataAcPMPSTNTimeFromStartOfInterval':acPMPSTNDataAcPMPSTNTimeFromStartOfInterval,'acPMTrunkUtilizationTable':acPMTrunkUtilizationTable,'acPMTrunkUtilizationEntry':acPMTrunkUtilizationEntry,_H:acPMTrunkUtilizationTrunkNum,_I:acPMTrunkUtilizationInterval,'acPMTrunkUtilizationVal':acPMTrunkUtilizationVal,'acPMTrunkUtilizationAverage':acPMTrunkUtilizationAverage,'acPMTrunkUtilizationMax':acPMTrunkUtilizationMax,'acPMTrunkUtilizationMin':acPMTrunkUtilizationMin,'acPMTrunkUtilizationVolume':acPMTrunkUtilizationVolume,'acPMTrunkUtilizationTimeBelowLowThreshold':acPMTrunkUtilizationTimeBelowLowThreshold,'acPMTrunkUtilizationTimeBetweenThresholds':acPMTrunkUtilizationTimeBetweenThresholds,'acPMTrunkUtilizationTimeAboveHighThreshold':acPMTrunkUtilizationTimeAboveHighThreshold,'acPMTrunkUtilizationFullDayAverage':acPMTrunkUtilizationFullDayAverage,'acPMTrunkUtilizationTotal':acPMTrunkUtilizationTotal,'acPMPSTNTrunkActivitySecondsTable':acPMPSTNTrunkActivitySecondsTable,'acPMPSTNTrunkActivitySecondsEntry':acPMPSTNTrunkActivitySecondsEntry,_J:acPMPSTNTrunkActivitySecondsTrunkNum,_K:acPMPSTNTrunkActivitySecondsInterval,'acPMPSTNTrunkActivitySecondsVal':acPMPSTNTrunkActivitySecondsVal,'acPMPSTNTrunkActivitySecondsTotal':acPMPSTNTrunkActivitySecondsTotal,'acPMPSTNTrunkActivitySecondsVolume':acPMPSTNTrunkActivitySecondsVolume,'acPMPSTNChannels':acPMPSTNChannels,'acPMPSTNNumOfChannelsInServiceTable':acPMPSTNNumOfChannelsInServiceTable,'acPMPSTNNumOfChannelsInServiceEntry':acPMPSTNNumOfChannelsInServiceEntry,_L:acPMPSTNNumOfChannelsInServiceTrunkNum,_M:acPMPSTNNumOfChannelsInServiceInterval,'acPMPSTNNumOfChannelsInServiceVal':acPMPSTNNumOfChannelsInServiceVal,'acPMPSTNNumOfChannelsInServiceAverage':acPMPSTNNumOfChannelsInServiceAverage,'acPMPSTNNumOfChannelsInServiceMax':acPMPSTNNumOfChannelsInServiceMax,'acPMPSTNNumOfChannelsInServiceMin':acPMPSTNNumOfChannelsInServiceMin,'acPMPSTNNumOfChannelsInServiceVolume':acPMPSTNNumOfChannelsInServiceVolume,'acPMPSTNNumOfChannelsOutOfServiceTable':acPMPSTNNumOfChannelsOutOfServiceTable,'acPMPSTNNumOfChannelsOutOfServiceEntry':acPMPSTNNumOfChannelsOutOfServiceEntry,_N:acPMPSTNNumOfChannelsOutOfServiceTrunkNum,_O:acPMPSTNNumOfChannelsOutOfServiceInterval,'acPMPSTNNumOfChannelsOutOfServiceVal':acPMPSTNNumOfChannelsOutOfServiceVal,'acPMPSTNNumOfChannelsOutOfServiceAverage':acPMPSTNNumOfChannelsOutOfServiceAverage,'acPMPSTNNumOfChannelsOutOfServiceMax':acPMPSTNNumOfChannelsOutOfServiceMax,'acPMPSTNNumOfChannelsOutOfServiceMin':acPMPSTNNumOfChannelsOutOfServiceMin,'acPMPSTNNumOfChannelsOutOfServiceVolume':acPMPSTNNumOfChannelsOutOfServiceVolume,'acPMPSTNNumOfChannelsInMaintenanceTable':acPMPSTNNumOfChannelsInMaintenanceTable,'acPMPSTNNumOfChannelsInMaintenanceEntry':acPMPSTNNumOfChannelsInMaintenanceEntry,_P:acPMPSTNNumOfChannelsInMaintenanceTrunkNum,_Q:acPMPSTNNumOfChannelsInMaintenanceInterval,'acPMPSTNNumOfChannelsInMaintenanceVal':acPMPSTNNumOfChannelsInMaintenanceVal,'acPMPSTNNumOfChannelsInMaintenanceAverage':acPMPSTNNumOfChannelsInMaintenanceAverage,'acPMPSTNNumOfChannelsInMaintenanceMax':acPMPSTNNumOfChannelsInMaintenanceMax,'acPMPSTNNumOfChannelsInMaintenanceMin':acPMPSTNNumOfChannelsInMaintenanceMin,'acPMPSTNNumOfChannelsInMaintenanceVolume':acPMPSTNNumOfChannelsInMaintenanceVolume})
+#
+# PySNMP MIB module AC-PM-PSTN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mediant/AC-PM-PSTN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:58 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+acGeneric, acRegistrations, audioCodes, acProducts, acPerformance, acBoardMibs = mibBuilder.importSymbols("AUDIOCODES-TYPES-MIB", "acGeneric", "acRegistrations", "audioCodes", "acProducts", "acPerformance", "acBoardMibs")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TAddress, DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TAddress", "DisplayString", "DateAndTime", "TextualConvention")
+acPMPSTN = ModuleIdentity((1, 3, 6, 1, 4, 1, 5003, 10, 10))
+if mibBuilder.loadTexts: acPMPSTN.setLastUpdated('200902050516Z')
+if mibBuilder.loadTexts: acPMPSTN.setOrganization('AudioCodes Ltd')
+acPMPSTNConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 5003, 10, 10, 1))
+acPMPSTNConfigurationPeriodLength = MibScalar((1, 3, 6, 1, 4, 1, 5003, 10, 10, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 894780))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acPMPSTNConfigurationPeriodLength.setStatus('current')
+acPMPSTNConfigurationResetTotalCounters = MibScalar((1, 3, 6, 1, 4, 1, 5003, 10, 10, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("resetCountersDone", 1), ("resetTotalCounters", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acPMPSTNConfigurationResetTotalCounters.setStatus('current')
+acPMTrunkUtilizationAttributes = MibIdentifier((1, 3, 6, 1, 4, 1, 5003, 10, 10, 1, 31))
+acPMTrunkUtilizationAttributesHighThreshold = MibScalar((1, 3, 6, 1, 4, 1, 5003, 10, 10, 1, 31, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acPMTrunkUtilizationAttributesHighThreshold.setStatus('current')
+acPMTrunkUtilizationAttributesLowThreshold = MibScalar((1, 3, 6, 1, 4, 1, 5003, 10, 10, 1, 31, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acPMTrunkUtilizationAttributesLowThreshold.setStatus('current')
+acPMPSTNChannelsAttributes = MibIdentifier((1, 3, 6, 1, 4, 1, 5003, 10, 10, 1, 32))
+acPMPSTNChannelsAttributesInServiceHighThreshold = MibScalar((1, 3, 6, 1, 4, 1, 5003, 10, 10, 1, 32, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acPMPSTNChannelsAttributesInServiceHighThreshold.setStatus('current')
+acPMPSTNChannelsAttributesInServiceLowThreshold = MibScalar((1, 3, 6, 1, 4, 1, 5003, 10, 10, 1, 32, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acPMPSTNChannelsAttributesInServiceLowThreshold.setStatus('current')
+acPMPSTNChannelsAttributesOutOfServiceHighThreshold = MibScalar((1, 3, 6, 1, 4, 1, 5003, 10, 10, 1, 32, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acPMPSTNChannelsAttributesOutOfServiceHighThreshold.setStatus('current')
+acPMPSTNChannelsAttributesOutOfServiceLowThreshold = MibScalar((1, 3, 6, 1, 4, 1, 5003, 10, 10, 1, 32, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acPMPSTNChannelsAttributesOutOfServiceLowThreshold.setStatus('current')
+acPMPSTNChannelsAttributesInMaintenanceHighThreshold = MibScalar((1, 3, 6, 1, 4, 1, 5003, 10, 10, 1, 32, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acPMPSTNChannelsAttributesInMaintenanceHighThreshold.setStatus('current')
+acPMPSTNChannelsAttributesInMaintenanceLowThreshold = MibScalar((1, 3, 6, 1, 4, 1, 5003, 10, 10, 1, 32, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acPMPSTNChannelsAttributesInMaintenanceLowThreshold.setStatus('current')
+acPMPSTNData = MibIdentifier((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2))
+acPMPSTNDataAcPMPSTNTimeFromStartOfInterval = MibScalar((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNDataAcPMPSTNTimeFromStartOfInterval.setStatus('current')
+acPMTrunkUtilizationTable = MibTable((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 21), )
+if mibBuilder.loadTexts: acPMTrunkUtilizationTable.setStatus('current')
+acPMTrunkUtilizationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 21, 1), ).setIndexNames((0, "AC-PM-PSTN-MIB", "acPMTrunkUtilizationTrunkNum"), (0, "AC-PM-PSTN-MIB", "acPMTrunkUtilizationInterval"))
+if mibBuilder.loadTexts: acPMTrunkUtilizationEntry.setStatus('current')
+acPMTrunkUtilizationTrunkNum = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 21, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 83)))
+if mibBuilder.loadTexts: acPMTrunkUtilizationTrunkNum.setStatus('current')
+acPMTrunkUtilizationInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 21, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2)))
+if mibBuilder.loadTexts: acPMTrunkUtilizationInterval.setStatus('current')
+acPMTrunkUtilizationVal = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 21, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMTrunkUtilizationVal.setStatus('current')
+acPMTrunkUtilizationAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 21, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMTrunkUtilizationAverage.setStatus('current')
+acPMTrunkUtilizationMax = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 21, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMTrunkUtilizationMax.setStatus('current')
+acPMTrunkUtilizationMin = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 21, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMTrunkUtilizationMin.setStatus('current')
+acPMTrunkUtilizationVolume = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 21, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMTrunkUtilizationVolume.setStatus('current')
+acPMTrunkUtilizationTimeBelowLowThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 21, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMTrunkUtilizationTimeBelowLowThreshold.setStatus('current')
+acPMTrunkUtilizationTimeBetweenThresholds = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 21, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMTrunkUtilizationTimeBetweenThresholds.setStatus('current')
+acPMTrunkUtilizationTimeAboveHighThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 21, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMTrunkUtilizationTimeAboveHighThreshold.setStatus('current')
+acPMTrunkUtilizationFullDayAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 21, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMTrunkUtilizationFullDayAverage.setStatus('current')
+acPMTrunkUtilizationTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 21, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMTrunkUtilizationTotal.setStatus('current')
+acPMPSTNTrunkActivitySecondsTable = MibTable((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 22), )
+if mibBuilder.loadTexts: acPMPSTNTrunkActivitySecondsTable.setStatus('current')
+acPMPSTNTrunkActivitySecondsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 22, 1), ).setIndexNames((0, "AC-PM-PSTN-MIB", "acPMPSTNTrunkActivitySecondsTrunkNum"), (0, "AC-PM-PSTN-MIB", "acPMPSTNTrunkActivitySecondsInterval"))
+if mibBuilder.loadTexts: acPMPSTNTrunkActivitySecondsEntry.setStatus('current')
+acPMPSTNTrunkActivitySecondsTrunkNum = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 22, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 83)))
+if mibBuilder.loadTexts: acPMPSTNTrunkActivitySecondsTrunkNum.setStatus('current')
+acPMPSTNTrunkActivitySecondsInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 22, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2)))
+if mibBuilder.loadTexts: acPMPSTNTrunkActivitySecondsInterval.setStatus('current')
+acPMPSTNTrunkActivitySecondsVal = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 22, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNTrunkActivitySecondsVal.setStatus('current')
+acPMPSTNTrunkActivitySecondsTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 22, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNTrunkActivitySecondsTotal.setStatus('current')
+acPMPSTNTrunkActivitySecondsVolume = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 22, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNTrunkActivitySecondsVolume.setStatus('current')
+acPMPSTNChannels = MibIdentifier((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31))
+acPMPSTNNumOfChannelsInServiceTable = MibTable((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 1), )
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInServiceTable.setStatus('current')
+acPMPSTNNumOfChannelsInServiceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 1, 1), ).setIndexNames((0, "AC-PM-PSTN-MIB", "acPMPSTNNumOfChannelsInServiceTrunkNum"), (0, "AC-PM-PSTN-MIB", "acPMPSTNNumOfChannelsInServiceInterval"))
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInServiceEntry.setStatus('current')
+acPMPSTNNumOfChannelsInServiceTrunkNum = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 83)))
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInServiceTrunkNum.setStatus('current')
+acPMPSTNNumOfChannelsInServiceInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2)))
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInServiceInterval.setStatus('current')
+acPMPSTNNumOfChannelsInServiceVal = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 1, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInServiceVal.setStatus('current')
+acPMPSTNNumOfChannelsInServiceAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInServiceAverage.setStatus('current')
+acPMPSTNNumOfChannelsInServiceMax = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInServiceMax.setStatus('current')
+acPMPSTNNumOfChannelsInServiceMin = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInServiceMin.setStatus('current')
+acPMPSTNNumOfChannelsInServiceVolume = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInServiceVolume.setStatus('current')
+acPMPSTNNumOfChannelsOutOfServiceTable = MibTable((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 2), )
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsOutOfServiceTable.setStatus('current')
+acPMPSTNNumOfChannelsOutOfServiceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 2, 1), ).setIndexNames((0, "AC-PM-PSTN-MIB", "acPMPSTNNumOfChannelsOutOfServiceTrunkNum"), (0, "AC-PM-PSTN-MIB", "acPMPSTNNumOfChannelsOutOfServiceInterval"))
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsOutOfServiceEntry.setStatus('current')
+acPMPSTNNumOfChannelsOutOfServiceTrunkNum = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 83)))
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsOutOfServiceTrunkNum.setStatus('current')
+acPMPSTNNumOfChannelsOutOfServiceInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2)))
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsOutOfServiceInterval.setStatus('current')
+acPMPSTNNumOfChannelsOutOfServiceVal = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 2, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsOutOfServiceVal.setStatus('current')
+acPMPSTNNumOfChannelsOutOfServiceAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsOutOfServiceAverage.setStatus('current')
+acPMPSTNNumOfChannelsOutOfServiceMax = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsOutOfServiceMax.setStatus('current')
+acPMPSTNNumOfChannelsOutOfServiceMin = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsOutOfServiceMin.setStatus('current')
+acPMPSTNNumOfChannelsOutOfServiceVolume = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsOutOfServiceVolume.setStatus('current')
+acPMPSTNNumOfChannelsInMaintenanceTable = MibTable((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 3), )
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInMaintenanceTable.setStatus('current')
+acPMPSTNNumOfChannelsInMaintenanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 3, 1), ).setIndexNames((0, "AC-PM-PSTN-MIB", "acPMPSTNNumOfChannelsInMaintenanceTrunkNum"), (0, "AC-PM-PSTN-MIB", "acPMPSTNNumOfChannelsInMaintenanceInterval"))
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInMaintenanceEntry.setStatus('current')
+acPMPSTNNumOfChannelsInMaintenanceTrunkNum = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 83)))
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInMaintenanceTrunkNum.setStatus('current')
+acPMPSTNNumOfChannelsInMaintenanceInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 3, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2)))
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInMaintenanceInterval.setStatus('current')
+acPMPSTNNumOfChannelsInMaintenanceVal = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 3, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInMaintenanceVal.setStatus('current')
+acPMPSTNNumOfChannelsInMaintenanceAverage = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInMaintenanceAverage.setStatus('current')
+acPMPSTNNumOfChannelsInMaintenanceMax = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInMaintenanceMax.setStatus('current')
+acPMPSTNNumOfChannelsInMaintenanceMin = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 3, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInMaintenanceMin.setStatus('current')
+acPMPSTNNumOfChannelsInMaintenanceVolume = MibTableColumn((1, 3, 6, 1, 4, 1, 5003, 10, 10, 2, 31, 3, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acPMPSTNNumOfChannelsInMaintenanceVolume.setStatus('current')
+mibBuilder.exportSymbols("AC-PM-PSTN-MIB", acPMTrunkUtilizationTable=acPMTrunkUtilizationTable, acPMPSTNTrunkActivitySecondsTable=acPMPSTNTrunkActivitySecondsTable, acPMPSTNNumOfChannelsOutOfServiceAverage=acPMPSTNNumOfChannelsOutOfServiceAverage, acPMPSTNChannelsAttributesOutOfServiceHighThreshold=acPMPSTNChannelsAttributesOutOfServiceHighThreshold, acPMPSTNNumOfChannelsInMaintenanceMax=acPMPSTNNumOfChannelsInMaintenanceMax, acPMTrunkUtilizationAttributes=acPMTrunkUtilizationAttributes, acPMPSTNNumOfChannelsOutOfServiceVal=acPMPSTNNumOfChannelsOutOfServiceVal, acPMPSTNChannelsAttributesInServiceLowThreshold=acPMPSTNChannelsAttributesInServiceLowThreshold, acPMTrunkUtilizationTimeBetweenThresholds=acPMTrunkUtilizationTimeBetweenThresholds, acPMTrunkUtilizationTotal=acPMTrunkUtilizationTotal, acPMPSTNTrunkActivitySecondsTotal=acPMPSTNTrunkActivitySecondsTotal, acPMPSTNNumOfChannelsInServiceTable=acPMPSTNNumOfChannelsInServiceTable, acPMPSTNNumOfChannelsInServiceVolume=acPMPSTNNumOfChannelsInServiceVolume, acPMTrunkUtilizationFullDayAverage=acPMTrunkUtilizationFullDayAverage, acPMPSTNNumOfChannelsInServiceMax=acPMPSTNNumOfChannelsInServiceMax, acPMPSTNNumOfChannelsInMaintenanceEntry=acPMPSTNNumOfChannelsInMaintenanceEntry, acPMPSTNNumOfChannelsInMaintenanceVal=acPMPSTNNumOfChannelsInMaintenanceVal, acPMPSTNChannelsAttributesOutOfServiceLowThreshold=acPMPSTNChannelsAttributesOutOfServiceLowThreshold, acPMPSTNNumOfChannelsInServiceAverage=acPMPSTNNumOfChannelsInServiceAverage, acPMTrunkUtilizationTimeBelowLowThreshold=acPMTrunkUtilizationTimeBelowLowThreshold, acPMPSTNChannelsAttributesInServiceHighThreshold=acPMPSTNChannelsAttributesInServiceHighThreshold, acPMTrunkUtilizationMax=acPMTrunkUtilizationMax, acPMPSTNNumOfChannelsInMaintenanceVolume=acPMPSTNNumOfChannelsInMaintenanceVolume, acPMTrunkUtilizationTrunkNum=acPMTrunkUtilizationTrunkNum, acPMPSTNChannelsAttributesInMaintenanceHighThreshold=acPMPSTNChannelsAttributesInMaintenanceHighThreshold, acPMTrunkUtilizationEntry=acPMTrunkUtilizationEntry, acPMPSTNTrunkActivitySecondsInterval=acPMPSTNTrunkActivitySecondsInterval, acPMPSTNNumOfChannelsOutOfServiceTable=acPMPSTNNumOfChannelsOutOfServiceTable, acPMPSTNTrunkActivitySecondsVolume=acPMPSTNTrunkActivitySecondsVolume, acPMTrunkUtilizationVal=acPMTrunkUtilizationVal, acPMPSTNNumOfChannelsOutOfServiceInterval=acPMPSTNNumOfChannelsOutOfServiceInterval, acPMPSTNNumOfChannelsOutOfServiceTrunkNum=acPMPSTNNumOfChannelsOutOfServiceTrunkNum, acPMPSTNConfigurationResetTotalCounters=acPMPSTNConfigurationResetTotalCounters, acPMTrunkUtilizationMin=acPMTrunkUtilizationMin, acPMPSTNTrunkActivitySecondsTrunkNum=acPMPSTNTrunkActivitySecondsTrunkNum, acPMPSTNNumOfChannelsInMaintenanceTable=acPMPSTNNumOfChannelsInMaintenanceTable, acPMPSTNNumOfChannelsInServiceEntry=acPMPSTNNumOfChannelsInServiceEntry, acPMTrunkUtilizationAttributesLowThreshold=acPMTrunkUtilizationAttributesLowThreshold, PYSNMP_MODULE_ID=acPMPSTN, acPMPSTNConfiguration=acPMPSTNConfiguration, acPMTrunkUtilizationTimeAboveHighThreshold=acPMTrunkUtilizationTimeAboveHighThreshold, acPMTrunkUtilizationInterval=acPMTrunkUtilizationInterval, acPMPSTNNumOfChannelsInServiceInterval=acPMPSTNNumOfChannelsInServiceInterval, acPMPSTNNumOfChannelsOutOfServiceVolume=acPMPSTNNumOfChannelsOutOfServiceVolume, acPMPSTNNumOfChannelsInMaintenanceTrunkNum=acPMPSTNNumOfChannelsInMaintenanceTrunkNum, acPMPSTNNumOfChannelsOutOfServiceMin=acPMPSTNNumOfChannelsOutOfServiceMin, acPMPSTNNumOfChannelsInServiceTrunkNum=acPMPSTNNumOfChannelsInServiceTrunkNum, acPMPSTNDataAcPMPSTNTimeFromStartOfInterval=acPMPSTNDataAcPMPSTNTimeFromStartOfInterval, acPMPSTN=acPMPSTN, acPMPSTNNumOfChannelsOutOfServiceEntry=acPMPSTNNumOfChannelsOutOfServiceEntry, acPMPSTNTrunkActivitySecondsEntry=acPMPSTNTrunkActivitySecondsEntry, acPMPSTNNumOfChannelsInMaintenanceAverage=acPMPSTNNumOfChannelsInMaintenanceAverage, acPMPSTNChannelsAttributes=acPMPSTNChannelsAttributes, acPMTrunkUtilizationVolume=acPMTrunkUtilizationVolume, acPMPSTNTrunkActivitySecondsVal=acPMPSTNTrunkActivitySecondsVal, acPMPSTNNumOfChannelsInServiceVal=acPMPSTNNumOfChannelsInServiceVal, acPMPSTNChannelsAttributesInMaintenanceLowThreshold=acPMPSTNChannelsAttributesInMaintenanceLowThreshold, acPMPSTNNumOfChannelsInServiceMin=acPMPSTNNumOfChannelsInServiceMin, acPMTrunkUtilizationAverage=acPMTrunkUtilizationAverage, acPMPSTNNumOfChannelsInMaintenanceInterval=acPMPSTNNumOfChannelsInMaintenanceInterval, acPMPSTNData=acPMPSTNData, acPMTrunkUtilizationAttributesHighThreshold=acPMTrunkUtilizationAttributesHighThreshold, acPMPSTNNumOfChannelsInMaintenanceMin=acPMPSTNNumOfChannelsInMaintenanceMin, acPMPSTNNumOfChannelsOutOfServiceMax=acPMPSTNNumOfChannelsOutOfServiceMax, acPMPSTNConfigurationPeriodLength=acPMPSTNConfigurationPeriodLength, acPMPSTNChannels=acPMPSTNChannels)

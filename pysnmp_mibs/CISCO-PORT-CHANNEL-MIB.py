@@ -1,221 +1,124 @@
-_k='portChannelFcipGroup'
-_j='portChannelExtFcipEnhanced'
-_i='portChannelExtOperChannelGrpMode'
-_h='portChannelExtPersistent'
-_g='portChannelExtAutoCreated'
-_f='portChannelExtChannelGrpMode'
-_e='portChannelGrpIfAutoCreation'
-_d='portChannelProtocolEnable'
-_c='portChannelMemberOperStatus'
-_b='portChannelRowStatus'
-_a='portChannelCreationTime'
-_Z='portChannelMemberList'
-_Y='portChannelLastActionTime'
-_X='portChannelLastActionStatusCause'
-_W='portChannelLastActionStatus'
-_V='portChannelAddType'
-_U='portChannelOperChannelMode'
-_T='portChannelAdminChannelMode'
-_S='portChannelIfIndex'
-_R='portChannelExtEntry'
-_Q='enable'
-_P='PortChannelMode'
-_O='portChannelIndex'
-_N='Unsigned32'
-_M='ifIndex'
-_L='IF-MIB'
-_K='portChannelProtocolGroup'
-_J='PortMemberList'
-_I='portChannelGroupRev1'
-_H='deprecated'
-_G='read-create'
-_F='read-write'
-_E='Integer32'
-_D='portChannelGroup'
-_C='read-only'
-_B='CISCO-PORT-CHANNEL-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-PortMemberList,=mibBuilder.importSymbols('CISCO-ST-TC',_J)
-InterfaceIndex,ifIndex=mibBuilder.importSymbols(_L,'InterfaceIndex',_M)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_N,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp','TruthValue')
-ciscoPortChannelMIB=ModuleIdentity((1,3,6,1,4,1,9,9,285))
-if mibBuilder.loadTexts:ciscoPortChannelMIB.setRevisions(('2017-02-28 00:00','2004-09-13 00:00','2004-06-08 00:00','2004-03-11 00:00','2003-05-28 00:00','2002-10-02 00:00'))
-class PortChannelMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('auto',1),('on',2),('off',3),('desirable',4)))
-class PortChannelGroupMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('on',1),('active',2)))
-_CiscoPortChannelObjects_ObjectIdentity=ObjectIdentity
-ciscoPortChannelObjects=_CiscoPortChannelObjects_ObjectIdentity((1,3,6,1,4,1,9,9,285,1))
-_PortChannelConfig_ObjectIdentity=ObjectIdentity
-portChannelConfig=_PortChannelConfig_ObjectIdentity((1,3,6,1,4,1,9,9,285,1,1))
-_PortChannelTable_Object=MibTable
-portChannelTable=_PortChannelTable_Object((1,3,6,1,4,1,9,9,285,1,1,1))
-if mibBuilder.loadTexts:portChannelTable.setStatus(_A)
-_PortChannelEntry_Object=MibTableRow
-portChannelEntry=_PortChannelEntry_Object((1,3,6,1,4,1,9,9,285,1,1,1,1))
-portChannelEntry.setIndexNames((0,_B,_O))
-if mibBuilder.loadTexts:portChannelEntry.setStatus(_A)
-class _PortChannelIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2048))
-_PortChannelIndex_Type.__name__=_N
-_PortChannelIndex_Object=MibTableColumn
-portChannelIndex=_PortChannelIndex_Object((1,3,6,1,4,1,9,9,285,1,1,1,1,1),_PortChannelIndex_Type())
-portChannelIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:portChannelIndex.setStatus(_A)
-_PortChannelIfIndex_Type=InterfaceIndex
-_PortChannelIfIndex_Object=MibTableColumn
-portChannelIfIndex=_PortChannelIfIndex_Object((1,3,6,1,4,1,9,9,285,1,1,1,1,2),_PortChannelIfIndex_Type())
-portChannelIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:portChannelIfIndex.setStatus(_A)
-class _PortChannelAdminChannelMode_Type(PortChannelMode):defaultValue=2
-_PortChannelAdminChannelMode_Type.__name__=_P
-_PortChannelAdminChannelMode_Object=MibTableColumn
-portChannelAdminChannelMode=_PortChannelAdminChannelMode_Object((1,3,6,1,4,1,9,9,285,1,1,1,1,3),_PortChannelAdminChannelMode_Type())
-portChannelAdminChannelMode.setMaxAccess(_G)
-if mibBuilder.loadTexts:portChannelAdminChannelMode.setStatus(_A)
-_PortChannelOperChannelMode_Type=PortChannelMode
-_PortChannelOperChannelMode_Object=MibTableColumn
-portChannelOperChannelMode=_PortChannelOperChannelMode_Object((1,3,6,1,4,1,9,9,285,1,1,1,1,4),_PortChannelOperChannelMode_Type())
-portChannelOperChannelMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:portChannelOperChannelMode.setStatus(_A)
-class _PortChannelAddType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('normal',1),('force',2)))
-_PortChannelAddType_Type.__name__=_E
-_PortChannelAddType_Object=MibTableColumn
-portChannelAddType=_PortChannelAddType_Object((1,3,6,1,4,1,9,9,285,1,1,1,1,5),_PortChannelAddType_Type())
-portChannelAddType.setMaxAccess(_G)
-if mibBuilder.loadTexts:portChannelAddType.setStatus(_A)
-class _PortChannelLastActionStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('successful',1),('failed',2)))
-_PortChannelLastActionStatus_Type.__name__=_E
-_PortChannelLastActionStatus_Object=MibTableColumn
-portChannelLastActionStatus=_PortChannelLastActionStatus_Object((1,3,6,1,4,1,9,9,285,1,1,1,1,6),_PortChannelLastActionStatus_Type())
-portChannelLastActionStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:portChannelLastActionStatus.setStatus(_A)
-_PortChannelLastActionStatusCause_Type=SnmpAdminString
-_PortChannelLastActionStatusCause_Object=MibTableColumn
-portChannelLastActionStatusCause=_PortChannelLastActionStatusCause_Object((1,3,6,1,4,1,9,9,285,1,1,1,1,7),_PortChannelLastActionStatusCause_Type())
-portChannelLastActionStatusCause.setMaxAccess(_C)
-if mibBuilder.loadTexts:portChannelLastActionStatusCause.setStatus(_A)
-_PortChannelLastActionTime_Type=TimeStamp
-_PortChannelLastActionTime_Object=MibTableColumn
-portChannelLastActionTime=_PortChannelLastActionTime_Object((1,3,6,1,4,1,9,9,285,1,1,1,1,8),_PortChannelLastActionTime_Type())
-portChannelLastActionTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:portChannelLastActionTime.setStatus(_A)
-class _PortChannelMemberList_Type(PortMemberList):defaultHexValue=''
-_PortChannelMemberList_Type.__name__=_J
-_PortChannelMemberList_Object=MibTableColumn
-portChannelMemberList=_PortChannelMemberList_Object((1,3,6,1,4,1,9,9,285,1,1,1,1,9),_PortChannelMemberList_Type())
-portChannelMemberList.setMaxAccess(_G)
-if mibBuilder.loadTexts:portChannelMemberList.setStatus(_A)
-_PortChannelCreationTime_Type=TimeStamp
-_PortChannelCreationTime_Object=MibTableColumn
-portChannelCreationTime=_PortChannelCreationTime_Object((1,3,6,1,4,1,9,9,285,1,1,1,1,10),_PortChannelCreationTime_Type())
-portChannelCreationTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:portChannelCreationTime.setStatus(_A)
-_PortChannelRowStatus_Type=RowStatus
-_PortChannelRowStatus_Object=MibTableColumn
-portChannelRowStatus=_PortChannelRowStatus_Object((1,3,6,1,4,1,9,9,285,1,1,1,1,11),_PortChannelRowStatus_Type())
-portChannelRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:portChannelRowStatus.setStatus(_A)
-class _PortChannelMemberOperStatus_Type(PortMemberList):defaultHexValue=''
-_PortChannelMemberOperStatus_Type.__name__=_J
-_PortChannelMemberOperStatus_Object=MibTableColumn
-portChannelMemberOperStatus=_PortChannelMemberOperStatus_Object((1,3,6,1,4,1,9,9,285,1,1,1,1,12),_PortChannelMemberOperStatus_Type())
-portChannelMemberOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:portChannelMemberOperStatus.setStatus(_A)
-_PortChannelProtocolEnable_Type=TruthValue
-_PortChannelProtocolEnable_Object=MibScalar
-portChannelProtocolEnable=_PortChannelProtocolEnable_Object((1,3,6,1,4,1,9,9,285,1,1,2),_PortChannelProtocolEnable_Type())
-portChannelProtocolEnable.setMaxAccess(_F)
-if mibBuilder.loadTexts:portChannelProtocolEnable.setStatus(_A)
-_PortChannelGrpIfExtTable_Object=MibTable
-portChannelGrpIfExtTable=_PortChannelGrpIfExtTable_Object((1,3,6,1,4,1,9,9,285,1,1,3))
-if mibBuilder.loadTexts:portChannelGrpIfExtTable.setStatus(_A)
-_PortChannelGrpIfExtEntry_Object=MibTableRow
-portChannelGrpIfExtEntry=_PortChannelGrpIfExtEntry_Object((1,3,6,1,4,1,9,9,285,1,1,3,1))
-portChannelGrpIfExtEntry.setIndexNames((0,_L,_M))
-if mibBuilder.loadTexts:portChannelGrpIfExtEntry.setStatus(_A)
-_PortChannelGrpIfAutoCreation_Type=TruthValue
-_PortChannelGrpIfAutoCreation_Object=MibTableColumn
-portChannelGrpIfAutoCreation=_PortChannelGrpIfAutoCreation_Object((1,3,6,1,4,1,9,9,285,1,1,3,1,1),_PortChannelGrpIfAutoCreation_Type())
-portChannelGrpIfAutoCreation.setMaxAccess(_F)
-if mibBuilder.loadTexts:portChannelGrpIfAutoCreation.setStatus(_A)
-_PortChannelExtTable_Object=MibTable
-portChannelExtTable=_PortChannelExtTable_Object((1,3,6,1,4,1,9,9,285,1,1,4))
-if mibBuilder.loadTexts:portChannelExtTable.setStatus(_A)
-_PortChannelExtEntry_Object=MibTableRow
-portChannelExtEntry=_PortChannelExtEntry_Object((1,3,6,1,4,1,9,9,285,1,1,4,1))
-if mibBuilder.loadTexts:portChannelExtEntry.setStatus(_A)
-_PortChannelExtChannelGrpMode_Type=PortChannelGroupMode
-_PortChannelExtChannelGrpMode_Object=MibTableColumn
-portChannelExtChannelGrpMode=_PortChannelExtChannelGrpMode_Object((1,3,6,1,4,1,9,9,285,1,1,4,1,1),_PortChannelExtChannelGrpMode_Type())
-portChannelExtChannelGrpMode.setMaxAccess(_F)
-if mibBuilder.loadTexts:portChannelExtChannelGrpMode.setStatus(_A)
-_PortChannelExtAutoCreated_Type=TruthValue
-_PortChannelExtAutoCreated_Object=MibTableColumn
-portChannelExtAutoCreated=_PortChannelExtAutoCreated_Object((1,3,6,1,4,1,9,9,285,1,1,4,1,2),_PortChannelExtAutoCreated_Type())
-portChannelExtAutoCreated.setMaxAccess(_C)
-if mibBuilder.loadTexts:portChannelExtAutoCreated.setStatus(_A)
-class _PortChannelExtPersistent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('noOp',1),(_Q,2)))
-_PortChannelExtPersistent_Type.__name__=_E
-_PortChannelExtPersistent_Object=MibTableColumn
-portChannelExtPersistent=_PortChannelExtPersistent_Object((1,3,6,1,4,1,9,9,285,1,1,4,1,3),_PortChannelExtPersistent_Type())
-portChannelExtPersistent.setMaxAccess(_F)
-if mibBuilder.loadTexts:portChannelExtPersistent.setStatus(_A)
-_PortChannelExtOperChannelGrpMode_Type=PortChannelGroupMode
-_PortChannelExtOperChannelGrpMode_Object=MibTableColumn
-portChannelExtOperChannelGrpMode=_PortChannelExtOperChannelGrpMode_Object((1,3,6,1,4,1,9,9,285,1,1,4,1,4),_PortChannelExtOperChannelGrpMode_Type())
-portChannelExtOperChannelGrpMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:portChannelExtOperChannelGrpMode.setStatus(_A)
-class _PortChannelExtFcipEnhanced_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('disable',1),(_Q,2)))
-_PortChannelExtFcipEnhanced_Type.__name__=_E
-_PortChannelExtFcipEnhanced_Object=MibTableColumn
-portChannelExtFcipEnhanced=_PortChannelExtFcipEnhanced_Object((1,3,6,1,4,1,9,9,285,1,1,4,1,5),_PortChannelExtFcipEnhanced_Type())
-portChannelExtFcipEnhanced.setMaxAccess(_F)
-if mibBuilder.loadTexts:portChannelExtFcipEnhanced.setStatus(_A)
-_PortChannelStatistics_ObjectIdentity=ObjectIdentity
-portChannelStatistics=_PortChannelStatistics_ObjectIdentity((1,3,6,1,4,1,9,9,285,1,2))
-_PortChannelNotification_ObjectIdentity=ObjectIdentity
-portChannelNotification=_PortChannelNotification_ObjectIdentity((1,3,6,1,4,1,9,9,285,1,3))
-_PortChannelNotifications_ObjectIdentity=ObjectIdentity
-portChannelNotifications=_PortChannelNotifications_ObjectIdentity((1,3,6,1,4,1,9,9,285,1,3,0))
-_PortChannelMIBConformance_ObjectIdentity=ObjectIdentity
-portChannelMIBConformance=_PortChannelMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,285,2))
-_PortChannelMIBCompliances_ObjectIdentity=ObjectIdentity
-portChannelMIBCompliances=_PortChannelMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,285,2,1))
-_PortChannelMIBGroups_ObjectIdentity=ObjectIdentity
-portChannelMIBGroups=_PortChannelMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,285,2,2))
-portChannelEntry.registerAugmentions((_B,_R))
+#
+# PySNMP MIB module CISCO-PORT-CHANNEL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-PORT-CHANNEL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+PortMemberList, = mibBuilder.importSymbols("CISCO-ST-TC", "PortMemberList")
+ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "TruthValue", "TextualConvention")
+ciscoPortChannelMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 285))
+ciscoPortChannelMIB.setRevisions(('2017-02-28 00:00', '2004-09-13 00:00', '2004-06-08 00:00', '2004-03-11 00:00', '2003-05-28 00:00', '2002-10-02 00:00',))
+if mibBuilder.loadTexts: ciscoPortChannelMIB.setLastUpdated('201702280000Z')
+if mibBuilder.loadTexts: ciscoPortChannelMIB.setOrganization('Cisco Systems Inc.')
+ciscoPortChannelObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 285, 1))
+portChannelMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 285, 2))
+portChannelConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1))
+portChannelStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 2))
+portChannelNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 3))
+portChannelNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 3, 0))
+class PortChannelMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("auto", 1), ("on", 2), ("off", 3), ("desirable", 4))
+
+class PortChannelGroupMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("on", 1), ("active", 2))
+
+portChannelTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 1), )
+if mibBuilder.loadTexts: portChannelTable.setStatus('current')
+portChannelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-PORT-CHANNEL-MIB", "portChannelIndex"))
+if mibBuilder.loadTexts: portChannelEntry.setStatus('current')
+portChannelIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2048)))
+if mibBuilder.loadTexts: portChannelIndex.setStatus('current')
+portChannelIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 1, 1, 2), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portChannelIfIndex.setStatus('current')
+portChannelAdminChannelMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 1, 1, 3), PortChannelMode().clone('on')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: portChannelAdminChannelMode.setStatus('current')
+portChannelOperChannelMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 1, 1, 4), PortChannelMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portChannelOperChannelMode.setStatus('current')
+portChannelAddType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("normal", 1), ("force", 2))).clone('normal')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: portChannelAddType.setStatus('current')
+portChannelLastActionStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("successful", 1), ("failed", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portChannelLastActionStatus.setStatus('current')
+portChannelLastActionStatusCause = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 1, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portChannelLastActionStatusCause.setStatus('current')
+portChannelLastActionTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 1, 1, 8), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portChannelLastActionTime.setStatus('current')
+portChannelMemberList = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 1, 1, 9), PortMemberList().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: portChannelMemberList.setStatus('current')
+portChannelCreationTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 1, 1, 10), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portChannelCreationTime.setStatus('current')
+portChannelRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 1, 1, 11), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: portChannelRowStatus.setStatus('current')
+portChannelMemberOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 1, 1, 12), PortMemberList().clone(hexValue="")).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portChannelMemberOperStatus.setStatus('current')
+portChannelProtocolEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portChannelProtocolEnable.setStatus('current')
+portChannelGrpIfExtTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 3), )
+if mibBuilder.loadTexts: portChannelGrpIfExtTable.setStatus('current')
+portChannelGrpIfExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: portChannelGrpIfExtEntry.setStatus('current')
+portChannelGrpIfAutoCreation = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 3, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portChannelGrpIfAutoCreation.setStatus('current')
+portChannelExtTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 4), )
+if mibBuilder.loadTexts: portChannelExtTable.setStatus('current')
+portChannelExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 4, 1), )
+portChannelEntry.registerAugmentions(("CISCO-PORT-CHANNEL-MIB", "portChannelExtEntry"))
 portChannelExtEntry.setIndexNames(*portChannelEntry.getIndexNames())
-portChannelGroup=ObjectGroup((1,3,6,1,4,1,9,9,285,2,2,1))
-portChannelGroup.setObjects(*((_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b)))
-if mibBuilder.loadTexts:portChannelGroup.setStatus(_A)
-portChannelGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,285,2,2,2))
-portChannelGroupRev1.setObjects((_B,_c))
-if mibBuilder.loadTexts:portChannelGroupRev1.setStatus(_A)
-portChannelProtocolGroup=ObjectGroup((1,3,6,1,4,1,9,9,285,2,2,3))
-portChannelProtocolGroup.setObjects(*((_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i)))
-if mibBuilder.loadTexts:portChannelProtocolGroup.setStatus(_A)
-portChannelFcipGroup=ObjectGroup((1,3,6,1,4,1,9,9,285,2,2,4))
-portChannelFcipGroup.setObjects((_B,_j))
-if mibBuilder.loadTexts:portChannelFcipGroup.setStatus(_A)
-portChannelMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,285,2,1,1))
-portChannelMIBCompliance.setObjects((_B,_D))
-if mibBuilder.loadTexts:portChannelMIBCompliance.setStatus(_H)
-portChannelMIBCompliance1=ModuleCompliance((1,3,6,1,4,1,9,9,285,2,1,2))
-portChannelMIBCompliance1.setObjects((_B,_D))
-if mibBuilder.loadTexts:portChannelMIBCompliance1.setStatus(_H)
-portChannelMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,9,9,285,2,1,3))
-portChannelMIBCompliance2.setObjects(*((_B,_D),(_B,_I)))
-if mibBuilder.loadTexts:portChannelMIBCompliance2.setStatus(_H)
-portChannelMIBCompliance3=ModuleCompliance((1,3,6,1,4,1,9,9,285,2,1,4))
-portChannelMIBCompliance3.setObjects(*((_B,_D),(_B,_I),(_B,_K)))
-if mibBuilder.loadTexts:portChannelMIBCompliance3.setStatus(_H)
-portChannelMIBCompliance4=ModuleCompliance((1,3,6,1,4,1,9,9,285,2,1,5))
-portChannelMIBCompliance4.setObjects(*((_B,_D),(_B,_I),(_B,_K),(_B,_k)))
-if mibBuilder.loadTexts:portChannelMIBCompliance4.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_P:PortChannelMode,'PortChannelGroupMode':PortChannelGroupMode,'ciscoPortChannelMIB':ciscoPortChannelMIB,'ciscoPortChannelObjects':ciscoPortChannelObjects,'portChannelConfig':portChannelConfig,'portChannelTable':portChannelTable,'portChannelEntry':portChannelEntry,_O:portChannelIndex,_S:portChannelIfIndex,_T:portChannelAdminChannelMode,_U:portChannelOperChannelMode,_V:portChannelAddType,_W:portChannelLastActionStatus,_X:portChannelLastActionStatusCause,_Y:portChannelLastActionTime,_Z:portChannelMemberList,_a:portChannelCreationTime,_b:portChannelRowStatus,_c:portChannelMemberOperStatus,_d:portChannelProtocolEnable,'portChannelGrpIfExtTable':portChannelGrpIfExtTable,'portChannelGrpIfExtEntry':portChannelGrpIfExtEntry,_e:portChannelGrpIfAutoCreation,'portChannelExtTable':portChannelExtTable,_R:portChannelExtEntry,_f:portChannelExtChannelGrpMode,_g:portChannelExtAutoCreated,_h:portChannelExtPersistent,_i:portChannelExtOperChannelGrpMode,_j:portChannelExtFcipEnhanced,'portChannelStatistics':portChannelStatistics,'portChannelNotification':portChannelNotification,'portChannelNotifications':portChannelNotifications,'portChannelMIBConformance':portChannelMIBConformance,'portChannelMIBCompliances':portChannelMIBCompliances,'portChannelMIBCompliance':portChannelMIBCompliance,'portChannelMIBCompliance1':portChannelMIBCompliance1,'portChannelMIBCompliance2':portChannelMIBCompliance2,'portChannelMIBCompliance3':portChannelMIBCompliance3,'portChannelMIBCompliance4':portChannelMIBCompliance4,'portChannelMIBGroups':portChannelMIBGroups,_D:portChannelGroup,_I:portChannelGroupRev1,_K:portChannelProtocolGroup,_k:portChannelFcipGroup})
+if mibBuilder.loadTexts: portChannelExtEntry.setStatus('current')
+portChannelExtChannelGrpMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 4, 1, 1), PortChannelGroupMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portChannelExtChannelGrpMode.setStatus('current')
+portChannelExtAutoCreated = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 4, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portChannelExtAutoCreated.setStatus('current')
+portChannelExtPersistent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noOp", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portChannelExtPersistent.setStatus('current')
+portChannelExtOperChannelGrpMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 4, 1, 4), PortChannelGroupMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: portChannelExtOperChannelGrpMode.setStatus('current')
+portChannelExtFcipEnhanced = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 285, 1, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portChannelExtFcipEnhanced.setStatus('current')
+portChannelMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 285, 2, 1))
+portChannelMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 285, 2, 2))
+portChannelMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 285, 2, 1, 1)).setObjects(("CISCO-PORT-CHANNEL-MIB", "portChannelGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    portChannelMIBCompliance = portChannelMIBCompliance.setStatus('deprecated')
+portChannelMIBCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 285, 2, 1, 2)).setObjects(("CISCO-PORT-CHANNEL-MIB", "portChannelGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    portChannelMIBCompliance1 = portChannelMIBCompliance1.setStatus('deprecated')
+portChannelMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 285, 2, 1, 3)).setObjects(("CISCO-PORT-CHANNEL-MIB", "portChannelGroup"), ("CISCO-PORT-CHANNEL-MIB", "portChannelGroupRev1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    portChannelMIBCompliance2 = portChannelMIBCompliance2.setStatus('deprecated')
+portChannelMIBCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 285, 2, 1, 4)).setObjects(("CISCO-PORT-CHANNEL-MIB", "portChannelGroup"), ("CISCO-PORT-CHANNEL-MIB", "portChannelGroupRev1"), ("CISCO-PORT-CHANNEL-MIB", "portChannelProtocolGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    portChannelMIBCompliance3 = portChannelMIBCompliance3.setStatus('deprecated')
+portChannelMIBCompliance4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 285, 2, 1, 5)).setObjects(("CISCO-PORT-CHANNEL-MIB", "portChannelGroup"), ("CISCO-PORT-CHANNEL-MIB", "portChannelGroupRev1"), ("CISCO-PORT-CHANNEL-MIB", "portChannelProtocolGroup"), ("CISCO-PORT-CHANNEL-MIB", "portChannelFcipGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    portChannelMIBCompliance4 = portChannelMIBCompliance4.setStatus('current')
+portChannelGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 285, 2, 2, 1)).setObjects(("CISCO-PORT-CHANNEL-MIB", "portChannelIfIndex"), ("CISCO-PORT-CHANNEL-MIB", "portChannelAdminChannelMode"), ("CISCO-PORT-CHANNEL-MIB", "portChannelOperChannelMode"), ("CISCO-PORT-CHANNEL-MIB", "portChannelAddType"), ("CISCO-PORT-CHANNEL-MIB", "portChannelLastActionStatus"), ("CISCO-PORT-CHANNEL-MIB", "portChannelLastActionStatusCause"), ("CISCO-PORT-CHANNEL-MIB", "portChannelLastActionTime"), ("CISCO-PORT-CHANNEL-MIB", "portChannelMemberList"), ("CISCO-PORT-CHANNEL-MIB", "portChannelCreationTime"), ("CISCO-PORT-CHANNEL-MIB", "portChannelRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    portChannelGroup = portChannelGroup.setStatus('current')
+portChannelGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 285, 2, 2, 2)).setObjects(("CISCO-PORT-CHANNEL-MIB", "portChannelMemberOperStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    portChannelGroupRev1 = portChannelGroupRev1.setStatus('current')
+portChannelProtocolGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 285, 2, 2, 3)).setObjects(("CISCO-PORT-CHANNEL-MIB", "portChannelProtocolEnable"), ("CISCO-PORT-CHANNEL-MIB", "portChannelGrpIfAutoCreation"), ("CISCO-PORT-CHANNEL-MIB", "portChannelExtChannelGrpMode"), ("CISCO-PORT-CHANNEL-MIB", "portChannelExtAutoCreated"), ("CISCO-PORT-CHANNEL-MIB", "portChannelExtPersistent"), ("CISCO-PORT-CHANNEL-MIB", "portChannelExtOperChannelGrpMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    portChannelProtocolGroup = portChannelProtocolGroup.setStatus('current')
+portChannelFcipGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 285, 2, 2, 4)).setObjects(("CISCO-PORT-CHANNEL-MIB", "portChannelExtFcipEnhanced"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    portChannelFcipGroup = portChannelFcipGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-PORT-CHANNEL-MIB", portChannelProtocolEnable=portChannelProtocolEnable, portChannelGroup=portChannelGroup, portChannelMIBCompliances=portChannelMIBCompliances, portChannelExtOperChannelGrpMode=portChannelExtOperChannelGrpMode, portChannelExtEntry=portChannelExtEntry, portChannelIfIndex=portChannelIfIndex, portChannelGrpIfExtEntry=portChannelGrpIfExtEntry, portChannelGrpIfExtTable=portChannelGrpIfExtTable, ciscoPortChannelObjects=ciscoPortChannelObjects, portChannelExtFcipEnhanced=portChannelExtFcipEnhanced, portChannelMemberOperStatus=portChannelMemberOperStatus, portChannelGrpIfAutoCreation=portChannelGrpIfAutoCreation, portChannelMIBConformance=portChannelMIBConformance, portChannelLastActionTime=portChannelLastActionTime, portChannelOperChannelMode=portChannelOperChannelMode, portChannelProtocolGroup=portChannelProtocolGroup, portChannelAddType=portChannelAddType, portChannelMIBCompliance=portChannelMIBCompliance, portChannelEntry=portChannelEntry, portChannelExtChannelGrpMode=portChannelExtChannelGrpMode, portChannelExtAutoCreated=portChannelExtAutoCreated, portChannelTable=portChannelTable, PortChannelGroupMode=PortChannelGroupMode, portChannelMIBCompliance1=portChannelMIBCompliance1, portChannelRowStatus=portChannelRowStatus, portChannelMemberList=portChannelMemberList, portChannelGroupRev1=portChannelGroupRev1, portChannelCreationTime=portChannelCreationTime, portChannelLastActionStatusCause=portChannelLastActionStatusCause, portChannelExtTable=portChannelExtTable, portChannelIndex=portChannelIndex, portChannelConfig=portChannelConfig, portChannelFcipGroup=portChannelFcipGroup, PortChannelMode=PortChannelMode, portChannelMIBCompliance4=portChannelMIBCompliance4, portChannelAdminChannelMode=portChannelAdminChannelMode, ciscoPortChannelMIB=ciscoPortChannelMIB, portChannelMIBGroups=portChannelMIBGroups, portChannelNotification=portChannelNotification, portChannelLastActionStatus=portChannelLastActionStatus, portChannelStatistics=portChannelStatistics, portChannelMIBCompliance2=portChannelMIBCompliance2, portChannelNotifications=portChannelNotifications, portChannelMIBCompliance3=portChannelMIBCompliance3, PYSNMP_MODULE_ID=ciscoPortChannelMIB, portChannelExtPersistent=portChannelExtPersistent)

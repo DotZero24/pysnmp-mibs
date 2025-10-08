@@ -1,66 +1,44 @@
-_E='slRadiusServerIndex'
-_D='SL-RADIUS-MIB'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-slMain,=mibBuilder.importSymbols('SL-MAIN-MIB','slMain')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-slRadiusMIB=ModuleIdentity((1,3,6,1,4,1,4515,1,3,23))
-class SharedSecret(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_SlRadiusClientMIBObjects_ObjectIdentity=ObjectIdentity
-slRadiusClientMIBObjects=_SlRadiusClientMIBObjects_ObjectIdentity((1,3,6,1,4,1,4515,1,3,23,1))
-_SlRadiusClient_ObjectIdentity=ObjectIdentity
-slRadiusClient=_SlRadiusClient_ObjectIdentity((1,3,6,1,4,1,4515,1,3,23,1,1))
-_SlRadiusEnabled_Type=TruthValue
-_SlRadiusEnabled_Object=MibScalar
-slRadiusEnabled=_SlRadiusEnabled_Object((1,3,6,1,4,1,4515,1,3,23,1,1,1),_SlRadiusEnabled_Type())
-slRadiusEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:slRadiusEnabled.setStatus(_A)
-_SlRadiusServerTable_Object=MibTable
-slRadiusServerTable=_SlRadiusServerTable_Object((1,3,6,1,4,1,4515,1,3,23,1,1,2))
-if mibBuilder.loadTexts:slRadiusServerTable.setStatus(_A)
-_SlRadiusServerEntry_Object=MibTableRow
-slRadiusServerEntry=_SlRadiusServerEntry_Object((1,3,6,1,4,1,4515,1,3,23,1,1,2,1))
-slRadiusServerEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:slRadiusServerEntry.setStatus(_A)
-_SlRadiusServerIndex_Type=Integer32
-_SlRadiusServerIndex_Object=MibTableColumn
-slRadiusServerIndex=_SlRadiusServerIndex_Object((1,3,6,1,4,1,4515,1,3,23,1,1,2,1,1),_SlRadiusServerIndex_Type())
-slRadiusServerIndex.setMaxAccess('read-only')
-if mibBuilder.loadTexts:slRadiusServerIndex.setStatus(_A)
-_SlRadiusServerAddress_Type=IpAddress
-_SlRadiusServerAddress_Object=MibTableColumn
-slRadiusServerAddress=_SlRadiusServerAddress_Object((1,3,6,1,4,1,4515,1,3,23,1,1,2,1,2),_SlRadiusServerAddress_Type())
-slRadiusServerAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:slRadiusServerAddress.setStatus(_A)
-_SlRadiusServerPort_Type=Integer32
-_SlRadiusServerPort_Object=MibTableColumn
-slRadiusServerPort=_SlRadiusServerPort_Object((1,3,6,1,4,1,4515,1,3,23,1,1,2,1,3),_SlRadiusServerPort_Type())
-slRadiusServerPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:slRadiusServerPort.setStatus(_A)
-class _SlRadiusServerAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_SlRadiusServerAdminStatus_Type.__name__=_C
-_SlRadiusServerAdminStatus_Object=MibTableColumn
-slRadiusServerAdminStatus=_SlRadiusServerAdminStatus_Object((1,3,6,1,4,1,4515,1,3,23,1,1,2,1,4),_SlRadiusServerAdminStatus_Type())
-slRadiusServerAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:slRadiusServerAdminStatus.setStatus(_A)
-_SlRadiusTimeout_Type=Integer32
-_SlRadiusTimeout_Object=MibTableColumn
-slRadiusTimeout=_SlRadiusTimeout_Object((1,3,6,1,4,1,4515,1,3,23,1,1,2,1,5),_SlRadiusTimeout_Type())
-slRadiusTimeout.setMaxAccess(_B)
-if mibBuilder.loadTexts:slRadiusTimeout.setStatus(_A)
-_SlRadiusSharedSecret_Type=SharedSecret
-_SlRadiusSharedSecret_Object=MibTableColumn
-slRadiusSharedSecret=_SlRadiusSharedSecret_Object((1,3,6,1,4,1,4515,1,3,23,1,1,2,1,6),_SlRadiusSharedSecret_Type())
-slRadiusSharedSecret.setMaxAccess(_B)
-if mibBuilder.loadTexts:slRadiusSharedSecret.setStatus(_A)
-_SlRadiusTraps_ObjectIdentity=ObjectIdentity
-slRadiusTraps=_SlRadiusTraps_ObjectIdentity((1,3,6,1,4,1,4515,1,3,23,1,2))
-mibBuilder.exportSymbols(_D,**{'SharedSecret':SharedSecret,'slRadiusMIB':slRadiusMIB,'slRadiusClientMIBObjects':slRadiusClientMIBObjects,'slRadiusClient':slRadiusClient,'slRadiusEnabled':slRadiusEnabled,'slRadiusServerTable':slRadiusServerTable,'slRadiusServerEntry':slRadiusServerEntry,_E:slRadiusServerIndex,'slRadiusServerAddress':slRadiusServerAddress,'slRadiusServerPort':slRadiusServerPort,'slRadiusServerAdminStatus':slRadiusServerAdminStatus,'slRadiusTimeout':slRadiusTimeout,'slRadiusSharedSecret':slRadiusSharedSecret,'slRadiusTraps':slRadiusTraps})
+#
+# PySNMP MIB module SL-RADIUS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/smartoptics/SL-RADIUS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:09 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, mib_2, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "mib-2", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+slRadiusMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23))
+if mibBuilder.loadTexts: slRadiusMIB.setLastUpdated('200712060000Z')
+if mibBuilder.loadTexts: slRadiusMIB.setOrganization('Smartoptics AS')
+slRadiusClientMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23, 1))
+slRadiusClient = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23, 1, 1))
+slRadiusTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23, 1, 2))
+class SharedSecret(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 256)
+
+slRadiusEnabled = MibScalar((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slRadiusEnabled.setStatus('current')
+slRadiusServerTable = MibTable((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23, 1, 1, 2), )
+if mibBuilder.loadTexts: slRadiusServerTable.setStatus('current')
+slRadiusServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23, 1, 1, 2, 1), ).setIndexNames((0, "SL-RADIUS-MIB", "slRadiusServerIndex"))
+if mibBuilder.loadTexts: slRadiusServerEntry.setStatus('current')
+slRadiusServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23, 1, 1, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slRadiusServerIndex.setStatus('current')
+slRadiusServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23, 1, 1, 2, 1, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slRadiusServerAddress.setStatus('current')
+slRadiusServerPort = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23, 1, 1, 2, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slRadiusServerPort.setStatus('current')
+slRadiusServerAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23, 1, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slRadiusServerAdminStatus.setStatus('current')
+slRadiusTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23, 1, 1, 2, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slRadiusTimeout.setStatus('current')
+slRadiusSharedSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23, 1, 1, 2, 1, 6), SharedSecret()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slRadiusSharedSecret.setStatus('current')
+mibBuilder.exportSymbols("SL-RADIUS-MIB", slRadiusTimeout=slRadiusTimeout, slRadiusServerAddress=slRadiusServerAddress, slRadiusMIB=slRadiusMIB, slRadiusServerTable=slRadiusServerTable, slRadiusClientMIBObjects=slRadiusClientMIBObjects, slRadiusServerPort=slRadiusServerPort, slRadiusServerAdminStatus=slRadiusServerAdminStatus, slRadiusSharedSecret=slRadiusSharedSecret, PYSNMP_MODULE_ID=slRadiusMIB, slRadiusClient=slRadiusClient, SharedSecret=SharedSecret, slRadiusServerEntry=slRadiusServerEntry, slRadiusServerIndex=slRadiusServerIndex, slRadiusTraps=slRadiusTraps, slRadiusEnabled=slRadiusEnabled)

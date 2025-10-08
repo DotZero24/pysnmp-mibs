@@ -1,90 +1,54 @@
-_G='rcRstpPortStatsEntry'
-_F='rcRstpPortConfigEntry'
-_E='TruthValue'
-_D='SWITCH-RSTP-MIB'
-_C='read-write'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dStpPortEntry,=mibBuilder.importSymbols('BRIDGE-MIB','dot1dStpPortEntry')
-iscomSwitch,=mibBuilder.importSymbols('RAISECOM-BASE-MIB','iscomSwitch')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_E)
-rcRstp=ModuleIdentity((1,3,6,1,4,1,8886,6,1,9))
-if mibBuilder.loadTexts:rcRstp.setRevisions(('1991-03-31 00:00',))
-_RcRstpConfig_ObjectIdentity=ObjectIdentity
-rcRstpConfig=_RcRstpConfig_ObjectIdentity((1,3,6,1,4,1,8886,6,1,9,1))
-class _RcRstpEnable_Type(TruthValue):defaultValue=1
-_RcRstpEnable_Type.__name__=_E
-_RcRstpEnable_Object=MibScalar
-rcRstpEnable=_RcRstpEnable_Object((1,3,6,1,4,1,8886,6,1,9,1,1),_RcRstpEnable_Type())
-rcRstpEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:rcRstpEnable.setStatus(_A)
-_RcRstpPortConfigTable_Object=MibTable
-rcRstpPortConfigTable=_RcRstpPortConfigTable_Object((1,3,6,1,4,1,8886,6,1,9,1,2))
-if mibBuilder.loadTexts:rcRstpPortConfigTable.setStatus(_A)
-_RcRstpPortConfigEntry_Object=MibTableRow
-rcRstpPortConfigEntry=_RcRstpPortConfigEntry_Object((1,3,6,1,4,1,8886,6,1,9,1,2,1))
-if mibBuilder.loadTexts:rcRstpPortConfigEntry.setStatus(_A)
-_RcRstpPortRstpEnable_Type=TruthValue
-_RcRstpPortRstpEnable_Object=MibTableColumn
-rcRstpPortRstpEnable=_RcRstpPortRstpEnable_Object((1,3,6,1,4,1,8886,6,1,9,1,2,1,1),_RcRstpPortRstpEnable_Type())
-rcRstpPortRstpEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:rcRstpPortRstpEnable.setStatus(_A)
-_RcRstpPortOperEnable_Type=TruthValue
-_RcRstpPortOperEnable_Object=MibTableColumn
-rcRstpPortOperEnable=_RcRstpPortOperEnable_Object((1,3,6,1,4,1,8886,6,1,9,1,2,1,2),_RcRstpPortOperEnable_Type())
-rcRstpPortOperEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRstpPortOperEnable.setStatus(_A)
-_RcRstpStatistics_ObjectIdentity=ObjectIdentity
-rcRstpStatistics=_RcRstpStatistics_ObjectIdentity((1,3,6,1,4,1,8886,6,1,9,2))
-_RcRstpPortStatsTable_Object=MibTable
-rcRstpPortStatsTable=_RcRstpPortStatsTable_Object((1,3,6,1,4,1,8886,6,1,9,2,1))
-if mibBuilder.loadTexts:rcRstpPortStatsTable.setStatus(_A)
-_RcRstpPortStatsEntry_Object=MibTableRow
-rcRstpPortStatsEntry=_RcRstpPortStatsEntry_Object((1,3,6,1,4,1,8886,6,1,9,2,1,1))
-if mibBuilder.loadTexts:rcRstpPortStatsEntry.setStatus(_A)
-_RcRstpPortRxStpBPDUs_Type=Counter32
-_RcRstpPortRxStpBPDUs_Object=MibTableColumn
-rcRstpPortRxStpBPDUs=_RcRstpPortRxStpBPDUs_Object((1,3,6,1,4,1,8886,6,1,9,2,1,1,1),_RcRstpPortRxStpBPDUs_Type())
-rcRstpPortRxStpBPDUs.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRstpPortRxStpBPDUs.setStatus(_A)
-_RcRstpPortRxTCNs_Type=Counter32
-_RcRstpPortRxTCNs_Object=MibTableColumn
-rcRstpPortRxTCNs=_RcRstpPortRxTCNs_Object((1,3,6,1,4,1,8886,6,1,9,2,1,1,2),_RcRstpPortRxTCNs_Type())
-rcRstpPortRxTCNs.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRstpPortRxTCNs.setStatus(_A)
-_RcRstpPortRxRstpBPDUs_Type=Counter32
-_RcRstpPortRxRstpBPDUs_Object=MibTableColumn
-rcRstpPortRxRstpBPDUs=_RcRstpPortRxRstpBPDUs_Object((1,3,6,1,4,1,8886,6,1,9,2,1,1,3),_RcRstpPortRxRstpBPDUs_Type())
-rcRstpPortRxRstpBPDUs.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRstpPortRxRstpBPDUs.setStatus(_A)
-_RcRstpPortTxStpBPDUs_Type=Counter32
-_RcRstpPortTxStpBPDUs_Object=MibTableColumn
-rcRstpPortTxStpBPDUs=_RcRstpPortTxStpBPDUs_Object((1,3,6,1,4,1,8886,6,1,9,2,1,1,4),_RcRstpPortTxStpBPDUs_Type())
-rcRstpPortTxStpBPDUs.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRstpPortTxStpBPDUs.setStatus(_A)
-_RcRstpPortTxTCNs_Type=Counter32
-_RcRstpPortTxTCNs_Object=MibTableColumn
-rcRstpPortTxTCNs=_RcRstpPortTxTCNs_Object((1,3,6,1,4,1,8886,6,1,9,2,1,1,5),_RcRstpPortTxTCNs_Type())
-rcRstpPortTxTCNs.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRstpPortTxTCNs.setStatus(_A)
-_RcRstpPortTxRstpBPDUs_Type=Counter32
-_RcRstpPortTxRstpBPDUs_Object=MibTableColumn
-rcRstpPortTxRstpBPDUs=_RcRstpPortTxRstpBPDUs_Object((1,3,6,1,4,1,8886,6,1,9,2,1,1,6),_RcRstpPortTxRstpBPDUs_Type())
-rcRstpPortTxRstpBPDUs.setMaxAccess(_B)
-if mibBuilder.loadTexts:rcRstpPortTxRstpBPDUs.setStatus(_A)
-_RcRstpPortStatisticsClear_Type=TruthValue
-_RcRstpPortStatisticsClear_Object=MibTableColumn
-rcRstpPortStatisticsClear=_RcRstpPortStatisticsClear_Object((1,3,6,1,4,1,8886,6,1,9,2,1,1,7),_RcRstpPortStatisticsClear_Type())
-rcRstpPortStatisticsClear.setMaxAccess(_C)
-if mibBuilder.loadTexts:rcRstpPortStatisticsClear.setStatus(_A)
-dot1dStpPortEntry.registerAugmentions((_D,_F))
+#
+# PySNMP MIB module SWITCH-RSTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/SWITCH-RSTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dStpPortEntry, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dStpPortEntry")
+iscomSwitch, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "iscomSwitch")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+rcRstp = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9))
+rcRstp.setRevisions(('1991-03-31 00:00',))
+if mibBuilder.loadTexts: rcRstp.setLastUpdated('9411010000Z')
+if mibBuilder.loadTexts: rcRstp.setOrganization('IETF SNMPv2 Working Group')
+rcRstpConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 1))
+rcRstpStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 2))
+rcRstpEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 1, 1), TruthValue().clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcRstpEnable.setStatus('current')
+rcRstpPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 1, 2), )
+if mibBuilder.loadTexts: rcRstpPortConfigTable.setStatus('current')
+rcRstpPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 1, 2, 1), )
+dot1dStpPortEntry.registerAugmentions(("SWITCH-RSTP-MIB", "rcRstpPortConfigEntry"))
 rcRstpPortConfigEntry.setIndexNames(*dot1dStpPortEntry.getIndexNames())
-dot1dStpPortEntry.registerAugmentions((_D,_G))
+if mibBuilder.loadTexts: rcRstpPortConfigEntry.setStatus('current')
+rcRstpPortRstpEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 1, 2, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcRstpPortRstpEnable.setStatus('current')
+rcRstpPortOperEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 1, 2, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRstpPortOperEnable.setStatus('current')
+rcRstpPortStatsTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 2, 1), )
+if mibBuilder.loadTexts: rcRstpPortStatsTable.setStatus('current')
+rcRstpPortStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 2, 1, 1), )
+dot1dStpPortEntry.registerAugmentions(("SWITCH-RSTP-MIB", "rcRstpPortStatsEntry"))
 rcRstpPortStatsEntry.setIndexNames(*dot1dStpPortEntry.getIndexNames())
-mibBuilder.exportSymbols(_D,**{'rcRstp':rcRstp,'rcRstpConfig':rcRstpConfig,'rcRstpEnable':rcRstpEnable,'rcRstpPortConfigTable':rcRstpPortConfigTable,_F:rcRstpPortConfigEntry,'rcRstpPortRstpEnable':rcRstpPortRstpEnable,'rcRstpPortOperEnable':rcRstpPortOperEnable,'rcRstpStatistics':rcRstpStatistics,'rcRstpPortStatsTable':rcRstpPortStatsTable,_G:rcRstpPortStatsEntry,'rcRstpPortRxStpBPDUs':rcRstpPortRxStpBPDUs,'rcRstpPortRxTCNs':rcRstpPortRxTCNs,'rcRstpPortRxRstpBPDUs':rcRstpPortRxRstpBPDUs,'rcRstpPortTxStpBPDUs':rcRstpPortTxStpBPDUs,'rcRstpPortTxTCNs':rcRstpPortTxTCNs,'rcRstpPortTxRstpBPDUs':rcRstpPortTxRstpBPDUs,'rcRstpPortStatisticsClear':rcRstpPortStatisticsClear})
+if mibBuilder.loadTexts: rcRstpPortStatsEntry.setStatus('current')
+rcRstpPortRxStpBPDUs = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 2, 1, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRstpPortRxStpBPDUs.setStatus('current')
+rcRstpPortRxTCNs = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 2, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRstpPortRxTCNs.setStatus('current')
+rcRstpPortRxRstpBPDUs = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 2, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRstpPortRxRstpBPDUs.setStatus('current')
+rcRstpPortTxStpBPDUs = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 2, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRstpPortTxStpBPDUs.setStatus('current')
+rcRstpPortTxTCNs = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 2, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRstpPortTxTCNs.setStatus('current')
+rcRstpPortTxRstpBPDUs = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 2, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcRstpPortTxRstpBPDUs.setStatus('current')
+rcRstpPortStatisticsClear = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 6, 1, 9, 2, 1, 1, 7), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcRstpPortStatisticsClear.setStatus('current')
+mibBuilder.exportSymbols("SWITCH-RSTP-MIB", rcRstpConfig=rcRstpConfig, rcRstpPortRxStpBPDUs=rcRstpPortRxStpBPDUs, rcRstpPortConfigEntry=rcRstpPortConfigEntry, rcRstpPortOperEnable=rcRstpPortOperEnable, rcRstpPortStatsEntry=rcRstpPortStatsEntry, PYSNMP_MODULE_ID=rcRstp, rcRstpPortTxTCNs=rcRstpPortTxTCNs, rcRstpEnable=rcRstpEnable, rcRstpPortRxRstpBPDUs=rcRstpPortRxRstpBPDUs, rcRstpStatistics=rcRstpStatistics, rcRstpPortStatsTable=rcRstpPortStatsTable, rcRstpPortRxTCNs=rcRstpPortRxTCNs, rcRstpPortTxStpBPDUs=rcRstpPortTxStpBPDUs, rcRstpPortTxRstpBPDUs=rcRstpPortTxRstpBPDUs, rcRstpPortConfigTable=rcRstpPortConfigTable, rcRstpPortRstpEnable=rcRstpPortRstpEnable, rcRstp=rcRstp, rcRstpPortStatisticsClear=rcRstpPortStatisticsClear)

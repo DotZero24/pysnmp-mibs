@@ -1,160 +1,81 @@
-_X='ccdsgIfDownstreamGroup'
-_W='ccdsgIfTunnelGroup'
-_V='ccdsgIfCaVendorGroup'
-_U='ccdsgIfDownRowStatus'
-_T='ccdsgIfDownIfIndex'
-_S='ccdsgIfDownTunnelIndex'
-_R='ccdsgIfTunnelRowStatus'
-_Q='ccdsgIfTunnelCaVendorIndex'
-_P='ccdsgIfTunnelMacAddress'
-_O='ccdsgIfTunnelInIpAddress'
-_N='ccdsgIfTunnelInAddressType'
-_M='ccdsgIfCaVendorRowStatus'
-_L='ccdsgIfCaVendorTunnelCnt'
-_K='ccdsgIfCaVendorName'
-_J='ccdsgIfDownDsgIndex'
-_I='ccdsgIfTunnelIndex'
-_H='ccdsgIfCaVendorIndex'
-_G='Integer32'
-_F='SnmpAdminString'
-_E='not-accessible'
-_D='Unsigned32'
-_C='read-create'
-_B='CISCO-CABLE-DSG-IF-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoExperiment,=mibBuilder.importSymbols('CISCO-SMI','ciscoExperiment')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention')
-ciscoCableDsgIfMIB=ModuleIdentity((1,3,6,1,4,1,9,10,999))
-if mibBuilder.loadTexts:ciscoCableDsgIfMIB.setRevisions(('2004-03-29 00:00',))
-_CcdsgIfCaVendor_ObjectIdentity=ObjectIdentity
-ccdsgIfCaVendor=_CcdsgIfCaVendor_ObjectIdentity((1,3,6,1,4,1,9,10,999,1))
-_CcdsgIfCaVendorTable_Object=MibTable
-ccdsgIfCaVendorTable=_CcdsgIfCaVendorTable_Object((1,3,6,1,4,1,9,10,999,1,1))
-if mibBuilder.loadTexts:ccdsgIfCaVendorTable.setStatus(_A)
-_CcdsgIfCaVendorEntry_Object=MibTableRow
-ccdsgIfCaVendorEntry=_CcdsgIfCaVendorEntry_Object((1,3,6,1,4,1,9,10,999,1,1,1))
-ccdsgIfCaVendorEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:ccdsgIfCaVendorEntry.setStatus(_A)
-class _CcdsgIfCaVendorIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CcdsgIfCaVendorIndex_Type.__name__=_D
-_CcdsgIfCaVendorIndex_Object=MibTableColumn
-ccdsgIfCaVendorIndex=_CcdsgIfCaVendorIndex_Object((1,3,6,1,4,1,9,10,999,1,1,1,1),_CcdsgIfCaVendorIndex_Type())
-ccdsgIfCaVendorIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccdsgIfCaVendorIndex.setStatus(_A)
-class _CcdsgIfCaVendorName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,20))
-_CcdsgIfCaVendorName_Type.__name__=_F
-_CcdsgIfCaVendorName_Object=MibTableColumn
-ccdsgIfCaVendorName=_CcdsgIfCaVendorName_Object((1,3,6,1,4,1,9,10,999,1,1,1,2),_CcdsgIfCaVendorName_Type())
-ccdsgIfCaVendorName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccdsgIfCaVendorName.setStatus(_A)
-class _CcdsgIfCaVendorTunnelCnt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,8))
-_CcdsgIfCaVendorTunnelCnt_Type.__name__=_G
-_CcdsgIfCaVendorTunnelCnt_Object=MibTableColumn
-ccdsgIfCaVendorTunnelCnt=_CcdsgIfCaVendorTunnelCnt_Object((1,3,6,1,4,1,9,10,999,1,1,1,3),_CcdsgIfCaVendorTunnelCnt_Type())
-ccdsgIfCaVendorTunnelCnt.setMaxAccess('read-only')
-if mibBuilder.loadTexts:ccdsgIfCaVendorTunnelCnt.setStatus(_A)
-_CcdsgIfCaVendorRowStatus_Type=RowStatus
-_CcdsgIfCaVendorRowStatus_Object=MibTableColumn
-ccdsgIfCaVendorRowStatus=_CcdsgIfCaVendorRowStatus_Object((1,3,6,1,4,1,9,10,999,1,1,1,4),_CcdsgIfCaVendorRowStatus_Type())
-ccdsgIfCaVendorRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccdsgIfCaVendorRowStatus.setStatus(_A)
-_CcdsgIfTunnel_ObjectIdentity=ObjectIdentity
-ccdsgIfTunnel=_CcdsgIfTunnel_ObjectIdentity((1,3,6,1,4,1,9,10,999,2))
-_CcdsgIfTunnelTable_Object=MibTable
-ccdsgIfTunnelTable=_CcdsgIfTunnelTable_Object((1,3,6,1,4,1,9,10,999,2,1))
-if mibBuilder.loadTexts:ccdsgIfTunnelTable.setStatus(_A)
-_CcdsgIfTunnelEntry_Object=MibTableRow
-ccdsgIfTunnelEntry=_CcdsgIfTunnelEntry_Object((1,3,6,1,4,1,9,10,999,2,1,1))
-ccdsgIfTunnelEntry.setIndexNames((0,_B,_I))
-if mibBuilder.loadTexts:ccdsgIfTunnelEntry.setStatus(_A)
-class _CcdsgIfTunnelIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CcdsgIfTunnelIndex_Type.__name__=_D
-_CcdsgIfTunnelIndex_Object=MibTableColumn
-ccdsgIfTunnelIndex=_CcdsgIfTunnelIndex_Object((1,3,6,1,4,1,9,10,999,2,1,1,1),_CcdsgIfTunnelIndex_Type())
-ccdsgIfTunnelIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccdsgIfTunnelIndex.setStatus(_A)
-_CcdsgIfTunnelInAddressType_Type=InetAddressType
-_CcdsgIfTunnelInAddressType_Object=MibTableColumn
-ccdsgIfTunnelInAddressType=_CcdsgIfTunnelInAddressType_Object((1,3,6,1,4,1,9,10,999,2,1,1,2),_CcdsgIfTunnelInAddressType_Type())
-ccdsgIfTunnelInAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccdsgIfTunnelInAddressType.setStatus(_A)
-_CcdsgIfTunnelInIpAddress_Type=InetAddress
-_CcdsgIfTunnelInIpAddress_Object=MibTableColumn
-ccdsgIfTunnelInIpAddress=_CcdsgIfTunnelInIpAddress_Object((1,3,6,1,4,1,9,10,999,2,1,1,3),_CcdsgIfTunnelInIpAddress_Type())
-ccdsgIfTunnelInIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccdsgIfTunnelInIpAddress.setStatus(_A)
-_CcdsgIfTunnelMacAddress_Type=MacAddress
-_CcdsgIfTunnelMacAddress_Object=MibTableColumn
-ccdsgIfTunnelMacAddress=_CcdsgIfTunnelMacAddress_Object((1,3,6,1,4,1,9,10,999,2,1,1,4),_CcdsgIfTunnelMacAddress_Type())
-ccdsgIfTunnelMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccdsgIfTunnelMacAddress.setStatus(_A)
-class _CcdsgIfTunnelCaVendorIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CcdsgIfTunnelCaVendorIndex_Type.__name__=_D
-_CcdsgIfTunnelCaVendorIndex_Object=MibTableColumn
-ccdsgIfTunnelCaVendorIndex=_CcdsgIfTunnelCaVendorIndex_Object((1,3,6,1,4,1,9,10,999,2,1,1,5),_CcdsgIfTunnelCaVendorIndex_Type())
-ccdsgIfTunnelCaVendorIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccdsgIfTunnelCaVendorIndex.setStatus(_A)
-_CcdsgIfTunnelRowStatus_Type=RowStatus
-_CcdsgIfTunnelRowStatus_Object=MibTableColumn
-ccdsgIfTunnelRowStatus=_CcdsgIfTunnelRowStatus_Object((1,3,6,1,4,1,9,10,999,2,1,1,6),_CcdsgIfTunnelRowStatus_Type())
-ccdsgIfTunnelRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccdsgIfTunnelRowStatus.setStatus(_A)
-_CcdsgIfDownstream_ObjectIdentity=ObjectIdentity
-ccdsgIfDownstream=_CcdsgIfDownstream_ObjectIdentity((1,3,6,1,4,1,9,10,999,3))
-_CcdsgIfDownstreamTable_Object=MibTable
-ccdsgIfDownstreamTable=_CcdsgIfDownstreamTable_Object((1,3,6,1,4,1,9,10,999,3,1))
-if mibBuilder.loadTexts:ccdsgIfDownstreamTable.setStatus(_A)
-_CcdsgIfDownstreamEntry_Object=MibTableRow
-ccdsgIfDownstreamEntry=_CcdsgIfDownstreamEntry_Object((1,3,6,1,4,1,9,10,999,3,1,1))
-ccdsgIfDownstreamEntry.setIndexNames((0,_B,_J))
-if mibBuilder.loadTexts:ccdsgIfDownstreamEntry.setStatus(_A)
-class _CcdsgIfDownDsgIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CcdsgIfDownDsgIndex_Type.__name__=_D
-_CcdsgIfDownDsgIndex_Object=MibTableColumn
-ccdsgIfDownDsgIndex=_CcdsgIfDownDsgIndex_Object((1,3,6,1,4,1,9,10,999,3,1,1,1),_CcdsgIfDownDsgIndex_Type())
-ccdsgIfDownDsgIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:ccdsgIfDownDsgIndex.setStatus(_A)
-class _CcdsgIfDownTunnelIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CcdsgIfDownTunnelIndex_Type.__name__=_D
-_CcdsgIfDownTunnelIndex_Object=MibTableColumn
-ccdsgIfDownTunnelIndex=_CcdsgIfDownTunnelIndex_Object((1,3,6,1,4,1,9,10,999,3,1,1,2),_CcdsgIfDownTunnelIndex_Type())
-ccdsgIfDownTunnelIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccdsgIfDownTunnelIndex.setStatus(_A)
-_CcdsgIfDownIfIndex_Type=InterfaceIndex
-_CcdsgIfDownIfIndex_Object=MibTableColumn
-ccdsgIfDownIfIndex=_CcdsgIfDownIfIndex_Object((1,3,6,1,4,1,9,10,999,3,1,1,3),_CcdsgIfDownIfIndex_Type())
-ccdsgIfDownIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccdsgIfDownIfIndex.setStatus(_A)
-_CcdsgIfDownRowStatus_Type=RowStatus
-_CcdsgIfDownRowStatus_Object=MibTableColumn
-ccdsgIfDownRowStatus=_CcdsgIfDownRowStatus_Object((1,3,6,1,4,1,9,10,999,3,1,1,4),_CcdsgIfDownRowStatus_Type())
-ccdsgIfDownRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccdsgIfDownRowStatus.setStatus(_A)
-_CiscoCableDsgIfConformance_ObjectIdentity=ObjectIdentity
-ciscoCableDsgIfConformance=_CiscoCableDsgIfConformance_ObjectIdentity((1,3,6,1,4,1,9,10,999,4))
-_CiscoCableDsgIfCompliances_ObjectIdentity=ObjectIdentity
-ciscoCableDsgIfCompliances=_CiscoCableDsgIfCompliances_ObjectIdentity((1,3,6,1,4,1,9,10,999,4,1))
-_CiscoCableDsgIfGroups_ObjectIdentity=ObjectIdentity
-ciscoCableDsgIfGroups=_CiscoCableDsgIfGroups_ObjectIdentity((1,3,6,1,4,1,9,10,999,4,2))
-ccdsgIfCaVendorGroup=ObjectGroup((1,3,6,1,4,1,9,10,999,4,2,1))
-ccdsgIfCaVendorGroup.setObjects(*((_B,_K),(_B,_L),(_B,_M)))
-if mibBuilder.loadTexts:ccdsgIfCaVendorGroup.setStatus(_A)
-ccdsgIfTunnelGroup=ObjectGroup((1,3,6,1,4,1,9,10,999,4,2,2))
-ccdsgIfTunnelGroup.setObjects(*((_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R)))
-if mibBuilder.loadTexts:ccdsgIfTunnelGroup.setStatus(_A)
-ccdsgIfDownstreamGroup=ObjectGroup((1,3,6,1,4,1,9,10,999,4,2,3))
-ccdsgIfDownstreamGroup.setObjects(*((_B,_S),(_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:ccdsgIfDownstreamGroup.setStatus(_A)
-ccdsgIfBasicCompliance=ModuleCompliance((1,3,6,1,4,1,9,10,999,4,1,1))
-ccdsgIfBasicCompliance.setObjects(*((_B,_V),(_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:ccdsgIfBasicCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoCableDsgIfMIB':ciscoCableDsgIfMIB,'ccdsgIfCaVendor':ccdsgIfCaVendor,'ccdsgIfCaVendorTable':ccdsgIfCaVendorTable,'ccdsgIfCaVendorEntry':ccdsgIfCaVendorEntry,_H:ccdsgIfCaVendorIndex,_K:ccdsgIfCaVendorName,_L:ccdsgIfCaVendorTunnelCnt,_M:ccdsgIfCaVendorRowStatus,'ccdsgIfTunnel':ccdsgIfTunnel,'ccdsgIfTunnelTable':ccdsgIfTunnelTable,'ccdsgIfTunnelEntry':ccdsgIfTunnelEntry,_I:ccdsgIfTunnelIndex,_N:ccdsgIfTunnelInAddressType,_O:ccdsgIfTunnelInIpAddress,_P:ccdsgIfTunnelMacAddress,_Q:ccdsgIfTunnelCaVendorIndex,_R:ccdsgIfTunnelRowStatus,'ccdsgIfDownstream':ccdsgIfDownstream,'ccdsgIfDownstreamTable':ccdsgIfDownstreamTable,'ccdsgIfDownstreamEntry':ccdsgIfDownstreamEntry,_J:ccdsgIfDownDsgIndex,_S:ccdsgIfDownTunnelIndex,_T:ccdsgIfDownIfIndex,_U:ccdsgIfDownRowStatus,'ciscoCableDsgIfConformance':ciscoCableDsgIfConformance,'ciscoCableDsgIfCompliances':ciscoCableDsgIfCompliances,'ccdsgIfBasicCompliance':ccdsgIfBasicCompliance,'ciscoCableDsgIfGroups':ciscoCableDsgIfGroups,_V:ccdsgIfCaVendorGroup,_W:ccdsgIfTunnelGroup,_X:ccdsgIfDownstreamGroup})
+#
+# PySNMP MIB module CISCO-CABLE-DSG-IF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-CABLE-DSG-IF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:03 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+ciscoCableDsgIfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 999))
+ciscoCableDsgIfMIB.setRevisions(('2004-03-29 00:00',))
+if mibBuilder.loadTexts: ciscoCableDsgIfMIB.setLastUpdated('200403290000Z')
+if mibBuilder.loadTexts: ciscoCableDsgIfMIB.setOrganization('Cisco Systems, Inc.')
+ccdsgIfCaVendor = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 1))
+ccdsgIfTunnel = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 2))
+ccdsgIfDownstream = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 3))
+ccdsgIfCaVendorTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 1), )
+if mibBuilder.loadTexts: ccdsgIfCaVendorTable.setStatus('current')
+ccdsgIfCaVendorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 1, 1), ).setIndexNames((0, "CISCO-CABLE-DSG-IF-MIB", "ccdsgIfCaVendorIndex"))
+if mibBuilder.loadTexts: ccdsgIfCaVendorEntry.setStatus('current')
+ccdsgIfCaVendorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
+if mibBuilder.loadTexts: ccdsgIfCaVendorIndex.setStatus('current')
+ccdsgIfCaVendorName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 1, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 20))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ccdsgIfCaVendorName.setStatus('current')
+ccdsgIfCaVendorTunnelCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccdsgIfCaVendorTunnelCnt.setStatus('current')
+ccdsgIfCaVendorRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ccdsgIfCaVendorRowStatus.setStatus('current')
+ccdsgIfTunnelTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 1), )
+if mibBuilder.loadTexts: ccdsgIfTunnelTable.setStatus('current')
+ccdsgIfTunnelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 1, 1), ).setIndexNames((0, "CISCO-CABLE-DSG-IF-MIB", "ccdsgIfTunnelIndex"))
+if mibBuilder.loadTexts: ccdsgIfTunnelEntry.setStatus('current')
+ccdsgIfTunnelIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
+if mibBuilder.loadTexts: ccdsgIfTunnelIndex.setStatus('current')
+ccdsgIfTunnelInAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 1, 1, 2), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ccdsgIfTunnelInAddressType.setStatus('current')
+ccdsgIfTunnelInIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 1, 1, 3), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ccdsgIfTunnelInIpAddress.setStatus('current')
+ccdsgIfTunnelMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 1, 1, 4), MacAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ccdsgIfTunnelMacAddress.setStatus('current')
+ccdsgIfTunnelCaVendorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ccdsgIfTunnelCaVendorIndex.setStatus('current')
+ccdsgIfTunnelRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ccdsgIfTunnelRowStatus.setStatus('current')
+ccdsgIfDownstreamTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 999, 3, 1), )
+if mibBuilder.loadTexts: ccdsgIfDownstreamTable.setStatus('current')
+ccdsgIfDownstreamEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 999, 3, 1, 1), ).setIndexNames((0, "CISCO-CABLE-DSG-IF-MIB", "ccdsgIfDownDsgIndex"))
+if mibBuilder.loadTexts: ccdsgIfDownstreamEntry.setStatus('current')
+ccdsgIfDownDsgIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 3, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
+if mibBuilder.loadTexts: ccdsgIfDownDsgIndex.setStatus('current')
+ccdsgIfDownTunnelIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 3, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ccdsgIfDownTunnelIndex.setStatus('current')
+ccdsgIfDownIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 3, 1, 1, 3), InterfaceIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ccdsgIfDownIfIndex.setStatus('current')
+ccdsgIfDownRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 3, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ccdsgIfDownRowStatus.setStatus('current')
+ciscoCableDsgIfConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 4))
+ciscoCableDsgIfCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 4, 1))
+ciscoCableDsgIfGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 4, 2))
+ccdsgIfBasicCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 999, 4, 1, 1)).setObjects(("CISCO-CABLE-DSG-IF-MIB", "ccdsgIfCaVendorGroup"), ("CISCO-CABLE-DSG-IF-MIB", "ccdsgIfTunnelGroup"), ("CISCO-CABLE-DSG-IF-MIB", "ccdsgIfDownstreamGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ccdsgIfBasicCompliance = ccdsgIfBasicCompliance.setStatus('current')
+ccdsgIfCaVendorGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 999, 4, 2, 1)).setObjects(("CISCO-CABLE-DSG-IF-MIB", "ccdsgIfCaVendorName"), ("CISCO-CABLE-DSG-IF-MIB", "ccdsgIfCaVendorTunnelCnt"), ("CISCO-CABLE-DSG-IF-MIB", "ccdsgIfCaVendorRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ccdsgIfCaVendorGroup = ccdsgIfCaVendorGroup.setStatus('current')
+ccdsgIfTunnelGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 999, 4, 2, 2)).setObjects(("CISCO-CABLE-DSG-IF-MIB", "ccdsgIfTunnelInAddressType"), ("CISCO-CABLE-DSG-IF-MIB", "ccdsgIfTunnelInIpAddress"), ("CISCO-CABLE-DSG-IF-MIB", "ccdsgIfTunnelMacAddress"), ("CISCO-CABLE-DSG-IF-MIB", "ccdsgIfTunnelCaVendorIndex"), ("CISCO-CABLE-DSG-IF-MIB", "ccdsgIfTunnelRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ccdsgIfTunnelGroup = ccdsgIfTunnelGroup.setStatus('current')
+ccdsgIfDownstreamGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 999, 4, 2, 3)).setObjects(("CISCO-CABLE-DSG-IF-MIB", "ccdsgIfDownTunnelIndex"), ("CISCO-CABLE-DSG-IF-MIB", "ccdsgIfDownIfIndex"), ("CISCO-CABLE-DSG-IF-MIB", "ccdsgIfDownRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ccdsgIfDownstreamGroup = ccdsgIfDownstreamGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-CABLE-DSG-IF-MIB", ccdsgIfCaVendor=ccdsgIfCaVendor, ccdsgIfTunnelIndex=ccdsgIfTunnelIndex, ccdsgIfTunnelGroup=ccdsgIfTunnelGroup, ccdsgIfDownstreamEntry=ccdsgIfDownstreamEntry, ccdsgIfDownstream=ccdsgIfDownstream, ccdsgIfDownstreamTable=ccdsgIfDownstreamTable, ciscoCableDsgIfConformance=ciscoCableDsgIfConformance, ccdsgIfTunnelInIpAddress=ccdsgIfTunnelInIpAddress, ccdsgIfCaVendorIndex=ccdsgIfCaVendorIndex, ccdsgIfDownRowStatus=ccdsgIfDownRowStatus, ccdsgIfTunnelMacAddress=ccdsgIfTunnelMacAddress, ccdsgIfDownTunnelIndex=ccdsgIfDownTunnelIndex, PYSNMP_MODULE_ID=ciscoCableDsgIfMIB, ccdsgIfDownIfIndex=ccdsgIfDownIfIndex, ccdsgIfTunnelTable=ccdsgIfTunnelTable, ccdsgIfCaVendorRowStatus=ccdsgIfCaVendorRowStatus, ccdsgIfDownstreamGroup=ccdsgIfDownstreamGroup, ccdsgIfDownDsgIndex=ccdsgIfDownDsgIndex, ccdsgIfCaVendorTable=ccdsgIfCaVendorTable, ccdsgIfTunnelCaVendorIndex=ccdsgIfTunnelCaVendorIndex, ccdsgIfTunnelEntry=ccdsgIfTunnelEntry, ciscoCableDsgIfGroups=ciscoCableDsgIfGroups, ccdsgIfCaVendorGroup=ccdsgIfCaVendorGroup, ciscoCableDsgIfCompliances=ciscoCableDsgIfCompliances, ccdsgIfTunnelInAddressType=ccdsgIfTunnelInAddressType, ccdsgIfCaVendorName=ccdsgIfCaVendorName, ccdsgIfCaVendorEntry=ccdsgIfCaVendorEntry, ccdsgIfTunnel=ccdsgIfTunnel, ccdsgIfBasicCompliance=ccdsgIfBasicCompliance, ciscoCableDsgIfMIB=ciscoCableDsgIfMIB, ccdsgIfCaVendorTunnelCnt=ccdsgIfCaVendorTunnelCnt, ccdsgIfTunnelRowStatus=ccdsgIfTunnelRowStatus)

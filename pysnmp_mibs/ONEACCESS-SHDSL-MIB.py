@@ -1,330 +1,142 @@
-_Q='oacSHDSLSpanConfProfileEntry'
-_P='oacSHDSLEndpointCurrretrainEntry'
-_O='oacSHDSLEndpointCurrEntry'
-_N='oacSHDSLSpanStatusEntry'
-_M='seconds'
-_L='enabled'
-_K='tcPam32'
-_J='tcPam16'
-_I='read-write'
-_H='disabled'
-_G='auto'
-_F='OctetString'
-_E='dB/10'
-_D='ONEACCESS-SHDSL-MIB'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hdsl2ShdslEndpointCurrEntry,hdsl2ShdslSpanConfProfileEntry,hdsl2ShdslSpanStatusEntry=mibBuilder.importSymbols('HDSL2-SHDSL-LINE-MIB','hdsl2ShdslEndpointCurrEntry','hdsl2ShdslSpanConfProfileEntry','hdsl2ShdslSpanStatusEntry')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-oacExpIMSystem,=mibBuilder.importSymbols('ONEACCESS-GLOBAL-REG','oacExpIMSystem')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-oacSHDSLMIBModule=ModuleIdentity((1,3,6,1,4,1,13191,10,3,3,3))
-if mibBuilder.loadTexts:oacSHDSLMIBModule.setRevisions(('2011-06-15 00:00','2010-08-20 00:01','2010-07-30 00:01','2010-07-08 00:01'))
-_OacSHDSLObjects_ObjectIdentity=ObjectIdentity
-oacSHDSLObjects=_OacSHDSLObjects_ObjectIdentity((1,3,6,1,4,1,13191,10,3,3,3,1))
-_OacSHDSLSpanStatusTable_Object=MibTable
-oacSHDSLSpanStatusTable=_OacSHDSLSpanStatusTable_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2))
-if mibBuilder.loadTexts:oacSHDSLSpanStatusTable.setStatus(_A)
-_OacSHDSLSpanStatusEntry_Object=MibTableRow
-oacSHDSLSpanStatusEntry=_OacSHDSLSpanStatusEntry_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2,1))
-if mibBuilder.loadTexts:oacSHDSLSpanStatusEntry.setStatus(_A)
-_OacSHDSLSpanStatusUpDown_Type=Counter32
-_OacSHDSLSpanStatusUpDown_Object=MibTableColumn
-oacSHDSLSpanStatusUpDown=_OacSHDSLSpanStatusUpDown_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2,1,1),_OacSHDSLSpanStatusUpDown_Type())
-oacSHDSLSpanStatusUpDown.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanStatusUpDown.setStatus(_A)
-class _OacSHDSLSpanStatusCurrStatus_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(30,30));fixedLength=30
-_OacSHDSLSpanStatusCurrStatus_Type.__name__=_F
-_OacSHDSLSpanStatusCurrStatus_Object=MibTableColumn
-oacSHDSLSpanStatusCurrStatus=_OacSHDSLSpanStatusCurrStatus_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2,1,2),_OacSHDSLSpanStatusCurrStatus_Type())
-oacSHDSLSpanStatusCurrStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanStatusCurrStatus.setStatus(_A)
-_OacSHDSLSpanStatusCurrShowtimeStart_Type=Counter32
-_OacSHDSLSpanStatusCurrShowtimeStart_Object=MibTableColumn
-oacSHDSLSpanStatusCurrShowtimeStart=_OacSHDSLSpanStatusCurrShowtimeStart_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2,1,3),_OacSHDSLSpanStatusCurrShowtimeStart_Type())
-oacSHDSLSpanStatusCurrShowtimeStart.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanStatusCurrShowtimeStart.setStatus(_A)
-_OacSHDSLSpanStatusCurrCellDelin_Type=Counter32
-_OacSHDSLSpanStatusCurrCellDelin_Object=MibTableColumn
-oacSHDSLSpanStatusCurrCellDelin=_OacSHDSLSpanStatusCurrCellDelin_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2,1,4),_OacSHDSLSpanStatusCurrCellDelin_Type())
-oacSHDSLSpanStatusCurrCellDelin.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanStatusCurrCellDelin.setStatus(_A)
-_OacSHDSLSpanStatusCurrCRCanomalies_Type=Counter32
-_OacSHDSLSpanStatusCurrCRCanomalies_Object=MibTableColumn
-oacSHDSLSpanStatusCurrCRCanomalies=_OacSHDSLSpanStatusCurrCRCanomalies_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2,1,5),_OacSHDSLSpanStatusCurrCRCanomalies_Type())
-oacSHDSLSpanStatusCurrCRCanomalies.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanStatusCurrCRCanomalies.setStatus(_A)
-_OacSHDSLSpanStatusCurrHECErrors_Type=Counter32
-_OacSHDSLSpanStatusCurrHECErrors_Object=MibTableColumn
-oacSHDSLSpanStatusCurrHECErrors=_OacSHDSLSpanStatusCurrHECErrors_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2,1,6),_OacSHDSLSpanStatusCurrHECErrors_Type())
-oacSHDSLSpanStatusCurrHECErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanStatusCurrHECErrors.setStatus(_A)
-_OacSHDSLSpanStatusCurrRxCells_Type=Counter32
-_OacSHDSLSpanStatusCurrRxCells_Object=MibTableColumn
-oacSHDSLSpanStatusCurrRxCells=_OacSHDSLSpanStatusCurrRxCells_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2,1,7),_OacSHDSLSpanStatusCurrRxCells_Type())
-oacSHDSLSpanStatusCurrRxCells.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanStatusCurrRxCells.setStatus(_A)
-_OacSHDSLSpanStatusCurrTxCells_Type=Counter32
-_OacSHDSLSpanStatusCurrTxCells_Object=MibTableColumn
-oacSHDSLSpanStatusCurrTxCells=_OacSHDSLSpanStatusCurrTxCells_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2,1,8),_OacSHDSLSpanStatusCurrTxCells_Type())
-oacSHDSLSpanStatusCurrTxCells.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanStatusCurrTxCells.setStatus(_A)
-_OacSHDSLSpanStatusCurrRxDrops_Type=Counter32
-_OacSHDSLSpanStatusCurrRxDrops_Object=MibTableColumn
-oacSHDSLSpanStatusCurrRxDrops=_OacSHDSLSpanStatusCurrRxDrops_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2,1,9),_OacSHDSLSpanStatusCurrRxDrops_Type())
-oacSHDSLSpanStatusCurrRxDrops.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanStatusCurrRxDrops.setStatus(_A)
-_OacSHDSLSpanStatusCurrES_Type=Counter32
-_OacSHDSLSpanStatusCurrES_Object=MibTableColumn
-oacSHDSLSpanStatusCurrES=_OacSHDSLSpanStatusCurrES_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2,1,10),_OacSHDSLSpanStatusCurrES_Type())
-oacSHDSLSpanStatusCurrES.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanStatusCurrES.setStatus(_A)
-_OacSHDSLSpanStatusCurrSES_Type=Counter32
-_OacSHDSLSpanStatusCurrSES_Object=MibTableColumn
-oacSHDSLSpanStatusCurrSES=_OacSHDSLSpanStatusCurrSES_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2,1,11),_OacSHDSLSpanStatusCurrSES_Type())
-oacSHDSLSpanStatusCurrSES.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanStatusCurrSES.setStatus(_A)
-_OacSHDSLSpanStatusCurrLOSWS_Type=Counter32
-_OacSHDSLSpanStatusCurrLOSWS_Object=MibTableColumn
-oacSHDSLSpanStatusCurrLOSWS=_OacSHDSLSpanStatusCurrLOSWS_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2,1,12),_OacSHDSLSpanStatusCurrLOSWS_Type())
-oacSHDSLSpanStatusCurrLOSWS.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanStatusCurrLOSWS.setStatus(_A)
-_OacSHDSLSpanStatusCurrUAS_Type=Counter32
-_OacSHDSLSpanStatusCurrUAS_Object=MibTableColumn
-oacSHDSLSpanStatusCurrUAS=_OacSHDSLSpanStatusCurrUAS_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2,1,13),_OacSHDSLSpanStatusCurrUAS_Type())
-oacSHDSLSpanStatusCurrUAS.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanStatusCurrUAS.setStatus(_A)
-class _OacSHDSLSpanStatusCurrConstellation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3)));namedValues=NamedValues(*((_J,2),(_K,3)))
-_OacSHDSLSpanStatusCurrConstellation_Type.__name__=_C
-_OacSHDSLSpanStatusCurrConstellation_Object=MibTableColumn
-oacSHDSLSpanStatusCurrConstellation=_OacSHDSLSpanStatusCurrConstellation_Object((1,3,6,1,4,1,13191,10,3,3,3,1,2,1,14),_OacSHDSLSpanStatusCurrConstellation_Type())
-oacSHDSLSpanStatusCurrConstellation.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanStatusCurrConstellation.setStatus(_A)
-_OacSHDSLEndpointCurrTable_Object=MibTable
-oacSHDSLEndpointCurrTable=_OacSHDSLEndpointCurrTable_Object((1,3,6,1,4,1,13191,10,3,3,3,1,5))
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrTable.setStatus(_A)
-_OacSHDSLEndpointCurrEntry_Object=MibTableRow
-oacSHDSLEndpointCurrEntry=_OacSHDSLEndpointCurrEntry_Object((1,3,6,1,4,1,13191,10,3,3,3,1,5,1))
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrEntry.setStatus(_A)
-class _OacSHDSLEndpointCurrAtn_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1270,1280))
-_OacSHDSLEndpointCurrAtn_Type.__name__=_C
-_OacSHDSLEndpointCurrAtn_Object=MibTableColumn
-oacSHDSLEndpointCurrAtn=_OacSHDSLEndpointCurrAtn_Object((1,3,6,1,4,1,13191,10,3,3,3,1,5,1,1),_OacSHDSLEndpointCurrAtn_Type())
-oacSHDSLEndpointCurrAtn.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrAtn.setStatus(_A)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrAtn.setUnits(_E)
-class _OacSHDSLEndpointCurrSnrMgn_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1270,1280))
-_OacSHDSLEndpointCurrSnrMgn_Type.__name__=_C
-_OacSHDSLEndpointCurrSnrMgn_Object=MibTableColumn
-oacSHDSLEndpointCurrSnrMgn=_OacSHDSLEndpointCurrSnrMgn_Object((1,3,6,1,4,1,13191,10,3,3,3,1,5,1,2),_OacSHDSLEndpointCurrSnrMgn_Type())
-oacSHDSLEndpointCurrSnrMgn.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrSnrMgn.setStatus(_A)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrSnrMgn.setUnits(_E)
-_OacSHDSLEndpointCurrTxPwr_Type=Integer32
-_OacSHDSLEndpointCurrTxPwr_Object=MibTableColumn
-oacSHDSLEndpointCurrTxPwr=_OacSHDSLEndpointCurrTxPwr_Object((1,3,6,1,4,1,13191,10,3,3,3,1,5,1,3),_OacSHDSLEndpointCurrTxPwr_Type())
-oacSHDSLEndpointCurrTxPwr.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrTxPwr.setStatus(_A)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrTxPwr.setUnits(_E)
-_OacSHDSLEndpointCurrRxGain_Type=Integer32
-_OacSHDSLEndpointCurrRxGain_Object=MibTableColumn
-oacSHDSLEndpointCurrRxGain=_OacSHDSLEndpointCurrRxGain_Object((1,3,6,1,4,1,13191,10,3,3,3,1,5,1,4),_OacSHDSLEndpointCurrRxGain_Type())
-oacSHDSLEndpointCurrRxGain.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrRxGain.setStatus(_A)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrRxGain.setUnits(_E)
-_OacSHDSLEndpointCurrMaxAttainableLineRate_Type=Integer32
-_OacSHDSLEndpointCurrMaxAttainableLineRate_Object=MibTableColumn
-oacSHDSLEndpointCurrMaxAttainableLineRate=_OacSHDSLEndpointCurrMaxAttainableLineRate_Object((1,3,6,1,4,1,13191,10,3,3,3,1,5,1,5),_OacSHDSLEndpointCurrMaxAttainableLineRate_Type())
-oacSHDSLEndpointCurrMaxAttainableLineRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrMaxAttainableLineRate.setStatus(_A)
-_OacSHDSLEndpointCurrCommands_Type=Integer32
-_OacSHDSLEndpointCurrCommands_Object=MibTableColumn
-oacSHDSLEndpointCurrCommands=_OacSHDSLEndpointCurrCommands_Object((1,3,6,1,4,1,13191,10,3,3,3,1,5,1,6),_OacSHDSLEndpointCurrCommands_Type())
-oacSHDSLEndpointCurrCommands.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrCommands.setStatus(_A)
-_OacSHDSLEndpointCurrResponses_Type=Integer32
-_OacSHDSLEndpointCurrResponses_Object=MibTableColumn
-oacSHDSLEndpointCurrResponses=_OacSHDSLEndpointCurrResponses_Object((1,3,6,1,4,1,13191,10,3,3,3,1,5,1,7),_OacSHDSLEndpointCurrResponses_Type())
-oacSHDSLEndpointCurrResponses.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrResponses.setStatus(_A)
-_OacSHDSLEndpointCurrdiscardedCommands_Type=Integer32
-_OacSHDSLEndpointCurrdiscardedCommands_Object=MibTableColumn
-oacSHDSLEndpointCurrdiscardedCommands=_OacSHDSLEndpointCurrdiscardedCommands_Object((1,3,6,1,4,1,13191,10,3,3,3,1,5,1,8),_OacSHDSLEndpointCurrdiscardedCommands_Type())
-oacSHDSLEndpointCurrdiscardedCommands.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrdiscardedCommands.setStatus(_A)
-_OacSHDSLEndpointCurrerroredCommands_Type=Integer32
-_OacSHDSLEndpointCurrerroredCommands_Object=MibTableColumn
-oacSHDSLEndpointCurrerroredCommands=_OacSHDSLEndpointCurrerroredCommands_Object((1,3,6,1,4,1,13191,10,3,3,3,1,5,1,9),_OacSHDSLEndpointCurrerroredCommands_Type())
-oacSHDSLEndpointCurrerroredCommands.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrerroredCommands.setStatus(_A)
-_OacSHDSLEndpointCurrReceivedFrames_Type=Integer32
-_OacSHDSLEndpointCurrReceivedFrames_Object=MibTableColumn
-oacSHDSLEndpointCurrReceivedFrames=_OacSHDSLEndpointCurrReceivedFrames_Object((1,3,6,1,4,1,13191,10,3,3,3,1,5,1,10),_OacSHDSLEndpointCurrReceivedFrames_Type())
-oacSHDSLEndpointCurrReceivedFrames.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrReceivedFrames.setStatus(_A)
-_OacSHDSLEndpointCurrBadTransparency_Type=Integer32
-_OacSHDSLEndpointCurrBadTransparency_Object=MibTableColumn
-oacSHDSLEndpointCurrBadTransparency=_OacSHDSLEndpointCurrBadTransparency_Object((1,3,6,1,4,1,13191,10,3,3,3,1,5,1,11),_OacSHDSLEndpointCurrBadTransparency_Type())
-oacSHDSLEndpointCurrBadTransparency.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrBadTransparency.setStatus(_A)
-_OacSHDSLEndpointCurrBadFCS_Type=Integer32
-_OacSHDSLEndpointCurrBadFCS_Object=MibTableColumn
-oacSHDSLEndpointCurrBadFCS=_OacSHDSLEndpointCurrBadFCS_Object((1,3,6,1,4,1,13191,10,3,3,3,1,5,1,12),_OacSHDSLEndpointCurrBadFCS_Type())
-oacSHDSLEndpointCurrBadFCS.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrBadFCS.setStatus(_A)
-class _OacSHDSLEndpointCurrEOCStatus_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(50,50));fixedLength=50
-_OacSHDSLEndpointCurrEOCStatus_Type.__name__=_F
-_OacSHDSLEndpointCurrEOCStatus_Object=MibTableColumn
-oacSHDSLEndpointCurrEOCStatus=_OacSHDSLEndpointCurrEOCStatus_Object((1,3,6,1,4,1,13191,10,3,3,3,1,5,1,13),_OacSHDSLEndpointCurrEOCStatus_Type())
-oacSHDSLEndpointCurrEOCStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrEOCStatus.setStatus(_A)
-_OacSHDSLEndpointCurrretrainTable_Object=MibTable
-oacSHDSLEndpointCurrretrainTable=_OacSHDSLEndpointCurrretrainTable_Object((1,3,6,1,4,1,13191,10,3,3,3,1,7))
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainTable.setStatus(_A)
-_OacSHDSLEndpointCurrretrainEntry_Object=MibTableRow
-oacSHDSLEndpointCurrretrainEntry=_OacSHDSLEndpointCurrretrainEntry_Object((1,3,6,1,4,1,13191,10,3,3,3,1,7,1))
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainEntry.setStatus(_A)
-_OacSHDSLEndpointCurrretrainSQPAIR_Type=Integer32
-_OacSHDSLEndpointCurrretrainSQPAIR_Object=MibTableColumn
-oacSHDSLEndpointCurrretrainSQPAIR=_OacSHDSLEndpointCurrretrainSQPAIR_Object((1,3,6,1,4,1,13191,10,3,3,3,1,7,1,1),_OacSHDSLEndpointCurrretrainSQPAIR_Type())
-oacSHDSLEndpointCurrretrainSQPAIR.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainSQPAIR.setStatus(_A)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainSQPAIR.setUnits('SQPAIR')
-_OacSHDSLEndpointCurrretrainSQLINE_Type=Integer32
-_OacSHDSLEndpointCurrretrainSQLINE_Object=MibTableColumn
-oacSHDSLEndpointCurrretrainSQLINE=_OacSHDSLEndpointCurrretrainSQLINE_Object((1,3,6,1,4,1,13191,10,3,3,3,1,7,1,2),_OacSHDSLEndpointCurrretrainSQLINE_Type())
-oacSHDSLEndpointCurrretrainSQLINE.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainSQLINE.setStatus(_A)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainSQLINE.setUnits('SQLINE')
-_OacSHDSLEndpointCurrretrainCRCPAIR_Type=Integer32
-_OacSHDSLEndpointCurrretrainCRCPAIR_Object=MibTableColumn
-oacSHDSLEndpointCurrretrainCRCPAIR=_OacSHDSLEndpointCurrretrainCRCPAIR_Object((1,3,6,1,4,1,13191,10,3,3,3,1,7,1,3),_OacSHDSLEndpointCurrretrainCRCPAIR_Type())
-oacSHDSLEndpointCurrretrainCRCPAIR.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainCRCPAIR.setStatus(_A)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainCRCPAIR.setUnits('CRCPAIR')
-_OacSHDSLEndpointCurrretrainCRCLINE_Type=Integer32
-_OacSHDSLEndpointCurrretrainCRCLINE_Object=MibTableColumn
-oacSHDSLEndpointCurrretrainCRCLINE=_OacSHDSLEndpointCurrretrainCRCLINE_Object((1,3,6,1,4,1,13191,10,3,3,3,1,7,1,4),_OacSHDSLEndpointCurrretrainCRCLINE_Type())
-oacSHDSLEndpointCurrretrainCRCLINE.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainCRCLINE.setStatus(_A)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainCRCLINE.setUnits('CRCLINE')
-_OacSHDSLEndpointCurrretrainFsyncPAIR_Type=Integer32
-_OacSHDSLEndpointCurrretrainFsyncPAIR_Object=MibTableColumn
-oacSHDSLEndpointCurrretrainFsyncPAIR=_OacSHDSLEndpointCurrretrainFsyncPAIR_Object((1,3,6,1,4,1,13191,10,3,3,3,1,7,1,5),_OacSHDSLEndpointCurrretrainFsyncPAIR_Type())
-oacSHDSLEndpointCurrretrainFsyncPAIR.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainFsyncPAIR.setStatus(_A)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainFsyncPAIR.setUnits('FsyncPAIR')
-_OacSHDSLEndpointCurrretrainFsyncLINE_Type=Integer32
-_OacSHDSLEndpointCurrretrainFsyncLINE_Object=MibTableColumn
-oacSHDSLEndpointCurrretrainFsyncLINE=_OacSHDSLEndpointCurrretrainFsyncLINE_Object((1,3,6,1,4,1,13191,10,3,3,3,1,7,1,6),_OacSHDSLEndpointCurrretrainFsyncLINE_Type())
-oacSHDSLEndpointCurrretrainFsyncLINE.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainFsyncLINE.setStatus(_A)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainFsyncLINE.setUnits('FsyncLINE')
-_OacSHDSLEndpointCurrretrainFSyncSQPAIR_Type=Integer32
-_OacSHDSLEndpointCurrretrainFSyncSQPAIR_Object=MibTableColumn
-oacSHDSLEndpointCurrretrainFSyncSQPAIR=_OacSHDSLEndpointCurrretrainFSyncSQPAIR_Object((1,3,6,1,4,1,13191,10,3,3,3,1,7,1,7),_OacSHDSLEndpointCurrretrainFSyncSQPAIR_Type())
-oacSHDSLEndpointCurrretrainFSyncSQPAIR.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainFSyncSQPAIR.setStatus(_A)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainFSyncSQPAIR.setUnits('FSync&SQPAIR')
-_OacSHDSLEndpointCurrretrainFSyncSQLINE_Type=Integer32
-_OacSHDSLEndpointCurrretrainFSyncSQLINE_Object=MibTableColumn
-oacSHDSLEndpointCurrretrainFSyncSQLINE=_OacSHDSLEndpointCurrretrainFSyncSQLINE_Object((1,3,6,1,4,1,13191,10,3,3,3,1,7,1,8),_OacSHDSLEndpointCurrretrainFSyncSQLINE_Type())
-oacSHDSLEndpointCurrretrainFSyncSQLINE.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainFSyncSQLINE.setStatus(_A)
-if mibBuilder.loadTexts:oacSHDSLEndpointCurrretrainFSyncSQLINE.setUnits('FSync&SQLINE')
-_OacSHDSLSpanConfProfileTable_Object=MibTable
-oacSHDSLSpanConfProfileTable=_OacSHDSLSpanConfProfileTable_Object((1,3,6,1,4,1,13191,10,3,3,3,1,10))
-if mibBuilder.loadTexts:oacSHDSLSpanConfProfileTable.setStatus(_A)
-_OacSHDSLSpanConfProfileEntry_Object=MibTableRow
-oacSHDSLSpanConfProfileEntry=_OacSHDSLSpanConfProfileEntry_Object((1,3,6,1,4,1,13191,10,3,3,3,1,10,1))
-if mibBuilder.loadTexts:oacSHDSLSpanConfProfileEntry.setStatus(_A)
-class _OacSHDSLSpanConfProfileConstellation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),(_J,2),(_K,3)))
-_OacSHDSLSpanConfProfileConstellation_Type.__name__=_C
-_OacSHDSLSpanConfProfileConstellation_Object=MibTableColumn
-oacSHDSLSpanConfProfileConstellation=_OacSHDSLSpanConfProfileConstellation_Object((1,3,6,1,4,1,13191,10,3,3,3,1,10,1,1),_OacSHDSLSpanConfProfileConstellation_Type())
-oacSHDSLSpanConfProfileConstellation.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanConfProfileConstellation.setStatus(_A)
-class _OacSHDSLSpanConfProfileAutoConfig_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_H,2)))
-_OacSHDSLSpanConfProfileAutoConfig_Type.__name__=_C
-_OacSHDSLSpanConfProfileAutoConfig_Object=MibTableColumn
-oacSHDSLSpanConfProfileAutoConfig=_OacSHDSLSpanConfProfileAutoConfig_Object((1,3,6,1,4,1,13191,10,3,3,3,1,10,1,2),_OacSHDSLSpanConfProfileAutoConfig_Type())
-oacSHDSLSpanConfProfileAutoConfig.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanConfProfileAutoConfig.setStatus(_A)
-class _OacSHDSLSpanConfProfileCaplist_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('newstyle',1),('oldstyle',2),(_G,3)))
-_OacSHDSLSpanConfProfileCaplist_Type.__name__=_C
-_OacSHDSLSpanConfProfileCaplist_Object=MibTableColumn
-oacSHDSLSpanConfProfileCaplist=_OacSHDSLSpanConfProfileCaplist_Object((1,3,6,1,4,1,13191,10,3,3,3,1,10,1,3),_OacSHDSLSpanConfProfileCaplist_Type())
-oacSHDSLSpanConfProfileCaplist.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanConfProfileCaplist.setStatus(_A)
-class _OacSHDSLSpanConfProfileEfmAggregation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_H,1),(_G,2),('negotiated',3),('static',4)))
-_OacSHDSLSpanConfProfileEfmAggregation_Type.__name__=_C
-_OacSHDSLSpanConfProfileEfmAggregation_Object=MibTableColumn
-oacSHDSLSpanConfProfileEfmAggregation=_OacSHDSLSpanConfProfileEfmAggregation_Object((1,3,6,1,4,1,13191,10,3,3,3,1,10,1,4),_OacSHDSLSpanConfProfileEfmAggregation_Type())
-oacSHDSLSpanConfProfileEfmAggregation.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanConfProfileEfmAggregation.setStatus(_A)
-class _OacSHDSLSpanConfProfileCrcCheck_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30))
-_OacSHDSLSpanConfProfileCrcCheck_Type.__name__=_C
-_OacSHDSLSpanConfProfileCrcCheck_Object=MibTableColumn
-oacSHDSLSpanConfProfileCrcCheck=_OacSHDSLSpanConfProfileCrcCheck_Object((1,3,6,1,4,1,13191,10,3,3,3,1,10,1,5),_OacSHDSLSpanConfProfileCrcCheck_Type())
-oacSHDSLSpanConfProfileCrcCheck.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanConfProfileCrcCheck.setStatus(_A)
-class _OacSHDSLSpanConfProfileMeansqCheck_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30))
-_OacSHDSLSpanConfProfileMeansqCheck_Type.__name__=_C
-_OacSHDSLSpanConfProfileMeansqCheck_Object=MibTableColumn
-oacSHDSLSpanConfProfileMeansqCheck=_OacSHDSLSpanConfProfileMeansqCheck_Object((1,3,6,1,4,1,13191,10,3,3,3,1,10,1,6),_OacSHDSLSpanConfProfileMeansqCheck_Type())
-oacSHDSLSpanConfProfileMeansqCheck.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanConfProfileMeansqCheck.setStatus(_A)
-class _OacSHDSLSpanConfProfileMeansqThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,10))
-_OacSHDSLSpanConfProfileMeansqThreshold_Type.__name__=_C
-_OacSHDSLSpanConfProfileMeansqThreshold_Object=MibTableColumn
-oacSHDSLSpanConfProfileMeansqThreshold=_OacSHDSLSpanConfProfileMeansqThreshold_Object((1,3,6,1,4,1,13191,10,3,3,3,1,10,1,7),_OacSHDSLSpanConfProfileMeansqThreshold_Type())
-oacSHDSLSpanConfProfileMeansqThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanConfProfileMeansqThreshold.setStatus(_A)
-class _OacSHDSLSpanConfProfileLineProbing_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('adaptive',1),('normal',2)))
-_OacSHDSLSpanConfProfileLineProbing_Type.__name__=_C
-_OacSHDSLSpanConfProfileLineProbing_Object=MibTableColumn
-oacSHDSLSpanConfProfileLineProbing=_OacSHDSLSpanConfProfileLineProbing_Object((1,3,6,1,4,1,13191,10,3,3,3,1,10,1,8),_OacSHDSLSpanConfProfileLineProbing_Type())
-oacSHDSLSpanConfProfileLineProbing.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSHDSLSpanConfProfileLineProbing.setStatus(_A)
-class _OacSHDSLSpanConfProfileEocManagement_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_H,2)))
-_OacSHDSLSpanConfProfileEocManagement_Type.__name__=_C
-_OacSHDSLSpanConfProfileEocManagement_Object=MibTableColumn
-oacSHDSLSpanConfProfileEocManagement=_OacSHDSLSpanConfProfileEocManagement_Object((1,3,6,1,4,1,13191,10,3,3,3,1,10,1,9),_OacSHDSLSpanConfProfileEocManagement_Type())
-oacSHDSLSpanConfProfileEocManagement.setMaxAccess(_I)
-if mibBuilder.loadTexts:oacSHDSLSpanConfProfileEocManagement.setStatus(_A)
-class _OacSHDSLSpanConfProfileEocStatusPollDelay_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,29))
-_OacSHDSLSpanConfProfileEocStatusPollDelay_Type.__name__=_C
-_OacSHDSLSpanConfProfileEocStatusPollDelay_Object=MibTableColumn
-oacSHDSLSpanConfProfileEocStatusPollDelay=_OacSHDSLSpanConfProfileEocStatusPollDelay_Object((1,3,6,1,4,1,13191,10,3,3,3,1,10,1,10),_OacSHDSLSpanConfProfileEocStatusPollDelay_Type())
-oacSHDSLSpanConfProfileEocStatusPollDelay.setMaxAccess(_I)
-if mibBuilder.loadTexts:oacSHDSLSpanConfProfileEocStatusPollDelay.setStatus(_A)
-if mibBuilder.loadTexts:oacSHDSLSpanConfProfileEocStatusPollDelay.setUnits(_M)
-class _OacSHDSLSpanConfProfileEocStatusPollInterval_Type(Integer32):defaultValue=30;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(30,30),ValueRangeConstraint(60,60),ValueRangeConstraint(90,90),ValueRangeConstraint(120,120))
-_OacSHDSLSpanConfProfileEocStatusPollInterval_Type.__name__=_C
-_OacSHDSLSpanConfProfileEocStatusPollInterval_Object=MibTableColumn
-oacSHDSLSpanConfProfileEocStatusPollInterval=_OacSHDSLSpanConfProfileEocStatusPollInterval_Object((1,3,6,1,4,1,13191,10,3,3,3,1,10,1,11),_OacSHDSLSpanConfProfileEocStatusPollInterval_Type())
-oacSHDSLSpanConfProfileEocStatusPollInterval.setMaxAccess(_I)
-if mibBuilder.loadTexts:oacSHDSLSpanConfProfileEocStatusPollInterval.setStatus(_A)
-if mibBuilder.loadTexts:oacSHDSLSpanConfProfileEocStatusPollInterval.setUnits(_M)
-_OacSHDSLTraps_ObjectIdentity=ObjectIdentity
-oacSHDSLTraps=_OacSHDSLTraps_ObjectIdentity((1,3,6,1,4,1,13191,10,3,3,3,2))
-_OacSHDSLTrapPrefix_ObjectIdentity=ObjectIdentity
-oacSHDSLTrapPrefix=_OacSHDSLTrapPrefix_ObjectIdentity((1,3,6,1,4,1,13191,10,3,3,3,2,0))
-hdsl2ShdslSpanStatusEntry.registerAugmentions((_D,_N))
+#
+# PySNMP MIB module ONEACCESS-SHDSL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/oneaccess/ONEACCESS-SHDSL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:58 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hdsl2ShdslEndpointCurrEntry, hdsl2ShdslSpanStatusEntry, hdsl2ShdslSpanConfProfileEntry = mibBuilder.importSymbols("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrEntry", "hdsl2ShdslSpanStatusEntry", "hdsl2ShdslSpanConfProfileEntry")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+oacExpIMSystem, = mibBuilder.importSymbols("ONEACCESS-GLOBAL-REG", "oacExpIMSystem")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+oacSHDSLMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3))
+oacSHDSLMIBModule.setRevisions(('2011-06-15 00:00', '2010-08-20 00:01', '2010-07-30 00:01', '2010-07-08 00:01',))
+if mibBuilder.loadTexts: oacSHDSLMIBModule.setLastUpdated('201106150000Z')
+if mibBuilder.loadTexts: oacSHDSLMIBModule.setOrganization(' OneAccess ')
+oacSHDSLObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1))
+oacSHDSLSpanStatusTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2), )
+if mibBuilder.loadTexts: oacSHDSLSpanStatusTable.setStatus('current')
+oacSHDSLSpanStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2, 1), )
+hdsl2ShdslSpanStatusEntry.registerAugmentions(("ONEACCESS-SHDSL-MIB", "oacSHDSLSpanStatusEntry"))
 oacSHDSLSpanStatusEntry.setIndexNames(*hdsl2ShdslSpanStatusEntry.getIndexNames())
-hdsl2ShdslEndpointCurrEntry.registerAugmentions((_D,_O))
+if mibBuilder.loadTexts: oacSHDSLSpanStatusEntry.setStatus('current')
+oacSHDSLSpanStatusUpDown = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanStatusUpDown.setStatus('current')
+oacSHDSLSpanStatusCurrStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(30, 30)).setFixedLength(30)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanStatusCurrStatus.setStatus('current')
+oacSHDSLSpanStatusCurrShowtimeStart = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanStatusCurrShowtimeStart.setStatus('current')
+oacSHDSLSpanStatusCurrCellDelin = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanStatusCurrCellDelin.setStatus('current')
+oacSHDSLSpanStatusCurrCRCanomalies = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanStatusCurrCRCanomalies.setStatus('current')
+oacSHDSLSpanStatusCurrHECErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanStatusCurrHECErrors.setStatus('current')
+oacSHDSLSpanStatusCurrRxCells = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanStatusCurrRxCells.setStatus('current')
+oacSHDSLSpanStatusCurrTxCells = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanStatusCurrTxCells.setStatus('current')
+oacSHDSLSpanStatusCurrRxDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanStatusCurrRxDrops.setStatus('current')
+oacSHDSLSpanStatusCurrES = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanStatusCurrES.setStatus('current')
+oacSHDSLSpanStatusCurrSES = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanStatusCurrSES.setStatus('current')
+oacSHDSLSpanStatusCurrLOSWS = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanStatusCurrLOSWS.setStatus('current')
+oacSHDSLSpanStatusCurrUAS = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanStatusCurrUAS.setStatus('current')
+oacSHDSLSpanStatusCurrConstellation = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 2, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("tcPam16", 2), ("tcPam32", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanStatusCurrConstellation.setStatus('current')
+oacSHDSLEndpointCurrTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 5), )
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrTable.setStatus('current')
+oacSHDSLEndpointCurrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 5, 1), )
+hdsl2ShdslEndpointCurrEntry.registerAugmentions(("ONEACCESS-SHDSL-MIB", "oacSHDSLEndpointCurrEntry"))
 oacSHDSLEndpointCurrEntry.setIndexNames(*hdsl2ShdslEndpointCurrEntry.getIndexNames())
-hdsl2ShdslEndpointCurrEntry.registerAugmentions((_D,_P))
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrEntry.setStatus('current')
+oacSHDSLEndpointCurrAtn = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1270, 1280))).setUnits('dB/10').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrAtn.setStatus('current')
+oacSHDSLEndpointCurrSnrMgn = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1270, 1280))).setUnits('dB/10').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrSnrMgn.setStatus('current')
+oacSHDSLEndpointCurrTxPwr = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 5, 1, 3), Integer32()).setUnits('dB/10').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrTxPwr.setStatus('current')
+oacSHDSLEndpointCurrRxGain = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 5, 1, 4), Integer32()).setUnits('dB/10').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrRxGain.setStatus('current')
+oacSHDSLEndpointCurrMaxAttainableLineRate = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 5, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrMaxAttainableLineRate.setStatus('current')
+oacSHDSLEndpointCurrCommands = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 5, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrCommands.setStatus('current')
+oacSHDSLEndpointCurrResponses = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 5, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrResponses.setStatus('current')
+oacSHDSLEndpointCurrdiscardedCommands = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 5, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrdiscardedCommands.setStatus('current')
+oacSHDSLEndpointCurrerroredCommands = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 5, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrerroredCommands.setStatus('current')
+oacSHDSLEndpointCurrReceivedFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 5, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrReceivedFrames.setStatus('current')
+oacSHDSLEndpointCurrBadTransparency = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 5, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrBadTransparency.setStatus('current')
+oacSHDSLEndpointCurrBadFCS = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 5, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrBadFCS.setStatus('current')
+oacSHDSLEndpointCurrEOCStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 5, 1, 13), OctetString().subtype(subtypeSpec=ValueSizeConstraint(50, 50)).setFixedLength(50)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrEOCStatus.setStatus('current')
+oacSHDSLEndpointCurrretrainTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 7), )
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrretrainTable.setStatus('current')
+oacSHDSLEndpointCurrretrainEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 7, 1), )
+hdsl2ShdslEndpointCurrEntry.registerAugmentions(("ONEACCESS-SHDSL-MIB", "oacSHDSLEndpointCurrretrainEntry"))
 oacSHDSLEndpointCurrretrainEntry.setIndexNames(*hdsl2ShdslEndpointCurrEntry.getIndexNames())
-hdsl2ShdslSpanConfProfileEntry.registerAugmentions((_D,_Q))
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrretrainEntry.setStatus('current')
+oacSHDSLEndpointCurrretrainSQPAIR = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 7, 1, 1), Integer32()).setUnits('SQPAIR').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrretrainSQPAIR.setStatus('current')
+oacSHDSLEndpointCurrretrainSQLINE = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 7, 1, 2), Integer32()).setUnits('SQLINE').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrretrainSQLINE.setStatus('current')
+oacSHDSLEndpointCurrretrainCRCPAIR = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 7, 1, 3), Integer32()).setUnits('CRCPAIR').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrretrainCRCPAIR.setStatus('current')
+oacSHDSLEndpointCurrretrainCRCLINE = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 7, 1, 4), Integer32()).setUnits('CRCLINE').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrretrainCRCLINE.setStatus('current')
+oacSHDSLEndpointCurrretrainFsyncPAIR = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 7, 1, 5), Integer32()).setUnits('FsyncPAIR').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrretrainFsyncPAIR.setStatus('current')
+oacSHDSLEndpointCurrretrainFsyncLINE = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 7, 1, 6), Integer32()).setUnits('FsyncLINE').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrretrainFsyncLINE.setStatus('current')
+oacSHDSLEndpointCurrretrainFSyncSQPAIR = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 7, 1, 7), Integer32()).setUnits('FSync&SQPAIR').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrretrainFSyncSQPAIR.setStatus('current')
+oacSHDSLEndpointCurrretrainFSyncSQLINE = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 7, 1, 8), Integer32()).setUnits('FSync&SQLINE').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLEndpointCurrretrainFSyncSQLINE.setStatus('current')
+oacSHDSLTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 2))
+oacSHDSLTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 2, 0))
+oacSHDSLHardDownTrap = NotificationType((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 2, 0, 1))
+if mibBuilder.loadTexts: oacSHDSLHardDownTrap.setStatus('current')
+oacSHDSLSpanConfProfileTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 10), )
+if mibBuilder.loadTexts: oacSHDSLSpanConfProfileTable.setStatus('current')
+oacSHDSLSpanConfProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 10, 1), )
+hdsl2ShdslSpanConfProfileEntry.registerAugmentions(("ONEACCESS-SHDSL-MIB", "oacSHDSLSpanConfProfileEntry"))
 oacSHDSLSpanConfProfileEntry.setIndexNames(*hdsl2ShdslSpanConfProfileEntry.getIndexNames())
-oacSHDSLHardDownTrap=NotificationType((1,3,6,1,4,1,13191,10,3,3,3,2,0,1))
-if mibBuilder.loadTexts:oacSHDSLHardDownTrap.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'oacSHDSLMIBModule':oacSHDSLMIBModule,'oacSHDSLObjects':oacSHDSLObjects,'oacSHDSLSpanStatusTable':oacSHDSLSpanStatusTable,_N:oacSHDSLSpanStatusEntry,'oacSHDSLSpanStatusUpDown':oacSHDSLSpanStatusUpDown,'oacSHDSLSpanStatusCurrStatus':oacSHDSLSpanStatusCurrStatus,'oacSHDSLSpanStatusCurrShowtimeStart':oacSHDSLSpanStatusCurrShowtimeStart,'oacSHDSLSpanStatusCurrCellDelin':oacSHDSLSpanStatusCurrCellDelin,'oacSHDSLSpanStatusCurrCRCanomalies':oacSHDSLSpanStatusCurrCRCanomalies,'oacSHDSLSpanStatusCurrHECErrors':oacSHDSLSpanStatusCurrHECErrors,'oacSHDSLSpanStatusCurrRxCells':oacSHDSLSpanStatusCurrRxCells,'oacSHDSLSpanStatusCurrTxCells':oacSHDSLSpanStatusCurrTxCells,'oacSHDSLSpanStatusCurrRxDrops':oacSHDSLSpanStatusCurrRxDrops,'oacSHDSLSpanStatusCurrES':oacSHDSLSpanStatusCurrES,'oacSHDSLSpanStatusCurrSES':oacSHDSLSpanStatusCurrSES,'oacSHDSLSpanStatusCurrLOSWS':oacSHDSLSpanStatusCurrLOSWS,'oacSHDSLSpanStatusCurrUAS':oacSHDSLSpanStatusCurrUAS,'oacSHDSLSpanStatusCurrConstellation':oacSHDSLSpanStatusCurrConstellation,'oacSHDSLEndpointCurrTable':oacSHDSLEndpointCurrTable,_O:oacSHDSLEndpointCurrEntry,'oacSHDSLEndpointCurrAtn':oacSHDSLEndpointCurrAtn,'oacSHDSLEndpointCurrSnrMgn':oacSHDSLEndpointCurrSnrMgn,'oacSHDSLEndpointCurrTxPwr':oacSHDSLEndpointCurrTxPwr,'oacSHDSLEndpointCurrRxGain':oacSHDSLEndpointCurrRxGain,'oacSHDSLEndpointCurrMaxAttainableLineRate':oacSHDSLEndpointCurrMaxAttainableLineRate,'oacSHDSLEndpointCurrCommands':oacSHDSLEndpointCurrCommands,'oacSHDSLEndpointCurrResponses':oacSHDSLEndpointCurrResponses,'oacSHDSLEndpointCurrdiscardedCommands':oacSHDSLEndpointCurrdiscardedCommands,'oacSHDSLEndpointCurrerroredCommands':oacSHDSLEndpointCurrerroredCommands,'oacSHDSLEndpointCurrReceivedFrames':oacSHDSLEndpointCurrReceivedFrames,'oacSHDSLEndpointCurrBadTransparency':oacSHDSLEndpointCurrBadTransparency,'oacSHDSLEndpointCurrBadFCS':oacSHDSLEndpointCurrBadFCS,'oacSHDSLEndpointCurrEOCStatus':oacSHDSLEndpointCurrEOCStatus,'oacSHDSLEndpointCurrretrainTable':oacSHDSLEndpointCurrretrainTable,_P:oacSHDSLEndpointCurrretrainEntry,'oacSHDSLEndpointCurrretrainSQPAIR':oacSHDSLEndpointCurrretrainSQPAIR,'oacSHDSLEndpointCurrretrainSQLINE':oacSHDSLEndpointCurrretrainSQLINE,'oacSHDSLEndpointCurrretrainCRCPAIR':oacSHDSLEndpointCurrretrainCRCPAIR,'oacSHDSLEndpointCurrretrainCRCLINE':oacSHDSLEndpointCurrretrainCRCLINE,'oacSHDSLEndpointCurrretrainFsyncPAIR':oacSHDSLEndpointCurrretrainFsyncPAIR,'oacSHDSLEndpointCurrretrainFsyncLINE':oacSHDSLEndpointCurrretrainFsyncLINE,'oacSHDSLEndpointCurrretrainFSyncSQPAIR':oacSHDSLEndpointCurrretrainFSyncSQPAIR,'oacSHDSLEndpointCurrretrainFSyncSQLINE':oacSHDSLEndpointCurrretrainFSyncSQLINE,'oacSHDSLSpanConfProfileTable':oacSHDSLSpanConfProfileTable,_Q:oacSHDSLSpanConfProfileEntry,'oacSHDSLSpanConfProfileConstellation':oacSHDSLSpanConfProfileConstellation,'oacSHDSLSpanConfProfileAutoConfig':oacSHDSLSpanConfProfileAutoConfig,'oacSHDSLSpanConfProfileCaplist':oacSHDSLSpanConfProfileCaplist,'oacSHDSLSpanConfProfileEfmAggregation':oacSHDSLSpanConfProfileEfmAggregation,'oacSHDSLSpanConfProfileCrcCheck':oacSHDSLSpanConfProfileCrcCheck,'oacSHDSLSpanConfProfileMeansqCheck':oacSHDSLSpanConfProfileMeansqCheck,'oacSHDSLSpanConfProfileMeansqThreshold':oacSHDSLSpanConfProfileMeansqThreshold,'oacSHDSLSpanConfProfileLineProbing':oacSHDSLSpanConfProfileLineProbing,'oacSHDSLSpanConfProfileEocManagement':oacSHDSLSpanConfProfileEocManagement,'oacSHDSLSpanConfProfileEocStatusPollDelay':oacSHDSLSpanConfProfileEocStatusPollDelay,'oacSHDSLSpanConfProfileEocStatusPollInterval':oacSHDSLSpanConfProfileEocStatusPollInterval,'oacSHDSLTraps':oacSHDSLTraps,'oacSHDSLTrapPrefix':oacSHDSLTrapPrefix,'oacSHDSLHardDownTrap':oacSHDSLHardDownTrap})
+if mibBuilder.loadTexts: oacSHDSLSpanConfProfileEntry.setStatus('current')
+oacSHDSLSpanConfProfileConstellation = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 10, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("auto", 1), ("tcPam16", 2), ("tcPam32", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanConfProfileConstellation.setStatus('current')
+oacSHDSLSpanConfProfileAutoConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 10, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanConfProfileAutoConfig.setStatus('current')
+oacSHDSLSpanConfProfileCaplist = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 10, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("newstyle", 1), ("oldstyle", 2), ("auto", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanConfProfileCaplist.setStatus('current')
+oacSHDSLSpanConfProfileEfmAggregation = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 10, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("disabled", 1), ("auto", 2), ("negotiated", 3), ("static", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanConfProfileEfmAggregation.setStatus('current')
+oacSHDSLSpanConfProfileCrcCheck = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 10, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 30))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanConfProfileCrcCheck.setStatus('current')
+oacSHDSLSpanConfProfileMeansqCheck = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 10, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 30))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanConfProfileMeansqCheck.setStatus('current')
+oacSHDSLSpanConfProfileMeansqThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 10, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-2, 10))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanConfProfileMeansqThreshold.setStatus('current')
+oacSHDSLSpanConfProfileLineProbing = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 10, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("adaptive", 1), ("normal", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacSHDSLSpanConfProfileLineProbing.setStatus('current')
+oacSHDSLSpanConfProfileEocManagement = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 10, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSHDSLSpanConfProfileEocManagement.setStatus('current')
+oacSHDSLSpanConfProfileEocStatusPollDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 10, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 29))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSHDSLSpanConfProfileEocStatusPollDelay.setStatus('current')
+oacSHDSLSpanConfProfileEocStatusPollInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 3, 3, 1, 10, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(30, 30), ValueRangeConstraint(60, 60), ValueRangeConstraint(90, 90), ValueRangeConstraint(120, 120), )).clone(30)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSHDSLSpanConfProfileEocStatusPollInterval.setStatus('current')
+mibBuilder.exportSymbols("ONEACCESS-SHDSL-MIB", oacSHDSLSpanStatusCurrLOSWS=oacSHDSLSpanStatusCurrLOSWS, oacSHDSLEndpointCurrReceivedFrames=oacSHDSLEndpointCurrReceivedFrames, oacSHDSLSpanStatusCurrConstellation=oacSHDSLSpanStatusCurrConstellation, oacSHDSLSpanStatusCurrUAS=oacSHDSLSpanStatusCurrUAS, oacSHDSLSpanStatusCurrRxCells=oacSHDSLSpanStatusCurrRxCells, oacSHDSLSpanConfProfileCrcCheck=oacSHDSLSpanConfProfileCrcCheck, oacSHDSLSpanConfProfileLineProbing=oacSHDSLSpanConfProfileLineProbing, oacSHDSLSpanConfProfileMeansqThreshold=oacSHDSLSpanConfProfileMeansqThreshold, oacSHDSLEndpointCurrEntry=oacSHDSLEndpointCurrEntry, oacSHDSLEndpointCurrretrainSQLINE=oacSHDSLEndpointCurrretrainSQLINE, oacSHDSLEndpointCurrCommands=oacSHDSLEndpointCurrCommands, oacSHDSLSpanConfProfileCaplist=oacSHDSLSpanConfProfileCaplist, PYSNMP_MODULE_ID=oacSHDSLMIBModule, oacSHDSLSpanStatusCurrCRCanomalies=oacSHDSLSpanStatusCurrCRCanomalies, oacSHDSLSpanConfProfileEocStatusPollInterval=oacSHDSLSpanConfProfileEocStatusPollInterval, oacSHDSLSpanStatusCurrCellDelin=oacSHDSLSpanStatusCurrCellDelin, oacSHDSLEndpointCurrResponses=oacSHDSLEndpointCurrResponses, oacSHDSLSpanStatusCurrHECErrors=oacSHDSLSpanStatusCurrHECErrors, oacSHDSLEndpointCurrerroredCommands=oacSHDSLEndpointCurrerroredCommands, oacSHDSLTraps=oacSHDSLTraps, oacSHDSLEndpointCurrAtn=oacSHDSLEndpointCurrAtn, oacSHDSLEndpointCurrBadFCS=oacSHDSLEndpointCurrBadFCS, oacSHDSLEndpointCurrTable=oacSHDSLEndpointCurrTable, oacSHDSLEndpointCurrBadTransparency=oacSHDSLEndpointCurrBadTransparency, oacSHDSLSpanStatusCurrES=oacSHDSLSpanStatusCurrES, oacSHDSLSpanStatusTable=oacSHDSLSpanStatusTable, oacSHDSLSpanConfProfileTable=oacSHDSLSpanConfProfileTable, oacSHDSLSpanConfProfileConstellation=oacSHDSLSpanConfProfileConstellation, oacSHDSLObjects=oacSHDSLObjects, oacSHDSLSpanStatusCurrTxCells=oacSHDSLSpanStatusCurrTxCells, oacSHDSLEndpointCurrretrainFsyncPAIR=oacSHDSLEndpointCurrretrainFsyncPAIR, oacSHDSLEndpointCurrTxPwr=oacSHDSLEndpointCurrTxPwr, oacSHDSLEndpointCurrretrainFSyncSQPAIR=oacSHDSLEndpointCurrretrainFSyncSQPAIR, oacSHDSLSpanConfProfileEfmAggregation=oacSHDSLSpanConfProfileEfmAggregation, oacSHDSLEndpointCurrretrainCRCPAIR=oacSHDSLEndpointCurrretrainCRCPAIR, oacSHDSLEndpointCurrretrainTable=oacSHDSLEndpointCurrretrainTable, oacSHDSLEndpointCurrdiscardedCommands=oacSHDSLEndpointCurrdiscardedCommands, oacSHDSLEndpointCurrretrainCRCLINE=oacSHDSLEndpointCurrretrainCRCLINE, oacSHDSLSpanConfProfileAutoConfig=oacSHDSLSpanConfProfileAutoConfig, oacSHDSLSpanConfProfileMeansqCheck=oacSHDSLSpanConfProfileMeansqCheck, oacSHDSLEndpointCurrretrainSQPAIR=oacSHDSLEndpointCurrretrainSQPAIR, oacSHDSLSpanConfProfileEntry=oacSHDSLSpanConfProfileEntry, oacSHDSLSpanStatusCurrRxDrops=oacSHDSLSpanStatusCurrRxDrops, oacSHDSLSpanStatusCurrSES=oacSHDSLSpanStatusCurrSES, oacSHDSLEndpointCurrretrainEntry=oacSHDSLEndpointCurrretrainEntry, oacSHDSLSpanConfProfileEocManagement=oacSHDSLSpanConfProfileEocManagement, oacSHDSLEndpointCurrRxGain=oacSHDSLEndpointCurrRxGain, oacSHDSLEndpointCurrSnrMgn=oacSHDSLEndpointCurrSnrMgn, oacSHDSLEndpointCurrMaxAttainableLineRate=oacSHDSLEndpointCurrMaxAttainableLineRate, oacSHDSLEndpointCurrEOCStatus=oacSHDSLEndpointCurrEOCStatus, oacSHDSLMIBModule=oacSHDSLMIBModule, oacSHDSLSpanStatusEntry=oacSHDSLSpanStatusEntry, oacSHDSLSpanStatusUpDown=oacSHDSLSpanStatusUpDown, oacSHDSLSpanStatusCurrStatus=oacSHDSLSpanStatusCurrStatus, oacSHDSLSpanConfProfileEocStatusPollDelay=oacSHDSLSpanConfProfileEocStatusPollDelay, oacSHDSLEndpointCurrretrainFsyncLINE=oacSHDSLEndpointCurrretrainFsyncLINE, oacSHDSLEndpointCurrretrainFSyncSQLINE=oacSHDSLEndpointCurrretrainFSyncSQLINE, oacSHDSLSpanStatusCurrShowtimeStart=oacSHDSLSpanStatusCurrShowtimeStart, oacSHDSLTrapPrefix=oacSHDSLTrapPrefix, oacSHDSLHardDownTrap=oacSHDSLHardDownTrap)

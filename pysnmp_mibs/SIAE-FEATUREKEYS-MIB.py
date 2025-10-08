@@ -1,61 +1,35 @@
-_E='DisplayString'
-_D='read-only'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-siaeMib,=mibBuilder.importSymbols('SIAE-TREE-MIB','siaeMib')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_E,'PhysAddress','TextualConvention')
-featureKeys=ModuleIdentity((1,3,6,1,4,1,3373,1103,101))
-if mibBuilder.loadTexts:featureKeys.setRevisions(('2014-02-03 00:00','2013-04-16 00:00'))
-class _FeatureKeysMibVersion_Type(Integer32):defaultValue=1
-_FeatureKeysMibVersion_Type.__name__=_B
-_FeatureKeysMibVersion_Object=MibScalar
-featureKeysMibVersion=_FeatureKeysMibVersion_Object((1,3,6,1,4,1,3373,1103,101,1),_FeatureKeysMibVersion_Type())
-featureKeysMibVersion.setMaxAccess(_D)
-if mibBuilder.loadTexts:featureKeysMibVersion.setStatus(_A)
-_FeatureKeysRadioMap_Type=OctetString
-_FeatureKeysRadioMap_Object=MibScalar
-featureKeysRadioMap=_FeatureKeysRadioMap_Object((1,3,6,1,4,1,3373,1103,101,2),_FeatureKeysRadioMap_Type())
-featureKeysRadioMap.setMaxAccess(_C)
-if mibBuilder.loadTexts:featureKeysRadioMap.setStatus(_A)
-_FeatureKeysLineMap_Type=OctetString
-_FeatureKeysLineMap_Object=MibScalar
-featureKeysLineMap=_FeatureKeysLineMap_Object((1,3,6,1,4,1,3373,1103,101,3),_FeatureKeysLineMap_Type())
-featureKeysLineMap.setMaxAccess(_C)
-if mibBuilder.loadTexts:featureKeysLineMap.setStatus(_A)
-class _FeatureKeysActionRequest_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('noAction',1),('upload',2)))
-_FeatureKeysActionRequest_Type.__name__=_B
-_FeatureKeysActionRequest_Object=MibScalar
-featureKeysActionRequest=_FeatureKeysActionRequest_Object((1,3,6,1,4,1,3373,1103,101,4),_FeatureKeysActionRequest_Type())
-featureKeysActionRequest.setMaxAccess(_C)
-if mibBuilder.loadTexts:featureKeysActionRequest.setStatus(_A)
-class _FeatureKeysCertificateName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_FeatureKeysCertificateName_Type.__name__=_E
-_FeatureKeysCertificateName_Object=MibScalar
-featureKeysCertificateName=_FeatureKeysCertificateName_Object((1,3,6,1,4,1,3373,1103,101,5),_FeatureKeysCertificateName_Type())
-featureKeysCertificateName.setMaxAccess(_C)
-if mibBuilder.loadTexts:featureKeysCertificateName.setStatus(_A)
-_FeatureKeysCertificateRemoteIpAddress_Type=IpAddress
-_FeatureKeysCertificateRemoteIpAddress_Object=MibScalar
-featureKeysCertificateRemoteIpAddress=_FeatureKeysCertificateRemoteIpAddress_Object((1,3,6,1,4,1,3373,1103,101,6),_FeatureKeysCertificateRemoteIpAddress_Type())
-featureKeysCertificateRemoteIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:featureKeysCertificateRemoteIpAddress.setStatus(_A)
-class _FeatureKeysLastOperationState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('initial',1),('downloadCompleted',2),('downloadTransferring',3),('downloadVerifying',4),('downloadInterrupted',5),('setSuccess',6),('setFailure',7)))
-_FeatureKeysLastOperationState_Type.__name__=_B
-_FeatureKeysLastOperationState_Object=MibScalar
-featureKeysLastOperationState=_FeatureKeysLastOperationState_Object((1,3,6,1,4,1,3373,1103,101,7),_FeatureKeysLastOperationState_Type())
-featureKeysLastOperationState.setMaxAccess(_D)
-if mibBuilder.loadTexts:featureKeysLastOperationState.setStatus(_A)
-class _FeatureKeysLastOperationFailure_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('noFailure',1),('transfer',2),('serialNo',3),('verifySign',4),('primaryDigest',5),('secondaryDigest',6)))
-_FeatureKeysLastOperationFailure_Type.__name__=_B
-_FeatureKeysLastOperationFailure_Object=MibScalar
-featureKeysLastOperationFailure=_FeatureKeysLastOperationFailure_Object((1,3,6,1,4,1,3373,1103,101,8),_FeatureKeysLastOperationFailure_Type())
-featureKeysLastOperationFailure.setMaxAccess(_D)
-if mibBuilder.loadTexts:featureKeysLastOperationFailure.setStatus(_A)
-mibBuilder.exportSymbols('SIAE-FEATUREKEYS-MIB',**{'featureKeys':featureKeys,'featureKeysMibVersion':featureKeysMibVersion,'featureKeysRadioMap':featureKeysRadioMap,'featureKeysLineMap':featureKeysLineMap,'featureKeysActionRequest':featureKeysActionRequest,'featureKeysCertificateName':featureKeysCertificateName,'featureKeysCertificateRemoteIpAddress':featureKeysCertificateRemoteIpAddress,'featureKeysLastOperationState':featureKeysLastOperationState,'featureKeysLastOperationFailure':featureKeysLastOperationFailure})
+#
+# PySNMP MIB module SIAE-FEATUREKEYS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/siaemic/SIAE-FEATUREKEYS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+featureKeys = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 101))
+featureKeys.setRevisions(('2014-02-03 00:00', '2013-04-16 00:00',))
+if mibBuilder.loadTexts: featureKeys.setLastUpdated('201402030000Z')
+if mibBuilder.loadTexts: featureKeys.setOrganization('SIAE MICROELETTRONICA spa')
+featureKeysMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 101, 1), Integer32().clone(1)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: featureKeysMibVersion.setStatus('current')
+featureKeysRadioMap = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 101, 2), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: featureKeysRadioMap.setStatus('current')
+featureKeysLineMap = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 101, 3), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: featureKeysLineMap.setStatus('current')
+featureKeysActionRequest = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 101, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noAction", 1), ("upload", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: featureKeysActionRequest.setStatus('current')
+featureKeysCertificateName = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 101, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: featureKeysCertificateName.setStatus('current')
+featureKeysCertificateRemoteIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 101, 6), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: featureKeysCertificateRemoteIpAddress.setStatus('current')
+featureKeysLastOperationState = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 101, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("initial", 1), ("downloadCompleted", 2), ("downloadTransferring", 3), ("downloadVerifying", 4), ("downloadInterrupted", 5), ("setSuccess", 6), ("setFailure", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: featureKeysLastOperationState.setStatus('current')
+featureKeysLastOperationFailure = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 101, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("noFailure", 1), ("transfer", 2), ("serialNo", 3), ("verifySign", 4), ("primaryDigest", 5), ("secondaryDigest", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: featureKeysLastOperationFailure.setStatus('current')
+mibBuilder.exportSymbols("SIAE-FEATUREKEYS-MIB", featureKeysCertificateName=featureKeysCertificateName, featureKeysActionRequest=featureKeysActionRequest, featureKeysCertificateRemoteIpAddress=featureKeysCertificateRemoteIpAddress, featureKeysLineMap=featureKeysLineMap, featureKeysLastOperationFailure=featureKeysLastOperationFailure, PYSNMP_MODULE_ID=featureKeys, featureKeysRadioMap=featureKeysRadioMap, featureKeys=featureKeys, featureKeysLastOperationState=featureKeysLastOperationState, featureKeysMibVersion=featureKeysMibVersion)

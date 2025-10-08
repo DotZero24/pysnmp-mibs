@@ -1,181 +1,80 @@
-_J='ethBackupStatusIndex'
-_I='ethBackupIndex'
-_H='ipConfigPortIdKey'
-_G='macInfoMacIndex'
-_F='CISCO-DMN-DSG-IPV4V6-MIB'
-_E='read-write'
-_D='DisplayString'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoDSGUtilities,=mibBuilder.importSymbols('CISCO-DMN-DSG-ROOT-MIB','ciscoDSGUtilities')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention')
-ciscoDSGIPv4v6=ModuleIdentity((1,3,6,1,4,1,1429,2,2,5,25))
-if mibBuilder.loadTexts:ciscoDSGIPv4v6.setRevisions(('2012-03-20 11:00','2010-08-30 11:00','2010-04-30 05:00','2010-04-12 05:00','2010-03-22 05:00','2009-12-20 12:00'))
-_IpV4v6Table_ObjectIdentity=ObjectIdentity
-ipV4v6Table=_IpV4v6Table_ObjectIdentity((1,3,6,1,4,1,1429,2,2,5,25,2))
-_MacInfoTable_Object=MibTable
-macInfoTable=_MacInfoTable_Object((1,3,6,1,4,1,1429,2,2,5,25,2,1))
-if mibBuilder.loadTexts:macInfoTable.setStatus(_A)
-_MacInfoEntry_Object=MibTableRow
-macInfoEntry=_MacInfoEntry_Object((1,3,6,1,4,1,1429,2,2,5,25,2,1,1))
-macInfoEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:macInfoEntry.setStatus(_A)
-class _MacInfoMacIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_MacInfoMacIndex_Type.__name__=_C
-_MacInfoMacIndex_Object=MibTableColumn
-macInfoMacIndex=_MacInfoMacIndex_Object((1,3,6,1,4,1,1429,2,2,5,25,2,1,1,1),_MacInfoMacIndex_Type())
-macInfoMacIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:macInfoMacIndex.setStatus(_A)
-class _MacInfoMacAddr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,17))
-_MacInfoMacAddr_Type.__name__=_D
-_MacInfoMacAddr_Object=MibTableColumn
-macInfoMacAddr=_MacInfoMacAddr_Object((1,3,6,1,4,1,1429,2,2,5,25,2,1,1,2),_MacInfoMacAddr_Type())
-macInfoMacAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:macInfoMacAddr.setStatus(_A)
-_IpConfigTable_Object=MibTable
-ipConfigTable=_IpConfigTable_Object((1,3,6,1,4,1,1429,2,2,5,25,2,2))
-if mibBuilder.loadTexts:ipConfigTable.setStatus(_A)
-_IpConfigEntry_Object=MibTableRow
-ipConfigEntry=_IpConfigEntry_Object((1,3,6,1,4,1,1429,2,2,5,25,2,2,1))
-ipConfigEntry.setIndexNames((0,_F,_H))
-if mibBuilder.loadTexts:ipConfigEntry.setStatus(_A)
-class _IpConfigPortIdKey_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2))
-_IpConfigPortIdKey_Type.__name__=_C
-_IpConfigPortIdKey_Object=MibTableColumn
-ipConfigPortIdKey=_IpConfigPortIdKey_Object((1,3,6,1,4,1,1429,2,2,5,25,2,2,1,1),_IpConfigPortIdKey_Type())
-ipConfigPortIdKey.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipConfigPortIdKey.setStatus(_A)
-class _IpConfigName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,24))
-_IpConfigName_Type.__name__=_D
-_IpConfigName_Object=MibTableColumn
-ipConfigName=_IpConfigName_Object((1,3,6,1,4,1,1429,2,2,5,25,2,2,1,2),_IpConfigName_Type())
-ipConfigName.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipConfigName.setStatus(_A)
-_IpConfigCurIPAddressV4_Type=IpAddress
-_IpConfigCurIPAddressV4_Object=MibTableColumn
-ipConfigCurIPAddressV4=_IpConfigCurIPAddressV4_Object((1,3,6,1,4,1,1429,2,2,5,25,2,2,1,3),_IpConfigCurIPAddressV4_Type())
-ipConfigCurIPAddressV4.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipConfigCurIPAddressV4.setStatus(_A)
-class _IpConfigCurNetworkMaskV4_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(8,30))
-_IpConfigCurNetworkMaskV4_Type.__name__=_C
-_IpConfigCurNetworkMaskV4_Object=MibTableColumn
-ipConfigCurNetworkMaskV4=_IpConfigCurNetworkMaskV4_Object((1,3,6,1,4,1,1429,2,2,5,25,2,2,1,4),_IpConfigCurNetworkMaskV4_Type())
-ipConfigCurNetworkMaskV4.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipConfigCurNetworkMaskV4.setStatus(_A)
-_IpConfigCurDefaultGatewayV4_Type=IpAddress
-_IpConfigCurDefaultGatewayV4_Object=MibTableColumn
-ipConfigCurDefaultGatewayV4=_IpConfigCurDefaultGatewayV4_Object((1,3,6,1,4,1,1429,2,2,5,25,2,2,1,5),_IpConfigCurDefaultGatewayV4_Type())
-ipConfigCurDefaultGatewayV4.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipConfigCurDefaultGatewayV4.setStatus(_A)
-class _IpConfigV4V6Flag_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ipV4',1),('ipV6',2)))
-_IpConfigV4V6Flag_Type.__name__=_C
-_IpConfigV4V6Flag_Object=MibTableColumn
-ipConfigV4V6Flag=_IpConfigV4V6Flag_Object((1,3,6,1,4,1,1429,2,2,5,25,2,2,1,6),_IpConfigV4V6Flag_Type())
-ipConfigV4V6Flag.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipConfigV4V6Flag.setStatus(_A)
-class _IpConfigPortMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('auto',1),('hd10',2),('fd10',3),('hd100',4),('fd100',5),('hd1000',6),('fd1000',7)))
-_IpConfigPortMode_Type.__name__=_C
-_IpConfigPortMode_Object=MibTableColumn
-ipConfigPortMode=_IpConfigPortMode_Object((1,3,6,1,4,1,1429,2,2,5,25,2,2,1,7),_IpConfigPortMode_Type())
-ipConfigPortMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:ipConfigPortMode.setStatus(_A)
-class _EthStatusLink_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_EthStatusLink_Type.__name__=_D
-_EthStatusLink_Object=MibTableColumn
-ethStatusLink=_EthStatusLink_Object((1,3,6,1,4,1,1429,2,2,5,25,2,2,1,11),_EthStatusLink_Type())
-ethStatusLink.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethStatusLink.setStatus(_A)
-class _EthStatusSpeed_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_EthStatusSpeed_Type.__name__=_D
-_EthStatusSpeed_Object=MibTableColumn
-ethStatusSpeed=_EthStatusSpeed_Object((1,3,6,1,4,1,1429,2,2,5,25,2,2,1,12),_EthStatusSpeed_Type())
-ethStatusSpeed.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethStatusSpeed.setStatus(_A)
-class _EthStatusDuplex_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_EthStatusDuplex_Type.__name__=_D
-_EthStatusDuplex_Object=MibTableColumn
-ethStatusDuplex=_EthStatusDuplex_Object((1,3,6,1,4,1,1429,2,2,5,25,2,2,1,13),_EthStatusDuplex_Type())
-ethStatusDuplex.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethStatusDuplex.setStatus(_A)
-class _EthStatusXover_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_EthStatusXover_Type.__name__=_D
-_EthStatusXover_Object=MibTableColumn
-ethStatusXover=_EthStatusXover_Object((1,3,6,1,4,1,1429,2,2,5,25,2,2,1,14),_EthStatusXover_Type())
-ethStatusXover.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethStatusXover.setStatus(_A)
-_EthBackupTable_Object=MibTable
-ethBackupTable=_EthBackupTable_Object((1,3,6,1,4,1,1429,2,2,5,25,2,3))
-if mibBuilder.loadTexts:ethBackupTable.setStatus(_A)
-_EthBackupEntry_Object=MibTableRow
-ethBackupEntry=_EthBackupEntry_Object((1,3,6,1,4,1,1429,2,2,5,25,2,3,1))
-ethBackupEntry.setIndexNames((0,_F,_I))
-if mibBuilder.loadTexts:ethBackupEntry.setStatus(_A)
-class _EthBackupIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,64))
-_EthBackupIndex_Type.__name__=_C
-_EthBackupIndex_Object=MibTableColumn
-ethBackupIndex=_EthBackupIndex_Object((1,3,6,1,4,1,1429,2,2,5,25,2,3,1,1),_EthBackupIndex_Type())
-ethBackupIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethBackupIndex.setStatus(_A)
-class _EthBackupMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('mirroring',1),('backupPrimaryData1',2),('backupPrimaryData2',3),('manualData1',4),('manualData2',5)))
-_EthBackupMode_Type.__name__=_C
-_EthBackupMode_Object=MibTableColumn
-ethBackupMode=_EthBackupMode_Object((1,3,6,1,4,1,1429,2,2,5,25,2,3,1,2),_EthBackupMode_Type())
-ethBackupMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethBackupMode.setStatus(_A)
-class _EthBackupDirection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('nonRevertive',1),('revertive',2)))
-_EthBackupDirection_Type.__name__=_C
-_EthBackupDirection_Object=MibTableColumn
-ethBackupDirection=_EthBackupDirection_Object((1,3,6,1,4,1,1429,2,2,5,25,2,3,1,3),_EthBackupDirection_Type())
-ethBackupDirection.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethBackupDirection.setStatus(_A)
-class _EthBackupDelayForward_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-_EthBackupDelayForward_Type.__name__=_C
-_EthBackupDelayForward_Object=MibTableColumn
-ethBackupDelayForward=_EthBackupDelayForward_Object((1,3,6,1,4,1,1429,2,2,5,25,2,3,1,4),_EthBackupDelayForward_Type())
-ethBackupDelayForward.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethBackupDelayForward.setStatus(_A)
-class _EthBackupDelayBack_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,120))
-_EthBackupDelayBack_Type.__name__=_C
-_EthBackupDelayBack_Object=MibTableColumn
-ethBackupDelayBack=_EthBackupDelayBack_Object((1,3,6,1,4,1,1429,2,2,5,25,2,3,1,5),_EthBackupDelayBack_Type())
-ethBackupDelayBack.setMaxAccess(_E)
-if mibBuilder.loadTexts:ethBackupDelayBack.setStatus(_A)
-_EthBackupStatusTable_Object=MibTable
-ethBackupStatusTable=_EthBackupStatusTable_Object((1,3,6,1,4,1,1429,2,2,5,25,2,4))
-if mibBuilder.loadTexts:ethBackupStatusTable.setStatus(_A)
-_EthBackupStatusEntry_Object=MibTableRow
-ethBackupStatusEntry=_EthBackupStatusEntry_Object((1,3,6,1,4,1,1429,2,2,5,25,2,4,1))
-ethBackupStatusEntry.setIndexNames((0,_F,_J))
-if mibBuilder.loadTexts:ethBackupStatusEntry.setStatus(_A)
-class _EthBackupStatusIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,64))
-_EthBackupStatusIndex_Type.__name__=_C
-_EthBackupStatusIndex_Object=MibTableColumn
-ethBackupStatusIndex=_EthBackupStatusIndex_Object((1,3,6,1,4,1,1429,2,2,5,25,2,4,1,1),_EthBackupStatusIndex_Type())
-ethBackupStatusIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethBackupStatusIndex.setStatus(_A)
-class _EthBackupStatusPortsInUse_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_EthBackupStatusPortsInUse_Type.__name__=_D
-_EthBackupStatusPortsInUse_Object=MibTableColumn
-ethBackupStatusPortsInUse=_EthBackupStatusPortsInUse_Object((1,3,6,1,4,1,1429,2,2,5,25,2,4,1,2),_EthBackupStatusPortsInUse_Type())
-ethBackupStatusPortsInUse.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethBackupStatusPortsInUse.setStatus(_A)
-class _EthBackupStatusChangeReason_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_EthBackupStatusChangeReason_Type.__name__=_D
-_EthBackupStatusChangeReason_Object=MibTableColumn
-ethBackupStatusChangeReason=_EthBackupStatusChangeReason_Object((1,3,6,1,4,1,1429,2,2,5,25,2,4,1,3),_EthBackupStatusChangeReason_Type())
-ethBackupStatusChangeReason.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethBackupStatusChangeReason.setStatus(_A)
-class _EthBackupStatusChangeDateTime_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,30))
-_EthBackupStatusChangeDateTime_Type.__name__=_D
-_EthBackupStatusChangeDateTime_Object=MibTableColumn
-ethBackupStatusChangeDateTime=_EthBackupStatusChangeDateTime_Object((1,3,6,1,4,1,1429,2,2,5,25,2,4,1,4),_EthBackupStatusChangeDateTime_Type())
-ethBackupStatusChangeDateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:ethBackupStatusChangeDateTime.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'ciscoDSGIPv4v6':ciscoDSGIPv4v6,'ipV4v6Table':ipV4v6Table,'macInfoTable':macInfoTable,'macInfoEntry':macInfoEntry,_G:macInfoMacIndex,'macInfoMacAddr':macInfoMacAddr,'ipConfigTable':ipConfigTable,'ipConfigEntry':ipConfigEntry,_H:ipConfigPortIdKey,'ipConfigName':ipConfigName,'ipConfigCurIPAddressV4':ipConfigCurIPAddressV4,'ipConfigCurNetworkMaskV4':ipConfigCurNetworkMaskV4,'ipConfigCurDefaultGatewayV4':ipConfigCurDefaultGatewayV4,'ipConfigV4V6Flag':ipConfigV4V6Flag,'ipConfigPortMode':ipConfigPortMode,'ethStatusLink':ethStatusLink,'ethStatusSpeed':ethStatusSpeed,'ethStatusDuplex':ethStatusDuplex,'ethStatusXover':ethStatusXover,'ethBackupTable':ethBackupTable,'ethBackupEntry':ethBackupEntry,_I:ethBackupIndex,'ethBackupMode':ethBackupMode,'ethBackupDirection':ethBackupDirection,'ethBackupDelayForward':ethBackupDelayForward,'ethBackupDelayBack':ethBackupDelayBack,'ethBackupStatusTable':ethBackupStatusTable,'ethBackupStatusEntry':ethBackupStatusEntry,_J:ethBackupStatusIndex,'ethBackupStatusPortsInUse':ethBackupStatusPortsInUse,'ethBackupStatusChangeReason':ethBackupStatusChangeReason,'ethBackupStatusChangeDateTime':ethBackupStatusChangeDateTime})
+#
+# PySNMP MIB module CISCO-DMN-DSG-IPV4V6-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-DMN-DSG-IPV4V6-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:52 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoDSGUtilities, = mibBuilder.importSymbols("CISCO-DMN-DSG-ROOT-MIB", "ciscoDSGUtilities")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoDSGIPv4v6 = ModuleIdentity((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25))
+ciscoDSGIPv4v6.setRevisions(('2012-03-20 11:00', '2010-08-30 11:00', '2010-04-30 05:00', '2010-04-12 05:00', '2010-03-22 05:00', '2009-12-20 12:00',))
+if mibBuilder.loadTexts: ciscoDSGIPv4v6.setLastUpdated('201203201100Z')
+if mibBuilder.loadTexts: ciscoDSGIPv4v6.setOrganization('Cisco Systems, Inc.')
+ipV4v6Table = MibIdentifier((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2))
+macInfoTable = MibTable((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 1), )
+if mibBuilder.loadTexts: macInfoTable.setStatus('current')
+macInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 1, 1), ).setIndexNames((0, "CISCO-DMN-DSG-IPV4V6-MIB", "macInfoMacIndex"))
+if mibBuilder.loadTexts: macInfoEntry.setStatus('current')
+macInfoMacIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: macInfoMacIndex.setStatus('current')
+macInfoMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 17))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: macInfoMacAddr.setStatus('current')
+ipConfigTable = MibTable((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 2), )
+if mibBuilder.loadTexts: ipConfigTable.setStatus('current')
+ipConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 2, 1), ).setIndexNames((0, "CISCO-DMN-DSG-IPV4V6-MIB", "ipConfigPortIdKey"))
+if mibBuilder.loadTexts: ipConfigEntry.setStatus('current')
+ipConfigPortIdKey = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipConfigPortIdKey.setStatus('current')
+ipConfigName = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 24))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipConfigName.setStatus('current')
+ipConfigCurIPAddressV4 = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 2, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipConfigCurIPAddressV4.setStatus('current')
+ipConfigCurNetworkMaskV4 = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(8, 30))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipConfigCurNetworkMaskV4.setStatus('current')
+ipConfigCurDefaultGatewayV4 = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 2, 1, 5), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipConfigCurDefaultGatewayV4.setStatus('current')
+ipConfigV4V6Flag = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ipV4", 1), ("ipV6", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipConfigV4V6Flag.setStatus('current')
+ipConfigPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("auto", 1), ("hd10", 2), ("fd10", 3), ("hd100", 4), ("fd100", 5), ("hd1000", 6), ("fd1000", 7)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipConfigPortMode.setStatus('current')
+ethStatusLink = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 2, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethStatusLink.setStatus('current')
+ethStatusSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 2, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethStatusSpeed.setStatus('current')
+ethStatusDuplex = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 2, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethStatusDuplex.setStatus('current')
+ethStatusXover = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 2, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethStatusXover.setStatus('current')
+ethBackupTable = MibTable((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 3), )
+if mibBuilder.loadTexts: ethBackupTable.setStatus('current')
+ethBackupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 3, 1), ).setIndexNames((0, "CISCO-DMN-DSG-IPV4V6-MIB", "ethBackupIndex"))
+if mibBuilder.loadTexts: ethBackupEntry.setStatus('current')
+ethBackupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethBackupIndex.setStatus('current')
+ethBackupMode = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("mirroring", 1), ("backupPrimaryData1", 2), ("backupPrimaryData2", 3), ("manualData1", 4), ("manualData2", 5)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethBackupMode.setStatus('current')
+ethBackupDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("nonRevertive", 1), ("revertive", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethBackupDirection.setStatus('current')
+ethBackupDelayForward = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethBackupDelayForward.setStatus('current')
+ethBackupDelayBack = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 120))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethBackupDelayBack.setStatus('current')
+ethBackupStatusTable = MibTable((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 4), )
+if mibBuilder.loadTexts: ethBackupStatusTable.setStatus('current')
+ethBackupStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 4, 1), ).setIndexNames((0, "CISCO-DMN-DSG-IPV4V6-MIB", "ethBackupStatusIndex"))
+if mibBuilder.loadTexts: ethBackupStatusEntry.setStatus('current')
+ethBackupStatusIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethBackupStatusIndex.setStatus('current')
+ethBackupStatusPortsInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 4, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethBackupStatusPortsInUse.setStatus('current')
+ethBackupStatusChangeReason = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 4, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethBackupStatusChangeReason.setStatus('current')
+ethBackupStatusChangeDateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1429, 2, 2, 5, 25, 2, 4, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethBackupStatusChangeDateTime.setStatus('current')
+mibBuilder.exportSymbols("CISCO-DMN-DSG-IPV4V6-MIB", ethStatusSpeed=ethStatusSpeed, macInfoEntry=macInfoEntry, ipConfigTable=ipConfigTable, ethBackupIndex=ethBackupIndex, ipConfigCurDefaultGatewayV4=ipConfigCurDefaultGatewayV4, ethStatusDuplex=ethStatusDuplex, ethStatusXover=ethStatusXover, ethBackupStatusChangeReason=ethBackupStatusChangeReason, ipConfigCurIPAddressV4=ipConfigCurIPAddressV4, ipConfigCurNetworkMaskV4=ipConfigCurNetworkMaskV4, ethStatusLink=ethStatusLink, ethBackupStatusIndex=ethBackupStatusIndex, ethBackupStatusTable=ethBackupStatusTable, ipConfigPortIdKey=ipConfigPortIdKey, ipConfigV4V6Flag=ipConfigV4V6Flag, ethBackupTable=ethBackupTable, macInfoMacAddr=macInfoMacAddr, ethBackupDelayBack=ethBackupDelayBack, macInfoMacIndex=macInfoMacIndex, ethBackupDirection=ethBackupDirection, ipConfigName=ipConfigName, ciscoDSGIPv4v6=ciscoDSGIPv4v6, ipV4v6Table=ipV4v6Table, ethBackupStatusChangeDateTime=ethBackupStatusChangeDateTime, ipConfigEntry=ipConfigEntry, macInfoTable=macInfoTable, ipConfigPortMode=ipConfigPortMode, ethBackupEntry=ethBackupEntry, PYSNMP_MODULE_ID=ciscoDSGIPv4v6, ethBackupDelayForward=ethBackupDelayForward, ethBackupStatusEntry=ethBackupStatusEntry, ethBackupMode=ethBackupMode, ethBackupStatusPortsInUse=ethBackupStatusPortsInUse)

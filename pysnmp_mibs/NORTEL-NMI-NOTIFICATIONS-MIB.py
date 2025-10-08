@@ -1,58 +1,40 @@
-_C='DisplayString'
-_B='accessible-for-notify'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-nortelNetworkManagementInterfaceMIBs,=mibBuilder.importSymbols('NORTEL-GENERIC-MIB','nortelNetworkManagementInterfaceMIBs')
-NortelNMIadminState,NortelNMIneType,NortelNMIoperState,NortelNMIunknownStatusValue=mibBuilder.importSymbols('NORTEL-NMI-TC-MIB','NortelNMIadminState','NortelNMIneType','NortelNMIoperState','NortelNMIunknownStatusValue')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_C,'PhysAddress','TextualConvention')
-nortelNMInotificationsMIB=ModuleIdentity((1,3,6,1,4,1,562,29,1,6))
-if mibBuilder.loadTexts:nortelNMInotificationsMIB.setRevisions(('1999-07-19 00:00','1999-06-24 00:00','1999-05-31 00:00','1999-04-12 00:00','1999-03-22 00:00'))
-_NortelNMIcurrentTxNotificationSequenceNum_Type=Unsigned32
-_NortelNMIcurrentTxNotificationSequenceNum_Object=MibScalar
-nortelNMIcurrentTxNotificationSequenceNum=_NortelNMIcurrentTxNotificationSequenceNum_Object((1,3,6,1,4,1,562,29,1,6,1),_NortelNMIcurrentTxNotificationSequenceNum_Type())
-nortelNMIcurrentTxNotificationSequenceNum.setMaxAccess('read-only')
-if mibBuilder.loadTexts:nortelNMIcurrentTxNotificationSequenceNum.setStatus(_A)
-_NortelNMIcommonNotiVarbinds_ObjectIdentity=ObjectIdentity
-nortelNMIcommonNotiVarbinds=_NortelNMIcommonNotiVarbinds_ObjectIdentity((1,3,6,1,4,1,562,29,1,6,2))
-if mibBuilder.loadTexts:nortelNMIcommonNotiVarbinds.setStatus(_A)
-_NortelNMInotifyNeType_Type=NortelNMIneType
-_NortelNMInotifyNeType_Object=MibScalar
-nortelNMInotifyNeType=_NortelNMInotifyNeType_Object((1,3,6,1,4,1,562,29,1,6,2,1),_NortelNMInotifyNeType_Type())
-nortelNMInotifyNeType.setMaxAccess(_B)
-if mibBuilder.loadTexts:nortelNMInotifyNeType.setStatus(_A)
-class _NortelNMInotifyNeName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_NortelNMInotifyNeName_Type.__name__=_C
-_NortelNMInotifyNeName_Object=MibScalar
-nortelNMInotifyNeName=_NortelNMInotifyNeName_Object((1,3,6,1,4,1,562,29,1,6,2,2),_NortelNMInotifyNeName_Type())
-nortelNMInotifyNeName.setMaxAccess(_B)
-if mibBuilder.loadTexts:nortelNMInotifyNeName.setStatus(_A)
-_NortelNMInotifyNeAdminState_Type=NortelNMIadminState
-_NortelNMInotifyNeAdminState_Object=MibScalar
-nortelNMInotifyNeAdminState=_NortelNMInotifyNeAdminState_Object((1,3,6,1,4,1,562,29,1,6,2,3),_NortelNMInotifyNeAdminState_Type())
-nortelNMInotifyNeAdminState.setMaxAccess(_B)
-if mibBuilder.loadTexts:nortelNMInotifyNeAdminState.setStatus(_A)
-_NortelNMInotifyNeOperState_Type=NortelNMIoperState
-_NortelNMInotifyNeOperState_Object=MibScalar
-nortelNMInotifyNeOperState=_NortelNMInotifyNeOperState_Object((1,3,6,1,4,1,562,29,1,6,2,4),_NortelNMInotifyNeOperState_Type())
-nortelNMInotifyNeOperState.setMaxAccess(_B)
-if mibBuilder.loadTexts:nortelNMInotifyNeOperState.setStatus(_A)
-_NortelNMInotifyNeUnknownStatus_Type=NortelNMIunknownStatusValue
-_NortelNMInotifyNeUnknownStatus_Object=MibScalar
-nortelNMInotifyNeUnknownStatus=_NortelNMInotifyNeUnknownStatus_Object((1,3,6,1,4,1,562,29,1,6,2,5),_NortelNMInotifyNeUnknownStatus_Type())
-nortelNMInotifyNeUnknownStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:nortelNMInotifyNeUnknownStatus.setStatus(_A)
-_NortelNMIconfigNotiMIB_ObjectIdentity=ObjectIdentity
-nortelNMIconfigNotiMIB=_NortelNMIconfigNotiMIB_ObjectIdentity((1,3,6,1,4,1,562,29,1,6,3))
-if mibBuilder.loadTexts:nortelNMIconfigNotiMIB.setStatus(_A)
-_NortelNMIfaultNotiMIB_ObjectIdentity=ObjectIdentity
-nortelNMIfaultNotiMIB=_NortelNMIfaultNotiMIB_ObjectIdentity((1,3,6,1,4,1,562,29,1,6,4))
-if mibBuilder.loadTexts:nortelNMIfaultNotiMIB.setStatus(_A)
-_NortelNMIinfoNotiMIB_ObjectIdentity=ObjectIdentity
-nortelNMIinfoNotiMIB=_NortelNMIinfoNotiMIB_ObjectIdentity((1,3,6,1,4,1,562,29,1,6,5))
-if mibBuilder.loadTexts:nortelNMIinfoNotiMIB.setStatus(_A)
-mibBuilder.exportSymbols('NORTEL-NMI-NOTIFICATIONS-MIB',**{'nortelNMInotificationsMIB':nortelNMInotificationsMIB,'nortelNMIcurrentTxNotificationSequenceNum':nortelNMIcurrentTxNotificationSequenceNum,'nortelNMIcommonNotiVarbinds':nortelNMIcommonNotiVarbinds,'nortelNMInotifyNeType':nortelNMInotifyNeType,'nortelNMInotifyNeName':nortelNMInotifyNeName,'nortelNMInotifyNeAdminState':nortelNMInotifyNeAdminState,'nortelNMInotifyNeOperState':nortelNMInotifyNeOperState,'nortelNMInotifyNeUnknownStatus':nortelNMInotifyNeUnknownStatus,'nortelNMIconfigNotiMIB':nortelNMIconfigNotiMIB,'nortelNMIfaultNotiMIB':nortelNMIfaultNotiMIB,'nortelNMIinfoNotiMIB':nortelNMIinfoNotiMIB})
+#
+# PySNMP MIB module NORTEL-NMI-NOTIFICATIONS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/NORTEL-NMI-NOTIFICATIONS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:20 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+nortelNetworkManagementInterfaceMIBs, = mibBuilder.importSymbols("NORTEL-GENERIC-MIB", "nortelNetworkManagementInterfaceMIBs")
+NortelNMIunknownStatusValue, NortelNMIneType, NortelNMIoperState, NortelNMIadminState = mibBuilder.importSymbols("NORTEL-NMI-TC-MIB", "NortelNMIunknownStatusValue", "NortelNMIneType", "NortelNMIoperState", "NortelNMIadminState")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+nortelNMInotificationsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 562, 29, 1, 6))
+nortelNMInotificationsMIB.setRevisions(('1999-07-19 00:00', '1999-06-24 00:00', '1999-05-31 00:00', '1999-04-12 00:00', '1999-03-22 00:00',))
+if mibBuilder.loadTexts: nortelNMInotificationsMIB.setLastUpdated('9907190000Z')
+if mibBuilder.loadTexts: nortelNMInotificationsMIB.setOrganization('Nortel Networks')
+nortelNMIcurrentTxNotificationSequenceNum = MibScalar((1, 3, 6, 1, 4, 1, 562, 29, 1, 6, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nortelNMIcurrentTxNotificationSequenceNum.setStatus('current')
+nortelNMIcommonNotiVarbinds = ObjectIdentity((1, 3, 6, 1, 4, 1, 562, 29, 1, 6, 2))
+if mibBuilder.loadTexts: nortelNMIcommonNotiVarbinds.setStatus('current')
+nortelNMIconfigNotiMIB = ObjectIdentity((1, 3, 6, 1, 4, 1, 562, 29, 1, 6, 3))
+if mibBuilder.loadTexts: nortelNMIconfigNotiMIB.setStatus('current')
+nortelNMIfaultNotiMIB = ObjectIdentity((1, 3, 6, 1, 4, 1, 562, 29, 1, 6, 4))
+if mibBuilder.loadTexts: nortelNMIfaultNotiMIB.setStatus('current')
+nortelNMIinfoNotiMIB = ObjectIdentity((1, 3, 6, 1, 4, 1, 562, 29, 1, 6, 5))
+if mibBuilder.loadTexts: nortelNMIinfoNotiMIB.setStatus('current')
+nortelNMInotifyNeType = MibScalar((1, 3, 6, 1, 4, 1, 562, 29, 1, 6, 2, 1), NortelNMIneType()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: nortelNMInotifyNeType.setStatus('current')
+nortelNMInotifyNeName = MibScalar((1, 3, 6, 1, 4, 1, 562, 29, 1, 6, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: nortelNMInotifyNeName.setStatus('current')
+nortelNMInotifyNeAdminState = MibScalar((1, 3, 6, 1, 4, 1, 562, 29, 1, 6, 2, 3), NortelNMIadminState()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: nortelNMInotifyNeAdminState.setStatus('current')
+nortelNMInotifyNeOperState = MibScalar((1, 3, 6, 1, 4, 1, 562, 29, 1, 6, 2, 4), NortelNMIoperState()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: nortelNMInotifyNeOperState.setStatus('current')
+nortelNMInotifyNeUnknownStatus = MibScalar((1, 3, 6, 1, 4, 1, 562, 29, 1, 6, 2, 5), NortelNMIunknownStatusValue()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: nortelNMInotifyNeUnknownStatus.setStatus('current')
+mibBuilder.exportSymbols("NORTEL-NMI-NOTIFICATIONS-MIB", nortelNMInotificationsMIB=nortelNMInotificationsMIB, nortelNMInotifyNeType=nortelNMInotifyNeType, nortelNMInotifyNeUnknownStatus=nortelNMInotifyNeUnknownStatus, nortelNMIcurrentTxNotificationSequenceNum=nortelNMIcurrentTxNotificationSequenceNum, nortelNMIconfigNotiMIB=nortelNMIconfigNotiMIB, nortelNMInotifyNeName=nortelNMInotifyNeName, nortelNMInotifyNeOperState=nortelNMInotifyNeOperState, nortelNMIinfoNotiMIB=nortelNMIinfoNotiMIB, nortelNMIfaultNotiMIB=nortelNMIfaultNotiMIB, nortelNMIcommonNotiVarbinds=nortelNMIcommonNotiVarbinds, nortelNMInotifyNeAdminState=nortelNMInotifyNeAdminState, PYSNMP_MODULE_ID=nortelNMInotificationsMIB)

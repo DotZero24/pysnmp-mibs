@@ -1,75 +1,51 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-elHardware,=mibBuilder.importSymbols('ELTEX-SMI-ACTUAL','elHardware')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-eltMesIss=ModuleIdentity((1,3,6,1,4,1,35265,1,139))
-if mibBuilder.loadTexts:eltMesIss.setRevisions(('2023-04-10 00:00','2022-05-04 00:00','2021-12-06 00:00','2021-10-07 00:00','2021-04-21 00:00','2021-03-09 00:00','2018-11-13 00:00'))
-_EltMesIssAclMIB_ObjectIdentity=ObjectIdentity
-eltMesIssAclMIB=_EltMesIssAclMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,1))
-_EltMesIssPppoeMIB_ObjectIdentity=ObjectIdentity
-eltMesIssPppoeMIB=_EltMesIssPppoeMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,2))
-_EltMesIssVlanMIB_ObjectIdentity=ObjectIdentity
-eltMesIssVlanMIB=_EltMesIssVlanMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,3))
-_EltMesIssInterfacesMIB_ObjectIdentity=ObjectIdentity
-eltMesIssInterfacesMIB=_EltMesIssInterfacesMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,4))
-_EltMesIssQoSMIB_ObjectIdentity=ObjectIdentity
-eltMesIssQoSMIB=_EltMesIssQoSMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,5))
-_EltMesIssCpuUtilMIB_ObjectIdentity=ObjectIdentity
-eltMesIssCpuUtilMIB=_EltMesIssCpuUtilMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,6))
-_EltMesIssAaaMIB_ObjectIdentity=ObjectIdentity
-eltMesIssAaaMIB=_EltMesIssAaaMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,7))
-_EltMesIssSnoopMIB_ObjectIdentity=ObjectIdentity
-eltMesIssSnoopMIB=_EltMesIssSnoopMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,8))
-_EltMesIssIpDbMIB_ObjectIdentity=ObjectIdentity
-eltMesIssIpDbMIB=_EltMesIssIpDbMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,9))
-_EltMesIssLldpMIB_ObjectIdentity=ObjectIdentity
-eltMesIssLldpMIB=_EltMesIssLldpMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,10))
-_EltMesIssPoeMIB_ObjectIdentity=ObjectIdentity
-eltMesIssPoeMIB=_EltMesIssPoeMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,11))
-_EltMesIssEnvMIB_ObjectIdentity=ObjectIdentity
-eltMesIssEnvMIB=_EltMesIssEnvMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,12))
-_EltMesIssDcsMIB_ObjectIdentity=ObjectIdentity
-eltMesIssDcsMIB=_EltMesIssDcsMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,13))
-_EltMesIssBridgeMIB_ObjectIdentity=ObjectIdentity
-eltMesIssBridgeMIB=_EltMesIssBridgeMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,14))
-_EltMesIssCopyMIB_ObjectIdentity=ObjectIdentity
-eltMesIssCopyMIB=_EltMesIssCopyMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,15))
-_EltMesIssSntpMIB_ObjectIdentity=ObjectIdentity
-eltMesIssSntpMIB=_EltMesIssSntpMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,16))
-_EltMesIssSystemMIB_ObjectIdentity=ObjectIdentity
-eltMesIssSystemMIB=_EltMesIssSystemMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,18))
-_EltMesIssSnmp3MIB_ObjectIdentity=ObjectIdentity
-eltMesIssSnmp3MIB=_EltMesIssSnmp3MIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,19))
-_EltMesIssCfaMIB_ObjectIdentity=ObjectIdentity
-eltMesIssCfaMIB=_EltMesIssCfaMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,20))
-_EltMesIssL2ptMIB_ObjectIdentity=ObjectIdentity
-eltMesIssL2ptMIB=_EltMesIssL2ptMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,21))
-_EltMesIssSyslogMIB_ObjectIdentity=ObjectIdentity
-eltMesIssSyslogMIB=_EltMesIssSyslogMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,22))
-_EltMesIssLaMIB_ObjectIdentity=ObjectIdentity
-eltMesIssLaMIB=_EltMesIssLaMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,23))
-_EltMesIssIpMIB_ObjectIdentity=ObjectIdentity
-eltMesIssIpMIB=_EltMesIssIpMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,24))
-_EltMesIssL2Ip6SnpMIB_ObjectIdentity=ObjectIdentity
-eltMesIssL2Ip6SnpMIB=_EltMesIssL2Ip6SnpMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,25))
-_EltMesIssArpMIB_ObjectIdentity=ObjectIdentity
-eltMesIssArpMIB=_EltMesIssArpMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,26))
-_EltMesIssFwlMIB_ObjectIdentity=ObjectIdentity
-eltMesIssFwlMIB=_EltMesIssFwlMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,27))
-_EltMesIssDhcpRelayMIB_ObjectIdentity=ObjectIdentity
-eltMesIssDhcpRelayMIB=_EltMesIssDhcpRelayMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,28))
-_EltMesIssErpsMIB_ObjectIdentity=ObjectIdentity
-eltMesIssErpsMIB=_EltMesIssErpsMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,29))
-_EltMesIssSshMIB_ObjectIdentity=ObjectIdentity
-eltMesIssSshMIB=_EltMesIssSshMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,30))
-_EltMesIssPnacMIB_ObjectIdentity=ObjectIdentity
-eltMesIssPnacMIB=_EltMesIssPnacMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,31))
-_EltMesIssDhcpSnoopMIB_ObjectIdentity=ObjectIdentity
-eltMesIssDhcpSnoopMIB=_EltMesIssDhcpSnoopMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,32))
-_EltMesIssDhcpSrvMIB_ObjectIdentity=ObjectIdentity
-eltMesIssDhcpSrvMIB=_EltMesIssDhcpSrvMIB_ObjectIdentity((1,3,6,1,4,1,35265,1,139,33))
-mibBuilder.exportSymbols('ELTEX-MES-ISS-MIB',**{'eltMesIss':eltMesIss,'eltMesIssAclMIB':eltMesIssAclMIB,'eltMesIssPppoeMIB':eltMesIssPppoeMIB,'eltMesIssVlanMIB':eltMesIssVlanMIB,'eltMesIssInterfacesMIB':eltMesIssInterfacesMIB,'eltMesIssQoSMIB':eltMesIssQoSMIB,'eltMesIssCpuUtilMIB':eltMesIssCpuUtilMIB,'eltMesIssAaaMIB':eltMesIssAaaMIB,'eltMesIssSnoopMIB':eltMesIssSnoopMIB,'eltMesIssIpDbMIB':eltMesIssIpDbMIB,'eltMesIssLldpMIB':eltMesIssLldpMIB,'eltMesIssPoeMIB':eltMesIssPoeMIB,'eltMesIssEnvMIB':eltMesIssEnvMIB,'eltMesIssDcsMIB':eltMesIssDcsMIB,'eltMesIssBridgeMIB':eltMesIssBridgeMIB,'eltMesIssCopyMIB':eltMesIssCopyMIB,'eltMesIssSntpMIB':eltMesIssSntpMIB,'eltMesIssSystemMIB':eltMesIssSystemMIB,'eltMesIssSnmp3MIB':eltMesIssSnmp3MIB,'eltMesIssCfaMIB':eltMesIssCfaMIB,'eltMesIssL2ptMIB':eltMesIssL2ptMIB,'eltMesIssSyslogMIB':eltMesIssSyslogMIB,'eltMesIssLaMIB':eltMesIssLaMIB,'eltMesIssIpMIB':eltMesIssIpMIB,'eltMesIssL2Ip6SnpMIB':eltMesIssL2Ip6SnpMIB,'eltMesIssArpMIB':eltMesIssArpMIB,'eltMesIssFwlMIB':eltMesIssFwlMIB,'eltMesIssDhcpRelayMIB':eltMesIssDhcpRelayMIB,'eltMesIssErpsMIB':eltMesIssErpsMIB,'eltMesIssSshMIB':eltMesIssSshMIB,'eltMesIssPnacMIB':eltMesIssPnacMIB,'eltMesIssDhcpSnoopMIB':eltMesIssDhcpSnoopMIB,'eltMesIssDhcpSrvMIB':eltMesIssDhcpSrvMIB})
+#
+# PySNMP MIB module ELTEX-MES-ISS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-MES-ISS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+elHardware, = mibBuilder.importSymbols("ELTEX-SMI-ACTUAL", "elHardware")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+eltMesIss = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 139))
+eltMesIss.setRevisions(('2023-04-10 00:00', '2022-05-04 00:00', '2021-12-06 00:00', '2021-10-07 00:00', '2021-04-21 00:00', '2021-03-09 00:00', '2018-11-13 00:00',))
+if mibBuilder.loadTexts: eltMesIss.setLastUpdated('202304100000Z')
+if mibBuilder.loadTexts: eltMesIss.setOrganization('Eltex Enterprise, Ltd.')
+eltMesIssAclMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 1))
+eltMesIssPppoeMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 2))
+eltMesIssVlanMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 3))
+eltMesIssInterfacesMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 4))
+eltMesIssQoSMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 5))
+eltMesIssCpuUtilMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 6))
+eltMesIssAaaMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 7))
+eltMesIssSnoopMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 8))
+eltMesIssIpDbMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 9))
+eltMesIssLldpMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 10))
+eltMesIssPoeMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 11))
+eltMesIssEnvMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 12))
+eltMesIssDcsMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 13))
+eltMesIssBridgeMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 14))
+eltMesIssCopyMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15))
+eltMesIssSntpMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 16))
+eltMesIssSystemMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 18))
+eltMesIssSnmp3MIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 19))
+eltMesIssCfaMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 20))
+eltMesIssL2ptMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 21))
+eltMesIssSyslogMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 22))
+eltMesIssLaMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 23))
+eltMesIssIpMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 24))
+eltMesIssL2Ip6SnpMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 25))
+eltMesIssArpMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 26))
+eltMesIssFwlMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 27))
+eltMesIssDhcpRelayMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 28))
+eltMesIssErpsMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 29))
+eltMesIssSshMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 30))
+eltMesIssPnacMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 31))
+eltMesIssDhcpSnoopMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 32))
+eltMesIssDhcpSrvMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 33))
+mibBuilder.exportSymbols("ELTEX-MES-ISS-MIB", eltMesIssLldpMIB=eltMesIssLldpMIB, eltMesIssCfaMIB=eltMesIssCfaMIB, eltMesIssDhcpSnoopMIB=eltMesIssDhcpSnoopMIB, eltMesIssSnmp3MIB=eltMesIssSnmp3MIB, eltMesIssVlanMIB=eltMesIssVlanMIB, eltMesIssBridgeMIB=eltMesIssBridgeMIB, eltMesIssDhcpSrvMIB=eltMesIssDhcpSrvMIB, eltMesIssSntpMIB=eltMesIssSntpMIB, eltMesIssAclMIB=eltMesIssAclMIB, eltMesIssFwlMIB=eltMesIssFwlMIB, eltMesIssArpMIB=eltMesIssArpMIB, eltMesIssPppoeMIB=eltMesIssPppoeMIB, eltMesIssCpuUtilMIB=eltMesIssCpuUtilMIB, eltMesIssLaMIB=eltMesIssLaMIB, eltMesIssPoeMIB=eltMesIssPoeMIB, eltMesIssQoSMIB=eltMesIssQoSMIB, eltMesIssInterfacesMIB=eltMesIssInterfacesMIB, eltMesIssL2ptMIB=eltMesIssL2ptMIB, eltMesIssL2Ip6SnpMIB=eltMesIssL2Ip6SnpMIB, eltMesIssIpDbMIB=eltMesIssIpDbMIB, eltMesIssDcsMIB=eltMesIssDcsMIB, eltMesIssErpsMIB=eltMesIssErpsMIB, eltMesIssEnvMIB=eltMesIssEnvMIB, eltMesIssPnacMIB=eltMesIssPnacMIB, eltMesIssAaaMIB=eltMesIssAaaMIB, eltMesIssSnoopMIB=eltMesIssSnoopMIB, eltMesIssSyslogMIB=eltMesIssSyslogMIB, eltMesIssSshMIB=eltMesIssSshMIB, eltMesIss=eltMesIss, PYSNMP_MODULE_ID=eltMesIss, eltMesIssDhcpRelayMIB=eltMesIssDhcpRelayMIB, eltMesIssIpMIB=eltMesIssIpMIB, eltMesIssCopyMIB=eltMesIssCopyMIB, eltMesIssSystemMIB=eltMesIssSystemMIB)

@@ -1,59 +1,38 @@
-_G='adGenVlanSTag'
-_F='ADTRAN-GEN-VLAN-MIB'
-_E='Integer32'
-_D='adGenSlotInfoIndex'
-_C='ADTRAN-GENSLOT-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGenSlotInfoIndex,=mibBuilder.importSymbols(_C,_D)
-adGenVlan,adGenVlanID=mibBuilder.importSymbols('ADTRAN-SHARED-CND-SYSTEM-MIB','adGenVlan','adGenVlanID')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-adGenVlanModuleIdentity=ModuleIdentity((1,3,6,1,4,1,664,6,10000,70,39,1))
-if mibBuilder.loadTexts:adGenVlanModuleIdentity.setRevisions(('2011-03-07 00:00',))
-_AdGenVlanSlotTable_Object=MibTable
-adGenVlanSlotTable=_AdGenVlanSlotTable_Object((1,3,6,1,4,1,664,5,70,39,1))
-if mibBuilder.loadTexts:adGenVlanSlotTable.setStatus(_A)
-_AdGenVlanSlotEntry_Object=MibTableRow
-adGenVlanSlotEntry=_AdGenVlanSlotEntry_Object((1,3,6,1,4,1,664,5,70,39,1,1))
-adGenVlanSlotEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:adGenVlanSlotEntry.setStatus(_A)
-_AdGenVlanCount_Type=Integer32
-_AdGenVlanCount_Object=MibTableColumn
-adGenVlanCount=_AdGenVlanCount_Object((1,3,6,1,4,1,664,5,70,39,1,1,1),_AdGenVlanCount_Type())
-adGenVlanCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenVlanCount.setStatus(_A)
-_AdGenVlanInterfaceList_Type=DisplayString
-_AdGenVlanInterfaceList_Object=MibTableColumn
-adGenVlanInterfaceList=_AdGenVlanInterfaceList_Object((1,3,6,1,4,1,664,5,70,39,1,1,2),_AdGenVlanInterfaceList_Type())
-adGenVlanInterfaceList.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenVlanInterfaceList.setStatus(_A)
-_AdGenVlanDisplayTable_Object=MibTable
-adGenVlanDisplayTable=_AdGenVlanDisplayTable_Object((1,3,6,1,4,1,664,5,70,39,2))
-if mibBuilder.loadTexts:adGenVlanDisplayTable.setStatus(_A)
-_AdGenVlanDisplayEntry_Object=MibTableRow
-adGenVlanDisplayEntry=_AdGenVlanDisplayEntry_Object((1,3,6,1,4,1,664,5,70,39,2,1))
-adGenVlanDisplayEntry.setIndexNames((0,_C,_D),(0,_F,_G))
-if mibBuilder.loadTexts:adGenVlanDisplayEntry.setStatus(_A)
-class _AdGenVlanSTag_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_AdGenVlanSTag_Type.__name__=_E
-_AdGenVlanSTag_Object=MibTableColumn
-adGenVlanSTag=_AdGenVlanSTag_Object((1,3,6,1,4,1,664,5,70,39,2,1,1),_AdGenVlanSTag_Type())
-adGenVlanSTag.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:adGenVlanSTag.setStatus(_A)
-_AdGenVlanName_Type=DisplayString
-_AdGenVlanName_Object=MibTableColumn
-adGenVlanName=_AdGenVlanName_Object((1,3,6,1,4,1,664,5,70,39,2,1,2),_AdGenVlanName_Type())
-adGenVlanName.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenVlanName.setStatus(_A)
-_AdGenVlanDisplayText_Type=DisplayString
-_AdGenVlanDisplayText_Object=MibTableColumn
-adGenVlanDisplayText=_AdGenVlanDisplayText_Object((1,3,6,1,4,1,664,5,70,39,2,1,3),_AdGenVlanDisplayText_Type())
-adGenVlanDisplayText.setMaxAccess(_B)
-if mibBuilder.loadTexts:adGenVlanDisplayText.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'adGenVlanSlotTable':adGenVlanSlotTable,'adGenVlanSlotEntry':adGenVlanSlotEntry,'adGenVlanCount':adGenVlanCount,'adGenVlanInterfaceList':adGenVlanInterfaceList,'adGenVlanDisplayTable':adGenVlanDisplayTable,'adGenVlanDisplayEntry':adGenVlanDisplayEntry,_G:adGenVlanSTag,'adGenVlanName':adGenVlanName,'adGenVlanDisplayText':adGenVlanDisplayText,'adGenVlanModuleIdentity':adGenVlanModuleIdentity})
+#
+# PySNMP MIB module ADTRAN-GEN-VLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-GEN-VLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:10 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGenSlotInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex")
+adGenVlan, adGenVlanID = mibBuilder.importSymbols("ADTRAN-SHARED-CND-SYSTEM-MIB", "adGenVlan", "adGenVlanID")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+adGenVlanModuleIdentity = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 39, 1))
+adGenVlanModuleIdentity.setRevisions(('2011-03-07 00:00',))
+if mibBuilder.loadTexts: adGenVlanModuleIdentity.setLastUpdated('201103070000Z')
+if mibBuilder.loadTexts: adGenVlanModuleIdentity.setOrganization('ADTRAN, Inc.')
+adGenVlanSlotTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 39, 1), )
+if mibBuilder.loadTexts: adGenVlanSlotTable.setStatus('current')
+adGenVlanSlotEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 39, 1, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenVlanSlotEntry.setStatus('current')
+adGenVlanCount = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 39, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenVlanCount.setStatus('current')
+adGenVlanInterfaceList = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 39, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenVlanInterfaceList.setStatus('current')
+adGenVlanDisplayTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 70, 39, 2), )
+if mibBuilder.loadTexts: adGenVlanDisplayTable.setStatus('current')
+adGenVlanDisplayEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 70, 39, 2, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"), (0, "ADTRAN-GEN-VLAN-MIB", "adGenVlanSTag"))
+if mibBuilder.loadTexts: adGenVlanDisplayEntry.setStatus('current')
+adGenVlanSTag = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 39, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
+if mibBuilder.loadTexts: adGenVlanSTag.setStatus('current')
+adGenVlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 39, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenVlanName.setStatus('current')
+adGenVlanDisplayText = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 70, 39, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenVlanDisplayText.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-GEN-VLAN-MIB", adGenVlanModuleIdentity=adGenVlanModuleIdentity, adGenVlanSTag=adGenVlanSTag, adGenVlanDisplayTable=adGenVlanDisplayTable, adGenVlanCount=adGenVlanCount, adGenVlanInterfaceList=adGenVlanInterfaceList, adGenVlanSlotTable=adGenVlanSlotTable, adGenVlanSlotEntry=adGenVlanSlotEntry, adGenVlanDisplayEntry=adGenVlanDisplayEntry, adGenVlanName=adGenVlanName, PYSNMP_MODULE_ID=adGenVlanModuleIdentity, adGenVlanDisplayText=adGenVlanDisplayText)

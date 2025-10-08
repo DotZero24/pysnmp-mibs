@@ -1,112 +1,65 @@
-_P='dpLbdIfCfgGroup'
-_O='dpLbdCfgGroup'
-_N='dpLbdLoopRecovery'
-_M='dpLbdLoopOccurred'
-_L='dpLbdIfLoopStatus'
-_K='dpLbdIfCfgEnabled'
-_J='dpLbdNotifyEnabled'
-_I='dpLbdCtrlGlobalEnabled'
-_H='dpLbdCtrlInterval'
-_G='dpLbdIfCfgIndex'
-_F='seconds'
-_E='dpLbdNotifyInfoIfIndex'
-_D='Integer32'
-_C='read-write'
-_B='DLINKPRIME-LBD-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlinkPrimeCommon,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlinkPrimeCommon')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-VlanId,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanId')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-dlinkPrimeLoopbackDetectMIB=ModuleIdentity((1,3,6,1,4,1,171,15,7))
-if mibBuilder.loadTexts:dlinkPrimeLoopbackDetectMIB.setRevisions(('2014-04-26 00:00',))
-_DpLbdNotifications_ObjectIdentity=ObjectIdentity
-dpLbdNotifications=_DpLbdNotifications_ObjectIdentity((1,3,6,1,4,1,171,15,7,0))
-_DpLbdObjects_ObjectIdentity=ObjectIdentity
-dpLbdObjects=_DpLbdObjects_ObjectIdentity((1,3,6,1,4,1,171,15,7,1))
-_DpLbdCtrlGlobalEnabled_Type=TruthValue
-_DpLbdCtrlGlobalEnabled_Object=MibScalar
-dpLbdCtrlGlobalEnabled=_DpLbdCtrlGlobalEnabled_Object((1,3,6,1,4,1,171,15,7,1,1),_DpLbdCtrlGlobalEnabled_Type())
-dpLbdCtrlGlobalEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpLbdCtrlGlobalEnabled.setStatus(_A)
-class _DpLbdCtrlInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32767))
-_DpLbdCtrlInterval_Type.__name__=_D
-_DpLbdCtrlInterval_Object=MibScalar
-dpLbdCtrlInterval=_DpLbdCtrlInterval_Object((1,3,6,1,4,1,171,15,7,1,2),_DpLbdCtrlInterval_Type())
-dpLbdCtrlInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpLbdCtrlInterval.setStatus(_A)
-if mibBuilder.loadTexts:dpLbdCtrlInterval.setUnits(_F)
-class _DpLbdCtrlRecover_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(60,1000000))
-_DpLbdCtrlRecover_Type.__name__=_D
-_DpLbdCtrlRecover_Object=MibScalar
-dpLbdCtrlRecover=_DpLbdCtrlRecover_Object((1,3,6,1,4,1,171,15,7,1,3),_DpLbdCtrlRecover_Type())
-dpLbdCtrlRecover.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpLbdCtrlRecover.setStatus(_A)
-if mibBuilder.loadTexts:dpLbdCtrlRecover.setUnits(_F)
-_DpLbdNotifyEnabled_Type=TruthValue
-_DpLbdNotifyEnabled_Object=MibScalar
-dpLbdNotifyEnabled=_DpLbdNotifyEnabled_Object((1,3,6,1,4,1,171,15,7,1,4),_DpLbdNotifyEnabled_Type())
-dpLbdNotifyEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpLbdNotifyEnabled.setStatus(_A)
-_DpLbdIfCfgTable_Object=MibTable
-dpLbdIfCfgTable=_DpLbdIfCfgTable_Object((1,3,6,1,4,1,171,15,7,1,5))
-if mibBuilder.loadTexts:dpLbdIfCfgTable.setStatus(_A)
-_DpLbdIfCfgEntry_Object=MibTableRow
-dpLbdIfCfgEntry=_DpLbdIfCfgEntry_Object((1,3,6,1,4,1,171,15,7,1,5,1))
-dpLbdIfCfgEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:dpLbdIfCfgEntry.setStatus(_A)
-_DpLbdIfCfgIndex_Type=InterfaceIndex
-_DpLbdIfCfgIndex_Object=MibTableColumn
-dpLbdIfCfgIndex=_DpLbdIfCfgIndex_Object((1,3,6,1,4,1,171,15,7,1,5,1,1),_DpLbdIfCfgIndex_Type())
-dpLbdIfCfgIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:dpLbdIfCfgIndex.setStatus(_A)
-_DpLbdIfCfgEnabled_Type=TruthValue
-_DpLbdIfCfgEnabled_Object=MibTableColumn
-dpLbdIfCfgEnabled=_DpLbdIfCfgEnabled_Object((1,3,6,1,4,1,171,15,7,1,5,1,2),_DpLbdIfCfgEnabled_Type())
-dpLbdIfCfgEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:dpLbdIfCfgEnabled.setStatus(_A)
-class _DpLbdIfLoopStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('normal',1),('loop',2)))
-_DpLbdIfLoopStatus_Type.__name__=_D
-_DpLbdIfLoopStatus_Object=MibTableColumn
-dpLbdIfLoopStatus=_DpLbdIfLoopStatus_Object((1,3,6,1,4,1,171,15,7,1,5,1,3),_DpLbdIfLoopStatus_Type())
-dpLbdIfLoopStatus.setMaxAccess('read-only')
-if mibBuilder.loadTexts:dpLbdIfLoopStatus.setStatus(_A)
-_DpLbdNotifyInfo_ObjectIdentity=ObjectIdentity
-dpLbdNotifyInfo=_DpLbdNotifyInfo_ObjectIdentity((1,3,6,1,4,1,171,15,7,1,8))
-if mibBuilder.loadTexts:dpLbdNotifyInfo.setStatus(_A)
-_DpLbdNotifyInfoIfIndex_Type=InterfaceIndex
-_DpLbdNotifyInfoIfIndex_Object=MibScalar
-dpLbdNotifyInfoIfIndex=_DpLbdNotifyInfoIfIndex_Object((1,3,6,1,4,1,171,15,7,1,8,1),_DpLbdNotifyInfoIfIndex_Type())
-dpLbdNotifyInfoIfIndex.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:dpLbdNotifyInfoIfIndex.setStatus(_A)
-_DpLbdConformance_ObjectIdentity=ObjectIdentity
-dpLbdConformance=_DpLbdConformance_ObjectIdentity((1,3,6,1,4,1,171,15,7,2))
-_DpLbdMIBCompliances_ObjectIdentity=ObjectIdentity
-dpLbdMIBCompliances=_DpLbdMIBCompliances_ObjectIdentity((1,3,6,1,4,1,171,15,7,2,1))
-_DpLbdMIBGroups_ObjectIdentity=ObjectIdentity
-dpLbdMIBGroups=_DpLbdMIBGroups_ObjectIdentity((1,3,6,1,4,1,171,15,7,2,2))
-dpLbdCfgGroup=ObjectGroup((1,3,6,1,4,1,171,15,7,2,2,1))
-dpLbdCfgGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_E)))
-if mibBuilder.loadTexts:dpLbdCfgGroup.setStatus(_A)
-dpLbdIfCfgGroup=ObjectGroup((1,3,6,1,4,1,171,15,7,2,2,2))
-dpLbdIfCfgGroup.setObjects(*((_B,_K),(_B,_L)))
-if mibBuilder.loadTexts:dpLbdIfCfgGroup.setStatus(_A)
-dpLbdLoopOccurred=NotificationType((1,3,6,1,4,1,171,15,7,0,1))
-dpLbdLoopOccurred.setObjects((_B,_E))
-if mibBuilder.loadTexts:dpLbdLoopOccurred.setStatus(_A)
-dpLbdLoopRecovery=NotificationType((1,3,6,1,4,1,171,15,7,0,2))
-dpLbdLoopRecovery.setObjects((_B,_E))
-if mibBuilder.loadTexts:dpLbdLoopRecovery.setStatus(_A)
-dpLbdNotificationGroup=NotificationGroup((1,3,6,1,4,1,171,15,7,2,2,3))
-dpLbdNotificationGroup.setObjects(*((_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:dpLbdNotificationGroup.setStatus(_A)
-dpLbdMIBCompliance=ModuleCompliance((1,3,6,1,4,1,171,15,7,2,1,1))
-dpLbdMIBCompliance.setObjects(*((_B,_O),(_B,_P),(_B,'dpLbdCtrlModeGroup'),(_B,'dpLbdVlanCtrlGroup')))
-if mibBuilder.loadTexts:dpLbdMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'dlinkPrimeLoopbackDetectMIB':dlinkPrimeLoopbackDetectMIB,'dpLbdNotifications':dpLbdNotifications,_M:dpLbdLoopOccurred,_N:dpLbdLoopRecovery,'dpLbdObjects':dpLbdObjects,_I:dpLbdCtrlGlobalEnabled,_H:dpLbdCtrlInterval,'dpLbdCtrlRecover':dpLbdCtrlRecover,_J:dpLbdNotifyEnabled,'dpLbdIfCfgTable':dpLbdIfCfgTable,'dpLbdIfCfgEntry':dpLbdIfCfgEntry,_G:dpLbdIfCfgIndex,_K:dpLbdIfCfgEnabled,_L:dpLbdIfLoopStatus,'dpLbdNotifyInfo':dpLbdNotifyInfo,_E:dpLbdNotifyInfoIfIndex,'dpLbdConformance':dpLbdConformance,'dpLbdMIBCompliances':dpLbdMIBCompliances,'dpLbdMIBCompliance':dpLbdMIBCompliance,'dpLbdMIBGroups':dpLbdMIBGroups,_O:dpLbdCfgGroup,_P:dpLbdIfCfgGroup,'dpLbdNotificationGroup':dpLbdNotificationGroup})
+#
+# PySNMP MIB module DLINKPRIME-LBD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DLINKPRIME-LBD-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:34:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlinkPrimeCommon, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlinkPrimeCommon")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+VlanId, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+dlinkPrimeLoopbackDetectMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 15, 7))
+dlinkPrimeLoopbackDetectMIB.setRevisions(('2014-04-26 00:00',))
+if mibBuilder.loadTexts: dlinkPrimeLoopbackDetectMIB.setLastUpdated('201404260000Z')
+if mibBuilder.loadTexts: dlinkPrimeLoopbackDetectMIB.setOrganization('D-Link Corp.')
+dpLbdNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 7, 0))
+dpLbdObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 7, 1))
+dpLbdConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 7, 2))
+dpLbdCtrlGlobalEnabled = MibScalar((1, 3, 6, 1, 4, 1, 171, 15, 7, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpLbdCtrlGlobalEnabled.setStatus('current')
+dpLbdCtrlInterval = MibScalar((1, 3, 6, 1, 4, 1, 171, 15, 7, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32767))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpLbdCtrlInterval.setStatus('current')
+dpLbdCtrlRecover = MibScalar((1, 3, 6, 1, 4, 1, 171, 15, 7, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(60, 1000000), ))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpLbdCtrlRecover.setStatus('current')
+dpLbdNotifyEnabled = MibScalar((1, 3, 6, 1, 4, 1, 171, 15, 7, 1, 4), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpLbdNotifyEnabled.setStatus('current')
+dpLbdIfCfgTable = MibTable((1, 3, 6, 1, 4, 1, 171, 15, 7, 1, 5), )
+if mibBuilder.loadTexts: dpLbdIfCfgTable.setStatus('current')
+dpLbdIfCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 15, 7, 1, 5, 1), ).setIndexNames((0, "DLINKPRIME-LBD-MIB", "dpLbdIfCfgIndex"))
+if mibBuilder.loadTexts: dpLbdIfCfgEntry.setStatus('current')
+dpLbdIfCfgIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 7, 1, 5, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: dpLbdIfCfgIndex.setStatus('current')
+dpLbdIfCfgEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 7, 1, 5, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpLbdIfCfgEnabled.setStatus('current')
+dpLbdIfLoopStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 15, 7, 1, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("normal", 1), ("loop", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpLbdIfLoopStatus.setStatus('current')
+dpLbdNotifyInfo = ObjectIdentity((1, 3, 6, 1, 4, 1, 171, 15, 7, 1, 8))
+if mibBuilder.loadTexts: dpLbdNotifyInfo.setStatus('current')
+dpLbdNotifyInfoIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 171, 15, 7, 1, 8, 1), InterfaceIndex()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: dpLbdNotifyInfoIfIndex.setStatus('current')
+dpLbdLoopOccurred = NotificationType((1, 3, 6, 1, 4, 1, 171, 15, 7, 0, 1)).setObjects(("DLINKPRIME-LBD-MIB", "dpLbdNotifyInfoIfIndex"))
+if mibBuilder.loadTexts: dpLbdLoopOccurred.setStatus('current')
+dpLbdLoopRecovery = NotificationType((1, 3, 6, 1, 4, 1, 171, 15, 7, 0, 2)).setObjects(("DLINKPRIME-LBD-MIB", "dpLbdNotifyInfoIfIndex"))
+if mibBuilder.loadTexts: dpLbdLoopRecovery.setStatus('current')
+dpLbdMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 7, 2, 1))
+dpLbdMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 7, 2, 2))
+dpLbdMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 15, 7, 2, 1, 1)).setObjects(("DLINKPRIME-LBD-MIB", "dpLbdCfgGroup"), ("DLINKPRIME-LBD-MIB", "dpLbdIfCfgGroup"), ("DLINKPRIME-LBD-MIB", "dpLbdCtrlModeGroup"), ("DLINKPRIME-LBD-MIB", "dpLbdVlanCtrlGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpLbdMIBCompliance = dpLbdMIBCompliance.setStatus('current')
+dpLbdCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 15, 7, 2, 2, 1)).setObjects(("DLINKPRIME-LBD-MIB", "dpLbdCtrlInterval"), ("DLINKPRIME-LBD-MIB", "dpLbdCtrlGlobalEnabled"), ("DLINKPRIME-LBD-MIB", "dpLbdNotifyEnabled"), ("DLINKPRIME-LBD-MIB", "dpLbdNotifyInfoIfIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpLbdCfgGroup = dpLbdCfgGroup.setStatus('current')
+dpLbdIfCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 15, 7, 2, 2, 2)).setObjects(("DLINKPRIME-LBD-MIB", "dpLbdIfCfgEnabled"), ("DLINKPRIME-LBD-MIB", "dpLbdIfLoopStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpLbdIfCfgGroup = dpLbdIfCfgGroup.setStatus('current')
+dpLbdNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 171, 15, 7, 2, 2, 3)).setObjects(("DLINKPRIME-LBD-MIB", "dpLbdLoopOccurred"), ("DLINKPRIME-LBD-MIB", "dpLbdLoopRecovery"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dpLbdNotificationGroup = dpLbdNotificationGroup.setStatus('current')
+mibBuilder.exportSymbols("DLINKPRIME-LBD-MIB", dpLbdLoopOccurred=dpLbdLoopOccurred, dpLbdIfCfgGroup=dpLbdIfCfgGroup, dpLbdConformance=dpLbdConformance, dpLbdIfCfgEnabled=dpLbdIfCfgEnabled, dpLbdNotifications=dpLbdNotifications, dpLbdNotifyInfo=dpLbdNotifyInfo, dlinkPrimeLoopbackDetectMIB=dlinkPrimeLoopbackDetectMIB, PYSNMP_MODULE_ID=dlinkPrimeLoopbackDetectMIB, dpLbdCtrlRecover=dpLbdCtrlRecover, dpLbdIfCfgIndex=dpLbdIfCfgIndex, dpLbdIfCfgEntry=dpLbdIfCfgEntry, dpLbdMIBCompliances=dpLbdMIBCompliances, dpLbdNotifyEnabled=dpLbdNotifyEnabled, dpLbdCtrlGlobalEnabled=dpLbdCtrlGlobalEnabled, dpLbdIfCfgTable=dpLbdIfCfgTable, dpLbdNotifyInfoIfIndex=dpLbdNotifyInfoIfIndex, dpLbdCfgGroup=dpLbdCfgGroup, dpLbdLoopRecovery=dpLbdLoopRecovery, dpLbdCtrlInterval=dpLbdCtrlInterval, dpLbdNotificationGroup=dpLbdNotificationGroup, dpLbdMIBCompliance=dpLbdMIBCompliance, dpLbdMIBGroups=dpLbdMIBGroups, dpLbdIfLoopStatus=dpLbdIfLoopStatus, dpLbdObjects=dpLbdObjects)

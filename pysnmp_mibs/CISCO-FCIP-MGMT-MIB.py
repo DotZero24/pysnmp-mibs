@@ -1,412 +1,180 @@
-_AA='cfmFcipLinkErrorsGroup'
-_A9='cfmFcipStaticRouteGroup'
-_A8='cfmFcipDynamicRouteGroup'
-_A7='cfmFcipTcpConnGroup'
-_A6='cfmFcipLinkGroup'
-_A5='cfmFcipEntityInstanceGroup'
-_A4='cfmFcipEntityScalarGroup'
-_A3='cfmFcipLinkTcpSaParamMismatch'
-_A2='cfmFcipLinkTcpExDatagramsDropped'
-_A1='cfmFcipLinkTcpKeepAliveTimeOut'
-_A0='cfmFcipLinkTcpTooManyErrors'
-_z='cfmFcipLinkFcipSntpTimeStampExp'
-_y='cfmFcipLinkFcipBB2LkaTimeOut'
-_x='cfmFcipLinkFcipSfInvalidWWN'
-_w='cfmFcipLinkFcipDuplicateSfRcv'
-_v='cfmFcipLinkFcipSfInvalidNonce'
-_u='cfmFcipLinkFcipSfRespMismatch'
-_t='cfmFcipLinkFcipSfRespNotRcv'
-_s='cfmFcipLinkFcipSfNotRcv'
-_r='cfmFcipLinkFcipLossofFcSynchs'
-_q='cfmFcipStaRtStatus'
-_p='cfmFcipStaRtRemFcipEntAddr'
-_o='cfmFcipStaRtRemFcipEntAddrType'
-_n='cfmFcipStaRtRemFcipEntId'
-_m='cfmFcipStaRtRemFcipEntWWN'
-_l='cfmFcipDynamicRouteLinkIndex'
-_k='cfmFcipTcpConnTimeOut'
-_j='cfmFcipTcpConnMSS'
-_i='cfmFcipTcpConnRWSize'
-_h='cfmFcipTcpConnPurpose'
-_g='cfmFcipLinkStatus'
-_f='cfmFcipLinkRemFcipEntityMode'
-_e='cfmFcipLinkRemFcipEntityAddress'
-_d='cfmFcipLinkRemFcipEntityAddrType'
-_c='cfmFcipLinkRemFcipEntityId'
-_b='cfmFcipLinkRemFcipEntityWWN'
-_a='cfmFcipLinkLocalFcipEntityMode'
-_Z='cfmFcipLinkCost'
-_Y='cfmFcipLinkIfIndex'
-_X='cfmFcipEntityStatus'
-_W='cfmFcipEntityPHBSupport'
-_V='cfmFcipEntitySeqNumWrap'
-_U='cfmFcipEntitySACKOption'
-_T='cfmFcipEntityTcpConnPort'
-_S='cfmFcipEntityAddress'
-_R='cfmFcipEntityAddressType'
-_Q='cfmFcipFabricWWN'
-_P='cfmFcipDynIpConfType'
-_O='cfmFcipStaRtIndex'
-_N='cfmFcipStaRtDID'
-_M='cfmFcipDynamicRouteIndex'
-_L='cfmFcipDynamicRouteDID'
-_K='cfmFcipTcpConnRemPort'
-_J='cfmFcipTcpConnLocalPort'
-_I='cfmFcipLinkIndex'
-_H='Unsigned32'
-_G='cfmFcipEntityId'
-_F='Integer32'
-_E='not-accessible'
-_D='read-create'
-_C='read-only'
-_B='CISCO-FCIP-MGMT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoExperiment,=mibBuilder.importSymbols('CISCO-SMI','ciscoExperiment')
-DomainId,FcNameId,FcNameIdOrZero=mibBuilder.importSymbols('CISCO-ST-TC','DomainId','FcNameId','FcNameIdOrZero')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_H,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-ciscoFcipMgmtMIB=ModuleIdentity((1,3,6,1,4,1,9,10,96))
-if mibBuilder.loadTexts:ciscoFcipMgmtMIB.setRevisions(('2003-05-19 00:00','2002-10-05 00:00'))
-class CfmFcEntityMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('ePortMode',1),('bPortMode',2),('other',3)))
-_CiscoFcipObjects_ObjectIdentity=ObjectIdentity
-ciscoFcipObjects=_CiscoFcipObjects_ObjectIdentity((1,3,6,1,4,1,9,10,96,1))
-_CfmFcipConfig_ObjectIdentity=ObjectIdentity
-cfmFcipConfig=_CfmFcipConfig_ObjectIdentity((1,3,6,1,4,1,9,10,96,1,1))
-class _CfmFcipDynIpConfType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('slpv2',1),('none',2)))
-_CfmFcipDynIpConfType_Type.__name__=_F
-_CfmFcipDynIpConfType_Object=MibScalar
-cfmFcipDynIpConfType=_CfmFcipDynIpConfType_Object((1,3,6,1,4,1,9,10,96,1,1,1),_CfmFcipDynIpConfType_Type())
-cfmFcipDynIpConfType.setMaxAccess('read-write')
-if mibBuilder.loadTexts:cfmFcipDynIpConfType.setStatus(_A)
-_CfmFcipFabricWWN_Type=FcNameIdOrZero
-_CfmFcipFabricWWN_Object=MibScalar
-cfmFcipFabricWWN=_CfmFcipFabricWWN_Object((1,3,6,1,4,1,9,10,96,1,1,2),_CfmFcipFabricWWN_Type())
-cfmFcipFabricWWN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipFabricWWN.setStatus(_A)
-_CfmFcipEntityInstanceTable_Object=MibTable
-cfmFcipEntityInstanceTable=_CfmFcipEntityInstanceTable_Object((1,3,6,1,4,1,9,10,96,1,1,3))
-if mibBuilder.loadTexts:cfmFcipEntityInstanceTable.setStatus(_A)
-_CfmFcipEntityInstanceEntry_Object=MibTableRow
-cfmFcipEntityInstanceEntry=_CfmFcipEntityInstanceEntry_Object((1,3,6,1,4,1,9,10,96,1,1,3,1))
-cfmFcipEntityInstanceEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:cfmFcipEntityInstanceEntry.setStatus(_A)
-_CfmFcipEntityId_Type=Unsigned32
-_CfmFcipEntityId_Object=MibTableColumn
-cfmFcipEntityId=_CfmFcipEntityId_Object((1,3,6,1,4,1,9,10,96,1,1,3,1,1),_CfmFcipEntityId_Type())
-cfmFcipEntityId.setMaxAccess(_E)
-if mibBuilder.loadTexts:cfmFcipEntityId.setStatus(_A)
-_CfmFcipEntityAddressType_Type=InetAddressType
-_CfmFcipEntityAddressType_Object=MibTableColumn
-cfmFcipEntityAddressType=_CfmFcipEntityAddressType_Object((1,3,6,1,4,1,9,10,96,1,1,3,1,2),_CfmFcipEntityAddressType_Type())
-cfmFcipEntityAddressType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipEntityAddressType.setStatus(_A)
-_CfmFcipEntityAddress_Type=InetAddress
-_CfmFcipEntityAddress_Object=MibTableColumn
-cfmFcipEntityAddress=_CfmFcipEntityAddress_Object((1,3,6,1,4,1,9,10,96,1,1,3,1,3),_CfmFcipEntityAddress_Type())
-cfmFcipEntityAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipEntityAddress.setStatus(_A)
-class _CfmFcipEntityTcpConnPort_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CfmFcipEntityTcpConnPort_Type.__name__=_H
-_CfmFcipEntityTcpConnPort_Object=MibTableColumn
-cfmFcipEntityTcpConnPort=_CfmFcipEntityTcpConnPort_Object((1,3,6,1,4,1,9,10,96,1,1,3,1,4),_CfmFcipEntityTcpConnPort_Type())
-cfmFcipEntityTcpConnPort.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipEntityTcpConnPort.setStatus(_A)
-class _CfmFcipEntitySACKOption_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_CfmFcipEntitySACKOption_Type.__name__=_F
-_CfmFcipEntitySACKOption_Object=MibTableColumn
-cfmFcipEntitySACKOption=_CfmFcipEntitySACKOption_Object((1,3,6,1,4,1,9,10,96,1,1,3,1,5),_CfmFcipEntitySACKOption_Type())
-cfmFcipEntitySACKOption.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipEntitySACKOption.setStatus(_A)
-_CfmFcipEntitySeqNumWrap_Type=TruthValue
-_CfmFcipEntitySeqNumWrap_Object=MibTableColumn
-cfmFcipEntitySeqNumWrap=_CfmFcipEntitySeqNumWrap_Object((1,3,6,1,4,1,9,10,96,1,1,3,1,6),_CfmFcipEntitySeqNumWrap_Type())
-cfmFcipEntitySeqNumWrap.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipEntitySeqNumWrap.setStatus(_A)
-_CfmFcipEntityPHBSupport_Type=TruthValue
-_CfmFcipEntityPHBSupport_Object=MibTableColumn
-cfmFcipEntityPHBSupport=_CfmFcipEntityPHBSupport_Object((1,3,6,1,4,1,9,10,96,1,1,3,1,7),_CfmFcipEntityPHBSupport_Type())
-cfmFcipEntityPHBSupport.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipEntityPHBSupport.setStatus(_A)
-_CfmFcipEntityStatus_Type=RowStatus
-_CfmFcipEntityStatus_Object=MibTableColumn
-cfmFcipEntityStatus=_CfmFcipEntityStatus_Object((1,3,6,1,4,1,9,10,96,1,1,3,1,8),_CfmFcipEntityStatus_Type())
-cfmFcipEntityStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipEntityStatus.setStatus(_A)
-_CfmFcipLinkTable_Object=MibTable
-cfmFcipLinkTable=_CfmFcipLinkTable_Object((1,3,6,1,4,1,9,10,96,1,1,4))
-if mibBuilder.loadTexts:cfmFcipLinkTable.setStatus(_A)
-_CfmFcipLinkEntry_Object=MibTableRow
-cfmFcipLinkEntry=_CfmFcipLinkEntry_Object((1,3,6,1,4,1,9,10,96,1,1,4,1))
-cfmFcipLinkEntry.setIndexNames((0,_B,_G),(0,_B,_I))
-if mibBuilder.loadTexts:cfmFcipLinkEntry.setStatus(_A)
-_CfmFcipLinkIndex_Type=Unsigned32
-_CfmFcipLinkIndex_Object=MibTableColumn
-cfmFcipLinkIndex=_CfmFcipLinkIndex_Object((1,3,6,1,4,1,9,10,96,1,1,4,1,1),_CfmFcipLinkIndex_Type())
-cfmFcipLinkIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:cfmFcipLinkIndex.setStatus(_A)
-class _CfmFcipLinkIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_CfmFcipLinkIfIndex_Type.__name__=_F
-_CfmFcipLinkIfIndex_Object=MibTableColumn
-cfmFcipLinkIfIndex=_CfmFcipLinkIfIndex_Object((1,3,6,1,4,1,9,10,96,1,1,4,1,2),_CfmFcipLinkIfIndex_Type())
-cfmFcipLinkIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkIfIndex.setStatus(_A)
-class _CfmFcipLinkCost_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CfmFcipLinkCost_Type.__name__=_H
-_CfmFcipLinkCost_Object=MibTableColumn
-cfmFcipLinkCost=_CfmFcipLinkCost_Object((1,3,6,1,4,1,9,10,96,1,1,4,1,3),_CfmFcipLinkCost_Type())
-cfmFcipLinkCost.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipLinkCost.setStatus(_A)
-_CfmFcipLinkLocalFcipEntityMode_Type=CfmFcEntityMode
-_CfmFcipLinkLocalFcipEntityMode_Object=MibTableColumn
-cfmFcipLinkLocalFcipEntityMode=_CfmFcipLinkLocalFcipEntityMode_Object((1,3,6,1,4,1,9,10,96,1,1,4,1,4),_CfmFcipLinkLocalFcipEntityMode_Type())
-cfmFcipLinkLocalFcipEntityMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkLocalFcipEntityMode.setStatus(_A)
-_CfmFcipLinkRemFcipEntityWWN_Type=FcNameIdOrZero
-_CfmFcipLinkRemFcipEntityWWN_Object=MibTableColumn
-cfmFcipLinkRemFcipEntityWWN=_CfmFcipLinkRemFcipEntityWWN_Object((1,3,6,1,4,1,9,10,96,1,1,4,1,5),_CfmFcipLinkRemFcipEntityWWN_Type())
-cfmFcipLinkRemFcipEntityWWN.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipLinkRemFcipEntityWWN.setStatus(_A)
-class _CfmFcipLinkRemFcipEntityId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CfmFcipLinkRemFcipEntityId_Type.__name__=_H
-_CfmFcipLinkRemFcipEntityId_Object=MibTableColumn
-cfmFcipLinkRemFcipEntityId=_CfmFcipLinkRemFcipEntityId_Object((1,3,6,1,4,1,9,10,96,1,1,4,1,6),_CfmFcipLinkRemFcipEntityId_Type())
-cfmFcipLinkRemFcipEntityId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipLinkRemFcipEntityId.setStatus(_A)
-_CfmFcipLinkRemFcipEntityAddrType_Type=InetAddressType
-_CfmFcipLinkRemFcipEntityAddrType_Object=MibTableColumn
-cfmFcipLinkRemFcipEntityAddrType=_CfmFcipLinkRemFcipEntityAddrType_Object((1,3,6,1,4,1,9,10,96,1,1,4,1,7),_CfmFcipLinkRemFcipEntityAddrType_Type())
-cfmFcipLinkRemFcipEntityAddrType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipLinkRemFcipEntityAddrType.setStatus(_A)
-_CfmFcipLinkRemFcipEntityAddress_Type=InetAddress
-_CfmFcipLinkRemFcipEntityAddress_Object=MibTableColumn
-cfmFcipLinkRemFcipEntityAddress=_CfmFcipLinkRemFcipEntityAddress_Object((1,3,6,1,4,1,9,10,96,1,1,4,1,8),_CfmFcipLinkRemFcipEntityAddress_Type())
-cfmFcipLinkRemFcipEntityAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipLinkRemFcipEntityAddress.setStatus(_A)
-_CfmFcipLinkRemFcipEntityMode_Type=CfmFcEntityMode
-_CfmFcipLinkRemFcipEntityMode_Object=MibTableColumn
-cfmFcipLinkRemFcipEntityMode=_CfmFcipLinkRemFcipEntityMode_Object((1,3,6,1,4,1,9,10,96,1,1,4,1,9),_CfmFcipLinkRemFcipEntityMode_Type())
-cfmFcipLinkRemFcipEntityMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkRemFcipEntityMode.setStatus(_A)
-_CfmFcipLinkStatus_Type=RowStatus
-_CfmFcipLinkStatus_Object=MibTableColumn
-cfmFcipLinkStatus=_CfmFcipLinkStatus_Object((1,3,6,1,4,1,9,10,96,1,1,4,1,10),_CfmFcipLinkStatus_Type())
-cfmFcipLinkStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipLinkStatus.setStatus(_A)
-_CfmFcipTcpConnTable_Object=MibTable
-cfmFcipTcpConnTable=_CfmFcipTcpConnTable_Object((1,3,6,1,4,1,9,10,96,1,1,5))
-if mibBuilder.loadTexts:cfmFcipTcpConnTable.setStatus(_A)
-_CfmFcipTcpConnEntry_Object=MibTableRow
-cfmFcipTcpConnEntry=_CfmFcipTcpConnEntry_Object((1,3,6,1,4,1,9,10,96,1,1,5,1))
-cfmFcipTcpConnEntry.setIndexNames((0,_B,_G),(0,_B,_I),(0,_B,_J),(0,_B,_K))
-if mibBuilder.loadTexts:cfmFcipTcpConnEntry.setStatus(_A)
-class _CfmFcipTcpConnLocalPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CfmFcipTcpConnLocalPort_Type.__name__=_F
-_CfmFcipTcpConnLocalPort_Object=MibTableColumn
-cfmFcipTcpConnLocalPort=_CfmFcipTcpConnLocalPort_Object((1,3,6,1,4,1,9,10,96,1,1,5,1,1),_CfmFcipTcpConnLocalPort_Type())
-cfmFcipTcpConnLocalPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:cfmFcipTcpConnLocalPort.setStatus(_A)
-class _CfmFcipTcpConnRemPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CfmFcipTcpConnRemPort_Type.__name__=_F
-_CfmFcipTcpConnRemPort_Object=MibTableColumn
-cfmFcipTcpConnRemPort=_CfmFcipTcpConnRemPort_Object((1,3,6,1,4,1,9,10,96,1,1,5,1,2),_CfmFcipTcpConnRemPort_Type())
-cfmFcipTcpConnRemPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:cfmFcipTcpConnRemPort.setStatus(_A)
-class _CfmFcipTcpConnPurpose_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('control',1),('data',2),('both',3)))
-_CfmFcipTcpConnPurpose_Type.__name__=_F
-_CfmFcipTcpConnPurpose_Object=MibTableColumn
-cfmFcipTcpConnPurpose=_CfmFcipTcpConnPurpose_Object((1,3,6,1,4,1,9,10,96,1,1,5,1,3),_CfmFcipTcpConnPurpose_Type())
-cfmFcipTcpConnPurpose.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipTcpConnPurpose.setStatus(_A)
-_CfmFcipTcpConnRWSize_Type=Unsigned32
-_CfmFcipTcpConnRWSize_Object=MibTableColumn
-cfmFcipTcpConnRWSize=_CfmFcipTcpConnRWSize_Object((1,3,6,1,4,1,9,10,96,1,1,5,1,4),_CfmFcipTcpConnRWSize_Type())
-cfmFcipTcpConnRWSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipTcpConnRWSize.setStatus(_A)
-_CfmFcipTcpConnMSS_Type=Unsigned32
-_CfmFcipTcpConnMSS_Object=MibTableColumn
-cfmFcipTcpConnMSS=_CfmFcipTcpConnMSS_Object((1,3,6,1,4,1,9,10,96,1,1,5,1,5),_CfmFcipTcpConnMSS_Type())
-cfmFcipTcpConnMSS.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipTcpConnMSS.setStatus(_A)
-_CfmFcipTcpConnTimeOut_Type=Unsigned32
-_CfmFcipTcpConnTimeOut_Object=MibTableColumn
-cfmFcipTcpConnTimeOut=_CfmFcipTcpConnTimeOut_Object((1,3,6,1,4,1,9,10,96,1,1,5,1,6),_CfmFcipTcpConnTimeOut_Type())
-cfmFcipTcpConnTimeOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipTcpConnTimeOut.setStatus(_A)
-if mibBuilder.loadTexts:cfmFcipTcpConnTimeOut.setUnits('seconds')
-_CfmFcipDynamicRouteTable_Object=MibTable
-cfmFcipDynamicRouteTable=_CfmFcipDynamicRouteTable_Object((1,3,6,1,4,1,9,10,96,1,1,6))
-if mibBuilder.loadTexts:cfmFcipDynamicRouteTable.setStatus(_A)
-_CfmFcipDynamicRouteEntry_Object=MibTableRow
-cfmFcipDynamicRouteEntry=_CfmFcipDynamicRouteEntry_Object((1,3,6,1,4,1,9,10,96,1,1,6,1))
-cfmFcipDynamicRouteEntry.setIndexNames((0,_B,_G),(0,_B,_L),(0,_B,_M))
-if mibBuilder.loadTexts:cfmFcipDynamicRouteEntry.setStatus(_A)
-_CfmFcipDynamicRouteIndex_Type=Unsigned32
-_CfmFcipDynamicRouteIndex_Object=MibTableColumn
-cfmFcipDynamicRouteIndex=_CfmFcipDynamicRouteIndex_Object((1,3,6,1,4,1,9,10,96,1,1,6,1,1),_CfmFcipDynamicRouteIndex_Type())
-cfmFcipDynamicRouteIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:cfmFcipDynamicRouteIndex.setStatus(_A)
-_CfmFcipDynamicRouteDID_Type=DomainId
-_CfmFcipDynamicRouteDID_Object=MibTableColumn
-cfmFcipDynamicRouteDID=_CfmFcipDynamicRouteDID_Object((1,3,6,1,4,1,9,10,96,1,1,6,1,2),_CfmFcipDynamicRouteDID_Type())
-cfmFcipDynamicRouteDID.setMaxAccess(_E)
-if mibBuilder.loadTexts:cfmFcipDynamicRouteDID.setStatus(_A)
-_CfmFcipDynamicRouteLinkIndex_Type=Unsigned32
-_CfmFcipDynamicRouteLinkIndex_Object=MibTableColumn
-cfmFcipDynamicRouteLinkIndex=_CfmFcipDynamicRouteLinkIndex_Object((1,3,6,1,4,1,9,10,96,1,1,6,1,3),_CfmFcipDynamicRouteLinkIndex_Type())
-cfmFcipDynamicRouteLinkIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipDynamicRouteLinkIndex.setStatus(_A)
-_CfmFcipStaticRouteTable_Object=MibTable
-cfmFcipStaticRouteTable=_CfmFcipStaticRouteTable_Object((1,3,6,1,4,1,9,10,96,1,1,7))
-if mibBuilder.loadTexts:cfmFcipStaticRouteTable.setStatus(_A)
-_CfmFcipStaticRouteEntry_Object=MibTableRow
-cfmFcipStaticRouteEntry=_CfmFcipStaticRouteEntry_Object((1,3,6,1,4,1,9,10,96,1,1,7,1))
-cfmFcipStaticRouteEntry.setIndexNames((0,_B,_G),(0,_B,_N),(0,_B,_O))
-if mibBuilder.loadTexts:cfmFcipStaticRouteEntry.setStatus(_A)
-_CfmFcipStaRtIndex_Type=Unsigned32
-_CfmFcipStaRtIndex_Object=MibTableColumn
-cfmFcipStaRtIndex=_CfmFcipStaRtIndex_Object((1,3,6,1,4,1,9,10,96,1,1,7,1,1),_CfmFcipStaRtIndex_Type())
-cfmFcipStaRtIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:cfmFcipStaRtIndex.setStatus(_A)
-_CfmFcipStaRtDID_Type=DomainId
-_CfmFcipStaRtDID_Object=MibTableColumn
-cfmFcipStaRtDID=_CfmFcipStaRtDID_Object((1,3,6,1,4,1,9,10,96,1,1,7,1,2),_CfmFcipStaRtDID_Type())
-cfmFcipStaRtDID.setMaxAccess(_E)
-if mibBuilder.loadTexts:cfmFcipStaRtDID.setStatus(_A)
-_CfmFcipStaRtRemFcipEntWWN_Type=FcNameId
-_CfmFcipStaRtRemFcipEntWWN_Object=MibTableColumn
-cfmFcipStaRtRemFcipEntWWN=_CfmFcipStaRtRemFcipEntWWN_Object((1,3,6,1,4,1,9,10,96,1,1,7,1,3),_CfmFcipStaRtRemFcipEntWWN_Type())
-cfmFcipStaRtRemFcipEntWWN.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipStaRtRemFcipEntWWN.setStatus(_A)
-_CfmFcipStaRtRemFcipEntId_Type=Unsigned32
-_CfmFcipStaRtRemFcipEntId_Object=MibTableColumn
-cfmFcipStaRtRemFcipEntId=_CfmFcipStaRtRemFcipEntId_Object((1,3,6,1,4,1,9,10,96,1,1,7,1,4),_CfmFcipStaRtRemFcipEntId_Type())
-cfmFcipStaRtRemFcipEntId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipStaRtRemFcipEntId.setStatus(_A)
-_CfmFcipStaRtRemFcipEntAddrType_Type=InetAddressType
-_CfmFcipStaRtRemFcipEntAddrType_Object=MibTableColumn
-cfmFcipStaRtRemFcipEntAddrType=_CfmFcipStaRtRemFcipEntAddrType_Object((1,3,6,1,4,1,9,10,96,1,1,7,1,5),_CfmFcipStaRtRemFcipEntAddrType_Type())
-cfmFcipStaRtRemFcipEntAddrType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipStaRtRemFcipEntAddrType.setStatus(_A)
-_CfmFcipStaRtRemFcipEntAddr_Type=InetAddress
-_CfmFcipStaRtRemFcipEntAddr_Object=MibTableColumn
-cfmFcipStaRtRemFcipEntAddr=_CfmFcipStaRtRemFcipEntAddr_Object((1,3,6,1,4,1,9,10,96,1,1,7,1,6),_CfmFcipStaRtRemFcipEntAddr_Type())
-cfmFcipStaRtRemFcipEntAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipStaRtRemFcipEntAddr.setStatus(_A)
-_CfmFcipStaRtStatus_Type=RowStatus
-_CfmFcipStaRtStatus_Object=MibTableColumn
-cfmFcipStaRtStatus=_CfmFcipStaRtStatus_Object((1,3,6,1,4,1,9,10,96,1,1,7,1,7),_CfmFcipStaRtStatus_Type())
-cfmFcipStaRtStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfmFcipStaRtStatus.setStatus(_A)
-_CfmFcipLinkErrorsTable_Object=MibTable
-cfmFcipLinkErrorsTable=_CfmFcipLinkErrorsTable_Object((1,3,6,1,4,1,9,10,96,1,1,8))
-if mibBuilder.loadTexts:cfmFcipLinkErrorsTable.setStatus(_A)
-_CfmFcipLinkErrorsEntry_Object=MibTableRow
-cfmFcipLinkErrorsEntry=_CfmFcipLinkErrorsEntry_Object((1,3,6,1,4,1,9,10,96,1,1,8,1))
-cfmFcipLinkErrorsEntry.setIndexNames((0,_B,_G),(0,_B,_I))
-if mibBuilder.loadTexts:cfmFcipLinkErrorsEntry.setStatus(_A)
-_CfmFcipLinkFcipLossofFcSynchs_Type=Counter64
-_CfmFcipLinkFcipLossofFcSynchs_Object=MibTableColumn
-cfmFcipLinkFcipLossofFcSynchs=_CfmFcipLinkFcipLossofFcSynchs_Object((1,3,6,1,4,1,9,10,96,1,1,8,1,1),_CfmFcipLinkFcipLossofFcSynchs_Type())
-cfmFcipLinkFcipLossofFcSynchs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkFcipLossofFcSynchs.setStatus(_A)
-_CfmFcipLinkFcipSfNotRcv_Type=Counter64
-_CfmFcipLinkFcipSfNotRcv_Object=MibTableColumn
-cfmFcipLinkFcipSfNotRcv=_CfmFcipLinkFcipSfNotRcv_Object((1,3,6,1,4,1,9,10,96,1,1,8,1,2),_CfmFcipLinkFcipSfNotRcv_Type())
-cfmFcipLinkFcipSfNotRcv.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkFcipSfNotRcv.setStatus(_A)
-_CfmFcipLinkFcipSfRespNotRcv_Type=Counter64
-_CfmFcipLinkFcipSfRespNotRcv_Object=MibTableColumn
-cfmFcipLinkFcipSfRespNotRcv=_CfmFcipLinkFcipSfRespNotRcv_Object((1,3,6,1,4,1,9,10,96,1,1,8,1,3),_CfmFcipLinkFcipSfRespNotRcv_Type())
-cfmFcipLinkFcipSfRespNotRcv.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkFcipSfRespNotRcv.setStatus(_A)
-_CfmFcipLinkFcipSfRespMismatch_Type=Counter64
-_CfmFcipLinkFcipSfRespMismatch_Object=MibTableColumn
-cfmFcipLinkFcipSfRespMismatch=_CfmFcipLinkFcipSfRespMismatch_Object((1,3,6,1,4,1,9,10,96,1,1,8,1,4),_CfmFcipLinkFcipSfRespMismatch_Type())
-cfmFcipLinkFcipSfRespMismatch.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkFcipSfRespMismatch.setStatus(_A)
-_CfmFcipLinkFcipSfInvalidNonce_Type=Counter64
-_CfmFcipLinkFcipSfInvalidNonce_Object=MibTableColumn
-cfmFcipLinkFcipSfInvalidNonce=_CfmFcipLinkFcipSfInvalidNonce_Object((1,3,6,1,4,1,9,10,96,1,1,8,1,5),_CfmFcipLinkFcipSfInvalidNonce_Type())
-cfmFcipLinkFcipSfInvalidNonce.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkFcipSfInvalidNonce.setStatus(_A)
-_CfmFcipLinkFcipDuplicateSfRcv_Type=Counter64
-_CfmFcipLinkFcipDuplicateSfRcv_Object=MibTableColumn
-cfmFcipLinkFcipDuplicateSfRcv=_CfmFcipLinkFcipDuplicateSfRcv_Object((1,3,6,1,4,1,9,10,96,1,1,8,1,6),_CfmFcipLinkFcipDuplicateSfRcv_Type())
-cfmFcipLinkFcipDuplicateSfRcv.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkFcipDuplicateSfRcv.setStatus(_A)
-_CfmFcipLinkFcipSfInvalidWWN_Type=Counter64
-_CfmFcipLinkFcipSfInvalidWWN_Object=MibTableColumn
-cfmFcipLinkFcipSfInvalidWWN=_CfmFcipLinkFcipSfInvalidWWN_Object((1,3,6,1,4,1,9,10,96,1,1,8,1,7),_CfmFcipLinkFcipSfInvalidWWN_Type())
-cfmFcipLinkFcipSfInvalidWWN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkFcipSfInvalidWWN.setStatus(_A)
-_CfmFcipLinkFcipBB2LkaTimeOut_Type=Counter64
-_CfmFcipLinkFcipBB2LkaTimeOut_Object=MibTableColumn
-cfmFcipLinkFcipBB2LkaTimeOut=_CfmFcipLinkFcipBB2LkaTimeOut_Object((1,3,6,1,4,1,9,10,96,1,1,8,1,8),_CfmFcipLinkFcipBB2LkaTimeOut_Type())
-cfmFcipLinkFcipBB2LkaTimeOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkFcipBB2LkaTimeOut.setStatus(_A)
-_CfmFcipLinkFcipSntpTimeStampExp_Type=Counter64
-_CfmFcipLinkFcipSntpTimeStampExp_Object=MibTableColumn
-cfmFcipLinkFcipSntpTimeStampExp=_CfmFcipLinkFcipSntpTimeStampExp_Object((1,3,6,1,4,1,9,10,96,1,1,8,1,9),_CfmFcipLinkFcipSntpTimeStampExp_Type())
-cfmFcipLinkFcipSntpTimeStampExp.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkFcipSntpTimeStampExp.setStatus(_A)
-_CfmFcipLinkTcpTooManyErrors_Type=Counter64
-_CfmFcipLinkTcpTooManyErrors_Object=MibTableColumn
-cfmFcipLinkTcpTooManyErrors=_CfmFcipLinkTcpTooManyErrors_Object((1,3,6,1,4,1,9,10,96,1,1,8,1,10),_CfmFcipLinkTcpTooManyErrors_Type())
-cfmFcipLinkTcpTooManyErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkTcpTooManyErrors.setStatus(_A)
-_CfmFcipLinkTcpKeepAliveTimeOut_Type=Counter64
-_CfmFcipLinkTcpKeepAliveTimeOut_Object=MibTableColumn
-cfmFcipLinkTcpKeepAliveTimeOut=_CfmFcipLinkTcpKeepAliveTimeOut_Object((1,3,6,1,4,1,9,10,96,1,1,8,1,11),_CfmFcipLinkTcpKeepAliveTimeOut_Type())
-cfmFcipLinkTcpKeepAliveTimeOut.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkTcpKeepAliveTimeOut.setStatus(_A)
-_CfmFcipLinkTcpExDatagramsDropped_Type=Counter64
-_CfmFcipLinkTcpExDatagramsDropped_Object=MibTableColumn
-cfmFcipLinkTcpExDatagramsDropped=_CfmFcipLinkTcpExDatagramsDropped_Object((1,3,6,1,4,1,9,10,96,1,1,8,1,12),_CfmFcipLinkTcpExDatagramsDropped_Type())
-cfmFcipLinkTcpExDatagramsDropped.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkTcpExDatagramsDropped.setStatus(_A)
-_CfmFcipLinkTcpSaParamMismatch_Type=Counter64
-_CfmFcipLinkTcpSaParamMismatch_Object=MibTableColumn
-cfmFcipLinkTcpSaParamMismatch=_CfmFcipLinkTcpSaParamMismatch_Object((1,3,6,1,4,1,9,10,96,1,1,8,1,13),_CfmFcipLinkTcpSaParamMismatch_Type())
-cfmFcipLinkTcpSaParamMismatch.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfmFcipLinkTcpSaParamMismatch.setStatus(_A)
-_CfmFcipNotification_ObjectIdentity=ObjectIdentity
-cfmFcipNotification=_CfmFcipNotification_ObjectIdentity((1,3,6,1,4,1,9,10,96,1,2))
-_CfmFcipNotifications_ObjectIdentity=ObjectIdentity
-cfmFcipNotifications=_CfmFcipNotifications_ObjectIdentity((1,3,6,1,4,1,9,10,96,1,2,0))
-_CfmFcipConformance_ObjectIdentity=ObjectIdentity
-cfmFcipConformance=_CfmFcipConformance_ObjectIdentity((1,3,6,1,4,1,9,10,96,2))
-_CfmFcipCompliances_ObjectIdentity=ObjectIdentity
-cfmFcipCompliances=_CfmFcipCompliances_ObjectIdentity((1,3,6,1,4,1,9,10,96,2,1))
-_CfmFcipGroups_ObjectIdentity=ObjectIdentity
-cfmFcipGroups=_CfmFcipGroups_ObjectIdentity((1,3,6,1,4,1,9,10,96,2,2))
-cfmFcipEntityScalarGroup=ObjectGroup((1,3,6,1,4,1,9,10,96,2,2,1))
-cfmFcipEntityScalarGroup.setObjects(*((_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:cfmFcipEntityScalarGroup.setStatus(_A)
-cfmFcipEntityInstanceGroup=ObjectGroup((1,3,6,1,4,1,9,10,96,2,2,2))
-cfmFcipEntityInstanceGroup.setObjects(*((_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:cfmFcipEntityInstanceGroup.setStatus(_A)
-cfmFcipLinkGroup=ObjectGroup((1,3,6,1,4,1,9,10,96,2,2,3))
-cfmFcipLinkGroup.setObjects(*((_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g)))
-if mibBuilder.loadTexts:cfmFcipLinkGroup.setStatus(_A)
-cfmFcipTcpConnGroup=ObjectGroup((1,3,6,1,4,1,9,10,96,2,2,4))
-cfmFcipTcpConnGroup.setObjects(*((_B,_h),(_B,_i),(_B,_j),(_B,_k)))
-if mibBuilder.loadTexts:cfmFcipTcpConnGroup.setStatus(_A)
-cfmFcipDynamicRouteGroup=ObjectGroup((1,3,6,1,4,1,9,10,96,2,2,5))
-cfmFcipDynamicRouteGroup.setObjects((_B,_l))
-if mibBuilder.loadTexts:cfmFcipDynamicRouteGroup.setStatus(_A)
-cfmFcipStaticRouteGroup=ObjectGroup((1,3,6,1,4,1,9,10,96,2,2,6))
-cfmFcipStaticRouteGroup.setObjects(*((_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q)))
-if mibBuilder.loadTexts:cfmFcipStaticRouteGroup.setStatus(_A)
-cfmFcipLinkErrorsGroup=ObjectGroup((1,3,6,1,4,1,9,10,96,2,2,7))
-cfmFcipLinkErrorsGroup.setObjects(*((_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3)))
-if mibBuilder.loadTexts:cfmFcipLinkErrorsGroup.setStatus(_A)
-cfmFcipCompliance=ModuleCompliance((1,3,6,1,4,1,9,10,96,2,1,1))
-cfmFcipCompliance.setObjects(*((_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA)))
-if mibBuilder.loadTexts:cfmFcipCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CfmFcEntityMode':CfmFcEntityMode,'ciscoFcipMgmtMIB':ciscoFcipMgmtMIB,'ciscoFcipObjects':ciscoFcipObjects,'cfmFcipConfig':cfmFcipConfig,_P:cfmFcipDynIpConfType,_Q:cfmFcipFabricWWN,'cfmFcipEntityInstanceTable':cfmFcipEntityInstanceTable,'cfmFcipEntityInstanceEntry':cfmFcipEntityInstanceEntry,_G:cfmFcipEntityId,_R:cfmFcipEntityAddressType,_S:cfmFcipEntityAddress,_T:cfmFcipEntityTcpConnPort,_U:cfmFcipEntitySACKOption,_V:cfmFcipEntitySeqNumWrap,_W:cfmFcipEntityPHBSupport,_X:cfmFcipEntityStatus,'cfmFcipLinkTable':cfmFcipLinkTable,'cfmFcipLinkEntry':cfmFcipLinkEntry,_I:cfmFcipLinkIndex,_Y:cfmFcipLinkIfIndex,_Z:cfmFcipLinkCost,_a:cfmFcipLinkLocalFcipEntityMode,_b:cfmFcipLinkRemFcipEntityWWN,_c:cfmFcipLinkRemFcipEntityId,_d:cfmFcipLinkRemFcipEntityAddrType,_e:cfmFcipLinkRemFcipEntityAddress,_f:cfmFcipLinkRemFcipEntityMode,_g:cfmFcipLinkStatus,'cfmFcipTcpConnTable':cfmFcipTcpConnTable,'cfmFcipTcpConnEntry':cfmFcipTcpConnEntry,_J:cfmFcipTcpConnLocalPort,_K:cfmFcipTcpConnRemPort,_h:cfmFcipTcpConnPurpose,_i:cfmFcipTcpConnRWSize,_j:cfmFcipTcpConnMSS,_k:cfmFcipTcpConnTimeOut,'cfmFcipDynamicRouteTable':cfmFcipDynamicRouteTable,'cfmFcipDynamicRouteEntry':cfmFcipDynamicRouteEntry,_M:cfmFcipDynamicRouteIndex,_L:cfmFcipDynamicRouteDID,_l:cfmFcipDynamicRouteLinkIndex,'cfmFcipStaticRouteTable':cfmFcipStaticRouteTable,'cfmFcipStaticRouteEntry':cfmFcipStaticRouteEntry,_O:cfmFcipStaRtIndex,_N:cfmFcipStaRtDID,_m:cfmFcipStaRtRemFcipEntWWN,_n:cfmFcipStaRtRemFcipEntId,_o:cfmFcipStaRtRemFcipEntAddrType,_p:cfmFcipStaRtRemFcipEntAddr,_q:cfmFcipStaRtStatus,'cfmFcipLinkErrorsTable':cfmFcipLinkErrorsTable,'cfmFcipLinkErrorsEntry':cfmFcipLinkErrorsEntry,_r:cfmFcipLinkFcipLossofFcSynchs,_s:cfmFcipLinkFcipSfNotRcv,_t:cfmFcipLinkFcipSfRespNotRcv,_u:cfmFcipLinkFcipSfRespMismatch,_v:cfmFcipLinkFcipSfInvalidNonce,_w:cfmFcipLinkFcipDuplicateSfRcv,_x:cfmFcipLinkFcipSfInvalidWWN,_y:cfmFcipLinkFcipBB2LkaTimeOut,_z:cfmFcipLinkFcipSntpTimeStampExp,_A0:cfmFcipLinkTcpTooManyErrors,_A1:cfmFcipLinkTcpKeepAliveTimeOut,_A2:cfmFcipLinkTcpExDatagramsDropped,_A3:cfmFcipLinkTcpSaParamMismatch,'cfmFcipNotification':cfmFcipNotification,'cfmFcipNotifications':cfmFcipNotifications,'cfmFcipConformance':cfmFcipConformance,'cfmFcipCompliances':cfmFcipCompliances,'cfmFcipCompliance':cfmFcipCompliance,'cfmFcipGroups':cfmFcipGroups,_A4:cfmFcipEntityScalarGroup,_A5:cfmFcipEntityInstanceGroup,_A6:cfmFcipLinkGroup,_A7:cfmFcipTcpConnGroup,_A8:cfmFcipDynamicRouteGroup,_A9:cfmFcipStaticRouteGroup,_AA:cfmFcipLinkErrorsGroup})
+#
+# PySNMP MIB module CISCO-FCIP-MGMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-FCIP-MGMT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
+FcNameId, FcNameIdOrZero, DomainId = mibBuilder.importSymbols("CISCO-ST-TC", "FcNameId", "FcNameIdOrZero", "DomainId")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ciscoFcipMgmtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 96))
+ciscoFcipMgmtMIB.setRevisions(('2003-05-19 00:00', '2002-10-05 00:00',))
+if mibBuilder.loadTexts: ciscoFcipMgmtMIB.setLastUpdated('200305190000Z')
+if mibBuilder.loadTexts: ciscoFcipMgmtMIB.setOrganization('Cisco Systems Inc.')
+ciscoFcipObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 96, 1))
+cfmFcipConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 96, 2))
+cfmFcipConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1))
+cfmFcipNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 2))
+cfmFcipNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 2, 0))
+class CfmFcEntityMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("ePortMode", 1), ("bPortMode", 2), ("other", 3))
+
+cfmFcipDynIpConfType = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("slpv2", 1), ("none", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cfmFcipDynIpConfType.setStatus('current')
+cfmFcipFabricWWN = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 2), FcNameIdOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipFabricWWN.setStatus('current')
+cfmFcipEntityInstanceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 3), )
+if mibBuilder.loadTexts: cfmFcipEntityInstanceTable.setStatus('current')
+cfmFcipEntityInstanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 3, 1), ).setIndexNames((0, "CISCO-FCIP-MGMT-MIB", "cfmFcipEntityId"))
+if mibBuilder.loadTexts: cfmFcipEntityInstanceEntry.setStatus('current')
+cfmFcipEntityId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 3, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: cfmFcipEntityId.setStatus('current')
+cfmFcipEntityAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 3, 1, 2), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipEntityAddressType.setStatus('current')
+cfmFcipEntityAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 3, 1, 3), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipEntityAddress.setStatus('current')
+cfmFcipEntityTcpConnPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 3, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipEntityTcpConnPort.setStatus('current')
+cfmFcipEntitySACKOption = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipEntitySACKOption.setStatus('current')
+cfmFcipEntitySeqNumWrap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 3, 1, 6), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipEntitySeqNumWrap.setStatus('current')
+cfmFcipEntityPHBSupport = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 3, 1, 7), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipEntityPHBSupport.setStatus('current')
+cfmFcipEntityStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 3, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipEntityStatus.setStatus('current')
+cfmFcipLinkTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 4), )
+if mibBuilder.loadTexts: cfmFcipLinkTable.setStatus('current')
+cfmFcipLinkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 4, 1), ).setIndexNames((0, "CISCO-FCIP-MGMT-MIB", "cfmFcipEntityId"), (0, "CISCO-FCIP-MGMT-MIB", "cfmFcipLinkIndex"))
+if mibBuilder.loadTexts: cfmFcipLinkEntry.setStatus('current')
+cfmFcipLinkIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 4, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: cfmFcipLinkIndex.setStatus('current')
+cfmFcipLinkIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkIfIndex.setStatus('current')
+cfmFcipLinkCost = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 4, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipLinkCost.setStatus('current')
+cfmFcipLinkLocalFcipEntityMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 4, 1, 4), CfmFcEntityMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkLocalFcipEntityMode.setStatus('current')
+cfmFcipLinkRemFcipEntityWWN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 4, 1, 5), FcNameIdOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipLinkRemFcipEntityWWN.setStatus('current')
+cfmFcipLinkRemFcipEntityId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 4, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipLinkRemFcipEntityId.setStatus('current')
+cfmFcipLinkRemFcipEntityAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 4, 1, 7), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipLinkRemFcipEntityAddrType.setStatus('current')
+cfmFcipLinkRemFcipEntityAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 4, 1, 8), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipLinkRemFcipEntityAddress.setStatus('current')
+cfmFcipLinkRemFcipEntityMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 4, 1, 9), CfmFcEntityMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkRemFcipEntityMode.setStatus('current')
+cfmFcipLinkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 4, 1, 10), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipLinkStatus.setStatus('current')
+cfmFcipTcpConnTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 5), )
+if mibBuilder.loadTexts: cfmFcipTcpConnTable.setStatus('current')
+cfmFcipTcpConnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 5, 1), ).setIndexNames((0, "CISCO-FCIP-MGMT-MIB", "cfmFcipEntityId"), (0, "CISCO-FCIP-MGMT-MIB", "cfmFcipLinkIndex"), (0, "CISCO-FCIP-MGMT-MIB", "cfmFcipTcpConnLocalPort"), (0, "CISCO-FCIP-MGMT-MIB", "cfmFcipTcpConnRemPort"))
+if mibBuilder.loadTexts: cfmFcipTcpConnEntry.setStatus('current')
+cfmFcipTcpConnLocalPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: cfmFcipTcpConnLocalPort.setStatus('current')
+cfmFcipTcpConnRemPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: cfmFcipTcpConnRemPort.setStatus('current')
+cfmFcipTcpConnPurpose = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("control", 1), ("data", 2), ("both", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipTcpConnPurpose.setStatus('current')
+cfmFcipTcpConnRWSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 5, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipTcpConnRWSize.setStatus('current')
+cfmFcipTcpConnMSS = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 5, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipTcpConnMSS.setStatus('current')
+cfmFcipTcpConnTimeOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 5, 1, 6), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipTcpConnTimeOut.setStatus('current')
+cfmFcipDynamicRouteTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 6), )
+if mibBuilder.loadTexts: cfmFcipDynamicRouteTable.setStatus('current')
+cfmFcipDynamicRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 6, 1), ).setIndexNames((0, "CISCO-FCIP-MGMT-MIB", "cfmFcipEntityId"), (0, "CISCO-FCIP-MGMT-MIB", "cfmFcipDynamicRouteDID"), (0, "CISCO-FCIP-MGMT-MIB", "cfmFcipDynamicRouteIndex"))
+if mibBuilder.loadTexts: cfmFcipDynamicRouteEntry.setStatus('current')
+cfmFcipDynamicRouteIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 6, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: cfmFcipDynamicRouteIndex.setStatus('current')
+cfmFcipDynamicRouteDID = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 6, 1, 2), DomainId())
+if mibBuilder.loadTexts: cfmFcipDynamicRouteDID.setStatus('current')
+cfmFcipDynamicRouteLinkIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 6, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipDynamicRouteLinkIndex.setStatus('current')
+cfmFcipStaticRouteTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 7), )
+if mibBuilder.loadTexts: cfmFcipStaticRouteTable.setStatus('current')
+cfmFcipStaticRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 7, 1), ).setIndexNames((0, "CISCO-FCIP-MGMT-MIB", "cfmFcipEntityId"), (0, "CISCO-FCIP-MGMT-MIB", "cfmFcipStaRtDID"), (0, "CISCO-FCIP-MGMT-MIB", "cfmFcipStaRtIndex"))
+if mibBuilder.loadTexts: cfmFcipStaticRouteEntry.setStatus('current')
+cfmFcipStaRtIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 7, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: cfmFcipStaRtIndex.setStatus('current')
+cfmFcipStaRtDID = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 7, 1, 2), DomainId())
+if mibBuilder.loadTexts: cfmFcipStaRtDID.setStatus('current')
+cfmFcipStaRtRemFcipEntWWN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 7, 1, 3), FcNameId()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipStaRtRemFcipEntWWN.setStatus('current')
+cfmFcipStaRtRemFcipEntId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 7, 1, 4), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipStaRtRemFcipEntId.setStatus('current')
+cfmFcipStaRtRemFcipEntAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 7, 1, 5), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipStaRtRemFcipEntAddrType.setStatus('current')
+cfmFcipStaRtRemFcipEntAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 7, 1, 6), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipStaRtRemFcipEntAddr.setStatus('current')
+cfmFcipStaRtStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 7, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfmFcipStaRtStatus.setStatus('current')
+cfmFcipLinkErrorsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 8), )
+if mibBuilder.loadTexts: cfmFcipLinkErrorsTable.setStatus('current')
+cfmFcipLinkErrorsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 8, 1), ).setIndexNames((0, "CISCO-FCIP-MGMT-MIB", "cfmFcipEntityId"), (0, "CISCO-FCIP-MGMT-MIB", "cfmFcipLinkIndex"))
+if mibBuilder.loadTexts: cfmFcipLinkErrorsEntry.setStatus('current')
+cfmFcipLinkFcipLossofFcSynchs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 8, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkFcipLossofFcSynchs.setStatus('current')
+cfmFcipLinkFcipSfNotRcv = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 8, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkFcipSfNotRcv.setStatus('current')
+cfmFcipLinkFcipSfRespNotRcv = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 8, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkFcipSfRespNotRcv.setStatus('current')
+cfmFcipLinkFcipSfRespMismatch = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 8, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkFcipSfRespMismatch.setStatus('current')
+cfmFcipLinkFcipSfInvalidNonce = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 8, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkFcipSfInvalidNonce.setStatus('current')
+cfmFcipLinkFcipDuplicateSfRcv = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 8, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkFcipDuplicateSfRcv.setStatus('current')
+cfmFcipLinkFcipSfInvalidWWN = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 8, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkFcipSfInvalidWWN.setStatus('current')
+cfmFcipLinkFcipBB2LkaTimeOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 8, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkFcipBB2LkaTimeOut.setStatus('current')
+cfmFcipLinkFcipSntpTimeStampExp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 8, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkFcipSntpTimeStampExp.setStatus('current')
+cfmFcipLinkTcpTooManyErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 8, 1, 10), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkTcpTooManyErrors.setStatus('current')
+cfmFcipLinkTcpKeepAliveTimeOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 8, 1, 11), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkTcpKeepAliveTimeOut.setStatus('current')
+cfmFcipLinkTcpExDatagramsDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 8, 1, 12), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkTcpExDatagramsDropped.setStatus('current')
+cfmFcipLinkTcpSaParamMismatch = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 96, 1, 1, 8, 1, 13), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfmFcipLinkTcpSaParamMismatch.setStatus('current')
+cfmFcipCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 96, 2, 1))
+cfmFcipGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 96, 2, 2))
+cfmFcipCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 96, 2, 1, 1)).setObjects(("CISCO-FCIP-MGMT-MIB", "cfmFcipEntityScalarGroup"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipEntityInstanceGroup"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkGroup"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipTcpConnGroup"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipDynamicRouteGroup"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipStaticRouteGroup"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkErrorsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfmFcipCompliance = cfmFcipCompliance.setStatus('current')
+cfmFcipEntityScalarGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 96, 2, 2, 1)).setObjects(("CISCO-FCIP-MGMT-MIB", "cfmFcipDynIpConfType"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipFabricWWN"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfmFcipEntityScalarGroup = cfmFcipEntityScalarGroup.setStatus('current')
+cfmFcipEntityInstanceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 96, 2, 2, 2)).setObjects(("CISCO-FCIP-MGMT-MIB", "cfmFcipEntityAddressType"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipEntityAddress"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipEntityTcpConnPort"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipEntitySACKOption"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipEntitySeqNumWrap"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipEntityPHBSupport"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipEntityStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfmFcipEntityInstanceGroup = cfmFcipEntityInstanceGroup.setStatus('current')
+cfmFcipLinkGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 96, 2, 2, 3)).setObjects(("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkIfIndex"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkCost"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkLocalFcipEntityMode"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkRemFcipEntityWWN"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkRemFcipEntityId"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkRemFcipEntityAddrType"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkRemFcipEntityAddress"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkRemFcipEntityMode"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfmFcipLinkGroup = cfmFcipLinkGroup.setStatus('current')
+cfmFcipTcpConnGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 96, 2, 2, 4)).setObjects(("CISCO-FCIP-MGMT-MIB", "cfmFcipTcpConnPurpose"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipTcpConnRWSize"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipTcpConnMSS"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipTcpConnTimeOut"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfmFcipTcpConnGroup = cfmFcipTcpConnGroup.setStatus('current')
+cfmFcipDynamicRouteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 96, 2, 2, 5)).setObjects(("CISCO-FCIP-MGMT-MIB", "cfmFcipDynamicRouteLinkIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfmFcipDynamicRouteGroup = cfmFcipDynamicRouteGroup.setStatus('current')
+cfmFcipStaticRouteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 96, 2, 2, 6)).setObjects(("CISCO-FCIP-MGMT-MIB", "cfmFcipStaRtRemFcipEntWWN"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipStaRtRemFcipEntId"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipStaRtRemFcipEntAddrType"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipStaRtRemFcipEntAddr"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipStaRtStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfmFcipStaticRouteGroup = cfmFcipStaticRouteGroup.setStatus('current')
+cfmFcipLinkErrorsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 96, 2, 2, 7)).setObjects(("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkFcipLossofFcSynchs"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkFcipSfNotRcv"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkFcipSfRespNotRcv"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkFcipSfRespMismatch"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkFcipSfInvalidNonce"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkFcipDuplicateSfRcv"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkFcipSfInvalidWWN"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkFcipBB2LkaTimeOut"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkFcipSntpTimeStampExp"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkTcpTooManyErrors"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkTcpKeepAliveTimeOut"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkTcpExDatagramsDropped"), ("CISCO-FCIP-MGMT-MIB", "cfmFcipLinkTcpSaParamMismatch"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfmFcipLinkErrorsGroup = cfmFcipLinkErrorsGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-FCIP-MGMT-MIB", cfmFcipLinkFcipSfInvalidNonce=cfmFcipLinkFcipSfInvalidNonce, cfmFcipLinkFcipBB2LkaTimeOut=cfmFcipLinkFcipBB2LkaTimeOut, cfmFcipLinkRemFcipEntityAddress=cfmFcipLinkRemFcipEntityAddress, cfmFcipTcpConnGroup=cfmFcipTcpConnGroup, cfmFcipFabricWWN=cfmFcipFabricWWN, cfmFcipLinkErrorsTable=cfmFcipLinkErrorsTable, cfmFcipTcpConnLocalPort=cfmFcipTcpConnLocalPort, cfmFcipLinkFcipSfRespMismatch=cfmFcipLinkFcipSfRespMismatch, cfmFcipStaticRouteEntry=cfmFcipStaticRouteEntry, ciscoFcipMgmtMIB=ciscoFcipMgmtMIB, cfmFcipLinkIndex=cfmFcipLinkIndex, CfmFcEntityMode=CfmFcEntityMode, cfmFcipEntityAddress=cfmFcipEntityAddress, cfmFcipEntityTcpConnPort=cfmFcipEntityTcpConnPort, cfmFcipLinkFcipSfNotRcv=cfmFcipLinkFcipSfNotRcv, cfmFcipLinkRemFcipEntityAddrType=cfmFcipLinkRemFcipEntityAddrType, cfmFcipDynamicRouteDID=cfmFcipDynamicRouteDID, cfmFcipNotifications=cfmFcipNotifications, cfmFcipEntityPHBSupport=cfmFcipEntityPHBSupport, cfmFcipTcpConnTimeOut=cfmFcipTcpConnTimeOut, cfmFcipLinkLocalFcipEntityMode=cfmFcipLinkLocalFcipEntityMode, cfmFcipLinkFcipSfRespNotRcv=cfmFcipLinkFcipSfRespNotRcv, cfmFcipLinkGroup=cfmFcipLinkGroup, cfmFcipStaRtRemFcipEntAddrType=cfmFcipStaRtRemFcipEntAddrType, cfmFcipDynamicRouteTable=cfmFcipDynamicRouteTable, cfmFcipTcpConnMSS=cfmFcipTcpConnMSS, cfmFcipLinkTcpTooManyErrors=cfmFcipLinkTcpTooManyErrors, cfmFcipEntityInstanceTable=cfmFcipEntityInstanceTable, cfmFcipLinkEntry=cfmFcipLinkEntry, cfmFcipEntitySeqNumWrap=cfmFcipEntitySeqNumWrap, cfmFcipDynIpConfType=cfmFcipDynIpConfType, cfmFcipStaRtIndex=cfmFcipStaRtIndex, cfmFcipStaRtDID=cfmFcipStaRtDID, cfmFcipEntityAddressType=cfmFcipEntityAddressType, cfmFcipStaRtRemFcipEntId=cfmFcipStaRtRemFcipEntId, cfmFcipCompliances=cfmFcipCompliances, cfmFcipEntityInstanceEntry=cfmFcipEntityInstanceEntry, cfmFcipCompliance=cfmFcipCompliance, PYSNMP_MODULE_ID=ciscoFcipMgmtMIB, cfmFcipGroups=cfmFcipGroups, cfmFcipDynamicRouteEntry=cfmFcipDynamicRouteEntry, cfmFcipLinkFcipDuplicateSfRcv=cfmFcipLinkFcipDuplicateSfRcv, cfmFcipConformance=cfmFcipConformance, cfmFcipEntityStatus=cfmFcipEntityStatus, cfmFcipLinkRemFcipEntityWWN=cfmFcipLinkRemFcipEntityWWN, cfmFcipStaRtRemFcipEntAddr=cfmFcipStaRtRemFcipEntAddr, cfmFcipLinkTcpSaParamMismatch=cfmFcipLinkTcpSaParamMismatch, cfmFcipLinkErrorsGroup=cfmFcipLinkErrorsGroup, cfmFcipEntityInstanceGroup=cfmFcipEntityInstanceGroup, cfmFcipLinkFcipSntpTimeStampExp=cfmFcipLinkFcipSntpTimeStampExp, cfmFcipEntityId=cfmFcipEntityId, cfmFcipStaRtRemFcipEntWWN=cfmFcipStaRtRemFcipEntWWN, cfmFcipEntityScalarGroup=cfmFcipEntityScalarGroup, cfmFcipLinkTcpKeepAliveTimeOut=cfmFcipLinkTcpKeepAliveTimeOut, cfmFcipStaticRouteTable=cfmFcipStaticRouteTable, cfmFcipDynamicRouteIndex=cfmFcipDynamicRouteIndex, cfmFcipTcpConnRemPort=cfmFcipTcpConnRemPort, ciscoFcipObjects=ciscoFcipObjects, cfmFcipLinkTable=cfmFcipLinkTable, cfmFcipLinkCost=cfmFcipLinkCost, cfmFcipLinkErrorsEntry=cfmFcipLinkErrorsEntry, cfmFcipLinkFcipLossofFcSynchs=cfmFcipLinkFcipLossofFcSynchs, cfmFcipTcpConnTable=cfmFcipTcpConnTable, cfmFcipEntitySACKOption=cfmFcipEntitySACKOption, cfmFcipStaRtStatus=cfmFcipStaRtStatus, cfmFcipConfig=cfmFcipConfig, cfmFcipLinkIfIndex=cfmFcipLinkIfIndex, cfmFcipLinkFcipSfInvalidWWN=cfmFcipLinkFcipSfInvalidWWN, cfmFcipLinkStatus=cfmFcipLinkStatus, cfmFcipDynamicRouteGroup=cfmFcipDynamicRouteGroup, cfmFcipDynamicRouteLinkIndex=cfmFcipDynamicRouteLinkIndex, cfmFcipTcpConnRWSize=cfmFcipTcpConnRWSize, cfmFcipLinkTcpExDatagramsDropped=cfmFcipLinkTcpExDatagramsDropped, cfmFcipTcpConnEntry=cfmFcipTcpConnEntry, cfmFcipStaticRouteGroup=cfmFcipStaticRouteGroup, cfmFcipLinkRemFcipEntityId=cfmFcipLinkRemFcipEntityId, cfmFcipLinkRemFcipEntityMode=cfmFcipLinkRemFcipEntityMode, cfmFcipTcpConnPurpose=cfmFcipTcpConnPurpose, cfmFcipNotification=cfmFcipNotification)

@@ -1,348 +1,150 @@
-_A0='ciscoIPExtCtrlGroupRev2'
-_z='cipslaPercentileLatestSum2'
-_y='cipslaPercentileLatestSum'
-_x='cipslaPercentileLatestNum'
-_w='cipslaPercentileLatestAvg'
-_v='cipslaPercentileLatestMax'
-_u='cipslaPercentileLatestMin'
-_t='cipslaPercentileJitterAvg'
-_s='cipslaPercentileJitterDS'
-_r='cipslaPercentileJitterSD'
-_q='cipslaPercentileOWDS'
-_p='cipslaPercentileOWSD'
-_o='cipslaPercentileRTT'
-_n='crttMonIPHistoryCollectionAddress'
-_m='crttMonIPHistoryCollectionAddrType'
-_l='crttMonIPLpdGrpStatsTargetPEAddr'
-_k='crttMonIPLpdGrpStatsTargetPEAddrType'
-_j='crttMonIPStatsCollectAddress'
-_i='crttMonIPStatsCollectAddressType'
-_h='crttMonIPEchoPathAdminHopAddress'
-_g='crttMonIPEchoPathAdminHopAddrType'
-_f='crttMonIPLatestRttOperAddress'
-_e='crttMonIPLatestRttOperAddressType'
-_d='crttMonIPEchoAdminFlowLabel'
-_c='crttMonIPEchoAdminDscp'
-_b='crttMonIPEchoAdminLSPSelAddress'
-_a='crttMonIPEchoAdminLSPSelAddrType'
-_Z='crttMonIPEchoAdminNameServerAddress'
-_Y='crttMonIPEchoAdminNameServerAddrType'
-_X='crttMonIPEchoAdminSourceAddress'
-_W='crttMonIPEchoAdminSourceAddrType'
-_V='crttMonIPEchoAdminTargetAddress'
-_U='crttMonIPEchoAdminTargetAddrType'
-_T='crttMonIPHistoryCollectionEntry'
-_S='crttMonIPLpdGrpStatsEntry'
-_R='crttMonIPStatsCollectEntry'
-_Q='crttMonIPEchoPathAdminEntry'
-_P='crttMonIPEchoAdminEntry'
-_O='cipslaPercentileTypeVar'
-_N='DscpOrAny'
-_M='CipslaPercentileVar'
-_L='ciscoIPExtCtrlGroupRev1'
-_K='rttMonCtrlAdminIndex'
-_J='CISCO-RTTMON-MIB'
-_I='percent'
-_H='Integer32'
-_G='read-create'
-_F='InetAddressType'
-_E='InetAddress'
-_D='read-only'
-_C='read-write'
-_B='CISCO-RTTMON-IP-EXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-rttMonCtrlAdminEntry,rttMonCtrlAdminIndex,rttMonCtrlOperEntry,rttMonEchoAdminEntry,rttMonEchoPathAdminEntry,rttMonHistoryCollectionEntry,rttMonLpdGrpStatsEntry,rttMonStatsCollectEntry=mibBuilder.importSymbols(_J,'rttMonCtrlAdminEntry',_K,'rttMonCtrlOperEntry','rttMonEchoAdminEntry','rttMonEchoPathAdminEntry','rttMonHistoryCollectionEntry','rttMonLpdGrpStatsEntry','rttMonStatsCollectEntry')
-CipslaPercentileVar,=mibBuilder.importSymbols('CISCO-RTTMON-TC-MIB',_M)
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-DscpOrAny,=mibBuilder.importSymbols('DIFFSERV-DSCP-TC',_N)
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB',_E,_F)
-IPv6FlowLabelOrAny,=mibBuilder.importSymbols('IPV6-FLOW-LABEL-MIB','IPv6FlowLabelOrAny')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ciscoRttMonIPExtMIB=ModuleIdentity((1,3,6,1,4,1,9,9,572))
-if mibBuilder.loadTexts:ciscoRttMonIPExtMIB.setRevisions(('2018-04-09 00:00','2017-09-06 00:00','2006-08-02 00:00'))
-_CrttMonIPExtObjects_ObjectIdentity=ObjectIdentity
-crttMonIPExtObjects=_CrttMonIPExtObjects_ObjectIdentity((1,3,6,1,4,1,9,9,572,1))
-_CrttMonIPEchoAdminTable_Object=MibTable
-crttMonIPEchoAdminTable=_CrttMonIPEchoAdminTable_Object((1,3,6,1,4,1,9,9,572,1,1))
-if mibBuilder.loadTexts:crttMonIPEchoAdminTable.setStatus(_A)
-_CrttMonIPEchoAdminEntry_Object=MibTableRow
-crttMonIPEchoAdminEntry=_CrttMonIPEchoAdminEntry_Object((1,3,6,1,4,1,9,9,572,1,1,1))
-if mibBuilder.loadTexts:crttMonIPEchoAdminEntry.setStatus(_A)
-class _CrttMonIPEchoAdminTargetAddrType_Type(InetAddressType):defaultValue=0
-_CrttMonIPEchoAdminTargetAddrType_Type.__name__=_F
-_CrttMonIPEchoAdminTargetAddrType_Object=MibTableColumn
-crttMonIPEchoAdminTargetAddrType=_CrttMonIPEchoAdminTargetAddrType_Object((1,3,6,1,4,1,9,9,572,1,1,1,1),_CrttMonIPEchoAdminTargetAddrType_Type())
-crttMonIPEchoAdminTargetAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:crttMonIPEchoAdminTargetAddrType.setStatus(_A)
-class _CrttMonIPEchoAdminTargetAddress_Type(InetAddress):defaultValue=OctetString('')
-_CrttMonIPEchoAdminTargetAddress_Type.__name__=_E
-_CrttMonIPEchoAdminTargetAddress_Object=MibTableColumn
-crttMonIPEchoAdminTargetAddress=_CrttMonIPEchoAdminTargetAddress_Object((1,3,6,1,4,1,9,9,572,1,1,1,2),_CrttMonIPEchoAdminTargetAddress_Type())
-crttMonIPEchoAdminTargetAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:crttMonIPEchoAdminTargetAddress.setStatus(_A)
-class _CrttMonIPEchoAdminSourceAddrType_Type(InetAddressType):defaultValue=0
-_CrttMonIPEchoAdminSourceAddrType_Type.__name__=_F
-_CrttMonIPEchoAdminSourceAddrType_Object=MibTableColumn
-crttMonIPEchoAdminSourceAddrType=_CrttMonIPEchoAdminSourceAddrType_Object((1,3,6,1,4,1,9,9,572,1,1,1,3),_CrttMonIPEchoAdminSourceAddrType_Type())
-crttMonIPEchoAdminSourceAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:crttMonIPEchoAdminSourceAddrType.setStatus(_A)
-class _CrttMonIPEchoAdminSourceAddress_Type(InetAddress):defaultValue=OctetString('')
-_CrttMonIPEchoAdminSourceAddress_Type.__name__=_E
-_CrttMonIPEchoAdminSourceAddress_Object=MibTableColumn
-crttMonIPEchoAdminSourceAddress=_CrttMonIPEchoAdminSourceAddress_Object((1,3,6,1,4,1,9,9,572,1,1,1,4),_CrttMonIPEchoAdminSourceAddress_Type())
-crttMonIPEchoAdminSourceAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:crttMonIPEchoAdminSourceAddress.setStatus(_A)
-class _CrttMonIPEchoAdminNameServerAddrType_Type(InetAddressType):defaultValue=0
-_CrttMonIPEchoAdminNameServerAddrType_Type.__name__=_F
-_CrttMonIPEchoAdminNameServerAddrType_Object=MibTableColumn
-crttMonIPEchoAdminNameServerAddrType=_CrttMonIPEchoAdminNameServerAddrType_Object((1,3,6,1,4,1,9,9,572,1,1,1,5),_CrttMonIPEchoAdminNameServerAddrType_Type())
-crttMonIPEchoAdminNameServerAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:crttMonIPEchoAdminNameServerAddrType.setStatus(_A)
-class _CrttMonIPEchoAdminNameServerAddress_Type(InetAddress):defaultValue=OctetString('')
-_CrttMonIPEchoAdminNameServerAddress_Type.__name__=_E
-_CrttMonIPEchoAdminNameServerAddress_Object=MibTableColumn
-crttMonIPEchoAdminNameServerAddress=_CrttMonIPEchoAdminNameServerAddress_Object((1,3,6,1,4,1,9,9,572,1,1,1,6),_CrttMonIPEchoAdminNameServerAddress_Type())
-crttMonIPEchoAdminNameServerAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:crttMonIPEchoAdminNameServerAddress.setStatus(_A)
-class _CrttMonIPEchoAdminLSPSelAddrType_Type(InetAddressType):defaultValue=0
-_CrttMonIPEchoAdminLSPSelAddrType_Type.__name__=_F
-_CrttMonIPEchoAdminLSPSelAddrType_Object=MibTableColumn
-crttMonIPEchoAdminLSPSelAddrType=_CrttMonIPEchoAdminLSPSelAddrType_Object((1,3,6,1,4,1,9,9,572,1,1,1,7),_CrttMonIPEchoAdminLSPSelAddrType_Type())
-crttMonIPEchoAdminLSPSelAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:crttMonIPEchoAdminLSPSelAddrType.setStatus(_A)
-class _CrttMonIPEchoAdminLSPSelAddress_Type(InetAddress):defaultValue=OctetString('')
-_CrttMonIPEchoAdminLSPSelAddress_Type.__name__=_E
-_CrttMonIPEchoAdminLSPSelAddress_Object=MibTableColumn
-crttMonIPEchoAdminLSPSelAddress=_CrttMonIPEchoAdminLSPSelAddress_Object((1,3,6,1,4,1,9,9,572,1,1,1,8),_CrttMonIPEchoAdminLSPSelAddress_Type())
-crttMonIPEchoAdminLSPSelAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:crttMonIPEchoAdminLSPSelAddress.setStatus(_A)
-class _CrttMonIPEchoAdminDscp_Type(DscpOrAny):defaultValue=-1
-_CrttMonIPEchoAdminDscp_Type.__name__=_N
-_CrttMonIPEchoAdminDscp_Object=MibTableColumn
-crttMonIPEchoAdminDscp=_CrttMonIPEchoAdminDscp_Object((1,3,6,1,4,1,9,9,572,1,1,1,9),_CrttMonIPEchoAdminDscp_Type())
-crttMonIPEchoAdminDscp.setMaxAccess(_C)
-if mibBuilder.loadTexts:crttMonIPEchoAdminDscp.setStatus(_A)
-_CrttMonIPEchoAdminFlowLabel_Type=IPv6FlowLabelOrAny
-_CrttMonIPEchoAdminFlowLabel_Object=MibTableColumn
-crttMonIPEchoAdminFlowLabel=_CrttMonIPEchoAdminFlowLabel_Object((1,3,6,1,4,1,9,9,572,1,1,1,10),_CrttMonIPEchoAdminFlowLabel_Type())
-crttMonIPEchoAdminFlowLabel.setMaxAccess(_C)
-if mibBuilder.loadTexts:crttMonIPEchoAdminFlowLabel.setStatus(_A)
-_CrttMonIPLatestRttOperTable_Object=MibTable
-crttMonIPLatestRttOperTable=_CrttMonIPLatestRttOperTable_Object((1,3,6,1,4,1,9,9,572,1,2))
-if mibBuilder.loadTexts:crttMonIPLatestRttOperTable.setStatus(_A)
-_CrttMonIPLatestRttOperEntry_Object=MibTableRow
-crttMonIPLatestRttOperEntry=_CrttMonIPLatestRttOperEntry_Object((1,3,6,1,4,1,9,9,572,1,2,1))
-crttMonIPLatestRttOperEntry.setIndexNames((0,_J,_K))
-if mibBuilder.loadTexts:crttMonIPLatestRttOperEntry.setStatus(_A)
-class _CrttMonIPLatestRttOperAddressType_Type(InetAddressType):defaultValue=0
-_CrttMonIPLatestRttOperAddressType_Type.__name__=_F
-_CrttMonIPLatestRttOperAddressType_Object=MibTableColumn
-crttMonIPLatestRttOperAddressType=_CrttMonIPLatestRttOperAddressType_Object((1,3,6,1,4,1,9,9,572,1,2,1,1),_CrttMonIPLatestRttOperAddressType_Type())
-crttMonIPLatestRttOperAddressType.setMaxAccess(_G)
-if mibBuilder.loadTexts:crttMonIPLatestRttOperAddressType.setStatus(_A)
-class _CrttMonIPLatestRttOperAddress_Type(InetAddress):defaultValue=OctetString('')
-_CrttMonIPLatestRttOperAddress_Type.__name__=_E
-_CrttMonIPLatestRttOperAddress_Object=MibTableColumn
-crttMonIPLatestRttOperAddress=_CrttMonIPLatestRttOperAddress_Object((1,3,6,1,4,1,9,9,572,1,2,1,2),_CrttMonIPLatestRttOperAddress_Type())
-crttMonIPLatestRttOperAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:crttMonIPLatestRttOperAddress.setStatus(_A)
-_CrttMonIPEchoPathAdminTable_Object=MibTable
-crttMonIPEchoPathAdminTable=_CrttMonIPEchoPathAdminTable_Object((1,3,6,1,4,1,9,9,572,1,3))
-if mibBuilder.loadTexts:crttMonIPEchoPathAdminTable.setStatus(_A)
-_CrttMonIPEchoPathAdminEntry_Object=MibTableRow
-crttMonIPEchoPathAdminEntry=_CrttMonIPEchoPathAdminEntry_Object((1,3,6,1,4,1,9,9,572,1,3,1))
-if mibBuilder.loadTexts:crttMonIPEchoPathAdminEntry.setStatus(_A)
-class _CrttMonIPEchoPathAdminHopAddrType_Type(InetAddressType):defaultValue=0
-_CrttMonIPEchoPathAdminHopAddrType_Type.__name__=_F
-_CrttMonIPEchoPathAdminHopAddrType_Object=MibTableColumn
-crttMonIPEchoPathAdminHopAddrType=_CrttMonIPEchoPathAdminHopAddrType_Object((1,3,6,1,4,1,9,9,572,1,3,1,1),_CrttMonIPEchoPathAdminHopAddrType_Type())
-crttMonIPEchoPathAdminHopAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:crttMonIPEchoPathAdminHopAddrType.setStatus(_A)
-class _CrttMonIPEchoPathAdminHopAddress_Type(InetAddress):defaultValue=OctetString('')
-_CrttMonIPEchoPathAdminHopAddress_Type.__name__=_E
-_CrttMonIPEchoPathAdminHopAddress_Object=MibTableColumn
-crttMonIPEchoPathAdminHopAddress=_CrttMonIPEchoPathAdminHopAddress_Object((1,3,6,1,4,1,9,9,572,1,3,1,2),_CrttMonIPEchoPathAdminHopAddress_Type())
-crttMonIPEchoPathAdminHopAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:crttMonIPEchoPathAdminHopAddress.setStatus(_A)
-_CrttMonIPStatsCollectTable_Object=MibTable
-crttMonIPStatsCollectTable=_CrttMonIPStatsCollectTable_Object((1,3,6,1,4,1,9,9,572,1,4))
-if mibBuilder.loadTexts:crttMonIPStatsCollectTable.setStatus(_A)
-_CrttMonIPStatsCollectEntry_Object=MibTableRow
-crttMonIPStatsCollectEntry=_CrttMonIPStatsCollectEntry_Object((1,3,6,1,4,1,9,9,572,1,4,1))
-if mibBuilder.loadTexts:crttMonIPStatsCollectEntry.setStatus(_A)
-class _CrttMonIPStatsCollectAddressType_Type(InetAddressType):defaultValue=0
-_CrttMonIPStatsCollectAddressType_Type.__name__=_F
-_CrttMonIPStatsCollectAddressType_Object=MibTableColumn
-crttMonIPStatsCollectAddressType=_CrttMonIPStatsCollectAddressType_Object((1,3,6,1,4,1,9,9,572,1,4,1,1),_CrttMonIPStatsCollectAddressType_Type())
-crttMonIPStatsCollectAddressType.setMaxAccess(_D)
-if mibBuilder.loadTexts:crttMonIPStatsCollectAddressType.setStatus(_A)
-class _CrttMonIPStatsCollectAddress_Type(InetAddress):defaultValue=OctetString('')
-_CrttMonIPStatsCollectAddress_Type.__name__=_E
-_CrttMonIPStatsCollectAddress_Object=MibTableColumn
-crttMonIPStatsCollectAddress=_CrttMonIPStatsCollectAddress_Object((1,3,6,1,4,1,9,9,572,1,4,1,2),_CrttMonIPStatsCollectAddress_Type())
-crttMonIPStatsCollectAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:crttMonIPStatsCollectAddress.setStatus(_A)
-_CrttMonIPLpdGrpStatsTable_Object=MibTable
-crttMonIPLpdGrpStatsTable=_CrttMonIPLpdGrpStatsTable_Object((1,3,6,1,4,1,9,9,572,1,5))
-if mibBuilder.loadTexts:crttMonIPLpdGrpStatsTable.setStatus(_A)
-_CrttMonIPLpdGrpStatsEntry_Object=MibTableRow
-crttMonIPLpdGrpStatsEntry=_CrttMonIPLpdGrpStatsEntry_Object((1,3,6,1,4,1,9,9,572,1,5,1))
-if mibBuilder.loadTexts:crttMonIPLpdGrpStatsEntry.setStatus(_A)
-class _CrttMonIPLpdGrpStatsTargetPEAddrType_Type(InetAddressType):defaultValue=0
-_CrttMonIPLpdGrpStatsTargetPEAddrType_Type.__name__=_F
-_CrttMonIPLpdGrpStatsTargetPEAddrType_Object=MibTableColumn
-crttMonIPLpdGrpStatsTargetPEAddrType=_CrttMonIPLpdGrpStatsTargetPEAddrType_Object((1,3,6,1,4,1,9,9,572,1,5,1,1),_CrttMonIPLpdGrpStatsTargetPEAddrType_Type())
-crttMonIPLpdGrpStatsTargetPEAddrType.setMaxAccess(_D)
-if mibBuilder.loadTexts:crttMonIPLpdGrpStatsTargetPEAddrType.setStatus(_A)
-class _CrttMonIPLpdGrpStatsTargetPEAddr_Type(InetAddress):defaultValue=OctetString('')
-_CrttMonIPLpdGrpStatsTargetPEAddr_Type.__name__=_E
-_CrttMonIPLpdGrpStatsTargetPEAddr_Object=MibTableColumn
-crttMonIPLpdGrpStatsTargetPEAddr=_CrttMonIPLpdGrpStatsTargetPEAddr_Object((1,3,6,1,4,1,9,9,572,1,5,1,2),_CrttMonIPLpdGrpStatsTargetPEAddr_Type())
-crttMonIPLpdGrpStatsTargetPEAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:crttMonIPLpdGrpStatsTargetPEAddr.setStatus(_A)
-_CrttMonIPHistoryCollectionTable_Object=MibTable
-crttMonIPHistoryCollectionTable=_CrttMonIPHistoryCollectionTable_Object((1,3,6,1,4,1,9,9,572,1,6))
-if mibBuilder.loadTexts:crttMonIPHistoryCollectionTable.setStatus(_A)
-_CrttMonIPHistoryCollectionEntry_Object=MibTableRow
-crttMonIPHistoryCollectionEntry=_CrttMonIPHistoryCollectionEntry_Object((1,3,6,1,4,1,9,9,572,1,6,1))
-if mibBuilder.loadTexts:crttMonIPHistoryCollectionEntry.setStatus(_A)
-class _CrttMonIPHistoryCollectionAddrType_Type(InetAddressType):defaultValue=0
-_CrttMonIPHistoryCollectionAddrType_Type.__name__=_F
-_CrttMonIPHistoryCollectionAddrType_Object=MibTableColumn
-crttMonIPHistoryCollectionAddrType=_CrttMonIPHistoryCollectionAddrType_Object((1,3,6,1,4,1,9,9,572,1,6,1,1),_CrttMonIPHistoryCollectionAddrType_Type())
-crttMonIPHistoryCollectionAddrType.setMaxAccess(_D)
-if mibBuilder.loadTexts:crttMonIPHistoryCollectionAddrType.setStatus(_A)
-class _CrttMonIPHistoryCollectionAddress_Type(InetAddress):defaultValue=OctetString('')
-_CrttMonIPHistoryCollectionAddress_Type.__name__=_E
-_CrttMonIPHistoryCollectionAddress_Object=MibTableColumn
-crttMonIPHistoryCollectionAddress=_CrttMonIPHistoryCollectionAddress_Object((1,3,6,1,4,1,9,9,572,1,6,1,2),_CrttMonIPHistoryCollectionAddress_Type())
-crttMonIPHistoryCollectionAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:crttMonIPHistoryCollectionAddress.setStatus(_A)
-_CipslaPercentileConfigTable_Object=MibTable
-cipslaPercentileConfigTable=_CipslaPercentileConfigTable_Object((1,3,6,1,4,1,9,9,572,1,7))
-if mibBuilder.loadTexts:cipslaPercentileConfigTable.setStatus(_A)
-_CipslaPercentileConfigEntry_Object=MibTableRow
-cipslaPercentileConfigEntry=_CipslaPercentileConfigEntry_Object((1,3,6,1,4,1,9,9,572,1,7,1))
-cipslaPercentileConfigEntry.setIndexNames((0,_J,_K))
-if mibBuilder.loadTexts:cipslaPercentileConfigEntry.setStatus(_A)
-class _CipslaPercentileRTT_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(90,100))
-_CipslaPercentileRTT_Type.__name__=_H
-_CipslaPercentileRTT_Object=MibTableColumn
-cipslaPercentileRTT=_CipslaPercentileRTT_Object((1,3,6,1,4,1,9,9,572,1,7,1,1),_CipslaPercentileRTT_Type())
-cipslaPercentileRTT.setMaxAccess(_G)
-if mibBuilder.loadTexts:cipslaPercentileRTT.setStatus(_A)
-if mibBuilder.loadTexts:cipslaPercentileRTT.setUnits(_I)
-class _CipslaPercentileOWSD_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(90,100))
-_CipslaPercentileOWSD_Type.__name__=_H
-_CipslaPercentileOWSD_Object=MibTableColumn
-cipslaPercentileOWSD=_CipslaPercentileOWSD_Object((1,3,6,1,4,1,9,9,572,1,7,1,2),_CipslaPercentileOWSD_Type())
-cipslaPercentileOWSD.setMaxAccess(_G)
-if mibBuilder.loadTexts:cipslaPercentileOWSD.setStatus(_A)
-if mibBuilder.loadTexts:cipslaPercentileOWSD.setUnits(_I)
-class _CipslaPercentileOWDS_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(90,100))
-_CipslaPercentileOWDS_Type.__name__=_H
-_CipslaPercentileOWDS_Object=MibTableColumn
-cipslaPercentileOWDS=_CipslaPercentileOWDS_Object((1,3,6,1,4,1,9,9,572,1,7,1,3),_CipslaPercentileOWDS_Type())
-cipslaPercentileOWDS.setMaxAccess(_G)
-if mibBuilder.loadTexts:cipslaPercentileOWDS.setStatus(_A)
-if mibBuilder.loadTexts:cipslaPercentileOWDS.setUnits(_I)
-class _CipslaPercentileJitterSD_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(90,100))
-_CipslaPercentileJitterSD_Type.__name__=_H
-_CipslaPercentileJitterSD_Object=MibTableColumn
-cipslaPercentileJitterSD=_CipslaPercentileJitterSD_Object((1,3,6,1,4,1,9,9,572,1,7,1,4),_CipslaPercentileJitterSD_Type())
-cipslaPercentileJitterSD.setMaxAccess(_G)
-if mibBuilder.loadTexts:cipslaPercentileJitterSD.setStatus(_A)
-if mibBuilder.loadTexts:cipslaPercentileJitterSD.setUnits(_I)
-class _CipslaPercentileJitterDS_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(90,100))
-_CipslaPercentileJitterDS_Type.__name__=_H
-_CipslaPercentileJitterDS_Object=MibTableColumn
-cipslaPercentileJitterDS=_CipslaPercentileJitterDS_Object((1,3,6,1,4,1,9,9,572,1,7,1,5),_CipslaPercentileJitterDS_Type())
-cipslaPercentileJitterDS.setMaxAccess(_G)
-if mibBuilder.loadTexts:cipslaPercentileJitterDS.setStatus(_A)
-if mibBuilder.loadTexts:cipslaPercentileJitterDS.setUnits(_I)
-class _CipslaPercentileJitterAvg_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(90,100))
-_CipslaPercentileJitterAvg_Type.__name__=_H
-_CipslaPercentileJitterAvg_Object=MibTableColumn
-cipslaPercentileJitterAvg=_CipslaPercentileJitterAvg_Object((1,3,6,1,4,1,9,9,572,1,7,1,6),_CipslaPercentileJitterAvg_Type())
-cipslaPercentileJitterAvg.setMaxAccess(_G)
-if mibBuilder.loadTexts:cipslaPercentileJitterAvg.setStatus(_A)
-if mibBuilder.loadTexts:cipslaPercentileJitterAvg.setUnits(_I)
-_CipslaPercentileLatestStatsTable_Object=MibTable
-cipslaPercentileLatestStatsTable=_CipslaPercentileLatestStatsTable_Object((1,3,6,1,4,1,9,9,572,1,8))
-if mibBuilder.loadTexts:cipslaPercentileLatestStatsTable.setStatus(_A)
-_CipslaPercentileLatestStatsEntry_Object=MibTableRow
-cipslaPercentileLatestStatsEntry=_CipslaPercentileLatestStatsEntry_Object((1,3,6,1,4,1,9,9,572,1,8,1))
-cipslaPercentileLatestStatsEntry.setIndexNames((0,_B,_O),(0,_J,_K))
-if mibBuilder.loadTexts:cipslaPercentileLatestStatsEntry.setStatus(_A)
-class _CipslaPercentileTypeVar_Type(CipslaPercentileVar):subtypeSpec=CipslaPercentileVar.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('rtt',1),('owsd',2),('owds',3),('jittersd',4),('jitterds',5),('jitteravg',6)))
-_CipslaPercentileTypeVar_Type.__name__=_M
-_CipslaPercentileTypeVar_Object=MibTableColumn
-cipslaPercentileTypeVar=_CipslaPercentileTypeVar_Object((1,3,6,1,4,1,9,9,572,1,8,1,1),_CipslaPercentileTypeVar_Type())
-cipslaPercentileTypeVar.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:cipslaPercentileTypeVar.setStatus(_A)
-_CipslaPercentileLatestMin_Type=Gauge32
-_CipslaPercentileLatestMin_Object=MibTableColumn
-cipslaPercentileLatestMin=_CipslaPercentileLatestMin_Object((1,3,6,1,4,1,9,9,572,1,8,1,2),_CipslaPercentileLatestMin_Type())
-cipslaPercentileLatestMin.setMaxAccess(_D)
-if mibBuilder.loadTexts:cipslaPercentileLatestMin.setStatus(_A)
-_CipslaPercentileLatestMax_Type=Gauge32
-_CipslaPercentileLatestMax_Object=MibTableColumn
-cipslaPercentileLatestMax=_CipslaPercentileLatestMax_Object((1,3,6,1,4,1,9,9,572,1,8,1,3),_CipslaPercentileLatestMax_Type())
-cipslaPercentileLatestMax.setMaxAccess(_D)
-if mibBuilder.loadTexts:cipslaPercentileLatestMax.setStatus(_A)
-_CipslaPercentileLatestAvg_Type=Gauge32
-_CipslaPercentileLatestAvg_Object=MibTableColumn
-cipslaPercentileLatestAvg=_CipslaPercentileLatestAvg_Object((1,3,6,1,4,1,9,9,572,1,8,1,4),_CipslaPercentileLatestAvg_Type())
-cipslaPercentileLatestAvg.setMaxAccess(_D)
-if mibBuilder.loadTexts:cipslaPercentileLatestAvg.setStatus(_A)
-_CipslaPercentileLatestNum_Type=Gauge32
-_CipslaPercentileLatestNum_Object=MibTableColumn
-cipslaPercentileLatestNum=_CipslaPercentileLatestNum_Object((1,3,6,1,4,1,9,9,572,1,8,1,5),_CipslaPercentileLatestNum_Type())
-cipslaPercentileLatestNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:cipslaPercentileLatestNum.setStatus(_A)
-if mibBuilder.loadTexts:cipslaPercentileLatestNum.setUnits('packets')
-_CipslaPercentileLatestSum_Type=Gauge32
-_CipslaPercentileLatestSum_Object=MibTableColumn
-cipslaPercentileLatestSum=_CipslaPercentileLatestSum_Object((1,3,6,1,4,1,9,9,572,1,8,1,6),_CipslaPercentileLatestSum_Type())
-cipslaPercentileLatestSum.setMaxAccess(_D)
-if mibBuilder.loadTexts:cipslaPercentileLatestSum.setStatus(_A)
-_CipslaPercentileLatestSum2_Type=Gauge32
-_CipslaPercentileLatestSum2_Object=MibTableColumn
-cipslaPercentileLatestSum2=_CipslaPercentileLatestSum2_Object((1,3,6,1,4,1,9,9,572,1,8,1,7),_CipslaPercentileLatestSum2_Type())
-cipslaPercentileLatestSum2.setMaxAccess(_D)
-if mibBuilder.loadTexts:cipslaPercentileLatestSum2.setStatus(_A)
-_CiscoRttMonIPExtMibConformance_ObjectIdentity=ObjectIdentity
-ciscoRttMonIPExtMibConformance=_CiscoRttMonIPExtMibConformance_ObjectIdentity((1,3,6,1,4,1,9,9,572,2))
-_CiscoRttMonIPExtMibCompliances_ObjectIdentity=ObjectIdentity
-ciscoRttMonIPExtMibCompliances=_CiscoRttMonIPExtMibCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,572,2,1))
-_CiscoRttMonIPExtMibGroups_ObjectIdentity=ObjectIdentity
-ciscoRttMonIPExtMibGroups=_CiscoRttMonIPExtMibGroups_ObjectIdentity((1,3,6,1,4,1,9,9,572,2,2))
-rttMonEchoAdminEntry.registerAugmentions((_B,_P))
+#
+# PySNMP MIB module CISCO-RTTMON-IP-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-RTTMON-IP-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+rttMonCtrlAdminIndex, rttMonLpdGrpStatsEntry, rttMonHistoryCollectionEntry, rttMonEchoPathAdminEntry, rttMonStatsCollectEntry, rttMonCtrlAdminEntry, rttMonEchoAdminEntry, rttMonCtrlOperEntry = mibBuilder.importSymbols("CISCO-RTTMON-MIB", "rttMonCtrlAdminIndex", "rttMonLpdGrpStatsEntry", "rttMonHistoryCollectionEntry", "rttMonEchoPathAdminEntry", "rttMonStatsCollectEntry", "rttMonCtrlAdminEntry", "rttMonEchoAdminEntry", "rttMonCtrlOperEntry")
+CipslaPercentileVar, = mibBuilder.importSymbols("CISCO-RTTMON-TC-MIB", "CipslaPercentileVar")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+DscpOrAny, = mibBuilder.importSymbols("DIFFSERV-DSCP-TC", "DscpOrAny")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+IPv6FlowLabelOrAny, = mibBuilder.importSymbols("IPV6-FLOW-LABEL-MIB", "IPv6FlowLabelOrAny")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ciscoRttMonIPExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 572))
+ciscoRttMonIPExtMIB.setRevisions(('2018-04-09 00:00', '2017-09-06 00:00', '2006-08-02 00:00',))
+if mibBuilder.loadTexts: ciscoRttMonIPExtMIB.setLastUpdated('201709060000Z')
+if mibBuilder.loadTexts: ciscoRttMonIPExtMIB.setOrganization('Cisco Systems, Inc.')
+crttMonIPExtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 572, 1))
+ciscoRttMonIPExtMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 572, 2))
+ciscoRttMonIPExtMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 572, 2, 1))
+ciscoRttMonIPExtMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 572, 2, 2))
+crttMonIPEchoAdminTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 1), )
+if mibBuilder.loadTexts: crttMonIPEchoAdminTable.setStatus('current')
+crttMonIPEchoAdminEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 1, 1), )
+rttMonEchoAdminEntry.registerAugmentions(("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPEchoAdminEntry"))
 crttMonIPEchoAdminEntry.setIndexNames(*rttMonEchoAdminEntry.getIndexNames())
-rttMonEchoPathAdminEntry.registerAugmentions((_B,_Q))
+if mibBuilder.loadTexts: crttMonIPEchoAdminEntry.setStatus('current')
+crttMonIPEchoAdminTargetAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 1, 1, 1), InetAddressType().clone('unknown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: crttMonIPEchoAdminTargetAddrType.setStatus('current')
+crttMonIPEchoAdminTargetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 1, 1, 2), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: crttMonIPEchoAdminTargetAddress.setStatus('current')
+crttMonIPEchoAdminSourceAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 1, 1, 3), InetAddressType().clone('unknown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: crttMonIPEchoAdminSourceAddrType.setStatus('current')
+crttMonIPEchoAdminSourceAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 1, 1, 4), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: crttMonIPEchoAdminSourceAddress.setStatus('current')
+crttMonIPEchoAdminNameServerAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 1, 1, 5), InetAddressType().clone('unknown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: crttMonIPEchoAdminNameServerAddrType.setStatus('current')
+crttMonIPEchoAdminNameServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 1, 1, 6), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: crttMonIPEchoAdminNameServerAddress.setStatus('current')
+crttMonIPEchoAdminLSPSelAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 1, 1, 7), InetAddressType().clone('unknown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: crttMonIPEchoAdminLSPSelAddrType.setStatus('current')
+crttMonIPEchoAdminLSPSelAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 1, 1, 8), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: crttMonIPEchoAdminLSPSelAddress.setStatus('current')
+crttMonIPEchoAdminDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 1, 1, 9), DscpOrAny().clone(-1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: crttMonIPEchoAdminDscp.setStatus('current')
+crttMonIPEchoAdminFlowLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 1, 1, 10), IPv6FlowLabelOrAny()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: crttMonIPEchoAdminFlowLabel.setStatus('current')
+crttMonIPLatestRttOperTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 2), )
+if mibBuilder.loadTexts: crttMonIPLatestRttOperTable.setStatus('current')
+crttMonIPLatestRttOperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 2, 1), ).setIndexNames((0, "CISCO-RTTMON-MIB", "rttMonCtrlAdminIndex"))
+if mibBuilder.loadTexts: crttMonIPLatestRttOperEntry.setStatus('current')
+crttMonIPLatestRttOperAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 2, 1, 1), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: crttMonIPLatestRttOperAddressType.setStatus('current')
+crttMonIPLatestRttOperAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 2, 1, 2), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: crttMonIPLatestRttOperAddress.setStatus('current')
+crttMonIPEchoPathAdminTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 3), )
+if mibBuilder.loadTexts: crttMonIPEchoPathAdminTable.setStatus('current')
+crttMonIPEchoPathAdminEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 3, 1), )
+rttMonEchoPathAdminEntry.registerAugmentions(("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPEchoPathAdminEntry"))
 crttMonIPEchoPathAdminEntry.setIndexNames(*rttMonEchoPathAdminEntry.getIndexNames())
-rttMonStatsCollectEntry.registerAugmentions((_B,_R))
+if mibBuilder.loadTexts: crttMonIPEchoPathAdminEntry.setStatus('current')
+crttMonIPEchoPathAdminHopAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 3, 1, 1), InetAddressType().clone('unknown')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: crttMonIPEchoPathAdminHopAddrType.setStatus('current')
+crttMonIPEchoPathAdminHopAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 3, 1, 2), InetAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: crttMonIPEchoPathAdminHopAddress.setStatus('current')
+crttMonIPStatsCollectTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 4), )
+if mibBuilder.loadTexts: crttMonIPStatsCollectTable.setStatus('current')
+crttMonIPStatsCollectEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 4, 1), )
+rttMonStatsCollectEntry.registerAugmentions(("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPStatsCollectEntry"))
 crttMonIPStatsCollectEntry.setIndexNames(*rttMonStatsCollectEntry.getIndexNames())
-rttMonLpdGrpStatsEntry.registerAugmentions((_B,_S))
+if mibBuilder.loadTexts: crttMonIPStatsCollectEntry.setStatus('current')
+crttMonIPStatsCollectAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 4, 1, 1), InetAddressType().clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: crttMonIPStatsCollectAddressType.setStatus('current')
+crttMonIPStatsCollectAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 4, 1, 2), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: crttMonIPStatsCollectAddress.setStatus('current')
+crttMonIPLpdGrpStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 5), )
+if mibBuilder.loadTexts: crttMonIPLpdGrpStatsTable.setStatus('current')
+crttMonIPLpdGrpStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 5, 1), )
+rttMonLpdGrpStatsEntry.registerAugmentions(("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPLpdGrpStatsEntry"))
 crttMonIPLpdGrpStatsEntry.setIndexNames(*rttMonLpdGrpStatsEntry.getIndexNames())
-rttMonHistoryCollectionEntry.registerAugmentions((_B,_T))
+if mibBuilder.loadTexts: crttMonIPLpdGrpStatsEntry.setStatus('current')
+crttMonIPLpdGrpStatsTargetPEAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 5, 1, 1), InetAddressType().clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: crttMonIPLpdGrpStatsTargetPEAddrType.setStatus('current')
+crttMonIPLpdGrpStatsTargetPEAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 5, 1, 2), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: crttMonIPLpdGrpStatsTargetPEAddr.setStatus('current')
+crttMonIPHistoryCollectionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 6), )
+if mibBuilder.loadTexts: crttMonIPHistoryCollectionTable.setStatus('current')
+crttMonIPHistoryCollectionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 6, 1), )
+rttMonHistoryCollectionEntry.registerAugmentions(("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPHistoryCollectionEntry"))
 crttMonIPHistoryCollectionEntry.setIndexNames(*rttMonHistoryCollectionEntry.getIndexNames())
-ciscoIPExtCtrlGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,572,2,2,1))
-ciscoIPExtCtrlGroupRev1.setObjects(*((_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n)))
-if mibBuilder.loadTexts:ciscoIPExtCtrlGroupRev1.setStatus(_A)
-ciscoIPExtCtrlGroupRev2=ObjectGroup((1,3,6,1,4,1,9,9,572,2,2,2))
-ciscoIPExtCtrlGroupRev2.setObjects(*((_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z)))
-if mibBuilder.loadTexts:ciscoIPExtCtrlGroupRev2.setStatus(_A)
-ciscoRttMonIPExtMibComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,9,572,2,1,1))
-ciscoRttMonIPExtMibComplianceRev1.setObjects((_B,_L))
-if mibBuilder.loadTexts:ciscoRttMonIPExtMibComplianceRev1.setStatus('deprecated')
-ciscoRttMonIPExtMibComplianceRev2=ModuleCompliance((1,3,6,1,4,1,9,9,572,2,1,2))
-ciscoRttMonIPExtMibComplianceRev2.setObjects(*((_B,_L),(_B,_A0)))
-if mibBuilder.loadTexts:ciscoRttMonIPExtMibComplianceRev2.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoRttMonIPExtMIB':ciscoRttMonIPExtMIB,'crttMonIPExtObjects':crttMonIPExtObjects,'crttMonIPEchoAdminTable':crttMonIPEchoAdminTable,_P:crttMonIPEchoAdminEntry,_U:crttMonIPEchoAdminTargetAddrType,_V:crttMonIPEchoAdminTargetAddress,_W:crttMonIPEchoAdminSourceAddrType,_X:crttMonIPEchoAdminSourceAddress,_Y:crttMonIPEchoAdminNameServerAddrType,_Z:crttMonIPEchoAdminNameServerAddress,_a:crttMonIPEchoAdminLSPSelAddrType,_b:crttMonIPEchoAdminLSPSelAddress,_c:crttMonIPEchoAdminDscp,_d:crttMonIPEchoAdminFlowLabel,'crttMonIPLatestRttOperTable':crttMonIPLatestRttOperTable,'crttMonIPLatestRttOperEntry':crttMonIPLatestRttOperEntry,_e:crttMonIPLatestRttOperAddressType,_f:crttMonIPLatestRttOperAddress,'crttMonIPEchoPathAdminTable':crttMonIPEchoPathAdminTable,_Q:crttMonIPEchoPathAdminEntry,_g:crttMonIPEchoPathAdminHopAddrType,_h:crttMonIPEchoPathAdminHopAddress,'crttMonIPStatsCollectTable':crttMonIPStatsCollectTable,_R:crttMonIPStatsCollectEntry,_i:crttMonIPStatsCollectAddressType,_j:crttMonIPStatsCollectAddress,'crttMonIPLpdGrpStatsTable':crttMonIPLpdGrpStatsTable,_S:crttMonIPLpdGrpStatsEntry,_k:crttMonIPLpdGrpStatsTargetPEAddrType,_l:crttMonIPLpdGrpStatsTargetPEAddr,'crttMonIPHistoryCollectionTable':crttMonIPHistoryCollectionTable,_T:crttMonIPHistoryCollectionEntry,_m:crttMonIPHistoryCollectionAddrType,_n:crttMonIPHistoryCollectionAddress,'cipslaPercentileConfigTable':cipslaPercentileConfigTable,'cipslaPercentileConfigEntry':cipslaPercentileConfigEntry,_o:cipslaPercentileRTT,_p:cipslaPercentileOWSD,_q:cipslaPercentileOWDS,_r:cipslaPercentileJitterSD,_s:cipslaPercentileJitterDS,_t:cipslaPercentileJitterAvg,'cipslaPercentileLatestStatsTable':cipslaPercentileLatestStatsTable,'cipslaPercentileLatestStatsEntry':cipslaPercentileLatestStatsEntry,_O:cipslaPercentileTypeVar,_u:cipslaPercentileLatestMin,_v:cipslaPercentileLatestMax,_w:cipslaPercentileLatestAvg,_x:cipslaPercentileLatestNum,_y:cipslaPercentileLatestSum,_z:cipslaPercentileLatestSum2,'ciscoRttMonIPExtMibConformance':ciscoRttMonIPExtMibConformance,'ciscoRttMonIPExtMibCompliances':ciscoRttMonIPExtMibCompliances,'ciscoRttMonIPExtMibComplianceRev1':ciscoRttMonIPExtMibComplianceRev1,'ciscoRttMonIPExtMibComplianceRev2':ciscoRttMonIPExtMibComplianceRev2,'ciscoRttMonIPExtMibGroups':ciscoRttMonIPExtMibGroups,_L:ciscoIPExtCtrlGroupRev1,_A0:ciscoIPExtCtrlGroupRev2})
+if mibBuilder.loadTexts: crttMonIPHistoryCollectionEntry.setStatus('current')
+crttMonIPHistoryCollectionAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 6, 1, 1), InetAddressType().clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: crttMonIPHistoryCollectionAddrType.setStatus('current')
+crttMonIPHistoryCollectionAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 6, 1, 2), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: crttMonIPHistoryCollectionAddress.setStatus('current')
+cipslaPercentileConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 7), )
+if mibBuilder.loadTexts: cipslaPercentileConfigTable.setStatus('current')
+cipslaPercentileConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 7, 1), ).setIndexNames((0, "CISCO-RTTMON-MIB", "rttMonCtrlAdminIndex"))
+if mibBuilder.loadTexts: cipslaPercentileConfigEntry.setStatus('current')
+cipslaPercentileRTT = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(90, 100)).clone(100)).setUnits('percent').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cipslaPercentileRTT.setStatus('current')
+cipslaPercentileOWSD = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 7, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(90, 100)).clone(100)).setUnits('percent').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cipslaPercentileOWSD.setStatus('current')
+cipslaPercentileOWDS = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 7, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(90, 100)).clone(100)).setUnits('percent').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cipslaPercentileOWDS.setStatus('current')
+cipslaPercentileJitterSD = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 7, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(90, 100)).clone(100)).setUnits('percent').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cipslaPercentileJitterSD.setStatus('current')
+cipslaPercentileJitterDS = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 7, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(90, 100)).clone(100)).setUnits('percent').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cipslaPercentileJitterDS.setStatus('current')
+cipslaPercentileJitterAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 7, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(90, 100)).clone(100)).setUnits('percent').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cipslaPercentileJitterAvg.setStatus('current')
+cipslaPercentileLatestStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 8), )
+if mibBuilder.loadTexts: cipslaPercentileLatestStatsTable.setStatus('current')
+cipslaPercentileLatestStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 8, 1), ).setIndexNames((0, "CISCO-RTTMON-IP-EXT-MIB", "cipslaPercentileTypeVar"), (0, "CISCO-RTTMON-MIB", "rttMonCtrlAdminIndex"))
+if mibBuilder.loadTexts: cipslaPercentileLatestStatsEntry.setStatus('current')
+cipslaPercentileTypeVar = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 8, 1, 1), CipslaPercentileVar().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("rtt", 1), ("owsd", 2), ("owds", 3), ("jittersd", 4), ("jitterds", 5), ("jitteravg", 6))))
+if mibBuilder.loadTexts: cipslaPercentileTypeVar.setStatus('current')
+cipslaPercentileLatestMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 8, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cipslaPercentileLatestMin.setStatus('current')
+cipslaPercentileLatestMax = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 8, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cipslaPercentileLatestMax.setStatus('current')
+cipslaPercentileLatestAvg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 8, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cipslaPercentileLatestAvg.setStatus('current')
+cipslaPercentileLatestNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 8, 1, 5), Gauge32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cipslaPercentileLatestNum.setStatus('current')
+cipslaPercentileLatestSum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 8, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cipslaPercentileLatestSum.setStatus('current')
+cipslaPercentileLatestSum2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 572, 1, 8, 1, 7), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cipslaPercentileLatestSum2.setStatus('current')
+ciscoRttMonIPExtMibComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 572, 2, 1, 1)).setObjects(("CISCO-RTTMON-IP-EXT-MIB", "ciscoIPExtCtrlGroupRev1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoRttMonIPExtMibComplianceRev1 = ciscoRttMonIPExtMibComplianceRev1.setStatus('deprecated')
+ciscoRttMonIPExtMibComplianceRev2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 572, 2, 1, 2)).setObjects(("CISCO-RTTMON-IP-EXT-MIB", "ciscoIPExtCtrlGroupRev1"), ("CISCO-RTTMON-IP-EXT-MIB", "ciscoIPExtCtrlGroupRev2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoRttMonIPExtMibComplianceRev2 = ciscoRttMonIPExtMibComplianceRev2.setStatus('current')
+ciscoIPExtCtrlGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 572, 2, 2, 1)).setObjects(("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPEchoAdminTargetAddrType"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPEchoAdminTargetAddress"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPEchoAdminSourceAddrType"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPEchoAdminSourceAddress"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPEchoAdminNameServerAddrType"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPEchoAdminNameServerAddress"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPEchoAdminLSPSelAddrType"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPEchoAdminLSPSelAddress"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPEchoAdminDscp"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPEchoAdminFlowLabel"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPLatestRttOperAddressType"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPLatestRttOperAddress"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPEchoPathAdminHopAddrType"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPEchoPathAdminHopAddress"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPStatsCollectAddressType"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPStatsCollectAddress"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPLpdGrpStatsTargetPEAddrType"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPLpdGrpStatsTargetPEAddr"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPHistoryCollectionAddrType"), ("CISCO-RTTMON-IP-EXT-MIB", "crttMonIPHistoryCollectionAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIPExtCtrlGroupRev1 = ciscoIPExtCtrlGroupRev1.setStatus('current')
+ciscoIPExtCtrlGroupRev2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 572, 2, 2, 2)).setObjects(("CISCO-RTTMON-IP-EXT-MIB", "cipslaPercentileRTT"), ("CISCO-RTTMON-IP-EXT-MIB", "cipslaPercentileOWSD"), ("CISCO-RTTMON-IP-EXT-MIB", "cipslaPercentileOWDS"), ("CISCO-RTTMON-IP-EXT-MIB", "cipslaPercentileJitterSD"), ("CISCO-RTTMON-IP-EXT-MIB", "cipslaPercentileJitterDS"), ("CISCO-RTTMON-IP-EXT-MIB", "cipslaPercentileJitterAvg"), ("CISCO-RTTMON-IP-EXT-MIB", "cipslaPercentileLatestMin"), ("CISCO-RTTMON-IP-EXT-MIB", "cipslaPercentileLatestMax"), ("CISCO-RTTMON-IP-EXT-MIB", "cipslaPercentileLatestAvg"), ("CISCO-RTTMON-IP-EXT-MIB", "cipslaPercentileLatestNum"), ("CISCO-RTTMON-IP-EXT-MIB", "cipslaPercentileLatestSum"), ("CISCO-RTTMON-IP-EXT-MIB", "cipslaPercentileLatestSum2"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIPExtCtrlGroupRev2 = ciscoIPExtCtrlGroupRev2.setStatus('current')
+mibBuilder.exportSymbols("CISCO-RTTMON-IP-EXT-MIB", crttMonIPLpdGrpStatsTargetPEAddrType=crttMonIPLpdGrpStatsTargetPEAddrType, ciscoRttMonIPExtMibComplianceRev2=ciscoRttMonIPExtMibComplianceRev2, cipslaPercentileOWDS=cipslaPercentileOWDS, crttMonIPEchoAdminTargetAddrType=crttMonIPEchoAdminTargetAddrType, cipslaPercentileLatestMax=cipslaPercentileLatestMax, cipslaPercentileLatestSum=cipslaPercentileLatestSum, cipslaPercentileLatestStatsEntry=cipslaPercentileLatestStatsEntry, crttMonIPEchoAdminSourceAddrType=crttMonIPEchoAdminSourceAddrType, cipslaPercentileLatestStatsTable=cipslaPercentileLatestStatsTable, crttMonIPEchoAdminNameServerAddrType=crttMonIPEchoAdminNameServerAddrType, crttMonIPEchoAdminFlowLabel=crttMonIPEchoAdminFlowLabel, cipslaPercentileJitterSD=cipslaPercentileJitterSD, crttMonIPLpdGrpStatsTable=crttMonIPLpdGrpStatsTable, cipslaPercentileConfigTable=cipslaPercentileConfigTable, ciscoIPExtCtrlGroupRev1=ciscoIPExtCtrlGroupRev1, crttMonIPStatsCollectTable=crttMonIPStatsCollectTable, ciscoRttMonIPExtMIB=ciscoRttMonIPExtMIB, crttMonIPEchoAdminDscp=crttMonIPEchoAdminDscp, crttMonIPLatestRttOperAddressType=crttMonIPLatestRttOperAddressType, ciscoIPExtCtrlGroupRev2=ciscoIPExtCtrlGroupRev2, crttMonIPEchoPathAdminHopAddrType=crttMonIPEchoPathAdminHopAddrType, crttMonIPStatsCollectEntry=crttMonIPStatsCollectEntry, crttMonIPEchoAdminLSPSelAddress=crttMonIPEchoAdminLSPSelAddress, cipslaPercentileJitterDS=cipslaPercentileJitterDS, crttMonIPLatestRttOperEntry=crttMonIPLatestRttOperEntry, PYSNMP_MODULE_ID=ciscoRttMonIPExtMIB, crttMonIPEchoAdminLSPSelAddrType=crttMonIPEchoAdminLSPSelAddrType, crttMonIPStatsCollectAddress=crttMonIPStatsCollectAddress, crttMonIPHistoryCollectionAddrType=crttMonIPHistoryCollectionAddrType, crttMonIPLpdGrpStatsTargetPEAddr=crttMonIPLpdGrpStatsTargetPEAddr, cipslaPercentileRTT=cipslaPercentileRTT, ciscoRttMonIPExtMibComplianceRev1=ciscoRttMonIPExtMibComplianceRev1, ciscoRttMonIPExtMibCompliances=ciscoRttMonIPExtMibCompliances, ciscoRttMonIPExtMibGroups=ciscoRttMonIPExtMibGroups, crttMonIPHistoryCollectionEntry=crttMonIPHistoryCollectionEntry, cipslaPercentileOWSD=cipslaPercentileOWSD, cipslaPercentileLatestAvg=cipslaPercentileLatestAvg, crttMonIPEchoAdminNameServerAddress=crttMonIPEchoAdminNameServerAddress, crttMonIPEchoAdminSourceAddress=crttMonIPEchoAdminSourceAddress, crttMonIPEchoPathAdminEntry=crttMonIPEchoPathAdminEntry, crttMonIPEchoAdminEntry=crttMonIPEchoAdminEntry, crttMonIPEchoPathAdminHopAddress=crttMonIPEchoPathAdminHopAddress, crttMonIPStatsCollectAddressType=crttMonIPStatsCollectAddressType, cipslaPercentileJitterAvg=cipslaPercentileJitterAvg, ciscoRttMonIPExtMibConformance=ciscoRttMonIPExtMibConformance, crttMonIPHistoryCollectionTable=crttMonIPHistoryCollectionTable, crttMonIPHistoryCollectionAddress=crttMonIPHistoryCollectionAddress, crttMonIPExtObjects=crttMonIPExtObjects, crttMonIPLatestRttOperAddress=crttMonIPLatestRttOperAddress, crttMonIPLpdGrpStatsEntry=crttMonIPLpdGrpStatsEntry, cipslaPercentileTypeVar=cipslaPercentileTypeVar, crttMonIPEchoPathAdminTable=crttMonIPEchoPathAdminTable, cipslaPercentileLatestSum2=cipslaPercentileLatestSum2, cipslaPercentileLatestMin=cipslaPercentileLatestMin, crttMonIPEchoAdminTable=crttMonIPEchoAdminTable, crttMonIPLatestRttOperTable=crttMonIPLatestRttOperTable, cipslaPercentileLatestNum=cipslaPercentileLatestNum, cipslaPercentileConfigEntry=cipslaPercentileConfigEntry, crttMonIPEchoAdminTargetAddress=crttMonIPEchoAdminTargetAddress)

@@ -1,186 +1,83 @@
-_L='fsMIDhcpRelaySrvIpAddress'
-_K='not-accessible'
-_J='ifIndex'
-_I='IF-MIB'
-_H='fsMIDhcpContextId'
-_G='ARICENT-DHCP-RLY-MI-MIB'
-_F='read-only'
-_E='disable'
-_D='enable'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_I,_J)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-futureMIDhcpRelay=ModuleIdentity((1,3,6,1,4,1,29601,2,92))
-if mibBuilder.loadTexts:futureMIDhcpRelay.setRevisions(('2014-10-28 00:00',))
-_FsMIDhcpRelay_ObjectIdentity=ObjectIdentity
-fsMIDhcpRelay=_FsMIDhcpRelay_ObjectIdentity((1,3,6,1,4,1,29601,2,92,1))
-class _FsMIDhcpConfigGblTraceLevel_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_FsMIDhcpConfigGblTraceLevel_Type.__name__=_C
-_FsMIDhcpConfigGblTraceLevel_Object=MibScalar
-fsMIDhcpConfigGblTraceLevel=_FsMIDhcpConfigGblTraceLevel_Object((1,3,6,1,4,1,29601,2,92,1,1),_FsMIDhcpConfigGblTraceLevel_Type())
-fsMIDhcpConfigGblTraceLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpConfigGblTraceLevel.setStatus(_A)
-_FsMIDhcpRelayTable_ObjectIdentity=ObjectIdentity
-fsMIDhcpRelayTable=_FsMIDhcpRelayTable_ObjectIdentity((1,3,6,1,4,1,29601,2,92,2))
-_FsMIDhcpContextTable_Object=MibTable
-fsMIDhcpContextTable=_FsMIDhcpContextTable_Object((1,3,6,1,4,1,29601,2,92,2,1))
-if mibBuilder.loadTexts:fsMIDhcpContextTable.setStatus(_A)
-_FsMIDhcpContextEntry_Object=MibTableRow
-fsMIDhcpContextEntry=_FsMIDhcpContextEntry_Object((1,3,6,1,4,1,29601,2,92,2,1,1))
-fsMIDhcpContextEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:fsMIDhcpContextEntry.setStatus(_A)
-class _FsMIDhcpContextId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsMIDhcpContextId_Type.__name__=_C
-_FsMIDhcpContextId_Object=MibTableColumn
-fsMIDhcpContextId=_FsMIDhcpContextId_Object((1,3,6,1,4,1,29601,2,92,2,1,1,1),_FsMIDhcpContextId_Type())
-fsMIDhcpContextId.setMaxAccess(_K)
-if mibBuilder.loadTexts:fsMIDhcpContextId.setStatus(_A)
-class _FsMIDhcpRelaying_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_FsMIDhcpRelaying_Type.__name__=_C
-_FsMIDhcpRelaying_Object=MibTableColumn
-fsMIDhcpRelaying=_FsMIDhcpRelaying_Object((1,3,6,1,4,1,29601,2,92,2,1,1,2),_FsMIDhcpRelaying_Type())
-fsMIDhcpRelaying.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpRelaying.setStatus(_A)
-class _FsMIDhcpRelayServersOnly_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_FsMIDhcpRelayServersOnly_Type.__name__=_C
-_FsMIDhcpRelayServersOnly_Object=MibTableColumn
-fsMIDhcpRelayServersOnly=_FsMIDhcpRelayServersOnly_Object((1,3,6,1,4,1,29601,2,92,2,1,1,3),_FsMIDhcpRelayServersOnly_Type())
-fsMIDhcpRelayServersOnly.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpRelayServersOnly.setStatus(_A)
-class _FsMIDhcpRelaySecsThreshold_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsMIDhcpRelaySecsThreshold_Type.__name__=_C
-_FsMIDhcpRelaySecsThreshold_Object=MibTableColumn
-fsMIDhcpRelaySecsThreshold=_FsMIDhcpRelaySecsThreshold_Object((1,3,6,1,4,1,29601,2,92,2,1,1,4),_FsMIDhcpRelaySecsThreshold_Type())
-fsMIDhcpRelaySecsThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpRelaySecsThreshold.setStatus(_A)
-class _FsMIDhcpRelayHopsThreshold_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16))
-_FsMIDhcpRelayHopsThreshold_Type.__name__=_C
-_FsMIDhcpRelayHopsThreshold_Object=MibTableColumn
-fsMIDhcpRelayHopsThreshold=_FsMIDhcpRelayHopsThreshold_Object((1,3,6,1,4,1,29601,2,92,2,1,1,5),_FsMIDhcpRelayHopsThreshold_Type())
-fsMIDhcpRelayHopsThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpRelayHopsThreshold.setStatus(_A)
-class _FsMIDhcpRelayRAIOptionControl_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_FsMIDhcpRelayRAIOptionControl_Type.__name__=_C
-_FsMIDhcpRelayRAIOptionControl_Object=MibTableColumn
-fsMIDhcpRelayRAIOptionControl=_FsMIDhcpRelayRAIOptionControl_Object((1,3,6,1,4,1,29601,2,92,2,1,1,6),_FsMIDhcpRelayRAIOptionControl_Type())
-fsMIDhcpRelayRAIOptionControl.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpRelayRAIOptionControl.setStatus(_A)
-class _FsMIDhcpRelayRAICircuitIDSubOptionControl_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_FsMIDhcpRelayRAICircuitIDSubOptionControl_Type.__name__=_C
-_FsMIDhcpRelayRAICircuitIDSubOptionControl_Object=MibTableColumn
-fsMIDhcpRelayRAICircuitIDSubOptionControl=_FsMIDhcpRelayRAICircuitIDSubOptionControl_Object((1,3,6,1,4,1,29601,2,92,2,1,1,7),_FsMIDhcpRelayRAICircuitIDSubOptionControl_Type())
-fsMIDhcpRelayRAICircuitIDSubOptionControl.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpRelayRAICircuitIDSubOptionControl.setStatus(_A)
-class _FsMIDhcpRelayRAIRemoteIDSubOptionControl_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_FsMIDhcpRelayRAIRemoteIDSubOptionControl_Type.__name__=_C
-_FsMIDhcpRelayRAIRemoteIDSubOptionControl_Object=MibTableColumn
-fsMIDhcpRelayRAIRemoteIDSubOptionControl=_FsMIDhcpRelayRAIRemoteIDSubOptionControl_Object((1,3,6,1,4,1,29601,2,92,2,1,1,8),_FsMIDhcpRelayRAIRemoteIDSubOptionControl_Type())
-fsMIDhcpRelayRAIRemoteIDSubOptionControl.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpRelayRAIRemoteIDSubOptionControl.setStatus(_A)
-class _FsMIDhcpRelayRAISubnetMaskSubOptionControl_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_FsMIDhcpRelayRAISubnetMaskSubOptionControl_Type.__name__=_C
-_FsMIDhcpRelayRAISubnetMaskSubOptionControl_Object=MibTableColumn
-fsMIDhcpRelayRAISubnetMaskSubOptionControl=_FsMIDhcpRelayRAISubnetMaskSubOptionControl_Object((1,3,6,1,4,1,29601,2,92,2,1,1,9),_FsMIDhcpRelayRAISubnetMaskSubOptionControl_Type())
-fsMIDhcpRelayRAISubnetMaskSubOptionControl.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpRelayRAISubnetMaskSubOptionControl.setStatus(_A)
-_FsMIDhcpRelayRAIOptionInserted_Type=Counter32
-_FsMIDhcpRelayRAIOptionInserted_Object=MibTableColumn
-fsMIDhcpRelayRAIOptionInserted=_FsMIDhcpRelayRAIOptionInserted_Object((1,3,6,1,4,1,29601,2,92,2,1,1,10),_FsMIDhcpRelayRAIOptionInserted_Type())
-fsMIDhcpRelayRAIOptionInserted.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsMIDhcpRelayRAIOptionInserted.setStatus(_A)
-_FsMIDhcpRelayRAICircuitIDSubOptionInserted_Type=Counter32
-_FsMIDhcpRelayRAICircuitIDSubOptionInserted_Object=MibTableColumn
-fsMIDhcpRelayRAICircuitIDSubOptionInserted=_FsMIDhcpRelayRAICircuitIDSubOptionInserted_Object((1,3,6,1,4,1,29601,2,92,2,1,1,11),_FsMIDhcpRelayRAICircuitIDSubOptionInserted_Type())
-fsMIDhcpRelayRAICircuitIDSubOptionInserted.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsMIDhcpRelayRAICircuitIDSubOptionInserted.setStatus(_A)
-_FsMIDhcpRelayRAIRemoteIDSubOptionInserted_Type=Counter32
-_FsMIDhcpRelayRAIRemoteIDSubOptionInserted_Object=MibTableColumn
-fsMIDhcpRelayRAIRemoteIDSubOptionInserted=_FsMIDhcpRelayRAIRemoteIDSubOptionInserted_Object((1,3,6,1,4,1,29601,2,92,2,1,1,12),_FsMIDhcpRelayRAIRemoteIDSubOptionInserted_Type())
-fsMIDhcpRelayRAIRemoteIDSubOptionInserted.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsMIDhcpRelayRAIRemoteIDSubOptionInserted.setStatus(_A)
-_FsMIDhcpRelayRAISubnetMaskSubOptionInserted_Type=Counter32
-_FsMIDhcpRelayRAISubnetMaskSubOptionInserted_Object=MibTableColumn
-fsMIDhcpRelayRAISubnetMaskSubOptionInserted=_FsMIDhcpRelayRAISubnetMaskSubOptionInserted_Object((1,3,6,1,4,1,29601,2,92,2,1,1,13),_FsMIDhcpRelayRAISubnetMaskSubOptionInserted_Type())
-fsMIDhcpRelayRAISubnetMaskSubOptionInserted.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsMIDhcpRelayRAISubnetMaskSubOptionInserted.setStatus(_A)
-_FsMIDhcpRelayRAIOptionWronglySet_Type=Counter32
-_FsMIDhcpRelayRAIOptionWronglySet_Object=MibTableColumn
-fsMIDhcpRelayRAIOptionWronglySet=_FsMIDhcpRelayRAIOptionWronglySet_Object((1,3,6,1,4,1,29601,2,92,2,1,1,14),_FsMIDhcpRelayRAIOptionWronglySet_Type())
-fsMIDhcpRelayRAIOptionWronglySet.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsMIDhcpRelayRAIOptionWronglySet.setStatus(_A)
-_FsMIDhcpRelayRAISpaceConstraint_Type=Counter32
-_FsMIDhcpRelayRAISpaceConstraint_Object=MibTableColumn
-fsMIDhcpRelayRAISpaceConstraint=_FsMIDhcpRelayRAISpaceConstraint_Object((1,3,6,1,4,1,29601,2,92,2,1,1,15),_FsMIDhcpRelayRAISpaceConstraint_Type())
-fsMIDhcpRelayRAISpaceConstraint.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsMIDhcpRelayRAISpaceConstraint.setStatus(_A)
-class _FsMIDhcpConfigTraceLevel_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_FsMIDhcpConfigTraceLevel_Type.__name__=_C
-_FsMIDhcpConfigTraceLevel_Object=MibTableColumn
-fsMIDhcpConfigTraceLevel=_FsMIDhcpConfigTraceLevel_Object((1,3,6,1,4,1,29601,2,92,2,1,1,16),_FsMIDhcpConfigTraceLevel_Type())
-fsMIDhcpConfigTraceLevel.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpConfigTraceLevel.setStatus(_A)
-class _FsMIDhcpConfigDhcpCircuitOption_Type(Bits):defaultHexValue='01';namedValues=NamedValues(*(('routerindex',0),('vlanid',1),('recvport',2)))
-_FsMIDhcpConfigDhcpCircuitOption_Type.__name__='Bits'
-_FsMIDhcpConfigDhcpCircuitOption_Object=MibTableColumn
-fsMIDhcpConfigDhcpCircuitOption=_FsMIDhcpConfigDhcpCircuitOption_Object((1,3,6,1,4,1,29601,2,92,2,1,1,17),_FsMIDhcpConfigDhcpCircuitOption_Type())
-fsMIDhcpConfigDhcpCircuitOption.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpConfigDhcpCircuitOption.setStatus(_A)
-class _FsMIDhcpRelayCounterReset_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('set',1),('notset',2)))
-_FsMIDhcpRelayCounterReset_Type.__name__=_C
-_FsMIDhcpRelayCounterReset_Object=MibTableColumn
-fsMIDhcpRelayCounterReset=_FsMIDhcpRelayCounterReset_Object((1,3,6,1,4,1,29601,2,92,2,1,1,18),_FsMIDhcpRelayCounterReset_Type())
-fsMIDhcpRelayCounterReset.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpRelayCounterReset.setStatus(_A)
-_FsMIDhcpRelayContextRowStatus_Type=RowStatus
-_FsMIDhcpRelayContextRowStatus_Object=MibTableColumn
-fsMIDhcpRelayContextRowStatus=_FsMIDhcpRelayContextRowStatus_Object((1,3,6,1,4,1,29601,2,92,2,1,1,19),_FsMIDhcpRelayContextRowStatus_Type())
-fsMIDhcpRelayContextRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpRelayContextRowStatus.setStatus(_A)
-_FsMIDhcpRelaySrvAddressTable_Object=MibTable
-fsMIDhcpRelaySrvAddressTable=_FsMIDhcpRelaySrvAddressTable_Object((1,3,6,1,4,1,29601,2,92,2,2))
-if mibBuilder.loadTexts:fsMIDhcpRelaySrvAddressTable.setStatus(_A)
-_FsMIDhcpRelaySrvAddressEntry_Object=MibTableRow
-fsMIDhcpRelaySrvAddressEntry=_FsMIDhcpRelaySrvAddressEntry_Object((1,3,6,1,4,1,29601,2,92,2,2,1))
-fsMIDhcpRelaySrvAddressEntry.setIndexNames((0,_G,_H),(0,_G,_L))
-if mibBuilder.loadTexts:fsMIDhcpRelaySrvAddressEntry.setStatus(_A)
-_FsMIDhcpRelaySrvIpAddress_Type=IpAddress
-_FsMIDhcpRelaySrvIpAddress_Object=MibTableColumn
-fsMIDhcpRelaySrvIpAddress=_FsMIDhcpRelaySrvIpAddress_Object((1,3,6,1,4,1,29601,2,92,2,2,1,1),_FsMIDhcpRelaySrvIpAddress_Type())
-fsMIDhcpRelaySrvIpAddress.setMaxAccess(_K)
-if mibBuilder.loadTexts:fsMIDhcpRelaySrvIpAddress.setStatus(_A)
-_FsMIDhcpRelaySrvAddressRowStatus_Type=RowStatus
-_FsMIDhcpRelaySrvAddressRowStatus_Object=MibTableColumn
-fsMIDhcpRelaySrvAddressRowStatus=_FsMIDhcpRelaySrvAddressRowStatus_Object((1,3,6,1,4,1,29601,2,92,2,2,1,2),_FsMIDhcpRelaySrvAddressRowStatus_Type())
-fsMIDhcpRelaySrvAddressRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpRelaySrvAddressRowStatus.setStatus(_A)
-_FsMIDhcpRelayIfTable_Object=MibTable
-fsMIDhcpRelayIfTable=_FsMIDhcpRelayIfTable_Object((1,3,6,1,4,1,29601,2,92,2,3))
-if mibBuilder.loadTexts:fsMIDhcpRelayIfTable.setStatus(_A)
-_FsMIDhcpRelayIfEntry_Object=MibTableRow
-fsMIDhcpRelayIfEntry=_FsMIDhcpRelayIfEntry_Object((1,3,6,1,4,1,29601,2,92,2,3,1))
-fsMIDhcpRelayIfEntry.setIndexNames((0,_G,_H),(0,_I,_J))
-if mibBuilder.loadTexts:fsMIDhcpRelayIfEntry.setStatus(_A)
-_FsMIDhcpRelayIfCircuitId_Type=Unsigned32
-_FsMIDhcpRelayIfCircuitId_Object=MibTableColumn
-fsMIDhcpRelayIfCircuitId=_FsMIDhcpRelayIfCircuitId_Object((1,3,6,1,4,1,29601,2,92,2,3,1,1),_FsMIDhcpRelayIfCircuitId_Type())
-fsMIDhcpRelayIfCircuitId.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpRelayIfCircuitId.setStatus(_A)
-_FsMIDhcpRelayIfRemoteId_Type=DisplayString
-_FsMIDhcpRelayIfRemoteId_Object=MibTableColumn
-fsMIDhcpRelayIfRemoteId=_FsMIDhcpRelayIfRemoteId_Object((1,3,6,1,4,1,29601,2,92,2,3,1,2),_FsMIDhcpRelayIfRemoteId_Type())
-fsMIDhcpRelayIfRemoteId.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpRelayIfRemoteId.setStatus(_A)
-_FsMIDhcpRelayIfRowStatus_Type=RowStatus
-_FsMIDhcpRelayIfRowStatus_Object=MibTableColumn
-fsMIDhcpRelayIfRowStatus=_FsMIDhcpRelayIfRowStatus_Object((1,3,6,1,4,1,29601,2,92,2,3,1,3),_FsMIDhcpRelayIfRowStatus_Type())
-fsMIDhcpRelayIfRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDhcpRelayIfRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_G,**{'futureMIDhcpRelay':futureMIDhcpRelay,'fsMIDhcpRelay':fsMIDhcpRelay,'fsMIDhcpConfigGblTraceLevel':fsMIDhcpConfigGblTraceLevel,'fsMIDhcpRelayTable':fsMIDhcpRelayTable,'fsMIDhcpContextTable':fsMIDhcpContextTable,'fsMIDhcpContextEntry':fsMIDhcpContextEntry,_H:fsMIDhcpContextId,'fsMIDhcpRelaying':fsMIDhcpRelaying,'fsMIDhcpRelayServersOnly':fsMIDhcpRelayServersOnly,'fsMIDhcpRelaySecsThreshold':fsMIDhcpRelaySecsThreshold,'fsMIDhcpRelayHopsThreshold':fsMIDhcpRelayHopsThreshold,'fsMIDhcpRelayRAIOptionControl':fsMIDhcpRelayRAIOptionControl,'fsMIDhcpRelayRAICircuitIDSubOptionControl':fsMIDhcpRelayRAICircuitIDSubOptionControl,'fsMIDhcpRelayRAIRemoteIDSubOptionControl':fsMIDhcpRelayRAIRemoteIDSubOptionControl,'fsMIDhcpRelayRAISubnetMaskSubOptionControl':fsMIDhcpRelayRAISubnetMaskSubOptionControl,'fsMIDhcpRelayRAIOptionInserted':fsMIDhcpRelayRAIOptionInserted,'fsMIDhcpRelayRAICircuitIDSubOptionInserted':fsMIDhcpRelayRAICircuitIDSubOptionInserted,'fsMIDhcpRelayRAIRemoteIDSubOptionInserted':fsMIDhcpRelayRAIRemoteIDSubOptionInserted,'fsMIDhcpRelayRAISubnetMaskSubOptionInserted':fsMIDhcpRelayRAISubnetMaskSubOptionInserted,'fsMIDhcpRelayRAIOptionWronglySet':fsMIDhcpRelayRAIOptionWronglySet,'fsMIDhcpRelayRAISpaceConstraint':fsMIDhcpRelayRAISpaceConstraint,'fsMIDhcpConfigTraceLevel':fsMIDhcpConfigTraceLevel,'fsMIDhcpConfigDhcpCircuitOption':fsMIDhcpConfigDhcpCircuitOption,'fsMIDhcpRelayCounterReset':fsMIDhcpRelayCounterReset,'fsMIDhcpRelayContextRowStatus':fsMIDhcpRelayContextRowStatus,'fsMIDhcpRelaySrvAddressTable':fsMIDhcpRelaySrvAddressTable,'fsMIDhcpRelaySrvAddressEntry':fsMIDhcpRelaySrvAddressEntry,_L:fsMIDhcpRelaySrvIpAddress,'fsMIDhcpRelaySrvAddressRowStatus':fsMIDhcpRelaySrvAddressRowStatus,'fsMIDhcpRelayIfTable':fsMIDhcpRelayIfTable,'fsMIDhcpRelayIfEntry':fsMIDhcpRelayIfEntry,'fsMIDhcpRelayIfCircuitId':fsMIDhcpRelayIfCircuitId,'fsMIDhcpRelayIfRemoteId':fsMIDhcpRelayIfRemoteId,'fsMIDhcpRelayIfRowStatus':fsMIDhcpRelayIfRowStatus})
+#
+# PySNMP MIB module ARICENT-DHCP-RLY-MI-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aricent/ARICENT-DHCP-RLY-MI-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:32:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+futureMIDhcpRelay = ModuleIdentity((1, 3, 6, 1, 4, 1, 29601, 2, 92))
+futureMIDhcpRelay.setRevisions(('2014-10-28 00:00',))
+if mibBuilder.loadTexts: futureMIDhcpRelay.setLastUpdated('20141028000Z')
+if mibBuilder.loadTexts: futureMIDhcpRelay.setOrganization('ARICENT COMMUNICATIONS SOFTWARE')
+fsMIDhcpRelay = MibIdentifier((1, 3, 6, 1, 4, 1, 29601, 2, 92, 1))
+fsMIDhcpRelayTable = MibIdentifier((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2))
+fsMIDhcpConfigGblTraceLevel = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 92, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpConfigGblTraceLevel.setStatus('current')
+fsMIDhcpContextTable = MibTable((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1), )
+if mibBuilder.loadTexts: fsMIDhcpContextTable.setStatus('current')
+fsMIDhcpContextEntry = MibTableRow((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1), ).setIndexNames((0, "ARICENT-DHCP-RLY-MI-MIB", "fsMIDhcpContextId"))
+if mibBuilder.loadTexts: fsMIDhcpContextEntry.setStatus('current')
+fsMIDhcpContextId = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: fsMIDhcpContextId.setStatus('current')
+fsMIDhcpRelaying = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpRelaying.setStatus('current')
+fsMIDhcpRelayServersOnly = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpRelayServersOnly.setStatus('current')
+fsMIDhcpRelaySecsThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpRelaySecsThreshold.setStatus('current')
+fsMIDhcpRelayHopsThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16)).clone(4)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpRelayHopsThreshold.setStatus('current')
+fsMIDhcpRelayRAIOptionControl = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpRelayRAIOptionControl.setStatus('current')
+fsMIDhcpRelayRAICircuitIDSubOptionControl = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpRelayRAICircuitIDSubOptionControl.setStatus('current')
+fsMIDhcpRelayRAIRemoteIDSubOptionControl = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpRelayRAIRemoteIDSubOptionControl.setStatus('current')
+fsMIDhcpRelayRAISubnetMaskSubOptionControl = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpRelayRAISubnetMaskSubOptionControl.setStatus('current')
+fsMIDhcpRelayRAIOptionInserted = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDhcpRelayRAIOptionInserted.setStatus('current')
+fsMIDhcpRelayRAICircuitIDSubOptionInserted = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDhcpRelayRAICircuitIDSubOptionInserted.setStatus('current')
+fsMIDhcpRelayRAIRemoteIDSubOptionInserted = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDhcpRelayRAIRemoteIDSubOptionInserted.setStatus('current')
+fsMIDhcpRelayRAISubnetMaskSubOptionInserted = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDhcpRelayRAISubnetMaskSubOptionInserted.setStatus('current')
+fsMIDhcpRelayRAIOptionWronglySet = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDhcpRelayRAIOptionWronglySet.setStatus('current')
+fsMIDhcpRelayRAISpaceConstraint = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDhcpRelayRAISpaceConstraint.setStatus('current')
+fsMIDhcpConfigTraceLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpConfigTraceLevel.setStatus('current')
+fsMIDhcpConfigDhcpCircuitOption = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 17), Bits().clone(namedValues=NamedValues(("routerindex", 0), ("vlanid", 1), ("recvport", 2))).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpConfigDhcpCircuitOption.setStatus('current')
+fsMIDhcpRelayCounterReset = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("set", 1), ("notset", 2))).clone('notset')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpRelayCounterReset.setStatus('current')
+fsMIDhcpRelayContextRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 1, 1, 19), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpRelayContextRowStatus.setStatus('current')
+fsMIDhcpRelaySrvAddressTable = MibTable((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 2), )
+if mibBuilder.loadTexts: fsMIDhcpRelaySrvAddressTable.setStatus('current')
+fsMIDhcpRelaySrvAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 2, 1), ).setIndexNames((0, "ARICENT-DHCP-RLY-MI-MIB", "fsMIDhcpContextId"), (0, "ARICENT-DHCP-RLY-MI-MIB", "fsMIDhcpRelaySrvIpAddress"))
+if mibBuilder.loadTexts: fsMIDhcpRelaySrvAddressEntry.setStatus('current')
+fsMIDhcpRelaySrvIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 2, 1, 1), IpAddress())
+if mibBuilder.loadTexts: fsMIDhcpRelaySrvIpAddress.setStatus('current')
+fsMIDhcpRelaySrvAddressRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 2, 1, 2), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpRelaySrvAddressRowStatus.setStatus('current')
+fsMIDhcpRelayIfTable = MibTable((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 3), )
+if mibBuilder.loadTexts: fsMIDhcpRelayIfTable.setStatus('current')
+fsMIDhcpRelayIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 3, 1), ).setIndexNames((0, "ARICENT-DHCP-RLY-MI-MIB", "fsMIDhcpContextId"), (0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: fsMIDhcpRelayIfEntry.setStatus('current')
+fsMIDhcpRelayIfCircuitId = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 3, 1, 1), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpRelayIfCircuitId.setStatus('current')
+fsMIDhcpRelayIfRemoteId = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 3, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpRelayIfRemoteId.setStatus('current')
+fsMIDhcpRelayIfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 92, 2, 3, 1, 3), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDhcpRelayIfRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ARICENT-DHCP-RLY-MI-MIB", fsMIDhcpRelayRAISubnetMaskSubOptionControl=fsMIDhcpRelayRAISubnetMaskSubOptionControl, fsMIDhcpRelayRAIRemoteIDSubOptionControl=fsMIDhcpRelayRAIRemoteIDSubOptionControl, fsMIDhcpRelayIfRemoteId=fsMIDhcpRelayIfRemoteId, fsMIDhcpRelayRAIOptionInserted=fsMIDhcpRelayRAIOptionInserted, fsMIDhcpRelayRAISubnetMaskSubOptionInserted=fsMIDhcpRelayRAISubnetMaskSubOptionInserted, fsMIDhcpRelayCounterReset=fsMIDhcpRelayCounterReset, fsMIDhcpContextTable=fsMIDhcpContextTable, fsMIDhcpRelayRAICircuitIDSubOptionInserted=fsMIDhcpRelayRAICircuitIDSubOptionInserted, fsMIDhcpRelaySrvAddressEntry=fsMIDhcpRelaySrvAddressEntry, fsMIDhcpConfigGblTraceLevel=fsMIDhcpConfigGblTraceLevel, PYSNMP_MODULE_ID=futureMIDhcpRelay, fsMIDhcpRelaySrvAddressRowStatus=fsMIDhcpRelaySrvAddressRowStatus, fsMIDhcpRelaySecsThreshold=fsMIDhcpRelaySecsThreshold, fsMIDhcpRelayIfCircuitId=fsMIDhcpRelayIfCircuitId, fsMIDhcpRelayContextRowStatus=fsMIDhcpRelayContextRowStatus, fsMIDhcpRelaying=fsMIDhcpRelaying, fsMIDhcpRelayRAISpaceConstraint=fsMIDhcpRelayRAISpaceConstraint, fsMIDhcpContextId=fsMIDhcpContextId, fsMIDhcpRelayHopsThreshold=fsMIDhcpRelayHopsThreshold, fsMIDhcpConfigTraceLevel=fsMIDhcpConfigTraceLevel, fsMIDhcpRelaySrvAddressTable=fsMIDhcpRelaySrvAddressTable, fsMIDhcpContextEntry=fsMIDhcpContextEntry, futureMIDhcpRelay=futureMIDhcpRelay, fsMIDhcpRelayIfEntry=fsMIDhcpRelayIfEntry, fsMIDhcpRelayIfTable=fsMIDhcpRelayIfTable, fsMIDhcpRelayRAICircuitIDSubOptionControl=fsMIDhcpRelayRAICircuitIDSubOptionControl, fsMIDhcpRelayTable=fsMIDhcpRelayTable, fsMIDhcpConfigDhcpCircuitOption=fsMIDhcpConfigDhcpCircuitOption, fsMIDhcpRelayRAIOptionWronglySet=fsMIDhcpRelayRAIOptionWronglySet, fsMIDhcpRelayRAIOptionControl=fsMIDhcpRelayRAIOptionControl, fsMIDhcpRelay=fsMIDhcpRelay, fsMIDhcpRelayServersOnly=fsMIDhcpRelayServersOnly, fsMIDhcpRelayRAIRemoteIDSubOptionInserted=fsMIDhcpRelayRAIRemoteIDSubOptionInserted, fsMIDhcpRelayIfRowStatus=fsMIDhcpRelayIfRowStatus, fsMIDhcpRelaySrvIpAddress=fsMIDhcpRelaySrvIpAddress)

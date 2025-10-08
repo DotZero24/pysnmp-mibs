@@ -1,36 +1,29 @@
-_E='read-only'
-_D='Integer32'
-_C='adGenSlotInfoIndex'
-_B='ADTRAN-GENSLOT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGenSlotInfoIndex,=mibBuilder.importSymbols(_B,_C)
-adGenTa5kHk,adGenTa5kHkID=mibBuilder.importSymbols('ADTRAN-GENTA5K-MIB','adGenTa5kHk','adGenTa5kHkID')
-adIdentity,adIdentityShared,adMgmt,adProducts=mibBuilder.importSymbols('ADTRAN-MIB','adIdentity','adIdentityShared','adMgmt','adProducts')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-adTa5kHkModuleIdentity=ModuleIdentity((1,3,6,1,4,1,664,6,10000,67,1,7,1))
-_AdTa5kHkTable_Object=MibTable
-adTa5kHkTable=_AdTa5kHkTable_Object((1,3,6,1,4,1,664,5,67,1,7,1))
-if mibBuilder.loadTexts:adTa5kHkTable.setStatus(_A)
-_AdTa5kHkEntry_Object=MibTableRow
-adTa5kHkEntry=_AdTa5kHkEntry_Object((1,3,6,1,4,1,664,5,67,1,7,1,1))
-adTa5kHkEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:adTa5kHkEntry.setStatus(_A)
-class _AdTa5kHkPresent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('true',1),('false',2)))
-_AdTa5kHkPresent_Type.__name__=_D
-_AdTa5kHkPresent_Object=MibTableColumn
-adTa5kHkPresent=_AdTa5kHkPresent_Object((1,3,6,1,4,1,664,5,67,1,7,1,1,1),_AdTa5kHkPresent_Type())
-adTa5kHkPresent.setMaxAccess(_E)
-if mibBuilder.loadTexts:adTa5kHkPresent.setStatus(_A)
-_AdTa5kHkTemp_Type=Integer32
-_AdTa5kHkTemp_Object=MibTableColumn
-adTa5kHkTemp=_AdTa5kHkTemp_Object((1,3,6,1,4,1,664,5,67,1,7,1,1,2),_AdTa5kHkTemp_Type())
-adTa5kHkTemp.setMaxAccess(_E)
-if mibBuilder.loadTexts:adTa5kHkTemp.setStatus(_A)
-mibBuilder.exportSymbols('ADTRAN-TA5K-HK-MIB',**{'adTa5kHkTable':adTa5kHkTable,'adTa5kHkEntry':adTa5kHkEntry,'adTa5kHkPresent':adTa5kHkPresent,'adTa5kHkTemp':adTa5kHkTemp,'adTa5kHkModuleIdentity':adTa5kHkModuleIdentity})
+#
+# PySNMP MIB module ADTRAN-TA5K-HK-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-TA5K-HK-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:33 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGenSlotInfoIndex, = mibBuilder.importSymbols("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex")
+adGenTa5kHk, adGenTa5kHkID = mibBuilder.importSymbols("ADTRAN-GENTA5K-MIB", "adGenTa5kHk", "adGenTa5kHkID")
+adMgmt, adIdentityShared, adProducts, adIdentity = mibBuilder.importSymbols("ADTRAN-MIB", "adMgmt", "adIdentityShared", "adProducts", "adIdentity")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+adTa5kHkModuleIdentity = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 7, 1))
+if mibBuilder.loadTexts: adTa5kHkModuleIdentity.setLastUpdated('200606120832Z')
+if mibBuilder.loadTexts: adTa5kHkModuleIdentity.setOrganization('ADTRAN, Inc.')
+adTa5kHkTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 7, 1), )
+if mibBuilder.loadTexts: adTa5kHkTable.setStatus('current')
+adTa5kHkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 7, 1, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adTa5kHkEntry.setStatus('current')
+adTa5kHkPresent = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 7, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("true", 1), ("false", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kHkPresent.setStatus('current')
+adTa5kHkTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 7, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adTa5kHkTemp.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-TA5K-HK-MIB", adTa5kHkPresent=adTa5kHkPresent, PYSNMP_MODULE_ID=adTa5kHkModuleIdentity, adTa5kHkTemp=adTa5kHkTemp, adTa5kHkEntry=adTa5kHkEntry, adTa5kHkModuleIdentity=adTa5kHkModuleIdentity, adTa5kHkTable=adTa5kHkTable)

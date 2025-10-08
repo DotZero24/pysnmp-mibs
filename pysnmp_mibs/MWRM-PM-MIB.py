@@ -1,2585 +1,1064 @@
-_AT='genEquipPmEthernetPortPmInterval'
-_AS='genEquipPmEthernetPortPmType'
-_AR='genEquipPmUtilizationMemInterval'
-_AQ='genEquipPmUtilizationMemPmType'
-_AP='genEquipPmUtilizationCPUInterval'
-_AO='genEquipPmUtilizationCPUPmType'
-_AN='genEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex'
-_AM='genEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex'
-_AL='genEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex'
-_AK='genEquipServicesCetSpPmIngressPolicerStatiSpIndex'
-_AJ='genEquipServicesCetSpPmIngressPolicerStatiServiceIndex'
-_AI='genEquipServicesCetSpPmCosIngressPolicerStatiCos'
-_AH='genEquipServicesCetSpPmCosIngressPolicerStatiSpIndex'
-_AG='genEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex'
-_AF='genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex'
-_AE='genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex'
-_AD='genEquipPmEthernetRmonStatisticsIfIndex'
-_AC='genEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex'
-_AB='genEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex'
-_AA='genEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex'
-_A9='genEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex'
-_A8='genEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex'
-_A7='genEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex'
-_A6='genEquipPmEthUtilizationInterval'
-_A5='genEquipPmEthUtilizationPmType'
-_A4='genEquipPmNGPWInterval'
-_A3='genEquipPmNGPWIfIndex'
-_A2='genEquipPmNGPWPmType'
-_A1='genEquipPmPWInterval'
-_A0='genEquipPmPWId'
-_z='genEquipPmPWPmType'
-_y='genEquipPmTrailsEndPointInterval'
-_x='genEquipPmTrailsEndPointEPId'
-_w='genEquipPmTrailsEndPointId'
-_v='genEquipPmTrailsEndPointPmType'
-_u='genEquipPmSdhRstRLInterval'
-_t='genEquipPmSdhRstRLIfIndex'
-_s='genEquipPmSdhRstRLPmType'
-_r='genEquipPmSdhRstLRInterval'
-_q='genEquipPmSdhRstLRIfIndex'
-_p='genEquipPmSdhRstLRPmType'
-_o='genEquipPmSdhInterval'
-_n='genEquipPmSdhPmType'
-_m='genEquipPmTdmInterval'
-_l='genEquipPmTdmPmType'
-_k='genEquipPmRadioXPIPmInterval'
-_j='genEquipPmRadioXPIPmType'
-_i='genEquipPmRadioMSEInterval'
-_h='genEquipPmRadioMSEPmType'
-_g='genEquipPmRadioEthernetEtmInterval'
-_f='genEquipPmRadioEthernetEtmPmQueueIndex'
-_e='genEquipPmRadioEthernetEtmPmType'
-_d='genEquipPmRadioEthernetInterval'
-_c='genEquipPmRadioEthernetPmType'
-_b='genEquipPmRadioTDMInterval'
-_a='genEquipPmRadioTDMPmType'
-_Z='genEquipPmRadioMRMCInterval'
-_Y='genEquipPmRadioMRMCId'
-_X='genEquipPmRadioMRMCPmType'
-_W='genEquipPmTrafficAggInterval'
-_V='genEquipPmTrafficAggPmType'
-_U='genEquipPmTrafficSLInterval'
-_T='genEquipPmTrafficSLId'
-_S='genEquipPmTrafficSLPmType'
-_R='genEquipPmTrafficRadioAgg24hrCurrId'
-_Q='genEquipPmTrafficRadioAgg24hrId'
-_P='genEquipPmTrafficRadioAgg15minCurrId'
-_O='genEquipPmTrafficRadioAgg15minId'
-_N='genEquipPmRfuCommonSL24hrCurrId'
-_M='genEquipPmRfuCommonSL24hrId'
-_L='genEquipPmRfuCommonSL15minCurrId'
-_K='genEquipPmRfuCommonSL15minId'
-_J='NotificationType'
-_I='genEquipRadioCfgRadioId'
-_H='MWRM-RADIO-MIB'
-_G='ifIndex'
-_F='IF-MIB'
-_E='Integer32'
-_D='read-write'
-_C='MWRM-PM-MIB'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_F,_G)
-genEquipRadioCfgRadioId,=mibBuilder.importSymbols(_H,_I)
-AllowedNotAllowed,BerLevel,ClockSrc,DownUp,EnableDisable,EnableDisableSMI2,GreenYellow,HalfFull,InputSeverity,Integrity,LoopbackType,MetricImperial,NoYes,OffOn,PmTableType,ProgressStatus,QueueName,RadioId,RateMbps,RfuId,Severity,SignalLevel,SlotId,SwCommand,SwCommandTimer,TrailIfType,TrailProtectedType=mibBuilder.importSymbols('MWRM-UNIT-MIB','AllowedNotAllowed','BerLevel','ClockSrc','DownUp','EnableDisable','EnableDisableSMI2','GreenYellow','HalfFull','InputSeverity','Integrity','LoopbackType','MetricImperial','NoYes','OffOn','PmTableType','ProgressStatus','QueueName','RadioId','RateMbps','RfuId','Severity','SignalLevel','SlotId','SwCommand','SwCommandTimer','TrailIfType','TrailProtectedType')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier',_J,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_J,'TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention')
-_Microwave_radio_ObjectIdentity=ObjectIdentity
-microwave_radio=_Microwave_radio_ObjectIdentity((1,3,6,1,4,1,2281))
-_GenEquip_ObjectIdentity=ObjectIdentity
-genEquip=_GenEquip_ObjectIdentity((1,3,6,1,4,1,2281,10))
-_GenEquipUnit_ObjectIdentity=ObjectIdentity
-genEquipUnit=_GenEquipUnit_ObjectIdentity((1,3,6,1,4,1,2281,10,1))
-_GenEquipPM_ObjectIdentity=ObjectIdentity
-genEquipPM=_GenEquipPM_ObjectIdentity((1,3,6,1,4,1,2281,10,6))
-_GenEquipPmRfu_ObjectIdentity=ObjectIdentity
-genEquipPmRfu=_GenEquipPmRfu_ObjectIdentity((1,3,6,1,4,1,2281,10,6,1))
-_GenEquipPmRfuCommon_ObjectIdentity=ObjectIdentity
-genEquipPmRfuCommon=_GenEquipPmRfuCommon_ObjectIdentity((1,3,6,1,4,1,2281,10,6,1,1))
-_GenEquipPmRfuCommonSL15minTable_Object=MibTable
-genEquipPmRfuCommonSL15minTable=_GenEquipPmRfuCommonSL15minTable_Object((1,3,6,1,4,1,2281,10,6,1,1,1))
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minTable.setStatus(_A)
-_GenEquipPmRfuCommonSL15minEntry_Object=MibTableRow
-genEquipPmRfuCommonSL15minEntry=_GenEquipPmRfuCommonSL15minEntry_Object((1,3,6,1,4,1,2281,10,6,1,1,1,1))
-genEquipPmRfuCommonSL15minEntry.setIndexNames((0,_C,_K))
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minEntry.setStatus(_A)
-_GenEquipPmRfuCommonSL15minId_Type=Integer32
-_GenEquipPmRfuCommonSL15minId_Object=MibTableColumn
-genEquipPmRfuCommonSL15minId=_GenEquipPmRfuCommonSL15minId_Object((1,3,6,1,4,1,2281,10,6,1,1,1,1,1),_GenEquipPmRfuCommonSL15minId_Type())
-genEquipPmRfuCommonSL15minId.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minId.setStatus(_A)
-_GenEquipPmRfuCommonSL15minIfIndex_Type=Integer32
-_GenEquipPmRfuCommonSL15minIfIndex_Object=MibTableColumn
-genEquipPmRfuCommonSL15minIfIndex=_GenEquipPmRfuCommonSL15minIfIndex_Object((1,3,6,1,4,1,2281,10,6,1,1,1,1,2),_GenEquipPmRfuCommonSL15minIfIndex_Type())
-genEquipPmRfuCommonSL15minIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minIfIndex.setStatus(_A)
-_GenEquipPmRfuCommonSL15minTimeAndDate_Type=DisplayString
-_GenEquipPmRfuCommonSL15minTimeAndDate_Object=MibTableColumn
-genEquipPmRfuCommonSL15minTimeAndDate=_GenEquipPmRfuCommonSL15minTimeAndDate_Object((1,3,6,1,4,1,2281,10,6,1,1,1,1,3),_GenEquipPmRfuCommonSL15minTimeAndDate_Type())
-genEquipPmRfuCommonSL15minTimeAndDate.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minTimeAndDate.setStatus(_A)
-_GenEquipPmRfuCommonSL15minMinRsl_Type=Integer32
-_GenEquipPmRfuCommonSL15minMinRsl_Object=MibTableColumn
-genEquipPmRfuCommonSL15minMinRsl=_GenEquipPmRfuCommonSL15minMinRsl_Object((1,3,6,1,4,1,2281,10,6,1,1,1,1,4),_GenEquipPmRfuCommonSL15minMinRsl_Type())
-genEquipPmRfuCommonSL15minMinRsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minMinRsl.setStatus(_A)
-_GenEquipPmRfuCommonSL15minMaxRsl_Type=Integer32
-_GenEquipPmRfuCommonSL15minMaxRsl_Object=MibTableColumn
-genEquipPmRfuCommonSL15minMaxRsl=_GenEquipPmRfuCommonSL15minMaxRsl_Object((1,3,6,1,4,1,2281,10,6,1,1,1,1,5),_GenEquipPmRfuCommonSL15minMaxRsl_Type())
-genEquipPmRfuCommonSL15minMaxRsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minMaxRsl.setStatus(_A)
-_GenEquipPmRfuCommonSL15minRslExceed1_Type=Integer32
-_GenEquipPmRfuCommonSL15minRslExceed1_Object=MibTableColumn
-genEquipPmRfuCommonSL15minRslExceed1=_GenEquipPmRfuCommonSL15minRslExceed1_Object((1,3,6,1,4,1,2281,10,6,1,1,1,1,6),_GenEquipPmRfuCommonSL15minRslExceed1_Type())
-genEquipPmRfuCommonSL15minRslExceed1.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minRslExceed1.setStatus(_A)
-_GenEquipPmRfuCommonSL15minRslExceed2_Type=Integer32
-_GenEquipPmRfuCommonSL15minRslExceed2_Object=MibTableColumn
-genEquipPmRfuCommonSL15minRslExceed2=_GenEquipPmRfuCommonSL15minRslExceed2_Object((1,3,6,1,4,1,2281,10,6,1,1,1,1,7),_GenEquipPmRfuCommonSL15minRslExceed2_Type())
-genEquipPmRfuCommonSL15minRslExceed2.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minRslExceed2.setStatus(_A)
-_GenEquipPmRfuCommonSL15minMinTsl_Type=Integer32
-_GenEquipPmRfuCommonSL15minMinTsl_Object=MibTableColumn
-genEquipPmRfuCommonSL15minMinTsl=_GenEquipPmRfuCommonSL15minMinTsl_Object((1,3,6,1,4,1,2281,10,6,1,1,1,1,8),_GenEquipPmRfuCommonSL15minMinTsl_Type())
-genEquipPmRfuCommonSL15minMinTsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minMinTsl.setStatus(_A)
-_GenEquipPmRfuCommonSL15minMaxTsl_Type=Integer32
-_GenEquipPmRfuCommonSL15minMaxTsl_Object=MibTableColumn
-genEquipPmRfuCommonSL15minMaxTsl=_GenEquipPmRfuCommonSL15minMaxTsl_Object((1,3,6,1,4,1,2281,10,6,1,1,1,1,9),_GenEquipPmRfuCommonSL15minMaxTsl_Type())
-genEquipPmRfuCommonSL15minMaxTsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minMaxTsl.setStatus(_A)
-_GenEquipPmRfuCommonSL15minTslExceed_Type=Integer32
-_GenEquipPmRfuCommonSL15minTslExceed_Object=MibTableColumn
-genEquipPmRfuCommonSL15minTslExceed=_GenEquipPmRfuCommonSL15minTslExceed_Object((1,3,6,1,4,1,2281,10,6,1,1,1,1,10),_GenEquipPmRfuCommonSL15minTslExceed_Type())
-genEquipPmRfuCommonSL15minTslExceed.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minTslExceed.setStatus(_A)
-_GenEquipPmRfuCommonSL15minIDF_Type=Integrity
-_GenEquipPmRfuCommonSL15minIDF_Object=MibTableColumn
-genEquipPmRfuCommonSL15minIDF=_GenEquipPmRfuCommonSL15minIDF_Object((1,3,6,1,4,1,2281,10,6,1,1,1,1,11),_GenEquipPmRfuCommonSL15minIDF_Type())
-genEquipPmRfuCommonSL15minIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minIDF.setStatus(_A)
-_GenEquipPmRfuCommonSL15minCurrTable_Object=MibTable
-genEquipPmRfuCommonSL15minCurrTable=_GenEquipPmRfuCommonSL15minCurrTable_Object((1,3,6,1,4,1,2281,10,6,1,1,2))
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minCurrTable.setStatus(_A)
-_GenEquipPmRfuCommonSL15minCurrEntry_Object=MibTableRow
-genEquipPmRfuCommonSL15minCurrEntry=_GenEquipPmRfuCommonSL15minCurrEntry_Object((1,3,6,1,4,1,2281,10,6,1,1,2,1))
-genEquipPmRfuCommonSL15minCurrEntry.setIndexNames((0,_C,_L))
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minCurrEntry.setStatus(_A)
-_GenEquipPmRfuCommonSL15minCurrId_Type=Integer32
-_GenEquipPmRfuCommonSL15minCurrId_Object=MibTableColumn
-genEquipPmRfuCommonSL15minCurrId=_GenEquipPmRfuCommonSL15minCurrId_Object((1,3,6,1,4,1,2281,10,6,1,1,2,1,1),_GenEquipPmRfuCommonSL15minCurrId_Type())
-genEquipPmRfuCommonSL15minCurrId.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minCurrId.setStatus(_A)
-_GenEquipPmRfuCommonSL15minCurrIfIndex_Type=Integer32
-_GenEquipPmRfuCommonSL15minCurrIfIndex_Object=MibTableColumn
-genEquipPmRfuCommonSL15minCurrIfIndex=_GenEquipPmRfuCommonSL15minCurrIfIndex_Object((1,3,6,1,4,1,2281,10,6,1,1,2,1,2),_GenEquipPmRfuCommonSL15minCurrIfIndex_Type())
-genEquipPmRfuCommonSL15minCurrIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minCurrIfIndex.setStatus(_A)
-_GenEquipPmRfuCommonSL15minCurrTimeAndDate_Type=DisplayString
-_GenEquipPmRfuCommonSL15minCurrTimeAndDate_Object=MibTableColumn
-genEquipPmRfuCommonSL15minCurrTimeAndDate=_GenEquipPmRfuCommonSL15minCurrTimeAndDate_Object((1,3,6,1,4,1,2281,10,6,1,1,2,1,3),_GenEquipPmRfuCommonSL15minCurrTimeAndDate_Type())
-genEquipPmRfuCommonSL15minCurrTimeAndDate.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minCurrTimeAndDate.setStatus(_A)
-_GenEquipPmRfuCommonSL15minCurrMinRsl_Type=Integer32
-_GenEquipPmRfuCommonSL15minCurrMinRsl_Object=MibTableColumn
-genEquipPmRfuCommonSL15minCurrMinRsl=_GenEquipPmRfuCommonSL15minCurrMinRsl_Object((1,3,6,1,4,1,2281,10,6,1,1,2,1,4),_GenEquipPmRfuCommonSL15minCurrMinRsl_Type())
-genEquipPmRfuCommonSL15minCurrMinRsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minCurrMinRsl.setStatus(_A)
-_GenEquipPmRfuCommonSL15minCurrMaxRsl_Type=Integer32
-_GenEquipPmRfuCommonSL15minCurrMaxRsl_Object=MibTableColumn
-genEquipPmRfuCommonSL15minCurrMaxRsl=_GenEquipPmRfuCommonSL15minCurrMaxRsl_Object((1,3,6,1,4,1,2281,10,6,1,1,2,1,5),_GenEquipPmRfuCommonSL15minCurrMaxRsl_Type())
-genEquipPmRfuCommonSL15minCurrMaxRsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minCurrMaxRsl.setStatus(_A)
-_GenEquipPmRfuCommonSL15minCurrRslExceed1_Type=Integer32
-_GenEquipPmRfuCommonSL15minCurrRslExceed1_Object=MibTableColumn
-genEquipPmRfuCommonSL15minCurrRslExceed1=_GenEquipPmRfuCommonSL15minCurrRslExceed1_Object((1,3,6,1,4,1,2281,10,6,1,1,2,1,6),_GenEquipPmRfuCommonSL15minCurrRslExceed1_Type())
-genEquipPmRfuCommonSL15minCurrRslExceed1.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minCurrRslExceed1.setStatus(_A)
-_GenEquipPmRfuCommonSL15minCurrRslExceed2_Type=Integer32
-_GenEquipPmRfuCommonSL15minCurrRslExceed2_Object=MibTableColumn
-genEquipPmRfuCommonSL15minCurrRslExceed2=_GenEquipPmRfuCommonSL15minCurrRslExceed2_Object((1,3,6,1,4,1,2281,10,6,1,1,2,1,7),_GenEquipPmRfuCommonSL15minCurrRslExceed2_Type())
-genEquipPmRfuCommonSL15minCurrRslExceed2.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minCurrRslExceed2.setStatus(_A)
-_GenEquipPmRfuCommonSL15minCurrMinTsl_Type=Integer32
-_GenEquipPmRfuCommonSL15minCurrMinTsl_Object=MibTableColumn
-genEquipPmRfuCommonSL15minCurrMinTsl=_GenEquipPmRfuCommonSL15minCurrMinTsl_Object((1,3,6,1,4,1,2281,10,6,1,1,2,1,8),_GenEquipPmRfuCommonSL15minCurrMinTsl_Type())
-genEquipPmRfuCommonSL15minCurrMinTsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minCurrMinTsl.setStatus(_A)
-_GenEquipPmRfuCommonSL15minCurrMaxTsl_Type=Integer32
-_GenEquipPmRfuCommonSL15minCurrMaxTsl_Object=MibTableColumn
-genEquipPmRfuCommonSL15minCurrMaxTsl=_GenEquipPmRfuCommonSL15minCurrMaxTsl_Object((1,3,6,1,4,1,2281,10,6,1,1,2,1,9),_GenEquipPmRfuCommonSL15minCurrMaxTsl_Type())
-genEquipPmRfuCommonSL15minCurrMaxTsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minCurrMaxTsl.setStatus(_A)
-_GenEquipPmRfuCommonSL15minCurrTslExceed_Type=Integer32
-_GenEquipPmRfuCommonSL15minCurrTslExceed_Object=MibTableColumn
-genEquipPmRfuCommonSL15minCurrTslExceed=_GenEquipPmRfuCommonSL15minCurrTslExceed_Object((1,3,6,1,4,1,2281,10,6,1,1,2,1,10),_GenEquipPmRfuCommonSL15minCurrTslExceed_Type())
-genEquipPmRfuCommonSL15minCurrTslExceed.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minCurrTslExceed.setStatus(_A)
-_GenEquipPmRfuCommonSL15minCurrIDF_Type=Integrity
-_GenEquipPmRfuCommonSL15minCurrIDF_Object=MibTableColumn
-genEquipPmRfuCommonSL15minCurrIDF=_GenEquipPmRfuCommonSL15minCurrIDF_Object((1,3,6,1,4,1,2281,10,6,1,1,2,1,11),_GenEquipPmRfuCommonSL15minCurrIDF_Type())
-genEquipPmRfuCommonSL15minCurrIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL15minCurrIDF.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrTable_Object=MibTable
-genEquipPmRfuCommonSL24hrTable=_GenEquipPmRfuCommonSL24hrTable_Object((1,3,6,1,4,1,2281,10,6,1,1,3))
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrTable.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrEntry_Object=MibTableRow
-genEquipPmRfuCommonSL24hrEntry=_GenEquipPmRfuCommonSL24hrEntry_Object((1,3,6,1,4,1,2281,10,6,1,1,3,1))
-genEquipPmRfuCommonSL24hrEntry.setIndexNames((0,_C,_M))
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrEntry.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrId_Type=Integer32
-_GenEquipPmRfuCommonSL24hrId_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrId=_GenEquipPmRfuCommonSL24hrId_Object((1,3,6,1,4,1,2281,10,6,1,1,3,1,1),_GenEquipPmRfuCommonSL24hrId_Type())
-genEquipPmRfuCommonSL24hrId.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrId.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrIfIndex_Type=Integer32
-_GenEquipPmRfuCommonSL24hrIfIndex_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrIfIndex=_GenEquipPmRfuCommonSL24hrIfIndex_Object((1,3,6,1,4,1,2281,10,6,1,1,3,1,2),_GenEquipPmRfuCommonSL24hrIfIndex_Type())
-genEquipPmRfuCommonSL24hrIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrIfIndex.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrTimeAndDate_Type=DisplayString
-_GenEquipPmRfuCommonSL24hrTimeAndDate_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrTimeAndDate=_GenEquipPmRfuCommonSL24hrTimeAndDate_Object((1,3,6,1,4,1,2281,10,6,1,1,3,1,3),_GenEquipPmRfuCommonSL24hrTimeAndDate_Type())
-genEquipPmRfuCommonSL24hrTimeAndDate.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrTimeAndDate.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrMinRsl_Type=Integer32
-_GenEquipPmRfuCommonSL24hrMinRsl_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrMinRsl=_GenEquipPmRfuCommonSL24hrMinRsl_Object((1,3,6,1,4,1,2281,10,6,1,1,3,1,4),_GenEquipPmRfuCommonSL24hrMinRsl_Type())
-genEquipPmRfuCommonSL24hrMinRsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrMinRsl.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrMaxRsl_Type=Integer32
-_GenEquipPmRfuCommonSL24hrMaxRsl_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrMaxRsl=_GenEquipPmRfuCommonSL24hrMaxRsl_Object((1,3,6,1,4,1,2281,10,6,1,1,3,1,5),_GenEquipPmRfuCommonSL24hrMaxRsl_Type())
-genEquipPmRfuCommonSL24hrMaxRsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrMaxRsl.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrRslExceed1_Type=Integer32
-_GenEquipPmRfuCommonSL24hrRslExceed1_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrRslExceed1=_GenEquipPmRfuCommonSL24hrRslExceed1_Object((1,3,6,1,4,1,2281,10,6,1,1,3,1,6),_GenEquipPmRfuCommonSL24hrRslExceed1_Type())
-genEquipPmRfuCommonSL24hrRslExceed1.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrRslExceed1.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrRslExceed2_Type=Integer32
-_GenEquipPmRfuCommonSL24hrRslExceed2_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrRslExceed2=_GenEquipPmRfuCommonSL24hrRslExceed2_Object((1,3,6,1,4,1,2281,10,6,1,1,3,1,7),_GenEquipPmRfuCommonSL24hrRslExceed2_Type())
-genEquipPmRfuCommonSL24hrRslExceed2.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrRslExceed2.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrMinTsl_Type=Integer32
-_GenEquipPmRfuCommonSL24hrMinTsl_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrMinTsl=_GenEquipPmRfuCommonSL24hrMinTsl_Object((1,3,6,1,4,1,2281,10,6,1,1,3,1,8),_GenEquipPmRfuCommonSL24hrMinTsl_Type())
-genEquipPmRfuCommonSL24hrMinTsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrMinTsl.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrMaxTsl_Type=Integer32
-_GenEquipPmRfuCommonSL24hrMaxTsl_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrMaxTsl=_GenEquipPmRfuCommonSL24hrMaxTsl_Object((1,3,6,1,4,1,2281,10,6,1,1,3,1,9),_GenEquipPmRfuCommonSL24hrMaxTsl_Type())
-genEquipPmRfuCommonSL24hrMaxTsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrMaxTsl.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrTslExceed_Type=Integer32
-_GenEquipPmRfuCommonSL24hrTslExceed_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrTslExceed=_GenEquipPmRfuCommonSL24hrTslExceed_Object((1,3,6,1,4,1,2281,10,6,1,1,3,1,10),_GenEquipPmRfuCommonSL24hrTslExceed_Type())
-genEquipPmRfuCommonSL24hrTslExceed.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrTslExceed.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrIDF_Type=Integrity
-_GenEquipPmRfuCommonSL24hrIDF_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrIDF=_GenEquipPmRfuCommonSL24hrIDF_Object((1,3,6,1,4,1,2281,10,6,1,1,3,1,11),_GenEquipPmRfuCommonSL24hrIDF_Type())
-genEquipPmRfuCommonSL24hrIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrIDF.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrCurrTable_Object=MibTable
-genEquipPmRfuCommonSL24hrCurrTable=_GenEquipPmRfuCommonSL24hrCurrTable_Object((1,3,6,1,4,1,2281,10,6,1,1,4))
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrCurrTable.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrCurrEntry_Object=MibTableRow
-genEquipPmRfuCommonSL24hrCurrEntry=_GenEquipPmRfuCommonSL24hrCurrEntry_Object((1,3,6,1,4,1,2281,10,6,1,1,4,1))
-genEquipPmRfuCommonSL24hrCurrEntry.setIndexNames((0,_C,_N))
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrCurrEntry.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrCurrId_Type=Integer32
-_GenEquipPmRfuCommonSL24hrCurrId_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrCurrId=_GenEquipPmRfuCommonSL24hrCurrId_Object((1,3,6,1,4,1,2281,10,6,1,1,4,1,1),_GenEquipPmRfuCommonSL24hrCurrId_Type())
-genEquipPmRfuCommonSL24hrCurrId.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrCurrId.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrCurrIfIndex_Type=Integer32
-_GenEquipPmRfuCommonSL24hrCurrIfIndex_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrCurrIfIndex=_GenEquipPmRfuCommonSL24hrCurrIfIndex_Object((1,3,6,1,4,1,2281,10,6,1,1,4,1,2),_GenEquipPmRfuCommonSL24hrCurrIfIndex_Type())
-genEquipPmRfuCommonSL24hrCurrIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrCurrIfIndex.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrCurrTimeAndDate_Type=DisplayString
-_GenEquipPmRfuCommonSL24hrCurrTimeAndDate_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrCurrTimeAndDate=_GenEquipPmRfuCommonSL24hrCurrTimeAndDate_Object((1,3,6,1,4,1,2281,10,6,1,1,4,1,3),_GenEquipPmRfuCommonSL24hrCurrTimeAndDate_Type())
-genEquipPmRfuCommonSL24hrCurrTimeAndDate.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrCurrTimeAndDate.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrCurrMinRsl_Type=Integer32
-_GenEquipPmRfuCommonSL24hrCurrMinRsl_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrCurrMinRsl=_GenEquipPmRfuCommonSL24hrCurrMinRsl_Object((1,3,6,1,4,1,2281,10,6,1,1,4,1,4),_GenEquipPmRfuCommonSL24hrCurrMinRsl_Type())
-genEquipPmRfuCommonSL24hrCurrMinRsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrCurrMinRsl.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrCurrMaxRsl_Type=Integer32
-_GenEquipPmRfuCommonSL24hrCurrMaxRsl_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrCurrMaxRsl=_GenEquipPmRfuCommonSL24hrCurrMaxRsl_Object((1,3,6,1,4,1,2281,10,6,1,1,4,1,5),_GenEquipPmRfuCommonSL24hrCurrMaxRsl_Type())
-genEquipPmRfuCommonSL24hrCurrMaxRsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrCurrMaxRsl.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrCurrRslExceed1_Type=Integer32
-_GenEquipPmRfuCommonSL24hrCurrRslExceed1_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrCurrRslExceed1=_GenEquipPmRfuCommonSL24hrCurrRslExceed1_Object((1,3,6,1,4,1,2281,10,6,1,1,4,1,6),_GenEquipPmRfuCommonSL24hrCurrRslExceed1_Type())
-genEquipPmRfuCommonSL24hrCurrRslExceed1.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrCurrRslExceed1.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrCurrRslExceed2_Type=Integer32
-_GenEquipPmRfuCommonSL24hrCurrRslExceed2_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrCurrRslExceed2=_GenEquipPmRfuCommonSL24hrCurrRslExceed2_Object((1,3,6,1,4,1,2281,10,6,1,1,4,1,7),_GenEquipPmRfuCommonSL24hrCurrRslExceed2_Type())
-genEquipPmRfuCommonSL24hrCurrRslExceed2.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrCurrRslExceed2.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrCurrMinTsl_Type=Integer32
-_GenEquipPmRfuCommonSL24hrCurrMinTsl_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrCurrMinTsl=_GenEquipPmRfuCommonSL24hrCurrMinTsl_Object((1,3,6,1,4,1,2281,10,6,1,1,4,1,8),_GenEquipPmRfuCommonSL24hrCurrMinTsl_Type())
-genEquipPmRfuCommonSL24hrCurrMinTsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrCurrMinTsl.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrCurrMaxTsl_Type=Integer32
-_GenEquipPmRfuCommonSL24hrCurrMaxTsl_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrCurrMaxTsl=_GenEquipPmRfuCommonSL24hrCurrMaxTsl_Object((1,3,6,1,4,1,2281,10,6,1,1,4,1,9),_GenEquipPmRfuCommonSL24hrCurrMaxTsl_Type())
-genEquipPmRfuCommonSL24hrCurrMaxTsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrCurrMaxTsl.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrCurrTslExceed_Type=Integer32
-_GenEquipPmRfuCommonSL24hrCurrTslExceed_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrCurrTslExceed=_GenEquipPmRfuCommonSL24hrCurrTslExceed_Object((1,3,6,1,4,1,2281,10,6,1,1,4,1,10),_GenEquipPmRfuCommonSL24hrCurrTslExceed_Type())
-genEquipPmRfuCommonSL24hrCurrTslExceed.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrCurrTslExceed.setStatus(_A)
-_GenEquipPmRfuCommonSL24hrCurrIDF_Type=Integrity
-_GenEquipPmRfuCommonSL24hrCurrIDF_Object=MibTableColumn
-genEquipPmRfuCommonSL24hrCurrIDF=_GenEquipPmRfuCommonSL24hrCurrIDF_Object((1,3,6,1,4,1,2281,10,6,1,1,4,1,11),_GenEquipPmRfuCommonSL24hrCurrIDF_Type())
-genEquipPmRfuCommonSL24hrCurrIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRfuCommonSL24hrCurrIDF.setStatus(_A)
-_GenEquipPmTraffic_ObjectIdentity=ObjectIdentity
-genEquipPmTraffic=_GenEquipPmTraffic_ObjectIdentity((1,3,6,1,4,1,2281,10,6,2))
-_GenEquipPmTrafficRadioAgg15minTable_Object=MibTable
-genEquipPmTrafficRadioAgg15minTable=_GenEquipPmTrafficRadioAgg15minTable_Object((1,3,6,1,4,1,2281,10,6,2,1))
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minTable.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minEntry_Object=MibTableRow
-genEquipPmTrafficRadioAgg15minEntry=_GenEquipPmTrafficRadioAgg15minEntry_Object((1,3,6,1,4,1,2281,10,6,2,1,1))
-genEquipPmTrafficRadioAgg15minEntry.setIndexNames((0,_C,_O))
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minEntry.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minId_Type=Integer32
-_GenEquipPmTrafficRadioAgg15minId_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minId=_GenEquipPmTrafficRadioAgg15minId_Object((1,3,6,1,4,1,2281,10,6,2,1,1,1),_GenEquipPmTrafficRadioAgg15minId_Type())
-genEquipPmTrafficRadioAgg15minId.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minId.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minIfIndex_Type=Integer32
-_GenEquipPmTrafficRadioAgg15minIfIndex_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minIfIndex=_GenEquipPmTrafficRadioAgg15minIfIndex_Object((1,3,6,1,4,1,2281,10,6,2,1,1,2),_GenEquipPmTrafficRadioAgg15minIfIndex_Type())
-genEquipPmTrafficRadioAgg15minIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minIfIndex.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minTimeAndDate_Type=DisplayString
-_GenEquipPmTrafficRadioAgg15minTimeAndDate_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minTimeAndDate=_GenEquipPmTrafficRadioAgg15minTimeAndDate_Object((1,3,6,1,4,1,2281,10,6,2,1,1,3),_GenEquipPmTrafficRadioAgg15minTimeAndDate_Type())
-genEquipPmTrafficRadioAgg15minTimeAndDate.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minTimeAndDate.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minES_Type=Integer32
-_GenEquipPmTrafficRadioAgg15minES_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minES=_GenEquipPmTrafficRadioAgg15minES_Object((1,3,6,1,4,1,2281,10,6,2,1,1,4),_GenEquipPmTrafficRadioAgg15minES_Type())
-genEquipPmTrafficRadioAgg15minES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minES.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minSES_Type=Integer32
-_GenEquipPmTrafficRadioAgg15minSES_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minSES=_GenEquipPmTrafficRadioAgg15minSES_Object((1,3,6,1,4,1,2281,10,6,2,1,1,5),_GenEquipPmTrafficRadioAgg15minSES_Type())
-genEquipPmTrafficRadioAgg15minSES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minSES.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minUAS_Type=Integer32
-_GenEquipPmTrafficRadioAgg15minUAS_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minUAS=_GenEquipPmTrafficRadioAgg15minUAS_Object((1,3,6,1,4,1,2281,10,6,2,1,1,6),_GenEquipPmTrafficRadioAgg15minUAS_Type())
-genEquipPmTrafficRadioAgg15minUAS.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minUAS.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minBBE_Type=Integer32
-_GenEquipPmTrafficRadioAgg15minBBE_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minBBE=_GenEquipPmTrafficRadioAgg15minBBE_Object((1,3,6,1,4,1,2281,10,6,2,1,1,7),_GenEquipPmTrafficRadioAgg15minBBE_Type())
-genEquipPmTrafficRadioAgg15minBBE.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minBBE.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minIDF_Type=Integrity
-_GenEquipPmTrafficRadioAgg15minIDF_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minIDF=_GenEquipPmTrafficRadioAgg15minIDF_Object((1,3,6,1,4,1,2281,10,6,2,1,1,8),_GenEquipPmTrafficRadioAgg15minIDF_Type())
-genEquipPmTrafficRadioAgg15minIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minIDF.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minCurrTable_Object=MibTable
-genEquipPmTrafficRadioAgg15minCurrTable=_GenEquipPmTrafficRadioAgg15minCurrTable_Object((1,3,6,1,4,1,2281,10,6,2,2))
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minCurrTable.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minCurrEntry_Object=MibTableRow
-genEquipPmTrafficRadioAgg15minCurrEntry=_GenEquipPmTrafficRadioAgg15minCurrEntry_Object((1,3,6,1,4,1,2281,10,6,2,2,1))
-genEquipPmTrafficRadioAgg15minCurrEntry.setIndexNames((0,_C,_P))
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minCurrEntry.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minCurrId_Type=Integer32
-_GenEquipPmTrafficRadioAgg15minCurrId_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minCurrId=_GenEquipPmTrafficRadioAgg15minCurrId_Object((1,3,6,1,4,1,2281,10,6,2,2,1,1),_GenEquipPmTrafficRadioAgg15minCurrId_Type())
-genEquipPmTrafficRadioAgg15minCurrId.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minCurrId.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minCurrIfIndex_Type=Integer32
-_GenEquipPmTrafficRadioAgg15minCurrIfIndex_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minCurrIfIndex=_GenEquipPmTrafficRadioAgg15minCurrIfIndex_Object((1,3,6,1,4,1,2281,10,6,2,2,1,2),_GenEquipPmTrafficRadioAgg15minCurrIfIndex_Type())
-genEquipPmTrafficRadioAgg15minCurrIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minCurrIfIndex.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minCurrTimeAndDate_Type=DisplayString
-_GenEquipPmTrafficRadioAgg15minCurrTimeAndDate_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minCurrTimeAndDate=_GenEquipPmTrafficRadioAgg15minCurrTimeAndDate_Object((1,3,6,1,4,1,2281,10,6,2,2,1,3),_GenEquipPmTrafficRadioAgg15minCurrTimeAndDate_Type())
-genEquipPmTrafficRadioAgg15minCurrTimeAndDate.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minCurrTimeAndDate.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minCurrES_Type=Integer32
-_GenEquipPmTrafficRadioAgg15minCurrES_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minCurrES=_GenEquipPmTrafficRadioAgg15minCurrES_Object((1,3,6,1,4,1,2281,10,6,2,2,1,4),_GenEquipPmTrafficRadioAgg15minCurrES_Type())
-genEquipPmTrafficRadioAgg15minCurrES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minCurrES.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minCurrSES_Type=Integer32
-_GenEquipPmTrafficRadioAgg15minCurrSES_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minCurrSES=_GenEquipPmTrafficRadioAgg15minCurrSES_Object((1,3,6,1,4,1,2281,10,6,2,2,1,5),_GenEquipPmTrafficRadioAgg15minCurrSES_Type())
-genEquipPmTrafficRadioAgg15minCurrSES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minCurrSES.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minCurrUAS_Type=Integer32
-_GenEquipPmTrafficRadioAgg15minCurrUAS_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minCurrUAS=_GenEquipPmTrafficRadioAgg15minCurrUAS_Object((1,3,6,1,4,1,2281,10,6,2,2,1,6),_GenEquipPmTrafficRadioAgg15minCurrUAS_Type())
-genEquipPmTrafficRadioAgg15minCurrUAS.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minCurrUAS.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minCurrBBE_Type=Integer32
-_GenEquipPmTrafficRadioAgg15minCurrBBE_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minCurrBBE=_GenEquipPmTrafficRadioAgg15minCurrBBE_Object((1,3,6,1,4,1,2281,10,6,2,2,1,7),_GenEquipPmTrafficRadioAgg15minCurrBBE_Type())
-genEquipPmTrafficRadioAgg15minCurrBBE.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minCurrBBE.setStatus(_A)
-_GenEquipPmTrafficRadioAgg15minCurrIDF_Type=Integrity
-_GenEquipPmTrafficRadioAgg15minCurrIDF_Object=MibTableColumn
-genEquipPmTrafficRadioAgg15minCurrIDF=_GenEquipPmTrafficRadioAgg15minCurrIDF_Object((1,3,6,1,4,1,2281,10,6,2,2,1,8),_GenEquipPmTrafficRadioAgg15minCurrIDF_Type())
-genEquipPmTrafficRadioAgg15minCurrIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg15minCurrIDF.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrTable_Object=MibTable
-genEquipPmTrafficRadioAgg24hrTable=_GenEquipPmTrafficRadioAgg24hrTable_Object((1,3,6,1,4,1,2281,10,6,2,3))
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrTable.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrEntry_Object=MibTableRow
-genEquipPmTrafficRadioAgg24hrEntry=_GenEquipPmTrafficRadioAgg24hrEntry_Object((1,3,6,1,4,1,2281,10,6,2,3,1))
-genEquipPmTrafficRadioAgg24hrEntry.setIndexNames((0,_C,_Q))
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrEntry.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrId_Type=Integer32
-_GenEquipPmTrafficRadioAgg24hrId_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrId=_GenEquipPmTrafficRadioAgg24hrId_Object((1,3,6,1,4,1,2281,10,6,2,3,1,1),_GenEquipPmTrafficRadioAgg24hrId_Type())
-genEquipPmTrafficRadioAgg24hrId.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrId.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrIfIndex_Type=Integer32
-_GenEquipPmTrafficRadioAgg24hrIfIndex_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrIfIndex=_GenEquipPmTrafficRadioAgg24hrIfIndex_Object((1,3,6,1,4,1,2281,10,6,2,3,1,2),_GenEquipPmTrafficRadioAgg24hrIfIndex_Type())
-genEquipPmTrafficRadioAgg24hrIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrIfIndex.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrTimeAndDate_Type=DisplayString
-_GenEquipPmTrafficRadioAgg24hrTimeAndDate_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrTimeAndDate=_GenEquipPmTrafficRadioAgg24hrTimeAndDate_Object((1,3,6,1,4,1,2281,10,6,2,3,1,3),_GenEquipPmTrafficRadioAgg24hrTimeAndDate_Type())
-genEquipPmTrafficRadioAgg24hrTimeAndDate.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrTimeAndDate.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrES_Type=Integer32
-_GenEquipPmTrafficRadioAgg24hrES_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrES=_GenEquipPmTrafficRadioAgg24hrES_Object((1,3,6,1,4,1,2281,10,6,2,3,1,4),_GenEquipPmTrafficRadioAgg24hrES_Type())
-genEquipPmTrafficRadioAgg24hrES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrES.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrSES_Type=Integer32
-_GenEquipPmTrafficRadioAgg24hrSES_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrSES=_GenEquipPmTrafficRadioAgg24hrSES_Object((1,3,6,1,4,1,2281,10,6,2,3,1,5),_GenEquipPmTrafficRadioAgg24hrSES_Type())
-genEquipPmTrafficRadioAgg24hrSES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrSES.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrUAS_Type=Integer32
-_GenEquipPmTrafficRadioAgg24hrUAS_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrUAS=_GenEquipPmTrafficRadioAgg24hrUAS_Object((1,3,6,1,4,1,2281,10,6,2,3,1,6),_GenEquipPmTrafficRadioAgg24hrUAS_Type())
-genEquipPmTrafficRadioAgg24hrUAS.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrUAS.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrBBE_Type=Integer32
-_GenEquipPmTrafficRadioAgg24hrBBE_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrBBE=_GenEquipPmTrafficRadioAgg24hrBBE_Object((1,3,6,1,4,1,2281,10,6,2,3,1,7),_GenEquipPmTrafficRadioAgg24hrBBE_Type())
-genEquipPmTrafficRadioAgg24hrBBE.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrBBE.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrIDF_Type=Integrity
-_GenEquipPmTrafficRadioAgg24hrIDF_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrIDF=_GenEquipPmTrafficRadioAgg24hrIDF_Object((1,3,6,1,4,1,2281,10,6,2,3,1,8),_GenEquipPmTrafficRadioAgg24hrIDF_Type())
-genEquipPmTrafficRadioAgg24hrIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrIDF.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrCurrTable_Object=MibTable
-genEquipPmTrafficRadioAgg24hrCurrTable=_GenEquipPmTrafficRadioAgg24hrCurrTable_Object((1,3,6,1,4,1,2281,10,6,2,4))
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrCurrTable.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrCurrEntry_Object=MibTableRow
-genEquipPmTrafficRadioAgg24hrCurrEntry=_GenEquipPmTrafficRadioAgg24hrCurrEntry_Object((1,3,6,1,4,1,2281,10,6,2,4,1))
-genEquipPmTrafficRadioAgg24hrCurrEntry.setIndexNames((0,_C,_R))
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrCurrEntry.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrCurrId_Type=Integer32
-_GenEquipPmTrafficRadioAgg24hrCurrId_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrCurrId=_GenEquipPmTrafficRadioAgg24hrCurrId_Object((1,3,6,1,4,1,2281,10,6,2,4,1,1),_GenEquipPmTrafficRadioAgg24hrCurrId_Type())
-genEquipPmTrafficRadioAgg24hrCurrId.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrCurrId.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrCurrIfIndex_Type=Integer32
-_GenEquipPmTrafficRadioAgg24hrCurrIfIndex_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrCurrIfIndex=_GenEquipPmTrafficRadioAgg24hrCurrIfIndex_Object((1,3,6,1,4,1,2281,10,6,2,4,1,2),_GenEquipPmTrafficRadioAgg24hrCurrIfIndex_Type())
-genEquipPmTrafficRadioAgg24hrCurrIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrCurrIfIndex.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrCurrTimeAndDate_Type=DisplayString
-_GenEquipPmTrafficRadioAgg24hrCurrTimeAndDate_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrCurrTimeAndDate=_GenEquipPmTrafficRadioAgg24hrCurrTimeAndDate_Object((1,3,6,1,4,1,2281,10,6,2,4,1,3),_GenEquipPmTrafficRadioAgg24hrCurrTimeAndDate_Type())
-genEquipPmTrafficRadioAgg24hrCurrTimeAndDate.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrCurrTimeAndDate.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrCurrES_Type=Integer32
-_GenEquipPmTrafficRadioAgg24hrCurrES_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrCurrES=_GenEquipPmTrafficRadioAgg24hrCurrES_Object((1,3,6,1,4,1,2281,10,6,2,4,1,4),_GenEquipPmTrafficRadioAgg24hrCurrES_Type())
-genEquipPmTrafficRadioAgg24hrCurrES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrCurrES.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrCurrSES_Type=Integer32
-_GenEquipPmTrafficRadioAgg24hrCurrSES_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrCurrSES=_GenEquipPmTrafficRadioAgg24hrCurrSES_Object((1,3,6,1,4,1,2281,10,6,2,4,1,5),_GenEquipPmTrafficRadioAgg24hrCurrSES_Type())
-genEquipPmTrafficRadioAgg24hrCurrSES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrCurrSES.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrCurrUAS_Type=Integer32
-_GenEquipPmTrafficRadioAgg24hrCurrUAS_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrCurrUAS=_GenEquipPmTrafficRadioAgg24hrCurrUAS_Object((1,3,6,1,4,1,2281,10,6,2,4,1,6),_GenEquipPmTrafficRadioAgg24hrCurrUAS_Type())
-genEquipPmTrafficRadioAgg24hrCurrUAS.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrCurrUAS.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrCurrBBE_Type=Integer32
-_GenEquipPmTrafficRadioAgg24hrCurrBBE_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrCurrBBE=_GenEquipPmTrafficRadioAgg24hrCurrBBE_Object((1,3,6,1,4,1,2281,10,6,2,4,1,7),_GenEquipPmTrafficRadioAgg24hrCurrBBE_Type())
-genEquipPmTrafficRadioAgg24hrCurrBBE.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrCurrBBE.setStatus(_A)
-_GenEquipPmTrafficRadioAgg24hrCurrIDF_Type=Integrity
-_GenEquipPmTrafficRadioAgg24hrCurrIDF_Object=MibTableColumn
-genEquipPmTrafficRadioAgg24hrCurrIDF=_GenEquipPmTrafficRadioAgg24hrCurrIDF_Object((1,3,6,1,4,1,2281,10,6,2,4,1,8),_GenEquipPmTrafficRadioAgg24hrCurrIDF_Type())
-genEquipPmTrafficRadioAgg24hrCurrIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficRadioAgg24hrCurrIDF.setStatus(_A)
-_GenEquipPmAll_ObjectIdentity=ObjectIdentity
-genEquipPmAll=_GenEquipPmAll_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3))
-_GenEquipPmClear_Type=OffOn
-_GenEquipPmClear_Object=MibScalar
-genEquipPmClear=_GenEquipPmClear_Object((1,3,6,1,4,1,2281,10,6,3,1),_GenEquipPmClear_Type())
-genEquipPmClear.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmClear.setStatus(_A)
-_GenEquipPmTrafficSL_ObjectIdentity=ObjectIdentity
-genEquipPmTrafficSL=_GenEquipPmTrafficSL_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,2))
-_GenEquipPmTrafficSLTable_Object=MibTable
-genEquipPmTrafficSLTable=_GenEquipPmTrafficSLTable_Object((1,3,6,1,4,1,2281,10,6,3,2,1))
-if mibBuilder.loadTexts:genEquipPmTrafficSLTable.setStatus(_A)
-_GenEquipPmTrafficSLEntry_Object=MibTableRow
-genEquipPmTrafficSLEntry=_GenEquipPmTrafficSLEntry_Object((1,3,6,1,4,1,2281,10,6,3,2,1,1))
-genEquipPmTrafficSLEntry.setIndexNames((0,_C,_S),(0,_C,_T),(0,_C,_U))
-if mibBuilder.loadTexts:genEquipPmTrafficSLEntry.setStatus(_A)
-_GenEquipPmTrafficSLPmType_Type=PmTableType
-_GenEquipPmTrafficSLPmType_Object=MibTableColumn
-genEquipPmTrafficSLPmType=_GenEquipPmTrafficSLPmType_Object((1,3,6,1,4,1,2281,10,6,3,2,1,1,1),_GenEquipPmTrafficSLPmType_Type())
-genEquipPmTrafficSLPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficSLPmType.setStatus(_A)
-_GenEquipPmTrafficSLId_Type=RfuId
-_GenEquipPmTrafficSLId_Object=MibTableColumn
-genEquipPmTrafficSLId=_GenEquipPmTrafficSLId_Object((1,3,6,1,4,1,2281,10,6,3,2,1,1,2),_GenEquipPmTrafficSLId_Type())
-genEquipPmTrafficSLId.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficSLId.setStatus(_A)
-_GenEquipPmTrafficSLInterval_Type=Integer32
-_GenEquipPmTrafficSLInterval_Object=MibTableColumn
-genEquipPmTrafficSLInterval=_GenEquipPmTrafficSLInterval_Object((1,3,6,1,4,1,2281,10,6,3,2,1,1,3),_GenEquipPmTrafficSLInterval_Type())
-genEquipPmTrafficSLInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficSLInterval.setStatus(_A)
-_GenEquipPmTrafficSLMinRsl_Type=Integer32
-_GenEquipPmTrafficSLMinRsl_Object=MibTableColumn
-genEquipPmTrafficSLMinRsl=_GenEquipPmTrafficSLMinRsl_Object((1,3,6,1,4,1,2281,10,6,3,2,1,1,4),_GenEquipPmTrafficSLMinRsl_Type())
-genEquipPmTrafficSLMinRsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficSLMinRsl.setStatus(_A)
-_GenEquipPmTrafficSLMaxRsl_Type=Integer32
-_GenEquipPmTrafficSLMaxRsl_Object=MibTableColumn
-genEquipPmTrafficSLMaxRsl=_GenEquipPmTrafficSLMaxRsl_Object((1,3,6,1,4,1,2281,10,6,3,2,1,1,5),_GenEquipPmTrafficSLMaxRsl_Type())
-genEquipPmTrafficSLMaxRsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficSLMaxRsl.setStatus(_A)
-_GenEquipPmTrafficSLRslExceed1_Type=Integer32
-_GenEquipPmTrafficSLRslExceed1_Object=MibTableColumn
-genEquipPmTrafficSLRslExceed1=_GenEquipPmTrafficSLRslExceed1_Object((1,3,6,1,4,1,2281,10,6,3,2,1,1,6),_GenEquipPmTrafficSLRslExceed1_Type())
-genEquipPmTrafficSLRslExceed1.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficSLRslExceed1.setStatus(_A)
-_GenEquipPmTrafficSLRslExceed2_Type=Integer32
-_GenEquipPmTrafficSLRslExceed2_Object=MibTableColumn
-genEquipPmTrafficSLRslExceed2=_GenEquipPmTrafficSLRslExceed2_Object((1,3,6,1,4,1,2281,10,6,3,2,1,1,7),_GenEquipPmTrafficSLRslExceed2_Type())
-genEquipPmTrafficSLRslExceed2.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficSLRslExceed2.setStatus(_A)
-_GenEquipPmTrafficSLMinTsl_Type=Integer32
-_GenEquipPmTrafficSLMinTsl_Object=MibTableColumn
-genEquipPmTrafficSLMinTsl=_GenEquipPmTrafficSLMinTsl_Object((1,3,6,1,4,1,2281,10,6,3,2,1,1,8),_GenEquipPmTrafficSLMinTsl_Type())
-genEquipPmTrafficSLMinTsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficSLMinTsl.setStatus(_A)
-_GenEquipPmTrafficSLMaxTsl_Type=Integer32
-_GenEquipPmTrafficSLMaxTsl_Object=MibTableColumn
-genEquipPmTrafficSLMaxTsl=_GenEquipPmTrafficSLMaxTsl_Object((1,3,6,1,4,1,2281,10,6,3,2,1,1,9),_GenEquipPmTrafficSLMaxTsl_Type())
-genEquipPmTrafficSLMaxTsl.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficSLMaxTsl.setStatus(_A)
-_GenEquipPmTrafficSLTslExceed_Type=Integer32
-_GenEquipPmTrafficSLTslExceed_Object=MibTableColumn
-genEquipPmTrafficSLTslExceed=_GenEquipPmTrafficSLTslExceed_Object((1,3,6,1,4,1,2281,10,6,3,2,1,1,10),_GenEquipPmTrafficSLTslExceed_Type())
-genEquipPmTrafficSLTslExceed.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficSLTslExceed.setStatus(_A)
-_GenEquipPmTrafficSLIDF_Type=Integrity
-_GenEquipPmTrafficSLIDF_Object=MibTableColumn
-genEquipPmTrafficSLIDF=_GenEquipPmTrafficSLIDF_Object((1,3,6,1,4,1,2281,10,6,3,2,1,1,11),_GenEquipPmTrafficSLIDF_Type())
-genEquipPmTrafficSLIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficSLIDF.setStatus(_A)
-_GenEquipPmTrafficAggregate_ObjectIdentity=ObjectIdentity
-genEquipPmTrafficAggregate=_GenEquipPmTrafficAggregate_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,3))
-_GenEquipPmTrafficAggTable_Object=MibTable
-genEquipPmTrafficAggTable=_GenEquipPmTrafficAggTable_Object((1,3,6,1,4,1,2281,10,6,3,3,1))
-if mibBuilder.loadTexts:genEquipPmTrafficAggTable.setStatus(_A)
-_GenEquipPmTrafficAggEntry_Object=MibTableRow
-genEquipPmTrafficAggEntry=_GenEquipPmTrafficAggEntry_Object((1,3,6,1,4,1,2281,10,6,3,3,1,1))
-genEquipPmTrafficAggEntry.setIndexNames((0,_C,_V),(0,_F,_G),(0,_C,_W))
-if mibBuilder.loadTexts:genEquipPmTrafficAggEntry.setStatus(_A)
-_GenEquipPmTrafficAggPmType_Type=PmTableType
-_GenEquipPmTrafficAggPmType_Object=MibTableColumn
-genEquipPmTrafficAggPmType=_GenEquipPmTrafficAggPmType_Object((1,3,6,1,4,1,2281,10,6,3,3,1,1,1),_GenEquipPmTrafficAggPmType_Type())
-genEquipPmTrafficAggPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficAggPmType.setStatus(_A)
-_GenEquipPmTrafficAggInterval_Type=Integer32
-_GenEquipPmTrafficAggInterval_Object=MibTableColumn
-genEquipPmTrafficAggInterval=_GenEquipPmTrafficAggInterval_Object((1,3,6,1,4,1,2281,10,6,3,3,1,1,2),_GenEquipPmTrafficAggInterval_Type())
-genEquipPmTrafficAggInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficAggInterval.setStatus(_A)
-_GenEquipPmTrafficAggES_Type=Integer32
-_GenEquipPmTrafficAggES_Object=MibTableColumn
-genEquipPmTrafficAggES=_GenEquipPmTrafficAggES_Object((1,3,6,1,4,1,2281,10,6,3,3,1,1,3),_GenEquipPmTrafficAggES_Type())
-genEquipPmTrafficAggES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficAggES.setStatus(_A)
-_GenEquipPmTrafficAggSES_Type=Integer32
-_GenEquipPmTrafficAggSES_Object=MibTableColumn
-genEquipPmTrafficAggSES=_GenEquipPmTrafficAggSES_Object((1,3,6,1,4,1,2281,10,6,3,3,1,1,4),_GenEquipPmTrafficAggSES_Type())
-genEquipPmTrafficAggSES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficAggSES.setStatus(_A)
-_GenEquipPmTrafficAggUAS_Type=Integer32
-_GenEquipPmTrafficAggUAS_Object=MibTableColumn
-genEquipPmTrafficAggUAS=_GenEquipPmTrafficAggUAS_Object((1,3,6,1,4,1,2281,10,6,3,3,1,1,5),_GenEquipPmTrafficAggUAS_Type())
-genEquipPmTrafficAggUAS.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficAggUAS.setStatus(_A)
-_GenEquipPmTrafficAggBBE_Type=Integer32
-_GenEquipPmTrafficAggBBE_Object=MibTableColumn
-genEquipPmTrafficAggBBE=_GenEquipPmTrafficAggBBE_Object((1,3,6,1,4,1,2281,10,6,3,3,1,1,6),_GenEquipPmTrafficAggBBE_Type())
-genEquipPmTrafficAggBBE.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficAggBBE.setStatus(_A)
-_GenEquipPmTrafficAggIDF_Type=Integrity
-_GenEquipPmTrafficAggIDF_Object=MibTableColumn
-genEquipPmTrafficAggIDF=_GenEquipPmTrafficAggIDF_Object((1,3,6,1,4,1,2281,10,6,3,3,1,1,7),_GenEquipPmTrafficAggIDF_Type())
-genEquipPmTrafficAggIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrafficAggIDF.setStatus(_A)
-_GenEquipPmRadio_ObjectIdentity=ObjectIdentity
-genEquipPmRadio=_GenEquipPmRadio_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,4))
-_GenEquipPmRadioMRMC_ObjectIdentity=ObjectIdentity
-genEquipPmRadioMRMC=_GenEquipPmRadioMRMC_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,4,1))
-_GenEquipPmRadioMRMCTable_Object=MibTable
-genEquipPmRadioMRMCTable=_GenEquipPmRadioMRMCTable_Object((1,3,6,1,4,1,2281,10,6,3,4,1,1))
-if mibBuilder.loadTexts:genEquipPmRadioMRMCTable.setStatus(_A)
-_GenEquipPmRadioMRMCEntry_Object=MibTableRow
-genEquipPmRadioMRMCEntry=_GenEquipPmRadioMRMCEntry_Object((1,3,6,1,4,1,2281,10,6,3,4,1,1,1))
-genEquipPmRadioMRMCEntry.setIndexNames((0,_C,_X),(0,_C,_Y),(0,_C,_Z))
-if mibBuilder.loadTexts:genEquipPmRadioMRMCEntry.setStatus(_A)
-_GenEquipPmRadioMRMCPmType_Type=PmTableType
-_GenEquipPmRadioMRMCPmType_Object=MibTableColumn
-genEquipPmRadioMRMCPmType=_GenEquipPmRadioMRMCPmType_Object((1,3,6,1,4,1,2281,10,6,3,4,1,1,1,1),_GenEquipPmRadioMRMCPmType_Type())
-genEquipPmRadioMRMCPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMRMCPmType.setStatus(_A)
-_GenEquipPmRadioMRMCId_Type=RadioId
-_GenEquipPmRadioMRMCId_Object=MibTableColumn
-genEquipPmRadioMRMCId=_GenEquipPmRadioMRMCId_Object((1,3,6,1,4,1,2281,10,6,3,4,1,1,1,2),_GenEquipPmRadioMRMCId_Type())
-genEquipPmRadioMRMCId.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMRMCId.setStatus(_A)
-_GenEquipPmRadioMRMCInterval_Type=Integer32
-_GenEquipPmRadioMRMCInterval_Object=MibTableColumn
-genEquipPmRadioMRMCInterval=_GenEquipPmRadioMRMCInterval_Object((1,3,6,1,4,1,2281,10,6,3,4,1,1,1,3),_GenEquipPmRadioMRMCInterval_Type())
-genEquipPmRadioMRMCInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMRMCInterval.setStatus(_A)
-_GenEquipPmRadioMRMCIfIndex_Type=Integer32
-_GenEquipPmRadioMRMCIfIndex_Object=MibTableColumn
-genEquipPmRadioMRMCIfIndex=_GenEquipPmRadioMRMCIfIndex_Object((1,3,6,1,4,1,2281,10,6,3,4,1,1,1,4),_GenEquipPmRadioMRMCIfIndex_Type())
-genEquipPmRadioMRMCIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMRMCIfIndex.setStatus(_A)
-_GenEquipPmRadioMRMCMinProfile_Type=Integer32
-_GenEquipPmRadioMRMCMinProfile_Object=MibTableColumn
-genEquipPmRadioMRMCMinProfile=_GenEquipPmRadioMRMCMinProfile_Object((1,3,6,1,4,1,2281,10,6,3,4,1,1,1,5),_GenEquipPmRadioMRMCMinProfile_Type())
-genEquipPmRadioMRMCMinProfile.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMRMCMinProfile.setStatus(_A)
-_GenEquipPmRadioMRMCMaxProfile_Type=Integer32
-_GenEquipPmRadioMRMCMaxProfile_Object=MibTableColumn
-genEquipPmRadioMRMCMaxProfile=_GenEquipPmRadioMRMCMaxProfile_Object((1,3,6,1,4,1,2281,10,6,3,4,1,1,1,6),_GenEquipPmRadioMRMCMaxProfile_Type())
-genEquipPmRadioMRMCMaxProfile.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMRMCMaxProfile.setStatus(_A)
-_GenEquipPmRadioMRMCMinBitrate_Type=Integer32
-_GenEquipPmRadioMRMCMinBitrate_Object=MibTableColumn
-genEquipPmRadioMRMCMinBitrate=_GenEquipPmRadioMRMCMinBitrate_Object((1,3,6,1,4,1,2281,10,6,3,4,1,1,1,7),_GenEquipPmRadioMRMCMinBitrate_Type())
-genEquipPmRadioMRMCMinBitrate.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMRMCMinBitrate.setStatus(_A)
-_GenEquipPmRadioMRMCMaxBitrate_Type=Integer32
-_GenEquipPmRadioMRMCMaxBitrate_Object=MibTableColumn
-genEquipPmRadioMRMCMaxBitrate=_GenEquipPmRadioMRMCMaxBitrate_Object((1,3,6,1,4,1,2281,10,6,3,4,1,1,1,8),_GenEquipPmRadioMRMCMaxBitrate_Type())
-genEquipPmRadioMRMCMaxBitrate.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMRMCMaxBitrate.setStatus(_A)
-_GenEquipPmRadioMRMCMinTDMIf_Type=Integer32
-_GenEquipPmRadioMRMCMinTDMIf_Object=MibTableColumn
-genEquipPmRadioMRMCMinTDMIf=_GenEquipPmRadioMRMCMinTDMIf_Object((1,3,6,1,4,1,2281,10,6,3,4,1,1,1,9),_GenEquipPmRadioMRMCMinTDMIf_Type())
-genEquipPmRadioMRMCMinTDMIf.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMRMCMinTDMIf.setStatus(_A)
-_GenEquipPmRadioMRMCMaxTDMIf_Type=Integer32
-_GenEquipPmRadioMRMCMaxTDMIf_Object=MibTableColumn
-genEquipPmRadioMRMCMaxTDMIf=_GenEquipPmRadioMRMCMaxTDMIf_Object((1,3,6,1,4,1,2281,10,6,3,4,1,1,1,10),_GenEquipPmRadioMRMCMaxTDMIf_Type())
-genEquipPmRadioMRMCMaxTDMIf.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMRMCMaxTDMIf.setStatus(_A)
-_GenEquipPmRadioMRMCIDF_Type=Integrity
-_GenEquipPmRadioMRMCIDF_Object=MibTableColumn
-genEquipPmRadioMRMCIDF=_GenEquipPmRadioMRMCIDF_Object((1,3,6,1,4,1,2281,10,6,3,4,1,1,1,11),_GenEquipPmRadioMRMCIDF_Type())
-genEquipPmRadioMRMCIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMRMCIDF.setStatus(_A)
-_GenEquipPmRadioTDM_ObjectIdentity=ObjectIdentity
-genEquipPmRadioTDM=_GenEquipPmRadioTDM_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,4,2))
-_GenEquipPmRadioTDMTable_Object=MibTable
-genEquipPmRadioTDMTable=_GenEquipPmRadioTDMTable_Object((1,3,6,1,4,1,2281,10,6,3,4,2,1))
-if mibBuilder.loadTexts:genEquipPmRadioTDMTable.setStatus(_A)
-_GenEquipPmRadioTDMEntry_Object=MibTableRow
-genEquipPmRadioTDMEntry=_GenEquipPmRadioTDMEntry_Object((1,3,6,1,4,1,2281,10,6,3,4,2,1,1))
-genEquipPmRadioTDMEntry.setIndexNames((0,_C,_a),(0,_F,_G),(0,_C,_b))
-if mibBuilder.loadTexts:genEquipPmRadioTDMEntry.setStatus(_A)
-_GenEquipPmRadioTDMPmType_Type=PmTableType
-_GenEquipPmRadioTDMPmType_Object=MibTableColumn
-genEquipPmRadioTDMPmType=_GenEquipPmRadioTDMPmType_Object((1,3,6,1,4,1,2281,10,6,3,4,2,1,1,1),_GenEquipPmRadioTDMPmType_Type())
-genEquipPmRadioTDMPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioTDMPmType.setStatus(_A)
-_GenEquipPmRadioTDMInterval_Type=Integer32
-_GenEquipPmRadioTDMInterval_Object=MibTableColumn
-genEquipPmRadioTDMInterval=_GenEquipPmRadioTDMInterval_Object((1,3,6,1,4,1,2281,10,6,3,4,2,1,1,2),_GenEquipPmRadioTDMInterval_Type())
-genEquipPmRadioTDMInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioTDMInterval.setStatus(_A)
-_GenEquipPmRadioTDMRadioUAS_Type=Integer32
-_GenEquipPmRadioTDMRadioUAS_Object=MibTableColumn
-genEquipPmRadioTDMRadioUAS=_GenEquipPmRadioTDMRadioUAS_Object((1,3,6,1,4,1,2281,10,6,3,4,2,1,1,3),_GenEquipPmRadioTDMRadioUAS_Type())
-genEquipPmRadioTDMRadioUAS.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioTDMRadioUAS.setStatus(_A)
-_GenEquipPmRadioTDMIDF_Type=Integrity
-_GenEquipPmRadioTDMIDF_Object=MibTableColumn
-genEquipPmRadioTDMIDF=_GenEquipPmRadioTDMIDF_Object((1,3,6,1,4,1,2281,10,6,3,4,2,1,1,4),_GenEquipPmRadioTDMIDF_Type())
-genEquipPmRadioTDMIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioTDMIDF.setStatus(_A)
-_GenEquipPmRadioEthernet_ObjectIdentity=ObjectIdentity
-genEquipPmRadioEthernet=_GenEquipPmRadioEthernet_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,4,3))
-_GenEquipPmRadioEthernetTable_Object=MibTable
-genEquipPmRadioEthernetTable=_GenEquipPmRadioEthernetTable_Object((1,3,6,1,4,1,2281,10,6,3,4,3,1))
-if mibBuilder.loadTexts:genEquipPmRadioEthernetTable.setStatus(_A)
-_GenEquipPmRadioEthernetEntry_Object=MibTableRow
-genEquipPmRadioEthernetEntry=_GenEquipPmRadioEthernetEntry_Object((1,3,6,1,4,1,2281,10,6,3,4,3,1,1))
-genEquipPmRadioEthernetEntry.setIndexNames((0,_C,_c),(0,_F,_G),(0,_C,_d))
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEntry.setStatus(_A)
-_GenEquipPmRadioEthernetPmType_Type=PmTableType
-_GenEquipPmRadioEthernetPmType_Object=MibTableColumn
-genEquipPmRadioEthernetPmType=_GenEquipPmRadioEthernetPmType_Object((1,3,6,1,4,1,2281,10,6,3,4,3,1,1,1),_GenEquipPmRadioEthernetPmType_Type())
-genEquipPmRadioEthernetPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetPmType.setStatus(_A)
-_GenEquipPmRadioEthernetInterval_Type=Integer32
-_GenEquipPmRadioEthernetInterval_Object=MibTableColumn
-genEquipPmRadioEthernetInterval=_GenEquipPmRadioEthernetInterval_Object((1,3,6,1,4,1,2281,10,6,3,4,3,1,1,2),_GenEquipPmRadioEthernetInterval_Type())
-genEquipPmRadioEthernetInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetInterval.setStatus(_A)
-_GenEquipPmRadioEthernetFrameErrorRate_Type=Integer32
-_GenEquipPmRadioEthernetFrameErrorRate_Object=MibTableColumn
-genEquipPmRadioEthernetFrameErrorRate=_GenEquipPmRadioEthernetFrameErrorRate_Object((1,3,6,1,4,1,2281,10,6,3,4,3,1,1,3),_GenEquipPmRadioEthernetFrameErrorRate_Type())
-genEquipPmRadioEthernetFrameErrorRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetFrameErrorRate.setStatus(_A)
-_GenEquipPmRadioEthernetPeakThroughput_Type=Integer32
-_GenEquipPmRadioEthernetPeakThroughput_Object=MibTableColumn
-genEquipPmRadioEthernetPeakThroughput=_GenEquipPmRadioEthernetPeakThroughput_Object((1,3,6,1,4,1,2281,10,6,3,4,3,1,1,4),_GenEquipPmRadioEthernetPeakThroughput_Type())
-genEquipPmRadioEthernetPeakThroughput.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetPeakThroughput.setStatus(_A)
-_GenEquipPmRadioEthernetAverageThroughput_Type=Integer32
-_GenEquipPmRadioEthernetAverageThroughput_Object=MibTableColumn
-genEquipPmRadioEthernetAverageThroughput=_GenEquipPmRadioEthernetAverageThroughput_Object((1,3,6,1,4,1,2281,10,6,3,4,3,1,1,5),_GenEquipPmRadioEthernetAverageThroughput_Type())
-genEquipPmRadioEthernetAverageThroughput.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetAverageThroughput.setStatus(_A)
-_GenEquipPmRadioEthernetExceedThroughput_Type=Integer32
-_GenEquipPmRadioEthernetExceedThroughput_Object=MibTableColumn
-genEquipPmRadioEthernetExceedThroughput=_GenEquipPmRadioEthernetExceedThroughput_Object((1,3,6,1,4,1,2281,10,6,3,4,3,1,1,6),_GenEquipPmRadioEthernetExceedThroughput_Type())
-genEquipPmRadioEthernetExceedThroughput.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetExceedThroughput.setStatus(_A)
-_GenEquipPmRadioEthernetPeakCapacity_Type=Integer32
-_GenEquipPmRadioEthernetPeakCapacity_Object=MibTableColumn
-genEquipPmRadioEthernetPeakCapacity=_GenEquipPmRadioEthernetPeakCapacity_Object((1,3,6,1,4,1,2281,10,6,3,4,3,1,1,7),_GenEquipPmRadioEthernetPeakCapacity_Type())
-genEquipPmRadioEthernetPeakCapacity.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetPeakCapacity.setStatus(_A)
-_GenEquipPmRadioEthernetAverageCapacity_Type=Integer32
-_GenEquipPmRadioEthernetAverageCapacity_Object=MibTableColumn
-genEquipPmRadioEthernetAverageCapacity=_GenEquipPmRadioEthernetAverageCapacity_Object((1,3,6,1,4,1,2281,10,6,3,4,3,1,1,8),_GenEquipPmRadioEthernetAverageCapacity_Type())
-genEquipPmRadioEthernetAverageCapacity.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetAverageCapacity.setStatus(_A)
-_GenEquipPmRadioEthernetExceedCapacity_Type=Integer32
-_GenEquipPmRadioEthernetExceedCapacity_Object=MibTableColumn
-genEquipPmRadioEthernetExceedCapacity=_GenEquipPmRadioEthernetExceedCapacity_Object((1,3,6,1,4,1,2281,10,6,3,4,3,1,1,9),_GenEquipPmRadioEthernetExceedCapacity_Type())
-genEquipPmRadioEthernetExceedCapacity.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetExceedCapacity.setStatus(_A)
-_GenEquipPmRadioEthernetPeakUtilization_Type=Integer32
-_GenEquipPmRadioEthernetPeakUtilization_Object=MibTableColumn
-genEquipPmRadioEthernetPeakUtilization=_GenEquipPmRadioEthernetPeakUtilization_Object((1,3,6,1,4,1,2281,10,6,3,4,3,1,1,10),_GenEquipPmRadioEthernetPeakUtilization_Type())
-genEquipPmRadioEthernetPeakUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetPeakUtilization.setStatus(_A)
-_GenEquipPmRadioEthernetAverageUtilization_Type=Integer32
-_GenEquipPmRadioEthernetAverageUtilization_Object=MibTableColumn
-genEquipPmRadioEthernetAverageUtilization=_GenEquipPmRadioEthernetAverageUtilization_Object((1,3,6,1,4,1,2281,10,6,3,4,3,1,1,11),_GenEquipPmRadioEthernetAverageUtilization_Type())
-genEquipPmRadioEthernetAverageUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetAverageUtilization.setStatus(_A)
-_GenEquipPmRadioEthernetExceedUtilization_Type=Integer32
-_GenEquipPmRadioEthernetExceedUtilization_Object=MibTableColumn
-genEquipPmRadioEthernetExceedUtilization=_GenEquipPmRadioEthernetExceedUtilization_Object((1,3,6,1,4,1,2281,10,6,3,4,3,1,1,12),_GenEquipPmRadioEthernetExceedUtilization_Type())
-genEquipPmRadioEthernetExceedUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetExceedUtilization.setStatus(_A)
-_GenEquipPmRadioEthernetIDF_Type=Integrity
-_GenEquipPmRadioEthernetIDF_Object=MibTableColumn
-genEquipPmRadioEthernetIDF=_GenEquipPmRadioEthernetIDF_Object((1,3,6,1,4,1,2281,10,6,3,4,3,1,1,13),_GenEquipPmRadioEthernetIDF_Type())
-genEquipPmRadioEthernetIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetIDF.setStatus(_A)
-_GenEquipPmRadioEthernetThresholdTable_Object=MibTable
-genEquipPmRadioEthernetThresholdTable=_GenEquipPmRadioEthernetThresholdTable_Object((1,3,6,1,4,1,2281,10,6,3,4,3,2))
-if mibBuilder.loadTexts:genEquipPmRadioEthernetThresholdTable.setStatus(_A)
-_GenEquipPmRadioEthernetThresholdEntry_Object=MibTableRow
-genEquipPmRadioEthernetThresholdEntry=_GenEquipPmRadioEthernetThresholdEntry_Object((1,3,6,1,4,1,2281,10,6,3,4,3,2,1))
-genEquipPmRadioEthernetThresholdEntry.setIndexNames((0,_H,_I))
-if mibBuilder.loadTexts:genEquipPmRadioEthernetThresholdEntry.setStatus(_A)
-class _GenEquipPmRadioEthernetThresholdThroughput_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
-_GenEquipPmRadioEthernetThresholdThroughput_Type.__name__=_E
-_GenEquipPmRadioEthernetThresholdThroughput_Object=MibTableColumn
-genEquipPmRadioEthernetThresholdThroughput=_GenEquipPmRadioEthernetThresholdThroughput_Object((1,3,6,1,4,1,2281,10,6,3,4,3,2,1,1),_GenEquipPmRadioEthernetThresholdThroughput_Type())
-genEquipPmRadioEthernetThresholdThroughput.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetThresholdThroughput.setStatus(_A)
-class _GenEquipPmRadioEthernetThresholdCapacity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
-_GenEquipPmRadioEthernetThresholdCapacity_Type.__name__=_E
-_GenEquipPmRadioEthernetThresholdCapacity_Object=MibTableColumn
-genEquipPmRadioEthernetThresholdCapacity=_GenEquipPmRadioEthernetThresholdCapacity_Object((1,3,6,1,4,1,2281,10,6,3,4,3,2,1,2),_GenEquipPmRadioEthernetThresholdCapacity_Type())
-genEquipPmRadioEthernetThresholdCapacity.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetThresholdCapacity.setStatus(_A)
-class _GenEquipPmRadioEthernetThresholdUtilization_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*(('above-0',0),('above-20',1),('above-40',2),('above-60',3),('above-80',4),('no-threshold',5)))
-_GenEquipPmRadioEthernetThresholdUtilization_Type.__name__=_E
-_GenEquipPmRadioEthernetThresholdUtilization_Object=MibTableColumn
-genEquipPmRadioEthernetThresholdUtilization=_GenEquipPmRadioEthernetThresholdUtilization_Object((1,3,6,1,4,1,2281,10,6,3,4,3,2,1,3),_GenEquipPmRadioEthernetThresholdUtilization_Type())
-genEquipPmRadioEthernetThresholdUtilization.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetThresholdUtilization.setStatus(_A)
-_GenEquipPmRadioEthernetEtmTable_Object=MibTable
-genEquipPmRadioEthernetEtmTable=_GenEquipPmRadioEthernetEtmTable_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3))
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmTable.setStatus(_A)
-_GenEquipPmRadioEthernetEtmEntry_Object=MibTableRow
-genEquipPmRadioEthernetEtmEntry=_GenEquipPmRadioEthernetEtmEntry_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1))
-genEquipPmRadioEthernetEtmEntry.setIndexNames((0,_C,_e),(0,_C,_f),(0,_C,_g))
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmEntry.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmType_Type=PmTableType
-_GenEquipPmRadioEthernetEtmPmType_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmType=_GenEquipPmRadioEthernetEtmPmType_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,1),_GenEquipPmRadioEthernetEtmPmType_Type())
-genEquipPmRadioEthernetEtmPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmType.setStatus(_A)
-class _GenEquipPmRadioEthernetEtmPmQueueIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_GenEquipPmRadioEthernetEtmPmQueueIndex_Type.__name__=_E
-_GenEquipPmRadioEthernetEtmPmQueueIndex_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmQueueIndex=_GenEquipPmRadioEthernetEtmPmQueueIndex_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,2),_GenEquipPmRadioEthernetEtmPmQueueIndex_Type())
-genEquipPmRadioEthernetEtmPmQueueIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmQueueIndex.setStatus(_A)
-class _GenEquipPmRadioEthernetEtmInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,96))
-_GenEquipPmRadioEthernetEtmInterval_Type.__name__=_E
-_GenEquipPmRadioEthernetEtmInterval_Object=MibTableColumn
-genEquipPmRadioEthernetEtmInterval=_GenEquipPmRadioEthernetEtmInterval_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,3),_GenEquipPmRadioEthernetEtmInterval_Type())
-genEquipPmRadioEthernetEtmInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmInterval.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmMaxGreenBytesPassed_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmMaxGreenBytesPassed_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmMaxGreenBytesPassed=_GenEquipPmRadioEthernetEtmPmMaxGreenBytesPassed_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,4),_GenEquipPmRadioEthernetEtmPmMaxGreenBytesPassed_Type())
-genEquipPmRadioEthernetEtmPmMaxGreenBytesPassed.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmMaxGreenBytesPassed.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmAvgGreenBytesPassed_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmAvgGreenBytesPassed_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmAvgGreenBytesPassed=_GenEquipPmRadioEthernetEtmPmAvgGreenBytesPassed_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,5),_GenEquipPmRadioEthernetEtmPmAvgGreenBytesPassed_Type())
-genEquipPmRadioEthernetEtmPmAvgGreenBytesPassed.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmAvgGreenBytesPassed.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmMaxGreenFramesDropped_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmMaxGreenFramesDropped_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmMaxGreenFramesDropped=_GenEquipPmRadioEthernetEtmPmMaxGreenFramesDropped_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,6),_GenEquipPmRadioEthernetEtmPmMaxGreenFramesDropped_Type())
-genEquipPmRadioEthernetEtmPmMaxGreenFramesDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmMaxGreenFramesDropped.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmAvgGreenFramesDropped_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmAvgGreenFramesDropped_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmAvgGreenFramesDropped=_GenEquipPmRadioEthernetEtmPmAvgGreenFramesDropped_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,7),_GenEquipPmRadioEthernetEtmPmAvgGreenFramesDropped_Type())
-genEquipPmRadioEthernetEtmPmAvgGreenFramesDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmAvgGreenFramesDropped.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmMaxYellowBytesPassed_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmMaxYellowBytesPassed_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmMaxYellowBytesPassed=_GenEquipPmRadioEthernetEtmPmMaxYellowBytesPassed_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,8),_GenEquipPmRadioEthernetEtmPmMaxYellowBytesPassed_Type())
-genEquipPmRadioEthernetEtmPmMaxYellowBytesPassed.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmMaxYellowBytesPassed.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmAvgYellowBytesPassed_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmAvgYellowBytesPassed_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmAvgYellowBytesPassed=_GenEquipPmRadioEthernetEtmPmAvgYellowBytesPassed_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,9),_GenEquipPmRadioEthernetEtmPmAvgYellowBytesPassed_Type())
-genEquipPmRadioEthernetEtmPmAvgYellowBytesPassed.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmAvgYellowBytesPassed.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmMaxYellowFramesDropped_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmMaxYellowFramesDropped_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmMaxYellowFramesDropped=_GenEquipPmRadioEthernetEtmPmMaxYellowFramesDropped_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,10),_GenEquipPmRadioEthernetEtmPmMaxYellowFramesDropped_Type())
-genEquipPmRadioEthernetEtmPmMaxYellowFramesDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmMaxYellowFramesDropped.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmAvgYellowFramesDropped_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmAvgYellowFramesDropped_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmAvgYellowFramesDropped=_GenEquipPmRadioEthernetEtmPmAvgYellowFramesDropped_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,11),_GenEquipPmRadioEthernetEtmPmAvgYellowFramesDropped_Type())
-genEquipPmRadioEthernetEtmPmAvgYellowFramesDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmAvgYellowFramesDropped.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmMaxRedFramesDropped_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmMaxRedFramesDropped_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmMaxRedFramesDropped=_GenEquipPmRadioEthernetEtmPmMaxRedFramesDropped_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,12),_GenEquipPmRadioEthernetEtmPmMaxRedFramesDropped_Type())
-genEquipPmRadioEthernetEtmPmMaxRedFramesDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmMaxRedFramesDropped.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmAvgRedFramesDropped_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmAvgRedFramesDropped_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmAvgRedFramesDropped=_GenEquipPmRadioEthernetEtmPmAvgRedFramesDropped_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,13),_GenEquipPmRadioEthernetEtmPmAvgRedFramesDropped_Type())
-genEquipPmRadioEthernetEtmPmAvgRedFramesDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmAvgRedFramesDropped.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmIDF_Type=Integrity
-_GenEquipPmRadioEthernetEtmPmIDF_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmIDF=_GenEquipPmRadioEthernetEtmPmIDF_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,14),_GenEquipPmRadioEthernetEtmPmIDF_Type())
-genEquipPmRadioEthernetEtmPmIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmIDF.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmMaxGreenFramesPassed_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmMaxGreenFramesPassed_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmMaxGreenFramesPassed=_GenEquipPmRadioEthernetEtmPmMaxGreenFramesPassed_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,17),_GenEquipPmRadioEthernetEtmPmMaxGreenFramesPassed_Type())
-genEquipPmRadioEthernetEtmPmMaxGreenFramesPassed.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmMaxGreenFramesPassed.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmAvgGreenFramesPassed_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmAvgGreenFramesPassed_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmAvgGreenFramesPassed=_GenEquipPmRadioEthernetEtmPmAvgGreenFramesPassed_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,18),_GenEquipPmRadioEthernetEtmPmAvgGreenFramesPassed_Type())
-genEquipPmRadioEthernetEtmPmAvgGreenFramesPassed.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmAvgGreenFramesPassed.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmMaxYellowFramesPassed_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmMaxYellowFramesPassed_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmMaxYellowFramesPassed=_GenEquipPmRadioEthernetEtmPmMaxYellowFramesPassed_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,21),_GenEquipPmRadioEthernetEtmPmMaxYellowFramesPassed_Type())
-genEquipPmRadioEthernetEtmPmMaxYellowFramesPassed.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmMaxYellowFramesPassed.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmAvgYellowFramesPassed_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmAvgYellowFramesPassed_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmAvgYellowFramesPassed=_GenEquipPmRadioEthernetEtmPmAvgYellowFramesPassed_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,22),_GenEquipPmRadioEthernetEtmPmAvgYellowFramesPassed_Type())
-genEquipPmRadioEthernetEtmPmAvgYellowFramesPassed.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmAvgYellowFramesPassed.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmMaxRedBytesDropped_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmMaxRedBytesDropped_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmMaxRedBytesDropped=_GenEquipPmRadioEthernetEtmPmMaxRedBytesDropped_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,23),_GenEquipPmRadioEthernetEtmPmMaxRedBytesDropped_Type())
-genEquipPmRadioEthernetEtmPmMaxRedBytesDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmMaxRedBytesDropped.setStatus(_A)
-_GenEquipPmRadioEthernetEtmPmAvgRedBytesDropped_Type=Integer32
-_GenEquipPmRadioEthernetEtmPmAvgRedBytesDropped_Object=MibTableColumn
-genEquipPmRadioEthernetEtmPmAvgRedBytesDropped=_GenEquipPmRadioEthernetEtmPmAvgRedBytesDropped_Object((1,3,6,1,4,1,2281,10,6,3,4,3,3,1,24),_GenEquipPmRadioEthernetEtmPmAvgRedBytesDropped_Type())
-genEquipPmRadioEthernetEtmPmAvgRedBytesDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioEthernetEtmPmAvgRedBytesDropped.setStatus(_A)
-_GenEquipPmRadioMSETable_Object=MibTable
-genEquipPmRadioMSETable=_GenEquipPmRadioMSETable_Object((1,3,6,1,4,1,2281,10,6,3,4,4))
-if mibBuilder.loadTexts:genEquipPmRadioMSETable.setStatus(_A)
-_GenEquipPmRadioMSEEntry_Object=MibTableRow
-genEquipPmRadioMSEEntry=_GenEquipPmRadioMSEEntry_Object((1,3,6,1,4,1,2281,10,6,3,4,4,1))
-genEquipPmRadioMSEEntry.setIndexNames((0,_C,_h),(0,_F,_G),(0,_C,_i))
-if mibBuilder.loadTexts:genEquipPmRadioMSEEntry.setStatus(_A)
-_GenEquipPmRadioMSEPmType_Type=PmTableType
-_GenEquipPmRadioMSEPmType_Object=MibTableColumn
-genEquipPmRadioMSEPmType=_GenEquipPmRadioMSEPmType_Object((1,3,6,1,4,1,2281,10,6,3,4,4,1,1),_GenEquipPmRadioMSEPmType_Type())
-genEquipPmRadioMSEPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMSEPmType.setStatus(_A)
-_GenEquipPmRadioMSEInterval_Type=Integer32
-_GenEquipPmRadioMSEInterval_Object=MibTableColumn
-genEquipPmRadioMSEInterval=_GenEquipPmRadioMSEInterval_Object((1,3,6,1,4,1,2281,10,6,3,4,4,1,2),_GenEquipPmRadioMSEInterval_Type())
-genEquipPmRadioMSEInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMSEInterval.setStatus(_A)
-_GenEquipPmRadioMSEMinMse_Type=Integer32
-_GenEquipPmRadioMSEMinMse_Object=MibTableColumn
-genEquipPmRadioMSEMinMse=_GenEquipPmRadioMSEMinMse_Object((1,3,6,1,4,1,2281,10,6,3,4,4,1,3),_GenEquipPmRadioMSEMinMse_Type())
-genEquipPmRadioMSEMinMse.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMSEMinMse.setStatus(_A)
-_GenEquipPmRadioMSEMaxMse_Type=Integer32
-_GenEquipPmRadioMSEMaxMse_Object=MibTableColumn
-genEquipPmRadioMSEMaxMse=_GenEquipPmRadioMSEMaxMse_Object((1,3,6,1,4,1,2281,10,6,3,4,4,1,4),_GenEquipPmRadioMSEMaxMse_Type())
-genEquipPmRadioMSEMaxMse.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMSEMaxMse.setStatus(_A)
-_GenEquipPmRadioMSEexceeded_Type=Integer32
-_GenEquipPmRadioMSEexceeded_Object=MibTableColumn
-genEquipPmRadioMSEexceeded=_GenEquipPmRadioMSEexceeded_Object((1,3,6,1,4,1,2281,10,6,3,4,4,1,5),_GenEquipPmRadioMSEexceeded_Type())
-genEquipPmRadioMSEexceeded.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMSEexceeded.setStatus(_A)
-_GenEquipPmRadioMSEIDF_Type=Integrity
-_GenEquipPmRadioMSEIDF_Object=MibTableColumn
-genEquipPmRadioMSEIDF=_GenEquipPmRadioMSEIDF_Object((1,3,6,1,4,1,2281,10,6,3,4,4,1,6),_GenEquipPmRadioMSEIDF_Type())
-genEquipPmRadioMSEIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioMSEIDF.setStatus(_A)
-_GenEquipPmRadioThresholdTable_Object=MibTable
-genEquipPmRadioThresholdTable=_GenEquipPmRadioThresholdTable_Object((1,3,6,1,4,1,2281,10,6,3,4,5))
-if mibBuilder.loadTexts:genEquipPmRadioThresholdTable.setStatus(_A)
-_GenEquipPmRadioThresholdEntry_Object=MibTableRow
-genEquipPmRadioThresholdEntry=_GenEquipPmRadioThresholdEntry_Object((1,3,6,1,4,1,2281,10,6,3,4,5,1))
-genEquipPmRadioThresholdEntry.setIndexNames((0,_H,_I))
-if mibBuilder.loadTexts:genEquipPmRadioThresholdEntry.setStatus(_A)
-class _GenEquipPmRadioThresholdMSE_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-99,-1))
-_GenEquipPmRadioThresholdMSE_Type.__name__=_E
-_GenEquipPmRadioThresholdMSE_Object=MibTableColumn
-genEquipPmRadioThresholdMSE=_GenEquipPmRadioThresholdMSE_Object((1,3,6,1,4,1,2281,10,6,3,4,5,1,1),_GenEquipPmRadioThresholdMSE_Type())
-genEquipPmRadioThresholdMSE.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmRadioThresholdMSE.setStatus(_A)
-class _GenEquipPmRadioThresholdRSL1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-75,-15))
-_GenEquipPmRadioThresholdRSL1_Type.__name__=_E
-_GenEquipPmRadioThresholdRSL1_Object=MibTableColumn
-genEquipPmRadioThresholdRSL1=_GenEquipPmRadioThresholdRSL1_Object((1,3,6,1,4,1,2281,10,6,3,4,5,1,2),_GenEquipPmRadioThresholdRSL1_Type())
-genEquipPmRadioThresholdRSL1.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmRadioThresholdRSL1.setStatus(_A)
-class _GenEquipPmRadioThresholdRSL2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-75,-15))
-_GenEquipPmRadioThresholdRSL2_Type.__name__=_E
-_GenEquipPmRadioThresholdRSL2_Object=MibTableColumn
-genEquipPmRadioThresholdRSL2=_GenEquipPmRadioThresholdRSL2_Object((1,3,6,1,4,1,2281,10,6,3,4,5,1,3),_GenEquipPmRadioThresholdRSL2_Type())
-genEquipPmRadioThresholdRSL2.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmRadioThresholdRSL2.setStatus(_A)
-_GenEquipPmRadioThresholdTSL_Type=Integer32
-_GenEquipPmRadioThresholdTSL_Object=MibTableColumn
-genEquipPmRadioThresholdTSL=_GenEquipPmRadioThresholdTSL_Object((1,3,6,1,4,1,2281,10,6,3,4,5,1,4),_GenEquipPmRadioThresholdTSL_Type())
-genEquipPmRadioThresholdTSL.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmRadioThresholdTSL.setStatus(_A)
-class _GenEquipPmRadioThresholdXPI_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,99))
-_GenEquipPmRadioThresholdXPI_Type.__name__=_E
-_GenEquipPmRadioThresholdXPI_Object=MibTableColumn
-genEquipPmRadioThresholdXPI=_GenEquipPmRadioThresholdXPI_Object((1,3,6,1,4,1,2281,10,6,3,4,5,1,5),_GenEquipPmRadioThresholdXPI_Type())
-genEquipPmRadioThresholdXPI.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmRadioThresholdXPI.setStatus(_A)
-_GenEquipPmRadioXPITable_Object=MibTable
-genEquipPmRadioXPITable=_GenEquipPmRadioXPITable_Object((1,3,6,1,4,1,2281,10,6,3,4,6))
-if mibBuilder.loadTexts:genEquipPmRadioXPITable.setStatus(_A)
-_GenEquipPmRadioXPIEntry_Object=MibTableRow
-genEquipPmRadioXPIEntry=_GenEquipPmRadioXPIEntry_Object((1,3,6,1,4,1,2281,10,6,3,4,6,1))
-genEquipPmRadioXPIEntry.setIndexNames((0,_C,_j),(0,_F,_G),(0,_C,_k))
-if mibBuilder.loadTexts:genEquipPmRadioXPIEntry.setStatus(_A)
-_GenEquipPmRadioXPIPmType_Type=PmTableType
-_GenEquipPmRadioXPIPmType_Object=MibTableColumn
-genEquipPmRadioXPIPmType=_GenEquipPmRadioXPIPmType_Object((1,3,6,1,4,1,2281,10,6,3,4,6,1,1),_GenEquipPmRadioXPIPmType_Type())
-genEquipPmRadioXPIPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioXPIPmType.setStatus(_A)
-_GenEquipPmRadioXPIPmInterval_Type=Integer32
-_GenEquipPmRadioXPIPmInterval_Object=MibTableColumn
-genEquipPmRadioXPIPmInterval=_GenEquipPmRadioXPIPmInterval_Object((1,3,6,1,4,1,2281,10,6,3,4,6,1,2),_GenEquipPmRadioXPIPmInterval_Type())
-genEquipPmRadioXPIPmInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioXPIPmInterval.setStatus(_A)
-_GenEquipPmRadioXPIPmMinXPI_Type=Integer32
-_GenEquipPmRadioXPIPmMinXPI_Object=MibTableColumn
-genEquipPmRadioXPIPmMinXPI=_GenEquipPmRadioXPIPmMinXPI_Object((1,3,6,1,4,1,2281,10,6,3,4,6,1,3),_GenEquipPmRadioXPIPmMinXPI_Type())
-genEquipPmRadioXPIPmMinXPI.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioXPIPmMinXPI.setStatus(_A)
-_GenEquipPmRadioXPIPmMaxXPI_Type=Integer32
-_GenEquipPmRadioXPIPmMaxXPI_Object=MibTableColumn
-genEquipPmRadioXPIPmMaxXPI=_GenEquipPmRadioXPIPmMaxXPI_Object((1,3,6,1,4,1,2281,10,6,3,4,6,1,4),_GenEquipPmRadioXPIPmMaxXPI_Type())
-genEquipPmRadioXPIPmMaxXPI.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioXPIPmMaxXPI.setStatus(_A)
-_GenEquipPmRadioXPIBelowThreshold_Type=Integer32
-_GenEquipPmRadioXPIBelowThreshold_Object=MibTableColumn
-genEquipPmRadioXPIBelowThreshold=_GenEquipPmRadioXPIBelowThreshold_Object((1,3,6,1,4,1,2281,10,6,3,4,6,1,5),_GenEquipPmRadioXPIBelowThreshold_Type())
-genEquipPmRadioXPIBelowThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioXPIBelowThreshold.setStatus(_A)
-_GenEquipPmRadioXPIIDF_Type=Integrity
-_GenEquipPmRadioXPIIDF_Object=MibTableColumn
-genEquipPmRadioXPIIDF=_GenEquipPmRadioXPIIDF_Object((1,3,6,1,4,1,2281,10,6,3,4,6,1,6),_GenEquipPmRadioXPIIDF_Type())
-genEquipPmRadioXPIIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmRadioXPIIDF.setStatus(_A)
-_GenEquipPmRadioClear_Type=OffOn
-_GenEquipPmRadioClear_Object=MibScalar
-genEquipPmRadioClear=_GenEquipPmRadioClear_Object((1,3,6,1,4,1,2281,10,6,3,4,7),_GenEquipPmRadioClear_Type())
-genEquipPmRadioClear.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmRadioClear.setStatus(_A)
-_GenEquipPmTDM_ObjectIdentity=ObjectIdentity
-genEquipPmTDM=_GenEquipPmTDM_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,5))
-_GenEquipPmTdmTable_Object=MibTable
-genEquipPmTdmTable=_GenEquipPmTdmTable_Object((1,3,6,1,4,1,2281,10,6,3,5,1))
-if mibBuilder.loadTexts:genEquipPmTdmTable.setStatus(_A)
-_GenEquipPmTdmEntry_Object=MibTableRow
-genEquipPmTdmEntry=_GenEquipPmTdmEntry_Object((1,3,6,1,4,1,2281,10,6,3,5,1,1))
-genEquipPmTdmEntry.setIndexNames((0,_C,_l),(0,_F,_G),(0,_C,_m))
-if mibBuilder.loadTexts:genEquipPmTdmEntry.setStatus(_A)
-_GenEquipPmTdmPmType_Type=PmTableType
-_GenEquipPmTdmPmType_Object=MibTableColumn
-genEquipPmTdmPmType=_GenEquipPmTdmPmType_Object((1,3,6,1,4,1,2281,10,6,3,5,1,1,1),_GenEquipPmTdmPmType_Type())
-genEquipPmTdmPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTdmPmType.setStatus(_A)
-_GenEquipPmTdmInterval_Type=Integer32
-_GenEquipPmTdmInterval_Object=MibTableColumn
-genEquipPmTdmInterval=_GenEquipPmTdmInterval_Object((1,3,6,1,4,1,2281,10,6,3,5,1,1,2),_GenEquipPmTdmInterval_Type())
-genEquipPmTdmInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTdmInterval.setStatus(_A)
-_GenEquipPmTdmES_Type=Integer32
-_GenEquipPmTdmES_Object=MibTableColumn
-genEquipPmTdmES=_GenEquipPmTdmES_Object((1,3,6,1,4,1,2281,10,6,3,5,1,1,3),_GenEquipPmTdmES_Type())
-genEquipPmTdmES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTdmES.setStatus(_A)
-_GenEquipPmTdmSES_Type=Integer32
-_GenEquipPmTdmSES_Object=MibTableColumn
-genEquipPmTdmSES=_GenEquipPmTdmSES_Object((1,3,6,1,4,1,2281,10,6,3,5,1,1,4),_GenEquipPmTdmSES_Type())
-genEquipPmTdmSES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTdmSES.setStatus(_A)
-_GenEquipPmTdmUAS_Type=Integer32
-_GenEquipPmTdmUAS_Object=MibTableColumn
-genEquipPmTdmUAS=_GenEquipPmTdmUAS_Object((1,3,6,1,4,1,2281,10,6,3,5,1,1,5),_GenEquipPmTdmUAS_Type())
-genEquipPmTdmUAS.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTdmUAS.setStatus(_A)
-_GenEquipPmTdmBBE_Type=Integer32
-_GenEquipPmTdmBBE_Object=MibTableColumn
-genEquipPmTdmBBE=_GenEquipPmTdmBBE_Object((1,3,6,1,4,1,2281,10,6,3,5,1,1,6),_GenEquipPmTdmBBE_Type())
-genEquipPmTdmBBE.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTdmBBE.setStatus(_A)
-_GenEquipPmTdmIDF_Type=Integrity
-_GenEquipPmTdmIDF_Object=MibTableColumn
-genEquipPmTdmIDF=_GenEquipPmTdmIDF_Object((1,3,6,1,4,1,2281,10,6,3,5,1,1,7),_GenEquipPmTdmIDF_Type())
-genEquipPmTdmIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTdmIDF.setStatus(_A)
-_GenEquipPmSDH_ObjectIdentity=ObjectIdentity
-genEquipPmSDH=_GenEquipPmSDH_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,6))
-_GenEquipPmSdhTable_Object=MibTable
-genEquipPmSdhTable=_GenEquipPmSdhTable_Object((1,3,6,1,4,1,2281,10,6,3,6,1))
-if mibBuilder.loadTexts:genEquipPmSdhTable.setStatus(_A)
-_GenEquipPmSdhEntry_Object=MibTableRow
-genEquipPmSdhEntry=_GenEquipPmSdhEntry_Object((1,3,6,1,4,1,2281,10,6,3,6,1,1))
-genEquipPmSdhEntry.setIndexNames((0,_C,_n),(0,_F,_G),(0,_C,_o))
-if mibBuilder.loadTexts:genEquipPmSdhEntry.setStatus(_A)
-_GenEquipPmSdhPmType_Type=PmTableType
-_GenEquipPmSdhPmType_Object=MibTableColumn
-genEquipPmSdhPmType=_GenEquipPmSdhPmType_Object((1,3,6,1,4,1,2281,10,6,3,6,1,1,1),_GenEquipPmSdhPmType_Type())
-genEquipPmSdhPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhPmType.setStatus(_A)
-_GenEquipPmSdhInterval_Type=Integer32
-_GenEquipPmSdhInterval_Object=MibTableColumn
-genEquipPmSdhInterval=_GenEquipPmSdhInterval_Object((1,3,6,1,4,1,2281,10,6,3,6,1,1,2),_GenEquipPmSdhInterval_Type())
-genEquipPmSdhInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhInterval.setStatus(_A)
-_GenEquipPmSdhES_Type=Integer32
-_GenEquipPmSdhES_Object=MibTableColumn
-genEquipPmSdhES=_GenEquipPmSdhES_Object((1,3,6,1,4,1,2281,10,6,3,6,1,1,3),_GenEquipPmSdhES_Type())
-genEquipPmSdhES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhES.setStatus(_A)
-_GenEquipPmSdhSES_Type=Integer32
-_GenEquipPmSdhSES_Object=MibTableColumn
-genEquipPmSdhSES=_GenEquipPmSdhSES_Object((1,3,6,1,4,1,2281,10,6,3,6,1,1,4),_GenEquipPmSdhSES_Type())
-genEquipPmSdhSES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhSES.setStatus(_A)
-_GenEquipPmSdhEB_Type=Integer32
-_GenEquipPmSdhEB_Object=MibTableColumn
-genEquipPmSdhEB=_GenEquipPmSdhEB_Object((1,3,6,1,4,1,2281,10,6,3,6,1,1,5),_GenEquipPmSdhEB_Type())
-genEquipPmSdhEB.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhEB.setStatus(_A)
-_GenEquipPmSdhBBE_Type=Integer32
-_GenEquipPmSdhBBE_Object=MibTableColumn
-genEquipPmSdhBBE=_GenEquipPmSdhBBE_Object((1,3,6,1,4,1,2281,10,6,3,6,1,1,6),_GenEquipPmSdhBBE_Type())
-genEquipPmSdhBBE.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhBBE.setStatus(_A)
-_GenEquipPmSdhIDF_Type=Integrity
-_GenEquipPmSdhIDF_Object=MibTableColumn
-genEquipPmSdhIDF=_GenEquipPmSdhIDF_Object((1,3,6,1,4,1,2281,10,6,3,6,1,1,7),_GenEquipPmSdhIDF_Type())
-genEquipPmSdhIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhIDF.setStatus(_A)
-_GenEquipPmSdhIfIndex_Type=Integer32
-_GenEquipPmSdhIfIndex_Object=MibTableColumn
-genEquipPmSdhIfIndex=_GenEquipPmSdhIfIndex_Object((1,3,6,1,4,1,2281,10,6,3,6,1,1,8),_GenEquipPmSdhIfIndex_Type())
-genEquipPmSdhIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhIfIndex.setStatus(_A)
-_GenEquipPmSdhTimeStamp_Type=Integer32
-_GenEquipPmSdhTimeStamp_Object=MibTableColumn
-genEquipPmSdhTimeStamp=_GenEquipPmSdhTimeStamp_Object((1,3,6,1,4,1,2281,10,6,3,6,1,1,9),_GenEquipPmSdhTimeStamp_Type())
-genEquipPmSdhTimeStamp.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhTimeStamp.setStatus(_A)
-_GenEquipPmSdhUAS_Type=Integer32
-_GenEquipPmSdhUAS_Object=MibTableColumn
-genEquipPmSdhUAS=_GenEquipPmSdhUAS_Object((1,3,6,1,4,1,2281,10,6,3,6,1,1,10),_GenEquipPmSdhUAS_Type())
-genEquipPmSdhUAS.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhUAS.setStatus(_A)
-_GenEquipPmSdhRstLRTable_Object=MibTable
-genEquipPmSdhRstLRTable=_GenEquipPmSdhRstLRTable_Object((1,3,6,1,4,1,2281,10,6,3,6,2))
-if mibBuilder.loadTexts:genEquipPmSdhRstLRTable.setStatus(_A)
-_GenEquipPmSdhRstLREntry_Object=MibTableRow
-genEquipPmSdhRstLREntry=_GenEquipPmSdhRstLREntry_Object((1,3,6,1,4,1,2281,10,6,3,6,2,1))
-genEquipPmSdhRstLREntry.setIndexNames((0,_C,_p),(0,_C,_q),(0,_C,_r))
-if mibBuilder.loadTexts:genEquipPmSdhRstLREntry.setStatus(_A)
-_GenEquipPmSdhRstLRPmType_Type=PmTableType
-_GenEquipPmSdhRstLRPmType_Object=MibTableColumn
-genEquipPmSdhRstLRPmType=_GenEquipPmSdhRstLRPmType_Object((1,3,6,1,4,1,2281,10,6,3,6,2,1,1),_GenEquipPmSdhRstLRPmType_Type())
-genEquipPmSdhRstLRPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstLRPmType.setStatus(_A)
-_GenEquipPmSdhRstLRIfIndex_Type=Integer32
-_GenEquipPmSdhRstLRIfIndex_Object=MibTableColumn
-genEquipPmSdhRstLRIfIndex=_GenEquipPmSdhRstLRIfIndex_Object((1,3,6,1,4,1,2281,10,6,3,6,2,1,2),_GenEquipPmSdhRstLRIfIndex_Type())
-genEquipPmSdhRstLRIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstLRIfIndex.setStatus(_A)
-_GenEquipPmSdhRstLRInterval_Type=Integer32
-_GenEquipPmSdhRstLRInterval_Object=MibTableColumn
-genEquipPmSdhRstLRInterval=_GenEquipPmSdhRstLRInterval_Object((1,3,6,1,4,1,2281,10,6,3,6,2,1,3),_GenEquipPmSdhRstLRInterval_Type())
-genEquipPmSdhRstLRInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstLRInterval.setStatus(_A)
-_GenEquipPmSdhRstLRTimeStamp_Type=Integer32
-_GenEquipPmSdhRstLRTimeStamp_Object=MibTableColumn
-genEquipPmSdhRstLRTimeStamp=_GenEquipPmSdhRstLRTimeStamp_Object((1,3,6,1,4,1,2281,10,6,3,6,2,1,4),_GenEquipPmSdhRstLRTimeStamp_Type())
-genEquipPmSdhRstLRTimeStamp.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstLRTimeStamp.setStatus(_A)
-_GenEquipPmSdhRstLRES_Type=Integer32
-_GenEquipPmSdhRstLRES_Object=MibTableColumn
-genEquipPmSdhRstLRES=_GenEquipPmSdhRstLRES_Object((1,3,6,1,4,1,2281,10,6,3,6,2,1,5),_GenEquipPmSdhRstLRES_Type())
-genEquipPmSdhRstLRES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstLRES.setStatus(_A)
-_GenEquipPmSdhRstLRSES_Type=Integer32
-_GenEquipPmSdhRstLRSES_Object=MibTableColumn
-genEquipPmSdhRstLRSES=_GenEquipPmSdhRstLRSES_Object((1,3,6,1,4,1,2281,10,6,3,6,2,1,6),_GenEquipPmSdhRstLRSES_Type())
-genEquipPmSdhRstLRSES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstLRSES.setStatus(_A)
-_GenEquipPmSdhRstLRUAS_Type=Integer32
-_GenEquipPmSdhRstLRUAS_Object=MibTableColumn
-genEquipPmSdhRstLRUAS=_GenEquipPmSdhRstLRUAS_Object((1,3,6,1,4,1,2281,10,6,3,6,2,1,7),_GenEquipPmSdhRstLRUAS_Type())
-genEquipPmSdhRstLRUAS.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstLRUAS.setStatus(_A)
-_GenEquipPmSdhRstLREB_Type=Integer32
-_GenEquipPmSdhRstLREB_Object=MibTableColumn
-genEquipPmSdhRstLREB=_GenEquipPmSdhRstLREB_Object((1,3,6,1,4,1,2281,10,6,3,6,2,1,8),_GenEquipPmSdhRstLREB_Type())
-genEquipPmSdhRstLREB.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstLREB.setStatus(_A)
-_GenEquipPmSdhRstLRCV_Type=Integer32
-_GenEquipPmSdhRstLRCV_Object=MibTableColumn
-genEquipPmSdhRstLRCV=_GenEquipPmSdhRstLRCV_Object((1,3,6,1,4,1,2281,10,6,3,6,2,1,9),_GenEquipPmSdhRstLRCV_Type())
-genEquipPmSdhRstLRCV.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstLRCV.setStatus(_A)
-_GenEquipPmSdhRstLRBBE_Type=Integer32
-_GenEquipPmSdhRstLRBBE_Object=MibTableColumn
-genEquipPmSdhRstLRBBE=_GenEquipPmSdhRstLRBBE_Object((1,3,6,1,4,1,2281,10,6,3,6,2,1,10),_GenEquipPmSdhRstLRBBE_Type())
-genEquipPmSdhRstLRBBE.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstLRBBE.setStatus(_A)
-_GenEquipPmSdhRstLRIDF_Type=Integrity
-_GenEquipPmSdhRstLRIDF_Object=MibTableColumn
-genEquipPmSdhRstLRIDF=_GenEquipPmSdhRstLRIDF_Object((1,3,6,1,4,1,2281,10,6,3,6,2,1,11),_GenEquipPmSdhRstLRIDF_Type())
-genEquipPmSdhRstLRIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstLRIDF.setStatus(_A)
-_GenEquipPmSdhRstRLTable_Object=MibTable
-genEquipPmSdhRstRLTable=_GenEquipPmSdhRstRLTable_Object((1,3,6,1,4,1,2281,10,6,3,6,3))
-if mibBuilder.loadTexts:genEquipPmSdhRstRLTable.setStatus(_A)
-_GenEquipPmSdhRstRLEntry_Object=MibTableRow
-genEquipPmSdhRstRLEntry=_GenEquipPmSdhRstRLEntry_Object((1,3,6,1,4,1,2281,10,6,3,6,3,1))
-genEquipPmSdhRstRLEntry.setIndexNames((0,_C,_s),(0,_C,_t),(0,_C,_u))
-if mibBuilder.loadTexts:genEquipPmSdhRstRLEntry.setStatus(_A)
-_GenEquipPmSdhRstRLPmType_Type=PmTableType
-_GenEquipPmSdhRstRLPmType_Object=MibTableColumn
-genEquipPmSdhRstRLPmType=_GenEquipPmSdhRstRLPmType_Object((1,3,6,1,4,1,2281,10,6,3,6,3,1,1),_GenEquipPmSdhRstRLPmType_Type())
-genEquipPmSdhRstRLPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstRLPmType.setStatus(_A)
-_GenEquipPmSdhRstRLIfIndex_Type=Integer32
-_GenEquipPmSdhRstRLIfIndex_Object=MibTableColumn
-genEquipPmSdhRstRLIfIndex=_GenEquipPmSdhRstRLIfIndex_Object((1,3,6,1,4,1,2281,10,6,3,6,3,1,2),_GenEquipPmSdhRstRLIfIndex_Type())
-genEquipPmSdhRstRLIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstRLIfIndex.setStatus(_A)
-_GenEquipPmSdhRstRLInterval_Type=Integer32
-_GenEquipPmSdhRstRLInterval_Object=MibTableColumn
-genEquipPmSdhRstRLInterval=_GenEquipPmSdhRstRLInterval_Object((1,3,6,1,4,1,2281,10,6,3,6,3,1,3),_GenEquipPmSdhRstRLInterval_Type())
-genEquipPmSdhRstRLInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstRLInterval.setStatus(_A)
-_GenEquipPmSdhRstRLTimeStamp_Type=Integer32
-_GenEquipPmSdhRstRLTimeStamp_Object=MibTableColumn
-genEquipPmSdhRstRLTimeStamp=_GenEquipPmSdhRstRLTimeStamp_Object((1,3,6,1,4,1,2281,10,6,3,6,3,1,4),_GenEquipPmSdhRstRLTimeStamp_Type())
-genEquipPmSdhRstRLTimeStamp.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstRLTimeStamp.setStatus(_A)
-_GenEquipPmSdhRstRLES_Type=Integer32
-_GenEquipPmSdhRstRLES_Object=MibTableColumn
-genEquipPmSdhRstRLES=_GenEquipPmSdhRstRLES_Object((1,3,6,1,4,1,2281,10,6,3,6,3,1,5),_GenEquipPmSdhRstRLES_Type())
-genEquipPmSdhRstRLES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstRLES.setStatus(_A)
-_GenEquipPmSdhRstRLSES_Type=Integer32
-_GenEquipPmSdhRstRLSES_Object=MibTableColumn
-genEquipPmSdhRstRLSES=_GenEquipPmSdhRstRLSES_Object((1,3,6,1,4,1,2281,10,6,3,6,3,1,6),_GenEquipPmSdhRstRLSES_Type())
-genEquipPmSdhRstRLSES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstRLSES.setStatus(_A)
-_GenEquipPmSdhRstRLUAS_Type=Integer32
-_GenEquipPmSdhRstRLUAS_Object=MibTableColumn
-genEquipPmSdhRstRLUAS=_GenEquipPmSdhRstRLUAS_Object((1,3,6,1,4,1,2281,10,6,3,6,3,1,7),_GenEquipPmSdhRstRLUAS_Type())
-genEquipPmSdhRstRLUAS.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstRLUAS.setStatus(_A)
-_GenEquipPmSdhRstRLEB_Type=Integer32
-_GenEquipPmSdhRstRLEB_Object=MibTableColumn
-genEquipPmSdhRstRLEB=_GenEquipPmSdhRstRLEB_Object((1,3,6,1,4,1,2281,10,6,3,6,3,1,8),_GenEquipPmSdhRstRLEB_Type())
-genEquipPmSdhRstRLEB.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstRLEB.setStatus(_A)
-_GenEquipPmSdhRstRLCV_Type=Integer32
-_GenEquipPmSdhRstRLCV_Object=MibTableColumn
-genEquipPmSdhRstRLCV=_GenEquipPmSdhRstRLCV_Object((1,3,6,1,4,1,2281,10,6,3,6,3,1,9),_GenEquipPmSdhRstRLCV_Type())
-genEquipPmSdhRstRLCV.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstRLCV.setStatus(_A)
-_GenEquipPmSdhRstRLBBE_Type=Integer32
-_GenEquipPmSdhRstRLBBE_Object=MibTableColumn
-genEquipPmSdhRstRLBBE=_GenEquipPmSdhRstRLBBE_Object((1,3,6,1,4,1,2281,10,6,3,6,3,1,10),_GenEquipPmSdhRstRLBBE_Type())
-genEquipPmSdhRstRLBBE.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstRLBBE.setStatus(_A)
-_GenEquipPmSdhRstRLIDF_Type=Integrity
-_GenEquipPmSdhRstRLIDF_Object=MibTableColumn
-genEquipPmSdhRstRLIDF=_GenEquipPmSdhRstRLIDF_Object((1,3,6,1,4,1,2281,10,6,3,6,3,1,11),_GenEquipPmSdhRstRLIDF_Type())
-genEquipPmSdhRstRLIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmSdhRstRLIDF.setStatus(_A)
-_GenEquipPmTrails_ObjectIdentity=ObjectIdentity
-genEquipPmTrails=_GenEquipPmTrails_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,7))
-_GenEquipPmTrailsEndPointTable_Object=MibTable
-genEquipPmTrailsEndPointTable=_GenEquipPmTrailsEndPointTable_Object((1,3,6,1,4,1,2281,10,6,3,7,1))
-if mibBuilder.loadTexts:genEquipPmTrailsEndPointTable.setStatus(_A)
-_GenEquipPmTrailsEndPointEntry_Object=MibTableRow
-genEquipPmTrailsEndPointEntry=_GenEquipPmTrailsEndPointEntry_Object((1,3,6,1,4,1,2281,10,6,3,7,1,1))
-genEquipPmTrailsEndPointEntry.setIndexNames((0,_C,_v),(0,_C,_w),(0,_C,_x),(0,_C,_y))
-if mibBuilder.loadTexts:genEquipPmTrailsEndPointEntry.setStatus(_A)
-_GenEquipPmTrailsEndPointPmType_Type=PmTableType
-_GenEquipPmTrailsEndPointPmType_Object=MibTableColumn
-genEquipPmTrailsEndPointPmType=_GenEquipPmTrailsEndPointPmType_Object((1,3,6,1,4,1,2281,10,6,3,7,1,1,1),_GenEquipPmTrailsEndPointPmType_Type())
-genEquipPmTrailsEndPointPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrailsEndPointPmType.setStatus(_A)
-_GenEquipPmTrailsEndPointId_Type=DisplayString
-_GenEquipPmTrailsEndPointId_Object=MibTableColumn
-genEquipPmTrailsEndPointId=_GenEquipPmTrailsEndPointId_Object((1,3,6,1,4,1,2281,10,6,3,7,1,1,2),_GenEquipPmTrailsEndPointId_Type())
-genEquipPmTrailsEndPointId.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrailsEndPointId.setStatus(_A)
-_GenEquipPmTrailsEndPointEPId_Type=Integer32
-_GenEquipPmTrailsEndPointEPId_Object=MibTableColumn
-genEquipPmTrailsEndPointEPId=_GenEquipPmTrailsEndPointEPId_Object((1,3,6,1,4,1,2281,10,6,3,7,1,1,3),_GenEquipPmTrailsEndPointEPId_Type())
-genEquipPmTrailsEndPointEPId.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrailsEndPointEPId.setStatus(_A)
-_GenEquipPmTrailsEndPointInterval_Type=Integer32
-_GenEquipPmTrailsEndPointInterval_Object=MibTableColumn
-genEquipPmTrailsEndPointInterval=_GenEquipPmTrailsEndPointInterval_Object((1,3,6,1,4,1,2281,10,6,3,7,1,1,4),_GenEquipPmTrailsEndPointInterval_Type())
-genEquipPmTrailsEndPointInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrailsEndPointInterval.setStatus(_A)
-_GenEquipPmTrailsEndPointES_Type=Integer32
-_GenEquipPmTrailsEndPointES_Object=MibTableColumn
-genEquipPmTrailsEndPointES=_GenEquipPmTrailsEndPointES_Object((1,3,6,1,4,1,2281,10,6,3,7,1,1,5),_GenEquipPmTrailsEndPointES_Type())
-genEquipPmTrailsEndPointES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrailsEndPointES.setStatus(_A)
-_GenEquipPmTrailsEndPointSES_Type=Integer32
-_GenEquipPmTrailsEndPointSES_Object=MibTableColumn
-genEquipPmTrailsEndPointSES=_GenEquipPmTrailsEndPointSES_Object((1,3,6,1,4,1,2281,10,6,3,7,1,1,6),_GenEquipPmTrailsEndPointSES_Type())
-genEquipPmTrailsEndPointSES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrailsEndPointSES.setStatus(_A)
-_GenEquipPmTrailsEndPointUAS_Type=Integer32
-_GenEquipPmTrailsEndPointUAS_Object=MibTableColumn
-genEquipPmTrailsEndPointUAS=_GenEquipPmTrailsEndPointUAS_Object((1,3,6,1,4,1,2281,10,6,3,7,1,1,7),_GenEquipPmTrailsEndPointUAS_Type())
-genEquipPmTrailsEndPointUAS.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrailsEndPointUAS.setStatus(_A)
-_GenEquipPmTrailsEndPointBBE_Type=Integer32
-_GenEquipPmTrailsEndPointBBE_Object=MibTableColumn
-genEquipPmTrailsEndPointBBE=_GenEquipPmTrailsEndPointBBE_Object((1,3,6,1,4,1,2281,10,6,3,7,1,1,8),_GenEquipPmTrailsEndPointBBE_Type())
-genEquipPmTrailsEndPointBBE.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrailsEndPointBBE.setStatus(_A)
-_GenEquipPmTrailsEndPointNoOfSwitches_Type=Integer32
-_GenEquipPmTrailsEndPointNoOfSwitches_Object=MibTableColumn
-genEquipPmTrailsEndPointNoOfSwitches=_GenEquipPmTrailsEndPointNoOfSwitches_Object((1,3,6,1,4,1,2281,10,6,3,7,1,1,9),_GenEquipPmTrailsEndPointNoOfSwitches_Type())
-genEquipPmTrailsEndPointNoOfSwitches.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrailsEndPointNoOfSwitches.setStatus(_A)
-_GenEquipPmTrailsEndPointActivePathCounts_Type=Integer32
-_GenEquipPmTrailsEndPointActivePathCounts_Object=MibTableColumn
-genEquipPmTrailsEndPointActivePathCounts=_GenEquipPmTrailsEndPointActivePathCounts_Object((1,3,6,1,4,1,2281,10,6,3,7,1,1,10),_GenEquipPmTrailsEndPointActivePathCounts_Type())
-genEquipPmTrailsEndPointActivePathCounts.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrailsEndPointActivePathCounts.setStatus(_A)
-_GenEquipPmTrailsEndPointIDF_Type=Integrity
-_GenEquipPmTrailsEndPointIDF_Object=MibTableColumn
-genEquipPmTrailsEndPointIDF=_GenEquipPmTrailsEndPointIDF_Object((1,3,6,1,4,1,2281,10,6,3,7,1,1,11),_GenEquipPmTrailsEndPointIDF_Type())
-genEquipPmTrailsEndPointIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmTrailsEndPointIDF.setStatus(_A)
-_GenEquipPmPW_ObjectIdentity=ObjectIdentity
-genEquipPmPW=_GenEquipPmPW_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,8))
-_GenEquipPmPWTable_Object=MibTable
-genEquipPmPWTable=_GenEquipPmPWTable_Object((1,3,6,1,4,1,2281,10,6,3,8,1))
-if mibBuilder.loadTexts:genEquipPmPWTable.setStatus(_A)
-_GenEquipPmPWEntry_Object=MibTableRow
-genEquipPmPWEntry=_GenEquipPmPWEntry_Object((1,3,6,1,4,1,2281,10,6,3,8,1,1))
-genEquipPmPWEntry.setIndexNames((0,_C,_z),(0,_C,_A0),(0,_C,_A1))
-if mibBuilder.loadTexts:genEquipPmPWEntry.setStatus(_A)
-_GenEquipPmPWPmType_Type=PmTableType
-_GenEquipPmPWPmType_Object=MibTableColumn
-genEquipPmPWPmType=_GenEquipPmPWPmType_Object((1,3,6,1,4,1,2281,10,6,3,8,1,1,1),_GenEquipPmPWPmType_Type())
-genEquipPmPWPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmPWPmType.setStatus(_A)
-_GenEquipPmPWId_Type=Integer32
-_GenEquipPmPWId_Object=MibTableColumn
-genEquipPmPWId=_GenEquipPmPWId_Object((1,3,6,1,4,1,2281,10,6,3,8,1,1,2),_GenEquipPmPWId_Type())
-genEquipPmPWId.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmPWId.setStatus(_A)
-_GenEquipPmPWInterval_Type=Integer32
-_GenEquipPmPWInterval_Object=MibTableColumn
-genEquipPmPWInterval=_GenEquipPmPWInterval_Object((1,3,6,1,4,1,2281,10,6,3,8,1,1,3),_GenEquipPmPWInterval_Type())
-genEquipPmPWInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmPWInterval.setStatus(_A)
-_GenEquipPmPWMissingPkts_Type=Integer32
-_GenEquipPmPWMissingPkts_Object=MibTableColumn
-genEquipPmPWMissingPkts=_GenEquipPmPWMissingPkts_Object((1,3,6,1,4,1,2281,10,6,3,8,1,1,4),_GenEquipPmPWMissingPkts_Type())
-genEquipPmPWMissingPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmPWMissingPkts.setStatus(_A)
-_GenEquipPmPWPktsReOrder_Type=Integer32
-_GenEquipPmPWPktsReOrder_Object=MibTableColumn
-genEquipPmPWPktsReOrder=_GenEquipPmPWPktsReOrder_Object((1,3,6,1,4,1,2281,10,6,3,8,1,1,5),_GenEquipPmPWPktsReOrder_Type())
-genEquipPmPWPktsReOrder.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmPWPktsReOrder.setStatus(_A)
-_GenEquipPmPWtrBfrUnderruns_Type=Integer32
-_GenEquipPmPWtrBfrUnderruns_Object=MibTableColumn
-genEquipPmPWtrBfrUnderruns=_GenEquipPmPWtrBfrUnderruns_Object((1,3,6,1,4,1,2281,10,6,3,8,1,1,6),_GenEquipPmPWtrBfrUnderruns_Type())
-genEquipPmPWtrBfrUnderruns.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmPWtrBfrUnderruns.setStatus(_A)
-_GenEquipPmPWMisOrderDropped_Type=Integer32
-_GenEquipPmPWMisOrderDropped_Object=MibTableColumn
-genEquipPmPWMisOrderDropped=_GenEquipPmPWMisOrderDropped_Object((1,3,6,1,4,1,2281,10,6,3,8,1,1,7),_GenEquipPmPWMisOrderDropped_Type())
-genEquipPmPWMisOrderDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmPWMisOrderDropped.setStatus(_A)
-_GenEquipPmPWMalformedPkt_Type=Integer32
-_GenEquipPmPWMalformedPkt_Object=MibTableColumn
-genEquipPmPWMalformedPkt=_GenEquipPmPWMalformedPkt_Object((1,3,6,1,4,1,2281,10,6,3,8,1,1,8),_GenEquipPmPWMalformedPkt_Type())
-genEquipPmPWMalformedPkt.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmPWMalformedPkt.setStatus(_A)
-_GenEquipPmPWES_Type=Integer32
-_GenEquipPmPWES_Object=MibTableColumn
-genEquipPmPWES=_GenEquipPmPWES_Object((1,3,6,1,4,1,2281,10,6,3,8,1,1,9),_GenEquipPmPWES_Type())
-genEquipPmPWES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmPWES.setStatus(_A)
-_GenEquipPmPWSES_Type=Integer32
-_GenEquipPmPWSES_Object=MibTableColumn
-genEquipPmPWSES=_GenEquipPmPWSES_Object((1,3,6,1,4,1,2281,10,6,3,8,1,1,10),_GenEquipPmPWSES_Type())
-genEquipPmPWSES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmPWSES.setStatus(_A)
-_GenEquipPmPWUAS_Type=Integer32
-_GenEquipPmPWUAS_Object=MibTableColumn
-genEquipPmPWUAS=_GenEquipPmPWUAS_Object((1,3,6,1,4,1,2281,10,6,3,8,1,1,11),_GenEquipPmPWUAS_Type())
-genEquipPmPWUAS.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmPWUAS.setStatus(_A)
-_GenEquipPmPWFC_Type=Integer32
-_GenEquipPmPWFC_Object=MibTableColumn
-genEquipPmPWFC=_GenEquipPmPWFC_Object((1,3,6,1,4,1,2281,10,6,3,8,1,1,12),_GenEquipPmPWFC_Type())
-genEquipPmPWFC.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmPWFC.setStatus(_A)
-_GenEquipPmPWIDF_Type=Integrity
-_GenEquipPmPWIDF_Object=MibTableColumn
-genEquipPmPWIDF=_GenEquipPmPWIDF_Object((1,3,6,1,4,1,2281,10,6,3,8,1,1,13),_GenEquipPmPWIDF_Type())
-genEquipPmPWIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmPWIDF.setStatus(_A)
-_GenEquipPmNGPWTable_Object=MibTable
-genEquipPmNGPWTable=_GenEquipPmNGPWTable_Object((1,3,6,1,4,1,2281,10,6,3,8,2))
-if mibBuilder.loadTexts:genEquipPmNGPWTable.setStatus(_A)
-_GenEquipPmNGPWEntry_Object=MibTableRow
-genEquipPmNGPWEntry=_GenEquipPmNGPWEntry_Object((1,3,6,1,4,1,2281,10,6,3,8,2,1))
-genEquipPmNGPWEntry.setIndexNames((0,_C,_A2),(0,_C,_A3),(0,_C,_A4))
-if mibBuilder.loadTexts:genEquipPmNGPWEntry.setStatus(_A)
-_GenEquipPmNGPWPmType_Type=PmTableType
-_GenEquipPmNGPWPmType_Object=MibTableColumn
-genEquipPmNGPWPmType=_GenEquipPmNGPWPmType_Object((1,3,6,1,4,1,2281,10,6,3,8,2,1,1),_GenEquipPmNGPWPmType_Type())
-genEquipPmNGPWPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmNGPWPmType.setStatus(_A)
-_GenEquipPmNGPWIfIndex_Type=Integer32
-_GenEquipPmNGPWIfIndex_Object=MibTableColumn
-genEquipPmNGPWIfIndex=_GenEquipPmNGPWIfIndex_Object((1,3,6,1,4,1,2281,10,6,3,8,2,1,2),_GenEquipPmNGPWIfIndex_Type())
-genEquipPmNGPWIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmNGPWIfIndex.setStatus(_A)
-_GenEquipPmNGPWInterval_Type=Integer32
-_GenEquipPmNGPWInterval_Object=MibTableColumn
-genEquipPmNGPWInterval=_GenEquipPmNGPWInterval_Object((1,3,6,1,4,1,2281,10,6,3,8,2,1,3),_GenEquipPmNGPWInterval_Type())
-genEquipPmNGPWInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmNGPWInterval.setStatus(_A)
-_GenEquipPmNGPWES_Type=Integer32
-_GenEquipPmNGPWES_Object=MibTableColumn
-genEquipPmNGPWES=_GenEquipPmNGPWES_Object((1,3,6,1,4,1,2281,10,6,3,8,2,1,4),_GenEquipPmNGPWES_Type())
-genEquipPmNGPWES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmNGPWES.setStatus(_A)
-_GenEquipPmNGPWSES_Type=Integer32
-_GenEquipPmNGPWSES_Object=MibTableColumn
-genEquipPmNGPWSES=_GenEquipPmNGPWSES_Object((1,3,6,1,4,1,2281,10,6,3,8,2,1,5),_GenEquipPmNGPWSES_Type())
-genEquipPmNGPWSES.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmNGPWSES.setStatus(_A)
-_GenEquipPmNGPWUAS_Type=Integer32
-_GenEquipPmNGPWUAS_Object=MibTableColumn
-genEquipPmNGPWUAS=_GenEquipPmNGPWUAS_Object((1,3,6,1,4,1,2281,10,6,3,8,2,1,6),_GenEquipPmNGPWUAS_Type())
-genEquipPmNGPWUAS.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmNGPWUAS.setStatus(_A)
-_GenEquipPmNGPWFC_Type=Integer32
-_GenEquipPmNGPWFC_Object=MibTableColumn
-genEquipPmNGPWFC=_GenEquipPmNGPWFC_Object((1,3,6,1,4,1,2281,10,6,3,8,2,1,7),_GenEquipPmNGPWFC_Type())
-genEquipPmNGPWFC.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmNGPWFC.setStatus(_A)
-_GenEquipPmNGPWFER_Type=Integer32
-_GenEquipPmNGPWFER_Object=MibTableColumn
-genEquipPmNGPWFER=_GenEquipPmNGPWFER_Object((1,3,6,1,4,1,2281,10,6,3,8,2,1,8),_GenEquipPmNGPWFER_Type())
-genEquipPmNGPWFER.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmNGPWFER.setStatus(_A)
-_GenEquipPmNGPWMissingPkts_Type=Integer32
-_GenEquipPmNGPWMissingPkts_Object=MibTableColumn
-genEquipPmNGPWMissingPkts=_GenEquipPmNGPWMissingPkts_Object((1,3,6,1,4,1,2281,10,6,3,8,2,1,9),_GenEquipPmNGPWMissingPkts_Type())
-genEquipPmNGPWMissingPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmNGPWMissingPkts.setStatus(_A)
-_GenEquipPmNGPWPktsReOrder_Type=Integer32
-_GenEquipPmNGPWPktsReOrder_Object=MibTableColumn
-genEquipPmNGPWPktsReOrder=_GenEquipPmNGPWPktsReOrder_Object((1,3,6,1,4,1,2281,10,6,3,8,2,1,10),_GenEquipPmNGPWPktsReOrder_Type())
-genEquipPmNGPWPktsReOrder.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmNGPWPktsReOrder.setStatus(_A)
-_GenEquipPmNGPWMisOrderDropped_Type=Integer32
-_GenEquipPmNGPWMisOrderDropped_Object=MibTableColumn
-genEquipPmNGPWMisOrderDropped=_GenEquipPmNGPWMisOrderDropped_Object((1,3,6,1,4,1,2281,10,6,3,8,2,1,11),_GenEquipPmNGPWMisOrderDropped_Type())
-genEquipPmNGPWMisOrderDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmNGPWMisOrderDropped.setStatus(_A)
-_GenEquipPmNGPWMalformedPkt_Type=Integer32
-_GenEquipPmNGPWMalformedPkt_Object=MibTableColumn
-genEquipPmNGPWMalformedPkt=_GenEquipPmNGPWMalformedPkt_Object((1,3,6,1,4,1,2281,10,6,3,8,2,1,12),_GenEquipPmNGPWMalformedPkt_Type())
-genEquipPmNGPWMalformedPkt.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmNGPWMalformedPkt.setStatus(_A)
-_GenEquipPmNGPWIdf_Type=Integrity
-_GenEquipPmNGPWIdf_Object=MibTableColumn
-genEquipPmNGPWIdf=_GenEquipPmNGPWIdf_Object((1,3,6,1,4,1,2281,10,6,3,8,2,1,13),_GenEquipPmNGPWIdf_Type())
-genEquipPmNGPWIdf.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmNGPWIdf.setStatus(_A)
-_GenEquipPmEthUtilization_ObjectIdentity=ObjectIdentity
-genEquipPmEthUtilization=_GenEquipPmEthUtilization_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,9))
-_GenEquipPmEthUtilizationAdmin_Type=EnableDisable
-_GenEquipPmEthUtilizationAdmin_Object=MibScalar
-genEquipPmEthUtilizationAdmin=_GenEquipPmEthUtilizationAdmin_Object((1,3,6,1,4,1,2281,10,6,3,9,1),_GenEquipPmEthUtilizationAdmin_Type())
-genEquipPmEthUtilizationAdmin.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmEthUtilizationAdmin.setStatus(_A)
-class _GenEquipPmEthUtilizationThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_GenEquipPmEthUtilizationThreshold_Type.__name__=_E
-_GenEquipPmEthUtilizationThreshold_Object=MibScalar
-genEquipPmEthUtilizationThreshold=_GenEquipPmEthUtilizationThreshold_Object((1,3,6,1,4,1,2281,10,6,3,9,2),_GenEquipPmEthUtilizationThreshold_Type())
-genEquipPmEthUtilizationThreshold.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmEthUtilizationThreshold.setStatus(_A)
-_GenEquipPmEthUtilizationTable_Object=MibTable
-genEquipPmEthUtilizationTable=_GenEquipPmEthUtilizationTable_Object((1,3,6,1,4,1,2281,10,6,3,9,3))
-if mibBuilder.loadTexts:genEquipPmEthUtilizationTable.setStatus(_A)
-_GenEquipPmEthUtilizationEntry_Object=MibTableRow
-genEquipPmEthUtilizationEntry=_GenEquipPmEthUtilizationEntry_Object((1,3,6,1,4,1,2281,10,6,3,9,3,1))
-genEquipPmEthUtilizationEntry.setIndexNames((0,_C,_A5),(0,_F,_G),(0,_C,_A6))
-if mibBuilder.loadTexts:genEquipPmEthUtilizationEntry.setStatus(_A)
-_GenEquipPmEthUtilizationPmType_Type=PmTableType
-_GenEquipPmEthUtilizationPmType_Object=MibTableColumn
-genEquipPmEthUtilizationPmType=_GenEquipPmEthUtilizationPmType_Object((1,3,6,1,4,1,2281,10,6,3,9,3,1,1),_GenEquipPmEthUtilizationPmType_Type())
-genEquipPmEthUtilizationPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthUtilizationPmType.setStatus(_A)
-_GenEquipPmEthUtilizationInterval_Type=Integer32
-_GenEquipPmEthUtilizationInterval_Object=MibTableColumn
-genEquipPmEthUtilizationInterval=_GenEquipPmEthUtilizationInterval_Object((1,3,6,1,4,1,2281,10,6,3,9,3,1,2),_GenEquipPmEthUtilizationInterval_Type())
-genEquipPmEthUtilizationInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthUtilizationInterval.setStatus(_A)
-_GenEquipPmEthUtilizationPeakUtilization_Type=Integer32
-_GenEquipPmEthUtilizationPeakUtilization_Object=MibTableColumn
-genEquipPmEthUtilizationPeakUtilization=_GenEquipPmEthUtilizationPeakUtilization_Object((1,3,6,1,4,1,2281,10,6,3,9,3,1,3),_GenEquipPmEthUtilizationPeakUtilization_Type())
-genEquipPmEthUtilizationPeakUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthUtilizationPeakUtilization.setStatus(_A)
-_GenEquipPmEthUtilizationAverageUtilization_Type=Integer32
-_GenEquipPmEthUtilizationAverageUtilization_Object=MibTableColumn
-genEquipPmEthUtilizationAverageUtilization=_GenEquipPmEthUtilizationAverageUtilization_Object((1,3,6,1,4,1,2281,10,6,3,9,3,1,4),_GenEquipPmEthUtilizationAverageUtilization_Type())
-genEquipPmEthUtilizationAverageUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthUtilizationAverageUtilization.setStatus(_A)
-_GenEquipPmEthUtilizationExceedUtilization_Type=Integer32
-_GenEquipPmEthUtilizationExceedUtilization_Object=MibTableColumn
-genEquipPmEthUtilizationExceedUtilization=_GenEquipPmEthUtilizationExceedUtilization_Object((1,3,6,1,4,1,2281,10,6,3,9,3,1,5),_GenEquipPmEthUtilizationExceedUtilization_Type())
-genEquipPmEthUtilizationExceedUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthUtilizationExceedUtilization.setStatus(_A)
-_GenEquipPmEthUtilizationIDF_Type=Integrity
-_GenEquipPmEthUtilizationIDF_Object=MibTableColumn
-genEquipPmEthUtilizationIDF=_GenEquipPmEthUtilizationIDF_Object((1,3,6,1,4,1,2281,10,6,3,9,3,1,6),_GenEquipPmEthUtilizationIDF_Type())
-genEquipPmEthUtilizationIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthUtilizationIDF.setStatus(_A)
-_GenEquipPmEthernetIngressPolicer_ObjectIdentity=ObjectIdentity
-genEquipPmEthernetIngressPolicer=_GenEquipPmEthernetIngressPolicer_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,10))
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsTable_Object=MibTable
-genEquipPmEthernetIngressPolicerUnicastStatisticsTable=_GenEquipPmEthernetIngressPolicerUnicastStatisticsTable_Object((1,3,6,1,4,1,2281,10,6,3,10,1))
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerUnicastStatisticsTable.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsEntry_Object=MibTableRow
-genEquipPmEthernetIngressPolicerUnicastStatisticsEntry=_GenEquipPmEthernetIngressPolicerUnicastStatisticsEntry_Object((1,3,6,1,4,1,2281,10,6,3,10,1,1))
-genEquipPmEthernetIngressPolicerUnicastStatisticsEntry.setIndexNames((0,_C,_A7))
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerUnicastStatisticsEntry.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex_Type=Integer32
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex=_GenEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex_Object((1,3,6,1,4,1,2281,10,6,3,10,1,1,1),_GenEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex_Type())
-genEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsClearOnRead_Type=NoYes
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsClearOnRead_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerUnicastStatisticsClearOnRead=_GenEquipPmEthernetIngressPolicerUnicastStatisticsClearOnRead_Object((1,3,6,1,4,1,2281,10,6,3,10,1,1,2),_GenEquipPmEthernetIngressPolicerUnicastStatisticsClearOnRead_Type())
-genEquipPmEthernetIngressPolicerUnicastStatisticsClearOnRead.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerUnicastStatisticsClearOnRead.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsGreenPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsGreenPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerUnicastStatisticsGreenPacket=_GenEquipPmEthernetIngressPolicerUnicastStatisticsGreenPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,1,1,3),_GenEquipPmEthernetIngressPolicerUnicastStatisticsGreenPacket_Type())
-genEquipPmEthernetIngressPolicerUnicastStatisticsGreenPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerUnicastStatisticsGreenPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsGreenBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsGreenBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerUnicastStatisticsGreenBytes=_GenEquipPmEthernetIngressPolicerUnicastStatisticsGreenBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,1,1,4),_GenEquipPmEthernetIngressPolicerUnicastStatisticsGreenBytes_Type())
-genEquipPmEthernetIngressPolicerUnicastStatisticsGreenBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerUnicastStatisticsGreenBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsYellowPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsYellowPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerUnicastStatisticsYellowPacket=_GenEquipPmEthernetIngressPolicerUnicastStatisticsYellowPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,1,1,5),_GenEquipPmEthernetIngressPolicerUnicastStatisticsYellowPacket_Type())
-genEquipPmEthernetIngressPolicerUnicastStatisticsYellowPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerUnicastStatisticsYellowPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsYellowBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsYellowBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerUnicastStatisticsYellowBytes=_GenEquipPmEthernetIngressPolicerUnicastStatisticsYellowBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,1,1,6),_GenEquipPmEthernetIngressPolicerUnicastStatisticsYellowBytes_Type())
-genEquipPmEthernetIngressPolicerUnicastStatisticsYellowBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerUnicastStatisticsYellowBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsRedPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsRedPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerUnicastStatisticsRedPacket=_GenEquipPmEthernetIngressPolicerUnicastStatisticsRedPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,1,1,7),_GenEquipPmEthernetIngressPolicerUnicastStatisticsRedPacket_Type())
-genEquipPmEthernetIngressPolicerUnicastStatisticsRedPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerUnicastStatisticsRedPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsRedBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerUnicastStatisticsRedBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerUnicastStatisticsRedBytes=_GenEquipPmEthernetIngressPolicerUnicastStatisticsRedBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,1,1,8),_GenEquipPmEthernetIngressPolicerUnicastStatisticsRedBytes_Type())
-genEquipPmEthernetIngressPolicerUnicastStatisticsRedBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerUnicastStatisticsRedBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsTable_Object=MibTable
-genEquipPmEthernetIngressPolicerMulticastStatisticsTable=_GenEquipPmEthernetIngressPolicerMulticastStatisticsTable_Object((1,3,6,1,4,1,2281,10,6,3,10,2))
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerMulticastStatisticsTable.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsEntry_Object=MibTableRow
-genEquipPmEthernetIngressPolicerMulticastStatisticsEntry=_GenEquipPmEthernetIngressPolicerMulticastStatisticsEntry_Object((1,3,6,1,4,1,2281,10,6,3,10,2,1))
-genEquipPmEthernetIngressPolicerMulticastStatisticsEntry.setIndexNames((0,_C,_A8))
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerMulticastStatisticsEntry.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex_Type=Integer32
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex=_GenEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex_Object((1,3,6,1,4,1,2281,10,6,3,10,2,1,1),_GenEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex_Type())
-genEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsClearOnRead_Type=NoYes
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsClearOnRead_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerMulticastStatisticsClearOnRead=_GenEquipPmEthernetIngressPolicerMulticastStatisticsClearOnRead_Object((1,3,6,1,4,1,2281,10,6,3,10,2,1,2),_GenEquipPmEthernetIngressPolicerMulticastStatisticsClearOnRead_Type())
-genEquipPmEthernetIngressPolicerMulticastStatisticsClearOnRead.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerMulticastStatisticsClearOnRead.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsGreenPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsGreenPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerMulticastStatisticsGreenPacket=_GenEquipPmEthernetIngressPolicerMulticastStatisticsGreenPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,2,1,3),_GenEquipPmEthernetIngressPolicerMulticastStatisticsGreenPacket_Type())
-genEquipPmEthernetIngressPolicerMulticastStatisticsGreenPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerMulticastStatisticsGreenPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsGreenBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsGreenBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerMulticastStatisticsGreenBytes=_GenEquipPmEthernetIngressPolicerMulticastStatisticsGreenBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,2,1,4),_GenEquipPmEthernetIngressPolicerMulticastStatisticsGreenBytes_Type())
-genEquipPmEthernetIngressPolicerMulticastStatisticsGreenBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerMulticastStatisticsGreenBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsYellowPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsYellowPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerMulticastStatisticsYellowPacket=_GenEquipPmEthernetIngressPolicerMulticastStatisticsYellowPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,2,1,5),_GenEquipPmEthernetIngressPolicerMulticastStatisticsYellowPacket_Type())
-genEquipPmEthernetIngressPolicerMulticastStatisticsYellowPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerMulticastStatisticsYellowPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsYellowBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsYellowBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerMulticastStatisticsYellowBytes=_GenEquipPmEthernetIngressPolicerMulticastStatisticsYellowBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,2,1,6),_GenEquipPmEthernetIngressPolicerMulticastStatisticsYellowBytes_Type())
-genEquipPmEthernetIngressPolicerMulticastStatisticsYellowBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerMulticastStatisticsYellowBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsRedPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsRedPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerMulticastStatisticsRedPacket=_GenEquipPmEthernetIngressPolicerMulticastStatisticsRedPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,2,1,7),_GenEquipPmEthernetIngressPolicerMulticastStatisticsRedPacket_Type())
-genEquipPmEthernetIngressPolicerMulticastStatisticsRedPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerMulticastStatisticsRedPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsRedBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerMulticastStatisticsRedBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerMulticastStatisticsRedBytes=_GenEquipPmEthernetIngressPolicerMulticastStatisticsRedBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,2,1,8),_GenEquipPmEthernetIngressPolicerMulticastStatisticsRedBytes_Type())
-genEquipPmEthernetIngressPolicerMulticastStatisticsRedBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerMulticastStatisticsRedBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsTable_Object=MibTable
-genEquipPmEthernetIngressPolicerBroadcastStatisticsTable=_GenEquipPmEthernetIngressPolicerBroadcastStatisticsTable_Object((1,3,6,1,4,1,2281,10,6,3,10,3))
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerBroadcastStatisticsTable.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsEntry_Object=MibTableRow
-genEquipPmEthernetIngressPolicerBroadcastStatisticsEntry=_GenEquipPmEthernetIngressPolicerBroadcastStatisticsEntry_Object((1,3,6,1,4,1,2281,10,6,3,10,3,1))
-genEquipPmEthernetIngressPolicerBroadcastStatisticsEntry.setIndexNames((0,_C,_A9))
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerBroadcastStatisticsEntry.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex_Type=Integer32
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex=_GenEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex_Object((1,3,6,1,4,1,2281,10,6,3,10,3,1,1),_GenEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex_Type())
-genEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsClearOnRead_Type=NoYes
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsClearOnRead_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerBroadcastStatisticsClearOnRead=_GenEquipPmEthernetIngressPolicerBroadcastStatisticsClearOnRead_Object((1,3,6,1,4,1,2281,10,6,3,10,3,1,2),_GenEquipPmEthernetIngressPolicerBroadcastStatisticsClearOnRead_Type())
-genEquipPmEthernetIngressPolicerBroadcastStatisticsClearOnRead.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerBroadcastStatisticsClearOnRead.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsGreenPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsGreenPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenPacket=_GenEquipPmEthernetIngressPolicerBroadcastStatisticsGreenPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,3,1,3),_GenEquipPmEthernetIngressPolicerBroadcastStatisticsGreenPacket_Type())
-genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsGreenBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsGreenBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenBytes=_GenEquipPmEthernetIngressPolicerBroadcastStatisticsGreenBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,3,1,4),_GenEquipPmEthernetIngressPolicerBroadcastStatisticsGreenBytes_Type())
-genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsYellowPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsYellowPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowPacket=_GenEquipPmEthernetIngressPolicerBroadcastStatisticsYellowPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,3,1,5),_GenEquipPmEthernetIngressPolicerBroadcastStatisticsYellowPacket_Type())
-genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsYellowBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsYellowBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowBytes=_GenEquipPmEthernetIngressPolicerBroadcastStatisticsYellowBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,3,1,6),_GenEquipPmEthernetIngressPolicerBroadcastStatisticsYellowBytes_Type())
-genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsRedPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsRedPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerBroadcastStatisticsRedPacket=_GenEquipPmEthernetIngressPolicerBroadcastStatisticsRedPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,3,1,7),_GenEquipPmEthernetIngressPolicerBroadcastStatisticsRedPacket_Type())
-genEquipPmEthernetIngressPolicerBroadcastStatisticsRedPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerBroadcastStatisticsRedPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsRedBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerBroadcastStatisticsRedBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerBroadcastStatisticsRedBytes=_GenEquipPmEthernetIngressPolicerBroadcastStatisticsRedBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,3,1,8),_GenEquipPmEthernetIngressPolicerBroadcastStatisticsRedBytes_Type())
-genEquipPmEthernetIngressPolicerBroadcastStatisticsRedBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerBroadcastStatisticsRedBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsTable_Object=MibTable
-genEquipPmEthernetIngressPolicerEtherType1StatisticsTable=_GenEquipPmEthernetIngressPolicerEtherType1StatisticsTable_Object((1,3,6,1,4,1,2281,10,6,3,10,4))
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType1StatisticsTable.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsEntry_Object=MibTableRow
-genEquipPmEthernetIngressPolicerEtherType1StatisticsEntry=_GenEquipPmEthernetIngressPolicerEtherType1StatisticsEntry_Object((1,3,6,1,4,1,2281,10,6,3,10,4,1))
-genEquipPmEthernetIngressPolicerEtherType1StatisticsEntry.setIndexNames((0,_C,_AA))
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType1StatisticsEntry.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex_Type=Integer32
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex=_GenEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex_Object((1,3,6,1,4,1,2281,10,6,3,10,4,1,1),_GenEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex_Type())
-genEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsClearOnRead_Type=NoYes
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsClearOnRead_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType1StatisticsClearOnRead=_GenEquipPmEthernetIngressPolicerEtherType1StatisticsClearOnRead_Object((1,3,6,1,4,1,2281,10,6,3,10,4,1,2),_GenEquipPmEthernetIngressPolicerEtherType1StatisticsClearOnRead_Type())
-genEquipPmEthernetIngressPolicerEtherType1StatisticsClearOnRead.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType1StatisticsClearOnRead.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsGreenPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsGreenPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenPacket=_GenEquipPmEthernetIngressPolicerEtherType1StatisticsGreenPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,4,1,3),_GenEquipPmEthernetIngressPolicerEtherType1StatisticsGreenPacket_Type())
-genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsGreenBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsGreenBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenBytes=_GenEquipPmEthernetIngressPolicerEtherType1StatisticsGreenBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,4,1,4),_GenEquipPmEthernetIngressPolicerEtherType1StatisticsGreenBytes_Type())
-genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsYellowPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsYellowPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowPacket=_GenEquipPmEthernetIngressPolicerEtherType1StatisticsYellowPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,4,1,5),_GenEquipPmEthernetIngressPolicerEtherType1StatisticsYellowPacket_Type())
-genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsYellowBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsYellowBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowBytes=_GenEquipPmEthernetIngressPolicerEtherType1StatisticsYellowBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,4,1,6),_GenEquipPmEthernetIngressPolicerEtherType1StatisticsYellowBytes_Type())
-genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsRedPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsRedPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType1StatisticsRedPacket=_GenEquipPmEthernetIngressPolicerEtherType1StatisticsRedPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,4,1,7),_GenEquipPmEthernetIngressPolicerEtherType1StatisticsRedPacket_Type())
-genEquipPmEthernetIngressPolicerEtherType1StatisticsRedPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType1StatisticsRedPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsRedBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType1StatisticsRedBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType1StatisticsRedBytes=_GenEquipPmEthernetIngressPolicerEtherType1StatisticsRedBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,4,1,8),_GenEquipPmEthernetIngressPolicerEtherType1StatisticsRedBytes_Type())
-genEquipPmEthernetIngressPolicerEtherType1StatisticsRedBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType1StatisticsRedBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsTable_Object=MibTable
-genEquipPmEthernetIngressPolicerEtherType2StatisticsTable=_GenEquipPmEthernetIngressPolicerEtherType2StatisticsTable_Object((1,3,6,1,4,1,2281,10,6,3,10,5))
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType2StatisticsTable.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsEntry_Object=MibTableRow
-genEquipPmEthernetIngressPolicerEtherType2StatisticsEntry=_GenEquipPmEthernetIngressPolicerEtherType2StatisticsEntry_Object((1,3,6,1,4,1,2281,10,6,3,10,5,1))
-genEquipPmEthernetIngressPolicerEtherType2StatisticsEntry.setIndexNames((0,_C,_AB))
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType2StatisticsEntry.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex_Type=Integer32
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex=_GenEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex_Object((1,3,6,1,4,1,2281,10,6,3,10,5,1,1),_GenEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex_Type())
-genEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsClearOnRead_Type=NoYes
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsClearOnRead_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType2StatisticsClearOnRead=_GenEquipPmEthernetIngressPolicerEtherType2StatisticsClearOnRead_Object((1,3,6,1,4,1,2281,10,6,3,10,5,1,2),_GenEquipPmEthernetIngressPolicerEtherType2StatisticsClearOnRead_Type())
-genEquipPmEthernetIngressPolicerEtherType2StatisticsClearOnRead.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType2StatisticsClearOnRead.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsGreenPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsGreenPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenPacket=_GenEquipPmEthernetIngressPolicerEtherType2StatisticsGreenPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,5,1,3),_GenEquipPmEthernetIngressPolicerEtherType2StatisticsGreenPacket_Type())
-genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsGreenBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsGreenBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenBytes=_GenEquipPmEthernetIngressPolicerEtherType2StatisticsGreenBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,5,1,4),_GenEquipPmEthernetIngressPolicerEtherType2StatisticsGreenBytes_Type())
-genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsYellowPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsYellowPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowPacket=_GenEquipPmEthernetIngressPolicerEtherType2StatisticsYellowPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,5,1,5),_GenEquipPmEthernetIngressPolicerEtherType2StatisticsYellowPacket_Type())
-genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsYellowBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsYellowBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowBytes=_GenEquipPmEthernetIngressPolicerEtherType2StatisticsYellowBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,5,1,6),_GenEquipPmEthernetIngressPolicerEtherType2StatisticsYellowBytes_Type())
-genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsRedPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsRedPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType2StatisticsRedPacket=_GenEquipPmEthernetIngressPolicerEtherType2StatisticsRedPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,5,1,7),_GenEquipPmEthernetIngressPolicerEtherType2StatisticsRedPacket_Type())
-genEquipPmEthernetIngressPolicerEtherType2StatisticsRedPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType2StatisticsRedPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsRedBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType2StatisticsRedBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType2StatisticsRedBytes=_GenEquipPmEthernetIngressPolicerEtherType2StatisticsRedBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,5,1,8),_GenEquipPmEthernetIngressPolicerEtherType2StatisticsRedBytes_Type())
-genEquipPmEthernetIngressPolicerEtherType2StatisticsRedBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType2StatisticsRedBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsTable_Object=MibTable
-genEquipPmEthernetIngressPolicerEtherType3StatisticsTable=_GenEquipPmEthernetIngressPolicerEtherType3StatisticsTable_Object((1,3,6,1,4,1,2281,10,6,3,10,6))
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType3StatisticsTable.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsEntry_Object=MibTableRow
-genEquipPmEthernetIngressPolicerEtherType3StatisticsEntry=_GenEquipPmEthernetIngressPolicerEtherType3StatisticsEntry_Object((1,3,6,1,4,1,2281,10,6,3,10,6,1))
-genEquipPmEthernetIngressPolicerEtherType3StatisticsEntry.setIndexNames((0,_C,_AC))
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType3StatisticsEntry.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex_Type=Integer32
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex=_GenEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex_Object((1,3,6,1,4,1,2281,10,6,3,10,6,1,1),_GenEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex_Type())
-genEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsClearOnRead_Type=NoYes
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsClearOnRead_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType3StatisticsClearOnRead=_GenEquipPmEthernetIngressPolicerEtherType3StatisticsClearOnRead_Object((1,3,6,1,4,1,2281,10,6,3,10,6,1,2),_GenEquipPmEthernetIngressPolicerEtherType3StatisticsClearOnRead_Type())
-genEquipPmEthernetIngressPolicerEtherType3StatisticsClearOnRead.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType3StatisticsClearOnRead.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsGreenPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsGreenPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenPacket=_GenEquipPmEthernetIngressPolicerEtherType3StatisticsGreenPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,6,1,3),_GenEquipPmEthernetIngressPolicerEtherType3StatisticsGreenPacket_Type())
-genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsGreenBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsGreenBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenBytes=_GenEquipPmEthernetIngressPolicerEtherType3StatisticsGreenBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,6,1,4),_GenEquipPmEthernetIngressPolicerEtherType3StatisticsGreenBytes_Type())
-genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsYellowPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsYellowPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowPacket=_GenEquipPmEthernetIngressPolicerEtherType3StatisticsYellowPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,6,1,5),_GenEquipPmEthernetIngressPolicerEtherType3StatisticsYellowPacket_Type())
-genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsYellowBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsYellowBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowBytes=_GenEquipPmEthernetIngressPolicerEtherType3StatisticsYellowBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,6,1,6),_GenEquipPmEthernetIngressPolicerEtherType3StatisticsYellowBytes_Type())
-genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowBytes.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsRedPacket_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsRedPacket_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType3StatisticsRedPacket=_GenEquipPmEthernetIngressPolicerEtherType3StatisticsRedPacket_Object((1,3,6,1,4,1,2281,10,6,3,10,6,1,7),_GenEquipPmEthernetIngressPolicerEtherType3StatisticsRedPacket_Type())
-genEquipPmEthernetIngressPolicerEtherType3StatisticsRedPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType3StatisticsRedPacket.setStatus(_A)
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsRedBytes_Type=Counter64
-_GenEquipPmEthernetIngressPolicerEtherType3StatisticsRedBytes_Object=MibTableColumn
-genEquipPmEthernetIngressPolicerEtherType3StatisticsRedBytes=_GenEquipPmEthernetIngressPolicerEtherType3StatisticsRedBytes_Object((1,3,6,1,4,1,2281,10,6,3,10,6,1,8),_GenEquipPmEthernetIngressPolicerEtherType3StatisticsRedBytes_Type())
-genEquipPmEthernetIngressPolicerEtherType3StatisticsRedBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetIngressPolicerEtherType3StatisticsRedBytes.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTable_Object=MibTable
-genEquipPmEthernetRmonStatisticsTable=_GenEquipPmEthernetRmonStatisticsTable_Object((1,3,6,1,4,1,2281,10,6,3,11))
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTable.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsEntry_Object=MibTableRow
-genEquipPmEthernetRmonStatisticsEntry=_GenEquipPmEthernetRmonStatisticsEntry_Object((1,3,6,1,4,1,2281,10,6,3,11,1))
-genEquipPmEthernetRmonStatisticsEntry.setIndexNames((0,_C,_AD))
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsEntry.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsIfIndex_Type=Integer32
-_GenEquipPmEthernetRmonStatisticsIfIndex_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsIfIndex=_GenEquipPmEthernetRmonStatisticsIfIndex_Object((1,3,6,1,4,1,2281,10,6,3,11,1,1),_GenEquipPmEthernetRmonStatisticsIfIndex_Type())
-genEquipPmEthernetRmonStatisticsIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsIfIndex.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsClearOnRead_Type=NoYes
-_GenEquipPmEthernetRmonStatisticsClearOnRead_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsClearOnRead=_GenEquipPmEthernetRmonStatisticsClearOnRead_Object((1,3,6,1,4,1,2281,10,6,3,11,1,2),_GenEquipPmEthernetRmonStatisticsClearOnRead_Type())
-genEquipPmEthernetRmonStatisticsClearOnRead.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsClearOnRead.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTxByteCount_Type=Counter64
-_GenEquipPmEthernetRmonStatisticsTxByteCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTxByteCount=_GenEquipPmEthernetRmonStatisticsTxByteCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,3),_GenEquipPmEthernetRmonStatisticsTxByteCount_Type())
-genEquipPmEthernetRmonStatisticsTxByteCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTxByteCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTxFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTxFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTxFrameCount=_GenEquipPmEthernetRmonStatisticsTxFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,4),_GenEquipPmEthernetRmonStatisticsTxFrameCount_Type())
-genEquipPmEthernetRmonStatisticsTxFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTxFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTxMulticastFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTxMulticastFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTxMulticastFrameCount=_GenEquipPmEthernetRmonStatisticsTxMulticastFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,5),_GenEquipPmEthernetRmonStatisticsTxMulticastFrameCount_Type())
-genEquipPmEthernetRmonStatisticsTxMulticastFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTxMulticastFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTxBroadcastFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTxBroadcastFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTxBroadcastFrameCount=_GenEquipPmEthernetRmonStatisticsTxBroadcastFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,6),_GenEquipPmEthernetRmonStatisticsTxBroadcastFrameCount_Type())
-genEquipPmEthernetRmonStatisticsTxBroadcastFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTxBroadcastFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTxControlFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTxControlFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTxControlFrameCount=_GenEquipPmEthernetRmonStatisticsTxControlFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,7),_GenEquipPmEthernetRmonStatisticsTxControlFrameCount_Type())
-genEquipPmEthernetRmonStatisticsTxControlFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTxControlFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTxPauseFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTxPauseFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTxPauseFrameCount=_GenEquipPmEthernetRmonStatisticsTxPauseFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,8),_GenEquipPmEthernetRmonStatisticsTxPauseFrameCount_Type())
-genEquipPmEthernetRmonStatisticsTxPauseFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTxPauseFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTxFcsErrorFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTxFcsErrorFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTxFcsErrorFrameCount=_GenEquipPmEthernetRmonStatisticsTxFcsErrorFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,9),_GenEquipPmEthernetRmonStatisticsTxFcsErrorFrameCount_Type())
-genEquipPmEthernetRmonStatisticsTxFcsErrorFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTxFcsErrorFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTxLengthErrorFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTxLengthErrorFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTxLengthErrorFrameCount=_GenEquipPmEthernetRmonStatisticsTxLengthErrorFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,10),_GenEquipPmEthernetRmonStatisticsTxLengthErrorFrameCount_Type())
-genEquipPmEthernetRmonStatisticsTxLengthErrorFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTxLengthErrorFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTxOversizeFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTxOversizeFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTxOversizeFrameCount=_GenEquipPmEthernetRmonStatisticsTxOversizeFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,11),_GenEquipPmEthernetRmonStatisticsTxOversizeFrameCount_Type())
-genEquipPmEthernetRmonStatisticsTxOversizeFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTxOversizeFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTxUndersizeFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTxUndersizeFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTxUndersizeFrameCount=_GenEquipPmEthernetRmonStatisticsTxUndersizeFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,12),_GenEquipPmEthernetRmonStatisticsTxUndersizeFrameCount_Type())
-genEquipPmEthernetRmonStatisticsTxUndersizeFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTxUndersizeFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTxFragmentFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTxFragmentFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTxFragmentFrameCount=_GenEquipPmEthernetRmonStatisticsTxFragmentFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,13),_GenEquipPmEthernetRmonStatisticsTxFragmentFrameCount_Type())
-genEquipPmEthernetRmonStatisticsTxFragmentFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTxFragmentFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTxJabberFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTxJabberFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTxJabberFrameCount=_GenEquipPmEthernetRmonStatisticsTxJabberFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,14),_GenEquipPmEthernetRmonStatisticsTxJabberFrameCount_Type())
-genEquipPmEthernetRmonStatisticsTxJabberFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTxJabberFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTx64FrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTx64FrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTx64FrameCount=_GenEquipPmEthernetRmonStatisticsTx64FrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,15),_GenEquipPmEthernetRmonStatisticsTx64FrameCount_Type())
-genEquipPmEthernetRmonStatisticsTx64FrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTx64FrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTx65_127FrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTx65_127FrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTx65_127FrameCount=_GenEquipPmEthernetRmonStatisticsTx65_127FrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,16),_GenEquipPmEthernetRmonStatisticsTx65_127FrameCount_Type())
-genEquipPmEthernetRmonStatisticsTx65_127FrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTx65_127FrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTx128_255FrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTx128_255FrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTx128_255FrameCount=_GenEquipPmEthernetRmonStatisticsTx128_255FrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,17),_GenEquipPmEthernetRmonStatisticsTx128_255FrameCount_Type())
-genEquipPmEthernetRmonStatisticsTx128_255FrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTx128_255FrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTx256_511FrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTx256_511FrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTx256_511FrameCount=_GenEquipPmEthernetRmonStatisticsTx256_511FrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,18),_GenEquipPmEthernetRmonStatisticsTx256_511FrameCount_Type())
-genEquipPmEthernetRmonStatisticsTx256_511FrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTx256_511FrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTx512_1023FrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTx512_1023FrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTx512_1023FrameCount=_GenEquipPmEthernetRmonStatisticsTx512_1023FrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,19),_GenEquipPmEthernetRmonStatisticsTx512_1023FrameCount_Type())
-genEquipPmEthernetRmonStatisticsTx512_1023FrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTx512_1023FrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTx1024_1518FrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTx1024_1518FrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTx1024_1518FrameCount=_GenEquipPmEthernetRmonStatisticsTx1024_1518FrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,20),_GenEquipPmEthernetRmonStatisticsTx1024_1518FrameCount_Type())
-genEquipPmEthernetRmonStatisticsTx1024_1518FrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTx1024_1518FrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsTx1519_1522FrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsTx1519_1522FrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsTx1519_1522FrameCount=_GenEquipPmEthernetRmonStatisticsTx1519_1522FrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,21),_GenEquipPmEthernetRmonStatisticsTx1519_1522FrameCount_Type())
-genEquipPmEthernetRmonStatisticsTx1519_1522FrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsTx1519_1522FrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRxByteCount_Type=Counter64
-_GenEquipPmEthernetRmonStatisticsRxByteCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRxByteCount=_GenEquipPmEthernetRmonStatisticsRxByteCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,22),_GenEquipPmEthernetRmonStatisticsRxByteCount_Type())
-genEquipPmEthernetRmonStatisticsRxByteCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRxByteCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRxFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRxFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRxFrameCount=_GenEquipPmEthernetRmonStatisticsRxFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,23),_GenEquipPmEthernetRmonStatisticsRxFrameCount_Type())
-genEquipPmEthernetRmonStatisticsRxFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRxFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRxMulticastFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRxMulticastFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRxMulticastFrameCount=_GenEquipPmEthernetRmonStatisticsRxMulticastFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,24),_GenEquipPmEthernetRmonStatisticsRxMulticastFrameCount_Type())
-genEquipPmEthernetRmonStatisticsRxMulticastFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRxMulticastFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRxBroadcastFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRxBroadcastFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRxBroadcastFrameCount=_GenEquipPmEthernetRmonStatisticsRxBroadcastFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,25),_GenEquipPmEthernetRmonStatisticsRxBroadcastFrameCount_Type())
-genEquipPmEthernetRmonStatisticsRxBroadcastFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRxBroadcastFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRxControlFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRxControlFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRxControlFrameCount=_GenEquipPmEthernetRmonStatisticsRxControlFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,26),_GenEquipPmEthernetRmonStatisticsRxControlFrameCount_Type())
-genEquipPmEthernetRmonStatisticsRxControlFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRxControlFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRxPauseFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRxPauseFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRxPauseFrameCount=_GenEquipPmEthernetRmonStatisticsRxPauseFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,27),_GenEquipPmEthernetRmonStatisticsRxPauseFrameCount_Type())
-genEquipPmEthernetRmonStatisticsRxPauseFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRxPauseFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRxFcsErrorFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRxFcsErrorFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRxFcsErrorFrameCount=_GenEquipPmEthernetRmonStatisticsRxFcsErrorFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,28),_GenEquipPmEthernetRmonStatisticsRxFcsErrorFrameCount_Type())
-genEquipPmEthernetRmonStatisticsRxFcsErrorFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRxFcsErrorFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRxLengthErrorFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRxLengthErrorFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRxLengthErrorFrameCount=_GenEquipPmEthernetRmonStatisticsRxLengthErrorFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,29),_GenEquipPmEthernetRmonStatisticsRxLengthErrorFrameCount_Type())
-genEquipPmEthernetRmonStatisticsRxLengthErrorFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRxLengthErrorFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRxcode_ErrorCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRxcode_ErrorCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRxcode_ErrorCount=_GenEquipPmEthernetRmonStatisticsRxcode_ErrorCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,30),_GenEquipPmEthernetRmonStatisticsRxcode_ErrorCount_Type())
-genEquipPmEthernetRmonStatisticsRxcode_ErrorCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRxcode_ErrorCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRxoversizeFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRxoversizeFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRxoversizeFrameCount=_GenEquipPmEthernetRmonStatisticsRxoversizeFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,31),_GenEquipPmEthernetRmonStatisticsRxoversizeFrameCount_Type())
-genEquipPmEthernetRmonStatisticsRxoversizeFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRxoversizeFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRxundersize_ErrorFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRxundersize_ErrorFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRxundersize_ErrorFrameCount=_GenEquipPmEthernetRmonStatisticsRxundersize_ErrorFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,32),_GenEquipPmEthernetRmonStatisticsRxundersize_ErrorFrameCount_Type())
-genEquipPmEthernetRmonStatisticsRxundersize_ErrorFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRxundersize_ErrorFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRxFragmentFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRxFragmentFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRxFragmentFrameCount=_GenEquipPmEthernetRmonStatisticsRxFragmentFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,33),_GenEquipPmEthernetRmonStatisticsRxFragmentFrameCount_Type())
-genEquipPmEthernetRmonStatisticsRxFragmentFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRxFragmentFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRx64FrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRx64FrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRx64FrameCount=_GenEquipPmEthernetRmonStatisticsRx64FrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,35),_GenEquipPmEthernetRmonStatisticsRx64FrameCount_Type())
-genEquipPmEthernetRmonStatisticsRx64FrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRx64FrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRx65_127FrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRx65_127FrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRx65_127FrameCount=_GenEquipPmEthernetRmonStatisticsRx65_127FrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,36),_GenEquipPmEthernetRmonStatisticsRx65_127FrameCount_Type())
-genEquipPmEthernetRmonStatisticsRx65_127FrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRx65_127FrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRx128_255FrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRx128_255FrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRx128_255FrameCount=_GenEquipPmEthernetRmonStatisticsRx128_255FrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,37),_GenEquipPmEthernetRmonStatisticsRx128_255FrameCount_Type())
-genEquipPmEthernetRmonStatisticsRx128_255FrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRx128_255FrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRx256_511FrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRx256_511FrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRx256_511FrameCount=_GenEquipPmEthernetRmonStatisticsRx256_511FrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,38),_GenEquipPmEthernetRmonStatisticsRx256_511FrameCount_Type())
-genEquipPmEthernetRmonStatisticsRx256_511FrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRx256_511FrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRx512_1023FrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRx512_1023FrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRx512_1023FrameCount=_GenEquipPmEthernetRmonStatisticsRx512_1023FrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,39),_GenEquipPmEthernetRmonStatisticsRx512_1023FrameCount_Type())
-genEquipPmEthernetRmonStatisticsRx512_1023FrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRx512_1023FrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRx1024_1518FrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRx1024_1518FrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRx1024_1518FrameCount=_GenEquipPmEthernetRmonStatisticsRx1024_1518FrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,40),_GenEquipPmEthernetRmonStatisticsRx1024_1518FrameCount_Type())
-genEquipPmEthernetRmonStatisticsRx1024_1518FrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRx1024_1518FrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRx1519_1522FrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRx1519_1522FrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRx1519_1522FrameCount=_GenEquipPmEthernetRmonStatisticsRx1519_1522FrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,41),_GenEquipPmEthernetRmonStatisticsRx1519_1522FrameCount_Type())
-genEquipPmEthernetRmonStatisticsRx1519_1522FrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRx1519_1522FrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRxExceedmaxFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRxExceedmaxFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRxExceedmaxFrameCount=_GenEquipPmEthernetRmonStatisticsRxExceedmaxFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,42),_GenEquipPmEthernetRmonStatisticsRxExceedmaxFrameCount_Type())
-genEquipPmEthernetRmonStatisticsRxExceedmaxFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRxExceedmaxFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRxExceedMaxWithErrorFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRxExceedMaxWithErrorFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRxExceedMaxWithErrorFrameCount=_GenEquipPmEthernetRmonStatisticsRxExceedMaxWithErrorFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,43),_GenEquipPmEthernetRmonStatisticsRxExceedMaxWithErrorFrameCount_Type())
-genEquipPmEthernetRmonStatisticsRxExceedMaxWithErrorFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRxExceedMaxWithErrorFrameCount.setStatus(_A)
-_GenEquipPmEthernetRmonStatisticsRxJabberFrameCount_Type=Counter32
-_GenEquipPmEthernetRmonStatisticsRxJabberFrameCount_Object=MibTableColumn
-genEquipPmEthernetRmonStatisticsRxJabberFrameCount=_GenEquipPmEthernetRmonStatisticsRxJabberFrameCount_Object((1,3,6,1,4,1,2281,10,6,3,11,1,44),_GenEquipPmEthernetRmonStatisticsRxJabberFrameCount_Type())
-genEquipPmEthernetRmonStatisticsRxJabberFrameCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetRmonStatisticsRxJabberFrameCount.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTable_Object=MibTable
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTable=_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTable_Object((1,3,6,1,4,1,2281,10,6,3,12))
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTable.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsEntry_Object=MibTableRow
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsEntry=_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsEntry_Object((1,3,6,1,4,1,2281,10,6,3,12,1))
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsEntry.setIndexNames((0,_C,_AE),(0,_C,_AF))
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsEntry.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex_Type=Integer32
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex=_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex_Object((1,3,6,1,4,1,2281,10,6,3,12,1,1),_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex_Type())
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex_Type=Integer32
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex=_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex_Object((1,3,6,1,4,1,2281,10,6,3,12,1,2),_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex_Type())
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsClearOnRead_Type=NoYes
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsClearOnRead_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsClearOnRead=_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsClearOnRead_Object((1,3,6,1,4,1,2281,10,6,3,12,1,3),_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsClearOnRead_Type())
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsClearOnRead.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsClearOnRead.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenPacket_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenPacket_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenPacket=_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenPacket_Object((1,3,6,1,4,1,2281,10,6,3,12,1,4),_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenPacket_Type())
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenPacket.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBytes_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBytes_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBytes=_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBytes_Object((1,3,6,1,4,1,2281,10,6,3,12,1,5),_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBytes_Type())
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBytes.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBitsPerSecond_Type=Integer32
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBitsPerSecond_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBitsPerSecond=_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBitsPerSecond_Object((1,3,6,1,4,1,2281,10,6,3,12,1,6),_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBitsPerSecond_Type())
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBitsPerSecond.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBitsPerSecond.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenPacket_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenPacket_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenPacket=_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenPacket_Object((1,3,6,1,4,1,2281,10,6,3,12,1,7),_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenPacket_Type())
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenPacket.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenBytes_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenBytes_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenBytes=_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenBytes_Object((1,3,6,1,4,1,2281,10,6,3,12,1,8),_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenBytes_Type())
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenBytes.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowPacket_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowPacket_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowPacket=_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowPacket_Object((1,3,6,1,4,1,2281,10,6,3,12,1,9),_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowPacket_Type())
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowPacket.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBytes_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBytes_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBytes=_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBytes_Object((1,3,6,1,4,1,2281,10,6,3,12,1,10),_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBytes_Type())
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBytes.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBitsPerSecond_Type=Integer32
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBitsPerSecond_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBitsPerSecond=_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBitsPerSecond_Object((1,3,6,1,4,1,2281,10,6,3,12,1,11),_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBitsPerSecond_Type())
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBitsPerSecond.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBitsPerSecond.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowPacket_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowPacket_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowPacket=_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowPacket_Object((1,3,6,1,4,1,2281,10,6,3,12,1,12),_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowPacket_Type())
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowPacket.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowBytes_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowBytes_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowBytes=_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowBytes_Object((1,3,6,1,4,1,2281,10,6,3,12,1,13),_GenEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowBytes_Type())
-genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowBytes.setStatus(_A)
-_GenEquipServicesCetSpPmCosIngressPolicerStatisticsTable_Object=MibTable
-genEquipServicesCetSpPmCosIngressPolicerStatisticsTable=_GenEquipServicesCetSpPmCosIngressPolicerStatisticsTable_Object((1,3,6,1,4,1,2281,10,6,3,13))
-if mibBuilder.loadTexts:genEquipServicesCetSpPmCosIngressPolicerStatisticsTable.setStatus(_A)
-_GenEquipServicesCetSpPmCosIngressPolicerStatisticsEntry_Object=MibTableRow
-genEquipServicesCetSpPmCosIngressPolicerStatisticsEntry=_GenEquipServicesCetSpPmCosIngressPolicerStatisticsEntry_Object((1,3,6,1,4,1,2281,10,6,3,13,1))
-genEquipServicesCetSpPmCosIngressPolicerStatisticsEntry.setIndexNames((0,_C,_AG),(0,_C,_AH),(0,_C,_AI))
-if mibBuilder.loadTexts:genEquipServicesCetSpPmCosIngressPolicerStatisticsEntry.setStatus(_A)
-_GenEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex_Type=Integer32
-_GenEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex_Object=MibTableColumn
-genEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex=_GenEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex_Object((1,3,6,1,4,1,2281,10,6,3,13,1,1),_GenEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex_Type())
-genEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex.setStatus(_A)
-_GenEquipServicesCetSpPmCosIngressPolicerStatiSpIndex_Type=Integer32
-_GenEquipServicesCetSpPmCosIngressPolicerStatiSpIndex_Object=MibTableColumn
-genEquipServicesCetSpPmCosIngressPolicerStatiSpIndex=_GenEquipServicesCetSpPmCosIngressPolicerStatiSpIndex_Object((1,3,6,1,4,1,2281,10,6,3,13,1,2),_GenEquipServicesCetSpPmCosIngressPolicerStatiSpIndex_Type())
-genEquipServicesCetSpPmCosIngressPolicerStatiSpIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmCosIngressPolicerStatiSpIndex.setStatus(_A)
-_GenEquipServicesCetSpPmCosIngressPolicerStatiCos_Type=Integer32
-_GenEquipServicesCetSpPmCosIngressPolicerStatiCos_Object=MibTableColumn
-genEquipServicesCetSpPmCosIngressPolicerStatiCos=_GenEquipServicesCetSpPmCosIngressPolicerStatiCos_Object((1,3,6,1,4,1,2281,10,6,3,13,1,3),_GenEquipServicesCetSpPmCosIngressPolicerStatiCos_Type())
-genEquipServicesCetSpPmCosIngressPolicerStatiCos.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmCosIngressPolicerStatiCos.setStatus(_A)
-_GenEquipServicesCetSpPmCosIngressPolicerStatiClearOnRead_Type=NoYes
-_GenEquipServicesCetSpPmCosIngressPolicerStatiClearOnRead_Object=MibTableColumn
-genEquipServicesCetSpPmCosIngressPolicerStatiClearOnRead=_GenEquipServicesCetSpPmCosIngressPolicerStatiClearOnRead_Object((1,3,6,1,4,1,2281,10,6,3,13,1,4),_GenEquipServicesCetSpPmCosIngressPolicerStatiClearOnRead_Type())
-genEquipServicesCetSpPmCosIngressPolicerStatiClearOnRead.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmCosIngressPolicerStatiClearOnRead.setStatus(_A)
-_GenEquipServicesCetSpPmCosIngressPolicerStatiGreenPacket_Type=Counter64
-_GenEquipServicesCetSpPmCosIngressPolicerStatiGreenPacket_Object=MibTableColumn
-genEquipServicesCetSpPmCosIngressPolicerStatiGreenPacket=_GenEquipServicesCetSpPmCosIngressPolicerStatiGreenPacket_Object((1,3,6,1,4,1,2281,10,6,3,13,1,5),_GenEquipServicesCetSpPmCosIngressPolicerStatiGreenPacket_Type())
-genEquipServicesCetSpPmCosIngressPolicerStatiGreenPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmCosIngressPolicerStatiGreenPacket.setStatus(_A)
-_GenEquipServicesCetSpPmCosIngressPolicerStatiGreenBytes_Type=Counter64
-_GenEquipServicesCetSpPmCosIngressPolicerStatiGreenBytes_Object=MibTableColumn
-genEquipServicesCetSpPmCosIngressPolicerStatiGreenBytes=_GenEquipServicesCetSpPmCosIngressPolicerStatiGreenBytes_Object((1,3,6,1,4,1,2281,10,6,3,13,1,6),_GenEquipServicesCetSpPmCosIngressPolicerStatiGreenBytes_Type())
-genEquipServicesCetSpPmCosIngressPolicerStatiGreenBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmCosIngressPolicerStatiGreenBytes.setStatus(_A)
-_GenEquipServicesCetSpPmCosIngressPolicerStatiYellowPacket_Type=Counter64
-_GenEquipServicesCetSpPmCosIngressPolicerStatiYellowPacket_Object=MibTableColumn
-genEquipServicesCetSpPmCosIngressPolicerStatiYellowPacket=_GenEquipServicesCetSpPmCosIngressPolicerStatiYellowPacket_Object((1,3,6,1,4,1,2281,10,6,3,13,1,7),_GenEquipServicesCetSpPmCosIngressPolicerStatiYellowPacket_Type())
-genEquipServicesCetSpPmCosIngressPolicerStatiYellowPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmCosIngressPolicerStatiYellowPacket.setStatus(_A)
-_GenEquipServicesCetSpPmCosIngressPolicerStatiYellowBytes_Type=Counter64
-_GenEquipServicesCetSpPmCosIngressPolicerStatiYellowBytes_Object=MibTableColumn
-genEquipServicesCetSpPmCosIngressPolicerStatiYellowBytes=_GenEquipServicesCetSpPmCosIngressPolicerStatiYellowBytes_Object((1,3,6,1,4,1,2281,10,6,3,13,1,8),_GenEquipServicesCetSpPmCosIngressPolicerStatiYellowBytes_Type())
-genEquipServicesCetSpPmCosIngressPolicerStatiYellowBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmCosIngressPolicerStatiYellowBytes.setStatus(_A)
-_GenEquipServicesCetSpPmCosIngressPolicerStatiRedPacket_Type=Counter64
-_GenEquipServicesCetSpPmCosIngressPolicerStatiRedPacket_Object=MibTableColumn
-genEquipServicesCetSpPmCosIngressPolicerStatiRedPacket=_GenEquipServicesCetSpPmCosIngressPolicerStatiRedPacket_Object((1,3,6,1,4,1,2281,10,6,3,13,1,9),_GenEquipServicesCetSpPmCosIngressPolicerStatiRedPacket_Type())
-genEquipServicesCetSpPmCosIngressPolicerStatiRedPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmCosIngressPolicerStatiRedPacket.setStatus(_A)
-_GenEquipServicesCetSpPmCosIngressPolicerStatiRedBytes_Type=Counter64
-_GenEquipServicesCetSpPmCosIngressPolicerStatiRedBytes_Object=MibTableColumn
-genEquipServicesCetSpPmCosIngressPolicerStatiRedBytes=_GenEquipServicesCetSpPmCosIngressPolicerStatiRedBytes_Object((1,3,6,1,4,1,2281,10,6,3,13,1,10),_GenEquipServicesCetSpPmCosIngressPolicerStatiRedBytes_Type())
-genEquipServicesCetSpPmCosIngressPolicerStatiRedBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmCosIngressPolicerStatiRedBytes.setStatus(_A)
-_GenEquipServicesCetSpPmIngressPolicerStatisticsTable_Object=MibTable
-genEquipServicesCetSpPmIngressPolicerStatisticsTable=_GenEquipServicesCetSpPmIngressPolicerStatisticsTable_Object((1,3,6,1,4,1,2281,10,6,3,14))
-if mibBuilder.loadTexts:genEquipServicesCetSpPmIngressPolicerStatisticsTable.setStatus(_A)
-_GenEquipServicesCetSpPmIngressPolicerStatisticsEntry_Object=MibTableRow
-genEquipServicesCetSpPmIngressPolicerStatisticsEntry=_GenEquipServicesCetSpPmIngressPolicerStatisticsEntry_Object((1,3,6,1,4,1,2281,10,6,3,14,1))
-genEquipServicesCetSpPmIngressPolicerStatisticsEntry.setIndexNames((0,_C,_AJ),(0,_C,_AK))
-if mibBuilder.loadTexts:genEquipServicesCetSpPmIngressPolicerStatisticsEntry.setStatus(_A)
-_GenEquipServicesCetSpPmIngressPolicerStatiServiceIndex_Type=Integer32
-_GenEquipServicesCetSpPmIngressPolicerStatiServiceIndex_Object=MibTableColumn
-genEquipServicesCetSpPmIngressPolicerStatiServiceIndex=_GenEquipServicesCetSpPmIngressPolicerStatiServiceIndex_Object((1,3,6,1,4,1,2281,10,6,3,14,1,1),_GenEquipServicesCetSpPmIngressPolicerStatiServiceIndex_Type())
-genEquipServicesCetSpPmIngressPolicerStatiServiceIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmIngressPolicerStatiServiceIndex.setStatus(_A)
-_GenEquipServicesCetSpPmIngressPolicerStatiSpIndex_Type=Integer32
-_GenEquipServicesCetSpPmIngressPolicerStatiSpIndex_Object=MibTableColumn
-genEquipServicesCetSpPmIngressPolicerStatiSpIndex=_GenEquipServicesCetSpPmIngressPolicerStatiSpIndex_Object((1,3,6,1,4,1,2281,10,6,3,14,1,2),_GenEquipServicesCetSpPmIngressPolicerStatiSpIndex_Type())
-genEquipServicesCetSpPmIngressPolicerStatiSpIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmIngressPolicerStatiSpIndex.setStatus(_A)
-_GenEquipServicesCetSpPmIngressPolicerStatiClearOnRead_Type=NoYes
-_GenEquipServicesCetSpPmIngressPolicerStatiClearOnRead_Object=MibTableColumn
-genEquipServicesCetSpPmIngressPolicerStatiClearOnRead=_GenEquipServicesCetSpPmIngressPolicerStatiClearOnRead_Object((1,3,6,1,4,1,2281,10,6,3,14,1,3),_GenEquipServicesCetSpPmIngressPolicerStatiClearOnRead_Type())
-genEquipServicesCetSpPmIngressPolicerStatiClearOnRead.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmIngressPolicerStatiClearOnRead.setStatus(_A)
-_GenEquipServicesCetSpPmIngressPolicerStatiGreenPacket_Type=Counter64
-_GenEquipServicesCetSpPmIngressPolicerStatiGreenPacket_Object=MibTableColumn
-genEquipServicesCetSpPmIngressPolicerStatiGreenPacket=_GenEquipServicesCetSpPmIngressPolicerStatiGreenPacket_Object((1,3,6,1,4,1,2281,10,6,3,14,1,4),_GenEquipServicesCetSpPmIngressPolicerStatiGreenPacket_Type())
-genEquipServicesCetSpPmIngressPolicerStatiGreenPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmIngressPolicerStatiGreenPacket.setStatus(_A)
-_GenEquipServicesCetSpPmIngressPolicerStatiGreenBytes_Type=Counter64
-_GenEquipServicesCetSpPmIngressPolicerStatiGreenBytes_Object=MibTableColumn
-genEquipServicesCetSpPmIngressPolicerStatiGreenBytes=_GenEquipServicesCetSpPmIngressPolicerStatiGreenBytes_Object((1,3,6,1,4,1,2281,10,6,3,14,1,5),_GenEquipServicesCetSpPmIngressPolicerStatiGreenBytes_Type())
-genEquipServicesCetSpPmIngressPolicerStatiGreenBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmIngressPolicerStatiGreenBytes.setStatus(_A)
-_GenEquipServicesCetSpPmIngressPolicerStatiYellowPacket_Type=Counter64
-_GenEquipServicesCetSpPmIngressPolicerStatiYellowPacket_Object=MibTableColumn
-genEquipServicesCetSpPmIngressPolicerStatiYellowPacket=_GenEquipServicesCetSpPmIngressPolicerStatiYellowPacket_Object((1,3,6,1,4,1,2281,10,6,3,14,1,6),_GenEquipServicesCetSpPmIngressPolicerStatiYellowPacket_Type())
-genEquipServicesCetSpPmIngressPolicerStatiYellowPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmIngressPolicerStatiYellowPacket.setStatus(_A)
-_GenEquipServicesCetSpPmIngressPolicerStatiYellowBytes_Type=Counter64
-_GenEquipServicesCetSpPmIngressPolicerStatiYellowBytes_Object=MibTableColumn
-genEquipServicesCetSpPmIngressPolicerStatiYellowBytes=_GenEquipServicesCetSpPmIngressPolicerStatiYellowBytes_Object((1,3,6,1,4,1,2281,10,6,3,14,1,7),_GenEquipServicesCetSpPmIngressPolicerStatiYellowBytes_Type())
-genEquipServicesCetSpPmIngressPolicerStatiYellowBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmIngressPolicerStatiYellowBytes.setStatus(_A)
-_GenEquipServicesCetSpPmIngressPolicerStatiRedPacket_Type=Counter64
-_GenEquipServicesCetSpPmIngressPolicerStatiRedPacket_Object=MibTableColumn
-genEquipServicesCetSpPmIngressPolicerStatiRedPacket=_GenEquipServicesCetSpPmIngressPolicerStatiRedPacket_Object((1,3,6,1,4,1,2281,10,6,3,14,1,8),_GenEquipServicesCetSpPmIngressPolicerStatiRedPacket_Type())
-genEquipServicesCetSpPmIngressPolicerStatiRedPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmIngressPolicerStatiRedPacket.setStatus(_A)
-_GenEquipServicesCetSpPmIngressPolicerStatiRedBytes_Type=Counter64
-_GenEquipServicesCetSpPmIngressPolicerStatiRedBytes_Object=MibTableColumn
-genEquipServicesCetSpPmIngressPolicerStatiRedBytes=_GenEquipServicesCetSpPmIngressPolicerStatiRedBytes_Object((1,3,6,1,4,1,2281,10,6,3,14,1,9),_GenEquipServicesCetSpPmIngressPolicerStatiRedBytes_Type())
-genEquipServicesCetSpPmIngressPolicerStatiRedBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCetSpPmIngressPolicerStatiRedBytes.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsTable_Object=MibTable
-genEquipServicesCETTmPmSpEgressQueueStatisticsTable=_GenEquipServicesCETTmPmSpEgressQueueStatisticsTable_Object((1,3,6,1,4,1,2281,10,6,3,15))
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsTable.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsEntry_Object=MibTableRow
-genEquipServicesCETTmPmSpEgressQueueStatisticsEntry=_GenEquipServicesCETTmPmSpEgressQueueStatisticsEntry_Object((1,3,6,1,4,1,2281,10,6,3,15,1))
-genEquipServicesCETTmPmSpEgressQueueStatisticsEntry.setIndexNames((0,_C,_AL),(0,_C,_AM),(0,_C,_AN))
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsEntry.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex_Type=Integer32
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex=_GenEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex_Object((1,3,6,1,4,1,2281,10,6,3,15,1,1),_GenEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex_Type())
-genEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex_Type=Integer32
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex=_GenEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex_Object((1,3,6,1,4,1,2281,10,6,3,15,1,2),_GenEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex_Type())
-genEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex_Type=Integer32
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex=_GenEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex_Object((1,3,6,1,4,1,2281,10,6,3,15,1,3),_GenEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex_Type())
-genEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsClearOnRead_Type=NoYes
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsClearOnRead_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueueStatisticsClearOnRead=_GenEquipServicesCETTmPmSpEgressQueueStatisticsClearOnRead_Object((1,3,6,1,4,1,2281,10,6,3,15,1,4),_GenEquipServicesCETTmPmSpEgressQueueStatisticsClearOnRead_Type())
-genEquipServicesCETTmPmSpEgressQueueStatisticsClearOnRead.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsClearOnRead.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenPacket_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenPacket_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenPacket=_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenPacket_Object((1,3,6,1,4,1,2281,10,6,3,15,1,5),_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenPacket_Type())
-genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenPacket.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBytes_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBytes_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBytes=_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBytes_Object((1,3,6,1,4,1,2281,10,6,3,15,1,6),_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBytes_Type())
-genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBytes.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBitsPerSecond_Type=Integer32
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBitsPerSecond_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBitsPerSecond=_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBitsPerSecond_Object((1,3,6,1,4,1,2281,10,6,3,15,1,7),_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBitsPerSecond_Type())
-genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBitsPerSecond.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBitsPerSecond.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenPacket_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenPacket_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenPacket=_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenPacket_Object((1,3,6,1,4,1,2281,10,6,3,15,1,8),_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenPacket_Type())
-genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenPacket.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenBytes_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenBytes_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenBytes=_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenBytes_Object((1,3,6,1,4,1,2281,10,6,3,15,1,9),_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenBytes_Type())
-genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenBytes.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowPacket_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowPacket_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowPacket=_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowPacket_Object((1,3,6,1,4,1,2281,10,6,3,15,1,10),_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowPacket_Type())
-genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowPacket.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBytes_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBytes_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBytes=_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBytes_Object((1,3,6,1,4,1,2281,10,6,3,15,1,11),_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBytes_Type())
-genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBytes.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBitsPerSecond_Type=Integer32
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBitsPerSecond_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBitsPerSecond=_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBitsPerSecond_Object((1,3,6,1,4,1,2281,10,6,3,15,1,12),_GenEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBitsPerSecond_Type())
-genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBitsPerSecond.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBitsPerSecond.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowPacket_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowPacket_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowPacket=_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowPacket_Object((1,3,6,1,4,1,2281,10,6,3,15,1,13),_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowPacket_Type())
-genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowPacket.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowPacket.setStatus(_A)
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowBytes_Type=Counter64
-_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowBytes_Object=MibTableColumn
-genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowBytes=_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowBytes_Object((1,3,6,1,4,1,2281,10,6,3,15,1,14),_GenEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowBytes_Type())
-genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowBytes.setStatus(_A)
-_GenEquipPmUtilization_ObjectIdentity=ObjectIdentity
-genEquipPmUtilization=_GenEquipPmUtilization_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,16))
-_GenEquipPmUtilizationCPU_ObjectIdentity=ObjectIdentity
-genEquipPmUtilizationCPU=_GenEquipPmUtilizationCPU_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,16,1))
-_GenEquipPmUtilizationCPUAdmin_Type=EnableDisable
-_GenEquipPmUtilizationCPUAdmin_Object=MibScalar
-genEquipPmUtilizationCPUAdmin=_GenEquipPmUtilizationCPUAdmin_Object((1,3,6,1,4,1,2281,10,6,3,16,1,1),_GenEquipPmUtilizationCPUAdmin_Type())
-genEquipPmUtilizationCPUAdmin.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmUtilizationCPUAdmin.setStatus(_A)
-class _GenEquipPmUtilizationCPUThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_GenEquipPmUtilizationCPUThreshold_Type.__name__=_E
-_GenEquipPmUtilizationCPUThreshold_Object=MibScalar
-genEquipPmUtilizationCPUThreshold=_GenEquipPmUtilizationCPUThreshold_Object((1,3,6,1,4,1,2281,10,6,3,16,1,2),_GenEquipPmUtilizationCPUThreshold_Type())
-genEquipPmUtilizationCPUThreshold.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmUtilizationCPUThreshold.setStatus(_A)
-_GenEquipPmUtilizationCPUTable_Object=MibTable
-genEquipPmUtilizationCPUTable=_GenEquipPmUtilizationCPUTable_Object((1,3,6,1,4,1,2281,10,6,3,16,1,3))
-if mibBuilder.loadTexts:genEquipPmUtilizationCPUTable.setStatus(_A)
-_GenEquipPmUtilizationCPUEntry_Object=MibTableRow
-genEquipPmUtilizationCPUEntry=_GenEquipPmUtilizationCPUEntry_Object((1,3,6,1,4,1,2281,10,6,3,16,1,3,1))
-genEquipPmUtilizationCPUEntry.setIndexNames((0,_C,_AO),(0,_C,_AP))
-if mibBuilder.loadTexts:genEquipPmUtilizationCPUEntry.setStatus(_A)
-_GenEquipPmUtilizationCPUPmType_Type=PmTableType
-_GenEquipPmUtilizationCPUPmType_Object=MibTableColumn
-genEquipPmUtilizationCPUPmType=_GenEquipPmUtilizationCPUPmType_Object((1,3,6,1,4,1,2281,10,6,3,16,1,3,1,1),_GenEquipPmUtilizationCPUPmType_Type())
-genEquipPmUtilizationCPUPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmUtilizationCPUPmType.setStatus(_A)
-_GenEquipPmUtilizationCPUInterval_Type=Integer32
-_GenEquipPmUtilizationCPUInterval_Object=MibTableColumn
-genEquipPmUtilizationCPUInterval=_GenEquipPmUtilizationCPUInterval_Object((1,3,6,1,4,1,2281,10,6,3,16,1,3,1,2),_GenEquipPmUtilizationCPUInterval_Type())
-genEquipPmUtilizationCPUInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmUtilizationCPUInterval.setStatus(_A)
-_GenEquipPmUtilizationCPUPeakUtilization_Type=Integer32
-_GenEquipPmUtilizationCPUPeakUtilization_Object=MibTableColumn
-genEquipPmUtilizationCPUPeakUtilization=_GenEquipPmUtilizationCPUPeakUtilization_Object((1,3,6,1,4,1,2281,10,6,3,16,1,3,1,3),_GenEquipPmUtilizationCPUPeakUtilization_Type())
-genEquipPmUtilizationCPUPeakUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmUtilizationCPUPeakUtilization.setStatus(_A)
-_GenEquipPmUtilizationCPUAverageUtilization_Type=Integer32
-_GenEquipPmUtilizationCPUAverageUtilization_Object=MibTableColumn
-genEquipPmUtilizationCPUAverageUtilization=_GenEquipPmUtilizationCPUAverageUtilization_Object((1,3,6,1,4,1,2281,10,6,3,16,1,3,1,4),_GenEquipPmUtilizationCPUAverageUtilization_Type())
-genEquipPmUtilizationCPUAverageUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmUtilizationCPUAverageUtilization.setStatus(_A)
-_GenEquipPmUtilizationCPUMinimumUtilization_Type=Integer32
-_GenEquipPmUtilizationCPUMinimumUtilization_Object=MibTableColumn
-genEquipPmUtilizationCPUMinimumUtilization=_GenEquipPmUtilizationCPUMinimumUtilization_Object((1,3,6,1,4,1,2281,10,6,3,16,1,3,1,5),_GenEquipPmUtilizationCPUMinimumUtilization_Type())
-genEquipPmUtilizationCPUMinimumUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmUtilizationCPUMinimumUtilization.setStatus(_A)
-_GenEquipPmUtilizationCPUExceedUtilization_Type=Integer32
-_GenEquipPmUtilizationCPUExceedUtilization_Object=MibTableColumn
-genEquipPmUtilizationCPUExceedUtilization=_GenEquipPmUtilizationCPUExceedUtilization_Object((1,3,6,1,4,1,2281,10,6,3,16,1,3,1,6),_GenEquipPmUtilizationCPUExceedUtilization_Type())
-genEquipPmUtilizationCPUExceedUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmUtilizationCPUExceedUtilization.setStatus(_A)
-_GenEquipPmUtilizationCPUIDF_Type=Integrity
-_GenEquipPmUtilizationCPUIDF_Object=MibTableColumn
-genEquipPmUtilizationCPUIDF=_GenEquipPmUtilizationCPUIDF_Object((1,3,6,1,4,1,2281,10,6,3,16,1,3,1,7),_GenEquipPmUtilizationCPUIDF_Type())
-genEquipPmUtilizationCPUIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmUtilizationCPUIDF.setStatus(_A)
-_GenEquipPmUtilizationMem_ObjectIdentity=ObjectIdentity
-genEquipPmUtilizationMem=_GenEquipPmUtilizationMem_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,16,2))
-_GenEquipPmUtilizationMemAdmin_Type=EnableDisable
-_GenEquipPmUtilizationMemAdmin_Object=MibScalar
-genEquipPmUtilizationMemAdmin=_GenEquipPmUtilizationMemAdmin_Object((1,3,6,1,4,1,2281,10,6,3,16,2,1),_GenEquipPmUtilizationMemAdmin_Type())
-genEquipPmUtilizationMemAdmin.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmUtilizationMemAdmin.setStatus(_A)
-class _GenEquipPmUtilizationMemThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_GenEquipPmUtilizationMemThreshold_Type.__name__=_E
-_GenEquipPmUtilizationMemThreshold_Object=MibScalar
-genEquipPmUtilizationMemThreshold=_GenEquipPmUtilizationMemThreshold_Object((1,3,6,1,4,1,2281,10,6,3,16,2,2),_GenEquipPmUtilizationMemThreshold_Type())
-genEquipPmUtilizationMemThreshold.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPmUtilizationMemThreshold.setStatus(_A)
-_GenEquipPmUtilizationMemTable_Object=MibTable
-genEquipPmUtilizationMemTable=_GenEquipPmUtilizationMemTable_Object((1,3,6,1,4,1,2281,10,6,3,16,2,3))
-if mibBuilder.loadTexts:genEquipPmUtilizationMemTable.setStatus(_A)
-_GenEquipPmUtilizationMemEntry_Object=MibTableRow
-genEquipPmUtilizationMemEntry=_GenEquipPmUtilizationMemEntry_Object((1,3,6,1,4,1,2281,10,6,3,16,2,3,1))
-genEquipPmUtilizationMemEntry.setIndexNames((0,_C,_AQ),(0,_C,_AR))
-if mibBuilder.loadTexts:genEquipPmUtilizationMemEntry.setStatus(_A)
-_GenEquipPmUtilizationMemPmType_Type=PmTableType
-_GenEquipPmUtilizationMemPmType_Object=MibTableColumn
-genEquipPmUtilizationMemPmType=_GenEquipPmUtilizationMemPmType_Object((1,3,6,1,4,1,2281,10,6,3,16,2,3,1,1),_GenEquipPmUtilizationMemPmType_Type())
-genEquipPmUtilizationMemPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmUtilizationMemPmType.setStatus(_A)
-_GenEquipPmUtilizationMemInterval_Type=Integer32
-_GenEquipPmUtilizationMemInterval_Object=MibTableColumn
-genEquipPmUtilizationMemInterval=_GenEquipPmUtilizationMemInterval_Object((1,3,6,1,4,1,2281,10,6,3,16,2,3,1,2),_GenEquipPmUtilizationMemInterval_Type())
-genEquipPmUtilizationMemInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmUtilizationMemInterval.setStatus(_A)
-_GenEquipPmUtilizationMemPeakUtilization_Type=Integer32
-_GenEquipPmUtilizationMemPeakUtilization_Object=MibTableColumn
-genEquipPmUtilizationMemPeakUtilization=_GenEquipPmUtilizationMemPeakUtilization_Object((1,3,6,1,4,1,2281,10,6,3,16,2,3,1,3),_GenEquipPmUtilizationMemPeakUtilization_Type())
-genEquipPmUtilizationMemPeakUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmUtilizationMemPeakUtilization.setStatus(_A)
-_GenEquipPmUtilizationMemAverageUtilization_Type=Integer32
-_GenEquipPmUtilizationMemAverageUtilization_Object=MibTableColumn
-genEquipPmUtilizationMemAverageUtilization=_GenEquipPmUtilizationMemAverageUtilization_Object((1,3,6,1,4,1,2281,10,6,3,16,2,3,1,4),_GenEquipPmUtilizationMemAverageUtilization_Type())
-genEquipPmUtilizationMemAverageUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmUtilizationMemAverageUtilization.setStatus(_A)
-_GenEquipPmUtilizationMemMinimumUtilization_Type=Integer32
-_GenEquipPmUtilizationMemMinimumUtilization_Object=MibTableColumn
-genEquipPmUtilizationMemMinimumUtilization=_GenEquipPmUtilizationMemMinimumUtilization_Object((1,3,6,1,4,1,2281,10,6,3,16,2,3,1,5),_GenEquipPmUtilizationMemMinimumUtilization_Type())
-genEquipPmUtilizationMemMinimumUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmUtilizationMemMinimumUtilization.setStatus(_A)
-_GenEquipPmUtilizationMemExceedUtilization_Type=Integer32
-_GenEquipPmUtilizationMemExceedUtilization_Object=MibTableColumn
-genEquipPmUtilizationMemExceedUtilization=_GenEquipPmUtilizationMemExceedUtilization_Object((1,3,6,1,4,1,2281,10,6,3,16,2,3,1,6),_GenEquipPmUtilizationMemExceedUtilization_Type())
-genEquipPmUtilizationMemExceedUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmUtilizationMemExceedUtilization.setStatus(_A)
-_GenEquipPmUtilizationMemIDF_Type=Integrity
-_GenEquipPmUtilizationMemIDF_Object=MibTableColumn
-genEquipPmUtilizationMemIDF=_GenEquipPmUtilizationMemIDF_Object((1,3,6,1,4,1,2281,10,6,3,16,2,3,1,7),_GenEquipPmUtilizationMemIDF_Type())
-genEquipPmUtilizationMemIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmUtilizationMemIDF.setStatus(_A)
-_GenEquipPmEthernet_ObjectIdentity=ObjectIdentity
-genEquipPmEthernet=_GenEquipPmEthernet_ObjectIdentity((1,3,6,1,4,1,2281,10,6,3,17))
-_GenEquipPmEthernetPortTable_Object=MibTable
-genEquipPmEthernetPortTable=_GenEquipPmEthernetPortTable_Object((1,3,6,1,4,1,2281,10,6,3,17,1))
-if mibBuilder.loadTexts:genEquipPmEthernetPortTable.setStatus(_A)
-_GenEquipPmEthernetPortEntry_Object=MibTableRow
-genEquipPmEthernetPortEntry=_GenEquipPmEthernetPortEntry_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1))
-genEquipPmEthernetPortEntry.setIndexNames((0,_C,_AS),(0,_F,_G),(0,_C,_AT))
-if mibBuilder.loadTexts:genEquipPmEthernetPortEntry.setStatus(_A)
-_GenEquipPmEthernetPortPmType_Type=Integer32
-_GenEquipPmEthernetPortPmType_Object=MibTableColumn
-genEquipPmEthernetPortPmType=_GenEquipPmEthernetPortPmType_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,1),_GenEquipPmEthernetPortPmType_Type())
-genEquipPmEthernetPortPmType.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortPmType.setStatus(_A)
-_GenEquipPmEthernetPortPmInterval_Type=Integer32
-_GenEquipPmEthernetPortPmInterval_Object=MibTableColumn
-genEquipPmEthernetPortPmInterval=_GenEquipPmEthernetPortPmInterval_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,2),_GenEquipPmEthernetPortPmInterval_Type())
-genEquipPmEthernetPortPmInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortPmInterval.setStatus(_A)
-_GenEquipPmEthernetPortRxAvgBcastPackets_Type=Integer32
-_GenEquipPmEthernetPortRxAvgBcastPackets_Object=MibTableColumn
-genEquipPmEthernetPortRxAvgBcastPackets=_GenEquipPmEthernetPortRxAvgBcastPackets_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,3),_GenEquipPmEthernetPortRxAvgBcastPackets_Type())
-genEquipPmEthernetPortRxAvgBcastPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortRxAvgBcastPackets.setStatus(_A)
-_GenEquipPmEthernetPortRxPeakBcastPackets_Type=Integer32
-_GenEquipPmEthernetPortRxPeakBcastPackets_Object=MibTableColumn
-genEquipPmEthernetPortRxPeakBcastPackets=_GenEquipPmEthernetPortRxPeakBcastPackets_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,4),_GenEquipPmEthernetPortRxPeakBcastPackets_Type())
-genEquipPmEthernetPortRxPeakBcastPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortRxPeakBcastPackets.setStatus(_A)
-_GenEquipPmEthernetPortRxBytesLayer1ExcedThSecCnt_Type=Integer32
-_GenEquipPmEthernetPortRxBytesLayer1ExcedThSecCnt_Object=MibTableColumn
-genEquipPmEthernetPortRxBytesLayer1ExcedThSecCnt=_GenEquipPmEthernetPortRxBytesLayer1ExcedThSecCnt_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,5),_GenEquipPmEthernetPortRxBytesLayer1ExcedThSecCnt_Type())
-genEquipPmEthernetPortRxBytesLayer1ExcedThSecCnt.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortRxBytesLayer1ExcedThSecCnt.setStatus(_A)
-_GenEquipPmEthernetPortRxAvgBytesLayer1_Type=Integer32
-_GenEquipPmEthernetPortRxAvgBytesLayer1_Object=MibTableColumn
-genEquipPmEthernetPortRxAvgBytesLayer1=_GenEquipPmEthernetPortRxAvgBytesLayer1_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,6),_GenEquipPmEthernetPortRxAvgBytesLayer1_Type())
-genEquipPmEthernetPortRxAvgBytesLayer1.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortRxAvgBytesLayer1.setStatus(_A)
-_GenEquipPmEthernetPortRxPeakBytesLayer1_Type=Integer32
-_GenEquipPmEthernetPortRxPeakBytesLayer1_Object=MibTableColumn
-genEquipPmEthernetPortRxPeakBytesLayer1=_GenEquipPmEthernetPortRxPeakBytesLayer1_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,7),_GenEquipPmEthernetPortRxPeakBytesLayer1_Type())
-genEquipPmEthernetPortRxPeakBytesLayer1.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortRxPeakBytesLayer1.setStatus(_A)
-_GenEquipPmEthernetPortRxAvgBytesLayer2_Type=Integer32
-_GenEquipPmEthernetPortRxAvgBytesLayer2_Object=MibTableColumn
-genEquipPmEthernetPortRxAvgBytesLayer2=_GenEquipPmEthernetPortRxAvgBytesLayer2_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,8),_GenEquipPmEthernetPortRxAvgBytesLayer2_Type())
-genEquipPmEthernetPortRxAvgBytesLayer2.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortRxAvgBytesLayer2.setStatus(_A)
-_GenEquipPmEthernetPortRxPeakBytesLayer2_Type=Integer32
-_GenEquipPmEthernetPortRxPeakBytesLayer2_Object=MibTableColumn
-genEquipPmEthernetPortRxPeakBytesLayer2=_GenEquipPmEthernetPortRxPeakBytesLayer2_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,9),_GenEquipPmEthernetPortRxPeakBytesLayer2_Type())
-genEquipPmEthernetPortRxPeakBytesLayer2.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortRxPeakBytesLayer2.setStatus(_A)
-_GenEquipPmEthernetPortRxAvgMcastPackets_Type=Integer32
-_GenEquipPmEthernetPortRxAvgMcastPackets_Object=MibTableColumn
-genEquipPmEthernetPortRxAvgMcastPackets=_GenEquipPmEthernetPortRxAvgMcastPackets_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,10),_GenEquipPmEthernetPortRxAvgMcastPackets_Type())
-genEquipPmEthernetPortRxAvgMcastPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortRxAvgMcastPackets.setStatus(_A)
-_GenEquipPmEthernetPortRxPeakMcastPackets_Type=Integer32
-_GenEquipPmEthernetPortRxPeakMcastPackets_Object=MibTableColumn
-genEquipPmEthernetPortRxPeakMcastPackets=_GenEquipPmEthernetPortRxPeakMcastPackets_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,11),_GenEquipPmEthernetPortRxPeakMcastPackets_Type())
-genEquipPmEthernetPortRxPeakMcastPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortRxPeakMcastPackets.setStatus(_A)
-_GenEquipPmEthernetPortRxAvgPackets_Type=Integer32
-_GenEquipPmEthernetPortRxAvgPackets_Object=MibTableColumn
-genEquipPmEthernetPortRxAvgPackets=_GenEquipPmEthernetPortRxAvgPackets_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,12),_GenEquipPmEthernetPortRxAvgPackets_Type())
-genEquipPmEthernetPortRxAvgPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortRxAvgPackets.setStatus(_A)
-_GenEquipPmEthernetPortRxPeakPackets_Type=Integer32
-_GenEquipPmEthernetPortRxPeakPackets_Object=MibTableColumn
-genEquipPmEthernetPortRxPeakPackets=_GenEquipPmEthernetPortRxPeakPackets_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,13),_GenEquipPmEthernetPortRxPeakPackets_Type())
-genEquipPmEthernetPortRxPeakPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortRxPeakPackets.setStatus(_A)
-_GenEquipPmEthernetPortTxAvgBcastPackets_Type=Integer32
-_GenEquipPmEthernetPortTxAvgBcastPackets_Object=MibTableColumn
-genEquipPmEthernetPortTxAvgBcastPackets=_GenEquipPmEthernetPortTxAvgBcastPackets_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,14),_GenEquipPmEthernetPortTxAvgBcastPackets_Type())
-genEquipPmEthernetPortTxAvgBcastPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortTxAvgBcastPackets.setStatus(_A)
-_GenEquipPmEthernetPortTxPeakBcastPackets_Type=Integer32
-_GenEquipPmEthernetPortTxPeakBcastPackets_Object=MibTableColumn
-genEquipPmEthernetPortTxPeakBcastPackets=_GenEquipPmEthernetPortTxPeakBcastPackets_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,15),_GenEquipPmEthernetPortTxPeakBcastPackets_Type())
-genEquipPmEthernetPortTxPeakBcastPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortTxPeakBcastPackets.setStatus(_A)
-_GenEquipPmEthernetPortTxBytesLayer1ExcedThSecCnt_Type=Integer32
-_GenEquipPmEthernetPortTxBytesLayer1ExcedThSecCnt_Object=MibTableColumn
-genEquipPmEthernetPortTxBytesLayer1ExcedThSecCnt=_GenEquipPmEthernetPortTxBytesLayer1ExcedThSecCnt_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,16),_GenEquipPmEthernetPortTxBytesLayer1ExcedThSecCnt_Type())
-genEquipPmEthernetPortTxBytesLayer1ExcedThSecCnt.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortTxBytesLayer1ExcedThSecCnt.setStatus(_A)
-_GenEquipPmEthernetPortTxAvgBytesLayer1_Type=Integer32
-_GenEquipPmEthernetPortTxAvgBytesLayer1_Object=MibTableColumn
-genEquipPmEthernetPortTxAvgBytesLayer1=_GenEquipPmEthernetPortTxAvgBytesLayer1_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,17),_GenEquipPmEthernetPortTxAvgBytesLayer1_Type())
-genEquipPmEthernetPortTxAvgBytesLayer1.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortTxAvgBytesLayer1.setStatus(_A)
-_GenEquipPmEthernetPortTxPeakBytesLayer1_Type=Integer32
-_GenEquipPmEthernetPortTxPeakBytesLayer1_Object=MibTableColumn
-genEquipPmEthernetPortTxPeakBytesLayer1=_GenEquipPmEthernetPortTxPeakBytesLayer1_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,18),_GenEquipPmEthernetPortTxPeakBytesLayer1_Type())
-genEquipPmEthernetPortTxPeakBytesLayer1.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortTxPeakBytesLayer1.setStatus(_A)
-_GenEquipPmEthernetPortTxAvgBytesLayer2_Type=Integer32
-_GenEquipPmEthernetPortTxAvgBytesLayer2_Object=MibTableColumn
-genEquipPmEthernetPortTxAvgBytesLayer2=_GenEquipPmEthernetPortTxAvgBytesLayer2_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,19),_GenEquipPmEthernetPortTxAvgBytesLayer2_Type())
-genEquipPmEthernetPortTxAvgBytesLayer2.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortTxAvgBytesLayer2.setStatus(_A)
-_GenEquipPmEthernetPortTxPeakBytesLayer2_Type=Integer32
-_GenEquipPmEthernetPortTxPeakBytesLayer2_Object=MibTableColumn
-genEquipPmEthernetPortTxPeakBytesLayer2=_GenEquipPmEthernetPortTxPeakBytesLayer2_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,20),_GenEquipPmEthernetPortTxPeakBytesLayer2_Type())
-genEquipPmEthernetPortTxPeakBytesLayer2.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortTxPeakBytesLayer2.setStatus(_A)
-_GenEquipPmEthernetPortTxAvgMcastPackets_Type=Integer32
-_GenEquipPmEthernetPortTxAvgMcastPackets_Object=MibTableColumn
-genEquipPmEthernetPortTxAvgMcastPackets=_GenEquipPmEthernetPortTxAvgMcastPackets_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,21),_GenEquipPmEthernetPortTxAvgMcastPackets_Type())
-genEquipPmEthernetPortTxAvgMcastPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortTxAvgMcastPackets.setStatus(_A)
-_GenEquipPmEthernetPortTxPeakMcastPackets_Type=Integer32
-_GenEquipPmEthernetPortTxPeakMcastPackets_Object=MibTableColumn
-genEquipPmEthernetPortTxPeakMcastPackets=_GenEquipPmEthernetPortTxPeakMcastPackets_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,22),_GenEquipPmEthernetPortTxPeakMcastPackets_Type())
-genEquipPmEthernetPortTxPeakMcastPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortTxPeakMcastPackets.setStatus(_A)
-_GenEquipPmEthernetPortTxAvgPackets_Type=Integer32
-_GenEquipPmEthernetPortTxAvgPackets_Object=MibTableColumn
-genEquipPmEthernetPortTxAvgPackets=_GenEquipPmEthernetPortTxAvgPackets_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,23),_GenEquipPmEthernetPortTxAvgPackets_Type())
-genEquipPmEthernetPortTxAvgPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortTxAvgPackets.setStatus(_A)
-_GenEquipPmEthernetPortTxPeakPackets_Type=Integer32
-_GenEquipPmEthernetPortTxPeakPackets_Object=MibTableColumn
-genEquipPmEthernetPortTxPeakPackets=_GenEquipPmEthernetPortTxPeakPackets_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,24),_GenEquipPmEthernetPortTxPeakPackets_Type())
-genEquipPmEthernetPortTxPeakPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortTxPeakPackets.setStatus(_A)
-_GenEquipPmEthernetPortPmIDF_Type=Integer32
-_GenEquipPmEthernetPortPmIDF_Object=MibTableColumn
-genEquipPmEthernetPortPmIDF=_GenEquipPmEthernetPortPmIDF_Object((1,3,6,1,4,1,2281,10,6,3,17,1,1,25),_GenEquipPmEthernetPortPmIDF_Type())
-genEquipPmEthernetPortPmIDF.setMaxAccess(_B)
-if mibBuilder.loadTexts:genEquipPmEthernetPortPmIDF.setStatus(_A)
-_GenEquipPMStatistics_ObjectIdentity=ObjectIdentity
-genEquipPMStatistics=_GenEquipPMStatistics_ObjectIdentity((1,3,6,1,4,1,2281,10,6,4))
-_GenEquipRMONResetCounters_Type=OffOn
-_GenEquipRMONResetCounters_Object=MibScalar
-genEquipRMONResetCounters=_GenEquipRMONResetCounters_Object((1,3,6,1,4,1,2281,10,6,4,1),_GenEquipRMONResetCounters_Type())
-genEquipRMONResetCounters.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipRMONResetCounters.setStatus(_A)
-_GenEquipPMStatisticsResetAllL2PortPm_Type=OffOn
-_GenEquipPMStatisticsResetAllL2PortPm_Object=MibScalar
-genEquipPMStatisticsResetAllL2PortPm=_GenEquipPMStatisticsResetAllL2PortPm_Object((1,3,6,1,4,1,2281,10,6,4,2),_GenEquipPMStatisticsResetAllL2PortPm_Type())
-genEquipPMStatisticsResetAllL2PortPm.setMaxAccess(_D)
-if mibBuilder.loadTexts:genEquipPMStatisticsResetAllL2PortPm.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'microwave-radio':microwave_radio,'genEquip':genEquip,'genEquipUnit':genEquipUnit,'genEquipPM':genEquipPM,'genEquipPmRfu':genEquipPmRfu,'genEquipPmRfuCommon':genEquipPmRfuCommon,'genEquipPmRfuCommonSL15minTable':genEquipPmRfuCommonSL15minTable,'genEquipPmRfuCommonSL15minEntry':genEquipPmRfuCommonSL15minEntry,_K:genEquipPmRfuCommonSL15minId,'genEquipPmRfuCommonSL15minIfIndex':genEquipPmRfuCommonSL15minIfIndex,'genEquipPmRfuCommonSL15minTimeAndDate':genEquipPmRfuCommonSL15minTimeAndDate,'genEquipPmRfuCommonSL15minMinRsl':genEquipPmRfuCommonSL15minMinRsl,'genEquipPmRfuCommonSL15minMaxRsl':genEquipPmRfuCommonSL15minMaxRsl,'genEquipPmRfuCommonSL15minRslExceed1':genEquipPmRfuCommonSL15minRslExceed1,'genEquipPmRfuCommonSL15minRslExceed2':genEquipPmRfuCommonSL15minRslExceed2,'genEquipPmRfuCommonSL15minMinTsl':genEquipPmRfuCommonSL15minMinTsl,'genEquipPmRfuCommonSL15minMaxTsl':genEquipPmRfuCommonSL15minMaxTsl,'genEquipPmRfuCommonSL15minTslExceed':genEquipPmRfuCommonSL15minTslExceed,'genEquipPmRfuCommonSL15minIDF':genEquipPmRfuCommonSL15minIDF,'genEquipPmRfuCommonSL15minCurrTable':genEquipPmRfuCommonSL15minCurrTable,'genEquipPmRfuCommonSL15minCurrEntry':genEquipPmRfuCommonSL15minCurrEntry,_L:genEquipPmRfuCommonSL15minCurrId,'genEquipPmRfuCommonSL15minCurrIfIndex':genEquipPmRfuCommonSL15minCurrIfIndex,'genEquipPmRfuCommonSL15minCurrTimeAndDate':genEquipPmRfuCommonSL15minCurrTimeAndDate,'genEquipPmRfuCommonSL15minCurrMinRsl':genEquipPmRfuCommonSL15minCurrMinRsl,'genEquipPmRfuCommonSL15minCurrMaxRsl':genEquipPmRfuCommonSL15minCurrMaxRsl,'genEquipPmRfuCommonSL15minCurrRslExceed1':genEquipPmRfuCommonSL15minCurrRslExceed1,'genEquipPmRfuCommonSL15minCurrRslExceed2':genEquipPmRfuCommonSL15minCurrRslExceed2,'genEquipPmRfuCommonSL15minCurrMinTsl':genEquipPmRfuCommonSL15minCurrMinTsl,'genEquipPmRfuCommonSL15minCurrMaxTsl':genEquipPmRfuCommonSL15minCurrMaxTsl,'genEquipPmRfuCommonSL15minCurrTslExceed':genEquipPmRfuCommonSL15minCurrTslExceed,'genEquipPmRfuCommonSL15minCurrIDF':genEquipPmRfuCommonSL15minCurrIDF,'genEquipPmRfuCommonSL24hrTable':genEquipPmRfuCommonSL24hrTable,'genEquipPmRfuCommonSL24hrEntry':genEquipPmRfuCommonSL24hrEntry,_M:genEquipPmRfuCommonSL24hrId,'genEquipPmRfuCommonSL24hrIfIndex':genEquipPmRfuCommonSL24hrIfIndex,'genEquipPmRfuCommonSL24hrTimeAndDate':genEquipPmRfuCommonSL24hrTimeAndDate,'genEquipPmRfuCommonSL24hrMinRsl':genEquipPmRfuCommonSL24hrMinRsl,'genEquipPmRfuCommonSL24hrMaxRsl':genEquipPmRfuCommonSL24hrMaxRsl,'genEquipPmRfuCommonSL24hrRslExceed1':genEquipPmRfuCommonSL24hrRslExceed1,'genEquipPmRfuCommonSL24hrRslExceed2':genEquipPmRfuCommonSL24hrRslExceed2,'genEquipPmRfuCommonSL24hrMinTsl':genEquipPmRfuCommonSL24hrMinTsl,'genEquipPmRfuCommonSL24hrMaxTsl':genEquipPmRfuCommonSL24hrMaxTsl,'genEquipPmRfuCommonSL24hrTslExceed':genEquipPmRfuCommonSL24hrTslExceed,'genEquipPmRfuCommonSL24hrIDF':genEquipPmRfuCommonSL24hrIDF,'genEquipPmRfuCommonSL24hrCurrTable':genEquipPmRfuCommonSL24hrCurrTable,'genEquipPmRfuCommonSL24hrCurrEntry':genEquipPmRfuCommonSL24hrCurrEntry,_N:genEquipPmRfuCommonSL24hrCurrId,'genEquipPmRfuCommonSL24hrCurrIfIndex':genEquipPmRfuCommonSL24hrCurrIfIndex,'genEquipPmRfuCommonSL24hrCurrTimeAndDate':genEquipPmRfuCommonSL24hrCurrTimeAndDate,'genEquipPmRfuCommonSL24hrCurrMinRsl':genEquipPmRfuCommonSL24hrCurrMinRsl,'genEquipPmRfuCommonSL24hrCurrMaxRsl':genEquipPmRfuCommonSL24hrCurrMaxRsl,'genEquipPmRfuCommonSL24hrCurrRslExceed1':genEquipPmRfuCommonSL24hrCurrRslExceed1,'genEquipPmRfuCommonSL24hrCurrRslExceed2':genEquipPmRfuCommonSL24hrCurrRslExceed2,'genEquipPmRfuCommonSL24hrCurrMinTsl':genEquipPmRfuCommonSL24hrCurrMinTsl,'genEquipPmRfuCommonSL24hrCurrMaxTsl':genEquipPmRfuCommonSL24hrCurrMaxTsl,'genEquipPmRfuCommonSL24hrCurrTslExceed':genEquipPmRfuCommonSL24hrCurrTslExceed,'genEquipPmRfuCommonSL24hrCurrIDF':genEquipPmRfuCommonSL24hrCurrIDF,'genEquipPmTraffic':genEquipPmTraffic,'genEquipPmTrafficRadioAgg15minTable':genEquipPmTrafficRadioAgg15minTable,'genEquipPmTrafficRadioAgg15minEntry':genEquipPmTrafficRadioAgg15minEntry,_O:genEquipPmTrafficRadioAgg15minId,'genEquipPmTrafficRadioAgg15minIfIndex':genEquipPmTrafficRadioAgg15minIfIndex,'genEquipPmTrafficRadioAgg15minTimeAndDate':genEquipPmTrafficRadioAgg15minTimeAndDate,'genEquipPmTrafficRadioAgg15minES':genEquipPmTrafficRadioAgg15minES,'genEquipPmTrafficRadioAgg15minSES':genEquipPmTrafficRadioAgg15minSES,'genEquipPmTrafficRadioAgg15minUAS':genEquipPmTrafficRadioAgg15minUAS,'genEquipPmTrafficRadioAgg15minBBE':genEquipPmTrafficRadioAgg15minBBE,'genEquipPmTrafficRadioAgg15minIDF':genEquipPmTrafficRadioAgg15minIDF,'genEquipPmTrafficRadioAgg15minCurrTable':genEquipPmTrafficRadioAgg15minCurrTable,'genEquipPmTrafficRadioAgg15minCurrEntry':genEquipPmTrafficRadioAgg15minCurrEntry,_P:genEquipPmTrafficRadioAgg15minCurrId,'genEquipPmTrafficRadioAgg15minCurrIfIndex':genEquipPmTrafficRadioAgg15minCurrIfIndex,'genEquipPmTrafficRadioAgg15minCurrTimeAndDate':genEquipPmTrafficRadioAgg15minCurrTimeAndDate,'genEquipPmTrafficRadioAgg15minCurrES':genEquipPmTrafficRadioAgg15minCurrES,'genEquipPmTrafficRadioAgg15minCurrSES':genEquipPmTrafficRadioAgg15minCurrSES,'genEquipPmTrafficRadioAgg15minCurrUAS':genEquipPmTrafficRadioAgg15minCurrUAS,'genEquipPmTrafficRadioAgg15minCurrBBE':genEquipPmTrafficRadioAgg15minCurrBBE,'genEquipPmTrafficRadioAgg15minCurrIDF':genEquipPmTrafficRadioAgg15minCurrIDF,'genEquipPmTrafficRadioAgg24hrTable':genEquipPmTrafficRadioAgg24hrTable,'genEquipPmTrafficRadioAgg24hrEntry':genEquipPmTrafficRadioAgg24hrEntry,_Q:genEquipPmTrafficRadioAgg24hrId,'genEquipPmTrafficRadioAgg24hrIfIndex':genEquipPmTrafficRadioAgg24hrIfIndex,'genEquipPmTrafficRadioAgg24hrTimeAndDate':genEquipPmTrafficRadioAgg24hrTimeAndDate,'genEquipPmTrafficRadioAgg24hrES':genEquipPmTrafficRadioAgg24hrES,'genEquipPmTrafficRadioAgg24hrSES':genEquipPmTrafficRadioAgg24hrSES,'genEquipPmTrafficRadioAgg24hrUAS':genEquipPmTrafficRadioAgg24hrUAS,'genEquipPmTrafficRadioAgg24hrBBE':genEquipPmTrafficRadioAgg24hrBBE,'genEquipPmTrafficRadioAgg24hrIDF':genEquipPmTrafficRadioAgg24hrIDF,'genEquipPmTrafficRadioAgg24hrCurrTable':genEquipPmTrafficRadioAgg24hrCurrTable,'genEquipPmTrafficRadioAgg24hrCurrEntry':genEquipPmTrafficRadioAgg24hrCurrEntry,_R:genEquipPmTrafficRadioAgg24hrCurrId,'genEquipPmTrafficRadioAgg24hrCurrIfIndex':genEquipPmTrafficRadioAgg24hrCurrIfIndex,'genEquipPmTrafficRadioAgg24hrCurrTimeAndDate':genEquipPmTrafficRadioAgg24hrCurrTimeAndDate,'genEquipPmTrafficRadioAgg24hrCurrES':genEquipPmTrafficRadioAgg24hrCurrES,'genEquipPmTrafficRadioAgg24hrCurrSES':genEquipPmTrafficRadioAgg24hrCurrSES,'genEquipPmTrafficRadioAgg24hrCurrUAS':genEquipPmTrafficRadioAgg24hrCurrUAS,'genEquipPmTrafficRadioAgg24hrCurrBBE':genEquipPmTrafficRadioAgg24hrCurrBBE,'genEquipPmTrafficRadioAgg24hrCurrIDF':genEquipPmTrafficRadioAgg24hrCurrIDF,'genEquipPmAll':genEquipPmAll,'genEquipPmClear':genEquipPmClear,'genEquipPmTrafficSL':genEquipPmTrafficSL,'genEquipPmTrafficSLTable':genEquipPmTrafficSLTable,'genEquipPmTrafficSLEntry':genEquipPmTrafficSLEntry,_S:genEquipPmTrafficSLPmType,_T:genEquipPmTrafficSLId,_U:genEquipPmTrafficSLInterval,'genEquipPmTrafficSLMinRsl':genEquipPmTrafficSLMinRsl,'genEquipPmTrafficSLMaxRsl':genEquipPmTrafficSLMaxRsl,'genEquipPmTrafficSLRslExceed1':genEquipPmTrafficSLRslExceed1,'genEquipPmTrafficSLRslExceed2':genEquipPmTrafficSLRslExceed2,'genEquipPmTrafficSLMinTsl':genEquipPmTrafficSLMinTsl,'genEquipPmTrafficSLMaxTsl':genEquipPmTrafficSLMaxTsl,'genEquipPmTrafficSLTslExceed':genEquipPmTrafficSLTslExceed,'genEquipPmTrafficSLIDF':genEquipPmTrafficSLIDF,'genEquipPmTrafficAggregate':genEquipPmTrafficAggregate,'genEquipPmTrafficAggTable':genEquipPmTrafficAggTable,'genEquipPmTrafficAggEntry':genEquipPmTrafficAggEntry,_V:genEquipPmTrafficAggPmType,_W:genEquipPmTrafficAggInterval,'genEquipPmTrafficAggES':genEquipPmTrafficAggES,'genEquipPmTrafficAggSES':genEquipPmTrafficAggSES,'genEquipPmTrafficAggUAS':genEquipPmTrafficAggUAS,'genEquipPmTrafficAggBBE':genEquipPmTrafficAggBBE,'genEquipPmTrafficAggIDF':genEquipPmTrafficAggIDF,'genEquipPmRadio':genEquipPmRadio,'genEquipPmRadioMRMC':genEquipPmRadioMRMC,'genEquipPmRadioMRMCTable':genEquipPmRadioMRMCTable,'genEquipPmRadioMRMCEntry':genEquipPmRadioMRMCEntry,_X:genEquipPmRadioMRMCPmType,_Y:genEquipPmRadioMRMCId,_Z:genEquipPmRadioMRMCInterval,'genEquipPmRadioMRMCIfIndex':genEquipPmRadioMRMCIfIndex,'genEquipPmRadioMRMCMinProfile':genEquipPmRadioMRMCMinProfile,'genEquipPmRadioMRMCMaxProfile':genEquipPmRadioMRMCMaxProfile,'genEquipPmRadioMRMCMinBitrate':genEquipPmRadioMRMCMinBitrate,'genEquipPmRadioMRMCMaxBitrate':genEquipPmRadioMRMCMaxBitrate,'genEquipPmRadioMRMCMinTDMIf':genEquipPmRadioMRMCMinTDMIf,'genEquipPmRadioMRMCMaxTDMIf':genEquipPmRadioMRMCMaxTDMIf,'genEquipPmRadioMRMCIDF':genEquipPmRadioMRMCIDF,'genEquipPmRadioTDM':genEquipPmRadioTDM,'genEquipPmRadioTDMTable':genEquipPmRadioTDMTable,'genEquipPmRadioTDMEntry':genEquipPmRadioTDMEntry,_a:genEquipPmRadioTDMPmType,_b:genEquipPmRadioTDMInterval,'genEquipPmRadioTDMRadioUAS':genEquipPmRadioTDMRadioUAS,'genEquipPmRadioTDMIDF':genEquipPmRadioTDMIDF,'genEquipPmRadioEthernet':genEquipPmRadioEthernet,'genEquipPmRadioEthernetTable':genEquipPmRadioEthernetTable,'genEquipPmRadioEthernetEntry':genEquipPmRadioEthernetEntry,_c:genEquipPmRadioEthernetPmType,_d:genEquipPmRadioEthernetInterval,'genEquipPmRadioEthernetFrameErrorRate':genEquipPmRadioEthernetFrameErrorRate,'genEquipPmRadioEthernetPeakThroughput':genEquipPmRadioEthernetPeakThroughput,'genEquipPmRadioEthernetAverageThroughput':genEquipPmRadioEthernetAverageThroughput,'genEquipPmRadioEthernetExceedThroughput':genEquipPmRadioEthernetExceedThroughput,'genEquipPmRadioEthernetPeakCapacity':genEquipPmRadioEthernetPeakCapacity,'genEquipPmRadioEthernetAverageCapacity':genEquipPmRadioEthernetAverageCapacity,'genEquipPmRadioEthernetExceedCapacity':genEquipPmRadioEthernetExceedCapacity,'genEquipPmRadioEthernetPeakUtilization':genEquipPmRadioEthernetPeakUtilization,'genEquipPmRadioEthernetAverageUtilization':genEquipPmRadioEthernetAverageUtilization,'genEquipPmRadioEthernetExceedUtilization':genEquipPmRadioEthernetExceedUtilization,'genEquipPmRadioEthernetIDF':genEquipPmRadioEthernetIDF,'genEquipPmRadioEthernetThresholdTable':genEquipPmRadioEthernetThresholdTable,'genEquipPmRadioEthernetThresholdEntry':genEquipPmRadioEthernetThresholdEntry,'genEquipPmRadioEthernetThresholdThroughput':genEquipPmRadioEthernetThresholdThroughput,'genEquipPmRadioEthernetThresholdCapacity':genEquipPmRadioEthernetThresholdCapacity,'genEquipPmRadioEthernetThresholdUtilization':genEquipPmRadioEthernetThresholdUtilization,'genEquipPmRadioEthernetEtmTable':genEquipPmRadioEthernetEtmTable,'genEquipPmRadioEthernetEtmEntry':genEquipPmRadioEthernetEtmEntry,_e:genEquipPmRadioEthernetEtmPmType,_f:genEquipPmRadioEthernetEtmPmQueueIndex,_g:genEquipPmRadioEthernetEtmInterval,'genEquipPmRadioEthernetEtmPmMaxGreenBytesPassed':genEquipPmRadioEthernetEtmPmMaxGreenBytesPassed,'genEquipPmRadioEthernetEtmPmAvgGreenBytesPassed':genEquipPmRadioEthernetEtmPmAvgGreenBytesPassed,'genEquipPmRadioEthernetEtmPmMaxGreenFramesDropped':genEquipPmRadioEthernetEtmPmMaxGreenFramesDropped,'genEquipPmRadioEthernetEtmPmAvgGreenFramesDropped':genEquipPmRadioEthernetEtmPmAvgGreenFramesDropped,'genEquipPmRadioEthernetEtmPmMaxYellowBytesPassed':genEquipPmRadioEthernetEtmPmMaxYellowBytesPassed,'genEquipPmRadioEthernetEtmPmAvgYellowBytesPassed':genEquipPmRadioEthernetEtmPmAvgYellowBytesPassed,'genEquipPmRadioEthernetEtmPmMaxYellowFramesDropped':genEquipPmRadioEthernetEtmPmMaxYellowFramesDropped,'genEquipPmRadioEthernetEtmPmAvgYellowFramesDropped':genEquipPmRadioEthernetEtmPmAvgYellowFramesDropped,'genEquipPmRadioEthernetEtmPmMaxRedFramesDropped':genEquipPmRadioEthernetEtmPmMaxRedFramesDropped,'genEquipPmRadioEthernetEtmPmAvgRedFramesDropped':genEquipPmRadioEthernetEtmPmAvgRedFramesDropped,'genEquipPmRadioEthernetEtmPmIDF':genEquipPmRadioEthernetEtmPmIDF,'genEquipPmRadioEthernetEtmPmMaxGreenFramesPassed':genEquipPmRadioEthernetEtmPmMaxGreenFramesPassed,'genEquipPmRadioEthernetEtmPmAvgGreenFramesPassed':genEquipPmRadioEthernetEtmPmAvgGreenFramesPassed,'genEquipPmRadioEthernetEtmPmMaxYellowFramesPassed':genEquipPmRadioEthernetEtmPmMaxYellowFramesPassed,'genEquipPmRadioEthernetEtmPmAvgYellowFramesPassed':genEquipPmRadioEthernetEtmPmAvgYellowFramesPassed,'genEquipPmRadioEthernetEtmPmMaxRedBytesDropped':genEquipPmRadioEthernetEtmPmMaxRedBytesDropped,'genEquipPmRadioEthernetEtmPmAvgRedBytesDropped':genEquipPmRadioEthernetEtmPmAvgRedBytesDropped,'genEquipPmRadioMSETable':genEquipPmRadioMSETable,'genEquipPmRadioMSEEntry':genEquipPmRadioMSEEntry,_h:genEquipPmRadioMSEPmType,_i:genEquipPmRadioMSEInterval,'genEquipPmRadioMSEMinMse':genEquipPmRadioMSEMinMse,'genEquipPmRadioMSEMaxMse':genEquipPmRadioMSEMaxMse,'genEquipPmRadioMSEexceeded':genEquipPmRadioMSEexceeded,'genEquipPmRadioMSEIDF':genEquipPmRadioMSEIDF,'genEquipPmRadioThresholdTable':genEquipPmRadioThresholdTable,'genEquipPmRadioThresholdEntry':genEquipPmRadioThresholdEntry,'genEquipPmRadioThresholdMSE':genEquipPmRadioThresholdMSE,'genEquipPmRadioThresholdRSL1':genEquipPmRadioThresholdRSL1,'genEquipPmRadioThresholdRSL2':genEquipPmRadioThresholdRSL2,'genEquipPmRadioThresholdTSL':genEquipPmRadioThresholdTSL,'genEquipPmRadioThresholdXPI':genEquipPmRadioThresholdXPI,'genEquipPmRadioXPITable':genEquipPmRadioXPITable,'genEquipPmRadioXPIEntry':genEquipPmRadioXPIEntry,_j:genEquipPmRadioXPIPmType,_k:genEquipPmRadioXPIPmInterval,'genEquipPmRadioXPIPmMinXPI':genEquipPmRadioXPIPmMinXPI,'genEquipPmRadioXPIPmMaxXPI':genEquipPmRadioXPIPmMaxXPI,'genEquipPmRadioXPIBelowThreshold':genEquipPmRadioXPIBelowThreshold,'genEquipPmRadioXPIIDF':genEquipPmRadioXPIIDF,'genEquipPmRadioClear':genEquipPmRadioClear,'genEquipPmTDM':genEquipPmTDM,'genEquipPmTdmTable':genEquipPmTdmTable,'genEquipPmTdmEntry':genEquipPmTdmEntry,_l:genEquipPmTdmPmType,_m:genEquipPmTdmInterval,'genEquipPmTdmES':genEquipPmTdmES,'genEquipPmTdmSES':genEquipPmTdmSES,'genEquipPmTdmUAS':genEquipPmTdmUAS,'genEquipPmTdmBBE':genEquipPmTdmBBE,'genEquipPmTdmIDF':genEquipPmTdmIDF,'genEquipPmSDH':genEquipPmSDH,'genEquipPmSdhTable':genEquipPmSdhTable,'genEquipPmSdhEntry':genEquipPmSdhEntry,_n:genEquipPmSdhPmType,_o:genEquipPmSdhInterval,'genEquipPmSdhES':genEquipPmSdhES,'genEquipPmSdhSES':genEquipPmSdhSES,'genEquipPmSdhEB':genEquipPmSdhEB,'genEquipPmSdhBBE':genEquipPmSdhBBE,'genEquipPmSdhIDF':genEquipPmSdhIDF,'genEquipPmSdhIfIndex':genEquipPmSdhIfIndex,'genEquipPmSdhTimeStamp':genEquipPmSdhTimeStamp,'genEquipPmSdhUAS':genEquipPmSdhUAS,'genEquipPmSdhRstLRTable':genEquipPmSdhRstLRTable,'genEquipPmSdhRstLREntry':genEquipPmSdhRstLREntry,_p:genEquipPmSdhRstLRPmType,_q:genEquipPmSdhRstLRIfIndex,_r:genEquipPmSdhRstLRInterval,'genEquipPmSdhRstLRTimeStamp':genEquipPmSdhRstLRTimeStamp,'genEquipPmSdhRstLRES':genEquipPmSdhRstLRES,'genEquipPmSdhRstLRSES':genEquipPmSdhRstLRSES,'genEquipPmSdhRstLRUAS':genEquipPmSdhRstLRUAS,'genEquipPmSdhRstLREB':genEquipPmSdhRstLREB,'genEquipPmSdhRstLRCV':genEquipPmSdhRstLRCV,'genEquipPmSdhRstLRBBE':genEquipPmSdhRstLRBBE,'genEquipPmSdhRstLRIDF':genEquipPmSdhRstLRIDF,'genEquipPmSdhRstRLTable':genEquipPmSdhRstRLTable,'genEquipPmSdhRstRLEntry':genEquipPmSdhRstRLEntry,_s:genEquipPmSdhRstRLPmType,_t:genEquipPmSdhRstRLIfIndex,_u:genEquipPmSdhRstRLInterval,'genEquipPmSdhRstRLTimeStamp':genEquipPmSdhRstRLTimeStamp,'genEquipPmSdhRstRLES':genEquipPmSdhRstRLES,'genEquipPmSdhRstRLSES':genEquipPmSdhRstRLSES,'genEquipPmSdhRstRLUAS':genEquipPmSdhRstRLUAS,'genEquipPmSdhRstRLEB':genEquipPmSdhRstRLEB,'genEquipPmSdhRstRLCV':genEquipPmSdhRstRLCV,'genEquipPmSdhRstRLBBE':genEquipPmSdhRstRLBBE,'genEquipPmSdhRstRLIDF':genEquipPmSdhRstRLIDF,'genEquipPmTrails':genEquipPmTrails,'genEquipPmTrailsEndPointTable':genEquipPmTrailsEndPointTable,'genEquipPmTrailsEndPointEntry':genEquipPmTrailsEndPointEntry,_v:genEquipPmTrailsEndPointPmType,_w:genEquipPmTrailsEndPointId,_x:genEquipPmTrailsEndPointEPId,_y:genEquipPmTrailsEndPointInterval,'genEquipPmTrailsEndPointES':genEquipPmTrailsEndPointES,'genEquipPmTrailsEndPointSES':genEquipPmTrailsEndPointSES,'genEquipPmTrailsEndPointUAS':genEquipPmTrailsEndPointUAS,'genEquipPmTrailsEndPointBBE':genEquipPmTrailsEndPointBBE,'genEquipPmTrailsEndPointNoOfSwitches':genEquipPmTrailsEndPointNoOfSwitches,'genEquipPmTrailsEndPointActivePathCounts':genEquipPmTrailsEndPointActivePathCounts,'genEquipPmTrailsEndPointIDF':genEquipPmTrailsEndPointIDF,'genEquipPmPW':genEquipPmPW,'genEquipPmPWTable':genEquipPmPWTable,'genEquipPmPWEntry':genEquipPmPWEntry,_z:genEquipPmPWPmType,_A0:genEquipPmPWId,_A1:genEquipPmPWInterval,'genEquipPmPWMissingPkts':genEquipPmPWMissingPkts,'genEquipPmPWPktsReOrder':genEquipPmPWPktsReOrder,'genEquipPmPWtrBfrUnderruns':genEquipPmPWtrBfrUnderruns,'genEquipPmPWMisOrderDropped':genEquipPmPWMisOrderDropped,'genEquipPmPWMalformedPkt':genEquipPmPWMalformedPkt,'genEquipPmPWES':genEquipPmPWES,'genEquipPmPWSES':genEquipPmPWSES,'genEquipPmPWUAS':genEquipPmPWUAS,'genEquipPmPWFC':genEquipPmPWFC,'genEquipPmPWIDF':genEquipPmPWIDF,'genEquipPmNGPWTable':genEquipPmNGPWTable,'genEquipPmNGPWEntry':genEquipPmNGPWEntry,_A2:genEquipPmNGPWPmType,_A3:genEquipPmNGPWIfIndex,_A4:genEquipPmNGPWInterval,'genEquipPmNGPWES':genEquipPmNGPWES,'genEquipPmNGPWSES':genEquipPmNGPWSES,'genEquipPmNGPWUAS':genEquipPmNGPWUAS,'genEquipPmNGPWFC':genEquipPmNGPWFC,'genEquipPmNGPWFER':genEquipPmNGPWFER,'genEquipPmNGPWMissingPkts':genEquipPmNGPWMissingPkts,'genEquipPmNGPWPktsReOrder':genEquipPmNGPWPktsReOrder,'genEquipPmNGPWMisOrderDropped':genEquipPmNGPWMisOrderDropped,'genEquipPmNGPWMalformedPkt':genEquipPmNGPWMalformedPkt,'genEquipPmNGPWIdf':genEquipPmNGPWIdf,'genEquipPmEthUtilization':genEquipPmEthUtilization,'genEquipPmEthUtilizationAdmin':genEquipPmEthUtilizationAdmin,'genEquipPmEthUtilizationThreshold':genEquipPmEthUtilizationThreshold,'genEquipPmEthUtilizationTable':genEquipPmEthUtilizationTable,'genEquipPmEthUtilizationEntry':genEquipPmEthUtilizationEntry,_A5:genEquipPmEthUtilizationPmType,_A6:genEquipPmEthUtilizationInterval,'genEquipPmEthUtilizationPeakUtilization':genEquipPmEthUtilizationPeakUtilization,'genEquipPmEthUtilizationAverageUtilization':genEquipPmEthUtilizationAverageUtilization,'genEquipPmEthUtilizationExceedUtilization':genEquipPmEthUtilizationExceedUtilization,'genEquipPmEthUtilizationIDF':genEquipPmEthUtilizationIDF,'genEquipPmEthernetIngressPolicer':genEquipPmEthernetIngressPolicer,'genEquipPmEthernetIngressPolicerUnicastStatisticsTable':genEquipPmEthernetIngressPolicerUnicastStatisticsTable,'genEquipPmEthernetIngressPolicerUnicastStatisticsEntry':genEquipPmEthernetIngressPolicerUnicastStatisticsEntry,_A7:genEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex,'genEquipPmEthernetIngressPolicerUnicastStatisticsClearOnRead':genEquipPmEthernetIngressPolicerUnicastStatisticsClearOnRead,'genEquipPmEthernetIngressPolicerUnicastStatisticsGreenPacket':genEquipPmEthernetIngressPolicerUnicastStatisticsGreenPacket,'genEquipPmEthernetIngressPolicerUnicastStatisticsGreenBytes':genEquipPmEthernetIngressPolicerUnicastStatisticsGreenBytes,'genEquipPmEthernetIngressPolicerUnicastStatisticsYellowPacket':genEquipPmEthernetIngressPolicerUnicastStatisticsYellowPacket,'genEquipPmEthernetIngressPolicerUnicastStatisticsYellowBytes':genEquipPmEthernetIngressPolicerUnicastStatisticsYellowBytes,'genEquipPmEthernetIngressPolicerUnicastStatisticsRedPacket':genEquipPmEthernetIngressPolicerUnicastStatisticsRedPacket,'genEquipPmEthernetIngressPolicerUnicastStatisticsRedBytes':genEquipPmEthernetIngressPolicerUnicastStatisticsRedBytes,'genEquipPmEthernetIngressPolicerMulticastStatisticsTable':genEquipPmEthernetIngressPolicerMulticastStatisticsTable,'genEquipPmEthernetIngressPolicerMulticastStatisticsEntry':genEquipPmEthernetIngressPolicerMulticastStatisticsEntry,_A8:genEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex,'genEquipPmEthernetIngressPolicerMulticastStatisticsClearOnRead':genEquipPmEthernetIngressPolicerMulticastStatisticsClearOnRead,'genEquipPmEthernetIngressPolicerMulticastStatisticsGreenPacket':genEquipPmEthernetIngressPolicerMulticastStatisticsGreenPacket,'genEquipPmEthernetIngressPolicerMulticastStatisticsGreenBytes':genEquipPmEthernetIngressPolicerMulticastStatisticsGreenBytes,'genEquipPmEthernetIngressPolicerMulticastStatisticsYellowPacket':genEquipPmEthernetIngressPolicerMulticastStatisticsYellowPacket,'genEquipPmEthernetIngressPolicerMulticastStatisticsYellowBytes':genEquipPmEthernetIngressPolicerMulticastStatisticsYellowBytes,'genEquipPmEthernetIngressPolicerMulticastStatisticsRedPacket':genEquipPmEthernetIngressPolicerMulticastStatisticsRedPacket,'genEquipPmEthernetIngressPolicerMulticastStatisticsRedBytes':genEquipPmEthernetIngressPolicerMulticastStatisticsRedBytes,'genEquipPmEthernetIngressPolicerBroadcastStatisticsTable':genEquipPmEthernetIngressPolicerBroadcastStatisticsTable,'genEquipPmEthernetIngressPolicerBroadcastStatisticsEntry':genEquipPmEthernetIngressPolicerBroadcastStatisticsEntry,_A9:genEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex,'genEquipPmEthernetIngressPolicerBroadcastStatisticsClearOnRead':genEquipPmEthernetIngressPolicerBroadcastStatisticsClearOnRead,'genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenPacket':genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenPacket,'genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenBytes':genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenBytes,'genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowPacket':genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowPacket,'genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowBytes':genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowBytes,'genEquipPmEthernetIngressPolicerBroadcastStatisticsRedPacket':genEquipPmEthernetIngressPolicerBroadcastStatisticsRedPacket,'genEquipPmEthernetIngressPolicerBroadcastStatisticsRedBytes':genEquipPmEthernetIngressPolicerBroadcastStatisticsRedBytes,'genEquipPmEthernetIngressPolicerEtherType1StatisticsTable':genEquipPmEthernetIngressPolicerEtherType1StatisticsTable,'genEquipPmEthernetIngressPolicerEtherType1StatisticsEntry':genEquipPmEthernetIngressPolicerEtherType1StatisticsEntry,_AA:genEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex,'genEquipPmEthernetIngressPolicerEtherType1StatisticsClearOnRead':genEquipPmEthernetIngressPolicerEtherType1StatisticsClearOnRead,'genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenPacket':genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenPacket,'genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenBytes':genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenBytes,'genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowPacket':genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowPacket,'genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowBytes':genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowBytes,'genEquipPmEthernetIngressPolicerEtherType1StatisticsRedPacket':genEquipPmEthernetIngressPolicerEtherType1StatisticsRedPacket,'genEquipPmEthernetIngressPolicerEtherType1StatisticsRedBytes':genEquipPmEthernetIngressPolicerEtherType1StatisticsRedBytes,'genEquipPmEthernetIngressPolicerEtherType2StatisticsTable':genEquipPmEthernetIngressPolicerEtherType2StatisticsTable,'genEquipPmEthernetIngressPolicerEtherType2StatisticsEntry':genEquipPmEthernetIngressPolicerEtherType2StatisticsEntry,_AB:genEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex,'genEquipPmEthernetIngressPolicerEtherType2StatisticsClearOnRead':genEquipPmEthernetIngressPolicerEtherType2StatisticsClearOnRead,'genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenPacket':genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenPacket,'genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenBytes':genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenBytes,'genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowPacket':genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowPacket,'genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowBytes':genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowBytes,'genEquipPmEthernetIngressPolicerEtherType2StatisticsRedPacket':genEquipPmEthernetIngressPolicerEtherType2StatisticsRedPacket,'genEquipPmEthernetIngressPolicerEtherType2StatisticsRedBytes':genEquipPmEthernetIngressPolicerEtherType2StatisticsRedBytes,'genEquipPmEthernetIngressPolicerEtherType3StatisticsTable':genEquipPmEthernetIngressPolicerEtherType3StatisticsTable,'genEquipPmEthernetIngressPolicerEtherType3StatisticsEntry':genEquipPmEthernetIngressPolicerEtherType3StatisticsEntry,_AC:genEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex,'genEquipPmEthernetIngressPolicerEtherType3StatisticsClearOnRead':genEquipPmEthernetIngressPolicerEtherType3StatisticsClearOnRead,'genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenPacket':genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenPacket,'genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenBytes':genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenBytes,'genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowPacket':genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowPacket,'genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowBytes':genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowBytes,'genEquipPmEthernetIngressPolicerEtherType3StatisticsRedPacket':genEquipPmEthernetIngressPolicerEtherType3StatisticsRedPacket,'genEquipPmEthernetIngressPolicerEtherType3StatisticsRedBytes':genEquipPmEthernetIngressPolicerEtherType3StatisticsRedBytes,'genEquipPmEthernetRmonStatisticsTable':genEquipPmEthernetRmonStatisticsTable,'genEquipPmEthernetRmonStatisticsEntry':genEquipPmEthernetRmonStatisticsEntry,_AD:genEquipPmEthernetRmonStatisticsIfIndex,'genEquipPmEthernetRmonStatisticsClearOnRead':genEquipPmEthernetRmonStatisticsClearOnRead,'genEquipPmEthernetRmonStatisticsTxByteCount':genEquipPmEthernetRmonStatisticsTxByteCount,'genEquipPmEthernetRmonStatisticsTxFrameCount':genEquipPmEthernetRmonStatisticsTxFrameCount,'genEquipPmEthernetRmonStatisticsTxMulticastFrameCount':genEquipPmEthernetRmonStatisticsTxMulticastFrameCount,'genEquipPmEthernetRmonStatisticsTxBroadcastFrameCount':genEquipPmEthernetRmonStatisticsTxBroadcastFrameCount,'genEquipPmEthernetRmonStatisticsTxControlFrameCount':genEquipPmEthernetRmonStatisticsTxControlFrameCount,'genEquipPmEthernetRmonStatisticsTxPauseFrameCount':genEquipPmEthernetRmonStatisticsTxPauseFrameCount,'genEquipPmEthernetRmonStatisticsTxFcsErrorFrameCount':genEquipPmEthernetRmonStatisticsTxFcsErrorFrameCount,'genEquipPmEthernetRmonStatisticsTxLengthErrorFrameCount':genEquipPmEthernetRmonStatisticsTxLengthErrorFrameCount,'genEquipPmEthernetRmonStatisticsTxOversizeFrameCount':genEquipPmEthernetRmonStatisticsTxOversizeFrameCount,'genEquipPmEthernetRmonStatisticsTxUndersizeFrameCount':genEquipPmEthernetRmonStatisticsTxUndersizeFrameCount,'genEquipPmEthernetRmonStatisticsTxFragmentFrameCount':genEquipPmEthernetRmonStatisticsTxFragmentFrameCount,'genEquipPmEthernetRmonStatisticsTxJabberFrameCount':genEquipPmEthernetRmonStatisticsTxJabberFrameCount,'genEquipPmEthernetRmonStatisticsTx64FrameCount':genEquipPmEthernetRmonStatisticsTx64FrameCount,'genEquipPmEthernetRmonStatisticsTx65-127FrameCount':genEquipPmEthernetRmonStatisticsTx65_127FrameCount,'genEquipPmEthernetRmonStatisticsTx128-255FrameCount':genEquipPmEthernetRmonStatisticsTx128_255FrameCount,'genEquipPmEthernetRmonStatisticsTx256-511FrameCount':genEquipPmEthernetRmonStatisticsTx256_511FrameCount,'genEquipPmEthernetRmonStatisticsTx512-1023FrameCount':genEquipPmEthernetRmonStatisticsTx512_1023FrameCount,'genEquipPmEthernetRmonStatisticsTx1024-1518FrameCount':genEquipPmEthernetRmonStatisticsTx1024_1518FrameCount,'genEquipPmEthernetRmonStatisticsTx1519-1522FrameCount':genEquipPmEthernetRmonStatisticsTx1519_1522FrameCount,'genEquipPmEthernetRmonStatisticsRxByteCount':genEquipPmEthernetRmonStatisticsRxByteCount,'genEquipPmEthernetRmonStatisticsRxFrameCount':genEquipPmEthernetRmonStatisticsRxFrameCount,'genEquipPmEthernetRmonStatisticsRxMulticastFrameCount':genEquipPmEthernetRmonStatisticsRxMulticastFrameCount,'genEquipPmEthernetRmonStatisticsRxBroadcastFrameCount':genEquipPmEthernetRmonStatisticsRxBroadcastFrameCount,'genEquipPmEthernetRmonStatisticsRxControlFrameCount':genEquipPmEthernetRmonStatisticsRxControlFrameCount,'genEquipPmEthernetRmonStatisticsRxPauseFrameCount':genEquipPmEthernetRmonStatisticsRxPauseFrameCount,'genEquipPmEthernetRmonStatisticsRxFcsErrorFrameCount':genEquipPmEthernetRmonStatisticsRxFcsErrorFrameCount,'genEquipPmEthernetRmonStatisticsRxLengthErrorFrameCount':genEquipPmEthernetRmonStatisticsRxLengthErrorFrameCount,'genEquipPmEthernetRmonStatisticsRxcode-ErrorCount':genEquipPmEthernetRmonStatisticsRxcode_ErrorCount,'genEquipPmEthernetRmonStatisticsRxoversizeFrameCount':genEquipPmEthernetRmonStatisticsRxoversizeFrameCount,'genEquipPmEthernetRmonStatisticsRxundersize-ErrorFrameCount':genEquipPmEthernetRmonStatisticsRxundersize_ErrorFrameCount,'genEquipPmEthernetRmonStatisticsRxFragmentFrameCount':genEquipPmEthernetRmonStatisticsRxFragmentFrameCount,'genEquipPmEthernetRmonStatisticsRx64FrameCount':genEquipPmEthernetRmonStatisticsRx64FrameCount,'genEquipPmEthernetRmonStatisticsRx65-127FrameCount':genEquipPmEthernetRmonStatisticsRx65_127FrameCount,'genEquipPmEthernetRmonStatisticsRx128-255FrameCount':genEquipPmEthernetRmonStatisticsRx128_255FrameCount,'genEquipPmEthernetRmonStatisticsRx256-511FrameCount':genEquipPmEthernetRmonStatisticsRx256_511FrameCount,'genEquipPmEthernetRmonStatisticsRx512-1023FrameCount':genEquipPmEthernetRmonStatisticsRx512_1023FrameCount,'genEquipPmEthernetRmonStatisticsRx1024-1518FrameCount':genEquipPmEthernetRmonStatisticsRx1024_1518FrameCount,'genEquipPmEthernetRmonStatisticsRx1519-1522FrameCount':genEquipPmEthernetRmonStatisticsRx1519_1522FrameCount,'genEquipPmEthernetRmonStatisticsRxExceedmaxFrameCount':genEquipPmEthernetRmonStatisticsRxExceedmaxFrameCount,'genEquipPmEthernetRmonStatisticsRxExceedMaxWithErrorFrameCount':genEquipPmEthernetRmonStatisticsRxExceedMaxWithErrorFrameCount,'genEquipPmEthernetRmonStatisticsRxJabberFrameCount':genEquipPmEthernetRmonStatisticsRxJabberFrameCount,'genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTable':genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTable,'genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsEntry':genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsEntry,_AE:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex,_AF:genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex,'genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsClearOnRead':genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsClearOnRead,'genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenPacket':genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenPacket,'genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBytes':genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBytes,'genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBitsPerSecond':genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBitsPerSecond,'genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenPacket':genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenPacket,'genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenBytes':genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenBytes,'genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowPacket':genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowPacket,'genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBytes':genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBytes,'genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBitsPerSecond':genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBitsPerSecond,'genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowPacket':genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowPacket,'genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowBytes':genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowBytes,'genEquipServicesCetSpPmCosIngressPolicerStatisticsTable':genEquipServicesCetSpPmCosIngressPolicerStatisticsTable,'genEquipServicesCetSpPmCosIngressPolicerStatisticsEntry':genEquipServicesCetSpPmCosIngressPolicerStatisticsEntry,_AG:genEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex,_AH:genEquipServicesCetSpPmCosIngressPolicerStatiSpIndex,_AI:genEquipServicesCetSpPmCosIngressPolicerStatiCos,'genEquipServicesCetSpPmCosIngressPolicerStatiClearOnRead':genEquipServicesCetSpPmCosIngressPolicerStatiClearOnRead,'genEquipServicesCetSpPmCosIngressPolicerStatiGreenPacket':genEquipServicesCetSpPmCosIngressPolicerStatiGreenPacket,'genEquipServicesCetSpPmCosIngressPolicerStatiGreenBytes':genEquipServicesCetSpPmCosIngressPolicerStatiGreenBytes,'genEquipServicesCetSpPmCosIngressPolicerStatiYellowPacket':genEquipServicesCetSpPmCosIngressPolicerStatiYellowPacket,'genEquipServicesCetSpPmCosIngressPolicerStatiYellowBytes':genEquipServicesCetSpPmCosIngressPolicerStatiYellowBytes,'genEquipServicesCetSpPmCosIngressPolicerStatiRedPacket':genEquipServicesCetSpPmCosIngressPolicerStatiRedPacket,'genEquipServicesCetSpPmCosIngressPolicerStatiRedBytes':genEquipServicesCetSpPmCosIngressPolicerStatiRedBytes,'genEquipServicesCetSpPmIngressPolicerStatisticsTable':genEquipServicesCetSpPmIngressPolicerStatisticsTable,'genEquipServicesCetSpPmIngressPolicerStatisticsEntry':genEquipServicesCetSpPmIngressPolicerStatisticsEntry,_AJ:genEquipServicesCetSpPmIngressPolicerStatiServiceIndex,_AK:genEquipServicesCetSpPmIngressPolicerStatiSpIndex,'genEquipServicesCetSpPmIngressPolicerStatiClearOnRead':genEquipServicesCetSpPmIngressPolicerStatiClearOnRead,'genEquipServicesCetSpPmIngressPolicerStatiGreenPacket':genEquipServicesCetSpPmIngressPolicerStatiGreenPacket,'genEquipServicesCetSpPmIngressPolicerStatiGreenBytes':genEquipServicesCetSpPmIngressPolicerStatiGreenBytes,'genEquipServicesCetSpPmIngressPolicerStatiYellowPacket':genEquipServicesCetSpPmIngressPolicerStatiYellowPacket,'genEquipServicesCetSpPmIngressPolicerStatiYellowBytes':genEquipServicesCetSpPmIngressPolicerStatiYellowBytes,'genEquipServicesCetSpPmIngressPolicerStatiRedPacket':genEquipServicesCetSpPmIngressPolicerStatiRedPacket,'genEquipServicesCetSpPmIngressPolicerStatiRedBytes':genEquipServicesCetSpPmIngressPolicerStatiRedBytes,'genEquipServicesCETTmPmSpEgressQueueStatisticsTable':genEquipServicesCETTmPmSpEgressQueueStatisticsTable,'genEquipServicesCETTmPmSpEgressQueueStatisticsEntry':genEquipServicesCETTmPmSpEgressQueueStatisticsEntry,_AL:genEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex,_AM:genEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex,_AN:genEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex,'genEquipServicesCETTmPmSpEgressQueueStatisticsClearOnRead':genEquipServicesCETTmPmSpEgressQueueStatisticsClearOnRead,'genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenPacket':genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenPacket,'genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBytes':genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBytes,'genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBitsPerSecond':genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBitsPerSecond,'genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenPacket':genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenPacket,'genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenBytes':genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenBytes,'genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowPacket':genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowPacket,'genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBytes':genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBytes,'genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBitsPerSecond':genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBitsPerSecond,'genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowPacket':genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowPacket,'genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowBytes':genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowBytes,'genEquipPmUtilization':genEquipPmUtilization,'genEquipPmUtilizationCPU':genEquipPmUtilizationCPU,'genEquipPmUtilizationCPUAdmin':genEquipPmUtilizationCPUAdmin,'genEquipPmUtilizationCPUThreshold':genEquipPmUtilizationCPUThreshold,'genEquipPmUtilizationCPUTable':genEquipPmUtilizationCPUTable,'genEquipPmUtilizationCPUEntry':genEquipPmUtilizationCPUEntry,_AO:genEquipPmUtilizationCPUPmType,_AP:genEquipPmUtilizationCPUInterval,'genEquipPmUtilizationCPUPeakUtilization':genEquipPmUtilizationCPUPeakUtilization,'genEquipPmUtilizationCPUAverageUtilization':genEquipPmUtilizationCPUAverageUtilization,'genEquipPmUtilizationCPUMinimumUtilization':genEquipPmUtilizationCPUMinimumUtilization,'genEquipPmUtilizationCPUExceedUtilization':genEquipPmUtilizationCPUExceedUtilization,'genEquipPmUtilizationCPUIDF':genEquipPmUtilizationCPUIDF,'genEquipPmUtilizationMem':genEquipPmUtilizationMem,'genEquipPmUtilizationMemAdmin':genEquipPmUtilizationMemAdmin,'genEquipPmUtilizationMemThreshold':genEquipPmUtilizationMemThreshold,'genEquipPmUtilizationMemTable':genEquipPmUtilizationMemTable,'genEquipPmUtilizationMemEntry':genEquipPmUtilizationMemEntry,_AQ:genEquipPmUtilizationMemPmType,_AR:genEquipPmUtilizationMemInterval,'genEquipPmUtilizationMemPeakUtilization':genEquipPmUtilizationMemPeakUtilization,'genEquipPmUtilizationMemAverageUtilization':genEquipPmUtilizationMemAverageUtilization,'genEquipPmUtilizationMemMinimumUtilization':genEquipPmUtilizationMemMinimumUtilization,'genEquipPmUtilizationMemExceedUtilization':genEquipPmUtilizationMemExceedUtilization,'genEquipPmUtilizationMemIDF':genEquipPmUtilizationMemIDF,'genEquipPmEthernet':genEquipPmEthernet,'genEquipPmEthernetPortTable':genEquipPmEthernetPortTable,'genEquipPmEthernetPortEntry':genEquipPmEthernetPortEntry,_AS:genEquipPmEthernetPortPmType,_AT:genEquipPmEthernetPortPmInterval,'genEquipPmEthernetPortRxAvgBcastPackets':genEquipPmEthernetPortRxAvgBcastPackets,'genEquipPmEthernetPortRxPeakBcastPackets':genEquipPmEthernetPortRxPeakBcastPackets,'genEquipPmEthernetPortRxBytesLayer1ExcedThSecCnt':genEquipPmEthernetPortRxBytesLayer1ExcedThSecCnt,'genEquipPmEthernetPortRxAvgBytesLayer1':genEquipPmEthernetPortRxAvgBytesLayer1,'genEquipPmEthernetPortRxPeakBytesLayer1':genEquipPmEthernetPortRxPeakBytesLayer1,'genEquipPmEthernetPortRxAvgBytesLayer2':genEquipPmEthernetPortRxAvgBytesLayer2,'genEquipPmEthernetPortRxPeakBytesLayer2':genEquipPmEthernetPortRxPeakBytesLayer2,'genEquipPmEthernetPortRxAvgMcastPackets':genEquipPmEthernetPortRxAvgMcastPackets,'genEquipPmEthernetPortRxPeakMcastPackets':genEquipPmEthernetPortRxPeakMcastPackets,'genEquipPmEthernetPortRxAvgPackets':genEquipPmEthernetPortRxAvgPackets,'genEquipPmEthernetPortRxPeakPackets':genEquipPmEthernetPortRxPeakPackets,'genEquipPmEthernetPortTxAvgBcastPackets':genEquipPmEthernetPortTxAvgBcastPackets,'genEquipPmEthernetPortTxPeakBcastPackets':genEquipPmEthernetPortTxPeakBcastPackets,'genEquipPmEthernetPortTxBytesLayer1ExcedThSecCnt':genEquipPmEthernetPortTxBytesLayer1ExcedThSecCnt,'genEquipPmEthernetPortTxAvgBytesLayer1':genEquipPmEthernetPortTxAvgBytesLayer1,'genEquipPmEthernetPortTxPeakBytesLayer1':genEquipPmEthernetPortTxPeakBytesLayer1,'genEquipPmEthernetPortTxAvgBytesLayer2':genEquipPmEthernetPortTxAvgBytesLayer2,'genEquipPmEthernetPortTxPeakBytesLayer2':genEquipPmEthernetPortTxPeakBytesLayer2,'genEquipPmEthernetPortTxAvgMcastPackets':genEquipPmEthernetPortTxAvgMcastPackets,'genEquipPmEthernetPortTxPeakMcastPackets':genEquipPmEthernetPortTxPeakMcastPackets,'genEquipPmEthernetPortTxAvgPackets':genEquipPmEthernetPortTxAvgPackets,'genEquipPmEthernetPortTxPeakPackets':genEquipPmEthernetPortTxPeakPackets,'genEquipPmEthernetPortPmIDF':genEquipPmEthernetPortPmIDF,'genEquipPMStatistics':genEquipPMStatistics,'genEquipRMONResetCounters':genEquipRMONResetCounters,'genEquipPMStatisticsResetAllL2PortPm':genEquipPMStatisticsResetAllL2PortPm})
+#
+# PySNMP MIB module MWRM-PM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ceragon/MWRM-PM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:41 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+genEquipRadioCfgRadioId, = mibBuilder.importSymbols("MWRM-RADIO-MIB", "genEquipRadioCfgRadioId")
+LoopbackType, RateMbps, SwCommandTimer, SignalLevel, Severity, NoYes, RadioId, BerLevel, TrailProtectedType, Integrity, SwCommand, MetricImperial, ClockSrc, GreenYellow, OffOn, EnableDisable, TrailIfType, PmTableType, EnableDisableSMI2, HalfFull, QueueName, AllowedNotAllowed, SlotId, InputSeverity, DownUp, RfuId, ProgressStatus = mibBuilder.importSymbols("MWRM-UNIT-MIB", "LoopbackType", "RateMbps", "SwCommandTimer", "SignalLevel", "Severity", "NoYes", "RadioId", "BerLevel", "TrailProtectedType", "Integrity", "SwCommand", "MetricImperial", "ClockSrc", "GreenYellow", "OffOn", "EnableDisable", "TrailIfType", "PmTableType", "EnableDisableSMI2", "HalfFull", "QueueName", "AllowedNotAllowed", "SlotId", "InputSeverity", "DownUp", "RfuId", "ProgressStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+microwave_radio = MibIdentifier((1, 3, 6, 1, 4, 1, 2281)).setLabel("microwave-radio")
+genEquip = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10))
+genEquipUnit = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 1))
+genEquipPM = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6))
+genEquipPmRfu = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1))
+genEquipPmRfuCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1))
+genEquipPmRfuCommonSL15minTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 1), )
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minTable.setStatus('mandatory')
+genEquipPmRfuCommonSL15minEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 1, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmRfuCommonSL15minId"))
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minEntry.setStatus('mandatory')
+genEquipPmRfuCommonSL15minId = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minId.setStatus('mandatory')
+genEquipPmRfuCommonSL15minIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minIfIndex.setStatus('mandatory')
+genEquipPmRfuCommonSL15minTimeAndDate = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minTimeAndDate.setStatus('mandatory')
+genEquipPmRfuCommonSL15minMinRsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minMinRsl.setStatus('mandatory')
+genEquipPmRfuCommonSL15minMaxRsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minMaxRsl.setStatus('mandatory')
+genEquipPmRfuCommonSL15minRslExceed1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minRslExceed1.setStatus('mandatory')
+genEquipPmRfuCommonSL15minRslExceed2 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minRslExceed2.setStatus('mandatory')
+genEquipPmRfuCommonSL15minMinTsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minMinTsl.setStatus('mandatory')
+genEquipPmRfuCommonSL15minMaxTsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minMaxTsl.setStatus('mandatory')
+genEquipPmRfuCommonSL15minTslExceed = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minTslExceed.setStatus('mandatory')
+genEquipPmRfuCommonSL15minIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 1, 1, 11), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minIDF.setStatus('mandatory')
+genEquipPmRfuCommonSL15minCurrTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 2), )
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minCurrTable.setStatus('mandatory')
+genEquipPmRfuCommonSL15minCurrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 2, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmRfuCommonSL15minCurrId"))
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minCurrEntry.setStatus('mandatory')
+genEquipPmRfuCommonSL15minCurrId = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minCurrId.setStatus('mandatory')
+genEquipPmRfuCommonSL15minCurrIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minCurrIfIndex.setStatus('mandatory')
+genEquipPmRfuCommonSL15minCurrTimeAndDate = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minCurrTimeAndDate.setStatus('mandatory')
+genEquipPmRfuCommonSL15minCurrMinRsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minCurrMinRsl.setStatus('mandatory')
+genEquipPmRfuCommonSL15minCurrMaxRsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minCurrMaxRsl.setStatus('mandatory')
+genEquipPmRfuCommonSL15minCurrRslExceed1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 2, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minCurrRslExceed1.setStatus('mandatory')
+genEquipPmRfuCommonSL15minCurrRslExceed2 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 2, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minCurrRslExceed2.setStatus('mandatory')
+genEquipPmRfuCommonSL15minCurrMinTsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 2, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minCurrMinTsl.setStatus('mandatory')
+genEquipPmRfuCommonSL15minCurrMaxTsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 2, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minCurrMaxTsl.setStatus('mandatory')
+genEquipPmRfuCommonSL15minCurrTslExceed = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 2, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minCurrTslExceed.setStatus('mandatory')
+genEquipPmRfuCommonSL15minCurrIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 2, 1, 11), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL15minCurrIDF.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 3), )
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrTable.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 3, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmRfuCommonSL24hrId"))
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrEntry.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrId = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrId.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 3, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrIfIndex.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrTimeAndDate = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 3, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrTimeAndDate.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrMinRsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 3, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrMinRsl.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrMaxRsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 3, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrMaxRsl.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrRslExceed1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 3, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrRslExceed1.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrRslExceed2 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 3, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrRslExceed2.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrMinTsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 3, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrMinTsl.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrMaxTsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 3, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrMaxTsl.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrTslExceed = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 3, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrTslExceed.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 3, 1, 11), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrIDF.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrCurrTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 4), )
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrCurrTable.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrCurrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 4, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmRfuCommonSL24hrCurrId"))
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrCurrEntry.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrCurrId = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 4, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrCurrId.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrCurrIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 4, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrCurrIfIndex.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrCurrTimeAndDate = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 4, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrCurrTimeAndDate.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrCurrMinRsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 4, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrCurrMinRsl.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrCurrMaxRsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 4, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrCurrMaxRsl.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrCurrRslExceed1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 4, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrCurrRslExceed1.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrCurrRslExceed2 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 4, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrCurrRslExceed2.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrCurrMinTsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 4, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrCurrMinTsl.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrCurrMaxTsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 4, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrCurrMaxTsl.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrCurrTslExceed = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 4, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrCurrTslExceed.setStatus('mandatory')
+genEquipPmRfuCommonSL24hrCurrIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 1, 1, 4, 1, 11), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRfuCommonSL24hrCurrIDF.setStatus('mandatory')
+genEquipPmTraffic = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2))
+genEquipPmTrafficRadioAgg15minTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 1), )
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minTable.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 1, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmTrafficRadioAgg15minId"))
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minEntry.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minId = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minId.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minIfIndex.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minTimeAndDate = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minTimeAndDate.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minES.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minSES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minSES.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minUAS = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minUAS.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minBBE = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minBBE.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 1, 1, 8), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minIDF.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minCurrTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 2), )
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minCurrTable.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minCurrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 2, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmTrafficRadioAgg15minCurrId"))
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minCurrEntry.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minCurrId = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minCurrId.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minCurrIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minCurrIfIndex.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minCurrTimeAndDate = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minCurrTimeAndDate.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minCurrES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minCurrES.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minCurrSES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minCurrSES.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minCurrUAS = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 2, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minCurrUAS.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minCurrBBE = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 2, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minCurrBBE.setStatus('mandatory')
+genEquipPmTrafficRadioAgg15minCurrIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 2, 1, 8), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg15minCurrIDF.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 3), )
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrTable.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 3, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmTrafficRadioAgg24hrId"))
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrEntry.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrId = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrId.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 3, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrIfIndex.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrTimeAndDate = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 3, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrTimeAndDate.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 3, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrES.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrSES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 3, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrSES.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrUAS = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 3, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrUAS.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrBBE = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 3, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrBBE.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 3, 1, 8), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrIDF.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrCurrTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 4), )
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrCurrTable.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrCurrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 4, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmTrafficRadioAgg24hrCurrId"))
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrCurrEntry.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrCurrId = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 4, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrCurrId.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrCurrIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 4, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrCurrIfIndex.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrCurrTimeAndDate = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 4, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrCurrTimeAndDate.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrCurrES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 4, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrCurrES.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrCurrSES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 4, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrCurrSES.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrCurrUAS = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 4, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrCurrUAS.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrCurrBBE = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 4, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrCurrBBE.setStatus('mandatory')
+genEquipPmTrafficRadioAgg24hrCurrIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 2, 4, 1, 8), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficRadioAgg24hrCurrIDF.setStatus('mandatory')
+genEquipPmAll = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3))
+genEquipPmClear = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 1), OffOn()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmClear.setStatus('mandatory')
+genEquipPmTrafficSL = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 2))
+genEquipPmTrafficSLTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 2, 1), )
+if mibBuilder.loadTexts: genEquipPmTrafficSLTable.setStatus('mandatory')
+genEquipPmTrafficSLEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 2, 1, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmTrafficSLPmType"), (0, "MWRM-PM-MIB", "genEquipPmTrafficSLId"), (0, "MWRM-PM-MIB", "genEquipPmTrafficSLInterval"))
+if mibBuilder.loadTexts: genEquipPmTrafficSLEntry.setStatus('mandatory')
+genEquipPmTrafficSLPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 2, 1, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficSLPmType.setStatus('mandatory')
+genEquipPmTrafficSLId = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 2, 1, 1, 2), RfuId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficSLId.setStatus('mandatory')
+genEquipPmTrafficSLInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 2, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficSLInterval.setStatus('mandatory')
+genEquipPmTrafficSLMinRsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 2, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficSLMinRsl.setStatus('mandatory')
+genEquipPmTrafficSLMaxRsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 2, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficSLMaxRsl.setStatus('mandatory')
+genEquipPmTrafficSLRslExceed1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 2, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficSLRslExceed1.setStatus('mandatory')
+genEquipPmTrafficSLRslExceed2 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 2, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficSLRslExceed2.setStatus('mandatory')
+genEquipPmTrafficSLMinTsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 2, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficSLMinTsl.setStatus('mandatory')
+genEquipPmTrafficSLMaxTsl = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 2, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficSLMaxTsl.setStatus('mandatory')
+genEquipPmTrafficSLTslExceed = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 2, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficSLTslExceed.setStatus('mandatory')
+genEquipPmTrafficSLIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 2, 1, 1, 11), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficSLIDF.setStatus('mandatory')
+genEquipPmTrafficAggregate = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 3))
+genEquipPmTrafficAggTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 3, 1), )
+if mibBuilder.loadTexts: genEquipPmTrafficAggTable.setStatus('mandatory')
+genEquipPmTrafficAggEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 3, 1, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmTrafficAggPmType"), (0, "IF-MIB", "ifIndex"), (0, "MWRM-PM-MIB", "genEquipPmTrafficAggInterval"))
+if mibBuilder.loadTexts: genEquipPmTrafficAggEntry.setStatus('mandatory')
+genEquipPmTrafficAggPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 3, 1, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficAggPmType.setStatus('mandatory')
+genEquipPmTrafficAggInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 3, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficAggInterval.setStatus('mandatory')
+genEquipPmTrafficAggES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 3, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficAggES.setStatus('mandatory')
+genEquipPmTrafficAggSES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 3, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficAggSES.setStatus('mandatory')
+genEquipPmTrafficAggUAS = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 3, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficAggUAS.setStatus('mandatory')
+genEquipPmTrafficAggBBE = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 3, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficAggBBE.setStatus('mandatory')
+genEquipPmTrafficAggIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 3, 1, 1, 7), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrafficAggIDF.setStatus('mandatory')
+genEquipPmRadio = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4))
+genEquipPmRadioMRMC = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 1))
+genEquipPmRadioMRMCTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 1, 1), )
+if mibBuilder.loadTexts: genEquipPmRadioMRMCTable.setStatus('mandatory')
+genEquipPmRadioMRMCEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 1, 1, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmRadioMRMCPmType"), (0, "MWRM-PM-MIB", "genEquipPmRadioMRMCId"), (0, "MWRM-PM-MIB", "genEquipPmRadioMRMCInterval"))
+if mibBuilder.loadTexts: genEquipPmRadioMRMCEntry.setStatus('mandatory')
+genEquipPmRadioMRMCPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 1, 1, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMRMCPmType.setStatus('mandatory')
+genEquipPmRadioMRMCId = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 1, 1, 1, 2), RadioId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMRMCId.setStatus('mandatory')
+genEquipPmRadioMRMCInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 1, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMRMCInterval.setStatus('mandatory')
+genEquipPmRadioMRMCIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 1, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMRMCIfIndex.setStatus('mandatory')
+genEquipPmRadioMRMCMinProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 1, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMRMCMinProfile.setStatus('mandatory')
+genEquipPmRadioMRMCMaxProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 1, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMRMCMaxProfile.setStatus('mandatory')
+genEquipPmRadioMRMCMinBitrate = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 1, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMRMCMinBitrate.setStatus('mandatory')
+genEquipPmRadioMRMCMaxBitrate = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 1, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMRMCMaxBitrate.setStatus('mandatory')
+genEquipPmRadioMRMCMinTDMIf = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 1, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMRMCMinTDMIf.setStatus('mandatory')
+genEquipPmRadioMRMCMaxTDMIf = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 1, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMRMCMaxTDMIf.setStatus('mandatory')
+genEquipPmRadioMRMCIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 1, 1, 1, 11), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMRMCIDF.setStatus('mandatory')
+genEquipPmRadioTDM = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 2))
+genEquipPmRadioTDMTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 2, 1), )
+if mibBuilder.loadTexts: genEquipPmRadioTDMTable.setStatus('mandatory')
+genEquipPmRadioTDMEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 2, 1, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmRadioTDMPmType"), (0, "IF-MIB", "ifIndex"), (0, "MWRM-PM-MIB", "genEquipPmRadioTDMInterval"))
+if mibBuilder.loadTexts: genEquipPmRadioTDMEntry.setStatus('mandatory')
+genEquipPmRadioTDMPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 2, 1, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioTDMPmType.setStatus('mandatory')
+genEquipPmRadioTDMInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 2, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioTDMInterval.setStatus('mandatory')
+genEquipPmRadioTDMRadioUAS = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 2, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioTDMRadioUAS.setStatus('mandatory')
+genEquipPmRadioTDMIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 2, 1, 1, 4), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioTDMIDF.setStatus('mandatory')
+genEquipPmRadioEthernet = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3))
+genEquipPmRadioEthernetTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 1), )
+if mibBuilder.loadTexts: genEquipPmRadioEthernetTable.setStatus('mandatory')
+genEquipPmRadioEthernetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 1, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmRadioEthernetPmType"), (0, "IF-MIB", "ifIndex"), (0, "MWRM-PM-MIB", "genEquipPmRadioEthernetInterval"))
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEntry.setStatus('mandatory')
+genEquipPmRadioEthernetPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 1, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetPmType.setStatus('mandatory')
+genEquipPmRadioEthernetInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetInterval.setStatus('mandatory')
+genEquipPmRadioEthernetFrameErrorRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetFrameErrorRate.setStatus('mandatory')
+genEquipPmRadioEthernetPeakThroughput = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetPeakThroughput.setStatus('mandatory')
+genEquipPmRadioEthernetAverageThroughput = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetAverageThroughput.setStatus('mandatory')
+genEquipPmRadioEthernetExceedThroughput = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetExceedThroughput.setStatus('mandatory')
+genEquipPmRadioEthernetPeakCapacity = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetPeakCapacity.setStatus('mandatory')
+genEquipPmRadioEthernetAverageCapacity = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetAverageCapacity.setStatus('mandatory')
+genEquipPmRadioEthernetExceedCapacity = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetExceedCapacity.setStatus('mandatory')
+genEquipPmRadioEthernetPeakUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetPeakUtilization.setStatus('mandatory')
+genEquipPmRadioEthernetAverageUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 1, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetAverageUtilization.setStatus('mandatory')
+genEquipPmRadioEthernetExceedUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 1, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetExceedUtilization.setStatus('mandatory')
+genEquipPmRadioEthernetIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 1, 1, 13), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetIDF.setStatus('mandatory')
+genEquipPmRadioEthernetThresholdTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 2), )
+if mibBuilder.loadTexts: genEquipPmRadioEthernetThresholdTable.setStatus('mandatory')
+genEquipPmRadioEthernetThresholdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 2, 1), ).setIndexNames((0, "MWRM-RADIO-MIB", "genEquipRadioCfgRadioId"))
+if mibBuilder.loadTexts: genEquipPmRadioEthernetThresholdEntry.setStatus('mandatory')
+genEquipPmRadioEthernetThresholdThroughput = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetThresholdThroughput.setStatus('mandatory')
+genEquipPmRadioEthernetThresholdCapacity = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetThresholdCapacity.setStatus('mandatory')
+genEquipPmRadioEthernetThresholdUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("above-0", 0), ("above-20", 1), ("above-40", 2), ("above-60", 3), ("above-80", 4), ("no-threshold", 5)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetThresholdUtilization.setStatus('mandatory')
+genEquipPmRadioEthernetEtmTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3), )
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmTable.setStatus('mandatory')
+genEquipPmRadioEthernetEtmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmRadioEthernetEtmPmType"), (0, "MWRM-PM-MIB", "genEquipPmRadioEthernetEtmPmQueueIndex"), (0, "MWRM-PM-MIB", "genEquipPmRadioEthernetEtmInterval"))
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmEntry.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmType.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmQueueIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmQueueIndex.setStatus('mandatory')
+genEquipPmRadioEthernetEtmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 96))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmInterval.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmMaxGreenBytesPassed = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmMaxGreenBytesPassed.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmAvgGreenBytesPassed = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmAvgGreenBytesPassed.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmMaxGreenFramesDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmMaxGreenFramesDropped.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmAvgGreenFramesDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmAvgGreenFramesDropped.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmMaxYellowBytesPassed = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmMaxYellowBytesPassed.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmAvgYellowBytesPassed = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmAvgYellowBytesPassed.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmMaxYellowFramesDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmMaxYellowFramesDropped.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmAvgYellowFramesDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmAvgYellowFramesDropped.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmMaxRedFramesDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmMaxRedFramesDropped.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmAvgRedFramesDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmAvgRedFramesDropped.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 14), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmIDF.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmMaxGreenFramesPassed = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmMaxGreenFramesPassed.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmAvgGreenFramesPassed = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 18), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmAvgGreenFramesPassed.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmMaxYellowFramesPassed = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 21), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmMaxYellowFramesPassed.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmAvgYellowFramesPassed = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 22), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmAvgYellowFramesPassed.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmMaxRedBytesDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 23), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmMaxRedBytesDropped.setStatus('mandatory')
+genEquipPmRadioEthernetEtmPmAvgRedBytesDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 3, 3, 1, 24), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioEthernetEtmPmAvgRedBytesDropped.setStatus('mandatory')
+genEquipPmRadioMSETable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 4), )
+if mibBuilder.loadTexts: genEquipPmRadioMSETable.setStatus('mandatory')
+genEquipPmRadioMSEEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 4, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmRadioMSEPmType"), (0, "IF-MIB", "ifIndex"), (0, "MWRM-PM-MIB", "genEquipPmRadioMSEInterval"))
+if mibBuilder.loadTexts: genEquipPmRadioMSEEntry.setStatus('mandatory')
+genEquipPmRadioMSEPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 4, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMSEPmType.setStatus('mandatory')
+genEquipPmRadioMSEInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 4, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMSEInterval.setStatus('mandatory')
+genEquipPmRadioMSEMinMse = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 4, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMSEMinMse.setStatus('mandatory')
+genEquipPmRadioMSEMaxMse = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 4, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMSEMaxMse.setStatus('mandatory')
+genEquipPmRadioMSEexceeded = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 4, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMSEexceeded.setStatus('mandatory')
+genEquipPmRadioMSEIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 4, 1, 6), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioMSEIDF.setStatus('mandatory')
+genEquipPmRadioThresholdTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 5), )
+if mibBuilder.loadTexts: genEquipPmRadioThresholdTable.setStatus('mandatory')
+genEquipPmRadioThresholdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 5, 1), ).setIndexNames((0, "MWRM-RADIO-MIB", "genEquipRadioCfgRadioId"))
+if mibBuilder.loadTexts: genEquipPmRadioThresholdEntry.setStatus('mandatory')
+genEquipPmRadioThresholdMSE = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-99, -1))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmRadioThresholdMSE.setStatus('mandatory')
+genEquipPmRadioThresholdRSL1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-75, -15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmRadioThresholdRSL1.setStatus('mandatory')
+genEquipPmRadioThresholdRSL2 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 5, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-75, -15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmRadioThresholdRSL2.setStatus('mandatory')
+genEquipPmRadioThresholdTSL = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 5, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmRadioThresholdTSL.setStatus('mandatory')
+genEquipPmRadioThresholdXPI = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 5, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmRadioThresholdXPI.setStatus('mandatory')
+genEquipPmRadioXPITable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 6), )
+if mibBuilder.loadTexts: genEquipPmRadioXPITable.setStatus('mandatory')
+genEquipPmRadioXPIEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 6, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmRadioXPIPmType"), (0, "IF-MIB", "ifIndex"), (0, "MWRM-PM-MIB", "genEquipPmRadioXPIPmInterval"))
+if mibBuilder.loadTexts: genEquipPmRadioXPIEntry.setStatus('mandatory')
+genEquipPmRadioXPIPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 6, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioXPIPmType.setStatus('mandatory')
+genEquipPmRadioXPIPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 6, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioXPIPmInterval.setStatus('mandatory')
+genEquipPmRadioXPIPmMinXPI = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 6, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioXPIPmMinXPI.setStatus('mandatory')
+genEquipPmRadioXPIPmMaxXPI = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 6, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioXPIPmMaxXPI.setStatus('mandatory')
+genEquipPmRadioXPIBelowThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 6, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioXPIBelowThreshold.setStatus('mandatory')
+genEquipPmRadioXPIIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 6, 1, 6), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmRadioXPIIDF.setStatus('mandatory')
+genEquipPmRadioClear = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 4, 7), OffOn()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmRadioClear.setStatus('mandatory')
+genEquipPmTDM = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 5))
+genEquipPmTdmTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 5, 1), )
+if mibBuilder.loadTexts: genEquipPmTdmTable.setStatus('mandatory')
+genEquipPmTdmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 5, 1, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmTdmPmType"), (0, "IF-MIB", "ifIndex"), (0, "MWRM-PM-MIB", "genEquipPmTdmInterval"))
+if mibBuilder.loadTexts: genEquipPmTdmEntry.setStatus('mandatory')
+genEquipPmTdmPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 5, 1, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTdmPmType.setStatus('mandatory')
+genEquipPmTdmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 5, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTdmInterval.setStatus('mandatory')
+genEquipPmTdmES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 5, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTdmES.setStatus('mandatory')
+genEquipPmTdmSES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 5, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTdmSES.setStatus('mandatory')
+genEquipPmTdmUAS = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 5, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTdmUAS.setStatus('mandatory')
+genEquipPmTdmBBE = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 5, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTdmBBE.setStatus('mandatory')
+genEquipPmTdmIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 5, 1, 1, 7), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTdmIDF.setStatus('mandatory')
+genEquipPmSDH = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6))
+genEquipPmSdhTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 1), )
+if mibBuilder.loadTexts: genEquipPmSdhTable.setStatus('mandatory')
+genEquipPmSdhEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 1, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmSdhPmType"), (0, "IF-MIB", "ifIndex"), (0, "MWRM-PM-MIB", "genEquipPmSdhInterval"))
+if mibBuilder.loadTexts: genEquipPmSdhEntry.setStatus('mandatory')
+genEquipPmSdhPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 1, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhPmType.setStatus('mandatory')
+genEquipPmSdhInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhInterval.setStatus('mandatory')
+genEquipPmSdhES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhES.setStatus('mandatory')
+genEquipPmSdhSES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhSES.setStatus('mandatory')
+genEquipPmSdhEB = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhEB.setStatus('mandatory')
+genEquipPmSdhBBE = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhBBE.setStatus('mandatory')
+genEquipPmSdhIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 1, 1, 7), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhIDF.setStatus('mandatory')
+genEquipPmSdhIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhIfIndex.setStatus('mandatory')
+genEquipPmSdhTimeStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhTimeStamp.setStatus('mandatory')
+genEquipPmSdhUAS = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhUAS.setStatus('mandatory')
+genEquipPmSdhRstLRTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 2), )
+if mibBuilder.loadTexts: genEquipPmSdhRstLRTable.setStatus('mandatory')
+genEquipPmSdhRstLREntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 2, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmSdhRstLRPmType"), (0, "MWRM-PM-MIB", "genEquipPmSdhRstLRIfIndex"), (0, "MWRM-PM-MIB", "genEquipPmSdhRstLRInterval"))
+if mibBuilder.loadTexts: genEquipPmSdhRstLREntry.setStatus('mandatory')
+genEquipPmSdhRstLRPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 2, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstLRPmType.setStatus('mandatory')
+genEquipPmSdhRstLRIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstLRIfIndex.setStatus('mandatory')
+genEquipPmSdhRstLRInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstLRInterval.setStatus('mandatory')
+genEquipPmSdhRstLRTimeStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstLRTimeStamp.setStatus('mandatory')
+genEquipPmSdhRstLRES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstLRES.setStatus('mandatory')
+genEquipPmSdhRstLRSES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 2, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstLRSES.setStatus('mandatory')
+genEquipPmSdhRstLRUAS = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 2, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstLRUAS.setStatus('mandatory')
+genEquipPmSdhRstLREB = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 2, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstLREB.setStatus('mandatory')
+genEquipPmSdhRstLRCV = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 2, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstLRCV.setStatus('mandatory')
+genEquipPmSdhRstLRBBE = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 2, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstLRBBE.setStatus('mandatory')
+genEquipPmSdhRstLRIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 2, 1, 11), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstLRIDF.setStatus('mandatory')
+genEquipPmSdhRstRLTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 3), )
+if mibBuilder.loadTexts: genEquipPmSdhRstRLTable.setStatus('mandatory')
+genEquipPmSdhRstRLEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 3, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmSdhRstRLPmType"), (0, "MWRM-PM-MIB", "genEquipPmSdhRstRLIfIndex"), (0, "MWRM-PM-MIB", "genEquipPmSdhRstRLInterval"))
+if mibBuilder.loadTexts: genEquipPmSdhRstRLEntry.setStatus('mandatory')
+genEquipPmSdhRstRLPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 3, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstRLPmType.setStatus('mandatory')
+genEquipPmSdhRstRLIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 3, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstRLIfIndex.setStatus('mandatory')
+genEquipPmSdhRstRLInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 3, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstRLInterval.setStatus('mandatory')
+genEquipPmSdhRstRLTimeStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 3, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstRLTimeStamp.setStatus('mandatory')
+genEquipPmSdhRstRLES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 3, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstRLES.setStatus('mandatory')
+genEquipPmSdhRstRLSES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 3, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstRLSES.setStatus('mandatory')
+genEquipPmSdhRstRLUAS = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 3, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstRLUAS.setStatus('mandatory')
+genEquipPmSdhRstRLEB = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 3, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstRLEB.setStatus('mandatory')
+genEquipPmSdhRstRLCV = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 3, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstRLCV.setStatus('mandatory')
+genEquipPmSdhRstRLBBE = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 3, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstRLBBE.setStatus('mandatory')
+genEquipPmSdhRstRLIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 6, 3, 1, 11), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmSdhRstRLIDF.setStatus('mandatory')
+genEquipPmTrails = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 7))
+genEquipPmTrailsEndPointTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 7, 1), )
+if mibBuilder.loadTexts: genEquipPmTrailsEndPointTable.setStatus('mandatory')
+genEquipPmTrailsEndPointEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 7, 1, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmTrailsEndPointPmType"), (0, "MWRM-PM-MIB", "genEquipPmTrailsEndPointId"), (0, "MWRM-PM-MIB", "genEquipPmTrailsEndPointEPId"), (0, "MWRM-PM-MIB", "genEquipPmTrailsEndPointInterval"))
+if mibBuilder.loadTexts: genEquipPmTrailsEndPointEntry.setStatus('mandatory')
+genEquipPmTrailsEndPointPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 7, 1, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrailsEndPointPmType.setStatus('mandatory')
+genEquipPmTrailsEndPointId = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 7, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrailsEndPointId.setStatus('mandatory')
+genEquipPmTrailsEndPointEPId = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 7, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrailsEndPointEPId.setStatus('mandatory')
+genEquipPmTrailsEndPointInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 7, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrailsEndPointInterval.setStatus('mandatory')
+genEquipPmTrailsEndPointES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 7, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrailsEndPointES.setStatus('mandatory')
+genEquipPmTrailsEndPointSES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 7, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrailsEndPointSES.setStatus('mandatory')
+genEquipPmTrailsEndPointUAS = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 7, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrailsEndPointUAS.setStatus('mandatory')
+genEquipPmTrailsEndPointBBE = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 7, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrailsEndPointBBE.setStatus('mandatory')
+genEquipPmTrailsEndPointNoOfSwitches = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 7, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrailsEndPointNoOfSwitches.setStatus('mandatory')
+genEquipPmTrailsEndPointActivePathCounts = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 7, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrailsEndPointActivePathCounts.setStatus('mandatory')
+genEquipPmTrailsEndPointIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 7, 1, 1, 11), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmTrailsEndPointIDF.setStatus('mandatory')
+genEquipPmPW = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8))
+genEquipPmPWTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 1), )
+if mibBuilder.loadTexts: genEquipPmPWTable.setStatus('mandatory')
+genEquipPmPWEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 1, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmPWPmType"), (0, "MWRM-PM-MIB", "genEquipPmPWId"), (0, "MWRM-PM-MIB", "genEquipPmPWInterval"))
+if mibBuilder.loadTexts: genEquipPmPWEntry.setStatus('mandatory')
+genEquipPmPWPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 1, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmPWPmType.setStatus('mandatory')
+genEquipPmPWId = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmPWId.setStatus('mandatory')
+genEquipPmPWInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmPWInterval.setStatus('mandatory')
+genEquipPmPWMissingPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmPWMissingPkts.setStatus('mandatory')
+genEquipPmPWPktsReOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmPWPktsReOrder.setStatus('mandatory')
+genEquipPmPWtrBfrUnderruns = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmPWtrBfrUnderruns.setStatus('mandatory')
+genEquipPmPWMisOrderDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmPWMisOrderDropped.setStatus('mandatory')
+genEquipPmPWMalformedPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmPWMalformedPkt.setStatus('mandatory')
+genEquipPmPWES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmPWES.setStatus('mandatory')
+genEquipPmPWSES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmPWSES.setStatus('mandatory')
+genEquipPmPWUAS = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 1, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmPWUAS.setStatus('mandatory')
+genEquipPmPWFC = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 1, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmPWFC.setStatus('mandatory')
+genEquipPmPWIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 1, 1, 13), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmPWIDF.setStatus('mandatory')
+genEquipPmNGPWTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 2), )
+if mibBuilder.loadTexts: genEquipPmNGPWTable.setStatus('mandatory')
+genEquipPmNGPWEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 2, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmNGPWPmType"), (0, "MWRM-PM-MIB", "genEquipPmNGPWIfIndex"), (0, "MWRM-PM-MIB", "genEquipPmNGPWInterval"))
+if mibBuilder.loadTexts: genEquipPmNGPWEntry.setStatus('mandatory')
+genEquipPmNGPWPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 2, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmNGPWPmType.setStatus('mandatory')
+genEquipPmNGPWIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmNGPWIfIndex.setStatus('mandatory')
+genEquipPmNGPWInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmNGPWInterval.setStatus('mandatory')
+genEquipPmNGPWES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmNGPWES.setStatus('mandatory')
+genEquipPmNGPWSES = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmNGPWSES.setStatus('mandatory')
+genEquipPmNGPWUAS = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 2, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmNGPWUAS.setStatus('mandatory')
+genEquipPmNGPWFC = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 2, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmNGPWFC.setStatus('mandatory')
+genEquipPmNGPWFER = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 2, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmNGPWFER.setStatus('mandatory')
+genEquipPmNGPWMissingPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 2, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmNGPWMissingPkts.setStatus('mandatory')
+genEquipPmNGPWPktsReOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 2, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmNGPWPktsReOrder.setStatus('mandatory')
+genEquipPmNGPWMisOrderDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 2, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmNGPWMisOrderDropped.setStatus('mandatory')
+genEquipPmNGPWMalformedPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 2, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmNGPWMalformedPkt.setStatus('mandatory')
+genEquipPmNGPWIdf = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 8, 2, 1, 13), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmNGPWIdf.setStatus('mandatory')
+genEquipPmEthUtilization = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 9))
+genEquipPmEthUtilizationAdmin = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 9, 1), EnableDisable()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmEthUtilizationAdmin.setStatus('mandatory')
+genEquipPmEthUtilizationThreshold = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 9, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmEthUtilizationThreshold.setStatus('mandatory')
+genEquipPmEthUtilizationTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 9, 3), )
+if mibBuilder.loadTexts: genEquipPmEthUtilizationTable.setStatus('mandatory')
+genEquipPmEthUtilizationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 9, 3, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmEthUtilizationPmType"), (0, "IF-MIB", "ifIndex"), (0, "MWRM-PM-MIB", "genEquipPmEthUtilizationInterval"))
+if mibBuilder.loadTexts: genEquipPmEthUtilizationEntry.setStatus('mandatory')
+genEquipPmEthUtilizationPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 9, 3, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthUtilizationPmType.setStatus('mandatory')
+genEquipPmEthUtilizationInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 9, 3, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthUtilizationInterval.setStatus('mandatory')
+genEquipPmEthUtilizationPeakUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 9, 3, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthUtilizationPeakUtilization.setStatus('mandatory')
+genEquipPmEthUtilizationAverageUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 9, 3, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthUtilizationAverageUtilization.setStatus('mandatory')
+genEquipPmEthUtilizationExceedUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 9, 3, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthUtilizationExceedUtilization.setStatus('mandatory')
+genEquipPmEthUtilizationIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 9, 3, 1, 6), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthUtilizationIDF.setStatus('mandatory')
+genEquipPmEthernetIngressPolicer = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10))
+genEquipPmEthernetIngressPolicerUnicastStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 1), )
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerUnicastStatisticsTable.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerUnicastStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 1, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex"))
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerUnicastStatisticsEntry.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerUnicastStatisticsClearOnRead = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 1, 1, 2), NoYes()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerUnicastStatisticsClearOnRead.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerUnicastStatisticsGreenPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 1, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerUnicastStatisticsGreenPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerUnicastStatisticsGreenBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 1, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerUnicastStatisticsGreenBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerUnicastStatisticsYellowPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 1, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerUnicastStatisticsYellowPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerUnicastStatisticsYellowBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 1, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerUnicastStatisticsYellowBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerUnicastStatisticsRedPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 1, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerUnicastStatisticsRedPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerUnicastStatisticsRedBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 1, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerUnicastStatisticsRedBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerMulticastStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 2), )
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerMulticastStatisticsTable.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerMulticastStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 2, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex"))
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerMulticastStatisticsEntry.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerMulticastStatisticsClearOnRead = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 2, 1, 2), NoYes()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerMulticastStatisticsClearOnRead.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerMulticastStatisticsGreenPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 2, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerMulticastStatisticsGreenPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerMulticastStatisticsGreenBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 2, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerMulticastStatisticsGreenBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerMulticastStatisticsYellowPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 2, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerMulticastStatisticsYellowPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerMulticastStatisticsYellowBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 2, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerMulticastStatisticsYellowBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerMulticastStatisticsRedPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 2, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerMulticastStatisticsRedPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerMulticastStatisticsRedBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 2, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerMulticastStatisticsRedBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerBroadcastStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 3), )
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerBroadcastStatisticsTable.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerBroadcastStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 3, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex"))
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerBroadcastStatisticsEntry.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerBroadcastStatisticsClearOnRead = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 3, 1, 2), NoYes()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerBroadcastStatisticsClearOnRead.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 3, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 3, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 3, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 3, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerBroadcastStatisticsRedPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 3, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerBroadcastStatisticsRedPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerBroadcastStatisticsRedBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 3, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerBroadcastStatisticsRedBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType1StatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 4), )
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType1StatisticsTable.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType1StatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 4, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex"))
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType1StatisticsEntry.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 4, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType1StatisticsClearOnRead = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 4, 1, 2), NoYes()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType1StatisticsClearOnRead.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 4, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 4, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 4, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 4, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType1StatisticsRedPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 4, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType1StatisticsRedPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType1StatisticsRedBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 4, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType1StatisticsRedBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType2StatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 5), )
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType2StatisticsTable.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType2StatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 5, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex"))
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType2StatisticsEntry.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 5, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType2StatisticsClearOnRead = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 5, 1, 2), NoYes()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType2StatisticsClearOnRead.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 5, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 5, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 5, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 5, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType2StatisticsRedPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 5, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType2StatisticsRedPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType2StatisticsRedBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 5, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType2StatisticsRedBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType3StatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 6), )
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType3StatisticsTable.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType3StatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 6, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex"))
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType3StatisticsEntry.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 6, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType3StatisticsClearOnRead = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 6, 1, 2), NoYes()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType3StatisticsClearOnRead.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 6, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 6, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 6, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 6, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowBytes.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType3StatisticsRedPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 6, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType3StatisticsRedPacket.setStatus('mandatory')
+genEquipPmEthernetIngressPolicerEtherType3StatisticsRedBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 10, 6, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetIngressPolicerEtherType3StatisticsRedBytes.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11), )
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTable.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmEthernetRmonStatisticsIfIndex"))
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsEntry.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsIfIndex.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsClearOnRead = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 2), NoYes()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsClearOnRead.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTxByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTxByteCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTxFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTxFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTxMulticastFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTxMulticastFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTxBroadcastFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTxBroadcastFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTxControlFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTxControlFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTxPauseFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTxPauseFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTxFcsErrorFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTxFcsErrorFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTxLengthErrorFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTxLengthErrorFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTxOversizeFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTxOversizeFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTxUndersizeFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTxUndersizeFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTxFragmentFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTxFragmentFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTxJabberFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTxJabberFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTx64FrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTx64FrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTx65_127FrameCount = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 16), Counter32()).setLabel("genEquipPmEthernetRmonStatisticsTx65-127FrameCount").setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTx65_127FrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTx128_255FrameCount = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 17), Counter32()).setLabel("genEquipPmEthernetRmonStatisticsTx128-255FrameCount").setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTx128_255FrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTx256_511FrameCount = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 18), Counter32()).setLabel("genEquipPmEthernetRmonStatisticsTx256-511FrameCount").setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTx256_511FrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTx512_1023FrameCount = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 19), Counter32()).setLabel("genEquipPmEthernetRmonStatisticsTx512-1023FrameCount").setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTx512_1023FrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTx1024_1518FrameCount = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 20), Counter32()).setLabel("genEquipPmEthernetRmonStatisticsTx1024-1518FrameCount").setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTx1024_1518FrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsTx1519_1522FrameCount = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 21), Counter32()).setLabel("genEquipPmEthernetRmonStatisticsTx1519-1522FrameCount").setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsTx1519_1522FrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRxByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 22), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRxByteCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRxFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 23), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRxFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRxMulticastFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 24), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRxMulticastFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRxBroadcastFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 25), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRxBroadcastFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRxControlFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 26), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRxControlFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRxPauseFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 27), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRxPauseFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRxFcsErrorFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 28), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRxFcsErrorFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRxLengthErrorFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 29), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRxLengthErrorFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRxcode_ErrorCount = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 30), Counter32()).setLabel("genEquipPmEthernetRmonStatisticsRxcode-ErrorCount").setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRxcode_ErrorCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRxoversizeFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 31), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRxoversizeFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRxundersize_ErrorFrameCount = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 32), Counter32()).setLabel("genEquipPmEthernetRmonStatisticsRxundersize-ErrorFrameCount").setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRxundersize_ErrorFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRxFragmentFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 33), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRxFragmentFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRx64FrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 35), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRx64FrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRx65_127FrameCount = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 36), Counter32()).setLabel("genEquipPmEthernetRmonStatisticsRx65-127FrameCount").setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRx65_127FrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRx128_255FrameCount = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 37), Counter32()).setLabel("genEquipPmEthernetRmonStatisticsRx128-255FrameCount").setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRx128_255FrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRx256_511FrameCount = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 38), Counter32()).setLabel("genEquipPmEthernetRmonStatisticsRx256-511FrameCount").setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRx256_511FrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRx512_1023FrameCount = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 39), Counter32()).setLabel("genEquipPmEthernetRmonStatisticsRx512-1023FrameCount").setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRx512_1023FrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRx1024_1518FrameCount = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 40), Counter32()).setLabel("genEquipPmEthernetRmonStatisticsRx1024-1518FrameCount").setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRx1024_1518FrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRx1519_1522FrameCount = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 41), Counter32()).setLabel("genEquipPmEthernetRmonStatisticsRx1519-1522FrameCount").setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRx1519_1522FrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRxExceedmaxFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 42), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRxExceedmaxFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRxExceedMaxWithErrorFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 43), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRxExceedMaxWithErrorFrameCount.setStatus('mandatory')
+genEquipPmEthernetRmonStatisticsRxJabberFrameCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 11, 1, 44), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetRmonStatisticsRxJabberFrameCount.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 12), )
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTable.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 12, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex"), (0, "MWRM-PM-MIB", "genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex"))
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsEntry.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 12, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 12, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsClearOnRead = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 12, 1, 3), NoYes()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsClearOnRead.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 12, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenPacket.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 12, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBytes.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBitsPerSecond = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 12, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBitsPerSecond.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 12, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenPacket.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 12, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenBytes.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 12, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowPacket.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 12, 1, 10), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBytes.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBitsPerSecond = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 12, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBitsPerSecond.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 12, 1, 12), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowPacket.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 12, 1, 13), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowBytes.setStatus('mandatory')
+genEquipServicesCetSpPmCosIngressPolicerStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 13), )
+if mibBuilder.loadTexts: genEquipServicesCetSpPmCosIngressPolicerStatisticsTable.setStatus('mandatory')
+genEquipServicesCetSpPmCosIngressPolicerStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 13, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex"), (0, "MWRM-PM-MIB", "genEquipServicesCetSpPmCosIngressPolicerStatiSpIndex"), (0, "MWRM-PM-MIB", "genEquipServicesCetSpPmCosIngressPolicerStatiCos"))
+if mibBuilder.loadTexts: genEquipServicesCetSpPmCosIngressPolicerStatisticsEntry.setStatus('mandatory')
+genEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 13, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex.setStatus('mandatory')
+genEquipServicesCetSpPmCosIngressPolicerStatiSpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 13, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmCosIngressPolicerStatiSpIndex.setStatus('mandatory')
+genEquipServicesCetSpPmCosIngressPolicerStatiCos = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 13, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmCosIngressPolicerStatiCos.setStatus('mandatory')
+genEquipServicesCetSpPmCosIngressPolicerStatiClearOnRead = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 13, 1, 4), NoYes()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmCosIngressPolicerStatiClearOnRead.setStatus('mandatory')
+genEquipServicesCetSpPmCosIngressPolicerStatiGreenPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 13, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmCosIngressPolicerStatiGreenPacket.setStatus('mandatory')
+genEquipServicesCetSpPmCosIngressPolicerStatiGreenBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 13, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmCosIngressPolicerStatiGreenBytes.setStatus('mandatory')
+genEquipServicesCetSpPmCosIngressPolicerStatiYellowPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 13, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmCosIngressPolicerStatiYellowPacket.setStatus('mandatory')
+genEquipServicesCetSpPmCosIngressPolicerStatiYellowBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 13, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmCosIngressPolicerStatiYellowBytes.setStatus('mandatory')
+genEquipServicesCetSpPmCosIngressPolicerStatiRedPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 13, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmCosIngressPolicerStatiRedPacket.setStatus('mandatory')
+genEquipServicesCetSpPmCosIngressPolicerStatiRedBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 13, 1, 10), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmCosIngressPolicerStatiRedBytes.setStatus('mandatory')
+genEquipServicesCetSpPmIngressPolicerStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 14), )
+if mibBuilder.loadTexts: genEquipServicesCetSpPmIngressPolicerStatisticsTable.setStatus('mandatory')
+genEquipServicesCetSpPmIngressPolicerStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 14, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipServicesCetSpPmIngressPolicerStatiServiceIndex"), (0, "MWRM-PM-MIB", "genEquipServicesCetSpPmIngressPolicerStatiSpIndex"))
+if mibBuilder.loadTexts: genEquipServicesCetSpPmIngressPolicerStatisticsEntry.setStatus('mandatory')
+genEquipServicesCetSpPmIngressPolicerStatiServiceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 14, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmIngressPolicerStatiServiceIndex.setStatus('mandatory')
+genEquipServicesCetSpPmIngressPolicerStatiSpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 14, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmIngressPolicerStatiSpIndex.setStatus('mandatory')
+genEquipServicesCetSpPmIngressPolicerStatiClearOnRead = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 14, 1, 3), NoYes()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmIngressPolicerStatiClearOnRead.setStatus('mandatory')
+genEquipServicesCetSpPmIngressPolicerStatiGreenPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 14, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmIngressPolicerStatiGreenPacket.setStatus('mandatory')
+genEquipServicesCetSpPmIngressPolicerStatiGreenBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 14, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmIngressPolicerStatiGreenBytes.setStatus('mandatory')
+genEquipServicesCetSpPmIngressPolicerStatiYellowPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 14, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmIngressPolicerStatiYellowPacket.setStatus('mandatory')
+genEquipServicesCetSpPmIngressPolicerStatiYellowBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 14, 1, 7), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmIngressPolicerStatiYellowBytes.setStatus('mandatory')
+genEquipServicesCetSpPmIngressPolicerStatiRedPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 14, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmIngressPolicerStatiRedPacket.setStatus('mandatory')
+genEquipServicesCetSpPmIngressPolicerStatiRedBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 14, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCetSpPmIngressPolicerStatiRedBytes.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15), )
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsTable.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex"), (0, "MWRM-PM-MIB", "genEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex"), (0, "MWRM-PM-MIB", "genEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex"))
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsEntry.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsClearOnRead = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15, 1, 4), NoYes()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsClearOnRead.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenPacket.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBytes.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBitsPerSecond = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBitsPerSecond.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenPacket.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenBytes.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15, 1, 10), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowPacket.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15, 1, 11), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBytes.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBitsPerSecond = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBitsPerSecond.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15, 1, 13), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowPacket.setStatus('mandatory')
+genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 15, 1, 14), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowBytes.setStatus('mandatory')
+genEquipPmUtilization = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16))
+genEquipPmUtilizationCPU = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 1))
+genEquipPmUtilizationCPUAdmin = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 1, 1), EnableDisable()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmUtilizationCPUAdmin.setStatus('mandatory')
+genEquipPmUtilizationCPUThreshold = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmUtilizationCPUThreshold.setStatus('mandatory')
+genEquipPmUtilizationCPUTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 1, 3), )
+if mibBuilder.loadTexts: genEquipPmUtilizationCPUTable.setStatus('mandatory')
+genEquipPmUtilizationCPUEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 1, 3, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmUtilizationCPUPmType"), (0, "MWRM-PM-MIB", "genEquipPmUtilizationCPUInterval"))
+if mibBuilder.loadTexts: genEquipPmUtilizationCPUEntry.setStatus('mandatory')
+genEquipPmUtilizationCPUPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 1, 3, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmUtilizationCPUPmType.setStatus('mandatory')
+genEquipPmUtilizationCPUInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 1, 3, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmUtilizationCPUInterval.setStatus('mandatory')
+genEquipPmUtilizationCPUPeakUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 1, 3, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmUtilizationCPUPeakUtilization.setStatus('mandatory')
+genEquipPmUtilizationCPUAverageUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 1, 3, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmUtilizationCPUAverageUtilization.setStatus('mandatory')
+genEquipPmUtilizationCPUMinimumUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 1, 3, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmUtilizationCPUMinimumUtilization.setStatus('mandatory')
+genEquipPmUtilizationCPUExceedUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 1, 3, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmUtilizationCPUExceedUtilization.setStatus('mandatory')
+genEquipPmUtilizationCPUIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 1, 3, 1, 7), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmUtilizationCPUIDF.setStatus('mandatory')
+genEquipPmUtilizationMem = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 2))
+genEquipPmUtilizationMemAdmin = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 2, 1), EnableDisable()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmUtilizationMemAdmin.setStatus('mandatory')
+genEquipPmUtilizationMemThreshold = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPmUtilizationMemThreshold.setStatus('mandatory')
+genEquipPmUtilizationMemTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 2, 3), )
+if mibBuilder.loadTexts: genEquipPmUtilizationMemTable.setStatus('mandatory')
+genEquipPmUtilizationMemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 2, 3, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmUtilizationMemPmType"), (0, "MWRM-PM-MIB", "genEquipPmUtilizationMemInterval"))
+if mibBuilder.loadTexts: genEquipPmUtilizationMemEntry.setStatus('mandatory')
+genEquipPmUtilizationMemPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 2, 3, 1, 1), PmTableType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmUtilizationMemPmType.setStatus('mandatory')
+genEquipPmUtilizationMemInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 2, 3, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmUtilizationMemInterval.setStatus('mandatory')
+genEquipPmUtilizationMemPeakUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 2, 3, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmUtilizationMemPeakUtilization.setStatus('mandatory')
+genEquipPmUtilizationMemAverageUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 2, 3, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmUtilizationMemAverageUtilization.setStatus('mandatory')
+genEquipPmUtilizationMemMinimumUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 2, 3, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmUtilizationMemMinimumUtilization.setStatus('mandatory')
+genEquipPmUtilizationMemExceedUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 2, 3, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmUtilizationMemExceedUtilization.setStatus('mandatory')
+genEquipPmUtilizationMemIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 16, 2, 3, 1, 7), Integrity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmUtilizationMemIDF.setStatus('mandatory')
+genEquipPmEthernet = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17))
+genEquipPmEthernetPortTable = MibTable((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1), )
+if mibBuilder.loadTexts: genEquipPmEthernetPortTable.setStatus('mandatory')
+genEquipPmEthernetPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1), ).setIndexNames((0, "MWRM-PM-MIB", "genEquipPmEthernetPortPmType"), (0, "IF-MIB", "ifIndex"), (0, "MWRM-PM-MIB", "genEquipPmEthernetPortPmInterval"))
+if mibBuilder.loadTexts: genEquipPmEthernetPortEntry.setStatus('mandatory')
+genEquipPmEthernetPortPmType = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortPmType.setStatus('mandatory')
+genEquipPmEthernetPortPmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortPmInterval.setStatus('mandatory')
+genEquipPmEthernetPortRxAvgBcastPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortRxAvgBcastPackets.setStatus('mandatory')
+genEquipPmEthernetPortRxPeakBcastPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortRxPeakBcastPackets.setStatus('mandatory')
+genEquipPmEthernetPortRxBytesLayer1ExcedThSecCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortRxBytesLayer1ExcedThSecCnt.setStatus('mandatory')
+genEquipPmEthernetPortRxAvgBytesLayer1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortRxAvgBytesLayer1.setStatus('mandatory')
+genEquipPmEthernetPortRxPeakBytesLayer1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortRxPeakBytesLayer1.setStatus('mandatory')
+genEquipPmEthernetPortRxAvgBytesLayer2 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortRxAvgBytesLayer2.setStatus('mandatory')
+genEquipPmEthernetPortRxPeakBytesLayer2 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortRxPeakBytesLayer2.setStatus('mandatory')
+genEquipPmEthernetPortRxAvgMcastPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortRxAvgMcastPackets.setStatus('mandatory')
+genEquipPmEthernetPortRxPeakMcastPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortRxPeakMcastPackets.setStatus('mandatory')
+genEquipPmEthernetPortRxAvgPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortRxAvgPackets.setStatus('mandatory')
+genEquipPmEthernetPortRxPeakPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortRxPeakPackets.setStatus('mandatory')
+genEquipPmEthernetPortTxAvgBcastPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortTxAvgBcastPackets.setStatus('mandatory')
+genEquipPmEthernetPortTxPeakBcastPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortTxPeakBcastPackets.setStatus('mandatory')
+genEquipPmEthernetPortTxBytesLayer1ExcedThSecCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 16), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortTxBytesLayer1ExcedThSecCnt.setStatus('mandatory')
+genEquipPmEthernetPortTxAvgBytesLayer1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortTxAvgBytesLayer1.setStatus('mandatory')
+genEquipPmEthernetPortTxPeakBytesLayer1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 18), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortTxPeakBytesLayer1.setStatus('mandatory')
+genEquipPmEthernetPortTxAvgBytesLayer2 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 19), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortTxAvgBytesLayer2.setStatus('mandatory')
+genEquipPmEthernetPortTxPeakBytesLayer2 = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 20), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortTxPeakBytesLayer2.setStatus('mandatory')
+genEquipPmEthernetPortTxAvgMcastPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 21), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortTxAvgMcastPackets.setStatus('mandatory')
+genEquipPmEthernetPortTxPeakMcastPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 22), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortTxPeakMcastPackets.setStatus('mandatory')
+genEquipPmEthernetPortTxAvgPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 23), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortTxAvgPackets.setStatus('mandatory')
+genEquipPmEthernetPortTxPeakPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 24), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortTxPeakPackets.setStatus('mandatory')
+genEquipPmEthernetPortPmIDF = MibTableColumn((1, 3, 6, 1, 4, 1, 2281, 10, 6, 3, 17, 1, 1, 25), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: genEquipPmEthernetPortPmIDF.setStatus('mandatory')
+genEquipPMStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 2281, 10, 6, 4))
+genEquipRMONResetCounters = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 4, 1), OffOn()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipRMONResetCounters.setStatus('mandatory')
+genEquipPMStatisticsResetAllL2PortPm = MibScalar((1, 3, 6, 1, 4, 1, 2281, 10, 6, 4, 2), OffOn()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: genEquipPMStatisticsResetAllL2PortPm.setStatus('mandatory')
+mibBuilder.exportSymbols("MWRM-PM-MIB", genEquipPmRfuCommonSL15minCurrMinTsl=genEquipPmRfuCommonSL15minCurrMinTsl, genEquipPmEthernetRmonStatisticsRx1024_1518FrameCount=genEquipPmEthernetRmonStatisticsRx1024_1518FrameCount, genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenPacket=genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenPacket, genEquipPmEthernetIngressPolicerEtherType2StatisticsRedPacket=genEquipPmEthernetIngressPolicerEtherType2StatisticsRedPacket, genEquipPmEthernetRmonStatisticsTx256_511FrameCount=genEquipPmEthernetRmonStatisticsTx256_511FrameCount, genEquipPmTrafficAggES=genEquipPmTrafficAggES, genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowPacket=genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowPacket, genEquipPmRadioTDMIDF=genEquipPmRadioTDMIDF, genEquipPmRfuCommonSL24hrMaxRsl=genEquipPmRfuCommonSL24hrMaxRsl, genEquipPmSdhIfIndex=genEquipPmSdhIfIndex, genEquipServicesCetSpPmCosIngressPolicerStatiRedPacket=genEquipServicesCetSpPmCosIngressPolicerStatiRedPacket, genEquipPmRfuCommonSL15minCurrMaxTsl=genEquipPmRfuCommonSL15minCurrMaxTsl, genEquipPmRadioEthernetPeakUtilization=genEquipPmRadioEthernetPeakUtilization, genEquipPmPWTable=genEquipPmPWTable, genEquipPmTrafficSLTslExceed=genEquipPmTrafficSLTslExceed, genEquipPmNGPWFC=genEquipPmNGPWFC, genEquipPmTrafficAggSES=genEquipPmTrafficAggSES, genEquipPmEthernetRmonStatisticsRxMulticastFrameCount=genEquipPmEthernetRmonStatisticsRxMulticastFrameCount, genEquipPmTdmBBE=genEquipPmTdmBBE, genEquipPmSDH=genEquipPmSDH, genEquipPmRfuCommonSL15minCurrTable=genEquipPmRfuCommonSL15minCurrTable, genEquipPmTrailsEndPointUAS=genEquipPmTrailsEndPointUAS, genEquipPmRfuCommonSL24hrCurrMinRsl=genEquipPmRfuCommonSL24hrCurrMinRsl, genEquipPmUtilizationCPUExceedUtilization=genEquipPmUtilizationCPUExceedUtilization, genEquipPmEthernetIngressPolicerEtherType3StatisticsTable=genEquipPmEthernetIngressPolicerEtherType3StatisticsTable, genEquipPmRadioMRMCIfIndex=genEquipPmRadioMRMCIfIndex, genEquipPmUtilizationMemMinimumUtilization=genEquipPmUtilizationMemMinimumUtilization, genEquipPmEthernetRmonStatisticsTxByteCount=genEquipPmEthernetRmonStatisticsTxByteCount, genEquipPmEthernetRmonStatisticsTx1519_1522FrameCount=genEquipPmEthernetRmonStatisticsTx1519_1522FrameCount, genEquipPmTrafficAggPmType=genEquipPmTrafficAggPmType, genEquipPmRfuCommonSL15minTslExceed=genEquipPmRfuCommonSL15minTslExceed, genEquipPmSdhRstRLSES=genEquipPmSdhRstRLSES, genEquipPmRadioEthernetThresholdEntry=genEquipPmRadioEthernetThresholdEntry, genEquipPmEthernetRmonStatisticsClearOnRead=genEquipPmEthernetRmonStatisticsClearOnRead, genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTable=genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTable, genEquipPmRadioEthernetInterval=genEquipPmRadioEthernetInterval, genEquipPmEthUtilizationPmType=genEquipPmEthUtilizationPmType, genEquipPmRfuCommonSL15minRslExceed2=genEquipPmRfuCommonSL15minRslExceed2, genEquipPmRfuCommonSL15minCurrId=genEquipPmRfuCommonSL15minCurrId, genEquipPmEthernetRmonStatisticsRxLengthErrorFrameCount=genEquipPmEthernetRmonStatisticsRxLengthErrorFrameCount, genEquipPmEthernetRmonStatisticsTxFcsErrorFrameCount=genEquipPmEthernetRmonStatisticsTxFcsErrorFrameCount, genEquipPmSdhIDF=genEquipPmSdhIDF, genEquipPmTrails=genEquipPmTrails, genEquipPmTrafficRadioAgg24hrCurrEntry=genEquipPmTrafficRadioAgg24hrCurrEntry, genEquipPmEthernetPortRxPeakMcastPackets=genEquipPmEthernetPortRxPeakMcastPackets, genEquipPmTrafficRadioAgg24hrIDF=genEquipPmTrafficRadioAgg24hrIDF, genEquipPmRadioEthernetEtmPmType=genEquipPmRadioEthernetEtmPmType, genEquipPmRadioEthernetEtmPmAvgYellowFramesDropped=genEquipPmRadioEthernetEtmPmAvgYellowFramesDropped, genEquipPmSdhRstLREntry=genEquipPmSdhRstLREntry, genEquipPmTrailsEndPointSES=genEquipPmTrailsEndPointSES, genEquipPmUtilizationCPUEntry=genEquipPmUtilizationCPUEntry, genEquipPmSdhRstRLIDF=genEquipPmSdhRstRLIDF, genEquipPmUtilizationMemIDF=genEquipPmUtilizationMemIDF, genEquipPmRadioEthernetExceedCapacity=genEquipPmRadioEthernetExceedCapacity, genEquipPmSdhRstLREB=genEquipPmSdhRstLREB, genEquipPmRadioEthernetPeakCapacity=genEquipPmRadioEthernetPeakCapacity, genEquipPmRadioMSEPmType=genEquipPmRadioMSEPmType, genEquipPmEthernetRmonStatisticsEntry=genEquipPmEthernetRmonStatisticsEntry, genEquipPmEthernetRmonStatisticsTxLengthErrorFrameCount=genEquipPmEthernetRmonStatisticsTxLengthErrorFrameCount, genEquipPmRadio=genEquipPmRadio, genEquipPmRfuCommonSL24hrCurrIfIndex=genEquipPmRfuCommonSL24hrCurrIfIndex, genEquipPmRfuCommon=genEquipPmRfuCommon, genEquipPmSdhInterval=genEquipPmSdhInterval, genEquipPmRadioEthernetThresholdThroughput=genEquipPmRadioEthernetThresholdThroughput, genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowPacket=genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowPacket, genEquipPmTrafficRadioAgg15minCurrIfIndex=genEquipPmTrafficRadioAgg15minCurrIfIndex, genEquipPmSdhEB=genEquipPmSdhEB, genEquipServicesCetSpPmIngressPolicerStatiClearOnRead=genEquipServicesCetSpPmIngressPolicerStatiClearOnRead, genEquipPmEthernetPortRxAvgBytesLayer1=genEquipPmEthernetPortRxAvgBytesLayer1, genEquipPmTrafficRadioAgg15minCurrUAS=genEquipPmTrafficRadioAgg15minCurrUAS, genEquipPmEthernetIngressPolicerUnicastStatisticsRedPacket=genEquipPmEthernetIngressPolicerUnicastStatisticsRedPacket, genEquipPmEthernetIngressPolicerUnicastStatisticsClearOnRead=genEquipPmEthernetIngressPolicerUnicastStatisticsClearOnRead, genEquipPmEthernetIngressPolicerBroadcastStatisticsRedBytes=genEquipPmEthernetIngressPolicerBroadcastStatisticsRedBytes, genEquipPmEthernetPortTxBytesLayer1ExcedThSecCnt=genEquipPmEthernetPortTxBytesLayer1ExcedThSecCnt, genEquipPmEthernetRmonStatisticsTxBroadcastFrameCount=genEquipPmEthernetRmonStatisticsTxBroadcastFrameCount, genEquipPmEthernetRmonStatisticsTxFragmentFrameCount=genEquipPmEthernetRmonStatisticsTxFragmentFrameCount, genEquipPmTrafficRadioAgg24hrSES=genEquipPmTrafficRadioAgg24hrSES, genEquipPmRadioEthernetThresholdUtilization=genEquipPmRadioEthernetThresholdUtilization, genEquipPmTrafficRadioAgg24hrTable=genEquipPmTrafficRadioAgg24hrTable, genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenBytes=genEquipPmEthernetIngressPolicerEtherType1StatisticsGreenBytes, genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowBytes=genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowBytes, genEquipPmRadioEthernetEtmPmAvgRedFramesDropped=genEquipPmRadioEthernetEtmPmAvgRedFramesDropped, genEquipPmPWMissingPkts=genEquipPmPWMissingPkts, genEquipPmEthernetIngressPolicerMulticastStatisticsEntry=genEquipPmEthernetIngressPolicerMulticastStatisticsEntry, genEquipPmSdhRstLRUAS=genEquipPmSdhRstLRUAS, genEquipPmPWIDF=genEquipPmPWIDF, genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenPacket=genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenPacket, genEquipPmEthernetRmonStatisticsRxundersize_ErrorFrameCount=genEquipPmEthernetRmonStatisticsRxundersize_ErrorFrameCount, genEquipPmEthernetIngressPolicerBroadcastStatisticsRedPacket=genEquipPmEthernetIngressPolicerBroadcastStatisticsRedPacket, genEquipPmUtilizationMem=genEquipPmUtilizationMem, genEquipPmUtilizationMemTable=genEquipPmUtilizationMemTable, genEquipPmTrafficRadioAgg15minCurrES=genEquipPmTrafficRadioAgg15minCurrES, genEquipPmRadioEthernetEtmPmAvgGreenBytesPassed=genEquipPmRadioEthernetEtmPmAvgGreenBytesPassed, genEquipPmEthernetIngressPolicerEtherType3StatisticsRedPacket=genEquipPmEthernetIngressPolicerEtherType3StatisticsRedPacket, genEquipPmEthernetPortTxPeakBytesLayer1=genEquipPmEthernetPortTxPeakBytesLayer1, genEquipPmRadioThresholdTSL=genEquipPmRadioThresholdTSL, genEquipPmTrafficSLTable=genEquipPmTrafficSLTable, genEquipPmTrafficRadioAgg24hrTimeAndDate=genEquipPmTrafficRadioAgg24hrTimeAndDate, genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowBytes=genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowBytes, genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenPacket=genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenPacket, genEquipPmSdhRstLRIfIndex=genEquipPmSdhRstLRIfIndex, genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowPacket=genEquipPmEthernetIngressPolicerEtherType2StatisticsYellowPacket, genEquipPmSdhRstRLInterval=genEquipPmSdhRstRLInterval, genEquipPmUtilizationMemThreshold=genEquipPmUtilizationMemThreshold, genEquipPmSdhRstRLBBE=genEquipPmSdhRstRLBBE, genEquipPmTrafficRadioAgg15minCurrSES=genEquipPmTrafficRadioAgg15minCurrSES, genEquipPmRadioEthernetEtmPmMaxYellowFramesDropped=genEquipPmRadioEthernetEtmPmMaxYellowFramesDropped, genEquipRMONResetCounters=genEquipRMONResetCounters, genEquipPmRfuCommonSL15minCurrMinRsl=genEquipPmRfuCommonSL15minCurrMinRsl, genEquipPmTrafficRadioAgg15minIDF=genEquipPmTrafficRadioAgg15minIDF, genEquipPmSdhRstRLEntry=genEquipPmSdhRstRLEntry, genEquipPmSdhSES=genEquipPmSdhSES, genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowPacket=genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowPacket, genEquipPmRadioXPIPmInterval=genEquipPmRadioXPIPmInterval, genEquipPmEthernetIngressPolicerUnicastStatisticsGreenPacket=genEquipPmEthernetIngressPolicerUnicastStatisticsGreenPacket, genEquipPmRfuCommonSL24hrCurrTslExceed=genEquipPmRfuCommonSL24hrCurrTslExceed, genEquipPmRadioThresholdXPI=genEquipPmRadioThresholdXPI, genEquipPmSdhRstLRSES=genEquipPmSdhRstLRSES, genEquipPmEthernetIngressPolicerBroadcastStatisticsTable=genEquipPmEthernetIngressPolicerBroadcastStatisticsTable, genEquipPmTdmEntry=genEquipPmTdmEntry, genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowPacket=genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowPacket, genEquipPmEthUtilizationPeakUtilization=genEquipPmEthUtilizationPeakUtilization, genEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex=genEquipPmEthernetIngressPolicerMulticastStatisticsIfIndex, genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBitsPerSecond=genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBitsPerSecond, genEquipPmRfuCommonSL24hrIfIndex=genEquipPmRfuCommonSL24hrIfIndex, genEquipServicesCetSpPmIngressPolicerStatiSpIndex=genEquipServicesCetSpPmIngressPolicerStatiSpIndex, genEquipPmUtilizationCPUPeakUtilization=genEquipPmUtilizationCPUPeakUtilization, genEquipPmRadioEthernetTable=genEquipPmRadioEthernetTable, genEquipPmEthernetPortTxAvgBcastPackets=genEquipPmEthernetPortTxAvgBcastPackets, genEquipPmTrailsEndPointES=genEquipPmTrailsEndPointES, genEquipServicesCetSpPmCosIngressPolicerStatiYellowBytes=genEquipServicesCetSpPmCosIngressPolicerStatiYellowBytes, genEquipPmUtilizationCPUAverageUtilization=genEquipPmUtilizationCPUAverageUtilization, genEquipPmRfuCommonSL24hrRslExceed2=genEquipPmRfuCommonSL24hrRslExceed2, genEquipPmTrafficSLIDF=genEquipPmTrafficSLIDF, genEquipPmSdhEntry=genEquipPmSdhEntry, genEquipPmEthernetPortRxAvgMcastPackets=genEquipPmEthernetPortRxAvgMcastPackets, genEquipPmNGPWPktsReOrder=genEquipPmNGPWPktsReOrder, genEquipPmRfuCommonSL24hrTimeAndDate=genEquipPmRfuCommonSL24hrTimeAndDate, genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenPacket=genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenPacket, genEquipPmRadioEthernetEtmPmMaxYellowFramesPassed=genEquipPmRadioEthernetEtmPmMaxYellowFramesPassed, genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenBytes=genEquipPmEthernetIngressPolicerBroadcastStatisticsGreenBytes, genEquipPmEthernetRmonStatisticsIfIndex=genEquipPmEthernetRmonStatisticsIfIndex, genEquipPmTrafficRadioAgg24hrUAS=genEquipPmTrafficRadioAgg24hrUAS, genEquipPmRadioXPIPmMaxXPI=genEquipPmRadioXPIPmMaxXPI, genEquipPmEthernetRmonStatisticsRx256_511FrameCount=genEquipPmEthernetRmonStatisticsRx256_511FrameCount, genEquipPmRfuCommonSL15minIDF=genEquipPmRfuCommonSL15minIDF, genEquipPmEthernetIngressPolicerUnicastStatisticsGreenBytes=genEquipPmEthernetIngressPolicerUnicastStatisticsGreenBytes, genEquipPmPWPmType=genEquipPmPWPmType, genEquipPmEthernetIngressPolicerEtherType3StatisticsRedBytes=genEquipPmEthernetIngressPolicerEtherType3StatisticsRedBytes, genEquipPmRadioEthernetPmType=genEquipPmRadioEthernetPmType, genEquipPmEthernetIngressPolicerUnicastStatisticsTable=genEquipPmEthernetIngressPolicerUnicastStatisticsTable, genEquipPmPWPktsReOrder=genEquipPmPWPktsReOrder, genEquipPmEthernetRmonStatisticsTx64FrameCount=genEquipPmEthernetRmonStatisticsTx64FrameCount, genEquipPmEthUtilizationAdmin=genEquipPmEthUtilizationAdmin, genEquipPmSdhRstRLPmType=genEquipPmSdhRstRLPmType, genEquipPmRadioMSEEntry=genEquipPmRadioMSEEntry, genEquipPmRadioMSEMaxMse=genEquipPmRadioMSEMaxMse, genEquipPmRadioMRMCMaxProfile=genEquipPmRadioMRMCMaxProfile, genEquipPmEthernetIngressPolicerEtherType3StatisticsEntry=genEquipPmEthernetIngressPolicerEtherType3StatisticsEntry, genEquipPmEthernetIngressPolicerEtherType1StatisticsTable=genEquipPmEthernetIngressPolicerEtherType1StatisticsTable, genEquipPmRadioEthernetPeakThroughput=genEquipPmRadioEthernetPeakThroughput, genEquipPmRfuCommonSL15minId=genEquipPmRfuCommonSL15minId, genEquipPmRfuCommonSL15minCurrIDF=genEquipPmRfuCommonSL15minCurrIDF, genEquipPmSdhRstRLES=genEquipPmSdhRstRLES, genEquipPmEthernetPortTxPeakMcastPackets=genEquipPmEthernetPortTxPeakMcastPackets, genEquipPmUtilizationMemExceedUtilization=genEquipPmUtilizationMemExceedUtilization, genEquipPmEthernetRmonStatisticsTxOversizeFrameCount=genEquipPmEthernetRmonStatisticsTxOversizeFrameCount, genEquipPmTrailsEndPointEPId=genEquipPmTrailsEndPointEPId, genEquipPmEthernetRmonStatisticsRxFcsErrorFrameCount=genEquipPmEthernetRmonStatisticsRxFcsErrorFrameCount, genEquipPmUtilizationCPUPmType=genEquipPmUtilizationCPUPmType, genEquipPmSdhRstLRTable=genEquipPmSdhRstLRTable, genEquipPmTrafficRadioAgg24hrEntry=genEquipPmTrafficRadioAgg24hrEntry, genEquipPmPW=genEquipPmPW, genEquipPmUtilizationMemPmType=genEquipPmUtilizationMemPmType, genEquipPmEthernetRmonStatisticsRxcode_ErrorCount=genEquipPmEthernetRmonStatisticsRxcode_ErrorCount, genEquipPmRadioEthernetEtmPmAvgYellowFramesPassed=genEquipPmRadioEthernetEtmPmAvgYellowFramesPassed, genEquipPmTrafficRadioAgg15minCurrTimeAndDate=genEquipPmTrafficRadioAgg15minCurrTimeAndDate, genEquipServicesCetSpPmCosIngressPolicerStatiYellowPacket=genEquipServicesCetSpPmCosIngressPolicerStatiYellowPacket, genEquipPmEthernetPortRxPeakPackets=genEquipPmEthernetPortRxPeakPackets, genEquipPmTrafficSLInterval=genEquipPmTrafficSLInterval, genEquipPmEthernetIngressPolicerMulticastStatisticsGreenPacket=genEquipPmEthernetIngressPolicerMulticastStatisticsGreenPacket, genEquipPmTrafficAggInterval=genEquipPmTrafficAggInterval, genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowBytes=genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedYellowBytes, genEquipPmRadioXPITable=genEquipPmRadioXPITable, genEquipPmEthernetPortPmIDF=genEquipPmEthernetPortPmIDF, genEquipPmTrafficSLPmType=genEquipPmTrafficSLPmType, genEquipPmSdhRstLRTimeStamp=genEquipPmSdhRstLRTimeStamp, genEquipPmSdhES=genEquipPmSdhES, genEquipPmPWMalformedPkt=genEquipPmPWMalformedPkt, genEquipPmTrafficRadioAgg24hrCurrTimeAndDate=genEquipPmTrafficRadioAgg24hrCurrTimeAndDate, genEquipPmUtilizationMemPeakUtilization=genEquipPmUtilizationMemPeakUtilization, genEquipPmRfuCommonSL24hrMinTsl=genEquipPmRfuCommonSL24hrMinTsl, genEquipPmEthernetRmonStatisticsTxPauseFrameCount=genEquipPmEthernetRmonStatisticsTxPauseFrameCount, genEquipPmRadioTDMTable=genEquipPmRadioTDMTable, genEquipPmTrailsEndPointId=genEquipPmTrailsEndPointId, genEquipPmRfuCommonSL15minEntry=genEquipPmRfuCommonSL15minEntry, genEquipPmRadioMSEInterval=genEquipPmRadioMSEInterval, genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsClearOnRead=genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsClearOnRead, genEquipPmRadioMSEexceeded=genEquipPmRadioMSEexceeded, genEquipPmRadioMRMC=genEquipPmRadioMRMC, genEquipPmEthernetIngressPolicerBroadcastStatisticsEntry=genEquipPmEthernetIngressPolicerBroadcastStatisticsEntry, genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBytes=genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedYellowBytes, genEquipPmEthernetIngressPolicerEtherType2StatisticsRedBytes=genEquipPmEthernetIngressPolicerEtherType2StatisticsRedBytes, genEquipServicesCetSpPmCosIngressPolicerStatiCos=genEquipServicesCetSpPmCosIngressPolicerStatiCos, genEquipPmEthernetPortTxAvgBytesLayer1=genEquipPmEthernetPortTxAvgBytesLayer1, genEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex=genEquipServicesCETTmPmSpEgressQueueStatisticsIfIndex, genEquipPmRfuCommonSL24hrTslExceed=genEquipPmRfuCommonSL24hrTslExceed, genEquipPmRadioMRMCId=genEquipPmRadioMRMCId, genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsEntry=genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsEntry, genEquipServicesCetSpPmCosIngressPolicerStatiGreenPacket=genEquipServicesCetSpPmCosIngressPolicerStatiGreenPacket, genEquipPmTrafficRadioAgg15minId=genEquipPmTrafficRadioAgg15minId, genEquipPmEthernetRmonStatisticsRxControlFrameCount=genEquipPmEthernetRmonStatisticsRxControlFrameCount, genEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex=genEquipServicesCETTmPmSpEgressQueueStatisticsServiceIndex, genEquipPmUtilization=genEquipPmUtilization, genEquipPmTrafficAggregate=genEquipPmTrafficAggregate, genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenBytes=genEquipPmEthernetIngressPolicerEtherType3StatisticsGreenBytes, genEquipPmEthernetRmonStatisticsTxUndersizeFrameCount=genEquipPmEthernetRmonStatisticsTxUndersizeFrameCount, genEquipPmNGPWMalformedPkt=genEquipPmNGPWMalformedPkt, genEquipPmSdhRstRLEB=genEquipPmSdhRstRLEB, genEquipPmTrailsEndPointTable=genEquipPmTrailsEndPointTable, genEquipServicesCetSpPmIngressPolicerStatiRedPacket=genEquipServicesCetSpPmIngressPolicerStatiRedPacket, genEquipPmPWId=genEquipPmPWId, genEquipPmEthernetRmonStatisticsTxJabberFrameCount=genEquipPmEthernetRmonStatisticsTxJabberFrameCount, genEquipPmEthernetIngressPolicerMulticastStatisticsTable=genEquipPmEthernetIngressPolicerMulticastStatisticsTable, genEquipPmNGPWEntry=genEquipPmNGPWEntry, genEquipPmNGPWES=genEquipPmNGPWES, genEquipPmEthernetPortRxAvgPackets=genEquipPmEthernetPortRxAvgPackets, genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBytes=genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBytes, genEquipPmEthernetRmonStatisticsRx64FrameCount=genEquipPmEthernetRmonStatisticsRx64FrameCount, genEquipPmSdhRstLRPmType=genEquipPmSdhRstLRPmType, genEquipPmTrafficRadioAgg24hrId=genEquipPmTrafficRadioAgg24hrId, genEquipPmTrafficRadioAgg15minUAS=genEquipPmTrafficRadioAgg15minUAS, genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenBytes=genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenBytes, genEquipPmNGPWInterval=genEquipPmNGPWInterval, genEquipPmEthernetIngressPolicerMulticastStatisticsRedBytes=genEquipPmEthernetIngressPolicerMulticastStatisticsRedBytes, genEquipPmSdhRstLRES=genEquipPmSdhRstLRES, genEquipPmTdmInterval=genEquipPmTdmInterval, genEquipPmNGPWMisOrderDropped=genEquipPmNGPWMisOrderDropped, genEquipPmUtilizationCPUAdmin=genEquipPmUtilizationCPUAdmin, genEquipPmRadioXPIIDF=genEquipPmRadioXPIIDF, genEquipPmTrafficSLMinTsl=genEquipPmTrafficSLMinTsl, genEquipPmUtilizationCPU=genEquipPmUtilizationCPU, genEquipPmRadioEthernetAverageCapacity=genEquipPmRadioEthernetAverageCapacity, genEquipServicesCETTmPmSpEgressQueueStatisticsTable=genEquipServicesCETTmPmSpEgressQueueStatisticsTable, genEquipPmRadioMRMCMinBitrate=genEquipPmRadioMRMCMinBitrate, genEquipPmPWFC=genEquipPmPWFC, genEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex=genEquipServicesCETTmPmSpEgressQueueStatisticsCosQueueIndex, genEquipPmEthernetPortTxAvgPackets=genEquipPmEthernetPortTxAvgPackets, genEquipPmRadioThresholdRSL1=genEquipPmRadioThresholdRSL1, genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowBytes=genEquipPmEthernetIngressPolicerEtherType3StatisticsYellowBytes, genEquipPmTrafficRadioAgg24hrCurrIfIndex=genEquipPmTrafficRadioAgg24hrCurrIfIndex, genEquipPmRadioEthernetIDF=genEquipPmRadioEthernetIDF, genEquipPmEthernetRmonStatisticsTx65_127FrameCount=genEquipPmEthernetRmonStatisticsTx65_127FrameCount, genEquipPmTrafficRadioAgg15minTimeAndDate=genEquipPmTrafficRadioAgg15minTimeAndDate)
+mibBuilder.exportSymbols("MWRM-PM-MIB", genEquipPmSdhRstRLTimeStamp=genEquipPmSdhRstRLTimeStamp, genEquipPmTrafficRadioAgg15minCurrEntry=genEquipPmTrafficRadioAgg15minCurrEntry, genEquipPmUtilizationCPUThreshold=genEquipPmUtilizationCPUThreshold, genEquipPmTrafficRadioAgg24hrES=genEquipPmTrafficRadioAgg24hrES, genEquipPmEthUtilizationThreshold=genEquipPmEthUtilizationThreshold, genEquipPmEthernetRmonStatisticsRxoversizeFrameCount=genEquipPmEthernetRmonStatisticsRxoversizeFrameCount, genEquipPmRfuCommonSL15minCurrRslExceed1=genEquipPmRfuCommonSL15minCurrRslExceed1, genEquipPmPWtrBfrUnderruns=genEquipPmPWtrBfrUnderruns, genEquipPmUtilizationCPUMinimumUtilization=genEquipPmUtilizationCPUMinimumUtilization, genEquipPmRfuCommonSL15minRslExceed1=genEquipPmRfuCommonSL15minRslExceed1, genEquipPmEthernetRmonStatisticsRxFrameCount=genEquipPmEthernetRmonStatisticsRxFrameCount, genEquipPmTrafficSLEntry=genEquipPmTrafficSLEntry, genEquipPmEthernetIngressPolicerEtherType2StatisticsEntry=genEquipPmEthernetIngressPolicerEtherType2StatisticsEntry, genEquipPmRfuCommonSL24hrTable=genEquipPmRfuCommonSL24hrTable, genEquipPmEthernetPortTxPeakPackets=genEquipPmEthernetPortTxPeakPackets, genEquipPmEthUtilizationAverageUtilization=genEquipPmEthUtilizationAverageUtilization, genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBitsPerSecond=genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenBitsPerSecond, genEquipPmRfuCommonSL24hrMinRsl=genEquipPmRfuCommonSL24hrMinRsl, genEquipServicesCetSpPmCosIngressPolicerStatiSpIndex=genEquipServicesCetSpPmCosIngressPolicerStatiSpIndex, genEquipPmRfuCommonSL15minCurrIfIndex=genEquipPmRfuCommonSL15minCurrIfIndex, genEquipPmRadioMRMCMaxBitrate=genEquipPmRadioMRMCMaxBitrate, genEquipPmTDM=genEquipPmTDM, genEquipPmEthernetIngressPolicerEtherType1StatisticsRedBytes=genEquipPmEthernetIngressPolicerEtherType1StatisticsRedBytes, genEquipPmUtilizationCPUInterval=genEquipPmUtilizationCPUInterval, genEquipPMStatisticsResetAllL2PortPm=genEquipPMStatisticsResetAllL2PortPm, genEquipPmTrafficSL=genEquipPmTrafficSL, genEquipPmRfuCommonSL24hrCurrId=genEquipPmRfuCommonSL24hrCurrId, genEquipPmRadioMRMCMinTDMIf=genEquipPmRadioMRMCMinTDMIf, genEquipPmTrafficRadioAgg24hrCurrTable=genEquipPmTrafficRadioAgg24hrCurrTable, genEquipPMStatistics=genEquipPMStatistics, genEquipPmUtilizationCPUIDF=genEquipPmUtilizationCPUIDF, genEquipPmTdmIDF=genEquipPmTdmIDF, microwave_radio=microwave_radio, genEquipPmRadioEthernetEtmPmAvgYellowBytesPassed=genEquipPmRadioEthernetEtmPmAvgYellowBytesPassed, genEquipPmSdhRstRLIfIndex=genEquipPmSdhRstRLIfIndex, genEquipPmRadioMSEIDF=genEquipPmRadioMSEIDF, genEquipPmSdhRstRLTable=genEquipPmSdhRstRLTable, genEquipPmEthernetPortRxPeakBcastPackets=genEquipPmEthernetPortRxPeakBcastPackets, genEquipServicesCetSpPmIngressPolicerStatiGreenBytes=genEquipServicesCetSpPmIngressPolicerStatiGreenBytes, genEquipPmRadioMRMCEntry=genEquipPmRadioMRMCEntry, genEquipPmEthernetPortTxAvgBytesLayer2=genEquipPmEthernetPortTxAvgBytesLayer2, genEquipPmPWSES=genEquipPmPWSES, genEquipPmRfuCommonSL24hrCurrTable=genEquipPmRfuCommonSL24hrCurrTable, genEquipPmRadioMSEMinMse=genEquipPmRadioMSEMinMse, genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenPacket=genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenPacket, genEquipPmEthernetPortRxAvgBytesLayer2=genEquipPmEthernetPortRxAvgBytesLayer2, genEquipPmRfuCommonSL24hrCurrMaxRsl=genEquipPmRfuCommonSL24hrCurrMaxRsl, genEquipPmTdmPmType=genEquipPmTdmPmType, genEquipPmRadioXPIPmMinXPI=genEquipPmRadioXPIPmMinXPI, genEquipPmSdhRstRLCV=genEquipPmSdhRstRLCV, genEquipPmEthernetIngressPolicerEtherType2StatisticsClearOnRead=genEquipPmEthernetIngressPolicerEtherType2StatisticsClearOnRead, genEquipPmEthernetRmonStatisticsTx128_255FrameCount=genEquipPmEthernetRmonStatisticsTx128_255FrameCount, genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex=genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsIfIndex, genEquipPmEthernetIngressPolicerMulticastStatisticsClearOnRead=genEquipPmEthernetIngressPolicerMulticastStatisticsClearOnRead, genEquipPmSdhRstLRInterval=genEquipPmSdhRstLRInterval, genEquipPmEthernetIngressPolicerEtherType3StatisticsClearOnRead=genEquipPmEthernetIngressPolicerEtherType3StatisticsClearOnRead, genEquipPmEthernetIngressPolicerEtherType1StatisticsRedPacket=genEquipPmEthernetIngressPolicerEtherType1StatisticsRedPacket, genEquipPmPWEntry=genEquipPmPWEntry, genEquipPmAll=genEquipPmAll, genEquipPmRadioEthernetFrameErrorRate=genEquipPmRadioEthernetFrameErrorRate, genEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex=genEquipPmEthernetIngressPolicerBroadcastStatisticsIfIndex, genEquipPmRadioMRMCTable=genEquipPmRadioMRMCTable, genEquipPmEthernetPortRxBytesLayer1ExcedThSecCnt=genEquipPmEthernetPortRxBytesLayer1ExcedThSecCnt, genEquipServicesCetSpPmCosIngressPolicerStatisticsEntry=genEquipServicesCetSpPmCosIngressPolicerStatisticsEntry, genEquipPmEthernetPortTxPeakBcastPackets=genEquipPmEthernetPortTxPeakBcastPackets, genEquipPmRadioEthernetEtmPmMaxGreenFramesDropped=genEquipPmRadioEthernetEtmPmMaxGreenFramesDropped, genEquipPmEthernetIngressPolicerUnicastStatisticsYellowPacket=genEquipPmEthernetIngressPolicerUnicastStatisticsYellowPacket, genEquipPmSdhTimeStamp=genEquipPmSdhTimeStamp, genEquipPmRfuCommonSL15minMaxTsl=genEquipPmRfuCommonSL15minMaxTsl, genEquipPmRadioTDM=genEquipPmRadioTDM, genEquipPmTrafficRadioAgg15minEntry=genEquipPmTrafficRadioAgg15minEntry, genEquipPmRadioEthernetEtmInterval=genEquipPmRadioEthernetEtmInterval, genEquipPmEthernetIngressPolicerUnicastStatisticsEntry=genEquipPmEthernetIngressPolicerUnicastStatisticsEntry, genEquipPmNGPWTable=genEquipPmNGPWTable, genEquipPmNGPWMissingPkts=genEquipPmNGPWMissingPkts, genEquipPmEthernetRmonStatisticsRxPauseFrameCount=genEquipPmEthernetRmonStatisticsRxPauseFrameCount, genEquipPmRfuCommonSL24hrIDF=genEquipPmRfuCommonSL24hrIDF, genEquipPmTrafficRadioAgg15minIfIndex=genEquipPmTrafficRadioAgg15minIfIndex, genEquipPmEthernetRmonStatisticsRxJabberFrameCount=genEquipPmEthernetRmonStatisticsRxJabberFrameCount, genEquipPmRfuCommonSL15minCurrMaxRsl=genEquipPmRfuCommonSL15minCurrMaxRsl, genEquipServicesCetSpPmCosIngressPolicerStatisticsTable=genEquipServicesCetSpPmCosIngressPolicerStatisticsTable, genEquipPmRadioTDMRadioUAS=genEquipPmRadioTDMRadioUAS, genEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex=genEquipPmEthernetIngressPolicerEtherType3StatisticsIfIndex, genEquipPmEthernetIngressPolicerMulticastStatisticsYellowBytes=genEquipPmEthernetIngressPolicerMulticastStatisticsYellowBytes, genEquipServicesCetSpPmIngressPolicerStatisticsTable=genEquipServicesCetSpPmIngressPolicerStatisticsTable, genEquipPmRadioXPIPmType=genEquipPmRadioXPIPmType, genEquipPmEthernetIngressPolicerMulticastStatisticsRedPacket=genEquipPmEthernetIngressPolicerMulticastStatisticsRedPacket, genEquipPmTrafficAggIDF=genEquipPmTrafficAggIDF, genEquipPmTrafficRadioAgg15minCurrId=genEquipPmTrafficRadioAgg15minCurrId, genEquipPmEthUtilizationExceedUtilization=genEquipPmEthUtilizationExceedUtilization, genEquipPmRfuCommonSL24hrId=genEquipPmRfuCommonSL24hrId, genEquipPmRadioTDMEntry=genEquipPmRadioTDMEntry, genEquipPmRadioEthernetEtmPmMaxGreenFramesPassed=genEquipPmRadioEthernetEtmPmMaxGreenFramesPassed, genEquipPmRadioEthernetEtmTable=genEquipPmRadioEthernetEtmTable, genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowPacket=genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowPacket, genEquipPmRadioEthernetEtmPmMaxGreenBytesPassed=genEquipPmRadioEthernetEtmPmMaxGreenBytesPassed, genEquipPmRfuCommonSL24hrCurrRslExceed2=genEquipPmRfuCommonSL24hrCurrRslExceed2, genEquipPmTrafficSLRslExceed1=genEquipPmTrafficSLRslExceed1, genEquipPmRadioMSETable=genEquipPmRadioMSETable, genEquipPmUtilizationCPUTable=genEquipPmUtilizationCPUTable, genEquipPmTrafficAggEntry=genEquipPmTrafficAggEntry, genEquipPmEthernetIngressPolicerUnicastStatisticsRedBytes=genEquipPmEthernetIngressPolicerUnicastStatisticsRedBytes, genEquipPmRfuCommonSL24hrCurrIDF=genEquipPmRfuCommonSL24hrCurrIDF, genEquipPmRadioEthernetExceedUtilization=genEquipPmRadioEthernetExceedUtilization, genEquipPmEthernetIngressPolicerEtherType2StatisticsTable=genEquipPmEthernetIngressPolicerEtherType2StatisticsTable, genEquipPmTrafficRadioAgg15minSES=genEquipPmTrafficRadioAgg15minSES, genEquipPmRfuCommonSL24hrRslExceed1=genEquipPmRfuCommonSL24hrRslExceed1, genEquipServicesCetSpPmCosIngressPolicerStatiClearOnRead=genEquipServicesCetSpPmCosIngressPolicerStatiClearOnRead, genEquipPmRfuCommonSL15minTable=genEquipPmRfuCommonSL15minTable, genEquipPmTrafficSLId=genEquipPmTrafficSLId, genEquipPmEthernetPortTxPeakBytesLayer2=genEquipPmEthernetPortTxPeakBytesLayer2, genEquipPmRfuCommonSL24hrEntry=genEquipPmRfuCommonSL24hrEntry, genEquipPmTrafficRadioAgg24hrBBE=genEquipPmTrafficRadioAgg24hrBBE, genEquipPmEthernetPortPmType=genEquipPmEthernetPortPmType, genEquipPmRadioEthernetThresholdCapacity=genEquipPmRadioEthernetThresholdCapacity, genEquipPmRadioEthernetEtmEntry=genEquipPmRadioEthernetEtmEntry, genEquipPmPWUAS=genEquipPmPWUAS, genEquipPmEthernetRmonStatisticsRxExceedMaxWithErrorFrameCount=genEquipPmEthernetRmonStatisticsRxExceedMaxWithErrorFrameCount, genEquipPmTdmUAS=genEquipPmTdmUAS, genEquipServicesCetSpPmIngressPolicerStatiRedBytes=genEquipServicesCetSpPmIngressPolicerStatiRedBytes, genEquip=genEquip, genEquipPmEthernetPortRxAvgBcastPackets=genEquipPmEthernetPortRxAvgBcastPackets, genEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex=genEquipPmEthernetIngressPolicerEtherType2StatisticsIfIndex, genEquipPmRfuCommonSL15minMaxRsl=genEquipPmRfuCommonSL15minMaxRsl, genEquipPmEthernetIngressPolicerEtherType1StatisticsEntry=genEquipPmEthernetIngressPolicerEtherType1StatisticsEntry, genEquipServicesCetSpPmCosIngressPolicerStatiGreenBytes=genEquipServicesCetSpPmCosIngressPolicerStatiGreenBytes, genEquipPmEthernetIngressPolicerUnicastStatisticsYellowBytes=genEquipPmEthernetIngressPolicerUnicastStatisticsYellowBytes, genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenPacket=genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedGreenPacket, genEquipPmEthUtilizationIDF=genEquipPmEthUtilizationIDF, genEquipPmSdhRstLRBBE=genEquipPmSdhRstLRBBE, genEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex=genEquipPmEthernetIngressPolicerUnicastStatisticsIfIndex, genEquipPmRadioEthernetEtmPmMaxYellowBytesPassed=genEquipPmRadioEthernetEtmPmMaxYellowBytesPassed, genEquipPmTraffic=genEquipPmTraffic, genEquipPmSdhRstRLUAS=genEquipPmSdhRstRLUAS, genEquipPmTrailsEndPointPmType=genEquipPmTrailsEndPointPmType, genEquipServicesCetSpPmIngressPolicerStatiYellowBytes=genEquipServicesCetSpPmIngressPolicerStatiYellowBytes, genEquipPmEthernetRmonStatisticsRx65_127FrameCount=genEquipPmEthernetRmonStatisticsRx65_127FrameCount, genEquipPmRadioEthernetExceedThroughput=genEquipPmRadioEthernetExceedThroughput, genEquipPmRfuCommonSL15minMinRsl=genEquipPmRfuCommonSL15minMinRsl, genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowBytes=genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowBytes, genEquipPmSdhRstLRCV=genEquipPmSdhRstLRCV, genEquipPmTrafficSLMaxRsl=genEquipPmTrafficSLMaxRsl, genEquipPmRadioMRMCMinProfile=genEquipPmRadioMRMCMinProfile, genEquipPmNGPWIdf=genEquipPmNGPWIdf, genEquipPmEthernetRmonStatisticsRx512_1023FrameCount=genEquipPmEthernetRmonStatisticsRx512_1023FrameCount, genEquipPmRfuCommonSL15minMinTsl=genEquipPmRfuCommonSL15minMinTsl, genEquipPmPWInterval=genEquipPmPWInterval, genEquipPmRadioEthernetEtmPmAvgRedBytesDropped=genEquipPmRadioEthernetEtmPmAvgRedBytesDropped, genEquipServicesCetSpPmIngressPolicerStatisticsEntry=genEquipServicesCetSpPmIngressPolicerStatisticsEntry, genEquipPmRfuCommonSL15minCurrTimeAndDate=genEquipPmRfuCommonSL15minCurrTimeAndDate, genEquipPmTrafficRadioAgg15minES=genEquipPmTrafficRadioAgg15minES, genEquipPmRadioClear=genEquipPmRadioClear, genEquipPmEthUtilizationTable=genEquipPmEthUtilizationTable, genEquipPmRadioXPIBelowThreshold=genEquipPmRadioXPIBelowThreshold, genEquipPmRadioEthernet=genEquipPmRadioEthernet, genEquipPmTrailsEndPointIDF=genEquipPmTrailsEndPointIDF, genEquipPmEthernetIngressPolicerBroadcastStatisticsClearOnRead=genEquipPmEthernetIngressPolicerBroadcastStatisticsClearOnRead, genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowBytes=genEquipPmEthernetIngressPolicerEtherType1StatisticsYellowBytes, genEquipPmTrafficRadioAgg24hrIfIndex=genEquipPmTrafficRadioAgg24hrIfIndex, genEquipPmTrafficRadioAgg24hrCurrSES=genEquipPmTrafficRadioAgg24hrCurrSES, genEquipPmRfuCommonSL24hrCurrTimeAndDate=genEquipPmRfuCommonSL24hrCurrTimeAndDate, genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenPacket=genEquipServicesCETTmPmSpEgressQueueStatisticsDroppedGreenPacket, genEquipPM=genEquipPM, genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenPacket=genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenPacket, genEquipPmRadioThresholdEntry=genEquipPmRadioThresholdEntry, genEquipPmTrafficRadioAgg24hrCurrId=genEquipPmTrafficRadioAgg24hrCurrId, genEquipPmPWES=genEquipPmPWES, genEquipServicesCetSpPmIngressPolicerStatiServiceIndex=genEquipServicesCetSpPmIngressPolicerStatiServiceIndex, genEquipPmEthernet=genEquipPmEthernet, genEquipPmTrafficAggTable=genEquipPmTrafficAggTable, genEquipPmEthernetRmonStatisticsTable=genEquipPmEthernetRmonStatisticsTable, genEquipPmEthUtilization=genEquipPmEthUtilization, genEquipPmRadioEthernetEtmPmMaxRedFramesDropped=genEquipPmRadioEthernetEtmPmMaxRedFramesDropped, genEquipPmTrafficRadioAgg24hrCurrES=genEquipPmTrafficRadioAgg24hrCurrES, genEquipPmTrafficSLRslExceed2=genEquipPmTrafficSLRslExceed2, genEquipPmRfu=genEquipPmRfu, genEquipPmRfuCommonSL15minCurrEntry=genEquipPmRfuCommonSL15minCurrEntry, genEquipPmTrafficAggBBE=genEquipPmTrafficAggBBE, genEquipServicesCETTmPmSpEgressQueueStatisticsEntry=genEquipServicesCETTmPmSpEgressQueueStatisticsEntry, genEquipPmRfuCommonSL15minCurrTslExceed=genEquipPmRfuCommonSL15minCurrTslExceed, genEquipPmRadioEthernetEntry=genEquipPmRadioEthernetEntry, genEquipPmSdhTable=genEquipPmSdhTable, genEquipPmNGPWFER=genEquipPmNGPWFER, genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBitsPerSecond=genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBitsPerSecond, genEquipPmRfuCommonSL24hrCurrMinTsl=genEquipPmRfuCommonSL24hrCurrMinTsl, genEquipPmEthernetRmonStatisticsRxByteCount=genEquipPmEthernetRmonStatisticsRxByteCount, genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowPacket=genEquipPmEthernetIngressPolicerBroadcastStatisticsYellowPacket, genEquipPmUtilizationMemAverageUtilization=genEquipPmUtilizationMemAverageUtilization, genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenBytes=genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedGreenBytes, genEquipPmRadioXPIEntry=genEquipPmRadioXPIEntry, genEquipServicesCETTmPmSpEgressQueueStatisticsClearOnRead=genEquipServicesCETTmPmSpEgressQueueStatisticsClearOnRead, genEquipPmClear=genEquipPmClear, genEquipPmRadioMRMCIDF=genEquipPmRadioMRMCIDF, genEquipPmRadioTDMPmType=genEquipPmRadioTDMPmType, genEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex=genEquipPmEthernetIngressPolicerEtherType1StatisticsIfIndex, genEquipPmRadioEthernetEtmPmAvgGreenFramesPassed=genEquipPmRadioEthernetEtmPmAvgGreenFramesPassed, genEquipPmRadioEthernetThresholdTable=genEquipPmRadioEthernetThresholdTable, genEquipPmEthUtilizationEntry=genEquipPmEthUtilizationEntry, genEquipPmEthernetPortPmInterval=genEquipPmEthernetPortPmInterval, genEquipPmUtilizationMemEntry=genEquipPmUtilizationMemEntry, genEquipPmNGPWSES=genEquipPmNGPWSES, genEquipPmTrailsEndPointActivePathCounts=genEquipPmTrailsEndPointActivePathCounts, genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBytes=genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBytes, genEquipPmRadioEthernetEtmPmQueueIndex=genEquipPmRadioEthernetEtmPmQueueIndex, genEquipPmTrailsEndPointEntry=genEquipPmTrailsEndPointEntry, genEquipPmRfuCommonSL24hrCurrMaxTsl=genEquipPmRfuCommonSL24hrCurrMaxTsl, genEquipPmSdhBBE=genEquipPmSdhBBE, genEquipPmRadioThresholdMSE=genEquipPmRadioThresholdMSE, genEquipPmTrafficRadioAgg24hrCurrUAS=genEquipPmTrafficRadioAgg24hrCurrUAS, genEquipPmRadioEthernetEtmPmAvgGreenFramesDropped=genEquipPmRadioEthernetEtmPmAvgGreenFramesDropped, genEquipPmTrafficRadioAgg15minBBE=genEquipPmTrafficRadioAgg15minBBE, genEquipPmEthernetRmonStatisticsRx128_255FrameCount=genEquipPmEthernetRmonStatisticsRx128_255FrameCount, genEquipPmRfuCommonSL24hrCurrRslExceed1=genEquipPmRfuCommonSL24hrCurrRslExceed1, genEquipPmTrafficSLMaxTsl=genEquipPmTrafficSLMaxTsl, genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBitsPerSecond=genEquipServicesCETTmPmSpEgressQueueStatisticsTransmittedGreenBitsPerSecond, genEquipPmEthernetRmonStatisticsTxFrameCount=genEquipPmEthernetRmonStatisticsTxFrameCount, genEquipPmEthernetRmonStatisticsTx1024_1518FrameCount=genEquipPmEthernetRmonStatisticsTx1024_1518FrameCount, genEquipPmTdmTable=genEquipPmTdmTable, genEquipPmRadioEthernetEtmPmMaxRedBytesDropped=genEquipPmRadioEthernetEtmPmMaxRedBytesDropped, genEquipPmTrailsEndPointBBE=genEquipPmTrailsEndPointBBE, genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenBytes=genEquipPmEthernetIngressPolicerEtherType2StatisticsGreenBytes, genEquipServicesCetSpPmIngressPolicerStatiYellowPacket=genEquipServicesCetSpPmIngressPolicerStatiYellowPacket, genEquipPmEthernetRmonStatisticsRxBroadcastFrameCount=genEquipPmEthernetRmonStatisticsRxBroadcastFrameCount, genEquipPmRadioEthernetAverageUtilization=genEquipPmRadioEthernetAverageUtilization, genEquipPmNGPWUAS=genEquipPmNGPWUAS, genEquipServicesCetSpPmIngressPolicerStatiGreenPacket=genEquipServicesCetSpPmIngressPolicerStatiGreenPacket, genEquipPmTrafficRadioAgg15minTable=genEquipPmTrafficRadioAgg15minTable, genEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex=genEquipServicesCetSpPmCosIngressPolicerStatiServiceIndex, genEquipUnit=genEquipUnit, genEquipPmRadioMRMCMaxTDMIf=genEquipPmRadioMRMCMaxTDMIf, genEquipPmEthernetPortTxAvgMcastPackets=genEquipPmEthernetPortTxAvgMcastPackets, genEquipPmEthernetRmonStatisticsRxFragmentFrameCount=genEquipPmEthernetRmonStatisticsRxFragmentFrameCount, genEquipPmRfuCommonSL15minCurrRslExceed2=genEquipPmRfuCommonSL15minCurrRslExceed2, genEquipPmEthUtilizationInterval=genEquipPmEthUtilizationInterval, genEquipPmRfuCommonSL15minIfIndex=genEquipPmRfuCommonSL15minIfIndex, genEquipPmTrafficRadioAgg15minCurrTable=genEquipPmTrafficRadioAgg15minCurrTable, genEquipPmRadioEthernetEtmPmIDF=genEquipPmRadioEthernetEtmPmIDF, genEquipPmEthernetRmonStatisticsTx512_1023FrameCount=genEquipPmEthernetRmonStatisticsTx512_1023FrameCount, genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowPacket=genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsDroppedYellowPacket, genEquipServicesCetSpPmCosIngressPolicerStatiRedBytes=genEquipServicesCetSpPmCosIngressPolicerStatiRedBytes, genEquipPmTrafficRadioAgg24hrCurrBBE=genEquipPmTrafficRadioAgg24hrCurrBBE, genEquipPmEthernetIngressPolicer=genEquipPmEthernetIngressPolicer, genEquipPmRadioEthernetAverageThroughput=genEquipPmRadioEthernetAverageThroughput, genEquipPmTrafficRadioAgg24hrCurrIDF=genEquipPmTrafficRadioAgg24hrCurrIDF, genEquipPmTrafficSLMinRsl=genEquipPmTrafficSLMinRsl, genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex=genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsServiceIndex, genEquipPmEthernetRmonStatisticsRx1519_1522FrameCount=genEquipPmEthernetRmonStatisticsRx1519_1522FrameCount, genEquipPmEthernetPortTable=genEquipPmEthernetPortTable, genEquipPmTrafficRadioAgg15minCurrBBE=genEquipPmTrafficRadioAgg15minCurrBBE, genEquipPmPWMisOrderDropped=genEquipPmPWMisOrderDropped, genEquipPmRfuCommonSL24hrMaxTsl=genEquipPmRfuCommonSL24hrMaxTsl, genEquipPmEthernetIngressPolicerMulticastStatisticsYellowPacket=genEquipPmEthernetIngressPolicerMulticastStatisticsYellowPacket, genEquipPmEthernetIngressPolicerMulticastStatisticsGreenBytes=genEquipPmEthernetIngressPolicerMulticastStatisticsGreenBytes, genEquipPmEthernetRmonStatisticsRxExceedmaxFrameCount=genEquipPmEthernetRmonStatisticsRxExceedmaxFrameCount)
+mibBuilder.exportSymbols("MWRM-PM-MIB", genEquipPmUtilizationMemAdmin=genEquipPmUtilizationMemAdmin, genEquipPmTrailsEndPointInterval=genEquipPmTrailsEndPointInterval, genEquipPmRadioThresholdTable=genEquipPmRadioThresholdTable, genEquipPmRfuCommonSL24hrCurrEntry=genEquipPmRfuCommonSL24hrCurrEntry, genEquipPmEthernetIngressPolicerEtherType1StatisticsClearOnRead=genEquipPmEthernetIngressPolicerEtherType1StatisticsClearOnRead, genEquipPmTdmSES=genEquipPmTdmSES, genEquipPmSdhUAS=genEquipPmSdhUAS, genEquipPmTrailsEndPointNoOfSwitches=genEquipPmTrailsEndPointNoOfSwitches, genEquipPmNGPWIfIndex=genEquipPmNGPWIfIndex, genEquipPmNGPWPmType=genEquipPmNGPWPmType, genEquipPmEthernetPortRxPeakBytesLayer2=genEquipPmEthernetPortRxPeakBytesLayer2, genEquipPmEthernetRmonStatisticsTxControlFrameCount=genEquipPmEthernetRmonStatisticsTxControlFrameCount, genEquipPmTdmES=genEquipPmTdmES, genEquipPmEthernetPortEntry=genEquipPmEthernetPortEntry, genEquipPmTrafficRadioAgg15minCurrIDF=genEquipPmTrafficRadioAgg15minCurrIDF, genEquipPmRadioMRMCInterval=genEquipPmRadioMRMCInterval, genEquipPmSdhPmType=genEquipPmSdhPmType, genEquipPmRadioMRMCPmType=genEquipPmRadioMRMCPmType, genEquipPmRadioThresholdRSL2=genEquipPmRadioThresholdRSL2, genEquipPmEthernetRmonStatisticsTxMulticastFrameCount=genEquipPmEthernetRmonStatisticsTxMulticastFrameCount, genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBytes=genEquipServicesCETTmPmSpEgressQueuesAggragateStatisticsTransmittedYellowBytes, genEquipPmRadioTDMInterval=genEquipPmRadioTDMInterval, genEquipPmSdhRstLRIDF=genEquipPmSdhRstLRIDF, genEquipPmTrafficAggUAS=genEquipPmTrafficAggUAS, genEquipPmRfuCommonSL15minTimeAndDate=genEquipPmRfuCommonSL15minTimeAndDate, genEquipPmEthernetPortRxPeakBytesLayer1=genEquipPmEthernetPortRxPeakBytesLayer1, genEquipPmUtilizationMemInterval=genEquipPmUtilizationMemInterval)

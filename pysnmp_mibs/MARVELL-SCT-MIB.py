@@ -1,21 +1,22 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-rnd,=mibBuilder.importSymbols('RADLAN-MIB','rnd')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-rlSctMib=ModuleIdentity((1,3,6,1,4,1,89,203))
-_RlSctCpuRateEnabled_Type=TruthValue
-_RlSctCpuRateEnabled_Object=MibScalar
-rlSctCpuRateEnabled=_RlSctCpuRateEnabled_Object((1,3,6,1,4,1,89,203,1),_RlSctCpuRateEnabled_Type())
-rlSctCpuRateEnabled.setMaxAccess('read-write')
-if mibBuilder.loadTexts:rlSctCpuRateEnabled.setStatus(_A)
-_RlSctCpuRate_Type=Counter32
-_RlSctCpuRate_Object=MibScalar
-rlSctCpuRate=_RlSctCpuRate_Object((1,3,6,1,4,1,89,203,2),_RlSctCpuRate_Type())
-rlSctCpuRate.setMaxAccess('read-only')
-if mibBuilder.loadTexts:rlSctCpuRate.setStatus(_A)
-mibBuilder.exportSymbols('MARVELL-SCT-MIB',**{'rlSctMib':rlSctMib,'rlSctCpuRateEnabled':rlSctCpuRateEnabled,'rlSctCpuRate':rlSctCpuRate})
+#
+# PySNMP MIB module MARVELL-SCT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/radlan/MARVELL-SCT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:49 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+rlSctMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 203))
+if mibBuilder.loadTexts: rlSctMib.setLastUpdated('201008161234Z')
+if mibBuilder.loadTexts: rlSctMib.setOrganization('MARVELL Semiconductor, Inc.')
+rlSctCpuRateEnabled = MibScalar((1, 3, 6, 1, 4, 1, 89, 203, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlSctCpuRateEnabled.setStatus('current')
+rlSctCpuRate = MibScalar((1, 3, 6, 1, 4, 1, 89, 203, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSctCpuRate.setStatus('current')
+mibBuilder.exportSymbols("MARVELL-SCT-MIB", rlSctCpuRateEnabled=rlSctCpuRateEnabled, rlSctCpuRate=rlSctCpuRate, PYSNMP_MODULE_ID=rlSctMib, rlSctMib=rlSctMib)

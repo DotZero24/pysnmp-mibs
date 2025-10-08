@@ -1,137 +1,85 @@
-_W='forcesStatsGroup'
-_V='forcesNotificationStatsGroup'
-_U='forcesNotificationGroup'
-_T='forcesMibGroup'
-_S='forcesAssociationEntryDownStats'
-_R='forcesAssociationEntryUpStats'
-_Q='forcesAssociationEntryDown'
-_P='forcesAssociationEntryUp'
-_O='forcesLatestProtocolVersionSupported'
-_N='not-accessible'
-_M='forcesAssociationFEID'
-_L='forcesAssociationCEID'
-_K='forcesAssociationCounterDiscontinuityTime'
-_J='forcesAssociationOperMsgReceived'
-_I='forcesAssociationOperMsgSent'
-_H='forcesAssociationHBMsgReceived'
-_G='forcesAssociationHBMsgSent'
-_F='forcesAssociationTimeDown'
-_E='forcesAssociationTimeUp'
-_D='forcesAssociationRunningProtocolVersion'
-_C='read-only'
-_B='current'
-_A='FORCES-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ZeroBasedCounter32,=mibBuilder.importSymbols('RMON2-MIB','ZeroBasedCounter32')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
-DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp')
-forcesMib=ModuleIdentity((1,3,6,1,2,1,187))
-if mibBuilder.loadTexts:forcesMib.setRevisions(('2010-03-10 00:00',))
-class ForcesID(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
-class ForcesProtocolVersion(TextualConvention,Integer32):status=_B;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_ForcesMibNotifications_ObjectIdentity=ObjectIdentity
-forcesMibNotifications=_ForcesMibNotifications_ObjectIdentity((1,3,6,1,2,1,187,0))
-_ForcesMibObjects_ObjectIdentity=ObjectIdentity
-forcesMibObjects=_ForcesMibObjects_ObjectIdentity((1,3,6,1,2,1,187,1))
-_ForcesLatestProtocolVersionSupported_Type=ForcesProtocolVersion
-_ForcesLatestProtocolVersionSupported_Object=MibScalar
-forcesLatestProtocolVersionSupported=_ForcesLatestProtocolVersionSupported_Object((1,3,6,1,2,1,187,1,1),_ForcesLatestProtocolVersionSupported_Type())
-forcesLatestProtocolVersionSupported.setMaxAccess(_C)
-if mibBuilder.loadTexts:forcesLatestProtocolVersionSupported.setStatus(_B)
-_ForcesAssociations_ObjectIdentity=ObjectIdentity
-forcesAssociations=_ForcesAssociations_ObjectIdentity((1,3,6,1,2,1,187,1,2))
-_ForcesAssociationTable_Object=MibTable
-forcesAssociationTable=_ForcesAssociationTable_Object((1,3,6,1,2,1,187,1,2,1))
-if mibBuilder.loadTexts:forcesAssociationTable.setStatus(_B)
-_ForcesAssociationEntry_Object=MibTableRow
-forcesAssociationEntry=_ForcesAssociationEntry_Object((1,3,6,1,2,1,187,1,2,1,1))
-forcesAssociationEntry.setIndexNames((0,_A,_L),(0,_A,_M))
-if mibBuilder.loadTexts:forcesAssociationEntry.setStatus(_B)
-_ForcesAssociationCEID_Type=ForcesID
-_ForcesAssociationCEID_Object=MibTableColumn
-forcesAssociationCEID=_ForcesAssociationCEID_Object((1,3,6,1,2,1,187,1,2,1,1,1),_ForcesAssociationCEID_Type())
-forcesAssociationCEID.setMaxAccess(_N)
-if mibBuilder.loadTexts:forcesAssociationCEID.setStatus(_B)
-_ForcesAssociationFEID_Type=ForcesID
-_ForcesAssociationFEID_Object=MibTableColumn
-forcesAssociationFEID=_ForcesAssociationFEID_Object((1,3,6,1,2,1,187,1,2,1,1,2),_ForcesAssociationFEID_Type())
-forcesAssociationFEID.setMaxAccess(_N)
-if mibBuilder.loadTexts:forcesAssociationFEID.setStatus(_B)
-_ForcesAssociationRunningProtocolVersion_Type=ForcesProtocolVersion
-_ForcesAssociationRunningProtocolVersion_Object=MibTableColumn
-forcesAssociationRunningProtocolVersion=_ForcesAssociationRunningProtocolVersion_Object((1,3,6,1,2,1,187,1,2,1,1,3),_ForcesAssociationRunningProtocolVersion_Type())
-forcesAssociationRunningProtocolVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:forcesAssociationRunningProtocolVersion.setStatus(_B)
-_ForcesAssociationTimeUp_Type=TimeStamp
-_ForcesAssociationTimeUp_Object=MibTableColumn
-forcesAssociationTimeUp=_ForcesAssociationTimeUp_Object((1,3,6,1,2,1,187,1,2,1,1,4),_ForcesAssociationTimeUp_Type())
-forcesAssociationTimeUp.setMaxAccess(_C)
-if mibBuilder.loadTexts:forcesAssociationTimeUp.setStatus(_B)
-_ForcesAssociationTimeDown_Type=TimeStamp
-_ForcesAssociationTimeDown_Object=MibTableColumn
-forcesAssociationTimeDown=_ForcesAssociationTimeDown_Object((1,3,6,1,2,1,187,1,2,1,1,5),_ForcesAssociationTimeDown_Type())
-forcesAssociationTimeDown.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:forcesAssociationTimeDown.setStatus(_B)
-_ForcesAssociationHBMsgSent_Type=ZeroBasedCounter32
-_ForcesAssociationHBMsgSent_Object=MibTableColumn
-forcesAssociationHBMsgSent=_ForcesAssociationHBMsgSent_Object((1,3,6,1,2,1,187,1,2,1,1,6),_ForcesAssociationHBMsgSent_Type())
-forcesAssociationHBMsgSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:forcesAssociationHBMsgSent.setStatus(_B)
-_ForcesAssociationHBMsgReceived_Type=ZeroBasedCounter32
-_ForcesAssociationHBMsgReceived_Object=MibTableColumn
-forcesAssociationHBMsgReceived=_ForcesAssociationHBMsgReceived_Object((1,3,6,1,2,1,187,1,2,1,1,7),_ForcesAssociationHBMsgReceived_Type())
-forcesAssociationHBMsgReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:forcesAssociationHBMsgReceived.setStatus(_B)
-_ForcesAssociationOperMsgSent_Type=ZeroBasedCounter32
-_ForcesAssociationOperMsgSent_Object=MibTableColumn
-forcesAssociationOperMsgSent=_ForcesAssociationOperMsgSent_Object((1,3,6,1,2,1,187,1,2,1,1,8),_ForcesAssociationOperMsgSent_Type())
-forcesAssociationOperMsgSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:forcesAssociationOperMsgSent.setStatus(_B)
-_ForcesAssociationOperMsgReceived_Type=ZeroBasedCounter32
-_ForcesAssociationOperMsgReceived_Object=MibTableColumn
-forcesAssociationOperMsgReceived=_ForcesAssociationOperMsgReceived_Object((1,3,6,1,2,1,187,1,2,1,1,9),_ForcesAssociationOperMsgReceived_Type())
-forcesAssociationOperMsgReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:forcesAssociationOperMsgReceived.setStatus(_B)
-_ForcesAssociationCounterDiscontinuityTime_Type=TimeStamp
-_ForcesAssociationCounterDiscontinuityTime_Object=MibTableColumn
-forcesAssociationCounterDiscontinuityTime=_ForcesAssociationCounterDiscontinuityTime_Object((1,3,6,1,2,1,187,1,2,1,1,10),_ForcesAssociationCounterDiscontinuityTime_Type())
-forcesAssociationCounterDiscontinuityTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:forcesAssociationCounterDiscontinuityTime.setStatus(_B)
-_ForcesMibConformance_ObjectIdentity=ObjectIdentity
-forcesMibConformance=_ForcesMibConformance_ObjectIdentity((1,3,6,1,2,1,187,2))
-_ForcesMibCompliances_ObjectIdentity=ObjectIdentity
-forcesMibCompliances=_ForcesMibCompliances_ObjectIdentity((1,3,6,1,2,1,187,2,1))
-_ForcesMibGroups_ObjectIdentity=ObjectIdentity
-forcesMibGroups=_ForcesMibGroups_ObjectIdentity((1,3,6,1,2,1,187,2,2))
-forcesMibGroup=ObjectGroup((1,3,6,1,2,1,187,2,2,2))
-forcesMibGroup.setObjects(*((_A,_O),(_A,_D)))
-if mibBuilder.loadTexts:forcesMibGroup.setStatus(_B)
-forcesStatsGroup=ObjectGroup((1,3,6,1,2,1,187,2,2,4))
-forcesStatsGroup.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:forcesStatsGroup.setStatus(_B)
-forcesAssociationEntryUp=NotificationType((1,3,6,1,2,1,187,0,1))
-forcesAssociationEntryUp.setObjects((_A,_D))
-if mibBuilder.loadTexts:forcesAssociationEntryUp.setStatus(_B)
-forcesAssociationEntryDown=NotificationType((1,3,6,1,2,1,187,0,2))
-forcesAssociationEntryDown.setObjects((_A,_D))
-if mibBuilder.loadTexts:forcesAssociationEntryDown.setStatus(_B)
-forcesAssociationEntryUpStats=NotificationType((1,3,6,1,2,1,187,0,3))
-forcesAssociationEntryUpStats.setObjects(*((_A,_D),(_A,_E)))
-if mibBuilder.loadTexts:forcesAssociationEntryUpStats.setStatus(_B)
-forcesAssociationEntryDownStats=NotificationType((1,3,6,1,2,1,187,0,4))
-forcesAssociationEntryDownStats.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K)))
-if mibBuilder.loadTexts:forcesAssociationEntryDownStats.setStatus(_B)
-forcesNotificationGroup=NotificationGroup((1,3,6,1,2,1,187,2,2,1))
-forcesNotificationGroup.setObjects(*((_A,_P),(_A,_Q)))
-if mibBuilder.loadTexts:forcesNotificationGroup.setStatus(_B)
-forcesNotificationStatsGroup=NotificationGroup((1,3,6,1,2,1,187,2,2,3))
-forcesNotificationStatsGroup.setObjects(*((_A,_R),(_A,_S)))
-if mibBuilder.loadTexts:forcesNotificationStatsGroup.setStatus(_B)
-forcesMibCompliance=ModuleCompliance((1,3,6,1,2,1,187,2,1,1))
-forcesMibCompliance.setObjects(*((_A,_T),(_A,_U),(_A,_V),(_A,_W)))
-if mibBuilder.loadTexts:forcesMibCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ForcesID':ForcesID,'ForcesProtocolVersion':ForcesProtocolVersion,'forcesMib':forcesMib,'forcesMibNotifications':forcesMibNotifications,_P:forcesAssociationEntryUp,_Q:forcesAssociationEntryDown,_R:forcesAssociationEntryUpStats,_S:forcesAssociationEntryDownStats,'forcesMibObjects':forcesMibObjects,_O:forcesLatestProtocolVersionSupported,'forcesAssociations':forcesAssociations,'forcesAssociationTable':forcesAssociationTable,'forcesAssociationEntry':forcesAssociationEntry,_L:forcesAssociationCEID,_M:forcesAssociationFEID,_D:forcesAssociationRunningProtocolVersion,_E:forcesAssociationTimeUp,_F:forcesAssociationTimeDown,_G:forcesAssociationHBMsgSent,_H:forcesAssociationHBMsgReceived,_I:forcesAssociationOperMsgSent,_J:forcesAssociationOperMsgReceived,_K:forcesAssociationCounterDiscontinuityTime,'forcesMibConformance':forcesMibConformance,'forcesMibCompliances':forcesMibCompliances,'forcesMibCompliance':forcesMibCompliance,'forcesMibGroups':forcesMibGroups,_U:forcesNotificationGroup,_T:forcesMibGroup,_V:forcesNotificationStatsGroup,_W:forcesStatsGroup})
+#
+# PySNMP MIB module FORCES-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/FORCES-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:26:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ZeroBasedCounter32, = mibBuilder.importSymbols("RMON2-MIB", "ZeroBasedCounter32")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, TimeTicks, MibIdentifier, Integer32, Bits, mib_2, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "TimeTicks", "MibIdentifier", "Integer32", "Bits", "mib-2", "IpAddress")
+TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+forcesMib = ModuleIdentity((1, 3, 6, 1, 2, 1, 187))
+forcesMib.setRevisions(('2010-03-10 00:00',))
+if mibBuilder.loadTexts: forcesMib.setLastUpdated('201003100000Z')
+if mibBuilder.loadTexts: forcesMib.setOrganization('IETF Forwarding and Control Element Separation (ForCES) Working Group')
+forcesMibNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 187, 0))
+forcesMibObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 187, 1))
+forcesMibConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 187, 2))
+class ForcesID(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
+    fixedLength = 4
+
+class ForcesProtocolVersion(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 255)
+
+forcesAssociationEntryUp = NotificationType((1, 3, 6, 1, 2, 1, 187, 0, 1)).setObjects(("FORCES-MIB", "forcesAssociationRunningProtocolVersion"))
+if mibBuilder.loadTexts: forcesAssociationEntryUp.setStatus('current')
+forcesAssociationEntryDown = NotificationType((1, 3, 6, 1, 2, 1, 187, 0, 2)).setObjects(("FORCES-MIB", "forcesAssociationRunningProtocolVersion"))
+if mibBuilder.loadTexts: forcesAssociationEntryDown.setStatus('current')
+forcesAssociationEntryUpStats = NotificationType((1, 3, 6, 1, 2, 1, 187, 0, 3)).setObjects(("FORCES-MIB", "forcesAssociationRunningProtocolVersion"), ("FORCES-MIB", "forcesAssociationTimeUp"))
+if mibBuilder.loadTexts: forcesAssociationEntryUpStats.setStatus('current')
+forcesAssociationEntryDownStats = NotificationType((1, 3, 6, 1, 2, 1, 187, 0, 4)).setObjects(("FORCES-MIB", "forcesAssociationRunningProtocolVersion"), ("FORCES-MIB", "forcesAssociationTimeUp"), ("FORCES-MIB", "forcesAssociationTimeDown"), ("FORCES-MIB", "forcesAssociationHBMsgSent"), ("FORCES-MIB", "forcesAssociationHBMsgReceived"), ("FORCES-MIB", "forcesAssociationOperMsgSent"), ("FORCES-MIB", "forcesAssociationOperMsgReceived"), ("FORCES-MIB", "forcesAssociationCounterDiscontinuityTime"))
+if mibBuilder.loadTexts: forcesAssociationEntryDownStats.setStatus('current')
+forcesLatestProtocolVersionSupported = MibScalar((1, 3, 6, 1, 2, 1, 187, 1, 1), ForcesProtocolVersion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: forcesLatestProtocolVersionSupported.setStatus('current')
+forcesAssociations = MibIdentifier((1, 3, 6, 1, 2, 1, 187, 1, 2))
+forcesAssociationTable = MibTable((1, 3, 6, 1, 2, 1, 187, 1, 2, 1), )
+if mibBuilder.loadTexts: forcesAssociationTable.setStatus('current')
+forcesAssociationEntry = MibTableRow((1, 3, 6, 1, 2, 1, 187, 1, 2, 1, 1), ).setIndexNames((0, "FORCES-MIB", "forcesAssociationCEID"), (0, "FORCES-MIB", "forcesAssociationFEID"))
+if mibBuilder.loadTexts: forcesAssociationEntry.setStatus('current')
+forcesAssociationCEID = MibTableColumn((1, 3, 6, 1, 2, 1, 187, 1, 2, 1, 1, 1), ForcesID())
+if mibBuilder.loadTexts: forcesAssociationCEID.setStatus('current')
+forcesAssociationFEID = MibTableColumn((1, 3, 6, 1, 2, 1, 187, 1, 2, 1, 1, 2), ForcesID())
+if mibBuilder.loadTexts: forcesAssociationFEID.setStatus('current')
+forcesAssociationRunningProtocolVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 187, 1, 2, 1, 1, 3), ForcesProtocolVersion()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: forcesAssociationRunningProtocolVersion.setStatus('current')
+forcesAssociationTimeUp = MibTableColumn((1, 3, 6, 1, 2, 1, 187, 1, 2, 1, 1, 4), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: forcesAssociationTimeUp.setStatus('current')
+forcesAssociationTimeDown = MibTableColumn((1, 3, 6, 1, 2, 1, 187, 1, 2, 1, 1, 5), TimeStamp()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: forcesAssociationTimeDown.setStatus('current')
+forcesAssociationHBMsgSent = MibTableColumn((1, 3, 6, 1, 2, 1, 187, 1, 2, 1, 1, 6), ZeroBasedCounter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: forcesAssociationHBMsgSent.setStatus('current')
+forcesAssociationHBMsgReceived = MibTableColumn((1, 3, 6, 1, 2, 1, 187, 1, 2, 1, 1, 7), ZeroBasedCounter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: forcesAssociationHBMsgReceived.setStatus('current')
+forcesAssociationOperMsgSent = MibTableColumn((1, 3, 6, 1, 2, 1, 187, 1, 2, 1, 1, 8), ZeroBasedCounter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: forcesAssociationOperMsgSent.setStatus('current')
+forcesAssociationOperMsgReceived = MibTableColumn((1, 3, 6, 1, 2, 1, 187, 1, 2, 1, 1, 9), ZeroBasedCounter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: forcesAssociationOperMsgReceived.setStatus('current')
+forcesAssociationCounterDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 2, 1, 187, 1, 2, 1, 1, 10), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: forcesAssociationCounterDiscontinuityTime.setStatus('current')
+forcesMibCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 187, 2, 1))
+forcesMibGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 187, 2, 2))
+forcesMibCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 187, 2, 1, 1)).setObjects(("FORCES-MIB", "forcesMibGroup"), ("FORCES-MIB", "forcesNotificationGroup"), ("FORCES-MIB", "forcesNotificationStatsGroup"), ("FORCES-MIB", "forcesStatsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    forcesMibCompliance = forcesMibCompliance.setStatus('current')
+forcesNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 187, 2, 2, 1)).setObjects(("FORCES-MIB", "forcesAssociationEntryUp"), ("FORCES-MIB", "forcesAssociationEntryDown"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    forcesNotificationGroup = forcesNotificationGroup.setStatus('current')
+forcesMibGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 187, 2, 2, 2)).setObjects(("FORCES-MIB", "forcesLatestProtocolVersionSupported"), ("FORCES-MIB", "forcesAssociationRunningProtocolVersion"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    forcesMibGroup = forcesMibGroup.setStatus('current')
+forcesNotificationStatsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 187, 2, 2, 3)).setObjects(("FORCES-MIB", "forcesAssociationEntryUpStats"), ("FORCES-MIB", "forcesAssociationEntryDownStats"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    forcesNotificationStatsGroup = forcesNotificationStatsGroup.setStatus('current')
+forcesStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 187, 2, 2, 4)).setObjects(("FORCES-MIB", "forcesAssociationTimeUp"), ("FORCES-MIB", "forcesAssociationTimeDown"), ("FORCES-MIB", "forcesAssociationHBMsgSent"), ("FORCES-MIB", "forcesAssociationHBMsgReceived"), ("FORCES-MIB", "forcesAssociationOperMsgSent"), ("FORCES-MIB", "forcesAssociationOperMsgReceived"), ("FORCES-MIB", "forcesAssociationCounterDiscontinuityTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    forcesStatsGroup = forcesStatsGroup.setStatus('current')
+mibBuilder.exportSymbols("FORCES-MIB", forcesAssociationEntryDown=forcesAssociationEntryDown, forcesMib=forcesMib, forcesAssociationEntry=forcesAssociationEntry, ForcesID=ForcesID, forcesAssociationCounterDiscontinuityTime=forcesAssociationCounterDiscontinuityTime, forcesAssociationEntryDownStats=forcesAssociationEntryDownStats, forcesAssociationRunningProtocolVersion=forcesAssociationRunningProtocolVersion, forcesAssociationCEID=forcesAssociationCEID, forcesMibConformance=forcesMibConformance, forcesAssociationTimeDown=forcesAssociationTimeDown, forcesNotificationGroup=forcesNotificationGroup, forcesMibCompliance=forcesMibCompliance, forcesMibNotifications=forcesMibNotifications, forcesAssociationHBMsgSent=forcesAssociationHBMsgSent, forcesLatestProtocolVersionSupported=forcesLatestProtocolVersionSupported, forcesAssociationTable=forcesAssociationTable, forcesMibGroup=forcesMibGroup, forcesAssociationTimeUp=forcesAssociationTimeUp, forcesAssociationOperMsgSent=forcesAssociationOperMsgSent, forcesAssociationEntryUpStats=forcesAssociationEntryUpStats, forcesAssociationEntryUp=forcesAssociationEntryUp, forcesNotificationStatsGroup=forcesNotificationStatsGroup, forcesAssociationFEID=forcesAssociationFEID, forcesMibGroups=forcesMibGroups, PYSNMP_MODULE_ID=forcesMib, forcesMibCompliances=forcesMibCompliances, forcesAssociations=forcesAssociations, ForcesProtocolVersion=ForcesProtocolVersion, forcesStatsGroup=forcesStatsGroup, forcesAssociationHBMsgReceived=forcesAssociationHBMsgReceived, forcesMibObjects=forcesMibObjects, forcesAssociationOperMsgReceived=forcesAssociationOperMsgReceived)

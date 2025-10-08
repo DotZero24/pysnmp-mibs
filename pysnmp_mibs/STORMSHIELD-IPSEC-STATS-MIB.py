@@ -1,47 +1,33 @@
-_B='current'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-stormshieldMIB,=mibBuilder.importSymbols('STORMSHIELD-SMI-MIB','stormshieldMIB')
-snsIPSECStats=ModuleIdentity((1,3,6,1,4,1,11256,1,13))
-if mibBuilder.loadTexts:snsIPSECStats.setRevisions(('2017-02-20 00:00',))
-_SnsIPSECStatsSPD_ObjectIdentity=ObjectIdentity
-snsIPSECStatsSPD=_SnsIPSECStatsSPD_ObjectIdentity((1,3,6,1,4,1,11256,1,13,1))
-_SnsIPSECStatsSPDIn_Type=Counter64
-_SnsIPSECStatsSPDIn_Object=MibScalar
-snsIPSECStatsSPDIn=_SnsIPSECStatsSPDIn_Object((1,3,6,1,4,1,11256,1,13,1,1),_SnsIPSECStatsSPDIn_Type())
-snsIPSECStatsSPDIn.setMaxAccess(_A)
-if mibBuilder.loadTexts:snsIPSECStatsSPDIn.setStatus(_B)
-_SnsIPSECStatsSPDOut_Type=Counter64
-_SnsIPSECStatsSPDOut_Object=MibScalar
-snsIPSECStatsSPDOut=_SnsIPSECStatsSPDOut_Object((1,3,6,1,4,1,11256,1,13,1,2),_SnsIPSECStatsSPDOut_Type())
-snsIPSECStatsSPDOut.setMaxAccess(_A)
-if mibBuilder.loadTexts:snsIPSECStatsSPDOut.setStatus(_B)
-_SnsIPSECStatsSAD_ObjectIdentity=ObjectIdentity
-snsIPSECStatsSAD=_SnsIPSECStatsSAD_ObjectIdentity((1,3,6,1,4,1,11256,1,13,2))
-_SnsIPSECStatsSADLarval_Type=Counter64
-_SnsIPSECStatsSADLarval_Object=MibScalar
-snsIPSECStatsSADLarval=_SnsIPSECStatsSADLarval_Object((1,3,6,1,4,1,11256,1,13,2,1),_SnsIPSECStatsSADLarval_Type())
-snsIPSECStatsSADLarval.setMaxAccess(_A)
-if mibBuilder.loadTexts:snsIPSECStatsSADLarval.setStatus(_B)
-_SnsIPSECStatsSADMature_Type=Counter64
-_SnsIPSECStatsSADMature_Object=MibScalar
-snsIPSECStatsSADMature=_SnsIPSECStatsSADMature_Object((1,3,6,1,4,1,11256,1,13,2,2),_SnsIPSECStatsSADMature_Type())
-snsIPSECStatsSADMature.setMaxAccess(_A)
-if mibBuilder.loadTexts:snsIPSECStatsSADMature.setStatus(_B)
-_SnsIPSECStatsSADDying_Type=Counter64
-_SnsIPSECStatsSADDying_Object=MibScalar
-snsIPSECStatsSADDying=_SnsIPSECStatsSADDying_Object((1,3,6,1,4,1,11256,1,13,2,3),_SnsIPSECStatsSADDying_Type())
-snsIPSECStatsSADDying.setMaxAccess(_A)
-if mibBuilder.loadTexts:snsIPSECStatsSADDying.setStatus(_B)
-_SnsIPSECStatsSADDead_Type=Counter64
-_SnsIPSECStatsSADDead_Object=MibScalar
-snsIPSECStatsSADDead=_SnsIPSECStatsSADDead_Object((1,3,6,1,4,1,11256,1,13,2,4),_SnsIPSECStatsSADDead_Type())
-snsIPSECStatsSADDead.setMaxAccess(_A)
-if mibBuilder.loadTexts:snsIPSECStatsSADDead.setStatus(_B)
-mibBuilder.exportSymbols('STORMSHIELD-IPSEC-STATS-MIB',**{'snsIPSECStats':snsIPSECStats,'snsIPSECStatsSPD':snsIPSECStatsSPD,'snsIPSECStatsSPDIn':snsIPSECStatsSPDIn,'snsIPSECStatsSPDOut':snsIPSECStatsSPDOut,'snsIPSECStatsSAD':snsIPSECStatsSAD,'snsIPSECStatsSADLarval':snsIPSECStatsSADLarval,'snsIPSECStatsSADMature':snsIPSECStatsSADMature,'snsIPSECStatsSADDying':snsIPSECStatsSADDying,'snsIPSECStatsSADDead':snsIPSECStatsSADDead})
+#
+# PySNMP MIB module STORMSHIELD-IPSEC-STATS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/stormshield/STORMSHIELD-IPSEC-STATS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:17 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
+snsIPSECStats = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 13))
+snsIPSECStats.setRevisions(('2017-02-20 00:00',))
+if mibBuilder.loadTexts: snsIPSECStats.setLastUpdated('201702200000Z')
+if mibBuilder.loadTexts: snsIPSECStats.setOrganization('Stormshield')
+snsIPSECStatsSPD = MibIdentifier((1, 3, 6, 1, 4, 1, 11256, 1, 13, 1))
+snsIPSECStatsSAD = MibIdentifier((1, 3, 6, 1, 4, 1, 11256, 1, 13, 2))
+snsIPSECStatsSPDIn = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 13, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsIPSECStatsSPDIn.setStatus('current')
+snsIPSECStatsSPDOut = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 13, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsIPSECStatsSPDOut.setStatus('current')
+snsIPSECStatsSADLarval = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 13, 2, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsIPSECStatsSADLarval.setStatus('current')
+snsIPSECStatsSADMature = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 13, 2, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsIPSECStatsSADMature.setStatus('current')
+snsIPSECStatsSADDying = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 13, 2, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsIPSECStatsSADDying.setStatus('current')
+snsIPSECStatsSADDead = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 13, 2, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snsIPSECStatsSADDead.setStatus('current')
+mibBuilder.exportSymbols("STORMSHIELD-IPSEC-STATS-MIB", PYSNMP_MODULE_ID=snsIPSECStats, snsIPSECStats=snsIPSECStats, snsIPSECStatsSPDIn=snsIPSECStatsSPDIn, snsIPSECStatsSADMature=snsIPSECStatsSADMature, snsIPSECStatsSPDOut=snsIPSECStatsSPDOut, snsIPSECStatsSPD=snsIPSECStatsSPD, snsIPSECStatsSADLarval=snsIPSECStatsSADLarval, snsIPSECStatsSADDead=snsIPSECStatsSADDead, snsIPSECStatsSAD=snsIPSECStatsSAD, snsIPSECStatsSADDying=snsIPSECStatsSADDying)

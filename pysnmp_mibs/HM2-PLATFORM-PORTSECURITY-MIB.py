@@ -1,205 +1,92 @@
-_R='hm2AgentPortSecurityLastDiscardedMAC'
-_Q='hm2AgentPortSecurityStaticIpAddress'
-_P='hm2AgentPortSecurityStaticIpVLANId'
-_O='hm2AgentPortSecurityStaticMACAddress'
-_N='hm2AgentPortSecurityStaticVLANId'
-_M='hm2AgentPortSecurityDynamicMACAddress'
-_L='hm2AgentPortSecurityDynamicVLANId'
-_K='TruthValue'
-_J='Integer32'
-_I='DisplayString'
-_H='Unsigned32'
-_G='HmEnabledStatus'
-_F='ifIndex'
-_E='IF-MIB'
-_D='HM2-PLATFORM-PORTSECURITY-MIB'
-_C='read-only'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-HmEnabledStatus,hm2PlatformMibs=mibBuilder.importSymbols('HM2-TC-MIB',_G,'hm2PlatformMibs')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_J,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_H,'iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_I,'MacAddress','PhysAddress','TextualConvention',_K)
-hm2PlatformPortSecurity=ModuleIdentity((1,3,6,1,4,1,248,12,20))
-if mibBuilder.loadTexts:hm2PlatformPortSecurity.setRevisions(('2011-07-12 00:00',))
-_Hm2AgentPortSecurityGroup_ObjectIdentity=ObjectIdentity
-hm2AgentPortSecurityGroup=_Hm2AgentPortSecurityGroup_ObjectIdentity((1,3,6,1,4,1,248,12,20,1))
-class _Hm2AgentGlobalPortSecurityMode_Type(HmEnabledStatus):defaultValue=2
-_Hm2AgentGlobalPortSecurityMode_Type.__name__=_G
-_Hm2AgentGlobalPortSecurityMode_Object=MibScalar
-hm2AgentGlobalPortSecurityMode=_Hm2AgentGlobalPortSecurityMode_Object((1,3,6,1,4,1,248,12,20,1,1),_Hm2AgentGlobalPortSecurityMode_Type())
-hm2AgentGlobalPortSecurityMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2AgentGlobalPortSecurityMode.setStatus(_A)
-_Hm2AgentPortSecurityTable_Object=MibTable
-hm2AgentPortSecurityTable=_Hm2AgentPortSecurityTable_Object((1,3,6,1,4,1,248,12,20,1,2))
-if mibBuilder.loadTexts:hm2AgentPortSecurityTable.setStatus(_A)
-_Hm2AgentPortSecurityEntry_Object=MibTableRow
-hm2AgentPortSecurityEntry=_Hm2AgentPortSecurityEntry_Object((1,3,6,1,4,1,248,12,20,1,2,1))
-hm2AgentPortSecurityEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:hm2AgentPortSecurityEntry.setStatus(_A)
-class _Hm2AgentPortSecurityMode_Type(HmEnabledStatus):defaultValue=2
-_Hm2AgentPortSecurityMode_Type.__name__=_G
-_Hm2AgentPortSecurityMode_Object=MibTableColumn
-hm2AgentPortSecurityMode=_Hm2AgentPortSecurityMode_Object((1,3,6,1,4,1,248,12,20,1,2,1,1),_Hm2AgentPortSecurityMode_Type())
-hm2AgentPortSecurityMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2AgentPortSecurityMode.setStatus(_A)
-class _Hm2AgentPortSecurityDynamicLimit_Type(Unsigned32):defaultValue=600;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,600))
-_Hm2AgentPortSecurityDynamicLimit_Type.__name__=_H
-_Hm2AgentPortSecurityDynamicLimit_Object=MibTableColumn
-hm2AgentPortSecurityDynamicLimit=_Hm2AgentPortSecurityDynamicLimit_Object((1,3,6,1,4,1,248,12,20,1,2,1,2),_Hm2AgentPortSecurityDynamicLimit_Type())
-hm2AgentPortSecurityDynamicLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2AgentPortSecurityDynamicLimit.setStatus(_A)
-class _Hm2AgentPortSecurityStaticLimit_Type(Unsigned32):defaultValue=64;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,64))
-_Hm2AgentPortSecurityStaticLimit_Type.__name__=_H
-_Hm2AgentPortSecurityStaticLimit_Object=MibTableColumn
-hm2AgentPortSecurityStaticLimit=_Hm2AgentPortSecurityStaticLimit_Object((1,3,6,1,4,1,248,12,20,1,2,1,3),_Hm2AgentPortSecurityStaticLimit_Type())
-hm2AgentPortSecurityStaticLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2AgentPortSecurityStaticLimit.setStatus(_A)
-class _Hm2AgentPortSecurityViolationTrapMode_Type(HmEnabledStatus):defaultValue=2
-_Hm2AgentPortSecurityViolationTrapMode_Type.__name__=_G
-_Hm2AgentPortSecurityViolationTrapMode_Object=MibTableColumn
-hm2AgentPortSecurityViolationTrapMode=_Hm2AgentPortSecurityViolationTrapMode_Object((1,3,6,1,4,1,248,12,20,1,2,1,4),_Hm2AgentPortSecurityViolationTrapMode_Type())
-hm2AgentPortSecurityViolationTrapMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2AgentPortSecurityViolationTrapMode.setStatus(_A)
-class _Hm2AgentPortSecurityStaticMACs_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1536))
-_Hm2AgentPortSecurityStaticMACs_Type.__name__=_I
-_Hm2AgentPortSecurityStaticMACs_Object=MibTableColumn
-hm2AgentPortSecurityStaticMACs=_Hm2AgentPortSecurityStaticMACs_Object((1,3,6,1,4,1,248,12,20,1,2,1,6),_Hm2AgentPortSecurityStaticMACs_Type())
-hm2AgentPortSecurityStaticMACs.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2AgentPortSecurityStaticMACs.setStatus(_A)
-_Hm2AgentPortSecurityLastDiscardedMAC_Type=DisplayString
-_Hm2AgentPortSecurityLastDiscardedMAC_Object=MibTableColumn
-hm2AgentPortSecurityLastDiscardedMAC=_Hm2AgentPortSecurityLastDiscardedMAC_Object((1,3,6,1,4,1,248,12,20,1,2,1,7),_Hm2AgentPortSecurityLastDiscardedMAC_Type())
-hm2AgentPortSecurityLastDiscardedMAC.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2AgentPortSecurityLastDiscardedMAC.setStatus(_A)
-_Hm2AgentPortSecurityMACAddressAdd_Type=DisplayString
-_Hm2AgentPortSecurityMACAddressAdd_Object=MibTableColumn
-hm2AgentPortSecurityMACAddressAdd=_Hm2AgentPortSecurityMACAddressAdd_Object((1,3,6,1,4,1,248,12,20,1,2,1,8),_Hm2AgentPortSecurityMACAddressAdd_Type())
-hm2AgentPortSecurityMACAddressAdd.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2AgentPortSecurityMACAddressAdd.setStatus(_A)
-_Hm2AgentPortSecurityMACAddressRemove_Type=DisplayString
-_Hm2AgentPortSecurityMACAddressRemove_Object=MibTableColumn
-hm2AgentPortSecurityMACAddressRemove=_Hm2AgentPortSecurityMACAddressRemove_Object((1,3,6,1,4,1,248,12,20,1,2,1,9),_Hm2AgentPortSecurityMACAddressRemove_Type())
-hm2AgentPortSecurityMACAddressRemove.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2AgentPortSecurityMACAddressRemove.setStatus(_A)
-_Hm2AgentPortSecurityMACAddressMove_Type=HmEnabledStatus
-_Hm2AgentPortSecurityMACAddressMove_Object=MibTableColumn
-hm2AgentPortSecurityMACAddressMove=_Hm2AgentPortSecurityMACAddressMove_Object((1,3,6,1,4,1,248,12,20,1,2,1,10),_Hm2AgentPortSecurityMACAddressMove_Type())
-hm2AgentPortSecurityMACAddressMove.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2AgentPortSecurityMACAddressMove.setStatus(_A)
-_Hm2AgentPortSecurityDynamicCount_Type=Unsigned32
-_Hm2AgentPortSecurityDynamicCount_Object=MibTableColumn
-hm2AgentPortSecurityDynamicCount=_Hm2AgentPortSecurityDynamicCount_Object((1,3,6,1,4,1,248,12,20,1,2,1,20),_Hm2AgentPortSecurityDynamicCount_Type())
-hm2AgentPortSecurityDynamicCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2AgentPortSecurityDynamicCount.setStatus(_A)
-_Hm2AgentPortSecurityStaticCount_Type=Unsigned32
-_Hm2AgentPortSecurityStaticCount_Object=MibTableColumn
-hm2AgentPortSecurityStaticCount=_Hm2AgentPortSecurityStaticCount_Object((1,3,6,1,4,1,248,12,20,1,2,1,21),_Hm2AgentPortSecurityStaticCount_Type())
-hm2AgentPortSecurityStaticCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2AgentPortSecurityStaticCount.setStatus(_A)
-_Hm2AgentPortSecurityViolationTrapCount_Type=Unsigned32
-_Hm2AgentPortSecurityViolationTrapCount_Object=MibTableColumn
-hm2AgentPortSecurityViolationTrapCount=_Hm2AgentPortSecurityViolationTrapCount_Object((1,3,6,1,4,1,248,12,20,1,2,1,22),_Hm2AgentPortSecurityViolationTrapCount_Type())
-hm2AgentPortSecurityViolationTrapCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2AgentPortSecurityViolationTrapCount.setStatus(_A)
-class _Hm2AgentPortSecurityViolationTrapFrequency_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3600))
-_Hm2AgentPortSecurityViolationTrapFrequency_Type.__name__=_H
-_Hm2AgentPortSecurityViolationTrapFrequency_Object=MibTableColumn
-hm2AgentPortSecurityViolationTrapFrequency=_Hm2AgentPortSecurityViolationTrapFrequency_Object((1,3,6,1,4,1,248,12,20,1,2,1,23),_Hm2AgentPortSecurityViolationTrapFrequency_Type())
-hm2AgentPortSecurityViolationTrapFrequency.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2AgentPortSecurityViolationTrapFrequency.setStatus(_A)
-class _Hm2AgentPortSecurityAutoDisable_Type(TruthValue):defaultValue=1
-_Hm2AgentPortSecurityAutoDisable_Type.__name__=_K
-_Hm2AgentPortSecurityAutoDisable_Object=MibTableColumn
-hm2AgentPortSecurityAutoDisable=_Hm2AgentPortSecurityAutoDisable_Object((1,3,6,1,4,1,248,12,20,1,2,1,248),_Hm2AgentPortSecurityAutoDisable_Type())
-hm2AgentPortSecurityAutoDisable.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2AgentPortSecurityAutoDisable.setStatus(_A)
-_Hm2AgentPortSecurityStaticIpCount_Type=Unsigned32
-_Hm2AgentPortSecurityStaticIpCount_Object=MibTableColumn
-hm2AgentPortSecurityStaticIpCount=_Hm2AgentPortSecurityStaticIpCount_Object((1,3,6,1,4,1,248,12,20,1,2,1,249),_Hm2AgentPortSecurityStaticIpCount_Type())
-hm2AgentPortSecurityStaticIpCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2AgentPortSecurityStaticIpCount.setStatus(_A)
-class _Hm2AgentPortSecurityStaticIPs_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1536))
-_Hm2AgentPortSecurityStaticIPs_Type.__name__=_I
-_Hm2AgentPortSecurityStaticIPs_Object=MibTableColumn
-hm2AgentPortSecurityStaticIPs=_Hm2AgentPortSecurityStaticIPs_Object((1,3,6,1,4,1,248,12,20,1,2,1,250),_Hm2AgentPortSecurityStaticIPs_Type())
-hm2AgentPortSecurityStaticIPs.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2AgentPortSecurityStaticIPs.setStatus(_A)
-_Hm2AgentPortSecurityIPAddressAdd_Type=DisplayString
-_Hm2AgentPortSecurityIPAddressAdd_Object=MibTableColumn
-hm2AgentPortSecurityIPAddressAdd=_Hm2AgentPortSecurityIPAddressAdd_Object((1,3,6,1,4,1,248,12,20,1,2,1,251),_Hm2AgentPortSecurityIPAddressAdd_Type())
-hm2AgentPortSecurityIPAddressAdd.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2AgentPortSecurityIPAddressAdd.setStatus(_A)
-_Hm2AgentPortSecurityIPAddressRemove_Type=DisplayString
-_Hm2AgentPortSecurityIPAddressRemove_Object=MibTableColumn
-hm2AgentPortSecurityIPAddressRemove=_Hm2AgentPortSecurityIPAddressRemove_Object((1,3,6,1,4,1,248,12,20,1,2,1,252),_Hm2AgentPortSecurityIPAddressRemove_Type())
-hm2AgentPortSecurityIPAddressRemove.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2AgentPortSecurityIPAddressRemove.setStatus(_A)
-_Hm2AgentPortSecurityDynamicTable_Object=MibTable
-hm2AgentPortSecurityDynamicTable=_Hm2AgentPortSecurityDynamicTable_Object((1,3,6,1,4,1,248,12,20,1,3))
-if mibBuilder.loadTexts:hm2AgentPortSecurityDynamicTable.setStatus(_A)
-_Hm2AgentPortSecurityDynamicEntry_Object=MibTableRow
-hm2AgentPortSecurityDynamicEntry=_Hm2AgentPortSecurityDynamicEntry_Object((1,3,6,1,4,1,248,12,20,1,3,1))
-hm2AgentPortSecurityDynamicEntry.setIndexNames((0,_E,_F),(0,_D,_L),(0,_D,_M))
-if mibBuilder.loadTexts:hm2AgentPortSecurityDynamicEntry.setStatus(_A)
-_Hm2AgentPortSecurityDynamicVLANId_Type=Unsigned32
-_Hm2AgentPortSecurityDynamicVLANId_Object=MibTableColumn
-hm2AgentPortSecurityDynamicVLANId=_Hm2AgentPortSecurityDynamicVLANId_Object((1,3,6,1,4,1,248,12,20,1,3,1,1),_Hm2AgentPortSecurityDynamicVLANId_Type())
-hm2AgentPortSecurityDynamicVLANId.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2AgentPortSecurityDynamicVLANId.setStatus(_A)
-_Hm2AgentPortSecurityDynamicMACAddress_Type=MacAddress
-_Hm2AgentPortSecurityDynamicMACAddress_Object=MibTableColumn
-hm2AgentPortSecurityDynamicMACAddress=_Hm2AgentPortSecurityDynamicMACAddress_Object((1,3,6,1,4,1,248,12,20,1,3,1,2),_Hm2AgentPortSecurityDynamicMACAddress_Type())
-hm2AgentPortSecurityDynamicMACAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2AgentPortSecurityDynamicMACAddress.setStatus(_A)
-_Hm2AgentPortSecurityStaticTable_Object=MibTable
-hm2AgentPortSecurityStaticTable=_Hm2AgentPortSecurityStaticTable_Object((1,3,6,1,4,1,248,12,20,1,10))
-if mibBuilder.loadTexts:hm2AgentPortSecurityStaticTable.setStatus(_A)
-_Hm2AgentPortSecurityStaticEntry_Object=MibTableRow
-hm2AgentPortSecurityStaticEntry=_Hm2AgentPortSecurityStaticEntry_Object((1,3,6,1,4,1,248,12,20,1,10,1))
-hm2AgentPortSecurityStaticEntry.setIndexNames((0,_E,_F),(0,_D,_N),(0,_D,_O))
-if mibBuilder.loadTexts:hm2AgentPortSecurityStaticEntry.setStatus(_A)
-_Hm2AgentPortSecurityStaticVLANId_Type=Unsigned32
-_Hm2AgentPortSecurityStaticVLANId_Object=MibTableColumn
-hm2AgentPortSecurityStaticVLANId=_Hm2AgentPortSecurityStaticVLANId_Object((1,3,6,1,4,1,248,12,20,1,10,1,1),_Hm2AgentPortSecurityStaticVLANId_Type())
-hm2AgentPortSecurityStaticVLANId.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2AgentPortSecurityStaticVLANId.setStatus(_A)
-_Hm2AgentPortSecurityStaticMACAddress_Type=MacAddress
-_Hm2AgentPortSecurityStaticMACAddress_Object=MibTableColumn
-hm2AgentPortSecurityStaticMACAddress=_Hm2AgentPortSecurityStaticMACAddress_Object((1,3,6,1,4,1,248,12,20,1,10,1,2),_Hm2AgentPortSecurityStaticMACAddress_Type())
-hm2AgentPortSecurityStaticMACAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2AgentPortSecurityStaticMACAddress.setStatus(_A)
-_Hm2AgentPortSecurityIpStaticTable_Object=MibTable
-hm2AgentPortSecurityIpStaticTable=_Hm2AgentPortSecurityIpStaticTable_Object((1,3,6,1,4,1,248,12,20,1,11))
-if mibBuilder.loadTexts:hm2AgentPortSecurityIpStaticTable.setStatus(_A)
-_Hm2AgentPortSecurityIpStaticEntry_Object=MibTableRow
-hm2AgentPortSecurityIpStaticEntry=_Hm2AgentPortSecurityIpStaticEntry_Object((1,3,6,1,4,1,248,12,20,1,11,1))
-hm2AgentPortSecurityIpStaticEntry.setIndexNames((0,_E,_F),(0,_D,_P),(0,_D,_Q))
-if mibBuilder.loadTexts:hm2AgentPortSecurityIpStaticEntry.setStatus(_A)
-_Hm2AgentPortSecurityStaticIpVLANId_Type=Unsigned32
-_Hm2AgentPortSecurityStaticIpVLANId_Object=MibTableColumn
-hm2AgentPortSecurityStaticIpVLANId=_Hm2AgentPortSecurityStaticIpVLANId_Object((1,3,6,1,4,1,248,12,20,1,11,1,1),_Hm2AgentPortSecurityStaticIpVLANId_Type())
-hm2AgentPortSecurityStaticIpVLANId.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2AgentPortSecurityStaticIpVLANId.setStatus(_A)
-_Hm2AgentPortSecurityStaticIpAddress_Type=IpAddress
-_Hm2AgentPortSecurityStaticIpAddress_Object=MibTableColumn
-hm2AgentPortSecurityStaticIpAddress=_Hm2AgentPortSecurityStaticIpAddress_Object((1,3,6,1,4,1,248,12,20,1,11,1,2),_Hm2AgentPortSecurityStaticIpAddress_Type())
-hm2AgentPortSecurityStaticIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2AgentPortSecurityStaticIpAddress.setStatus(_A)
-class _Hm2AgentPortSecurityOperationMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('macAddressBased',1),('ipAddressBased',2)))
-_Hm2AgentPortSecurityOperationMode_Type.__name__=_J
-_Hm2AgentPortSecurityOperationMode_Object=MibScalar
-hm2AgentPortSecurityOperationMode=_Hm2AgentPortSecurityOperationMode_Object((1,3,6,1,4,1,248,12,20,1,12),_Hm2AgentPortSecurityOperationMode_Type())
-hm2AgentPortSecurityOperationMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:hm2AgentPortSecurityOperationMode.setStatus(_A)
-_Hm2AgentPortSecurityTraps_ObjectIdentity=ObjectIdentity
-hm2AgentPortSecurityTraps=_Hm2AgentPortSecurityTraps_ObjectIdentity((1,3,6,1,4,1,248,12,20,2))
-hm2AgentPortSecurityViolation=NotificationType((1,3,6,1,4,1,248,12,20,2,1))
-hm2AgentPortSecurityViolation.setObjects(*((_E,_F),(_D,_R)))
-if mibBuilder.loadTexts:hm2AgentPortSecurityViolation.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'hm2PlatformPortSecurity':hm2PlatformPortSecurity,'hm2AgentPortSecurityGroup':hm2AgentPortSecurityGroup,'hm2AgentGlobalPortSecurityMode':hm2AgentGlobalPortSecurityMode,'hm2AgentPortSecurityTable':hm2AgentPortSecurityTable,'hm2AgentPortSecurityEntry':hm2AgentPortSecurityEntry,'hm2AgentPortSecurityMode':hm2AgentPortSecurityMode,'hm2AgentPortSecurityDynamicLimit':hm2AgentPortSecurityDynamicLimit,'hm2AgentPortSecurityStaticLimit':hm2AgentPortSecurityStaticLimit,'hm2AgentPortSecurityViolationTrapMode':hm2AgentPortSecurityViolationTrapMode,'hm2AgentPortSecurityStaticMACs':hm2AgentPortSecurityStaticMACs,_R:hm2AgentPortSecurityLastDiscardedMAC,'hm2AgentPortSecurityMACAddressAdd':hm2AgentPortSecurityMACAddressAdd,'hm2AgentPortSecurityMACAddressRemove':hm2AgentPortSecurityMACAddressRemove,'hm2AgentPortSecurityMACAddressMove':hm2AgentPortSecurityMACAddressMove,'hm2AgentPortSecurityDynamicCount':hm2AgentPortSecurityDynamicCount,'hm2AgentPortSecurityStaticCount':hm2AgentPortSecurityStaticCount,'hm2AgentPortSecurityViolationTrapCount':hm2AgentPortSecurityViolationTrapCount,'hm2AgentPortSecurityViolationTrapFrequency':hm2AgentPortSecurityViolationTrapFrequency,'hm2AgentPortSecurityAutoDisable':hm2AgentPortSecurityAutoDisable,'hm2AgentPortSecurityStaticIpCount':hm2AgentPortSecurityStaticIpCount,'hm2AgentPortSecurityStaticIPs':hm2AgentPortSecurityStaticIPs,'hm2AgentPortSecurityIPAddressAdd':hm2AgentPortSecurityIPAddressAdd,'hm2AgentPortSecurityIPAddressRemove':hm2AgentPortSecurityIPAddressRemove,'hm2AgentPortSecurityDynamicTable':hm2AgentPortSecurityDynamicTable,'hm2AgentPortSecurityDynamicEntry':hm2AgentPortSecurityDynamicEntry,_L:hm2AgentPortSecurityDynamicVLANId,_M:hm2AgentPortSecurityDynamicMACAddress,'hm2AgentPortSecurityStaticTable':hm2AgentPortSecurityStaticTable,'hm2AgentPortSecurityStaticEntry':hm2AgentPortSecurityStaticEntry,_N:hm2AgentPortSecurityStaticVLANId,_O:hm2AgentPortSecurityStaticMACAddress,'hm2AgentPortSecurityIpStaticTable':hm2AgentPortSecurityIpStaticTable,'hm2AgentPortSecurityIpStaticEntry':hm2AgentPortSecurityIpStaticEntry,_P:hm2AgentPortSecurityStaticIpVLANId,_Q:hm2AgentPortSecurityStaticIpAddress,'hm2AgentPortSecurityOperationMode':hm2AgentPortSecurityOperationMode,'hm2AgentPortSecurityTraps':hm2AgentPortSecurityTraps,'hm2AgentPortSecurityViolation':hm2AgentPortSecurityViolation})
+#
+# PySNMP MIB module HM2-PLATFORM-PORTSECURITY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/HM2-PLATFORM-PORTSECURITY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:04 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+HmEnabledStatus, hm2PlatformMibs = mibBuilder.importSymbols("HM2-TC-MIB", "HmEnabledStatus", "hm2PlatformMibs")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TruthValue, DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "MacAddress", "TextualConvention")
+hm2PlatformPortSecurity = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 12, 20))
+hm2PlatformPortSecurity.setRevisions(('2011-07-12 00:00',))
+if mibBuilder.loadTexts: hm2PlatformPortSecurity.setLastUpdated('201107120000Z')
+if mibBuilder.loadTexts: hm2PlatformPortSecurity.setOrganization('Hirschmann Automation and Control GmbH')
+hm2AgentPortSecurityGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 12, 20, 1))
+hm2AgentGlobalPortSecurityMode = MibScalar((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 1), HmEnabledStatus().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2AgentGlobalPortSecurityMode.setStatus('current')
+hm2AgentPortSecurityTable = MibTable((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2), )
+if mibBuilder.loadTexts: hm2AgentPortSecurityTable.setStatus('current')
+hm2AgentPortSecurityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hm2AgentPortSecurityEntry.setStatus('current')
+hm2AgentPortSecurityMode = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 1), HmEnabledStatus().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2AgentPortSecurityMode.setStatus('current')
+hm2AgentPortSecurityDynamicLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 600)).clone(600)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2AgentPortSecurityDynamicLimit.setStatus('current')
+hm2AgentPortSecurityStaticLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 64)).clone(64)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2AgentPortSecurityStaticLimit.setStatus('current')
+hm2AgentPortSecurityViolationTrapMode = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 4), HmEnabledStatus().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2AgentPortSecurityViolationTrapMode.setStatus('current')
+hm2AgentPortSecurityStaticMACs = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 1536))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2AgentPortSecurityStaticMACs.setStatus('current')
+hm2AgentPortSecurityLastDiscardedMAC = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2AgentPortSecurityLastDiscardedMAC.setStatus('current')
+hm2AgentPortSecurityMACAddressAdd = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 8), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2AgentPortSecurityMACAddressAdd.setStatus('current')
+hm2AgentPortSecurityMACAddressRemove = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 9), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2AgentPortSecurityMACAddressRemove.setStatus('current')
+hm2AgentPortSecurityMACAddressMove = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 10), HmEnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2AgentPortSecurityMACAddressMove.setStatus('current')
+hm2AgentPortSecurityDynamicCount = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 20), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2AgentPortSecurityDynamicCount.setStatus('current')
+hm2AgentPortSecurityStaticCount = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 21), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2AgentPortSecurityStaticCount.setStatus('current')
+hm2AgentPortSecurityViolationTrapCount = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 22), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2AgentPortSecurityViolationTrapCount.setStatus('current')
+hm2AgentPortSecurityViolationTrapFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 23), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 3600))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2AgentPortSecurityViolationTrapFrequency.setStatus('current')
+hm2AgentPortSecurityAutoDisable = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 248), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2AgentPortSecurityAutoDisable.setStatus('current')
+hm2AgentPortSecurityStaticIpCount = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 249), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2AgentPortSecurityStaticIpCount.setStatus('current')
+hm2AgentPortSecurityStaticIPs = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 250), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 1536))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2AgentPortSecurityStaticIPs.setStatus('current')
+hm2AgentPortSecurityIPAddressAdd = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 251), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2AgentPortSecurityIPAddressAdd.setStatus('current')
+hm2AgentPortSecurityIPAddressRemove = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 2, 1, 252), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2AgentPortSecurityIPAddressRemove.setStatus('current')
+hm2AgentPortSecurityDynamicTable = MibTable((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 3), )
+if mibBuilder.loadTexts: hm2AgentPortSecurityDynamicTable.setStatus('current')
+hm2AgentPortSecurityDynamicEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "HM2-PLATFORM-PORTSECURITY-MIB", "hm2AgentPortSecurityDynamicVLANId"), (0, "HM2-PLATFORM-PORTSECURITY-MIB", "hm2AgentPortSecurityDynamicMACAddress"))
+if mibBuilder.loadTexts: hm2AgentPortSecurityDynamicEntry.setStatus('current')
+hm2AgentPortSecurityDynamicVLANId = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 3, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2AgentPortSecurityDynamicVLANId.setStatus('current')
+hm2AgentPortSecurityDynamicMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 3, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2AgentPortSecurityDynamicMACAddress.setStatus('current')
+hm2AgentPortSecurityStaticTable = MibTable((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 10), )
+if mibBuilder.loadTexts: hm2AgentPortSecurityStaticTable.setStatus('current')
+hm2AgentPortSecurityStaticEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 10, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "HM2-PLATFORM-PORTSECURITY-MIB", "hm2AgentPortSecurityStaticVLANId"), (0, "HM2-PLATFORM-PORTSECURITY-MIB", "hm2AgentPortSecurityStaticMACAddress"))
+if mibBuilder.loadTexts: hm2AgentPortSecurityStaticEntry.setStatus('current')
+hm2AgentPortSecurityStaticVLANId = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 10, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2AgentPortSecurityStaticVLANId.setStatus('current')
+hm2AgentPortSecurityStaticMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 10, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2AgentPortSecurityStaticMACAddress.setStatus('current')
+hm2AgentPortSecurityIpStaticTable = MibTable((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 11), )
+if mibBuilder.loadTexts: hm2AgentPortSecurityIpStaticTable.setStatus('current')
+hm2AgentPortSecurityIpStaticEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 11, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "HM2-PLATFORM-PORTSECURITY-MIB", "hm2AgentPortSecurityStaticIpVLANId"), (0, "HM2-PLATFORM-PORTSECURITY-MIB", "hm2AgentPortSecurityStaticIpAddress"))
+if mibBuilder.loadTexts: hm2AgentPortSecurityIpStaticEntry.setStatus('current')
+hm2AgentPortSecurityStaticIpVLANId = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 11, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2AgentPortSecurityStaticIpVLANId.setStatus('current')
+hm2AgentPortSecurityStaticIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 11, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2AgentPortSecurityStaticIpAddress.setStatus('current')
+hm2AgentPortSecurityOperationMode = MibScalar((1, 3, 6, 1, 4, 1, 248, 12, 20, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("macAddressBased", 1), ("ipAddressBased", 2))).clone('macAddressBased')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2AgentPortSecurityOperationMode.setStatus('current')
+hm2AgentPortSecurityTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 12, 20, 2))
+hm2AgentPortSecurityViolation = NotificationType((1, 3, 6, 1, 4, 1, 248, 12, 20, 2, 1)).setObjects(("IF-MIB", "ifIndex"), ("HM2-PLATFORM-PORTSECURITY-MIB", "hm2AgentPortSecurityLastDiscardedMAC"))
+if mibBuilder.loadTexts: hm2AgentPortSecurityViolation.setStatus('current')
+mibBuilder.exportSymbols("HM2-PLATFORM-PORTSECURITY-MIB", hm2AgentPortSecurityStaticCount=hm2AgentPortSecurityStaticCount, hm2AgentPortSecurityViolationTrapFrequency=hm2AgentPortSecurityViolationTrapFrequency, hm2AgentPortSecurityStaticIPs=hm2AgentPortSecurityStaticIPs, hm2AgentPortSecurityViolationTrapCount=hm2AgentPortSecurityViolationTrapCount, hm2AgentPortSecurityStaticIpVLANId=hm2AgentPortSecurityStaticIpVLANId, hm2AgentPortSecurityDynamicEntry=hm2AgentPortSecurityDynamicEntry, hm2AgentPortSecurityTable=hm2AgentPortSecurityTable, PYSNMP_MODULE_ID=hm2PlatformPortSecurity, hm2AgentPortSecurityStaticIpCount=hm2AgentPortSecurityStaticIpCount, hm2AgentPortSecurityDynamicMACAddress=hm2AgentPortSecurityDynamicMACAddress, hm2PlatformPortSecurity=hm2PlatformPortSecurity, hm2AgentPortSecurityMode=hm2AgentPortSecurityMode, hm2AgentGlobalPortSecurityMode=hm2AgentGlobalPortSecurityMode, hm2AgentPortSecurityDynamicCount=hm2AgentPortSecurityDynamicCount, hm2AgentPortSecurityEntry=hm2AgentPortSecurityEntry, hm2AgentPortSecurityDynamicVLANId=hm2AgentPortSecurityDynamicVLANId, hm2AgentPortSecurityViolation=hm2AgentPortSecurityViolation, hm2AgentPortSecurityStaticVLANId=hm2AgentPortSecurityStaticVLANId, hm2AgentPortSecurityStaticLimit=hm2AgentPortSecurityStaticLimit, hm2AgentPortSecurityLastDiscardedMAC=hm2AgentPortSecurityLastDiscardedMAC, hm2AgentPortSecurityStaticMACAddress=hm2AgentPortSecurityStaticMACAddress, hm2AgentPortSecurityOperationMode=hm2AgentPortSecurityOperationMode, hm2AgentPortSecurityIPAddressRemove=hm2AgentPortSecurityIPAddressRemove, hm2AgentPortSecurityIpStaticEntry=hm2AgentPortSecurityIpStaticEntry, hm2AgentPortSecurityGroup=hm2AgentPortSecurityGroup, hm2AgentPortSecurityMACAddressAdd=hm2AgentPortSecurityMACAddressAdd, hm2AgentPortSecurityDynamicLimit=hm2AgentPortSecurityDynamicLimit, hm2AgentPortSecurityDynamicTable=hm2AgentPortSecurityDynamicTable, hm2AgentPortSecurityIpStaticTable=hm2AgentPortSecurityIpStaticTable, hm2AgentPortSecurityMACAddressMove=hm2AgentPortSecurityMACAddressMove, hm2AgentPortSecurityMACAddressRemove=hm2AgentPortSecurityMACAddressRemove, hm2AgentPortSecurityStaticTable=hm2AgentPortSecurityStaticTable, hm2AgentPortSecurityViolationTrapMode=hm2AgentPortSecurityViolationTrapMode, hm2AgentPortSecurityIPAddressAdd=hm2AgentPortSecurityIPAddressAdd, hm2AgentPortSecurityStaticEntry=hm2AgentPortSecurityStaticEntry, hm2AgentPortSecurityAutoDisable=hm2AgentPortSecurityAutoDisable, hm2AgentPortSecurityStaticMACs=hm2AgentPortSecurityStaticMACs, hm2AgentPortSecurityTraps=hm2AgentPortSecurityTraps, hm2AgentPortSecurityStaticIpAddress=hm2AgentPortSecurityStaticIpAddress)

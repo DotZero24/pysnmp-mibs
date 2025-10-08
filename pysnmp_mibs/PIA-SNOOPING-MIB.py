@@ -1,177 +1,75 @@
-_M='fsPIASnpVlanId'
-_L='fsPIASnpContextId'
-_K='fsPIASnpSessionMacAddress'
-_J='fsPIASnpSessionVlanId'
-_I='disabled'
-_H='enabled'
-_G='TruthValue'
-_F='not-accessible'
-_E='PIA-SNOOPING-MIB'
-_D='read-write'
-_C='read-only'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention',_G)
-fspiasnp=ModuleIdentity((1,3,6,1,4,1,29601,2,9))
-if mibBuilder.loadTexts:fspiasnp.setRevisions(('2007-11-01 00:00',))
-_FsPIASnpSystem_ObjectIdentity=ObjectIdentity
-fsPIASnpSystem=_FsPIASnpSystem_ObjectIdentity((1,3,6,1,4,1,29601,2,9,1))
-class _FsPIASnoopingSystemControl_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('start',1),('shutdown',2)))
-_FsPIASnoopingSystemControl_Type.__name__=_B
-_FsPIASnoopingSystemControl_Object=MibScalar
-fsPIASnoopingSystemControl=_FsPIASnoopingSystemControl_Object((1,3,6,1,4,1,29601,2,9,1,1),_FsPIASnoopingSystemControl_Type())
-fsPIASnoopingSystemControl.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsPIASnoopingSystemControl.setStatus(_A)
-class _FsPIASnoopingAdminStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
-_FsPIASnoopingAdminStatus_Type.__name__=_B
-_FsPIASnoopingAdminStatus_Object=MibScalar
-fsPIASnoopingAdminStatus=_FsPIASnoopingAdminStatus_Object((1,3,6,1,4,1,29601,2,9,1,2),_FsPIASnoopingAdminStatus_Type())
-fsPIASnoopingAdminStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsPIASnoopingAdminStatus.setStatus(_A)
-class _FsPIATraceOption_Type(Integer32):defaultValue=8
-_FsPIATraceOption_Type.__name__=_B
-_FsPIATraceOption_Object=MibScalar
-fsPIATraceOption=_FsPIATraceOption_Object((1,3,6,1,4,1,29601,2,9,1,3),_FsPIATraceOption_Type())
-fsPIATraceOption.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsPIATraceOption.setStatus(_A)
-class _FsPIASessionTimeOut_Type(Integer32):defaultValue=300;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,600))
-_FsPIASessionTimeOut_Type.__name__=_B
-_FsPIASessionTimeOut_Object=MibScalar
-fsPIASessionTimeOut=_FsPIASessionTimeOut_Object((1,3,6,1,4,1,29601,2,9,1,4),_FsPIASessionTimeOut_Type())
-fsPIASessionTimeOut.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsPIASessionTimeOut.setStatus(_A)
-_FsPIASnpSessionTable_Object=MibTable
-fsPIASnpSessionTable=_FsPIASnpSessionTable_Object((1,3,6,1,4,1,29601,2,9,1,5))
-if mibBuilder.loadTexts:fsPIASnpSessionTable.setStatus(_A)
-_FsPIASnpSessionEntry_Object=MibTableRow
-fsPIASnpSessionEntry=_FsPIASnpSessionEntry_Object((1,3,6,1,4,1,29601,2,9,1,5,1))
-fsPIASnpSessionEntry.setIndexNames((0,_E,_J),(0,_E,_K))
-if mibBuilder.loadTexts:fsPIASnpSessionEntry.setStatus(_A)
-class _FsPIASnpSessionVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4095))
-_FsPIASnpSessionVlanId_Type.__name__=_B
-_FsPIASnpSessionVlanId_Object=MibTableColumn
-fsPIASnpSessionVlanId=_FsPIASnpSessionVlanId_Object((1,3,6,1,4,1,29601,2,9,1,5,1,1),_FsPIASnpSessionVlanId_Type())
-fsPIASnpSessionVlanId.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsPIASnpSessionVlanId.setStatus(_A)
-_FsPIASnpSessionMacAddress_Type=MacAddress
-_FsPIASnpSessionMacAddress_Object=MibTableColumn
-fsPIASnpSessionMacAddress=_FsPIASnpSessionMacAddress_Object((1,3,6,1,4,1,29601,2,9,1,5,1,2),_FsPIASnpSessionMacAddress_Type())
-fsPIASnpSessionMacAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsPIASnpSessionMacAddress.setStatus(_A)
-_FsPIASnpSessionPortId_Type=InterfaceIndex
-_FsPIASnpSessionPortId_Object=MibTableColumn
-fsPIASnpSessionPortId=_FsPIASnpSessionPortId_Object((1,3,6,1,4,1,29601,2,9,1,5,1,3),_FsPIASnpSessionPortId_Type())
-fsPIASnpSessionPortId.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsPIASnpSessionPortId.setStatus(_A)
-class _FsPIASnpSessionId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsPIASnpSessionId_Type.__name__=_B
-_FsPIASnpSessionId_Object=MibTableColumn
-fsPIASnpSessionId=_FsPIASnpSessionId_Object((1,3,6,1,4,1,29601,2,9,1,5,1,4),_FsPIASnpSessionId_Type())
-fsPIASnpSessionId.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsPIASnpSessionId.setStatus(_A)
-_FsPIASnpVlan_ObjectIdentity=ObjectIdentity
-fsPIASnpVlan=_FsPIASnpVlan_ObjectIdentity((1,3,6,1,4,1,29601,2,9,2))
-_FsPIASnpVlanTable_Object=MibTable
-fsPIASnpVlanTable=_FsPIASnpVlanTable_Object((1,3,6,1,4,1,29601,2,9,2,1))
-if mibBuilder.loadTexts:fsPIASnpVlanTable.setStatus(_A)
-_FsPIASnpVlanEntry_Object=MibTableRow
-fsPIASnpVlanEntry=_FsPIASnpVlanEntry_Object((1,3,6,1,4,1,29601,2,9,2,1,1))
-fsPIASnpVlanEntry.setIndexNames((0,_E,_L),(0,_E,_M))
-if mibBuilder.loadTexts:fsPIASnpVlanEntry.setStatus(_A)
-class _FsPIASnpContextId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_FsPIASnpContextId_Type.__name__=_B
-_FsPIASnpContextId_Object=MibTableColumn
-fsPIASnpContextId=_FsPIASnpContextId_Object((1,3,6,1,4,1,29601,2,9,2,1,1,1),_FsPIASnpContextId_Type())
-fsPIASnpContextId.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsPIASnpContextId.setStatus(_A)
-class _FsPIASnpVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_FsPIASnpVlanId_Type.__name__=_B
-_FsPIASnpVlanId_Object=MibTableColumn
-fsPIASnpVlanId=_FsPIASnpVlanId_Object((1,3,6,1,4,1,29601,2,9,2,1,1,2),_FsPIASnpVlanId_Type())
-fsPIASnpVlanId.setMaxAccess(_F)
-if mibBuilder.loadTexts:fsPIASnpVlanId.setStatus(_A)
-class _FsPIASnpVlanSnpStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
-_FsPIASnpVlanSnpStatus_Type.__name__=_B
-_FsPIASnpVlanSnpStatus_Object=MibTableColumn
-fsPIASnpVlanSnpStatus=_FsPIASnpVlanSnpStatus_Object((1,3,6,1,4,1,29601,2,9,2,1,1,3),_FsPIASnpVlanSnpStatus_Type())
-fsPIASnpVlanSnpStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsPIASnpVlanSnpStatus.setStatus(_A)
-class _FsPIASnpVlanStatsRxPADI_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsPIASnpVlanStatsRxPADI_Type.__name__=_B
-_FsPIASnpVlanStatsRxPADI_Object=MibTableColumn
-fsPIASnpVlanStatsRxPADI=_FsPIASnpVlanStatsRxPADI_Object((1,3,6,1,4,1,29601,2,9,2,1,1,4),_FsPIASnpVlanStatsRxPADI_Type())
-fsPIASnpVlanStatsRxPADI.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsPIASnpVlanStatsRxPADI.setStatus(_A)
-class _FsPIASnpVlanStatsRxPADO_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsPIASnpVlanStatsRxPADO_Type.__name__=_B
-_FsPIASnpVlanStatsRxPADO_Object=MibTableColumn
-fsPIASnpVlanStatsRxPADO=_FsPIASnpVlanStatsRxPADO_Object((1,3,6,1,4,1,29601,2,9,2,1,1,5),_FsPIASnpVlanStatsRxPADO_Type())
-fsPIASnpVlanStatsRxPADO.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsPIASnpVlanStatsRxPADO.setStatus(_A)
-class _FsPIASnpVlanStatsRxPADR_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsPIASnpVlanStatsRxPADR_Type.__name__=_B
-_FsPIASnpVlanStatsRxPADR_Object=MibTableColumn
-fsPIASnpVlanStatsRxPADR=_FsPIASnpVlanStatsRxPADR_Object((1,3,6,1,4,1,29601,2,9,2,1,1,6),_FsPIASnpVlanStatsRxPADR_Type())
-fsPIASnpVlanStatsRxPADR.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsPIASnpVlanStatsRxPADR.setStatus(_A)
-class _FsPIASnpVlanStatsRxPADS_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsPIASnpVlanStatsRxPADS_Type.__name__=_B
-_FsPIASnpVlanStatsRxPADS_Object=MibTableColumn
-fsPIASnpVlanStatsRxPADS=_FsPIASnpVlanStatsRxPADS_Object((1,3,6,1,4,1,29601,2,9,2,1,1,7),_FsPIASnpVlanStatsRxPADS_Type())
-fsPIASnpVlanStatsRxPADS.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsPIASnpVlanStatsRxPADS.setStatus(_A)
-class _FsPIASnpVlanStatsRxPADT_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsPIASnpVlanStatsRxPADT_Type.__name__=_B
-_FsPIASnpVlanStatsRxPADT_Object=MibTableColumn
-fsPIASnpVlanStatsRxPADT=_FsPIASnpVlanStatsRxPADT_Object((1,3,6,1,4,1,29601,2,9,2,1,1,8),_FsPIASnpVlanStatsRxPADT_Type())
-fsPIASnpVlanStatsRxPADT.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsPIASnpVlanStatsRxPADT.setStatus(_A)
-class _FsPIASnpVlanStatsTxPkt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsPIASnpVlanStatsTxPkt_Type.__name__=_B
-_FsPIASnpVlanStatsTxPkt_Object=MibTableColumn
-fsPIASnpVlanStatsTxPkt=_FsPIASnpVlanStatsTxPkt_Object((1,3,6,1,4,1,29601,2,9,2,1,1,9),_FsPIASnpVlanStatsTxPkt_Type())
-fsPIASnpVlanStatsTxPkt.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsPIASnpVlanStatsTxPkt.setStatus(_A)
-class _FsPIASnpVlanStatsTxGenError_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsPIASnpVlanStatsTxGenError_Type.__name__=_B
-_FsPIASnpVlanStatsTxGenError_Object=MibTableColumn
-fsPIASnpVlanStatsTxGenError=_FsPIASnpVlanStatsTxGenError_Object((1,3,6,1,4,1,29601,2,9,2,1,1,10),_FsPIASnpVlanStatsTxGenError_Type())
-fsPIASnpVlanStatsTxGenError.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsPIASnpVlanStatsTxGenError.setStatus(_A)
-class _FsPIASnpVlanStatsDroppedResUntrusted_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsPIASnpVlanStatsDroppedResUntrusted_Type.__name__=_B
-_FsPIASnpVlanStatsDroppedResUntrusted_Object=MibTableColumn
-fsPIASnpVlanStatsDroppedResUntrusted=_FsPIASnpVlanStatsDroppedResUntrusted_Object((1,3,6,1,4,1,29601,2,9,2,1,1,11),_FsPIASnpVlanStatsDroppedResUntrusted_Type())
-fsPIASnpVlanStatsDroppedResUntrusted.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsPIASnpVlanStatsDroppedResUntrusted.setStatus(_A)
-class _FsPIASnpVlanStatsDroppedReqTrusted_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsPIASnpVlanStatsDroppedReqTrusted_Type.__name__=_B
-_FsPIASnpVlanStatsDroppedReqTrusted_Object=MibTableColumn
-fsPIASnpVlanStatsDroppedReqTrusted=_FsPIASnpVlanStatsDroppedReqTrusted_Object((1,3,6,1,4,1,29601,2,9,2,1,1,12),_FsPIASnpVlanStatsDroppedReqTrusted_Type())
-fsPIASnpVlanStatsDroppedReqTrusted.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsPIASnpVlanStatsDroppedReqTrusted.setStatus(_A)
-class _FsPIASnpVlanStatsDroppedPkt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_FsPIASnpVlanStatsDroppedPkt_Type.__name__=_B
-_FsPIASnpVlanStatsDroppedPkt_Object=MibTableColumn
-fsPIASnpVlanStatsDroppedPkt=_FsPIASnpVlanStatsDroppedPkt_Object((1,3,6,1,4,1,29601,2,9,2,1,1,13),_FsPIASnpVlanStatsDroppedPkt_Type())
-fsPIASnpVlanStatsDroppedPkt.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsPIASnpVlanStatsDroppedPkt.setStatus(_A)
-class _FsPIASnpVlanStatsClear_Type(TruthValue):subtypeSpec=TruthValue.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_FsPIASnpVlanStatsClear_Type.__name__=_G
-_FsPIASnpVlanStatsClear_Object=MibTableColumn
-fsPIASnpVlanStatsClear=_FsPIASnpVlanStatsClear_Object((1,3,6,1,4,1,29601,2,9,2,1,1,14),_FsPIASnpVlanStatsClear_Type())
-fsPIASnpVlanStatsClear.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsPIASnpVlanStatsClear.setStatus(_A)
-_FsPIASnpRowStatus_Type=RowStatus
-_FsPIASnpRowStatus_Object=MibTableColumn
-fsPIASnpRowStatus=_FsPIASnpRowStatus_Object((1,3,6,1,4,1,29601,2,9,2,1,1,15),_FsPIASnpRowStatus_Type())
-fsPIASnpRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsPIASnpRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'fspiasnp':fspiasnp,'fsPIASnpSystem':fsPIASnpSystem,'fsPIASnoopingSystemControl':fsPIASnoopingSystemControl,'fsPIASnoopingAdminStatus':fsPIASnoopingAdminStatus,'fsPIATraceOption':fsPIATraceOption,'fsPIASessionTimeOut':fsPIASessionTimeOut,'fsPIASnpSessionTable':fsPIASnpSessionTable,'fsPIASnpSessionEntry':fsPIASnpSessionEntry,_J:fsPIASnpSessionVlanId,_K:fsPIASnpSessionMacAddress,'fsPIASnpSessionPortId':fsPIASnpSessionPortId,'fsPIASnpSessionId':fsPIASnpSessionId,'fsPIASnpVlan':fsPIASnpVlan,'fsPIASnpVlanTable':fsPIASnpVlanTable,'fsPIASnpVlanEntry':fsPIASnpVlanEntry,_L:fsPIASnpContextId,_M:fsPIASnpVlanId,'fsPIASnpVlanSnpStatus':fsPIASnpVlanSnpStatus,'fsPIASnpVlanStatsRxPADI':fsPIASnpVlanStatsRxPADI,'fsPIASnpVlanStatsRxPADO':fsPIASnpVlanStatsRxPADO,'fsPIASnpVlanStatsRxPADR':fsPIASnpVlanStatsRxPADR,'fsPIASnpVlanStatsRxPADS':fsPIASnpVlanStatsRxPADS,'fsPIASnpVlanStatsRxPADT':fsPIASnpVlanStatsRxPADT,'fsPIASnpVlanStatsTxPkt':fsPIASnpVlanStatsTxPkt,'fsPIASnpVlanStatsTxGenError':fsPIASnpVlanStatsTxGenError,'fsPIASnpVlanStatsDroppedResUntrusted':fsPIASnpVlanStatsDroppedResUntrusted,'fsPIASnpVlanStatsDroppedReqTrusted':fsPIASnpVlanStatsDroppedReqTrusted,'fsPIASnpVlanStatsDroppedPkt':fsPIASnpVlanStatsDroppedPkt,'fsPIASnpVlanStatsClear':fsPIASnpVlanStatsClear,'fsPIASnpRowStatus':fsPIASnpRowStatus})
+#
+# PySNMP MIB module PIA-SNOOPING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aricent/PIA-SNOOPING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:32:49 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+fspiasnp = ModuleIdentity((1, 3, 6, 1, 4, 1, 29601, 2, 9))
+fspiasnp.setRevisions(('2007-11-01 00:00',))
+if mibBuilder.loadTexts: fspiasnp.setLastUpdated('200711010000Z')
+if mibBuilder.loadTexts: fspiasnp.setOrganization('ARICENT COMMUNICATIONS SOFTWARE')
+fsPIASnpSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 29601, 2, 9, 1))
+fsPIASnpVlan = MibIdentifier((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2))
+fsPIASnoopingSystemControl = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 9, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("start", 1), ("shutdown", 2))).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsPIASnoopingSystemControl.setStatus('current')
+fsPIASnoopingAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 9, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsPIASnoopingAdminStatus.setStatus('current')
+fsPIATraceOption = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 9, 1, 3), Integer32().clone(8)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsPIATraceOption.setStatus('current')
+fsPIASessionTimeOut = MibScalar((1, 3, 6, 1, 4, 1, 29601, 2, 9, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 600)).clone(300)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsPIASessionTimeOut.setStatus('current')
+fsPIASnpVlanTable = MibTable((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1), )
+if mibBuilder.loadTexts: fsPIASnpVlanTable.setStatus('current')
+fsPIASnpVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1), ).setIndexNames((0, "PIA-SNOOPING-MIB", "fsPIASnpContextId"), (0, "PIA-SNOOPING-MIB", "fsPIASnpVlanId"))
+if mibBuilder.loadTexts: fsPIASnpVlanEntry.setStatus('current')
+fsPIASnpContextId = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)))
+if mibBuilder.loadTexts: fsPIASnpContextId.setStatus('current')
+fsPIASnpVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
+if mibBuilder.loadTexts: fsPIASnpVlanId.setStatus('current')
+fsPIASnpVlanSnpStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsPIASnpVlanSnpStatus.setStatus('current')
+fsPIASnpVlanStatsRxPADI = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsPIASnpVlanStatsRxPADI.setStatus('current')
+fsPIASnpVlanStatsRxPADO = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsPIASnpVlanStatsRxPADO.setStatus('current')
+fsPIASnpVlanStatsRxPADR = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsPIASnpVlanStatsRxPADR.setStatus('current')
+fsPIASnpVlanStatsRxPADS = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsPIASnpVlanStatsRxPADS.setStatus('current')
+fsPIASnpVlanStatsRxPADT = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsPIASnpVlanStatsRxPADT.setStatus('current')
+fsPIASnpVlanStatsTxPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsPIASnpVlanStatsTxPkt.setStatus('current')
+fsPIASnpVlanStatsTxGenError = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsPIASnpVlanStatsTxGenError.setStatus('current')
+fsPIASnpVlanStatsDroppedResUntrusted = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsPIASnpVlanStatsDroppedResUntrusted.setStatus('current')
+fsPIASnpVlanStatsDroppedReqTrusted = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsPIASnpVlanStatsDroppedReqTrusted.setStatus('current')
+fsPIASnpVlanStatsDroppedPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsPIASnpVlanStatsDroppedPkt.setStatus('current')
+fsPIASnpVlanStatsClear = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1, 14), TruthValue().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsPIASnpVlanStatsClear.setStatus('current')
+fsPIASnpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 2, 1, 1, 15), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsPIASnpRowStatus.setStatus('current')
+fsPIASnpSessionTable = MibTable((1, 3, 6, 1, 4, 1, 29601, 2, 9, 1, 5), )
+if mibBuilder.loadTexts: fsPIASnpSessionTable.setStatus('current')
+fsPIASnpSessionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 29601, 2, 9, 1, 5, 1), ).setIndexNames((0, "PIA-SNOOPING-MIB", "fsPIASnpSessionVlanId"), (0, "PIA-SNOOPING-MIB", "fsPIASnpSessionMacAddress"))
+if mibBuilder.loadTexts: fsPIASnpSessionEntry.setStatus('current')
+fsPIASnpSessionVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
+if mibBuilder.loadTexts: fsPIASnpSessionVlanId.setStatus('current')
+fsPIASnpSessionMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 1, 5, 1, 2), MacAddress())
+if mibBuilder.loadTexts: fsPIASnpSessionMacAddress.setStatus('current')
+fsPIASnpSessionPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 1, 5, 1, 3), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsPIASnpSessionPortId.setStatus('current')
+fsPIASnpSessionId = MibTableColumn((1, 3, 6, 1, 4, 1, 29601, 2, 9, 1, 5, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsPIASnpSessionId.setStatus('current')
+mibBuilder.exportSymbols("PIA-SNOOPING-MIB", fsPIASnpVlanStatsDroppedReqTrusted=fsPIASnpVlanStatsDroppedReqTrusted, fsPIASnpVlanTable=fsPIASnpVlanTable, fsPIASnpSessionVlanId=fsPIASnpSessionVlanId, fsPIASnpVlanStatsTxGenError=fsPIASnpVlanStatsTxGenError, fsPIASnoopingAdminStatus=fsPIASnoopingAdminStatus, fsPIASnpSessionTable=fsPIASnpSessionTable, fsPIASnpVlanStatsRxPADT=fsPIASnpVlanStatsRxPADT, fsPIATraceOption=fsPIATraceOption, fsPIASnpVlanStatsRxPADR=fsPIASnpVlanStatsRxPADR, fsPIASnpVlanStatsRxPADO=fsPIASnpVlanStatsRxPADO, fsPIASnpVlanId=fsPIASnpVlanId, fsPIASnpRowStatus=fsPIASnpRowStatus, fsPIASnpVlanStatsRxPADI=fsPIASnpVlanStatsRxPADI, fsPIASnpSessionId=fsPIASnpSessionId, fsPIASnpVlan=fsPIASnpVlan, fsPIASnpSystem=fsPIASnpSystem, fsPIASnpVlanStatsTxPkt=fsPIASnpVlanStatsTxPkt, fsPIASessionTimeOut=fsPIASessionTimeOut, fsPIASnpVlanStatsRxPADS=fsPIASnpVlanStatsRxPADS, fsPIASnpVlanStatsDroppedResUntrusted=fsPIASnpVlanStatsDroppedResUntrusted, fsPIASnpVlanStatsClear=fsPIASnpVlanStatsClear, fsPIASnpVlanEntry=fsPIASnpVlanEntry, fsPIASnpSessionMacAddress=fsPIASnpSessionMacAddress, PYSNMP_MODULE_ID=fspiasnp, fsPIASnpContextId=fsPIASnpContextId, fsPIASnpVlanSnpStatus=fsPIASnpVlanSnpStatus, fsPIASnpVlanStatsDroppedPkt=fsPIASnpVlanStatsDroppedPkt, fsPIASnpSessionEntry=fsPIASnpSessionEntry, fsPIASnpSessionPortId=fsPIASnpSessionPortId, fsPIASnoopingSystemControl=fsPIASnoopingSystemControl, fspiasnp=fspiasnp)

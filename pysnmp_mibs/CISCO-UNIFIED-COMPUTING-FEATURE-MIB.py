@@ -1,323 +1,151 @@
-_L='cucsFeatureProviderInstanceInstanceId'
-_K='cucsFeatureProviderInstanceId'
-_J='cucsFeatureFruCapProviderRefInstanceId'
-_I='cucsFeatureFruCapProviderInstanceInstanceId'
-_H='cucsFeatureDefinitionRefInstanceId'
-_G='cucsFeatureDefinitionInstanceInstanceId'
-_F='cucsFeatureDefinitionInstanceId'
-_E='cucsFeatureContextEpInstanceId'
-_D='not-accessible'
-_C='CISCO-UNIFIED-COMPUTING-FEATURE-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
-CucsManagedObjectDn,CucsManagedObjectId,ciscoUnifiedComputingMIBObjects=mibBuilder.importSymbols('CISCO-UNIFIED-COMPUTING-MIB','CucsManagedObjectDn','CucsManagedObjectId','ciscoUnifiedComputingMIBObjects')
-CucsFeatureSupportabilityType,=mibBuilder.importSymbols('CISCO-UNIFIED-COMPUTING-TC-MIB','CucsFeatureSupportabilityType')
-InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
-cucsFeatureObjects=ModuleIdentity((1,3,6,1,4,1,9,9,719,1,77))
-_CucsFeatureContextEpTable_Object=MibTable
-cucsFeatureContextEpTable=_CucsFeatureContextEpTable_Object((1,3,6,1,4,1,9,9,719,1,77,1))
-if mibBuilder.loadTexts:cucsFeatureContextEpTable.setStatus(_A)
-_CucsFeatureContextEpEntry_Object=MibTableRow
-cucsFeatureContextEpEntry=_CucsFeatureContextEpEntry_Object((1,3,6,1,4,1,9,9,719,1,77,1,1))
-cucsFeatureContextEpEntry.setIndexNames((0,_C,_E))
-if mibBuilder.loadTexts:cucsFeatureContextEpEntry.setStatus(_A)
-_CucsFeatureContextEpInstanceId_Type=CucsManagedObjectId
-_CucsFeatureContextEpInstanceId_Object=MibTableColumn
-cucsFeatureContextEpInstanceId=_CucsFeatureContextEpInstanceId_Object((1,3,6,1,4,1,9,9,719,1,77,1,1,1),_CucsFeatureContextEpInstanceId_Type())
-cucsFeatureContextEpInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsFeatureContextEpInstanceId.setStatus(_A)
-_CucsFeatureContextEpDn_Type=CucsManagedObjectDn
-_CucsFeatureContextEpDn_Object=MibTableColumn
-cucsFeatureContextEpDn=_CucsFeatureContextEpDn_Object((1,3,6,1,4,1,9,9,719,1,77,1,1,2),_CucsFeatureContextEpDn_Type())
-cucsFeatureContextEpDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureContextEpDn.setStatus(_A)
-_CucsFeatureContextEpRn_Type=SnmpAdminString
-_CucsFeatureContextEpRn_Object=MibTableColumn
-cucsFeatureContextEpRn=_CucsFeatureContextEpRn_Object((1,3,6,1,4,1,9,9,719,1,77,1,1,3),_CucsFeatureContextEpRn_Type())
-cucsFeatureContextEpRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureContextEpRn.setStatus(_A)
-_CucsFeatureDefinitionTable_Object=MibTable
-cucsFeatureDefinitionTable=_CucsFeatureDefinitionTable_Object((1,3,6,1,4,1,9,9,719,1,77,2))
-if mibBuilder.loadTexts:cucsFeatureDefinitionTable.setStatus(_A)
-_CucsFeatureDefinitionEntry_Object=MibTableRow
-cucsFeatureDefinitionEntry=_CucsFeatureDefinitionEntry_Object((1,3,6,1,4,1,9,9,719,1,77,2,1))
-cucsFeatureDefinitionEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:cucsFeatureDefinitionEntry.setStatus(_A)
-_CucsFeatureDefinitionInstanceId_Type=CucsManagedObjectId
-_CucsFeatureDefinitionInstanceId_Object=MibTableColumn
-cucsFeatureDefinitionInstanceId=_CucsFeatureDefinitionInstanceId_Object((1,3,6,1,4,1,9,9,719,1,77,2,1,1),_CucsFeatureDefinitionInstanceId_Type())
-cucsFeatureDefinitionInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsFeatureDefinitionInstanceId.setStatus(_A)
-_CucsFeatureDefinitionDn_Type=CucsManagedObjectDn
-_CucsFeatureDefinitionDn_Object=MibTableColumn
-cucsFeatureDefinitionDn=_CucsFeatureDefinitionDn_Object((1,3,6,1,4,1,9,9,719,1,77,2,1,2),_CucsFeatureDefinitionDn_Type())
-cucsFeatureDefinitionDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionDn.setStatus(_A)
-_CucsFeatureDefinitionRn_Type=SnmpAdminString
-_CucsFeatureDefinitionRn_Object=MibTableColumn
-cucsFeatureDefinitionRn=_CucsFeatureDefinitionRn_Object((1,3,6,1,4,1,9,9,719,1,77,2,1,3),_CucsFeatureDefinitionRn_Type())
-cucsFeatureDefinitionRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionRn.setStatus(_A)
-_CucsFeatureDefinitionDescription_Type=SnmpAdminString
-_CucsFeatureDefinitionDescription_Object=MibTableColumn
-cucsFeatureDefinitionDescription=_CucsFeatureDefinitionDescription_Object((1,3,6,1,4,1,9,9,719,1,77,2,1,4),_CucsFeatureDefinitionDescription_Type())
-cucsFeatureDefinitionDescription.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionDescription.setStatus(_A)
-_CucsFeatureDefinitionName_Type=SnmpAdminString
-_CucsFeatureDefinitionName_Object=MibTableColumn
-cucsFeatureDefinitionName=_CucsFeatureDefinitionName_Object((1,3,6,1,4,1,9,9,719,1,77,2,1,5),_CucsFeatureDefinitionName_Type())
-cucsFeatureDefinitionName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionName.setStatus(_A)
-_CucsFeatureDefinitionRevision_Type=SnmpAdminString
-_CucsFeatureDefinitionRevision_Object=MibTableColumn
-cucsFeatureDefinitionRevision=_CucsFeatureDefinitionRevision_Object((1,3,6,1,4,1,9,9,719,1,77,2,1,6),_CucsFeatureDefinitionRevision_Type())
-cucsFeatureDefinitionRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionRevision.setStatus(_A)
-_CucsFeatureDefinitionInstanceTable_Object=MibTable
-cucsFeatureDefinitionInstanceTable=_CucsFeatureDefinitionInstanceTable_Object((1,3,6,1,4,1,9,9,719,1,77,3))
-if mibBuilder.loadTexts:cucsFeatureDefinitionInstanceTable.setStatus(_A)
-_CucsFeatureDefinitionInstanceEntry_Object=MibTableRow
-cucsFeatureDefinitionInstanceEntry=_CucsFeatureDefinitionInstanceEntry_Object((1,3,6,1,4,1,9,9,719,1,77,3,1))
-cucsFeatureDefinitionInstanceEntry.setIndexNames((0,_C,_G))
-if mibBuilder.loadTexts:cucsFeatureDefinitionInstanceEntry.setStatus(_A)
-_CucsFeatureDefinitionInstanceInstanceId_Type=CucsManagedObjectId
-_CucsFeatureDefinitionInstanceInstanceId_Object=MibTableColumn
-cucsFeatureDefinitionInstanceInstanceId=_CucsFeatureDefinitionInstanceInstanceId_Object((1,3,6,1,4,1,9,9,719,1,77,3,1,1),_CucsFeatureDefinitionInstanceInstanceId_Type())
-cucsFeatureDefinitionInstanceInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsFeatureDefinitionInstanceInstanceId.setStatus(_A)
-_CucsFeatureDefinitionInstanceDn_Type=CucsManagedObjectDn
-_CucsFeatureDefinitionInstanceDn_Object=MibTableColumn
-cucsFeatureDefinitionInstanceDn=_CucsFeatureDefinitionInstanceDn_Object((1,3,6,1,4,1,9,9,719,1,77,3,1,2),_CucsFeatureDefinitionInstanceDn_Type())
-cucsFeatureDefinitionInstanceDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionInstanceDn.setStatus(_A)
-_CucsFeatureDefinitionInstanceRn_Type=SnmpAdminString
-_CucsFeatureDefinitionInstanceRn_Object=MibTableColumn
-cucsFeatureDefinitionInstanceRn=_CucsFeatureDefinitionInstanceRn_Object((1,3,6,1,4,1,9,9,719,1,77,3,1,3),_CucsFeatureDefinitionInstanceRn_Type())
-cucsFeatureDefinitionInstanceRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionInstanceRn.setStatus(_A)
-_CucsFeatureDefinitionInstanceName_Type=SnmpAdminString
-_CucsFeatureDefinitionInstanceName_Object=MibTableColumn
-cucsFeatureDefinitionInstanceName=_CucsFeatureDefinitionInstanceName_Object((1,3,6,1,4,1,9,9,719,1,77,3,1,4),_CucsFeatureDefinitionInstanceName_Type())
-cucsFeatureDefinitionInstanceName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionInstanceName.setStatus(_A)
-_CucsFeatureDefinitionInstanceRevision_Type=SnmpAdminString
-_CucsFeatureDefinitionInstanceRevision_Object=MibTableColumn
-cucsFeatureDefinitionInstanceRevision=_CucsFeatureDefinitionInstanceRevision_Object((1,3,6,1,4,1,9,9,719,1,77,3,1,5),_CucsFeatureDefinitionInstanceRevision_Type())
-cucsFeatureDefinitionInstanceRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionInstanceRevision.setStatus(_A)
-_CucsFeatureDefinitionInstanceSupportability_Type=CucsFeatureSupportabilityType
-_CucsFeatureDefinitionInstanceSupportability_Object=MibTableColumn
-cucsFeatureDefinitionInstanceSupportability=_CucsFeatureDefinitionInstanceSupportability_Object((1,3,6,1,4,1,9,9,719,1,77,3,1,6),_CucsFeatureDefinitionInstanceSupportability_Type())
-cucsFeatureDefinitionInstanceSupportability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionInstanceSupportability.setStatus(_A)
-_CucsFeatureDefinitionInstanceTargetDn_Type=SnmpAdminString
-_CucsFeatureDefinitionInstanceTargetDn_Object=MibTableColumn
-cucsFeatureDefinitionInstanceTargetDn=_CucsFeatureDefinitionInstanceTargetDn_Object((1,3,6,1,4,1,9,9,719,1,77,3,1,7),_CucsFeatureDefinitionInstanceTargetDn_Type())
-cucsFeatureDefinitionInstanceTargetDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionInstanceTargetDn.setStatus(_A)
-_CucsFeatureDefinitionRefTable_Object=MibTable
-cucsFeatureDefinitionRefTable=_CucsFeatureDefinitionRefTable_Object((1,3,6,1,4,1,9,9,719,1,77,4))
-if mibBuilder.loadTexts:cucsFeatureDefinitionRefTable.setStatus(_A)
-_CucsFeatureDefinitionRefEntry_Object=MibTableRow
-cucsFeatureDefinitionRefEntry=_CucsFeatureDefinitionRefEntry_Object((1,3,6,1,4,1,9,9,719,1,77,4,1))
-cucsFeatureDefinitionRefEntry.setIndexNames((0,_C,_H))
-if mibBuilder.loadTexts:cucsFeatureDefinitionRefEntry.setStatus(_A)
-_CucsFeatureDefinitionRefInstanceId_Type=CucsManagedObjectId
-_CucsFeatureDefinitionRefInstanceId_Object=MibTableColumn
-cucsFeatureDefinitionRefInstanceId=_CucsFeatureDefinitionRefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,77,4,1,1),_CucsFeatureDefinitionRefInstanceId_Type())
-cucsFeatureDefinitionRefInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsFeatureDefinitionRefInstanceId.setStatus(_A)
-_CucsFeatureDefinitionRefDn_Type=CucsManagedObjectDn
-_CucsFeatureDefinitionRefDn_Object=MibTableColumn
-cucsFeatureDefinitionRefDn=_CucsFeatureDefinitionRefDn_Object((1,3,6,1,4,1,9,9,719,1,77,4,1,2),_CucsFeatureDefinitionRefDn_Type())
-cucsFeatureDefinitionRefDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionRefDn.setStatus(_A)
-_CucsFeatureDefinitionRefRn_Type=SnmpAdminString
-_CucsFeatureDefinitionRefRn_Object=MibTableColumn
-cucsFeatureDefinitionRefRn=_CucsFeatureDefinitionRefRn_Object((1,3,6,1,4,1,9,9,719,1,77,4,1,3),_CucsFeatureDefinitionRefRn_Type())
-cucsFeatureDefinitionRefRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionRefRn.setStatus(_A)
-_CucsFeatureDefinitionRefName_Type=SnmpAdminString
-_CucsFeatureDefinitionRefName_Object=MibTableColumn
-cucsFeatureDefinitionRefName=_CucsFeatureDefinitionRefName_Object((1,3,6,1,4,1,9,9,719,1,77,4,1,4),_CucsFeatureDefinitionRefName_Type())
-cucsFeatureDefinitionRefName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionRefName.setStatus(_A)
-_CucsFeatureDefinitionRefRevision_Type=SnmpAdminString
-_CucsFeatureDefinitionRefRevision_Object=MibTableColumn
-cucsFeatureDefinitionRefRevision=_CucsFeatureDefinitionRefRevision_Object((1,3,6,1,4,1,9,9,719,1,77,4,1,5),_CucsFeatureDefinitionRefRevision_Type())
-cucsFeatureDefinitionRefRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionRefRevision.setStatus(_A)
-_CucsFeatureDefinitionRefSupportability_Type=CucsFeatureSupportabilityType
-_CucsFeatureDefinitionRefSupportability_Object=MibTableColumn
-cucsFeatureDefinitionRefSupportability=_CucsFeatureDefinitionRefSupportability_Object((1,3,6,1,4,1,9,9,719,1,77,4,1,6),_CucsFeatureDefinitionRefSupportability_Type())
-cucsFeatureDefinitionRefSupportability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionRefSupportability.setStatus(_A)
-_CucsFeatureDefinitionRefTargetDn_Type=SnmpAdminString
-_CucsFeatureDefinitionRefTargetDn_Object=MibTableColumn
-cucsFeatureDefinitionRefTargetDn=_CucsFeatureDefinitionRefTargetDn_Object((1,3,6,1,4,1,9,9,719,1,77,4,1,7),_CucsFeatureDefinitionRefTargetDn_Type())
-cucsFeatureDefinitionRefTargetDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureDefinitionRefTargetDn.setStatus(_A)
-_CucsFeatureFruCapProviderInstanceTable_Object=MibTable
-cucsFeatureFruCapProviderInstanceTable=_CucsFeatureFruCapProviderInstanceTable_Object((1,3,6,1,4,1,9,9,719,1,77,5))
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderInstanceTable.setStatus(_A)
-_CucsFeatureFruCapProviderInstanceEntry_Object=MibTableRow
-cucsFeatureFruCapProviderInstanceEntry=_CucsFeatureFruCapProviderInstanceEntry_Object((1,3,6,1,4,1,9,9,719,1,77,5,1))
-cucsFeatureFruCapProviderInstanceEntry.setIndexNames((0,_C,_I))
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderInstanceEntry.setStatus(_A)
-_CucsFeatureFruCapProviderInstanceInstanceId_Type=CucsManagedObjectId
-_CucsFeatureFruCapProviderInstanceInstanceId_Object=MibTableColumn
-cucsFeatureFruCapProviderInstanceInstanceId=_CucsFeatureFruCapProviderInstanceInstanceId_Object((1,3,6,1,4,1,9,9,719,1,77,5,1,1),_CucsFeatureFruCapProviderInstanceInstanceId_Type())
-cucsFeatureFruCapProviderInstanceInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderInstanceInstanceId.setStatus(_A)
-_CucsFeatureFruCapProviderInstanceDn_Type=CucsManagedObjectDn
-_CucsFeatureFruCapProviderInstanceDn_Object=MibTableColumn
-cucsFeatureFruCapProviderInstanceDn=_CucsFeatureFruCapProviderInstanceDn_Object((1,3,6,1,4,1,9,9,719,1,77,5,1,2),_CucsFeatureFruCapProviderInstanceDn_Type())
-cucsFeatureFruCapProviderInstanceDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderInstanceDn.setStatus(_A)
-_CucsFeatureFruCapProviderInstanceRn_Type=SnmpAdminString
-_CucsFeatureFruCapProviderInstanceRn_Object=MibTableColumn
-cucsFeatureFruCapProviderInstanceRn=_CucsFeatureFruCapProviderInstanceRn_Object((1,3,6,1,4,1,9,9,719,1,77,5,1,3),_CucsFeatureFruCapProviderInstanceRn_Type())
-cucsFeatureFruCapProviderInstanceRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderInstanceRn.setStatus(_A)
-_CucsFeatureFruCapProviderInstanceModel_Type=SnmpAdminString
-_CucsFeatureFruCapProviderInstanceModel_Object=MibTableColumn
-cucsFeatureFruCapProviderInstanceModel=_CucsFeatureFruCapProviderInstanceModel_Object((1,3,6,1,4,1,9,9,719,1,77,5,1,4),_CucsFeatureFruCapProviderInstanceModel_Type())
-cucsFeatureFruCapProviderInstanceModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderInstanceModel.setStatus(_A)
-_CucsFeatureFruCapProviderInstanceRevision_Type=SnmpAdminString
-_CucsFeatureFruCapProviderInstanceRevision_Object=MibTableColumn
-cucsFeatureFruCapProviderInstanceRevision=_CucsFeatureFruCapProviderInstanceRevision_Object((1,3,6,1,4,1,9,9,719,1,77,5,1,5),_CucsFeatureFruCapProviderInstanceRevision_Type())
-cucsFeatureFruCapProviderInstanceRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderInstanceRevision.setStatus(_A)
-_CucsFeatureFruCapProviderInstanceSupportability_Type=CucsFeatureSupportabilityType
-_CucsFeatureFruCapProviderInstanceSupportability_Object=MibTableColumn
-cucsFeatureFruCapProviderInstanceSupportability=_CucsFeatureFruCapProviderInstanceSupportability_Object((1,3,6,1,4,1,9,9,719,1,77,5,1,6),_CucsFeatureFruCapProviderInstanceSupportability_Type())
-cucsFeatureFruCapProviderInstanceSupportability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderInstanceSupportability.setStatus(_A)
-_CucsFeatureFruCapProviderInstanceTargetDn_Type=SnmpAdminString
-_CucsFeatureFruCapProviderInstanceTargetDn_Object=MibTableColumn
-cucsFeatureFruCapProviderInstanceTargetDn=_CucsFeatureFruCapProviderInstanceTargetDn_Object((1,3,6,1,4,1,9,9,719,1,77,5,1,7),_CucsFeatureFruCapProviderInstanceTargetDn_Type())
-cucsFeatureFruCapProviderInstanceTargetDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderInstanceTargetDn.setStatus(_A)
-_CucsFeatureFruCapProviderInstanceVendor_Type=SnmpAdminString
-_CucsFeatureFruCapProviderInstanceVendor_Object=MibTableColumn
-cucsFeatureFruCapProviderInstanceVendor=_CucsFeatureFruCapProviderInstanceVendor_Object((1,3,6,1,4,1,9,9,719,1,77,5,1,8),_CucsFeatureFruCapProviderInstanceVendor_Type())
-cucsFeatureFruCapProviderInstanceVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderInstanceVendor.setStatus(_A)
-_CucsFeatureFruCapProviderRefTable_Object=MibTable
-cucsFeatureFruCapProviderRefTable=_CucsFeatureFruCapProviderRefTable_Object((1,3,6,1,4,1,9,9,719,1,77,6))
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderRefTable.setStatus(_A)
-_CucsFeatureFruCapProviderRefEntry_Object=MibTableRow
-cucsFeatureFruCapProviderRefEntry=_CucsFeatureFruCapProviderRefEntry_Object((1,3,6,1,4,1,9,9,719,1,77,6,1))
-cucsFeatureFruCapProviderRefEntry.setIndexNames((0,_C,_J))
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderRefEntry.setStatus(_A)
-_CucsFeatureFruCapProviderRefInstanceId_Type=CucsManagedObjectId
-_CucsFeatureFruCapProviderRefInstanceId_Object=MibTableColumn
-cucsFeatureFruCapProviderRefInstanceId=_CucsFeatureFruCapProviderRefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,77,6,1,1),_CucsFeatureFruCapProviderRefInstanceId_Type())
-cucsFeatureFruCapProviderRefInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderRefInstanceId.setStatus(_A)
-_CucsFeatureFruCapProviderRefDn_Type=CucsManagedObjectDn
-_CucsFeatureFruCapProviderRefDn_Object=MibTableColumn
-cucsFeatureFruCapProviderRefDn=_CucsFeatureFruCapProviderRefDn_Object((1,3,6,1,4,1,9,9,719,1,77,6,1,2),_CucsFeatureFruCapProviderRefDn_Type())
-cucsFeatureFruCapProviderRefDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderRefDn.setStatus(_A)
-_CucsFeatureFruCapProviderRefRn_Type=SnmpAdminString
-_CucsFeatureFruCapProviderRefRn_Object=MibTableColumn
-cucsFeatureFruCapProviderRefRn=_CucsFeatureFruCapProviderRefRn_Object((1,3,6,1,4,1,9,9,719,1,77,6,1,3),_CucsFeatureFruCapProviderRefRn_Type())
-cucsFeatureFruCapProviderRefRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderRefRn.setStatus(_A)
-_CucsFeatureFruCapProviderRefModel_Type=SnmpAdminString
-_CucsFeatureFruCapProviderRefModel_Object=MibTableColumn
-cucsFeatureFruCapProviderRefModel=_CucsFeatureFruCapProviderRefModel_Object((1,3,6,1,4,1,9,9,719,1,77,6,1,4),_CucsFeatureFruCapProviderRefModel_Type())
-cucsFeatureFruCapProviderRefModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderRefModel.setStatus(_A)
-_CucsFeatureFruCapProviderRefRevision_Type=SnmpAdminString
-_CucsFeatureFruCapProviderRefRevision_Object=MibTableColumn
-cucsFeatureFruCapProviderRefRevision=_CucsFeatureFruCapProviderRefRevision_Object((1,3,6,1,4,1,9,9,719,1,77,6,1,5),_CucsFeatureFruCapProviderRefRevision_Type())
-cucsFeatureFruCapProviderRefRevision.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderRefRevision.setStatus(_A)
-_CucsFeatureFruCapProviderRefSupportability_Type=CucsFeatureSupportabilityType
-_CucsFeatureFruCapProviderRefSupportability_Object=MibTableColumn
-cucsFeatureFruCapProviderRefSupportability=_CucsFeatureFruCapProviderRefSupportability_Object((1,3,6,1,4,1,9,9,719,1,77,6,1,6),_CucsFeatureFruCapProviderRefSupportability_Type())
-cucsFeatureFruCapProviderRefSupportability.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderRefSupportability.setStatus(_A)
-_CucsFeatureFruCapProviderRefTargetDn_Type=SnmpAdminString
-_CucsFeatureFruCapProviderRefTargetDn_Object=MibTableColumn
-cucsFeatureFruCapProviderRefTargetDn=_CucsFeatureFruCapProviderRefTargetDn_Object((1,3,6,1,4,1,9,9,719,1,77,6,1,7),_CucsFeatureFruCapProviderRefTargetDn_Type())
-cucsFeatureFruCapProviderRefTargetDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderRefTargetDn.setStatus(_A)
-_CucsFeatureFruCapProviderRefVendor_Type=SnmpAdminString
-_CucsFeatureFruCapProviderRefVendor_Object=MibTableColumn
-cucsFeatureFruCapProviderRefVendor=_CucsFeatureFruCapProviderRefVendor_Object((1,3,6,1,4,1,9,9,719,1,77,6,1,8),_CucsFeatureFruCapProviderRefVendor_Type())
-cucsFeatureFruCapProviderRefVendor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureFruCapProviderRefVendor.setStatus(_A)
-_CucsFeatureProviderTable_Object=MibTable
-cucsFeatureProviderTable=_CucsFeatureProviderTable_Object((1,3,6,1,4,1,9,9,719,1,77,7))
-if mibBuilder.loadTexts:cucsFeatureProviderTable.setStatus(_A)
-_CucsFeatureProviderEntry_Object=MibTableRow
-cucsFeatureProviderEntry=_CucsFeatureProviderEntry_Object((1,3,6,1,4,1,9,9,719,1,77,7,1))
-cucsFeatureProviderEntry.setIndexNames((0,_C,_K))
-if mibBuilder.loadTexts:cucsFeatureProviderEntry.setStatus(_A)
-_CucsFeatureProviderInstanceId_Type=CucsManagedObjectId
-_CucsFeatureProviderInstanceId_Object=MibTableColumn
-cucsFeatureProviderInstanceId=_CucsFeatureProviderInstanceId_Object((1,3,6,1,4,1,9,9,719,1,77,7,1,1),_CucsFeatureProviderInstanceId_Type())
-cucsFeatureProviderInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsFeatureProviderInstanceId.setStatus(_A)
-_CucsFeatureProviderDn_Type=CucsManagedObjectDn
-_CucsFeatureProviderDn_Object=MibTableColumn
-cucsFeatureProviderDn=_CucsFeatureProviderDn_Object((1,3,6,1,4,1,9,9,719,1,77,7,1,2),_CucsFeatureProviderDn_Type())
-cucsFeatureProviderDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureProviderDn.setStatus(_A)
-_CucsFeatureProviderRn_Type=SnmpAdminString
-_CucsFeatureProviderRn_Object=MibTableColumn
-cucsFeatureProviderRn=_CucsFeatureProviderRn_Object((1,3,6,1,4,1,9,9,719,1,77,7,1,3),_CucsFeatureProviderRn_Type())
-cucsFeatureProviderRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureProviderRn.setStatus(_A)
-_CucsFeatureProviderName_Type=SnmpAdminString
-_CucsFeatureProviderName_Object=MibTableColumn
-cucsFeatureProviderName=_CucsFeatureProviderName_Object((1,3,6,1,4,1,9,9,719,1,77,7,1,4),_CucsFeatureProviderName_Type())
-cucsFeatureProviderName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureProviderName.setStatus(_A)
-_CucsFeatureProviderInstanceTable_Object=MibTable
-cucsFeatureProviderInstanceTable=_CucsFeatureProviderInstanceTable_Object((1,3,6,1,4,1,9,9,719,1,77,8))
-if mibBuilder.loadTexts:cucsFeatureProviderInstanceTable.setStatus(_A)
-_CucsFeatureProviderInstanceEntry_Object=MibTableRow
-cucsFeatureProviderInstanceEntry=_CucsFeatureProviderInstanceEntry_Object((1,3,6,1,4,1,9,9,719,1,77,8,1))
-cucsFeatureProviderInstanceEntry.setIndexNames((0,_C,_L))
-if mibBuilder.loadTexts:cucsFeatureProviderInstanceEntry.setStatus(_A)
-_CucsFeatureProviderInstanceInstanceId_Type=CucsManagedObjectId
-_CucsFeatureProviderInstanceInstanceId_Object=MibTableColumn
-cucsFeatureProviderInstanceInstanceId=_CucsFeatureProviderInstanceInstanceId_Object((1,3,6,1,4,1,9,9,719,1,77,8,1,1),_CucsFeatureProviderInstanceInstanceId_Type())
-cucsFeatureProviderInstanceInstanceId.setMaxAccess(_D)
-if mibBuilder.loadTexts:cucsFeatureProviderInstanceInstanceId.setStatus(_A)
-_CucsFeatureProviderInstanceDn_Type=CucsManagedObjectDn
-_CucsFeatureProviderInstanceDn_Object=MibTableColumn
-cucsFeatureProviderInstanceDn=_CucsFeatureProviderInstanceDn_Object((1,3,6,1,4,1,9,9,719,1,77,8,1,2),_CucsFeatureProviderInstanceDn_Type())
-cucsFeatureProviderInstanceDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureProviderInstanceDn.setStatus(_A)
-_CucsFeatureProviderInstanceRn_Type=SnmpAdminString
-_CucsFeatureProviderInstanceRn_Object=MibTableColumn
-cucsFeatureProviderInstanceRn=_CucsFeatureProviderInstanceRn_Object((1,3,6,1,4,1,9,9,719,1,77,8,1,3),_CucsFeatureProviderInstanceRn_Type())
-cucsFeatureProviderInstanceRn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureProviderInstanceRn.setStatus(_A)
-_CucsFeatureProviderInstanceName_Type=SnmpAdminString
-_CucsFeatureProviderInstanceName_Object=MibTableColumn
-cucsFeatureProviderInstanceName=_CucsFeatureProviderInstanceName_Object((1,3,6,1,4,1,9,9,719,1,77,8,1,4),_CucsFeatureProviderInstanceName_Type())
-cucsFeatureProviderInstanceName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureProviderInstanceName.setStatus(_A)
-_CucsFeatureProviderInstanceOperProviderDn_Type=SnmpAdminString
-_CucsFeatureProviderInstanceOperProviderDn_Object=MibTableColumn
-cucsFeatureProviderInstanceOperProviderDn=_CucsFeatureProviderInstanceOperProviderDn_Object((1,3,6,1,4,1,9,9,719,1,77,8,1,5),_CucsFeatureProviderInstanceOperProviderDn_Type())
-cucsFeatureProviderInstanceOperProviderDn.setMaxAccess(_B)
-if mibBuilder.loadTexts:cucsFeatureProviderInstanceOperProviderDn.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'cucsFeatureObjects':cucsFeatureObjects,'cucsFeatureContextEpTable':cucsFeatureContextEpTable,'cucsFeatureContextEpEntry':cucsFeatureContextEpEntry,_E:cucsFeatureContextEpInstanceId,'cucsFeatureContextEpDn':cucsFeatureContextEpDn,'cucsFeatureContextEpRn':cucsFeatureContextEpRn,'cucsFeatureDefinitionTable':cucsFeatureDefinitionTable,'cucsFeatureDefinitionEntry':cucsFeatureDefinitionEntry,_F:cucsFeatureDefinitionInstanceId,'cucsFeatureDefinitionDn':cucsFeatureDefinitionDn,'cucsFeatureDefinitionRn':cucsFeatureDefinitionRn,'cucsFeatureDefinitionDescription':cucsFeatureDefinitionDescription,'cucsFeatureDefinitionName':cucsFeatureDefinitionName,'cucsFeatureDefinitionRevision':cucsFeatureDefinitionRevision,'cucsFeatureDefinitionInstanceTable':cucsFeatureDefinitionInstanceTable,'cucsFeatureDefinitionInstanceEntry':cucsFeatureDefinitionInstanceEntry,_G:cucsFeatureDefinitionInstanceInstanceId,'cucsFeatureDefinitionInstanceDn':cucsFeatureDefinitionInstanceDn,'cucsFeatureDefinitionInstanceRn':cucsFeatureDefinitionInstanceRn,'cucsFeatureDefinitionInstanceName':cucsFeatureDefinitionInstanceName,'cucsFeatureDefinitionInstanceRevision':cucsFeatureDefinitionInstanceRevision,'cucsFeatureDefinitionInstanceSupportability':cucsFeatureDefinitionInstanceSupportability,'cucsFeatureDefinitionInstanceTargetDn':cucsFeatureDefinitionInstanceTargetDn,'cucsFeatureDefinitionRefTable':cucsFeatureDefinitionRefTable,'cucsFeatureDefinitionRefEntry':cucsFeatureDefinitionRefEntry,_H:cucsFeatureDefinitionRefInstanceId,'cucsFeatureDefinitionRefDn':cucsFeatureDefinitionRefDn,'cucsFeatureDefinitionRefRn':cucsFeatureDefinitionRefRn,'cucsFeatureDefinitionRefName':cucsFeatureDefinitionRefName,'cucsFeatureDefinitionRefRevision':cucsFeatureDefinitionRefRevision,'cucsFeatureDefinitionRefSupportability':cucsFeatureDefinitionRefSupportability,'cucsFeatureDefinitionRefTargetDn':cucsFeatureDefinitionRefTargetDn,'cucsFeatureFruCapProviderInstanceTable':cucsFeatureFruCapProviderInstanceTable,'cucsFeatureFruCapProviderInstanceEntry':cucsFeatureFruCapProviderInstanceEntry,_I:cucsFeatureFruCapProviderInstanceInstanceId,'cucsFeatureFruCapProviderInstanceDn':cucsFeatureFruCapProviderInstanceDn,'cucsFeatureFruCapProviderInstanceRn':cucsFeatureFruCapProviderInstanceRn,'cucsFeatureFruCapProviderInstanceModel':cucsFeatureFruCapProviderInstanceModel,'cucsFeatureFruCapProviderInstanceRevision':cucsFeatureFruCapProviderInstanceRevision,'cucsFeatureFruCapProviderInstanceSupportability':cucsFeatureFruCapProviderInstanceSupportability,'cucsFeatureFruCapProviderInstanceTargetDn':cucsFeatureFruCapProviderInstanceTargetDn,'cucsFeatureFruCapProviderInstanceVendor':cucsFeatureFruCapProviderInstanceVendor,'cucsFeatureFruCapProviderRefTable':cucsFeatureFruCapProviderRefTable,'cucsFeatureFruCapProviderRefEntry':cucsFeatureFruCapProviderRefEntry,_J:cucsFeatureFruCapProviderRefInstanceId,'cucsFeatureFruCapProviderRefDn':cucsFeatureFruCapProviderRefDn,'cucsFeatureFruCapProviderRefRn':cucsFeatureFruCapProviderRefRn,'cucsFeatureFruCapProviderRefModel':cucsFeatureFruCapProviderRefModel,'cucsFeatureFruCapProviderRefRevision':cucsFeatureFruCapProviderRefRevision,'cucsFeatureFruCapProviderRefSupportability':cucsFeatureFruCapProviderRefSupportability,'cucsFeatureFruCapProviderRefTargetDn':cucsFeatureFruCapProviderRefTargetDn,'cucsFeatureFruCapProviderRefVendor':cucsFeatureFruCapProviderRefVendor,'cucsFeatureProviderTable':cucsFeatureProviderTable,'cucsFeatureProviderEntry':cucsFeatureProviderEntry,_K:cucsFeatureProviderInstanceId,'cucsFeatureProviderDn':cucsFeatureProviderDn,'cucsFeatureProviderRn':cucsFeatureProviderRn,'cucsFeatureProviderName':cucsFeatureProviderName,'cucsFeatureProviderInstanceTable':cucsFeatureProviderInstanceTable,'cucsFeatureProviderInstanceEntry':cucsFeatureProviderInstanceEntry,_L:cucsFeatureProviderInstanceInstanceId,'cucsFeatureProviderInstanceDn':cucsFeatureProviderInstanceDn,'cucsFeatureProviderInstanceRn':cucsFeatureProviderInstanceRn,'cucsFeatureProviderInstanceName':cucsFeatureProviderInstanceName,'cucsFeatureProviderInstanceOperProviderDn':cucsFeatureProviderInstanceOperProviderDn})
+#
+# PySNMP MIB module CISCO-UNIFIED-COMPUTING-FEATURE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-UNIFIED-COMPUTING-FEATURE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:26 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+Unsigned64, CiscoAlarmSeverity, CiscoInetAddressMask, TimeIntervalSec, CiscoNetworkAddress = mibBuilder.importSymbols("CISCO-TC", "Unsigned64", "CiscoAlarmSeverity", "CiscoInetAddressMask", "TimeIntervalSec", "CiscoNetworkAddress")
+CucsManagedObjectId, ciscoUnifiedComputingMIBObjects, CucsManagedObjectDn = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-MIB", "CucsManagedObjectId", "ciscoUnifiedComputingMIBObjects", "CucsManagedObjectDn")
+CucsFeatureSupportabilityType, = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-TC-MIB", "CucsFeatureSupportabilityType")
+InetAddressIPv6, InetAddressIPv4 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6", "InetAddressIPv4")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, TruthValue, DateAndTime, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "TruthValue", "DateAndTime", "RowPointer", "TextualConvention")
+cucsFeatureObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77))
+if mibBuilder.loadTexts: cucsFeatureObjects.setLastUpdated('201807260000Z')
+if mibBuilder.loadTexts: cucsFeatureObjects.setOrganization('Cisco Systems Inc.')
+cucsFeatureContextEpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 1), )
+if mibBuilder.loadTexts: cucsFeatureContextEpTable.setStatus('current')
+cucsFeatureContextEpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 1, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-FEATURE-MIB", "cucsFeatureContextEpInstanceId"))
+if mibBuilder.loadTexts: cucsFeatureContextEpEntry.setStatus('current')
+cucsFeatureContextEpInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 1, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsFeatureContextEpInstanceId.setStatus('current')
+cucsFeatureContextEpDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 1, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureContextEpDn.setStatus('current')
+cucsFeatureContextEpRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureContextEpRn.setStatus('current')
+cucsFeatureDefinitionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 2), )
+if mibBuilder.loadTexts: cucsFeatureDefinitionTable.setStatus('current')
+cucsFeatureDefinitionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 2, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-FEATURE-MIB", "cucsFeatureDefinitionInstanceId"))
+if mibBuilder.loadTexts: cucsFeatureDefinitionEntry.setStatus('current')
+cucsFeatureDefinitionInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 2, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsFeatureDefinitionInstanceId.setStatus('current')
+cucsFeatureDefinitionDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 2, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionDn.setStatus('current')
+cucsFeatureDefinitionRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionRn.setStatus('current')
+cucsFeatureDefinitionDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 2, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionDescription.setStatus('current')
+cucsFeatureDefinitionName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 2, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionName.setStatus('current')
+cucsFeatureDefinitionRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 2, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionRevision.setStatus('current')
+cucsFeatureDefinitionInstanceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 3), )
+if mibBuilder.loadTexts: cucsFeatureDefinitionInstanceTable.setStatus('current')
+cucsFeatureDefinitionInstanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 3, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-FEATURE-MIB", "cucsFeatureDefinitionInstanceInstanceId"))
+if mibBuilder.loadTexts: cucsFeatureDefinitionInstanceEntry.setStatus('current')
+cucsFeatureDefinitionInstanceInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 3, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsFeatureDefinitionInstanceInstanceId.setStatus('current')
+cucsFeatureDefinitionInstanceDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 3, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionInstanceDn.setStatus('current')
+cucsFeatureDefinitionInstanceRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 3, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionInstanceRn.setStatus('current')
+cucsFeatureDefinitionInstanceName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 3, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionInstanceName.setStatus('current')
+cucsFeatureDefinitionInstanceRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 3, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionInstanceRevision.setStatus('current')
+cucsFeatureDefinitionInstanceSupportability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 3, 1, 6), CucsFeatureSupportabilityType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionInstanceSupportability.setStatus('current')
+cucsFeatureDefinitionInstanceTargetDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 3, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionInstanceTargetDn.setStatus('current')
+cucsFeatureDefinitionRefTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 4), )
+if mibBuilder.loadTexts: cucsFeatureDefinitionRefTable.setStatus('current')
+cucsFeatureDefinitionRefEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 4, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-FEATURE-MIB", "cucsFeatureDefinitionRefInstanceId"))
+if mibBuilder.loadTexts: cucsFeatureDefinitionRefEntry.setStatus('current')
+cucsFeatureDefinitionRefInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 4, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsFeatureDefinitionRefInstanceId.setStatus('current')
+cucsFeatureDefinitionRefDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 4, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionRefDn.setStatus('current')
+cucsFeatureDefinitionRefRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 4, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionRefRn.setStatus('current')
+cucsFeatureDefinitionRefName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 4, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionRefName.setStatus('current')
+cucsFeatureDefinitionRefRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 4, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionRefRevision.setStatus('current')
+cucsFeatureDefinitionRefSupportability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 4, 1, 6), CucsFeatureSupportabilityType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionRefSupportability.setStatus('current')
+cucsFeatureDefinitionRefTargetDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 4, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureDefinitionRefTargetDn.setStatus('current')
+cucsFeatureFruCapProviderInstanceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 5), )
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderInstanceTable.setStatus('current')
+cucsFeatureFruCapProviderInstanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 5, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-FEATURE-MIB", "cucsFeatureFruCapProviderInstanceInstanceId"))
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderInstanceEntry.setStatus('current')
+cucsFeatureFruCapProviderInstanceInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 5, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderInstanceInstanceId.setStatus('current')
+cucsFeatureFruCapProviderInstanceDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 5, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderInstanceDn.setStatus('current')
+cucsFeatureFruCapProviderInstanceRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 5, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderInstanceRn.setStatus('current')
+cucsFeatureFruCapProviderInstanceModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 5, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderInstanceModel.setStatus('current')
+cucsFeatureFruCapProviderInstanceRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 5, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderInstanceRevision.setStatus('current')
+cucsFeatureFruCapProviderInstanceSupportability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 5, 1, 6), CucsFeatureSupportabilityType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderInstanceSupportability.setStatus('current')
+cucsFeatureFruCapProviderInstanceTargetDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 5, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderInstanceTargetDn.setStatus('current')
+cucsFeatureFruCapProviderInstanceVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 5, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderInstanceVendor.setStatus('current')
+cucsFeatureFruCapProviderRefTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 6), )
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderRefTable.setStatus('current')
+cucsFeatureFruCapProviderRefEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 6, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-FEATURE-MIB", "cucsFeatureFruCapProviderRefInstanceId"))
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderRefEntry.setStatus('current')
+cucsFeatureFruCapProviderRefInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 6, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderRefInstanceId.setStatus('current')
+cucsFeatureFruCapProviderRefDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 6, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderRefDn.setStatus('current')
+cucsFeatureFruCapProviderRefRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 6, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderRefRn.setStatus('current')
+cucsFeatureFruCapProviderRefModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 6, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderRefModel.setStatus('current')
+cucsFeatureFruCapProviderRefRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 6, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderRefRevision.setStatus('current')
+cucsFeatureFruCapProviderRefSupportability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 6, 1, 6), CucsFeatureSupportabilityType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderRefSupportability.setStatus('current')
+cucsFeatureFruCapProviderRefTargetDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 6, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderRefTargetDn.setStatus('current')
+cucsFeatureFruCapProviderRefVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 6, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureFruCapProviderRefVendor.setStatus('current')
+cucsFeatureProviderTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 7), )
+if mibBuilder.loadTexts: cucsFeatureProviderTable.setStatus('current')
+cucsFeatureProviderEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 7, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-FEATURE-MIB", "cucsFeatureProviderInstanceId"))
+if mibBuilder.loadTexts: cucsFeatureProviderEntry.setStatus('current')
+cucsFeatureProviderInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 7, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsFeatureProviderInstanceId.setStatus('current')
+cucsFeatureProviderDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 7, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureProviderDn.setStatus('current')
+cucsFeatureProviderRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 7, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureProviderRn.setStatus('current')
+cucsFeatureProviderName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 7, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureProviderName.setStatus('current')
+cucsFeatureProviderInstanceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 8), )
+if mibBuilder.loadTexts: cucsFeatureProviderInstanceTable.setStatus('current')
+cucsFeatureProviderInstanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 8, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-FEATURE-MIB", "cucsFeatureProviderInstanceInstanceId"))
+if mibBuilder.loadTexts: cucsFeatureProviderInstanceEntry.setStatus('current')
+cucsFeatureProviderInstanceInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 8, 1, 1), CucsManagedObjectId())
+if mibBuilder.loadTexts: cucsFeatureProviderInstanceInstanceId.setStatus('current')
+cucsFeatureProviderInstanceDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 8, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureProviderInstanceDn.setStatus('current')
+cucsFeatureProviderInstanceRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 8, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureProviderInstanceRn.setStatus('current')
+cucsFeatureProviderInstanceName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 8, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureProviderInstanceName.setStatus('current')
+cucsFeatureProviderInstanceOperProviderDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 77, 8, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cucsFeatureProviderInstanceOperProviderDn.setStatus('current')
+mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-FEATURE-MIB", cucsFeatureFruCapProviderRefTargetDn=cucsFeatureFruCapProviderRefTargetDn, cucsFeatureProviderInstanceTable=cucsFeatureProviderInstanceTable, cucsFeatureDefinitionRefRevision=cucsFeatureDefinitionRefRevision, cucsFeatureFruCapProviderRefRevision=cucsFeatureFruCapProviderRefRevision, cucsFeatureFruCapProviderRefModel=cucsFeatureFruCapProviderRefModel, cucsFeatureContextEpEntry=cucsFeatureContextEpEntry, cucsFeatureContextEpRn=cucsFeatureContextEpRn, cucsFeatureDefinitionInstanceEntry=cucsFeatureDefinitionInstanceEntry, cucsFeatureFruCapProviderInstanceModel=cucsFeatureFruCapProviderInstanceModel, cucsFeatureFruCapProviderRefDn=cucsFeatureFruCapProviderRefDn, cucsFeatureFruCapProviderRefRn=cucsFeatureFruCapProviderRefRn, cucsFeatureFruCapProviderInstanceSupportability=cucsFeatureFruCapProviderInstanceSupportability, cucsFeatureFruCapProviderInstanceTable=cucsFeatureFruCapProviderInstanceTable, cucsFeatureDefinitionInstanceRn=cucsFeatureDefinitionInstanceRn, cucsFeatureProviderInstanceOperProviderDn=cucsFeatureProviderInstanceOperProviderDn, cucsFeatureDefinitionRefTargetDn=cucsFeatureDefinitionRefTargetDn, cucsFeatureContextEpTable=cucsFeatureContextEpTable, cucsFeatureFruCapProviderInstanceTargetDn=cucsFeatureFruCapProviderInstanceTargetDn, cucsFeatureFruCapProviderRefSupportability=cucsFeatureFruCapProviderRefSupportability, cucsFeatureDefinitionInstanceInstanceId=cucsFeatureDefinitionInstanceInstanceId, cucsFeatureProviderTable=cucsFeatureProviderTable, cucsFeatureDefinitionName=cucsFeatureDefinitionName, cucsFeatureFruCapProviderRefTable=cucsFeatureFruCapProviderRefTable, cucsFeatureProviderInstanceEntry=cucsFeatureProviderInstanceEntry, cucsFeatureDefinitionDn=cucsFeatureDefinitionDn, cucsFeatureDefinitionInstanceId=cucsFeatureDefinitionInstanceId, cucsFeatureFruCapProviderInstanceInstanceId=cucsFeatureFruCapProviderInstanceInstanceId, cucsFeatureDefinitionRefDn=cucsFeatureDefinitionRefDn, cucsFeatureFruCapProviderInstanceDn=cucsFeatureFruCapProviderInstanceDn, cucsFeatureProviderRn=cucsFeatureProviderRn, cucsFeatureFruCapProviderRefEntry=cucsFeatureFruCapProviderRefEntry, cucsFeatureProviderName=cucsFeatureProviderName, cucsFeatureFruCapProviderRefInstanceId=cucsFeatureFruCapProviderRefInstanceId, cucsFeatureDefinitionEntry=cucsFeatureDefinitionEntry, cucsFeatureFruCapProviderInstanceVendor=cucsFeatureFruCapProviderInstanceVendor, cucsFeatureDefinitionRefEntry=cucsFeatureDefinitionRefEntry, cucsFeatureFruCapProviderRefVendor=cucsFeatureFruCapProviderRefVendor, cucsFeatureObjects=cucsFeatureObjects, cucsFeatureProviderInstanceInstanceId=cucsFeatureProviderInstanceInstanceId, cucsFeatureDefinitionTable=cucsFeatureDefinitionTable, cucsFeatureProviderInstanceRn=cucsFeatureProviderInstanceRn, cucsFeatureDefinitionRevision=cucsFeatureDefinitionRevision, cucsFeatureDefinitionInstanceRevision=cucsFeatureDefinitionInstanceRevision, cucsFeatureDefinitionInstanceName=cucsFeatureDefinitionInstanceName, cucsFeatureDefinitionRefRn=cucsFeatureDefinitionRefRn, cucsFeatureProviderInstanceId=cucsFeatureProviderInstanceId, cucsFeatureFruCapProviderInstanceRn=cucsFeatureFruCapProviderInstanceRn, cucsFeatureDefinitionRefSupportability=cucsFeatureDefinitionRefSupportability, cucsFeatureDefinitionRefName=cucsFeatureDefinitionRefName, PYSNMP_MODULE_ID=cucsFeatureObjects, cucsFeatureDefinitionRn=cucsFeatureDefinitionRn, cucsFeatureDefinitionInstanceSupportability=cucsFeatureDefinitionInstanceSupportability, cucsFeatureDefinitionInstanceTargetDn=cucsFeatureDefinitionInstanceTargetDn, cucsFeatureProviderEntry=cucsFeatureProviderEntry, cucsFeatureProviderDn=cucsFeatureProviderDn, cucsFeatureProviderInstanceDn=cucsFeatureProviderInstanceDn, cucsFeatureContextEpDn=cucsFeatureContextEpDn, cucsFeatureDefinitionInstanceTable=cucsFeatureDefinitionInstanceTable, cucsFeatureContextEpInstanceId=cucsFeatureContextEpInstanceId, cucsFeatureDefinitionInstanceDn=cucsFeatureDefinitionInstanceDn, cucsFeatureProviderInstanceName=cucsFeatureProviderInstanceName, cucsFeatureDefinitionDescription=cucsFeatureDefinitionDescription, cucsFeatureDefinitionRefTable=cucsFeatureDefinitionRefTable, cucsFeatureFruCapProviderInstanceRevision=cucsFeatureFruCapProviderInstanceRevision, cucsFeatureFruCapProviderInstanceEntry=cucsFeatureFruCapProviderInstanceEntry, cucsFeatureDefinitionRefInstanceId=cucsFeatureDefinitionRefInstanceId)

@@ -1,122 +1,56 @@
-_S='coDot1xPaeAuthenticatorGroup'
-_R='coDot1xPaeSystemGroup'
-_Q='coDot1xAuthReAuthMax'
-_P='coDot1xAuthKeyTxEnabled'
-_O='coDot1xAuthReAuthEnabled'
-_N='coDot1xAuthReAuthPeriod'
-_M='coDot1xAuthMaxReq'
-_L='coDot1xAuthServerTimeout'
-_K='coDot1xAuthSuppTimeout'
-_J='coDot1xAuthTxPeriod'
-_I='coDot1xAuthQuietPeriod'
-_H='coDot1xPaeSystemModifyKeyInterval'
-_G='coDot1xPaeSystemModifyKey'
-_F='TruthValue'
-_E='seconds'
-_D='Unsigned32'
-_C='read-write'
-_B='COLUBRIS-802DOT1X-ACCESS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-colubrisMgmtV2,=mibBuilder.importSymbols('COLUBRIS-SMI','colubrisMgmtV2')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_F)
-colubris802Dot1xMIB=ModuleIdentity((1,3,6,1,4,1,8744,5,8))
-_CoPaeMIBObjects_ObjectIdentity=ObjectIdentity
-coPaeMIBObjects=_CoPaeMIBObjects_ObjectIdentity((1,3,6,1,4,1,8744,5,8,1))
-_CoDot1xPaeSystem_ObjectIdentity=ObjectIdentity
-coDot1xPaeSystem=_CoDot1xPaeSystem_ObjectIdentity((1,3,6,1,4,1,8744,5,8,1,1))
-class _CoDot1xPaeSystemModifyKey_Type(TruthValue):defaultValue=2
-_CoDot1xPaeSystemModifyKey_Type.__name__=_F
-_CoDot1xPaeSystemModifyKey_Object=MibScalar
-coDot1xPaeSystemModifyKey=_CoDot1xPaeSystemModifyKey_Object((1,3,6,1,4,1,8744,5,8,1,1,1),_CoDot1xPaeSystemModifyKey_Type())
-coDot1xPaeSystemModifyKey.setMaxAccess('read-only')
-if mibBuilder.loadTexts:coDot1xPaeSystemModifyKey.setStatus(_A)
-class _CoDot1xPaeSystemModifyKeyInterval_Type(Unsigned32):defaultValue=300;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(30,65535))
-_CoDot1xPaeSystemModifyKeyInterval_Type.__name__=_D
-_CoDot1xPaeSystemModifyKeyInterval_Object=MibScalar
-coDot1xPaeSystemModifyKeyInterval=_CoDot1xPaeSystemModifyKeyInterval_Object((1,3,6,1,4,1,8744,5,8,1,1,2),_CoDot1xPaeSystemModifyKeyInterval_Type())
-coDot1xPaeSystemModifyKeyInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:coDot1xPaeSystemModifyKeyInterval.setStatus(_A)
-if mibBuilder.loadTexts:coDot1xPaeSystemModifyKeyInterval.setUnits(_E)
-_CoDot1xPaeAuthenticator_ObjectIdentity=ObjectIdentity
-coDot1xPaeAuthenticator=_CoDot1xPaeAuthenticator_ObjectIdentity((1,3,6,1,4,1,8744,5,8,1,2))
-class _CoDot1xAuthQuietPeriod_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CoDot1xAuthQuietPeriod_Type.__name__=_D
-_CoDot1xAuthQuietPeriod_Object=MibScalar
-coDot1xAuthQuietPeriod=_CoDot1xAuthQuietPeriod_Object((1,3,6,1,4,1,8744,5,8,1,2,1),_CoDot1xAuthQuietPeriod_Type())
-coDot1xAuthQuietPeriod.setMaxAccess(_C)
-if mibBuilder.loadTexts:coDot1xAuthQuietPeriod.setStatus(_A)
-if mibBuilder.loadTexts:coDot1xAuthQuietPeriod.setUnits(_E)
-class _CoDot1xAuthTxPeriod_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CoDot1xAuthTxPeriod_Type.__name__=_D
-_CoDot1xAuthTxPeriod_Object=MibScalar
-coDot1xAuthTxPeriod=_CoDot1xAuthTxPeriod_Object((1,3,6,1,4,1,8744,5,8,1,2,2),_CoDot1xAuthTxPeriod_Type())
-coDot1xAuthTxPeriod.setMaxAccess(_C)
-if mibBuilder.loadTexts:coDot1xAuthTxPeriod.setStatus(_A)
-if mibBuilder.loadTexts:coDot1xAuthTxPeriod.setUnits(_E)
-class _CoDot1xAuthSuppTimeout_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CoDot1xAuthSuppTimeout_Type.__name__=_D
-_CoDot1xAuthSuppTimeout_Object=MibScalar
-coDot1xAuthSuppTimeout=_CoDot1xAuthSuppTimeout_Object((1,3,6,1,4,1,8744,5,8,1,2,3),_CoDot1xAuthSuppTimeout_Type())
-coDot1xAuthSuppTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:coDot1xAuthSuppTimeout.setStatus(_A)
-if mibBuilder.loadTexts:coDot1xAuthSuppTimeout.setUnits(_E)
-class _CoDot1xAuthServerTimeout_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CoDot1xAuthServerTimeout_Type.__name__=_D
-_CoDot1xAuthServerTimeout_Object=MibScalar
-coDot1xAuthServerTimeout=_CoDot1xAuthServerTimeout_Object((1,3,6,1,4,1,8744,5,8,1,2,4),_CoDot1xAuthServerTimeout_Type())
-coDot1xAuthServerTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:coDot1xAuthServerTimeout.setStatus(_A)
-if mibBuilder.loadTexts:coDot1xAuthServerTimeout.setUnits(_E)
-class _CoDot1xAuthMaxReq_Type(Unsigned32):defaultValue=2;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_CoDot1xAuthMaxReq_Type.__name__=_D
-_CoDot1xAuthMaxReq_Object=MibScalar
-coDot1xAuthMaxReq=_CoDot1xAuthMaxReq_Object((1,3,6,1,4,1,8744,5,8,1,2,5),_CoDot1xAuthMaxReq_Type())
-coDot1xAuthMaxReq.setMaxAccess(_C)
-if mibBuilder.loadTexts:coDot1xAuthMaxReq.setStatus(_A)
-class _CoDot1xAuthReAuthPeriod_Type(Unsigned32):defaultValue=3600;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CoDot1xAuthReAuthPeriod_Type.__name__=_D
-_CoDot1xAuthReAuthPeriod_Object=MibScalar
-coDot1xAuthReAuthPeriod=_CoDot1xAuthReAuthPeriod_Object((1,3,6,1,4,1,8744,5,8,1,2,6),_CoDot1xAuthReAuthPeriod_Type())
-coDot1xAuthReAuthPeriod.setMaxAccess(_C)
-if mibBuilder.loadTexts:coDot1xAuthReAuthPeriod.setStatus(_A)
-if mibBuilder.loadTexts:coDot1xAuthReAuthPeriod.setUnits(_E)
-class _CoDot1xAuthReAuthEnabled_Type(TruthValue):defaultValue=2
-_CoDot1xAuthReAuthEnabled_Type.__name__=_F
-_CoDot1xAuthReAuthEnabled_Object=MibScalar
-coDot1xAuthReAuthEnabled=_CoDot1xAuthReAuthEnabled_Object((1,3,6,1,4,1,8744,5,8,1,2,7),_CoDot1xAuthReAuthEnabled_Type())
-coDot1xAuthReAuthEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:coDot1xAuthReAuthEnabled.setStatus(_A)
-class _CoDot1xAuthKeyTxEnabled_Type(TruthValue):defaultValue=1
-_CoDot1xAuthKeyTxEnabled_Type.__name__=_F
-_CoDot1xAuthKeyTxEnabled_Object=MibScalar
-coDot1xAuthKeyTxEnabled=_CoDot1xAuthKeyTxEnabled_Object((1,3,6,1,4,1,8744,5,8,1,2,8),_CoDot1xAuthKeyTxEnabled_Type())
-coDot1xAuthKeyTxEnabled.setMaxAccess(_C)
-if mibBuilder.loadTexts:coDot1xAuthKeyTxEnabled.setStatus(_A)
-class _CoDot1xAuthReAuthMax_Type(Unsigned32):defaultValue=8;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_CoDot1xAuthReAuthMax_Type.__name__=_D
-_CoDot1xAuthReAuthMax_Object=MibScalar
-coDot1xAuthReAuthMax=_CoDot1xAuthReAuthMax_Object((1,3,6,1,4,1,8744,5,8,1,2,9),_CoDot1xAuthReAuthMax_Type())
-coDot1xAuthReAuthMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:coDot1xAuthReAuthMax.setStatus(_A)
-_CoDot1xPaeConformance_ObjectIdentity=ObjectIdentity
-coDot1xPaeConformance=_CoDot1xPaeConformance_ObjectIdentity((1,3,6,1,4,1,8744,5,8,2))
-_CoDot1xPaeGroups_ObjectIdentity=ObjectIdentity
-coDot1xPaeGroups=_CoDot1xPaeGroups_ObjectIdentity((1,3,6,1,4,1,8744,5,8,2,1))
-_CoDot1xPaeCompliances_ObjectIdentity=ObjectIdentity
-coDot1xPaeCompliances=_CoDot1xPaeCompliances_ObjectIdentity((1,3,6,1,4,1,8744,5,8,2,2))
-coDot1xPaeSystemGroup=ObjectGroup((1,3,6,1,4,1,8744,5,8,2,1,1))
-coDot1xPaeSystemGroup.setObjects(*((_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:coDot1xPaeSystemGroup.setStatus(_A)
-coDot1xPaeAuthenticatorGroup=ObjectGroup((1,3,6,1,4,1,8744,5,8,2,1,2))
-coDot1xPaeAuthenticatorGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:coDot1xPaeAuthenticatorGroup.setStatus(_A)
-coDot1xPaeCompliance=ModuleCompliance((1,3,6,1,4,1,8744,5,8,2,2,1))
-coDot1xPaeCompliance.setObjects(*((_B,_R),(_B,_S)))
-if mibBuilder.loadTexts:coDot1xPaeCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'colubris802Dot1xMIB':colubris802Dot1xMIB,'coPaeMIBObjects':coPaeMIBObjects,'coDot1xPaeSystem':coDot1xPaeSystem,_G:coDot1xPaeSystemModifyKey,_H:coDot1xPaeSystemModifyKeyInterval,'coDot1xPaeAuthenticator':coDot1xPaeAuthenticator,_I:coDot1xAuthQuietPeriod,_J:coDot1xAuthTxPeriod,_K:coDot1xAuthSuppTimeout,_L:coDot1xAuthServerTimeout,_M:coDot1xAuthMaxReq,_N:coDot1xAuthReAuthPeriod,_O:coDot1xAuthReAuthEnabled,_P:coDot1xAuthKeyTxEnabled,_Q:coDot1xAuthReAuthMax,'coDot1xPaeConformance':coDot1xPaeConformance,'coDot1xPaeGroups':coDot1xPaeGroups,_R:coDot1xPaeSystemGroup,_S:coDot1xPaeAuthenticatorGroup,'coDot1xPaeCompliances':coDot1xPaeCompliances,'coDot1xPaeCompliance':coDot1xPaeCompliance})
+#
+# PySNMP MIB module COLUBRIS-802DOT1X-ACCESS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/colubris/COLUBRIS-802DOT1X-ACCESS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:28:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+colubrisMgmtV2, = mibBuilder.importSymbols("COLUBRIS-SMI", "colubrisMgmtV2")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+colubris802Dot1xMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 8744, 5, 8))
+if mibBuilder.loadTexts: colubris802Dot1xMIB.setLastUpdated('200601090000Z')
+if mibBuilder.loadTexts: colubris802Dot1xMIB.setOrganization('Colubris Networks, Inc.')
+coPaeMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 5, 8, 1))
+coDot1xPaeSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 5, 8, 1, 1))
+coDot1xPaeAuthenticator = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 5, 8, 1, 2))
+coDot1xPaeSystemModifyKey = MibScalar((1, 3, 6, 1, 4, 1, 8744, 5, 8, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: coDot1xPaeSystemModifyKey.setStatus('current')
+coDot1xPaeSystemModifyKeyInterval = MibScalar((1, 3, 6, 1, 4, 1, 8744, 5, 8, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(30, 65535)).clone(300)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coDot1xPaeSystemModifyKeyInterval.setStatus('current')
+coDot1xAuthQuietPeriod = MibScalar((1, 3, 6, 1, 4, 1, 8744, 5, 8, 1, 2, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(60)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coDot1xAuthQuietPeriod.setStatus('current')
+coDot1xAuthTxPeriod = MibScalar((1, 3, 6, 1, 4, 1, 8744, 5, 8, 1, 2, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(30)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coDot1xAuthTxPeriod.setStatus('current')
+coDot1xAuthSuppTimeout = MibScalar((1, 3, 6, 1, 4, 1, 8744, 5, 8, 1, 2, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(3)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coDot1xAuthSuppTimeout.setStatus('current')
+coDot1xAuthServerTimeout = MibScalar((1, 3, 6, 1, 4, 1, 8744, 5, 8, 1, 2, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(30)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coDot1xAuthServerTimeout.setStatus('current')
+coDot1xAuthMaxReq = MibScalar((1, 3, 6, 1, 4, 1, 8744, 5, 8, 1, 2, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(2)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coDot1xAuthMaxReq.setStatus('current')
+coDot1xAuthReAuthPeriod = MibScalar((1, 3, 6, 1, 4, 1, 8744, 5, 8, 1, 2, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(3600)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coDot1xAuthReAuthPeriod.setStatus('current')
+coDot1xAuthReAuthEnabled = MibScalar((1, 3, 6, 1, 4, 1, 8744, 5, 8, 1, 2, 7), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coDot1xAuthReAuthEnabled.setStatus('current')
+coDot1xAuthKeyTxEnabled = MibScalar((1, 3, 6, 1, 4, 1, 8744, 5, 8, 1, 2, 8), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coDot1xAuthKeyTxEnabled.setStatus('current')
+coDot1xAuthReAuthMax = MibScalar((1, 3, 6, 1, 4, 1, 8744, 5, 8, 1, 2, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(8)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: coDot1xAuthReAuthMax.setStatus('current')
+coDot1xPaeConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 5, 8, 2))
+coDot1xPaeGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 5, 8, 2, 1))
+coDot1xPaeCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 5, 8, 2, 2))
+coDot1xPaeSystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 8744, 5, 8, 2, 1, 1)).setObjects(("COLUBRIS-802DOT1X-ACCESS-MIB", "coDot1xPaeSystemModifyKey"), ("COLUBRIS-802DOT1X-ACCESS-MIB", "coDot1xPaeSystemModifyKeyInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    coDot1xPaeSystemGroup = coDot1xPaeSystemGroup.setStatus('current')
+coDot1xPaeAuthenticatorGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 8744, 5, 8, 2, 1, 2)).setObjects(("COLUBRIS-802DOT1X-ACCESS-MIB", "coDot1xAuthQuietPeriod"), ("COLUBRIS-802DOT1X-ACCESS-MIB", "coDot1xAuthTxPeriod"), ("COLUBRIS-802DOT1X-ACCESS-MIB", "coDot1xAuthSuppTimeout"), ("COLUBRIS-802DOT1X-ACCESS-MIB", "coDot1xAuthServerTimeout"), ("COLUBRIS-802DOT1X-ACCESS-MIB", "coDot1xAuthMaxReq"), ("COLUBRIS-802DOT1X-ACCESS-MIB", "coDot1xAuthReAuthPeriod"), ("COLUBRIS-802DOT1X-ACCESS-MIB", "coDot1xAuthReAuthEnabled"), ("COLUBRIS-802DOT1X-ACCESS-MIB", "coDot1xAuthKeyTxEnabled"), ("COLUBRIS-802DOT1X-ACCESS-MIB", "coDot1xAuthReAuthMax"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    coDot1xPaeAuthenticatorGroup = coDot1xPaeAuthenticatorGroup.setStatus('current')
+coDot1xPaeCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 8744, 5, 8, 2, 2, 1)).setObjects(("COLUBRIS-802DOT1X-ACCESS-MIB", "coDot1xPaeSystemGroup"), ("COLUBRIS-802DOT1X-ACCESS-MIB", "coDot1xPaeAuthenticatorGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    coDot1xPaeCompliance = coDot1xPaeCompliance.setStatus('current')
+mibBuilder.exportSymbols("COLUBRIS-802DOT1X-ACCESS-MIB", coDot1xPaeSystem=coDot1xPaeSystem, coDot1xAuthServerTimeout=coDot1xAuthServerTimeout, coDot1xAuthReAuthEnabled=coDot1xAuthReAuthEnabled, coDot1xAuthTxPeriod=coDot1xAuthTxPeriod, coDot1xAuthReAuthPeriod=coDot1xAuthReAuthPeriod, coDot1xPaeCompliance=coDot1xPaeCompliance, coDot1xAuthMaxReq=coDot1xAuthMaxReq, PYSNMP_MODULE_ID=colubris802Dot1xMIB, coPaeMIBObjects=coPaeMIBObjects, coDot1xAuthReAuthMax=coDot1xAuthReAuthMax, coDot1xPaeAuthenticator=coDot1xPaeAuthenticator, coDot1xPaeSystemModifyKeyInterval=coDot1xPaeSystemModifyKeyInterval, coDot1xPaeAuthenticatorGroup=coDot1xPaeAuthenticatorGroup, coDot1xAuthKeyTxEnabled=coDot1xAuthKeyTxEnabled, coDot1xPaeConformance=coDot1xPaeConformance, coDot1xPaeSystemModifyKey=coDot1xPaeSystemModifyKey, colubris802Dot1xMIB=colubris802Dot1xMIB, coDot1xPaeSystemGroup=coDot1xPaeSystemGroup, coDot1xPaeCompliances=coDot1xPaeCompliances, coDot1xAuthSuppTimeout=coDot1xAuthSuppTimeout, coDot1xAuthQuietPeriod=coDot1xAuthQuietPeriod, coDot1xPaeGroups=coDot1xPaeGroups)

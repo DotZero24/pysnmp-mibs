@@ -1,167 +1,76 @@
-_I='000000000000'
-_H='oaSwMacVid'
-_G='oaSwMacAddr'
-_F='MacAddress'
-_E='OASWITCH-MIB'
-_D='read-only'
-_C='Integer32'
-_B='read-write'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-class MacAddress(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
-_Oaccess_ObjectIdentity=ObjectIdentity
-oaccess=_Oaccess_ObjectIdentity((1,3,6,1,4,1,6926))
-_OaManagement_ObjectIdentity=ObjectIdentity
-oaManagement=_OaManagement_ObjectIdentity((1,3,6,1,4,1,6926,1))
-_OaSwitch_ObjectIdentity=ObjectIdentity
-oaSwitch=_OaSwitch_ObjectIdentity((1,3,6,1,4,1,6926,1,5))
-_OaSwitchMac_ObjectIdentity=ObjectIdentity
-oaSwitchMac=_OaSwitchMac_ObjectIdentity((1,3,6,1,4,1,6926,1,5,1))
-_OaSwitchMacInfo_ObjectIdentity=ObjectIdentity
-oaSwitchMacInfo=_OaSwitchMacInfo_ObjectIdentity((1,3,6,1,4,1,6926,1,5,1,1))
-_OaSwitchMacInfoNumber_Type=Integer32
-_OaSwitchMacInfoNumber_Object=MibScalar
-oaSwitchMacInfoNumber=_OaSwitchMacInfoNumber_Object((1,3,6,1,4,1,6926,1,5,1,1,1),_OaSwitchMacInfoNumber_Type())
-oaSwitchMacInfoNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaSwitchMacInfoNumber.setStatus(_A)
-_OaSwitchMacInfoMaxNumbr_Type=Integer32
-_OaSwitchMacInfoMaxNumbr_Object=MibScalar
-oaSwitchMacInfoMaxNumbr=_OaSwitchMacInfoMaxNumbr_Object((1,3,6,1,4,1,6926,1,5,1,1,2),_OaSwitchMacInfoMaxNumbr_Type())
-oaSwitchMacInfoMaxNumbr.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaSwitchMacInfoMaxNumbr.setStatus(_A)
-class _OaSwitchMacInfoClear_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('none',1),('clear',2)))
-_OaSwitchMacInfoClear_Type.__name__=_C
-_OaSwitchMacInfoClear_Object=MibScalar
-oaSwitchMacInfoClear=_OaSwitchMacInfoClear_Object((1,3,6,1,4,1,6926,1,5,1,1,5),_OaSwitchMacInfoClear_Type())
-oaSwitchMacInfoClear.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSwitchMacInfoClear.setStatus(_A)
-_OaSwMacTable_Object=MibTable
-oaSwMacTable=_OaSwMacTable_Object((1,3,6,1,4,1,6926,1,5,1,2))
-if mibBuilder.loadTexts:oaSwMacTable.setStatus(_A)
-_OaSwMacEntry_Object=MibTableRow
-oaSwMacEntry=_OaSwMacEntry_Object((1,3,6,1,4,1,6926,1,5,1,2,1))
-oaSwMacEntry.setIndexNames((0,_E,_G),(0,_E,_H))
-if mibBuilder.loadTexts:oaSwMacEntry.setStatus(_A)
-_OaSwMacAddr_Type=MacAddress
-_OaSwMacAddr_Object=MibTableColumn
-oaSwMacAddr=_OaSwMacAddr_Object((1,3,6,1,4,1,6926,1,5,1,2,1,1),_OaSwMacAddr_Type())
-oaSwMacAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaSwMacAddr.setStatus(_A)
-_OaSwMacVid_Type=Integer32
-_OaSwMacVid_Object=MibTableColumn
-oaSwMacVid=_OaSwMacVid_Object((1,3,6,1,4,1,6926,1,5,1,2,1,2),_OaSwMacVid_Type())
-oaSwMacVid.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaSwMacVid.setStatus(_A)
-_OaSwMacVidx_Type=Integer32
-_OaSwMacVidx_Object=MibTableColumn
-oaSwMacVidx=_OaSwMacVidx_Object((1,3,6,1,4,1,6926,1,5,1,2,1,6),_OaSwMacVidx_Type())
-oaSwMacVidx.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSwMacVidx.setStatus(_A)
-_OaSwMacGetViewIndex_Type=Integer32
-_OaSwMacGetViewIndex_Object=MibTableColumn
-oaSwMacGetViewIndex=_OaSwMacGetViewIndex_Object((1,3,6,1,4,1,6926,1,5,1,2,1,8),_OaSwMacGetViewIndex_Type())
-oaSwMacGetViewIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaSwMacGetViewIndex.setStatus(_A)
-class _OaSwMacPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_OaSwMacPort_Type.__name__=_C
-_OaSwMacPort_Object=MibTableColumn
-oaSwMacPort=_OaSwMacPort_Object((1,3,6,1,4,1,6926,1,5,1,2,1,9),_OaSwMacPort_Type())
-oaSwMacPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSwMacPort.setStatus(_A)
-class _OaSwMacMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('other',1),('dynamic',2),('static',3)))
-_OaSwMacMode_Type.__name__=_C
-_OaSwMacMode_Object=MibTableColumn
-oaSwMacMode=_OaSwMacMode_Object((1,3,6,1,4,1,6926,1,5,1,2,1,20),_OaSwMacMode_Type())
-oaSwMacMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSwMacMode.setStatus(_A)
-class _OaSwMacTagged_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('no',0),('yes',1)))
-_OaSwMacTagged_Type.__name__=_C
-_OaSwMacTagged_Object=MibTableColumn
-oaSwMacTagged=_OaSwMacTagged_Object((1,3,6,1,4,1,6926,1,5,1,2,1,21),_OaSwMacTagged_Type())
-oaSwMacTagged.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSwMacTagged.setStatus(_A)
-_OaSwMacPriority_Type=Integer32
-_OaSwMacPriority_Object=MibTableColumn
-oaSwMacPriority=_OaSwMacPriority_Object((1,3,6,1,4,1,6926,1,5,1,2,1,22),_OaSwMacPriority_Type())
-oaSwMacPriority.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSwMacPriority.setStatus(_A)
-_OaSwMacFlags_Type=Integer32
-_OaSwMacFlags_Object=MibTableColumn
-oaSwMacFlags=_OaSwMacFlags_Object((1,3,6,1,4,1,6926,1,5,1,2,1,23),_OaSwMacFlags_Type())
-oaSwMacFlags.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSwMacFlags.setStatus(_A)
-class _OaSwMacStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('valid',1),('invalid',2)))
-_OaSwMacStatus_Type.__name__=_C
-_OaSwMacStatus_Object=MibTableColumn
-oaSwMacStatus=_OaSwMacStatus_Object((1,3,6,1,4,1,6926,1,5,1,2,1,30),_OaSwMacStatus_Type())
-oaSwMacStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSwMacStatus.setStatus(_A)
-_OaSysFrmGen_ObjectIdentity=ObjectIdentity
-oaSysFrmGen=_OaSysFrmGen_ObjectIdentity((1,3,6,1,4,1,6926,1,5,3))
-class _OaSysFrmGenSession_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('idleFG',1),('runFG',2)))
-_OaSysFrmGenSession_Type.__name__=_C
-_OaSysFrmGenSession_Object=MibScalar
-oaSysFrmGenSession=_OaSysFrmGenSession_Object((1,3,6,1,4,1,6926,1,5,3,1),_OaSysFrmGenSession_Type())
-oaSysFrmGenSession.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSysFrmGenSession.setStatus(_A)
-class _OaSysFrmGenDa_Type(MacAddress):defaultHexValue=_I
-_OaSysFrmGenDa_Type.__name__=_F
-_OaSysFrmGenDa_Object=MibScalar
-oaSysFrmGenDa=_OaSysFrmGenDa_Object((1,3,6,1,4,1,6926,1,5,3,2),_OaSysFrmGenDa_Type())
-oaSysFrmGenDa.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSysFrmGenDa.setStatus(_A)
-class _OaSysFrmGenSa_Type(MacAddress):defaultHexValue=_I
-_OaSysFrmGenSa_Type.__name__=_F
-_OaSysFrmGenSa_Object=MibScalar
-oaSysFrmGenSa=_OaSysFrmGenSa_Object((1,3,6,1,4,1,6926,1,5,3,3),_OaSysFrmGenSa_Type())
-oaSysFrmGenSa.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSysFrmGenSa.setStatus(_A)
-_OaSysFrmGenPktFill_Type=Integer32
-_OaSysFrmGenPktFill_Object=MibScalar
-oaSysFrmGenPktFill=_OaSysFrmGenPktFill_Object((1,3,6,1,4,1,6926,1,5,3,4),_OaSysFrmGenPktFill_Type())
-oaSysFrmGenPktFill.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSysFrmGenPktFill.setStatus(_A)
-_OaSysFrmGenPktRate_Type=Integer32
-_OaSysFrmGenPktRate_Object=MibScalar
-oaSysFrmGenPktRate=_OaSysFrmGenPktRate_Object((1,3,6,1,4,1,6926,1,5,3,5),_OaSysFrmGenPktRate_Type())
-oaSysFrmGenPktRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSysFrmGenPktRate.setStatus(_A)
-_OaSysFrmGenDestMap_Type=OctetString
-_OaSysFrmGenDestMap_Object=MibScalar
-oaSysFrmGenDestMap=_OaSysFrmGenDestMap_Object((1,3,6,1,4,1,6926,1,5,3,6),_OaSysFrmGenDestMap_Type())
-oaSysFrmGenDestMap.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSysFrmGenDestMap.setStatus(_A)
-_OaSysFrmGenPktNum_Type=Counter32
-_OaSysFrmGenPktNum_Object=MibScalar
-oaSysFrmGenPktNum=_OaSysFrmGenPktNum_Object((1,3,6,1,4,1,6926,1,5,3,7),_OaSysFrmGenPktNum_Type())
-oaSysFrmGenPktNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSysFrmGenPktNum.setStatus(_A)
-_OaSysFrmGenPktLen_Type=Integer32
-_OaSysFrmGenPktLen_Object=MibScalar
-oaSysFrmGenPktLen=_OaSysFrmGenPktLen_Object((1,3,6,1,4,1,6926,1,5,3,8),_OaSysFrmGenPktLen_Type())
-oaSysFrmGenPktLen.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSysFrmGenPktLen.setStatus(_A)
-_OaSysFrmGenXmtPktNum_Type=Counter32
-_OaSysFrmGenXmtPktNum_Object=MibScalar
-oaSysFrmGenXmtPktNum=_OaSysFrmGenXmtPktNum_Object((1,3,6,1,4,1,6926,1,5,3,9),_OaSysFrmGenXmtPktNum_Type())
-oaSysFrmGenXmtPktNum.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaSysFrmGenXmtPktNum.setStatus(_A)
-class _OaSysFrmGenPriority_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_OaSysFrmGenPriority_Type.__name__=_C
-_OaSysFrmGenPriority_Object=MibScalar
-oaSysFrmGenPriority=_OaSysFrmGenPriority_Object((1,3,6,1,4,1,6926,1,5,3,10),_OaSysFrmGenPriority_Type())
-oaSysFrmGenPriority.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSysFrmGenPriority.setStatus(_A)
-class _OaSysFrmGenVlanId_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_OaSysFrmGenVlanId_Type.__name__=_C
-_OaSysFrmGenVlanId_Object=MibScalar
-oaSysFrmGenVlanId=_OaSysFrmGenVlanId_Object((1,3,6,1,4,1,6926,1,5,3,11),_OaSysFrmGenVlanId_Type())
-oaSysFrmGenVlanId.setMaxAccess(_B)
-if mibBuilder.loadTexts:oaSysFrmGenVlanId.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{_F:MacAddress,'oaccess':oaccess,'oaManagement':oaManagement,'oaSwitch':oaSwitch,'oaSwitchMac':oaSwitchMac,'oaSwitchMacInfo':oaSwitchMacInfo,'oaSwitchMacInfoNumber':oaSwitchMacInfoNumber,'oaSwitchMacInfoMaxNumbr':oaSwitchMacInfoMaxNumbr,'oaSwitchMacInfoClear':oaSwitchMacInfoClear,'oaSwMacTable':oaSwMacTable,'oaSwMacEntry':oaSwMacEntry,_G:oaSwMacAddr,_H:oaSwMacVid,'oaSwMacVidx':oaSwMacVidx,'oaSwMacGetViewIndex':oaSwMacGetViewIndex,'oaSwMacPort':oaSwMacPort,'oaSwMacMode':oaSwMacMode,'oaSwMacTagged':oaSwMacTagged,'oaSwMacPriority':oaSwMacPriority,'oaSwMacFlags':oaSwMacFlags,'oaSwMacStatus':oaSwMacStatus,'oaSysFrmGen':oaSysFrmGen,'oaSysFrmGenSession':oaSysFrmGenSession,'oaSysFrmGenDa':oaSysFrmGenDa,'oaSysFrmGenSa':oaSysFrmGenSa,'oaSysFrmGenPktFill':oaSysFrmGenPktFill,'oaSysFrmGenPktRate':oaSysFrmGenPktRate,'oaSysFrmGenDestMap':oaSysFrmGenDestMap,'oaSysFrmGenPktNum':oaSysFrmGenPktNum,'oaSysFrmGenPktLen':oaSysFrmGenPktLen,'oaSysFrmGenXmtPktNum':oaSysFrmGenXmtPktNum,'oaSysFrmGenPriority':oaSysFrmGenPriority,'oaSysFrmGenVlanId':oaSysFrmGenVlanId})
+#
+# PySNMP MIB module OASWITCH-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/OASWITCH-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:24 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+class MacAddress(OctetString):
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
+    fixedLength = 6
+
+oaccess = MibIdentifier((1, 3, 6, 1, 4, 1, 6926))
+oaManagement = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1))
+oaSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 5))
+oaSwitchMac = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1))
+oaSwitchMacInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 1))
+oaSwitchMacInfoNumber = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaSwitchMacInfoNumber.setStatus('mandatory')
+oaSwitchMacInfoMaxNumbr = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaSwitchMacInfoMaxNumbr.setStatus('mandatory')
+oaSwitchMacInfoClear = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("clear", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSwitchMacInfoClear.setStatus('mandatory')
+oaSwMacTable = MibTable((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 2), )
+if mibBuilder.loadTexts: oaSwMacTable.setStatus('mandatory')
+oaSwMacEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 2, 1), ).setIndexNames((0, "OASWITCH-MIB", "oaSwMacAddr"), (0, "OASWITCH-MIB", "oaSwMacVid"))
+if mibBuilder.loadTexts: oaSwMacEntry.setStatus('mandatory')
+oaSwMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 2, 1, 1), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaSwMacAddr.setStatus('mandatory')
+oaSwMacVid = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaSwMacVid.setStatus('mandatory')
+oaSwMacVidx = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 2, 1, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSwMacVidx.setStatus('mandatory')
+oaSwMacGetViewIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 2, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaSwMacGetViewIndex.setStatus('mandatory')
+oaSwMacPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSwMacPort.setStatus('mandatory')
+oaSwMacMode = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 2, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("dynamic", 2), ("static", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSwMacMode.setStatus('mandatory')
+oaSwMacTagged = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 2, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSwMacTagged.setStatus('mandatory')
+oaSwMacPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 2, 1, 22), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSwMacPriority.setStatus('mandatory')
+oaSwMacFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 2, 1, 23), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSwMacFlags.setStatus('mandatory')
+oaSwMacStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 5, 1, 2, 1, 30), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSwMacStatus.setStatus('mandatory')
+oaSysFrmGen = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 5, 3))
+oaSysFrmGenSession = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 5, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("idleFG", 1), ("runFG", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSysFrmGenSession.setStatus('mandatory')
+oaSysFrmGenDa = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 5, 3, 2), MacAddress().clone(hexValue="000000000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSysFrmGenDa.setStatus('mandatory')
+oaSysFrmGenSa = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 5, 3, 3), MacAddress().clone(hexValue="000000000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSysFrmGenSa.setStatus('mandatory')
+oaSysFrmGenPktFill = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 5, 3, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSysFrmGenPktFill.setStatus('mandatory')
+oaSysFrmGenPktRate = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 5, 3, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSysFrmGenPktRate.setStatus('mandatory')
+oaSysFrmGenDestMap = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 5, 3, 6), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSysFrmGenDestMap.setStatus('mandatory')
+oaSysFrmGenPktNum = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 5, 3, 7), Counter32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSysFrmGenPktNum.setStatus('mandatory')
+oaSysFrmGenPktLen = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 5, 3, 8), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSysFrmGenPktLen.setStatus('mandatory')
+oaSysFrmGenXmtPktNum = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 5, 3, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaSysFrmGenXmtPktNum.setStatus('mandatory')
+oaSysFrmGenPriority = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 5, 3, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSysFrmGenPriority.setStatus('mandatory')
+oaSysFrmGenVlanId = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 5, 3, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaSysFrmGenVlanId.setStatus('mandatory')
+mibBuilder.exportSymbols("OASWITCH-MIB", oaSwMacTagged=oaSwMacTagged, oaSwitchMacInfoMaxNumbr=oaSwitchMacInfoMaxNumbr, oaSwMacAddr=oaSwMacAddr, oaSwitchMacInfoClear=oaSwitchMacInfoClear, oaSysFrmGen=oaSysFrmGen, oaSwitch=oaSwitch, oaSwMacVidx=oaSwMacVidx, oaSysFrmGenSa=oaSysFrmGenSa, oaSysFrmGenXmtPktNum=oaSysFrmGenXmtPktNum, oaSysFrmGenPriority=oaSysFrmGenPriority, oaSwMacFlags=oaSwMacFlags, oaSwMacStatus=oaSwMacStatus, oaSysFrmGenSession=oaSysFrmGenSession, oaSwitchMacInfo=oaSwitchMacInfo, oaccess=oaccess, oaSwMacTable=oaSwMacTable, oaSwMacVid=oaSwMacVid, oaSysFrmGenDestMap=oaSysFrmGenDestMap, MacAddress=MacAddress, oaSysFrmGenDa=oaSysFrmGenDa, oaSwitchMac=oaSwitchMac, oaSwitchMacInfoNumber=oaSwitchMacInfoNumber, oaSwMacPort=oaSwMacPort, oaSysFrmGenPktNum=oaSysFrmGenPktNum, oaManagement=oaManagement, oaSysFrmGenPktRate=oaSysFrmGenPktRate, oaSwMacMode=oaSwMacMode, oaSwMacPriority=oaSwMacPriority, oaSwMacEntry=oaSwMacEntry, oaSysFrmGenPktLen=oaSysFrmGenPktLen, oaSwMacGetViewIndex=oaSwMacGetViewIndex, oaSysFrmGenVlanId=oaSysFrmGenVlanId, oaSysFrmGenPktFill=oaSysFrmGenPktFill)

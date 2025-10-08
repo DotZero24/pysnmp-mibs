@@ -1,67 +1,50 @@
-_K='hpicfGenericVlanFeaturesConfGrp1'
-_J='hpicfGenericVlanFeaturesConfigGroup'
-_I='hpicfDot1qTpFdbInstalledTime'
-_H='deprecated'
-_G='hpicfGenericVlanFeaturesEntry'
-_F='read-only'
-_E='Integer32'
-_D='hpicfDot1qTpFdbVlanId'
-_C='hpicfMacNotifyClearVlanControl'
-_B='current'
-_A='HP-ICF-GENERIC-VLAN-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpSwitch,=mibBuilder.importSymbols('HP-ICF-OID','hpSwitch')
-VlanId,dot1qTpFdbEntry=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanId','dot1qTpFdbEntry')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hpicfGenericVlanMIB=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,5,1,67))
-if mibBuilder.loadTexts:hpicfGenericVlanMIB.setRevisions(('2017-06-28 00:00','2010-02-08 00:00'))
-_HpicfGenericVlanFeaturesObjects_ObjectIdentity=ObjectIdentity
-hpicfGenericVlanFeaturesObjects=_HpicfGenericVlanFeaturesObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,67,1))
-_HpicfGenericVlanFeaturesTable_Object=MibTable
-hpicfGenericVlanFeaturesTable=_HpicfGenericVlanFeaturesTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,67,1,1))
-if mibBuilder.loadTexts:hpicfGenericVlanFeaturesTable.setStatus(_B)
-_HpicfGenericVlanFeaturesEntry_Object=MibTableRow
-hpicfGenericVlanFeaturesEntry=_HpicfGenericVlanFeaturesEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,67,1,1,1))
-if mibBuilder.loadTexts:hpicfGenericVlanFeaturesEntry.setStatus(_B)
-class _HpicfMacNotifyClearVlanControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('noOperation',1),('macNotifyClearVlan',2)))
-_HpicfMacNotifyClearVlanControl_Type.__name__=_E
-_HpicfMacNotifyClearVlanControl_Object=MibTableColumn
-hpicfMacNotifyClearVlanControl=_HpicfMacNotifyClearVlanControl_Object((1,3,6,1,4,1,11,2,14,11,5,1,67,1,1,1,1),_HpicfMacNotifyClearVlanControl_Type())
-hpicfMacNotifyClearVlanControl.setMaxAccess('read-write')
-if mibBuilder.loadTexts:hpicfMacNotifyClearVlanControl.setStatus(_B)
-_HpicfDot1qTpFdbVlanId_Type=VlanId
-_HpicfDot1qTpFdbVlanId_Object=MibTableColumn
-hpicfDot1qTpFdbVlanId=_HpicfDot1qTpFdbVlanId_Object((1,3,6,1,4,1,11,2,14,11,5,1,67,1,1,1,2),_HpicfDot1qTpFdbVlanId_Type())
-hpicfDot1qTpFdbVlanId.setMaxAccess(_F)
-if mibBuilder.loadTexts:hpicfDot1qTpFdbVlanId.setStatus(_B)
-_HpicfDot1qTpFdbInstalledTime_Type=TimeTicks
-_HpicfDot1qTpFdbInstalledTime_Object=MibTableColumn
-hpicfDot1qTpFdbInstalledTime=_HpicfDot1qTpFdbInstalledTime_Object((1,3,6,1,4,1,11,2,14,11,5,1,67,1,1,1,3),_HpicfDot1qTpFdbInstalledTime_Type())
-hpicfDot1qTpFdbInstalledTime.setMaxAccess(_F)
-if mibBuilder.loadTexts:hpicfDot1qTpFdbInstalledTime.setStatus(_B)
-_HpicfGenericVlanFeaturesConformance_ObjectIdentity=ObjectIdentity
-hpicfGenericVlanFeaturesConformance=_HpicfGenericVlanFeaturesConformance_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,67,2))
-_HpicfGenericVlanFeaturesCompliances_ObjectIdentity=ObjectIdentity
-hpicfGenericVlanFeaturesCompliances=_HpicfGenericVlanFeaturesCompliances_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,67,2,1))
-_HpicfGenericVlanFeaturesGroups_ObjectIdentity=ObjectIdentity
-hpicfGenericVlanFeaturesGroups=_HpicfGenericVlanFeaturesGroups_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,67,2,2))
-dot1qTpFdbEntry.registerAugmentions((_A,_G))
+#
+# PySNMP MIB module HP-ICF-GENERIC-VLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HP-ICF-GENERIC-VLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
+VlanId, dot1qTpFdbEntry = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId", "dot1qTpFdbEntry")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hpicfGenericVlanMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 67))
+hpicfGenericVlanMIB.setRevisions(('2017-06-28 00:00', '2010-02-08 00:00',))
+if mibBuilder.loadTexts: hpicfGenericVlanMIB.setLastUpdated('201706280000Z')
+if mibBuilder.loadTexts: hpicfGenericVlanMIB.setOrganization('HP Networking')
+hpicfGenericVlanFeaturesObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 67, 1))
+hpicfGenericVlanFeaturesConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 67, 2))
+hpicfGenericVlanFeaturesTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 67, 1, 1), )
+if mibBuilder.loadTexts: hpicfGenericVlanFeaturesTable.setStatus('current')
+hpicfGenericVlanFeaturesEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 67, 1, 1, 1), )
+dot1qTpFdbEntry.registerAugmentions(("HP-ICF-GENERIC-VLAN-MIB", "hpicfGenericVlanFeaturesEntry"))
 hpicfGenericVlanFeaturesEntry.setIndexNames(*dot1qTpFdbEntry.getIndexNames())
-hpicfGenericVlanFeaturesConfigGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,67,2,2,2))
-hpicfGenericVlanFeaturesConfigGroup.setObjects(*((_A,_C),(_A,_D)))
-if mibBuilder.loadTexts:hpicfGenericVlanFeaturesConfigGroup.setStatus(_H)
-hpicfGenericVlanFeaturesConfGrp1=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,67,2,2,3))
-hpicfGenericVlanFeaturesConfGrp1.setObjects(*((_A,_C),(_A,_D),(_A,_I)))
-if mibBuilder.loadTexts:hpicfGenericVlanFeaturesConfGrp1.setStatus(_B)
-hpicfGenericVlanFeaturesCompliance=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,67,2,1,1))
-hpicfGenericVlanFeaturesCompliance.setObjects((_A,_J))
-if mibBuilder.loadTexts:hpicfGenericVlanFeaturesCompliance.setStatus(_H)
-hpicfGenericVlanFeaturesComp1=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,67,2,1,2))
-hpicfGenericVlanFeaturesComp1.setObjects((_A,_K))
-if mibBuilder.loadTexts:hpicfGenericVlanFeaturesComp1.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'hpicfGenericVlanMIB':hpicfGenericVlanMIB,'hpicfGenericVlanFeaturesObjects':hpicfGenericVlanFeaturesObjects,'hpicfGenericVlanFeaturesTable':hpicfGenericVlanFeaturesTable,_G:hpicfGenericVlanFeaturesEntry,_C:hpicfMacNotifyClearVlanControl,_D:hpicfDot1qTpFdbVlanId,_I:hpicfDot1qTpFdbInstalledTime,'hpicfGenericVlanFeaturesConformance':hpicfGenericVlanFeaturesConformance,'hpicfGenericVlanFeaturesCompliances':hpicfGenericVlanFeaturesCompliances,'hpicfGenericVlanFeaturesCompliance':hpicfGenericVlanFeaturesCompliance,'hpicfGenericVlanFeaturesComp1':hpicfGenericVlanFeaturesComp1,'hpicfGenericVlanFeaturesGroups':hpicfGenericVlanFeaturesGroups,_J:hpicfGenericVlanFeaturesConfigGroup,_K:hpicfGenericVlanFeaturesConfGrp1})
+if mibBuilder.loadTexts: hpicfGenericVlanFeaturesEntry.setStatus('current')
+hpicfMacNotifyClearVlanControl = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 67, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noOperation", 1), ("macNotifyClearVlan", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfMacNotifyClearVlanControl.setStatus('current')
+hpicfDot1qTpFdbVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 67, 1, 1, 1, 2), VlanId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfDot1qTpFdbVlanId.setStatus('current')
+hpicfDot1qTpFdbInstalledTime = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 67, 1, 1, 1, 3), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfDot1qTpFdbInstalledTime.setStatus('current')
+hpicfGenericVlanFeaturesCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 67, 2, 1))
+hpicfGenericVlanFeaturesGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 67, 2, 2))
+hpicfGenericVlanFeaturesCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 67, 2, 1, 1)).setObjects(("HP-ICF-GENERIC-VLAN-MIB", "hpicfGenericVlanFeaturesConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfGenericVlanFeaturesCompliance = hpicfGenericVlanFeaturesCompliance.setStatus('deprecated')
+hpicfGenericVlanFeaturesComp1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 67, 2, 1, 2)).setObjects(("HP-ICF-GENERIC-VLAN-MIB", "hpicfGenericVlanFeaturesConfGrp1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfGenericVlanFeaturesComp1 = hpicfGenericVlanFeaturesComp1.setStatus('current')
+hpicfGenericVlanFeaturesConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 67, 2, 2, 2)).setObjects(("HP-ICF-GENERIC-VLAN-MIB", "hpicfMacNotifyClearVlanControl"), ("HP-ICF-GENERIC-VLAN-MIB", "hpicfDot1qTpFdbVlanId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfGenericVlanFeaturesConfigGroup = hpicfGenericVlanFeaturesConfigGroup.setStatus('deprecated')
+hpicfGenericVlanFeaturesConfGrp1 = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 67, 2, 2, 3)).setObjects(("HP-ICF-GENERIC-VLAN-MIB", "hpicfMacNotifyClearVlanControl"), ("HP-ICF-GENERIC-VLAN-MIB", "hpicfDot1qTpFdbVlanId"), ("HP-ICF-GENERIC-VLAN-MIB", "hpicfDot1qTpFdbInstalledTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfGenericVlanFeaturesConfGrp1 = hpicfGenericVlanFeaturesConfGrp1.setStatus('current')
+mibBuilder.exportSymbols("HP-ICF-GENERIC-VLAN-MIB", hpicfGenericVlanFeaturesEntry=hpicfGenericVlanFeaturesEntry, hpicfGenericVlanFeaturesComp1=hpicfGenericVlanFeaturesComp1, hpicfDot1qTpFdbInstalledTime=hpicfDot1qTpFdbInstalledTime, hpicfGenericVlanMIB=hpicfGenericVlanMIB, PYSNMP_MODULE_ID=hpicfGenericVlanMIB, hpicfGenericVlanFeaturesCompliances=hpicfGenericVlanFeaturesCompliances, hpicfGenericVlanFeaturesObjects=hpicfGenericVlanFeaturesObjects, hpicfGenericVlanFeaturesConfigGroup=hpicfGenericVlanFeaturesConfigGroup, hpicfGenericVlanFeaturesTable=hpicfGenericVlanFeaturesTable, hpicfGenericVlanFeaturesGroups=hpicfGenericVlanFeaturesGroups, hpicfGenericVlanFeaturesCompliance=hpicfGenericVlanFeaturesCompliance, hpicfGenericVlanFeaturesConformance=hpicfGenericVlanFeaturesConformance, hpicfDot1qTpFdbVlanId=hpicfDot1qTpFdbVlanId, hpicfGenericVlanFeaturesConfGrp1=hpicfGenericVlanFeaturesConfGrp1, hpicfMacNotifyClearVlanControl=hpicfMacNotifyClearVlanControl)

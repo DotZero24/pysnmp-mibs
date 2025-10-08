@@ -1,81 +1,44 @@
-_K='ndSnoopingVlanId'
-_J='TPLINK-NDSNOOPING-MIB'
-_I='enable'
-_H='disable'
-_G='ifIndex'
-_F='IF-MIB'
-_E='read-only'
-_D='read-write'
-_C='OctetString'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_F,_G)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tplinkMgmt,=mibBuilder.importSymbols('TPLINK-MIB','tplinkMgmt')
-tplinkNdSnoopingMIB=ModuleIdentity((1,3,6,1,4,1,11863,6,92))
-if mibBuilder.loadTexts:tplinkNdSnoopingMIB.setRevisions(('2012-12-17 10:14',))
-_TplinkNdSnoopingMIBObjects_ObjectIdentity=ObjectIdentity
-tplinkNdSnoopingMIBObjects=_TplinkNdSnoopingMIBObjects_ObjectIdentity((1,3,6,1,4,1,11863,6,92,1))
-_NdSnoopingGlobalConfig_ObjectIdentity=ObjectIdentity
-ndSnoopingGlobalConfig=_NdSnoopingGlobalConfig_ObjectIdentity((1,3,6,1,4,1,11863,6,92,1,1))
-class _NdSnoopingEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_H,0),(_I,1)))
-_NdSnoopingEnable_Type.__name__=_B
-_NdSnoopingEnable_Object=MibScalar
-ndSnoopingEnable=_NdSnoopingEnable_Object((1,3,6,1,4,1,11863,6,92,1,1,1),_NdSnoopingEnable_Type())
-ndSnoopingEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:ndSnoopingEnable.setStatus(_A)
-_NdSnoopingVlanConfigTable_Object=MibTable
-ndSnoopingVlanConfigTable=_NdSnoopingVlanConfigTable_Object((1,3,6,1,4,1,11863,6,92,1,1,2))
-if mibBuilder.loadTexts:ndSnoopingVlanConfigTable.setStatus(_A)
-_NdSnoopingVlanConfigEntry_Object=MibTableRow
-ndSnoopingVlanConfigEntry=_NdSnoopingVlanConfigEntry_Object((1,3,6,1,4,1,11863,6,92,1,1,2,1))
-ndSnoopingVlanConfigEntry.setIndexNames((0,_J,_K))
-if mibBuilder.loadTexts:ndSnoopingVlanConfigEntry.setStatus(_A)
-class _NdSnoopingVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_NdSnoopingVlanId_Type.__name__=_B
-_NdSnoopingVlanId_Object=MibTableColumn
-ndSnoopingVlanId=_NdSnoopingVlanId_Object((1,3,6,1,4,1,11863,6,92,1,1,2,1,1),_NdSnoopingVlanId_Type())
-ndSnoopingVlanId.setMaxAccess(_E)
-if mibBuilder.loadTexts:ndSnoopingVlanId.setStatus(_A)
-class _NdSnoopingVlanStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_H,0),(_I,1)))
-_NdSnoopingVlanStatus_Type.__name__=_B
-_NdSnoopingVlanStatus_Object=MibTableColumn
-ndSnoopingVlanStatus=_NdSnoopingVlanStatus_Object((1,3,6,1,4,1,11863,6,92,1,1,2,1,2),_NdSnoopingVlanStatus_Type())
-ndSnoopingVlanStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:ndSnoopingVlanStatus.setStatus(_A)
-_NdSnoopingPortConfig_ObjectIdentity=ObjectIdentity
-ndSnoopingPortConfig=_NdSnoopingPortConfig_ObjectIdentity((1,3,6,1,4,1,11863,6,92,1,3))
-_NdSnoopingPortConfigTable_Object=MibTable
-ndSnoopingPortConfigTable=_NdSnoopingPortConfigTable_Object((1,3,6,1,4,1,11863,6,92,1,3,1))
-if mibBuilder.loadTexts:ndSnoopingPortConfigTable.setStatus(_A)
-_NdSnoopingPortConfigEntry_Object=MibTableRow
-ndSnoopingPortConfigEntry=_NdSnoopingPortConfigEntry_Object((1,3,6,1,4,1,11863,6,92,1,3,1,1))
-ndSnoopingPortConfigEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:ndSnoopingPortConfigEntry.setStatus(_A)
-class _NdSnoopingPort_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_NdSnoopingPort_Type.__name__=_C
-_NdSnoopingPort_Object=MibTableColumn
-ndSnoopingPort=_NdSnoopingPort_Object((1,3,6,1,4,1,11863,6,92,1,3,1,1,1),_NdSnoopingPort_Type())
-ndSnoopingPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:ndSnoopingPort.setStatus(_A)
-class _NdSnoopingPortConfigMaxEntry_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,1024))
-_NdSnoopingPortConfigMaxEntry_Type.__name__=_B
-_NdSnoopingPortConfigMaxEntry_Object=MibTableColumn
-ndSnoopingPortConfigMaxEntry=_NdSnoopingPortConfigMaxEntry_Object((1,3,6,1,4,1,11863,6,92,1,3,1,1,2),_NdSnoopingPortConfigMaxEntry_Type())
-ndSnoopingPortConfigMaxEntry.setMaxAccess(_D)
-if mibBuilder.loadTexts:ndSnoopingPortConfigMaxEntry.setStatus(_A)
-class _NdSnoopingPortConfigPortLag_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_NdSnoopingPortConfigPortLag_Type.__name__=_C
-_NdSnoopingPortConfigPortLag_Object=MibTableColumn
-ndSnoopingPortConfigPortLag=_NdSnoopingPortConfigPortLag_Object((1,3,6,1,4,1,11863,6,92,1,3,1,1,3),_NdSnoopingPortConfigPortLag_Type())
-ndSnoopingPortConfigPortLag.setMaxAccess(_E)
-if mibBuilder.loadTexts:ndSnoopingPortConfigPortLag.setStatus(_A)
-_TplinkNdSnoopingNotifications_ObjectIdentity=ObjectIdentity
-tplinkNdSnoopingNotifications=_TplinkNdSnoopingNotifications_ObjectIdentity((1,3,6,1,4,1,11863,6,92,2))
-mibBuilder.exportSymbols(_J,**{'tplinkNdSnoopingMIB':tplinkNdSnoopingMIB,'tplinkNdSnoopingMIBObjects':tplinkNdSnoopingMIBObjects,'ndSnoopingGlobalConfig':ndSnoopingGlobalConfig,'ndSnoopingEnable':ndSnoopingEnable,'ndSnoopingVlanConfigTable':ndSnoopingVlanConfigTable,'ndSnoopingVlanConfigEntry':ndSnoopingVlanConfigEntry,_K:ndSnoopingVlanId,'ndSnoopingVlanStatus':ndSnoopingVlanStatus,'ndSnoopingPortConfig':ndSnoopingPortConfig,'ndSnoopingPortConfigTable':ndSnoopingPortConfigTable,'ndSnoopingPortConfigEntry':ndSnoopingPortConfigEntry,'ndSnoopingPort':ndSnoopingPort,'ndSnoopingPortConfigMaxEntry':ndSnoopingPortConfigMaxEntry,'ndSnoopingPortConfigPortLag':ndSnoopingPortConfigPortLag,'tplinkNdSnoopingNotifications':tplinkNdSnoopingNotifications})
+#
+# PySNMP MIB module TPLINK-NDSNOOPING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-NDSNOOPING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
+tplinkNdSnoopingMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 92))
+tplinkNdSnoopingMIB.setRevisions(('2012-12-17 10:14',))
+if mibBuilder.loadTexts: tplinkNdSnoopingMIB.setLastUpdated('201212171014Z')
+if mibBuilder.loadTexts: tplinkNdSnoopingMIB.setOrganization('TPLINK')
+tplinkNdSnoopingMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 92, 1))
+tplinkNdSnoopingNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 92, 2))
+ndSnoopingGlobalConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 92, 1, 1))
+ndSnoopingPortConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 92, 1, 3))
+ndSnoopingEnable = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 92, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ndSnoopingEnable.setStatus('current')
+ndSnoopingVlanConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 92, 1, 1, 2), )
+if mibBuilder.loadTexts: ndSnoopingVlanConfigTable.setStatus('current')
+ndSnoopingVlanConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 92, 1, 1, 2, 1), ).setIndexNames((0, "TPLINK-NDSNOOPING-MIB", "ndSnoopingVlanId"))
+if mibBuilder.loadTexts: ndSnoopingVlanConfigEntry.setStatus('current')
+ndSnoopingVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 92, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ndSnoopingVlanId.setStatus('current')
+ndSnoopingVlanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 92, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ndSnoopingVlanStatus.setStatus('current')
+ndSnoopingPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 92, 1, 3, 1), )
+if mibBuilder.loadTexts: ndSnoopingPortConfigTable.setStatus('current')
+ndSnoopingPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 92, 1, 3, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: ndSnoopingPortConfigEntry.setStatus('current')
+ndSnoopingPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 92, 1, 3, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ndSnoopingPort.setStatus('current')
+ndSnoopingPortConfigMaxEntry = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 92, 1, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 1024))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ndSnoopingPortConfigMaxEntry.setStatus('current')
+ndSnoopingPortConfigPortLag = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 92, 1, 3, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ndSnoopingPortConfigPortLag.setStatus('current')
+mibBuilder.exportSymbols("TPLINK-NDSNOOPING-MIB", ndSnoopingPortConfigTable=ndSnoopingPortConfigTable, ndSnoopingGlobalConfig=ndSnoopingGlobalConfig, tplinkNdSnoopingMIBObjects=tplinkNdSnoopingMIBObjects, ndSnoopingEnable=ndSnoopingEnable, ndSnoopingVlanConfigTable=ndSnoopingVlanConfigTable, ndSnoopingPortConfigEntry=ndSnoopingPortConfigEntry, tplinkNdSnoopingMIB=tplinkNdSnoopingMIB, PYSNMP_MODULE_ID=tplinkNdSnoopingMIB, ndSnoopingVlanStatus=ndSnoopingVlanStatus, ndSnoopingPortConfigPortLag=ndSnoopingPortConfigPortLag, ndSnoopingVlanId=ndSnoopingVlanId, ndSnoopingPortConfig=ndSnoopingPortConfig, ndSnoopingPort=ndSnoopingPort, ndSnoopingVlanConfigEntry=ndSnoopingVlanConfigEntry, ndSnoopingPortConfigMaxEntry=ndSnoopingPortConfigMaxEntry, tplinkNdSnoopingNotifications=tplinkNdSnoopingNotifications)

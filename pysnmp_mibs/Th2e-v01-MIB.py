@@ -1,92 +1,50 @@
-_H='psAlarmString'
-_G='deviceName'
-_F='mandatory'
-_E='NotificationType'
-_D='Integer32'
-_C='Th2e-v01-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier',_E,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_E,'TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-class PositiveInteger(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_PapouchProjekt_ObjectIdentity=ObjectIdentity
-papouchProjekt=_PapouchProjekt_ObjectIdentity((1,3,6,1,4,1,18248))
-_The_ObjectIdentity=ObjectIdentity
-the=_The_ObjectIdentity((1,3,6,1,4,1,18248,20))
-_Version1_ObjectIdentity=ObjectIdentity
-version1=_Version1_ObjectIdentity((1,3,6,1,4,1,18248,20,1))
-_Device_var_ObjectIdentity=ObjectIdentity
-device_var=_Device_var_ObjectIdentity((1,3,6,1,4,1,18248,20,1,1))
-_DeviceName_Type=DisplayString
-_DeviceName_Object=MibScalar
-deviceName=_DeviceName_Object((1,3,6,1,4,1,18248,20,1,1,1),_DeviceName_Type())
-deviceName.setMaxAccess(_B)
-if mibBuilder.loadTexts:deviceName.setStatus(_F)
-_PsAlarmString_Type=DisplayString
-_PsAlarmString_Object=MibScalar
-psAlarmString=_PsAlarmString_Object((1,3,6,1,4,1,18248,20,1,1,2),_PsAlarmString_Type())
-psAlarmString.setMaxAccess(_B)
-if mibBuilder.loadTexts:psAlarmString.setStatus(_F)
-_Table_channel_ObjectIdentity=ObjectIdentity
-table_channel=_Table_channel_ObjectIdentity((1,3,6,1,4,1,18248,20,1,2))
-_ChannelTable_Object=MibTable
-channelTable=_ChannelTable_Object((1,3,6,1,4,1,18248,20,1,2,1))
-if mibBuilder.loadTexts:channelTable.setStatus(_A)
-_ChannelEntry_Object=MibTableRow
-channelEntry=_ChannelEntry_Object((1,3,6,1,4,1,18248,20,1,2,1,1))
-channelEntry.setIndexNames((0,_C,'index'))
-if mibBuilder.loadTexts:channelEntry.setStatus(_A)
-_InChStatus_Type=Integer32
-_InChStatus_Object=MibTableColumn
-inChStatus=_InChStatus_Object((1,3,6,1,4,1,18248,20,1,2,1,1,1),_InChStatus_Type())
-inChStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:inChStatus.setStatus(_A)
-_InChValue_Type=Integer32
-_InChValue_Object=MibTableColumn
-inChValue=_InChValue_Object((1,3,6,1,4,1,18248,20,1,2,1,1,2),_InChValue_Type())
-inChValue.setMaxAccess(_B)
-if mibBuilder.loadTexts:inChValue.setStatus(_A)
-_InChUnits_Type=Integer32
-_InChUnits_Object=MibTableColumn
-inChUnits=_InChUnits_Object((1,3,6,1,4,1,18248,20,1,2,1,1,3),_InChUnits_Type())
-inChUnits.setMaxAccess(_B)
-if mibBuilder.loadTexts:inChUnits.setStatus(_A)
-_Table_watchValue_ObjectIdentity=ObjectIdentity
-table_watchValue=_Table_watchValue_ObjectIdentity((1,3,6,1,4,1,18248,20,1,3))
-_WatchValTable_Object=MibTable
-watchValTable=_WatchValTable_Object((1,3,6,1,4,1,18248,20,1,3,1))
-if mibBuilder.loadTexts:watchValTable.setStatus(_A)
-_WatchValEntry_Object=MibTableRow
-watchValEntry=_WatchValEntry_Object((1,3,6,1,4,1,18248,20,1,3,1,1))
-watchValEntry.setIndexNames((0,_C,'index'))
-if mibBuilder.loadTexts:watchValEntry.setStatus(_A)
-class _ModeWatch_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
-_ModeWatch_Type.__name__=_D
-_ModeWatch_Object=MibTableColumn
-modeWatch=_ModeWatch_Object((1,3,6,1,4,1,18248,20,1,3,1,1,1),_ModeWatch_Type())
-modeWatch.setMaxAccess(_B)
-if mibBuilder.loadTexts:modeWatch.setStatus(_A)
-_LimitHi_Type=Integer32
-_LimitHi_Object=MibTableColumn
-limitHi=_LimitHi_Object((1,3,6,1,4,1,18248,20,1,3,1,1,2),_LimitHi_Type())
-limitHi.setMaxAccess(_B)
-if mibBuilder.loadTexts:limitHi.setStatus(_A)
-_LimitLo_Type=Integer32
-_LimitLo_Object=MibTableColumn
-limitLo=_LimitLo_Object((1,3,6,1,4,1,18248,20,1,3,1,1,3),_LimitLo_Type())
-limitLo.setMaxAccess(_B)
-if mibBuilder.loadTexts:limitLo.setStatus(_A)
-_LimitHy_Type=Integer32
-_LimitHy_Object=MibTableColumn
-limitHy=_LimitHy_Object((1,3,6,1,4,1,18248,20,1,3,1,1,4),_LimitHy_Type())
-limitHy.setMaxAccess(_B)
-if mibBuilder.loadTexts:limitHy.setStatus(_A)
-temp_msg=NotificationType((1,3,6,1,4,1,18248,20,1,1,0,1))
-temp_msg.setObjects(*((_C,_G),(_C,_H)))
-if mibBuilder.loadTexts:temp_msg.setStatus('')
-mibBuilder.exportSymbols(_C,**{'PositiveInteger':PositiveInteger,'papouchProjekt':papouchProjekt,'the':the,'version1':version1,'device-var':device_var,'temp-msg':temp_msg,_G:deviceName,_H:psAlarmString,'table-channel':table_channel,'channelTable':channelTable,'channelEntry':channelEntry,'inChStatus':inChStatus,'inChValue':inChValue,'inChUnits':inChUnits,'table-watchValue':table_watchValue,'watchValTable':watchValTable,'watchValEntry':watchValEntry,'modeWatch':modeWatch,'limitHi':limitHi,'limitLo':limitLo,'limitHy':limitHy})
+#
+# PySNMP MIB module Th2e-v01-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/papouch/Th2e-v01-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:27:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Integer32, enterprises, Gauge32, Counter64, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, Unsigned32, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Integer32", "enterprises", "Gauge32", "Counter64", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "Unsigned32", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+papouchProjekt = MibIdentifier((1, 3, 6, 1, 4, 1, 18248))
+the = MibIdentifier((1, 3, 6, 1, 4, 1, 18248, 20))
+version1 = MibIdentifier((1, 3, 6, 1, 4, 1, 18248, 20, 1))
+device_var = MibIdentifier((1, 3, 6, 1, 4, 1, 18248, 20, 1, 1)).setLabel("device-var")
+table_channel = MibIdentifier((1, 3, 6, 1, 4, 1, 18248, 20, 1, 2)).setLabel("table-channel")
+table_watchValue = MibIdentifier((1, 3, 6, 1, 4, 1, 18248, 20, 1, 3)).setLabel("table-watchValue")
+class PositiveInteger(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 65535)
+
+channelTable = MibTable((1, 3, 6, 1, 4, 1, 18248, 20, 1, 2, 1), )
+if mibBuilder.loadTexts: channelTable.setStatus('current')
+channelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 18248, 20, 1, 2, 1, 1), ).setIndexNames((0, "Th2e-v01-MIB", "index"))
+if mibBuilder.loadTexts: channelEntry.setStatus('current')
+inChStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 20, 1, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: inChStatus.setStatus('current')
+inChValue = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 20, 1, 2, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: inChValue.setStatus('current')
+inChUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 20, 1, 2, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: inChUnits.setStatus('current')
+watchValTable = MibTable((1, 3, 6, 1, 4, 1, 18248, 20, 1, 3, 1), )
+if mibBuilder.loadTexts: watchValTable.setStatus('current')
+watchValEntry = MibTableRow((1, 3, 6, 1, 4, 1, 18248, 20, 1, 3, 1, 1), ).setIndexNames((0, "Th2e-v01-MIB", "index"))
+if mibBuilder.loadTexts: watchValEntry.setStatus('current')
+modeWatch = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 20, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: modeWatch.setStatus('current')
+limitHi = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 20, 1, 3, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: limitHi.setStatus('current')
+limitLo = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 20, 1, 3, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: limitLo.setStatus('current')
+limitHy = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 20, 1, 3, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: limitHy.setStatus('current')
+deviceName = MibScalar((1, 3, 6, 1, 4, 1, 18248, 20, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceName.setStatus('mandatory')
+psAlarmString = MibScalar((1, 3, 6, 1, 4, 1, 18248, 20, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: psAlarmString.setStatus('mandatory')
+temp_msg = NotificationType((1, 3, 6, 1, 4, 1, 18248, 20, 1, 1) + (0,1)).setLabel("temp-msg").setObjects(("Th2e-v01-MIB", "deviceName"), ("Th2e-v01-MIB", "psAlarmString"))
+mibBuilder.exportSymbols("Th2e-v01-MIB", inChUnits=inChUnits, deviceName=deviceName, modeWatch=modeWatch, temp_msg=temp_msg, version1=version1, limitHi=limitHi, inChStatus=inChStatus, table_watchValue=table_watchValue, watchValTable=watchValTable, inChValue=inChValue, device_var=device_var, channelEntry=channelEntry, PositiveInteger=PositiveInteger, watchValEntry=watchValEntry, the=the, channelTable=channelTable, table_channel=table_channel, limitHy=limitHy, psAlarmString=psAlarmString, limitLo=limitLo, papouchProjekt=papouchProjekt)

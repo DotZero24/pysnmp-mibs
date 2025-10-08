@@ -1,30 +1,29 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGenAOS,adGenAOSMef=mibBuilder.importSymbols('ADTRAN-AOS','adGenAOS','adGenAOSMef')
-adIdentityShared,adShared=mibBuilder.importSymbols('ADTRAN-MIB','adIdentityShared','adShared')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-adGenAOSMefMib=ModuleIdentity((1,3,6,1,4,1,664,5,53,9))
-if mibBuilder.loadTexts:adGenAOSMefMib.setRevisions(('2014-09-10 00:00',))
-_AdGenAosMefPerUniPerfHistoryMib_ObjectIdentity=ObjectIdentity
-adGenAosMefPerUniPerfHistoryMib=_AdGenAosMefPerUniPerfHistoryMib_ObjectIdentity((1,3,6,1,4,1,664,5,53,9,1))
-_AdGenAosMefPerCosPerUniPerfHistoryMib_ObjectIdentity=ObjectIdentity
-adGenAosMefPerCosPerUniPerfHistoryMib=_AdGenAosMefPerCosPerUniPerfHistoryMib_ObjectIdentity((1,3,6,1,4,1,664,5,53,9,2))
-_AdGenAosMefPerEvcPerfHistoryMib_ObjectIdentity=ObjectIdentity
-adGenAosMefPerEvcPerfHistoryMib=_AdGenAosMefPerEvcPerfHistoryMib_ObjectIdentity((1,3,6,1,4,1,664,5,53,9,3))
-_AdGenAosMefPerCosPerEvcPerfHistoryMib_ObjectIdentity=ObjectIdentity
-adGenAosMefPerCosPerEvcPerfHistoryMib=_AdGenAosMefPerCosPerEvcPerfHistoryMib_ObjectIdentity((1,3,6,1,4,1,664,5,53,9,4))
-_AdGenAosMefPerUniTotalCountMib_ObjectIdentity=ObjectIdentity
-adGenAosMefPerUniTotalCountMib=_AdGenAosMefPerUniTotalCountMib_ObjectIdentity((1,3,6,1,4,1,664,5,53,9,5))
-_AdGenAosMefPerCosPerUniTotalCountMib_ObjectIdentity=ObjectIdentity
-adGenAosMefPerCosPerUniTotalCountMib=_AdGenAosMefPerCosPerUniTotalCountMib_ObjectIdentity((1,3,6,1,4,1,664,5,53,9,6))
-_AdGenAosMefPerEvcTotalCountMib_ObjectIdentity=ObjectIdentity
-adGenAosMefPerEvcTotalCountMib=_AdGenAosMefPerEvcTotalCountMib_ObjectIdentity((1,3,6,1,4,1,664,5,53,9,7))
-_AdGenAosMefPerCosPerEvcTotalCountMib_ObjectIdentity=ObjectIdentity
-adGenAosMefPerCosPerEvcTotalCountMib=_AdGenAosMefPerCosPerEvcTotalCountMib_ObjectIdentity((1,3,6,1,4,1,664,5,53,9,8))
-_AdGenAosY1731Mib_ObjectIdentity=ObjectIdentity
-adGenAosY1731Mib=_AdGenAosY1731Mib_ObjectIdentity((1,3,6,1,4,1,664,5,53,9,9))
-mibBuilder.exportSymbols('ADTRAN-AOS-MEF-MIB',**{'adGenAOSMefMib':adGenAOSMefMib,'adGenAosMefPerUniPerfHistoryMib':adGenAosMefPerUniPerfHistoryMib,'adGenAosMefPerCosPerUniPerfHistoryMib':adGenAosMefPerCosPerUniPerfHistoryMib,'adGenAosMefPerEvcPerfHistoryMib':adGenAosMefPerEvcPerfHistoryMib,'adGenAosMefPerCosPerEvcPerfHistoryMib':adGenAosMefPerCosPerEvcPerfHistoryMib,'adGenAosMefPerUniTotalCountMib':adGenAosMefPerUniTotalCountMib,'adGenAosMefPerCosPerUniTotalCountMib':adGenAosMefPerCosPerUniTotalCountMib,'adGenAosMefPerEvcTotalCountMib':adGenAosMefPerEvcTotalCountMib,'adGenAosMefPerCosPerEvcTotalCountMib':adGenAosMefPerCosPerEvcTotalCountMib,'adGenAosY1731Mib':adGenAosY1731Mib})
+#
+# PySNMP MIB module ADTRAN-AOS-MEF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-AOS-MEF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:29:08 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGenAOSMef, adGenAOS = mibBuilder.importSymbols("ADTRAN-AOS", "adGenAOSMef", "adGenAOS")
+adShared, adIdentityShared = mibBuilder.importSymbols("ADTRAN-MIB", "adShared", "adIdentityShared")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+adGenAOSMefMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 5, 53, 9))
+adGenAOSMefMib.setRevisions(('2014-09-10 00:00',))
+if mibBuilder.loadTexts: adGenAOSMefMib.setLastUpdated('201409100000Z')
+if mibBuilder.loadTexts: adGenAOSMefMib.setOrganization('ADTRAN, Inc.')
+adGenAosMefPerUniPerfHistoryMib = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 1))
+adGenAosMefPerCosPerUniPerfHistoryMib = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 2))
+adGenAosMefPerEvcPerfHistoryMib = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 3))
+adGenAosMefPerCosPerEvcPerfHistoryMib = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 4))
+adGenAosMefPerUniTotalCountMib = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 5))
+adGenAosMefPerCosPerUniTotalCountMib = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 6))
+adGenAosMefPerEvcTotalCountMib = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 7))
+adGenAosMefPerCosPerEvcTotalCountMib = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 8))
+adGenAosY1731Mib = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 9, 9))
+mibBuilder.exportSymbols("ADTRAN-AOS-MEF-MIB", adGenAosMefPerUniPerfHistoryMib=adGenAosMefPerUniPerfHistoryMib, adGenAosMefPerEvcTotalCountMib=adGenAosMefPerEvcTotalCountMib, adGenAosMefPerEvcPerfHistoryMib=adGenAosMefPerEvcPerfHistoryMib, adGenAosMefPerCosPerEvcPerfHistoryMib=adGenAosMefPerCosPerEvcPerfHistoryMib, adGenAosY1731Mib=adGenAosY1731Mib, adGenAosMefPerUniTotalCountMib=adGenAosMefPerUniTotalCountMib, PYSNMP_MODULE_ID=adGenAOSMefMib, adGenAosMefPerCosPerUniTotalCountMib=adGenAosMefPerCosPerUniTotalCountMib, adGenAOSMefMib=adGenAOSMefMib, adGenAosMefPerCosPerUniPerfHistoryMib=adGenAosMefPerCosPerUniPerfHistoryMib, adGenAosMefPerCosPerEvcTotalCountMib=adGenAosMefPerCosPerEvcTotalCountMib)

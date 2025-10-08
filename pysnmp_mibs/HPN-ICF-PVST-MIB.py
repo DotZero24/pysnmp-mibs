@@ -1,62 +1,40 @@
-_G='hpnicfPvstVlanID'
-_F='read-only'
-_E='hpnicfPvstPortIndex'
-_D='hpnicfPvstPortVlanID'
-_C='Integer32'
-_B='HPN-ICF-PVST-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpnicfCommon,=mibBuilder.importSymbols('HPN-ICF-OID-MIB','hpnicfCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hpnicfPvst=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,15,2,131))
-if mibBuilder.loadTexts:hpnicfPvst.setRevisions(('2014-05-27 00:00',))
-_HpnicfPvstObjects_ObjectIdentity=ObjectIdentity
-hpnicfPvstObjects=_HpnicfPvstObjects_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,131,1))
-_HpnicfPvstVlanConfigTable_Object=MibTable
-hpnicfPvstVlanConfigTable=_HpnicfPvstVlanConfigTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,131,1,1))
-if mibBuilder.loadTexts:hpnicfPvstVlanConfigTable.setStatus(_A)
-_HpnicfPvstVlanConfigEntry_Object=MibTableRow
-hpnicfPvstVlanConfigEntry=_HpnicfPvstVlanConfigEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,131,1,1,1))
-hpnicfPvstVlanConfigEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:hpnicfPvstVlanConfigEntry.setStatus(_A)
-class _HpnicfPvstVlanID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_HpnicfPvstVlanID_Type.__name__=_C
-_HpnicfPvstVlanID_Object=MibTableColumn
-hpnicfPvstVlanID=_HpnicfPvstVlanID_Object((1,3,6,1,4,1,11,2,14,11,15,2,131,1,1,1,1),_HpnicfPvstVlanID_Type())
-hpnicfPvstVlanID.setMaxAccess(_F)
-if mibBuilder.loadTexts:hpnicfPvstVlanID.setStatus(_A)
-_HpnicfPvstVlanPortConfigTable_Object=MibTable
-hpnicfPvstVlanPortConfigTable=_HpnicfPvstVlanPortConfigTable_Object((1,3,6,1,4,1,11,2,14,11,15,2,131,1,2))
-if mibBuilder.loadTexts:hpnicfPvstVlanPortConfigTable.setStatus(_A)
-_HpnicfPvstVlanPortConfigEntry_Object=MibTableRow
-hpnicfPvstVlanPortConfigEntry=_HpnicfPvstVlanPortConfigEntry_Object((1,3,6,1,4,1,11,2,14,11,15,2,131,1,2,1))
-hpnicfPvstVlanPortConfigEntry.setIndexNames((0,_B,_D),(0,_B,_E))
-if mibBuilder.loadTexts:hpnicfPvstVlanPortConfigEntry.setStatus(_A)
-class _HpnicfPvstPortVlanID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_HpnicfPvstPortVlanID_Type.__name__=_C
-_HpnicfPvstPortVlanID_Object=MibTableColumn
-hpnicfPvstPortVlanID=_HpnicfPvstPortVlanID_Object((1,3,6,1,4,1,11,2,14,11,15,2,131,1,2,1,1),_HpnicfPvstPortVlanID_Type())
-hpnicfPvstPortVlanID.setMaxAccess(_F)
-if mibBuilder.loadTexts:hpnicfPvstPortVlanID.setStatus(_A)
-class _HpnicfPvstPortIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_HpnicfPvstPortIndex_Type.__name__=_C
-_HpnicfPvstPortIndex_Object=MibTableColumn
-hpnicfPvstPortIndex=_HpnicfPvstPortIndex_Object((1,3,6,1,4,1,11,2,14,11,15,2,131,1,2,1,2),_HpnicfPvstPortIndex_Type())
-hpnicfPvstPortIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:hpnicfPvstPortIndex.setStatus(_A)
-_HpnicfPvstNotifications_ObjectIdentity=ObjectIdentity
-hpnicfPvstNotifications=_HpnicfPvstNotifications_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,131,2))
-_HpnicfPvstEvents_ObjectIdentity=ObjectIdentity
-hpnicfPvstEvents=_HpnicfPvstEvents_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,131,2,0))
-hpnicfPvstVlanPortDetectedTc=NotificationType((1,3,6,1,4,1,11,2,14,11,15,2,131,2,0,1))
-hpnicfPvstVlanPortDetectedTc.setObjects(*((_B,_D),(_B,_E)))
-if mibBuilder.loadTexts:hpnicfPvstVlanPortDetectedTc.setStatus(_A)
-hpnicfPvstVlanPortRcvdTc=NotificationType((1,3,6,1,4,1,11,2,14,11,15,2,131,2,0,2))
-hpnicfPvstVlanPortRcvdTc.setObjects(*((_B,_D),(_B,_E)))
-if mibBuilder.loadTexts:hpnicfPvstVlanPortRcvdTc.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'hpnicfPvst':hpnicfPvst,'hpnicfPvstObjects':hpnicfPvstObjects,'hpnicfPvstVlanConfigTable':hpnicfPvstVlanConfigTable,'hpnicfPvstVlanConfigEntry':hpnicfPvstVlanConfigEntry,_G:hpnicfPvstVlanID,'hpnicfPvstVlanPortConfigTable':hpnicfPvstVlanPortConfigTable,'hpnicfPvstVlanPortConfigEntry':hpnicfPvstVlanPortConfigEntry,_D:hpnicfPvstPortVlanID,_E:hpnicfPvstPortIndex,'hpnicfPvstNotifications':hpnicfPvstNotifications,'hpnicfPvstEvents':hpnicfPvstEvents,'hpnicfPvstVlanPortDetectedTc':hpnicfPvstVlanPortDetectedTc,'hpnicfPvstVlanPortRcvdTc':hpnicfPvstVlanPortRcvdTc})
+#
+# PySNMP MIB module HPN-ICF-PVST-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-PVST-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:24 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hpnicfPvst = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 131))
+hpnicfPvst.setRevisions(('2014-05-27 00:00',))
+if mibBuilder.loadTexts: hpnicfPvst.setLastUpdated('201405270000Z')
+if mibBuilder.loadTexts: hpnicfPvst.setOrganization('')
+hpnicfPvstObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 131, 1))
+hpnicfPvstNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 131, 2))
+hpnicfPvstVlanConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 131, 1, 1), )
+if mibBuilder.loadTexts: hpnicfPvstVlanConfigTable.setStatus('current')
+hpnicfPvstVlanConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 131, 1, 1, 1), ).setIndexNames((0, "HPN-ICF-PVST-MIB", "hpnicfPvstVlanID"))
+if mibBuilder.loadTexts: hpnicfPvstVlanConfigEntry.setStatus('current')
+hpnicfPvstVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 131, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfPvstVlanID.setStatus('current')
+hpnicfPvstVlanPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 131, 1, 2), )
+if mibBuilder.loadTexts: hpnicfPvstVlanPortConfigTable.setStatus('current')
+hpnicfPvstVlanPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 131, 1, 2, 1), ).setIndexNames((0, "HPN-ICF-PVST-MIB", "hpnicfPvstPortVlanID"), (0, "HPN-ICF-PVST-MIB", "hpnicfPvstPortIndex"))
+if mibBuilder.loadTexts: hpnicfPvstVlanPortConfigEntry.setStatus('current')
+hpnicfPvstPortVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 131, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfPvstPortVlanID.setStatus('current')
+hpnicfPvstPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 131, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfPvstPortIndex.setStatus('current')
+hpnicfPvstEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 131, 2, 0))
+hpnicfPvstVlanPortDetectedTc = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 131, 2, 0, 1)).setObjects(("HPN-ICF-PVST-MIB", "hpnicfPvstPortVlanID"), ("HPN-ICF-PVST-MIB", "hpnicfPvstPortIndex"))
+if mibBuilder.loadTexts: hpnicfPvstVlanPortDetectedTc.setStatus('current')
+hpnicfPvstVlanPortRcvdTc = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 131, 2, 0, 2)).setObjects(("HPN-ICF-PVST-MIB", "hpnicfPvstPortVlanID"), ("HPN-ICF-PVST-MIB", "hpnicfPvstPortIndex"))
+if mibBuilder.loadTexts: hpnicfPvstVlanPortRcvdTc.setStatus('current')
+mibBuilder.exportSymbols("HPN-ICF-PVST-MIB", hpnicfPvstNotifications=hpnicfPvstNotifications, PYSNMP_MODULE_ID=hpnicfPvst, hpnicfPvstVlanPortDetectedTc=hpnicfPvstVlanPortDetectedTc, hpnicfPvstVlanPortConfigEntry=hpnicfPvstVlanPortConfigEntry, hpnicfPvstEvents=hpnicfPvstEvents, hpnicfPvstPortVlanID=hpnicfPvstPortVlanID, hpnicfPvstVlanPortRcvdTc=hpnicfPvstVlanPortRcvdTc, hpnicfPvstVlanPortConfigTable=hpnicfPvstVlanPortConfigTable, hpnicfPvst=hpnicfPvst, hpnicfPvstVlanConfigTable=hpnicfPvstVlanConfigTable, hpnicfPvstVlanID=hpnicfPvstVlanID, hpnicfPvstObjects=hpnicfPvstObjects, hpnicfPvstVlanConfigEntry=hpnicfPvstVlanConfigEntry, hpnicfPvstPortIndex=hpnicfPvstPortIndex)

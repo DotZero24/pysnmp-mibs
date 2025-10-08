@@ -1,101 +1,62 @@
-_Q='configGroup20'
-_P='configGroup10'
-_O='cfgActiveImageBootLocation'
-_N='cfgActiveImageVersion'
-_M='cfgLastErrorReason'
-_L='cfgLastError'
-_K='cfgActivateFile'
-_J='cfgTransferStatus'
-_I='cfgActivateTransfer'
-_H='cfgFileName'
-_G='cfgManagerAddress'
-_F='cfgTransferOp'
-_E='Integer32'
-_D='read-only'
-_C='read-write'
-_B='current'
-_A='CTRON-SSR-CONFIG-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ssrMibs,=mibBuilder.importSymbols('CTRON-SSR-SMI-MIB','ssrMibs')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-ssrConfigMIB=ModuleIdentity((1,3,6,1,4,1,52,2501,1,230))
-if mibBuilder.loadTexts:ssrConfigMIB.setRevisions(('2000-07-15 00:00','2000-02-20 00:00','1998-08-17 00:00'))
-class SSRErrorCode(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('noStatus',1),('timeout',2),('networkError',3),('noSpace',4),('invalidConfig',5),('commandCompleted',6),('internalError',7),('tftpServerError',8)))
-_ConfigConformance_ObjectIdentity=ObjectIdentity
-configConformance=_ConfigConformance_ObjectIdentity((1,3,6,1,4,1,52,2501,1,230,3))
-_ConfigCompliances_ObjectIdentity=ObjectIdentity
-configCompliances=_ConfigCompliances_ObjectIdentity((1,3,6,1,4,1,52,2501,1,230,3,1))
-_ConfigGroups_ObjectIdentity=ObjectIdentity
-configGroups=_ConfigGroups_ObjectIdentity((1,3,6,1,4,1,52,2501,1,230,3,2))
-_CfgGroup_ObjectIdentity=ObjectIdentity
-cfgGroup=_CfgGroup_ObjectIdentity((1,3,6,1,4,1,52,2501,1,231))
-class _CfgTransferOp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('noop',1),('sendConfigToAgent',2),('receiveConfigFromAgent',3),('receiveBootlogFromAgent',4)))
-_CfgTransferOp_Type.__name__=_E
-_CfgTransferOp_Object=MibScalar
-cfgTransferOp=_CfgTransferOp_Object((1,3,6,1,4,1,52,2501,1,231,1),_CfgTransferOp_Type())
-cfgTransferOp.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfgTransferOp.setStatus(_B)
-_CfgManagerAddress_Type=IpAddress
-_CfgManagerAddress_Object=MibScalar
-cfgManagerAddress=_CfgManagerAddress_Object((1,3,6,1,4,1,52,2501,1,231,2),_CfgManagerAddress_Type())
-cfgManagerAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfgManagerAddress.setStatus(_B)
-_CfgFileName_Type=DisplayString
-_CfgFileName_Object=MibScalar
-cfgFileName=_CfgFileName_Object((1,3,6,1,4,1,52,2501,1,231,3),_CfgFileName_Type())
-cfgFileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfgFileName.setStatus(_B)
-_CfgActivateTransfer_Type=TruthValue
-_CfgActivateTransfer_Object=MibScalar
-cfgActivateTransfer=_CfgActivateTransfer_Object((1,3,6,1,4,1,52,2501,1,231,4),_CfgActivateTransfer_Type())
-cfgActivateTransfer.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfgActivateTransfer.setStatus(_B)
-class _CfgTransferStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('idle',1),('sending',2),('receiving',3),('transferComplete',4),('error',5)))
-_CfgTransferStatus_Type.__name__=_E
-_CfgTransferStatus_Object=MibScalar
-cfgTransferStatus=_CfgTransferStatus_Object((1,3,6,1,4,1,52,2501,1,231,5),_CfgTransferStatus_Type())
-cfgTransferStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfgTransferStatus.setStatus(_B)
-_CfgActivateFile_Type=TruthValue
-_CfgActivateFile_Object=MibScalar
-cfgActivateFile=_CfgActivateFile_Object((1,3,6,1,4,1,52,2501,1,231,6),_CfgActivateFile_Type())
-cfgActivateFile.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfgActivateFile.setStatus(_B)
-_CfgLastError_Type=SSRErrorCode
-_CfgLastError_Object=MibScalar
-cfgLastError=_CfgLastError_Object((1,3,6,1,4,1,52,2501,1,231,7),_CfgLastError_Type())
-cfgLastError.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfgLastError.setStatus(_B)
-_CfgLastErrorReason_Type=DisplayString
-_CfgLastErrorReason_Object=MibScalar
-cfgLastErrorReason=_CfgLastErrorReason_Object((1,3,6,1,4,1,52,2501,1,231,8),_CfgLastErrorReason_Type())
-cfgLastErrorReason.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfgLastErrorReason.setStatus(_B)
-_CfgActiveImageVersion_Type=DisplayString
-_CfgActiveImageVersion_Object=MibScalar
-cfgActiveImageVersion=_CfgActiveImageVersion_Object((1,3,6,1,4,1,52,2501,1,231,9),_CfgActiveImageVersion_Type())
-cfgActiveImageVersion.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfgActiveImageVersion.setStatus(_B)
-_CfgActiveImageBootLocation_Type=DisplayString
-_CfgActiveImageBootLocation_Object=MibScalar
-cfgActiveImageBootLocation=_CfgActiveImageBootLocation_Object((1,3,6,1,4,1,52,2501,1,231,10),_CfgActiveImageBootLocation_Type())
-cfgActiveImageBootLocation.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfgActiveImageBootLocation.setStatus(_B)
-configGroup10=ObjectGroup((1,3,6,1,4,1,52,2501,1,230,3,2,1))
-configGroup10.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:configGroup10.setStatus('deprecated')
-configGroup20=ObjectGroup((1,3,6,1,4,1,52,2501,1,230,3,2,2))
-configGroup20.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:configGroup20.setStatus(_B)
-configCompliance=ModuleCompliance((1,3,6,1,4,1,52,2501,1,230,3,1,1))
-configCompliance.setObjects((_A,_P))
-if mibBuilder.loadTexts:configCompliance.setStatus('obsolete')
-configCompliance2=ModuleCompliance((1,3,6,1,4,1,52,2501,1,230,3,1,2))
-configCompliance2.setObjects((_A,_Q))
-if mibBuilder.loadTexts:configCompliance2.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'SSRErrorCode':SSRErrorCode,'ssrConfigMIB':ssrConfigMIB,'configConformance':configConformance,'configCompliances':configCompliances,'configCompliance':configCompliance,'configCompliance2':configCompliance2,'configGroups':configGroups,_P:configGroup10,_Q:configGroup20,'cfgGroup':cfgGroup,_F:cfgTransferOp,_G:cfgManagerAddress,_H:cfgFileName,_I:cfgActivateTransfer,_J:cfgTransferStatus,_K:cfgActivateFile,_L:cfgLastError,_M:cfgLastErrorReason,_N:cfgActiveImageVersion,_O:cfgActiveImageBootLocation})
+#
+# PySNMP MIB module CTRON-SSR-CONFIG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CTRON-SSR-CONFIG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:46 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ssrMibs, = mibBuilder.importSymbols("CTRON-SSR-SMI-MIB", "ssrMibs")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ssrConfigMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 2501, 1, 230))
+ssrConfigMIB.setRevisions(('2000-07-15 00:00', '2000-02-20 00:00', '1998-08-17 00:00',))
+if mibBuilder.loadTexts: ssrConfigMIB.setLastUpdated('200007150000Z')
+if mibBuilder.loadTexts: ssrConfigMIB.setOrganization('Cabletron Systems, Inc')
+class SSRErrorCode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))
+    namedValues = NamedValues(("noStatus", 1), ("timeout", 2), ("networkError", 3), ("noSpace", 4), ("invalidConfig", 5), ("commandCompleted", 6), ("internalError", 7), ("tftpServerError", 8))
+
+cfgGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2501, 1, 231))
+cfgTransferOp = MibScalar((1, 3, 6, 1, 4, 1, 52, 2501, 1, 231, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("noop", 1), ("sendConfigToAgent", 2), ("receiveConfigFromAgent", 3), ("receiveBootlogFromAgent", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cfgTransferOp.setStatus('current')
+cfgManagerAddress = MibScalar((1, 3, 6, 1, 4, 1, 52, 2501, 1, 231, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cfgManagerAddress.setStatus('current')
+cfgFileName = MibScalar((1, 3, 6, 1, 4, 1, 52, 2501, 1, 231, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cfgFileName.setStatus('current')
+cfgActivateTransfer = MibScalar((1, 3, 6, 1, 4, 1, 52, 2501, 1, 231, 4), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cfgActivateTransfer.setStatus('current')
+cfgTransferStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 2501, 1, 231, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("idle", 1), ("sending", 2), ("receiving", 3), ("transferComplete", 4), ("error", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfgTransferStatus.setStatus('current')
+cfgActivateFile = MibScalar((1, 3, 6, 1, 4, 1, 52, 2501, 1, 231, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cfgActivateFile.setStatus('current')
+cfgLastError = MibScalar((1, 3, 6, 1, 4, 1, 52, 2501, 1, 231, 7), SSRErrorCode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfgLastError.setStatus('current')
+cfgLastErrorReason = MibScalar((1, 3, 6, 1, 4, 1, 52, 2501, 1, 231, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfgLastErrorReason.setStatus('current')
+cfgActiveImageVersion = MibScalar((1, 3, 6, 1, 4, 1, 52, 2501, 1, 231, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfgActiveImageVersion.setStatus('current')
+cfgActiveImageBootLocation = MibScalar((1, 3, 6, 1, 4, 1, 52, 2501, 1, 231, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfgActiveImageBootLocation.setStatus('current')
+configConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2501, 1, 230, 3))
+configCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2501, 1, 230, 3, 1))
+configGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2501, 1, 230, 3, 2))
+configCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52, 2501, 1, 230, 3, 1, 1)).setObjects(("CTRON-SSR-CONFIG-MIB", "configGroup10"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    configCompliance = configCompliance.setStatus('obsolete')
+configCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 52, 2501, 1, 230, 3, 1, 2)).setObjects(("CTRON-SSR-CONFIG-MIB", "configGroup20"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    configCompliance2 = configCompliance2.setStatus('current')
+configGroup10 = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 2501, 1, 230, 3, 2, 1)).setObjects(("CTRON-SSR-CONFIG-MIB", "cfgTransferOp"), ("CTRON-SSR-CONFIG-MIB", "cfgManagerAddress"), ("CTRON-SSR-CONFIG-MIB", "cfgFileName"), ("CTRON-SSR-CONFIG-MIB", "cfgActivateTransfer"), ("CTRON-SSR-CONFIG-MIB", "cfgTransferStatus"), ("CTRON-SSR-CONFIG-MIB", "cfgActivateFile"), ("CTRON-SSR-CONFIG-MIB", "cfgLastError"), ("CTRON-SSR-CONFIG-MIB", "cfgLastErrorReason"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    configGroup10 = configGroup10.setStatus('deprecated')
+configGroup20 = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 2501, 1, 230, 3, 2, 2)).setObjects(("CTRON-SSR-CONFIG-MIB", "cfgTransferOp"), ("CTRON-SSR-CONFIG-MIB", "cfgManagerAddress"), ("CTRON-SSR-CONFIG-MIB", "cfgFileName"), ("CTRON-SSR-CONFIG-MIB", "cfgActivateTransfer"), ("CTRON-SSR-CONFIG-MIB", "cfgTransferStatus"), ("CTRON-SSR-CONFIG-MIB", "cfgActivateFile"), ("CTRON-SSR-CONFIG-MIB", "cfgLastError"), ("CTRON-SSR-CONFIG-MIB", "cfgLastErrorReason"), ("CTRON-SSR-CONFIG-MIB", "cfgActiveImageVersion"), ("CTRON-SSR-CONFIG-MIB", "cfgActiveImageBootLocation"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    configGroup20 = configGroup20.setStatus('current')
+mibBuilder.exportSymbols("CTRON-SSR-CONFIG-MIB", cfgActiveImageVersion=cfgActiveImageVersion, configCompliance=configCompliance, cfgLastError=cfgLastError, ssrConfigMIB=ssrConfigMIB, cfgFileName=cfgFileName, cfgTransferStatus=cfgTransferStatus, configConformance=configConformance, cfgActivateFile=cfgActivateFile, cfgActivateTransfer=cfgActivateTransfer, PYSNMP_MODULE_ID=ssrConfigMIB, cfgTransferOp=cfgTransferOp, cfgActiveImageBootLocation=cfgActiveImageBootLocation, configCompliances=configCompliances, configGroup20=configGroup20, configCompliance2=configCompliance2, SSRErrorCode=SSRErrorCode, cfgGroup=cfgGroup, configGroups=configGroups, configGroup10=configGroup10, cfgLastErrorReason=cfgLastErrorReason, cfgManagerAddress=cfgManagerAddress)

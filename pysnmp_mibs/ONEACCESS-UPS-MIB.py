@@ -1,50 +1,34 @@
-_E='Integer32'
-_D='oacUpsAlarmDescr'
-_C='ONEACCESS-UPS-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-oacExpIMManagement,=mibBuilder.importSymbols('ONEACCESS-GLOBAL-REG','oacExpIMManagement')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-AutonomousType,DisplayString,PhysAddress,TextualConvention,TestAndIncr,TimeInterval,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','AutonomousType','DisplayString','PhysAddress','TextualConvention','TestAndIncr','TimeInterval','TimeStamp')
-oacUpsMIB=ModuleIdentity((1,3,6,1,4,1,13191,10,3,4,1225))
-_OacUpsMIBObjects_ObjectIdentity=ObjectIdentity
-oacUpsMIBObjects=_OacUpsMIBObjects_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,1225,1))
-_OacUpsBattery_ObjectIdentity=ObjectIdentity
-oacUpsBattery=_OacUpsBattery_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,1225,1,1))
-class _OacUpsBatteryStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('unknown',1),('batteryNormal',2),('batteryLow',3),('batteryDepleted',4)))
-_OacUpsBatteryStatus_Type.__name__=_E
-_OacUpsBatteryStatus_Object=MibScalar
-oacUpsBatteryStatus=_OacUpsBatteryStatus_Object((1,3,6,1,4,1,13191,10,3,4,1225,1,1,1),_OacUpsBatteryStatus_Type())
-oacUpsBatteryStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacUpsBatteryStatus.setStatus(_A)
-_OacUpsAlarm_ObjectIdentity=ObjectIdentity
-oacUpsAlarm=_OacUpsAlarm_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,1225,1,2))
-_OacUpsAlarmsPresent_Type=Gauge32
-_OacUpsAlarmsPresent_Object=MibScalar
-oacUpsAlarmsPresent=_OacUpsAlarmsPresent_Object((1,3,6,1,4,1,13191,10,3,4,1225,1,2,1),_OacUpsAlarmsPresent_Type())
-oacUpsAlarmsPresent.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacUpsAlarmsPresent.setStatus(_A)
-_OacUpsAlarmDescr_Type=AutonomousType
-_OacUpsAlarmDescr_Object=MibScalar
-oacUpsAlarmDescr=_OacUpsAlarmDescr_Object((1,3,6,1,4,1,13191,10,3,4,1225,1,2,2),_OacUpsAlarmDescr_Type())
-oacUpsAlarmDescr.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacUpsAlarmDescr.setStatus(_A)
-_OacUpsAlarmTime_Type=TimeStamp
-_OacUpsAlarmTime_Object=MibScalar
-oacUpsAlarmTime=_OacUpsAlarmTime_Object((1,3,6,1,4,1,13191,10,3,4,1225,1,2,3),_OacUpsAlarmTime_Type())
-oacUpsAlarmTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacUpsAlarmTime.setStatus(_A)
-_OacUpsTraps_ObjectIdentity=ObjectIdentity
-oacUpsTraps=_OacUpsTraps_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,1225,2))
-oacUpsTrapAlarmEntryAdded=NotificationType((1,3,6,1,4,1,13191,10,3,4,1225,2,0))
-oacUpsTrapAlarmEntryAdded.setObjects((_C,_D))
-if mibBuilder.loadTexts:oacUpsTrapAlarmEntryAdded.setStatus(_A)
-oacUpsTrapAlarmEntryRemoved=NotificationType((1,3,6,1,4,1,13191,10,3,4,1225,2,1))
-oacUpsTrapAlarmEntryRemoved.setObjects((_C,_D))
-if mibBuilder.loadTexts:oacUpsTrapAlarmEntryRemoved.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'oacUpsMIB':oacUpsMIB,'oacUpsMIBObjects':oacUpsMIBObjects,'oacUpsBattery':oacUpsBattery,'oacUpsBatteryStatus':oacUpsBatteryStatus,'oacUpsAlarm':oacUpsAlarm,'oacUpsAlarmsPresent':oacUpsAlarmsPresent,_D:oacUpsAlarmDescr,'oacUpsAlarmTime':oacUpsAlarmTime,'oacUpsTraps':oacUpsTraps,'oacUpsTrapAlarmEntryAdded':oacUpsTrapAlarmEntryAdded,'oacUpsTrapAlarmEntryRemoved':oacUpsTrapAlarmEntryRemoved})
+#
+# PySNMP MIB module ONEACCESS-UPS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/oneaccess/ONEACCESS-UPS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:00 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+oacExpIMManagement, = mibBuilder.importSymbols("ONEACCESS-GLOBAL-REG", "oacExpIMManagement")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeInterval, TimeStamp, AutonomousType, TestAndIncr, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeInterval", "TimeStamp", "AutonomousType", "TestAndIncr", "TextualConvention")
+oacUpsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1225))
+if mibBuilder.loadTexts: oacUpsMIB.setLastUpdated('9402230000Z')
+if mibBuilder.loadTexts: oacUpsMIB.setOrganization('IETF UPS MIB Working Group')
+oacUpsMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1225, 1))
+oacUpsBattery = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1225, 1, 1))
+oacUpsBatteryStatus = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1225, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("batteryNormal", 2), ("batteryLow", 3), ("batteryDepleted", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacUpsBatteryStatus.setStatus('current')
+oacUpsAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1225, 1, 2))
+oacUpsAlarmsPresent = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1225, 1, 2, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacUpsAlarmsPresent.setStatus('current')
+oacUpsAlarmDescr = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1225, 1, 2, 2), AutonomousType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacUpsAlarmDescr.setStatus('current')
+oacUpsAlarmTime = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1225, 1, 2, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacUpsAlarmTime.setStatus('current')
+oacUpsTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1225, 2))
+oacUpsTrapAlarmEntryAdded = NotificationType((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1225, 2, 0)).setObjects(("ONEACCESS-UPS-MIB", "oacUpsAlarmDescr"))
+if mibBuilder.loadTexts: oacUpsTrapAlarmEntryAdded.setStatus('current')
+oacUpsTrapAlarmEntryRemoved = NotificationType((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1225, 2, 1)).setObjects(("ONEACCESS-UPS-MIB", "oacUpsAlarmDescr"))
+if mibBuilder.loadTexts: oacUpsTrapAlarmEntryRemoved.setStatus('current')
+mibBuilder.exportSymbols("ONEACCESS-UPS-MIB", oacUpsAlarmsPresent=oacUpsAlarmsPresent, oacUpsMIB=oacUpsMIB, oacUpsTraps=oacUpsTraps, oacUpsBatteryStatus=oacUpsBatteryStatus, oacUpsAlarmDescr=oacUpsAlarmDescr, oacUpsTrapAlarmEntryRemoved=oacUpsTrapAlarmEntryRemoved, oacUpsMIBObjects=oacUpsMIBObjects, oacUpsBattery=oacUpsBattery, oacUpsAlarm=oacUpsAlarm, oacUpsTrapAlarmEntryAdded=oacUpsTrapAlarmEntryAdded, oacUpsAlarmTime=oacUpsAlarmTime, PYSNMP_MODULE_ID=oacUpsMIB)

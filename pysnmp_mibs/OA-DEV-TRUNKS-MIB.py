@@ -1,104 +1,55 @@
-_P='oaDevTrunkMandatoryGroup'
-_O='oaDevTrunkGrPortLogicalNumber'
-_N='oaDevTrunkGrAdminStatus'
-_M='oaDevTrunkGrPortsNumber'
-_L='oaDevTrunkGrPortMembers'
-_K='oaDevTrunkGrDescription'
-_J='oaDevTrunkGrNumber'
-_I='oaDevTrunkGenSupport'
-_H='oaDevTrunkGrId'
-_G='DisplayString'
-_F='OctetString'
-_E='read-write'
-_D='read-only'
-_C='Integer32'
-_B='OA-DEV-TRUNKS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_G,'PhysAddress','TextualConvention')
-oaDeviceTrunks=ModuleIdentity((1,3,6,1,4,1,629,1,50,11,1,23))
-if mibBuilder.loadTexts:oaDeviceTrunks.setRevisions(('2007-12-11 00:00','2007-08-02 00:00'))
-_Nbase_ObjectIdentity=ObjectIdentity
-nbase=_Nbase_ObjectIdentity((1,3,6,1,4,1,629))
-_NbSwitchG1_ObjectIdentity=ObjectIdentity
-nbSwitchG1=_NbSwitchG1_ObjectIdentity((1,3,6,1,4,1,629,1))
-_NbSwitchG1Il_ObjectIdentity=ObjectIdentity
-nbSwitchG1Il=_NbSwitchG1Il_ObjectIdentity((1,3,6,1,4,1,629,1,50))
-_NbDeviceConfig_ObjectIdentity=ObjectIdentity
-nbDeviceConfig=_NbDeviceConfig_ObjectIdentity((1,3,6,1,4,1,629,1,50,11))
-_NbDevGen_ObjectIdentity=ObjectIdentity
-nbDevGen=_NbDevGen_ObjectIdentity((1,3,6,1,4,1,629,1,50,11,1))
-_OaDevTrunkGen_ObjectIdentity=ObjectIdentity
-oaDevTrunkGen=_OaDevTrunkGen_ObjectIdentity((1,3,6,1,4,1,629,1,50,11,1,23,1))
-class _OaDevTrunkGenSupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('notSupported',1),('supported',2)))
-_OaDevTrunkGenSupport_Type.__name__=_C
-_OaDevTrunkGenSupport_Object=MibScalar
-oaDevTrunkGenSupport=_OaDevTrunkGenSupport_Object((1,3,6,1,4,1,629,1,50,11,1,23,1,1),_OaDevTrunkGenSupport_Type())
-oaDevTrunkGenSupport.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaDevTrunkGenSupport.setStatus(_A)
-_OaDevTrunks_ObjectIdentity=ObjectIdentity
-oaDevTrunks=_OaDevTrunks_ObjectIdentity((1,3,6,1,4,1,629,1,50,11,1,23,2))
-_OaDevTrunkGrNumber_Type=Integer32
-_OaDevTrunkGrNumber_Object=MibScalar
-oaDevTrunkGrNumber=_OaDevTrunkGrNumber_Object((1,3,6,1,4,1,629,1,50,11,1,23,2,1),_OaDevTrunkGrNumber_Type())
-oaDevTrunkGrNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaDevTrunkGrNumber.setStatus(_A)
-_OaDevTrunkGrTable_Object=MibTable
-oaDevTrunkGrTable=_OaDevTrunkGrTable_Object((1,3,6,1,4,1,629,1,50,11,1,23,2,5))
-if mibBuilder.loadTexts:oaDevTrunkGrTable.setStatus(_A)
-_OaDevTrunkGrEntry_Object=MibTableRow
-oaDevTrunkGrEntry=_OaDevTrunkGrEntry_Object((1,3,6,1,4,1,629,1,50,11,1,23,2,5,1))
-oaDevTrunkGrEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:oaDevTrunkGrEntry.setStatus(_A)
-class _OaDevTrunkGrId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_OaDevTrunkGrId_Type.__name__=_C
-_OaDevTrunkGrId_Object=MibTableColumn
-oaDevTrunkGrId=_OaDevTrunkGrId_Object((1,3,6,1,4,1,629,1,50,11,1,23,2,5,1,1),_OaDevTrunkGrId_Type())
-oaDevTrunkGrId.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:oaDevTrunkGrId.setStatus(_A)
-class _OaDevTrunkGrDescription_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_OaDevTrunkGrDescription_Type.__name__=_G
-_OaDevTrunkGrDescription_Object=MibTableColumn
-oaDevTrunkGrDescription=_OaDevTrunkGrDescription_Object((1,3,6,1,4,1,629,1,50,11,1,23,2,5,1,2),_OaDevTrunkGrDescription_Type())
-oaDevTrunkGrDescription.setMaxAccess(_E)
-if mibBuilder.loadTexts:oaDevTrunkGrDescription.setStatus(_A)
-class _OaDevTrunkGrPortMembers_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_OaDevTrunkGrPortMembers_Type.__name__=_F
-_OaDevTrunkGrPortMembers_Object=MibTableColumn
-oaDevTrunkGrPortMembers=_OaDevTrunkGrPortMembers_Object((1,3,6,1,4,1,629,1,50,11,1,23,2,5,1,3),_OaDevTrunkGrPortMembers_Type())
-oaDevTrunkGrPortMembers.setMaxAccess(_E)
-if mibBuilder.loadTexts:oaDevTrunkGrPortMembers.setStatus(_A)
-_OaDevTrunkGrPortsNumber_Type=Integer32
-_OaDevTrunkGrPortsNumber_Object=MibTableColumn
-oaDevTrunkGrPortsNumber=_OaDevTrunkGrPortsNumber_Object((1,3,6,1,4,1,629,1,50,11,1,23,2,5,1,4),_OaDevTrunkGrPortsNumber_Type())
-oaDevTrunkGrPortsNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaDevTrunkGrPortsNumber.setStatus(_A)
-class _OaDevTrunkGrAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('validId',1),('invalid',2),('validNoId',3)))
-_OaDevTrunkGrAdminStatus_Type.__name__=_C
-_OaDevTrunkGrAdminStatus_Object=MibTableColumn
-oaDevTrunkGrAdminStatus=_OaDevTrunkGrAdminStatus_Object((1,3,6,1,4,1,629,1,50,11,1,23,2,5,1,5),_OaDevTrunkGrAdminStatus_Type())
-oaDevTrunkGrAdminStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:oaDevTrunkGrAdminStatus.setStatus(_A)
-_OaDevTrunkGrPortLogicalNumber_Type=Integer32
-_OaDevTrunkGrPortLogicalNumber_Object=MibTableColumn
-oaDevTrunkGrPortLogicalNumber=_OaDevTrunkGrPortLogicalNumber_Object((1,3,6,1,4,1,629,1,50,11,1,23,2,5,1,6),_OaDevTrunkGrPortLogicalNumber_Type())
-oaDevTrunkGrPortLogicalNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:oaDevTrunkGrPortLogicalNumber.setStatus(_A)
-_OaDevTrunkConformance_ObjectIdentity=ObjectIdentity
-oaDevTrunkConformance=_OaDevTrunkConformance_ObjectIdentity((1,3,6,1,4,1,629,1,50,11,1,23,101))
-_OaDevTrunkMIBCompliances_ObjectIdentity=ObjectIdentity
-oaDevTrunkMIBCompliances=_OaDevTrunkMIBCompliances_ObjectIdentity((1,3,6,1,4,1,629,1,50,11,1,23,101,1))
-_OaDevTrunkMIBGroups_ObjectIdentity=ObjectIdentity
-oaDevTrunkMIBGroups=_OaDevTrunkMIBGroups_ObjectIdentity((1,3,6,1,4,1,629,1,50,11,1,23,101,2))
-oaDevTrunkMandatoryGroup=ObjectGroup((1,3,6,1,4,1,629,1,50,11,1,23,101,2,1))
-oaDevTrunkMandatoryGroup.setObjects(*((_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:oaDevTrunkMandatoryGroup.setStatus(_A)
-oaDevTrunkMIBCompliance=ModuleCompliance((1,3,6,1,4,1,629,1,50,11,1,23,101,1,1))
-oaDevTrunkMIBCompliance.setObjects((_B,_P))
-if mibBuilder.loadTexts:oaDevTrunkMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'nbase':nbase,'nbSwitchG1':nbSwitchG1,'nbSwitchG1Il':nbSwitchG1Il,'nbDeviceConfig':nbDeviceConfig,'nbDevGen':nbDevGen,'oaDeviceTrunks':oaDeviceTrunks,'oaDevTrunkGen':oaDevTrunkGen,_I:oaDevTrunkGenSupport,'oaDevTrunks':oaDevTrunks,_J:oaDevTrunkGrNumber,'oaDevTrunkGrTable':oaDevTrunkGrTable,'oaDevTrunkGrEntry':oaDevTrunkGrEntry,_H:oaDevTrunkGrId,_K:oaDevTrunkGrDescription,_L:oaDevTrunkGrPortMembers,_M:oaDevTrunkGrPortsNumber,_N:oaDevTrunkGrAdminStatus,_O:oaDevTrunkGrPortLogicalNumber,'oaDevTrunkConformance':oaDevTrunkConformance,'oaDevTrunkMIBCompliances':oaDevTrunkMIBCompliances,'oaDevTrunkMIBCompliance':oaDevTrunkMIBCompliance,'oaDevTrunkMIBGroups':oaDevTrunkMIBGroups,_P:oaDevTrunkMandatoryGroup})
+#
+# PySNMP MIB module OA-DEV-TRUNKS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/OA-DEV-TRUNKS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:24 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+oaDeviceTrunks = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23))
+oaDeviceTrunks.setRevisions(('2007-12-11 00:00', '2007-08-02 00:00',))
+if mibBuilder.loadTexts: oaDeviceTrunks.setLastUpdated('200712110000Z')
+if mibBuilder.loadTexts: oaDeviceTrunks.setOrganization('MRV Communications, Inc.')
+nbase = MibIdentifier((1, 3, 6, 1, 4, 1, 629))
+nbSwitchG1 = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1))
+nbSwitchG1Il = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50))
+nbDeviceConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 11))
+nbDevGen = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1))
+oaDevTrunkGen = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 1))
+oaDevTrunks = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 2))
+oaDevTrunkConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 101))
+oaDevTrunkGenSupport = MibScalar((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("notSupported", 1), ("supported", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaDevTrunkGenSupport.setStatus('current')
+oaDevTrunkGrNumber = MibScalar((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 2, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaDevTrunkGrNumber.setStatus('current')
+oaDevTrunkGrTable = MibTable((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 2, 5), )
+if mibBuilder.loadTexts: oaDevTrunkGrTable.setStatus('current')
+oaDevTrunkGrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 2, 5, 1), ).setIndexNames((0, "OA-DEV-TRUNKS-MIB", "oaDevTrunkGrId"))
+if mibBuilder.loadTexts: oaDevTrunkGrEntry.setStatus('current')
+oaDevTrunkGrId = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 2, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: oaDevTrunkGrId.setStatus('current')
+oaDevTrunkGrDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 2, 5, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaDevTrunkGrDescription.setStatus('current')
+oaDevTrunkGrPortMembers = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 2, 5, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaDevTrunkGrPortMembers.setStatus('current')
+oaDevTrunkGrPortsNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 2, 5, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaDevTrunkGrPortsNumber.setStatus('current')
+oaDevTrunkGrAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 2, 5, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("validId", 1), ("invalid", 2), ("validNoId", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oaDevTrunkGrAdminStatus.setStatus('current')
+oaDevTrunkGrPortLogicalNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 2, 5, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaDevTrunkGrPortLogicalNumber.setStatus('current')
+oaDevTrunkMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 101, 1))
+oaDevTrunkMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 101, 2))
+oaDevTrunkMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 101, 1, 1)).setObjects(("OA-DEV-TRUNKS-MIB", "oaDevTrunkMandatoryGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oaDevTrunkMIBCompliance = oaDevTrunkMIBCompliance.setStatus('current')
+oaDevTrunkMandatoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 629, 1, 50, 11, 1, 23, 101, 2, 1)).setObjects(("OA-DEV-TRUNKS-MIB", "oaDevTrunkGenSupport"), ("OA-DEV-TRUNKS-MIB", "oaDevTrunkGrNumber"), ("OA-DEV-TRUNKS-MIB", "oaDevTrunkGrDescription"), ("OA-DEV-TRUNKS-MIB", "oaDevTrunkGrPortMembers"), ("OA-DEV-TRUNKS-MIB", "oaDevTrunkGrPortsNumber"), ("OA-DEV-TRUNKS-MIB", "oaDevTrunkGrAdminStatus"), ("OA-DEV-TRUNKS-MIB", "oaDevTrunkGrPortLogicalNumber"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oaDevTrunkMandatoryGroup = oaDevTrunkMandatoryGroup.setStatus('current')
+mibBuilder.exportSymbols("OA-DEV-TRUNKS-MIB", oaDevTrunkMIBGroups=oaDevTrunkMIBGroups, oaDeviceTrunks=oaDeviceTrunks, oaDevTrunkGrPortMembers=oaDevTrunkGrPortMembers, nbase=nbase, oaDevTrunkConformance=oaDevTrunkConformance, oaDevTrunkGrDescription=oaDevTrunkGrDescription, oaDevTrunkGrEntry=oaDevTrunkGrEntry, oaDevTrunkGrId=oaDevTrunkGrId, oaDevTrunkGrPortLogicalNumber=oaDevTrunkGrPortLogicalNumber, oaDevTrunkGrAdminStatus=oaDevTrunkGrAdminStatus, nbDevGen=nbDevGen, oaDevTrunks=oaDevTrunks, PYSNMP_MODULE_ID=oaDeviceTrunks, oaDevTrunkMIBCompliance=oaDevTrunkMIBCompliance, nbDeviceConfig=nbDeviceConfig, oaDevTrunkMIBCompliances=oaDevTrunkMIBCompliances, oaDevTrunkMandatoryGroup=oaDevTrunkMandatoryGroup, oaDevTrunkGen=oaDevTrunkGen, nbSwitchG1=nbSwitchG1, oaDevTrunkGrPortsNumber=oaDevTrunkGrPortsNumber, oaDevTrunkGenSupport=oaDevTrunkGenSupport, nbSwitchG1Il=nbSwitchG1Il, oaDevTrunkGrTable=oaDevTrunkGrTable, oaDevTrunkGrNumber=oaDevTrunkGrNumber)

@@ -1,253 +1,145 @@
-_s='hpicfVrrpOperationsGroup1'
-_r='hpicfVrrpOperationsGroup'
-_q='hpicfVrrpVrMainPreempt'
-_p='hpicfVrrpTrackState'
-_o='hpicfVrrpRemoveConfig'
-_n='hpicfVrrpRespondToPing'
-_m='hpicfVrrpNonstop'
-_l='hpicfVrrpVrRespondToPing'
-_k='hpicfVrrpAdminStatus'
-_j='hpicfVrrpStatsEntry'
-_i='hpicfVrrpAssoIpAddrEntry'
-_h='hpicfVrrpOperEntry'
-_g='read-only'
-_f='not-accessible'
-_e='hpicfVrrpVrTrackEntity'
-_d='hpicfVrrpVrTrackType'
-_c='vrrpOperVrId'
-_b='VRRP-MIB'
-_a='IpAddress'
-_Z='Counter32'
-_Y='SnmpAdminString'
-_X='ifIndex'
-_W='IF-MIB'
-_V='hpicfVrrpOperGroup2'
-_U='hpicfVrrpOperGroup1'
-_T='hpicfVrrpNonstopGroup'
-_S='hpicfVrrpVrPingGroup'
-_R='hpicfVrrpTrackGroup'
-_Q='hpicfVrrpStatsNearFailovers'
-_P='hpicfVrrpVrControl'
-_O='hpicfVrrpTrackRowStatus'
-_N='hpicfVrrpAssoIpMask'
-_M='hpicfVrrpVrPreemptDelayTime'
-_L='hpicfVrrpVrTransferControl'
-_K='hpicfVrrpVrMasterPreempt'
-_J='hpicfVrrpVrMode'
-_I='read-write'
-_H='Integer32'
-_G='hpicfVrrpTrackGroup1'
-_F='hpicfVrrpOperGroup'
-_E='read-create'
-_D='TruthValue'
-_C='deprecated'
-_B='current'
-_A='HP-ICF-VRRP-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpSwitch,=mibBuilder.importSymbols('HP-ICF-OID','hpSwitch')
-ifIndex,=mibBuilder.importSymbols(_W,_X)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_Y)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits',_Z,'Counter64','Gauge32',_H,_a,'ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_D)
-vrrpAssoIpAddrEntry,vrrpOperEntry,vrrpOperVrId=mibBuilder.importSymbols(_b,'vrrpAssoIpAddrEntry','vrrpOperEntry',_c)
-hpicfVrrpMIB=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,5,1,31))
-if mibBuilder.loadTexts:hpicfVrrpMIB.setRevisions(('2021-06-10 00:00','2012-11-15 00:00','2013-06-12 00:00','2012-02-22 00:00','2010-10-20 00:00','2010-07-28 00:00','2009-05-19 00:00','2008-02-20 00:00','2007-12-12 00:00','2007-08-22 00:00','2005-07-14 00:00'))
-_HpicfVrrpOperations_ObjectIdentity=ObjectIdentity
-hpicfVrrpOperations=_HpicfVrrpOperations_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,31,1))
-class _HpicfVrrpAdminStatus_Type(TruthValue):defaultValue=2
-_HpicfVrrpAdminStatus_Type.__name__=_D
-_HpicfVrrpAdminStatus_Object=MibScalar
-hpicfVrrpAdminStatus=_HpicfVrrpAdminStatus_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,1),_HpicfVrrpAdminStatus_Type())
-hpicfVrrpAdminStatus.setMaxAccess(_I)
-if mibBuilder.loadTexts:hpicfVrrpAdminStatus.setStatus(_C)
-_HpicfVrrpOperTable_Object=MibTable
-hpicfVrrpOperTable=_HpicfVrrpOperTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,2))
-if mibBuilder.loadTexts:hpicfVrrpOperTable.setStatus(_B)
-_HpicfVrrpOperEntry_Object=MibTableRow
-hpicfVrrpOperEntry=_HpicfVrrpOperEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,2,1))
-if mibBuilder.loadTexts:hpicfVrrpOperEntry.setStatus(_B)
-class _HpicfVrrpVrMode_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('owner',1),('backup',2),('uninitialized',3)))
-_HpicfVrrpVrMode_Type.__name__=_H
-_HpicfVrrpVrMode_Object=MibTableColumn
-hpicfVrrpVrMode=_HpicfVrrpVrMode_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,2,1,1),_HpicfVrrpVrMode_Type())
-hpicfVrrpVrMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfVrrpVrMode.setStatus(_B)
-class _HpicfVrrpVrMasterPreempt_Type(TruthValue):defaultValue=2
-_HpicfVrrpVrMasterPreempt_Type.__name__=_D
-_HpicfVrrpVrMasterPreempt_Object=MibTableColumn
-hpicfVrrpVrMasterPreempt=_HpicfVrrpVrMasterPreempt_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,2,1,2),_HpicfVrrpVrMasterPreempt_Type())
-hpicfVrrpVrMasterPreempt.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfVrrpVrMasterPreempt.setStatus(_B)
-class _HpicfVrrpVrTransferControl_Type(TruthValue):defaultValue=2
-_HpicfVrrpVrTransferControl_Type.__name__=_D
-_HpicfVrrpVrTransferControl_Object=MibTableColumn
-hpicfVrrpVrTransferControl=_HpicfVrrpVrTransferControl_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,2,1,3),_HpicfVrrpVrTransferControl_Type())
-hpicfVrrpVrTransferControl.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfVrrpVrTransferControl.setStatus(_B)
-class _HpicfVrrpVrPreemptDelayTime_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,600))
-_HpicfVrrpVrPreemptDelayTime_Type.__name__=_H
-_HpicfVrrpVrPreemptDelayTime_Object=MibTableColumn
-hpicfVrrpVrPreemptDelayTime=_HpicfVrrpVrPreemptDelayTime_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,2,1,4),_HpicfVrrpVrPreemptDelayTime_Type())
-hpicfVrrpVrPreemptDelayTime.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfVrrpVrPreemptDelayTime.setStatus(_B)
-class _HpicfVrrpVrControl_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('failback',1),('failover',2),('failoverWithMonitoring',3),('invalid',4)))
-_HpicfVrrpVrControl_Type.__name__=_H
-_HpicfVrrpVrControl_Object=MibTableColumn
-hpicfVrrpVrControl=_HpicfVrrpVrControl_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,2,1,5),_HpicfVrrpVrControl_Type())
-hpicfVrrpVrControl.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfVrrpVrControl.setStatus(_B)
-class _HpicfVrrpVrRespondToPing_Type(TruthValue):defaultValue=1
-_HpicfVrrpVrRespondToPing_Type.__name__=_D
-_HpicfVrrpVrRespondToPing_Object=MibTableColumn
-hpicfVrrpVrRespondToPing=_HpicfVrrpVrRespondToPing_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,2,1,6),_HpicfVrrpVrRespondToPing_Type())
-hpicfVrrpVrRespondToPing.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfVrrpVrRespondToPing.setStatus(_B)
-class _HpicfVrrpVrMainPreempt_Type(TruthValue):defaultValue=2
-_HpicfVrrpVrMainPreempt_Type.__name__=_D
-_HpicfVrrpVrMainPreempt_Object=MibTableColumn
-hpicfVrrpVrMainPreempt=_HpicfVrrpVrMainPreempt_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,2,1,7),_HpicfVrrpVrMainPreempt_Type())
-hpicfVrrpVrMainPreempt.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfVrrpVrMainPreempt.setStatus(_B)
-_HpicfVrrpAssoIpAddrTable_Object=MibTable
-hpicfVrrpAssoIpAddrTable=_HpicfVrrpAssoIpAddrTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,3))
-if mibBuilder.loadTexts:hpicfVrrpAssoIpAddrTable.setStatus(_B)
-_HpicfVrrpAssoIpAddrEntry_Object=MibTableRow
-hpicfVrrpAssoIpAddrEntry=_HpicfVrrpAssoIpAddrEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,3,1))
-if mibBuilder.loadTexts:hpicfVrrpAssoIpAddrEntry.setStatus(_B)
-class _HpicfVrrpAssoIpMask_Type(IpAddress):defaultHexValue='00000000'
-_HpicfVrrpAssoIpMask_Type.__name__=_a
-_HpicfVrrpAssoIpMask_Object=MibTableColumn
-hpicfVrrpAssoIpMask=_HpicfVrrpAssoIpMask_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,3,1,1),_HpicfVrrpAssoIpMask_Type())
-hpicfVrrpAssoIpMask.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfVrrpAssoIpMask.setStatus(_B)
-_HpicfVrrpTrackTable_Object=MibTable
-hpicfVrrpTrackTable=_HpicfVrrpTrackTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,5))
-if mibBuilder.loadTexts:hpicfVrrpTrackTable.setStatus(_B)
-_HpicfVrrpTrackEntry_Object=MibTableRow
-hpicfVrrpTrackEntry=_HpicfVrrpTrackEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,5,1))
-hpicfVrrpTrackEntry.setIndexNames((0,_W,_X),(0,_b,_c),(0,_A,_d),(0,_A,_e))
-if mibBuilder.loadTexts:hpicfVrrpTrackEntry.setStatus(_B)
-class _HpicfVrrpVrTrackType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('port',1),('trunk',2),('vlan',3)))
-_HpicfVrrpVrTrackType_Type.__name__=_H
-_HpicfVrrpVrTrackType_Object=MibTableColumn
-hpicfVrrpVrTrackType=_HpicfVrrpVrTrackType_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,5,1,1),_HpicfVrrpVrTrackType_Type())
-hpicfVrrpVrTrackType.setMaxAccess(_f)
-if mibBuilder.loadTexts:hpicfVrrpVrTrackType.setStatus(_B)
-class _HpicfVrrpVrTrackEntity_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_HpicfVrrpVrTrackEntity_Type.__name__=_Y
-_HpicfVrrpVrTrackEntity_Object=MibTableColumn
-hpicfVrrpVrTrackEntity=_HpicfVrrpVrTrackEntity_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,5,1,2),_HpicfVrrpVrTrackEntity_Type())
-hpicfVrrpVrTrackEntity.setMaxAccess(_f)
-if mibBuilder.loadTexts:hpicfVrrpVrTrackEntity.setStatus(_B)
-_HpicfVrrpTrackRowStatus_Type=RowStatus
-_HpicfVrrpTrackRowStatus_Object=MibTableColumn
-hpicfVrrpTrackRowStatus=_HpicfVrrpTrackRowStatus_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,5,1,3),_HpicfVrrpTrackRowStatus_Type())
-hpicfVrrpTrackRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:hpicfVrrpTrackRowStatus.setStatus(_B)
-class _HpicfVrrpTrackState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('down',0),('up',1)))
-_HpicfVrrpTrackState_Type.__name__=_H
-_HpicfVrrpTrackState_Object=MibTableColumn
-hpicfVrrpTrackState=_HpicfVrrpTrackState_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,5,1,4),_HpicfVrrpTrackState_Type())
-hpicfVrrpTrackState.setMaxAccess(_g)
-if mibBuilder.loadTexts:hpicfVrrpTrackState.setStatus(_B)
-_HpicfVrrpStatsTable_Object=MibTable
-hpicfVrrpStatsTable=_HpicfVrrpStatsTable_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,6))
-if mibBuilder.loadTexts:hpicfVrrpStatsTable.setStatus(_B)
-_HpicfVrrpStatsEntry_Object=MibTableRow
-hpicfVrrpStatsEntry=_HpicfVrrpStatsEntry_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,6,1))
-if mibBuilder.loadTexts:hpicfVrrpStatsEntry.setStatus(_B)
-class _HpicfVrrpStatsNearFailovers_Type(Counter32):defaultValue=0
-_HpicfVrrpStatsNearFailovers_Type.__name__=_Z
-_HpicfVrrpStatsNearFailovers_Object=MibTableColumn
-hpicfVrrpStatsNearFailovers=_HpicfVrrpStatsNearFailovers_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,6,1,1),_HpicfVrrpStatsNearFailovers_Type())
-hpicfVrrpStatsNearFailovers.setMaxAccess(_g)
-if mibBuilder.loadTexts:hpicfVrrpStatsNearFailovers.setStatus(_B)
-class _HpicfVrrpRespondToPing_Type(TruthValue):defaultValue=2
-_HpicfVrrpRespondToPing_Type.__name__=_D
-_HpicfVrrpRespondToPing_Object=MibScalar
-hpicfVrrpRespondToPing=_HpicfVrrpRespondToPing_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,7),_HpicfVrrpRespondToPing_Type())
-hpicfVrrpRespondToPing.setMaxAccess(_I)
-if mibBuilder.loadTexts:hpicfVrrpRespondToPing.setStatus(_C)
-class _HpicfVrrpRemoveConfig_Type(TruthValue):defaultValue=2
-_HpicfVrrpRemoveConfig_Type.__name__=_D
-_HpicfVrrpRemoveConfig_Object=MibScalar
-hpicfVrrpRemoveConfig=_HpicfVrrpRemoveConfig_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,8),_HpicfVrrpRemoveConfig_Type())
-hpicfVrrpRemoveConfig.setMaxAccess(_I)
-if mibBuilder.loadTexts:hpicfVrrpRemoveConfig.setStatus(_C)
-class _HpicfVrrpNonstop_Type(TruthValue):defaultValue=2
-_HpicfVrrpNonstop_Type.__name__=_D
-_HpicfVrrpNonstop_Object=MibScalar
-hpicfVrrpNonstop=_HpicfVrrpNonstop_Object((1,3,6,1,4,1,11,2,14,11,5,1,31,1,9),_HpicfVrrpNonstop_Type())
-hpicfVrrpNonstop.setMaxAccess(_I)
-if mibBuilder.loadTexts:hpicfVrrpNonstop.setStatus(_C)
-_HpicfVrrpConformance_ObjectIdentity=ObjectIdentity
-hpicfVrrpConformance=_HpicfVrrpConformance_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,31,2))
-_HpicfVrrpMIBCompliances_ObjectIdentity=ObjectIdentity
-hpicfVrrpMIBCompliances=_HpicfVrrpMIBCompliances_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,31,2,1))
-_HpicfVrrpMIBGroups_ObjectIdentity=ObjectIdentity
-hpicfVrrpMIBGroups=_HpicfVrrpMIBGroups_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,5,1,31,2,2))
-vrrpOperEntry.registerAugmentions((_A,_h))
+#
+# PySNMP MIB module HP-ICF-VRRP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HP-ICF-VRRP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:45 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+vrrpOperVrId, vrrpOperEntry, vrrpAssoIpAddrEntry = mibBuilder.importSymbols("VRRP-MIB", "vrrpOperVrId", "vrrpOperEntry", "vrrpAssoIpAddrEntry")
+hpicfVrrpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31))
+hpicfVrrpMIB.setRevisions(('2021-06-10 00:00', '2012-11-15 00:00', '2013-06-12 00:00', '2012-02-22 00:00', '2010-10-20 00:00', '2010-07-28 00:00', '2009-05-19 00:00', '2008-02-20 00:00', '2007-12-12 00:00', '2007-08-22 00:00', '2005-07-14 00:00',))
+if mibBuilder.loadTexts: hpicfVrrpMIB.setLastUpdated('202106100000Z')
+if mibBuilder.loadTexts: hpicfVrrpMIB.setOrganization('HP Networking')
+hpicfVrrpOperations = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1))
+hpicfVrrpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2))
+hpicfVrrpAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfVrrpAdminStatus.setStatus('deprecated')
+hpicfVrrpOperTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 2), )
+if mibBuilder.loadTexts: hpicfVrrpOperTable.setStatus('current')
+hpicfVrrpOperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 2, 1), )
+vrrpOperEntry.registerAugmentions(("HP-ICF-VRRP-MIB", "hpicfVrrpOperEntry"))
 hpicfVrrpOperEntry.setIndexNames(*vrrpOperEntry.getIndexNames())
-vrrpAssoIpAddrEntry.registerAugmentions((_A,_i))
+if mibBuilder.loadTexts: hpicfVrrpOperEntry.setStatus('current')
+hpicfVrrpVrMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("owner", 1), ("backup", 2), ("uninitialized", 3))).clone('uninitialized')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfVrrpVrMode.setStatus('current')
+hpicfVrrpVrMasterPreempt = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 2, 1, 2), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfVrrpVrMasterPreempt.setStatus('current')
+hpicfVrrpVrTransferControl = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 2, 1, 3), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfVrrpVrTransferControl.setStatus('current')
+hpicfVrrpVrPreemptDelayTime = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 600))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfVrrpVrPreemptDelayTime.setStatus('current')
+hpicfVrrpVrControl = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("failback", 1), ("failover", 2), ("failoverWithMonitoring", 3), ("invalid", 4))).clone('invalid')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfVrrpVrControl.setStatus('current')
+hpicfVrrpVrRespondToPing = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 2, 1, 6), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfVrrpVrRespondToPing.setStatus('current')
+hpicfVrrpVrMainPreempt = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 2, 1, 7), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfVrrpVrMainPreempt.setStatus('current')
+hpicfVrrpAssoIpAddrTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 3), )
+if mibBuilder.loadTexts: hpicfVrrpAssoIpAddrTable.setStatus('current')
+hpicfVrrpAssoIpAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 3, 1), )
+vrrpAssoIpAddrEntry.registerAugmentions(("HP-ICF-VRRP-MIB", "hpicfVrrpAssoIpAddrEntry"))
 hpicfVrrpAssoIpAddrEntry.setIndexNames(*vrrpAssoIpAddrEntry.getIndexNames())
-vrrpOperEntry.registerAugmentions((_A,_j))
+if mibBuilder.loadTexts: hpicfVrrpAssoIpAddrEntry.setStatus('current')
+hpicfVrrpAssoIpMask = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 3, 1, 1), IpAddress().clone(hexValue="00000000")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfVrrpAssoIpMask.setStatus('current')
+hpicfVrrpTrackTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 5), )
+if mibBuilder.loadTexts: hpicfVrrpTrackTable.setStatus('current')
+hpicfVrrpTrackEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "VRRP-MIB", "vrrpOperVrId"), (0, "HP-ICF-VRRP-MIB", "hpicfVrrpVrTrackType"), (0, "HP-ICF-VRRP-MIB", "hpicfVrrpVrTrackEntity"))
+if mibBuilder.loadTexts: hpicfVrrpTrackEntry.setStatus('current')
+hpicfVrrpVrTrackType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("port", 1), ("trunk", 2), ("vlan", 3))))
+if mibBuilder.loadTexts: hpicfVrrpVrTrackType.setStatus('current')
+hpicfVrrpVrTrackEntity = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 5, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 255)))
+if mibBuilder.loadTexts: hpicfVrrpVrTrackEntity.setStatus('current')
+hpicfVrrpTrackRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 5, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hpicfVrrpTrackRowStatus.setStatus('current')
+hpicfVrrpTrackState = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 5, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("down", 0), ("up", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfVrrpTrackState.setStatus('current')
+hpicfVrrpStatsTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 6), )
+if mibBuilder.loadTexts: hpicfVrrpStatsTable.setStatus('current')
+hpicfVrrpRespondToPing = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 7), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfVrrpRespondToPing.setStatus('deprecated')
+hpicfVrrpRemoveConfig = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 8), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfVrrpRemoveConfig.setStatus('deprecated')
+hpicfVrrpNonstop = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 9), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpicfVrrpNonstop.setStatus('deprecated')
+hpicfVrrpStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 6, 1), )
+vrrpOperEntry.registerAugmentions(("HP-ICF-VRRP-MIB", "hpicfVrrpStatsEntry"))
 hpicfVrrpStatsEntry.setIndexNames(*vrrpOperEntry.getIndexNames())
-hpicfVrrpOperGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,31,2,2,1))
-hpicfVrrpOperGroup.setObjects(*((_A,_k),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:hpicfVrrpOperGroup.setStatus(_C)
-hpicfVrrpTrackGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,31,2,2,2))
-hpicfVrrpTrackGroup.setObjects(*((_A,_O),(_A,_P)))
-if mibBuilder.loadTexts:hpicfVrrpTrackGroup.setStatus(_C)
-hpicfVrrpVrPingGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,31,2,2,3))
-hpicfVrrpVrPingGroup.setObjects((_A,_l))
-if mibBuilder.loadTexts:hpicfVrrpVrPingGroup.setStatus(_B)
-hpicfVrrpNonstopGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,31,2,2,4))
-hpicfVrrpNonstopGroup.setObjects((_A,_m))
-if mibBuilder.loadTexts:hpicfVrrpNonstopGroup.setStatus(_C)
-hpicfVrrpOperationsGroup=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,31,2,2,5))
-hpicfVrrpOperationsGroup.setObjects(*((_A,_n),(_A,_o),(_A,_Q)))
-if mibBuilder.loadTexts:hpicfVrrpOperationsGroup.setStatus(_C)
-hpicfVrrpTrackGroup1=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,31,2,2,6))
-hpicfVrrpTrackGroup1.setObjects(*((_A,_O),(_A,_P),(_A,_p)))
-if mibBuilder.loadTexts:hpicfVrrpTrackGroup1.setStatus(_B)
-hpicfVrrpOperGroup1=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,31,2,2,7))
-hpicfVrrpOperGroup1.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:hpicfVrrpOperGroup1.setStatus(_C)
-hpicfVrrpOperationsGroup1=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,31,2,2,8))
-hpicfVrrpOperationsGroup1.setObjects((_A,_Q))
-if mibBuilder.loadTexts:hpicfVrrpOperationsGroup1.setStatus(_B)
-hpicfVrrpOperGroup2=ObjectGroup((1,3,6,1,4,1,11,2,14,11,5,1,31,2,2,9))
-hpicfVrrpOperGroup2.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_q)))
-if mibBuilder.loadTexts:hpicfVrrpOperGroup2.setStatus(_B)
-hpicfVrrpMIBCompliance=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,31,2,1,1))
-hpicfVrrpMIBCompliance.setObjects(*((_A,_F),(_A,_F)))
-if mibBuilder.loadTexts:hpicfVrrpMIBCompliance.setStatus(_C)
-hpicfVrrpMIBCompliance1=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,31,2,1,2))
-hpicfVrrpMIBCompliance1.setObjects(*((_A,_F),(_A,_R),(_A,_F),(_A,_R)))
-if mibBuilder.loadTexts:hpicfVrrpMIBCompliance1.setStatus(_C)
-hpicfVrrpMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,31,2,1,3))
-hpicfVrrpMIBCompliance2.setObjects(*((_A,_S),(_A,_S)))
-if mibBuilder.loadTexts:hpicfVrrpMIBCompliance2.setStatus(_B)
-hpicfVrrpMIBCompliance3=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,31,2,1,4))
-hpicfVrrpMIBCompliance3.setObjects(*((_A,_T),(_A,_T)))
-if mibBuilder.loadTexts:hpicfVrrpMIBCompliance3.setStatus(_C)
-hpicfVrrpMIBCompliance4=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,31,2,1,5))
-hpicfVrrpMIBCompliance4.setObjects((_A,_r))
-if mibBuilder.loadTexts:hpicfVrrpMIBCompliance4.setStatus(_C)
-hpicfVrrpMIBCompliance5=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,31,2,1,6))
-hpicfVrrpMIBCompliance5.setObjects(*((_A,_F),(_A,_G),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:hpicfVrrpMIBCompliance5.setStatus(_C)
-hpicfVrrpMIBCompliance6=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,31,2,1,7))
-hpicfVrrpMIBCompliance6.setObjects(*((_A,_U),(_A,_G),(_A,_U),(_A,_G)))
-if mibBuilder.loadTexts:hpicfVrrpMIBCompliance6.setStatus(_C)
-hpicfVrrpMIBCompliance7=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,31,2,1,8))
-hpicfVrrpMIBCompliance7.setObjects((_A,_s))
-if mibBuilder.loadTexts:hpicfVrrpMIBCompliance7.setStatus(_B)
-hpicfVrrpMIBCompliance8=ModuleCompliance((1,3,6,1,4,1,11,2,14,11,5,1,31,2,1,9))
-hpicfVrrpMIBCompliance8.setObjects(*((_A,_V),(_A,_G),(_A,_V),(_A,_G)))
-if mibBuilder.loadTexts:hpicfVrrpMIBCompliance8.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'hpicfVrrpMIB':hpicfVrrpMIB,'hpicfVrrpOperations':hpicfVrrpOperations,_k:hpicfVrrpAdminStatus,'hpicfVrrpOperTable':hpicfVrrpOperTable,_h:hpicfVrrpOperEntry,_J:hpicfVrrpVrMode,_K:hpicfVrrpVrMasterPreempt,_L:hpicfVrrpVrTransferControl,_M:hpicfVrrpVrPreemptDelayTime,_P:hpicfVrrpVrControl,_l:hpicfVrrpVrRespondToPing,_q:hpicfVrrpVrMainPreempt,'hpicfVrrpAssoIpAddrTable':hpicfVrrpAssoIpAddrTable,_i:hpicfVrrpAssoIpAddrEntry,_N:hpicfVrrpAssoIpMask,'hpicfVrrpTrackTable':hpicfVrrpTrackTable,'hpicfVrrpTrackEntry':hpicfVrrpTrackEntry,_d:hpicfVrrpVrTrackType,_e:hpicfVrrpVrTrackEntity,_O:hpicfVrrpTrackRowStatus,_p:hpicfVrrpTrackState,'hpicfVrrpStatsTable':hpicfVrrpStatsTable,_j:hpicfVrrpStatsEntry,_Q:hpicfVrrpStatsNearFailovers,_n:hpicfVrrpRespondToPing,_o:hpicfVrrpRemoveConfig,_m:hpicfVrrpNonstop,'hpicfVrrpConformance':hpicfVrrpConformance,'hpicfVrrpMIBCompliances':hpicfVrrpMIBCompliances,'hpicfVrrpMIBCompliance':hpicfVrrpMIBCompliance,'hpicfVrrpMIBCompliance1':hpicfVrrpMIBCompliance1,'hpicfVrrpMIBCompliance2':hpicfVrrpMIBCompliance2,'hpicfVrrpMIBCompliance3':hpicfVrrpMIBCompliance3,'hpicfVrrpMIBCompliance4':hpicfVrrpMIBCompliance4,'hpicfVrrpMIBCompliance5':hpicfVrrpMIBCompliance5,'hpicfVrrpMIBCompliance6':hpicfVrrpMIBCompliance6,'hpicfVrrpMIBCompliance7':hpicfVrrpMIBCompliance7,'hpicfVrrpMIBCompliance8':hpicfVrrpMIBCompliance8,'hpicfVrrpMIBGroups':hpicfVrrpMIBGroups,_F:hpicfVrrpOperGroup,_R:hpicfVrrpTrackGroup,_S:hpicfVrrpVrPingGroup,_T:hpicfVrrpNonstopGroup,_r:hpicfVrrpOperationsGroup,_G:hpicfVrrpTrackGroup1,_U:hpicfVrrpOperGroup1,_s:hpicfVrrpOperationsGroup1,_V:hpicfVrrpOperGroup2})
+if mibBuilder.loadTexts: hpicfVrrpStatsEntry.setStatus('current')
+hpicfVrrpStatsNearFailovers = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 1, 6, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpicfVrrpStatsNearFailovers.setStatus('current')
+hpicfVrrpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 1))
+hpicfVrrpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 2))
+hpicfVrrpMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 1, 1)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpOperGroup"), ("HP-ICF-VRRP-MIB", "hpicfVrrpOperGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpMIBCompliance = hpicfVrrpMIBCompliance.setStatus('deprecated')
+hpicfVrrpMIBCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 1, 2)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpOperGroup"), ("HP-ICF-VRRP-MIB", "hpicfVrrpTrackGroup"), ("HP-ICF-VRRP-MIB", "hpicfVrrpOperGroup"), ("HP-ICF-VRRP-MIB", "hpicfVrrpTrackGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpMIBCompliance1 = hpicfVrrpMIBCompliance1.setStatus('deprecated')
+hpicfVrrpMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 1, 3)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpVrPingGroup"), ("HP-ICF-VRRP-MIB", "hpicfVrrpVrPingGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpMIBCompliance2 = hpicfVrrpMIBCompliance2.setStatus('current')
+hpicfVrrpMIBCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 1, 4)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpNonstopGroup"), ("HP-ICF-VRRP-MIB", "hpicfVrrpNonstopGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpMIBCompliance3 = hpicfVrrpMIBCompliance3.setStatus('deprecated')
+hpicfVrrpMIBCompliance4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 1, 5)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpOperationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpMIBCompliance4 = hpicfVrrpMIBCompliance4.setStatus('deprecated')
+hpicfVrrpMIBCompliance5 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 1, 6)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpOperGroup"), ("HP-ICF-VRRP-MIB", "hpicfVrrpTrackGroup1"), ("HP-ICF-VRRP-MIB", "hpicfVrrpOperGroup"), ("HP-ICF-VRRP-MIB", "hpicfVrrpTrackGroup1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpMIBCompliance5 = hpicfVrrpMIBCompliance5.setStatus('deprecated')
+hpicfVrrpMIBCompliance6 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 1, 7)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpOperGroup1"), ("HP-ICF-VRRP-MIB", "hpicfVrrpTrackGroup1"), ("HP-ICF-VRRP-MIB", "hpicfVrrpOperGroup1"), ("HP-ICF-VRRP-MIB", "hpicfVrrpTrackGroup1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpMIBCompliance6 = hpicfVrrpMIBCompliance6.setStatus('deprecated')
+hpicfVrrpMIBCompliance7 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 1, 8)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpOperationsGroup1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpMIBCompliance7 = hpicfVrrpMIBCompliance7.setStatus('current')
+hpicfVrrpMIBCompliance8 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 1, 9)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpOperGroup2"), ("HP-ICF-VRRP-MIB", "hpicfVrrpTrackGroup1"), ("HP-ICF-VRRP-MIB", "hpicfVrrpOperGroup2"), ("HP-ICF-VRRP-MIB", "hpicfVrrpTrackGroup1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpMIBCompliance8 = hpicfVrrpMIBCompliance8.setStatus('current')
+hpicfVrrpOperGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 2, 1)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpAdminStatus"), ("HP-ICF-VRRP-MIB", "hpicfVrrpVrMode"), ("HP-ICF-VRRP-MIB", "hpicfVrrpVrMasterPreempt"), ("HP-ICF-VRRP-MIB", "hpicfVrrpVrTransferControl"), ("HP-ICF-VRRP-MIB", "hpicfVrrpVrPreemptDelayTime"), ("HP-ICF-VRRP-MIB", "hpicfVrrpAssoIpMask"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpOperGroup = hpicfVrrpOperGroup.setStatus('deprecated')
+hpicfVrrpTrackGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 2, 2)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpTrackRowStatus"), ("HP-ICF-VRRP-MIB", "hpicfVrrpVrControl"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpTrackGroup = hpicfVrrpTrackGroup.setStatus('deprecated')
+hpicfVrrpVrPingGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 2, 3)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpVrRespondToPing"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpVrPingGroup = hpicfVrrpVrPingGroup.setStatus('current')
+hpicfVrrpNonstopGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 2, 4)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpNonstop"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpNonstopGroup = hpicfVrrpNonstopGroup.setStatus('deprecated')
+hpicfVrrpOperationsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 2, 5)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpRespondToPing"), ("HP-ICF-VRRP-MIB", "hpicfVrrpRemoveConfig"), ("HP-ICF-VRRP-MIB", "hpicfVrrpStatsNearFailovers"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpOperationsGroup = hpicfVrrpOperationsGroup.setStatus('deprecated')
+hpicfVrrpTrackGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 2, 6)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpTrackRowStatus"), ("HP-ICF-VRRP-MIB", "hpicfVrrpVrControl"), ("HP-ICF-VRRP-MIB", "hpicfVrrpTrackState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpTrackGroup1 = hpicfVrrpTrackGroup1.setStatus('current')
+hpicfVrrpOperGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 2, 7)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpVrMode"), ("HP-ICF-VRRP-MIB", "hpicfVrrpVrMasterPreempt"), ("HP-ICF-VRRP-MIB", "hpicfVrrpVrTransferControl"), ("HP-ICF-VRRP-MIB", "hpicfVrrpVrPreemptDelayTime"), ("HP-ICF-VRRP-MIB", "hpicfVrrpAssoIpMask"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpOperGroup1 = hpicfVrrpOperGroup1.setStatus('deprecated')
+hpicfVrrpOperationsGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 2, 8)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpStatsNearFailovers"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpOperationsGroup1 = hpicfVrrpOperationsGroup1.setStatus('current')
+hpicfVrrpOperGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 31, 2, 2, 9)).setObjects(("HP-ICF-VRRP-MIB", "hpicfVrrpVrMode"), ("HP-ICF-VRRP-MIB", "hpicfVrrpVrMasterPreempt"), ("HP-ICF-VRRP-MIB", "hpicfVrrpVrTransferControl"), ("HP-ICF-VRRP-MIB", "hpicfVrrpVrPreemptDelayTime"), ("HP-ICF-VRRP-MIB", "hpicfVrrpAssoIpMask"), ("HP-ICF-VRRP-MIB", "hpicfVrrpVrMainPreempt"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hpicfVrrpOperGroup2 = hpicfVrrpOperGroup2.setStatus('current')
+mibBuilder.exportSymbols("HP-ICF-VRRP-MIB", hpicfVrrpVrPreemptDelayTime=hpicfVrrpVrPreemptDelayTime, hpicfVrrpMIBCompliance7=hpicfVrrpMIBCompliance7, hpicfVrrpAdminStatus=hpicfVrrpAdminStatus, hpicfVrrpOperGroup=hpicfVrrpOperGroup, hpicfVrrpVrMainPreempt=hpicfVrrpVrMainPreempt, PYSNMP_MODULE_ID=hpicfVrrpMIB, hpicfVrrpMIBCompliance4=hpicfVrrpMIBCompliance4, hpicfVrrpAssoIpMask=hpicfVrrpAssoIpMask, hpicfVrrpVrRespondToPing=hpicfVrrpVrRespondToPing, hpicfVrrpOperGroup2=hpicfVrrpOperGroup2, hpicfVrrpTrackRowStatus=hpicfVrrpTrackRowStatus, hpicfVrrpRespondToPing=hpicfVrrpRespondToPing, hpicfVrrpNonstopGroup=hpicfVrrpNonstopGroup, hpicfVrrpTrackState=hpicfVrrpTrackState, hpicfVrrpOperations=hpicfVrrpOperations, hpicfVrrpAssoIpAddrEntry=hpicfVrrpAssoIpAddrEntry, hpicfVrrpOperGroup1=hpicfVrrpOperGroup1, hpicfVrrpMIBCompliance2=hpicfVrrpMIBCompliance2, hpicfVrrpAssoIpAddrTable=hpicfVrrpAssoIpAddrTable, hpicfVrrpVrMode=hpicfVrrpVrMode, hpicfVrrpStatsTable=hpicfVrrpStatsTable, hpicfVrrpMIBCompliance6=hpicfVrrpMIBCompliance6, hpicfVrrpVrTransferControl=hpicfVrrpVrTransferControl, hpicfVrrpOperationsGroup=hpicfVrrpOperationsGroup, hpicfVrrpMIBCompliance3=hpicfVrrpMIBCompliance3, hpicfVrrpVrTrackType=hpicfVrrpVrTrackType, hpicfVrrpOperationsGroup1=hpicfVrrpOperationsGroup1, hpicfVrrpOperTable=hpicfVrrpOperTable, hpicfVrrpStatsEntry=hpicfVrrpStatsEntry, hpicfVrrpTrackGroup=hpicfVrrpTrackGroup, hpicfVrrpConformance=hpicfVrrpConformance, hpicfVrrpTrackTable=hpicfVrrpTrackTable, hpicfVrrpMIBCompliances=hpicfVrrpMIBCompliances, hpicfVrrpRemoveConfig=hpicfVrrpRemoveConfig, hpicfVrrpStatsNearFailovers=hpicfVrrpStatsNearFailovers, hpicfVrrpOperEntry=hpicfVrrpOperEntry, hpicfVrrpMIBCompliance1=hpicfVrrpMIBCompliance1, hpicfVrrpMIB=hpicfVrrpMIB, hpicfVrrpVrControl=hpicfVrrpVrControl, hpicfVrrpTrackEntry=hpicfVrrpTrackEntry, hpicfVrrpMIBCompliance=hpicfVrrpMIBCompliance, hpicfVrrpNonstop=hpicfVrrpNonstop, hpicfVrrpMIBGroups=hpicfVrrpMIBGroups, hpicfVrrpMIBCompliance8=hpicfVrrpMIBCompliance8, hpicfVrrpTrackGroup1=hpicfVrrpTrackGroup1, hpicfVrrpVrTrackEntity=hpicfVrrpVrTrackEntity, hpicfVrrpMIBCompliance5=hpicfVrrpMIBCompliance5, hpicfVrrpVrPingGroup=hpicfVrrpVrPingGroup, hpicfVrrpVrMasterPreempt=hpicfVrrpVrMasterPreempt)

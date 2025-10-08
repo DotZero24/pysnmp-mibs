@@ -1,102 +1,60 @@
-_O='bwMailStatsGroup'
-_N='mailClean'
-_M='mailVirus'
-_L='mailReject'
-_K='mailSpam'
-_J='mailSent'
-_I='mailRcvd'
-_H='mailInterval'
-_G='totalMessages'
-_F='deferredMessages'
-_E='queuedMessages'
-_D='bwMessagesGroup'
-_C='read-only'
-_B='BORDERWARE-SMG-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-borderware,bwProductId,bwProducts=mibBuilder.importSymbols('BORDERWARE-MIB','borderware','bwProductId','bwProducts')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-bwMailFirewall=ModuleIdentity((1,3,6,1,4,1,8673,1,11))
-if mibBuilder.loadTexts:bwMailFirewall.setRevisions(('2004-05-26 00:00',))
-_BwMailFirewall4_ObjectIdentity=ObjectIdentity
-bwMailFirewall4=_BwMailFirewall4_ObjectIdentity((1,3,6,1,4,1,8673,1,2,11))
-_BwMailFirewallConformance_ObjectIdentity=ObjectIdentity
-bwMailFirewallConformance=_BwMailFirewallConformance_ObjectIdentity((1,3,6,1,4,1,8673,1,11,3))
-_BwMailFirewallCompliances_ObjectIdentity=ObjectIdentity
-bwMailFirewallCompliances=_BwMailFirewallCompliances_ObjectIdentity((1,3,6,1,4,1,8673,1,11,3,1))
-_BwMailFirewallGroups_ObjectIdentity=ObjectIdentity
-bwMailFirewallGroups=_BwMailFirewallGroups_ObjectIdentity((1,3,6,1,4,1,8673,1,11,3,2))
-_MailEntry_Object=MibTable
-mailEntry=_MailEntry_Object((1,3,6,1,4,1,8673,1,11,10,1))
-if mibBuilder.loadTexts:mailEntry.setStatus(_A)
-_MailInterval_Type=DisplayString
-_MailInterval_Object=MibTableColumn
-mailInterval=_MailInterval_Object((1,3,6,1,4,1,8673,1,11,10,1,1),_MailInterval_Type())
-mailInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:mailInterval.setStatus(_A)
-_MailRcvd_Type=Counter32
-_MailRcvd_Object=MibTableColumn
-mailRcvd=_MailRcvd_Object((1,3,6,1,4,1,8673,1,11,10,1,2),_MailRcvd_Type())
-mailRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:mailRcvd.setStatus(_A)
-_MailSent_Type=Counter32
-_MailSent_Object=MibTableColumn
-mailSent=_MailSent_Object((1,3,6,1,4,1,8673,1,11,10,1,3),_MailSent_Type())
-mailSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:mailSent.setStatus(_A)
-_MailSpam_Type=Counter32
-_MailSpam_Object=MibTableColumn
-mailSpam=_MailSpam_Object((1,3,6,1,4,1,8673,1,11,10,1,4),_MailSpam_Type())
-mailSpam.setMaxAccess(_C)
-if mibBuilder.loadTexts:mailSpam.setStatus(_A)
-_MailReject_Type=Counter32
-_MailReject_Object=MibTableColumn
-mailReject=_MailReject_Object((1,3,6,1,4,1,8673,1,11,10,1,5),_MailReject_Type())
-mailReject.setMaxAccess(_C)
-if mibBuilder.loadTexts:mailReject.setStatus(_A)
-_MailVirus_Type=Counter32
-_MailVirus_Object=MibTableColumn
-mailVirus=_MailVirus_Object((1,3,6,1,4,1,8673,1,11,10,1,6),_MailVirus_Type())
-mailVirus.setMaxAccess(_C)
-if mibBuilder.loadTexts:mailVirus.setStatus(_A)
-_MailClean_Type=Counter32
-_MailClean_Object=MibTableColumn
-mailClean=_MailClean_Object((1,3,6,1,4,1,8673,1,11,10,1,7),_MailClean_Type())
-mailClean.setMaxAccess(_C)
-if mibBuilder.loadTexts:mailClean.setStatus(_A)
-_MailStatus_ObjectIdentity=ObjectIdentity
-mailStatus=_MailStatus_ObjectIdentity((1,3,6,1,4,1,8673,1,11,10,2))
-if mibBuilder.loadTexts:mailStatus.setStatus(_A)
-_QueuedMessages_Type=Counter32
-_QueuedMessages_Object=MibScalar
-queuedMessages=_QueuedMessages_Object((1,3,6,1,4,1,8673,1,11,10,2,1),_QueuedMessages_Type())
-queuedMessages.setMaxAccess(_C)
-if mibBuilder.loadTexts:queuedMessages.setStatus(_A)
-_DeferredMessages_Type=Counter32
-_DeferredMessages_Object=MibScalar
-deferredMessages=_DeferredMessages_Object((1,3,6,1,4,1,8673,1,11,10,2,2),_DeferredMessages_Type())
-deferredMessages.setMaxAccess(_C)
-if mibBuilder.loadTexts:deferredMessages.setStatus(_A)
-_TotalMessages_Type=Counter32
-_TotalMessages_Object=MibScalar
-totalMessages=_TotalMessages_Object((1,3,6,1,4,1,8673,1,11,10,2,3),_TotalMessages_Type())
-totalMessages.setMaxAccess(_C)
-if mibBuilder.loadTexts:totalMessages.setStatus(_A)
-bwMessagesGroup=ObjectGroup((1,3,6,1,4,1,8673,1,11,3,2,1))
-bwMessagesGroup.setObjects(*((_B,_E),(_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:bwMessagesGroup.setStatus(_A)
-bwMailStatsGroup=ObjectGroup((1,3,6,1,4,1,8673,1,11,3,2,2))
-bwMailStatsGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:bwMailStatsGroup.setStatus(_A)
-mailTable=ObjectGroup((1,3,6,1,4,1,8673,1,11,10))
-mailTable.setObjects(*((_B,_O),(_B,_D)))
-if mibBuilder.loadTexts:mailTable.setStatus(_A)
-bwMailFirewallCompliance=ModuleCompliance((1,3,6,1,4,1,8673,1,11,3,1,1))
-bwMailFirewallCompliance.setObjects((_B,_D))
-if mibBuilder.loadTexts:bwMailFirewallCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'bwMailFirewall4':bwMailFirewall4,'bwMailFirewall':bwMailFirewall,'bwMailFirewallConformance':bwMailFirewallConformance,'bwMailFirewallCompliances':bwMailFirewallCompliances,'bwMailFirewallCompliance':bwMailFirewallCompliance,'bwMailFirewallGroups':bwMailFirewallGroups,_D:bwMessagesGroup,_O:bwMailStatsGroup,'mailTable':mailTable,'mailEntry':mailEntry,_H:mailInterval,_I:mailRcvd,_J:mailSent,_K:mailSpam,_L:mailReject,_M:mailVirus,_N:mailClean,'mailStatus':mailStatus,_E:queuedMessages,_F:deferredMessages,_G:totalMessages})
+#
+# PySNMP MIB module BORDERWARE-SMG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/watchguard/BORDERWARE-SMG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+borderware, bwProductId, bwProducts = mibBuilder.importSymbols("BORDERWARE-MIB", "borderware", "bwProductId", "bwProducts")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+bwMailFirewall = ModuleIdentity((1, 3, 6, 1, 4, 1, 8673, 1, 11))
+bwMailFirewall.setRevisions(('2004-05-26 00:00',))
+if mibBuilder.loadTexts: bwMailFirewall.setLastUpdated('200405260000Z')
+if mibBuilder.loadTexts: bwMailFirewall.setOrganization('Borderware Technology Inc.')
+bwMailFirewall4 = MibIdentifier((1, 3, 6, 1, 4, 1, 8673, 1, 2, 11))
+bwMailFirewallConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 8673, 1, 11, 3))
+bwMailFirewallCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 8673, 1, 11, 3, 1))
+bwMailFirewallGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 8673, 1, 11, 3, 2))
+bwMailFirewallCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 8673, 1, 11, 3, 1, 1)).setObjects(("BORDERWARE-SMG-MIB", "bwMessagesGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bwMailFirewallCompliance = bwMailFirewallCompliance.setStatus('current')
+bwMessagesGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 8673, 1, 11, 3, 2, 1)).setObjects(("BORDERWARE-SMG-MIB", "queuedMessages"), ("BORDERWARE-SMG-MIB", "deferredMessages"), ("BORDERWARE-SMG-MIB", "totalMessages"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bwMessagesGroup = bwMessagesGroup.setStatus('current')
+bwMailStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 8673, 1, 11, 3, 2, 2)).setObjects(("BORDERWARE-SMG-MIB", "mailInterval"), ("BORDERWARE-SMG-MIB", "mailRcvd"), ("BORDERWARE-SMG-MIB", "mailSent"), ("BORDERWARE-SMG-MIB", "mailSpam"), ("BORDERWARE-SMG-MIB", "mailReject"), ("BORDERWARE-SMG-MIB", "mailVirus"), ("BORDERWARE-SMG-MIB", "mailClean"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    bwMailStatsGroup = bwMailStatsGroup.setStatus('current')
+mailTable = ObjectGroup((1, 3, 6, 1, 4, 1, 8673, 1, 11, 10)).setObjects(("BORDERWARE-SMG-MIB", "bwMailStatsGroup"), ("BORDERWARE-SMG-MIB", "bwMessagesGroup"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mailTable = mailTable.setStatus('current')
+mailEntry = MibTable((1, 3, 6, 1, 4, 1, 8673, 1, 11, 10, 1), ).setIndexNames((0, "BORDERWARE-SMG-MIB", "mailInterval"))
+if mibBuilder.loadTexts: mailEntry.setStatus('current')
+mailStatus = ObjectIdentity((1, 3, 6, 1, 4, 1, 8673, 1, 11, 10, 2))
+if mibBuilder.loadTexts: mailStatus.setStatus('current')
+queuedMessages = MibScalar((1, 3, 6, 1, 4, 1, 8673, 1, 11, 10, 2, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: queuedMessages.setStatus('current')
+deferredMessages = MibScalar((1, 3, 6, 1, 4, 1, 8673, 1, 11, 10, 2, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deferredMessages.setStatus('current')
+totalMessages = MibScalar((1, 3, 6, 1, 4, 1, 8673, 1, 11, 10, 2, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: totalMessages.setStatus('current')
+mailInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 8673, 1, 11, 10, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mailInterval.setStatus('current')
+mailRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 8673, 1, 11, 10, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mailRcvd.setStatus('current')
+mailSent = MibTableColumn((1, 3, 6, 1, 4, 1, 8673, 1, 11, 10, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mailSent.setStatus('current')
+mailSpam = MibTableColumn((1, 3, 6, 1, 4, 1, 8673, 1, 11, 10, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mailSpam.setStatus('current')
+mailReject = MibTableColumn((1, 3, 6, 1, 4, 1, 8673, 1, 11, 10, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mailReject.setStatus('current')
+mailVirus = MibTableColumn((1, 3, 6, 1, 4, 1, 8673, 1, 11, 10, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mailVirus.setStatus('current')
+mailClean = MibTableColumn((1, 3, 6, 1, 4, 1, 8673, 1, 11, 10, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mailClean.setStatus('current')
+mibBuilder.exportSymbols("BORDERWARE-SMG-MIB", PYSNMP_MODULE_ID=bwMailFirewall, mailReject=mailReject, mailVirus=mailVirus, bwMailStatsGroup=bwMailStatsGroup, bwMailFirewallConformance=bwMailFirewallConformance, bwMailFirewallCompliances=bwMailFirewallCompliances, bwMailFirewall4=bwMailFirewall4, bwMailFirewallCompliance=bwMailFirewallCompliance, mailSpam=mailSpam, mailTable=mailTable, mailClean=mailClean, bwMailFirewallGroups=bwMailFirewallGroups, totalMessages=totalMessages, mailStatus=mailStatus, deferredMessages=deferredMessages, mailInterval=mailInterval, mailEntry=mailEntry, queuedMessages=queuedMessages, bwMailFirewall=bwMailFirewall, mailRcvd=mailRcvd, mailSent=mailSent, bwMessagesGroup=bwMessagesGroup)

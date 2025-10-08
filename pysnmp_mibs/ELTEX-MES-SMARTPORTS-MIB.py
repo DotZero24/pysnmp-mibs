@@ -1,43 +1,32 @@
-_F='eltSmartPortsMacroManageEntry'
-_E='ELTEX-MES-SMARTPORTS-MIB'
-_D='read-write'
-_C='Unsigned32'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-eltMes,=mibBuilder.importSymbols('ELTEX-MES','eltMes')
-rlSmartPortsMacroManageEntry,=mibBuilder.importSymbols('RADLAN-SMARTPORTS-MIB','rlSmartPortsMacroManageEntry')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_C,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-eltMesSmartPorts=ModuleIdentity((1,3,6,1,4,1,35265,1,23,17))
-_EltMesSmartPortsObjects_ObjectIdentity=ObjectIdentity
-eltMesSmartPortsObjects=_EltMesSmartPortsObjects_ObjectIdentity((1,3,6,1,4,1,35265,1,23,17,1))
-_EltMesSmartPortsGlobals_ObjectIdentity=ObjectIdentity
-eltMesSmartPortsGlobals=_EltMesSmartPortsGlobals_ObjectIdentity((1,3,6,1,4,1,35265,1,23,17,1,1))
-_EltMesSmartPortsConfigs_ObjectIdentity=ObjectIdentity
-eltMesSmartPortsConfigs=_EltMesSmartPortsConfigs_ObjectIdentity((1,3,6,1,4,1,35265,1,23,17,1,2))
-_EltSmartPortsMacroManageTable_Object=MibTable
-eltSmartPortsMacroManageTable=_EltSmartPortsMacroManageTable_Object((1,3,6,1,4,1,35265,1,23,17,1,2,1))
-if mibBuilder.loadTexts:eltSmartPortsMacroManageTable.setStatus(_A)
-_EltSmartPortsMacroManageEntry_Object=MibTableRow
-eltSmartPortsMacroManageEntry=_EltSmartPortsMacroManageEntry_Object((1,3,6,1,4,1,35265,1,23,17,1,2,1,1))
-if mibBuilder.loadTexts:eltSmartPortsMacroManageEntry.setStatus(_A)
-class _EltSmartPortsMacroTrackObject_Type(Unsigned32):defaultValue=0
-_EltSmartPortsMacroTrackObject_Type.__name__=_C
-_EltSmartPortsMacroTrackObject_Object=MibTableColumn
-eltSmartPortsMacroTrackObject=_EltSmartPortsMacroTrackObject_Object((1,3,6,1,4,1,35265,1,23,17,1,2,1,1,1),_EltSmartPortsMacroTrackObject_Type())
-eltSmartPortsMacroTrackObject.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltSmartPortsMacroTrackObject.setStatus(_A)
-class _EltSmartPortsMacroTrackActivationState_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('any',0),('up',1),('down',2)))
-_EltSmartPortsMacroTrackActivationState_Type.__name__=_B
-_EltSmartPortsMacroTrackActivationState_Object=MibTableColumn
-eltSmartPortsMacroTrackActivationState=_EltSmartPortsMacroTrackActivationState_Object((1,3,6,1,4,1,35265,1,23,17,1,2,1,1,2),_EltSmartPortsMacroTrackActivationState_Type())
-eltSmartPortsMacroTrackActivationState.setMaxAccess(_D)
-if mibBuilder.loadTexts:eltSmartPortsMacroTrackActivationState.setStatus(_A)
-rlSmartPortsMacroManageEntry.registerAugmentions((_E,_F))
+#
+# PySNMP MIB module ELTEX-MES-SMARTPORTS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-MES-SMARTPORTS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:22 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltMes, = mibBuilder.importSymbols("ELTEX-MES", "eltMes")
+rlSmartPortsMacroManageEntry, = mibBuilder.importSymbols("RADLAN-SMARTPORTS-MIB", "rlSmartPortsMacroManageEntry")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+eltMesSmartPorts = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 23, 17))
+if mibBuilder.loadTexts: eltMesSmartPorts.setLastUpdated('201909260000Z')
+if mibBuilder.loadTexts: eltMesSmartPorts.setOrganization('Eltex Ltd.')
+eltMesSmartPortsObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 17, 1))
+eltMesSmartPortsGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 17, 1, 1))
+eltMesSmartPortsConfigs = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 17, 1, 2))
+eltSmartPortsMacroManageTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 17, 1, 2, 1), )
+if mibBuilder.loadTexts: eltSmartPortsMacroManageTable.setStatus('current')
+eltSmartPortsMacroManageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 17, 1, 2, 1, 1), )
+rlSmartPortsMacroManageEntry.registerAugmentions(("ELTEX-MES-SMARTPORTS-MIB", "eltSmartPortsMacroManageEntry"))
 eltSmartPortsMacroManageEntry.setIndexNames(*rlSmartPortsMacroManageEntry.getIndexNames())
-mibBuilder.exportSymbols(_E,**{'eltMesSmartPorts':eltMesSmartPorts,'eltMesSmartPortsObjects':eltMesSmartPortsObjects,'eltMesSmartPortsGlobals':eltMesSmartPortsGlobals,'eltMesSmartPortsConfigs':eltMesSmartPortsConfigs,'eltSmartPortsMacroManageTable':eltSmartPortsMacroManageTable,_F:eltSmartPortsMacroManageEntry,'eltSmartPortsMacroTrackObject':eltSmartPortsMacroTrackObject,'eltSmartPortsMacroTrackActivationState':eltSmartPortsMacroTrackActivationState})
+if mibBuilder.loadTexts: eltSmartPortsMacroManageEntry.setStatus('current')
+eltSmartPortsMacroTrackObject = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 17, 1, 2, 1, 1, 1), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltSmartPortsMacroTrackObject.setStatus('current')
+eltSmartPortsMacroTrackActivationState = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 17, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("any", 0), ("up", 1), ("down", 2))).clone('any')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltSmartPortsMacroTrackActivationState.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-MES-SMARTPORTS-MIB", eltSmartPortsMacroManageEntry=eltSmartPortsMacroManageEntry, PYSNMP_MODULE_ID=eltMesSmartPorts, eltMesSmartPorts=eltMesSmartPorts, eltMesSmartPortsConfigs=eltMesSmartPortsConfigs, eltSmartPortsMacroTrackObject=eltSmartPortsMacroTrackObject, eltSmartPortsMacroTrackActivationState=eltSmartPortsMacroTrackActivationState, eltSmartPortsMacroManageTable=eltSmartPortsMacroManageTable, eltMesSmartPortsGlobals=eltMesSmartPortsGlobals, eltMesSmartPortsObjects=eltMesSmartPortsObjects)

@@ -1,454 +1,202 @@
-_W='agentLogEmailStatsemailsFailureCount'
-_V='agentLogMsgPersistentMsgIndex'
-_U='agentLogInMemoryMsgIndex'
-_T='agentLogEmailSmtpAddr'
-_S='agentLogEmailSmtpAddrType'
-_R='agentLogEmailSubjectMessageType'
-_Q='non-critical'
-_P='agentLogEmailToAddr'
-_O='agentLogEmailToAddrMessageType'
-_N='agentLogHostTableIndex'
-_M='DisplayString'
-_L='critical'
-_K='Unsigned32'
-_J='not-accessible'
-_I='deprecated'
-_H='DNOS-LOGGING-MIB'
-_G='disable'
-_F='enable'
-_E='read-create'
-_D='read-only'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dnOS,=mibBuilder.importSymbols('DELL-REF-MIB','dnOS')
-agentInventoryComponentIndex,=mibBuilder.importSymbols('DNOS-INVENTORY-MIB','agentInventoryComponentIndex')
-InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB','InterfaceIndexOrZero')
-InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType','InetPortNumber')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_K,'iso')
-DateAndTime,DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_M,'PhysAddress','RowStatus','TextualConvention')
-fastPathLogging=ModuleIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14))
-if mibBuilder.loadTexts:fastPathLogging.setRevisions(('2022-02-25 00:00','2020-12-16 00:00','2015-06-29 00:00','2011-01-26 00:00','2007-05-23 00:00','2004-10-26 13:03'))
-class AgentLogFacility(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23)));namedValues=NamedValues(*(('kernel',0),('user',1),('mail',2),('system',3),('security',4),('syslog',5),('lpr',6),('nntp',7),('uucp',8),('cron',9),('auth',10),('ftp',11),('ntp',12),('audit',13),('alert',14),('clock',15),('local0',16),('local1',17),('local2',18),('local3',19),('local4',20),('local5',21),('local6',22),('local7',23)))
-class AgentLogSeverity(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7)));namedValues=NamedValues(*(('emergency',0),('alert',1),(_L,2),('error',3),('warning',4),('notice',5),('informational',6),('debug',7)))
-_AgentLogConfigGroup_ObjectIdentity=ObjectIdentity
-agentLogConfigGroup=_AgentLogConfigGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1))
-_AgentLogInMemoryConfigGroup_ObjectIdentity=ObjectIdentity
-agentLogInMemoryConfigGroup=_AgentLogInMemoryConfigGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,1))
-class _AgentLogInMemoryAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentLogInMemoryAdminStatus_Type.__name__=_C
-_AgentLogInMemoryAdminStatus_Object=MibScalar
-agentLogInMemoryAdminStatus=_AgentLogInMemoryAdminStatus_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,1,1),_AgentLogInMemoryAdminStatus_Type())
-agentLogInMemoryAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogInMemoryAdminStatus.setStatus(_A)
-class _AgentLogInMemoryBehavior_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('wrap',1),('stop-on-full',2)))
-_AgentLogInMemoryBehavior_Type.__name__=_C
-_AgentLogInMemoryBehavior_Object=MibScalar
-agentLogInMemoryBehavior=_AgentLogInMemoryBehavior_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,1,4),_AgentLogInMemoryBehavior_Type())
-agentLogInMemoryBehavior.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogInMemoryBehavior.setStatus(_A)
-_AgentLogConsoleConfigGroup_ObjectIdentity=ObjectIdentity
-agentLogConsoleConfigGroup=_AgentLogConsoleConfigGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,2))
-class _AgentLogConsoleAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentLogConsoleAdminStatus_Type.__name__=_C
-_AgentLogConsoleAdminStatus_Object=MibScalar
-agentLogConsoleAdminStatus=_AgentLogConsoleAdminStatus_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,2,1),_AgentLogConsoleAdminStatus_Type())
-agentLogConsoleAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogConsoleAdminStatus.setStatus(_A)
-_AgentLogConsoleSeverityFilter_Type=AgentLogSeverity
-_AgentLogConsoleSeverityFilter_Object=MibScalar
-agentLogConsoleSeverityFilter=_AgentLogConsoleSeverityFilter_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,2,2),_AgentLogConsoleSeverityFilter_Type())
-agentLogConsoleSeverityFilter.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogConsoleSeverityFilter.setStatus(_A)
-_AgentLogPersistentConfigGroup_ObjectIdentity=ObjectIdentity
-agentLogPersistentConfigGroup=_AgentLogPersistentConfigGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,3))
-class _AgentLogPersistentAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentLogPersistentAdminStatus_Type.__name__=_C
-_AgentLogPersistentAdminStatus_Object=MibScalar
-agentLogPersistentAdminStatus=_AgentLogPersistentAdminStatus_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,3,1),_AgentLogPersistentAdminStatus_Type())
-agentLogPersistentAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogPersistentAdminStatus.setStatus(_A)
-_AgentLogPersistentSeverityFilter_Type=AgentLogSeverity
-_AgentLogPersistentSeverityFilter_Object=MibScalar
-agentLogPersistentSeverityFilter=_AgentLogPersistentSeverityFilter_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,3,2),_AgentLogPersistentSeverityFilter_Type())
-agentLogPersistentSeverityFilter.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogPersistentSeverityFilter.setStatus(_A)
-_AgentLogPersistentLogFiles_Type=DisplayString
-_AgentLogPersistentLogFiles_Object=MibScalar
-agentLogPersistentLogFiles=_AgentLogPersistentLogFiles_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,3,3),_AgentLogPersistentLogFiles_Type())
-agentLogPersistentLogFiles.setMaxAccess(_D)
-if mibBuilder.loadTexts:agentLogPersistentLogFiles.setStatus(_A)
-_AgentLogSysLogConfigGroup_ObjectIdentity=ObjectIdentity
-agentLogSysLogConfigGroup=_AgentLogSysLogConfigGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4))
-class _AgentLogSyslogAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentLogSyslogAdminStatus_Type.__name__=_C
-_AgentLogSyslogAdminStatus_Object=MibScalar
-agentLogSyslogAdminStatus=_AgentLogSyslogAdminStatus_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,1),_AgentLogSyslogAdminStatus_Type())
-agentLogSyslogAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogSyslogAdminStatus.setStatus(_A)
-_AgentLogSyslogFacility_Type=AgentLogFacility
-_AgentLogSyslogFacility_Object=MibScalar
-agentLogSyslogFacility=_AgentLogSyslogFacility_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,2),_AgentLogSyslogFacility_Type())
-agentLogSyslogFacility.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogSyslogFacility.setStatus(_A)
-class _AgentLogSyslogLocalPort_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_AgentLogSyslogLocalPort_Type.__name__=_K
-_AgentLogSyslogLocalPort_Object=MibScalar
-agentLogSyslogLocalPort=_AgentLogSyslogLocalPort_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,3),_AgentLogSyslogLocalPort_Type())
-agentLogSyslogLocalPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogSyslogLocalPort.setStatus(_A)
-_AgentLogSyslogMaxHosts_Type=Unsigned32
-_AgentLogSyslogMaxHosts_Object=MibScalar
-agentLogSyslogMaxHosts=_AgentLogSyslogMaxHosts_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,4),_AgentLogSyslogMaxHosts_Type())
-agentLogSyslogMaxHosts.setMaxAccess(_D)
-if mibBuilder.loadTexts:agentLogSyslogMaxHosts.setStatus(_A)
-_AgentLogSyslogHostTable_Object=MibTable
-agentLogSyslogHostTable=_AgentLogSyslogHostTable_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,5))
-if mibBuilder.loadTexts:agentLogSyslogHostTable.setStatus(_A)
-_AgentLogSyslogHostEntry_Object=MibTableRow
-agentLogSyslogHostEntry=_AgentLogSyslogHostEntry_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,5,1))
-agentLogSyslogHostEntry.setIndexNames((0,_H,_N))
-if mibBuilder.loadTexts:agentLogSyslogHostEntry.setStatus(_A)
-_AgentLogHostTableIndex_Type=Unsigned32
-_AgentLogHostTableIndex_Object=MibTableColumn
-agentLogHostTableIndex=_AgentLogHostTableIndex_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,5,1,1),_AgentLogHostTableIndex_Type())
-agentLogHostTableIndex.setMaxAccess(_J)
-if mibBuilder.loadTexts:agentLogHostTableIndex.setStatus(_A)
-_AgentLogHostTableIpAddressType_Type=InetAddressType
-_AgentLogHostTableIpAddressType_Object=MibTableColumn
-agentLogHostTableIpAddressType=_AgentLogHostTableIpAddressType_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,5,1,2),_AgentLogHostTableIpAddressType_Type())
-agentLogHostTableIpAddressType.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentLogHostTableIpAddressType.setStatus(_A)
-_AgentLogHostTableIpAddress_Type=InetAddress
-_AgentLogHostTableIpAddress_Object=MibTableColumn
-agentLogHostTableIpAddress=_AgentLogHostTableIpAddress_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,5,1,3),_AgentLogHostTableIpAddress_Type())
-agentLogHostTableIpAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentLogHostTableIpAddress.setStatus(_A)
-class _AgentLogHostTablePort_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_AgentLogHostTablePort_Type.__name__=_K
-_AgentLogHostTablePort_Object=MibTableColumn
-agentLogHostTablePort=_AgentLogHostTablePort_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,5,1,4),_AgentLogHostTablePort_Type())
-agentLogHostTablePort.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentLogHostTablePort.setStatus(_A)
-_AgentLogHostTableSeverityFilter_Type=AgentLogSeverity
-_AgentLogHostTableSeverityFilter_Object=MibTableColumn
-agentLogHostTableSeverityFilter=_AgentLogHostTableSeverityFilter_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,5,1,5),_AgentLogHostTableSeverityFilter_Type())
-agentLogHostTableSeverityFilter.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentLogHostTableSeverityFilter.setStatus(_A)
-_AgentLogHostTableRowStatus_Type=RowStatus
-_AgentLogHostTableRowStatus_Object=MibTableColumn
-agentLogHostTableRowStatus=_AgentLogHostTableRowStatus_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,5,1,7),_AgentLogHostTableRowStatus_Type())
-agentLogHostTableRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentLogHostTableRowStatus.setStatus(_A)
-class _AgentLogHostTableTlsTransportMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_F,1)))
-_AgentLogHostTableTlsTransportMode_Type.__name__=_C
-_AgentLogHostTableTlsTransportMode_Object=MibTableColumn
-agentLogHostTableTlsTransportMode=_AgentLogHostTableTlsTransportMode_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,5,1,8),_AgentLogHostTableTlsTransportMode_Type())
-agentLogHostTableTlsTransportMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentLogHostTableTlsTransportMode.setStatus(_A)
-class _AgentLogHostTableTlsAuthenticationMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('anon',1),('x509name',2)))
-_AgentLogHostTableTlsAuthenticationMode_Type.__name__=_C
-_AgentLogHostTableTlsAuthenticationMode_Object=MibTableColumn
-agentLogHostTableTlsAuthenticationMode=_AgentLogHostTableTlsAuthenticationMode_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,5,1,9),_AgentLogHostTableTlsAuthenticationMode_Type())
-agentLogHostTableTlsAuthenticationMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentLogHostTableTlsAuthenticationMode.setStatus(_A)
-class _AgentLogHostTableX509CertNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,8))
-_AgentLogHostTableX509CertNum_Type.__name__=_K
-_AgentLogHostTableX509CertNum_Object=MibTableColumn
-agentLogHostTableX509CertNum=_AgentLogHostTableX509CertNum_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,5,1,10),_AgentLogHostTableX509CertNum_Type())
-agentLogHostTableX509CertNum.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentLogHostTableX509CertNum.setStatus(_A)
-_AgentLogSyslogSourceInterface_Type=InterfaceIndexOrZero
-_AgentLogSyslogSourceInterface_Object=MibScalar
-agentLogSyslogSourceInterface=_AgentLogSyslogSourceInterface_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,6),_AgentLogSyslogSourceInterface_Type())
-agentLogSyslogSourceInterface.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogSyslogSourceInterface.setStatus(_A)
-class _AgentLogSyslogServicePortSrcInterface_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('servicePortEnable',1),('servicePortDisable',2)))
-_AgentLogSyslogServicePortSrcInterface_Type.__name__=_C
-_AgentLogSyslogServicePortSrcInterface_Object=MibScalar
-agentLogSyslogServicePortSrcInterface=_AgentLogSyslogServicePortSrcInterface_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,7),_AgentLogSyslogServicePortSrcInterface_Type())
-agentLogSyslogServicePortSrcInterface.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogSyslogServicePortSrcInterface.setStatus(_A)
-class _AgentLogProtocolVersion_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('ver0',0),('ver1',1)))
-_AgentLogProtocolVersion_Type.__name__=_C
-_AgentLogProtocolVersion_Object=MibScalar
-agentLogProtocolVersion=_AgentLogProtocolVersion_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,8),_AgentLogProtocolVersion_Type())
-agentLogProtocolVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogProtocolVersion.setStatus(_A)
-class _AgentLogSyslogVrfName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
-_AgentLogSyslogVrfName_Type.__name__=_M
-_AgentLogSyslogVrfName_Object=MibScalar
-agentLogSyslogVrfName=_AgentLogSyslogVrfName_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,4,9),_AgentLogSyslogVrfName_Type())
-agentLogSyslogVrfName.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogSyslogVrfName.setStatus(_A)
-_AgentLogCliCommandsConfigGroup_ObjectIdentity=ObjectIdentity
-agentLogCliCommandsConfigGroup=_AgentLogCliCommandsConfigGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,5))
-class _AgentLogCliCommandsAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentLogCliCommandsAdminStatus_Type.__name__=_C
-_AgentLogCliCommandsAdminStatus_Object=MibScalar
-agentLogCliCommandsAdminStatus=_AgentLogCliCommandsAdminStatus_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,5,1),_AgentLogCliCommandsAdminStatus_Type())
-agentLogCliCommandsAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogCliCommandsAdminStatus.setStatus(_A)
-_AgentLogEmailAlertConfigGroup_ObjectIdentity=ObjectIdentity
-agentLogEmailAlertConfigGroup=_AgentLogEmailAlertConfigGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6))
-class _AgentLogEmailAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentLogEmailAdminStatus_Type.__name__=_C
-_AgentLogEmailAdminStatus_Object=MibScalar
-agentLogEmailAdminStatus=_AgentLogEmailAdminStatus_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,1),_AgentLogEmailAdminStatus_Type())
-agentLogEmailAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogEmailAdminStatus.setStatus(_A)
-_AgentLogEmailfromAddr_Type=DisplayString
-_AgentLogEmailfromAddr_Object=MibScalar
-agentLogEmailfromAddr=_AgentLogEmailfromAddr_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,2),_AgentLogEmailfromAddr_Type())
-agentLogEmailfromAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogEmailfromAddr.setStatus(_A)
-class _AgentLogEmaillogDuration_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(30,1440))
-_AgentLogEmaillogDuration_Type.__name__=_K
-_AgentLogEmaillogDuration_Object=MibScalar
-agentLogEmaillogDuration=_AgentLogEmaillogDuration_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,3),_AgentLogEmaillogDuration_Type())
-agentLogEmaillogDuration.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogEmaillogDuration.setStatus(_A)
-_AgentLogEmailUrgentSeverity_Type=AgentLogSeverity
-_AgentLogEmailUrgentSeverity_Object=MibScalar
-agentLogEmailUrgentSeverity=_AgentLogEmailUrgentSeverity_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,4),_AgentLogEmailUrgentSeverity_Type())
-agentLogEmailUrgentSeverity.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogEmailUrgentSeverity.setStatus(_A)
-_AgentLogEmailNonUrgentSeverity_Type=AgentLogSeverity
-_AgentLogEmailNonUrgentSeverity_Object=MibScalar
-agentLogEmailNonUrgentSeverity=_AgentLogEmailNonUrgentSeverity_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,5),_AgentLogEmailNonUrgentSeverity_Type())
-agentLogEmailNonUrgentSeverity.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogEmailNonUrgentSeverity.setStatus(_A)
-_AgentLogEmailTrapsSeverity_Type=AgentLogSeverity
-_AgentLogEmailTrapsSeverity_Object=MibScalar
-agentLogEmailTrapsSeverity=_AgentLogEmailTrapsSeverity_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,6),_AgentLogEmailTrapsSeverity_Type())
-agentLogEmailTrapsSeverity.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogEmailTrapsSeverity.setStatus(_A)
-_AgentLogEmailToAddrTable_Object=MibTable
-agentLogEmailToAddrTable=_AgentLogEmailToAddrTable_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,7))
-if mibBuilder.loadTexts:agentLogEmailToAddrTable.setStatus(_A)
-_AgentLogEmailToAddrEntry_Object=MibTableRow
-agentLogEmailToAddrEntry=_AgentLogEmailToAddrEntry_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,7,1))
-agentLogEmailToAddrEntry.setIndexNames((0,_H,_O),(0,_H,_P))
-if mibBuilder.loadTexts:agentLogEmailToAddrEntry.setStatus(_A)
-class _AgentLogEmailToAddrMessageType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_Q,2)))
-_AgentLogEmailToAddrMessageType_Type.__name__=_C
-_AgentLogEmailToAddrMessageType_Object=MibTableColumn
-agentLogEmailToAddrMessageType=_AgentLogEmailToAddrMessageType_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,7,1,1),_AgentLogEmailToAddrMessageType_Type())
-agentLogEmailToAddrMessageType.setMaxAccess(_J)
-if mibBuilder.loadTexts:agentLogEmailToAddrMessageType.setStatus(_A)
-_AgentLogEmailToAddr_Type=DisplayString
-_AgentLogEmailToAddr_Object=MibTableColumn
-agentLogEmailToAddr=_AgentLogEmailToAddr_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,7,1,2),_AgentLogEmailToAddr_Type())
-agentLogEmailToAddr.setMaxAccess(_J)
-if mibBuilder.loadTexts:agentLogEmailToAddr.setStatus(_A)
-_AgentLogEmailToAddrEntryStatus_Type=RowStatus
-_AgentLogEmailToAddrEntryStatus_Object=MibTableColumn
-agentLogEmailToAddrEntryStatus=_AgentLogEmailToAddrEntryStatus_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,7,1,3),_AgentLogEmailToAddrEntryStatus_Type())
-agentLogEmailToAddrEntryStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentLogEmailToAddrEntryStatus.setStatus(_A)
-_AgentLogEmailSubjectTable_Object=MibTable
-agentLogEmailSubjectTable=_AgentLogEmailSubjectTable_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,8))
-if mibBuilder.loadTexts:agentLogEmailSubjectTable.setStatus(_A)
-_AgentLogEmailSubjectEntry_Object=MibTableRow
-agentLogEmailSubjectEntry=_AgentLogEmailSubjectEntry_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,8,1))
-agentLogEmailSubjectEntry.setIndexNames((0,_H,_R))
-if mibBuilder.loadTexts:agentLogEmailSubjectEntry.setStatus(_A)
-class _AgentLogEmailSubjectMessageType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_Q,2)))
-_AgentLogEmailSubjectMessageType_Type.__name__=_C
-_AgentLogEmailSubjectMessageType_Object=MibTableColumn
-agentLogEmailSubjectMessageType=_AgentLogEmailSubjectMessageType_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,8,1,1),_AgentLogEmailSubjectMessageType_Type())
-agentLogEmailSubjectMessageType.setMaxAccess(_J)
-if mibBuilder.loadTexts:agentLogEmailSubjectMessageType.setStatus(_A)
-_AgentLogEmailSubject_Type=DisplayString
-_AgentLogEmailSubject_Object=MibTableColumn
-agentLogEmailSubject=_AgentLogEmailSubject_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,8,1,2),_AgentLogEmailSubject_Type())
-agentLogEmailSubject.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentLogEmailSubject.setStatus(_A)
-_AgentLogEmailSubjectEntryStatus_Type=RowStatus
-_AgentLogEmailSubjectEntryStatus_Object=MibTableColumn
-agentLogEmailSubjectEntryStatus=_AgentLogEmailSubjectEntryStatus_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,8,1,3),_AgentLogEmailSubjectEntryStatus_Type())
-agentLogEmailSubjectEntryStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentLogEmailSubjectEntryStatus.setStatus(_A)
-_AgentLogEmailMailServerTable_Object=MibTable
-agentLogEmailMailServerTable=_AgentLogEmailMailServerTable_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,9))
-if mibBuilder.loadTexts:agentLogEmailMailServerTable.setStatus(_I)
-_AgentLogEmailMailServerEntry_Object=MibTableRow
-agentLogEmailMailServerEntry=_AgentLogEmailMailServerEntry_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,9,1))
-agentLogEmailMailServerEntry.setIndexNames((0,_H,_S),(0,_H,_T))
-if mibBuilder.loadTexts:agentLogEmailMailServerEntry.setStatus(_I)
-_AgentLogEmailSmtpAddrType_Type=InetAddressType
-_AgentLogEmailSmtpAddrType_Object=MibTableColumn
-agentLogEmailSmtpAddrType=_AgentLogEmailSmtpAddrType_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,9,1,1),_AgentLogEmailSmtpAddrType_Type())
-agentLogEmailSmtpAddrType.setMaxAccess(_J)
-if mibBuilder.loadTexts:agentLogEmailSmtpAddrType.setStatus(_I)
-_AgentLogEmailSmtpAddr_Type=InetAddress
-_AgentLogEmailSmtpAddr_Object=MibTableColumn
-agentLogEmailSmtpAddr=_AgentLogEmailSmtpAddr_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,9,1,2),_AgentLogEmailSmtpAddr_Type())
-agentLogEmailSmtpAddr.setMaxAccess(_J)
-if mibBuilder.loadTexts:agentLogEmailSmtpAddr.setStatus(_I)
-_AgentLogEmailSmtpPort_Type=InetPortNumber
-_AgentLogEmailSmtpPort_Object=MibTableColumn
-agentLogEmailSmtpPort=_AgentLogEmailSmtpPort_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,9,1,3),_AgentLogEmailSmtpPort_Type())
-agentLogEmailSmtpPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogEmailSmtpPort.setStatus(_I)
-class _AgentLogEmailSecurity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('none',1),('tlsv1',2)))
-_AgentLogEmailSecurity_Type.__name__=_C
-_AgentLogEmailSecurity_Object=MibTableColumn
-agentLogEmailSecurity=_AgentLogEmailSecurity_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,9,1,4),_AgentLogEmailSecurity_Type())
-agentLogEmailSecurity.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogEmailSecurity.setStatus(_I)
-_AgentLogEmailloginID_Type=DisplayString
-_AgentLogEmailloginID_Object=MibTableColumn
-agentLogEmailloginID=_AgentLogEmailloginID_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,9,1,5),_AgentLogEmailloginID_Type())
-agentLogEmailloginID.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogEmailloginID.setStatus(_I)
-_AgentLogEmailPassword_Type=DisplayString
-_AgentLogEmailPassword_Object=MibTableColumn
-agentLogEmailPassword=_AgentLogEmailPassword_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,9,1,6),_AgentLogEmailPassword_Type())
-agentLogEmailPassword.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogEmailPassword.setStatus(_I)
-_AgentLogEmailEntryStatus_Type=RowStatus
-_AgentLogEmailEntryStatus_Object=MibTableColumn
-agentLogEmailEntryStatus=_AgentLogEmailEntryStatus_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,6,9,1,7),_AgentLogEmailEntryStatus_Type())
-agentLogEmailEntryStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:agentLogEmailEntryStatus.setStatus(_I)
-_AgentLogWebConfigGroup_ObjectIdentity=ObjectIdentity
-agentLogWebConfigGroup=_AgentLogWebConfigGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,7))
-class _AgentLogWebAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentLogWebAdminStatus_Type.__name__=_C
-_AgentLogWebAdminStatus_Object=MibScalar
-agentLogWebAdminStatus=_AgentLogWebAdminStatus_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,7,1),_AgentLogWebAdminStatus_Type())
-agentLogWebAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogWebAdminStatus.setStatus(_A)
-_AgentLogSnmpConfigGroup_ObjectIdentity=ObjectIdentity
-agentLogSnmpConfigGroup=_AgentLogSnmpConfigGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,8))
-class _AgentLogSnmpAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentLogSnmpAdminStatus_Type.__name__=_C
-_AgentLogSnmpAdminStatus_Object=MibScalar
-agentLogSnmpAdminStatus=_AgentLogSnmpAdminStatus_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,8,1),_AgentLogSnmpAdminStatus_Type())
-agentLogSnmpAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogSnmpAdminStatus.setStatus(_A)
-_AgentLogAuditConfigGroup_ObjectIdentity=ObjectIdentity
-agentLogAuditConfigGroup=_AgentLogAuditConfigGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,9))
-class _AgentLogAuditAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentLogAuditAdminStatus_Type.__name__=_C
-_AgentLogAuditAdminStatus_Object=MibScalar
-agentLogAuditAdminStatus=_AgentLogAuditAdminStatus_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,1,9,1),_AgentLogAuditAdminStatus_Type())
-agentLogAuditAdminStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogAuditAdminStatus.setStatus(_A)
-_AgentLogStatisticsGroup_ObjectIdentity=ObjectIdentity
-agentLogStatisticsGroup=_AgentLogStatisticsGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,2))
-_AgentLogMessagesReceived_Type=Counter32
-_AgentLogMessagesReceived_Object=MibScalar
-agentLogMessagesReceived=_AgentLogMessagesReceived_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,2,1),_AgentLogMessagesReceived_Type())
-agentLogMessagesReceived.setMaxAccess(_D)
-if mibBuilder.loadTexts:agentLogMessagesReceived.setStatus(_A)
-_AgentLogMessagesDropped_Type=Counter32
-_AgentLogMessagesDropped_Object=MibScalar
-agentLogMessagesDropped=_AgentLogMessagesDropped_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,2,2),_AgentLogMessagesDropped_Type())
-agentLogMessagesDropped.setMaxAccess(_D)
-if mibBuilder.loadTexts:agentLogMessagesDropped.setStatus(_A)
-_AgentLogSyslogMessagesRelayed_Type=Counter32
-_AgentLogSyslogMessagesRelayed_Object=MibScalar
-agentLogSyslogMessagesRelayed=_AgentLogSyslogMessagesRelayed_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,2,3),_AgentLogSyslogMessagesRelayed_Type())
-agentLogSyslogMessagesRelayed.setMaxAccess(_D)
-if mibBuilder.loadTexts:agentLogSyslogMessagesRelayed.setStatus(_A)
-_AgentLogSyslogMessagesIgnored_Type=Counter32
-_AgentLogSyslogMessagesIgnored_Object=MibScalar
-agentLogSyslogMessagesIgnored=_AgentLogSyslogMessagesIgnored_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,2,4),_AgentLogSyslogMessagesIgnored_Type())
-agentLogSyslogMessagesIgnored.setMaxAccess(_D)
-if mibBuilder.loadTexts:agentLogSyslogMessagesIgnored.setStatus(_I)
-_AgentLogMessageReceivedTime_Type=DateAndTime
-_AgentLogMessageReceivedTime_Object=MibScalar
-agentLogMessageReceivedTime=_AgentLogMessageReceivedTime_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,2,5),_AgentLogMessageReceivedTime_Type())
-agentLogMessageReceivedTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:agentLogMessageReceivedTime.setStatus(_A)
-_AgentLogSyslogMessageDeliveredTime_Type=DateAndTime
-_AgentLogSyslogMessageDeliveredTime_Object=MibScalar
-agentLogSyslogMessageDeliveredTime=_AgentLogSyslogMessageDeliveredTime_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,2,6),_AgentLogSyslogMessageDeliveredTime_Type())
-agentLogSyslogMessageDeliveredTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:agentLogSyslogMessageDeliveredTime.setStatus(_A)
-_AgentLogEmailAlertStatsGroup_ObjectIdentity=ObjectIdentity
-agentLogEmailAlertStatsGroup=_AgentLogEmailAlertStatsGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,2,7))
-_AgentLogEmailStatsemailsSentCount_Type=Counter32
-_AgentLogEmailStatsemailsSentCount_Object=MibScalar
-agentLogEmailStatsemailsSentCount=_AgentLogEmailStatsemailsSentCount_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,2,7,1),_AgentLogEmailStatsemailsSentCount_Type())
-agentLogEmailStatsemailsSentCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:agentLogEmailStatsemailsSentCount.setStatus(_A)
-_AgentLogEmailStatsemailsFailureCount_Type=Counter32
-_AgentLogEmailStatsemailsFailureCount_Object=MibScalar
-agentLogEmailStatsemailsFailureCount=_AgentLogEmailStatsemailsFailureCount_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,2,7,2),_AgentLogEmailStatsemailsFailureCount_Type())
-agentLogEmailStatsemailsFailureCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:agentLogEmailStatsemailsFailureCount.setStatus(_A)
-_AgentLogEmailStatsTimeSinceLastEmailSent_Type=Unsigned32
-_AgentLogEmailStatsTimeSinceLastEmailSent_Object=MibScalar
-agentLogEmailStatsTimeSinceLastEmailSent=_AgentLogEmailStatsTimeSinceLastEmailSent_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,2,7,3),_AgentLogEmailStatsTimeSinceLastEmailSent_Type())
-agentLogEmailStatsTimeSinceLastEmailSent.setMaxAccess(_D)
-if mibBuilder.loadTexts:agentLogEmailStatsTimeSinceLastEmailSent.setStatus(_A)
-class _AgentLogEmailStatsClear_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
-_AgentLogEmailStatsClear_Type.__name__=_C
-_AgentLogEmailStatsClear_Object=MibScalar
-agentLogEmailStatsClear=_AgentLogEmailStatsClear_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,2,7,4),_AgentLogEmailStatsClear_Type())
-agentLogEmailStatsClear.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentLogEmailStatsClear.setStatus(_A)
-_AgentLogInMemoryGroup_ObjectIdentity=ObjectIdentity
-agentLogInMemoryGroup=_AgentLogInMemoryGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,3))
-_AgentLogInMemoryLogCount_Type=Gauge32
-_AgentLogInMemoryLogCount_Object=MibScalar
-agentLogInMemoryLogCount=_AgentLogInMemoryLogCount_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,3,1),_AgentLogInMemoryLogCount_Type())
-agentLogInMemoryLogCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:agentLogInMemoryLogCount.setStatus(_A)
-_AgentLogInMemoryTable_Object=MibTable
-agentLogInMemoryTable=_AgentLogInMemoryTable_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,3,2))
-if mibBuilder.loadTexts:agentLogInMemoryTable.setStatus(_A)
-_AgentLogInMemoryEntry_Object=MibTableRow
-agentLogInMemoryEntry=_AgentLogInMemoryEntry_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,3,2,1))
-agentLogInMemoryEntry.setIndexNames((0,_H,_U))
-if mibBuilder.loadTexts:agentLogInMemoryEntry.setStatus(_A)
-_AgentLogInMemoryMsgIndex_Type=Unsigned32
-_AgentLogInMemoryMsgIndex_Object=MibTableColumn
-agentLogInMemoryMsgIndex=_AgentLogInMemoryMsgIndex_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,3,2,1,1),_AgentLogInMemoryMsgIndex_Type())
-agentLogInMemoryMsgIndex.setMaxAccess(_J)
-if mibBuilder.loadTexts:agentLogInMemoryMsgIndex.setStatus(_A)
-_AgentLogInMemoryMsgText_Type=DisplayString
-_AgentLogInMemoryMsgText_Object=MibTableColumn
-agentLogInMemoryMsgText=_AgentLogInMemoryMsgText_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,3,2,1,2),_AgentLogInMemoryMsgText_Type())
-agentLogInMemoryMsgText.setMaxAccess(_D)
-if mibBuilder.loadTexts:agentLogInMemoryMsgText.setStatus(_A)
-_AgentLogPersistentGroup_ObjectIdentity=ObjectIdentity
-agentLogPersistentGroup=_AgentLogPersistentGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,4))
-_AgentLogPersistentLogCount_Type=Counter32
-_AgentLogPersistentLogCount_Object=MibScalar
-agentLogPersistentLogCount=_AgentLogPersistentLogCount_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,4,1),_AgentLogPersistentLogCount_Type())
-agentLogPersistentLogCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:agentLogPersistentLogCount.setStatus(_A)
-_AgentLogPersistentTable_Object=MibTable
-agentLogPersistentTable=_AgentLogPersistentTable_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,4,4))
-if mibBuilder.loadTexts:agentLogPersistentTable.setStatus(_A)
-_AgentLogPersistentEntry_Object=MibTableRow
-agentLogPersistentEntry=_AgentLogPersistentEntry_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,4,4,1))
-agentLogPersistentEntry.setIndexNames((0,_H,_V))
-if mibBuilder.loadTexts:agentLogPersistentEntry.setStatus(_A)
-_AgentLogMsgPersistentMsgIndex_Type=Unsigned32
-_AgentLogMsgPersistentMsgIndex_Object=MibTableColumn
-agentLogMsgPersistentMsgIndex=_AgentLogMsgPersistentMsgIndex_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,4,4,1,1),_AgentLogMsgPersistentMsgIndex_Type())
-agentLogMsgPersistentMsgIndex.setMaxAccess(_J)
-if mibBuilder.loadTexts:agentLogMsgPersistentMsgIndex.setStatus(_A)
-_AgentLogMsgPersistentMsgText_Type=DisplayString
-_AgentLogMsgPersistentMsgText_Object=MibTableColumn
-agentLogMsgPersistentMsgText=_AgentLogMsgPersistentMsgText_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,4,4,1,2),_AgentLogMsgPersistentMsgText_Type())
-agentLogMsgPersistentMsgText.setMaxAccess(_D)
-if mibBuilder.loadTexts:agentLogMsgPersistentMsgText.setStatus(_A)
-_AgentLogTrapsGroup_ObjectIdentity=ObjectIdentity
-agentLogTrapsGroup=_AgentLogTrapsGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,5))
-_AgentLogEmailAlertTrapsGroup_ObjectIdentity=ObjectIdentity
-agentLogEmailAlertTrapsGroup=_AgentLogEmailAlertTrapsGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,5,1))
-agentLogEmailSendFailed=NotificationType((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,14,5,1,1))
-agentLogEmailSendFailed.setObjects((_H,_W))
-if mibBuilder.loadTexts:agentLogEmailSendFailed.setStatus(_A)
-mibBuilder.exportSymbols(_H,**{'AgentLogFacility':AgentLogFacility,'AgentLogSeverity':AgentLogSeverity,'fastPathLogging':fastPathLogging,'agentLogConfigGroup':agentLogConfigGroup,'agentLogInMemoryConfigGroup':agentLogInMemoryConfigGroup,'agentLogInMemoryAdminStatus':agentLogInMemoryAdminStatus,'agentLogInMemoryBehavior':agentLogInMemoryBehavior,'agentLogConsoleConfigGroup':agentLogConsoleConfigGroup,'agentLogConsoleAdminStatus':agentLogConsoleAdminStatus,'agentLogConsoleSeverityFilter':agentLogConsoleSeverityFilter,'agentLogPersistentConfigGroup':agentLogPersistentConfigGroup,'agentLogPersistentAdminStatus':agentLogPersistentAdminStatus,'agentLogPersistentSeverityFilter':agentLogPersistentSeverityFilter,'agentLogPersistentLogFiles':agentLogPersistentLogFiles,'agentLogSysLogConfigGroup':agentLogSysLogConfigGroup,'agentLogSyslogAdminStatus':agentLogSyslogAdminStatus,'agentLogSyslogFacility':agentLogSyslogFacility,'agentLogSyslogLocalPort':agentLogSyslogLocalPort,'agentLogSyslogMaxHosts':agentLogSyslogMaxHosts,'agentLogSyslogHostTable':agentLogSyslogHostTable,'agentLogSyslogHostEntry':agentLogSyslogHostEntry,_N:agentLogHostTableIndex,'agentLogHostTableIpAddressType':agentLogHostTableIpAddressType,'agentLogHostTableIpAddress':agentLogHostTableIpAddress,'agentLogHostTablePort':agentLogHostTablePort,'agentLogHostTableSeverityFilter':agentLogHostTableSeverityFilter,'agentLogHostTableRowStatus':agentLogHostTableRowStatus,'agentLogHostTableTlsTransportMode':agentLogHostTableTlsTransportMode,'agentLogHostTableTlsAuthenticationMode':agentLogHostTableTlsAuthenticationMode,'agentLogHostTableX509CertNum':agentLogHostTableX509CertNum,'agentLogSyslogSourceInterface':agentLogSyslogSourceInterface,'agentLogSyslogServicePortSrcInterface':agentLogSyslogServicePortSrcInterface,'agentLogProtocolVersion':agentLogProtocolVersion,'agentLogSyslogVrfName':agentLogSyslogVrfName,'agentLogCliCommandsConfigGroup':agentLogCliCommandsConfigGroup,'agentLogCliCommandsAdminStatus':agentLogCliCommandsAdminStatus,'agentLogEmailAlertConfigGroup':agentLogEmailAlertConfigGroup,'agentLogEmailAdminStatus':agentLogEmailAdminStatus,'agentLogEmailfromAddr':agentLogEmailfromAddr,'agentLogEmaillogDuration':agentLogEmaillogDuration,'agentLogEmailUrgentSeverity':agentLogEmailUrgentSeverity,'agentLogEmailNonUrgentSeverity':agentLogEmailNonUrgentSeverity,'agentLogEmailTrapsSeverity':agentLogEmailTrapsSeverity,'agentLogEmailToAddrTable':agentLogEmailToAddrTable,'agentLogEmailToAddrEntry':agentLogEmailToAddrEntry,_O:agentLogEmailToAddrMessageType,_P:agentLogEmailToAddr,'agentLogEmailToAddrEntryStatus':agentLogEmailToAddrEntryStatus,'agentLogEmailSubjectTable':agentLogEmailSubjectTable,'agentLogEmailSubjectEntry':agentLogEmailSubjectEntry,_R:agentLogEmailSubjectMessageType,'agentLogEmailSubject':agentLogEmailSubject,'agentLogEmailSubjectEntryStatus':agentLogEmailSubjectEntryStatus,'agentLogEmailMailServerTable':agentLogEmailMailServerTable,'agentLogEmailMailServerEntry':agentLogEmailMailServerEntry,_S:agentLogEmailSmtpAddrType,_T:agentLogEmailSmtpAddr,'agentLogEmailSmtpPort':agentLogEmailSmtpPort,'agentLogEmailSecurity':agentLogEmailSecurity,'agentLogEmailloginID':agentLogEmailloginID,'agentLogEmailPassword':agentLogEmailPassword,'agentLogEmailEntryStatus':agentLogEmailEntryStatus,'agentLogWebConfigGroup':agentLogWebConfigGroup,'agentLogWebAdminStatus':agentLogWebAdminStatus,'agentLogSnmpConfigGroup':agentLogSnmpConfigGroup,'agentLogSnmpAdminStatus':agentLogSnmpAdminStatus,'agentLogAuditConfigGroup':agentLogAuditConfigGroup,'agentLogAuditAdminStatus':agentLogAuditAdminStatus,'agentLogStatisticsGroup':agentLogStatisticsGroup,'agentLogMessagesReceived':agentLogMessagesReceived,'agentLogMessagesDropped':agentLogMessagesDropped,'agentLogSyslogMessagesRelayed':agentLogSyslogMessagesRelayed,'agentLogSyslogMessagesIgnored':agentLogSyslogMessagesIgnored,'agentLogMessageReceivedTime':agentLogMessageReceivedTime,'agentLogSyslogMessageDeliveredTime':agentLogSyslogMessageDeliveredTime,'agentLogEmailAlertStatsGroup':agentLogEmailAlertStatsGroup,'agentLogEmailStatsemailsSentCount':agentLogEmailStatsemailsSentCount,_W:agentLogEmailStatsemailsFailureCount,'agentLogEmailStatsTimeSinceLastEmailSent':agentLogEmailStatsTimeSinceLastEmailSent,'agentLogEmailStatsClear':agentLogEmailStatsClear,'agentLogInMemoryGroup':agentLogInMemoryGroup,'agentLogInMemoryLogCount':agentLogInMemoryLogCount,'agentLogInMemoryTable':agentLogInMemoryTable,'agentLogInMemoryEntry':agentLogInMemoryEntry,_U:agentLogInMemoryMsgIndex,'agentLogInMemoryMsgText':agentLogInMemoryMsgText,'agentLogPersistentGroup':agentLogPersistentGroup,'agentLogPersistentLogCount':agentLogPersistentLogCount,'agentLogPersistentTable':agentLogPersistentTable,'agentLogPersistentEntry':agentLogPersistentEntry,_V:agentLogMsgPersistentMsgIndex,'agentLogMsgPersistentMsgText':agentLogMsgPersistentMsgText,'agentLogTrapsGroup':agentLogTrapsGroup,'agentLogEmailAlertTrapsGroup':agentLogEmailAlertTrapsGroup,'agentLogEmailSendFailed':agentLogEmailSendFailed})
+#
+# PySNMP MIB module DNOS-LOGGING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/dell/DNOS-LOGGING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:51 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dnOS, = mibBuilder.importSymbols("DELL-REF-MIB", "dnOS")
+agentInventoryComponentIndex, = mibBuilder.importSymbols("DNOS-INVENTORY-MIB", "agentInventoryComponentIndex")
+InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
+InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "DateAndTime", "TextualConvention")
+class AgentLogFacility(TextualConvention, Integer32):
+    reference = 'RFC3164 - 4.1.1: Table 1'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23))
+    namedValues = NamedValues(("kernel", 0), ("user", 1), ("mail", 2), ("system", 3), ("security", 4), ("syslog", 5), ("lpr", 6), ("nntp", 7), ("uucp", 8), ("cron", 9), ("auth", 10), ("ftp", 11), ("ntp", 12), ("audit", 13), ("alert", 14), ("clock", 15), ("local0", 16), ("local1", 17), ("local2", 18), ("local3", 19), ("local4", 20), ("local5", 21), ("local6", 22), ("local7", 23))
+
+class AgentLogSeverity(TextualConvention, Integer32):
+    reference = 'RFC3164 - 4.1.1: Table 2'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))
+    namedValues = NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("informational", 6), ("debug", 7))
+
+fastPathLogging = ModuleIdentity((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14))
+fastPathLogging.setRevisions(('2022-02-25 00:00', '2020-12-16 00:00', '2015-06-29 00:00', '2011-01-26 00:00', '2007-05-23 00:00', '2004-10-26 13:03',))
+if mibBuilder.loadTexts: fastPathLogging.setLastUpdated('202202250000Z')
+if mibBuilder.loadTexts: fastPathLogging.setOrganization('Dell')
+agentLogConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1))
+agentLogInMemoryConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 1))
+agentLogInMemoryAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogInMemoryAdminStatus.setStatus('current')
+agentLogInMemoryBehavior = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("wrap", 1), ("stop-on-full", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogInMemoryBehavior.setStatus('current')
+agentLogConsoleConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 2))
+agentLogConsoleAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogConsoleAdminStatus.setStatus('current')
+agentLogConsoleSeverityFilter = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 2, 2), AgentLogSeverity()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogConsoleSeverityFilter.setStatus('current')
+agentLogPersistentConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 3))
+agentLogPersistentAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogPersistentAdminStatus.setStatus('current')
+agentLogPersistentSeverityFilter = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 3, 2), AgentLogSeverity()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogPersistentSeverityFilter.setStatus('current')
+agentLogPersistentLogFiles = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 3, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentLogPersistentLogFiles.setStatus('current')
+agentLogSysLogConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4))
+agentLogSyslogAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogSyslogAdminStatus.setStatus('current')
+agentLogSyslogFacility = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 2), AgentLogFacility()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogSyslogFacility.setStatus('current')
+agentLogSyslogLocalPort = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogSyslogLocalPort.setStatus('current')
+agentLogSyslogMaxHosts = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentLogSyslogMaxHosts.setStatus('current')
+agentLogCliCommandsConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 5))
+agentLogCliCommandsAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 5, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogCliCommandsAdminStatus.setStatus('current')
+agentLogWebConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 7))
+agentLogWebAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 7, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogWebAdminStatus.setStatus('current')
+agentLogSnmpConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 8))
+agentLogSnmpAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 8, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogSnmpAdminStatus.setStatus('current')
+agentLogAuditConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 9))
+agentLogAuditAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 9, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogAuditAdminStatus.setStatus('current')
+agentLogSyslogHostTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 5), )
+if mibBuilder.loadTexts: agentLogSyslogHostTable.setStatus('current')
+agentLogSyslogHostEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 5, 1), ).setIndexNames((0, "DNOS-LOGGING-MIB", "agentLogHostTableIndex"))
+if mibBuilder.loadTexts: agentLogSyslogHostEntry.setStatus('current')
+agentLogHostTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 5, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: agentLogHostTableIndex.setStatus('current')
+agentLogHostTableIpAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 5, 1, 2), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentLogHostTableIpAddressType.setStatus('current')
+agentLogHostTableIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 5, 1, 3), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentLogHostTableIpAddress.setStatus('current')
+agentLogHostTablePort = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 5, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentLogHostTablePort.setStatus('current')
+agentLogHostTableSeverityFilter = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 5, 1, 5), AgentLogSeverity()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentLogHostTableSeverityFilter.setStatus('current')
+agentLogHostTableRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 5, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentLogHostTableRowStatus.setStatus('current')
+agentLogHostTableTlsTransportMode = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 5, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentLogHostTableTlsTransportMode.setStatus('current')
+agentLogHostTableTlsAuthenticationMode = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 5, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("anon", 1), ("x509name", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentLogHostTableTlsAuthenticationMode.setStatus('current')
+agentLogHostTableX509CertNum = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 5, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 8))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentLogHostTableX509CertNum.setStatus('current')
+agentLogSyslogSourceInterface = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 6), InterfaceIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogSyslogSourceInterface.setStatus('current')
+agentLogSyslogServicePortSrcInterface = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("servicePortEnable", 1), ("servicePortDisable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogSyslogServicePortSrcInterface.setStatus('current')
+agentLogProtocolVersion = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("ver0", 0), ("ver1", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogProtocolVersion.setStatus('current')
+agentLogSyslogVrfName = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 4, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogSyslogVrfName.setStatus('current')
+agentLogStatisticsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 2))
+agentLogMessagesReceived = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 2, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentLogMessagesReceived.setStatus('current')
+agentLogMessagesDropped = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 2, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentLogMessagesDropped.setStatus('current')
+agentLogSyslogMessagesRelayed = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 2, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentLogSyslogMessagesRelayed.setStatus('current')
+agentLogSyslogMessagesIgnored = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 2, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentLogSyslogMessagesIgnored.setStatus('deprecated')
+agentLogMessageReceivedTime = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 2, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentLogMessageReceivedTime.setStatus('current')
+agentLogSyslogMessageDeliveredTime = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 2, 6), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentLogSyslogMessageDeliveredTime.setStatus('current')
+agentLogEmailAlertConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6))
+agentLogEmailAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogEmailAdminStatus.setStatus('current')
+agentLogEmailfromAddr = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogEmailfromAddr.setStatus('current')
+agentLogEmaillogDuration = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(30, 1440))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogEmaillogDuration.setStatus('current')
+agentLogEmailUrgentSeverity = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 4), AgentLogSeverity()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogEmailUrgentSeverity.setStatus('current')
+agentLogEmailNonUrgentSeverity = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 5), AgentLogSeverity()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogEmailNonUrgentSeverity.setStatus('current')
+agentLogEmailTrapsSeverity = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 6), AgentLogSeverity()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogEmailTrapsSeverity.setStatus('current')
+agentLogEmailToAddrTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 7), )
+if mibBuilder.loadTexts: agentLogEmailToAddrTable.setStatus('current')
+agentLogEmailToAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 7, 1), ).setIndexNames((0, "DNOS-LOGGING-MIB", "agentLogEmailToAddrMessageType"), (0, "DNOS-LOGGING-MIB", "agentLogEmailToAddr"))
+if mibBuilder.loadTexts: agentLogEmailToAddrEntry.setStatus('current')
+agentLogEmailToAddrMessageType = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 7, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("critical", 1), ("non-critical", 2))))
+if mibBuilder.loadTexts: agentLogEmailToAddrMessageType.setStatus('current')
+agentLogEmailToAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 7, 1, 2), DisplayString())
+if mibBuilder.loadTexts: agentLogEmailToAddr.setStatus('current')
+agentLogEmailToAddrEntryStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 7, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentLogEmailToAddrEntryStatus.setStatus('current')
+agentLogEmailSubjectTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 8), )
+if mibBuilder.loadTexts: agentLogEmailSubjectTable.setStatus('current')
+agentLogEmailSubjectEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 8, 1), ).setIndexNames((0, "DNOS-LOGGING-MIB", "agentLogEmailSubjectMessageType"))
+if mibBuilder.loadTexts: agentLogEmailSubjectEntry.setStatus('current')
+agentLogEmailSubjectMessageType = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 8, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("critical", 1), ("non-critical", 2))))
+if mibBuilder.loadTexts: agentLogEmailSubjectMessageType.setStatus('current')
+agentLogEmailSubject = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 8, 1, 2), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentLogEmailSubject.setStatus('current')
+agentLogEmailSubjectEntryStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 8, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentLogEmailSubjectEntryStatus.setStatus('current')
+agentLogEmailMailServerTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 9), )
+if mibBuilder.loadTexts: agentLogEmailMailServerTable.setStatus('deprecated')
+agentLogEmailMailServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 9, 1), ).setIndexNames((0, "DNOS-LOGGING-MIB", "agentLogEmailSmtpAddrType"), (0, "DNOS-LOGGING-MIB", "agentLogEmailSmtpAddr"))
+if mibBuilder.loadTexts: agentLogEmailMailServerEntry.setStatus('deprecated')
+agentLogEmailSmtpAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 9, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: agentLogEmailSmtpAddrType.setStatus('deprecated')
+agentLogEmailSmtpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 9, 1, 2), InetAddress())
+if mibBuilder.loadTexts: agentLogEmailSmtpAddr.setStatus('deprecated')
+agentLogEmailSmtpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 9, 1, 3), InetPortNumber()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogEmailSmtpPort.setStatus('deprecated')
+agentLogEmailSecurity = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 9, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("tlsv1", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogEmailSecurity.setStatus('deprecated')
+agentLogEmailloginID = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 9, 1, 5), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogEmailloginID.setStatus('deprecated')
+agentLogEmailPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 9, 1, 6), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogEmailPassword.setStatus('deprecated')
+agentLogEmailEntryStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 1, 6, 9, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: agentLogEmailEntryStatus.setStatus('deprecated')
+agentLogEmailAlertStatsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 2, 7))
+agentLogEmailStatsemailsSentCount = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 2, 7, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentLogEmailStatsemailsSentCount.setStatus('current')
+agentLogEmailStatsemailsFailureCount = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 2, 7, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentLogEmailStatsemailsFailureCount.setStatus('current')
+agentLogEmailStatsTimeSinceLastEmailSent = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 2, 7, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentLogEmailStatsTimeSinceLastEmailSent.setStatus('current')
+agentLogEmailStatsClear = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 2, 7, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: agentLogEmailStatsClear.setStatus('current')
+agentLogInMemoryGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 3))
+agentLogInMemoryLogCount = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 3, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentLogInMemoryLogCount.setStatus('current')
+agentLogInMemoryTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 3, 2), )
+if mibBuilder.loadTexts: agentLogInMemoryTable.setStatus('current')
+agentLogInMemoryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 3, 2, 1), ).setIndexNames((0, "DNOS-LOGGING-MIB", "agentLogInMemoryMsgIndex"))
+if mibBuilder.loadTexts: agentLogInMemoryEntry.setStatus('current')
+agentLogInMemoryMsgIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 3, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: agentLogInMemoryMsgIndex.setStatus('current')
+agentLogInMemoryMsgText = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 3, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentLogInMemoryMsgText.setStatus('current')
+agentLogPersistentGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 4))
+agentLogPersistentLogCount = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 4, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentLogPersistentLogCount.setStatus('current')
+agentLogPersistentTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 4, 4), )
+if mibBuilder.loadTexts: agentLogPersistentTable.setStatus('current')
+agentLogPersistentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 4, 4, 1), ).setIndexNames((0, "DNOS-LOGGING-MIB", "agentLogMsgPersistentMsgIndex"))
+if mibBuilder.loadTexts: agentLogPersistentEntry.setStatus('current')
+agentLogMsgPersistentMsgIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 4, 4, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: agentLogMsgPersistentMsgIndex.setStatus('current')
+agentLogMsgPersistentMsgText = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 4, 4, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentLogMsgPersistentMsgText.setStatus('current')
+agentLogTrapsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 5))
+agentLogEmailAlertTrapsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 5, 1))
+agentLogEmailSendFailed = NotificationType((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 14, 5, 1, 1)).setObjects(("DNOS-LOGGING-MIB", "agentLogEmailStatsemailsFailureCount"))
+if mibBuilder.loadTexts: agentLogEmailSendFailed.setStatus('current')
+mibBuilder.exportSymbols("DNOS-LOGGING-MIB", agentLogAuditConfigGroup=agentLogAuditConfigGroup, agentLogPersistentSeverityFilter=agentLogPersistentSeverityFilter, agentLogCliCommandsConfigGroup=agentLogCliCommandsConfigGroup, agentLogConsoleSeverityFilter=agentLogConsoleSeverityFilter, agentLogEmailAlertTrapsGroup=agentLogEmailAlertTrapsGroup, agentLogInMemoryConfigGroup=agentLogInMemoryConfigGroup, PYSNMP_MODULE_ID=fastPathLogging, agentLogEmailStatsemailsSentCount=agentLogEmailStatsemailsSentCount, agentLogHostTableX509CertNum=agentLogHostTableX509CertNum, agentLogEmailSendFailed=agentLogEmailSendFailed, agentLogEmailAlertConfigGroup=agentLogEmailAlertConfigGroup, agentLogHostTableTlsTransportMode=agentLogHostTableTlsTransportMode, agentLogEmailNonUrgentSeverity=agentLogEmailNonUrgentSeverity, agentLogEmailToAddrEntryStatus=agentLogEmailToAddrEntryStatus, agentLogInMemoryGroup=agentLogInMemoryGroup, agentLogProtocolVersion=agentLogProtocolVersion, agentLogPersistentLogCount=agentLogPersistentLogCount, agentLogEmailfromAddr=agentLogEmailfromAddr, agentLogSyslogHostTable=agentLogSyslogHostTable, agentLogEmailToAddrMessageType=agentLogEmailToAddrMessageType, agentLogEmailSecurity=agentLogEmailSecurity, agentLogMessageReceivedTime=agentLogMessageReceivedTime, fastPathLogging=fastPathLogging, agentLogPersistentLogFiles=agentLogPersistentLogFiles, agentLogEmailStatsTimeSinceLastEmailSent=agentLogEmailStatsTimeSinceLastEmailSent, agentLogEmailMailServerEntry=agentLogEmailMailServerEntry, agentLogInMemoryMsgIndex=agentLogInMemoryMsgIndex, agentLogAuditAdminStatus=agentLogAuditAdminStatus, agentLogInMemoryAdminStatus=agentLogInMemoryAdminStatus, AgentLogSeverity=AgentLogSeverity, agentLogPersistentConfigGroup=agentLogPersistentConfigGroup, agentLogEmailStatsemailsFailureCount=agentLogEmailStatsemailsFailureCount, agentLogSyslogMessagesIgnored=agentLogSyslogMessagesIgnored, agentLogSyslogLocalPort=agentLogSyslogLocalPort, agentLogSysLogConfigGroup=agentLogSysLogConfigGroup, agentLogSyslogMessagesRelayed=agentLogSyslogMessagesRelayed, agentLogEmailAlertStatsGroup=agentLogEmailAlertStatsGroup, agentLogEmailToAddrEntry=agentLogEmailToAddrEntry, agentLogSyslogServicePortSrcInterface=agentLogSyslogServicePortSrcInterface, agentLogInMemoryEntry=agentLogInMemoryEntry, agentLogMsgPersistentMsgIndex=agentLogMsgPersistentMsgIndex, agentLogStatisticsGroup=agentLogStatisticsGroup, agentLogEmailSubjectTable=agentLogEmailSubjectTable, agentLogTrapsGroup=agentLogTrapsGroup, agentLogPersistentAdminStatus=agentLogPersistentAdminStatus, agentLogHostTableIndex=agentLogHostTableIndex, agentLogHostTableIpAddressType=agentLogHostTableIpAddressType, agentLogPersistentTable=agentLogPersistentTable, agentLogPersistentEntry=agentLogPersistentEntry, agentLogPersistentGroup=agentLogPersistentGroup, agentLogMsgPersistentMsgText=agentLogMsgPersistentMsgText, agentLogConfigGroup=agentLogConfigGroup, agentLogEmailSmtpAddr=agentLogEmailSmtpAddr, agentLogInMemoryLogCount=agentLogInMemoryLogCount, agentLogSnmpConfigGroup=agentLogSnmpConfigGroup, agentLogEmailToAddr=agentLogEmailToAddr, agentLogSyslogMessageDeliveredTime=agentLogSyslogMessageDeliveredTime, agentLogEmailMailServerTable=agentLogEmailMailServerTable, agentLogEmailSubject=agentLogEmailSubject, agentLogEmailSubjectMessageType=agentLogEmailSubjectMessageType, agentLogEmailEntryStatus=agentLogEmailEntryStatus, agentLogHostTableTlsAuthenticationMode=agentLogHostTableTlsAuthenticationMode, agentLogSyslogMaxHosts=agentLogSyslogMaxHosts, agentLogEmailPassword=agentLogEmailPassword, agentLogMessagesDropped=agentLogMessagesDropped, agentLogEmailAdminStatus=agentLogEmailAdminStatus, agentLogSyslogFacility=agentLogSyslogFacility, agentLogHostTableRowStatus=agentLogHostTableRowStatus, agentLogEmailloginID=agentLogEmailloginID, agentLogEmailSubjectEntry=agentLogEmailSubjectEntry, agentLogEmailUrgentSeverity=agentLogEmailUrgentSeverity, agentLogSnmpAdminStatus=agentLogSnmpAdminStatus, agentLogMessagesReceived=agentLogMessagesReceived, agentLogInMemoryTable=agentLogInMemoryTable, agentLogConsoleConfigGroup=agentLogConsoleConfigGroup, agentLogCliCommandsAdminStatus=agentLogCliCommandsAdminStatus, agentLogWebConfigGroup=agentLogWebConfigGroup, agentLogEmaillogDuration=agentLogEmaillogDuration, agentLogConsoleAdminStatus=agentLogConsoleAdminStatus, agentLogEmailToAddrTable=agentLogEmailToAddrTable, agentLogEmailSmtpAddrType=agentLogEmailSmtpAddrType, agentLogSyslogSourceInterface=agentLogSyslogSourceInterface, agentLogEmailStatsClear=agentLogEmailStatsClear, agentLogSyslogHostEntry=agentLogSyslogHostEntry, agentLogWebAdminStatus=agentLogWebAdminStatus, agentLogInMemoryMsgText=agentLogInMemoryMsgText, agentLogHostTableSeverityFilter=agentLogHostTableSeverityFilter, agentLogInMemoryBehavior=agentLogInMemoryBehavior, agentLogEmailSmtpPort=agentLogEmailSmtpPort, agentLogSyslogAdminStatus=agentLogSyslogAdminStatus, agentLogEmailTrapsSeverity=agentLogEmailTrapsSeverity, AgentLogFacility=AgentLogFacility, agentLogHostTableIpAddress=agentLogHostTableIpAddress, agentLogHostTablePort=agentLogHostTablePort, agentLogSyslogVrfName=agentLogSyslogVrfName, agentLogEmailSubjectEntryStatus=agentLogEmailSubjectEntryStatus)

@@ -1,63 +1,42 @@
-_L='ciscoSnmpVacmExtGroup'
-_K='cvacmSecurityGrpStatus'
-_J='cvacmSecurityGrpStorageType'
-_I='read-create'
-_H='cvacmSecurityGrpName'
-_G='StorageType'
-_F='vacmSecurityName'
-_E='vacmSecurityModel'
-_D='SnmpAdminString'
-_C='SNMP-VIEW-BASED-ACM-MIB'
-_B='CISCO-SNMP-VACM-EXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_D)
-vacmSecurityModel,vacmSecurityName=mibBuilder.importSymbols(_C,_E,_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_G,'TextualConvention')
-ciscoSnmpVacmExtMIB=ModuleIdentity((1,3,6,1,4,1,9,9,409))
-if mibBuilder.loadTexts:ciscoSnmpVacmExtMIB.setRevisions(('2004-05-19 00:00',))
-_CiscoSnmpVacmExtMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoSnmpVacmExtMIBObjects=_CiscoSnmpVacmExtMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,409,1))
-_CvacmSecurityToGroupTable_Object=MibTable
-cvacmSecurityToGroupTable=_CvacmSecurityToGroupTable_Object((1,3,6,1,4,1,9,9,409,1,1))
-if mibBuilder.loadTexts:cvacmSecurityToGroupTable.setStatus(_A)
-_CvacmSecurityToGroupEntry_Object=MibTableRow
-cvacmSecurityToGroupEntry=_CvacmSecurityToGroupEntry_Object((1,3,6,1,4,1,9,9,409,1,1,1))
-cvacmSecurityToGroupEntry.setIndexNames((0,_C,_E),(0,_C,_F),(0,_B,_H))
-if mibBuilder.loadTexts:cvacmSecurityToGroupEntry.setStatus(_A)
-class _CvacmSecurityGrpName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_CvacmSecurityGrpName_Type.__name__=_D
-_CvacmSecurityGrpName_Object=MibTableColumn
-cvacmSecurityGrpName=_CvacmSecurityGrpName_Object((1,3,6,1,4,1,9,9,409,1,1,1,1),_CvacmSecurityGrpName_Type())
-cvacmSecurityGrpName.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:cvacmSecurityGrpName.setStatus(_A)
-class _CvacmSecurityGrpStorageType_Type(StorageType):defaultValue=3
-_CvacmSecurityGrpStorageType_Type.__name__=_G
-_CvacmSecurityGrpStorageType_Object=MibTableColumn
-cvacmSecurityGrpStorageType=_CvacmSecurityGrpStorageType_Object((1,3,6,1,4,1,9,9,409,1,1,1,2),_CvacmSecurityGrpStorageType_Type())
-cvacmSecurityGrpStorageType.setMaxAccess(_I)
-if mibBuilder.loadTexts:cvacmSecurityGrpStorageType.setStatus(_A)
-_CvacmSecurityGrpStatus_Type=RowStatus
-_CvacmSecurityGrpStatus_Object=MibTableColumn
-cvacmSecurityGrpStatus=_CvacmSecurityGrpStatus_Object((1,3,6,1,4,1,9,9,409,1,1,1,3),_CvacmSecurityGrpStatus_Type())
-cvacmSecurityGrpStatus.setMaxAccess(_I)
-if mibBuilder.loadTexts:cvacmSecurityGrpStatus.setStatus(_A)
-_CiscoSnmpVacmExtMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoSnmpVacmExtMIBConformance=_CiscoSnmpVacmExtMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,409,2))
-_CiscoSnmpVacmExtMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoSnmpVacmExtMIBCompliances=_CiscoSnmpVacmExtMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,409,2,1))
-_CiscoSnmpVacmExtMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoSnmpVacmExtMIBGroups=_CiscoSnmpVacmExtMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,409,2,2))
-ciscoSnmpVacmExtGroup=ObjectGroup((1,3,6,1,4,1,9,9,409,2,2,1))
-ciscoSnmpVacmExtGroup.setObjects(*((_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:ciscoSnmpVacmExtGroup.setStatus(_A)
-ciscoSnmpVacmExtMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,409,2,1,1))
-ciscoSnmpVacmExtMIBCompliance.setObjects((_B,_L))
-if mibBuilder.loadTexts:ciscoSnmpVacmExtMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoSnmpVacmExtMIB':ciscoSnmpVacmExtMIB,'ciscoSnmpVacmExtMIBObjects':ciscoSnmpVacmExtMIBObjects,'cvacmSecurityToGroupTable':cvacmSecurityToGroupTable,'cvacmSecurityToGroupEntry':cvacmSecurityToGroupEntry,_H:cvacmSecurityGrpName,_J:cvacmSecurityGrpStorageType,_K:cvacmSecurityGrpStatus,'ciscoSnmpVacmExtMIBConformance':ciscoSnmpVacmExtMIBConformance,'ciscoSnmpVacmExtMIBCompliances':ciscoSnmpVacmExtMIBCompliances,'ciscoSnmpVacmExtMIBCompliance':ciscoSnmpVacmExtMIBCompliance,'ciscoSnmpVacmExtMIBGroups':ciscoSnmpVacmExtMIBGroups,_L:ciscoSnmpVacmExtGroup})
+#
+# PySNMP MIB module CISCO-SNMP-VACM-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-SNMP-VACM-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:42 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+vacmSecurityModel, vacmSecurityName = mibBuilder.importSymbols("SNMP-VIEW-BASED-ACM-MIB", "vacmSecurityModel", "vacmSecurityName")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention, RowStatus, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus", "StorageType")
+ciscoSnmpVacmExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 409))
+ciscoSnmpVacmExtMIB.setRevisions(('2004-05-19 00:00',))
+if mibBuilder.loadTexts: ciscoSnmpVacmExtMIB.setLastUpdated('200405190000Z')
+if mibBuilder.loadTexts: ciscoSnmpVacmExtMIB.setOrganization('Cisco Systems, Inc.')
+ciscoSnmpVacmExtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 409, 1))
+ciscoSnmpVacmExtMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 409, 2))
+cvacmSecurityToGroupTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 409, 1, 1), )
+if mibBuilder.loadTexts: cvacmSecurityToGroupTable.setStatus('current')
+cvacmSecurityToGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 409, 1, 1, 1), ).setIndexNames((0, "SNMP-VIEW-BASED-ACM-MIB", "vacmSecurityModel"), (0, "SNMP-VIEW-BASED-ACM-MIB", "vacmSecurityName"), (0, "CISCO-SNMP-VACM-EXT-MIB", "cvacmSecurityGrpName"))
+if mibBuilder.loadTexts: cvacmSecurityToGroupEntry.setStatus('current')
+cvacmSecurityGrpName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 409, 1, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32)))
+if mibBuilder.loadTexts: cvacmSecurityGrpName.setStatus('current')
+cvacmSecurityGrpStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 409, 1, 1, 1, 2), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvacmSecurityGrpStorageType.setStatus('current')
+cvacmSecurityGrpStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 409, 1, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cvacmSecurityGrpStatus.setStatus('current')
+ciscoSnmpVacmExtMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 409, 2, 1))
+ciscoSnmpVacmExtMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 409, 2, 2))
+ciscoSnmpVacmExtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 409, 2, 1, 1)).setObjects(("CISCO-SNMP-VACM-EXT-MIB", "ciscoSnmpVacmExtGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSnmpVacmExtMIBCompliance = ciscoSnmpVacmExtMIBCompliance.setStatus('current')
+ciscoSnmpVacmExtGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 409, 2, 2, 1)).setObjects(("CISCO-SNMP-VACM-EXT-MIB", "cvacmSecurityGrpStorageType"), ("CISCO-SNMP-VACM-EXT-MIB", "cvacmSecurityGrpStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSnmpVacmExtGroup = ciscoSnmpVacmExtGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-SNMP-VACM-EXT-MIB", ciscoSnmpVacmExtMIBObjects=ciscoSnmpVacmExtMIBObjects, cvacmSecurityGrpStorageType=cvacmSecurityGrpStorageType, ciscoSnmpVacmExtMIBCompliances=ciscoSnmpVacmExtMIBCompliances, ciscoSnmpVacmExtMIBGroups=ciscoSnmpVacmExtMIBGroups, cvacmSecurityToGroupEntry=cvacmSecurityToGroupEntry, PYSNMP_MODULE_ID=ciscoSnmpVacmExtMIB, ciscoSnmpVacmExtMIB=ciscoSnmpVacmExtMIB, ciscoSnmpVacmExtMIBConformance=ciscoSnmpVacmExtMIBConformance, cvacmSecurityGrpName=cvacmSecurityGrpName, ciscoSnmpVacmExtGroup=ciscoSnmpVacmExtGroup, cvacmSecurityToGroupTable=cvacmSecurityToGroupTable, cvacmSecurityGrpStatus=cvacmSecurityGrpStatus, ciscoSnmpVacmExtMIBCompliance=ciscoSnmpVacmExtMIBCompliance)

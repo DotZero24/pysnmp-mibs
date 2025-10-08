@@ -1,406 +1,161 @@
-_a='interopStartCallInVbdInterfaceId'
-_Z='interopDtmfDetectionInterfaceId'
-_Y='distinctiveCallWaitingToneIndex'
-_X='specificMachineDetectionInterfaceId'
-_W='faxmode'
-_V='passthrough'
-_U='countryCustomizationToneTone'
-_T='stutter'
-_S='ringback'
-_R='reorder'
-_Q='preemption'
-_P='messageWaiting'
-_O='intercept'
-_N='congestion'
-_M='confirmation'
-_L='callWaiting'
-_K='countryToneStatusTone'
-_J='specificCountryCustomizationDialingInterfaceId'
-_I='specificCountryCustomizationUserGainInterfaceId'
-_H='OctetString'
-_G='MX-TELIF-MIB'
-_F='read-only'
-_E='Unsigned32'
-_D='MxEnableState'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_H,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mediatrixServices,=mibBuilder.importSymbols('MX-SMI2','mediatrixServices')
-MxActivationState,MxAdvancedIpPort,MxDigitMap,MxEnableState,MxIpAddress,MxIpHostName,MxIpPort,MxIpSubnetMask=mibBuilder.importSymbols('MX-TC','MxActivationState','MxAdvancedIpPort','MxDigitMap',_D,'MxIpAddress','MxIpHostName','MxIpPort','MxIpSubnetMask')
-MxFloat32,MxIpAddr,MxIpAddrMask,MxIpAddrPort,MxIpHostNamePort,MxUInt64,MxUri,MxUrl=mibBuilder.importSymbols('MX-TC2','MxFloat32','MxIpAddr','MxIpAddrMask','MxIpAddrPort','MxIpHostNamePort','MxUInt64','MxUri','MxUrl')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-telIfMIB=ModuleIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1775))
-_TelIfMIBObjects_ObjectIdentity=ObjectIdentity
-telIfMIBObjects=_TelIfMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1775,1))
-class _CountrySelection_Type(Integer32):defaultValue=17000;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(900,1000,1100,2000,3000,4000,4500,5000,6000,7000,7100,10100,11000,12100,14000,15000,16000,17000,18000,19000,20000,21000,23100,23200,23300,24000)));namedValues=NamedValues(*(('argentina1',900),('australia1',1000),('australia2',1100),('austria1',2000),('brazil1',3000),('china1',4000),('czechRepublic1',4500),('denmark1',5000),('france1',6000),('germany1',7000),('germany2',7100),('israel2',10100),('italy1',11000),('japan2',12100),('mexico1',14000),('netherlands1',15000),('newZealand1',16000),('northAmerica1',17000),('russia1',18000),('spain1',19000),('sweden1',20000),('switzerland1',21000),('uae2',23100),('uae3',23200),('uae4',23300),('uk1',24000)))
-_CountrySelection_Type.__name__=_C
-_CountrySelection_Object=MibScalar
-countrySelection=_CountrySelection_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,100),_CountrySelection_Type())
-countrySelection.setMaxAccess(_B)
-if mibBuilder.loadTexts:countrySelection.setStatus(_A)
-_CountryCustomizationGroup_ObjectIdentity=ObjectIdentity
-countryCustomizationGroup=_CountryCustomizationGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200))
-_CountryCustomizationUserGainGroup_ObjectIdentity=ObjectIdentity
-countryCustomizationUserGainGroup=_CountryCustomizationUserGainGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,100))
-class _DefaultCountryCustomizationUserGainInputOffset_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-12,12))
-_DefaultCountryCustomizationUserGainInputOffset_Type.__name__=_C
-_DefaultCountryCustomizationUserGainInputOffset_Object=MibScalar
-defaultCountryCustomizationUserGainInputOffset=_DefaultCountryCustomizationUserGainInputOffset_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,100,100),_DefaultCountryCustomizationUserGainInputOffset_Type())
-defaultCountryCustomizationUserGainInputOffset.setMaxAccess(_B)
-if mibBuilder.loadTexts:defaultCountryCustomizationUserGainInputOffset.setStatus(_A)
-class _DefaultCountryCustomizationUserGainOutputOffset_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-12,12))
-_DefaultCountryCustomizationUserGainOutputOffset_Type.__name__=_C
-_DefaultCountryCustomizationUserGainOutputOffset_Object=MibScalar
-defaultCountryCustomizationUserGainOutputOffset=_DefaultCountryCustomizationUserGainOutputOffset_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,100,200),_DefaultCountryCustomizationUserGainOutputOffset_Type())
-defaultCountryCustomizationUserGainOutputOffset.setMaxAccess(_B)
-if mibBuilder.loadTexts:defaultCountryCustomizationUserGainOutputOffset.setStatus(_A)
-_SpecificCountryCustomizationUserGainTable_Object=MibTable
-specificCountryCustomizationUserGainTable=_SpecificCountryCustomizationUserGainTable_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,100,300))
-if mibBuilder.loadTexts:specificCountryCustomizationUserGainTable.setStatus(_A)
-_SpecificCountryCustomizationUserGainEntry_Object=MibTableRow
-specificCountryCustomizationUserGainEntry=_SpecificCountryCustomizationUserGainEntry_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,100,300,1))
-specificCountryCustomizationUserGainEntry.setIndexNames((0,_G,_I))
-if mibBuilder.loadTexts:specificCountryCustomizationUserGainEntry.setStatus(_A)
-_SpecificCountryCustomizationUserGainInterfaceId_Type=OctetString
-_SpecificCountryCustomizationUserGainInterfaceId_Object=MibTableColumn
-specificCountryCustomizationUserGainInterfaceId=_SpecificCountryCustomizationUserGainInterfaceId_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,100,300,1,100),_SpecificCountryCustomizationUserGainInterfaceId_Type())
-specificCountryCustomizationUserGainInterfaceId.setMaxAccess(_F)
-if mibBuilder.loadTexts:specificCountryCustomizationUserGainInterfaceId.setStatus(_A)
-class _SpecificCountryCustomizationUserGainEnableConfig_Type(MxEnableState):defaultValue=0
-_SpecificCountryCustomizationUserGainEnableConfig_Type.__name__=_D
-_SpecificCountryCustomizationUserGainEnableConfig_Object=MibTableColumn
-specificCountryCustomizationUserGainEnableConfig=_SpecificCountryCustomizationUserGainEnableConfig_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,100,300,1,200),_SpecificCountryCustomizationUserGainEnableConfig_Type())
-specificCountryCustomizationUserGainEnableConfig.setMaxAccess(_B)
-if mibBuilder.loadTexts:specificCountryCustomizationUserGainEnableConfig.setStatus(_A)
-class _SpecificCountryCustomizationUserGainInputOffset_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-12,12))
-_SpecificCountryCustomizationUserGainInputOffset_Type.__name__=_C
-_SpecificCountryCustomizationUserGainInputOffset_Object=MibTableColumn
-specificCountryCustomizationUserGainInputOffset=_SpecificCountryCustomizationUserGainInputOffset_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,100,300,1,300),_SpecificCountryCustomizationUserGainInputOffset_Type())
-specificCountryCustomizationUserGainInputOffset.setMaxAccess(_B)
-if mibBuilder.loadTexts:specificCountryCustomizationUserGainInputOffset.setStatus(_A)
-class _SpecificCountryCustomizationUserGainOutputOffset_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-12,12))
-_SpecificCountryCustomizationUserGainOutputOffset_Type.__name__=_C
-_SpecificCountryCustomizationUserGainOutputOffset_Object=MibTableColumn
-specificCountryCustomizationUserGainOutputOffset=_SpecificCountryCustomizationUserGainOutputOffset_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,100,300,1,400),_SpecificCountryCustomizationUserGainOutputOffset_Type())
-specificCountryCustomizationUserGainOutputOffset.setMaxAccess(_B)
-if mibBuilder.loadTexts:specificCountryCustomizationUserGainOutputOffset.setStatus(_A)
-_CountryCustomizationDialingGroup_ObjectIdentity=ObjectIdentity
-countryCustomizationDialingGroup=_CountryCustomizationDialingGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,400))
-class _DefaultCountryCustomizationDialingOverride_Type(MxEnableState):defaultValue=0
-_DefaultCountryCustomizationDialingOverride_Type.__name__=_D
-_DefaultCountryCustomizationDialingOverride_Object=MibScalar
-defaultCountryCustomizationDialingOverride=_DefaultCountryCustomizationDialingOverride_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,400,100),_DefaultCountryCustomizationDialingOverride_Type())
-defaultCountryCustomizationDialingOverride.setMaxAccess(_B)
-if mibBuilder.loadTexts:defaultCountryCustomizationDialingOverride.setStatus(_A)
-class _DefaultCountryCustomizationDialingInterDtmfDialDelay_Type(Unsigned32):defaultValue=100;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(50,600))
-_DefaultCountryCustomizationDialingInterDtmfDialDelay_Type.__name__=_E
-_DefaultCountryCustomizationDialingInterDtmfDialDelay_Object=MibScalar
-defaultCountryCustomizationDialingInterDtmfDialDelay=_DefaultCountryCustomizationDialingInterDtmfDialDelay_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,400,200),_DefaultCountryCustomizationDialingInterDtmfDialDelay_Type())
-defaultCountryCustomizationDialingInterDtmfDialDelay.setMaxAccess(_B)
-if mibBuilder.loadTexts:defaultCountryCustomizationDialingInterDtmfDialDelay.setStatus(_A)
-class _DefaultCountryCustomizationDialingDtmfDuration_Type(Unsigned32):defaultValue=100;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(50,600))
-_DefaultCountryCustomizationDialingDtmfDuration_Type.__name__=_E
-_DefaultCountryCustomizationDialingDtmfDuration_Object=MibScalar
-defaultCountryCustomizationDialingDtmfDuration=_DefaultCountryCustomizationDialingDtmfDuration_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,400,300),_DefaultCountryCustomizationDialingDtmfDuration_Type())
-defaultCountryCustomizationDialingDtmfDuration.setMaxAccess(_B)
-if mibBuilder.loadTexts:defaultCountryCustomizationDialingDtmfDuration.setStatus(_A)
-class _DefaultCountryCustomizationDialingInterMfR1DialDelay_Type(Unsigned32):defaultValue=68;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(50,600))
-_DefaultCountryCustomizationDialingInterMfR1DialDelay_Type.__name__=_E
-_DefaultCountryCustomizationDialingInterMfR1DialDelay_Object=MibScalar
-defaultCountryCustomizationDialingInterMfR1DialDelay=_DefaultCountryCustomizationDialingInterMfR1DialDelay_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,400,340),_DefaultCountryCustomizationDialingInterMfR1DialDelay_Type())
-defaultCountryCustomizationDialingInterMfR1DialDelay.setMaxAccess(_B)
-if mibBuilder.loadTexts:defaultCountryCustomizationDialingInterMfR1DialDelay.setStatus(_A)
-class _DefaultCountryCustomizationDialingMfR1Duration_Type(Unsigned32):defaultValue=68;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(50,600))
-_DefaultCountryCustomizationDialingMfR1Duration_Type.__name__=_E
-_DefaultCountryCustomizationDialingMfR1Duration_Object=MibScalar
-defaultCountryCustomizationDialingMfR1Duration=_DefaultCountryCustomizationDialingMfR1Duration_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,400,370),_DefaultCountryCustomizationDialingMfR1Duration_Type())
-defaultCountryCustomizationDialingMfR1Duration.setMaxAccess(_B)
-if mibBuilder.loadTexts:defaultCountryCustomizationDialingMfR1Duration.setStatus(_A)
-_SpecificCountryCustomizationDialingTable_Object=MibTable
-specificCountryCustomizationDialingTable=_SpecificCountryCustomizationDialingTable_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,400,400))
-if mibBuilder.loadTexts:specificCountryCustomizationDialingTable.setStatus(_A)
-_SpecificCountryCustomizationDialingEntry_Object=MibTableRow
-specificCountryCustomizationDialingEntry=_SpecificCountryCustomizationDialingEntry_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,400,400,1))
-specificCountryCustomizationDialingEntry.setIndexNames((0,_G,_J))
-if mibBuilder.loadTexts:specificCountryCustomizationDialingEntry.setStatus(_A)
-_SpecificCountryCustomizationDialingInterfaceId_Type=OctetString
-_SpecificCountryCustomizationDialingInterfaceId_Object=MibTableColumn
-specificCountryCustomizationDialingInterfaceId=_SpecificCountryCustomizationDialingInterfaceId_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,400,400,1,100),_SpecificCountryCustomizationDialingInterfaceId_Type())
-specificCountryCustomizationDialingInterfaceId.setMaxAccess(_F)
-if mibBuilder.loadTexts:specificCountryCustomizationDialingInterfaceId.setStatus(_A)
-class _SpecificCountryCustomizationDialingEnableConfig_Type(MxEnableState):defaultValue=0
-_SpecificCountryCustomizationDialingEnableConfig_Type.__name__=_D
-_SpecificCountryCustomizationDialingEnableConfig_Object=MibTableColumn
-specificCountryCustomizationDialingEnableConfig=_SpecificCountryCustomizationDialingEnableConfig_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,400,400,1,200),_SpecificCountryCustomizationDialingEnableConfig_Type())
-specificCountryCustomizationDialingEnableConfig.setMaxAccess(_B)
-if mibBuilder.loadTexts:specificCountryCustomizationDialingEnableConfig.setStatus(_A)
-class _SpecificCountryCustomizationDialingOverride_Type(MxEnableState):defaultValue=0
-_SpecificCountryCustomizationDialingOverride_Type.__name__=_D
-_SpecificCountryCustomizationDialingOverride_Object=MibTableColumn
-specificCountryCustomizationDialingOverride=_SpecificCountryCustomizationDialingOverride_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,400,400,1,300),_SpecificCountryCustomizationDialingOverride_Type())
-specificCountryCustomizationDialingOverride.setMaxAccess(_B)
-if mibBuilder.loadTexts:specificCountryCustomizationDialingOverride.setStatus(_A)
-class _SpecificCountryCustomizationDialingInterDtmfDialDelay_Type(Unsigned32):defaultValue=100;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(50,600))
-_SpecificCountryCustomizationDialingInterDtmfDialDelay_Type.__name__=_E
-_SpecificCountryCustomizationDialingInterDtmfDialDelay_Object=MibTableColumn
-specificCountryCustomizationDialingInterDtmfDialDelay=_SpecificCountryCustomizationDialingInterDtmfDialDelay_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,400,400,1,400),_SpecificCountryCustomizationDialingInterDtmfDialDelay_Type())
-specificCountryCustomizationDialingInterDtmfDialDelay.setMaxAccess(_B)
-if mibBuilder.loadTexts:specificCountryCustomizationDialingInterDtmfDialDelay.setStatus(_A)
-class _SpecificCountryCustomizationDialingDtmfDuration_Type(Unsigned32):defaultValue=100;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(50,600))
-_SpecificCountryCustomizationDialingDtmfDuration_Type.__name__=_E
-_SpecificCountryCustomizationDialingDtmfDuration_Object=MibTableColumn
-specificCountryCustomizationDialingDtmfDuration=_SpecificCountryCustomizationDialingDtmfDuration_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,400,400,1,500),_SpecificCountryCustomizationDialingDtmfDuration_Type())
-specificCountryCustomizationDialingDtmfDuration.setMaxAccess(_B)
-if mibBuilder.loadTexts:specificCountryCustomizationDialingDtmfDuration.setStatus(_A)
-class _SpecificCountryCustomizationDialingInterMfR1DialDelay_Type(Unsigned32):defaultValue=68;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(50,600))
-_SpecificCountryCustomizationDialingInterMfR1DialDelay_Type.__name__=_E
-_SpecificCountryCustomizationDialingInterMfR1DialDelay_Object=MibTableColumn
-specificCountryCustomizationDialingInterMfR1DialDelay=_SpecificCountryCustomizationDialingInterMfR1DialDelay_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,400,400,1,600),_SpecificCountryCustomizationDialingInterMfR1DialDelay_Type())
-specificCountryCustomizationDialingInterMfR1DialDelay.setMaxAccess(_B)
-if mibBuilder.loadTexts:specificCountryCustomizationDialingInterMfR1DialDelay.setStatus(_A)
-class _SpecificCountryCustomizationDialingMfR1Duration_Type(Unsigned32):defaultValue=68;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(50,600))
-_SpecificCountryCustomizationDialingMfR1Duration_Type.__name__=_E
-_SpecificCountryCustomizationDialingMfR1Duration_Object=MibTableColumn
-specificCountryCustomizationDialingMfR1Duration=_SpecificCountryCustomizationDialingMfR1Duration_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,400,400,1,700),_SpecificCountryCustomizationDialingMfR1Duration_Type())
-specificCountryCustomizationDialingMfR1Duration.setMaxAccess(_B)
-if mibBuilder.loadTexts:specificCountryCustomizationDialingMfR1Duration.setStatus(_A)
-_CountryCustomizationToneGroup_ObjectIdentity=ObjectIdentity
-countryCustomizationToneGroup=_CountryCustomizationToneGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,500))
-_CountryToneStatusTable_Object=MibTable
-countryToneStatusTable=_CountryToneStatusTable_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,500,100))
-if mibBuilder.loadTexts:countryToneStatusTable.setStatus(_A)
-_CountryToneStatusEntry_Object=MibTableRow
-countryToneStatusEntry=_CountryToneStatusEntry_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,500,100,1))
-countryToneStatusEntry.setIndexNames((0,_G,_K))
-if mibBuilder.loadTexts:countryToneStatusEntry.setStatus(_A)
-class _CountryToneStatusTone_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(100,150,200,300,400,500,600,700,800,900,1000,1100,1200,1300)));namedValues=NamedValues(*(('busy',100),(_L,150),(_M,200),(_N,300),('dial',400),('hold',500),(_O,600),(_P,700),(_Q,800),(_R,900),(_S,1000),('roh',1100),('sit',1200),(_T,1300)))
-_CountryToneStatusTone_Type.__name__=_C
-_CountryToneStatusTone_Object=MibTableColumn
-countryToneStatusTone=_CountryToneStatusTone_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,500,100,1,100),_CountryToneStatusTone_Type())
-countryToneStatusTone.setMaxAccess(_F)
-if mibBuilder.loadTexts:countryToneStatusTone.setStatus(_A)
-class _CountryToneStatusPattern_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,512))
-_CountryToneStatusPattern_Type.__name__=_H
-_CountryToneStatusPattern_Object=MibTableColumn
-countryToneStatusPattern=_CountryToneStatusPattern_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,500,100,1,300),_CountryToneStatusPattern_Type())
-countryToneStatusPattern.setMaxAccess(_F)
-if mibBuilder.loadTexts:countryToneStatusPattern.setStatus(_A)
-_CountryCustomizationToneTable_Object=MibTable
-countryCustomizationToneTable=_CountryCustomizationToneTable_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,500,200))
-if mibBuilder.loadTexts:countryCustomizationToneTable.setStatus(_A)
-_CountryCustomizationToneEntry_Object=MibTableRow
-countryCustomizationToneEntry=_CountryCustomizationToneEntry_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,500,200,1))
-countryCustomizationToneEntry.setIndexNames((0,_G,_U))
-if mibBuilder.loadTexts:countryCustomizationToneEntry.setStatus(_A)
-class _CountryCustomizationToneTone_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(100,150,200,300,400,500,600,700,800,900,1000,1100,1200,1300)));namedValues=NamedValues(*(('busy',100),(_L,150),(_M,200),(_N,300),('dial',400),('hold',500),(_O,600),(_P,700),(_Q,800),(_R,900),(_S,1000),('roh',1100),('sit',1200),(_T,1300)))
-_CountryCustomizationToneTone_Type.__name__=_C
-_CountryCustomizationToneTone_Object=MibTableColumn
-countryCustomizationToneTone=_CountryCustomizationToneTone_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,500,200,1,100),_CountryCustomizationToneTone_Type())
-countryCustomizationToneTone.setMaxAccess(_F)
-if mibBuilder.loadTexts:countryCustomizationToneTone.setStatus(_A)
-class _CountryCustomizationToneOverride_Type(MxEnableState):defaultValue=0
-_CountryCustomizationToneOverride_Type.__name__=_D
-_CountryCustomizationToneOverride_Object=MibTableColumn
-countryCustomizationToneOverride=_CountryCustomizationToneOverride_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,500,200,1,200),_CountryCustomizationToneOverride_Type())
-countryCustomizationToneOverride.setMaxAccess(_B)
-if mibBuilder.loadTexts:countryCustomizationToneOverride.setStatus(_A)
-class _CountryCustomizationTonePattern_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,512))
-_CountryCustomizationTonePattern_Type.__name__=_H
-_CountryCustomizationTonePattern_Object=MibTableColumn
-countryCustomizationTonePattern=_CountryCustomizationTonePattern_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,200,500,200,1,300),_CountryCustomizationTonePattern_Type())
-countryCustomizationTonePattern.setMaxAccess(_B)
-if mibBuilder.loadTexts:countryCustomizationTonePattern.setStatus(_A)
-_MachineDetectionGroup_ObjectIdentity=ObjectIdentity
-machineDetectionGroup=_MachineDetectionGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,300))
-class _DefaultMachineDetectionCngToneDetection_Type(MxEnableState):defaultValue=1
-_DefaultMachineDetectionCngToneDetection_Type.__name__=_D
-_DefaultMachineDetectionCngToneDetection_Object=MibScalar
-defaultMachineDetectionCngToneDetection=_DefaultMachineDetectionCngToneDetection_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,300,100),_DefaultMachineDetectionCngToneDetection_Type())
-defaultMachineDetectionCngToneDetection.setMaxAccess(_B)
-if mibBuilder.loadTexts:defaultMachineDetectionCngToneDetection.setStatus(_A)
-class _DefaultMachineDetectionCedToneDetection_Type(MxEnableState):defaultValue=1
-_DefaultMachineDetectionCedToneDetection_Type.__name__=_D
-_DefaultMachineDetectionCedToneDetection_Object=MibScalar
-defaultMachineDetectionCedToneDetection=_DefaultMachineDetectionCedToneDetection_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,300,101),_DefaultMachineDetectionCedToneDetection_Type())
-defaultMachineDetectionCedToneDetection.setMaxAccess(_B)
-if mibBuilder.loadTexts:defaultMachineDetectionCedToneDetection.setStatus(_A)
-class _DefaultMachineDetectionV21ModulationDetection_Type(MxEnableState):defaultValue=1
-_DefaultMachineDetectionV21ModulationDetection_Type.__name__=_D
-_DefaultMachineDetectionV21ModulationDetection_Object=MibScalar
-defaultMachineDetectionV21ModulationDetection=_DefaultMachineDetectionV21ModulationDetection_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,300,102),_DefaultMachineDetectionV21ModulationDetection_Type())
-defaultMachineDetectionV21ModulationDetection.setMaxAccess(_B)
-if mibBuilder.loadTexts:defaultMachineDetectionV21ModulationDetection.setStatus(_A)
-class _DefaultMachineDetectionBehaviorOnCedToneDetection_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(100,200)));namedValues=NamedValues(*((_V,100),(_W,200)))
-_DefaultMachineDetectionBehaviorOnCedToneDetection_Type.__name__=_C
-_DefaultMachineDetectionBehaviorOnCedToneDetection_Object=MibScalar
-defaultMachineDetectionBehaviorOnCedToneDetection=_DefaultMachineDetectionBehaviorOnCedToneDetection_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,300,110),_DefaultMachineDetectionBehaviorOnCedToneDetection_Type())
-defaultMachineDetectionBehaviorOnCedToneDetection.setMaxAccess(_B)
-if mibBuilder.loadTexts:defaultMachineDetectionBehaviorOnCedToneDetection.setStatus(_A)
-_SpecificMachineDetectionTable_Object=MibTable
-specificMachineDetectionTable=_SpecificMachineDetectionTable_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,300,200))
-if mibBuilder.loadTexts:specificMachineDetectionTable.setStatus(_A)
-_SpecificMachineDetectionEntry_Object=MibTableRow
-specificMachineDetectionEntry=_SpecificMachineDetectionEntry_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,300,200,1))
-specificMachineDetectionEntry.setIndexNames((0,_G,_X))
-if mibBuilder.loadTexts:specificMachineDetectionEntry.setStatus(_A)
-_SpecificMachineDetectionInterfaceId_Type=OctetString
-_SpecificMachineDetectionInterfaceId_Object=MibTableColumn
-specificMachineDetectionInterfaceId=_SpecificMachineDetectionInterfaceId_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,300,200,1,100),_SpecificMachineDetectionInterfaceId_Type())
-specificMachineDetectionInterfaceId.setMaxAccess(_F)
-if mibBuilder.loadTexts:specificMachineDetectionInterfaceId.setStatus(_A)
-class _SpecificMachineDetectionEnableConfig_Type(MxEnableState):defaultValue=0
-_SpecificMachineDetectionEnableConfig_Type.__name__=_D
-_SpecificMachineDetectionEnableConfig_Object=MibTableColumn
-specificMachineDetectionEnableConfig=_SpecificMachineDetectionEnableConfig_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,300,200,1,200),_SpecificMachineDetectionEnableConfig_Type())
-specificMachineDetectionEnableConfig.setMaxAccess(_B)
-if mibBuilder.loadTexts:specificMachineDetectionEnableConfig.setStatus(_A)
-class _SpecificMachineDetectionCngToneDetection_Type(MxEnableState):defaultValue=1
-_SpecificMachineDetectionCngToneDetection_Type.__name__=_D
-_SpecificMachineDetectionCngToneDetection_Object=MibTableColumn
-specificMachineDetectionCngToneDetection=_SpecificMachineDetectionCngToneDetection_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,300,200,1,300),_SpecificMachineDetectionCngToneDetection_Type())
-specificMachineDetectionCngToneDetection.setMaxAccess(_B)
-if mibBuilder.loadTexts:specificMachineDetectionCngToneDetection.setStatus(_A)
-class _SpecificMachineDetectionCedToneDetection_Type(MxEnableState):defaultValue=1
-_SpecificMachineDetectionCedToneDetection_Type.__name__=_D
-_SpecificMachineDetectionCedToneDetection_Object=MibTableColumn
-specificMachineDetectionCedToneDetection=_SpecificMachineDetectionCedToneDetection_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,300,200,1,310),_SpecificMachineDetectionCedToneDetection_Type())
-specificMachineDetectionCedToneDetection.setMaxAccess(_B)
-if mibBuilder.loadTexts:specificMachineDetectionCedToneDetection.setStatus(_A)
-class _SpecificMachineDetectionV21ModulationDetection_Type(MxEnableState):defaultValue=1
-_SpecificMachineDetectionV21ModulationDetection_Type.__name__=_D
-_SpecificMachineDetectionV21ModulationDetection_Object=MibTableColumn
-specificMachineDetectionV21ModulationDetection=_SpecificMachineDetectionV21ModulationDetection_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,300,200,1,320),_SpecificMachineDetectionV21ModulationDetection_Type())
-specificMachineDetectionV21ModulationDetection.setMaxAccess(_B)
-if mibBuilder.loadTexts:specificMachineDetectionV21ModulationDetection.setStatus(_A)
-class _SpecificMachineDetectionBehaviorOnCedToneDetection_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(100,200)));namedValues=NamedValues(*((_V,100),(_W,200)))
-_SpecificMachineDetectionBehaviorOnCedToneDetection_Type.__name__=_C
-_SpecificMachineDetectionBehaviorOnCedToneDetection_Object=MibTableColumn
-specificMachineDetectionBehaviorOnCedToneDetection=_SpecificMachineDetectionBehaviorOnCedToneDetection_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,300,200,1,400),_SpecificMachineDetectionBehaviorOnCedToneDetection_Type())
-specificMachineDetectionBehaviorOnCedToneDetection.setMaxAccess(_B)
-if mibBuilder.loadTexts:specificMachineDetectionBehaviorOnCedToneDetection.setStatus(_A)
-_MusicOnHoldStreamingGroup_ObjectIdentity=ObjectIdentity
-musicOnHoldStreamingGroup=_MusicOnHoldStreamingGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,400))
-class _MusicOnHoldStreamingEnable_Type(MxEnableState):defaultValue=0
-_MusicOnHoldStreamingEnable_Type.__name__=_D
-_MusicOnHoldStreamingEnable_Object=MibScalar
-musicOnHoldStreamingEnable=_MusicOnHoldStreamingEnable_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,400,100),_MusicOnHoldStreamingEnable_Type())
-musicOnHoldStreamingEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:musicOnHoldStreamingEnable.setStatus(_A)
-_CallWaitingToneGroup_ObjectIdentity=ObjectIdentity
-callWaitingToneGroup=_CallWaitingToneGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,500))
-_DistinctiveCallWaitingToneTable_Object=MibTable
-distinctiveCallWaitingToneTable=_DistinctiveCallWaitingToneTable_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,500,100))
-if mibBuilder.loadTexts:distinctiveCallWaitingToneTable.setStatus(_A)
-_DistinctiveCallWaitingToneEntry_Object=MibTableRow
-distinctiveCallWaitingToneEntry=_DistinctiveCallWaitingToneEntry_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,500,100,1))
-distinctiveCallWaitingToneEntry.setIndexNames((0,_G,_Y))
-if mibBuilder.loadTexts:distinctiveCallWaitingToneEntry.setStatus(_A)
-class _DistinctiveCallWaitingToneIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_DistinctiveCallWaitingToneIndex_Type.__name__=_E
-_DistinctiveCallWaitingToneIndex_Object=MibTableColumn
-distinctiveCallWaitingToneIndex=_DistinctiveCallWaitingToneIndex_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,500,100,1,100),_DistinctiveCallWaitingToneIndex_Type())
-distinctiveCallWaitingToneIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:distinctiveCallWaitingToneIndex.setStatus(_A)
-class _DistinctiveCallWaitingToneToneId_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,512))
-_DistinctiveCallWaitingToneToneId_Type.__name__=_H
-_DistinctiveCallWaitingToneToneId_Object=MibTableColumn
-distinctiveCallWaitingToneToneId=_DistinctiveCallWaitingToneToneId_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,500,100,1,200),_DistinctiveCallWaitingToneToneId_Type())
-distinctiveCallWaitingToneToneId.setMaxAccess(_B)
-if mibBuilder.loadTexts:distinctiveCallWaitingToneToneId.setStatus(_A)
-class _DistinctiveCallWaitingTonePattern_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,512))
-_DistinctiveCallWaitingTonePattern_Type.__name__=_H
-_DistinctiveCallWaitingTonePattern_Object=MibTableColumn
-distinctiveCallWaitingTonePattern=_DistinctiveCallWaitingTonePattern_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,500,100,1,300),_DistinctiveCallWaitingTonePattern_Type())
-distinctiveCallWaitingTonePattern.setMaxAccess(_B)
-if mibBuilder.loadTexts:distinctiveCallWaitingTonePattern.setStatus(_A)
-_InteropGroup_ObjectIdentity=ObjectIdentity
-interopGroup=_InteropGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,50000))
-_InteropDtmfDetectionTable_Object=MibTable
-interopDtmfDetectionTable=_InteropDtmfDetectionTable_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,50000,100))
-if mibBuilder.loadTexts:interopDtmfDetectionTable.setStatus(_A)
-_InteropDtmfDetectionEntry_Object=MibTableRow
-interopDtmfDetectionEntry=_InteropDtmfDetectionEntry_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,50000,100,1))
-interopDtmfDetectionEntry.setIndexNames((0,_G,_Z))
-if mibBuilder.loadTexts:interopDtmfDetectionEntry.setStatus(_A)
-_InteropDtmfDetectionInterfaceId_Type=OctetString
-_InteropDtmfDetectionInterfaceId_Object=MibTableColumn
-interopDtmfDetectionInterfaceId=_InteropDtmfDetectionInterfaceId_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,50000,100,1,100),_InteropDtmfDetectionInterfaceId_Type())
-interopDtmfDetectionInterfaceId.setMaxAccess(_F)
-if mibBuilder.loadTexts:interopDtmfDetectionInterfaceId.setStatus(_A)
-class _InteropDtmfDetectionRiseTimeCriteria_Type(Integer32):defaultValue=200;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(100,200)));namedValues=NamedValues(*(('checkSr',100),('confirmSnr',200)))
-_InteropDtmfDetectionRiseTimeCriteria_Type.__name__=_C
-_InteropDtmfDetectionRiseTimeCriteria_Object=MibTableColumn
-interopDtmfDetectionRiseTimeCriteria=_InteropDtmfDetectionRiseTimeCriteria_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,50000,100,1,200),_InteropDtmfDetectionRiseTimeCriteria_Type())
-interopDtmfDetectionRiseTimeCriteria.setMaxAccess(_B)
-if mibBuilder.loadTexts:interopDtmfDetectionRiseTimeCriteria.setStatus(_A)
-class _InteropDtmfDetectionPositiveTwist_Type(Unsigned32):defaultValue=6;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,14))
-_InteropDtmfDetectionPositiveTwist_Type.__name__=_E
-_InteropDtmfDetectionPositiveTwist_Object=MibTableColumn
-interopDtmfDetectionPositiveTwist=_InteropDtmfDetectionPositiveTwist_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,50000,100,1,300),_InteropDtmfDetectionPositiveTwist_Type())
-interopDtmfDetectionPositiveTwist.setMaxAccess(_B)
-if mibBuilder.loadTexts:interopDtmfDetectionPositiveTwist.setStatus(_A)
-class _InteropDtmfDetectionNegativeTwist_Type(Unsigned32):defaultValue=9;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,14))
-_InteropDtmfDetectionNegativeTwist_Type.__name__=_E
-_InteropDtmfDetectionNegativeTwist_Object=MibTableColumn
-interopDtmfDetectionNegativeTwist=_InteropDtmfDetectionNegativeTwist_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,50000,100,1,350),_InteropDtmfDetectionNegativeTwist_Type())
-interopDtmfDetectionNegativeTwist.setMaxAccess(_B)
-if mibBuilder.loadTexts:interopDtmfDetectionNegativeTwist.setStatus(_A)
-class _InteropDtmfDetectionMaxPowerThreshold_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-20,1))
-_InteropDtmfDetectionMaxPowerThreshold_Type.__name__=_C
-_InteropDtmfDetectionMaxPowerThreshold_Object=MibTableColumn
-interopDtmfDetectionMaxPowerThreshold=_InteropDtmfDetectionMaxPowerThreshold_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,50000,100,1,400),_InteropDtmfDetectionMaxPowerThreshold_Type())
-interopDtmfDetectionMaxPowerThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:interopDtmfDetectionMaxPowerThreshold.setStatus(_A)
-class _InteropDtmfDetectionMinPowerThreshold_Type(Integer32):defaultValue=-30;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-45,-10))
-_InteropDtmfDetectionMinPowerThreshold_Type.__name__=_C
-_InteropDtmfDetectionMinPowerThreshold_Object=MibTableColumn
-interopDtmfDetectionMinPowerThreshold=_InteropDtmfDetectionMinPowerThreshold_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,50000,100,1,450),_InteropDtmfDetectionMinPowerThreshold_Type())
-interopDtmfDetectionMinPowerThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:interopDtmfDetectionMinPowerThreshold.setStatus(_A)
-class _InteropDtmfDetectionBreakPowerThreshold_Type(Integer32):defaultValue=-32;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-45,-12))
-_InteropDtmfDetectionBreakPowerThreshold_Type.__name__=_C
-_InteropDtmfDetectionBreakPowerThreshold_Object=MibTableColumn
-interopDtmfDetectionBreakPowerThreshold=_InteropDtmfDetectionBreakPowerThreshold_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,50000,100,1,500),_InteropDtmfDetectionBreakPowerThreshold_Type())
-interopDtmfDetectionBreakPowerThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:interopDtmfDetectionBreakPowerThreshold.setStatus(_A)
-_InteropStartCallInVbdTable_Object=MibTable
-interopStartCallInVbdTable=_InteropStartCallInVbdTable_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,50000,200))
-if mibBuilder.loadTexts:interopStartCallInVbdTable.setStatus(_A)
-_InteropStartCallInVbdEntry_Object=MibTableRow
-interopStartCallInVbdEntry=_InteropStartCallInVbdEntry_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,50000,200,1))
-interopStartCallInVbdEntry.setIndexNames((0,_G,_a))
-if mibBuilder.loadTexts:interopStartCallInVbdEntry.setStatus(_A)
-_InteropStartCallInVbdInterfaceId_Type=OctetString
-_InteropStartCallInVbdInterfaceId_Object=MibTableColumn
-interopStartCallInVbdInterfaceId=_InteropStartCallInVbdInterfaceId_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,50000,200,1,100),_InteropStartCallInVbdInterfaceId_Type())
-interopStartCallInVbdInterfaceId.setMaxAccess(_F)
-if mibBuilder.loadTexts:interopStartCallInVbdInterfaceId.setStatus(_A)
-class _InteropStartCallInVbdEnable_Type(MxEnableState):defaultValue=0
-_InteropStartCallInVbdEnable_Type.__name__=_D
-_InteropStartCallInVbdEnable_Object=MibTableColumn
-interopStartCallInVbdEnable=_InteropStartCallInVbdEnable_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,50000,200,1,200),_InteropStartCallInVbdEnable_Type())
-interopStartCallInVbdEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:interopStartCallInVbdEnable.setStatus(_A)
-_NotificationsGroup_ObjectIdentity=ObjectIdentity
-notificationsGroup=_NotificationsGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,60010))
-class _MinSeverity_Type(Integer32):defaultValue=300;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,100,200,300,400,500)));namedValues=NamedValues(*(('disable',0),('debug',100),('info',200),('warning',300),('error',400),('critical',500)))
-_MinSeverity_Type.__name__=_C
-_MinSeverity_Object=MibScalar
-minSeverity=_MinSeverity_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,60010,100),_MinSeverity_Type())
-minSeverity.setMaxAccess(_B)
-if mibBuilder.loadTexts:minSeverity.setStatus(_A)
-_ConfigurationGroup_ObjectIdentity=ObjectIdentity
-configurationGroup=_ConfigurationGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,60020))
-class _NeedRestartInfo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,100)));namedValues=NamedValues(*(('no',0),('yes',100)))
-_NeedRestartInfo_Type.__name__=_C
-_NeedRestartInfo_Object=MibScalar
-needRestartInfo=_NeedRestartInfo_Object((1,3,6,1,4,1,4935,1000,100,200,100,1775,1,60020,100),_NeedRestartInfo_Type())
-needRestartInfo.setMaxAccess(_F)
-if mibBuilder.loadTexts:needRestartInfo.setStatus(_A)
-mibBuilder.exportSymbols(_G,**{'telIfMIB':telIfMIB,'telIfMIBObjects':telIfMIBObjects,'countrySelection':countrySelection,'countryCustomizationGroup':countryCustomizationGroup,'countryCustomizationUserGainGroup':countryCustomizationUserGainGroup,'defaultCountryCustomizationUserGainInputOffset':defaultCountryCustomizationUserGainInputOffset,'defaultCountryCustomizationUserGainOutputOffset':defaultCountryCustomizationUserGainOutputOffset,'specificCountryCustomizationUserGainTable':specificCountryCustomizationUserGainTable,'specificCountryCustomizationUserGainEntry':specificCountryCustomizationUserGainEntry,_I:specificCountryCustomizationUserGainInterfaceId,'specificCountryCustomizationUserGainEnableConfig':specificCountryCustomizationUserGainEnableConfig,'specificCountryCustomizationUserGainInputOffset':specificCountryCustomizationUserGainInputOffset,'specificCountryCustomizationUserGainOutputOffset':specificCountryCustomizationUserGainOutputOffset,'countryCustomizationDialingGroup':countryCustomizationDialingGroup,'defaultCountryCustomizationDialingOverride':defaultCountryCustomizationDialingOverride,'defaultCountryCustomizationDialingInterDtmfDialDelay':defaultCountryCustomizationDialingInterDtmfDialDelay,'defaultCountryCustomizationDialingDtmfDuration':defaultCountryCustomizationDialingDtmfDuration,'defaultCountryCustomizationDialingInterMfR1DialDelay':defaultCountryCustomizationDialingInterMfR1DialDelay,'defaultCountryCustomizationDialingMfR1Duration':defaultCountryCustomizationDialingMfR1Duration,'specificCountryCustomizationDialingTable':specificCountryCustomizationDialingTable,'specificCountryCustomizationDialingEntry':specificCountryCustomizationDialingEntry,_J:specificCountryCustomizationDialingInterfaceId,'specificCountryCustomizationDialingEnableConfig':specificCountryCustomizationDialingEnableConfig,'specificCountryCustomizationDialingOverride':specificCountryCustomizationDialingOverride,'specificCountryCustomizationDialingInterDtmfDialDelay':specificCountryCustomizationDialingInterDtmfDialDelay,'specificCountryCustomizationDialingDtmfDuration':specificCountryCustomizationDialingDtmfDuration,'specificCountryCustomizationDialingInterMfR1DialDelay':specificCountryCustomizationDialingInterMfR1DialDelay,'specificCountryCustomizationDialingMfR1Duration':specificCountryCustomizationDialingMfR1Duration,'countryCustomizationToneGroup':countryCustomizationToneGroup,'countryToneStatusTable':countryToneStatusTable,'countryToneStatusEntry':countryToneStatusEntry,_K:countryToneStatusTone,'countryToneStatusPattern':countryToneStatusPattern,'countryCustomizationToneTable':countryCustomizationToneTable,'countryCustomizationToneEntry':countryCustomizationToneEntry,_U:countryCustomizationToneTone,'countryCustomizationToneOverride':countryCustomizationToneOverride,'countryCustomizationTonePattern':countryCustomizationTonePattern,'machineDetectionGroup':machineDetectionGroup,'defaultMachineDetectionCngToneDetection':defaultMachineDetectionCngToneDetection,'defaultMachineDetectionCedToneDetection':defaultMachineDetectionCedToneDetection,'defaultMachineDetectionV21ModulationDetection':defaultMachineDetectionV21ModulationDetection,'defaultMachineDetectionBehaviorOnCedToneDetection':defaultMachineDetectionBehaviorOnCedToneDetection,'specificMachineDetectionTable':specificMachineDetectionTable,'specificMachineDetectionEntry':specificMachineDetectionEntry,_X:specificMachineDetectionInterfaceId,'specificMachineDetectionEnableConfig':specificMachineDetectionEnableConfig,'specificMachineDetectionCngToneDetection':specificMachineDetectionCngToneDetection,'specificMachineDetectionCedToneDetection':specificMachineDetectionCedToneDetection,'specificMachineDetectionV21ModulationDetection':specificMachineDetectionV21ModulationDetection,'specificMachineDetectionBehaviorOnCedToneDetection':specificMachineDetectionBehaviorOnCedToneDetection,'musicOnHoldStreamingGroup':musicOnHoldStreamingGroup,'musicOnHoldStreamingEnable':musicOnHoldStreamingEnable,'callWaitingToneGroup':callWaitingToneGroup,'distinctiveCallWaitingToneTable':distinctiveCallWaitingToneTable,'distinctiveCallWaitingToneEntry':distinctiveCallWaitingToneEntry,_Y:distinctiveCallWaitingToneIndex,'distinctiveCallWaitingToneToneId':distinctiveCallWaitingToneToneId,'distinctiveCallWaitingTonePattern':distinctiveCallWaitingTonePattern,'interopGroup':interopGroup,'interopDtmfDetectionTable':interopDtmfDetectionTable,'interopDtmfDetectionEntry':interopDtmfDetectionEntry,_Z:interopDtmfDetectionInterfaceId,'interopDtmfDetectionRiseTimeCriteria':interopDtmfDetectionRiseTimeCriteria,'interopDtmfDetectionPositiveTwist':interopDtmfDetectionPositiveTwist,'interopDtmfDetectionNegativeTwist':interopDtmfDetectionNegativeTwist,'interopDtmfDetectionMaxPowerThreshold':interopDtmfDetectionMaxPowerThreshold,'interopDtmfDetectionMinPowerThreshold':interopDtmfDetectionMinPowerThreshold,'interopDtmfDetectionBreakPowerThreshold':interopDtmfDetectionBreakPowerThreshold,'interopStartCallInVbdTable':interopStartCallInVbdTable,'interopStartCallInVbdEntry':interopStartCallInVbdEntry,_a:interopStartCallInVbdInterfaceId,'interopStartCallInVbdEnable':interopStartCallInVbdEnable,'notificationsGroup':notificationsGroup,'minSeverity':minSeverity,'configurationGroup':configurationGroup,'needRestartInfo':needRestartInfo})
+#
+# PySNMP MIB module MX-TELIF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-TELIF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mediatrixServices, = mibBuilder.importSymbols("MX-SMI2", "mediatrixServices")
+MxActivationState, MxEnableState, MxIpAddress, MxAdvancedIpPort, MxDigitMap, MxIpPort, MxIpHostName, MxIpSubnetMask = mibBuilder.importSymbols("MX-TC", "MxActivationState", "MxEnableState", "MxIpAddress", "MxAdvancedIpPort", "MxDigitMap", "MxIpPort", "MxIpHostName", "MxIpSubnetMask")
+MxIpHostNamePort, MxIpAddrMask, MxUri, MxIpAddr, MxIpAddrPort, MxUrl, MxUInt64, MxFloat32 = mibBuilder.importSymbols("MX-TC2", "MxIpHostNamePort", "MxIpAddrMask", "MxUri", "MxIpAddr", "MxIpAddrPort", "MxUrl", "MxUInt64", "MxFloat32")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+telIfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775))
+if mibBuilder.loadTexts: telIfMIB.setLastUpdated('1910210000Z')
+if mibBuilder.loadTexts: telIfMIB.setOrganization(' Mediatrix Telecom, Inc. ')
+telIfMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1))
+countrySelection = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(900, 1000, 1100, 2000, 3000, 4000, 4500, 5000, 6000, 7000, 7100, 10100, 11000, 12100, 14000, 15000, 16000, 17000, 18000, 19000, 20000, 21000, 23100, 23200, 23300, 24000))).clone(namedValues=NamedValues(("argentina1", 900), ("australia1", 1000), ("australia2", 1100), ("austria1", 2000), ("brazil1", 3000), ("china1", 4000), ("czechRepublic1", 4500), ("denmark1", 5000), ("france1", 6000), ("germany1", 7000), ("germany2", 7100), ("israel2", 10100), ("italy1", 11000), ("japan2", 12100), ("mexico1", 14000), ("netherlands1", 15000), ("newZealand1", 16000), ("northAmerica1", 17000), ("russia1", 18000), ("spain1", 19000), ("sweden1", 20000), ("switzerland1", 21000), ("uae2", 23100), ("uae3", 23200), ("uae4", 23300), ("uk1", 24000))).clone('northAmerica1')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: countrySelection.setStatus('current')
+countryCustomizationGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200))
+countryCustomizationUserGainGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 100))
+defaultCountryCustomizationUserGainInputOffset = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 100, 100), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-12, 12))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: defaultCountryCustomizationUserGainInputOffset.setStatus('current')
+defaultCountryCustomizationUserGainOutputOffset = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 100, 200), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-12, 12))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: defaultCountryCustomizationUserGainOutputOffset.setStatus('current')
+specificCountryCustomizationUserGainTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 100, 300), )
+if mibBuilder.loadTexts: specificCountryCustomizationUserGainTable.setStatus('current')
+specificCountryCustomizationUserGainEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 100, 300, 1), ).setIndexNames((0, "MX-TELIF-MIB", "specificCountryCustomizationUserGainInterfaceId"))
+if mibBuilder.loadTexts: specificCountryCustomizationUserGainEntry.setStatus('current')
+specificCountryCustomizationUserGainInterfaceId = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 100, 300, 1, 100), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: specificCountryCustomizationUserGainInterfaceId.setStatus('current')
+specificCountryCustomizationUserGainEnableConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 100, 300, 1, 200), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specificCountryCustomizationUserGainEnableConfig.setStatus('current')
+specificCountryCustomizationUserGainInputOffset = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 100, 300, 1, 300), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-12, 12))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specificCountryCustomizationUserGainInputOffset.setStatus('current')
+specificCountryCustomizationUserGainOutputOffset = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 100, 300, 1, 400), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-12, 12))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specificCountryCustomizationUserGainOutputOffset.setStatus('current')
+countryCustomizationDialingGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 400))
+defaultCountryCustomizationDialingOverride = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 400, 100), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: defaultCountryCustomizationDialingOverride.setStatus('current')
+defaultCountryCustomizationDialingInterDtmfDialDelay = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 400, 200), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(50, 600)).clone(100)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: defaultCountryCustomizationDialingInterDtmfDialDelay.setStatus('current')
+defaultCountryCustomizationDialingDtmfDuration = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 400, 300), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(50, 600)).clone(100)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: defaultCountryCustomizationDialingDtmfDuration.setStatus('current')
+defaultCountryCustomizationDialingInterMfR1DialDelay = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 400, 340), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(50, 600)).clone(68)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: defaultCountryCustomizationDialingInterMfR1DialDelay.setStatus('current')
+defaultCountryCustomizationDialingMfR1Duration = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 400, 370), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(50, 600)).clone(68)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: defaultCountryCustomizationDialingMfR1Duration.setStatus('current')
+specificCountryCustomizationDialingTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 400, 400), )
+if mibBuilder.loadTexts: specificCountryCustomizationDialingTable.setStatus('current')
+specificCountryCustomizationDialingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 400, 400, 1), ).setIndexNames((0, "MX-TELIF-MIB", "specificCountryCustomizationDialingInterfaceId"))
+if mibBuilder.loadTexts: specificCountryCustomizationDialingEntry.setStatus('current')
+specificCountryCustomizationDialingInterfaceId = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 400, 400, 1, 100), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: specificCountryCustomizationDialingInterfaceId.setStatus('current')
+specificCountryCustomizationDialingEnableConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 400, 400, 1, 200), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specificCountryCustomizationDialingEnableConfig.setStatus('current')
+specificCountryCustomizationDialingOverride = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 400, 400, 1, 300), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specificCountryCustomizationDialingOverride.setStatus('current')
+specificCountryCustomizationDialingInterDtmfDialDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 400, 400, 1, 400), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(50, 600)).clone(100)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specificCountryCustomizationDialingInterDtmfDialDelay.setStatus('current')
+specificCountryCustomizationDialingDtmfDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 400, 400, 1, 500), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(50, 600)).clone(100)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specificCountryCustomizationDialingDtmfDuration.setStatus('current')
+specificCountryCustomizationDialingInterMfR1DialDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 400, 400, 1, 600), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(50, 600)).clone(68)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specificCountryCustomizationDialingInterMfR1DialDelay.setStatus('current')
+specificCountryCustomizationDialingMfR1Duration = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 400, 400, 1, 700), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(50, 600)).clone(68)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specificCountryCustomizationDialingMfR1Duration.setStatus('current')
+countryCustomizationToneGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 500))
+countryToneStatusTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 500, 100), )
+if mibBuilder.loadTexts: countryToneStatusTable.setStatus('current')
+countryToneStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 500, 100, 1), ).setIndexNames((0, "MX-TELIF-MIB", "countryToneStatusTone"))
+if mibBuilder.loadTexts: countryToneStatusEntry.setStatus('current')
+countryToneStatusTone = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 500, 100, 1, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 150, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300))).clone(namedValues=NamedValues(("busy", 100), ("callWaiting", 150), ("confirmation", 200), ("congestion", 300), ("dial", 400), ("hold", 500), ("intercept", 600), ("messageWaiting", 700), ("preemption", 800), ("reorder", 900), ("ringback", 1000), ("roh", 1100), ("sit", 1200), ("stutter", 1300)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: countryToneStatusTone.setStatus('current')
+countryToneStatusPattern = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 500, 100, 1, 300), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 512))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: countryToneStatusPattern.setStatus('current')
+countryCustomizationToneTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 500, 200), )
+if mibBuilder.loadTexts: countryCustomizationToneTable.setStatus('current')
+countryCustomizationToneEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 500, 200, 1), ).setIndexNames((0, "MX-TELIF-MIB", "countryCustomizationToneTone"))
+if mibBuilder.loadTexts: countryCustomizationToneEntry.setStatus('current')
+countryCustomizationToneTone = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 500, 200, 1, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 150, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300))).clone(namedValues=NamedValues(("busy", 100), ("callWaiting", 150), ("confirmation", 200), ("congestion", 300), ("dial", 400), ("hold", 500), ("intercept", 600), ("messageWaiting", 700), ("preemption", 800), ("reorder", 900), ("ringback", 1000), ("roh", 1100), ("sit", 1200), ("stutter", 1300)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: countryCustomizationToneTone.setStatus('current')
+countryCustomizationToneOverride = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 500, 200, 1, 200), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: countryCustomizationToneOverride.setStatus('current')
+countryCustomizationTonePattern = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 200, 500, 200, 1, 300), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 512))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: countryCustomizationTonePattern.setStatus('current')
+machineDetectionGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 300))
+defaultMachineDetectionCngToneDetection = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 300, 100), MxEnableState().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: defaultMachineDetectionCngToneDetection.setStatus('current')
+defaultMachineDetectionCedToneDetection = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 300, 101), MxEnableState().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: defaultMachineDetectionCedToneDetection.setStatus('current')
+defaultMachineDetectionV21ModulationDetection = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 300, 102), MxEnableState().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: defaultMachineDetectionV21ModulationDetection.setStatus('current')
+defaultMachineDetectionBehaviorOnCedToneDetection = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 300, 110), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 200))).clone(namedValues=NamedValues(("passthrough", 100), ("faxmode", 200))).clone('passthrough')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: defaultMachineDetectionBehaviorOnCedToneDetection.setStatus('current')
+specificMachineDetectionTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 300, 200), )
+if mibBuilder.loadTexts: specificMachineDetectionTable.setStatus('current')
+specificMachineDetectionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 300, 200, 1), ).setIndexNames((0, "MX-TELIF-MIB", "specificMachineDetectionInterfaceId"))
+if mibBuilder.loadTexts: specificMachineDetectionEntry.setStatus('current')
+specificMachineDetectionInterfaceId = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 300, 200, 1, 100), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: specificMachineDetectionInterfaceId.setStatus('current')
+specificMachineDetectionEnableConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 300, 200, 1, 200), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specificMachineDetectionEnableConfig.setStatus('current')
+specificMachineDetectionCngToneDetection = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 300, 200, 1, 300), MxEnableState().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specificMachineDetectionCngToneDetection.setStatus('current')
+specificMachineDetectionCedToneDetection = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 300, 200, 1, 310), MxEnableState().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specificMachineDetectionCedToneDetection.setStatus('current')
+specificMachineDetectionV21ModulationDetection = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 300, 200, 1, 320), MxEnableState().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specificMachineDetectionV21ModulationDetection.setStatus('current')
+specificMachineDetectionBehaviorOnCedToneDetection = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 300, 200, 1, 400), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 200))).clone(namedValues=NamedValues(("passthrough", 100), ("faxmode", 200))).clone('passthrough')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: specificMachineDetectionBehaviorOnCedToneDetection.setStatus('current')
+musicOnHoldStreamingGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 400))
+musicOnHoldStreamingEnable = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 400, 100), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: musicOnHoldStreamingEnable.setStatus('current')
+callWaitingToneGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 500))
+distinctiveCallWaitingToneTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 500, 100), )
+if mibBuilder.loadTexts: distinctiveCallWaitingToneTable.setStatus('current')
+distinctiveCallWaitingToneEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 500, 100, 1), ).setIndexNames((0, "MX-TELIF-MIB", "distinctiveCallWaitingToneIndex"))
+if mibBuilder.loadTexts: distinctiveCallWaitingToneEntry.setStatus('current')
+distinctiveCallWaitingToneIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 500, 100, 1, 100), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: distinctiveCallWaitingToneIndex.setStatus('current')
+distinctiveCallWaitingToneToneId = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 500, 100, 1, 200), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 512))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: distinctiveCallWaitingToneToneId.setStatus('current')
+distinctiveCallWaitingTonePattern = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 500, 100, 1, 300), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 512))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: distinctiveCallWaitingTonePattern.setStatus('current')
+interopGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 50000))
+interopDtmfDetectionTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 50000, 100), )
+if mibBuilder.loadTexts: interopDtmfDetectionTable.setStatus('current')
+interopDtmfDetectionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 50000, 100, 1), ).setIndexNames((0, "MX-TELIF-MIB", "interopDtmfDetectionInterfaceId"))
+if mibBuilder.loadTexts: interopDtmfDetectionEntry.setStatus('current')
+interopDtmfDetectionInterfaceId = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 50000, 100, 1, 100), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: interopDtmfDetectionInterfaceId.setStatus('current')
+interopDtmfDetectionRiseTimeCriteria = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 50000, 100, 1, 200), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 200))).clone(namedValues=NamedValues(("checkSr", 100), ("confirmSnr", 200))).clone('confirmSnr')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: interopDtmfDetectionRiseTimeCriteria.setStatus('current')
+interopDtmfDetectionPositiveTwist = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 50000, 100, 1, 300), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 14)).clone(6)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: interopDtmfDetectionPositiveTwist.setStatus('current')
+interopDtmfDetectionNegativeTwist = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 50000, 100, 1, 350), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 14)).clone(9)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: interopDtmfDetectionNegativeTwist.setStatus('current')
+interopDtmfDetectionMaxPowerThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 50000, 100, 1, 400), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-20, 1)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: interopDtmfDetectionMaxPowerThreshold.setStatus('current')
+interopDtmfDetectionMinPowerThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 50000, 100, 1, 450), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-45, -10)).clone(-30)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: interopDtmfDetectionMinPowerThreshold.setStatus('current')
+interopDtmfDetectionBreakPowerThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 50000, 100, 1, 500), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-45, -12)).clone(-32)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: interopDtmfDetectionBreakPowerThreshold.setStatus('current')
+interopStartCallInVbdTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 50000, 200), )
+if mibBuilder.loadTexts: interopStartCallInVbdTable.setStatus('current')
+interopStartCallInVbdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 50000, 200, 1), ).setIndexNames((0, "MX-TELIF-MIB", "interopStartCallInVbdInterfaceId"))
+if mibBuilder.loadTexts: interopStartCallInVbdEntry.setStatus('current')
+interopStartCallInVbdInterfaceId = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 50000, 200, 1, 100), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: interopStartCallInVbdInterfaceId.setStatus('current')
+interopStartCallInVbdEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 50000, 200, 1, 200), MxEnableState().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: interopStartCallInVbdEnable.setStatus('current')
+notificationsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 60010))
+minSeverity = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 60010, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100, 200, 300, 400, 500))).clone(namedValues=NamedValues(("disable", 0), ("debug", 100), ("info", 200), ("warning", 300), ("error", 400), ("critical", 500))).clone('warning')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: minSeverity.setStatus('current')
+configurationGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 60020))
+needRestartInfo = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1775, 1, 60020, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100))).clone(namedValues=NamedValues(("no", 0), ("yes", 100)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: needRestartInfo.setStatus('current')
+mibBuilder.exportSymbols("MX-TELIF-MIB", musicOnHoldStreamingEnable=musicOnHoldStreamingEnable, countryToneStatusTone=countryToneStatusTone, interopStartCallInVbdInterfaceId=interopStartCallInVbdInterfaceId, interopGroup=interopGroup, specificCountryCustomizationDialingInterDtmfDialDelay=specificCountryCustomizationDialingInterDtmfDialDelay, specificMachineDetectionCngToneDetection=specificMachineDetectionCngToneDetection, specificCountryCustomizationUserGainOutputOffset=specificCountryCustomizationUserGainOutputOffset, interopDtmfDetectionInterfaceId=interopDtmfDetectionInterfaceId, interopDtmfDetectionMinPowerThreshold=interopDtmfDetectionMinPowerThreshold, countryCustomizationToneTable=countryCustomizationToneTable, defaultMachineDetectionV21ModulationDetection=defaultMachineDetectionV21ModulationDetection, musicOnHoldStreamingGroup=musicOnHoldStreamingGroup, defaultCountryCustomizationUserGainOutputOffset=defaultCountryCustomizationUserGainOutputOffset, defaultCountryCustomizationUserGainInputOffset=defaultCountryCustomizationUserGainInputOffset, distinctiveCallWaitingToneTable=distinctiveCallWaitingToneTable, countryCustomizationTonePattern=countryCustomizationTonePattern, machineDetectionGroup=machineDetectionGroup, telIfMIB=telIfMIB, specificCountryCustomizationUserGainEntry=specificCountryCustomizationUserGainEntry, interopDtmfDetectionTable=interopDtmfDetectionTable, countryToneStatusTable=countryToneStatusTable, telIfMIBObjects=telIfMIBObjects, countryCustomizationToneTone=countryCustomizationToneTone, countryToneStatusPattern=countryToneStatusPattern, interopDtmfDetectionRiseTimeCriteria=interopDtmfDetectionRiseTimeCriteria, defaultMachineDetectionBehaviorOnCedToneDetection=defaultMachineDetectionBehaviorOnCedToneDetection, distinctiveCallWaitingTonePattern=distinctiveCallWaitingTonePattern, specificCountryCustomizationDialingEnableConfig=specificCountryCustomizationDialingEnableConfig, specificCountryCustomizationDialingDtmfDuration=specificCountryCustomizationDialingDtmfDuration, specificMachineDetectionCedToneDetection=specificMachineDetectionCedToneDetection, defaultCountryCustomizationDialingOverride=defaultCountryCustomizationDialingOverride, countryCustomizationToneOverride=countryCustomizationToneOverride, distinctiveCallWaitingToneEntry=distinctiveCallWaitingToneEntry, countryCustomizationToneEntry=countryCustomizationToneEntry, countryCustomizationUserGainGroup=countryCustomizationUserGainGroup, interopStartCallInVbdEnable=interopStartCallInVbdEnable, notificationsGroup=notificationsGroup, interopDtmfDetectionNegativeTwist=interopDtmfDetectionNegativeTwist, defaultCountryCustomizationDialingDtmfDuration=defaultCountryCustomizationDialingDtmfDuration, countryCustomizationGroup=countryCustomizationGroup, specificMachineDetectionInterfaceId=specificMachineDetectionInterfaceId, countryToneStatusEntry=countryToneStatusEntry, countryCustomizationToneGroup=countryCustomizationToneGroup, interopStartCallInVbdEntry=interopStartCallInVbdEntry, specificMachineDetectionEnableConfig=specificMachineDetectionEnableConfig, specificMachineDetectionTable=specificMachineDetectionTable, specificMachineDetectionBehaviorOnCedToneDetection=specificMachineDetectionBehaviorOnCedToneDetection, interopDtmfDetectionEntry=interopDtmfDetectionEntry, specificCountryCustomizationDialingInterfaceId=specificCountryCustomizationDialingInterfaceId, defaultCountryCustomizationDialingMfR1Duration=defaultCountryCustomizationDialingMfR1Duration, countryCustomizationDialingGroup=countryCustomizationDialingGroup, distinctiveCallWaitingToneIndex=distinctiveCallWaitingToneIndex, minSeverity=minSeverity, specificCountryCustomizationUserGainInputOffset=specificCountryCustomizationUserGainInputOffset, specificCountryCustomizationUserGainTable=specificCountryCustomizationUserGainTable, specificCountryCustomizationDialingTable=specificCountryCustomizationDialingTable, interopDtmfDetectionMaxPowerThreshold=interopDtmfDetectionMaxPowerThreshold, specificMachineDetectionEntry=specificMachineDetectionEntry, defaultCountryCustomizationDialingInterMfR1DialDelay=defaultCountryCustomizationDialingInterMfR1DialDelay, specificCountryCustomizationDialingInterMfR1DialDelay=specificCountryCustomizationDialingInterMfR1DialDelay, specificCountryCustomizationDialingEntry=specificCountryCustomizationDialingEntry, specificCountryCustomizationDialingOverride=specificCountryCustomizationDialingOverride, defaultMachineDetectionCngToneDetection=defaultMachineDetectionCngToneDetection, interopStartCallInVbdTable=interopStartCallInVbdTable, interopDtmfDetectionBreakPowerThreshold=interopDtmfDetectionBreakPowerThreshold, specificMachineDetectionV21ModulationDetection=specificMachineDetectionV21ModulationDetection, needRestartInfo=needRestartInfo, PYSNMP_MODULE_ID=telIfMIB, configurationGroup=configurationGroup, callWaitingToneGroup=callWaitingToneGroup, distinctiveCallWaitingToneToneId=distinctiveCallWaitingToneToneId, countrySelection=countrySelection, specificCountryCustomizationUserGainInterfaceId=specificCountryCustomizationUserGainInterfaceId, specificCountryCustomizationDialingMfR1Duration=specificCountryCustomizationDialingMfR1Duration, defaultCountryCustomizationDialingInterDtmfDialDelay=defaultCountryCustomizationDialingInterDtmfDialDelay, specificCountryCustomizationUserGainEnableConfig=specificCountryCustomizationUserGainEnableConfig, interopDtmfDetectionPositiveTwist=interopDtmfDetectionPositiveTwist, defaultMachineDetectionCedToneDetection=defaultMachineDetectionCedToneDetection)

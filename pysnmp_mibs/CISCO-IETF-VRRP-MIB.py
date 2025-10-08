@@ -1,312 +1,138 @@
-_A0='cVrrpNotificationProtoError'
-_z='cVrrpNotificationNewMaster'
-_y='cVrrpStatisticsInvalidAuthType'
-_x='cVrrpStatisticsRefreshRate'
-_w='cVrrpStatisticsDiscontinuityTime'
-_v='cVrrpStatisticsPacketLengthErrors'
-_u='cVrrpStatisticsAddressListErrors'
-_t='cVrrpStatisticsIpTtlErrors'
-_s='cVrrpStatisticsInvldTypePktsRcvd'
-_r='cVrrpStatisticsPriZeroPktsSent'
-_q='cVrrpStatisticsPriZeroPktsRcvd'
-_p='cVrrpStatisticsAdvIntervalErrors'
-_o='cVrrpStatisticsAdvertiseRcvd'
-_n='cVrrpStatisticsBecomeMaster'
-_m='cVrrpRouterVrIdErrors'
-_l='cVrrpRouterVersionErrors'
-_k='cVrrpRouterChecksumErrors'
-_j='cVrrpAssociatedIpAddrRowStatus'
-_i='cVrrpOperationsPrimaryIpAddr'
-_h='cVrrpOperationsAddrCount'
-_g='cVrrpOperationsRowStatus'
-_f='cVrrpOperationsUpTime'
-_e='cVrrpOperationsAcceptMode'
-_d='cVrrpOperationsPreemptMode'
-_c='cVrrpOperationsAdvInterval'
-_b='cVrrpOperationsVersion'
-_a='cVrrpOperationsPriority'
-_Z='cVrrpOperationsState'
-_Y='cVrrpOperationsVirtualMacAddr'
-_X='cVrrpNotificationCntl'
-_W='accessible-for-notify'
-_V='cVrrpAssociatedIpAddr'
-_U='cVrrpAssociatedInetAddrType'
-_T='TimeInterval'
-_S='InetAddress'
-_R='cVrrpNotificationsGroup'
-_Q='cVrrpNotificationInfoGroup'
-_P='cVrrpStatisticsGroup'
-_O='cVrrpOperationsGroup'
-_N='cVrrpNotificationProtoErrReason'
-_M='cVrrpNotificationNewMasterReason'
-_L='cVrrpOperationsMasterIpAddr'
-_K='cVrrpOperationsInetAddrType'
-_J='TruthValue'
-_I='not-accessible'
-_H='cVrrpOperationsVrId'
-_G='ifIndex'
-_F='IF-MIB'
-_E='read-create'
-_D='Integer32'
-_C='read-only'
-_B='current'
-_A='CISCO-IETF-VRRP-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoExperiment,=mibBuilder.importSymbols('CISCO-SMI','ciscoExperiment')
-ifIndex,=mibBuilder.importSymbols(_F,_G)
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB',_S,'InetAddressType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention',_T,'TimeStamp',_J)
-ciscoVrrpMIB=ModuleIdentity((1,3,6,1,4,1,9,10,999))
-if mibBuilder.loadTexts:ciscoVrrpMIB.setRevisions(('2005-11-17 00:00',))
-class CVrId(TextualConvention,Integer32):status=_B;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_CVrrpNotifications_ObjectIdentity=ObjectIdentity
-cVrrpNotifications=_CVrrpNotifications_ObjectIdentity((1,3,6,1,4,1,9,10,999,0))
-_CVrrpOperations_ObjectIdentity=ObjectIdentity
-cVrrpOperations=_CVrrpOperations_ObjectIdentity((1,3,6,1,4,1,9,10,999,1))
-class _CVrrpNotificationCntl_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_CVrrpNotificationCntl_Type.__name__=_D
-_CVrrpNotificationCntl_Object=MibScalar
-cVrrpNotificationCntl=_CVrrpNotificationCntl_Object((1,3,6,1,4,1,9,10,999,1,2),_CVrrpNotificationCntl_Type())
-cVrrpNotificationCntl.setMaxAccess('read-write')
-if mibBuilder.loadTexts:cVrrpNotificationCntl.setStatus(_B)
-_CVrrpOperationsTable_Object=MibTable
-cVrrpOperationsTable=_CVrrpOperationsTable_Object((1,3,6,1,4,1,9,10,999,1,7))
-if mibBuilder.loadTexts:cVrrpOperationsTable.setStatus(_B)
-_CVrrpOperationsEntry_Object=MibTableRow
-cVrrpOperationsEntry=_CVrrpOperationsEntry_Object((1,3,6,1,4,1,9,10,999,1,7,1))
-cVrrpOperationsEntry.setIndexNames((0,_A,_K),(0,_A,_H),(0,_F,_G))
-if mibBuilder.loadTexts:cVrrpOperationsEntry.setStatus(_B)
-_CVrrpOperationsInetAddrType_Type=InetAddressType
-_CVrrpOperationsInetAddrType_Object=MibTableColumn
-cVrrpOperationsInetAddrType=_CVrrpOperationsInetAddrType_Object((1,3,6,1,4,1,9,10,999,1,7,1,1),_CVrrpOperationsInetAddrType_Type())
-cVrrpOperationsInetAddrType.setMaxAccess(_I)
-if mibBuilder.loadTexts:cVrrpOperationsInetAddrType.setStatus(_B)
-_CVrrpOperationsVrId_Type=CVrId
-_CVrrpOperationsVrId_Object=MibTableColumn
-cVrrpOperationsVrId=_CVrrpOperationsVrId_Object((1,3,6,1,4,1,9,10,999,1,7,1,2),_CVrrpOperationsVrId_Type())
-cVrrpOperationsVrId.setMaxAccess(_I)
-if mibBuilder.loadTexts:cVrrpOperationsVrId.setStatus(_B)
-_CVrrpOperationsVirtualMacAddr_Type=MacAddress
-_CVrrpOperationsVirtualMacAddr_Object=MibTableColumn
-cVrrpOperationsVirtualMacAddr=_CVrrpOperationsVirtualMacAddr_Object((1,3,6,1,4,1,9,10,999,1,7,1,3),_CVrrpOperationsVirtualMacAddr_Type())
-cVrrpOperationsVirtualMacAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpOperationsVirtualMacAddr.setStatus(_B)
-class _CVrrpOperationsState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('initialize',1),('backup',2),('master',3)))
-_CVrrpOperationsState_Type.__name__=_D
-_CVrrpOperationsState_Object=MibTableColumn
-cVrrpOperationsState=_CVrrpOperationsState_Object((1,3,6,1,4,1,9,10,999,1,7,1,4),_CVrrpOperationsState_Type())
-cVrrpOperationsState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpOperationsState.setStatus(_B)
-class _CVrrpOperationsPriority_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_CVrrpOperationsPriority_Type.__name__=_D
-_CVrrpOperationsPriority_Object=MibTableColumn
-cVrrpOperationsPriority=_CVrrpOperationsPriority_Object((1,3,6,1,4,1,9,10,999,1,7,1,5),_CVrrpOperationsPriority_Type())
-cVrrpOperationsPriority.setMaxAccess(_E)
-if mibBuilder.loadTexts:cVrrpOperationsPriority.setStatus(_B)
-class _CVrrpOperationsVersion_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('vrrpv2',1),('vrrpv3',2)))
-_CVrrpOperationsVersion_Type.__name__=_D
-_CVrrpOperationsVersion_Object=MibTableColumn
-cVrrpOperationsVersion=_CVrrpOperationsVersion_Object((1,3,6,1,4,1,9,10,999,1,7,1,6),_CVrrpOperationsVersion_Type())
-cVrrpOperationsVersion.setMaxAccess(_E)
-if mibBuilder.loadTexts:cVrrpOperationsVersion.setStatus(_B)
-class _CVrrpOperationsAddrCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_CVrrpOperationsAddrCount_Type.__name__=_D
-_CVrrpOperationsAddrCount_Object=MibTableColumn
-cVrrpOperationsAddrCount=_CVrrpOperationsAddrCount_Object((1,3,6,1,4,1,9,10,999,1,7,1,7),_CVrrpOperationsAddrCount_Type())
-cVrrpOperationsAddrCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpOperationsAddrCount.setStatus(_B)
-_CVrrpOperationsMasterIpAddr_Type=InetAddress
-_CVrrpOperationsMasterIpAddr_Object=MibTableColumn
-cVrrpOperationsMasterIpAddr=_CVrrpOperationsMasterIpAddr_Object((1,3,6,1,4,1,9,10,999,1,7,1,9),_CVrrpOperationsMasterIpAddr_Type())
-cVrrpOperationsMasterIpAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpOperationsMasterIpAddr.setStatus(_B)
-_CVrrpOperationsPrimaryIpAddr_Type=InetAddress
-_CVrrpOperationsPrimaryIpAddr_Object=MibTableColumn
-cVrrpOperationsPrimaryIpAddr=_CVrrpOperationsPrimaryIpAddr_Object((1,3,6,1,4,1,9,10,999,1,7,1,10),_CVrrpOperationsPrimaryIpAddr_Type())
-cVrrpOperationsPrimaryIpAddr.setMaxAccess(_E)
-if mibBuilder.loadTexts:cVrrpOperationsPrimaryIpAddr.setStatus(_B)
-class _CVrrpOperationsAdvInterval_Type(TimeInterval):defaultValue=100;subtypeSpec=TimeInterval.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4096))
-_CVrrpOperationsAdvInterval_Type.__name__=_T
-_CVrrpOperationsAdvInterval_Object=MibTableColumn
-cVrrpOperationsAdvInterval=_CVrrpOperationsAdvInterval_Object((1,3,6,1,4,1,9,10,999,1,7,1,11),_CVrrpOperationsAdvInterval_Type())
-cVrrpOperationsAdvInterval.setMaxAccess(_E)
-if mibBuilder.loadTexts:cVrrpOperationsAdvInterval.setStatus(_B)
-if mibBuilder.loadTexts:cVrrpOperationsAdvInterval.setUnits('centiseconds')
-class _CVrrpOperationsPreemptMode_Type(TruthValue):defaultValue=1
-_CVrrpOperationsPreemptMode_Type.__name__=_J
-_CVrrpOperationsPreemptMode_Object=MibTableColumn
-cVrrpOperationsPreemptMode=_CVrrpOperationsPreemptMode_Object((1,3,6,1,4,1,9,10,999,1,7,1,12),_CVrrpOperationsPreemptMode_Type())
-cVrrpOperationsPreemptMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:cVrrpOperationsPreemptMode.setStatus(_B)
-class _CVrrpOperationsAcceptMode_Type(TruthValue):defaultValue=2
-_CVrrpOperationsAcceptMode_Type.__name__=_J
-_CVrrpOperationsAcceptMode_Object=MibTableColumn
-cVrrpOperationsAcceptMode=_CVrrpOperationsAcceptMode_Object((1,3,6,1,4,1,9,10,999,1,7,1,13),_CVrrpOperationsAcceptMode_Type())
-cVrrpOperationsAcceptMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:cVrrpOperationsAcceptMode.setStatus(_B)
-_CVrrpOperationsUpTime_Type=TimeStamp
-_CVrrpOperationsUpTime_Object=MibTableColumn
-cVrrpOperationsUpTime=_CVrrpOperationsUpTime_Object((1,3,6,1,4,1,9,10,999,1,7,1,14),_CVrrpOperationsUpTime_Type())
-cVrrpOperationsUpTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpOperationsUpTime.setStatus(_B)
-_CVrrpOperationsRowStatus_Type=RowStatus
-_CVrrpOperationsRowStatus_Object=MibTableColumn
-cVrrpOperationsRowStatus=_CVrrpOperationsRowStatus_Object((1,3,6,1,4,1,9,10,999,1,7,1,15),_CVrrpOperationsRowStatus_Type())
-cVrrpOperationsRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:cVrrpOperationsRowStatus.setStatus(_B)
-_CVrrpAssociatedIpAddrTable_Object=MibTable
-cVrrpAssociatedIpAddrTable=_CVrrpAssociatedIpAddrTable_Object((1,3,6,1,4,1,9,10,999,1,8))
-if mibBuilder.loadTexts:cVrrpAssociatedIpAddrTable.setStatus(_B)
-_CVrrpAssociatedIpAddrEntry_Object=MibTableRow
-cVrrpAssociatedIpAddrEntry=_CVrrpAssociatedIpAddrEntry_Object((1,3,6,1,4,1,9,10,999,1,8,1))
-cVrrpAssociatedIpAddrEntry.setIndexNames((0,_A,_U),(0,_A,_H),(0,_F,_G),(0,_A,_V))
-if mibBuilder.loadTexts:cVrrpAssociatedIpAddrEntry.setStatus(_B)
-_CVrrpAssociatedInetAddrType_Type=InetAddressType
-_CVrrpAssociatedInetAddrType_Object=MibTableColumn
-cVrrpAssociatedInetAddrType=_CVrrpAssociatedInetAddrType_Object((1,3,6,1,4,1,9,10,999,1,8,1,2),_CVrrpAssociatedInetAddrType_Type())
-cVrrpAssociatedInetAddrType.setMaxAccess(_I)
-if mibBuilder.loadTexts:cVrrpAssociatedInetAddrType.setStatus(_B)
-class _CVrrpAssociatedIpAddr_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
-_CVrrpAssociatedIpAddr_Type.__name__=_S
-_CVrrpAssociatedIpAddr_Object=MibTableColumn
-cVrrpAssociatedIpAddr=_CVrrpAssociatedIpAddr_Object((1,3,6,1,4,1,9,10,999,1,8,1,3),_CVrrpAssociatedIpAddr_Type())
-cVrrpAssociatedIpAddr.setMaxAccess(_I)
-if mibBuilder.loadTexts:cVrrpAssociatedIpAddr.setStatus(_B)
-_CVrrpAssociatedIpAddrRowStatus_Type=RowStatus
-_CVrrpAssociatedIpAddrRowStatus_Object=MibTableColumn
-cVrrpAssociatedIpAddrRowStatus=_CVrrpAssociatedIpAddrRowStatus_Object((1,3,6,1,4,1,9,10,999,1,8,1,4),_CVrrpAssociatedIpAddrRowStatus_Type())
-cVrrpAssociatedIpAddrRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:cVrrpAssociatedIpAddrRowStatus.setStatus(_B)
-class _CVrrpNotificationNewMasterReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('priority',0),('preempted',1),('masterNoResponse',2)))
-_CVrrpNotificationNewMasterReason_Type.__name__=_D
-_CVrrpNotificationNewMasterReason_Object=MibScalar
-cVrrpNotificationNewMasterReason=_CVrrpNotificationNewMasterReason_Object((1,3,6,1,4,1,9,10,999,1,9),_CVrrpNotificationNewMasterReason_Type())
-cVrrpNotificationNewMasterReason.setMaxAccess(_W)
-if mibBuilder.loadTexts:cVrrpNotificationNewMasterReason.setStatus(_B)
-class _CVrrpNotificationProtoErrReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('hopLimitError',0),('versionError',1),('checksumError',2),('vridError',3)))
-_CVrrpNotificationProtoErrReason_Type.__name__=_D
-_CVrrpNotificationProtoErrReason_Object=MibScalar
-cVrrpNotificationProtoErrReason=_CVrrpNotificationProtoErrReason_Object((1,3,6,1,4,1,9,10,999,1,10),_CVrrpNotificationProtoErrReason_Type())
-cVrrpNotificationProtoErrReason.setMaxAccess(_W)
-if mibBuilder.loadTexts:cVrrpNotificationProtoErrReason.setStatus(_B)
-_CVrrpStatistics_ObjectIdentity=ObjectIdentity
-cVrrpStatistics=_CVrrpStatistics_ObjectIdentity((1,3,6,1,4,1,9,10,999,2))
-_CVrrpRouterChecksumErrors_Type=Counter32
-_CVrrpRouterChecksumErrors_Object=MibScalar
-cVrrpRouterChecksumErrors=_CVrrpRouterChecksumErrors_Object((1,3,6,1,4,1,9,10,999,2,1),_CVrrpRouterChecksumErrors_Type())
-cVrrpRouterChecksumErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpRouterChecksumErrors.setStatus(_B)
-_CVrrpRouterVersionErrors_Type=Counter32
-_CVrrpRouterVersionErrors_Object=MibScalar
-cVrrpRouterVersionErrors=_CVrrpRouterVersionErrors_Object((1,3,6,1,4,1,9,10,999,2,2),_CVrrpRouterVersionErrors_Type())
-cVrrpRouterVersionErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpRouterVersionErrors.setStatus(_B)
-_CVrrpRouterVrIdErrors_Type=Counter32
-_CVrrpRouterVrIdErrors_Object=MibScalar
-cVrrpRouterVrIdErrors=_CVrrpRouterVrIdErrors_Object((1,3,6,1,4,1,9,10,999,2,3),_CVrrpRouterVrIdErrors_Type())
-cVrrpRouterVrIdErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpRouterVrIdErrors.setStatus(_B)
-_CVrrpRouterStatisticsTable_Object=MibTable
-cVrrpRouterStatisticsTable=_CVrrpRouterStatisticsTable_Object((1,3,6,1,4,1,9,10,999,2,5))
-if mibBuilder.loadTexts:cVrrpRouterStatisticsTable.setStatus(_B)
-_CVrrpRouterStatisticsEntry_Object=MibTableRow
-cVrrpRouterStatisticsEntry=_CVrrpRouterStatisticsEntry_Object((1,3,6,1,4,1,9,10,999,2,5,1))
-cVrrpRouterStatisticsEntry.setIndexNames((0,_A,_K),(0,_A,_H),(0,_F,_G))
-if mibBuilder.loadTexts:cVrrpRouterStatisticsEntry.setStatus(_B)
-_CVrrpStatisticsBecomeMaster_Type=Counter32
-_CVrrpStatisticsBecomeMaster_Object=MibTableColumn
-cVrrpStatisticsBecomeMaster=_CVrrpStatisticsBecomeMaster_Object((1,3,6,1,4,1,9,10,999,2,5,1,1),_CVrrpStatisticsBecomeMaster_Type())
-cVrrpStatisticsBecomeMaster.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpStatisticsBecomeMaster.setStatus(_B)
-_CVrrpStatisticsAdvertiseRcvd_Type=Counter32
-_CVrrpStatisticsAdvertiseRcvd_Object=MibTableColumn
-cVrrpStatisticsAdvertiseRcvd=_CVrrpStatisticsAdvertiseRcvd_Object((1,3,6,1,4,1,9,10,999,2,5,1,2),_CVrrpStatisticsAdvertiseRcvd_Type())
-cVrrpStatisticsAdvertiseRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpStatisticsAdvertiseRcvd.setStatus(_B)
-_CVrrpStatisticsAdvIntervalErrors_Type=Counter32
-_CVrrpStatisticsAdvIntervalErrors_Object=MibTableColumn
-cVrrpStatisticsAdvIntervalErrors=_CVrrpStatisticsAdvIntervalErrors_Object((1,3,6,1,4,1,9,10,999,2,5,1,3),_CVrrpStatisticsAdvIntervalErrors_Type())
-cVrrpStatisticsAdvIntervalErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpStatisticsAdvIntervalErrors.setStatus(_B)
-_CVrrpStatisticsIpTtlErrors_Type=Counter32
-_CVrrpStatisticsIpTtlErrors_Object=MibTableColumn
-cVrrpStatisticsIpTtlErrors=_CVrrpStatisticsIpTtlErrors_Object((1,3,6,1,4,1,9,10,999,2,5,1,4),_CVrrpStatisticsIpTtlErrors_Type())
-cVrrpStatisticsIpTtlErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpStatisticsIpTtlErrors.setStatus(_B)
-_CVrrpStatisticsPriZeroPktsRcvd_Type=Counter32
-_CVrrpStatisticsPriZeroPktsRcvd_Object=MibTableColumn
-cVrrpStatisticsPriZeroPktsRcvd=_CVrrpStatisticsPriZeroPktsRcvd_Object((1,3,6,1,4,1,9,10,999,2,5,1,5),_CVrrpStatisticsPriZeroPktsRcvd_Type())
-cVrrpStatisticsPriZeroPktsRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpStatisticsPriZeroPktsRcvd.setStatus(_B)
-_CVrrpStatisticsPriZeroPktsSent_Type=Counter32
-_CVrrpStatisticsPriZeroPktsSent_Object=MibTableColumn
-cVrrpStatisticsPriZeroPktsSent=_CVrrpStatisticsPriZeroPktsSent_Object((1,3,6,1,4,1,9,10,999,2,5,1,6),_CVrrpStatisticsPriZeroPktsSent_Type())
-cVrrpStatisticsPriZeroPktsSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpStatisticsPriZeroPktsSent.setStatus(_B)
-_CVrrpStatisticsInvldTypePktsRcvd_Type=Counter32
-_CVrrpStatisticsInvldTypePktsRcvd_Object=MibTableColumn
-cVrrpStatisticsInvldTypePktsRcvd=_CVrrpStatisticsInvldTypePktsRcvd_Object((1,3,6,1,4,1,9,10,999,2,5,1,7),_CVrrpStatisticsInvldTypePktsRcvd_Type())
-cVrrpStatisticsInvldTypePktsRcvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpStatisticsInvldTypePktsRcvd.setStatus(_B)
-_CVrrpStatisticsAddressListErrors_Type=Counter32
-_CVrrpStatisticsAddressListErrors_Object=MibTableColumn
-cVrrpStatisticsAddressListErrors=_CVrrpStatisticsAddressListErrors_Object((1,3,6,1,4,1,9,10,999,2,5,1,8),_CVrrpStatisticsAddressListErrors_Type())
-cVrrpStatisticsAddressListErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpStatisticsAddressListErrors.setStatus(_B)
-_CVrrpStatisticsPacketLengthErrors_Type=Counter32
-_CVrrpStatisticsPacketLengthErrors_Object=MibTableColumn
-cVrrpStatisticsPacketLengthErrors=_CVrrpStatisticsPacketLengthErrors_Object((1,3,6,1,4,1,9,10,999,2,5,1,11),_CVrrpStatisticsPacketLengthErrors_Type())
-cVrrpStatisticsPacketLengthErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpStatisticsPacketLengthErrors.setStatus(_B)
-_CVrrpStatisticsDiscontinuityTime_Type=TimeStamp
-_CVrrpStatisticsDiscontinuityTime_Object=MibTableColumn
-cVrrpStatisticsDiscontinuityTime=_CVrrpStatisticsDiscontinuityTime_Object((1,3,6,1,4,1,9,10,999,2,5,1,12),_CVrrpStatisticsDiscontinuityTime_Type())
-cVrrpStatisticsDiscontinuityTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpStatisticsDiscontinuityTime.setStatus(_B)
-_CVrrpStatisticsRefreshRate_Type=Unsigned32
-_CVrrpStatisticsRefreshRate_Object=MibTableColumn
-cVrrpStatisticsRefreshRate=_CVrrpStatisticsRefreshRate_Object((1,3,6,1,4,1,9,10,999,2,5,1,13),_CVrrpStatisticsRefreshRate_Type())
-cVrrpStatisticsRefreshRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpStatisticsRefreshRate.setStatus(_B)
-if mibBuilder.loadTexts:cVrrpStatisticsRefreshRate.setUnits('milli-seconds')
-_CVrrpStatisticsInvalidAuthType_Type=Counter32
-_CVrrpStatisticsInvalidAuthType_Object=MibTableColumn
-cVrrpStatisticsInvalidAuthType=_CVrrpStatisticsInvalidAuthType_Object((1,3,6,1,4,1,9,10,999,2,5,1,14),_CVrrpStatisticsInvalidAuthType_Type())
-cVrrpStatisticsInvalidAuthType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVrrpStatisticsInvalidAuthType.setStatus(_B)
-_CVrrpConformance_ObjectIdentity=ObjectIdentity
-cVrrpConformance=_CVrrpConformance_ObjectIdentity((1,3,6,1,4,1,9,10,999,3))
-_CVrrpMIBCompliances_ObjectIdentity=ObjectIdentity
-cVrrpMIBCompliances=_CVrrpMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,10,999,3,1))
-_CVrrpMIBGroups_ObjectIdentity=ObjectIdentity
-cVrrpMIBGroups=_CVrrpMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,10,999,3,2))
-cVrrpOperationsGroup=ObjectGroup((1,3,6,1,4,1,9,10,999,3,2,5))
-cVrrpOperationsGroup.setObjects(*((_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_L),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j)))
-if mibBuilder.loadTexts:cVrrpOperationsGroup.setStatus(_B)
-cVrrpStatisticsGroup=ObjectGroup((1,3,6,1,4,1,9,10,999,3,2,6))
-cVrrpStatisticsGroup.setObjects(*((_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y)))
-if mibBuilder.loadTexts:cVrrpStatisticsGroup.setStatus(_B)
-cVrrpNotificationInfoGroup=ObjectGroup((1,3,6,1,4,1,9,10,999,3,2,8))
-cVrrpNotificationInfoGroup.setObjects(*((_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:cVrrpNotificationInfoGroup.setStatus(_B)
-cVrrpNotificationNewMaster=NotificationType((1,3,6,1,4,1,9,10,999,0,1))
-cVrrpNotificationNewMaster.setObjects(*((_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:cVrrpNotificationNewMaster.setStatus(_B)
-cVrrpNotificationProtoError=NotificationType((1,3,6,1,4,1,9,10,999,0,3))
-cVrrpNotificationProtoError.setObjects((_A,_N))
-if mibBuilder.loadTexts:cVrrpNotificationProtoError.setStatus(_B)
-cVrrpNotificationsGroup=NotificationGroup((1,3,6,1,4,1,9,10,999,3,2,9))
-cVrrpNotificationsGroup.setObjects(*((_A,_z),(_A,_A0)))
-if mibBuilder.loadTexts:cVrrpNotificationsGroup.setStatus(_B)
-cVrrpMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,9,10,999,3,1,2))
-cVrrpMIBCompliance2.setObjects(*((_A,_O),(_A,_P),(_A,_Q),(_A,_R)))
-if mibBuilder.loadTexts:cVrrpMIBCompliance2.setStatus(_B)
-cVrrpMIBReadOnlyCompliance=ModuleCompliance((1,3,6,1,4,1,9,10,999,3,1,3))
-cVrrpMIBReadOnlyCompliance.setObjects(*((_A,_O),(_A,_P),(_A,_Q),(_A,_R)))
-if mibBuilder.loadTexts:cVrrpMIBReadOnlyCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'CVrId':CVrId,'ciscoVrrpMIB':ciscoVrrpMIB,'cVrrpNotifications':cVrrpNotifications,_z:cVrrpNotificationNewMaster,_A0:cVrrpNotificationProtoError,'cVrrpOperations':cVrrpOperations,_X:cVrrpNotificationCntl,'cVrrpOperationsTable':cVrrpOperationsTable,'cVrrpOperationsEntry':cVrrpOperationsEntry,_K:cVrrpOperationsInetAddrType,_H:cVrrpOperationsVrId,_Y:cVrrpOperationsVirtualMacAddr,_Z:cVrrpOperationsState,_a:cVrrpOperationsPriority,_b:cVrrpOperationsVersion,_h:cVrrpOperationsAddrCount,_L:cVrrpOperationsMasterIpAddr,_i:cVrrpOperationsPrimaryIpAddr,_c:cVrrpOperationsAdvInterval,_d:cVrrpOperationsPreemptMode,_e:cVrrpOperationsAcceptMode,_f:cVrrpOperationsUpTime,_g:cVrrpOperationsRowStatus,'cVrrpAssociatedIpAddrTable':cVrrpAssociatedIpAddrTable,'cVrrpAssociatedIpAddrEntry':cVrrpAssociatedIpAddrEntry,_U:cVrrpAssociatedInetAddrType,_V:cVrrpAssociatedIpAddr,_j:cVrrpAssociatedIpAddrRowStatus,_M:cVrrpNotificationNewMasterReason,_N:cVrrpNotificationProtoErrReason,'cVrrpStatistics':cVrrpStatistics,_k:cVrrpRouterChecksumErrors,_l:cVrrpRouterVersionErrors,_m:cVrrpRouterVrIdErrors,'cVrrpRouterStatisticsTable':cVrrpRouterStatisticsTable,'cVrrpRouterStatisticsEntry':cVrrpRouterStatisticsEntry,_n:cVrrpStatisticsBecomeMaster,_o:cVrrpStatisticsAdvertiseRcvd,_p:cVrrpStatisticsAdvIntervalErrors,_t:cVrrpStatisticsIpTtlErrors,_q:cVrrpStatisticsPriZeroPktsRcvd,_r:cVrrpStatisticsPriZeroPktsSent,_s:cVrrpStatisticsInvldTypePktsRcvd,_u:cVrrpStatisticsAddressListErrors,_v:cVrrpStatisticsPacketLengthErrors,_w:cVrrpStatisticsDiscontinuityTime,_x:cVrrpStatisticsRefreshRate,_y:cVrrpStatisticsInvalidAuthType,'cVrrpConformance':cVrrpConformance,'cVrrpMIBCompliances':cVrrpMIBCompliances,'cVrrpMIBCompliance2':cVrrpMIBCompliance2,'cVrrpMIBReadOnlyCompliance':cVrrpMIBReadOnlyCompliance,'cVrrpMIBGroups':cVrrpMIBGroups,_O:cVrrpOperationsGroup,_P:cVrrpStatisticsGroup,_Q:cVrrpNotificationInfoGroup,_R:cVrrpNotificationsGroup})
+#
+# PySNMP MIB module CISCO-IETF-VRRP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-IETF-VRRP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:31 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "RowStatus", "TruthValue", "TextualConvention")
+ciscoVrrpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 999))
+ciscoVrrpMIB.setRevisions(('2005-11-17 00:00',))
+if mibBuilder.loadTexts: ciscoVrrpMIB.setLastUpdated('200511170000Z')
+if mibBuilder.loadTexts: ciscoVrrpMIB.setOrganization('Cisco Systems Inc')
+cVrrpNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 0))
+cVrrpOperations = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 1))
+cVrrpStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 2))
+cVrrpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 3))
+class CVrId(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 255)
+
+cVrrpNotificationCntl = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cVrrpNotificationCntl.setStatus('current')
+cVrrpOperationsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7), )
+if mibBuilder.loadTexts: cVrrpOperationsTable.setStatus('current')
+cVrrpOperationsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7, 1), ).setIndexNames((0, "CISCO-IETF-VRRP-MIB", "cVrrpOperationsInetAddrType"), (0, "CISCO-IETF-VRRP-MIB", "cVrrpOperationsVrId"), (0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cVrrpOperationsEntry.setStatus('current')
+cVrrpOperationsInetAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: cVrrpOperationsInetAddrType.setStatus('current')
+cVrrpOperationsVrId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7, 1, 2), CVrId())
+if mibBuilder.loadTexts: cVrrpOperationsVrId.setStatus('current')
+cVrrpOperationsVirtualMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7, 1, 3), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpOperationsVirtualMacAddr.setStatus('current')
+cVrrpOperationsState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("initialize", 1), ("backup", 2), ("master", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpOperationsState.setStatus('current')
+cVrrpOperationsPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(100)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cVrrpOperationsPriority.setStatus('current')
+cVrrpOperationsVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vrrpv2", 1), ("vrrpv3", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cVrrpOperationsVersion.setStatus('current')
+cVrrpOperationsAddrCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpOperationsAddrCount.setStatus('current')
+cVrrpOperationsMasterIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7, 1, 9), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpOperationsMasterIpAddr.setStatus('current')
+cVrrpOperationsPrimaryIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7, 1, 10), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cVrrpOperationsPrimaryIpAddr.setStatus('current')
+cVrrpOperationsAdvInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7, 1, 11), TimeInterval().subtype(subtypeSpec=ValueRangeConstraint(1, 4096)).clone(100)).setUnits('centiseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cVrrpOperationsAdvInterval.setStatus('current')
+cVrrpOperationsPreemptMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7, 1, 12), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cVrrpOperationsPreemptMode.setStatus('current')
+cVrrpOperationsAcceptMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7, 1, 13), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cVrrpOperationsAcceptMode.setStatus('current')
+cVrrpOperationsUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7, 1, 14), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpOperationsUpTime.setStatus('current')
+cVrrpOperationsRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 7, 1, 15), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cVrrpOperationsRowStatus.setStatus('current')
+cVrrpAssociatedIpAddrTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 8), )
+if mibBuilder.loadTexts: cVrrpAssociatedIpAddrTable.setStatus('current')
+cVrrpAssociatedIpAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 8, 1), ).setIndexNames((0, "CISCO-IETF-VRRP-MIB", "cVrrpAssociatedInetAddrType"), (0, "CISCO-IETF-VRRP-MIB", "cVrrpOperationsVrId"), (0, "IF-MIB", "ifIndex"), (0, "CISCO-IETF-VRRP-MIB", "cVrrpAssociatedIpAddr"))
+if mibBuilder.loadTexts: cVrrpAssociatedIpAddrEntry.setStatus('current')
+cVrrpAssociatedInetAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 8, 1, 2), InetAddressType())
+if mibBuilder.loadTexts: cVrrpAssociatedInetAddrType.setStatus('current')
+cVrrpAssociatedIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 8, 1, 3), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16))
+if mibBuilder.loadTexts: cVrrpAssociatedIpAddr.setStatus('current')
+cVrrpAssociatedIpAddrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 8, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cVrrpAssociatedIpAddrRowStatus.setStatus('current')
+cVrrpRouterChecksumErrors = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpRouterChecksumErrors.setStatus('current')
+cVrrpRouterVersionErrors = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpRouterVersionErrors.setStatus('current')
+cVrrpRouterVrIdErrors = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpRouterVrIdErrors.setStatus('current')
+cVrrpRouterStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 5), )
+if mibBuilder.loadTexts: cVrrpRouterStatisticsTable.setStatus('current')
+cVrrpRouterStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 5, 1), ).setIndexNames((0, "CISCO-IETF-VRRP-MIB", "cVrrpOperationsInetAddrType"), (0, "CISCO-IETF-VRRP-MIB", "cVrrpOperationsVrId"), (0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cVrrpRouterStatisticsEntry.setStatus('current')
+cVrrpStatisticsBecomeMaster = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 5, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpStatisticsBecomeMaster.setStatus('current')
+cVrrpStatisticsAdvertiseRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 5, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpStatisticsAdvertiseRcvd.setStatus('current')
+cVrrpStatisticsAdvIntervalErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 5, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpStatisticsAdvIntervalErrors.setStatus('current')
+cVrrpStatisticsIpTtlErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 5, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpStatisticsIpTtlErrors.setStatus('current')
+cVrrpStatisticsPriZeroPktsRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 5, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpStatisticsPriZeroPktsRcvd.setStatus('current')
+cVrrpStatisticsPriZeroPktsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 5, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpStatisticsPriZeroPktsSent.setStatus('current')
+cVrrpStatisticsInvldTypePktsRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 5, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpStatisticsInvldTypePktsRcvd.setStatus('current')
+cVrrpStatisticsAddressListErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 5, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpStatisticsAddressListErrors.setStatus('current')
+cVrrpStatisticsPacketLengthErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 5, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpStatisticsPacketLengthErrors.setStatus('current')
+cVrrpStatisticsDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 5, 1, 12), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpStatisticsDiscontinuityTime.setStatus('current')
+cVrrpStatisticsRefreshRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 5, 1, 13), Unsigned32()).setUnits('milli-seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpStatisticsRefreshRate.setStatus('current')
+cVrrpStatisticsInvalidAuthType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 5, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVrrpStatisticsInvalidAuthType.setStatus('current')
+cVrrpNotificationNewMasterReason = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("priority", 0), ("preempted", 1), ("masterNoResponse", 2)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cVrrpNotificationNewMasterReason.setStatus('current')
+cVrrpNotificationProtoErrReason = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("hopLimitError", 0), ("versionError", 1), ("checksumError", 2), ("vridError", 3)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cVrrpNotificationProtoErrReason.setStatus('current')
+cVrrpNotificationNewMaster = NotificationType((1, 3, 6, 1, 4, 1, 9, 10, 999, 0, 1)).setObjects(("CISCO-IETF-VRRP-MIB", "cVrrpOperationsMasterIpAddr"), ("CISCO-IETF-VRRP-MIB", "cVrrpNotificationNewMasterReason"))
+if mibBuilder.loadTexts: cVrrpNotificationNewMaster.setStatus('current')
+cVrrpNotificationProtoError = NotificationType((1, 3, 6, 1, 4, 1, 9, 10, 999, 0, 3)).setObjects(("CISCO-IETF-VRRP-MIB", "cVrrpNotificationProtoErrReason"))
+if mibBuilder.loadTexts: cVrrpNotificationProtoError.setStatus('current')
+cVrrpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 3, 1))
+cVrrpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 3, 2))
+cVrrpMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 999, 3, 1, 2)).setObjects(("CISCO-IETF-VRRP-MIB", "cVrrpOperationsGroup"), ("CISCO-IETF-VRRP-MIB", "cVrrpStatisticsGroup"), ("CISCO-IETF-VRRP-MIB", "cVrrpNotificationInfoGroup"), ("CISCO-IETF-VRRP-MIB", "cVrrpNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cVrrpMIBCompliance2 = cVrrpMIBCompliance2.setStatus('current')
+cVrrpMIBReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 999, 3, 1, 3)).setObjects(("CISCO-IETF-VRRP-MIB", "cVrrpOperationsGroup"), ("CISCO-IETF-VRRP-MIB", "cVrrpStatisticsGroup"), ("CISCO-IETF-VRRP-MIB", "cVrrpNotificationInfoGroup"), ("CISCO-IETF-VRRP-MIB", "cVrrpNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cVrrpMIBReadOnlyCompliance = cVrrpMIBReadOnlyCompliance.setStatus('current')
+cVrrpOperationsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 999, 3, 2, 5)).setObjects(("CISCO-IETF-VRRP-MIB", "cVrrpNotificationCntl"), ("CISCO-IETF-VRRP-MIB", "cVrrpOperationsVirtualMacAddr"), ("CISCO-IETF-VRRP-MIB", "cVrrpOperationsState"), ("CISCO-IETF-VRRP-MIB", "cVrrpOperationsPriority"), ("CISCO-IETF-VRRP-MIB", "cVrrpOperationsMasterIpAddr"), ("CISCO-IETF-VRRP-MIB", "cVrrpOperationsVersion"), ("CISCO-IETF-VRRP-MIB", "cVrrpOperationsAdvInterval"), ("CISCO-IETF-VRRP-MIB", "cVrrpOperationsPreemptMode"), ("CISCO-IETF-VRRP-MIB", "cVrrpOperationsAcceptMode"), ("CISCO-IETF-VRRP-MIB", "cVrrpOperationsUpTime"), ("CISCO-IETF-VRRP-MIB", "cVrrpOperationsRowStatus"), ("CISCO-IETF-VRRP-MIB", "cVrrpOperationsAddrCount"), ("CISCO-IETF-VRRP-MIB", "cVrrpOperationsPrimaryIpAddr"), ("CISCO-IETF-VRRP-MIB", "cVrrpAssociatedIpAddrRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cVrrpOperationsGroup = cVrrpOperationsGroup.setStatus('current')
+cVrrpStatisticsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 999, 3, 2, 6)).setObjects(("CISCO-IETF-VRRP-MIB", "cVrrpRouterChecksumErrors"), ("CISCO-IETF-VRRP-MIB", "cVrrpRouterVersionErrors"), ("CISCO-IETF-VRRP-MIB", "cVrrpRouterVrIdErrors"), ("CISCO-IETF-VRRP-MIB", "cVrrpStatisticsBecomeMaster"), ("CISCO-IETF-VRRP-MIB", "cVrrpStatisticsAdvertiseRcvd"), ("CISCO-IETF-VRRP-MIB", "cVrrpStatisticsAdvIntervalErrors"), ("CISCO-IETF-VRRP-MIB", "cVrrpStatisticsPriZeroPktsRcvd"), ("CISCO-IETF-VRRP-MIB", "cVrrpStatisticsPriZeroPktsSent"), ("CISCO-IETF-VRRP-MIB", "cVrrpStatisticsInvldTypePktsRcvd"), ("CISCO-IETF-VRRP-MIB", "cVrrpStatisticsIpTtlErrors"), ("CISCO-IETF-VRRP-MIB", "cVrrpStatisticsAddressListErrors"), ("CISCO-IETF-VRRP-MIB", "cVrrpStatisticsPacketLengthErrors"), ("CISCO-IETF-VRRP-MIB", "cVrrpStatisticsDiscontinuityTime"), ("CISCO-IETF-VRRP-MIB", "cVrrpStatisticsRefreshRate"), ("CISCO-IETF-VRRP-MIB", "cVrrpStatisticsInvalidAuthType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cVrrpStatisticsGroup = cVrrpStatisticsGroup.setStatus('current')
+cVrrpNotificationInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 999, 3, 2, 8)).setObjects(("CISCO-IETF-VRRP-MIB", "cVrrpNotificationNewMasterReason"), ("CISCO-IETF-VRRP-MIB", "cVrrpNotificationProtoErrReason"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cVrrpNotificationInfoGroup = cVrrpNotificationInfoGroup.setStatus('current')
+cVrrpNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 10, 999, 3, 2, 9)).setObjects(("CISCO-IETF-VRRP-MIB", "cVrrpNotificationNewMaster"), ("CISCO-IETF-VRRP-MIB", "cVrrpNotificationProtoError"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cVrrpNotificationsGroup = cVrrpNotificationsGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-IETF-VRRP-MIB", cVrrpStatisticsInvalidAuthType=cVrrpStatisticsInvalidAuthType, cVrrpNotificationInfoGroup=cVrrpNotificationInfoGroup, cVrrpOperationsRowStatus=cVrrpOperationsRowStatus, cVrrpStatisticsBecomeMaster=cVrrpStatisticsBecomeMaster, cVrrpOperationsAdvInterval=cVrrpOperationsAdvInterval, cVrrpOperationsPrimaryIpAddr=cVrrpOperationsPrimaryIpAddr, cVrrpStatisticsAddressListErrors=cVrrpStatisticsAddressListErrors, cVrrpOperationsState=cVrrpOperationsState, cVrrpOperationsEntry=cVrrpOperationsEntry, cVrrpOperationsAddrCount=cVrrpOperationsAddrCount, cVrrpMIBCompliance2=cVrrpMIBCompliance2, cVrrpAssociatedInetAddrType=cVrrpAssociatedInetAddrType, cVrrpOperationsMasterIpAddr=cVrrpOperationsMasterIpAddr, cVrrpOperationsPreemptMode=cVrrpOperationsPreemptMode, cVrrpOperationsUpTime=cVrrpOperationsUpTime, cVrrpAssociatedIpAddr=cVrrpAssociatedIpAddr, cVrrpStatisticsDiscontinuityTime=cVrrpStatisticsDiscontinuityTime, cVrrpNotificationNewMasterReason=cVrrpNotificationNewMasterReason, cVrrpOperationsAcceptMode=cVrrpOperationsAcceptMode, cVrrpRouterStatisticsTable=cVrrpRouterStatisticsTable, cVrrpNotificationNewMaster=cVrrpNotificationNewMaster, cVrrpMIBCompliances=cVrrpMIBCompliances, cVrrpAssociatedIpAddrTable=cVrrpAssociatedIpAddrTable, cVrrpRouterVersionErrors=cVrrpRouterVersionErrors, cVrrpMIBGroups=cVrrpMIBGroups, cVrrpOperationsGroup=cVrrpOperationsGroup, cVrrpNotificationsGroup=cVrrpNotificationsGroup, cVrrpStatisticsPacketLengthErrors=cVrrpStatisticsPacketLengthErrors, ciscoVrrpMIB=ciscoVrrpMIB, cVrrpNotifications=cVrrpNotifications, CVrId=CVrId, cVrrpStatisticsAdvertiseRcvd=cVrrpStatisticsAdvertiseRcvd, cVrrpNotificationCntl=cVrrpNotificationCntl, cVrrpOperations=cVrrpOperations, cVrrpOperationsVrId=cVrrpOperationsVrId, cVrrpNotificationProtoErrReason=cVrrpNotificationProtoErrReason, PYSNMP_MODULE_ID=ciscoVrrpMIB, cVrrpOperationsInetAddrType=cVrrpOperationsInetAddrType, cVrrpOperationsVirtualMacAddr=cVrrpOperationsVirtualMacAddr, cVrrpRouterStatisticsEntry=cVrrpRouterStatisticsEntry, cVrrpConformance=cVrrpConformance, cVrrpStatisticsAdvIntervalErrors=cVrrpStatisticsAdvIntervalErrors, cVrrpRouterChecksumErrors=cVrrpRouterChecksumErrors, cVrrpOperationsPriority=cVrrpOperationsPriority, cVrrpStatisticsInvldTypePktsRcvd=cVrrpStatisticsInvldTypePktsRcvd, cVrrpOperationsTable=cVrrpOperationsTable, cVrrpStatisticsRefreshRate=cVrrpStatisticsRefreshRate, cVrrpStatisticsIpTtlErrors=cVrrpStatisticsIpTtlErrors, cVrrpNotificationProtoError=cVrrpNotificationProtoError, cVrrpMIBReadOnlyCompliance=cVrrpMIBReadOnlyCompliance, cVrrpStatisticsPriZeroPktsSent=cVrrpStatisticsPriZeroPktsSent, cVrrpAssociatedIpAddrRowStatus=cVrrpAssociatedIpAddrRowStatus, cVrrpAssociatedIpAddrEntry=cVrrpAssociatedIpAddrEntry, cVrrpStatisticsPriZeroPktsRcvd=cVrrpStatisticsPriZeroPktsRcvd, cVrrpStatistics=cVrrpStatistics, cVrrpRouterVrIdErrors=cVrrpRouterVrIdErrors, cVrrpStatisticsGroup=cVrrpStatisticsGroup, cVrrpOperationsVersion=cVrrpOperationsVersion)

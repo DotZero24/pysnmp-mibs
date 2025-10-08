@@ -1,34 +1,28 @@
-_D='DisplayString'
-_C='Integer32'
-_B='current'
-_A='read-write'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_common_mgmt,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-common-mgmt')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention')
-swdot1xMGMTMIB=ModuleIdentity((1,3,6,1,4,1,171,12,30))
-class PortList(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
-_Dot1xGuestVlan_ObjectIdentity=ObjectIdentity
-dot1xGuestVlan=_Dot1xGuestVlan_ObjectIdentity((1,3,6,1,4,1,171,12,30,1))
-class _Dot1xGuestVlanName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Dot1xGuestVlanName_Type.__name__=_D
-_Dot1xGuestVlanName_Object=MibScalar
-dot1xGuestVlanName=_Dot1xGuestVlanName_Object((1,3,6,1,4,1,171,12,30,1,1),_Dot1xGuestVlanName_Type())
-dot1xGuestVlanName.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot1xGuestVlanName.setStatus(_B)
-_Dot1xGuestVlanPort_Type=PortList
-_Dot1xGuestVlanPort_Object=MibScalar
-dot1xGuestVlanPort=_Dot1xGuestVlanPort_Object((1,3,6,1,4,1,171,12,30,1,2),_Dot1xGuestVlanPort_Type())
-dot1xGuestVlanPort.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot1xGuestVlanPort.setStatus(_B)
-class _Dot1xGuestVlanDelState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('none',1),('start',2)))
-_Dot1xGuestVlanDelState_Type.__name__=_C
-_Dot1xGuestVlanDelState_Object=MibScalar
-dot1xGuestVlanDelState=_Dot1xGuestVlanDelState_Object((1,3,6,1,4,1,171,12,30,1,3),_Dot1xGuestVlanDelState_Type())
-dot1xGuestVlanDelState.setMaxAccess(_A)
-if mibBuilder.loadTexts:dot1xGuestVlanDelState.setStatus(_B)
-mibBuilder.exportSymbols('Dot1xMGMT-MIB',**{'PortList':PortList,'swdot1xMGMTMIB':swdot1xMGMTMIB,'dot1xGuestVlan':dot1xGuestVlan,'dot1xGuestVlanName':dot1xGuestVlanName,'dot1xGuestVlanPort':dot1xGuestVlanPort,'dot1xGuestVlanDelState':dot1xGuestVlanDelState})
+#
+# PySNMP MIB module Dot1xMGMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/Dot1xMGMT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+swdot1xMGMTMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 30))
+if mibBuilder.loadTexts: swdot1xMGMTMIB.setLastUpdated('0007150000Z')
+if mibBuilder.loadTexts: swdot1xMGMTMIB.setOrganization(' ')
+class PortList(OctetString):
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 127)
+
+dot1xGuestVlan = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 30, 1))
+dot1xGuestVlanName = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 30, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot1xGuestVlanName.setStatus('current')
+dot1xGuestVlanPort = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 30, 1, 2), PortList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot1xGuestVlanPort.setStatus('current')
+dot1xGuestVlanDelState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 30, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("start", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot1xGuestVlanDelState.setStatus('current')
+mibBuilder.exportSymbols("Dot1xMGMT-MIB", dot1xGuestVlanName=dot1xGuestVlanName, swdot1xMGMTMIB=swdot1xMGMTMIB, PYSNMP_MODULE_ID=swdot1xMGMTMIB, dot1xGuestVlanPort=dot1xGuestVlanPort, dot1xGuestVlan=dot1xGuestVlan, PortList=PortList, dot1xGuestVlanDelState=dot1xGuestVlanDelState)

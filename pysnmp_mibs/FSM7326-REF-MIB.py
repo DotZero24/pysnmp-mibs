@@ -1,15 +1,23 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-fsm7326=ModuleIdentity((1,3,6,1,4,1,4526,1,9))
-if mibBuilder.loadTexts:fsm7326.setRevisions(('2003-05-06 12:00',))
-class AgentPortMask(TextualConvention,OctetString):status='current'
-_Netgear_ObjectIdentity=ObjectIdentity
-netgear=_Netgear_ObjectIdentity((1,3,6,1,4,1,4526))
-_SnmpManagedSwitch_ObjectIdentity=ObjectIdentity
-snmpManagedSwitch=_SnmpManagedSwitch_ObjectIdentity((1,3,6,1,4,1,4526,1))
-mibBuilder.exportSymbols('FSM7326-REF-MIB',**{'AgentPortMask':AgentPortMask,'netgear':netgear,'snmpManagedSwitch':snmpManagedSwitch,'fsm7326':fsm7326})
+#
+# PySNMP MIB module FSM7326-REF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netgear/FSM7326-REF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:28:49 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+netgear = MibIdentifier((1, 3, 6, 1, 4, 1, 4526))
+snmpManagedSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 4526, 1))
+fsm7326 = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 1, 9))
+fsm7326.setRevisions(('2003-05-06 12:00',))
+if mibBuilder.loadTexts: fsm7326.setLastUpdated('200311101200Z')
+if mibBuilder.loadTexts: fsm7326.setOrganization('Netgear')
+class AgentPortMask(TextualConvention, OctetString):
+    status = 'current'
+
+mibBuilder.exportSymbols("FSM7326-REF-MIB", snmpManagedSwitch=snmpManagedSwitch, fsm7326=fsm7326, PYSNMP_MODULE_ID=fsm7326, netgear=netgear, AgentPortMask=AgentPortMask)

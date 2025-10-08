@@ -1,147 +1,72 @@
-_S='percentage'
-_R='absolute'
-_Q='Integer32'
-_P='OctetString'
-_O='read-write'
-_N='h3cResMonAdditionalInfo'
-_M='h3cResMonTotal'
-_L='h3cResMonFree'
-_K='h3cResMonCurrent'
-_J='h3cResMonSevereThreshold'
-_I='h3cResMonMinorThreshold'
-_H='h3cResMonThresholdUnit'
-_G='read-only'
-_F='h3cResMonResourceName'
-_E='h3cResMonCpuIndex'
-_D='h3cResMonSlotIndex'
-_C='h3cResMonChassisIndex'
-_B='current'
-_A='H3C-RES-MON-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_P,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','h3cCommon')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_Q,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-h3cResMon=ModuleIdentity((1,3,6,1,4,1,2011,10,2,169))
-if mibBuilder.loadTexts:h3cResMon.setRevisions(('2017-04-01 00:00',))
-_H3cResMonScalarObjects_ObjectIdentity=ObjectIdentity
-h3cResMonScalarObjects=_H3cResMonScalarObjects_ObjectIdentity((1,3,6,1,4,1,2011,10,2,169,1))
-_H3cResMonMinorResendEnable_Type=TruthValue
-_H3cResMonMinorResendEnable_Object=MibScalar
-h3cResMonMinorResendEnable=_H3cResMonMinorResendEnable_Object((1,3,6,1,4,1,2011,10,2,169,1,1),_H3cResMonMinorResendEnable_Type())
-h3cResMonMinorResendEnable.setMaxAccess(_O)
-if mibBuilder.loadTexts:h3cResMonMinorResendEnable.setStatus(_B)
-class _H3cResMonOutputEnable_Type(Bits):namedValues=NamedValues(*(('syslog',0),('snmpNotification',1),('netconfEvent',2)))
-_H3cResMonOutputEnable_Type.__name__='Bits'
-_H3cResMonOutputEnable_Object=MibScalar
-h3cResMonOutputEnable=_H3cResMonOutputEnable_Object((1,3,6,1,4,1,2011,10,2,169,1,2),_H3cResMonOutputEnable_Type())
-h3cResMonOutputEnable.setMaxAccess(_O)
-if mibBuilder.loadTexts:h3cResMonOutputEnable.setStatus(_B)
-_H3cResMonTables_ObjectIdentity=ObjectIdentity
-h3cResMonTables=_H3cResMonTables_ObjectIdentity((1,3,6,1,4,1,2011,10,2,169,2))
-_H3cResMonConfigTable_Object=MibTable
-h3cResMonConfigTable=_H3cResMonConfigTable_Object((1,3,6,1,4,1,2011,10,2,169,2,1))
-if mibBuilder.loadTexts:h3cResMonConfigTable.setStatus(_B)
-_H3cResMonConfigEntry_Object=MibTableRow
-h3cResMonConfigEntry=_H3cResMonConfigEntry_Object((1,3,6,1,4,1,2011,10,2,169,2,1,1))
-h3cResMonConfigEntry.setIndexNames((0,_A,_C),(0,_A,_D),(0,_A,_E),(0,_A,_F))
-if mibBuilder.loadTexts:h3cResMonConfigEntry.setStatus(_B)
-_H3cResMonChassisIndex_Type=Unsigned32
-_H3cResMonChassisIndex_Object=MibTableColumn
-h3cResMonChassisIndex=_H3cResMonChassisIndex_Object((1,3,6,1,4,1,2011,10,2,169,2,1,1,1),_H3cResMonChassisIndex_Type())
-h3cResMonChassisIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cResMonChassisIndex.setStatus(_B)
-_H3cResMonSlotIndex_Type=Unsigned32
-_H3cResMonSlotIndex_Object=MibTableColumn
-h3cResMonSlotIndex=_H3cResMonSlotIndex_Object((1,3,6,1,4,1,2011,10,2,169,2,1,1,2),_H3cResMonSlotIndex_Type())
-h3cResMonSlotIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cResMonSlotIndex.setStatus(_B)
-_H3cResMonCpuIndex_Type=Unsigned32
-_H3cResMonCpuIndex_Object=MibTableColumn
-h3cResMonCpuIndex=_H3cResMonCpuIndex_Object((1,3,6,1,4,1,2011,10,2,169,2,1,1,3),_H3cResMonCpuIndex_Type())
-h3cResMonCpuIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cResMonCpuIndex.setStatus(_B)
-class _H3cResMonResourceName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,31))
-_H3cResMonResourceName_Type.__name__=_P
-_H3cResMonResourceName_Object=MibTableColumn
-h3cResMonResourceName=_H3cResMonResourceName_Object((1,3,6,1,4,1,2011,10,2,169,2,1,1,4),_H3cResMonResourceName_Type())
-h3cResMonResourceName.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cResMonResourceName.setStatus(_B)
-class _H3cResMonThresholdUnit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_R,1),(_S,2)))
-_H3cResMonThresholdUnit_Type.__name__=_Q
-_H3cResMonThresholdUnit_Object=MibTableColumn
-h3cResMonThresholdUnit=_H3cResMonThresholdUnit_Object((1,3,6,1,4,1,2011,10,2,169,2,1,1,5),_H3cResMonThresholdUnit_Type())
-h3cResMonThresholdUnit.setMaxAccess(_O)
-if mibBuilder.loadTexts:h3cResMonThresholdUnit.setStatus(_B)
-_H3cResMonMinorThreshold_Type=Unsigned32
-_H3cResMonMinorThreshold_Object=MibTableColumn
-h3cResMonMinorThreshold=_H3cResMonMinorThreshold_Object((1,3,6,1,4,1,2011,10,2,169,2,1,1,6),_H3cResMonMinorThreshold_Type())
-h3cResMonMinorThreshold.setMaxAccess(_O)
-if mibBuilder.loadTexts:h3cResMonMinorThreshold.setStatus(_B)
-_H3cResMonSevereThreshold_Type=Unsigned32
-_H3cResMonSevereThreshold_Object=MibTableColumn
-h3cResMonSevereThreshold=_H3cResMonSevereThreshold_Object((1,3,6,1,4,1,2011,10,2,169,2,1,1,7),_H3cResMonSevereThreshold_Type())
-h3cResMonSevereThreshold.setMaxAccess(_O)
-if mibBuilder.loadTexts:h3cResMonSevereThreshold.setStatus(_B)
-_H3cResMonInfoTable_Object=MibTable
-h3cResMonInfoTable=_H3cResMonInfoTable_Object((1,3,6,1,4,1,2011,10,2,169,2,2))
-if mibBuilder.loadTexts:h3cResMonInfoTable.setStatus(_B)
-_H3cResMonInfoEntry_Object=MibTableRow
-h3cResMonInfoEntry=_H3cResMonInfoEntry_Object((1,3,6,1,4,1,2011,10,2,169,2,2,1))
-h3cResMonInfoEntry.setIndexNames((0,_A,_C),(0,_A,_D),(0,_A,_E),(0,_A,_F))
-if mibBuilder.loadTexts:h3cResMonInfoEntry.setStatus(_B)
-class _H3cResMonUnit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_R,1),(_S,2)))
-_H3cResMonUnit_Type.__name__=_Q
-_H3cResMonUnit_Object=MibTableColumn
-h3cResMonUnit=_H3cResMonUnit_Object((1,3,6,1,4,1,2011,10,2,169,2,2,1,1),_H3cResMonUnit_Type())
-h3cResMonUnit.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cResMonUnit.setStatus(_B)
-_H3cResMonCurrent_Type=Unsigned32
-_H3cResMonCurrent_Object=MibTableColumn
-h3cResMonCurrent=_H3cResMonCurrent_Object((1,3,6,1,4,1,2011,10,2,169,2,2,1,2),_H3cResMonCurrent_Type())
-h3cResMonCurrent.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cResMonCurrent.setStatus(_B)
-_H3cResMonFree_Type=Unsigned32
-_H3cResMonFree_Object=MibTableColumn
-h3cResMonFree=_H3cResMonFree_Object((1,3,6,1,4,1,2011,10,2,169,2,2,1,3),_H3cResMonFree_Type())
-h3cResMonFree.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cResMonFree.setStatus(_B)
-_H3cResMonTotal_Type=Unsigned32
-_H3cResMonTotal_Object=MibTableColumn
-h3cResMonTotal=_H3cResMonTotal_Object((1,3,6,1,4,1,2011,10,2,169,2,2,1,4),_H3cResMonTotal_Type())
-h3cResMonTotal.setMaxAccess(_G)
-if mibBuilder.loadTexts:h3cResMonTotal.setStatus(_B)
-_H3cResMonNotification_ObjectIdentity=ObjectIdentity
-h3cResMonNotification=_H3cResMonNotification_ObjectIdentity((1,3,6,1,4,1,2011,10,2,169,3))
-_H3cResMonTrapPrefix_ObjectIdentity=ObjectIdentity
-h3cResMonTrapPrefix=_H3cResMonTrapPrefix_ObjectIdentity((1,3,6,1,4,1,2011,10,2,169,3,0))
-_H3cResMonTrapInfor_ObjectIdentity=ObjectIdentity
-h3cResMonTrapInfor=_H3cResMonTrapInfor_ObjectIdentity((1,3,6,1,4,1,2011,10,2,169,3,1))
-class _H3cResMonAdditionalInfo_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_H3cResMonAdditionalInfo_Type.__name__=_P
-_H3cResMonAdditionalInfo_Object=MibScalar
-h3cResMonAdditionalInfo=_H3cResMonAdditionalInfo_Object((1,3,6,1,4,1,2011,10,2,169,3,1,1),_H3cResMonAdditionalInfo_Type())
-h3cResMonAdditionalInfo.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:h3cResMonAdditionalInfo.setStatus(_B)
-h3cResMonMinorNotification=NotificationType((1,3,6,1,4,1,2011,10,2,169,3,0,1))
-h3cResMonMinorNotification.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:h3cResMonMinorNotification.setStatus(_B)
-h3cResMonMinorRecoverNotification=NotificationType((1,3,6,1,4,1,2011,10,2,169,3,0,2))
-h3cResMonMinorRecoverNotification.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:h3cResMonMinorRecoverNotification.setStatus(_B)
-h3cResMonSevereNotification=NotificationType((1,3,6,1,4,1,2011,10,2,169,3,0,3))
-h3cResMonSevereNotification.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:h3cResMonSevereNotification.setStatus(_B)
-h3cResMonSevereRecoverNotification=NotificationType((1,3,6,1,4,1,2011,10,2,169,3,0,4))
-h3cResMonSevereRecoverNotification.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:h3cResMonSevereRecoverNotification.setStatus(_B)
-h3cResMonUsedUpNotification=NotificationType((1,3,6,1,4,1,2011,10,2,169,3,0,5))
-h3cResMonUsedUpNotification.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:h3cResMonUsedUpNotification.setStatus(_B)
-h3cResMonUsedUpRecoverNotification=NotificationType((1,3,6,1,4,1,2011,10,2,169,3,0,6))
-h3cResMonUsedUpRecoverNotification.setObjects(*((_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N)))
-if mibBuilder.loadTexts:h3cResMonUsedUpRecoverNotification.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'h3cResMon':h3cResMon,'h3cResMonScalarObjects':h3cResMonScalarObjects,'h3cResMonMinorResendEnable':h3cResMonMinorResendEnable,'h3cResMonOutputEnable':h3cResMonOutputEnable,'h3cResMonTables':h3cResMonTables,'h3cResMonConfigTable':h3cResMonConfigTable,'h3cResMonConfigEntry':h3cResMonConfigEntry,_C:h3cResMonChassisIndex,_D:h3cResMonSlotIndex,_E:h3cResMonCpuIndex,_F:h3cResMonResourceName,_H:h3cResMonThresholdUnit,_I:h3cResMonMinorThreshold,_J:h3cResMonSevereThreshold,'h3cResMonInfoTable':h3cResMonInfoTable,'h3cResMonInfoEntry':h3cResMonInfoEntry,'h3cResMonUnit':h3cResMonUnit,_K:h3cResMonCurrent,_L:h3cResMonFree,_M:h3cResMonTotal,'h3cResMonNotification':h3cResMonNotification,'h3cResMonTrapPrefix':h3cResMonTrapPrefix,'h3cResMonMinorNotification':h3cResMonMinorNotification,'h3cResMonMinorRecoverNotification':h3cResMonMinorRecoverNotification,'h3cResMonSevereNotification':h3cResMonSevereNotification,'h3cResMonSevereRecoverNotification':h3cResMonSevereRecoverNotification,'h3cResMonUsedUpNotification':h3cResMonUsedUpNotification,'h3cResMonUsedUpRecoverNotification':h3cResMonUsedUpRecoverNotification,'h3cResMonTrapInfor':h3cResMonTrapInfor,_N:h3cResMonAdditionalInfo})
+#
+# PySNMP MIB module H3C-RES-MON-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-RES-MON-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:49 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+h3cResMon = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169))
+h3cResMon.setRevisions(('2017-04-01 00:00',))
+if mibBuilder.loadTexts: h3cResMon.setLastUpdated('201704010000Z')
+if mibBuilder.loadTexts: h3cResMon.setOrganization('Hangzhou H3C Technologies Co., Ltd.')
+h3cResMonScalarObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 1))
+h3cResMonMinorResendEnable = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cResMonMinorResendEnable.setStatus('current')
+h3cResMonOutputEnable = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 1, 2), Bits().clone(namedValues=NamedValues(("syslog", 0), ("snmpNotification", 1), ("netconfEvent", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cResMonOutputEnable.setStatus('current')
+h3cResMonTables = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2))
+h3cResMonConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2, 1), )
+if mibBuilder.loadTexts: h3cResMonConfigTable.setStatus('current')
+h3cResMonConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2, 1, 1), ).setIndexNames((0, "H3C-RES-MON-MIB", "h3cResMonChassisIndex"), (0, "H3C-RES-MON-MIB", "h3cResMonSlotIndex"), (0, "H3C-RES-MON-MIB", "h3cResMonCpuIndex"), (0, "H3C-RES-MON-MIB", "h3cResMonResourceName"))
+if mibBuilder.loadTexts: h3cResMonConfigEntry.setStatus('current')
+h3cResMonChassisIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cResMonChassisIndex.setStatus('current')
+h3cResMonSlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cResMonSlotIndex.setStatus('current')
+h3cResMonCpuIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cResMonCpuIndex.setStatus('current')
+h3cResMonResourceName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cResMonResourceName.setStatus('current')
+h3cResMonThresholdUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("absolute", 1), ("percentage", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cResMonThresholdUnit.setStatus('current')
+h3cResMonMinorThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2, 1, 1, 6), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cResMonMinorThreshold.setStatus('current')
+h3cResMonSevereThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2, 1, 1, 7), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: h3cResMonSevereThreshold.setStatus('current')
+h3cResMonInfoTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2, 2), )
+if mibBuilder.loadTexts: h3cResMonInfoTable.setStatus('current')
+h3cResMonInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2, 2, 1), ).setIndexNames((0, "H3C-RES-MON-MIB", "h3cResMonChassisIndex"), (0, "H3C-RES-MON-MIB", "h3cResMonSlotIndex"), (0, "H3C-RES-MON-MIB", "h3cResMonCpuIndex"), (0, "H3C-RES-MON-MIB", "h3cResMonResourceName"))
+if mibBuilder.loadTexts: h3cResMonInfoEntry.setStatus('current')
+h3cResMonUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("absolute", 1), ("percentage", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cResMonUnit.setStatus('current')
+h3cResMonCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cResMonCurrent.setStatus('current')
+h3cResMonFree = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cResMonFree.setStatus('current')
+h3cResMonTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 2, 2, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cResMonTotal.setStatus('current')
+h3cResMonNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 3))
+h3cResMonTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 3, 0))
+h3cResMonMinorNotification = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 3, 0, 1)).setObjects(("H3C-RES-MON-MIB", "h3cResMonChassisIndex"), ("H3C-RES-MON-MIB", "h3cResMonSlotIndex"), ("H3C-RES-MON-MIB", "h3cResMonCpuIndex"), ("H3C-RES-MON-MIB", "h3cResMonResourceName"), ("H3C-RES-MON-MIB", "h3cResMonThresholdUnit"), ("H3C-RES-MON-MIB", "h3cResMonMinorThreshold"), ("H3C-RES-MON-MIB", "h3cResMonSevereThreshold"), ("H3C-RES-MON-MIB", "h3cResMonCurrent"), ("H3C-RES-MON-MIB", "h3cResMonFree"), ("H3C-RES-MON-MIB", "h3cResMonTotal"), ("H3C-RES-MON-MIB", "h3cResMonAdditionalInfo"))
+if mibBuilder.loadTexts: h3cResMonMinorNotification.setStatus('current')
+h3cResMonMinorRecoverNotification = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 3, 0, 2)).setObjects(("H3C-RES-MON-MIB", "h3cResMonChassisIndex"), ("H3C-RES-MON-MIB", "h3cResMonSlotIndex"), ("H3C-RES-MON-MIB", "h3cResMonCpuIndex"), ("H3C-RES-MON-MIB", "h3cResMonResourceName"), ("H3C-RES-MON-MIB", "h3cResMonThresholdUnit"), ("H3C-RES-MON-MIB", "h3cResMonMinorThreshold"), ("H3C-RES-MON-MIB", "h3cResMonSevereThreshold"), ("H3C-RES-MON-MIB", "h3cResMonCurrent"), ("H3C-RES-MON-MIB", "h3cResMonFree"), ("H3C-RES-MON-MIB", "h3cResMonTotal"), ("H3C-RES-MON-MIB", "h3cResMonAdditionalInfo"))
+if mibBuilder.loadTexts: h3cResMonMinorRecoverNotification.setStatus('current')
+h3cResMonSevereNotification = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 3, 0, 3)).setObjects(("H3C-RES-MON-MIB", "h3cResMonChassisIndex"), ("H3C-RES-MON-MIB", "h3cResMonSlotIndex"), ("H3C-RES-MON-MIB", "h3cResMonCpuIndex"), ("H3C-RES-MON-MIB", "h3cResMonResourceName"), ("H3C-RES-MON-MIB", "h3cResMonThresholdUnit"), ("H3C-RES-MON-MIB", "h3cResMonMinorThreshold"), ("H3C-RES-MON-MIB", "h3cResMonSevereThreshold"), ("H3C-RES-MON-MIB", "h3cResMonCurrent"), ("H3C-RES-MON-MIB", "h3cResMonFree"), ("H3C-RES-MON-MIB", "h3cResMonTotal"), ("H3C-RES-MON-MIB", "h3cResMonAdditionalInfo"))
+if mibBuilder.loadTexts: h3cResMonSevereNotification.setStatus('current')
+h3cResMonSevereRecoverNotification = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 3, 0, 4)).setObjects(("H3C-RES-MON-MIB", "h3cResMonChassisIndex"), ("H3C-RES-MON-MIB", "h3cResMonSlotIndex"), ("H3C-RES-MON-MIB", "h3cResMonCpuIndex"), ("H3C-RES-MON-MIB", "h3cResMonResourceName"), ("H3C-RES-MON-MIB", "h3cResMonThresholdUnit"), ("H3C-RES-MON-MIB", "h3cResMonMinorThreshold"), ("H3C-RES-MON-MIB", "h3cResMonSevereThreshold"), ("H3C-RES-MON-MIB", "h3cResMonCurrent"), ("H3C-RES-MON-MIB", "h3cResMonFree"), ("H3C-RES-MON-MIB", "h3cResMonTotal"), ("H3C-RES-MON-MIB", "h3cResMonAdditionalInfo"))
+if mibBuilder.loadTexts: h3cResMonSevereRecoverNotification.setStatus('current')
+h3cResMonUsedUpNotification = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 3, 0, 5)).setObjects(("H3C-RES-MON-MIB", "h3cResMonChassisIndex"), ("H3C-RES-MON-MIB", "h3cResMonSlotIndex"), ("H3C-RES-MON-MIB", "h3cResMonCpuIndex"), ("H3C-RES-MON-MIB", "h3cResMonResourceName"), ("H3C-RES-MON-MIB", "h3cResMonThresholdUnit"), ("H3C-RES-MON-MIB", "h3cResMonMinorThreshold"), ("H3C-RES-MON-MIB", "h3cResMonSevereThreshold"), ("H3C-RES-MON-MIB", "h3cResMonCurrent"), ("H3C-RES-MON-MIB", "h3cResMonFree"), ("H3C-RES-MON-MIB", "h3cResMonTotal"), ("H3C-RES-MON-MIB", "h3cResMonAdditionalInfo"))
+if mibBuilder.loadTexts: h3cResMonUsedUpNotification.setStatus('current')
+h3cResMonUsedUpRecoverNotification = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 3, 0, 6)).setObjects(("H3C-RES-MON-MIB", "h3cResMonChassisIndex"), ("H3C-RES-MON-MIB", "h3cResMonSlotIndex"), ("H3C-RES-MON-MIB", "h3cResMonCpuIndex"), ("H3C-RES-MON-MIB", "h3cResMonResourceName"), ("H3C-RES-MON-MIB", "h3cResMonThresholdUnit"), ("H3C-RES-MON-MIB", "h3cResMonMinorThreshold"), ("H3C-RES-MON-MIB", "h3cResMonSevereThreshold"), ("H3C-RES-MON-MIB", "h3cResMonCurrent"), ("H3C-RES-MON-MIB", "h3cResMonFree"), ("H3C-RES-MON-MIB", "h3cResMonTotal"), ("H3C-RES-MON-MIB", "h3cResMonAdditionalInfo"))
+if mibBuilder.loadTexts: h3cResMonUsedUpRecoverNotification.setStatus('current')
+h3cResMonTrapInfor = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 3, 1))
+h3cResMonAdditionalInfo = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 169, 3, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: h3cResMonAdditionalInfo.setStatus('current')
+mibBuilder.exportSymbols("H3C-RES-MON-MIB", h3cResMonUsedUpNotification=h3cResMonUsedUpNotification, h3cResMonScalarObjects=h3cResMonScalarObjects, h3cResMonMinorThreshold=h3cResMonMinorThreshold, h3cResMonSevereRecoverNotification=h3cResMonSevereRecoverNotification, h3cResMonMinorResendEnable=h3cResMonMinorResendEnable, PYSNMP_MODULE_ID=h3cResMon, h3cResMonUsedUpRecoverNotification=h3cResMonUsedUpRecoverNotification, h3cResMonSlotIndex=h3cResMonSlotIndex, h3cResMonNotification=h3cResMonNotification, h3cResMonMinorRecoverNotification=h3cResMonMinorRecoverNotification, h3cResMonUnit=h3cResMonUnit, h3cResMonAdditionalInfo=h3cResMonAdditionalInfo, h3cResMonFree=h3cResMonFree, h3cResMonOutputEnable=h3cResMonOutputEnable, h3cResMonSevereNotification=h3cResMonSevereNotification, h3cResMonConfigEntry=h3cResMonConfigEntry, h3cResMonChassisIndex=h3cResMonChassisIndex, h3cResMonInfoEntry=h3cResMonInfoEntry, h3cResMonResourceName=h3cResMonResourceName, h3cResMonThresholdUnit=h3cResMonThresholdUnit, h3cResMon=h3cResMon, h3cResMonInfoTable=h3cResMonInfoTable, h3cResMonCurrent=h3cResMonCurrent, h3cResMonTables=h3cResMonTables, h3cResMonSevereThreshold=h3cResMonSevereThreshold, h3cResMonCpuIndex=h3cResMonCpuIndex, h3cResMonTotal=h3cResMonTotal, h3cResMonMinorNotification=h3cResMonMinorNotification, h3cResMonTrapInfor=h3cResMonTrapInfor, h3cResMonTrapPrefix=h3cResMonTrapPrefix, h3cResMonConfigTable=h3cResMonConfigTable)

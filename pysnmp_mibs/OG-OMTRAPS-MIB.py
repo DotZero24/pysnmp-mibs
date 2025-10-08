@@ -1,188 +1,94 @@
-_h='ogOMTRAPSNotificationsGroup'
-_g='ogOMTRAPSMibGroup'
-_f='ogOMTRAPSSensorTemperatureRangeAlert'
-_e='ogOMTRAPSNetworkLinkStateAlert'
-_d='ogOMTRAPSSerialPortLogoutAlert'
-_c='ogOMTRAPSSerialPortLoginAlert'
-_b='ogOMTRAPSConsoleLogin'
-_a='ogOMTRAPSConfigChange'
-_Z='ogOMTRAPSCellSignalAlert'
-_Y='ogOMTRAPSReboot'
-_X='ogOMTRAPSPSU2VoltageRangeAlert'
-_W='ogOMTRAPSPSU1VoltageRangeAlert'
-_V='ogOMTRAPSWebLogin'
-_U='ogOMTRAPSSSHLogin'
-_T='ogOMTRAPSConnectivityTest'
-_S='ogOMTRAPSAlarmSummary'
-_R='ogOMTRAPSSensorDevice'
-_Q='ogOMTRAPSSensorTemperature'
-_P='ogOMTRAPSNetworkLinkDescription'
-_O='ogOMTRAPSNetworkLinkState'
-_N='ogOMTRAPSConsoleLoginStatus'
-_M='ogOMTRAPSCellSignal'
-_L='ogOMTRAPSRebootStatus'
-_K='ogOMTRAPSWebLoginStatus'
-_J='ogOMTRAPSSSHLoginStatus'
-_I='ogOMTRAPSConnectivityTestSignalStatus'
-_H='ogOMTRAPSConnectivityTestSignal'
-_G='ogOMTRAPSConnectivityTestResult'
-_F='ogOMTRAPSSerialPortUser'
-_E='ogOMTRAPSSerialPortID'
-_D='ogOMTRAPSBusVoltage'
-_C='read-only'
-_B='current'
-_A='OG-OMTRAPS-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ogMgmt,=mibBuilder.importSymbols('OG-SMI-MIB','ogMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ogOMTRAPSMib=ModuleIdentity((1,3,6,1,4,1,25049,10,18))
-if mibBuilder.loadTexts:ogOMTRAPSMib.setRevisions(('2020-11-10 15:00','2019-08-29 15:00','2019-08-07 15:00'))
-_OgOMTRAPSObjects_ObjectIdentity=ObjectIdentity
-ogOMTRAPSObjects=_OgOMTRAPSObjects_ObjectIdentity((1,3,6,1,4,1,25049,10,18,1))
-_OgOMTRAPSEvent_ObjectIdentity=ObjectIdentity
-ogOMTRAPSEvent=_OgOMTRAPSEvent_ObjectIdentity((1,3,6,1,4,1,25049,10,18,1,1))
-_OgOMTRAPSConnectivityTestResult_Type=DisplayString
-_OgOMTRAPSConnectivityTestResult_Object=MibScalar
-ogOMTRAPSConnectivityTestResult=_OgOMTRAPSConnectivityTestResult_Object((1,3,6,1,4,1,25049,10,18,1,1,1),_OgOMTRAPSConnectivityTestResult_Type())
-ogOMTRAPSConnectivityTestResult.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSConnectivityTestResult.setStatus(_B)
-_OgOMTRAPSConnectivityTestSignal_Type=DisplayString
-_OgOMTRAPSConnectivityTestSignal_Object=MibScalar
-ogOMTRAPSConnectivityTestSignal=_OgOMTRAPSConnectivityTestSignal_Object((1,3,6,1,4,1,25049,10,18,1,1,2),_OgOMTRAPSConnectivityTestSignal_Type())
-ogOMTRAPSConnectivityTestSignal.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSConnectivityTestSignal.setStatus(_B)
-_OgOMTRAPSConnectivityTestSignalStatus_Type=DisplayString
-_OgOMTRAPSConnectivityTestSignalStatus_Object=MibScalar
-ogOMTRAPSConnectivityTestSignalStatus=_OgOMTRAPSConnectivityTestSignalStatus_Object((1,3,6,1,4,1,25049,10,18,1,1,3),_OgOMTRAPSConnectivityTestSignalStatus_Type())
-ogOMTRAPSConnectivityTestSignalStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSConnectivityTestSignalStatus.setStatus(_B)
-_OgOMTRAPSSSHLoginStatus_Type=DisplayString
-_OgOMTRAPSSSHLoginStatus_Object=MibScalar
-ogOMTRAPSSSHLoginStatus=_OgOMTRAPSSSHLoginStatus_Object((1,3,6,1,4,1,25049,10,18,1,1,4),_OgOMTRAPSSSHLoginStatus_Type())
-ogOMTRAPSSSHLoginStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSSSHLoginStatus.setStatus(_B)
-_OgOMTRAPSWebLoginStatus_Type=DisplayString
-_OgOMTRAPSWebLoginStatus_Object=MibScalar
-ogOMTRAPSWebLoginStatus=_OgOMTRAPSWebLoginStatus_Object((1,3,6,1,4,1,25049,10,18,1,1,5),_OgOMTRAPSWebLoginStatus_Type())
-ogOMTRAPSWebLoginStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSWebLoginStatus.setStatus(_B)
-_OgOMTRAPSBusVoltage_Type=Integer32
-_OgOMTRAPSBusVoltage_Object=MibScalar
-ogOMTRAPSBusVoltage=_OgOMTRAPSBusVoltage_Object((1,3,6,1,4,1,25049,10,18,1,1,6),_OgOMTRAPSBusVoltage_Type())
-ogOMTRAPSBusVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSBusVoltage.setStatus(_B)
-if mibBuilder.loadTexts:ogOMTRAPSBusVoltage.setUnits('0.1 Volt DC')
-_OgOMTRAPSRebootStatus_Type=DisplayString
-_OgOMTRAPSRebootStatus_Object=MibScalar
-ogOMTRAPSRebootStatus=_OgOMTRAPSRebootStatus_Object((1,3,6,1,4,1,25049,10,18,1,1,7),_OgOMTRAPSRebootStatus_Type())
-ogOMTRAPSRebootStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSRebootStatus.setStatus(_B)
-_OgOMTRAPSCellSignal_Type=Integer32
-_OgOMTRAPSCellSignal_Object=MibScalar
-ogOMTRAPSCellSignal=_OgOMTRAPSCellSignal_Object((1,3,6,1,4,1,25049,10,18,1,1,8),_OgOMTRAPSCellSignal_Type())
-ogOMTRAPSCellSignal.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSCellSignal.setStatus(_B)
-_OgOMTRAPSConsoleLoginStatus_Type=DisplayString
-_OgOMTRAPSConsoleLoginStatus_Object=MibScalar
-ogOMTRAPSConsoleLoginStatus=_OgOMTRAPSConsoleLoginStatus_Object((1,3,6,1,4,1,25049,10,18,1,1,9),_OgOMTRAPSConsoleLoginStatus_Type())
-ogOMTRAPSConsoleLoginStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSConsoleLoginStatus.setStatus(_B)
-_OgOMTRAPSSerialPortID_Type=DisplayString
-_OgOMTRAPSSerialPortID_Object=MibScalar
-ogOMTRAPSSerialPortID=_OgOMTRAPSSerialPortID_Object((1,3,6,1,4,1,25049,10,18,1,1,10),_OgOMTRAPSSerialPortID_Type())
-ogOMTRAPSSerialPortID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSSerialPortID.setStatus(_B)
-_OgOMTRAPSSerialPortUser_Type=DisplayString
-_OgOMTRAPSSerialPortUser_Object=MibScalar
-ogOMTRAPSSerialPortUser=_OgOMTRAPSSerialPortUser_Object((1,3,6,1,4,1,25049,10,18,1,1,11),_OgOMTRAPSSerialPortUser_Type())
-ogOMTRAPSSerialPortUser.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSSerialPortUser.setStatus(_B)
-_OgOMTRAPSNetworkLinkState_Type=DisplayString
-_OgOMTRAPSNetworkLinkState_Object=MibScalar
-ogOMTRAPSNetworkLinkState=_OgOMTRAPSNetworkLinkState_Object((1,3,6,1,4,1,25049,10,18,1,1,12),_OgOMTRAPSNetworkLinkState_Type())
-ogOMTRAPSNetworkLinkState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSNetworkLinkState.setStatus(_B)
-_OgOMTRAPSNetworkLinkDescription_Type=DisplayString
-_OgOMTRAPSNetworkLinkDescription_Object=MibScalar
-ogOMTRAPSNetworkLinkDescription=_OgOMTRAPSNetworkLinkDescription_Object((1,3,6,1,4,1,25049,10,18,1,1,13),_OgOMTRAPSNetworkLinkDescription_Type())
-ogOMTRAPSNetworkLinkDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSNetworkLinkDescription.setStatus(_B)
-_OgOMTRAPSSensorTemperature_Type=Integer32
-_OgOMTRAPSSensorTemperature_Object=MibScalar
-ogOMTRAPSSensorTemperature=_OgOMTRAPSSensorTemperature_Object((1,3,6,1,4,1,25049,10,18,1,1,14),_OgOMTRAPSSensorTemperature_Type())
-ogOMTRAPSSensorTemperature.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSSensorTemperature.setStatus(_B)
-if mibBuilder.loadTexts:ogOMTRAPSSensorTemperature.setUnits('millidegrees Celsius')
-_OgOMTRAPSSensorDevice_Type=DisplayString
-_OgOMTRAPSSensorDevice_Object=MibScalar
-ogOMTRAPSSensorDevice=_OgOMTRAPSSensorDevice_Object((1,3,6,1,4,1,25049,10,18,1,1,15),_OgOMTRAPSSensorDevice_Type())
-ogOMTRAPSSensorDevice.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSSensorDevice.setStatus(_B)
-_OgOMTRAPSAlarmSummary_Type=DisplayString
-_OgOMTRAPSAlarmSummary_Object=MibScalar
-ogOMTRAPSAlarmSummary=_OgOMTRAPSAlarmSummary_Object((1,3,6,1,4,1,25049,10,18,1,1,16),_OgOMTRAPSAlarmSummary_Type())
-ogOMTRAPSAlarmSummary.setMaxAccess(_C)
-if mibBuilder.loadTexts:ogOMTRAPSAlarmSummary.setStatus(_B)
-_OgOMTRAPSNotificationPrefix_ObjectIdentity=ObjectIdentity
-ogOMTRAPSNotificationPrefix=_OgOMTRAPSNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,25049,10,18,2))
-_OgOMTRAPSNotification_ObjectIdentity=ObjectIdentity
-ogOMTRAPSNotification=_OgOMTRAPSNotification_ObjectIdentity((1,3,6,1,4,1,25049,10,18,2,0))
-_OgOMTRAPSMibConformance_ObjectIdentity=ObjectIdentity
-ogOMTRAPSMibConformance=_OgOMTRAPSMibConformance_ObjectIdentity((1,3,6,1,4,1,25049,10,18,3))
-_OgOMTRAPSMibCompliances_ObjectIdentity=ObjectIdentity
-ogOMTRAPSMibCompliances=_OgOMTRAPSMibCompliances_ObjectIdentity((1,3,6,1,4,1,25049,10,18,3,1))
-_OgOMTRAPSMibGroups_ObjectIdentity=ObjectIdentity
-ogOMTRAPSMibGroups=_OgOMTRAPSMibGroups_ObjectIdentity((1,3,6,1,4,1,25049,10,18,3,2))
-ogOMTRAPSMibGroup=ObjectGroup((1,3,6,1,4,1,25049,10,18,3,2,1))
-ogOMTRAPSMibGroup.setObjects(*((_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_D),(_A,_L),(_A,_M),(_A,_N),(_A,_E),(_A,_F),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S)))
-if mibBuilder.loadTexts:ogOMTRAPSMibGroup.setStatus(_B)
-ogOMTRAPSConnectivityTest=NotificationType((1,3,6,1,4,1,25049,10,18,2,0,1))
-ogOMTRAPSConnectivityTest.setObjects(*((_A,_G),(_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:ogOMTRAPSConnectivityTest.setStatus(_B)
-ogOMTRAPSSSHLogin=NotificationType((1,3,6,1,4,1,25049,10,18,2,0,2))
-ogOMTRAPSSSHLogin.setObjects((_A,_J))
-if mibBuilder.loadTexts:ogOMTRAPSSSHLogin.setStatus(_B)
-ogOMTRAPSWebLogin=NotificationType((1,3,6,1,4,1,25049,10,18,2,0,3))
-ogOMTRAPSWebLogin.setObjects((_A,_K))
-if mibBuilder.loadTexts:ogOMTRAPSWebLogin.setStatus(_B)
-ogOMTRAPSPSU1VoltageRangeAlert=NotificationType((1,3,6,1,4,1,25049,10,18,2,0,4))
-ogOMTRAPSPSU1VoltageRangeAlert.setObjects((_A,_D))
-if mibBuilder.loadTexts:ogOMTRAPSPSU1VoltageRangeAlert.setStatus(_B)
-ogOMTRAPSPSU2VoltageRangeAlert=NotificationType((1,3,6,1,4,1,25049,10,18,2,0,5))
-ogOMTRAPSPSU2VoltageRangeAlert.setObjects((_A,_D))
-if mibBuilder.loadTexts:ogOMTRAPSPSU2VoltageRangeAlert.setStatus(_B)
-ogOMTRAPSReboot=NotificationType((1,3,6,1,4,1,25049,10,18,2,0,6))
-ogOMTRAPSReboot.setObjects((_A,_L))
-if mibBuilder.loadTexts:ogOMTRAPSReboot.setStatus(_B)
-ogOMTRAPSCellSignalAlert=NotificationType((1,3,6,1,4,1,25049,10,18,2,0,7))
-ogOMTRAPSCellSignalAlert.setObjects((_A,_M))
-if mibBuilder.loadTexts:ogOMTRAPSCellSignalAlert.setStatus(_B)
-ogOMTRAPSConfigChange=NotificationType((1,3,6,1,4,1,25049,10,18,2,0,8))
-if mibBuilder.loadTexts:ogOMTRAPSConfigChange.setStatus(_B)
-ogOMTRAPSConsoleLogin=NotificationType((1,3,6,1,4,1,25049,10,18,2,0,9))
-ogOMTRAPSConsoleLogin.setObjects((_A,_N))
-if mibBuilder.loadTexts:ogOMTRAPSConsoleLogin.setStatus(_B)
-ogOMTRAPSSerialPortLoginAlert=NotificationType((1,3,6,1,4,1,25049,10,18,2,0,10))
-ogOMTRAPSSerialPortLoginAlert.setObjects(*((_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:ogOMTRAPSSerialPortLoginAlert.setStatus(_B)
-ogOMTRAPSSerialPortLogoutAlert=NotificationType((1,3,6,1,4,1,25049,10,18,2,0,11))
-ogOMTRAPSSerialPortLogoutAlert.setObjects(*((_A,_E),(_A,_F)))
-if mibBuilder.loadTexts:ogOMTRAPSSerialPortLogoutAlert.setStatus(_B)
-ogOMTRAPSNetworkLinkStateAlert=NotificationType((1,3,6,1,4,1,25049,10,18,2,0,12))
-ogOMTRAPSNetworkLinkStateAlert.setObjects(*((_A,_O),(_A,_P)))
-if mibBuilder.loadTexts:ogOMTRAPSNetworkLinkStateAlert.setStatus(_B)
-ogOMTRAPSSensorTemperatureRangeAlert=NotificationType((1,3,6,1,4,1,25049,10,18,2,0,13))
-ogOMTRAPSSensorTemperatureRangeAlert.setObjects(*((_A,_Q),(_A,_R),(_A,_S)))
-if mibBuilder.loadTexts:ogOMTRAPSSensorTemperatureRangeAlert.setStatus(_B)
-ogOMTRAPSNotificationsGroup=NotificationGroup((1,3,6,1,4,1,25049,10,18,3,2,2))
-ogOMTRAPSNotificationsGroup.setObjects(*((_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f)))
-if mibBuilder.loadTexts:ogOMTRAPSNotificationsGroup.setStatus(_B)
-ogOMTRAPSMibCompliance=ModuleCompliance((1,3,6,1,4,1,25049,10,18,3,1,1))
-ogOMTRAPSMibCompliance.setObjects(*((_A,_g),(_A,_h)))
-if mibBuilder.loadTexts:ogOMTRAPSMibCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ogOMTRAPSMib':ogOMTRAPSMib,'ogOMTRAPSObjects':ogOMTRAPSObjects,'ogOMTRAPSEvent':ogOMTRAPSEvent,_G:ogOMTRAPSConnectivityTestResult,_H:ogOMTRAPSConnectivityTestSignal,_I:ogOMTRAPSConnectivityTestSignalStatus,_J:ogOMTRAPSSSHLoginStatus,_K:ogOMTRAPSWebLoginStatus,_D:ogOMTRAPSBusVoltage,_L:ogOMTRAPSRebootStatus,_M:ogOMTRAPSCellSignal,_N:ogOMTRAPSConsoleLoginStatus,_E:ogOMTRAPSSerialPortID,_F:ogOMTRAPSSerialPortUser,_O:ogOMTRAPSNetworkLinkState,_P:ogOMTRAPSNetworkLinkDescription,_Q:ogOMTRAPSSensorTemperature,_R:ogOMTRAPSSensorDevice,_S:ogOMTRAPSAlarmSummary,'ogOMTRAPSNotificationPrefix':ogOMTRAPSNotificationPrefix,'ogOMTRAPSNotification':ogOMTRAPSNotification,_T:ogOMTRAPSConnectivityTest,_U:ogOMTRAPSSSHLogin,_V:ogOMTRAPSWebLogin,_W:ogOMTRAPSPSU1VoltageRangeAlert,_X:ogOMTRAPSPSU2VoltageRangeAlert,_Y:ogOMTRAPSReboot,_Z:ogOMTRAPSCellSignalAlert,_a:ogOMTRAPSConfigChange,_b:ogOMTRAPSConsoleLogin,_c:ogOMTRAPSSerialPortLoginAlert,_d:ogOMTRAPSSerialPortLogoutAlert,_e:ogOMTRAPSNetworkLinkStateAlert,_f:ogOMTRAPSSensorTemperatureRangeAlert,'ogOMTRAPSMibConformance':ogOMTRAPSMibConformance,'ogOMTRAPSMibCompliances':ogOMTRAPSMibCompliances,'ogOMTRAPSMibCompliance':ogOMTRAPSMibCompliance,'ogOMTRAPSMibGroups':ogOMTRAPSMibGroups,_g:ogOMTRAPSMibGroup,_h:ogOMTRAPSNotificationsGroup})
+#
+# PySNMP MIB module OG-OMTRAPS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/opengear/OG-OMTRAPS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ogMgmt, = mibBuilder.importSymbols("OG-SMI-MIB", "ogMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ogOMTRAPSMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 25049, 10, 18))
+ogOMTRAPSMib.setRevisions(('2020-11-10 15:00', '2019-08-29 15:00', '2019-08-07 15:00',))
+if mibBuilder.loadTexts: ogOMTRAPSMib.setLastUpdated('202011101500Z')
+if mibBuilder.loadTexts: ogOMTRAPSMib.setOrganization('Opengear Inc.')
+ogOMTRAPSObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1))
+ogOMTRAPSEvent = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1))
+ogOMTRAPSNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 10, 18, 2))
+ogOMTRAPSNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 10, 18, 2, 0))
+ogOMTRAPSConnectivityTestResult = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSConnectivityTestResult.setStatus('current')
+ogOMTRAPSConnectivityTestSignal = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSConnectivityTestSignal.setStatus('current')
+ogOMTRAPSConnectivityTestSignalStatus = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSConnectivityTestSignalStatus.setStatus('current')
+ogOMTRAPSSSHLoginStatus = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSSSHLoginStatus.setStatus('current')
+ogOMTRAPSWebLoginStatus = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSWebLoginStatus.setStatus('current')
+ogOMTRAPSBusVoltage = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 6), Integer32()).setUnits('0.1 Volt DC').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSBusVoltage.setStatus('current')
+ogOMTRAPSRebootStatus = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSRebootStatus.setStatus('current')
+ogOMTRAPSCellSignal = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSCellSignal.setStatus('current')
+ogOMTRAPSConsoleLoginStatus = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSConsoleLoginStatus.setStatus('current')
+ogOMTRAPSSerialPortID = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSSerialPortID.setStatus('current')
+ogOMTRAPSSerialPortUser = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 11), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSSerialPortUser.setStatus('current')
+ogOMTRAPSNetworkLinkState = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 12), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSNetworkLinkState.setStatus('current')
+ogOMTRAPSNetworkLinkDescription = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 13), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSNetworkLinkDescription.setStatus('current')
+ogOMTRAPSSensorTemperature = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 14), Integer32()).setUnits('millidegrees Celsius').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSSensorTemperature.setStatus('current')
+ogOMTRAPSSensorDevice = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 15), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSSensorDevice.setStatus('current')
+ogOMTRAPSAlarmSummary = MibScalar((1, 3, 6, 1, 4, 1, 25049, 10, 18, 1, 1, 16), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogOMTRAPSAlarmSummary.setStatus('current')
+ogOMTRAPSConnectivityTest = NotificationType((1, 3, 6, 1, 4, 1, 25049, 10, 18, 2, 0, 1)).setObjects(("OG-OMTRAPS-MIB", "ogOMTRAPSConnectivityTestResult"), ("OG-OMTRAPS-MIB", "ogOMTRAPSConnectivityTestSignal"), ("OG-OMTRAPS-MIB", "ogOMTRAPSConnectivityTestSignalStatus"))
+if mibBuilder.loadTexts: ogOMTRAPSConnectivityTest.setStatus('current')
+ogOMTRAPSSSHLogin = NotificationType((1, 3, 6, 1, 4, 1, 25049, 10, 18, 2, 0, 2)).setObjects(("OG-OMTRAPS-MIB", "ogOMTRAPSSSHLoginStatus"))
+if mibBuilder.loadTexts: ogOMTRAPSSSHLogin.setStatus('current')
+ogOMTRAPSWebLogin = NotificationType((1, 3, 6, 1, 4, 1, 25049, 10, 18, 2, 0, 3)).setObjects(("OG-OMTRAPS-MIB", "ogOMTRAPSWebLoginStatus"))
+if mibBuilder.loadTexts: ogOMTRAPSWebLogin.setStatus('current')
+ogOMTRAPSPSU1VoltageRangeAlert = NotificationType((1, 3, 6, 1, 4, 1, 25049, 10, 18, 2, 0, 4)).setObjects(("OG-OMTRAPS-MIB", "ogOMTRAPSBusVoltage"))
+if mibBuilder.loadTexts: ogOMTRAPSPSU1VoltageRangeAlert.setStatus('current')
+ogOMTRAPSPSU2VoltageRangeAlert = NotificationType((1, 3, 6, 1, 4, 1, 25049, 10, 18, 2, 0, 5)).setObjects(("OG-OMTRAPS-MIB", "ogOMTRAPSBusVoltage"))
+if mibBuilder.loadTexts: ogOMTRAPSPSU2VoltageRangeAlert.setStatus('current')
+ogOMTRAPSReboot = NotificationType((1, 3, 6, 1, 4, 1, 25049, 10, 18, 2, 0, 6)).setObjects(("OG-OMTRAPS-MIB", "ogOMTRAPSRebootStatus"))
+if mibBuilder.loadTexts: ogOMTRAPSReboot.setStatus('current')
+ogOMTRAPSCellSignalAlert = NotificationType((1, 3, 6, 1, 4, 1, 25049, 10, 18, 2, 0, 7)).setObjects(("OG-OMTRAPS-MIB", "ogOMTRAPSCellSignal"))
+if mibBuilder.loadTexts: ogOMTRAPSCellSignalAlert.setStatus('current')
+ogOMTRAPSConfigChange = NotificationType((1, 3, 6, 1, 4, 1, 25049, 10, 18, 2, 0, 8))
+if mibBuilder.loadTexts: ogOMTRAPSConfigChange.setStatus('current')
+ogOMTRAPSConsoleLogin = NotificationType((1, 3, 6, 1, 4, 1, 25049, 10, 18, 2, 0, 9)).setObjects(("OG-OMTRAPS-MIB", "ogOMTRAPSConsoleLoginStatus"))
+if mibBuilder.loadTexts: ogOMTRAPSConsoleLogin.setStatus('current')
+ogOMTRAPSSerialPortLoginAlert = NotificationType((1, 3, 6, 1, 4, 1, 25049, 10, 18, 2, 0, 10)).setObjects(("OG-OMTRAPS-MIB", "ogOMTRAPSSerialPortID"), ("OG-OMTRAPS-MIB", "ogOMTRAPSSerialPortUser"))
+if mibBuilder.loadTexts: ogOMTRAPSSerialPortLoginAlert.setStatus('current')
+ogOMTRAPSSerialPortLogoutAlert = NotificationType((1, 3, 6, 1, 4, 1, 25049, 10, 18, 2, 0, 11)).setObjects(("OG-OMTRAPS-MIB", "ogOMTRAPSSerialPortID"), ("OG-OMTRAPS-MIB", "ogOMTRAPSSerialPortUser"))
+if mibBuilder.loadTexts: ogOMTRAPSSerialPortLogoutAlert.setStatus('current')
+ogOMTRAPSNetworkLinkStateAlert = NotificationType((1, 3, 6, 1, 4, 1, 25049, 10, 18, 2, 0, 12)).setObjects(("OG-OMTRAPS-MIB", "ogOMTRAPSNetworkLinkState"), ("OG-OMTRAPS-MIB", "ogOMTRAPSNetworkLinkDescription"))
+if mibBuilder.loadTexts: ogOMTRAPSNetworkLinkStateAlert.setStatus('current')
+ogOMTRAPSSensorTemperatureRangeAlert = NotificationType((1, 3, 6, 1, 4, 1, 25049, 10, 18, 2, 0, 13)).setObjects(("OG-OMTRAPS-MIB", "ogOMTRAPSSensorTemperature"), ("OG-OMTRAPS-MIB", "ogOMTRAPSSensorDevice"), ("OG-OMTRAPS-MIB", "ogOMTRAPSAlarmSummary"))
+if mibBuilder.loadTexts: ogOMTRAPSSensorTemperatureRangeAlert.setStatus('current')
+ogOMTRAPSMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 10, 18, 3))
+ogOMTRAPSMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 10, 18, 3, 1))
+ogOMTRAPSMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 10, 18, 3, 2))
+ogOMTRAPSMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 25049, 10, 18, 3, 1, 1)).setObjects(("OG-OMTRAPS-MIB", "ogOMTRAPSMibGroup"), ("OG-OMTRAPS-MIB", "ogOMTRAPSNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ogOMTRAPSMibCompliance = ogOMTRAPSMibCompliance.setStatus('current')
+ogOMTRAPSMibGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 25049, 10, 18, 3, 2, 1)).setObjects(("OG-OMTRAPS-MIB", "ogOMTRAPSConnectivityTestResult"), ("OG-OMTRAPS-MIB", "ogOMTRAPSConnectivityTestSignal"), ("OG-OMTRAPS-MIB", "ogOMTRAPSConnectivityTestSignalStatus"), ("OG-OMTRAPS-MIB", "ogOMTRAPSSSHLoginStatus"), ("OG-OMTRAPS-MIB", "ogOMTRAPSWebLoginStatus"), ("OG-OMTRAPS-MIB", "ogOMTRAPSBusVoltage"), ("OG-OMTRAPS-MIB", "ogOMTRAPSRebootStatus"), ("OG-OMTRAPS-MIB", "ogOMTRAPSCellSignal"), ("OG-OMTRAPS-MIB", "ogOMTRAPSConsoleLoginStatus"), ("OG-OMTRAPS-MIB", "ogOMTRAPSSerialPortID"), ("OG-OMTRAPS-MIB", "ogOMTRAPSSerialPortUser"), ("OG-OMTRAPS-MIB", "ogOMTRAPSNetworkLinkState"), ("OG-OMTRAPS-MIB", "ogOMTRAPSNetworkLinkDescription"), ("OG-OMTRAPS-MIB", "ogOMTRAPSSensorTemperature"), ("OG-OMTRAPS-MIB", "ogOMTRAPSSensorDevice"), ("OG-OMTRAPS-MIB", "ogOMTRAPSAlarmSummary"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ogOMTRAPSMibGroup = ogOMTRAPSMibGroup.setStatus('current')
+ogOMTRAPSNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 25049, 10, 18, 3, 2, 2)).setObjects(("OG-OMTRAPS-MIB", "ogOMTRAPSConnectivityTest"), ("OG-OMTRAPS-MIB", "ogOMTRAPSSSHLogin"), ("OG-OMTRAPS-MIB", "ogOMTRAPSWebLogin"), ("OG-OMTRAPS-MIB", "ogOMTRAPSPSU1VoltageRangeAlert"), ("OG-OMTRAPS-MIB", "ogOMTRAPSPSU2VoltageRangeAlert"), ("OG-OMTRAPS-MIB", "ogOMTRAPSReboot"), ("OG-OMTRAPS-MIB", "ogOMTRAPSCellSignalAlert"), ("OG-OMTRAPS-MIB", "ogOMTRAPSConfigChange"), ("OG-OMTRAPS-MIB", "ogOMTRAPSConsoleLogin"), ("OG-OMTRAPS-MIB", "ogOMTRAPSSerialPortLoginAlert"), ("OG-OMTRAPS-MIB", "ogOMTRAPSSerialPortLogoutAlert"), ("OG-OMTRAPS-MIB", "ogOMTRAPSNetworkLinkStateAlert"), ("OG-OMTRAPS-MIB", "ogOMTRAPSSensorTemperatureRangeAlert"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ogOMTRAPSNotificationsGroup = ogOMTRAPSNotificationsGroup.setStatus('current')
+mibBuilder.exportSymbols("OG-OMTRAPS-MIB", ogOMTRAPSNotificationsGroup=ogOMTRAPSNotificationsGroup, ogOMTRAPSRebootStatus=ogOMTRAPSRebootStatus, ogOMTRAPSConnectivityTestSignal=ogOMTRAPSConnectivityTestSignal, ogOMTRAPSConnectivityTestSignalStatus=ogOMTRAPSConnectivityTestSignalStatus, ogOMTRAPSWebLoginStatus=ogOMTRAPSWebLoginStatus, ogOMTRAPSSSHLogin=ogOMTRAPSSSHLogin, ogOMTRAPSMibConformance=ogOMTRAPSMibConformance, ogOMTRAPSNetworkLinkDescription=ogOMTRAPSNetworkLinkDescription, ogOMTRAPSMibGroup=ogOMTRAPSMibGroup, ogOMTRAPSMibGroups=ogOMTRAPSMibGroups, ogOMTRAPSWebLogin=ogOMTRAPSWebLogin, ogOMTRAPSSSHLoginStatus=ogOMTRAPSSSHLoginStatus, ogOMTRAPSReboot=ogOMTRAPSReboot, ogOMTRAPSPSU2VoltageRangeAlert=ogOMTRAPSPSU2VoltageRangeAlert, ogOMTRAPSEvent=ogOMTRAPSEvent, ogOMTRAPSConsoleLoginStatus=ogOMTRAPSConsoleLoginStatus, ogOMTRAPSNetworkLinkState=ogOMTRAPSNetworkLinkState, ogOMTRAPSSensorTemperatureRangeAlert=ogOMTRAPSSensorTemperatureRangeAlert, ogOMTRAPSSerialPortLogoutAlert=ogOMTRAPSSerialPortLogoutAlert, ogOMTRAPSSensorTemperature=ogOMTRAPSSensorTemperature, ogOMTRAPSConsoleLogin=ogOMTRAPSConsoleLogin, ogOMTRAPSMibCompliances=ogOMTRAPSMibCompliances, ogOMTRAPSCellSignal=ogOMTRAPSCellSignal, ogOMTRAPSSerialPortID=ogOMTRAPSSerialPortID, ogOMTRAPSSensorDevice=ogOMTRAPSSensorDevice, ogOMTRAPSObjects=ogOMTRAPSObjects, ogOMTRAPSNotificationPrefix=ogOMTRAPSNotificationPrefix, ogOMTRAPSConfigChange=ogOMTRAPSConfigChange, ogOMTRAPSConnectivityTestResult=ogOMTRAPSConnectivityTestResult, ogOMTRAPSMibCompliance=ogOMTRAPSMibCompliance, ogOMTRAPSNetworkLinkStateAlert=ogOMTRAPSNetworkLinkStateAlert, ogOMTRAPSConnectivityTest=ogOMTRAPSConnectivityTest, ogOMTRAPSNotification=ogOMTRAPSNotification, ogOMTRAPSSerialPortUser=ogOMTRAPSSerialPortUser, ogOMTRAPSSerialPortLoginAlert=ogOMTRAPSSerialPortLoginAlert, PYSNMP_MODULE_ID=ogOMTRAPSMib, ogOMTRAPSAlarmSummary=ogOMTRAPSAlarmSummary, ogOMTRAPSPSU1VoltageRangeAlert=ogOMTRAPSPSU1VoltageRangeAlert, ogOMTRAPSMib=ogOMTRAPSMib, ogOMTRAPSBusVoltage=ogOMTRAPSBusVoltage, ogOMTRAPSCellSignalAlert=ogOMTRAPSCellSignalAlert)

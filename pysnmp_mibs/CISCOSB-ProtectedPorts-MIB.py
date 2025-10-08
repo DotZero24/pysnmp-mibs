@@ -1,56 +1,37 @@
-_F='TruthValue'
-_E='read-write'
-_D='Integer32'
-_C='ifIndex'
-_B='IF-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-switch001,=mibBuilder.importSymbols('CISCOSB-MIB','switch001')
-ifIndex,=mibBuilder.importSymbols(_B,_C)
-PortList,=mibBuilder.importSymbols('Q-BRIDGE-MIB','PortList')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_F)
-rlProtectedPorts=ModuleIdentity((1,3,6,1,4,1,9,6,1,101,132))
-if mibBuilder.loadTexts:rlProtectedPorts.setRevisions(('2008-05-03 12:34',))
-_RlProtectedPortsTable_Object=MibTable
-rlProtectedPortsTable=_RlProtectedPortsTable_Object((1,3,6,1,4,1,9,6,1,101,132,1))
-if mibBuilder.loadTexts:rlProtectedPortsTable.setStatus(_A)
-_RlProtectedPortsEntry_Object=MibTableRow
-rlProtectedPortsEntry=_RlProtectedPortsEntry_Object((1,3,6,1,4,1,9,6,1,101,132,1,1))
-rlProtectedPortsEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:rlProtectedPortsEntry.setStatus(_A)
-class _RlProtectedPortType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('not-protected',1),('protected',2)))
-_RlProtectedPortType_Type.__name__=_D
-_RlProtectedPortType_Object=MibTableColumn
-rlProtectedPortType=_RlProtectedPortType_Object((1,3,6,1,4,1,9,6,1,101,132,1,1,1),_RlProtectedPortType_Type())
-rlProtectedPortType.setMaxAccess(_E)
-if mibBuilder.loadTexts:rlProtectedPortType.setStatus(_A)
-class _RlProtectedPortCommunity_Type(Integer32):defaultValue=0
-_RlProtectedPortCommunity_Type.__name__=_D
-_RlProtectedPortCommunity_Object=MibTableColumn
-rlProtectedPortCommunity=_RlProtectedPortCommunity_Object((1,3,6,1,4,1,9,6,1,101,132,1,1,2),_RlProtectedPortCommunity_Type())
-rlProtectedPortCommunity.setMaxAccess(_E)
-if mibBuilder.loadTexts:rlProtectedPortCommunity.setStatus(_A)
-_RlProtectedPortsStatusTable_Object=MibTable
-rlProtectedPortsStatusTable=_RlProtectedPortsStatusTable_Object((1,3,6,1,4,1,9,6,1,101,132,2))
-if mibBuilder.loadTexts:rlProtectedPortsStatusTable.setStatus(_A)
-_RlProtectedPortsStatusEntry_Object=MibTableRow
-rlProtectedPortsStatusEntry=_RlProtectedPortsStatusEntry_Object((1,3,6,1,4,1,9,6,1,101,132,2,1))
-rlProtectedPortsStatusEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:rlProtectedPortsStatusEntry.setStatus(_A)
-_RlProtectedPortEgressPorts_Type=PortList
-_RlProtectedPortEgressPorts_Object=MibTableColumn
-rlProtectedPortEgressPorts=_RlProtectedPortEgressPorts_Object((1,3,6,1,4,1,9,6,1,101,132,2,1,1),_RlProtectedPortEgressPorts_Type())
-rlProtectedPortEgressPorts.setMaxAccess('read-only')
-if mibBuilder.loadTexts:rlProtectedPortEgressPorts.setStatus(_A)
-class _RlProtectedPortsGlobalEnable_Type(TruthValue):defaultValue=2
-_RlProtectedPortsGlobalEnable_Type.__name__=_F
-_RlProtectedPortsGlobalEnable_Object=MibScalar
-rlProtectedPortsGlobalEnable=_RlProtectedPortsGlobalEnable_Object((1,3,6,1,4,1,9,6,1,101,132,3),_RlProtectedPortsGlobalEnable_Type())
-rlProtectedPortsGlobalEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:rlProtectedPortsGlobalEnable.setStatus(_A)
-mibBuilder.exportSymbols('CISCOSB-ProtectedPorts-MIB',**{'rlProtectedPorts':rlProtectedPorts,'rlProtectedPortsTable':rlProtectedPortsTable,'rlProtectedPortsEntry':rlProtectedPortsEntry,'rlProtectedPortType':rlProtectedPortType,'rlProtectedPortCommunity':rlProtectedPortCommunity,'rlProtectedPortsStatusTable':rlProtectedPortsStatusTable,'rlProtectedPortsStatusEntry':rlProtectedPortsStatusEntry,'rlProtectedPortEgressPorts':rlProtectedPortEgressPorts,'rlProtectedPortsGlobalEnable':rlProtectedPortsGlobalEnable})
+#
+# PySNMP MIB module CISCOSB-ProtectedPorts-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciscosb/CISCOSB-ProtectedPorts-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:32:22 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+switch001, = mibBuilder.importSymbols("CISCOSB-MIB", "switch001")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+rlProtectedPorts = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 132))
+rlProtectedPorts.setRevisions(('2008-05-03 12:34',))
+if mibBuilder.loadTexts: rlProtectedPorts.setLastUpdated('200805031234Z')
+if mibBuilder.loadTexts: rlProtectedPorts.setOrganization('Cisco Systems, Inc.')
+rlProtectedPortsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 132, 1), )
+if mibBuilder.loadTexts: rlProtectedPortsTable.setStatus('current')
+rlProtectedPortsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 132, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: rlProtectedPortsEntry.setStatus('current')
+rlProtectedPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 132, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("not-protected", 1), ("protected", 2))).clone('not-protected')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlProtectedPortType.setStatus('current')
+rlProtectedPortCommunity = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 132, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlProtectedPortCommunity.setStatus('current')
+rlProtectedPortsStatusTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 132, 2), )
+if mibBuilder.loadTexts: rlProtectedPortsStatusTable.setStatus('current')
+rlProtectedPortsStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 132, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: rlProtectedPortsStatusEntry.setStatus('current')
+rlProtectedPortEgressPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 132, 2, 1, 1), PortList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlProtectedPortEgressPorts.setStatus('current')
+rlProtectedPortsGlobalEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 132, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlProtectedPortsGlobalEnable.setStatus('current')
+mibBuilder.exportSymbols("CISCOSB-ProtectedPorts-MIB", rlProtectedPortsEntry=rlProtectedPortsEntry, rlProtectedPortsStatusTable=rlProtectedPortsStatusTable, rlProtectedPortsTable=rlProtectedPortsTable, rlProtectedPortEgressPorts=rlProtectedPortEgressPorts, rlProtectedPortType=rlProtectedPortType, rlProtectedPortCommunity=rlProtectedPortCommunity, PYSNMP_MODULE_ID=rlProtectedPorts, rlProtectedPorts=rlProtectedPorts, rlProtectedPortsStatusEntry=rlProtectedPortsStatusEntry, rlProtectedPortsGlobalEnable=rlProtectedPortsGlobalEnable)

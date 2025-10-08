@@ -1,36 +1,35 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-smartoptics,=mibBuilder.importSymbols('SO-MIB','smartoptics')
-dcpGlobalModule=ModuleIdentity((1,3,6,1,4,1,30826,2,1,1,1))
-if mibBuilder.loadTexts:dcpGlobalModule.setRevisions(('2018-10-08 14:44',))
-_Dcp_ObjectIdentity=ObjectIdentity
-dcp=_Dcp_ObjectIdentity((1,3,6,1,4,1,30826,2))
-if mibBuilder.loadTexts:dcp.setStatus(_A)
-_DcpReg_ObjectIdentity=ObjectIdentity
-dcpReg=_DcpReg_ObjectIdentity((1,3,6,1,4,1,30826,2,1))
-if mibBuilder.loadTexts:dcpReg.setStatus(_A)
-_DcpModules_ObjectIdentity=ObjectIdentity
-dcpModules=_DcpModules_ObjectIdentity((1,3,6,1,4,1,30826,2,1,1))
-if mibBuilder.loadTexts:dcpModules.setStatus(_A)
-_DcpGeneric_ObjectIdentity=ObjectIdentity
-dcpGeneric=_DcpGeneric_ObjectIdentity((1,3,6,1,4,1,30826,2,2))
-if mibBuilder.loadTexts:dcpGeneric.setStatus(_A)
-_DcpProducts_ObjectIdentity=ObjectIdentity
-dcpProducts=_DcpProducts_ObjectIdentity((1,3,6,1,4,1,30826,2,3))
-if mibBuilder.loadTexts:dcpProducts.setStatus(_A)
-_DcpCaps_ObjectIdentity=ObjectIdentity
-dcpCaps=_DcpCaps_ObjectIdentity((1,3,6,1,4,1,30826,2,4))
-if mibBuilder.loadTexts:dcpCaps.setStatus(_A)
-_DcpReqs_ObjectIdentity=ObjectIdentity
-dcpReqs=_DcpReqs_ObjectIdentity((1,3,6,1,4,1,30826,2,5))
-if mibBuilder.loadTexts:dcpReqs.setStatus(_A)
-_DcpExpr_ObjectIdentity=ObjectIdentity
-dcpExpr=_DcpExpr_ObjectIdentity((1,3,6,1,4,1,30826,2,6))
-if mibBuilder.loadTexts:dcpExpr.setStatus(_A)
-mibBuilder.exportSymbols('DCP-MIB',**{'dcp':dcp,'dcpReg':dcpReg,'dcpModules':dcpModules,'dcpGlobalModule':dcpGlobalModule,'dcpGeneric':dcpGeneric,'dcpProducts':dcpProducts,'dcpCaps':dcpCaps,'dcpReqs':dcpReqs,'dcpExpr':dcpExpr})
+#
+# PySNMP MIB module DCP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/smartoptics/DCP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:03 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+smartoptics, = mibBuilder.importSymbols("SO-MIB", "smartoptics")
+dcpGlobalModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 30826, 2, 1, 1, 1))
+dcpGlobalModule.setRevisions(('2018-10-08 14:44',))
+if mibBuilder.loadTexts: dcpGlobalModule.setLastUpdated('201810081444Z')
+if mibBuilder.loadTexts: dcpGlobalModule.setOrganization('Smartoptics.')
+dcp = ObjectIdentity((1, 3, 6, 1, 4, 1, 30826, 2))
+if mibBuilder.loadTexts: dcp.setStatus('current')
+dcpReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 30826, 2, 1))
+if mibBuilder.loadTexts: dcpReg.setStatus('current')
+dcpModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 30826, 2, 1, 1))
+if mibBuilder.loadTexts: dcpModules.setStatus('current')
+dcpGeneric = ObjectIdentity((1, 3, 6, 1, 4, 1, 30826, 2, 2))
+if mibBuilder.loadTexts: dcpGeneric.setStatus('current')
+dcpProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 30826, 2, 3))
+if mibBuilder.loadTexts: dcpProducts.setStatus('current')
+dcpCaps = ObjectIdentity((1, 3, 6, 1, 4, 1, 30826, 2, 4))
+if mibBuilder.loadTexts: dcpCaps.setStatus('current')
+dcpReqs = ObjectIdentity((1, 3, 6, 1, 4, 1, 30826, 2, 5))
+if mibBuilder.loadTexts: dcpReqs.setStatus('current')
+dcpExpr = ObjectIdentity((1, 3, 6, 1, 4, 1, 30826, 2, 6))
+if mibBuilder.loadTexts: dcpExpr.setStatus('current')
+mibBuilder.exportSymbols("DCP-MIB", dcpExpr=dcpExpr, dcpGlobalModule=dcpGlobalModule, dcpCaps=dcpCaps, dcp=dcp, dcpReg=dcpReg, dcpReqs=dcpReqs, dcpProducts=dcpProducts, dcpGeneric=dcpGeneric, dcpModules=dcpModules, PYSNMP_MODULE_ID=dcpGlobalModule)

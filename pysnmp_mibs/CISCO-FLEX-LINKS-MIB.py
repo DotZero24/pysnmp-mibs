@@ -1,170 +1,96 @@
-_a='ciscoFlexLinksPreferVlanGroup'
-_Z='ciscoFlexLinksPreemptionGroup'
-_Y='ciscoFlexLinksMmuPrimaryVlanGroup'
-_X='cflIfStatusChangeNotif'
-_W='cflIfConfigPrefer4kVlan'
-_V='cflIfConfigPrefer2kVlan'
-_U='cflIfConfigPreemptionDelay'
-_T='cflIfConfigPreemptionMode'
-_S='cflIfConfigMmuPrimaryVlan'
-_R='cflEnableStatusChangeNotif'
-_Q='cflIfConfigStatus'
-_P='cflIfConfigStorageType'
-_O='cflIfConfigBackUp'
-_N='cflIfIndex'
-_M='not-accessible'
-_L='StorageType'
-_K='ciscoFlexLinksNotifGroup'
-_J='ciscoFlexLinksEnableNotifGroup'
-_I='ciscoFlexLinksIfStatusGroup'
-_H='ciscoFlexLinksIfConfigGroup'
-_G='cflIfStatus'
-_F='read-create'
-_E='cflIfConfigPrimary'
-_D='Integer32'
-_C='read-write'
-_B='CISCO-FLEX-LINKS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-Cisco2KVlanList,=mibBuilder.importSymbols('CISCO-TC','Cisco2KVlanList')
-InterfaceIndex,InterfaceIndexOrZero=mibBuilder.importSymbols('IF-MIB','InterfaceIndex','InterfaceIndexOrZero')
-VlanIdOrNone,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanIdOrNone')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_L,'TextualConvention','TruthValue')
-ciscoFlexLinksMIB=ModuleIdentity((1,3,6,1,4,1,9,9,471))
-if mibBuilder.loadTexts:ciscoFlexLinksMIB.setRevisions(('2010-02-04 00:00','2005-04-25 00:00'))
-_CiscoFlexLinksMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoFlexLinksMIBNotifs=_CiscoFlexLinksMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,471,0))
-_CiscoFlexLinksMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoFlexLinksMIBObjects=_CiscoFlexLinksMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,471,1))
-_CflConfig_ObjectIdentity=ObjectIdentity
-cflConfig=_CflConfig_ObjectIdentity((1,3,6,1,4,1,9,9,471,1,1))
-_CflIfConfigTable_Object=MibTable
-cflIfConfigTable=_CflIfConfigTable_Object((1,3,6,1,4,1,9,9,471,1,1,1))
-if mibBuilder.loadTexts:cflIfConfigTable.setStatus(_A)
-_CflIfConfigEntry_Object=MibTableRow
-cflIfConfigEntry=_CflIfConfigEntry_Object((1,3,6,1,4,1,9,9,471,1,1,1,1))
-cflIfConfigEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:cflIfConfigEntry.setStatus(_A)
-_CflIfConfigPrimary_Type=InterfaceIndex
-_CflIfConfigPrimary_Object=MibTableColumn
-cflIfConfigPrimary=_CflIfConfigPrimary_Object((1,3,6,1,4,1,9,9,471,1,1,1,1,1),_CflIfConfigPrimary_Type())
-cflIfConfigPrimary.setMaxAccess(_M)
-if mibBuilder.loadTexts:cflIfConfigPrimary.setStatus(_A)
-_CflIfConfigBackUp_Type=InterfaceIndexOrZero
-_CflIfConfigBackUp_Object=MibTableColumn
-cflIfConfigBackUp=_CflIfConfigBackUp_Object((1,3,6,1,4,1,9,9,471,1,1,1,1,2),_CflIfConfigBackUp_Type())
-cflIfConfigBackUp.setMaxAccess(_F)
-if mibBuilder.loadTexts:cflIfConfigBackUp.setStatus(_A)
-class _CflIfConfigStorageType_Type(StorageType):defaultValue=3
-_CflIfConfigStorageType_Type.__name__=_L
-_CflIfConfigStorageType_Object=MibTableColumn
-cflIfConfigStorageType=_CflIfConfigStorageType_Object((1,3,6,1,4,1,9,9,471,1,1,1,1,3),_CflIfConfigStorageType_Type())
-cflIfConfigStorageType.setMaxAccess(_F)
-if mibBuilder.loadTexts:cflIfConfigStorageType.setStatus(_A)
-_CflIfConfigStatus_Type=RowStatus
-_CflIfConfigStatus_Object=MibTableColumn
-cflIfConfigStatus=_CflIfConfigStatus_Object((1,3,6,1,4,1,9,9,471,1,1,1,1,4),_CflIfConfigStatus_Type())
-cflIfConfigStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:cflIfConfigStatus.setStatus(_A)
-_CflEnableStatusChangeNotif_Type=TruthValue
-_CflEnableStatusChangeNotif_Object=MibScalar
-cflEnableStatusChangeNotif=_CflEnableStatusChangeNotif_Object((1,3,6,1,4,1,9,9,471,1,1,2),_CflEnableStatusChangeNotif_Type())
-cflEnableStatusChangeNotif.setMaxAccess(_C)
-if mibBuilder.loadTexts:cflEnableStatusChangeNotif.setStatus(_A)
-_CflIfConfigExtTable_Object=MibTable
-cflIfConfigExtTable=_CflIfConfigExtTable_Object((1,3,6,1,4,1,9,9,471,1,1,3))
-if mibBuilder.loadTexts:cflIfConfigExtTable.setStatus(_A)
-_CflIfConfigExtEntry_Object=MibTableRow
-cflIfConfigExtEntry=_CflIfConfigExtEntry_Object((1,3,6,1,4,1,9,9,471,1,1,3,1))
-cflIfConfigExtEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:cflIfConfigExtEntry.setStatus(_A)
-_CflIfConfigMmuPrimaryVlan_Type=VlanIdOrNone
-_CflIfConfigMmuPrimaryVlan_Object=MibTableColumn
-cflIfConfigMmuPrimaryVlan=_CflIfConfigMmuPrimaryVlan_Object((1,3,6,1,4,1,9,9,471,1,1,3,1,1),_CflIfConfigMmuPrimaryVlan_Type())
-cflIfConfigMmuPrimaryVlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:cflIfConfigMmuPrimaryVlan.setStatus(_A)
-class _CflIfConfigPreemptionMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('off',1),('forced',2),('bandwidth',3)))
-_CflIfConfigPreemptionMode_Type.__name__=_D
-_CflIfConfigPreemptionMode_Object=MibTableColumn
-cflIfConfigPreemptionMode=_CflIfConfigPreemptionMode_Object((1,3,6,1,4,1,9,9,471,1,1,3,1,2),_CflIfConfigPreemptionMode_Type())
-cflIfConfigPreemptionMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cflIfConfigPreemptionMode.setStatus(_A)
-_CflIfConfigPreemptionDelay_Type=Unsigned32
-_CflIfConfigPreemptionDelay_Object=MibTableColumn
-cflIfConfigPreemptionDelay=_CflIfConfigPreemptionDelay_Object((1,3,6,1,4,1,9,9,471,1,1,3,1,3),_CflIfConfigPreemptionDelay_Type())
-cflIfConfigPreemptionDelay.setMaxAccess(_C)
-if mibBuilder.loadTexts:cflIfConfigPreemptionDelay.setStatus(_A)
-if mibBuilder.loadTexts:cflIfConfigPreemptionDelay.setUnits('seconds')
-_CflIfConfigPrefer2kVlan_Type=Cisco2KVlanList
-_CflIfConfigPrefer2kVlan_Object=MibTableColumn
-cflIfConfigPrefer2kVlan=_CflIfConfigPrefer2kVlan_Object((1,3,6,1,4,1,9,9,471,1,1,3,1,4),_CflIfConfigPrefer2kVlan_Type())
-cflIfConfigPrefer2kVlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:cflIfConfigPrefer2kVlan.setStatus(_A)
-_CflIfConfigPrefer4kVlan_Type=Cisco2KVlanList
-_CflIfConfigPrefer4kVlan_Object=MibTableColumn
-cflIfConfigPrefer4kVlan=_CflIfConfigPrefer4kVlan_Object((1,3,6,1,4,1,9,9,471,1,1,3,1,5),_CflIfConfigPrefer4kVlan_Type())
-cflIfConfigPrefer4kVlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:cflIfConfigPrefer4kVlan.setStatus(_A)
-_CflStatus_ObjectIdentity=ObjectIdentity
-cflStatus=_CflStatus_ObjectIdentity((1,3,6,1,4,1,9,9,471,1,2))
-_CflIfStatusTable_Object=MibTable
-cflIfStatusTable=_CflIfStatusTable_Object((1,3,6,1,4,1,9,9,471,1,2,1))
-if mibBuilder.loadTexts:cflIfStatusTable.setStatus(_A)
-_CflIfStatusEntry_Object=MibTableRow
-cflIfStatusEntry=_CflIfStatusEntry_Object((1,3,6,1,4,1,9,9,471,1,2,1,1))
-cflIfStatusEntry.setIndexNames((0,_B,_N))
-if mibBuilder.loadTexts:cflIfStatusEntry.setStatus(_A)
-_CflIfIndex_Type=InterfaceIndex
-_CflIfIndex_Object=MibTableColumn
-cflIfIndex=_CflIfIndex_Object((1,3,6,1,4,1,9,9,471,1,2,1,1,1),_CflIfIndex_Type())
-cflIfIndex.setMaxAccess(_M)
-if mibBuilder.loadTexts:cflIfIndex.setStatus(_A)
-class _CflIfStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('forwarding',1),('blocking',2),('down',3),('waitingToSync',4),('waitingForPeerStrate',5),('unknown',6),('vlbAll',7),('vlbConfig',8),('vlbPreempt',9)))
-_CflIfStatus_Type.__name__=_D
-_CflIfStatus_Object=MibTableColumn
-cflIfStatus=_CflIfStatus_Object((1,3,6,1,4,1,9,9,471,1,2,1,1,2),_CflIfStatus_Type())
-cflIfStatus.setMaxAccess('read-only')
-if mibBuilder.loadTexts:cflIfStatus.setStatus(_A)
-_CiscoFlexLinksMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoFlexLinksMIBConformance=_CiscoFlexLinksMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,471,2))
-_CiscoFlexLinksMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoFlexLinksMIBCompliances=_CiscoFlexLinksMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,471,2,1))
-_CiscoFlexLinksMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoFlexLinksMIBGroups=_CiscoFlexLinksMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,471,2,2))
-ciscoFlexLinksIfConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,471,2,2,1))
-ciscoFlexLinksIfConfigGroup.setObjects(*((_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:ciscoFlexLinksIfConfigGroup.setStatus(_A)
-ciscoFlexLinksIfStatusGroup=ObjectGroup((1,3,6,1,4,1,9,9,471,2,2,2))
-ciscoFlexLinksIfStatusGroup.setObjects((_B,_G))
-if mibBuilder.loadTexts:ciscoFlexLinksIfStatusGroup.setStatus(_A)
-ciscoFlexLinksEnableNotifGroup=ObjectGroup((1,3,6,1,4,1,9,9,471,2,2,3))
-ciscoFlexLinksEnableNotifGroup.setObjects((_B,_R))
-if mibBuilder.loadTexts:ciscoFlexLinksEnableNotifGroup.setStatus(_A)
-ciscoFlexLinksMmuPrimaryVlanGroup=ObjectGroup((1,3,6,1,4,1,9,9,471,2,2,5))
-ciscoFlexLinksMmuPrimaryVlanGroup.setObjects((_B,_S))
-if mibBuilder.loadTexts:ciscoFlexLinksMmuPrimaryVlanGroup.setStatus(_A)
-ciscoFlexLinksPreemptionGroup=ObjectGroup((1,3,6,1,4,1,9,9,471,2,2,6))
-ciscoFlexLinksPreemptionGroup.setObjects(*((_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:ciscoFlexLinksPreemptionGroup.setStatus(_A)
-ciscoFlexLinksPreferVlanGroup=ObjectGroup((1,3,6,1,4,1,9,9,471,2,2,7))
-ciscoFlexLinksPreferVlanGroup.setObjects(*((_B,_V),(_B,_W)))
-if mibBuilder.loadTexts:ciscoFlexLinksPreferVlanGroup.setStatus(_A)
-cflIfStatusChangeNotif=NotificationType((1,3,6,1,4,1,9,9,471,0,1))
-cflIfStatusChangeNotif.setObjects((_B,_G))
-if mibBuilder.loadTexts:cflIfStatusChangeNotif.setStatus(_A)
-ciscoFlexLinksNotifGroup=NotificationGroup((1,3,6,1,4,1,9,9,471,2,2,4))
-ciscoFlexLinksNotifGroup.setObjects((_B,_X))
-if mibBuilder.loadTexts:ciscoFlexLinksNotifGroup.setStatus(_A)
-ciscoFlexLinksMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,471,2,1,1))
-ciscoFlexLinksMIBCompliance.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:ciscoFlexLinksMIBCompliance.setStatus('deprecated')
-ciscoFlexLinksMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,9,9,471,2,1,2))
-ciscoFlexLinksMIBCompliance2.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_Y),(_B,_Z),(_B,_a)))
-if mibBuilder.loadTexts:ciscoFlexLinksMIBCompliance2.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoFlexLinksMIB':ciscoFlexLinksMIB,'ciscoFlexLinksMIBNotifs':ciscoFlexLinksMIBNotifs,_X:cflIfStatusChangeNotif,'ciscoFlexLinksMIBObjects':ciscoFlexLinksMIBObjects,'cflConfig':cflConfig,'cflIfConfigTable':cflIfConfigTable,'cflIfConfigEntry':cflIfConfigEntry,_E:cflIfConfigPrimary,_O:cflIfConfigBackUp,_P:cflIfConfigStorageType,_Q:cflIfConfigStatus,_R:cflEnableStatusChangeNotif,'cflIfConfigExtTable':cflIfConfigExtTable,'cflIfConfigExtEntry':cflIfConfigExtEntry,_S:cflIfConfigMmuPrimaryVlan,_T:cflIfConfigPreemptionMode,_U:cflIfConfigPreemptionDelay,_V:cflIfConfigPrefer2kVlan,_W:cflIfConfigPrefer4kVlan,'cflStatus':cflStatus,'cflIfStatusTable':cflIfStatusTable,'cflIfStatusEntry':cflIfStatusEntry,_N:cflIfIndex,_G:cflIfStatus,'ciscoFlexLinksMIBConformance':ciscoFlexLinksMIBConformance,'ciscoFlexLinksMIBCompliances':ciscoFlexLinksMIBCompliances,'ciscoFlexLinksMIBCompliance':ciscoFlexLinksMIBCompliance,'ciscoFlexLinksMIBCompliance2':ciscoFlexLinksMIBCompliance2,'ciscoFlexLinksMIBGroups':ciscoFlexLinksMIBGroups,_H:ciscoFlexLinksIfConfigGroup,_I:ciscoFlexLinksIfStatusGroup,_J:ciscoFlexLinksEnableNotifGroup,_K:ciscoFlexLinksNotifGroup,_Y:ciscoFlexLinksMmuPrimaryVlanGroup,_Z:ciscoFlexLinksPreemptionGroup,_a:ciscoFlexLinksPreferVlanGroup})
+#
+# PySNMP MIB module CISCO-FLEX-LINKS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-FLEX-LINKS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:10 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+Cisco2KVlanList, = mibBuilder.importSymbols("CISCO-TC", "Cisco2KVlanList")
+InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
+VlanIdOrNone, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIdOrNone")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, StorageType, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "StorageType", "TruthValue", "TextualConvention")
+ciscoFlexLinksMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 471))
+ciscoFlexLinksMIB.setRevisions(('2010-02-04 00:00', '2005-04-25 00:00',))
+if mibBuilder.loadTexts: ciscoFlexLinksMIB.setLastUpdated('201002040000Z')
+if mibBuilder.loadTexts: ciscoFlexLinksMIB.setOrganization('Cisco Systems, Inc.')
+ciscoFlexLinksMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 471, 0))
+ciscoFlexLinksMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 471, 1))
+ciscoFlexLinksMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 471, 2))
+cflConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 1))
+cflStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 2))
+cflIfConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 1, 1), )
+if mibBuilder.loadTexts: cflIfConfigTable.setStatus('current')
+cflIfConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-FLEX-LINKS-MIB", "cflIfConfigPrimary"))
+if mibBuilder.loadTexts: cflIfConfigEntry.setStatus('current')
+cflIfConfigPrimary = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: cflIfConfigPrimary.setStatus('current')
+cflIfConfigBackUp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 1, 1, 1, 2), InterfaceIndexOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cflIfConfigBackUp.setStatus('current')
+cflIfConfigStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 1, 1, 1, 3), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cflIfConfigStorageType.setStatus('current')
+cflIfConfigStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cflIfConfigStatus.setStatus('current')
+cflEnableStatusChangeNotif = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cflEnableStatusChangeNotif.setStatus('current')
+cflIfConfigExtTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 1, 3), )
+if mibBuilder.loadTexts: cflIfConfigExtTable.setStatus('current')
+cflIfConfigExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 1, 3, 1), ).setIndexNames((0, "CISCO-FLEX-LINKS-MIB", "cflIfConfigPrimary"))
+if mibBuilder.loadTexts: cflIfConfigExtEntry.setStatus('current')
+cflIfConfigMmuPrimaryVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 1, 3, 1, 1), VlanIdOrNone()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cflIfConfigMmuPrimaryVlan.setStatus('current')
+cflIfConfigPreemptionMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("off", 1), ("forced", 2), ("bandwidth", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cflIfConfigPreemptionMode.setStatus('current')
+cflIfConfigPreemptionDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 1, 3, 1, 3), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cflIfConfigPreemptionDelay.setStatus('current')
+cflIfConfigPrefer2kVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 1, 3, 1, 4), Cisco2KVlanList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cflIfConfigPrefer2kVlan.setStatus('current')
+cflIfConfigPrefer4kVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 1, 3, 1, 5), Cisco2KVlanList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cflIfConfigPrefer4kVlan.setStatus('current')
+cflIfStatusTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 2, 1), )
+if mibBuilder.loadTexts: cflIfStatusTable.setStatus('current')
+cflIfStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-FLEX-LINKS-MIB", "cflIfIndex"))
+if mibBuilder.loadTexts: cflIfStatusEntry.setStatus('current')
+cflIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 2, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: cflIfIndex.setStatus('current')
+cflIfStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 471, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("forwarding", 1), ("blocking", 2), ("down", 3), ("waitingToSync", 4), ("waitingForPeerStrate", 5), ("unknown", 6), ("vlbAll", 7), ("vlbConfig", 8), ("vlbPreempt", 9)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cflIfStatus.setStatus('current')
+cflIfStatusChangeNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 471, 0, 1)).setObjects(("CISCO-FLEX-LINKS-MIB", "cflIfStatus"))
+if mibBuilder.loadTexts: cflIfStatusChangeNotif.setStatus('current')
+ciscoFlexLinksMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 471, 2, 1))
+ciscoFlexLinksMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 471, 2, 2))
+ciscoFlexLinksMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 471, 2, 1, 1)).setObjects(("CISCO-FLEX-LINKS-MIB", "ciscoFlexLinksIfConfigGroup"), ("CISCO-FLEX-LINKS-MIB", "ciscoFlexLinksIfStatusGroup"), ("CISCO-FLEX-LINKS-MIB", "ciscoFlexLinksEnableNotifGroup"), ("CISCO-FLEX-LINKS-MIB", "ciscoFlexLinksNotifGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoFlexLinksMIBCompliance = ciscoFlexLinksMIBCompliance.setStatus('deprecated')
+ciscoFlexLinksMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 471, 2, 1, 2)).setObjects(("CISCO-FLEX-LINKS-MIB", "ciscoFlexLinksIfConfigGroup"), ("CISCO-FLEX-LINKS-MIB", "ciscoFlexLinksIfStatusGroup"), ("CISCO-FLEX-LINKS-MIB", "ciscoFlexLinksEnableNotifGroup"), ("CISCO-FLEX-LINKS-MIB", "ciscoFlexLinksNotifGroup"), ("CISCO-FLEX-LINKS-MIB", "ciscoFlexLinksMmuPrimaryVlanGroup"), ("CISCO-FLEX-LINKS-MIB", "ciscoFlexLinksPreemptionGroup"), ("CISCO-FLEX-LINKS-MIB", "ciscoFlexLinksPreferVlanGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoFlexLinksMIBCompliance2 = ciscoFlexLinksMIBCompliance2.setStatus('current')
+ciscoFlexLinksIfConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 471, 2, 2, 1)).setObjects(("CISCO-FLEX-LINKS-MIB", "cflIfConfigBackUp"), ("CISCO-FLEX-LINKS-MIB", "cflIfConfigStorageType"), ("CISCO-FLEX-LINKS-MIB", "cflIfConfigStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoFlexLinksIfConfigGroup = ciscoFlexLinksIfConfigGroup.setStatus('current')
+ciscoFlexLinksIfStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 471, 2, 2, 2)).setObjects(("CISCO-FLEX-LINKS-MIB", "cflIfStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoFlexLinksIfStatusGroup = ciscoFlexLinksIfStatusGroup.setStatus('current')
+ciscoFlexLinksEnableNotifGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 471, 2, 2, 3)).setObjects(("CISCO-FLEX-LINKS-MIB", "cflEnableStatusChangeNotif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoFlexLinksEnableNotifGroup = ciscoFlexLinksEnableNotifGroup.setStatus('current')
+ciscoFlexLinksNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 471, 2, 2, 4)).setObjects(("CISCO-FLEX-LINKS-MIB", "cflIfStatusChangeNotif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoFlexLinksNotifGroup = ciscoFlexLinksNotifGroup.setStatus('current')
+ciscoFlexLinksMmuPrimaryVlanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 471, 2, 2, 5)).setObjects(("CISCO-FLEX-LINKS-MIB", "cflIfConfigMmuPrimaryVlan"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoFlexLinksMmuPrimaryVlanGroup = ciscoFlexLinksMmuPrimaryVlanGroup.setStatus('current')
+ciscoFlexLinksPreemptionGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 471, 2, 2, 6)).setObjects(("CISCO-FLEX-LINKS-MIB", "cflIfConfigPreemptionMode"), ("CISCO-FLEX-LINKS-MIB", "cflIfConfigPreemptionDelay"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoFlexLinksPreemptionGroup = ciscoFlexLinksPreemptionGroup.setStatus('current')
+ciscoFlexLinksPreferVlanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 471, 2, 2, 7)).setObjects(("CISCO-FLEX-LINKS-MIB", "cflIfConfigPrefer2kVlan"), ("CISCO-FLEX-LINKS-MIB", "cflIfConfigPrefer4kVlan"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoFlexLinksPreferVlanGroup = ciscoFlexLinksPreferVlanGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-FLEX-LINKS-MIB", cflIfStatusEntry=cflIfStatusEntry, ciscoFlexLinksMIBCompliance2=ciscoFlexLinksMIBCompliance2, ciscoFlexLinksMIBObjects=ciscoFlexLinksMIBObjects, ciscoFlexLinksMIBNotifs=ciscoFlexLinksMIBNotifs, cflIfConfigStorageType=cflIfConfigStorageType, ciscoFlexLinksPreferVlanGroup=ciscoFlexLinksPreferVlanGroup, cflIfConfigMmuPrimaryVlan=cflIfConfigMmuPrimaryVlan, cflIfConfigPreemptionDelay=cflIfConfigPreemptionDelay, ciscoFlexLinksPreemptionGroup=ciscoFlexLinksPreemptionGroup, cflIfStatusChangeNotif=cflIfStatusChangeNotif, ciscoFlexLinksIfStatusGroup=ciscoFlexLinksIfStatusGroup, ciscoFlexLinksNotifGroup=ciscoFlexLinksNotifGroup, ciscoFlexLinksMmuPrimaryVlanGroup=ciscoFlexLinksMmuPrimaryVlanGroup, cflIfStatusTable=cflIfStatusTable, cflIfConfigBackUp=cflIfConfigBackUp, cflIfConfigPrefer4kVlan=cflIfConfigPrefer4kVlan, cflIfStatus=cflIfStatus, cflConfig=cflConfig, cflIfConfigStatus=cflIfConfigStatus, ciscoFlexLinksMIBCompliance=ciscoFlexLinksMIBCompliance, cflIfConfigPreemptionMode=cflIfConfigPreemptionMode, ciscoFlexLinksEnableNotifGroup=ciscoFlexLinksEnableNotifGroup, ciscoFlexLinksIfConfigGroup=ciscoFlexLinksIfConfigGroup, cflIfConfigEntry=cflIfConfigEntry, cflIfIndex=cflIfIndex, ciscoFlexLinksMIBConformance=ciscoFlexLinksMIBConformance, cflIfConfigPrimary=cflIfConfigPrimary, ciscoFlexLinksMIBGroups=ciscoFlexLinksMIBGroups, cflIfConfigPrefer2kVlan=cflIfConfigPrefer2kVlan, cflIfConfigExtTable=cflIfConfigExtTable, ciscoFlexLinksMIB=ciscoFlexLinksMIB, ciscoFlexLinksMIBCompliances=ciscoFlexLinksMIBCompliances, PYSNMP_MODULE_ID=ciscoFlexLinksMIB, cflIfConfigTable=cflIfConfigTable, cflEnableStatusChangeNotif=cflEnableStatusChangeNotif, cflStatus=cflStatus, cflIfConfigExtEntry=cflIfConfigExtEntry)

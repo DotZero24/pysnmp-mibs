@@ -1,59 +1,40 @@
-_F='ethIfIndex'
-_E='BIANCA-ETH-IF-MIB'
-_D='PhysAddress'
-_C='read-write'
-_B='Integer32'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString',_D,'TextualConvention')
-class Date(Integer32):0
-class HexValue(Integer32):0
-class PhysAddress(OctetString):0
-_Bintec_ObjectIdentity=ObjectIdentity
-bintec=_Bintec_ObjectIdentity((1,3,6,1,4,1,272))
-_Bibo_ObjectIdentity=ObjectIdentity
-bibo=_Bibo_ObjectIdentity((1,3,6,1,4,1,272,4))
-_Eth_ObjectIdentity=ObjectIdentity
-eth=_Eth_ObjectIdentity((1,3,6,1,4,1,272,4,37))
-_EthIfTable_Object=MibTable
-ethIfTable=_EthIfTable_Object((1,3,6,1,4,1,272,4,37,1))
-if mibBuilder.loadTexts:ethIfTable.setStatus(_A)
-_EthIfEntry_Object=MibTableRow
-ethIfEntry=_EthIfEntry_Object((1,3,6,1,4,1,272,4,37,1,1))
-ethIfEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:ethIfEntry.setStatus(_A)
-_EthIfIndex_Type=Integer32
-_EthIfIndex_Object=MibTableColumn
-ethIfIndex=_EthIfIndex_Object((1,3,6,1,4,1,272,4,37,1,1,1),_EthIfIndex_Type())
-ethIfIndex.setMaxAccess('read-only')
-if mibBuilder.loadTexts:ethIfIndex.setStatus(_A)
-class _EthIfPortGroup_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,99))
-_EthIfPortGroup_Type.__name__=_B
-_EthIfPortGroup_Object=MibTableColumn
-ethIfPortGroup=_EthIfPortGroup_Object((1,3,6,1,4,1,272,4,37,1,1,4),_EthIfPortGroup_Type())
-ethIfPortGroup.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethIfPortGroup.setStatus(_A)
-class _EthIfMACSlot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,9))
-_EthIfMACSlot_Type.__name__=_B
-_EthIfMACSlot_Object=MibTableColumn
-ethIfMACSlot=_EthIfMACSlot_Object((1,3,6,1,4,1,272,4,37,1,1,5),_EthIfMACSlot_Type())
-ethIfMACSlot.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethIfMACSlot.setStatus(_A)
-class _EthIfMACUnit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,9))
-_EthIfMACUnit_Type.__name__=_B
-_EthIfMACUnit_Object=MibTableColumn
-ethIfMACUnit=_EthIfMACUnit_Object((1,3,6,1,4,1,272,4,37,1,1,6),_EthIfMACUnit_Type())
-ethIfMACUnit.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethIfMACUnit.setStatus(_A)
-class _EthIfAdminStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('down',1),('up',2)))
-_EthIfAdminStatus_Type.__name__=_B
-_EthIfAdminStatus_Object=MibTableColumn
-ethIfAdminStatus=_EthIfAdminStatus_Object((1,3,6,1,4,1,272,4,37,1,1,7),_EthIfAdminStatus_Type())
-ethIfAdminStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ethIfAdminStatus.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'Date':Date,'HexValue':HexValue,_D:PhysAddress,'bintec':bintec,'bibo':bibo,'eth':eth,'ethIfTable':ethIfTable,'ethIfEntry':ethIfEntry,_F:ethIfIndex,'ethIfPortGroup':ethIfPortGroup,'ethIfMACSlot':ethIfMACSlot,'ethIfMACUnit':ethIfMACUnit,'ethIfAdminStatus':ethIfAdminStatus})
+#
+# PySNMP MIB module BIANCA-ETH-IF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/bintec/BIANCA-ETH-IF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+bintec = MibIdentifier((1, 3, 6, 1, 4, 1, 272))
+bibo = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4))
+eth = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4, 37))
+class Date(Integer32):
+    pass
+
+class HexValue(Integer32):
+    pass
+
+class PhysAddress(OctetString):
+    pass
+
+ethIfTable = MibTable((1, 3, 6, 1, 4, 1, 272, 4, 37, 1), )
+if mibBuilder.loadTexts: ethIfTable.setStatus('mandatory')
+ethIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 272, 4, 37, 1, 1), ).setIndexNames((0, "BIANCA-ETH-IF-MIB", "ethIfIndex"))
+if mibBuilder.loadTexts: ethIfEntry.setStatus('mandatory')
+ethIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 37, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ethIfIndex.setStatus('mandatory')
+ethIfPortGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 37, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethIfPortGroup.setStatus('mandatory')
+ethIfMACSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 37, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 9))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethIfMACSlot.setStatus('mandatory')
+ethIfMACUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 37, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 9))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethIfMACUnit.setStatus('mandatory')
+ethIfAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 37, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("down", 1), ("up", 2))).clone('down')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ethIfAdminStatus.setStatus('mandatory')
+mibBuilder.exportSymbols("BIANCA-ETH-IF-MIB", ethIfAdminStatus=ethIfAdminStatus, ethIfIndex=ethIfIndex, ethIfMACUnit=ethIfMACUnit, eth=eth, Date=Date, ethIfPortGroup=ethIfPortGroup, PhysAddress=PhysAddress, bintec=bintec, bibo=bibo, ethIfEntry=ethIfEntry, ethIfMACSlot=ethIfMACSlot, ethIfTable=ethIfTable, HexValue=HexValue)

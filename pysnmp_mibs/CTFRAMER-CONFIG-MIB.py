@@ -1,61 +1,33 @@
-_H='ifIndex'
-_G='IF-MIB'
-_F='ctIfPortPortNumber'
-_E='CTIF-EXT-MIB'
-_D='off'
-_C='read-write'
-_B='Integer32'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ctFramerConfig,ctIfPortPortNumber=mibBuilder.importSymbols(_E,'ctFramerConfig',_F)
-ifIndex,=mibBuilder.importSymbols(_G,_H)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_CtFramerBaseConfig_ObjectIdentity=ObjectIdentity
-ctFramerBaseConfig=_CtFramerBaseConfig_ObjectIdentity((1,3,6,1,4,1,52,4,3,3,9,1))
-_CtFramerConfigTable_Object=MibTable
-ctFramerConfigTable=_CtFramerConfigTable_Object((1,3,6,1,4,1,52,4,3,3,9,1,1))
-if mibBuilder.loadTexts:ctFramerConfigTable.setStatus(_A)
-_CtFramerConfigEntry_Object=MibTableRow
-ctFramerConfigEntry=_CtFramerConfigEntry_Object((1,3,6,1,4,1,52,4,3,3,9,1,1,1))
-ctFramerConfigEntry.setIndexNames((0,_G,_H),(0,_E,_F))
-if mibBuilder.loadTexts:ctFramerConfigEntry.setStatus(_A)
-class _CtFramerStatsConfig_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('on',1),(_D,2)))
-_CtFramerStatsConfig_Type.__name__=_B
-_CtFramerStatsConfig_Object=MibTableColumn
-ctFramerStatsConfig=_CtFramerStatsConfig_Object((1,3,6,1,4,1,52,4,3,3,9,1,1,1,1),_CtFramerStatsConfig_Type())
-ctFramerStatsConfig.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctFramerStatsConfig.setStatus(_A)
-class _CtFramerAlarmsConfig_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('on',1),(_D,2)))
-_CtFramerAlarmsConfig_Type.__name__=_B
-_CtFramerAlarmsConfig_Object=MibTableColumn
-ctFramerAlarmsConfig=_CtFramerAlarmsConfig_Object((1,3,6,1,4,1,52,4,3,3,9,1,1,1,2),_CtFramerAlarmsConfig_Type())
-ctFramerAlarmsConfig.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctFramerAlarmsConfig.setStatus(_A)
-class _CtFramerMediumConfig_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('sonet',1),('sdh',2)))
-_CtFramerMediumConfig_Type.__name__=_B
-_CtFramerMediumConfig_Object=MibTableColumn
-ctFramerMediumConfig=_CtFramerMediumConfig_Object((1,3,6,1,4,1,52,4,3,3,9,1,1,1,3),_CtFramerMediumConfig_Type())
-ctFramerMediumConfig.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctFramerMediumConfig.setStatus(_A)
-class _CtFramerIdleCellsConfig_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('idle',1),('unassigned',2)))
-_CtFramerIdleCellsConfig_Type.__name__=_B
-_CtFramerIdleCellsConfig_Object=MibTableColumn
-ctFramerIdleCellsConfig=_CtFramerIdleCellsConfig_Object((1,3,6,1,4,1,52,4,3,3,9,1,1,1,4),_CtFramerIdleCellsConfig_Type())
-ctFramerIdleCellsConfig.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctFramerIdleCellsConfig.setStatus(_A)
-class _CtFramerCellPayScramConfig_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('on',1),(_D,2)))
-_CtFramerCellPayScramConfig_Type.__name__=_B
-_CtFramerCellPayScramConfig_Object=MibTableColumn
-ctFramerCellPayScramConfig=_CtFramerCellPayScramConfig_Object((1,3,6,1,4,1,52,4,3,3,9,1,1,1,5),_CtFramerCellPayScramConfig_Type())
-ctFramerCellPayScramConfig.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctFramerCellPayScramConfig.setStatus(_A)
-_CtFramerSonetConfig_ObjectIdentity=ObjectIdentity
-ctFramerSonetConfig=_CtFramerSonetConfig_ObjectIdentity((1,3,6,1,4,1,52,4,3,3,9,2))
-_CtFramerDS3Config_ObjectIdentity=ObjectIdentity
-ctFramerDS3Config=_CtFramerDS3Config_ObjectIdentity((1,3,6,1,4,1,52,4,3,3,9,3))
-mibBuilder.exportSymbols('CTFRAMER-CONFIG-MIB',**{'ctFramerBaseConfig':ctFramerBaseConfig,'ctFramerConfigTable':ctFramerConfigTable,'ctFramerConfigEntry':ctFramerConfigEntry,'ctFramerStatsConfig':ctFramerStatsConfig,'ctFramerAlarmsConfig':ctFramerAlarmsConfig,'ctFramerMediumConfig':ctFramerMediumConfig,'ctFramerIdleCellsConfig':ctFramerIdleCellsConfig,'ctFramerCellPayScramConfig':ctFramerCellPayScramConfig,'ctFramerSonetConfig':ctFramerSonetConfig,'ctFramerDS3Config':ctFramerDS3Config})
+#
+# PySNMP MIB module CTFRAMER-CONFIG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CTFRAMER-CONFIG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:30 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ctIfPortPortNumber, ctFramerConfig = mibBuilder.importSymbols("CTIF-EXT-MIB", "ctIfPortPortNumber", "ctFramerConfig")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ctFramerBaseConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 3, 9, 1))
+ctFramerSonetConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 3, 9, 2))
+ctFramerDS3Config = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 3, 9, 3))
+ctFramerConfigTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 3, 3, 9, 1, 1), )
+if mibBuilder.loadTexts: ctFramerConfigTable.setStatus('mandatory')
+ctFramerConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 3, 3, 9, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CTIF-EXT-MIB", "ctIfPortPortNumber"))
+if mibBuilder.loadTexts: ctFramerConfigEntry.setStatus('mandatory')
+ctFramerStatsConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 3, 3, 9, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2))).clone('off')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctFramerStatsConfig.setStatus('mandatory')
+ctFramerAlarmsConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 3, 3, 9, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2))).clone('off')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctFramerAlarmsConfig.setStatus('mandatory')
+ctFramerMediumConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 3, 3, 9, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("sonet", 1), ("sdh", 2))).clone('sonet')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctFramerMediumConfig.setStatus('mandatory')
+ctFramerIdleCellsConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 3, 3, 9, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("idle", 1), ("unassigned", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctFramerIdleCellsConfig.setStatus('mandatory')
+ctFramerCellPayScramConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 3, 3, 9, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctFramerCellPayScramConfig.setStatus('mandatory')
+mibBuilder.exportSymbols("CTFRAMER-CONFIG-MIB", ctFramerMediumConfig=ctFramerMediumConfig, ctFramerDS3Config=ctFramerDS3Config, ctFramerIdleCellsConfig=ctFramerIdleCellsConfig, ctFramerCellPayScramConfig=ctFramerCellPayScramConfig, ctFramerAlarmsConfig=ctFramerAlarmsConfig, ctFramerConfigTable=ctFramerConfigTable, ctFramerSonetConfig=ctFramerSonetConfig, ctFramerBaseConfig=ctFramerBaseConfig, ctFramerConfigEntry=ctFramerConfigEntry, ctFramerStatsConfig=ctFramerStatsConfig)

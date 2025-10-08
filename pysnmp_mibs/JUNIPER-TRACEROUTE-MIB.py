@@ -1,52 +1,32 @@
-_H='read-create'
-_G='not-accessible'
-_F='jnxTRCtlTestName'
-_E='jnxTRCtlOwnerIndex'
-_D='JUNIPER-TRACEROUTE-MIB'
-_C='DisplayString'
-_B='SnmpAdminString'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-jnxMibs,=mibBuilder.importSymbols('JUNIPER-SMI','jnxMibs')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_B)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_C,'PhysAddress','TextualConvention')
-jnxTraceRouteMIB=ModuleIdentity((1,3,6,1,4,1,2636,3,8))
-_JnxTraceRouteObjects_ObjectIdentity=ObjectIdentity
-jnxTraceRouteObjects=_JnxTraceRouteObjects_ObjectIdentity((1,3,6,1,4,1,2636,3,8,1))
-_JnxTraceRouteCtlTable_Object=MibTable
-jnxTraceRouteCtlTable=_JnxTraceRouteCtlTable_Object((1,3,6,1,4,1,2636,3,8,1,2))
-if mibBuilder.loadTexts:jnxTraceRouteCtlTable.setStatus(_A)
-_JnxTraceRouteCtlEntry_Object=MibTableRow
-jnxTraceRouteCtlEntry=_JnxTraceRouteCtlEntry_Object((1,3,6,1,4,1,2636,3,8,1,2,1))
-jnxTraceRouteCtlEntry.setIndexNames((0,_D,_E),(0,_D,_F))
-if mibBuilder.loadTexts:jnxTraceRouteCtlEntry.setStatus(_A)
-class _JnxTRCtlOwnerIndex_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_JnxTRCtlOwnerIndex_Type.__name__=_B
-_JnxTRCtlOwnerIndex_Object=MibTableColumn
-jnxTRCtlOwnerIndex=_JnxTRCtlOwnerIndex_Object((1,3,6,1,4,1,2636,3,8,1,2,1,1),_JnxTRCtlOwnerIndex_Type())
-jnxTRCtlOwnerIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:jnxTRCtlOwnerIndex.setStatus(_A)
-class _JnxTRCtlTestName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_JnxTRCtlTestName_Type.__name__=_B
-_JnxTRCtlTestName_Object=MibTableColumn
-jnxTRCtlTestName=_JnxTRCtlTestName_Object((1,3,6,1,4,1,2636,3,8,1,2,1,2),_JnxTRCtlTestName_Type())
-jnxTRCtlTestName.setMaxAccess(_G)
-if mibBuilder.loadTexts:jnxTRCtlTestName.setStatus(_A)
-class _JnxTRCtlIfName_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,24))
-_JnxTRCtlIfName_Type.__name__=_C
-_JnxTRCtlIfName_Object=MibTableColumn
-jnxTRCtlIfName=_JnxTRCtlIfName_Object((1,3,6,1,4,1,2636,3,8,1,2,1,3),_JnxTRCtlIfName_Type())
-jnxTRCtlIfName.setMaxAccess(_H)
-if mibBuilder.loadTexts:jnxTRCtlIfName.setStatus(_A)
-class _JnxTRCtlRoutingInstanceName_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_JnxTRCtlRoutingInstanceName_Type.__name__=_C
-_JnxTRCtlRoutingInstanceName_Object=MibTableColumn
-jnxTRCtlRoutingInstanceName=_JnxTRCtlRoutingInstanceName_Object((1,3,6,1,4,1,2636,3,8,1,2,1,4),_JnxTRCtlRoutingInstanceName_Type())
-jnxTRCtlRoutingInstanceName.setMaxAccess(_H)
-if mibBuilder.loadTexts:jnxTRCtlRoutingInstanceName.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'jnxTraceRouteMIB':jnxTraceRouteMIB,'jnxTraceRouteObjects':jnxTraceRouteObjects,'jnxTraceRouteCtlTable':jnxTraceRouteCtlTable,'jnxTraceRouteCtlEntry':jnxTraceRouteCtlEntry,_E:jnxTRCtlOwnerIndex,_F:jnxTRCtlTestName,'jnxTRCtlIfName':jnxTRCtlIfName,'jnxTRCtlRoutingInstanceName':jnxTRCtlRoutingInstanceName})
+#
+# PySNMP MIB module JUNIPER-TRACEROUTE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/juniper/JUNIPER-TRACEROUTE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+jnxMibs, = mibBuilder.importSymbols("JUNIPER-SMI", "jnxMibs")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+jnxTraceRouteMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 8))
+if mibBuilder.loadTexts: jnxTraceRouteMIB.setLastUpdated('200307182154Z')
+if mibBuilder.loadTexts: jnxTraceRouteMIB.setOrganization('Juniper Networks, Inc.')
+jnxTraceRouteObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 8, 1))
+jnxTraceRouteCtlTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 8, 1, 2), )
+if mibBuilder.loadTexts: jnxTraceRouteCtlTable.setStatus('current')
+jnxTraceRouteCtlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 8, 1, 2, 1), ).setIndexNames((0, "JUNIPER-TRACEROUTE-MIB", "jnxTRCtlOwnerIndex"), (0, "JUNIPER-TRACEROUTE-MIB", "jnxTRCtlTestName"))
+if mibBuilder.loadTexts: jnxTraceRouteCtlEntry.setStatus('current')
+jnxTRCtlOwnerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 8, 1, 2, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32)))
+if mibBuilder.loadTexts: jnxTRCtlOwnerIndex.setStatus('current')
+jnxTRCtlTestName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 8, 1, 2, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32)))
+if mibBuilder.loadTexts: jnxTRCtlTestName.setStatus('current')
+jnxTRCtlIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 8, 1, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 24)).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: jnxTRCtlIfName.setStatus('current')
+jnxTRCtlRoutingInstanceName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 8, 1, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31)).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: jnxTRCtlRoutingInstanceName.setStatus('current')
+mibBuilder.exportSymbols("JUNIPER-TRACEROUTE-MIB", jnxTraceRouteCtlTable=jnxTraceRouteCtlTable, PYSNMP_MODULE_ID=jnxTraceRouteMIB, jnxTRCtlTestName=jnxTRCtlTestName, jnxTraceRouteMIB=jnxTraceRouteMIB, jnxTraceRouteCtlEntry=jnxTraceRouteCtlEntry, jnxTRCtlRoutingInstanceName=jnxTRCtlRoutingInstanceName, jnxTRCtlIfName=jnxTRCtlIfName, jnxTRCtlOwnerIndex=jnxTRCtlOwnerIndex, jnxTraceRouteObjects=jnxTraceRouteObjects)

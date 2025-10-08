@@ -1,126 +1,70 @@
-_I='rlMgmdInterfaceExtEntry'
-_H='NETGEAR-RADLAN-MGMD-ROUTER-MIB'
-_G='AdminStatus'
-_F='read-create'
-_E='read-write'
-_D='DisplayString'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,InterfaceIndexOrZero=mibBuilder.importSymbols('IF-MIB','InterfaceIndex','InterfaceIndexOrZero')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-mgmdRouterInterfaceEntry,=mibBuilder.importSymbols('MGMD-STD-MIB','mgmdRouterInterfaceEntry')
-rnd,=mibBuilder.importSymbols('NETGEAR-RADLAN-MIB','rnd')
-NpgOperStatus,=mibBuilder.importSymbols('NETGEAR-RADLAN-PIM-MIB','NpgOperStatus')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','RowStatus','TextualConvention','TruthValue')
-rlIgmp=ModuleIdentity((1,3,6,1,4,1,4526,17,225))
-if mibBuilder.loadTexts:rlIgmp.setRevisions(('2011-07-21 00:00',))
-class AdminStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('adminStatusUp',1),('adminStatusDown',2)))
-_RlMgmdInterfaceExtTable_Object=MibTable
-rlMgmdInterfaceExtTable=_RlMgmdInterfaceExtTable_Object((1,3,6,1,4,1,4526,17,225,1))
-if mibBuilder.loadTexts:rlMgmdInterfaceExtTable.setStatus(_A)
-_RlMgmdInterfaceExtEntry_Object=MibTableRow
-rlMgmdInterfaceExtEntry=_RlMgmdInterfaceExtEntry_Object((1,3,6,1,4,1,4526,17,225,1,1))
-if mibBuilder.loadTexts:rlMgmdInterfaceExtEntry.setStatus(_A)
-_RlMgmdRouterInterfaceExtStatsUpTime_Type=TimeTicks
-_RlMgmdRouterInterfaceExtStatsUpTime_Object=MibTableColumn
-rlMgmdRouterInterfaceExtStatsUpTime=_RlMgmdRouterInterfaceExtStatsUpTime_Object((1,3,6,1,4,1,4526,17,225,1,1,1),_RlMgmdRouterInterfaceExtStatsUpTime_Type())
-rlMgmdRouterInterfaceExtStatsUpTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlMgmdRouterInterfaceExtStatsUpTime.setStatus(_A)
-_RlMgmdRouterInterfaceExtEnableStats_Type=TruthValue
-_RlMgmdRouterInterfaceExtEnableStats_Object=MibTableColumn
-rlMgmdRouterInterfaceExtEnableStats=_RlMgmdRouterInterfaceExtEnableStats_Object((1,3,6,1,4,1,4526,17,225,1,1,2),_RlMgmdRouterInterfaceExtEnableStats_Type())
-rlMgmdRouterInterfaceExtEnableStats.setMaxAccess(_E)
-if mibBuilder.loadTexts:rlMgmdRouterInterfaceExtEnableStats.setStatus(_A)
-_RlMgmdRouterInterfaceExtNumFailedJoins_Type=Unsigned32
-_RlMgmdRouterInterfaceExtNumFailedJoins_Object=MibTableColumn
-rlMgmdRouterInterfaceExtNumFailedJoins=_RlMgmdRouterInterfaceExtNumFailedJoins_Object((1,3,6,1,4,1,4526,17,225,1,1,3),_RlMgmdRouterInterfaceExtNumFailedJoins_Type())
-rlMgmdRouterInterfaceExtNumFailedJoins.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlMgmdRouterInterfaceExtNumFailedJoins.setStatus(_A)
-_RlMgmdRouterInterfaceExtNumIgmpV1Msgs_Type=Unsigned32
-_RlMgmdRouterInterfaceExtNumIgmpV1Msgs_Object=MibTableColumn
-rlMgmdRouterInterfaceExtNumIgmpV1Msgs=_RlMgmdRouterInterfaceExtNumIgmpV1Msgs_Object((1,3,6,1,4,1,4526,17,225,1,1,4),_RlMgmdRouterInterfaceExtNumIgmpV1Msgs_Type())
-rlMgmdRouterInterfaceExtNumIgmpV1Msgs.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlMgmdRouterInterfaceExtNumIgmpV1Msgs.setStatus(_A)
-_RlMgmdRouterInterfaceExtNumIgmpV2MldV1Msgs_Type=Unsigned32
-_RlMgmdRouterInterfaceExtNumIgmpV2MldV1Msgs_Object=MibTableColumn
-rlMgmdRouterInterfaceExtNumIgmpV2MldV1Msgs=_RlMgmdRouterInterfaceExtNumIgmpV2MldV1Msgs_Object((1,3,6,1,4,1,4526,17,225,1,1,5),_RlMgmdRouterInterfaceExtNumIgmpV2MldV1Msgs_Type())
-rlMgmdRouterInterfaceExtNumIgmpV2MldV1Msgs.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlMgmdRouterInterfaceExtNumIgmpV2MldV1Msgs.setStatus(_A)
-_RlMgmdRouterInterfaceExtNumIgmpV3MldV2Msgs_Type=Unsigned32
-_RlMgmdRouterInterfaceExtNumIgmpV3MldV2Msgs_Object=MibTableColumn
-rlMgmdRouterInterfaceExtNumIgmpV3MldV2Msgs=_RlMgmdRouterInterfaceExtNumIgmpV3MldV2Msgs_Object((1,3,6,1,4,1,4526,17,225,1,1,6),_RlMgmdRouterInterfaceExtNumIgmpV3MldV2Msgs_Type())
-rlMgmdRouterInterfaceExtNumIgmpV3MldV2Msgs.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlMgmdRouterInterfaceExtNumIgmpV3MldV2Msgs.setStatus(_A)
-_RlMgmdRouterInterfaceExtNumInvalidMsgsRcvd_Type=Unsigned32
-_RlMgmdRouterInterfaceExtNumInvalidMsgsRcvd_Object=MibTableColumn
-rlMgmdRouterInterfaceExtNumInvalidMsgsRcvd=_RlMgmdRouterInterfaceExtNumInvalidMsgsRcvd_Object((1,3,6,1,4,1,4526,17,225,1,1,7),_RlMgmdRouterInterfaceExtNumInvalidMsgsRcvd_Type())
-rlMgmdRouterInterfaceExtNumInvalidMsgsRcvd.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlMgmdRouterInterfaceExtNumInvalidMsgsRcvd.setStatus(_A)
-_RlMgmdRouterInterfaceExtNumGenQueriesSent_Type=Unsigned32
-_RlMgmdRouterInterfaceExtNumGenQueriesSent_Object=MibTableColumn
-rlMgmdRouterInterfaceExtNumGenQueriesSent=_RlMgmdRouterInterfaceExtNumGenQueriesSent_Object((1,3,6,1,4,1,4526,17,225,1,1,8),_RlMgmdRouterInterfaceExtNumGenQueriesSent_Type())
-rlMgmdRouterInterfaceExtNumGenQueriesSent.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlMgmdRouterInterfaceExtNumGenQueriesSent.setStatus(_A)
-_RlMgmdRouterInterfaceExtNumSpecQueriesSent_Type=Unsigned32
-_RlMgmdRouterInterfaceExtNumSpecQueriesSent_Object=MibTableColumn
-rlMgmdRouterInterfaceExtNumSpecQueriesSent=_RlMgmdRouterInterfaceExtNumSpecQueriesSent_Object((1,3,6,1,4,1,4526,17,225,1,1,9),_RlMgmdRouterInterfaceExtNumSpecQueriesSent_Type())
-rlMgmdRouterInterfaceExtNumSpecQueriesSent.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlMgmdRouterInterfaceExtNumSpecQueriesSent.setStatus(_A)
-_RlmgmdRouterInterfaceQrRobustness_Type=Unsigned32
-_RlmgmdRouterInterfaceQrRobustness_Object=MibTableColumn
-rlmgmdRouterInterfaceQrRobustness=_RlmgmdRouterInterfaceQrRobustness_Object((1,3,6,1,4,1,4526,17,225,1,1,10),_RlmgmdRouterInterfaceQrRobustness_Type())
-rlmgmdRouterInterfaceQrRobustness.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlmgmdRouterInterfaceQrRobustness.setStatus(_A)
-_RlmgmdRouterInterfaceQrQueryInterval_Type=Unsigned32
-_RlmgmdRouterInterfaceQrQueryInterval_Object=MibTableColumn
-rlmgmdRouterInterfaceQrQueryInterval=_RlmgmdRouterInterfaceQrQueryInterval_Object((1,3,6,1,4,1,4526,17,225,1,1,11),_RlmgmdRouterInterfaceQrQueryInterval_Type())
-rlmgmdRouterInterfaceQrQueryInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlmgmdRouterInterfaceQrQueryInterval.setStatus(_A)
-_RlmgmdRouterInterfaceQrQueryMaxResponseTime_Type=Unsigned32
-_RlmgmdRouterInterfaceQrQueryMaxResponseTime_Object=MibTableColumn
-rlmgmdRouterInterfaceQrQueryMaxResponseTime=_RlmgmdRouterInterfaceQrQueryMaxResponseTime_Object((1,3,6,1,4,1,4526,17,225,1,1,12),_RlmgmdRouterInterfaceQrQueryMaxResponseTime_Type())
-rlmgmdRouterInterfaceQrQueryMaxResponseTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlmgmdRouterInterfaceQrQueryMaxResponseTime.setStatus(_A)
-_RlmgmdRouterInterfaceQrLastMembQueryIntvl_Type=Unsigned32
-_RlmgmdRouterInterfaceQrLastMembQueryIntvl_Object=MibTableColumn
-rlmgmdRouterInterfaceQrLastMembQueryIntvl=_RlmgmdRouterInterfaceQrLastMembQueryIntvl_Object((1,3,6,1,4,1,4526,17,225,1,1,13),_RlmgmdRouterInterfaceQrLastMembQueryIntvl_Type())
-rlmgmdRouterInterfaceQrLastMembQueryIntvl.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlmgmdRouterInterfaceQrLastMembQueryIntvl.setStatus(_A)
-class _RlmgmdRouterInterfaceExtSrcAndGrpFilter_Type(DisplayString):defaultValue=OctetString('')
-_RlmgmdRouterInterfaceExtSrcAndGrpFilter_Type.__name__=_D
-_RlmgmdRouterInterfaceExtSrcAndGrpFilter_Object=MibTableColumn
-rlmgmdRouterInterfaceExtSrcAndGrpFilter=_RlmgmdRouterInterfaceExtSrcAndGrpFilter_Object((1,3,6,1,4,1,4526,17,225,1,1,14),_RlmgmdRouterInterfaceExtSrcAndGrpFilter_Type())
-rlmgmdRouterInterfaceExtSrcAndGrpFilter.setMaxAccess(_F)
-if mibBuilder.loadTexts:rlmgmdRouterInterfaceExtSrcAndGrpFilter.setStatus(_A)
-class _RlMgmdRouterInterfaceExtAdminStatus_Type(AdminStatus):defaultValue=2
-_RlMgmdRouterInterfaceExtAdminStatus_Type.__name__=_G
-_RlMgmdRouterInterfaceExtAdminStatus_Object=MibTableColumn
-rlMgmdRouterInterfaceExtAdminStatus=_RlMgmdRouterInterfaceExtAdminStatus_Object((1,3,6,1,4,1,4526,17,225,1,1,15),_RlMgmdRouterInterfaceExtAdminStatus_Type())
-rlMgmdRouterInterfaceExtAdminStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:rlMgmdRouterInterfaceExtAdminStatus.setStatus(_A)
-_RlMgmdRouterInterfaceExtOperStatus_Type=NpgOperStatus
-_RlMgmdRouterInterfaceExtOperStatus_Object=MibTableColumn
-rlMgmdRouterInterfaceExtOperStatus=_RlMgmdRouterInterfaceExtOperStatus_Object((1,3,6,1,4,1,4526,17,225,1,1,16),_RlMgmdRouterInterfaceExtOperStatus_Type())
-rlMgmdRouterInterfaceExtOperStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlMgmdRouterInterfaceExtOperStatus.setStatus(_A)
-_RlMgmdRouterInterfaceExtIsQuerier_Type=TruthValue
-_RlMgmdRouterInterfaceExtIsQuerier_Object=MibTableColumn
-rlMgmdRouterInterfaceExtIsQuerier=_RlMgmdRouterInterfaceExtIsQuerier_Object((1,3,6,1,4,1,4526,17,225,1,1,17),_RlMgmdRouterInterfaceExtIsQuerier_Type())
-rlMgmdRouterInterfaceExtIsQuerier.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlMgmdRouterInterfaceExtIsQuerier.setStatus(_A)
-class _RlMgmdRouterInterfaceExtProxyDownProtected_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(-1,1,2)));namedValues=NamedValues(*(('unspecified',-1),('enabled',1),('disabled',2)))
-_RlMgmdRouterInterfaceExtProxyDownProtected_Type.__name__=_C
-_RlMgmdRouterInterfaceExtProxyDownProtected_Object=MibTableColumn
-rlMgmdRouterInterfaceExtProxyDownProtected=_RlMgmdRouterInterfaceExtProxyDownProtected_Object((1,3,6,1,4,1,4526,17,225,1,1,18),_RlMgmdRouterInterfaceExtProxyDownProtected_Type())
-rlMgmdRouterInterfaceExtProxyDownProtected.setMaxAccess(_E)
-if mibBuilder.loadTexts:rlMgmdRouterInterfaceExtProxyDownProtected.setStatus(_A)
-mgmdRouterInterfaceEntry.registerAugmentions((_H,_I))
+#
+# PySNMP MIB module NETGEAR-RADLAN-MGMD-ROUTER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netgear/NETGEAR-RADLAN-MGMD-ROUTER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:28:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+mgmdRouterInterfaceEntry, = mibBuilder.importSymbols("MGMD-STD-MIB", "mgmdRouterInterfaceEntry")
+rnd, = mibBuilder.importSymbols("NETGEAR-RADLAN-MIB", "rnd")
+NpgOperStatus, = mibBuilder.importSymbols("NETGEAR-RADLAN-PIM-MIB", "NpgOperStatus")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, mib_2, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "mib-2", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+rlIgmp = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 17, 225))
+rlIgmp.setRevisions(('2011-07-21 00:00',))
+if mibBuilder.loadTexts: rlIgmp.setLastUpdated('201107210000Z')
+if mibBuilder.loadTexts: rlIgmp.setOrganization('Radlan Computer Communications Ltd.')
+class AdminStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("adminStatusUp", 1), ("adminStatusDown", 2))
+
+rlMgmdInterfaceExtTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1), )
+if mibBuilder.loadTexts: rlMgmdInterfaceExtTable.setStatus('current')
+rlMgmdInterfaceExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1), )
+mgmdRouterInterfaceEntry.registerAugmentions(("NETGEAR-RADLAN-MGMD-ROUTER-MIB", "rlMgmdInterfaceExtEntry"))
 rlMgmdInterfaceExtEntry.setIndexNames(*mgmdRouterInterfaceEntry.getIndexNames())
-mibBuilder.exportSymbols(_H,**{_G:AdminStatus,'rlIgmp':rlIgmp,'rlMgmdInterfaceExtTable':rlMgmdInterfaceExtTable,_I:rlMgmdInterfaceExtEntry,'rlMgmdRouterInterfaceExtStatsUpTime':rlMgmdRouterInterfaceExtStatsUpTime,'rlMgmdRouterInterfaceExtEnableStats':rlMgmdRouterInterfaceExtEnableStats,'rlMgmdRouterInterfaceExtNumFailedJoins':rlMgmdRouterInterfaceExtNumFailedJoins,'rlMgmdRouterInterfaceExtNumIgmpV1Msgs':rlMgmdRouterInterfaceExtNumIgmpV1Msgs,'rlMgmdRouterInterfaceExtNumIgmpV2MldV1Msgs':rlMgmdRouterInterfaceExtNumIgmpV2MldV1Msgs,'rlMgmdRouterInterfaceExtNumIgmpV3MldV2Msgs':rlMgmdRouterInterfaceExtNumIgmpV3MldV2Msgs,'rlMgmdRouterInterfaceExtNumInvalidMsgsRcvd':rlMgmdRouterInterfaceExtNumInvalidMsgsRcvd,'rlMgmdRouterInterfaceExtNumGenQueriesSent':rlMgmdRouterInterfaceExtNumGenQueriesSent,'rlMgmdRouterInterfaceExtNumSpecQueriesSent':rlMgmdRouterInterfaceExtNumSpecQueriesSent,'rlmgmdRouterInterfaceQrRobustness':rlmgmdRouterInterfaceQrRobustness,'rlmgmdRouterInterfaceQrQueryInterval':rlmgmdRouterInterfaceQrQueryInterval,'rlmgmdRouterInterfaceQrQueryMaxResponseTime':rlmgmdRouterInterfaceQrQueryMaxResponseTime,'rlmgmdRouterInterfaceQrLastMembQueryIntvl':rlmgmdRouterInterfaceQrLastMembQueryIntvl,'rlmgmdRouterInterfaceExtSrcAndGrpFilter':rlmgmdRouterInterfaceExtSrcAndGrpFilter,'rlMgmdRouterInterfaceExtAdminStatus':rlMgmdRouterInterfaceExtAdminStatus,'rlMgmdRouterInterfaceExtOperStatus':rlMgmdRouterInterfaceExtOperStatus,'rlMgmdRouterInterfaceExtIsQuerier':rlMgmdRouterInterfaceExtIsQuerier,'rlMgmdRouterInterfaceExtProxyDownProtected':rlMgmdRouterInterfaceExtProxyDownProtected})
+if mibBuilder.loadTexts: rlMgmdInterfaceExtEntry.setStatus('current')
+rlMgmdRouterInterfaceExtStatsUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 1), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlMgmdRouterInterfaceExtStatsUpTime.setStatus('current')
+rlMgmdRouterInterfaceExtEnableStats = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlMgmdRouterInterfaceExtEnableStats.setStatus('current')
+rlMgmdRouterInterfaceExtNumFailedJoins = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlMgmdRouterInterfaceExtNumFailedJoins.setStatus('current')
+rlMgmdRouterInterfaceExtNumIgmpV1Msgs = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlMgmdRouterInterfaceExtNumIgmpV1Msgs.setStatus('current')
+rlMgmdRouterInterfaceExtNumIgmpV2MldV1Msgs = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlMgmdRouterInterfaceExtNumIgmpV2MldV1Msgs.setStatus('current')
+rlMgmdRouterInterfaceExtNumIgmpV3MldV2Msgs = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlMgmdRouterInterfaceExtNumIgmpV3MldV2Msgs.setStatus('current')
+rlMgmdRouterInterfaceExtNumInvalidMsgsRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlMgmdRouterInterfaceExtNumInvalidMsgsRcvd.setStatus('current')
+rlMgmdRouterInterfaceExtNumGenQueriesSent = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlMgmdRouterInterfaceExtNumGenQueriesSent.setStatus('current')
+rlMgmdRouterInterfaceExtNumSpecQueriesSent = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlMgmdRouterInterfaceExtNumSpecQueriesSent.setStatus('current')
+rlmgmdRouterInterfaceQrRobustness = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 10), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlmgmdRouterInterfaceQrRobustness.setStatus('current')
+rlmgmdRouterInterfaceQrQueryInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlmgmdRouterInterfaceQrQueryInterval.setStatus('current')
+rlmgmdRouterInterfaceQrQueryMaxResponseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlmgmdRouterInterfaceQrQueryMaxResponseTime.setStatus('current')
+rlmgmdRouterInterfaceQrLastMembQueryIntvl = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 13), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlmgmdRouterInterfaceQrLastMembQueryIntvl.setStatus('current')
+rlmgmdRouterInterfaceExtSrcAndGrpFilter = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 14), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rlmgmdRouterInterfaceExtSrcAndGrpFilter.setStatus('current')
+rlMgmdRouterInterfaceExtAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 15), AdminStatus().clone('adminStatusDown')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rlMgmdRouterInterfaceExtAdminStatus.setStatus('current')
+rlMgmdRouterInterfaceExtOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 16), NpgOperStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlMgmdRouterInterfaceExtOperStatus.setStatus('current')
+rlMgmdRouterInterfaceExtIsQuerier = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 17), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlMgmdRouterInterfaceExtIsQuerier.setStatus('current')
+rlMgmdRouterInterfaceExtProxyDownProtected = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 225, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(-1, 1, 2))).clone(namedValues=NamedValues(("unspecified", -1), ("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlMgmdRouterInterfaceExtProxyDownProtected.setStatus('current')
+mibBuilder.exportSymbols("NETGEAR-RADLAN-MGMD-ROUTER-MIB", rlMgmdRouterInterfaceExtNumInvalidMsgsRcvd=rlMgmdRouterInterfaceExtNumInvalidMsgsRcvd, AdminStatus=AdminStatus, PYSNMP_MODULE_ID=rlIgmp, rlMgmdRouterInterfaceExtOperStatus=rlMgmdRouterInterfaceExtOperStatus, rlmgmdRouterInterfaceQrQueryInterval=rlmgmdRouterInterfaceQrQueryInterval, rlmgmdRouterInterfaceQrLastMembQueryIntvl=rlmgmdRouterInterfaceQrLastMembQueryIntvl, rlMgmdRouterInterfaceExtNumIgmpV3MldV2Msgs=rlMgmdRouterInterfaceExtNumIgmpV3MldV2Msgs, rlMgmdRouterInterfaceExtIsQuerier=rlMgmdRouterInterfaceExtIsQuerier, rlMgmdRouterInterfaceExtAdminStatus=rlMgmdRouterInterfaceExtAdminStatus, rlMgmdInterfaceExtTable=rlMgmdInterfaceExtTable, rlMgmdRouterInterfaceExtProxyDownProtected=rlMgmdRouterInterfaceExtProxyDownProtected, rlMgmdInterfaceExtEntry=rlMgmdInterfaceExtEntry, rlMgmdRouterInterfaceExtNumFailedJoins=rlMgmdRouterInterfaceExtNumFailedJoins, rlMgmdRouterInterfaceExtStatsUpTime=rlMgmdRouterInterfaceExtStatsUpTime, rlmgmdRouterInterfaceQrRobustness=rlmgmdRouterInterfaceQrRobustness, rlmgmdRouterInterfaceExtSrcAndGrpFilter=rlmgmdRouterInterfaceExtSrcAndGrpFilter, rlmgmdRouterInterfaceQrQueryMaxResponseTime=rlmgmdRouterInterfaceQrQueryMaxResponseTime, rlIgmp=rlIgmp, rlMgmdRouterInterfaceExtNumIgmpV1Msgs=rlMgmdRouterInterfaceExtNumIgmpV1Msgs, rlMgmdRouterInterfaceExtNumIgmpV2MldV1Msgs=rlMgmdRouterInterfaceExtNumIgmpV2MldV1Msgs, rlMgmdRouterInterfaceExtNumGenQueriesSent=rlMgmdRouterInterfaceExtNumGenQueriesSent, rlMgmdRouterInterfaceExtEnableStats=rlMgmdRouterInterfaceExtEnableStats, rlMgmdRouterInterfaceExtNumSpecQueriesSent=rlMgmdRouterInterfaceExtNumSpecQueriesSent)

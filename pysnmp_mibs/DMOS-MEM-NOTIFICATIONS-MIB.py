@@ -1,51 +1,34 @@
-_N='memAvailableLowTrap'
-_M='accessible-for-notify'
-_L='notificationTime'
-_K='notificationSourceValue'
-_J='notificationSourceType'
-_I='notificationSeverity'
-_H='notificationName'
-_G='notificationInfo'
-_F='notificationAlarmState'
-_E='dmosMemNotificationInterval'
-_D='dmosMemNotificationThreshold'
-_C='current'
-_B='DMOS-MEM-NOTIFICATIONS-MIB'
-_A='DMOS-NOTIFICATIONS-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-alarmNotifications,notificationAlarmState,notificationInfo,notificationName,notificationSeverity,notificationSourceType,notificationSourceValue,notificationTime=mibBuilder.importSymbols(_A,'alarmNotifications',_F,_G,_H,_I,_J,_K,_L)
-UnsignedPercent,=mibBuilder.importSymbols('DMOS-TC-MIB','UnsignedPercent')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-dmosMemNotificationsMIB=ModuleIdentity((1,3,6,1,4,1,3709,3,6,3,3,1))
-if mibBuilder.loadTexts:dmosMemNotificationsMIB.setRevisions(('2016-10-20 00:00',))
-_DmosMemNotificationObjects_ObjectIdentity=ObjectIdentity
-dmosMemNotificationObjects=_DmosMemNotificationObjects_ObjectIdentity((1,3,6,1,4,1,3709,3,6,3,3,1,1))
-_DmosMemNotificationThreshold_Type=Gauge32
-_DmosMemNotificationThreshold_Object=MibScalar
-dmosMemNotificationThreshold=_DmosMemNotificationThreshold_Object((1,3,6,1,4,1,3709,3,6,3,3,1,1,1),_DmosMemNotificationThreshold_Type())
-dmosMemNotificationThreshold.setMaxAccess(_M)
-if mibBuilder.loadTexts:dmosMemNotificationThreshold.setStatus(_C)
-if mibBuilder.loadTexts:dmosMemNotificationThreshold.setUnits('Bytes')
-_DmosMemNotificationInterval_Type=Gauge32
-_DmosMemNotificationInterval_Object=MibScalar
-dmosMemNotificationInterval=_DmosMemNotificationInterval_Object((1,3,6,1,4,1,3709,3,6,3,3,1,1,2),_DmosMemNotificationInterval_Type())
-dmosMemNotificationInterval.setMaxAccess(_M)
-if mibBuilder.loadTexts:dmosMemNotificationInterval.setStatus(_C)
-if mibBuilder.loadTexts:dmosMemNotificationInterval.setUnits('seconds')
-_DmosMemNotificationGroups_ObjectIdentity=ObjectIdentity
-dmosMemNotificationGroups=_DmosMemNotificationGroups_ObjectIdentity((1,3,6,1,4,1,3709,3,6,3,3,1,2))
-dmosMemAlarmInfoGroup=ObjectGroup((1,3,6,1,4,1,3709,3,6,3,3,1,2,1))
-dmosMemAlarmInfoGroup.setObjects(*((_B,_D),(_B,_E)))
-if mibBuilder.loadTexts:dmosMemAlarmInfoGroup.setStatus(_C)
-memAvailableLowTrap=NotificationType((1,3,6,1,4,1,3709,3,6,3,3,1,3))
-memAvailableLowTrap.setObjects(*((_A,_L),(_A,_H),(_A,_J),(_A,_K),(_A,_I),(_A,_G),(_A,_F),(_B,_D),(_B,_E)))
-if mibBuilder.loadTexts:memAvailableLowTrap.setStatus(_C)
-dmosMemAlarmTrapsGroup=NotificationGroup((1,3,6,1,4,1,3709,3,6,3,3,1,2,2))
-dmosMemAlarmTrapsGroup.setObjects((_B,_N))
-if mibBuilder.loadTexts:dmosMemAlarmTrapsGroup.setStatus(_C)
-mibBuilder.exportSymbols(_B,**{'dmosMemNotificationsMIB':dmosMemNotificationsMIB,'dmosMemNotificationObjects':dmosMemNotificationObjects,_D:dmosMemNotificationThreshold,_E:dmosMemNotificationInterval,'dmosMemNotificationGroups':dmosMemNotificationGroups,'dmosMemAlarmInfoGroup':dmosMemAlarmInfoGroup,'dmosMemAlarmTrapsGroup':dmosMemAlarmTrapsGroup,_N:memAvailableLowTrap})
+#
+# PySNMP MIB module DMOS-MEM-NOTIFICATIONS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/datacom/DMOS-MEM-NOTIFICATIONS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:22:40 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+notificationSourceType, notificationSeverity, notificationTime, notificationSourceValue, notificationAlarmState, notificationInfo, alarmNotifications, notificationName = mibBuilder.importSymbols("DMOS-NOTIFICATIONS-MIB", "notificationSourceType", "notificationSeverity", "notificationTime", "notificationSourceValue", "notificationAlarmState", "notificationInfo", "alarmNotifications", "notificationName")
+UnsignedPercent, = mibBuilder.importSymbols("DMOS-TC-MIB", "UnsignedPercent")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+dmosMemNotificationsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 3, 1))
+dmosMemNotificationsMIB.setRevisions(('2016-10-20 00:00',))
+if mibBuilder.loadTexts: dmosMemNotificationsMIB.setLastUpdated('201610200000Z')
+if mibBuilder.loadTexts: dmosMemNotificationsMIB.setOrganization('DATACOM')
+dmosMemNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 3, 1, 1))
+dmosMemNotificationThreshold = MibScalar((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 3, 1, 1, 1), Gauge32()).setUnits('Bytes').setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: dmosMemNotificationThreshold.setStatus('current')
+dmosMemNotificationInterval = MibScalar((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 3, 1, 1, 2), Gauge32()).setUnits('seconds').setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: dmosMemNotificationInterval.setStatus('current')
+dmosMemNotificationGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 3, 1, 2))
+dmosMemAlarmInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 3, 1, 2, 1)).setObjects(("DMOS-MEM-NOTIFICATIONS-MIB", "dmosMemNotificationThreshold"), ("DMOS-MEM-NOTIFICATIONS-MIB", "dmosMemNotificationInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dmosMemAlarmInfoGroup = dmosMemAlarmInfoGroup.setStatus('current')
+dmosMemAlarmTrapsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 3, 1, 2, 2)).setObjects(("DMOS-MEM-NOTIFICATIONS-MIB", "memAvailableLowTrap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dmosMemAlarmTrapsGroup = dmosMemAlarmTrapsGroup.setStatus('current')
+memAvailableLowTrap = NotificationType((1, 3, 6, 1, 4, 1, 3709, 3, 6, 3, 3, 1, 3)).setObjects(("DMOS-NOTIFICATIONS-MIB", "notificationTime"), ("DMOS-NOTIFICATIONS-MIB", "notificationName"), ("DMOS-NOTIFICATIONS-MIB", "notificationSourceType"), ("DMOS-NOTIFICATIONS-MIB", "notificationSourceValue"), ("DMOS-NOTIFICATIONS-MIB", "notificationSeverity"), ("DMOS-NOTIFICATIONS-MIB", "notificationInfo"), ("DMOS-NOTIFICATIONS-MIB", "notificationAlarmState"), ("DMOS-MEM-NOTIFICATIONS-MIB", "dmosMemNotificationThreshold"), ("DMOS-MEM-NOTIFICATIONS-MIB", "dmosMemNotificationInterval"))
+if mibBuilder.loadTexts: memAvailableLowTrap.setStatus('current')
+mibBuilder.exportSymbols("DMOS-MEM-NOTIFICATIONS-MIB", dmosMemAlarmTrapsGroup=dmosMemAlarmTrapsGroup, dmosMemNotificationsMIB=dmosMemNotificationsMIB, dmosMemNotificationGroups=dmosMemNotificationGroups, dmosMemAlarmInfoGroup=dmosMemAlarmInfoGroup, memAvailableLowTrap=memAvailableLowTrap, dmosMemNotificationThreshold=dmosMemNotificationThreshold, dmosMemNotificationObjects=dmosMemNotificationObjects, PYSNMP_MODULE_ID=dmosMemNotificationsMIB, dmosMemNotificationInterval=dmosMemNotificationInterval)

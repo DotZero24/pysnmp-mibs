@@ -1,62 +1,41 @@
-_I='fsMplsOutSegmentEntry'
-_H='fsMplsInSegmentEntry'
-_G='read-create'
-_F='reverse'
-_E='forward'
-_D='TruthValue'
-_C='SUPERMICRO-MPLS-LSR-MIB'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mplsInSegmentEntry,mplsOutSegmentEntry=mibBuilder.importSymbols('MPLS-LSR-STD-MIB','mplsInSegmentEntry','mplsOutSegmentEntry')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_D)
-fsMplsLsrMIB=ModuleIdentity((1,3,6,1,4,1,10876,101,1,13,13))
-if mibBuilder.loadTexts:fsMplsLsrMIB.setRevisions(('2012-09-05 00:00',))
-_FsMplsLsrNotifications_ObjectIdentity=ObjectIdentity
-fsMplsLsrNotifications=_FsMplsLsrNotifications_ObjectIdentity((1,3,6,1,4,1,10876,101,1,13,13,0))
-_FsMplsLsrObjects_ObjectIdentity=ObjectIdentity
-fsMplsLsrObjects=_FsMplsLsrObjects_ObjectIdentity((1,3,6,1,4,1,10876,101,1,13,13,1))
-_FsMplsLsrScalarObjects_ObjectIdentity=ObjectIdentity
-fsMplsLsrScalarObjects=_FsMplsLsrScalarObjects_ObjectIdentity((1,3,6,1,4,1,10876,101,1,13,13,1,1))
-class _FsMplsLsrRfc6428CompatibleCodePoint_Type(TruthValue):defaultValue=2
-_FsMplsLsrRfc6428CompatibleCodePoint_Type.__name__=_D
-_FsMplsLsrRfc6428CompatibleCodePoint_Object=MibScalar
-fsMplsLsrRfc6428CompatibleCodePoint=_FsMplsLsrRfc6428CompatibleCodePoint_Object((1,3,6,1,4,1,10876,101,1,13,13,1,1,1),_FsMplsLsrRfc6428CompatibleCodePoint_Type())
-fsMplsLsrRfc6428CompatibleCodePoint.setMaxAccess('read-write')
-if mibBuilder.loadTexts:fsMplsLsrRfc6428CompatibleCodePoint.setStatus(_A)
-_FsMplsInSegmentTable_Object=MibTable
-fsMplsInSegmentTable=_FsMplsInSegmentTable_Object((1,3,6,1,4,1,10876,101,1,13,13,1,2))
-if mibBuilder.loadTexts:fsMplsInSegmentTable.setStatus(_A)
-_FsMplsInSegmentEntry_Object=MibTableRow
-fsMplsInSegmentEntry=_FsMplsInSegmentEntry_Object((1,3,6,1,4,1,10876,101,1,13,13,1,2,1))
-if mibBuilder.loadTexts:fsMplsInSegmentEntry.setStatus(_A)
-class _FsMplsInSegmentDirection_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_FsMplsInSegmentDirection_Type.__name__=_B
-_FsMplsInSegmentDirection_Object=MibTableColumn
-fsMplsInSegmentDirection=_FsMplsInSegmentDirection_Object((1,3,6,1,4,1,10876,101,1,13,13,1,2,1,1),_FsMplsInSegmentDirection_Type())
-fsMplsInSegmentDirection.setMaxAccess(_G)
-if mibBuilder.loadTexts:fsMplsInSegmentDirection.setStatus(_A)
-_FsMplsOutSegmentTable_Object=MibTable
-fsMplsOutSegmentTable=_FsMplsOutSegmentTable_Object((1,3,6,1,4,1,10876,101,1,13,13,1,3))
-if mibBuilder.loadTexts:fsMplsOutSegmentTable.setStatus(_A)
-_FsMplsOutSegmentEntry_Object=MibTableRow
-fsMplsOutSegmentEntry=_FsMplsOutSegmentEntry_Object((1,3,6,1,4,1,10876,101,1,13,13,1,3,1))
-if mibBuilder.loadTexts:fsMplsOutSegmentEntry.setStatus(_A)
-class _FsMplsOutSegmentDirection_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_FsMplsOutSegmentDirection_Type.__name__=_B
-_FsMplsOutSegmentDirection_Object=MibTableColumn
-fsMplsOutSegmentDirection=_FsMplsOutSegmentDirection_Object((1,3,6,1,4,1,10876,101,1,13,13,1,3,1,1),_FsMplsOutSegmentDirection_Type())
-fsMplsOutSegmentDirection.setMaxAccess(_G)
-if mibBuilder.loadTexts:fsMplsOutSegmentDirection.setStatus(_A)
-_FsMplsLsrConformance_ObjectIdentity=ObjectIdentity
-fsMplsLsrConformance=_FsMplsLsrConformance_ObjectIdentity((1,3,6,1,4,1,10876,101,1,13,13,2))
-mplsInSegmentEntry.registerAugmentions((_C,_H))
+#
+# PySNMP MIB module SUPERMICRO-MPLS-LSR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-MPLS-LSR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mplsInSegmentEntry, mplsOutSegmentEntry = mibBuilder.importSymbols("MPLS-LSR-STD-MIB", "mplsInSegmentEntry", "mplsOutSegmentEntry")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+fsMplsLsrMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 13))
+fsMplsLsrMIB.setRevisions(('2012-09-05 00:00',))
+if mibBuilder.loadTexts: fsMplsLsrMIB.setLastUpdated('201209050000Z')
+if mibBuilder.loadTexts: fsMplsLsrMIB.setOrganization('Super Micro Computer Inc.')
+fsMplsLsrNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 13, 0))
+fsMplsLsrObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 13, 1))
+fsMplsLsrConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 13, 2))
+fsMplsLsrScalarObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 13, 1, 1))
+fsMplsInSegmentTable = MibTable((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 13, 1, 2), )
+if mibBuilder.loadTexts: fsMplsInSegmentTable.setStatus('current')
+fsMplsInSegmentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 13, 1, 2, 1), )
+mplsInSegmentEntry.registerAugmentions(("SUPERMICRO-MPLS-LSR-MIB", "fsMplsInSegmentEntry"))
 fsMplsInSegmentEntry.setIndexNames(*mplsInSegmentEntry.getIndexNames())
-mplsOutSegmentEntry.registerAugmentions((_C,_I))
+if mibBuilder.loadTexts: fsMplsInSegmentEntry.setStatus('current')
+fsMplsInSegmentDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 13, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("forward", 1), ("reverse", 2))).clone('forward')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsMplsInSegmentDirection.setStatus('current')
+fsMplsOutSegmentTable = MibTable((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 13, 1, 3), )
+if mibBuilder.loadTexts: fsMplsOutSegmentTable.setStatus('current')
+fsMplsOutSegmentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 13, 1, 3, 1), )
+mplsOutSegmentEntry.registerAugmentions(("SUPERMICRO-MPLS-LSR-MIB", "fsMplsOutSegmentEntry"))
 fsMplsOutSegmentEntry.setIndexNames(*mplsOutSegmentEntry.getIndexNames())
-mibBuilder.exportSymbols(_C,**{'fsMplsLsrMIB':fsMplsLsrMIB,'fsMplsLsrNotifications':fsMplsLsrNotifications,'fsMplsLsrObjects':fsMplsLsrObjects,'fsMplsLsrScalarObjects':fsMplsLsrScalarObjects,'fsMplsLsrRfc6428CompatibleCodePoint':fsMplsLsrRfc6428CompatibleCodePoint,'fsMplsInSegmentTable':fsMplsInSegmentTable,_H:fsMplsInSegmentEntry,'fsMplsInSegmentDirection':fsMplsInSegmentDirection,'fsMplsOutSegmentTable':fsMplsOutSegmentTable,_I:fsMplsOutSegmentEntry,'fsMplsOutSegmentDirection':fsMplsOutSegmentDirection,'fsMplsLsrConformance':fsMplsLsrConformance})
+if mibBuilder.loadTexts: fsMplsOutSegmentEntry.setStatus('current')
+fsMplsOutSegmentDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 13, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("forward", 1), ("reverse", 2))).clone('forward')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsMplsOutSegmentDirection.setStatus('current')
+fsMplsLsrRfc6428CompatibleCodePoint = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 13, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMplsLsrRfc6428CompatibleCodePoint.setStatus('current')
+mibBuilder.exportSymbols("SUPERMICRO-MPLS-LSR-MIB", fsMplsInSegmentDirection=fsMplsInSegmentDirection, fsMplsInSegmentEntry=fsMplsInSegmentEntry, fsMplsInSegmentTable=fsMplsInSegmentTable, fsMplsLsrConformance=fsMplsLsrConformance, fsMplsLsrNotifications=fsMplsLsrNotifications, fsMplsLsrRfc6428CompatibleCodePoint=fsMplsLsrRfc6428CompatibleCodePoint, fsMplsOutSegmentEntry=fsMplsOutSegmentEntry, fsMplsOutSegmentDirection=fsMplsOutSegmentDirection, fsMplsOutSegmentTable=fsMplsOutSegmentTable, fsMplsLsrMIB=fsMplsLsrMIB, fsMplsLsrScalarObjects=fsMplsLsrScalarObjects, PYSNMP_MODULE_ID=fsMplsLsrMIB, fsMplsLsrObjects=fsMplsLsrObjects)

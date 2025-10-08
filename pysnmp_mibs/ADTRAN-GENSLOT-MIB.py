@@ -1,274 +1,124 @@
-_n='adGenSlotOptionalGroup'
-_m='adGenSlotBaseGroup'
-_l='adGenSlotProdTransType'
-_k='adGenSlotProdProductID'
-_j='adGenSlotProdPhysAddress'
-_i='adGenSlotProdSwVersion'
-_h='adGenSlotProdRevision'
-_g='adGenSlotProdSerialNumber'
-_f='adGenSlotProdCLEIcode'
-_e='adGenSlotProdPartNumber'
-_d='adGenSlotProdName'
-_c='adGenSlotUpTime'
-_b='adGenSlotUpdateStatus'
-_a='adGenSlotUpdateSoftware'
-_Z='adGenSlotTFileName'
-_Y='adGenSlotProvVersion'
-_X='adGenSlotPortNumber'
-_W='adGenSlotStatServiceState'
-_V='adGenSlotFaceplate'
-_U='adGenSlotAlarmStatus'
-_T='adGenSlotTrapEnable'
-_S='adGenSlotProduct'
-_R='adGenSlotInfoState'
-_Q='adGenSlotNumber'
-_P='TruthValue'
-_O='adGenSlotProvCpuRateLimitAlarmSlotSeverity'
-_N='obsolete'
-_M='ifIndex'
-_L='ifDescr'
-_K='IF-MIB'
-_J='Integer32'
-_I='read-write'
-_H='sysName'
-_G='SNMPv2-MIB'
-_F='adTrapInformSeqNum'
-_E='ADTRAN-GENTRAPINFORM-MIB'
-_D='adGenSlotInfoIndex'
-_C='read-only'
-_B='ADTRAN-GENSLOT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adGenericShelves,=mibBuilder.importSymbols('ADTRAN-GENCHASSIS-MIB','adGenericShelves')
-adTrapInformSeqNum,=mibBuilder.importSymbols(_E,_F)
-AdPresence,AdProductIdentifier=mibBuilder.importSymbols('ADTRAN-TC','AdPresence','AdProductIdentifier')
-ifDescr,ifIndex=mibBuilder.importSymbols(_K,_L,_M)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-sysName,=mibBuilder.importSymbols(_G,_H)
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_J,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_P)
-adGenSlot=ModuleIdentity((1,3,6,1,4,1,664,5,13,2))
-if mibBuilder.loadTexts:adGenSlot.setRevisions(('2017-03-29 00:00','2016-08-12 00:00','2016-03-14 00:00','2013-05-31 00:00','2012-12-06 00:00','2012-09-21 00:00','2011-10-13 00:00'))
-_AdGenSlotNumber_Type=Integer32
-_AdGenSlotNumber_Object=MibScalar
-adGenSlotNumber=_AdGenSlotNumber_Object((1,3,6,1,4,1,664,5,13,2,1),_AdGenSlotNumber_Type())
-adGenSlotNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotNumber.setStatus(_A)
-_AdGenSlotInfoTable_Object=MibTable
-adGenSlotInfoTable=_AdGenSlotInfoTable_Object((1,3,6,1,4,1,664,5,13,2,3))
-if mibBuilder.loadTexts:adGenSlotInfoTable.setStatus(_A)
-_AdGenSlotInfoEntry_Object=MibTableRow
-adGenSlotInfoEntry=_AdGenSlotInfoEntry_Object((1,3,6,1,4,1,664,5,13,2,3,1))
-adGenSlotInfoEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:adGenSlotInfoEntry.setStatus(_A)
-_AdGenSlotInfoIndex_Type=Integer32
-_AdGenSlotInfoIndex_Object=MibTableColumn
-adGenSlotInfoIndex=_AdGenSlotInfoIndex_Object((1,3,6,1,4,1,664,5,13,2,3,1,1),_AdGenSlotInfoIndex_Type())
-adGenSlotInfoIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotInfoIndex.setStatus(_A)
-_AdGenSlotInfoState_Type=AdPresence
-_AdGenSlotInfoState_Object=MibTableColumn
-adGenSlotInfoState=_AdGenSlotInfoState_Object((1,3,6,1,4,1,664,5,13,2,3,1,3),_AdGenSlotInfoState_Type())
-adGenSlotInfoState.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotInfoState.setStatus(_A)
-_AdGenSlotProduct_Type=AdProductIdentifier
-_AdGenSlotProduct_Object=MibTableColumn
-adGenSlotProduct=_AdGenSlotProduct_Object((1,3,6,1,4,1,664,5,13,2,3,1,4),_AdGenSlotProduct_Type())
-adGenSlotProduct.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotProduct.setStatus(_A)
-class _AdGenSlotTrapEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enableTraps',1),('disableTraps',2)))
-_AdGenSlotTrapEnable_Type.__name__=_J
-_AdGenSlotTrapEnable_Object=MibTableColumn
-adGenSlotTrapEnable=_AdGenSlotTrapEnable_Object((1,3,6,1,4,1,664,5,13,2,3,1,5),_AdGenSlotTrapEnable_Type())
-adGenSlotTrapEnable.setMaxAccess(_I)
-if mibBuilder.loadTexts:adGenSlotTrapEnable.setStatus(_A)
-_AdGenSlotAlarmStatus_Type=OctetString
-_AdGenSlotAlarmStatus_Object=MibTableColumn
-adGenSlotAlarmStatus=_AdGenSlotAlarmStatus_Object((1,3,6,1,4,1,664,5,13,2,3,1,6),_AdGenSlotAlarmStatus_Type())
-adGenSlotAlarmStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotAlarmStatus.setStatus(_A)
-_AdGenSlotFaceplate_Type=OctetString
-_AdGenSlotFaceplate_Object=MibTableColumn
-adGenSlotFaceplate=_AdGenSlotFaceplate_Object((1,3,6,1,4,1,664,5,13,2,3,1,7),_AdGenSlotFaceplate_Type())
-adGenSlotFaceplate.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotFaceplate.setStatus(_A)
-class _AdGenSlotStatServiceState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,5,8,9,10)));namedValues=NamedValues(*(('is',1),('oosUas',2),('oosMA',3),('fault',5),('isStbyHot',8),('isActLock',9),('isStbyLock',10)))
-_AdGenSlotStatServiceState_Type.__name__=_J
-_AdGenSlotStatServiceState_Object=MibTableColumn
-adGenSlotStatServiceState=_AdGenSlotStatServiceState_Object((1,3,6,1,4,1,664,5,13,2,3,1,8),_AdGenSlotStatServiceState_Type())
-adGenSlotStatServiceState.setMaxAccess(_I)
-if mibBuilder.loadTexts:adGenSlotStatServiceState.setStatus(_A)
-_AdGenSlotPortNumber_Type=Integer32
-_AdGenSlotPortNumber_Object=MibTableColumn
-adGenSlotPortNumber=_AdGenSlotPortNumber_Object((1,3,6,1,4,1,664,5,13,2,3,1,9),_AdGenSlotPortNumber_Type())
-adGenSlotPortNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotPortNumber.setStatus(_A)
-_AdGenSlotProvVersion_Type=Integer32
-_AdGenSlotProvVersion_Object=MibTableColumn
-adGenSlotProvVersion=_AdGenSlotProvVersion_Object((1,3,6,1,4,1,664,5,13,2,3,1,10),_AdGenSlotProvVersion_Type())
-adGenSlotProvVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotProvVersion.setStatus(_A)
-_AdGenSlotTFileName_Type=DisplayString
-_AdGenSlotTFileName_Object=MibTableColumn
-adGenSlotTFileName=_AdGenSlotTFileName_Object((1,3,6,1,4,1,664,5,13,2,3,1,13),_AdGenSlotTFileName_Type())
-adGenSlotTFileName.setMaxAccess(_I)
-if mibBuilder.loadTexts:adGenSlotTFileName.setStatus(_A)
-class _AdGenSlotUpdateSoftware_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('initiate',1))
-_AdGenSlotUpdateSoftware_Type.__name__=_J
-_AdGenSlotUpdateSoftware_Object=MibTableColumn
-adGenSlotUpdateSoftware=_AdGenSlotUpdateSoftware_Object((1,3,6,1,4,1,664,5,13,2,3,1,15),_AdGenSlotUpdateSoftware_Type())
-adGenSlotUpdateSoftware.setMaxAccess(_I)
-if mibBuilder.loadTexts:adGenSlotUpdateSoftware.setStatus(_A)
-_AdGenSlotUpdateStatus_Type=DisplayString
-_AdGenSlotUpdateStatus_Object=MibTableColumn
-adGenSlotUpdateStatus=_AdGenSlotUpdateStatus_Object((1,3,6,1,4,1,664,5,13,2,3,1,16),_AdGenSlotUpdateStatus_Type())
-adGenSlotUpdateStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotUpdateStatus.setStatus(_A)
-_AdGenSlotUpTime_Type=TimeTicks
-_AdGenSlotUpTime_Object=MibTableColumn
-adGenSlotUpTime=_AdGenSlotUpTime_Object((1,3,6,1,4,1,664,5,13,2,3,1,17),_AdGenSlotUpTime_Type())
-adGenSlotUpTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotUpTime.setStatus(_A)
-class _AdGenSlotServiceStateOOSMAAlarmEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_AdGenSlotServiceStateOOSMAAlarmEnable_Type.__name__=_J
-_AdGenSlotServiceStateOOSMAAlarmEnable_Object=MibTableColumn
-adGenSlotServiceStateOOSMAAlarmEnable=_AdGenSlotServiceStateOOSMAAlarmEnable_Object((1,3,6,1,4,1,664,5,13,2,3,1,18),_AdGenSlotServiceStateOOSMAAlarmEnable_Type())
-adGenSlotServiceStateOOSMAAlarmEnable.setMaxAccess(_I)
-if mibBuilder.loadTexts:adGenSlotServiceStateOOSMAAlarmEnable.setStatus(_N)
-_AdGenSlotPrimaryBuildDate_Type=DisplayString
-_AdGenSlotPrimaryBuildDate_Object=MibTableColumn
-adGenSlotPrimaryBuildDate=_AdGenSlotPrimaryBuildDate_Object((1,3,6,1,4,1,664,5,13,2,3,1,19),_AdGenSlotPrimaryBuildDate_Type())
-adGenSlotPrimaryBuildDate.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotPrimaryBuildDate.setStatus(_A)
-_AdGenSlotResetCause_Type=DisplayString
-_AdGenSlotResetCause_Object=MibTableColumn
-adGenSlotResetCause=_AdGenSlotResetCause_Object((1,3,6,1,4,1,664,5,13,2,3,1,20),_AdGenSlotResetCause_Type())
-adGenSlotResetCause.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotResetCause.setStatus(_A)
-_AdGenSlotWarmStartCauseIsValid_Type=TruthValue
-_AdGenSlotWarmStartCauseIsValid_Object=MibTableColumn
-adGenSlotWarmStartCauseIsValid=_AdGenSlotWarmStartCauseIsValid_Object((1,3,6,1,4,1,664,5,13,2,3,1,21),_AdGenSlotWarmStartCauseIsValid_Type())
-adGenSlotWarmStartCauseIsValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotWarmStartCauseIsValid.setStatus(_A)
-_AdGenSlotWarmStartCause_Type=DisplayString
-_AdGenSlotWarmStartCause_Object=MibTableColumn
-adGenSlotWarmStartCause=_AdGenSlotWarmStartCause_Object((1,3,6,1,4,1,664,5,13,2,3,1,22),_AdGenSlotWarmStartCause_Type())
-adGenSlotWarmStartCause.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotWarmStartCause.setStatus(_A)
-_AdGenSlotUpTimeSeconds_Type=Counter32
-_AdGenSlotUpTimeSeconds_Object=MibTableColumn
-adGenSlotUpTimeSeconds=_AdGenSlotUpTimeSeconds_Object((1,3,6,1,4,1,664,5,13,2,3,1,23),_AdGenSlotUpTimeSeconds_Type())
-adGenSlotUpTimeSeconds.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotUpTimeSeconds.setStatus(_A)
-_AdGenSlotProdTable_Object=MibTable
-adGenSlotProdTable=_AdGenSlotProdTable_Object((1,3,6,1,4,1,664,5,13,2,4))
-if mibBuilder.loadTexts:adGenSlotProdTable.setStatus(_A)
-_AdGenSlotProdEntry_Object=MibTableRow
-adGenSlotProdEntry=_AdGenSlotProdEntry_Object((1,3,6,1,4,1,664,5,13,2,4,1))
-adGenSlotProdEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:adGenSlotProdEntry.setStatus(_A)
-_AdGenSlotProdName_Type=DisplayString
-_AdGenSlotProdName_Object=MibTableColumn
-adGenSlotProdName=_AdGenSlotProdName_Object((1,3,6,1,4,1,664,5,13,2,4,1,1),_AdGenSlotProdName_Type())
-adGenSlotProdName.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotProdName.setStatus(_A)
-_AdGenSlotProdPartNumber_Type=DisplayString
-_AdGenSlotProdPartNumber_Object=MibTableColumn
-adGenSlotProdPartNumber=_AdGenSlotProdPartNumber_Object((1,3,6,1,4,1,664,5,13,2,4,1,2),_AdGenSlotProdPartNumber_Type())
-adGenSlotProdPartNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotProdPartNumber.setStatus(_A)
-_AdGenSlotProdCLEIcode_Type=DisplayString
-_AdGenSlotProdCLEIcode_Object=MibTableColumn
-adGenSlotProdCLEIcode=_AdGenSlotProdCLEIcode_Object((1,3,6,1,4,1,664,5,13,2,4,1,3),_AdGenSlotProdCLEIcode_Type())
-adGenSlotProdCLEIcode.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotProdCLEIcode.setStatus(_A)
-_AdGenSlotProdSerialNumber_Type=DisplayString
-_AdGenSlotProdSerialNumber_Object=MibTableColumn
-adGenSlotProdSerialNumber=_AdGenSlotProdSerialNumber_Object((1,3,6,1,4,1,664,5,13,2,4,1,4),_AdGenSlotProdSerialNumber_Type())
-adGenSlotProdSerialNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotProdSerialNumber.setStatus(_A)
-_AdGenSlotProdRevision_Type=DisplayString
-_AdGenSlotProdRevision_Object=MibTableColumn
-adGenSlotProdRevision=_AdGenSlotProdRevision_Object((1,3,6,1,4,1,664,5,13,2,4,1,5),_AdGenSlotProdRevision_Type())
-adGenSlotProdRevision.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotProdRevision.setStatus(_A)
-_AdGenSlotProdSwVersion_Type=DisplayString
-_AdGenSlotProdSwVersion_Object=MibTableColumn
-adGenSlotProdSwVersion=_AdGenSlotProdSwVersion_Object((1,3,6,1,4,1,664,5,13,2,4,1,6),_AdGenSlotProdSwVersion_Type())
-adGenSlotProdSwVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotProdSwVersion.setStatus(_A)
-_AdGenSlotProdPhysAddress_Type=PhysAddress
-_AdGenSlotProdPhysAddress_Object=MibTableColumn
-adGenSlotProdPhysAddress=_AdGenSlotProdPhysAddress_Object((1,3,6,1,4,1,664,5,13,2,4,1,7),_AdGenSlotProdPhysAddress_Type())
-adGenSlotProdPhysAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotProdPhysAddress.setStatus(_A)
-_AdGenSlotProdProductID_Type=ObjectIdentifier
-_AdGenSlotProdProductID_Object=MibTableColumn
-adGenSlotProdProductID=_AdGenSlotProdProductID_Object((1,3,6,1,4,1,664,5,13,2,4,1,8),_AdGenSlotProdProductID_Type())
-adGenSlotProdProductID.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotProdProductID.setStatus(_A)
-_AdGenSlotProdTransType_Type=DisplayString
-_AdGenSlotProdTransType_Object=MibTableColumn
-adGenSlotProdTransType=_AdGenSlotProdTransType_Object((1,3,6,1,4,1,664,5,13,2,4,1,9),_AdGenSlotProdTransType_Type())
-adGenSlotProdTransType.setMaxAccess(_C)
-if mibBuilder.loadTexts:adGenSlotProdTransType.setStatus(_A)
-_AdGenSlotAlarmsPrefix_ObjectIdentity=ObjectIdentity
-adGenSlotAlarmsPrefix=_AdGenSlotAlarmsPrefix_ObjectIdentity((1,3,6,1,4,1,664,5,13,2,5))
-_AdGenSlotAlarms_ObjectIdentity=ObjectIdentity
-adGenSlotAlarms=_AdGenSlotAlarms_ObjectIdentity((1,3,6,1,4,1,664,5,13,2,5,0))
-_AdGenSlotProvCpuRateLimitAlarmSlotTable_Object=MibTable
-adGenSlotProvCpuRateLimitAlarmSlotTable=_AdGenSlotProvCpuRateLimitAlarmSlotTable_Object((1,3,6,1,4,1,664,5,13,2,9))
-if mibBuilder.loadTexts:adGenSlotProvCpuRateLimitAlarmSlotTable.setStatus(_A)
-_AdGenSlotProvCpuRateLimitAlarmSlotEntry_Object=MibTableRow
-adGenSlotProvCpuRateLimitAlarmSlotEntry=_AdGenSlotProvCpuRateLimitAlarmSlotEntry_Object((1,3,6,1,4,1,664,5,13,2,9,1))
-adGenSlotProvCpuRateLimitAlarmSlotEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:adGenSlotProvCpuRateLimitAlarmSlotEntry.setStatus(_A)
-class _AdGenSlotProvCpuRateLimitAlarmSlotSeverity_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(4,5,6)));namedValues=NamedValues(*(('minor',4),('major',5),('critical',6)))
-_AdGenSlotProvCpuRateLimitAlarmSlotSeverity_Type.__name__=_J
-_AdGenSlotProvCpuRateLimitAlarmSlotSeverity_Object=MibTableColumn
-adGenSlotProvCpuRateLimitAlarmSlotSeverity=_AdGenSlotProvCpuRateLimitAlarmSlotSeverity_Object((1,3,6,1,4,1,664,5,13,2,9,1,1),_AdGenSlotProvCpuRateLimitAlarmSlotSeverity_Type())
-adGenSlotProvCpuRateLimitAlarmSlotSeverity.setMaxAccess(_I)
-if mibBuilder.loadTexts:adGenSlotProvCpuRateLimitAlarmSlotSeverity.setStatus(_A)
-class _AdGenSlotProvCpuRateLimitAlarmSlotEnable_Type(TruthValue):defaultValue=1
-_AdGenSlotProvCpuRateLimitAlarmSlotEnable_Type.__name__=_P
-_AdGenSlotProvCpuRateLimitAlarmSlotEnable_Object=MibTableColumn
-adGenSlotProvCpuRateLimitAlarmSlotEnable=_AdGenSlotProvCpuRateLimitAlarmSlotEnable_Object((1,3,6,1,4,1,664,5,13,2,9,1,2),_AdGenSlotProvCpuRateLimitAlarmSlotEnable_Type())
-adGenSlotProvCpuRateLimitAlarmSlotEnable.setMaxAccess(_I)
-if mibBuilder.loadTexts:adGenSlotProvCpuRateLimitAlarmSlotEnable.setStatus(_A)
-_AdGenSlotConformance_ObjectIdentity=ObjectIdentity
-adGenSlotConformance=_AdGenSlotConformance_ObjectIdentity((1,3,6,1,4,1,664,5,13,2,99))
-_AdGenSlotCompliances_ObjectIdentity=ObjectIdentity
-adGenSlotCompliances=_AdGenSlotCompliances_ObjectIdentity((1,3,6,1,4,1,664,5,13,2,99,1))
-_AdGenSlotMIBGroups_ObjectIdentity=ObjectIdentity
-adGenSlotMIBGroups=_AdGenSlotMIBGroups_ObjectIdentity((1,3,6,1,4,1,664,5,13,2,99,2))
-adGenSlotBaseGroup=ObjectGroup((1,3,6,1,4,1,664,5,13,2,99,2,1))
-adGenSlotBaseGroup.setObjects(*((_B,_Q),(_B,_D),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j)))
-if mibBuilder.loadTexts:adGenSlotBaseGroup.setStatus(_A)
-adGenSlotOptionalGroup=ObjectGroup((1,3,6,1,4,1,664,5,13,2,99,2,2))
-adGenSlotOptionalGroup.setObjects(*((_B,_k),(_B,_l)))
-if mibBuilder.loadTexts:adGenSlotOptionalGroup.setStatus(_A)
-adGenSlotServiceStateOOSMAClear=NotificationType((1,3,6,1,4,1,664,5,13,2,5,0,1))
-adGenSlotServiceStateOOSMAClear.setObjects(*((_E,_F),(_G,_H),(_B,_D)))
-if mibBuilder.loadTexts:adGenSlotServiceStateOOSMAClear.setStatus(_N)
-adGenSlotServiceStateOOSMAActive=NotificationType((1,3,6,1,4,1,664,5,13,2,5,0,2))
-adGenSlotServiceStateOOSMAActive.setObjects(*((_E,_F),(_G,_H),(_B,_D)))
-if mibBuilder.loadTexts:adGenSlotServiceStateOOSMAActive.setStatus(_N)
-adGenSlotFpgaBistFailureClear=NotificationType((1,3,6,1,4,1,664,5,13,2,5,0,3))
-adGenSlotFpgaBistFailureClear.setObjects(*((_E,_F),(_G,_H),(_B,_D)))
-if mibBuilder.loadTexts:adGenSlotFpgaBistFailureClear.setStatus(_A)
-adGenSlotFpgaBistFailureActive=NotificationType((1,3,6,1,4,1,664,5,13,2,5,0,4))
-adGenSlotFpgaBistFailureActive.setObjects(*((_E,_F),(_G,_H),(_B,_D)))
-if mibBuilder.loadTexts:adGenSlotFpgaBistFailureActive.setStatus(_A)
-adGenSlotCpuRateLimitAlarmClear=NotificationType((1,3,6,1,4,1,664,5,13,2,5,0,5))
-adGenSlotCpuRateLimitAlarmClear.setObjects(*((_E,_F),(_G,_H),(_K,_L),(_K,_M),(_B,_O)))
-if mibBuilder.loadTexts:adGenSlotCpuRateLimitAlarmClear.setStatus(_A)
-adGenSlotCpuRateLimitAlarmActive=NotificationType((1,3,6,1,4,1,664,5,13,2,5,0,6))
-adGenSlotCpuRateLimitAlarmActive.setObjects(*((_E,_F),(_G,_H),(_K,_L),(_K,_M),(_B,_O)))
-if mibBuilder.loadTexts:adGenSlotCpuRateLimitAlarmActive.setStatus(_A)
-adGenSlotCompliance=ModuleCompliance((1,3,6,1,4,1,664,5,13,2,99,1,1))
-adGenSlotCompliance.setObjects(*((_B,_m),(_B,_n)))
-if mibBuilder.loadTexts:adGenSlotCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'adGenSlot':adGenSlot,_Q:adGenSlotNumber,'adGenSlotInfoTable':adGenSlotInfoTable,'adGenSlotInfoEntry':adGenSlotInfoEntry,_D:adGenSlotInfoIndex,_R:adGenSlotInfoState,_S:adGenSlotProduct,_T:adGenSlotTrapEnable,_U:adGenSlotAlarmStatus,_V:adGenSlotFaceplate,_W:adGenSlotStatServiceState,_X:adGenSlotPortNumber,_Y:adGenSlotProvVersion,_Z:adGenSlotTFileName,_a:adGenSlotUpdateSoftware,_b:adGenSlotUpdateStatus,_c:adGenSlotUpTime,'adGenSlotServiceStateOOSMAAlarmEnable':adGenSlotServiceStateOOSMAAlarmEnable,'adGenSlotPrimaryBuildDate':adGenSlotPrimaryBuildDate,'adGenSlotResetCause':adGenSlotResetCause,'adGenSlotWarmStartCauseIsValid':adGenSlotWarmStartCauseIsValid,'adGenSlotWarmStartCause':adGenSlotWarmStartCause,'adGenSlotUpTimeSeconds':adGenSlotUpTimeSeconds,'adGenSlotProdTable':adGenSlotProdTable,'adGenSlotProdEntry':adGenSlotProdEntry,_d:adGenSlotProdName,_e:adGenSlotProdPartNumber,_f:adGenSlotProdCLEIcode,_g:adGenSlotProdSerialNumber,_h:adGenSlotProdRevision,_i:adGenSlotProdSwVersion,_j:adGenSlotProdPhysAddress,_k:adGenSlotProdProductID,_l:adGenSlotProdTransType,'adGenSlotAlarmsPrefix':adGenSlotAlarmsPrefix,'adGenSlotAlarms':adGenSlotAlarms,'adGenSlotServiceStateOOSMAClear':adGenSlotServiceStateOOSMAClear,'adGenSlotServiceStateOOSMAActive':adGenSlotServiceStateOOSMAActive,'adGenSlotFpgaBistFailureClear':adGenSlotFpgaBistFailureClear,'adGenSlotFpgaBistFailureActive':adGenSlotFpgaBistFailureActive,'adGenSlotCpuRateLimitAlarmClear':adGenSlotCpuRateLimitAlarmClear,'adGenSlotCpuRateLimitAlarmActive':adGenSlotCpuRateLimitAlarmActive,'adGenSlotProvCpuRateLimitAlarmSlotTable':adGenSlotProvCpuRateLimitAlarmSlotTable,'adGenSlotProvCpuRateLimitAlarmSlotEntry':adGenSlotProvCpuRateLimitAlarmSlotEntry,_O:adGenSlotProvCpuRateLimitAlarmSlotSeverity,'adGenSlotProvCpuRateLimitAlarmSlotEnable':adGenSlotProvCpuRateLimitAlarmSlotEnable,'adGenSlotConformance':adGenSlotConformance,'adGenSlotCompliances':adGenSlotCompliances,'adGenSlotCompliance':adGenSlotCompliance,'adGenSlotMIBGroups':adGenSlotMIBGroups,_m:adGenSlotBaseGroup,_n:adGenSlotOptionalGroup})
+#
+# PySNMP MIB module ADTRAN-GENSLOT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adtran/ADTRAN-GENSLOT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:09 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+adGenericShelves, = mibBuilder.importSymbols("ADTRAN-GENCHASSIS-MIB", "adGenericShelves")
+adTrapInformSeqNum, = mibBuilder.importSymbols("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum")
+AdPresence, AdProductIdentifier = mibBuilder.importSymbols("ADTRAN-TC", "AdPresence", "AdProductIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, ifDescr = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifDescr")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TruthValue, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention", "PhysAddress")
+adGenSlot = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 5, 13, 2))
+adGenSlot.setRevisions(('2017-03-29 00:00', '2016-08-12 00:00', '2016-03-14 00:00', '2013-05-31 00:00', '2012-12-06 00:00', '2012-09-21 00:00', '2011-10-13 00:00',))
+if mibBuilder.loadTexts: adGenSlot.setLastUpdated('201608120000Z')
+if mibBuilder.loadTexts: adGenSlot.setOrganization('ADTRAN, Inc.')
+adGenSlotConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 99))
+adGenSlotNumber = MibScalar((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotNumber.setStatus('current')
+adGenSlotInfoTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3), )
+if mibBuilder.loadTexts: adGenSlotInfoTable.setStatus('current')
+adGenSlotInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenSlotInfoEntry.setStatus('current')
+adGenSlotInfoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotInfoIndex.setStatus('current')
+adGenSlotInfoState = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 3), AdPresence()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotInfoState.setStatus('current')
+adGenSlotProduct = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 4), AdProductIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotProduct.setStatus('current')
+adGenSlotTrapEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enableTraps", 1), ("disableTraps", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSlotTrapEnable.setStatus('current')
+adGenSlotAlarmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 6), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotAlarmStatus.setStatus('current')
+adGenSlotFaceplate = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 7), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotFaceplate.setStatus('current')
+adGenSlotStatServiceState = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 5, 8, 9, 10))).clone(namedValues=NamedValues(("is", 1), ("oosUas", 2), ("oosMA", 3), ("fault", 5), ("isStbyHot", 8), ("isActLock", 9), ("isStbyLock", 10)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSlotStatServiceState.setStatus('current')
+adGenSlotPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotPortNumber.setStatus('current')
+adGenSlotProvVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotProvVersion.setStatus('current')
+adGenSlotTFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 13), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSlotTFileName.setStatus('current')
+adGenSlotUpdateSoftware = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("initiate", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSlotUpdateSoftware.setStatus('current')
+adGenSlotUpdateStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 16), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotUpdateStatus.setStatus('current')
+adGenSlotUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 17), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotUpTime.setStatus('current')
+adGenSlotServiceStateOOSMAAlarmEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSlotServiceStateOOSMAAlarmEnable.setStatus('obsolete')
+adGenSlotPrimaryBuildDate = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 19), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotPrimaryBuildDate.setStatus('current')
+adGenSlotResetCause = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 20), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotResetCause.setStatus('current')
+adGenSlotWarmStartCauseIsValid = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 21), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotWarmStartCauseIsValid.setStatus('current')
+adGenSlotWarmStartCause = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 22), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotWarmStartCause.setStatus('current')
+adGenSlotUpTimeSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 3, 1, 23), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotUpTimeSeconds.setStatus('current')
+adGenSlotProdTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 4), )
+if mibBuilder.loadTexts: adGenSlotProdTable.setStatus('current')
+adGenSlotProdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 4, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenSlotProdEntry.setStatus('current')
+adGenSlotProdName = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 4, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotProdName.setStatus('current')
+adGenSlotProdPartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 4, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotProdPartNumber.setStatus('current')
+adGenSlotProdCLEIcode = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 4, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotProdCLEIcode.setStatus('current')
+adGenSlotProdSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 4, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotProdSerialNumber.setStatus('current')
+adGenSlotProdRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 4, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotProdRevision.setStatus('current')
+adGenSlotProdSwVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 4, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotProdSwVersion.setStatus('current')
+adGenSlotProdPhysAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 4, 1, 7), PhysAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotProdPhysAddress.setStatus('current')
+adGenSlotProdProductID = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 4, 1, 8), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotProdProductID.setStatus('current')
+adGenSlotProdTransType = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 4, 1, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: adGenSlotProdTransType.setStatus('current')
+adGenSlotAlarmsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 5))
+adGenSlotAlarms = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 5, 0))
+adGenSlotServiceStateOOSMAClear = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 5, 0, 1)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenSlotServiceStateOOSMAClear.setStatus('obsolete')
+adGenSlotServiceStateOOSMAActive = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 5, 0, 2)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenSlotServiceStateOOSMAActive.setStatus('obsolete')
+adGenSlotFpgaBistFailureClear = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 5, 0, 3)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenSlotFpgaBistFailureClear.setStatus('current')
+adGenSlotFpgaBistFailureActive = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 5, 0, 4)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenSlotFpgaBistFailureActive.setStatus('current')
+adGenSlotCpuRateLimitAlarmClear = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 5, 0, 5)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("IF-MIB", "ifDescr"), ("IF-MIB", "ifIndex"), ("ADTRAN-GENSLOT-MIB", "adGenSlotProvCpuRateLimitAlarmSlotSeverity"))
+if mibBuilder.loadTexts: adGenSlotCpuRateLimitAlarmClear.setStatus('current')
+adGenSlotCpuRateLimitAlarmActive = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 5, 0, 6)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("IF-MIB", "ifDescr"), ("IF-MIB", "ifIndex"), ("ADTRAN-GENSLOT-MIB", "adGenSlotProvCpuRateLimitAlarmSlotSeverity"))
+if mibBuilder.loadTexts: adGenSlotCpuRateLimitAlarmActive.setStatus('current')
+adGenSlotProvCpuRateLimitAlarmSlotTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 9), )
+if mibBuilder.loadTexts: adGenSlotProvCpuRateLimitAlarmSlotTable.setStatus('current')
+adGenSlotProvCpuRateLimitAlarmSlotEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 9, 1), ).setIndexNames((0, "ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"))
+if mibBuilder.loadTexts: adGenSlotProvCpuRateLimitAlarmSlotEntry.setStatus('current')
+adGenSlotProvCpuRateLimitAlarmSlotSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 9, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(4, 5, 6))).clone(namedValues=NamedValues(("minor", 4), ("major", 5), ("critical", 6))).clone('major')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSlotProvCpuRateLimitAlarmSlotSeverity.setStatus('current')
+adGenSlotProvCpuRateLimitAlarmSlotEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 9, 1, 2), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: adGenSlotProvCpuRateLimitAlarmSlotEnable.setStatus('current')
+adGenSlotCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 99, 1))
+adGenSlotMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 99, 2))
+adGenSlotCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 99, 1, 1)).setObjects(("ADTRAN-GENSLOT-MIB", "adGenSlotBaseGroup"), ("ADTRAN-GENSLOT-MIB", "adGenSlotOptionalGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    adGenSlotCompliance = adGenSlotCompliance.setStatus('current')
+adGenSlotBaseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 99, 2, 1)).setObjects(("ADTRAN-GENSLOT-MIB", "adGenSlotNumber"), ("ADTRAN-GENSLOT-MIB", "adGenSlotInfoIndex"), ("ADTRAN-GENSLOT-MIB", "adGenSlotInfoState"), ("ADTRAN-GENSLOT-MIB", "adGenSlotProduct"), ("ADTRAN-GENSLOT-MIB", "adGenSlotTrapEnable"), ("ADTRAN-GENSLOT-MIB", "adGenSlotAlarmStatus"), ("ADTRAN-GENSLOT-MIB", "adGenSlotFaceplate"), ("ADTRAN-GENSLOT-MIB", "adGenSlotStatServiceState"), ("ADTRAN-GENSLOT-MIB", "adGenSlotPortNumber"), ("ADTRAN-GENSLOT-MIB", "adGenSlotProvVersion"), ("ADTRAN-GENSLOT-MIB", "adGenSlotTFileName"), ("ADTRAN-GENSLOT-MIB", "adGenSlotUpdateSoftware"), ("ADTRAN-GENSLOT-MIB", "adGenSlotUpdateStatus"), ("ADTRAN-GENSLOT-MIB", "adGenSlotUpTime"), ("ADTRAN-GENSLOT-MIB", "adGenSlotProdName"), ("ADTRAN-GENSLOT-MIB", "adGenSlotProdPartNumber"), ("ADTRAN-GENSLOT-MIB", "adGenSlotProdCLEIcode"), ("ADTRAN-GENSLOT-MIB", "adGenSlotProdSerialNumber"), ("ADTRAN-GENSLOT-MIB", "adGenSlotProdRevision"), ("ADTRAN-GENSLOT-MIB", "adGenSlotProdSwVersion"), ("ADTRAN-GENSLOT-MIB", "adGenSlotProdPhysAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    adGenSlotBaseGroup = adGenSlotBaseGroup.setStatus('current')
+adGenSlotOptionalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 5, 13, 2, 99, 2, 2)).setObjects(("ADTRAN-GENSLOT-MIB", "adGenSlotProdProductID"), ("ADTRAN-GENSLOT-MIB", "adGenSlotProdTransType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    adGenSlotOptionalGroup = adGenSlotOptionalGroup.setStatus('current')
+mibBuilder.exportSymbols("ADTRAN-GENSLOT-MIB", adGenSlotOptionalGroup=adGenSlotOptionalGroup, adGenSlotInfoState=adGenSlotInfoState, adGenSlotCompliances=adGenSlotCompliances, adGenSlotUpdateStatus=adGenSlotUpdateStatus, adGenSlotServiceStateOOSMAAlarmEnable=adGenSlotServiceStateOOSMAAlarmEnable, adGenSlotProdCLEIcode=adGenSlotProdCLEIcode, adGenSlotProdPartNumber=adGenSlotProdPartNumber, adGenSlotProvCpuRateLimitAlarmSlotSeverity=adGenSlotProvCpuRateLimitAlarmSlotSeverity, adGenSlotProvVersion=adGenSlotProvVersion, adGenSlotMIBGroups=adGenSlotMIBGroups, adGenSlotCpuRateLimitAlarmActive=adGenSlotCpuRateLimitAlarmActive, adGenSlotProdProductID=adGenSlotProdProductID, adGenSlotProdRevision=adGenSlotProdRevision, adGenSlotCpuRateLimitAlarmClear=adGenSlotCpuRateLimitAlarmClear, adGenSlotInfoTable=adGenSlotInfoTable, adGenSlotServiceStateOOSMAClear=adGenSlotServiceStateOOSMAClear, adGenSlotBaseGroup=adGenSlotBaseGroup, adGenSlotAlarmStatus=adGenSlotAlarmStatus, adGenSlotTFileName=adGenSlotTFileName, adGenSlotWarmStartCause=adGenSlotWarmStartCause, PYSNMP_MODULE_ID=adGenSlot, adGenSlotFaceplate=adGenSlotFaceplate, adGenSlotWarmStartCauseIsValid=adGenSlotWarmStartCauseIsValid, adGenSlotFpgaBistFailureClear=adGenSlotFpgaBistFailureClear, adGenSlotProdPhysAddress=adGenSlotProdPhysAddress, adGenSlotUpTimeSeconds=adGenSlotUpTimeSeconds, adGenSlotNumber=adGenSlotNumber, adGenSlotCompliance=adGenSlotCompliance, adGenSlotPortNumber=adGenSlotPortNumber, adGenSlotProvCpuRateLimitAlarmSlotTable=adGenSlotProvCpuRateLimitAlarmSlotTable, adGenSlotStatServiceState=adGenSlotStatServiceState, adGenSlotInfoIndex=adGenSlotInfoIndex, adGenSlotProdSwVersion=adGenSlotProdSwVersion, adGenSlotProdTransType=adGenSlotProdTransType, adGenSlotConformance=adGenSlotConformance, adGenSlotUpTime=adGenSlotUpTime, adGenSlotProduct=adGenSlotProduct, adGenSlotProdTable=adGenSlotProdTable, adGenSlotResetCause=adGenSlotResetCause, adGenSlotServiceStateOOSMAActive=adGenSlotServiceStateOOSMAActive, adGenSlotFpgaBistFailureActive=adGenSlotFpgaBistFailureActive, adGenSlotInfoEntry=adGenSlotInfoEntry, adGenSlotAlarmsPrefix=adGenSlotAlarmsPrefix, adGenSlotProdName=adGenSlotProdName, adGenSlot=adGenSlot, adGenSlotProvCpuRateLimitAlarmSlotEnable=adGenSlotProvCpuRateLimitAlarmSlotEnable, adGenSlotUpdateSoftware=adGenSlotUpdateSoftware, adGenSlotPrimaryBuildDate=adGenSlotPrimaryBuildDate, adGenSlotProdSerialNumber=adGenSlotProdSerialNumber, adGenSlotProdEntry=adGenSlotProdEntry, adGenSlotProvCpuRateLimitAlarmSlotEntry=adGenSlotProvCpuRateLimitAlarmSlotEntry, adGenSlotAlarms=adGenSlotAlarms, adGenSlotTrapEnable=adGenSlotTrapEnable)

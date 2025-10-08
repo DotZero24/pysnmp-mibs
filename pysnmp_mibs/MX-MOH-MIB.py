@@ -1,78 +1,41 @@
-_F='Unsigned32'
-_E='read-only'
-_D='read-write'
-_C='Integer32'
-_B='OctetString'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_B,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mediatrixServices,=mibBuilder.importSymbols('MX-SMI2','mediatrixServices')
-MxActivationState,MxAdvancedIpPort,MxDigitMap,MxEnableState,MxIpAddress,MxIpHostName,MxIpPort,MxIpSubnetMask=mibBuilder.importSymbols('MX-TC','MxActivationState','MxAdvancedIpPort','MxDigitMap','MxEnableState','MxIpAddress','MxIpHostName','MxIpPort','MxIpSubnetMask')
-MxFloat32,MxIpAddr,MxIpAddrMask,MxIpAddrPort,MxIpHostNamePort,MxUInt64,MxUri,MxUrl=mibBuilder.importSymbols('MX-TC2','MxFloat32','MxIpAddr','MxIpAddrMask','MxIpAddrPort','MxIpHostNamePort','MxUInt64','MxUri','MxUrl')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-mohMIB=ModuleIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1550))
-_MohMIBObjects_ObjectIdentity=ObjectIdentity
-mohMIBObjects=_MohMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1550,1))
-class _FileUrl_Type(OctetString):defaultValue=OctetString('')
-_FileUrl_Type.__name__=_B
-_FileUrl_Object=MibScalar
-fileUrl=_FileUrl_Object((1,3,6,1,4,1,4935,1000,100,200,100,1550,1,100),_FileUrl_Type())
-fileUrl.setMaxAccess(_D)
-if mibBuilder.loadTexts:fileUrl.setStatus(_A)
-class _Username_Type(OctetString):defaultValue=OctetString('')
-_Username_Type.__name__=_B
-_Username_Object=MibScalar
-username=_Username_Object((1,3,6,1,4,1,4935,1000,100,200,100,1550,1,200),_Username_Type())
-username.setMaxAccess(_D)
-if mibBuilder.loadTexts:username.setStatus(_A)
-class _Password_Type(OctetString):defaultValue=OctetString('')
-_Password_Type.__name__=_B
-_Password_Object=MibScalar
-password=_Password_Object((1,3,6,1,4,1,4935,1000,100,200,100,1550,1,300),_Password_Type())
-password.setMaxAccess(_D)
-if mibBuilder.loadTexts:password.setStatus(_A)
-class _ReloadInterval_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,6000))
-_ReloadInterval_Type.__name__=_F
-_ReloadInterval_Object=MibScalar
-reloadInterval=_ReloadInterval_Object((1,3,6,1,4,1,4935,1000,100,200,100,1550,1,400),_ReloadInterval_Type())
-reloadInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:reloadInterval.setStatus(_A)
-class _FileStatus_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(100,200,300,400,500)));namedValues=NamedValues(*(('noFile',100),('fileReady',200),('downloading',300),('invalidFormat',400),('fileTooLarge',500)))
-_FileStatus_Type.__name__=_C
-_FileStatus_Object=MibScalar
-fileStatus=_FileStatus_Object((1,3,6,1,4,1,4935,1000,100,200,100,1550,1,500),_FileStatus_Type())
-fileStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:fileStatus.setStatus(_A)
-class _LastTransferStatus_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(100,200)));namedValues=NamedValues(*(('success',100),('failed',200)))
-_LastTransferStatus_Type.__name__=_C
-_LastTransferStatus_Object=MibScalar
-lastTransferStatus=_LastTransferStatus_Object((1,3,6,1,4,1,4935,1000,100,200,100,1550,1,600),_LastTransferStatus_Type())
-lastTransferStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:lastTransferStatus.setStatus(_A)
-class _LastTransferDateTime_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_LastTransferDateTime_Type.__name__=_B
-_LastTransferDateTime_Object=MibScalar
-lastTransferDateTime=_LastTransferDateTime_Object((1,3,6,1,4,1,4935,1000,100,200,100,1550,1,700),_LastTransferDateTime_Type())
-lastTransferDateTime.setMaxAccess(_E)
-if mibBuilder.loadTexts:lastTransferDateTime.setStatus(_A)
-_NotificationsGroup_ObjectIdentity=ObjectIdentity
-notificationsGroup=_NotificationsGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1550,1,60010))
-class _MinSeverity_Type(Integer32):defaultValue=300;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,100,200,300,400,500)));namedValues=NamedValues(*(('disable',0),('debug',100),('info',200),('warning',300),('error',400),('critical',500)))
-_MinSeverity_Type.__name__=_C
-_MinSeverity_Object=MibScalar
-minSeverity=_MinSeverity_Object((1,3,6,1,4,1,4935,1000,100,200,100,1550,1,60010,100),_MinSeverity_Type())
-minSeverity.setMaxAccess(_D)
-if mibBuilder.loadTexts:minSeverity.setStatus(_A)
-_ConfigurationGroup_ObjectIdentity=ObjectIdentity
-configurationGroup=_ConfigurationGroup_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,200,100,1550,1,60020))
-class _NeedRestartInfo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,100)));namedValues=NamedValues(*(('no',0),('yes',100)))
-_NeedRestartInfo_Type.__name__=_C
-_NeedRestartInfo_Object=MibScalar
-needRestartInfo=_NeedRestartInfo_Object((1,3,6,1,4,1,4935,1000,100,200,100,1550,1,60020,100),_NeedRestartInfo_Type())
-needRestartInfo.setMaxAccess(_E)
-if mibBuilder.loadTexts:needRestartInfo.setStatus(_A)
-mibBuilder.exportSymbols('MX-MOH-MIB',**{'mohMIB':mohMIB,'mohMIBObjects':mohMIBObjects,'fileUrl':fileUrl,'username':username,'password':password,'reloadInterval':reloadInterval,'fileStatus':fileStatus,'lastTransferStatus':lastTransferStatus,'lastTransferDateTime':lastTransferDateTime,'notificationsGroup':notificationsGroup,'minSeverity':minSeverity,'configurationGroup':configurationGroup,'needRestartInfo':needRestartInfo})
+#
+# PySNMP MIB module MX-MOH-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-MOH-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mediatrixServices, = mibBuilder.importSymbols("MX-SMI2", "mediatrixServices")
+MxActivationState, MxEnableState, MxIpAddress, MxAdvancedIpPort, MxDigitMap, MxIpPort, MxIpHostName, MxIpSubnetMask = mibBuilder.importSymbols("MX-TC", "MxActivationState", "MxEnableState", "MxIpAddress", "MxAdvancedIpPort", "MxDigitMap", "MxIpPort", "MxIpHostName", "MxIpSubnetMask")
+MxIpHostNamePort, MxIpAddrMask, MxUri, MxIpAddr, MxIpAddrPort, MxUrl, MxUInt64, MxFloat32 = mibBuilder.importSymbols("MX-TC2", "MxIpHostNamePort", "MxIpAddrMask", "MxUri", "MxIpAddr", "MxIpAddrPort", "MxUrl", "MxUInt64", "MxFloat32")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+mohMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1550))
+if mibBuilder.loadTexts: mohMIB.setLastUpdated('1910210000Z')
+if mibBuilder.loadTexts: mohMIB.setOrganization(' Mediatrix Telecom, Inc. ')
+mohMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1550, 1))
+fileUrl = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1550, 1, 100), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fileUrl.setStatus('current')
+username = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1550, 1, 200), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: username.setStatus('current')
+password = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1550, 1, 300), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: password.setStatus('current')
+reloadInterval = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1550, 1, 400), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 6000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: reloadInterval.setStatus('current')
+fileStatus = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1550, 1, 500), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 200, 300, 400, 500))).clone(namedValues=NamedValues(("noFile", 100), ("fileReady", 200), ("downloading", 300), ("invalidFormat", 400), ("fileTooLarge", 500))).clone('noFile')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fileStatus.setStatus('current')
+lastTransferStatus = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1550, 1, 600), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 200))).clone(namedValues=NamedValues(("success", 100), ("failed", 200))).clone('success')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lastTransferStatus.setStatus('current')
+lastTransferDateTime = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1550, 1, 700), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lastTransferDateTime.setStatus('current')
+notificationsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1550, 1, 60010))
+minSeverity = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1550, 1, 60010, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100, 200, 300, 400, 500))).clone(namedValues=NamedValues(("disable", 0), ("debug", 100), ("info", 200), ("warning", 300), ("error", 400), ("critical", 500))).clone('warning')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: minSeverity.setStatus('current')
+configurationGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1550, 1, 60020))
+needRestartInfo = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 1550, 1, 60020, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100))).clone(namedValues=NamedValues(("no", 0), ("yes", 100)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: needRestartInfo.setStatus('current')
+mibBuilder.exportSymbols("MX-MOH-MIB", needRestartInfo=needRestartInfo, mohMIB=mohMIB, notificationsGroup=notificationsGroup, fileUrl=fileUrl, username=username, mohMIBObjects=mohMIBObjects, PYSNMP_MODULE_ID=mohMIB, lastTransferStatus=lastTransferStatus, minSeverity=minSeverity, configurationGroup=configurationGroup, fileStatus=fileStatus, lastTransferDateTime=lastTransferDateTime, reloadInterval=reloadInterval, password=password)

@@ -1,157 +1,78 @@
-_M='prialarmFallingThreshold'
-_L='prialarmRisingThreshold'
-_K='hwTrapDestEntry'
-_J='hwrmonEnableIfIndex'
-_I='prialarmValue'
-_H='prialarmSampleType'
-_G='prialarmSympol'
-_F='read-only'
-_E='prialarmIndex'
-_D='Integer32'
-_C='read-write'
-_B='A3COM-HUWAEI-LswPERFORMANCE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hwInternetProtocol,hwLocal,rmonExtend=mibBuilder.importSymbols('A3COM-HUAWEI-OID-MIB','hwInternetProtocol','hwLocal','rmonExtend')
-OwnerString,=mibBuilder.importSymbols('IF-MIB','OwnerString')
-EntryStatus,=mibBuilder.importSymbols('RMON-MIB','EntryStatus')
-trapDestEntry,trapDestIndex=mibBuilder.importSymbols('RMON2-MIB','trapDestEntry','trapDestIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-performance=ModuleIdentity((1,3,6,1,4,1,43,45,1,1,3,4,4))
-if mibBuilder.loadTexts:performance.setRevisions(('2003-03-15 00:00',))
-_RmonExtendEventsV2_ObjectIdentity=ObjectIdentity
-rmonExtendEventsV2=_RmonExtendEventsV2_ObjectIdentity((1,3,6,1,4,1,43,45,1,1,3,4,0))
-if mibBuilder.loadTexts:rmonExtendEventsV2.setStatus(_A)
-_PrialarmTable_Object=MibTable
-prialarmTable=_PrialarmTable_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1))
-if mibBuilder.loadTexts:prialarmTable.setStatus(_A)
-_PrialarmEntry_Object=MibTableRow
-prialarmEntry=_PrialarmEntry_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1))
-prialarmEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:prialarmEntry.setStatus(_A)
-class _PrialarmIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_PrialarmIndex_Type.__name__=_D
-_PrialarmIndex_Object=MibTableColumn
-prialarmIndex=_PrialarmIndex_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1,1),_PrialarmIndex_Type())
-prialarmIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:prialarmIndex.setStatus(_A)
-_PrialarmInterval_Type=Integer32
-_PrialarmInterval_Object=MibTableColumn
-prialarmInterval=_PrialarmInterval_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1,2),_PrialarmInterval_Type())
-prialarmInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:prialarmInterval.setStatus(_A)
-_PrialarmVariable_Type=DisplayString
-_PrialarmVariable_Object=MibTableColumn
-prialarmVariable=_PrialarmVariable_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1,3),_PrialarmVariable_Type())
-prialarmVariable.setMaxAccess(_C)
-if mibBuilder.loadTexts:prialarmVariable.setStatus(_A)
-_PrialarmSympol_Type=DisplayString
-_PrialarmSympol_Object=MibTableColumn
-prialarmSympol=_PrialarmSympol_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1,4),_PrialarmSympol_Type())
-prialarmSympol.setMaxAccess(_C)
-if mibBuilder.loadTexts:prialarmSympol.setStatus(_A)
-class _PrialarmSampleType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('absoluteValue',1),('deltaValue',2),('speedValue',3)))
-_PrialarmSampleType_Type.__name__=_D
-_PrialarmSampleType_Object=MibTableColumn
-prialarmSampleType=_PrialarmSampleType_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1,5),_PrialarmSampleType_Type())
-prialarmSampleType.setMaxAccess(_C)
-if mibBuilder.loadTexts:prialarmSampleType.setStatus(_A)
-_PrialarmValue_Type=Integer32
-_PrialarmValue_Object=MibTableColumn
-prialarmValue=_PrialarmValue_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1,6),_PrialarmValue_Type())
-prialarmValue.setMaxAccess(_F)
-if mibBuilder.loadTexts:prialarmValue.setStatus(_A)
-class _PrialarmStartupAlarm_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('risingAlarm',1),('fallingAlarm',2),('risingOrFallingAlarm',3)))
-_PrialarmStartupAlarm_Type.__name__=_D
-_PrialarmStartupAlarm_Object=MibTableColumn
-prialarmStartupAlarm=_PrialarmStartupAlarm_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1,7),_PrialarmStartupAlarm_Type())
-prialarmStartupAlarm.setMaxAccess(_C)
-if mibBuilder.loadTexts:prialarmStartupAlarm.setStatus(_A)
-_PrialarmRisingThreshold_Type=Integer32
-_PrialarmRisingThreshold_Object=MibTableColumn
-prialarmRisingThreshold=_PrialarmRisingThreshold_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1,8),_PrialarmRisingThreshold_Type())
-prialarmRisingThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:prialarmRisingThreshold.setStatus(_A)
-_PrialarmFallingThreshold_Type=Integer32
-_PrialarmFallingThreshold_Object=MibTableColumn
-prialarmFallingThreshold=_PrialarmFallingThreshold_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1,9),_PrialarmFallingThreshold_Type())
-prialarmFallingThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:prialarmFallingThreshold.setStatus(_A)
-class _PrialarmRisingEventIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_PrialarmRisingEventIndex_Type.__name__=_D
-_PrialarmRisingEventIndex_Object=MibTableColumn
-prialarmRisingEventIndex=_PrialarmRisingEventIndex_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1,10),_PrialarmRisingEventIndex_Type())
-prialarmRisingEventIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:prialarmRisingEventIndex.setStatus(_A)
-class _PrialarmFallingEventIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_PrialarmFallingEventIndex_Type.__name__=_D
-_PrialarmFallingEventIndex_Object=MibTableColumn
-prialarmFallingEventIndex=_PrialarmFallingEventIndex_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1,11),_PrialarmFallingEventIndex_Type())
-prialarmFallingEventIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:prialarmFallingEventIndex.setStatus(_A)
-_PrialarmStatCycle_Type=Integer32
-_PrialarmStatCycle_Object=MibTableColumn
-prialarmStatCycle=_PrialarmStatCycle_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1,12),_PrialarmStatCycle_Type())
-prialarmStatCycle.setMaxAccess(_C)
-if mibBuilder.loadTexts:prialarmStatCycle.setStatus(_A)
-class _PrialarmStatType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('forever',1),('during',2)))
-_PrialarmStatType_Type.__name__=_D
-_PrialarmStatType_Object=MibTableColumn
-prialarmStatType=_PrialarmStatType_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1,13),_PrialarmStatType_Type())
-prialarmStatType.setMaxAccess(_C)
-if mibBuilder.loadTexts:prialarmStatType.setStatus(_A)
-_PrialarmOwner_Type=OwnerString
-_PrialarmOwner_Object=MibTableColumn
-prialarmOwner=_PrialarmOwner_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1,14),_PrialarmOwner_Type())
-prialarmOwner.setMaxAccess(_C)
-if mibBuilder.loadTexts:prialarmOwner.setStatus(_A)
-_PrialarmStatus_Type=EntryStatus
-_PrialarmStatus_Object=MibTableColumn
-prialarmStatus=_PrialarmStatus_Object((1,3,6,1,4,1,43,45,1,1,3,4,4,1,1,15),_PrialarmStatus_Type())
-prialarmStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:prialarmStatus.setStatus(_A)
-_HwrmonEnableTable_Object=MibTable
-hwrmonEnableTable=_HwrmonEnableTable_Object((1,3,6,1,4,1,43,45,1,1,3,4,5))
-if mibBuilder.loadTexts:hwrmonEnableTable.setStatus(_A)
-_HwrmonEnableTableEntry_Object=MibTableRow
-hwrmonEnableTableEntry=_HwrmonEnableTableEntry_Object((1,3,6,1,4,1,43,45,1,1,3,4,5,1))
-hwrmonEnableTableEntry.setIndexNames((0,_B,_J))
-if mibBuilder.loadTexts:hwrmonEnableTableEntry.setStatus(_A)
-class _HwrmonEnableIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_HwrmonEnableIfIndex_Type.__name__=_D
-_HwrmonEnableIfIndex_Object=MibTableColumn
-hwrmonEnableIfIndex=_HwrmonEnableIfIndex_Object((1,3,6,1,4,1,43,45,1,1,3,4,5,1,1),_HwrmonEnableIfIndex_Type())
-hwrmonEnableIfIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:hwrmonEnableIfIndex.setStatus(_A)
-class _HwrmonEnableStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_HwrmonEnableStatus_Type.__name__=_D
-_HwrmonEnableStatus_Object=MibTableColumn
-hwrmonEnableStatus=_HwrmonEnableStatus_Object((1,3,6,1,4,1,43,45,1,1,3,4,5,1,2),_HwrmonEnableStatus_Type())
-hwrmonEnableStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwrmonEnableStatus.setStatus(_A)
-_HwTrapDestTable_Object=MibTable
-hwTrapDestTable=_HwTrapDestTable_Object((1,3,6,1,4,1,43,45,1,1,3,4,6))
-if mibBuilder.loadTexts:hwTrapDestTable.setStatus(_A)
-_HwTrapDestEntry_Object=MibTableRow
-hwTrapDestEntry=_HwTrapDestEntry_Object((1,3,6,1,4,1,43,45,1,1,3,4,6,1))
-if mibBuilder.loadTexts:hwTrapDestEntry.setStatus(_A)
-class _HwTrapDestVersion_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('snmpv1',1),('snmpv2',2),('snmpv3andauthen',3),('snmpv3andnoauthen',4),('snmpv3andpriv',5)))
-_HwTrapDestVersion_Type.__name__=_D
-_HwTrapDestVersion_Object=MibTableColumn
-hwTrapDestVersion=_HwTrapDestVersion_Object((1,3,6,1,4,1,43,45,1,1,3,4,6,1,1),_HwTrapDestVersion_Type())
-hwTrapDestVersion.setMaxAccess('read-create')
-if mibBuilder.loadTexts:hwTrapDestVersion.setStatus(_A)
-trapDestEntry.registerAugmentions((_B,_K))
+#
+# PySNMP MIB module A3COM-HUWAEI-LswPERFORMANCE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/a3com/A3COM-HUWAEI-LswPERFORMANCE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:41 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+hwInternetProtocol, rmonExtend, hwLocal = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "hwInternetProtocol", "rmonExtend", "hwLocal")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+OwnerString, = mibBuilder.importSymbols("IF-MIB", "OwnerString")
+EntryStatus, = mibBuilder.importSymbols("RMON-MIB", "EntryStatus")
+trapDestEntry, trapDestIndex = mibBuilder.importSymbols("RMON2-MIB", "trapDestEntry", "trapDestIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+performance = ModuleIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4))
+performance.setRevisions(('2003-03-15 00:00',))
+if mibBuilder.loadTexts: performance.setLastUpdated('200303150000Z')
+if mibBuilder.loadTexts: performance.setOrganization('Huawei Technologies co.,Ltd.')
+prialarmTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1), )
+if mibBuilder.loadTexts: prialarmTable.setStatus('current')
+prialarmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1), ).setIndexNames((0, "A3COM-HUWAEI-LswPERFORMANCE-MIB", "prialarmIndex"))
+if mibBuilder.loadTexts: prialarmEntry.setStatus('current')
+prialarmIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: prialarmIndex.setStatus('current')
+prialarmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prialarmInterval.setStatus('current')
+prialarmVariable = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prialarmVariable.setStatus('current')
+prialarmSympol = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prialarmSympol.setStatus('current')
+prialarmSampleType = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("absoluteValue", 1), ("deltaValue", 2), ("speedValue", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prialarmSampleType.setStatus('current')
+prialarmValue = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: prialarmValue.setStatus('current')
+prialarmStartupAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("risingAlarm", 1), ("fallingAlarm", 2), ("risingOrFallingAlarm", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prialarmStartupAlarm.setStatus('current')
+prialarmRisingThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1, 8), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prialarmRisingThreshold.setStatus('current')
+prialarmFallingThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1, 9), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prialarmFallingThreshold.setStatus('current')
+prialarmRisingEventIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prialarmRisingEventIndex.setStatus('current')
+prialarmFallingEventIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prialarmFallingEventIndex.setStatus('current')
+prialarmStatCycle = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1, 12), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prialarmStatCycle.setStatus('current')
+prialarmStatType = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("forever", 1), ("during", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prialarmStatType.setStatus('current')
+prialarmOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1, 14), OwnerString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prialarmOwner.setStatus('current')
+prialarmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 4, 1, 1, 15), EntryStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: prialarmStatus.setStatus('current')
+hwrmonEnableTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 5), )
+if mibBuilder.loadTexts: hwrmonEnableTable.setStatus('current')
+hwrmonEnableTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 5, 1), ).setIndexNames((0, "A3COM-HUWAEI-LswPERFORMANCE-MIB", "hwrmonEnableIfIndex"))
+if mibBuilder.loadTexts: hwrmonEnableTableEntry.setStatus('current')
+hwrmonEnableIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwrmonEnableIfIndex.setStatus('current')
+hwrmonEnableStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwrmonEnableStatus.setStatus('current')
+hwTrapDestTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 6), )
+if mibBuilder.loadTexts: hwTrapDestTable.setStatus('current')
+hwTrapDestEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 6, 1), )
+trapDestEntry.registerAugmentions(("A3COM-HUWAEI-LswPERFORMANCE-MIB", "hwTrapDestEntry"))
 hwTrapDestEntry.setIndexNames(*trapDestEntry.getIndexNames())
-pririsingAlarm=NotificationType((1,3,6,1,4,1,43,45,1,1,3,4,0,1))
-pririsingAlarm.setObjects(*((_B,_E),(_B,_G),(_B,_H),(_B,_I),(_B,_L)))
-if mibBuilder.loadTexts:pririsingAlarm.setStatus(_A)
-prifallingAlarm=NotificationType((1,3,6,1,4,1,43,45,1,1,3,4,0,2))
-prifallingAlarm.setObjects(*((_B,_E),(_B,_G),(_B,_H),(_B,_I),(_B,_M)))
-if mibBuilder.loadTexts:prifallingAlarm.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'rmonExtendEventsV2':rmonExtendEventsV2,'pririsingAlarm':pririsingAlarm,'prifallingAlarm':prifallingAlarm,'performance':performance,'prialarmTable':prialarmTable,'prialarmEntry':prialarmEntry,_E:prialarmIndex,'prialarmInterval':prialarmInterval,'prialarmVariable':prialarmVariable,_G:prialarmSympol,_H:prialarmSampleType,_I:prialarmValue,'prialarmStartupAlarm':prialarmStartupAlarm,_L:prialarmRisingThreshold,_M:prialarmFallingThreshold,'prialarmRisingEventIndex':prialarmRisingEventIndex,'prialarmFallingEventIndex':prialarmFallingEventIndex,'prialarmStatCycle':prialarmStatCycle,'prialarmStatType':prialarmStatType,'prialarmOwner':prialarmOwner,'prialarmStatus':prialarmStatus,'hwrmonEnableTable':hwrmonEnableTable,'hwrmonEnableTableEntry':hwrmonEnableTableEntry,_J:hwrmonEnableIfIndex,'hwrmonEnableStatus':hwrmonEnableStatus,'hwTrapDestTable':hwTrapDestTable,_K:hwTrapDestEntry,'hwTrapDestVersion':hwTrapDestVersion})
+if mibBuilder.loadTexts: hwTrapDestEntry.setStatus('current')
+hwTrapDestVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 6, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("snmpv1", 1), ("snmpv2", 2), ("snmpv3andauthen", 3), ("snmpv3andnoauthen", 4), ("snmpv3andpriv", 5))).clone('snmpv1')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hwTrapDestVersion.setStatus('current')
+rmonExtendEventsV2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 0))
+if mibBuilder.loadTexts: rmonExtendEventsV2.setStatus('current')
+pririsingAlarm = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 0, 1)).setObjects(("A3COM-HUWAEI-LswPERFORMANCE-MIB", "prialarmIndex"), ("A3COM-HUWAEI-LswPERFORMANCE-MIB", "prialarmSympol"), ("A3COM-HUWAEI-LswPERFORMANCE-MIB", "prialarmSampleType"), ("A3COM-HUWAEI-LswPERFORMANCE-MIB", "prialarmValue"), ("A3COM-HUWAEI-LswPERFORMANCE-MIB", "prialarmRisingThreshold"))
+if mibBuilder.loadTexts: pririsingAlarm.setStatus('current')
+prifallingAlarm = NotificationType((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 4, 0, 2)).setObjects(("A3COM-HUWAEI-LswPERFORMANCE-MIB", "prialarmIndex"), ("A3COM-HUWAEI-LswPERFORMANCE-MIB", "prialarmSympol"), ("A3COM-HUWAEI-LswPERFORMANCE-MIB", "prialarmSampleType"), ("A3COM-HUWAEI-LswPERFORMANCE-MIB", "prialarmValue"), ("A3COM-HUWAEI-LswPERFORMANCE-MIB", "prialarmFallingThreshold"))
+if mibBuilder.loadTexts: prifallingAlarm.setStatus('current')
+mibBuilder.exportSymbols("A3COM-HUWAEI-LswPERFORMANCE-MIB", prialarmSampleType=prialarmSampleType, prialarmRisingEventIndex=prialarmRisingEventIndex, prialarmTable=prialarmTable, hwTrapDestTable=hwTrapDestTable, prialarmInterval=prialarmInterval, PYSNMP_MODULE_ID=performance, performance=performance, prialarmStatCycle=prialarmStatCycle, prialarmVariable=prialarmVariable, prialarmStatus=prialarmStatus, hwTrapDestEntry=hwTrapDestEntry, prialarmSympol=prialarmSympol, prialarmValue=prialarmValue, hwrmonEnableTableEntry=hwrmonEnableTableEntry, hwrmonEnableIfIndex=hwrmonEnableIfIndex, prialarmRisingThreshold=prialarmRisingThreshold, hwrmonEnableTable=hwrmonEnableTable, prialarmIndex=prialarmIndex, hwrmonEnableStatus=hwrmonEnableStatus, rmonExtendEventsV2=rmonExtendEventsV2, prialarmStartupAlarm=prialarmStartupAlarm, pririsingAlarm=pririsingAlarm, prifallingAlarm=prifallingAlarm, prialarmStatType=prialarmStatType, prialarmEntry=prialarmEntry, prialarmOwner=prialarmOwner, prialarmFallingThreshold=prialarmFallingThreshold, hwTrapDestVersion=hwTrapDestVersion, prialarmFallingEventIndex=prialarmFallingEventIndex)

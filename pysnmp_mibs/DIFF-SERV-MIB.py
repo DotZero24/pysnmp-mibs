@@ -1,382 +1,168 @@
-_S='diffServQueueNumber'
-_R='packets'
-_Q='diffServActionNumber'
-_P='diffServTBMeterNumber'
-_O='diffServClassifierNumber'
-_N='diffServMFClassifierIndex'
-_M='diffServAggregateDSCP'
-_L='Unsigned32'
-_K='bytes'
-_J='diffServInterfaceDirection'
-_I='RowPointer'
-_H='ifIndex'
-_G='IF-MIB'
-_F='read-only'
-_E='DIFF-SERV-MIB'
-_D='Integer32'
-_C='read-write'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-rlExperience,=mibBuilder.importSymbols('Dell-MIB','rlExperience')
-ifIndex,=mibBuilder.importSymbols(_G,_H)
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2,zeroDotZero=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_L,'iso','mib-2','zeroDotZero')
-DisplayString,PhysAddress,RowPointer,RowStatus,TextualConvention,TestAndIncr=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress',_I,'RowStatus','TextualConvention','TestAndIncr')
-diffServMib=ModuleIdentity((1,3,6,1,4,1,89,51,1))
-if mibBuilder.loadTexts:diffServMib.setRevisions(('1999-07-19 01:00',))
-class Dscp(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,63))
-class MFClassifierL4Port(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_DiffServObjects_ObjectIdentity=ObjectIdentity
-diffServObjects=_DiffServObjects_ObjectIdentity((1,3,6,1,4,1,89,51,1,1))
-_DiffServMFClassifierUnique_Type=TestAndIncr
-_DiffServMFClassifierUnique_Object=MibScalar
-diffServMFClassifierUnique=_DiffServMFClassifierUnique_Object((1,3,6,1,4,1,89,51,1,1,1),_DiffServMFClassifierUnique_Type())
-diffServMFClassifierUnique.setMaxAccess(_C)
-if mibBuilder.loadTexts:diffServMFClassifierUnique.setStatus(_A)
-_DiffServClassifierUnique_Type=TestAndIncr
-_DiffServClassifierUnique_Object=MibScalar
-diffServClassifierUnique=_DiffServClassifierUnique_Object((1,3,6,1,4,1,89,51,1,1,2),_DiffServClassifierUnique_Type())
-diffServClassifierUnique.setMaxAccess(_C)
-if mibBuilder.loadTexts:diffServClassifierUnique.setStatus(_A)
-_DiffServTBMeterUnique_Type=TestAndIncr
-_DiffServTBMeterUnique_Object=MibScalar
-diffServTBMeterUnique=_DiffServTBMeterUnique_Object((1,3,6,1,4,1,89,51,1,1,3),_DiffServTBMeterUnique_Type())
-diffServTBMeterUnique.setMaxAccess(_C)
-if mibBuilder.loadTexts:diffServTBMeterUnique.setStatus(_A)
-_DiffServActionUnique_Type=TestAndIncr
-_DiffServActionUnique_Object=MibScalar
-diffServActionUnique=_DiffServActionUnique_Object((1,3,6,1,4,1,89,51,1,1,4),_DiffServActionUnique_Type())
-diffServActionUnique.setMaxAccess(_C)
-if mibBuilder.loadTexts:diffServActionUnique.setStatus(_A)
-_DiffServQueueUnique_Type=TestAndIncr
-_DiffServQueueUnique_Object=MibScalar
-diffServQueueUnique=_DiffServQueueUnique_Object((1,3,6,1,4,1,89,51,1,1,5),_DiffServQueueUnique_Type())
-diffServQueueUnique.setMaxAccess(_C)
-if mibBuilder.loadTexts:diffServQueueUnique.setStatus(_A)
-_DiffServTables_ObjectIdentity=ObjectIdentity
-diffServTables=_DiffServTables_ObjectIdentity((1,3,6,1,4,1,89,51,1,2))
-_DiffServAggregateTable_Object=MibTable
-diffServAggregateTable=_DiffServAggregateTable_Object((1,3,6,1,4,1,89,51,1,2,1))
-if mibBuilder.loadTexts:diffServAggregateTable.setStatus(_A)
-_DiffServAggregateEntry_Object=MibTableRow
-diffServAggregateEntry=_DiffServAggregateEntry_Object((1,3,6,1,4,1,89,51,1,2,1,1))
-diffServAggregateEntry.setIndexNames((0,_E,_M))
-if mibBuilder.loadTexts:diffServAggregateEntry.setStatus(_A)
-_DiffServAggregateDSCP_Type=Dscp
-_DiffServAggregateDSCP_Object=MibTableColumn
-diffServAggregateDSCP=_DiffServAggregateDSCP_Object((1,3,6,1,4,1,89,51,1,2,1,1,1),_DiffServAggregateDSCP_Type())
-diffServAggregateDSCP.setMaxAccess(_F)
-if mibBuilder.loadTexts:diffServAggregateDSCP.setStatus(_A)
-_DiffServMFClassifierTable_Object=MibTable
-diffServMFClassifierTable=_DiffServMFClassifierTable_Object((1,3,6,1,4,1,89,51,1,2,2))
-if mibBuilder.loadTexts:diffServMFClassifierTable.setStatus(_A)
-_DiffServMFClassifierEntry_Object=MibTableRow
-diffServMFClassifierEntry=_DiffServMFClassifierEntry_Object((1,3,6,1,4,1,89,51,1,2,2,1))
-diffServMFClassifierEntry.setIndexNames((0,_E,_N))
-if mibBuilder.loadTexts:diffServMFClassifierEntry.setStatus(_A)
-class _DiffServMFClassifierIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_DiffServMFClassifierIndex_Type.__name__=_D
-_DiffServMFClassifierIndex_Object=MibTableColumn
-diffServMFClassifierIndex=_DiffServMFClassifierIndex_Object((1,3,6,1,4,1,89,51,1,2,2,1,1),_DiffServMFClassifierIndex_Type())
-diffServMFClassifierIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:diffServMFClassifierIndex.setStatus(_A)
-_DiffServMFClassifierAddrType_Type=InetAddressType
-_DiffServMFClassifierAddrType_Object=MibTableColumn
-diffServMFClassifierAddrType=_DiffServMFClassifierAddrType_Object((1,3,6,1,4,1,89,51,1,2,2,1,2),_DiffServMFClassifierAddrType_Type())
-diffServMFClassifierAddrType.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServMFClassifierAddrType.setStatus(_A)
-_DiffServMFClassifierDstAddr_Type=InetAddress
-_DiffServMFClassifierDstAddr_Object=MibTableColumn
-diffServMFClassifierDstAddr=_DiffServMFClassifierDstAddr_Object((1,3,6,1,4,1,89,51,1,2,2,1,3),_DiffServMFClassifierDstAddr_Type())
-diffServMFClassifierDstAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServMFClassifierDstAddr.setStatus(_A)
-_DiffServMFClassifierDstAddrMask_Type=InetAddress
-_DiffServMFClassifierDstAddrMask_Object=MibTableColumn
-diffServMFClassifierDstAddrMask=_DiffServMFClassifierDstAddrMask_Object((1,3,6,1,4,1,89,51,1,2,2,1,4),_DiffServMFClassifierDstAddrMask_Type())
-diffServMFClassifierDstAddrMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServMFClassifierDstAddrMask.setStatus(_A)
-_DiffServMFClassifierSrcAddr_Type=InetAddress
-_DiffServMFClassifierSrcAddr_Object=MibTableColumn
-diffServMFClassifierSrcAddr=_DiffServMFClassifierSrcAddr_Object((1,3,6,1,4,1,89,51,1,2,2,1,5),_DiffServMFClassifierSrcAddr_Type())
-diffServMFClassifierSrcAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServMFClassifierSrcAddr.setStatus(_A)
-_DiffServMFClassifierSrcAddrMask_Type=InetAddress
-_DiffServMFClassifierSrcAddrMask_Object=MibTableColumn
-diffServMFClassifierSrcAddrMask=_DiffServMFClassifierSrcAddrMask_Object((1,3,6,1,4,1,89,51,1,2,2,1,6),_DiffServMFClassifierSrcAddrMask_Type())
-diffServMFClassifierSrcAddrMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServMFClassifierSrcAddrMask.setStatus(_A)
-class _DiffServMFClassifierDscp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(0,63))
-_DiffServMFClassifierDscp_Type.__name__=_D
-_DiffServMFClassifierDscp_Object=MibTableColumn
-diffServMFClassifierDscp=_DiffServMFClassifierDscp_Object((1,3,6,1,4,1,89,51,1,2,2,1,7),_DiffServMFClassifierDscp_Type())
-diffServMFClassifierDscp.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServMFClassifierDscp.setStatus(_A)
-class _DiffServMFClassifierProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_DiffServMFClassifierProtocol_Type.__name__=_D
-_DiffServMFClassifierProtocol_Object=MibTableColumn
-diffServMFClassifierProtocol=_DiffServMFClassifierProtocol_Object((1,3,6,1,4,1,89,51,1,2,2,1,8),_DiffServMFClassifierProtocol_Type())
-diffServMFClassifierProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServMFClassifierProtocol.setStatus(_A)
-_DiffServMFClassifierDstL4PortMin_Type=MFClassifierL4Port
-_DiffServMFClassifierDstL4PortMin_Object=MibTableColumn
-diffServMFClassifierDstL4PortMin=_DiffServMFClassifierDstL4PortMin_Object((1,3,6,1,4,1,89,51,1,2,2,1,9),_DiffServMFClassifierDstL4PortMin_Type())
-diffServMFClassifierDstL4PortMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServMFClassifierDstL4PortMin.setStatus(_A)
-_DiffServMFClassifierDstL4PortMax_Type=MFClassifierL4Port
-_DiffServMFClassifierDstL4PortMax_Object=MibTableColumn
-diffServMFClassifierDstL4PortMax=_DiffServMFClassifierDstL4PortMax_Object((1,3,6,1,4,1,89,51,1,2,2,1,10),_DiffServMFClassifierDstL4PortMax_Type())
-diffServMFClassifierDstL4PortMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServMFClassifierDstL4PortMax.setStatus(_A)
-_DiffServMFClassifierSrcL4PortMin_Type=MFClassifierL4Port
-_DiffServMFClassifierSrcL4PortMin_Object=MibTableColumn
-diffServMFClassifierSrcL4PortMin=_DiffServMFClassifierSrcL4PortMin_Object((1,3,6,1,4,1,89,51,1,2,2,1,11),_DiffServMFClassifierSrcL4PortMin_Type())
-diffServMFClassifierSrcL4PortMin.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServMFClassifierSrcL4PortMin.setStatus(_A)
-_DiffServMFClassifierSrcL4PortMax_Type=MFClassifierL4Port
-_DiffServMFClassifierSrcL4PortMax_Object=MibTableColumn
-diffServMFClassifierSrcL4PortMax=_DiffServMFClassifierSrcL4PortMax_Object((1,3,6,1,4,1,89,51,1,2,2,1,12),_DiffServMFClassifierSrcL4PortMax_Type())
-diffServMFClassifierSrcL4PortMax.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServMFClassifierSrcL4PortMax.setStatus(_A)
-_DiffServMFClassifierStatus_Type=RowStatus
-_DiffServMFClassifierStatus_Object=MibTableColumn
-diffServMFClassifierStatus=_DiffServMFClassifierStatus_Object((1,3,6,1,4,1,89,51,1,2,2,1,13),_DiffServMFClassifierStatus_Type())
-diffServMFClassifierStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServMFClassifierStatus.setStatus(_A)
-_DiffServClassifierTable_Object=MibTable
-diffServClassifierTable=_DiffServClassifierTable_Object((1,3,6,1,4,1,89,51,1,2,3))
-if mibBuilder.loadTexts:diffServClassifierTable.setStatus(_A)
-_DiffServClassifierEntry_Object=MibTableRow
-diffServClassifierEntry=_DiffServClassifierEntry_Object((1,3,6,1,4,1,89,51,1,2,3,1))
-diffServClassifierEntry.setIndexNames((0,_G,_H),(0,_E,_J),(0,_E,_O))
-if mibBuilder.loadTexts:diffServClassifierEntry.setStatus(_A)
-class _DiffServInterfaceDirection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('inbound',1),('outbound',2)))
-_DiffServInterfaceDirection_Type.__name__=_D
-_DiffServInterfaceDirection_Object=MibTableColumn
-diffServInterfaceDirection=_DiffServInterfaceDirection_Object((1,3,6,1,4,1,89,51,1,2,3,1,1),_DiffServInterfaceDirection_Type())
-diffServInterfaceDirection.setMaxAccess(_C)
-if mibBuilder.loadTexts:diffServInterfaceDirection.setStatus(_A)
-class _DiffServClassifierNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_DiffServClassifierNumber_Type.__name__=_D
-_DiffServClassifierNumber_Object=MibTableColumn
-diffServClassifierNumber=_DiffServClassifierNumber_Object((1,3,6,1,4,1,89,51,1,2,3,1,2),_DiffServClassifierNumber_Type())
-diffServClassifierNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:diffServClassifierNumber.setStatus(_A)
-class _DiffServClassifierMatchObject_Type(RowPointer):defaultValue=0,0
-_DiffServClassifierMatchObject_Type.__name__=_I
-_DiffServClassifierMatchObject_Object=MibTableColumn
-diffServClassifierMatchObject=_DiffServClassifierMatchObject_Object((1,3,6,1,4,1,89,51,1,2,3,1,3),_DiffServClassifierMatchObject_Type())
-diffServClassifierMatchObject.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServClassifierMatchObject.setStatus(_A)
-_DiffServClassifierNext_Type=RowPointer
-_DiffServClassifierNext_Object=MibTableColumn
-diffServClassifierNext=_DiffServClassifierNext_Object((1,3,6,1,4,1,89,51,1,2,3,1,4),_DiffServClassifierNext_Type())
-diffServClassifierNext.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServClassifierNext.setStatus(_A)
-class _DiffServClassifierSequence_Type(Unsigned32):defaultValue=0
-_DiffServClassifierSequence_Type.__name__=_L
-_DiffServClassifierSequence_Object=MibTableColumn
-diffServClassifierSequence=_DiffServClassifierSequence_Object((1,3,6,1,4,1,89,51,1,2,3,1,5),_DiffServClassifierSequence_Type())
-diffServClassifierSequence.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServClassifierSequence.setStatus(_A)
-class _DiffServClassifierConfigType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('other',0),('mib',1),('pib',2),('bgp',3)))
-_DiffServClassifierConfigType_Type.__name__=_D
-_DiffServClassifierConfigType_Object=MibTableColumn
-diffServClassifierConfigType=_DiffServClassifierConfigType_Object((1,3,6,1,4,1,89,51,1,2,3,1,6),_DiffServClassifierConfigType_Type())
-diffServClassifierConfigType.setMaxAccess(_C)
-if mibBuilder.loadTexts:diffServClassifierConfigType.setStatus(_A)
-_DiffServClassifierConfigTypeInfo_Type=OctetString
-_DiffServClassifierConfigTypeInfo_Object=MibTableColumn
-diffServClassifierConfigTypeInfo=_DiffServClassifierConfigTypeInfo_Object((1,3,6,1,4,1,89,51,1,2,3,1,7),_DiffServClassifierConfigTypeInfo_Type())
-diffServClassifierConfigTypeInfo.setMaxAccess(_C)
-if mibBuilder.loadTexts:diffServClassifierConfigTypeInfo.setStatus(_A)
-_DiffServClassifierStatus_Type=RowStatus
-_DiffServClassifierStatus_Object=MibTableColumn
-diffServClassifierStatus=_DiffServClassifierStatus_Object((1,3,6,1,4,1,89,51,1,2,3,1,8),_DiffServClassifierStatus_Type())
-diffServClassifierStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServClassifierStatus.setStatus(_A)
-_DiffServTBMeterTable_Object=MibTable
-diffServTBMeterTable=_DiffServTBMeterTable_Object((1,3,6,1,4,1,89,51,1,2,4))
-if mibBuilder.loadTexts:diffServTBMeterTable.setStatus(_A)
-_DiffServTBMeterEntry_Object=MibTableRow
-diffServTBMeterEntry=_DiffServTBMeterEntry_Object((1,3,6,1,4,1,89,51,1,2,4,1))
-diffServTBMeterEntry.setIndexNames((0,_G,_H),(0,_E,_J),(0,_E,_P))
-if mibBuilder.loadTexts:diffServTBMeterEntry.setStatus(_A)
-class _DiffServTBMeterNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_DiffServTBMeterNumber_Type.__name__=_D
-_DiffServTBMeterNumber_Object=MibTableColumn
-diffServTBMeterNumber=_DiffServTBMeterNumber_Object((1,3,6,1,4,1,89,51,1,2,4,1,1),_DiffServTBMeterNumber_Type())
-diffServTBMeterNumber.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:diffServTBMeterNumber.setStatus(_A)
-_DiffServTBMeterInterval_Type=Unsigned32
-_DiffServTBMeterInterval_Object=MibTableColumn
-diffServTBMeterInterval=_DiffServTBMeterInterval_Object((1,3,6,1,4,1,89,51,1,2,4,1,2),_DiffServTBMeterInterval_Type())
-diffServTBMeterInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServTBMeterInterval.setStatus(_A)
-if mibBuilder.loadTexts:diffServTBMeterInterval.setUnits('microseconds')
-_DiffServTBMeterBurstSize_Type=Unsigned32
-_DiffServTBMeterBurstSize_Object=MibTableColumn
-diffServTBMeterBurstSize=_DiffServTBMeterBurstSize_Object((1,3,6,1,4,1,89,51,1,2,4,1,3),_DiffServTBMeterBurstSize_Type())
-diffServTBMeterBurstSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServTBMeterBurstSize.setStatus(_A)
-if mibBuilder.loadTexts:diffServTBMeterBurstSize.setUnits(_K)
-_DiffServTBMeterFailNext_Type=RowPointer
-_DiffServTBMeterFailNext_Object=MibTableColumn
-diffServTBMeterFailNext=_DiffServTBMeterFailNext_Object((1,3,6,1,4,1,89,51,1,2,4,1,4),_DiffServTBMeterFailNext_Type())
-diffServTBMeterFailNext.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServTBMeterFailNext.setStatus(_A)
-class _DiffServTBMeterSucceedNext_Type(RowPointer):defaultValue=0,0
-_DiffServTBMeterSucceedNext_Type.__name__=_I
-_DiffServTBMeterSucceedNext_Object=MibTableColumn
-diffServTBMeterSucceedNext=_DiffServTBMeterSucceedNext_Object((1,3,6,1,4,1,89,51,1,2,4,1,5),_DiffServTBMeterSucceedNext_Type())
-diffServTBMeterSucceedNext.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServTBMeterSucceedNext.setStatus(_A)
-_DiffServTBMeterStatus_Type=RowStatus
-_DiffServTBMeterStatus_Object=MibTableColumn
-diffServTBMeterStatus=_DiffServTBMeterStatus_Object((1,3,6,1,4,1,89,51,1,2,4,1,6),_DiffServTBMeterStatus_Type())
-diffServTBMeterStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServTBMeterStatus.setStatus(_A)
-_DiffServActionTable_Object=MibTable
-diffServActionTable=_DiffServActionTable_Object((1,3,6,1,4,1,89,51,1,2,5))
-if mibBuilder.loadTexts:diffServActionTable.setStatus(_A)
-_DiffServActionEntry_Object=MibTableRow
-diffServActionEntry=_DiffServActionEntry_Object((1,3,6,1,4,1,89,51,1,2,5,1))
-diffServActionEntry.setIndexNames((0,_G,_H),(0,_E,_J),(0,_E,_Q))
-if mibBuilder.loadTexts:diffServActionEntry.setStatus(_A)
-class _DiffServActionNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_DiffServActionNumber_Type.__name__=_D
-_DiffServActionNumber_Object=MibTableColumn
-diffServActionNumber=_DiffServActionNumber_Object((1,3,6,1,4,1,89,51,1,2,5,1,1),_DiffServActionNumber_Type())
-diffServActionNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:diffServActionNumber.setStatus(_A)
-class _DiffServActionNext_Type(RowPointer):defaultValue=0,0
-_DiffServActionNext_Type.__name__=_I
-_DiffServActionNext_Object=MibTableColumn
-diffServActionNext=_DiffServActionNext_Object((1,3,6,1,4,1,89,51,1,2,5,1,2),_DiffServActionNext_Type())
-diffServActionNext.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServActionNext.setStatus(_A)
-_DiffServActionDSCP_Type=Dscp
-_DiffServActionDSCP_Object=MibTableColumn
-diffServActionDSCP=_DiffServActionDSCP_Object((1,3,6,1,4,1,89,51,1,2,5,1,3),_DiffServActionDSCP_Type())
-diffServActionDSCP.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServActionDSCP.setStatus(_A)
-_DiffServActionMinThreshold_Type=Unsigned32
-_DiffServActionMinThreshold_Object=MibTableColumn
-diffServActionMinThreshold=_DiffServActionMinThreshold_Object((1,3,6,1,4,1,89,51,1,2,5,1,4),_DiffServActionMinThreshold_Type())
-diffServActionMinThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServActionMinThreshold.setStatus(_A)
-if mibBuilder.loadTexts:diffServActionMinThreshold.setUnits(_R)
-_DiffServActionMaxThreshold_Type=Unsigned32
-_DiffServActionMaxThreshold_Object=MibTableColumn
-diffServActionMaxThreshold=_DiffServActionMaxThreshold_Object((1,3,6,1,4,1,89,51,1,2,5,1,5),_DiffServActionMaxThreshold_Type())
-diffServActionMaxThreshold.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServActionMaxThreshold.setStatus(_A)
-if mibBuilder.loadTexts:diffServActionMaxThreshold.setUnits(_R)
-class _DiffServActionDropPolicy_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('other',1),('alwaysDrop',2),('tailDrop',3),('randomDrop',4)))
-_DiffServActionDropPolicy_Type.__name__=_D
-_DiffServActionDropPolicy_Object=MibTableColumn
-diffServActionDropPolicy=_DiffServActionDropPolicy_Object((1,3,6,1,4,1,89,51,1,2,5,1,6),_DiffServActionDropPolicy_Type())
-diffServActionDropPolicy.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServActionDropPolicy.setStatus(_A)
-_DiffServActionHCConformingPackets_Type=Counter64
-_DiffServActionHCConformingPackets_Object=MibTableColumn
-diffServActionHCConformingPackets=_DiffServActionHCConformingPackets_Object((1,3,6,1,4,1,89,51,1,2,5,1,7),_DiffServActionHCConformingPackets_Type())
-diffServActionHCConformingPackets.setMaxAccess(_F)
-if mibBuilder.loadTexts:diffServActionHCConformingPackets.setStatus(_A)
-if mibBuilder.loadTexts:diffServActionHCConformingPackets.setUnits(_K)
-_DiffServActionConformingPackets_Type=Counter32
-_DiffServActionConformingPackets_Object=MibTableColumn
-diffServActionConformingPackets=_DiffServActionConformingPackets_Object((1,3,6,1,4,1,89,51,1,2,5,1,8),_DiffServActionConformingPackets_Type())
-diffServActionConformingPackets.setMaxAccess(_F)
-if mibBuilder.loadTexts:diffServActionConformingPackets.setStatus(_A)
-if mibBuilder.loadTexts:diffServActionConformingPackets.setUnits(_K)
-_DiffServActionHCConformingOctets_Type=Counter64
-_DiffServActionHCConformingOctets_Object=MibTableColumn
-diffServActionHCConformingOctets=_DiffServActionHCConformingOctets_Object((1,3,6,1,4,1,89,51,1,2,5,1,9),_DiffServActionHCConformingOctets_Type())
-diffServActionHCConformingOctets.setMaxAccess(_F)
-if mibBuilder.loadTexts:diffServActionHCConformingOctets.setStatus(_A)
-if mibBuilder.loadTexts:diffServActionHCConformingOctets.setUnits(_K)
-_DiffServActionConformingOctets_Type=Counter32
-_DiffServActionConformingOctets_Object=MibTableColumn
-diffServActionConformingOctets=_DiffServActionConformingOctets_Object((1,3,6,1,4,1,89,51,1,2,5,1,10),_DiffServActionConformingOctets_Type())
-diffServActionConformingOctets.setMaxAccess(_F)
-if mibBuilder.loadTexts:diffServActionConformingOctets.setStatus(_A)
-if mibBuilder.loadTexts:diffServActionConformingOctets.setUnits(_K)
-_DiffServActionTailDrops_Type=Counter32
-_DiffServActionTailDrops_Object=MibTableColumn
-diffServActionTailDrops=_DiffServActionTailDrops_Object((1,3,6,1,4,1,89,51,1,2,5,1,11),_DiffServActionTailDrops_Type())
-diffServActionTailDrops.setMaxAccess(_F)
-if mibBuilder.loadTexts:diffServActionTailDrops.setStatus(_A)
-_DiffServActionHCTailDrops_Type=Counter64
-_DiffServActionHCTailDrops_Object=MibTableColumn
-diffServActionHCTailDrops=_DiffServActionHCTailDrops_Object((1,3,6,1,4,1,89,51,1,2,5,1,12),_DiffServActionHCTailDrops_Type())
-diffServActionHCTailDrops.setMaxAccess(_F)
-if mibBuilder.loadTexts:diffServActionHCTailDrops.setStatus(_A)
-_DiffServActionRandomDrops_Type=Counter32
-_DiffServActionRandomDrops_Object=MibTableColumn
-diffServActionRandomDrops=_DiffServActionRandomDrops_Object((1,3,6,1,4,1,89,51,1,2,5,1,13),_DiffServActionRandomDrops_Type())
-diffServActionRandomDrops.setMaxAccess(_F)
-if mibBuilder.loadTexts:diffServActionRandomDrops.setStatus(_A)
-_DiffServActionHCRandomDrops_Type=Counter64
-_DiffServActionHCRandomDrops_Object=MibTableColumn
-diffServActionHCRandomDrops=_DiffServActionHCRandomDrops_Object((1,3,6,1,4,1,89,51,1,2,5,1,14),_DiffServActionHCRandomDrops_Type())
-diffServActionHCRandomDrops.setMaxAccess(_F)
-if mibBuilder.loadTexts:diffServActionHCRandomDrops.setStatus(_A)
-_DiffServActionStatus_Type=RowStatus
-_DiffServActionStatus_Object=MibTableColumn
-diffServActionStatus=_DiffServActionStatus_Object((1,3,6,1,4,1,89,51,1,2,5,1,15),_DiffServActionStatus_Type())
-diffServActionStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServActionStatus.setStatus(_A)
-_DiffServQueueTable_Object=MibTable
-diffServQueueTable=_DiffServQueueTable_Object((1,3,6,1,4,1,89,51,1,2,6))
-if mibBuilder.loadTexts:diffServQueueTable.setStatus(_A)
-_DiffServQueueEntry_Object=MibTableRow
-diffServQueueEntry=_DiffServQueueEntry_Object((1,3,6,1,4,1,89,51,1,2,6,1))
-diffServQueueEntry.setIndexNames((0,_G,_H),(0,_E,_J),(0,_E,_S))
-if mibBuilder.loadTexts:diffServQueueEntry.setStatus(_A)
-class _DiffServQueueNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_DiffServQueueNumber_Type.__name__=_D
-_DiffServQueueNumber_Object=MibTableColumn
-diffServQueueNumber=_DiffServQueueNumber_Object((1,3,6,1,4,1,89,51,1,2,6,1,1),_DiffServQueueNumber_Type())
-diffServQueueNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:diffServQueueNumber.setStatus(_A)
-_DiffServQueueMinimumRate_Type=Unsigned32
-_DiffServQueueMinimumRate_Object=MibTableColumn
-diffServQueueMinimumRate=_DiffServQueueMinimumRate_Object((1,3,6,1,4,1,89,51,1,2,6,1,2),_DiffServQueueMinimumRate_Type())
-diffServQueueMinimumRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServQueueMinimumRate.setStatus(_A)
-if mibBuilder.loadTexts:diffServQueueMinimumRate.setUnits('KBPS')
-_DiffServQueueMaximumRate_Type=Unsigned32
-_DiffServQueueMaximumRate_Object=MibTableColumn
-diffServQueueMaximumRate=_DiffServQueueMaximumRate_Object((1,3,6,1,4,1,89,51,1,2,6,1,3),_DiffServQueueMaximumRate_Type())
-diffServQueueMaximumRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServQueueMaximumRate.setStatus(_A)
-if mibBuilder.loadTexts:diffServQueueMaximumRate.setUnits('KBPS')
-_DiffServQueuePriority_Type=Unsigned32
-_DiffServQueuePriority_Object=MibTableColumn
-diffServQueuePriority=_DiffServQueuePriority_Object((1,3,6,1,4,1,89,51,1,2,6,1,4),_DiffServQueuePriority_Type())
-diffServQueuePriority.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServQueuePriority.setStatus(_A)
-class _DiffServQueueNextTCB_Type(RowPointer):defaultValue=0,0
-_DiffServQueueNextTCB_Type.__name__=_I
-_DiffServQueueNextTCB_Object=MibTableColumn
-diffServQueueNextTCB=_DiffServQueueNextTCB_Object((1,3,6,1,4,1,89,51,1,2,6,1,5),_DiffServQueueNextTCB_Type())
-diffServQueueNextTCB.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServQueueNextTCB.setStatus(_A)
-_DiffServQueueOccupancyWeight_Type=Unsigned32
-_DiffServQueueOccupancyWeight_Object=MibTableColumn
-diffServQueueOccupancyWeight=_DiffServQueueOccupancyWeight_Object((1,3,6,1,4,1,89,51,1,2,6,1,6),_DiffServQueueOccupancyWeight_Type())
-diffServQueueOccupancyWeight.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServQueueOccupancyWeight.setStatus(_A)
-_DiffServQueueStatus_Type=RowStatus
-_DiffServQueueStatus_Object=MibTableColumn
-diffServQueueStatus=_DiffServQueueStatus_Object((1,3,6,1,4,1,89,51,1,2,6,1,7),_DiffServQueueStatus_Type())
-diffServQueueStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:diffServQueueStatus.setStatus(_A)
-_DiffServMIBConformance_ObjectIdentity=ObjectIdentity
-diffServMIBConformance=_DiffServMIBConformance_ObjectIdentity((1,3,6,1,4,1,89,51,1,3))
-mibBuilder.exportSymbols(_E,**{'Dscp':Dscp,'MFClassifierL4Port':MFClassifierL4Port,'diffServMib':diffServMib,'diffServObjects':diffServObjects,'diffServMFClassifierUnique':diffServMFClassifierUnique,'diffServClassifierUnique':diffServClassifierUnique,'diffServTBMeterUnique':diffServTBMeterUnique,'diffServActionUnique':diffServActionUnique,'diffServQueueUnique':diffServQueueUnique,'diffServTables':diffServTables,'diffServAggregateTable':diffServAggregateTable,'diffServAggregateEntry':diffServAggregateEntry,_M:diffServAggregateDSCP,'diffServMFClassifierTable':diffServMFClassifierTable,'diffServMFClassifierEntry':diffServMFClassifierEntry,_N:diffServMFClassifierIndex,'diffServMFClassifierAddrType':diffServMFClassifierAddrType,'diffServMFClassifierDstAddr':diffServMFClassifierDstAddr,'diffServMFClassifierDstAddrMask':diffServMFClassifierDstAddrMask,'diffServMFClassifierSrcAddr':diffServMFClassifierSrcAddr,'diffServMFClassifierSrcAddrMask':diffServMFClassifierSrcAddrMask,'diffServMFClassifierDscp':diffServMFClassifierDscp,'diffServMFClassifierProtocol':diffServMFClassifierProtocol,'diffServMFClassifierDstL4PortMin':diffServMFClassifierDstL4PortMin,'diffServMFClassifierDstL4PortMax':diffServMFClassifierDstL4PortMax,'diffServMFClassifierSrcL4PortMin':diffServMFClassifierSrcL4PortMin,'diffServMFClassifierSrcL4PortMax':diffServMFClassifierSrcL4PortMax,'diffServMFClassifierStatus':diffServMFClassifierStatus,'diffServClassifierTable':diffServClassifierTable,'diffServClassifierEntry':diffServClassifierEntry,_J:diffServInterfaceDirection,_O:diffServClassifierNumber,'diffServClassifierMatchObject':diffServClassifierMatchObject,'diffServClassifierNext':diffServClassifierNext,'diffServClassifierSequence':diffServClassifierSequence,'diffServClassifierConfigType':diffServClassifierConfigType,'diffServClassifierConfigTypeInfo':diffServClassifierConfigTypeInfo,'diffServClassifierStatus':diffServClassifierStatus,'diffServTBMeterTable':diffServTBMeterTable,'diffServTBMeterEntry':diffServTBMeterEntry,_P:diffServTBMeterNumber,'diffServTBMeterInterval':diffServTBMeterInterval,'diffServTBMeterBurstSize':diffServTBMeterBurstSize,'diffServTBMeterFailNext':diffServTBMeterFailNext,'diffServTBMeterSucceedNext':diffServTBMeterSucceedNext,'diffServTBMeterStatus':diffServTBMeterStatus,'diffServActionTable':diffServActionTable,'diffServActionEntry':diffServActionEntry,_Q:diffServActionNumber,'diffServActionNext':diffServActionNext,'diffServActionDSCP':diffServActionDSCP,'diffServActionMinThreshold':diffServActionMinThreshold,'diffServActionMaxThreshold':diffServActionMaxThreshold,'diffServActionDropPolicy':diffServActionDropPolicy,'diffServActionHCConformingPackets':diffServActionHCConformingPackets,'diffServActionConformingPackets':diffServActionConformingPackets,'diffServActionHCConformingOctets':diffServActionHCConformingOctets,'diffServActionConformingOctets':diffServActionConformingOctets,'diffServActionTailDrops':diffServActionTailDrops,'diffServActionHCTailDrops':diffServActionHCTailDrops,'diffServActionRandomDrops':diffServActionRandomDrops,'diffServActionHCRandomDrops':diffServActionHCRandomDrops,'diffServActionStatus':diffServActionStatus,'diffServQueueTable':diffServQueueTable,'diffServQueueEntry':diffServQueueEntry,_S:diffServQueueNumber,'diffServQueueMinimumRate':diffServQueueMinimumRate,'diffServQueueMaximumRate':diffServQueueMaximumRate,'diffServQueuePriority':diffServQueuePriority,'diffServQueueNextTCB':diffServQueueNextTCB,'diffServQueueOccupancyWeight':diffServQueueOccupancyWeight,'diffServQueueStatus':diffServQueueStatus,'diffServMIBConformance':diffServMIBConformance})
+#
+# PySNMP MIB module DIFF-SERV-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/dell/DIFF-SERV-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:47 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+rlExperience, = mibBuilder.importSymbols("Dell-MIB", "rlExperience")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, zeroDotZero, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, TimeTicks, ObjectIdentity, MibIdentifier, Counter64, Bits, mib_2, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "zeroDotZero", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "TimeTicks", "ObjectIdentity", "MibIdentifier", "Counter64", "Bits", "mib-2", "IpAddress")
+DisplayString, RowStatus, TestAndIncr, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TestAndIncr", "RowPointer", "TextualConvention")
+diffServMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 51, 1))
+diffServMib.setRevisions(('1999-07-19 01:00',))
+if mibBuilder.loadTexts: diffServMib.setLastUpdated('9907190100Z')
+if mibBuilder.loadTexts: diffServMib.setOrganization('Cisco Systems')
+diffServObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 51, 1, 1))
+diffServTables = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 51, 1, 2))
+diffServMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 51, 1, 3))
+class Dscp(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 63)
+
+diffServAggregateTable = MibTable((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 1), )
+if mibBuilder.loadTexts: diffServAggregateTable.setStatus('current')
+diffServAggregateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 1, 1), ).setIndexNames((0, "DIFF-SERV-MIB", "diffServAggregateDSCP"))
+if mibBuilder.loadTexts: diffServAggregateEntry.setStatus('current')
+diffServAggregateDSCP = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 1, 1, 1), Dscp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diffServAggregateDSCP.setStatus('current')
+class MFClassifierL4Port(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 65535)
+
+diffServMFClassifierUnique = MibScalar((1, 3, 6, 1, 4, 1, 89, 51, 1, 1, 1), TestAndIncr()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: diffServMFClassifierUnique.setStatus('current')
+diffServMFClassifierTable = MibTable((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 2), )
+if mibBuilder.loadTexts: diffServMFClassifierTable.setStatus('current')
+diffServMFClassifierEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 2, 1), ).setIndexNames((0, "DIFF-SERV-MIB", "diffServMFClassifierIndex"))
+if mibBuilder.loadTexts: diffServMFClassifierEntry.setStatus('current')
+diffServMFClassifierIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: diffServMFClassifierIndex.setStatus('current')
+diffServMFClassifierAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 2, 1, 2), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServMFClassifierAddrType.setStatus('current')
+diffServMFClassifierDstAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 2, 1, 3), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServMFClassifierDstAddr.setStatus('current')
+diffServMFClassifierDstAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 2, 1, 4), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServMFClassifierDstAddrMask.setStatus('current')
+diffServMFClassifierSrcAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 2, 1, 5), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServMFClassifierSrcAddr.setStatus('current')
+diffServMFClassifierSrcAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 2, 1, 6), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServMFClassifierSrcAddrMask.setStatus('current')
+diffServMFClassifierDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(0, 63), ))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServMFClassifierDscp.setStatus('current')
+diffServMFClassifierProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServMFClassifierProtocol.setStatus('current')
+diffServMFClassifierDstL4PortMin = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 2, 1, 9), MFClassifierL4Port()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServMFClassifierDstL4PortMin.setStatus('current')
+diffServMFClassifierDstL4PortMax = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 2, 1, 10), MFClassifierL4Port()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServMFClassifierDstL4PortMax.setStatus('current')
+diffServMFClassifierSrcL4PortMin = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 2, 1, 11), MFClassifierL4Port()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServMFClassifierSrcL4PortMin.setStatus('current')
+diffServMFClassifierSrcL4PortMax = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 2, 1, 12), MFClassifierL4Port()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServMFClassifierSrcL4PortMax.setStatus('current')
+diffServMFClassifierStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 2, 1, 13), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServMFClassifierStatus.setStatus('current')
+diffServClassifierUnique = MibScalar((1, 3, 6, 1, 4, 1, 89, 51, 1, 1, 2), TestAndIncr()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: diffServClassifierUnique.setStatus('current')
+diffServClassifierTable = MibTable((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 3), )
+if mibBuilder.loadTexts: diffServClassifierTable.setStatus('current')
+diffServClassifierEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "DIFF-SERV-MIB", "diffServInterfaceDirection"), (0, "DIFF-SERV-MIB", "diffServClassifierNumber"))
+if mibBuilder.loadTexts: diffServClassifierEntry.setStatus('current')
+diffServInterfaceDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inbound", 1), ("outbound", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: diffServInterfaceDirection.setStatus('current')
+diffServClassifierNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: diffServClassifierNumber.setStatus('current')
+diffServClassifierMatchObject = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 3, 1, 3), RowPointer().clone((0, 0))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServClassifierMatchObject.setStatus('current')
+diffServClassifierNext = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 3, 1, 4), RowPointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServClassifierNext.setStatus('current')
+diffServClassifierSequence = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 3, 1, 5), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServClassifierSequence.setStatus('current')
+diffServClassifierConfigType = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("other", 0), ("mib", 1), ("pib", 2), ("bgp", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: diffServClassifierConfigType.setStatus('current')
+diffServClassifierConfigTypeInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 3, 1, 7), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: diffServClassifierConfigTypeInfo.setStatus('current')
+diffServClassifierStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 3, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServClassifierStatus.setStatus('current')
+diffServTBMeterUnique = MibScalar((1, 3, 6, 1, 4, 1, 89, 51, 1, 1, 3), TestAndIncr()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: diffServTBMeterUnique.setStatus('current')
+diffServTBMeterTable = MibTable((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 4), )
+if mibBuilder.loadTexts: diffServTBMeterTable.setStatus('current')
+diffServTBMeterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "DIFF-SERV-MIB", "diffServInterfaceDirection"), (0, "DIFF-SERV-MIB", "diffServTBMeterNumber"))
+if mibBuilder.loadTexts: diffServTBMeterEntry.setStatus('current')
+diffServTBMeterNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: diffServTBMeterNumber.setStatus('current')
+diffServTBMeterInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 4, 1, 2), Unsigned32()).setUnits('microseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServTBMeterInterval.setStatus('current')
+diffServTBMeterBurstSize = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 4, 1, 3), Unsigned32()).setUnits('bytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServTBMeterBurstSize.setStatus('current')
+diffServTBMeterFailNext = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 4, 1, 4), RowPointer()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServTBMeterFailNext.setStatus('current')
+diffServTBMeterSucceedNext = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 4, 1, 5), RowPointer().clone((0, 0))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServTBMeterSucceedNext.setStatus('current')
+diffServTBMeterStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 4, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServTBMeterStatus.setStatus('current')
+diffServActionUnique = MibScalar((1, 3, 6, 1, 4, 1, 89, 51, 1, 1, 4), TestAndIncr()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: diffServActionUnique.setStatus('current')
+diffServActionTable = MibTable((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5), )
+if mibBuilder.loadTexts: diffServActionTable.setStatus('current')
+diffServActionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "DIFF-SERV-MIB", "diffServInterfaceDirection"), (0, "DIFF-SERV-MIB", "diffServActionNumber"))
+if mibBuilder.loadTexts: diffServActionEntry.setStatus('current')
+diffServActionNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: diffServActionNumber.setStatus('current')
+diffServActionNext = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1, 2), RowPointer().clone((0, 0))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServActionNext.setStatus('current')
+diffServActionDSCP = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1, 3), Dscp()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServActionDSCP.setStatus('current')
+diffServActionMinThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1, 4), Unsigned32()).setUnits('packets').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServActionMinThreshold.setStatus('current')
+diffServActionMaxThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1, 5), Unsigned32()).setUnits('packets').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServActionMaxThreshold.setStatus('current')
+diffServActionDropPolicy = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("alwaysDrop", 2), ("tailDrop", 3), ("randomDrop", 4)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServActionDropPolicy.setStatus('current')
+diffServActionHCConformingPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1, 7), Counter64()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: diffServActionHCConformingPackets.setStatus('current')
+diffServActionConformingPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1, 8), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: diffServActionConformingPackets.setStatus('current')
+diffServActionHCConformingOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1, 9), Counter64()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: diffServActionHCConformingOctets.setStatus('current')
+diffServActionConformingOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1, 10), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: diffServActionConformingOctets.setStatus('current')
+diffServActionTailDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diffServActionTailDrops.setStatus('current')
+diffServActionHCTailDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1, 12), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diffServActionHCTailDrops.setStatus('current')
+diffServActionRandomDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diffServActionRandomDrops.setStatus('current')
+diffServActionHCRandomDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1, 14), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diffServActionHCRandomDrops.setStatus('current')
+diffServActionStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 5, 1, 15), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServActionStatus.setStatus('current')
+diffServQueueUnique = MibScalar((1, 3, 6, 1, 4, 1, 89, 51, 1, 1, 5), TestAndIncr()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: diffServQueueUnique.setStatus('current')
+diffServQueueTable = MibTable((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 6), )
+if mibBuilder.loadTexts: diffServQueueTable.setStatus('current')
+diffServQueueEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "DIFF-SERV-MIB", "diffServInterfaceDirection"), (0, "DIFF-SERV-MIB", "diffServQueueNumber"))
+if mibBuilder.loadTexts: diffServQueueEntry.setStatus('current')
+diffServQueueNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: diffServQueueNumber.setStatus('current')
+diffServQueueMinimumRate = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 6, 1, 2), Unsigned32()).setUnits('KBPS').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServQueueMinimumRate.setStatus('current')
+diffServQueueMaximumRate = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 6, 1, 3), Unsigned32()).setUnits('KBPS').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServQueueMaximumRate.setStatus('current')
+diffServQueuePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 6, 1, 4), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServQueuePriority.setStatus('current')
+diffServQueueNextTCB = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 6, 1, 5), RowPointer().clone((0, 0))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServQueueNextTCB.setStatus('current')
+diffServQueueOccupancyWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 6, 1, 6), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServQueueOccupancyWeight.setStatus('current')
+diffServQueueStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 51, 1, 2, 6, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: diffServQueueStatus.setStatus('current')
+mibBuilder.exportSymbols("DIFF-SERV-MIB", diffServClassifierUnique=diffServClassifierUnique, diffServActionRandomDrops=diffServActionRandomDrops, diffServQueueStatus=diffServQueueStatus, diffServMFClassifierSrcAddr=diffServMFClassifierSrcAddr, diffServMFClassifierSrcL4PortMax=diffServMFClassifierSrcL4PortMax, diffServTBMeterFailNext=diffServTBMeterFailNext, diffServQueueNextTCB=diffServQueueNextTCB, diffServClassifierConfigType=diffServClassifierConfigType, diffServTBMeterInterval=diffServTBMeterInterval, diffServTables=diffServTables, diffServTBMeterNumber=diffServTBMeterNumber, diffServAggregateTable=diffServAggregateTable, diffServClassifierStatus=diffServClassifierStatus, diffServAggregateDSCP=diffServAggregateDSCP, diffServQueueMaximumRate=diffServQueueMaximumRate, diffServTBMeterBurstSize=diffServTBMeterBurstSize, diffServActionHCConformingPackets=diffServActionHCConformingPackets, Dscp=Dscp, MFClassifierL4Port=MFClassifierL4Port, diffServMFClassifierIndex=diffServMFClassifierIndex, diffServQueueMinimumRate=diffServQueueMinimumRate, diffServClassifierEntry=diffServClassifierEntry, diffServActionHCTailDrops=diffServActionHCTailDrops, diffServTBMeterTable=diffServTBMeterTable, diffServTBMeterStatus=diffServTBMeterStatus, diffServActionDSCP=diffServActionDSCP, diffServMFClassifierProtocol=diffServMFClassifierProtocol, diffServMFClassifierStatus=diffServMFClassifierStatus, diffServMFClassifierUnique=diffServMFClassifierUnique, diffServMFClassifierDscp=diffServMFClassifierDscp, diffServClassifierSequence=diffServClassifierSequence, diffServMFClassifierDstAddr=diffServMFClassifierDstAddr, diffServClassifierNumber=diffServClassifierNumber, diffServActionTable=diffServActionTable, diffServActionNext=diffServActionNext, diffServMib=diffServMib, diffServActionConformingPackets=diffServActionConformingPackets, diffServActionEntry=diffServActionEntry, diffServQueueUnique=diffServQueueUnique, diffServQueuePriority=diffServQueuePriority, diffServMFClassifierTable=diffServMFClassifierTable, diffServActionHCRandomDrops=diffServActionHCRandomDrops, diffServMIBConformance=diffServMIBConformance, diffServAggregateEntry=diffServAggregateEntry, diffServQueueNumber=diffServQueueNumber, diffServQueueOccupancyWeight=diffServQueueOccupancyWeight, diffServTBMeterUnique=diffServTBMeterUnique, diffServMFClassifierDstL4PortMin=diffServMFClassifierDstL4PortMin, diffServObjects=diffServObjects, diffServActionMaxThreshold=diffServActionMaxThreshold, diffServClassifierMatchObject=diffServClassifierMatchObject, diffServClassifierNext=diffServClassifierNext, diffServTBMeterEntry=diffServTBMeterEntry, diffServMFClassifierEntry=diffServMFClassifierEntry, diffServTBMeterSucceedNext=diffServTBMeterSucceedNext, diffServActionHCConformingOctets=diffServActionHCConformingOctets, diffServActionTailDrops=diffServActionTailDrops, diffServActionNumber=diffServActionNumber, diffServActionDropPolicy=diffServActionDropPolicy, diffServClassifierTable=diffServClassifierTable, diffServActionUnique=diffServActionUnique, diffServMFClassifierAddrType=diffServMFClassifierAddrType, diffServMFClassifierSrcAddrMask=diffServMFClassifierSrcAddrMask, diffServActionStatus=diffServActionStatus, diffServMFClassifierDstL4PortMax=diffServMFClassifierDstL4PortMax, diffServInterfaceDirection=diffServInterfaceDirection, diffServClassifierConfigTypeInfo=diffServClassifierConfigTypeInfo, diffServActionMinThreshold=diffServActionMinThreshold, diffServQueueEntry=diffServQueueEntry, diffServMFClassifierDstAddrMask=diffServMFClassifierDstAddrMask, diffServActionConformingOctets=diffServActionConformingOctets, diffServMFClassifierSrcL4PortMin=diffServMFClassifierSrcL4PortMin, PYSNMP_MODULE_ID=diffServMib, diffServQueueTable=diffServQueueTable)

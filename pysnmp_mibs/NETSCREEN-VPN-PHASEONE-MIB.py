@@ -1,77 +1,42 @@
-_F='nsVpnPhOneIndex'
-_E='NETSCREEN-VPN-PHASEONE-MIB'
-_D='DisplayString'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-netscreenVpn,netscreenVpnMibModule=mibBuilder.importSymbols('NETSCREEN-SMI','netscreenVpn','netscreenVpnMibModule')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention')
-netscreenVpnPhaseoneMibModule=ModuleIdentity((1,3,6,1,4,1,3224,4,0,5))
-if mibBuilder.loadTexts:netscreenVpnPhaseoneMibModule.setRevisions(('2004-05-03 00:00','2004-03-03 00:00','2003-11-13 00:00','2001-09-28 00:00','2001-05-14 00:00'))
-_NsVpnPhaseOneCfg_ObjectIdentity=ObjectIdentity
-nsVpnPhaseOneCfg=_NsVpnPhaseOneCfg_ObjectIdentity((1,3,6,1,4,1,3224,4,5))
-_NsVpnPhOneTable_Object=MibTable
-nsVpnPhOneTable=_NsVpnPhOneTable_Object((1,3,6,1,4,1,3224,4,5,1))
-if mibBuilder.loadTexts:nsVpnPhOneTable.setStatus(_A)
-_NsVpnPhOneEntry_Object=MibTableRow
-nsVpnPhOneEntry=_NsVpnPhOneEntry_Object((1,3,6,1,4,1,3224,4,5,1,1))
-nsVpnPhOneEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:nsVpnPhOneEntry.setStatus(_A)
-class _NsVpnPhOneIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_NsVpnPhOneIndex_Type.__name__=_C
-_NsVpnPhOneIndex_Object=MibTableColumn
-nsVpnPhOneIndex=_NsVpnPhOneIndex_Object((1,3,6,1,4,1,3224,4,5,1,1,1),_NsVpnPhOneIndex_Type())
-nsVpnPhOneIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnPhOneIndex.setStatus(_A)
-class _NsVpnPhOneName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_NsVpnPhOneName_Type.__name__=_D
-_NsVpnPhOneName_Object=MibTableColumn
-nsVpnPhOneName=_NsVpnPhOneName_Object((1,3,6,1,4,1,3224,4,5,1,1,2),_NsVpnPhOneName_Type())
-nsVpnPhOneName.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnPhOneName.setStatus(_A)
-class _NsVpnPhOneAuthMethod_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('preshare',0),('rsa-sig',1),('dsa-sig',2),('rsa-enc',3),('rsa-rev',4)))
-_NsVpnPhOneAuthMethod_Type.__name__=_C
-_NsVpnPhOneAuthMethod_Object=MibTableColumn
-nsVpnPhOneAuthMethod=_NsVpnPhOneAuthMethod_Object((1,3,6,1,4,1,3224,4,5,1,1,3),_NsVpnPhOneAuthMethod_Type())
-nsVpnPhOneAuthMethod.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnPhOneAuthMethod.setStatus(_A)
-_NsVpnPhOneDhGroup_Type=Integer32
-_NsVpnPhOneDhGroup_Object=MibTableColumn
-nsVpnPhOneDhGroup=_NsVpnPhOneDhGroup_Object((1,3,6,1,4,1,3224,4,5,1,1,4),_NsVpnPhOneDhGroup_Type())
-nsVpnPhOneDhGroup.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnPhOneDhGroup.setStatus(_A)
-class _NsVpnPhOneEncryp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*(('null',0),('des',1),('des3',2),('aes',3),('aes-192',4),('aes-256',5)))
-_NsVpnPhOneEncryp_Type.__name__=_C
-_NsVpnPhOneEncryp_Object=MibTableColumn
-nsVpnPhOneEncryp=_NsVpnPhOneEncryp_Object((1,3,6,1,4,1,3224,4,5,1,1,5),_NsVpnPhOneEncryp_Type())
-nsVpnPhOneEncryp.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnPhOneEncryp.setStatus(_A)
-class _NsVpnPhOneHash_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('null',0),('md5',1),('sha',2)))
-_NsVpnPhOneHash_Type.__name__=_C
-_NsVpnPhOneHash_Object=MibTableColumn
-nsVpnPhOneHash=_NsVpnPhOneHash_Object((1,3,6,1,4,1,3224,4,5,1,1,6),_NsVpnPhOneHash_Type())
-nsVpnPhOneHash.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnPhOneHash.setStatus(_A)
-_NsVpnPhOneLifetime_Type=Integer32
-_NsVpnPhOneLifetime_Object=MibTableColumn
-nsVpnPhOneLifetime=_NsVpnPhOneLifetime_Object((1,3,6,1,4,1,3224,4,5,1,1,7),_NsVpnPhOneLifetime_Type())
-nsVpnPhOneLifetime.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnPhOneLifetime.setStatus(_A)
-class _NsVpnPhOneLifetimeMeasure_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('second',0),('minute',1),('hours',2),('days',3)))
-_NsVpnPhOneLifetimeMeasure_Type.__name__=_C
-_NsVpnPhOneLifetimeMeasure_Object=MibTableColumn
-nsVpnPhOneLifetimeMeasure=_NsVpnPhOneLifetimeMeasure_Object((1,3,6,1,4,1,3224,4,5,1,1,8),_NsVpnPhOneLifetimeMeasure_Type())
-nsVpnPhOneLifetimeMeasure.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnPhOneLifetimeMeasure.setStatus(_A)
-_NsVpnPhOneVsys_Type=Integer32
-_NsVpnPhOneVsys_Object=MibTableColumn
-nsVpnPhOneVsys=_NsVpnPhOneVsys_Object((1,3,6,1,4,1,3224,4,5,1,1,9),_NsVpnPhOneVsys_Type())
-nsVpnPhOneVsys.setMaxAccess(_B)
-if mibBuilder.loadTexts:nsVpnPhOneVsys.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'netscreenVpnPhaseoneMibModule':netscreenVpnPhaseoneMibModule,'nsVpnPhaseOneCfg':nsVpnPhaseOneCfg,'nsVpnPhOneTable':nsVpnPhOneTable,'nsVpnPhOneEntry':nsVpnPhOneEntry,_F:nsVpnPhOneIndex,'nsVpnPhOneName':nsVpnPhOneName,'nsVpnPhOneAuthMethod':nsVpnPhOneAuthMethod,'nsVpnPhOneDhGroup':nsVpnPhOneDhGroup,'nsVpnPhOneEncryp':nsVpnPhOneEncryp,'nsVpnPhOneHash':nsVpnPhOneHash,'nsVpnPhOneLifetime':nsVpnPhOneLifetime,'nsVpnPhOneLifetimeMeasure':nsVpnPhOneLifetimeMeasure,'nsVpnPhOneVsys':nsVpnPhOneVsys})
+#
+# PySNMP MIB module NETSCREEN-VPN-PHASEONE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netscreen/NETSCREEN-VPN-PHASEONE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+netscreenVpnMibModule, netscreenVpn = mibBuilder.importSymbols("NETSCREEN-SMI", "netscreenVpnMibModule", "netscreenVpn")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+netscreenVpnPhaseoneMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3224, 4, 0, 5))
+netscreenVpnPhaseoneMibModule.setRevisions(('2004-05-03 00:00', '2004-03-03 00:00', '2003-11-13 00:00', '2001-09-28 00:00', '2001-05-14 00:00',))
+if mibBuilder.loadTexts: netscreenVpnPhaseoneMibModule.setLastUpdated('200405032022Z')
+if mibBuilder.loadTexts: netscreenVpnPhaseoneMibModule.setOrganization('Juniper Networks, Inc.')
+nsVpnPhaseOneCfg = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 4, 5))
+nsVpnPhOneTable = MibTable((1, 3, 6, 1, 4, 1, 3224, 4, 5, 1), )
+if mibBuilder.loadTexts: nsVpnPhOneTable.setStatus('current')
+nsVpnPhOneEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3224, 4, 5, 1, 1), ).setIndexNames((0, "NETSCREEN-VPN-PHASEONE-MIB", "nsVpnPhOneIndex"))
+if mibBuilder.loadTexts: nsVpnPhOneEntry.setStatus('current')
+nsVpnPhOneIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 5, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnPhOneIndex.setStatus('current')
+nsVpnPhOneName = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 5, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnPhOneName.setStatus('current')
+nsVpnPhOneAuthMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("preshare", 0), ("rsa-sig", 1), ("dsa-sig", 2), ("rsa-enc", 3), ("rsa-rev", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnPhOneAuthMethod.setStatus('current')
+nsVpnPhOneDhGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 5, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnPhOneDhGroup.setStatus('current')
+nsVpnPhOneEncryp = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 5, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("null", 0), ("des", 1), ("des3", 2), ("aes", 3), ("aes-192", 4), ("aes-256", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnPhOneEncryp.setStatus('current')
+nsVpnPhOneHash = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 5, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("null", 0), ("md5", 1), ("sha", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnPhOneHash.setStatus('current')
+nsVpnPhOneLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 5, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnPhOneLifetime.setStatus('current')
+nsVpnPhOneLifetimeMeasure = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 5, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("second", 0), ("minute", 1), ("hours", 2), ("days", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnPhOneLifetimeMeasure.setStatus('current')
+nsVpnPhOneVsys = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 5, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nsVpnPhOneVsys.setStatus('current')
+mibBuilder.exportSymbols("NETSCREEN-VPN-PHASEONE-MIB", nsVpnPhOneName=nsVpnPhOneName, netscreenVpnPhaseoneMibModule=netscreenVpnPhaseoneMibModule, nsVpnPhOneLifetimeMeasure=nsVpnPhOneLifetimeMeasure, nsVpnPhOneIndex=nsVpnPhOneIndex, nsVpnPhOneHash=nsVpnPhOneHash, nsVpnPhOneAuthMethod=nsVpnPhOneAuthMethod, PYSNMP_MODULE_ID=netscreenVpnPhaseoneMibModule, nsVpnPhOneEncryp=nsVpnPhOneEncryp, nsVpnPhOneVsys=nsVpnPhOneVsys, nsVpnPhaseOneCfg=nsVpnPhaseOneCfg, nsVpnPhOneEntry=nsVpnPhOneEntry, nsVpnPhOneTable=nsVpnPhOneTable, nsVpnPhOneLifetime=nsVpnPhOneLifetime, nsVpnPhOneDhGroup=nsVpnPhOneDhGroup)

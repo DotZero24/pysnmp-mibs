@@ -1,108 +1,55 @@
-_O='configurationChangeTrapsEnable'
-_N='configChangeTransactionKey'
-_M='configChangeNotificationFamilyOid'
-_L='read-write'
-_K='not-accessible'
-_J='configurationChangeFamilyOid'
-_I='sysName'
-_H='SNMPv2-MIB'
-_G='OctetString'
-_F='configurationChangeId'
-_E='read-only'
-_D='accessible-for-notify'
-_C='Integer32'
-_B='RAD-ConfigChange-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_G,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-systemsEvents,=mibBuilder.importSymbols('RAD-GEN-MIB','systemsEvents')
-agnt,=mibBuilder.importSymbols('RAD-SMI-MIB','agnt')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-sysName,=mibBuilder.importSymbols(_H,_I)
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-agnConfigChange=ModuleIdentity((1,3,6,1,4,1,164,6,2,75))
-_ConfigChange_ObjectIdentity=ObjectIdentity
-configChange=_ConfigChange_ObjectIdentity((1,3,6,1,4,1,164,6,2,75,1))
-_ConfigurationChangeTable_Object=MibTable
-configurationChangeTable=_ConfigurationChangeTable_Object((1,3,6,1,4,1,164,6,2,75,1,1))
-if mibBuilder.loadTexts:configurationChangeTable.setStatus(_A)
-_ConfigurationChangeEntry_Object=MibTableRow
-configurationChangeEntry=_ConfigurationChangeEntry_Object((1,3,6,1,4,1,164,6,2,75,1,1,1))
-configurationChangeEntry.setIndexNames((0,_B,_J))
-if mibBuilder.loadTexts:configurationChangeEntry.setStatus(_A)
-_ConfigurationChangeFamilyOid_Type=ObjectIdentifier
-_ConfigurationChangeFamilyOid_Object=MibTableColumn
-configurationChangeFamilyOid=_ConfigurationChangeFamilyOid_Object((1,3,6,1,4,1,164,6,2,75,1,1,1,1),_ConfigurationChangeFamilyOid_Type())
-configurationChangeFamilyOid.setMaxAccess(_K)
-if mibBuilder.loadTexts:configurationChangeFamilyOid.setStatus(_A)
-_ConfigurationChangeLastChangeId_Type=Unsigned32
-_ConfigurationChangeLastChangeId_Object=MibTableColumn
-configurationChangeLastChangeId=_ConfigurationChangeLastChangeId_Object((1,3,6,1,4,1,164,6,2,75,1,1,1,2),_ConfigurationChangeLastChangeId_Type())
-configurationChangeLastChangeId.setMaxAccess(_E)
-if mibBuilder.loadTexts:configurationChangeLastChangeId.setStatus(_A)
-class _ConfigurationChangeOIDType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3)));namedValues=NamedValues(*(('tableOID',2),('scalarOID',3)))
-_ConfigurationChangeOIDType_Type.__name__=_C
-_ConfigurationChangeOIDType_Object=MibTableColumn
-configurationChangeOIDType=_ConfigurationChangeOIDType_Object((1,3,6,1,4,1,164,6,2,75,1,1,1,3),_ConfigurationChangeOIDType_Type())
-configurationChangeOIDType.setMaxAccess(_E)
-if mibBuilder.loadTexts:configurationChangeOIDType.setStatus(_A)
-_ConfigurationChangeId_Type=Unsigned32
-_ConfigurationChangeId_Object=MibScalar
-configurationChangeId=_ConfigurationChangeId_Object((1,3,6,1,4,1,164,6,2,75,1,2),_ConfigurationChangeId_Type())
-configurationChangeId.setMaxAccess(_E)
-if mibBuilder.loadTexts:configurationChangeId.setStatus(_A)
-class _ConfigurationChangeTrapsEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3)));namedValues=NamedValues(*(('off',2),('on',3)))
-_ConfigurationChangeTrapsEnable_Type.__name__=_C
-_ConfigurationChangeTrapsEnable_Object=MibScalar
-configurationChangeTrapsEnable=_ConfigurationChangeTrapsEnable_Object((1,3,6,1,4,1,164,6,2,75,1,4),_ConfigurationChangeTrapsEnable_Type())
-configurationChangeTrapsEnable.setMaxAccess(_L)
-if mibBuilder.loadTexts:configurationChangeTrapsEnable.setStatus(_A)
-class _ConfigurationChangeEnd_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('start',1),('end',2),('startAndEnd',3),('continue',4)))
-_ConfigurationChangeEnd_Type.__name__=_C
-_ConfigurationChangeEnd_Object=MibScalar
-configurationChangeEnd=_ConfigurationChangeEnd_Object((1,3,6,1,4,1,164,6,2,75,1,5),_ConfigurationChangeEnd_Type())
-configurationChangeEnd.setMaxAccess(_D)
-if mibBuilder.loadTexts:configurationChangeEnd.setStatus(_A)
-_ConfigChangeNotificationTable_Object=MibTable
-configChangeNotificationTable=_ConfigChangeNotificationTable_Object((1,3,6,1,4,1,164,6,2,75,1,6))
-if mibBuilder.loadTexts:configChangeNotificationTable.setStatus(_A)
-_ConfigChangeNotificationEntry_Object=MibTableRow
-configChangeNotificationEntry=_ConfigChangeNotificationEntry_Object((1,3,6,1,4,1,164,6,2,75,1,6,1))
-configChangeNotificationEntry.setIndexNames((0,_B,_M))
-if mibBuilder.loadTexts:configChangeNotificationEntry.setStatus(_A)
-_ConfigChangeNotificationFamilyOid_Type=ObjectIdentifier
-_ConfigChangeNotificationFamilyOid_Object=MibTableColumn
-configChangeNotificationFamilyOid=_ConfigChangeNotificationFamilyOid_Object((1,3,6,1,4,1,164,6,2,75,1,6,1,1),_ConfigChangeNotificationFamilyOid_Type())
-configChangeNotificationFamilyOid.setMaxAccess(_K)
-if mibBuilder.loadTexts:configChangeNotificationFamilyOid.setStatus(_A)
-_ConfigChangeNotificationAdd_Type=ObjectIdentifier
-_ConfigChangeNotificationAdd_Object=MibTableColumn
-configChangeNotificationAdd=_ConfigChangeNotificationAdd_Object((1,3,6,1,4,1,164,6,2,75,1,6,1,2),_ConfigChangeNotificationAdd_Type())
-configChangeNotificationAdd.setMaxAccess(_D)
-if mibBuilder.loadTexts:configChangeNotificationAdd.setStatus(_A)
-_ConfigChangeNotificationChange_Type=ObjectIdentifier
-_ConfigChangeNotificationChange_Object=MibTableColumn
-configChangeNotificationChange=_ConfigChangeNotificationChange_Object((1,3,6,1,4,1,164,6,2,75,1,6,1,3),_ConfigChangeNotificationChange_Type())
-configChangeNotificationChange.setMaxAccess(_D)
-if mibBuilder.loadTexts:configChangeNotificationChange.setStatus(_A)
-_ConfigChangeNotificationRemove_Type=ObjectIdentifier
-_ConfigChangeNotificationRemove_Object=MibTableColumn
-configChangeNotificationRemove=_ConfigChangeNotificationRemove_Object((1,3,6,1,4,1,164,6,2,75,1,6,1,4),_ConfigChangeNotificationRemove_Type())
-configChangeNotificationRemove.setMaxAccess(_D)
-if mibBuilder.loadTexts:configChangeNotificationRemove.setStatus(_A)
-class _ConfigChangeTransactionKey_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_ConfigChangeTransactionKey_Type.__name__=_G
-_ConfigChangeTransactionKey_Object=MibScalar
-configChangeTransactionKey=_ConfigChangeTransactionKey_Object((1,3,6,1,4,1,164,6,2,75,1,7),_ConfigChangeTransactionKey_Type())
-configChangeTransactionKey.setMaxAccess(_L)
-if mibBuilder.loadTexts:configChangeTransactionKey.setStatus(_A)
-systemConfigurationChange=NotificationType((1,3,6,1,4,1,164,6,1,0,79))
-systemConfigurationChange.setObjects(*((_B,_F),(_B,_N)))
-if mibBuilder.loadTexts:systemConfigurationChange.setStatus(_A)
-systemConfigChangeEnableTraps=NotificationType((1,3,6,1,4,1,164,6,1,0,80))
-systemConfigChangeEnableTraps.setObjects(*((_H,_I),(_B,_F),(_B,_O)))
-if mibBuilder.loadTexts:systemConfigChangeEnableTraps.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'systemConfigurationChange':systemConfigurationChange,'systemConfigChangeEnableTraps':systemConfigChangeEnableTraps,'agnConfigChange':agnConfigChange,'configChange':configChange,'configurationChangeTable':configurationChangeTable,'configurationChangeEntry':configurationChangeEntry,_J:configurationChangeFamilyOid,'configurationChangeLastChangeId':configurationChangeLastChangeId,'configurationChangeOIDType':configurationChangeOIDType,_F:configurationChangeId,_O:configurationChangeTrapsEnable,'configurationChangeEnd':configurationChangeEnd,'configChangeNotificationTable':configChangeNotificationTable,'configChangeNotificationEntry':configChangeNotificationEntry,_M:configChangeNotificationFamilyOid,'configChangeNotificationAdd':configChangeNotificationAdd,'configChangeNotificationChange':configChangeNotificationChange,'configChangeNotificationRemove':configChangeNotificationRemove,_N:configChangeTransactionKey})
+#
+# PySNMP MIB module RAD-ConfigChange-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rad/RAD-ConfigChange-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:42:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+systemsEvents, = mibBuilder.importSymbols("RAD-GEN-MIB", "systemsEvents")
+agnt, = mibBuilder.importSymbols("RAD-SMI-MIB", "agnt")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+agnConfigChange = ModuleIdentity((1, 3, 6, 1, 4, 1, 164, 6, 2, 75))
+if mibBuilder.loadTexts: agnConfigChange.setLastUpdated('201502191800Z')
+if mibBuilder.loadTexts: agnConfigChange.setOrganization('RAD Data Communications Ltd.')
+configChange = MibIdentifier((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1))
+configurationChangeTable = MibTable((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1, 1), )
+if mibBuilder.loadTexts: configurationChangeTable.setStatus('current')
+configurationChangeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1, 1, 1), ).setIndexNames((0, "RAD-ConfigChange-MIB", "configurationChangeFamilyOid"))
+if mibBuilder.loadTexts: configurationChangeEntry.setStatus('current')
+configurationChangeFamilyOid = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1, 1, 1, 1), ObjectIdentifier())
+if mibBuilder.loadTexts: configurationChangeFamilyOid.setStatus('current')
+configurationChangeLastChangeId = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: configurationChangeLastChangeId.setStatus('current')
+configurationChangeOIDType = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("tableOID", 2), ("scalarOID", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: configurationChangeOIDType.setStatus('current')
+configurationChangeId = MibScalar((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: configurationChangeId.setStatus('current')
+configurationChangeTrapsEnable = MibScalar((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("off", 2), ("on", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configurationChangeTrapsEnable.setStatus('current')
+configurationChangeEnd = MibScalar((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("start", 1), ("end", 2), ("startAndEnd", 3), ("continue", 4)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: configurationChangeEnd.setStatus('current')
+configChangeNotificationTable = MibTable((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1, 6), )
+if mibBuilder.loadTexts: configChangeNotificationTable.setStatus('current')
+configChangeNotificationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1, 6, 1), ).setIndexNames((0, "RAD-ConfigChange-MIB", "configChangeNotificationFamilyOid"))
+if mibBuilder.loadTexts: configChangeNotificationEntry.setStatus('current')
+configChangeNotificationFamilyOid = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1, 6, 1, 1), ObjectIdentifier())
+if mibBuilder.loadTexts: configChangeNotificationFamilyOid.setStatus('current')
+configChangeNotificationAdd = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1, 6, 1, 2), ObjectIdentifier()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: configChangeNotificationAdd.setStatus('current')
+configChangeNotificationChange = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1, 6, 1, 3), ObjectIdentifier()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: configChangeNotificationChange.setStatus('current')
+configChangeNotificationRemove = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1, 6, 1, 4), ObjectIdentifier()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: configChangeNotificationRemove.setStatus('current')
+configChangeTransactionKey = MibScalar((1, 3, 6, 1, 4, 1, 164, 6, 2, 75, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: configChangeTransactionKey.setStatus('current')
+systemConfigurationChange = NotificationType((1, 3, 6, 1, 4, 1, 164, 6, 1, 0, 79)).setObjects(("RAD-ConfigChange-MIB", "configurationChangeId"), ("RAD-ConfigChange-MIB", "configChangeTransactionKey"))
+if mibBuilder.loadTexts: systemConfigurationChange.setStatus('current')
+systemConfigChangeEnableTraps = NotificationType((1, 3, 6, 1, 4, 1, 164, 6, 1, 0, 80)).setObjects(("SNMPv2-MIB", "sysName"), ("RAD-ConfigChange-MIB", "configurationChangeId"), ("RAD-ConfigChange-MIB", "configurationChangeTrapsEnable"))
+if mibBuilder.loadTexts: systemConfigChangeEnableTraps.setStatus('current')
+mibBuilder.exportSymbols("RAD-ConfigChange-MIB", configChangeNotificationChange=configChangeNotificationChange, configurationChangeLastChangeId=configurationChangeLastChangeId, configChange=configChange, configChangeNotificationFamilyOid=configChangeNotificationFamilyOid, systemConfigChangeEnableTraps=systemConfigChangeEnableTraps, agnConfigChange=agnConfigChange, configChangeNotificationRemove=configChangeNotificationRemove, configurationChangeOIDType=configurationChangeOIDType, configChangeNotificationAdd=configChangeNotificationAdd, configChangeNotificationEntry=configChangeNotificationEntry, configurationChangeEnd=configurationChangeEnd, PYSNMP_MODULE_ID=agnConfigChange, configurationChangeFamilyOid=configurationChangeFamilyOid, configChangeTransactionKey=configChangeTransactionKey, configurationChangeTable=configurationChangeTable, configChangeNotificationTable=configChangeNotificationTable, configurationChangeEntry=configurationChangeEntry, systemConfigurationChange=systemConfigurationChange, configurationChangeTrapsEnable=configurationChangeTrapsEnable, configurationChangeId=configurationChangeId)

@@ -1,162 +1,71 @@
-_L='hpnsaHS2SlotIndex'
-_K='hpnsaHS2SlotCageIndex'
-_J='present'
-_I='hpnsaHS2CageIndex'
-_H='OctetString'
-_G='read-write'
-_F='attached'
-_E='not-attached'
-_D='HPHOTSWAP2SUBSYSTEM-MIB'
-_C='Integer32'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_H,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Hp_ObjectIdentity=ObjectIdentity
-hp=_Hp_ObjectIdentity((1,3,6,1,4,1,11))
-_Nm_ObjectIdentity=ObjectIdentity
-nm=_Nm_ObjectIdentity((1,3,6,1,4,1,11,2))
-_Hpnsa_ObjectIdentity=ObjectIdentity
-hpnsa=_Hpnsa_ObjectIdentity((1,3,6,1,4,1,11,2,23))
-_HpnsaHotswap2_ObjectIdentity=ObjectIdentity
-hpnsaHotswap2=_HpnsaHotswap2_ObjectIdentity((1,3,6,1,4,1,11,2,23,27))
-_HpnsaHS2MibRev_ObjectIdentity=ObjectIdentity
-hpnsaHS2MibRev=_HpnsaHS2MibRev_ObjectIdentity((1,3,6,1,4,1,11,2,23,27,1))
-_HpnsaHS2MibRevMajor_Type=Integer32
-_HpnsaHS2MibRevMajor_Object=MibScalar
-hpnsaHS2MibRevMajor=_HpnsaHS2MibRevMajor_Object((1,3,6,1,4,1,11,2,23,27,1,1),_HpnsaHS2MibRevMajor_Type())
-hpnsaHS2MibRevMajor.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2MibRevMajor.setStatus(_A)
-_HpnsaHS2MibRevMinor_Type=Integer32
-_HpnsaHS2MibRevMinor_Object=MibScalar
-hpnsaHS2MibRevMinor=_HpnsaHS2MibRevMinor_Object((1,3,6,1,4,1,11,2,23,27,1,2),_HpnsaHS2MibRevMinor_Type())
-hpnsaHS2MibRevMinor.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2MibRevMinor.setStatus(_A)
-_HpnsaHS2Cage_ObjectIdentity=ObjectIdentity
-hpnsaHS2Cage=_HpnsaHS2Cage_ObjectIdentity((1,3,6,1,4,1,11,2,23,27,2))
-_HpnsaHS2CageTable_Object=MibTable
-hpnsaHS2CageTable=_HpnsaHS2CageTable_Object((1,3,6,1,4,1,11,2,23,27,2,1))
-if mibBuilder.loadTexts:hpnsaHS2CageTable.setStatus(_A)
-_HpnsaHS2CageEntry_Object=MibTableRow
-hpnsaHS2CageEntry=_HpnsaHS2CageEntry_Object((1,3,6,1,4,1,11,2,23,27,2,1,1))
-hpnsaHS2CageEntry.setIndexNames((0,_D,_I))
-if mibBuilder.loadTexts:hpnsaHS2CageEntry.setStatus(_A)
-_HpnsaHS2CageIndex_Type=Integer32
-_HpnsaHS2CageIndex_Object=MibTableColumn
-hpnsaHS2CageIndex=_HpnsaHS2CageIndex_Object((1,3,6,1,4,1,11,2,23,27,2,1,1,1),_HpnsaHS2CageIndex_Type())
-hpnsaHS2CageIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2CageIndex.setStatus(_A)
-class _HpnsaHS2Cage12VPower_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('absent',1),(_J,2)))
-_HpnsaHS2Cage12VPower_Type.__name__=_C
-_HpnsaHS2Cage12VPower_Object=MibTableColumn
-hpnsaHS2Cage12VPower=_HpnsaHS2Cage12VPower_Object((1,3,6,1,4,1,11,2,23,27,2,1,1,2),_HpnsaHS2Cage12VPower_Type())
-hpnsaHS2Cage12VPower.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2Cage12VPower.setStatus(_A)
-class _HpnsaHS2CageTerminator1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_HpnsaHS2CageTerminator1_Type.__name__=_C
-_HpnsaHS2CageTerminator1_Object=MibTableColumn
-hpnsaHS2CageTerminator1=_HpnsaHS2CageTerminator1_Object((1,3,6,1,4,1,11,2,23,27,2,1,1,3),_HpnsaHS2CageTerminator1_Type())
-hpnsaHS2CageTerminator1.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2CageTerminator1.setStatus(_A)
-class _HpnsaHS2CageTerminator2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_HpnsaHS2CageTerminator2_Type.__name__=_C
-_HpnsaHS2CageTerminator2_Object=MibTableColumn
-hpnsaHS2CageTerminator2=_HpnsaHS2CageTerminator2_Object((1,3,6,1,4,1,11,2,23,27,2,1,1,4),_HpnsaHS2CageTerminator2_Type())
-hpnsaHS2CageTerminator2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2CageTerminator2.setStatus(_A)
-class _HpnsaHS2CageSCSICable1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_HpnsaHS2CageSCSICable1_Type.__name__=_C
-_HpnsaHS2CageSCSICable1_Object=MibTableColumn
-hpnsaHS2CageSCSICable1=_HpnsaHS2CageSCSICable1_Object((1,3,6,1,4,1,11,2,23,27,2,1,1,5),_HpnsaHS2CageSCSICable1_Type())
-hpnsaHS2CageSCSICable1.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2CageSCSICable1.setStatus(_A)
-class _HpnsaHS2CageSCSICable2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_HpnsaHS2CageSCSICable2_Type.__name__=_C
-_HpnsaHS2CageSCSICable2_Object=MibTableColumn
-hpnsaHS2CageSCSICable2=_HpnsaHS2CageSCSICable2_Object((1,3,6,1,4,1,11,2,23,27,2,1,1,6),_HpnsaHS2CageSCSICable2_Type())
-hpnsaHS2CageSCSICable2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2CageSCSICable2.setStatus(_A)
-_HpnsaHS2CageBaseSCSIAddress_Type=Integer32
-_HpnsaHS2CageBaseSCSIAddress_Object=MibTableColumn
-hpnsaHS2CageBaseSCSIAddress=_HpnsaHS2CageBaseSCSIAddress_Object((1,3,6,1,4,1,11,2,23,27,2,1,1,7),_HpnsaHS2CageBaseSCSIAddress_Type())
-hpnsaHS2CageBaseSCSIAddress.setMaxAccess(_G)
-if mibBuilder.loadTexts:hpnsaHS2CageBaseSCSIAddress.setStatus(_A)
-_HpnsaHS2CageTemperature_Type=Integer32
-_HpnsaHS2CageTemperature_Object=MibTableColumn
-hpnsaHS2CageTemperature=_HpnsaHS2CageTemperature_Object((1,3,6,1,4,1,11,2,23,27,2,1,1,8),_HpnsaHS2CageTemperature_Type())
-hpnsaHS2CageTemperature.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2CageTemperature.setStatus(_A)
-_HpnsaHS2CageTemperatureWarningThreshold_Type=Integer32
-_HpnsaHS2CageTemperatureWarningThreshold_Object=MibTableColumn
-hpnsaHS2CageTemperatureWarningThreshold=_HpnsaHS2CageTemperatureWarningThreshold_Object((1,3,6,1,4,1,11,2,23,27,2,1,1,9),_HpnsaHS2CageTemperatureWarningThreshold_Type())
-hpnsaHS2CageTemperatureWarningThreshold.setMaxAccess(_G)
-if mibBuilder.loadTexts:hpnsaHS2CageTemperatureWarningThreshold.setStatus(_A)
-_HpnsaHS2CageTemperatureAlertThreshold_Type=Integer32
-_HpnsaHS2CageTemperatureAlertThreshold_Object=MibTableColumn
-hpnsaHS2CageTemperatureAlertThreshold=_HpnsaHS2CageTemperatureAlertThreshold_Object((1,3,6,1,4,1,11,2,23,27,2,1,1,10),_HpnsaHS2CageTemperatureAlertThreshold_Type())
-hpnsaHS2CageTemperatureAlertThreshold.setMaxAccess(_G)
-if mibBuilder.loadTexts:hpnsaHS2CageTemperatureAlertThreshold.setStatus(_A)
-class _HpnsaHS2CageManagementBoardFRU_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_HpnsaHS2CageManagementBoardFRU_Type.__name__=_H
-_HpnsaHS2CageManagementBoardFRU_Object=MibTableColumn
-hpnsaHS2CageManagementBoardFRU=_HpnsaHS2CageManagementBoardFRU_Object((1,3,6,1,4,1,11,2,23,27,2,1,1,11),_HpnsaHS2CageManagementBoardFRU_Type())
-hpnsaHS2CageManagementBoardFRU.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2CageManagementBoardFRU.setStatus(_A)
-class _HpnsaHS2CageInterconnectFRU_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_HpnsaHS2CageInterconnectFRU_Type.__name__=_H
-_HpnsaHS2CageInterconnectFRU_Object=MibTableColumn
-hpnsaHS2CageInterconnectFRU=_HpnsaHS2CageInterconnectFRU_Object((1,3,6,1,4,1,11,2,23,27,2,1,1,12),_HpnsaHS2CageInterconnectFRU_Type())
-hpnsaHS2CageInterconnectFRU.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2CageInterconnectFRU.setStatus(_A)
-_HpnsaHS2CageFirmwareMajorRev_Type=Integer32
-_HpnsaHS2CageFirmwareMajorRev_Object=MibTableColumn
-hpnsaHS2CageFirmwareMajorRev=_HpnsaHS2CageFirmwareMajorRev_Object((1,3,6,1,4,1,11,2,23,27,2,1,1,13),_HpnsaHS2CageFirmwareMajorRev_Type())
-hpnsaHS2CageFirmwareMajorRev.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2CageFirmwareMajorRev.setStatus(_A)
-_HpnsaHS2CageFirmwareMinorRev_Type=Integer32
-_HpnsaHS2CageFirmwareMinorRev_Object=MibTableColumn
-hpnsaHS2CageFirmwareMinorRev=_HpnsaHS2CageFirmwareMinorRev_Object((1,3,6,1,4,1,11,2,23,27,2,1,1,14),_HpnsaHS2CageFirmwareMinorRev_Type())
-hpnsaHS2CageFirmwareMinorRev.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2CageFirmwareMinorRev.setStatus(_A)
-_HpnsaHS2Slot_ObjectIdentity=ObjectIdentity
-hpnsaHS2Slot=_HpnsaHS2Slot_ObjectIdentity((1,3,6,1,4,1,11,2,23,27,3))
-_HpnsaHS2SlotTable_Object=MibTable
-hpnsaHS2SlotTable=_HpnsaHS2SlotTable_Object((1,3,6,1,4,1,11,2,23,27,3,1))
-if mibBuilder.loadTexts:hpnsaHS2SlotTable.setStatus(_A)
-_HpnsaHS2SlotEntry_Object=MibTableRow
-hpnsaHS2SlotEntry=_HpnsaHS2SlotEntry_Object((1,3,6,1,4,1,11,2,23,27,3,1,1))
-hpnsaHS2SlotEntry.setIndexNames((0,_D,_K),(0,_D,_L))
-if mibBuilder.loadTexts:hpnsaHS2SlotEntry.setStatus(_A)
-_HpnsaHS2SlotCageIndex_Type=Integer32
-_HpnsaHS2SlotCageIndex_Object=MibTableColumn
-hpnsaHS2SlotCageIndex=_HpnsaHS2SlotCageIndex_Object((1,3,6,1,4,1,11,2,23,27,3,1,1,1),_HpnsaHS2SlotCageIndex_Type())
-hpnsaHS2SlotCageIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2SlotCageIndex.setStatus(_A)
-_HpnsaHS2SlotIndex_Type=Integer32
-_HpnsaHS2SlotIndex_Object=MibTableColumn
-hpnsaHS2SlotIndex=_HpnsaHS2SlotIndex_Object((1,3,6,1,4,1,11,2,23,27,3,1,1,2),_HpnsaHS2SlotIndex_Type())
-hpnsaHS2SlotIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2SlotIndex.setStatus(_A)
-class _HpnsaHS2DrivePresent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('not-present',1),(_J,2)))
-_HpnsaHS2DrivePresent_Type.__name__=_C
-_HpnsaHS2DrivePresent_Object=MibTableColumn
-hpnsaHS2DrivePresent=_HpnsaHS2DrivePresent_Object((1,3,6,1,4,1,11,2,23,27,3,1,1,3),_HpnsaHS2DrivePresent_Type())
-hpnsaHS2DrivePresent.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2DrivePresent.setStatus(_A)
-class _HpnsaHS2DriveSCSIBusType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('se',1),('lvd',2),('hvd',3),('none',4)))
-_HpnsaHS2DriveSCSIBusType_Type.__name__=_C
-_HpnsaHS2DriveSCSIBusType_Object=MibTableColumn
-hpnsaHS2DriveSCSIBusType=_HpnsaHS2DriveSCSIBusType_Object((1,3,6,1,4,1,11,2,23,27,3,1,1,4),_HpnsaHS2DriveSCSIBusType_Type())
-hpnsaHS2DriveSCSIBusType.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnsaHS2DriveSCSIBusType.setStatus(_A)
-_HpnsaHS2DriveIdentify_Type=Integer32
-_HpnsaHS2DriveIdentify_Object=MibTableColumn
-hpnsaHS2DriveIdentify=_HpnsaHS2DriveIdentify_Object((1,3,6,1,4,1,11,2,23,27,3,1,1,5),_HpnsaHS2DriveIdentify_Type())
-hpnsaHS2DriveIdentify.setMaxAccess(_G)
-if mibBuilder.loadTexts:hpnsaHS2DriveIdentify.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'hp':hp,'nm':nm,'hpnsa':hpnsa,'hpnsaHotswap2':hpnsaHotswap2,'hpnsaHS2MibRev':hpnsaHS2MibRev,'hpnsaHS2MibRevMajor':hpnsaHS2MibRevMajor,'hpnsaHS2MibRevMinor':hpnsaHS2MibRevMinor,'hpnsaHS2Cage':hpnsaHS2Cage,'hpnsaHS2CageTable':hpnsaHS2CageTable,'hpnsaHS2CageEntry':hpnsaHS2CageEntry,_I:hpnsaHS2CageIndex,'hpnsaHS2Cage12VPower':hpnsaHS2Cage12VPower,'hpnsaHS2CageTerminator1':hpnsaHS2CageTerminator1,'hpnsaHS2CageTerminator2':hpnsaHS2CageTerminator2,'hpnsaHS2CageSCSICable1':hpnsaHS2CageSCSICable1,'hpnsaHS2CageSCSICable2':hpnsaHS2CageSCSICable2,'hpnsaHS2CageBaseSCSIAddress':hpnsaHS2CageBaseSCSIAddress,'hpnsaHS2CageTemperature':hpnsaHS2CageTemperature,'hpnsaHS2CageTemperatureWarningThreshold':hpnsaHS2CageTemperatureWarningThreshold,'hpnsaHS2CageTemperatureAlertThreshold':hpnsaHS2CageTemperatureAlertThreshold,'hpnsaHS2CageManagementBoardFRU':hpnsaHS2CageManagementBoardFRU,'hpnsaHS2CageInterconnectFRU':hpnsaHS2CageInterconnectFRU,'hpnsaHS2CageFirmwareMajorRev':hpnsaHS2CageFirmwareMajorRev,'hpnsaHS2CageFirmwareMinorRev':hpnsaHS2CageFirmwareMinorRev,'hpnsaHS2Slot':hpnsaHS2Slot,'hpnsaHS2SlotTable':hpnsaHS2SlotTable,'hpnsaHS2SlotEntry':hpnsaHS2SlotEntry,_K:hpnsaHS2SlotCageIndex,_L:hpnsaHS2SlotIndex,'hpnsaHS2DrivePresent':hpnsaHS2DrivePresent,'hpnsaHS2DriveSCSIBusType':hpnsaHS2DriveSCSIBusType,'hpnsaHS2DriveIdentify':hpnsaHS2DriveIdentify})
+#
+# PySNMP MIB module HPHOTSWAP2SUBSYSTEM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPHOTSWAP2SUBSYSTEM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hp = MibIdentifier((1, 3, 6, 1, 4, 1, 11))
+nm = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2))
+hpnsa = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 23))
+hpnsaHotswap2 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 23, 27))
+hpnsaHS2MibRev = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 1))
+hpnsaHS2Cage = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2))
+hpnsaHS2Slot = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 3))
+hpnsaHS2MibRevMajor = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2MibRevMajor.setStatus('mandatory')
+hpnsaHS2MibRevMinor = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2MibRevMinor.setStatus('mandatory')
+hpnsaHS2CageTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1), )
+if mibBuilder.loadTexts: hpnsaHS2CageTable.setStatus('mandatory')
+hpnsaHS2CageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1, 1), ).setIndexNames((0, "HPHOTSWAP2SUBSYSTEM-MIB", "hpnsaHS2CageIndex"))
+if mibBuilder.loadTexts: hpnsaHS2CageEntry.setStatus('mandatory')
+hpnsaHS2CageIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2CageIndex.setStatus('mandatory')
+hpnsaHS2Cage12VPower = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("absent", 1), ("present", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2Cage12VPower.setStatus('mandatory')
+hpnsaHS2CageTerminator1 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("not-attached", 1), ("attached", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2CageTerminator1.setStatus('mandatory')
+hpnsaHS2CageTerminator2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("not-attached", 1), ("attached", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2CageTerminator2.setStatus('mandatory')
+hpnsaHS2CageSCSICable1 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("not-attached", 1), ("attached", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2CageSCSICable1.setStatus('mandatory')
+hpnsaHS2CageSCSICable2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("not-attached", 1), ("attached", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2CageSCSICable2.setStatus('mandatory')
+hpnsaHS2CageBaseSCSIAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1, 1, 7), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnsaHS2CageBaseSCSIAddress.setStatus('mandatory')
+hpnsaHS2CageTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2CageTemperature.setStatus('mandatory')
+hpnsaHS2CageTemperatureWarningThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1, 1, 9), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnsaHS2CageTemperatureWarningThreshold.setStatus('mandatory')
+hpnsaHS2CageTemperatureAlertThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1, 1, 10), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnsaHS2CageTemperatureAlertThreshold.setStatus('mandatory')
+hpnsaHS2CageManagementBoardFRU = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1, 1, 11), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2CageManagementBoardFRU.setStatus('mandatory')
+hpnsaHS2CageInterconnectFRU = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2CageInterconnectFRU.setStatus('mandatory')
+hpnsaHS2CageFirmwareMajorRev = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2CageFirmwareMajorRev.setStatus('mandatory')
+hpnsaHS2CageFirmwareMinorRev = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 2, 1, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2CageFirmwareMinorRev.setStatus('mandatory')
+hpnsaHS2SlotTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 3, 1), )
+if mibBuilder.loadTexts: hpnsaHS2SlotTable.setStatus('mandatory')
+hpnsaHS2SlotEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 3, 1, 1), ).setIndexNames((0, "HPHOTSWAP2SUBSYSTEM-MIB", "hpnsaHS2SlotCageIndex"), (0, "HPHOTSWAP2SUBSYSTEM-MIB", "hpnsaHS2SlotIndex"))
+if mibBuilder.loadTexts: hpnsaHS2SlotEntry.setStatus('mandatory')
+hpnsaHS2SlotCageIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 3, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2SlotCageIndex.setStatus('mandatory')
+hpnsaHS2SlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 3, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2SlotIndex.setStatus('mandatory')
+hpnsaHS2DrivePresent = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("not-present", 1), ("present", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2DrivePresent.setStatus('mandatory')
+hpnsaHS2DriveSCSIBusType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("se", 1), ("lvd", 2), ("hvd", 3), ("none", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnsaHS2DriveSCSIBusType.setStatus('mandatory')
+hpnsaHS2DriveIdentify = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 23, 27, 3, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hpnsaHS2DriveIdentify.setStatus('mandatory')
+mibBuilder.exportSymbols("HPHOTSWAP2SUBSYSTEM-MIB", hpnsaHS2CageTable=hpnsaHS2CageTable, hpnsaHS2CageTemperatureWarningThreshold=hpnsaHS2CageTemperatureWarningThreshold, hpnsaHS2Slot=hpnsaHS2Slot, hpnsaHS2CageBaseSCSIAddress=hpnsaHS2CageBaseSCSIAddress, hpnsaHS2CageFirmwareMajorRev=hpnsaHS2CageFirmwareMajorRev, hp=hp, hpnsaHS2CageTerminator1=hpnsaHS2CageTerminator1, nm=nm, hpnsaHotswap2=hpnsaHotswap2, hpnsa=hpnsa, hpnsaHS2MibRevMajor=hpnsaHS2MibRevMajor, hpnsaHS2DriveSCSIBusType=hpnsaHS2DriveSCSIBusType, hpnsaHS2MibRev=hpnsaHS2MibRev, hpnsaHS2SlotTable=hpnsaHS2SlotTable, hpnsaHS2CageTerminator2=hpnsaHS2CageTerminator2, hpnsaHS2CageEntry=hpnsaHS2CageEntry, hpnsaHS2CageSCSICable1=hpnsaHS2CageSCSICable1, hpnsaHS2CageTemperatureAlertThreshold=hpnsaHS2CageTemperatureAlertThreshold, hpnsaHS2SlotIndex=hpnsaHS2SlotIndex, hpnsaHS2DriveIdentify=hpnsaHS2DriveIdentify, hpnsaHS2SlotCageIndex=hpnsaHS2SlotCageIndex, hpnsaHS2SlotEntry=hpnsaHS2SlotEntry, hpnsaHS2CageManagementBoardFRU=hpnsaHS2CageManagementBoardFRU, hpnsaHS2Cage12VPower=hpnsaHS2Cage12VPower, hpnsaHS2CageFirmwareMinorRev=hpnsaHS2CageFirmwareMinorRev, hpnsaHS2CageTemperature=hpnsaHS2CageTemperature, hpnsaHS2CageInterconnectFRU=hpnsaHS2CageInterconnectFRU, hpnsaHS2CageSCSICable2=hpnsaHS2CageSCSICable2, hpnsaHS2MibRevMinor=hpnsaHS2MibRevMinor, hpnsaHS2Cage=hpnsaHS2Cage, hpnsaHS2CageIndex=hpnsaHS2CageIndex, hpnsaHS2DrivePresent=hpnsaHS2DrivePresent)

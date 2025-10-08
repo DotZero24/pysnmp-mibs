@@ -1,84 +1,44 @@
-_I='read-only'
-_H='enable'
-_G='disable'
-_F='ifIndex'
-_E='IF-MIB'
-_D='OctetString'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tplinkMgmt,=mibBuilder.importSymbols('TPLINK-MIB','tplinkMgmt')
-tplinkGvrpMIB=ModuleIdentity((1,3,6,1,4,1,11863,6,20))
-if mibBuilder.loadTexts:tplinkGvrpMIB.setRevisions(('2012-12-06 09:30',))
-_TplinkGvrpMIBObjects_ObjectIdentity=ObjectIdentity
-tplinkGvrpMIBObjects=_TplinkGvrpMIBObjects_ObjectIdentity((1,3,6,1,4,1,11863,6,20,1))
-_TpGvrpGlobalConfig_ObjectIdentity=ObjectIdentity
-tpGvrpGlobalConfig=_TpGvrpGlobalConfig_ObjectIdentity((1,3,6,1,4,1,11863,6,20,1,1))
-class _TpGvrpGlobalEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_H,1)))
-_TpGvrpGlobalEnable_Type.__name__=_B
-_TpGvrpGlobalEnable_Object=MibScalar
-tpGvrpGlobalEnable=_TpGvrpGlobalEnable_Object((1,3,6,1,4,1,11863,6,20,1,1,1),_TpGvrpGlobalEnable_Type())
-tpGvrpGlobalEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:tpGvrpGlobalEnable.setStatus(_A)
-_TpGvrpPortConfig_ObjectIdentity=ObjectIdentity
-tpGvrpPortConfig=_TpGvrpPortConfig_ObjectIdentity((1,3,6,1,4,1,11863,6,20,1,2))
-_TpGvrpPortTable_Object=MibTable
-tpGvrpPortTable=_TpGvrpPortTable_Object((1,3,6,1,4,1,11863,6,20,1,2,1))
-if mibBuilder.loadTexts:tpGvrpPortTable.setStatus(_A)
-_TpGvrpPortEntry_Object=MibTableRow
-tpGvrpPortEntry=_TpGvrpPortEntry_Object((1,3,6,1,4,1,11863,6,20,1,2,1,1))
-tpGvrpPortEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:tpGvrpPortEntry.setStatus(_A)
-class _TpGvrpPortNumber_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TpGvrpPortNumber_Type.__name__=_D
-_TpGvrpPortNumber_Object=MibTableColumn
-tpGvrpPortNumber=_TpGvrpPortNumber_Object((1,3,6,1,4,1,11863,6,20,1,2,1,1,1),_TpGvrpPortNumber_Type())
-tpGvrpPortNumber.setMaxAccess(_I)
-if mibBuilder.loadTexts:tpGvrpPortNumber.setStatus(_A)
-class _TpGvrpPortEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_G,0),(_H,1)))
-_TpGvrpPortEnable_Type.__name__=_B
-_TpGvrpPortEnable_Object=MibTableColumn
-tpGvrpPortEnable=_TpGvrpPortEnable_Object((1,3,6,1,4,1,11863,6,20,1,2,1,1,2),_TpGvrpPortEnable_Type())
-tpGvrpPortEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:tpGvrpPortEnable.setStatus(_A)
-class _TpGvrpPortRegistration_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('normal',0),('fixed',1),('forbidden',2)))
-_TpGvrpPortRegistration_Type.__name__=_B
-_TpGvrpPortRegistration_Object=MibTableColumn
-tpGvrpPortRegistration=_TpGvrpPortRegistration_Object((1,3,6,1,4,1,11863,6,20,1,2,1,1,3),_TpGvrpPortRegistration_Type())
-tpGvrpPortRegistration.setMaxAccess(_C)
-if mibBuilder.loadTexts:tpGvrpPortRegistration.setStatus(_A)
-class _TpGvrpLeaveAllTimer_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1000,30000))
-_TpGvrpLeaveAllTimer_Type.__name__=_B
-_TpGvrpLeaveAllTimer_Object=MibTableColumn
-tpGvrpLeaveAllTimer=_TpGvrpLeaveAllTimer_Object((1,3,6,1,4,1,11863,6,20,1,2,1,1,4),_TpGvrpLeaveAllTimer_Type())
-tpGvrpLeaveAllTimer.setMaxAccess(_C)
-if mibBuilder.loadTexts:tpGvrpLeaveAllTimer.setStatus(_A)
-class _TpGvrpJoinTimer_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(20,1000))
-_TpGvrpJoinTimer_Type.__name__=_B
-_TpGvrpJoinTimer_Object=MibTableColumn
-tpGvrpJoinTimer=_TpGvrpJoinTimer_Object((1,3,6,1,4,1,11863,6,20,1,2,1,1,5),_TpGvrpJoinTimer_Type())
-tpGvrpJoinTimer.setMaxAccess(_C)
-if mibBuilder.loadTexts:tpGvrpJoinTimer.setStatus(_A)
-class _TpGvrpLeaveTimer_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,3000))
-_TpGvrpLeaveTimer_Type.__name__=_B
-_TpGvrpLeaveTimer_Object=MibTableColumn
-tpGvrpLeaveTimer=_TpGvrpLeaveTimer_Object((1,3,6,1,4,1,11863,6,20,1,2,1,1,6),_TpGvrpLeaveTimer_Type())
-tpGvrpLeaveTimer.setMaxAccess(_C)
-if mibBuilder.loadTexts:tpGvrpLeaveTimer.setStatus(_A)
-class _TpGvrpPortLag_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TpGvrpPortLag_Type.__name__=_D
-_TpGvrpPortLag_Object=MibTableColumn
-tpGvrpPortLag=_TpGvrpPortLag_Object((1,3,6,1,4,1,11863,6,20,1,2,1,1,7),_TpGvrpPortLag_Type())
-tpGvrpPortLag.setMaxAccess(_I)
-if mibBuilder.loadTexts:tpGvrpPortLag.setStatus(_A)
-_TplinkGvrpNotifications_ObjectIdentity=ObjectIdentity
-tplinkGvrpNotifications=_TplinkGvrpNotifications_ObjectIdentity((1,3,6,1,4,1,11863,6,20,2))
-mibBuilder.exportSymbols('TPLINK-GVRP-MIB',**{'tplinkGvrpMIB':tplinkGvrpMIB,'tplinkGvrpMIBObjects':tplinkGvrpMIBObjects,'tpGvrpGlobalConfig':tpGvrpGlobalConfig,'tpGvrpGlobalEnable':tpGvrpGlobalEnable,'tpGvrpPortConfig':tpGvrpPortConfig,'tpGvrpPortTable':tpGvrpPortTable,'tpGvrpPortEntry':tpGvrpPortEntry,'tpGvrpPortNumber':tpGvrpPortNumber,'tpGvrpPortEnable':tpGvrpPortEnable,'tpGvrpPortRegistration':tpGvrpPortRegistration,'tpGvrpLeaveAllTimer':tpGvrpLeaveAllTimer,'tpGvrpJoinTimer':tpGvrpJoinTimer,'tpGvrpLeaveTimer':tpGvrpLeaveTimer,'tpGvrpPortLag':tpGvrpPortLag,'tplinkGvrpNotifications':tplinkGvrpNotifications})
+#
+# PySNMP MIB module TPLINK-GVRP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-GVRP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
+tplinkGvrpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 20))
+tplinkGvrpMIB.setRevisions(('2012-12-06 09:30',))
+if mibBuilder.loadTexts: tplinkGvrpMIB.setLastUpdated('201212060930Z')
+if mibBuilder.loadTexts: tplinkGvrpMIB.setOrganization('TPLINK')
+tplinkGvrpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 20, 1))
+tpGvrpGlobalConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 20, 1, 1))
+tpGvrpGlobalEnable = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 20, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpGvrpGlobalEnable.setStatus('current')
+tpGvrpPortConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 20, 1, 2))
+tpGvrpPortTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 20, 1, 2, 1), )
+if mibBuilder.loadTexts: tpGvrpPortTable.setStatus('current')
+tpGvrpPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 20, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: tpGvrpPortEntry.setStatus('current')
+tpGvrpPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 20, 1, 2, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpGvrpPortNumber.setStatus('current')
+tpGvrpPortEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 20, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpGvrpPortEnable.setStatus('current')
+tpGvrpPortRegistration = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 20, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("normal", 0), ("fixed", 1), ("forbidden", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpGvrpPortRegistration.setStatus('current')
+tpGvrpLeaveAllTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 20, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1000, 30000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpGvrpLeaveAllTimer.setStatus('current')
+tpGvrpJoinTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 20, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(20, 1000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpGvrpJoinTimer.setStatus('current')
+tpGvrpLeaveTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 20, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 3000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpGvrpLeaveTimer.setStatus('current')
+tpGvrpPortLag = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 20, 1, 2, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpGvrpPortLag.setStatus('current')
+tplinkGvrpNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 20, 2))
+mibBuilder.exportSymbols("TPLINK-GVRP-MIB", tpGvrpLeaveAllTimer=tpGvrpLeaveAllTimer, tpGvrpPortEnable=tpGvrpPortEnable, tpGvrpPortRegistration=tpGvrpPortRegistration, tplinkGvrpMIB=tplinkGvrpMIB, tpGvrpGlobalEnable=tpGvrpGlobalEnable, tpGvrpLeaveTimer=tpGvrpLeaveTimer, PYSNMP_MODULE_ID=tplinkGvrpMIB, tpGvrpPortLag=tpGvrpPortLag, tplinkGvrpNotifications=tplinkGvrpNotifications, tpGvrpPortConfig=tpGvrpPortConfig, tpGvrpGlobalConfig=tpGvrpGlobalConfig, tpGvrpPortNumber=tpGvrpPortNumber, tpGvrpJoinTimer=tpGvrpJoinTimer, tpGvrpPortTable=tpGvrpPortTable, tplinkGvrpMIBObjects=tplinkGvrpMIBObjects, tpGvrpPortEntry=tpGvrpPortEntry)

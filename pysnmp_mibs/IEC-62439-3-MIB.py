@@ -1,436 +1,174 @@
-_AC='lreDefaultGrp'
-_AB='lreProxyNodeMacAddress'
-_AA='lreRemNodeType'
-_A9='lreTimeLastSeenB'
-_A8='lreTimeLastSeenA'
-_A7='lreNodesMacAddress'
-_A6='lreCntOwnRxB'
-_A5='lreCntOwnRxA'
-_A4='lreCntMultiC'
-_A3='lreCntMultiB'
-_A2='lreCntMultiA'
-_A1='lreCntDuplicateC'
-_A0='lreCntDuplicateB'
-_z='lreCntDuplicateA'
-_y='lreCntUniqueC'
-_x='lreCntUniqueB'
-_w='lreCntUniqueA'
-_v='lreCntProxyNodes'
-_u='lreCntNodes'
-_t='lreCntErrorsC'
-_s='lreCntErrorsB'
-_r='lreCntErrorsA'
-_q='lreCntRxC'
-_p='lreCntRxB'
-_o='lreCntRxA'
-_n='lreCntErrWrongLanC'
-_m='lreCntErrWrongLanB'
-_l='lreCntErrWrongLanA'
-_k='lreCntTxC'
-_j='lreCntTxB'
-_i='lreCntTxA'
-_h='lreDupListResideMaxTime'
-_g='lreProxyNodeTableClear'
-_f='lreNodesTableClear'
-_e='lreEvaluateSupervision'
-_d='lreRedBoxIdentity'
-_c='lreSwitchingEndNode'
-_b='lreHsrLREMode'
-_a='lreTransparentReception'
-_Z='lreDuplicateDiscard'
-_Y='lreLinkStatusB'
-_X='lreLinkStatusA'
-_W='lrePortAdminStateB'
-_V='lrePortAdminStateA'
-_U='lreMacAddress'
-_T='lreVersionName'
-_S='lreNodeName'
-_R='lreNodeType'
-_Q='lreRowStatus'
-_P='lreInterfaceCount'
-_O='lreManufacturerName'
-_N='lreProxyNodeIndex'
-_M='lreNodesIndex'
-_L='SecondFraction'
-_K='active'
-_J='notActive'
-_I='lreInterfaceConfigIndex'
-_H='OctetString'
-_G='lreInterfaceStatsIndex'
-_F='not-accessible'
-_E='read-write'
-_D='Integer32'
-_C='read-only'
-_B='IEC-62439-3-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_H,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-iec62439=ModuleIdentity((1,0,62439))
-if mibBuilder.loadTexts:iec62439.setRevisions(('2014-05-22 00:00','2012-02-17 00:00','2011-08-26 00:00','2008-11-10 00:00','2006-12-16 00:00'))
-class SecondFraction(TextualConvention,Integer32):status=_A;displayHint='d'
-_Mrp_ObjectIdentity=ObjectIdentity
-mrp=_Mrp_ObjectIdentity((1,0,62439,1))
-_Prp_ObjectIdentity=ObjectIdentity
-prp=_Prp_ObjectIdentity((1,0,62439,2))
-_LinkRedundancyEntityNotifications_ObjectIdentity=ObjectIdentity
-linkRedundancyEntityNotifications=_LinkRedundancyEntityNotifications_ObjectIdentity((1,0,62439,2,20))
-_LinkRedundancyEntityObjects_ObjectIdentity=ObjectIdentity
-linkRedundancyEntityObjects=_LinkRedundancyEntityObjects_ObjectIdentity((1,0,62439,2,21))
-_LreConfiguration_ObjectIdentity=ObjectIdentity
-lreConfiguration=_LreConfiguration_ObjectIdentity((1,0,62439,2,21,0))
-_LreConfigurationGeneralGroup_ObjectIdentity=ObjectIdentity
-lreConfigurationGeneralGroup=_LreConfigurationGeneralGroup_ObjectIdentity((1,0,62439,2,21,0,0))
-_LreManufacturerName_Type=DisplayString
-_LreManufacturerName_Object=MibScalar
-lreManufacturerName=_LreManufacturerName_Object((1,0,62439,2,21,0,0,1),_LreManufacturerName_Type())
-lreManufacturerName.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreManufacturerName.setStatus(_A)
-_LreInterfaceCount_Type=Integer32
-_LreInterfaceCount_Object=MibScalar
-lreInterfaceCount=_LreInterfaceCount_Object((1,0,62439,2,21,0,0,2),_LreInterfaceCount_Type())
-lreInterfaceCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreInterfaceCount.setStatus(_A)
-_LreConfigurationInterfaceGroup_ObjectIdentity=ObjectIdentity
-lreConfigurationInterfaceGroup=_LreConfigurationInterfaceGroup_ObjectIdentity((1,0,62439,2,21,0,1))
-_LreConfigurationInterfaces_ObjectIdentity=ObjectIdentity
-lreConfigurationInterfaces=_LreConfigurationInterfaces_ObjectIdentity((1,0,62439,2,21,0,1,0))
-_LreInterfaceConfigTable_Object=MibTable
-lreInterfaceConfigTable=_LreInterfaceConfigTable_Object((1,0,62439,2,21,0,1,0,1))
-if mibBuilder.loadTexts:lreInterfaceConfigTable.setStatus(_A)
-_LreInterfaceConfigEntry_Object=MibTableRow
-lreInterfaceConfigEntry=_LreInterfaceConfigEntry_Object((1,0,62439,2,21,0,1,0,1,1))
-lreInterfaceConfigEntry.setIndexNames((0,_B,_I))
-if mibBuilder.loadTexts:lreInterfaceConfigEntry.setStatus(_A)
-_LreInterfaceConfigIndex_Type=Unsigned32
-_LreInterfaceConfigIndex_Object=MibTableColumn
-lreInterfaceConfigIndex=_LreInterfaceConfigIndex_Object((1,0,62439,2,21,0,1,0,1,1,1),_LreInterfaceConfigIndex_Type())
-lreInterfaceConfigIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:lreInterfaceConfigIndex.setStatus(_A)
-_LreRowStatus_Type=RowStatus
-_LreRowStatus_Object=MibTableColumn
-lreRowStatus=_LreRowStatus_Object((1,0,62439,2,21,0,1,0,1,1,2),_LreRowStatus_Type())
-lreRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:lreRowStatus.setStatus(_A)
-class _LreNodeType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('prpmode1',1),('hsr',2)))
-_LreNodeType_Type.__name__=_D
-_LreNodeType_Object=MibTableColumn
-lreNodeType=_LreNodeType_Object((1,0,62439,2,21,0,1,0,1,1,3),_LreNodeType_Type())
-lreNodeType.setMaxAccess(_E)
-if mibBuilder.loadTexts:lreNodeType.setStatus(_A)
-_LreNodeName_Type=DisplayString
-_LreNodeName_Object=MibTableColumn
-lreNodeName=_LreNodeName_Object((1,0,62439,2,21,0,1,0,1,1,4),_LreNodeName_Type())
-lreNodeName.setMaxAccess(_E)
-if mibBuilder.loadTexts:lreNodeName.setStatus(_A)
-class _LreVersionName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_LreVersionName_Type.__name__=_H
-_LreVersionName_Object=MibTableColumn
-lreVersionName=_LreVersionName_Object((1,0,62439,2,21,0,1,0,1,1,5),_LreVersionName_Type())
-lreVersionName.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreVersionName.setStatus(_A)
-_LreMacAddress_Type=MacAddress
-_LreMacAddress_Object=MibTableColumn
-lreMacAddress=_LreMacAddress_Object((1,0,62439,2,21,0,1,0,1,1,6),_LreMacAddress_Type())
-lreMacAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:lreMacAddress.setStatus(_A)
-class _LrePortAdminStateA_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_J,1),(_K,2)))
-_LrePortAdminStateA_Type.__name__=_D
-_LrePortAdminStateA_Object=MibTableColumn
-lrePortAdminStateA=_LrePortAdminStateA_Object((1,0,62439,2,21,0,1,0,1,1,7),_LrePortAdminStateA_Type())
-lrePortAdminStateA.setMaxAccess(_E)
-if mibBuilder.loadTexts:lrePortAdminStateA.setStatus(_A)
-class _LrePortAdminStateB_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_J,1),(_K,2)))
-_LrePortAdminStateB_Type.__name__=_D
-_LrePortAdminStateB_Object=MibTableColumn
-lrePortAdminStateB=_LrePortAdminStateB_Object((1,0,62439,2,21,0,1,0,1,1,8),_LrePortAdminStateB_Type())
-lrePortAdminStateB.setMaxAccess(_E)
-if mibBuilder.loadTexts:lrePortAdminStateB.setStatus(_A)
-class _LreLinkStatusA_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_LreLinkStatusA_Type.__name__=_D
-_LreLinkStatusA_Object=MibTableColumn
-lreLinkStatusA=_LreLinkStatusA_Object((1,0,62439,2,21,0,1,0,1,1,9),_LreLinkStatusA_Type())
-lreLinkStatusA.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreLinkStatusA.setStatus(_A)
-class _LreLinkStatusB_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_LreLinkStatusB_Type.__name__=_D
-_LreLinkStatusB_Object=MibTableColumn
-lreLinkStatusB=_LreLinkStatusB_Object((1,0,62439,2,21,0,1,0,1,1,10),_LreLinkStatusB_Type())
-lreLinkStatusB.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreLinkStatusB.setStatus(_A)
-class _LreDuplicateDiscard_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('doNotDiscard',1),('discard',2)))
-_LreDuplicateDiscard_Type.__name__=_D
-_LreDuplicateDiscard_Object=MibTableColumn
-lreDuplicateDiscard=_LreDuplicateDiscard_Object((1,0,62439,2,21,0,1,0,1,1,11),_LreDuplicateDiscard_Type())
-lreDuplicateDiscard.setMaxAccess(_E)
-if mibBuilder.loadTexts:lreDuplicateDiscard.setStatus(_A)
-class _LreTransparentReception_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('removeRCT',1),('passRCT',2)))
-_LreTransparentReception_Type.__name__=_D
-_LreTransparentReception_Object=MibTableColumn
-lreTransparentReception=_LreTransparentReception_Object((1,0,62439,2,21,0,1,0,1,1,12),_LreTransparentReception_Type())
-lreTransparentReception.setMaxAccess(_E)
-if mibBuilder.loadTexts:lreTransparentReception.setStatus(_A)
-class _LreHsrLREMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('modeh',1),('moden',2),('modet',3),('modeu',4),('modem',5)))
-_LreHsrLREMode_Type.__name__=_D
-_LreHsrLREMode_Object=MibTableColumn
-lreHsrLREMode=_LreHsrLREMode_Object((1,0,62439,2,21,0,1,0,1,1,13),_LreHsrLREMode_Type())
-lreHsrLREMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:lreHsrLREMode.setStatus(_A)
-class _LreSwitchingEndNode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('nonbridgingnode',1),('bridgingunspecified',2),('prpnode',3),('hsrredboxsan',4),('hsrnode',5),('hsrredboxhsr',6),('hsrredboxprpa',7),('hsrredboxprpb',8)))
-_LreSwitchingEndNode_Type.__name__=_D
-_LreSwitchingEndNode_Object=MibTableColumn
-lreSwitchingEndNode=_LreSwitchingEndNode_Object((1,0,62439,2,21,0,1,0,1,1,14),_LreSwitchingEndNode_Type())
-lreSwitchingEndNode.setMaxAccess(_E)
-if mibBuilder.loadTexts:lreSwitchingEndNode.setStatus(_A)
-class _LreRedBoxIdentity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3,4,5,6,7,8,9,10,11,12,13,14,15)));namedValues=NamedValues(*(('id1a',2),('id1b',3),('id2a',4),('id2b',5),('id3a',6),('id3b',7),('id4a',8),('id4b',9),('id5a',10),('id5b',11),('id6a',12),('id6b',13),('id7a',14),('id7b',15)))
-_LreRedBoxIdentity_Type.__name__=_D
-_LreRedBoxIdentity_Object=MibTableColumn
-lreRedBoxIdentity=_LreRedBoxIdentity_Object((1,0,62439,2,21,0,1,0,1,1,15),_LreRedBoxIdentity_Type())
-lreRedBoxIdentity.setMaxAccess(_E)
-if mibBuilder.loadTexts:lreRedBoxIdentity.setStatus(_A)
-_LreEvaluateSupervision_Type=TruthValue
-_LreEvaluateSupervision_Object=MibTableColumn
-lreEvaluateSupervision=_LreEvaluateSupervision_Object((1,0,62439,2,21,0,1,0,1,1,16),_LreEvaluateSupervision_Type())
-lreEvaluateSupervision.setMaxAccess(_E)
-if mibBuilder.loadTexts:lreEvaluateSupervision.setStatus(_A)
-class _LreNodesTableClear_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('noOp',0),('clearNodeTable',1)))
-_LreNodesTableClear_Type.__name__=_D
-_LreNodesTableClear_Object=MibTableColumn
-lreNodesTableClear=_LreNodesTableClear_Object((1,0,62439,2,21,0,1,0,1,1,17),_LreNodesTableClear_Type())
-lreNodesTableClear.setMaxAccess(_E)
-if mibBuilder.loadTexts:lreNodesTableClear.setStatus(_A)
-class _LreProxyNodeTableClear_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('noOp',0),('clearProxyNodeTable',1)))
-_LreProxyNodeTableClear_Type.__name__=_D
-_LreProxyNodeTableClear_Object=MibTableColumn
-lreProxyNodeTableClear=_LreProxyNodeTableClear_Object((1,0,62439,2,21,0,1,0,1,1,18),_LreProxyNodeTableClear_Type())
-lreProxyNodeTableClear.setMaxAccess(_E)
-if mibBuilder.loadTexts:lreProxyNodeTableClear.setStatus(_A)
-class _LreDupListResideMaxTime_Type(SecondFraction):defaultValue=26214
-_LreDupListResideMaxTime_Type.__name__=_L
-_LreDupListResideMaxTime_Object=MibTableColumn
-lreDupListResideMaxTime=_LreDupListResideMaxTime_Object((1,0,62439,2,21,0,1,0,1,1,19),_LreDupListResideMaxTime_Type())
-lreDupListResideMaxTime.setMaxAccess(_E)
-if mibBuilder.loadTexts:lreDupListResideMaxTime.setStatus(_A)
-if mibBuilder.loadTexts:lreDupListResideMaxTime.setUnits('binaryFractionOfSecond')
-_LreStatistics_ObjectIdentity=ObjectIdentity
-lreStatistics=_LreStatistics_ObjectIdentity((1,0,62439,2,21,1))
-_LreStatisticsInterfaceGroup_ObjectIdentity=ObjectIdentity
-lreStatisticsInterfaceGroup=_LreStatisticsInterfaceGroup_ObjectIdentity((1,0,62439,2,21,1,1))
-_LreStatisticsInterfaces_ObjectIdentity=ObjectIdentity
-lreStatisticsInterfaces=_LreStatisticsInterfaces_ObjectIdentity((1,0,62439,2,21,1,1,0))
-_LreInterfaceStatsTable_Object=MibTable
-lreInterfaceStatsTable=_LreInterfaceStatsTable_Object((1,0,62439,2,21,1,1,0,1))
-if mibBuilder.loadTexts:lreInterfaceStatsTable.setStatus(_A)
-_LreInterfaceStatsEntry_Object=MibTableRow
-lreInterfaceStatsEntry=_LreInterfaceStatsEntry_Object((1,0,62439,2,21,1,1,0,1,1))
-lreInterfaceStatsEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:lreInterfaceStatsEntry.setStatus(_A)
-_LreInterfaceStatsIndex_Type=Unsigned32
-_LreInterfaceStatsIndex_Object=MibTableColumn
-lreInterfaceStatsIndex=_LreInterfaceStatsIndex_Object((1,0,62439,2,21,1,1,0,1,1,1),_LreInterfaceStatsIndex_Type())
-lreInterfaceStatsIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:lreInterfaceStatsIndex.setStatus(_A)
-_LreCntTxA_Type=Counter32
-_LreCntTxA_Object=MibTableColumn
-lreCntTxA=_LreCntTxA_Object((1,0,62439,2,21,1,1,0,1,1,2),_LreCntTxA_Type())
-lreCntTxA.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntTxA.setStatus(_A)
-_LreCntTxB_Type=Counter32
-_LreCntTxB_Object=MibTableColumn
-lreCntTxB=_LreCntTxB_Object((1,0,62439,2,21,1,1,0,1,1,3),_LreCntTxB_Type())
-lreCntTxB.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntTxB.setStatus(_A)
-_LreCntTxC_Type=Counter32
-_LreCntTxC_Object=MibTableColumn
-lreCntTxC=_LreCntTxC_Object((1,0,62439,2,21,1,1,0,1,1,4),_LreCntTxC_Type())
-lreCntTxC.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntTxC.setStatus(_A)
-_LreCntErrWrongLanA_Type=Counter32
-_LreCntErrWrongLanA_Object=MibTableColumn
-lreCntErrWrongLanA=_LreCntErrWrongLanA_Object((1,0,62439,2,21,1,1,0,1,1,5),_LreCntErrWrongLanA_Type())
-lreCntErrWrongLanA.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntErrWrongLanA.setStatus(_A)
-_LreCntErrWrongLanB_Type=Counter32
-_LreCntErrWrongLanB_Object=MibTableColumn
-lreCntErrWrongLanB=_LreCntErrWrongLanB_Object((1,0,62439,2,21,1,1,0,1,1,6),_LreCntErrWrongLanB_Type())
-lreCntErrWrongLanB.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntErrWrongLanB.setStatus(_A)
-_LreCntErrWrongLanC_Type=Counter32
-_LreCntErrWrongLanC_Object=MibTableColumn
-lreCntErrWrongLanC=_LreCntErrWrongLanC_Object((1,0,62439,2,21,1,1,0,1,1,7),_LreCntErrWrongLanC_Type())
-lreCntErrWrongLanC.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntErrWrongLanC.setStatus(_A)
-_LreCntRxA_Type=Counter32
-_LreCntRxA_Object=MibTableColumn
-lreCntRxA=_LreCntRxA_Object((1,0,62439,2,21,1,1,0,1,1,8),_LreCntRxA_Type())
-lreCntRxA.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntRxA.setStatus(_A)
-_LreCntRxB_Type=Counter32
-_LreCntRxB_Object=MibTableColumn
-lreCntRxB=_LreCntRxB_Object((1,0,62439,2,21,1,1,0,1,1,9),_LreCntRxB_Type())
-lreCntRxB.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntRxB.setStatus(_A)
-_LreCntRxC_Type=Counter32
-_LreCntRxC_Object=MibTableColumn
-lreCntRxC=_LreCntRxC_Object((1,0,62439,2,21,1,1,0,1,1,10),_LreCntRxC_Type())
-lreCntRxC.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntRxC.setStatus(_A)
-_LreCntErrorsA_Type=Counter32
-_LreCntErrorsA_Object=MibTableColumn
-lreCntErrorsA=_LreCntErrorsA_Object((1,0,62439,2,21,1,1,0,1,1,11),_LreCntErrorsA_Type())
-lreCntErrorsA.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntErrorsA.setStatus(_A)
-_LreCntErrorsB_Type=Counter32
-_LreCntErrorsB_Object=MibTableColumn
-lreCntErrorsB=_LreCntErrorsB_Object((1,0,62439,2,21,1,1,0,1,1,12),_LreCntErrorsB_Type())
-lreCntErrorsB.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntErrorsB.setStatus(_A)
-_LreCntErrorsC_Type=Counter32
-_LreCntErrorsC_Object=MibTableColumn
-lreCntErrorsC=_LreCntErrorsC_Object((1,0,62439,2,21,1,1,0,1,1,13),_LreCntErrorsC_Type())
-lreCntErrorsC.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntErrorsC.setStatus(_A)
-_LreCntNodes_Type=Integer32
-_LreCntNodes_Object=MibTableColumn
-lreCntNodes=_LreCntNodes_Object((1,0,62439,2,21,1,1,0,1,1,14),_LreCntNodes_Type())
-lreCntNodes.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntNodes.setStatus(_A)
-_LreCntProxyNodes_Type=Integer32
-_LreCntProxyNodes_Object=MibTableColumn
-lreCntProxyNodes=_LreCntProxyNodes_Object((1,0,62439,2,21,1,1,0,1,1,15),_LreCntProxyNodes_Type())
-lreCntProxyNodes.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntProxyNodes.setStatus(_A)
-_LreCntUniqueA_Type=Counter32
-_LreCntUniqueA_Object=MibTableColumn
-lreCntUniqueA=_LreCntUniqueA_Object((1,0,62439,2,21,1,1,0,1,1,16),_LreCntUniqueA_Type())
-lreCntUniqueA.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntUniqueA.setStatus(_A)
-_LreCntUniqueB_Type=Counter32
-_LreCntUniqueB_Object=MibTableColumn
-lreCntUniqueB=_LreCntUniqueB_Object((1,0,62439,2,21,1,1,0,1,1,17),_LreCntUniqueB_Type())
-lreCntUniqueB.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntUniqueB.setStatus(_A)
-_LreCntUniqueC_Type=Counter32
-_LreCntUniqueC_Object=MibTableColumn
-lreCntUniqueC=_LreCntUniqueC_Object((1,0,62439,2,21,1,1,0,1,1,18),_LreCntUniqueC_Type())
-lreCntUniqueC.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntUniqueC.setStatus(_A)
-_LreCntDuplicateA_Type=Counter32
-_LreCntDuplicateA_Object=MibTableColumn
-lreCntDuplicateA=_LreCntDuplicateA_Object((1,0,62439,2,21,1,1,0,1,1,19),_LreCntDuplicateA_Type())
-lreCntDuplicateA.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntDuplicateA.setStatus(_A)
-_LreCntDuplicateB_Type=Counter32
-_LreCntDuplicateB_Object=MibTableColumn
-lreCntDuplicateB=_LreCntDuplicateB_Object((1,0,62439,2,21,1,1,0,1,1,20),_LreCntDuplicateB_Type())
-lreCntDuplicateB.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntDuplicateB.setStatus(_A)
-_LreCntDuplicateC_Type=Counter32
-_LreCntDuplicateC_Object=MibTableColumn
-lreCntDuplicateC=_LreCntDuplicateC_Object((1,0,62439,2,21,1,1,0,1,1,21),_LreCntDuplicateC_Type())
-lreCntDuplicateC.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntDuplicateC.setStatus(_A)
-_LreCntMultiA_Type=Counter32
-_LreCntMultiA_Object=MibTableColumn
-lreCntMultiA=_LreCntMultiA_Object((1,0,62439,2,21,1,1,0,1,1,22),_LreCntMultiA_Type())
-lreCntMultiA.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntMultiA.setStatus(_A)
-_LreCntMultiB_Type=Counter32
-_LreCntMultiB_Object=MibTableColumn
-lreCntMultiB=_LreCntMultiB_Object((1,0,62439,2,21,1,1,0,1,1,23),_LreCntMultiB_Type())
-lreCntMultiB.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntMultiB.setStatus(_A)
-_LreCntMultiC_Type=Counter32
-_LreCntMultiC_Object=MibTableColumn
-lreCntMultiC=_LreCntMultiC_Object((1,0,62439,2,21,1,1,0,1,1,24),_LreCntMultiC_Type())
-lreCntMultiC.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntMultiC.setStatus(_A)
-_LreCntOwnRxA_Type=Counter32
-_LreCntOwnRxA_Object=MibTableColumn
-lreCntOwnRxA=_LreCntOwnRxA_Object((1,0,62439,2,21,1,1,0,1,1,25),_LreCntOwnRxA_Type())
-lreCntOwnRxA.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntOwnRxA.setStatus(_A)
-_LreCntOwnRxB_Type=Counter32
-_LreCntOwnRxB_Object=MibTableColumn
-lreCntOwnRxB=_LreCntOwnRxB_Object((1,0,62439,2,21,1,1,0,1,1,26),_LreCntOwnRxB_Type())
-lreCntOwnRxB.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreCntOwnRxB.setStatus(_A)
-_LreNodesTable_Object=MibTable
-lreNodesTable=_LreNodesTable_Object((1,0,62439,2,21,1,1,0,2))
-if mibBuilder.loadTexts:lreNodesTable.setStatus(_A)
-_LreNodesEntry_Object=MibTableRow
-lreNodesEntry=_LreNodesEntry_Object((1,0,62439,2,21,1,1,0,2,1))
-lreNodesEntry.setIndexNames((0,_B,_G),(0,_B,_M))
-if mibBuilder.loadTexts:lreNodesEntry.setStatus(_A)
-_LreNodesIndex_Type=Unsigned32
-_LreNodesIndex_Object=MibTableColumn
-lreNodesIndex=_LreNodesIndex_Object((1,0,62439,2,21,1,1,0,2,1,1),_LreNodesIndex_Type())
-lreNodesIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:lreNodesIndex.setStatus(_A)
-_LreNodesMacAddress_Type=MacAddress
-_LreNodesMacAddress_Object=MibTableColumn
-lreNodesMacAddress=_LreNodesMacAddress_Object((1,0,62439,2,21,1,1,0,2,1,2),_LreNodesMacAddress_Type())
-lreNodesMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreNodesMacAddress.setStatus(_A)
-_LreTimeLastSeenA_Type=TimeTicks
-_LreTimeLastSeenA_Object=MibTableColumn
-lreTimeLastSeenA=_LreTimeLastSeenA_Object((1,0,62439,2,21,1,1,0,2,1,3),_LreTimeLastSeenA_Type())
-lreTimeLastSeenA.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreTimeLastSeenA.setStatus(_A)
-_LreTimeLastSeenB_Type=TimeTicks
-_LreTimeLastSeenB_Object=MibTableColumn
-lreTimeLastSeenB=_LreTimeLastSeenB_Object((1,0,62439,2,21,1,1,0,2,1,4),_LreTimeLastSeenB_Type())
-lreTimeLastSeenB.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreTimeLastSeenB.setStatus(_A)
-class _LreRemNodeType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*(('danp',0),('redboxp',1),('vdanp',2),('danh',3),('redboxh',4),('vdanh',5)))
-_LreRemNodeType_Type.__name__=_D
-_LreRemNodeType_Object=MibTableColumn
-lreRemNodeType=_LreRemNodeType_Object((1,0,62439,2,21,1,1,0,2,1,5),_LreRemNodeType_Type())
-lreRemNodeType.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreRemNodeType.setStatus(_A)
-_LreProxyNodeTable_Object=MibTable
-lreProxyNodeTable=_LreProxyNodeTable_Object((1,0,62439,2,21,1,1,0,3))
-if mibBuilder.loadTexts:lreProxyNodeTable.setStatus(_A)
-_LreProxyNodeEntry_Object=MibTableRow
-lreProxyNodeEntry=_LreProxyNodeEntry_Object((1,0,62439,2,21,1,1,0,3,1))
-lreProxyNodeEntry.setIndexNames((0,_B,_G),(0,_B,_N))
-if mibBuilder.loadTexts:lreProxyNodeEntry.setStatus(_A)
-_LreProxyNodeIndex_Type=Unsigned32
-_LreProxyNodeIndex_Object=MibTableColumn
-lreProxyNodeIndex=_LreProxyNodeIndex_Object((1,0,62439,2,21,1,1,0,3,1,1),_LreProxyNodeIndex_Type())
-lreProxyNodeIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:lreProxyNodeIndex.setStatus(_A)
-_LreProxyNodeMacAddress_Type=MacAddress
-_LreProxyNodeMacAddress_Object=MibTableColumn
-lreProxyNodeMacAddress=_LreProxyNodeMacAddress_Object((1,0,62439,2,21,1,1,0,3,1,2),_LreProxyNodeMacAddress_Type())
-lreProxyNodeMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:lreProxyNodeMacAddress.setStatus(_A)
-_LinkRedundancyEntityConformance_ObjectIdentity=ObjectIdentity
-linkRedundancyEntityConformance=_LinkRedundancyEntityConformance_ObjectIdentity((1,0,62439,2,22))
-_LinkRedundancyConformance_ObjectIdentity=ObjectIdentity
-linkRedundancyConformance=_LinkRedundancyConformance_ObjectIdentity((1,0,62439,2,22,1))
-_LreGroups_ObjectIdentity=ObjectIdentity
-lreGroups=_LreGroups_ObjectIdentity((1,0,62439,2,22,1,1))
-_LinkRedundancyCompliances_ObjectIdentity=ObjectIdentity
-linkRedundancyCompliances=_LinkRedundancyCompliances_ObjectIdentity((1,0,62439,2,22,2))
-_Crp_ObjectIdentity=ObjectIdentity
-crp=_Crp_ObjectIdentity((1,0,62439,3))
-_Brp_ObjectIdentity=ObjectIdentity
-brp=_Brp_ObjectIdentity((1,0,62439,4))
-_Drp_ObjectIdentity=ObjectIdentity
-drp=_Drp_ObjectIdentity((1,0,62439,5))
-_Rrp_ObjectIdentity=ObjectIdentity
-rrp=_Rrp_ObjectIdentity((1,0,62439,6))
-_Ptp_ObjectIdentity=ObjectIdentity
-ptp=_Ptp_ObjectIdentity((1,0,62439,7))
-lreDefaultGrp=ObjectGroup((1,0,62439,2,22,1,1,1))
-lreDefaultGrp.setObjects(*((_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB)))
-if mibBuilder.loadTexts:lreDefaultGrp.setStatus(_A)
-linkRedundancyCompliance=ModuleCompliance((1,0,62439,2,22,2,1))
-linkRedundancyCompliance.setObjects((_B,_AC))
-if mibBuilder.loadTexts:linkRedundancyCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_L:SecondFraction,'iec62439':iec62439,'mrp':mrp,'prp':prp,'linkRedundancyEntityNotifications':linkRedundancyEntityNotifications,'linkRedundancyEntityObjects':linkRedundancyEntityObjects,'lreConfiguration':lreConfiguration,'lreConfigurationGeneralGroup':lreConfigurationGeneralGroup,_O:lreManufacturerName,_P:lreInterfaceCount,'lreConfigurationInterfaceGroup':lreConfigurationInterfaceGroup,'lreConfigurationInterfaces':lreConfigurationInterfaces,'lreInterfaceConfigTable':lreInterfaceConfigTable,'lreInterfaceConfigEntry':lreInterfaceConfigEntry,_I:lreInterfaceConfigIndex,_Q:lreRowStatus,_R:lreNodeType,_S:lreNodeName,_T:lreVersionName,_U:lreMacAddress,_V:lrePortAdminStateA,_W:lrePortAdminStateB,_X:lreLinkStatusA,_Y:lreLinkStatusB,_Z:lreDuplicateDiscard,_a:lreTransparentReception,_b:lreHsrLREMode,_c:lreSwitchingEndNode,_d:lreRedBoxIdentity,_e:lreEvaluateSupervision,_f:lreNodesTableClear,_g:lreProxyNodeTableClear,_h:lreDupListResideMaxTime,'lreStatistics':lreStatistics,'lreStatisticsInterfaceGroup':lreStatisticsInterfaceGroup,'lreStatisticsInterfaces':lreStatisticsInterfaces,'lreInterfaceStatsTable':lreInterfaceStatsTable,'lreInterfaceStatsEntry':lreInterfaceStatsEntry,_G:lreInterfaceStatsIndex,_i:lreCntTxA,_j:lreCntTxB,_k:lreCntTxC,_l:lreCntErrWrongLanA,_m:lreCntErrWrongLanB,_n:lreCntErrWrongLanC,_o:lreCntRxA,_p:lreCntRxB,_q:lreCntRxC,_r:lreCntErrorsA,_s:lreCntErrorsB,_t:lreCntErrorsC,_u:lreCntNodes,_v:lreCntProxyNodes,_w:lreCntUniqueA,_x:lreCntUniqueB,_y:lreCntUniqueC,_z:lreCntDuplicateA,_A0:lreCntDuplicateB,_A1:lreCntDuplicateC,_A2:lreCntMultiA,_A3:lreCntMultiB,_A4:lreCntMultiC,_A5:lreCntOwnRxA,_A6:lreCntOwnRxB,'lreNodesTable':lreNodesTable,'lreNodesEntry':lreNodesEntry,_M:lreNodesIndex,_A7:lreNodesMacAddress,_A8:lreTimeLastSeenA,_A9:lreTimeLastSeenB,_AA:lreRemNodeType,'lreProxyNodeTable':lreProxyNodeTable,'lreProxyNodeEntry':lreProxyNodeEntry,_N:lreProxyNodeIndex,_AB:lreProxyNodeMacAddress,'linkRedundancyEntityConformance':linkRedundancyEntityConformance,'linkRedundancyConformance':linkRedundancyConformance,'lreGroups':lreGroups,_AC:lreDefaultGrp,'linkRedundancyCompliances':linkRedundancyCompliances,'linkRedundancyCompliance':linkRedundancyCompliance,'crp':crp,'brp':brp,'drp':drp,'rrp':rrp,'ptp':ptp})
+#
+# PySNMP MIB module IEC-62439-3-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/IEC-62439-3-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:27:20 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+iec62439 = ModuleIdentity((1, 0, 62439))
+iec62439.setRevisions(('2014-05-22 00:00', '2012-02-17 00:00', '2011-08-26 00:00', '2008-11-10 00:00', '2006-12-16 00:00',))
+if mibBuilder.loadTexts: iec62439.setLastUpdated('201405220000Z')
+if mibBuilder.loadTexts: iec62439.setOrganization('IEC/SC 65C')
+mrp = MibIdentifier((1, 0, 62439, 1))
+prp = MibIdentifier((1, 0, 62439, 2))
+crp = MibIdentifier((1, 0, 62439, 3))
+brp = MibIdentifier((1, 0, 62439, 4))
+drp = MibIdentifier((1, 0, 62439, 5))
+rrp = MibIdentifier((1, 0, 62439, 6))
+ptp = MibIdentifier((1, 0, 62439, 7))
+class SecondFraction(TextualConvention, Integer32):
+    reference = 'IEC 62439-3'
+    status = 'current'
+    displayHint = 'd'
+
+linkRedundancyEntityNotifications = MibIdentifier((1, 0, 62439, 2, 20))
+linkRedundancyEntityObjects = MibIdentifier((1, 0, 62439, 2, 21))
+linkRedundancyEntityConformance = MibIdentifier((1, 0, 62439, 2, 22))
+lreConfiguration = MibIdentifier((1, 0, 62439, 2, 21, 0))
+lreStatistics = MibIdentifier((1, 0, 62439, 2, 21, 1))
+lreConfigurationGeneralGroup = MibIdentifier((1, 0, 62439, 2, 21, 0, 0))
+lreConfigurationInterfaceGroup = MibIdentifier((1, 0, 62439, 2, 21, 0, 1))
+lreStatisticsInterfaceGroup = MibIdentifier((1, 0, 62439, 2, 21, 1, 1))
+lreManufacturerName = MibScalar((1, 0, 62439, 2, 21, 0, 0, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreManufacturerName.setStatus('current')
+lreInterfaceCount = MibScalar((1, 0, 62439, 2, 21, 0, 0, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreInterfaceCount.setStatus('current')
+lreConfigurationInterfaces = MibIdentifier((1, 0, 62439, 2, 21, 0, 1, 0))
+lreInterfaceConfigTable = MibTable((1, 0, 62439, 2, 21, 0, 1, 0, 1), )
+if mibBuilder.loadTexts: lreInterfaceConfigTable.setStatus('current')
+lreInterfaceConfigEntry = MibTableRow((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1), ).setIndexNames((0, "IEC-62439-3-MIB", "lreInterfaceConfigIndex"))
+if mibBuilder.loadTexts: lreInterfaceConfigEntry.setStatus('current')
+lreInterfaceConfigIndex = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: lreInterfaceConfigIndex.setStatus('current')
+lreRowStatus = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: lreRowStatus.setStatus('current')
+lreNodeType = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("prpmode1", 1), ("hsr", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lreNodeType.setStatus('current')
+lreNodeName = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lreNodeName.setStatus('current')
+lreVersionName = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreVersionName.setStatus('current')
+lreMacAddress = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 6), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lreMacAddress.setStatus('current')
+lrePortAdminStateA = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("notActive", 1), ("active", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lrePortAdminStateA.setStatus('current')
+lrePortAdminStateB = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("notActive", 1), ("active", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lrePortAdminStateB.setStatus('current')
+lreLinkStatusA = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreLinkStatusA.setStatus('current')
+lreLinkStatusB = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreLinkStatusB.setStatus('current')
+lreDuplicateDiscard = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("doNotDiscard", 1), ("discard", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lreDuplicateDiscard.setStatus('current')
+lreTransparentReception = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("removeRCT", 1), ("passRCT", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lreTransparentReception.setStatus('current')
+lreHsrLREMode = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("modeh", 1), ("moden", 2), ("modet", 3), ("modeu", 4), ("modem", 5)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lreHsrLREMode.setStatus('current')
+lreSwitchingEndNode = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("nonbridgingnode", 1), ("bridgingunspecified", 2), ("prpnode", 3), ("hsrredboxsan", 4), ("hsrnode", 5), ("hsrredboxhsr", 6), ("hsrredboxprpa", 7), ("hsrredboxprpb", 8)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lreSwitchingEndNode.setStatus('current')
+lreRedBoxIdentity = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15))).clone(namedValues=NamedValues(("id1a", 2), ("id1b", 3), ("id2a", 4), ("id2b", 5), ("id3a", 6), ("id3b", 7), ("id4a", 8), ("id4b", 9), ("id5a", 10), ("id5b", 11), ("id6a", 12), ("id6b", 13), ("id7a", 14), ("id7b", 15)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lreRedBoxIdentity.setStatus('current')
+lreEvaluateSupervision = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 16), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lreEvaluateSupervision.setStatus('current')
+lreNodesTableClear = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("noOp", 0), ("clearNodeTable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lreNodesTableClear.setStatus('current')
+lreProxyNodeTableClear = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("noOp", 0), ("clearProxyNodeTable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lreProxyNodeTableClear.setStatus('current')
+lreDupListResideMaxTime = MibTableColumn((1, 0, 62439, 2, 21, 0, 1, 0, 1, 1, 19), SecondFraction().clone(26214)).setUnits('binaryFractionOfSecond').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: lreDupListResideMaxTime.setStatus('current')
+lreStatisticsInterfaces = MibIdentifier((1, 0, 62439, 2, 21, 1, 1, 0))
+lreInterfaceStatsTable = MibTable((1, 0, 62439, 2, 21, 1, 1, 0, 1), )
+if mibBuilder.loadTexts: lreInterfaceStatsTable.setStatus('current')
+lreInterfaceStatsEntry = MibTableRow((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1), ).setIndexNames((0, "IEC-62439-3-MIB", "lreInterfaceStatsIndex"))
+if mibBuilder.loadTexts: lreInterfaceStatsEntry.setStatus('current')
+lreInterfaceStatsIndex = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: lreInterfaceStatsIndex.setStatus('current')
+lreCntTxA = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntTxA.setStatus('current')
+lreCntTxB = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntTxB.setStatus('current')
+lreCntTxC = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntTxC.setStatus('current')
+lreCntErrWrongLanA = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntErrWrongLanA.setStatus('current')
+lreCntErrWrongLanB = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntErrWrongLanB.setStatus('current')
+lreCntErrWrongLanC = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntErrWrongLanC.setStatus('current')
+lreCntRxA = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntRxA.setStatus('current')
+lreCntRxB = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntRxB.setStatus('current')
+lreCntRxC = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntRxC.setStatus('current')
+lreCntErrorsA = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntErrorsA.setStatus('current')
+lreCntErrorsB = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntErrorsB.setStatus('current')
+lreCntErrorsC = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntErrorsC.setStatus('current')
+lreCntNodes = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntNodes.setStatus('current')
+lreCntProxyNodes = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntProxyNodes.setStatus('current')
+lreCntUniqueA = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntUniqueA.setStatus('current')
+lreCntUniqueB = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntUniqueB.setStatus('current')
+lreCntUniqueC = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 18), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntUniqueC.setStatus('current')
+lreCntDuplicateA = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 19), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntDuplicateA.setStatus('current')
+lreCntDuplicateB = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 20), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntDuplicateB.setStatus('current')
+lreCntDuplicateC = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 21), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntDuplicateC.setStatus('current')
+lreCntMultiA = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 22), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntMultiA.setStatus('current')
+lreCntMultiB = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 23), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntMultiB.setStatus('current')
+lreCntMultiC = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 24), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntMultiC.setStatus('current')
+lreCntOwnRxA = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 25), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntOwnRxA.setStatus('current')
+lreCntOwnRxB = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 1, 1, 26), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreCntOwnRxB.setStatus('current')
+lreNodesTable = MibTable((1, 0, 62439, 2, 21, 1, 1, 0, 2), )
+if mibBuilder.loadTexts: lreNodesTable.setStatus('current')
+lreNodesEntry = MibTableRow((1, 0, 62439, 2, 21, 1, 1, 0, 2, 1), ).setIndexNames((0, "IEC-62439-3-MIB", "lreInterfaceStatsIndex"), (0, "IEC-62439-3-MIB", "lreNodesIndex"))
+if mibBuilder.loadTexts: lreNodesEntry.setStatus('current')
+lreNodesIndex = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: lreNodesIndex.setStatus('current')
+lreNodesMacAddress = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 2, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreNodesMacAddress.setStatus('current')
+lreTimeLastSeenA = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 2, 1, 3), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreTimeLastSeenA.setStatus('current')
+lreTimeLastSeenB = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 2, 1, 4), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreTimeLastSeenB.setStatus('current')
+lreRemNodeType = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("danp", 0), ("redboxp", 1), ("vdanp", 2), ("danh", 3), ("redboxh", 4), ("vdanh", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreRemNodeType.setStatus('current')
+lreProxyNodeTable = MibTable((1, 0, 62439, 2, 21, 1, 1, 0, 3), )
+if mibBuilder.loadTexts: lreProxyNodeTable.setStatus('current')
+lreProxyNodeEntry = MibTableRow((1, 0, 62439, 2, 21, 1, 1, 0, 3, 1), ).setIndexNames((0, "IEC-62439-3-MIB", "lreInterfaceStatsIndex"), (0, "IEC-62439-3-MIB", "lreProxyNodeIndex"))
+if mibBuilder.loadTexts: lreProxyNodeEntry.setStatus('current')
+lreProxyNodeIndex = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 3, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: lreProxyNodeIndex.setStatus('current')
+lreProxyNodeMacAddress = MibTableColumn((1, 0, 62439, 2, 21, 1, 1, 0, 3, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: lreProxyNodeMacAddress.setStatus('current')
+linkRedundancyConformance = MibIdentifier((1, 0, 62439, 2, 22, 1))
+lreGroups = MibIdentifier((1, 0, 62439, 2, 22, 1, 1))
+lreDefaultGrp = ObjectGroup((1, 0, 62439, 2, 22, 1, 1, 1)).setObjects(("IEC-62439-3-MIB", "lreManufacturerName"), ("IEC-62439-3-MIB", "lreInterfaceCount"), ("IEC-62439-3-MIB", "lreRowStatus"), ("IEC-62439-3-MIB", "lreNodeType"), ("IEC-62439-3-MIB", "lreNodeName"), ("IEC-62439-3-MIB", "lreVersionName"), ("IEC-62439-3-MIB", "lreMacAddress"), ("IEC-62439-3-MIB", "lrePortAdminStateA"), ("IEC-62439-3-MIB", "lrePortAdminStateB"), ("IEC-62439-3-MIB", "lreLinkStatusA"), ("IEC-62439-3-MIB", "lreLinkStatusB"), ("IEC-62439-3-MIB", "lreDuplicateDiscard"), ("IEC-62439-3-MIB", "lreTransparentReception"), ("IEC-62439-3-MIB", "lreHsrLREMode"), ("IEC-62439-3-MIB", "lreSwitchingEndNode"), ("IEC-62439-3-MIB", "lreRedBoxIdentity"), ("IEC-62439-3-MIB", "lreEvaluateSupervision"), ("IEC-62439-3-MIB", "lreNodesTableClear"), ("IEC-62439-3-MIB", "lreProxyNodeTableClear"), ("IEC-62439-3-MIB", "lreDupListResideMaxTime"), ("IEC-62439-3-MIB", "lreCntTxA"), ("IEC-62439-3-MIB", "lreCntTxB"), ("IEC-62439-3-MIB", "lreCntTxC"), ("IEC-62439-3-MIB", "lreCntErrWrongLanA"), ("IEC-62439-3-MIB", "lreCntErrWrongLanB"), ("IEC-62439-3-MIB", "lreCntErrWrongLanC"), ("IEC-62439-3-MIB", "lreCntRxA"), ("IEC-62439-3-MIB", "lreCntRxB"), ("IEC-62439-3-MIB", "lreCntRxC"), ("IEC-62439-3-MIB", "lreCntErrorsA"), ("IEC-62439-3-MIB", "lreCntErrorsB"), ("IEC-62439-3-MIB", "lreCntErrorsC"), ("IEC-62439-3-MIB", "lreCntNodes"), ("IEC-62439-3-MIB", "lreCntProxyNodes"), ("IEC-62439-3-MIB", "lreCntUniqueA"), ("IEC-62439-3-MIB", "lreCntUniqueB"), ("IEC-62439-3-MIB", "lreCntUniqueC"), ("IEC-62439-3-MIB", "lreCntDuplicateA"), ("IEC-62439-3-MIB", "lreCntDuplicateB"), ("IEC-62439-3-MIB", "lreCntDuplicateC"), ("IEC-62439-3-MIB", "lreCntMultiA"), ("IEC-62439-3-MIB", "lreCntMultiB"), ("IEC-62439-3-MIB", "lreCntMultiC"), ("IEC-62439-3-MIB", "lreCntOwnRxA"), ("IEC-62439-3-MIB", "lreCntOwnRxB"), ("IEC-62439-3-MIB", "lreNodesMacAddress"), ("IEC-62439-3-MIB", "lreTimeLastSeenA"), ("IEC-62439-3-MIB", "lreTimeLastSeenB"), ("IEC-62439-3-MIB", "lreRemNodeType"), ("IEC-62439-3-MIB", "lreProxyNodeMacAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lreDefaultGrp = lreDefaultGrp.setStatus('current')
+linkRedundancyCompliances = MibIdentifier((1, 0, 62439, 2, 22, 2))
+linkRedundancyCompliance = ModuleCompliance((1, 0, 62439, 2, 22, 2, 1)).setObjects(("IEC-62439-3-MIB", "lreDefaultGrp"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    linkRedundancyCompliance = linkRedundancyCompliance.setStatus('current')
+mibBuilder.exportSymbols("IEC-62439-3-MIB", prp=prp, lreDupListResideMaxTime=lreDupListResideMaxTime, lreNodeName=lreNodeName, lreLinkStatusA=lreLinkStatusA, linkRedundancyEntityNotifications=linkRedundancyEntityNotifications, lreStatistics=lreStatistics, crp=crp, mrp=mrp, lreInterfaceCount=lreInterfaceCount, lreCntRxA=lreCntRxA, lreCntMultiC=lreCntMultiC, lreNodeType=lreNodeType, lreEvaluateSupervision=lreEvaluateSupervision, lreCntErrWrongLanA=lreCntErrWrongLanA, lreCntRxB=lreCntRxB, lreCntUniqueB=lreCntUniqueB, lreInterfaceConfigIndex=lreInterfaceConfigIndex, SecondFraction=SecondFraction, lreCntOwnRxB=lreCntOwnRxB, lreSwitchingEndNode=lreSwitchingEndNode, lreStatisticsInterfaceGroup=lreStatisticsInterfaceGroup, linkRedundancyEntityConformance=linkRedundancyEntityConformance, lreMacAddress=lreMacAddress, PYSNMP_MODULE_ID=iec62439, lreInterfaceStatsEntry=lreInterfaceStatsEntry, lreNodesMacAddress=lreNodesMacAddress, drp=drp, lreCntDuplicateA=lreCntDuplicateA, lreLinkStatusB=lreLinkStatusB, lreRedBoxIdentity=lreRedBoxIdentity, lrePortAdminStateA=lrePortAdminStateA, lreInterfaceStatsIndex=lreInterfaceStatsIndex, lreInterfaceConfigTable=lreInterfaceConfigTable, lreNodesEntry=lreNodesEntry, iec62439=iec62439, lreCntTxA=lreCntTxA, lreCntRxC=lreCntRxC, lreCntTxC=lreCntTxC, lreGroups=lreGroups, lreCntErrorsA=lreCntErrorsA, lreCntOwnRxA=lreCntOwnRxA, lreConfigurationInterfaces=lreConfigurationInterfaces, lreProxyNodeTableClear=lreProxyNodeTableClear, lreNodesTable=lreNodesTable, lreVersionName=lreVersionName, lreDefaultGrp=lreDefaultGrp, lreConfiguration=lreConfiguration, lreCntErrWrongLanB=lreCntErrWrongLanB, lreCntErrWrongLanC=lreCntErrWrongLanC, lreConfigurationGeneralGroup=lreConfigurationGeneralGroup, lreCntMultiB=lreCntMultiB, ptp=ptp, lreTimeLastSeenA=lreTimeLastSeenA, lreCntNodes=lreCntNodes, linkRedundancyEntityObjects=linkRedundancyEntityObjects, lrePortAdminStateB=lrePortAdminStateB, lreInterfaceStatsTable=lreInterfaceStatsTable, lreCntUniqueA=lreCntUniqueA, lreProxyNodeIndex=lreProxyNodeIndex, lreCntErrorsC=lreCntErrorsC, lreHsrLREMode=lreHsrLREMode, lreDuplicateDiscard=lreDuplicateDiscard, lreCntTxB=lreCntTxB, lreProxyNodeTable=lreProxyNodeTable, lreCntProxyNodes=lreCntProxyNodes, linkRedundancyCompliances=linkRedundancyCompliances, lreStatisticsInterfaces=lreStatisticsInterfaces, lreTimeLastSeenB=lreTimeLastSeenB, lreCntDuplicateB=lreCntDuplicateB, lreTransparentReception=lreTransparentReception, lreProxyNodeMacAddress=lreProxyNodeMacAddress, lreRemNodeType=lreRemNodeType, lreCntUniqueC=lreCntUniqueC, lreConfigurationInterfaceGroup=lreConfigurationInterfaceGroup, linkRedundancyCompliance=linkRedundancyCompliance, linkRedundancyConformance=linkRedundancyConformance, lreCntErrorsB=lreCntErrorsB, rrp=rrp, brp=brp, lreCntDuplicateC=lreCntDuplicateC, lreProxyNodeEntry=lreProxyNodeEntry, lreNodesIndex=lreNodesIndex, lreNodesTableClear=lreNodesTableClear, lreManufacturerName=lreManufacturerName, lreRowStatus=lreRowStatus, lreCntMultiA=lreCntMultiA, lreInterfaceConfigEntry=lreInterfaceConfigEntry)

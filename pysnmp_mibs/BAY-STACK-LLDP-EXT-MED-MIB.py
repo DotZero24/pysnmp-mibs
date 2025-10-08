@@ -1,69 +1,43 @@
-_G='bsLldpXMedLocMediaPolicyAppType'
-_F='BAY-STACK-LLDP-EXT-MED-MIB'
-_E='Integer32'
-_D='lldpLocPortNum'
-_C='LLDP-MIB'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-Dscp,=mibBuilder.importSymbols('DIFFSERV-DSCP-TC','Dscp')
-PolicyAppType,=mibBuilder.importSymbols('LLDP-EXT-MED-MIB','PolicyAppType')
-lldpLocPortNum,=mibBuilder.importSymbols(_C,_D)
-VlanIdOrAnyOrNone,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanIdOrAnyOrNone')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-bayStackMibs,=mibBuilder.importSymbols('SYNOPTICS-ROOT-MIB','bayStackMibs')
-bayStackLldpExtMedMib=ModuleIdentity((1,3,6,1,4,1,45,5,33))
-if mibBuilder.loadTexts:bayStackLldpExtMedMib.setRevisions(('2009-03-30 00:00',))
-_BsLldpExtMedNotifications_ObjectIdentity=ObjectIdentity
-bsLldpExtMedNotifications=_BsLldpExtMedNotifications_ObjectIdentity((1,3,6,1,4,1,45,5,33,0))
-_BsLldpExtMedObjects_ObjectIdentity=ObjectIdentity
-bsLldpExtMedObjects=_BsLldpExtMedObjects_ObjectIdentity((1,3,6,1,4,1,45,5,33,1))
-_BsLldpXMedLocMediaPolicyTable_Object=MibTable
-bsLldpXMedLocMediaPolicyTable=_BsLldpXMedLocMediaPolicyTable_Object((1,3,6,1,4,1,45,5,33,1,1))
-if mibBuilder.loadTexts:bsLldpXMedLocMediaPolicyTable.setStatus(_A)
-_BsLldpXMedLocMediaPolicyEntry_Object=MibTableRow
-bsLldpXMedLocMediaPolicyEntry=_BsLldpXMedLocMediaPolicyEntry_Object((1,3,6,1,4,1,45,5,33,1,1,1))
-bsLldpXMedLocMediaPolicyEntry.setIndexNames((0,_C,_D),(0,_F,_G))
-if mibBuilder.loadTexts:bsLldpXMedLocMediaPolicyEntry.setStatus(_A)
-_BsLldpXMedLocMediaPolicyAppType_Type=PolicyAppType
-_BsLldpXMedLocMediaPolicyAppType_Object=MibTableColumn
-bsLldpXMedLocMediaPolicyAppType=_BsLldpXMedLocMediaPolicyAppType_Object((1,3,6,1,4,1,45,5,33,1,1,1,1),_BsLldpXMedLocMediaPolicyAppType_Type())
-bsLldpXMedLocMediaPolicyAppType.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:bsLldpXMedLocMediaPolicyAppType.setStatus(_A)
-_BsLldpXMedLocMediaPolicyVlanID_Type=VlanIdOrAnyOrNone
-_BsLldpXMedLocMediaPolicyVlanID_Object=MibTableColumn
-bsLldpXMedLocMediaPolicyVlanID=_BsLldpXMedLocMediaPolicyVlanID_Object((1,3,6,1,4,1,45,5,33,1,1,1,2),_BsLldpXMedLocMediaPolicyVlanID_Type())
-bsLldpXMedLocMediaPolicyVlanID.setMaxAccess(_B)
-if mibBuilder.loadTexts:bsLldpXMedLocMediaPolicyVlanID.setStatus(_A)
-class _BsLldpXMedLocMediaPolicyPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_BsLldpXMedLocMediaPolicyPriority_Type.__name__=_E
-_BsLldpXMedLocMediaPolicyPriority_Object=MibTableColumn
-bsLldpXMedLocMediaPolicyPriority=_BsLldpXMedLocMediaPolicyPriority_Object((1,3,6,1,4,1,45,5,33,1,1,1,3),_BsLldpXMedLocMediaPolicyPriority_Type())
-bsLldpXMedLocMediaPolicyPriority.setMaxAccess(_B)
-if mibBuilder.loadTexts:bsLldpXMedLocMediaPolicyPriority.setStatus(_A)
-_BsLldpXMedLocMediaPolicyDscp_Type=Dscp
-_BsLldpXMedLocMediaPolicyDscp_Object=MibTableColumn
-bsLldpXMedLocMediaPolicyDscp=_BsLldpXMedLocMediaPolicyDscp_Object((1,3,6,1,4,1,45,5,33,1,1,1,4),_BsLldpXMedLocMediaPolicyDscp_Type())
-bsLldpXMedLocMediaPolicyDscp.setMaxAccess(_B)
-if mibBuilder.loadTexts:bsLldpXMedLocMediaPolicyDscp.setStatus(_A)
-_BsLldpXMedLocMediaPolicyUnknown_Type=TruthValue
-_BsLldpXMedLocMediaPolicyUnknown_Object=MibTableColumn
-bsLldpXMedLocMediaPolicyUnknown=_BsLldpXMedLocMediaPolicyUnknown_Object((1,3,6,1,4,1,45,5,33,1,1,1,5),_BsLldpXMedLocMediaPolicyUnknown_Type())
-bsLldpXMedLocMediaPolicyUnknown.setMaxAccess(_B)
-if mibBuilder.loadTexts:bsLldpXMedLocMediaPolicyUnknown.setStatus(_A)
-_BsLldpXMedLocMediaPolicyTagged_Type=TruthValue
-_BsLldpXMedLocMediaPolicyTagged_Object=MibTableColumn
-bsLldpXMedLocMediaPolicyTagged=_BsLldpXMedLocMediaPolicyTagged_Object((1,3,6,1,4,1,45,5,33,1,1,1,6),_BsLldpXMedLocMediaPolicyTagged_Type())
-bsLldpXMedLocMediaPolicyTagged.setMaxAccess(_B)
-if mibBuilder.loadTexts:bsLldpXMedLocMediaPolicyTagged.setStatus(_A)
-_BsLldpXMedLocMediaPolicyRowStatus_Type=RowStatus
-_BsLldpXMedLocMediaPolicyRowStatus_Object=MibTableColumn
-bsLldpXMedLocMediaPolicyRowStatus=_BsLldpXMedLocMediaPolicyRowStatus_Object((1,3,6,1,4,1,45,5,33,1,1,1,7),_BsLldpXMedLocMediaPolicyRowStatus_Type())
-bsLldpXMedLocMediaPolicyRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:bsLldpXMedLocMediaPolicyRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'bayStackLldpExtMedMib':bayStackLldpExtMedMib,'bsLldpExtMedNotifications':bsLldpExtMedNotifications,'bsLldpExtMedObjects':bsLldpExtMedObjects,'bsLldpXMedLocMediaPolicyTable':bsLldpXMedLocMediaPolicyTable,'bsLldpXMedLocMediaPolicyEntry':bsLldpXMedLocMediaPolicyEntry,_G:bsLldpXMedLocMediaPolicyAppType,'bsLldpXMedLocMediaPolicyVlanID':bsLldpXMedLocMediaPolicyVlanID,'bsLldpXMedLocMediaPolicyPriority':bsLldpXMedLocMediaPolicyPriority,'bsLldpXMedLocMediaPolicyDscp':bsLldpXMedLocMediaPolicyDscp,'bsLldpXMedLocMediaPolicyUnknown':bsLldpXMedLocMediaPolicyUnknown,'bsLldpXMedLocMediaPolicyTagged':bsLldpXMedLocMediaPolicyTagged,'bsLldpXMedLocMediaPolicyRowStatus':bsLldpXMedLocMediaPolicyRowStatus})
+#
+# PySNMP MIB module BAY-STACK-LLDP-EXT-MED-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/BAY-STACK-LLDP-EXT-MED-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+Dscp, = mibBuilder.importSymbols("DIFFSERV-DSCP-TC", "Dscp")
+PolicyAppType, = mibBuilder.importSymbols("LLDP-EXT-MED-MIB", "PolicyAppType")
+lldpLocPortNum, = mibBuilder.importSymbols("LLDP-MIB", "lldpLocPortNum")
+VlanIdOrAnyOrNone, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIdOrAnyOrNone")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+bayStackMibs, = mibBuilder.importSymbols("SYNOPTICS-ROOT-MIB", "bayStackMibs")
+bayStackLldpExtMedMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 5, 33))
+bayStackLldpExtMedMib.setRevisions(('2009-03-30 00:00',))
+if mibBuilder.loadTexts: bayStackLldpExtMedMib.setLastUpdated('200903300000Z')
+if mibBuilder.loadTexts: bayStackLldpExtMedMib.setOrganization('Nortel Ltd.')
+bsLldpExtMedNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 5, 33, 0))
+bsLldpExtMedObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 5, 33, 1))
+bsLldpXMedLocMediaPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 45, 5, 33, 1, 1), )
+if mibBuilder.loadTexts: bsLldpXMedLocMediaPolicyTable.setStatus('current')
+bsLldpXMedLocMediaPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 45, 5, 33, 1, 1, 1), ).setIndexNames((0, "LLDP-MIB", "lldpLocPortNum"), (0, "BAY-STACK-LLDP-EXT-MED-MIB", "bsLldpXMedLocMediaPolicyAppType"))
+if mibBuilder.loadTexts: bsLldpXMedLocMediaPolicyEntry.setStatus('current')
+bsLldpXMedLocMediaPolicyAppType = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 33, 1, 1, 1, 1), PolicyAppType())
+if mibBuilder.loadTexts: bsLldpXMedLocMediaPolicyAppType.setStatus('current')
+bsLldpXMedLocMediaPolicyVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 33, 1, 1, 1, 2), VlanIdOrAnyOrNone()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bsLldpXMedLocMediaPolicyVlanID.setStatus('current')
+bsLldpXMedLocMediaPolicyPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 33, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bsLldpXMedLocMediaPolicyPriority.setStatus('current')
+bsLldpXMedLocMediaPolicyDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 33, 1, 1, 1, 4), Dscp()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bsLldpXMedLocMediaPolicyDscp.setStatus('current')
+bsLldpXMedLocMediaPolicyUnknown = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 33, 1, 1, 1, 5), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bsLldpXMedLocMediaPolicyUnknown.setStatus('current')
+bsLldpXMedLocMediaPolicyTagged = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 33, 1, 1, 1, 6), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bsLldpXMedLocMediaPolicyTagged.setStatus('current')
+bsLldpXMedLocMediaPolicyRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 33, 1, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: bsLldpXMedLocMediaPolicyRowStatus.setStatus('current')
+mibBuilder.exportSymbols("BAY-STACK-LLDP-EXT-MED-MIB", bsLldpExtMedNotifications=bsLldpExtMedNotifications, bsLldpXMedLocMediaPolicyEntry=bsLldpXMedLocMediaPolicyEntry, bsLldpXMedLocMediaPolicyAppType=bsLldpXMedLocMediaPolicyAppType, bsLldpXMedLocMediaPolicyPriority=bsLldpXMedLocMediaPolicyPriority, bsLldpXMedLocMediaPolicyUnknown=bsLldpXMedLocMediaPolicyUnknown, bayStackLldpExtMedMib=bayStackLldpExtMedMib, bsLldpXMedLocMediaPolicyVlanID=bsLldpXMedLocMediaPolicyVlanID, bsLldpXMedLocMediaPolicyTable=bsLldpXMedLocMediaPolicyTable, bsLldpXMedLocMediaPolicyDscp=bsLldpXMedLocMediaPolicyDscp, bsLldpXMedLocMediaPolicyTagged=bsLldpXMedLocMediaPolicyTagged, bsLldpXMedLocMediaPolicyRowStatus=bsLldpXMedLocMediaPolicyRowStatus, bsLldpExtMedObjects=bsLldpExtMedObjects, PYSNMP_MODULE_ID=bayStackLldpExtMedMib)

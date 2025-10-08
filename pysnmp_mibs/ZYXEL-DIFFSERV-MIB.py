@@ -1,54 +1,37 @@
-_F='zyDiffservMapDscp'
-_E='ZYXEL-DIFFSERV-MIB'
-_D='dot1dBasePort'
-_C='BRIDGE-MIB'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_C,_D)
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelDiffserv=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,22))
-_ZyxelDiffservSetup_ObjectIdentity=ObjectIdentity
-zyxelDiffservSetup=_ZyxelDiffservSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,22,1))
-_ZyDiffservState_Type=EnabledStatus
-_ZyDiffservState_Object=MibScalar
-zyDiffservState=_ZyDiffservState_Object((1,3,6,1,4,1,890,1,15,3,22,1,1),_ZyDiffservState_Type())
-zyDiffservState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyDiffservState.setStatus(_A)
-_ZyxelDiffservMapTable_Object=MibTable
-zyxelDiffservMapTable=_ZyxelDiffservMapTable_Object((1,3,6,1,4,1,890,1,15,3,22,1,2))
-if mibBuilder.loadTexts:zyxelDiffservMapTable.setStatus(_A)
-_ZyxelDiffservMapEntry_Object=MibTableRow
-zyxelDiffservMapEntry=_ZyxelDiffservMapEntry_Object((1,3,6,1,4,1,890,1,15,3,22,1,2,1))
-zyxelDiffservMapEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:zyxelDiffservMapEntry.setStatus(_A)
-_ZyDiffservMapDscp_Type=Integer32
-_ZyDiffservMapDscp_Object=MibTableColumn
-zyDiffservMapDscp=_ZyDiffservMapDscp_Object((1,3,6,1,4,1,890,1,15,3,22,1,2,1,1),_ZyDiffservMapDscp_Type())
-zyDiffservMapDscp.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:zyDiffservMapDscp.setStatus(_A)
-_ZyDiffservMapPriority_Type=Integer32
-_ZyDiffservMapPriority_Object=MibTableColumn
-zyDiffservMapPriority=_ZyDiffservMapPriority_Object((1,3,6,1,4,1,890,1,15,3,22,1,2,1,2),_ZyDiffservMapPriority_Type())
-zyDiffservMapPriority.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyDiffservMapPriority.setStatus(_A)
-_ZyxelDiffservPortTable_Object=MibTable
-zyxelDiffservPortTable=_ZyxelDiffservPortTable_Object((1,3,6,1,4,1,890,1,15,3,22,1,3))
-if mibBuilder.loadTexts:zyxelDiffservPortTable.setStatus(_A)
-_ZyxelDiffservPortEntry_Object=MibTableRow
-zyxelDiffservPortEntry=_ZyxelDiffservPortEntry_Object((1,3,6,1,4,1,890,1,15,3,22,1,3,1))
-zyxelDiffservPortEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:zyxelDiffservPortEntry.setStatus(_A)
-_ZyDiffservPortState_Type=EnabledStatus
-_ZyDiffservPortState_Object=MibTableColumn
-zyDiffservPortState=_ZyDiffservPortState_Object((1,3,6,1,4,1,890,1,15,3,22,1,3,1,1),_ZyDiffservPortState_Type())
-zyDiffservPortState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyDiffservPortState.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'zyxelDiffserv':zyxelDiffserv,'zyxelDiffservSetup':zyxelDiffservSetup,'zyDiffservState':zyDiffservState,'zyxelDiffservMapTable':zyxelDiffservMapTable,'zyxelDiffservMapEntry':zyxelDiffservMapEntry,_F:zyDiffservMapDscp,'zyDiffservMapPriority':zyDiffservMapPriority,'zyxelDiffservPortTable':zyxelDiffservPortTable,'zyxelDiffservPortEntry':zyxelDiffservPortEntry,'zyDiffservPortState':zyDiffservPortState})
+#
+# PySNMP MIB module ZYXEL-DIFFSERV-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-DIFFSERV-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:04 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelDiffserv = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 22))
+if mibBuilder.loadTexts: zyxelDiffserv.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelDiffserv.setOrganization('Enterprise Solution ZyXEL')
+zyxelDiffservSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 22, 1))
+zyDiffservState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 22, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyDiffservState.setStatus('current')
+zyxelDiffservMapTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 22, 1, 2), )
+if mibBuilder.loadTexts: zyxelDiffservMapTable.setStatus('current')
+zyxelDiffservMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 22, 1, 2, 1), ).setIndexNames((0, "ZYXEL-DIFFSERV-MIB", "zyDiffservMapDscp"))
+if mibBuilder.loadTexts: zyxelDiffservMapEntry.setStatus('current')
+zyDiffservMapDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 22, 1, 2, 1, 1), Integer32())
+if mibBuilder.loadTexts: zyDiffservMapDscp.setStatus('current')
+zyDiffservMapPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 22, 1, 2, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyDiffservMapPriority.setStatus('current')
+zyxelDiffservPortTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 22, 1, 3), )
+if mibBuilder.loadTexts: zyxelDiffservPortTable.setStatus('current')
+zyxelDiffservPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 22, 1, 3, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: zyxelDiffservPortEntry.setStatus('current')
+zyDiffservPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 22, 1, 3, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyDiffservPortState.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-DIFFSERV-MIB", zyDiffservMapDscp=zyDiffservMapDscp, zyxelDiffserv=zyxelDiffserv, zyDiffservState=zyDiffservState, PYSNMP_MODULE_ID=zyxelDiffserv, zyxelDiffservMapEntry=zyxelDiffservMapEntry, zyxelDiffservPortTable=zyxelDiffservPortTable, zyxelDiffservSetup=zyxelDiffservSetup, zyxelDiffservMapTable=zyxelDiffservMapTable, zyDiffservPortState=zyDiffservPortState, zyxelDiffservPortEntry=zyxelDiffservPortEntry, zyDiffservMapPriority=zyDiffservMapPriority)

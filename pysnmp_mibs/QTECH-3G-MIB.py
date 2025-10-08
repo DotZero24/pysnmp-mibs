@@ -1,714 +1,262 @@
-_Ae='qtech3GISPtimeout'
-_Ad='qtech3GTrapFilterMode'
-_Ac='qtech3GRssiThreshold'
-_Ab='qtech3GTrafficTrapInterval'
-_Aa='qtech3G2ifIndex'
-_AZ='qtech3GOutSpeed'
-_AY='qtech3GInSpeed'
-_AX='qtech3GAcessBSLAT'
-_AW='qtech3GAcessBSLONG'
-_AV='qtech3GAcessBSLAC'
-_AU='qtech3GAcessBSCellID'
-_AT='qtech3GUserActiveTime'
-_AS='qtech3GSIMCardStatus'
-_AR='qtech3GNetworkSysMode'
-_AQ='qtech3GNetworkISPMode'
-_AP='qtech3GModemIMEI'
-_AO='qtech3GLineCardType'
-_AN='qtech3GDeviceBackupIMSI'
-_AM='qtech3GLineDetectedSubCause'
-_AL='qtech3GLineDetectedMainCause'
-_AK='qtech3GLineDetectedResult'
-_AJ='qtech3GLineDetected'
-_AI='qtech3GPhoneNumber'
-_AH='qtech3GNID'
-_AG='qtech3GSID'
-_AF='qtech3GBSID'
-_AE='qtech3GLAC'
-_AD='qtech3GCellID'
-_AC='qtech3GISP'
-_AB='qtech3GBackupIMSI'
-_AA='qtech3GApn'
-_A9='qtech3GLineDownCause'
-_A8='qtech3GGatewayIPAddr'
-_A7='qtech3GBackupInfo'
-_A6='qtech3GSignalStrengthPercent'
-_A5='qtech3GSignalStrength'
-_A4='ipsecSetupFailed'
-_A3='noGivenReason'
-_A2='qtech3GBsSN'
-_A1='modem-type-4G'
-_A0='modem-type-3G'
-_z='master'
-_y='myself'
-_x='no-backup'
-_w='noUsimCard'
-_v='invalidForCSPS'
-_u='invalidForPS'
-_t='invalidForCS'
-_s='validUsimCard'
-_r='invalidUsimCard'
-_q='roaming'
-_p='noRoaming'
-_o='powerSavingAndDeepSleepState'
-_n='restrictedRegional'
-_m='restricted'
-_l='fdd-lte'
-_k='td-1te'
-_j='cdmaHdrHybrid'
-_i='gsmCdma'
-_h='gsmGprs'
-_g='ipv6Addr'
-_f='ipv4Addr'
-_e='qtech3GRssiStrengthPercent'
-_d='qtech3GDeviceBackupInfo'
-_c='qtech3GOutOctets'
-_b='qtech3GInOctets'
-_a='chinaMobile'
-_Z='chinaTelecom'
-_Y='chinaUnicom'
-_X='qtech3GRssiStrength'
-_W='qtech3GSerialNumber'
-_V='qtech3GDialOnDemandIfIndex'
-_U='qtech3GTrafficPreventMode'
-_T='qtech3GTrafficPreventIfIndex'
-_S='qtech3GTrafficPreventListID'
-_R='qtech3GTrafficPreventListName'
-_Q='qtech3gUsername'
-_P='noService'
-_O='qtech3GDailMode'
-_N='qtech3GCardPhoneNumber'
-_M='qtech3GPppUsername'
-_L='qtech3GDeviceModemType'
-_K='qtech3GIntfIPAddr'
-_J='qtech3GCardIMSI'
-_I='qtech3GRouterSN'
-_H='qtech3GIMSI'
-_G='qtech3GRouterSlotNumber'
-_F='qtech3GIPAddr'
-_E='read-write'
-_D='Integer32'
-_C='read-only'
-_B='current'
-_A='QTECH-3G-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-qtechMgmt,=mibBuilder.importSymbols('QTECH-SMI','qtechMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp')
-qtech3GMonitor=ModuleIdentity((1,3,6,1,4,1,27514,1,1,10,2,95))
-if mibBuilder.loadTexts:qtech3GMonitor.setRevisions(('2011-02-22 00:00',))
-_Qtech3GObjects_ObjectIdentity=ObjectIdentity
-qtech3GObjects=_Qtech3GObjects_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,95,1))
-_Qtech3GTable_Object=MibTable
-qtech3GTable=_Qtech3GTable_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1))
-if mibBuilder.loadTexts:qtech3GTable.setStatus(_B)
-_Qtech3GEntry_Object=MibTableRow
-qtech3GEntry=_Qtech3GEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1))
-qtech3GEntry.setIndexNames((0,_A,_F))
-if mibBuilder.loadTexts:qtech3GEntry.setStatus(_B)
-_Qtech3gUsername_Type=DisplayString
-_Qtech3gUsername_Object=MibTableColumn
-qtech3gUsername=_Qtech3gUsername_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,1),_Qtech3gUsername_Type())
-qtech3gUsername.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3gUsername.setStatus(_B)
-class _Qtech3GOnlineStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,4,5,6,7)));namedValues=NamedValues(*(('lpm',0),('online',1),('offline',4),('ftm',5),('reset',6),('rfOff',7)))
-_Qtech3GOnlineStatus_Type.__name__=_D
-_Qtech3GOnlineStatus_Object=MibTableColumn
-qtech3GOnlineStatus=_Qtech3GOnlineStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,2),_Qtech3GOnlineStatus_Type())
-qtech3GOnlineStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GOnlineStatus.setStatus(_B)
-_Qtech3GIMEI_Type=DisplayString
-_Qtech3GIMEI_Object=MibTableColumn
-qtech3GIMEI=_Qtech3GIMEI_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,3),_Qtech3GIMEI_Type())
-qtech3GIMEI.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GIMEI.setStatus(_B)
-class _Qtech3GIPAddrType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_f,1),(_g,2)))
-_Qtech3GIPAddrType_Type.__name__=_D
-_Qtech3GIPAddrType_Object=MibTableColumn
-qtech3GIPAddrType=_Qtech3GIPAddrType_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,4),_Qtech3GIPAddrType_Type())
-qtech3GIPAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GIPAddrType.setStatus(_B)
-_Qtech3GIPAddr_Type=IpAddress
-_Qtech3GIPAddr_Object=MibTableColumn
-qtech3GIPAddr=_Qtech3GIPAddr_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,5),_Qtech3GIPAddr_Type())
-qtech3GIPAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GIPAddr.setStatus(_B)
-_Qtech3GUplineTime_Type=TimeStamp
-_Qtech3GUplineTime_Object=MibTableColumn
-qtech3GUplineTime=_Qtech3GUplineTime_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,6),_Qtech3GUplineTime_Type())
-qtech3GUplineTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GUplineTime.setStatus(_B)
-class _Qtech3GActiveTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_Qtech3GActiveTime_Type.__name__=_D
-_Qtech3GActiveTime_Object=MibTableColumn
-qtech3GActiveTime=_Qtech3GActiveTime_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,7),_Qtech3GActiveTime_Type())
-qtech3GActiveTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GActiveTime.setStatus(_B)
-class _Qtech3GSignalStrength_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-150,0))
-_Qtech3GSignalStrength_Type.__name__=_D
-_Qtech3GSignalStrength_Object=MibTableColumn
-qtech3GSignalStrength=_Qtech3GSignalStrength_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,8),_Qtech3GSignalStrength_Type())
-qtech3GSignalStrength.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GSignalStrength.setStatus(_B)
-class _Qtech3GISP_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_Y,1),(_Z,2),(_a,3)))
-_Qtech3GISP_Type.__name__=_D
-_Qtech3GISP_Object=MibTableColumn
-qtech3GISP=_Qtech3GISP_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,9),_Qtech3GISP_Type())
-qtech3GISP.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GISP.setStatus(_B)
-class _Qtech3GSysMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,15,100,101)));namedValues=NamedValues(*((_P,0),('amps',1),('cdma',2),(_h,3),('hdr',4),('wcdma',5),('gps',6),(_i,7),(_j,8),('tdscdma',15),(_k,100),(_l,101)))
-_Qtech3GSysMode_Type.__name__=_D
-_Qtech3GSysMode_Object=MibTableColumn
-qtech3GSysMode=_Qtech3GSysMode_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,10),_Qtech3GSysMode_Type())
-qtech3GSysMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GSysMode.setStatus(_B)
-class _Qtech3GServiceStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*((_P,0),(_m,1),('valid',2),(_n,3),(_o,4)))
-_Qtech3GServiceStatus_Type.__name__=_D
-_Qtech3GServiceStatus_Object=MibTableColumn
-qtech3GServiceStatus=_Qtech3GServiceStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,11),_Qtech3GServiceStatus_Type())
-qtech3GServiceStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GServiceStatus.setStatus(_B)
-class _Qtech3GRoamingStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_p,0),(_q,1)))
-_Qtech3GRoamingStatus_Type.__name__=_D
-_Qtech3GRoamingStatus_Object=MibTableColumn
-qtech3GRoamingStatus=_Qtech3GRoamingStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,12),_Qtech3GRoamingStatus_Type())
-qtech3GRoamingStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GRoamingStatus.setStatus(_B)
-class _Qtech3GDomain_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,100,255)));namedValues=NamedValues(*((_P,0),('onlyCS',1),('onlyPS',2),('pSCS',3),('pSCSnotRegistered',4),('ePSService',100),('cdmaNotSupport',255)))
-_Qtech3GDomain_Type.__name__=_D
-_Qtech3GDomain_Object=MibTableColumn
-qtech3GDomain=_Qtech3GDomain_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,13),_Qtech3GDomain_Type())
-qtech3GDomain.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GDomain.setStatus(_B)
-class _Qtech3GSIMStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,255)));namedValues=NamedValues(*((_r,0),(_s,1),(_t,2),(_u,3),(_v,4),(_w,255)))
-_Qtech3GSIMStatus_Type.__name__=_D
-_Qtech3GSIMStatus_Object=MibTableColumn
-qtech3GSIMStatus=_Qtech3GSIMStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,14),_Qtech3GSIMStatus_Type())
-qtech3GSIMStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GSIMStatus.setStatus(_B)
-class _Qtech3GSignalStrengthPercent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_Qtech3GSignalStrengthPercent_Type.__name__=_D
-_Qtech3GSignalStrengthPercent_Object=MibTableColumn
-qtech3GSignalStrengthPercent=_Qtech3GSignalStrengthPercent_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,15),_Qtech3GSignalStrengthPercent_Type())
-qtech3GSignalStrengthPercent.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GSignalStrengthPercent.setStatus(_B)
-_Qtech3GApn_Type=DisplayString
-_Qtech3GApn_Object=MibTableColumn
-qtech3GApn=_Qtech3GApn_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,16),_Qtech3GApn_Type())
-qtech3GApn.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GApn.setStatus(_B)
-class _Qtech3GCellID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_Qtech3GCellID_Type.__name__=_D
-_Qtech3GCellID_Object=MibTableColumn
-qtech3GCellID=_Qtech3GCellID_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,17),_Qtech3GCellID_Type())
-qtech3GCellID.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GCellID.setStatus(_B)
-class _Qtech3GLAC_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_Qtech3GLAC_Type.__name__=_D
-_Qtech3GLAC_Object=MibTableColumn
-qtech3GLAC=_Qtech3GLAC_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,18),_Qtech3GLAC_Type())
-qtech3GLAC.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GLAC.setStatus(_B)
-class _Qtech3GBSID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_Qtech3GBSID_Type.__name__=_D
-_Qtech3GBSID_Object=MibTableColumn
-qtech3GBSID=_Qtech3GBSID_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,19),_Qtech3GBSID_Type())
-qtech3GBSID.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBSID.setStatus(_B)
-class _Qtech3GNID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_Qtech3GNID_Type.__name__=_D
-_Qtech3GNID_Object=MibTableColumn
-qtech3GNID=_Qtech3GNID_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,20),_Qtech3GNID_Type())
-qtech3GNID.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GNID.setStatus(_B)
-class _Qtech3GSID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_Qtech3GSID_Type.__name__=_D
-_Qtech3GSID_Object=MibTableColumn
-qtech3GSID=_Qtech3GSID_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,21),_Qtech3GSID_Type())
-qtech3GSID.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GSID.setStatus(_B)
-_Qtech3GIMSI_Type=DisplayString
-_Qtech3GIMSI_Object=MibTableColumn
-qtech3GIMSI=_Qtech3GIMSI_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,22),_Qtech3GIMSI_Type())
-qtech3GIMSI.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GIMSI.setStatus(_B)
-_Qtech3GESN_Type=DisplayString
-_Qtech3GESN_Object=MibTableColumn
-qtech3GESN=_Qtech3GESN_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,23),_Qtech3GESN_Type())
-qtech3GESN.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GESN.setStatus(_B)
-_Qtech3GPhoneNumber_Type=DisplayString
-_Qtech3GPhoneNumber_Object=MibTableColumn
-qtech3GPhoneNumber=_Qtech3GPhoneNumber_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,24),_Qtech3GPhoneNumber_Type())
-qtech3GPhoneNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GPhoneNumber.setStatus(_B)
-_Qtech3GifIndex_Type=Integer32
-_Qtech3GifIndex_Object=MibTableColumn
-qtech3GifIndex=_Qtech3GifIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,25),_Qtech3GifIndex_Type())
-qtech3GifIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GifIndex.setStatus(_B)
-_Qtech3GBSLONG_Type=Integer32
-_Qtech3GBSLONG_Object=MibTableColumn
-qtech3GBSLONG=_Qtech3GBSLONG_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,26),_Qtech3GBSLONG_Type())
-qtech3GBSLONG.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBSLONG.setStatus(_B)
-_Qtech3GBSLAT_Type=Integer32
-_Qtech3GBSLAT_Object=MibTableColumn
-qtech3GBSLAT=_Qtech3GBSLAT_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,27),_Qtech3GBSLAT_Type())
-qtech3GBSLAT.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBSLAT.setStatus(_B)
-class _Qtech3GBackupInfo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_x,0),(_y,1),(_z,2),('slave',3)))
-_Qtech3GBackupInfo_Type.__name__=_D
-_Qtech3GBackupInfo_Object=MibTableColumn
-qtech3GBackupInfo=_Qtech3GBackupInfo_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,28),_Qtech3GBackupInfo_Type())
-qtech3GBackupInfo.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBackupInfo.setStatus(_B)
-_Qtech3GSerialNumber_Type=DisplayString
-_Qtech3GSerialNumber_Object=MibTableColumn
-qtech3GSerialNumber=_Qtech3GSerialNumber_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,29),_Qtech3GSerialNumber_Type())
-qtech3GSerialNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GSerialNumber.setStatus(_B)
-_Qtech3GBackupIMSI_Type=DisplayString
-_Qtech3GBackupIMSI_Object=MibTableColumn
-qtech3GBackupIMSI=_Qtech3GBackupIMSI_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,30),_Qtech3GBackupIMSI_Type())
-qtech3GBackupIMSI.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBackupIMSI.setStatus(_B)
-_Qtech3GGatewayIPAddr_Type=IpAddress
-_Qtech3GGatewayIPAddr_Object=MibTableColumn
-qtech3GGatewayIPAddr=_Qtech3GGatewayIPAddr_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,31),_Qtech3GGatewayIPAddr_Type())
-qtech3GGatewayIPAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GGatewayIPAddr.setStatus(_B)
-_Qtech3GLineDownCause_Type=Integer32
-_Qtech3GLineDownCause_Object=MibTableColumn
-qtech3GLineDownCause=_Qtech3GLineDownCause_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,32),_Qtech3GLineDownCause_Type())
-qtech3GLineDownCause.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GLineDownCause.setStatus(_B)
-class _Qtech3GModemType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_A0,1),(_A1,2)))
-_Qtech3GModemType_Type.__name__=_D
-_Qtech3GModemType_Object=MibTableColumn
-qtech3GModemType=_Qtech3GModemType_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,1,1,33),_Qtech3GModemType_Type())
-qtech3GModemType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GModemType.setStatus(_B)
-_Qtech3GStatTable_Object=MibTable
-qtech3GStatTable=_Qtech3GStatTable_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,2))
-if mibBuilder.loadTexts:qtech3GStatTable.setStatus(_B)
-_Qtech3GStatEntry_Object=MibTableRow
-qtech3GStatEntry=_Qtech3GStatEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,2,1))
-qtech3GStatEntry.setIndexNames((0,_A,_F))
-if mibBuilder.loadTexts:qtech3GStatEntry.setStatus(_B)
-_Qtech3GInOctets_Type=Counter64
-_Qtech3GInOctets_Object=MibTableColumn
-qtech3GInOctets=_Qtech3GInOctets_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,2,1,1),_Qtech3GInOctets_Type())
-qtech3GInOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GInOctets.setStatus(_B)
-_Qtech3GOutOctets_Type=Counter64
-_Qtech3GOutOctets_Object=MibTableColumn
-qtech3GOutOctets=_Qtech3GOutOctets_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,2,1,2),_Qtech3GOutOctets_Type())
-qtech3GOutOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GOutOctets.setStatus(_B)
-_Qtech3GInSpeed_Type=Counter64
-_Qtech3GInSpeed_Object=MibTableColumn
-qtech3GInSpeed=_Qtech3GInSpeed_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,2,1,3),_Qtech3GInSpeed_Type())
-qtech3GInSpeed.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GInSpeed.setStatus(_B)
-_Qtech3GOutSpeed_Type=Counter64
-_Qtech3GOutSpeed_Object=MibTableColumn
-qtech3GOutSpeed=_Qtech3GOutSpeed_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,2,1,4),_Qtech3GOutSpeed_Type())
-qtech3GOutSpeed.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GOutSpeed.setStatus(_B)
-_Qtech3G2IMSI_Type=DisplayString
-_Qtech3G2IMSI_Object=MibTableColumn
-qtech3G2IMSI=_Qtech3G2IMSI_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,2,1,5),_Qtech3G2IMSI_Type())
-qtech3G2IMSI.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3G2IMSI.setStatus(_B)
-_Qtech3G2ifIndex_Type=Integer32
-_Qtech3G2ifIndex_Object=MibTableColumn
-qtech3G2ifIndex=_Qtech3G2ifIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,2,1,6),_Qtech3G2ifIndex_Type())
-qtech3G2ifIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3G2ifIndex.setStatus(_B)
-_Qtech3GTrap_ObjectIdentity=ObjectIdentity
-qtech3GTrap=_Qtech3GTrap_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,95,1,3))
-_Qtech3GNotifications_ObjectIdentity=ObjectIdentity
-qtech3GNotifications=_Qtech3GNotifications_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,95,1,3,1))
-_Qtech3GBsNumber_Type=Integer32
-_Qtech3GBsNumber_Object=MibScalar
-qtech3GBsNumber=_Qtech3GBsNumber_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,4),_Qtech3GBsNumber_Type())
-qtech3GBsNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBsNumber.setStatus(_B)
-_Qtech3GBsTable_Object=MibTable
-qtech3GBsTable=_Qtech3GBsTable_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,5))
-if mibBuilder.loadTexts:qtech3GBsTable.setStatus(_B)
-_Qtech3GBsEntry_Object=MibTableRow
-qtech3GBsEntry=_Qtech3GBsEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,5,1))
-qtech3GBsEntry.setIndexNames((0,_A,_A2))
-if mibBuilder.loadTexts:qtech3GBsEntry.setStatus(_B)
-_Qtech3GBsSN_Type=Integer32
-_Qtech3GBsSN_Object=MibTableColumn
-qtech3GBsSN=_Qtech3GBsSN_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,5,1,1),_Qtech3GBsSN_Type())
-qtech3GBsSN.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBsSN.setStatus(_B)
-class _Qtech3GBsISP_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_Y,1),(_Z,2),(_a,3)))
-_Qtech3GBsISP_Type.__name__=_D
-_Qtech3GBsISP_Object=MibTableColumn
-qtech3GBsISP=_Qtech3GBsISP_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,5,1,2),_Qtech3GBsISP_Type())
-qtech3GBsISP.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBsISP.setStatus(_B)
-class _Qtech3GBsMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('sys2GMode',1),('sys3GMode',2)))
-_Qtech3GBsMode_Type.__name__=_D
-_Qtech3GBsMode_Object=MibTableColumn
-qtech3GBsMode=_Qtech3GBsMode_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,5,1,3),_Qtech3GBsMode_Type())
-qtech3GBsMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBsMode.setStatus(_B)
-_Qtech3GBsIMSI_Type=DisplayString
-_Qtech3GBsIMSI_Object=MibTableColumn
-qtech3GBsIMSI=_Qtech3GBsIMSI_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,5,1,4),_Qtech3GBsIMSI_Type())
-qtech3GBsIMSI.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBsIMSI.setStatus(_B)
-_Qtech3GBsLAC_Type=Integer32
-_Qtech3GBsLAC_Object=MibTableColumn
-qtech3GBsLAC=_Qtech3GBsLAC_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,5,1,5),_Qtech3GBsLAC_Type())
-qtech3GBsLAC.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBsLAC.setStatus(_B)
-_Qtech3GBsCellID_Type=Integer32
-_Qtech3GBsCellID_Object=MibTableColumn
-qtech3GBsCellID=_Qtech3GBsCellID_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,5,1,6),_Qtech3GBsCellID_Type())
-qtech3GBsCellID.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBsCellID.setStatus(_B)
-_Qtech3GBsBSID_Type=Integer32
-_Qtech3GBsBSID_Object=MibTableColumn
-qtech3GBsBSID=_Qtech3GBsBSID_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,5,1,7),_Qtech3GBsBSID_Type())
-qtech3GBsBSID.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBsBSID.setStatus(_B)
-_Qtech3GBsSID_Type=Integer32
-_Qtech3GBsSID_Object=MibTableColumn
-qtech3GBsSID=_Qtech3GBsSID_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,5,1,8),_Qtech3GBsSID_Type())
-qtech3GBsSID.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBsSID.setStatus(_B)
-_Qtech3GBsNID_Type=Integer32
-_Qtech3GBsNID_Object=MibTableColumn
-qtech3GBsNID=_Qtech3GBsNID_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,5,1,9),_Qtech3GBsNID_Type())
-qtech3GBsNID.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBsNID.setStatus(_B)
-_Qtech3GBsRssi_Type=Integer32
-_Qtech3GBsRssi_Object=MibTableColumn
-qtech3GBsRssi=_Qtech3GBsRssi_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,5,1,10),_Qtech3GBsRssi_Type())
-qtech3GBsRssi.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBsRssi.setStatus(_B)
-_Qtech3GBsBSLONG_Type=Integer32
-_Qtech3GBsBSLONG_Object=MibTableColumn
-qtech3GBsBSLONG=_Qtech3GBsBSLONG_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,5,1,11),_Qtech3GBsBSLONG_Type())
-qtech3GBsBSLONG.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBsBSLONG.setStatus(_B)
-_Qtech3GBsBSLAT_Type=Integer32
-_Qtech3GBsBSLAT_Object=MibTableColumn
-qtech3GBsBSLAT=_Qtech3GBsBSLAT_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,5,1,12),_Qtech3GBsBSLAT_Type())
-qtech3GBsBSLAT.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GBsBSLAT.setStatus(_B)
-_Qtech3GDeviceManagementTable_Object=MibTable
-qtech3GDeviceManagementTable=_Qtech3GDeviceManagementTable_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6))
-if mibBuilder.loadTexts:qtech3GDeviceManagementTable.setStatus(_B)
-_Qtech3GDeviceManagementEntry_Object=MibTableRow
-qtech3GDeviceManagementEntry=_Qtech3GDeviceManagementEntry_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1))
-qtech3GDeviceManagementEntry.setIndexNames((0,_A,_G))
-if mibBuilder.loadTexts:qtech3GDeviceManagementEntry.setStatus(_B)
-_Qtech3GRouterType_Type=DisplayString
-_Qtech3GRouterType_Object=MibTableColumn
-qtech3GRouterType=_Qtech3GRouterType_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,1),_Qtech3GRouterType_Type())
-qtech3GRouterType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GRouterType.setStatus(_B)
-_Qtech3GRouterSN_Type=DisplayString
-_Qtech3GRouterSN_Object=MibTableColumn
-qtech3GRouterSN=_Qtech3GRouterSN_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,2),_Qtech3GRouterSN_Type())
-qtech3GRouterSN.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GRouterSN.setStatus(_B)
-_Qtech3GRouterSlotNumber_Type=DisplayString
-_Qtech3GRouterSlotNumber_Object=MibTableColumn
-qtech3GRouterSlotNumber=_Qtech3GRouterSlotNumber_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,3),_Qtech3GRouterSlotNumber_Type())
-qtech3GRouterSlotNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GRouterSlotNumber.setStatus(_B)
-_Qtech3GLineCardType_Type=DisplayString
-_Qtech3GLineCardType_Object=MibTableColumn
-qtech3GLineCardType=_Qtech3GLineCardType_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,4),_Qtech3GLineCardType_Type())
-qtech3GLineCardType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GLineCardType.setStatus(_B)
-_Qtech3GCardIMSI_Type=DisplayString
-_Qtech3GCardIMSI_Object=MibTableColumn
-qtech3GCardIMSI=_Qtech3GCardIMSI_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,5),_Qtech3GCardIMSI_Type())
-qtech3GCardIMSI.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GCardIMSI.setStatus(_B)
-_Qtech3GModemIMEI_Type=DisplayString
-_Qtech3GModemIMEI_Object=MibTableColumn
-qtech3GModemIMEI=_Qtech3GModemIMEI_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,6),_Qtech3GModemIMEI_Type())
-qtech3GModemIMEI.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GModemIMEI.setStatus(_B)
-_Qtech3GIntfIPAddr_Type=IpAddress
-_Qtech3GIntfIPAddr_Object=MibTableColumn
-qtech3GIntfIPAddr=_Qtech3GIntfIPAddr_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,7),_Qtech3GIntfIPAddr_Type())
-qtech3GIntfIPAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GIntfIPAddr.setStatus(_B)
-_Qtech3GCardPhoneNumber_Type=DisplayString
-_Qtech3GCardPhoneNumber_Object=MibTableColumn
-qtech3GCardPhoneNumber=_Qtech3GCardPhoneNumber_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,8),_Qtech3GCardPhoneNumber_Type())
-qtech3GCardPhoneNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GCardPhoneNumber.setStatus(_B)
-_Qtech3GLineDetected_Type=Unsigned32
-_Qtech3GLineDetected_Object=MibTableColumn
-qtech3GLineDetected=_Qtech3GLineDetected_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,9),_Qtech3GLineDetected_Type())
-qtech3GLineDetected.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtech3GLineDetected.setStatus(_B)
-class _Qtech3GLineDetectedResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('noRsponse',0),('pass',1),('failed',2),('using',3),('detecting',4)))
-_Qtech3GLineDetectedResult_Type.__name__=_D
-_Qtech3GLineDetectedResult_Object=MibTableColumn
-qtech3GLineDetectedResult=_Qtech3GLineDetectedResult_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,10),_Qtech3GLineDetectedResult_Type())
-qtech3GLineDetectedResult.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GLineDetectedResult.setStatus(_B)
-class _Qtech3GLineDetectedMainCause_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_A3,0),('dialFailed',1),('pppFailed',2),(_A4,3)))
-_Qtech3GLineDetectedMainCause_Type.__name__=_D
-_Qtech3GLineDetectedMainCause_Object=MibTableColumn
-qtech3GLineDetectedMainCause=_Qtech3GLineDetectedMainCause_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,11),_Qtech3GLineDetectedMainCause_Type())
-qtech3GLineDetectedMainCause.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GLineDetectedMainCause.setStatus(_B)
-class _Qtech3GLineDetectedSubCause_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*((_A3,0),('simCardInvalid',1),('aPNInvalid',2),('powerlower',3),('userInfoError',4),(_A4,5)))
-_Qtech3GLineDetectedSubCause_Type.__name__=_D
-_Qtech3GLineDetectedSubCause_Object=MibTableColumn
-qtech3GLineDetectedSubCause=_Qtech3GLineDetectedSubCause_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,12),_Qtech3GLineDetectedSubCause_Type())
-qtech3GLineDetectedSubCause.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GLineDetectedSubCause.setStatus(_B)
-class _Qtech3GDeviceBackupInfo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_x,0),(_y,1),(_z,2),('slave',3)))
-_Qtech3GDeviceBackupInfo_Type.__name__=_D
-_Qtech3GDeviceBackupInfo_Object=MibTableColumn
-qtech3GDeviceBackupInfo=_Qtech3GDeviceBackupInfo_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,13),_Qtech3GDeviceBackupInfo_Type())
-qtech3GDeviceBackupInfo.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GDeviceBackupInfo.setStatus(_B)
-class _Qtech3GRssiStrength_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-150,0))
-_Qtech3GRssiStrength_Type.__name__=_D
-_Qtech3GRssiStrength_Object=MibTableColumn
-qtech3GRssiStrength=_Qtech3GRssiStrength_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,14),_Qtech3GRssiStrength_Type())
-qtech3GRssiStrength.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GRssiStrength.setStatus(_B)
-class _Qtech3GRssiStrengthPercent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_Qtech3GRssiStrengthPercent_Type.__name__=_D
-_Qtech3GRssiStrengthPercent_Object=MibTableColumn
-qtech3GRssiStrengthPercent=_Qtech3GRssiStrengthPercent_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,15),_Qtech3GRssiStrengthPercent_Type())
-qtech3GRssiStrengthPercent.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GRssiStrengthPercent.setStatus(_B)
-class _Qtech3GNetworkISPMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_Y,1),(_Z,2),(_a,3)))
-_Qtech3GNetworkISPMode_Type.__name__=_D
-_Qtech3GNetworkISPMode_Object=MibTableColumn
-qtech3GNetworkISPMode=_Qtech3GNetworkISPMode_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,16),_Qtech3GNetworkISPMode_Type())
-qtech3GNetworkISPMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GNetworkISPMode.setStatus(_B)
-class _Qtech3GNetworkSysMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,15,100,101)));namedValues=NamedValues(*((_P,0),('amps',1),('cdma',2),(_h,3),('hdr',4),('wcdma',5),('gps',6),(_i,7),(_j,8),('td-scdma',15),(_k,100),(_l,101)))
-_Qtech3GNetworkSysMode_Type.__name__=_D
-_Qtech3GNetworkSysMode_Object=MibTableColumn
-qtech3GNetworkSysMode=_Qtech3GNetworkSysMode_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,17),_Qtech3GNetworkSysMode_Type())
-qtech3GNetworkSysMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtech3GNetworkSysMode.setStatus(_B)
-class _Qtech3GNetworkServiceStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*((_P,0),(_m,1),('valid',2),(_n,3),(_o,4)))
-_Qtech3GNetworkServiceStatus_Type.__name__=_D
-_Qtech3GNetworkServiceStatus_Object=MibTableColumn
-qtech3GNetworkServiceStatus=_Qtech3GNetworkServiceStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,18),_Qtech3GNetworkServiceStatus_Type())
-qtech3GNetworkServiceStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GNetworkServiceStatus.setStatus(_B)
-class _Qtech3GSIMCardStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,255)));namedValues=NamedValues(*((_r,0),(_s,1),(_t,2),(_u,3),(_v,4),(_w,255)))
-_Qtech3GSIMCardStatus_Type.__name__=_D
-_Qtech3GSIMCardStatus_Object=MibTableColumn
-qtech3GSIMCardStatus=_Qtech3GSIMCardStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,19),_Qtech3GSIMCardStatus_Type())
-qtech3GSIMCardStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GSIMCardStatus.setStatus(_B)
-class _Qtech3GDailMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('dialOnDemand',0),('autoDail',1)))
-_Qtech3GDailMode_Type.__name__=_D
-_Qtech3GDailMode_Object=MibTableColumn
-qtech3GDailMode=_Qtech3GDailMode_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,20),_Qtech3GDailMode_Type())
-qtech3GDailMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtech3GDailMode.setStatus(_B)
-_Qtech3GDeviceBackupIMSI_Type=DisplayString
-_Qtech3GDeviceBackupIMSI_Object=MibTableColumn
-qtech3GDeviceBackupIMSI=_Qtech3GDeviceBackupIMSI_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,21),_Qtech3GDeviceBackupIMSI_Type())
-qtech3GDeviceBackupIMSI.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GDeviceBackupIMSI.setStatus(_B)
-class _Qtech3GLineDetectedMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('vpdnMode',0),('ipsecMode',1)))
-_Qtech3GLineDetectedMode_Type.__name__=_D
-_Qtech3GLineDetectedMode_Object=MibTableColumn
-qtech3GLineDetectedMode=_Qtech3GLineDetectedMode_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,22),_Qtech3GLineDetectedMode_Type())
-qtech3GLineDetectedMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtech3GLineDetectedMode.setStatus(_B)
-_Qtech3GPppUsername_Type=DisplayString
-_Qtech3GPppUsername_Object=MibTableColumn
-qtech3GPppUsername=_Qtech3GPppUsername_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,23),_Qtech3GPppUsername_Type())
-qtech3GPppUsername.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtech3GPppUsername.setStatus(_B)
-_Qtech3GUserApn_Type=DisplayString
-_Qtech3GUserApn_Object=MibTableColumn
-qtech3GUserApn=_Qtech3GUserApn_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,24),_Qtech3GUserApn_Type())
-qtech3GUserApn.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtech3GUserApn.setStatus(_B)
-class _Qtech3GModemOnlineStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('minimum-function',0),('fully-function',1),('offline-mode',2),('sim-activate',3),('sim-deactivate',4)))
-_Qtech3GModemOnlineStatus_Type.__name__=_D
-_Qtech3GModemOnlineStatus_Object=MibTableColumn
-qtech3GModemOnlineStatus=_Qtech3GModemOnlineStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,25),_Qtech3GModemOnlineStatus_Type())
-qtech3GModemOnlineStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GModemOnlineStatus.setStatus(_B)
-class _Qtech3GIntfIPAddrType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_f,1),(_g,2)))
-_Qtech3GIntfIPAddrType_Type.__name__=_D
-_Qtech3GIntfIPAddrType_Object=MibTableColumn
-qtech3GIntfIPAddrType=_Qtech3GIntfIPAddrType_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,26),_Qtech3GIntfIPAddrType_Type())
-qtech3GIntfIPAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GIntfIPAddrType.setStatus(_B)
-_Qtech3GUserUplineTime_Type=TimeStamp
-_Qtech3GUserUplineTime_Object=MibTableColumn
-qtech3GUserUplineTime=_Qtech3GUserUplineTime_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,27),_Qtech3GUserUplineTime_Type())
-qtech3GUserUplineTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GUserUplineTime.setStatus(_B)
-class _Qtech3GUserActiveTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_Qtech3GUserActiveTime_Type.__name__=_D
-_Qtech3GUserActiveTime_Object=MibTableColumn
-qtech3GUserActiveTime=_Qtech3GUserActiveTime_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,28),_Qtech3GUserActiveTime_Type())
-qtech3GUserActiveTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GUserActiveTime.setStatus(_B)
-class _Qtech3GSIMRoamingStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_p,0),(_q,1)))
-_Qtech3GSIMRoamingStatus_Type.__name__=_D
-_Qtech3GSIMRoamingStatus_Object=MibTableColumn
-qtech3GSIMRoamingStatus=_Qtech3GSIMRoamingStatus_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,29),_Qtech3GSIMRoamingStatus_Type())
-qtech3GSIMRoamingStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GSIMRoamingStatus.setStatus(_B)
-class _Qtech3GAcessBSCellID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_Qtech3GAcessBSCellID_Type.__name__=_D
-_Qtech3GAcessBSCellID_Object=MibTableColumn
-qtech3GAcessBSCellID=_Qtech3GAcessBSCellID_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,30),_Qtech3GAcessBSCellID_Type())
-qtech3GAcessBSCellID.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GAcessBSCellID.setStatus(_B)
-class _Qtech3GAcessBSLAC_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_Qtech3GAcessBSLAC_Type.__name__=_D
-_Qtech3GAcessBSLAC_Object=MibTableColumn
-qtech3GAcessBSLAC=_Qtech3GAcessBSLAC_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,31),_Qtech3GAcessBSLAC_Type())
-qtech3GAcessBSLAC.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GAcessBSLAC.setStatus(_B)
-_Qtech3GAcessBSLONG_Type=Integer32
-_Qtech3GAcessBSLONG_Object=MibTableColumn
-qtech3GAcessBSLONG=_Qtech3GAcessBSLONG_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,32),_Qtech3GAcessBSLONG_Type())
-qtech3GAcessBSLONG.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GAcessBSLONG.setStatus(_B)
-_Qtech3GAcessBSLAT_Type=Integer32
-_Qtech3GAcessBSLAT_Object=MibTableColumn
-qtech3GAcessBSLAT=_Qtech3GAcessBSLAT_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,33),_Qtech3GAcessBSLAT_Type())
-qtech3GAcessBSLAT.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GAcessBSLAT.setStatus(_B)
-_Qtech3GDialOnDemandIfIndex_Type=Integer32
-_Qtech3GDialOnDemandIfIndex_Object=MibTableColumn
-qtech3GDialOnDemandIfIndex=_Qtech3GDialOnDemandIfIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,34),_Qtech3GDialOnDemandIfIndex_Type())
-qtech3GDialOnDemandIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GDialOnDemandIfIndex.setStatus(_B)
-class _Qtech3GTrafficPreventMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disable',0),('enable',1)))
-_Qtech3GTrafficPreventMode_Type.__name__=_D
-_Qtech3GTrafficPreventMode_Object=MibTableColumn
-qtech3GTrafficPreventMode=_Qtech3GTrafficPreventMode_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,35),_Qtech3GTrafficPreventMode_Type())
-qtech3GTrafficPreventMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GTrafficPreventMode.setStatus(_B)
-_Qtech3GTrafficPreventIfIndex_Type=Integer32
-_Qtech3GTrafficPreventIfIndex_Object=MibTableColumn
-qtech3GTrafficPreventIfIndex=_Qtech3GTrafficPreventIfIndex_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,36),_Qtech3GTrafficPreventIfIndex_Type())
-qtech3GTrafficPreventIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GTrafficPreventIfIndex.setStatus(_B)
-_Qtech3GTrafficPreventListID_Type=Integer32
-_Qtech3GTrafficPreventListID_Object=MibTableColumn
-qtech3GTrafficPreventListID=_Qtech3GTrafficPreventListID_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,37),_Qtech3GTrafficPreventListID_Type())
-qtech3GTrafficPreventListID.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GTrafficPreventListID.setStatus(_B)
-_Qtech3GTrafficPreventListName_Type=DisplayString
-_Qtech3GTrafficPreventListName_Object=MibTableColumn
-qtech3GTrafficPreventListName=_Qtech3GTrafficPreventListName_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,38),_Qtech3GTrafficPreventListName_Type())
-qtech3GTrafficPreventListName.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GTrafficPreventListName.setStatus(_B)
-class _Qtech3GDeviceModemType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_A0,1),(_A1,2)))
-_Qtech3GDeviceModemType_Type.__name__=_D
-_Qtech3GDeviceModemType_Object=MibTableColumn
-qtech3GDeviceModemType=_Qtech3GDeviceModemType_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,39),_Qtech3GDeviceModemType_Type())
-qtech3GDeviceModemType.setMaxAccess(_C)
-if mibBuilder.loadTexts:qtech3GDeviceModemType.setStatus(_B)
-class _Qtech3GTrafficTrapInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1440))
-_Qtech3GTrafficTrapInterval_Type.__name__=_D
-_Qtech3GTrafficTrapInterval_Object=MibTableColumn
-qtech3GTrafficTrapInterval=_Qtech3GTrafficTrapInterval_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,40),_Qtech3GTrafficTrapInterval_Type())
-qtech3GTrafficTrapInterval.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtech3GTrafficTrapInterval.setStatus(_B)
-class _Qtech3GRssiThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-150,0))
-_Qtech3GRssiThreshold_Type.__name__=_D
-_Qtech3GRssiThreshold_Object=MibTableColumn
-qtech3GRssiThreshold=_Qtech3GRssiThreshold_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,41),_Qtech3GRssiThreshold_Type())
-qtech3GRssiThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtech3GRssiThreshold.setStatus(_B)
-class _Qtech3GTrapFilterMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disable',0),('enable',1)))
-_Qtech3GTrapFilterMode_Type.__name__=_D
-_Qtech3GTrapFilterMode_Object=MibTableColumn
-qtech3GTrapFilterMode=_Qtech3GTrapFilterMode_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,42),_Qtech3GTrapFilterMode_Type())
-qtech3GTrapFilterMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtech3GTrapFilterMode.setStatus(_B)
-class _Qtech3GISPtimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,36000))
-_Qtech3GISPtimeout_Type.__name__=_D
-_Qtech3GISPtimeout_Object=MibTableColumn
-qtech3GISPtimeout=_Qtech3GISPtimeout_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,43),_Qtech3GISPtimeout_Type())
-qtech3GISPtimeout.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtech3GISPtimeout.setStatus(_B)
-class _Qtech3GEncrypt_type_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,7)));namedValues=NamedValues(*(('ENCRYPT_NONE',0),('ENCRYPT_TEMP',7)))
-_Qtech3GEncrypt_type_Type.__name__=_D
-_Qtech3GEncrypt_type_Object=MibTableColumn
-qtech3GEncrypt_type=_Qtech3GEncrypt_type_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,44),_Qtech3GEncrypt_type_Type())
-qtech3GEncrypt_type.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtech3GEncrypt_type.setStatus(_B)
-_Qtech3GPassword_Type=DisplayString
-_Qtech3GPassword_Object=MibTableColumn
-qtech3GPassword=_Qtech3GPassword_Object((1,3,6,1,4,1,27514,1,1,10,2,95,1,6,1,45),_Qtech3GPassword_Type())
-qtech3GPassword.setMaxAccess(_E)
-if mibBuilder.loadTexts:qtech3GPassword.setStatus(_B)
-_Qtech3GTrapNew_ObjectIdentity=ObjectIdentity
-qtech3GTrapNew=_Qtech3GTrapNew_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,95,2))
-_Qtech3GNotificationsNew_ObjectIdentity=ObjectIdentity
-qtech3GNotificationsNew=_Qtech3GNotificationsNew_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,95,2,1))
-qtech3GSignalThreshold=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,95,1,3,1,1))
-qtech3GSignalThreshold.setObjects(*((_A,_F),(_A,_A5),(_A,_A6),(_A,_H)))
-if mibBuilder.loadTexts:qtech3GSignalThreshold.setStatus(_B)
-qtech3GUpLine=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,95,1,3,1,2))
-qtech3GUpLine.setObjects(*((_A,_F),(_A,_Q),(_A,_H),(_A,_A7),(_A,_W),(_A,_A8)))
-if mibBuilder.loadTexts:qtech3GUpLine.setStatus(_B)
-qtech3GDownLine=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,95,1,3,1,3))
-qtech3GDownLine.setObjects(*((_A,_A9),(_A,_F),(_A,_Q),(_A,_H)))
-if mibBuilder.loadTexts:qtech3GDownLine.setStatus(_B)
-qtech3GChangeAccessPoint=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,95,1,3,1,4))
-qtech3GChangeAccessPoint.setObjects(*((_A,_F),(_A,_AA),(_A,_Q),(_A,_H)))
-if mibBuilder.loadTexts:qtech3GChangeAccessPoint.setStatus(_B)
-qtech3GBackupIntfSwitch=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,95,1,3,1,5))
-qtech3GBackupIntfSwitch.setObjects(*((_A,_F),(_A,_Q),(_A,_H),(_A,_W),(_A,_AB)))
-if mibBuilder.loadTexts:qtech3GBackupIntfSwitch.setStatus(_B)
-qtech3GBaseSationSwitch=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,95,1,3,1,6))
-qtech3GBaseSationSwitch.setObjects(*((_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_H),(_A,_AI)))
-if mibBuilder.loadTexts:qtech3GBaseSationSwitch.setStatus(_B)
-qtech3GTrafficInformation=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,95,1,3,1,7))
-qtech3GTrafficInformation.setObjects(*((_A,_F),(_A,_H),(_A,_W),(_A,_b),(_A,_c)))
-if mibBuilder.loadTexts:qtech3GTrafficInformation.setStatus(_B)
-qtech3GLineDetectedNotification=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,95,2,1,1))
-qtech3GLineDetectedNotification.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_d),(_A,_X),(_A,_AN)))
-if mibBuilder.loadTexts:qtech3GLineDetectedNotification.setStatus(_B)
-qtech3GUserUpLine=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,95,2,1,2))
-qtech3GUserUpLine.setObjects(*((_A,_G),(_A,_J),(_A,_K),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_M),(_A,_I),(_A,_N),(_A,_O),(_A,_V),(_A,_L)))
-if mibBuilder.loadTexts:qtech3GUserUpLine.setStatus(_B)
-qtech3GUserDownLine=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,95,2,1,3))
-qtech3GUserDownLine.setObjects(*((_A,_G),(_A,_J),(_A,_K),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_M),(_A,_I),(_A,_N),(_A,_O),(_A,_V),(_A,_L)))
-if mibBuilder.loadTexts:qtech3GUserDownLine.setStatus(_B)
-qtech3GRssiNotification=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,95,2,1,4))
-qtech3GRssiNotification.setObjects(*((_A,_G),(_A,_J),(_A,_I),(_A,_K),(_A,_e),(_A,_X),(_A,_L)))
-if mibBuilder.loadTexts:qtech3GRssiNotification.setStatus(_B)
-qtech3GTrafficInfoNotification=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,95,2,1,5))
-qtech3GTrafficInfoNotification.setObjects(*((_A,_G),(_A,_J),(_A,_I),(_A,_K),(_A,_c),(_A,_b),(_A,_L),(_A,_AO),(_A,_AP),(_A,_N),(_A,_d),(_A,_X),(_A,_e),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_O),(_A,_M),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae)))
-if mibBuilder.loadTexts:qtech3GTrafficInfoNotification.setStatus(_B)
-qtech3GBackupMaster=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,95,2,1,6))
-qtech3GBackupMaster.setObjects(*((_A,_G),(_A,_J),(_A,_K),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_M),(_A,_I),(_A,_N),(_A,_O),(_A,_V),(_A,_L)))
-if mibBuilder.loadTexts:qtech3GBackupMaster.setStatus(_B)
-qtech3GBackupSlave=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,95,2,1,7))
-qtech3GBackupSlave.setObjects(*((_A,_G),(_A,_J),(_A,_K),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_M),(_A,_I),(_A,_N),(_A,_O),(_A,_V),(_A,_L)))
-if mibBuilder.loadTexts:qtech3GBackupSlave.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'qtech3GMonitor':qtech3GMonitor,'qtech3GObjects':qtech3GObjects,'qtech3GTable':qtech3GTable,'qtech3GEntry':qtech3GEntry,_Q:qtech3gUsername,'qtech3GOnlineStatus':qtech3GOnlineStatus,'qtech3GIMEI':qtech3GIMEI,'qtech3GIPAddrType':qtech3GIPAddrType,_F:qtech3GIPAddr,'qtech3GUplineTime':qtech3GUplineTime,'qtech3GActiveTime':qtech3GActiveTime,_A5:qtech3GSignalStrength,_AC:qtech3GISP,'qtech3GSysMode':qtech3GSysMode,'qtech3GServiceStatus':qtech3GServiceStatus,'qtech3GRoamingStatus':qtech3GRoamingStatus,'qtech3GDomain':qtech3GDomain,'qtech3GSIMStatus':qtech3GSIMStatus,_A6:qtech3GSignalStrengthPercent,_AA:qtech3GApn,_AD:qtech3GCellID,_AE:qtech3GLAC,_AF:qtech3GBSID,_AH:qtech3GNID,_AG:qtech3GSID,_H:qtech3GIMSI,'qtech3GESN':qtech3GESN,_AI:qtech3GPhoneNumber,'qtech3GifIndex':qtech3GifIndex,'qtech3GBSLONG':qtech3GBSLONG,'qtech3GBSLAT':qtech3GBSLAT,_A7:qtech3GBackupInfo,_W:qtech3GSerialNumber,_AB:qtech3GBackupIMSI,_A8:qtech3GGatewayIPAddr,_A9:qtech3GLineDownCause,'qtech3GModemType':qtech3GModemType,'qtech3GStatTable':qtech3GStatTable,'qtech3GStatEntry':qtech3GStatEntry,_b:qtech3GInOctets,_c:qtech3GOutOctets,_AY:qtech3GInSpeed,_AZ:qtech3GOutSpeed,'qtech3G2IMSI':qtech3G2IMSI,_Aa:qtech3G2ifIndex,'qtech3GTrap':qtech3GTrap,'qtech3GNotifications':qtech3GNotifications,'qtech3GSignalThreshold':qtech3GSignalThreshold,'qtech3GUpLine':qtech3GUpLine,'qtech3GDownLine':qtech3GDownLine,'qtech3GChangeAccessPoint':qtech3GChangeAccessPoint,'qtech3GBackupIntfSwitch':qtech3GBackupIntfSwitch,'qtech3GBaseSationSwitch':qtech3GBaseSationSwitch,'qtech3GTrafficInformation':qtech3GTrafficInformation,'qtech3GBsNumber':qtech3GBsNumber,'qtech3GBsTable':qtech3GBsTable,'qtech3GBsEntry':qtech3GBsEntry,_A2:qtech3GBsSN,'qtech3GBsISP':qtech3GBsISP,'qtech3GBsMode':qtech3GBsMode,'qtech3GBsIMSI':qtech3GBsIMSI,'qtech3GBsLAC':qtech3GBsLAC,'qtech3GBsCellID':qtech3GBsCellID,'qtech3GBsBSID':qtech3GBsBSID,'qtech3GBsSID':qtech3GBsSID,'qtech3GBsNID':qtech3GBsNID,'qtech3GBsRssi':qtech3GBsRssi,'qtech3GBsBSLONG':qtech3GBsBSLONG,'qtech3GBsBSLAT':qtech3GBsBSLAT,'qtech3GDeviceManagementTable':qtech3GDeviceManagementTable,'qtech3GDeviceManagementEntry':qtech3GDeviceManagementEntry,'qtech3GRouterType':qtech3GRouterType,_I:qtech3GRouterSN,_G:qtech3GRouterSlotNumber,_AO:qtech3GLineCardType,_J:qtech3GCardIMSI,_AP:qtech3GModemIMEI,_K:qtech3GIntfIPAddr,_N:qtech3GCardPhoneNumber,_AJ:qtech3GLineDetected,_AK:qtech3GLineDetectedResult,_AL:qtech3GLineDetectedMainCause,_AM:qtech3GLineDetectedSubCause,_d:qtech3GDeviceBackupInfo,_X:qtech3GRssiStrength,_e:qtech3GRssiStrengthPercent,_AQ:qtech3GNetworkISPMode,_AR:qtech3GNetworkSysMode,'qtech3GNetworkServiceStatus':qtech3GNetworkServiceStatus,_AS:qtech3GSIMCardStatus,_O:qtech3GDailMode,_AN:qtech3GDeviceBackupIMSI,'qtech3GLineDetectedMode':qtech3GLineDetectedMode,_M:qtech3GPppUsername,'qtech3GUserApn':qtech3GUserApn,'qtech3GModemOnlineStatus':qtech3GModemOnlineStatus,'qtech3GIntfIPAddrType':qtech3GIntfIPAddrType,'qtech3GUserUplineTime':qtech3GUserUplineTime,_AT:qtech3GUserActiveTime,'qtech3GSIMRoamingStatus':qtech3GSIMRoamingStatus,_AU:qtech3GAcessBSCellID,_AV:qtech3GAcessBSLAC,_AW:qtech3GAcessBSLONG,_AX:qtech3GAcessBSLAT,_V:qtech3GDialOnDemandIfIndex,_U:qtech3GTrafficPreventMode,_T:qtech3GTrafficPreventIfIndex,_S:qtech3GTrafficPreventListID,_R:qtech3GTrafficPreventListName,_L:qtech3GDeviceModemType,_Ab:qtech3GTrafficTrapInterval,_Ac:qtech3GRssiThreshold,_Ad:qtech3GTrapFilterMode,_Ae:qtech3GISPtimeout,'qtech3GEncrypt_type':qtech3GEncrypt_type,'qtech3GPassword':qtech3GPassword,'qtech3GTrapNew':qtech3GTrapNew,'qtech3GNotificationsNew':qtech3GNotificationsNew,'qtech3GLineDetectedNotification':qtech3GLineDetectedNotification,'qtech3GUserUpLine':qtech3GUserUpLine,'qtech3GUserDownLine':qtech3GUserDownLine,'qtech3GRssiNotification':qtech3GRssiNotification,'qtech3GTrafficInfoNotification':qtech3GTrafficInfoNotification,'qtech3GBackupMaster':qtech3GBackupMaster,'qtech3GBackupSlave':qtech3GBackupSlave})
+#
+# PySNMP MIB module QTECH-3G-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-3G-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+qtech3GMonitor = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95))
+qtech3GMonitor.setRevisions(('2011-02-22 00:00',))
+if mibBuilder.loadTexts: qtech3GMonitor.setLastUpdated('201102220000Z')
+if mibBuilder.loadTexts: qtech3GMonitor.setOrganization('Qtech Networks Co.,Ltd.')
+qtech3GObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1))
+qtech3GTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1), )
+if mibBuilder.loadTexts: qtech3GTable.setStatus('current')
+qtech3GEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1), ).setIndexNames((0, "QTECH-3G-MIB", "qtech3GIPAddr"))
+if mibBuilder.loadTexts: qtech3GEntry.setStatus('current')
+qtech3gUsername = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3gUsername.setStatus('current')
+qtech3GOnlineStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 4, 5, 6, 7))).clone(namedValues=NamedValues(("lpm", 0), ("online", 1), ("offline", 4), ("ftm", 5), ("reset", 6), ("rfOff", 7)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GOnlineStatus.setStatus('current')
+qtech3GIMEI = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GIMEI.setStatus('current')
+qtech3GIPAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ipv4Addr", 1), ("ipv6Addr", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GIPAddrType.setStatus('current')
+qtech3GIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 5), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GIPAddr.setStatus('current')
+qtech3GUplineTime = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 6), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GUplineTime.setStatus('current')
+qtech3GActiveTime = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GActiveTime.setStatus('current')
+qtech3GSignalStrength = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-150, 0))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GSignalStrength.setStatus('current')
+qtech3GISP = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("chinaUnicom", 1), ("chinaTelecom", 2), ("chinaMobile", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GISP.setStatus('current')
+qtech3GSysMode = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 15, 100, 101))).clone(namedValues=NamedValues(("noService", 0), ("amps", 1), ("cdma", 2), ("gsmGprs", 3), ("hdr", 4), ("wcdma", 5), ("gps", 6), ("gsmCdma", 7), ("cdmaHdrHybrid", 8), ("tdscdma", 15), ("td-1te", 100), ("fdd-lte", 101)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GSysMode.setStatus('current')
+qtech3GServiceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("noService", 0), ("restricted", 1), ("valid", 2), ("restrictedRegional", 3), ("powerSavingAndDeepSleepState", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GServiceStatus.setStatus('current')
+qtech3GRoamingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("noRoaming", 0), ("roaming", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GRoamingStatus.setStatus('current')
+qtech3GDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 100, 255))).clone(namedValues=NamedValues(("noService", 0), ("onlyCS", 1), ("onlyPS", 2), ("pSCS", 3), ("pSCSnotRegistered", 4), ("ePSService", 100), ("cdmaNotSupport", 255)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GDomain.setStatus('current')
+qtech3GSIMStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 255))).clone(namedValues=NamedValues(("invalidUsimCard", 0), ("validUsimCard", 1), ("invalidForCS", 2), ("invalidForPS", 3), ("invalidForCSPS", 4), ("noUsimCard", 255)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GSIMStatus.setStatus('current')
+qtech3GSignalStrengthPercent = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GSignalStrengthPercent.setStatus('current')
+qtech3GApn = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 16), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GApn.setStatus('current')
+qtech3GCellID = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GCellID.setStatus('current')
+qtech3GLAC = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GLAC.setStatus('current')
+qtech3GBSID = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBSID.setStatus('current')
+qtech3GNID = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GNID.setStatus('current')
+qtech3GSID = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GSID.setStatus('current')
+qtech3GIMSI = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 22), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GIMSI.setStatus('current')
+qtech3GESN = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 23), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GESN.setStatus('current')
+qtech3GPhoneNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 24), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GPhoneNumber.setStatus('current')
+qtech3GifIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 25), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GifIndex.setStatus('current')
+qtech3GBSLONG = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 26), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBSLONG.setStatus('current')
+qtech3GBSLAT = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 27), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBSLAT.setStatus('current')
+qtech3GBackupInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 28), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("no-backup", 0), ("myself", 1), ("master", 2), ("slave", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBackupInfo.setStatus('current')
+qtech3GSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 29), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GSerialNumber.setStatus('current')
+qtech3GBackupIMSI = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 30), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBackupIMSI.setStatus('current')
+qtech3GGatewayIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 31), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GGatewayIPAddr.setStatus('current')
+qtech3GLineDownCause = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 32), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GLineDownCause.setStatus('current')
+qtech3GModemType = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 1, 1, 33), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("modem-type-3G", 1), ("modem-type-4G", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GModemType.setStatus('current')
+qtech3GStatTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 2), )
+if mibBuilder.loadTexts: qtech3GStatTable.setStatus('current')
+qtech3GStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 2, 1), ).setIndexNames((0, "QTECH-3G-MIB", "qtech3GIPAddr"))
+if mibBuilder.loadTexts: qtech3GStatEntry.setStatus('current')
+qtech3GInOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 2, 1, 1), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GInOctets.setStatus('current')
+qtech3GOutOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 2, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GOutOctets.setStatus('current')
+qtech3GInSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 2, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GInSpeed.setStatus('current')
+qtech3GOutSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 2, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GOutSpeed.setStatus('current')
+qtech3G2IMSI = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 2, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3G2IMSI.setStatus('current')
+qtech3G2ifIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 2, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3G2ifIndex.setStatus('current')
+qtech3GTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 3))
+qtech3GNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 3, 1))
+qtech3GSignalThreshold = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 3, 1, 1)).setObjects(("QTECH-3G-MIB", "qtech3GIPAddr"), ("QTECH-3G-MIB", "qtech3GSignalStrength"), ("QTECH-3G-MIB", "qtech3GSignalStrengthPercent"), ("QTECH-3G-MIB", "qtech3GIMSI"))
+if mibBuilder.loadTexts: qtech3GSignalThreshold.setStatus('current')
+qtech3GUpLine = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 3, 1, 2)).setObjects(("QTECH-3G-MIB", "qtech3GIPAddr"), ("QTECH-3G-MIB", "qtech3gUsername"), ("QTECH-3G-MIB", "qtech3GIMSI"), ("QTECH-3G-MIB", "qtech3GBackupInfo"), ("QTECH-3G-MIB", "qtech3GSerialNumber"), ("QTECH-3G-MIB", "qtech3GGatewayIPAddr"))
+if mibBuilder.loadTexts: qtech3GUpLine.setStatus('current')
+qtech3GDownLine = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 3, 1, 3)).setObjects(("QTECH-3G-MIB", "qtech3GLineDownCause"), ("QTECH-3G-MIB", "qtech3GIPAddr"), ("QTECH-3G-MIB", "qtech3gUsername"), ("QTECH-3G-MIB", "qtech3GIMSI"))
+if mibBuilder.loadTexts: qtech3GDownLine.setStatus('current')
+qtech3GChangeAccessPoint = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 3, 1, 4)).setObjects(("QTECH-3G-MIB", "qtech3GIPAddr"), ("QTECH-3G-MIB", "qtech3GApn"), ("QTECH-3G-MIB", "qtech3gUsername"), ("QTECH-3G-MIB", "qtech3GIMSI"))
+if mibBuilder.loadTexts: qtech3GChangeAccessPoint.setStatus('current')
+qtech3GBackupIntfSwitch = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 3, 1, 5)).setObjects(("QTECH-3G-MIB", "qtech3GIPAddr"), ("QTECH-3G-MIB", "qtech3gUsername"), ("QTECH-3G-MIB", "qtech3GIMSI"), ("QTECH-3G-MIB", "qtech3GSerialNumber"), ("QTECH-3G-MIB", "qtech3GBackupIMSI"))
+if mibBuilder.loadTexts: qtech3GBackupIntfSwitch.setStatus('current')
+qtech3GBaseSationSwitch = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 3, 1, 6)).setObjects(("QTECH-3G-MIB", "qtech3GISP"), ("QTECH-3G-MIB", "qtech3GCellID"), ("QTECH-3G-MIB", "qtech3GLAC"), ("QTECH-3G-MIB", "qtech3GBSID"), ("QTECH-3G-MIB", "qtech3GSID"), ("QTECH-3G-MIB", "qtech3GNID"), ("QTECH-3G-MIB", "qtech3GIMSI"), ("QTECH-3G-MIB", "qtech3GPhoneNumber"))
+if mibBuilder.loadTexts: qtech3GBaseSationSwitch.setStatus('current')
+qtech3GTrafficInformation = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 3, 1, 7)).setObjects(("QTECH-3G-MIB", "qtech3GIPAddr"), ("QTECH-3G-MIB", "qtech3GIMSI"), ("QTECH-3G-MIB", "qtech3GSerialNumber"), ("QTECH-3G-MIB", "qtech3GInOctets"), ("QTECH-3G-MIB", "qtech3GOutOctets"))
+if mibBuilder.loadTexts: qtech3GTrafficInformation.setStatus('current')
+qtech3GBsNumber = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBsNumber.setStatus('current')
+qtech3GBsTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 5), )
+if mibBuilder.loadTexts: qtech3GBsTable.setStatus('current')
+qtech3GBsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 5, 1), ).setIndexNames((0, "QTECH-3G-MIB", "qtech3GBsSN"))
+if mibBuilder.loadTexts: qtech3GBsEntry.setStatus('current')
+qtech3GBsSN = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 5, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBsSN.setStatus('current')
+qtech3GBsISP = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("chinaUnicom", 1), ("chinaTelecom", 2), ("chinaMobile", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBsISP.setStatus('current')
+qtech3GBsMode = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("sys2GMode", 1), ("sys3GMode", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBsMode.setStatus('current')
+qtech3GBsIMSI = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 5, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBsIMSI.setStatus('current')
+qtech3GBsLAC = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 5, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBsLAC.setStatus('current')
+qtech3GBsCellID = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 5, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBsCellID.setStatus('current')
+qtech3GBsBSID = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 5, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBsBSID.setStatus('current')
+qtech3GBsSID = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 5, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBsSID.setStatus('current')
+qtech3GBsNID = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 5, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBsNID.setStatus('current')
+qtech3GBsRssi = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 5, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBsRssi.setStatus('current')
+qtech3GBsBSLONG = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 5, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBsBSLONG.setStatus('current')
+qtech3GBsBSLAT = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 5, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GBsBSLAT.setStatus('current')
+qtech3GDeviceManagementTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6), )
+if mibBuilder.loadTexts: qtech3GDeviceManagementTable.setStatus('current')
+qtech3GDeviceManagementEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1), ).setIndexNames((0, "QTECH-3G-MIB", "qtech3GRouterSlotNumber"))
+if mibBuilder.loadTexts: qtech3GDeviceManagementEntry.setStatus('current')
+qtech3GRouterType = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GRouterType.setStatus('current')
+qtech3GRouterSN = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GRouterSN.setStatus('current')
+qtech3GRouterSlotNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GRouterSlotNumber.setStatus('current')
+qtech3GLineCardType = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GLineCardType.setStatus('current')
+qtech3GCardIMSI = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GCardIMSI.setStatus('current')
+qtech3GModemIMEI = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GModemIMEI.setStatus('current')
+qtech3GIntfIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 7), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GIntfIPAddr.setStatus('current')
+qtech3GCardPhoneNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GCardPhoneNumber.setStatus('current')
+qtech3GLineDetected = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 9), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtech3GLineDetected.setStatus('current')
+qtech3GLineDetectedResult = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("noRsponse", 0), ("pass", 1), ("failed", 2), ("using", 3), ("detecting", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GLineDetectedResult.setStatus('current')
+qtech3GLineDetectedMainCause = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("noGivenReason", 0), ("dialFailed", 1), ("pppFailed", 2), ("ipsecSetupFailed", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GLineDetectedMainCause.setStatus('current')
+qtech3GLineDetectedSubCause = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("noGivenReason", 0), ("simCardInvalid", 1), ("aPNInvalid", 2), ("powerlower", 3), ("userInfoError", 4), ("ipsecSetupFailed", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GLineDetectedSubCause.setStatus('current')
+qtech3GDeviceBackupInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("no-backup", 0), ("myself", 1), ("master", 2), ("slave", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GDeviceBackupInfo.setStatus('current')
+qtech3GRssiStrength = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-150, 0))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GRssiStrength.setStatus('current')
+qtech3GRssiStrengthPercent = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GRssiStrengthPercent.setStatus('current')
+qtech3GNetworkISPMode = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("chinaUnicom", 1), ("chinaTelecom", 2), ("chinaMobile", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GNetworkISPMode.setStatus('current')
+qtech3GNetworkSysMode = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 15, 100, 101))).clone(namedValues=NamedValues(("noService", 0), ("amps", 1), ("cdma", 2), ("gsmGprs", 3), ("hdr", 4), ("wcdma", 5), ("gps", 6), ("gsmCdma", 7), ("cdmaHdrHybrid", 8), ("td-scdma", 15), ("td-1te", 100), ("fdd-lte", 101)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtech3GNetworkSysMode.setStatus('current')
+qtech3GNetworkServiceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("noService", 0), ("restricted", 1), ("valid", 2), ("restrictedRegional", 3), ("powerSavingAndDeepSleepState", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GNetworkServiceStatus.setStatus('current')
+qtech3GSIMCardStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 255))).clone(namedValues=NamedValues(("invalidUsimCard", 0), ("validUsimCard", 1), ("invalidForCS", 2), ("invalidForPS", 3), ("invalidForCSPS", 4), ("noUsimCard", 255)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GSIMCardStatus.setStatus('current')
+qtech3GDailMode = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("dialOnDemand", 0), ("autoDail", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtech3GDailMode.setStatus('current')
+qtech3GDeviceBackupIMSI = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 21), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GDeviceBackupIMSI.setStatus('current')
+qtech3GLineDetectedMode = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("vpdnMode", 0), ("ipsecMode", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtech3GLineDetectedMode.setStatus('current')
+qtech3GPppUsername = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 23), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtech3GPppUsername.setStatus('current')
+qtech3GUserApn = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 24), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtech3GUserApn.setStatus('current')
+qtech3GModemOnlineStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("minimum-function", 0), ("fully-function", 1), ("offline-mode", 2), ("sim-activate", 3), ("sim-deactivate", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GModemOnlineStatus.setStatus('current')
+qtech3GIntfIPAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 26), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ipv4Addr", 1), ("ipv6Addr", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GIntfIPAddrType.setStatus('current')
+qtech3GUserUplineTime = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 27), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GUserUplineTime.setStatus('current')
+qtech3GUserActiveTime = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 28), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GUserActiveTime.setStatus('current')
+qtech3GSIMRoamingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 29), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("noRoaming", 0), ("roaming", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GSIMRoamingStatus.setStatus('current')
+qtech3GAcessBSCellID = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 30), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GAcessBSCellID.setStatus('current')
+qtech3GAcessBSLAC = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 31), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GAcessBSLAC.setStatus('current')
+qtech3GAcessBSLONG = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 32), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GAcessBSLONG.setStatus('current')
+qtech3GAcessBSLAT = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 33), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GAcessBSLAT.setStatus('current')
+qtech3GDialOnDemandIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 34), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GDialOnDemandIfIndex.setStatus('current')
+qtech3GTrafficPreventMode = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 35), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GTrafficPreventMode.setStatus('current')
+qtech3GTrafficPreventIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 36), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GTrafficPreventIfIndex.setStatus('current')
+qtech3GTrafficPreventListID = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 37), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GTrafficPreventListID.setStatus('current')
+qtech3GTrafficPreventListName = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 38), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GTrafficPreventListName.setStatus('current')
+qtech3GDeviceModemType = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 39), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("modem-type-3G", 1), ("modem-type-4G", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: qtech3GDeviceModemType.setStatus('current')
+qtech3GTrafficTrapInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 40), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1440))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtech3GTrafficTrapInterval.setStatus('current')
+qtech3GRssiThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 41), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-150, 0))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtech3GRssiThreshold.setStatus('current')
+qtech3GTrapFilterMode = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 42), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtech3GTrapFilterMode.setStatus('current')
+qtech3GISPtimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 43), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 36000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtech3GISPtimeout.setStatus('current')
+qtech3GEncrypt_type = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 44), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 7))).clone(namedValues=NamedValues(("ENCRYPT_NONE", 0), ("ENCRYPT_TEMP", 7)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtech3GEncrypt_type.setStatus('current')
+qtech3GPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 1, 6, 1, 45), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: qtech3GPassword.setStatus('current')
+qtech3GTrapNew = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 2))
+qtech3GNotificationsNew = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 2, 1))
+qtech3GLineDetectedNotification = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 2, 1, 1)).setObjects(("QTECH-3G-MIB", "qtech3GRouterSN"), ("QTECH-3G-MIB", "qtech3GCardIMSI"), ("QTECH-3G-MIB", "qtech3GIntfIPAddr"), ("QTECH-3G-MIB", "qtech3GLineDetected"), ("QTECH-3G-MIB", "qtech3GLineDetectedResult"), ("QTECH-3G-MIB", "qtech3GLineDetectedMainCause"), ("QTECH-3G-MIB", "qtech3GLineDetectedSubCause"), ("QTECH-3G-MIB", "qtech3GDeviceBackupInfo"), ("QTECH-3G-MIB", "qtech3GRssiStrength"), ("QTECH-3G-MIB", "qtech3GDeviceBackupIMSI"))
+if mibBuilder.loadTexts: qtech3GLineDetectedNotification.setStatus('current')
+qtech3GUserUpLine = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 2, 1, 2)).setObjects(("QTECH-3G-MIB", "qtech3GRouterSlotNumber"), ("QTECH-3G-MIB", "qtech3GCardIMSI"), ("QTECH-3G-MIB", "qtech3GIntfIPAddr"), ("QTECH-3G-MIB", "qtech3GTrafficPreventListName"), ("QTECH-3G-MIB", "qtech3GTrafficPreventListID"), ("QTECH-3G-MIB", "qtech3GTrafficPreventIfIndex"), ("QTECH-3G-MIB", "qtech3GTrafficPreventMode"), ("QTECH-3G-MIB", "qtech3GPppUsername"), ("QTECH-3G-MIB", "qtech3GRouterSN"), ("QTECH-3G-MIB", "qtech3GCardPhoneNumber"), ("QTECH-3G-MIB", "qtech3GDailMode"), ("QTECH-3G-MIB", "qtech3GDialOnDemandIfIndex"), ("QTECH-3G-MIB", "qtech3GDeviceModemType"))
+if mibBuilder.loadTexts: qtech3GUserUpLine.setStatus('current')
+qtech3GUserDownLine = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 2, 1, 3)).setObjects(("QTECH-3G-MIB", "qtech3GRouterSlotNumber"), ("QTECH-3G-MIB", "qtech3GCardIMSI"), ("QTECH-3G-MIB", "qtech3GIntfIPAddr"), ("QTECH-3G-MIB", "qtech3GTrafficPreventListName"), ("QTECH-3G-MIB", "qtech3GTrafficPreventListID"), ("QTECH-3G-MIB", "qtech3GTrafficPreventIfIndex"), ("QTECH-3G-MIB", "qtech3GTrafficPreventMode"), ("QTECH-3G-MIB", "qtech3GPppUsername"), ("QTECH-3G-MIB", "qtech3GRouterSN"), ("QTECH-3G-MIB", "qtech3GCardPhoneNumber"), ("QTECH-3G-MIB", "qtech3GDailMode"), ("QTECH-3G-MIB", "qtech3GDialOnDemandIfIndex"), ("QTECH-3G-MIB", "qtech3GDeviceModemType"))
+if mibBuilder.loadTexts: qtech3GUserDownLine.setStatus('current')
+qtech3GRssiNotification = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 2, 1, 4)).setObjects(("QTECH-3G-MIB", "qtech3GRouterSlotNumber"), ("QTECH-3G-MIB", "qtech3GCardIMSI"), ("QTECH-3G-MIB", "qtech3GRouterSN"), ("QTECH-3G-MIB", "qtech3GIntfIPAddr"), ("QTECH-3G-MIB", "qtech3GRssiStrengthPercent"), ("QTECH-3G-MIB", "qtech3GRssiStrength"), ("QTECH-3G-MIB", "qtech3GDeviceModemType"))
+if mibBuilder.loadTexts: qtech3GRssiNotification.setStatus('current')
+qtech3GTrafficInfoNotification = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 2, 1, 5)).setObjects(("QTECH-3G-MIB", "qtech3GRouterSlotNumber"), ("QTECH-3G-MIB", "qtech3GCardIMSI"), ("QTECH-3G-MIB", "qtech3GRouterSN"), ("QTECH-3G-MIB", "qtech3GIntfIPAddr"), ("QTECH-3G-MIB", "qtech3GOutOctets"), ("QTECH-3G-MIB", "qtech3GInOctets"), ("QTECH-3G-MIB", "qtech3GDeviceModemType"), ("QTECH-3G-MIB", "qtech3GLineCardType"), ("QTECH-3G-MIB", "qtech3GModemIMEI"), ("QTECH-3G-MIB", "qtech3GCardPhoneNumber"), ("QTECH-3G-MIB", "qtech3GDeviceBackupInfo"), ("QTECH-3G-MIB", "qtech3GRssiStrength"), ("QTECH-3G-MIB", "qtech3GRssiStrengthPercent"), ("QTECH-3G-MIB", "qtech3GNetworkISPMode"), ("QTECH-3G-MIB", "qtech3GNetworkSysMode"), ("QTECH-3G-MIB", "qtech3GSIMCardStatus"), ("QTECH-3G-MIB", "qtech3GDailMode"), ("QTECH-3G-MIB", "qtech3GPppUsername"), ("QTECH-3G-MIB", "qtech3GUserActiveTime"), ("QTECH-3G-MIB", "qtech3GAcessBSCellID"), ("QTECH-3G-MIB", "qtech3GAcessBSLAC"), ("QTECH-3G-MIB", "qtech3GAcessBSLONG"), ("QTECH-3G-MIB", "qtech3GAcessBSLAT"), ("QTECH-3G-MIB", "qtech3GInSpeed"), ("QTECH-3G-MIB", "qtech3GOutSpeed"), ("QTECH-3G-MIB", "qtech3G2ifIndex"), ("QTECH-3G-MIB", "qtech3GTrafficTrapInterval"), ("QTECH-3G-MIB", "qtech3GRssiThreshold"), ("QTECH-3G-MIB", "qtech3GTrapFilterMode"), ("QTECH-3G-MIB", "qtech3GISPtimeout"))
+if mibBuilder.loadTexts: qtech3GTrafficInfoNotification.setStatus('current')
+qtech3GBackupMaster = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 2, 1, 6)).setObjects(("QTECH-3G-MIB", "qtech3GRouterSlotNumber"), ("QTECH-3G-MIB", "qtech3GCardIMSI"), ("QTECH-3G-MIB", "qtech3GIntfIPAddr"), ("QTECH-3G-MIB", "qtech3GTrafficPreventListName"), ("QTECH-3G-MIB", "qtech3GTrafficPreventListID"), ("QTECH-3G-MIB", "qtech3GTrafficPreventIfIndex"), ("QTECH-3G-MIB", "qtech3GTrafficPreventMode"), ("QTECH-3G-MIB", "qtech3GPppUsername"), ("QTECH-3G-MIB", "qtech3GRouterSN"), ("QTECH-3G-MIB", "qtech3GCardPhoneNumber"), ("QTECH-3G-MIB", "qtech3GDailMode"), ("QTECH-3G-MIB", "qtech3GDialOnDemandIfIndex"), ("QTECH-3G-MIB", "qtech3GDeviceModemType"))
+if mibBuilder.loadTexts: qtech3GBackupMaster.setStatus('current')
+qtech3GBackupSlave = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 95, 2, 1, 7)).setObjects(("QTECH-3G-MIB", "qtech3GRouterSlotNumber"), ("QTECH-3G-MIB", "qtech3GCardIMSI"), ("QTECH-3G-MIB", "qtech3GIntfIPAddr"), ("QTECH-3G-MIB", "qtech3GTrafficPreventListName"), ("QTECH-3G-MIB", "qtech3GTrafficPreventListID"), ("QTECH-3G-MIB", "qtech3GTrafficPreventIfIndex"), ("QTECH-3G-MIB", "qtech3GTrafficPreventMode"), ("QTECH-3G-MIB", "qtech3GPppUsername"), ("QTECH-3G-MIB", "qtech3GRouterSN"), ("QTECH-3G-MIB", "qtech3GCardPhoneNumber"), ("QTECH-3G-MIB", "qtech3GDailMode"), ("QTECH-3G-MIB", "qtech3GDialOnDemandIfIndex"), ("QTECH-3G-MIB", "qtech3GDeviceModemType"))
+if mibBuilder.loadTexts: qtech3GBackupSlave.setStatus('current')
+mibBuilder.exportSymbols("QTECH-3G-MIB", qtech3GOutOctets=qtech3GOutOctets, qtech3GBsRssi=qtech3GBsRssi, qtech3GISP=qtech3GISP, qtech3GBsTable=qtech3GBsTable, qtech3GRoamingStatus=qtech3GRoamingStatus, qtech3GLineDetectedMainCause=qtech3GLineDetectedMainCause, qtech3GRssiStrengthPercent=qtech3GRssiStrengthPercent, qtech3GSerialNumber=qtech3GSerialNumber, qtech3GNotificationsNew=qtech3GNotificationsNew, qtech3GNetworkISPMode=qtech3GNetworkISPMode, qtech3GRouterSN=qtech3GRouterSN, qtech3GMonitor=qtech3GMonitor, qtech3GIMSI=qtech3GIMSI, qtech3GCellID=qtech3GCellID, qtech3GBackupInfo=qtech3GBackupInfo, qtech3GInSpeed=qtech3GInSpeed, qtech3GTrafficPreventListName=qtech3GTrafficPreventListName, qtech3GBsNumber=qtech3GBsNumber, qtech3G2IMSI=qtech3G2IMSI, qtech3GDialOnDemandIfIndex=qtech3GDialOnDemandIfIndex, qtech3GStatTable=qtech3GStatTable, qtech3GActiveTime=qtech3GActiveTime, qtech3GBSLAT=qtech3GBSLAT, qtech3GLineDetectedSubCause=qtech3GLineDetectedSubCause, qtech3GNetworkSysMode=qtech3GNetworkSysMode, qtech3GBsBSLONG=qtech3GBsBSLONG, qtech3GRouterSlotNumber=qtech3GRouterSlotNumber, qtech3GEncrypt_type=qtech3GEncrypt_type, qtech3GLineDownCause=qtech3GLineDownCause, qtech3GUserActiveTime=qtech3GUserActiveTime, qtech3gUsername=qtech3gUsername, qtech3GAcessBSCellID=qtech3GAcessBSCellID, qtech3GGatewayIPAddr=qtech3GGatewayIPAddr, qtech3GUserUpLine=qtech3GUserUpLine, qtech3GBackupIMSI=qtech3GBackupIMSI, qtech3GBsMode=qtech3GBsMode, qtech3GBackupSlave=qtech3GBackupSlave, qtech3GBsNID=qtech3GBsNID, qtech3GSignalStrengthPercent=qtech3GSignalStrengthPercent, qtech3GDeviceModemType=qtech3GDeviceModemType, qtech3GModemType=qtech3GModemType, qtech3GTrafficPreventIfIndex=qtech3GTrafficPreventIfIndex, qtech3GBackupIntfSwitch=qtech3GBackupIntfSwitch, qtech3GIntfIPAddrType=qtech3GIntfIPAddrType, qtech3GDeviceBackupIMSI=qtech3GDeviceBackupIMSI, qtech3GLineDetectedResult=qtech3GLineDetectedResult, qtech3GTrafficTrapInterval=qtech3GTrafficTrapInterval, qtech3GBsIMSI=qtech3GBsIMSI, qtech3GPassword=qtech3GPassword, qtech3GDownLine=qtech3GDownLine, qtech3GBsEntry=qtech3GBsEntry, qtech3GChangeAccessPoint=qtech3GChangeAccessPoint, qtech3GRssiStrength=qtech3GRssiStrength, qtech3GNotifications=qtech3GNotifications, qtech3GTrafficPreventMode=qtech3GTrafficPreventMode, qtech3GTrafficInformation=qtech3GTrafficInformation, qtech3GTrap=qtech3GTrap, qtech3GifIndex=qtech3GifIndex, qtech3GNID=qtech3GNID, qtech3GOnlineStatus=qtech3GOnlineStatus, qtech3GBsLAC=qtech3GBsLAC, qtech3GPhoneNumber=qtech3GPhoneNumber, qtech3GRouterType=qtech3GRouterType, qtech3GBsBSID=qtech3GBsBSID, qtech3GOutSpeed=qtech3GOutSpeed, qtech3GDeviceManagementEntry=qtech3GDeviceManagementEntry, qtech3GDomain=qtech3GDomain, qtech3GBsBSLAT=qtech3GBsBSLAT, qtech3GRssiThreshold=qtech3GRssiThreshold, qtech3GBSID=qtech3GBSID, qtech3GLAC=qtech3GLAC, qtech3GCardIMSI=qtech3GCardIMSI, qtech3GAcessBSLAT=qtech3GAcessBSLAT, qtech3GTrafficInfoNotification=qtech3GTrafficInfoNotification, qtech3GServiceStatus=qtech3GServiceStatus, qtech3GApn=qtech3GApn, qtech3GSIMRoamingStatus=qtech3GSIMRoamingStatus, qtech3GUserApn=qtech3GUserApn, PYSNMP_MODULE_ID=qtech3GMonitor, qtech3GDeviceBackupInfo=qtech3GDeviceBackupInfo, qtech3GTrafficPreventListID=qtech3GTrafficPreventListID, qtech3GModemOnlineStatus=qtech3GModemOnlineStatus, qtech3GUserUplineTime=qtech3GUserUplineTime, qtech3GBsISP=qtech3GBsISP, qtech3GModemIMEI=qtech3GModemIMEI, qtech3GLineDetectedMode=qtech3GLineDetectedMode, qtech3GObjects=qtech3GObjects, qtech3GIntfIPAddr=qtech3GIntfIPAddr, qtech3GUpLine=qtech3GUpLine, qtech3GInOctets=qtech3GInOctets, qtech3GNetworkServiceStatus=qtech3GNetworkServiceStatus, qtech3GPppUsername=qtech3GPppUsername, qtech3GBaseSationSwitch=qtech3GBaseSationSwitch, qtech3GEntry=qtech3GEntry, qtech3GIPAddrType=qtech3GIPAddrType, qtech3GLineDetectedNotification=qtech3GLineDetectedNotification, qtech3GDailMode=qtech3GDailMode, qtech3GBsSN=qtech3GBsSN, qtech3GIPAddr=qtech3GIPAddr, qtech3GRssiNotification=qtech3GRssiNotification, qtech3GSID=qtech3GSID, qtech3GAcessBSLAC=qtech3GAcessBSLAC, qtech3GIMEI=qtech3GIMEI, qtech3GSIMCardStatus=qtech3GSIMCardStatus, qtech3GUplineTime=qtech3GUplineTime, qtech3GBackupMaster=qtech3GBackupMaster, qtech3GBsSID=qtech3GBsSID, qtech3GSIMStatus=qtech3GSIMStatus, qtech3GISPtimeout=qtech3GISPtimeout, qtech3GESN=qtech3GESN, qtech3GSignalStrength=qtech3GSignalStrength, qtech3GCardPhoneNumber=qtech3GCardPhoneNumber, qtech3GTrapNew=qtech3GTrapNew, qtech3GAcessBSLONG=qtech3GAcessBSLONG, qtech3GTrapFilterMode=qtech3GTrapFilterMode, qtech3GBSLONG=qtech3GBSLONG, qtech3G2ifIndex=qtech3G2ifIndex, qtech3GDeviceManagementTable=qtech3GDeviceManagementTable, qtech3GTable=qtech3GTable, qtech3GLineCardType=qtech3GLineCardType, qtech3GUserDownLine=qtech3GUserDownLine, qtech3GLineDetected=qtech3GLineDetected, qtech3GStatEntry=qtech3GStatEntry, qtech3GSignalThreshold=qtech3GSignalThreshold, qtech3GSysMode=qtech3GSysMode, qtech3GBsCellID=qtech3GBsCellID)

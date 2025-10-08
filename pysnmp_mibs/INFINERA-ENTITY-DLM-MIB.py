@@ -1,94 +1,52 @@
-_Q='dlmGroup'
-_P='dlmOpticsFirmwareVer'
-_O='dlmRowStatus'
-_N='dlmInstalledOcgNumber'
-_M='dlmProvisionedOcgNumber'
-_L='dlmProvEqptType'
-_K='dlmPicDspVer'
-_J='dlmOperatingMode'
-_I='dlmMoId'
-_H='dlmAvailableTunableOcgNumbers'
-_G='InfnOperatingMode'
-_F='entLPPhysicalIndex'
-_E='ENTITY-MIB'
-_D='read-only'
-_C='read-create'
-_B='INFINERA-ENTITY-DLM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-entLPPhysicalIndex,=mibBuilder.importSymbols(_E,_F)
-equipment,=mibBuilder.importSymbols('INFINERA-REG-MIB','equipment')
-InfnEqptType,InfnOperatingMode=mibBuilder.importSymbols('INFINERA-TC-MIB','InfnEqptType',_G)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-dlmMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,1,4))
-_DlmTable_Object=MibTable
-dlmTable=_DlmTable_Object((1,3,6,1,4,1,21296,2,2,2,1,4,1))
-if mibBuilder.loadTexts:dlmTable.setStatus(_A)
-_DlmEntry_Object=MibTableRow
-dlmEntry=_DlmEntry_Object((1,3,6,1,4,1,21296,2,2,2,1,4,1,1))
-dlmEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:dlmEntry.setStatus(_A)
-_DlmMoId_Type=DisplayString
-_DlmMoId_Object=MibTableColumn
-dlmMoId=_DlmMoId_Object((1,3,6,1,4,1,21296,2,2,2,1,4,1,1,1),_DlmMoId_Type())
-dlmMoId.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmMoId.setStatus(_A)
-_DlmProvEqptType_Type=InfnEqptType
-_DlmProvEqptType_Object=MibTableColumn
-dlmProvEqptType=_DlmProvEqptType_Object((1,3,6,1,4,1,21296,2,2,2,1,4,1,1,2),_DlmProvEqptType_Type())
-dlmProvEqptType.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmProvEqptType.setStatus(_A)
-_DlmPicDspVer_Type=DisplayString
-_DlmPicDspVer_Object=MibTableColumn
-dlmPicDspVer=_DlmPicDspVer_Object((1,3,6,1,4,1,21296,2,2,2,1,4,1,1,3),_DlmPicDspVer_Type())
-dlmPicDspVer.setMaxAccess(_D)
-if mibBuilder.loadTexts:dlmPicDspVer.setStatus(_A)
-class _DlmOperatingMode_Type(InfnOperatingMode):defaultValue=2
-_DlmOperatingMode_Type.__name__=_G
-_DlmOperatingMode_Object=MibTableColumn
-dlmOperatingMode=_DlmOperatingMode_Object((1,3,6,1,4,1,21296,2,2,2,1,4,1,1,4),_DlmOperatingMode_Type())
-dlmOperatingMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmOperatingMode.setStatus(_A)
-_DlmAvailableTunableOcgNumbers_Type=Integer32
-_DlmAvailableTunableOcgNumbers_Object=MibTableColumn
-dlmAvailableTunableOcgNumbers=_DlmAvailableTunableOcgNumbers_Object((1,3,6,1,4,1,21296,2,2,2,1,4,1,1,5),_DlmAvailableTunableOcgNumbers_Type())
-dlmAvailableTunableOcgNumbers.setMaxAccess(_D)
-if mibBuilder.loadTexts:dlmAvailableTunableOcgNumbers.setStatus(_A)
-_DlmProvisionedOcgNumber_Type=Integer32
-_DlmProvisionedOcgNumber_Object=MibTableColumn
-dlmProvisionedOcgNumber=_DlmProvisionedOcgNumber_Object((1,3,6,1,4,1,21296,2,2,2,1,4,1,1,6),_DlmProvisionedOcgNumber_Type())
-dlmProvisionedOcgNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmProvisionedOcgNumber.setStatus(_A)
-_DlmInstalledOcgNumber_Type=Integer32
-_DlmInstalledOcgNumber_Object=MibTableColumn
-dlmInstalledOcgNumber=_DlmInstalledOcgNumber_Object((1,3,6,1,4,1,21296,2,2,2,1,4,1,1,7),_DlmInstalledOcgNumber_Type())
-dlmInstalledOcgNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmInstalledOcgNumber.setStatus(_A)
-_DlmRowStatus_Type=RowStatus
-_DlmRowStatus_Object=MibTableColumn
-dlmRowStatus=_DlmRowStatus_Object((1,3,6,1,4,1,21296,2,2,2,1,4,1,1,8),_DlmRowStatus_Type())
-dlmRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:dlmRowStatus.setStatus(_A)
-_DlmOpticsFirmwareVer_Type=DisplayString
-_DlmOpticsFirmwareVer_Object=MibTableColumn
-dlmOpticsFirmwareVer=_DlmOpticsFirmwareVer_Object((1,3,6,1,4,1,21296,2,2,2,1,4,1,1,9),_DlmOpticsFirmwareVer_Type())
-dlmOpticsFirmwareVer.setMaxAccess(_D)
-if mibBuilder.loadTexts:dlmOpticsFirmwareVer.setStatus(_A)
-_DlmConformance_ObjectIdentity=ObjectIdentity
-dlmConformance=_DlmConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,4,3))
-_DlmCompliances_ObjectIdentity=ObjectIdentity
-dlmCompliances=_DlmCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,4,3,1))
-_DlmGroups_ObjectIdentity=ObjectIdentity
-dlmGroups=_DlmGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1,4,3,2))
-dlmGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,1,4,3,2,1))
-dlmGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:dlmGroup.setStatus(_A)
-dlmCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,1,4,3,1,1))
-dlmCompliance.setObjects((_B,_Q))
-if mibBuilder.loadTexts:dlmCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'dlmMIB':dlmMIB,'dlmTable':dlmTable,'dlmEntry':dlmEntry,_I:dlmMoId,_L:dlmProvEqptType,_K:dlmPicDspVer,_J:dlmOperatingMode,_H:dlmAvailableTunableOcgNumbers,_M:dlmProvisionedOcgNumber,_N:dlmInstalledOcgNumber,_O:dlmRowStatus,_P:dlmOpticsFirmwareVer,'dlmConformance':dlmConformance,'dlmCompliances':dlmCompliances,'dlmCompliance':dlmCompliance,'dlmGroups':dlmGroups,_Q:dlmGroup})
+#
+# PySNMP MIB module INFINERA-ENTITY-DLM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-ENTITY-DLM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:15 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+entLPPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entLPPhysicalIndex")
+equipment, = mibBuilder.importSymbols("INFINERA-REG-MIB", "equipment")
+InfnEqptType, InfnOperatingMode = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnEqptType", "InfnOperatingMode")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+dlmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4))
+if mibBuilder.loadTexts: dlmMIB.setLastUpdated('200810200000Z')
+if mibBuilder.loadTexts: dlmMIB.setOrganization('INFINERA')
+dlmConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 3))
+dlmCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 3, 1))
+dlmGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 3, 2))
+dlmTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 1), )
+if mibBuilder.loadTexts: dlmTable.setStatus('current')
+dlmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entLPPhysicalIndex"))
+if mibBuilder.loadTexts: dlmEntry.setStatus('current')
+dlmMoId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 1, 1, 1), DisplayString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dlmMoId.setStatus('current')
+dlmProvEqptType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 1, 1, 2), InfnEqptType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dlmProvEqptType.setStatus('current')
+dlmPicDspVer = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlmPicDspVer.setStatus('current')
+dlmOperatingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 1, 1, 4), InfnOperatingMode().clone('gen2')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dlmOperatingMode.setStatus('current')
+dlmAvailableTunableOcgNumbers = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlmAvailableTunableOcgNumbers.setStatus('current')
+dlmProvisionedOcgNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 1, 1, 6), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dlmProvisionedOcgNumber.setStatus('current')
+dlmInstalledOcgNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 1, 1, 7), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dlmInstalledOcgNumber.setStatus('current')
+dlmRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dlmRowStatus.setStatus('current')
+dlmOpticsFirmwareVer = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 1, 1, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dlmOpticsFirmwareVer.setStatus('current')
+dlmCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 3, 1, 1)).setObjects(("INFINERA-ENTITY-DLM-MIB", "dlmGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dlmCompliance = dlmCompliance.setStatus('current')
+dlmGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 4, 3, 2, 1)).setObjects(("INFINERA-ENTITY-DLM-MIB", "dlmAvailableTunableOcgNumbers"), ("INFINERA-ENTITY-DLM-MIB", "dlmMoId"), ("INFINERA-ENTITY-DLM-MIB", "dlmOperatingMode"), ("INFINERA-ENTITY-DLM-MIB", "dlmPicDspVer"), ("INFINERA-ENTITY-DLM-MIB", "dlmProvEqptType"), ("INFINERA-ENTITY-DLM-MIB", "dlmProvisionedOcgNumber"), ("INFINERA-ENTITY-DLM-MIB", "dlmInstalledOcgNumber"), ("INFINERA-ENTITY-DLM-MIB", "dlmRowStatus"), ("INFINERA-ENTITY-DLM-MIB", "dlmOpticsFirmwareVer"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dlmGroup = dlmGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-ENTITY-DLM-MIB", dlmProvEqptType=dlmProvEqptType, dlmGroups=dlmGroups, dlmConformance=dlmConformance, dlmPicDspVer=dlmPicDspVer, dlmAvailableTunableOcgNumbers=dlmAvailableTunableOcgNumbers, dlmCompliances=dlmCompliances, PYSNMP_MODULE_ID=dlmMIB, dlmOperatingMode=dlmOperatingMode, dlmInstalledOcgNumber=dlmInstalledOcgNumber, dlmMoId=dlmMoId, dlmProvisionedOcgNumber=dlmProvisionedOcgNumber, dlmCompliance=dlmCompliance, dlmGroup=dlmGroup, dlmRowStatus=dlmRowStatus, dlmTable=dlmTable, dlmEntry=dlmEntry, dlmMIB=dlmMIB, dlmOpticsFirmwareVer=dlmOpticsFirmwareVer)

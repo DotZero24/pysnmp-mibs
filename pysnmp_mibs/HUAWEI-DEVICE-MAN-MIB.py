@@ -1,164 +1,76 @@
-_Y='currentObjectGroup'
-_X='hwInfoPortIBMaxSpeed'
-_W='hwInfoPortIBStartTime'
-_V='hwInfoPortIBBufferOverrunErrors'
-_U='hwInfoPortIBLinkErrors'
-_T='hwInfoPortIBReceiveConstraintErrors'
-_S='hwInfoPortIBNotSendPacakges'
-_R='hwInfoPortIBReceiveTransmitErrors'
-_Q='hwInfoPortIBRemoteReceiveErrors'
-_P='hwInfoPortIBReceiveErrors'
-_O='hwInfoPortIBLinkErrorRecovery'
-_N='hwInfoPortIBSymbolError'
-_M='hwInfoPortIBRole'
-_L='hwInfoPortIBWWN'
-_K='hwInfoPortIBWorkingRate'
-_J='hwInfoPortIBType'
-_I='hwInfoPortIBRunningStatus'
-_H='hwInfoPortIBHealthStatus'
-_G='hwInfoPortIBLocation'
-_F='hwInfoPortIBParentID'
-_E='hwInfoPortIBParentType'
-_D='hwInfoPortIBID'
-_C='read-only'
-_B='HUAWEI-DEVICE-MAN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-storage=ModuleIdentity((1,3,6,1,4,1,2011,2,251))
-_Huawei_ObjectIdentity=ObjectIdentity
-huawei=_Huawei_ObjectIdentity((1,3,6,1,4,1,2011))
-_Products_ObjectIdentity=ObjectIdentity
-products=_Products_ObjectIdentity((1,3,6,1,4,1,2011,2))
-_DeviceManager_ObjectIdentity=ObjectIdentity
-deviceManager=_DeviceManager_ObjectIdentity((1,3,6,1,4,1,2011,2,251,22))
-_HwInfoPortIBTable_Object=MibTable
-hwInfoPortIBTable=_HwInfoPortIBTable_Object((1,3,6,1,4,1,2011,2,251,22,16500))
-if mibBuilder.loadTexts:hwInfoPortIBTable.setStatus(_A)
-_HwInfoPortIBEntry_Object=MibTableRow
-hwInfoPortIBEntry=_HwInfoPortIBEntry_Object((1,3,6,1,4,1,2011,2,251,22,16500,1))
-hwInfoPortIBEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:hwInfoPortIBEntry.setStatus(_A)
-_HwInfoPortIBID_Type=OctetString
-_HwInfoPortIBID_Object=MibTableColumn
-hwInfoPortIBID=_HwInfoPortIBID_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,1),_HwInfoPortIBID_Type())
-hwInfoPortIBID.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBID.setStatus(_A)
-_HwInfoPortIBParentType_Type=Unsigned32
-_HwInfoPortIBParentType_Object=MibTableColumn
-hwInfoPortIBParentType=_HwInfoPortIBParentType_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,2),_HwInfoPortIBParentType_Type())
-hwInfoPortIBParentType.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBParentType.setStatus(_A)
-_HwInfoPortIBParentID_Type=OctetString
-_HwInfoPortIBParentID_Object=MibTableColumn
-hwInfoPortIBParentID=_HwInfoPortIBParentID_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,3),_HwInfoPortIBParentID_Type())
-hwInfoPortIBParentID.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBParentID.setStatus(_A)
-_HwInfoPortIBLocation_Type=OctetString
-_HwInfoPortIBLocation_Object=MibTableColumn
-hwInfoPortIBLocation=_HwInfoPortIBLocation_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,4),_HwInfoPortIBLocation_Type())
-hwInfoPortIBLocation.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBLocation.setStatus(_A)
-_HwInfoPortIBHealthStatus_Type=Unsigned32
-_HwInfoPortIBHealthStatus_Object=MibTableColumn
-hwInfoPortIBHealthStatus=_HwInfoPortIBHealthStatus_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,5),_HwInfoPortIBHealthStatus_Type())
-hwInfoPortIBHealthStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBHealthStatus.setStatus(_A)
-_HwInfoPortIBRunningStatus_Type=Unsigned32
-_HwInfoPortIBRunningStatus_Object=MibTableColumn
-hwInfoPortIBRunningStatus=_HwInfoPortIBRunningStatus_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,6),_HwInfoPortIBRunningStatus_Type())
-hwInfoPortIBRunningStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBRunningStatus.setStatus(_A)
-_HwInfoPortIBType_Type=Unsigned32
-_HwInfoPortIBType_Object=MibTableColumn
-hwInfoPortIBType=_HwInfoPortIBType_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,7),_HwInfoPortIBType_Type())
-hwInfoPortIBType.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBType.setStatus(_A)
-_HwInfoPortIBWorkingRate_Type=Unsigned32
-_HwInfoPortIBWorkingRate_Object=MibTableColumn
-hwInfoPortIBWorkingRate=_HwInfoPortIBWorkingRate_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,8),_HwInfoPortIBWorkingRate_Type())
-hwInfoPortIBWorkingRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBWorkingRate.setStatus(_A)
-_HwInfoPortIBWWN_Type=OctetString
-_HwInfoPortIBWWN_Object=MibTableColumn
-hwInfoPortIBWWN=_HwInfoPortIBWWN_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,9),_HwInfoPortIBWWN_Type())
-hwInfoPortIBWWN.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBWWN.setStatus(_A)
-_HwInfoPortIBRole_Type=Unsigned32
-_HwInfoPortIBRole_Object=MibTableColumn
-hwInfoPortIBRole=_HwInfoPortIBRole_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,10),_HwInfoPortIBRole_Type())
-hwInfoPortIBRole.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBRole.setStatus(_A)
-_HwInfoPortIBSymbolError_Type=Unsigned32
-_HwInfoPortIBSymbolError_Object=MibTableColumn
-hwInfoPortIBSymbolError=_HwInfoPortIBSymbolError_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,11),_HwInfoPortIBSymbolError_Type())
-hwInfoPortIBSymbolError.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBSymbolError.setStatus(_A)
-_HwInfoPortIBLinkErrorRecovery_Type=Unsigned32
-_HwInfoPortIBLinkErrorRecovery_Object=MibTableColumn
-hwInfoPortIBLinkErrorRecovery=_HwInfoPortIBLinkErrorRecovery_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,12),_HwInfoPortIBLinkErrorRecovery_Type())
-hwInfoPortIBLinkErrorRecovery.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBLinkErrorRecovery.setStatus(_A)
-_HwInfoPortIBReceiveErrors_Type=Unsigned32
-_HwInfoPortIBReceiveErrors_Object=MibTableColumn
-hwInfoPortIBReceiveErrors=_HwInfoPortIBReceiveErrors_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,13),_HwInfoPortIBReceiveErrors_Type())
-hwInfoPortIBReceiveErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBReceiveErrors.setStatus(_A)
-_HwInfoPortIBRemoteReceiveErrors_Type=Unsigned32
-_HwInfoPortIBRemoteReceiveErrors_Object=MibTableColumn
-hwInfoPortIBRemoteReceiveErrors=_HwInfoPortIBRemoteReceiveErrors_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,14),_HwInfoPortIBRemoteReceiveErrors_Type())
-hwInfoPortIBRemoteReceiveErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBRemoteReceiveErrors.setStatus(_A)
-_HwInfoPortIBReceiveTransmitErrors_Type=Unsigned32
-_HwInfoPortIBReceiveTransmitErrors_Object=MibTableColumn
-hwInfoPortIBReceiveTransmitErrors=_HwInfoPortIBReceiveTransmitErrors_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,15),_HwInfoPortIBReceiveTransmitErrors_Type())
-hwInfoPortIBReceiveTransmitErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBReceiveTransmitErrors.setStatus(_A)
-_HwInfoPortIBNotSendPacakges_Type=Unsigned32
-_HwInfoPortIBNotSendPacakges_Object=MibTableColumn
-hwInfoPortIBNotSendPacakges=_HwInfoPortIBNotSendPacakges_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,16),_HwInfoPortIBNotSendPacakges_Type())
-hwInfoPortIBNotSendPacakges.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBNotSendPacakges.setStatus(_A)
-_HwInfoPortIBReceiveConstraintErrors_Type=Unsigned32
-_HwInfoPortIBReceiveConstraintErrors_Object=MibTableColumn
-hwInfoPortIBReceiveConstraintErrors=_HwInfoPortIBReceiveConstraintErrors_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,17),_HwInfoPortIBReceiveConstraintErrors_Type())
-hwInfoPortIBReceiveConstraintErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBReceiveConstraintErrors.setStatus(_A)
-_HwInfoPortIBLinkErrors_Type=Unsigned32
-_HwInfoPortIBLinkErrors_Object=MibTableColumn
-hwInfoPortIBLinkErrors=_HwInfoPortIBLinkErrors_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,18),_HwInfoPortIBLinkErrors_Type())
-hwInfoPortIBLinkErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBLinkErrors.setStatus(_A)
-_HwInfoPortIBBufferOverrunErrors_Type=Unsigned32
-_HwInfoPortIBBufferOverrunErrors_Object=MibTableColumn
-hwInfoPortIBBufferOverrunErrors=_HwInfoPortIBBufferOverrunErrors_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,19),_HwInfoPortIBBufferOverrunErrors_Type())
-hwInfoPortIBBufferOverrunErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBBufferOverrunErrors.setStatus(_A)
-_HwInfoPortIBStartTime_Type=OctetString
-_HwInfoPortIBStartTime_Object=MibTableColumn
-hwInfoPortIBStartTime=_HwInfoPortIBStartTime_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,20),_HwInfoPortIBStartTime_Type())
-hwInfoPortIBStartTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBStartTime.setStatus(_A)
-_HwInfoPortIBMaxSpeed_Type=Unsigned32
-_HwInfoPortIBMaxSpeed_Object=MibTableColumn
-hwInfoPortIBMaxSpeed=_HwInfoPortIBMaxSpeed_Object((1,3,6,1,4,1,2011,2,251,22,16500,1,21),_HwInfoPortIBMaxSpeed_Type())
-hwInfoPortIBMaxSpeed.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwInfoPortIBMaxSpeed.setStatus(_A)
-_IsoConformance_ObjectIdentity=ObjectIdentity
-isoConformance=_IsoConformance_ObjectIdentity((1,6))
-_IsoGroups_ObjectIdentity=ObjectIdentity
-isoGroups=_IsoGroups_ObjectIdentity((1,6,1))
-_IsoCompliances_ObjectIdentity=ObjectIdentity
-isoCompliances=_IsoCompliances_ObjectIdentity((1,6,2))
-currentObjectGroup=ObjectGroup((1,6,1,1))
-currentObjectGroup.setObjects(*((_B,_D),(_B,_E),(_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:currentObjectGroup.setStatus(_A)
-basicCompliance=ModuleCompliance((1,6,2,1))
-basicCompliance.setObjects((_B,_Y))
-if mibBuilder.loadTexts:basicCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'huawei':huawei,'products':products,'storage':storage,'deviceManager':deviceManager,'hwInfoPortIBTable':hwInfoPortIBTable,'hwInfoPortIBEntry':hwInfoPortIBEntry,_D:hwInfoPortIBID,_E:hwInfoPortIBParentType,_F:hwInfoPortIBParentID,_G:hwInfoPortIBLocation,_H:hwInfoPortIBHealthStatus,_I:hwInfoPortIBRunningStatus,_J:hwInfoPortIBType,_K:hwInfoPortIBWorkingRate,_L:hwInfoPortIBWWN,_M:hwInfoPortIBRole,_N:hwInfoPortIBSymbolError,_O:hwInfoPortIBLinkErrorRecovery,_P:hwInfoPortIBReceiveErrors,_Q:hwInfoPortIBRemoteReceiveErrors,_R:hwInfoPortIBReceiveTransmitErrors,_S:hwInfoPortIBNotSendPacakges,_T:hwInfoPortIBReceiveConstraintErrors,_U:hwInfoPortIBLinkErrors,_V:hwInfoPortIBBufferOverrunErrors,_W:hwInfoPortIBStartTime,_X:hwInfoPortIBMaxSpeed,'isoConformance':isoConformance,'isoGroups':isoGroups,_Y:currentObjectGroup,'isoCompliances':isoCompliances,'basicCompliance':basicCompliance})
+#
+# PySNMP MIB module HUAWEI-DEVICE-MAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/huawei/HUAWEI-DEVICE-MAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:00:58 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+storage = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 2, 251))
+if mibBuilder.loadTexts: storage.setLastUpdated('201612171010Z')
+if mibBuilder.loadTexts: storage.setOrganization('Huawei Technologies Co.,Ltd.')
+huawei = MibIdentifier((1, 3, 6, 1, 4, 1, 2011))
+products = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2))
+deviceManager = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22))
+hwInfoPortIBTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500), )
+if mibBuilder.loadTexts: hwInfoPortIBTable.setStatus('current')
+hwInfoPortIBEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1), ).setIndexNames((0, "HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBID"))
+if mibBuilder.loadTexts: hwInfoPortIBEntry.setStatus('current')
+hwInfoPortIBID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 1), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBID.setStatus('current')
+hwInfoPortIBParentType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBParentType.setStatus('current')
+hwInfoPortIBParentID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 3), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBParentID.setStatus('current')
+hwInfoPortIBLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 4), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBLocation.setStatus('current')
+hwInfoPortIBHealthStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBHealthStatus.setStatus('current')
+hwInfoPortIBRunningStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBRunningStatus.setStatus('current')
+hwInfoPortIBType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBType.setStatus('current')
+hwInfoPortIBWorkingRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBWorkingRate.setStatus('current')
+hwInfoPortIBWWN = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 9), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBWWN.setStatus('current')
+hwInfoPortIBRole = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 10), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBRole.setStatus('current')
+hwInfoPortIBSymbolError = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBSymbolError.setStatus('current')
+hwInfoPortIBLinkErrorRecovery = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBLinkErrorRecovery.setStatus('current')
+hwInfoPortIBReceiveErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 13), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBReceiveErrors.setStatus('current')
+hwInfoPortIBRemoteReceiveErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 14), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBRemoteReceiveErrors.setStatus('current')
+hwInfoPortIBReceiveTransmitErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 15), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBReceiveTransmitErrors.setStatus('current')
+hwInfoPortIBNotSendPacakges = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 16), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBNotSendPacakges.setStatus('current')
+hwInfoPortIBReceiveConstraintErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 17), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBReceiveConstraintErrors.setStatus('current')
+hwInfoPortIBLinkErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 18), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBLinkErrors.setStatus('current')
+hwInfoPortIBBufferOverrunErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 19), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBBufferOverrunErrors.setStatus('current')
+hwInfoPortIBStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 20), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBStartTime.setStatus('current')
+hwInfoPortIBMaxSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 2, 251, 22, 16500, 1, 21), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwInfoPortIBMaxSpeed.setStatus('current')
+isoConformance = MibIdentifier((1, 6))
+isoGroups = MibIdentifier((1, 6, 1))
+currentObjectGroup = ObjectGroup((1, 6, 1, 1)).setObjects(("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBID"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBParentType"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBParentID"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBLocation"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBHealthStatus"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBRunningStatus"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBType"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBWorkingRate"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBWWN"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBRole"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBSymbolError"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBLinkErrorRecovery"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBReceiveErrors"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBRemoteReceiveErrors"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBReceiveTransmitErrors"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBNotSendPacakges"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBReceiveConstraintErrors"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBLinkErrors"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBBufferOverrunErrors"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBStartTime"), ("HUAWEI-DEVICE-MAN-MIB", "hwInfoPortIBMaxSpeed"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    currentObjectGroup = currentObjectGroup.setStatus('current')
+isoCompliances = MibIdentifier((1, 6, 2))
+basicCompliance = ModuleCompliance((1, 6, 2, 1)).setObjects(("HUAWEI-DEVICE-MAN-MIB", "currentObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    basicCompliance = basicCompliance.setStatus('current')
+mibBuilder.exportSymbols("HUAWEI-DEVICE-MAN-MIB", storage=storage, hwInfoPortIBTable=hwInfoPortIBTable, currentObjectGroup=currentObjectGroup, hwInfoPortIBBufferOverrunErrors=hwInfoPortIBBufferOverrunErrors, basicCompliance=basicCompliance, huawei=huawei, hwInfoPortIBParentID=hwInfoPortIBParentID, hwInfoPortIBStartTime=hwInfoPortIBStartTime, hwInfoPortIBRunningStatus=hwInfoPortIBRunningStatus, isoConformance=isoConformance, deviceManager=deviceManager, hwInfoPortIBLocation=hwInfoPortIBLocation, hwInfoPortIBSymbolError=hwInfoPortIBSymbolError, hwInfoPortIBWorkingRate=hwInfoPortIBWorkingRate, hwInfoPortIBLinkErrorRecovery=hwInfoPortIBLinkErrorRecovery, isoCompliances=isoCompliances, hwInfoPortIBMaxSpeed=hwInfoPortIBMaxSpeed, hwInfoPortIBReceiveConstraintErrors=hwInfoPortIBReceiveConstraintErrors, hwInfoPortIBWWN=hwInfoPortIBWWN, isoGroups=isoGroups, hwInfoPortIBEntry=hwInfoPortIBEntry, hwInfoPortIBLinkErrors=hwInfoPortIBLinkErrors, hwInfoPortIBReceiveErrors=hwInfoPortIBReceiveErrors, hwInfoPortIBID=hwInfoPortIBID, hwInfoPortIBParentType=hwInfoPortIBParentType, hwInfoPortIBType=hwInfoPortIBType, PYSNMP_MODULE_ID=storage, products=products, hwInfoPortIBRemoteReceiveErrors=hwInfoPortIBRemoteReceiveErrors, hwInfoPortIBRole=hwInfoPortIBRole, hwInfoPortIBNotSendPacakges=hwInfoPortIBNotSendPacakges, hwInfoPortIBReceiveTransmitErrors=hwInfoPortIBReceiveTransmitErrors, hwInfoPortIBHealthStatus=hwInfoPortIBHealthStatus)

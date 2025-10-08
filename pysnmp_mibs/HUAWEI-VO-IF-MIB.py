@@ -1,131 +1,58 @@
-_K='hwVoIfConfigGroupNumber'
-_J='hwVoIfConfigPortNumber'
-_I='obsolete'
-_H='disable'
-_G='enable'
-_F='HUAWEI-VO-IF-MIB'
-_E='read-only'
-_D='OctetString'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-voice,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','voice')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hwVoiceIfMIB=ModuleIdentity((1,3,6,1,4,1,2011,5,25,1,2))
-if mibBuilder.loadTexts:hwVoiceIfMIB.setRevisions(('2004-04-08 13:45',))
-_HwVoIfObjects_ObjectIdentity=ObjectIdentity
-hwVoIfObjects=_HwVoIfObjects_ObjectIdentity((1,3,6,1,4,1,2011,5,25,1,2,1))
-_HwVoIfConfigTable_Object=MibTable
-hwVoIfConfigTable=_HwVoIfConfigTable_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1))
-if mibBuilder.loadTexts:hwVoIfConfigTable.setStatus(_A)
-_HwVoIfConfigEntry_Object=MibTableRow
-hwVoIfConfigEntry=_HwVoIfConfigEntry_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1))
-hwVoIfConfigEntry.setIndexNames((0,_F,_J),(0,_F,_K))
-if mibBuilder.loadTexts:hwVoIfConfigEntry.setStatus(_A)
-_HwVoIfConfigPortNumber_Type=Integer32
-_HwVoIfConfigPortNumber_Object=MibTableColumn
-hwVoIfConfigPortNumber=_HwVoIfConfigPortNumber_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,1),_HwVoIfConfigPortNumber_Type())
-hwVoIfConfigPortNumber.setMaxAccess(_E)
-if mibBuilder.loadTexts:hwVoIfConfigPortNumber.setStatus(_A)
-_HwVoIfConfigGroupNumber_Type=Integer32
-_HwVoIfConfigGroupNumber_Object=MibTableColumn
-hwVoIfConfigGroupNumber=_HwVoIfConfigGroupNumber_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,2),_HwVoIfConfigGroupNumber_Type())
-hwVoIfConfigGroupNumber.setMaxAccess(_E)
-if mibBuilder.loadTexts:hwVoIfConfigGroupNumber.setStatus(_A)
-class _HwVoIfConfigCngOn_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_HwVoIfConfigCngOn_Type.__name__=_B
-_HwVoIfConfigCngOn_Object=MibTableColumn
-hwVoIfConfigCngOn=_HwVoIfConfigCngOn_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,3),_HwVoIfConfigCngOn_Type())
-hwVoIfConfigCngOn.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwVoIfConfigCngOn.setStatus(_A)
-class _HwVoIfConfigNonLinearProcessSwitch_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_HwVoIfConfigNonLinearProcessSwitch_Type.__name__=_B
-_HwVoIfConfigNonLinearProcessSwitch_Object=MibTableColumn
-hwVoIfConfigNonLinearProcessSwitch=_HwVoIfConfigNonLinearProcessSwitch_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,4),_HwVoIfConfigNonLinearProcessSwitch_Type())
-hwVoIfConfigNonLinearProcessSwitch.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwVoIfConfigNonLinearProcessSwitch.setStatus(_I)
-class _HwVoIfConfigMusicThreshold_Type(Integer32):defaultValue=-38;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-70,-30))
-_HwVoIfConfigMusicThreshold_Type.__name__=_B
-_HwVoIfConfigMusicThreshold_Object=MibTableColumn
-hwVoIfConfigMusicThreshold=_HwVoIfConfigMusicThreshold_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,5),_HwVoIfConfigMusicThreshold_Type())
-hwVoIfConfigMusicThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwVoIfConfigMusicThreshold.setStatus(_I)
-class _HwVoIfConfigInputGain_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-14,14))
-_HwVoIfConfigInputGain_Type.__name__=_B
-_HwVoIfConfigInputGain_Object=MibTableColumn
-hwVoIfConfigInputGain=_HwVoIfConfigInputGain_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,6),_HwVoIfConfigInputGain_Type())
-hwVoIfConfigInputGain.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwVoIfConfigInputGain.setStatus(_A)
-class _HwVoIfConfigOutputGain_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-14,14))
-_HwVoIfConfigOutputGain_Type.__name__=_B
-_HwVoIfConfigOutputGain_Object=MibTableColumn
-hwVoIfConfigOutputGain=_HwVoIfConfigOutputGain_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,7),_HwVoIfConfigOutputGain_Type())
-hwVoIfConfigOutputGain.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwVoIfConfigOutputGain.setStatus(_A)
-class _HwVoIfConfigEchoCancellationSwitch_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
-_HwVoIfConfigEchoCancellationSwitch_Type.__name__=_B
-_HwVoIfConfigEchoCancellationSwitch_Object=MibTableColumn
-hwVoIfConfigEchoCancellationSwitch=_HwVoIfConfigEchoCancellationSwitch_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,8),_HwVoIfConfigEchoCancellationSwitch_Type())
-hwVoIfConfigEchoCancellationSwitch.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwVoIfConfigEchoCancellationSwitch.setStatus(_A)
-class _HwVoIfConfigEchoCancellationCoverage_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('echoCancelCoverage16ms',1),('echoCancelCoverage24ms',2),('echoCancelCoverage32ms',3)))
-_HwVoIfConfigEchoCancellationCoverage_Type.__name__=_B
-_HwVoIfConfigEchoCancellationCoverage_Object=MibTableColumn
-hwVoIfConfigEchoCancellationCoverage=_HwVoIfConfigEchoCancellationCoverage_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,9),_HwVoIfConfigEchoCancellationCoverage_Type())
-hwVoIfConfigEchoCancellationCoverage.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwVoIfConfigEchoCancellationCoverage.setStatus(_I)
-class _HwVoIfConfigEchoCancellationDelay_Type(Integer32):defaultValue=32;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,64))
-_HwVoIfConfigEchoCancellationDelay_Type.__name__=_B
-_HwVoIfConfigEchoCancellationDelay_Object=MibTableColumn
-hwVoIfConfigEchoCancellationDelay=_HwVoIfConfigEchoCancellationDelay_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,10),_HwVoIfConfigEchoCancellationDelay_Type())
-hwVoIfConfigEchoCancellationDelay.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwVoIfConfigEchoCancellationDelay.setStatus(_A)
-class _HwVoIfConfigPlarNumber_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_HwVoIfConfigPlarNumber_Type.__name__=_D
-_HwVoIfConfigPlarNumber_Object=MibTableColumn
-hwVoIfConfigPlarNumber=_HwVoIfConfigPlarNumber_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,11),_HwVoIfConfigPlarNumber_Type())
-hwVoIfConfigPlarNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwVoIfConfigPlarNumber.setStatus(_A)
-class _HwVoIfConfigRegionalTone_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(2,2))
-_HwVoIfConfigRegionalTone_Type.__name__=_D
-_HwVoIfConfigRegionalTone_Object=MibTableColumn
-hwVoIfConfigRegionalTone=_HwVoIfConfigRegionalTone_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,12),_HwVoIfConfigRegionalTone_Type())
-hwVoIfConfigRegionalTone.setMaxAccess(_E)
-if mibBuilder.loadTexts:hwVoIfConfigRegionalTone.setStatus(_A)
-class _HwVoIfConfigDescription_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_HwVoIfConfigDescription_Type.__name__=_D
-_HwVoIfConfigDescription_Object=MibTableColumn
-hwVoIfConfigDescription=_HwVoIfConfigDescription_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,13),_HwVoIfConfigDescription_Type())
-hwVoIfConfigDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwVoIfConfigDescription.setStatus(_A)
-class _HwVoIfConfigStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-_HwVoIfConfigStatus_Type.__name__=_B
-_HwVoIfConfigStatus_Object=MibTableColumn
-hwVoIfConfigStatus=_HwVoIfConfigStatus_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,14),_HwVoIfConfigStatus_Type())
-hwVoIfConfigStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:hwVoIfConfigStatus.setStatus(_A)
-class _HwVoIfConfigDtmfThreshold_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('sensitivity',1),('insensitivty',2)))
-_HwVoIfConfigDtmfThreshold_Type.__name__=_B
-_HwVoIfConfigDtmfThreshold_Object=MibTableColumn
-hwVoIfConfigDtmfThreshold=_HwVoIfConfigDtmfThreshold_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,15),_HwVoIfConfigDtmfThreshold_Type())
-hwVoIfConfigDtmfThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwVoIfConfigDtmfThreshold.setStatus(_A)
-class _HwVoIfConfigCallingNumSubstRule_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_HwVoIfConfigCallingNumSubstRule_Type.__name__=_B
-_HwVoIfConfigCallingNumSubstRule_Object=MibTableColumn
-hwVoIfConfigCallingNumSubstRule=_HwVoIfConfigCallingNumSubstRule_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,16),_HwVoIfConfigCallingNumSubstRule_Type())
-hwVoIfConfigCallingNumSubstRule.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwVoIfConfigCallingNumSubstRule.setStatus(_A)
-class _HwVoIfConfigCalledNumSubstRule_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_HwVoIfConfigCalledNumSubstRule_Type.__name__=_B
-_HwVoIfConfigCalledNumSubstRule_Object=MibTableColumn
-hwVoIfConfigCalledNumSubstRule=_HwVoIfConfigCalledNumSubstRule_Object((1,3,6,1,4,1,2011,5,25,1,2,1,1,1,17),_HwVoIfConfigCalledNumSubstRule_Type())
-hwVoIfConfigCalledNumSubstRule.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwVoIfConfigCalledNumSubstRule.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'hwVoiceIfMIB':hwVoiceIfMIB,'hwVoIfObjects':hwVoIfObjects,'hwVoIfConfigTable':hwVoIfConfigTable,'hwVoIfConfigEntry':hwVoIfConfigEntry,_J:hwVoIfConfigPortNumber,_K:hwVoIfConfigGroupNumber,'hwVoIfConfigCngOn':hwVoIfConfigCngOn,'hwVoIfConfigNonLinearProcessSwitch':hwVoIfConfigNonLinearProcessSwitch,'hwVoIfConfigMusicThreshold':hwVoIfConfigMusicThreshold,'hwVoIfConfigInputGain':hwVoIfConfigInputGain,'hwVoIfConfigOutputGain':hwVoIfConfigOutputGain,'hwVoIfConfigEchoCancellationSwitch':hwVoIfConfigEchoCancellationSwitch,'hwVoIfConfigEchoCancellationCoverage':hwVoIfConfigEchoCancellationCoverage,'hwVoIfConfigEchoCancellationDelay':hwVoIfConfigEchoCancellationDelay,'hwVoIfConfigPlarNumber':hwVoIfConfigPlarNumber,'hwVoIfConfigRegionalTone':hwVoIfConfigRegionalTone,'hwVoIfConfigDescription':hwVoIfConfigDescription,'hwVoIfConfigStatus':hwVoIfConfigStatus,'hwVoIfConfigDtmfThreshold':hwVoIfConfigDtmfThreshold,'hwVoIfConfigCallingNumSubstRule':hwVoIfConfigCallingNumSubstRule,'hwVoIfConfigCalledNumSubstRule':hwVoIfConfigCalledNumSubstRule})
+#
+# PySNMP MIB module HUAWEI-VO-IF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/HUAWEI-VO-IF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:20 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+voice, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "voice")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hwVoiceIfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2))
+hwVoiceIfMIB.setRevisions(('2004-04-08 13:45',))
+if mibBuilder.loadTexts: hwVoiceIfMIB.setLastUpdated('200410200000Z')
+if mibBuilder.loadTexts: hwVoiceIfMIB.setOrganization('Huawei-3COM Technologies Co., Ltd.')
+hwVoIfObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1))
+hwVoIfConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1), )
+if mibBuilder.loadTexts: hwVoIfConfigTable.setStatus('current')
+hwVoIfConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1), ).setIndexNames((0, "HUAWEI-VO-IF-MIB", "hwVoIfConfigPortNumber"), (0, "HUAWEI-VO-IF-MIB", "hwVoIfConfigGroupNumber"))
+if mibBuilder.loadTexts: hwVoIfConfigEntry.setStatus('current')
+hwVoIfConfigPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwVoIfConfigPortNumber.setStatus('current')
+hwVoIfConfigGroupNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwVoIfConfigGroupNumber.setStatus('current')
+hwVoIfConfigCngOn = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoIfConfigCngOn.setStatus('current')
+hwVoIfConfigNonLinearProcessSwitch = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoIfConfigNonLinearProcessSwitch.setStatus('obsolete')
+hwVoIfConfigMusicThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-70, -30)).clone(-38)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoIfConfigMusicThreshold.setStatus('obsolete')
+hwVoIfConfigInputGain = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-14, 14))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoIfConfigInputGain.setStatus('current')
+hwVoIfConfigOutputGain = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-14, 14))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoIfConfigOutputGain.setStatus('current')
+hwVoIfConfigEchoCancellationSwitch = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoIfConfigEchoCancellationSwitch.setStatus('current')
+hwVoIfConfigEchoCancellationCoverage = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("echoCancelCoverage16ms", 1), ("echoCancelCoverage24ms", 2), ("echoCancelCoverage32ms", 3))).clone('echoCancelCoverage16ms')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoIfConfigEchoCancellationCoverage.setStatus('obsolete')
+hwVoIfConfigEchoCancellationDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 64)).clone(32)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoIfConfigEchoCancellationDelay.setStatus('current')
+hwVoIfConfigPlarNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 11), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoIfConfigPlarNumber.setStatus('current')
+hwVoIfConfigRegionalTone = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 12), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(2, 2), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwVoIfConfigRegionalTone.setStatus('current')
+hwVoIfConfigDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 13), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoIfConfigDescription.setStatus('current')
+hwVoIfConfigStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwVoIfConfigStatus.setStatus('current')
+hwVoIfConfigDtmfThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("sensitivity", 1), ("insensitivty", 2))).clone('insensitivty')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoIfConfigDtmfThreshold.setStatus('current')
+hwVoIfConfigCallingNumSubstRule = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoIfConfigCallingNumSubstRule.setStatus('current')
+hwVoIfConfigCalledNumSubstRule = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 25, 1, 2, 1, 1, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwVoIfConfigCalledNumSubstRule.setStatus('current')
+mibBuilder.exportSymbols("HUAWEI-VO-IF-MIB", hwVoIfConfigGroupNumber=hwVoIfConfigGroupNumber, hwVoIfConfigCalledNumSubstRule=hwVoIfConfigCalledNumSubstRule, hwVoIfConfigEchoCancellationDelay=hwVoIfConfigEchoCancellationDelay, hwVoIfConfigOutputGain=hwVoIfConfigOutputGain, hwVoIfConfigEchoCancellationSwitch=hwVoIfConfigEchoCancellationSwitch, hwVoIfConfigMusicThreshold=hwVoIfConfigMusicThreshold, hwVoIfConfigEntry=hwVoIfConfigEntry, hwVoIfConfigEchoCancellationCoverage=hwVoIfConfigEchoCancellationCoverage, hwVoIfConfigTable=hwVoIfConfigTable, hwVoIfConfigPlarNumber=hwVoIfConfigPlarNumber, hwVoIfConfigDtmfThreshold=hwVoIfConfigDtmfThreshold, hwVoIfConfigCngOn=hwVoIfConfigCngOn, hwVoIfConfigCallingNumSubstRule=hwVoIfConfigCallingNumSubstRule, hwVoIfObjects=hwVoIfObjects, hwVoIfConfigNonLinearProcessSwitch=hwVoIfConfigNonLinearProcessSwitch, hwVoIfConfigInputGain=hwVoIfConfigInputGain, hwVoIfConfigDescription=hwVoIfConfigDescription, PYSNMP_MODULE_ID=hwVoiceIfMIB, hwVoIfConfigRegionalTone=hwVoIfConfigRegionalTone, hwVoIfConfigPortNumber=hwVoIfConfigPortNumber, hwVoiceIfMIB=hwVoiceIfMIB, hwVoIfConfigStatus=hwVoIfConfigStatus)

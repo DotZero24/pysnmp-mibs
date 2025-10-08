@@ -1,739 +1,314 @@
-_B4='ciscoSonetVTConfMIBGroup'
-_B3='ciscoSonetApsMIBGroup1'
-_B2='ciscoSonetApsMIBGroup'
-_B1='ciscoSonetConfMIBGroup'
-_B0='ciscoSonetVTStatusChange'
-_A_='ciscoSonetPathStatusChange'
-_Az='ciscoSonetLineStatusChange'
-_Ay='ciscoSonetSectionStatusChange'
-_Ax='csAu4Tug3Payload'
-_Aw='cspTributaryGroupingType'
-_Av='cspSignallingTransportMode'
-_Au='cspTributaryMappingType'
-_At='csNotificationsEnabled'
-_As='cspSonetPathPayload'
-_Ar='csTributaryGroupingType'
-_Aq='csSignallingTransportMode'
-_Ap='csTributaryFramingType'
-_Ao='csTributaryMappingType'
-_An='csTributaryType'
-_Am='csConfigRDIVType'
-_Al='csConfigRDIPType'
-_Ak='csApsPrimarySection'
-_Aj='csApsSwitchReason'
-_Ai='csApsFailureStatus'
-_Ah='cspTraceReceived'
-_Ag='cspTraceFailure'
-_Af='cspTraceToExpect'
-_Ae='cspTraceToTransmit'
-_Ad='cssTraceReceived'
-_Ac='cssTraceFailure'
-_Ab='cssTraceToExpect'
-_Aa='cssTraceToTransmit'
-_AZ='cspFarEndTotalUASs'
-_AY='cspFarEndTotalCVs'
-_AX='cspFarEndTotalSESs'
-_AW='cspFarEndTotalESs'
-_AV='cspTotalUASs'
-_AU='cspTotalCVs'
-_AT='cspTotalSESs'
-_AS='cspTotalESs'
-_AR='cslFarEndTotalUASs'
-_AQ='cslFarEndTotalCVs'
-_AP='cslFarEndTotalSESs'
-_AO='cslFarEndTotalESs'
-_AN='cslTotalUASs'
-_AM='cslTotalCVs'
-_AL='cslTotalSESs'
-_AK='cslTotalESs'
-_AJ='cssTotalCVs'
-_AI='cssTotalSEFSs'
-_AH='cssTotalSESs'
-_AG='cssTotalESs'
-_AF='cspConfigEntry'
-_AE='csVTConfigEntry'
-_AD='csAu4Tug3'
-_AC='remote failure indications'
-_AB='alarm indication signals'
-_AA='biDirectional'
-_A9='uniDirectional'
-_A8='straightOnePlusOneNok1k2'
-_A7='ycableOnePlusOneNok1k2'
-_A6='anexBOnePlusOne'
-_A5='onePlusOne'
-_A4='not-accessible'
-_A3='csApsWorkingIndex'
-_A2='au4Grouping'
-_A1='au3Grouping'
-_A0='clearMode'
-_z='signallingTransferMode'
-_y='byteSynchronous'
-_x='asynchronous'
-_w='vt2vc12'
-_v='vt15vc11'
-_u='threebit'
-_t='onebit'
-_s='sonetVTCurrentStatus'
-_r='sonetSectionCurrentStatus'
-_q='sonetPathCurrentStatus'
-_p='sonetLineCurrentStatus'
-_o='TruthValue'
-_n='ciscoSonetSectionNotifGroup'
-_m='ciscoSonetNotifEnableGroup'
-_l='ciscoSonetStatsMIBGroup'
-_k='csApsChannelProtocol'
-_j='csApsArchModeOperational'
-_i='csApsDirectionOperational'
-_h='csApsLineSwitchReason'
-_g='csApsLineFailureCode'
-_f='csApsDirection'
-_e='csApsWaitToRestore'
-_d='csApsSigDegradeBER'
-_c='csApsSigFaultBER'
-_b='csApsActiveLine'
-_a='csApsArchMode'
-_Z='csApsEnable'
-_Y='csApsProtectionIndex'
-_X='csConfigType'
-_W='csConfigFrameScramble'
-_V='csConfigXmtClockSource'
-_U='csConfigLoopbackType'
-_T='ciscoSonetConfMIBGroup1'
-_S='unavailable seconds'
-_R='csApsRevertive'
-_Q='Unsigned32'
-_P='ciscoSonetTraceMIBGroup'
-_O='deprecated'
-_N='coding violations'
-_M='severely errored seconds'
-_L='errored seconds'
-_K='notApplicable'
-_J='SONET-MIB'
-_I='ifDescr'
-_H='OctetString'
-_G='ifIndex'
-_F='IF-MIB'
-_E='Integer32'
-_D='read-write'
-_C='read-only'
-_B='CISCO-SONET-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_H,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-InterfaceIndex,ifDescr,ifIndex=mibBuilder.importSymbols(_F,'InterfaceIndex',_I,_G)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_Q,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_o)
-sonetLineCurrentStatus,sonetPathCurrentEntry,sonetPathCurrentStatus,sonetSectionCurrentStatus,sonetVTCurrentStatus=mibBuilder.importSymbols(_J,_p,'sonetPathCurrentEntry',_q,_r,_s)
-ciscoSonetMIB=ModuleIdentity((1,3,6,1,4,1,9,9,126))
-if mibBuilder.loadTexts:ciscoSonetMIB.setRevisions(('2003-03-07 00:00','2002-06-14 00:00','2002-05-22 00:00','2001-10-17 00:00','2000-07-12 00:00','1999-03-08 00:00'))
-class CsApsLineFailureCode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('csApsChannelMismatch',1),('csApsProtectionByteFail',2),('csApsFEProtectionFailure',3),('csApsModeMismatch',4)))
-class CsApsLineFailureStatus(TextualConvention,Bits):status=_A;namedValues=NamedValues(*(('noApsLineFailure',0),('csApsChannelMismatchBit',1),('csApsProtectionByteFailBit',2),('csApsFEProtectionFailureBit',3),('csApsModeMismatchBit',4)))
-class CsApsLineSwitchReason(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*(('csApsOther',1),(_R,2),('csApsManual',3),('csApsSignalDefectLow',4),('csApsSignalDefectHigh',5),('csApsSignalFailureLow',6),('csApsSignalFailureHigh',7),('csApsForceSwitch',8),('csApsLockOut',9),('csApsNoSwitch',10)))
-_CiscoSonetMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoSonetMIBNotifs=_CiscoSonetMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,126,0))
-_CiscoSonetMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoSonetMIBObjects=_CiscoSonetMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,126,1))
-_CsConfig_ObjectIdentity=ObjectIdentity
-csConfig=_CsConfig_ObjectIdentity((1,3,6,1,4,1,9,9,126,1,1))
-_CsConfigTable_Object=MibTable
-csConfigTable=_CsConfigTable_Object((1,3,6,1,4,1,9,9,126,1,1,1))
-if mibBuilder.loadTexts:csConfigTable.setStatus(_A)
-_CsConfigEntry_Object=MibTableRow
-csConfigEntry=_CsConfigEntry_Object((1,3,6,1,4,1,9,9,126,1,1,1,1))
-csConfigEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:csConfigEntry.setStatus(_A)
-class _CsConfigLoopbackType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('noLoopback',1),('lineLocal',2),('lineRemote',3)))
-_CsConfigLoopbackType_Type.__name__=_E
-_CsConfigLoopbackType_Object=MibTableColumn
-csConfigLoopbackType=_CsConfigLoopbackType_Object((1,3,6,1,4,1,9,9,126,1,1,1,1,1),_CsConfigLoopbackType_Type())
-csConfigLoopbackType.setMaxAccess(_D)
-if mibBuilder.loadTexts:csConfigLoopbackType.setStatus(_A)
-class _CsConfigXmtClockSource_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('loopTiming',1),('localTiming',2)))
-_CsConfigXmtClockSource_Type.__name__=_E
-_CsConfigXmtClockSource_Object=MibTableColumn
-csConfigXmtClockSource=_CsConfigXmtClockSource_Object((1,3,6,1,4,1,9,9,126,1,1,1,1,2),_CsConfigXmtClockSource_Type())
-csConfigXmtClockSource.setMaxAccess(_D)
-if mibBuilder.loadTexts:csConfigXmtClockSource.setStatus(_A)
-class _CsConfigFrameScramble_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('disabled',1),('enabled',2)))
-_CsConfigFrameScramble_Type.__name__=_E
-_CsConfigFrameScramble_Object=MibTableColumn
-csConfigFrameScramble=_CsConfigFrameScramble_Object((1,3,6,1,4,1,9,9,126,1,1,1,1,3),_CsConfigFrameScramble_Type())
-csConfigFrameScramble.setMaxAccess(_D)
-if mibBuilder.loadTexts:csConfigFrameScramble.setStatus(_A)
-class _CsConfigType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('sonetSts3c',1),('sonetStm1',2),('sonetSts12c',3),('sonetStm4',4),('sonetSts48c',5),('sonetStm16',6),('sonetSts192c',7),('sonetStm64',8),('sonetSts3',9)))
-_CsConfigType_Type.__name__=_E
-_CsConfigType_Object=MibTableColumn
-csConfigType=_CsConfigType_Object((1,3,6,1,4,1,9,9,126,1,1,1,1,4),_CsConfigType_Type())
-csConfigType.setMaxAccess(_C)
-if mibBuilder.loadTexts:csConfigType.setStatus(_A)
-class _CsConfigRDIVType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3)));namedValues=NamedValues(*((_t,1),(_u,3)))
-_CsConfigRDIVType_Type.__name__=_E
-_CsConfigRDIVType_Object=MibTableColumn
-csConfigRDIVType=_CsConfigRDIVType_Object((1,3,6,1,4,1,9,9,126,1,1,1,1,5),_CsConfigRDIVType_Type())
-csConfigRDIVType.setMaxAccess(_D)
-if mibBuilder.loadTexts:csConfigRDIVType.setStatus(_A)
-class _CsConfigRDIPType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3)));namedValues=NamedValues(*((_t,1),(_u,3)))
-_CsConfigRDIPType_Type.__name__=_E
-_CsConfigRDIPType_Object=MibTableColumn
-csConfigRDIPType=_CsConfigRDIPType_Object((1,3,6,1,4,1,9,9,126,1,1,1,1,6),_CsConfigRDIPType_Type())
-csConfigRDIPType.setMaxAccess(_D)
-if mibBuilder.loadTexts:csConfigRDIPType.setStatus(_A)
-_CsVTConfigTable_Object=MibTable
-csVTConfigTable=_CsVTConfigTable_Object((1,3,6,1,4,1,9,9,126,1,1,2))
-if mibBuilder.loadTexts:csVTConfigTable.setStatus(_A)
-_CsVTConfigEntry_Object=MibTableRow
-csVTConfigEntry=_CsVTConfigEntry_Object((1,3,6,1,4,1,9,9,126,1,1,2,1))
-if mibBuilder.loadTexts:csVTConfigEntry.setStatus(_A)
-class _CsTributaryType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_v,1),(_w,2)))
-_CsTributaryType_Type.__name__=_E
-_CsTributaryType_Object=MibTableColumn
-csTributaryType=_CsTributaryType_Object((1,3,6,1,4,1,9,9,126,1,1,2,1,1),_CsTributaryType_Type())
-csTributaryType.setMaxAccess(_D)
-if mibBuilder.loadTexts:csTributaryType.setStatus(_A)
-class _CsTributaryMappingType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_x,1),(_y,2)))
-_CsTributaryMappingType_Type.__name__=_E
-_CsTributaryMappingType_Object=MibTableColumn
-csTributaryMappingType=_CsTributaryMappingType_Object((1,3,6,1,4,1,9,9,126,1,1,2,1,2),_CsTributaryMappingType_Type())
-csTributaryMappingType.setMaxAccess(_D)
-if mibBuilder.loadTexts:csTributaryMappingType.setStatus(_A)
-class _CsTributaryFramingType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),('dsx1D4',2),('dsx1ESF',3)))
-_CsTributaryFramingType_Type.__name__=_E
-_CsTributaryFramingType_Object=MibTableColumn
-csTributaryFramingType=_CsTributaryFramingType_Object((1,3,6,1,4,1,9,9,126,1,1,2,1,3),_CsTributaryFramingType_Type())
-csTributaryFramingType.setMaxAccess(_D)
-if mibBuilder.loadTexts:csTributaryFramingType.setStatus(_A)
-class _CsSignallingTransportMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),(_z,2),(_A0,3)))
-_CsSignallingTransportMode_Type.__name__=_E
-_CsSignallingTransportMode_Object=MibTableColumn
-csSignallingTransportMode=_CsSignallingTransportMode_Object((1,3,6,1,4,1,9,9,126,1,1,2,1,4),_CsSignallingTransportMode_Type())
-csSignallingTransportMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:csSignallingTransportMode.setStatus(_A)
-class _CsTributaryGroupingType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),(_A1,2),(_A2,3)))
-_CsTributaryGroupingType_Type.__name__=_E
-_CsTributaryGroupingType_Object=MibTableColumn
-csTributaryGroupingType=_CsTributaryGroupingType_Object((1,3,6,1,4,1,9,9,126,1,1,2,1,5),_CsTributaryGroupingType_Type())
-csTributaryGroupingType.setMaxAccess(_D)
-if mibBuilder.loadTexts:csTributaryGroupingType.setStatus(_A)
-_CsApsConfig_ObjectIdentity=ObjectIdentity
-csApsConfig=_CsApsConfig_ObjectIdentity((1,3,6,1,4,1,9,9,126,1,2))
-_CsApsConfigTable_Object=MibTable
-csApsConfigTable=_CsApsConfigTable_Object((1,3,6,1,4,1,9,9,126,1,2,1))
-if mibBuilder.loadTexts:csApsConfigTable.setStatus(_A)
-_CsApsConfigEntry_Object=MibTableRow
-csApsConfigEntry=_CsApsConfigEntry_Object((1,3,6,1,4,1,9,9,126,1,2,1,1))
-csApsConfigEntry.setIndexNames((0,_B,_A3))
-if mibBuilder.loadTexts:csApsConfigEntry.setStatus(_A)
-_CsApsWorkingIndex_Type=InterfaceIndex
-_CsApsWorkingIndex_Object=MibTableColumn
-csApsWorkingIndex=_CsApsWorkingIndex_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,1),_CsApsWorkingIndex_Type())
-csApsWorkingIndex.setMaxAccess(_A4)
-if mibBuilder.loadTexts:csApsWorkingIndex.setStatus(_A)
-_CsApsProtectionIndex_Type=InterfaceIndex
-_CsApsProtectionIndex_Object=MibTableColumn
-csApsProtectionIndex=_CsApsProtectionIndex_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,2),_CsApsProtectionIndex_Type())
-csApsProtectionIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:csApsProtectionIndex.setStatus(_A)
-class _CsApsEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('csApsDisabled',1),('csApsEnabled',2)))
-_CsApsEnable_Type.__name__=_E
-_CsApsEnable_Object=MibTableColumn
-csApsEnable=_CsApsEnable_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,3),_CsApsEnable_Type())
-csApsEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:csApsEnable.setStatus(_A)
-class _CsApsArchMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_A5,1),('oneToOne',2),(_A6,3),(_A7,4),(_A8,5)))
-_CsApsArchMode_Type.__name__=_E
-_CsApsArchMode_Object=MibTableColumn
-csApsArchMode=_CsApsArchMode_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,4),_CsApsArchMode_Type())
-csApsArchMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:csApsArchMode.setStatus(_A)
-class _CsApsActiveLine_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('csApsWorkingLine',1),('csApsProtectionLine',2),('csApsNone',3)))
-_CsApsActiveLine_Type.__name__=_E
-_CsApsActiveLine_Object=MibTableColumn
-csApsActiveLine=_CsApsActiveLine_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,5),_CsApsActiveLine_Type())
-csApsActiveLine.setMaxAccess(_C)
-if mibBuilder.loadTexts:csApsActiveLine.setStatus(_A)
-class _CsApsSigFaultBER_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3,5))
-_CsApsSigFaultBER_Type.__name__=_Q
-_CsApsSigFaultBER_Object=MibTableColumn
-csApsSigFaultBER=_CsApsSigFaultBER_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,6),_CsApsSigFaultBER_Type())
-csApsSigFaultBER.setMaxAccess(_D)
-if mibBuilder.loadTexts:csApsSigFaultBER.setStatus(_A)
-class _CsApsSigDegradeBER_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,9))
-_CsApsSigDegradeBER_Type.__name__=_Q
-_CsApsSigDegradeBER_Object=MibTableColumn
-csApsSigDegradeBER=_CsApsSigDegradeBER_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,7),_CsApsSigDegradeBER_Type())
-csApsSigDegradeBER.setMaxAccess(_D)
-if mibBuilder.loadTexts:csApsSigDegradeBER.setStatus(_A)
-class _CsApsWaitToRestore_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,12))
-_CsApsWaitToRestore_Type.__name__=_Q
-_CsApsWaitToRestore_Object=MibTableColumn
-csApsWaitToRestore=_CsApsWaitToRestore_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,8),_CsApsWaitToRestore_Type())
-csApsWaitToRestore.setMaxAccess(_D)
-if mibBuilder.loadTexts:csApsWaitToRestore.setStatus(_A)
-if mibBuilder.loadTexts:csApsWaitToRestore.setUnits('minutes')
-class _CsApsDirection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_A9,1),(_AA,2)))
-_CsApsDirection_Type.__name__=_E
-_CsApsDirection_Object=MibTableColumn
-csApsDirection=_CsApsDirection_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,9),_CsApsDirection_Type())
-csApsDirection.setMaxAccess(_D)
-if mibBuilder.loadTexts:csApsDirection.setStatus(_A)
-class _CsApsRevertive_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('nonrevertive',1),('revertive',2)))
-_CsApsRevertive_Type.__name__=_E
-_CsApsRevertive_Object=MibTableColumn
-csApsRevertive=_CsApsRevertive_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,10),_CsApsRevertive_Type())
-csApsRevertive.setMaxAccess(_D)
-if mibBuilder.loadTexts:csApsRevertive.setStatus(_A)
-class _CsApsDirectionOperational_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_A9,1),(_AA,2)))
-_CsApsDirectionOperational_Type.__name__=_E
-_CsApsDirectionOperational_Object=MibTableColumn
-csApsDirectionOperational=_CsApsDirectionOperational_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,11),_CsApsDirectionOperational_Type())
-csApsDirectionOperational.setMaxAccess(_C)
-if mibBuilder.loadTexts:csApsDirectionOperational.setStatus(_A)
-class _CsApsArchModeOperational_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_A5,1),('oneToOne',2),(_A6,3),(_A7,4),(_A8,5)))
-_CsApsArchModeOperational_Type.__name__=_E
-_CsApsArchModeOperational_Object=MibTableColumn
-csApsArchModeOperational=_CsApsArchModeOperational_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,12),_CsApsArchModeOperational_Type())
-csApsArchModeOperational.setMaxAccess(_C)
-if mibBuilder.loadTexts:csApsArchModeOperational.setStatus(_A)
-class _CsApsChannelProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('bellcore',1),('itu',2)))
-_CsApsChannelProtocol_Type.__name__=_E
-_CsApsChannelProtocol_Object=MibTableColumn
-csApsChannelProtocol=_CsApsChannelProtocol_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,13),_CsApsChannelProtocol_Type())
-csApsChannelProtocol.setMaxAccess(_D)
-if mibBuilder.loadTexts:csApsChannelProtocol.setStatus(_A)
-_CsApsFailureStatus_Type=CsApsLineFailureStatus
-_CsApsFailureStatus_Object=MibTableColumn
-csApsFailureStatus=_CsApsFailureStatus_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,14),_CsApsFailureStatus_Type())
-csApsFailureStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:csApsFailureStatus.setStatus(_A)
-_CsApsSwitchReason_Type=CsApsLineSwitchReason
-_CsApsSwitchReason_Object=MibTableColumn
-csApsSwitchReason=_CsApsSwitchReason_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,15),_CsApsSwitchReason_Type())
-csApsSwitchReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:csApsSwitchReason.setStatus(_A)
-class _CsApsPrimarySection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('workingSection1',1),('workingSection2',2),('none',3)))
-_CsApsPrimarySection_Type.__name__=_E
-_CsApsPrimarySection_Object=MibTableColumn
-csApsPrimarySection=_CsApsPrimarySection_Object((1,3,6,1,4,1,9,9,126,1,2,1,1,16),_CsApsPrimarySection_Type())
-csApsPrimarySection.setMaxAccess(_C)
-if mibBuilder.loadTexts:csApsPrimarySection.setStatus(_A)
-_CsApsLineFailureCode_Type=CsApsLineFailureCode
-_CsApsLineFailureCode_Object=MibScalar
-csApsLineFailureCode=_CsApsLineFailureCode_Object((1,3,6,1,4,1,9,9,126,1,2,2),_CsApsLineFailureCode_Type())
-csApsLineFailureCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:csApsLineFailureCode.setStatus(_A)
-_CsApsLineSwitchReason_Type=CsApsLineSwitchReason
-_CsApsLineSwitchReason_Object=MibScalar
-csApsLineSwitchReason=_CsApsLineSwitchReason_Object((1,3,6,1,4,1,9,9,126,1,2,3),_CsApsLineSwitchReason_Type())
-csApsLineSwitchReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:csApsLineSwitchReason.setStatus(_A)
-_CsSection_ObjectIdentity=ObjectIdentity
-csSection=_CsSection_ObjectIdentity((1,3,6,1,4,1,9,9,126,1,3))
-_CssTotalTable_Object=MibTable
-cssTotalTable=_CssTotalTable_Object((1,3,6,1,4,1,9,9,126,1,3,1))
-if mibBuilder.loadTexts:cssTotalTable.setStatus(_A)
-_CssTotalEntry_Object=MibTableRow
-cssTotalEntry=_CssTotalEntry_Object((1,3,6,1,4,1,9,9,126,1,3,1,1))
-cssTotalEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:cssTotalEntry.setStatus(_A)
-_CssTotalESs_Type=Gauge32
-_CssTotalESs_Object=MibTableColumn
-cssTotalESs=_CssTotalESs_Object((1,3,6,1,4,1,9,9,126,1,3,1,1,1),_CssTotalESs_Type())
-cssTotalESs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cssTotalESs.setStatus(_A)
-if mibBuilder.loadTexts:cssTotalESs.setUnits(_L)
-_CssTotalSESs_Type=Gauge32
-_CssTotalSESs_Object=MibTableColumn
-cssTotalSESs=_CssTotalSESs_Object((1,3,6,1,4,1,9,9,126,1,3,1,1,2),_CssTotalSESs_Type())
-cssTotalSESs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cssTotalSESs.setStatus(_A)
-if mibBuilder.loadTexts:cssTotalSESs.setUnits(_M)
-_CssTotalSEFSs_Type=Gauge32
-_CssTotalSEFSs_Object=MibTableColumn
-cssTotalSEFSs=_CssTotalSEFSs_Object((1,3,6,1,4,1,9,9,126,1,3,1,1,3),_CssTotalSEFSs_Type())
-cssTotalSEFSs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cssTotalSEFSs.setStatus(_A)
-if mibBuilder.loadTexts:cssTotalSEFSs.setUnits('severely errored framing seconds')
-_CssTotalCVs_Type=Gauge32
-_CssTotalCVs_Object=MibTableColumn
-cssTotalCVs=_CssTotalCVs_Object((1,3,6,1,4,1,9,9,126,1,3,1,1,4),_CssTotalCVs_Type())
-cssTotalCVs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cssTotalCVs.setStatus(_A)
-if mibBuilder.loadTexts:cssTotalCVs.setUnits(_N)
-_CssTraceTable_Object=MibTable
-cssTraceTable=_CssTraceTable_Object((1,3,6,1,4,1,9,9,126,1,3,2))
-if mibBuilder.loadTexts:cssTraceTable.setStatus(_A)
-_CssTraceEntry_Object=MibTableRow
-cssTraceEntry=_CssTraceEntry_Object((1,3,6,1,4,1,9,9,126,1,3,2,1))
-cssTraceEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:cssTraceEntry.setStatus(_A)
-class _CssTraceToTransmit_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(16,16),ValueSizeConstraint(64,64))
-_CssTraceToTransmit_Type.__name__=_H
-_CssTraceToTransmit_Object=MibTableColumn
-cssTraceToTransmit=_CssTraceToTransmit_Object((1,3,6,1,4,1,9,9,126,1,3,2,1,1),_CssTraceToTransmit_Type())
-cssTraceToTransmit.setMaxAccess(_D)
-if mibBuilder.loadTexts:cssTraceToTransmit.setStatus(_A)
-class _CssTraceToExpect_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(16,16),ValueSizeConstraint(64,64))
-_CssTraceToExpect_Type.__name__=_H
-_CssTraceToExpect_Object=MibTableColumn
-cssTraceToExpect=_CssTraceToExpect_Object((1,3,6,1,4,1,9,9,126,1,3,2,1,2),_CssTraceToExpect_Type())
-cssTraceToExpect.setMaxAccess(_D)
-if mibBuilder.loadTexts:cssTraceToExpect.setStatus(_A)
-_CssTraceFailure_Type=TruthValue
-_CssTraceFailure_Object=MibTableColumn
-cssTraceFailure=_CssTraceFailure_Object((1,3,6,1,4,1,9,9,126,1,3,2,1,3),_CssTraceFailure_Type())
-cssTraceFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:cssTraceFailure.setStatus(_A)
-class _CssTraceReceived_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(16,16),ValueSizeConstraint(64,64))
-_CssTraceReceived_Type.__name__=_H
-_CssTraceReceived_Object=MibTableColumn
-cssTraceReceived=_CssTraceReceived_Object((1,3,6,1,4,1,9,9,126,1,3,2,1,4),_CssTraceReceived_Type())
-cssTraceReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:cssTraceReceived.setStatus(_A)
-_CsLine_ObjectIdentity=ObjectIdentity
-csLine=_CsLine_ObjectIdentity((1,3,6,1,4,1,9,9,126,1,4))
-_CslTotalTable_Object=MibTable
-cslTotalTable=_CslTotalTable_Object((1,3,6,1,4,1,9,9,126,1,4,1))
-if mibBuilder.loadTexts:cslTotalTable.setStatus(_A)
-_CslTotalEntry_Object=MibTableRow
-cslTotalEntry=_CslTotalEntry_Object((1,3,6,1,4,1,9,9,126,1,4,1,1))
-cslTotalEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:cslTotalEntry.setStatus(_A)
-_CslTotalESs_Type=Gauge32
-_CslTotalESs_Object=MibTableColumn
-cslTotalESs=_CslTotalESs_Object((1,3,6,1,4,1,9,9,126,1,4,1,1,1),_CslTotalESs_Type())
-cslTotalESs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cslTotalESs.setStatus(_A)
-if mibBuilder.loadTexts:cslTotalESs.setUnits(_L)
-_CslTotalSESs_Type=Gauge32
-_CslTotalSESs_Object=MibTableColumn
-cslTotalSESs=_CslTotalSESs_Object((1,3,6,1,4,1,9,9,126,1,4,1,1,2),_CslTotalSESs_Type())
-cslTotalSESs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cslTotalSESs.setStatus(_A)
-if mibBuilder.loadTexts:cslTotalSESs.setUnits(_M)
-_CslTotalCVs_Type=Gauge32
-_CslTotalCVs_Object=MibTableColumn
-cslTotalCVs=_CslTotalCVs_Object((1,3,6,1,4,1,9,9,126,1,4,1,1,3),_CslTotalCVs_Type())
-cslTotalCVs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cslTotalCVs.setStatus(_A)
-if mibBuilder.loadTexts:cslTotalCVs.setUnits(_N)
-_CslTotalUASs_Type=Gauge32
-_CslTotalUASs_Object=MibTableColumn
-cslTotalUASs=_CslTotalUASs_Object((1,3,6,1,4,1,9,9,126,1,4,1,1,4),_CslTotalUASs_Type())
-cslTotalUASs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cslTotalUASs.setStatus(_A)
-if mibBuilder.loadTexts:cslTotalUASs.setUnits(_S)
-_CslFarEndTotalTable_Object=MibTable
-cslFarEndTotalTable=_CslFarEndTotalTable_Object((1,3,6,1,4,1,9,9,126,1,4,2))
-if mibBuilder.loadTexts:cslFarEndTotalTable.setStatus(_A)
-_CslFarEndTotalEntry_Object=MibTableRow
-cslFarEndTotalEntry=_CslFarEndTotalEntry_Object((1,3,6,1,4,1,9,9,126,1,4,2,1))
-cslFarEndTotalEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:cslFarEndTotalEntry.setStatus(_A)
-_CslFarEndTotalESs_Type=Gauge32
-_CslFarEndTotalESs_Object=MibTableColumn
-cslFarEndTotalESs=_CslFarEndTotalESs_Object((1,3,6,1,4,1,9,9,126,1,4,2,1,1),_CslFarEndTotalESs_Type())
-cslFarEndTotalESs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cslFarEndTotalESs.setStatus(_A)
-if mibBuilder.loadTexts:cslFarEndTotalESs.setUnits(_L)
-_CslFarEndTotalSESs_Type=Gauge32
-_CslFarEndTotalSESs_Object=MibTableColumn
-cslFarEndTotalSESs=_CslFarEndTotalSESs_Object((1,3,6,1,4,1,9,9,126,1,4,2,1,2),_CslFarEndTotalSESs_Type())
-cslFarEndTotalSESs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cslFarEndTotalSESs.setStatus(_A)
-if mibBuilder.loadTexts:cslFarEndTotalSESs.setUnits(_M)
-_CslFarEndTotalCVs_Type=Gauge32
-_CslFarEndTotalCVs_Object=MibTableColumn
-cslFarEndTotalCVs=_CslFarEndTotalCVs_Object((1,3,6,1,4,1,9,9,126,1,4,2,1,3),_CslFarEndTotalCVs_Type())
-cslFarEndTotalCVs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cslFarEndTotalCVs.setStatus(_A)
-if mibBuilder.loadTexts:cslFarEndTotalCVs.setUnits(_N)
-_CslFarEndTotalUASs_Type=Gauge32
-_CslFarEndTotalUASs_Object=MibTableColumn
-cslFarEndTotalUASs=_CslFarEndTotalUASs_Object((1,3,6,1,4,1,9,9,126,1,4,2,1,4),_CslFarEndTotalUASs_Type())
-cslFarEndTotalUASs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cslFarEndTotalUASs.setStatus(_A)
-if mibBuilder.loadTexts:cslFarEndTotalUASs.setUnits(_S)
-_CsPath_ObjectIdentity=ObjectIdentity
-csPath=_CsPath_ObjectIdentity((1,3,6,1,4,1,9,9,126,1,5))
-_CspTotalTable_Object=MibTable
-cspTotalTable=_CspTotalTable_Object((1,3,6,1,4,1,9,9,126,1,5,1))
-if mibBuilder.loadTexts:cspTotalTable.setStatus(_A)
-_CspTotalEntry_Object=MibTableRow
-cspTotalEntry=_CspTotalEntry_Object((1,3,6,1,4,1,9,9,126,1,5,1,1))
-cspTotalEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:cspTotalEntry.setStatus(_A)
-_CspTotalESs_Type=Gauge32
-_CspTotalESs_Object=MibTableColumn
-cspTotalESs=_CspTotalESs_Object((1,3,6,1,4,1,9,9,126,1,5,1,1,1),_CspTotalESs_Type())
-cspTotalESs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cspTotalESs.setStatus(_A)
-if mibBuilder.loadTexts:cspTotalESs.setUnits(_L)
-_CspTotalSESs_Type=Gauge32
-_CspTotalSESs_Object=MibTableColumn
-cspTotalSESs=_CspTotalSESs_Object((1,3,6,1,4,1,9,9,126,1,5,1,1,2),_CspTotalSESs_Type())
-cspTotalSESs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cspTotalSESs.setStatus(_A)
-if mibBuilder.loadTexts:cspTotalSESs.setUnits(_M)
-_CspTotalCVs_Type=Gauge32
-_CspTotalCVs_Object=MibTableColumn
-cspTotalCVs=_CspTotalCVs_Object((1,3,6,1,4,1,9,9,126,1,5,1,1,3),_CspTotalCVs_Type())
-cspTotalCVs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cspTotalCVs.setStatus(_A)
-if mibBuilder.loadTexts:cspTotalCVs.setUnits(_N)
-_CspTotalUASs_Type=Gauge32
-_CspTotalUASs_Object=MibTableColumn
-cspTotalUASs=_CspTotalUASs_Object((1,3,6,1,4,1,9,9,126,1,5,1,1,4),_CspTotalUASs_Type())
-cspTotalUASs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cspTotalUASs.setStatus(_A)
-if mibBuilder.loadTexts:cspTotalUASs.setUnits(_S)
-_CspFarEndTotalTable_Object=MibTable
-cspFarEndTotalTable=_CspFarEndTotalTable_Object((1,3,6,1,4,1,9,9,126,1,5,2))
-if mibBuilder.loadTexts:cspFarEndTotalTable.setStatus(_A)
-_CspFarEndTotalEntry_Object=MibTableRow
-cspFarEndTotalEntry=_CspFarEndTotalEntry_Object((1,3,6,1,4,1,9,9,126,1,5,2,1))
-cspFarEndTotalEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:cspFarEndTotalEntry.setStatus(_A)
-_CspFarEndTotalESs_Type=Gauge32
-_CspFarEndTotalESs_Object=MibTableColumn
-cspFarEndTotalESs=_CspFarEndTotalESs_Object((1,3,6,1,4,1,9,9,126,1,5,2,1,1),_CspFarEndTotalESs_Type())
-cspFarEndTotalESs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cspFarEndTotalESs.setStatus(_A)
-if mibBuilder.loadTexts:cspFarEndTotalESs.setUnits(_L)
-_CspFarEndTotalSESs_Type=Gauge32
-_CspFarEndTotalSESs_Object=MibTableColumn
-cspFarEndTotalSESs=_CspFarEndTotalSESs_Object((1,3,6,1,4,1,9,9,126,1,5,2,1,2),_CspFarEndTotalSESs_Type())
-cspFarEndTotalSESs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cspFarEndTotalSESs.setStatus(_A)
-if mibBuilder.loadTexts:cspFarEndTotalSESs.setUnits(_M)
-_CspFarEndTotalCVs_Type=Gauge32
-_CspFarEndTotalCVs_Object=MibTableColumn
-cspFarEndTotalCVs=_CspFarEndTotalCVs_Object((1,3,6,1,4,1,9,9,126,1,5,2,1,3),_CspFarEndTotalCVs_Type())
-cspFarEndTotalCVs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cspFarEndTotalCVs.setStatus(_A)
-if mibBuilder.loadTexts:cspFarEndTotalCVs.setUnits(_N)
-_CspFarEndTotalUASs_Type=Gauge32
-_CspFarEndTotalUASs_Object=MibTableColumn
-cspFarEndTotalUASs=_CspFarEndTotalUASs_Object((1,3,6,1,4,1,9,9,126,1,5,2,1,4),_CspFarEndTotalUASs_Type())
-cspFarEndTotalUASs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cspFarEndTotalUASs.setStatus(_A)
-if mibBuilder.loadTexts:cspFarEndTotalUASs.setUnits(_S)
-_CspTraceTable_Object=MibTable
-cspTraceTable=_CspTraceTable_Object((1,3,6,1,4,1,9,9,126,1,5,3))
-if mibBuilder.loadTexts:cspTraceTable.setStatus(_A)
-_CspTraceEntry_Object=MibTableRow
-cspTraceEntry=_CspTraceEntry_Object((1,3,6,1,4,1,9,9,126,1,5,3,1))
-cspTraceEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:cspTraceEntry.setStatus(_A)
-class _CspTraceToTransmit_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(16,16),ValueSizeConstraint(64,64))
-_CspTraceToTransmit_Type.__name__=_H
-_CspTraceToTransmit_Object=MibTableColumn
-cspTraceToTransmit=_CspTraceToTransmit_Object((1,3,6,1,4,1,9,9,126,1,5,3,1,1),_CspTraceToTransmit_Type())
-cspTraceToTransmit.setMaxAccess(_D)
-if mibBuilder.loadTexts:cspTraceToTransmit.setStatus(_A)
-class _CspTraceToExpect_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(16,16),ValueSizeConstraint(64,64))
-_CspTraceToExpect_Type.__name__=_H
-_CspTraceToExpect_Object=MibTableColumn
-cspTraceToExpect=_CspTraceToExpect_Object((1,3,6,1,4,1,9,9,126,1,5,3,1,2),_CspTraceToExpect_Type())
-cspTraceToExpect.setMaxAccess(_D)
-if mibBuilder.loadTexts:cspTraceToExpect.setStatus(_A)
-_CspTraceFailure_Type=TruthValue
-_CspTraceFailure_Object=MibTableColumn
-cspTraceFailure=_CspTraceFailure_Object((1,3,6,1,4,1,9,9,126,1,5,3,1,3),_CspTraceFailure_Type())
-cspTraceFailure.setMaxAccess(_C)
-if mibBuilder.loadTexts:cspTraceFailure.setStatus(_A)
-class _CspTraceReceived_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(16,16),ValueSizeConstraint(64,64))
-_CspTraceReceived_Type.__name__=_H
-_CspTraceReceived_Object=MibTableColumn
-cspTraceReceived=_CspTraceReceived_Object((1,3,6,1,4,1,9,9,126,1,5,3,1,4),_CspTraceReceived_Type())
-cspTraceReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:cspTraceReceived.setStatus(_A)
-_CsStats_ObjectIdentity=ObjectIdentity
-csStats=_CsStats_ObjectIdentity((1,3,6,1,4,1,9,9,126,1,6))
-_CsStatsTable_Object=MibTable
-csStatsTable=_CsStatsTable_Object((1,3,6,1,4,1,9,9,126,1,6,1))
-if mibBuilder.loadTexts:csStatsTable.setStatus(_A)
-_CsStatsEntry_Object=MibTableRow
-csStatsEntry=_CsStatsEntry_Object((1,3,6,1,4,1,9,9,126,1,6,1,1))
-csStatsEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:csStatsEntry.setStatus(_A)
-_CssLOSs_Type=Counter32
-_CssLOSs_Object=MibTableColumn
-cssLOSs=_CssLOSs_Object((1,3,6,1,4,1,9,9,126,1,6,1,1,1),_CssLOSs_Type())
-cssLOSs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cssLOSs.setStatus(_A)
-if mibBuilder.loadTexts:cssLOSs.setUnits('loss of signals')
-_CssLOFs_Type=Counter32
-_CssLOFs_Object=MibTableColumn
-cssLOFs=_CssLOFs_Object((1,3,6,1,4,1,9,9,126,1,6,1,1,2),_CssLOFs_Type())
-cssLOFs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cssLOFs.setStatus(_A)
-if mibBuilder.loadTexts:cssLOFs.setUnits('loss of frames')
-_CslAISs_Type=Counter32
-_CslAISs_Object=MibTableColumn
-cslAISs=_CslAISs_Object((1,3,6,1,4,1,9,9,126,1,6,1,1,3),_CslAISs_Type())
-cslAISs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cslAISs.setStatus(_A)
-if mibBuilder.loadTexts:cslAISs.setUnits(_AB)
-_CslRFIs_Type=Counter32
-_CslRFIs_Object=MibTableColumn
-cslRFIs=_CslRFIs_Object((1,3,6,1,4,1,9,9,126,1,6,1,1,4),_CslRFIs_Type())
-cslRFIs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cslRFIs.setStatus(_A)
-if mibBuilder.loadTexts:cslRFIs.setUnits(_AC)
-_CspAISs_Type=Counter32
-_CspAISs_Object=MibTableColumn
-cspAISs=_CspAISs_Object((1,3,6,1,4,1,9,9,126,1,6,1,1,5),_CspAISs_Type())
-cspAISs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cspAISs.setStatus(_A)
-if mibBuilder.loadTexts:cspAISs.setUnits(_AB)
-_CspRFIs_Type=Counter32
-_CspRFIs_Object=MibTableColumn
-cspRFIs=_CspRFIs_Object((1,3,6,1,4,1,9,9,126,1,6,1,1,6),_CspRFIs_Type())
-cspRFIs.setMaxAccess(_C)
-if mibBuilder.loadTexts:cspRFIs.setStatus(_A)
-if mibBuilder.loadTexts:cspRFIs.setUnits(_AC)
-_CspConfig_ObjectIdentity=ObjectIdentity
-cspConfig=_CspConfig_ObjectIdentity((1,3,6,1,4,1,9,9,126,1,7))
-_CspConfigTable_Object=MibTable
-cspConfigTable=_CspConfigTable_Object((1,3,6,1,4,1,9,9,126,1,7,1))
-if mibBuilder.loadTexts:cspConfigTable.setStatus(_A)
-_CspConfigEntry_Object=MibTableRow
-cspConfigEntry=_CspConfigEntry_Object((1,3,6,1,4,1,9,9,126,1,7,1,1))
-if mibBuilder.loadTexts:cspConfigEntry.setStatus(_A)
-class _CspSonetPathPayload_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('unequipped',1),('unspecified',2),('ds3',3),(_v,4),(_w,5),('atmCell',6),('hdlcFr',7),('e3',8),('vtStructured',9)))
-_CspSonetPathPayload_Type.__name__=_E
-_CspSonetPathPayload_Object=MibTableColumn
-cspSonetPathPayload=_CspSonetPathPayload_Object((1,3,6,1,4,1,9,9,126,1,7,1,1,1),_CspSonetPathPayload_Type())
-cspSonetPathPayload.setMaxAccess(_D)
-if mibBuilder.loadTexts:cspSonetPathPayload.setStatus(_A)
-class _CspTributaryMappingType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_x,1),(_y,2)))
-_CspTributaryMappingType_Type.__name__=_E
-_CspTributaryMappingType_Object=MibTableColumn
-cspTributaryMappingType=_CspTributaryMappingType_Object((1,3,6,1,4,1,9,9,126,1,7,1,1,2),_CspTributaryMappingType_Type())
-cspTributaryMappingType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cspTributaryMappingType.setStatus(_A)
-class _CspSignallingTransportMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),(_z,2),(_A0,3)))
-_CspSignallingTransportMode_Type.__name__=_E
-_CspSignallingTransportMode_Object=MibTableColumn
-cspSignallingTransportMode=_CspSignallingTransportMode_Object((1,3,6,1,4,1,9,9,126,1,7,1,1,3),_CspSignallingTransportMode_Type())
-cspSignallingTransportMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:cspSignallingTransportMode.setStatus(_A)
-class _CspTributaryGroupingType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),(_A1,2),(_A2,3)))
-_CspTributaryGroupingType_Type.__name__=_E
-_CspTributaryGroupingType_Object=MibTableColumn
-cspTributaryGroupingType=_CspTributaryGroupingType_Object((1,3,6,1,4,1,9,9,126,1,7,1,1,4),_CspTributaryGroupingType_Type())
-cspTributaryGroupingType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cspTributaryGroupingType.setStatus(_A)
-_CsNotifications_ObjectIdentity=ObjectIdentity
-csNotifications=_CsNotifications_ObjectIdentity((1,3,6,1,4,1,9,9,126,1,8))
-class _CsNotificationsEnabled_Type(TruthValue):defaultValue=2
-_CsNotificationsEnabled_Type.__name__=_o
-_CsNotificationsEnabled_Object=MibScalar
-csNotificationsEnabled=_CsNotificationsEnabled_Object((1,3,6,1,4,1,9,9,126,1,8,1),_CsNotificationsEnabled_Type())
-csNotificationsEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:csNotificationsEnabled.setStatus(_A)
-_CsAu4Tug3Config_ObjectIdentity=ObjectIdentity
-csAu4Tug3Config=_CsAu4Tug3Config_ObjectIdentity((1,3,6,1,4,1,9,9,126,1,9))
-_CsAu4Tug3ConfigTable_Object=MibTable
-csAu4Tug3ConfigTable=_CsAu4Tug3ConfigTable_Object((1,3,6,1,4,1,9,9,126,1,9,1))
-if mibBuilder.loadTexts:csAu4Tug3ConfigTable.setStatus(_A)
-_CsAu4Tug3ConfigEntry_Object=MibTableRow
-csAu4Tug3ConfigEntry=_CsAu4Tug3ConfigEntry_Object((1,3,6,1,4,1,9,9,126,1,9,1,1))
-csAu4Tug3ConfigEntry.setIndexNames((0,_F,_G),(0,_B,_AD))
-if mibBuilder.loadTexts:csAu4Tug3ConfigEntry.setStatus(_A)
-class _CsAu4Tug3_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3))
-_CsAu4Tug3_Type.__name__=_E
-_CsAu4Tug3_Object=MibTableColumn
-csAu4Tug3=_CsAu4Tug3_Object((1,3,6,1,4,1,9,9,126,1,9,1,1,1),_CsAu4Tug3_Type())
-csAu4Tug3.setMaxAccess(_A4)
-if mibBuilder.loadTexts:csAu4Tug3.setStatus(_A)
-class _CsAu4Tug3Payload_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('other',1),('vc11',2),('vc12',3),('tu3ds3',4),('tu3e3',5)))
-_CsAu4Tug3Payload_Type.__name__=_E
-_CsAu4Tug3Payload_Object=MibTableColumn
-csAu4Tug3Payload=_CsAu4Tug3Payload_Object((1,3,6,1,4,1,9,9,126,1,9,1,1,2),_CsAu4Tug3Payload_Type())
-csAu4Tug3Payload.setMaxAccess(_D)
-if mibBuilder.loadTexts:csAu4Tug3Payload.setStatus(_A)
-_CiscoSonetMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoSonetMIBConformance=_CiscoSonetMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,126,3))
-_CiscoSonetMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoSonetMIBCompliances=_CiscoSonetMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,126,3,1))
-_CiscoSonetMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoSonetMIBGroups=_CiscoSonetMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,126,3,2))
-csConfigEntry.registerAugmentions((_B,_AE))
+#
+# PySNMP MIB module CISCO-SONET-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-SONET-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, ifDescr, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifDescr", "InterfaceIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+sonetSectionCurrentStatus, sonetPathCurrentEntry, sonetLineCurrentStatus, sonetPathCurrentStatus, sonetVTCurrentStatus = mibBuilder.importSymbols("SONET-MIB", "sonetSectionCurrentStatus", "sonetPathCurrentEntry", "sonetLineCurrentStatus", "sonetPathCurrentStatus", "sonetVTCurrentStatus")
+ciscoSonetMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 126))
+ciscoSonetMIB.setRevisions(('2003-03-07 00:00', '2002-06-14 00:00', '2002-05-22 00:00', '2001-10-17 00:00', '2000-07-12 00:00', '1999-03-08 00:00',))
+if mibBuilder.loadTexts: ciscoSonetMIB.setLastUpdated('200303070000Z')
+if mibBuilder.loadTexts: ciscoSonetMIB.setOrganization('Cisco Systems, Inc.')
+ciscoSonetMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 126, 0))
+ciscoSonetMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 126, 1))
+csConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1))
+csApsConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2))
+csSection = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 3))
+csLine = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 4))
+csPath = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5))
+csStats = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 6))
+cspConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 7))
+csNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 8))
+csAu4Tug3Config = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 9))
+class CsApsLineFailureCode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("csApsChannelMismatch", 1), ("csApsProtectionByteFail", 2), ("csApsFEProtectionFailure", 3), ("csApsModeMismatch", 4))
+
+class CsApsLineFailureStatus(TextualConvention, Bits):
+    status = 'current'
+    namedValues = NamedValues(("noApsLineFailure", 0), ("csApsChannelMismatchBit", 1), ("csApsProtectionByteFailBit", 2), ("csApsFEProtectionFailureBit", 3), ("csApsModeMismatchBit", 4))
+
+class CsApsLineSwitchReason(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+    namedValues = NamedValues(("csApsOther", 1), ("csApsRevertive", 2), ("csApsManual", 3), ("csApsSignalDefectLow", 4), ("csApsSignalDefectHigh", 5), ("csApsSignalFailureLow", 6), ("csApsSignalFailureHigh", 7), ("csApsForceSwitch", 8), ("csApsLockOut", 9), ("csApsNoSwitch", 10))
+
+csConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1, 1), )
+if mibBuilder.loadTexts: csConfigTable.setStatus('current')
+csConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: csConfigEntry.setStatus('current')
+csConfigLoopbackType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noLoopback", 1), ("lineLocal", 2), ("lineRemote", 3))).clone('noLoopback')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csConfigLoopbackType.setStatus('current')
+csConfigXmtClockSource = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("loopTiming", 1), ("localTiming", 2))).clone('localTiming')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csConfigXmtClockSource.setStatus('current')
+csConfigFrameScramble = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2))).clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csConfigFrameScramble.setStatus('current')
+csConfigType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("sonetSts3c", 1), ("sonetStm1", 2), ("sonetSts12c", 3), ("sonetStm4", 4), ("sonetSts48c", 5), ("sonetStm16", 6), ("sonetSts192c", 7), ("sonetStm64", 8), ("sonetSts3", 9)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csConfigType.setStatus('current')
+csConfigRDIVType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3))).clone(namedValues=NamedValues(("onebit", 1), ("threebit", 3))).clone('onebit')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csConfigRDIVType.setStatus('current')
+csConfigRDIPType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3))).clone(namedValues=NamedValues(("onebit", 1), ("threebit", 3))).clone('onebit')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csConfigRDIPType.setStatus('current')
+csVTConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1, 2), )
+if mibBuilder.loadTexts: csVTConfigTable.setStatus('current')
+csVTConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1, 2, 1), )
+csConfigEntry.registerAugmentions(("CISCO-SONET-MIB", "csVTConfigEntry"))
 csVTConfigEntry.setIndexNames(*csConfigEntry.getIndexNames())
-sonetPathCurrentEntry.registerAugmentions((_B,_AF))
+if mibBuilder.loadTexts: csVTConfigEntry.setStatus('current')
+csTributaryType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("vt15vc11", 1), ("vt2vc12", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csTributaryType.setStatus('current')
+csTributaryMappingType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("asynchronous", 1), ("byteSynchronous", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csTributaryMappingType.setStatus('current')
+csTributaryFramingType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notApplicable", 1), ("dsx1D4", 2), ("dsx1ESF", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csTributaryFramingType.setStatus('current')
+csSignallingTransportMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notApplicable", 1), ("signallingTransferMode", 2), ("clearMode", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csSignallingTransportMode.setStatus('current')
+csTributaryGroupingType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notApplicable", 1), ("au3Grouping", 2), ("au4Grouping", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csTributaryGroupingType.setStatus('current')
+csApsConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1), )
+if mibBuilder.loadTexts: csApsConfigTable.setStatus('current')
+csApsConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-SONET-MIB", "csApsWorkingIndex"))
+if mibBuilder.loadTexts: csApsConfigEntry.setStatus('current')
+csApsWorkingIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: csApsWorkingIndex.setStatus('current')
+csApsProtectionIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 2), InterfaceIndex()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csApsProtectionIndex.setStatus('current')
+csApsEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("csApsDisabled", 1), ("csApsEnabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csApsEnable.setStatus('current')
+csApsArchMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("onePlusOne", 1), ("oneToOne", 2), ("anexBOnePlusOne", 3), ("ycableOnePlusOneNok1k2", 4), ("straightOnePlusOneNok1k2", 5)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csApsArchMode.setStatus('current')
+csApsActiveLine = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("csApsWorkingLine", 1), ("csApsProtectionLine", 2), ("csApsNone", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csApsActiveLine.setStatus('current')
+csApsSigFaultBER = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(3, 5)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csApsSigFaultBER.setStatus('current')
+csApsSigDegradeBER = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(5, 9)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csApsSigDegradeBER.setStatus('current')
+csApsWaitToRestore = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 12))).setUnits('minutes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csApsWaitToRestore.setStatus('current')
+csApsDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("uniDirectional", 1), ("biDirectional", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csApsDirection.setStatus('current')
+csApsRevertive = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("nonrevertive", 1), ("revertive", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csApsRevertive.setStatus('current')
+csApsDirectionOperational = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("uniDirectional", 1), ("biDirectional", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csApsDirectionOperational.setStatus('current')
+csApsArchModeOperational = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("onePlusOne", 1), ("oneToOne", 2), ("anexBOnePlusOne", 3), ("ycableOnePlusOneNok1k2", 4), ("straightOnePlusOneNok1k2", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csApsArchModeOperational.setStatus('current')
+csApsChannelProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("bellcore", 1), ("itu", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csApsChannelProtocol.setStatus('current')
+csApsFailureStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 14), CsApsLineFailureStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csApsFailureStatus.setStatus('current')
+csApsSwitchReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 15), CsApsLineSwitchReason()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csApsSwitchReason.setStatus('current')
+csApsPrimarySection = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("workingSection1", 1), ("workingSection2", 2), ("none", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csApsPrimarySection.setStatus('current')
+csApsLineFailureCode = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 2), CsApsLineFailureCode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csApsLineFailureCode.setStatus('current')
+csApsLineSwitchReason = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 2, 3), CsApsLineSwitchReason()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: csApsLineSwitchReason.setStatus('current')
+cssTotalTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 3, 1), )
+if mibBuilder.loadTexts: cssTotalTable.setStatus('current')
+cssTotalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 3, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cssTotalEntry.setStatus('current')
+cssTotalESs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 3, 1, 1, 1), Gauge32()).setUnits('errored seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cssTotalESs.setStatus('current')
+cssTotalSESs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 3, 1, 1, 2), Gauge32()).setUnits('severely errored seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cssTotalSESs.setStatus('current')
+cssTotalSEFSs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 3, 1, 1, 3), Gauge32()).setUnits('severely errored framing seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cssTotalSEFSs.setStatus('current')
+cssTotalCVs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 3, 1, 1, 4), Gauge32()).setUnits('coding violations').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cssTotalCVs.setStatus('current')
+cssTraceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 3, 2), )
+if mibBuilder.loadTexts: cssTraceTable.setStatus('current')
+cssTraceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 3, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cssTraceEntry.setStatus('current')
+cssTraceToTransmit = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 3, 2, 1, 1), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(16, 16), ValueSizeConstraint(64, 64), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cssTraceToTransmit.setStatus('current')
+cssTraceToExpect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 3, 2, 1, 2), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(16, 16), ValueSizeConstraint(64, 64), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cssTraceToExpect.setStatus('current')
+cssTraceFailure = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 3, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cssTraceFailure.setStatus('current')
+cssTraceReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 3, 2, 1, 4), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(16, 16), ValueSizeConstraint(64, 64), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cssTraceReceived.setStatus('current')
+cslTotalTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 4, 1), )
+if mibBuilder.loadTexts: cslTotalTable.setStatus('current')
+cslTotalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 4, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cslTotalEntry.setStatus('current')
+cslTotalESs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 4, 1, 1, 1), Gauge32()).setUnits('errored seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cslTotalESs.setStatus('current')
+cslTotalSESs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 4, 1, 1, 2), Gauge32()).setUnits('severely errored seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cslTotalSESs.setStatus('current')
+cslTotalCVs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 4, 1, 1, 3), Gauge32()).setUnits('coding violations').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cslTotalCVs.setStatus('current')
+cslTotalUASs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 4, 1, 1, 4), Gauge32()).setUnits('unavailable seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cslTotalUASs.setStatus('current')
+cslFarEndTotalTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 4, 2), )
+if mibBuilder.loadTexts: cslFarEndTotalTable.setStatus('current')
+cslFarEndTotalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 4, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cslFarEndTotalEntry.setStatus('current')
+cslFarEndTotalESs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 4, 2, 1, 1), Gauge32()).setUnits('errored seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cslFarEndTotalESs.setStatus('current')
+cslFarEndTotalSESs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 4, 2, 1, 2), Gauge32()).setUnits('severely errored seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cslFarEndTotalSESs.setStatus('current')
+cslFarEndTotalCVs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 4, 2, 1, 3), Gauge32()).setUnits('coding violations').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cslFarEndTotalCVs.setStatus('current')
+cslFarEndTotalUASs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 4, 2, 1, 4), Gauge32()).setUnits('unavailable seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cslFarEndTotalUASs.setStatus('current')
+cspTotalTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 1), )
+if mibBuilder.loadTexts: cspTotalTable.setStatus('current')
+cspTotalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cspTotalEntry.setStatus('current')
+cspTotalESs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 1, 1, 1), Gauge32()).setUnits('errored seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cspTotalESs.setStatus('current')
+cspTotalSESs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 1, 1, 2), Gauge32()).setUnits('severely errored seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cspTotalSESs.setStatus('current')
+cspTotalCVs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 1, 1, 3), Gauge32()).setUnits('coding violations').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cspTotalCVs.setStatus('current')
+cspTotalUASs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 1, 1, 4), Gauge32()).setUnits('unavailable seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cspTotalUASs.setStatus('current')
+cspFarEndTotalTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 2), )
+if mibBuilder.loadTexts: cspFarEndTotalTable.setStatus('current')
+cspFarEndTotalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cspFarEndTotalEntry.setStatus('current')
+cspFarEndTotalESs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 2, 1, 1), Gauge32()).setUnits('errored seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cspFarEndTotalESs.setStatus('current')
+cspFarEndTotalSESs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 2, 1, 2), Gauge32()).setUnits('severely errored seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cspFarEndTotalSESs.setStatus('current')
+cspFarEndTotalCVs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 2, 1, 3), Gauge32()).setUnits('coding violations').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cspFarEndTotalCVs.setStatus('current')
+cspFarEndTotalUASs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 2, 1, 4), Gauge32()).setUnits('unavailable seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cspFarEndTotalUASs.setStatus('current')
+cspTraceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 3), )
+if mibBuilder.loadTexts: cspTraceTable.setStatus('current')
+cspTraceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cspTraceEntry.setStatus('current')
+cspTraceToTransmit = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 3, 1, 1), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(16, 16), ValueSizeConstraint(64, 64), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cspTraceToTransmit.setStatus('current')
+cspTraceToExpect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 3, 1, 2), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(16, 16), ValueSizeConstraint(64, 64), ))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cspTraceToExpect.setStatus('current')
+cspTraceFailure = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 3, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cspTraceFailure.setStatus('current')
+cspTraceReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 5, 3, 1, 4), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(16, 16), ValueSizeConstraint(64, 64), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cspTraceReceived.setStatus('current')
+csStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 6, 1), )
+if mibBuilder.loadTexts: csStatsTable.setStatus('current')
+csStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 6, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: csStatsEntry.setStatus('current')
+cssLOSs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 6, 1, 1, 1), Counter32()).setUnits('loss of signals').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cssLOSs.setStatus('current')
+cssLOFs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 6, 1, 1, 2), Counter32()).setUnits('loss of frames').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cssLOFs.setStatus('current')
+cslAISs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 6, 1, 1, 3), Counter32()).setUnits('alarm indication signals').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cslAISs.setStatus('current')
+cslRFIs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 6, 1, 1, 4), Counter32()).setUnits('remote failure indications').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cslRFIs.setStatus('current')
+cspAISs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 6, 1, 1, 5), Counter32()).setUnits('alarm indication signals').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cspAISs.setStatus('current')
+cspRFIs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 6, 1, 1, 6), Counter32()).setUnits('remote failure indications').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cspRFIs.setStatus('current')
+cspConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 7, 1), )
+if mibBuilder.loadTexts: cspConfigTable.setStatus('current')
+cspConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 7, 1, 1), )
+sonetPathCurrentEntry.registerAugmentions(("CISCO-SONET-MIB", "cspConfigEntry"))
 cspConfigEntry.setIndexNames(*sonetPathCurrentEntry.getIndexNames())
-ciscoSonetConfMIBGroup=ObjectGroup((1,3,6,1,4,1,9,9,126,3,2,1))
-ciscoSonetConfMIBGroup.setObjects(*((_B,_U),(_B,_V),(_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:ciscoSonetConfMIBGroup.setStatus(_O)
-ciscoSonetStatsMIBGroup=ObjectGroup((1,3,6,1,4,1,9,9,126,3,2,2))
-ciscoSonetStatsMIBGroup.setObjects(*((_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,'cssLOSs'),(_B,'cssLOFs'),(_B,'cslAISs'),(_B,'cslRFIs'),(_B,'cspAISs'),(_B,'cspRFIs'),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ)))
-if mibBuilder.loadTexts:ciscoSonetStatsMIBGroup.setStatus(_A)
-ciscoSonetTraceMIBGroup=ObjectGroup((1,3,6,1,4,1,9,9,126,3,2,3))
-ciscoSonetTraceMIBGroup.setObjects(*((_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah)))
-if mibBuilder.loadTexts:ciscoSonetTraceMIBGroup.setStatus(_A)
-ciscoSonetApsMIBGroup=ObjectGroup((1,3,6,1,4,1,9,9,126,3,2,4))
-ciscoSonetApsMIBGroup.setObjects(*((_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_R),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k)))
-if mibBuilder.loadTexts:ciscoSonetApsMIBGroup.setStatus(_O)
-ciscoSonetApsMIBGroup1=ObjectGroup((1,3,6,1,4,1,9,9,126,3,2,5))
-ciscoSonetApsMIBGroup1.setObjects(*((_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_R),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_Ai),(_B,_Aj),(_B,_Ak)))
-if mibBuilder.loadTexts:ciscoSonetApsMIBGroup1.setStatus(_A)
-ciscoSonetConfMIBGroup1=ObjectGroup((1,3,6,1,4,1,9,9,126,3,2,6))
-ciscoSonetConfMIBGroup1.setObjects(*((_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Al),(_B,_Am)))
-if mibBuilder.loadTexts:ciscoSonetConfMIBGroup1.setStatus(_A)
-ciscoSonetVTConfMIBGroup=ObjectGroup((1,3,6,1,4,1,9,9,126,3,2,7))
-ciscoSonetVTConfMIBGroup.setObjects(*((_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar)))
-if mibBuilder.loadTexts:ciscoSonetVTConfMIBGroup.setStatus(_A)
-ciscoSonetPathConfMIBGroup=ObjectGroup((1,3,6,1,4,1,9,9,126,3,2,8))
-ciscoSonetPathConfMIBGroup.setObjects((_B,_As))
-if mibBuilder.loadTexts:ciscoSonetPathConfMIBGroup.setStatus(_A)
-ciscoSonetNotifEnableGroup=ObjectGroup((1,3,6,1,4,1,9,9,126,3,2,9))
-ciscoSonetNotifEnableGroup.setObjects((_B,_At))
-if mibBuilder.loadTexts:ciscoSonetNotifEnableGroup.setStatus(_A)
-ciscoSonetPathConfMIBGroup1=ObjectGroup((1,3,6,1,4,1,9,9,126,3,2,14))
-ciscoSonetPathConfMIBGroup1.setObjects(*((_B,_Au),(_B,_Av),(_B,_Aw)))
-if mibBuilder.loadTexts:ciscoSonetPathConfMIBGroup1.setStatus(_A)
-ciscoSonetAu4Tug3Group=ObjectGroup((1,3,6,1,4,1,9,9,126,3,2,15))
-ciscoSonetAu4Tug3Group.setObjects((_B,_Ax))
-if mibBuilder.loadTexts:ciscoSonetAu4Tug3Group.setStatus(_A)
-ciscoSonetSectionStatusChange=NotificationType((1,3,6,1,4,1,9,9,126,0,1))
-ciscoSonetSectionStatusChange.setObjects(*((_J,_r),(_F,_I)))
-if mibBuilder.loadTexts:ciscoSonetSectionStatusChange.setStatus(_A)
-ciscoSonetLineStatusChange=NotificationType((1,3,6,1,4,1,9,9,126,0,2))
-ciscoSonetLineStatusChange.setObjects(*((_J,_p),(_F,_I)))
-if mibBuilder.loadTexts:ciscoSonetLineStatusChange.setStatus(_A)
-ciscoSonetPathStatusChange=NotificationType((1,3,6,1,4,1,9,9,126,0,3))
-ciscoSonetPathStatusChange.setObjects(*((_J,_q),(_F,_I)))
-if mibBuilder.loadTexts:ciscoSonetPathStatusChange.setStatus(_A)
-ciscoSonetVTStatusChange=NotificationType((1,3,6,1,4,1,9,9,126,0,4))
-ciscoSonetVTStatusChange.setObjects(*((_J,_s),(_F,_I)))
-if mibBuilder.loadTexts:ciscoSonetVTStatusChange.setStatus(_A)
-ciscoSonetSectionNotifGroup=NotificationGroup((1,3,6,1,4,1,9,9,126,3,2,10))
-ciscoSonetSectionNotifGroup.setObjects((_B,_Ay))
-if mibBuilder.loadTexts:ciscoSonetSectionNotifGroup.setStatus(_A)
-ciscoSonetLineNotifGroup=NotificationGroup((1,3,6,1,4,1,9,9,126,3,2,11))
-ciscoSonetLineNotifGroup.setObjects((_B,_Az))
-if mibBuilder.loadTexts:ciscoSonetLineNotifGroup.setStatus(_A)
-ciscoSonetPathNotifGroup=NotificationGroup((1,3,6,1,4,1,9,9,126,3,2,12))
-ciscoSonetPathNotifGroup.setObjects((_B,_A_))
-if mibBuilder.loadTexts:ciscoSonetPathNotifGroup.setStatus(_A)
-ciscoSonetVTNotifGroup=NotificationGroup((1,3,6,1,4,1,9,9,126,3,2,13))
-ciscoSonetVTNotifGroup.setObjects((_B,_B0))
-if mibBuilder.loadTexts:ciscoSonetVTNotifGroup.setStatus(_A)
-ciscoSonetMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,126,3,1,1))
-ciscoSonetMIBCompliance.setObjects(*((_B,_B1),(_B,_l),(_B,_P),(_B,_B2)))
-if mibBuilder.loadTexts:ciscoSonetMIBCompliance.setStatus(_O)
-ciscoSonetMIBCompliance1=ModuleCompliance((1,3,6,1,4,1,9,9,126,3,1,2))
-ciscoSonetMIBCompliance1.setObjects(*((_B,_T),(_B,_l),(_B,_P),(_B,_B3),(_B,_B4)))
-if mibBuilder.loadTexts:ciscoSonetMIBCompliance1.setStatus(_O)
-ciscoSonetMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,9,9,126,3,1,3))
-ciscoSonetMIBCompliance2.setObjects(*((_B,_T),(_B,_P),(_B,_m),(_B,_n)))
-if mibBuilder.loadTexts:ciscoSonetMIBCompliance2.setStatus(_O)
-ciscoSonetMIBCompliance3=ModuleCompliance((1,3,6,1,4,1,9,9,126,3,1,4))
-ciscoSonetMIBCompliance3.setObjects(*((_B,_T),(_B,_P),(_B,_m),(_B,_n)))
-if mibBuilder.loadTexts:ciscoSonetMIBCompliance3.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CsApsLineFailureCode':CsApsLineFailureCode,'CsApsLineFailureStatus':CsApsLineFailureStatus,'CsApsLineSwitchReason':CsApsLineSwitchReason,'ciscoSonetMIB':ciscoSonetMIB,'ciscoSonetMIBNotifs':ciscoSonetMIBNotifs,_Ay:ciscoSonetSectionStatusChange,_Az:ciscoSonetLineStatusChange,_A_:ciscoSonetPathStatusChange,_B0:ciscoSonetVTStatusChange,'ciscoSonetMIBObjects':ciscoSonetMIBObjects,'csConfig':csConfig,'csConfigTable':csConfigTable,'csConfigEntry':csConfigEntry,_U:csConfigLoopbackType,_V:csConfigXmtClockSource,_W:csConfigFrameScramble,_X:csConfigType,_Am:csConfigRDIVType,_Al:csConfigRDIPType,'csVTConfigTable':csVTConfigTable,_AE:csVTConfigEntry,_An:csTributaryType,_Ao:csTributaryMappingType,_Ap:csTributaryFramingType,_Aq:csSignallingTransportMode,_Ar:csTributaryGroupingType,'csApsConfig':csApsConfig,'csApsConfigTable':csApsConfigTable,'csApsConfigEntry':csApsConfigEntry,_A3:csApsWorkingIndex,_Y:csApsProtectionIndex,_Z:csApsEnable,_a:csApsArchMode,_b:csApsActiveLine,_c:csApsSigFaultBER,_d:csApsSigDegradeBER,_e:csApsWaitToRestore,_f:csApsDirection,_R:csApsRevertive,_i:csApsDirectionOperational,_j:csApsArchModeOperational,_k:csApsChannelProtocol,_Ai:csApsFailureStatus,_Aj:csApsSwitchReason,_Ak:csApsPrimarySection,_g:csApsLineFailureCode,_h:csApsLineSwitchReason,'csSection':csSection,'cssTotalTable':cssTotalTable,'cssTotalEntry':cssTotalEntry,_AG:cssTotalESs,_AH:cssTotalSESs,_AI:cssTotalSEFSs,_AJ:cssTotalCVs,'cssTraceTable':cssTraceTable,'cssTraceEntry':cssTraceEntry,_Aa:cssTraceToTransmit,_Ab:cssTraceToExpect,_Ac:cssTraceFailure,_Ad:cssTraceReceived,'csLine':csLine,'cslTotalTable':cslTotalTable,'cslTotalEntry':cslTotalEntry,_AK:cslTotalESs,_AL:cslTotalSESs,_AM:cslTotalCVs,_AN:cslTotalUASs,'cslFarEndTotalTable':cslFarEndTotalTable,'cslFarEndTotalEntry':cslFarEndTotalEntry,_AO:cslFarEndTotalESs,_AP:cslFarEndTotalSESs,_AQ:cslFarEndTotalCVs,_AR:cslFarEndTotalUASs,'csPath':csPath,'cspTotalTable':cspTotalTable,'cspTotalEntry':cspTotalEntry,_AS:cspTotalESs,_AT:cspTotalSESs,_AU:cspTotalCVs,_AV:cspTotalUASs,'cspFarEndTotalTable':cspFarEndTotalTable,'cspFarEndTotalEntry':cspFarEndTotalEntry,_AW:cspFarEndTotalESs,_AX:cspFarEndTotalSESs,_AY:cspFarEndTotalCVs,_AZ:cspFarEndTotalUASs,'cspTraceTable':cspTraceTable,'cspTraceEntry':cspTraceEntry,_Ae:cspTraceToTransmit,_Af:cspTraceToExpect,_Ag:cspTraceFailure,_Ah:cspTraceReceived,'csStats':csStats,'csStatsTable':csStatsTable,'csStatsEntry':csStatsEntry,'cssLOSs':cssLOSs,'cssLOFs':cssLOFs,'cslAISs':cslAISs,'cslRFIs':cslRFIs,'cspAISs':cspAISs,'cspRFIs':cspRFIs,'cspConfig':cspConfig,'cspConfigTable':cspConfigTable,_AF:cspConfigEntry,_As:cspSonetPathPayload,_Au:cspTributaryMappingType,_Av:cspSignallingTransportMode,_Aw:cspTributaryGroupingType,'csNotifications':csNotifications,_At:csNotificationsEnabled,'csAu4Tug3Config':csAu4Tug3Config,'csAu4Tug3ConfigTable':csAu4Tug3ConfigTable,'csAu4Tug3ConfigEntry':csAu4Tug3ConfigEntry,_AD:csAu4Tug3,_Ax:csAu4Tug3Payload,'ciscoSonetMIBConformance':ciscoSonetMIBConformance,'ciscoSonetMIBCompliances':ciscoSonetMIBCompliances,'ciscoSonetMIBCompliance':ciscoSonetMIBCompliance,'ciscoSonetMIBCompliance1':ciscoSonetMIBCompliance1,'ciscoSonetMIBCompliance2':ciscoSonetMIBCompliance2,'ciscoSonetMIBCompliance3':ciscoSonetMIBCompliance3,'ciscoSonetMIBGroups':ciscoSonetMIBGroups,_B1:ciscoSonetConfMIBGroup,_l:ciscoSonetStatsMIBGroup,_P:ciscoSonetTraceMIBGroup,_B2:ciscoSonetApsMIBGroup,_B3:ciscoSonetApsMIBGroup1,_T:ciscoSonetConfMIBGroup1,_B4:ciscoSonetVTConfMIBGroup,'ciscoSonetPathConfMIBGroup':ciscoSonetPathConfMIBGroup,_m:ciscoSonetNotifEnableGroup,_n:ciscoSonetSectionNotifGroup,'ciscoSonetLineNotifGroup':ciscoSonetLineNotifGroup,'ciscoSonetPathNotifGroup':ciscoSonetPathNotifGroup,'ciscoSonetVTNotifGroup':ciscoSonetVTNotifGroup,'ciscoSonetPathConfMIBGroup1':ciscoSonetPathConfMIBGroup1,'ciscoSonetAu4Tug3Group':ciscoSonetAu4Tug3Group})
+if mibBuilder.loadTexts: cspConfigEntry.setStatus('current')
+cspSonetPathPayload = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 7, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("unequipped", 1), ("unspecified", 2), ("ds3", 3), ("vt15vc11", 4), ("vt2vc12", 5), ("atmCell", 6), ("hdlcFr", 7), ("e3", 8), ("vtStructured", 9)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cspSonetPathPayload.setStatus('current')
+cspTributaryMappingType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 7, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("asynchronous", 1), ("byteSynchronous", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cspTributaryMappingType.setStatus('current')
+cspSignallingTransportMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 7, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notApplicable", 1), ("signallingTransferMode", 2), ("clearMode", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cspSignallingTransportMode.setStatus('current')
+cspTributaryGroupingType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 7, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notApplicable", 1), ("au3Grouping", 2), ("au4Grouping", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cspTributaryGroupingType.setStatus('current')
+csAu4Tug3ConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 9, 1), )
+if mibBuilder.loadTexts: csAu4Tug3ConfigTable.setStatus('current')
+csAu4Tug3ConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 9, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-SONET-MIB", "csAu4Tug3"))
+if mibBuilder.loadTexts: csAu4Tug3ConfigEntry.setStatus('current')
+csAu4Tug3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 9, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3)))
+if mibBuilder.loadTexts: csAu4Tug3.setStatus('current')
+csAu4Tug3Payload = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 9, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("other", 1), ("vc11", 2), ("vc12", 3), ("tu3ds3", 4), ("tu3e3", 5))).clone('vc11')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csAu4Tug3Payload.setStatus('current')
+csNotificationsEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 126, 1, 8, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: csNotificationsEnabled.setStatus('current')
+ciscoSonetSectionStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 126, 0, 1)).setObjects(("SONET-MIB", "sonetSectionCurrentStatus"), ("IF-MIB", "ifDescr"))
+if mibBuilder.loadTexts: ciscoSonetSectionStatusChange.setStatus('current')
+ciscoSonetLineStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 126, 0, 2)).setObjects(("SONET-MIB", "sonetLineCurrentStatus"), ("IF-MIB", "ifDescr"))
+if mibBuilder.loadTexts: ciscoSonetLineStatusChange.setStatus('current')
+ciscoSonetPathStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 126, 0, 3)).setObjects(("SONET-MIB", "sonetPathCurrentStatus"), ("IF-MIB", "ifDescr"))
+if mibBuilder.loadTexts: ciscoSonetPathStatusChange.setStatus('current')
+ciscoSonetVTStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 126, 0, 4)).setObjects(("SONET-MIB", "sonetVTCurrentStatus"), ("IF-MIB", "ifDescr"))
+if mibBuilder.loadTexts: ciscoSonetVTStatusChange.setStatus('current')
+ciscoSonetMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 126, 3))
+ciscoSonetMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 1))
+ciscoSonetMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2))
+ciscoSonetMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 1, 1)).setObjects(("CISCO-SONET-MIB", "ciscoSonetConfMIBGroup"), ("CISCO-SONET-MIB", "ciscoSonetStatsMIBGroup"), ("CISCO-SONET-MIB", "ciscoSonetTraceMIBGroup"), ("CISCO-SONET-MIB", "ciscoSonetApsMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetMIBCompliance = ciscoSonetMIBCompliance.setStatus('deprecated')
+ciscoSonetMIBCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 1, 2)).setObjects(("CISCO-SONET-MIB", "ciscoSonetConfMIBGroup1"), ("CISCO-SONET-MIB", "ciscoSonetStatsMIBGroup"), ("CISCO-SONET-MIB", "ciscoSonetTraceMIBGroup"), ("CISCO-SONET-MIB", "ciscoSonetApsMIBGroup1"), ("CISCO-SONET-MIB", "ciscoSonetVTConfMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetMIBCompliance1 = ciscoSonetMIBCompliance1.setStatus('deprecated')
+ciscoSonetMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 1, 3)).setObjects(("CISCO-SONET-MIB", "ciscoSonetConfMIBGroup1"), ("CISCO-SONET-MIB", "ciscoSonetTraceMIBGroup"), ("CISCO-SONET-MIB", "ciscoSonetNotifEnableGroup"), ("CISCO-SONET-MIB", "ciscoSonetSectionNotifGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetMIBCompliance2 = ciscoSonetMIBCompliance2.setStatus('deprecated')
+ciscoSonetMIBCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 1, 4)).setObjects(("CISCO-SONET-MIB", "ciscoSonetConfMIBGroup1"), ("CISCO-SONET-MIB", "ciscoSonetTraceMIBGroup"), ("CISCO-SONET-MIB", "ciscoSonetNotifEnableGroup"), ("CISCO-SONET-MIB", "ciscoSonetSectionNotifGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetMIBCompliance3 = ciscoSonetMIBCompliance3.setStatus('current')
+ciscoSonetConfMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2, 1)).setObjects(("CISCO-SONET-MIB", "csConfigLoopbackType"), ("CISCO-SONET-MIB", "csConfigXmtClockSource"), ("CISCO-SONET-MIB", "csConfigFrameScramble"), ("CISCO-SONET-MIB", "csConfigType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetConfMIBGroup = ciscoSonetConfMIBGroup.setStatus('deprecated')
+ciscoSonetStatsMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2, 2)).setObjects(("CISCO-SONET-MIB", "cssTotalESs"), ("CISCO-SONET-MIB", "cssTotalSESs"), ("CISCO-SONET-MIB", "cssTotalSEFSs"), ("CISCO-SONET-MIB", "cssTotalCVs"), ("CISCO-SONET-MIB", "cssLOSs"), ("CISCO-SONET-MIB", "cssLOFs"), ("CISCO-SONET-MIB", "cslAISs"), ("CISCO-SONET-MIB", "cslRFIs"), ("CISCO-SONET-MIB", "cspAISs"), ("CISCO-SONET-MIB", "cspRFIs"), ("CISCO-SONET-MIB", "cslTotalESs"), ("CISCO-SONET-MIB", "cslTotalSESs"), ("CISCO-SONET-MIB", "cslTotalCVs"), ("CISCO-SONET-MIB", "cslTotalUASs"), ("CISCO-SONET-MIB", "cslFarEndTotalESs"), ("CISCO-SONET-MIB", "cslFarEndTotalSESs"), ("CISCO-SONET-MIB", "cslFarEndTotalCVs"), ("CISCO-SONET-MIB", "cslFarEndTotalUASs"), ("CISCO-SONET-MIB", "cspTotalESs"), ("CISCO-SONET-MIB", "cspTotalSESs"), ("CISCO-SONET-MIB", "cspTotalCVs"), ("CISCO-SONET-MIB", "cspTotalUASs"), ("CISCO-SONET-MIB", "cspFarEndTotalESs"), ("CISCO-SONET-MIB", "cspFarEndTotalSESs"), ("CISCO-SONET-MIB", "cspFarEndTotalCVs"), ("CISCO-SONET-MIB", "cspFarEndTotalUASs"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetStatsMIBGroup = ciscoSonetStatsMIBGroup.setStatus('current')
+ciscoSonetTraceMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2, 3)).setObjects(("CISCO-SONET-MIB", "cssTraceToTransmit"), ("CISCO-SONET-MIB", "cssTraceToExpect"), ("CISCO-SONET-MIB", "cssTraceFailure"), ("CISCO-SONET-MIB", "cssTraceReceived"), ("CISCO-SONET-MIB", "cspTraceToTransmit"), ("CISCO-SONET-MIB", "cspTraceToExpect"), ("CISCO-SONET-MIB", "cspTraceFailure"), ("CISCO-SONET-MIB", "cspTraceReceived"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetTraceMIBGroup = ciscoSonetTraceMIBGroup.setStatus('current')
+ciscoSonetApsMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2, 4)).setObjects(("CISCO-SONET-MIB", "csApsProtectionIndex"), ("CISCO-SONET-MIB", "csApsEnable"), ("CISCO-SONET-MIB", "csApsArchMode"), ("CISCO-SONET-MIB", "csApsActiveLine"), ("CISCO-SONET-MIB", "csApsSigFaultBER"), ("CISCO-SONET-MIB", "csApsSigDegradeBER"), ("CISCO-SONET-MIB", "csApsWaitToRestore"), ("CISCO-SONET-MIB", "csApsDirection"), ("CISCO-SONET-MIB", "csApsRevertive"), ("CISCO-SONET-MIB", "csApsLineFailureCode"), ("CISCO-SONET-MIB", "csApsLineSwitchReason"), ("CISCO-SONET-MIB", "csApsDirectionOperational"), ("CISCO-SONET-MIB", "csApsArchModeOperational"), ("CISCO-SONET-MIB", "csApsChannelProtocol"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetApsMIBGroup = ciscoSonetApsMIBGroup.setStatus('deprecated')
+ciscoSonetApsMIBGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2, 5)).setObjects(("CISCO-SONET-MIB", "csApsProtectionIndex"), ("CISCO-SONET-MIB", "csApsEnable"), ("CISCO-SONET-MIB", "csApsArchMode"), ("CISCO-SONET-MIB", "csApsActiveLine"), ("CISCO-SONET-MIB", "csApsSigFaultBER"), ("CISCO-SONET-MIB", "csApsSigDegradeBER"), ("CISCO-SONET-MIB", "csApsWaitToRestore"), ("CISCO-SONET-MIB", "csApsDirection"), ("CISCO-SONET-MIB", "csApsRevertive"), ("CISCO-SONET-MIB", "csApsLineFailureCode"), ("CISCO-SONET-MIB", "csApsLineSwitchReason"), ("CISCO-SONET-MIB", "csApsDirectionOperational"), ("CISCO-SONET-MIB", "csApsArchModeOperational"), ("CISCO-SONET-MIB", "csApsChannelProtocol"), ("CISCO-SONET-MIB", "csApsFailureStatus"), ("CISCO-SONET-MIB", "csApsSwitchReason"), ("CISCO-SONET-MIB", "csApsPrimarySection"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetApsMIBGroup1 = ciscoSonetApsMIBGroup1.setStatus('current')
+ciscoSonetConfMIBGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2, 6)).setObjects(("CISCO-SONET-MIB", "csConfigLoopbackType"), ("CISCO-SONET-MIB", "csConfigXmtClockSource"), ("CISCO-SONET-MIB", "csConfigFrameScramble"), ("CISCO-SONET-MIB", "csConfigType"), ("CISCO-SONET-MIB", "csConfigRDIPType"), ("CISCO-SONET-MIB", "csConfigRDIVType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetConfMIBGroup1 = ciscoSonetConfMIBGroup1.setStatus('current')
+ciscoSonetVTConfMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2, 7)).setObjects(("CISCO-SONET-MIB", "csTributaryType"), ("CISCO-SONET-MIB", "csTributaryMappingType"), ("CISCO-SONET-MIB", "csTributaryFramingType"), ("CISCO-SONET-MIB", "csSignallingTransportMode"), ("CISCO-SONET-MIB", "csTributaryGroupingType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetVTConfMIBGroup = ciscoSonetVTConfMIBGroup.setStatus('current')
+ciscoSonetPathConfMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2, 8)).setObjects(("CISCO-SONET-MIB", "cspSonetPathPayload"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetPathConfMIBGroup = ciscoSonetPathConfMIBGroup.setStatus('current')
+ciscoSonetNotifEnableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2, 9)).setObjects(("CISCO-SONET-MIB", "csNotificationsEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetNotifEnableGroup = ciscoSonetNotifEnableGroup.setStatus('current')
+ciscoSonetSectionNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2, 10)).setObjects(("CISCO-SONET-MIB", "ciscoSonetSectionStatusChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetSectionNotifGroup = ciscoSonetSectionNotifGroup.setStatus('current')
+ciscoSonetLineNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2, 11)).setObjects(("CISCO-SONET-MIB", "ciscoSonetLineStatusChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetLineNotifGroup = ciscoSonetLineNotifGroup.setStatus('current')
+ciscoSonetPathNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2, 12)).setObjects(("CISCO-SONET-MIB", "ciscoSonetPathStatusChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetPathNotifGroup = ciscoSonetPathNotifGroup.setStatus('current')
+ciscoSonetVTNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2, 13)).setObjects(("CISCO-SONET-MIB", "ciscoSonetVTStatusChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetVTNotifGroup = ciscoSonetVTNotifGroup.setStatus('current')
+ciscoSonetPathConfMIBGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2, 14)).setObjects(("CISCO-SONET-MIB", "cspTributaryMappingType"), ("CISCO-SONET-MIB", "cspSignallingTransportMode"), ("CISCO-SONET-MIB", "cspTributaryGroupingType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetPathConfMIBGroup1 = ciscoSonetPathConfMIBGroup1.setStatus('current')
+ciscoSonetAu4Tug3Group = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 126, 3, 2, 15)).setObjects(("CISCO-SONET-MIB", "csAu4Tug3Payload"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoSonetAu4Tug3Group = ciscoSonetAu4Tug3Group.setStatus('current')
+mibBuilder.exportSymbols("CISCO-SONET-MIB", cspSonetPathPayload=cspSonetPathPayload, csConfigTable=csConfigTable, cspConfigTable=cspConfigTable, csAu4Tug3Payload=csAu4Tug3Payload, ciscoSonetTraceMIBGroup=ciscoSonetTraceMIBGroup, ciscoSonetMIBNotifs=ciscoSonetMIBNotifs, csConfigXmtClockSource=csConfigXmtClockSource, ciscoSonetLineStatusChange=ciscoSonetLineStatusChange, cssTotalESs=cssTotalESs, csAu4Tug3ConfigTable=csAu4Tug3ConfigTable, csApsWorkingIndex=csApsWorkingIndex, ciscoSonetPathStatusChange=ciscoSonetPathStatusChange, csApsFailureStatus=csApsFailureStatus, cspTraceFailure=cspTraceFailure, ciscoSonetMIB=ciscoSonetMIB, cslFarEndTotalCVs=cslFarEndTotalCVs, CsApsLineFailureCode=CsApsLineFailureCode, cssTotalSEFSs=cssTotalSEFSs, cspTraceToExpect=cspTraceToExpect, csApsPrimarySection=csApsPrimarySection, csApsChannelProtocol=csApsChannelProtocol, cslTotalSESs=cslTotalSESs, cspRFIs=cspRFIs, cspConfigEntry=cspConfigEntry, csApsDirectionOperational=csApsDirectionOperational, cssLOSs=cssLOSs, cslFarEndTotalESs=cslFarEndTotalESs, cslTotalTable=cslTotalTable, csTributaryFramingType=csTributaryFramingType, ciscoSonetConfMIBGroup=ciscoSonetConfMIBGroup, ciscoSonetVTNotifGroup=ciscoSonetVTNotifGroup, cslAISs=cslAISs, ciscoSonetAu4Tug3Group=ciscoSonetAu4Tug3Group, ciscoSonetMIBObjects=ciscoSonetMIBObjects, CsApsLineFailureStatus=CsApsLineFailureStatus, csApsActiveLine=csApsActiveLine, cspTotalSESs=cspTotalSESs, csConfig=csConfig, csAu4Tug3ConfigEntry=csAu4Tug3ConfigEntry, cssTraceReceived=cssTraceReceived, cslTotalESs=cslTotalESs, ciscoSonetPathConfMIBGroup=ciscoSonetPathConfMIBGroup, csConfigRDIVType=csConfigRDIVType, cssTraceEntry=cssTraceEntry, csApsProtectionIndex=csApsProtectionIndex, cssTraceFailure=cssTraceFailure, cspTotalUASs=cspTotalUASs, cssTraceToExpect=cssTraceToExpect, csStatsTable=csStatsTable, ciscoSonetVTStatusChange=ciscoSonetVTStatusChange, ciscoSonetLineNotifGroup=ciscoSonetLineNotifGroup, csNotifications=csNotifications, cspFarEndTotalCVs=cspFarEndTotalCVs, csTributaryType=csTributaryType, csApsArchModeOperational=csApsArchModeOperational, csAu4Tug3Config=csAu4Tug3Config, cslFarEndTotalUASs=cslFarEndTotalUASs, csConfigRDIPType=csConfigRDIPType, cslTotalEntry=cslTotalEntry, CsApsLineSwitchReason=CsApsLineSwitchReason, ciscoSonetMIBGroups=ciscoSonetMIBGroups, cspFarEndTotalTable=cspFarEndTotalTable, cspTotalCVs=cspTotalCVs, cspTotalEntry=cspTotalEntry, csApsConfig=csApsConfig, ciscoSonetMIBConformance=ciscoSonetMIBConformance, ciscoSonetPathNotifGroup=ciscoSonetPathNotifGroup, cspFarEndTotalSESs=cspFarEndTotalSESs, csApsRevertive=csApsRevertive, csApsConfigEntry=csApsConfigEntry, cssTraceTable=cssTraceTable, cspTraceToTransmit=cspTraceToTransmit, csTributaryMappingType=csTributaryMappingType, csSection=csSection, cspTributaryMappingType=cspTributaryMappingType, ciscoSonetMIBCompliance3=ciscoSonetMIBCompliance3, ciscoSonetStatsMIBGroup=ciscoSonetStatsMIBGroup, cspFarEndTotalUASs=cspFarEndTotalUASs, cssTotalTable=cssTotalTable, cspFarEndTotalEntry=cspFarEndTotalEntry, PYSNMP_MODULE_ID=ciscoSonetMIB, csConfigLoopbackType=csConfigLoopbackType, cspTraceReceived=cspTraceReceived, cssLOFs=cssLOFs, ciscoSonetVTConfMIBGroup=ciscoSonetVTConfMIBGroup, csAu4Tug3=csAu4Tug3, cspTributaryGroupingType=cspTributaryGroupingType, csConfigFrameScramble=csConfigFrameScramble, csApsSwitchReason=csApsSwitchReason, csApsSigDegradeBER=csApsSigDegradeBER, ciscoSonetMIBCompliances=ciscoSonetMIBCompliances, csConfigType=csConfigType, csApsLineSwitchReason=csApsLineSwitchReason, ciscoSonetSectionNotifGroup=ciscoSonetSectionNotifGroup, csApsLineFailureCode=csApsLineFailureCode, csApsSigFaultBER=csApsSigFaultBER, cspTotalESs=cspTotalESs, csNotificationsEnabled=csNotificationsEnabled, csApsWaitToRestore=csApsWaitToRestore, cslTotalCVs=cslTotalCVs, cssTraceToTransmit=cssTraceToTransmit, cssTotalCVs=cssTotalCVs, cslRFIs=cslRFIs, ciscoSonetApsMIBGroup1=ciscoSonetApsMIBGroup1, cspTraceEntry=cspTraceEntry, ciscoSonetMIBCompliance=ciscoSonetMIBCompliance, csSignallingTransportMode=csSignallingTransportMode, ciscoSonetSectionStatusChange=ciscoSonetSectionStatusChange, csPath=csPath, ciscoSonetApsMIBGroup=ciscoSonetApsMIBGroup, csVTConfigEntry=csVTConfigEntry, csVTConfigTable=csVTConfigTable, cslFarEndTotalTable=cslFarEndTotalTable, csApsEnable=csApsEnable, cspFarEndTotalESs=cspFarEndTotalESs, csStats=csStats, cspTraceTable=cspTraceTable, csStatsEntry=csStatsEntry, cssTotalEntry=cssTotalEntry, cssTotalSESs=cssTotalSESs, cspAISs=cspAISs, cspSignallingTransportMode=cspSignallingTransportMode, csConfigEntry=csConfigEntry, csApsDirection=csApsDirection, cspConfig=cspConfig, csApsConfigTable=csApsConfigTable, cslTotalUASs=cslTotalUASs, cslFarEndTotalSESs=cslFarEndTotalSESs, cspTotalTable=cspTotalTable, ciscoSonetPathConfMIBGroup1=ciscoSonetPathConfMIBGroup1, csApsArchMode=csApsArchMode, ciscoSonetConfMIBGroup1=ciscoSonetConfMIBGroup1, ciscoSonetMIBCompliance2=ciscoSonetMIBCompliance2, ciscoSonetNotifEnableGroup=ciscoSonetNotifEnableGroup, ciscoSonetMIBCompliance1=ciscoSonetMIBCompliance1, csLine=csLine, cslFarEndTotalEntry=cslFarEndTotalEntry, csTributaryGroupingType=csTributaryGroupingType)

@@ -1,76 +1,44 @@
-_E='agentdhcp4ClientInterfaceIndex'
-_D='DHCPCLIENT-PRIVATE-MIB'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-switch,=mibBuilder.importSymbols('QUANTA-SWITCH-MIB','switch')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-dhcpClientPrivate=ModuleIdentity((1,3,6,1,4,1,7244,2,100))
-_Agentdhcp4ClientLeaseParameters_ObjectIdentity=ObjectIdentity
-agentdhcp4ClientLeaseParameters=_Agentdhcp4ClientLeaseParameters_ObjectIdentity((1,3,6,1,4,1,7244,2,100,1))
-_Agentdhcp4ClientLeaseParametersTable_Object=MibTable
-agentdhcp4ClientLeaseParametersTable=_Agentdhcp4ClientLeaseParametersTable_Object((1,3,6,1,4,1,7244,2,100,1,1))
-if mibBuilder.loadTexts:agentdhcp4ClientLeaseParametersTable.setStatus(_A)
-_Agentdhcp4ClientLeaseParametersEntry_Object=MibTableRow
-agentdhcp4ClientLeaseParametersEntry=_Agentdhcp4ClientLeaseParametersEntry_Object((1,3,6,1,4,1,7244,2,100,1,1,1))
-agentdhcp4ClientLeaseParametersEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:agentdhcp4ClientLeaseParametersEntry.setStatus(_A)
-_Agentdhcp4ClientInterfaceIndex_Type=InterfaceIndex
-_Agentdhcp4ClientInterfaceIndex_Object=MibTableColumn
-agentdhcp4ClientInterfaceIndex=_Agentdhcp4ClientInterfaceIndex_Object((1,3,6,1,4,1,7244,2,100,1,1,1,1),_Agentdhcp4ClientInterfaceIndex_Type())
-agentdhcp4ClientInterfaceIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:agentdhcp4ClientInterfaceIndex.setStatus(_A)
-_Agentdhcp4ClientIpAddress_Type=IpAddress
-_Agentdhcp4ClientIpAddress_Object=MibTableColumn
-agentdhcp4ClientIpAddress=_Agentdhcp4ClientIpAddress_Object((1,3,6,1,4,1,7244,2,100,1,1,1,2),_Agentdhcp4ClientIpAddress_Type())
-agentdhcp4ClientIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentdhcp4ClientIpAddress.setStatus(_A)
-_Agentdhcp4ClientSubnetMask_Type=IpAddress
-_Agentdhcp4ClientSubnetMask_Object=MibTableColumn
-agentdhcp4ClientSubnetMask=_Agentdhcp4ClientSubnetMask_Object((1,3,6,1,4,1,7244,2,100,1,1,1,3),_Agentdhcp4ClientSubnetMask_Type())
-agentdhcp4ClientSubnetMask.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentdhcp4ClientSubnetMask.setStatus(_A)
-_Agentdhcp4ClientDhcpServerAddress_Type=IpAddress
-_Agentdhcp4ClientDhcpServerAddress_Object=MibTableColumn
-agentdhcp4ClientDhcpServerAddress=_Agentdhcp4ClientDhcpServerAddress_Object((1,3,6,1,4,1,7244,2,100,1,1,1,4),_Agentdhcp4ClientDhcpServerAddress_Type())
-agentdhcp4ClientDhcpServerAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentdhcp4ClientDhcpServerAddress.setStatus(_A)
-class _Agentdhcp4ClientState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13)));namedValues=NamedValues(*(('init',1),('selecting',2),('requesting',3),('request-recv',4),('bound',5),('renewing',6),('renew-recv',7),('rebinding',8),('rebind-recv',9),('bootp-fallback',10),('not-bound',11),('failed',12),('do-release',13)))
-_Agentdhcp4ClientState_Type.__name__=_C
-_Agentdhcp4ClientState_Object=MibTableColumn
-agentdhcp4ClientState=_Agentdhcp4ClientState_Object((1,3,6,1,4,1,7244,2,100,1,1,1,5),_Agentdhcp4ClientState_Type())
-agentdhcp4ClientState.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentdhcp4ClientState.setStatus(_A)
-_Agentdhcp4ClientTransactionID_Type=DisplayString
-_Agentdhcp4ClientTransactionID_Object=MibTableColumn
-agentdhcp4ClientTransactionID=_Agentdhcp4ClientTransactionID_Object((1,3,6,1,4,1,7244,2,100,1,1,1,6),_Agentdhcp4ClientTransactionID_Type())
-agentdhcp4ClientTransactionID.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentdhcp4ClientTransactionID.setStatus(_A)
-_Agentdhcp4ClientLeaseTime_Type=TimeTicks
-_Agentdhcp4ClientLeaseTime_Object=MibTableColumn
-agentdhcp4ClientLeaseTime=_Agentdhcp4ClientLeaseTime_Object((1,3,6,1,4,1,7244,2,100,1,1,1,7),_Agentdhcp4ClientLeaseTime_Type())
-agentdhcp4ClientLeaseTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentdhcp4ClientLeaseTime.setStatus(_A)
-_Agentdhcp4ClientRenewTime_Type=TimeTicks
-_Agentdhcp4ClientRenewTime_Object=MibTableColumn
-agentdhcp4ClientRenewTime=_Agentdhcp4ClientRenewTime_Object((1,3,6,1,4,1,7244,2,100,1,1,1,8),_Agentdhcp4ClientRenewTime_Type())
-agentdhcp4ClientRenewTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentdhcp4ClientRenewTime.setStatus(_A)
-_Agentdhcp4ClientRebindTime_Type=TimeTicks
-_Agentdhcp4ClientRebindTime_Object=MibTableColumn
-agentdhcp4ClientRebindTime=_Agentdhcp4ClientRebindTime_Object((1,3,6,1,4,1,7244,2,100,1,1,1,9),_Agentdhcp4ClientRebindTime_Type())
-agentdhcp4ClientRebindTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentdhcp4ClientRebindTime.setStatus(_A)
-_Agentdhcp4ClientRetryCount_Type=Counter32
-_Agentdhcp4ClientRetryCount_Object=MibTableColumn
-agentdhcp4ClientRetryCount=_Agentdhcp4ClientRetryCount_Object((1,3,6,1,4,1,7244,2,100,1,1,1,10),_Agentdhcp4ClientRetryCount_Type())
-agentdhcp4ClientRetryCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:agentdhcp4ClientRetryCount.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'dhcpClientPrivate':dhcpClientPrivate,'agentdhcp4ClientLeaseParameters':agentdhcp4ClientLeaseParameters,'agentdhcp4ClientLeaseParametersTable':agentdhcp4ClientLeaseParametersTable,'agentdhcp4ClientLeaseParametersEntry':agentdhcp4ClientLeaseParametersEntry,_E:agentdhcp4ClientInterfaceIndex,'agentdhcp4ClientIpAddress':agentdhcp4ClientIpAddress,'agentdhcp4ClientSubnetMask':agentdhcp4ClientSubnetMask,'agentdhcp4ClientDhcpServerAddress':agentdhcp4ClientDhcpServerAddress,'agentdhcp4ClientState':agentdhcp4ClientState,'agentdhcp4ClientTransactionID':agentdhcp4ClientTransactionID,'agentdhcp4ClientLeaseTime':agentdhcp4ClientLeaseTime,'agentdhcp4ClientRenewTime':agentdhcp4ClientRenewTime,'agentdhcp4ClientRebindTime':agentdhcp4ClientRebindTime,'agentdhcp4ClientRetryCount':agentdhcp4ClientRetryCount})
+#
+# PySNMP MIB module DHCPCLIENT-PRIVATE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/quanta/DHCPCLIENT-PRIVATE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:20 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+switch, = mibBuilder.importSymbols("QUANTA-SWITCH-MIB", "switch")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+dhcpClientPrivate = ModuleIdentity((1, 3, 6, 1, 4, 1, 7244, 2, 100))
+if mibBuilder.loadTexts: dhcpClientPrivate.setLastUpdated('201108310000Z')
+if mibBuilder.loadTexts: dhcpClientPrivate.setOrganization('QCI')
+agentdhcp4ClientLeaseParameters = MibIdentifier((1, 3, 6, 1, 4, 1, 7244, 2, 100, 1))
+agentdhcp4ClientLeaseParametersTable = MibTable((1, 3, 6, 1, 4, 1, 7244, 2, 100, 1, 1), )
+if mibBuilder.loadTexts: agentdhcp4ClientLeaseParametersTable.setStatus('current')
+agentdhcp4ClientLeaseParametersEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7244, 2, 100, 1, 1, 1), ).setIndexNames((0, "DHCPCLIENT-PRIVATE-MIB", "agentdhcp4ClientInterfaceIndex"))
+if mibBuilder.loadTexts: agentdhcp4ClientLeaseParametersEntry.setStatus('current')
+agentdhcp4ClientInterfaceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 100, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: agentdhcp4ClientInterfaceIndex.setStatus('current')
+agentdhcp4ClientIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 100, 1, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentdhcp4ClientIpAddress.setStatus('current')
+agentdhcp4ClientSubnetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 100, 1, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentdhcp4ClientSubnetMask.setStatus('current')
+agentdhcp4ClientDhcpServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 100, 1, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentdhcp4ClientDhcpServerAddress.setStatus('current')
+agentdhcp4ClientState = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 100, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13))).clone(namedValues=NamedValues(("init", 1), ("selecting", 2), ("requesting", 3), ("request-recv", 4), ("bound", 5), ("renewing", 6), ("renew-recv", 7), ("rebinding", 8), ("rebind-recv", 9), ("bootp-fallback", 10), ("not-bound", 11), ("failed", 12), ("do-release", 13)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentdhcp4ClientState.setStatus('current')
+agentdhcp4ClientTransactionID = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 100, 1, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentdhcp4ClientTransactionID.setStatus('current')
+agentdhcp4ClientLeaseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 100, 1, 1, 1, 7), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentdhcp4ClientLeaseTime.setStatus('current')
+agentdhcp4ClientRenewTime = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 100, 1, 1, 1, 8), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentdhcp4ClientRenewTime.setStatus('current')
+agentdhcp4ClientRebindTime = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 100, 1, 1, 1, 9), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentdhcp4ClientRebindTime.setStatus('current')
+agentdhcp4ClientRetryCount = MibTableColumn((1, 3, 6, 1, 4, 1, 7244, 2, 100, 1, 1, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: agentdhcp4ClientRetryCount.setStatus('current')
+mibBuilder.exportSymbols("DHCPCLIENT-PRIVATE-MIB", agentdhcp4ClientRenewTime=agentdhcp4ClientRenewTime, agentdhcp4ClientDhcpServerAddress=agentdhcp4ClientDhcpServerAddress, agentdhcp4ClientLeaseParametersEntry=agentdhcp4ClientLeaseParametersEntry, agentdhcp4ClientLeaseTime=agentdhcp4ClientLeaseTime, agentdhcp4ClientLeaseParametersTable=agentdhcp4ClientLeaseParametersTable, agentdhcp4ClientInterfaceIndex=agentdhcp4ClientInterfaceIndex, PYSNMP_MODULE_ID=dhcpClientPrivate, agentdhcp4ClientRetryCount=agentdhcp4ClientRetryCount, agentdhcp4ClientState=agentdhcp4ClientState, agentdhcp4ClientRebindTime=agentdhcp4ClientRebindTime, agentdhcp4ClientLeaseParameters=agentdhcp4ClientLeaseParameters, agentdhcp4ClientIpAddress=agentdhcp4ClientIpAddress, agentdhcp4ClientTransactionID=agentdhcp4ClientTransactionID, agentdhcp4ClientSubnetMask=agentdhcp4ClientSubnetMask, dhcpClientPrivate=dhcpClientPrivate)

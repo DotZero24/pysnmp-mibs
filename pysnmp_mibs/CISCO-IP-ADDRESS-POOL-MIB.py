@@ -1,563 +1,212 @@
-_Ad='ciapPrefixGroup'
-_Ac='ciapNotifsGroup'
-_Ab='ciapNotifDataGroup'
-_Aa='ciapPoolGroupGroup'
-_AZ='ciapRangeGroup'
-_AY='ciapPoolGroup'
-_AX='ciapGlobalGroup'
-_AW='ciapEventThresholdFalling'
-_AV='ciapEventThresholdRising'
-_AU='ciapPoolGroupAddressesFree'
-_AT='ciapPoolGroupAddressesInUse'
-_AS='ciapPoolGroupThresholdFalling'
-_AR='ciapPoolGroupThresholdRising'
-_AQ='ciapPoolGroupThresholdUnits'
-_AP='ciapPoolGroupName'
-_AO='ciapPoolGroupIdNext'
-_AN='ciapPrefixTableChanged'
-_AM='ciapPrefixPrefixesFree'
-_AL='ciapPrefixPrefixesInUse'
-_AK='ciapPrefixThresholdFalling'
-_AJ='ciapPrefixThresholdRising'
-_AI='ciapPrefixThresholdUnits'
-_AH='ciapPrefixPriority'
-_AG='ciapPrefixRecycleDelay'
-_AF='ciapPrefixCacheSize'
-_AE='ciapPrefixAssignedLength'
-_AD='ciapPrefixStorage'
-_AC='ciapPrefixStatus'
-_AB='ciapRangeTableChanged'
-_AA='ciapRangeAddressesFree'
-_A9='ciapRangeAddressesInUse'
-_A8='ciapRangeThresholdFalling'
-_A7='ciapRangeThresholdRising'
-_A6='ciapRangeThresholdUnits'
-_A5='ciapRangePriority'
-_A4='ciapRangeRecycleDelay'
-_A3='ciapRangeCacheSize'
-_A2='ciapRangeAddressUpper'
-_A1='ciapRangeStorage'
-_A0='ciapRangeStatus'
-_z='ciapAllocatedAddressMask'
-_y='ciapPoolTableChanged'
-_x='ciapPoolAddressesFree'
-_w='ciapPoolAddressesInUse'
-_v='ciapPoolThresholdFalling'
-_u='ciapPoolThresholdRising'
-_t='ciapPoolThresholdUnits'
-_s='ciapPoolContainedIn'
-_r='ciapPoolType'
-_q='ciapPoolStorage'
-_p='ciapPoolStatus'
-_o='ciapPoolName'
-_n='ciapPoolIdNext'
-_m='ciapGlobalThresholdFalling'
-_l='ciapGlobalThresholdRising'
-_k='ciapGlobalThresholdUnits'
-_j='ciapGlobalNotifyEnable'
-_i='ciapAllocatedAddress'
-_h='ciapAllocatedAddressType'
-_g='ciapPrefixAddressMask'
-_f='ciapPrefixAddress'
-_e='ciapPrefixType'
-_d='seconds'
-_c='ciapRangeAddressLower'
-_b='ciapRangeAddressType'
-_a='TruthValue'
-_Z='Integer32'
-_Y='IpAddressPoolThresholdUnits'
-_X='IpAddressPoolNameOrNull'
-_W='IpAddressPoolGroupNameOrNull'
-_V='ciapNotifyThresholdFalling'
-_U='ciapNotifyThresholdRising'
-_T='ciapPoolGroupContainsId'
-_S='ciapPoolGroupId'
-_R='IP prefixes'
-_Q='ciapNotifyFree'
-_P='ciapNotifyInUse'
-_O='ciapNotifyThresholdUnits'
-_N='ciapNotifyResource'
-_M='IP addresses'
-_L='StorageType'
-_K='ciapPoolId'
-_J='accessible-for-notify'
-_I='IP addresses/prefixes'
-_H='InetAddress'
-_G='read-write'
-_F='not-accessible'
-_E='read-only'
-_D='Unsigned32'
-_C='read-create'
-_B='current'
-_A='CISCO-IP-ADDRESS-POOL-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-IpAddrPoolInstanceIdentifier,IpAddrPoolInstanceIdentifierOrZero,IpAddressPoolGroupName,IpAddressPoolGroupNameOrNull,IpAddressPoolNameOrNull,IpAddressPoolThresholdUnits=mibBuilder.importSymbols('CISCO-IP-ADDRESS-POOL-TC-MIB','IpAddrPoolInstanceIdentifier','IpAddrPoolInstanceIdentifierOrZero','IpAddressPoolGroupName',_W,_X,_Y)
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-InetAddress,InetAddressPrefixLength,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB',_H,'InetAddressPrefixLength','InetAddressType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_Z,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,PhysAddress,RowPointer,RowStatus,StorageType,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowPointer','RowStatus',_L,'TextualConvention','TimeStamp',_a)
-ciscoIpAddressPoolMIB=ModuleIdentity((1,3,6,1,4,1,9,9,748))
-if mibBuilder.loadTexts:ciscoIpAddressPoolMIB.setRevisions(('2010-02-02 00:00',))
-_CiscoIpAddressPoolMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoIpAddressPoolMIBNotifs=_CiscoIpAddressPoolMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,748,0))
-_CiscoIpAddressPoolMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoIpAddressPoolMIBObjects=_CiscoIpAddressPoolMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,748,1))
-_CiapGlobal_ObjectIdentity=ObjectIdentity
-ciapGlobal=_CiapGlobal_ObjectIdentity((1,3,6,1,4,1,9,9,748,1,1))
-class _CiapGlobalNotifyEnable_Type(TruthValue):defaultValue=2
-_CiapGlobalNotifyEnable_Type.__name__=_a
-_CiapGlobalNotifyEnable_Object=MibScalar
-ciapGlobalNotifyEnable=_CiapGlobalNotifyEnable_Object((1,3,6,1,4,1,9,9,748,1,1,1),_CiapGlobalNotifyEnable_Type())
-ciapGlobalNotifyEnable.setMaxAccess(_G)
-if mibBuilder.loadTexts:ciapGlobalNotifyEnable.setStatus(_B)
-class _CiapGlobalThresholdUnits_Type(IpAddressPoolThresholdUnits):defaultValue=2
-_CiapGlobalThresholdUnits_Type.__name__=_Y
-_CiapGlobalThresholdUnits_Object=MibScalar
-ciapGlobalThresholdUnits=_CiapGlobalThresholdUnits_Object((1,3,6,1,4,1,9,9,748,1,1,2),_CiapGlobalThresholdUnits_Type())
-ciapGlobalThresholdUnits.setMaxAccess(_G)
-if mibBuilder.loadTexts:ciapGlobalThresholdUnits.setStatus(_B)
-class _CiapGlobalThresholdRising_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapGlobalThresholdRising_Type.__name__=_D
-_CiapGlobalThresholdRising_Object=MibScalar
-ciapGlobalThresholdRising=_CiapGlobalThresholdRising_Object((1,3,6,1,4,1,9,9,748,1,1,3),_CiapGlobalThresholdRising_Type())
-ciapGlobalThresholdRising.setMaxAccess(_G)
-if mibBuilder.loadTexts:ciapGlobalThresholdRising.setStatus(_B)
-class _CiapGlobalThresholdFalling_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapGlobalThresholdFalling_Type.__name__=_D
-_CiapGlobalThresholdFalling_Object=MibScalar
-ciapGlobalThresholdFalling=_CiapGlobalThresholdFalling_Object((1,3,6,1,4,1,9,9,748,1,1,4),_CiapGlobalThresholdFalling_Type())
-ciapGlobalThresholdFalling.setMaxAccess(_G)
-if mibBuilder.loadTexts:ciapGlobalThresholdFalling.setStatus(_B)
-_CiapPools_ObjectIdentity=ObjectIdentity
-ciapPools=_CiapPools_ObjectIdentity((1,3,6,1,4,1,9,9,748,1,2))
-_CiapPoolIdNext_Type=IpAddrPoolInstanceIdentifierOrZero
-_CiapPoolIdNext_Object=MibScalar
-ciapPoolIdNext=_CiapPoolIdNext_Object((1,3,6,1,4,1,9,9,748,1,2,1),_CiapPoolIdNext_Type())
-ciapPoolIdNext.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciapPoolIdNext.setStatus(_B)
-_CiapPoolTable_Object=MibTable
-ciapPoolTable=_CiapPoolTable_Object((1,3,6,1,4,1,9,9,748,1,2,2))
-if mibBuilder.loadTexts:ciapPoolTable.setStatus(_B)
-_CiapPoolEntry_Object=MibTableRow
-ciapPoolEntry=_CiapPoolEntry_Object((1,3,6,1,4,1,9,9,748,1,2,2,1))
-ciapPoolEntry.setIndexNames((0,_A,_K))
-if mibBuilder.loadTexts:ciapPoolEntry.setStatus(_B)
-_CiapPoolId_Type=IpAddrPoolInstanceIdentifier
-_CiapPoolId_Object=MibTableColumn
-ciapPoolId=_CiapPoolId_Object((1,3,6,1,4,1,9,9,748,1,2,2,1,1),_CiapPoolId_Type())
-ciapPoolId.setMaxAccess(_F)
-if mibBuilder.loadTexts:ciapPoolId.setStatus(_B)
-_CiapPoolStatus_Type=RowStatus
-_CiapPoolStatus_Object=MibTableColumn
-ciapPoolStatus=_CiapPoolStatus_Object((1,3,6,1,4,1,9,9,748,1,2,2,1,2),_CiapPoolStatus_Type())
-ciapPoolStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPoolStatus.setStatus(_B)
-class _CiapPoolStorage_Type(StorageType):defaultValue=2
-_CiapPoolStorage_Type.__name__=_L
-_CiapPoolStorage_Object=MibTableColumn
-ciapPoolStorage=_CiapPoolStorage_Object((1,3,6,1,4,1,9,9,748,1,2,2,1,3),_CiapPoolStorage_Type())
-ciapPoolStorage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPoolStorage.setStatus(_B)
-class _CiapPoolName_Type(IpAddressPoolNameOrNull):defaultValue=OctetString('')
-_CiapPoolName_Type.__name__=_X
-_CiapPoolName_Object=MibTableColumn
-ciapPoolName=_CiapPoolName_Object((1,3,6,1,4,1,9,9,748,1,2,2,1,4),_CiapPoolName_Type())
-ciapPoolName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPoolName.setStatus(_B)
-class _CiapPoolType_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('other',1),('shared',2),('local',3),('dhcp',4)))
-_CiapPoolType_Type.__name__=_Z
-_CiapPoolType_Object=MibTableColumn
-ciapPoolType=_CiapPoolType_Object((1,3,6,1,4,1,9,9,748,1,2,2,1,5),_CiapPoolType_Type())
-ciapPoolType.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPoolType.setStatus(_B)
-class _CiapPoolContainedIn_Type(IpAddressPoolGroupNameOrNull):defaultValue=OctetString('')
-_CiapPoolContainedIn_Type.__name__=_W
-_CiapPoolContainedIn_Object=MibTableColumn
-ciapPoolContainedIn=_CiapPoolContainedIn_Object((1,3,6,1,4,1,9,9,748,1,2,2,1,6),_CiapPoolContainedIn_Type())
-ciapPoolContainedIn.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPoolContainedIn.setStatus(_B)
-_CiapPoolThresholdUnits_Type=IpAddressPoolThresholdUnits
-_CiapPoolThresholdUnits_Object=MibTableColumn
-ciapPoolThresholdUnits=_CiapPoolThresholdUnits_Object((1,3,6,1,4,1,9,9,748,1,2,2,1,7),_CiapPoolThresholdUnits_Type())
-ciapPoolThresholdUnits.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPoolThresholdUnits.setStatus(_B)
-if mibBuilder.loadTexts:ciapPoolThresholdUnits.setUnits(_M)
-class _CiapPoolThresholdRising_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapPoolThresholdRising_Type.__name__=_D
-_CiapPoolThresholdRising_Object=MibTableColumn
-ciapPoolThresholdRising=_CiapPoolThresholdRising_Object((1,3,6,1,4,1,9,9,748,1,2,2,1,8),_CiapPoolThresholdRising_Type())
-ciapPoolThresholdRising.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPoolThresholdRising.setStatus(_B)
-class _CiapPoolThresholdFalling_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapPoolThresholdFalling_Type.__name__=_D
-_CiapPoolThresholdFalling_Object=MibTableColumn
-ciapPoolThresholdFalling=_CiapPoolThresholdFalling_Object((1,3,6,1,4,1,9,9,748,1,2,2,1,9),_CiapPoolThresholdFalling_Type())
-ciapPoolThresholdFalling.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPoolThresholdFalling.setStatus(_B)
-_CiapPoolAddressesInUse_Type=Gauge32
-_CiapPoolAddressesInUse_Object=MibTableColumn
-ciapPoolAddressesInUse=_CiapPoolAddressesInUse_Object((1,3,6,1,4,1,9,9,748,1,2,2,1,10),_CiapPoolAddressesInUse_Type())
-ciapPoolAddressesInUse.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPoolAddressesInUse.setStatus(_B)
-if mibBuilder.loadTexts:ciapPoolAddressesInUse.setUnits(_I)
-_CiapPoolAddressesFree_Type=Gauge32
-_CiapPoolAddressesFree_Object=MibTableColumn
-ciapPoolAddressesFree=_CiapPoolAddressesFree_Object((1,3,6,1,4,1,9,9,748,1,2,2,1,11),_CiapPoolAddressesFree_Type())
-ciapPoolAddressesFree.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPoolAddressesFree.setStatus(_B)
-if mibBuilder.loadTexts:ciapPoolAddressesFree.setUnits(_I)
-_CiapPoolTableChanged_Type=TimeStamp
-_CiapPoolTableChanged_Object=MibScalar
-ciapPoolTableChanged=_CiapPoolTableChanged_Object((1,3,6,1,4,1,9,9,748,1,2,3),_CiapPoolTableChanged_Type())
-ciapPoolTableChanged.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciapPoolTableChanged.setStatus(_B)
-_CiapRangeTable_Object=MibTable
-ciapRangeTable=_CiapRangeTable_Object((1,3,6,1,4,1,9,9,748,1,2,4))
-if mibBuilder.loadTexts:ciapRangeTable.setStatus(_B)
-_CiapRangeEntry_Object=MibTableRow
-ciapRangeEntry=_CiapRangeEntry_Object((1,3,6,1,4,1,9,9,748,1,2,4,1))
-ciapRangeEntry.setIndexNames((0,_A,_K),(0,_A,_b),(0,_A,_c))
-if mibBuilder.loadTexts:ciapRangeEntry.setStatus(_B)
-_CiapRangeAddressType_Type=InetAddressType
-_CiapRangeAddressType_Object=MibTableColumn
-ciapRangeAddressType=_CiapRangeAddressType_Object((1,3,6,1,4,1,9,9,748,1,2,4,1,1),_CiapRangeAddressType_Type())
-ciapRangeAddressType.setMaxAccess(_F)
-if mibBuilder.loadTexts:ciapRangeAddressType.setStatus(_B)
-class _CiapRangeAddressLower_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,16))
-_CiapRangeAddressLower_Type.__name__=_H
-_CiapRangeAddressLower_Object=MibTableColumn
-ciapRangeAddressLower=_CiapRangeAddressLower_Object((1,3,6,1,4,1,9,9,748,1,2,4,1,2),_CiapRangeAddressLower_Type())
-ciapRangeAddressLower.setMaxAccess(_F)
-if mibBuilder.loadTexts:ciapRangeAddressLower.setStatus(_B)
-_CiapRangeStatus_Type=RowStatus
-_CiapRangeStatus_Object=MibTableColumn
-ciapRangeStatus=_CiapRangeStatus_Object((1,3,6,1,4,1,9,9,748,1,2,4,1,3),_CiapRangeStatus_Type())
-ciapRangeStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapRangeStatus.setStatus(_B)
-class _CiapRangeStorage_Type(StorageType):defaultValue=2
-_CiapRangeStorage_Type.__name__=_L
-_CiapRangeStorage_Object=MibTableColumn
-ciapRangeStorage=_CiapRangeStorage_Object((1,3,6,1,4,1,9,9,748,1,2,4,1,4),_CiapRangeStorage_Type())
-ciapRangeStorage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapRangeStorage.setStatus(_B)
-_CiapRangeAddressUpper_Type=InetAddress
-_CiapRangeAddressUpper_Object=MibTableColumn
-ciapRangeAddressUpper=_CiapRangeAddressUpper_Object((1,3,6,1,4,1,9,9,748,1,2,4,1,5),_CiapRangeAddressUpper_Type())
-ciapRangeAddressUpper.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapRangeAddressUpper.setStatus(_B)
-class _CiapRangeCacheSize_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapRangeCacheSize_Type.__name__=_D
-_CiapRangeCacheSize_Object=MibTableColumn
-ciapRangeCacheSize=_CiapRangeCacheSize_Object((1,3,6,1,4,1,9,9,748,1,2,4,1,6),_CiapRangeCacheSize_Type())
-ciapRangeCacheSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapRangeCacheSize.setStatus(_B)
-if mibBuilder.loadTexts:ciapRangeCacheSize.setUnits(_M)
-class _CiapRangeRecycleDelay_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapRangeRecycleDelay_Type.__name__=_D
-_CiapRangeRecycleDelay_Object=MibTableColumn
-ciapRangeRecycleDelay=_CiapRangeRecycleDelay_Object((1,3,6,1,4,1,9,9,748,1,2,4,1,7),_CiapRangeRecycleDelay_Type())
-ciapRangeRecycleDelay.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapRangeRecycleDelay.setStatus(_B)
-if mibBuilder.loadTexts:ciapRangeRecycleDelay.setUnits(_d)
-class _CiapRangePriority_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_CiapRangePriority_Type.__name__=_D
-_CiapRangePriority_Object=MibTableColumn
-ciapRangePriority=_CiapRangePriority_Object((1,3,6,1,4,1,9,9,748,1,2,4,1,8),_CiapRangePriority_Type())
-ciapRangePriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapRangePriority.setStatus(_B)
-_CiapRangeThresholdUnits_Type=IpAddressPoolThresholdUnits
-_CiapRangeThresholdUnits_Object=MibTableColumn
-ciapRangeThresholdUnits=_CiapRangeThresholdUnits_Object((1,3,6,1,4,1,9,9,748,1,2,4,1,9),_CiapRangeThresholdUnits_Type())
-ciapRangeThresholdUnits.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapRangeThresholdUnits.setStatus(_B)
-class _CiapRangeThresholdRising_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapRangeThresholdRising_Type.__name__=_D
-_CiapRangeThresholdRising_Object=MibTableColumn
-ciapRangeThresholdRising=_CiapRangeThresholdRising_Object((1,3,6,1,4,1,9,9,748,1,2,4,1,10),_CiapRangeThresholdRising_Type())
-ciapRangeThresholdRising.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapRangeThresholdRising.setStatus(_B)
-class _CiapRangeThresholdFalling_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapRangeThresholdFalling_Type.__name__=_D
-_CiapRangeThresholdFalling_Object=MibTableColumn
-ciapRangeThresholdFalling=_CiapRangeThresholdFalling_Object((1,3,6,1,4,1,9,9,748,1,2,4,1,11),_CiapRangeThresholdFalling_Type())
-ciapRangeThresholdFalling.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapRangeThresholdFalling.setStatus(_B)
-_CiapRangeAddressesInUse_Type=Gauge32
-_CiapRangeAddressesInUse_Object=MibTableColumn
-ciapRangeAddressesInUse=_CiapRangeAddressesInUse_Object((1,3,6,1,4,1,9,9,748,1,2,4,1,12),_CiapRangeAddressesInUse_Type())
-ciapRangeAddressesInUse.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciapRangeAddressesInUse.setStatus(_B)
-if mibBuilder.loadTexts:ciapRangeAddressesInUse.setUnits(_M)
-_CiapRangeAddressesFree_Type=Gauge32
-_CiapRangeAddressesFree_Object=MibTableColumn
-ciapRangeAddressesFree=_CiapRangeAddressesFree_Object((1,3,6,1,4,1,9,9,748,1,2,4,1,13),_CiapRangeAddressesFree_Type())
-ciapRangeAddressesFree.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciapRangeAddressesFree.setStatus(_B)
-if mibBuilder.loadTexts:ciapRangeAddressesFree.setUnits(_M)
-_CiapRangeTableChanged_Type=TimeStamp
-_CiapRangeTableChanged_Object=MibScalar
-ciapRangeTableChanged=_CiapRangeTableChanged_Object((1,3,6,1,4,1,9,9,748,1,2,5),_CiapRangeTableChanged_Type())
-ciapRangeTableChanged.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciapRangeTableChanged.setStatus(_B)
-_CiapPrefixTable_Object=MibTable
-ciapPrefixTable=_CiapPrefixTable_Object((1,3,6,1,4,1,9,9,748,1,2,6))
-if mibBuilder.loadTexts:ciapPrefixTable.setStatus(_B)
-_CiapPrefixEntry_Object=MibTableRow
-ciapPrefixEntry=_CiapPrefixEntry_Object((1,3,6,1,4,1,9,9,748,1,2,6,1))
-ciapPrefixEntry.setIndexNames((0,_A,_K),(0,_A,_e),(0,_A,_f),(0,_A,_g))
-if mibBuilder.loadTexts:ciapPrefixEntry.setStatus(_B)
-_CiapPrefixType_Type=InetAddressType
-_CiapPrefixType_Object=MibTableColumn
-ciapPrefixType=_CiapPrefixType_Object((1,3,6,1,4,1,9,9,748,1,2,6,1,1),_CiapPrefixType_Type())
-ciapPrefixType.setMaxAccess(_F)
-if mibBuilder.loadTexts:ciapPrefixType.setStatus(_B)
-class _CiapPrefixAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,16))
-_CiapPrefixAddress_Type.__name__=_H
-_CiapPrefixAddress_Object=MibTableColumn
-ciapPrefixAddress=_CiapPrefixAddress_Object((1,3,6,1,4,1,9,9,748,1,2,6,1,2),_CiapPrefixAddress_Type())
-ciapPrefixAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:ciapPrefixAddress.setStatus(_B)
-class _CiapPrefixAddressMask_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,16))
-_CiapPrefixAddressMask_Type.__name__=_H
-_CiapPrefixAddressMask_Object=MibTableColumn
-ciapPrefixAddressMask=_CiapPrefixAddressMask_Object((1,3,6,1,4,1,9,9,748,1,2,6,1,3),_CiapPrefixAddressMask_Type())
-ciapPrefixAddressMask.setMaxAccess(_F)
-if mibBuilder.loadTexts:ciapPrefixAddressMask.setStatus(_B)
-_CiapPrefixStatus_Type=RowStatus
-_CiapPrefixStatus_Object=MibTableColumn
-ciapPrefixStatus=_CiapPrefixStatus_Object((1,3,6,1,4,1,9,9,748,1,2,6,1,4),_CiapPrefixStatus_Type())
-ciapPrefixStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPrefixStatus.setStatus(_B)
-class _CiapPrefixStorage_Type(StorageType):defaultValue=2
-_CiapPrefixStorage_Type.__name__=_L
-_CiapPrefixStorage_Object=MibTableColumn
-ciapPrefixStorage=_CiapPrefixStorage_Object((1,3,6,1,4,1,9,9,748,1,2,6,1,5),_CiapPrefixStorage_Type())
-ciapPrefixStorage.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPrefixStorage.setStatus(_B)
-_CiapPrefixAssignedLength_Type=InetAddressPrefixLength
-_CiapPrefixAssignedLength_Object=MibTableColumn
-ciapPrefixAssignedLength=_CiapPrefixAssignedLength_Object((1,3,6,1,4,1,9,9,748,1,2,6,1,6),_CiapPrefixAssignedLength_Type())
-ciapPrefixAssignedLength.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPrefixAssignedLength.setStatus(_B)
-class _CiapPrefixCacheSize_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapPrefixCacheSize_Type.__name__=_D
-_CiapPrefixCacheSize_Object=MibTableColumn
-ciapPrefixCacheSize=_CiapPrefixCacheSize_Object((1,3,6,1,4,1,9,9,748,1,2,6,1,7),_CiapPrefixCacheSize_Type())
-ciapPrefixCacheSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPrefixCacheSize.setStatus(_B)
-if mibBuilder.loadTexts:ciapPrefixCacheSize.setUnits(_R)
-class _CiapPrefixRecycleDelay_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapPrefixRecycleDelay_Type.__name__=_D
-_CiapPrefixRecycleDelay_Object=MibTableColumn
-ciapPrefixRecycleDelay=_CiapPrefixRecycleDelay_Object((1,3,6,1,4,1,9,9,748,1,2,6,1,8),_CiapPrefixRecycleDelay_Type())
-ciapPrefixRecycleDelay.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPrefixRecycleDelay.setStatus(_B)
-if mibBuilder.loadTexts:ciapPrefixRecycleDelay.setUnits(_d)
-class _CiapPrefixPriority_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_CiapPrefixPriority_Type.__name__=_D
-_CiapPrefixPriority_Object=MibTableColumn
-ciapPrefixPriority=_CiapPrefixPriority_Object((1,3,6,1,4,1,9,9,748,1,2,6,1,9),_CiapPrefixPriority_Type())
-ciapPrefixPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPrefixPriority.setStatus(_B)
-_CiapPrefixThresholdUnits_Type=IpAddressPoolThresholdUnits
-_CiapPrefixThresholdUnits_Object=MibTableColumn
-ciapPrefixThresholdUnits=_CiapPrefixThresholdUnits_Object((1,3,6,1,4,1,9,9,748,1,2,6,1,10),_CiapPrefixThresholdUnits_Type())
-ciapPrefixThresholdUnits.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPrefixThresholdUnits.setStatus(_B)
-class _CiapPrefixThresholdRising_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapPrefixThresholdRising_Type.__name__=_D
-_CiapPrefixThresholdRising_Object=MibTableColumn
-ciapPrefixThresholdRising=_CiapPrefixThresholdRising_Object((1,3,6,1,4,1,9,9,748,1,2,6,1,11),_CiapPrefixThresholdRising_Type())
-ciapPrefixThresholdRising.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPrefixThresholdRising.setStatus(_B)
-class _CiapPrefixThresholdFalling_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapPrefixThresholdFalling_Type.__name__=_D
-_CiapPrefixThresholdFalling_Object=MibTableColumn
-ciapPrefixThresholdFalling=_CiapPrefixThresholdFalling_Object((1,3,6,1,4,1,9,9,748,1,2,6,1,12),_CiapPrefixThresholdFalling_Type())
-ciapPrefixThresholdFalling.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPrefixThresholdFalling.setStatus(_B)
-_CiapPrefixPrefixesInUse_Type=Gauge32
-_CiapPrefixPrefixesInUse_Object=MibTableColumn
-ciapPrefixPrefixesInUse=_CiapPrefixPrefixesInUse_Object((1,3,6,1,4,1,9,9,748,1,2,6,1,13),_CiapPrefixPrefixesInUse_Type())
-ciapPrefixPrefixesInUse.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPrefixPrefixesInUse.setStatus(_B)
-if mibBuilder.loadTexts:ciapPrefixPrefixesInUse.setUnits(_R)
-_CiapPrefixPrefixesFree_Type=Gauge32
-_CiapPrefixPrefixesFree_Object=MibTableColumn
-ciapPrefixPrefixesFree=_CiapPrefixPrefixesFree_Object((1,3,6,1,4,1,9,9,748,1,2,6,1,14),_CiapPrefixPrefixesFree_Type())
-ciapPrefixPrefixesFree.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciapPrefixPrefixesFree.setStatus(_B)
-if mibBuilder.loadTexts:ciapPrefixPrefixesFree.setUnits(_R)
-_CiapPrefixTableChanged_Type=TimeStamp
-_CiapPrefixTableChanged_Object=MibScalar
-ciapPrefixTableChanged=_CiapPrefixTableChanged_Object((1,3,6,1,4,1,9,9,748,1,2,7),_CiapPrefixTableChanged_Type())
-ciapPrefixTableChanged.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciapPrefixTableChanged.setStatus(_B)
-_CiapPoolGroups_ObjectIdentity=ObjectIdentity
-ciapPoolGroups=_CiapPoolGroups_ObjectIdentity((1,3,6,1,4,1,9,9,748,1,3))
-_CiapPoolGroupIdNext_Type=IpAddrPoolInstanceIdentifierOrZero
-_CiapPoolGroupIdNext_Object=MibScalar
-ciapPoolGroupIdNext=_CiapPoolGroupIdNext_Object((1,3,6,1,4,1,9,9,748,1,3,1),_CiapPoolGroupIdNext_Type())
-ciapPoolGroupIdNext.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciapPoolGroupIdNext.setStatus(_B)
-_CiapPoolGroupTable_Object=MibTable
-ciapPoolGroupTable=_CiapPoolGroupTable_Object((1,3,6,1,4,1,9,9,748,1,3,2))
-if mibBuilder.loadTexts:ciapPoolGroupTable.setStatus(_B)
-_CiapPoolGroupEntry_Object=MibTableRow
-ciapPoolGroupEntry=_CiapPoolGroupEntry_Object((1,3,6,1,4,1,9,9,748,1,3,2,1))
-ciapPoolGroupEntry.setIndexNames((0,_A,_S))
-if mibBuilder.loadTexts:ciapPoolGroupEntry.setStatus(_B)
-_CiapPoolGroupId_Type=IpAddrPoolInstanceIdentifier
-_CiapPoolGroupId_Object=MibTableColumn
-ciapPoolGroupId=_CiapPoolGroupId_Object((1,3,6,1,4,1,9,9,748,1,3,2,1,1),_CiapPoolGroupId_Type())
-ciapPoolGroupId.setMaxAccess(_F)
-if mibBuilder.loadTexts:ciapPoolGroupId.setStatus(_B)
-_CiapPoolGroupName_Type=IpAddressPoolGroupName
-_CiapPoolGroupName_Object=MibTableColumn
-ciapPoolGroupName=_CiapPoolGroupName_Object((1,3,6,1,4,1,9,9,748,1,3,2,1,2),_CiapPoolGroupName_Type())
-ciapPoolGroupName.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciapPoolGroupName.setStatus(_B)
-_CiapPoolGroupThresholdUnits_Type=IpAddressPoolThresholdUnits
-_CiapPoolGroupThresholdUnits_Object=MibTableColumn
-ciapPoolGroupThresholdUnits=_CiapPoolGroupThresholdUnits_Object((1,3,6,1,4,1,9,9,748,1,3,2,1,3),_CiapPoolGroupThresholdUnits_Type())
-ciapPoolGroupThresholdUnits.setMaxAccess(_G)
-if mibBuilder.loadTexts:ciapPoolGroupThresholdUnits.setStatus(_B)
-class _CiapPoolGroupThresholdRising_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapPoolGroupThresholdRising_Type.__name__=_D
-_CiapPoolGroupThresholdRising_Object=MibTableColumn
-ciapPoolGroupThresholdRising=_CiapPoolGroupThresholdRising_Object((1,3,6,1,4,1,9,9,748,1,3,2,1,4),_CiapPoolGroupThresholdRising_Type())
-ciapPoolGroupThresholdRising.setMaxAccess(_G)
-if mibBuilder.loadTexts:ciapPoolGroupThresholdRising.setStatus(_B)
-class _CiapPoolGroupThresholdFalling_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapPoolGroupThresholdFalling_Type.__name__=_D
-_CiapPoolGroupThresholdFalling_Object=MibTableColumn
-ciapPoolGroupThresholdFalling=_CiapPoolGroupThresholdFalling_Object((1,3,6,1,4,1,9,9,748,1,3,2,1,5),_CiapPoolGroupThresholdFalling_Type())
-ciapPoolGroupThresholdFalling.setMaxAccess(_G)
-if mibBuilder.loadTexts:ciapPoolGroupThresholdFalling.setStatus(_B)
-_CiapPoolGroupAddressesInUse_Type=Gauge32
-_CiapPoolGroupAddressesInUse_Object=MibTableColumn
-ciapPoolGroupAddressesInUse=_CiapPoolGroupAddressesInUse_Object((1,3,6,1,4,1,9,9,748,1,3,2,1,6),_CiapPoolGroupAddressesInUse_Type())
-ciapPoolGroupAddressesInUse.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciapPoolGroupAddressesInUse.setStatus(_B)
-if mibBuilder.loadTexts:ciapPoolGroupAddressesInUse.setUnits(_I)
-_CiapPoolGroupAddressesFree_Type=Gauge32
-_CiapPoolGroupAddressesFree_Object=MibTableColumn
-ciapPoolGroupAddressesFree=_CiapPoolGroupAddressesFree_Object((1,3,6,1,4,1,9,9,748,1,3,2,1,7),_CiapPoolGroupAddressesFree_Type())
-ciapPoolGroupAddressesFree.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciapPoolGroupAddressesFree.setStatus(_B)
-if mibBuilder.loadTexts:ciapPoolGroupAddressesFree.setUnits(_I)
-_CiapPoolGroupContainsTable_Object=MibTable
-ciapPoolGroupContainsTable=_CiapPoolGroupContainsTable_Object((1,3,6,1,4,1,9,9,748,1,3,3))
-if mibBuilder.loadTexts:ciapPoolGroupContainsTable.setStatus(_B)
-_CiapPoolGroupContainsEntry_Object=MibTableRow
-ciapPoolGroupContainsEntry=_CiapPoolGroupContainsEntry_Object((1,3,6,1,4,1,9,9,748,1,3,3,1))
-ciapPoolGroupContainsEntry.setIndexNames((0,_A,_S),(0,_A,_T))
-if mibBuilder.loadTexts:ciapPoolGroupContainsEntry.setStatus(_B)
-_CiapPoolGroupContainsId_Type=IpAddrPoolInstanceIdentifier
-_CiapPoolGroupContainsId_Object=MibTableColumn
-ciapPoolGroupContainsId=_CiapPoolGroupContainsId_Object((1,3,6,1,4,1,9,9,748,1,3,3,1,1),_CiapPoolGroupContainsId_Type())
-ciapPoolGroupContainsId.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciapPoolGroupContainsId.setStatus(_B)
-_CiapAllocatedAddresses_ObjectIdentity=ObjectIdentity
-ciapAllocatedAddresses=_CiapAllocatedAddresses_ObjectIdentity((1,3,6,1,4,1,9,9,748,1,4))
-_CiapAllocatedAddressTable_Object=MibTable
-ciapAllocatedAddressTable=_CiapAllocatedAddressTable_Object((1,3,6,1,4,1,9,9,748,1,4,1))
-if mibBuilder.loadTexts:ciapAllocatedAddressTable.setStatus(_B)
-_CiapAllocatedAddressEntry_Object=MibTableRow
-ciapAllocatedAddressEntry=_CiapAllocatedAddressEntry_Object((1,3,6,1,4,1,9,9,748,1,4,1,1))
-ciapAllocatedAddressEntry.setIndexNames((0,_A,_K),(0,_A,_h),(0,_A,_i))
-if mibBuilder.loadTexts:ciapAllocatedAddressEntry.setStatus(_B)
-_CiapAllocatedAddressType_Type=InetAddressType
-_CiapAllocatedAddressType_Object=MibTableColumn
-ciapAllocatedAddressType=_CiapAllocatedAddressType_Object((1,3,6,1,4,1,9,9,748,1,4,1,1,1),_CiapAllocatedAddressType_Type())
-ciapAllocatedAddressType.setMaxAccess(_F)
-if mibBuilder.loadTexts:ciapAllocatedAddressType.setStatus(_B)
-class _CiapAllocatedAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,16))
-_CiapAllocatedAddress_Type.__name__=_H
-_CiapAllocatedAddress_Object=MibTableColumn
-ciapAllocatedAddress=_CiapAllocatedAddress_Object((1,3,6,1,4,1,9,9,748,1,4,1,1,2),_CiapAllocatedAddress_Type())
-ciapAllocatedAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:ciapAllocatedAddress.setStatus(_B)
-class _CiapAllocatedAddressMask_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,16))
-_CiapAllocatedAddressMask_Type.__name__=_H
-_CiapAllocatedAddressMask_Object=MibTableColumn
-ciapAllocatedAddressMask=_CiapAllocatedAddressMask_Object((1,3,6,1,4,1,9,9,748,1,4,1,1,3),_CiapAllocatedAddressMask_Type())
-ciapAllocatedAddressMask.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciapAllocatedAddressMask.setStatus(_B)
-_CiapNotifyData_ObjectIdentity=ObjectIdentity
-ciapNotifyData=_CiapNotifyData_ObjectIdentity((1,3,6,1,4,1,9,9,748,1,5))
-_CiapNotifyResource_Type=RowPointer
-_CiapNotifyResource_Object=MibScalar
-ciapNotifyResource=_CiapNotifyResource_Object((1,3,6,1,4,1,9,9,748,1,5,1),_CiapNotifyResource_Type())
-ciapNotifyResource.setMaxAccess(_J)
-if mibBuilder.loadTexts:ciapNotifyResource.setStatus(_B)
-_CiapNotifyThresholdUnits_Type=IpAddressPoolThresholdUnits
-_CiapNotifyThresholdUnits_Object=MibScalar
-ciapNotifyThresholdUnits=_CiapNotifyThresholdUnits_Object((1,3,6,1,4,1,9,9,748,1,5,2),_CiapNotifyThresholdUnits_Type())
-ciapNotifyThresholdUnits.setMaxAccess(_J)
-if mibBuilder.loadTexts:ciapNotifyThresholdUnits.setStatus(_B)
-class _CiapNotifyThresholdRising_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapNotifyThresholdRising_Type.__name__=_D
-_CiapNotifyThresholdRising_Object=MibScalar
-ciapNotifyThresholdRising=_CiapNotifyThresholdRising_Object((1,3,6,1,4,1,9,9,748,1,5,3),_CiapNotifyThresholdRising_Type())
-ciapNotifyThresholdRising.setMaxAccess(_J)
-if mibBuilder.loadTexts:ciapNotifyThresholdRising.setStatus(_B)
-class _CiapNotifyThresholdFalling_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CiapNotifyThresholdFalling_Type.__name__=_D
-_CiapNotifyThresholdFalling_Object=MibScalar
-ciapNotifyThresholdFalling=_CiapNotifyThresholdFalling_Object((1,3,6,1,4,1,9,9,748,1,5,4),_CiapNotifyThresholdFalling_Type())
-ciapNotifyThresholdFalling.setMaxAccess(_J)
-if mibBuilder.loadTexts:ciapNotifyThresholdFalling.setStatus(_B)
-_CiapNotifyInUse_Type=Gauge32
-_CiapNotifyInUse_Object=MibScalar
-ciapNotifyInUse=_CiapNotifyInUse_Object((1,3,6,1,4,1,9,9,748,1,5,5),_CiapNotifyInUse_Type())
-ciapNotifyInUse.setMaxAccess(_J)
-if mibBuilder.loadTexts:ciapNotifyInUse.setStatus(_B)
-if mibBuilder.loadTexts:ciapNotifyInUse.setUnits(_I)
-_CiapNotifyFree_Type=Gauge32
-_CiapNotifyFree_Object=MibScalar
-ciapNotifyFree=_CiapNotifyFree_Object((1,3,6,1,4,1,9,9,748,1,5,6),_CiapNotifyFree_Type())
-ciapNotifyFree.setMaxAccess(_J)
-if mibBuilder.loadTexts:ciapNotifyFree.setStatus(_B)
-if mibBuilder.loadTexts:ciapNotifyFree.setUnits(_I)
-_CiscoIpAddressPoolMIBConform_ObjectIdentity=ObjectIdentity
-ciscoIpAddressPoolMIBConform=_CiscoIpAddressPoolMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,748,2))
-_CiscoIpAddressPoolMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoIpAddressPoolMIBCompliances=_CiscoIpAddressPoolMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,748,2,1))
-_CiscoIpAddressPoolMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoIpAddressPoolMIBGroups=_CiscoIpAddressPoolMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,748,2,2))
-ciapGlobalGroup=ObjectGroup((1,3,6,1,4,1,9,9,748,2,2,1))
-ciapGlobalGroup.setObjects(*((_A,_j),(_A,_k),(_A,_l),(_A,_m)))
-if mibBuilder.loadTexts:ciapGlobalGroup.setStatus(_B)
-ciapPoolGroup=ObjectGroup((1,3,6,1,4,1,9,9,748,2,2,2))
-ciapPoolGroup.setObjects(*((_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z)))
-if mibBuilder.loadTexts:ciapPoolGroup.setStatus(_B)
-ciapRangeGroup=ObjectGroup((1,3,6,1,4,1,9,9,748,2,2,3))
-ciapRangeGroup.setObjects(*((_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB)))
-if mibBuilder.loadTexts:ciapRangeGroup.setStatus(_B)
-ciapPrefixGroup=ObjectGroup((1,3,6,1,4,1,9,9,748,2,2,4))
-ciapPrefixGroup.setObjects(*((_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN)))
-if mibBuilder.loadTexts:ciapPrefixGroup.setStatus(_B)
-ciapPoolGroupGroup=ObjectGroup((1,3,6,1,4,1,9,9,748,2,2,5))
-ciapPoolGroupGroup.setObjects(*((_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_T)))
-if mibBuilder.loadTexts:ciapPoolGroupGroup.setStatus(_B)
-ciapNotifDataGroup=ObjectGroup((1,3,6,1,4,1,9,9,748,2,2,6))
-ciapNotifDataGroup.setObjects(*((_A,_N),(_A,_O),(_A,_U),(_A,_V),(_A,_P),(_A,_Q)))
-if mibBuilder.loadTexts:ciapNotifDataGroup.setStatus(_B)
-ciapEventThresholdRising=NotificationType((1,3,6,1,4,1,9,9,748,0,1))
-ciapEventThresholdRising.setObjects(*((_A,_N),(_A,_O),(_A,_U),(_A,_P),(_A,_Q)))
-if mibBuilder.loadTexts:ciapEventThresholdRising.setStatus(_B)
-ciapEventThresholdFalling=NotificationType((1,3,6,1,4,1,9,9,748,0,2))
-ciapEventThresholdFalling.setObjects(*((_A,_N),(_A,_O),(_A,_V),(_A,_P),(_A,_Q)))
-if mibBuilder.loadTexts:ciapEventThresholdFalling.setStatus(_B)
-ciapNotifsGroup=NotificationGroup((1,3,6,1,4,1,9,9,748,2,2,7))
-ciapNotifsGroup.setObjects(*((_A,_AV),(_A,_AW)))
-if mibBuilder.loadTexts:ciapNotifsGroup.setStatus(_B)
-ciscoIpAddressPoolCompliance01=ModuleCompliance((1,3,6,1,4,1,9,9,748,2,1,1))
-ciscoIpAddressPoolCompliance01.setObjects(*((_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad)))
-if mibBuilder.loadTexts:ciscoIpAddressPoolCompliance01.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ciscoIpAddressPoolMIB':ciscoIpAddressPoolMIB,'ciscoIpAddressPoolMIBNotifs':ciscoIpAddressPoolMIBNotifs,_AV:ciapEventThresholdRising,_AW:ciapEventThresholdFalling,'ciscoIpAddressPoolMIBObjects':ciscoIpAddressPoolMIBObjects,'ciapGlobal':ciapGlobal,_j:ciapGlobalNotifyEnable,_k:ciapGlobalThresholdUnits,_l:ciapGlobalThresholdRising,_m:ciapGlobalThresholdFalling,'ciapPools':ciapPools,_n:ciapPoolIdNext,'ciapPoolTable':ciapPoolTable,'ciapPoolEntry':ciapPoolEntry,_K:ciapPoolId,_p:ciapPoolStatus,_q:ciapPoolStorage,_o:ciapPoolName,_r:ciapPoolType,_s:ciapPoolContainedIn,_t:ciapPoolThresholdUnits,_u:ciapPoolThresholdRising,_v:ciapPoolThresholdFalling,_w:ciapPoolAddressesInUse,_x:ciapPoolAddressesFree,_y:ciapPoolTableChanged,'ciapRangeTable':ciapRangeTable,'ciapRangeEntry':ciapRangeEntry,_b:ciapRangeAddressType,_c:ciapRangeAddressLower,_A0:ciapRangeStatus,_A1:ciapRangeStorage,_A2:ciapRangeAddressUpper,_A3:ciapRangeCacheSize,_A4:ciapRangeRecycleDelay,_A5:ciapRangePriority,_A6:ciapRangeThresholdUnits,_A7:ciapRangeThresholdRising,_A8:ciapRangeThresholdFalling,_A9:ciapRangeAddressesInUse,_AA:ciapRangeAddressesFree,_AB:ciapRangeTableChanged,'ciapPrefixTable':ciapPrefixTable,'ciapPrefixEntry':ciapPrefixEntry,_e:ciapPrefixType,_f:ciapPrefixAddress,_g:ciapPrefixAddressMask,_AC:ciapPrefixStatus,_AD:ciapPrefixStorage,_AE:ciapPrefixAssignedLength,_AF:ciapPrefixCacheSize,_AG:ciapPrefixRecycleDelay,_AH:ciapPrefixPriority,_AI:ciapPrefixThresholdUnits,_AJ:ciapPrefixThresholdRising,_AK:ciapPrefixThresholdFalling,_AL:ciapPrefixPrefixesInUse,_AM:ciapPrefixPrefixesFree,_AN:ciapPrefixTableChanged,'ciapPoolGroups':ciapPoolGroups,_AO:ciapPoolGroupIdNext,'ciapPoolGroupTable':ciapPoolGroupTable,'ciapPoolGroupEntry':ciapPoolGroupEntry,_S:ciapPoolGroupId,_AP:ciapPoolGroupName,_AQ:ciapPoolGroupThresholdUnits,_AR:ciapPoolGroupThresholdRising,_AS:ciapPoolGroupThresholdFalling,_AT:ciapPoolGroupAddressesInUse,_AU:ciapPoolGroupAddressesFree,'ciapPoolGroupContainsTable':ciapPoolGroupContainsTable,'ciapPoolGroupContainsEntry':ciapPoolGroupContainsEntry,_T:ciapPoolGroupContainsId,'ciapAllocatedAddresses':ciapAllocatedAddresses,'ciapAllocatedAddressTable':ciapAllocatedAddressTable,'ciapAllocatedAddressEntry':ciapAllocatedAddressEntry,_h:ciapAllocatedAddressType,_i:ciapAllocatedAddress,_z:ciapAllocatedAddressMask,'ciapNotifyData':ciapNotifyData,_N:ciapNotifyResource,_O:ciapNotifyThresholdUnits,_U:ciapNotifyThresholdRising,_V:ciapNotifyThresholdFalling,_P:ciapNotifyInUse,_Q:ciapNotifyFree,'ciscoIpAddressPoolMIBConform':ciscoIpAddressPoolMIBConform,'ciscoIpAddressPoolMIBCompliances':ciscoIpAddressPoolMIBCompliances,'ciscoIpAddressPoolCompliance01':ciscoIpAddressPoolCompliance01,'ciscoIpAddressPoolMIBGroups':ciscoIpAddressPoolMIBGroups,_AX:ciapGlobalGroup,_AY:ciapPoolGroup,_AZ:ciapRangeGroup,_Ad:ciapPrefixGroup,_Aa:ciapPoolGroupGroup,_Ab:ciapNotifDataGroup,_Ac:ciapNotifsGroup})
+#
+# PySNMP MIB module CISCO-IP-ADDRESS-POOL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-IP-ADDRESS-POOL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+IpAddressPoolNameOrNull, IpAddrPoolInstanceIdentifier, IpAddressPoolGroupNameOrNull, IpAddrPoolInstanceIdentifierOrZero, IpAddressPoolThresholdUnits, IpAddressPoolGroupName = mibBuilder.importSymbols("CISCO-IP-ADDRESS-POOL-TC-MIB", "IpAddressPoolNameOrNull", "IpAddrPoolInstanceIdentifier", "IpAddressPoolGroupNameOrNull", "IpAddrPoolInstanceIdentifierOrZero", "IpAddressPoolThresholdUnits", "IpAddressPoolGroupName")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+InetAddressPrefixLength, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, RowPointer, RowStatus, TextualConvention, TruthValue, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowPointer", "RowStatus", "TextualConvention", "TruthValue", "StorageType")
+ciscoIpAddressPoolMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 748))
+ciscoIpAddressPoolMIB.setRevisions(('2010-02-02 00:00',))
+if mibBuilder.loadTexts: ciscoIpAddressPoolMIB.setLastUpdated('201006070000Z')
+if mibBuilder.loadTexts: ciscoIpAddressPoolMIB.setOrganization('Cisco Systems, Inc.')
+ciscoIpAddressPoolMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 748, 0))
+ciscoIpAddressPoolMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 748, 1))
+ciscoIpAddressPoolMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 748, 2))
+ciapGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 1))
+ciapPools = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2))
+ciapPoolGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 3))
+ciapAllocatedAddresses = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 4))
+ciapNotifyData = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 5))
+ciapGlobalNotifyEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciapGlobalNotifyEnable.setStatus('current')
+ciapGlobalThresholdUnits = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 1, 2), IpAddressPoolThresholdUnits().clone('absolute')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciapGlobalThresholdUnits.setStatus('current')
+ciapGlobalThresholdRising = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciapGlobalThresholdRising.setStatus('current')
+ciapGlobalThresholdFalling = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciapGlobalThresholdFalling.setStatus('current')
+ciapPoolIdNext = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 1), IpAddrPoolInstanceIdentifierOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciapPoolIdNext.setStatus('current')
+ciapPoolTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 2), )
+if mibBuilder.loadTexts: ciapPoolTable.setStatus('current')
+ciapPoolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 2, 1), ).setIndexNames((0, "CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolId"))
+if mibBuilder.loadTexts: ciapPoolEntry.setStatus('current')
+ciapPoolId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 2, 1, 1), IpAddrPoolInstanceIdentifier())
+if mibBuilder.loadTexts: ciapPoolId.setStatus('current')
+ciapPoolStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPoolStatus.setStatus('current')
+ciapPoolStorage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 2, 1, 3), StorageType().clone('volatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPoolStorage.setStatus('current')
+ciapPoolName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 2, 1, 4), IpAddressPoolNameOrNull()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPoolName.setStatus('current')
+ciapPoolType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("shared", 2), ("local", 3), ("dhcp", 4))).clone('shared')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPoolType.setStatus('current')
+ciapPoolContainedIn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 2, 1, 6), IpAddressPoolGroupNameOrNull()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPoolContainedIn.setStatus('current')
+ciapPoolThresholdUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 2, 1, 7), IpAddressPoolThresholdUnits()).setUnits('IP addresses').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPoolThresholdUnits.setStatus('current')
+ciapPoolThresholdRising = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 2, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPoolThresholdRising.setStatus('current')
+ciapPoolThresholdFalling = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 2, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPoolThresholdFalling.setStatus('current')
+ciapPoolAddressesInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 2, 1, 10), Gauge32()).setUnits('IP addresses/prefixes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPoolAddressesInUse.setStatus('current')
+ciapPoolAddressesFree = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 2, 1, 11), Gauge32()).setUnits('IP addresses/prefixes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPoolAddressesFree.setStatus('current')
+ciapPoolTableChanged = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciapPoolTableChanged.setStatus('current')
+ciapRangeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 4), )
+if mibBuilder.loadTexts: ciapRangeTable.setStatus('current')
+ciapRangeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 4, 1), ).setIndexNames((0, "CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolId"), (0, "CISCO-IP-ADDRESS-POOL-MIB", "ciapRangeAddressType"), (0, "CISCO-IP-ADDRESS-POOL-MIB", "ciapRangeAddressLower"))
+if mibBuilder.loadTexts: ciapRangeEntry.setStatus('current')
+ciapRangeAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 4, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: ciapRangeAddressType.setStatus('current')
+ciapRangeAddressLower = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 4, 1, 2), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(4, 16)))
+if mibBuilder.loadTexts: ciapRangeAddressLower.setStatus('current')
+ciapRangeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 4, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapRangeStatus.setStatus('current')
+ciapRangeStorage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 4, 1, 4), StorageType().clone('volatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapRangeStorage.setStatus('current')
+ciapRangeAddressUpper = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 4, 1, 5), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapRangeAddressUpper.setStatus('current')
+ciapRangeCacheSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 4, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('IP addresses').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapRangeCacheSize.setStatus('current')
+ciapRangeRecycleDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 4, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapRangeRecycleDelay.setStatus('current')
+ciapRangePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 4, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapRangePriority.setStatus('current')
+ciapRangeThresholdUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 4, 1, 9), IpAddressPoolThresholdUnits()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapRangeThresholdUnits.setStatus('current')
+ciapRangeThresholdRising = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 4, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapRangeThresholdRising.setStatus('current')
+ciapRangeThresholdFalling = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 4, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapRangeThresholdFalling.setStatus('current')
+ciapRangeAddressesInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 4, 1, 12), Gauge32()).setUnits('IP addresses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciapRangeAddressesInUse.setStatus('current')
+ciapRangeAddressesFree = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 4, 1, 13), Gauge32()).setUnits('IP addresses').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciapRangeAddressesFree.setStatus('current')
+ciapRangeTableChanged = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 5), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciapRangeTableChanged.setStatus('current')
+ciapPrefixTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6), )
+if mibBuilder.loadTexts: ciapPrefixTable.setStatus('current')
+ciapPrefixEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6, 1), ).setIndexNames((0, "CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolId"), (0, "CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixType"), (0, "CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixAddress"), (0, "CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixAddressMask"))
+if mibBuilder.loadTexts: ciapPrefixEntry.setStatus('current')
+ciapPrefixType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: ciapPrefixType.setStatus('current')
+ciapPrefixAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6, 1, 2), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(4, 16)))
+if mibBuilder.loadTexts: ciapPrefixAddress.setStatus('current')
+ciapPrefixAddressMask = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6, 1, 3), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(4, 16)))
+if mibBuilder.loadTexts: ciapPrefixAddressMask.setStatus('current')
+ciapPrefixStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPrefixStatus.setStatus('current')
+ciapPrefixStorage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6, 1, 5), StorageType().clone('volatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPrefixStorage.setStatus('current')
+ciapPrefixAssignedLength = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6, 1, 6), InetAddressPrefixLength()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPrefixAssignedLength.setStatus('current')
+ciapPrefixCacheSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('IP prefixes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPrefixCacheSize.setStatus('current')
+ciapPrefixRecycleDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPrefixRecycleDelay.setStatus('current')
+ciapPrefixPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPrefixPriority.setStatus('current')
+ciapPrefixThresholdUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6, 1, 10), IpAddressPoolThresholdUnits()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPrefixThresholdUnits.setStatus('current')
+ciapPrefixThresholdRising = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPrefixThresholdRising.setStatus('current')
+ciapPrefixThresholdFalling = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPrefixThresholdFalling.setStatus('current')
+ciapPrefixPrefixesInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6, 1, 13), Gauge32()).setUnits('IP prefixes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPrefixPrefixesInUse.setStatus('current')
+ciapPrefixPrefixesFree = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 6, 1, 14), Gauge32()).setUnits('IP prefixes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ciapPrefixPrefixesFree.setStatus('current')
+ciapPrefixTableChanged = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 2, 7), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciapPrefixTableChanged.setStatus('current')
+ciapPoolGroupIdNext = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 3, 1), IpAddrPoolInstanceIdentifierOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciapPoolGroupIdNext.setStatus('current')
+ciapPoolGroupTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 3, 2), )
+if mibBuilder.loadTexts: ciapPoolGroupTable.setStatus('current')
+ciapPoolGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 3, 2, 1), ).setIndexNames((0, "CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolGroupId"))
+if mibBuilder.loadTexts: ciapPoolGroupEntry.setStatus('current')
+ciapPoolGroupId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 3, 2, 1, 1), IpAddrPoolInstanceIdentifier())
+if mibBuilder.loadTexts: ciapPoolGroupId.setStatus('current')
+ciapPoolGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 3, 2, 1, 2), IpAddressPoolGroupName()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciapPoolGroupName.setStatus('current')
+ciapPoolGroupThresholdUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 3, 2, 1, 3), IpAddressPoolThresholdUnits()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciapPoolGroupThresholdUnits.setStatus('current')
+ciapPoolGroupThresholdRising = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 3, 2, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciapPoolGroupThresholdRising.setStatus('current')
+ciapPoolGroupThresholdFalling = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 3, 2, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciapPoolGroupThresholdFalling.setStatus('current')
+ciapPoolGroupAddressesInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 3, 2, 1, 6), Gauge32()).setUnits('IP addresses/prefixes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciapPoolGroupAddressesInUse.setStatus('current')
+ciapPoolGroupAddressesFree = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 3, 2, 1, 7), Gauge32()).setUnits('IP addresses/prefixes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciapPoolGroupAddressesFree.setStatus('current')
+ciapPoolGroupContainsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 3, 3), )
+if mibBuilder.loadTexts: ciapPoolGroupContainsTable.setStatus('current')
+ciapPoolGroupContainsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 3, 3, 1), ).setIndexNames((0, "CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolGroupId"), (0, "CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolGroupContainsId"))
+if mibBuilder.loadTexts: ciapPoolGroupContainsEntry.setStatus('current')
+ciapPoolGroupContainsId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 3, 3, 1, 1), IpAddrPoolInstanceIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciapPoolGroupContainsId.setStatus('current')
+ciapAllocatedAddressTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 4, 1), )
+if mibBuilder.loadTexts: ciapAllocatedAddressTable.setStatus('current')
+ciapAllocatedAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 4, 1, 1), ).setIndexNames((0, "CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolId"), (0, "CISCO-IP-ADDRESS-POOL-MIB", "ciapAllocatedAddressType"), (0, "CISCO-IP-ADDRESS-POOL-MIB", "ciapAllocatedAddress"))
+if mibBuilder.loadTexts: ciapAllocatedAddressEntry.setStatus('current')
+ciapAllocatedAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 4, 1, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: ciapAllocatedAddressType.setStatus('current')
+ciapAllocatedAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 4, 1, 1, 2), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(4, 16)))
+if mibBuilder.loadTexts: ciapAllocatedAddress.setStatus('current')
+ciapAllocatedAddressMask = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 4, 1, 1, 3), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(4, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciapAllocatedAddressMask.setStatus('current')
+ciapNotifyResource = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 5, 1), RowPointer()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ciapNotifyResource.setStatus('current')
+ciapNotifyThresholdUnits = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 5, 2), IpAddressPoolThresholdUnits()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ciapNotifyThresholdUnits.setStatus('current')
+ciapNotifyThresholdRising = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 5, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ciapNotifyThresholdRising.setStatus('current')
+ciapNotifyThresholdFalling = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 5, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ciapNotifyThresholdFalling.setStatus('current')
+ciapNotifyInUse = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 5, 5), Gauge32()).setUnits('IP addresses/prefixes').setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ciapNotifyInUse.setStatus('current')
+ciapNotifyFree = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 748, 1, 5, 6), Gauge32()).setUnits('IP addresses/prefixes').setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: ciapNotifyFree.setStatus('current')
+ciapEventThresholdRising = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 748, 0, 1)).setObjects(("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyResource"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyThresholdUnits"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyThresholdRising"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyInUse"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyFree"))
+if mibBuilder.loadTexts: ciapEventThresholdRising.setStatus('current')
+ciapEventThresholdFalling = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 748, 0, 2)).setObjects(("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyResource"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyThresholdUnits"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyThresholdFalling"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyInUse"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyFree"))
+if mibBuilder.loadTexts: ciapEventThresholdFalling.setStatus('current')
+ciscoIpAddressPoolMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 748, 2, 1))
+ciscoIpAddressPoolMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 748, 2, 2))
+ciscoIpAddressPoolCompliance01 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 748, 2, 1, 1)).setObjects(("CISCO-IP-ADDRESS-POOL-MIB", "ciapGlobalGroup"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolGroup"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapRangeGroup"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolGroupGroup"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifDataGroup"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifsGroup"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoIpAddressPoolCompliance01 = ciscoIpAddressPoolCompliance01.setStatus('current')
+ciapGlobalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 748, 2, 2, 1)).setObjects(("CISCO-IP-ADDRESS-POOL-MIB", "ciapGlobalNotifyEnable"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapGlobalThresholdUnits"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapGlobalThresholdRising"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapGlobalThresholdFalling"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciapGlobalGroup = ciapGlobalGroup.setStatus('current')
+ciapPoolGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 748, 2, 2, 2)).setObjects(("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolIdNext"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolName"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolStatus"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolStorage"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolType"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolContainedIn"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolThresholdUnits"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolThresholdRising"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolThresholdFalling"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolAddressesInUse"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolAddressesFree"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolTableChanged"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapAllocatedAddressMask"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciapPoolGroup = ciapPoolGroup.setStatus('current')
+ciapRangeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 748, 2, 2, 3)).setObjects(("CISCO-IP-ADDRESS-POOL-MIB", "ciapRangeStatus"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapRangeStorage"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapRangeAddressUpper"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapRangeCacheSize"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapRangeRecycleDelay"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapRangePriority"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapRangeThresholdUnits"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapRangeThresholdRising"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapRangeThresholdFalling"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapRangeAddressesInUse"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapRangeAddressesFree"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapRangeTableChanged"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciapRangeGroup = ciapRangeGroup.setStatus('current')
+ciapPrefixGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 748, 2, 2, 4)).setObjects(("CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixStatus"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixStorage"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixAssignedLength"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixCacheSize"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixRecycleDelay"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixPriority"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixThresholdUnits"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixThresholdRising"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixThresholdFalling"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixPrefixesInUse"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixPrefixesFree"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPrefixTableChanged"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciapPrefixGroup = ciapPrefixGroup.setStatus('current')
+ciapPoolGroupGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 748, 2, 2, 5)).setObjects(("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolGroupIdNext"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolGroupName"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolGroupThresholdUnits"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolGroupThresholdRising"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolGroupThresholdFalling"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolGroupAddressesInUse"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolGroupAddressesFree"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapPoolGroupContainsId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciapPoolGroupGroup = ciapPoolGroupGroup.setStatus('current')
+ciapNotifDataGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 748, 2, 2, 6)).setObjects(("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyResource"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyThresholdUnits"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyThresholdRising"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyThresholdFalling"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyInUse"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapNotifyFree"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciapNotifDataGroup = ciapNotifDataGroup.setStatus('current')
+ciapNotifsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 748, 2, 2, 7)).setObjects(("CISCO-IP-ADDRESS-POOL-MIB", "ciapEventThresholdRising"), ("CISCO-IP-ADDRESS-POOL-MIB", "ciapEventThresholdFalling"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciapNotifsGroup = ciapNotifsGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-IP-ADDRESS-POOL-MIB", ciapPoolGroupAddressesFree=ciapPoolGroupAddressesFree, ciapPoolName=ciapPoolName, ciapEventThresholdFalling=ciapEventThresholdFalling, ciapRangeAddressesFree=ciapRangeAddressesFree, ciapAllocatedAddressType=ciapAllocatedAddressType, ciapPrefixGroup=ciapPrefixGroup, ciscoIpAddressPoolMIBConform=ciscoIpAddressPoolMIBConform, ciapAllocatedAddressTable=ciapAllocatedAddressTable, ciapAllocatedAddresses=ciapAllocatedAddresses, ciapAllocatedAddressEntry=ciapAllocatedAddressEntry, ciscoIpAddressPoolCompliance01=ciscoIpAddressPoolCompliance01, ciapRangeTableChanged=ciapRangeTableChanged, ciscoIpAddressPoolMIBNotifs=ciscoIpAddressPoolMIBNotifs, ciapRangeGroup=ciapRangeGroup, ciapPoolTable=ciapPoolTable, ciapPoolAddressesFree=ciapPoolAddressesFree, ciapPrefixTableChanged=ciapPrefixTableChanged, ciapGlobalNotifyEnable=ciapGlobalNotifyEnable, ciapPoolGroupName=ciapPoolGroupName, ciapPoolThresholdFalling=ciapPoolThresholdFalling, ciapPrefixTable=ciapPrefixTable, ciapPoolGroupAddressesInUse=ciapPoolGroupAddressesInUse, ciapPoolGroupContainsId=ciapPoolGroupContainsId, ciapNotifsGroup=ciapNotifsGroup, ciapRangePriority=ciapRangePriority, ciapAllocatedAddress=ciapAllocatedAddress, ciapNotifyResource=ciapNotifyResource, ciapPoolTableChanged=ciapPoolTableChanged, ciapPoolGroupContainsEntry=ciapPoolGroupContainsEntry, ciapRangeAddressUpper=ciapRangeAddressUpper, ciapPoolContainedIn=ciapPoolContainedIn, ciapPoolGroups=ciapPoolGroups, ciapGlobalThresholdFalling=ciapGlobalThresholdFalling, ciapPoolThresholdUnits=ciapPoolThresholdUnits, ciscoIpAddressPoolMIBGroups=ciscoIpAddressPoolMIBGroups, ciapGlobalGroup=ciapGlobalGroup, ciapPrefixStorage=ciapPrefixStorage, PYSNMP_MODULE_ID=ciscoIpAddressPoolMIB, ciapNotifyThresholdUnits=ciapNotifyThresholdUnits, ciapNotifyInUse=ciapNotifyInUse, ciapRangeTable=ciapRangeTable, ciapRangeThresholdFalling=ciapRangeThresholdFalling, ciapPrefixAddress=ciapPrefixAddress, ciapPoolId=ciapPoolId, ciapRangeEntry=ciapRangeEntry, ciscoIpAddressPoolMIBCompliances=ciscoIpAddressPoolMIBCompliances, ciapPrefixThresholdFalling=ciapPrefixThresholdFalling, ciscoIpAddressPoolMIBObjects=ciscoIpAddressPoolMIBObjects, ciapPrefixThresholdUnits=ciapPrefixThresholdUnits, ciapGlobalThresholdUnits=ciapGlobalThresholdUnits, ciapRangeThresholdRising=ciapRangeThresholdRising, ciapRangeStatus=ciapRangeStatus, ciapRangeThresholdUnits=ciapRangeThresholdUnits, ciapRangeAddressesInUse=ciapRangeAddressesInUse, ciapPoolGroupEntry=ciapPoolGroupEntry, ciapPoolGroupContainsTable=ciapPoolGroupContainsTable, ciapRangeCacheSize=ciapRangeCacheSize, ciapNotifyThresholdRising=ciapNotifyThresholdRising, ciapNotifyThresholdFalling=ciapNotifyThresholdFalling, ciapPrefixPrefixesFree=ciapPrefixPrefixesFree, ciapPoolStorage=ciapPoolStorage, ciapRangeAddressLower=ciapRangeAddressLower, ciapPools=ciapPools, ciapPrefixType=ciapPrefixType, ciapPrefixStatus=ciapPrefixStatus, ciapRangeRecycleDelay=ciapRangeRecycleDelay, ciapPoolGroupThresholdRising=ciapPoolGroupThresholdRising, ciapRangeStorage=ciapRangeStorage, ciapPrefixRecycleDelay=ciapPrefixRecycleDelay, ciapNotifyFree=ciapNotifyFree, ciapPrefixPrefixesInUse=ciapPrefixPrefixesInUse, ciapNotifyData=ciapNotifyData, ciapPrefixAddressMask=ciapPrefixAddressMask, ciapPoolType=ciapPoolType, ciapPoolGroupThresholdFalling=ciapPoolGroupThresholdFalling, ciapPoolGroupThresholdUnits=ciapPoolGroupThresholdUnits, ciapPoolGroupTable=ciapPoolGroupTable, ciapEventThresholdRising=ciapEventThresholdRising, ciapPoolEntry=ciapPoolEntry, ciapPrefixEntry=ciapPrefixEntry, ciapPoolIdNext=ciapPoolIdNext, ciapGlobalThresholdRising=ciapGlobalThresholdRising, ciapPrefixCacheSize=ciapPrefixCacheSize, ciapPoolStatus=ciapPoolStatus, ciapPrefixPriority=ciapPrefixPriority, ciapPrefixAssignedLength=ciapPrefixAssignedLength, ciapNotifDataGroup=ciapNotifDataGroup, ciapPoolGroupId=ciapPoolGroupId, ciapPoolGroupGroup=ciapPoolGroupGroup, ciapPrefixThresholdRising=ciapPrefixThresholdRising, ciapPoolGroup=ciapPoolGroup, ciapPoolAddressesInUse=ciapPoolAddressesInUse, ciapGlobal=ciapGlobal, ciapAllocatedAddressMask=ciapAllocatedAddressMask, ciapPoolGroupIdNext=ciapPoolGroupIdNext, ciscoIpAddressPoolMIB=ciscoIpAddressPoolMIB, ciapRangeAddressType=ciapRangeAddressType, ciapPoolThresholdRising=ciapPoolThresholdRising)

@@ -1,196 +1,106 @@
-_k='nodeHwmonNotificationsGroup'
-_j='nodeHwmonGroup'
-_i='nodeTesterNotificationsGroup'
-_h='nodeTesterGroup'
-_g='nodeLoginNotificationsGroup'
-_f='nodeLoginGroup'
-_e='nodeIdentificationGroup'
-_d='nodeStatusNotificationsGroup'
-_c='nodeStatusGroup'
-_b='nodeHwmon'
-_a='nodeTestFailure'
-_Z='nodeUserLogout'
-_Y='nodeFailedUserLogin'
-_X='nodeUserLogin'
-_W='nodeShutdown'
-_V='nodeBoot'
-_U='nodeOffline'
-_T='nodeOnline'
-_S='nodeTestResultTime'
-_R='nodeTestResult'
-_Q='nodeLastLoginTime'
-_P='nodeCPULoad'
-_O='nodePosCode'
-_N='nodeSerialNumber'
-_M='nodeApplianceModel'
-_L='nodeMemberId'
-_K='nodeClusterId'
-_J='nodeTestIndex'
-_I='Unsigned32'
-_H='nodeHwmonEvent'
-_G='nodeTestIdentity'
-_F='nodeLastLogin'
-_E='nodeOperState'
-_D='Integer32'
-_C='read-only'
-_B='current'
-_A='STONESOFT-NETNODE-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_I,'iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp')
-stonesoftModules,stonesoftNetworkNode=mibBuilder.importSymbols('STONESOFT-SMI-MIB','stonesoftModules','stonesoftNetworkNode')
-stonesoftNetworkNodeMibModule=ModuleIdentity((1,3,6,1,4,1,1369,3,4))
-if mibBuilder.loadTexts:stonesoftNetworkNodeMibModule.setRevisions(('2014-03-10 00:00','2008-02-04 00:00','2004-06-16 00:00'))
-_NetNodeObjects_ObjectIdentity=ObjectIdentity
-netNodeObjects=_NetNodeObjects_ObjectIdentity((1,3,6,1,4,1,1369,6,1,1))
-class _NodeClusterId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_NodeClusterId_Type.__name__=_D
-_NodeClusterId_Object=MibScalar
-nodeClusterId=_NodeClusterId_Object((1,3,6,1,4,1,1369,6,1,1,1),_NodeClusterId_Type())
-nodeClusterId.setMaxAccess(_C)
-if mibBuilder.loadTexts:nodeClusterId.setStatus(_B)
-class _NodeMemberId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16))
-_NodeMemberId_Type.__name__=_D
-_NodeMemberId_Object=MibScalar
-nodeMemberId=_NodeMemberId_Object((1,3,6,1,4,1,1369,6,1,1,2),_NodeMemberId_Type())
-nodeMemberId.setMaxAccess(_C)
-if mibBuilder.loadTexts:nodeMemberId.setStatus(_B)
-class _NodeOperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*(('unknown',0),('online',1),('goingOnline',2),('lockedOnline',3),('goingLockedOnline',4),('offline',5),('goingOffline',6),('lockedOffline',7),('goingLockedOffline',8),('standby',9),('goingStandby',10)))
-_NodeOperState_Type.__name__=_D
-_NodeOperState_Object=MibScalar
-nodeOperState=_NodeOperState_Object((1,3,6,1,4,1,1369,6,1,1,3),_NodeOperState_Type())
-nodeOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:nodeOperState.setStatus(_B)
-class _NodeCPULoad_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_NodeCPULoad_Type.__name__=_D
-_NodeCPULoad_Object=MibScalar
-nodeCPULoad=_NodeCPULoad_Object((1,3,6,1,4,1,1369,6,1,1,4),_NodeCPULoad_Type())
-nodeCPULoad.setMaxAccess(_C)
-if mibBuilder.loadTexts:nodeCPULoad.setStatus(_B)
-_NodeLastLogin_Type=DisplayString
-_NodeLastLogin_Object=MibScalar
-nodeLastLogin=_NodeLastLogin_Object((1,3,6,1,4,1,1369,6,1,1,5),_NodeLastLogin_Type())
-nodeLastLogin.setMaxAccess(_C)
-if mibBuilder.loadTexts:nodeLastLogin.setStatus(_B)
-_NodeLastLoginTime_Type=TimeStamp
-_NodeLastLoginTime_Object=MibScalar
-nodeLastLoginTime=_NodeLastLoginTime_Object((1,3,6,1,4,1,1369,6,1,1,6),_NodeLastLoginTime_Type())
-nodeLastLoginTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:nodeLastLoginTime.setStatus(_B)
-_NodeTestTable_Object=MibTable
-nodeTestTable=_NodeTestTable_Object((1,3,6,1,4,1,1369,6,1,1,7))
-if mibBuilder.loadTexts:nodeTestTable.setStatus(_B)
-_NodeTestEntry_Object=MibTableRow
-nodeTestEntry=_NodeTestEntry_Object((1,3,6,1,4,1,1369,6,1,1,7,1))
-nodeTestEntry.setIndexNames((0,_A,_J))
-if mibBuilder.loadTexts:nodeTestEntry.setStatus(_B)
-class _NodeTestIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_NodeTestIndex_Type.__name__=_I
-_NodeTestIndex_Object=MibTableColumn
-nodeTestIndex=_NodeTestIndex_Object((1,3,6,1,4,1,1369,6,1,1,7,1,1),_NodeTestIndex_Type())
-nodeTestIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:nodeTestIndex.setStatus(_B)
-_NodeTestIdentity_Type=DisplayString
-_NodeTestIdentity_Object=MibTableColumn
-nodeTestIdentity=_NodeTestIdentity_Object((1,3,6,1,4,1,1369,6,1,1,7,1,2),_NodeTestIdentity_Type())
-nodeTestIdentity.setMaxAccess(_C)
-if mibBuilder.loadTexts:nodeTestIdentity.setStatus(_B)
-class _NodeTestResult_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('success',1),('failure',2)))
-_NodeTestResult_Type.__name__=_D
-_NodeTestResult_Object=MibTableColumn
-nodeTestResult=_NodeTestResult_Object((1,3,6,1,4,1,1369,6,1,1,7,1,3),_NodeTestResult_Type())
-nodeTestResult.setMaxAccess(_C)
-if mibBuilder.loadTexts:nodeTestResult.setStatus(_B)
-_NodeTestResultTime_Type=TimeStamp
-_NodeTestResultTime_Object=MibTableColumn
-nodeTestResultTime=_NodeTestResultTime_Object((1,3,6,1,4,1,1369,6,1,1,7,1,4),_NodeTestResultTime_Type())
-nodeTestResultTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:nodeTestResultTime.setStatus(_B)
-_NodeHwmonEvent_Type=DisplayString
-_NodeHwmonEvent_Object=MibScalar
-nodeHwmonEvent=_NodeHwmonEvent_Object((1,3,6,1,4,1,1369,6,1,1,8),_NodeHwmonEvent_Type())
-nodeHwmonEvent.setMaxAccess(_C)
-if mibBuilder.loadTexts:nodeHwmonEvent.setStatus(_B)
-_NodeApplianceModel_Type=DisplayString
-_NodeApplianceModel_Object=MibScalar
-nodeApplianceModel=_NodeApplianceModel_Object((1,3,6,1,4,1,1369,6,1,1,9),_NodeApplianceModel_Type())
-nodeApplianceModel.setMaxAccess(_C)
-if mibBuilder.loadTexts:nodeApplianceModel.setStatus(_B)
-_NodeSerialNumber_Type=DisplayString
-_NodeSerialNumber_Object=MibScalar
-nodeSerialNumber=_NodeSerialNumber_Object((1,3,6,1,4,1,1369,6,1,1,10),_NodeSerialNumber_Type())
-nodeSerialNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:nodeSerialNumber.setStatus(_B)
-_NodePosCode_Type=DisplayString
-_NodePosCode_Object=MibScalar
-nodePosCode=_NodePosCode_Object((1,3,6,1,4,1,1369,6,1,1,11),_NodePosCode_Type())
-nodePosCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:nodePosCode.setStatus(_B)
-_NetNodeEvents_ObjectIdentity=ObjectIdentity
-netNodeEvents=_NetNodeEvents_ObjectIdentity((1,3,6,1,4,1,1369,6,1,2))
-_NetNodeEventsV2_ObjectIdentity=ObjectIdentity
-netNodeEventsV2=_NetNodeEventsV2_ObjectIdentity((1,3,6,1,4,1,1369,6,1,2,0))
-_NetNodeConformance_ObjectIdentity=ObjectIdentity
-netNodeConformance=_NetNodeConformance_ObjectIdentity((1,3,6,1,4,1,1369,6,1,3))
-_NetNodeGroups_ObjectIdentity=ObjectIdentity
-netNodeGroups=_NetNodeGroups_ObjectIdentity((1,3,6,1,4,1,1369,6,1,3,1))
-_NetNodeCompliances_ObjectIdentity=ObjectIdentity
-netNodeCompliances=_NetNodeCompliances_ObjectIdentity((1,3,6,1,4,1,1369,6,1,3,2))
-nodeIdentificationGroup=ObjectGroup((1,3,6,1,4,1,1369,6,1,3,1,1))
-nodeIdentificationGroup.setObjects(*((_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:nodeIdentificationGroup.setStatus(_B)
-nodeStatusGroup=ObjectGroup((1,3,6,1,4,1,1369,6,1,3,1,2))
-nodeStatusGroup.setObjects(*((_A,_E),(_A,_P)))
-if mibBuilder.loadTexts:nodeStatusGroup.setStatus(_B)
-nodeLoginGroup=ObjectGroup((1,3,6,1,4,1,1369,6,1,3,1,3))
-nodeLoginGroup.setObjects(*((_A,_F),(_A,_Q)))
-if mibBuilder.loadTexts:nodeLoginGroup.setStatus(_B)
-nodeTesterGroup=ObjectGroup((1,3,6,1,4,1,1369,6,1,3,1,4))
-nodeTesterGroup.setObjects(*((_A,_G),(_A,_R),(_A,_S)))
-if mibBuilder.loadTexts:nodeTesterGroup.setStatus(_B)
-nodeHwmonGroup=ObjectGroup((1,3,6,1,4,1,1369,6,1,3,1,8))
-nodeHwmonGroup.setObjects((_A,_H))
-if mibBuilder.loadTexts:nodeHwmonGroup.setStatus(_B)
-nodeOnline=NotificationType((1,3,6,1,4,1,1369,6,1,2,0,1))
-nodeOnline.setObjects((_A,_E))
-if mibBuilder.loadTexts:nodeOnline.setStatus(_B)
-nodeOffline=NotificationType((1,3,6,1,4,1,1369,6,1,2,0,2))
-nodeOffline.setObjects((_A,_E))
-if mibBuilder.loadTexts:nodeOffline.setStatus(_B)
-nodeBoot=NotificationType((1,3,6,1,4,1,1369,6,1,2,0,3))
-if mibBuilder.loadTexts:nodeBoot.setStatus(_B)
-nodeShutdown=NotificationType((1,3,6,1,4,1,1369,6,1,2,0,4))
-if mibBuilder.loadTexts:nodeShutdown.setStatus(_B)
-nodeUserLogin=NotificationType((1,3,6,1,4,1,1369,6,1,2,0,5))
-nodeUserLogin.setObjects((_A,_F))
-if mibBuilder.loadTexts:nodeUserLogin.setStatus(_B)
-nodeTestFailure=NotificationType((1,3,6,1,4,1,1369,6,1,2,0,6))
-nodeTestFailure.setObjects((_A,_G))
-if mibBuilder.loadTexts:nodeTestFailure.setStatus(_B)
-nodeHwmon=NotificationType((1,3,6,1,4,1,1369,6,1,2,0,7))
-nodeHwmon.setObjects((_A,_H))
-if mibBuilder.loadTexts:nodeHwmon.setStatus(_B)
-nodeFailedUserLogin=NotificationType((1,3,6,1,4,1,1369,6,1,2,0,8))
-if mibBuilder.loadTexts:nodeFailedUserLogin.setStatus(_B)
-nodeUserLogout=NotificationType((1,3,6,1,4,1,1369,6,1,2,0,9))
-if mibBuilder.loadTexts:nodeUserLogout.setStatus(_B)
-nodeStatusNotificationsGroup=NotificationGroup((1,3,6,1,4,1,1369,6,1,3,1,5))
-nodeStatusNotificationsGroup.setObjects(*((_A,_T),(_A,_U),(_A,_V),(_A,_W)))
-if mibBuilder.loadTexts:nodeStatusNotificationsGroup.setStatus(_B)
-nodeLoginNotificationsGroup=NotificationGroup((1,3,6,1,4,1,1369,6,1,3,1,6))
-nodeLoginNotificationsGroup.setObjects(*((_A,_X),(_A,_Y),(_A,_Z)))
-if mibBuilder.loadTexts:nodeLoginNotificationsGroup.setStatus(_B)
-nodeTesterNotificationsGroup=NotificationGroup((1,3,6,1,4,1,1369,6,1,3,1,7))
-nodeTesterNotificationsGroup.setObjects((_A,_a))
-if mibBuilder.loadTexts:nodeTesterNotificationsGroup.setStatus(_B)
-nodeHwmonNotificationsGroup=NotificationGroup((1,3,6,1,4,1,1369,6,1,3,1,9))
-nodeHwmonNotificationsGroup.setObjects((_A,_b))
-if mibBuilder.loadTexts:nodeHwmonNotificationsGroup.setStatus(_B)
-nodeCompliance1=ModuleCompliance((1,3,6,1,4,1,1369,6,1,3,2,1))
-nodeCompliance1.setObjects(*((_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k)))
-if mibBuilder.loadTexts:nodeCompliance1.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'stonesoftNetworkNodeMibModule':stonesoftNetworkNodeMibModule,'netNodeObjects':netNodeObjects,_K:nodeClusterId,_L:nodeMemberId,_E:nodeOperState,_P:nodeCPULoad,_F:nodeLastLogin,_Q:nodeLastLoginTime,'nodeTestTable':nodeTestTable,'nodeTestEntry':nodeTestEntry,_J:nodeTestIndex,_G:nodeTestIdentity,_R:nodeTestResult,_S:nodeTestResultTime,_H:nodeHwmonEvent,_M:nodeApplianceModel,_N:nodeSerialNumber,_O:nodePosCode,'netNodeEvents':netNodeEvents,'netNodeEventsV2':netNodeEventsV2,_T:nodeOnline,_U:nodeOffline,_V:nodeBoot,_W:nodeShutdown,_X:nodeUserLogin,_a:nodeTestFailure,_b:nodeHwmon,_Y:nodeFailedUserLogin,_Z:nodeUserLogout,'netNodeConformance':netNodeConformance,'netNodeGroups':netNodeGroups,_e:nodeIdentificationGroup,_c:nodeStatusGroup,_f:nodeLoginGroup,_h:nodeTesterGroup,_d:nodeStatusNotificationsGroup,_g:nodeLoginNotificationsGroup,_i:nodeTesterNotificationsGroup,_j:nodeHwmonGroup,_k:nodeHwmonNotificationsGroup,'netNodeCompliances':netNodeCompliances,'nodeCompliance1':nodeCompliance1})
+#
+# PySNMP MIB module STONESOFT-NETNODE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/forcepoint/STONESOFT-NETNODE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:15 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+stonesoftNetworkNode, stonesoftModules = mibBuilder.importSymbols("STONESOFT-SMI-MIB", "stonesoftNetworkNode", "stonesoftModules")
+stonesoftNetworkNodeMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 1369, 3, 4))
+stonesoftNetworkNodeMibModule.setRevisions(('2014-03-10 00:00', '2008-02-04 00:00', '2004-06-16 00:00',))
+if mibBuilder.loadTexts: stonesoftNetworkNodeMibModule.setLastUpdated('201403100000Z')
+if mibBuilder.loadTexts: stonesoftNetworkNodeMibModule.setOrganization('Stonesoft Corp')
+netNodeObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1))
+netNodeEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 1369, 6, 1, 2))
+netNodeEventsV2 = MibIdentifier((1, 3, 6, 1, 4, 1, 1369, 6, 1, 2, 0))
+netNodeConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1369, 6, 1, 3))
+nodeClusterId = MibScalar((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nodeClusterId.setStatus('current')
+nodeMemberId = MibScalar((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nodeMemberId.setStatus('current')
+nodeOperState = MibScalar((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("unknown", 0), ("online", 1), ("goingOnline", 2), ("lockedOnline", 3), ("goingLockedOnline", 4), ("offline", 5), ("goingOffline", 6), ("lockedOffline", 7), ("goingLockedOffline", 8), ("standby", 9), ("goingStandby", 10)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nodeOperState.setStatus('current')
+nodeCPULoad = MibScalar((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nodeCPULoad.setStatus('current')
+nodeLastLogin = MibScalar((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nodeLastLogin.setStatus('current')
+nodeLastLoginTime = MibScalar((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 6), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nodeLastLoginTime.setStatus('current')
+nodeHwmonEvent = MibScalar((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 8), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nodeHwmonEvent.setStatus('current')
+nodeApplianceModel = MibScalar((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 9), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nodeApplianceModel.setStatus('current')
+nodeSerialNumber = MibScalar((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nodeSerialNumber.setStatus('current')
+nodePosCode = MibScalar((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 11), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nodePosCode.setStatus('current')
+nodeTestTable = MibTable((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 7), )
+if mibBuilder.loadTexts: nodeTestTable.setStatus('current')
+nodeTestEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 7, 1), ).setIndexNames((0, "STONESOFT-NETNODE-MIB", "nodeTestIndex"))
+if mibBuilder.loadTexts: nodeTestEntry.setStatus('current')
+nodeTestIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 7, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
+if mibBuilder.loadTexts: nodeTestIndex.setStatus('current')
+nodeTestIdentity = MibTableColumn((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 7, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nodeTestIdentity.setStatus('current')
+nodeTestResult = MibTableColumn((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 7, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("success", 1), ("failure", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nodeTestResult.setStatus('current')
+nodeTestResultTime = MibTableColumn((1, 3, 6, 1, 4, 1, 1369, 6, 1, 1, 7, 1, 4), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nodeTestResultTime.setStatus('current')
+nodeOnline = NotificationType((1, 3, 6, 1, 4, 1, 1369, 6, 1, 2, 0, 1)).setObjects(("STONESOFT-NETNODE-MIB", "nodeOperState"))
+if mibBuilder.loadTexts: nodeOnline.setStatus('current')
+nodeOffline = NotificationType((1, 3, 6, 1, 4, 1, 1369, 6, 1, 2, 0, 2)).setObjects(("STONESOFT-NETNODE-MIB", "nodeOperState"))
+if mibBuilder.loadTexts: nodeOffline.setStatus('current')
+nodeBoot = NotificationType((1, 3, 6, 1, 4, 1, 1369, 6, 1, 2, 0, 3))
+if mibBuilder.loadTexts: nodeBoot.setStatus('current')
+nodeShutdown = NotificationType((1, 3, 6, 1, 4, 1, 1369, 6, 1, 2, 0, 4))
+if mibBuilder.loadTexts: nodeShutdown.setStatus('current')
+nodeUserLogin = NotificationType((1, 3, 6, 1, 4, 1, 1369, 6, 1, 2, 0, 5)).setObjects(("STONESOFT-NETNODE-MIB", "nodeLastLogin"))
+if mibBuilder.loadTexts: nodeUserLogin.setStatus('current')
+nodeFailedUserLogin = NotificationType((1, 3, 6, 1, 4, 1, 1369, 6, 1, 2, 0, 8))
+if mibBuilder.loadTexts: nodeFailedUserLogin.setStatus('current')
+nodeUserLogout = NotificationType((1, 3, 6, 1, 4, 1, 1369, 6, 1, 2, 0, 9))
+if mibBuilder.loadTexts: nodeUserLogout.setStatus('current')
+nodeTestFailure = NotificationType((1, 3, 6, 1, 4, 1, 1369, 6, 1, 2, 0, 6)).setObjects(("STONESOFT-NETNODE-MIB", "nodeTestIdentity"))
+if mibBuilder.loadTexts: nodeTestFailure.setStatus('current')
+nodeHwmon = NotificationType((1, 3, 6, 1, 4, 1, 1369, 6, 1, 2, 0, 7)).setObjects(("STONESOFT-NETNODE-MIB", "nodeHwmonEvent"))
+if mibBuilder.loadTexts: nodeHwmon.setStatus('current')
+netNodeGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1369, 6, 1, 3, 1))
+netNodeCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1369, 6, 1, 3, 2))
+nodeCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 1369, 6, 1, 3, 2, 1)).setObjects(("STONESOFT-NETNODE-MIB", "nodeStatusGroup"), ("STONESOFT-NETNODE-MIB", "nodeStatusNotificationsGroup"), ("STONESOFT-NETNODE-MIB", "nodeIdentificationGroup"), ("STONESOFT-NETNODE-MIB", "nodeLoginGroup"), ("STONESOFT-NETNODE-MIB", "nodeLoginNotificationsGroup"), ("STONESOFT-NETNODE-MIB", "nodeTesterGroup"), ("STONESOFT-NETNODE-MIB", "nodeTesterNotificationsGroup"), ("STONESOFT-NETNODE-MIB", "nodeHwmonGroup"), ("STONESOFT-NETNODE-MIB", "nodeHwmonNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nodeCompliance1 = nodeCompliance1.setStatus('current')
+nodeIdentificationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1369, 6, 1, 3, 1, 1)).setObjects(("STONESOFT-NETNODE-MIB", "nodeClusterId"), ("STONESOFT-NETNODE-MIB", "nodeMemberId"), ("STONESOFT-NETNODE-MIB", "nodeApplianceModel"), ("STONESOFT-NETNODE-MIB", "nodeSerialNumber"), ("STONESOFT-NETNODE-MIB", "nodePosCode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nodeIdentificationGroup = nodeIdentificationGroup.setStatus('current')
+nodeStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1369, 6, 1, 3, 1, 2)).setObjects(("STONESOFT-NETNODE-MIB", "nodeOperState"), ("STONESOFT-NETNODE-MIB", "nodeCPULoad"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nodeStatusGroup = nodeStatusGroup.setStatus('current')
+nodeLoginGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1369, 6, 1, 3, 1, 3)).setObjects(("STONESOFT-NETNODE-MIB", "nodeLastLogin"), ("STONESOFT-NETNODE-MIB", "nodeLastLoginTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nodeLoginGroup = nodeLoginGroup.setStatus('current')
+nodeTesterGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1369, 6, 1, 3, 1, 4)).setObjects(("STONESOFT-NETNODE-MIB", "nodeTestIdentity"), ("STONESOFT-NETNODE-MIB", "nodeTestResult"), ("STONESOFT-NETNODE-MIB", "nodeTestResultTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nodeTesterGroup = nodeTesterGroup.setStatus('current')
+nodeHwmonGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1369, 6, 1, 3, 1, 8)).setObjects(("STONESOFT-NETNODE-MIB", "nodeHwmonEvent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nodeHwmonGroup = nodeHwmonGroup.setStatus('current')
+nodeStatusNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 1369, 6, 1, 3, 1, 5)).setObjects(("STONESOFT-NETNODE-MIB", "nodeOnline"), ("STONESOFT-NETNODE-MIB", "nodeOffline"), ("STONESOFT-NETNODE-MIB", "nodeBoot"), ("STONESOFT-NETNODE-MIB", "nodeShutdown"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nodeStatusNotificationsGroup = nodeStatusNotificationsGroup.setStatus('current')
+nodeLoginNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 1369, 6, 1, 3, 1, 6)).setObjects(("STONESOFT-NETNODE-MIB", "nodeUserLogin"), ("STONESOFT-NETNODE-MIB", "nodeFailedUserLogin"), ("STONESOFT-NETNODE-MIB", "nodeUserLogout"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nodeLoginNotificationsGroup = nodeLoginNotificationsGroup.setStatus('current')
+nodeTesterNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 1369, 6, 1, 3, 1, 7)).setObjects(("STONESOFT-NETNODE-MIB", "nodeTestFailure"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nodeTesterNotificationsGroup = nodeTesterNotificationsGroup.setStatus('current')
+nodeHwmonNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 1369, 6, 1, 3, 1, 9)).setObjects(("STONESOFT-NETNODE-MIB", "nodeHwmon"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    nodeHwmonNotificationsGroup = nodeHwmonNotificationsGroup.setStatus('current')
+mibBuilder.exportSymbols("STONESOFT-NETNODE-MIB", nodeCompliance1=nodeCompliance1, nodeTestEntry=nodeTestEntry, nodeLastLoginTime=nodeLastLoginTime, nodeSerialNumber=nodeSerialNumber, nodeLoginGroup=nodeLoginGroup, nodeCPULoad=nodeCPULoad, nodeUserLogin=nodeUserLogin, nodeMemberId=nodeMemberId, nodeHwmon=nodeHwmon, nodeBoot=nodeBoot, nodeIdentificationGroup=nodeIdentificationGroup, nodeLoginNotificationsGroup=nodeLoginNotificationsGroup, PYSNMP_MODULE_ID=stonesoftNetworkNodeMibModule, nodeHwmonEvent=nodeHwmonEvent, nodeFailedUserLogin=nodeFailedUserLogin, nodeTesterNotificationsGroup=nodeTesterNotificationsGroup, nodeTestTable=nodeTestTable, nodeUserLogout=nodeUserLogout, nodeOffline=nodeOffline, nodeLastLogin=nodeLastLogin, nodeClusterId=nodeClusterId, nodeApplianceModel=nodeApplianceModel, netNodeCompliances=netNodeCompliances, nodeTestResult=nodeTestResult, nodeStatusGroup=nodeStatusGroup, nodeShutdown=nodeShutdown, nodeHwmonGroup=nodeHwmonGroup, netNodeGroups=netNodeGroups, netNodeEventsV2=netNodeEventsV2, nodeOperState=nodeOperState, nodeTestIndex=nodeTestIndex, nodeOnline=nodeOnline, nodeTesterGroup=nodeTesterGroup, netNodeObjects=netNodeObjects, nodeTestResultTime=nodeTestResultTime, netNodeConformance=netNodeConformance, netNodeEvents=netNodeEvents, nodeTestIdentity=nodeTestIdentity, nodeTestFailure=nodeTestFailure, stonesoftNetworkNodeMibModule=stonesoftNetworkNodeMibModule, nodePosCode=nodePosCode, nodeStatusNotificationsGroup=nodeStatusNotificationsGroup, nodeHwmonNotificationsGroup=nodeHwmonNotificationsGroup)

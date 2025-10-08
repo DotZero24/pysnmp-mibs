@@ -1,175 +1,75 @@
-_R='zxAnUapsGroupIndex'
-_Q='not-accessible'
-_P='DisplayString'
-_O='zxAnUapsSecondaryPortList'
-_N='zxAnUapsPrimaryPortList'
-_M='zxAnUapsGroupName'
-_L='zxAnUapsSwapReason'
-_K='zxAnUapsPortWorkingStatus'
-_J='forceSwap'
-_I='failoverByIpLinkDown'
-_H='failoverByPhyLinkDown'
-_G='failback'
-_F='Bits'
-_E='read-only'
-_D='ZTE-AN-UAPS-MIB'
-_C='Integer32'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI',_F,'Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_P,'MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-ZxAnPortList,zxAn=mibBuilder.importSymbols('ZTE-AN-TC-MIB','ZxAnPortList','zxAn')
-zxAnUapsMib=ModuleIdentity((1,3,6,1,4,1,3902,1015,7))
-_ZxAnUapsObjects_ObjectIdentity=ObjectIdentity
-zxAnUapsObjects=_ZxAnUapsObjects_ObjectIdentity((1,3,6,1,4,1,3902,1015,7,1))
-class _ZxAnUapsCapability_Type(Bits):namedValues=NamedValues(*(('ipLinkChk',0),('protectionTime',1),('supportSlaveSlotPorts',2)))
-_ZxAnUapsCapability_Type.__name__=_F
-_ZxAnUapsCapability_Object=MibScalar
-zxAnUapsCapability=_ZxAnUapsCapability_Object((1,3,6,1,4,1,3902,1015,7,1,1),_ZxAnUapsCapability_Type())
-zxAnUapsCapability.setMaxAccess(_Q)
-if mibBuilder.loadTexts:zxAnUapsCapability.setStatus(_A)
-_ZxAnUapsGroupTable_Object=MibTable
-zxAnUapsGroupTable=_ZxAnUapsGroupTable_Object((1,3,6,1,4,1,3902,1015,7,1,2))
-if mibBuilder.loadTexts:zxAnUapsGroupTable.setStatus(_A)
-_ZxAnUapsGroupEntry_Object=MibTableRow
-zxAnUapsGroupEntry=_ZxAnUapsGroupEntry_Object((1,3,6,1,4,1,3902,1015,7,1,2,1))
-zxAnUapsGroupEntry.setIndexNames((0,_D,_R))
-if mibBuilder.loadTexts:zxAnUapsGroupEntry.setStatus(_A)
-class _ZxAnUapsGroupIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_ZxAnUapsGroupIndex_Type.__name__=_C
-_ZxAnUapsGroupIndex_Object=MibTableColumn
-zxAnUapsGroupIndex=_ZxAnUapsGroupIndex_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,1),_ZxAnUapsGroupIndex_Type())
-zxAnUapsGroupIndex.setMaxAccess(_Q)
-if mibBuilder.loadTexts:zxAnUapsGroupIndex.setStatus(_A)
-class _ZxAnUapsGroupName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,20))
-_ZxAnUapsGroupName_Type.__name__=_P
-_ZxAnUapsGroupName_Object=MibTableColumn
-zxAnUapsGroupName=_ZxAnUapsGroupName_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,2),_ZxAnUapsGroupName_Type())
-zxAnUapsGroupName.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnUapsGroupName.setStatus(_A)
-_ZxAnUapsPrimaryPortList_Type=ObjectIdentifier
-_ZxAnUapsPrimaryPortList_Object=MibTableColumn
-zxAnUapsPrimaryPortList=_ZxAnUapsPrimaryPortList_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,3),_ZxAnUapsPrimaryPortList_Type())
-zxAnUapsPrimaryPortList.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnUapsPrimaryPortList.setStatus(_A)
-_ZxAnUapsSecondaryPortList_Type=ObjectIdentifier
-_ZxAnUapsSecondaryPortList_Object=MibTableColumn
-zxAnUapsSecondaryPortList=_ZxAnUapsSecondaryPortList_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,4),_ZxAnUapsSecondaryPortList_Type())
-zxAnUapsSecondaryPortList.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnUapsSecondaryPortList.setStatus(_A)
-_ZxAnUapsAutoFailbackEnable_Type=Integer32
-_ZxAnUapsAutoFailbackEnable_Object=MibTableColumn
-zxAnUapsAutoFailbackEnable=_ZxAnUapsAutoFailbackEnable_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,5),_ZxAnUapsAutoFailbackEnable_Type())
-zxAnUapsAutoFailbackEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnUapsAutoFailbackEnable.setStatus(_A)
-_ZxAnUapsNextHopIp_Type=IpAddress
-_ZxAnUapsNextHopIp_Object=MibTableColumn
-zxAnUapsNextHopIp=_ZxAnUapsNextHopIp_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,6),_ZxAnUapsNextHopIp_Type())
-zxAnUapsNextHopIp.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnUapsNextHopIp.setStatus(_A)
-class _ZxAnUapsIpLinkType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('defaulIpLink',1),('serviceIpLink',2)))
-_ZxAnUapsIpLinkType_Type.__name__=_C
-_ZxAnUapsIpLinkType_Object=MibTableColumn
-zxAnUapsIpLinkType=_ZxAnUapsIpLinkType_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,7),_ZxAnUapsIpLinkType_Type())
-zxAnUapsIpLinkType.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnUapsIpLinkType.setStatus(_A)
-class _ZxAnUapsIpLinkChkRetries_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_ZxAnUapsIpLinkChkRetries_Type.__name__=_C
-_ZxAnUapsIpLinkChkRetries_Object=MibTableColumn
-zxAnUapsIpLinkChkRetries=_ZxAnUapsIpLinkChkRetries_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,8),_ZxAnUapsIpLinkChkRetries_Type())
-zxAnUapsIpLinkChkRetries.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnUapsIpLinkChkRetries.setStatus(_A)
-class _ZxAnUapsIpLinkChkTimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_ZxAnUapsIpLinkChkTimeout_Type.__name__=_C
-_ZxAnUapsIpLinkChkTimeout_Object=MibTableColumn
-zxAnUapsIpLinkChkTimeout=_ZxAnUapsIpLinkChkTimeout_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,9),_ZxAnUapsIpLinkChkTimeout_Type())
-zxAnUapsIpLinkChkTimeout.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnUapsIpLinkChkTimeout.setStatus(_A)
-if mibBuilder.loadTexts:zxAnUapsIpLinkChkTimeout.setUnits('sec')
-class _ZxAnUapsIpLinkStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('up',1),('down',2),('testing',3),('unknown',4)))
-_ZxAnUapsIpLinkStatus_Type.__name__=_C
-_ZxAnUapsIpLinkStatus_Object=MibTableColumn
-zxAnUapsIpLinkStatus=_ZxAnUapsIpLinkStatus_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,10),_ZxAnUapsIpLinkStatus_Type())
-zxAnUapsIpLinkStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxAnUapsIpLinkStatus.setStatus(_A)
-_ZxAnUapsForceSwap_Type=Integer32
-_ZxAnUapsForceSwap_Object=MibTableColumn
-zxAnUapsForceSwap=_ZxAnUapsForceSwap_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,11),_ZxAnUapsForceSwap_Type())
-zxAnUapsForceSwap.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnUapsForceSwap.setStatus(_A)
-class _ZxAnUapsPortWorkingStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('primaryPortInWorking',1),('secondaryPortInWorking',2)))
-_ZxAnUapsPortWorkingStatus_Type.__name__=_C
-_ZxAnUapsPortWorkingStatus_Object=MibTableColumn
-zxAnUapsPortWorkingStatus=_ZxAnUapsPortWorkingStatus_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,12),_ZxAnUapsPortWorkingStatus_Type())
-zxAnUapsPortWorkingStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxAnUapsPortWorkingStatus.setStatus(_A)
-class _ZxAnUapsSwapReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_G,0),(_H,1),(_I,2),(_J,3)))
-_ZxAnUapsSwapReason_Type.__name__=_C
-_ZxAnUapsSwapReason_Object=MibTableColumn
-zxAnUapsSwapReason=_ZxAnUapsSwapReason_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,13),_ZxAnUapsSwapReason_Type())
-zxAnUapsSwapReason.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxAnUapsSwapReason.setStatus(_A)
-class _ZxAnUapsSupportSlaveSlotPorts_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('port',1),('csc',2)))
-_ZxAnUapsSupportSlaveSlotPorts_Type.__name__=_C
-_ZxAnUapsSupportSlaveSlotPorts_Object=MibTableColumn
-zxAnUapsSupportSlaveSlotPorts=_ZxAnUapsSupportSlaveSlotPorts_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,14),_ZxAnUapsSupportSlaveSlotPorts_Type())
-zxAnUapsSupportSlaveSlotPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnUapsSupportSlaveSlotPorts.setStatus(_A)
-class _ZxAnUapsProtectionTime_Type(Integer32):defaultValue=300;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,900))
-_ZxAnUapsProtectionTime_Type.__name__=_C
-_ZxAnUapsProtectionTime_Object=MibTableColumn
-zxAnUapsProtectionTime=_ZxAnUapsProtectionTime_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,15),_ZxAnUapsProtectionTime_Type())
-zxAnUapsProtectionTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnUapsProtectionTime.setStatus(_A)
-if mibBuilder.loadTexts:zxAnUapsProtectionTime.setUnits('second')
-_ZxAnUapsIsInPrtctTime_Type=TruthValue
-_ZxAnUapsIsInPrtctTime_Object=MibTableColumn
-zxAnUapsIsInPrtctTime=_ZxAnUapsIsInPrtctTime_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,16),_ZxAnUapsIsInPrtctTime_Type())
-zxAnUapsIsInPrtctTime.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxAnUapsIsInPrtctTime.setStatus(_A)
-class _ZxAnUapsSwapRequestInCache_Type(Bits):namedValues=NamedValues(*((_G,0),(_H,1),(_I,2),(_J,3)))
-_ZxAnUapsSwapRequestInCache_Type.__name__=_F
-_ZxAnUapsSwapRequestInCache_Object=MibTableColumn
-zxAnUapsSwapRequestInCache=_ZxAnUapsSwapRequestInCache_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,17),_ZxAnUapsSwapRequestInCache_Type())
-zxAnUapsSwapRequestInCache.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxAnUapsSwapRequestInCache.setStatus(_A)
-class _ZxAnUapsSwapLastRequest_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_G,0),(_H,1),(_I,2),(_J,3)))
-_ZxAnUapsSwapLastRequest_Type.__name__=_C
-_ZxAnUapsSwapLastRequest_Object=MibTableColumn
-zxAnUapsSwapLastRequest=_ZxAnUapsSwapLastRequest_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,18),_ZxAnUapsSwapLastRequest_Type())
-zxAnUapsSwapLastRequest.setMaxAccess(_E)
-if mibBuilder.loadTexts:zxAnUapsSwapLastRequest.setStatus(_A)
-class _ZxAnUapsSwapMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('common',1),('trunk',2),('upPortNum',3)))
-_ZxAnUapsSwapMode_Type.__name__=_C
-_ZxAnUapsSwapMode_Object=MibTableColumn
-zxAnUapsSwapMode=_ZxAnUapsSwapMode_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,19),_ZxAnUapsSwapMode_Type())
-zxAnUapsSwapMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnUapsSwapMode.setStatus(_A)
-class _ZxAnUapsSecondaryPortLighting_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_ZxAnUapsSecondaryPortLighting_Type.__name__=_C
-_ZxAnUapsSecondaryPortLighting_Object=MibTableColumn
-zxAnUapsSecondaryPortLighting=_ZxAnUapsSecondaryPortLighting_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,20),_ZxAnUapsSecondaryPortLighting_Type())
-zxAnUapsSecondaryPortLighting.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnUapsSecondaryPortLighting.setStatus(_A)
-_ZxAnUapsGroupRowStatus_Type=RowStatus
-_ZxAnUapsGroupRowStatus_Object=MibTableColumn
-zxAnUapsGroupRowStatus=_ZxAnUapsGroupRowStatus_Object((1,3,6,1,4,1,3902,1015,7,1,2,1,25),_ZxAnUapsGroupRowStatus_Type())
-zxAnUapsGroupRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxAnUapsGroupRowStatus.setStatus(_A)
-_ZxAnUapsTraps_ObjectIdentity=ObjectIdentity
-zxAnUapsTraps=_ZxAnUapsTraps_ObjectIdentity((1,3,6,1,4,1,3902,1015,7,2))
-zxAnUapsSwappedTrap=NotificationType((1,3,6,1,4,1,3902,1015,7,2,1))
-zxAnUapsSwappedTrap.setObjects(*((_D,_K),(_D,_L),(_D,_M),(_D,_N),(_D,_O)))
-if mibBuilder.loadTexts:zxAnUapsSwappedTrap.setStatus(_A)
-zxAnUapsSwappedAlm=NotificationType((1,3,6,1,4,1,3902,1015,7,2,2))
-zxAnUapsSwappedAlm.setObjects(*((_D,_K),(_D,_L),(_D,_M),(_D,_N),(_D,_O)))
-if mibBuilder.loadTexts:zxAnUapsSwappedAlm.setStatus(_A)
-zxAnUapsSwappedClr=NotificationType((1,3,6,1,4,1,3902,1015,7,2,3))
-if mibBuilder.loadTexts:zxAnUapsSwappedClr.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'zxAnUapsMib':zxAnUapsMib,'zxAnUapsObjects':zxAnUapsObjects,'zxAnUapsCapability':zxAnUapsCapability,'zxAnUapsGroupTable':zxAnUapsGroupTable,'zxAnUapsGroupEntry':zxAnUapsGroupEntry,_R:zxAnUapsGroupIndex,_M:zxAnUapsGroupName,_N:zxAnUapsPrimaryPortList,_O:zxAnUapsSecondaryPortList,'zxAnUapsAutoFailbackEnable':zxAnUapsAutoFailbackEnable,'zxAnUapsNextHopIp':zxAnUapsNextHopIp,'zxAnUapsIpLinkType':zxAnUapsIpLinkType,'zxAnUapsIpLinkChkRetries':zxAnUapsIpLinkChkRetries,'zxAnUapsIpLinkChkTimeout':zxAnUapsIpLinkChkTimeout,'zxAnUapsIpLinkStatus':zxAnUapsIpLinkStatus,'zxAnUapsForceSwap':zxAnUapsForceSwap,_K:zxAnUapsPortWorkingStatus,_L:zxAnUapsSwapReason,'zxAnUapsSupportSlaveSlotPorts':zxAnUapsSupportSlaveSlotPorts,'zxAnUapsProtectionTime':zxAnUapsProtectionTime,'zxAnUapsIsInPrtctTime':zxAnUapsIsInPrtctTime,'zxAnUapsSwapRequestInCache':zxAnUapsSwapRequestInCache,'zxAnUapsSwapLastRequest':zxAnUapsSwapLastRequest,'zxAnUapsSwapMode':zxAnUapsSwapMode,'zxAnUapsSecondaryPortLighting':zxAnUapsSecondaryPortLighting,'zxAnUapsGroupRowStatus':zxAnUapsGroupRowStatus,'zxAnUapsTraps':zxAnUapsTraps,'zxAnUapsSwappedTrap':zxAnUapsSwappedTrap,'zxAnUapsSwappedAlm':zxAnUapsSwappedAlm,'zxAnUapsSwappedClr':zxAnUapsSwappedClr})
+#
+# PySNMP MIB module ZTE-AN-UAPS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZTE-AN-UAPS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+ZxAnPortList, zxAn = mibBuilder.importSymbols("ZTE-AN-TC-MIB", "ZxAnPortList", "zxAn")
+zxAnUapsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1015, 7))
+if mibBuilder.loadTexts: zxAnUapsMib.setLastUpdated('200711281530Z')
+if mibBuilder.loadTexts: zxAnUapsMib.setOrganization('ZTE Corporation')
+zxAnUapsObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1))
+zxAnUapsTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 2))
+zxAnUapsCapability = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 1), Bits().clone(namedValues=NamedValues(("ipLinkChk", 0), ("protectionTime", 1), ("supportSlaveSlotPorts", 2))))
+if mibBuilder.loadTexts: zxAnUapsCapability.setStatus('current')
+zxAnUapsGroupTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2), )
+if mibBuilder.loadTexts: zxAnUapsGroupTable.setStatus('current')
+zxAnUapsGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1), ).setIndexNames((0, "ZTE-AN-UAPS-MIB", "zxAnUapsGroupIndex"))
+if mibBuilder.loadTexts: zxAnUapsGroupEntry.setStatus('current')
+zxAnUapsGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4)))
+if mibBuilder.loadTexts: zxAnUapsGroupIndex.setStatus('current')
+zxAnUapsGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 20))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnUapsGroupName.setStatus('current')
+zxAnUapsPrimaryPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 3), ObjectIdentifier()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnUapsPrimaryPortList.setStatus('current')
+zxAnUapsSecondaryPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 4), ObjectIdentifier()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnUapsSecondaryPortList.setStatus('current')
+zxAnUapsAutoFailbackEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 5), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnUapsAutoFailbackEnable.setStatus('current')
+zxAnUapsNextHopIp = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 6), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnUapsNextHopIp.setStatus('current')
+zxAnUapsIpLinkType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("defaulIpLink", 1), ("serviceIpLink", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnUapsIpLinkType.setStatus('current')
+zxAnUapsIpLinkChkRetries = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnUapsIpLinkChkRetries.setStatus('current')
+zxAnUapsIpLinkChkTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setUnits('sec').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnUapsIpLinkChkTimeout.setStatus('current')
+zxAnUapsIpLinkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("testing", 3), ("unknown", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnUapsIpLinkStatus.setStatus('current')
+zxAnUapsForceSwap = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 11), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnUapsForceSwap.setStatus('current')
+zxAnUapsPortWorkingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primaryPortInWorking", 1), ("secondaryPortInWorking", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnUapsPortWorkingStatus.setStatus('current')
+zxAnUapsSwapReason = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("failback", 0), ("failoverByPhyLinkDown", 1), ("failoverByIpLinkDown", 2), ("forceSwap", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnUapsSwapReason.setStatus('current')
+zxAnUapsSupportSlaveSlotPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("port", 1), ("csc", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnUapsSupportSlaveSlotPorts.setStatus('current')
+zxAnUapsProtectionTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 900)).clone(300)).setUnits('second').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnUapsProtectionTime.setStatus('current')
+zxAnUapsIsInPrtctTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 16), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnUapsIsInPrtctTime.setStatus('current')
+zxAnUapsSwapRequestInCache = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 17), Bits().clone(namedValues=NamedValues(("failback", 0), ("failoverByPhyLinkDown", 1), ("failoverByIpLinkDown", 2), ("forceSwap", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnUapsSwapRequestInCache.setStatus('current')
+zxAnUapsSwapLastRequest = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("failback", 0), ("failoverByPhyLinkDown", 1), ("failoverByIpLinkDown", 2), ("forceSwap", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxAnUapsSwapLastRequest.setStatus('current')
+zxAnUapsSwapMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("common", 1), ("trunk", 2), ("upPortNum", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnUapsSwapMode.setStatus('current')
+zxAnUapsSecondaryPortLighting = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnUapsSecondaryPortLighting.setStatus('current')
+zxAnUapsGroupRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 1, 2, 1, 25), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zxAnUapsGroupRowStatus.setStatus('current')
+zxAnUapsSwappedTrap = NotificationType((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 2, 1)).setObjects(("ZTE-AN-UAPS-MIB", "zxAnUapsPortWorkingStatus"), ("ZTE-AN-UAPS-MIB", "zxAnUapsSwapReason"), ("ZTE-AN-UAPS-MIB", "zxAnUapsGroupName"), ("ZTE-AN-UAPS-MIB", "zxAnUapsPrimaryPortList"), ("ZTE-AN-UAPS-MIB", "zxAnUapsSecondaryPortList"))
+if mibBuilder.loadTexts: zxAnUapsSwappedTrap.setStatus('current')
+zxAnUapsSwappedAlm = NotificationType((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 2, 2)).setObjects(("ZTE-AN-UAPS-MIB", "zxAnUapsPortWorkingStatus"), ("ZTE-AN-UAPS-MIB", "zxAnUapsSwapReason"), ("ZTE-AN-UAPS-MIB", "zxAnUapsGroupName"), ("ZTE-AN-UAPS-MIB", "zxAnUapsPrimaryPortList"), ("ZTE-AN-UAPS-MIB", "zxAnUapsSecondaryPortList"))
+if mibBuilder.loadTexts: zxAnUapsSwappedAlm.setStatus('current')
+zxAnUapsSwappedClr = NotificationType((1, 3, 6, 1, 4, 1, 3902, 1015, 7, 2, 3))
+if mibBuilder.loadTexts: zxAnUapsSwappedClr.setStatus('current')
+mibBuilder.exportSymbols("ZTE-AN-UAPS-MIB", zxAnUapsSwapMode=zxAnUapsSwapMode, zxAnUapsAutoFailbackEnable=zxAnUapsAutoFailbackEnable, zxAnUapsSwappedClr=zxAnUapsSwappedClr, zxAnUapsSwapRequestInCache=zxAnUapsSwapRequestInCache, zxAnUapsNextHopIp=zxAnUapsNextHopIp, zxAnUapsProtectionTime=zxAnUapsProtectionTime, zxAnUapsIsInPrtctTime=zxAnUapsIsInPrtctTime, zxAnUapsIpLinkType=zxAnUapsIpLinkType, zxAnUapsSwappedTrap=zxAnUapsSwappedTrap, zxAnUapsTraps=zxAnUapsTraps, zxAnUapsObjects=zxAnUapsObjects, zxAnUapsGroupIndex=zxAnUapsGroupIndex, zxAnUapsIpLinkChkTimeout=zxAnUapsIpLinkChkTimeout, zxAnUapsSwapLastRequest=zxAnUapsSwapLastRequest, PYSNMP_MODULE_ID=zxAnUapsMib, zxAnUapsIpLinkChkRetries=zxAnUapsIpLinkChkRetries, zxAnUapsGroupName=zxAnUapsGroupName, zxAnUapsSecondaryPortList=zxAnUapsSecondaryPortList, zxAnUapsMib=zxAnUapsMib, zxAnUapsPrimaryPortList=zxAnUapsPrimaryPortList, zxAnUapsCapability=zxAnUapsCapability, zxAnUapsIpLinkStatus=zxAnUapsIpLinkStatus, zxAnUapsPortWorkingStatus=zxAnUapsPortWorkingStatus, zxAnUapsGroupTable=zxAnUapsGroupTable, zxAnUapsSwapReason=zxAnUapsSwapReason, zxAnUapsForceSwap=zxAnUapsForceSwap, zxAnUapsSupportSlaveSlotPorts=zxAnUapsSupportSlaveSlotPorts, zxAnUapsSecondaryPortLighting=zxAnUapsSecondaryPortLighting, zxAnUapsSwappedAlm=zxAnUapsSwappedAlm, zxAnUapsGroupEntry=zxAnUapsGroupEntry, zxAnUapsGroupRowStatus=zxAnUapsGroupRowStatus)

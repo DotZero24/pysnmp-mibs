@@ -1,87 +1,47 @@
-_J='raisecomRndpInterfaceId'
-_I='raisecomRndpDiscoveryDeviceId'
-_H='raisecomRndpDiscoveryInterfaceId'
-_G='read-write'
-_F='EnableVar'
-_E='Integer32'
-_D='RAISECOM-RNDP-MIB'
-_C='mandatory'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-raisecomCluster,=mibBuilder.importSymbols('RAISECOM-BASE-MIB','raisecomCluster')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-EnableVar,=mibBuilder.importSymbols('SWITCH-TC',_F)
-raisecomTopoDiscovery=ModuleIdentity((1,3,6,1,4,1,8886,1,6,2))
-class _RaisecomRndpProtocolEnable_Type(EnableVar):defaultValue=2
-_RaisecomRndpProtocolEnable_Type.__name__=_F
-_RaisecomRndpProtocolEnable_Object=MibScalar
-raisecomRndpProtocolEnable=_RaisecomRndpProtocolEnable_Object((1,3,6,1,4,1,8886,1,6,2,1),_RaisecomRndpProtocolEnable_Type())
-raisecomRndpProtocolEnable.setMaxAccess(_G)
-if mibBuilder.loadTexts:raisecomRndpProtocolEnable.setStatus(_C)
-_RaisecomRndpDiscoveryTable_Object=MibTable
-raisecomRndpDiscoveryTable=_RaisecomRndpDiscoveryTable_Object((1,3,6,1,4,1,8886,1,6,2,2))
-if mibBuilder.loadTexts:raisecomRndpDiscoveryTable.setStatus(_A)
-_RaisecomRndpDiscoveryEntry_Object=MibTableRow
-raisecomRndpDiscoveryEntry=_RaisecomRndpDiscoveryEntry_Object((1,3,6,1,4,1,8886,1,6,2,2,1))
-raisecomRndpDiscoveryEntry.setIndexNames((0,_D,_H),(0,_D,_I))
-if mibBuilder.loadTexts:raisecomRndpDiscoveryEntry.setStatus(_A)
-_RaisecomRndpDiscoveryInterfaceId_Type=Integer32
-_RaisecomRndpDiscoveryInterfaceId_Object=MibTableColumn
-raisecomRndpDiscoveryInterfaceId=_RaisecomRndpDiscoveryInterfaceId_Object((1,3,6,1,4,1,8886,1,6,2,2,1,1),_RaisecomRndpDiscoveryInterfaceId_Type())
-raisecomRndpDiscoveryInterfaceId.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRndpDiscoveryInterfaceId.setStatus(_A)
-_RaisecomRndpDiscoveryDeviceId_Type=MacAddress
-_RaisecomRndpDiscoveryDeviceId_Object=MibTableColumn
-raisecomRndpDiscoveryDeviceId=_RaisecomRndpDiscoveryDeviceId_Object((1,3,6,1,4,1,8886,1,6,2,2,1,2),_RaisecomRndpDiscoveryDeviceId_Type())
-raisecomRndpDiscoveryDeviceId.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRndpDiscoveryDeviceId.setStatus(_A)
-_RaisecomRndpDiscoveryPortId_Type=Integer32
-_RaisecomRndpDiscoveryPortId_Object=MibTableColumn
-raisecomRndpDiscoveryPortId=_RaisecomRndpDiscoveryPortId_Object((1,3,6,1,4,1,8886,1,6,2,2,1,3),_RaisecomRndpDiscoveryPortId_Type())
-raisecomRndpDiscoveryPortId.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRndpDiscoveryPortId.setStatus(_A)
-_RaisecomRndpDiscoveryHostName_Type=OctetString
-_RaisecomRndpDiscoveryHostName_Object=MibTableColumn
-raisecomRndpDiscoveryHostName=_RaisecomRndpDiscoveryHostName_Object((1,3,6,1,4,1,8886,1,6,2,2,1,4),_RaisecomRndpDiscoveryHostName_Type())
-raisecomRndpDiscoveryHostName.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRndpDiscoveryHostName.setStatus(_A)
-_RaisecomRndpDiscoveryPlatformOid_Type=ObjectIdentifier
-_RaisecomRndpDiscoveryPlatformOid_Object=MibTableColumn
-raisecomRndpDiscoveryPlatformOid=_RaisecomRndpDiscoveryPlatformOid_Object((1,3,6,1,4,1,8886,1,6,2,2,1,5),_RaisecomRndpDiscoveryPlatformOid_Type())
-raisecomRndpDiscoveryPlatformOid.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRndpDiscoveryPlatformOid.setStatus(_A)
-_RaisecomRndpDiscoveryVersion_Type=OctetString
-_RaisecomRndpDiscoveryVersion_Object=MibTableColumn
-raisecomRndpDiscoveryVersion=_RaisecomRndpDiscoveryVersion_Object((1,3,6,1,4,1,8886,1,6,2,2,1,6),_RaisecomRndpDiscoveryVersion_Type())
-raisecomRndpDiscoveryVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRndpDiscoveryVersion.setStatus(_A)
-class _RaisecomRndpDiscoveryCapabilities_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('switch',1),('router',2),('eoa',3),('eos',4),('others',5)))
-_RaisecomRndpDiscoveryCapabilities_Type.__name__=_E
-_RaisecomRndpDiscoveryCapabilities_Object=MibTableColumn
-raisecomRndpDiscoveryCapabilities=_RaisecomRndpDiscoveryCapabilities_Object((1,3,6,1,4,1,8886,1,6,2,2,1,7),_RaisecomRndpDiscoveryCapabilities_Type())
-raisecomRndpDiscoveryCapabilities.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRndpDiscoveryCapabilities.setStatus(_A)
-_RaisecomRndpInterfaceTable_Object=MibTable
-raisecomRndpInterfaceTable=_RaisecomRndpInterfaceTable_Object((1,3,6,1,4,1,8886,1,6,2,3))
-if mibBuilder.loadTexts:raisecomRndpInterfaceTable.setStatus(_C)
-_RaisecomRndpInterfaceEntry_Object=MibTableRow
-raisecomRndpInterfaceEntry=_RaisecomRndpInterfaceEntry_Object((1,3,6,1,4,1,8886,1,6,2,3,1))
-raisecomRndpInterfaceEntry.setIndexNames((0,_D,_J))
-if mibBuilder.loadTexts:raisecomRndpInterfaceEntry.setStatus(_C)
-_RaisecomRndpInterfaceId_Type=Integer32
-_RaisecomRndpInterfaceId_Object=MibTableColumn
-raisecomRndpInterfaceId=_RaisecomRndpInterfaceId_Object((1,3,6,1,4,1,8886,1,6,2,3,1,1),_RaisecomRndpInterfaceId_Type())
-raisecomRndpInterfaceId.setMaxAccess(_B)
-if mibBuilder.loadTexts:raisecomRndpInterfaceId.setStatus(_C)
-_RaisecomRndpInterfaceEnable_Type=EnableVar
-_RaisecomRndpInterfaceEnable_Object=MibTableColumn
-raisecomRndpInterfaceEnable=_RaisecomRndpInterfaceEnable_Object((1,3,6,1,4,1,8886,1,6,2,3,1,2),_RaisecomRndpInterfaceEnable_Type())
-raisecomRndpInterfaceEnable.setMaxAccess(_G)
-if mibBuilder.loadTexts:raisecomRndpInterfaceEnable.setStatus(_C)
-mibBuilder.exportSymbols(_D,**{'raisecomTopoDiscovery':raisecomTopoDiscovery,'raisecomRndpProtocolEnable':raisecomRndpProtocolEnable,'raisecomRndpDiscoveryTable':raisecomRndpDiscoveryTable,'raisecomRndpDiscoveryEntry':raisecomRndpDiscoveryEntry,_H:raisecomRndpDiscoveryInterfaceId,_I:raisecomRndpDiscoveryDeviceId,'raisecomRndpDiscoveryPortId':raisecomRndpDiscoveryPortId,'raisecomRndpDiscoveryHostName':raisecomRndpDiscoveryHostName,'raisecomRndpDiscoveryPlatformOid':raisecomRndpDiscoveryPlatformOid,'raisecomRndpDiscoveryVersion':raisecomRndpDiscoveryVersion,'raisecomRndpDiscoveryCapabilities':raisecomRndpDiscoveryCapabilities,'raisecomRndpInterfaceTable':raisecomRndpInterfaceTable,'raisecomRndpInterfaceEntry':raisecomRndpInterfaceEntry,_J:raisecomRndpInterfaceId,'raisecomRndpInterfaceEnable':raisecomRndpInterfaceEnable})
+#
+# PySNMP MIB module RAISECOM-RNDP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/raisecom/RAISECOM-RNDP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+raisecomCluster, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "raisecomCluster")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+EnableVar, = mibBuilder.importSymbols("SWITCH-TC", "EnableVar")
+raisecomTopoDiscovery = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 1, 6, 2))
+if mibBuilder.loadTexts: raisecomTopoDiscovery.setLastUpdated('200412210000Z')
+if mibBuilder.loadTexts: raisecomTopoDiscovery.setOrganization('Raisecom, Inc.')
+raisecomRndpProtocolEnable = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 6, 2, 1), EnableVar().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRndpProtocolEnable.setStatus('mandatory')
+raisecomRndpDiscoveryTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 6, 2, 2), )
+if mibBuilder.loadTexts: raisecomRndpDiscoveryTable.setStatus('current')
+raisecomRndpDiscoveryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 6, 2, 2, 1), ).setIndexNames((0, "RAISECOM-RNDP-MIB", "raisecomRndpDiscoveryInterfaceId"), (0, "RAISECOM-RNDP-MIB", "raisecomRndpDiscoveryDeviceId"))
+if mibBuilder.loadTexts: raisecomRndpDiscoveryEntry.setStatus('current')
+raisecomRndpDiscoveryInterfaceId = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 6, 2, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRndpDiscoveryInterfaceId.setStatus('current')
+raisecomRndpDiscoveryDeviceId = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 6, 2, 2, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRndpDiscoveryDeviceId.setStatus('current')
+raisecomRndpDiscoveryPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 6, 2, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRndpDiscoveryPortId.setStatus('current')
+raisecomRndpDiscoveryHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 6, 2, 2, 1, 4), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRndpDiscoveryHostName.setStatus('current')
+raisecomRndpDiscoveryPlatformOid = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 6, 2, 2, 1, 5), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRndpDiscoveryPlatformOid.setStatus('current')
+raisecomRndpDiscoveryVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 6, 2, 2, 1, 6), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRndpDiscoveryVersion.setStatus('current')
+raisecomRndpDiscoveryCapabilities = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 6, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("switch", 1), ("router", 2), ("eoa", 3), ("eos", 4), ("others", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRndpDiscoveryCapabilities.setStatus('current')
+raisecomRndpInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 6, 2, 3), )
+if mibBuilder.loadTexts: raisecomRndpInterfaceTable.setStatus('mandatory')
+raisecomRndpInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 6, 2, 3, 1), ).setIndexNames((0, "RAISECOM-RNDP-MIB", "raisecomRndpInterfaceId"))
+if mibBuilder.loadTexts: raisecomRndpInterfaceEntry.setStatus('mandatory')
+raisecomRndpInterfaceId = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 6, 2, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: raisecomRndpInterfaceId.setStatus('mandatory')
+raisecomRndpInterfaceEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 6, 2, 3, 1, 2), EnableVar()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: raisecomRndpInterfaceEnable.setStatus('mandatory')
+mibBuilder.exportSymbols("RAISECOM-RNDP-MIB", raisecomRndpDiscoveryInterfaceId=raisecomRndpDiscoveryInterfaceId, raisecomTopoDiscovery=raisecomTopoDiscovery, raisecomRndpDiscoveryVersion=raisecomRndpDiscoveryVersion, raisecomRndpInterfaceEnable=raisecomRndpInterfaceEnable, raisecomRndpDiscoveryEntry=raisecomRndpDiscoveryEntry, raisecomRndpInterfaceEntry=raisecomRndpInterfaceEntry, raisecomRndpDiscoveryTable=raisecomRndpDiscoveryTable, raisecomRndpDiscoveryPlatformOid=raisecomRndpDiscoveryPlatformOid, raisecomRndpInterfaceTable=raisecomRndpInterfaceTable, raisecomRndpProtocolEnable=raisecomRndpProtocolEnable, PYSNMP_MODULE_ID=raisecomTopoDiscovery, raisecomRndpDiscoveryHostName=raisecomRndpDiscoveryHostName, raisecomRndpDiscoveryCapabilities=raisecomRndpDiscoveryCapabilities, raisecomRndpInterfaceId=raisecomRndpInterfaceId, raisecomRndpDiscoveryPortId=raisecomRndpDiscoveryPortId, raisecomRndpDiscoveryDeviceId=raisecomRndpDiscoveryDeviceId)

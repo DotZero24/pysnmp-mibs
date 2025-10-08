@@ -1,38 +1,36 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-mediatrix=ModuleIdentity((1,3,6,1,4,1,4935))
-if mibBuilder.loadTexts:mediatrix.setRevisions(('1901-08-07 00:00',))
-_MediatrixProducts_ObjectIdentity=ObjectIdentity
-mediatrixProducts=_MediatrixProducts_ObjectIdentity((1,3,6,1,4,1,4935,1))
-if mibBuilder.loadTexts:mediatrixProducts.setStatus(_A)
-_MediatrixAdmin_ObjectIdentity=ObjectIdentity
-mediatrixAdmin=_MediatrixAdmin_ObjectIdentity((1,3,6,1,4,1,4935,5))
-if mibBuilder.loadTexts:mediatrixAdmin.setStatus(_A)
-_MediatrixMgmt_ObjectIdentity=ObjectIdentity
-mediatrixMgmt=_MediatrixMgmt_ObjectIdentity((1,3,6,1,4,1,4935,10))
-if mibBuilder.loadTexts:mediatrixMgmt.setStatus(_A)
-_IpAddressStatus_ObjectIdentity=ObjectIdentity
-ipAddressStatus=_IpAddressStatus_ObjectIdentity((1,3,6,1,4,1,4935,10,1))
-if mibBuilder.loadTexts:ipAddressStatus.setStatus(_A)
-_MediatrixConfig_ObjectIdentity=ObjectIdentity
-mediatrixConfig=_MediatrixConfig_ObjectIdentity((1,3,6,1,4,1,4935,15))
-if mibBuilder.loadTexts:mediatrixConfig.setStatus(_A)
-_IpAddressConfig_ObjectIdentity=ObjectIdentity
-ipAddressConfig=_IpAddressConfig_ObjectIdentity((1,3,6,1,4,1,4935,15,1))
-if mibBuilder.loadTexts:ipAddressConfig.setStatus(_A)
-_MediatrixIpTelephonySignaling_ObjectIdentity=ObjectIdentity
-mediatrixIpTelephonySignaling=_MediatrixIpTelephonySignaling_ObjectIdentity((1,3,6,1,4,1,4935,20))
-if mibBuilder.loadTexts:mediatrixIpTelephonySignaling.setStatus(_A)
-_MediatrixModules_ObjectIdentity=ObjectIdentity
-mediatrixModules=_MediatrixModules_ObjectIdentity((1,3,6,1,4,1,4935,90))
-if mibBuilder.loadTexts:mediatrixModules.setStatus(_A)
-_MediatrixExperimental_ObjectIdentity=ObjectIdentity
-mediatrixExperimental=_MediatrixExperimental_ObjectIdentity((1,3,6,1,4,1,4935,99))
-if mibBuilder.loadTexts:mediatrixExperimental.setStatus(_A)
-mibBuilder.exportSymbols('MX-SMI',**{'mediatrix':mediatrix,'mediatrixProducts':mediatrixProducts,'mediatrixAdmin':mediatrixAdmin,'mediatrixMgmt':mediatrixMgmt,'ipAddressStatus':ipAddressStatus,'mediatrixConfig':mediatrixConfig,'ipAddressConfig':ipAddressConfig,'mediatrixIpTelephonySignaling':mediatrixIpTelephonySignaling,'mediatrixModules':mediatrixModules,'mediatrixExperimental':mediatrixExperimental})
+#
+# PySNMP MIB module MX-SMI (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-SMI
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:31 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+mediatrix = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935))
+mediatrix.setRevisions(('1901-08-07 00:00',))
+if mibBuilder.loadTexts: mediatrix.setLastUpdated('0108070000Z')
+if mibBuilder.loadTexts: mediatrix.setOrganization('Mediatrix Telecom, Inc.')
+mediatrixProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 4935, 1))
+if mibBuilder.loadTexts: mediatrixProducts.setStatus('current')
+mediatrixAdmin = ObjectIdentity((1, 3, 6, 1, 4, 1, 4935, 5))
+if mibBuilder.loadTexts: mediatrixAdmin.setStatus('current')
+mediatrixMgmt = ObjectIdentity((1, 3, 6, 1, 4, 1, 4935, 10))
+if mibBuilder.loadTexts: mediatrixMgmt.setStatus('current')
+mediatrixConfig = ObjectIdentity((1, 3, 6, 1, 4, 1, 4935, 15))
+if mibBuilder.loadTexts: mediatrixConfig.setStatus('current')
+mediatrixIpTelephonySignaling = ObjectIdentity((1, 3, 6, 1, 4, 1, 4935, 20))
+if mibBuilder.loadTexts: mediatrixIpTelephonySignaling.setStatus('current')
+mediatrixModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 4935, 90))
+if mibBuilder.loadTexts: mediatrixModules.setStatus('current')
+mediatrixExperimental = ObjectIdentity((1, 3, 6, 1, 4, 1, 4935, 99))
+if mibBuilder.loadTexts: mediatrixExperimental.setStatus('current')
+ipAddressStatus = ObjectIdentity((1, 3, 6, 1, 4, 1, 4935, 10, 1))
+if mibBuilder.loadTexts: ipAddressStatus.setStatus('current')
+ipAddressConfig = ObjectIdentity((1, 3, 6, 1, 4, 1, 4935, 15, 1))
+if mibBuilder.loadTexts: ipAddressConfig.setStatus('current')
+mibBuilder.exportSymbols("MX-SMI", mediatrixConfig=mediatrixConfig, PYSNMP_MODULE_ID=mediatrix, ipAddressStatus=ipAddressStatus, mediatrixMgmt=mediatrixMgmt, mediatrix=mediatrix, mediatrixIpTelephonySignaling=mediatrixIpTelephonySignaling, mediatrixAdmin=mediatrixAdmin, mediatrixProducts=mediatrixProducts, mediatrixExperimental=mediatrixExperimental, mediatrixModules=mediatrixModules, ipAddressConfig=ipAddressConfig)

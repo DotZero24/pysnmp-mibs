@@ -1,62 +1,45 @@
-_I='hwSlbTrapGroup'
-_H='hwSlbObjectGroup'
-_G='hwSlbRserverStateDown'
-_F='hwSlbRserverStateUp'
-_E='accessible-for-notify'
-_D='hwSlbServerIp'
-_C='hwSlbServerIndex'
-_B='current'
-_A='HUAWEI-SECURITY-SLB-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-hwSlb=ModuleIdentity((1,3,6,1,4,1,2011,6,122,67))
-if mibBuilder.loadTexts:hwSlb.setRevisions(('2014-01-07 16:09',))
-_Huawei_ObjectIdentity=ObjectIdentity
-huawei=_Huawei_ObjectIdentity((1,3,6,1,4,1,2011))
-_HuaweiUtility_ObjectIdentity=ObjectIdentity
-huaweiUtility=_HuaweiUtility_ObjectIdentity((1,3,6,1,4,1,2011,6))
-_HwSecurity_ObjectIdentity=ObjectIdentity
-hwSecurity=_HwSecurity_ObjectIdentity((1,3,6,1,4,1,2011,6,122))
-_HwSlbNotification_ObjectIdentity=ObjectIdentity
-hwSlbNotification=_HwSlbNotification_ObjectIdentity((1,3,6,1,4,1,2011,6,122,67,1))
-_HwSlbTrapObjects_ObjectIdentity=ObjectIdentity
-hwSlbTrapObjects=_HwSlbTrapObjects_ObjectIdentity((1,3,6,1,4,1,2011,6,122,67,1,1))
-_HwSlbServerIndex_Type=Gauge32
-_HwSlbServerIndex_Object=MibScalar
-hwSlbServerIndex=_HwSlbServerIndex_Object((1,3,6,1,4,1,2011,6,122,67,1,1,1),_HwSlbServerIndex_Type())
-hwSlbServerIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:hwSlbServerIndex.setStatus(_B)
-_HwSlbServerIp_Type=IpAddress
-_HwSlbServerIp_Object=MibScalar
-hwSlbServerIp=_HwSlbServerIp_Object((1,3,6,1,4,1,2011,6,122,67,1,1,2),_HwSlbServerIp_Type())
-hwSlbServerIp.setMaxAccess(_E)
-if mibBuilder.loadTexts:hwSlbServerIp.setStatus(_B)
-_HwSlbTraps_ObjectIdentity=ObjectIdentity
-hwSlbTraps=_HwSlbTraps_ObjectIdentity((1,3,6,1,4,1,2011,6,122,67,2))
-_HwSlbConformance_ObjectIdentity=ObjectIdentity
-hwSlbConformance=_HwSlbConformance_ObjectIdentity((1,3,6,1,4,1,2011,6,122,67,3))
-_HwSlbCompliances_ObjectIdentity=ObjectIdentity
-hwSlbCompliances=_HwSlbCompliances_ObjectIdentity((1,3,6,1,4,1,2011,6,122,67,3,1))
-_HwSlbMibGroups_ObjectIdentity=ObjectIdentity
-hwSlbMibGroups=_HwSlbMibGroups_ObjectIdentity((1,3,6,1,4,1,2011,6,122,67,3,2))
-hwSlbObjectGroup=ObjectGroup((1,3,6,1,4,1,2011,6,122,67,3,2,1))
-hwSlbObjectGroup.setObjects(*((_A,_C),(_A,_D)))
-if mibBuilder.loadTexts:hwSlbObjectGroup.setStatus(_B)
-hwSlbRserverStateUp=NotificationType((1,3,6,1,4,1,2011,6,122,67,2,1))
-hwSlbRserverStateUp.setObjects(*((_A,_C),(_A,_D)))
-if mibBuilder.loadTexts:hwSlbRserverStateUp.setStatus(_B)
-hwSlbRserverStateDown=NotificationType((1,3,6,1,4,1,2011,6,122,67,2,2))
-hwSlbRserverStateDown.setObjects(*((_A,_C),(_A,_D)))
-if mibBuilder.loadTexts:hwSlbRserverStateDown.setStatus(_B)
-hwSlbTrapGroup=NotificationGroup((1,3,6,1,4,1,2011,6,122,67,3,2,2))
-hwSlbTrapGroup.setObjects(*((_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:hwSlbTrapGroup.setStatus(_B)
-hwSlbCompliance=ModuleCompliance((1,3,6,1,4,1,2011,6,122,67,3,1,1))
-hwSlbCompliance.setObjects(*((_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:hwSlbCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'huawei':huawei,'huaweiUtility':huaweiUtility,'hwSecurity':hwSecurity,'hwSlb':hwSlb,'hwSlbNotification':hwSlbNotification,'hwSlbTrapObjects':hwSlbTrapObjects,_C:hwSlbServerIndex,_D:hwSlbServerIp,'hwSlbTraps':hwSlbTraps,_F:hwSlbRserverStateUp,_G:hwSlbRserverStateDown,'hwSlbConformance':hwSlbConformance,'hwSlbCompliances':hwSlbCompliances,'hwSlbCompliance':hwSlbCompliance,'hwSlbMibGroups':hwSlbMibGroups,_H:hwSlbObjectGroup,_I:hwSlbTrapGroup})
+#
+# PySNMP MIB module HUAWEI-SECURITY-SLB-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/huawei/HUAWEI-SECURITY-SLB-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:01:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hwSlb = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 6, 122, 67))
+hwSlb.setRevisions(('2014-01-07 16:09',))
+if mibBuilder.loadTexts: hwSlb.setLastUpdated('201401071609Z')
+if mibBuilder.loadTexts: hwSlb.setOrganization('Huawei Technologies Co.,Ltd.')
+huawei = MibIdentifier((1, 3, 6, 1, 4, 1, 2011))
+huaweiUtility = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6))
+hwSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122))
+hwSlbNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 67, 1))
+hwSlbTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 67, 1, 1))
+hwSlbServerIndex = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 67, 1, 1, 1), Gauge32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: hwSlbServerIndex.setStatus('current')
+hwSlbServerIp = MibScalar((1, 3, 6, 1, 4, 1, 2011, 6, 122, 67, 1, 1, 2), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: hwSlbServerIp.setStatus('current')
+hwSlbTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 67, 2))
+hwSlbRserverStateUp = NotificationType((1, 3, 6, 1, 4, 1, 2011, 6, 122, 67, 2, 1)).setObjects(("HUAWEI-SECURITY-SLB-MIB", "hwSlbServerIndex"), ("HUAWEI-SECURITY-SLB-MIB", "hwSlbServerIp"))
+if mibBuilder.loadTexts: hwSlbRserverStateUp.setStatus('current')
+hwSlbRserverStateDown = NotificationType((1, 3, 6, 1, 4, 1, 2011, 6, 122, 67, 2, 2)).setObjects(("HUAWEI-SECURITY-SLB-MIB", "hwSlbServerIndex"), ("HUAWEI-SECURITY-SLB-MIB", "hwSlbServerIp"))
+if mibBuilder.loadTexts: hwSlbRserverStateDown.setStatus('current')
+hwSlbConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 67, 3))
+hwSlbCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 67, 3, 1))
+hwSlbCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2011, 6, 122, 67, 3, 1, 1)).setObjects(("HUAWEI-SECURITY-SLB-MIB", "hwSlbObjectGroup"), ("HUAWEI-SECURITY-SLB-MIB", "hwSlbTrapGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hwSlbCompliance = hwSlbCompliance.setStatus('current')
+hwSlbMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 6, 122, 67, 3, 2))
+hwSlbObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 6, 122, 67, 3, 2, 1)).setObjects(("HUAWEI-SECURITY-SLB-MIB", "hwSlbServerIndex"), ("HUAWEI-SECURITY-SLB-MIB", "hwSlbServerIp"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hwSlbObjectGroup = hwSlbObjectGroup.setStatus('current')
+hwSlbTrapGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 2011, 6, 122, 67, 3, 2, 2)).setObjects(("HUAWEI-SECURITY-SLB-MIB", "hwSlbRserverStateUp"), ("HUAWEI-SECURITY-SLB-MIB", "hwSlbRserverStateDown"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    hwSlbTrapGroup = hwSlbTrapGroup.setStatus('current')
+mibBuilder.exportSymbols("HUAWEI-SECURITY-SLB-MIB", hwSlbObjectGroup=hwSlbObjectGroup, hwSlbServerIp=hwSlbServerIp, hwSlbTrapGroup=hwSlbTrapGroup, hwSlbServerIndex=hwSlbServerIndex, hwSlbRserverStateDown=hwSlbRserverStateDown, PYSNMP_MODULE_ID=hwSlb, hwSlbTraps=hwSlbTraps, hwSlbMibGroups=hwSlbMibGroups, hwSecurity=hwSecurity, hwSlbNotification=hwSlbNotification, hwSlbRserverStateUp=hwSlbRserverStateUp, hwSlbConformance=hwSlbConformance, hwSlbCompliances=hwSlbCompliances, huawei=huawei, huaweiUtility=huaweiUtility, hwSlb=hwSlb, hwSlbCompliance=hwSlbCompliance, hwSlbTrapObjects=hwSlbTrapObjects)

@@ -1,146 +1,104 @@
-_H='Seconds'
-_G='oacGdoiGmKekSPI'
-_F='oacGdoiGmActiveKEK'
-_E='Bits'
-_D='oacGdoiGroupName'
-_C='ONEACCESS-GDOI-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-oacExpIMManagement,=mibBuilder.importSymbols('ONEACCESS-GLOBAL-REG','oacExpIMManagement')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI',_E,'Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-oacExpIMGdoiMIB=ModuleIdentity((1,3,6,1,4,1,13191,10,3,4,1224))
-class OacGdoiIdentificationType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('keyID',1),('ipv4',2)))
-class OacGdoiIdentificationValue(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-class OacGdoiSPI(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(32,32));fixedLength=32
-class OacGdoiKEKEncryptionAlgorithm(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('enc-des',1),('enc-3des',2),('enc-aes',3)))
-class OacGdoiHashAlogrithm(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('md5',1),('sha1',2)))
-class OacGdoiSignatureMethod(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('rsa',1),('dss',2),('ecdss',3)))
-_OacGdoiMIBObjects_ObjectIdentity=ObjectIdentity
-oacGdoiMIBObjects=_OacGdoiMIBObjects_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,1224,1))
-_OacGdoiGroupTable_Object=MibTable
-oacGdoiGroupTable=_OacGdoiGroupTable_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,1))
-if mibBuilder.loadTexts:oacGdoiGroupTable.setStatus(_A)
-_OacGdoiGroupEntry_Object=MibTableRow
-oacGdoiGroupEntry=_OacGdoiGroupEntry_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,1,1))
-oacGdoiGroupEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:oacGdoiGroupEntry.setStatus(_A)
-_OacGdoiGroupName_Type=DisplayString
-_OacGdoiGroupName_Object=MibTableColumn
-oacGdoiGroupName=_OacGdoiGroupName_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,1,1,1),_OacGdoiGroupName_Type())
-oacGdoiGroupName.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGroupName.setStatus(_A)
-_OacGdoiGroupIdType_Type=OacGdoiIdentificationType
-_OacGdoiGroupIdType_Object=MibTableColumn
-oacGdoiGroupIdType=_OacGdoiGroupIdType_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,1,1,2),_OacGdoiGroupIdType_Type())
-oacGdoiGroupIdType.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGroupIdType.setStatus(_A)
-_OacGdoiGroupIdValue_Type=OacGdoiIdentificationValue
-_OacGdoiGroupIdValue_Object=MibTableColumn
-oacGdoiGroupIdValue=_OacGdoiGroupIdValue_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,1,1,3),_OacGdoiGroupIdValue_Type())
-oacGdoiGroupIdValue.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGroupIdValue.setStatus(_A)
-_OacGdoiGm_ObjectIdentity=ObjectIdentity
-oacGdoiGm=_OacGdoiGm_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,1224,1,2))
-_OacGdoiGmTable_Object=MibTable
-oacGdoiGmTable=_OacGdoiGmTable_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,2,2))
-if mibBuilder.loadTexts:oacGdoiGmTable.setStatus(_A)
-_OacGdoiGmEntry_Object=MibTableRow
-oacGdoiGmEntry=_OacGdoiGmEntry_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,2,2,1))
-oacGdoiGmEntry.setIndexNames((0,_C,_D),(0,_C,_F))
-if mibBuilder.loadTexts:oacGdoiGmEntry.setStatus(_A)
-_OacGdoiGmIdType_Type=OacGdoiIdentificationType
-_OacGdoiGmIdType_Object=MibTableColumn
-oacGdoiGmIdType=_OacGdoiGmIdType_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,2,2,1,1),_OacGdoiGmIdType_Type())
-oacGdoiGmIdType.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGmIdType.setStatus(_A)
-_OacGdoiGmIdValue_Type=OacGdoiIdentificationValue
-_OacGdoiGmIdValue_Object=MibTableColumn
-oacGdoiGmIdValue=_OacGdoiGmIdValue_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,2,2,1,2),_OacGdoiGmIdValue_Type())
-oacGdoiGmIdValue.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGmIdValue.setStatus(_A)
-_OacGdoiGmRegKeyServerIdValue_Type=OacGdoiIdentificationValue
-_OacGdoiGmRegKeyServerIdValue_Object=MibTableColumn
-oacGdoiGmRegKeyServerIdValue=_OacGdoiGmRegKeyServerIdValue_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,2,2,1,3),_OacGdoiGmRegKeyServerIdValue_Type())
-oacGdoiGmRegKeyServerIdValue.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGmRegKeyServerIdValue.setStatus(_A)
-_OacGdoiGmActiveKEK_Type=OacGdoiSPI
-_OacGdoiGmActiveKEK_Object=MibTableColumn
-oacGdoiGmActiveKEK=_OacGdoiGmActiveKEK_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,2,2,1,4),_OacGdoiGmActiveKEK_Type())
-oacGdoiGmActiveKEK.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGmActiveKEK.setStatus(_A)
-_OacGdoiGmRekeysReceived_Type=Counter32
-_OacGdoiGmRekeysReceived_Object=MibTableColumn
-oacGdoiGmRekeysReceived=_OacGdoiGmRekeysReceived_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,2,2,1,5),_OacGdoiGmRekeysReceived_Type())
-oacGdoiGmRekeysReceived.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGmRekeysReceived.setStatus(_A)
-if mibBuilder.loadTexts:oacGdoiGmRekeysReceived.setUnits('GROUPKEY-PUSH Messages')
-_OacGdoiPolicy_ObjectIdentity=ObjectIdentity
-oacGdoiPolicy=_OacGdoiPolicy_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,1224,1,3))
-_OacGdoiGmKekTable_Object=MibTable
-oacGdoiGmKekTable=_OacGdoiGmKekTable_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,3,2))
-if mibBuilder.loadTexts:oacGdoiGmKekTable.setStatus(_A)
-_OacGdoiGmKekEntry_Object=MibTableRow
-oacGdoiGmKekEntry=_OacGdoiGmKekEntry_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,3,2,1))
-oacGdoiGmKekEntry.setIndexNames((0,_C,_D),(0,_C,_G))
-if mibBuilder.loadTexts:oacGdoiGmKekEntry.setStatus(_A)
-_OacGdoiGmKekSPI_Type=OacGdoiSPI
-_OacGdoiGmKekSPI_Object=MibTableColumn
-oacGdoiGmKekSPI=_OacGdoiGmKekSPI_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,3,2,1,1),_OacGdoiGmKekSPI_Type())
-oacGdoiGmKekSPI.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGmKekSPI.setStatus(_A)
-_OacGdoiGmKekSrcIdValue_Type=OacGdoiIdentificationValue
-_OacGdoiGmKekSrcIdValue_Object=MibTableColumn
-oacGdoiGmKekSrcIdValue=_OacGdoiGmKekSrcIdValue_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,3,2,1,2),_OacGdoiGmKekSrcIdValue_Type())
-oacGdoiGmKekSrcIdValue.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGmKekSrcIdValue.setStatus(_A)
-_OacGdoiGmKekDstIdValue_Type=OacGdoiIdentificationValue
-_OacGdoiGmKekDstIdValue_Object=MibTableColumn
-oacGdoiGmKekDstIdValue=_OacGdoiGmKekDstIdValue_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,3,2,1,3),_OacGdoiGmKekDstIdValue_Type())
-oacGdoiGmKekDstIdValue.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGmKekDstIdValue.setStatus(_A)
-_OacGdoiGmKekEncryptAlg_Type=OacGdoiKEKEncryptionAlgorithm
-_OacGdoiGmKekEncryptAlg_Object=MibTableColumn
-oacGdoiGmKekEncryptAlg=_OacGdoiGmKekEncryptAlg_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,3,2,1,4),_OacGdoiGmKekEncryptAlg_Type())
-oacGdoiGmKekEncryptAlg.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGmKekEncryptAlg.setStatus(_A)
-_OacGdoiGmKekEncryptKeyLength_Type=Unsigned32
-_OacGdoiGmKekEncryptKeyLength_Object=MibTableColumn
-oacGdoiGmKekEncryptKeyLength=_OacGdoiGmKekEncryptKeyLength_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,3,2,1,5),_OacGdoiGmKekEncryptKeyLength_Type())
-oacGdoiGmKekEncryptKeyLength.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGmKekEncryptKeyLength.setStatus(_A)
-if mibBuilder.loadTexts:oacGdoiGmKekEncryptKeyLength.setUnits(_E)
-_OacGdoiGmKekSigHashAlg_Type=OacGdoiHashAlogrithm
-_OacGdoiGmKekSigHashAlg_Object=MibTableColumn
-oacGdoiGmKekSigHashAlg=_OacGdoiGmKekSigHashAlg_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,3,2,1,6),_OacGdoiGmKekSigHashAlg_Type())
-oacGdoiGmKekSigHashAlg.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGmKekSigHashAlg.setStatus(_A)
-_OacGdoiGmKekSigAlg_Type=OacGdoiSignatureMethod
-_OacGdoiGmKekSigAlg_Object=MibTableColumn
-oacGdoiGmKekSigAlg=_OacGdoiGmKekSigAlg_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,3,2,1,7),_OacGdoiGmKekSigAlg_Type())
-oacGdoiGmKekSigAlg.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGmKekSigAlg.setStatus(_A)
-_OacGdoiGmKekSigKeyLength_Type=Unsigned32
-_OacGdoiGmKekSigKeyLength_Object=MibTableColumn
-oacGdoiGmKekSigKeyLength=_OacGdoiGmKekSigKeyLength_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,3,2,1,8),_OacGdoiGmKekSigKeyLength_Type())
-oacGdoiGmKekSigKeyLength.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGmKekSigKeyLength.setStatus(_A)
-if mibBuilder.loadTexts:oacGdoiGmKekSigKeyLength.setUnits(_E)
-_OacGdoiGmKekOriginalLifetime_Type=Unsigned32
-_OacGdoiGmKekOriginalLifetime_Object=MibTableColumn
-oacGdoiGmKekOriginalLifetime=_OacGdoiGmKekOriginalLifetime_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,3,2,1,9),_OacGdoiGmKekOriginalLifetime_Type())
-oacGdoiGmKekOriginalLifetime.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGmKekOriginalLifetime.setStatus(_A)
-if mibBuilder.loadTexts:oacGdoiGmKekOriginalLifetime.setUnits(_H)
-_OacGdoiGmKekRemainingLifetime_Type=Unsigned32
-_OacGdoiGmKekRemainingLifetime_Object=MibTableColumn
-oacGdoiGmKekRemainingLifetime=_OacGdoiGmKekRemainingLifetime_Object((1,3,6,1,4,1,13191,10,3,4,1224,1,3,2,1,10),_OacGdoiGmKekRemainingLifetime_Type())
-oacGdoiGmKekRemainingLifetime.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacGdoiGmKekRemainingLifetime.setStatus(_A)
-if mibBuilder.loadTexts:oacGdoiGmKekRemainingLifetime.setUnits(_H)
-mibBuilder.exportSymbols(_C,**{'OacGdoiIdentificationType':OacGdoiIdentificationType,'OacGdoiIdentificationValue':OacGdoiIdentificationValue,'OacGdoiSPI':OacGdoiSPI,'OacGdoiKEKEncryptionAlgorithm':OacGdoiKEKEncryptionAlgorithm,'OacGdoiHashAlogrithm':OacGdoiHashAlogrithm,'OacGdoiSignatureMethod':OacGdoiSignatureMethod,'oacExpIMGdoiMIB':oacExpIMGdoiMIB,'oacGdoiMIBObjects':oacGdoiMIBObjects,'oacGdoiGroupTable':oacGdoiGroupTable,'oacGdoiGroupEntry':oacGdoiGroupEntry,_D:oacGdoiGroupName,'oacGdoiGroupIdType':oacGdoiGroupIdType,'oacGdoiGroupIdValue':oacGdoiGroupIdValue,'oacGdoiGm':oacGdoiGm,'oacGdoiGmTable':oacGdoiGmTable,'oacGdoiGmEntry':oacGdoiGmEntry,'oacGdoiGmIdType':oacGdoiGmIdType,'oacGdoiGmIdValue':oacGdoiGmIdValue,'oacGdoiGmRegKeyServerIdValue':oacGdoiGmRegKeyServerIdValue,_F:oacGdoiGmActiveKEK,'oacGdoiGmRekeysReceived':oacGdoiGmRekeysReceived,'oacGdoiPolicy':oacGdoiPolicy,'oacGdoiGmKekTable':oacGdoiGmKekTable,'oacGdoiGmKekEntry':oacGdoiGmKekEntry,_G:oacGdoiGmKekSPI,'oacGdoiGmKekSrcIdValue':oacGdoiGmKekSrcIdValue,'oacGdoiGmKekDstIdValue':oacGdoiGmKekDstIdValue,'oacGdoiGmKekEncryptAlg':oacGdoiGmKekEncryptAlg,'oacGdoiGmKekEncryptKeyLength':oacGdoiGmKekEncryptKeyLength,'oacGdoiGmKekSigHashAlg':oacGdoiGmKekSigHashAlg,'oacGdoiGmKekSigAlg':oacGdoiGmKekSigAlg,'oacGdoiGmKekSigKeyLength':oacGdoiGmKekSigKeyLength,'oacGdoiGmKekOriginalLifetime':oacGdoiGmKekOriginalLifetime,'oacGdoiGmKekRemainingLifetime':oacGdoiGmKekRemainingLifetime})
+#
+# PySNMP MIB module ONEACCESS-GDOI-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/oneaccess/ONEACCESS-GDOI-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:04 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+oacExpIMManagement, = mibBuilder.importSymbols("ONEACCESS-GLOBAL-REG", "oacExpIMManagement")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+oacExpIMGdoiMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224))
+if mibBuilder.loadTexts: oacExpIMGdoiMIB.setLastUpdated('1404151200Z')
+if mibBuilder.loadTexts: oacExpIMGdoiMIB.setOrganization('ONE ACCESS')
+class OacGdoiIdentificationType(TextualConvention, Integer32):
+    reference = "IANA ISAKMP Registry - 'Magic Numbers' for ISAKMP Protocol Section: IPSEC Identification Type http://www.iana.org/assignments/isakmp-registry"
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("keyID", 1), ("ipv4", 2))
+
+class OacGdoiIdentificationValue(TextualConvention, OctetString):
+    reference = "IANA ISAKMP Registry - 'Magic Numbers' for ISAKMP Protocol Section: IPSEC Identification Type http://www.iana.org/assignments/isakmp-registry"
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 16)
+
+class OacGdoiSPI(TextualConvention, OctetString):
+    reference = 'RFC 3547 - Section: 5.3. SA KEK Payload'
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(32, 32)
+    fixedLength = 32
+
+class OacGdoiKEKEncryptionAlgorithm(TextualConvention, Integer32):
+    reference = "IANA IKEv2 Parameters Section: Encryption Algorithm Transform IDs http://www.iana.org/assignments/ikev2-parameters IANA 'Magic Numbers' for ISAMP Protocol Section: IPSEC ESP Transform Identifiers http://www.iana.org/assignments/isakmp-registry RFC 2407 - Section: 4.4.4. IPSEC ESP Transform Identifiers RFC 3547 - Section: 5.3.3. KEK_ALGORITHM RFC 4306 - Section: 3.3.2. Transform Substructure RFC 4106, 4309, 4543, 5282, 5529"
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("enc-des", 1), ("enc-3des", 2), ("enc-aes", 3))
+
+class OacGdoiHashAlogrithm(TextualConvention, Integer32):
+    reference = 'IANA IKEv2 Parameters Section: Pseudo-random Function Transform IDs http://www.iana.org/assignments/ikev2-parameters RFC 3547 - Section: 5.3.6. SIG_HASH_ALGORITHM RFC 4306 - Section: 3.3.2. Transform Substructure RFC 4615, 4868'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("md5", 1), ("sha1", 2))
+
+class OacGdoiSignatureMethod(TextualConvention, Integer32):
+    reference = 'IANA IKEv2 Parameters Section: Integrity Algorithm Transform IDs http://www.iana.org/assignments/ikev2-parameters RFC 2407 - Section: 4.5. IPSEC Security Assoc. Attributes RFC 3547 - Section: 5.3.6. SIG_HASH_ALGORITHM RFC 4306 - Section: 3.3.2. Transform Substructure RFC 4494, 4543, 4595, 4868'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("rsa", 1), ("dss", 2), ("ecdss", 3))
+
+oacGdoiMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1))
+oacGdoiGroupTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 1), )
+if mibBuilder.loadTexts: oacGdoiGroupTable.setStatus('current')
+oacGdoiGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 1, 1), ).setIndexNames((0, "ONEACCESS-GDOI-MIB", "oacGdoiGroupName"))
+if mibBuilder.loadTexts: oacGdoiGroupEntry.setStatus('current')
+oacGdoiGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGroupName.setStatus('current')
+oacGdoiGroupIdType = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 1, 1, 2), OacGdoiIdentificationType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGroupIdType.setStatus('current')
+oacGdoiGroupIdValue = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 1, 1, 3), OacGdoiIdentificationValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGroupIdValue.setStatus('current')
+oacGdoiGm = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 2))
+oacGdoiPolicy = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 3))
+oacGdoiGmTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 2, 2), )
+if mibBuilder.loadTexts: oacGdoiGmTable.setStatus('current')
+oacGdoiGmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 2, 2, 1), ).setIndexNames((0, "ONEACCESS-GDOI-MIB", "oacGdoiGroupName"), (0, "ONEACCESS-GDOI-MIB", "oacGdoiGmActiveKEK"))
+if mibBuilder.loadTexts: oacGdoiGmEntry.setStatus('current')
+oacGdoiGmIdType = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 2, 2, 1, 1), OacGdoiIdentificationType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGmIdType.setStatus('current')
+oacGdoiGmIdValue = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 2, 2, 1, 2), OacGdoiIdentificationValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGmIdValue.setStatus('current')
+oacGdoiGmRegKeyServerIdValue = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 2, 2, 1, 3), OacGdoiIdentificationValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGmRegKeyServerIdValue.setStatus('current')
+oacGdoiGmActiveKEK = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 2, 2, 1, 4), OacGdoiSPI()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGmActiveKEK.setStatus('current')
+oacGdoiGmRekeysReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 2, 2, 1, 5), Counter32()).setUnits('GROUPKEY-PUSH Messages').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGmRekeysReceived.setStatus('current')
+oacGdoiGmKekTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 3, 2), )
+if mibBuilder.loadTexts: oacGdoiGmKekTable.setStatus('current')
+oacGdoiGmKekEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 3, 2, 1), ).setIndexNames((0, "ONEACCESS-GDOI-MIB", "oacGdoiGroupName"), (0, "ONEACCESS-GDOI-MIB", "oacGdoiGmKekSPI"))
+if mibBuilder.loadTexts: oacGdoiGmKekEntry.setStatus('current')
+oacGdoiGmKekSPI = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 3, 2, 1, 1), OacGdoiSPI()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGmKekSPI.setStatus('current')
+oacGdoiGmKekSrcIdValue = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 3, 2, 1, 2), OacGdoiIdentificationValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGmKekSrcIdValue.setStatus('current')
+oacGdoiGmKekDstIdValue = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 3, 2, 1, 3), OacGdoiIdentificationValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGmKekDstIdValue.setStatus('current')
+oacGdoiGmKekEncryptAlg = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 3, 2, 1, 4), OacGdoiKEKEncryptionAlgorithm()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGmKekEncryptAlg.setStatus('current')
+oacGdoiGmKekEncryptKeyLength = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 3, 2, 1, 5), Unsigned32()).setUnits('Bits').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGmKekEncryptKeyLength.setStatus('current')
+oacGdoiGmKekSigHashAlg = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 3, 2, 1, 6), OacGdoiHashAlogrithm()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGmKekSigHashAlg.setStatus('current')
+oacGdoiGmKekSigAlg = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 3, 2, 1, 7), OacGdoiSignatureMethod()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGmKekSigAlg.setStatus('current')
+oacGdoiGmKekSigKeyLength = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 3, 2, 1, 8), Unsigned32()).setUnits('Bits').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGmKekSigKeyLength.setStatus('current')
+oacGdoiGmKekOriginalLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 3, 2, 1, 9), Unsigned32()).setUnits('Seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGmKekOriginalLifetime.setStatus('current')
+oacGdoiGmKekRemainingLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 1224, 1, 3, 2, 1, 10), Unsigned32()).setUnits('Seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: oacGdoiGmKekRemainingLifetime.setStatus('current')
+mibBuilder.exportSymbols("ONEACCESS-GDOI-MIB", oacGdoiGm=oacGdoiGm, oacGdoiGmRegKeyServerIdValue=oacGdoiGmRegKeyServerIdValue, OacGdoiSignatureMethod=OacGdoiSignatureMethod, oacGdoiGmIdType=oacGdoiGmIdType, oacGdoiGmEntry=oacGdoiGmEntry, oacGdoiGmActiveKEK=oacGdoiGmActiveKEK, oacGdoiGmKekSigHashAlg=oacGdoiGmKekSigHashAlg, oacGdoiGmIdValue=oacGdoiGmIdValue, OacGdoiIdentificationType=OacGdoiIdentificationType, oacGdoiGmKekOriginalLifetime=oacGdoiGmKekOriginalLifetime, oacGdoiGmKekSrcIdValue=oacGdoiGmKekSrcIdValue, oacExpIMGdoiMIB=oacExpIMGdoiMIB, OacGdoiSPI=OacGdoiSPI, OacGdoiKEKEncryptionAlgorithm=OacGdoiKEKEncryptionAlgorithm, oacGdoiMIBObjects=oacGdoiMIBObjects, oacGdoiPolicy=oacGdoiPolicy, oacGdoiGmKekDstIdValue=oacGdoiGmKekDstIdValue, oacGdoiGmKekSigKeyLength=oacGdoiGmKekSigKeyLength, oacGdoiGmTable=oacGdoiGmTable, oacGdoiGroupEntry=oacGdoiGroupEntry, oacGdoiGmKekTable=oacGdoiGmKekTable, oacGdoiGroupName=oacGdoiGroupName, oacGdoiGmKekEncryptAlg=oacGdoiGmKekEncryptAlg, oacGdoiGmKekSigAlg=oacGdoiGmKekSigAlg, oacGdoiGmKekEntry=oacGdoiGmKekEntry, OacGdoiIdentificationValue=OacGdoiIdentificationValue, PYSNMP_MODULE_ID=oacExpIMGdoiMIB, oacGdoiGmKekSPI=oacGdoiGmKekSPI, oacGdoiGroupIdType=oacGdoiGroupIdType, OacGdoiHashAlogrithm=OacGdoiHashAlogrithm, oacGdoiGmKekEncryptKeyLength=oacGdoiGmKekEncryptKeyLength, oacGdoiGmRekeysReceived=oacGdoiGmRekeysReceived, oacGdoiGroupIdValue=oacGdoiGroupIdValue, oacGdoiGroupTable=oacGdoiGroupTable, oacGdoiGmKekRemainingLifetime=oacGdoiGmKekRemainingLifetime)

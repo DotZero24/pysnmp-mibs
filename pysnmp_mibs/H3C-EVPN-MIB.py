@@ -1,113 +1,60 @@
-_J='h3cEvpnESDFVLANID'
-_I='h3cEvpnESMemberIP'
-_H='h3cEvpnESMemberIPType'
-_G='DisplayString'
-_F='OctetString'
-_E='not-accessible'
-_D='h3cEvpnESESI'
-_C='H3C-EVPN-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-h3cCommon,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','h3cCommon')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_G,'PhysAddress','TextualConvention','TruthValue')
-h3cEvpn=ModuleIdentity((1,3,6,1,4,1,2011,10,2,173))
-if mibBuilder.loadTexts:h3cEvpn.setRevisions(('2017-10-21 09:00',))
-_H3cEvpnObjects_ObjectIdentity=ObjectIdentity
-h3cEvpnObjects=_H3cEvpnObjects_ObjectIdentity((1,3,6,1,4,1,2011,10,2,173,1))
-_H3cEvpnESTable_Object=MibTable
-h3cEvpnESTable=_H3cEvpnESTable_Object((1,3,6,1,4,1,2011,10,2,173,1,1))
-if mibBuilder.loadTexts:h3cEvpnESTable.setStatus(_A)
-_H3cEvpnESEntry_Object=MibTableRow
-h3cEvpnESEntry=_H3cEvpnESEntry_Object((1,3,6,1,4,1,2011,10,2,173,1,1,1))
-h3cEvpnESEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:h3cEvpnESEntry.setStatus(_A)
-class _H3cEvpnESESI_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,10))
-_H3cEvpnESESI_Type.__name__=_F
-_H3cEvpnESESI_Object=MibTableColumn
-h3cEvpnESESI=_H3cEvpnESESI_Object((1,3,6,1,4,1,2011,10,2,173,1,1,1,1),_H3cEvpnESESI_Type())
-h3cEvpnESESI.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cEvpnESESI.setStatus(_A)
-_H3cEvpnESIfIndex_Type=InterfaceIndex
-_H3cEvpnESIfIndex_Object=MibTableColumn
-h3cEvpnESIfIndex=_H3cEvpnESIfIndex_Object((1,3,6,1,4,1,2011,10,2,173,1,1,1,2),_H3cEvpnESIfIndex_Type())
-h3cEvpnESIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cEvpnESIfIndex.setStatus(_A)
-class _H3cEvpnESIfName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_H3cEvpnESIfName_Type.__name__=_G
-_H3cEvpnESIfName_Object=MibTableColumn
-h3cEvpnESIfName=_H3cEvpnESIfName_Object((1,3,6,1,4,1,2011,10,2,173,1,1,1,3),_H3cEvpnESIfName_Type())
-h3cEvpnESIfName.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cEvpnESIfName.setStatus(_A)
-_H3cEvpnESMode_Type=Unsigned32
-_H3cEvpnESMode_Object=MibTableColumn
-h3cEvpnESMode=_H3cEvpnESMode_Object((1,3,6,1,4,1,2011,10,2,173,1,1,1,4),_H3cEvpnESMode_Type())
-h3cEvpnESMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cEvpnESMode.setStatus(_A)
-_H3cEvpnESMemberTable_Object=MibTable
-h3cEvpnESMemberTable=_H3cEvpnESMemberTable_Object((1,3,6,1,4,1,2011,10,2,173,1,2))
-if mibBuilder.loadTexts:h3cEvpnESMemberTable.setStatus(_A)
-_H3cEvpnESMemberEntry_Object=MibTableRow
-h3cEvpnESMemberEntry=_H3cEvpnESMemberEntry_Object((1,3,6,1,4,1,2011,10,2,173,1,2,1))
-h3cEvpnESMemberEntry.setIndexNames((0,_C,_D),(0,_C,_H),(0,_C,_I))
-if mibBuilder.loadTexts:h3cEvpnESMemberEntry.setStatus(_A)
-_H3cEvpnESMemberIPType_Type=InetAddressType
-_H3cEvpnESMemberIPType_Object=MibTableColumn
-h3cEvpnESMemberIPType=_H3cEvpnESMemberIPType_Object((1,3,6,1,4,1,2011,10,2,173,1,2,1,1),_H3cEvpnESMemberIPType_Type())
-h3cEvpnESMemberIPType.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cEvpnESMemberIPType.setStatus(_A)
-_H3cEvpnESMemberIP_Type=InetAddress
-_H3cEvpnESMemberIP_Object=MibTableColumn
-h3cEvpnESMemberIP=_H3cEvpnESMemberIP_Object((1,3,6,1,4,1,2011,10,2,173,1,2,1,2),_H3cEvpnESMemberIP_Type())
-h3cEvpnESMemberIP.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cEvpnESMemberIP.setStatus(_A)
-_H3cEvpnESMemberIsSelf_Type=TruthValue
-_H3cEvpnESMemberIsSelf_Object=MibTableColumn
-h3cEvpnESMemberIsSelf=_H3cEvpnESMemberIsSelf_Object((1,3,6,1,4,1,2011,10,2,173,1,2,1,3),_H3cEvpnESMemberIsSelf_Type())
-h3cEvpnESMemberIsSelf.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cEvpnESMemberIsSelf.setStatus(_A)
-_H3cEvpnESDFTable_Object=MibTable
-h3cEvpnESDFTable=_H3cEvpnESDFTable_Object((1,3,6,1,4,1,2011,10,2,173,1,3))
-if mibBuilder.loadTexts:h3cEvpnESDFTable.setStatus(_A)
-_H3cEvpnESDFEntry_Object=MibTableRow
-h3cEvpnESDFEntry=_H3cEvpnESDFEntry_Object((1,3,6,1,4,1,2011,10,2,173,1,3,1))
-h3cEvpnESDFEntry.setIndexNames((0,_C,_D),(0,_C,_J))
-if mibBuilder.loadTexts:h3cEvpnESDFEntry.setStatus(_A)
-_H3cEvpnESDFVLANID_Type=Unsigned32
-_H3cEvpnESDFVLANID_Object=MibTableColumn
-h3cEvpnESDFVLANID=_H3cEvpnESDFVLANID_Object((1,3,6,1,4,1,2011,10,2,173,1,3,1,1),_H3cEvpnESDFVLANID_Type())
-h3cEvpnESDFVLANID.setMaxAccess(_E)
-if mibBuilder.loadTexts:h3cEvpnESDFVLANID.setStatus(_A)
-_H3cEvpnESDFAcIfIndex_Type=InterfaceIndex
-_H3cEvpnESDFAcIfIndex_Object=MibTableColumn
-h3cEvpnESDFAcIfIndex=_H3cEvpnESDFAcIfIndex_Object((1,3,6,1,4,1,2011,10,2,173,1,3,1,2),_H3cEvpnESDFAcIfIndex_Type())
-h3cEvpnESDFAcIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cEvpnESDFAcIfIndex.setStatus(_A)
-_H3cEvpnESDFACEvcSrvInstId_Type=Unsigned32
-_H3cEvpnESDFACEvcSrvInstId_Object=MibTableColumn
-h3cEvpnESDFACEvcSrvInstId=_H3cEvpnESDFACEvcSrvInstId_Object((1,3,6,1,4,1,2011,10,2,173,1,3,1,3),_H3cEvpnESDFACEvcSrvInstId_Type())
-h3cEvpnESDFACEvcSrvInstId.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cEvpnESDFACEvcSrvInstId.setStatus(_A)
-_H3cEvpnESDFMode_Type=Unsigned32
-_H3cEvpnESDFMode_Object=MibTableColumn
-h3cEvpnESDFMode=_H3cEvpnESDFMode_Object((1,3,6,1,4,1,2011,10,2,173,1,3,1,4),_H3cEvpnESDFMode_Type())
-h3cEvpnESDFMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cEvpnESDFMode.setStatus(_A)
-_H3cEvpnESDFRouterIPType_Type=InetAddressType
-_H3cEvpnESDFRouterIPType_Object=MibTableColumn
-h3cEvpnESDFRouterIPType=_H3cEvpnESDFRouterIPType_Object((1,3,6,1,4,1,2011,10,2,173,1,3,1,5),_H3cEvpnESDFRouterIPType_Type())
-h3cEvpnESDFRouterIPType.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cEvpnESDFRouterIPType.setStatus(_A)
-_H3cEvpnESDFRouterIP_Type=InetAddress
-_H3cEvpnESDFRouterIP_Object=MibTableColumn
-h3cEvpnESDFRouterIP=_H3cEvpnESDFRouterIP_Object((1,3,6,1,4,1,2011,10,2,173,1,3,1,6),_H3cEvpnESDFRouterIP_Type())
-h3cEvpnESDFRouterIP.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cEvpnESDFRouterIP.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'h3cEvpn':h3cEvpn,'h3cEvpnObjects':h3cEvpnObjects,'h3cEvpnESTable':h3cEvpnESTable,'h3cEvpnESEntry':h3cEvpnESEntry,_D:h3cEvpnESESI,'h3cEvpnESIfIndex':h3cEvpnESIfIndex,'h3cEvpnESIfName':h3cEvpnESIfName,'h3cEvpnESMode':h3cEvpnESMode,'h3cEvpnESMemberTable':h3cEvpnESMemberTable,'h3cEvpnESMemberEntry':h3cEvpnESMemberEntry,_H:h3cEvpnESMemberIPType,_I:h3cEvpnESMemberIP,'h3cEvpnESMemberIsSelf':h3cEvpnESMemberIsSelf,'h3cEvpnESDFTable':h3cEvpnESDFTable,'h3cEvpnESDFEntry':h3cEvpnESDFEntry,_J:h3cEvpnESDFVLANID,'h3cEvpnESDFAcIfIndex':h3cEvpnESDFAcIfIndex,'h3cEvpnESDFACEvcSrvInstId':h3cEvpnESDFACEvcSrvInstId,'h3cEvpnESDFMode':h3cEvpnESDFMode,'h3cEvpnESDFRouterIPType':h3cEvpnESDFRouterIPType,'h3cEvpnESDFRouterIP':h3cEvpnESDFRouterIP})
+#
+# PySNMP MIB module H3C-EVPN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-EVPN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:26 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+h3cEvpn = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173))
+h3cEvpn.setRevisions(('2017-10-21 09:00',))
+if mibBuilder.loadTexts: h3cEvpn.setLastUpdated('201710210900Z')
+if mibBuilder.loadTexts: h3cEvpn.setOrganization('Hangzhou H3C Technologies Co., Ltd.')
+h3cEvpnObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1))
+h3cEvpnESTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 1), )
+if mibBuilder.loadTexts: h3cEvpnESTable.setStatus('current')
+h3cEvpnESEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 1, 1), ).setIndexNames((0, "H3C-EVPN-MIB", "h3cEvpnESESI"))
+if mibBuilder.loadTexts: h3cEvpnESEntry.setStatus('current')
+h3cEvpnESESI = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 10)))
+if mibBuilder.loadTexts: h3cEvpnESESI.setStatus('current')
+h3cEvpnESIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 1, 1, 2), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cEvpnESIfIndex.setStatus('current')
+h3cEvpnESIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cEvpnESIfName.setStatus('current')
+h3cEvpnESMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cEvpnESMode.setStatus('current')
+h3cEvpnESMemberTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 2), )
+if mibBuilder.loadTexts: h3cEvpnESMemberTable.setStatus('current')
+h3cEvpnESMemberEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 2, 1), ).setIndexNames((0, "H3C-EVPN-MIB", "h3cEvpnESESI"), (0, "H3C-EVPN-MIB", "h3cEvpnESMemberIPType"), (0, "H3C-EVPN-MIB", "h3cEvpnESMemberIP"))
+if mibBuilder.loadTexts: h3cEvpnESMemberEntry.setStatus('current')
+h3cEvpnESMemberIPType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 2, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: h3cEvpnESMemberIPType.setStatus('current')
+h3cEvpnESMemberIP = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 2, 1, 2), InetAddress())
+if mibBuilder.loadTexts: h3cEvpnESMemberIP.setStatus('current')
+h3cEvpnESMemberIsSelf = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cEvpnESMemberIsSelf.setStatus('current')
+h3cEvpnESDFTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 3), )
+if mibBuilder.loadTexts: h3cEvpnESDFTable.setStatus('current')
+h3cEvpnESDFEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 3, 1), ).setIndexNames((0, "H3C-EVPN-MIB", "h3cEvpnESESI"), (0, "H3C-EVPN-MIB", "h3cEvpnESDFVLANID"))
+if mibBuilder.loadTexts: h3cEvpnESDFEntry.setStatus('current')
+h3cEvpnESDFVLANID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 3, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: h3cEvpnESDFVLANID.setStatus('current')
+h3cEvpnESDFAcIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 3, 1, 2), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cEvpnESDFAcIfIndex.setStatus('current')
+h3cEvpnESDFACEvcSrvInstId = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 3, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cEvpnESDFACEvcSrvInstId.setStatus('current')
+h3cEvpnESDFMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 3, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cEvpnESDFMode.setStatus('current')
+h3cEvpnESDFRouterIPType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 3, 1, 5), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cEvpnESDFRouterIPType.setStatus('current')
+h3cEvpnESDFRouterIP = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 173, 1, 3, 1, 6), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cEvpnESDFRouterIP.setStatus('current')
+mibBuilder.exportSymbols("H3C-EVPN-MIB", h3cEvpnESESI=h3cEvpnESESI, h3cEvpnESIfIndex=h3cEvpnESIfIndex, h3cEvpnESMemberIsSelf=h3cEvpnESMemberIsSelf, h3cEvpnESDFVLANID=h3cEvpnESDFVLANID, h3cEvpnESMemberIP=h3cEvpnESMemberIP, h3cEvpnESDFEntry=h3cEvpnESDFEntry, h3cEvpnESDFAcIfIndex=h3cEvpnESDFAcIfIndex, h3cEvpnESMemberIPType=h3cEvpnESMemberIPType, h3cEvpnESDFRouterIP=h3cEvpnESDFRouterIP, h3cEvpnESEntry=h3cEvpnESEntry, h3cEvpnESDFTable=h3cEvpnESDFTable, h3cEvpnESIfName=h3cEvpnESIfName, h3cEvpnESDFACEvcSrvInstId=h3cEvpnESDFACEvcSrvInstId, h3cEvpnESDFRouterIPType=h3cEvpnESDFRouterIPType, h3cEvpnESMode=h3cEvpnESMode, PYSNMP_MODULE_ID=h3cEvpn, h3cEvpn=h3cEvpn, h3cEvpnESMemberTable=h3cEvpnESMemberTable, h3cEvpnESMemberEntry=h3cEvpnESMemberEntry, h3cEvpnObjects=h3cEvpnObjects, h3cEvpnESTable=h3cEvpnESTable, h3cEvpnESDFMode=h3cEvpnESDFMode)

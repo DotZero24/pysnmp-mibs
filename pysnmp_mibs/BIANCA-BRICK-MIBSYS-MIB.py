@@ -1,62 +1,33 @@
-_F='sysPCMUnit'
-_E='sysPCMSlot'
-_D='BIANCA-BRICK-MIBSYS-MIB'
-_C='read-only'
-_B='Integer32'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Bintec_ObjectIdentity=ObjectIdentity
-bintec=_Bintec_ObjectIdentity((1,3,6,1,4,1,272))
-_Bibo_ObjectIdentity=ObjectIdentity
-bibo=_Bibo_ObjectIdentity((1,3,6,1,4,1,272,4))
-_Sys_ObjectIdentity=ObjectIdentity
-sys=_Sys_ObjectIdentity((1,3,6,1,4,1,272,4,17))
-_SysPCMTable_Object=MibTable
-sysPCMTable=_SysPCMTable_Object((1,3,6,1,4,1,272,4,17,1))
-if mibBuilder.loadTexts:sysPCMTable.setStatus(_A)
-_SysPCMEntry_Object=MibTableRow
-sysPCMEntry=_SysPCMEntry_Object((1,3,6,1,4,1,272,4,17,1,1))
-sysPCMEntry.setIndexNames((0,_D,_E),(0,_D,_F))
-if mibBuilder.loadTexts:sysPCMEntry.setStatus(_A)
-class _SysPCMSlot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30))
-_SysPCMSlot_Type.__name__=_B
-_SysPCMSlot_Object=MibTableColumn
-sysPCMSlot=_SysPCMSlot_Object((1,3,6,1,4,1,272,4,17,1,1,1),_SysPCMSlot_Type())
-sysPCMSlot.setMaxAccess(_C)
-if mibBuilder.loadTexts:sysPCMSlot.setStatus(_A)
-class _SysPCMUnit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,31))
-_SysPCMUnit_Type.__name__=_B
-_SysPCMUnit_Object=MibTableColumn
-sysPCMUnit=_SysPCMUnit_Object((1,3,6,1,4,1,272,4,17,1,1,2),_SysPCMUnit_Type())
-sysPCMUnit.setMaxAccess(_C)
-if mibBuilder.loadTexts:sysPCMUnit.setStatus(_A)
-class _SysPCMClockStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ready',1),('not-ready',2)))
-_SysPCMClockStatus_Type.__name__=_B
-_SysPCMClockStatus_Object=MibTableColumn
-sysPCMClockStatus=_SysPCMClockStatus_Object((1,3,6,1,4,1,272,4,17,1,1,3),_SysPCMClockStatus_Type())
-sysPCMClockStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:sysPCMClockStatus.setStatus(_A)
-class _SysPCMClockMaster_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('candidate',1),('master',2)))
-_SysPCMClockMaster_Type.__name__=_B
-_SysPCMClockMaster_Object=MibTableColumn
-sysPCMClockMaster=_SysPCMClockMaster_Object((1,3,6,1,4,1,272,4,17,1,1,4),_SysPCMClockMaster_Type())
-sysPCMClockMaster.setMaxAccess(_C)
-if mibBuilder.loadTexts:sysPCMClockMaster.setStatus(_A)
-class _SysPCMMasterPrio_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
-_SysPCMMasterPrio_Type.__name__=_B
-_SysPCMMasterPrio_Object=MibTableColumn
-sysPCMMasterPrio=_SysPCMMasterPrio_Object((1,3,6,1,4,1,272,4,17,1,1,5),_SysPCMMasterPrio_Type())
-sysPCMMasterPrio.setMaxAccess('read-write')
-if mibBuilder.loadTexts:sysPCMMasterPrio.setStatus(_A)
-_SysPCMChanges_Type=Counter32
-_SysPCMChanges_Object=MibTableColumn
-sysPCMChanges=_SysPCMChanges_Object((1,3,6,1,4,1,272,4,17,1,1,10),_SysPCMChanges_Type())
-sysPCMChanges.setMaxAccess(_C)
-if mibBuilder.loadTexts:sysPCMChanges.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'bintec':bintec,'bibo':bibo,'sys':sys,'sysPCMTable':sysPCMTable,'sysPCMEntry':sysPCMEntry,_E:sysPCMSlot,_F:sysPCMUnit,'sysPCMClockStatus':sysPCMClockStatus,'sysPCMClockMaster':sysPCMClockMaster,'sysPCMMasterPrio':sysPCMMasterPrio,'sysPCMChanges':sysPCMChanges})
+#
+# PySNMP MIB module BIANCA-BRICK-MIBSYS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/bintec/BIANCA-BRICK-MIBSYS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+bintec = MibIdentifier((1, 3, 6, 1, 4, 1, 272))
+bibo = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4))
+sys = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4, 17))
+sysPCMTable = MibTable((1, 3, 6, 1, 4, 1, 272, 4, 17, 1), )
+if mibBuilder.loadTexts: sysPCMTable.setStatus('mandatory')
+sysPCMEntry = MibTableRow((1, 3, 6, 1, 4, 1, 272, 4, 17, 1, 1), ).setIndexNames((0, "BIANCA-BRICK-MIBSYS-MIB", "sysPCMSlot"), (0, "BIANCA-BRICK-MIBSYS-MIB", "sysPCMUnit"))
+if mibBuilder.loadTexts: sysPCMEntry.setStatus('mandatory')
+sysPCMSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 17, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 30))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysPCMSlot.setStatus('mandatory')
+sysPCMUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 17, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 31))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysPCMUnit.setStatus('mandatory')
+sysPCMClockStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 17, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ready", 1), ("not-ready", 2))).clone('not-ready')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysPCMClockStatus.setStatus('mandatory')
+sysPCMClockMaster = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 17, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("candidate", 1), ("master", 2))).clone('candidate')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysPCMClockMaster.setStatus('mandatory')
+sysPCMMasterPrio = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 17, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: sysPCMMasterPrio.setStatus('mandatory')
+sysPCMChanges = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 17, 1, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: sysPCMChanges.setStatus('mandatory')
+mibBuilder.exportSymbols("BIANCA-BRICK-MIBSYS-MIB", sys=sys, sysPCMUnit=sysPCMUnit, sysPCMClockStatus=sysPCMClockStatus, sysPCMEntry=sysPCMEntry, sysPCMClockMaster=sysPCMClockMaster, sysPCMMasterPrio=sysPCMMasterPrio, sysPCMTable=sysPCMTable, bintec=bintec, bibo=bibo, sysPCMChanges=sysPCMChanges, sysPCMSlot=sysPCMSlot)

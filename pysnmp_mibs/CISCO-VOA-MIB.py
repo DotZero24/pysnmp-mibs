@@ -1,76 +1,54 @@
-_L='cVoaMIBBaseGroup'
-_K='cVoaDesiredPower'
-_J='cVoaAttenuationLastChange'
-_I='cVoaAttenuation'
-_H='cVoaAttenuationControlMode'
-_G='cVoaDirection'
-_F='Integer32'
-_E='ifIndex'
-_D='IF-MIB'
-_C='read-write'
-_B='CISCO-VOA-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-OpticalIfDirection,=mibBuilder.importSymbols('CISCO-OPTICAL-MONITOR-MIB','OpticalIfDirection')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp')
-ciscoVoaMIB=ModuleIdentity((1,3,6,1,4,1,9,9,262))
-if mibBuilder.loadTexts:ciscoVoaMIB.setRevisions(('2002-05-07 00:00',))
-class OpticalPowerInDbm(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-400,250),ValueRangeConstraint(-1000,-1000))
-class OpticalAttenInDb(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,400))
-_CVoaMIBObjects_ObjectIdentity=ObjectIdentity
-cVoaMIBObjects=_CVoaMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,262,1))
-_CVoaBaseGroup_ObjectIdentity=ObjectIdentity
-cVoaBaseGroup=_CVoaBaseGroup_ObjectIdentity((1,3,6,1,4,1,9,9,262,1,1))
-_CVoaTable_Object=MibTable
-cVoaTable=_CVoaTable_Object((1,3,6,1,4,1,9,9,262,1,1,1))
-if mibBuilder.loadTexts:cVoaTable.setStatus(_A)
-_CVoaEntry_Object=MibTableRow
-cVoaEntry=_CVoaEntry_Object((1,3,6,1,4,1,9,9,262,1,1,1,1))
-cVoaEntry.setIndexNames((0,_D,_E),(0,_B,_G))
-if mibBuilder.loadTexts:cVoaEntry.setStatus(_A)
-_CVoaDirection_Type=OpticalIfDirection
-_CVoaDirection_Object=MibTableColumn
-cVoaDirection=_CVoaDirection_Object((1,3,6,1,4,1,9,9,262,1,1,1,1,1),_CVoaDirection_Type())
-cVoaDirection.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:cVoaDirection.setStatus(_A)
-class _CVoaAttenuationControlMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('manual',1),('automatic',2)))
-_CVoaAttenuationControlMode_Type.__name__=_F
-_CVoaAttenuationControlMode_Object=MibTableColumn
-cVoaAttenuationControlMode=_CVoaAttenuationControlMode_Object((1,3,6,1,4,1,9,9,262,1,1,1,1,2),_CVoaAttenuationControlMode_Type())
-cVoaAttenuationControlMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVoaAttenuationControlMode.setStatus(_A)
-_CVoaAttenuation_Type=OpticalAttenInDb
-_CVoaAttenuation_Object=MibTableColumn
-cVoaAttenuation=_CVoaAttenuation_Object((1,3,6,1,4,1,9,9,262,1,1,1,1,3),_CVoaAttenuation_Type())
-cVoaAttenuation.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVoaAttenuation.setStatus(_A)
-_CVoaAttenuationLastChange_Type=TimeStamp
-_CVoaAttenuationLastChange_Object=MibTableColumn
-cVoaAttenuationLastChange=_CVoaAttenuationLastChange_Object((1,3,6,1,4,1,9,9,262,1,1,1,1,4),_CVoaAttenuationLastChange_Type())
-cVoaAttenuationLastChange.setMaxAccess('read-only')
-if mibBuilder.loadTexts:cVoaAttenuationLastChange.setStatus(_A)
-_CVoaDesiredPower_Type=OpticalPowerInDbm
-_CVoaDesiredPower_Object=MibTableColumn
-cVoaDesiredPower=_CVoaDesiredPower_Object((1,3,6,1,4,1,9,9,262,1,1,1,1,5),_CVoaDesiredPower_Type())
-cVoaDesiredPower.setMaxAccess(_C)
-if mibBuilder.loadTexts:cVoaDesiredPower.setStatus(_A)
-_CVoaMIBConformance_ObjectIdentity=ObjectIdentity
-cVoaMIBConformance=_CVoaMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,262,3))
-_CVoaMIBCompliances_ObjectIdentity=ObjectIdentity
-cVoaMIBCompliances=_CVoaMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,262,3,1))
-_CVoaMIBGroups_ObjectIdentity=ObjectIdentity
-cVoaMIBGroups=_CVoaMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,262,3,2))
-cVoaMIBBaseGroup=ObjectGroup((1,3,6,1,4,1,9,9,262,3,2,1))
-cVoaMIBBaseGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:cVoaMIBBaseGroup.setStatus(_A)
-cVoaMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,262,3,1,1))
-cVoaMIBCompliance.setObjects((_B,_L))
-if mibBuilder.loadTexts:cVoaMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'OpticalPowerInDbm':OpticalPowerInDbm,'OpticalAttenInDb':OpticalAttenInDb,'ciscoVoaMIB':ciscoVoaMIB,'cVoaMIBObjects':cVoaMIBObjects,'cVoaBaseGroup':cVoaBaseGroup,'cVoaTable':cVoaTable,'cVoaEntry':cVoaEntry,_G:cVoaDirection,_H:cVoaAttenuationControlMode,_I:cVoaAttenuation,_J:cVoaAttenuationLastChange,_K:cVoaDesiredPower,'cVoaMIBConformance':cVoaMIBConformance,'cVoaMIBCompliances':cVoaMIBCompliances,'cVoaMIBCompliance':cVoaMIBCompliance,'cVoaMIBGroups':cVoaMIBGroups,_L:cVoaMIBBaseGroup})
+#
+# PySNMP MIB module CISCO-VOA-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-VOA-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+OpticalIfDirection, = mibBuilder.importSymbols("CISCO-OPTICAL-MONITOR-MIB", "OpticalIfDirection")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+ciscoVoaMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 262))
+ciscoVoaMIB.setRevisions(('2002-05-07 00:00',))
+if mibBuilder.loadTexts: ciscoVoaMIB.setLastUpdated('200205070000Z')
+if mibBuilder.loadTexts: ciscoVoaMIB.setOrganization('Cisco Systems, Inc.')
+class OpticalPowerInDbm(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(-400, 250), ValueRangeConstraint(-1000, -1000), )
+class OpticalAttenInDb(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 400)
+
+cVoaMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 262, 1))
+cVoaBaseGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 262, 1, 1))
+cVoaTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 262, 1, 1, 1), )
+if mibBuilder.loadTexts: cVoaTable.setStatus('current')
+cVoaEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 262, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-VOA-MIB", "cVoaDirection"))
+if mibBuilder.loadTexts: cVoaEntry.setStatus('current')
+cVoaDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 262, 1, 1, 1, 1, 1), OpticalIfDirection())
+if mibBuilder.loadTexts: cVoaDirection.setStatus('current')
+cVoaAttenuationControlMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 262, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("manual", 1), ("automatic", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cVoaAttenuationControlMode.setStatus('current')
+cVoaAttenuation = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 262, 1, 1, 1, 1, 3), OpticalAttenInDb()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cVoaAttenuation.setStatus('current')
+cVoaAttenuationLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 262, 1, 1, 1, 1, 4), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cVoaAttenuationLastChange.setStatus('current')
+cVoaDesiredPower = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 262, 1, 1, 1, 1, 5), OpticalPowerInDbm()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cVoaDesiredPower.setStatus('current')
+cVoaMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 262, 3))
+cVoaMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 262, 3, 1))
+cVoaMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 262, 3, 2))
+cVoaMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 262, 3, 1, 1)).setObjects(("CISCO-VOA-MIB", "cVoaMIBBaseGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cVoaMIBCompliance = cVoaMIBCompliance.setStatus('current')
+cVoaMIBBaseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 262, 3, 2, 1)).setObjects(("CISCO-VOA-MIB", "cVoaAttenuationControlMode"), ("CISCO-VOA-MIB", "cVoaAttenuation"), ("CISCO-VOA-MIB", "cVoaAttenuationLastChange"), ("CISCO-VOA-MIB", "cVoaDesiredPower"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cVoaMIBBaseGroup = cVoaMIBBaseGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-VOA-MIB", OpticalPowerInDbm=OpticalPowerInDbm, cVoaMIBBaseGroup=cVoaMIBBaseGroup, cVoaMIBCompliances=cVoaMIBCompliances, cVoaBaseGroup=cVoaBaseGroup, OpticalAttenInDb=OpticalAttenInDb, cVoaMIBCompliance=cVoaMIBCompliance, cVoaMIBConformance=cVoaMIBConformance, cVoaMIBObjects=cVoaMIBObjects, cVoaEntry=cVoaEntry, cVoaAttenuation=cVoaAttenuation, ciscoVoaMIB=ciscoVoaMIB, cVoaAttenuationControlMode=cVoaAttenuationControlMode, cVoaDesiredPower=cVoaDesiredPower, PYSNMP_MODULE_ID=ciscoVoaMIB, cVoaTable=cVoaTable, cVoaMIBGroups=cVoaMIBGroups, cVoaAttenuationLastChange=cVoaAttenuationLastChange, cVoaDirection=cVoaDirection)

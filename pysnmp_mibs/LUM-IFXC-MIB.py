@@ -1,169 +1,94 @@
-_Y='ifXcDynamicXcOduGroupV3'
-_X='ifXcDynamicXcOduGroupV2'
-_W='ifXcDynamicXcOduGroupV1'
-_V='ifXcStaticXcOduToIndex'
-_U='ifXcStaticXcOduFromIndex'
-_T='ifXcStaticXcOduName'
-_S='ifXcGeneralIfXcDynamicXcOduStateLastChangeTime'
-_R='ifXcGeneralIfXcDynamicXcOduConfigLastChangeTime'
-_Q='ifXcGeneralIfXcDynamicXcOduTableSize'
-_P='ifXcGeneralIfXcStaticXcOduStateLastChangeTime'
-_O='ifXcGeneralIfXcStaticXcOduConfigLastChangeTime'
-_N='ifXcGeneralIfXcStaticXcOduTableSize'
-_M='ifXcGeneralStateLastChangeTime'
-_L='ifXcGeneralConfigLastChangeTime'
-_K='ifXcStaticXcOduIndex'
-_J='ifXcStaticXcOduGroupV1'
-_I='ifXcGeneralGroupV1'
-_H='deprecated'
-_G='ifXcDynamicXcOduToIndex'
-_F='ifXcDynamicXcOduFromIndex'
-_E='ifXcDynamicXcOduName'
-_D='ifXcDynamicXcOduIndex'
-_C='read-only'
-_B='current'
-_A='LUM-IFXC-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-lumIfXcMIB,lumModules=mibBuilder.importSymbols('LUM-REG','lumIfXcMIB','lumModules')
-CommandString,MgmtNameString,Unsigned32WithNA=mibBuilder.importSymbols('LUM-TC','CommandString','MgmtNameString','Unsigned32WithNA')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
-lumIfXcMIBModule=ModuleIdentity((1,3,6,1,4,1,8708,1,1,51))
-if mibBuilder.loadTexts:lumIfXcMIBModule.setRevisions(('2017-06-15 00:00','2013-11-15 00:00','2012-11-20 00:00'))
-_LumIfXcConfs_ObjectIdentity=ObjectIdentity
-lumIfXcConfs=_LumIfXcConfs_ObjectIdentity((1,3,6,1,4,1,8708,2,51,1))
-_LumIfXcGroups_ObjectIdentity=ObjectIdentity
-lumIfXcGroups=_LumIfXcGroups_ObjectIdentity((1,3,6,1,4,1,8708,2,51,1,1))
-_LumIfXcCompl_ObjectIdentity=ObjectIdentity
-lumIfXcCompl=_LumIfXcCompl_ObjectIdentity((1,3,6,1,4,1,8708,2,51,1,2))
-_LumIfXcMIBObjects_ObjectIdentity=ObjectIdentity
-lumIfXcMIBObjects=_LumIfXcMIBObjects_ObjectIdentity((1,3,6,1,4,1,8708,2,51,2))
-_IfXcGeneral_ObjectIdentity=ObjectIdentity
-ifXcGeneral=_IfXcGeneral_ObjectIdentity((1,3,6,1,4,1,8708,2,51,2,1))
-_IfXcGeneralConfigLastChangeTime_Type=DateAndTime
-_IfXcGeneralConfigLastChangeTime_Object=MibScalar
-ifXcGeneralConfigLastChangeTime=_IfXcGeneralConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,51,2,1,1),_IfXcGeneralConfigLastChangeTime_Type())
-ifXcGeneralConfigLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcGeneralConfigLastChangeTime.setStatus(_B)
-_IfXcGeneralStateLastChangeTime_Type=DateAndTime
-_IfXcGeneralStateLastChangeTime_Object=MibScalar
-ifXcGeneralStateLastChangeTime=_IfXcGeneralStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,51,2,1,2),_IfXcGeneralStateLastChangeTime_Type())
-ifXcGeneralStateLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcGeneralStateLastChangeTime.setStatus(_B)
-_IfXcGeneralIfXcStaticXcOduTableSize_Type=Unsigned32
-_IfXcGeneralIfXcStaticXcOduTableSize_Object=MibScalar
-ifXcGeneralIfXcStaticXcOduTableSize=_IfXcGeneralIfXcStaticXcOduTableSize_Object((1,3,6,1,4,1,8708,2,51,2,1,3),_IfXcGeneralIfXcStaticXcOduTableSize_Type())
-ifXcGeneralIfXcStaticXcOduTableSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcGeneralIfXcStaticXcOduTableSize.setStatus(_B)
-_IfXcGeneralIfXcStaticXcOduConfigLastChangeTime_Type=DateAndTime
-_IfXcGeneralIfXcStaticXcOduConfigLastChangeTime_Object=MibScalar
-ifXcGeneralIfXcStaticXcOduConfigLastChangeTime=_IfXcGeneralIfXcStaticXcOduConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,51,2,1,4),_IfXcGeneralIfXcStaticXcOduConfigLastChangeTime_Type())
-ifXcGeneralIfXcStaticXcOduConfigLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcGeneralIfXcStaticXcOduConfigLastChangeTime.setStatus(_B)
-_IfXcGeneralIfXcStaticXcOduStateLastChangeTime_Type=DateAndTime
-_IfXcGeneralIfXcStaticXcOduStateLastChangeTime_Object=MibScalar
-ifXcGeneralIfXcStaticXcOduStateLastChangeTime=_IfXcGeneralIfXcStaticXcOduStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,51,2,1,5),_IfXcGeneralIfXcStaticXcOduStateLastChangeTime_Type())
-ifXcGeneralIfXcStaticXcOduStateLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcGeneralIfXcStaticXcOduStateLastChangeTime.setStatus(_B)
-_IfXcGeneralIfXcDynamicXcOduTableSize_Type=Unsigned32
-_IfXcGeneralIfXcDynamicXcOduTableSize_Object=MibScalar
-ifXcGeneralIfXcDynamicXcOduTableSize=_IfXcGeneralIfXcDynamicXcOduTableSize_Object((1,3,6,1,4,1,8708,2,51,2,1,6),_IfXcGeneralIfXcDynamicXcOduTableSize_Type())
-ifXcGeneralIfXcDynamicXcOduTableSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcGeneralIfXcDynamicXcOduTableSize.setStatus(_B)
-_IfXcGeneralIfXcDynamicXcOduConfigLastChangeTime_Type=DateAndTime
-_IfXcGeneralIfXcDynamicXcOduConfigLastChangeTime_Object=MibScalar
-ifXcGeneralIfXcDynamicXcOduConfigLastChangeTime=_IfXcGeneralIfXcDynamicXcOduConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,51,2,1,7),_IfXcGeneralIfXcDynamicXcOduConfigLastChangeTime_Type())
-ifXcGeneralIfXcDynamicXcOduConfigLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcGeneralIfXcDynamicXcOduConfigLastChangeTime.setStatus(_B)
-_IfXcGeneralIfXcDynamicXcOduStateLastChangeTime_Type=DateAndTime
-_IfXcGeneralIfXcDynamicXcOduStateLastChangeTime_Object=MibScalar
-ifXcGeneralIfXcDynamicXcOduStateLastChangeTime=_IfXcGeneralIfXcDynamicXcOduStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,51,2,1,8),_IfXcGeneralIfXcDynamicXcOduStateLastChangeTime_Type())
-ifXcGeneralIfXcDynamicXcOduStateLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcGeneralIfXcDynamicXcOduStateLastChangeTime.setStatus(_B)
-_IfXcStaticXcOduList_ObjectIdentity=ObjectIdentity
-ifXcStaticXcOduList=_IfXcStaticXcOduList_ObjectIdentity((1,3,6,1,4,1,8708,2,51,2,2))
-_IfXcStaticXcOduTable_Object=MibTable
-ifXcStaticXcOduTable=_IfXcStaticXcOduTable_Object((1,3,6,1,4,1,8708,2,51,2,2,1))
-if mibBuilder.loadTexts:ifXcStaticXcOduTable.setStatus(_B)
-_IfXcStaticXcOduEntry_Object=MibTableRow
-ifXcStaticXcOduEntry=_IfXcStaticXcOduEntry_Object((1,3,6,1,4,1,8708,2,51,2,2,1,1))
-ifXcStaticXcOduEntry.setIndexNames((0,_A,_K))
-if mibBuilder.loadTexts:ifXcStaticXcOduEntry.setStatus(_B)
-_IfXcStaticXcOduIndex_Type=Unsigned32
-_IfXcStaticXcOduIndex_Object=MibTableColumn
-ifXcStaticXcOduIndex=_IfXcStaticXcOduIndex_Object((1,3,6,1,4,1,8708,2,51,2,2,1,1,1),_IfXcStaticXcOduIndex_Type())
-ifXcStaticXcOduIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcStaticXcOduIndex.setStatus(_B)
-_IfXcStaticXcOduName_Type=MgmtNameString
-_IfXcStaticXcOduName_Object=MibTableColumn
-ifXcStaticXcOduName=_IfXcStaticXcOduName_Object((1,3,6,1,4,1,8708,2,51,2,2,1,1,2),_IfXcStaticXcOduName_Type())
-ifXcStaticXcOduName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcStaticXcOduName.setStatus(_B)
-_IfXcStaticXcOduFromIndex_Type=Unsigned32WithNA
-_IfXcStaticXcOduFromIndex_Object=MibTableColumn
-ifXcStaticXcOduFromIndex=_IfXcStaticXcOduFromIndex_Object((1,3,6,1,4,1,8708,2,51,2,2,1,1,3),_IfXcStaticXcOduFromIndex_Type())
-ifXcStaticXcOduFromIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcStaticXcOduFromIndex.setStatus(_B)
-_IfXcStaticXcOduToIndex_Type=Unsigned32WithNA
-_IfXcStaticXcOduToIndex_Object=MibTableColumn
-ifXcStaticXcOduToIndex=_IfXcStaticXcOduToIndex_Object((1,3,6,1,4,1,8708,2,51,2,2,1,1,4),_IfXcStaticXcOduToIndex_Type())
-ifXcStaticXcOduToIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcStaticXcOduToIndex.setStatus(_B)
-_IfXcDynamicXcOduList_ObjectIdentity=ObjectIdentity
-ifXcDynamicXcOduList=_IfXcDynamicXcOduList_ObjectIdentity((1,3,6,1,4,1,8708,2,51,2,3))
-_IfXcDynamicXcOduTable_Object=MibTable
-ifXcDynamicXcOduTable=_IfXcDynamicXcOduTable_Object((1,3,6,1,4,1,8708,2,51,2,3,1))
-if mibBuilder.loadTexts:ifXcDynamicXcOduTable.setStatus(_B)
-_IfXcDynamicXcOduEntry_Object=MibTableRow
-ifXcDynamicXcOduEntry=_IfXcDynamicXcOduEntry_Object((1,3,6,1,4,1,8708,2,51,2,3,1,1))
-ifXcDynamicXcOduEntry.setIndexNames((0,_A,_D))
-if mibBuilder.loadTexts:ifXcDynamicXcOduEntry.setStatus(_B)
-_IfXcDynamicXcOduIndex_Type=Unsigned32
-_IfXcDynamicXcOduIndex_Object=MibTableColumn
-ifXcDynamicXcOduIndex=_IfXcDynamicXcOduIndex_Object((1,3,6,1,4,1,8708,2,51,2,3,1,1,1),_IfXcDynamicXcOduIndex_Type())
-ifXcDynamicXcOduIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcDynamicXcOduIndex.setStatus(_B)
-_IfXcDynamicXcOduName_Type=MgmtNameString
-_IfXcDynamicXcOduName_Object=MibTableColumn
-ifXcDynamicXcOduName=_IfXcDynamicXcOduName_Object((1,3,6,1,4,1,8708,2,51,2,3,1,1,2),_IfXcDynamicXcOduName_Type())
-ifXcDynamicXcOduName.setMaxAccess('read-create')
-if mibBuilder.loadTexts:ifXcDynamicXcOduName.setStatus(_B)
-_IfXcDynamicXcOduFromIndex_Type=Unsigned32WithNA
-_IfXcDynamicXcOduFromIndex_Object=MibTableColumn
-ifXcDynamicXcOduFromIndex=_IfXcDynamicXcOduFromIndex_Object((1,3,6,1,4,1,8708,2,51,2,3,1,1,3),_IfXcDynamicXcOduFromIndex_Type())
-ifXcDynamicXcOduFromIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ifXcDynamicXcOduFromIndex.setStatus(_B)
-_IfXcDynamicXcOduToIndex_Type=Unsigned32WithNA
-_IfXcDynamicXcOduToIndex_Object=MibTableColumn
-ifXcDynamicXcOduToIndex=_IfXcDynamicXcOduToIndex_Object((1,3,6,1,4,1,8708,2,51,2,3,1,1,4),_IfXcDynamicXcOduToIndex_Type())
-ifXcDynamicXcOduToIndex.setMaxAccess('read-write')
-if mibBuilder.loadTexts:ifXcDynamicXcOduToIndex.setStatus(_B)
-ifXcGeneralGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,51,1,1,1))
-ifXcGeneralGroupV1.setObjects(*((_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S)))
-if mibBuilder.loadTexts:ifXcGeneralGroupV1.setStatus(_B)
-ifXcStaticXcOduGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,51,1,1,2))
-ifXcStaticXcOduGroupV1.setObjects(*((_A,_K),(_A,_T),(_A,_U),(_A,_V)))
-if mibBuilder.loadTexts:ifXcStaticXcOduGroupV1.setStatus(_B)
-ifXcDynamicXcOduGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,51,1,1,3))
-ifXcDynamicXcOduGroupV1.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:ifXcDynamicXcOduGroupV1.setStatus(_H)
-ifXcDynamicXcOduGroupV2=ObjectGroup((1,3,6,1,4,1,8708,2,51,1,1,4))
-ifXcDynamicXcOduGroupV2.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:ifXcDynamicXcOduGroupV2.setStatus(_H)
-ifXcDynamicXcOduGroupV3=ObjectGroup((1,3,6,1,4,1,8708,2,51,1,1,5))
-ifXcDynamicXcOduGroupV3.setObjects(*((_A,_D),(_A,_E),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:ifXcDynamicXcOduGroupV3.setStatus(_B)
-lumIfXcComplV1=ModuleCompliance((1,3,6,1,4,1,8708,2,51,1,2,1))
-lumIfXcComplV1.setObjects(*((_A,_I),(_A,_J),(_A,_W)))
-if mibBuilder.loadTexts:lumIfXcComplV1.setStatus(_H)
-lumIfXcComplV2=ModuleCompliance((1,3,6,1,4,1,8708,2,51,1,2,2))
-lumIfXcComplV2.setObjects(*((_A,_I),(_A,_J),(_A,_X)))
-if mibBuilder.loadTexts:lumIfXcComplV2.setStatus(_H)
-lumIfXcComplV3=ModuleCompliance((1,3,6,1,4,1,8708,2,51,1,2,3))
-lumIfXcComplV3.setObjects(*((_A,_I),(_A,_J),(_A,_Y)))
-if mibBuilder.loadTexts:lumIfXcComplV3.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'lumIfXcMIBModule':lumIfXcMIBModule,'lumIfXcConfs':lumIfXcConfs,'lumIfXcGroups':lumIfXcGroups,_I:ifXcGeneralGroupV1,_J:ifXcStaticXcOduGroupV1,_W:ifXcDynamicXcOduGroupV1,_X:ifXcDynamicXcOduGroupV2,_Y:ifXcDynamicXcOduGroupV3,'lumIfXcCompl':lumIfXcCompl,'lumIfXcComplV1':lumIfXcComplV1,'lumIfXcComplV2':lumIfXcComplV2,'lumIfXcComplV3':lumIfXcComplV3,'lumIfXcMIBObjects':lumIfXcMIBObjects,'ifXcGeneral':ifXcGeneral,_L:ifXcGeneralConfigLastChangeTime,_M:ifXcGeneralStateLastChangeTime,_N:ifXcGeneralIfXcStaticXcOduTableSize,_O:ifXcGeneralIfXcStaticXcOduConfigLastChangeTime,_P:ifXcGeneralIfXcStaticXcOduStateLastChangeTime,_Q:ifXcGeneralIfXcDynamicXcOduTableSize,_R:ifXcGeneralIfXcDynamicXcOduConfigLastChangeTime,_S:ifXcGeneralIfXcDynamicXcOduStateLastChangeTime,'ifXcStaticXcOduList':ifXcStaticXcOduList,'ifXcStaticXcOduTable':ifXcStaticXcOduTable,'ifXcStaticXcOduEntry':ifXcStaticXcOduEntry,_K:ifXcStaticXcOduIndex,_T:ifXcStaticXcOduName,_U:ifXcStaticXcOduFromIndex,_V:ifXcStaticXcOduToIndex,'ifXcDynamicXcOduList':ifXcDynamicXcOduList,'ifXcDynamicXcOduTable':ifXcDynamicXcOduTable,'ifXcDynamicXcOduEntry':ifXcDynamicXcOduEntry,_D:ifXcDynamicXcOduIndex,_E:ifXcDynamicXcOduName,_F:ifXcDynamicXcOduFromIndex,_G:ifXcDynamicXcOduToIndex})
+#
+# PySNMP MIB module LUM-IFXC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/LUM-IFXC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:37 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+lumModules, lumIfXcMIB = mibBuilder.importSymbols("LUM-REG", "lumModules", "lumIfXcMIB")
+Unsigned32WithNA, CommandString, MgmtNameString = mibBuilder.importSymbols("LUM-TC", "Unsigned32WithNA", "CommandString", "MgmtNameString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+lumIfXcMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 8708, 1, 1, 51))
+lumIfXcMIBModule.setRevisions(('2017-06-15 00:00', '2013-11-15 00:00', '2012-11-20 00:00',))
+if mibBuilder.loadTexts: lumIfXcMIBModule.setLastUpdated('201706150000Z')
+if mibBuilder.loadTexts: lumIfXcMIBModule.setOrganization('Infinera Corporation')
+lumIfXcConfs = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 51, 1))
+lumIfXcGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 51, 1, 1))
+lumIfXcCompl = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 51, 1, 2))
+lumIfXcMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2))
+ifXcGeneral = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 1))
+ifXcStaticXcOduList = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 2))
+ifXcDynamicXcOduList = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 3))
+ifXcGeneralConfigLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 1, 1), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcGeneralConfigLastChangeTime.setStatus('current')
+ifXcGeneralStateLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 1, 2), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcGeneralStateLastChangeTime.setStatus('current')
+ifXcGeneralIfXcStaticXcOduTableSize = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcGeneralIfXcStaticXcOduTableSize.setStatus('current')
+ifXcGeneralIfXcStaticXcOduConfigLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcGeneralIfXcStaticXcOduConfigLastChangeTime.setStatus('current')
+ifXcGeneralIfXcStaticXcOduStateLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 1, 5), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcGeneralIfXcStaticXcOduStateLastChangeTime.setStatus('current')
+ifXcGeneralIfXcDynamicXcOduTableSize = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcGeneralIfXcDynamicXcOduTableSize.setStatus('current')
+ifXcGeneralIfXcDynamicXcOduConfigLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 1, 7), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcGeneralIfXcDynamicXcOduConfigLastChangeTime.setStatus('current')
+ifXcGeneralIfXcDynamicXcOduStateLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 1, 8), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcGeneralIfXcDynamicXcOduStateLastChangeTime.setStatus('current')
+ifXcStaticXcOduTable = MibTable((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 2, 1), )
+if mibBuilder.loadTexts: ifXcStaticXcOduTable.setStatus('current')
+ifXcStaticXcOduEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 2, 1, 1), ).setIndexNames((0, "LUM-IFXC-MIB", "ifXcStaticXcOduIndex"))
+if mibBuilder.loadTexts: ifXcStaticXcOduEntry.setStatus('current')
+ifXcStaticXcOduIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 2, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcStaticXcOduIndex.setStatus('current')
+ifXcStaticXcOduName = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 2, 1, 1, 2), MgmtNameString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcStaticXcOduName.setStatus('current')
+ifXcStaticXcOduFromIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 2, 1, 1, 3), Unsigned32WithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcStaticXcOduFromIndex.setStatus('current')
+ifXcStaticXcOduToIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 2, 1, 1, 4), Unsigned32WithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcStaticXcOduToIndex.setStatus('current')
+ifXcDynamicXcOduTable = MibTable((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 3, 1), )
+if mibBuilder.loadTexts: ifXcDynamicXcOduTable.setStatus('current')
+ifXcDynamicXcOduEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 3, 1, 1), ).setIndexNames((0, "LUM-IFXC-MIB", "ifXcDynamicXcOduIndex"))
+if mibBuilder.loadTexts: ifXcDynamicXcOduEntry.setStatus('current')
+ifXcDynamicXcOduIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 3, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcDynamicXcOduIndex.setStatus('current')
+ifXcDynamicXcOduName = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 3, 1, 1, 2), MgmtNameString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ifXcDynamicXcOduName.setStatus('current')
+ifXcDynamicXcOduFromIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 3, 1, 1, 3), Unsigned32WithNA()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ifXcDynamicXcOduFromIndex.setStatus('current')
+ifXcDynamicXcOduToIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 51, 2, 3, 1, 1, 4), Unsigned32WithNA()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ifXcDynamicXcOduToIndex.setStatus('current')
+ifXcGeneralGroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 51, 1, 1, 1)).setObjects(("LUM-IFXC-MIB", "ifXcGeneralConfigLastChangeTime"), ("LUM-IFXC-MIB", "ifXcGeneralStateLastChangeTime"), ("LUM-IFXC-MIB", "ifXcGeneralIfXcStaticXcOduTableSize"), ("LUM-IFXC-MIB", "ifXcGeneralIfXcStaticXcOduConfigLastChangeTime"), ("LUM-IFXC-MIB", "ifXcGeneralIfXcStaticXcOduStateLastChangeTime"), ("LUM-IFXC-MIB", "ifXcGeneralIfXcDynamicXcOduTableSize"), ("LUM-IFXC-MIB", "ifXcGeneralIfXcDynamicXcOduConfigLastChangeTime"), ("LUM-IFXC-MIB", "ifXcGeneralIfXcDynamicXcOduStateLastChangeTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifXcGeneralGroupV1 = ifXcGeneralGroupV1.setStatus('current')
+ifXcStaticXcOduGroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 51, 1, 1, 2)).setObjects(("LUM-IFXC-MIB", "ifXcStaticXcOduIndex"), ("LUM-IFXC-MIB", "ifXcStaticXcOduName"), ("LUM-IFXC-MIB", "ifXcStaticXcOduFromIndex"), ("LUM-IFXC-MIB", "ifXcStaticXcOduToIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifXcStaticXcOduGroupV1 = ifXcStaticXcOduGroupV1.setStatus('current')
+ifXcDynamicXcOduGroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 51, 1, 1, 3)).setObjects(("LUM-IFXC-MIB", "ifXcDynamicXcOduIndex"), ("LUM-IFXC-MIB", "ifXcDynamicXcOduName"), ("LUM-IFXC-MIB", "ifXcDynamicXcOduFromIndex"), ("LUM-IFXC-MIB", "ifXcDynamicXcOduToIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifXcDynamicXcOduGroupV1 = ifXcDynamicXcOduGroupV1.setStatus('deprecated')
+ifXcDynamicXcOduGroupV2 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 51, 1, 1, 4)).setObjects(("LUM-IFXC-MIB", "ifXcDynamicXcOduIndex"), ("LUM-IFXC-MIB", "ifXcDynamicXcOduName"), ("LUM-IFXC-MIB", "ifXcDynamicXcOduFromIndex"), ("LUM-IFXC-MIB", "ifXcDynamicXcOduToIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifXcDynamicXcOduGroupV2 = ifXcDynamicXcOduGroupV2.setStatus('deprecated')
+ifXcDynamicXcOduGroupV3 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 51, 1, 1, 5)).setObjects(("LUM-IFXC-MIB", "ifXcDynamicXcOduIndex"), ("LUM-IFXC-MIB", "ifXcDynamicXcOduName"), ("LUM-IFXC-MIB", "ifXcDynamicXcOduFromIndex"), ("LUM-IFXC-MIB", "ifXcDynamicXcOduToIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ifXcDynamicXcOduGroupV3 = ifXcDynamicXcOduGroupV3.setStatus('current')
+lumIfXcComplV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 8708, 2, 51, 1, 2, 1)).setObjects(("LUM-IFXC-MIB", "ifXcGeneralGroupV1"), ("LUM-IFXC-MIB", "ifXcStaticXcOduGroupV1"), ("LUM-IFXC-MIB", "ifXcDynamicXcOduGroupV1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lumIfXcComplV1 = lumIfXcComplV1.setStatus('deprecated')
+lumIfXcComplV2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 8708, 2, 51, 1, 2, 2)).setObjects(("LUM-IFXC-MIB", "ifXcGeneralGroupV1"), ("LUM-IFXC-MIB", "ifXcStaticXcOduGroupV1"), ("LUM-IFXC-MIB", "ifXcDynamicXcOduGroupV2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lumIfXcComplV2 = lumIfXcComplV2.setStatus('deprecated')
+lumIfXcComplV3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 8708, 2, 51, 1, 2, 3)).setObjects(("LUM-IFXC-MIB", "ifXcGeneralGroupV1"), ("LUM-IFXC-MIB", "ifXcStaticXcOduGroupV1"), ("LUM-IFXC-MIB", "ifXcDynamicXcOduGroupV3"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    lumIfXcComplV3 = lumIfXcComplV3.setStatus('current')
+mibBuilder.exportSymbols("LUM-IFXC-MIB", ifXcDynamicXcOduList=ifXcDynamicXcOduList, lumIfXcMIBModule=lumIfXcMIBModule, lumIfXcGroups=lumIfXcGroups, ifXcDynamicXcOduGroupV2=ifXcDynamicXcOduGroupV2, PYSNMP_MODULE_ID=lumIfXcMIBModule, ifXcGeneralIfXcDynamicXcOduStateLastChangeTime=ifXcGeneralIfXcDynamicXcOduStateLastChangeTime, ifXcDynamicXcOduEntry=ifXcDynamicXcOduEntry, ifXcStaticXcOduTable=ifXcStaticXcOduTable, ifXcGeneralConfigLastChangeTime=ifXcGeneralConfigLastChangeTime, ifXcDynamicXcOduIndex=ifXcDynamicXcOduIndex, ifXcStaticXcOduList=ifXcStaticXcOduList, ifXcGeneralGroupV1=ifXcGeneralGroupV1, ifXcStaticXcOduIndex=ifXcStaticXcOduIndex, ifXcStaticXcOduGroupV1=ifXcStaticXcOduGroupV1, ifXcDynamicXcOduGroupV1=ifXcDynamicXcOduGroupV1, lumIfXcCompl=lumIfXcCompl, ifXcDynamicXcOduTable=ifXcDynamicXcOduTable, ifXcStaticXcOduToIndex=ifXcStaticXcOduToIndex, ifXcDynamicXcOduGroupV3=ifXcDynamicXcOduGroupV3, lumIfXcComplV3=lumIfXcComplV3, ifXcGeneralIfXcDynamicXcOduTableSize=ifXcGeneralIfXcDynamicXcOduTableSize, ifXcGeneralStateLastChangeTime=ifXcGeneralStateLastChangeTime, lumIfXcComplV2=lumIfXcComplV2, lumIfXcConfs=lumIfXcConfs, ifXcDynamicXcOduToIndex=ifXcDynamicXcOduToIndex, ifXcStaticXcOduName=ifXcStaticXcOduName, ifXcGeneralIfXcStaticXcOduTableSize=ifXcGeneralIfXcStaticXcOduTableSize, ifXcGeneralIfXcDynamicXcOduConfigLastChangeTime=ifXcGeneralIfXcDynamicXcOduConfigLastChangeTime, ifXcGeneralIfXcStaticXcOduStateLastChangeTime=ifXcGeneralIfXcStaticXcOduStateLastChangeTime, ifXcGeneralIfXcStaticXcOduConfigLastChangeTime=ifXcGeneralIfXcStaticXcOduConfigLastChangeTime, ifXcDynamicXcOduFromIndex=ifXcDynamicXcOduFromIndex, ifXcStaticXcOduFromIndex=ifXcStaticXcOduFromIndex, ifXcStaticXcOduEntry=ifXcStaticXcOduEntry, ifXcDynamicXcOduName=ifXcDynamicXcOduName, lumIfXcComplV1=lumIfXcComplV1, lumIfXcMIBObjects=lumIfXcMIBObjects, ifXcGeneral=ifXcGeneral)

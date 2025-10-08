@@ -1,116 +1,71 @@
-_I='eltMesBackupHistoryIndex'
-_H='ELTEX-MES-ISS-COPY-MIB'
-_G='EltMesBackupUserStatus'
-_F='Unsigned32'
-_E='Integer32'
-_D='TruthValue'
-_C='read-only'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-eltMesIss,=mibBuilder.importSymbols('ELTEX-MES-ISS-MIB','eltMesIss')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_D)
-eltMesIssCopyMIB=ModuleIdentity((1,3,6,1,4,1,35265,1,139,15))
-if mibBuilder.loadTexts:eltMesIssCopyMIB.setRevisions(('2019-05-02 00:00',))
-class EltMesCopyLocationType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('tftp',1),('sftp',2)))
-class EltMesBackupUserStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('starting',1),('stopped',2)))
-class EltMesCopyError(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('no-error',1),('send-failed',2),('save-failed',3)))
-_EltMesIssCopyObjects_ObjectIdentity=ObjectIdentity
-eltMesIssCopyObjects=_EltMesIssCopyObjects_ObjectIdentity((1,3,6,1,4,1,35265,1,139,15,1))
-_EltMesIssCopyBackup_ObjectIdentity=ObjectIdentity
-eltMesIssCopyBackup=_EltMesIssCopyBackup_ObjectIdentity((1,3,6,1,4,1,35265,1,139,15,1,1))
-_EltMesIssBackupConfigs_ObjectIdentity=ObjectIdentity
-eltMesIssBackupConfigs=_EltMesIssBackupConfigs_ObjectIdentity((1,3,6,1,4,1,35265,1,139,15,1,1,1))
-class _EltMesBackupAutoEnable_Type(TruthValue):defaultValue=2
-_EltMesBackupAutoEnable_Type.__name__=_D
-_EltMesBackupAutoEnable_Object=MibScalar
-eltMesBackupAutoEnable=_EltMesBackupAutoEnable_Object((1,3,6,1,4,1,35265,1,139,15,1,1,1,1),_EltMesBackupAutoEnable_Type())
-eltMesBackupAutoEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesBackupAutoEnable.setStatus(_A)
-class _EltMesBackupAutoTimeout_Type(Unsigned32):defaultValue=720
-_EltMesBackupAutoTimeout_Type.__name__=_F
-_EltMesBackupAutoTimeout_Object=MibScalar
-eltMesBackupAutoTimeout=_EltMesBackupAutoTimeout_Object((1,3,6,1,4,1,35265,1,139,15,1,1,1,2),_EltMesBackupAutoTimeout_Type())
-eltMesBackupAutoTimeout.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesBackupAutoTimeout.setStatus(_A)
-_EltMesBackupAutoFilePath_Type=DisplayString
-_EltMesBackupAutoFilePath_Object=MibScalar
-eltMesBackupAutoFilePath=_EltMesBackupAutoFilePath_Object((1,3,6,1,4,1,35265,1,139,15,1,1,1,3),_EltMesBackupAutoFilePath_Type())
-eltMesBackupAutoFilePath.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesBackupAutoFilePath.setStatus(_A)
-_EltMesBackupAutoServerAddress_Type=DisplayString
-_EltMesBackupAutoServerAddress_Object=MibScalar
-eltMesBackupAutoServerAddress=_EltMesBackupAutoServerAddress_Object((1,3,6,1,4,1,35265,1,139,15,1,1,1,4),_EltMesBackupAutoServerAddress_Type())
-eltMesBackupAutoServerAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesBackupAutoServerAddress.setStatus(_A)
-class _EltMesBackupAutoOnWrite_Type(TruthValue):defaultValue=2
-_EltMesBackupAutoOnWrite_Type.__name__=_D
-_EltMesBackupAutoOnWrite_Object=MibScalar
-eltMesBackupAutoOnWrite=_EltMesBackupAutoOnWrite_Object((1,3,6,1,4,1,35265,1,139,15,1,1,1,5),_EltMesBackupAutoOnWrite_Type())
-eltMesBackupAutoOnWrite.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesBackupAutoOnWrite.setStatus(_A)
-class _EltMesBackupUserStartAction_Type(EltMesBackupUserStatus):defaultValue=2
-_EltMesBackupUserStartAction_Type.__name__=_G
-_EltMesBackupUserStartAction_Object=MibScalar
-eltMesBackupUserStartAction=_EltMesBackupUserStartAction_Object((1,3,6,1,4,1,35265,1,139,15,1,1,1,6),_EltMesBackupUserStartAction_Type())
-eltMesBackupUserStartAction.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesBackupUserStartAction.setStatus(_A)
-class _EltMesBackupHistoryEnable_Type(TruthValue):defaultValue=2
-_EltMesBackupHistoryEnable_Type.__name__=_D
-_EltMesBackupHistoryEnable_Object=MibScalar
-eltMesBackupHistoryEnable=_EltMesBackupHistoryEnable_Object((1,3,6,1,4,1,35265,1,139,15,1,1,1,7),_EltMesBackupHistoryEnable_Type())
-eltMesBackupHistoryEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesBackupHistoryEnable.setStatus(_A)
-class _EltMesBackupClearAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('noAction',1),('clearNow',2)))
-_EltMesBackupClearAction_Type.__name__=_E
-_EltMesBackupClearAction_Object=MibScalar
-eltMesBackupClearAction=_EltMesBackupClearAction_Object((1,3,6,1,4,1,35265,1,139,15,1,1,1,8),_EltMesBackupClearAction_Type())
-eltMesBackupClearAction.setMaxAccess(_B)
-if mibBuilder.loadTexts:eltMesBackupClearAction.setStatus(_A)
-_EltMesIssBackupStatistics_ObjectIdentity=ObjectIdentity
-eltMesIssBackupStatistics=_EltMesIssBackupStatistics_ObjectIdentity((1,3,6,1,4,1,35265,1,139,15,1,1,2))
-_EltMesBackupHistoryTable_Object=MibTable
-eltMesBackupHistoryTable=_EltMesBackupHistoryTable_Object((1,3,6,1,4,1,35265,1,139,15,1,1,2,1))
-if mibBuilder.loadTexts:eltMesBackupHistoryTable.setStatus(_A)
-_EltMesBackupHistoryEntry_Object=MibTableRow
-eltMesBackupHistoryEntry=_EltMesBackupHistoryEntry_Object((1,3,6,1,4,1,35265,1,139,15,1,1,2,1,1))
-eltMesBackupHistoryEntry.setIndexNames((0,_H,_I))
-if mibBuilder.loadTexts:eltMesBackupHistoryEntry.setStatus(_A)
-_EltMesBackupHistoryIndex_Type=Integer32
-_EltMesBackupHistoryIndex_Object=MibTableColumn
-eltMesBackupHistoryIndex=_EltMesBackupHistoryIndex_Object((1,3,6,1,4,1,35265,1,139,15,1,1,2,1,1,1),_EltMesBackupHistoryIndex_Type())
-eltMesBackupHistoryIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:eltMesBackupHistoryIndex.setStatus(_A)
-_EltMesBackupHistoryDateTime_Type=DisplayString
-_EltMesBackupHistoryDateTime_Object=MibTableColumn
-eltMesBackupHistoryDateTime=_EltMesBackupHistoryDateTime_Object((1,3,6,1,4,1,35265,1,139,15,1,1,2,1,1,2),_EltMesBackupHistoryDateTime_Type())
-eltMesBackupHistoryDateTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltMesBackupHistoryDateTime.setStatus(_A)
-_EltMesBackupHistoryDstLocationType_Type=EltMesCopyLocationType
-_EltMesBackupHistoryDstLocationType_Object=MibTableColumn
-eltMesBackupHistoryDstLocationType=_EltMesBackupHistoryDstLocationType_Object((1,3,6,1,4,1,35265,1,139,15,1,1,2,1,1,3),_EltMesBackupHistoryDstLocationType_Type())
-eltMesBackupHistoryDstLocationType.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltMesBackupHistoryDstLocationType.setStatus(_A)
-_EltMesBackupHistoryServerAddr_Type=DisplayString
-_EltMesBackupHistoryServerAddr_Object=MibTableColumn
-eltMesBackupHistoryServerAddr=_EltMesBackupHistoryServerAddr_Object((1,3,6,1,4,1,35265,1,139,15,1,1,2,1,1,4),_EltMesBackupHistoryServerAddr_Type())
-eltMesBackupHistoryServerAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltMesBackupHistoryServerAddr.setStatus(_A)
-_EltMesBackupHistoryFilePath_Type=DisplayString
-_EltMesBackupHistoryFilePath_Object=MibTableColumn
-eltMesBackupHistoryFilePath=_EltMesBackupHistoryFilePath_Object((1,3,6,1,4,1,35265,1,139,15,1,1,2,1,1,5),_EltMesBackupHistoryFilePath_Type())
-eltMesBackupHistoryFilePath.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltMesBackupHistoryFilePath.setStatus(_A)
-_EltMesIssCopyGlobal_ObjectIdentity=ObjectIdentity
-eltMesIssCopyGlobal=_EltMesIssCopyGlobal_ObjectIdentity((1,3,6,1,4,1,35265,1,139,15,1,2))
-_EltMesLastCopyError_Type=EltMesCopyError
-_EltMesLastCopyError_Object=MibScalar
-eltMesLastCopyError=_EltMesLastCopyError_Object((1,3,6,1,4,1,35265,1,139,15,1,2,1),_EltMesLastCopyError_Type())
-eltMesLastCopyError.setMaxAccess(_C)
-if mibBuilder.loadTexts:eltMesLastCopyError.setStatus(_A)
-mibBuilder.exportSymbols(_H,**{'EltMesCopyLocationType':EltMesCopyLocationType,_G:EltMesBackupUserStatus,'EltMesCopyError':EltMesCopyError,'eltMesIssCopyMIB':eltMesIssCopyMIB,'eltMesIssCopyObjects':eltMesIssCopyObjects,'eltMesIssCopyBackup':eltMesIssCopyBackup,'eltMesIssBackupConfigs':eltMesIssBackupConfigs,'eltMesBackupAutoEnable':eltMesBackupAutoEnable,'eltMesBackupAutoTimeout':eltMesBackupAutoTimeout,'eltMesBackupAutoFilePath':eltMesBackupAutoFilePath,'eltMesBackupAutoServerAddress':eltMesBackupAutoServerAddress,'eltMesBackupAutoOnWrite':eltMesBackupAutoOnWrite,'eltMesBackupUserStartAction':eltMesBackupUserStartAction,'eltMesBackupHistoryEnable':eltMesBackupHistoryEnable,'eltMesBackupClearAction':eltMesBackupClearAction,'eltMesIssBackupStatistics':eltMesIssBackupStatistics,'eltMesBackupHistoryTable':eltMesBackupHistoryTable,'eltMesBackupHistoryEntry':eltMesBackupHistoryEntry,_I:eltMesBackupHistoryIndex,'eltMesBackupHistoryDateTime':eltMesBackupHistoryDateTime,'eltMesBackupHistoryDstLocationType':eltMesBackupHistoryDstLocationType,'eltMesBackupHistoryServerAddr':eltMesBackupHistoryServerAddr,'eltMesBackupHistoryFilePath':eltMesBackupHistoryFilePath,'eltMesIssCopyGlobal':eltMesIssCopyGlobal,'eltMesLastCopyError':eltMesLastCopyError})
+#
+# PySNMP MIB module ELTEX-MES-ISS-COPY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/eltex/ELTEX-MES-ISS-COPY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:46 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+eltMesIss, = mibBuilder.importSymbols("ELTEX-MES-ISS-MIB", "eltMesIss")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+eltMesIssCopyMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15))
+eltMesIssCopyMIB.setRevisions(('2019-05-02 00:00',))
+if mibBuilder.loadTexts: eltMesIssCopyMIB.setLastUpdated('201906250000Z')
+if mibBuilder.loadTexts: eltMesIssCopyMIB.setOrganization('Eltex Enterprise, Ltd.')
+class EltMesCopyLocationType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("tftp", 1), ("sftp", 2))
+
+class EltMesBackupUserStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("starting", 1), ("stopped", 2))
+
+class EltMesCopyError(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("no-error", 1), ("send-failed", 2), ("save-failed", 3))
+
+eltMesIssCopyObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1))
+eltMesIssCopyBackup = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1))
+eltMesIssCopyGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 2))
+eltMesIssBackupConfigs = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 1))
+eltMesIssBackupStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 2))
+eltMesLastCopyError = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 2, 1), EltMesCopyError()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesLastCopyError.setStatus('current')
+eltMesBackupAutoEnable = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesBackupAutoEnable.setStatus('current')
+eltMesBackupAutoTimeout = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 1, 2), Unsigned32().clone(720)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesBackupAutoTimeout.setStatus('current')
+eltMesBackupAutoFilePath = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesBackupAutoFilePath.setStatus('current')
+eltMesBackupAutoServerAddress = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesBackupAutoServerAddress.setStatus('current')
+eltMesBackupAutoOnWrite = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 1, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesBackupAutoOnWrite.setStatus('current')
+eltMesBackupUserStartAction = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 1, 6), EltMesBackupUserStatus().clone('stopped')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesBackupUserStartAction.setStatus('current')
+eltMesBackupHistoryEnable = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 1, 7), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesBackupHistoryEnable.setStatus('current')
+eltMesBackupClearAction = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noAction", 1), ("clearNow", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: eltMesBackupClearAction.setStatus('current')
+eltMesBackupHistoryTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 2, 1), )
+if mibBuilder.loadTexts: eltMesBackupHistoryTable.setStatus('current')
+eltMesBackupHistoryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 2, 1, 1), ).setIndexNames((0, "ELTEX-MES-ISS-COPY-MIB", "eltMesBackupHistoryIndex"))
+if mibBuilder.loadTexts: eltMesBackupHistoryEntry.setStatus('current')
+eltMesBackupHistoryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 2, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: eltMesBackupHistoryIndex.setStatus('current')
+eltMesBackupHistoryDateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 2, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesBackupHistoryDateTime.setStatus('current')
+eltMesBackupHistoryDstLocationType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 2, 1, 1, 3), EltMesCopyLocationType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesBackupHistoryDstLocationType.setStatus('current')
+eltMesBackupHistoryServerAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 2, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesBackupHistoryServerAddr.setStatus('current')
+eltMesBackupHistoryFilePath = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 139, 15, 1, 1, 2, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: eltMesBackupHistoryFilePath.setStatus('current')
+mibBuilder.exportSymbols("ELTEX-MES-ISS-COPY-MIB", eltMesBackupAutoServerAddress=eltMesBackupAutoServerAddress, EltMesCopyLocationType=EltMesCopyLocationType, eltMesIssCopyBackup=eltMesIssCopyBackup, eltMesIssBackupConfigs=eltMesIssBackupConfigs, eltMesIssBackupStatistics=eltMesIssBackupStatistics, eltMesBackupHistoryFilePath=eltMesBackupHistoryFilePath, eltMesBackupHistoryTable=eltMesBackupHistoryTable, eltMesIssCopyGlobal=eltMesIssCopyGlobal, eltMesBackupAutoTimeout=eltMesBackupAutoTimeout, EltMesCopyError=EltMesCopyError, eltMesBackupAutoFilePath=eltMesBackupAutoFilePath, eltMesBackupHistoryServerAddr=eltMesBackupHistoryServerAddr, eltMesBackupAutoOnWrite=eltMesBackupAutoOnWrite, PYSNMP_MODULE_ID=eltMesIssCopyMIB, eltMesBackupUserStartAction=eltMesBackupUserStartAction, eltMesBackupHistoryDateTime=eltMesBackupHistoryDateTime, eltMesBackupHistoryEntry=eltMesBackupHistoryEntry, eltMesLastCopyError=eltMesLastCopyError, EltMesBackupUserStatus=EltMesBackupUserStatus, eltMesBackupHistoryDstLocationType=eltMesBackupHistoryDstLocationType, eltMesBackupClearAction=eltMesBackupClearAction, eltMesBackupHistoryIndex=eltMesBackupHistoryIndex, eltMesIssCopyObjects=eltMesIssCopyObjects, eltMesBackupAutoEnable=eltMesBackupAutoEnable, eltMesBackupHistoryEnable=eltMesBackupHistoryEnable, eltMesIssCopyMIB=eltMesIssCopyMIB)

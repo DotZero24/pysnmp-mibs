@@ -1,158 +1,77 @@
-_X='myAuthGatewayMIBGroup'
-_W='userStatus'
-_V='overseasFluxCountDownlink'
-_U='overseasFluxCountUplink'
-_T='inlandFluxCountDownlink'
-_S='inlandFluxCountUplink'
-_R='intramuralFluxCountDownlink'
-_Q='intramuralFluxCountUplink'
-_P='overseasFluxLimitDownlink'
-_O='overseasFluxLimitUplink'
-_N='inlandFluxLimitDownlink'
-_M='inlandFluxLimitUplink'
-_L='intramuralFluxLimitDownlink'
-_K='intramuralFluxLimitUplink'
-_J='bandwidthLimitDownlink'
-_I='bandwidthLimitUplink'
-_H='timeUsed'
-_G='timeLimit'
-_F='onlineFlag'
-_E='userIpaddr'
-_D='read-write'
-_C='read-only'
-_B='DES7200-AUTH-GATEWAY-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-myMgmt,=mibBuilder.importSymbols('DES7200-SMI','myMgmt')
-IfIndex,=mibBuilder.importSymbols('DES7200-TC','IfIndex')
-ip,=mibBuilder.importSymbols('IP-MIB','ip')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-myAuthGatewayMIB=ModuleIdentity((1,3,6,1,4,1,171,10,97,2,40))
-if mibBuilder.loadTexts:myAuthGatewayMIB.setRevisions(('2002-03-20 00:00',))
-_MyAuthGatewayMIBObjects_ObjectIdentity=ObjectIdentity
-myAuthGatewayMIBObjects=_MyAuthGatewayMIBObjects_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,40,1))
-_MyAuthGatewayUserTable_Object=MibTable
-myAuthGatewayUserTable=_MyAuthGatewayUserTable_Object((1,3,6,1,4,1,171,10,97,2,40,1,1))
-if mibBuilder.loadTexts:myAuthGatewayUserTable.setStatus(_A)
-_MyAuthGatewayUserEntry_Object=MibTableRow
-myAuthGatewayUserEntry=_MyAuthGatewayUserEntry_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1))
-myAuthGatewayUserEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:myAuthGatewayUserEntry.setStatus(_A)
-_UserIpaddr_Type=IpAddress
-_UserIpaddr_Object=MibTableColumn
-userIpaddr=_UserIpaddr_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,1),_UserIpaddr_Type())
-userIpaddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:userIpaddr.setStatus(_A)
-_OnlineFlag_Type=Gauge32
-_OnlineFlag_Object=MibTableColumn
-onlineFlag=_OnlineFlag_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,2),_OnlineFlag_Type())
-onlineFlag.setMaxAccess(_C)
-if mibBuilder.loadTexts:onlineFlag.setStatus(_A)
-_TimeLimit_Type=Gauge32
-_TimeLimit_Object=MibTableColumn
-timeLimit=_TimeLimit_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,3),_TimeLimit_Type())
-timeLimit.setMaxAccess(_D)
-if mibBuilder.loadTexts:timeLimit.setStatus(_A)
-_TimeUsed_Type=Gauge32
-_TimeUsed_Object=MibTableColumn
-timeUsed=_TimeUsed_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,4),_TimeUsed_Type())
-timeUsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:timeUsed.setStatus(_A)
-_BandwidthLimitUplink_Type=Gauge32
-_BandwidthLimitUplink_Object=MibTableColumn
-bandwidthLimitUplink=_BandwidthLimitUplink_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,5),_BandwidthLimitUplink_Type())
-bandwidthLimitUplink.setMaxAccess(_D)
-if mibBuilder.loadTexts:bandwidthLimitUplink.setStatus(_A)
-_BandwidthLimitDownlink_Type=Gauge32
-_BandwidthLimitDownlink_Object=MibTableColumn
-bandwidthLimitDownlink=_BandwidthLimitDownlink_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,6),_BandwidthLimitDownlink_Type())
-bandwidthLimitDownlink.setMaxAccess(_D)
-if mibBuilder.loadTexts:bandwidthLimitDownlink.setStatus(_A)
-_IntramuralFluxLimitUplink_Type=Gauge32
-_IntramuralFluxLimitUplink_Object=MibTableColumn
-intramuralFluxLimitUplink=_IntramuralFluxLimitUplink_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,7),_IntramuralFluxLimitUplink_Type())
-intramuralFluxLimitUplink.setMaxAccess(_D)
-if mibBuilder.loadTexts:intramuralFluxLimitUplink.setStatus(_A)
-_IntramuralFluxLimitDownlink_Type=Gauge32
-_IntramuralFluxLimitDownlink_Object=MibTableColumn
-intramuralFluxLimitDownlink=_IntramuralFluxLimitDownlink_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,8),_IntramuralFluxLimitDownlink_Type())
-intramuralFluxLimitDownlink.setMaxAccess(_D)
-if mibBuilder.loadTexts:intramuralFluxLimitDownlink.setStatus(_A)
-_InlandFluxLimitUplink_Type=Gauge32
-_InlandFluxLimitUplink_Object=MibTableColumn
-inlandFluxLimitUplink=_InlandFluxLimitUplink_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,9),_InlandFluxLimitUplink_Type())
-inlandFluxLimitUplink.setMaxAccess(_D)
-if mibBuilder.loadTexts:inlandFluxLimitUplink.setStatus(_A)
-_InlandFluxLimitDownlink_Type=Gauge32
-_InlandFluxLimitDownlink_Object=MibTableColumn
-inlandFluxLimitDownlink=_InlandFluxLimitDownlink_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,10),_InlandFluxLimitDownlink_Type())
-inlandFluxLimitDownlink.setMaxAccess(_D)
-if mibBuilder.loadTexts:inlandFluxLimitDownlink.setStatus(_A)
-_OverseasFluxLimitUplink_Type=Gauge32
-_OverseasFluxLimitUplink_Object=MibTableColumn
-overseasFluxLimitUplink=_OverseasFluxLimitUplink_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,11),_OverseasFluxLimitUplink_Type())
-overseasFluxLimitUplink.setMaxAccess(_D)
-if mibBuilder.loadTexts:overseasFluxLimitUplink.setStatus(_A)
-_OverseasFluxLimitDownlink_Type=Gauge32
-_OverseasFluxLimitDownlink_Object=MibTableColumn
-overseasFluxLimitDownlink=_OverseasFluxLimitDownlink_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,12),_OverseasFluxLimitDownlink_Type())
-overseasFluxLimitDownlink.setMaxAccess(_D)
-if mibBuilder.loadTexts:overseasFluxLimitDownlink.setStatus(_A)
-_IntramuralFluxCountUplink_Type=Counter32
-_IntramuralFluxCountUplink_Object=MibTableColumn
-intramuralFluxCountUplink=_IntramuralFluxCountUplink_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,13),_IntramuralFluxCountUplink_Type())
-intramuralFluxCountUplink.setMaxAccess(_C)
-if mibBuilder.loadTexts:intramuralFluxCountUplink.setStatus(_A)
-_IntramuralFluxCountDownlink_Type=Counter32
-_IntramuralFluxCountDownlink_Object=MibTableColumn
-intramuralFluxCountDownlink=_IntramuralFluxCountDownlink_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,14),_IntramuralFluxCountDownlink_Type())
-intramuralFluxCountDownlink.setMaxAccess(_C)
-if mibBuilder.loadTexts:intramuralFluxCountDownlink.setStatus(_A)
-_InlandFluxCountUplink_Type=Counter32
-_InlandFluxCountUplink_Object=MibTableColumn
-inlandFluxCountUplink=_InlandFluxCountUplink_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,15),_InlandFluxCountUplink_Type())
-inlandFluxCountUplink.setMaxAccess(_C)
-if mibBuilder.loadTexts:inlandFluxCountUplink.setStatus(_A)
-_InlandFluxCountDownlink_Type=Counter32
-_InlandFluxCountDownlink_Object=MibTableColumn
-inlandFluxCountDownlink=_InlandFluxCountDownlink_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,16),_InlandFluxCountDownlink_Type())
-inlandFluxCountDownlink.setMaxAccess(_C)
-if mibBuilder.loadTexts:inlandFluxCountDownlink.setStatus(_A)
-_OverseasFluxCountUplink_Type=Counter32
-_OverseasFluxCountUplink_Object=MibTableColumn
-overseasFluxCountUplink=_OverseasFluxCountUplink_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,17),_OverseasFluxCountUplink_Type())
-overseasFluxCountUplink.setMaxAccess(_C)
-if mibBuilder.loadTexts:overseasFluxCountUplink.setStatus(_A)
-_OverseasFluxCountDownlink_Type=Counter32
-_OverseasFluxCountDownlink_Object=MibTableColumn
-overseasFluxCountDownlink=_OverseasFluxCountDownlink_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,18),_OverseasFluxCountDownlink_Type())
-overseasFluxCountDownlink.setMaxAccess(_C)
-if mibBuilder.loadTexts:overseasFluxCountDownlink.setStatus(_A)
-_UserStatus_Type=RowStatus
-_UserStatus_Object=MibTableColumn
-userStatus=_UserStatus_Object((1,3,6,1,4,1,171,10,97,2,40,1,1,1,19),_UserStatus_Type())
-userStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:userStatus.setStatus(_A)
-_MyAuthGatewayMIBTraps_ObjectIdentity=ObjectIdentity
-myAuthGatewayMIBTraps=_MyAuthGatewayMIBTraps_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,40,2))
-_MyAuthGatewayMIBConformance_ObjectIdentity=ObjectIdentity
-myAuthGatewayMIBConformance=_MyAuthGatewayMIBConformance_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,40,3))
-_MyAuthGatewayMIBCompliances_ObjectIdentity=ObjectIdentity
-myAuthGatewayMIBCompliances=_MyAuthGatewayMIBCompliances_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,40,3,1))
-_MyAuthGatewayMIBGroups_ObjectIdentity=ObjectIdentity
-myAuthGatewayMIBGroups=_MyAuthGatewayMIBGroups_ObjectIdentity((1,3,6,1,4,1,171,10,97,2,40,3,2))
-myAuthGatewayMIBGroup=ObjectGroup((1,3,6,1,4,1,171,10,97,2,40,3,2,1))
-myAuthGatewayMIBGroup.setObjects(*((_B,_E),(_B,_F),(_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W)))
-if mibBuilder.loadTexts:myAuthGatewayMIBGroup.setStatus(_A)
-myAuthGatewayUserLeave=NotificationType((1,3,6,1,4,1,171,10,97,2,40,2,1))
-myAuthGatewayUserLeave.setObjects((_B,_E))
-if mibBuilder.loadTexts:myAuthGatewayUserLeave.setStatus(_A)
-myAuthGatewayMIBCompliance=ModuleCompliance((1,3,6,1,4,1,171,10,97,2,40,3,1,1))
-myAuthGatewayMIBCompliance.setObjects((_B,_X))
-if mibBuilder.loadTexts:myAuthGatewayMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'myAuthGatewayMIB':myAuthGatewayMIB,'myAuthGatewayMIBObjects':myAuthGatewayMIBObjects,'myAuthGatewayUserTable':myAuthGatewayUserTable,'myAuthGatewayUserEntry':myAuthGatewayUserEntry,_E:userIpaddr,_F:onlineFlag,_G:timeLimit,_H:timeUsed,_I:bandwidthLimitUplink,_J:bandwidthLimitDownlink,_K:intramuralFluxLimitUplink,_L:intramuralFluxLimitDownlink,_M:inlandFluxLimitUplink,_N:inlandFluxLimitDownlink,_O:overseasFluxLimitUplink,_P:overseasFluxLimitDownlink,_Q:intramuralFluxCountUplink,_R:intramuralFluxCountDownlink,_S:inlandFluxCountUplink,_T:inlandFluxCountDownlink,_U:overseasFluxCountUplink,_V:overseasFluxCountDownlink,_W:userStatus,'myAuthGatewayMIBTraps':myAuthGatewayMIBTraps,'myAuthGatewayUserLeave':myAuthGatewayUserLeave,'myAuthGatewayMIBConformance':myAuthGatewayMIBConformance,'myAuthGatewayMIBCompliances':myAuthGatewayMIBCompliances,'myAuthGatewayMIBCompliance':myAuthGatewayMIBCompliance,'myAuthGatewayMIBGroups':myAuthGatewayMIBGroups,_X:myAuthGatewayMIBGroup})
+#
+# PySNMP MIB module DES7200-AUTH-GATEWAY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DES7200-AUTH-GATEWAY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:33:23 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+myMgmt, = mibBuilder.importSymbols("DES7200-SMI", "myMgmt")
+IfIndex, = mibBuilder.importSymbols("DES7200-TC", "IfIndex")
+ip, = mibBuilder.importSymbols("IP-MIB", "ip")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, PhysAddress, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "PhysAddress", "TruthValue", "TextualConvention")
+myAuthGatewayMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40))
+myAuthGatewayMIB.setRevisions(('2002-03-20 00:00',))
+if mibBuilder.loadTexts: myAuthGatewayMIB.setLastUpdated('200203200000Z')
+if mibBuilder.loadTexts: myAuthGatewayMIB.setOrganization('$Company$')
+myAuthGatewayMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1))
+myAuthGatewayUserTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1), )
+if mibBuilder.loadTexts: myAuthGatewayUserTable.setStatus('current')
+myAuthGatewayUserEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1), ).setIndexNames((0, "DES7200-AUTH-GATEWAY-MIB", "userIpaddr"))
+if mibBuilder.loadTexts: myAuthGatewayUserEntry.setStatus('current')
+userIpaddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: userIpaddr.setStatus('current')
+onlineFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: onlineFlag.setStatus('current')
+timeLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 3), Gauge32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: timeLimit.setStatus('current')
+timeUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: timeUsed.setStatus('current')
+bandwidthLimitUplink = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 5), Gauge32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bandwidthLimitUplink.setStatus('current')
+bandwidthLimitDownlink = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 6), Gauge32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bandwidthLimitDownlink.setStatus('current')
+intramuralFluxLimitUplink = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 7), Gauge32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: intramuralFluxLimitUplink.setStatus('current')
+intramuralFluxLimitDownlink = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 8), Gauge32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: intramuralFluxLimitDownlink.setStatus('current')
+inlandFluxLimitUplink = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 9), Gauge32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: inlandFluxLimitUplink.setStatus('current')
+inlandFluxLimitDownlink = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 10), Gauge32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: inlandFluxLimitDownlink.setStatus('current')
+overseasFluxLimitUplink = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 11), Gauge32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: overseasFluxLimitUplink.setStatus('current')
+overseasFluxLimitDownlink = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 12), Gauge32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: overseasFluxLimitDownlink.setStatus('current')
+intramuralFluxCountUplink = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: intramuralFluxCountUplink.setStatus('current')
+intramuralFluxCountDownlink = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: intramuralFluxCountDownlink.setStatus('current')
+inlandFluxCountUplink = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: inlandFluxCountUplink.setStatus('current')
+inlandFluxCountDownlink = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: inlandFluxCountDownlink.setStatus('current')
+overseasFluxCountUplink = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: overseasFluxCountUplink.setStatus('current')
+overseasFluxCountDownlink = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 18), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: overseasFluxCountDownlink.setStatus('current')
+userStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 1, 1, 1, 19), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: userStatus.setStatus('current')
+myAuthGatewayMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 2))
+myAuthGatewayUserLeave = NotificationType((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 2, 1)).setObjects(("DES7200-AUTH-GATEWAY-MIB", "userIpaddr"))
+if mibBuilder.loadTexts: myAuthGatewayUserLeave.setStatus('current')
+myAuthGatewayMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 3))
+myAuthGatewayMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 3, 1))
+myAuthGatewayMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 3, 2))
+myAuthGatewayMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 3, 1, 1)).setObjects(("DES7200-AUTH-GATEWAY-MIB", "myAuthGatewayMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    myAuthGatewayMIBCompliance = myAuthGatewayMIBCompliance.setStatus('current')
+myAuthGatewayMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 40, 3, 2, 1)).setObjects(("DES7200-AUTH-GATEWAY-MIB", "userIpaddr"), ("DES7200-AUTH-GATEWAY-MIB", "onlineFlag"), ("DES7200-AUTH-GATEWAY-MIB", "timeLimit"), ("DES7200-AUTH-GATEWAY-MIB", "timeUsed"), ("DES7200-AUTH-GATEWAY-MIB", "bandwidthLimitUplink"), ("DES7200-AUTH-GATEWAY-MIB", "bandwidthLimitDownlink"), ("DES7200-AUTH-GATEWAY-MIB", "intramuralFluxLimitUplink"), ("DES7200-AUTH-GATEWAY-MIB", "intramuralFluxLimitDownlink"), ("DES7200-AUTH-GATEWAY-MIB", "inlandFluxLimitUplink"), ("DES7200-AUTH-GATEWAY-MIB", "inlandFluxLimitDownlink"), ("DES7200-AUTH-GATEWAY-MIB", "overseasFluxLimitUplink"), ("DES7200-AUTH-GATEWAY-MIB", "overseasFluxLimitDownlink"), ("DES7200-AUTH-GATEWAY-MIB", "intramuralFluxCountUplink"), ("DES7200-AUTH-GATEWAY-MIB", "intramuralFluxCountDownlink"), ("DES7200-AUTH-GATEWAY-MIB", "inlandFluxCountUplink"), ("DES7200-AUTH-GATEWAY-MIB", "inlandFluxCountDownlink"), ("DES7200-AUTH-GATEWAY-MIB", "overseasFluxCountUplink"), ("DES7200-AUTH-GATEWAY-MIB", "overseasFluxCountDownlink"), ("DES7200-AUTH-GATEWAY-MIB", "userStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    myAuthGatewayMIBGroup = myAuthGatewayMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("DES7200-AUTH-GATEWAY-MIB", inlandFluxCountDownlink=inlandFluxCountDownlink, overseasFluxCountUplink=overseasFluxCountUplink, timeUsed=timeUsed, myAuthGatewayMIBGroup=myAuthGatewayMIBGroup, overseasFluxLimitUplink=overseasFluxLimitUplink, myAuthGatewayMIB=myAuthGatewayMIB, inlandFluxLimitUplink=inlandFluxLimitUplink, intramuralFluxCountDownlink=intramuralFluxCountDownlink, myAuthGatewayMIBObjects=myAuthGatewayMIBObjects, overseasFluxCountDownlink=overseasFluxCountDownlink, timeLimit=timeLimit, userStatus=userStatus, myAuthGatewayMIBCompliance=myAuthGatewayMIBCompliance, intramuralFluxLimitDownlink=intramuralFluxLimitDownlink, inlandFluxCountUplink=inlandFluxCountUplink, intramuralFluxLimitUplink=intramuralFluxLimitUplink, onlineFlag=onlineFlag, intramuralFluxCountUplink=intramuralFluxCountUplink, PYSNMP_MODULE_ID=myAuthGatewayMIB, myAuthGatewayMIBCompliances=myAuthGatewayMIBCompliances, bandwidthLimitDownlink=bandwidthLimitDownlink, myAuthGatewayUserLeave=myAuthGatewayUserLeave, inlandFluxLimitDownlink=inlandFluxLimitDownlink, myAuthGatewayMIBTraps=myAuthGatewayMIBTraps, myAuthGatewayUserEntry=myAuthGatewayUserEntry, userIpaddr=userIpaddr, myAuthGatewayMIBConformance=myAuthGatewayMIBConformance, bandwidthLimitUplink=bandwidthLimitUplink, myAuthGatewayMIBGroups=myAuthGatewayMIBGroups, overseasFluxLimitDownlink=overseasFluxLimitDownlink, myAuthGatewayUserTable=myAuthGatewayUserTable)

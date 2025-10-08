@@ -1,32 +1,31 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-switchMib=ModuleIdentity((1,3,6,1,4,1,27514,1,1,10))
-if mibBuilder.loadTexts:switchMib.setRevisions(('2002-03-19 00:00',))
-_Qtech_ObjectIdentity=ObjectIdentity
-qtech=_Qtech_ObjectIdentity((1,3,6,1,4,1,27514))
-_Products_ObjectIdentity=ObjectIdentity
-products=_Products_ObjectIdentity((1,3,6,1,4,1,27514,1))
-_Switch_ObjectIdentity=ObjectIdentity
-switch=_Switch_ObjectIdentity((1,3,6,1,4,1,27514,1,1))
-_QtechSwitchProducts_ObjectIdentity=ObjectIdentity
-qtechSwitchProducts=_QtechSwitchProducts_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,1))
-if mibBuilder.loadTexts:qtechSwitchProducts.setStatus(_A)
-_QtechMgmt_ObjectIdentity=ObjectIdentity
-qtechMgmt=_QtechMgmt_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2))
-if mibBuilder.loadTexts:qtechMgmt.setStatus(_A)
-_QtechAgentCapability_ObjectIdentity=ObjectIdentity
-qtechAgentCapability=_QtechAgentCapability_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,3))
-if mibBuilder.loadTexts:qtechAgentCapability.setStatus(_A)
-_QtechModules_ObjectIdentity=ObjectIdentity
-qtechModules=_QtechModules_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,4))
-if mibBuilder.loadTexts:qtechModules.setStatus(_A)
-_QtechExperiment_ObjectIdentity=ObjectIdentity
-qtechExperiment=_QtechExperiment_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,5))
-if mibBuilder.loadTexts:qtechExperiment.setStatus(_A)
-mibBuilder.exportSymbols('QTECH-SMI',**{'qtech':qtech,'products':products,'switch':switch,'switchMib':switchMib,'qtechSwitchProducts':qtechSwitchProducts,'qtechMgmt':qtechMgmt,'qtechAgentCapability':qtechAgentCapability,'qtechModules':qtechModules,'qtechExperiment':qtechExperiment})
+#
+# PySNMP MIB module QTECH-SMI (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/qtech/QTECH-SMI
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:06:36 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+qtech = MibIdentifier((1, 3, 6, 1, 4, 1, 27514))
+products = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1))
+switch = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1))
+switchMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10))
+switchMib.setRevisions(('2002-03-19 00:00',))
+if mibBuilder.loadTexts: switchMib.setLastUpdated('200203190000Z')
+if mibBuilder.loadTexts: switchMib.setOrganization('Qtech Networks Co.,Ltd.')
+qtechSwitchProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 1))
+if mibBuilder.loadTexts: qtechSwitchProducts.setStatus('current')
+qtechMgmt = ObjectIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2))
+if mibBuilder.loadTexts: qtechMgmt.setStatus('current')
+qtechAgentCapability = ObjectIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 3))
+if mibBuilder.loadTexts: qtechAgentCapability.setStatus('current')
+qtechModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 4))
+if mibBuilder.loadTexts: qtechModules.setStatus('current')
+qtechExperiment = ObjectIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 5))
+if mibBuilder.loadTexts: qtechExperiment.setStatus('current')
+mibBuilder.exportSymbols("QTECH-SMI", qtechMgmt=qtechMgmt, qtechExperiment=qtechExperiment, products=products, switchMib=switchMib, qtechSwitchProducts=qtechSwitchProducts, qtechModules=qtechModules, switch=switch, qtech=qtech, PYSNMP_MODULE_ID=switchMib, qtechAgentCapability=qtechAgentCapability)

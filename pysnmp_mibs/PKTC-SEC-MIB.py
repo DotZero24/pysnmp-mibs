@@ -1,32 +1,31 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-clabProjPacketCable,=mibBuilder.importSymbols('CLAB-DEF-MIB','clabProjPacketCable')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-sysDescr,=mibBuilder.importSymbols('SNMPv2-MIB','sysDescr')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-pktcSecMib=ModuleIdentity((1,3,6,1,4,1,4491,2,2,4))
-if mibBuilder.loadTexts:pktcSecMib.setRevisions(('2003-07-28 00:00',))
-_MemberBody_ObjectIdentity=ObjectIdentity
-memberBody=_MemberBody_ObjectIdentity((1,2))
-_Us_ObjectIdentity=ObjectIdentity
-us=_Us_ObjectIdentity((1,2,840))
-_AnsiX942_ObjectIdentity=ObjectIdentity
-ansiX942=_AnsiX942_ObjectIdentity((1,2,840,10046))
-_NumberType_ObjectIdentity=ObjectIdentity
-numberType=_NumberType_ObjectIdentity((1,2,840,10046,2))
-_DhPublicNumber_ObjectIdentity=ObjectIdentity
-dhPublicNumber=_DhPublicNumber_ObjectIdentity((1,2,840,10046,2,1))
-_PktcSecErrorCodes_ObjectIdentity=ObjectIdentity
-pktcSecErrorCodes=_PktcSecErrorCodes_ObjectIdentity((1,3,6,1,4,1,4491,2,2,4,1))
-_PktcSecErrorIpsec_ObjectIdentity=ObjectIdentity
-pktcSecErrorIpsec=_PktcSecErrorIpsec_ObjectIdentity((1,3,6,1,4,1,4491,2,2,4,1,1))
-_PktcSecErrorSnmpv3_ObjectIdentity=ObjectIdentity
-pktcSecErrorSnmpv3=_PktcSecErrorSnmpv3_ObjectIdentity((1,3,6,1,4,1,4491,2,2,4,1,2))
-_PktcSecErrorFqdn_ObjectIdentity=ObjectIdentity
-pktcSecErrorFqdn=_PktcSecErrorFqdn_ObjectIdentity((1,3,6,1,4,1,4491,2,2,4,1,3))
-mibBuilder.exportSymbols('PKTC-SEC-MIB',**{'memberBody':memberBody,'us':us,'ansiX942':ansiX942,'numberType':numberType,'dhPublicNumber':dhPublicNumber,'pktcSecMib':pktcSecMib,'pktcSecErrorCodes':pktcSecErrorCodes,'pktcSecErrorIpsec':pktcSecErrorIpsec,'pktcSecErrorSnmpv3':pktcSecErrorSnmpv3,'pktcSecErrorFqdn':pktcSecErrorFqdn})
+#
+# PySNMP MIB module PKTC-SEC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/PKTC-SEC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:26:45 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+clabProjPacketCable, = mibBuilder.importSymbols("CLAB-DEF-MIB", "clabProjPacketCable")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+sysDescr, = mibBuilder.importSymbols("SNMPv2-MIB", "sysDescr")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+pktcSecMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4491, 2, 2, 4))
+pktcSecMib.setRevisions(('2003-07-28 00:00',))
+if mibBuilder.loadTexts: pktcSecMib.setLastUpdated('200307280000Z')
+if mibBuilder.loadTexts: pktcSecMib.setOrganization('Packet Cable OSS Group')
+pktcSecErrorCodes = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 4, 1))
+pktcSecErrorIpsec = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 4, 1, 1))
+pktcSecErrorSnmpv3 = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 4, 1, 2))
+pktcSecErrorFqdn = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 4, 1, 3))
+memberBody = MibIdentifier((1, 2))
+us = MibIdentifier((1, 2, 840))
+ansiX942 = MibIdentifier((1, 2, 840, 10046))
+numberType = MibIdentifier((1, 2, 840, 10046, 2))
+dhPublicNumber = MibIdentifier((1, 2, 840, 10046, 2, 1))
+mibBuilder.exportSymbols("PKTC-SEC-MIB", pktcSecErrorIpsec=pktcSecErrorIpsec, us=us, pktcSecErrorCodes=pktcSecErrorCodes, ansiX942=ansiX942, pktcSecErrorSnmpv3=pktcSecErrorSnmpv3, PYSNMP_MODULE_ID=pktcSecMib, pktcSecMib=pktcSecMib, memberBody=memberBody, dhPublicNumber=dhPublicNumber, numberType=numberType, pktcSecErrorFqdn=pktcSecErrorFqdn)

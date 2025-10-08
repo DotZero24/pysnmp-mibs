@@ -1,57 +1,35 @@
-_G='read-write'
-_F='not-accessible'
-_E='zyMacFilterVid'
-_D='zyMacFilterMacAddress'
-_C='Integer32'
-_B='ZYXEL-MAC-FILTER-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelMacFilter=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,47))
-_ZyxelMacFilterSetup_ObjectIdentity=ObjectIdentity
-zyxelMacFilterSetup=_ZyxelMacFilterSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,47,1))
-_ZyMacFilterMaxNumberOfRules_Type=Integer32
-_ZyMacFilterMaxNumberOfRules_Object=MibScalar
-zyMacFilterMaxNumberOfRules=_ZyMacFilterMaxNumberOfRules_Object((1,3,6,1,4,1,890,1,15,3,47,1,1),_ZyMacFilterMaxNumberOfRules_Type())
-zyMacFilterMaxNumberOfRules.setMaxAccess('read-only')
-if mibBuilder.loadTexts:zyMacFilterMaxNumberOfRules.setStatus(_A)
-_ZyxelMacFilterTable_Object=MibTable
-zyxelMacFilterTable=_ZyxelMacFilterTable_Object((1,3,6,1,4,1,890,1,15,3,47,1,2))
-if mibBuilder.loadTexts:zyxelMacFilterTable.setStatus(_A)
-_ZyxelMacFilterEntry_Object=MibTableRow
-zyxelMacFilterEntry=_ZyxelMacFilterEntry_Object((1,3,6,1,4,1,890,1,15,3,47,1,2,1))
-zyxelMacFilterEntry.setIndexNames((0,_B,_D),(0,_B,_E))
-if mibBuilder.loadTexts:zyxelMacFilterEntry.setStatus(_A)
-_ZyMacFilterMacAddress_Type=MacAddress
-_ZyMacFilterMacAddress_Object=MibTableColumn
-zyMacFilterMacAddress=_ZyMacFilterMacAddress_Object((1,3,6,1,4,1,890,1,15,3,47,1,2,1,1),_ZyMacFilterMacAddress_Type())
-zyMacFilterMacAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:zyMacFilterMacAddress.setStatus(_A)
-_ZyMacFilterVid_Type=Integer32
-_ZyMacFilterVid_Object=MibTableColumn
-zyMacFilterVid=_ZyMacFilterVid_Object((1,3,6,1,4,1,890,1,15,3,47,1,2,1,2),_ZyMacFilterVid_Type())
-zyMacFilterVid.setMaxAccess(_F)
-if mibBuilder.loadTexts:zyMacFilterVid.setStatus(_A)
-_ZyMacFilterName_Type=DisplayString
-_ZyMacFilterName_Object=MibTableColumn
-zyMacFilterName=_ZyMacFilterName_Object((1,3,6,1,4,1,890,1,15,3,47,1,2,1,3),_ZyMacFilterName_Type())
-zyMacFilterName.setMaxAccess(_G)
-if mibBuilder.loadTexts:zyMacFilterName.setStatus(_A)
-class _ZyMacFilterAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('discardSource',1),('discardDestination',2),('both',3)))
-_ZyMacFilterAction_Type.__name__=_C
-_ZyMacFilterAction_Object=MibTableColumn
-zyMacFilterAction=_ZyMacFilterAction_Object((1,3,6,1,4,1,890,1,15,3,47,1,2,1,4),_ZyMacFilterAction_Type())
-zyMacFilterAction.setMaxAccess(_G)
-if mibBuilder.loadTexts:zyMacFilterAction.setStatus(_A)
-_ZyMacFilterRowStatus_Type=RowStatus
-_ZyMacFilterRowStatus_Object=MibTableColumn
-zyMacFilterRowStatus=_ZyMacFilterRowStatus_Object((1,3,6,1,4,1,890,1,15,3,47,1,2,1,5),_ZyMacFilterRowStatus_Type())
-zyMacFilterRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:zyMacFilterRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'zyxelMacFilter':zyxelMacFilter,'zyxelMacFilterSetup':zyxelMacFilterSetup,'zyMacFilterMaxNumberOfRules':zyMacFilterMaxNumberOfRules,'zyxelMacFilterTable':zyxelMacFilterTable,'zyxelMacFilterEntry':zyxelMacFilterEntry,_D:zyMacFilterMacAddress,_E:zyMacFilterVid,'zyMacFilterName':zyMacFilterName,'zyMacFilterAction':zyMacFilterAction,'zyMacFilterRowStatus':zyMacFilterRowStatus})
+#
+# PySNMP MIB module ZYXEL-MAC-FILTER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-MAC-FILTER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:00 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelMacFilter = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 47))
+if mibBuilder.loadTexts: zyxelMacFilter.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelMacFilter.setOrganization('Enterprise Solution ZyXEL')
+zyxelMacFilterSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 47, 1))
+zyMacFilterMaxNumberOfRules = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 47, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zyMacFilterMaxNumberOfRules.setStatus('current')
+zyxelMacFilterTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 47, 1, 2), )
+if mibBuilder.loadTexts: zyxelMacFilterTable.setStatus('current')
+zyxelMacFilterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 47, 1, 2, 1), ).setIndexNames((0, "ZYXEL-MAC-FILTER-MIB", "zyMacFilterMacAddress"), (0, "ZYXEL-MAC-FILTER-MIB", "zyMacFilterVid"))
+if mibBuilder.loadTexts: zyxelMacFilterEntry.setStatus('current')
+zyMacFilterMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 47, 1, 2, 1, 1), MacAddress())
+if mibBuilder.loadTexts: zyMacFilterMacAddress.setStatus('current')
+zyMacFilterVid = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 47, 1, 2, 1, 2), Integer32())
+if mibBuilder.loadTexts: zyMacFilterVid.setStatus('current')
+zyMacFilterName = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 47, 1, 2, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyMacFilterName.setStatus('current')
+zyMacFilterAction = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 47, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("discardSource", 1), ("discardDestination", 2), ("both", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyMacFilterAction.setStatus('current')
+zyMacFilterRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 47, 1, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: zyMacFilterRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-MAC-FILTER-MIB", zyxelMacFilterEntry=zyxelMacFilterEntry, zyMacFilterMaxNumberOfRules=zyMacFilterMaxNumberOfRules, zyMacFilterMacAddress=zyMacFilterMacAddress, zyMacFilterRowStatus=zyMacFilterRowStatus, zyMacFilterVid=zyMacFilterVid, zyxelMacFilterTable=zyxelMacFilterTable, PYSNMP_MODULE_ID=zyxelMacFilter, zyxelMacFilter=zyxelMacFilter, zyMacFilterAction=zyMacFilterAction, zyMacFilterName=zyMacFilterName, zyxelMacFilterSetup=zyxelMacFilterSetup)

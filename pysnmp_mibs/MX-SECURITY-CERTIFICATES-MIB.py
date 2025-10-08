@@ -1,59 +1,41 @@
-_H='securityCertificatesVer1'
-_G='certificateExpirationDate'
-_F='certificateSubjectCommonName'
-_E='certificateName'
-_D='read-only'
-_C='OctetString'
-_B='MX-SECURITY-CERTIFICATES-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-mediatrixMgmt,=mibBuilder.importSymbols('MX-SMI','mediatrixMgmt')
-MxEnableState,=mibBuilder.importSymbols('MX-TC','MxEnableState')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-securityCertificatesMIB=ModuleIdentity((1,3,6,1,4,1,4935,10,200))
-if mibBuilder.loadTexts:securityCertificatesMIB.setRevisions(('2005-04-21 00:00',))
-_SecurityCertificatesMIBObjects_ObjectIdentity=ObjectIdentity
-securityCertificatesMIBObjects=_SecurityCertificatesMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,10,200,1))
-_CertificateTable_Object=MibTable
-certificateTable=_CertificateTable_Object((1,3,6,1,4,1,4935,10,200,1,500))
-if mibBuilder.loadTexts:certificateTable.setStatus(_A)
-_CertificateEntry_Object=MibTableRow
-certificateEntry=_CertificateEntry_Object((1,3,6,1,4,1,4935,10,200,1,500,50))
-certificateEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:certificateEntry.setStatus(_A)
-class _CertificateName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,6))
-_CertificateName_Type.__name__=_C
-_CertificateName_Object=MibTableColumn
-certificateName=_CertificateName_Object((1,3,6,1,4,1,4935,10,200,1,500,50,50),_CertificateName_Type())
-certificateName.setMaxAccess(_D)
-if mibBuilder.loadTexts:certificateName.setStatus(_A)
-class _CertificateSubjectCommonName_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_CertificateSubjectCommonName_Type.__name__=_C
-_CertificateSubjectCommonName_Object=MibTableColumn
-certificateSubjectCommonName=_CertificateSubjectCommonName_Object((1,3,6,1,4,1,4935,10,200,1,500,50,100),_CertificateSubjectCommonName_Type())
-certificateSubjectCommonName.setMaxAccess(_D)
-if mibBuilder.loadTexts:certificateSubjectCommonName.setStatus(_A)
-class _CertificateExpirationDate_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(10,10));fixedLength=10
-_CertificateExpirationDate_Type.__name__=_C
-_CertificateExpirationDate_Object=MibTableColumn
-certificateExpirationDate=_CertificateExpirationDate_Object((1,3,6,1,4,1,4935,10,200,1,500,50,150),_CertificateExpirationDate_Type())
-certificateExpirationDate.setMaxAccess(_D)
-if mibBuilder.loadTexts:certificateExpirationDate.setStatus(_A)
-_SecurityCertificatesConformance_ObjectIdentity=ObjectIdentity
-securityCertificatesConformance=_SecurityCertificatesConformance_ObjectIdentity((1,3,6,1,4,1,4935,10,200,5))
-_SecurityCertificatesCompliances_ObjectIdentity=ObjectIdentity
-securityCertificatesCompliances=_SecurityCertificatesCompliances_ObjectIdentity((1,3,6,1,4,1,4935,10,200,5,1))
-_SecurityCertificatesGroups_ObjectIdentity=ObjectIdentity
-securityCertificatesGroups=_SecurityCertificatesGroups_ObjectIdentity((1,3,6,1,4,1,4935,10,200,5,5))
-securityCertificatesVer1=ObjectGroup((1,3,6,1,4,1,4935,10,200,5,5,10))
-securityCertificatesVer1.setObjects(*((_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:securityCertificatesVer1.setStatus(_A)
-securityCertificatesComplVer1=ModuleCompliance((1,3,6,1,4,1,4935,10,200,5,1,1))
-securityCertificatesComplVer1.setObjects((_B,_H))
-if mibBuilder.loadTexts:securityCertificatesComplVer1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'securityCertificatesMIB':securityCertificatesMIB,'securityCertificatesMIBObjects':securityCertificatesMIBObjects,'certificateTable':certificateTable,'certificateEntry':certificateEntry,_E:certificateName,_F:certificateSubjectCommonName,_G:certificateExpirationDate,'securityCertificatesConformance':securityCertificatesConformance,'securityCertificatesCompliances':securityCertificatesCompliances,'securityCertificatesComplVer1':securityCertificatesComplVer1,'securityCertificatesGroups':securityCertificatesGroups,_H:securityCertificatesVer1})
+#
+# PySNMP MIB module MX-SECURITY-CERTIFICATES-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-SECURITY-CERTIFICATES-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:05 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+mediatrixMgmt, = mibBuilder.importSymbols("MX-SMI", "mediatrixMgmt")
+MxEnableState, = mibBuilder.importSymbols("MX-TC", "MxEnableState")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+securityCertificatesMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 10, 200))
+securityCertificatesMIB.setRevisions(('2005-04-21 00:00',))
+if mibBuilder.loadTexts: securityCertificatesMIB.setLastUpdated('200504210000Z')
+if mibBuilder.loadTexts: securityCertificatesMIB.setOrganization('Mediatrix Telecom, Inc.')
+securityCertificatesMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 10, 200, 1))
+securityCertificatesConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 10, 200, 5))
+certificateTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 10, 200, 1, 500), )
+if mibBuilder.loadTexts: certificateTable.setStatus('current')
+certificateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 10, 200, 1, 500, 50), ).setIndexNames((0, "MX-SECURITY-CERTIFICATES-MIB", "certificateName"))
+if mibBuilder.loadTexts: certificateEntry.setStatus('current')
+certificateName = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 10, 200, 1, 500, 50, 50), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 6))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: certificateName.setStatus('current')
+certificateSubjectCommonName = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 10, 200, 1, 500, 50, 100), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: certificateSubjectCommonName.setStatus('current')
+certificateExpirationDate = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 10, 200, 1, 500, 50, 150), OctetString().subtype(subtypeSpec=ValueSizeConstraint(10, 10)).setFixedLength(10)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: certificateExpirationDate.setStatus('current')
+securityCertificatesCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 10, 200, 5, 1))
+securityCertificatesComplVer1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4935, 10, 200, 5, 1, 1)).setObjects(("MX-SECURITY-CERTIFICATES-MIB", "securityCertificatesVer1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    securityCertificatesComplVer1 = securityCertificatesComplVer1.setStatus('current')
+securityCertificatesGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 10, 200, 5, 5))
+securityCertificatesVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 10, 200, 5, 5, 10)).setObjects(("MX-SECURITY-CERTIFICATES-MIB", "certificateSubjectCommonName"), ("MX-SECURITY-CERTIFICATES-MIB", "certificateExpirationDate"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    securityCertificatesVer1 = securityCertificatesVer1.setStatus('current')
+mibBuilder.exportSymbols("MX-SECURITY-CERTIFICATES-MIB", certificateName=certificateName, securityCertificatesComplVer1=securityCertificatesComplVer1, PYSNMP_MODULE_ID=securityCertificatesMIB, certificateSubjectCommonName=certificateSubjectCommonName, securityCertificatesMIBObjects=securityCertificatesMIBObjects, certificateTable=certificateTable, securityCertificatesConformance=securityCertificatesConformance, securityCertificatesMIB=securityCertificatesMIB, certificateEntry=certificateEntry, securityCertificatesCompliances=securityCertificatesCompliances, securityCertificatesGroups=securityCertificatesGroups, certificateExpirationDate=certificateExpirationDate, securityCertificatesVer1=securityCertificatesVer1)

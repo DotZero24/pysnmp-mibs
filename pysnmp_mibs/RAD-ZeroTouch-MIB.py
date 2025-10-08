@@ -1,69 +1,40 @@
-_J='bootstrapDeviceHwVer'
-_I='bootstrapDeviceSwVer'
-_H='bootstrapDeviceMac'
-_G='bootstrapDeviceType'
-_F='read-write'
-_E='bootstrapIfIndex'
-_D='Integer32'
-_C='read-only'
-_B='RAD-ZeroTouch-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-systemsEvents,=mibBuilder.importSymbols('RAD-GEN-MIB','systemsEvents')
-systems,=mibBuilder.importSymbols('RAD-SMI-MIB','systems')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','TextualConvention')
-radZeroTouch=ModuleIdentity((1,3,6,1,4,1,164,6,1,17))
-_BootstrapTable_Object=MibTable
-bootstrapTable=_BootstrapTable_Object((1,3,6,1,4,1,164,6,1,17,1))
-if mibBuilder.loadTexts:bootstrapTable.setStatus(_A)
-_BootstrapEntry_Object=MibTableRow
-bootstrapEntry=_BootstrapEntry_Object((1,3,6,1,4,1,164,6,1,17,1,1))
-bootstrapEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:bootstrapEntry.setStatus(_A)
-_BootstrapIfIndex_Type=Integer32
-_BootstrapIfIndex_Object=MibTableColumn
-bootstrapIfIndex=_BootstrapIfIndex_Object((1,3,6,1,4,1,164,6,1,17,1,1,1),_BootstrapIfIndex_Type())
-bootstrapIfIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:bootstrapIfIndex.setStatus(_A)
-_BootstrapDeviceType_Type=ObjectIdentifier
-_BootstrapDeviceType_Object=MibTableColumn
-bootstrapDeviceType=_BootstrapDeviceType_Object((1,3,6,1,4,1,164,6,1,17,1,1,2),_BootstrapDeviceType_Type())
-bootstrapDeviceType.setMaxAccess(_C)
-if mibBuilder.loadTexts:bootstrapDeviceType.setStatus(_A)
-_BootstrapDeviceMac_Type=MacAddress
-_BootstrapDeviceMac_Object=MibTableColumn
-bootstrapDeviceMac=_BootstrapDeviceMac_Object((1,3,6,1,4,1,164,6,1,17,1,1,3),_BootstrapDeviceMac_Type())
-bootstrapDeviceMac.setMaxAccess(_C)
-if mibBuilder.loadTexts:bootstrapDeviceMac.setStatus(_A)
-_BootstrapDeviceSwVer_Type=SnmpAdminString
-_BootstrapDeviceSwVer_Object=MibTableColumn
-bootstrapDeviceSwVer=_BootstrapDeviceSwVer_Object((1,3,6,1,4,1,164,6,1,17,1,1,4),_BootstrapDeviceSwVer_Type())
-bootstrapDeviceSwVer.setMaxAccess(_C)
-if mibBuilder.loadTexts:bootstrapDeviceSwVer.setStatus(_A)
-_BootstrapDeviceHwVer_Type=SnmpAdminString
-_BootstrapDeviceHwVer_Object=MibTableColumn
-bootstrapDeviceHwVer=_BootstrapDeviceHwVer_Object((1,3,6,1,4,1,164,6,1,17,1,1,5),_BootstrapDeviceHwVer_Type())
-bootstrapDeviceHwVer.setMaxAccess(_C)
-if mibBuilder.loadTexts:bootstrapDeviceHwVer.setStatus(_A)
-class _BootstrapState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3)));namedValues=NamedValues(*(('on',2),('acknowledge',3)))
-_BootstrapState_Type.__name__=_D
-_BootstrapState_Object=MibTableColumn
-bootstrapState=_BootstrapState_Object((1,3,6,1,4,1,164,6,1,17,1,1,6),_BootstrapState_Type())
-bootstrapState.setMaxAccess(_F)
-if mibBuilder.loadTexts:bootstrapState.setStatus(_A)
-class _BootstrapActivationCmd_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3)));namedValues=NamedValues(*(('off',2),('on',3)))
-_BootstrapActivationCmd_Type.__name__=_D
-_BootstrapActivationCmd_Object=MibScalar
-bootstrapActivationCmd=_BootstrapActivationCmd_Object((1,3,6,1,4,1,164,6,1,17,2),_BootstrapActivationCmd_Type())
-bootstrapActivationCmd.setMaxAccess(_F)
-if mibBuilder.loadTexts:bootstrapActivationCmd.setStatus(_A)
-systemBootstrap=NotificationType((1,3,6,1,4,1,164,6,1,0,85))
-systemBootstrap.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J)))
-if mibBuilder.loadTexts:systemBootstrap.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'systemBootstrap':systemBootstrap,'radZeroTouch':radZeroTouch,'bootstrapTable':bootstrapTable,'bootstrapEntry':bootstrapEntry,_E:bootstrapIfIndex,_G:bootstrapDeviceType,_H:bootstrapDeviceMac,_I:bootstrapDeviceSwVer,_J:bootstrapDeviceHwVer,'bootstrapState':bootstrapState,'bootstrapActivationCmd':bootstrapActivationCmd})
+#
+# PySNMP MIB module RAD-ZeroTouch-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rad/RAD-ZeroTouch-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:42:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+systemsEvents, = mibBuilder.importSymbols("RAD-GEN-MIB", "systemsEvents")
+systems, = mibBuilder.importSymbols("RAD-SMI-MIB", "systems")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "DateAndTime", "TextualConvention")
+radZeroTouch = ModuleIdentity((1, 3, 6, 1, 4, 1, 164, 6, 1, 17))
+if mibBuilder.loadTexts: radZeroTouch.setLastUpdated('201502191811Z')
+if mibBuilder.loadTexts: radZeroTouch.setOrganization('RAD Data Communications Ltd.')
+bootstrapTable = MibTable((1, 3, 6, 1, 4, 1, 164, 6, 1, 17, 1), )
+if mibBuilder.loadTexts: bootstrapTable.setStatus('current')
+bootstrapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 164, 6, 1, 17, 1, 1), ).setIndexNames((0, "RAD-ZeroTouch-MIB", "bootstrapIfIndex"))
+if mibBuilder.loadTexts: bootstrapEntry.setStatus('current')
+bootstrapIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 1, 17, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: bootstrapIfIndex.setStatus('current')
+bootstrapDeviceType = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 1, 17, 1, 1, 2), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bootstrapDeviceType.setStatus('current')
+bootstrapDeviceMac = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 1, 17, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bootstrapDeviceMac.setStatus('current')
+bootstrapDeviceSwVer = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 1, 17, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bootstrapDeviceSwVer.setStatus('current')
+bootstrapDeviceHwVer = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 1, 17, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bootstrapDeviceHwVer.setStatus('current')
+bootstrapState = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 6, 1, 17, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("on", 2), ("acknowledge", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bootstrapState.setStatus('current')
+bootstrapActivationCmd = MibScalar((1, 3, 6, 1, 4, 1, 164, 6, 1, 17, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("off", 2), ("on", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bootstrapActivationCmd.setStatus('current')
+systemBootstrap = NotificationType((1, 3, 6, 1, 4, 1, 164, 6, 1, 0, 85)).setObjects(("RAD-ZeroTouch-MIB", "bootstrapDeviceType"), ("RAD-ZeroTouch-MIB", "bootstrapDeviceMac"), ("RAD-ZeroTouch-MIB", "bootstrapDeviceSwVer"), ("RAD-ZeroTouch-MIB", "bootstrapDeviceHwVer"))
+if mibBuilder.loadTexts: systemBootstrap.setStatus('current')
+mibBuilder.exportSymbols("RAD-ZeroTouch-MIB", PYSNMP_MODULE_ID=radZeroTouch, bootstrapDeviceMac=bootstrapDeviceMac, bootstrapDeviceType=bootstrapDeviceType, bootstrapActivationCmd=bootstrapActivationCmd, systemBootstrap=systemBootstrap, bootstrapDeviceSwVer=bootstrapDeviceSwVer, bootstrapDeviceHwVer=bootstrapDeviceHwVer, bootstrapTable=bootstrapTable, bootstrapState=bootstrapState, radZeroTouch=radZeroTouch, bootstrapEntry=bootstrapEntry, bootstrapIfIndex=bootstrapIfIndex)

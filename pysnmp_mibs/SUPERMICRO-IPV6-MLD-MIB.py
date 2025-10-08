@@ -1,43 +1,29 @@
-_D='deprecated'
-_C='current'
-_B='Integer32'
-_A='read-write'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-futuremld=ModuleIdentity((1,3,6,1,4,1,10876,101,1,70))
-if mibBuilder.loadTexts:futuremld.setRevisions(('2012-09-05 00:00',))
-_FsmldScalars_ObjectIdentity=ObjectIdentity
-fsmldScalars=_FsmldScalars_ObjectIdentity((1,3,6,1,4,1,10876,101,1,70,1))
-_FsmldNoOfCacheEntries_Type=Unsigned32
-_FsmldNoOfCacheEntries_Object=MibScalar
-fsmldNoOfCacheEntries=_FsmldNoOfCacheEntries_Object((1,3,6,1,4,1,10876,101,1,70,1,1),_FsmldNoOfCacheEntries_Type())
-fsmldNoOfCacheEntries.setMaxAccess(_A)
-if mibBuilder.loadTexts:fsmldNoOfCacheEntries.setStatus(_D)
-_FsmldNoOfRoutingProtocols_Type=Unsigned32
-_FsmldNoOfRoutingProtocols_Object=MibScalar
-fsmldNoOfRoutingProtocols=_FsmldNoOfRoutingProtocols_Object((1,3,6,1,4,1,10876,101,1,70,1,2),_FsmldNoOfRoutingProtocols_Type())
-fsmldNoOfRoutingProtocols.setMaxAccess(_A)
-if mibBuilder.loadTexts:fsmldNoOfRoutingProtocols.setStatus(_D)
-_FsmldTraceDebug_Type=Unsigned32
-_FsmldTraceDebug_Object=MibScalar
-fsmldTraceDebug=_FsmldTraceDebug_Object((1,3,6,1,4,1,10876,101,1,70,1,3),_FsmldTraceDebug_Type())
-fsmldTraceDebug.setMaxAccess(_A)
-if mibBuilder.loadTexts:fsmldTraceDebug.setStatus(_C)
-class _FsmldMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('mldrouter',1),('mldhost',2),('mldrouterhost',3)))
-_FsmldMode_Type.__name__=_B
-_FsmldMode_Object=MibScalar
-fsmldMode=_FsmldMode_Object((1,3,6,1,4,1,10876,101,1,70,1,4),_FsmldMode_Type())
-fsmldMode.setMaxAccess(_A)
-if mibBuilder.loadTexts:fsmldMode.setStatus(_C)
-class _FsmldProtocolUpDown_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('mldinit',1),('mldshutdown',2)))
-_FsmldProtocolUpDown_Type.__name__=_B
-_FsmldProtocolUpDown_Object=MibScalar
-fsmldProtocolUpDown=_FsmldProtocolUpDown_Object((1,3,6,1,4,1,10876,101,1,70,1,5),_FsmldProtocolUpDown_Type())
-fsmldProtocolUpDown.setMaxAccess(_A)
-if mibBuilder.loadTexts:fsmldProtocolUpDown.setStatus(_C)
-mibBuilder.exportSymbols('SUPERMICRO-IPV6-MLD-MIB',**{'futuremld':futuremld,'fsmldScalars':fsmldScalars,'fsmldNoOfCacheEntries':fsmldNoOfCacheEntries,'fsmldNoOfRoutingProtocols':fsmldNoOfRoutingProtocols,'fsmldTraceDebug':fsmldTraceDebug,'fsmldMode':fsmldMode,'fsmldProtocolUpDown':fsmldProtocolUpDown})
+#
+# PySNMP MIB module SUPERMICRO-IPV6-MLD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-IPV6-MLD-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:46 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+futuremld = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 1, 70))
+futuremld.setRevisions(('2012-09-05 00:00',))
+if mibBuilder.loadTexts: futuremld.setLastUpdated('201209050000Z')
+if mibBuilder.loadTexts: futuremld.setOrganization('Super Micro Computer Inc.')
+fsmldScalars = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 70, 1))
+fsmldNoOfCacheEntries = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 70, 1, 1), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsmldNoOfCacheEntries.setStatus('deprecated')
+fsmldNoOfRoutingProtocols = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 70, 1, 2), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsmldNoOfRoutingProtocols.setStatus('deprecated')
+fsmldTraceDebug = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 70, 1, 3), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsmldTraceDebug.setStatus('current')
+fsmldMode = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 70, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mldrouter", 1), ("mldhost", 2), ("mldrouterhost", 3))).clone('mldrouter')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsmldMode.setStatus('current')
+fsmldProtocolUpDown = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 1, 70, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("mldinit", 1), ("mldshutdown", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsmldProtocolUpDown.setStatus('current')
+mibBuilder.exportSymbols("SUPERMICRO-IPV6-MLD-MIB", fsmldScalars=fsmldScalars, PYSNMP_MODULE_ID=futuremld, fsmldMode=fsmldMode, futuremld=futuremld, fsmldProtocolUpDown=fsmldProtocolUpDown, fsmldNoOfCacheEntries=fsmldNoOfCacheEntries, fsmldTraceDebug=fsmldTraceDebug, fsmldNoOfRoutingProtocols=fsmldNoOfRoutingProtocols)

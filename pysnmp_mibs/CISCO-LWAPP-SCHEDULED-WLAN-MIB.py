@@ -1,118 +1,63 @@
-_Q='ciscoLwappScheduledWlanConfigGroup'
-_P='cLCalendarProfileMonthlyProfileRowStatus'
-_O='cLCalendarProfileWeeklyProfileRowStatus'
-_N='cLCalendarProfileRecurrence'
-_M='cLCalendarProfileEndTime'
-_L='cLCalendarProfileStartTime'
-_K='cLCalendarProfileRowStatus'
-_J='cLCalendarProfileMonthlyProfileDate'
-_I='cLCalendarProfileWeeklyProfileDay'
-_H='read-write'
-_G='read-create'
-_F='not-accessible'
-_E='Integer32'
-_D='cLCalendarProfileName'
-_C='SnmpAdminString'
-_B='CISCO-LWAPP-SCHEDULED-WLAN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_C)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-ciscoCapwapScheduledWlanMIB=ModuleIdentity((1,3,6,1,4,1,9,9,864))
-if mibBuilder.loadTexts:ciscoCapwapScheduledWlanMIB.setRevisions(('2019-04-07 00:00',))
-_CiscoLwappScheduledWlanMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoLwappScheduledWlanMIBNotifs=_CiscoLwappScheduledWlanMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,864,0))
-_CiscoLwappScheduledWlanMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoLwappScheduledWlanMIBObjects=_CiscoLwappScheduledWlanMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,864,1))
-_CiscoLwappScheduledWlanConfig_ObjectIdentity=ObjectIdentity
-ciscoLwappScheduledWlanConfig=_CiscoLwappScheduledWlanConfig_ObjectIdentity((1,3,6,1,4,1,9,9,864,1,1))
-_CLCalendarProfileConfigTable_Object=MibTable
-cLCalendarProfileConfigTable=_CLCalendarProfileConfigTable_Object((1,3,6,1,4,1,9,9,864,1,1,1))
-if mibBuilder.loadTexts:cLCalendarProfileConfigTable.setStatus(_A)
-_CLCalendarProfileConfigEntry_Object=MibTableRow
-cLCalendarProfileConfigEntry=_CLCalendarProfileConfigEntry_Object((1,3,6,1,4,1,9,9,864,1,1,1,1))
-cLCalendarProfileConfigEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:cLCalendarProfileConfigEntry.setStatus(_A)
-class _CLCalendarProfileName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_CLCalendarProfileName_Type.__name__=_C
-_CLCalendarProfileName_Object=MibTableColumn
-cLCalendarProfileName=_CLCalendarProfileName_Object((1,3,6,1,4,1,9,9,864,1,1,1,1,1),_CLCalendarProfileName_Type())
-cLCalendarProfileName.setMaxAccess(_F)
-if mibBuilder.loadTexts:cLCalendarProfileName.setStatus(_A)
-_CLCalendarProfileRowStatus_Type=RowStatus
-_CLCalendarProfileRowStatus_Object=MibTableColumn
-cLCalendarProfileRowStatus=_CLCalendarProfileRowStatus_Object((1,3,6,1,4,1,9,9,864,1,1,1,1,2),_CLCalendarProfileRowStatus_Type())
-cLCalendarProfileRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:cLCalendarProfileRowStatus.setStatus(_A)
-class _CLCalendarProfileStartTime_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CLCalendarProfileStartTime_Type.__name__=_C
-_CLCalendarProfileStartTime_Object=MibTableColumn
-cLCalendarProfileStartTime=_CLCalendarProfileStartTime_Object((1,3,6,1,4,1,9,9,864,1,1,1,1,3),_CLCalendarProfileStartTime_Type())
-cLCalendarProfileStartTime.setMaxAccess(_H)
-if mibBuilder.loadTexts:cLCalendarProfileStartTime.setStatus(_A)
-class _CLCalendarProfileEndTime_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CLCalendarProfileEndTime_Type.__name__=_C
-_CLCalendarProfileEndTime_Object=MibTableColumn
-cLCalendarProfileEndTime=_CLCalendarProfileEndTime_Object((1,3,6,1,4,1,9,9,864,1,1,1,1,4),_CLCalendarProfileEndTime_Type())
-cLCalendarProfileEndTime.setMaxAccess(_H)
-if mibBuilder.loadTexts:cLCalendarProfileEndTime.setStatus(_A)
-class _CLCalendarProfileRecurrence_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('daily',0),('weekly',1),('monthly',2)))
-_CLCalendarProfileRecurrence_Type.__name__=_E
-_CLCalendarProfileRecurrence_Object=MibTableColumn
-cLCalendarProfileRecurrence=_CLCalendarProfileRecurrence_Object((1,3,6,1,4,1,9,9,864,1,1,1,1,5),_CLCalendarProfileRecurrence_Type())
-cLCalendarProfileRecurrence.setMaxAccess(_H)
-if mibBuilder.loadTexts:cLCalendarProfileRecurrence.setStatus(_A)
-_CLCalendarProfileWeeklyConfigTable_Object=MibTable
-cLCalendarProfileWeeklyConfigTable=_CLCalendarProfileWeeklyConfigTable_Object((1,3,6,1,4,1,9,9,864,1,1,2))
-if mibBuilder.loadTexts:cLCalendarProfileWeeklyConfigTable.setStatus(_A)
-_CLCalendarProfileWeeklyConfigEntry_Object=MibTableRow
-cLCalendarProfileWeeklyConfigEntry=_CLCalendarProfileWeeklyConfigEntry_Object((1,3,6,1,4,1,9,9,864,1,1,2,1))
-cLCalendarProfileWeeklyConfigEntry.setIndexNames((0,_B,_D),(0,_B,_I))
-if mibBuilder.loadTexts:cLCalendarProfileWeeklyConfigEntry.setStatus(_A)
-class _CLCalendarProfileWeeklyProfileDay_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('monday',1),('tuesday',2),('wednesday',3),('thursday',4),('friday',5),('saturday',6),('sunday',7)))
-_CLCalendarProfileWeeklyProfileDay_Type.__name__=_E
-_CLCalendarProfileWeeklyProfileDay_Object=MibTableColumn
-cLCalendarProfileWeeklyProfileDay=_CLCalendarProfileWeeklyProfileDay_Object((1,3,6,1,4,1,9,9,864,1,1,2,1,1),_CLCalendarProfileWeeklyProfileDay_Type())
-cLCalendarProfileWeeklyProfileDay.setMaxAccess(_F)
-if mibBuilder.loadTexts:cLCalendarProfileWeeklyProfileDay.setStatus(_A)
-_CLCalendarProfileWeeklyProfileRowStatus_Type=RowStatus
-_CLCalendarProfileWeeklyProfileRowStatus_Object=MibTableColumn
-cLCalendarProfileWeeklyProfileRowStatus=_CLCalendarProfileWeeklyProfileRowStatus_Object((1,3,6,1,4,1,9,9,864,1,1,2,1,2),_CLCalendarProfileWeeklyProfileRowStatus_Type())
-cLCalendarProfileWeeklyProfileRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:cLCalendarProfileWeeklyProfileRowStatus.setStatus(_A)
-_CLCalendarProfileMonthlyConfigTable_Object=MibTable
-cLCalendarProfileMonthlyConfigTable=_CLCalendarProfileMonthlyConfigTable_Object((1,3,6,1,4,1,9,9,864,1,1,3))
-if mibBuilder.loadTexts:cLCalendarProfileMonthlyConfigTable.setStatus(_A)
-_CLCalendarProfileMonthlyConfigEntry_Object=MibTableRow
-cLCalendarProfileMonthlyConfigEntry=_CLCalendarProfileMonthlyConfigEntry_Object((1,3,6,1,4,1,9,9,864,1,1,3,1))
-cLCalendarProfileMonthlyConfigEntry.setIndexNames((0,_B,_D),(0,_B,_J))
-if mibBuilder.loadTexts:cLCalendarProfileMonthlyConfigEntry.setStatus(_A)
-_CLCalendarProfileMonthlyProfileDate_Type=Unsigned32
-_CLCalendarProfileMonthlyProfileDate_Object=MibTableColumn
-cLCalendarProfileMonthlyProfileDate=_CLCalendarProfileMonthlyProfileDate_Object((1,3,6,1,4,1,9,9,864,1,1,3,1,1),_CLCalendarProfileMonthlyProfileDate_Type())
-cLCalendarProfileMonthlyProfileDate.setMaxAccess(_F)
-if mibBuilder.loadTexts:cLCalendarProfileMonthlyProfileDate.setStatus(_A)
-_CLCalendarProfileMonthlyProfileRowStatus_Type=RowStatus
-_CLCalendarProfileMonthlyProfileRowStatus_Object=MibTableColumn
-cLCalendarProfileMonthlyProfileRowStatus=_CLCalendarProfileMonthlyProfileRowStatus_Object((1,3,6,1,4,1,9,9,864,1,1,3,1,2),_CLCalendarProfileMonthlyProfileRowStatus_Type())
-cLCalendarProfileMonthlyProfileRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:cLCalendarProfileMonthlyProfileRowStatus.setStatus(_A)
-_CiscoLwappScheduledWlanConform_ObjectIdentity=ObjectIdentity
-ciscoLwappScheduledWlanConform=_CiscoLwappScheduledWlanConform_ObjectIdentity((1,3,6,1,4,1,9,9,864,2))
-_CiscoLwappScheduledWlanCompliances_ObjectIdentity=ObjectIdentity
-ciscoLwappScheduledWlanCompliances=_CiscoLwappScheduledWlanCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,864,2,1))
-_CiscoLwappScheduledWlanGroups_ObjectIdentity=ObjectIdentity
-ciscoLwappScheduledWlanGroups=_CiscoLwappScheduledWlanGroups_ObjectIdentity((1,3,6,1,4,1,9,9,864,2,2))
-ciscoLwappScheduledWlanConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,864,2,2,1))
-ciscoLwappScheduledWlanConfigGroup.setObjects(*((_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:ciscoLwappScheduledWlanConfigGroup.setStatus(_A)
-ciscoLwappScheduledWlanCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,864,2,1,1))
-ciscoLwappScheduledWlanCompliance.setObjects((_B,_Q))
-if mibBuilder.loadTexts:ciscoLwappScheduledWlanCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoCapwapScheduledWlanMIB':ciscoCapwapScheduledWlanMIB,'ciscoLwappScheduledWlanMIBNotifs':ciscoLwappScheduledWlanMIBNotifs,'ciscoLwappScheduledWlanMIBObjects':ciscoLwappScheduledWlanMIBObjects,'ciscoLwappScheduledWlanConfig':ciscoLwappScheduledWlanConfig,'cLCalendarProfileConfigTable':cLCalendarProfileConfigTable,'cLCalendarProfileConfigEntry':cLCalendarProfileConfigEntry,_D:cLCalendarProfileName,_K:cLCalendarProfileRowStatus,_L:cLCalendarProfileStartTime,_M:cLCalendarProfileEndTime,_N:cLCalendarProfileRecurrence,'cLCalendarProfileWeeklyConfigTable':cLCalendarProfileWeeklyConfigTable,'cLCalendarProfileWeeklyConfigEntry':cLCalendarProfileWeeklyConfigEntry,_I:cLCalendarProfileWeeklyProfileDay,_O:cLCalendarProfileWeeklyProfileRowStatus,'cLCalendarProfileMonthlyConfigTable':cLCalendarProfileMonthlyConfigTable,'cLCalendarProfileMonthlyConfigEntry':cLCalendarProfileMonthlyConfigEntry,_J:cLCalendarProfileMonthlyProfileDate,_P:cLCalendarProfileMonthlyProfileRowStatus,'ciscoLwappScheduledWlanConform':ciscoLwappScheduledWlanConform,'ciscoLwappScheduledWlanCompliances':ciscoLwappScheduledWlanCompliances,'ciscoLwappScheduledWlanCompliance':ciscoLwappScheduledWlanCompliance,'ciscoLwappScheduledWlanGroups':ciscoLwappScheduledWlanGroups,_Q:ciscoLwappScheduledWlanConfigGroup})
+#
+# PySNMP MIB module CISCO-LWAPP-SCHEDULED-WLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-LWAPP-SCHEDULED-WLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:58 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ciscoCapwapScheduledWlanMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 864))
+ciscoCapwapScheduledWlanMIB.setRevisions(('2019-04-07 00:00',))
+if mibBuilder.loadTexts: ciscoCapwapScheduledWlanMIB.setLastUpdated('201904070000Z')
+if mibBuilder.loadTexts: ciscoCapwapScheduledWlanMIB.setOrganization('Cisco Systems Inc.')
+ciscoLwappScheduledWlanMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 864, 0))
+ciscoLwappScheduledWlanMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 864, 1))
+ciscoLwappScheduledWlanConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 864, 2))
+ciscoLwappScheduledWlanConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1))
+cLCalendarProfileConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1, 1), )
+if mibBuilder.loadTexts: cLCalendarProfileConfigTable.setStatus('current')
+cLCalendarProfileConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-LWAPP-SCHEDULED-WLAN-MIB", "cLCalendarProfileName"))
+if mibBuilder.loadTexts: cLCalendarProfileConfigEntry.setStatus('current')
+cLCalendarProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32)))
+if mibBuilder.loadTexts: cLCalendarProfileName.setStatus('current')
+cLCalendarProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cLCalendarProfileRowStatus.setStatus('current')
+cLCalendarProfileStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1, 1, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cLCalendarProfileStartTime.setStatus('current')
+cLCalendarProfileEndTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1, 1, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cLCalendarProfileEndTime.setStatus('current')
+cLCalendarProfileRecurrence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("daily", 0), ("weekly", 1), ("monthly", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cLCalendarProfileRecurrence.setStatus('current')
+cLCalendarProfileWeeklyConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1, 2), )
+if mibBuilder.loadTexts: cLCalendarProfileWeeklyConfigTable.setStatus('current')
+cLCalendarProfileWeeklyConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1, 2, 1), ).setIndexNames((0, "CISCO-LWAPP-SCHEDULED-WLAN-MIB", "cLCalendarProfileName"), (0, "CISCO-LWAPP-SCHEDULED-WLAN-MIB", "cLCalendarProfileWeeklyProfileDay"))
+if mibBuilder.loadTexts: cLCalendarProfileWeeklyConfigEntry.setStatus('current')
+cLCalendarProfileWeeklyProfileDay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("monday", 1), ("tuesday", 2), ("wednesday", 3), ("thursday", 4), ("friday", 5), ("saturday", 6), ("sunday", 7))))
+if mibBuilder.loadTexts: cLCalendarProfileWeeklyProfileDay.setStatus('current')
+cLCalendarProfileWeeklyProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cLCalendarProfileWeeklyProfileRowStatus.setStatus('current')
+cLCalendarProfileMonthlyConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1, 3), )
+if mibBuilder.loadTexts: cLCalendarProfileMonthlyConfigTable.setStatus('current')
+cLCalendarProfileMonthlyConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1, 3, 1), ).setIndexNames((0, "CISCO-LWAPP-SCHEDULED-WLAN-MIB", "cLCalendarProfileName"), (0, "CISCO-LWAPP-SCHEDULED-WLAN-MIB", "cLCalendarProfileMonthlyProfileDate"))
+if mibBuilder.loadTexts: cLCalendarProfileMonthlyConfigEntry.setStatus('current')
+cLCalendarProfileMonthlyProfileDate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1, 3, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: cLCalendarProfileMonthlyProfileDate.setStatus('current')
+cLCalendarProfileMonthlyProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 864, 1, 1, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cLCalendarProfileMonthlyProfileRowStatus.setStatus('current')
+ciscoLwappScheduledWlanCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 864, 2, 1))
+ciscoLwappScheduledWlanGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 864, 2, 2))
+ciscoLwappScheduledWlanCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 864, 2, 1, 1)).setObjects(("CISCO-LWAPP-SCHEDULED-WLAN-MIB", "ciscoLwappScheduledWlanConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoLwappScheduledWlanCompliance = ciscoLwappScheduledWlanCompliance.setStatus('current')
+ciscoLwappScheduledWlanConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 864, 2, 2, 1)).setObjects(("CISCO-LWAPP-SCHEDULED-WLAN-MIB", "cLCalendarProfileRowStatus"), ("CISCO-LWAPP-SCHEDULED-WLAN-MIB", "cLCalendarProfileStartTime"), ("CISCO-LWAPP-SCHEDULED-WLAN-MIB", "cLCalendarProfileEndTime"), ("CISCO-LWAPP-SCHEDULED-WLAN-MIB", "cLCalendarProfileRecurrence"), ("CISCO-LWAPP-SCHEDULED-WLAN-MIB", "cLCalendarProfileWeeklyProfileRowStatus"), ("CISCO-LWAPP-SCHEDULED-WLAN-MIB", "cLCalendarProfileMonthlyProfileRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoLwappScheduledWlanConfigGroup = ciscoLwappScheduledWlanConfigGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-LWAPP-SCHEDULED-WLAN-MIB", cLCalendarProfileStartTime=cLCalendarProfileStartTime, cLCalendarProfileMonthlyProfileDate=cLCalendarProfileMonthlyProfileDate, cLCalendarProfileRecurrence=cLCalendarProfileRecurrence, cLCalendarProfileWeeklyProfileDay=cLCalendarProfileWeeklyProfileDay, ciscoLwappScheduledWlanConfigGroup=ciscoLwappScheduledWlanConfigGroup, cLCalendarProfileRowStatus=cLCalendarProfileRowStatus, ciscoCapwapScheduledWlanMIB=ciscoCapwapScheduledWlanMIB, cLCalendarProfileName=cLCalendarProfileName, cLCalendarProfileConfigEntry=cLCalendarProfileConfigEntry, ciscoLwappScheduledWlanCompliance=ciscoLwappScheduledWlanCompliance, cLCalendarProfileWeeklyConfigTable=cLCalendarProfileWeeklyConfigTable, ciscoLwappScheduledWlanCompliances=ciscoLwappScheduledWlanCompliances, ciscoLwappScheduledWlanMIBObjects=ciscoLwappScheduledWlanMIBObjects, cLCalendarProfileWeeklyConfigEntry=cLCalendarProfileWeeklyConfigEntry, PYSNMP_MODULE_ID=ciscoCapwapScheduledWlanMIB, ciscoLwappScheduledWlanConform=ciscoLwappScheduledWlanConform, cLCalendarProfileEndTime=cLCalendarProfileEndTime, ciscoLwappScheduledWlanGroups=ciscoLwappScheduledWlanGroups, cLCalendarProfileMonthlyProfileRowStatus=cLCalendarProfileMonthlyProfileRowStatus, cLCalendarProfileWeeklyProfileRowStatus=cLCalendarProfileWeeklyProfileRowStatus, cLCalendarProfileMonthlyConfigTable=cLCalendarProfileMonthlyConfigTable, cLCalendarProfileConfigTable=cLCalendarProfileConfigTable, ciscoLwappScheduledWlanMIBNotifs=ciscoLwappScheduledWlanMIBNotifs, cLCalendarProfileMonthlyConfigEntry=cLCalendarProfileMonthlyConfigEntry, ciscoLwappScheduledWlanConfig=ciscoLwappScheduledWlanConfig)

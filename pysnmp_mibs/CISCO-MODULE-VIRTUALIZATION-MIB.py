@@ -1,165 +1,89 @@
-_a='cmVirtContextNotificationGroup'
-_Z='cmVirtContextNotifControlGroup'
-_Y='cmVirtContextIfMapGroup'
-_X='cmVirtContextconfigGroup'
-_W='cmVirtContextRemoved'
-_V='cmVirtContextAdded'
-_U='cmVirtContextNotifEnable'
-_T='cmVirtContextIfMapRowStatus'
-_S='cmVirtContextIfMapStorageType'
-_R='cmVirtContextIfMapIdHigh'
-_Q='cmVirtContextRowStatus'
-_P='cmVirtContextStorageType'
-_O='cmVirtContextResourceClass'
-_N='cmVirtContextURL'
-_M='cmVirtContextDescr'
-_L='cmVirtContextIfMapIdLow'
-_K='cmVirtContextIfMapType'
-_J='SnmpAdminString'
-_I='entPhysicalIndex'
-_H='ENTITY-MIB'
-_G='not-accessible'
-_F='cmVirtContextName'
-_E='StorageType'
-_D='cmNotifVirtContextName'
-_C='read-create'
-_B='CISCO-MODULE-VIRTUALIZATION-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CiscoResourceClass,=mibBuilder.importSymbols('CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB','CiscoResourceClass')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CiscoURLString,=mibBuilder.importSymbols('CISCO-TC','CiscoURLString')
-entPhysicalIndex,=mibBuilder.importSymbols(_H,_I)
-IANAifType,=mibBuilder.importSymbols('IANAifType-MIB','IANAifType')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_J)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_E,'TextualConvention','TruthValue')
-ciscoModuleVirtualizationMIB=ModuleIdentity((1,3,6,1,4,1,9,9,472))
-if mibBuilder.loadTexts:ciscoModuleVirtualizationMIB.setRevisions(('2006-05-29 00:00','2005-12-12 00:00'))
-_CmVirtualizationNotifs_ObjectIdentity=ObjectIdentity
-cmVirtualizationNotifs=_CmVirtualizationNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,472,0))
-_CmVirtualizationMIBObjects_ObjectIdentity=ObjectIdentity
-cmVirtualizationMIBObjects=_CmVirtualizationMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,472,1))
-_CmVirtualContext_ObjectIdentity=ObjectIdentity
-cmVirtualContext=_CmVirtualContext_ObjectIdentity((1,3,6,1,4,1,9,9,472,1,1))
-_CmVirtualContextTable_Object=MibTable
-cmVirtualContextTable=_CmVirtualContextTable_Object((1,3,6,1,4,1,9,9,472,1,1,1))
-if mibBuilder.loadTexts:cmVirtualContextTable.setStatus(_A)
-_CmVirtualContextEntry_Object=MibTableRow
-cmVirtualContextEntry=_CmVirtualContextEntry_Object((1,3,6,1,4,1,9,9,472,1,1,1,1))
-cmVirtualContextEntry.setIndexNames((0,_H,_I),(0,_B,_F))
-if mibBuilder.loadTexts:cmVirtualContextEntry.setStatus(_A)
-_CmVirtContextName_Type=SnmpAdminString
-_CmVirtContextName_Object=MibTableColumn
-cmVirtContextName=_CmVirtContextName_Object((1,3,6,1,4,1,9,9,472,1,1,1,1,1),_CmVirtContextName_Type())
-cmVirtContextName.setMaxAccess(_G)
-if mibBuilder.loadTexts:cmVirtContextName.setStatus(_A)
-class _CmVirtContextDescr_Type(SnmpAdminString):defaultValue=OctetString('')
-_CmVirtContextDescr_Type.__name__=_J
-_CmVirtContextDescr_Object=MibTableColumn
-cmVirtContextDescr=_CmVirtContextDescr_Object((1,3,6,1,4,1,9,9,472,1,1,1,1,2),_CmVirtContextDescr_Type())
-cmVirtContextDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmVirtContextDescr.setStatus(_A)
-_CmVirtContextURL_Type=CiscoURLString
-_CmVirtContextURL_Object=MibTableColumn
-cmVirtContextURL=_CmVirtContextURL_Object((1,3,6,1,4,1,9,9,472,1,1,1,1,3),_CmVirtContextURL_Type())
-cmVirtContextURL.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmVirtContextURL.setStatus(_A)
-_CmVirtContextResourceClass_Type=CiscoResourceClass
-_CmVirtContextResourceClass_Object=MibTableColumn
-cmVirtContextResourceClass=_CmVirtContextResourceClass_Object((1,3,6,1,4,1,9,9,472,1,1,1,1,4),_CmVirtContextResourceClass_Type())
-cmVirtContextResourceClass.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmVirtContextResourceClass.setStatus(_A)
-class _CmVirtContextStorageType_Type(StorageType):defaultValue=3
-_CmVirtContextStorageType_Type.__name__=_E
-_CmVirtContextStorageType_Object=MibTableColumn
-cmVirtContextStorageType=_CmVirtContextStorageType_Object((1,3,6,1,4,1,9,9,472,1,1,1,1,5),_CmVirtContextStorageType_Type())
-cmVirtContextStorageType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmVirtContextStorageType.setStatus(_A)
-_CmVirtContextRowStatus_Type=RowStatus
-_CmVirtContextRowStatus_Object=MibTableColumn
-cmVirtContextRowStatus=_CmVirtContextRowStatus_Object((1,3,6,1,4,1,9,9,472,1,1,1,1,6),_CmVirtContextRowStatus_Type())
-cmVirtContextRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmVirtContextRowStatus.setStatus(_A)
-_CmVirtContextIfMapTable_Object=MibTable
-cmVirtContextIfMapTable=_CmVirtContextIfMapTable_Object((1,3,6,1,4,1,9,9,472,1,1,2))
-if mibBuilder.loadTexts:cmVirtContextIfMapTable.setStatus(_A)
-_CmVirtContextIfMapEntry_Object=MibTableRow
-cmVirtContextIfMapEntry=_CmVirtContextIfMapEntry_Object((1,3,6,1,4,1,9,9,472,1,1,2,1))
-cmVirtContextIfMapEntry.setIndexNames((0,_B,_F),(0,_B,_K),(0,_B,_L))
-if mibBuilder.loadTexts:cmVirtContextIfMapEntry.setStatus(_A)
-_CmVirtContextIfMapType_Type=IANAifType
-_CmVirtContextIfMapType_Object=MibTableColumn
-cmVirtContextIfMapType=_CmVirtContextIfMapType_Object((1,3,6,1,4,1,9,9,472,1,1,2,1,1),_CmVirtContextIfMapType_Type())
-cmVirtContextIfMapType.setMaxAccess(_G)
-if mibBuilder.loadTexts:cmVirtContextIfMapType.setStatus(_A)
-_CmVirtContextIfMapIdLow_Type=Unsigned32
-_CmVirtContextIfMapIdLow_Object=MibTableColumn
-cmVirtContextIfMapIdLow=_CmVirtContextIfMapIdLow_Object((1,3,6,1,4,1,9,9,472,1,1,2,1,2),_CmVirtContextIfMapIdLow_Type())
-cmVirtContextIfMapIdLow.setMaxAccess(_G)
-if mibBuilder.loadTexts:cmVirtContextIfMapIdLow.setStatus(_A)
-_CmVirtContextIfMapIdHigh_Type=Unsigned32
-_CmVirtContextIfMapIdHigh_Object=MibTableColumn
-cmVirtContextIfMapIdHigh=_CmVirtContextIfMapIdHigh_Object((1,3,6,1,4,1,9,9,472,1,1,2,1,3),_CmVirtContextIfMapIdHigh_Type())
-cmVirtContextIfMapIdHigh.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmVirtContextIfMapIdHigh.setStatus(_A)
-class _CmVirtContextIfMapStorageType_Type(StorageType):defaultValue=3
-_CmVirtContextIfMapStorageType_Type.__name__=_E
-_CmVirtContextIfMapStorageType_Object=MibTableColumn
-cmVirtContextIfMapStorageType=_CmVirtContextIfMapStorageType_Object((1,3,6,1,4,1,9,9,472,1,1,2,1,4),_CmVirtContextIfMapStorageType_Type())
-cmVirtContextIfMapStorageType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmVirtContextIfMapStorageType.setStatus(_A)
-_CmVirtContextIfMapRowStatus_Type=RowStatus
-_CmVirtContextIfMapRowStatus_Object=MibTableColumn
-cmVirtContextIfMapRowStatus=_CmVirtContextIfMapRowStatus_Object((1,3,6,1,4,1,9,9,472,1,1,2,1,5),_CmVirtContextIfMapRowStatus_Type())
-cmVirtContextIfMapRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cmVirtContextIfMapRowStatus.setStatus(_A)
-_CmVirtualContextNotifControl_ObjectIdentity=ObjectIdentity
-cmVirtualContextNotifControl=_CmVirtualContextNotifControl_ObjectIdentity((1,3,6,1,4,1,9,9,472,1,2))
-_CmVirtContextNotifEnable_Type=TruthValue
-_CmVirtContextNotifEnable_Object=MibScalar
-cmVirtContextNotifEnable=_CmVirtContextNotifEnable_Object((1,3,6,1,4,1,9,9,472,1,2,1),_CmVirtContextNotifEnable_Type())
-cmVirtContextNotifEnable.setMaxAccess('read-write')
-if mibBuilder.loadTexts:cmVirtContextNotifEnable.setStatus(_A)
-_CmVirtualContextNotifObjects_ObjectIdentity=ObjectIdentity
-cmVirtualContextNotifObjects=_CmVirtualContextNotifObjects_ObjectIdentity((1,3,6,1,4,1,9,9,472,1,3))
-_CmNotifVirtContextName_Type=SnmpAdminString
-_CmNotifVirtContextName_Object=MibScalar
-cmNotifVirtContextName=_CmNotifVirtContextName_Object((1,3,6,1,4,1,9,9,472,1,3,1),_CmNotifVirtContextName_Type())
-cmNotifVirtContextName.setMaxAccess('accessible-for-notify')
-if mibBuilder.loadTexts:cmNotifVirtContextName.setStatus(_A)
-_CmVirtualizationMIBConformance_ObjectIdentity=ObjectIdentity
-cmVirtualizationMIBConformance=_CmVirtualizationMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,472,2))
-_CmVirtualizationCompliances_ObjectIdentity=ObjectIdentity
-cmVirtualizationCompliances=_CmVirtualizationCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,472,2,1))
-_CmVirtualizationGroups_ObjectIdentity=ObjectIdentity
-cmVirtualizationGroups=_CmVirtualizationGroups_ObjectIdentity((1,3,6,1,4,1,9,9,472,2,2))
-cmVirtContextconfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,472,2,2,1))
-cmVirtContextconfigGroup.setObjects(*((_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:cmVirtContextconfigGroup.setStatus(_A)
-cmVirtContextIfMapGroup=ObjectGroup((1,3,6,1,4,1,9,9,472,2,2,2))
-cmVirtContextIfMapGroup.setObjects(*((_B,_R),(_B,_S),(_B,_T)))
-if mibBuilder.loadTexts:cmVirtContextIfMapGroup.setStatus(_A)
-cmVirtContextNotifControlGroup=ObjectGroup((1,3,6,1,4,1,9,9,472,2,2,3))
-cmVirtContextNotifControlGroup.setObjects((_B,_U))
-if mibBuilder.loadTexts:cmVirtContextNotifControlGroup.setStatus(_A)
-cmVirtContextNotifObjectsGroup=ObjectGroup((1,3,6,1,4,1,9,9,472,2,2,4))
-cmVirtContextNotifObjectsGroup.setObjects((_B,_D))
-if mibBuilder.loadTexts:cmVirtContextNotifObjectsGroup.setStatus(_A)
-cmVirtContextAdded=NotificationType((1,3,6,1,4,1,9,9,472,0,1))
-cmVirtContextAdded.setObjects((_B,_D))
-if mibBuilder.loadTexts:cmVirtContextAdded.setStatus(_A)
-cmVirtContextRemoved=NotificationType((1,3,6,1,4,1,9,9,472,0,2))
-cmVirtContextRemoved.setObjects((_B,_D))
-if mibBuilder.loadTexts:cmVirtContextRemoved.setStatus(_A)
-cmVirtContextNotificationGroup=NotificationGroup((1,3,6,1,4,1,9,9,472,2,2,5))
-cmVirtContextNotificationGroup.setObjects(*((_B,_V),(_B,_W)))
-if mibBuilder.loadTexts:cmVirtContextNotificationGroup.setStatus(_A)
-cmVirtualizationCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,472,2,1,1))
-cmVirtualizationCompliance.setObjects(*((_B,_X),(_B,_Y),(_B,_Z),(_B,_a)))
-if mibBuilder.loadTexts:cmVirtualizationCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoModuleVirtualizationMIB':ciscoModuleVirtualizationMIB,'cmVirtualizationNotifs':cmVirtualizationNotifs,_V:cmVirtContextAdded,_W:cmVirtContextRemoved,'cmVirtualizationMIBObjects':cmVirtualizationMIBObjects,'cmVirtualContext':cmVirtualContext,'cmVirtualContextTable':cmVirtualContextTable,'cmVirtualContextEntry':cmVirtualContextEntry,_F:cmVirtContextName,_M:cmVirtContextDescr,_N:cmVirtContextURL,_O:cmVirtContextResourceClass,_P:cmVirtContextStorageType,_Q:cmVirtContextRowStatus,'cmVirtContextIfMapTable':cmVirtContextIfMapTable,'cmVirtContextIfMapEntry':cmVirtContextIfMapEntry,_K:cmVirtContextIfMapType,_L:cmVirtContextIfMapIdLow,_R:cmVirtContextIfMapIdHigh,_S:cmVirtContextIfMapStorageType,_T:cmVirtContextIfMapRowStatus,'cmVirtualContextNotifControl':cmVirtualContextNotifControl,_U:cmVirtContextNotifEnable,'cmVirtualContextNotifObjects':cmVirtualContextNotifObjects,_D:cmNotifVirtContextName,'cmVirtualizationMIBConformance':cmVirtualizationMIBConformance,'cmVirtualizationCompliances':cmVirtualizationCompliances,'cmVirtualizationCompliance':cmVirtualizationCompliance,'cmVirtualizationGroups':cmVirtualizationGroups,_X:cmVirtContextconfigGroup,_Y:cmVirtContextIfMapGroup,_Z:cmVirtContextNotifControlGroup,'cmVirtContextNotifObjectsGroup':cmVirtContextNotifObjectsGroup,_a:cmVirtContextNotificationGroup})
+#
+# PySNMP MIB module CISCO-MODULE-VIRTUALIZATION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-MODULE-VIRTUALIZATION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:13:53 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+CiscoResourceClass, = mibBuilder.importSymbols("CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB", "CiscoResourceClass")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+CiscoURLString, = mibBuilder.importSymbols("CISCO-TC", "CiscoURLString")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+IANAifType, = mibBuilder.importSymbols("IANAifType-MIB", "IANAifType")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, StorageType, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "StorageType", "TruthValue", "TextualConvention")
+ciscoModuleVirtualizationMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 472))
+ciscoModuleVirtualizationMIB.setRevisions(('2006-05-29 00:00', '2005-12-12 00:00',))
+if mibBuilder.loadTexts: ciscoModuleVirtualizationMIB.setLastUpdated('200605290000Z')
+if mibBuilder.loadTexts: ciscoModuleVirtualizationMIB.setOrganization('Cisco Systems, Inc.')
+cmVirtualizationNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 472, 0))
+cmVirtualizationMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 472, 1))
+cmVirtualizationMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 472, 2))
+cmVirtualContext = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1))
+cmVirtualContextNotifControl = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 2))
+cmVirtualContextNotifObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 3))
+cmVirtualContextTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1, 1), )
+if mibBuilder.loadTexts: cmVirtualContextTable.setStatus('current')
+cmVirtualContextEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextName"))
+if mibBuilder.loadTexts: cmVirtualContextEntry.setStatus('current')
+cmVirtContextName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1, 1, 1, 1), SnmpAdminString())
+if mibBuilder.loadTexts: cmVirtContextName.setStatus('current')
+cmVirtContextDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1, 1, 1, 2), SnmpAdminString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cmVirtContextDescr.setStatus('current')
+cmVirtContextURL = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1, 1, 1, 3), CiscoURLString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cmVirtContextURL.setStatus('current')
+cmVirtContextResourceClass = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1, 1, 1, 4), CiscoResourceClass()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cmVirtContextResourceClass.setStatus('current')
+cmVirtContextStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1, 1, 1, 5), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cmVirtContextStorageType.setStatus('current')
+cmVirtContextRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cmVirtContextRowStatus.setStatus('current')
+cmVirtContextIfMapTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1, 2), )
+if mibBuilder.loadTexts: cmVirtContextIfMapTable.setStatus('current')
+cmVirtContextIfMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1, 2, 1), ).setIndexNames((0, "CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextName"), (0, "CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextIfMapType"), (0, "CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextIfMapIdLow"))
+if mibBuilder.loadTexts: cmVirtContextIfMapEntry.setStatus('current')
+cmVirtContextIfMapType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1, 2, 1, 1), IANAifType())
+if mibBuilder.loadTexts: cmVirtContextIfMapType.setStatus('current')
+cmVirtContextIfMapIdLow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1, 2, 1, 2), Unsigned32())
+if mibBuilder.loadTexts: cmVirtContextIfMapIdLow.setStatus('current')
+cmVirtContextIfMapIdHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1, 2, 1, 3), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cmVirtContextIfMapIdHigh.setStatus('current')
+cmVirtContextIfMapStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1, 2, 1, 4), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cmVirtContextIfMapStorageType.setStatus('current')
+cmVirtContextIfMapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 1, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cmVirtContextIfMapRowStatus.setStatus('current')
+cmVirtContextNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 2, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cmVirtContextNotifEnable.setStatus('current')
+cmNotifVirtContextName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 472, 1, 3, 1), SnmpAdminString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cmNotifVirtContextName.setStatus('current')
+cmVirtContextAdded = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 472, 0, 1)).setObjects(("CISCO-MODULE-VIRTUALIZATION-MIB", "cmNotifVirtContextName"))
+if mibBuilder.loadTexts: cmVirtContextAdded.setStatus('current')
+cmVirtContextRemoved = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 472, 0, 2)).setObjects(("CISCO-MODULE-VIRTUALIZATION-MIB", "cmNotifVirtContextName"))
+if mibBuilder.loadTexts: cmVirtContextRemoved.setStatus('current')
+cmVirtualizationCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 472, 2, 1))
+cmVirtualizationGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 472, 2, 2))
+cmVirtualizationCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 472, 2, 1, 1)).setObjects(("CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextconfigGroup"), ("CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextIfMapGroup"), ("CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextNotifControlGroup"), ("CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmVirtualizationCompliance = cmVirtualizationCompliance.setStatus('current')
+cmVirtContextconfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 472, 2, 2, 1)).setObjects(("CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextDescr"), ("CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextURL"), ("CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextResourceClass"), ("CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextStorageType"), ("CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmVirtContextconfigGroup = cmVirtContextconfigGroup.setStatus('current')
+cmVirtContextIfMapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 472, 2, 2, 2)).setObjects(("CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextIfMapIdHigh"), ("CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextIfMapStorageType"), ("CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextIfMapRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmVirtContextIfMapGroup = cmVirtContextIfMapGroup.setStatus('current')
+cmVirtContextNotifControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 472, 2, 2, 3)).setObjects(("CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextNotifEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmVirtContextNotifControlGroup = cmVirtContextNotifControlGroup.setStatus('current')
+cmVirtContextNotifObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 472, 2, 2, 4)).setObjects(("CISCO-MODULE-VIRTUALIZATION-MIB", "cmNotifVirtContextName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmVirtContextNotifObjectsGroup = cmVirtContextNotifObjectsGroup.setStatus('current')
+cmVirtContextNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 472, 2, 2, 5)).setObjects(("CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextAdded"), ("CISCO-MODULE-VIRTUALIZATION-MIB", "cmVirtContextRemoved"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cmVirtContextNotificationGroup = cmVirtContextNotificationGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-MODULE-VIRTUALIZATION-MIB", cmVirtualizationMIBConformance=cmVirtualizationMIBConformance, cmVirtContextStorageType=cmVirtContextStorageType, cmVirtContextNotificationGroup=cmVirtContextNotificationGroup, cmVirtContextNotifControlGroup=cmVirtContextNotifControlGroup, cmVirtualContextNotifControl=cmVirtualContextNotifControl, cmVirtContextIfMapRowStatus=cmVirtContextIfMapRowStatus, cmVirtualContextEntry=cmVirtualContextEntry, ciscoModuleVirtualizationMIB=ciscoModuleVirtualizationMIB, cmVirtContextIfMapEntry=cmVirtContextIfMapEntry, cmVirtualContextNotifObjects=cmVirtualContextNotifObjects, cmVirtContextIfMapGroup=cmVirtContextIfMapGroup, PYSNMP_MODULE_ID=ciscoModuleVirtualizationMIB, cmVirtualContextTable=cmVirtualContextTable, cmVirtContextAdded=cmVirtContextAdded, cmVirtualizationCompliances=cmVirtualizationCompliances, cmVirtContextResourceClass=cmVirtContextResourceClass, cmVirtualizationMIBObjects=cmVirtualizationMIBObjects, cmVirtContextIfMapStorageType=cmVirtContextIfMapStorageType, cmVirtContextIfMapIdHigh=cmVirtContextIfMapIdHigh, cmVirtualContext=cmVirtualContext, cmVirtContextName=cmVirtContextName, cmVirtualizationNotifs=cmVirtualizationNotifs, cmVirtContextDescr=cmVirtContextDescr, cmVirtContextURL=cmVirtContextURL, cmVirtContextRowStatus=cmVirtContextRowStatus, cmVirtContextconfigGroup=cmVirtContextconfigGroup, cmVirtualizationGroups=cmVirtualizationGroups, cmVirtualizationCompliance=cmVirtualizationCompliance, cmVirtContextIfMapTable=cmVirtContextIfMapTable, cmVirtContextRemoved=cmVirtContextRemoved, cmNotifVirtContextName=cmNotifVirtContextName, cmVirtContextNotifEnable=cmVirtContextNotifEnable, cmVirtContextNotifObjectsGroup=cmVirtContextNotifObjectsGroup, cmVirtContextIfMapIdLow=cmVirtContextIfMapIdLow, cmVirtContextIfMapType=cmVirtContextIfMapType)

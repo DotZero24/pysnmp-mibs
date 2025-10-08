@@ -1,86 +1,52 @@
-_L='cnpvTrafficMapGroup'
-_K='cnpvTrafficMapLastChange'
-_J='cnpvTrafficMapRowStatus'
-_I='cnpvTrafficMapStorageType'
-_H='cnpvTrafficMapToIfIndexList'
-_G='cnpvTrafficAutoLoadbalance'
-_F='cnpvTrafficMapFromIfIndex'
-_E='StorageType'
-_D='InterfaceIndexList'
-_C='read-create'
-_B='CISCO-NPORT-VIRTUALIZATION-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndexList,=mibBuilder.importSymbols('CISCO-IF-EXTENSION-MIB',_D)
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_E,'TextualConvention','TimeStamp','TruthValue')
-ciscoNportVirtualizationMIB=ModuleIdentity((1,3,6,1,4,1,9,9,660))
-if mibBuilder.loadTexts:ciscoNportVirtualizationMIB.setRevisions(('2008-06-13 00:00',))
-_CiscoNportVirtualizationMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoNportVirtualizationMIBNotifs=_CiscoNportVirtualizationMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,660,0))
-_CiscoNportVirtualizationMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoNportVirtualizationMIBObjects=_CiscoNportVirtualizationMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,660,1))
-_CnpvConfiguration_ObjectIdentity=ObjectIdentity
-cnpvConfiguration=_CnpvConfiguration_ObjectIdentity((1,3,6,1,4,1,9,9,660,1,1))
-_CnpvGlobal_ObjectIdentity=ObjectIdentity
-cnpvGlobal=_CnpvGlobal_ObjectIdentity((1,3,6,1,4,1,9,9,660,1,1,1))
-_CnpvTrafficAutoLoadbalance_Type=TruthValue
-_CnpvTrafficAutoLoadbalance_Object=MibScalar
-cnpvTrafficAutoLoadbalance=_CnpvTrafficAutoLoadbalance_Object((1,3,6,1,4,1,9,9,660,1,1,1,1),_CnpvTrafficAutoLoadbalance_Type())
-cnpvTrafficAutoLoadbalance.setMaxAccess('read-write')
-if mibBuilder.loadTexts:cnpvTrafficAutoLoadbalance.setStatus(_A)
-_CnpvTrafficMap_ObjectIdentity=ObjectIdentity
-cnpvTrafficMap=_CnpvTrafficMap_ObjectIdentity((1,3,6,1,4,1,9,9,660,1,1,2))
-_CnpvTrafficMapTable_Object=MibTable
-cnpvTrafficMapTable=_CnpvTrafficMapTable_Object((1,3,6,1,4,1,9,9,660,1,1,2,1))
-if mibBuilder.loadTexts:cnpvTrafficMapTable.setStatus(_A)
-_CnpvTrafficMapEntry_Object=MibTableRow
-cnpvTrafficMapEntry=_CnpvTrafficMapEntry_Object((1,3,6,1,4,1,9,9,660,1,1,2,1,1))
-cnpvTrafficMapEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:cnpvTrafficMapEntry.setStatus(_A)
-_CnpvTrafficMapFromIfIndex_Type=InterfaceIndex
-_CnpvTrafficMapFromIfIndex_Object=MibTableColumn
-cnpvTrafficMapFromIfIndex=_CnpvTrafficMapFromIfIndex_Object((1,3,6,1,4,1,9,9,660,1,1,2,1,1,1),_CnpvTrafficMapFromIfIndex_Type())
-cnpvTrafficMapFromIfIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:cnpvTrafficMapFromIfIndex.setStatus(_A)
-class _CnpvTrafficMapToIfIndexList_Type(InterfaceIndexList):subtypeSpec=InterfaceIndexList.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,256))
-_CnpvTrafficMapToIfIndexList_Type.__name__=_D
-_CnpvTrafficMapToIfIndexList_Object=MibTableColumn
-cnpvTrafficMapToIfIndexList=_CnpvTrafficMapToIfIndexList_Object((1,3,6,1,4,1,9,9,660,1,1,2,1,1,2),_CnpvTrafficMapToIfIndexList_Type())
-cnpvTrafficMapToIfIndexList.setMaxAccess(_C)
-if mibBuilder.loadTexts:cnpvTrafficMapToIfIndexList.setStatus(_A)
-_CnpvTrafficMapLastChange_Type=TimeStamp
-_CnpvTrafficMapLastChange_Object=MibTableColumn
-cnpvTrafficMapLastChange=_CnpvTrafficMapLastChange_Object((1,3,6,1,4,1,9,9,660,1,1,2,1,1,3),_CnpvTrafficMapLastChange_Type())
-cnpvTrafficMapLastChange.setMaxAccess('read-only')
-if mibBuilder.loadTexts:cnpvTrafficMapLastChange.setStatus(_A)
-class _CnpvTrafficMapStorageType_Type(StorageType):defaultValue=2
-_CnpvTrafficMapStorageType_Type.__name__=_E
-_CnpvTrafficMapStorageType_Object=MibTableColumn
-cnpvTrafficMapStorageType=_CnpvTrafficMapStorageType_Object((1,3,6,1,4,1,9,9,660,1,1,2,1,1,4),_CnpvTrafficMapStorageType_Type())
-cnpvTrafficMapStorageType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cnpvTrafficMapStorageType.setStatus(_A)
-_CnpvTrafficMapRowStatus_Type=RowStatus
-_CnpvTrafficMapRowStatus_Object=MibTableColumn
-cnpvTrafficMapRowStatus=_CnpvTrafficMapRowStatus_Object((1,3,6,1,4,1,9,9,660,1,1,2,1,1,5),_CnpvTrafficMapRowStatus_Type())
-cnpvTrafficMapRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cnpvTrafficMapRowStatus.setStatus(_A)
-_CiscoNportVirtualizationMIBConform_ObjectIdentity=ObjectIdentity
-ciscoNportVirtualizationMIBConform=_CiscoNportVirtualizationMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,660,2))
-_CiscoNportVirtualizationMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoNportVirtualizationMIBCompliances=_CiscoNportVirtualizationMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,660,2,1))
-_CiscoNportVirtualizationMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoNportVirtualizationMIBGroups=_CiscoNportVirtualizationMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,660,2,2))
-cnpvTrafficMapGroup=ObjectGroup((1,3,6,1,4,1,9,9,660,2,2,1))
-cnpvTrafficMapGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K)))
-if mibBuilder.loadTexts:cnpvTrafficMapGroup.setStatus(_A)
-ciscoNportVirtualizationMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,660,2,1,1))
-ciscoNportVirtualizationMIBCompliance.setObjects((_B,_L))
-if mibBuilder.loadTexts:ciscoNportVirtualizationMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoNportVirtualizationMIB':ciscoNportVirtualizationMIB,'ciscoNportVirtualizationMIBNotifs':ciscoNportVirtualizationMIBNotifs,'ciscoNportVirtualizationMIBObjects':ciscoNportVirtualizationMIBObjects,'cnpvConfiguration':cnpvConfiguration,'cnpvGlobal':cnpvGlobal,_G:cnpvTrafficAutoLoadbalance,'cnpvTrafficMap':cnpvTrafficMap,'cnpvTrafficMapTable':cnpvTrafficMapTable,'cnpvTrafficMapEntry':cnpvTrafficMapEntry,_F:cnpvTrafficMapFromIfIndex,_H:cnpvTrafficMapToIfIndexList,_K:cnpvTrafficMapLastChange,_I:cnpvTrafficMapStorageType,_J:cnpvTrafficMapRowStatus,'ciscoNportVirtualizationMIBConform':ciscoNportVirtualizationMIBConform,'ciscoNportVirtualizationMIBCompliances':ciscoNportVirtualizationMIBCompliances,'ciscoNportVirtualizationMIBCompliance':ciscoNportVirtualizationMIBCompliance,'ciscoNportVirtualizationMIBGroups':ciscoNportVirtualizationMIBGroups,_L:cnpvTrafficMapGroup})
+#
+# PySNMP MIB module CISCO-NPORT-VIRTUALIZATION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-NPORT-VIRTUALIZATION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndexList, = mibBuilder.importSymbols("CISCO-IF-EXTENSION-MIB", "InterfaceIndexList")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, RowStatus, TextualConvention, TruthValue, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "TextualConvention", "TruthValue", "StorageType")
+ciscoNportVirtualizationMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 660))
+ciscoNportVirtualizationMIB.setRevisions(('2008-06-13 00:00',))
+if mibBuilder.loadTexts: ciscoNportVirtualizationMIB.setLastUpdated('200806130000Z')
+if mibBuilder.loadTexts: ciscoNportVirtualizationMIB.setOrganization('Cisco Systems Inc.')
+ciscoNportVirtualizationMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 660, 0))
+ciscoNportVirtualizationMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 660, 1))
+ciscoNportVirtualizationMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 660, 2))
+cnpvConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 660, 1, 1))
+cnpvGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 660, 1, 1, 1))
+cnpvTrafficMap = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 660, 1, 1, 2))
+cnpvTrafficAutoLoadbalance = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 660, 1, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cnpvTrafficAutoLoadbalance.setStatus('current')
+cnpvTrafficMapTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 660, 1, 1, 2, 1), )
+if mibBuilder.loadTexts: cnpvTrafficMapTable.setStatus('current')
+cnpvTrafficMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 660, 1, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-NPORT-VIRTUALIZATION-MIB", "cnpvTrafficMapFromIfIndex"))
+if mibBuilder.loadTexts: cnpvTrafficMapEntry.setStatus('current')
+cnpvTrafficMapFromIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 660, 1, 1, 2, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: cnpvTrafficMapFromIfIndex.setStatus('current')
+cnpvTrafficMapToIfIndexList = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 660, 1, 1, 2, 1, 1, 2), InterfaceIndexList().subtype(subtypeSpec=ValueSizeConstraint(4, 256))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cnpvTrafficMapToIfIndexList.setStatus('current')
+cnpvTrafficMapLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 660, 1, 1, 2, 1, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cnpvTrafficMapLastChange.setStatus('current')
+cnpvTrafficMapStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 660, 1, 1, 2, 1, 1, 4), StorageType().clone('volatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cnpvTrafficMapStorageType.setStatus('current')
+cnpvTrafficMapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 660, 1, 1, 2, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cnpvTrafficMapRowStatus.setStatus('current')
+ciscoNportVirtualizationMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 660, 2, 1))
+ciscoNportVirtualizationMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 660, 2, 2))
+ciscoNportVirtualizationMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 660, 2, 1, 1)).setObjects(("CISCO-NPORT-VIRTUALIZATION-MIB", "cnpvTrafficMapGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoNportVirtualizationMIBCompliance = ciscoNportVirtualizationMIBCompliance.setStatus('current')
+cnpvTrafficMapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 660, 2, 2, 1)).setObjects(("CISCO-NPORT-VIRTUALIZATION-MIB", "cnpvTrafficAutoLoadbalance"), ("CISCO-NPORT-VIRTUALIZATION-MIB", "cnpvTrafficMapToIfIndexList"), ("CISCO-NPORT-VIRTUALIZATION-MIB", "cnpvTrafficMapStorageType"), ("CISCO-NPORT-VIRTUALIZATION-MIB", "cnpvTrafficMapRowStatus"), ("CISCO-NPORT-VIRTUALIZATION-MIB", "cnpvTrafficMapLastChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cnpvTrafficMapGroup = cnpvTrafficMapGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-NPORT-VIRTUALIZATION-MIB", cnpvTrafficMapStorageType=cnpvTrafficMapStorageType, ciscoNportVirtualizationMIB=ciscoNportVirtualizationMIB, cnpvTrafficMapToIfIndexList=cnpvTrafficMapToIfIndexList, ciscoNportVirtualizationMIBGroups=ciscoNportVirtualizationMIBGroups, cnpvTrafficMapLastChange=cnpvTrafficMapLastChange, cnpvTrafficMap=cnpvTrafficMap, ciscoNportVirtualizationMIBNotifs=ciscoNportVirtualizationMIBNotifs, ciscoNportVirtualizationMIBCompliance=ciscoNportVirtualizationMIBCompliance, cnpvTrafficMapRowStatus=cnpvTrafficMapRowStatus, cnpvTrafficMapEntry=cnpvTrafficMapEntry, PYSNMP_MODULE_ID=ciscoNportVirtualizationMIB, cnpvTrafficMapFromIfIndex=cnpvTrafficMapFromIfIndex, ciscoNportVirtualizationMIBObjects=ciscoNportVirtualizationMIBObjects, ciscoNportVirtualizationMIBConform=ciscoNportVirtualizationMIBConform, cnpvGlobal=cnpvGlobal, cnpvTrafficMapGroup=cnpvTrafficMapGroup, cnpvTrafficMapTable=cnpvTrafficMapTable, ciscoNportVirtualizationMIBCompliances=ciscoNportVirtualizationMIBCompliances, cnpvConfiguration=cnpvConfiguration, cnpvTrafficAutoLoadbalance=cnpvTrafficAutoLoadbalance)

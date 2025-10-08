@@ -1,64 +1,37 @@
-_G='read-create'
-_F='serviceIndex'
-_E='SIAE-SECURITY-MANAGEMENT-MIB'
-_D='DisplayString'
-_C='Integer32'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-siaeMib,=mibBuilder.importSymbols('SIAE-TREE-MIB','siaeMib')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','RowStatus','TextualConvention')
-securityManagement=ModuleIdentity((1,3,6,1,4,1,3373,1103,82))
-if mibBuilder.loadTexts:securityManagement.setRevisions(('2014-04-17 00:00',))
-_SecurityManagementMibVersion_Type=Integer32
-_SecurityManagementMibVersion_Object=MibScalar
-securityManagementMibVersion=_SecurityManagementMibVersion_Object((1,3,6,1,4,1,3373,1103,82,1),_SecurityManagementMibVersion_Type())
-securityManagementMibVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:securityManagementMibVersion.setStatus(_A)
-_ServicesTable_Object=MibTable
-servicesTable=_ServicesTable_Object((1,3,6,1,4,1,3373,1103,82,2))
-if mibBuilder.loadTexts:servicesTable.setStatus(_A)
-_ServiceEntry_Object=MibTableRow
-serviceEntry=_ServiceEntry_Object((1,3,6,1,4,1,3373,1103,82,2,1))
-serviceEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:serviceEntry.setStatus(_A)
-_ServiceIndex_Type=Integer32
-_ServiceIndex_Object=MibTableColumn
-serviceIndex=_ServiceIndex_Object((1,3,6,1,4,1,3373,1103,82,2,1,1),_ServiceIndex_Type())
-serviceIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:serviceIndex.setStatus(_A)
-class _ServiceName_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_ServiceName_Type.__name__=_D
-_ServiceName_Object=MibTableColumn
-serviceName=_ServiceName_Object((1,3,6,1,4,1,3373,1103,82,2,1,2),_ServiceName_Type())
-serviceName.setMaxAccess(_B)
-if mibBuilder.loadTexts:serviceName.setStatus(_A)
-class _ServiceProtocolVersion_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_ServiceProtocolVersion_Type.__name__=_D
-_ServiceProtocolVersion_Object=MibTableColumn
-serviceProtocolVersion=_ServiceProtocolVersion_Object((1,3,6,1,4,1,3373,1103,82,2,1,3),_ServiceProtocolVersion_Type())
-serviceProtocolVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:serviceProtocolVersion.setStatus(_A)
-class _ServiceAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disable',0),('enable',1)))
-_ServiceAdminStatus_Type.__name__=_C
-_ServiceAdminStatus_Object=MibTableColumn
-serviceAdminStatus=_ServiceAdminStatus_Object((1,3,6,1,4,1,3373,1103,82,2,1,4),_ServiceAdminStatus_Type())
-serviceAdminStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:serviceAdminStatus.setStatus(_A)
-class _ServiceOperStatus_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('notAvailable',0),('running',1),('stopped',2)))
-_ServiceOperStatus_Type.__name__=_C
-_ServiceOperStatus_Object=MibTableColumn
-serviceOperStatus=_ServiceOperStatus_Object((1,3,6,1,4,1,3373,1103,82,2,1,5),_ServiceOperStatus_Type())
-serviceOperStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:serviceOperStatus.setStatus(_A)
-_ServiceRowStatus_Type=RowStatus
-_ServiceRowStatus_Object=MibTableColumn
-serviceRowStatus=_ServiceRowStatus_Object((1,3,6,1,4,1,3373,1103,82,2,1,6),_ServiceRowStatus_Type())
-serviceRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:serviceRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'securityManagement':securityManagement,'securityManagementMibVersion':securityManagementMibVersion,'servicesTable':servicesTable,'serviceEntry':serviceEntry,_F:serviceIndex,'serviceName':serviceName,'serviceProtocolVersion':serviceProtocolVersion,'serviceAdminStatus':serviceAdminStatus,'serviceOperStatus':serviceOperStatus,'serviceRowStatus':serviceRowStatus})
+#
+# PySNMP MIB module SIAE-SECURITY-MANAGEMENT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/siaemic/SIAE-SECURITY-MANAGEMENT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:02 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+securityManagement = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 82))
+securityManagement.setRevisions(('2014-04-17 00:00',))
+if mibBuilder.loadTexts: securityManagement.setLastUpdated('201404170000Z')
+if mibBuilder.loadTexts: securityManagement.setOrganization('SIAE MICROELETTRONICA spa')
+securityManagementMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 82, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: securityManagementMibVersion.setStatus('current')
+servicesTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 82, 2), )
+if mibBuilder.loadTexts: servicesTable.setStatus('current')
+serviceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 82, 2, 1), ).setIndexNames((0, "SIAE-SECURITY-MANAGEMENT-MIB", "serviceIndex"))
+if mibBuilder.loadTexts: serviceEntry.setStatus('current')
+serviceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 82, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: serviceIndex.setStatus('current')
+serviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 82, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: serviceName.setStatus('current')
+serviceProtocolVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 82, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: serviceProtocolVersion.setStatus('current')
+serviceAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 82, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: serviceAdminStatus.setStatus('current')
+serviceOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 82, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("notAvailable", 0), ("running", 1), ("stopped", 2))).clone('notAvailable')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: serviceOperStatus.setStatus('current')
+serviceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 82, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: serviceRowStatus.setStatus('current')
+mibBuilder.exportSymbols("SIAE-SECURITY-MANAGEMENT-MIB", serviceAdminStatus=serviceAdminStatus, securityManagementMibVersion=securityManagementMibVersion, serviceIndex=serviceIndex, serviceName=serviceName, serviceOperStatus=serviceOperStatus, serviceProtocolVersion=serviceProtocolVersion, serviceEntry=serviceEntry, serviceRowStatus=serviceRowStatus, securityManagement=securityManagement, PYSNMP_MODULE_ID=securityManagement, servicesTable=servicesTable)

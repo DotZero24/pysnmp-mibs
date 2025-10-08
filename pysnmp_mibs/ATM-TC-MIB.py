@@ -1,73 +1,108 @@
-_B='deprecated'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-atmTCMIB=ModuleIdentity((1,3,6,1,2,1,37,3))
-class AtmAddr(TextualConvention,OctetString):status=_A;displayHint='1x';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,40))
-class AtmConnCastType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('p2p',1),('p2mpRoot',2),('p2mpLeaf',3)))
-class AtmConnKind(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('pvc',1),('svcIncoming',2),('svcOutgoing',3),('spvcInitiator',4),('spvcTarget',5)))
-class AtmIlmiNetworkPrefix(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8),ValueSizeConstraint(13,13))
-class AtmInterfaceType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13)));namedValues=NamedValues(*(('other',1),('autoConfig',2),('ituDss2',3),('atmfUni3Dot0',4),('atmfUni3Dot1',5),('atmfUni4Dot0',6),('atmfIispUni3Dot0',7),('atmfIispUni3Dot1',8),('atmfIispUni4Dot0',9),('atmfPnni1Dot0',10),('atmfBici2Dot0',11),('atmfUniPvcOnly',12),('atmfNniPvcOnly',13)))
-class AtmServiceCategory(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('other',1),('cbr',2),('rtVbr',3),('nrtVbr',4),('abr',5),('ubr',6)))
-class AtmSigDescrParamIndex(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-class AtmTrafficDescrParamIndex(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-class AtmVcIdentifier(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-class AtmVpIdentifier(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-class AtmVorXAdminStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
-class AtmVorXLastChange(TextualConvention,TimeTicks):status=_A
-class AtmVorXOperStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('up',1),('down',2),('unknown',3)))
-_AtmTrafficDescriptorTypes_ObjectIdentity=ObjectIdentity
-atmTrafficDescriptorTypes=_AtmTrafficDescriptorTypes_ObjectIdentity((1,3,6,1,2,1,37,1,1))
-_AtmNoTrafficDescriptor_ObjectIdentity=ObjectIdentity
-atmNoTrafficDescriptor=_AtmNoTrafficDescriptor_ObjectIdentity((1,3,6,1,2,1,37,1,1,1))
-if mibBuilder.loadTexts:atmNoTrafficDescriptor.setStatus(_B)
-_AtmNoClpNoScr_ObjectIdentity=ObjectIdentity
-atmNoClpNoScr=_AtmNoClpNoScr_ObjectIdentity((1,3,6,1,2,1,37,1,1,2))
-if mibBuilder.loadTexts:atmNoClpNoScr.setStatus(_A)
-_AtmClpNoTaggingNoScr_ObjectIdentity=ObjectIdentity
-atmClpNoTaggingNoScr=_AtmClpNoTaggingNoScr_ObjectIdentity((1,3,6,1,2,1,37,1,1,3))
-if mibBuilder.loadTexts:atmClpNoTaggingNoScr.setStatus(_B)
-_AtmClpTaggingNoScr_ObjectIdentity=ObjectIdentity
-atmClpTaggingNoScr=_AtmClpTaggingNoScr_ObjectIdentity((1,3,6,1,2,1,37,1,1,4))
-if mibBuilder.loadTexts:atmClpTaggingNoScr.setStatus(_B)
-_AtmNoClpScr_ObjectIdentity=ObjectIdentity
-atmNoClpScr=_AtmNoClpScr_ObjectIdentity((1,3,6,1,2,1,37,1,1,5))
-if mibBuilder.loadTexts:atmNoClpScr.setStatus(_A)
-_AtmClpNoTaggingScr_ObjectIdentity=ObjectIdentity
-atmClpNoTaggingScr=_AtmClpNoTaggingScr_ObjectIdentity((1,3,6,1,2,1,37,1,1,6))
-if mibBuilder.loadTexts:atmClpNoTaggingScr.setStatus(_A)
-_AtmClpTaggingScr_ObjectIdentity=ObjectIdentity
-atmClpTaggingScr=_AtmClpTaggingScr_ObjectIdentity((1,3,6,1,2,1,37,1,1,7))
-if mibBuilder.loadTexts:atmClpTaggingScr.setStatus(_A)
-_AtmClpNoTaggingMcr_ObjectIdentity=ObjectIdentity
-atmClpNoTaggingMcr=_AtmClpNoTaggingMcr_ObjectIdentity((1,3,6,1,2,1,37,1,1,8))
-if mibBuilder.loadTexts:atmClpNoTaggingMcr.setStatus(_A)
-_AtmClpTransparentNoScr_ObjectIdentity=ObjectIdentity
-atmClpTransparentNoScr=_AtmClpTransparentNoScr_ObjectIdentity((1,3,6,1,2,1,37,1,1,9))
-if mibBuilder.loadTexts:atmClpTransparentNoScr.setStatus(_A)
-_AtmClpTransparentScr_ObjectIdentity=ObjectIdentity
-atmClpTransparentScr=_AtmClpTransparentScr_ObjectIdentity((1,3,6,1,2,1,37,1,1,10))
-if mibBuilder.loadTexts:atmClpTransparentScr.setStatus(_A)
-_AtmNoClpTaggingNoScr_ObjectIdentity=ObjectIdentity
-atmNoClpTaggingNoScr=_AtmNoClpTaggingNoScr_ObjectIdentity((1,3,6,1,2,1,37,1,1,11))
-if mibBuilder.loadTexts:atmNoClpTaggingNoScr.setStatus(_A)
-_AtmNoClpNoScrCdvt_ObjectIdentity=ObjectIdentity
-atmNoClpNoScrCdvt=_AtmNoClpNoScrCdvt_ObjectIdentity((1,3,6,1,2,1,37,1,1,12))
-if mibBuilder.loadTexts:atmNoClpNoScrCdvt.setStatus(_A)
-_AtmNoClpScrCdvt_ObjectIdentity=ObjectIdentity
-atmNoClpScrCdvt=_AtmNoClpScrCdvt_ObjectIdentity((1,3,6,1,2,1,37,1,1,13))
-if mibBuilder.loadTexts:atmNoClpScrCdvt.setStatus(_A)
-_AtmClpNoTaggingScrCdvt_ObjectIdentity=ObjectIdentity
-atmClpNoTaggingScrCdvt=_AtmClpNoTaggingScrCdvt_ObjectIdentity((1,3,6,1,2,1,37,1,1,14))
-if mibBuilder.loadTexts:atmClpNoTaggingScrCdvt.setStatus(_A)
-_AtmClpTaggingScrCdvt_ObjectIdentity=ObjectIdentity
-atmClpTaggingScrCdvt=_AtmClpTaggingScrCdvt_ObjectIdentity((1,3,6,1,2,1,37,1,1,15))
-if mibBuilder.loadTexts:atmClpTaggingScrCdvt.setStatus(_A)
-_AtmObjectIdentities_ObjectIdentity=ObjectIdentity
-atmObjectIdentities=_AtmObjectIdentities_ObjectIdentity((1,3,6,1,2,1,37,3,1))
-mibBuilder.exportSymbols('ATM-TC-MIB',**{'AtmAddr':AtmAddr,'AtmConnCastType':AtmConnCastType,'AtmConnKind':AtmConnKind,'AtmIlmiNetworkPrefix':AtmIlmiNetworkPrefix,'AtmInterfaceType':AtmInterfaceType,'AtmServiceCategory':AtmServiceCategory,'AtmSigDescrParamIndex':AtmSigDescrParamIndex,'AtmTrafficDescrParamIndex':AtmTrafficDescrParamIndex,'AtmVcIdentifier':AtmVcIdentifier,'AtmVpIdentifier':AtmVpIdentifier,'AtmVorXAdminStatus':AtmVorXAdminStatus,'AtmVorXLastChange':AtmVorXLastChange,'AtmVorXOperStatus':AtmVorXOperStatus,'atmTrafficDescriptorTypes':atmTrafficDescriptorTypes,'atmNoTrafficDescriptor':atmNoTrafficDescriptor,'atmNoClpNoScr':atmNoClpNoScr,'atmClpNoTaggingNoScr':atmClpNoTaggingNoScr,'atmClpTaggingNoScr':atmClpTaggingNoScr,'atmNoClpScr':atmNoClpScr,'atmClpNoTaggingScr':atmClpNoTaggingScr,'atmClpTaggingScr':atmClpTaggingScr,'atmClpNoTaggingMcr':atmClpNoTaggingMcr,'atmClpTransparentNoScr':atmClpTransparentNoScr,'atmClpTransparentScr':atmClpTransparentScr,'atmNoClpTaggingNoScr':atmNoClpTaggingNoScr,'atmNoClpNoScrCdvt':atmNoClpNoScrCdvt,'atmNoClpScrCdvt':atmNoClpScrCdvt,'atmClpNoTaggingScrCdvt':atmClpNoTaggingScrCdvt,'atmClpTaggingScrCdvt':atmClpTaggingScrCdvt,'atmTCMIB':atmTCMIB,'atmObjectIdentities':atmObjectIdentities})
+#
+# PySNMP MIB module ATM-TC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/ATM-TC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:42:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, mib_2, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "mib-2", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+atmTCMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 37, 3))
+if mibBuilder.loadTexts: atmTCMIB.setLastUpdated('9810190200Z')
+if mibBuilder.loadTexts: atmTCMIB.setOrganization('IETF AToMMIB Working Group')
+class AtmAddr(TextualConvention, OctetString):
+    status = 'current'
+    displayHint = '1x'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 40)
+
+class AtmConnCastType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("p2p", 1), ("p2mpRoot", 2), ("p2mpLeaf", 3))
+
+class AtmConnKind(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("pvc", 1), ("svcIncoming", 2), ("svcOutgoing", 3), ("spvcInitiator", 4), ("spvcTarget", 5))
+
+class AtmIlmiNetworkPrefix(TextualConvention, OctetString):
+    reference = 'ATM Forum, Integrated Local Management Interface (ILMI) Specification, Version 4.0, af-ilmi-0065.000, September 1996, Section 9 ATM Forum, ATM User-Network Interface Signalling Specification, Version 4.0 (UNI 4.0), af-sig-0061.000, June 1996, Section 3'
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ConstraintsUnion(ValueSizeConstraint(8, 8), ValueSizeConstraint(13, 13), )
+class AtmInterfaceType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13))
+    namedValues = NamedValues(("other", 1), ("autoConfig", 2), ("ituDss2", 3), ("atmfUni3Dot0", 4), ("atmfUni3Dot1", 5), ("atmfUni4Dot0", 6), ("atmfIispUni3Dot0", 7), ("atmfIispUni3Dot1", 8), ("atmfIispUni4Dot0", 9), ("atmfPnni1Dot0", 10), ("atmfBici2Dot0", 11), ("atmfUniPvcOnly", 12), ("atmfNniPvcOnly", 13))
+
+class AtmServiceCategory(TextualConvention, Integer32):
+    reference = 'ATM Forum Traffic Management Specification, Version 4.0, af-tm-0056.000, June 1996.'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
+    namedValues = NamedValues(("other", 1), ("cbr", 2), ("rtVbr", 3), ("nrtVbr", 4), ("abr", 5), ("ubr", 6))
+
+class AtmSigDescrParamIndex(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+
+class AtmTrafficDescrParamIndex(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+
+class AtmVcIdentifier(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 65535)
+
+class AtmVpIdentifier(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 4095)
+
+class AtmVorXAdminStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("up", 1), ("down", 2))
+
+class AtmVorXLastChange(TextualConvention, TimeTicks):
+    status = 'current'
+
+class AtmVorXOperStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("up", 1), ("down", 2), ("unknown", 3))
+
+atmTrafficDescriptorTypes = MibIdentifier((1, 3, 6, 1, 2, 1, 37, 1, 1))
+atmObjectIdentities = MibIdentifier((1, 3, 6, 1, 2, 1, 37, 3, 1))
+atmNoTrafficDescriptor = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 1))
+if mibBuilder.loadTexts: atmNoTrafficDescriptor.setStatus('deprecated')
+atmNoClpNoScr = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 2))
+if mibBuilder.loadTexts: atmNoClpNoScr.setStatus('current')
+atmClpNoTaggingNoScr = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 3))
+if mibBuilder.loadTexts: atmClpNoTaggingNoScr.setStatus('deprecated')
+atmClpTaggingNoScr = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 4))
+if mibBuilder.loadTexts: atmClpTaggingNoScr.setStatus('deprecated')
+atmNoClpScr = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 5))
+if mibBuilder.loadTexts: atmNoClpScr.setStatus('current')
+atmClpNoTaggingScr = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 6))
+if mibBuilder.loadTexts: atmClpNoTaggingScr.setStatus('current')
+atmClpTaggingScr = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 7))
+if mibBuilder.loadTexts: atmClpTaggingScr.setStatus('current')
+atmClpNoTaggingMcr = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 8))
+if mibBuilder.loadTexts: atmClpNoTaggingMcr.setStatus('current')
+atmClpTransparentNoScr = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 9))
+if mibBuilder.loadTexts: atmClpTransparentNoScr.setStatus('current')
+atmClpTransparentScr = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 10))
+if mibBuilder.loadTexts: atmClpTransparentScr.setStatus('current')
+atmNoClpTaggingNoScr = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 11))
+if mibBuilder.loadTexts: atmNoClpTaggingNoScr.setStatus('current')
+atmNoClpNoScrCdvt = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 12))
+if mibBuilder.loadTexts: atmNoClpNoScrCdvt.setStatus('current')
+atmNoClpScrCdvt = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 13))
+if mibBuilder.loadTexts: atmNoClpScrCdvt.setStatus('current')
+atmClpNoTaggingScrCdvt = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 14))
+if mibBuilder.loadTexts: atmClpNoTaggingScrCdvt.setStatus('current')
+atmClpTaggingScrCdvt = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 15))
+if mibBuilder.loadTexts: atmClpTaggingScrCdvt.setStatus('current')
+mibBuilder.exportSymbols("ATM-TC-MIB", AtmInterfaceType=AtmInterfaceType, atmNoClpScr=atmNoClpScr, atmClpTaggingScrCdvt=atmClpTaggingScrCdvt, AtmTrafficDescrParamIndex=AtmTrafficDescrParamIndex, AtmVcIdentifier=AtmVcIdentifier, atmNoClpNoScr=atmNoClpNoScr, AtmVorXLastChange=AtmVorXLastChange, AtmIlmiNetworkPrefix=AtmIlmiNetworkPrefix, AtmConnCastType=AtmConnCastType, atmNoClpNoScrCdvt=atmNoClpNoScrCdvt, atmNoClpScrCdvt=atmNoClpScrCdvt, AtmAddr=AtmAddr, atmClpNoTaggingScr=atmClpNoTaggingScr, AtmServiceCategory=AtmServiceCategory, AtmVorXAdminStatus=AtmVorXAdminStatus, atmNoClpTaggingNoScr=atmNoClpTaggingNoScr, atmClpNoTaggingMcr=atmClpNoTaggingMcr, atmNoTrafficDescriptor=atmNoTrafficDescriptor, PYSNMP_MODULE_ID=atmTCMIB, atmClpNoTaggingScrCdvt=atmClpNoTaggingScrCdvt, atmClpTaggingScr=atmClpTaggingScr, atmTCMIB=atmTCMIB, atmClpTransparentNoScr=atmClpTransparentNoScr, AtmConnKind=AtmConnKind, atmClpTaggingNoScr=atmClpTaggingNoScr, atmClpTransparentScr=atmClpTransparentScr, AtmVpIdentifier=AtmVpIdentifier, atmTrafficDescriptorTypes=atmTrafficDescriptorTypes, AtmVorXOperStatus=AtmVorXOperStatus, AtmSigDescrParamIndex=AtmSigDescrParamIndex, atmObjectIdentities=atmObjectIdentities, atmClpNoTaggingNoScr=atmClpNoTaggingNoScr)

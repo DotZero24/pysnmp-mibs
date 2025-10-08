@@ -1,70 +1,39 @@
-_F='fsLdpTcpConnectionId'
-_E='SUPERMICRO-LDP-TEST-MIB'
-_D='DisplayString'
-_C='Unsigned32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_C,'enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','RowStatus','TextualConvention')
-fsLdpTestMIB=ModuleIdentity((1,3,6,1,4,1,10876,101,1,13,14))
-if mibBuilder.loadTexts:fsLdpTestMIB.setRevisions(('2012-11-30 00:00',))
-_FsLdpTestObjects_ObjectIdentity=ObjectIdentity
-fsLdpTestObjects=_FsLdpTestObjects_ObjectIdentity((1,3,6,1,4,1,10876,101,1,13,14,1))
-_FsLdpTcpConnectionTable_Object=MibTable
-fsLdpTcpConnectionTable=_FsLdpTcpConnectionTable_Object((1,3,6,1,4,1,10876,101,1,13,14,1,1))
-if mibBuilder.loadTexts:fsLdpTcpConnectionTable.setStatus(_A)
-_FsLdpTcpConnectionEntry_Object=MibTableRow
-fsLdpTcpConnectionEntry=_FsLdpTcpConnectionEntry_Object((1,3,6,1,4,1,10876,101,1,13,14,1,1,1))
-fsLdpTcpConnectionEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:fsLdpTcpConnectionEntry.setStatus(_A)
-class _FsLdpTcpConnectionId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,256))
-_FsLdpTcpConnectionId_Type.__name__=_C
-_FsLdpTcpConnectionId_Object=MibTableColumn
-fsLdpTcpConnectionId=_FsLdpTcpConnectionId_Object((1,3,6,1,4,1,10876,101,1,13,14,1,1,1,1),_FsLdpTcpConnectionId_Type())
-fsLdpTcpConnectionId.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:fsLdpTcpConnectionId.setStatus(_A)
-_FsLdpTcpDestIpAddress_Type=IpAddress
-_FsLdpTcpDestIpAddress_Object=MibTableColumn
-fsLdpTcpDestIpAddress=_FsLdpTcpDestIpAddress_Object((1,3,6,1,4,1,10876,101,1,13,14,1,1,1,2),_FsLdpTcpDestIpAddress_Type())
-fsLdpTcpDestIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsLdpTcpDestIpAddress.setStatus(_A)
-_FsLdpTcpSourceIpAddress_Type=IpAddress
-_FsLdpTcpSourceIpAddress_Object=MibTableColumn
-fsLdpTcpSourceIpAddress=_FsLdpTcpSourceIpAddress_Object((1,3,6,1,4,1,10876,101,1,13,14,1,1,1,3),_FsLdpTcpSourceIpAddress_Type())
-fsLdpTcpSourceIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsLdpTcpSourceIpAddress.setStatus(_A)
-class _FsLdpTcpDestPort_Type(Unsigned32):defaultValue=646;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsLdpTcpDestPort_Type.__name__=_C
-_FsLdpTcpDestPort_Object=MibTableColumn
-fsLdpTcpDestPort=_FsLdpTcpDestPort_Object((1,3,6,1,4,1,10876,101,1,13,14,1,1,1,4),_FsLdpTcpDestPort_Type())
-fsLdpTcpDestPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsLdpTcpDestPort.setStatus(_A)
-class _FsLdpTcpSourcePort_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsLdpTcpSourcePort_Type.__name__=_C
-_FsLdpTcpSourcePort_Object=MibTableColumn
-fsLdpTcpSourcePort=_FsLdpTcpSourcePort_Object((1,3,6,1,4,1,10876,101,1,13,14,1,1,1,5),_FsLdpTcpSourcePort_Type())
-fsLdpTcpSourcePort.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsLdpTcpSourcePort.setStatus(_A)
-class _FsLdpTcpPacketTxValue_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1500))
-_FsLdpTcpPacketTxValue_Type.__name__=_D
-_FsLdpTcpPacketTxValue_Object=MibTableColumn
-fsLdpTcpPacketTxValue=_FsLdpTcpPacketTxValue_Object((1,3,6,1,4,1,10876,101,1,13,14,1,1,1,6),_FsLdpTcpPacketTxValue_Type())
-fsLdpTcpPacketTxValue.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsLdpTcpPacketTxValue.setStatus(_A)
-_FsLdpTcpConnectionRowStatus_Type=RowStatus
-_FsLdpTcpConnectionRowStatus_Object=MibTableColumn
-fsLdpTcpConnectionRowStatus=_FsLdpTcpConnectionRowStatus_Object((1,3,6,1,4,1,10876,101,1,13,14,1,1,1,7),_FsLdpTcpConnectionRowStatus_Type())
-fsLdpTcpConnectionRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsLdpTcpConnectionRowStatus.setStatus(_A)
-class _FsLdpTcpVrfName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_FsLdpTcpVrfName_Type.__name__=_D
-_FsLdpTcpVrfName_Object=MibTableColumn
-fsLdpTcpVrfName=_FsLdpTcpVrfName_Object((1,3,6,1,4,1,10876,101,1,13,14,1,1,1,8),_FsLdpTcpVrfName_Type())
-fsLdpTcpVrfName.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsLdpTcpVrfName.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'fsLdpTestMIB':fsLdpTestMIB,'fsLdpTestObjects':fsLdpTestObjects,'fsLdpTcpConnectionTable':fsLdpTcpConnectionTable,'fsLdpTcpConnectionEntry':fsLdpTcpConnectionEntry,_F:fsLdpTcpConnectionId,'fsLdpTcpDestIpAddress':fsLdpTcpDestIpAddress,'fsLdpTcpSourceIpAddress':fsLdpTcpSourceIpAddress,'fsLdpTcpDestPort':fsLdpTcpDestPort,'fsLdpTcpSourcePort':fsLdpTcpSourcePort,'fsLdpTcpPacketTxValue':fsLdpTcpPacketTxValue,'fsLdpTcpConnectionRowStatus':fsLdpTcpConnectionRowStatus,'fsLdpTcpVrfName':fsLdpTcpVrfName})
+#
+# PySNMP MIB module SUPERMICRO-LDP-TEST-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-LDP-TEST-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:06 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+fsLdpTestMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 14))
+fsLdpTestMIB.setRevisions(('2012-11-30 00:00',))
+if mibBuilder.loadTexts: fsLdpTestMIB.setLastUpdated('201211300000Z')
+if mibBuilder.loadTexts: fsLdpTestMIB.setOrganization('Super Micro Computer Inc.')
+fsLdpTestObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 14, 1))
+fsLdpTcpConnectionTable = MibTable((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 14, 1, 1), )
+if mibBuilder.loadTexts: fsLdpTcpConnectionTable.setStatus('current')
+fsLdpTcpConnectionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 14, 1, 1, 1), ).setIndexNames((0, "SUPERMICRO-LDP-TEST-MIB", "fsLdpTcpConnectionId"))
+if mibBuilder.loadTexts: fsLdpTcpConnectionEntry.setStatus('current')
+fsLdpTcpConnectionId = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 14, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 256)))
+if mibBuilder.loadTexts: fsLdpTcpConnectionId.setStatus('current')
+fsLdpTcpDestIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 14, 1, 1, 1, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsLdpTcpDestIpAddress.setStatus('current')
+fsLdpTcpSourceIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 14, 1, 1, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsLdpTcpSourceIpAddress.setStatus('current')
+fsLdpTcpDestPort = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 14, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(646)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsLdpTcpDestPort.setStatus('current')
+fsLdpTcpSourcePort = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 14, 1, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsLdpTcpSourcePort.setStatus('current')
+fsLdpTcpPacketTxValue = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 14, 1, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 1500))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsLdpTcpPacketTxValue.setStatus('current')
+fsLdpTcpConnectionRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 14, 1, 1, 1, 7), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsLdpTcpConnectionRowStatus.setStatus('current')
+fsLdpTcpVrfName = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 13, 14, 1, 1, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsLdpTcpVrfName.setStatus('current')
+mibBuilder.exportSymbols("SUPERMICRO-LDP-TEST-MIB", fsLdpTestObjects=fsLdpTestObjects, fsLdpTcpConnectionRowStatus=fsLdpTcpConnectionRowStatus, fsLdpTcpConnectionId=fsLdpTcpConnectionId, fsLdpTcpDestIpAddress=fsLdpTcpDestIpAddress, PYSNMP_MODULE_ID=fsLdpTestMIB, fsLdpTestMIB=fsLdpTestMIB, fsLdpTcpSourceIpAddress=fsLdpTcpSourceIpAddress, fsLdpTcpPacketTxValue=fsLdpTcpPacketTxValue, fsLdpTcpDestPort=fsLdpTcpDestPort, fsLdpTcpSourcePort=fsLdpTcpSourcePort, fsLdpTcpConnectionTable=fsLdpTcpConnectionTable, fsLdpTcpVrfName=fsLdpTcpVrfName, fsLdpTcpConnectionEntry=fsLdpTcpConnectionEntry)

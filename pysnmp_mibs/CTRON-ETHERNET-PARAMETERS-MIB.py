@@ -1,169 +1,71 @@
-_S='gigabit'
-_R='hundredmegabit'
-_Q='tenmegabit'
-_P='asymmetricTx'
-_O='asymmetricRx'
-_N='symmetric'
-_M='notsupported'
-_L='enabled'
-_K='fullduplex'
-_J='halfduplex'
-_I='unknown'
-_H='ctIfPortPortNumber'
-_G='ctIfPortIfNumber'
-_F='disabled'
-_E='read-write'
-_D='CTIF-EXT-MIB'
-_C='read-only'
-_B='Integer32'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ctIfPortIfNumber,ctIfPortPortNumber=mibBuilder.importSymbols(_D,_G,_H)
-ctEthernetCtlParameters,=mibBuilder.importSymbols('CTRON-MIB-NAMES','ctEthernetCtlParameters')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_CtAutoNegCtl_ObjectIdentity=ObjectIdentity
-ctAutoNegCtl=_CtAutoNegCtl_ObjectIdentity((1,3,6,1,4,1,52,4,1,2,4,2,1))
-_CtAutoNegCtlTable_Object=MibTable
-ctAutoNegCtlTable=_CtAutoNegCtlTable_Object((1,3,6,1,4,1,52,4,1,2,4,2,1,1))
-if mibBuilder.loadTexts:ctAutoNegCtlTable.setStatus(_A)
-_CtAutoNegCtlEntry_Object=MibTableRow
-ctAutoNegCtlEntry=_CtAutoNegCtlEntry_Object((1,3,6,1,4,1,52,4,1,2,4,2,1,1,1))
-ctAutoNegCtlEntry.setIndexNames((0,_D,_G),(0,_D,_H))
-if mibBuilder.loadTexts:ctAutoNegCtlEntry.setStatus(_A)
-class _CtAutoNegAdminStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_CtAutoNegAdminStatus_Type.__name__=_B
-_CtAutoNegAdminStatus_Object=MibTableColumn
-ctAutoNegAdminStatus=_CtAutoNegAdminStatus_Object((1,3,6,1,4,1,52,4,1,2,4,2,1,1,1,1),_CtAutoNegAdminStatus_Type())
-ctAutoNegAdminStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ctAutoNegAdminStatus.setStatus(_A)
-class _CtAutoNegRemoteSignalling_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('detected',1),('notdetected',2)))
-_CtAutoNegRemoteSignalling_Type.__name__=_B
-_CtAutoNegRemoteSignalling_Object=MibTableColumn
-ctAutoNegRemoteSignalling=_CtAutoNegRemoteSignalling_Object((1,3,6,1,4,1,52,4,1,2,4,2,1,1,1,2),_CtAutoNegRemoteSignalling_Type())
-ctAutoNegRemoteSignalling.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAutoNegRemoteSignalling.setStatus(_A)
-class _CtAutoNegAutoConfig_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('other',1),('configuring',2),('complete',3),(_F,4),('paralleldetectfailed',5)))
-_CtAutoNegAutoConfig_Type.__name__=_B
-_CtAutoNegAutoConfig_Object=MibTableColumn
-ctAutoNegAutoConfig=_CtAutoNegAutoConfig_Object((1,3,6,1,4,1,52,4,1,2,4,2,1,1,1,3),_CtAutoNegAutoConfig_Type())
-ctAutoNegAutoConfig.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAutoNegAutoConfig.setStatus(_A)
-_CtAutoNegLocalTechnologyAbility_Type=Integer32
-_CtAutoNegLocalTechnologyAbility_Object=MibTableColumn
-ctAutoNegLocalTechnologyAbility=_CtAutoNegLocalTechnologyAbility_Object((1,3,6,1,4,1,52,4,1,2,4,2,1,1,1,4),_CtAutoNegLocalTechnologyAbility_Type())
-ctAutoNegLocalTechnologyAbility.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAutoNegLocalTechnologyAbility.setStatus(_A)
-_CtAutoNegAdvertisedTechnologyAbility_Type=Integer32
-_CtAutoNegAdvertisedTechnologyAbility_Object=MibTableColumn
-ctAutoNegAdvertisedTechnologyAbility=_CtAutoNegAdvertisedTechnologyAbility_Object((1,3,6,1,4,1,52,4,1,2,4,2,1,1,1,5),_CtAutoNegAdvertisedTechnologyAbility_Type())
-ctAutoNegAdvertisedTechnologyAbility.setMaxAccess(_E)
-if mibBuilder.loadTexts:ctAutoNegAdvertisedTechnologyAbility.setStatus(_A)
-_CtAutoNegReceivedTechnologyAbility_Type=Integer32
-_CtAutoNegReceivedTechnologyAbility_Object=MibTableColumn
-ctAutoNegReceivedTechnologyAbility=_CtAutoNegReceivedTechnologyAbility_Object((1,3,6,1,4,1,52,4,1,2,4,2,1,1,1,6),_CtAutoNegReceivedTechnologyAbility_Type())
-ctAutoNegReceivedTechnologyAbility.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctAutoNegReceivedTechnologyAbility.setStatus(_A)
-_CtFlowControl_ObjectIdentity=ObjectIdentity
-ctFlowControl=_CtFlowControl_ObjectIdentity((1,3,6,1,4,1,52,4,1,2,4,2,2))
-_CtFlowCtlTable_Object=MibTable
-ctFlowCtlTable=_CtFlowCtlTable_Object((1,3,6,1,4,1,52,4,1,2,4,2,2,1))
-if mibBuilder.loadTexts:ctFlowCtlTable.setStatus(_A)
-_CtFlowCtlEntry_Object=MibTableRow
-ctFlowCtlEntry=_CtFlowCtlEntry_Object((1,3,6,1,4,1,52,4,1,2,4,2,2,1,1))
-ctFlowCtlEntry.setIndexNames((0,_D,_G),(0,_D,_H))
-if mibBuilder.loadTexts:ctFlowCtlEntry.setStatus(_A)
-class _CtFlowCtlHalfDuplexAdminStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_F,2)))
-_CtFlowCtlHalfDuplexAdminStatus_Type.__name__=_B
-_CtFlowCtlHalfDuplexAdminStatus_Object=MibTableColumn
-ctFlowCtlHalfDuplexAdminStatus=_CtFlowCtlHalfDuplexAdminStatus_Object((1,3,6,1,4,1,52,4,1,2,4,2,2,1,1,1),_CtFlowCtlHalfDuplexAdminStatus_Type())
-ctFlowCtlHalfDuplexAdminStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ctFlowCtlHalfDuplexAdminStatus.setStatus(_A)
-class _CtFlowCtlHalfDuplexOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_L,1),(_F,2),(_M,3)))
-_CtFlowCtlHalfDuplexOperStatus_Type.__name__=_B
-_CtFlowCtlHalfDuplexOperStatus_Object=MibTableColumn
-ctFlowCtlHalfDuplexOperStatus=_CtFlowCtlHalfDuplexOperStatus_Object((1,3,6,1,4,1,52,4,1,2,4,2,2,1,1,2),_CtFlowCtlHalfDuplexOperStatus_Type())
-ctFlowCtlHalfDuplexOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctFlowCtlHalfDuplexOperStatus.setStatus(_A)
-_CtEtherSupportedPauseModes_Type=Integer32
-_CtEtherSupportedPauseModes_Object=MibTableColumn
-ctEtherSupportedPauseModes=_CtEtherSupportedPauseModes_Object((1,3,6,1,4,1,52,4,1,2,4,2,2,1,1,3),_CtEtherSupportedPauseModes_Type())
-ctEtherSupportedPauseModes.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctEtherSupportedPauseModes.setStatus(_A)
-class _CtFlowCtlPauseAdminStatus_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_N,1),(_O,2),(_P,3),(_F,4),('autonegotiate',5)))
-_CtFlowCtlPauseAdminStatus_Type.__name__=_B
-_CtFlowCtlPauseAdminStatus_Object=MibTableColumn
-ctFlowCtlPauseAdminStatus=_CtFlowCtlPauseAdminStatus_Object((1,3,6,1,4,1,52,4,1,2,4,2,2,1,1,4),_CtFlowCtlPauseAdminStatus_Type())
-ctFlowCtlPauseAdminStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ctFlowCtlPauseAdminStatus.setStatus(_A)
-class _CtFlowCtlPauseOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_N,1),(_O,2),(_P,3),(_F,4),(_I,5),(_M,6)))
-_CtFlowCtlPauseOperStatus_Type.__name__=_B
-_CtFlowCtlPauseOperStatus_Object=MibTableColumn
-ctFlowCtlPauseOperStatus=_CtFlowCtlPauseOperStatus_Object((1,3,6,1,4,1,52,4,1,2,4,2,2,1,1,5),_CtFlowCtlPauseOperStatus_Type())
-ctFlowCtlPauseOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctFlowCtlPauseOperStatus.setStatus(_A)
-class _CtFlowCtlPauseTimer_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CtFlowCtlPauseTimer_Type.__name__=_B
-_CtFlowCtlPauseTimer_Object=MibTableColumn
-ctFlowCtlPauseTimer=_CtFlowCtlPauseTimer_Object((1,3,6,1,4,1,52,4,1,2,4,2,2,1,1,6),_CtFlowCtlPauseTimer_Type())
-ctFlowCtlPauseTimer.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctFlowCtlPauseTimer.setStatus(_A)
-_CtFlowCtlRxPauseFrames_Type=Counter32
-_CtFlowCtlRxPauseFrames_Object=MibTableColumn
-ctFlowCtlRxPauseFrames=_CtFlowCtlRxPauseFrames_Object((1,3,6,1,4,1,52,4,1,2,4,2,2,1,1,7),_CtFlowCtlRxPauseFrames_Type())
-ctFlowCtlRxPauseFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctFlowCtlRxPauseFrames.setStatus(_A)
-_CtFlowCtlTxPauseFrames_Type=Counter32
-_CtFlowCtlTxPauseFrames_Object=MibTableColumn
-ctFlowCtlTxPauseFrames=_CtFlowCtlTxPauseFrames_Object((1,3,6,1,4,1,52,4,1,2,4,2,2,1,1,8),_CtFlowCtlTxPauseFrames_Type())
-ctFlowCtlTxPauseFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctFlowCtlTxPauseFrames.setStatus(_A)
-_CtEtherManualConfig_ObjectIdentity=ObjectIdentity
-ctEtherManualConfig=_CtEtherManualConfig_ObjectIdentity((1,3,6,1,4,1,52,4,1,2,4,2,3))
-_CtEtherManualConfigTable_Object=MibTable
-ctEtherManualConfigTable=_CtEtherManualConfigTable_Object((1,3,6,1,4,1,52,4,1,2,4,2,3,1))
-if mibBuilder.loadTexts:ctEtherManualConfigTable.setStatus(_A)
-_CtEtherManualConfigEntry_Object=MibTableRow
-ctEtherManualConfigEntry=_CtEtherManualConfigEntry_Object((1,3,6,1,4,1,52,4,1,2,4,2,3,1,1))
-ctEtherManualConfigEntry.setIndexNames((0,_D,_G),(0,_D,_H))
-if mibBuilder.loadTexts:ctEtherManualConfigEntry.setStatus(_A)
-_CtEtherSupportedSpeed_Type=Integer32
-_CtEtherSupportedSpeed_Object=MibTableColumn
-ctEtherSupportedSpeed=_CtEtherSupportedSpeed_Object((1,3,6,1,4,1,52,4,1,2,4,2,3,1,1,1),_CtEtherSupportedSpeed_Type())
-ctEtherSupportedSpeed.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctEtherSupportedSpeed.setStatus(_A)
-class _CtEtherSpeedAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3,4)));namedValues=NamedValues(*((_Q,2),(_R,3),(_S,4)))
-_CtEtherSpeedAdminStatus_Type.__name__=_B
-_CtEtherSpeedAdminStatus_Object=MibTableColumn
-ctEtherSpeedAdminStatus=_CtEtherSpeedAdminStatus_Object((1,3,6,1,4,1,52,4,1,2,4,2,3,1,1,2),_CtEtherSpeedAdminStatus_Type())
-ctEtherSpeedAdminStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ctEtherSpeedAdminStatus.setStatus(_A)
-class _CtEtherSpeedOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_I,1),(_Q,2),(_R,3),(_S,4)))
-_CtEtherSpeedOperStatus_Type.__name__=_B
-_CtEtherSpeedOperStatus_Object=MibTableColumn
-ctEtherSpeedOperStatus=_CtEtherSpeedOperStatus_Object((1,3,6,1,4,1,52,4,1,2,4,2,3,1,1,3),_CtEtherSpeedOperStatus_Type())
-ctEtherSpeedOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctEtherSpeedOperStatus.setStatus(_A)
-class _CtEtherSupportedDuplex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_J,1),(_K,2),('halfandfullduplex',3)))
-_CtEtherSupportedDuplex_Type.__name__=_B
-_CtEtherSupportedDuplex_Object=MibTableColumn
-ctEtherSupportedDuplex=_CtEtherSupportedDuplex_Object((1,3,6,1,4,1,52,4,1,2,4,2,3,1,1,4),_CtEtherSupportedDuplex_Type())
-ctEtherSupportedDuplex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctEtherSupportedDuplex.setStatus(_A)
-class _CtEtherDuplexAdminStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3)));namedValues=NamedValues(*((_J,2),(_K,3)))
-_CtEtherDuplexAdminStatus_Type.__name__=_B
-_CtEtherDuplexAdminStatus_Object=MibTableColumn
-ctEtherDuplexAdminStatus=_CtEtherDuplexAdminStatus_Object((1,3,6,1,4,1,52,4,1,2,4,2,3,1,1,5),_CtEtherDuplexAdminStatus_Type())
-ctEtherDuplexAdminStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ctEtherDuplexAdminStatus.setStatus(_A)
-class _CtEtherDuplexOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),(_J,2),(_K,3)))
-_CtEtherDuplexOperStatus_Type.__name__=_B
-_CtEtherDuplexOperStatus_Object=MibTableColumn
-ctEtherDuplexOperStatus=_CtEtherDuplexOperStatus_Object((1,3,6,1,4,1,52,4,1,2,4,2,3,1,1,6),_CtEtherDuplexOperStatus_Type())
-ctEtherDuplexOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctEtherDuplexOperStatus.setStatus(_A)
-mibBuilder.exportSymbols('CTRON-ETHERNET-PARAMETERS-MIB',**{'ctAutoNegCtl':ctAutoNegCtl,'ctAutoNegCtlTable':ctAutoNegCtlTable,'ctAutoNegCtlEntry':ctAutoNegCtlEntry,'ctAutoNegAdminStatus':ctAutoNegAdminStatus,'ctAutoNegRemoteSignalling':ctAutoNegRemoteSignalling,'ctAutoNegAutoConfig':ctAutoNegAutoConfig,'ctAutoNegLocalTechnologyAbility':ctAutoNegLocalTechnologyAbility,'ctAutoNegAdvertisedTechnologyAbility':ctAutoNegAdvertisedTechnologyAbility,'ctAutoNegReceivedTechnologyAbility':ctAutoNegReceivedTechnologyAbility,'ctFlowControl':ctFlowControl,'ctFlowCtlTable':ctFlowCtlTable,'ctFlowCtlEntry':ctFlowCtlEntry,'ctFlowCtlHalfDuplexAdminStatus':ctFlowCtlHalfDuplexAdminStatus,'ctFlowCtlHalfDuplexOperStatus':ctFlowCtlHalfDuplexOperStatus,'ctEtherSupportedPauseModes':ctEtherSupportedPauseModes,'ctFlowCtlPauseAdminStatus':ctFlowCtlPauseAdminStatus,'ctFlowCtlPauseOperStatus':ctFlowCtlPauseOperStatus,'ctFlowCtlPauseTimer':ctFlowCtlPauseTimer,'ctFlowCtlRxPauseFrames':ctFlowCtlRxPauseFrames,'ctFlowCtlTxPauseFrames':ctFlowCtlTxPauseFrames,'ctEtherManualConfig':ctEtherManualConfig,'ctEtherManualConfigTable':ctEtherManualConfigTable,'ctEtherManualConfigEntry':ctEtherManualConfigEntry,'ctEtherSupportedSpeed':ctEtherSupportedSpeed,'ctEtherSpeedAdminStatus':ctEtherSpeedAdminStatus,'ctEtherSpeedOperStatus':ctEtherSpeedOperStatus,'ctEtherSupportedDuplex':ctEtherSupportedDuplex,'ctEtherDuplexAdminStatus':ctEtherDuplexAdminStatus,'ctEtherDuplexOperStatus':ctEtherDuplexOperStatus})
+#
+# PySNMP MIB module CTRON-ETHERNET-PARAMETERS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CTRON-ETHERNET-PARAMETERS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ctIfPortPortNumber, ctIfPortIfNumber = mibBuilder.importSymbols("CTIF-EXT-MIB", "ctIfPortPortNumber", "ctIfPortIfNumber")
+ctEthernetCtlParameters, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctEthernetCtlParameters")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ctAutoNegCtl = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 1))
+ctAutoNegCtlTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 1, 1), )
+if mibBuilder.loadTexts: ctAutoNegCtlTable.setStatus('mandatory')
+ctAutoNegCtlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 1, 1, 1), ).setIndexNames((0, "CTIF-EXT-MIB", "ctIfPortIfNumber"), (0, "CTIF-EXT-MIB", "ctIfPortPortNumber"))
+if mibBuilder.loadTexts: ctAutoNegCtlEntry.setStatus('mandatory')
+ctAutoNegAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctAutoNegAdminStatus.setStatus('mandatory')
+ctAutoNegRemoteSignalling = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("detected", 1), ("notdetected", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAutoNegRemoteSignalling.setStatus('mandatory')
+ctAutoNegAutoConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("other", 1), ("configuring", 2), ("complete", 3), ("disabled", 4), ("paralleldetectfailed", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAutoNegAutoConfig.setStatus('mandatory')
+ctAutoNegLocalTechnologyAbility = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 1, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAutoNegLocalTechnologyAbility.setStatus('mandatory')
+ctAutoNegAdvertisedTechnologyAbility = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 1, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctAutoNegAdvertisedTechnologyAbility.setStatus('mandatory')
+ctAutoNegReceivedTechnologyAbility = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 1, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctAutoNegReceivedTechnologyAbility.setStatus('mandatory')
+ctFlowControl = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 2))
+ctFlowCtlTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 2, 1), )
+if mibBuilder.loadTexts: ctFlowCtlTable.setStatus('mandatory')
+ctFlowCtlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 2, 1, 1), ).setIndexNames((0, "CTIF-EXT-MIB", "ctIfPortIfNumber"), (0, "CTIF-EXT-MIB", "ctIfPortPortNumber"))
+if mibBuilder.loadTexts: ctFlowCtlEntry.setStatus('mandatory')
+ctFlowCtlHalfDuplexAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctFlowCtlHalfDuplexAdminStatus.setStatus('mandatory')
+ctFlowCtlHalfDuplexOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2), ("notsupported", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctFlowCtlHalfDuplexOperStatus.setStatus('mandatory')
+ctEtherSupportedPauseModes = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 2, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctEtherSupportedPauseModes.setStatus('mandatory')
+ctFlowCtlPauseAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("symmetric", 1), ("asymmetricRx", 2), ("asymmetricTx", 3), ("disabled", 4), ("autonegotiate", 5))).clone('autonegotiate')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctFlowCtlPauseAdminStatus.setStatus('mandatory')
+ctFlowCtlPauseOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("symmetric", 1), ("asymmetricRx", 2), ("asymmetricTx", 3), ("disabled", 4), ("unknown", 5), ("notsupported", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctFlowCtlPauseOperStatus.setStatus('mandatory')
+ctFlowCtlPauseTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctFlowCtlPauseTimer.setStatus('mandatory')
+ctFlowCtlRxPauseFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 2, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctFlowCtlRxPauseFrames.setStatus('mandatory')
+ctFlowCtlTxPauseFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 2, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctFlowCtlTxPauseFrames.setStatus('mandatory')
+ctEtherManualConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 3))
+ctEtherManualConfigTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 3, 1), )
+if mibBuilder.loadTexts: ctEtherManualConfigTable.setStatus('mandatory')
+ctEtherManualConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 3, 1, 1), ).setIndexNames((0, "CTIF-EXT-MIB", "ctIfPortIfNumber"), (0, "CTIF-EXT-MIB", "ctIfPortPortNumber"))
+if mibBuilder.loadTexts: ctEtherManualConfigEntry.setStatus('mandatory')
+ctEtherSupportedSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 3, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctEtherSupportedSpeed.setStatus('mandatory')
+ctEtherSpeedAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 4))).clone(namedValues=NamedValues(("tenmegabit", 2), ("hundredmegabit", 3), ("gigabit", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctEtherSpeedAdminStatus.setStatus('mandatory')
+ctEtherSpeedOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("tenmegabit", 2), ("hundredmegabit", 3), ("gigabit", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctEtherSpeedOperStatus.setStatus('mandatory')
+ctEtherSupportedDuplex = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("halfduplex", 1), ("fullduplex", 2), ("halfandfullduplex", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctEtherSupportedDuplex.setStatus('mandatory')
+ctEtherDuplexAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("halfduplex", 2), ("fullduplex", 3))).clone('halfduplex')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctEtherDuplexAdminStatus.setStatus('mandatory')
+ctEtherDuplexOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 2, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("halfduplex", 2), ("fullduplex", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctEtherDuplexOperStatus.setStatus('mandatory')
+mibBuilder.exportSymbols("CTRON-ETHERNET-PARAMETERS-MIB", ctAutoNegRemoteSignalling=ctAutoNegRemoteSignalling, ctFlowCtlPauseTimer=ctFlowCtlPauseTimer, ctAutoNegCtlTable=ctAutoNegCtlTable, ctEtherManualConfigEntry=ctEtherManualConfigEntry, ctEtherManualConfig=ctEtherManualConfig, ctAutoNegReceivedTechnologyAbility=ctAutoNegReceivedTechnologyAbility, ctFlowCtlPauseOperStatus=ctFlowCtlPauseOperStatus, ctAutoNegAutoConfig=ctAutoNegAutoConfig, ctEtherDuplexAdminStatus=ctEtherDuplexAdminStatus, ctFlowCtlTable=ctFlowCtlTable, ctEtherSupportedDuplex=ctEtherSupportedDuplex, ctFlowCtlTxPauseFrames=ctFlowCtlTxPauseFrames, ctEtherDuplexOperStatus=ctEtherDuplexOperStatus, ctAutoNegCtl=ctAutoNegCtl, ctFlowCtlRxPauseFrames=ctFlowCtlRxPauseFrames, ctFlowCtlHalfDuplexOperStatus=ctFlowCtlHalfDuplexOperStatus, ctAutoNegAdvertisedTechnologyAbility=ctAutoNegAdvertisedTechnologyAbility, ctFlowCtlPauseAdminStatus=ctFlowCtlPauseAdminStatus, ctEtherManualConfigTable=ctEtherManualConfigTable, ctFlowCtlHalfDuplexAdminStatus=ctFlowCtlHalfDuplexAdminStatus, ctEtherSupportedSpeed=ctEtherSupportedSpeed, ctFlowCtlEntry=ctFlowCtlEntry, ctFlowControl=ctFlowControl, ctEtherSpeedAdminStatus=ctEtherSpeedAdminStatus, ctAutoNegCtlEntry=ctAutoNegCtlEntry, ctAutoNegAdminStatus=ctAutoNegAdminStatus, ctEtherSupportedPauseModes=ctEtherSupportedPauseModes, ctAutoNegLocalTechnologyAbility=ctAutoNegLocalTechnologyAbility, ctEtherSpeedOperStatus=ctEtherSpeedOperStatus)

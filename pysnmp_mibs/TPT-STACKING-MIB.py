@@ -1,122 +1,67 @@
-_T='tptStackingNotifyMissedHeartbeatKey'
-_S='tptStackingNotifyPrevStackRTI'
-_R='tptStackingNotifyStackRTI'
-_Q='tptStackingNotifyDeviceFaultCause'
-_P='tptStackingNotifyPrevDeviceRTI'
-_O='tptStackingNotifyDeviceRTI'
-_N='rtinormal'
-_M='rtipending'
-_L='unrecoverable'
-_K='recoverable'
-_J='rlinferior'
-_I='rebooting'
-_H='unknown'
-_G='tptStackingNotifyTimeStamp'
-_F='tptStackingNotifyKey'
-_E='tptStackingNotifyDeviceID'
-_D='OctetString'
-_C='read-only'
-_B='TPT-STACKING-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tpt_products,=mibBuilder.importSymbols('TIPPINGPOINT-REG-MIB','tpt-products')
-FaultCause,=mibBuilder.importSymbols('TPT-HIGH-AVAIL-MIB','FaultCause')
-EnabledOrNot,=mibBuilder.importSymbols('TPT-PORT-CONFIG-MIB','EnabledOrNot')
-tpt_tpa_eventsV2,tpt_tpa_objs,tpt_tpa_unkparams=mibBuilder.importSymbols('TPT-TPAMIBS-MIB','tpt-tpa-eventsV2','tpt-tpa-objs','tpt-tpa-unkparams')
-tpt_stack_objs=ModuleIdentity((1,3,6,1,4,1,10734,3,3,2,20))
-class DeviceRti(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,5,16,21,32,48,64)));namedValues=NamedValues(*((_H,0),(_I,5),(_J,16),(_K,21),(_L,32),(_M,48),(_N,64)))
-class StackRti(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,16,48,64,80,96,112,128)));namedValues=NamedValues(*((_H,0),(_J,16),('invalid',48),(_I,64),(_K,80),(_L,96),(_M,112),(_N,128)))
-_StackingStackRtiTimeStamp_Type=Unsigned32
-_StackingStackRtiTimeStamp_Object=MibScalar
-stackingStackRtiTimeStamp=_StackingStackRtiTimeStamp_Object((1,3,6,1,4,1,10734,3,3,2,20,1),_StackingStackRtiTimeStamp_Type())
-stackingStackRtiTimeStamp.setMaxAccess(_C)
-if mibBuilder.loadTexts:stackingStackRtiTimeStamp.setStatus(_A)
-_StackingDeviceRTI_Type=DeviceRti
-_StackingDeviceRTI_Object=MibScalar
-stackingDeviceRTI=_StackingDeviceRTI_Object((1,3,6,1,4,1,10734,3,3,2,20,2),_StackingDeviceRTI_Type())
-stackingDeviceRTI.setMaxAccess(_C)
-if mibBuilder.loadTexts:stackingDeviceRTI.setStatus(_A)
-_StackingPrevDeviceRTI_Type=DeviceRti
-_StackingPrevDeviceRTI_Object=MibScalar
-stackingPrevDeviceRTI=_StackingPrevDeviceRTI_Object((1,3,6,1,4,1,10734,3,3,2,20,3),_StackingPrevDeviceRTI_Type())
-stackingPrevDeviceRTI.setMaxAccess(_C)
-if mibBuilder.loadTexts:stackingPrevDeviceRTI.setStatus(_A)
-_StackingDeviceFaultCause_Type=FaultCause
-_StackingDeviceFaultCause_Object=MibScalar
-stackingDeviceFaultCause=_StackingDeviceFaultCause_Object((1,3,6,1,4,1,10734,3,3,2,20,4),_StackingDeviceFaultCause_Type())
-stackingDeviceFaultCause.setMaxAccess(_C)
-if mibBuilder.loadTexts:stackingDeviceFaultCause.setStatus(_A)
-_StackingStackRTI_Type=StackRti
-_StackingStackRTI_Object=MibScalar
-stackingStackRTI=_StackingStackRTI_Object((1,3,6,1,4,1,10734,3,3,2,20,5),_StackingStackRTI_Type())
-stackingStackRTI.setMaxAccess(_C)
-if mibBuilder.loadTexts:stackingStackRTI.setStatus(_A)
-_StackingPrevStackRTI_Type=StackRti
-_StackingPrevStackRTI_Object=MibScalar
-stackingPrevStackRTI=_StackingPrevStackRTI_Object((1,3,6,1,4,1,10734,3,3,2,20,6),_StackingPrevStackRTI_Type())
-stackingPrevStackRTI.setMaxAccess(_C)
-if mibBuilder.loadTexts:stackingPrevStackRTI.setStatus(_A)
-class _TptStackingNotifyDeviceID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,40))
-_TptStackingNotifyDeviceID_Type.__name__=_D
-_TptStackingNotifyDeviceID_Object=MibScalar
-tptStackingNotifyDeviceID=_TptStackingNotifyDeviceID_Object((1,3,6,1,4,1,10734,3,3,3,1,324),_TptStackingNotifyDeviceID_Type())
-tptStackingNotifyDeviceID.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptStackingNotifyDeviceID.setStatus(_A)
-class _TptStackingNotifyKey_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,12))
-_TptStackingNotifyKey_Type.__name__=_D
-_TptStackingNotifyKey_Object=MibScalar
-tptStackingNotifyKey=_TptStackingNotifyKey_Object((1,3,6,1,4,1,10734,3,3,3,1,328),_TptStackingNotifyKey_Type())
-tptStackingNotifyKey.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptStackingNotifyKey.setStatus(_A)
-_TptStackingNotifyTimeStamp_Type=Unsigned32
-_TptStackingNotifyTimeStamp_Object=MibScalar
-tptStackingNotifyTimeStamp=_TptStackingNotifyTimeStamp_Object((1,3,6,1,4,1,10734,3,3,3,1,332),_TptStackingNotifyTimeStamp_Type())
-tptStackingNotifyTimeStamp.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptStackingNotifyTimeStamp.setStatus(_A)
-_TptStackingNotifyDeviceRTI_Type=DeviceRti
-_TptStackingNotifyDeviceRTI_Object=MibScalar
-tptStackingNotifyDeviceRTI=_TptStackingNotifyDeviceRTI_Object((1,3,6,1,4,1,10734,3,3,3,1,336),_TptStackingNotifyDeviceRTI_Type())
-tptStackingNotifyDeviceRTI.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptStackingNotifyDeviceRTI.setStatus(_A)
-_TptStackingNotifyPrevDeviceRTI_Type=DeviceRti
-_TptStackingNotifyPrevDeviceRTI_Object=MibScalar
-tptStackingNotifyPrevDeviceRTI=_TptStackingNotifyPrevDeviceRTI_Object((1,3,6,1,4,1,10734,3,3,3,1,340),_TptStackingNotifyPrevDeviceRTI_Type())
-tptStackingNotifyPrevDeviceRTI.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptStackingNotifyPrevDeviceRTI.setStatus(_A)
-_TptStackingNotifyDeviceFaultCause_Type=FaultCause
-_TptStackingNotifyDeviceFaultCause_Object=MibScalar
-tptStackingNotifyDeviceFaultCause=_TptStackingNotifyDeviceFaultCause_Object((1,3,6,1,4,1,10734,3,3,3,1,344),_TptStackingNotifyDeviceFaultCause_Type())
-tptStackingNotifyDeviceFaultCause.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptStackingNotifyDeviceFaultCause.setStatus(_A)
-_TptStackingNotifyStackRTI_Type=StackRti
-_TptStackingNotifyStackRTI_Object=MibScalar
-tptStackingNotifyStackRTI=_TptStackingNotifyStackRTI_Object((1,3,6,1,4,1,10734,3,3,3,1,348),_TptStackingNotifyStackRTI_Type())
-tptStackingNotifyStackRTI.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptStackingNotifyStackRTI.setStatus(_A)
-_TptStackingNotifyPrevStackRTI_Type=StackRti
-_TptStackingNotifyPrevStackRTI_Object=MibScalar
-tptStackingNotifyPrevStackRTI=_TptStackingNotifyPrevStackRTI_Object((1,3,6,1,4,1,10734,3,3,3,1,352),_TptStackingNotifyPrevStackRTI_Type())
-tptStackingNotifyPrevStackRTI.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptStackingNotifyPrevStackRTI.setStatus(_A)
-class _TptStackingNotifyMissedHeartbeatKey_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,12))
-_TptStackingNotifyMissedHeartbeatKey_Type.__name__=_D
-_TptStackingNotifyMissedHeartbeatKey_Object=MibScalar
-tptStackingNotifyMissedHeartbeatKey=_TptStackingNotifyMissedHeartbeatKey_Object((1,3,6,1,4,1,10734,3,3,3,1,356),_TptStackingNotifyMissedHeartbeatKey_Type())
-tptStackingNotifyMissedHeartbeatKey.setMaxAccess(_C)
-if mibBuilder.loadTexts:tptStackingNotifyMissedHeartbeatKey.setStatus(_A)
-tptStackingDeviceRTINotify=NotificationType((1,3,6,1,4,1,10734,3,3,3,0,70))
-tptStackingDeviceRTINotify.setObjects(*((_B,_E),(_B,_F),(_B,_G),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:tptStackingDeviceRTINotify.setStatus(_A)
-tptStackingStackRTINotify=NotificationType((1,3,6,1,4,1,10734,3,3,3,0,71))
-tptStackingStackRTINotify.setObjects(*((_B,_E),(_B,_F),(_B,_G),(_B,_R),(_B,_S)))
-if mibBuilder.loadTexts:tptStackingStackRTINotify.setStatus(_A)
-tptStackingMissedHeartbeatNotify=NotificationType((1,3,6,1,4,1,10734,3,3,3,0,72))
-tptStackingMissedHeartbeatNotify.setObjects(*((_B,_E),(_B,_F),(_B,_G),(_B,_T)))
-if mibBuilder.loadTexts:tptStackingMissedHeartbeatNotify.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'DeviceRti':DeviceRti,'StackRti':StackRti,'tpt-stack-objs':tpt_stack_objs,'stackingStackRtiTimeStamp':stackingStackRtiTimeStamp,'stackingDeviceRTI':stackingDeviceRTI,'stackingPrevDeviceRTI':stackingPrevDeviceRTI,'stackingDeviceFaultCause':stackingDeviceFaultCause,'stackingStackRTI':stackingStackRTI,'stackingPrevStackRTI':stackingPrevStackRTI,'tptStackingDeviceRTINotify':tptStackingDeviceRTINotify,'tptStackingStackRTINotify':tptStackingStackRTINotify,'tptStackingMissedHeartbeatNotify':tptStackingMissedHeartbeatNotify,_E:tptStackingNotifyDeviceID,_F:tptStackingNotifyKey,_G:tptStackingNotifyTimeStamp,_O:tptStackingNotifyDeviceRTI,_P:tptStackingNotifyPrevDeviceRTI,_Q:tptStackingNotifyDeviceFaultCause,_R:tptStackingNotifyStackRTI,_S:tptStackingNotifyPrevStackRTI,_T:tptStackingNotifyMissedHeartbeatKey})
+#
+# PySNMP MIB module TPT-STACKING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/trendmicro/TPT-STACKING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:57:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tpt_products, = mibBuilder.importSymbols("TIPPINGPOINT-REG-MIB", "tpt-products")
+FaultCause, = mibBuilder.importSymbols("TPT-HIGH-AVAIL-MIB", "FaultCause")
+EnabledOrNot, = mibBuilder.importSymbols("TPT-PORT-CONFIG-MIB", "EnabledOrNot")
+tpt_tpa_objs, tpt_tpa_unkparams, tpt_tpa_eventsV2 = mibBuilder.importSymbols("TPT-TPAMIBS-MIB", "tpt-tpa-objs", "tpt-tpa-unkparams", "tpt-tpa-eventsV2")
+tpt_stack_objs = ModuleIdentity((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 20)).setLabel("tpt-stack-objs")
+if mibBuilder.loadTexts: tpt_stack_objs.setLastUpdated('201104191200Z')
+if mibBuilder.loadTexts: tpt_stack_objs.setOrganization('Trend Micro, Inc.')
+class DeviceRti(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 5, 16, 21, 32, 48, 64))
+    namedValues = NamedValues(("unknown", 0), ("rebooting", 5), ("rlinferior", 16), ("recoverable", 21), ("unrecoverable", 32), ("rtipending", 48), ("rtinormal", 64))
+
+class StackRti(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 16, 48, 64, 80, 96, 112, 128))
+    namedValues = NamedValues(("unknown", 0), ("rlinferior", 16), ("invalid", 48), ("rebooting", 64), ("recoverable", 80), ("unrecoverable", 96), ("rtipending", 112), ("rtinormal", 128))
+
+stackingStackRtiTimeStamp = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 20, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stackingStackRtiTimeStamp.setStatus('current')
+stackingDeviceRTI = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 20, 2), DeviceRti()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stackingDeviceRTI.setStatus('current')
+stackingPrevDeviceRTI = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 20, 3), DeviceRti()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stackingPrevDeviceRTI.setStatus('current')
+stackingDeviceFaultCause = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 20, 4), FaultCause()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stackingDeviceFaultCause.setStatus('current')
+stackingStackRTI = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 20, 5), StackRti()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stackingStackRTI.setStatus('current')
+stackingPrevStackRTI = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 20, 6), StackRti()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: stackingPrevStackRTI.setStatus('current')
+tptStackingNotifyDeviceID = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 3, 1, 324), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 40))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptStackingNotifyDeviceID.setStatus('current')
+tptStackingNotifyKey = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 3, 1, 328), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 12))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptStackingNotifyKey.setStatus('current')
+tptStackingNotifyTimeStamp = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 3, 1, 332), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptStackingNotifyTimeStamp.setStatus('current')
+tptStackingNotifyDeviceRTI = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 3, 1, 336), DeviceRti()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptStackingNotifyDeviceRTI.setStatus('current')
+tptStackingNotifyPrevDeviceRTI = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 3, 1, 340), DeviceRti()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptStackingNotifyPrevDeviceRTI.setStatus('current')
+tptStackingNotifyDeviceFaultCause = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 3, 1, 344), FaultCause()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptStackingNotifyDeviceFaultCause.setStatus('current')
+tptStackingNotifyStackRTI = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 3, 1, 348), StackRti()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptStackingNotifyStackRTI.setStatus('current')
+tptStackingNotifyPrevStackRTI = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 3, 1, 352), StackRti()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptStackingNotifyPrevStackRTI.setStatus('current')
+tptStackingNotifyMissedHeartbeatKey = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 3, 1, 356), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 12))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tptStackingNotifyMissedHeartbeatKey.setStatus('current')
+tptStackingDeviceRTINotify = NotificationType((1, 3, 6, 1, 4, 1, 10734, 3, 3, 3, 0, 70)).setObjects(("TPT-STACKING-MIB", "tptStackingNotifyDeviceID"), ("TPT-STACKING-MIB", "tptStackingNotifyKey"), ("TPT-STACKING-MIB", "tptStackingNotifyTimeStamp"), ("TPT-STACKING-MIB", "tptStackingNotifyDeviceRTI"), ("TPT-STACKING-MIB", "tptStackingNotifyPrevDeviceRTI"), ("TPT-STACKING-MIB", "tptStackingNotifyDeviceFaultCause"))
+if mibBuilder.loadTexts: tptStackingDeviceRTINotify.setStatus('current')
+tptStackingStackRTINotify = NotificationType((1, 3, 6, 1, 4, 1, 10734, 3, 3, 3, 0, 71)).setObjects(("TPT-STACKING-MIB", "tptStackingNotifyDeviceID"), ("TPT-STACKING-MIB", "tptStackingNotifyKey"), ("TPT-STACKING-MIB", "tptStackingNotifyTimeStamp"), ("TPT-STACKING-MIB", "tptStackingNotifyStackRTI"), ("TPT-STACKING-MIB", "tptStackingNotifyPrevStackRTI"))
+if mibBuilder.loadTexts: tptStackingStackRTINotify.setStatus('current')
+tptStackingMissedHeartbeatNotify = NotificationType((1, 3, 6, 1, 4, 1, 10734, 3, 3, 3, 0, 72)).setObjects(("TPT-STACKING-MIB", "tptStackingNotifyDeviceID"), ("TPT-STACKING-MIB", "tptStackingNotifyKey"), ("TPT-STACKING-MIB", "tptStackingNotifyTimeStamp"), ("TPT-STACKING-MIB", "tptStackingNotifyMissedHeartbeatKey"))
+if mibBuilder.loadTexts: tptStackingMissedHeartbeatNotify.setStatus('current')
+mibBuilder.exportSymbols("TPT-STACKING-MIB", tptStackingMissedHeartbeatNotify=tptStackingMissedHeartbeatNotify, tptStackingNotifyPrevDeviceRTI=tptStackingNotifyPrevDeviceRTI, tptStackingNotifyStackRTI=tptStackingNotifyStackRTI, DeviceRti=DeviceRti, tptStackingNotifyDeviceID=tptStackingNotifyDeviceID, tptStackingNotifyKey=tptStackingNotifyKey, PYSNMP_MODULE_ID=tpt_stack_objs, stackingDeviceRTI=stackingDeviceRTI, stackingPrevDeviceRTI=stackingPrevDeviceRTI, tptStackingNotifyDeviceFaultCause=tptStackingNotifyDeviceFaultCause, stackingStackRtiTimeStamp=stackingStackRtiTimeStamp, tptStackingStackRTINotify=tptStackingStackRTINotify, stackingStackRTI=stackingStackRTI, stackingPrevStackRTI=stackingPrevStackRTI, tptStackingNotifyMissedHeartbeatKey=tptStackingNotifyMissedHeartbeatKey, tptStackingNotifyDeviceRTI=tptStackingNotifyDeviceRTI, tptStackingDeviceRTINotify=tptStackingDeviceRTINotify, tptStackingNotifyTimeStamp=tptStackingNotifyTimeStamp, tptStackingNotifyPrevStackRTI=tptStackingNotifyPrevStackRTI, stackingDeviceFaultCause=stackingDeviceFaultCause, tpt_stack_objs=tpt_stack_objs, StackRti=StackRti)

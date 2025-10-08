@@ -1,83 +1,55 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-nortel,=mibBuilder.importSymbols('NORTEL-MIB','nortel')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ntEnterpriseData=ModuleIdentity((1,3,6,1,4,1,562,73))
-if mibBuilder.loadTexts:ntEnterpriseData.setRevisions(('2008-10-13 00:00','2008-02-25 00:00','2007-06-01 00:00','2007-03-15 00:00','2006-02-07 00:00','2006-02-01 00:00','2006-01-25 00:00','2006-01-18 00:00','2005-11-21 00:00'))
-_NtEnterpriseDataMibs_ObjectIdentity=ObjectIdentity
-ntEnterpriseDataMibs=_NtEnterpriseDataMibs_ObjectIdentity((1,3,6,1,4,1,562,73,1))
-_NtEnterpriseDataTasmanMibs_ObjectIdentity=ObjectIdentity
-ntEnterpriseDataTasmanMibs=_NtEnterpriseDataTasmanMibs_ObjectIdentity((1,3,6,1,4,1,562,73,1,1))
-_NtEnterpriseDataTasmanMgmt_ObjectIdentity=ObjectIdentity
-ntEnterpriseDataTasmanMgmt=_NtEnterpriseDataTasmanMgmt_ObjectIdentity((1,3,6,1,4,1,562,73,1,1,1))
-_NtEnterpriseDataTasmanInterfaces_ObjectIdentity=ObjectIdentity
-ntEnterpriseDataTasmanInterfaces=_NtEnterpriseDataTasmanInterfaces_ObjectIdentity((1,3,6,1,4,1,562,73,1,1,2))
-_NtEnterpriseDataTasmanModules_ObjectIdentity=ObjectIdentity
-ntEnterpriseDataTasmanModules=_NtEnterpriseDataTasmanModules_ObjectIdentity((1,3,6,1,4,1,562,73,1,1,3))
-_NtEnterpriseDataNewburyMibs_ObjectIdentity=ObjectIdentity
-ntEnterpriseDataNewburyMibs=_NtEnterpriseDataNewburyMibs_ObjectIdentity((1,3,6,1,4,1,562,73,1,2))
-_NtEnterpriseDataRegistration_ObjectIdentity=ObjectIdentity
-ntEnterpriseDataRegistration=_NtEnterpriseDataRegistration_ObjectIdentity((1,3,6,1,4,1,562,73,2))
-_NtEnterpriseSwitches_ObjectIdentity=ObjectIdentity
-ntEnterpriseSwitches=_NtEnterpriseSwitches_ObjectIdentity((1,3,6,1,4,1,562,73,2,1))
-_NtEthernetSwitch_ObjectIdentity=ObjectIdentity
-ntEthernetSwitch=_NtEthernetSwitch_ObjectIdentity((1,3,6,1,4,1,562,73,2,1,1))
-_NtEthernetRoutingSwitch_ObjectIdentity=ObjectIdentity
-ntEthernetRoutingSwitch=_NtEthernetRoutingSwitch_ObjectIdentity((1,3,6,1,4,1,562,73,2,1,2))
-_NtEnterpriseRouters_ObjectIdentity=ObjectIdentity
-ntEnterpriseRouters=_NtEnterpriseRouters_ObjectIdentity((1,3,6,1,4,1,562,73,2,2))
-_NtSecureRouter6200Series_ObjectIdentity=ObjectIdentity
-ntSecureRouter6200Series=_NtSecureRouter6200Series_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,1))
-_NtSecureRouter6230_ObjectIdentity=ObjectIdentity
-ntSecureRouter6230=_NtSecureRouter6230_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,1,1))
-_NtSecureRouter6280_ObjectIdentity=ObjectIdentity
-ntSecureRouter6280=_NtSecureRouter6280_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,1,2))
-_NtSecureRouter3000Series_ObjectIdentity=ObjectIdentity
-ntSecureRouter3000Series=_NtSecureRouter3000Series_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,2))
-_NtSecureRouter3120_ObjectIdentity=ObjectIdentity
-ntSecureRouter3120=_NtSecureRouter3120_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,2,1))
-_NtSecureRouter1000Series_ObjectIdentity=ObjectIdentity
-ntSecureRouter1000Series=_NtSecureRouter1000Series_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,3))
-_NtSecureRouter1001_ObjectIdentity=ObjectIdentity
-ntSecureRouter1001=_NtSecureRouter1001_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,3,1))
-_NtSecureRouter1002_ObjectIdentity=ObjectIdentity
-ntSecureRouter1002=_NtSecureRouter1002_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,3,2))
-_NtSecureRouter1004_ObjectIdentity=ObjectIdentity
-ntSecureRouter1004=_NtSecureRouter1004_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,3,3))
-_NtSecureRouter1002E_ObjectIdentity=ObjectIdentity
-ntSecureRouter1002E=_NtSecureRouter1002E_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,3,4))
-_NtSecureRouter1004E_ObjectIdentity=ObjectIdentity
-ntSecureRouter1004E=_NtSecureRouter1004E_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,3,5))
-_NtSecureRouter1001S_ObjectIdentity=ObjectIdentity
-ntSecureRouter1001S=_NtSecureRouter1001S_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,3,6))
-_NtSecureRouterNESeries_ObjectIdentity=ObjectIdentity
-ntSecureRouterNESeries=_NtSecureRouterNESeries_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,4))
-_NtSecureRouterNE05_ObjectIdentity=ObjectIdentity
-ntSecureRouterNE05=_NtSecureRouterNE05_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,4,1))
-_NtSecureRouterNE08_ObjectIdentity=ObjectIdentity
-ntSecureRouterNE08=_NtSecureRouterNE08_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,4,2))
-_NtSecureRouterNE16_ObjectIdentity=ObjectIdentity
-ntSecureRouterNE16=_NtSecureRouterNE16_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,4,3))
-_NtSecureRouterNE20_ObjectIdentity=ObjectIdentity
-ntSecureRouterNE20=_NtSecureRouterNE20_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,4,4))
-_NtSecureRouter4000Series_ObjectIdentity=ObjectIdentity
-ntSecureRouter4000Series=_NtSecureRouter4000Series_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,5))
-_NtSecureRouter4134_ObjectIdentity=ObjectIdentity
-ntSecureRouter4134=_NtSecureRouter4134_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,5,1))
-_NtSecureRouter2000Series_ObjectIdentity=ObjectIdentity
-ntSecureRouter2000Series=_NtSecureRouter2000Series_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,6))
-_NtSecureRouter2330_ObjectIdentity=ObjectIdentity
-ntSecureRouter2330=_NtSecureRouter2330_ObjectIdentity((1,3,6,1,4,1,562,73,2,2,6,1))
-_NtEnterpriseServiceGateways_ObjectIdentity=ObjectIdentity
-ntEnterpriseServiceGateways=_NtEnterpriseServiceGateways_ObjectIdentity((1,3,6,1,4,1,562,73,2,3))
-_EnterpriseGateway_ObjectIdentity=ObjectIdentity
-enterpriseGateway=_EnterpriseGateway_ObjectIdentity((1,3,6,1,4,1,562,73,2,4))
-_AdvancedGateway2000Series_ObjectIdentity=ObjectIdentity
-advancedGateway2000Series=_AdvancedGateway2000Series_ObjectIdentity((1,3,6,1,4,1,562,73,2,4,1))
-_AdvancedGateway2330_ObjectIdentity=ObjectIdentity
-advancedGateway2330=_AdvancedGateway2330_ObjectIdentity((1,3,6,1,4,1,562,73,2,4,1,1))
-mibBuilder.exportSymbols('NT-ENTERPRISE-DATA-MIB',**{'ntEnterpriseData':ntEnterpriseData,'ntEnterpriseDataMibs':ntEnterpriseDataMibs,'ntEnterpriseDataTasmanMibs':ntEnterpriseDataTasmanMibs,'ntEnterpriseDataTasmanMgmt':ntEnterpriseDataTasmanMgmt,'ntEnterpriseDataTasmanInterfaces':ntEnterpriseDataTasmanInterfaces,'ntEnterpriseDataTasmanModules':ntEnterpriseDataTasmanModules,'ntEnterpriseDataNewburyMibs':ntEnterpriseDataNewburyMibs,'ntEnterpriseDataRegistration':ntEnterpriseDataRegistration,'ntEnterpriseSwitches':ntEnterpriseSwitches,'ntEthernetSwitch':ntEthernetSwitch,'ntEthernetRoutingSwitch':ntEthernetRoutingSwitch,'ntEnterpriseRouters':ntEnterpriseRouters,'ntSecureRouter6200Series':ntSecureRouter6200Series,'ntSecureRouter6230':ntSecureRouter6230,'ntSecureRouter6280':ntSecureRouter6280,'ntSecureRouter3000Series':ntSecureRouter3000Series,'ntSecureRouter3120':ntSecureRouter3120,'ntSecureRouter1000Series':ntSecureRouter1000Series,'ntSecureRouter1001':ntSecureRouter1001,'ntSecureRouter1002':ntSecureRouter1002,'ntSecureRouter1004':ntSecureRouter1004,'ntSecureRouter1002E':ntSecureRouter1002E,'ntSecureRouter1004E':ntSecureRouter1004E,'ntSecureRouter1001S':ntSecureRouter1001S,'ntSecureRouterNESeries':ntSecureRouterNESeries,'ntSecureRouterNE05':ntSecureRouterNE05,'ntSecureRouterNE08':ntSecureRouterNE08,'ntSecureRouterNE16':ntSecureRouterNE16,'ntSecureRouterNE20':ntSecureRouterNE20,'ntSecureRouter4000Series':ntSecureRouter4000Series,'ntSecureRouter4134':ntSecureRouter4134,'ntSecureRouter2000Series':ntSecureRouter2000Series,'ntSecureRouter2330':ntSecureRouter2330,'ntEnterpriseServiceGateways':ntEnterpriseServiceGateways,'enterpriseGateway':enterpriseGateway,'advancedGateway2000Series':advancedGateway2000Series,'advancedGateway2330':advancedGateway2330})
+#
+# PySNMP MIB module NT-ENTERPRISE-DATA-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/NT-ENTERPRISE-DATA-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+nortel, = mibBuilder.importSymbols("NORTEL-MIB", "nortel")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ntEnterpriseData = ModuleIdentity((1, 3, 6, 1, 4, 1, 562, 73))
+ntEnterpriseData.setRevisions(('2008-10-13 00:00', '2008-02-25 00:00', '2007-06-01 00:00', '2007-03-15 00:00', '2006-02-07 00:00', '2006-02-01 00:00', '2006-01-25 00:00', '2006-01-18 00:00', '2005-11-21 00:00',))
+if mibBuilder.loadTexts: ntEnterpriseData.setLastUpdated('200802250000Z')
+if mibBuilder.loadTexts: ntEnterpriseData.setOrganization('Nortel Networks')
+ntEnterpriseDataMibs = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 1))
+ntEnterpriseDataTasmanMibs = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 1, 1))
+ntEnterpriseDataTasmanMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 1))
+ntEnterpriseDataTasmanInterfaces = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 2))
+ntEnterpriseDataTasmanModules = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 3))
+ntEnterpriseDataNewburyMibs = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 1, 2))
+ntEnterpriseDataRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2))
+ntEnterpriseSwitches = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 1))
+ntEthernetSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 1, 1))
+ntEthernetRoutingSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 1, 2))
+ntEnterpriseRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2))
+ntSecureRouter6200Series = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 1))
+ntSecureRouter6230 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 1, 1))
+ntSecureRouter6280 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 1, 2))
+ntSecureRouter3000Series = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 2))
+ntSecureRouter3120 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 2, 1))
+ntSecureRouter1000Series = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 3))
+ntSecureRouter1001 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 3, 1))
+ntSecureRouter1002 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 3, 2))
+ntSecureRouter1004 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 3, 3))
+ntSecureRouter1002E = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 3, 4))
+ntSecureRouter1004E = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 3, 5))
+ntSecureRouter1001S = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 3, 6))
+ntSecureRouterNESeries = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 4))
+ntSecureRouterNE05 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 4, 1))
+ntSecureRouterNE08 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 4, 2))
+ntSecureRouterNE16 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 4, 3))
+ntSecureRouterNE20 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 4, 4))
+ntSecureRouter4000Series = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 5))
+ntSecureRouter4134 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 5, 1))
+ntSecureRouter2000Series = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 6))
+ntSecureRouter2330 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 2, 6, 1))
+ntEnterpriseServiceGateways = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 3))
+enterpriseGateway = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 4))
+advancedGateway2000Series = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 4, 1))
+advancedGateway2330 = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 2, 4, 1, 1))
+mibBuilder.exportSymbols("NT-ENTERPRISE-DATA-MIB", ntEnterpriseDataNewburyMibs=ntEnterpriseDataNewburyMibs, ntEthernetSwitch=ntEthernetSwitch, ntEnterpriseDataTasmanModules=ntEnterpriseDataTasmanModules, advancedGateway2000Series=advancedGateway2000Series, ntSecureRouterNE20=ntSecureRouterNE20, ntSecureRouter1001=ntSecureRouter1001, ntSecureRouterNESeries=ntSecureRouterNESeries, ntSecureRouterNE08=ntSecureRouterNE08, ntEnterpriseServiceGateways=ntEnterpriseServiceGateways, ntSecureRouter1002E=ntSecureRouter1002E, ntEnterpriseDataTasmanInterfaces=ntEnterpriseDataTasmanInterfaces, ntSecureRouterNE16=ntSecureRouterNE16, ntEnterpriseDataRegistration=ntEnterpriseDataRegistration, ntSecureRouter3000Series=ntSecureRouter3000Series, ntEnterpriseSwitches=ntEnterpriseSwitches, ntSecureRouter3120=ntSecureRouter3120, PYSNMP_MODULE_ID=ntEnterpriseData, ntEnterpriseData=ntEnterpriseData, ntEnterpriseDataTasmanMibs=ntEnterpriseDataTasmanMibs, ntEnterpriseRouters=ntEnterpriseRouters, ntSecureRouter6230=ntSecureRouter6230, ntSecureRouter4134=ntSecureRouter4134, ntSecureRouter2330=ntSecureRouter2330, advancedGateway2330=advancedGateway2330, ntSecureRouter6200Series=ntSecureRouter6200Series, ntSecureRouter2000Series=ntSecureRouter2000Series, enterpriseGateway=enterpriseGateway, ntSecureRouter1004E=ntSecureRouter1004E, ntEnterpriseDataTasmanMgmt=ntEnterpriseDataTasmanMgmt, ntEnterpriseDataMibs=ntEnterpriseDataMibs, ntSecureRouter1001S=ntSecureRouter1001S, ntSecureRouter1004=ntSecureRouter1004, ntEthernetRoutingSwitch=ntEthernetRoutingSwitch, ntSecureRouterNE05=ntSecureRouterNE05, ntSecureRouter4000Series=ntSecureRouter4000Series, ntSecureRouter1000Series=ntSecureRouter1000Series, ntSecureRouter6280=ntSecureRouter6280, ntSecureRouter1002=ntSecureRouter1002)

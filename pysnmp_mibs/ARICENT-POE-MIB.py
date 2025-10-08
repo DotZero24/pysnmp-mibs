@@ -1,45 +1,32 @@
-_D='fsPoePdMacAddress'
-_C='ARICENT-POE-MIB'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention')
-fspoe=ModuleIdentity((1,3,6,1,4,1,2076,103))
-if mibBuilder.loadTexts:fspoe.setRevisions(('2012-09-05 00:00',))
-_FsPoeSystem_ObjectIdentity=ObjectIdentity
-fsPoeSystem=_FsPoeSystem_ObjectIdentity((1,3,6,1,4,1,2076,103,1))
-class _FsPoeGlobalAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('start',1),('shutdown',2)))
-_FsPoeGlobalAdminStatus_Type.__name__=_B
-_FsPoeGlobalAdminStatus_Object=MibScalar
-fsPoeGlobalAdminStatus=_FsPoeGlobalAdminStatus_Object((1,3,6,1,4,1,2076,103,1,1),_FsPoeGlobalAdminStatus_Type())
-fsPoeGlobalAdminStatus.setMaxAccess('read-write')
-if mibBuilder.loadTexts:fsPoeGlobalAdminStatus.setStatus(_A)
-_FsPoeMacTable_Object=MibTable
-fsPoeMacTable=_FsPoeMacTable_Object((1,3,6,1,4,1,2076,103,1,2))
-if mibBuilder.loadTexts:fsPoeMacTable.setStatus(_A)
-_FsPoeMacEntry_Object=MibTableRow
-fsPoeMacEntry=_FsPoeMacEntry_Object((1,3,6,1,4,1,2076,103,1,2,1))
-fsPoeMacEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:fsPoeMacEntry.setStatus(_A)
-_FsPoePdMacAddress_Type=MacAddress
-_FsPoePdMacAddress_Object=MibTableColumn
-fsPoePdMacAddress=_FsPoePdMacAddress_Object((1,3,6,1,4,1,2076,103,1,2,1,1),_FsPoePdMacAddress_Type())
-fsPoePdMacAddress.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:fsPoePdMacAddress.setStatus(_A)
-_FsPoePdMacPort_Type=InterfaceIndex
-_FsPoePdMacPort_Object=MibTableColumn
-fsPoePdMacPort=_FsPoePdMacPort_Object((1,3,6,1,4,1,2076,103,1,2,1,2),_FsPoePdMacPort_Type())
-fsPoePdMacPort.setMaxAccess('read-only')
-if mibBuilder.loadTexts:fsPoePdMacPort.setStatus(_A)
-_FsPoePdMacRowStatus_Type=RowStatus
-_FsPoePdMacRowStatus_Object=MibTableColumn
-fsPoePdMacRowStatus=_FsPoePdMacRowStatus_Object((1,3,6,1,4,1,2076,103,1,2,1,3),_FsPoePdMacRowStatus_Type())
-fsPoePdMacRowStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:fsPoePdMacRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'fspoe':fspoe,'fsPoeSystem':fsPoeSystem,'fsPoeGlobalAdminStatus':fsPoeGlobalAdminStatus,'fsPoeMacTable':fsPoeMacTable,'fsPoeMacEntry':fsPoeMacEntry,_D:fsPoePdMacAddress,'fsPoePdMacPort':fsPoePdMacPort,'fsPoePdMacRowStatus':fsPoePdMacRowStatus})
+#
+# PySNMP MIB module ARICENT-POE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aricent/ARICENT-POE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:32:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TextualConvention")
+fspoe = ModuleIdentity((1, 3, 6, 1, 4, 1, 2076, 103))
+fspoe.setRevisions(('2012-09-05 00:00',))
+if mibBuilder.loadTexts: fspoe.setLastUpdated('201209050000Z')
+if mibBuilder.loadTexts: fspoe.setOrganization('ARICENT COMMUNICATIONS SOFTWARE')
+fsPoeSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 2076, 103, 1))
+fsPoeGlobalAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 2076, 103, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("start", 1), ("shutdown", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsPoeGlobalAdminStatus.setStatus('current')
+fsPoeMacTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 103, 1, 2), )
+if mibBuilder.loadTexts: fsPoeMacTable.setStatus('current')
+fsPoeMacEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 103, 1, 2, 1), ).setIndexNames((0, "ARICENT-POE-MIB", "fsPoePdMacAddress"))
+if mibBuilder.loadTexts: fsPoeMacEntry.setStatus('current')
+fsPoePdMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 103, 1, 2, 1, 1), MacAddress())
+if mibBuilder.loadTexts: fsPoePdMacAddress.setStatus('current')
+fsPoePdMacPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 103, 1, 2, 1, 2), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsPoePdMacPort.setStatus('current')
+fsPoePdMacRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 103, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsPoePdMacRowStatus.setStatus('current')
+mibBuilder.exportSymbols("ARICENT-POE-MIB", fspoe=fspoe, fsPoePdMacPort=fsPoePdMacPort, PYSNMP_MODULE_ID=fspoe, fsPoeMacEntry=fsPoeMacEntry, fsPoePdMacRowStatus=fsPoePdMacRowStatus, fsPoeMacTable=fsPoeMacTable, fsPoeSystem=fsPoeSystem, fsPoeGlobalAdminStatus=fsPoeGlobalAdminStatus, fsPoePdMacAddress=fsPoePdMacAddress)

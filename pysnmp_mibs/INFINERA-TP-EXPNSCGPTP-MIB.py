@@ -1,103 +1,55 @@
-_Q='expnScgPtpGroup'
-_P='expnScgPtpPathLossHigh'
-_O='expnScgPtpLastPathLossCheckFailedReason'
-_N='expnScgPtpLastPathLossCheckAttemptStatus'
-_M='expnScgPtpLastPathLossCheckAttemptTS'
-_L='expnScgPtpPathLossCheckDetectedPort'
-_K='expnScgPtpPathLoss'
-_J='expnScgPtpLastSuccessfullPathLossCheckTS'
-_I='expnScgPtpPathLossCheckControlStatus'
-_H='expnScgPtpMPOAID'
-_G='expnScgPtpScgNumber'
-_F='ifIndex'
-_E='IF-MIB'
-_D='Integer32'
-_C='read-only'
-_B='INFINERA-TP-EXPNSCGPTP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-terminationPoint,=mibBuilder.importSymbols('INFINERA-REG-MIB','terminationPoint')
-FloatHundredths,InfnEnableDisable=mibBuilder.importSymbols('INFINERA-TC-MIB','FloatHundredths','InfnEnableDisable')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-expnScgPtpMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,2,47))
-if mibBuilder.loadTexts:expnScgPtpMIB.setRevisions(('2013-10-20 00:00',))
-_ExpnScgPtpTable_Object=MibTable
-expnScgPtpTable=_ExpnScgPtpTable_Object((1,3,6,1,4,1,21296,2,2,2,2,47,1))
-if mibBuilder.loadTexts:expnScgPtpTable.setStatus(_A)
-_ExpnScgPtpEntry_Object=MibTableRow
-expnScgPtpEntry=_ExpnScgPtpEntry_Object((1,3,6,1,4,1,21296,2,2,2,2,47,1,1))
-expnScgPtpEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:expnScgPtpEntry.setStatus(_A)
-_ExpnScgPtpScgNumber_Type=Integer32
-_ExpnScgPtpScgNumber_Object=MibTableColumn
-expnScgPtpScgNumber=_ExpnScgPtpScgNumber_Object((1,3,6,1,4,1,21296,2,2,2,2,47,1,1,1),_ExpnScgPtpScgNumber_Type())
-expnScgPtpScgNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:expnScgPtpScgNumber.setStatus(_A)
-_ExpnScgPtpMPOAID_Type=DisplayString
-_ExpnScgPtpMPOAID_Object=MibTableColumn
-expnScgPtpMPOAID=_ExpnScgPtpMPOAID_Object((1,3,6,1,4,1,21296,2,2,2,2,47,1,1,2),_ExpnScgPtpMPOAID_Type())
-expnScgPtpMPOAID.setMaxAccess('read-write')
-if mibBuilder.loadTexts:expnScgPtpMPOAID.setStatus(_A)
-class _ExpnScgPtpPathLossCheckControlStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('inProgress',1),('idle',2)))
-_ExpnScgPtpPathLossCheckControlStatus_Type.__name__=_D
-_ExpnScgPtpPathLossCheckControlStatus_Object=MibTableColumn
-expnScgPtpPathLossCheckControlStatus=_ExpnScgPtpPathLossCheckControlStatus_Object((1,3,6,1,4,1,21296,2,2,2,2,47,1,1,3),_ExpnScgPtpPathLossCheckControlStatus_Type())
-expnScgPtpPathLossCheckControlStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:expnScgPtpPathLossCheckControlStatus.setStatus(_A)
-_ExpnScgPtpLastSuccessfullPathLossCheckTS_Type=Integer32
-_ExpnScgPtpLastSuccessfullPathLossCheckTS_Object=MibTableColumn
-expnScgPtpLastSuccessfullPathLossCheckTS=_ExpnScgPtpLastSuccessfullPathLossCheckTS_Object((1,3,6,1,4,1,21296,2,2,2,2,47,1,1,4),_ExpnScgPtpLastSuccessfullPathLossCheckTS_Type())
-expnScgPtpLastSuccessfullPathLossCheckTS.setMaxAccess(_C)
-if mibBuilder.loadTexts:expnScgPtpLastSuccessfullPathLossCheckTS.setStatus(_A)
-_ExpnScgPtpPathLoss_Type=FloatHundredths
-_ExpnScgPtpPathLoss_Object=MibTableColumn
-expnScgPtpPathLoss=_ExpnScgPtpPathLoss_Object((1,3,6,1,4,1,21296,2,2,2,2,47,1,1,5),_ExpnScgPtpPathLoss_Type())
-expnScgPtpPathLoss.setMaxAccess(_C)
-if mibBuilder.loadTexts:expnScgPtpPathLoss.setStatus(_A)
-_ExpnScgPtpPathLossCheckDetectedPort_Type=DisplayString
-_ExpnScgPtpPathLossCheckDetectedPort_Object=MibTableColumn
-expnScgPtpPathLossCheckDetectedPort=_ExpnScgPtpPathLossCheckDetectedPort_Object((1,3,6,1,4,1,21296,2,2,2,2,47,1,1,6),_ExpnScgPtpPathLossCheckDetectedPort_Type())
-expnScgPtpPathLossCheckDetectedPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:expnScgPtpPathLossCheckDetectedPort.setStatus(_A)
-_ExpnScgPtpLastPathLossCheckAttemptTS_Type=Integer32
-_ExpnScgPtpLastPathLossCheckAttemptTS_Object=MibTableColumn
-expnScgPtpLastPathLossCheckAttemptTS=_ExpnScgPtpLastPathLossCheckAttemptTS_Object((1,3,6,1,4,1,21296,2,2,2,2,47,1,1,7),_ExpnScgPtpLastPathLossCheckAttemptTS_Type())
-expnScgPtpLastPathLossCheckAttemptTS.setMaxAccess(_C)
-if mibBuilder.loadTexts:expnScgPtpLastPathLossCheckAttemptTS.setStatus(_A)
-class _ExpnScgPtpLastPathLossCheckAttemptStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('successfull',1),('unsuccessfull',2),('notAttempted',3)))
-_ExpnScgPtpLastPathLossCheckAttemptStatus_Type.__name__=_D
-_ExpnScgPtpLastPathLossCheckAttemptStatus_Object=MibTableColumn
-expnScgPtpLastPathLossCheckAttemptStatus=_ExpnScgPtpLastPathLossCheckAttemptStatus_Object((1,3,6,1,4,1,21296,2,2,2,2,47,1,1,8),_ExpnScgPtpLastPathLossCheckAttemptStatus_Type())
-expnScgPtpLastPathLossCheckAttemptStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:expnScgPtpLastPathLossCheckAttemptStatus.setStatus(_A)
-class _ExpnScgPtpLastPathLossCheckFailedReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('na',1),('timedOut',2),('interruptedbyAD',3),('interruptedbyReset',4),('portInService',5)))
-_ExpnScgPtpLastPathLossCheckFailedReason_Type.__name__=_D
-_ExpnScgPtpLastPathLossCheckFailedReason_Object=MibTableColumn
-expnScgPtpLastPathLossCheckFailedReason=_ExpnScgPtpLastPathLossCheckFailedReason_Object((1,3,6,1,4,1,21296,2,2,2,2,47,1,1,9),_ExpnScgPtpLastPathLossCheckFailedReason_Type())
-expnScgPtpLastPathLossCheckFailedReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:expnScgPtpLastPathLossCheckFailedReason.setStatus(_A)
-class _ExpnScgPtpPathLossHigh_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('true',1),('false',2)))
-_ExpnScgPtpPathLossHigh_Type.__name__=_D
-_ExpnScgPtpPathLossHigh_Object=MibTableColumn
-expnScgPtpPathLossHigh=_ExpnScgPtpPathLossHigh_Object((1,3,6,1,4,1,21296,2,2,2,2,47,1,1,10),_ExpnScgPtpPathLossHigh_Type())
-expnScgPtpPathLossHigh.setMaxAccess(_C)
-if mibBuilder.loadTexts:expnScgPtpPathLossHigh.setStatus(_A)
-_ExpnScgPtpConformance_ObjectIdentity=ObjectIdentity
-expnScgPtpConformance=_ExpnScgPtpConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,47,3))
-_ExpnScgPtpCompliances_ObjectIdentity=ObjectIdentity
-expnScgPtpCompliances=_ExpnScgPtpCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,47,3,1))
-_ExpnScgPtpGroups_ObjectIdentity=ObjectIdentity
-expnScgPtpGroups=_ExpnScgPtpGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,47,3,2))
-expnScgPtpGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,2,47,3,2,1))
-expnScgPtpGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:expnScgPtpGroup.setStatus(_A)
-expnScgPtpCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,2,47,3,1,1))
-expnScgPtpCompliance.setObjects((_B,_Q))
-if mibBuilder.loadTexts:expnScgPtpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'expnScgPtpMIB':expnScgPtpMIB,'expnScgPtpTable':expnScgPtpTable,'expnScgPtpEntry':expnScgPtpEntry,_G:expnScgPtpScgNumber,_H:expnScgPtpMPOAID,_I:expnScgPtpPathLossCheckControlStatus,_J:expnScgPtpLastSuccessfullPathLossCheckTS,_K:expnScgPtpPathLoss,_L:expnScgPtpPathLossCheckDetectedPort,_M:expnScgPtpLastPathLossCheckAttemptTS,_N:expnScgPtpLastPathLossCheckAttemptStatus,_O:expnScgPtpLastPathLossCheckFailedReason,_P:expnScgPtpPathLossHigh,'expnScgPtpConformance':expnScgPtpConformance,'expnScgPtpCompliances':expnScgPtpCompliances,'expnScgPtpCompliance':expnScgPtpCompliance,'expnScgPtpGroups':expnScgPtpGroups,_Q:expnScgPtpGroup})
+#
+# PySNMP MIB module INFINERA-TP-EXPNSCGPTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-EXPNSCGPTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:51 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
+FloatHundredths, InfnEnableDisable = mibBuilder.importSymbols("INFINERA-TC-MIB", "FloatHundredths", "InfnEnableDisable")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+expnScgPtpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47))
+expnScgPtpMIB.setRevisions(('2013-10-20 00:00',))
+if mibBuilder.loadTexts: expnScgPtpMIB.setLastUpdated('201310200000Z')
+if mibBuilder.loadTexts: expnScgPtpMIB.setOrganization('Infinera')
+expnScgPtpTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 1), )
+if mibBuilder.loadTexts: expnScgPtpTable.setStatus('current')
+expnScgPtpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: expnScgPtpEntry.setStatus('current')
+expnScgPtpScgNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expnScgPtpScgNumber.setStatus('current')
+expnScgPtpMPOAID = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 1, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: expnScgPtpMPOAID.setStatus('current')
+expnScgPtpPathLossCheckControlStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inProgress", 1), ("idle", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expnScgPtpPathLossCheckControlStatus.setStatus('current')
+expnScgPtpLastSuccessfullPathLossCheckTS = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expnScgPtpLastSuccessfullPathLossCheckTS.setStatus('current')
+expnScgPtpPathLoss = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 1, 1, 5), FloatHundredths()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expnScgPtpPathLoss.setStatus('current')
+expnScgPtpPathLossCheckDetectedPort = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expnScgPtpPathLossCheckDetectedPort.setStatus('current')
+expnScgPtpLastPathLossCheckAttemptTS = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expnScgPtpLastPathLossCheckAttemptTS.setStatus('current')
+expnScgPtpLastPathLossCheckAttemptStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("successfull", 1), ("unsuccessfull", 2), ("notAttempted", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expnScgPtpLastPathLossCheckAttemptStatus.setStatus('current')
+expnScgPtpLastPathLossCheckFailedReason = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("na", 1), ("timedOut", 2), ("interruptedbyAD", 3), ("interruptedbyReset", 4), ("portInService", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expnScgPtpLastPathLossCheckFailedReason.setStatus('current')
+expnScgPtpPathLossHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("true", 1), ("false", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expnScgPtpPathLossHigh.setStatus('current')
+expnScgPtpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 3))
+expnScgPtpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 3, 1))
+expnScgPtpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 3, 2))
+expnScgPtpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 3, 1, 1)).setObjects(("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    expnScgPtpCompliance = expnScgPtpCompliance.setStatus('current')
+expnScgPtpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 47, 3, 2, 1)).setObjects(("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpScgNumber"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpMPOAID"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpPathLossCheckControlStatus"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpLastSuccessfullPathLossCheckTS"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpPathLoss"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpPathLossCheckDetectedPort"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpLastPathLossCheckAttemptTS"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpLastPathLossCheckAttemptStatus"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpLastPathLossCheckFailedReason"), ("INFINERA-TP-EXPNSCGPTP-MIB", "expnScgPtpPathLossHigh"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    expnScgPtpGroup = expnScgPtpGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-TP-EXPNSCGPTP-MIB", expnScgPtpMIB=expnScgPtpMIB, PYSNMP_MODULE_ID=expnScgPtpMIB, expnScgPtpPathLoss=expnScgPtpPathLoss, expnScgPtpEntry=expnScgPtpEntry, expnScgPtpCompliance=expnScgPtpCompliance, expnScgPtpLastPathLossCheckFailedReason=expnScgPtpLastPathLossCheckFailedReason, expnScgPtpTable=expnScgPtpTable, expnScgPtpLastPathLossCheckAttemptTS=expnScgPtpLastPathLossCheckAttemptTS, expnScgPtpCompliances=expnScgPtpCompliances, expnScgPtpPathLossHigh=expnScgPtpPathLossHigh, expnScgPtpPathLossCheckControlStatus=expnScgPtpPathLossCheckControlStatus, expnScgPtpPathLossCheckDetectedPort=expnScgPtpPathLossCheckDetectedPort, expnScgPtpLastSuccessfullPathLossCheckTS=expnScgPtpLastSuccessfullPathLossCheckTS, expnScgPtpScgNumber=expnScgPtpScgNumber, expnScgPtpGroups=expnScgPtpGroups, expnScgPtpMPOAID=expnScgPtpMPOAID, expnScgPtpLastPathLossCheckAttemptStatus=expnScgPtpLastPathLossCheckAttemptStatus, expnScgPtpConformance=expnScgPtpConformance, expnScgPtpGroup=expnScgPtpGroup)

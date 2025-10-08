@@ -1,84 +1,43 @@
-_I='ipadBridgePortIndex'
-_H='IPAD-BRIDGE-MIB'
-_G='enable'
-_F='disable'
-_E='yes'
-_D='other'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ipad,=mibBuilder.importSymbols('IPADv2-MIB','ipad')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ipadBridge=ModuleIdentity((1,3,6,1,4,1,321,100,1,28))
-_IpadBridgeParms_ObjectIdentity=ObjectIdentity
-ipadBridgeParms=_IpadBridgeParms_ObjectIdentity((1,3,6,1,4,1,321,100,1,28,1))
-_IpadBridgeManagementMacAddress_Type=OctetString
-_IpadBridgeManagementMacAddress_Object=MibScalar
-ipadBridgeManagementMacAddress=_IpadBridgeManagementMacAddress_Object((1,3,6,1,4,1,321,100,1,28,1,1),_IpadBridgeManagementMacAddress_Type())
-ipadBridgeManagementMacAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadBridgeManagementMacAddress.setStatus(_A)
-class _IpadBridgeEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_D,1),(_F,2),(_G,3)))
-_IpadBridgeEnable_Type.__name__=_C
-_IpadBridgeEnable_Object=MibScalar
-ipadBridgeEnable=_IpadBridgeEnable_Object((1,3,6,1,4,1,321,100,1,28,1,2),_IpadBridgeEnable_Type())
-ipadBridgeEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadBridgeEnable.setStatus(_A)
-class _IpadBridgePortAdd_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),('addnew',2)))
-_IpadBridgePortAdd_Type.__name__=_C
-_IpadBridgePortAdd_Object=MibScalar
-ipadBridgePortAdd=_IpadBridgePortAdd_Object((1,3,6,1,4,1,321,100,1,28,1,3),_IpadBridgePortAdd_Type())
-ipadBridgePortAdd.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadBridgePortAdd.setStatus(_A)
-_IpadBridgePortDelete_Type=Integer32
-_IpadBridgePortDelete_Object=MibScalar
-ipadBridgePortDelete=_IpadBridgePortDelete_Object((1,3,6,1,4,1,321,100,1,28,1,4),_IpadBridgePortDelete_Type())
-ipadBridgePortDelete.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadBridgePortDelete.setStatus(_A)
-_IpadBridgePortTable_Object=MibTable
-ipadBridgePortTable=_IpadBridgePortTable_Object((1,3,6,1,4,1,321,100,1,28,2))
-if mibBuilder.loadTexts:ipadBridgePortTable.setStatus(_A)
-_IpadBridgePortTableEntry_Object=MibTableRow
-ipadBridgePortTableEntry=_IpadBridgePortTableEntry_Object((1,3,6,1,4,1,321,100,1,28,2,1))
-ipadBridgePortTableEntry.setIndexNames((0,_H,_I))
-if mibBuilder.loadTexts:ipadBridgePortTableEntry.setStatus(_A)
-_IpadBridgePortIndex_Type=Integer32
-_IpadBridgePortIndex_Object=MibTableColumn
-ipadBridgePortIndex=_IpadBridgePortIndex_Object((1,3,6,1,4,1,321,100,1,28,2,1,1),_IpadBridgePortIndex_Type())
-ipadBridgePortIndex.setMaxAccess('read-only')
-if mibBuilder.loadTexts:ipadBridgePortIndex.setStatus(_A)
-_IpadBridgePortEndpoint_Type=DisplayString
-_IpadBridgePortEndpoint_Object=MibTableColumn
-ipadBridgePortEndpoint=_IpadBridgePortEndpoint_Object((1,3,6,1,4,1,321,100,1,28,2,1,2),_IpadBridgePortEndpoint_Type())
-ipadBridgePortEndpoint.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadBridgePortEndpoint.setStatus(_A)
-class _IpadBridgePortBPDUOption_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_D,1),(_F,2),(_G,3)))
-_IpadBridgePortBPDUOption_Type.__name__=_C
-_IpadBridgePortBPDUOption_Object=MibTableColumn
-ipadBridgePortBPDUOption=_IpadBridgePortBPDUOption_Object((1,3,6,1,4,1,321,100,1,28,2,1,3),_IpadBridgePortBPDUOption_Type())
-ipadBridgePortBPDUOption.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadBridgePortBPDUOption.setStatus(_A)
-class _IpadBridgePortMulticastAddrDest_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_D,1),('no',2),(_E,3)))
-_IpadBridgePortMulticastAddrDest_Type.__name__=_C
-_IpadBridgePortMulticastAddrDest_Object=MibTableColumn
-ipadBridgePortMulticastAddrDest=_IpadBridgePortMulticastAddrDest_Object((1,3,6,1,4,1,321,100,1,28,2,1,4),_IpadBridgePortMulticastAddrDest_Type())
-ipadBridgePortMulticastAddrDest.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadBridgePortMulticastAddrDest.setStatus(_A)
-class _IpadBridgePortBroadcastAddrDest_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_D,1),('no',2),(_E,3)))
-_IpadBridgePortBroadcastAddrDest_Type.__name__=_C
-_IpadBridgePortBroadcastAddrDest_Object=MibTableColumn
-ipadBridgePortBroadcastAddrDest=_IpadBridgePortBroadcastAddrDest_Object((1,3,6,1,4,1,321,100,1,28,2,1,5),_IpadBridgePortBroadcastAddrDest_Type())
-ipadBridgePortBroadcastAddrDest.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadBridgePortBroadcastAddrDest.setStatus(_A)
-class _IpadBridgePortForwardIpFramesOnly_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_D,1),('no',2),(_E,3)))
-_IpadBridgePortForwardIpFramesOnly_Type.__name__=_C
-_IpadBridgePortForwardIpFramesOnly_Object=MibTableColumn
-ipadBridgePortForwardIpFramesOnly=_IpadBridgePortForwardIpFramesOnly_Object((1,3,6,1,4,1,321,100,1,28,2,1,6),_IpadBridgePortForwardIpFramesOnly_Type())
-ipadBridgePortForwardIpFramesOnly.setMaxAccess(_B)
-if mibBuilder.loadTexts:ipadBridgePortForwardIpFramesOnly.setStatus(_A)
-mibBuilder.exportSymbols(_H,**{'ipadBridge':ipadBridge,'ipadBridgeParms':ipadBridgeParms,'ipadBridgeManagementMacAddress':ipadBridgeManagementMacAddress,'ipadBridgeEnable':ipadBridgeEnable,'ipadBridgePortAdd':ipadBridgePortAdd,'ipadBridgePortDelete':ipadBridgePortDelete,'ipadBridgePortTable':ipadBridgePortTable,'ipadBridgePortTableEntry':ipadBridgePortTableEntry,_I:ipadBridgePortIndex,'ipadBridgePortEndpoint':ipadBridgePortEndpoint,'ipadBridgePortBPDUOption':ipadBridgePortBPDUOption,'ipadBridgePortMulticastAddrDest':ipadBridgePortMulticastAddrDest,'ipadBridgePortBroadcastAddrDest':ipadBridgePortBroadcastAddrDest,'ipadBridgePortForwardIpFramesOnly':ipadBridgePortForwardIpFramesOnly})
+#
+# PySNMP MIB module IPAD-BRIDGE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zhone/IPAD-BRIDGE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:03 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ipad, = mibBuilder.importSymbols("IPADv2-MIB", "ipad")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ipadBridge = ModuleIdentity((1, 3, 6, 1, 4, 1, 321, 100, 1, 28))
+if mibBuilder.loadTexts: ipadBridge.setLastUpdated('0003270001Z')
+if mibBuilder.loadTexts: ipadBridge.setOrganization('Verilink Corporation')
+ipadBridgeParms = MibIdentifier((1, 3, 6, 1, 4, 1, 321, 100, 1, 28, 1))
+ipadBridgeManagementMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 321, 100, 1, 28, 1, 1), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipadBridgeManagementMacAddress.setStatus('current')
+ipadBridgeEnable = MibScalar((1, 3, 6, 1, 4, 1, 321, 100, 1, 28, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disable", 2), ("enable", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipadBridgeEnable.setStatus('current')
+ipadBridgePortTable = MibTable((1, 3, 6, 1, 4, 1, 321, 100, 1, 28, 2), )
+if mibBuilder.loadTexts: ipadBridgePortTable.setStatus('current')
+ipadBridgePortTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 321, 100, 1, 28, 2, 1), ).setIndexNames((0, "IPAD-BRIDGE-MIB", "ipadBridgePortIndex"))
+if mibBuilder.loadTexts: ipadBridgePortTableEntry.setStatus('current')
+ipadBridgePortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 28, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ipadBridgePortIndex.setStatus('current')
+ipadBridgePortEndpoint = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 28, 2, 1, 2), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipadBridgePortEndpoint.setStatus('current')
+ipadBridgePortBPDUOption = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 28, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disable", 2), ("enable", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipadBridgePortBPDUOption.setStatus('current')
+ipadBridgePortMulticastAddrDest = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 28, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("no", 2), ("yes", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipadBridgePortMulticastAddrDest.setStatus('current')
+ipadBridgePortBroadcastAddrDest = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 28, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("no", 2), ("yes", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipadBridgePortBroadcastAddrDest.setStatus('current')
+ipadBridgePortForwardIpFramesOnly = MibTableColumn((1, 3, 6, 1, 4, 1, 321, 100, 1, 28, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("no", 2), ("yes", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipadBridgePortForwardIpFramesOnly.setStatus('current')
+ipadBridgePortAdd = MibScalar((1, 3, 6, 1, 4, 1, 321, 100, 1, 28, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("other", 1), ("addnew", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipadBridgePortAdd.setStatus('current')
+ipadBridgePortDelete = MibScalar((1, 3, 6, 1, 4, 1, 321, 100, 1, 28, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ipadBridgePortDelete.setStatus('current')
+mibBuilder.exportSymbols("IPAD-BRIDGE-MIB", ipadBridgePortBPDUOption=ipadBridgePortBPDUOption, ipadBridgePortForwardIpFramesOnly=ipadBridgePortForwardIpFramesOnly, ipadBridgePortIndex=ipadBridgePortIndex, ipadBridgePortAdd=ipadBridgePortAdd, ipadBridgePortMulticastAddrDest=ipadBridgePortMulticastAddrDest, ipadBridgeManagementMacAddress=ipadBridgeManagementMacAddress, ipadBridgePortTableEntry=ipadBridgePortTableEntry, ipadBridgePortTable=ipadBridgePortTable, ipadBridge=ipadBridge, ipadBridgeEnable=ipadBridgeEnable, ipadBridgePortBroadcastAddrDest=ipadBridgePortBroadcastAddrDest, ipadBridgePortDelete=ipadBridgePortDelete, ipadBridgeParms=ipadBridgeParms, PYSNMP_MODULE_ID=ipadBridge, ipadBridgePortEndpoint=ipadBridgePortEndpoint)

@@ -1,179 +1,81 @@
-_N='oacSnmpTrapConfigisEnabled'
-_M='oacSnmpTrapConfigType'
-_L='oacSnmpRemoteEngineId'
-_K='oacSnmpCommunityAccessType'
-_J='oacSnmpCommunityString'
-_I='TruthValue'
-_H='IpAddress'
-_G='not-accessible'
-_F='ONEACCESS-SNMP-CONFIG-MIB'
-_E='Integer32'
-_D='read-write'
-_C='OctetString'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-oacExpIMIpAcl,oacExpIMManagement,oacMIBModules=mibBuilder.importSymbols('ONEACCESS-GLOBAL-REG','oacExpIMIpAcl','oacExpIMManagement','oacMIBModules')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,_H,'ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_I)
-oacSnmpConfigMIB=ModuleIdentity((1,3,6,1,4,1,13191,1,100,2002))
-if mibBuilder.loadTexts:oacSnmpConfigMIB.setRevisions(('2011-07-29 00:00','2011-07-26 00:00','2011-06-15 00:00','2010-07-08 00:01'))
-_OacSnmpConfig_ObjectIdentity=ObjectIdentity
-oacSnmpConfig=_OacSnmpConfig_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,20))
-_OacSnmpConfigObjects_ObjectIdentity=ObjectIdentity
-oacSnmpConfigObjects=_OacSnmpConfigObjects_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,20,1))
-class _OacSnmpSource_Type(OctetString):defaultValue=OctetString('any');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_OacSnmpSource_Type.__name__=_C
-_OacSnmpSource_Object=MibScalar
-oacSnmpSource=_OacSnmpSource_Object((1,3,6,1,4,1,13191,10,3,4,20,1,1),_OacSnmpSource_Type())
-oacSnmpSource.setMaxAccess(_D)
-if mibBuilder.loadTexts:oacSnmpSource.setStatus(_A)
-class _OacSnmpTrapSource_Type(OctetString):defaultValue=OctetString('any');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_OacSnmpTrapSource_Type.__name__=_C
-_OacSnmpTrapSource_Object=MibScalar
-oacSnmpTrapSource=_OacSnmpTrapSource_Object((1,3,6,1,4,1,13191,10,3,4,20,1,2),_OacSnmpTrapSource_Type())
-oacSnmpTrapSource.setMaxAccess(_D)
-if mibBuilder.loadTexts:oacSnmpTrapSource.setStatus(_A)
-class _OacSnmpMibIfDescrShort_Type(TruthValue):defaultValue=2
-_OacSnmpMibIfDescrShort_Type.__name__=_I
-_OacSnmpMibIfDescrShort_Object=MibScalar
-oacSnmpMibIfDescrShort=_OacSnmpMibIfDescrShort_Object((1,3,6,1,4,1,13191,10,3,4,20,1,3),_OacSnmpMibIfDescrShort_Type())
-oacSnmpMibIfDescrShort.setMaxAccess(_D)
-if mibBuilder.loadTexts:oacSnmpMibIfDescrShort.setStatus(_A)
-class _OacSnmpChassisId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_OacSnmpChassisId_Type.__name__=_C
-_OacSnmpChassisId_Object=MibScalar
-oacSnmpChassisId=_OacSnmpChassisId_Object((1,3,6,1,4,1,13191,10,3,4,20,1,4),_OacSnmpChassisId_Type())
-oacSnmpChassisId.setMaxAccess(_D)
-if mibBuilder.loadTexts:oacSnmpChassisId.setStatus(_A)
-class _OacSnmpMaxMsgSize_Type(Integer32):defaultValue=8192
-_OacSnmpMaxMsgSize_Type.__name__=_E
-_OacSnmpMaxMsgSize_Object=MibScalar
-oacSnmpMaxMsgSize=_OacSnmpMaxMsgSize_Object((1,3,6,1,4,1,13191,10,3,4,20,1,5),_OacSnmpMaxMsgSize_Type())
-oacSnmpMaxMsgSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:oacSnmpMaxMsgSize.setStatus(_A)
-_OacSnmpCommunityConfigTable_Object=MibTable
-oacSnmpCommunityConfigTable=_OacSnmpCommunityConfigTable_Object((1,3,6,1,4,1,13191,10,3,4,20,1,6))
-if mibBuilder.loadTexts:oacSnmpCommunityConfigTable.setStatus(_A)
-_OacSnmpCommunityConfigEntry_Object=MibTableRow
-oacSnmpCommunityConfigEntry=_OacSnmpCommunityConfigEntry_Object((1,3,6,1,4,1,13191,10,3,4,20,1,6,1))
-oacSnmpCommunityConfigEntry.setIndexNames((0,_F,_J),(0,_F,_K))
-if mibBuilder.loadTexts:oacSnmpCommunityConfigEntry.setStatus(_A)
-class _OacSnmpCommunityString_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_OacSnmpCommunityString_Type.__name__=_C
-_OacSnmpCommunityString_Object=MibTableColumn
-oacSnmpCommunityString=_OacSnmpCommunityString_Object((1,3,6,1,4,1,13191,10,3,4,20,1,6,1,1),_OacSnmpCommunityString_Type())
-oacSnmpCommunityString.setMaxAccess(_G)
-if mibBuilder.loadTexts:oacSnmpCommunityString.setStatus(_A)
-class _OacSnmpCommunityAccessType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('set-read-community',1),('set-write-community',2)))
-_OacSnmpCommunityAccessType_Type.__name__=_E
-_OacSnmpCommunityAccessType_Object=MibTableColumn
-oacSnmpCommunityAccessType=_OacSnmpCommunityAccessType_Object((1,3,6,1,4,1,13191,10,3,4,20,1,6,1,2),_OacSnmpCommunityAccessType_Type())
-oacSnmpCommunityAccessType.setMaxAccess(_G)
-if mibBuilder.loadTexts:oacSnmpCommunityAccessType.setStatus(_A)
-class _OacSnmpCommunityAclType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ipv4',1),('ipv6',2)))
-_OacSnmpCommunityAclType_Type.__name__=_E
-_OacSnmpCommunityAclType_Object=MibTableColumn
-oacSnmpCommunityAclType=_OacSnmpCommunityAclType_Object((1,3,6,1,4,1,13191,10,3,4,20,1,6,1,3),_OacSnmpCommunityAclType_Type())
-oacSnmpCommunityAclType.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSnmpCommunityAclType.setStatus(_A)
-class _OacSnmpCommunityAclName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_OacSnmpCommunityAclName_Type.__name__=_C
-_OacSnmpCommunityAclName_Object=MibTableColumn
-oacSnmpCommunityAclName=_OacSnmpCommunityAclName_Object((1,3,6,1,4,1,13191,10,3,4,20,1,6,1,4),_OacSnmpCommunityAclName_Type())
-oacSnmpCommunityAclName.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSnmpCommunityAclName.setStatus(_A)
-class _OacSnmpCommunityV2GroupName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_OacSnmpCommunityV2GroupName_Type.__name__=_C
-_OacSnmpCommunityV2GroupName_Object=MibTableColumn
-oacSnmpCommunityV2GroupName=_OacSnmpCommunityV2GroupName_Object((1,3,6,1,4,1,13191,10,3,4,20,1,6,1,5),_OacSnmpCommunityV2GroupName_Type())
-oacSnmpCommunityV2GroupName.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSnmpCommunityV2GroupName.setStatus(_A)
-_OacSnmpCommunityisEncrypted_Type=TruthValue
-_OacSnmpCommunityisEncrypted_Object=MibTableColumn
-oacSnmpCommunityisEncrypted=_OacSnmpCommunityisEncrypted_Object((1,3,6,1,4,1,13191,10,3,4,20,1,6,1,6),_OacSnmpCommunityisEncrypted_Type())
-oacSnmpCommunityisEncrypted.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSnmpCommunityisEncrypted.setStatus(_A)
-_OacSnmpCommunityRowStatus_Type=RowStatus
-_OacSnmpCommunityRowStatus_Object=MibTableColumn
-oacSnmpCommunityRowStatus=_OacSnmpCommunityRowStatus_Object((1,3,6,1,4,1,13191,10,3,4,20,1,6,1,7),_OacSnmpCommunityRowStatus_Type())
-oacSnmpCommunityRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSnmpCommunityRowStatus.setStatus(_A)
-class _OacSnmpEngineId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_OacSnmpEngineId_Type.__name__=_C
-_OacSnmpEngineId_Object=MibScalar
-oacSnmpEngineId=_OacSnmpEngineId_Object((1,3,6,1,4,1,13191,10,3,4,20,1,7),_OacSnmpEngineId_Type())
-oacSnmpEngineId.setMaxAccess(_D)
-if mibBuilder.loadTexts:oacSnmpEngineId.setStatus(_A)
-class _OacSnmpRemoteAgentIpAddr_Type(IpAddress):defaultHexValue='00000000'
-_OacSnmpRemoteAgentIpAddr_Type.__name__=_H
-_OacSnmpRemoteAgentIpAddr_Object=MibScalar
-oacSnmpRemoteAgentIpAddr=_OacSnmpRemoteAgentIpAddr_Object((1,3,6,1,4,1,13191,10,3,4,20,1,8),_OacSnmpRemoteAgentIpAddr_Type())
-oacSnmpRemoteAgentIpAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:oacSnmpRemoteAgentIpAddr.setStatus(_A)
-_OacSnmpRemoteEngineIdConfigTable_Object=MibTable
-oacSnmpRemoteEngineIdConfigTable=_OacSnmpRemoteEngineIdConfigTable_Object((1,3,6,1,4,1,13191,10,3,4,20,1,9))
-if mibBuilder.loadTexts:oacSnmpRemoteEngineIdConfigTable.setStatus(_A)
-_OacSnmpRemoteEngineIdConfigEntry_Object=MibTableRow
-oacSnmpRemoteEngineIdConfigEntry=_OacSnmpRemoteEngineIdConfigEntry_Object((1,3,6,1,4,1,13191,10,3,4,20,1,9,1))
-oacSnmpRemoteEngineIdConfigEntry.setIndexNames((0,_F,_L))
-if mibBuilder.loadTexts:oacSnmpRemoteEngineIdConfigEntry.setStatus(_A)
-class _OacSnmpRemoteEngineId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_OacSnmpRemoteEngineId_Type.__name__=_C
-_OacSnmpRemoteEngineId_Object=MibTableColumn
-oacSnmpRemoteEngineId=_OacSnmpRemoteEngineId_Object((1,3,6,1,4,1,13191,10,3,4,20,1,9,1,1),_OacSnmpRemoteEngineId_Type())
-oacSnmpRemoteEngineId.setMaxAccess(_G)
-if mibBuilder.loadTexts:oacSnmpRemoteEngineId.setStatus(_A)
-_OacSnmpRemoteEngineIpAddr_Type=IpAddress
-_OacSnmpRemoteEngineIpAddr_Object=MibTableColumn
-oacSnmpRemoteEngineIpAddr=_OacSnmpRemoteEngineIpAddr_Object((1,3,6,1,4,1,13191,10,3,4,20,1,9,1,2),_OacSnmpRemoteEngineIpAddr_Type())
-oacSnmpRemoteEngineIpAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSnmpRemoteEngineIpAddr.setStatus(_A)
-class _OacSnmpRemoteEngineMaxMsgSize_Type(Integer32):defaultValue=8192;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(484,8192))
-_OacSnmpRemoteEngineMaxMsgSize_Type.__name__=_E
-_OacSnmpRemoteEngineMaxMsgSize_Object=MibTableColumn
-oacSnmpRemoteEngineMaxMsgSize=_OacSnmpRemoteEngineMaxMsgSize_Object((1,3,6,1,4,1,13191,10,3,4,20,1,9,1,3),_OacSnmpRemoteEngineMaxMsgSize_Type())
-oacSnmpRemoteEngineMaxMsgSize.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSnmpRemoteEngineMaxMsgSize.setStatus(_A)
-_OacSnmpRemoteEngineRowstatus_Type=RowStatus
-_OacSnmpRemoteEngineRowstatus_Object=MibTableColumn
-oacSnmpRemoteEngineRowstatus=_OacSnmpRemoteEngineRowstatus_Object((1,3,6,1,4,1,13191,10,3,4,20,1,9,1,4),_OacSnmpRemoteEngineRowstatus_Type())
-oacSnmpRemoteEngineRowstatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSnmpRemoteEngineRowstatus.setStatus(_A)
-_OacSnmpTrapConfigTable_Object=MibTable
-oacSnmpTrapConfigTable=_OacSnmpTrapConfigTable_Object((1,3,6,1,4,1,13191,10,3,4,20,1,10))
-if mibBuilder.loadTexts:oacSnmpTrapConfigTable.setStatus(_A)
-_OacSnmpTrapConfigEntry_Object=MibTableRow
-oacSnmpTrapConfigEntry=_OacSnmpTrapConfigEntry_Object((1,3,6,1,4,1,13191,10,3,4,20,1,10,1))
-oacSnmpTrapConfigEntry.setIndexNames((0,_F,_M))
-if mibBuilder.loadTexts:oacSnmpTrapConfigEntry.setStatus(_A)
-class _OacSnmpTrapConfigType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('standard',1),('acl',2),('bgp',3),('ipsec',4),('isakmp',5),('isdn',6),('nat',7),('pstn',8),('vrrp',9)))
-_OacSnmpTrapConfigType_Type.__name__=_E
-_OacSnmpTrapConfigType_Object=MibTableColumn
-oacSnmpTrapConfigType=_OacSnmpTrapConfigType_Object((1,3,6,1,4,1,13191,10,3,4,20,1,10,1,1),_OacSnmpTrapConfigType_Type())
-oacSnmpTrapConfigType.setMaxAccess(_G)
-if mibBuilder.loadTexts:oacSnmpTrapConfigType.setStatus(_A)
-_OacSnmpTrapConfigisEnabled_Type=TruthValue
-_OacSnmpTrapConfigisEnabled_Object=MibTableColumn
-oacSnmpTrapConfigisEnabled=_OacSnmpTrapConfigisEnabled_Object((1,3,6,1,4,1,13191,10,3,4,20,1,10,1,2),_OacSnmpTrapConfigisEnabled_Type())
-oacSnmpTrapConfigisEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSnmpTrapConfigisEnabled.setStatus(_A)
-_OacSnmpTrapConfigRowStatus_Type=RowStatus
-_OacSnmpTrapConfigRowStatus_Object=MibTableColumn
-oacSnmpTrapConfigRowStatus=_OacSnmpTrapConfigRowStatus_Object((1,3,6,1,4,1,13191,10,3,4,20,1,10,1,3),_OacSnmpTrapConfigRowStatus_Type())
-oacSnmpTrapConfigRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:oacSnmpTrapConfigRowStatus.setStatus(_A)
-_OacSnmpConfigConformance_ObjectIdentity=ObjectIdentity
-oacSnmpConfigConformance=_OacSnmpConfigConformance_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,20,2))
-_OacSnmpConfigGroups_ObjectIdentity=ObjectIdentity
-oacSnmpConfigGroups=_OacSnmpConfigGroups_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,20,2,1))
-_OacSnmpCompls_ObjectIdentity=ObjectIdentity
-oacSnmpCompls=_OacSnmpCompls_ObjectIdentity((1,3,6,1,4,1,13191,10,3,4,20,2,2))
-oacSnmpConfigGroup=ObjectGroup((1,3,6,1,4,1,13191,10,3,4,20,2,1,1))
-oacSnmpConfigGroup.setObjects((_F,_N))
-if mibBuilder.loadTexts:oacSnmpConfigGroup.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'oacSnmpConfigMIB':oacSnmpConfigMIB,'oacSnmpConfig':oacSnmpConfig,'oacSnmpConfigObjects':oacSnmpConfigObjects,'oacSnmpSource':oacSnmpSource,'oacSnmpTrapSource':oacSnmpTrapSource,'oacSnmpMibIfDescrShort':oacSnmpMibIfDescrShort,'oacSnmpChassisId':oacSnmpChassisId,'oacSnmpMaxMsgSize':oacSnmpMaxMsgSize,'oacSnmpCommunityConfigTable':oacSnmpCommunityConfigTable,'oacSnmpCommunityConfigEntry':oacSnmpCommunityConfigEntry,_J:oacSnmpCommunityString,_K:oacSnmpCommunityAccessType,'oacSnmpCommunityAclType':oacSnmpCommunityAclType,'oacSnmpCommunityAclName':oacSnmpCommunityAclName,'oacSnmpCommunityV2GroupName':oacSnmpCommunityV2GroupName,'oacSnmpCommunityisEncrypted':oacSnmpCommunityisEncrypted,'oacSnmpCommunityRowStatus':oacSnmpCommunityRowStatus,'oacSnmpEngineId':oacSnmpEngineId,'oacSnmpRemoteAgentIpAddr':oacSnmpRemoteAgentIpAddr,'oacSnmpRemoteEngineIdConfigTable':oacSnmpRemoteEngineIdConfigTable,'oacSnmpRemoteEngineIdConfigEntry':oacSnmpRemoteEngineIdConfigEntry,_L:oacSnmpRemoteEngineId,'oacSnmpRemoteEngineIpAddr':oacSnmpRemoteEngineIpAddr,'oacSnmpRemoteEngineMaxMsgSize':oacSnmpRemoteEngineMaxMsgSize,'oacSnmpRemoteEngineRowstatus':oacSnmpRemoteEngineRowstatus,'oacSnmpTrapConfigTable':oacSnmpTrapConfigTable,'oacSnmpTrapConfigEntry':oacSnmpTrapConfigEntry,_M:oacSnmpTrapConfigType,_N:oacSnmpTrapConfigisEnabled,'oacSnmpTrapConfigRowStatus':oacSnmpTrapConfigRowStatus,'oacSnmpConfigConformance':oacSnmpConfigConformance,'oacSnmpConfigGroups':oacSnmpConfigGroups,'oacSnmpConfigGroup':oacSnmpConfigGroup,'oacSnmpCompls':oacSnmpCompls})
+#
+# PySNMP MIB module ONEACCESS-SNMP-CONFIG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/oneaccess/ONEACCESS-SNMP-CONFIG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:04 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+oacMIBModules, oacExpIMManagement, oacExpIMIpAcl = mibBuilder.importSymbols("ONEACCESS-GLOBAL-REG", "oacMIBModules", "oacExpIMManagement", "oacExpIMIpAcl")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, PhysAddress, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "PhysAddress", "TruthValue", "TextualConvention")
+oacSnmpConfigMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13191, 1, 100, 2002))
+oacSnmpConfigMIB.setRevisions(('2011-07-29 00:00', '2011-07-26 00:00', '2011-06-15 00:00', '2010-07-08 00:01',))
+if mibBuilder.loadTexts: oacSnmpConfigMIB.setLastUpdated('201107290000Z')
+if mibBuilder.loadTexts: oacSnmpConfigMIB.setOrganization(' OneAccess ')
+oacSnmpConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20))
+oacSnmpConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1))
+oacSnmpConfigConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 2))
+oacSnmpSource = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255)).clone('any')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSnmpSource.setStatus('current')
+oacSnmpTrapSource = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255)).clone('any')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSnmpTrapSource.setStatus('current')
+oacSnmpMibIfDescrShort = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSnmpMibIfDescrShort.setStatus('current')
+oacSnmpChassisId = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSnmpChassisId.setStatus('current')
+oacSnmpMaxMsgSize = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 5), Integer32().clone(8192)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSnmpMaxMsgSize.setStatus('current')
+oacSnmpCommunityConfigTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 6), )
+if mibBuilder.loadTexts: oacSnmpCommunityConfigTable.setStatus('current')
+oacSnmpCommunityConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 6, 1), ).setIndexNames((0, "ONEACCESS-SNMP-CONFIG-MIB", "oacSnmpCommunityString"), (0, "ONEACCESS-SNMP-CONFIG-MIB", "oacSnmpCommunityAccessType"))
+if mibBuilder.loadTexts: oacSnmpCommunityConfigEntry.setStatus('current')
+oacSnmpCommunityString = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 6, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255)))
+if mibBuilder.loadTexts: oacSnmpCommunityString.setStatus('current')
+oacSnmpCommunityAccessType = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("set-read-community", 1), ("set-write-community", 2))))
+if mibBuilder.loadTexts: oacSnmpCommunityAccessType.setStatus('current')
+oacSnmpCommunityAclType = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ipv4", 1), ("ipv6", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oacSnmpCommunityAclType.setStatus('current')
+oacSnmpCommunityAclName = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 6, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oacSnmpCommunityAclName.setStatus('current')
+oacSnmpCommunityV2GroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 6, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oacSnmpCommunityV2GroupName.setStatus('current')
+oacSnmpCommunityisEncrypted = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 6, 1, 6), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oacSnmpCommunityisEncrypted.setStatus('current')
+oacSnmpCommunityRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 6, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oacSnmpCommunityRowStatus.setStatus('current')
+oacSnmpEngineId = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSnmpEngineId.setStatus('current')
+oacSnmpRemoteAgentIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 8), IpAddress().clone(hexValue="00000000")).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: oacSnmpRemoteAgentIpAddr.setStatus('current')
+oacSnmpRemoteEngineIdConfigTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 9), )
+if mibBuilder.loadTexts: oacSnmpRemoteEngineIdConfigTable.setStatus('current')
+oacSnmpRemoteEngineIdConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 9, 1), ).setIndexNames((0, "ONEACCESS-SNMP-CONFIG-MIB", "oacSnmpRemoteEngineId"))
+if mibBuilder.loadTexts: oacSnmpRemoteEngineIdConfigEntry.setStatus('current')
+oacSnmpRemoteEngineId = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 9, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255)))
+if mibBuilder.loadTexts: oacSnmpRemoteEngineId.setStatus('current')
+oacSnmpRemoteEngineIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 9, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oacSnmpRemoteEngineIpAddr.setStatus('current')
+oacSnmpRemoteEngineMaxMsgSize = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 9, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(484, 8192)).clone(8192)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oacSnmpRemoteEngineMaxMsgSize.setStatus('current')
+oacSnmpRemoteEngineRowstatus = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 9, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oacSnmpRemoteEngineRowstatus.setStatus('current')
+oacSnmpTrapConfigTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 10), )
+if mibBuilder.loadTexts: oacSnmpTrapConfigTable.setStatus('current')
+oacSnmpTrapConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 10, 1), ).setIndexNames((0, "ONEACCESS-SNMP-CONFIG-MIB", "oacSnmpTrapConfigType"))
+if mibBuilder.loadTexts: oacSnmpTrapConfigEntry.setStatus('current')
+oacSnmpTrapConfigType = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 10, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("standard", 1), ("acl", 2), ("bgp", 3), ("ipsec", 4), ("isakmp", 5), ("isdn", 6), ("nat", 7), ("pstn", 8), ("vrrp", 9))))
+if mibBuilder.loadTexts: oacSnmpTrapConfigType.setStatus('current')
+oacSnmpTrapConfigisEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 10, 1, 2), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oacSnmpTrapConfigisEnabled.setStatus('current')
+oacSnmpTrapConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 1, 10, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: oacSnmpTrapConfigRowStatus.setStatus('current')
+oacSnmpConfigGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 2, 1))
+oacSnmpConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 2, 1, 1)).setObjects(("ONEACCESS-SNMP-CONFIG-MIB", "oacSnmpTrapConfigisEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oacSnmpConfigGroup = oacSnmpConfigGroup.setStatus('current')
+oacSnmpCompls = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 20, 2, 2))
+mibBuilder.exportSymbols("ONEACCESS-SNMP-CONFIG-MIB", oacSnmpCompls=oacSnmpCompls, oacSnmpTrapConfigRowStatus=oacSnmpTrapConfigRowStatus, oacSnmpCommunityisEncrypted=oacSnmpCommunityisEncrypted, oacSnmpRemoteEngineRowstatus=oacSnmpRemoteEngineRowstatus, oacSnmpEngineId=oacSnmpEngineId, oacSnmpTrapConfigEntry=oacSnmpTrapConfigEntry, oacSnmpCommunityAclName=oacSnmpCommunityAclName, oacSnmpConfigGroups=oacSnmpConfigGroups, oacSnmpRemoteEngineMaxMsgSize=oacSnmpRemoteEngineMaxMsgSize, oacSnmpCommunityConfigEntry=oacSnmpCommunityConfigEntry, oacSnmpMibIfDescrShort=oacSnmpMibIfDescrShort, oacSnmpCommunityConfigTable=oacSnmpCommunityConfigTable, oacSnmpTrapSource=oacSnmpTrapSource, oacSnmpCommunityString=oacSnmpCommunityString, oacSnmpConfigGroup=oacSnmpConfigGroup, oacSnmpChassisId=oacSnmpChassisId, oacSnmpSource=oacSnmpSource, oacSnmpRemoteEngineIdConfigTable=oacSnmpRemoteEngineIdConfigTable, oacSnmpMaxMsgSize=oacSnmpMaxMsgSize, oacSnmpRemoteEngineIdConfigEntry=oacSnmpRemoteEngineIdConfigEntry, oacSnmpRemoteEngineId=oacSnmpRemoteEngineId, oacSnmpTrapConfigisEnabled=oacSnmpTrapConfigisEnabled, oacSnmpCommunityRowStatus=oacSnmpCommunityRowStatus, oacSnmpConfig=oacSnmpConfig, oacSnmpRemoteEngineIpAddr=oacSnmpRemoteEngineIpAddr, oacSnmpRemoteAgentIpAddr=oacSnmpRemoteAgentIpAddr, oacSnmpCommunityAclType=oacSnmpCommunityAclType, oacSnmpCommunityAccessType=oacSnmpCommunityAccessType, oacSnmpConfigMIB=oacSnmpConfigMIB, oacSnmpTrapConfigType=oacSnmpTrapConfigType, oacSnmpCommunityV2GroupName=oacSnmpCommunityV2GroupName, oacSnmpConfigObjects=oacSnmpConfigObjects, PYSNMP_MODULE_ID=oacSnmpConfigMIB, oacSnmpConfigConformance=oacSnmpConfigConformance, oacSnmpTrapConfigTable=oacSnmpTrapConfigTable)

@@ -1,63 +1,30 @@
-_K='NotificationType'
-_J='Integer32'
-_I='swSequence'
-_H='swFailure'
-_G='swEventName'
-_F='swSystemType'
-_E='swSystemName'
-_D='DisplayString'
-_C='mandatory'
-_B='read-write'
-_A='CPQSANAPP-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_J,'IpAddress','ModuleIdentity','MibIdentifier',_K,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_K,'TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention')
-_Compaq_ObjectIdentity=ObjectIdentity
-compaq=_Compaq_ObjectIdentity((1,3,6,1,4,1,232))
-_CpqSanAppliance_ObjectIdentity=ObjectIdentity
-cpqSanAppliance=_CpqSanAppliance_ObjectIdentity((1,3,6,1,4,1,232,151))
-_ResourceMonitor_ObjectIdentity=ObjectIdentity
-resourceMonitor=_ResourceMonitor_ObjectIdentity((1,3,6,1,4,1,232,151,11))
-class _SwSystemName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(255,255));fixedLength=255
-_SwSystemName_Type.__name__=_D
-_SwSystemName_Object=MibScalar
-swSystemName=_SwSystemName_Object((1,3,6,1,4,1,232,151,11,1),_SwSystemName_Type())
-swSystemName.setMaxAccess(_B)
-if mibBuilder.loadTexts:swSystemName.setStatus(_C)
-class _SwSystemType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('hsg80',1),('switch',2),('appliance',3)))
-_SwSystemType_Type.__name__=_J
-_SwSystemType_Object=MibScalar
-swSystemType=_SwSystemType_Object((1,3,6,1,4,1,232,151,11,2),_SwSystemType_Type())
-swSystemType.setMaxAccess(_B)
-if mibBuilder.loadTexts:swSystemType.setStatus(_C)
-class _SwEventName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(255,255));fixedLength=255
-_SwEventName_Type.__name__=_D
-_SwEventName_Object=MibScalar
-swEventName=_SwEventName_Object((1,3,6,1,4,1,232,151,11,3),_SwEventName_Type())
-swEventName.setMaxAccess(_B)
-if mibBuilder.loadTexts:swEventName.setStatus(_C)
-class _SwFailure_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(255,255));fixedLength=255
-_SwFailure_Type.__name__=_D
-_SwFailure_Object=MibScalar
-swFailure=_SwFailure_Object((1,3,6,1,4,1,232,151,11,4),_SwFailure_Type())
-swFailure.setMaxAccess(_B)
-if mibBuilder.loadTexts:swFailure.setStatus(_C)
-_SwSequence_Type=Integer32
-_SwSequence_Object=MibScalar
-swSequence=_SwSequence_Object((1,3,6,1,4,1,232,151,11,5),_SwSequence_Type())
-swSequence.setMaxAccess(_B)
-if mibBuilder.loadTexts:swSequence.setStatus(_C)
-swFailureTrap=NotificationType((1,3,6,1,4,1,232,151,11,0,1))
-swFailureTrap.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:swFailureTrap.setStatus('')
-swWarningTrap=NotificationType((1,3,6,1,4,1,232,151,11,0,2))
-swWarningTrap.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:swWarningTrap.setStatus('')
-swInformationTrap=NotificationType((1,3,6,1,4,1,232,151,11,0,4))
-swInformationTrap.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I)))
-if mibBuilder.loadTexts:swInformationTrap.setStatus('')
-mibBuilder.exportSymbols(_A,**{'compaq':compaq,'cpqSanAppliance':cpqSanAppliance,'resourceMonitor':resourceMonitor,'swFailureTrap':swFailureTrap,'swWarningTrap':swWarningTrap,'swInformationTrap':swInformationTrap,_E:swSystemName,_F:swSystemType,_G:swEventName,_H:swFailure,_I:swSequence})
+#
+# PySNMP MIB module CPQSANAPP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/CPQSANAPP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:02:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+compaq = MibIdentifier((1, 3, 6, 1, 4, 1, 232))
+cpqSanAppliance = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 151))
+resourceMonitor = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 151, 11))
+swSystemName = MibScalar((1, 3, 6, 1, 4, 1, 232, 151, 11, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(255, 255)).setFixedLength(255)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSystemName.setStatus('mandatory')
+swSystemType = MibScalar((1, 3, 6, 1, 4, 1, 232, 151, 11, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("hsg80", 1), ("switch", 2), ("appliance", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSystemType.setStatus('mandatory')
+swEventName = MibScalar((1, 3, 6, 1, 4, 1, 232, 151, 11, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(255, 255)).setFixedLength(255)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swEventName.setStatus('mandatory')
+swFailure = MibScalar((1, 3, 6, 1, 4, 1, 232, 151, 11, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(255, 255)).setFixedLength(255)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swFailure.setStatus('mandatory')
+swSequence = MibScalar((1, 3, 6, 1, 4, 1, 232, 151, 11, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSequence.setStatus('mandatory')
+swFailureTrap = NotificationType((1, 3, 6, 1, 4, 1, 232, 151, 11) + (0,1)).setObjects(("CPQSANAPP-MIB", "swSystemName"), ("CPQSANAPP-MIB", "swSystemType"), ("CPQSANAPP-MIB", "swEventName"), ("CPQSANAPP-MIB", "swFailure"), ("CPQSANAPP-MIB", "swSequence"))
+swWarningTrap = NotificationType((1, 3, 6, 1, 4, 1, 232, 151, 11) + (0,2)).setObjects(("CPQSANAPP-MIB", "swSystemName"), ("CPQSANAPP-MIB", "swSystemType"), ("CPQSANAPP-MIB", "swEventName"), ("CPQSANAPP-MIB", "swFailure"), ("CPQSANAPP-MIB", "swSequence"))
+swInformationTrap = NotificationType((1, 3, 6, 1, 4, 1, 232, 151, 11) + (0,4)).setObjects(("CPQSANAPP-MIB", "swSystemName"), ("CPQSANAPP-MIB", "swSystemType"), ("CPQSANAPP-MIB", "swEventName"), ("CPQSANAPP-MIB", "swFailure"), ("CPQSANAPP-MIB", "swSequence"))
+mibBuilder.exportSymbols("CPQSANAPP-MIB", cpqSanAppliance=cpqSanAppliance, swEventName=swEventName, swFailure=swFailure, swInformationTrap=swInformationTrap, swWarningTrap=swWarningTrap, resourceMonitor=resourceMonitor, swSystemName=swSystemName, swSystemType=swSystemType, compaq=compaq, swSequence=swSequence, swFailureTrap=swFailureTrap)

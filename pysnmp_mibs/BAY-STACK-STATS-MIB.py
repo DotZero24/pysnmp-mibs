@@ -1,114 +1,60 @@
-_I='bayStackStatsCoSQueueQueue'
-_H='bayStackStatsCoSQueueIfIndex'
-_G='bayStackStatsUnitIndex'
-_F='bayStackStatsIfIndex'
-_E='not-accessible'
-_D='Integer32'
-_C='BAY-STACK-STATS-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-bayStackMibs,=mibBuilder.importSymbols('SYNOPTICS-ROOT-MIB','bayStackMibs')
-bayStackStatsMib=ModuleIdentity((1,3,6,1,4,1,45,5,12))
-if mibBuilder.loadTexts:bayStackStatsMib.setRevisions(('2015-05-11 00:00','2014-12-03 00:00','2014-10-15 00:00','2012-09-12 00:00','2007-03-09 00:00','2005-08-12 00:00'))
-_BayStackStatsNotifications_ObjectIdentity=ObjectIdentity
-bayStackStatsNotifications=_BayStackStatsNotifications_ObjectIdentity((1,3,6,1,4,1,45,5,12,0))
-_BayStackStatsObjects_ObjectIdentity=ObjectIdentity
-bayStackStatsObjects=_BayStackStatsObjects_ObjectIdentity((1,3,6,1,4,1,45,5,12,1))
-_BayStackStatsIfTable_Object=MibTable
-bayStackStatsIfTable=_BayStackStatsIfTable_Object((1,3,6,1,4,1,45,5,12,1,1))
-if mibBuilder.loadTexts:bayStackStatsIfTable.setStatus(_A)
-_BayStackStatsIfEntry_Object=MibTableRow
-bayStackStatsIfEntry=_BayStackStatsIfEntry_Object((1,3,6,1,4,1,45,5,12,1,1,1))
-bayStackStatsIfEntry.setIndexNames((0,_C,_F))
-if mibBuilder.loadTexts:bayStackStatsIfEntry.setStatus(_A)
-_BayStackStatsIfIndex_Type=InterfaceIndex
-_BayStackStatsIfIndex_Object=MibTableColumn
-bayStackStatsIfIndex=_BayStackStatsIfIndex_Object((1,3,6,1,4,1,45,5,12,1,1,1,1),_BayStackStatsIfIndex_Type())
-bayStackStatsIfIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:bayStackStatsIfIndex.setStatus(_A)
-_BayStackStatsIfNoResourcesPktsDropped_Type=Counter64
-_BayStackStatsIfNoResourcesPktsDropped_Object=MibTableColumn
-bayStackStatsIfNoResourcesPktsDropped=_BayStackStatsIfNoResourcesPktsDropped_Object((1,3,6,1,4,1,45,5,12,1,1,1,2),_BayStackStatsIfNoResourcesPktsDropped_Type())
-bayStackStatsIfNoResourcesPktsDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:bayStackStatsIfNoResourcesPktsDropped.setStatus(_A)
-_BayStackStatsIfInPfcFrames_Type=Counter64
-_BayStackStatsIfInPfcFrames_Object=MibTableColumn
-bayStackStatsIfInPfcFrames=_BayStackStatsIfInPfcFrames_Object((1,3,6,1,4,1,45,5,12,1,1,1,3),_BayStackStatsIfInPfcFrames_Type())
-bayStackStatsIfInPfcFrames.setMaxAccess(_B)
-if mibBuilder.loadTexts:bayStackStatsIfInPfcFrames.setStatus(_A)
-_BayStackStatsIfOutPfcFrames_Type=Counter64
-_BayStackStatsIfOutPfcFrames_Object=MibTableColumn
-bayStackStatsIfOutPfcFrames=_BayStackStatsIfOutPfcFrames_Object((1,3,6,1,4,1,45,5,12,1,1,1,4),_BayStackStatsIfOutPfcFrames_Type())
-bayStackStatsIfOutPfcFrames.setMaxAccess(_B)
-if mibBuilder.loadTexts:bayStackStatsIfOutPfcFrames.setStatus(_A)
-_BayStackStatsUnitTable_Object=MibTable
-bayStackStatsUnitTable=_BayStackStatsUnitTable_Object((1,3,6,1,4,1,45,5,12,1,2))
-if mibBuilder.loadTexts:bayStackStatsUnitTable.setStatus(_A)
-_BayStackStatsUnitEntry_Object=MibTableRow
-bayStackStatsUnitEntry=_BayStackStatsUnitEntry_Object((1,3,6,1,4,1,45,5,12,1,2,1))
-bayStackStatsUnitEntry.setIndexNames((0,_C,_G))
-if mibBuilder.loadTexts:bayStackStatsUnitEntry.setStatus(_A)
-class _BayStackStatsUnitIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_BayStackStatsUnitIndex_Type.__name__=_D
-_BayStackStatsUnitIndex_Object=MibTableColumn
-bayStackStatsUnitIndex=_BayStackStatsUnitIndex_Object((1,3,6,1,4,1,45,5,12,1,2,1,1),_BayStackStatsUnitIndex_Type())
-bayStackStatsUnitIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:bayStackStatsUnitIndex.setStatus(_A)
-_BayStackStatsUnitNoResourcesPktsDropped_Type=Counter64
-_BayStackStatsUnitNoResourcesPktsDropped_Object=MibTableColumn
-bayStackStatsUnitNoResourcesPktsDropped=_BayStackStatsUnitNoResourcesPktsDropped_Object((1,3,6,1,4,1,45,5,12,1,2,1,2),_BayStackStatsUnitNoResourcesPktsDropped_Type())
-bayStackStatsUnitNoResourcesPktsDropped.setMaxAccess(_B)
-if mibBuilder.loadTexts:bayStackStatsUnitNoResourcesPktsDropped.setStatus(_A)
-_BayStackStatsCoSQueueTable_Object=MibTable
-bayStackStatsCoSQueueTable=_BayStackStatsCoSQueueTable_Object((1,3,6,1,4,1,45,5,12,1,3))
-if mibBuilder.loadTexts:bayStackStatsCoSQueueTable.setStatus(_A)
-_BayStackStatsCoSQueueEntry_Object=MibTableRow
-bayStackStatsCoSQueueEntry=_BayStackStatsCoSQueueEntry_Object((1,3,6,1,4,1,45,5,12,1,3,1))
-bayStackStatsCoSQueueEntry.setIndexNames((0,_C,_H),(0,_C,_I))
-if mibBuilder.loadTexts:bayStackStatsCoSQueueEntry.setStatus(_A)
-_BayStackStatsCoSQueueIfIndex_Type=InterfaceIndex
-_BayStackStatsCoSQueueIfIndex_Object=MibTableColumn
-bayStackStatsCoSQueueIfIndex=_BayStackStatsCoSQueueIfIndex_Object((1,3,6,1,4,1,45,5,12,1,3,1,1),_BayStackStatsCoSQueueIfIndex_Type())
-bayStackStatsCoSQueueIfIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:bayStackStatsCoSQueueIfIndex.setStatus(_A)
-class _BayStackStatsCoSQueueQueue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_BayStackStatsCoSQueueQueue_Type.__name__=_D
-_BayStackStatsCoSQueueQueue_Object=MibTableColumn
-bayStackStatsCoSQueueQueue=_BayStackStatsCoSQueueQueue_Object((1,3,6,1,4,1,45,5,12,1,3,1,2),_BayStackStatsCoSQueueQueue_Type())
-bayStackStatsCoSQueueQueue.setMaxAccess(_E)
-if mibBuilder.loadTexts:bayStackStatsCoSQueueQueue.setStatus(_A)
-_BayStackStatsCoSQueueOutPackets_Type=Counter64
-_BayStackStatsCoSQueueOutPackets_Object=MibTableColumn
-bayStackStatsCoSQueueOutPackets=_BayStackStatsCoSQueueOutPackets_Object((1,3,6,1,4,1,45,5,12,1,3,1,3),_BayStackStatsCoSQueueOutPackets_Type())
-bayStackStatsCoSQueueOutPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:bayStackStatsCoSQueueOutPackets.setStatus(_A)
-_BayStackStatsCoSQueueOutBytes_Type=Counter64
-_BayStackStatsCoSQueueOutBytes_Object=MibTableColumn
-bayStackStatsCoSQueueOutBytes=_BayStackStatsCoSQueueOutBytes_Object((1,3,6,1,4,1,45,5,12,1,3,1,4),_BayStackStatsCoSQueueOutBytes_Type())
-bayStackStatsCoSQueueOutBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:bayStackStatsCoSQueueOutBytes.setStatus(_A)
-_BayStackStatsCoSQueueDropPackets_Type=Counter64
-_BayStackStatsCoSQueueDropPackets_Object=MibTableColumn
-bayStackStatsCoSQueueDropPackets=_BayStackStatsCoSQueueDropPackets_Object((1,3,6,1,4,1,45,5,12,1,3,1,5),_BayStackStatsCoSQueueDropPackets_Type())
-bayStackStatsCoSQueueDropPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:bayStackStatsCoSQueueDropPackets.setStatus(_A)
-_BayStackStatsCoSQueueDropBytes_Type=Counter64
-_BayStackStatsCoSQueueDropBytes_Object=MibTableColumn
-bayStackStatsCoSQueueDropBytes=_BayStackStatsCoSQueueDropBytes_Object((1,3,6,1,4,1,45,5,12,1,3,1,6),_BayStackStatsCoSQueueDropBytes_Type())
-bayStackStatsCoSQueueDropBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:bayStackStatsCoSQueueDropBytes.setStatus(_A)
-class _BayStackStatsCoSQueueClear_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('none',1),('clear',2)))
-_BayStackStatsCoSQueueClear_Type.__name__=_D
-_BayStackStatsCoSQueueClear_Object=MibTableColumn
-bayStackStatsCoSQueueClear=_BayStackStatsCoSQueueClear_Object((1,3,6,1,4,1,45,5,12,1,3,1,7),_BayStackStatsCoSQueueClear_Type())
-bayStackStatsCoSQueueClear.setMaxAccess('read-write')
-if mibBuilder.loadTexts:bayStackStatsCoSQueueClear.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'bayStackStatsMib':bayStackStatsMib,'bayStackStatsNotifications':bayStackStatsNotifications,'bayStackStatsObjects':bayStackStatsObjects,'bayStackStatsIfTable':bayStackStatsIfTable,'bayStackStatsIfEntry':bayStackStatsIfEntry,_F:bayStackStatsIfIndex,'bayStackStatsIfNoResourcesPktsDropped':bayStackStatsIfNoResourcesPktsDropped,'bayStackStatsIfInPfcFrames':bayStackStatsIfInPfcFrames,'bayStackStatsIfOutPfcFrames':bayStackStatsIfOutPfcFrames,'bayStackStatsUnitTable':bayStackStatsUnitTable,'bayStackStatsUnitEntry':bayStackStatsUnitEntry,_G:bayStackStatsUnitIndex,'bayStackStatsUnitNoResourcesPktsDropped':bayStackStatsUnitNoResourcesPktsDropped,'bayStackStatsCoSQueueTable':bayStackStatsCoSQueueTable,'bayStackStatsCoSQueueEntry':bayStackStatsCoSQueueEntry,_H:bayStackStatsCoSQueueIfIndex,_I:bayStackStatsCoSQueueQueue,'bayStackStatsCoSQueueOutPackets':bayStackStatsCoSQueueOutPackets,'bayStackStatsCoSQueueOutBytes':bayStackStatsCoSQueueOutBytes,'bayStackStatsCoSQueueDropPackets':bayStackStatsCoSQueueDropPackets,'bayStackStatsCoSQueueDropBytes':bayStackStatsCoSQueueDropBytes,'bayStackStatsCoSQueueClear':bayStackStatsCoSQueueClear})
+#
+# PySNMP MIB module BAY-STACK-STATS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/BAY-STACK-STATS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:09 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+bayStackMibs, = mibBuilder.importSymbols("SYNOPTICS-ROOT-MIB", "bayStackMibs")
+bayStackStatsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 5, 12))
+bayStackStatsMib.setRevisions(('2015-05-11 00:00', '2014-12-03 00:00', '2014-10-15 00:00', '2012-09-12 00:00', '2007-03-09 00:00', '2005-08-12 00:00',))
+if mibBuilder.loadTexts: bayStackStatsMib.setLastUpdated('201505110000Z')
+if mibBuilder.loadTexts: bayStackStatsMib.setOrganization('Avaya Networks')
+bayStackStatsNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 5, 12, 0))
+bayStackStatsObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 5, 12, 1))
+bayStackStatsIfTable = MibTable((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 1), )
+if mibBuilder.loadTexts: bayStackStatsIfTable.setStatus('current')
+bayStackStatsIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 1, 1), ).setIndexNames((0, "BAY-STACK-STATS-MIB", "bayStackStatsIfIndex"))
+if mibBuilder.loadTexts: bayStackStatsIfEntry.setStatus('current')
+bayStackStatsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: bayStackStatsIfIndex.setStatus('current')
+bayStackStatsIfNoResourcesPktsDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 1, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bayStackStatsIfNoResourcesPktsDropped.setStatus('current')
+bayStackStatsIfInPfcFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 1, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bayStackStatsIfInPfcFrames.setStatus('current')
+bayStackStatsIfOutPfcFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 1, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bayStackStatsIfOutPfcFrames.setStatus('current')
+bayStackStatsUnitTable = MibTable((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 2), )
+if mibBuilder.loadTexts: bayStackStatsUnitTable.setStatus('current')
+bayStackStatsUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 2, 1), ).setIndexNames((0, "BAY-STACK-STATS-MIB", "bayStackStatsUnitIndex"))
+if mibBuilder.loadTexts: bayStackStatsUnitEntry.setStatus('current')
+bayStackStatsUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)))
+if mibBuilder.loadTexts: bayStackStatsUnitIndex.setStatus('current')
+bayStackStatsUnitNoResourcesPktsDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 2, 1, 2), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bayStackStatsUnitNoResourcesPktsDropped.setStatus('current')
+bayStackStatsCoSQueueTable = MibTable((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 3), )
+if mibBuilder.loadTexts: bayStackStatsCoSQueueTable.setStatus('current')
+bayStackStatsCoSQueueEntry = MibTableRow((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 3, 1), ).setIndexNames((0, "BAY-STACK-STATS-MIB", "bayStackStatsCoSQueueIfIndex"), (0, "BAY-STACK-STATS-MIB", "bayStackStatsCoSQueueQueue"))
+if mibBuilder.loadTexts: bayStackStatsCoSQueueEntry.setStatus('current')
+bayStackStatsCoSQueueIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 3, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: bayStackStatsCoSQueueIfIndex.setStatus('current')
+bayStackStatsCoSQueueQueue = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)))
+if mibBuilder.loadTexts: bayStackStatsCoSQueueQueue.setStatus('current')
+bayStackStatsCoSQueueOutPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 3, 1, 3), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bayStackStatsCoSQueueOutPackets.setStatus('current')
+bayStackStatsCoSQueueOutBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 3, 1, 4), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bayStackStatsCoSQueueOutBytes.setStatus('current')
+bayStackStatsCoSQueueDropPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 3, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bayStackStatsCoSQueueDropPackets.setStatus('current')
+bayStackStatsCoSQueueDropBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 3, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: bayStackStatsCoSQueueDropBytes.setStatus('current')
+bayStackStatsCoSQueueClear = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 12, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("clear", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: bayStackStatsCoSQueueClear.setStatus('current')
+mibBuilder.exportSymbols("BAY-STACK-STATS-MIB", bayStackStatsUnitEntry=bayStackStatsUnitEntry, bayStackStatsCoSQueueDropPackets=bayStackStatsCoSQueueDropPackets, bayStackStatsIfEntry=bayStackStatsIfEntry, bayStackStatsUnitTable=bayStackStatsUnitTable, bayStackStatsCoSQueueEntry=bayStackStatsCoSQueueEntry, bayStackStatsMib=bayStackStatsMib, bayStackStatsCoSQueueOutBytes=bayStackStatsCoSQueueOutBytes, PYSNMP_MODULE_ID=bayStackStatsMib, bayStackStatsUnitIndex=bayStackStatsUnitIndex, bayStackStatsCoSQueueTable=bayStackStatsCoSQueueTable, bayStackStatsUnitNoResourcesPktsDropped=bayStackStatsUnitNoResourcesPktsDropped, bayStackStatsIfTable=bayStackStatsIfTable, bayStackStatsIfIndex=bayStackStatsIfIndex, bayStackStatsCoSQueueDropBytes=bayStackStatsCoSQueueDropBytes, bayStackStatsNotifications=bayStackStatsNotifications, bayStackStatsIfNoResourcesPktsDropped=bayStackStatsIfNoResourcesPktsDropped, bayStackStatsCoSQueueClear=bayStackStatsCoSQueueClear, bayStackStatsIfOutPfcFrames=bayStackStatsIfOutPfcFrames, bayStackStatsIfInPfcFrames=bayStackStatsIfInPfcFrames, bayStackStatsCoSQueueIfIndex=bayStackStatsCoSQueueIfIndex, bayStackStatsCoSQueueOutPackets=bayStackStatsCoSQueueOutPackets, bayStackStatsCoSQueueQueue=bayStackStatsCoSQueueQueue, bayStackStatsObjects=bayStackStatsObjects)

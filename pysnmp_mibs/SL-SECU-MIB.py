@@ -1,115 +1,66 @@
-_H='slSecuEncryptionIfIndex'
-_G='slSecuWlIp'
-_F='slSecuSelectType'
-_E='Integer32'
-_D='SL-SECU-MIB'
-_C='read-only'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-slMain,=mibBuilder.importSymbols('SL-MAIN-MIB','slMain')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','transmission')
-DateAndTime,DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-slSecuMib=ModuleIdentity((1,3,6,1,4,1,4515,1,3,24))
-class SlSecuType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('telnet',1),('ssh',2),('http',3),('https',4),('icmp',5),('snmp',6),('ftp',7),('tftp',8),('tl1',9),('tl1ssh',10),('wl',11)))
-_SlSecuGen_ObjectIdentity=ObjectIdentity
-slSecuGen=_SlSecuGen_ObjectIdentity((1,3,6,1,4,1,4515,1,3,24,1))
-_SlSecuFirewallEnable_Type=TruthValue
-_SlSecuFirewallEnable_Object=MibScalar
-slSecuFirewallEnable=_SlSecuFirewallEnable_Object((1,3,6,1,4,1,4515,1,3,24,1,1),_SlSecuFirewallEnable_Type())
-slSecuFirewallEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:slSecuFirewallEnable.setStatus(_A)
-_SlSecuSelect_ObjectIdentity=ObjectIdentity
-slSecuSelect=_SlSecuSelect_ObjectIdentity((1,3,6,1,4,1,4515,1,3,24,2))
-_SlSecuSelectTable_Object=MibTable
-slSecuSelectTable=_SlSecuSelectTable_Object((1,3,6,1,4,1,4515,1,3,24,2,1))
-if mibBuilder.loadTexts:slSecuSelectTable.setStatus(_A)
-_SlSecuSelectEntry_Object=MibTableRow
-slSecuSelectEntry=_SlSecuSelectEntry_Object((1,3,6,1,4,1,4515,1,3,24,2,1,1))
-slSecuSelectEntry.setIndexNames((0,_D,_F))
-if mibBuilder.loadTexts:slSecuSelectEntry.setStatus(_A)
-_SlSecuSelectType_Type=SlSecuType
-_SlSecuSelectType_Object=MibTableColumn
-slSecuSelectType=_SlSecuSelectType_Object((1,3,6,1,4,1,4515,1,3,24,2,1,1,1),_SlSecuSelectType_Type())
-slSecuSelectType.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:slSecuSelectType.setStatus(_A)
-_SlSecuSelectPort_Type=Integer32
-_SlSecuSelectPort_Object=MibTableColumn
-slSecuSelectPort=_SlSecuSelectPort_Object((1,3,6,1,4,1,4515,1,3,24,2,1,1,2),_SlSecuSelectPort_Type())
-slSecuSelectPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:slSecuSelectPort.setStatus(_A)
-_SlSecuSelectEnable_Type=TruthValue
-_SlSecuSelectEnable_Object=MibTableColumn
-slSecuSelectEnable=_SlSecuSelectEnable_Object((1,3,6,1,4,1,4515,1,3,24,2,1,1,3),_SlSecuSelectEnable_Type())
-slSecuSelectEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:slSecuSelectEnable.setStatus(_A)
-_SlSecuWl_ObjectIdentity=ObjectIdentity
-slSecuWl=_SlSecuWl_ObjectIdentity((1,3,6,1,4,1,4515,1,3,24,3))
-_SlSecuWlTable_Object=MibTable
-slSecuWlTable=_SlSecuWlTable_Object((1,3,6,1,4,1,4515,1,3,24,3,1))
-if mibBuilder.loadTexts:slSecuWlTable.setStatus(_A)
-_SlSecuWlEntry_Object=MibTableRow
-slSecuWlEntry=_SlSecuWlEntry_Object((1,3,6,1,4,1,4515,1,3,24,3,1,1))
-slSecuWlEntry.setIndexNames((0,_D,_G))
-if mibBuilder.loadTexts:slSecuWlEntry.setStatus(_A)
-_SlSecuWlIp_Type=IpAddress
-_SlSecuWlIp_Object=MibTableColumn
-slSecuWlIp=_SlSecuWlIp_Object((1,3,6,1,4,1,4515,1,3,24,3,1,1,1),_SlSecuWlIp_Type())
-slSecuWlIp.setMaxAccess(_C)
-if mibBuilder.loadTexts:slSecuWlIp.setStatus(_A)
-_SlSecuWlMask_Type=IpAddress
-_SlSecuWlMask_Object=MibTableColumn
-slSecuWlMask=_SlSecuWlMask_Object((1,3,6,1,4,1,4515,1,3,24,3,1,1,2),_SlSecuWlMask_Type())
-slSecuWlMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:slSecuWlMask.setStatus(_A)
-_SlSecuWlStatus_Type=RowStatus
-_SlSecuWlStatus_Object=MibTableColumn
-slSecuWlStatus=_SlSecuWlStatus_Object((1,3,6,1,4,1,4515,1,3,24,3,1,1,3),_SlSecuWlStatus_Type())
-slSecuWlStatus.setMaxAccess('read-create')
-if mibBuilder.loadTexts:slSecuWlStatus.setStatus(_A)
-_SlSecuEncryption_ObjectIdentity=ObjectIdentity
-slSecuEncryption=_SlSecuEncryption_ObjectIdentity((1,3,6,1,4,1,4515,1,3,24,4))
-_SlSecuEncryptionTable_Object=MibTable
-slSecuEncryptionTable=_SlSecuEncryptionTable_Object((1,3,6,1,4,1,4515,1,3,24,4,1))
-if mibBuilder.loadTexts:slSecuEncryptionTable.setStatus(_A)
-_SlSecuEncryptionEntry_Object=MibTableRow
-slSecuEncryptionEntry=_SlSecuEncryptionEntry_Object((1,3,6,1,4,1,4515,1,3,24,4,1,1))
-slSecuEncryptionEntry.setIndexNames((0,_D,_H))
-if mibBuilder.loadTexts:slSecuEncryptionEntry.setStatus(_A)
-_SlSecuEncryptionIfIndex_Type=InterfaceIndex
-_SlSecuEncryptionIfIndex_Object=MibTableColumn
-slSecuEncryptionIfIndex=_SlSecuEncryptionIfIndex_Object((1,3,6,1,4,1,4515,1,3,24,4,1,1,1),_SlSecuEncryptionIfIndex_Type())
-slSecuEncryptionIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:slSecuEncryptionIfIndex.setStatus(_A)
-_SlSecuEncryptionEnable_Type=TruthValue
-_SlSecuEncryptionEnable_Object=MibTableColumn
-slSecuEncryptionEnable=_SlSecuEncryptionEnable_Object((1,3,6,1,4,1,4515,1,3,24,4,1,1,2),_SlSecuEncryptionEnable_Type())
-slSecuEncryptionEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:slSecuEncryptionEnable.setStatus(_A)
-class _SlSecuEncryptionStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('init',1),('exchange',2),('kdf',3),('active',4)))
-_SlSecuEncryptionStatus_Type.__name__=_E
-_SlSecuEncryptionStatus_Object=MibTableColumn
-slSecuEncryptionStatus=_SlSecuEncryptionStatus_Object((1,3,6,1,4,1,4515,1,3,24,4,1,1,3),_SlSecuEncryptionStatus_Type())
-slSecuEncryptionStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:slSecuEncryptionStatus.setStatus(_A)
-_SlSecuEncryptionForceInit_Type=Integer32
-_SlSecuEncryptionForceInit_Object=MibTableColumn
-slSecuEncryptionForceInit=_SlSecuEncryptionForceInit_Object((1,3,6,1,4,1,4515,1,3,24,4,1,1,4),_SlSecuEncryptionForceInit_Type())
-slSecuEncryptionForceInit.setMaxAccess(_B)
-if mibBuilder.loadTexts:slSecuEncryptionForceInit.setStatus(_A)
-_SlSecuEncryptionPreShared_Type=DisplayString
-_SlSecuEncryptionPreShared_Object=MibTableColumn
-slSecuEncryptionPreShared=_SlSecuEncryptionPreShared_Object((1,3,6,1,4,1,4515,1,3,24,4,1,1,5),_SlSecuEncryptionPreShared_Type())
-slSecuEncryptionPreShared.setMaxAccess(_B)
-if mibBuilder.loadTexts:slSecuEncryptionPreShared.setStatus(_A)
-_SlSecuEncryptionKeyExchangePeriod_Type=Integer32
-_SlSecuEncryptionKeyExchangePeriod_Object=MibTableColumn
-slSecuEncryptionKeyExchangePeriod=_SlSecuEncryptionKeyExchangePeriod_Object((1,3,6,1,4,1,4515,1,3,24,4,1,1,6),_SlSecuEncryptionKeyExchangePeriod_Type())
-slSecuEncryptionKeyExchangePeriod.setMaxAccess(_B)
-if mibBuilder.loadTexts:slSecuEncryptionKeyExchangePeriod.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'SlSecuType':SlSecuType,'slSecuMib':slSecuMib,'slSecuGen':slSecuGen,'slSecuFirewallEnable':slSecuFirewallEnable,'slSecuSelect':slSecuSelect,'slSecuSelectTable':slSecuSelectTable,'slSecuSelectEntry':slSecuSelectEntry,_F:slSecuSelectType,'slSecuSelectPort':slSecuSelectPort,'slSecuSelectEnable':slSecuSelectEnable,'slSecuWl':slSecuWl,'slSecuWlTable':slSecuWlTable,'slSecuWlEntry':slSecuWlEntry,_G:slSecuWlIp,'slSecuWlMask':slSecuWlMask,'slSecuWlStatus':slSecuWlStatus,'slSecuEncryption':slSecuEncryption,'slSecuEncryptionTable':slSecuEncryptionTable,'slSecuEncryptionEntry':slSecuEncryptionEntry,_H:slSecuEncryptionIfIndex,'slSecuEncryptionEnable':slSecuEncryptionEnable,'slSecuEncryptionStatus':slSecuEncryptionStatus,'slSecuEncryptionForceInit':slSecuEncryptionForceInit,'slSecuEncryptionPreShared':slSecuEncryptionPreShared,'slSecuEncryptionKeyExchangePeriod':slSecuEncryptionKeyExchangePeriod})
+#
+# PySNMP MIB module SL-SECU-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/smartoptics/SL-SECU-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:11 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, transmission, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "transmission", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+slSecuMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24))
+if mibBuilder.loadTexts: slSecuMib.setLastUpdated('201105170000Z')
+if mibBuilder.loadTexts: slSecuMib.setOrganization('Smartoptics AS')
+class SlSecuType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+    namedValues = NamedValues(("telnet", 1), ("ssh", 2), ("http", 3), ("https", 4), ("icmp", 5), ("snmp", 6), ("ftp", 7), ("tftp", 8), ("tl1", 9), ("tl1ssh", 10), ("wl", 11))
+
+slSecuGen = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 1))
+slSecuSelect = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 2))
+slSecuWl = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 3))
+slSecuEncryption = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 4))
+slSecuFirewallEnable = MibScalar((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slSecuFirewallEnable.setStatus('current')
+slSecuSelectTable = MibTable((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 2, 1), )
+if mibBuilder.loadTexts: slSecuSelectTable.setStatus('current')
+slSecuSelectEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 2, 1, 1), ).setIndexNames((0, "SL-SECU-MIB", "slSecuSelectType"))
+if mibBuilder.loadTexts: slSecuSelectEntry.setStatus('current')
+slSecuSelectType = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 2, 1, 1, 1), SlSecuType())
+if mibBuilder.loadTexts: slSecuSelectType.setStatus('current')
+slSecuSelectPort = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 2, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slSecuSelectPort.setStatus('current')
+slSecuSelectEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 2, 1, 1, 3), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slSecuSelectEnable.setStatus('current')
+slSecuWlTable = MibTable((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 3, 1), )
+if mibBuilder.loadTexts: slSecuWlTable.setStatus('current')
+slSecuWlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 3, 1, 1), ).setIndexNames((0, "SL-SECU-MIB", "slSecuWlIp"))
+if mibBuilder.loadTexts: slSecuWlEntry.setStatus('current')
+slSecuWlIp = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 3, 1, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slSecuWlIp.setStatus('current')
+slSecuWlMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 3, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slSecuWlMask.setStatus('current')
+slSecuWlStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 3, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: slSecuWlStatus.setStatus('current')
+slSecuEncryptionTable = MibTable((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 4, 1), )
+if mibBuilder.loadTexts: slSecuEncryptionTable.setStatus('current')
+slSecuEncryptionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 4, 1, 1), ).setIndexNames((0, "SL-SECU-MIB", "slSecuEncryptionIfIndex"))
+if mibBuilder.loadTexts: slSecuEncryptionEntry.setStatus('current')
+slSecuEncryptionIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 4, 1, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slSecuEncryptionIfIndex.setStatus('current')
+slSecuEncryptionEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 4, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slSecuEncryptionEnable.setStatus('current')
+slSecuEncryptionStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 4, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("init", 1), ("exchange", 2), ("kdf", 3), ("active", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: slSecuEncryptionStatus.setStatus('current')
+slSecuEncryptionForceInit = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 4, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slSecuEncryptionForceInit.setStatus('current')
+slSecuEncryptionPreShared = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 4, 1, 1, 5), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slSecuEncryptionPreShared.setStatus('current')
+slSecuEncryptionKeyExchangePeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 24, 4, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: slSecuEncryptionKeyExchangePeriod.setStatus('current')
+mibBuilder.exportSymbols("SL-SECU-MIB", slSecuWlIp=slSecuWlIp, slSecuSelectType=slSecuSelectType, slSecuGen=slSecuGen, slSecuWlTable=slSecuWlTable, slSecuEncryptionEnable=slSecuEncryptionEnable, slSecuEncryptionEntry=slSecuEncryptionEntry, slSecuEncryptionStatus=slSecuEncryptionStatus, slSecuWlStatus=slSecuWlStatus, slSecuEncryption=slSecuEncryption, slSecuWlMask=slSecuWlMask, slSecuSelectEntry=slSecuSelectEntry, slSecuWl=slSecuWl, slSecuEncryptionIfIndex=slSecuEncryptionIfIndex, slSecuWlEntry=slSecuWlEntry, slSecuEncryptionPreShared=slSecuEncryptionPreShared, slSecuEncryptionTable=slSecuEncryptionTable, slSecuFirewallEnable=slSecuFirewallEnable, slSecuEncryptionKeyExchangePeriod=slSecuEncryptionKeyExchangePeriod, slSecuSelect=slSecuSelect, slSecuSelectEnable=slSecuSelectEnable, PYSNMP_MODULE_ID=slSecuMib, slSecuSelectPort=slSecuSelectPort, SlSecuType=SlSecuType, slSecuEncryptionForceInit=slSecuEncryptionForceInit, slSecuMib=slSecuMib, slSecuSelectTable=slSecuSelectTable)

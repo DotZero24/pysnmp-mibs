@@ -1,52 +1,33 @@
-_E='read-write'
-_D='Integer32'
-_C='read-only'
-_B='OctetString'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_B,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fcSwitch,=mibBuilder.importSymbols('Brocade-REG-MIB','fcSwitch')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-bcCustomOperation=ModuleIdentity((1,3,6,1,4,1,1588,2,1,1,52))
-if mibBuilder.loadTexts:bcCustomOperation.setRevisions(('2011-12-19 10:30',))
-_HwinfospsaveCmd_ObjectIdentity=ObjectIdentity
-hwinfospsaveCmd=_HwinfospsaveCmd_ObjectIdentity((1,3,6,1,4,1,1588,2,1,1,52,1))
-if mibBuilder.loadTexts:hwinfospsaveCmd.setStatus(_A)
-class _HwinfospsaveSet_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
-_HwinfospsaveSet_Type.__name__=_B
-_HwinfospsaveSet_Object=MibScalar
-hwinfospsaveSet=_HwinfospsaveSet_Object((1,3,6,1,4,1,1588,2,1,1,52,1,1),_HwinfospsaveSet_Type())
-hwinfospsaveSet.setMaxAccess(_E)
-if mibBuilder.loadTexts:hwinfospsaveSet.setStatus(_A)
-class _HwinfospsaveGet_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('success',0),('ftperror',1),('progressing',2),('systemerror',3)))
-_HwinfospsaveGet_Type.__name__=_D
-_HwinfospsaveGet_Object=MibScalar
-hwinfospsaveGet=_HwinfospsaveGet_Object((1,3,6,1,4,1,1588,2,1,1,52,1,2),_HwinfospsaveGet_Type())
-hwinfospsaveGet.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwinfospsaveGet.setStatus(_A)
-_HwUpdateFilecmd_ObjectIdentity=ObjectIdentity
-hwUpdateFilecmd=_HwUpdateFilecmd_ObjectIdentity((1,3,6,1,4,1,1588,2,1,1,52,2))
-if mibBuilder.loadTexts:hwUpdateFilecmd.setStatus(_A)
-class _HwUpdateFile_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
-_HwUpdateFile_Type.__name__=_B
-_HwUpdateFile_Object=MibScalar
-hwUpdateFile=_HwUpdateFile_Object((1,3,6,1,4,1,1588,2,1,1,52,2,1),_HwUpdateFile_Type())
-hwUpdateFile.setMaxAccess(_E)
-if mibBuilder.loadTexts:hwUpdateFile.setStatus(_A)
-class _HwUpdateFileInfo_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
-_HwUpdateFileInfo_Type.__name__=_B
-_HwUpdateFileInfo_Object=MibScalar
-hwUpdateFileInfo=_HwUpdateFileInfo_Object((1,3,6,1,4,1,1588,2,1,1,52,2,2),_HwUpdateFileInfo_Type())
-hwUpdateFileInfo.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwUpdateFileInfo.setStatus(_A)
-class _HwSoftwareVersion_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,4096))
-_HwSoftwareVersion_Type.__name__=_B
-_HwSoftwareVersion_Object=MibScalar
-hwSoftwareVersion=_HwSoftwareVersion_Object((1,3,6,1,4,1,1588,2,1,1,52,2,3),_HwSoftwareVersion_Type())
-hwSoftwareVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:hwSoftwareVersion.setStatus(_A)
-mibBuilder.exportSymbols('BCCUSTOM-OPR-MIB',**{'bcCustomOperation':bcCustomOperation,'hwinfospsaveCmd':hwinfospsaveCmd,'hwinfospsaveSet':hwinfospsaveSet,'hwinfospsaveGet':hwinfospsaveGet,'hwUpdateFilecmd':hwUpdateFilecmd,'hwUpdateFile':hwUpdateFile,'hwUpdateFileInfo':hwUpdateFileInfo,'hwSoftwareVersion':hwSoftwareVersion})
+#
+# PySNMP MIB module BCCUSTOM-OPR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/brocade/BCCUSTOM-OPR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:05 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fcSwitch, = mibBuilder.importSymbols("Brocade-REG-MIB", "fcSwitch")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+bcCustomOperation = ModuleIdentity((1, 3, 6, 1, 4, 1, 1588, 2, 1, 1, 52))
+bcCustomOperation.setRevisions(('2011-12-19 10:30',))
+if mibBuilder.loadTexts: bcCustomOperation.setLastUpdated('200807291830Z')
+if mibBuilder.loadTexts: bcCustomOperation.setOrganization('Brocade Communications Systems, Inc.')
+hwinfospsaveCmd = ObjectIdentity((1, 3, 6, 1, 4, 1, 1588, 2, 1, 1, 52, 1))
+if mibBuilder.loadTexts: hwinfospsaveCmd.setStatus('current')
+hwinfospsaveSet = MibScalar((1, 3, 6, 1, 4, 1, 1588, 2, 1, 1, 52, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 1024))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwinfospsaveSet.setStatus('current')
+hwinfospsaveGet = MibScalar((1, 3, 6, 1, 4, 1, 1588, 2, 1, 1, 52, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("success", 0), ("ftperror", 1), ("progressing", 2), ("systemerror", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwinfospsaveGet.setStatus('current')
+hwUpdateFilecmd = ObjectIdentity((1, 3, 6, 1, 4, 1, 1588, 2, 1, 1, 52, 2))
+if mibBuilder.loadTexts: hwUpdateFilecmd.setStatus('current')
+hwUpdateFile = MibScalar((1, 3, 6, 1, 4, 1, 1588, 2, 1, 1, 52, 2, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 1024))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hwUpdateFile.setStatus('current')
+hwUpdateFileInfo = MibScalar((1, 3, 6, 1, 4, 1, 1588, 2, 1, 1, 52, 2, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 1024))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwUpdateFileInfo.setStatus('current')
+hwSoftwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 1588, 2, 1, 1, 52, 2, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 4096))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hwSoftwareVersion.setStatus('current')
+mibBuilder.exportSymbols("BCCUSTOM-OPR-MIB", hwinfospsaveSet=hwinfospsaveSet, hwUpdateFile=hwUpdateFile, hwinfospsaveGet=hwinfospsaveGet, hwUpdateFilecmd=hwUpdateFilecmd, hwUpdateFileInfo=hwUpdateFileInfo, bcCustomOperation=bcCustomOperation, hwSoftwareVersion=hwSoftwareVersion, PYSNMP_MODULE_ID=bcCustomOperation, hwinfospsaveCmd=hwinfospsaveCmd)

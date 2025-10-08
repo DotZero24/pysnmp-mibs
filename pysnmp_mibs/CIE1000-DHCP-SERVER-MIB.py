@@ -1,996 +1,396 @@
-_Bf='cie1000DhcpServerControlBindingInfoGroup'
-_Be='cie1000DhcpServerControlStatisticsInfoGroup'
-_Bd='cie1000DhcpServerStatusBindingTableInfoGroup'
-_Bc='cie1000DhcpServerStatusStatisticsInfoGroup'
-_Bb='cie1000DhcpServerStatusDeclinedTableInfoGroup'
-_Ba='cie1000DhcpServerConfigReservedIpTableRowEditorInfoGroup'
-_BZ='cie1000DhcpServerConfigReservedTableInfoGroup'
-_BY='cie1000DhcpServerConfigPoolTableRowEditorInfoGroup'
-_BX='cie1000DhcpServerConfigPoolTableInfoGroup'
-_BW='cie1000DhcpServerConfigExcludedIpTableRowEditorInfoGroup'
-_BV='cie1000DhcpServerConfigExcludedTableInfoGroup'
-_BU='cie1000DhcpServerConfigVlanTableInfoGroup'
-_BT='cie1000DhcpServerConfigGlobalsInfoGroup'
-_BS='cie1000DhcpServerControlBindingClearByType'
-_BR='cie1000DhcpServerControlBindingClearByIp'
-_BQ='cie1000DhcpServerControlStatisticsClear'
-_BP='cie1000DhcpServerStatusBindingTimeToExpire'
-_BO='cie1000DhcpServerStatusBindingLease'
-_BN='cie1000DhcpServerStatusBindingMacAddress'
-_BM='cie1000DhcpServerStatusBindingClientIdentifierMac'
-_BL='cie1000DhcpServerStatusBindingClientIdentifierName'
-_BK='cie1000DhcpServerStatusBindingClientIdentifierType'
-_BJ='cie1000DhcpServerStatusBindingSubnetMask'
-_BI='cie1000DhcpServerStatusBindingVlanId'
-_BH='cie1000DhcpServerStatusBindingServerId'
-_BG='cie1000DhcpServerStatusBindingPoolName'
-_BF='cie1000DhcpServerStatusBindingType'
-_BE='cie1000DhcpServerStatusBindingState'
-_BD='cie1000DhcpServerStatusStatisticsInformCnt'
-_BC='cie1000DhcpServerStatusStatisticsReleaseCnt'
-_BB='cie1000DhcpServerStatusStatisticsDeclineCnt'
-_BA='cie1000DhcpServerStatusStatisticsNakCnt'
-_B9='cie1000DhcpServerStatusStatisticsAckCnt'
-_B8='cie1000DhcpServerStatusStatisticsRequestCnt'
-_B7='cie1000DhcpServerStatusStatisticsOfferCnt'
-_B6='cie1000DhcpServerStatusStatisticsDiscoverCnt'
-_B5='cie1000DhcpServerStatusDeclinedIpv4Address'
-_B4='cie1000DhcpServerConfigReservedIpTableRowEditorAction'
-_B3='cie1000DhcpServerConfigReservedIpTableRowEditorIfIndex'
-_B2='cie1000DhcpServerConfigReservedIpTableRowEditorIpAddress'
-_B1='cie1000DhcpServerConfigReservedIpTableRowEditorPoolName'
-_B0='cie1000DhcpServerConfigReservedAction'
-_A_='cie1000DhcpServerConfigReservedIfIndex'
-_Az='cie1000DhcpServerConfigPoolTableRowEditorAction'
-_Ay='cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo4'
-_Ax='cie1000DhcpServerConfigPoolTableRowEditorVendorClassId4'
-_Aw='cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo3'
-_Av='cie1000DhcpServerConfigPoolTableRowEditorVendorClassId3'
-_Au='cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo2'
-_At='cie1000DhcpServerConfigPoolTableRowEditorVendorClassId2'
-_As='cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo1'
-_Ar='cie1000DhcpServerConfigPoolTableRowEditorVendorClassId1'
-_Aq='cie1000DhcpServerConfigPoolTableRowEditorClientName'
-_Ap='cie1000DhcpServerConfigPoolTableRowEditorClientHardwareAddress'
-_Ao='cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierMac'
-_An='cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierName'
-_Am='cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierType'
-_Al='cie1000DhcpServerConfigPoolTableRowEditorNisServer4'
-_Ak='cie1000DhcpServerConfigPoolTableRowEditorNisServer3'
-_Aj='cie1000DhcpServerConfigPoolTableRowEditorNisServer2'
-_Ai='cie1000DhcpServerConfigPoolTableRowEditorNisServer1'
-_Ah='cie1000DhcpServerConfigPoolTableRowEditorNisDomainName'
-_Ag='cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer4'
-_Af='cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer3'
-_Ae='cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer2'
-_Ad='cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer1'
-_Ac='cie1000DhcpServerConfigPoolTableRowEditorNetbiosScope'
-_Ab='cie1000DhcpServerConfigPoolTableRowEditorNetbiosNodeType'
-_Aa='cie1000DhcpServerConfigPoolTableRowEditorNtpServer4'
-_AZ='cie1000DhcpServerConfigPoolTableRowEditorNtpServer3'
-_AY='cie1000DhcpServerConfigPoolTableRowEditorNtpServer2'
-_AX='cie1000DhcpServerConfigPoolTableRowEditorNtpServer1'
-_AW='cie1000DhcpServerConfigPoolTableRowEditorDnsServer4'
-_AV='cie1000DhcpServerConfigPoolTableRowEditorDnsServer3'
-_AU='cie1000DhcpServerConfigPoolTableRowEditorDnsServer2'
-_AT='cie1000DhcpServerConfigPoolTableRowEditorDnsServer1'
-_AS='cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter4'
-_AR='cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter3'
-_AQ='cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter2'
-_AP='cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter1'
-_AO='cie1000DhcpServerConfigPoolTableRowEditorDomainName'
-_AN='cie1000DhcpServerConfigPoolTableRowEditorLeaseMinute'
-_AM='cie1000DhcpServerConfigPoolTableRowEditorLeaseHour'
-_AL='cie1000DhcpServerConfigPoolTableRowEditorLeaseDay'
-_AK='cie1000DhcpServerConfigPoolTableRowEditorSubnetBroadcast'
-_AJ='cie1000DhcpServerConfigPoolTableRowEditorSubnetMask'
-_AI='cie1000DhcpServerConfigPoolTableRowEditorIpv4Address'
-_AH='cie1000DhcpServerConfigPoolTableRowEditorPoolType'
-_AG='cie1000DhcpServerConfigPoolTableRowEditorPoolName'
-_AF='cie1000DhcpServerConfigPoolAction'
-_AE='cie1000DhcpServerConfigPoolVendorSpecificInfo4'
-_AD='cie1000DhcpServerConfigPoolVendorClassId4'
-_AC='cie1000DhcpServerConfigPoolVendorSpecificInfo3'
-_AB='cie1000DhcpServerConfigPoolVendorClassId3'
-_AA='cie1000DhcpServerConfigPoolVendorSpecificInfo2'
-_A9='cie1000DhcpServerConfigPoolVendorClassId2'
-_A8='cie1000DhcpServerConfigPoolVendorSpecificInfo1'
-_A7='cie1000DhcpServerConfigPoolVendorClassId1'
-_A6='cie1000DhcpServerConfigPoolClientName'
-_A5='cie1000DhcpServerConfigPoolClientHardwareAddress'
-_A4='cie1000DhcpServerConfigPoolClientIdentifierMac'
-_A3='cie1000DhcpServerConfigPoolClientIdentifierName'
-_A2='cie1000DhcpServerConfigPoolClientIdentifierType'
-_A1='cie1000DhcpServerConfigPoolNisServer4'
-_A0='cie1000DhcpServerConfigPoolNisServer3'
-_z='cie1000DhcpServerConfigPoolNisServer2'
-_y='cie1000DhcpServerConfigPoolNisServer1'
-_x='cie1000DhcpServerConfigPoolNisDomainName'
-_w='cie1000DhcpServerConfigPoolNetbiosNameServer4'
-_v='cie1000DhcpServerConfigPoolNetbiosNameServer3'
-_u='cie1000DhcpServerConfigPoolNetbiosNameServer2'
-_t='cie1000DhcpServerConfigPoolNetbiosNameServer1'
-_s='cie1000DhcpServerConfigPoolNetbiosScope'
-_r='cie1000DhcpServerConfigPoolNetbiosNodeType'
-_q='cie1000DhcpServerConfigPoolNtpServer4'
-_p='cie1000DhcpServerConfigPoolNtpServer3'
-_o='cie1000DhcpServerConfigPoolNtpServer2'
-_n='cie1000DhcpServerConfigPoolNtpServer1'
-_m='cie1000DhcpServerConfigPoolDnsServer4'
-_l='cie1000DhcpServerConfigPoolDnsServer3'
-_k='cie1000DhcpServerConfigPoolDnsServer2'
-_j='cie1000DhcpServerConfigPoolDnsServer1'
-_i='cie1000DhcpServerConfigPoolDefaultRouter4'
-_h='cie1000DhcpServerConfigPoolDefaultRouter3'
-_g='cie1000DhcpServerConfigPoolDefaultRouter2'
-_f='cie1000DhcpServerConfigPoolDefaultRouter1'
-_e='cie1000DhcpServerConfigPoolDomainName'
-_d='cie1000DhcpServerConfigPoolLeaseMinute'
-_c='cie1000DhcpServerConfigPoolLeaseHour'
-_b='cie1000DhcpServerConfigPoolLeaseDay'
-_a='cie1000DhcpServerConfigPoolSubnetBroadcast'
-_Z='cie1000DhcpServerConfigPoolSubnetMask'
-_Y='cie1000DhcpServerConfigPoolIpv4Address'
-_X='cie1000DhcpServerConfigPoolPoolType'
-_W='cie1000DhcpServerConfigExcludedIpTableRowEditorAction'
-_V='cie1000DhcpServerConfigExcludedIpTableRowEditorHighIpAddress'
-_U='cie1000DhcpServerConfigExcludedIpTableRowEditorLowIpAddress'
-_T='cie1000DhcpServerConfigExcludedAction'
-_S='cie1000DhcpServerConfigVlanMode'
-_R='cie1000DhcpServerConfigGlobalsMode'
-_Q='expired'
-_P='Integer32'
-_O='cie1000DhcpServerStatusBindingIpAddress'
-_N='cie1000DhcpServerStatusDeclinedEntryNo'
-_M='cie1000DhcpServerConfigReservedIpAddress'
-_L='cie1000DhcpServerConfigReservedPoolName'
-_K='cie1000DhcpServerConfigPoolPoolName'
-_J='cie1000DhcpServerConfigExcludedHighIpAddress'
-_I='cie1000DhcpServerConfigExcludedLowIpAddress'
-_H='cie1000DhcpServerConfigVlanIfIndex'
-_G='none'
-_F='accessible-for-notify'
-_E='read-only'
-_D='CIE1000DisplayString'
-_C='read-write'
-_B='CIE1000-DHCP-SERVER-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-CIE1000DisplayString,CIE1000InterfaceIndex,CIE1000RowEditorState,CIE1000Unsigned16=mibBuilder.importSymbols('CIE1000-TC',_D,'CIE1000InterfaceIndex','CIE1000RowEditorState','CIE1000Unsigned16')
-cie1000SwitchMgmt,=mibBuilder.importSymbols('CISCO-IE1000-MIB','cie1000SwitchMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_P,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TruthValue')
-cie1000DhcpServerMib=ModuleIdentity((1,3,6,1,4,1,9,9,832,1,109))
-if mibBuilder.loadTexts:cie1000DhcpServerMib.setRevisions(('2015-08-24 00:00','2014-11-27 00:00','2014-07-01 00:00'))
-class CIE1000DhcpServerBindingEnum(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_G,0),('automatic',1),('manual',2),(_Q,3)))
-class CIE1000DhcpServerBindingStateEnum(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_G,0),('allocated',1),('committed',2),(_Q,3)))
-class CIE1000DhcpServerClientIdentifierEnum(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_G,0),('name',1),('mac',2)))
-class CIE1000DhcpServerNetbiosNodeEnum(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('nodeNone',0),('nodeB',1),('nodeP',2),('nodeM',3),('nodeH',4)))
-class CIE1000DhcpServerPoolEnum(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_G,0),('network',1),('host',2)))
-_Cie1000DhcpServerMibObjects_ObjectIdentity=ObjectIdentity
-cie1000DhcpServerMibObjects=_Cie1000DhcpServerMibObjects_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,109,1))
-_Cie1000DhcpServerConfig_ObjectIdentity=ObjectIdentity
-cie1000DhcpServerConfig=_Cie1000DhcpServerConfig_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,109,1,2))
-_Cie1000DhcpServerConfigGlobals_ObjectIdentity=ObjectIdentity
-cie1000DhcpServerConfigGlobals=_Cie1000DhcpServerConfigGlobals_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,109,1,2,1))
-_Cie1000DhcpServerConfigGlobalsMode_Type=TruthValue
-_Cie1000DhcpServerConfigGlobalsMode_Object=MibScalar
-cie1000DhcpServerConfigGlobalsMode=_Cie1000DhcpServerConfigGlobalsMode_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,1,1),_Cie1000DhcpServerConfigGlobalsMode_Type())
-cie1000DhcpServerConfigGlobalsMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigGlobalsMode.setStatus(_A)
-_Cie1000DhcpServerConfigVlanTable_Object=MibTable
-cie1000DhcpServerConfigVlanTable=_Cie1000DhcpServerConfigVlanTable_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,2))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigVlanTable.setStatus(_A)
-_Cie1000DhcpServerConfigVlanEntry_Object=MibTableRow
-cie1000DhcpServerConfigVlanEntry=_Cie1000DhcpServerConfigVlanEntry_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,2,1))
-cie1000DhcpServerConfigVlanEntry.setIndexNames((0,_B,_H))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigVlanEntry.setStatus(_A)
-_Cie1000DhcpServerConfigVlanIfIndex_Type=CIE1000InterfaceIndex
-_Cie1000DhcpServerConfigVlanIfIndex_Object=MibTableColumn
-cie1000DhcpServerConfigVlanIfIndex=_Cie1000DhcpServerConfigVlanIfIndex_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,2,1,1),_Cie1000DhcpServerConfigVlanIfIndex_Type())
-cie1000DhcpServerConfigVlanIfIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigVlanIfIndex.setStatus(_A)
-_Cie1000DhcpServerConfigVlanMode_Type=TruthValue
-_Cie1000DhcpServerConfigVlanMode_Object=MibTableColumn
-cie1000DhcpServerConfigVlanMode=_Cie1000DhcpServerConfigVlanMode_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,2,1,2),_Cie1000DhcpServerConfigVlanMode_Type())
-cie1000DhcpServerConfigVlanMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigVlanMode.setStatus(_A)
-_Cie1000DhcpServerConfigExcludedTable_Object=MibTable
-cie1000DhcpServerConfigExcludedTable=_Cie1000DhcpServerConfigExcludedTable_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,3))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigExcludedTable.setStatus(_A)
-_Cie1000DhcpServerConfigExcludedEntry_Object=MibTableRow
-cie1000DhcpServerConfigExcludedEntry=_Cie1000DhcpServerConfigExcludedEntry_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,3,1))
-cie1000DhcpServerConfigExcludedEntry.setIndexNames((0,_B,_I),(0,_B,_J))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigExcludedEntry.setStatus(_A)
-_Cie1000DhcpServerConfigExcludedLowIpAddress_Type=IpAddress
-_Cie1000DhcpServerConfigExcludedLowIpAddress_Object=MibTableColumn
-cie1000DhcpServerConfigExcludedLowIpAddress=_Cie1000DhcpServerConfigExcludedLowIpAddress_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,3,1,1),_Cie1000DhcpServerConfigExcludedLowIpAddress_Type())
-cie1000DhcpServerConfigExcludedLowIpAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigExcludedLowIpAddress.setStatus(_A)
-_Cie1000DhcpServerConfigExcludedHighIpAddress_Type=IpAddress
-_Cie1000DhcpServerConfigExcludedHighIpAddress_Object=MibTableColumn
-cie1000DhcpServerConfigExcludedHighIpAddress=_Cie1000DhcpServerConfigExcludedHighIpAddress_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,3,1,2),_Cie1000DhcpServerConfigExcludedHighIpAddress_Type())
-cie1000DhcpServerConfigExcludedHighIpAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigExcludedHighIpAddress.setStatus(_A)
-_Cie1000DhcpServerConfigExcludedAction_Type=CIE1000RowEditorState
-_Cie1000DhcpServerConfigExcludedAction_Object=MibTableColumn
-cie1000DhcpServerConfigExcludedAction=_Cie1000DhcpServerConfigExcludedAction_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,3,1,100),_Cie1000DhcpServerConfigExcludedAction_Type())
-cie1000DhcpServerConfigExcludedAction.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigExcludedAction.setStatus(_A)
-_Cie1000DhcpServerConfigExcludedIpTableRowEditor_ObjectIdentity=ObjectIdentity
-cie1000DhcpServerConfigExcludedIpTableRowEditor=_Cie1000DhcpServerConfigExcludedIpTableRowEditor_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,109,1,2,4))
-_Cie1000DhcpServerConfigExcludedIpTableRowEditorLowIpAddress_Type=IpAddress
-_Cie1000DhcpServerConfigExcludedIpTableRowEditorLowIpAddress_Object=MibScalar
-cie1000DhcpServerConfigExcludedIpTableRowEditorLowIpAddress=_Cie1000DhcpServerConfigExcludedIpTableRowEditorLowIpAddress_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,4,1),_Cie1000DhcpServerConfigExcludedIpTableRowEditorLowIpAddress_Type())
-cie1000DhcpServerConfigExcludedIpTableRowEditorLowIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigExcludedIpTableRowEditorLowIpAddress.setStatus(_A)
-_Cie1000DhcpServerConfigExcludedIpTableRowEditorHighIpAddress_Type=IpAddress
-_Cie1000DhcpServerConfigExcludedIpTableRowEditorHighIpAddress_Object=MibScalar
-cie1000DhcpServerConfigExcludedIpTableRowEditorHighIpAddress=_Cie1000DhcpServerConfigExcludedIpTableRowEditorHighIpAddress_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,4,2),_Cie1000DhcpServerConfigExcludedIpTableRowEditorHighIpAddress_Type())
-cie1000DhcpServerConfigExcludedIpTableRowEditorHighIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigExcludedIpTableRowEditorHighIpAddress.setStatus(_A)
-_Cie1000DhcpServerConfigExcludedIpTableRowEditorAction_Type=CIE1000RowEditorState
-_Cie1000DhcpServerConfigExcludedIpTableRowEditorAction_Object=MibScalar
-cie1000DhcpServerConfigExcludedIpTableRowEditorAction=_Cie1000DhcpServerConfigExcludedIpTableRowEditorAction_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,4,100),_Cie1000DhcpServerConfigExcludedIpTableRowEditorAction_Type())
-cie1000DhcpServerConfigExcludedIpTableRowEditorAction.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigExcludedIpTableRowEditorAction.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTable_Object=MibTable
-cie1000DhcpServerConfigPoolTable=_Cie1000DhcpServerConfigPoolTable_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTable.setStatus(_A)
-_Cie1000DhcpServerConfigPoolEntry_Object=MibTableRow
-cie1000DhcpServerConfigPoolEntry=_Cie1000DhcpServerConfigPoolEntry_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1))
-cie1000DhcpServerConfigPoolEntry.setIndexNames((0,_B,_K))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolEntry.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolPoolName_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Cie1000DhcpServerConfigPoolPoolName_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolPoolName_Object=MibTableColumn
-cie1000DhcpServerConfigPoolPoolName=_Cie1000DhcpServerConfigPoolPoolName_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,1),_Cie1000DhcpServerConfigPoolPoolName_Type())
-cie1000DhcpServerConfigPoolPoolName.setMaxAccess(_F)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolPoolName.setStatus(_A)
-_Cie1000DhcpServerConfigPoolPoolType_Type=CIE1000DhcpServerPoolEnum
-_Cie1000DhcpServerConfigPoolPoolType_Object=MibTableColumn
-cie1000DhcpServerConfigPoolPoolType=_Cie1000DhcpServerConfigPoolPoolType_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,2),_Cie1000DhcpServerConfigPoolPoolType_Type())
-cie1000DhcpServerConfigPoolPoolType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolPoolType.setStatus(_A)
-_Cie1000DhcpServerConfigPoolIpv4Address_Type=IpAddress
-_Cie1000DhcpServerConfigPoolIpv4Address_Object=MibTableColumn
-cie1000DhcpServerConfigPoolIpv4Address=_Cie1000DhcpServerConfigPoolIpv4Address_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,3),_Cie1000DhcpServerConfigPoolIpv4Address_Type())
-cie1000DhcpServerConfigPoolIpv4Address.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolIpv4Address.setStatus(_A)
-_Cie1000DhcpServerConfigPoolSubnetMask_Type=IpAddress
-_Cie1000DhcpServerConfigPoolSubnetMask_Object=MibTableColumn
-cie1000DhcpServerConfigPoolSubnetMask=_Cie1000DhcpServerConfigPoolSubnetMask_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,4),_Cie1000DhcpServerConfigPoolSubnetMask_Type())
-cie1000DhcpServerConfigPoolSubnetMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolSubnetMask.setStatus(_A)
-_Cie1000DhcpServerConfigPoolSubnetBroadcast_Type=IpAddress
-_Cie1000DhcpServerConfigPoolSubnetBroadcast_Object=MibTableColumn
-cie1000DhcpServerConfigPoolSubnetBroadcast=_Cie1000DhcpServerConfigPoolSubnetBroadcast_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,5),_Cie1000DhcpServerConfigPoolSubnetBroadcast_Type())
-cie1000DhcpServerConfigPoolSubnetBroadcast.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolSubnetBroadcast.setStatus(_A)
-_Cie1000DhcpServerConfigPoolLeaseDay_Type=Unsigned32
-_Cie1000DhcpServerConfigPoolLeaseDay_Object=MibTableColumn
-cie1000DhcpServerConfigPoolLeaseDay=_Cie1000DhcpServerConfigPoolLeaseDay_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,6),_Cie1000DhcpServerConfigPoolLeaseDay_Type())
-cie1000DhcpServerConfigPoolLeaseDay.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolLeaseDay.setStatus(_A)
-_Cie1000DhcpServerConfigPoolLeaseHour_Type=Unsigned32
-_Cie1000DhcpServerConfigPoolLeaseHour_Object=MibTableColumn
-cie1000DhcpServerConfigPoolLeaseHour=_Cie1000DhcpServerConfigPoolLeaseHour_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,7),_Cie1000DhcpServerConfigPoolLeaseHour_Type())
-cie1000DhcpServerConfigPoolLeaseHour.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolLeaseHour.setStatus(_A)
-_Cie1000DhcpServerConfigPoolLeaseMinute_Type=Unsigned32
-_Cie1000DhcpServerConfigPoolLeaseMinute_Object=MibTableColumn
-cie1000DhcpServerConfigPoolLeaseMinute=_Cie1000DhcpServerConfigPoolLeaseMinute_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,8),_Cie1000DhcpServerConfigPoolLeaseMinute_Type())
-cie1000DhcpServerConfigPoolLeaseMinute.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolLeaseMinute.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolDomainName_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Cie1000DhcpServerConfigPoolDomainName_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolDomainName_Object=MibTableColumn
-cie1000DhcpServerConfigPoolDomainName=_Cie1000DhcpServerConfigPoolDomainName_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,9),_Cie1000DhcpServerConfigPoolDomainName_Type())
-cie1000DhcpServerConfigPoolDomainName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolDomainName.setStatus(_A)
-_Cie1000DhcpServerConfigPoolDefaultRouter1_Type=IpAddress
-_Cie1000DhcpServerConfigPoolDefaultRouter1_Object=MibTableColumn
-cie1000DhcpServerConfigPoolDefaultRouter1=_Cie1000DhcpServerConfigPoolDefaultRouter1_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,10),_Cie1000DhcpServerConfigPoolDefaultRouter1_Type())
-cie1000DhcpServerConfigPoolDefaultRouter1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolDefaultRouter1.setStatus(_A)
-_Cie1000DhcpServerConfigPoolDefaultRouter2_Type=IpAddress
-_Cie1000DhcpServerConfigPoolDefaultRouter2_Object=MibTableColumn
-cie1000DhcpServerConfigPoolDefaultRouter2=_Cie1000DhcpServerConfigPoolDefaultRouter2_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,11),_Cie1000DhcpServerConfigPoolDefaultRouter2_Type())
-cie1000DhcpServerConfigPoolDefaultRouter2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolDefaultRouter2.setStatus(_A)
-_Cie1000DhcpServerConfigPoolDefaultRouter3_Type=IpAddress
-_Cie1000DhcpServerConfigPoolDefaultRouter3_Object=MibTableColumn
-cie1000DhcpServerConfigPoolDefaultRouter3=_Cie1000DhcpServerConfigPoolDefaultRouter3_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,12),_Cie1000DhcpServerConfigPoolDefaultRouter3_Type())
-cie1000DhcpServerConfigPoolDefaultRouter3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolDefaultRouter3.setStatus(_A)
-_Cie1000DhcpServerConfigPoolDefaultRouter4_Type=IpAddress
-_Cie1000DhcpServerConfigPoolDefaultRouter4_Object=MibTableColumn
-cie1000DhcpServerConfigPoolDefaultRouter4=_Cie1000DhcpServerConfigPoolDefaultRouter4_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,13),_Cie1000DhcpServerConfigPoolDefaultRouter4_Type())
-cie1000DhcpServerConfigPoolDefaultRouter4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolDefaultRouter4.setStatus(_A)
-_Cie1000DhcpServerConfigPoolDnsServer1_Type=IpAddress
-_Cie1000DhcpServerConfigPoolDnsServer1_Object=MibTableColumn
-cie1000DhcpServerConfigPoolDnsServer1=_Cie1000DhcpServerConfigPoolDnsServer1_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,14),_Cie1000DhcpServerConfigPoolDnsServer1_Type())
-cie1000DhcpServerConfigPoolDnsServer1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolDnsServer1.setStatus(_A)
-_Cie1000DhcpServerConfigPoolDnsServer2_Type=IpAddress
-_Cie1000DhcpServerConfigPoolDnsServer2_Object=MibTableColumn
-cie1000DhcpServerConfigPoolDnsServer2=_Cie1000DhcpServerConfigPoolDnsServer2_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,15),_Cie1000DhcpServerConfigPoolDnsServer2_Type())
-cie1000DhcpServerConfigPoolDnsServer2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolDnsServer2.setStatus(_A)
-_Cie1000DhcpServerConfigPoolDnsServer3_Type=IpAddress
-_Cie1000DhcpServerConfigPoolDnsServer3_Object=MibTableColumn
-cie1000DhcpServerConfigPoolDnsServer3=_Cie1000DhcpServerConfigPoolDnsServer3_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,16),_Cie1000DhcpServerConfigPoolDnsServer3_Type())
-cie1000DhcpServerConfigPoolDnsServer3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolDnsServer3.setStatus(_A)
-_Cie1000DhcpServerConfigPoolDnsServer4_Type=IpAddress
-_Cie1000DhcpServerConfigPoolDnsServer4_Object=MibTableColumn
-cie1000DhcpServerConfigPoolDnsServer4=_Cie1000DhcpServerConfigPoolDnsServer4_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,17),_Cie1000DhcpServerConfigPoolDnsServer4_Type())
-cie1000DhcpServerConfigPoolDnsServer4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolDnsServer4.setStatus(_A)
-_Cie1000DhcpServerConfigPoolNtpServer1_Type=IpAddress
-_Cie1000DhcpServerConfigPoolNtpServer1_Object=MibTableColumn
-cie1000DhcpServerConfigPoolNtpServer1=_Cie1000DhcpServerConfigPoolNtpServer1_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,18),_Cie1000DhcpServerConfigPoolNtpServer1_Type())
-cie1000DhcpServerConfigPoolNtpServer1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolNtpServer1.setStatus(_A)
-_Cie1000DhcpServerConfigPoolNtpServer2_Type=IpAddress
-_Cie1000DhcpServerConfigPoolNtpServer2_Object=MibTableColumn
-cie1000DhcpServerConfigPoolNtpServer2=_Cie1000DhcpServerConfigPoolNtpServer2_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,19),_Cie1000DhcpServerConfigPoolNtpServer2_Type())
-cie1000DhcpServerConfigPoolNtpServer2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolNtpServer2.setStatus(_A)
-_Cie1000DhcpServerConfigPoolNtpServer3_Type=IpAddress
-_Cie1000DhcpServerConfigPoolNtpServer3_Object=MibTableColumn
-cie1000DhcpServerConfigPoolNtpServer3=_Cie1000DhcpServerConfigPoolNtpServer3_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,20),_Cie1000DhcpServerConfigPoolNtpServer3_Type())
-cie1000DhcpServerConfigPoolNtpServer3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolNtpServer3.setStatus(_A)
-_Cie1000DhcpServerConfigPoolNtpServer4_Type=IpAddress
-_Cie1000DhcpServerConfigPoolNtpServer4_Object=MibTableColumn
-cie1000DhcpServerConfigPoolNtpServer4=_Cie1000DhcpServerConfigPoolNtpServer4_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,21),_Cie1000DhcpServerConfigPoolNtpServer4_Type())
-cie1000DhcpServerConfigPoolNtpServer4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolNtpServer4.setStatus(_A)
-_Cie1000DhcpServerConfigPoolNetbiosNodeType_Type=CIE1000DhcpServerNetbiosNodeEnum
-_Cie1000DhcpServerConfigPoolNetbiosNodeType_Object=MibTableColumn
-cie1000DhcpServerConfigPoolNetbiosNodeType=_Cie1000DhcpServerConfigPoolNetbiosNodeType_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,22),_Cie1000DhcpServerConfigPoolNetbiosNodeType_Type())
-cie1000DhcpServerConfigPoolNetbiosNodeType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolNetbiosNodeType.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolNetbiosScope_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Cie1000DhcpServerConfigPoolNetbiosScope_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolNetbiosScope_Object=MibTableColumn
-cie1000DhcpServerConfigPoolNetbiosScope=_Cie1000DhcpServerConfigPoolNetbiosScope_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,23),_Cie1000DhcpServerConfigPoolNetbiosScope_Type())
-cie1000DhcpServerConfigPoolNetbiosScope.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolNetbiosScope.setStatus(_A)
-_Cie1000DhcpServerConfigPoolNetbiosNameServer1_Type=IpAddress
-_Cie1000DhcpServerConfigPoolNetbiosNameServer1_Object=MibTableColumn
-cie1000DhcpServerConfigPoolNetbiosNameServer1=_Cie1000DhcpServerConfigPoolNetbiosNameServer1_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,24),_Cie1000DhcpServerConfigPoolNetbiosNameServer1_Type())
-cie1000DhcpServerConfigPoolNetbiosNameServer1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolNetbiosNameServer1.setStatus(_A)
-_Cie1000DhcpServerConfigPoolNetbiosNameServer2_Type=IpAddress
-_Cie1000DhcpServerConfigPoolNetbiosNameServer2_Object=MibTableColumn
-cie1000DhcpServerConfigPoolNetbiosNameServer2=_Cie1000DhcpServerConfigPoolNetbiosNameServer2_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,25),_Cie1000DhcpServerConfigPoolNetbiosNameServer2_Type())
-cie1000DhcpServerConfigPoolNetbiosNameServer2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolNetbiosNameServer2.setStatus(_A)
-_Cie1000DhcpServerConfigPoolNetbiosNameServer3_Type=IpAddress
-_Cie1000DhcpServerConfigPoolNetbiosNameServer3_Object=MibTableColumn
-cie1000DhcpServerConfigPoolNetbiosNameServer3=_Cie1000DhcpServerConfigPoolNetbiosNameServer3_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,26),_Cie1000DhcpServerConfigPoolNetbiosNameServer3_Type())
-cie1000DhcpServerConfigPoolNetbiosNameServer3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolNetbiosNameServer3.setStatus(_A)
-_Cie1000DhcpServerConfigPoolNetbiosNameServer4_Type=IpAddress
-_Cie1000DhcpServerConfigPoolNetbiosNameServer4_Object=MibTableColumn
-cie1000DhcpServerConfigPoolNetbiosNameServer4=_Cie1000DhcpServerConfigPoolNetbiosNameServer4_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,27),_Cie1000DhcpServerConfigPoolNetbiosNameServer4_Type())
-cie1000DhcpServerConfigPoolNetbiosNameServer4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolNetbiosNameServer4.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolNisDomainName_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Cie1000DhcpServerConfigPoolNisDomainName_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolNisDomainName_Object=MibTableColumn
-cie1000DhcpServerConfigPoolNisDomainName=_Cie1000DhcpServerConfigPoolNisDomainName_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,28),_Cie1000DhcpServerConfigPoolNisDomainName_Type())
-cie1000DhcpServerConfigPoolNisDomainName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolNisDomainName.setStatus(_A)
-_Cie1000DhcpServerConfigPoolNisServer1_Type=IpAddress
-_Cie1000DhcpServerConfigPoolNisServer1_Object=MibTableColumn
-cie1000DhcpServerConfigPoolNisServer1=_Cie1000DhcpServerConfigPoolNisServer1_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,29),_Cie1000DhcpServerConfigPoolNisServer1_Type())
-cie1000DhcpServerConfigPoolNisServer1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolNisServer1.setStatus(_A)
-_Cie1000DhcpServerConfigPoolNisServer2_Type=IpAddress
-_Cie1000DhcpServerConfigPoolNisServer2_Object=MibTableColumn
-cie1000DhcpServerConfigPoolNisServer2=_Cie1000DhcpServerConfigPoolNisServer2_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,30),_Cie1000DhcpServerConfigPoolNisServer2_Type())
-cie1000DhcpServerConfigPoolNisServer2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolNisServer2.setStatus(_A)
-_Cie1000DhcpServerConfigPoolNisServer3_Type=IpAddress
-_Cie1000DhcpServerConfigPoolNisServer3_Object=MibTableColumn
-cie1000DhcpServerConfigPoolNisServer3=_Cie1000DhcpServerConfigPoolNisServer3_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,31),_Cie1000DhcpServerConfigPoolNisServer3_Type())
-cie1000DhcpServerConfigPoolNisServer3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolNisServer3.setStatus(_A)
-_Cie1000DhcpServerConfigPoolNisServer4_Type=IpAddress
-_Cie1000DhcpServerConfigPoolNisServer4_Object=MibTableColumn
-cie1000DhcpServerConfigPoolNisServer4=_Cie1000DhcpServerConfigPoolNisServer4_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,32),_Cie1000DhcpServerConfigPoolNisServer4_Type())
-cie1000DhcpServerConfigPoolNisServer4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolNisServer4.setStatus(_A)
-_Cie1000DhcpServerConfigPoolClientIdentifierType_Type=CIE1000DhcpServerClientIdentifierEnum
-_Cie1000DhcpServerConfigPoolClientIdentifierType_Object=MibTableColumn
-cie1000DhcpServerConfigPoolClientIdentifierType=_Cie1000DhcpServerConfigPoolClientIdentifierType_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,33),_Cie1000DhcpServerConfigPoolClientIdentifierType_Type())
-cie1000DhcpServerConfigPoolClientIdentifierType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolClientIdentifierType.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolClientIdentifierName_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_Cie1000DhcpServerConfigPoolClientIdentifierName_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolClientIdentifierName_Object=MibTableColumn
-cie1000DhcpServerConfigPoolClientIdentifierName=_Cie1000DhcpServerConfigPoolClientIdentifierName_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,34),_Cie1000DhcpServerConfigPoolClientIdentifierName_Type())
-cie1000DhcpServerConfigPoolClientIdentifierName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolClientIdentifierName.setStatus(_A)
-_Cie1000DhcpServerConfigPoolClientIdentifierMac_Type=MacAddress
-_Cie1000DhcpServerConfigPoolClientIdentifierMac_Object=MibTableColumn
-cie1000DhcpServerConfigPoolClientIdentifierMac=_Cie1000DhcpServerConfigPoolClientIdentifierMac_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,35),_Cie1000DhcpServerConfigPoolClientIdentifierMac_Type())
-cie1000DhcpServerConfigPoolClientIdentifierMac.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolClientIdentifierMac.setStatus(_A)
-_Cie1000DhcpServerConfigPoolClientHardwareAddress_Type=MacAddress
-_Cie1000DhcpServerConfigPoolClientHardwareAddress_Object=MibTableColumn
-cie1000DhcpServerConfigPoolClientHardwareAddress=_Cie1000DhcpServerConfigPoolClientHardwareAddress_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,36),_Cie1000DhcpServerConfigPoolClientHardwareAddress_Type())
-cie1000DhcpServerConfigPoolClientHardwareAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolClientHardwareAddress.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolClientName_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Cie1000DhcpServerConfigPoolClientName_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolClientName_Object=MibTableColumn
-cie1000DhcpServerConfigPoolClientName=_Cie1000DhcpServerConfigPoolClientName_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,37),_Cie1000DhcpServerConfigPoolClientName_Type())
-cie1000DhcpServerConfigPoolClientName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolClientName.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolVendorClassId1_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_Cie1000DhcpServerConfigPoolVendorClassId1_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolVendorClassId1_Object=MibTableColumn
-cie1000DhcpServerConfigPoolVendorClassId1=_Cie1000DhcpServerConfigPoolVendorClassId1_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,38),_Cie1000DhcpServerConfigPoolVendorClassId1_Type())
-cie1000DhcpServerConfigPoolVendorClassId1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolVendorClassId1.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolVendorSpecificInfo1_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,66))
-_Cie1000DhcpServerConfigPoolVendorSpecificInfo1_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolVendorSpecificInfo1_Object=MibTableColumn
-cie1000DhcpServerConfigPoolVendorSpecificInfo1=_Cie1000DhcpServerConfigPoolVendorSpecificInfo1_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,39),_Cie1000DhcpServerConfigPoolVendorSpecificInfo1_Type())
-cie1000DhcpServerConfigPoolVendorSpecificInfo1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolVendorSpecificInfo1.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolVendorClassId2_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_Cie1000DhcpServerConfigPoolVendorClassId2_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolVendorClassId2_Object=MibTableColumn
-cie1000DhcpServerConfigPoolVendorClassId2=_Cie1000DhcpServerConfigPoolVendorClassId2_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,40),_Cie1000DhcpServerConfigPoolVendorClassId2_Type())
-cie1000DhcpServerConfigPoolVendorClassId2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolVendorClassId2.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolVendorSpecificInfo2_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,66))
-_Cie1000DhcpServerConfigPoolVendorSpecificInfo2_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolVendorSpecificInfo2_Object=MibTableColumn
-cie1000DhcpServerConfigPoolVendorSpecificInfo2=_Cie1000DhcpServerConfigPoolVendorSpecificInfo2_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,41),_Cie1000DhcpServerConfigPoolVendorSpecificInfo2_Type())
-cie1000DhcpServerConfigPoolVendorSpecificInfo2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolVendorSpecificInfo2.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolVendorClassId3_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_Cie1000DhcpServerConfigPoolVendorClassId3_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolVendorClassId3_Object=MibTableColumn
-cie1000DhcpServerConfigPoolVendorClassId3=_Cie1000DhcpServerConfigPoolVendorClassId3_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,42),_Cie1000DhcpServerConfigPoolVendorClassId3_Type())
-cie1000DhcpServerConfigPoolVendorClassId3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolVendorClassId3.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolVendorSpecificInfo3_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,66))
-_Cie1000DhcpServerConfigPoolVendorSpecificInfo3_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolVendorSpecificInfo3_Object=MibTableColumn
-cie1000DhcpServerConfigPoolVendorSpecificInfo3=_Cie1000DhcpServerConfigPoolVendorSpecificInfo3_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,43),_Cie1000DhcpServerConfigPoolVendorSpecificInfo3_Type())
-cie1000DhcpServerConfigPoolVendorSpecificInfo3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolVendorSpecificInfo3.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolVendorClassId4_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_Cie1000DhcpServerConfigPoolVendorClassId4_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolVendorClassId4_Object=MibTableColumn
-cie1000DhcpServerConfigPoolVendorClassId4=_Cie1000DhcpServerConfigPoolVendorClassId4_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,44),_Cie1000DhcpServerConfigPoolVendorClassId4_Type())
-cie1000DhcpServerConfigPoolVendorClassId4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolVendorClassId4.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolVendorSpecificInfo4_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,66))
-_Cie1000DhcpServerConfigPoolVendorSpecificInfo4_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolVendorSpecificInfo4_Object=MibTableColumn
-cie1000DhcpServerConfigPoolVendorSpecificInfo4=_Cie1000DhcpServerConfigPoolVendorSpecificInfo4_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,45),_Cie1000DhcpServerConfigPoolVendorSpecificInfo4_Type())
-cie1000DhcpServerConfigPoolVendorSpecificInfo4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolVendorSpecificInfo4.setStatus(_A)
-_Cie1000DhcpServerConfigPoolAction_Type=CIE1000RowEditorState
-_Cie1000DhcpServerConfigPoolAction_Object=MibTableColumn
-cie1000DhcpServerConfigPoolAction=_Cie1000DhcpServerConfigPoolAction_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,5,1,100),_Cie1000DhcpServerConfigPoolAction_Type())
-cie1000DhcpServerConfigPoolAction.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolAction.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditor_ObjectIdentity=ObjectIdentity
-cie1000DhcpServerConfigPoolTableRowEditor=_Cie1000DhcpServerConfigPoolTableRowEditor_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,109,1,2,6))
-class _Cie1000DhcpServerConfigPoolTableRowEditorPoolName_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Cie1000DhcpServerConfigPoolTableRowEditorPoolName_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolTableRowEditorPoolName_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorPoolName=_Cie1000DhcpServerConfigPoolTableRowEditorPoolName_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,1),_Cie1000DhcpServerConfigPoolTableRowEditorPoolName_Type())
-cie1000DhcpServerConfigPoolTableRowEditorPoolName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorPoolName.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorPoolType_Type=CIE1000DhcpServerPoolEnum
-_Cie1000DhcpServerConfigPoolTableRowEditorPoolType_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorPoolType=_Cie1000DhcpServerConfigPoolTableRowEditorPoolType_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,2),_Cie1000DhcpServerConfigPoolTableRowEditorPoolType_Type())
-cie1000DhcpServerConfigPoolTableRowEditorPoolType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorPoolType.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorIpv4Address_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorIpv4Address_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorIpv4Address=_Cie1000DhcpServerConfigPoolTableRowEditorIpv4Address_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,3),_Cie1000DhcpServerConfigPoolTableRowEditorIpv4Address_Type())
-cie1000DhcpServerConfigPoolTableRowEditorIpv4Address.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorIpv4Address.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorSubnetMask_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorSubnetMask_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorSubnetMask=_Cie1000DhcpServerConfigPoolTableRowEditorSubnetMask_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,4),_Cie1000DhcpServerConfigPoolTableRowEditorSubnetMask_Type())
-cie1000DhcpServerConfigPoolTableRowEditorSubnetMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorSubnetMask.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorSubnetBroadcast_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorSubnetBroadcast_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorSubnetBroadcast=_Cie1000DhcpServerConfigPoolTableRowEditorSubnetBroadcast_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,5),_Cie1000DhcpServerConfigPoolTableRowEditorSubnetBroadcast_Type())
-cie1000DhcpServerConfigPoolTableRowEditorSubnetBroadcast.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorSubnetBroadcast.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorLeaseDay_Type=Unsigned32
-_Cie1000DhcpServerConfigPoolTableRowEditorLeaseDay_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorLeaseDay=_Cie1000DhcpServerConfigPoolTableRowEditorLeaseDay_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,6),_Cie1000DhcpServerConfigPoolTableRowEditorLeaseDay_Type())
-cie1000DhcpServerConfigPoolTableRowEditorLeaseDay.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorLeaseDay.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorLeaseHour_Type=Unsigned32
-_Cie1000DhcpServerConfigPoolTableRowEditorLeaseHour_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorLeaseHour=_Cie1000DhcpServerConfigPoolTableRowEditorLeaseHour_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,7),_Cie1000DhcpServerConfigPoolTableRowEditorLeaseHour_Type())
-cie1000DhcpServerConfigPoolTableRowEditorLeaseHour.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorLeaseHour.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorLeaseMinute_Type=Unsigned32
-_Cie1000DhcpServerConfigPoolTableRowEditorLeaseMinute_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorLeaseMinute=_Cie1000DhcpServerConfigPoolTableRowEditorLeaseMinute_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,8),_Cie1000DhcpServerConfigPoolTableRowEditorLeaseMinute_Type())
-cie1000DhcpServerConfigPoolTableRowEditorLeaseMinute.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorLeaseMinute.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolTableRowEditorDomainName_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Cie1000DhcpServerConfigPoolTableRowEditorDomainName_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolTableRowEditorDomainName_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorDomainName=_Cie1000DhcpServerConfigPoolTableRowEditorDomainName_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,9),_Cie1000DhcpServerConfigPoolTableRowEditorDomainName_Type())
-cie1000DhcpServerConfigPoolTableRowEditorDomainName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorDomainName.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter1_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter1_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter1=_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter1_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,10),_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter1_Type())
-cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter1.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter2_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter2_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter2=_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter2_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,11),_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter2_Type())
-cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter2.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter3_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter3_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter3=_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter3_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,12),_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter3_Type())
-cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter3.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter4_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter4_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter4=_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter4_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,13),_Cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter4_Type())
-cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter4.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer1_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer1_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorDnsServer1=_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer1_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,14),_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer1_Type())
-cie1000DhcpServerConfigPoolTableRowEditorDnsServer1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorDnsServer1.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer2_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer2_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorDnsServer2=_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer2_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,15),_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer2_Type())
-cie1000DhcpServerConfigPoolTableRowEditorDnsServer2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorDnsServer2.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer3_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer3_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorDnsServer3=_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer3_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,16),_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer3_Type())
-cie1000DhcpServerConfigPoolTableRowEditorDnsServer3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorDnsServer3.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer4_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer4_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorDnsServer4=_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer4_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,17),_Cie1000DhcpServerConfigPoolTableRowEditorDnsServer4_Type())
-cie1000DhcpServerConfigPoolTableRowEditorDnsServer4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorDnsServer4.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer1_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer1_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorNtpServer1=_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer1_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,18),_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer1_Type())
-cie1000DhcpServerConfigPoolTableRowEditorNtpServer1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorNtpServer1.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer2_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer2_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorNtpServer2=_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer2_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,19),_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer2_Type())
-cie1000DhcpServerConfigPoolTableRowEditorNtpServer2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorNtpServer2.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer3_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer3_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorNtpServer3=_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer3_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,20),_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer3_Type())
-cie1000DhcpServerConfigPoolTableRowEditorNtpServer3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorNtpServer3.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer4_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer4_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorNtpServer4=_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer4_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,21),_Cie1000DhcpServerConfigPoolTableRowEditorNtpServer4_Type())
-cie1000DhcpServerConfigPoolTableRowEditorNtpServer4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorNtpServer4.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNodeType_Type=CIE1000DhcpServerNetbiosNodeEnum
-_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNodeType_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorNetbiosNodeType=_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNodeType_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,22),_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNodeType_Type())
-cie1000DhcpServerConfigPoolTableRowEditorNetbiosNodeType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorNetbiosNodeType.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolTableRowEditorNetbiosScope_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosScope_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosScope_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorNetbiosScope=_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosScope_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,23),_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosScope_Type())
-cie1000DhcpServerConfigPoolTableRowEditorNetbiosScope.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorNetbiosScope.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer1_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer1_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer1=_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer1_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,24),_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer1_Type())
-cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer1.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer2_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer2_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer2=_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer2_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,25),_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer2_Type())
-cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer2.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer3_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer3_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer3=_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer3_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,26),_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer3_Type())
-cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer3.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer4_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer4_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer4=_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer4_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,27),_Cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer4_Type())
-cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer4.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolTableRowEditorNisDomainName_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Cie1000DhcpServerConfigPoolTableRowEditorNisDomainName_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolTableRowEditorNisDomainName_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorNisDomainName=_Cie1000DhcpServerConfigPoolTableRowEditorNisDomainName_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,28),_Cie1000DhcpServerConfigPoolTableRowEditorNisDomainName_Type())
-cie1000DhcpServerConfigPoolTableRowEditorNisDomainName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorNisDomainName.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorNisServer1_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorNisServer1_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorNisServer1=_Cie1000DhcpServerConfigPoolTableRowEditorNisServer1_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,29),_Cie1000DhcpServerConfigPoolTableRowEditorNisServer1_Type())
-cie1000DhcpServerConfigPoolTableRowEditorNisServer1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorNisServer1.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorNisServer2_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorNisServer2_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorNisServer2=_Cie1000DhcpServerConfigPoolTableRowEditorNisServer2_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,30),_Cie1000DhcpServerConfigPoolTableRowEditorNisServer2_Type())
-cie1000DhcpServerConfigPoolTableRowEditorNisServer2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorNisServer2.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorNisServer3_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorNisServer3_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorNisServer3=_Cie1000DhcpServerConfigPoolTableRowEditorNisServer3_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,31),_Cie1000DhcpServerConfigPoolTableRowEditorNisServer3_Type())
-cie1000DhcpServerConfigPoolTableRowEditorNisServer3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorNisServer3.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorNisServer4_Type=IpAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorNisServer4_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorNisServer4=_Cie1000DhcpServerConfigPoolTableRowEditorNisServer4_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,32),_Cie1000DhcpServerConfigPoolTableRowEditorNisServer4_Type())
-cie1000DhcpServerConfigPoolTableRowEditorNisServer4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorNisServer4.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierType_Type=CIE1000DhcpServerClientIdentifierEnum
-_Cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierType_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierType=_Cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierType_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,33),_Cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierType_Type())
-cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierType.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierName_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_Cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierName_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierName_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierName=_Cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierName_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,34),_Cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierName_Type())
-cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierName.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierMac_Type=MacAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierMac_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierMac=_Cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierMac_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,35),_Cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierMac_Type())
-cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierMac.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierMac.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorClientHardwareAddress_Type=MacAddress
-_Cie1000DhcpServerConfigPoolTableRowEditorClientHardwareAddress_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorClientHardwareAddress=_Cie1000DhcpServerConfigPoolTableRowEditorClientHardwareAddress_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,36),_Cie1000DhcpServerConfigPoolTableRowEditorClientHardwareAddress_Type())
-cie1000DhcpServerConfigPoolTableRowEditorClientHardwareAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorClientHardwareAddress.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolTableRowEditorClientName_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Cie1000DhcpServerConfigPoolTableRowEditorClientName_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolTableRowEditorClientName_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorClientName=_Cie1000DhcpServerConfigPoolTableRowEditorClientName_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,37),_Cie1000DhcpServerConfigPoolTableRowEditorClientName_Type())
-cie1000DhcpServerConfigPoolTableRowEditorClientName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorClientName.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId1_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId1_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId1_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorVendorClassId1=_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId1_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,38),_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId1_Type())
-cie1000DhcpServerConfigPoolTableRowEditorVendorClassId1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorVendorClassId1.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo1_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,66))
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo1_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo1_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo1=_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo1_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,39),_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo1_Type())
-cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo1.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo1.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId2_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId2_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId2_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorVendorClassId2=_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId2_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,40),_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId2_Type())
-cie1000DhcpServerConfigPoolTableRowEditorVendorClassId2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorVendorClassId2.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo2_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,66))
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo2_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo2_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo2=_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo2_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,41),_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo2_Type())
-cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo2.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo2.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId3_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId3_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId3_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorVendorClassId3=_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId3_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,42),_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId3_Type())
-cie1000DhcpServerConfigPoolTableRowEditorVendorClassId3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorVendorClassId3.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo3_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,66))
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo3_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo3_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo3=_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo3_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,43),_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo3_Type())
-cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo3.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo3.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId4_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId4_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId4_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorVendorClassId4=_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId4_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,44),_Cie1000DhcpServerConfigPoolTableRowEditorVendorClassId4_Type())
-cie1000DhcpServerConfigPoolTableRowEditorVendorClassId4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorVendorClassId4.setStatus(_A)
-class _Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo4_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,66))
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo4_Type.__name__=_D
-_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo4_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo4=_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo4_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,45),_Cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo4_Type())
-cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo4.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo4.setStatus(_A)
-_Cie1000DhcpServerConfigPoolTableRowEditorAction_Type=CIE1000RowEditorState
-_Cie1000DhcpServerConfigPoolTableRowEditorAction_Object=MibScalar
-cie1000DhcpServerConfigPoolTableRowEditorAction=_Cie1000DhcpServerConfigPoolTableRowEditorAction_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,6,100),_Cie1000DhcpServerConfigPoolTableRowEditorAction_Type())
-cie1000DhcpServerConfigPoolTableRowEditorAction.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorAction.setStatus(_A)
-_Cie1000DhcpServerConfigReservedTable_Object=MibTable
-cie1000DhcpServerConfigReservedTable=_Cie1000DhcpServerConfigReservedTable_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,7))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigReservedTable.setStatus(_A)
-_Cie1000DhcpServerConfigReservedEntry_Object=MibTableRow
-cie1000DhcpServerConfigReservedEntry=_Cie1000DhcpServerConfigReservedEntry_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,7,1))
-cie1000DhcpServerConfigReservedEntry.setIndexNames((0,_B,_L),(0,_B,_M))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigReservedEntry.setStatus(_A)
-class _Cie1000DhcpServerConfigReservedPoolName_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Cie1000DhcpServerConfigReservedPoolName_Type.__name__=_D
-_Cie1000DhcpServerConfigReservedPoolName_Object=MibTableColumn
-cie1000DhcpServerConfigReservedPoolName=_Cie1000DhcpServerConfigReservedPoolName_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,7,1,1),_Cie1000DhcpServerConfigReservedPoolName_Type())
-cie1000DhcpServerConfigReservedPoolName.setMaxAccess(_F)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigReservedPoolName.setStatus(_A)
-_Cie1000DhcpServerConfigReservedIpAddress_Type=IpAddress
-_Cie1000DhcpServerConfigReservedIpAddress_Object=MibTableColumn
-cie1000DhcpServerConfigReservedIpAddress=_Cie1000DhcpServerConfigReservedIpAddress_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,7,1,2),_Cie1000DhcpServerConfigReservedIpAddress_Type())
-cie1000DhcpServerConfigReservedIpAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigReservedIpAddress.setStatus(_A)
-_Cie1000DhcpServerConfigReservedIfIndex_Type=CIE1000InterfaceIndex
-_Cie1000DhcpServerConfigReservedIfIndex_Object=MibTableColumn
-cie1000DhcpServerConfigReservedIfIndex=_Cie1000DhcpServerConfigReservedIfIndex_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,7,1,3),_Cie1000DhcpServerConfigReservedIfIndex_Type())
-cie1000DhcpServerConfigReservedIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigReservedIfIndex.setStatus(_A)
-_Cie1000DhcpServerConfigReservedAction_Type=CIE1000RowEditorState
-_Cie1000DhcpServerConfigReservedAction_Object=MibTableColumn
-cie1000DhcpServerConfigReservedAction=_Cie1000DhcpServerConfigReservedAction_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,7,1,100),_Cie1000DhcpServerConfigReservedAction_Type())
-cie1000DhcpServerConfigReservedAction.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigReservedAction.setStatus(_A)
-_Cie1000DhcpServerConfigReservedIpTableRowEditor_ObjectIdentity=ObjectIdentity
-cie1000DhcpServerConfigReservedIpTableRowEditor=_Cie1000DhcpServerConfigReservedIpTableRowEditor_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,109,1,2,8))
-class _Cie1000DhcpServerConfigReservedIpTableRowEditorPoolName_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Cie1000DhcpServerConfigReservedIpTableRowEditorPoolName_Type.__name__=_D
-_Cie1000DhcpServerConfigReservedIpTableRowEditorPoolName_Object=MibScalar
-cie1000DhcpServerConfigReservedIpTableRowEditorPoolName=_Cie1000DhcpServerConfigReservedIpTableRowEditorPoolName_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,8,1),_Cie1000DhcpServerConfigReservedIpTableRowEditorPoolName_Type())
-cie1000DhcpServerConfigReservedIpTableRowEditorPoolName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigReservedIpTableRowEditorPoolName.setStatus(_A)
-_Cie1000DhcpServerConfigReservedIpTableRowEditorIpAddress_Type=IpAddress
-_Cie1000DhcpServerConfigReservedIpTableRowEditorIpAddress_Object=MibScalar
-cie1000DhcpServerConfigReservedIpTableRowEditorIpAddress=_Cie1000DhcpServerConfigReservedIpTableRowEditorIpAddress_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,8,2),_Cie1000DhcpServerConfigReservedIpTableRowEditorIpAddress_Type())
-cie1000DhcpServerConfigReservedIpTableRowEditorIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigReservedIpTableRowEditorIpAddress.setStatus(_A)
-_Cie1000DhcpServerConfigReservedIpTableRowEditorIfIndex_Type=CIE1000InterfaceIndex
-_Cie1000DhcpServerConfigReservedIpTableRowEditorIfIndex_Object=MibScalar
-cie1000DhcpServerConfigReservedIpTableRowEditorIfIndex=_Cie1000DhcpServerConfigReservedIpTableRowEditorIfIndex_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,8,3),_Cie1000DhcpServerConfigReservedIpTableRowEditorIfIndex_Type())
-cie1000DhcpServerConfigReservedIpTableRowEditorIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigReservedIpTableRowEditorIfIndex.setStatus(_A)
-_Cie1000DhcpServerConfigReservedIpTableRowEditorAction_Type=CIE1000RowEditorState
-_Cie1000DhcpServerConfigReservedIpTableRowEditorAction_Object=MibScalar
-cie1000DhcpServerConfigReservedIpTableRowEditorAction=_Cie1000DhcpServerConfigReservedIpTableRowEditorAction_Object((1,3,6,1,4,1,9,9,832,1,109,1,2,8,100),_Cie1000DhcpServerConfigReservedIpTableRowEditorAction_Type())
-cie1000DhcpServerConfigReservedIpTableRowEditorAction.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerConfigReservedIpTableRowEditorAction.setStatus(_A)
-_Cie1000DhcpServerStatus_ObjectIdentity=ObjectIdentity
-cie1000DhcpServerStatus=_Cie1000DhcpServerStatus_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,109,1,3))
-_Cie1000DhcpServerStatusDeclinedTable_Object=MibTable
-cie1000DhcpServerStatusDeclinedTable=_Cie1000DhcpServerStatusDeclinedTable_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,1))
-if mibBuilder.loadTexts:cie1000DhcpServerStatusDeclinedTable.setStatus(_A)
-_Cie1000DhcpServerStatusDeclinedEntry_Object=MibTableRow
-cie1000DhcpServerStatusDeclinedEntry=_Cie1000DhcpServerStatusDeclinedEntry_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,1,1))
-cie1000DhcpServerStatusDeclinedEntry.setIndexNames((0,_B,_N))
-if mibBuilder.loadTexts:cie1000DhcpServerStatusDeclinedEntry.setStatus(_A)
-class _Cie1000DhcpServerStatusDeclinedEntryNo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_Cie1000DhcpServerStatusDeclinedEntryNo_Type.__name__=_P
-_Cie1000DhcpServerStatusDeclinedEntryNo_Object=MibTableColumn
-cie1000DhcpServerStatusDeclinedEntryNo=_Cie1000DhcpServerStatusDeclinedEntryNo_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,1,1,1),_Cie1000DhcpServerStatusDeclinedEntryNo_Type())
-cie1000DhcpServerStatusDeclinedEntryNo.setMaxAccess(_F)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusDeclinedEntryNo.setStatus(_A)
-_Cie1000DhcpServerStatusDeclinedIpv4Address_Type=IpAddress
-_Cie1000DhcpServerStatusDeclinedIpv4Address_Object=MibTableColumn
-cie1000DhcpServerStatusDeclinedIpv4Address=_Cie1000DhcpServerStatusDeclinedIpv4Address_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,1,1,2),_Cie1000DhcpServerStatusDeclinedIpv4Address_Type())
-cie1000DhcpServerStatusDeclinedIpv4Address.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusDeclinedIpv4Address.setStatus(_A)
-_Cie1000DhcpServerStatusStatistics_ObjectIdentity=ObjectIdentity
-cie1000DhcpServerStatusStatistics=_Cie1000DhcpServerStatusStatistics_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,109,1,3,2))
-_Cie1000DhcpServerStatusStatisticsDiscoverCnt_Type=Unsigned32
-_Cie1000DhcpServerStatusStatisticsDiscoverCnt_Object=MibScalar
-cie1000DhcpServerStatusStatisticsDiscoverCnt=_Cie1000DhcpServerStatusStatisticsDiscoverCnt_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,2,1),_Cie1000DhcpServerStatusStatisticsDiscoverCnt_Type())
-cie1000DhcpServerStatusStatisticsDiscoverCnt.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusStatisticsDiscoverCnt.setStatus(_A)
-_Cie1000DhcpServerStatusStatisticsOfferCnt_Type=Unsigned32
-_Cie1000DhcpServerStatusStatisticsOfferCnt_Object=MibScalar
-cie1000DhcpServerStatusStatisticsOfferCnt=_Cie1000DhcpServerStatusStatisticsOfferCnt_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,2,2),_Cie1000DhcpServerStatusStatisticsOfferCnt_Type())
-cie1000DhcpServerStatusStatisticsOfferCnt.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusStatisticsOfferCnt.setStatus(_A)
-_Cie1000DhcpServerStatusStatisticsRequestCnt_Type=Unsigned32
-_Cie1000DhcpServerStatusStatisticsRequestCnt_Object=MibScalar
-cie1000DhcpServerStatusStatisticsRequestCnt=_Cie1000DhcpServerStatusStatisticsRequestCnt_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,2,3),_Cie1000DhcpServerStatusStatisticsRequestCnt_Type())
-cie1000DhcpServerStatusStatisticsRequestCnt.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusStatisticsRequestCnt.setStatus(_A)
-_Cie1000DhcpServerStatusStatisticsAckCnt_Type=Unsigned32
-_Cie1000DhcpServerStatusStatisticsAckCnt_Object=MibScalar
-cie1000DhcpServerStatusStatisticsAckCnt=_Cie1000DhcpServerStatusStatisticsAckCnt_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,2,4),_Cie1000DhcpServerStatusStatisticsAckCnt_Type())
-cie1000DhcpServerStatusStatisticsAckCnt.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusStatisticsAckCnt.setStatus(_A)
-_Cie1000DhcpServerStatusStatisticsNakCnt_Type=Unsigned32
-_Cie1000DhcpServerStatusStatisticsNakCnt_Object=MibScalar
-cie1000DhcpServerStatusStatisticsNakCnt=_Cie1000DhcpServerStatusStatisticsNakCnt_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,2,5),_Cie1000DhcpServerStatusStatisticsNakCnt_Type())
-cie1000DhcpServerStatusStatisticsNakCnt.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusStatisticsNakCnt.setStatus(_A)
-_Cie1000DhcpServerStatusStatisticsDeclineCnt_Type=Unsigned32
-_Cie1000DhcpServerStatusStatisticsDeclineCnt_Object=MibScalar
-cie1000DhcpServerStatusStatisticsDeclineCnt=_Cie1000DhcpServerStatusStatisticsDeclineCnt_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,2,6),_Cie1000DhcpServerStatusStatisticsDeclineCnt_Type())
-cie1000DhcpServerStatusStatisticsDeclineCnt.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusStatisticsDeclineCnt.setStatus(_A)
-_Cie1000DhcpServerStatusStatisticsReleaseCnt_Type=Unsigned32
-_Cie1000DhcpServerStatusStatisticsReleaseCnt_Object=MibScalar
-cie1000DhcpServerStatusStatisticsReleaseCnt=_Cie1000DhcpServerStatusStatisticsReleaseCnt_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,2,7),_Cie1000DhcpServerStatusStatisticsReleaseCnt_Type())
-cie1000DhcpServerStatusStatisticsReleaseCnt.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusStatisticsReleaseCnt.setStatus(_A)
-_Cie1000DhcpServerStatusStatisticsInformCnt_Type=Unsigned32
-_Cie1000DhcpServerStatusStatisticsInformCnt_Object=MibScalar
-cie1000DhcpServerStatusStatisticsInformCnt=_Cie1000DhcpServerStatusStatisticsInformCnt_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,2,8),_Cie1000DhcpServerStatusStatisticsInformCnt_Type())
-cie1000DhcpServerStatusStatisticsInformCnt.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusStatisticsInformCnt.setStatus(_A)
-_Cie1000DhcpServerStatusBindingTable_Object=MibTable
-cie1000DhcpServerStatusBindingTable=_Cie1000DhcpServerStatusBindingTable_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,3))
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingTable.setStatus(_A)
-_Cie1000DhcpServerStatusBindingEntry_Object=MibTableRow
-cie1000DhcpServerStatusBindingEntry=_Cie1000DhcpServerStatusBindingEntry_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,3,1))
-cie1000DhcpServerStatusBindingEntry.setIndexNames((0,_B,_O))
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingEntry.setStatus(_A)
-_Cie1000DhcpServerStatusBindingIpAddress_Type=IpAddress
-_Cie1000DhcpServerStatusBindingIpAddress_Object=MibTableColumn
-cie1000DhcpServerStatusBindingIpAddress=_Cie1000DhcpServerStatusBindingIpAddress_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,3,1,1),_Cie1000DhcpServerStatusBindingIpAddress_Type())
-cie1000DhcpServerStatusBindingIpAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingIpAddress.setStatus(_A)
-_Cie1000DhcpServerStatusBindingState_Type=CIE1000DhcpServerBindingStateEnum
-_Cie1000DhcpServerStatusBindingState_Object=MibTableColumn
-cie1000DhcpServerStatusBindingState=_Cie1000DhcpServerStatusBindingState_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,3,1,2),_Cie1000DhcpServerStatusBindingState_Type())
-cie1000DhcpServerStatusBindingState.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingState.setStatus(_A)
-_Cie1000DhcpServerStatusBindingType_Type=CIE1000DhcpServerBindingEnum
-_Cie1000DhcpServerStatusBindingType_Object=MibTableColumn
-cie1000DhcpServerStatusBindingType=_Cie1000DhcpServerStatusBindingType_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,3,1,3),_Cie1000DhcpServerStatusBindingType_Type())
-cie1000DhcpServerStatusBindingType.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingType.setStatus(_A)
-class _Cie1000DhcpServerStatusBindingPoolName_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Cie1000DhcpServerStatusBindingPoolName_Type.__name__=_D
-_Cie1000DhcpServerStatusBindingPoolName_Object=MibTableColumn
-cie1000DhcpServerStatusBindingPoolName=_Cie1000DhcpServerStatusBindingPoolName_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,3,1,4),_Cie1000DhcpServerStatusBindingPoolName_Type())
-cie1000DhcpServerStatusBindingPoolName.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingPoolName.setStatus(_A)
-_Cie1000DhcpServerStatusBindingServerId_Type=IpAddress
-_Cie1000DhcpServerStatusBindingServerId_Object=MibTableColumn
-cie1000DhcpServerStatusBindingServerId=_Cie1000DhcpServerStatusBindingServerId_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,3,1,5),_Cie1000DhcpServerStatusBindingServerId_Type())
-cie1000DhcpServerStatusBindingServerId.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingServerId.setStatus(_A)
-_Cie1000DhcpServerStatusBindingVlanId_Type=CIE1000Unsigned16
-_Cie1000DhcpServerStatusBindingVlanId_Object=MibTableColumn
-cie1000DhcpServerStatusBindingVlanId=_Cie1000DhcpServerStatusBindingVlanId_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,3,1,6),_Cie1000DhcpServerStatusBindingVlanId_Type())
-cie1000DhcpServerStatusBindingVlanId.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingVlanId.setStatus(_A)
-_Cie1000DhcpServerStatusBindingSubnetMask_Type=IpAddress
-_Cie1000DhcpServerStatusBindingSubnetMask_Object=MibTableColumn
-cie1000DhcpServerStatusBindingSubnetMask=_Cie1000DhcpServerStatusBindingSubnetMask_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,3,1,7),_Cie1000DhcpServerStatusBindingSubnetMask_Type())
-cie1000DhcpServerStatusBindingSubnetMask.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingSubnetMask.setStatus(_A)
-_Cie1000DhcpServerStatusBindingClientIdentifierType_Type=CIE1000DhcpServerClientIdentifierEnum
-_Cie1000DhcpServerStatusBindingClientIdentifierType_Object=MibTableColumn
-cie1000DhcpServerStatusBindingClientIdentifierType=_Cie1000DhcpServerStatusBindingClientIdentifierType_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,3,1,8),_Cie1000DhcpServerStatusBindingClientIdentifierType_Type())
-cie1000DhcpServerStatusBindingClientIdentifierType.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingClientIdentifierType.setStatus(_A)
-class _Cie1000DhcpServerStatusBindingClientIdentifierName_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_Cie1000DhcpServerStatusBindingClientIdentifierName_Type.__name__=_D
-_Cie1000DhcpServerStatusBindingClientIdentifierName_Object=MibTableColumn
-cie1000DhcpServerStatusBindingClientIdentifierName=_Cie1000DhcpServerStatusBindingClientIdentifierName_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,3,1,9),_Cie1000DhcpServerStatusBindingClientIdentifierName_Type())
-cie1000DhcpServerStatusBindingClientIdentifierName.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingClientIdentifierName.setStatus(_A)
-_Cie1000DhcpServerStatusBindingClientIdentifierMac_Type=MacAddress
-_Cie1000DhcpServerStatusBindingClientIdentifierMac_Object=MibTableColumn
-cie1000DhcpServerStatusBindingClientIdentifierMac=_Cie1000DhcpServerStatusBindingClientIdentifierMac_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,3,1,10),_Cie1000DhcpServerStatusBindingClientIdentifierMac_Type())
-cie1000DhcpServerStatusBindingClientIdentifierMac.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingClientIdentifierMac.setStatus(_A)
-_Cie1000DhcpServerStatusBindingMacAddress_Type=MacAddress
-_Cie1000DhcpServerStatusBindingMacAddress_Object=MibTableColumn
-cie1000DhcpServerStatusBindingMacAddress=_Cie1000DhcpServerStatusBindingMacAddress_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,3,1,11),_Cie1000DhcpServerStatusBindingMacAddress_Type())
-cie1000DhcpServerStatusBindingMacAddress.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingMacAddress.setStatus(_A)
-class _Cie1000DhcpServerStatusBindingLease_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_Cie1000DhcpServerStatusBindingLease_Type.__name__=_D
-_Cie1000DhcpServerStatusBindingLease_Object=MibTableColumn
-cie1000DhcpServerStatusBindingLease=_Cie1000DhcpServerStatusBindingLease_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,3,1,12),_Cie1000DhcpServerStatusBindingLease_Type())
-cie1000DhcpServerStatusBindingLease.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingLease.setStatus(_A)
-class _Cie1000DhcpServerStatusBindingTimeToExpire_Type(CIE1000DisplayString):subtypeSpec=CIE1000DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_Cie1000DhcpServerStatusBindingTimeToExpire_Type.__name__=_D
-_Cie1000DhcpServerStatusBindingTimeToExpire_Object=MibTableColumn
-cie1000DhcpServerStatusBindingTimeToExpire=_Cie1000DhcpServerStatusBindingTimeToExpire_Object((1,3,6,1,4,1,9,9,832,1,109,1,3,3,1,13),_Cie1000DhcpServerStatusBindingTimeToExpire_Type())
-cie1000DhcpServerStatusBindingTimeToExpire.setMaxAccess(_E)
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingTimeToExpire.setStatus(_A)
-_Cie1000DhcpServerControl_ObjectIdentity=ObjectIdentity
-cie1000DhcpServerControl=_Cie1000DhcpServerControl_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,109,1,4))
-_Cie1000DhcpServerControlStatistics_ObjectIdentity=ObjectIdentity
-cie1000DhcpServerControlStatistics=_Cie1000DhcpServerControlStatistics_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,109,1,4,1))
-_Cie1000DhcpServerControlStatisticsClear_Type=TruthValue
-_Cie1000DhcpServerControlStatisticsClear_Object=MibScalar
-cie1000DhcpServerControlStatisticsClear=_Cie1000DhcpServerControlStatisticsClear_Object((1,3,6,1,4,1,9,9,832,1,109,1,4,1,1),_Cie1000DhcpServerControlStatisticsClear_Type())
-cie1000DhcpServerControlStatisticsClear.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerControlStatisticsClear.setStatus(_A)
-_Cie1000DhcpServerControlBinding_ObjectIdentity=ObjectIdentity
-cie1000DhcpServerControlBinding=_Cie1000DhcpServerControlBinding_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,109,1,4,2))
-_Cie1000DhcpServerControlBindingClearByIp_Type=IpAddress
-_Cie1000DhcpServerControlBindingClearByIp_Object=MibScalar
-cie1000DhcpServerControlBindingClearByIp=_Cie1000DhcpServerControlBindingClearByIp_Object((1,3,6,1,4,1,9,9,832,1,109,1,4,2,1),_Cie1000DhcpServerControlBindingClearByIp_Type())
-cie1000DhcpServerControlBindingClearByIp.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerControlBindingClearByIp.setStatus(_A)
-_Cie1000DhcpServerControlBindingClearByType_Type=CIE1000DhcpServerBindingEnum
-_Cie1000DhcpServerControlBindingClearByType_Object=MibScalar
-cie1000DhcpServerControlBindingClearByType=_Cie1000DhcpServerControlBindingClearByType_Object((1,3,6,1,4,1,9,9,832,1,109,1,4,2,2),_Cie1000DhcpServerControlBindingClearByType_Type())
-cie1000DhcpServerControlBindingClearByType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cie1000DhcpServerControlBindingClearByType.setStatus(_A)
-_Cie1000DhcpServerMibConformance_ObjectIdentity=ObjectIdentity
-cie1000DhcpServerMibConformance=_Cie1000DhcpServerMibConformance_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,109,2))
-_Cie1000DhcpServerMibCompliances_ObjectIdentity=ObjectIdentity
-cie1000DhcpServerMibCompliances=_Cie1000DhcpServerMibCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,109,2,1))
-_Cie1000DhcpServerMibGroups_ObjectIdentity=ObjectIdentity
-cie1000DhcpServerMibGroups=_Cie1000DhcpServerMibGroups_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,109,2,2))
-cie1000DhcpServerConfigGlobalsInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,109,2,2,1))
-cie1000DhcpServerConfigGlobalsInfoGroup.setObjects((_B,_R))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigGlobalsInfoGroup.setStatus(_A)
-cie1000DhcpServerConfigVlanTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,109,2,2,2))
-cie1000DhcpServerConfigVlanTableInfoGroup.setObjects(*((_B,_H),(_B,_S)))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigVlanTableInfoGroup.setStatus(_A)
-cie1000DhcpServerConfigExcludedTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,109,2,2,3))
-cie1000DhcpServerConfigExcludedTableInfoGroup.setObjects(*((_B,_I),(_B,_J),(_B,_T)))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigExcludedTableInfoGroup.setStatus(_A)
-cie1000DhcpServerConfigExcludedIpTableRowEditorInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,109,2,2,4))
-cie1000DhcpServerConfigExcludedIpTableRowEditorInfoGroup.setObjects(*((_B,_U),(_B,_V),(_B,_W)))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigExcludedIpTableRowEditorInfoGroup.setStatus(_A)
-cie1000DhcpServerConfigPoolTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,109,2,2,5))
-cie1000DhcpServerConfigPoolTableInfoGroup.setObjects(*((_B,_K),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF)))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableInfoGroup.setStatus(_A)
-cie1000DhcpServerConfigPoolTableRowEditorInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,109,2,2,6))
-cie1000DhcpServerConfigPoolTableRowEditorInfoGroup.setObjects(*((_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az)))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigPoolTableRowEditorInfoGroup.setStatus(_A)
-cie1000DhcpServerConfigReservedTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,109,2,2,7))
-cie1000DhcpServerConfigReservedTableInfoGroup.setObjects(*((_B,_L),(_B,_M),(_B,_A_),(_B,_B0)))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigReservedTableInfoGroup.setStatus(_A)
-cie1000DhcpServerConfigReservedIpTableRowEditorInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,109,2,2,8))
-cie1000DhcpServerConfigReservedIpTableRowEditorInfoGroup.setObjects(*((_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4)))
-if mibBuilder.loadTexts:cie1000DhcpServerConfigReservedIpTableRowEditorInfoGroup.setStatus(_A)
-cie1000DhcpServerStatusDeclinedTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,109,2,2,9))
-cie1000DhcpServerStatusDeclinedTableInfoGroup.setObjects(*((_B,_N),(_B,_B5)))
-if mibBuilder.loadTexts:cie1000DhcpServerStatusDeclinedTableInfoGroup.setStatus(_A)
-cie1000DhcpServerStatusStatisticsInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,109,2,2,10))
-cie1000DhcpServerStatusStatisticsInfoGroup.setObjects(*((_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD)))
-if mibBuilder.loadTexts:cie1000DhcpServerStatusStatisticsInfoGroup.setStatus(_A)
-cie1000DhcpServerStatusBindingTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,109,2,2,11))
-cie1000DhcpServerStatusBindingTableInfoGroup.setObjects(*((_B,_O),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP)))
-if mibBuilder.loadTexts:cie1000DhcpServerStatusBindingTableInfoGroup.setStatus(_A)
-cie1000DhcpServerControlStatisticsInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,109,2,2,12))
-cie1000DhcpServerControlStatisticsInfoGroup.setObjects((_B,_BQ))
-if mibBuilder.loadTexts:cie1000DhcpServerControlStatisticsInfoGroup.setStatus(_A)
-cie1000DhcpServerControlBindingInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,109,2,2,13))
-cie1000DhcpServerControlBindingInfoGroup.setObjects(*((_B,_BR),(_B,_BS)))
-if mibBuilder.loadTexts:cie1000DhcpServerControlBindingInfoGroup.setStatus(_A)
-cie1000DhcpServerMibCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,832,1,109,2,1,1))
-cie1000DhcpServerMibCompliance.setObjects(*((_B,_BT),(_B,_BU),(_B,_BV),(_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,_Bb),(_B,_Bc),(_B,_Bd),(_B,_Be),(_B,_Bf)))
-if mibBuilder.loadTexts:cie1000DhcpServerMibCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CIE1000DhcpServerBindingEnum':CIE1000DhcpServerBindingEnum,'CIE1000DhcpServerBindingStateEnum':CIE1000DhcpServerBindingStateEnum,'CIE1000DhcpServerClientIdentifierEnum':CIE1000DhcpServerClientIdentifierEnum,'CIE1000DhcpServerNetbiosNodeEnum':CIE1000DhcpServerNetbiosNodeEnum,'CIE1000DhcpServerPoolEnum':CIE1000DhcpServerPoolEnum,'cie1000DhcpServerMib':cie1000DhcpServerMib,'cie1000DhcpServerMibObjects':cie1000DhcpServerMibObjects,'cie1000DhcpServerConfig':cie1000DhcpServerConfig,'cie1000DhcpServerConfigGlobals':cie1000DhcpServerConfigGlobals,_R:cie1000DhcpServerConfigGlobalsMode,'cie1000DhcpServerConfigVlanTable':cie1000DhcpServerConfigVlanTable,'cie1000DhcpServerConfigVlanEntry':cie1000DhcpServerConfigVlanEntry,_H:cie1000DhcpServerConfigVlanIfIndex,_S:cie1000DhcpServerConfigVlanMode,'cie1000DhcpServerConfigExcludedTable':cie1000DhcpServerConfigExcludedTable,'cie1000DhcpServerConfigExcludedEntry':cie1000DhcpServerConfigExcludedEntry,_I:cie1000DhcpServerConfigExcludedLowIpAddress,_J:cie1000DhcpServerConfigExcludedHighIpAddress,_T:cie1000DhcpServerConfigExcludedAction,'cie1000DhcpServerConfigExcludedIpTableRowEditor':cie1000DhcpServerConfigExcludedIpTableRowEditor,_U:cie1000DhcpServerConfigExcludedIpTableRowEditorLowIpAddress,_V:cie1000DhcpServerConfigExcludedIpTableRowEditorHighIpAddress,_W:cie1000DhcpServerConfigExcludedIpTableRowEditorAction,'cie1000DhcpServerConfigPoolTable':cie1000DhcpServerConfigPoolTable,'cie1000DhcpServerConfigPoolEntry':cie1000DhcpServerConfigPoolEntry,_K:cie1000DhcpServerConfigPoolPoolName,_X:cie1000DhcpServerConfigPoolPoolType,_Y:cie1000DhcpServerConfigPoolIpv4Address,_Z:cie1000DhcpServerConfigPoolSubnetMask,_a:cie1000DhcpServerConfigPoolSubnetBroadcast,_b:cie1000DhcpServerConfigPoolLeaseDay,_c:cie1000DhcpServerConfigPoolLeaseHour,_d:cie1000DhcpServerConfigPoolLeaseMinute,_e:cie1000DhcpServerConfigPoolDomainName,_f:cie1000DhcpServerConfigPoolDefaultRouter1,_g:cie1000DhcpServerConfigPoolDefaultRouter2,_h:cie1000DhcpServerConfigPoolDefaultRouter3,_i:cie1000DhcpServerConfigPoolDefaultRouter4,_j:cie1000DhcpServerConfigPoolDnsServer1,_k:cie1000DhcpServerConfigPoolDnsServer2,_l:cie1000DhcpServerConfigPoolDnsServer3,_m:cie1000DhcpServerConfigPoolDnsServer4,_n:cie1000DhcpServerConfigPoolNtpServer1,_o:cie1000DhcpServerConfigPoolNtpServer2,_p:cie1000DhcpServerConfigPoolNtpServer3,_q:cie1000DhcpServerConfigPoolNtpServer4,_r:cie1000DhcpServerConfigPoolNetbiosNodeType,_s:cie1000DhcpServerConfigPoolNetbiosScope,_t:cie1000DhcpServerConfigPoolNetbiosNameServer1,_u:cie1000DhcpServerConfigPoolNetbiosNameServer2,_v:cie1000DhcpServerConfigPoolNetbiosNameServer3,_w:cie1000DhcpServerConfigPoolNetbiosNameServer4,_x:cie1000DhcpServerConfigPoolNisDomainName,_y:cie1000DhcpServerConfigPoolNisServer1,_z:cie1000DhcpServerConfigPoolNisServer2,_A0:cie1000DhcpServerConfigPoolNisServer3,_A1:cie1000DhcpServerConfigPoolNisServer4,_A2:cie1000DhcpServerConfigPoolClientIdentifierType,_A3:cie1000DhcpServerConfigPoolClientIdentifierName,_A4:cie1000DhcpServerConfigPoolClientIdentifierMac,_A5:cie1000DhcpServerConfigPoolClientHardwareAddress,_A6:cie1000DhcpServerConfigPoolClientName,_A7:cie1000DhcpServerConfigPoolVendorClassId1,_A8:cie1000DhcpServerConfigPoolVendorSpecificInfo1,_A9:cie1000DhcpServerConfigPoolVendorClassId2,_AA:cie1000DhcpServerConfigPoolVendorSpecificInfo2,_AB:cie1000DhcpServerConfigPoolVendorClassId3,_AC:cie1000DhcpServerConfigPoolVendorSpecificInfo3,_AD:cie1000DhcpServerConfigPoolVendorClassId4,_AE:cie1000DhcpServerConfigPoolVendorSpecificInfo4,_AF:cie1000DhcpServerConfigPoolAction,'cie1000DhcpServerConfigPoolTableRowEditor':cie1000DhcpServerConfigPoolTableRowEditor,_AG:cie1000DhcpServerConfigPoolTableRowEditorPoolName,_AH:cie1000DhcpServerConfigPoolTableRowEditorPoolType,_AI:cie1000DhcpServerConfigPoolTableRowEditorIpv4Address,_AJ:cie1000DhcpServerConfigPoolTableRowEditorSubnetMask,_AK:cie1000DhcpServerConfigPoolTableRowEditorSubnetBroadcast,_AL:cie1000DhcpServerConfigPoolTableRowEditorLeaseDay,_AM:cie1000DhcpServerConfigPoolTableRowEditorLeaseHour,_AN:cie1000DhcpServerConfigPoolTableRowEditorLeaseMinute,_AO:cie1000DhcpServerConfigPoolTableRowEditorDomainName,_AP:cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter1,_AQ:cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter2,_AR:cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter3,_AS:cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter4,_AT:cie1000DhcpServerConfigPoolTableRowEditorDnsServer1,_AU:cie1000DhcpServerConfigPoolTableRowEditorDnsServer2,_AV:cie1000DhcpServerConfigPoolTableRowEditorDnsServer3,_AW:cie1000DhcpServerConfigPoolTableRowEditorDnsServer4,_AX:cie1000DhcpServerConfigPoolTableRowEditorNtpServer1,_AY:cie1000DhcpServerConfigPoolTableRowEditorNtpServer2,_AZ:cie1000DhcpServerConfigPoolTableRowEditorNtpServer3,_Aa:cie1000DhcpServerConfigPoolTableRowEditorNtpServer4,_Ab:cie1000DhcpServerConfigPoolTableRowEditorNetbiosNodeType,_Ac:cie1000DhcpServerConfigPoolTableRowEditorNetbiosScope,_Ad:cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer1,_Ae:cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer2,_Af:cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer3,_Ag:cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer4,_Ah:cie1000DhcpServerConfigPoolTableRowEditorNisDomainName,_Ai:cie1000DhcpServerConfigPoolTableRowEditorNisServer1,_Aj:cie1000DhcpServerConfigPoolTableRowEditorNisServer2,_Ak:cie1000DhcpServerConfigPoolTableRowEditorNisServer3,_Al:cie1000DhcpServerConfigPoolTableRowEditorNisServer4,_Am:cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierType,_An:cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierName,_Ao:cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierMac,_Ap:cie1000DhcpServerConfigPoolTableRowEditorClientHardwareAddress,_Aq:cie1000DhcpServerConfigPoolTableRowEditorClientName,_Ar:cie1000DhcpServerConfigPoolTableRowEditorVendorClassId1,_As:cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo1,_At:cie1000DhcpServerConfigPoolTableRowEditorVendorClassId2,_Au:cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo2,_Av:cie1000DhcpServerConfigPoolTableRowEditorVendorClassId3,_Aw:cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo3,_Ax:cie1000DhcpServerConfigPoolTableRowEditorVendorClassId4,_Ay:cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo4,_Az:cie1000DhcpServerConfigPoolTableRowEditorAction,'cie1000DhcpServerConfigReservedTable':cie1000DhcpServerConfigReservedTable,'cie1000DhcpServerConfigReservedEntry':cie1000DhcpServerConfigReservedEntry,_L:cie1000DhcpServerConfigReservedPoolName,_M:cie1000DhcpServerConfigReservedIpAddress,_A_:cie1000DhcpServerConfigReservedIfIndex,_B0:cie1000DhcpServerConfigReservedAction,'cie1000DhcpServerConfigReservedIpTableRowEditor':cie1000DhcpServerConfigReservedIpTableRowEditor,_B1:cie1000DhcpServerConfigReservedIpTableRowEditorPoolName,_B2:cie1000DhcpServerConfigReservedIpTableRowEditorIpAddress,_B3:cie1000DhcpServerConfigReservedIpTableRowEditorIfIndex,_B4:cie1000DhcpServerConfigReservedIpTableRowEditorAction,'cie1000DhcpServerStatus':cie1000DhcpServerStatus,'cie1000DhcpServerStatusDeclinedTable':cie1000DhcpServerStatusDeclinedTable,'cie1000DhcpServerStatusDeclinedEntry':cie1000DhcpServerStatusDeclinedEntry,_N:cie1000DhcpServerStatusDeclinedEntryNo,_B5:cie1000DhcpServerStatusDeclinedIpv4Address,'cie1000DhcpServerStatusStatistics':cie1000DhcpServerStatusStatistics,_B6:cie1000DhcpServerStatusStatisticsDiscoverCnt,_B7:cie1000DhcpServerStatusStatisticsOfferCnt,_B8:cie1000DhcpServerStatusStatisticsRequestCnt,_B9:cie1000DhcpServerStatusStatisticsAckCnt,_BA:cie1000DhcpServerStatusStatisticsNakCnt,_BB:cie1000DhcpServerStatusStatisticsDeclineCnt,_BC:cie1000DhcpServerStatusStatisticsReleaseCnt,_BD:cie1000DhcpServerStatusStatisticsInformCnt,'cie1000DhcpServerStatusBindingTable':cie1000DhcpServerStatusBindingTable,'cie1000DhcpServerStatusBindingEntry':cie1000DhcpServerStatusBindingEntry,_O:cie1000DhcpServerStatusBindingIpAddress,_BE:cie1000DhcpServerStatusBindingState,_BF:cie1000DhcpServerStatusBindingType,_BG:cie1000DhcpServerStatusBindingPoolName,_BH:cie1000DhcpServerStatusBindingServerId,_BI:cie1000DhcpServerStatusBindingVlanId,_BJ:cie1000DhcpServerStatusBindingSubnetMask,_BK:cie1000DhcpServerStatusBindingClientIdentifierType,_BL:cie1000DhcpServerStatusBindingClientIdentifierName,_BM:cie1000DhcpServerStatusBindingClientIdentifierMac,_BN:cie1000DhcpServerStatusBindingMacAddress,_BO:cie1000DhcpServerStatusBindingLease,_BP:cie1000DhcpServerStatusBindingTimeToExpire,'cie1000DhcpServerControl':cie1000DhcpServerControl,'cie1000DhcpServerControlStatistics':cie1000DhcpServerControlStatistics,_BQ:cie1000DhcpServerControlStatisticsClear,'cie1000DhcpServerControlBinding':cie1000DhcpServerControlBinding,_BR:cie1000DhcpServerControlBindingClearByIp,_BS:cie1000DhcpServerControlBindingClearByType,'cie1000DhcpServerMibConformance':cie1000DhcpServerMibConformance,'cie1000DhcpServerMibCompliances':cie1000DhcpServerMibCompliances,'cie1000DhcpServerMibCompliance':cie1000DhcpServerMibCompliance,'cie1000DhcpServerMibGroups':cie1000DhcpServerMibGroups,_BT:cie1000DhcpServerConfigGlobalsInfoGroup,_BU:cie1000DhcpServerConfigVlanTableInfoGroup,_BV:cie1000DhcpServerConfigExcludedTableInfoGroup,_BW:cie1000DhcpServerConfigExcludedIpTableRowEditorInfoGroup,_BX:cie1000DhcpServerConfigPoolTableInfoGroup,_BY:cie1000DhcpServerConfigPoolTableRowEditorInfoGroup,_BZ:cie1000DhcpServerConfigReservedTableInfoGroup,_Ba:cie1000DhcpServerConfigReservedIpTableRowEditorInfoGroup,_Bb:cie1000DhcpServerStatusDeclinedTableInfoGroup,_Bc:cie1000DhcpServerStatusStatisticsInfoGroup,_Bd:cie1000DhcpServerStatusBindingTableInfoGroup,_Be:cie1000DhcpServerControlStatisticsInfoGroup,_Bf:cie1000DhcpServerControlBindingInfoGroup})
+#
+# PySNMP MIB module CIE1000-DHCP-SERVER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CIE1000-DHCP-SERVER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:05 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+CIE1000Unsigned16, CIE1000InterfaceIndex, CIE1000RowEditorState, CIE1000DisplayString = mibBuilder.importSymbols("CIE1000-TC", "CIE1000Unsigned16", "CIE1000InterfaceIndex", "CIE1000RowEditorState", "CIE1000DisplayString")
+cie1000SwitchMgmt, = mibBuilder.importSymbols("CISCO-IE1000-MIB", "cie1000SwitchMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TruthValue, MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "DisplayString", "TextualConvention")
+cie1000DhcpServerMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109))
+cie1000DhcpServerMib.setRevisions(('2015-08-24 00:00', '2014-11-27 00:00', '2014-07-01 00:00',))
+if mibBuilder.loadTexts: cie1000DhcpServerMib.setLastUpdated('201508240000Z')
+if mibBuilder.loadTexts: cie1000DhcpServerMib.setOrganization('Cisco Systems, Inc.')
+class CIE1000DhcpServerBindingEnum(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
+    namedValues = NamedValues(("none", 0), ("automatic", 1), ("manual", 2), ("expired", 3))
+
+class CIE1000DhcpServerBindingStateEnum(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
+    namedValues = NamedValues(("none", 0), ("allocated", 1), ("committed", 2), ("expired", 3))
+
+class CIE1000DhcpServerClientIdentifierEnum(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("none", 0), ("name", 1), ("mac", 2))
+
+class CIE1000DhcpServerNetbiosNodeEnum(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
+    namedValues = NamedValues(("nodeNone", 0), ("nodeB", 1), ("nodeP", 2), ("nodeM", 3), ("nodeH", 4))
+
+class CIE1000DhcpServerPoolEnum(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
+    namedValues = NamedValues(("none", 0), ("network", 1), ("host", 2))
+
+cie1000DhcpServerMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1))
+cie1000DhcpServerConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2))
+cie1000DhcpServerConfigGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 1))
+cie1000DhcpServerConfigGlobalsMode = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigGlobalsMode.setStatus('current')
+cie1000DhcpServerConfigVlanTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 2), )
+if mibBuilder.loadTexts: cie1000DhcpServerConfigVlanTable.setStatus('current')
+cie1000DhcpServerConfigVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 2, 1), ).setIndexNames((0, "CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigVlanIfIndex"))
+if mibBuilder.loadTexts: cie1000DhcpServerConfigVlanEntry.setStatus('current')
+cie1000DhcpServerConfigVlanIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 2, 1, 1), CIE1000InterfaceIndex()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigVlanIfIndex.setStatus('current')
+cie1000DhcpServerConfigVlanMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 2, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigVlanMode.setStatus('current')
+cie1000DhcpServerConfigExcludedTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 3), )
+if mibBuilder.loadTexts: cie1000DhcpServerConfigExcludedTable.setStatus('current')
+cie1000DhcpServerConfigExcludedEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 3, 1), ).setIndexNames((0, "CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigExcludedLowIpAddress"), (0, "CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigExcludedHighIpAddress"))
+if mibBuilder.loadTexts: cie1000DhcpServerConfigExcludedEntry.setStatus('current')
+cie1000DhcpServerConfigExcludedLowIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 3, 1, 1), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigExcludedLowIpAddress.setStatus('current')
+cie1000DhcpServerConfigExcludedHighIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 3, 1, 2), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigExcludedHighIpAddress.setStatus('current')
+cie1000DhcpServerConfigExcludedAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 3, 1, 100), CIE1000RowEditorState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigExcludedAction.setStatus('current')
+cie1000DhcpServerConfigExcludedIpTableRowEditor = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 4))
+cie1000DhcpServerConfigExcludedIpTableRowEditorLowIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 4, 1), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigExcludedIpTableRowEditorLowIpAddress.setStatus('current')
+cie1000DhcpServerConfigExcludedIpTableRowEditorHighIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 4, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigExcludedIpTableRowEditorHighIpAddress.setStatus('current')
+cie1000DhcpServerConfigExcludedIpTableRowEditorAction = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 4, 100), CIE1000RowEditorState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigExcludedIpTableRowEditorAction.setStatus('current')
+cie1000DhcpServerConfigPoolTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5), )
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTable.setStatus('current')
+cie1000DhcpServerConfigPoolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1), ).setIndexNames((0, "CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolPoolName"))
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolEntry.setStatus('current')
+cie1000DhcpServerConfigPoolPoolName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 1), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolPoolName.setStatus('current')
+cie1000DhcpServerConfigPoolPoolType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 2), CIE1000DhcpServerPoolEnum()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolPoolType.setStatus('current')
+cie1000DhcpServerConfigPoolIpv4Address = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolIpv4Address.setStatus('current')
+cie1000DhcpServerConfigPoolSubnetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 4), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolSubnetMask.setStatus('current')
+cie1000DhcpServerConfigPoolSubnetBroadcast = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 5), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolSubnetBroadcast.setStatus('current')
+cie1000DhcpServerConfigPoolLeaseDay = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 6), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolLeaseDay.setStatus('current')
+cie1000DhcpServerConfigPoolLeaseHour = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 7), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolLeaseHour.setStatus('current')
+cie1000DhcpServerConfigPoolLeaseMinute = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 8), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolLeaseMinute.setStatus('current')
+cie1000DhcpServerConfigPoolDomainName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 9), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolDomainName.setStatus('current')
+cie1000DhcpServerConfigPoolDefaultRouter1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 10), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolDefaultRouter1.setStatus('current')
+cie1000DhcpServerConfigPoolDefaultRouter2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 11), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolDefaultRouter2.setStatus('current')
+cie1000DhcpServerConfigPoolDefaultRouter3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 12), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolDefaultRouter3.setStatus('current')
+cie1000DhcpServerConfigPoolDefaultRouter4 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 13), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolDefaultRouter4.setStatus('current')
+cie1000DhcpServerConfigPoolDnsServer1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 14), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolDnsServer1.setStatus('current')
+cie1000DhcpServerConfigPoolDnsServer2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 15), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolDnsServer2.setStatus('current')
+cie1000DhcpServerConfigPoolDnsServer3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 16), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolDnsServer3.setStatus('current')
+cie1000DhcpServerConfigPoolDnsServer4 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 17), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolDnsServer4.setStatus('current')
+cie1000DhcpServerConfigPoolNtpServer1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 18), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolNtpServer1.setStatus('current')
+cie1000DhcpServerConfigPoolNtpServer2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 19), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolNtpServer2.setStatus('current')
+cie1000DhcpServerConfigPoolNtpServer3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 20), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolNtpServer3.setStatus('current')
+cie1000DhcpServerConfigPoolNtpServer4 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 21), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolNtpServer4.setStatus('current')
+cie1000DhcpServerConfigPoolNetbiosNodeType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 22), CIE1000DhcpServerNetbiosNodeEnum()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolNetbiosNodeType.setStatus('current')
+cie1000DhcpServerConfigPoolNetbiosScope = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 23), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolNetbiosScope.setStatus('current')
+cie1000DhcpServerConfigPoolNetbiosNameServer1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 24), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolNetbiosNameServer1.setStatus('current')
+cie1000DhcpServerConfigPoolNetbiosNameServer2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 25), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolNetbiosNameServer2.setStatus('current')
+cie1000DhcpServerConfigPoolNetbiosNameServer3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 26), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolNetbiosNameServer3.setStatus('current')
+cie1000DhcpServerConfigPoolNetbiosNameServer4 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 27), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolNetbiosNameServer4.setStatus('current')
+cie1000DhcpServerConfigPoolNisDomainName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 28), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolNisDomainName.setStatus('current')
+cie1000DhcpServerConfigPoolNisServer1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 29), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolNisServer1.setStatus('current')
+cie1000DhcpServerConfigPoolNisServer2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 30), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolNisServer2.setStatus('current')
+cie1000DhcpServerConfigPoolNisServer3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 31), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolNisServer3.setStatus('current')
+cie1000DhcpServerConfigPoolNisServer4 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 32), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolNisServer4.setStatus('current')
+cie1000DhcpServerConfigPoolClientIdentifierType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 33), CIE1000DhcpServerClientIdentifierEnum()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolClientIdentifierType.setStatus('current')
+cie1000DhcpServerConfigPoolClientIdentifierName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 34), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolClientIdentifierName.setStatus('current')
+cie1000DhcpServerConfigPoolClientIdentifierMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 35), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolClientIdentifierMac.setStatus('current')
+cie1000DhcpServerConfigPoolClientHardwareAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 36), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolClientHardwareAddress.setStatus('current')
+cie1000DhcpServerConfigPoolClientName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 37), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolClientName.setStatus('current')
+cie1000DhcpServerConfigPoolVendorClassId1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 38), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolVendorClassId1.setStatus('current')
+cie1000DhcpServerConfigPoolVendorSpecificInfo1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 39), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 66))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolVendorSpecificInfo1.setStatus('current')
+cie1000DhcpServerConfigPoolVendorClassId2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 40), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolVendorClassId2.setStatus('current')
+cie1000DhcpServerConfigPoolVendorSpecificInfo2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 41), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 66))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolVendorSpecificInfo2.setStatus('current')
+cie1000DhcpServerConfigPoolVendorClassId3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 42), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolVendorClassId3.setStatus('current')
+cie1000DhcpServerConfigPoolVendorSpecificInfo3 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 43), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 66))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolVendorSpecificInfo3.setStatus('current')
+cie1000DhcpServerConfigPoolVendorClassId4 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 44), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolVendorClassId4.setStatus('current')
+cie1000DhcpServerConfigPoolVendorSpecificInfo4 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 45), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 66))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolVendorSpecificInfo4.setStatus('current')
+cie1000DhcpServerConfigPoolAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 5, 1, 100), CIE1000RowEditorState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolAction.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditor = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6))
+cie1000DhcpServerConfigPoolTableRowEditorPoolName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 1), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorPoolName.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorPoolType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 2), CIE1000DhcpServerPoolEnum()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorPoolType.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorIpv4Address = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorIpv4Address.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorSubnetMask = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 4), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorSubnetMask.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorSubnetBroadcast = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 5), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorSubnetBroadcast.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorLeaseDay = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 6), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorLeaseDay.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorLeaseHour = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 7), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorLeaseHour.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorLeaseMinute = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 8), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorLeaseMinute.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorDomainName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 9), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorDomainName.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter1 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 10), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter1.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter2 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 11), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter2.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter3 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 12), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter3.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter4 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 13), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter4.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorDnsServer1 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 14), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorDnsServer1.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorDnsServer2 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 15), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorDnsServer2.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorDnsServer3 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 16), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorDnsServer3.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorDnsServer4 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 17), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorDnsServer4.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorNtpServer1 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 18), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorNtpServer1.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorNtpServer2 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 19), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorNtpServer2.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorNtpServer3 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 20), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorNtpServer3.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorNtpServer4 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 21), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorNtpServer4.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorNetbiosNodeType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 22), CIE1000DhcpServerNetbiosNodeEnum()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorNetbiosNodeType.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorNetbiosScope = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 23), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorNetbiosScope.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer1 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 24), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer1.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer2 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 25), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer2.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer3 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 26), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer3.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer4 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 27), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer4.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorNisDomainName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 28), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorNisDomainName.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorNisServer1 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 29), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorNisServer1.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorNisServer2 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 30), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorNisServer2.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorNisServer3 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 31), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorNisServer3.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorNisServer4 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 32), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorNisServer4.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 33), CIE1000DhcpServerClientIdentifierEnum()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierType.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 34), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierName.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierMac = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 35), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierMac.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorClientHardwareAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 36), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorClientHardwareAddress.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorClientName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 37), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorClientName.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorVendorClassId1 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 38), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorVendorClassId1.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo1 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 39), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 66))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo1.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorVendorClassId2 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 40), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorVendorClassId2.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo2 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 41), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 66))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo2.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorVendorClassId3 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 42), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorVendorClassId3.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo3 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 43), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 66))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo3.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorVendorClassId4 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 44), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorVendorClassId4.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo4 = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 45), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 66))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo4.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorAction = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 6, 100), CIE1000RowEditorState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigPoolTableRowEditorAction.setStatus('current')
+cie1000DhcpServerConfigReservedTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 7), )
+if mibBuilder.loadTexts: cie1000DhcpServerConfigReservedTable.setStatus('current')
+cie1000DhcpServerConfigReservedEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 7, 1), ).setIndexNames((0, "CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigReservedPoolName"), (0, "CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigReservedIpAddress"))
+if mibBuilder.loadTexts: cie1000DhcpServerConfigReservedEntry.setStatus('current')
+cie1000DhcpServerConfigReservedPoolName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 7, 1, 1), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigReservedPoolName.setStatus('current')
+cie1000DhcpServerConfigReservedIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 7, 1, 2), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigReservedIpAddress.setStatus('current')
+cie1000DhcpServerConfigReservedIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 7, 1, 3), CIE1000InterfaceIndex()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigReservedIfIndex.setStatus('current')
+cie1000DhcpServerConfigReservedAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 7, 1, 100), CIE1000RowEditorState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigReservedAction.setStatus('current')
+cie1000DhcpServerConfigReservedIpTableRowEditor = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 8))
+cie1000DhcpServerConfigReservedIpTableRowEditorPoolName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 8, 1), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigReservedIpTableRowEditorPoolName.setStatus('current')
+cie1000DhcpServerConfigReservedIpTableRowEditorIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 8, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigReservedIpTableRowEditorIpAddress.setStatus('current')
+cie1000DhcpServerConfigReservedIpTableRowEditorIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 8, 3), CIE1000InterfaceIndex()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigReservedIpTableRowEditorIfIndex.setStatus('current')
+cie1000DhcpServerConfigReservedIpTableRowEditorAction = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 2, 8, 100), CIE1000RowEditorState()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerConfigReservedIpTableRowEditorAction.setStatus('current')
+cie1000DhcpServerStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3))
+cie1000DhcpServerStatusDeclinedTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 1), )
+if mibBuilder.loadTexts: cie1000DhcpServerStatusDeclinedTable.setStatus('current')
+cie1000DhcpServerStatusDeclinedEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 1, 1), ).setIndexNames((0, "CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusDeclinedEntryNo"))
+if mibBuilder.loadTexts: cie1000DhcpServerStatusDeclinedEntry.setStatus('current')
+cie1000DhcpServerStatusDeclinedEntryNo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusDeclinedEntryNo.setStatus('current')
+cie1000DhcpServerStatusDeclinedIpv4Address = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusDeclinedIpv4Address.setStatus('current')
+cie1000DhcpServerStatusStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 2))
+cie1000DhcpServerStatusStatisticsDiscoverCnt = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 2, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusStatisticsDiscoverCnt.setStatus('current')
+cie1000DhcpServerStatusStatisticsOfferCnt = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 2, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusStatisticsOfferCnt.setStatus('current')
+cie1000DhcpServerStatusStatisticsRequestCnt = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 2, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusStatisticsRequestCnt.setStatus('current')
+cie1000DhcpServerStatusStatisticsAckCnt = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 2, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusStatisticsAckCnt.setStatus('current')
+cie1000DhcpServerStatusStatisticsNakCnt = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 2, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusStatisticsNakCnt.setStatus('current')
+cie1000DhcpServerStatusStatisticsDeclineCnt = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 2, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusStatisticsDeclineCnt.setStatus('current')
+cie1000DhcpServerStatusStatisticsReleaseCnt = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 2, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusStatisticsReleaseCnt.setStatus('current')
+cie1000DhcpServerStatusStatisticsInformCnt = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 2, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusStatisticsInformCnt.setStatus('current')
+cie1000DhcpServerStatusBindingTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 3), )
+if mibBuilder.loadTexts: cie1000DhcpServerStatusBindingTable.setStatus('current')
+cie1000DhcpServerStatusBindingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 3, 1), ).setIndexNames((0, "CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusBindingIpAddress"))
+if mibBuilder.loadTexts: cie1000DhcpServerStatusBindingEntry.setStatus('current')
+cie1000DhcpServerStatusBindingIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 3, 1, 1), IpAddress()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusBindingIpAddress.setStatus('current')
+cie1000DhcpServerStatusBindingState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 3, 1, 2), CIE1000DhcpServerBindingStateEnum()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusBindingState.setStatus('current')
+cie1000DhcpServerStatusBindingType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 3, 1, 3), CIE1000DhcpServerBindingEnum()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusBindingType.setStatus('current')
+cie1000DhcpServerStatusBindingPoolName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 3, 1, 4), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusBindingPoolName.setStatus('current')
+cie1000DhcpServerStatusBindingServerId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 3, 1, 5), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusBindingServerId.setStatus('current')
+cie1000DhcpServerStatusBindingVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 3, 1, 6), CIE1000Unsigned16()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusBindingVlanId.setStatus('current')
+cie1000DhcpServerStatusBindingSubnetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 3, 1, 7), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusBindingSubnetMask.setStatus('current')
+cie1000DhcpServerStatusBindingClientIdentifierType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 3, 1, 8), CIE1000DhcpServerClientIdentifierEnum()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusBindingClientIdentifierType.setStatus('current')
+cie1000DhcpServerStatusBindingClientIdentifierName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 3, 1, 9), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusBindingClientIdentifierName.setStatus('current')
+cie1000DhcpServerStatusBindingClientIdentifierMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 3, 1, 10), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusBindingClientIdentifierMac.setStatus('current')
+cie1000DhcpServerStatusBindingMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 3, 1, 11), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusBindingMacAddress.setStatus('current')
+cie1000DhcpServerStatusBindingLease = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 3, 1, 12), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusBindingLease.setStatus('current')
+cie1000DhcpServerStatusBindingTimeToExpire = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 3, 3, 1, 13), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cie1000DhcpServerStatusBindingTimeToExpire.setStatus('current')
+cie1000DhcpServerControl = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 4))
+cie1000DhcpServerControlStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 4, 1))
+cie1000DhcpServerControlStatisticsClear = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 4, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerControlStatisticsClear.setStatus('current')
+cie1000DhcpServerControlBinding = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 4, 2))
+cie1000DhcpServerControlBindingClearByIp = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 4, 2, 1), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerControlBindingClearByIp.setStatus('current')
+cie1000DhcpServerControlBindingClearByType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 1, 4, 2, 2), CIE1000DhcpServerBindingEnum()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cie1000DhcpServerControlBindingClearByType.setStatus('current')
+cie1000DhcpServerMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2))
+cie1000DhcpServerMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 1))
+cie1000DhcpServerMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 2))
+cie1000DhcpServerConfigGlobalsInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 2, 1)).setObjects(("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigGlobalsMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cie1000DhcpServerConfigGlobalsInfoGroup = cie1000DhcpServerConfigGlobalsInfoGroup.setStatus('current')
+cie1000DhcpServerConfigVlanTableInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 2, 2)).setObjects(("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigVlanIfIndex"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigVlanMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cie1000DhcpServerConfigVlanTableInfoGroup = cie1000DhcpServerConfigVlanTableInfoGroup.setStatus('current')
+cie1000DhcpServerConfigExcludedTableInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 2, 3)).setObjects(("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigExcludedLowIpAddress"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigExcludedHighIpAddress"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigExcludedAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cie1000DhcpServerConfigExcludedTableInfoGroup = cie1000DhcpServerConfigExcludedTableInfoGroup.setStatus('current')
+cie1000DhcpServerConfigExcludedIpTableRowEditorInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 2, 4)).setObjects(("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigExcludedIpTableRowEditorLowIpAddress"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigExcludedIpTableRowEditorHighIpAddress"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigExcludedIpTableRowEditorAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cie1000DhcpServerConfigExcludedIpTableRowEditorInfoGroup = cie1000DhcpServerConfigExcludedIpTableRowEditorInfoGroup.setStatus('current')
+cie1000DhcpServerConfigPoolTableInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 2, 5)).setObjects(("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolPoolName"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolPoolType"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolIpv4Address"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolSubnetMask"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolSubnetBroadcast"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolLeaseDay"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolLeaseHour"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolLeaseMinute"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolDomainName"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolDefaultRouter1"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolDefaultRouter2"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolDefaultRouter3"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolDefaultRouter4"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolDnsServer1"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolDnsServer2"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolDnsServer3"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolDnsServer4"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolNtpServer1"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolNtpServer2"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolNtpServer3"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolNtpServer4"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolNetbiosNodeType"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolNetbiosScope"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolNetbiosNameServer1"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolNetbiosNameServer2"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolNetbiosNameServer3"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolNetbiosNameServer4"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolNisDomainName"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolNisServer1"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolNisServer2"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolNisServer3"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolNisServer4"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolClientIdentifierType"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolClientIdentifierName"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolClientIdentifierMac"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolClientHardwareAddress"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolClientName"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolVendorClassId1"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolVendorSpecificInfo1"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolVendorClassId2"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolVendorSpecificInfo2"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolVendorClassId3"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolVendorSpecificInfo3"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolVendorClassId4"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolVendorSpecificInfo4"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cie1000DhcpServerConfigPoolTableInfoGroup = cie1000DhcpServerConfigPoolTableInfoGroup.setStatus('current')
+cie1000DhcpServerConfigPoolTableRowEditorInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 2, 6)).setObjects(("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorPoolName"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorPoolType"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorIpv4Address"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorSubnetMask"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorSubnetBroadcast"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorLeaseDay"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorLeaseHour"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorLeaseMinute"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorDomainName"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter1"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter2"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter3"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter4"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorDnsServer1"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorDnsServer2"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorDnsServer3"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorDnsServer4"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorNtpServer1"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorNtpServer2"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorNtpServer3"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorNtpServer4"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorNetbiosNodeType"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorNetbiosScope"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer1"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer2"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer3"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer4"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorNisDomainName"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorNisServer1"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorNisServer2"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorNisServer3"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorNisServer4"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierType"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierName"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierMac"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorClientHardwareAddress"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorClientName"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorVendorClassId1"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo1"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorVendorClassId2"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo2"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorVendorClassId3"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo3"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorVendorClassId4"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo4"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cie1000DhcpServerConfigPoolTableRowEditorInfoGroup = cie1000DhcpServerConfigPoolTableRowEditorInfoGroup.setStatus('current')
+cie1000DhcpServerConfigReservedTableInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 2, 7)).setObjects(("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigReservedPoolName"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigReservedIpAddress"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigReservedIfIndex"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigReservedAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cie1000DhcpServerConfigReservedTableInfoGroup = cie1000DhcpServerConfigReservedTableInfoGroup.setStatus('current')
+cie1000DhcpServerConfigReservedIpTableRowEditorInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 2, 8)).setObjects(("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigReservedIpTableRowEditorPoolName"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigReservedIpTableRowEditorIpAddress"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigReservedIpTableRowEditorIfIndex"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigReservedIpTableRowEditorAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cie1000DhcpServerConfigReservedIpTableRowEditorInfoGroup = cie1000DhcpServerConfigReservedIpTableRowEditorInfoGroup.setStatus('current')
+cie1000DhcpServerStatusDeclinedTableInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 2, 9)).setObjects(("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusDeclinedEntryNo"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusDeclinedIpv4Address"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cie1000DhcpServerStatusDeclinedTableInfoGroup = cie1000DhcpServerStatusDeclinedTableInfoGroup.setStatus('current')
+cie1000DhcpServerStatusStatisticsInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 2, 10)).setObjects(("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusStatisticsDiscoverCnt"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusStatisticsOfferCnt"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusStatisticsRequestCnt"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusStatisticsAckCnt"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusStatisticsNakCnt"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusStatisticsDeclineCnt"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusStatisticsReleaseCnt"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusStatisticsInformCnt"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cie1000DhcpServerStatusStatisticsInfoGroup = cie1000DhcpServerStatusStatisticsInfoGroup.setStatus('current')
+cie1000DhcpServerStatusBindingTableInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 2, 11)).setObjects(("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusBindingIpAddress"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusBindingState"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusBindingType"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusBindingPoolName"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusBindingServerId"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusBindingVlanId"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusBindingSubnetMask"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusBindingClientIdentifierType"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusBindingClientIdentifierName"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusBindingClientIdentifierMac"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusBindingMacAddress"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusBindingLease"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusBindingTimeToExpire"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cie1000DhcpServerStatusBindingTableInfoGroup = cie1000DhcpServerStatusBindingTableInfoGroup.setStatus('current')
+cie1000DhcpServerControlStatisticsInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 2, 12)).setObjects(("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerControlStatisticsClear"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cie1000DhcpServerControlStatisticsInfoGroup = cie1000DhcpServerControlStatisticsInfoGroup.setStatus('current')
+cie1000DhcpServerControlBindingInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 2, 13)).setObjects(("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerControlBindingClearByIp"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerControlBindingClearByType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cie1000DhcpServerControlBindingInfoGroup = cie1000DhcpServerControlBindingInfoGroup.setStatus('current')
+cie1000DhcpServerMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 109, 2, 1, 1)).setObjects(("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigGlobalsInfoGroup"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigVlanTableInfoGroup"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigExcludedTableInfoGroup"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigExcludedIpTableRowEditorInfoGroup"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableInfoGroup"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigPoolTableRowEditorInfoGroup"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigReservedTableInfoGroup"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerConfigReservedIpTableRowEditorInfoGroup"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusDeclinedTableInfoGroup"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusStatisticsInfoGroup"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerStatusBindingTableInfoGroup"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerControlStatisticsInfoGroup"), ("CIE1000-DHCP-SERVER-MIB", "cie1000DhcpServerControlBindingInfoGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cie1000DhcpServerMibCompliance = cie1000DhcpServerMibCompliance.setStatus('current')
+mibBuilder.exportSymbols("CIE1000-DHCP-SERVER-MIB", cie1000DhcpServerConfigPoolTableRowEditor=cie1000DhcpServerConfigPoolTableRowEditor, cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierType=cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierType, cie1000DhcpServerConfigReservedTable=cie1000DhcpServerConfigReservedTable, cie1000DhcpServerConfigExcludedHighIpAddress=cie1000DhcpServerConfigExcludedHighIpAddress, cie1000DhcpServerConfigPoolNisServer4=cie1000DhcpServerConfigPoolNisServer4, cie1000DhcpServerConfigPoolTableRowEditorLeaseHour=cie1000DhcpServerConfigPoolTableRowEditorLeaseHour, cie1000DhcpServerConfigPoolTable=cie1000DhcpServerConfigPoolTable, cie1000DhcpServerConfigPoolTableRowEditorClientName=cie1000DhcpServerConfigPoolTableRowEditorClientName, cie1000DhcpServerConfigVlanTable=cie1000DhcpServerConfigVlanTable, cie1000DhcpServerConfigPoolTableRowEditorIpv4Address=cie1000DhcpServerConfigPoolTableRowEditorIpv4Address, cie1000DhcpServerConfigPoolNetbiosNameServer4=cie1000DhcpServerConfigPoolNetbiosNameServer4, cie1000DhcpServerConfigPoolClientHardwareAddress=cie1000DhcpServerConfigPoolClientHardwareAddress, cie1000DhcpServerConfigPoolLeaseHour=cie1000DhcpServerConfigPoolLeaseHour, cie1000DhcpServerConfigPoolDefaultRouter1=cie1000DhcpServerConfigPoolDefaultRouter1, cie1000DhcpServerConfigVlanMode=cie1000DhcpServerConfigVlanMode, cie1000DhcpServerConfigPoolLeaseDay=cie1000DhcpServerConfigPoolLeaseDay, cie1000DhcpServerConfigPoolVendorSpecificInfo4=cie1000DhcpServerConfigPoolVendorSpecificInfo4, cie1000DhcpServerMibConformance=cie1000DhcpServerMibConformance, cie1000DhcpServerMibCompliance=cie1000DhcpServerMibCompliance, cie1000DhcpServerConfigExcludedIpTableRowEditorInfoGroup=cie1000DhcpServerConfigExcludedIpTableRowEditorInfoGroup, cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierMac=cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierMac, cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter4=cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter4, cie1000DhcpServerConfigPoolNisServer3=cie1000DhcpServerConfigPoolNisServer3, cie1000DhcpServerConfigPoolTableRowEditorAction=cie1000DhcpServerConfigPoolTableRowEditorAction, cie1000DhcpServerConfigPoolClientIdentifierName=cie1000DhcpServerConfigPoolClientIdentifierName, cie1000DhcpServerConfigPoolNisServer1=cie1000DhcpServerConfigPoolNisServer1, cie1000DhcpServerStatusBindingTimeToExpire=cie1000DhcpServerStatusBindingTimeToExpire, cie1000DhcpServerConfigPoolNtpServer3=cie1000DhcpServerConfigPoolNtpServer3, cie1000DhcpServerStatusStatisticsNakCnt=cie1000DhcpServerStatusStatisticsNakCnt, cie1000DhcpServerStatusBindingTable=cie1000DhcpServerStatusBindingTable, cie1000DhcpServerConfigExcludedTableInfoGroup=cie1000DhcpServerConfigExcludedTableInfoGroup, cie1000DhcpServerConfigExcludedLowIpAddress=cie1000DhcpServerConfigExcludedLowIpAddress, cie1000DhcpServerStatusBindingClientIdentifierMac=cie1000DhcpServerStatusBindingClientIdentifierMac, cie1000DhcpServerControlBindingClearByIp=cie1000DhcpServerControlBindingClearByIp, cie1000DhcpServerConfigPoolPoolType=cie1000DhcpServerConfigPoolPoolType, cie1000DhcpServerConfigPoolVendorSpecificInfo3=cie1000DhcpServerConfigPoolVendorSpecificInfo3, cie1000DhcpServerMibCompliances=cie1000DhcpServerMibCompliances, cie1000DhcpServerConfigPoolTableRowEditorVendorClassId2=cie1000DhcpServerConfigPoolTableRowEditorVendorClassId2, cie1000DhcpServerConfigGlobalsMode=cie1000DhcpServerConfigGlobalsMode, cie1000DhcpServerConfigPoolNisDomainName=cie1000DhcpServerConfigPoolNisDomainName, cie1000DhcpServerConfigPoolTableRowEditorInfoGroup=cie1000DhcpServerConfigPoolTableRowEditorInfoGroup, cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter2=cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter2, cie1000DhcpServerConfigPoolDnsServer4=cie1000DhcpServerConfigPoolDnsServer4, cie1000DhcpServerStatusBindingLease=cie1000DhcpServerStatusBindingLease, cie1000DhcpServerConfigReservedTableInfoGroup=cie1000DhcpServerConfigReservedTableInfoGroup, cie1000DhcpServerStatusBindingType=cie1000DhcpServerStatusBindingType, cie1000DhcpServerConfigPoolTableRowEditorDnsServer1=cie1000DhcpServerConfigPoolTableRowEditorDnsServer1, cie1000DhcpServerStatusStatisticsAckCnt=cie1000DhcpServerStatusStatisticsAckCnt, cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierName=cie1000DhcpServerConfigPoolTableRowEditorClientIdentifierName, cie1000DhcpServerConfigExcludedIpTableRowEditorAction=cie1000DhcpServerConfigExcludedIpTableRowEditorAction, cie1000DhcpServerConfigPoolTableRowEditorPoolName=cie1000DhcpServerConfigPoolTableRowEditorPoolName, cie1000DhcpServerStatusStatistics=cie1000DhcpServerStatusStatistics, cie1000DhcpServerStatusStatisticsRequestCnt=cie1000DhcpServerStatusStatisticsRequestCnt, cie1000DhcpServerStatusBindingClientIdentifierName=cie1000DhcpServerStatusBindingClientIdentifierName, cie1000DhcpServerConfigPoolDomainName=cie1000DhcpServerConfigPoolDomainName, cie1000DhcpServerConfigPoolClientName=cie1000DhcpServerConfigPoolClientName, cie1000DhcpServerConfigPoolTableRowEditorNtpServer2=cie1000DhcpServerConfigPoolTableRowEditorNtpServer2, cie1000DhcpServerConfigPoolTableInfoGroup=cie1000DhcpServerConfigPoolTableInfoGroup, cie1000DhcpServerConfigPoolVendorClassId1=cie1000DhcpServerConfigPoolVendorClassId1, CIE1000DhcpServerBindingEnum=CIE1000DhcpServerBindingEnum, cie1000DhcpServerConfigPoolNetbiosNodeType=cie1000DhcpServerConfigPoolNetbiosNodeType, PYSNMP_MODULE_ID=cie1000DhcpServerMib, cie1000DhcpServerConfigReservedPoolName=cie1000DhcpServerConfigReservedPoolName, cie1000DhcpServerConfigPoolVendorSpecificInfo1=cie1000DhcpServerConfigPoolVendorSpecificInfo1, cie1000DhcpServerStatusBindingTableInfoGroup=cie1000DhcpServerStatusBindingTableInfoGroup, cie1000DhcpServerStatusBindingState=cie1000DhcpServerStatusBindingState, cie1000DhcpServerStatus=cie1000DhcpServerStatus, CIE1000DhcpServerClientIdentifierEnum=CIE1000DhcpServerClientIdentifierEnum, cie1000DhcpServerConfigPoolNtpServer1=cie1000DhcpServerConfigPoolNtpServer1, cie1000DhcpServerConfigReservedEntry=cie1000DhcpServerConfigReservedEntry, cie1000DhcpServerStatusStatisticsDiscoverCnt=cie1000DhcpServerStatusStatisticsDiscoverCnt, cie1000DhcpServerConfigPoolTableRowEditorNisServer1=cie1000DhcpServerConfigPoolTableRowEditorNisServer1, cie1000DhcpServerConfigExcludedIpTableRowEditorHighIpAddress=cie1000DhcpServerConfigExcludedIpTableRowEditorHighIpAddress, cie1000DhcpServerStatusDeclinedTable=cie1000DhcpServerStatusDeclinedTable, cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter3=cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter3, cie1000DhcpServerConfigReservedIpTableRowEditorIpAddress=cie1000DhcpServerConfigReservedIpTableRowEditorIpAddress, cie1000DhcpServerConfigReservedIfIndex=cie1000DhcpServerConfigReservedIfIndex, cie1000DhcpServerConfigReservedAction=cie1000DhcpServerConfigReservedAction, cie1000DhcpServerConfigPoolTableRowEditorClientHardwareAddress=cie1000DhcpServerConfigPoolTableRowEditorClientHardwareAddress, cie1000DhcpServerConfigExcludedTable=cie1000DhcpServerConfigExcludedTable, cie1000DhcpServerStatusBindingClientIdentifierType=cie1000DhcpServerStatusBindingClientIdentifierType, cie1000DhcpServerMib=cie1000DhcpServerMib, cie1000DhcpServerConfigPoolTableRowEditorVendorClassId3=cie1000DhcpServerConfigPoolTableRowEditorVendorClassId3, cie1000DhcpServerConfigVlanEntry=cie1000DhcpServerConfigVlanEntry, cie1000DhcpServerConfigPoolTableRowEditorNisDomainName=cie1000DhcpServerConfigPoolTableRowEditorNisDomainName, cie1000DhcpServerConfigPoolClientIdentifierMac=cie1000DhcpServerConfigPoolClientIdentifierMac, cie1000DhcpServerStatusStatisticsOfferCnt=cie1000DhcpServerStatusStatisticsOfferCnt, cie1000DhcpServerConfigExcludedIpTableRowEditorLowIpAddress=cie1000DhcpServerConfigExcludedIpTableRowEditorLowIpAddress, cie1000DhcpServerConfigPoolClientIdentifierType=cie1000DhcpServerConfigPoolClientIdentifierType, cie1000DhcpServerConfigPoolTableRowEditorNtpServer3=cie1000DhcpServerConfigPoolTableRowEditorNtpServer3, cie1000DhcpServerMibGroups=cie1000DhcpServerMibGroups, cie1000DhcpServerControlBindingInfoGroup=cie1000DhcpServerControlBindingInfoGroup, cie1000DhcpServerControlBindingClearByType=cie1000DhcpServerControlBindingClearByType, cie1000DhcpServerConfigPoolTableRowEditorNetbiosScope=cie1000DhcpServerConfigPoolTableRowEditorNetbiosScope, cie1000DhcpServerConfigPoolVendorSpecificInfo2=cie1000DhcpServerConfigPoolVendorSpecificInfo2, cie1000DhcpServerConfigExcludedIpTableRowEditor=cie1000DhcpServerConfigExcludedIpTableRowEditor, cie1000DhcpServerConfigPoolPoolName=cie1000DhcpServerConfigPoolPoolName, cie1000DhcpServerConfigPoolNetbiosNameServer2=cie1000DhcpServerConfigPoolNetbiosNameServer2, cie1000DhcpServerConfigPoolTableRowEditorNisServer2=cie1000DhcpServerConfigPoolTableRowEditorNisServer2, cie1000DhcpServerConfigReservedIpTableRowEditorIfIndex=cie1000DhcpServerConfigReservedIpTableRowEditorIfIndex, cie1000DhcpServerConfigPoolSubnetBroadcast=cie1000DhcpServerConfigPoolSubnetBroadcast, cie1000DhcpServerConfigReservedIpAddress=cie1000DhcpServerConfigReservedIpAddress, cie1000DhcpServerConfigVlanIfIndex=cie1000DhcpServerConfigVlanIfIndex, cie1000DhcpServerStatusDeclinedEntryNo=cie1000DhcpServerStatusDeclinedEntryNo, cie1000DhcpServerConfigReservedIpTableRowEditor=cie1000DhcpServerConfigReservedIpTableRowEditor, cie1000DhcpServerConfigPoolTableRowEditorSubnetBroadcast=cie1000DhcpServerConfigPoolTableRowEditorSubnetBroadcast, cie1000DhcpServerConfigPoolDnsServer3=cie1000DhcpServerConfigPoolDnsServer3, cie1000DhcpServerConfigPoolNtpServer2=cie1000DhcpServerConfigPoolNtpServer2, cie1000DhcpServerConfigPoolTableRowEditorPoolType=cie1000DhcpServerConfigPoolTableRowEditorPoolType, cie1000DhcpServerStatusStatisticsInfoGroup=cie1000DhcpServerStatusStatisticsInfoGroup, cie1000DhcpServerConfigPoolTableRowEditorVendorClassId1=cie1000DhcpServerConfigPoolTableRowEditorVendorClassId1, cie1000DhcpServerConfigPoolTableRowEditorNtpServer1=cie1000DhcpServerConfigPoolTableRowEditorNtpServer1, cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo2=cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo2, cie1000DhcpServerConfigPoolTableRowEditorSubnetMask=cie1000DhcpServerConfigPoolTableRowEditorSubnetMask, cie1000DhcpServerConfigPoolDnsServer2=cie1000DhcpServerConfigPoolDnsServer2, cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo4=cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo4, CIE1000DhcpServerNetbiosNodeEnum=CIE1000DhcpServerNetbiosNodeEnum, cie1000DhcpServerConfigPoolDefaultRouter3=cie1000DhcpServerConfigPoolDefaultRouter3, cie1000DhcpServerStatusBindingEntry=cie1000DhcpServerStatusBindingEntry, cie1000DhcpServerConfigReservedIpTableRowEditorInfoGroup=cie1000DhcpServerConfigReservedIpTableRowEditorInfoGroup, cie1000DhcpServerStatusBindingSubnetMask=cie1000DhcpServerStatusBindingSubnetMask, cie1000DhcpServerControlBinding=cie1000DhcpServerControlBinding, cie1000DhcpServerConfigPoolNetbiosNameServer1=cie1000DhcpServerConfigPoolNetbiosNameServer1, cie1000DhcpServerConfigPoolTableRowEditorDnsServer2=cie1000DhcpServerConfigPoolTableRowEditorDnsServer2, cie1000DhcpServerConfigPoolTableRowEditorVendorClassId4=cie1000DhcpServerConfigPoolTableRowEditorVendorClassId4, cie1000DhcpServerConfigExcludedEntry=cie1000DhcpServerConfigExcludedEntry, cie1000DhcpServerConfigPoolTableRowEditorNisServer3=cie1000DhcpServerConfigPoolTableRowEditorNisServer3, cie1000DhcpServerConfigPoolSubnetMask=cie1000DhcpServerConfigPoolSubnetMask, cie1000DhcpServerConfigExcludedAction=cie1000DhcpServerConfigExcludedAction, cie1000DhcpServerStatusBindingIpAddress=cie1000DhcpServerStatusBindingIpAddress, cie1000DhcpServerStatusBindingMacAddress=cie1000DhcpServerStatusBindingMacAddress, cie1000DhcpServerStatusDeclinedEntry=cie1000DhcpServerStatusDeclinedEntry, cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo3=cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo3, cie1000DhcpServerStatusBindingVlanId=cie1000DhcpServerStatusBindingVlanId, cie1000DhcpServerConfigReservedIpTableRowEditorAction=cie1000DhcpServerConfigReservedIpTableRowEditorAction, cie1000DhcpServerControl=cie1000DhcpServerControl, cie1000DhcpServerConfigPoolVendorClassId2=cie1000DhcpServerConfigPoolVendorClassId2, cie1000DhcpServerConfigPoolLeaseMinute=cie1000DhcpServerConfigPoolLeaseMinute, cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer2=cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer2, cie1000DhcpServerConfigPoolTableRowEditorNtpServer4=cie1000DhcpServerConfigPoolTableRowEditorNtpServer4, cie1000DhcpServerStatusDeclinedIpv4Address=cie1000DhcpServerStatusDeclinedIpv4Address, cie1000DhcpServerConfigPoolVendorClassId3=cie1000DhcpServerConfigPoolVendorClassId3, cie1000DhcpServerStatusDeclinedTableInfoGroup=cie1000DhcpServerStatusDeclinedTableInfoGroup, cie1000DhcpServerConfigPoolTableRowEditorNisServer4=cie1000DhcpServerConfigPoolTableRowEditorNisServer4, cie1000DhcpServerStatusStatisticsReleaseCnt=cie1000DhcpServerStatusStatisticsReleaseCnt, cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer3=cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer3, cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo1=cie1000DhcpServerConfigPoolTableRowEditorVendorSpecificInfo1, cie1000DhcpServerStatusBindingServerId=cie1000DhcpServerStatusBindingServerId, cie1000DhcpServerControlStatisticsClear=cie1000DhcpServerControlStatisticsClear, cie1000DhcpServerStatusBindingPoolName=cie1000DhcpServerStatusBindingPoolName, cie1000DhcpServerStatusStatisticsDeclineCnt=cie1000DhcpServerStatusStatisticsDeclineCnt, cie1000DhcpServerStatusStatisticsInformCnt=cie1000DhcpServerStatusStatisticsInformCnt, cie1000DhcpServerConfigPoolNisServer2=cie1000DhcpServerConfigPoolNisServer2, cie1000DhcpServerConfigPoolTableRowEditorLeaseDay=cie1000DhcpServerConfigPoolTableRowEditorLeaseDay, cie1000DhcpServerConfigGlobalsInfoGroup=cie1000DhcpServerConfigGlobalsInfoGroup, cie1000DhcpServerConfigPoolDnsServer1=cie1000DhcpServerConfigPoolDnsServer1, cie1000DhcpServerConfigPoolTableRowEditorLeaseMinute=cie1000DhcpServerConfigPoolTableRowEditorLeaseMinute, cie1000DhcpServerConfigPoolTableRowEditorDomainName=cie1000DhcpServerConfigPoolTableRowEditorDomainName, cie1000DhcpServerConfigPoolEntry=cie1000DhcpServerConfigPoolEntry, cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter1=cie1000DhcpServerConfigPoolTableRowEditorDefaultRouter1, cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer1=cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer1, cie1000DhcpServerConfigPoolDefaultRouter2=cie1000DhcpServerConfigPoolDefaultRouter2, cie1000DhcpServerConfigPoolTableRowEditorDnsServer4=cie1000DhcpServerConfigPoolTableRowEditorDnsServer4, cie1000DhcpServerConfigPoolTableRowEditorDnsServer3=cie1000DhcpServerConfigPoolTableRowEditorDnsServer3, cie1000DhcpServerControlStatistics=cie1000DhcpServerControlStatistics, cie1000DhcpServerControlStatisticsInfoGroup=cie1000DhcpServerControlStatisticsInfoGroup, CIE1000DhcpServerBindingStateEnum=CIE1000DhcpServerBindingStateEnum, cie1000DhcpServerConfigGlobals=cie1000DhcpServerConfigGlobals, cie1000DhcpServerConfigPoolAction=cie1000DhcpServerConfigPoolAction, cie1000DhcpServerConfigReservedIpTableRowEditorPoolName=cie1000DhcpServerConfigReservedIpTableRowEditorPoolName, cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer4=cie1000DhcpServerConfigPoolTableRowEditorNetbiosNameServer4, cie1000DhcpServerConfig=cie1000DhcpServerConfig, cie1000DhcpServerConfigPoolDefaultRouter4=cie1000DhcpServerConfigPoolDefaultRouter4, cie1000DhcpServerMibObjects=cie1000DhcpServerMibObjects, cie1000DhcpServerConfigVlanTableInfoGroup=cie1000DhcpServerConfigVlanTableInfoGroup, cie1000DhcpServerConfigPoolNetbiosNameServer3=cie1000DhcpServerConfigPoolNetbiosNameServer3, cie1000DhcpServerConfigPoolNtpServer4=cie1000DhcpServerConfigPoolNtpServer4, cie1000DhcpServerConfigPoolNetbiosScope=cie1000DhcpServerConfigPoolNetbiosScope, cie1000DhcpServerConfigPoolVendorClassId4=cie1000DhcpServerConfigPoolVendorClassId4, cie1000DhcpServerConfigPoolIpv4Address=cie1000DhcpServerConfigPoolIpv4Address, CIE1000DhcpServerPoolEnum=CIE1000DhcpServerPoolEnum, cie1000DhcpServerConfigPoolTableRowEditorNetbiosNodeType=cie1000DhcpServerConfigPoolTableRowEditorNetbiosNodeType)

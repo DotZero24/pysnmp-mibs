@@ -1,1436 +1,561 @@
-_Ch='cgprsCgMIBConfigProfileChangeGroupRev1Sup1'
-_Cg='cgprsCgMIBConfigGroupR100'
-_Cf='cgprsCgMIBConfigGroupRev2'
-_Ce='cgprsCgMIBConfigGroupRev1'
-_Cd='cgprsCgMIBStatsGroup'
-_Cc='cgprsCgMIBConfigGroup'
-_Cb='cgprsCgGatewayGroupMaintenanceModeNotif'
-_Ca='cgprsCgGatewayGroupInServiceModeNotif'
-_CZ='cgprsCgGatewayGroupSwitchoverNotif'
-_CY='cgprsCgGatewayGroupAlarmNotif'
-_CX='cgprsCgMaintenanceModeNotif'
-_CW='cgprsCgInServiceModeNotif'
-_CV='cgprsCgGatewaySwitchoverNotif'
-_CU='cgprsCgScdrEnable'
-_CT='cgprsCgProfileScdrEnable'
-_CS='cgprsCgProfileContentDccaProfileWeight'
-_CR='cgprsCgGatewayGroupAlarmEnable'
-_CQ='cgprsCgGatewayGroupTotalSentMsgToCg'
-_CP='cgprsCgGatewayGroupTotalSentMsgToIscsi'
-_CO='cgprsCgGatewayGroupTotalSentMsg'
-_CN='cgprsCgGatewayGroupTotalServiceRecords'
-_CM='cgprsCgGatewayGroupTotalContainerCreated'
-_CL='cgprsCgGatewayGroupTotalCdrOpened'
-_CK='cgprsCgGatewayGroupCdrPendingMsgMaintNum'
-_CJ='cgprsCgGatewayGroupCdrPendingMsgCgPathNum'
-_CI='cgprsCgGatewayGroupCdrPendingMsgIscsiNum'
-_CH='cgprsCgGatewayGroupPendingMsgNum'
-_CG='cgprsCgGatewayGroupServiceRecordsNum'
-_CF='cgprsCgGatewayGroupContainerNum'
-_CE='cgprsCgGatewayGroupCdrClosedNum'
-_CD='cgprsCgGatewayGroupCdrOpenedNum'
-_CC='cgprsCgGatewayGroupAccPtNum'
-_CB='cgprsCgGatewayGroupCgDownTimes'
-_CA='cgprsCgGroupRowStatus'
-_C9='cgprsCgGroupSwitchOverPriority'
-_C8='cgprsCgGroupIscsi'
-_C7='cgprsCgGatewayIpRowStatus'
-_C6='cgprsCgGateway'
-_C5='cgprsCgGatewayLinkState'
-_C4='cgprsCgGatewayOperStatus'
-_C3='cgprsCgGatewayIpAddr'
-_C2='cgprsCgGatewayIpAddrType'
-_C1='cgprsCgServiceRecordIncludeUserLocInfo'
-_C0='cgprsCgProfileContentPostUserLocChange'
-_B_='cgprsCgChargingSrcInterface'
-_Bz='cgprsCgTotalServiceRecords'
-_By='cgprsCgProfileContentPostValTime'
-_Bx='cgprsCgProfileMapNum'
-_Bw='cgprsCgAlarmHistLatestIndex'
-_Bv='cgprsCgGatewayGroupStatisticsEntry'
-_Bu='cgprsCgGatewayGroupAlarmHistIndex'
-_Bt='cgprsCgAlarmHistIndex'
-_Bs='access-points'
-_Br='transitions'
-_Bq='cgprsCgProfileContentDccaProfileName'
-_Bp='cgprsCgGatewayIpIndex'
-_Bo='maintenance'
-_Bn='operational'
-_Bm='cgprsCgProfileMapCategory'
-_Bl='undefined'
-_Bk='cgprsCgGatewayIndex'
-_Bj='cgprsCgTariffTimeIndex'
-_Bi='StorageType'
-_Bh='cgprsCgMIBConfigGroupR100Rev1'
-_Bg='cgprsCgMIBConfigGroupR60'
-_Bf='cgprsCgMIBStatsGroupRev1'
-_Be='cgprsCgMIBAlarmsGroup'
-_Bd='cgprsCgAlarmNotif'
-_Bc='cgprsCgProfileContentDccaProfileRowStatus'
-_Bb='cgprsCgGatewayGroupStatusOldCgAddr'
-_Ba='cgprsCgGatewayGroupStatusActiveCgAddr'
-_BZ='cgprsCgGatewayGroupStatusAddrType'
-_BY='cgprsCgGatewayGroupAlarmHistInfo'
-_BX='cgprsCgGatewayGroupAlarmHistSeverity'
-_BW='cgprsCgGatewayGroupAlarmHistAddress'
-_BV='cgprsCgGatewayGroupAlarmHistAddrType'
-_BU='cgprsCgGatewayGroupAlarmHistType'
-_BT='cgprsCgProfileMapNumber'
-_BS='cgprsCgServiceRecordIncludePlmn'
-_BR='cgprsCgServiceRecordIncludeRat'
-_BQ='cgprsCgProfileStorageType'
-_BP='cgprsCgProfileContentPostPlmnChange'
-_BO='cgprsCgProfileContentPostRatChange'
-_BN='cgprsCgProfileContentPostSgsnChange'
-_BM='cgprsCgProfileContentPostQosChange'
-_BL='cgprsCgProfileContentDccaProfile'
-_BK='cgprsCgOldChgGatewayAddress'
-_BJ='cgprsCgActiveChgGatewayAddress'
-_BI='cgprsCgActiveChgGatewayAddrType'
-_BH='cgprsCgSwitchOverPriority'
-_BG='cgprsCgServiceMode'
-_BF='cgprsCgTotalContainerCreated'
-_BE='cgprsCgTotalCdrOpened'
-_BD='cgprsCgSgsnChangeLimit'
-_BC='cgprsCgAlarmEnable'
-_BB='cgprsCgCdrNonPrimaryEnable'
-_BA='records'
-_B9='cgprsCgProfileNum'
-_B8='cgprsCgMIBConfigGroupRev4'
-_B7='cgprsCgMIBConfigProfileChangeGroup'
-_B6='cgprsCgMIBConfigGroupRev3'
-_B5='cgprsCgMIBNotifGroup'
-_B4='cgprsCgGroupServiceMode'
-_B3='cgprsCgProfileContentPostValidityTime'
-_B2='cgprsCgPtcPossiblyDupEnable'
-_B1='cgprsCgPtcEnable'
-_B0='cgprsCgReconnect'
-_A_='cgprsCgCharSelectionMode'
-_Az='cgprsCgPartialCdrGenEnable'
-_Ay='cgprsCgChargingCharReject'
-_Ax='cgprsCgProfileMapTrusted'
-_Aw='cgprsCgProfileMapOverride'
-_Av='cgprsCgProfileSgsnChange'
-_Au='cgprsCgProfileTariffTime'
-_At='cgprsCgProfileDurLimitReset'
-_As='cgprsCgProfileDurLimit'
-_Ar='cgprsCgProfileVolumeLimitReset'
-_Aq='cgprsCgProfileVolumeLimit'
-_Ap='cgprsCgProfileCdrSuppress'
-_Ao='cgprsCgProfileCategory'
-_An='cgprsCgProfileDesc'
-_Am='cgprsCgProfileRowStatus'
-_Al='cgprsCgContainerTimeLimit'
-_Ak='cgprsCgAlarmHistInfo'
-_Aj='cgprsCgAlarmHistSeverity'
-_Ai='cgprsCgAlarmHistAddress'
-_Ah='cgprsCgAlarmHistAddrType'
-_Ag='cgprsCgAlarmHistType'
-_Af='cgprsCgAlarmHistTableMax'
-_Ae='cgprsCgSentMsgNum'
-_Ad='cgprsCgPendingMsgNum'
-_Ac='cgprsCgContainerNum'
-_Ab='cgprsCgCdrClosedNum'
-_Aa='cgprsCgCdrOpenedNum'
-_AZ='cgprsCgAccPtNum'
-_AY='cgprsCgDownTimes'
-_AX='containers'
-_AW='bytes'
-_AV='minutes'
-_AU='SnmpAdminString'
-_AT='cgprsCgMIBStatsGroupRev3'
-_AS='cgprsCgMIBConfigGroupR90'
-_AR='cgprsCgMIBStatusGroupRev1'
-_AQ='cgprsCgMIBNotifGroupRev2'
-_AP='cgprsCgMIBAlarmsGroupRev2'
-_AO='cgprsCgMIBConfigGroupRev5'
-_AN='cgprsCgMIBExtConfigGroup'
-_AM='cgprsCgCdrOptionUserLocInfo'
-_AL='cgprsCgCdrOptionRatType'
-_AK='cgprsCgCdrOptionMsTimeZone'
-_AJ='cgprsCgCdrOptionImeisv'
-_AI='cgprsCgCdrOptionCamelCharInfo'
-_AH='cgprsCgCdrOptionSgsnPlmn'
-_AG='cgprsCgCdrOptionSerMsisdn'
-_AF='cgprsCgCdrOptionPdpType'
-_AE='cgprsCgCdrOptionPdpAddress'
-_AD='cgprsCgCdrOptionNip'
-_AC='cgprsCgCdrOptionDynamicAddr'
-_AB='cgprsCgCdrOptionApnSelMode'
-_AA='cgprsCgCdrOptionVirtualApn'
-_A9='cgprsCgCdrOptionApn'
-_A8='cgprsCgProfileContentRulebaseId'
-_A7='cgprsCgProfileContentPostVolume'
-_A6='cgprsCgProfileContentPostTime'
-_A5='cgprsCgProfileCdrSuppressPrepaid'
-_A4='cgprsCgPartialCdrGenEnableAll'
-_A3='cgprsCgCdrOptionServiceRecord'
-_A2='cgprsCgTransFormNumRespEnable'
-_A1='cgprsCgGtpShortHeaderEnable'
-_A0='cgprsCgRelease'
-_z='cgprsCgCdrSgsnChangeLimit'
-_y='cgprsCgGroupIndex'
-_x='cgprsCgMIBConfigProfileChangeGroupRev1'
-_w='cgprsCgClearCdrPartialCdr'
-_v='cgprsCgLinkState'
-_u='cgprsCgOperStatus'
-_t='cgprsCgGatewayRowStatus'
-_s='cgprsCgGatewayAddr'
-_r='cgprsCgGatewayAddrType'
-_q='obsolete'
-_p='cgprsCgMIBConfigGroupR80'
-_o='cgprsCgMIBStatusGroup'
-_n='cgprsCgMIBNotifGroupRev1'
-_m='cgprsCgTariffTimeSec'
-_l='cgprsCgTariffTimeMin'
-_k='cgprsCgTariffTimeHour'
-_j='cgprsCgTariffTimeRowStatus'
-_i='cgprsCgTariffTimeNextIndex'
-_h='cgprsCgTariffTimeMaxEntries'
-_g='cgprsCgChargeForRoamersOnly'
-_f='cgprsCgN3BufferSize'
-_e='cgprsCgGtpPrimePort'
-_d='cgprsCgConditionLimit'
-_c='cgprsCgServerSwitchTimeout'
-_b='cgprsCgPathProtocol'
-_a='cgprsCgMapDataTos'
-_Z='cgprsCgContainerVolThresh'
-_Y='cgprsCgPathRequest'
-_X='cgprsCgPktsQSize'
-_W='cgprsCgTransInterval'
-_V='cgprsCgCdrAggreLimit'
-_U='cgprsCgCdrPktsStatEnable'
-_T='cgprsCgFlowControlEcho'
-_S='cgprsCgCdrNodeIdEnable'
-_R='cgprsCgCdrLocalSeqNumEnable'
-_Q='cgprsCgEnable'
-_P='seconds'
-_O='CDRs'
-_N='cgprsCgMIBAlarmsGroupRev1'
-_M='messages'
-_L='not-accessible'
-_K='cgprsCgMIBStatusGroupR60'
-_J='cgprsCgMIBStatsGroupRev2'
-_I='Integer32'
-_H='Unsigned32'
-_G='read-create'
-_F='read-only'
-_E='TruthValue'
-_D='deprecated'
-_C='read-write'
-_B='current'
-_A='CISCO-GPRS-CHARGING-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-CiscoAlarmSeverity,=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_AU)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_H,'iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TestAndIncr,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_Bi,'TextualConvention','TestAndIncr',_E)
-ciscoGprsChargingMIB=ModuleIdentity((1,3,6,1,4,1,9,9,192))
-if mibBuilder.loadTexts:ciscoGprsChargingMIB.setRevisions(('2011-03-04 00:00','2010-07-27 00:00','2010-06-08 00:00','2010-02-01 00:00','2008-12-12 00:00','2008-01-29 00:00','2006-08-18 00:00','2006-04-04 19:00','2005-09-16 18:00','2004-07-26 02:00','2004-03-22 03:00','2002-11-11 17:00','2002-06-05 10:00','2001-12-04 12:00','2001-09-18 16:00','2000-09-21 00:00'))
-class CgprsCgAlarmType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12)));namedValues=NamedValues(*(('cgprsCgAlarmCgDown',1),('cgprsCgAlarmCgUp',2),('cgprsCgAlarmTransFailure',3),('cgprsCgAlarmTransSuccess',4),('cgprsCgAlarmCapacityFull',5),('cgprsCgAlarmCapacityFree',6),('cgprsCgAlarmEchoFailure',7),('cgprsCgAlarmEchoRestored',8),('cgprsCgAlarmCdrDiscard',9),('cgprsCgAlarmCdrBuffered',10),('cgprsCgAlarmChargingDisabled',11),('cgprsCgAlarmChargingEnabled',12)))
-class CgprsCgGatewayType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('cgprsCgGatewayPrimary',1),('cgprsCgGatewaySecondary',2),('cgprsCgGatewayTertiary',3)))
-_CiscoGprsChargingMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoGprsChargingMIBObjects=_CiscoGprsChargingMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,192,1))
-_CiscoGprsChargingConfig_ObjectIdentity=ObjectIdentity
-ciscoGprsChargingConfig=_CiscoGprsChargingConfig_ObjectIdentity((1,3,6,1,4,1,9,9,192,1,1))
-class _CgprsCgEnable_Type(TruthValue):defaultValue=1
-_CgprsCgEnable_Type.__name__=_E
-_CgprsCgEnable_Object=MibScalar
-cgprsCgEnable=_CgprsCgEnable_Object((1,3,6,1,4,1,9,9,192,1,1,1),_CgprsCgEnable_Type())
-cgprsCgEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgEnable.setStatus(_B)
-class _CgprsCgCdrLocalSeqNumEnable_Type(TruthValue):defaultValue=2
-_CgprsCgCdrLocalSeqNumEnable_Type.__name__=_E
-_CgprsCgCdrLocalSeqNumEnable_Object=MibScalar
-cgprsCgCdrLocalSeqNumEnable=_CgprsCgCdrLocalSeqNumEnable_Object((1,3,6,1,4,1,9,9,192,1,1,2),_CgprsCgCdrLocalSeqNumEnable_Type())
-cgprsCgCdrLocalSeqNumEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrLocalSeqNumEnable.setStatus(_B)
-class _CgprsCgCdrNodeIdEnable_Type(TruthValue):defaultValue=2
-_CgprsCgCdrNodeIdEnable_Type.__name__=_E
-_CgprsCgCdrNodeIdEnable_Object=MibScalar
-cgprsCgCdrNodeIdEnable=_CgprsCgCdrNodeIdEnable_Object((1,3,6,1,4,1,9,9,192,1,1,3),_CgprsCgCdrNodeIdEnable_Type())
-cgprsCgCdrNodeIdEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrNodeIdEnable.setStatus(_B)
-class _CgprsCgFlowControlEcho_Type(TruthValue):defaultValue=2
-_CgprsCgFlowControlEcho_Type.__name__=_E
-_CgprsCgFlowControlEcho_Object=MibScalar
-cgprsCgFlowControlEcho=_CgprsCgFlowControlEcho_Object((1,3,6,1,4,1,9,9,192,1,1,4),_CgprsCgFlowControlEcho_Type())
-cgprsCgFlowControlEcho.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgFlowControlEcho.setStatus(_B)
-class _CgprsCgCdrPktsStatEnable_Type(TruthValue):defaultValue=2
-_CgprsCgCdrPktsStatEnable_Type.__name__=_E
-_CgprsCgCdrPktsStatEnable_Object=MibScalar
-cgprsCgCdrPktsStatEnable=_CgprsCgCdrPktsStatEnable_Object((1,3,6,1,4,1,9,9,192,1,1,5),_CgprsCgCdrPktsStatEnable_Type())
-cgprsCgCdrPktsStatEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrPktsStatEnable.setStatus(_B)
-class _CgprsCgCdrNonPrimaryEnable_Type(TruthValue):defaultValue=1
-_CgprsCgCdrNonPrimaryEnable_Type.__name__=_E
-_CgprsCgCdrNonPrimaryEnable_Object=MibScalar
-cgprsCgCdrNonPrimaryEnable=_CgprsCgCdrNonPrimaryEnable_Object((1,3,6,1,4,1,9,9,192,1,1,6),_CgprsCgCdrNonPrimaryEnable_Type())
-cgprsCgCdrNonPrimaryEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrNonPrimaryEnable.setStatus(_q)
-class _CgprsCgCdrAggreLimit_Type(Unsigned32):defaultValue=255;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_CgprsCgCdrAggreLimit_Type.__name__=_H
-_CgprsCgCdrAggreLimit_Object=MibScalar
-cgprsCgCdrAggreLimit=_CgprsCgCdrAggreLimit_Object((1,3,6,1,4,1,9,9,192,1,1,7),_CgprsCgCdrAggreLimit_Type())
-cgprsCgCdrAggreLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrAggreLimit.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgCdrAggreLimit.setUnits(_O)
-class _CgprsCgTransInterval_Type(Unsigned32):defaultValue=105;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CgprsCgTransInterval_Type.__name__=_H
-_CgprsCgTransInterval_Object=MibScalar
-cgprsCgTransInterval=_CgprsCgTransInterval_Object((1,3,6,1,4,1,9,9,192,1,1,8),_CgprsCgTransInterval_Type())
-cgprsCgTransInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgTransInterval.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgTransInterval.setUnits(_P)
-class _CgprsCgPktsQSize_Type(Unsigned32):defaultValue=128;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,512))
-_CgprsCgPktsQSize_Type.__name__=_H
-_CgprsCgPktsQSize_Object=MibScalar
-cgprsCgPktsQSize=_CgprsCgPktsQSize_Object((1,3,6,1,4,1,9,9,192,1,1,9),_CgprsCgPktsQSize_Type())
-cgprsCgPktsQSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgPktsQSize.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgPktsQSize.setUnits('PDUs')
-class _CgprsCgPathRequest_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10))
-_CgprsCgPathRequest_Type.__name__=_H
-_CgprsCgPathRequest_Object=MibScalar
-cgprsCgPathRequest=_CgprsCgPathRequest_Object((1,3,6,1,4,1,9,9,192,1,1,10),_CgprsCgPathRequest_Type())
-cgprsCgPathRequest.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgPathRequest.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgPathRequest.setUnits(_AV)
-class _CgprsCgContainerVolThresh_Type(Unsigned32):defaultValue=1048576;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CgprsCgContainerVolThresh_Type.__name__=_H
-_CgprsCgContainerVolThresh_Object=MibScalar
-cgprsCgContainerVolThresh=_CgprsCgContainerVolThresh_Object((1,3,6,1,4,1,9,9,192,1,1,11),_CgprsCgContainerVolThresh_Type())
-cgprsCgContainerVolThresh.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgContainerVolThresh.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgContainerVolThresh.setUnits(_AW)
-class _CgprsCgMapDataTos_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,5))
-_CgprsCgMapDataTos_Type.__name__=_H
-_CgprsCgMapDataTos_Object=MibScalar
-cgprsCgMapDataTos=_CgprsCgMapDataTos_Object((1,3,6,1,4,1,9,9,192,1,1,12),_CgprsCgMapDataTos_Type())
-cgprsCgMapDataTos.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgMapDataTos.setStatus(_B)
-class _CgprsCgPathProtocol_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('udp',1),('tcp',2)))
-_CgprsCgPathProtocol_Type.__name__=_I
-_CgprsCgPathProtocol_Object=MibScalar
-cgprsCgPathProtocol=_CgprsCgPathProtocol_Object((1,3,6,1,4,1,9,9,192,1,1,13),_CgprsCgPathProtocol_Type())
-cgprsCgPathProtocol.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgPathProtocol.setStatus(_B)
-class _CgprsCgServerSwitchTimeout_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,300))
-_CgprsCgServerSwitchTimeout_Type.__name__=_H
-_CgprsCgServerSwitchTimeout_Object=MibScalar
-cgprsCgServerSwitchTimeout=_CgprsCgServerSwitchTimeout_Object((1,3,6,1,4,1,9,9,192,1,1,14),_CgprsCgServerSwitchTimeout_Type())
-cgprsCgServerSwitchTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgServerSwitchTimeout.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgServerSwitchTimeout.setUnits(_P)
-class _CgprsCgConditionLimit_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_CgprsCgConditionLimit_Type.__name__=_H
-_CgprsCgConditionLimit_Object=MibScalar
-cgprsCgConditionLimit=_CgprsCgConditionLimit_Object((1,3,6,1,4,1,9,9,192,1,1,15),_CgprsCgConditionLimit_Type())
-cgprsCgConditionLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgConditionLimit.setStatus(_B)
-class _CgprsCgGtpPrimePort_Type(Unsigned32):defaultValue=3386;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1024,10000))
-_CgprsCgGtpPrimePort_Type.__name__=_H
-_CgprsCgGtpPrimePort_Object=MibScalar
-cgprsCgGtpPrimePort=_CgprsCgGtpPrimePort_Object((1,3,6,1,4,1,9,9,192,1,1,16),_CgprsCgGtpPrimePort_Type())
-cgprsCgGtpPrimePort.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgGtpPrimePort.setStatus(_B)
-class _CgprsCgN3BufferSize_Type(Unsigned32):defaultValue=1460;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(300,1460))
-_CgprsCgN3BufferSize_Type.__name__=_H
-_CgprsCgN3BufferSize_Object=MibScalar
-cgprsCgN3BufferSize=_CgprsCgN3BufferSize_Object((1,3,6,1,4,1,9,9,192,1,1,17),_CgprsCgN3BufferSize_Type())
-cgprsCgN3BufferSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgN3BufferSize.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgN3BufferSize.setUnits(_AW)
-class _CgprsCgChargeForRoamersOnly_Type(TruthValue):defaultValue=2
-_CgprsCgChargeForRoamersOnly_Type.__name__=_E
-_CgprsCgChargeForRoamersOnly_Object=MibScalar
-cgprsCgChargeForRoamersOnly=_CgprsCgChargeForRoamersOnly_Object((1,3,6,1,4,1,9,9,192,1,1,18),_CgprsCgChargeForRoamersOnly_Type())
-cgprsCgChargeForRoamersOnly.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgChargeForRoamersOnly.setStatus(_B)
-class _CgprsCgTariffTimeMaxEntries_Type(Unsigned32):defaultValue=32;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_CgprsCgTariffTimeMaxEntries_Type.__name__=_H
-_CgprsCgTariffTimeMaxEntries_Object=MibScalar
-cgprsCgTariffTimeMaxEntries=_CgprsCgTariffTimeMaxEntries_Object((1,3,6,1,4,1,9,9,192,1,1,19),_CgprsCgTariffTimeMaxEntries_Type())
-cgprsCgTariffTimeMaxEntries.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgTariffTimeMaxEntries.setStatus(_B)
-_CgprsCgTariffTimeNextIndex_Type=TestAndIncr
-_CgprsCgTariffTimeNextIndex_Object=MibScalar
-cgprsCgTariffTimeNextIndex=_CgprsCgTariffTimeNextIndex_Object((1,3,6,1,4,1,9,9,192,1,1,20),_CgprsCgTariffTimeNextIndex_Type())
-cgprsCgTariffTimeNextIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgTariffTimeNextIndex.setStatus(_B)
-_CgprsCgTariffTimeTable_Object=MibTable
-cgprsCgTariffTimeTable=_CgprsCgTariffTimeTable_Object((1,3,6,1,4,1,9,9,192,1,1,21))
-if mibBuilder.loadTexts:cgprsCgTariffTimeTable.setStatus(_B)
-_CgprsCgTariffTimeEntry_Object=MibTableRow
-cgprsCgTariffTimeEntry=_CgprsCgTariffTimeEntry_Object((1,3,6,1,4,1,9,9,192,1,1,21,1))
-cgprsCgTariffTimeEntry.setIndexNames((0,_A,_Bj))
-if mibBuilder.loadTexts:cgprsCgTariffTimeEntry.setStatus(_B)
-_CgprsCgTariffTimeIndex_Type=Unsigned32
-_CgprsCgTariffTimeIndex_Object=MibTableColumn
-cgprsCgTariffTimeIndex=_CgprsCgTariffTimeIndex_Object((1,3,6,1,4,1,9,9,192,1,1,21,1,1),_CgprsCgTariffTimeIndex_Type())
-cgprsCgTariffTimeIndex.setMaxAccess(_L)
-if mibBuilder.loadTexts:cgprsCgTariffTimeIndex.setStatus(_B)
-_CgprsCgTariffTimeRowStatus_Type=RowStatus
-_CgprsCgTariffTimeRowStatus_Object=MibTableColumn
-cgprsCgTariffTimeRowStatus=_CgprsCgTariffTimeRowStatus_Object((1,3,6,1,4,1,9,9,192,1,1,21,1,2),_CgprsCgTariffTimeRowStatus_Type())
-cgprsCgTariffTimeRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgTariffTimeRowStatus.setStatus(_B)
-class _CgprsCgTariffTimeHour_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,23))
-_CgprsCgTariffTimeHour_Type.__name__=_H
-_CgprsCgTariffTimeHour_Object=MibTableColumn
-cgprsCgTariffTimeHour=_CgprsCgTariffTimeHour_Object((1,3,6,1,4,1,9,9,192,1,1,21,1,3),_CgprsCgTariffTimeHour_Type())
-cgprsCgTariffTimeHour.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgTariffTimeHour.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgTariffTimeHour.setUnits('hours')
-class _CgprsCgTariffTimeMin_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,59))
-_CgprsCgTariffTimeMin_Type.__name__=_H
-_CgprsCgTariffTimeMin_Object=MibTableColumn
-cgprsCgTariffTimeMin=_CgprsCgTariffTimeMin_Object((1,3,6,1,4,1,9,9,192,1,1,21,1,4),_CgprsCgTariffTimeMin_Type())
-cgprsCgTariffTimeMin.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgTariffTimeMin.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgTariffTimeMin.setUnits(_AV)
-class _CgprsCgTariffTimeSec_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,59))
-_CgprsCgTariffTimeSec_Type.__name__=_H
-_CgprsCgTariffTimeSec_Object=MibTableColumn
-cgprsCgTariffTimeSec=_CgprsCgTariffTimeSec_Object((1,3,6,1,4,1,9,9,192,1,1,21,1,5),_CgprsCgTariffTimeSec_Type())
-cgprsCgTariffTimeSec.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgTariffTimeSec.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgTariffTimeSec.setUnits(_P)
-_CgprsCgGatewayTable_Object=MibTable
-cgprsCgGatewayTable=_CgprsCgGatewayTable_Object((1,3,6,1,4,1,9,9,192,1,1,22))
-if mibBuilder.loadTexts:cgprsCgGatewayTable.setStatus(_D)
-_CgprsCgGatewayEntry_Object=MibTableRow
-cgprsCgGatewayEntry=_CgprsCgGatewayEntry_Object((1,3,6,1,4,1,9,9,192,1,1,22,1))
-cgprsCgGatewayEntry.setIndexNames((0,_A,_Bk))
-if mibBuilder.loadTexts:cgprsCgGatewayEntry.setStatus(_D)
-class _CgprsCgGatewayIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3))
-_CgprsCgGatewayIndex_Type.__name__=_I
-_CgprsCgGatewayIndex_Object=MibTableColumn
-cgprsCgGatewayIndex=_CgprsCgGatewayIndex_Object((1,3,6,1,4,1,9,9,192,1,1,22,1,1),_CgprsCgGatewayIndex_Type())
-cgprsCgGatewayIndex.setMaxAccess(_L)
-if mibBuilder.loadTexts:cgprsCgGatewayIndex.setStatus(_D)
-_CgprsCgGatewayAddrType_Type=InetAddressType
-_CgprsCgGatewayAddrType_Object=MibTableColumn
-cgprsCgGatewayAddrType=_CgprsCgGatewayAddrType_Object((1,3,6,1,4,1,9,9,192,1,1,22,1,2),_CgprsCgGatewayAddrType_Type())
-cgprsCgGatewayAddrType.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgGatewayAddrType.setStatus(_D)
-_CgprsCgGatewayAddr_Type=InetAddress
-_CgprsCgGatewayAddr_Object=MibTableColumn
-cgprsCgGatewayAddr=_CgprsCgGatewayAddr_Object((1,3,6,1,4,1,9,9,192,1,1,22,1,3),_CgprsCgGatewayAddr_Type())
-cgprsCgGatewayAddr.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgGatewayAddr.setStatus(_D)
-_CgprsCgGatewayRowStatus_Type=RowStatus
-_CgprsCgGatewayRowStatus_Object=MibTableColumn
-cgprsCgGatewayRowStatus=_CgprsCgGatewayRowStatus_Object((1,3,6,1,4,1,9,9,192,1,1,22,1,4),_CgprsCgGatewayRowStatus_Type())
-cgprsCgGatewayRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgGatewayRowStatus.setStatus(_D)
-class _CgprsCgOperStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_Bl,1),('active',2),('standby',3)))
-_CgprsCgOperStatus_Type.__name__=_I
-_CgprsCgOperStatus_Object=MibTableColumn
-cgprsCgOperStatus=_CgprsCgOperStatus_Object((1,3,6,1,4,1,9,9,192,1,1,22,1,5),_CgprsCgOperStatus_Type())
-cgprsCgOperStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgOperStatus.setStatus(_D)
-class _CgprsCgLinkState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('on',1),('off',2),('pending',3)))
-_CgprsCgLinkState_Type.__name__=_I
-_CgprsCgLinkState_Object=MibTableColumn
-cgprsCgLinkState=_CgprsCgLinkState_Object((1,3,6,1,4,1,9,9,192,1,1,22,1,6),_CgprsCgLinkState_Type())
-cgprsCgLinkState.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgLinkState.setStatus(_D)
-class _CgprsCgClearCdrPartialCdr_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('closeCdr',1),('canCloseCdr',2),('cannotCloseCdr',3),('closingCdr',4)))
-_CgprsCgClearCdrPartialCdr_Type.__name__=_I
-_CgprsCgClearCdrPartialCdr_Object=MibScalar
-cgprsCgClearCdrPartialCdr=_CgprsCgClearCdrPartialCdr_Object((1,3,6,1,4,1,9,9,192,1,1,23),_CgprsCgClearCdrPartialCdr_Type())
-cgprsCgClearCdrPartialCdr.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgClearCdrPartialCdr.setStatus(_B)
-class _CgprsCgSgsnChangeLimit_Type(Unsigned32):defaultValue=15;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
-_CgprsCgSgsnChangeLimit_Type.__name__=_H
-_CgprsCgSgsnChangeLimit_Object=MibScalar
-cgprsCgSgsnChangeLimit=_CgprsCgSgsnChangeLimit_Object((1,3,6,1,4,1,9,9,192,1,1,24),_CgprsCgSgsnChangeLimit_Type())
-cgprsCgSgsnChangeLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgSgsnChangeLimit.setStatus(_D)
-class _CgprsCgCdrSgsnChangeLimit_Type(Integer32):defaultValue=-1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,15))
-_CgprsCgCdrSgsnChangeLimit_Type.__name__=_I
-_CgprsCgCdrSgsnChangeLimit_Object=MibScalar
-cgprsCgCdrSgsnChangeLimit=_CgprsCgCdrSgsnChangeLimit_Object((1,3,6,1,4,1,9,9,192,1,1,25),_CgprsCgCdrSgsnChangeLimit_Type())
-cgprsCgCdrSgsnChangeLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrSgsnChangeLimit.setStatus(_B)
-class _CgprsCgRelease_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('release98',1),('release99',2),('release4',3),('release5',4)))
-_CgprsCgRelease_Type.__name__=_I
-_CgprsCgRelease_Object=MibScalar
-cgprsCgRelease=_CgprsCgRelease_Object((1,3,6,1,4,1,9,9,192,1,1,26),_CgprsCgRelease_Type())
-cgprsCgRelease.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgRelease.setStatus(_B)
-class _CgprsCgGtpShortHeaderEnable_Type(TruthValue):defaultValue=2
-_CgprsCgGtpShortHeaderEnable_Type.__name__=_E
-_CgprsCgGtpShortHeaderEnable_Object=MibScalar
-cgprsCgGtpShortHeaderEnable=_CgprsCgGtpShortHeaderEnable_Object((1,3,6,1,4,1,9,9,192,1,1,27),_CgprsCgGtpShortHeaderEnable_Type())
-cgprsCgGtpShortHeaderEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgGtpShortHeaderEnable.setStatus(_B)
-class _CgprsCgTransFormNumRespEnable_Type(TruthValue):defaultValue=2
-_CgprsCgTransFormNumRespEnable_Type.__name__=_E
-_CgprsCgTransFormNumRespEnable_Object=MibScalar
-cgprsCgTransFormNumRespEnable=_CgprsCgTransFormNumRespEnable_Object((1,3,6,1,4,1,9,9,192,1,1,28),_CgprsCgTransFormNumRespEnable_Type())
-cgprsCgTransFormNumRespEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgTransFormNumRespEnable.setStatus(_B)
-class _CgprsCgContainerTimeLimit_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(5,4294967295))
-_CgprsCgContainerTimeLimit_Type.__name__=_H
-_CgprsCgContainerTimeLimit_Object=MibScalar
-cgprsCgContainerTimeLimit=_CgprsCgContainerTimeLimit_Object((1,3,6,1,4,1,9,9,192,1,1,29),_CgprsCgContainerTimeLimit_Type())
-cgprsCgContainerTimeLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgContainerTimeLimit.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgContainerTimeLimit.setUnits(_P)
-_CgprsCgProfileTable_Object=MibTable
-cgprsCgProfileTable=_CgprsCgProfileTable_Object((1,3,6,1,4,1,9,9,192,1,1,30))
-if mibBuilder.loadTexts:cgprsCgProfileTable.setStatus(_B)
-_CgprsCgProfileEntry_Object=MibTableRow
-cgprsCgProfileEntry=_CgprsCgProfileEntry_Object((1,3,6,1,4,1,9,9,192,1,1,30,1))
-cgprsCgProfileEntry.setIndexNames((0,_A,_B9))
-if mibBuilder.loadTexts:cgprsCgProfileEntry.setStatus(_B)
-class _CgprsCgProfileNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CgprsCgProfileNum_Type.__name__=_H
-_CgprsCgProfileNum_Object=MibTableColumn
-cgprsCgProfileNum=_CgprsCgProfileNum_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,1),_CgprsCgProfileNum_Type())
-cgprsCgProfileNum.setMaxAccess(_L)
-if mibBuilder.loadTexts:cgprsCgProfileNum.setStatus(_B)
-_CgprsCgProfileRowStatus_Type=RowStatus
-_CgprsCgProfileRowStatus_Object=MibTableColumn
-cgprsCgProfileRowStatus=_CgprsCgProfileRowStatus_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,2),_CgprsCgProfileRowStatus_Type())
-cgprsCgProfileRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileRowStatus.setStatus(_B)
-class _CgprsCgProfileDesc_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,99))
-_CgprsCgProfileDesc_Type.__name__=_AU
-_CgprsCgProfileDesc_Object=MibTableColumn
-cgprsCgProfileDesc=_CgprsCgProfileDesc_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,3),_CgprsCgProfileDesc_Type())
-cgprsCgProfileDesc.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileDesc.setStatus(_B)
-class _CgprsCgProfileCategory_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('hotRate',0),('flat',1),('prepaid',2),('normal',3)))
-_CgprsCgProfileCategory_Type.__name__=_I
-_CgprsCgProfileCategory_Object=MibTableColumn
-cgprsCgProfileCategory=_CgprsCgProfileCategory_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,4),_CgprsCgProfileCategory_Type())
-cgprsCgProfileCategory.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileCategory.setStatus(_B)
-class _CgprsCgProfileCdrSuppress_Type(TruthValue):defaultValue=2
-_CgprsCgProfileCdrSuppress_Type.__name__=_E
-_CgprsCgProfileCdrSuppress_Object=MibTableColumn
-cgprsCgProfileCdrSuppress=_CgprsCgProfileCdrSuppress_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,5),_CgprsCgProfileCdrSuppress_Type())
-cgprsCgProfileCdrSuppress.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileCdrSuppress.setStatus(_B)
-class _CgprsCgProfileVolumeLimit_Type(Unsigned32):defaultValue=1048576;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CgprsCgProfileVolumeLimit_Type.__name__=_H
-_CgprsCgProfileVolumeLimit_Object=MibTableColumn
-cgprsCgProfileVolumeLimit=_CgprsCgProfileVolumeLimit_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,6),_CgprsCgProfileVolumeLimit_Type())
-cgprsCgProfileVolumeLimit.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileVolumeLimit.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgProfileVolumeLimit.setUnits(_AW)
-class _CgprsCgProfileVolumeLimitReset_Type(TruthValue):defaultValue=2
-_CgprsCgProfileVolumeLimitReset_Type.__name__=_E
-_CgprsCgProfileVolumeLimitReset_Object=MibTableColumn
-cgprsCgProfileVolumeLimitReset=_CgprsCgProfileVolumeLimitReset_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,7),_CgprsCgProfileVolumeLimitReset_Type())
-cgprsCgProfileVolumeLimitReset.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileVolumeLimitReset.setStatus(_B)
-class _CgprsCgProfileDurLimit_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(5,4294967295))
-_CgprsCgProfileDurLimit_Type.__name__=_H
-_CgprsCgProfileDurLimit_Object=MibTableColumn
-cgprsCgProfileDurLimit=_CgprsCgProfileDurLimit_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,8),_CgprsCgProfileDurLimit_Type())
-cgprsCgProfileDurLimit.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileDurLimit.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgProfileDurLimit.setUnits(_AV)
-class _CgprsCgProfileDurLimitReset_Type(TruthValue):defaultValue=2
-_CgprsCgProfileDurLimitReset_Type.__name__=_E
-_CgprsCgProfileDurLimitReset_Object=MibTableColumn
-cgprsCgProfileDurLimitReset=_CgprsCgProfileDurLimitReset_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,9),_CgprsCgProfileDurLimitReset_Type())
-cgprsCgProfileDurLimitReset.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileDurLimitReset.setStatus(_B)
-class _CgprsCgProfileTariffTime_Type(TruthValue):defaultValue=2
-_CgprsCgProfileTariffTime_Type.__name__=_E
-_CgprsCgProfileTariffTime_Object=MibTableColumn
-cgprsCgProfileTariffTime=_CgprsCgProfileTariffTime_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,10),_CgprsCgProfileTariffTime_Type())
-cgprsCgProfileTariffTime.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileTariffTime.setStatus(_B)
-class _CgprsCgProfileSgsnChange_Type(Integer32):defaultValue=-1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,15))
-_CgprsCgProfileSgsnChange_Type.__name__=_I
-_CgprsCgProfileSgsnChange_Object=MibTableColumn
-cgprsCgProfileSgsnChange=_CgprsCgProfileSgsnChange_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,11),_CgprsCgProfileSgsnChange_Type())
-cgprsCgProfileSgsnChange.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileSgsnChange.setStatus(_B)
-class _CgprsCgProfileCdrSuppressPrepaid_Type(TruthValue):defaultValue=2
-_CgprsCgProfileCdrSuppressPrepaid_Type.__name__=_E
-_CgprsCgProfileCdrSuppressPrepaid_Object=MibTableColumn
-cgprsCgProfileCdrSuppressPrepaid=_CgprsCgProfileCdrSuppressPrepaid_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,12),_CgprsCgProfileCdrSuppressPrepaid_Type())
-cgprsCgProfileCdrSuppressPrepaid.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileCdrSuppressPrepaid.setStatus(_B)
-_CgprsCgProfileContentDccaProfile_Type=SnmpAdminString
-_CgprsCgProfileContentDccaProfile_Object=MibTableColumn
-cgprsCgProfileContentDccaProfile=_CgprsCgProfileContentDccaProfile_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,13),_CgprsCgProfileContentDccaProfile_Type())
-cgprsCgProfileContentDccaProfile.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileContentDccaProfile.setStatus(_D)
-class _CgprsCgProfileContentPostTime_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(300,4294967295))
-_CgprsCgProfileContentPostTime_Type.__name__=_H
-_CgprsCgProfileContentPostTime_Object=MibTableColumn
-cgprsCgProfileContentPostTime=_CgprsCgProfileContentPostTime_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,14),_CgprsCgProfileContentPostTime_Type())
-cgprsCgProfileContentPostTime.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileContentPostTime.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgProfileContentPostTime.setUnits(_P)
-class _CgprsCgProfileContentPostValTime_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(900,4294967295))
-_CgprsCgProfileContentPostValTime_Type.__name__=_H
-_CgprsCgProfileContentPostValTime_Object=MibTableColumn
-cgprsCgProfileContentPostValTime=_CgprsCgProfileContentPostValTime_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,15),_CgprsCgProfileContentPostValTime_Type())
-cgprsCgProfileContentPostValTime.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileContentPostValTime.setStatus(_D)
-if mibBuilder.loadTexts:cgprsCgProfileContentPostValTime.setUnits(_P)
-class _CgprsCgProfileContentPostVolume_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CgprsCgProfileContentPostVolume_Type.__name__=_H
-_CgprsCgProfileContentPostVolume_Object=MibTableColumn
-cgprsCgProfileContentPostVolume=_CgprsCgProfileContentPostVolume_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,16),_CgprsCgProfileContentPostVolume_Type())
-cgprsCgProfileContentPostVolume.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileContentPostVolume.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgProfileContentPostVolume.setUnits(_AW)
-_CgprsCgProfileContentRulebaseId_Type=SnmpAdminString
-_CgprsCgProfileContentRulebaseId_Object=MibTableColumn
-cgprsCgProfileContentRulebaseId=_CgprsCgProfileContentRulebaseId_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,17),_CgprsCgProfileContentRulebaseId_Type())
-cgprsCgProfileContentRulebaseId.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileContentRulebaseId.setStatus(_B)
-class _CgprsCgProfileContentPostQosChange_Type(TruthValue):defaultValue=2
-_CgprsCgProfileContentPostQosChange_Type.__name__=_E
-_CgprsCgProfileContentPostQosChange_Object=MibTableColumn
-cgprsCgProfileContentPostQosChange=_CgprsCgProfileContentPostQosChange_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,18),_CgprsCgProfileContentPostQosChange_Type())
-cgprsCgProfileContentPostQosChange.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileContentPostQosChange.setStatus(_B)
-class _CgprsCgProfileContentPostSgsnChange_Type(TruthValue):defaultValue=2
-_CgprsCgProfileContentPostSgsnChange_Type.__name__=_E
-_CgprsCgProfileContentPostSgsnChange_Object=MibTableColumn
-cgprsCgProfileContentPostSgsnChange=_CgprsCgProfileContentPostSgsnChange_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,19),_CgprsCgProfileContentPostSgsnChange_Type())
-cgprsCgProfileContentPostSgsnChange.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileContentPostSgsnChange.setStatus(_B)
-class _CgprsCgProfileContentPostRatChange_Type(TruthValue):defaultValue=2
-_CgprsCgProfileContentPostRatChange_Type.__name__=_E
-_CgprsCgProfileContentPostRatChange_Object=MibTableColumn
-cgprsCgProfileContentPostRatChange=_CgprsCgProfileContentPostRatChange_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,20),_CgprsCgProfileContentPostRatChange_Type())
-cgprsCgProfileContentPostRatChange.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileContentPostRatChange.setStatus(_B)
-class _CgprsCgProfileContentPostPlmnChange_Type(TruthValue):defaultValue=2
-_CgprsCgProfileContentPostPlmnChange_Type.__name__=_E
-_CgprsCgProfileContentPostPlmnChange_Object=MibTableColumn
-cgprsCgProfileContentPostPlmnChange=_CgprsCgProfileContentPostPlmnChange_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,21),_CgprsCgProfileContentPostPlmnChange_Type())
-cgprsCgProfileContentPostPlmnChange.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileContentPostPlmnChange.setStatus(_B)
-class _CgprsCgProfileStorageType_Type(StorageType):defaultValue=3
-_CgprsCgProfileStorageType_Type.__name__=_Bi
-_CgprsCgProfileStorageType_Object=MibTableColumn
-cgprsCgProfileStorageType=_CgprsCgProfileStorageType_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,22),_CgprsCgProfileStorageType_Type())
-cgprsCgProfileStorageType.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileStorageType.setStatus(_B)
-class _CgprsCgProfileContentPostValidityTime_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(900,4294967295))
-_CgprsCgProfileContentPostValidityTime_Type.__name__=_H
-_CgprsCgProfileContentPostValidityTime_Object=MibTableColumn
-cgprsCgProfileContentPostValidityTime=_CgprsCgProfileContentPostValidityTime_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,23),_CgprsCgProfileContentPostValidityTime_Type())
-cgprsCgProfileContentPostValidityTime.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileContentPostValidityTime.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgProfileContentPostValidityTime.setUnits(_P)
-class _CgprsCgProfileContentPostUserLocChange_Type(TruthValue):defaultValue=2
-_CgprsCgProfileContentPostUserLocChange_Type.__name__=_E
-_CgprsCgProfileContentPostUserLocChange_Object=MibTableColumn
-cgprsCgProfileContentPostUserLocChange=_CgprsCgProfileContentPostUserLocChange_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,24),_CgprsCgProfileContentPostUserLocChange_Type())
-cgprsCgProfileContentPostUserLocChange.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileContentPostUserLocChange.setStatus(_B)
-class _CgprsCgProfileScdrEnable_Type(TruthValue):defaultValue=2
-_CgprsCgProfileScdrEnable_Type.__name__=_E
-_CgprsCgProfileScdrEnable_Object=MibTableColumn
-cgprsCgProfileScdrEnable=_CgprsCgProfileScdrEnable_Object((1,3,6,1,4,1,9,9,192,1,1,30,1,25),_CgprsCgProfileScdrEnable_Type())
-cgprsCgProfileScdrEnable.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileScdrEnable.setStatus(_B)
-_CgprsCgProfileMapTable_Object=MibTable
-cgprsCgProfileMapTable=_CgprsCgProfileMapTable_Object((1,3,6,1,4,1,9,9,192,1,1,31))
-if mibBuilder.loadTexts:cgprsCgProfileMapTable.setStatus(_B)
-_CgprsCgProfileMapEntry_Object=MibTableRow
-cgprsCgProfileMapEntry=_CgprsCgProfileMapEntry_Object((1,3,6,1,4,1,9,9,192,1,1,31,1))
-cgprsCgProfileMapEntry.setIndexNames((0,_A,_Bm))
-if mibBuilder.loadTexts:cgprsCgProfileMapEntry.setStatus(_B)
-class _CgprsCgProfileMapCategory_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('any',1),('home',2),('roaming',3),('visitor',4)))
-_CgprsCgProfileMapCategory_Type.__name__=_I
-_CgprsCgProfileMapCategory_Object=MibTableColumn
-cgprsCgProfileMapCategory=_CgprsCgProfileMapCategory_Object((1,3,6,1,4,1,9,9,192,1,1,31,1,1),_CgprsCgProfileMapCategory_Type())
-cgprsCgProfileMapCategory.setMaxAccess(_L)
-if mibBuilder.loadTexts:cgprsCgProfileMapCategory.setStatus(_B)
-class _CgprsCgProfileMapNum_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CgprsCgProfileMapNum_Type.__name__=_I
-_CgprsCgProfileMapNum_Object=MibTableColumn
-cgprsCgProfileMapNum=_CgprsCgProfileMapNum_Object((1,3,6,1,4,1,9,9,192,1,1,31,1,2),_CgprsCgProfileMapNum_Type())
-cgprsCgProfileMapNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgProfileMapNum.setStatus(_D)
-class _CgprsCgProfileMapOverride_Type(TruthValue):defaultValue=2
-_CgprsCgProfileMapOverride_Type.__name__=_E
-_CgprsCgProfileMapOverride_Object=MibTableColumn
-cgprsCgProfileMapOverride=_CgprsCgProfileMapOverride_Object((1,3,6,1,4,1,9,9,192,1,1,31,1,3),_CgprsCgProfileMapOverride_Type())
-cgprsCgProfileMapOverride.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgProfileMapOverride.setStatus(_B)
-class _CgprsCgProfileMapTrusted_Type(TruthValue):defaultValue=2
-_CgprsCgProfileMapTrusted_Type.__name__=_E
-_CgprsCgProfileMapTrusted_Object=MibTableColumn
-cgprsCgProfileMapTrusted=_CgprsCgProfileMapTrusted_Object((1,3,6,1,4,1,9,9,192,1,1,31,1,4),_CgprsCgProfileMapTrusted_Type())
-cgprsCgProfileMapTrusted.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgProfileMapTrusted.setStatus(_B)
-class _CgprsCgProfileMapNumber_Type(Integer32):defaultValue=-1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,65535))
-_CgprsCgProfileMapNumber_Type.__name__=_I
-_CgprsCgProfileMapNumber_Object=MibTableColumn
-cgprsCgProfileMapNumber=_CgprsCgProfileMapNumber_Object((1,3,6,1,4,1,9,9,192,1,1,31,1,5),_CgprsCgProfileMapNumber_Type())
-cgprsCgProfileMapNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgProfileMapNumber.setStatus(_B)
-class _CgprsCgChargingCharReject_Type(TruthValue):defaultValue=2
-_CgprsCgChargingCharReject_Type.__name__=_E
-_CgprsCgChargingCharReject_Object=MibScalar
-cgprsCgChargingCharReject=_CgprsCgChargingCharReject_Object((1,3,6,1,4,1,9,9,192,1,1,32),_CgprsCgChargingCharReject_Type())
-cgprsCgChargingCharReject.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgChargingCharReject.setStatus(_B)
-class _CgprsCgServiceMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Bn,1),(_Bo,2)))
-_CgprsCgServiceMode_Type.__name__=_I
-_CgprsCgServiceMode_Object=MibScalar
-cgprsCgServiceMode=_CgprsCgServiceMode_Object((1,3,6,1,4,1,9,9,192,1,1,33),_CgprsCgServiceMode_Type())
-cgprsCgServiceMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgServiceMode.setStatus(_D)
-class _CgprsCgPartialCdrGenEnable_Type(TruthValue):defaultValue=1
-_CgprsCgPartialCdrGenEnable_Type.__name__=_E
-_CgprsCgPartialCdrGenEnable_Object=MibScalar
-cgprsCgPartialCdrGenEnable=_CgprsCgPartialCdrGenEnable_Object((1,3,6,1,4,1,9,9,192,1,1,34),_CgprsCgPartialCdrGenEnable_Type())
-cgprsCgPartialCdrGenEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgPartialCdrGenEnable.setStatus(_B)
-class _CgprsCgSwitchOverPriority_Type(TruthValue):defaultValue=2
-_CgprsCgSwitchOverPriority_Type.__name__=_E
-_CgprsCgSwitchOverPriority_Object=MibScalar
-cgprsCgSwitchOverPriority=_CgprsCgSwitchOverPriority_Object((1,3,6,1,4,1,9,9,192,1,1,35),_CgprsCgSwitchOverPriority_Type())
-cgprsCgSwitchOverPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgSwitchOverPriority.setStatus(_D)
-class _CgprsCgCharSelectionMode_Type(TruthValue):defaultValue=2
-_CgprsCgCharSelectionMode_Type.__name__=_E
-_CgprsCgCharSelectionMode_Object=MibScalar
-cgprsCgCharSelectionMode=_CgprsCgCharSelectionMode_Object((1,3,6,1,4,1,9,9,192,1,1,36),_CgprsCgCharSelectionMode_Type())
-cgprsCgCharSelectionMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCharSelectionMode.setStatus(_B)
-class _CgprsCgReconnect_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,600))
-_CgprsCgReconnect_Type.__name__=_I
-_CgprsCgReconnect_Object=MibScalar
-cgprsCgReconnect=_CgprsCgReconnect_Object((1,3,6,1,4,1,9,9,192,1,1,37),_CgprsCgReconnect_Type())
-cgprsCgReconnect.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgReconnect.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgReconnect.setUnits(_AV)
-class _CgprsCgPtcEnable_Type(TruthValue):defaultValue=2
-_CgprsCgPtcEnable_Type.__name__=_E
-_CgprsCgPtcEnable_Object=MibScalar
-cgprsCgPtcEnable=_CgprsCgPtcEnable_Object((1,3,6,1,4,1,9,9,192,1,1,38),_CgprsCgPtcEnable_Type())
-cgprsCgPtcEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgPtcEnable.setStatus(_B)
-class _CgprsCgPtcPossiblyDupEnable_Type(TruthValue):defaultValue=2
-_CgprsCgPtcPossiblyDupEnable_Type.__name__=_E
-_CgprsCgPtcPossiblyDupEnable_Object=MibScalar
-cgprsCgPtcPossiblyDupEnable=_CgprsCgPtcPossiblyDupEnable_Object((1,3,6,1,4,1,9,9,192,1,1,39),_CgprsCgPtcPossiblyDupEnable_Type())
-cgprsCgPtcPossiblyDupEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgPtcPossiblyDupEnable.setStatus(_B)
-class _CgprsCgCdrOptionServiceRecord_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_CgprsCgCdrOptionServiceRecord_Type.__name__=_H
-_CgprsCgCdrOptionServiceRecord_Object=MibScalar
-cgprsCgCdrOptionServiceRecord=_CgprsCgCdrOptionServiceRecord_Object((1,3,6,1,4,1,9,9,192,1,1,40),_CgprsCgCdrOptionServiceRecord_Type())
-cgprsCgCdrOptionServiceRecord.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrOptionServiceRecord.setStatus(_B)
-class _CgprsCgPartialCdrGenEnableAll_Type(TruthValue):defaultValue=2
-_CgprsCgPartialCdrGenEnableAll_Type.__name__=_E
-_CgprsCgPartialCdrGenEnableAll_Object=MibScalar
-cgprsCgPartialCdrGenEnableAll=_CgprsCgPartialCdrGenEnableAll_Object((1,3,6,1,4,1,9,9,192,1,1,41),_CgprsCgPartialCdrGenEnableAll_Type())
-cgprsCgPartialCdrGenEnableAll.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgPartialCdrGenEnableAll.setStatus(_B)
-class _CgprsCgCdrOptionApn_Type(TruthValue):defaultValue=1
-_CgprsCgCdrOptionApn_Type.__name__=_E
-_CgprsCgCdrOptionApn_Object=MibScalar
-cgprsCgCdrOptionApn=_CgprsCgCdrOptionApn_Object((1,3,6,1,4,1,9,9,192,1,1,42),_CgprsCgCdrOptionApn_Type())
-cgprsCgCdrOptionApn.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrOptionApn.setStatus(_B)
-class _CgprsCgCdrOptionVirtualApn_Type(TruthValue):defaultValue=2
-_CgprsCgCdrOptionVirtualApn_Type.__name__=_E
-_CgprsCgCdrOptionVirtualApn_Object=MibScalar
-cgprsCgCdrOptionVirtualApn=_CgprsCgCdrOptionVirtualApn_Object((1,3,6,1,4,1,9,9,192,1,1,43),_CgprsCgCdrOptionVirtualApn_Type())
-cgprsCgCdrOptionVirtualApn.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrOptionVirtualApn.setStatus(_B)
-class _CgprsCgCdrOptionApnSelMode_Type(TruthValue):defaultValue=2
-_CgprsCgCdrOptionApnSelMode_Type.__name__=_E
-_CgprsCgCdrOptionApnSelMode_Object=MibScalar
-cgprsCgCdrOptionApnSelMode=_CgprsCgCdrOptionApnSelMode_Object((1,3,6,1,4,1,9,9,192,1,1,44),_CgprsCgCdrOptionApnSelMode_Type())
-cgprsCgCdrOptionApnSelMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrOptionApnSelMode.setStatus(_B)
-class _CgprsCgCdrOptionDynamicAddr_Type(TruthValue):defaultValue=1
-_CgprsCgCdrOptionDynamicAddr_Type.__name__=_E
-_CgprsCgCdrOptionDynamicAddr_Object=MibScalar
-cgprsCgCdrOptionDynamicAddr=_CgprsCgCdrOptionDynamicAddr_Object((1,3,6,1,4,1,9,9,192,1,1,45),_CgprsCgCdrOptionDynamicAddr_Type())
-cgprsCgCdrOptionDynamicAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrOptionDynamicAddr.setStatus(_B)
-class _CgprsCgCdrOptionNip_Type(TruthValue):defaultValue=1
-_CgprsCgCdrOptionNip_Type.__name__=_E
-_CgprsCgCdrOptionNip_Object=MibScalar
-cgprsCgCdrOptionNip=_CgprsCgCdrOptionNip_Object((1,3,6,1,4,1,9,9,192,1,1,46),_CgprsCgCdrOptionNip_Type())
-cgprsCgCdrOptionNip.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrOptionNip.setStatus(_B)
-class _CgprsCgCdrOptionPdpAddress_Type(TruthValue):defaultValue=1
-_CgprsCgCdrOptionPdpAddress_Type.__name__=_E
-_CgprsCgCdrOptionPdpAddress_Object=MibScalar
-cgprsCgCdrOptionPdpAddress=_CgprsCgCdrOptionPdpAddress_Object((1,3,6,1,4,1,9,9,192,1,1,47),_CgprsCgCdrOptionPdpAddress_Type())
-cgprsCgCdrOptionPdpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrOptionPdpAddress.setStatus(_B)
-class _CgprsCgCdrOptionPdpType_Type(TruthValue):defaultValue=1
-_CgprsCgCdrOptionPdpType_Type.__name__=_E
-_CgprsCgCdrOptionPdpType_Object=MibScalar
-cgprsCgCdrOptionPdpType=_CgprsCgCdrOptionPdpType_Object((1,3,6,1,4,1,9,9,192,1,1,48),_CgprsCgCdrOptionPdpType_Type())
-cgprsCgCdrOptionPdpType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrOptionPdpType.setStatus(_B)
-class _CgprsCgCdrOptionSerMsisdn_Type(TruthValue):defaultValue=2
-_CgprsCgCdrOptionSerMsisdn_Type.__name__=_E
-_CgprsCgCdrOptionSerMsisdn_Object=MibScalar
-cgprsCgCdrOptionSerMsisdn=_CgprsCgCdrOptionSerMsisdn_Object((1,3,6,1,4,1,9,9,192,1,1,49),_CgprsCgCdrOptionSerMsisdn_Type())
-cgprsCgCdrOptionSerMsisdn.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrOptionSerMsisdn.setStatus(_B)
-class _CgprsCgCdrOptionSgsnPlmn_Type(TruthValue):defaultValue=2
-_CgprsCgCdrOptionSgsnPlmn_Type.__name__=_E
-_CgprsCgCdrOptionSgsnPlmn_Object=MibScalar
-cgprsCgCdrOptionSgsnPlmn=_CgprsCgCdrOptionSgsnPlmn_Object((1,3,6,1,4,1,9,9,192,1,1,50),_CgprsCgCdrOptionSgsnPlmn_Type())
-cgprsCgCdrOptionSgsnPlmn.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrOptionSgsnPlmn.setStatus(_B)
-class _CgprsCgCdrOptionCamelCharInfo_Type(TruthValue):defaultValue=2
-_CgprsCgCdrOptionCamelCharInfo_Type.__name__=_E
-_CgprsCgCdrOptionCamelCharInfo_Object=MibScalar
-cgprsCgCdrOptionCamelCharInfo=_CgprsCgCdrOptionCamelCharInfo_Object((1,3,6,1,4,1,9,9,192,1,1,51),_CgprsCgCdrOptionCamelCharInfo_Type())
-cgprsCgCdrOptionCamelCharInfo.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrOptionCamelCharInfo.setStatus(_B)
-class _CgprsCgCdrOptionImeisv_Type(TruthValue):defaultValue=2
-_CgprsCgCdrOptionImeisv_Type.__name__=_E
-_CgprsCgCdrOptionImeisv_Object=MibScalar
-cgprsCgCdrOptionImeisv=_CgprsCgCdrOptionImeisv_Object((1,3,6,1,4,1,9,9,192,1,1,52),_CgprsCgCdrOptionImeisv_Type())
-cgprsCgCdrOptionImeisv.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrOptionImeisv.setStatus(_B)
-class _CgprsCgCdrOptionMsTimeZone_Type(TruthValue):defaultValue=2
-_CgprsCgCdrOptionMsTimeZone_Type.__name__=_E
-_CgprsCgCdrOptionMsTimeZone_Object=MibScalar
-cgprsCgCdrOptionMsTimeZone=_CgprsCgCdrOptionMsTimeZone_Object((1,3,6,1,4,1,9,9,192,1,1,53),_CgprsCgCdrOptionMsTimeZone_Type())
-cgprsCgCdrOptionMsTimeZone.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrOptionMsTimeZone.setStatus(_B)
-class _CgprsCgCdrOptionRatType_Type(TruthValue):defaultValue=2
-_CgprsCgCdrOptionRatType_Type.__name__=_E
-_CgprsCgCdrOptionRatType_Object=MibScalar
-cgprsCgCdrOptionRatType=_CgprsCgCdrOptionRatType_Object((1,3,6,1,4,1,9,9,192,1,1,54),_CgprsCgCdrOptionRatType_Type())
-cgprsCgCdrOptionRatType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrOptionRatType.setStatus(_B)
-class _CgprsCgCdrOptionUserLocInfo_Type(TruthValue):defaultValue=2
-_CgprsCgCdrOptionUserLocInfo_Type.__name__=_E
-_CgprsCgCdrOptionUserLocInfo_Object=MibScalar
-cgprsCgCdrOptionUserLocInfo=_CgprsCgCdrOptionUserLocInfo_Object((1,3,6,1,4,1,9,9,192,1,1,55),_CgprsCgCdrOptionUserLocInfo_Type())
-cgprsCgCdrOptionUserLocInfo.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgCdrOptionUserLocInfo.setStatus(_B)
-class _CgprsCgServiceRecordIncludeRat_Type(TruthValue):defaultValue=2
-_CgprsCgServiceRecordIncludeRat_Type.__name__=_E
-_CgprsCgServiceRecordIncludeRat_Object=MibScalar
-cgprsCgServiceRecordIncludeRat=_CgprsCgServiceRecordIncludeRat_Object((1,3,6,1,4,1,9,9,192,1,1,56),_CgprsCgServiceRecordIncludeRat_Type())
-cgprsCgServiceRecordIncludeRat.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgServiceRecordIncludeRat.setStatus(_B)
-class _CgprsCgServiceRecordIncludePlmn_Type(TruthValue):defaultValue=2
-_CgprsCgServiceRecordIncludePlmn_Type.__name__=_E
-_CgprsCgServiceRecordIncludePlmn_Object=MibScalar
-cgprsCgServiceRecordIncludePlmn=_CgprsCgServiceRecordIncludePlmn_Object((1,3,6,1,4,1,9,9,192,1,1,57),_CgprsCgServiceRecordIncludePlmn_Type())
-cgprsCgServiceRecordIncludePlmn.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgServiceRecordIncludePlmn.setStatus(_B)
-class _CgprsCgChargingSrcInterface_Type(Integer32):defaultValue=-1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_CgprsCgChargingSrcInterface_Type.__name__=_I
-_CgprsCgChargingSrcInterface_Object=MibScalar
-cgprsCgChargingSrcInterface=_CgprsCgChargingSrcInterface_Object((1,3,6,1,4,1,9,9,192,1,1,58),_CgprsCgChargingSrcInterface_Type())
-cgprsCgChargingSrcInterface.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgChargingSrcInterface.setStatus(_B)
-class _CgprsCgServiceRecordIncludeUserLocInfo_Type(TruthValue):defaultValue=2
-_CgprsCgServiceRecordIncludeUserLocInfo_Type.__name__=_E
-_CgprsCgServiceRecordIncludeUserLocInfo_Object=MibScalar
-cgprsCgServiceRecordIncludeUserLocInfo=_CgprsCgServiceRecordIncludeUserLocInfo_Object((1,3,6,1,4,1,9,9,192,1,1,59),_CgprsCgServiceRecordIncludeUserLocInfo_Type())
-cgprsCgServiceRecordIncludeUserLocInfo.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgServiceRecordIncludeUserLocInfo.setStatus(_B)
-_CgprsCgGroupTable_Object=MibTable
-cgprsCgGroupTable=_CgprsCgGroupTable_Object((1,3,6,1,4,1,9,9,192,1,1,60))
-if mibBuilder.loadTexts:cgprsCgGroupTable.setStatus(_B)
-_CgprsCgGroupEntry_Object=MibTableRow
-cgprsCgGroupEntry=_CgprsCgGroupEntry_Object((1,3,6,1,4,1,9,9,192,1,1,60,1))
-cgprsCgGroupEntry.setIndexNames((0,_A,_y))
-if mibBuilder.loadTexts:cgprsCgGroupEntry.setStatus(_B)
-class _CgprsCgGroupIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,29))
-_CgprsCgGroupIndex_Type.__name__=_I
-_CgprsCgGroupIndex_Object=MibTableColumn
-cgprsCgGroupIndex=_CgprsCgGroupIndex_Object((1,3,6,1,4,1,9,9,192,1,1,60,1,1),_CgprsCgGroupIndex_Type())
-cgprsCgGroupIndex.setMaxAccess(_L)
-if mibBuilder.loadTexts:cgprsCgGroupIndex.setStatus(_B)
-class _CgprsCgGroupIscsi_Type(SnmpAdminString):defaultValue=OctetString('')
-_CgprsCgGroupIscsi_Type.__name__=_AU
-_CgprsCgGroupIscsi_Object=MibTableColumn
-cgprsCgGroupIscsi=_CgprsCgGroupIscsi_Object((1,3,6,1,4,1,9,9,192,1,1,60,1,2),_CgprsCgGroupIscsi_Type())
-cgprsCgGroupIscsi.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgGroupIscsi.setStatus(_B)
-class _CgprsCgGroupServiceMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Bn,1),(_Bo,2)))
-_CgprsCgGroupServiceMode_Type.__name__=_I
-_CgprsCgGroupServiceMode_Object=MibTableColumn
-cgprsCgGroupServiceMode=_CgprsCgGroupServiceMode_Object((1,3,6,1,4,1,9,9,192,1,1,60,1,3),_CgprsCgGroupServiceMode_Type())
-cgprsCgGroupServiceMode.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgGroupServiceMode.setStatus(_B)
-class _CgprsCgGroupSwitchOverPriority_Type(TruthValue):defaultValue=2
-_CgprsCgGroupSwitchOverPriority_Type.__name__=_E
-_CgprsCgGroupSwitchOverPriority_Object=MibTableColumn
-cgprsCgGroupSwitchOverPriority=_CgprsCgGroupSwitchOverPriority_Object((1,3,6,1,4,1,9,9,192,1,1,60,1,4),_CgprsCgGroupSwitchOverPriority_Type())
-cgprsCgGroupSwitchOverPriority.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgGroupSwitchOverPriority.setStatus(_B)
-_CgprsCgGroupRowStatus_Type=RowStatus
-_CgprsCgGroupRowStatus_Object=MibTableColumn
-cgprsCgGroupRowStatus=_CgprsCgGroupRowStatus_Object((1,3,6,1,4,1,9,9,192,1,1,60,1,5),_CgprsCgGroupRowStatus_Type())
-cgprsCgGroupRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgGroupRowStatus.setStatus(_B)
-_CgprsCgGatewayIpTable_Object=MibTable
-cgprsCgGatewayIpTable=_CgprsCgGatewayIpTable_Object((1,3,6,1,4,1,9,9,192,1,1,61))
-if mibBuilder.loadTexts:cgprsCgGatewayIpTable.setStatus(_B)
-_CgprsCgGatewayIpEntry_Object=MibTableRow
-cgprsCgGatewayIpEntry=_CgprsCgGatewayIpEntry_Object((1,3,6,1,4,1,9,9,192,1,1,61,1))
-cgprsCgGatewayIpEntry.setIndexNames((0,_A,_y),(0,_A,_Bp))
-if mibBuilder.loadTexts:cgprsCgGatewayIpEntry.setStatus(_B)
-class _CgprsCgGatewayIpIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CgprsCgGatewayIpIndex_Type.__name__=_H
-_CgprsCgGatewayIpIndex_Object=MibTableColumn
-cgprsCgGatewayIpIndex=_CgprsCgGatewayIpIndex_Object((1,3,6,1,4,1,9,9,192,1,1,61,1,1),_CgprsCgGatewayIpIndex_Type())
-cgprsCgGatewayIpIndex.setMaxAccess(_L)
-if mibBuilder.loadTexts:cgprsCgGatewayIpIndex.setStatus(_B)
-_CgprsCgGatewayIpAddrType_Type=InetAddressType
-_CgprsCgGatewayIpAddrType_Object=MibTableColumn
-cgprsCgGatewayIpAddrType=_CgprsCgGatewayIpAddrType_Object((1,3,6,1,4,1,9,9,192,1,1,61,1,2),_CgprsCgGatewayIpAddrType_Type())
-cgprsCgGatewayIpAddrType.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgGatewayIpAddrType.setStatus(_B)
-_CgprsCgGatewayIpAddr_Type=InetAddress
-_CgprsCgGatewayIpAddr_Object=MibTableColumn
-cgprsCgGatewayIpAddr=_CgprsCgGatewayIpAddr_Object((1,3,6,1,4,1,9,9,192,1,1,61,1,3),_CgprsCgGatewayIpAddr_Type())
-cgprsCgGatewayIpAddr.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgGatewayIpAddr.setStatus(_B)
-class _CgprsCgGatewayOperStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_Bl,1),('active',2),('standby',3)))
-_CgprsCgGatewayOperStatus_Type.__name__=_I
-_CgprsCgGatewayOperStatus_Object=MibTableColumn
-cgprsCgGatewayOperStatus=_CgprsCgGatewayOperStatus_Object((1,3,6,1,4,1,9,9,192,1,1,61,1,4),_CgprsCgGatewayOperStatus_Type())
-cgprsCgGatewayOperStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayOperStatus.setStatus(_B)
-class _CgprsCgGatewayLinkState_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('on',1),('off',2),('pending',3)))
-_CgprsCgGatewayLinkState_Type.__name__=_I
-_CgprsCgGatewayLinkState_Object=MibTableColumn
-cgprsCgGatewayLinkState=_CgprsCgGatewayLinkState_Object((1,3,6,1,4,1,9,9,192,1,1,61,1,5),_CgprsCgGatewayLinkState_Type())
-cgprsCgGatewayLinkState.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayLinkState.setStatus(_B)
-_CgprsCgGateway_Type=CgprsCgGatewayType
-_CgprsCgGateway_Object=MibTableColumn
-cgprsCgGateway=_CgprsCgGateway_Object((1,3,6,1,4,1,9,9,192,1,1,61,1,6),_CgprsCgGateway_Type())
-cgprsCgGateway.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGateway.setStatus(_B)
-_CgprsCgGatewayIpRowStatus_Type=RowStatus
-_CgprsCgGatewayIpRowStatus_Object=MibTableColumn
-cgprsCgGatewayIpRowStatus=_CgprsCgGatewayIpRowStatus_Object((1,3,6,1,4,1,9,9,192,1,1,61,1,7),_CgprsCgGatewayIpRowStatus_Type())
-cgprsCgGatewayIpRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgGatewayIpRowStatus.setStatus(_B)
-_CgprsCgProfileContentDccaProfileTable_Object=MibTable
-cgprsCgProfileContentDccaProfileTable=_CgprsCgProfileContentDccaProfileTable_Object((1,3,6,1,4,1,9,9,192,1,1,62))
-if mibBuilder.loadTexts:cgprsCgProfileContentDccaProfileTable.setStatus(_B)
-_CgprsCgProfileContentDccaProfileEntry_Object=MibTableRow
-cgprsCgProfileContentDccaProfileEntry=_CgprsCgProfileContentDccaProfileEntry_Object((1,3,6,1,4,1,9,9,192,1,1,62,1))
-cgprsCgProfileContentDccaProfileEntry.setIndexNames((0,_A,_B9),(0,_A,_Bq))
-if mibBuilder.loadTexts:cgprsCgProfileContentDccaProfileEntry.setStatus(_B)
-class _CgprsCgProfileContentDccaProfileName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,40))
-_CgprsCgProfileContentDccaProfileName_Type.__name__=_AU
-_CgprsCgProfileContentDccaProfileName_Object=MibTableColumn
-cgprsCgProfileContentDccaProfileName=_CgprsCgProfileContentDccaProfileName_Object((1,3,6,1,4,1,9,9,192,1,1,62,1,1),_CgprsCgProfileContentDccaProfileName_Type())
-cgprsCgProfileContentDccaProfileName.setMaxAccess(_L)
-if mibBuilder.loadTexts:cgprsCgProfileContentDccaProfileName.setStatus(_B)
-_CgprsCgProfileContentDccaProfileRowStatus_Type=RowStatus
-_CgprsCgProfileContentDccaProfileRowStatus_Object=MibTableColumn
-cgprsCgProfileContentDccaProfileRowStatus=_CgprsCgProfileContentDccaProfileRowStatus_Object((1,3,6,1,4,1,9,9,192,1,1,62,1,2),_CgprsCgProfileContentDccaProfileRowStatus_Type())
-cgprsCgProfileContentDccaProfileRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileContentDccaProfileRowStatus.setStatus(_B)
-class _CgprsCgProfileContentDccaProfileWeight_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_CgprsCgProfileContentDccaProfileWeight_Type.__name__=_H
-_CgprsCgProfileContentDccaProfileWeight_Object=MibTableColumn
-cgprsCgProfileContentDccaProfileWeight=_CgprsCgProfileContentDccaProfileWeight_Object((1,3,6,1,4,1,9,9,192,1,1,62,1,3),_CgprsCgProfileContentDccaProfileWeight_Type())
-cgprsCgProfileContentDccaProfileWeight.setMaxAccess(_G)
-if mibBuilder.loadTexts:cgprsCgProfileContentDccaProfileWeight.setStatus(_B)
-class _CgprsCgScdrEnable_Type(TruthValue):defaultValue=2
-_CgprsCgScdrEnable_Type.__name__=_E
-_CgprsCgScdrEnable_Object=MibScalar
-cgprsCgScdrEnable=_CgprsCgScdrEnable_Object((1,3,6,1,4,1,9,9,192,1,1,63),_CgprsCgScdrEnable_Type())
-cgprsCgScdrEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgScdrEnable.setStatus(_B)
-_CiscoGprsChargingOthers_ObjectIdentity=ObjectIdentity
-ciscoGprsChargingOthers=_CiscoGprsChargingOthers_ObjectIdentity((1,3,6,1,4,1,9,9,192,1,2))
-_CiscoGprsChargingStats_ObjectIdentity=ObjectIdentity
-ciscoGprsChargingStats=_CiscoGprsChargingStats_ObjectIdentity((1,3,6,1,4,1,9,9,192,1,3))
-_CgprsCgDownTimes_Type=Counter32
-_CgprsCgDownTimes_Object=MibScalar
-cgprsCgDownTimes=_CgprsCgDownTimes_Object((1,3,6,1,4,1,9,9,192,1,3,1),_CgprsCgDownTimes_Type())
-cgprsCgDownTimes.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgDownTimes.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgDownTimes.setUnits(_Br)
-_CgprsCgAccPtNum_Type=Counter32
-_CgprsCgAccPtNum_Object=MibScalar
-cgprsCgAccPtNum=_CgprsCgAccPtNum_Object((1,3,6,1,4,1,9,9,192,1,3,2),_CgprsCgAccPtNum_Type())
-cgprsCgAccPtNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgAccPtNum.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgAccPtNum.setUnits(_Bs)
-_CgprsCgCdrOpenedNum_Type=Gauge32
-_CgprsCgCdrOpenedNum_Object=MibScalar
-cgprsCgCdrOpenedNum=_CgprsCgCdrOpenedNum_Object((1,3,6,1,4,1,9,9,192,1,3,3),_CgprsCgCdrOpenedNum_Type())
-cgprsCgCdrOpenedNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgCdrOpenedNum.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgCdrOpenedNum.setUnits(_O)
-_CgprsCgCdrClosedNum_Type=Gauge32
-_CgprsCgCdrClosedNum_Object=MibScalar
-cgprsCgCdrClosedNum=_CgprsCgCdrClosedNum_Object((1,3,6,1,4,1,9,9,192,1,3,4),_CgprsCgCdrClosedNum_Type())
-cgprsCgCdrClosedNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgCdrClosedNum.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgCdrClosedNum.setUnits(_O)
-_CgprsCgContainerNum_Type=Gauge32
-_CgprsCgContainerNum_Object=MibScalar
-cgprsCgContainerNum=_CgprsCgContainerNum_Object((1,3,6,1,4,1,9,9,192,1,3,5),_CgprsCgContainerNum_Type())
-cgprsCgContainerNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgContainerNum.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgContainerNum.setUnits(_AX)
-_CgprsCgPendingMsgNum_Type=Gauge32
-_CgprsCgPendingMsgNum_Object=MibScalar
-cgprsCgPendingMsgNum=_CgprsCgPendingMsgNum_Object((1,3,6,1,4,1,9,9,192,1,3,6),_CgprsCgPendingMsgNum_Type())
-cgprsCgPendingMsgNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgPendingMsgNum.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgPendingMsgNum.setUnits(_M)
-_CgprsCgSentMsgNum_Type=Counter32
-_CgprsCgSentMsgNum_Object=MibScalar
-cgprsCgSentMsgNum=_CgprsCgSentMsgNum_Object((1,3,6,1,4,1,9,9,192,1,3,7),_CgprsCgSentMsgNum_Type())
-cgprsCgSentMsgNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgSentMsgNum.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgSentMsgNum.setUnits(_M)
-_CgprsCgTotalCdrOpened_Type=Counter32
-_CgprsCgTotalCdrOpened_Object=MibScalar
-cgprsCgTotalCdrOpened=_CgprsCgTotalCdrOpened_Object((1,3,6,1,4,1,9,9,192,1,3,8),_CgprsCgTotalCdrOpened_Type())
-cgprsCgTotalCdrOpened.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgTotalCdrOpened.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgTotalCdrOpened.setUnits(_O)
-_CgprsCgTotalContainerCreated_Type=Counter32
-_CgprsCgTotalContainerCreated_Object=MibScalar
-cgprsCgTotalContainerCreated=_CgprsCgTotalContainerCreated_Object((1,3,6,1,4,1,9,9,192,1,3,9),_CgprsCgTotalContainerCreated_Type())
-cgprsCgTotalContainerCreated.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgTotalContainerCreated.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgTotalContainerCreated.setUnits(_AX)
-_CgprsCgTotalServiceRecords_Type=Counter32
-_CgprsCgTotalServiceRecords_Object=MibScalar
-cgprsCgTotalServiceRecords=_CgprsCgTotalServiceRecords_Object((1,3,6,1,4,1,9,9,192,1,3,10),_CgprsCgTotalServiceRecords_Type())
-cgprsCgTotalServiceRecords.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgTotalServiceRecords.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgTotalServiceRecords.setUnits(_BA)
-_CgprsCgGatewayGroupStatisticsTable_Object=MibTable
-cgprsCgGatewayGroupStatisticsTable=_CgprsCgGatewayGroupStatisticsTable_Object((1,3,6,1,4,1,9,9,192,1,3,11))
-if mibBuilder.loadTexts:cgprsCgGatewayGroupStatisticsTable.setStatus(_B)
-_CgprsCgGatewayGroupStatisticsEntry_Object=MibTableRow
-cgprsCgGatewayGroupStatisticsEntry=_CgprsCgGatewayGroupStatisticsEntry_Object((1,3,6,1,4,1,9,9,192,1,3,11,1))
-if mibBuilder.loadTexts:cgprsCgGatewayGroupStatisticsEntry.setStatus(_B)
-_CgprsCgGatewayGroupCgDownTimes_Type=Counter32
-_CgprsCgGatewayGroupCgDownTimes_Object=MibTableColumn
-cgprsCgGatewayGroupCgDownTimes=_CgprsCgGatewayGroupCgDownTimes_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,1),_CgprsCgGatewayGroupCgDownTimes_Type())
-cgprsCgGatewayGroupCgDownTimes.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupCgDownTimes.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupCgDownTimes.setUnits(_Br)
-_CgprsCgGatewayGroupAccPtNum_Type=Counter32
-_CgprsCgGatewayGroupAccPtNum_Object=MibTableColumn
-cgprsCgGatewayGroupAccPtNum=_CgprsCgGatewayGroupAccPtNum_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,2),_CgprsCgGatewayGroupAccPtNum_Type())
-cgprsCgGatewayGroupAccPtNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupAccPtNum.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupAccPtNum.setUnits(_Bs)
-class _CgprsCgGatewayGroupCdrOpenedNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CgprsCgGatewayGroupCdrOpenedNum_Type.__name__=_H
-_CgprsCgGatewayGroupCdrOpenedNum_Object=MibTableColumn
-cgprsCgGatewayGroupCdrOpenedNum=_CgprsCgGatewayGroupCdrOpenedNum_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,3),_CgprsCgGatewayGroupCdrOpenedNum_Type())
-cgprsCgGatewayGroupCdrOpenedNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupCdrOpenedNum.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupCdrOpenedNum.setUnits(_O)
-class _CgprsCgGatewayGroupCdrClosedNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CgprsCgGatewayGroupCdrClosedNum_Type.__name__=_H
-_CgprsCgGatewayGroupCdrClosedNum_Object=MibTableColumn
-cgprsCgGatewayGroupCdrClosedNum=_CgprsCgGatewayGroupCdrClosedNum_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,4),_CgprsCgGatewayGroupCdrClosedNum_Type())
-cgprsCgGatewayGroupCdrClosedNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupCdrClosedNum.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupCdrClosedNum.setUnits(_O)
-class _CgprsCgGatewayGroupContainerNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CgprsCgGatewayGroupContainerNum_Type.__name__=_H
-_CgprsCgGatewayGroupContainerNum_Object=MibTableColumn
-cgprsCgGatewayGroupContainerNum=_CgprsCgGatewayGroupContainerNum_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,5),_CgprsCgGatewayGroupContainerNum_Type())
-cgprsCgGatewayGroupContainerNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupContainerNum.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupContainerNum.setUnits(_AX)
-class _CgprsCgGatewayGroupServiceRecordsNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CgprsCgGatewayGroupServiceRecordsNum_Type.__name__=_H
-_CgprsCgGatewayGroupServiceRecordsNum_Object=MibTableColumn
-cgprsCgGatewayGroupServiceRecordsNum=_CgprsCgGatewayGroupServiceRecordsNum_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,6),_CgprsCgGatewayGroupServiceRecordsNum_Type())
-cgprsCgGatewayGroupServiceRecordsNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupServiceRecordsNum.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupServiceRecordsNum.setUnits(_BA)
-class _CgprsCgGatewayGroupPendingMsgNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CgprsCgGatewayGroupPendingMsgNum_Type.__name__=_H
-_CgprsCgGatewayGroupPendingMsgNum_Object=MibTableColumn
-cgprsCgGatewayGroupPendingMsgNum=_CgprsCgGatewayGroupPendingMsgNum_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,7),_CgprsCgGatewayGroupPendingMsgNum_Type())
-cgprsCgGatewayGroupPendingMsgNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupPendingMsgNum.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupPendingMsgNum.setUnits(_M)
-class _CgprsCgGatewayGroupCdrPendingMsgIscsiNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CgprsCgGatewayGroupCdrPendingMsgIscsiNum_Type.__name__=_H
-_CgprsCgGatewayGroupCdrPendingMsgIscsiNum_Object=MibTableColumn
-cgprsCgGatewayGroupCdrPendingMsgIscsiNum=_CgprsCgGatewayGroupCdrPendingMsgIscsiNum_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,8),_CgprsCgGatewayGroupCdrPendingMsgIscsiNum_Type())
-cgprsCgGatewayGroupCdrPendingMsgIscsiNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupCdrPendingMsgIscsiNum.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupCdrPendingMsgIscsiNum.setUnits(_M)
-class _CgprsCgGatewayGroupCdrPendingMsgCgPathNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CgprsCgGatewayGroupCdrPendingMsgCgPathNum_Type.__name__=_H
-_CgprsCgGatewayGroupCdrPendingMsgCgPathNum_Object=MibTableColumn
-cgprsCgGatewayGroupCdrPendingMsgCgPathNum=_CgprsCgGatewayGroupCdrPendingMsgCgPathNum_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,9),_CgprsCgGatewayGroupCdrPendingMsgCgPathNum_Type())
-cgprsCgGatewayGroupCdrPendingMsgCgPathNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupCdrPendingMsgCgPathNum.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupCdrPendingMsgCgPathNum.setUnits(_M)
-class _CgprsCgGatewayGroupCdrPendingMsgMaintNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CgprsCgGatewayGroupCdrPendingMsgMaintNum_Type.__name__=_H
-_CgprsCgGatewayGroupCdrPendingMsgMaintNum_Object=MibTableColumn
-cgprsCgGatewayGroupCdrPendingMsgMaintNum=_CgprsCgGatewayGroupCdrPendingMsgMaintNum_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,10),_CgprsCgGatewayGroupCdrPendingMsgMaintNum_Type())
-cgprsCgGatewayGroupCdrPendingMsgMaintNum.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupCdrPendingMsgMaintNum.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupCdrPendingMsgMaintNum.setUnits(_M)
-_CgprsCgGatewayGroupTotalCdrOpened_Type=Counter32
-_CgprsCgGatewayGroupTotalCdrOpened_Object=MibTableColumn
-cgprsCgGatewayGroupTotalCdrOpened=_CgprsCgGatewayGroupTotalCdrOpened_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,11),_CgprsCgGatewayGroupTotalCdrOpened_Type())
-cgprsCgGatewayGroupTotalCdrOpened.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupTotalCdrOpened.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupTotalCdrOpened.setUnits(_O)
-_CgprsCgGatewayGroupTotalContainerCreated_Type=Counter32
-_CgprsCgGatewayGroupTotalContainerCreated_Object=MibTableColumn
-cgprsCgGatewayGroupTotalContainerCreated=_CgprsCgGatewayGroupTotalContainerCreated_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,12),_CgprsCgGatewayGroupTotalContainerCreated_Type())
-cgprsCgGatewayGroupTotalContainerCreated.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupTotalContainerCreated.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupTotalContainerCreated.setUnits(_AX)
-_CgprsCgGatewayGroupTotalServiceRecords_Type=Counter32
-_CgprsCgGatewayGroupTotalServiceRecords_Object=MibTableColumn
-cgprsCgGatewayGroupTotalServiceRecords=_CgprsCgGatewayGroupTotalServiceRecords_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,13),_CgprsCgGatewayGroupTotalServiceRecords_Type())
-cgprsCgGatewayGroupTotalServiceRecords.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupTotalServiceRecords.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupTotalServiceRecords.setUnits(_BA)
-_CgprsCgGatewayGroupTotalSentMsg_Type=Counter32
-_CgprsCgGatewayGroupTotalSentMsg_Object=MibTableColumn
-cgprsCgGatewayGroupTotalSentMsg=_CgprsCgGatewayGroupTotalSentMsg_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,14),_CgprsCgGatewayGroupTotalSentMsg_Type())
-cgprsCgGatewayGroupTotalSentMsg.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupTotalSentMsg.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupTotalSentMsg.setUnits(_M)
-_CgprsCgGatewayGroupTotalSentMsgToIscsi_Type=Counter32
-_CgprsCgGatewayGroupTotalSentMsgToIscsi_Object=MibTableColumn
-cgprsCgGatewayGroupTotalSentMsgToIscsi=_CgprsCgGatewayGroupTotalSentMsgToIscsi_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,15),_CgprsCgGatewayGroupTotalSentMsgToIscsi_Type())
-cgprsCgGatewayGroupTotalSentMsgToIscsi.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupTotalSentMsgToIscsi.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupTotalSentMsgToIscsi.setUnits(_M)
-_CgprsCgGatewayGroupTotalSentMsgToCg_Type=Counter32
-_CgprsCgGatewayGroupTotalSentMsgToCg_Object=MibTableColumn
-cgprsCgGatewayGroupTotalSentMsgToCg=_CgprsCgGatewayGroupTotalSentMsgToCg_Object((1,3,6,1,4,1,9,9,192,1,3,11,1,16),_CgprsCgGatewayGroupTotalSentMsgToCg_Type())
-cgprsCgGatewayGroupTotalSentMsgToCg.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupTotalSentMsgToCg.setStatus(_B)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupTotalSentMsgToCg.setUnits(_M)
-_CiscoGprsChargingAlarms_ObjectIdentity=ObjectIdentity
-ciscoGprsChargingAlarms=_CiscoGprsChargingAlarms_ObjectIdentity((1,3,6,1,4,1,9,9,192,1,4))
-_CgprsCgAlarmEnable_Type=TruthValue
-_CgprsCgAlarmEnable_Object=MibScalar
-cgprsCgAlarmEnable=_CgprsCgAlarmEnable_Object((1,3,6,1,4,1,9,9,192,1,4,1),_CgprsCgAlarmEnable_Type())
-cgprsCgAlarmEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgAlarmEnable.setStatus(_D)
-class _CgprsCgAlarmHistTableMax_Type(Unsigned32):defaultValue=500;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CgprsCgAlarmHistTableMax_Type.__name__=_H
-_CgprsCgAlarmHistTableMax_Object=MibScalar
-cgprsCgAlarmHistTableMax=_CgprsCgAlarmHistTableMax_Object((1,3,6,1,4,1,9,9,192,1,4,2),_CgprsCgAlarmHistTableMax_Type())
-cgprsCgAlarmHistTableMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgAlarmHistTableMax.setStatus(_B)
-_CgprsCgAlarmHistTable_Object=MibTable
-cgprsCgAlarmHistTable=_CgprsCgAlarmHistTable_Object((1,3,6,1,4,1,9,9,192,1,4,3))
-if mibBuilder.loadTexts:cgprsCgAlarmHistTable.setStatus(_D)
-_CgprsCgAlarmHistEntry_Object=MibTableRow
-cgprsCgAlarmHistEntry=_CgprsCgAlarmHistEntry_Object((1,3,6,1,4,1,9,9,192,1,4,3,1))
-cgprsCgAlarmHistEntry.setIndexNames((0,_A,_Bt))
-if mibBuilder.loadTexts:cgprsCgAlarmHistEntry.setStatus(_D)
-class _CgprsCgAlarmHistIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CgprsCgAlarmHistIndex_Type.__name__=_H
-_CgprsCgAlarmHistIndex_Object=MibTableColumn
-cgprsCgAlarmHistIndex=_CgprsCgAlarmHistIndex_Object((1,3,6,1,4,1,9,9,192,1,4,3,1,1),_CgprsCgAlarmHistIndex_Type())
-cgprsCgAlarmHistIndex.setMaxAccess(_L)
-if mibBuilder.loadTexts:cgprsCgAlarmHistIndex.setStatus(_D)
-_CgprsCgAlarmHistType_Type=CgprsCgAlarmType
-_CgprsCgAlarmHistType_Object=MibTableColumn
-cgprsCgAlarmHistType=_CgprsCgAlarmHistType_Object((1,3,6,1,4,1,9,9,192,1,4,3,1,2),_CgprsCgAlarmHistType_Type())
-cgprsCgAlarmHistType.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgAlarmHistType.setStatus(_D)
-_CgprsCgAlarmHistAddrType_Type=InetAddressType
-_CgprsCgAlarmHistAddrType_Object=MibTableColumn
-cgprsCgAlarmHistAddrType=_CgprsCgAlarmHistAddrType_Object((1,3,6,1,4,1,9,9,192,1,4,3,1,3),_CgprsCgAlarmHistAddrType_Type())
-cgprsCgAlarmHistAddrType.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgAlarmHistAddrType.setStatus(_D)
-_CgprsCgAlarmHistAddress_Type=InetAddress
-_CgprsCgAlarmHistAddress_Object=MibTableColumn
-cgprsCgAlarmHistAddress=_CgprsCgAlarmHistAddress_Object((1,3,6,1,4,1,9,9,192,1,4,3,1,4),_CgprsCgAlarmHistAddress_Type())
-cgprsCgAlarmHistAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgAlarmHistAddress.setStatus(_D)
-_CgprsCgAlarmHistSeverity_Type=CiscoAlarmSeverity
-_CgprsCgAlarmHistSeverity_Object=MibTableColumn
-cgprsCgAlarmHistSeverity=_CgprsCgAlarmHistSeverity_Object((1,3,6,1,4,1,9,9,192,1,4,3,1,5),_CgprsCgAlarmHistSeverity_Type())
-cgprsCgAlarmHistSeverity.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgAlarmHistSeverity.setStatus(_D)
-_CgprsCgAlarmHistInfo_Type=SnmpAdminString
-_CgprsCgAlarmHistInfo_Object=MibTableColumn
-cgprsCgAlarmHistInfo=_CgprsCgAlarmHistInfo_Object((1,3,6,1,4,1,9,9,192,1,4,3,1,6),_CgprsCgAlarmHistInfo_Type())
-cgprsCgAlarmHistInfo.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgAlarmHistInfo.setStatus(_D)
-class _CgprsCgAlarmHistLatestIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CgprsCgAlarmHistLatestIndex_Type.__name__=_H
-_CgprsCgAlarmHistLatestIndex_Object=MibScalar
-cgprsCgAlarmHistLatestIndex=_CgprsCgAlarmHistLatestIndex_Object((1,3,6,1,4,1,9,9,192,1,4,4),_CgprsCgAlarmHistLatestIndex_Type())
-cgprsCgAlarmHistLatestIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgAlarmHistLatestIndex.setStatus(_B)
-_CgprsCgGatewayGroupAlarmHistTable_Object=MibTable
-cgprsCgGatewayGroupAlarmHistTable=_CgprsCgGatewayGroupAlarmHistTable_Object((1,3,6,1,4,1,9,9,192,1,4,5))
-if mibBuilder.loadTexts:cgprsCgGatewayGroupAlarmHistTable.setStatus(_B)
-_CgprsCgGatewayGroupAlarmHistEntry_Object=MibTableRow
-cgprsCgGatewayGroupAlarmHistEntry=_CgprsCgGatewayGroupAlarmHistEntry_Object((1,3,6,1,4,1,9,9,192,1,4,5,1))
-cgprsCgGatewayGroupAlarmHistEntry.setIndexNames((0,_A,_y),(0,_A,_Bu))
-if mibBuilder.loadTexts:cgprsCgGatewayGroupAlarmHistEntry.setStatus(_B)
-class _CgprsCgGatewayGroupAlarmHistIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CgprsCgGatewayGroupAlarmHistIndex_Type.__name__=_H
-_CgprsCgGatewayGroupAlarmHistIndex_Object=MibTableColumn
-cgprsCgGatewayGroupAlarmHistIndex=_CgprsCgGatewayGroupAlarmHistIndex_Object((1,3,6,1,4,1,9,9,192,1,4,5,1,1),_CgprsCgGatewayGroupAlarmHistIndex_Type())
-cgprsCgGatewayGroupAlarmHistIndex.setMaxAccess(_L)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupAlarmHistIndex.setStatus(_B)
-_CgprsCgGatewayGroupAlarmHistType_Type=CgprsCgAlarmType
-_CgprsCgGatewayGroupAlarmHistType_Object=MibTableColumn
-cgprsCgGatewayGroupAlarmHistType=_CgprsCgGatewayGroupAlarmHistType_Object((1,3,6,1,4,1,9,9,192,1,4,5,1,2),_CgprsCgGatewayGroupAlarmHistType_Type())
-cgprsCgGatewayGroupAlarmHistType.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupAlarmHistType.setStatus(_B)
-_CgprsCgGatewayGroupAlarmHistAddrType_Type=InetAddressType
-_CgprsCgGatewayGroupAlarmHistAddrType_Object=MibTableColumn
-cgprsCgGatewayGroupAlarmHistAddrType=_CgprsCgGatewayGroupAlarmHistAddrType_Object((1,3,6,1,4,1,9,9,192,1,4,5,1,3),_CgprsCgGatewayGroupAlarmHistAddrType_Type())
-cgprsCgGatewayGroupAlarmHistAddrType.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupAlarmHistAddrType.setStatus(_B)
-_CgprsCgGatewayGroupAlarmHistAddress_Type=InetAddress
-_CgprsCgGatewayGroupAlarmHistAddress_Object=MibTableColumn
-cgprsCgGatewayGroupAlarmHistAddress=_CgprsCgGatewayGroupAlarmHistAddress_Object((1,3,6,1,4,1,9,9,192,1,4,5,1,4),_CgprsCgGatewayGroupAlarmHistAddress_Type())
-cgprsCgGatewayGroupAlarmHistAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupAlarmHistAddress.setStatus(_B)
-_CgprsCgGatewayGroupAlarmHistSeverity_Type=CiscoAlarmSeverity
-_CgprsCgGatewayGroupAlarmHistSeverity_Object=MibTableColumn
-cgprsCgGatewayGroupAlarmHistSeverity=_CgprsCgGatewayGroupAlarmHistSeverity_Object((1,3,6,1,4,1,9,9,192,1,4,5,1,5),_CgprsCgGatewayGroupAlarmHistSeverity_Type())
-cgprsCgGatewayGroupAlarmHistSeverity.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupAlarmHistSeverity.setStatus(_B)
-_CgprsCgGatewayGroupAlarmHistInfo_Type=SnmpAdminString
-_CgprsCgGatewayGroupAlarmHistInfo_Object=MibTableColumn
-cgprsCgGatewayGroupAlarmHistInfo=_CgprsCgGatewayGroupAlarmHistInfo_Object((1,3,6,1,4,1,9,9,192,1,4,5,1,6),_CgprsCgGatewayGroupAlarmHistInfo_Type())
-cgprsCgGatewayGroupAlarmHistInfo.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupAlarmHistInfo.setStatus(_B)
-_CgprsCgGatewayGroupAlarmEnable_Type=TruthValue
-_CgprsCgGatewayGroupAlarmEnable_Object=MibScalar
-cgprsCgGatewayGroupAlarmEnable=_CgprsCgGatewayGroupAlarmEnable_Object((1,3,6,1,4,1,9,9,192,1,4,6),_CgprsCgGatewayGroupAlarmEnable_Type())
-cgprsCgGatewayGroupAlarmEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupAlarmEnable.setStatus(_B)
-_CiscoGprsChargingStatus_ObjectIdentity=ObjectIdentity
-ciscoGprsChargingStatus=_CiscoGprsChargingStatus_ObjectIdentity((1,3,6,1,4,1,9,9,192,1,5))
-_CgprsCgActiveChgGatewayAddrType_Type=InetAddressType
-_CgprsCgActiveChgGatewayAddrType_Object=MibScalar
-cgprsCgActiveChgGatewayAddrType=_CgprsCgActiveChgGatewayAddrType_Object((1,3,6,1,4,1,9,9,192,1,5,1),_CgprsCgActiveChgGatewayAddrType_Type())
-cgprsCgActiveChgGatewayAddrType.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgActiveChgGatewayAddrType.setStatus(_D)
-_CgprsCgActiveChgGatewayAddress_Type=InetAddress
-_CgprsCgActiveChgGatewayAddress_Object=MibScalar
-cgprsCgActiveChgGatewayAddress=_CgprsCgActiveChgGatewayAddress_Object((1,3,6,1,4,1,9,9,192,1,5,2),_CgprsCgActiveChgGatewayAddress_Type())
-cgprsCgActiveChgGatewayAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgActiveChgGatewayAddress.setStatus(_D)
-_CgprsCgOldChgGatewayAddress_Type=InetAddress
-_CgprsCgOldChgGatewayAddress_Object=MibScalar
-cgprsCgOldChgGatewayAddress=_CgprsCgOldChgGatewayAddress_Object((1,3,6,1,4,1,9,9,192,1,5,3),_CgprsCgOldChgGatewayAddress_Type())
-cgprsCgOldChgGatewayAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgOldChgGatewayAddress.setStatus(_D)
-_CgprsCgGatewayGroupStatusTable_Object=MibTable
-cgprsCgGatewayGroupStatusTable=_CgprsCgGatewayGroupStatusTable_Object((1,3,6,1,4,1,9,9,192,1,5,4))
-if mibBuilder.loadTexts:cgprsCgGatewayGroupStatusTable.setStatus(_B)
-_CgprsCgGatewayGroupStatusEntry_Object=MibTableRow
-cgprsCgGatewayGroupStatusEntry=_CgprsCgGatewayGroupStatusEntry_Object((1,3,6,1,4,1,9,9,192,1,5,4,1))
-cgprsCgGatewayGroupStatusEntry.setIndexNames((0,_A,_y))
-if mibBuilder.loadTexts:cgprsCgGatewayGroupStatusEntry.setStatus(_B)
-_CgprsCgGatewayGroupStatusAddrType_Type=InetAddressType
-_CgprsCgGatewayGroupStatusAddrType_Object=MibTableColumn
-cgprsCgGatewayGroupStatusAddrType=_CgprsCgGatewayGroupStatusAddrType_Object((1,3,6,1,4,1,9,9,192,1,5,4,1,1),_CgprsCgGatewayGroupStatusAddrType_Type())
-cgprsCgGatewayGroupStatusAddrType.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupStatusAddrType.setStatus(_B)
-_CgprsCgGatewayGroupStatusActiveCgAddr_Type=InetAddress
-_CgprsCgGatewayGroupStatusActiveCgAddr_Object=MibTableColumn
-cgprsCgGatewayGroupStatusActiveCgAddr=_CgprsCgGatewayGroupStatusActiveCgAddr_Object((1,3,6,1,4,1,9,9,192,1,5,4,1,2),_CgprsCgGatewayGroupStatusActiveCgAddr_Type())
-cgprsCgGatewayGroupStatusActiveCgAddr.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupStatusActiveCgAddr.setStatus(_B)
-_CgprsCgGatewayGroupStatusOldCgAddr_Type=InetAddress
-_CgprsCgGatewayGroupStatusOldCgAddr_Object=MibTableColumn
-cgprsCgGatewayGroupStatusOldCgAddr=_CgprsCgGatewayGroupStatusOldCgAddr_Object((1,3,6,1,4,1,9,9,192,1,5,4,1,3),_CgprsCgGatewayGroupStatusOldCgAddr_Type())
-cgprsCgGatewayGroupStatusOldCgAddr.setMaxAccess(_F)
-if mibBuilder.loadTexts:cgprsCgGatewayGroupStatusOldCgAddr.setStatus(_B)
-_CiscoGprsCharNotifPrefix_ObjectIdentity=ObjectIdentity
-ciscoGprsCharNotifPrefix=_CiscoGprsCharNotifPrefix_ObjectIdentity((1,3,6,1,4,1,9,9,192,2))
-_CiscoGprsCharNotifs_ObjectIdentity=ObjectIdentity
-ciscoGprsCharNotifs=_CiscoGprsCharNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,192,2,0))
-_CiscoGprsCharMIBConformances_ObjectIdentity=ObjectIdentity
-ciscoGprsCharMIBConformances=_CiscoGprsCharMIBConformances_ObjectIdentity((1,3,6,1,4,1,9,9,192,3))
-_CgprsCgMIBCompliances_ObjectIdentity=ObjectIdentity
-cgprsCgMIBCompliances=_CgprsCgMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,192,3,1))
-_CgprsCgMIBGroups_ObjectIdentity=ObjectIdentity
-cgprsCgMIBGroups=_CgprsCgMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,192,3,2))
-cgprsCgGroupEntry.registerAugmentions((_A,_Bv))
+#
+# PySNMP MIB module CISCO-GPRS-CHARGING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-GPRS-CHARGING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:34 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+CiscoAlarmSeverity, = mibBuilder.importSymbols("CISCO-TC", "CiscoAlarmSeverity")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, StorageType, TestAndIncr, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "StorageType", "TestAndIncr", "TruthValue", "TextualConvention")
+ciscoGprsChargingMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 192))
+ciscoGprsChargingMIB.setRevisions(('2011-03-04 00:00', '2010-07-27 00:00', '2010-06-08 00:00', '2010-02-01 00:00', '2008-12-12 00:00', '2008-01-29 00:00', '2006-08-18 00:00', '2006-04-04 19:00', '2005-09-16 18:00', '2004-07-26 02:00', '2004-03-22 03:00', '2002-11-11 17:00', '2002-06-05 10:00', '2001-12-04 12:00', '2001-09-18 16:00', '2000-09-21 00:00',))
+if mibBuilder.loadTexts: ciscoGprsChargingMIB.setLastUpdated('201103040000Z')
+if mibBuilder.loadTexts: ciscoGprsChargingMIB.setOrganization('Cisco Systems, Inc.')
+class CgprsCgAlarmType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
+    namedValues = NamedValues(("cgprsCgAlarmCgDown", 1), ("cgprsCgAlarmCgUp", 2), ("cgprsCgAlarmTransFailure", 3), ("cgprsCgAlarmTransSuccess", 4), ("cgprsCgAlarmCapacityFull", 5), ("cgprsCgAlarmCapacityFree", 6), ("cgprsCgAlarmEchoFailure", 7), ("cgprsCgAlarmEchoRestored", 8), ("cgprsCgAlarmCdrDiscard", 9), ("cgprsCgAlarmCdrBuffered", 10), ("cgprsCgAlarmChargingDisabled", 11), ("cgprsCgAlarmChargingEnabled", 12))
+
+class CgprsCgGatewayType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("cgprsCgGatewayPrimary", 1), ("cgprsCgGatewaySecondary", 2), ("cgprsCgGatewayTertiary", 3))
+
+ciscoGprsChargingMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 192, 1))
+ciscoGprsChargingConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1))
+ciscoGprsChargingOthers = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 2))
+ciscoGprsChargingStats = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3))
+ciscoGprsChargingAlarms = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4))
+ciscoGprsChargingStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 5))
+cgprsCgEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 1), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgEnable.setStatus('current')
+cgprsCgCdrLocalSeqNumEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrLocalSeqNumEnable.setStatus('current')
+cgprsCgCdrNodeIdEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrNodeIdEnable.setStatus('current')
+cgprsCgFlowControlEcho = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgFlowControlEcho.setStatus('current')
+cgprsCgCdrPktsStatEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrPktsStatEnable.setStatus('current')
+cgprsCgCdrNonPrimaryEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 6), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrNonPrimaryEnable.setStatus('obsolete')
+cgprsCgCdrAggreLimit = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(255)).setUnits('CDRs').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrAggreLimit.setStatus('current')
+cgprsCgTransInterval = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)).clone(105)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgTransInterval.setStatus('current')
+cgprsCgPktsQSize = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 512)).clone(128)).setUnits('PDUs').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgPktsQSize.setStatus('current')
+cgprsCgPathRequest = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 10))).setUnits('minutes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgPathRequest.setStatus('current')
+cgprsCgContainerVolThresh = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)).clone(1048576)).setUnits('bytes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgContainerVolThresh.setStatus('current')
+cgprsCgMapDataTos = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 5)).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgMapDataTos.setStatus('current')
+cgprsCgPathProtocol = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("udp", 1), ("tcp", 2))).clone('udp')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgPathProtocol.setStatus('current')
+cgprsCgServerSwitchTimeout = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 300)).clone(60)).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgServerSwitchTimeout.setStatus('current')
+cgprsCgConditionLimit = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgConditionLimit.setStatus('current')
+cgprsCgGtpPrimePort = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 16), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1024, 10000)).clone(3386)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgGtpPrimePort.setStatus('current')
+cgprsCgN3BufferSize = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 17), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(300, 1460)).clone(1460)).setUnits('bytes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgN3BufferSize.setStatus('current')
+cgprsCgChargeForRoamersOnly = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 18), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgChargeForRoamersOnly.setStatus('current')
+cgprsCgTariffTimeMaxEntries = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 19), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 32)).clone(32)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgTariffTimeMaxEntries.setStatus('current')
+cgprsCgTariffTimeNextIndex = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 20), TestAndIncr()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgTariffTimeNextIndex.setStatus('current')
+cgprsCgTariffTimeTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 21), )
+if mibBuilder.loadTexts: cgprsCgTariffTimeTable.setStatus('current')
+cgprsCgTariffTimeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 21, 1), ).setIndexNames((0, "CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeIndex"))
+if mibBuilder.loadTexts: cgprsCgTariffTimeEntry.setStatus('current')
+cgprsCgTariffTimeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 21, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: cgprsCgTariffTimeIndex.setStatus('current')
+cgprsCgTariffTimeRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 21, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgTariffTimeRowStatus.setStatus('current')
+cgprsCgTariffTimeHour = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 21, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 23))).setUnits('hours').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgTariffTimeHour.setStatus('current')
+cgprsCgTariffTimeMin = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 21, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 59))).setUnits('minutes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgTariffTimeMin.setStatus('current')
+cgprsCgTariffTimeSec = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 21, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 59))).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgTariffTimeSec.setStatus('current')
+cgprsCgGatewayTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 22), )
+if mibBuilder.loadTexts: cgprsCgGatewayTable.setStatus('deprecated')
+cgprsCgGatewayEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 22, 1), ).setIndexNames((0, "CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayIndex"))
+if mibBuilder.loadTexts: cgprsCgGatewayEntry.setStatus('deprecated')
+cgprsCgGatewayIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 22, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3)))
+if mibBuilder.loadTexts: cgprsCgGatewayIndex.setStatus('deprecated')
+cgprsCgGatewayAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 22, 1, 2), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgGatewayAddrType.setStatus('deprecated')
+cgprsCgGatewayAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 22, 1, 3), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgGatewayAddr.setStatus('deprecated')
+cgprsCgGatewayRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 22, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgGatewayRowStatus.setStatus('deprecated')
+cgprsCgOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 22, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("undefined", 1), ("active", 2), ("standby", 3))).clone('undefined')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgOperStatus.setStatus('deprecated')
+cgprsCgLinkState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 22, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("on", 1), ("off", 2), ("pending", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgLinkState.setStatus('deprecated')
+cgprsCgClearCdrPartialCdr = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("closeCdr", 1), ("canCloseCdr", 2), ("cannotCloseCdr", 3), ("closingCdr", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgClearCdrPartialCdr.setStatus('current')
+cgprsCgSgsnChangeLimit = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 24), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 15)).clone(15)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgSgsnChangeLimit.setStatus('deprecated')
+cgprsCgCdrSgsnChangeLimit = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 25), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 15)).clone(-1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrSgsnChangeLimit.setStatus('current')
+cgprsCgRelease = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 26), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("release98", 1), ("release99", 2), ("release4", 3), ("release5", 4))).clone('release99')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgRelease.setStatus('current')
+cgprsCgGtpShortHeaderEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 27), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgGtpShortHeaderEnable.setStatus('current')
+cgprsCgTransFormNumRespEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 28), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgTransFormNumRespEnable.setStatus('current')
+cgprsCgContainerTimeLimit = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 29), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(5, 4294967295), ))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgContainerTimeLimit.setStatus('current')
+cgprsCgProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30), )
+if mibBuilder.loadTexts: cgprsCgProfileTable.setStatus('current')
+cgprsCgProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1), ).setIndexNames((0, "CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileNum"))
+if mibBuilder.loadTexts: cgprsCgProfileEntry.setStatus('current')
+cgprsCgProfileNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: cgprsCgProfileNum.setStatus('current')
+cgprsCgProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileRowStatus.setStatus('current')
+cgprsCgProfileDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 99))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileDesc.setStatus('current')
+cgprsCgProfileCategory = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("hotRate", 0), ("flat", 1), ("prepaid", 2), ("normal", 3))).clone('normal')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileCategory.setStatus('current')
+cgprsCgProfileCdrSuppress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 5), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileCdrSuppress.setStatus('current')
+cgprsCgProfileVolumeLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)).clone(1048576)).setUnits('bytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileVolumeLimit.setStatus('current')
+cgprsCgProfileVolumeLimitReset = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 7), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileVolumeLimitReset.setStatus('current')
+cgprsCgProfileDurLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 8), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(5, 4294967295), ))).setUnits('minutes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileDurLimit.setStatus('current')
+cgprsCgProfileDurLimitReset = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 9), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileDurLimitReset.setStatus('current')
+cgprsCgProfileTariffTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 10), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileTariffTime.setStatus('current')
+cgprsCgProfileSgsnChange = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 15)).clone(-1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileSgsnChange.setStatus('current')
+cgprsCgProfileCdrSuppressPrepaid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 12), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileCdrSuppressPrepaid.setStatus('current')
+cgprsCgProfileContentDccaProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 13), SnmpAdminString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileContentDccaProfile.setStatus('deprecated')
+cgprsCgProfileContentPostTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(300, 4294967295))).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileContentPostTime.setStatus('current')
+cgprsCgProfileContentPostValTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(900, 4294967295))).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileContentPostValTime.setStatus('deprecated')
+cgprsCgProfileContentPostVolume = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 16), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setUnits('bytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileContentPostVolume.setStatus('current')
+cgprsCgProfileContentRulebaseId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 17), SnmpAdminString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileContentRulebaseId.setStatus('current')
+cgprsCgProfileContentPostQosChange = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 18), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileContentPostQosChange.setStatus('current')
+cgprsCgProfileContentPostSgsnChange = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 19), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileContentPostSgsnChange.setStatus('current')
+cgprsCgProfileContentPostRatChange = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 20), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileContentPostRatChange.setStatus('current')
+cgprsCgProfileContentPostPlmnChange = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 21), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileContentPostPlmnChange.setStatus('current')
+cgprsCgProfileStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 22), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileStorageType.setStatus('current')
+cgprsCgProfileContentPostValidityTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 23), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(900, 4294967295), ))).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileContentPostValidityTime.setStatus('current')
+cgprsCgProfileContentPostUserLocChange = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 24), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileContentPostUserLocChange.setStatus('current')
+cgprsCgProfileScdrEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 30, 1, 25), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileScdrEnable.setStatus('current')
+cgprsCgProfileMapTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 31), )
+if mibBuilder.loadTexts: cgprsCgProfileMapTable.setStatus('current')
+cgprsCgProfileMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 31, 1), ).setIndexNames((0, "CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileMapCategory"))
+if mibBuilder.loadTexts: cgprsCgProfileMapEntry.setStatus('current')
+cgprsCgProfileMapCategory = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 31, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("any", 1), ("home", 2), ("roaming", 3), ("visitor", 4))))
+if mibBuilder.loadTexts: cgprsCgProfileMapCategory.setStatus('current')
+cgprsCgProfileMapNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 31, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgProfileMapNum.setStatus('deprecated')
+cgprsCgProfileMapOverride = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 31, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgProfileMapOverride.setStatus('current')
+cgprsCgProfileMapTrusted = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 31, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgProfileMapTrusted.setStatus('current')
+cgprsCgProfileMapNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 31, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 65535)).clone(-1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgProfileMapNumber.setStatus('current')
+cgprsCgChargingCharReject = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 32), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgChargingCharReject.setStatus('current')
+cgprsCgServiceMode = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 33), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("operational", 1), ("maintenance", 2))).clone('operational')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgServiceMode.setStatus('deprecated')
+cgprsCgPartialCdrGenEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 34), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgPartialCdrGenEnable.setStatus('current')
+cgprsCgSwitchOverPriority = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 35), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgSwitchOverPriority.setStatus('deprecated')
+cgprsCgCharSelectionMode = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 36), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCharSelectionMode.setStatus('current')
+cgprsCgReconnect = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 37), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 600))).setUnits('minutes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgReconnect.setStatus('current')
+cgprsCgPtcEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 38), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgPtcEnable.setStatus('current')
+cgprsCgPtcPossiblyDupEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 39), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgPtcPossiblyDupEnable.setStatus('current')
+cgprsCgCdrOptionServiceRecord = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 40), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrOptionServiceRecord.setStatus('current')
+cgprsCgPartialCdrGenEnableAll = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 41), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgPartialCdrGenEnableAll.setStatus('current')
+cgprsCgCdrOptionApn = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 42), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrOptionApn.setStatus('current')
+cgprsCgCdrOptionVirtualApn = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 43), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrOptionVirtualApn.setStatus('current')
+cgprsCgCdrOptionApnSelMode = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 44), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrOptionApnSelMode.setStatus('current')
+cgprsCgCdrOptionDynamicAddr = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 45), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrOptionDynamicAddr.setStatus('current')
+cgprsCgCdrOptionNip = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 46), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrOptionNip.setStatus('current')
+cgprsCgCdrOptionPdpAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 47), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrOptionPdpAddress.setStatus('current')
+cgprsCgCdrOptionPdpType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 48), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrOptionPdpType.setStatus('current')
+cgprsCgCdrOptionSerMsisdn = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 49), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrOptionSerMsisdn.setStatus('current')
+cgprsCgCdrOptionSgsnPlmn = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 50), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrOptionSgsnPlmn.setStatus('current')
+cgprsCgCdrOptionCamelCharInfo = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 51), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrOptionCamelCharInfo.setStatus('current')
+cgprsCgCdrOptionImeisv = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 52), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrOptionImeisv.setStatus('current')
+cgprsCgCdrOptionMsTimeZone = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 53), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrOptionMsTimeZone.setStatus('current')
+cgprsCgCdrOptionRatType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 54), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrOptionRatType.setStatus('current')
+cgprsCgCdrOptionUserLocInfo = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 55), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgCdrOptionUserLocInfo.setStatus('current')
+cgprsCgServiceRecordIncludeRat = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 56), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgServiceRecordIncludeRat.setStatus('current')
+cgprsCgServiceRecordIncludePlmn = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 57), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgServiceRecordIncludePlmn.setStatus('current')
+cgprsCgChargingSrcInterface = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 58), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647)).clone(-1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgChargingSrcInterface.setStatus('current')
+cgprsCgServiceRecordIncludeUserLocInfo = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 59), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgServiceRecordIncludeUserLocInfo.setStatus('current')
+cgprsCgGroupTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 60), )
+if mibBuilder.loadTexts: cgprsCgGroupTable.setStatus('current')
+cgprsCgGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 60, 1), ).setIndexNames((0, "CISCO-GPRS-CHARGING-MIB", "cgprsCgGroupIndex"))
+if mibBuilder.loadTexts: cgprsCgGroupEntry.setStatus('current')
+cgprsCgGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 60, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 29)))
+if mibBuilder.loadTexts: cgprsCgGroupIndex.setStatus('current')
+cgprsCgGroupIscsi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 60, 1, 2), SnmpAdminString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgGroupIscsi.setStatus('current')
+cgprsCgGroupServiceMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 60, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("operational", 1), ("maintenance", 2))).clone('operational')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgGroupServiceMode.setStatus('current')
+cgprsCgGroupSwitchOverPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 60, 1, 4), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgGroupSwitchOverPriority.setStatus('current')
+cgprsCgGroupRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 60, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgGroupRowStatus.setStatus('current')
+cgprsCgGatewayIpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 61), )
+if mibBuilder.loadTexts: cgprsCgGatewayIpTable.setStatus('current')
+cgprsCgGatewayIpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 61, 1), ).setIndexNames((0, "CISCO-GPRS-CHARGING-MIB", "cgprsCgGroupIndex"), (0, "CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayIpIndex"))
+if mibBuilder.loadTexts: cgprsCgGatewayIpEntry.setStatus('current')
+cgprsCgGatewayIpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 61, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cgprsCgGatewayIpIndex.setStatus('current')
+cgprsCgGatewayIpAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 61, 1, 2), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgGatewayIpAddrType.setStatus('current')
+cgprsCgGatewayIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 61, 1, 3), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgGatewayIpAddr.setStatus('current')
+cgprsCgGatewayOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 61, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("undefined", 1), ("active", 2), ("standby", 3))).clone('undefined')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayOperStatus.setStatus('current')
+cgprsCgGatewayLinkState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 61, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("on", 1), ("off", 2), ("pending", 3))).clone('off')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayLinkState.setStatus('current')
+cgprsCgGateway = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 61, 1, 6), CgprsCgGatewayType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGateway.setStatus('current')
+cgprsCgGatewayIpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 61, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgGatewayIpRowStatus.setStatus('current')
+cgprsCgProfileContentDccaProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 62), )
+if mibBuilder.loadTexts: cgprsCgProfileContentDccaProfileTable.setStatus('current')
+cgprsCgProfileContentDccaProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 62, 1), ).setIndexNames((0, "CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileNum"), (0, "CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentDccaProfileName"))
+if mibBuilder.loadTexts: cgprsCgProfileContentDccaProfileEntry.setStatus('current')
+cgprsCgProfileContentDccaProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 62, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 40)))
+if mibBuilder.loadTexts: cgprsCgProfileContentDccaProfileName.setStatus('current')
+cgprsCgProfileContentDccaProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 62, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileContentDccaProfileRowStatus.setStatus('current')
+cgprsCgProfileContentDccaProfileWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 62, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cgprsCgProfileContentDccaProfileWeight.setStatus('current')
+cgprsCgScdrEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 1, 63), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgScdrEnable.setStatus('current')
+cgprsCgDownTimes = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 1), Counter32()).setUnits('transitions').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgDownTimes.setStatus('current')
+cgprsCgAccPtNum = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 2), Counter32()).setUnits('access-points').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgAccPtNum.setStatus('current')
+cgprsCgCdrOpenedNum = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 3), Gauge32()).setUnits('CDRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgCdrOpenedNum.setStatus('current')
+cgprsCgCdrClosedNum = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 4), Gauge32()).setUnits('CDRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgCdrClosedNum.setStatus('current')
+cgprsCgContainerNum = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 5), Gauge32()).setUnits('containers').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgContainerNum.setStatus('current')
+cgprsCgPendingMsgNum = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 6), Gauge32()).setUnits('messages').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgPendingMsgNum.setStatus('current')
+cgprsCgSentMsgNum = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 7), Counter32()).setUnits('messages').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgSentMsgNum.setStatus('current')
+cgprsCgTotalCdrOpened = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 8), Counter32()).setUnits('CDRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgTotalCdrOpened.setStatus('current')
+cgprsCgTotalContainerCreated = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 9), Counter32()).setUnits('containers').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgTotalContainerCreated.setStatus('current')
+cgprsCgTotalServiceRecords = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 10), Counter32()).setUnits('records').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgTotalServiceRecords.setStatus('current')
+cgprsCgGatewayGroupStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11), )
+if mibBuilder.loadTexts: cgprsCgGatewayGroupStatisticsTable.setStatus('current')
+cgprsCgGatewayGroupStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1), )
+cgprsCgGroupEntry.registerAugmentions(("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupStatisticsEntry"))
 cgprsCgGatewayGroupStatisticsEntry.setIndexNames(*cgprsCgGroupEntry.getIndexNames())
-cgprsCgMIBConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,1))
-cgprsCgMIBConfigGroup.setObjects(*((_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_BB),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m)))
-if mibBuilder.loadTexts:cgprsCgMIBConfigGroup.setStatus(_q)
-cgprsCgMIBStatsGroup=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,2))
-cgprsCgMIBStatsGroup.setObjects(*((_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae)))
-if mibBuilder.loadTexts:cgprsCgMIBStatsGroup.setStatus(_q)
-cgprsCgMIBAlarmsGroup=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,3))
-cgprsCgMIBAlarmsGroup.setObjects(*((_A,_BC),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak)))
-if mibBuilder.loadTexts:cgprsCgMIBAlarmsGroup.setStatus(_D)
-cgprsCgMIBConfigGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,5))
-cgprsCgMIBConfigGroupRev1.setObjects(*((_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_BB),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_w),(_A,_BD)))
-if mibBuilder.loadTexts:cgprsCgMIBConfigGroupRev1.setStatus(_q)
-cgprsCgMIBStatsGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,6))
-cgprsCgMIBStatsGroupRev1.setObjects(*((_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_BE),(_A,_BF)))
-if mibBuilder.loadTexts:cgprsCgMIBStatsGroupRev1.setStatus(_D)
-cgprsCgMIBConfigGroupRev2=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,7))
-cgprsCgMIBConfigGroupRev2.setObjects(*((_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_w),(_A,_z),(_A,_BD),(_A,_A0),(_A,_A1),(_A,_A2)))
-if mibBuilder.loadTexts:cgprsCgMIBConfigGroupRev2.setStatus(_D)
-cgprsCgMIBAlarmsGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,8))
-cgprsCgMIBAlarmsGroupRev1.setObjects(*((_A,_BC),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Bw)))
-if mibBuilder.loadTexts:cgprsCgMIBAlarmsGroupRev1.setStatus(_D)
-cgprsCgMIBConfigGroupRev3=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,9))
-cgprsCgMIBConfigGroupRev3.setObjects(*((_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_w),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_Bx),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_BG),(_A,_Az),(_A,_BH),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2)))
-if mibBuilder.loadTexts:cgprsCgMIBConfigGroupRev3.setStatus(_D)
-cgprsCgMIBStatsGroupRev2=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,11))
-cgprsCgMIBStatsGroupRev2.setObjects(*((_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_BE),(_A,_BF)))
-if mibBuilder.loadTexts:cgprsCgMIBStatsGroupRev2.setStatus(_B)
-cgprsCgMIBStatusGroup=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,12))
-cgprsCgMIBStatusGroup.setObjects(*((_A,_BI),(_A,_BJ),(_A,_BK)))
-if mibBuilder.loadTexts:cgprsCgMIBStatusGroup.setStatus(_D)
-cgprsCgMIBConfigGroupR60=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,13))
-cgprsCgMIBConfigGroupR60.setObjects(*((_A,_A3),(_A,_A4),(_A,_A5),(_A,_BL),(_A,_A6),(_A,_By),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM)))
-if mibBuilder.loadTexts:cgprsCgMIBConfigGroupR60.setStatus(_D)
-cgprsCgMIBStatusGroupR60=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,14))
-cgprsCgMIBStatusGroupR60.setObjects((_A,_Bz))
-if mibBuilder.loadTexts:cgprsCgMIBStatusGroupR60.setStatus(_B)
-cgprsCgMIBConfigProfileChangeGroup=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,15))
-cgprsCgMIBConfigProfileChangeGroup.setObjects(*((_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_BQ),(_A,_BR),(_A,_BS)))
-if mibBuilder.loadTexts:cgprsCgMIBConfigProfileChangeGroup.setStatus(_D)
-cgprsCgMIBConfigGroupRev4=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,16))
-cgprsCgMIBConfigGroupRev4.setObjects(*((_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_w),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_BT),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_BG),(_A,_Az),(_A,_BH),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2)))
-if mibBuilder.loadTexts:cgprsCgMIBConfigGroupRev4.setStatus(_D)
-cgprsCgMIBExtConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,17))
-cgprsCgMIBExtConfigGroup.setObjects(*((_A,_A3),(_A,_A4),(_A,_A5),(_A,_BL),(_A,_A6),(_A,_B3),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM)))
-if mibBuilder.loadTexts:cgprsCgMIBExtConfigGroup.setStatus(_D)
-cgprsCgMIBConfigGroupR80=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,18))
-cgprsCgMIBConfigGroupR80.setObjects((_A,_B_))
-if mibBuilder.loadTexts:cgprsCgMIBConfigGroupR80.setStatus(_B)
-cgprsCgMIBConfigProfileChangeGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,19))
-cgprsCgMIBConfigProfileChangeGroupRev1.setObjects(*((_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_C0),(_A,_BQ),(_A,_BR),(_A,_BS),(_A,_C1)))
-if mibBuilder.loadTexts:cgprsCgMIBConfigProfileChangeGroupRev1.setStatus(_B)
-cgprsCgMIBConfigGroupR90=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,20))
-cgprsCgMIBConfigGroupR90.setObjects(*((_A,_C2),(_A,_C3),(_A,_C4),(_A,_C5),(_A,_C6),(_A,_C7),(_A,_C8),(_A,_B4),(_A,_C9),(_A,_CA)))
-if mibBuilder.loadTexts:cgprsCgMIBConfigGroupR90.setStatus(_B)
-cgprsCgMIBStatsGroupRev3=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,21))
-cgprsCgMIBStatsGroupRev3.setObjects(*((_A,_CB),(_A,_CC),(_A,_CD),(_A,_CE),(_A,_CF),(_A,_CG),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM),(_A,_CN),(_A,_CO),(_A,_CP),(_A,_CQ)))
-if mibBuilder.loadTexts:cgprsCgMIBStatsGroupRev3.setStatus(_B)
-cgprsCgMIBAlarmsGroupRev2=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,22))
-cgprsCgMIBAlarmsGroupRev2.setObjects(*((_A,_CR),(_A,_Af),(_A,_BU),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY)))
-if mibBuilder.loadTexts:cgprsCgMIBAlarmsGroupRev2.setStatus(_B)
-cgprsCgMIBStatusGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,23))
-cgprsCgMIBStatusGroupRev1.setObjects(*((_A,_BZ),(_A,_Ba),(_A,_Bb)))
-if mibBuilder.loadTexts:cgprsCgMIBStatusGroupRev1.setStatus(_B)
-cgprsCgMIBConfigGroupRev5=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,24))
-cgprsCgMIBConfigGroupRev5.setObjects(*((_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_w),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_BT),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2)))
-if mibBuilder.loadTexts:cgprsCgMIBConfigGroupRev5.setStatus(_B)
-cgprsCgMIBConfigGroupR100=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,26))
-cgprsCgMIBConfigGroupR100.setObjects(*((_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_B3),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_Bc)))
-if mibBuilder.loadTexts:cgprsCgMIBConfigGroupR100.setStatus(_D)
-cgprsCgMIBConfigGroupR100Rev1=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,27))
-cgprsCgMIBConfigGroupR100Rev1.setObjects(*((_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_B3),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_Bc),(_A,_CS)))
-if mibBuilder.loadTexts:cgprsCgMIBConfigGroupR100Rev1.setStatus(_B)
-cgprsCgMIBConfigProfileChangeGroupRev1Sup1=ObjectGroup((1,3,6,1,4,1,9,9,192,3,2,28))
-cgprsCgMIBConfigProfileChangeGroupRev1Sup1.setObjects(*((_A,_CT),(_A,_CU)))
-if mibBuilder.loadTexts:cgprsCgMIBConfigProfileChangeGroupRev1Sup1.setStatus(_B)
-cgprsCgAlarmNotif=NotificationType((1,3,6,1,4,1,9,9,192,2,0,1))
-cgprsCgAlarmNotif.setObjects(*((_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak)))
-if mibBuilder.loadTexts:cgprsCgAlarmNotif.setStatus(_D)
-cgprsCgGatewaySwitchoverNotif=NotificationType((1,3,6,1,4,1,9,9,192,2,0,2))
-cgprsCgGatewaySwitchoverNotif.setObjects(*((_A,_BI),(_A,_BJ),(_A,_BK)))
-if mibBuilder.loadTexts:cgprsCgGatewaySwitchoverNotif.setStatus(_D)
-cgprsCgInServiceModeNotif=NotificationType((1,3,6,1,4,1,9,9,192,2,0,3))
-if mibBuilder.loadTexts:cgprsCgInServiceModeNotif.setStatus(_D)
-cgprsCgMaintenanceModeNotif=NotificationType((1,3,6,1,4,1,9,9,192,2,0,4))
-if mibBuilder.loadTexts:cgprsCgMaintenanceModeNotif.setStatus(_D)
-cgprsCgGatewayGroupAlarmNotif=NotificationType((1,3,6,1,4,1,9,9,192,2,0,5))
-cgprsCgGatewayGroupAlarmNotif.setObjects(*((_A,_BU),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY)))
-if mibBuilder.loadTexts:cgprsCgGatewayGroupAlarmNotif.setStatus(_B)
-cgprsCgGatewayGroupSwitchoverNotif=NotificationType((1,3,6,1,4,1,9,9,192,2,0,6))
-cgprsCgGatewayGroupSwitchoverNotif.setObjects(*((_A,_BZ),(_A,_Ba),(_A,_Bb)))
-if mibBuilder.loadTexts:cgprsCgGatewayGroupSwitchoverNotif.setStatus(_B)
-cgprsCgGatewayGroupInServiceModeNotif=NotificationType((1,3,6,1,4,1,9,9,192,2,0,7))
-cgprsCgGatewayGroupInServiceModeNotif.setObjects((_A,_B4))
-if mibBuilder.loadTexts:cgprsCgGatewayGroupInServiceModeNotif.setStatus(_B)
-cgprsCgGatewayGroupMaintenanceModeNotif=NotificationType((1,3,6,1,4,1,9,9,192,2,0,8))
-cgprsCgGatewayGroupMaintenanceModeNotif.setObjects((_A,_B4))
-if mibBuilder.loadTexts:cgprsCgGatewayGroupMaintenanceModeNotif.setStatus(_B)
-cgprsCgMIBNotifGroup=NotificationGroup((1,3,6,1,4,1,9,9,192,3,2,4))
-cgprsCgMIBNotifGroup.setObjects((_A,_Bd))
-if mibBuilder.loadTexts:cgprsCgMIBNotifGroup.setStatus(_D)
-cgprsCgMIBNotifGroupRev1=NotificationGroup((1,3,6,1,4,1,9,9,192,3,2,10))
-cgprsCgMIBNotifGroupRev1.setObjects(*((_A,_Bd),(_A,_CV),(_A,_CW),(_A,_CX)))
-if mibBuilder.loadTexts:cgprsCgMIBNotifGroupRev1.setStatus(_D)
-cgprsCgMIBNotifGroupRev2=NotificationGroup((1,3,6,1,4,1,9,9,192,3,2,25))
-cgprsCgMIBNotifGroupRev2.setObjects(*((_A,_CY),(_A,_CZ),(_A,_Ca),(_A,_Cb)))
-if mibBuilder.loadTexts:cgprsCgMIBNotifGroupRev2.setStatus(_B)
-cgprsCgCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,192,3,1,1))
-cgprsCgCompliance.setObjects(*((_A,_Cc),(_A,_Cd),(_A,_Be),(_A,_B5)))
-if mibBuilder.loadTexts:cgprsCgCompliance.setStatus(_q)
-cgprsCgComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,9,192,3,1,2))
-cgprsCgComplianceRev1.setObjects(*((_A,_Ce),(_A,_Bf),(_A,_Be),(_A,_B5)))
-if mibBuilder.loadTexts:cgprsCgComplianceRev1.setStatus(_q)
-cgprsCgComplianceRev2=ModuleCompliance((1,3,6,1,4,1,9,9,192,3,1,3))
-cgprsCgComplianceRev2.setObjects(*((_A,_Cf),(_A,_Bf),(_A,_N),(_A,_B5)))
-if mibBuilder.loadTexts:cgprsCgComplianceRev2.setStatus(_D)
-cgprsCgComplianceRev3=ModuleCompliance((1,3,6,1,4,1,9,9,192,3,1,4))
-cgprsCgComplianceRev3.setObjects(*((_A,_B6),(_A,_J),(_A,_N),(_A,_n),(_A,_o)))
-if mibBuilder.loadTexts:cgprsCgComplianceRev3.setStatus(_D)
-cgprsCgComplianceRev4=ModuleCompliance((1,3,6,1,4,1,9,9,192,3,1,5))
-cgprsCgComplianceRev4.setObjects(*((_A,_B6),(_A,_J),(_A,_N),(_A,_n),(_A,_o),(_A,_Bg),(_A,_K)))
-if mibBuilder.loadTexts:cgprsCgComplianceRev4.setStatus(_D)
-cgprsCgComplianceRev5=ModuleCompliance((1,3,6,1,4,1,9,9,192,3,1,6))
-cgprsCgComplianceRev5.setObjects(*((_A,_B6),(_A,_J),(_A,_N),(_A,_n),(_A,_o),(_A,_Bg),(_A,_K),(_A,_B7)))
-if mibBuilder.loadTexts:cgprsCgComplianceRev5.setStatus(_D)
-cgprsCgComplianceRev6=ModuleCompliance((1,3,6,1,4,1,9,9,192,3,1,7))
-cgprsCgComplianceRev6.setObjects(*((_A,_B8),(_A,_J),(_A,_N),(_A,_n),(_A,_o),(_A,_K),(_A,_AN),(_A,_B7)))
-if mibBuilder.loadTexts:cgprsCgComplianceRev6.setStatus(_D)
-cgprsCgComplianceRev7=ModuleCompliance((1,3,6,1,4,1,9,9,192,3,1,8))
-cgprsCgComplianceRev7.setObjects(*((_A,_B8),(_A,_J),(_A,_N),(_A,_n),(_A,_o),(_A,_K),(_A,_AN),(_A,_p),(_A,_B7)))
-if mibBuilder.loadTexts:cgprsCgComplianceRev7.setStatus(_D)
-cgprsCgComplianceRev8=ModuleCompliance((1,3,6,1,4,1,9,9,192,3,1,9))
-cgprsCgComplianceRev8.setObjects(*((_A,_B8),(_A,_J),(_A,_N),(_A,_n),(_A,_o),(_A,_K),(_A,_AN),(_A,_p),(_A,_x)))
-if mibBuilder.loadTexts:cgprsCgComplianceRev8.setStatus(_D)
-cgprsCgComplianceRev9=ModuleCompliance((1,3,6,1,4,1,9,9,192,3,1,10))
-cgprsCgComplianceRev9.setObjects(*((_A,_AO),(_A,_J),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_K),(_A,_AN),(_A,_p),(_A,_AS),(_A,_AT),(_A,_x)))
-if mibBuilder.loadTexts:cgprsCgComplianceRev9.setStatus(_D)
-cgprsCgComplianceRev10=ModuleCompliance((1,3,6,1,4,1,9,9,192,3,1,11))
-cgprsCgComplianceRev10.setObjects(*((_A,_AO),(_A,_J),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_K),(_A,_p),(_A,_AS),(_A,_AT),(_A,_x),(_A,_Cg)))
-if mibBuilder.loadTexts:cgprsCgComplianceRev10.setStatus(_D)
-cgprsCgComplianceRev11=ModuleCompliance((1,3,6,1,4,1,9,9,192,3,1,12))
-cgprsCgComplianceRev11.setObjects(*((_A,_AO),(_A,_J),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_K),(_A,_p),(_A,_AS),(_A,_AT),(_A,_x),(_A,_Bh)))
-if mibBuilder.loadTexts:cgprsCgComplianceRev11.setStatus(_D)
-cgprsCgComplianceRev12=ModuleCompliance((1,3,6,1,4,1,9,9,192,3,1,13))
-cgprsCgComplianceRev12.setObjects(*((_A,_AO),(_A,_J),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_K),(_A,_p),(_A,_AS),(_A,_AT),(_A,_x),(_A,_Bh),(_A,_Ch)))
-if mibBuilder.loadTexts:cgprsCgComplianceRev12.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'CgprsCgAlarmType':CgprsCgAlarmType,'CgprsCgGatewayType':CgprsCgGatewayType,'ciscoGprsChargingMIB':ciscoGprsChargingMIB,'ciscoGprsChargingMIBObjects':ciscoGprsChargingMIBObjects,'ciscoGprsChargingConfig':ciscoGprsChargingConfig,_Q:cgprsCgEnable,_R:cgprsCgCdrLocalSeqNumEnable,_S:cgprsCgCdrNodeIdEnable,_T:cgprsCgFlowControlEcho,_U:cgprsCgCdrPktsStatEnable,_BB:cgprsCgCdrNonPrimaryEnable,_V:cgprsCgCdrAggreLimit,_W:cgprsCgTransInterval,_X:cgprsCgPktsQSize,_Y:cgprsCgPathRequest,_Z:cgprsCgContainerVolThresh,_a:cgprsCgMapDataTos,_b:cgprsCgPathProtocol,_c:cgprsCgServerSwitchTimeout,_d:cgprsCgConditionLimit,_e:cgprsCgGtpPrimePort,_f:cgprsCgN3BufferSize,_g:cgprsCgChargeForRoamersOnly,_h:cgprsCgTariffTimeMaxEntries,_i:cgprsCgTariffTimeNextIndex,'cgprsCgTariffTimeTable':cgprsCgTariffTimeTable,'cgprsCgTariffTimeEntry':cgprsCgTariffTimeEntry,_Bj:cgprsCgTariffTimeIndex,_j:cgprsCgTariffTimeRowStatus,_k:cgprsCgTariffTimeHour,_l:cgprsCgTariffTimeMin,_m:cgprsCgTariffTimeSec,'cgprsCgGatewayTable':cgprsCgGatewayTable,'cgprsCgGatewayEntry':cgprsCgGatewayEntry,_Bk:cgprsCgGatewayIndex,_r:cgprsCgGatewayAddrType,_s:cgprsCgGatewayAddr,_t:cgprsCgGatewayRowStatus,_u:cgprsCgOperStatus,_v:cgprsCgLinkState,_w:cgprsCgClearCdrPartialCdr,_BD:cgprsCgSgsnChangeLimit,_z:cgprsCgCdrSgsnChangeLimit,_A0:cgprsCgRelease,_A1:cgprsCgGtpShortHeaderEnable,_A2:cgprsCgTransFormNumRespEnable,_Al:cgprsCgContainerTimeLimit,'cgprsCgProfileTable':cgprsCgProfileTable,'cgprsCgProfileEntry':cgprsCgProfileEntry,_B9:cgprsCgProfileNum,_Am:cgprsCgProfileRowStatus,_An:cgprsCgProfileDesc,_Ao:cgprsCgProfileCategory,_Ap:cgprsCgProfileCdrSuppress,_Aq:cgprsCgProfileVolumeLimit,_Ar:cgprsCgProfileVolumeLimitReset,_As:cgprsCgProfileDurLimit,_At:cgprsCgProfileDurLimitReset,_Au:cgprsCgProfileTariffTime,_Av:cgprsCgProfileSgsnChange,_A5:cgprsCgProfileCdrSuppressPrepaid,_BL:cgprsCgProfileContentDccaProfile,_A6:cgprsCgProfileContentPostTime,_By:cgprsCgProfileContentPostValTime,_A7:cgprsCgProfileContentPostVolume,_A8:cgprsCgProfileContentRulebaseId,_BM:cgprsCgProfileContentPostQosChange,_BN:cgprsCgProfileContentPostSgsnChange,_BO:cgprsCgProfileContentPostRatChange,_BP:cgprsCgProfileContentPostPlmnChange,_BQ:cgprsCgProfileStorageType,_B3:cgprsCgProfileContentPostValidityTime,_C0:cgprsCgProfileContentPostUserLocChange,_CT:cgprsCgProfileScdrEnable,'cgprsCgProfileMapTable':cgprsCgProfileMapTable,'cgprsCgProfileMapEntry':cgprsCgProfileMapEntry,_Bm:cgprsCgProfileMapCategory,_Bx:cgprsCgProfileMapNum,_Aw:cgprsCgProfileMapOverride,_Ax:cgprsCgProfileMapTrusted,_BT:cgprsCgProfileMapNumber,_Ay:cgprsCgChargingCharReject,_BG:cgprsCgServiceMode,_Az:cgprsCgPartialCdrGenEnable,_BH:cgprsCgSwitchOverPriority,_A_:cgprsCgCharSelectionMode,_B0:cgprsCgReconnect,_B1:cgprsCgPtcEnable,_B2:cgprsCgPtcPossiblyDupEnable,_A3:cgprsCgCdrOptionServiceRecord,_A4:cgprsCgPartialCdrGenEnableAll,_A9:cgprsCgCdrOptionApn,_AA:cgprsCgCdrOptionVirtualApn,_AB:cgprsCgCdrOptionApnSelMode,_AC:cgprsCgCdrOptionDynamicAddr,_AD:cgprsCgCdrOptionNip,_AE:cgprsCgCdrOptionPdpAddress,_AF:cgprsCgCdrOptionPdpType,_AG:cgprsCgCdrOptionSerMsisdn,_AH:cgprsCgCdrOptionSgsnPlmn,_AI:cgprsCgCdrOptionCamelCharInfo,_AJ:cgprsCgCdrOptionImeisv,_AK:cgprsCgCdrOptionMsTimeZone,_AL:cgprsCgCdrOptionRatType,_AM:cgprsCgCdrOptionUserLocInfo,_BR:cgprsCgServiceRecordIncludeRat,_BS:cgprsCgServiceRecordIncludePlmn,_B_:cgprsCgChargingSrcInterface,_C1:cgprsCgServiceRecordIncludeUserLocInfo,'cgprsCgGroupTable':cgprsCgGroupTable,'cgprsCgGroupEntry':cgprsCgGroupEntry,_y:cgprsCgGroupIndex,_C8:cgprsCgGroupIscsi,_B4:cgprsCgGroupServiceMode,_C9:cgprsCgGroupSwitchOverPriority,_CA:cgprsCgGroupRowStatus,'cgprsCgGatewayIpTable':cgprsCgGatewayIpTable,'cgprsCgGatewayIpEntry':cgprsCgGatewayIpEntry,_Bp:cgprsCgGatewayIpIndex,_C2:cgprsCgGatewayIpAddrType,_C3:cgprsCgGatewayIpAddr,_C4:cgprsCgGatewayOperStatus,_C5:cgprsCgGatewayLinkState,_C6:cgprsCgGateway,_C7:cgprsCgGatewayIpRowStatus,'cgprsCgProfileContentDccaProfileTable':cgprsCgProfileContentDccaProfileTable,'cgprsCgProfileContentDccaProfileEntry':cgprsCgProfileContentDccaProfileEntry,_Bq:cgprsCgProfileContentDccaProfileName,_Bc:cgprsCgProfileContentDccaProfileRowStatus,_CS:cgprsCgProfileContentDccaProfileWeight,_CU:cgprsCgScdrEnable,'ciscoGprsChargingOthers':ciscoGprsChargingOthers,'ciscoGprsChargingStats':ciscoGprsChargingStats,_AY:cgprsCgDownTimes,_AZ:cgprsCgAccPtNum,_Aa:cgprsCgCdrOpenedNum,_Ab:cgprsCgCdrClosedNum,_Ac:cgprsCgContainerNum,_Ad:cgprsCgPendingMsgNum,_Ae:cgprsCgSentMsgNum,_BE:cgprsCgTotalCdrOpened,_BF:cgprsCgTotalContainerCreated,_Bz:cgprsCgTotalServiceRecords,'cgprsCgGatewayGroupStatisticsTable':cgprsCgGatewayGroupStatisticsTable,_Bv:cgprsCgGatewayGroupStatisticsEntry,_CB:cgprsCgGatewayGroupCgDownTimes,_CC:cgprsCgGatewayGroupAccPtNum,_CD:cgprsCgGatewayGroupCdrOpenedNum,_CE:cgprsCgGatewayGroupCdrClosedNum,_CF:cgprsCgGatewayGroupContainerNum,_CG:cgprsCgGatewayGroupServiceRecordsNum,_CH:cgprsCgGatewayGroupPendingMsgNum,_CI:cgprsCgGatewayGroupCdrPendingMsgIscsiNum,_CJ:cgprsCgGatewayGroupCdrPendingMsgCgPathNum,_CK:cgprsCgGatewayGroupCdrPendingMsgMaintNum,_CL:cgprsCgGatewayGroupTotalCdrOpened,_CM:cgprsCgGatewayGroupTotalContainerCreated,_CN:cgprsCgGatewayGroupTotalServiceRecords,_CO:cgprsCgGatewayGroupTotalSentMsg,_CP:cgprsCgGatewayGroupTotalSentMsgToIscsi,_CQ:cgprsCgGatewayGroupTotalSentMsgToCg,'ciscoGprsChargingAlarms':ciscoGprsChargingAlarms,_BC:cgprsCgAlarmEnable,_Af:cgprsCgAlarmHistTableMax,'cgprsCgAlarmHistTable':cgprsCgAlarmHistTable,'cgprsCgAlarmHistEntry':cgprsCgAlarmHistEntry,_Bt:cgprsCgAlarmHistIndex,_Ag:cgprsCgAlarmHistType,_Ah:cgprsCgAlarmHistAddrType,_Ai:cgprsCgAlarmHistAddress,_Aj:cgprsCgAlarmHistSeverity,_Ak:cgprsCgAlarmHistInfo,_Bw:cgprsCgAlarmHistLatestIndex,'cgprsCgGatewayGroupAlarmHistTable':cgprsCgGatewayGroupAlarmHistTable,'cgprsCgGatewayGroupAlarmHistEntry':cgprsCgGatewayGroupAlarmHistEntry,_Bu:cgprsCgGatewayGroupAlarmHistIndex,_BU:cgprsCgGatewayGroupAlarmHistType,_BV:cgprsCgGatewayGroupAlarmHistAddrType,_BW:cgprsCgGatewayGroupAlarmHistAddress,_BX:cgprsCgGatewayGroupAlarmHistSeverity,_BY:cgprsCgGatewayGroupAlarmHistInfo,_CR:cgprsCgGatewayGroupAlarmEnable,'ciscoGprsChargingStatus':ciscoGprsChargingStatus,_BI:cgprsCgActiveChgGatewayAddrType,_BJ:cgprsCgActiveChgGatewayAddress,_BK:cgprsCgOldChgGatewayAddress,'cgprsCgGatewayGroupStatusTable':cgprsCgGatewayGroupStatusTable,'cgprsCgGatewayGroupStatusEntry':cgprsCgGatewayGroupStatusEntry,_BZ:cgprsCgGatewayGroupStatusAddrType,_Ba:cgprsCgGatewayGroupStatusActiveCgAddr,_Bb:cgprsCgGatewayGroupStatusOldCgAddr,'ciscoGprsCharNotifPrefix':ciscoGprsCharNotifPrefix,'ciscoGprsCharNotifs':ciscoGprsCharNotifs,_Bd:cgprsCgAlarmNotif,_CV:cgprsCgGatewaySwitchoverNotif,_CW:cgprsCgInServiceModeNotif,_CX:cgprsCgMaintenanceModeNotif,_CY:cgprsCgGatewayGroupAlarmNotif,_CZ:cgprsCgGatewayGroupSwitchoverNotif,_Ca:cgprsCgGatewayGroupInServiceModeNotif,_Cb:cgprsCgGatewayGroupMaintenanceModeNotif,'ciscoGprsCharMIBConformances':ciscoGprsCharMIBConformances,'cgprsCgMIBCompliances':cgprsCgMIBCompliances,'cgprsCgCompliance':cgprsCgCompliance,'cgprsCgComplianceRev1':cgprsCgComplianceRev1,'cgprsCgComplianceRev2':cgprsCgComplianceRev2,'cgprsCgComplianceRev3':cgprsCgComplianceRev3,'cgprsCgComplianceRev4':cgprsCgComplianceRev4,'cgprsCgComplianceRev5':cgprsCgComplianceRev5,'cgprsCgComplianceRev6':cgprsCgComplianceRev6,'cgprsCgComplianceRev7':cgprsCgComplianceRev7,'cgprsCgComplianceRev8':cgprsCgComplianceRev8,'cgprsCgComplianceRev9':cgprsCgComplianceRev9,'cgprsCgComplianceRev10':cgprsCgComplianceRev10,'cgprsCgComplianceRev11':cgprsCgComplianceRev11,'cgprsCgComplianceRev12':cgprsCgComplianceRev12,'cgprsCgMIBGroups':cgprsCgMIBGroups,_Cc:cgprsCgMIBConfigGroup,_Cd:cgprsCgMIBStatsGroup,_Be:cgprsCgMIBAlarmsGroup,_B5:cgprsCgMIBNotifGroup,_Ce:cgprsCgMIBConfigGroupRev1,_Bf:cgprsCgMIBStatsGroupRev1,_Cf:cgprsCgMIBConfigGroupRev2,_N:cgprsCgMIBAlarmsGroupRev1,_B6:cgprsCgMIBConfigGroupRev3,_n:cgprsCgMIBNotifGroupRev1,_J:cgprsCgMIBStatsGroupRev2,_o:cgprsCgMIBStatusGroup,_Bg:cgprsCgMIBConfigGroupR60,_K:cgprsCgMIBStatusGroupR60,_B7:cgprsCgMIBConfigProfileChangeGroup,_B8:cgprsCgMIBConfigGroupRev4,_AN:cgprsCgMIBExtConfigGroup,_p:cgprsCgMIBConfigGroupR80,_x:cgprsCgMIBConfigProfileChangeGroupRev1,_AS:cgprsCgMIBConfigGroupR90,_AT:cgprsCgMIBStatsGroupRev3,_AP:cgprsCgMIBAlarmsGroupRev2,_AR:cgprsCgMIBStatusGroupRev1,_AO:cgprsCgMIBConfigGroupRev5,_AQ:cgprsCgMIBNotifGroupRev2,_Cg:cgprsCgMIBConfigGroupR100,_Bh:cgprsCgMIBConfigGroupR100Rev1,_Ch:cgprsCgMIBConfigProfileChangeGroupRev1Sup1})
+if mibBuilder.loadTexts: cgprsCgGatewayGroupStatisticsEntry.setStatus('current')
+cgprsCgGatewayGroupCgDownTimes = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 1), Counter32()).setUnits('transitions').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupCgDownTimes.setStatus('current')
+cgprsCgGatewayGroupAccPtNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 2), Counter32()).setUnits('access-points').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupAccPtNum.setStatus('current')
+cgprsCgGatewayGroupCdrOpenedNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('CDRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupCdrOpenedNum.setStatus('current')
+cgprsCgGatewayGroupCdrClosedNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('CDRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupCdrClosedNum.setStatus('current')
+cgprsCgGatewayGroupContainerNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('containers').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupContainerNum.setStatus('current')
+cgprsCgGatewayGroupServiceRecordsNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('records').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupServiceRecordsNum.setStatus('current')
+cgprsCgGatewayGroupPendingMsgNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('messages').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupPendingMsgNum.setStatus('current')
+cgprsCgGatewayGroupCdrPendingMsgIscsiNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('messages').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupCdrPendingMsgIscsiNum.setStatus('current')
+cgprsCgGatewayGroupCdrPendingMsgCgPathNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('messages').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupCdrPendingMsgCgPathNum.setStatus('current')
+cgprsCgGatewayGroupCdrPendingMsgMaintNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('messages').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupCdrPendingMsgMaintNum.setStatus('current')
+cgprsCgGatewayGroupTotalCdrOpened = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 11), Counter32()).setUnits('CDRs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupTotalCdrOpened.setStatus('current')
+cgprsCgGatewayGroupTotalContainerCreated = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 12), Counter32()).setUnits('containers').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupTotalContainerCreated.setStatus('current')
+cgprsCgGatewayGroupTotalServiceRecords = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 13), Counter32()).setUnits('records').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupTotalServiceRecords.setStatus('current')
+cgprsCgGatewayGroupTotalSentMsg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 14), Counter32()).setUnits('messages').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupTotalSentMsg.setStatus('current')
+cgprsCgGatewayGroupTotalSentMsgToIscsi = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 15), Counter32()).setUnits('messages').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupTotalSentMsgToIscsi.setStatus('current')
+cgprsCgGatewayGroupTotalSentMsgToCg = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 3, 11, 1, 16), Counter32()).setUnits('messages').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupTotalSentMsgToCg.setStatus('current')
+cgprsCgActiveChgGatewayAddrType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 5, 1), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgActiveChgGatewayAddrType.setStatus('deprecated')
+cgprsCgActiveChgGatewayAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 5, 2), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgActiveChgGatewayAddress.setStatus('deprecated')
+cgprsCgOldChgGatewayAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 5, 3), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgOldChgGatewayAddress.setStatus('deprecated')
+cgprsCgGatewayGroupStatusTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 5, 4), )
+if mibBuilder.loadTexts: cgprsCgGatewayGroupStatusTable.setStatus('current')
+cgprsCgGatewayGroupStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 5, 4, 1), ).setIndexNames((0, "CISCO-GPRS-CHARGING-MIB", "cgprsCgGroupIndex"))
+if mibBuilder.loadTexts: cgprsCgGatewayGroupStatusEntry.setStatus('current')
+cgprsCgGatewayGroupStatusAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 5, 4, 1, 1), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupStatusAddrType.setStatus('current')
+cgprsCgGatewayGroupStatusActiveCgAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 5, 4, 1, 2), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupStatusActiveCgAddr.setStatus('current')
+cgprsCgGatewayGroupStatusOldCgAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 5, 4, 1, 3), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupStatusOldCgAddr.setStatus('current')
+cgprsCgAlarmEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgAlarmEnable.setStatus('deprecated')
+cgprsCgAlarmHistTableMax = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)).clone(500)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgAlarmHistTableMax.setStatus('current')
+cgprsCgAlarmHistTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 3), )
+if mibBuilder.loadTexts: cgprsCgAlarmHistTable.setStatus('deprecated')
+cgprsCgAlarmHistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 3, 1), ).setIndexNames((0, "CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistIndex"))
+if mibBuilder.loadTexts: cgprsCgAlarmHistEntry.setStatus('deprecated')
+cgprsCgAlarmHistIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cgprsCgAlarmHistIndex.setStatus('deprecated')
+cgprsCgAlarmHistType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 3, 1, 2), CgprsCgAlarmType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgAlarmHistType.setStatus('deprecated')
+cgprsCgAlarmHistAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 3, 1, 3), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgAlarmHistAddrType.setStatus('deprecated')
+cgprsCgAlarmHistAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 3, 1, 4), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgAlarmHistAddress.setStatus('deprecated')
+cgprsCgAlarmHistSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 3, 1, 5), CiscoAlarmSeverity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgAlarmHistSeverity.setStatus('deprecated')
+cgprsCgAlarmHistInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 3, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgAlarmHistInfo.setStatus('deprecated')
+cgprsCgAlarmHistLatestIndex = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgAlarmHistLatestIndex.setStatus('current')
+cgprsCgGatewayGroupAlarmHistTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 5), )
+if mibBuilder.loadTexts: cgprsCgGatewayGroupAlarmHistTable.setStatus('current')
+cgprsCgGatewayGroupAlarmHistEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 5, 1), ).setIndexNames((0, "CISCO-GPRS-CHARGING-MIB", "cgprsCgGroupIndex"), (0, "CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupAlarmHistIndex"))
+if mibBuilder.loadTexts: cgprsCgGatewayGroupAlarmHistEntry.setStatus('current')
+cgprsCgGatewayGroupAlarmHistIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 5, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cgprsCgGatewayGroupAlarmHistIndex.setStatus('current')
+cgprsCgGatewayGroupAlarmHistType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 5, 1, 2), CgprsCgAlarmType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupAlarmHistType.setStatus('current')
+cgprsCgGatewayGroupAlarmHistAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 5, 1, 3), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupAlarmHistAddrType.setStatus('current')
+cgprsCgGatewayGroupAlarmHistAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 5, 1, 4), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupAlarmHistAddress.setStatus('current')
+cgprsCgGatewayGroupAlarmHistSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 5, 1, 5), CiscoAlarmSeverity()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupAlarmHistSeverity.setStatus('current')
+cgprsCgGatewayGroupAlarmHistInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 5, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupAlarmHistInfo.setStatus('current')
+cgprsCgGatewayGroupAlarmEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 192, 1, 4, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cgprsCgGatewayGroupAlarmEnable.setStatus('current')
+ciscoGprsCharNotifPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 192, 2))
+ciscoGprsCharNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 192, 2, 0))
+cgprsCgAlarmNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 192, 2, 0, 1)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistAddrType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistAddress"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistSeverity"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistInfo"))
+if mibBuilder.loadTexts: cgprsCgAlarmNotif.setStatus('deprecated')
+cgprsCgGatewaySwitchoverNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 192, 2, 0, 2)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgActiveChgGatewayAddrType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgActiveChgGatewayAddress"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgOldChgGatewayAddress"))
+if mibBuilder.loadTexts: cgprsCgGatewaySwitchoverNotif.setStatus('deprecated')
+cgprsCgInServiceModeNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 192, 2, 0, 3))
+if mibBuilder.loadTexts: cgprsCgInServiceModeNotif.setStatus('deprecated')
+cgprsCgMaintenanceModeNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 192, 2, 0, 4))
+if mibBuilder.loadTexts: cgprsCgMaintenanceModeNotif.setStatus('deprecated')
+cgprsCgGatewayGroupAlarmNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 192, 2, 0, 5)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupAlarmHistType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupAlarmHistAddrType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupAlarmHistAddress"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupAlarmHistSeverity"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupAlarmHistInfo"))
+if mibBuilder.loadTexts: cgprsCgGatewayGroupAlarmNotif.setStatus('current')
+cgprsCgGatewayGroupSwitchoverNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 192, 2, 0, 6)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupStatusAddrType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupStatusActiveCgAddr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupStatusOldCgAddr"))
+if mibBuilder.loadTexts: cgprsCgGatewayGroupSwitchoverNotif.setStatus('current')
+cgprsCgGatewayGroupInServiceModeNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 192, 2, 0, 7)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgGroupServiceMode"))
+if mibBuilder.loadTexts: cgprsCgGatewayGroupInServiceModeNotif.setStatus('current')
+cgprsCgGatewayGroupMaintenanceModeNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 192, 2, 0, 8)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgGroupServiceMode"))
+if mibBuilder.loadTexts: cgprsCgGatewayGroupMaintenanceModeNotif.setStatus('current')
+ciscoGprsCharMIBConformances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 192, 3))
+cgprsCgMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 1))
+cgprsCgMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2))
+cgprsCgCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 1, 1)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroup"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroup"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBAlarmsGroup"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBNotifGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgCompliance = cgprsCgCompliance.setStatus('obsolete')
+cgprsCgComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 1, 2)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBAlarmsGroup"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBNotifGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgComplianceRev1 = cgprsCgComplianceRev1.setStatus('obsolete')
+cgprsCgComplianceRev2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 1, 3)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBAlarmsGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBNotifGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgComplianceRev2 = cgprsCgComplianceRev2.setStatus('deprecated')
+cgprsCgComplianceRev3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 1, 4)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupRev3"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBAlarmsGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBNotifGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgComplianceRev3 = cgprsCgComplianceRev3.setStatus('deprecated')
+cgprsCgComplianceRev4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 1, 5)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupRev3"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBAlarmsGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBNotifGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroup"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupR60"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroupR60"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgComplianceRev4 = cgprsCgComplianceRev4.setStatus('deprecated')
+cgprsCgComplianceRev5 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 1, 6)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupRev3"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBAlarmsGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBNotifGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroup"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupR60"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroupR60"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigProfileChangeGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgComplianceRev5 = cgprsCgComplianceRev5.setStatus('deprecated')
+cgprsCgComplianceRev6 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 1, 7)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupRev4"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBAlarmsGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBNotifGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroup"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroupR60"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBExtConfigGroup"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigProfileChangeGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgComplianceRev6 = cgprsCgComplianceRev6.setStatus('deprecated')
+cgprsCgComplianceRev7 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 1, 8)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupRev4"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBAlarmsGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBNotifGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroup"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroupR60"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBExtConfigGroup"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupR80"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigProfileChangeGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgComplianceRev7 = cgprsCgComplianceRev7.setStatus('deprecated')
+cgprsCgComplianceRev8 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 1, 9)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupRev4"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBAlarmsGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBNotifGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroup"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroupR60"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBExtConfigGroup"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupR80"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigProfileChangeGroupRev1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgComplianceRev8 = cgprsCgComplianceRev8.setStatus('deprecated')
+cgprsCgComplianceRev9 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 1, 10)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupRev5"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBAlarmsGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBNotifGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroupR60"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBExtConfigGroup"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupR80"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupR90"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev3"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigProfileChangeGroupRev1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgComplianceRev9 = cgprsCgComplianceRev9.setStatus('deprecated')
+cgprsCgComplianceRev10 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 1, 11)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupRev5"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBAlarmsGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBNotifGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroupR60"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupR80"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupR90"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev3"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigProfileChangeGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupR100"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgComplianceRev10 = cgprsCgComplianceRev10.setStatus('deprecated')
+cgprsCgComplianceRev11 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 1, 12)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupRev5"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBAlarmsGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBNotifGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroupR60"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupR80"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupR90"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev3"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigProfileChangeGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupR100Rev1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgComplianceRev11 = cgprsCgComplianceRev11.setStatus('deprecated')
+cgprsCgComplianceRev12 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 1, 13)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupRev5"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBAlarmsGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBNotifGroupRev2"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatusGroupR60"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupR80"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupR90"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBStatsGroupRev3"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigProfileChangeGroupRev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigGroupR100Rev1"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMIBConfigProfileChangeGroupRev1Sup1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgComplianceRev12 = cgprsCgComplianceRev12.setStatus('current')
+cgprsCgMIBConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 1)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayAddrType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayAddr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgOperStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgLinkState"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrLocalSeqNumEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrNodeIdEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgFlowControlEcho"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrPktsStatEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrNonPrimaryEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrAggreLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTransInterval"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPktsQSize"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPathRequest"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgContainerVolThresh"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMapDataTos"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPathProtocol"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgServerSwitchTimeout"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgConditionLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGtpPrimePort"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgN3BufferSize"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgChargeForRoamersOnly"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeMaxEntries"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeNextIndex"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeHour"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeMin"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeSec"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBConfigGroup = cgprsCgMIBConfigGroup.setStatus('obsolete')
+cgprsCgMIBStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 2)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgDownTimes"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAccPtNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOpenedNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrClosedNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgContainerNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPendingMsgNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgSentMsgNum"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBStatsGroup = cgprsCgMIBStatsGroup.setStatus('obsolete')
+cgprsCgMIBAlarmsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 3)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistTableMax"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistAddrType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistAddress"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistSeverity"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistInfo"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBAlarmsGroup = cgprsCgMIBAlarmsGroup.setStatus('deprecated')
+cgprsCgMIBNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 4)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmNotif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBNotifGroup = cgprsCgMIBNotifGroup.setStatus('deprecated')
+cgprsCgMIBConfigGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 5)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayAddrType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayAddr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgOperStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgLinkState"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrLocalSeqNumEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrNodeIdEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgFlowControlEcho"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrPktsStatEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrNonPrimaryEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrAggreLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTransInterval"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPktsQSize"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPathRequest"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgContainerVolThresh"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMapDataTos"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPathProtocol"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgServerSwitchTimeout"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgConditionLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGtpPrimePort"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgN3BufferSize"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgChargeForRoamersOnly"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeMaxEntries"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeNextIndex"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeHour"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeMin"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeSec"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgClearCdrPartialCdr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgSgsnChangeLimit"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBConfigGroupRev1 = cgprsCgMIBConfigGroupRev1.setStatus('obsolete')
+cgprsCgMIBStatsGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 6)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgDownTimes"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAccPtNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOpenedNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrClosedNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgContainerNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPendingMsgNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgSentMsgNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTotalCdrOpened"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTotalContainerCreated"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBStatsGroupRev1 = cgprsCgMIBStatsGroupRev1.setStatus('deprecated')
+cgprsCgMIBConfigGroupRev2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 7)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayAddrType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayAddr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgOperStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgLinkState"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrLocalSeqNumEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrNodeIdEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgFlowControlEcho"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrPktsStatEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrAggreLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTransInterval"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPktsQSize"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPathRequest"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgContainerVolThresh"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMapDataTos"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPathProtocol"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgServerSwitchTimeout"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgConditionLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGtpPrimePort"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgN3BufferSize"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgChargeForRoamersOnly"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeMaxEntries"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeNextIndex"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeHour"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeMin"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeSec"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgClearCdrPartialCdr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrSgsnChangeLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgSgsnChangeLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgRelease"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGtpShortHeaderEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTransFormNumRespEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBConfigGroupRev2 = cgprsCgMIBConfigGroupRev2.setStatus('deprecated')
+cgprsCgMIBAlarmsGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 8)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistTableMax"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistAddrType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistAddress"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistSeverity"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistInfo"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistLatestIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBAlarmsGroupRev1 = cgprsCgMIBAlarmsGroupRev1.setStatus('deprecated')
+cgprsCgMIBConfigGroupRev3 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 9)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayAddrType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayAddr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgOperStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgLinkState"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrLocalSeqNumEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrNodeIdEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgFlowControlEcho"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrPktsStatEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrAggreLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTransInterval"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPktsQSize"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPathRequest"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgContainerVolThresh"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMapDataTos"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPathProtocol"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgServerSwitchTimeout"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgConditionLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGtpPrimePort"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgN3BufferSize"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgChargeForRoamersOnly"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeMaxEntries"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeNextIndex"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeHour"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeMin"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeSec"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgClearCdrPartialCdr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrSgsnChangeLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgRelease"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGtpShortHeaderEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTransFormNumRespEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgContainerTimeLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileDesc"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileCategory"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileCdrSuppress"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileVolumeLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileVolumeLimitReset"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileDurLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileDurLimitReset"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileTariffTime"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileSgsnChange"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileMapNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileMapOverride"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileMapTrusted"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgChargingCharReject"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgServiceMode"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPartialCdrGenEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgSwitchOverPriority"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCharSelectionMode"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgReconnect"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPtcEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPtcPossiblyDupEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBConfigGroupRev3 = cgprsCgMIBConfigGroupRev3.setStatus('deprecated')
+cgprsCgMIBNotifGroupRev1 = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 10)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmNotif"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewaySwitchoverNotif"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgInServiceModeNotif"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMaintenanceModeNotif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBNotifGroupRev1 = cgprsCgMIBNotifGroupRev1.setStatus('deprecated')
+cgprsCgMIBStatsGroupRev2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 11)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgDownTimes"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAccPtNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOpenedNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrClosedNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgContainerNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPendingMsgNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgSentMsgNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTotalCdrOpened"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTotalContainerCreated"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBStatsGroupRev2 = cgprsCgMIBStatsGroupRev2.setStatus('current')
+cgprsCgMIBStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 12)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgActiveChgGatewayAddrType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgActiveChgGatewayAddress"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgOldChgGatewayAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBStatusGroup = cgprsCgMIBStatusGroup.setStatus('deprecated')
+cgprsCgMIBConfigGroupR60 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 13)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionServiceRecord"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPartialCdrGenEnableAll"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileCdrSuppressPrepaid"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentDccaProfile"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostTime"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostValTime"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostVolume"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentRulebaseId"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionApn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionVirtualApn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionApnSelMode"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionDynamicAddr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionNip"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionPdpAddress"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionPdpType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionSerMsisdn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionSgsnPlmn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionCamelCharInfo"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionImeisv"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionMsTimeZone"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionRatType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionUserLocInfo"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBConfigGroupR60 = cgprsCgMIBConfigGroupR60.setStatus('deprecated')
+cgprsCgMIBStatusGroupR60 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 14)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgTotalServiceRecords"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBStatusGroupR60 = cgprsCgMIBStatusGroupR60.setStatus('current')
+cgprsCgMIBConfigProfileChangeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 15)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostQosChange"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostSgsnChange"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostRatChange"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostPlmnChange"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileStorageType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgServiceRecordIncludeRat"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgServiceRecordIncludePlmn"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBConfigProfileChangeGroup = cgprsCgMIBConfigProfileChangeGroup.setStatus('deprecated')
+cgprsCgMIBConfigGroupRev4 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 16)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayAddrType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayAddr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgOperStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgLinkState"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrLocalSeqNumEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrNodeIdEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgFlowControlEcho"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrPktsStatEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrAggreLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTransInterval"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPktsQSize"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPathRequest"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgContainerVolThresh"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMapDataTos"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPathProtocol"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgServerSwitchTimeout"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgConditionLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGtpPrimePort"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgN3BufferSize"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgChargeForRoamersOnly"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeMaxEntries"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeNextIndex"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeHour"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeMin"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeSec"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgClearCdrPartialCdr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrSgsnChangeLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgRelease"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGtpShortHeaderEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTransFormNumRespEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgContainerTimeLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileDesc"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileCategory"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileCdrSuppress"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileVolumeLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileVolumeLimitReset"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileDurLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileDurLimitReset"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileTariffTime"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileSgsnChange"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileMapNumber"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileMapOverride"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileMapTrusted"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgChargingCharReject"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgServiceMode"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPartialCdrGenEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgSwitchOverPriority"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCharSelectionMode"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgReconnect"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPtcEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPtcPossiblyDupEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBConfigGroupRev4 = cgprsCgMIBConfigGroupRev4.setStatus('deprecated')
+cgprsCgMIBExtConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 17)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionServiceRecord"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPartialCdrGenEnableAll"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileCdrSuppressPrepaid"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentDccaProfile"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostTime"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostValidityTime"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostVolume"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentRulebaseId"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionApn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionVirtualApn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionApnSelMode"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionDynamicAddr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionNip"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionPdpAddress"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionPdpType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionSerMsisdn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionSgsnPlmn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionCamelCharInfo"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionImeisv"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionMsTimeZone"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionRatType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionUserLocInfo"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBExtConfigGroup = cgprsCgMIBExtConfigGroup.setStatus('deprecated')
+cgprsCgMIBConfigGroupR80 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 18)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgChargingSrcInterface"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBConfigGroupR80 = cgprsCgMIBConfigGroupR80.setStatus('current')
+cgprsCgMIBConfigProfileChangeGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 19)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostQosChange"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostSgsnChange"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostRatChange"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostPlmnChange"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostUserLocChange"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileStorageType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgServiceRecordIncludeRat"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgServiceRecordIncludePlmn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgServiceRecordIncludeUserLocInfo"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBConfigProfileChangeGroupRev1 = cgprsCgMIBConfigProfileChangeGroupRev1.setStatus('current')
+cgprsCgMIBConfigGroupR90 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 20)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayIpAddrType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayIpAddr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayOperStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayLinkState"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGateway"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayIpRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGroupIscsi"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGroupServiceMode"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGroupSwitchOverPriority"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGroupRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBConfigGroupR90 = cgprsCgMIBConfigGroupR90.setStatus('current')
+cgprsCgMIBStatsGroupRev3 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 21)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupCgDownTimes"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupAccPtNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupCdrOpenedNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupCdrClosedNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupContainerNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupServiceRecordsNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupPendingMsgNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupCdrPendingMsgIscsiNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupCdrPendingMsgCgPathNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupCdrPendingMsgMaintNum"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupTotalCdrOpened"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupTotalContainerCreated"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupTotalServiceRecords"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupTotalSentMsg"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupTotalSentMsgToIscsi"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupTotalSentMsgToCg"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBStatsGroupRev3 = cgprsCgMIBStatsGroupRev3.setStatus('current')
+cgprsCgMIBAlarmsGroupRev2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 22)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupAlarmEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgAlarmHistTableMax"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupAlarmHistType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupAlarmHistAddrType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupAlarmHistAddress"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupAlarmHistSeverity"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupAlarmHistInfo"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBAlarmsGroupRev2 = cgprsCgMIBAlarmsGroupRev2.setStatus('current')
+cgprsCgMIBStatusGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 23)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupStatusAddrType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupStatusActiveCgAddr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupStatusOldCgAddr"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBStatusGroupRev1 = cgprsCgMIBStatusGroupRev1.setStatus('current')
+cgprsCgMIBConfigGroupRev5 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 24)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrLocalSeqNumEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrNodeIdEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgFlowControlEcho"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrPktsStatEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrAggreLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTransInterval"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPktsQSize"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPathRequest"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgContainerVolThresh"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgMapDataTos"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPathProtocol"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgServerSwitchTimeout"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgConditionLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGtpPrimePort"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgN3BufferSize"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgChargeForRoamersOnly"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeMaxEntries"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeNextIndex"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeHour"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeMin"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTariffTimeSec"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgClearCdrPartialCdr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrSgsnChangeLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgRelease"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGtpShortHeaderEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgTransFormNumRespEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgContainerTimeLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileDesc"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileCategory"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileCdrSuppress"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileVolumeLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileVolumeLimitReset"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileDurLimit"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileDurLimitReset"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileTariffTime"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileSgsnChange"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileMapNumber"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileMapOverride"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileMapTrusted"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgChargingCharReject"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPartialCdrGenEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCharSelectionMode"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgReconnect"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPtcEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPtcPossiblyDupEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBConfigGroupRev5 = cgprsCgMIBConfigGroupRev5.setStatus('current')
+cgprsCgMIBNotifGroupRev2 = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 25)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupAlarmNotif"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupSwitchoverNotif"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupInServiceModeNotif"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgGatewayGroupMaintenanceModeNotif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBNotifGroupRev2 = cgprsCgMIBNotifGroupRev2.setStatus('current')
+cgprsCgMIBConfigGroupR100 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 26)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionServiceRecord"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPartialCdrGenEnableAll"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileCdrSuppressPrepaid"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostTime"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostValidityTime"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostVolume"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentRulebaseId"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionApn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionVirtualApn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionApnSelMode"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionDynamicAddr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionNip"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionPdpAddress"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionPdpType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionSerMsisdn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionSgsnPlmn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionCamelCharInfo"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionImeisv"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionMsTimeZone"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionRatType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionUserLocInfo"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentDccaProfileRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBConfigGroupR100 = cgprsCgMIBConfigGroupR100.setStatus('deprecated')
+cgprsCgMIBConfigGroupR100Rev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 27)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionServiceRecord"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgPartialCdrGenEnableAll"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileCdrSuppressPrepaid"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostTime"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostValidityTime"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentPostVolume"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentRulebaseId"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionApn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionVirtualApn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionApnSelMode"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionDynamicAddr"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionNip"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionPdpAddress"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionPdpType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionSerMsisdn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionSgsnPlmn"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionCamelCharInfo"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionImeisv"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionMsTimeZone"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionRatType"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgCdrOptionUserLocInfo"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentDccaProfileRowStatus"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileContentDccaProfileWeight"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBConfigGroupR100Rev1 = cgprsCgMIBConfigGroupR100Rev1.setStatus('current')
+cgprsCgMIBConfigProfileChangeGroupRev1Sup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 192, 3, 2, 28)).setObjects(("CISCO-GPRS-CHARGING-MIB", "cgprsCgProfileScdrEnable"), ("CISCO-GPRS-CHARGING-MIB", "cgprsCgScdrEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cgprsCgMIBConfigProfileChangeGroupRev1Sup1 = cgprsCgMIBConfigProfileChangeGroupRev1Sup1.setStatus('current')
+mibBuilder.exportSymbols("CISCO-GPRS-CHARGING-MIB", cgprsCgMIBNotifGroup=cgprsCgMIBNotifGroup, cgprsCgProfileContentPostValTime=cgprsCgProfileContentPostValTime, cgprsCgCdrOptionPdpAddress=cgprsCgCdrOptionPdpAddress, cgprsCgGatewayGroupTotalServiceRecords=cgprsCgGatewayGroupTotalServiceRecords, cgprsCgGatewayGroupAlarmHistAddrType=cgprsCgGatewayGroupAlarmHistAddrType, cgprsCgCdrOptionUserLocInfo=cgprsCgCdrOptionUserLocInfo, cgprsCgComplianceRev1=cgprsCgComplianceRev1, cgprsCgGatewayIpTable=cgprsCgGatewayIpTable, cgprsCgCdrOptionServiceRecord=cgprsCgCdrOptionServiceRecord, cgprsCgSwitchOverPriority=cgprsCgSwitchOverPriority, cgprsCgGateway=cgprsCgGateway, cgprsCgCdrOpenedNum=cgprsCgCdrOpenedNum, cgprsCgAlarmHistIndex=cgprsCgAlarmHistIndex, cgprsCgMIBConfigGroupR90=cgprsCgMIBConfigGroupR90, cgprsCgGatewayRowStatus=cgprsCgGatewayRowStatus, cgprsCgGatewayGroupTotalSentMsgToCg=cgprsCgGatewayGroupTotalSentMsgToCg, cgprsCgOldChgGatewayAddress=cgprsCgOldChgGatewayAddress, cgprsCgGroupTable=cgprsCgGroupTable, ciscoGprsCharNotifs=ciscoGprsCharNotifs, cgprsCgTotalCdrOpened=cgprsCgTotalCdrOpened, cgprsCgPtcPossiblyDupEnable=cgprsCgPtcPossiblyDupEnable, cgprsCgProfileContentRulebaseId=cgprsCgProfileContentRulebaseId, cgprsCgFlowControlEcho=cgprsCgFlowControlEcho, cgprsCgGatewayGroupStatisticsTable=cgprsCgGatewayGroupStatisticsTable, cgprsCgMIBAlarmsGroupRev2=cgprsCgMIBAlarmsGroupRev2, cgprsCgProfileContentPostValidityTime=cgprsCgProfileContentPostValidityTime, cgprsCgGatewayGroupMaintenanceModeNotif=cgprsCgGatewayGroupMaintenanceModeNotif, cgprsCgProfileTable=cgprsCgProfileTable, cgprsCgProfileContentDccaProfileName=cgprsCgProfileContentDccaProfileName, cgprsCgProfileDurLimitReset=cgprsCgProfileDurLimitReset, cgprsCgGatewayGroupAlarmHistSeverity=cgprsCgGatewayGroupAlarmHistSeverity, cgprsCgGatewayIpAddr=cgprsCgGatewayIpAddr, cgprsCgServiceMode=cgprsCgServiceMode, cgprsCgProfileSgsnChange=cgprsCgProfileSgsnChange, cgprsCgGatewayOperStatus=cgprsCgGatewayOperStatus, cgprsCgCdrOptionDynamicAddr=cgprsCgCdrOptionDynamicAddr, cgprsCgPendingMsgNum=cgprsCgPendingMsgNum, cgprsCgServiceRecordIncludeRat=cgprsCgServiceRecordIncludeRat, cgprsCgGatewayLinkState=cgprsCgGatewayLinkState, cgprsCgActiveChgGatewayAddrType=cgprsCgActiveChgGatewayAddrType, cgprsCgComplianceRev10=cgprsCgComplianceRev10, ciscoGprsChargingMIB=ciscoGprsChargingMIB, cgprsCgCdrNonPrimaryEnable=cgprsCgCdrNonPrimaryEnable, cgprsCgPtcEnable=cgprsCgPtcEnable, cgprsCgGatewayGroupCdrPendingMsgIscsiNum=cgprsCgGatewayGroupCdrPendingMsgIscsiNum, cgprsCgMIBConfigGroupRev5=cgprsCgMIBConfigGroupRev5, cgprsCgProfileContentPostUserLocChange=cgprsCgProfileContentPostUserLocChange, ciscoGprsChargingMIBObjects=ciscoGprsChargingMIBObjects, ciscoGprsCharMIBConformances=ciscoGprsCharMIBConformances, cgprsCgSentMsgNum=cgprsCgSentMsgNum, cgprsCgMIBCompliances=cgprsCgMIBCompliances, cgprsCgCdrLocalSeqNumEnable=cgprsCgCdrLocalSeqNumEnable, cgprsCgPktsQSize=cgprsCgPktsQSize, cgprsCgProfileTariffTime=cgprsCgProfileTariffTime, cgprsCgGroupServiceMode=cgprsCgGroupServiceMode, cgprsCgGatewayGroupPendingMsgNum=cgprsCgGatewayGroupPendingMsgNum, cgprsCgCdrOptionRatType=cgprsCgCdrOptionRatType, cgprsCgGatewayGroupStatusOldCgAddr=cgprsCgGatewayGroupStatusOldCgAddr, cgprsCgGatewayGroupStatusEntry=cgprsCgGatewayGroupStatusEntry, cgprsCgAlarmHistEntry=cgprsCgAlarmHistEntry, cgprsCgTotalServiceRecords=cgprsCgTotalServiceRecords, cgprsCgMIBStatsGroupRev1=cgprsCgMIBStatsGroupRev1, cgprsCgConditionLimit=cgprsCgConditionLimit, cgprsCgCdrOptionApnSelMode=cgprsCgCdrOptionApnSelMode, cgprsCgAlarmNotif=cgprsCgAlarmNotif, ciscoGprsChargingStatus=ciscoGprsChargingStatus, cgprsCgProfileMapTable=cgprsCgProfileMapTable, cgprsCgPartialCdrGenEnable=cgprsCgPartialCdrGenEnable, cgprsCgCdrOptionCamelCharInfo=cgprsCgCdrOptionCamelCharInfo, cgprsCgTariffTimeHour=cgprsCgTariffTimeHour, cgprsCgGatewayGroupStatusTable=cgprsCgGatewayGroupStatusTable, cgprsCgGatewayGroupTotalSentMsgToIscsi=cgprsCgGatewayGroupTotalSentMsgToIscsi, cgprsCgComplianceRev12=cgprsCgComplianceRev12, cgprsCgActiveChgGatewayAddress=cgprsCgActiveChgGatewayAddress, cgprsCgProfileContentDccaProfileEntry=cgprsCgProfileContentDccaProfileEntry, cgprsCgGatewayGroupAlarmNotif=cgprsCgGatewayGroupAlarmNotif, cgprsCgProfileContentDccaProfile=cgprsCgProfileContentDccaProfile, cgprsCgContainerNum=cgprsCgContainerNum, cgprsCgComplianceRev11=cgprsCgComplianceRev11, cgprsCgGtpShortHeaderEnable=cgprsCgGtpShortHeaderEnable, cgprsCgProfileMapEntry=cgprsCgProfileMapEntry, cgprsCgGatewayGroupCdrOpenedNum=cgprsCgGatewayGroupCdrOpenedNum, cgprsCgServiceRecordIncludeUserLocInfo=cgprsCgServiceRecordIncludeUserLocInfo, cgprsCgGatewayGroupCdrPendingMsgMaintNum=cgprsCgGatewayGroupCdrPendingMsgMaintNum, PYSNMP_MODULE_ID=ciscoGprsChargingMIB, cgprsCgMIBNotifGroupRev1=cgprsCgMIBNotifGroupRev1, cgprsCgTariffTimeNextIndex=cgprsCgTariffTimeNextIndex, cgprsCgTariffTimeIndex=cgprsCgTariffTimeIndex, cgprsCgGatewayGroupAlarmHistType=cgprsCgGatewayGroupAlarmHistType, cgprsCgChargeForRoamersOnly=cgprsCgChargeForRoamersOnly, ciscoGprsChargingStats=ciscoGprsChargingStats, cgprsCgTransFormNumRespEnable=cgprsCgTransFormNumRespEnable, cgprsCgMIBConfigGroupR100Rev1=cgprsCgMIBConfigGroupR100Rev1, cgprsCgMIBConfigGroupR100=cgprsCgMIBConfigGroupR100, cgprsCgProfileVolumeLimit=cgprsCgProfileVolumeLimit, cgprsCgAlarmHistTableMax=cgprsCgAlarmHistTableMax, cgprsCgCdrAggreLimit=cgprsCgCdrAggreLimit, cgprsCgServiceRecordIncludePlmn=cgprsCgServiceRecordIncludePlmn, cgprsCgMIBConfigGroupRev2=cgprsCgMIBConfigGroupRev2, cgprsCgContainerTimeLimit=cgprsCgContainerTimeLimit, cgprsCgMIBAlarmsGroup=cgprsCgMIBAlarmsGroup, cgprsCgCdrOptionSgsnPlmn=cgprsCgCdrOptionSgsnPlmn, cgprsCgMIBStatusGroup=cgprsCgMIBStatusGroup, cgprsCgProfileCdrSuppress=cgprsCgProfileCdrSuppress, cgprsCgProfileStorageType=cgprsCgProfileStorageType, cgprsCgAlarmHistLatestIndex=cgprsCgAlarmHistLatestIndex, cgprsCgCdrOptionMsTimeZone=cgprsCgCdrOptionMsTimeZone, cgprsCgGroupRowStatus=cgprsCgGroupRowStatus, cgprsCgChargingCharReject=cgprsCgChargingCharReject, cgprsCgProfileVolumeLimitReset=cgprsCgProfileVolumeLimitReset, cgprsCgMIBConfigGroupRev3=cgprsCgMIBConfigGroupRev3, cgprsCgProfileDurLimit=cgprsCgProfileDurLimit, cgprsCgTariffTimeSec=cgprsCgTariffTimeSec, cgprsCgInServiceModeNotif=cgprsCgInServiceModeNotif, cgprsCgGroupSwitchOverPriority=cgprsCgGroupSwitchOverPriority, cgprsCgAlarmHistTable=cgprsCgAlarmHistTable, CgprsCgAlarmType=CgprsCgAlarmType, cgprsCgChargingSrcInterface=cgprsCgChargingSrcInterface, cgprsCgMIBGroups=cgprsCgMIBGroups, cgprsCgMIBConfigProfileChangeGroup=cgprsCgMIBConfigProfileChangeGroup, cgprsCgCharSelectionMode=cgprsCgCharSelectionMode, cgprsCgLinkState=cgprsCgLinkState, ciscoGprsChargingAlarms=ciscoGprsChargingAlarms, cgprsCgGatewayGroupStatusActiveCgAddr=cgprsCgGatewayGroupStatusActiveCgAddr, cgprsCgTariffTimeTable=cgprsCgTariffTimeTable, cgprsCgProfileScdrEnable=cgprsCgProfileScdrEnable, cgprsCgComplianceRev9=cgprsCgComplianceRev9, cgprsCgCdrClosedNum=cgprsCgCdrClosedNum, cgprsCgEnable=cgprsCgEnable, cgprsCgAlarmHistType=cgprsCgAlarmHistType, cgprsCgCdrOptionImeisv=cgprsCgCdrOptionImeisv, cgprsCgPartialCdrGenEnableAll=cgprsCgPartialCdrGenEnableAll, cgprsCgGatewayGroupAlarmEnable=cgprsCgGatewayGroupAlarmEnable, cgprsCgMIBStatsGroupRev3=cgprsCgMIBStatsGroupRev3, cgprsCgMIBStatsGroupRev2=cgprsCgMIBStatsGroupRev2, cgprsCgGatewayIpEntry=cgprsCgGatewayIpEntry, cgprsCgGatewayGroupSwitchoverNotif=cgprsCgGatewayGroupSwitchoverNotif, cgprsCgGatewayGroupAlarmHistInfo=cgprsCgGatewayGroupAlarmHistInfo, ciscoGprsCharNotifPrefix=ciscoGprsCharNotifPrefix, cgprsCgGatewayGroupAlarmHistIndex=cgprsCgGatewayGroupAlarmHistIndex, cgprsCgGatewayGroupTotalCdrOpened=cgprsCgGatewayGroupTotalCdrOpened, cgprsCgTransInterval=cgprsCgTransInterval, cgprsCgProfileMapNum=cgprsCgProfileMapNum, cgprsCgCdrOptionApn=cgprsCgCdrOptionApn, cgprsCgServerSwitchTimeout=cgprsCgServerSwitchTimeout, cgprsCgGroupIndex=cgprsCgGroupIndex, cgprsCgGatewayGroupCdrClosedNum=cgprsCgGatewayGroupCdrClosedNum, cgprsCgGatewayGroupCdrPendingMsgCgPathNum=cgprsCgGatewayGroupCdrPendingMsgCgPathNum, cgprsCgReconnect=cgprsCgReconnect, cgprsCgGatewayGroupTotalSentMsg=cgprsCgGatewayGroupTotalSentMsg, cgprsCgMIBConfigGroupRev1=cgprsCgMIBConfigGroupRev1, cgprsCgMIBStatusGroupRev1=cgprsCgMIBStatusGroupRev1, cgprsCgProfileMapNumber=cgprsCgProfileMapNumber, cgprsCgPathProtocol=cgprsCgPathProtocol, cgprsCgGatewayIpAddrType=cgprsCgGatewayIpAddrType, cgprsCgGatewayGroupAlarmHistEntry=cgprsCgGatewayGroupAlarmHistEntry, CgprsCgGatewayType=CgprsCgGatewayType, cgprsCgGatewayGroupAlarmHistAddress=cgprsCgGatewayGroupAlarmHistAddress, cgprsCgPathRequest=cgprsCgPathRequest, cgprsCgProfileContentPostQosChange=cgprsCgProfileContentPostQosChange, cgprsCgMIBConfigGroupR60=cgprsCgMIBConfigGroupR60, cgprsCgProfileContentDccaProfileTable=cgprsCgProfileContentDccaProfileTable, cgprsCgGroupIscsi=cgprsCgGroupIscsi, cgprsCgMaintenanceModeNotif=cgprsCgMaintenanceModeNotif, cgprsCgN3BufferSize=cgprsCgN3BufferSize, cgprsCgSgsnChangeLimit=cgprsCgSgsnChangeLimit, cgprsCgCdrSgsnChangeLimit=cgprsCgCdrSgsnChangeLimit, cgprsCgProfileCategory=cgprsCgProfileCategory, cgprsCgProfileMapOverride=cgprsCgProfileMapOverride, cgprsCgGatewaySwitchoverNotif=cgprsCgGatewaySwitchoverNotif, cgprsCgCdrNodeIdEnable=cgprsCgCdrNodeIdEnable, cgprsCgGatewayEntry=cgprsCgGatewayEntry, cgprsCgGatewayIpRowStatus=cgprsCgGatewayIpRowStatus, cgprsCgComplianceRev4=cgprsCgComplianceRev4, cgprsCgMIBConfigGroupR80=cgprsCgMIBConfigGroupR80, cgprsCgMIBConfigProfileChangeGroupRev1Sup1=cgprsCgMIBConfigProfileChangeGroupRev1Sup1, cgprsCgGatewayTable=cgprsCgGatewayTable, cgprsCgGatewayGroupTotalContainerCreated=cgprsCgGatewayGroupTotalContainerCreated, cgprsCgProfileContentPostVolume=cgprsCgProfileContentPostVolume, cgprsCgScdrEnable=cgprsCgScdrEnable, cgprsCgContainerVolThresh=cgprsCgContainerVolThresh, cgprsCgCdrOptionSerMsisdn=cgprsCgCdrOptionSerMsisdn, cgprsCgTariffTimeEntry=cgprsCgTariffTimeEntry, cgprsCgAlarmHistAddress=cgprsCgAlarmHistAddress, cgprsCgCompliance=cgprsCgCompliance, cgprsCgComplianceRev5=cgprsCgComplianceRev5, cgprsCgComplianceRev8=cgprsCgComplianceRev8, cgprsCgMapDataTos=cgprsCgMapDataTos, cgprsCgProfileContentPostPlmnChange=cgprsCgProfileContentPostPlmnChange, cgprsCgGatewayGroupAlarmHistTable=cgprsCgGatewayGroupAlarmHistTable, cgprsCgGatewayGroupContainerNum=cgprsCgGatewayGroupContainerNum, cgprsCgMIBConfigProfileChangeGroupRev1=cgprsCgMIBConfigProfileChangeGroupRev1, cgprsCgGatewayIndex=cgprsCgGatewayIndex, cgprsCgComplianceRev7=cgprsCgComplianceRev7, cgprsCgMIBExtConfigGroup=cgprsCgMIBExtConfigGroup, cgprsCgProfileDesc=cgprsCgProfileDesc, cgprsCgAlarmHistSeverity=cgprsCgAlarmHistSeverity, cgprsCgProfileContentDccaProfileRowStatus=cgprsCgProfileContentDccaProfileRowStatus, cgprsCgTariffTimeMaxEntries=cgprsCgTariffTimeMaxEntries, cgprsCgGatewayGroupServiceRecordsNum=cgprsCgGatewayGroupServiceRecordsNum, cgprsCgComplianceRev2=cgprsCgComplianceRev2, cgprsCgProfileContentPostRatChange=cgprsCgProfileContentPostRatChange, cgprsCgProfileContentPostTime=cgprsCgProfileContentPostTime, cgprsCgCdrPktsStatEnable=cgprsCgCdrPktsStatEnable, cgprsCgProfileCdrSuppressPrepaid=cgprsCgProfileCdrSuppressPrepaid, cgprsCgProfileRowStatus=cgprsCgProfileRowStatus, cgprsCgCdrOptionNip=cgprsCgCdrOptionNip, cgprsCgAlarmEnable=cgprsCgAlarmEnable, cgprsCgGatewayGroupStatisticsEntry=cgprsCgGatewayGroupStatisticsEntry, cgprsCgAccPtNum=cgprsCgAccPtNum, cgprsCgTotalContainerCreated=cgprsCgTotalContainerCreated, cgprsCgAlarmHistInfo=cgprsCgAlarmHistInfo, cgprsCgMIBStatsGroup=cgprsCgMIBStatsGroup, cgprsCgProfileMapTrusted=cgprsCgProfileMapTrusted, cgprsCgMIBNotifGroupRev2=cgprsCgMIBNotifGroupRev2, cgprsCgMIBAlarmsGroupRev1=cgprsCgMIBAlarmsGroupRev1, cgprsCgTariffTimeRowStatus=cgprsCgTariffTimeRowStatus, cgprsCgProfileMapCategory=cgprsCgProfileMapCategory, cgprsCgComplianceRev3=cgprsCgComplianceRev3, cgprsCgGatewayGroupAccPtNum=cgprsCgGatewayGroupAccPtNum, cgprsCgGatewayGroupCgDownTimes=cgprsCgGatewayGroupCgDownTimes, cgprsCgClearCdrPartialCdr=cgprsCgClearCdrPartialCdr, cgprsCgGatewayIpIndex=cgprsCgGatewayIpIndex, cgprsCgCdrOptionPdpType=cgprsCgCdrOptionPdpType, cgprsCgGatewayAddr=cgprsCgGatewayAddr, cgprsCgRelease=cgprsCgRelease, cgprsCgDownTimes=cgprsCgDownTimes, cgprsCgOperStatus=cgprsCgOperStatus, cgprsCgComplianceRev6=cgprsCgComplianceRev6, cgprsCgGroupEntry=cgprsCgGroupEntry, cgprsCgProfileContentDccaProfileWeight=cgprsCgProfileContentDccaProfileWeight, cgprsCgMIBConfigGroupRev4=cgprsCgMIBConfigGroupRev4, cgprsCgMIBConfigGroup=cgprsCgMIBConfigGroup, cgprsCgCdrOptionVirtualApn=cgprsCgCdrOptionVirtualApn, cgprsCgMIBStatusGroupR60=cgprsCgMIBStatusGroupR60, cgprsCgProfileContentPostSgsnChange=cgprsCgProfileContentPostSgsnChange, ciscoGprsChargingOthers=ciscoGprsChargingOthers, cgprsCgTariffTimeMin=cgprsCgTariffTimeMin, cgprsCgGatewayGroupInServiceModeNotif=cgprsCgGatewayGroupInServiceModeNotif, cgprsCgProfileEntry=cgprsCgProfileEntry, ciscoGprsChargingConfig=ciscoGprsChargingConfig, cgprsCgAlarmHistAddrType=cgprsCgAlarmHistAddrType, cgprsCgGatewayGroupStatusAddrType=cgprsCgGatewayGroupStatusAddrType, cgprsCgGatewayAddrType=cgprsCgGatewayAddrType, cgprsCgProfileNum=cgprsCgProfileNum, cgprsCgGtpPrimePort=cgprsCgGtpPrimePort)

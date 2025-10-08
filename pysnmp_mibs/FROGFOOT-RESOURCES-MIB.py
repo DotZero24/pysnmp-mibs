@@ -1,175 +1,92 @@
-_Z='loadValue'
-_Y='loadDescr'
-_X='loadNumber'
-_W='diskFree'
-_V='diskTotal'
-_U='diskFSType'
-_T='diskDir'
-_S='diskDev'
-_R='diskNumber'
-_Q='swapFree'
-_P='swapTotal'
-_O='memCache'
-_N='memBuffer'
-_M='memFree'
-_L='memTotal'
-_K='loadIndex'
-_J='not-accessible'
-_I='diskIndex'
-_H='Integer32'
-_G='resLoadGroup'
-_F='resDiskGroup'
-_E='resSwapGroup'
-_D='resMemGroup'
-_C='read-only'
-_B='FROGFOOT-RESOURCES-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-resources=ModuleIdentity((1,3,6,1,4,1,10002,1,1,1))
-class TableIndex(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_Frogfoot_ObjectIdentity=ObjectIdentity
-frogfoot=_Frogfoot_ObjectIdentity((1,3,6,1,4,1,10002))
-_Servers_ObjectIdentity=ObjectIdentity
-servers=_Servers_ObjectIdentity((1,3,6,1,4,1,10002,1))
-_System_ObjectIdentity=ObjectIdentity
-system=_System_ObjectIdentity((1,3,6,1,4,1,10002,1,1))
-_Memory_ObjectIdentity=ObjectIdentity
-memory=_Memory_ObjectIdentity((1,3,6,1,4,1,10002,1,1,1,1))
-_MemTotal_Type=Gauge32
-_MemTotal_Object=MibScalar
-memTotal=_MemTotal_Object((1,3,6,1,4,1,10002,1,1,1,1,1),_MemTotal_Type())
-memTotal.setMaxAccess(_C)
-if mibBuilder.loadTexts:memTotal.setStatus(_A)
-_MemFree_Type=Gauge32
-_MemFree_Object=MibScalar
-memFree=_MemFree_Object((1,3,6,1,4,1,10002,1,1,1,1,2),_MemFree_Type())
-memFree.setMaxAccess(_C)
-if mibBuilder.loadTexts:memFree.setStatus(_A)
-_MemBuffer_Type=Gauge32
-_MemBuffer_Object=MibScalar
-memBuffer=_MemBuffer_Object((1,3,6,1,4,1,10002,1,1,1,1,3),_MemBuffer_Type())
-memBuffer.setMaxAccess(_C)
-if mibBuilder.loadTexts:memBuffer.setStatus(_A)
-_MemCache_Type=Gauge32
-_MemCache_Object=MibScalar
-memCache=_MemCache_Object((1,3,6,1,4,1,10002,1,1,1,1,4),_MemCache_Type())
-memCache.setMaxAccess(_C)
-if mibBuilder.loadTexts:memCache.setStatus(_A)
-_Swap_ObjectIdentity=ObjectIdentity
-swap=_Swap_ObjectIdentity((1,3,6,1,4,1,10002,1,1,1,2))
-_SwapTotal_Type=Gauge32
-_SwapTotal_Object=MibScalar
-swapTotal=_SwapTotal_Object((1,3,6,1,4,1,10002,1,1,1,2,1),_SwapTotal_Type())
-swapTotal.setMaxAccess(_C)
-if mibBuilder.loadTexts:swapTotal.setStatus(_A)
-_SwapFree_Type=Gauge32
-_SwapFree_Object=MibScalar
-swapFree=_SwapFree_Object((1,3,6,1,4,1,10002,1,1,1,2,2),_SwapFree_Type())
-swapFree.setMaxAccess(_C)
-if mibBuilder.loadTexts:swapFree.setStatus(_A)
-_Storage_ObjectIdentity=ObjectIdentity
-storage=_Storage_ObjectIdentity((1,3,6,1,4,1,10002,1,1,1,3))
-_DiskNumber_Type=Integer32
-_DiskNumber_Object=MibScalar
-diskNumber=_DiskNumber_Object((1,3,6,1,4,1,10002,1,1,1,3,1),_DiskNumber_Type())
-diskNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskNumber.setStatus(_A)
-_DiskTable_Object=MibTable
-diskTable=_DiskTable_Object((1,3,6,1,4,1,10002,1,1,1,3,2))
-if mibBuilder.loadTexts:diskTable.setStatus(_A)
-_DiskEntry_Object=MibTableRow
-diskEntry=_DiskEntry_Object((1,3,6,1,4,1,10002,1,1,1,3,2,1))
-diskEntry.setIndexNames((0,_B,_I))
-if mibBuilder.loadTexts:diskEntry.setStatus(_A)
-_DiskIndex_Type=TableIndex
-_DiskIndex_Object=MibTableColumn
-diskIndex=_DiskIndex_Object((1,3,6,1,4,1,10002,1,1,1,3,2,1,1),_DiskIndex_Type())
-diskIndex.setMaxAccess(_J)
-if mibBuilder.loadTexts:diskIndex.setStatus(_A)
-_DiskDev_Type=DisplayString
-_DiskDev_Object=MibTableColumn
-diskDev=_DiskDev_Object((1,3,6,1,4,1,10002,1,1,1,3,2,1,2),_DiskDev_Type())
-diskDev.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskDev.setStatus(_A)
-_DiskDir_Type=DisplayString
-_DiskDir_Object=MibTableColumn
-diskDir=_DiskDir_Object((1,3,6,1,4,1,10002,1,1,1,3,2,1,3),_DiskDir_Type())
-diskDir.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskDir.setStatus(_A)
-class _DiskFSType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24)));namedValues=NamedValues(*(('unknown',0),('adfs',1),('affs',2),('coda',3),('cramfs',4),('ext2',5),('hpfs',6),('iso9660',7),('jffs2',8),('jfs',9),('minix',10),('msdos',11),('ncpfs',12),('nfs',13),('ntfs',14),('qnx4',15),('reiserfs',16),('romfs',17),('smbfs',18),('sysv',19),('tmpfs',20),('udf',21),('ufs',22),('vxfs',23),('xfs',24)))
-_DiskFSType_Type.__name__=_H
-_DiskFSType_Object=MibTableColumn
-diskFSType=_DiskFSType_Object((1,3,6,1,4,1,10002,1,1,1,3,2,1,4),_DiskFSType_Type())
-diskFSType.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskFSType.setStatus(_A)
-_DiskTotal_Type=Gauge32
-_DiskTotal_Object=MibTableColumn
-diskTotal=_DiskTotal_Object((1,3,6,1,4,1,10002,1,1,1,3,2,1,5),_DiskTotal_Type())
-diskTotal.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskTotal.setStatus(_A)
-_DiskFree_Type=Gauge32
-_DiskFree_Object=MibTableColumn
-diskFree=_DiskFree_Object((1,3,6,1,4,1,10002,1,1,1,3,2,1,6),_DiskFree_Type())
-diskFree.setMaxAccess(_C)
-if mibBuilder.loadTexts:diskFree.setStatus(_A)
-_Load_ObjectIdentity=ObjectIdentity
-load=_Load_ObjectIdentity((1,3,6,1,4,1,10002,1,1,1,4))
-_LoadNumber_Type=Integer32
-_LoadNumber_Object=MibScalar
-loadNumber=_LoadNumber_Object((1,3,6,1,4,1,10002,1,1,1,4,1),_LoadNumber_Type())
-loadNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:loadNumber.setStatus(_A)
-_LoadTable_Object=MibTable
-loadTable=_LoadTable_Object((1,3,6,1,4,1,10002,1,1,1,4,2))
-if mibBuilder.loadTexts:loadTable.setStatus(_A)
-_LoadEntry_Object=MibTableRow
-loadEntry=_LoadEntry_Object((1,3,6,1,4,1,10002,1,1,1,4,2,1))
-loadEntry.setIndexNames((0,_B,_K))
-if mibBuilder.loadTexts:loadEntry.setStatus(_A)
-_LoadIndex_Type=TableIndex
-_LoadIndex_Object=MibTableColumn
-loadIndex=_LoadIndex_Object((1,3,6,1,4,1,10002,1,1,1,4,2,1,1),_LoadIndex_Type())
-loadIndex.setMaxAccess(_J)
-if mibBuilder.loadTexts:loadIndex.setStatus(_A)
-_LoadDescr_Type=DisplayString
-_LoadDescr_Object=MibTableColumn
-loadDescr=_LoadDescr_Object((1,3,6,1,4,1,10002,1,1,1,4,2,1,2),_LoadDescr_Type())
-loadDescr.setMaxAccess(_C)
-if mibBuilder.loadTexts:loadDescr.setStatus(_A)
-_LoadValue_Type=Gauge32
-_LoadValue_Object=MibTableColumn
-loadValue=_LoadValue_Object((1,3,6,1,4,1,10002,1,1,1,4,2,1,3),_LoadValue_Type())
-loadValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:loadValue.setStatus(_A)
-_ResMIB_ObjectIdentity=ObjectIdentity
-resMIB=_ResMIB_ObjectIdentity((1,3,6,1,4,1,10002,1,1,1,31))
-_ResMIBObjects_ObjectIdentity=ObjectIdentity
-resMIBObjects=_ResMIBObjects_ObjectIdentity((1,3,6,1,4,1,10002,1,1,1,31,1))
-_ResConformance_ObjectIdentity=ObjectIdentity
-resConformance=_ResConformance_ObjectIdentity((1,3,6,1,4,1,10002,1,1,1,31,2))
-_ResGroups_ObjectIdentity=ObjectIdentity
-resGroups=_ResGroups_ObjectIdentity((1,3,6,1,4,1,10002,1,1,1,31,2,1))
-_ResCompliances_ObjectIdentity=ObjectIdentity
-resCompliances=_ResCompliances_ObjectIdentity((1,3,6,1,4,1,10002,1,1,1,31,2,2))
-resMemGroup=ObjectGroup((1,3,6,1,4,1,10002,1,1,1,31,2,1,1))
-resMemGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:resMemGroup.setStatus(_A)
-resSwapGroup=ObjectGroup((1,3,6,1,4,1,10002,1,1,1,31,2,1,2))
-resSwapGroup.setObjects(*((_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:resSwapGroup.setStatus(_A)
-resDiskGroup=ObjectGroup((1,3,6,1,4,1,10002,1,1,1,31,2,1,3))
-resDiskGroup.setObjects(*((_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W)))
-if mibBuilder.loadTexts:resDiskGroup.setStatus(_A)
-resLoadGroup=ObjectGroup((1,3,6,1,4,1,10002,1,1,1,31,2,1,4))
-resLoadGroup.setObjects(*((_B,_X),(_B,_Y),(_B,_Z)))
-if mibBuilder.loadTexts:resLoadGroup.setStatus(_A)
-resCompliance=ModuleCompliance((1,3,6,1,4,1,10002,1,1,1,31,2,2,1))
-resCompliance.setObjects(*((_B,_D),(_B,_E),(_B,_F),(_B,_G),(_B,_D),(_B,_E),(_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:resCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'TableIndex':TableIndex,'frogfoot':frogfoot,'servers':servers,'system':system,'resources':resources,'memory':memory,_L:memTotal,_M:memFree,_N:memBuffer,_O:memCache,'swap':swap,_P:swapTotal,_Q:swapFree,'storage':storage,_R:diskNumber,'diskTable':diskTable,'diskEntry':diskEntry,_I:diskIndex,_S:diskDev,_T:diskDir,_U:diskFSType,_V:diskTotal,_W:diskFree,'load':load,_X:loadNumber,'loadTable':loadTable,'loadEntry':loadEntry,_K:loadIndex,_Y:loadDescr,_Z:loadValue,'resMIB':resMIB,'resMIBObjects':resMIBObjects,'resConformance':resConformance,'resGroups':resGroups,_D:resMemGroup,_E:resSwapGroup,_F:resDiskGroup,_G:resLoadGroup,'resCompliances':resCompliances,'resCompliance':resCompliance})
+#
+# PySNMP MIB module FROGFOOT-RESOURCES-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ubiquiti/FROGFOOT-RESOURCES-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:33 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+resources = ModuleIdentity((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1))
+if mibBuilder.loadTexts: resources.setLastUpdated('200407170000Z')
+if mibBuilder.loadTexts: resources.setOrganization('Frogfoot Networks')
+frogfoot = MibIdentifier((1, 3, 6, 1, 4, 1, 10002))
+servers = MibIdentifier((1, 3, 6, 1, 4, 1, 10002, 1))
+system = MibIdentifier((1, 3, 6, 1, 4, 1, 10002, 1, 1))
+memory = MibIdentifier((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 1))
+swap = MibIdentifier((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 2))
+storage = MibIdentifier((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 3))
+load = MibIdentifier((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 4))
+resMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 31))
+resMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 31, 1))
+resConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 31, 2))
+resGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 31, 2, 1))
+resCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 31, 2, 2))
+class TableIndex(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 2147483647)
+
+memTotal = MibScalar((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 1, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: memTotal.setStatus('current')
+memFree = MibScalar((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: memFree.setStatus('current')
+memBuffer = MibScalar((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: memBuffer.setStatus('current')
+memCache = MibScalar((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: memCache.setStatus('current')
+swapTotal = MibScalar((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 2, 1), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swapTotal.setStatus('current')
+swapFree = MibScalar((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 2, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swapFree.setStatus('current')
+diskNumber = MibScalar((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 3, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskNumber.setStatus('current')
+diskTable = MibTable((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 3, 2), )
+if mibBuilder.loadTexts: diskTable.setStatus('current')
+diskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 3, 2, 1), ).setIndexNames((0, "FROGFOOT-RESOURCES-MIB", "diskIndex"))
+if mibBuilder.loadTexts: diskEntry.setStatus('current')
+diskIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 3, 2, 1, 1), TableIndex())
+if mibBuilder.loadTexts: diskIndex.setStatus('current')
+diskDev = MibTableColumn((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 3, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskDev.setStatus('current')
+diskDir = MibTableColumn((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 3, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskDir.setStatus('current')
+diskFSType = MibTableColumn((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 3, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24))).clone(namedValues=NamedValues(("unknown", 0), ("adfs", 1), ("affs", 2), ("coda", 3), ("cramfs", 4), ("ext2", 5), ("hpfs", 6), ("iso9660", 7), ("jffs2", 8), ("jfs", 9), ("minix", 10), ("msdos", 11), ("ncpfs", 12), ("nfs", 13), ("ntfs", 14), ("qnx4", 15), ("reiserfs", 16), ("romfs", 17), ("smbfs", 18), ("sysv", 19), ("tmpfs", 20), ("udf", 21), ("ufs", 22), ("vxfs", 23), ("xfs", 24)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskFSType.setStatus('current')
+diskTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 3, 2, 1, 5), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskTotal.setStatus('current')
+diskFree = MibTableColumn((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 3, 2, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: diskFree.setStatus('current')
+loadNumber = MibScalar((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 4, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loadNumber.setStatus('current')
+loadTable = MibTable((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 4, 2), )
+if mibBuilder.loadTexts: loadTable.setStatus('current')
+loadEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 4, 2, 1), ).setIndexNames((0, "FROGFOOT-RESOURCES-MIB", "loadIndex"))
+if mibBuilder.loadTexts: loadEntry.setStatus('current')
+loadIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 4, 2, 1, 1), TableIndex())
+if mibBuilder.loadTexts: loadIndex.setStatus('current')
+loadDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 4, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loadDescr.setStatus('current')
+loadValue = MibTableColumn((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 4, 2, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: loadValue.setStatus('current')
+resCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 31, 2, 2, 1)).setObjects(("FROGFOOT-RESOURCES-MIB", "resMemGroup"), ("FROGFOOT-RESOURCES-MIB", "resSwapGroup"), ("FROGFOOT-RESOURCES-MIB", "resDiskGroup"), ("FROGFOOT-RESOURCES-MIB", "resLoadGroup"), ("FROGFOOT-RESOURCES-MIB", "resMemGroup"), ("FROGFOOT-RESOURCES-MIB", "resSwapGroup"), ("FROGFOOT-RESOURCES-MIB", "resDiskGroup"), ("FROGFOOT-RESOURCES-MIB", "resLoadGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    resCompliance = resCompliance.setStatus('current')
+resMemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 31, 2, 1, 1)).setObjects(("FROGFOOT-RESOURCES-MIB", "memTotal"), ("FROGFOOT-RESOURCES-MIB", "memFree"), ("FROGFOOT-RESOURCES-MIB", "memBuffer"), ("FROGFOOT-RESOURCES-MIB", "memCache"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    resMemGroup = resMemGroup.setStatus('current')
+resSwapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 31, 2, 1, 2)).setObjects(("FROGFOOT-RESOURCES-MIB", "swapTotal"), ("FROGFOOT-RESOURCES-MIB", "swapFree"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    resSwapGroup = resSwapGroup.setStatus('current')
+resDiskGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 31, 2, 1, 3)).setObjects(("FROGFOOT-RESOURCES-MIB", "diskNumber"), ("FROGFOOT-RESOURCES-MIB", "diskDev"), ("FROGFOOT-RESOURCES-MIB", "diskDir"), ("FROGFOOT-RESOURCES-MIB", "diskFSType"), ("FROGFOOT-RESOURCES-MIB", "diskTotal"), ("FROGFOOT-RESOURCES-MIB", "diskFree"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    resDiskGroup = resDiskGroup.setStatus('current')
+resLoadGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 10002, 1, 1, 1, 31, 2, 1, 4)).setObjects(("FROGFOOT-RESOURCES-MIB", "loadNumber"), ("FROGFOOT-RESOURCES-MIB", "loadDescr"), ("FROGFOOT-RESOURCES-MIB", "loadValue"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    resLoadGroup = resLoadGroup.setStatus('current')
+mibBuilder.exportSymbols("FROGFOOT-RESOURCES-MIB", resources=resources, memory=memory, storage=storage, memFree=memFree, memTotal=memTotal, loadTable=loadTable, loadValue=loadValue, swapTotal=swapTotal, memBuffer=memBuffer, diskDev=diskDev, swap=swap, resMemGroup=resMemGroup, memCache=memCache, resGroups=resGroups, swapFree=swapFree, PYSNMP_MODULE_ID=resources, loadNumber=loadNumber, loadIndex=loadIndex, resConformance=resConformance, diskNumber=diskNumber, diskTotal=diskTotal, resMIB=resMIB, diskIndex=diskIndex, servers=servers, resCompliances=resCompliances, diskEntry=diskEntry, resLoadGroup=resLoadGroup, load=load, diskDir=diskDir, TableIndex=TableIndex, diskFSType=diskFSType, resSwapGroup=resSwapGroup, resDiskGroup=resDiskGroup, diskTable=diskTable, loadEntry=loadEntry, system=system, resCompliance=resCompliance, frogfoot=frogfoot, resMIBObjects=resMIBObjects, diskFree=diskFree, loadDescr=loadDescr)

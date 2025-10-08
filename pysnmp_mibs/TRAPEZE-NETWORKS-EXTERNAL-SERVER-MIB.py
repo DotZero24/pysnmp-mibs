@@ -1,85 +1,61 @@
-_K='trpzExternalServerDnsServerGroup'
-_J='trpzExtServerSecondaryDnsIpAddress'
-_I='trpzExtServerPrimaryDnsIpAddress'
-_H='trpzExtServerSyslogEnable'
-_G='trpzExtServerSyslogPort'
-_F='trpzExtServerSyslogAddress'
-_E='trpzExtServerSyslogIndex'
-_D='trpzExternalServerConfigGroup'
-_C='read-only'
-_B='TRAPEZE-NETWORKS-EXTERNAL-SERVER-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-TrpzIpPort,=mibBuilder.importSymbols('TRAPEZE-NETWORKS-BASIC-TC','TrpzIpPort')
-trpzMibs,=mibBuilder.importSymbols('TRAPEZE-NETWORKS-ROOT-MIB','trpzMibs')
-trpzExternalServerMib=ModuleIdentity((1,3,6,1,4,1,14525,4,7))
-if mibBuilder.loadTexts:trpzExternalServerMib.setRevisions(('2011-06-22 00:40','2009-10-02 00:21','2008-10-24 00:10','2006-07-31 00:04'))
-class TrpzSyslogServerEnable(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_TrpzExternalServerObjects_ObjectIdentity=ObjectIdentity
-trpzExternalServerObjects=_TrpzExternalServerObjects_ObjectIdentity((1,3,6,1,4,1,14525,4,7,1))
-_TrpzExternalServerDataObjects_ObjectIdentity=ObjectIdentity
-trpzExternalServerDataObjects=_TrpzExternalServerDataObjects_ObjectIdentity((1,3,6,1,4,1,14525,4,7,1,1))
-_TrpzExtServerSyslogTable_Object=MibTable
-trpzExtServerSyslogTable=_TrpzExtServerSyslogTable_Object((1,3,6,1,4,1,14525,4,7,1,1,1))
-if mibBuilder.loadTexts:trpzExtServerSyslogTable.setStatus(_A)
-_TrpzExtServerSyslogEntry_Object=MibTableRow
-trpzExtServerSyslogEntry=_TrpzExtServerSyslogEntry_Object((1,3,6,1,4,1,14525,4,7,1,1,1,1))
-trpzExtServerSyslogEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:trpzExtServerSyslogEntry.setStatus(_A)
-_TrpzExtServerSyslogIndex_Type=Unsigned32
-_TrpzExtServerSyslogIndex_Object=MibTableColumn
-trpzExtServerSyslogIndex=_TrpzExtServerSyslogIndex_Object((1,3,6,1,4,1,14525,4,7,1,1,1,1,1),_TrpzExtServerSyslogIndex_Type())
-trpzExtServerSyslogIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:trpzExtServerSyslogIndex.setStatus(_A)
-_TrpzExtServerSyslogAddress_Type=IpAddress
-_TrpzExtServerSyslogAddress_Object=MibTableColumn
-trpzExtServerSyslogAddress=_TrpzExtServerSyslogAddress_Object((1,3,6,1,4,1,14525,4,7,1,1,1,1,2),_TrpzExtServerSyslogAddress_Type())
-trpzExtServerSyslogAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:trpzExtServerSyslogAddress.setStatus(_A)
-_TrpzExtServerSyslogPort_Type=TrpzIpPort
-_TrpzExtServerSyslogPort_Object=MibTableColumn
-trpzExtServerSyslogPort=_TrpzExtServerSyslogPort_Object((1,3,6,1,4,1,14525,4,7,1,1,1,1,3),_TrpzExtServerSyslogPort_Type())
-trpzExtServerSyslogPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:trpzExtServerSyslogPort.setStatus(_A)
-_TrpzExtServerSyslogEnable_Type=TrpzSyslogServerEnable
-_TrpzExtServerSyslogEnable_Object=MibTableColumn
-trpzExtServerSyslogEnable=_TrpzExtServerSyslogEnable_Object((1,3,6,1,4,1,14525,4,7,1,1,1,1,4),_TrpzExtServerSyslogEnable_Type())
-trpzExtServerSyslogEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:trpzExtServerSyslogEnable.setStatus(_A)
-_TrpzExternalServerGlobalObjects_ObjectIdentity=ObjectIdentity
-trpzExternalServerGlobalObjects=_TrpzExternalServerGlobalObjects_ObjectIdentity((1,3,6,1,4,1,14525,4,7,1,1,2))
-_TrpzExtServerPrimaryDnsIpAddress_Type=IpAddress
-_TrpzExtServerPrimaryDnsIpAddress_Object=MibScalar
-trpzExtServerPrimaryDnsIpAddress=_TrpzExtServerPrimaryDnsIpAddress_Object((1,3,6,1,4,1,14525,4,7,1,1,2,1),_TrpzExtServerPrimaryDnsIpAddress_Type())
-trpzExtServerPrimaryDnsIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:trpzExtServerPrimaryDnsIpAddress.setStatus(_A)
-_TrpzExtServerSecondaryDnsIpAddress_Type=IpAddress
-_TrpzExtServerSecondaryDnsIpAddress_Object=MibScalar
-trpzExtServerSecondaryDnsIpAddress=_TrpzExtServerSecondaryDnsIpAddress_Object((1,3,6,1,4,1,14525,4,7,1,1,2,2),_TrpzExtServerSecondaryDnsIpAddress_Type())
-trpzExtServerSecondaryDnsIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:trpzExtServerSecondaryDnsIpAddress.setStatus(_A)
-_TrpzExternalServerConformance_ObjectIdentity=ObjectIdentity
-trpzExternalServerConformance=_TrpzExternalServerConformance_ObjectIdentity((1,3,6,1,4,1,14525,4,7,1,2))
-_TrpzExternalServerCompliances_ObjectIdentity=ObjectIdentity
-trpzExternalServerCompliances=_TrpzExternalServerCompliances_ObjectIdentity((1,3,6,1,4,1,14525,4,7,1,2,1))
-_TrpzExternalServerGroups_ObjectIdentity=ObjectIdentity
-trpzExternalServerGroups=_TrpzExternalServerGroups_ObjectIdentity((1,3,6,1,4,1,14525,4,7,1,2,2))
-trpzExternalServerConfigGroup=ObjectGroup((1,3,6,1,4,1,14525,4,7,1,2,2,1))
-trpzExternalServerConfigGroup.setObjects(*((_B,_F),(_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:trpzExternalServerConfigGroup.setStatus(_A)
-trpzExternalServerDnsServerGroup=ObjectGroup((1,3,6,1,4,1,14525,4,7,1,2,2,2))
-trpzExternalServerDnsServerGroup.setObjects(*((_B,_I),(_B,_J)))
-if mibBuilder.loadTexts:trpzExternalServerDnsServerGroup.setStatus(_A)
-trpzExternalServerCompliance=ModuleCompliance((1,3,6,1,4,1,14525,4,7,1,2,1,1))
-trpzExternalServerCompliance.setObjects((_B,_D))
-if mibBuilder.loadTexts:trpzExternalServerCompliance.setStatus('obsolete')
-trpzExternalServerComplianceRev2=ModuleCompliance((1,3,6,1,4,1,14525,4,7,1,2,1,2))
-trpzExternalServerComplianceRev2.setObjects(*((_B,_D),(_B,_K)))
-if mibBuilder.loadTexts:trpzExternalServerComplianceRev2.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'TrpzSyslogServerEnable':TrpzSyslogServerEnable,'trpzExternalServerMib':trpzExternalServerMib,'trpzExternalServerObjects':trpzExternalServerObjects,'trpzExternalServerDataObjects':trpzExternalServerDataObjects,'trpzExtServerSyslogTable':trpzExtServerSyslogTable,'trpzExtServerSyslogEntry':trpzExtServerSyslogEntry,_E:trpzExtServerSyslogIndex,_F:trpzExtServerSyslogAddress,_G:trpzExtServerSyslogPort,_H:trpzExtServerSyslogEnable,'trpzExternalServerGlobalObjects':trpzExternalServerGlobalObjects,_I:trpzExtServerPrimaryDnsIpAddress,_J:trpzExtServerSecondaryDnsIpAddress,'trpzExternalServerConformance':trpzExternalServerConformance,'trpzExternalServerCompliances':trpzExternalServerCompliances,'trpzExternalServerCompliance':trpzExternalServerCompliance,'trpzExternalServerComplianceRev2':trpzExternalServerComplianceRev2,'trpzExternalServerGroups':trpzExternalServerGroups,_D:trpzExternalServerConfigGroup,_K:trpzExternalServerDnsServerGroup})
+#
+# PySNMP MIB module TRAPEZE-NETWORKS-EXTERNAL-SERVER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/trapeze/TRAPEZE-NETWORKS-EXTERNAL-SERVER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+TrpzIpPort, = mibBuilder.importSymbols("TRAPEZE-NETWORKS-BASIC-TC", "TrpzIpPort")
+trpzMibs, = mibBuilder.importSymbols("TRAPEZE-NETWORKS-ROOT-MIB", "trpzMibs")
+trpzExternalServerMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 14525, 4, 7))
+trpzExternalServerMib.setRevisions(('2011-06-22 00:40', '2009-10-02 00:21', '2008-10-24 00:10', '2006-07-31 00:04',))
+if mibBuilder.loadTexts: trpzExternalServerMib.setLastUpdated('201106220040Z')
+if mibBuilder.loadTexts: trpzExternalServerMib.setOrganization('Trapeze Networks')
+class TrpzSyslogServerEnable(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("enabled", 1), ("disabled", 2))
+
+trpzExternalServerObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1))
+trpzExternalServerDataObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 1))
+trpzExternalServerGlobalObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 1, 2))
+trpzExtServerSyslogTable = MibTable((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 1, 1), )
+if mibBuilder.loadTexts: trpzExtServerSyslogTable.setStatus('current')
+trpzExtServerSyslogEntry = MibTableRow((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 1, 1, 1), ).setIndexNames((0, "TRAPEZE-NETWORKS-EXTERNAL-SERVER-MIB", "trpzExtServerSyslogIndex"))
+if mibBuilder.loadTexts: trpzExtServerSyslogEntry.setStatus('current')
+trpzExtServerSyslogIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 1, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: trpzExtServerSyslogIndex.setStatus('current')
+trpzExtServerSyslogAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 1, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trpzExtServerSyslogAddress.setStatus('current')
+trpzExtServerSyslogPort = MibTableColumn((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 1, 1, 1, 3), TrpzIpPort()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trpzExtServerSyslogPort.setStatus('current')
+trpzExtServerSyslogEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 1, 1, 1, 4), TrpzSyslogServerEnable()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trpzExtServerSyslogEnable.setStatus('current')
+trpzExtServerPrimaryDnsIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 1, 2, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trpzExtServerPrimaryDnsIpAddress.setStatus('current')
+trpzExtServerSecondaryDnsIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 1, 2, 2), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: trpzExtServerSecondaryDnsIpAddress.setStatus('current')
+trpzExternalServerConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 2))
+trpzExternalServerCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 2, 1))
+trpzExternalServerGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 2, 2))
+trpzExternalServerCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 2, 1, 1)).setObjects(("TRAPEZE-NETWORKS-EXTERNAL-SERVER-MIB", "trpzExternalServerConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    trpzExternalServerCompliance = trpzExternalServerCompliance.setStatus('obsolete')
+trpzExternalServerComplianceRev2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 2, 1, 2)).setObjects(("TRAPEZE-NETWORKS-EXTERNAL-SERVER-MIB", "trpzExternalServerConfigGroup"), ("TRAPEZE-NETWORKS-EXTERNAL-SERVER-MIB", "trpzExternalServerDnsServerGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    trpzExternalServerComplianceRev2 = trpzExternalServerComplianceRev2.setStatus('current')
+trpzExternalServerConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 2, 2, 1)).setObjects(("TRAPEZE-NETWORKS-EXTERNAL-SERVER-MIB", "trpzExtServerSyslogAddress"), ("TRAPEZE-NETWORKS-EXTERNAL-SERVER-MIB", "trpzExtServerSyslogPort"), ("TRAPEZE-NETWORKS-EXTERNAL-SERVER-MIB", "trpzExtServerSyslogEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    trpzExternalServerConfigGroup = trpzExternalServerConfigGroup.setStatus('current')
+trpzExternalServerDnsServerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 14525, 4, 7, 1, 2, 2, 2)).setObjects(("TRAPEZE-NETWORKS-EXTERNAL-SERVER-MIB", "trpzExtServerPrimaryDnsIpAddress"), ("TRAPEZE-NETWORKS-EXTERNAL-SERVER-MIB", "trpzExtServerSecondaryDnsIpAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    trpzExternalServerDnsServerGroup = trpzExternalServerDnsServerGroup.setStatus('current')
+mibBuilder.exportSymbols("TRAPEZE-NETWORKS-EXTERNAL-SERVER-MIB", trpzExternalServerGlobalObjects=trpzExternalServerGlobalObjects, trpzExtServerPrimaryDnsIpAddress=trpzExtServerPrimaryDnsIpAddress, TrpzSyslogServerEnable=TrpzSyslogServerEnable, trpzExternalServerConfigGroup=trpzExternalServerConfigGroup, trpzExternalServerDataObjects=trpzExternalServerDataObjects, trpzExternalServerComplianceRev2=trpzExternalServerComplianceRev2, trpzExtServerSyslogPort=trpzExtServerSyslogPort, trpzExtServerSyslogEnable=trpzExtServerSyslogEnable, trpzExternalServerCompliances=trpzExternalServerCompliances, trpzExternalServerObjects=trpzExternalServerObjects, trpzExtServerSyslogTable=trpzExtServerSyslogTable, trpzExtServerSyslogAddress=trpzExtServerSyslogAddress, trpzExternalServerMib=trpzExternalServerMib, trpzExtServerSyslogIndex=trpzExtServerSyslogIndex, trpzExternalServerGroups=trpzExternalServerGroups, trpzExtServerSecondaryDnsIpAddress=trpzExtServerSecondaryDnsIpAddress, trpzExternalServerDnsServerGroup=trpzExternalServerDnsServerGroup, PYSNMP_MODULE_ID=trpzExternalServerMib, trpzExternalServerConformance=trpzExternalServerConformance, trpzExternalServerCompliance=trpzExternalServerCompliance, trpzExtServerSyslogEntry=trpzExtServerSyslogEntry)

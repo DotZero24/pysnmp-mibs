@@ -1,50 +1,33 @@
-_E='read-only'
-_D='cnEeePortIndex'
-_C='CAMBIUM-NETWORKS-EEE-MIB'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-cnEeeMib=ModuleIdentity((1,3,6,1,4,1,17713,24,8))
-if mibBuilder.loadTexts:cnEeeMib.setRevisions(('2021-04-19 00:00',))
-_CnEeeObjects_ObjectIdentity=ObjectIdentity
-cnEeeObjects=_CnEeeObjects_ObjectIdentity((1,3,6,1,4,1,17713,24,8,0))
-_CnEeePortTable_Object=MibTable
-cnEeePortTable=_CnEeePortTable_Object((1,3,6,1,4,1,17713,24,8,0,1))
-if mibBuilder.loadTexts:cnEeePortTable.setStatus(_A)
-_CnEeePortEntry_Object=MibTableRow
-cnEeePortEntry=_CnEeePortEntry_Object((1,3,6,1,4,1,17713,24,8,0,1,1))
-cnEeePortEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:cnEeePortEntry.setStatus(_A)
-class _CnEeePortIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_CnEeePortIndex_Type.__name__=_B
-_CnEeePortIndex_Object=MibTableColumn
-cnEeePortIndex=_CnEeePortIndex_Object((1,3,6,1,4,1,17713,24,8,0,1,1,1),_CnEeePortIndex_Type())
-cnEeePortIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:cnEeePortIndex.setStatus(_A)
-class _CnEeeEnabled_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_CnEeeEnabled_Type.__name__=_B
-_CnEeeEnabled_Object=MibTableColumn
-cnEeeEnabled=_CnEeeEnabled_Object((1,3,6,1,4,1,17713,24,8,0,1,1,2),_CnEeeEnabled_Type())
-cnEeeEnabled.setMaxAccess('read-write')
-if mibBuilder.loadTexts:cnEeeEnabled.setStatus(_A)
-class _CnEeeCapabilities_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_CnEeeCapabilities_Type.__name__=_B
-_CnEeeCapabilities_Object=MibTableColumn
-cnEeeCapabilities=_CnEeeCapabilities_Object((1,3,6,1,4,1,17713,24,8,0,1,1,3),_CnEeeCapabilities_Type())
-cnEeeCapabilities.setMaxAccess(_E)
-if mibBuilder.loadTexts:cnEeeCapabilities.setStatus(_A)
-class _CnEeeLpAbilities_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_CnEeeLpAbilities_Type.__name__=_B
-_CnEeeLpAbilities_Object=MibTableColumn
-cnEeeLpAbilities=_CnEeeLpAbilities_Object((1,3,6,1,4,1,17713,24,8,0,1,1,4),_CnEeeLpAbilities_Type())
-cnEeeLpAbilities.setMaxAccess(_E)
-if mibBuilder.loadTexts:cnEeeLpAbilities.setStatus(_A)
-mibBuilder.exportSymbols(_C,**{'cnEeeMib':cnEeeMib,'cnEeeObjects':cnEeeObjects,'cnEeePortTable':cnEeePortTable,'cnEeePortEntry':cnEeePortEntry,_D:cnEeePortIndex,'cnEeeEnabled':cnEeeEnabled,'cnEeeCapabilities':cnEeeCapabilities,'cnEeeLpAbilities':cnEeeLpAbilities})
+#
+# PySNMP MIB module CAMBIUM-NETWORKS-EEE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cambium/CAMBIUM-NETWORKS-EEE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:47 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+cnEeeMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 17713, 24, 8))
+cnEeeMib.setRevisions(('2021-04-19 00:00',))
+if mibBuilder.loadTexts: cnEeeMib.setLastUpdated('202104190000Z')
+if mibBuilder.loadTexts: cnEeeMib.setOrganization('Cambium Networks, Inc.')
+cnEeeObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 17713, 24, 8, 0))
+cnEeePortTable = MibTable((1, 3, 6, 1, 4, 1, 17713, 24, 8, 0, 1), )
+if mibBuilder.loadTexts: cnEeePortTable.setStatus('current')
+cnEeePortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 17713, 24, 8, 0, 1, 1), ).setIndexNames((0, "CAMBIUM-NETWORKS-EEE-MIB", "cnEeePortIndex"))
+if mibBuilder.loadTexts: cnEeePortEntry.setStatus('current')
+cnEeePortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 24, 8, 0, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: cnEeePortIndex.setStatus('current')
+cnEeeEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 24, 8, 0, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cnEeeEnabled.setStatus('current')
+cnEeeCapabilities = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 24, 8, 0, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cnEeeCapabilities.setStatus('current')
+cnEeeLpAbilities = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 24, 8, 0, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cnEeeLpAbilities.setStatus('current')
+mibBuilder.exportSymbols("CAMBIUM-NETWORKS-EEE-MIB", PYSNMP_MODULE_ID=cnEeeMib, cnEeeMib=cnEeeMib, cnEeeEnabled=cnEeeEnabled, cnEeePortEntry=cnEeePortEntry, cnEeePortIndex=cnEeePortIndex, cnEeePortTable=cnEeePortTable, cnEeeCapabilities=cnEeeCapabilities, cnEeeLpAbilities=cnEeeLpAbilities, cnEeeObjects=cnEeeObjects)

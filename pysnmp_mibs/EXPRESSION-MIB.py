@@ -1,353 +1,150 @@
-_A5='expressionValueGroup'
-_A4='expressionDefinitionGroup'
-_A3='expressionResourceGroup'
-_A2='expValueCounter64Val'
-_A1='expValueOidVal'
-_A0='expValueOctetStringVal'
-_z='expValueIpAddressVal'
-_y='expValueInteger32Val'
-_x='expValueUnsigned32Val'
-_w='expValueCounter32Val'
-_v='expObjectStatus'
-_u='expObjectConditionalWildcard'
-_t='expObjectConditional'
-_s='expObjectDiscontinuityIDType'
-_r='expObjectDiscontinuityIDWildcard'
-_q='expObjectDeltaDiscontinuityID'
-_p='expObjectSampleType'
-_o='expObjectIDWildcard'
-_n='expObjectID'
-_m='expExpressionOwner'
-_l='expExpressionInstance'
-_k='expExpressionError'
-_j='expExpressionErrorIndex'
-_i='expExpressionErrorTime'
-_h='expExpressionErrors'
-_g='expExpressionPrefix'
-_f='expExpressionDeltaInterval'
-_e='expExpressionComment'
-_d='expExpressionValueType'
-_c='expExpression'
-_b='expExpressionName'
-_a='expNameStatus'
-_Z='expNameHighestIndex'
-_Y='expNameLastChange'
-_X='expResourceDeltaWildcardInstanceResourceLacks'
-_W='expResourceDeltaWildcardInstancesHigh'
-_V='expResourceDeltaWildcardInstances'
-_U='expResourceDeltaWildcardInstanceMaximum'
-_T='expResourceDeltaMinimum'
-_S='expValueInstance'
-_R='expObjectIndex'
-_Q='timeTicks'
-_P='expName'
-_O='seconds'
-_N='Unsigned32'
-_M='not-accessible'
-_L='DisplayString'
-_K='ObjectIdentifier'
-_J='OctetString'
-_I='instances'
-_H='TruthValue'
-_G='expExpressionIndex'
-_F='Integer32'
-_E='read-write'
-_D='read-create'
-_C='read-only'
-_B='EXPRESSION-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_J,_K)
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoExperiment,=mibBuilder.importSymbols('CISCO-SMI','ciscoExperiment')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-sysUpTime,=mibBuilder.importSymbols('SNMPv2-MIB','sysUpTime')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,zeroDotZero=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_N,'iso','zeroDotZero')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_L,'PhysAddress','RowStatus','TextualConvention','TimeStamp',_H)
-expressionMIB=ModuleIdentity((1,3,6,1,4,1,9,10,22))
-if mibBuilder.loadTexts:expressionMIB.setRevisions(('2005-11-24 00:00','1998-02-25 17:00'))
-class ExpressionName(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-class ExpressionIndex(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-class ExpressionIndexOrZero(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_SysUpTimeInstance_ObjectIdentity=ObjectIdentity
-sysUpTimeInstance=_SysUpTimeInstance_ObjectIdentity((1,3,6,1,2,1,1,3,0))
-_ExpressionMIBObjects_ObjectIdentity=ObjectIdentity
-expressionMIBObjects=_ExpressionMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,10,22,1))
-_ExpResource_ObjectIdentity=ObjectIdentity
-expResource=_ExpResource_ObjectIdentity((1,3,6,1,4,1,9,10,22,1,1))
-class _ExpResourceDeltaMinimum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(1,600))
-_ExpResourceDeltaMinimum_Type.__name__=_F
-_ExpResourceDeltaMinimum_Object=MibScalar
-expResourceDeltaMinimum=_ExpResourceDeltaMinimum_Object((1,3,6,1,4,1,9,10,22,1,1,1),_ExpResourceDeltaMinimum_Type())
-expResourceDeltaMinimum.setMaxAccess(_E)
-if mibBuilder.loadTexts:expResourceDeltaMinimum.setStatus(_A)
-if mibBuilder.loadTexts:expResourceDeltaMinimum.setUnits(_O)
-_ExpResourceDeltaWildcardInstanceMaximum_Type=Unsigned32
-_ExpResourceDeltaWildcardInstanceMaximum_Object=MibScalar
-expResourceDeltaWildcardInstanceMaximum=_ExpResourceDeltaWildcardInstanceMaximum_Object((1,3,6,1,4,1,9,10,22,1,1,2),_ExpResourceDeltaWildcardInstanceMaximum_Type())
-expResourceDeltaWildcardInstanceMaximum.setMaxAccess(_E)
-if mibBuilder.loadTexts:expResourceDeltaWildcardInstanceMaximum.setStatus(_A)
-if mibBuilder.loadTexts:expResourceDeltaWildcardInstanceMaximum.setUnits(_I)
-_ExpResourceDeltaWildcardInstances_Type=Gauge32
-_ExpResourceDeltaWildcardInstances_Object=MibScalar
-expResourceDeltaWildcardInstances=_ExpResourceDeltaWildcardInstances_Object((1,3,6,1,4,1,9,10,22,1,1,3),_ExpResourceDeltaWildcardInstances_Type())
-expResourceDeltaWildcardInstances.setMaxAccess(_C)
-if mibBuilder.loadTexts:expResourceDeltaWildcardInstances.setStatus(_A)
-if mibBuilder.loadTexts:expResourceDeltaWildcardInstances.setUnits(_I)
-_ExpResourceDeltaWildcardInstancesHigh_Type=Gauge32
-_ExpResourceDeltaWildcardInstancesHigh_Object=MibScalar
-expResourceDeltaWildcardInstancesHigh=_ExpResourceDeltaWildcardInstancesHigh_Object((1,3,6,1,4,1,9,10,22,1,1,4),_ExpResourceDeltaWildcardInstancesHigh_Type())
-expResourceDeltaWildcardInstancesHigh.setMaxAccess(_C)
-if mibBuilder.loadTexts:expResourceDeltaWildcardInstancesHigh.setStatus(_A)
-if mibBuilder.loadTexts:expResourceDeltaWildcardInstancesHigh.setUnits(_I)
-_ExpResourceDeltaWildcardInstanceResourceLacks_Type=Counter32
-_ExpResourceDeltaWildcardInstanceResourceLacks_Object=MibScalar
-expResourceDeltaWildcardInstanceResourceLacks=_ExpResourceDeltaWildcardInstanceResourceLacks_Object((1,3,6,1,4,1,9,10,22,1,1,5),_ExpResourceDeltaWildcardInstanceResourceLacks_Type())
-expResourceDeltaWildcardInstanceResourceLacks.setMaxAccess(_C)
-if mibBuilder.loadTexts:expResourceDeltaWildcardInstanceResourceLacks.setStatus(_A)
-if mibBuilder.loadTexts:expResourceDeltaWildcardInstanceResourceLacks.setUnits(_I)
-_ExpNames_ObjectIdentity=ObjectIdentity
-expNames=_ExpNames_ObjectIdentity((1,3,6,1,4,1,9,10,22,1,2))
-_ExpNameLastChange_Type=TimeStamp
-_ExpNameLastChange_Object=MibScalar
-expNameLastChange=_ExpNameLastChange_Object((1,3,6,1,4,1,9,10,22,1,2,1),_ExpNameLastChange_Type())
-expNameLastChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:expNameLastChange.setStatus(_A)
-_ExpNameHighestIndex_Type=ExpressionIndexOrZero
-_ExpNameHighestIndex_Object=MibScalar
-expNameHighestIndex=_ExpNameHighestIndex_Object((1,3,6,1,4,1,9,10,22,1,2,2),_ExpNameHighestIndex_Type())
-expNameHighestIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:expNameHighestIndex.setStatus(_A)
-_ExpNameTable_Object=MibTable
-expNameTable=_ExpNameTable_Object((1,3,6,1,4,1,9,10,22,1,2,3))
-if mibBuilder.loadTexts:expNameTable.setStatus(_A)
-_ExpNameEntry_Object=MibTableRow
-expNameEntry=_ExpNameEntry_Object((1,3,6,1,4,1,9,10,22,1,2,3,1))
-expNameEntry.setIndexNames((0,_B,_P))
-if mibBuilder.loadTexts:expNameEntry.setStatus(_A)
-_ExpName_Type=ExpressionName
-_ExpName_Object=MibTableColumn
-expName=_ExpName_Object((1,3,6,1,4,1,9,10,22,1,2,3,1,1),_ExpName_Type())
-expName.setMaxAccess(_M)
-if mibBuilder.loadTexts:expName.setStatus(_A)
-_ExpExpressionIndex_Type=ExpressionIndex
-_ExpExpressionIndex_Object=MibTableColumn
-expExpressionIndex=_ExpExpressionIndex_Object((1,3,6,1,4,1,9,10,22,1,2,3,1,2),_ExpExpressionIndex_Type())
-expExpressionIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:expExpressionIndex.setStatus(_A)
-_ExpNameStatus_Type=RowStatus
-_ExpNameStatus_Object=MibTableColumn
-expNameStatus=_ExpNameStatus_Object((1,3,6,1,4,1,9,10,22,1,2,3,1,3),_ExpNameStatus_Type())
-expNameStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:expNameStatus.setStatus(_A)
-_ExpDefine_ObjectIdentity=ObjectIdentity
-expDefine=_ExpDefine_ObjectIdentity((1,3,6,1,4,1,9,10,22,1,3))
-_ExpExpressionTable_Object=MibTable
-expExpressionTable=_ExpExpressionTable_Object((1,3,6,1,4,1,9,10,22,1,3,1))
-if mibBuilder.loadTexts:expExpressionTable.setStatus(_A)
-_ExpExpressionEntry_Object=MibTableRow
-expExpressionEntry=_ExpExpressionEntry_Object((1,3,6,1,4,1,9,10,22,1,3,1,1))
-expExpressionEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:expExpressionEntry.setStatus(_A)
-_ExpExpressionName_Type=ExpressionName
-_ExpExpressionName_Object=MibTableColumn
-expExpressionName=_ExpExpressionName_Object((1,3,6,1,4,1,9,10,22,1,3,1,1,1),_ExpExpressionName_Type())
-expExpressionName.setMaxAccess(_E)
-if mibBuilder.loadTexts:expExpressionName.setStatus(_A)
-class _ExpExpression_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1024))
-_ExpExpression_Type.__name__=_J
-_ExpExpression_Object=MibTableColumn
-expExpression=_ExpExpression_Object((1,3,6,1,4,1,9,10,22,1,3,1,1,2),_ExpExpression_Type())
-expExpression.setMaxAccess(_E)
-if mibBuilder.loadTexts:expExpression.setStatus(_A)
-class _ExpExpressionValueType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('counter32',1),('unsignedOrGauge32',2),(_Q,3),('integer32',4),('ipAddress',5),('octetString',6),('objectId',7),('counter64',8)))
-_ExpExpressionValueType_Type.__name__=_F
-_ExpExpressionValueType_Object=MibTableColumn
-expExpressionValueType=_ExpExpressionValueType_Object((1,3,6,1,4,1,9,10,22,1,3,1,1,3),_ExpExpressionValueType_Type())
-expExpressionValueType.setMaxAccess(_E)
-if mibBuilder.loadTexts:expExpressionValueType.setStatus(_A)
-class _ExpExpressionComment_Type(DisplayString):defaultValue=OctetString('')
-_ExpExpressionComment_Type.__name__=_L
-_ExpExpressionComment_Object=MibTableColumn
-expExpressionComment=_ExpExpressionComment_Object((1,3,6,1,4,1,9,10,22,1,3,1,1,4),_ExpExpressionComment_Type())
-expExpressionComment.setMaxAccess(_E)
-if mibBuilder.loadTexts:expExpressionComment.setStatus(_A)
-class _ExpExpressionDeltaInterval_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,86400))
-_ExpExpressionDeltaInterval_Type.__name__=_F
-_ExpExpressionDeltaInterval_Object=MibTableColumn
-expExpressionDeltaInterval=_ExpExpressionDeltaInterval_Object((1,3,6,1,4,1,9,10,22,1,3,1,1,5),_ExpExpressionDeltaInterval_Type())
-expExpressionDeltaInterval.setMaxAccess(_E)
-if mibBuilder.loadTexts:expExpressionDeltaInterval.setStatus(_A)
-if mibBuilder.loadTexts:expExpressionDeltaInterval.setUnits(_O)
-_ExpExpressionPrefix_Type=ObjectIdentifier
-_ExpExpressionPrefix_Object=MibTableColumn
-expExpressionPrefix=_ExpExpressionPrefix_Object((1,3,6,1,4,1,9,10,22,1,3,1,1,6),_ExpExpressionPrefix_Type())
-expExpressionPrefix.setMaxAccess(_C)
-if mibBuilder.loadTexts:expExpressionPrefix.setStatus(_A)
-_ExpExpressionErrors_Type=Counter32
-_ExpExpressionErrors_Object=MibTableColumn
-expExpressionErrors=_ExpExpressionErrors_Object((1,3,6,1,4,1,9,10,22,1,3,1,1,7),_ExpExpressionErrors_Type())
-expExpressionErrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:expExpressionErrors.setStatus(_A)
-_ExpExpressionErrorTime_Type=TimeStamp
-_ExpExpressionErrorTime_Object=MibTableColumn
-expExpressionErrorTime=_ExpExpressionErrorTime_Object((1,3,6,1,4,1,9,10,22,1,3,1,1,8),_ExpExpressionErrorTime_Type())
-expExpressionErrorTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:expExpressionErrorTime.setStatus(_A)
-_ExpExpressionErrorIndex_Type=Integer32
-_ExpExpressionErrorIndex_Object=MibTableColumn
-expExpressionErrorIndex=_ExpExpressionErrorIndex_Object((1,3,6,1,4,1,9,10,22,1,3,1,1,9),_ExpExpressionErrorIndex_Type())
-expExpressionErrorIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:expExpressionErrorIndex.setStatus(_A)
-class _ExpExpressionError_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('invalidSyntax',1),('undefinedObjectIndex',2),('unrecognizedOperator',3),('unrecognizedFunction',4),('invalidOperandType',5),('unmatchedParenthesis',6),('tooManyWildcardValues',7),('recursion',8),('deltaTooShort',9),('resourceUnavailable',10),('divideByZero',11)))
-_ExpExpressionError_Type.__name__=_F
-_ExpExpressionError_Object=MibTableColumn
-expExpressionError=_ExpExpressionError_Object((1,3,6,1,4,1,9,10,22,1,3,1,1,10),_ExpExpressionError_Type())
-expExpressionError.setMaxAccess(_C)
-if mibBuilder.loadTexts:expExpressionError.setStatus(_A)
-_ExpExpressionInstance_Type=ObjectIdentifier
-_ExpExpressionInstance_Object=MibTableColumn
-expExpressionInstance=_ExpExpressionInstance_Object((1,3,6,1,4,1,9,10,22,1,3,1,1,11),_ExpExpressionInstance_Type())
-expExpressionInstance.setMaxAccess(_C)
-if mibBuilder.loadTexts:expExpressionInstance.setStatus(_A)
-class _ExpExpressionOwner_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_ExpExpressionOwner_Type.__name__=_L
-_ExpExpressionOwner_Object=MibTableColumn
-expExpressionOwner=_ExpExpressionOwner_Object((1,3,6,1,4,1,9,10,22,1,3,1,1,12),_ExpExpressionOwner_Type())
-expExpressionOwner.setMaxAccess(_E)
-if mibBuilder.loadTexts:expExpressionOwner.setStatus(_A)
-_ExpObjectTable_Object=MibTable
-expObjectTable=_ExpObjectTable_Object((1,3,6,1,4,1,9,10,22,1,3,2))
-if mibBuilder.loadTexts:expObjectTable.setStatus(_A)
-_ExpObjectEntry_Object=MibTableRow
-expObjectEntry=_ExpObjectEntry_Object((1,3,6,1,4,1,9,10,22,1,3,2,1))
-expObjectEntry.setIndexNames((0,_B,_G),(0,_B,_R))
-if mibBuilder.loadTexts:expObjectEntry.setStatus(_A)
-class _ExpObjectIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_ExpObjectIndex_Type.__name__=_N
-_ExpObjectIndex_Object=MibTableColumn
-expObjectIndex=_ExpObjectIndex_Object((1,3,6,1,4,1,9,10,22,1,3,2,1,1),_ExpObjectIndex_Type())
-expObjectIndex.setMaxAccess(_M)
-if mibBuilder.loadTexts:expObjectIndex.setStatus(_A)
-_ExpObjectID_Type=ObjectIdentifier
-_ExpObjectID_Object=MibTableColumn
-expObjectID=_ExpObjectID_Object((1,3,6,1,4,1,9,10,22,1,3,2,1,2),_ExpObjectID_Type())
-expObjectID.setMaxAccess(_D)
-if mibBuilder.loadTexts:expObjectID.setStatus(_A)
-class _ExpObjectIDWildcard_Type(TruthValue):defaultValue=2
-_ExpObjectIDWildcard_Type.__name__=_H
-_ExpObjectIDWildcard_Object=MibTableColumn
-expObjectIDWildcard=_ExpObjectIDWildcard_Object((1,3,6,1,4,1,9,10,22,1,3,2,1,3),_ExpObjectIDWildcard_Type())
-expObjectIDWildcard.setMaxAccess(_D)
-if mibBuilder.loadTexts:expObjectIDWildcard.setStatus(_A)
-class _ExpObjectSampleType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('absoluteValue',1),('deltaValue',2)))
-_ExpObjectSampleType_Type.__name__=_F
-_ExpObjectSampleType_Object=MibTableColumn
-expObjectSampleType=_ExpObjectSampleType_Object((1,3,6,1,4,1,9,10,22,1,3,2,1,4),_ExpObjectSampleType_Type())
-expObjectSampleType.setMaxAccess(_D)
-if mibBuilder.loadTexts:expObjectSampleType.setStatus(_A)
-class _ExpObjectDeltaDiscontinuityID_Type(ObjectIdentifier):defaultValue=1,3,6,1,2,1,1,3,0
-_ExpObjectDeltaDiscontinuityID_Type.__name__=_K
-_ExpObjectDeltaDiscontinuityID_Object=MibTableColumn
-expObjectDeltaDiscontinuityID=_ExpObjectDeltaDiscontinuityID_Object((1,3,6,1,4,1,9,10,22,1,3,2,1,5),_ExpObjectDeltaDiscontinuityID_Type())
-expObjectDeltaDiscontinuityID.setMaxAccess(_D)
-if mibBuilder.loadTexts:expObjectDeltaDiscontinuityID.setStatus(_A)
-class _ExpObjectDiscontinuityIDWildcard_Type(TruthValue):defaultValue=2
-_ExpObjectDiscontinuityIDWildcard_Type.__name__=_H
-_ExpObjectDiscontinuityIDWildcard_Object=MibTableColumn
-expObjectDiscontinuityIDWildcard=_ExpObjectDiscontinuityIDWildcard_Object((1,3,6,1,4,1,9,10,22,1,3,2,1,6),_ExpObjectDiscontinuityIDWildcard_Type())
-expObjectDiscontinuityIDWildcard.setMaxAccess(_D)
-if mibBuilder.loadTexts:expObjectDiscontinuityIDWildcard.setStatus(_A)
-class _ExpObjectDiscontinuityIDType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Q,1),('timeStamp',2)))
-_ExpObjectDiscontinuityIDType_Type.__name__=_F
-_ExpObjectDiscontinuityIDType_Object=MibTableColumn
-expObjectDiscontinuityIDType=_ExpObjectDiscontinuityIDType_Object((1,3,6,1,4,1,9,10,22,1,3,2,1,7),_ExpObjectDiscontinuityIDType_Type())
-expObjectDiscontinuityIDType.setMaxAccess(_D)
-if mibBuilder.loadTexts:expObjectDiscontinuityIDType.setStatus(_A)
-class _ExpObjectConditional_Type(ObjectIdentifier):defaultValue=0,0
-_ExpObjectConditional_Type.__name__=_K
-_ExpObjectConditional_Object=MibTableColumn
-expObjectConditional=_ExpObjectConditional_Object((1,3,6,1,4,1,9,10,22,1,3,2,1,8),_ExpObjectConditional_Type())
-expObjectConditional.setMaxAccess(_D)
-if mibBuilder.loadTexts:expObjectConditional.setStatus(_A)
-class _ExpObjectConditionalWildcard_Type(TruthValue):defaultValue=2
-_ExpObjectConditionalWildcard_Type.__name__=_H
-_ExpObjectConditionalWildcard_Object=MibTableColumn
-expObjectConditionalWildcard=_ExpObjectConditionalWildcard_Object((1,3,6,1,4,1,9,10,22,1,3,2,1,9),_ExpObjectConditionalWildcard_Type())
-expObjectConditionalWildcard.setMaxAccess(_D)
-if mibBuilder.loadTexts:expObjectConditionalWildcard.setStatus(_A)
-_ExpObjectStatus_Type=RowStatus
-_ExpObjectStatus_Object=MibTableColumn
-expObjectStatus=_ExpObjectStatus_Object((1,3,6,1,4,1,9,10,22,1,3,2,1,10),_ExpObjectStatus_Type())
-expObjectStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:expObjectStatus.setStatus(_A)
-_ExpValue_ObjectIdentity=ObjectIdentity
-expValue=_ExpValue_ObjectIdentity((1,3,6,1,4,1,9,10,22,1,4))
-_ExpValueTable_Object=MibTable
-expValueTable=_ExpValueTable_Object((1,3,6,1,4,1,9,10,22,1,4,1))
-if mibBuilder.loadTexts:expValueTable.setStatus(_A)
-_ExpValueEntry_Object=MibTableRow
-expValueEntry=_ExpValueEntry_Object((1,3,6,1,4,1,9,10,22,1,4,1,1))
-expValueEntry.setIndexNames((0,_B,_G),(0,_B,_S))
-if mibBuilder.loadTexts:expValueEntry.setStatus(_A)
-_ExpValueInstance_Type=ObjectIdentifier
-_ExpValueInstance_Object=MibTableColumn
-expValueInstance=_ExpValueInstance_Object((1,3,6,1,4,1,9,10,22,1,4,1,1,1),_ExpValueInstance_Type())
-expValueInstance.setMaxAccess(_M)
-if mibBuilder.loadTexts:expValueInstance.setStatus(_A)
-_ExpValueCounter32Val_Type=Counter32
-_ExpValueCounter32Val_Object=MibTableColumn
-expValueCounter32Val=_ExpValueCounter32Val_Object((1,3,6,1,4,1,9,10,22,1,4,1,1,2),_ExpValueCounter32Val_Type())
-expValueCounter32Val.setMaxAccess(_C)
-if mibBuilder.loadTexts:expValueCounter32Val.setStatus(_A)
-_ExpValueUnsigned32Val_Type=Unsigned32
-_ExpValueUnsigned32Val_Object=MibTableColumn
-expValueUnsigned32Val=_ExpValueUnsigned32Val_Object((1,3,6,1,4,1,9,10,22,1,4,1,1,3),_ExpValueUnsigned32Val_Type())
-expValueUnsigned32Val.setMaxAccess(_C)
-if mibBuilder.loadTexts:expValueUnsigned32Val.setStatus(_A)
-_ExpValueInteger32Val_Type=Integer32
-_ExpValueInteger32Val_Object=MibTableColumn
-expValueInteger32Val=_ExpValueInteger32Val_Object((1,3,6,1,4,1,9,10,22,1,4,1,1,4),_ExpValueInteger32Val_Type())
-expValueInteger32Val.setMaxAccess(_C)
-if mibBuilder.loadTexts:expValueInteger32Val.setStatus(_A)
-_ExpValueIpAddressVal_Type=IpAddress
-_ExpValueIpAddressVal_Object=MibTableColumn
-expValueIpAddressVal=_ExpValueIpAddressVal_Object((1,3,6,1,4,1,9,10,22,1,4,1,1,5),_ExpValueIpAddressVal_Type())
-expValueIpAddressVal.setMaxAccess(_C)
-if mibBuilder.loadTexts:expValueIpAddressVal.setStatus(_A)
-class _ExpValueOctetStringVal_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,65535))
-_ExpValueOctetStringVal_Type.__name__=_J
-_ExpValueOctetStringVal_Object=MibTableColumn
-expValueOctetStringVal=_ExpValueOctetStringVal_Object((1,3,6,1,4,1,9,10,22,1,4,1,1,6),_ExpValueOctetStringVal_Type())
-expValueOctetStringVal.setMaxAccess(_C)
-if mibBuilder.loadTexts:expValueOctetStringVal.setStatus(_A)
-_ExpValueOidVal_Type=ObjectIdentifier
-_ExpValueOidVal_Object=MibTableColumn
-expValueOidVal=_ExpValueOidVal_Object((1,3,6,1,4,1,9,10,22,1,4,1,1,7),_ExpValueOidVal_Type())
-expValueOidVal.setMaxAccess(_C)
-if mibBuilder.loadTexts:expValueOidVal.setStatus(_A)
-_ExpValueCounter64Val_Type=Counter64
-_ExpValueCounter64Val_Object=MibTableColumn
-expValueCounter64Val=_ExpValueCounter64Val_Object((1,3,6,1,4,1,9,10,22,1,4,1,1,8),_ExpValueCounter64Val_Type())
-expValueCounter64Val.setMaxAccess(_C)
-if mibBuilder.loadTexts:expValueCounter64Val.setStatus(_A)
-_ExpressionMIBConformance_ObjectIdentity=ObjectIdentity
-expressionMIBConformance=_ExpressionMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,10,22,3))
-_ExpressionMIBCompliances_ObjectIdentity=ObjectIdentity
-expressionMIBCompliances=_ExpressionMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,10,22,3,1))
-_ExpressionMIBGroups_ObjectIdentity=ObjectIdentity
-expressionMIBGroups=_ExpressionMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,10,22,3,2))
-expressionResourceGroup=ObjectGroup((1,3,6,1,4,1,9,10,22,3,2,1))
-expressionResourceGroup.setObjects(*((_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:expressionResourceGroup.setStatus(_A)
-expressionDefinitionGroup=ObjectGroup((1,3,6,1,4,1,9,10,22,3,2,2))
-expressionDefinitionGroup.setObjects(*((_B,_Y),(_B,_Z),(_B,_G),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v)))
-if mibBuilder.loadTexts:expressionDefinitionGroup.setStatus(_A)
-expressionValueGroup=ObjectGroup((1,3,6,1,4,1,9,10,22,3,2,3))
-expressionValueGroup.setObjects(*((_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2)))
-if mibBuilder.loadTexts:expressionValueGroup.setStatus(_A)
-expressionMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,10,22,3,1,1))
-expressionMIBCompliance.setObjects(*((_B,_A3),(_B,_A4),(_B,_A5)))
-if mibBuilder.loadTexts:expressionMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ExpressionName':ExpressionName,'ExpressionIndex':ExpressionIndex,'ExpressionIndexOrZero':ExpressionIndexOrZero,'sysUpTimeInstance':sysUpTimeInstance,'expressionMIB':expressionMIB,'expressionMIBObjects':expressionMIBObjects,'expResource':expResource,_T:expResourceDeltaMinimum,_U:expResourceDeltaWildcardInstanceMaximum,_V:expResourceDeltaWildcardInstances,_W:expResourceDeltaWildcardInstancesHigh,_X:expResourceDeltaWildcardInstanceResourceLacks,'expNames':expNames,_Y:expNameLastChange,_Z:expNameHighestIndex,'expNameTable':expNameTable,'expNameEntry':expNameEntry,_P:expName,_G:expExpressionIndex,_a:expNameStatus,'expDefine':expDefine,'expExpressionTable':expExpressionTable,'expExpressionEntry':expExpressionEntry,_b:expExpressionName,_c:expExpression,_d:expExpressionValueType,_e:expExpressionComment,_f:expExpressionDeltaInterval,_g:expExpressionPrefix,_h:expExpressionErrors,_i:expExpressionErrorTime,_j:expExpressionErrorIndex,_k:expExpressionError,_l:expExpressionInstance,_m:expExpressionOwner,'expObjectTable':expObjectTable,'expObjectEntry':expObjectEntry,_R:expObjectIndex,_n:expObjectID,_o:expObjectIDWildcard,_p:expObjectSampleType,_q:expObjectDeltaDiscontinuityID,_r:expObjectDiscontinuityIDWildcard,_s:expObjectDiscontinuityIDType,_t:expObjectConditional,_u:expObjectConditionalWildcard,_v:expObjectStatus,'expValue':expValue,'expValueTable':expValueTable,'expValueEntry':expValueEntry,_S:expValueInstance,_w:expValueCounter32Val,_x:expValueUnsigned32Val,_y:expValueInteger32Val,_z:expValueIpAddressVal,_A0:expValueOctetStringVal,_A1:expValueOidVal,_A2:expValueCounter64Val,'expressionMIBConformance':expressionMIBConformance,'expressionMIBCompliances':expressionMIBCompliances,'expressionMIBCompliance':expressionMIBCompliance,'expressionMIBGroups':expressionMIBGroups,_A3:expressionResourceGroup,_A4:expressionDefinitionGroup,_A5:expressionValueGroup})
+#
+# PySNMP MIB module EXPRESSION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/EXPRESSION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:08 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+sysUpTime, = mibBuilder.importSymbols("SNMPv2-MIB", "sysUpTime")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, zeroDotZero, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, ObjectIdentity, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "zeroDotZero", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "ObjectIdentity", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "TruthValue", "TextualConvention")
+expressionMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 22))
+expressionMIB.setRevisions(('2005-11-24 00:00', '1998-02-25 17:00',))
+if mibBuilder.loadTexts: expressionMIB.setLastUpdated('200511240000Z')
+if mibBuilder.loadTexts: expressionMIB.setOrganization('IETF Distributed Management Working Group')
+class ExpressionName(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 64)
+
+class ExpressionIndex(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
+
+class ExpressionIndexOrZero(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 4294967295)
+
+expressionMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 22, 1))
+expResource = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 1))
+expNames = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 2))
+expDefine = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3))
+expValue = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 4))
+expResourceDeltaMinimum = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(1, 600), ))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: expResourceDeltaMinimum.setStatus('current')
+expResourceDeltaWildcardInstanceMaximum = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 1, 2), Unsigned32()).setUnits('instances').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: expResourceDeltaWildcardInstanceMaximum.setStatus('current')
+expResourceDeltaWildcardInstances = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 1, 3), Gauge32()).setUnits('instances').setMaxAccess("readonly")
+if mibBuilder.loadTexts: expResourceDeltaWildcardInstances.setStatus('current')
+expResourceDeltaWildcardInstancesHigh = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 1, 4), Gauge32()).setUnits('instances').setMaxAccess("readonly")
+if mibBuilder.loadTexts: expResourceDeltaWildcardInstancesHigh.setStatus('current')
+expResourceDeltaWildcardInstanceResourceLacks = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 1, 5), Counter32()).setUnits('instances').setMaxAccess("readonly")
+if mibBuilder.loadTexts: expResourceDeltaWildcardInstanceResourceLacks.setStatus('current')
+expNameLastChange = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 2, 1), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expNameLastChange.setStatus('current')
+expNameHighestIndex = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 2, 2), ExpressionIndexOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expNameHighestIndex.setStatus('current')
+expNameTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 2, 3), )
+if mibBuilder.loadTexts: expNameTable.setStatus('current')
+expNameEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 2, 3, 1), ).setIndexNames((0, "EXPRESSION-MIB", "expName"))
+if mibBuilder.loadTexts: expNameEntry.setStatus('current')
+expName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 2, 3, 1, 1), ExpressionName())
+if mibBuilder.loadTexts: expName.setStatus('current')
+expExpressionIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 2, 3, 1, 2), ExpressionIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: expExpressionIndex.setStatus('current')
+expNameStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 2, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: expNameStatus.setStatus('current')
+expExpressionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 1), )
+if mibBuilder.loadTexts: expExpressionTable.setStatus('current')
+expExpressionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 1, 1), ).setIndexNames((0, "EXPRESSION-MIB", "expExpressionIndex"))
+if mibBuilder.loadTexts: expExpressionEntry.setStatus('current')
+expExpressionName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 1, 1, 1), ExpressionName()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: expExpressionName.setStatus('current')
+expExpression = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1024))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: expExpression.setStatus('current')
+expExpressionValueType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("counter32", 1), ("unsignedOrGauge32", 2), ("timeTicks", 3), ("integer32", 4), ("ipAddress", 5), ("octetString", 6), ("objectId", 7), ("counter64", 8))).clone('counter32')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: expExpressionValueType.setStatus('current')
+expExpressionComment = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: expExpressionComment.setStatus('current')
+expExpressionDeltaInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 86400))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: expExpressionDeltaInterval.setStatus('current')
+expExpressionPrefix = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 1, 1, 6), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expExpressionPrefix.setStatus('current')
+expExpressionErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expExpressionErrors.setStatus('current')
+expExpressionErrorTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 1, 1, 8), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expExpressionErrorTime.setStatus('current')
+expExpressionErrorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expExpressionErrorIndex.setStatus('current')
+expExpressionError = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("invalidSyntax", 1), ("undefinedObjectIndex", 2), ("unrecognizedOperator", 3), ("unrecognizedFunction", 4), ("invalidOperandType", 5), ("unmatchedParenthesis", 6), ("tooManyWildcardValues", 7), ("recursion", 8), ("deltaTooShort", 9), ("resourceUnavailable", 10), ("divideByZero", 11)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expExpressionError.setStatus('current')
+expExpressionInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 1, 1, 11), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expExpressionInstance.setStatus('current')
+expExpressionOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 1, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: expExpressionOwner.setStatus('current')
+expObjectTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 2), )
+if mibBuilder.loadTexts: expObjectTable.setStatus('current')
+expObjectEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 2, 1), ).setIndexNames((0, "EXPRESSION-MIB", "expExpressionIndex"), (0, "EXPRESSION-MIB", "expObjectIndex"))
+if mibBuilder.loadTexts: expObjectEntry.setStatus('current')
+expObjectIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: expObjectIndex.setStatus('current')
+expObjectID = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 2, 1, 2), ObjectIdentifier()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: expObjectID.setStatus('current')
+expObjectIDWildcard = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 2, 1, 3), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: expObjectIDWildcard.setStatus('current')
+expObjectSampleType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("absoluteValue", 1), ("deltaValue", 2))).clone('absoluteValue')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: expObjectSampleType.setStatus('current')
+sysUpTimeInstance = MibIdentifier((1, 3, 6, 1, 2, 1, 1, 3, 0))
+expObjectDeltaDiscontinuityID = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 2, 1, 5), ObjectIdentifier().clone((1, 3, 6, 1, 2, 1, 1, 3, 0))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: expObjectDeltaDiscontinuityID.setStatus('current')
+expObjectDiscontinuityIDWildcard = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 2, 1, 6), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: expObjectDiscontinuityIDWildcard.setStatus('current')
+expObjectDiscontinuityIDType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("timeTicks", 1), ("timeStamp", 2))).clone('timeTicks')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: expObjectDiscontinuityIDType.setStatus('current')
+expObjectConditional = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 2, 1, 8), ObjectIdentifier().clone((0, 0))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: expObjectConditional.setStatus('current')
+expObjectConditionalWildcard = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 2, 1, 9), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: expObjectConditionalWildcard.setStatus('current')
+expObjectStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 3, 2, 1, 10), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: expObjectStatus.setStatus('current')
+expValueTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 4, 1), )
+if mibBuilder.loadTexts: expValueTable.setStatus('current')
+expValueEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 4, 1, 1), ).setIndexNames((0, "EXPRESSION-MIB", "expExpressionIndex"), (0, "EXPRESSION-MIB", "expValueInstance"))
+if mibBuilder.loadTexts: expValueEntry.setStatus('current')
+expValueInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 4, 1, 1, 1), ObjectIdentifier())
+if mibBuilder.loadTexts: expValueInstance.setStatus('current')
+expValueCounter32Val = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 4, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expValueCounter32Val.setStatus('current')
+expValueUnsigned32Val = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 4, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expValueUnsigned32Val.setStatus('current')
+expValueInteger32Val = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 4, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expValueInteger32Val.setStatus('current')
+expValueIpAddressVal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 4, 1, 1, 5), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expValueIpAddressVal.setStatus('current')
+expValueOctetStringVal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 4, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expValueOctetStringVal.setStatus('current')
+expValueOidVal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 4, 1, 1, 7), ObjectIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expValueOidVal.setStatus('current')
+expValueCounter64Val = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 22, 1, 4, 1, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: expValueCounter64Val.setStatus('current')
+expressionMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 22, 3))
+expressionMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 22, 3, 1))
+expressionMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 22, 3, 2))
+expressionMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 22, 3, 1, 1)).setObjects(("EXPRESSION-MIB", "expressionResourceGroup"), ("EXPRESSION-MIB", "expressionDefinitionGroup"), ("EXPRESSION-MIB", "expressionValueGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    expressionMIBCompliance = expressionMIBCompliance.setStatus('current')
+expressionResourceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 22, 3, 2, 1)).setObjects(("EXPRESSION-MIB", "expResourceDeltaMinimum"), ("EXPRESSION-MIB", "expResourceDeltaWildcardInstanceMaximum"), ("EXPRESSION-MIB", "expResourceDeltaWildcardInstances"), ("EXPRESSION-MIB", "expResourceDeltaWildcardInstancesHigh"), ("EXPRESSION-MIB", "expResourceDeltaWildcardInstanceResourceLacks"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    expressionResourceGroup = expressionResourceGroup.setStatus('current')
+expressionDefinitionGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 22, 3, 2, 2)).setObjects(("EXPRESSION-MIB", "expNameLastChange"), ("EXPRESSION-MIB", "expNameHighestIndex"), ("EXPRESSION-MIB", "expExpressionIndex"), ("EXPRESSION-MIB", "expNameStatus"), ("EXPRESSION-MIB", "expExpressionName"), ("EXPRESSION-MIB", "expExpression"), ("EXPRESSION-MIB", "expExpressionValueType"), ("EXPRESSION-MIB", "expExpressionComment"), ("EXPRESSION-MIB", "expExpressionDeltaInterval"), ("EXPRESSION-MIB", "expExpressionPrefix"), ("EXPRESSION-MIB", "expExpressionErrors"), ("EXPRESSION-MIB", "expExpressionErrorTime"), ("EXPRESSION-MIB", "expExpressionErrorIndex"), ("EXPRESSION-MIB", "expExpressionError"), ("EXPRESSION-MIB", "expExpressionInstance"), ("EXPRESSION-MIB", "expExpressionOwner"), ("EXPRESSION-MIB", "expObjectID"), ("EXPRESSION-MIB", "expObjectIDWildcard"), ("EXPRESSION-MIB", "expObjectSampleType"), ("EXPRESSION-MIB", "expObjectDeltaDiscontinuityID"), ("EXPRESSION-MIB", "expObjectDiscontinuityIDWildcard"), ("EXPRESSION-MIB", "expObjectDiscontinuityIDType"), ("EXPRESSION-MIB", "expObjectConditional"), ("EXPRESSION-MIB", "expObjectConditionalWildcard"), ("EXPRESSION-MIB", "expObjectStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    expressionDefinitionGroup = expressionDefinitionGroup.setStatus('current')
+expressionValueGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 22, 3, 2, 3)).setObjects(("EXPRESSION-MIB", "expValueCounter32Val"), ("EXPRESSION-MIB", "expValueUnsigned32Val"), ("EXPRESSION-MIB", "expValueInteger32Val"), ("EXPRESSION-MIB", "expValueIpAddressVal"), ("EXPRESSION-MIB", "expValueOctetStringVal"), ("EXPRESSION-MIB", "expValueOidVal"), ("EXPRESSION-MIB", "expValueCounter64Val"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    expressionValueGroup = expressionValueGroup.setStatus('current')
+mibBuilder.exportSymbols("EXPRESSION-MIB", expObjectEntry=expObjectEntry, expValueUnsigned32Val=expValueUnsigned32Val, expResourceDeltaWildcardInstancesHigh=expResourceDeltaWildcardInstancesHigh, expressionMIBCompliance=expressionMIBCompliance, expValueEntry=expValueEntry, expExpression=expExpression, expressionMIBGroups=expressionMIBGroups, expressionResourceGroup=expressionResourceGroup, ExpressionName=ExpressionName, expResourceDeltaWildcardInstances=expResourceDeltaWildcardInstances, expressionValueGroup=expressionValueGroup, expExpressionInstance=expExpressionInstance, sysUpTimeInstance=sysUpTimeInstance, ExpressionIndex=ExpressionIndex, expressionMIB=expressionMIB, expressionDefinitionGroup=expressionDefinitionGroup, expResourceDeltaWildcardInstanceMaximum=expResourceDeltaWildcardInstanceMaximum, PYSNMP_MODULE_ID=expressionMIB, expObjectDiscontinuityIDWildcard=expObjectDiscontinuityIDWildcard, expValueTable=expValueTable, expValueCounter64Val=expValueCounter64Val, expExpressionIndex=expExpressionIndex, expExpressionErrorTime=expExpressionErrorTime, expObjectSampleType=expObjectSampleType, expObjectIndex=expObjectIndex, expObjectStatus=expObjectStatus, expExpressionDeltaInterval=expExpressionDeltaInterval, expObjectID=expObjectID, expObjectDeltaDiscontinuityID=expObjectDeltaDiscontinuityID, expExpressionPrefix=expExpressionPrefix, expObjectConditional=expObjectConditional, expNames=expNames, expObjectTable=expObjectTable, expObjectDiscontinuityIDType=expObjectDiscontinuityIDType, expExpressionTable=expExpressionTable, expValueInteger32Val=expValueInteger32Val, expResourceDeltaMinimum=expResourceDeltaMinimum, expObjectConditionalWildcard=expObjectConditionalWildcard, expValueInstance=expValueInstance, expValueOidVal=expValueOidVal, expValue=expValue, expValueOctetStringVal=expValueOctetStringVal, expExpressionName=expExpressionName, expressionMIBCompliances=expressionMIBCompliances, expExpressionErrorIndex=expExpressionErrorIndex, expObjectIDWildcard=expObjectIDWildcard, expResource=expResource, expDefine=expDefine, expNameEntry=expNameEntry, expValueIpAddressVal=expValueIpAddressVal, expressionMIBConformance=expressionMIBConformance, expNameLastChange=expNameLastChange, expNameHighestIndex=expNameHighestIndex, ExpressionIndexOrZero=ExpressionIndexOrZero, expResourceDeltaWildcardInstanceResourceLacks=expResourceDeltaWildcardInstanceResourceLacks, expExpressionValueType=expExpressionValueType, expExpressionError=expExpressionError, expExpressionOwner=expExpressionOwner, expNameTable=expNameTable, expName=expName, expNameStatus=expNameStatus, expExpressionEntry=expExpressionEntry, expExpressionComment=expExpressionComment, expValueCounter32Val=expValueCounter32Val, expressionMIBObjects=expressionMIBObjects, expExpressionErrors=expExpressionErrors)

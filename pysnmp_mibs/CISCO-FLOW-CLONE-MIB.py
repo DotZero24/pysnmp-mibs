@@ -1,232 +1,122 @@
-_j='cfcFlowStatsGroup'
-_i='cfcFlowGroup'
-_h='cfcCloneProfileGroup'
-_g='cfcFlowOctets'
-_f='cfcFlowPkts'
-_e='cfcFlowIpCreateTime'
-_d='cfcFlowIpAddrDst'
-_c='cfcFlowIpAddrDstType'
-_b='cfcFlowIpAddrSrc'
-_a='cfcFlowIpAddrSrcType'
-_Z='cfcFlowIpStorageType'
-_Y='cfcFlowIpStatus'
-_X='cfcCloneProfileTableChanged'
-_W='cfcCloneProfileEgressIf'
-_V='cfcCloneProfileEgressIfType'
-_U='cfcCloneTargetIfIndex'
-_T='cfcCloneTargetType'
-_S='cfcCloneProfileFlowType'
-_R='cfcCloneProfileFlowCount'
-_Q='cfcCloneProfileCreateTime'
-_P='cfcCloneProfileDescription'
-_O='cfcCloneProfileName'
-_N='cfcCloneProfileStorageType'
-_M='cfcCloneProfileStatus'
-_L='cfcCloneProfileIdNext'
-_K='not-accessible'
-_J='interface'
-_I='SnmpAdminString'
-_H='cfcFlowIndex'
-_G='StorageType'
-_F='cfcCloneProfileId'
-_E='Integer32'
-_D='read-only'
-_C='read-create'
-_B='CISCO-FLOW-CLONE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB','InterfaceIndexOrZero')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_I)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_G,'TextualConvention','TimeStamp')
-ciscoFlowCloneMIB=ModuleIdentity((1,3,6,1,4,1,9,9,765))
-if mibBuilder.loadTexts:ciscoFlowCloneMIB.setRevisions(('2010-07-08 00:00',))
-class CloneProfileIdentifier(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-class CloneFlowIdentifier(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-class CloneProfilePointType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('other',1),('unknown',2),('none',3),(_J,4)))
-class CloneProfilePointIdentifier(InterfaceIndexOrZero):status=_A
-_CiscoFlowCloneMIBNotifications_ObjectIdentity=ObjectIdentity
-ciscoFlowCloneMIBNotifications=_CiscoFlowCloneMIBNotifications_ObjectIdentity((1,3,6,1,4,1,9,9,765,0))
-_CiscoFlowCloneMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoFlowCloneMIBObjects=_CiscoFlowCloneMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,765,1))
-_CfcCloneProfiles_ObjectIdentity=ObjectIdentity
-cfcCloneProfiles=_CfcCloneProfiles_ObjectIdentity((1,3,6,1,4,1,9,9,765,1,1))
-_CfcCloneProfileIdNext_Type=CloneProfileIdentifier
-_CfcCloneProfileIdNext_Object=MibScalar
-cfcCloneProfileIdNext=_CfcCloneProfileIdNext_Object((1,3,6,1,4,1,9,9,765,1,1,1),_CfcCloneProfileIdNext_Type())
-cfcCloneProfileIdNext.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfcCloneProfileIdNext.setStatus(_A)
-_CfcCloneProfileTable_Object=MibTable
-cfcCloneProfileTable=_CfcCloneProfileTable_Object((1,3,6,1,4,1,9,9,765,1,1,2))
-if mibBuilder.loadTexts:cfcCloneProfileTable.setStatus(_A)
-_CfcCloneProfileEntry_Object=MibTableRow
-cfcCloneProfileEntry=_CfcCloneProfileEntry_Object((1,3,6,1,4,1,9,9,765,1,1,2,1))
-cfcCloneProfileEntry.setIndexNames((0,_B,_F))
-if mibBuilder.loadTexts:cfcCloneProfileEntry.setStatus(_A)
-_CfcCloneProfileId_Type=CloneProfileIdentifier
-_CfcCloneProfileId_Object=MibTableColumn
-cfcCloneProfileId=_CfcCloneProfileId_Object((1,3,6,1,4,1,9,9,765,1,1,2,1,1),_CfcCloneProfileId_Type())
-cfcCloneProfileId.setMaxAccess(_K)
-if mibBuilder.loadTexts:cfcCloneProfileId.setStatus(_A)
-_CfcCloneProfileStatus_Type=RowStatus
-_CfcCloneProfileStatus_Object=MibTableColumn
-cfcCloneProfileStatus=_CfcCloneProfileStatus_Object((1,3,6,1,4,1,9,9,765,1,1,2,1,2),_CfcCloneProfileStatus_Type())
-cfcCloneProfileStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfcCloneProfileStatus.setStatus(_A)
-class _CfcCloneProfileStorageType_Type(StorageType):defaultValue=2
-_CfcCloneProfileStorageType_Type.__name__=_G
-_CfcCloneProfileStorageType_Object=MibTableColumn
-cfcCloneProfileStorageType=_CfcCloneProfileStorageType_Object((1,3,6,1,4,1,9,9,765,1,1,2,1,3),_CfcCloneProfileStorageType_Type())
-cfcCloneProfileStorageType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfcCloneProfileStorageType.setStatus(_A)
-class _CfcCloneProfileName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_CfcCloneProfileName_Type.__name__=_I
-_CfcCloneProfileName_Object=MibTableColumn
-cfcCloneProfileName=_CfcCloneProfileName_Object((1,3,6,1,4,1,9,9,765,1,1,2,1,4),_CfcCloneProfileName_Type())
-cfcCloneProfileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfcCloneProfileName.setStatus(_A)
-_CfcCloneProfileDescription_Type=SnmpAdminString
-_CfcCloneProfileDescription_Object=MibTableColumn
-cfcCloneProfileDescription=_CfcCloneProfileDescription_Object((1,3,6,1,4,1,9,9,765,1,1,2,1,5),_CfcCloneProfileDescription_Type())
-cfcCloneProfileDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfcCloneProfileDescription.setStatus(_A)
-_CfcCloneProfileCreateTime_Type=TimeStamp
-_CfcCloneProfileCreateTime_Object=MibTableColumn
-cfcCloneProfileCreateTime=_CfcCloneProfileCreateTime_Object((1,3,6,1,4,1,9,9,765,1,1,2,1,6),_CfcCloneProfileCreateTime_Type())
-cfcCloneProfileCreateTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfcCloneProfileCreateTime.setStatus(_A)
-_CfcCloneProfileFlowCount_Type=Gauge32
-_CfcCloneProfileFlowCount_Object=MibTableColumn
-cfcCloneProfileFlowCount=_CfcCloneProfileFlowCount_Object((1,3,6,1,4,1,9,9,765,1,1,2,1,7),_CfcCloneProfileFlowCount_Type())
-cfcCloneProfileFlowCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfcCloneProfileFlowCount.setStatus(_A)
-if mibBuilder.loadTexts:cfcCloneProfileFlowCount.setUnits('traffic flows')
-class _CfcCloneProfileFlowType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('ip',1))
-_CfcCloneProfileFlowType_Type.__name__=_E
-_CfcCloneProfileFlowType_Object=MibTableColumn
-cfcCloneProfileFlowType=_CfcCloneProfileFlowType_Object((1,3,6,1,4,1,9,9,765,1,1,2,1,8),_CfcCloneProfileFlowType_Type())
-cfcCloneProfileFlowType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfcCloneProfileFlowType.setStatus(_A)
-class _CfcCloneTargetType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('other',1),('system',2),(_J,3)))
-_CfcCloneTargetType_Type.__name__=_E
-_CfcCloneTargetType_Object=MibTableColumn
-cfcCloneTargetType=_CfcCloneTargetType_Object((1,3,6,1,4,1,9,9,765,1,1,2,1,9),_CfcCloneTargetType_Type())
-cfcCloneTargetType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfcCloneTargetType.setStatus(_A)
-class _CfcCloneTargetIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CfcCloneTargetIfIndex_Type.__name__=_E
-_CfcCloneTargetIfIndex_Object=MibTableColumn
-cfcCloneTargetIfIndex=_CfcCloneTargetIfIndex_Object((1,3,6,1,4,1,9,9,765,1,1,2,1,10),_CfcCloneTargetIfIndex_Type())
-cfcCloneTargetIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfcCloneTargetIfIndex.setStatus(_A)
-_CfcCloneProfileEgressIfType_Type=CloneProfilePointType
-_CfcCloneProfileEgressIfType_Object=MibTableColumn
-cfcCloneProfileEgressIfType=_CfcCloneProfileEgressIfType_Object((1,3,6,1,4,1,9,9,765,1,1,2,1,11),_CfcCloneProfileEgressIfType_Type())
-cfcCloneProfileEgressIfType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfcCloneProfileEgressIfType.setStatus(_A)
-_CfcCloneProfileEgressIf_Type=CloneProfilePointIdentifier
-_CfcCloneProfileEgressIf_Object=MibTableColumn
-cfcCloneProfileEgressIf=_CfcCloneProfileEgressIf_Object((1,3,6,1,4,1,9,9,765,1,1,2,1,12),_CfcCloneProfileEgressIf_Type())
-cfcCloneProfileEgressIf.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfcCloneProfileEgressIf.setStatus(_A)
-_CfcCloneProfileTableChanged_Type=TimeStamp
-_CfcCloneProfileTableChanged_Object=MibScalar
-cfcCloneProfileTableChanged=_CfcCloneProfileTableChanged_Object((1,3,6,1,4,1,9,9,765,1,1,3),_CfcCloneProfileTableChanged_Type())
-cfcCloneProfileTableChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfcCloneProfileTableChanged.setStatus(_A)
-_CfcFlows_ObjectIdentity=ObjectIdentity
-cfcFlows=_CfcFlows_ObjectIdentity((1,3,6,1,4,1,9,9,765,1,2))
-_CfcFlowIpTable_Object=MibTable
-cfcFlowIpTable=_CfcFlowIpTable_Object((1,3,6,1,4,1,9,9,765,1,2,1))
-if mibBuilder.loadTexts:cfcFlowIpTable.setStatus(_A)
-_CfcFlowIpEntry_Object=MibTableRow
-cfcFlowIpEntry=_CfcFlowIpEntry_Object((1,3,6,1,4,1,9,9,765,1,2,1,1))
-cfcFlowIpEntry.setIndexNames((0,_B,_F),(0,_B,_H))
-if mibBuilder.loadTexts:cfcFlowIpEntry.setStatus(_A)
-_CfcFlowIndex_Type=CloneFlowIdentifier
-_CfcFlowIndex_Object=MibTableColumn
-cfcFlowIndex=_CfcFlowIndex_Object((1,3,6,1,4,1,9,9,765,1,2,1,1,1),_CfcFlowIndex_Type())
-cfcFlowIndex.setMaxAccess(_K)
-if mibBuilder.loadTexts:cfcFlowIndex.setStatus(_A)
-_CfcFlowIpStatus_Type=RowStatus
-_CfcFlowIpStatus_Object=MibTableColumn
-cfcFlowIpStatus=_CfcFlowIpStatus_Object((1,3,6,1,4,1,9,9,765,1,2,1,1,2),_CfcFlowIpStatus_Type())
-cfcFlowIpStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfcFlowIpStatus.setStatus(_A)
-class _CfcFlowIpStorageType_Type(StorageType):defaultValue=2
-_CfcFlowIpStorageType_Type.__name__=_G
-_CfcFlowIpStorageType_Object=MibTableColumn
-cfcFlowIpStorageType=_CfcFlowIpStorageType_Object((1,3,6,1,4,1,9,9,765,1,2,1,1,3),_CfcFlowIpStorageType_Type())
-cfcFlowIpStorageType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfcFlowIpStorageType.setStatus(_A)
-_CfcFlowIpAddrSrcType_Type=InetAddressType
-_CfcFlowIpAddrSrcType_Object=MibTableColumn
-cfcFlowIpAddrSrcType=_CfcFlowIpAddrSrcType_Object((1,3,6,1,4,1,9,9,765,1,2,1,1,4),_CfcFlowIpAddrSrcType_Type())
-cfcFlowIpAddrSrcType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfcFlowIpAddrSrcType.setStatus(_A)
-_CfcFlowIpAddrSrc_Type=InetAddress
-_CfcFlowIpAddrSrc_Object=MibTableColumn
-cfcFlowIpAddrSrc=_CfcFlowIpAddrSrc_Object((1,3,6,1,4,1,9,9,765,1,2,1,1,5),_CfcFlowIpAddrSrc_Type())
-cfcFlowIpAddrSrc.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfcFlowIpAddrSrc.setStatus(_A)
-_CfcFlowIpAddrDstType_Type=InetAddressType
-_CfcFlowIpAddrDstType_Object=MibTableColumn
-cfcFlowIpAddrDstType=_CfcFlowIpAddrDstType_Object((1,3,6,1,4,1,9,9,765,1,2,1,1,6),_CfcFlowIpAddrDstType_Type())
-cfcFlowIpAddrDstType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfcFlowIpAddrDstType.setStatus(_A)
-_CfcFlowIpAddrDst_Type=InetAddress
-_CfcFlowIpAddrDst_Object=MibTableColumn
-cfcFlowIpAddrDst=_CfcFlowIpAddrDst_Object((1,3,6,1,4,1,9,9,765,1,2,1,1,7),_CfcFlowIpAddrDst_Type())
-cfcFlowIpAddrDst.setMaxAccess(_C)
-if mibBuilder.loadTexts:cfcFlowIpAddrDst.setStatus(_A)
-_CfcFlowIpCreateTime_Type=TimeStamp
-_CfcFlowIpCreateTime_Object=MibTableColumn
-cfcFlowIpCreateTime=_CfcFlowIpCreateTime_Object((1,3,6,1,4,1,9,9,765,1,2,1,1,8),_CfcFlowIpCreateTime_Type())
-cfcFlowIpCreateTime.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfcFlowIpCreateTime.setStatus(_A)
-_CfcFlowStats_ObjectIdentity=ObjectIdentity
-cfcFlowStats=_CfcFlowStats_ObjectIdentity((1,3,6,1,4,1,9,9,765,1,3))
-_CfcFlowStatsTable_Object=MibTable
-cfcFlowStatsTable=_CfcFlowStatsTable_Object((1,3,6,1,4,1,9,9,765,1,3,1))
-if mibBuilder.loadTexts:cfcFlowStatsTable.setStatus(_A)
-_CfcFlowStatsEntry_Object=MibTableRow
-cfcFlowStatsEntry=_CfcFlowStatsEntry_Object((1,3,6,1,4,1,9,9,765,1,3,1,1))
-cfcFlowStatsEntry.setIndexNames((0,_B,_F),(0,_B,_H))
-if mibBuilder.loadTexts:cfcFlowStatsEntry.setStatus(_A)
-_CfcFlowPkts_Type=Counter64
-_CfcFlowPkts_Object=MibTableColumn
-cfcFlowPkts=_CfcFlowPkts_Object((1,3,6,1,4,1,9,9,765,1,3,1,1,1),_CfcFlowPkts_Type())
-cfcFlowPkts.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfcFlowPkts.setStatus(_A)
-if mibBuilder.loadTexts:cfcFlowPkts.setUnits('packets')
-_CfcFlowOctets_Type=Counter64
-_CfcFlowOctets_Object=MibTableColumn
-cfcFlowOctets=_CfcFlowOctets_Object((1,3,6,1,4,1,9,9,765,1,3,1,1,2),_CfcFlowOctets_Type())
-cfcFlowOctets.setMaxAccess(_D)
-if mibBuilder.loadTexts:cfcFlowOctets.setStatus(_A)
-if mibBuilder.loadTexts:cfcFlowOctets.setUnits('octets')
-_CiscoFlowCloneMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoFlowCloneMIBConformance=_CiscoFlowCloneMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,765,2))
-_CiscoFlowCloneMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoFlowCloneMIBCompliances=_CiscoFlowCloneMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,765,2,1))
-_CiscoFlowCloneMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoFlowCloneMIBGroups=_CiscoFlowCloneMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,765,2,2))
-cfcCloneProfileGroup=ObjectGroup((1,3,6,1,4,1,9,9,765,2,2,1))
-cfcCloneProfileGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X)))
-if mibBuilder.loadTexts:cfcCloneProfileGroup.setStatus(_A)
-cfcFlowGroup=ObjectGroup((1,3,6,1,4,1,9,9,765,2,2,2))
-cfcFlowGroup.setObjects(*((_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e)))
-if mibBuilder.loadTexts:cfcFlowGroup.setStatus(_A)
-cfcFlowStatsGroup=ObjectGroup((1,3,6,1,4,1,9,9,765,2,2,3))
-cfcFlowStatsGroup.setObjects(*((_B,_f),(_B,_g)))
-if mibBuilder.loadTexts:cfcFlowStatsGroup.setStatus(_A)
-ciscoCloneFlowCompliance01=ModuleCompliance((1,3,6,1,4,1,9,9,765,2,1,1))
-ciscoCloneFlowCompliance01.setObjects(*((_B,_h),(_B,_i),(_B,_j)))
-if mibBuilder.loadTexts:ciscoCloneFlowCompliance01.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CloneProfileIdentifier':CloneProfileIdentifier,'CloneFlowIdentifier':CloneFlowIdentifier,'CloneProfilePointType':CloneProfilePointType,'CloneProfilePointIdentifier':CloneProfilePointIdentifier,'ciscoFlowCloneMIB':ciscoFlowCloneMIB,'ciscoFlowCloneMIBNotifications':ciscoFlowCloneMIBNotifications,'ciscoFlowCloneMIBObjects':ciscoFlowCloneMIBObjects,'cfcCloneProfiles':cfcCloneProfiles,_L:cfcCloneProfileIdNext,'cfcCloneProfileTable':cfcCloneProfileTable,'cfcCloneProfileEntry':cfcCloneProfileEntry,_F:cfcCloneProfileId,_M:cfcCloneProfileStatus,_N:cfcCloneProfileStorageType,_O:cfcCloneProfileName,_P:cfcCloneProfileDescription,_Q:cfcCloneProfileCreateTime,_R:cfcCloneProfileFlowCount,_S:cfcCloneProfileFlowType,_T:cfcCloneTargetType,_U:cfcCloneTargetIfIndex,_V:cfcCloneProfileEgressIfType,_W:cfcCloneProfileEgressIf,_X:cfcCloneProfileTableChanged,'cfcFlows':cfcFlows,'cfcFlowIpTable':cfcFlowIpTable,'cfcFlowIpEntry':cfcFlowIpEntry,_H:cfcFlowIndex,_Y:cfcFlowIpStatus,_Z:cfcFlowIpStorageType,_a:cfcFlowIpAddrSrcType,_b:cfcFlowIpAddrSrc,_c:cfcFlowIpAddrDstType,_d:cfcFlowIpAddrDst,_e:cfcFlowIpCreateTime,'cfcFlowStats':cfcFlowStats,'cfcFlowStatsTable':cfcFlowStatsTable,'cfcFlowStatsEntry':cfcFlowStatsEntry,_f:cfcFlowPkts,_g:cfcFlowOctets,'ciscoFlowCloneMIBConformance':ciscoFlowCloneMIBConformance,'ciscoFlowCloneMIBCompliances':ciscoFlowCloneMIBCompliances,'ciscoCloneFlowCompliance01':ciscoCloneFlowCompliance01,'ciscoFlowCloneMIBGroups':ciscoFlowCloneMIBGroups,_h:cfcCloneProfileGroup,_i:cfcFlowGroup,_j:cfcFlowStatsGroup})
+#
+# PySNMP MIB module CISCO-FLOW-CLONE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-FLOW-CLONE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:12:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, RowStatus, StorageType, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "StorageType", "TextualConvention")
+ciscoFlowCloneMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 765))
+ciscoFlowCloneMIB.setRevisions(('2010-07-08 00:00',))
+if mibBuilder.loadTexts: ciscoFlowCloneMIB.setLastUpdated('201010190000Z')
+if mibBuilder.loadTexts: ciscoFlowCloneMIB.setOrganization('Cisco Systems, Inc.')
+ciscoFlowCloneMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 765, 0))
+ciscoFlowCloneMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 765, 1))
+ciscoFlowCloneMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 765, 2))
+class CloneProfileIdentifier(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
+
+class CloneFlowIdentifier(TextualConvention, Unsigned32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
+
+class CloneProfilePointType(TextualConvention, Integer32):
+    reference = "K. McCloghrie and F. Kastenholz, 'The Interfaces Group MIB', RFC-2863, June 2000."
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("other", 1), ("unknown", 2), ("none", 3), ("interface", 4))
+
+class CloneProfilePointIdentifier(InterfaceIndexOrZero):
+    status = 'current'
+
+cfcCloneProfiles = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1))
+cfcCloneProfileIdNext = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 1), CloneProfileIdentifier()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfcCloneProfileIdNext.setStatus('current')
+cfcCloneProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 2), )
+if mibBuilder.loadTexts: cfcCloneProfileTable.setStatus('current')
+cfcCloneProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 2, 1), ).setIndexNames((0, "CISCO-FLOW-CLONE-MIB", "cfcCloneProfileId"))
+if mibBuilder.loadTexts: cfcCloneProfileEntry.setStatus('current')
+cfcCloneProfileId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 2, 1, 1), CloneProfileIdentifier())
+if mibBuilder.loadTexts: cfcCloneProfileId.setStatus('current')
+cfcCloneProfileStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfcCloneProfileStatus.setStatus('current')
+cfcCloneProfileStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 2, 1, 3), StorageType().clone('volatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfcCloneProfileStorageType.setStatus('current')
+cfcCloneProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 2, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfcCloneProfileName.setStatus('current')
+cfcCloneProfileDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 2, 1, 5), SnmpAdminString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfcCloneProfileDescription.setStatus('current')
+cfcCloneProfileCreateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 2, 1, 6), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfcCloneProfileCreateTime.setStatus('current')
+cfcCloneProfileFlowCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 2, 1, 7), Gauge32()).setUnits('traffic flows').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfcCloneProfileFlowCount.setStatus('current')
+cfcCloneProfileFlowType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("ip", 1)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfcCloneProfileFlowType.setStatus('current')
+cfcCloneTargetType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("system", 2), ("interface", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfcCloneTargetType.setStatus('current')
+cfcCloneTargetIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfcCloneTargetIfIndex.setStatus('current')
+cfcCloneProfileEgressIfType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 2, 1, 11), CloneProfilePointType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfcCloneProfileEgressIfType.setStatus('current')
+cfcCloneProfileEgressIf = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 2, 1, 12), CloneProfilePointIdentifier()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfcCloneProfileEgressIf.setStatus('current')
+cfcCloneProfileTableChanged = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfcCloneProfileTableChanged.setStatus('current')
+cfcFlows = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 2))
+cfcFlowIpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 2, 1), )
+if mibBuilder.loadTexts: cfcFlowIpTable.setStatus('current')
+cfcFlowIpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-FLOW-CLONE-MIB", "cfcCloneProfileId"), (0, "CISCO-FLOW-CLONE-MIB", "cfcFlowIndex"))
+if mibBuilder.loadTexts: cfcFlowIpEntry.setStatus('current')
+cfcFlowIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 2, 1, 1, 1), CloneFlowIdentifier())
+if mibBuilder.loadTexts: cfcFlowIndex.setStatus('current')
+cfcFlowIpStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 2, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfcFlowIpStatus.setStatus('current')
+cfcFlowIpStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 2, 1, 1, 3), StorageType().clone('volatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfcFlowIpStorageType.setStatus('current')
+cfcFlowIpAddrSrcType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 2, 1, 1, 4), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfcFlowIpAddrSrcType.setStatus('current')
+cfcFlowIpAddrSrc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 2, 1, 1, 5), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfcFlowIpAddrSrc.setStatus('current')
+cfcFlowIpAddrDstType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 2, 1, 1, 6), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfcFlowIpAddrDstType.setStatus('current')
+cfcFlowIpAddrDst = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 2, 1, 1, 7), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cfcFlowIpAddrDst.setStatus('current')
+cfcFlowIpCreateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 2, 1, 1, 8), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfcFlowIpCreateTime.setStatus('current')
+cfcFlowStats = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 3))
+cfcFlowStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 3, 1), )
+if mibBuilder.loadTexts: cfcFlowStatsTable.setStatus('current')
+cfcFlowStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 3, 1, 1), ).setIndexNames((0, "CISCO-FLOW-CLONE-MIB", "cfcCloneProfileId"), (0, "CISCO-FLOW-CLONE-MIB", "cfcFlowIndex"))
+if mibBuilder.loadTexts: cfcFlowStatsEntry.setStatus('current')
+cfcFlowPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 3, 1, 1, 1), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfcFlowPkts.setStatus('current')
+cfcFlowOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 765, 1, 3, 1, 1, 2), Counter64()).setUnits('octets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cfcFlowOctets.setStatus('current')
+ciscoFlowCloneMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 765, 2, 1))
+ciscoFlowCloneMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 765, 2, 2))
+ciscoCloneFlowCompliance01 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 765, 2, 1, 1)).setObjects(("CISCO-FLOW-CLONE-MIB", "cfcCloneProfileGroup"), ("CISCO-FLOW-CLONE-MIB", "cfcFlowGroup"), ("CISCO-FLOW-CLONE-MIB", "cfcFlowStatsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCloneFlowCompliance01 = ciscoCloneFlowCompliance01.setStatus('current')
+cfcCloneProfileGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 765, 2, 2, 1)).setObjects(("CISCO-FLOW-CLONE-MIB", "cfcCloneProfileIdNext"), ("CISCO-FLOW-CLONE-MIB", "cfcCloneProfileStatus"), ("CISCO-FLOW-CLONE-MIB", "cfcCloneProfileStorageType"), ("CISCO-FLOW-CLONE-MIB", "cfcCloneProfileName"), ("CISCO-FLOW-CLONE-MIB", "cfcCloneProfileDescription"), ("CISCO-FLOW-CLONE-MIB", "cfcCloneProfileCreateTime"), ("CISCO-FLOW-CLONE-MIB", "cfcCloneProfileFlowCount"), ("CISCO-FLOW-CLONE-MIB", "cfcCloneProfileFlowType"), ("CISCO-FLOW-CLONE-MIB", "cfcCloneTargetType"), ("CISCO-FLOW-CLONE-MIB", "cfcCloneTargetIfIndex"), ("CISCO-FLOW-CLONE-MIB", "cfcCloneProfileEgressIfType"), ("CISCO-FLOW-CLONE-MIB", "cfcCloneProfileEgressIf"), ("CISCO-FLOW-CLONE-MIB", "cfcCloneProfileTableChanged"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfcCloneProfileGroup = cfcCloneProfileGroup.setStatus('current')
+cfcFlowGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 765, 2, 2, 2)).setObjects(("CISCO-FLOW-CLONE-MIB", "cfcFlowIpStatus"), ("CISCO-FLOW-CLONE-MIB", "cfcFlowIpStorageType"), ("CISCO-FLOW-CLONE-MIB", "cfcFlowIpAddrSrcType"), ("CISCO-FLOW-CLONE-MIB", "cfcFlowIpAddrSrc"), ("CISCO-FLOW-CLONE-MIB", "cfcFlowIpAddrDstType"), ("CISCO-FLOW-CLONE-MIB", "cfcFlowIpAddrDst"), ("CISCO-FLOW-CLONE-MIB", "cfcFlowIpCreateTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfcFlowGroup = cfcFlowGroup.setStatus('current')
+cfcFlowStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 765, 2, 2, 3)).setObjects(("CISCO-FLOW-CLONE-MIB", "cfcFlowPkts"), ("CISCO-FLOW-CLONE-MIB", "cfcFlowOctets"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cfcFlowStatsGroup = cfcFlowStatsGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-FLOW-CLONE-MIB", cfcCloneProfileName=cfcCloneProfileName, cfcCloneProfileCreateTime=cfcCloneProfileCreateTime, cfcCloneProfileEgressIfType=cfcCloneProfileEgressIfType, cfcFlows=cfcFlows, ciscoFlowCloneMIBObjects=ciscoFlowCloneMIBObjects, cfcFlowIndex=cfcFlowIndex, cfcCloneProfileEgressIf=cfcCloneProfileEgressIf, cfcCloneProfileStorageType=cfcCloneProfileStorageType, cfcCloneTargetIfIndex=cfcCloneTargetIfIndex, cfcFlowIpTable=cfcFlowIpTable, ciscoFlowCloneMIBCompliances=ciscoFlowCloneMIBCompliances, cfcCloneProfileTableChanged=cfcCloneProfileTableChanged, cfcFlowIpAddrSrcType=cfcFlowIpAddrSrcType, cfcCloneProfileGroup=cfcCloneProfileGroup, cfcCloneProfileId=cfcCloneProfileId, ciscoFlowCloneMIBConformance=ciscoFlowCloneMIBConformance, cfcCloneTargetType=cfcCloneTargetType, cfcFlowIpCreateTime=cfcFlowIpCreateTime, CloneProfilePointType=CloneProfilePointType, cfcFlowStats=cfcFlowStats, CloneProfilePointIdentifier=CloneProfilePointIdentifier, CloneProfileIdentifier=CloneProfileIdentifier, cfcFlowIpStatus=cfcFlowIpStatus, cfcFlowStatsEntry=cfcFlowStatsEntry, cfcCloneProfileIdNext=cfcCloneProfileIdNext, cfcFlowPkts=cfcFlowPkts, cfcFlowOctets=cfcFlowOctets, ciscoFlowCloneMIB=ciscoFlowCloneMIB, cfcCloneProfiles=cfcCloneProfiles, cfcCloneProfileDescription=cfcCloneProfileDescription, cfcFlowIpStorageType=cfcFlowIpStorageType, cfcFlowIpAddrSrc=cfcFlowIpAddrSrc, PYSNMP_MODULE_ID=ciscoFlowCloneMIB, ciscoFlowCloneMIBNotifications=ciscoFlowCloneMIBNotifications, cfcFlowIpAddrDstType=cfcFlowIpAddrDstType, cfcCloneProfileStatus=cfcCloneProfileStatus, cfcCloneProfileFlowType=cfcCloneProfileFlowType, cfcFlowIpAddrDst=cfcFlowIpAddrDst, ciscoFlowCloneMIBGroups=ciscoFlowCloneMIBGroups, ciscoCloneFlowCompliance01=ciscoCloneFlowCompliance01, cfcFlowStatsGroup=cfcFlowStatsGroup, CloneFlowIdentifier=CloneFlowIdentifier, cfcCloneProfileTable=cfcCloneProfileTable, cfcFlowStatsTable=cfcFlowStatsTable, cfcCloneProfileFlowCount=cfcCloneProfileFlowCount, cfcFlowIpEntry=cfcFlowIpEntry, cfcFlowGroup=cfcFlowGroup, cfcCloneProfileEntry=cfcCloneProfileEntry)

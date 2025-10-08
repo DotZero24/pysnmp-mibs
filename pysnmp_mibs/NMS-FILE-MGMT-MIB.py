@@ -1,119 +1,58 @@
-_J='fileName'
-_I='filePath'
-_H='noOperation'
-_G='fileTransferIndex'
-_F='not-accessible'
-_E='read-only'
-_D='NMS-FILE-MGMT-MIB'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-nmsMgmt,=mibBuilder.importSymbols('NMS-SMI','nmsMgmt')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
-nmsFileMgmtMIB=ModuleIdentity((1,3,6,1,4,1,3320,9,185))
-_FileTransferManagement_ObjectIdentity=ObjectIdentity
-fileTransferManagement=_FileTransferManagement_ObjectIdentity((1,3,6,1,4,1,3320,9,185,1))
-if mibBuilder.loadTexts:fileTransferManagement.setStatus(_A)
-_FileTransferTable_Object=MibTable
-fileTransferTable=_FileTransferTable_Object((1,3,6,1,4,1,3320,9,185,1,1))
-if mibBuilder.loadTexts:fileTransferTable.setStatus(_A)
-_FileTransferEntry_Object=MibTableRow
-fileTransferEntry=_FileTransferEntry_Object((1,3,6,1,4,1,3320,9,185,1,1,1))
-fileTransferEntry.setIndexNames((0,_D,_G))
-if mibBuilder.loadTexts:fileTransferEntry.setStatus(_A)
-class _FileTransferIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
-_FileTransferIndex_Type.__name__=_C
-_FileTransferIndex_Object=MibTableColumn
-fileTransferIndex=_FileTransferIndex_Object((1,3,6,1,4,1,3320,9,185,1,1,1,1),_FileTransferIndex_Type())
-fileTransferIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:fileTransferIndex.setStatus(_A)
-class _FileTransferProtocolType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ftp',1),('tftp',2)))
-_FileTransferProtocolType_Type.__name__=_C
-_FileTransferProtocolType_Object=MibTableColumn
-fileTransferProtocolType=_FileTransferProtocolType_Object((1,3,6,1,4,1,3320,9,185,1,1,1,2),_FileTransferProtocolType_Type())
-fileTransferProtocolType.setMaxAccess(_B)
-if mibBuilder.loadTexts:fileTransferProtocolType.setStatus(_A)
-_ServerIpAddress_Type=IpAddress
-_ServerIpAddress_Object=MibTableColumn
-serverIpAddress=_ServerIpAddress_Object((1,3,6,1,4,1,3320,9,185,1,1,1,3),_ServerIpAddress_Type())
-serverIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:serverIpAddress.setStatus(_A)
-_FtpUserName_Type=DisplayString
-_FtpUserName_Object=MibTableColumn
-ftpUserName=_FtpUserName_Object((1,3,6,1,4,1,3320,9,185,1,1,1,4),_FtpUserName_Type())
-ftpUserName.setMaxAccess(_B)
-if mibBuilder.loadTexts:ftpUserName.setStatus(_A)
-_FtpUserPassword_Type=DisplayString
-_FtpUserPassword_Object=MibTableColumn
-ftpUserPassword=_FtpUserPassword_Object((1,3,6,1,4,1,3320,9,185,1,1,1,5),_FtpUserPassword_Type())
-ftpUserPassword.setMaxAccess(_B)
-if mibBuilder.loadTexts:ftpUserPassword.setStatus(_A)
-_TransferFileSrcNamePath_Type=DisplayString
-_TransferFileSrcNamePath_Object=MibTableColumn
-transferFileSrcNamePath=_TransferFileSrcNamePath_Object((1,3,6,1,4,1,3320,9,185,1,1,1,6),_TransferFileSrcNamePath_Type())
-transferFileSrcNamePath.setMaxAccess(_B)
-if mibBuilder.loadTexts:transferFileSrcNamePath.setStatus(_A)
-_TransferFileDstNamePath_Type=DisplayString
-_TransferFileDstNamePath_Object=MibTableColumn
-transferFileDstNamePath=_TransferFileDstNamePath_Object((1,3,6,1,4,1,3320,9,185,1,1,1,7),_TransferFileDstNamePath_Type())
-transferFileDstNamePath.setMaxAccess(_B)
-if mibBuilder.loadTexts:transferFileDstNamePath.setStatus(_A)
-class _TransferAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_H,1),('put',2),('get',3),('halt',4)))
-_TransferAction_Type.__name__=_C
-_TransferAction_Object=MibTableColumn
-transferAction=_TransferAction_Object((1,3,6,1,4,1,3320,9,185,1,1,1,8),_TransferAction_Type())
-transferAction.setMaxAccess(_B)
-if mibBuilder.loadTexts:transferAction.setStatus(_A)
-class _TransferStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('idle',1),('inProgress',2),('success',3),('failure',4)))
-_TransferStatus_Type.__name__=_C
-_TransferStatus_Object=MibTableColumn
-transferStatus=_TransferStatus_Object((1,3,6,1,4,1,3320,9,185,1,1,1,9),_TransferStatus_Type())
-transferStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:transferStatus.setStatus(_A)
-_FileInfoManagementTable_Object=MibTable
-fileInfoManagementTable=_FileInfoManagementTable_Object((1,3,6,1,4,1,3320,9,185,1,2))
-if mibBuilder.loadTexts:fileInfoManagementTable.setStatus(_A)
-_FileInfoManagementEntry_Object=MibTableRow
-fileInfoManagementEntry=_FileInfoManagementEntry_Object((1,3,6,1,4,1,3320,9,185,1,2,1))
-fileInfoManagementEntry.setIndexNames((0,_D,_I),(0,_D,_J))
-if mibBuilder.loadTexts:fileInfoManagementEntry.setStatus(_A)
-_FilePath_Type=DisplayString
-_FilePath_Object=MibTableColumn
-filePath=_FilePath_Object((1,3,6,1,4,1,3320,9,185,1,2,1,1),_FilePath_Type())
-filePath.setMaxAccess(_F)
-if mibBuilder.loadTexts:filePath.setStatus(_A)
-_FileName_Type=DisplayString
-_FileName_Object=MibTableColumn
-fileName=_FileName_Object((1,3,6,1,4,1,3320,9,185,1,2,1,2),_FileName_Type())
-fileName.setMaxAccess(_F)
-if mibBuilder.loadTexts:fileName.setStatus(_A)
-_FileSize_Type=Counter32
-_FileSize_Object=MibTableColumn
-fileSize=_FileSize_Object((1,3,6,1,4,1,3320,9,185,1,2,1,3),_FileSize_Type())
-fileSize.setMaxAccess(_E)
-if mibBuilder.loadTexts:fileSize.setStatus(_A)
-if mibBuilder.loadTexts:fileSize.setUnits('bytes')
-_FileModifyTime_Type=DateAndTime
-_FileModifyTime_Object=MibTableColumn
-fileModifyTime=_FileModifyTime_Object((1,3,6,1,4,1,3320,9,185,1,2,1,4),_FileModifyTime_Type())
-fileModifyTime.setMaxAccess(_E)
-if mibBuilder.loadTexts:fileModifyTime.setStatus(_A)
-class _FileManagementAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),('erase',2)))
-_FileManagementAction_Type.__name__=_C
-_FileManagementAction_Object=MibTableColumn
-fileManagementAction=_FileManagementAction_Object((1,3,6,1,4,1,3320,9,185,1,2,1,5),_FileManagementAction_Type())
-fileManagementAction.setMaxAccess(_B)
-if mibBuilder.loadTexts:fileManagementAction.setStatus(_A)
-class _FileAttribute_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('file',1),('dir',2)))
-_FileAttribute_Type.__name__=_C
-_FileAttribute_Object=MibTableColumn
-fileAttribute=_FileAttribute_Object((1,3,6,1,4,1,3320,9,185,1,2,1,6),_FileAttribute_Type())
-fileAttribute.setMaxAccess(_E)
-if mibBuilder.loadTexts:fileAttribute.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'nmsFileMgmtMIB':nmsFileMgmtMIB,'fileTransferManagement':fileTransferManagement,'fileTransferTable':fileTransferTable,'fileTransferEntry':fileTransferEntry,_G:fileTransferIndex,'fileTransferProtocolType':fileTransferProtocolType,'serverIpAddress':serverIpAddress,'ftpUserName':ftpUserName,'ftpUserPassword':ftpUserPassword,'transferFileSrcNamePath':transferFileSrcNamePath,'transferFileDstNamePath':transferFileDstNamePath,'transferAction':transferAction,'transferStatus':transferStatus,'fileInfoManagementTable':fileInfoManagementTable,'fileInfoManagementEntry':fileInfoManagementEntry,_I:filePath,_J:fileName,'fileSize':fileSize,'fileModifyTime':fileModifyTime,'fileManagementAction':fileManagementAction,'fileAttribute':fileAttribute})
+#
+# PySNMP MIB module NMS-FILE-MGMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/bdcom/NMS-FILE-MGMT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:22:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+nmsMgmt, = mibBuilder.importSymbols("NMS-SMI", "nmsMgmt")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+nmsFileMgmtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3320, 9, 185))
+if mibBuilder.loadTexts: nmsFileMgmtMIB.setLastUpdated('201512020000Z')
+if mibBuilder.loadTexts: nmsFileMgmtMIB.setOrganization('')
+fileTransferManagement = ObjectIdentity((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1))
+if mibBuilder.loadTexts: fileTransferManagement.setStatus('current')
+fileTransferTable = MibTable((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 1), )
+if mibBuilder.loadTexts: fileTransferTable.setStatus('current')
+fileTransferEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 1, 1), ).setIndexNames((0, "NMS-FILE-MGMT-MIB", "fileTransferIndex"))
+if mibBuilder.loadTexts: fileTransferEntry.setStatus('current')
+fileTransferIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)))
+if mibBuilder.loadTexts: fileTransferIndex.setStatus('current')
+fileTransferProtocolType = MibTableColumn((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ftp", 1), ("tftp", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fileTransferProtocolType.setStatus('current')
+serverIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 1, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: serverIpAddress.setStatus('current')
+ftpUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ftpUserName.setStatus('current')
+ftpUserPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 1, 1, 5), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ftpUserPassword.setStatus('current')
+transferFileSrcNamePath = MibTableColumn((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 1, 1, 6), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: transferFileSrcNamePath.setStatus('current')
+transferFileDstNamePath = MibTableColumn((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 1, 1, 7), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: transferFileDstNamePath.setStatus('current')
+transferAction = MibTableColumn((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("noOperation", 1), ("put", 2), ("get", 3), ("halt", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: transferAction.setStatus('current')
+transferStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("idle", 1), ("inProgress", 2), ("success", 3), ("failure", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: transferStatus.setStatus('current')
+fileInfoManagementTable = MibTable((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 2), )
+if mibBuilder.loadTexts: fileInfoManagementTable.setStatus('current')
+fileInfoManagementEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 2, 1), ).setIndexNames((0, "NMS-FILE-MGMT-MIB", "filePath"), (0, "NMS-FILE-MGMT-MIB", "fileName"))
+if mibBuilder.loadTexts: fileInfoManagementEntry.setStatus('current')
+filePath = MibTableColumn((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 2, 1, 1), DisplayString())
+if mibBuilder.loadTexts: filePath.setStatus('current')
+fileName = MibTableColumn((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 2, 1, 2), DisplayString())
+if mibBuilder.loadTexts: fileName.setStatus('current')
+fileSize = MibTableColumn((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 2, 1, 3), Counter32()).setUnits('bytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: fileSize.setStatus('current')
+fileModifyTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 2, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fileModifyTime.setStatus('current')
+fileManagementAction = MibTableColumn((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noOperation", 1), ("erase", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fileManagementAction.setStatus('current')
+fileAttribute = MibTableColumn((1, 3, 6, 1, 4, 1, 3320, 9, 185, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("file", 1), ("dir", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fileAttribute.setStatus('current')
+mibBuilder.exportSymbols("NMS-FILE-MGMT-MIB", transferFileDstNamePath=transferFileDstNamePath, fileTransferManagement=fileTransferManagement, transferFileSrcNamePath=transferFileSrcNamePath, fileAttribute=fileAttribute, fileName=fileName, filePath=filePath, transferStatus=transferStatus, nmsFileMgmtMIB=nmsFileMgmtMIB, serverIpAddress=serverIpAddress, fileManagementAction=fileManagementAction, fileTransferIndex=fileTransferIndex, fileModifyTime=fileModifyTime, transferAction=transferAction, PYSNMP_MODULE_ID=nmsFileMgmtMIB, fileTransferTable=fileTransferTable, fileSize=fileSize, ftpUserPassword=ftpUserPassword, fileInfoManagementEntry=fileInfoManagementEntry, fileTransferEntry=fileTransferEntry, ftpUserName=ftpUserName, fileInfoManagementTable=fileInfoManagementTable, fileTransferProtocolType=fileTransferProtocolType)

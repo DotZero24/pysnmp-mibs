@@ -1,901 +1,407 @@
-_A7='a2dSensorIndex'
-_A6='rpmSensorIndex'
-_A5='thdSensorIndex'
-_A4='t3hdSensorIndex'
-_A3='ccatSensorIndex'
-_A2='dewPointSensorIndex'
-_A1='airFlowSensorIndex'
-_A0='tempSensorIndex'
-_z='internalIndex'
-_y='a2dSensorValue'
-_x='a2dSensorAvail'
-_w='rpmSensorPowerFactor'
-_v='rpmSensorApparentPower'
-_u='rpmSensorRealPower'
-_t='rpmSensorCurrent'
-_s='rpmSensorVoltagePeak'
-_r='rpmSensorVoltageMin'
-_q='rpmSensorVoltageMax'
-_p='rpmSensorVoltage'
-_o='rpmSensorEnergy'
-_n='rpmSensorAvail'
-_m='thdSensorDewPoint'
-_l='thdSensorHumidity'
-_k='thdSensorTemp'
-_j='thdSensorAvail'
-_i='t3hdSensorExtBTemp'
-_h='t3hdSensorExtATemp'
-_g='t3hdSensorIntDewPoint'
-_f='t3hdSensorIntHumidity'
-_e='t3hdSensorIntTemp'
-_d='t3hdSensorAvail'
-_c='ccatSensorType'
-_b='ccatSensorValue'
-_a='ccatSensorAvail'
-_Z='dewPointSensorDewPoint'
-_Y='dewPointSensorHumidity'
-_X='dewPointSensorTemp'
-_W='dewPointSensorAvail'
-_V='airFlowSensorDewPoint'
-_U='airFlowSensorHumidity'
-_T='airFlowSensorFlow'
-_S='airFlowSensorTemp'
-_R='airFlowSensorAvail'
-_Q='tempSensorTemp'
-_P='tempSensorAvail'
-_O='internalIO4'
-_N='internalIO3'
-_M='internalIO2'
-_L='internalIO1'
-_K='internalDewPoint'
-_J='internalHumidity'
-_I='internalTemp'
-_H='internalAvail'
-_G='Volts (rms)'
-_F='0.1 Degrees'
-_E='temperatureUnits'
-_D='Integer32'
-_C='read-only'
-_B='GEIST-V4-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-geist=ModuleIdentity((1,3,6,1,4,1,21239))
-if mibBuilder.loadTexts:geist.setRevisions(('2012-09-11 00:00',))
-_Blackbird_ObjectIdentity=ObjectIdentity
-blackbird=_Blackbird_ObjectIdentity((1,3,6,1,4,1,21239,5))
-_Watchdog100_ObjectIdentity=ObjectIdentity
-watchdog100=_Watchdog100_ObjectIdentity((1,3,6,1,4,1,21239,5,1))
-_DeviceInfo_ObjectIdentity=ObjectIdentity
-deviceInfo=_DeviceInfo_ObjectIdentity((1,3,6,1,4,1,21239,5,1,1))
-_ProductTitle_Type=DisplayString
-_ProductTitle_Object=MibScalar
-productTitle=_ProductTitle_Object((1,3,6,1,4,1,21239,5,1,1,1),_ProductTitle_Type())
-productTitle.setMaxAccess(_C)
-if mibBuilder.loadTexts:productTitle.setStatus(_A)
-_ProductVersion_Type=DisplayString
-_ProductVersion_Object=MibScalar
-productVersion=_ProductVersion_Object((1,3,6,1,4,1,21239,5,1,1,2),_ProductVersion_Type())
-productVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:productVersion.setStatus(_A)
-_ProductFriendlyName_Type=DisplayString
-_ProductFriendlyName_Object=MibScalar
-productFriendlyName=_ProductFriendlyName_Object((1,3,6,1,4,1,21239,5,1,1,3),_ProductFriendlyName_Type())
-productFriendlyName.setMaxAccess(_C)
-if mibBuilder.loadTexts:productFriendlyName.setStatus(_A)
-_ProductMacAddress_Type=OctetString
-_ProductMacAddress_Object=MibScalar
-productMacAddress=_ProductMacAddress_Object((1,3,6,1,4,1,21239,5,1,1,4),_ProductMacAddress_Type())
-productMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:productMacAddress.setStatus(_A)
-_ProductUrl_Type=IpAddress
-_ProductUrl_Object=MibScalar
-productUrl=_ProductUrl_Object((1,3,6,1,4,1,21239,5,1,1,5),_ProductUrl_Type())
-productUrl.setMaxAccess(_C)
-if mibBuilder.loadTexts:productUrl.setStatus(_A)
-class _DeviceCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_DeviceCount_Type.__name__=_D
-_DeviceCount_Object=MibScalar
-deviceCount=_DeviceCount_Object((1,3,6,1,4,1,21239,5,1,1,6),_DeviceCount_Type())
-deviceCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:deviceCount.setStatus(_A)
-class _TemperatureUnits_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
-_TemperatureUnits_Type.__name__=_D
-_TemperatureUnits_Object=MibScalar
-temperatureUnits=_TemperatureUnits_Object((1,3,6,1,4,1,21239,5,1,1,7),_TemperatureUnits_Type())
-temperatureUnits.setMaxAccess('read-write')
-if mibBuilder.loadTexts:temperatureUnits.setStatus(_A)
-_InternalTable_Object=MibTable
-internalTable=_InternalTable_Object((1,3,6,1,4,1,21239,5,1,2))
-if mibBuilder.loadTexts:internalTable.setStatus(_A)
-_InternalEntry_Object=MibTableRow
-internalEntry=_InternalEntry_Object((1,3,6,1,4,1,21239,5,1,2,1))
-internalEntry.setIndexNames((0,_B,_z))
-if mibBuilder.loadTexts:internalEntry.setStatus(_A)
-class _InternalIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_InternalIndex_Type.__name__=_D
-_InternalIndex_Object=MibTableColumn
-internalIndex=_InternalIndex_Object((1,3,6,1,4,1,21239,5,1,2,1,1),_InternalIndex_Type())
-internalIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:internalIndex.setStatus(_A)
-_InternalSerial_Type=DisplayString
-_InternalSerial_Object=MibTableColumn
-internalSerial=_InternalSerial_Object((1,3,6,1,4,1,21239,5,1,2,1,2),_InternalSerial_Type())
-internalSerial.setMaxAccess(_C)
-if mibBuilder.loadTexts:internalSerial.setStatus(_A)
-_InternalName_Type=DisplayString
-_InternalName_Object=MibTableColumn
-internalName=_InternalName_Object((1,3,6,1,4,1,21239,5,1,2,1,3),_InternalName_Type())
-internalName.setMaxAccess(_C)
-if mibBuilder.loadTexts:internalName.setStatus(_A)
-_InternalAvail_Type=Gauge32
-_InternalAvail_Object=MibTableColumn
-internalAvail=_InternalAvail_Object((1,3,6,1,4,1,21239,5,1,2,1,4),_InternalAvail_Type())
-internalAvail.setMaxAccess(_C)
-if mibBuilder.loadTexts:internalAvail.setStatus(_A)
-class _InternalTemp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-40,200))
-_InternalTemp_Type.__name__=_D
-_InternalTemp_Object=MibTableColumn
-internalTemp=_InternalTemp_Object((1,3,6,1,4,1,21239,5,1,2,1,5),_InternalTemp_Type())
-internalTemp.setMaxAccess(_C)
-if mibBuilder.loadTexts:internalTemp.setStatus(_A)
-if mibBuilder.loadTexts:internalTemp.setUnits(_F)
-class _InternalHumidity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_InternalHumidity_Type.__name__=_D
-_InternalHumidity_Object=MibTableColumn
-internalHumidity=_InternalHumidity_Object((1,3,6,1,4,1,21239,5,1,2,1,6),_InternalHumidity_Type())
-internalHumidity.setMaxAccess(_C)
-if mibBuilder.loadTexts:internalHumidity.setStatus(_A)
-if mibBuilder.loadTexts:internalHumidity.setUnits('%')
-class _InternalDewPoint_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-40,200))
-_InternalDewPoint_Type.__name__=_D
-_InternalDewPoint_Object=MibTableColumn
-internalDewPoint=_InternalDewPoint_Object((1,3,6,1,4,1,21239,5,1,2,1,7),_InternalDewPoint_Type())
-internalDewPoint.setMaxAccess(_C)
-if mibBuilder.loadTexts:internalDewPoint.setStatus(_A)
-if mibBuilder.loadTexts:internalDewPoint.setUnits(_F)
-class _InternalIO1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_InternalIO1_Type.__name__=_D
-_InternalIO1_Object=MibTableColumn
-internalIO1=_InternalIO1_Object((1,3,6,1,4,1,21239,5,1,2,1,8),_InternalIO1_Type())
-internalIO1.setMaxAccess(_C)
-if mibBuilder.loadTexts:internalIO1.setStatus(_A)
-class _InternalIO2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_InternalIO2_Type.__name__=_D
-_InternalIO2_Object=MibTableColumn
-internalIO2=_InternalIO2_Object((1,3,6,1,4,1,21239,5,1,2,1,9),_InternalIO2_Type())
-internalIO2.setMaxAccess(_C)
-if mibBuilder.loadTexts:internalIO2.setStatus(_A)
-class _InternalIO3_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_InternalIO3_Type.__name__=_D
-_InternalIO3_Object=MibTableColumn
-internalIO3=_InternalIO3_Object((1,3,6,1,4,1,21239,5,1,2,1,10),_InternalIO3_Type())
-internalIO3.setMaxAccess(_C)
-if mibBuilder.loadTexts:internalIO3.setStatus(_A)
-class _InternalIO4_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_InternalIO4_Type.__name__=_D
-_InternalIO4_Object=MibTableColumn
-internalIO4=_InternalIO4_Object((1,3,6,1,4,1,21239,5,1,2,1,11),_InternalIO4_Type())
-internalIO4.setMaxAccess(_C)
-if mibBuilder.loadTexts:internalIO4.setStatus(_A)
-_InternalRelayState_Type=Gauge32
-_InternalRelayState_Object=MibTableColumn
-internalRelayState=_InternalRelayState_Object((1,3,6,1,4,1,21239,5,1,2,1,12),_InternalRelayState_Type())
-internalRelayState.setMaxAccess(_C)
-if mibBuilder.loadTexts:internalRelayState.setStatus(_A)
-_TempSensorTable_Object=MibTable
-tempSensorTable=_TempSensorTable_Object((1,3,6,1,4,1,21239,5,1,4))
-if mibBuilder.loadTexts:tempSensorTable.setStatus(_A)
-_TempSensorEntry_Object=MibTableRow
-tempSensorEntry=_TempSensorEntry_Object((1,3,6,1,4,1,21239,5,1,4,1))
-tempSensorEntry.setIndexNames((0,_B,_A0))
-if mibBuilder.loadTexts:tempSensorEntry.setStatus(_A)
-class _TempSensorIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_TempSensorIndex_Type.__name__=_D
-_TempSensorIndex_Object=MibTableColumn
-tempSensorIndex=_TempSensorIndex_Object((1,3,6,1,4,1,21239,5,1,4,1,1),_TempSensorIndex_Type())
-tempSensorIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:tempSensorIndex.setStatus(_A)
-_TempSensorSerial_Type=DisplayString
-_TempSensorSerial_Object=MibTableColumn
-tempSensorSerial=_TempSensorSerial_Object((1,3,6,1,4,1,21239,5,1,4,1,2),_TempSensorSerial_Type())
-tempSensorSerial.setMaxAccess(_C)
-if mibBuilder.loadTexts:tempSensorSerial.setStatus(_A)
-_TempSensorName_Type=DisplayString
-_TempSensorName_Object=MibTableColumn
-tempSensorName=_TempSensorName_Object((1,3,6,1,4,1,21239,5,1,4,1,3),_TempSensorName_Type())
-tempSensorName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tempSensorName.setStatus(_A)
-_TempSensorAvail_Type=Gauge32
-_TempSensorAvail_Object=MibTableColumn
-tempSensorAvail=_TempSensorAvail_Object((1,3,6,1,4,1,21239,5,1,4,1,4),_TempSensorAvail_Type())
-tempSensorAvail.setMaxAccess(_C)
-if mibBuilder.loadTexts:tempSensorAvail.setStatus(_A)
-class _TempSensorTemp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-40,200))
-_TempSensorTemp_Type.__name__=_D
-_TempSensorTemp_Object=MibTableColumn
-tempSensorTemp=_TempSensorTemp_Object((1,3,6,1,4,1,21239,5,1,4,1,5),_TempSensorTemp_Type())
-tempSensorTemp.setMaxAccess(_C)
-if mibBuilder.loadTexts:tempSensorTemp.setStatus(_A)
-if mibBuilder.loadTexts:tempSensorTemp.setUnits(_F)
-_AirFlowSensorTable_Object=MibTable
-airFlowSensorTable=_AirFlowSensorTable_Object((1,3,6,1,4,1,21239,5,1,5))
-if mibBuilder.loadTexts:airFlowSensorTable.setStatus(_A)
-_AirFlowSensorEntry_Object=MibTableRow
-airFlowSensorEntry=_AirFlowSensorEntry_Object((1,3,6,1,4,1,21239,5,1,5,1))
-airFlowSensorEntry.setIndexNames((0,_B,_A1))
-if mibBuilder.loadTexts:airFlowSensorEntry.setStatus(_A)
-class _AirFlowSensorIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_AirFlowSensorIndex_Type.__name__=_D
-_AirFlowSensorIndex_Object=MibTableColumn
-airFlowSensorIndex=_AirFlowSensorIndex_Object((1,3,6,1,4,1,21239,5,1,5,1,1),_AirFlowSensorIndex_Type())
-airFlowSensorIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:airFlowSensorIndex.setStatus(_A)
-_AirFlowSensorSerial_Type=DisplayString
-_AirFlowSensorSerial_Object=MibTableColumn
-airFlowSensorSerial=_AirFlowSensorSerial_Object((1,3,6,1,4,1,21239,5,1,5,1,2),_AirFlowSensorSerial_Type())
-airFlowSensorSerial.setMaxAccess(_C)
-if mibBuilder.loadTexts:airFlowSensorSerial.setStatus(_A)
-_AirFlowSensorName_Type=DisplayString
-_AirFlowSensorName_Object=MibTableColumn
-airFlowSensorName=_AirFlowSensorName_Object((1,3,6,1,4,1,21239,5,1,5,1,3),_AirFlowSensorName_Type())
-airFlowSensorName.setMaxAccess(_C)
-if mibBuilder.loadTexts:airFlowSensorName.setStatus(_A)
-_AirFlowSensorAvail_Type=Gauge32
-_AirFlowSensorAvail_Object=MibTableColumn
-airFlowSensorAvail=_AirFlowSensorAvail_Object((1,3,6,1,4,1,21239,5,1,5,1,4),_AirFlowSensorAvail_Type())
-airFlowSensorAvail.setMaxAccess(_C)
-if mibBuilder.loadTexts:airFlowSensorAvail.setStatus(_A)
-class _AirFlowSensorTemp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-40,200))
-_AirFlowSensorTemp_Type.__name__=_D
-_AirFlowSensorTemp_Object=MibTableColumn
-airFlowSensorTemp=_AirFlowSensorTemp_Object((1,3,6,1,4,1,21239,5,1,5,1,5),_AirFlowSensorTemp_Type())
-airFlowSensorTemp.setMaxAccess(_C)
-if mibBuilder.loadTexts:airFlowSensorTemp.setStatus(_A)
-if mibBuilder.loadTexts:airFlowSensorTemp.setUnits(_F)
-class _AirFlowSensorFlow_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_AirFlowSensorFlow_Type.__name__=_D
-_AirFlowSensorFlow_Object=MibTableColumn
-airFlowSensorFlow=_AirFlowSensorFlow_Object((1,3,6,1,4,1,21239,5,1,5,1,6),_AirFlowSensorFlow_Type())
-airFlowSensorFlow.setMaxAccess(_C)
-if mibBuilder.loadTexts:airFlowSensorFlow.setStatus(_A)
-class _AirFlowSensorHumidity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_AirFlowSensorHumidity_Type.__name__=_D
-_AirFlowSensorHumidity_Object=MibTableColumn
-airFlowSensorHumidity=_AirFlowSensorHumidity_Object((1,3,6,1,4,1,21239,5,1,5,1,7),_AirFlowSensorHumidity_Type())
-airFlowSensorHumidity.setMaxAccess(_C)
-if mibBuilder.loadTexts:airFlowSensorHumidity.setStatus(_A)
-if mibBuilder.loadTexts:airFlowSensorHumidity.setUnits('%')
-class _AirFlowSensorDewPoint_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-40,200))
-_AirFlowSensorDewPoint_Type.__name__=_D
-_AirFlowSensorDewPoint_Object=MibTableColumn
-airFlowSensorDewPoint=_AirFlowSensorDewPoint_Object((1,3,6,1,4,1,21239,5,1,5,1,8),_AirFlowSensorDewPoint_Type())
-airFlowSensorDewPoint.setMaxAccess(_C)
-if mibBuilder.loadTexts:airFlowSensorDewPoint.setStatus(_A)
-if mibBuilder.loadTexts:airFlowSensorDewPoint.setUnits(_F)
-_DewPointSensorTable_Object=MibTable
-dewPointSensorTable=_DewPointSensorTable_Object((1,3,6,1,4,1,21239,5,1,6))
-if mibBuilder.loadTexts:dewPointSensorTable.setStatus(_A)
-_DewPointSensorEntry_Object=MibTableRow
-dewPointSensorEntry=_DewPointSensorEntry_Object((1,3,6,1,4,1,21239,5,1,6,1))
-dewPointSensorEntry.setIndexNames((0,_B,_A2))
-if mibBuilder.loadTexts:dewPointSensorEntry.setStatus(_A)
-class _DewPointSensorIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_DewPointSensorIndex_Type.__name__=_D
-_DewPointSensorIndex_Object=MibTableColumn
-dewPointSensorIndex=_DewPointSensorIndex_Object((1,3,6,1,4,1,21239,5,1,6,1,1),_DewPointSensorIndex_Type())
-dewPointSensorIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:dewPointSensorIndex.setStatus(_A)
-_DewPointSensorSerial_Type=DisplayString
-_DewPointSensorSerial_Object=MibTableColumn
-dewPointSensorSerial=_DewPointSensorSerial_Object((1,3,6,1,4,1,21239,5,1,6,1,2),_DewPointSensorSerial_Type())
-dewPointSensorSerial.setMaxAccess(_C)
-if mibBuilder.loadTexts:dewPointSensorSerial.setStatus(_A)
-_DewPointSensorName_Type=DisplayString
-_DewPointSensorName_Object=MibTableColumn
-dewPointSensorName=_DewPointSensorName_Object((1,3,6,1,4,1,21239,5,1,6,1,3),_DewPointSensorName_Type())
-dewPointSensorName.setMaxAccess(_C)
-if mibBuilder.loadTexts:dewPointSensorName.setStatus(_A)
-_DewPointSensorAvail_Type=Gauge32
-_DewPointSensorAvail_Object=MibTableColumn
-dewPointSensorAvail=_DewPointSensorAvail_Object((1,3,6,1,4,1,21239,5,1,6,1,4),_DewPointSensorAvail_Type())
-dewPointSensorAvail.setMaxAccess(_C)
-if mibBuilder.loadTexts:dewPointSensorAvail.setStatus(_A)
-class _DewPointSensorTemp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-40,200))
-_DewPointSensorTemp_Type.__name__=_D
-_DewPointSensorTemp_Object=MibTableColumn
-dewPointSensorTemp=_DewPointSensorTemp_Object((1,3,6,1,4,1,21239,5,1,6,1,5),_DewPointSensorTemp_Type())
-dewPointSensorTemp.setMaxAccess(_C)
-if mibBuilder.loadTexts:dewPointSensorTemp.setStatus(_A)
-if mibBuilder.loadTexts:dewPointSensorTemp.setUnits(_F)
-class _DewPointSensorHumidity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_DewPointSensorHumidity_Type.__name__=_D
-_DewPointSensorHumidity_Object=MibTableColumn
-dewPointSensorHumidity=_DewPointSensorHumidity_Object((1,3,6,1,4,1,21239,5,1,6,1,6),_DewPointSensorHumidity_Type())
-dewPointSensorHumidity.setMaxAccess(_C)
-if mibBuilder.loadTexts:dewPointSensorHumidity.setStatus(_A)
-if mibBuilder.loadTexts:dewPointSensorHumidity.setUnits('%')
-class _DewPointSensorDewPoint_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-40,200))
-_DewPointSensorDewPoint_Type.__name__=_D
-_DewPointSensorDewPoint_Object=MibTableColumn
-dewPointSensorDewPoint=_DewPointSensorDewPoint_Object((1,3,6,1,4,1,21239,5,1,6,1,7),_DewPointSensorDewPoint_Type())
-dewPointSensorDewPoint.setMaxAccess(_C)
-if mibBuilder.loadTexts:dewPointSensorDewPoint.setStatus(_A)
-if mibBuilder.loadTexts:dewPointSensorDewPoint.setUnits(_F)
-_CcatSensorTable_Object=MibTable
-ccatSensorTable=_CcatSensorTable_Object((1,3,6,1,4,1,21239,5,1,7))
-if mibBuilder.loadTexts:ccatSensorTable.setStatus(_A)
-_CcatSensorEntry_Object=MibTableRow
-ccatSensorEntry=_CcatSensorEntry_Object((1,3,6,1,4,1,21239,5,1,7,1))
-ccatSensorEntry.setIndexNames((0,_B,_A3))
-if mibBuilder.loadTexts:ccatSensorEntry.setStatus(_A)
-class _CcatSensorIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_CcatSensorIndex_Type.__name__=_D
-_CcatSensorIndex_Object=MibTableColumn
-ccatSensorIndex=_CcatSensorIndex_Object((1,3,6,1,4,1,21239,5,1,7,1,1),_CcatSensorIndex_Type())
-ccatSensorIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccatSensorIndex.setStatus(_A)
-_CcatSensorSerial_Type=DisplayString
-_CcatSensorSerial_Object=MibTableColumn
-ccatSensorSerial=_CcatSensorSerial_Object((1,3,6,1,4,1,21239,5,1,7,1,2),_CcatSensorSerial_Type())
-ccatSensorSerial.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccatSensorSerial.setStatus(_A)
-_CcatSensorName_Type=DisplayString
-_CcatSensorName_Object=MibTableColumn
-ccatSensorName=_CcatSensorName_Object((1,3,6,1,4,1,21239,5,1,7,1,3),_CcatSensorName_Type())
-ccatSensorName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccatSensorName.setStatus(_A)
-_CcatSensorAvail_Type=Gauge32
-_CcatSensorAvail_Object=MibTableColumn
-ccatSensorAvail=_CcatSensorAvail_Object((1,3,6,1,4,1,21239,5,1,7,1,4),_CcatSensorAvail_Type())
-ccatSensorAvail.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccatSensorAvail.setStatus(_A)
-class _CcatSensorValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-100,5000))
-_CcatSensorValue_Type.__name__=_D
-_CcatSensorValue_Object=MibTableColumn
-ccatSensorValue=_CcatSensorValue_Object((1,3,6,1,4,1,21239,5,1,7,1,5),_CcatSensorValue_Type())
-ccatSensorValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccatSensorValue.setStatus(_A)
-_CcatSensorType_Type=DisplayString
-_CcatSensorType_Object=MibTableColumn
-ccatSensorType=_CcatSensorType_Object((1,3,6,1,4,1,21239,5,1,7,1,6),_CcatSensorType_Type())
-ccatSensorType.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccatSensorType.setStatus(_A)
-_CcatSensorDescription_Type=DisplayString
-_CcatSensorDescription_Object=MibTableColumn
-ccatSensorDescription=_CcatSensorDescription_Object((1,3,6,1,4,1,21239,5,1,7,1,7),_CcatSensorDescription_Type())
-ccatSensorDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccatSensorDescription.setStatus(_A)
-_T3hdSensorTable_Object=MibTable
-t3hdSensorTable=_T3hdSensorTable_Object((1,3,6,1,4,1,21239,5,1,8))
-if mibBuilder.loadTexts:t3hdSensorTable.setStatus(_A)
-_T3hdSensorEntry_Object=MibTableRow
-t3hdSensorEntry=_T3hdSensorEntry_Object((1,3,6,1,4,1,21239,5,1,8,1))
-t3hdSensorEntry.setIndexNames((0,_B,_A4))
-if mibBuilder.loadTexts:t3hdSensorEntry.setStatus(_A)
-class _T3hdSensorIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_T3hdSensorIndex_Type.__name__=_D
-_T3hdSensorIndex_Object=MibTableColumn
-t3hdSensorIndex=_T3hdSensorIndex_Object((1,3,6,1,4,1,21239,5,1,8,1,1),_T3hdSensorIndex_Type())
-t3hdSensorIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:t3hdSensorIndex.setStatus(_A)
-_T3hdSensorSerial_Type=DisplayString
-_T3hdSensorSerial_Object=MibTableColumn
-t3hdSensorSerial=_T3hdSensorSerial_Object((1,3,6,1,4,1,21239,5,1,8,1,2),_T3hdSensorSerial_Type())
-t3hdSensorSerial.setMaxAccess(_C)
-if mibBuilder.loadTexts:t3hdSensorSerial.setStatus(_A)
-_T3hdSensorName_Type=DisplayString
-_T3hdSensorName_Object=MibTableColumn
-t3hdSensorName=_T3hdSensorName_Object((1,3,6,1,4,1,21239,5,1,8,1,3),_T3hdSensorName_Type())
-t3hdSensorName.setMaxAccess(_C)
-if mibBuilder.loadTexts:t3hdSensorName.setStatus(_A)
-_T3hdSensorAvail_Type=Gauge32
-_T3hdSensorAvail_Object=MibTableColumn
-t3hdSensorAvail=_T3hdSensorAvail_Object((1,3,6,1,4,1,21239,5,1,8,1,4),_T3hdSensorAvail_Type())
-t3hdSensorAvail.setMaxAccess(_C)
-if mibBuilder.loadTexts:t3hdSensorAvail.setStatus(_A)
-_T3hdSensorIntName_Type=DisplayString
-_T3hdSensorIntName_Object=MibTableColumn
-t3hdSensorIntName=_T3hdSensorIntName_Object((1,3,6,1,4,1,21239,5,1,8,1,5),_T3hdSensorIntName_Type())
-t3hdSensorIntName.setMaxAccess(_C)
-if mibBuilder.loadTexts:t3hdSensorIntName.setStatus(_A)
-class _T3hdSensorIntTemp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-40,200))
-_T3hdSensorIntTemp_Type.__name__=_D
-_T3hdSensorIntTemp_Object=MibTableColumn
-t3hdSensorIntTemp=_T3hdSensorIntTemp_Object((1,3,6,1,4,1,21239,5,1,8,1,6),_T3hdSensorIntTemp_Type())
-t3hdSensorIntTemp.setMaxAccess(_C)
-if mibBuilder.loadTexts:t3hdSensorIntTemp.setStatus(_A)
-if mibBuilder.loadTexts:t3hdSensorIntTemp.setUnits(_F)
-class _T3hdSensorIntHumidity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_T3hdSensorIntHumidity_Type.__name__=_D
-_T3hdSensorIntHumidity_Object=MibTableColumn
-t3hdSensorIntHumidity=_T3hdSensorIntHumidity_Object((1,3,6,1,4,1,21239,5,1,8,1,7),_T3hdSensorIntHumidity_Type())
-t3hdSensorIntHumidity.setMaxAccess(_C)
-if mibBuilder.loadTexts:t3hdSensorIntHumidity.setStatus(_A)
-if mibBuilder.loadTexts:t3hdSensorIntHumidity.setUnits('%')
-class _T3hdSensorIntDewPoint_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-40,200))
-_T3hdSensorIntDewPoint_Type.__name__=_D
-_T3hdSensorIntDewPoint_Object=MibTableColumn
-t3hdSensorIntDewPoint=_T3hdSensorIntDewPoint_Object((1,3,6,1,4,1,21239,5,1,8,1,8),_T3hdSensorIntDewPoint_Type())
-t3hdSensorIntDewPoint.setMaxAccess(_C)
-if mibBuilder.loadTexts:t3hdSensorIntDewPoint.setStatus(_A)
-if mibBuilder.loadTexts:t3hdSensorIntDewPoint.setUnits(_F)
-_T3hdSensorExtAAvail_Type=Gauge32
-_T3hdSensorExtAAvail_Object=MibTableColumn
-t3hdSensorExtAAvail=_T3hdSensorExtAAvail_Object((1,3,6,1,4,1,21239,5,1,8,1,9),_T3hdSensorExtAAvail_Type())
-t3hdSensorExtAAvail.setMaxAccess(_C)
-if mibBuilder.loadTexts:t3hdSensorExtAAvail.setStatus(_A)
-_T3hdSensorExtAName_Type=DisplayString
-_T3hdSensorExtAName_Object=MibTableColumn
-t3hdSensorExtAName=_T3hdSensorExtAName_Object((1,3,6,1,4,1,21239,5,1,8,1,10),_T3hdSensorExtAName_Type())
-t3hdSensorExtAName.setMaxAccess(_C)
-if mibBuilder.loadTexts:t3hdSensorExtAName.setStatus(_A)
-class _T3hdSensorExtATemp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-40,200))
-_T3hdSensorExtATemp_Type.__name__=_D
-_T3hdSensorExtATemp_Object=MibTableColumn
-t3hdSensorExtATemp=_T3hdSensorExtATemp_Object((1,3,6,1,4,1,21239,5,1,8,1,11),_T3hdSensorExtATemp_Type())
-t3hdSensorExtATemp.setMaxAccess(_C)
-if mibBuilder.loadTexts:t3hdSensorExtATemp.setStatus(_A)
-if mibBuilder.loadTexts:t3hdSensorExtATemp.setUnits(_F)
-_T3hdSensorExtBAvail_Type=Gauge32
-_T3hdSensorExtBAvail_Object=MibTableColumn
-t3hdSensorExtBAvail=_T3hdSensorExtBAvail_Object((1,3,6,1,4,1,21239,5,1,8,1,12),_T3hdSensorExtBAvail_Type())
-t3hdSensorExtBAvail.setMaxAccess(_C)
-if mibBuilder.loadTexts:t3hdSensorExtBAvail.setStatus(_A)
-_T3hdSensorExtBName_Type=DisplayString
-_T3hdSensorExtBName_Object=MibTableColumn
-t3hdSensorExtBName=_T3hdSensorExtBName_Object((1,3,6,1,4,1,21239,5,1,8,1,13),_T3hdSensorExtBName_Type())
-t3hdSensorExtBName.setMaxAccess(_C)
-if mibBuilder.loadTexts:t3hdSensorExtBName.setStatus(_A)
-class _T3hdSensorExtBTemp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-40,200))
-_T3hdSensorExtBTemp_Type.__name__=_D
-_T3hdSensorExtBTemp_Object=MibTableColumn
-t3hdSensorExtBTemp=_T3hdSensorExtBTemp_Object((1,3,6,1,4,1,21239,5,1,8,1,14),_T3hdSensorExtBTemp_Type())
-t3hdSensorExtBTemp.setMaxAccess(_C)
-if mibBuilder.loadTexts:t3hdSensorExtBTemp.setStatus(_A)
-if mibBuilder.loadTexts:t3hdSensorExtBTemp.setUnits(_F)
-_ThdSensorTable_Object=MibTable
-thdSensorTable=_ThdSensorTable_Object((1,3,6,1,4,1,21239,5,1,9))
-if mibBuilder.loadTexts:thdSensorTable.setStatus(_A)
-_ThdSensorEntry_Object=MibTableRow
-thdSensorEntry=_ThdSensorEntry_Object((1,3,6,1,4,1,21239,5,1,9,1))
-thdSensorEntry.setIndexNames((0,_B,_A5))
-if mibBuilder.loadTexts:thdSensorEntry.setStatus(_A)
-class _ThdSensorIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_ThdSensorIndex_Type.__name__=_D
-_ThdSensorIndex_Object=MibTableColumn
-thdSensorIndex=_ThdSensorIndex_Object((1,3,6,1,4,1,21239,5,1,9,1,1),_ThdSensorIndex_Type())
-thdSensorIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:thdSensorIndex.setStatus(_A)
-_ThdSensorSerial_Type=DisplayString
-_ThdSensorSerial_Object=MibTableColumn
-thdSensorSerial=_ThdSensorSerial_Object((1,3,6,1,4,1,21239,5,1,9,1,2),_ThdSensorSerial_Type())
-thdSensorSerial.setMaxAccess(_C)
-if mibBuilder.loadTexts:thdSensorSerial.setStatus(_A)
-_ThdSensorName_Type=DisplayString
-_ThdSensorName_Object=MibTableColumn
-thdSensorName=_ThdSensorName_Object((1,3,6,1,4,1,21239,5,1,9,1,3),_ThdSensorName_Type())
-thdSensorName.setMaxAccess(_C)
-if mibBuilder.loadTexts:thdSensorName.setStatus(_A)
-_ThdSensorAvail_Type=Gauge32
-_ThdSensorAvail_Object=MibTableColumn
-thdSensorAvail=_ThdSensorAvail_Object((1,3,6,1,4,1,21239,5,1,9,1,4),_ThdSensorAvail_Type())
-thdSensorAvail.setMaxAccess(_C)
-if mibBuilder.loadTexts:thdSensorAvail.setStatus(_A)
-class _ThdSensorTemp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-40,200))
-_ThdSensorTemp_Type.__name__=_D
-_ThdSensorTemp_Object=MibTableColumn
-thdSensorTemp=_ThdSensorTemp_Object((1,3,6,1,4,1,21239,5,1,9,1,5),_ThdSensorTemp_Type())
-thdSensorTemp.setMaxAccess(_C)
-if mibBuilder.loadTexts:thdSensorTemp.setStatus(_A)
-if mibBuilder.loadTexts:thdSensorTemp.setUnits(_F)
-class _ThdSensorHumidity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_ThdSensorHumidity_Type.__name__=_D
-_ThdSensorHumidity_Object=MibTableColumn
-thdSensorHumidity=_ThdSensorHumidity_Object((1,3,6,1,4,1,21239,5,1,9,1,6),_ThdSensorHumidity_Type())
-thdSensorHumidity.setMaxAccess(_C)
-if mibBuilder.loadTexts:thdSensorHumidity.setStatus(_A)
-if mibBuilder.loadTexts:thdSensorHumidity.setUnits('%')
-class _ThdSensorDewPoint_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-40,200))
-_ThdSensorDewPoint_Type.__name__=_D
-_ThdSensorDewPoint_Object=MibTableColumn
-thdSensorDewPoint=_ThdSensorDewPoint_Object((1,3,6,1,4,1,21239,5,1,9,1,7),_ThdSensorDewPoint_Type())
-thdSensorDewPoint.setMaxAccess(_C)
-if mibBuilder.loadTexts:thdSensorDewPoint.setStatus(_A)
-if mibBuilder.loadTexts:thdSensorDewPoint.setUnits(_F)
-_RpmSensorTable_Object=MibTable
-rpmSensorTable=_RpmSensorTable_Object((1,3,6,1,4,1,21239,5,1,10))
-if mibBuilder.loadTexts:rpmSensorTable.setStatus(_A)
-_RpmSensorEntry_Object=MibTableRow
-rpmSensorEntry=_RpmSensorEntry_Object((1,3,6,1,4,1,21239,5,1,10,1))
-rpmSensorEntry.setIndexNames((0,_B,_A6))
-if mibBuilder.loadTexts:rpmSensorEntry.setStatus(_A)
-class _RpmSensorIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_RpmSensorIndex_Type.__name__=_D
-_RpmSensorIndex_Object=MibTableColumn
-rpmSensorIndex=_RpmSensorIndex_Object((1,3,6,1,4,1,21239,5,1,10,1,1),_RpmSensorIndex_Type())
-rpmSensorIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:rpmSensorIndex.setStatus(_A)
-_RpmSensorSerial_Type=DisplayString
-_RpmSensorSerial_Object=MibTableColumn
-rpmSensorSerial=_RpmSensorSerial_Object((1,3,6,1,4,1,21239,5,1,10,1,2),_RpmSensorSerial_Type())
-rpmSensorSerial.setMaxAccess(_C)
-if mibBuilder.loadTexts:rpmSensorSerial.setStatus(_A)
-_RpmSensorName_Type=DisplayString
-_RpmSensorName_Object=MibTableColumn
-rpmSensorName=_RpmSensorName_Object((1,3,6,1,4,1,21239,5,1,10,1,3),_RpmSensorName_Type())
-rpmSensorName.setMaxAccess(_C)
-if mibBuilder.loadTexts:rpmSensorName.setStatus(_A)
-_RpmSensorAvail_Type=Gauge32
-_RpmSensorAvail_Object=MibTableColumn
-rpmSensorAvail=_RpmSensorAvail_Object((1,3,6,1,4,1,21239,5,1,10,1,4),_RpmSensorAvail_Type())
-rpmSensorAvail.setMaxAccess(_C)
-if mibBuilder.loadTexts:rpmSensorAvail.setStatus(_A)
-_RpmSensorEnergy_Type=Gauge32
-_RpmSensorEnergy_Object=MibTableColumn
-rpmSensorEnergy=_RpmSensorEnergy_Object((1,3,6,1,4,1,21239,5,1,10,1,5),_RpmSensorEnergy_Type())
-rpmSensorEnergy.setMaxAccess(_C)
-if mibBuilder.loadTexts:rpmSensorEnergy.setStatus(_A)
-if mibBuilder.loadTexts:rpmSensorEnergy.setUnits('kWh')
-_RpmSensorVoltage_Type=Gauge32
-_RpmSensorVoltage_Object=MibTableColumn
-rpmSensorVoltage=_RpmSensorVoltage_Object((1,3,6,1,4,1,21239,5,1,10,1,6),_RpmSensorVoltage_Type())
-rpmSensorVoltage.setMaxAccess(_C)
-if mibBuilder.loadTexts:rpmSensorVoltage.setStatus(_A)
-if mibBuilder.loadTexts:rpmSensorVoltage.setUnits(_G)
-_RpmSensorVoltageMax_Type=Gauge32
-_RpmSensorVoltageMax_Object=MibTableColumn
-rpmSensorVoltageMax=_RpmSensorVoltageMax_Object((1,3,6,1,4,1,21239,5,1,10,1,7),_RpmSensorVoltageMax_Type())
-rpmSensorVoltageMax.setMaxAccess(_C)
-if mibBuilder.loadTexts:rpmSensorVoltageMax.setStatus(_A)
-if mibBuilder.loadTexts:rpmSensorVoltageMax.setUnits(_G)
-_RpmSensorVoltageMin_Type=Gauge32
-_RpmSensorVoltageMin_Object=MibTableColumn
-rpmSensorVoltageMin=_RpmSensorVoltageMin_Object((1,3,6,1,4,1,21239,5,1,10,1,8),_RpmSensorVoltageMin_Type())
-rpmSensorVoltageMin.setMaxAccess(_C)
-if mibBuilder.loadTexts:rpmSensorVoltageMin.setStatus(_A)
-if mibBuilder.loadTexts:rpmSensorVoltageMin.setUnits(_G)
-_RpmSensorVoltagePeak_Type=Gauge32
-_RpmSensorVoltagePeak_Object=MibTableColumn
-rpmSensorVoltagePeak=_RpmSensorVoltagePeak_Object((1,3,6,1,4,1,21239,5,1,10,1,9),_RpmSensorVoltagePeak_Type())
-rpmSensorVoltagePeak.setMaxAccess(_C)
-if mibBuilder.loadTexts:rpmSensorVoltagePeak.setStatus(_A)
-if mibBuilder.loadTexts:rpmSensorVoltagePeak.setUnits('Volts')
-_RpmSensorCurrent_Type=Gauge32
-_RpmSensorCurrent_Object=MibTableColumn
-rpmSensorCurrent=_RpmSensorCurrent_Object((1,3,6,1,4,1,21239,5,1,10,1,10),_RpmSensorCurrent_Type())
-rpmSensorCurrent.setMaxAccess(_C)
-if mibBuilder.loadTexts:rpmSensorCurrent.setStatus(_A)
-if mibBuilder.loadTexts:rpmSensorCurrent.setUnits('0.1 Amps (rms)')
-_RpmSensorRealPower_Type=Gauge32
-_RpmSensorRealPower_Object=MibTableColumn
-rpmSensorRealPower=_RpmSensorRealPower_Object((1,3,6,1,4,1,21239,5,1,10,1,11),_RpmSensorRealPower_Type())
-rpmSensorRealPower.setMaxAccess(_C)
-if mibBuilder.loadTexts:rpmSensorRealPower.setStatus(_A)
-if mibBuilder.loadTexts:rpmSensorRealPower.setUnits('Watts')
-_RpmSensorApparentPower_Type=Gauge32
-_RpmSensorApparentPower_Object=MibTableColumn
-rpmSensorApparentPower=_RpmSensorApparentPower_Object((1,3,6,1,4,1,21239,5,1,10,1,12),_RpmSensorApparentPower_Type())
-rpmSensorApparentPower.setMaxAccess(_C)
-if mibBuilder.loadTexts:rpmSensorApparentPower.setStatus(_A)
-if mibBuilder.loadTexts:rpmSensorApparentPower.setUnits('Volt-Amps')
-_RpmSensorPowerFactor_Type=Gauge32
-_RpmSensorPowerFactor_Object=MibTableColumn
-rpmSensorPowerFactor=_RpmSensorPowerFactor_Object((1,3,6,1,4,1,21239,5,1,10,1,13),_RpmSensorPowerFactor_Type())
-rpmSensorPowerFactor.setMaxAccess(_C)
-if mibBuilder.loadTexts:rpmSensorPowerFactor.setStatus(_A)
-if mibBuilder.loadTexts:rpmSensorPowerFactor.setUnits('%')
-_RpmSensorOutlet1_Type=Gauge32
-_RpmSensorOutlet1_Object=MibTableColumn
-rpmSensorOutlet1=_RpmSensorOutlet1_Object((1,3,6,1,4,1,21239,5,1,10,1,14),_RpmSensorOutlet1_Type())
-rpmSensorOutlet1.setMaxAccess(_C)
-if mibBuilder.loadTexts:rpmSensorOutlet1.setStatus(_A)
-_RpmSensorOutlet2_Type=Gauge32
-_RpmSensorOutlet2_Object=MibTableColumn
-rpmSensorOutlet2=_RpmSensorOutlet2_Object((1,3,6,1,4,1,21239,5,1,10,1,15),_RpmSensorOutlet2_Type())
-rpmSensorOutlet2.setMaxAccess(_C)
-if mibBuilder.loadTexts:rpmSensorOutlet2.setStatus(_A)
-_A2dSensorTable_Object=MibTable
-a2dSensorTable=_A2dSensorTable_Object((1,3,6,1,4,1,21239,5,1,11))
-if mibBuilder.loadTexts:a2dSensorTable.setStatus(_A)
-_A2DSensorEntry_Object=MibTableRow
-a2DSensorEntry=_A2DSensorEntry_Object((1,3,6,1,4,1,21239,5,1,11,1))
-a2DSensorEntry.setIndexNames((0,_B,_A7))
-if mibBuilder.loadTexts:a2DSensorEntry.setStatus(_A)
-class _A2dSensorIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_A2dSensorIndex_Type.__name__=_D
-_A2dSensorIndex_Object=MibTableColumn
-a2dSensorIndex=_A2dSensorIndex_Object((1,3,6,1,4,1,21239,5,1,11,1,1),_A2dSensorIndex_Type())
-a2dSensorIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:a2dSensorIndex.setStatus(_A)
-_A2dSensorSerial_Type=DisplayString
-_A2dSensorSerial_Object=MibTableColumn
-a2dSensorSerial=_A2dSensorSerial_Object((1,3,6,1,4,1,21239,5,1,11,1,2),_A2dSensorSerial_Type())
-a2dSensorSerial.setMaxAccess(_C)
-if mibBuilder.loadTexts:a2dSensorSerial.setStatus(_A)
-_A2dSensorName_Type=DisplayString
-_A2dSensorName_Object=MibTableColumn
-a2dSensorName=_A2dSensorName_Object((1,3,6,1,4,1,21239,5,1,11,1,3),_A2dSensorName_Type())
-a2dSensorName.setMaxAccess(_C)
-if mibBuilder.loadTexts:a2dSensorName.setStatus(_A)
-_A2dSensorAvail_Type=Gauge32
-_A2dSensorAvail_Object=MibTableColumn
-a2dSensorAvail=_A2dSensorAvail_Object((1,3,6,1,4,1,21239,5,1,11,1,4),_A2dSensorAvail_Type())
-a2dSensorAvail.setMaxAccess(_C)
-if mibBuilder.loadTexts:a2dSensorAvail.setStatus(_A)
-class _A2dSensorValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1000000,1000000))
-_A2dSensorValue_Type.__name__=_D
-_A2dSensorValue_Object=MibTableColumn
-a2dSensorValue=_A2dSensorValue_Object((1,3,6,1,4,1,21239,5,1,11,1,5),_A2dSensorValue_Type())
-a2dSensorValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:a2dSensorValue.setStatus(_A)
-_Trap_ObjectIdentity=ObjectIdentity
-trap=_Trap_ObjectIdentity((1,3,6,1,4,1,21239,5,1,32767))
-_TrapPrefix_ObjectIdentity=ObjectIdentity
-trapPrefix=_TrapPrefix_ObjectIdentity((1,3,6,1,4,1,21239,5,1,32767,0))
-internalTestNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10101))
-if mibBuilder.loadTexts:internalTestNOTIFY.setStatus(_A)
-internalAvailNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10204))
-internalAvailNOTIFY.setObjects((_B,_H))
-if mibBuilder.loadTexts:internalAvailNOTIFY.setStatus(_A)
-internalTempNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10205))
-internalTempNOTIFY.setObjects(*((_B,_I),(_B,_E)))
-if mibBuilder.loadTexts:internalTempNOTIFY.setStatus(_A)
-internalHumidityNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10206))
-internalHumidityNOTIFY.setObjects((_B,_J))
-if mibBuilder.loadTexts:internalHumidityNOTIFY.setStatus(_A)
-internalDewPointNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10207))
-internalDewPointNOTIFY.setObjects(*((_B,_K),(_B,_E)))
-if mibBuilder.loadTexts:internalDewPointNOTIFY.setStatus(_A)
-internalIO1NOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10208))
-internalIO1NOTIFY.setObjects((_B,_L))
-if mibBuilder.loadTexts:internalIO1NOTIFY.setStatus(_A)
-internalIO2NOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10209))
-internalIO2NOTIFY.setObjects((_B,_M))
-if mibBuilder.loadTexts:internalIO2NOTIFY.setStatus(_A)
-internalIO3NOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10210))
-internalIO3NOTIFY.setObjects((_B,_N))
-if mibBuilder.loadTexts:internalIO3NOTIFY.setStatus(_A)
-internalIO4NOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10211))
-internalIO4NOTIFY.setObjects((_B,_O))
-if mibBuilder.loadTexts:internalIO4NOTIFY.setStatus(_A)
-tempSensorAvailNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10404))
-tempSensorAvailNOTIFY.setObjects((_B,_P))
-if mibBuilder.loadTexts:tempSensorAvailNOTIFY.setStatus(_A)
-tempSensorTempNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10405))
-tempSensorTempNOTIFY.setObjects(*((_B,_Q),(_B,_E)))
-if mibBuilder.loadTexts:tempSensorTempNOTIFY.setStatus(_A)
-airFlowSensorAvailNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10504))
-airFlowSensorAvailNOTIFY.setObjects((_B,_R))
-if mibBuilder.loadTexts:airFlowSensorAvailNOTIFY.setStatus(_A)
-airFlowSensorTempNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10505))
-airFlowSensorTempNOTIFY.setObjects(*((_B,_S),(_B,_E)))
-if mibBuilder.loadTexts:airFlowSensorTempNOTIFY.setStatus(_A)
-airFlowSensorFlowNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10506))
-airFlowSensorFlowNOTIFY.setObjects((_B,_T))
-if mibBuilder.loadTexts:airFlowSensorFlowNOTIFY.setStatus(_A)
-airFlowSensorHumidityNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10507))
-airFlowSensorHumidityNOTIFY.setObjects((_B,_U))
-if mibBuilder.loadTexts:airFlowSensorHumidityNOTIFY.setStatus(_A)
-airFlowSensorDewPointNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10508))
-airFlowSensorDewPointNOTIFY.setObjects(*((_B,_V),(_B,_E)))
-if mibBuilder.loadTexts:airFlowSensorDewPointNOTIFY.setStatus(_A)
-dewPointSensorAvailNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10604))
-dewPointSensorAvailNOTIFY.setObjects((_B,_W))
-if mibBuilder.loadTexts:dewPointSensorAvailNOTIFY.setStatus(_A)
-dewPointSensorTempNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10605))
-dewPointSensorTempNOTIFY.setObjects(*((_B,_X),(_B,_E)))
-if mibBuilder.loadTexts:dewPointSensorTempNOTIFY.setStatus(_A)
-dewPointSensorHumidityNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10606))
-dewPointSensorHumidityNOTIFY.setObjects((_B,_Y))
-if mibBuilder.loadTexts:dewPointSensorHumidityNOTIFY.setStatus(_A)
-dewPointSensorDewPointNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10607))
-dewPointSensorDewPointNOTIFY.setObjects(*((_B,_Z),(_B,_E)))
-if mibBuilder.loadTexts:dewPointSensorDewPointNOTIFY.setStatus(_A)
-ccatSensorAvailNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10704))
-ccatSensorAvailNOTIFY.setObjects((_B,_a))
-if mibBuilder.loadTexts:ccatSensorAvailNOTIFY.setStatus(_A)
-ccatSensorValueNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10705))
-ccatSensorValueNOTIFY.setObjects(*((_B,_b),(_B,_c)))
-if mibBuilder.loadTexts:ccatSensorValueNOTIFY.setStatus(_A)
-t3hdSensorAvailNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10804))
-t3hdSensorAvailNOTIFY.setObjects((_B,_d))
-if mibBuilder.loadTexts:t3hdSensorAvailNOTIFY.setStatus(_A)
-t3hdSensorIntTempNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10806))
-t3hdSensorIntTempNOTIFY.setObjects(*((_B,_e),(_B,_E)))
-if mibBuilder.loadTexts:t3hdSensorIntTempNOTIFY.setStatus(_A)
-t3hdSensorIntHumidityNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10807))
-t3hdSensorIntHumidityNOTIFY.setObjects((_B,_f))
-if mibBuilder.loadTexts:t3hdSensorIntHumidityNOTIFY.setStatus(_A)
-t3hdSensorIntDewPointNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10808))
-t3hdSensorIntDewPointNOTIFY.setObjects(*((_B,_g),(_B,_E)))
-if mibBuilder.loadTexts:t3hdSensorIntDewPointNOTIFY.setStatus(_A)
-t3hdSensorExtATempNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10811))
-t3hdSensorExtATempNOTIFY.setObjects(*((_B,_h),(_B,_E)))
-if mibBuilder.loadTexts:t3hdSensorExtATempNOTIFY.setStatus(_A)
-t3hdSensorExtBTempNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10814))
-t3hdSensorExtBTempNOTIFY.setObjects(*((_B,_i),(_B,_E)))
-if mibBuilder.loadTexts:t3hdSensorExtBTempNOTIFY.setStatus(_A)
-thdSensorAvailNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10904))
-thdSensorAvailNOTIFY.setObjects((_B,_j))
-if mibBuilder.loadTexts:thdSensorAvailNOTIFY.setStatus(_A)
-thdSensorTempNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10905))
-thdSensorTempNOTIFY.setObjects(*((_B,_k),(_B,_E)))
-if mibBuilder.loadTexts:thdSensorTempNOTIFY.setStatus(_A)
-thdSensorHumidityNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10906))
-thdSensorHumidityNOTIFY.setObjects((_B,_l))
-if mibBuilder.loadTexts:thdSensorHumidityNOTIFY.setStatus(_A)
-thdSensorDewPointNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,10907))
-thdSensorDewPointNOTIFY.setObjects(*((_B,_m),(_B,_E)))
-if mibBuilder.loadTexts:thdSensorDewPointNOTIFY.setStatus(_A)
-rpmSensorAvailNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,11004))
-rpmSensorAvailNOTIFY.setObjects((_B,_n))
-if mibBuilder.loadTexts:rpmSensorAvailNOTIFY.setStatus(_A)
-rpmSensorEnergyNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,11005))
-rpmSensorEnergyNOTIFY.setObjects((_B,_o))
-if mibBuilder.loadTexts:rpmSensorEnergyNOTIFY.setStatus(_A)
-rpmSensorVoltageNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,11006))
-rpmSensorVoltageNOTIFY.setObjects((_B,_p))
-if mibBuilder.loadTexts:rpmSensorVoltageNOTIFY.setStatus(_A)
-rpmSensorVoltageMaxNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,11007))
-rpmSensorVoltageMaxNOTIFY.setObjects((_B,_q))
-if mibBuilder.loadTexts:rpmSensorVoltageMaxNOTIFY.setStatus(_A)
-rpmSensorVoltageMinNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,11008))
-rpmSensorVoltageMinNOTIFY.setObjects((_B,_r))
-if mibBuilder.loadTexts:rpmSensorVoltageMinNOTIFY.setStatus(_A)
-rpmSensorVoltagePeakNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,11009))
-rpmSensorVoltagePeakNOTIFY.setObjects((_B,_s))
-if mibBuilder.loadTexts:rpmSensorVoltagePeakNOTIFY.setStatus(_A)
-rpmSensorCurrentNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,11010))
-rpmSensorCurrentNOTIFY.setObjects((_B,_t))
-if mibBuilder.loadTexts:rpmSensorCurrentNOTIFY.setStatus(_A)
-rpmSensorRealPowerNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,11011))
-rpmSensorRealPowerNOTIFY.setObjects((_B,_u))
-if mibBuilder.loadTexts:rpmSensorRealPowerNOTIFY.setStatus(_A)
-rpmSensorApparentPowerNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,11012))
-rpmSensorApparentPowerNOTIFY.setObjects((_B,_v))
-if mibBuilder.loadTexts:rpmSensorApparentPowerNOTIFY.setStatus(_A)
-rpmSensorPowerFactorNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,11013))
-rpmSensorPowerFactorNOTIFY.setObjects((_B,_w))
-if mibBuilder.loadTexts:rpmSensorPowerFactorNOTIFY.setStatus(_A)
-a2dSensorAvailNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,11104))
-a2dSensorAvailNOTIFY.setObjects((_B,_x))
-if mibBuilder.loadTexts:a2dSensorAvailNOTIFY.setStatus(_A)
-a2dSensorValueNOTIFY=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,11105))
-a2dSensorValueNOTIFY.setObjects((_B,_y))
-if mibBuilder.loadTexts:a2dSensorValueNOTIFY.setStatus(_A)
-internalAvailCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20204))
-internalAvailCLEAR.setObjects((_B,_H))
-if mibBuilder.loadTexts:internalAvailCLEAR.setStatus(_A)
-internalTempCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20205))
-internalTempCLEAR.setObjects(*((_B,_I),(_B,_E)))
-if mibBuilder.loadTexts:internalTempCLEAR.setStatus(_A)
-internalHumidityCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20206))
-internalHumidityCLEAR.setObjects((_B,_J))
-if mibBuilder.loadTexts:internalHumidityCLEAR.setStatus(_A)
-internalDewPointCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20207))
-internalDewPointCLEAR.setObjects(*((_B,_K),(_B,_E)))
-if mibBuilder.loadTexts:internalDewPointCLEAR.setStatus(_A)
-internalIO1CLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20208))
-internalIO1CLEAR.setObjects((_B,_L))
-if mibBuilder.loadTexts:internalIO1CLEAR.setStatus(_A)
-internalIO2CLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20209))
-internalIO2CLEAR.setObjects((_B,_M))
-if mibBuilder.loadTexts:internalIO2CLEAR.setStatus(_A)
-internalIO3CLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20210))
-internalIO3CLEAR.setObjects((_B,_N))
-if mibBuilder.loadTexts:internalIO3CLEAR.setStatus(_A)
-internalIO4CLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20211))
-internalIO4CLEAR.setObjects((_B,_O))
-if mibBuilder.loadTexts:internalIO4CLEAR.setStatus(_A)
-tempSensorAvailCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20404))
-tempSensorAvailCLEAR.setObjects((_B,_P))
-if mibBuilder.loadTexts:tempSensorAvailCLEAR.setStatus(_A)
-tempSensorTempCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20405))
-tempSensorTempCLEAR.setObjects(*((_B,_Q),(_B,_E)))
-if mibBuilder.loadTexts:tempSensorTempCLEAR.setStatus(_A)
-airFlowSensorAvailCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20504))
-airFlowSensorAvailCLEAR.setObjects((_B,_R))
-if mibBuilder.loadTexts:airFlowSensorAvailCLEAR.setStatus(_A)
-airFlowSensorTempCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20505))
-airFlowSensorTempCLEAR.setObjects(*((_B,_S),(_B,_E)))
-if mibBuilder.loadTexts:airFlowSensorTempCLEAR.setStatus(_A)
-airFlowSensorFlowCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20506))
-airFlowSensorFlowCLEAR.setObjects((_B,_T))
-if mibBuilder.loadTexts:airFlowSensorFlowCLEAR.setStatus(_A)
-airFlowSensorHumidityCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20507))
-airFlowSensorHumidityCLEAR.setObjects((_B,_U))
-if mibBuilder.loadTexts:airFlowSensorHumidityCLEAR.setStatus(_A)
-airFlowSensorDewPointCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20508))
-airFlowSensorDewPointCLEAR.setObjects(*((_B,_V),(_B,_E)))
-if mibBuilder.loadTexts:airFlowSensorDewPointCLEAR.setStatus(_A)
-dewPointSensorAvailCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20604))
-dewPointSensorAvailCLEAR.setObjects((_B,_W))
-if mibBuilder.loadTexts:dewPointSensorAvailCLEAR.setStatus(_A)
-dewPointSensorTempCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20605))
-dewPointSensorTempCLEAR.setObjects(*((_B,_X),(_B,_E)))
-if mibBuilder.loadTexts:dewPointSensorTempCLEAR.setStatus(_A)
-dewPointSensorHumidityCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20606))
-dewPointSensorHumidityCLEAR.setObjects((_B,_Y))
-if mibBuilder.loadTexts:dewPointSensorHumidityCLEAR.setStatus(_A)
-dewPointSensorDewPointCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20607))
-dewPointSensorDewPointCLEAR.setObjects(*((_B,_Z),(_B,_E)))
-if mibBuilder.loadTexts:dewPointSensorDewPointCLEAR.setStatus(_A)
-ccatSensorAvailCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20704))
-ccatSensorAvailCLEAR.setObjects((_B,_a))
-if mibBuilder.loadTexts:ccatSensorAvailCLEAR.setStatus(_A)
-ccatSensorValueCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20705))
-ccatSensorValueCLEAR.setObjects(*((_B,_b),(_B,_c)))
-if mibBuilder.loadTexts:ccatSensorValueCLEAR.setStatus(_A)
-t3hdSensorAvailCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20804))
-t3hdSensorAvailCLEAR.setObjects((_B,_d))
-if mibBuilder.loadTexts:t3hdSensorAvailCLEAR.setStatus(_A)
-t3hdSensorIntTempCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20806))
-t3hdSensorIntTempCLEAR.setObjects(*((_B,_e),(_B,_E)))
-if mibBuilder.loadTexts:t3hdSensorIntTempCLEAR.setStatus(_A)
-t3hdSensorIntHumidityCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20807))
-t3hdSensorIntHumidityCLEAR.setObjects((_B,_f))
-if mibBuilder.loadTexts:t3hdSensorIntHumidityCLEAR.setStatus(_A)
-t3hdSensorIntDewPointCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20808))
-t3hdSensorIntDewPointCLEAR.setObjects(*((_B,_g),(_B,_E)))
-if mibBuilder.loadTexts:t3hdSensorIntDewPointCLEAR.setStatus(_A)
-t3hdSensorExtATempCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20811))
-t3hdSensorExtATempCLEAR.setObjects(*((_B,_h),(_B,_E)))
-if mibBuilder.loadTexts:t3hdSensorExtATempCLEAR.setStatus(_A)
-t3hdSensorExtBTempCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20814))
-t3hdSensorExtBTempCLEAR.setObjects(*((_B,_i),(_B,_E)))
-if mibBuilder.loadTexts:t3hdSensorExtBTempCLEAR.setStatus(_A)
-thdSensorAvailCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20904))
-thdSensorAvailCLEAR.setObjects((_B,_j))
-if mibBuilder.loadTexts:thdSensorAvailCLEAR.setStatus(_A)
-thdSensorTempCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20905))
-thdSensorTempCLEAR.setObjects(*((_B,_k),(_B,_E)))
-if mibBuilder.loadTexts:thdSensorTempCLEAR.setStatus(_A)
-thdSensorHumidityCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20906))
-thdSensorHumidityCLEAR.setObjects((_B,_l))
-if mibBuilder.loadTexts:thdSensorHumidityCLEAR.setStatus(_A)
-thdSensorDewPointCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,20907))
-thdSensorDewPointCLEAR.setObjects(*((_B,_m),(_B,_E)))
-if mibBuilder.loadTexts:thdSensorDewPointCLEAR.setStatus(_A)
-rpmSensorAvailCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,21004))
-rpmSensorAvailCLEAR.setObjects((_B,_n))
-if mibBuilder.loadTexts:rpmSensorAvailCLEAR.setStatus(_A)
-rpmSensorEnergyCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,21005))
-rpmSensorEnergyCLEAR.setObjects((_B,_o))
-if mibBuilder.loadTexts:rpmSensorEnergyCLEAR.setStatus(_A)
-rpmSensorVoltageCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,21006))
-rpmSensorVoltageCLEAR.setObjects((_B,_p))
-if mibBuilder.loadTexts:rpmSensorVoltageCLEAR.setStatus(_A)
-rpmSensorVoltageMaxCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,21007))
-rpmSensorVoltageMaxCLEAR.setObjects((_B,_q))
-if mibBuilder.loadTexts:rpmSensorVoltageMaxCLEAR.setStatus(_A)
-rpmSensorVoltageMinCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,21008))
-rpmSensorVoltageMinCLEAR.setObjects((_B,_r))
-if mibBuilder.loadTexts:rpmSensorVoltageMinCLEAR.setStatus(_A)
-rpmSensorVoltagePeakCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,21009))
-rpmSensorVoltagePeakCLEAR.setObjects((_B,_s))
-if mibBuilder.loadTexts:rpmSensorVoltagePeakCLEAR.setStatus(_A)
-rpmSensorCurrentCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,21010))
-rpmSensorCurrentCLEAR.setObjects((_B,_t))
-if mibBuilder.loadTexts:rpmSensorCurrentCLEAR.setStatus(_A)
-rpmSensorRealPowerCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,21011))
-rpmSensorRealPowerCLEAR.setObjects((_B,_u))
-if mibBuilder.loadTexts:rpmSensorRealPowerCLEAR.setStatus(_A)
-rpmSensorApparentPowerCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,21012))
-rpmSensorApparentPowerCLEAR.setObjects((_B,_v))
-if mibBuilder.loadTexts:rpmSensorApparentPowerCLEAR.setStatus(_A)
-rpmSensorPowerFactorCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,21013))
-rpmSensorPowerFactorCLEAR.setObjects((_B,_w))
-if mibBuilder.loadTexts:rpmSensorPowerFactorCLEAR.setStatus(_A)
-a2dSensorAvailCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,21104))
-a2dSensorAvailCLEAR.setObjects((_B,_x))
-if mibBuilder.loadTexts:a2dSensorAvailCLEAR.setStatus(_A)
-a2dSensorValueCLEAR=NotificationType((1,3,6,1,4,1,21239,5,1,32767,0,21105))
-a2dSensorValueCLEAR.setObjects((_B,_y))
-if mibBuilder.loadTexts:a2dSensorValueCLEAR.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'geist':geist,'blackbird':blackbird,'watchdog100':watchdog100,'deviceInfo':deviceInfo,'productTitle':productTitle,'productVersion':productVersion,'productFriendlyName':productFriendlyName,'productMacAddress':productMacAddress,'productUrl':productUrl,'deviceCount':deviceCount,_E:temperatureUnits,'internalTable':internalTable,'internalEntry':internalEntry,_z:internalIndex,'internalSerial':internalSerial,'internalName':internalName,_H:internalAvail,_I:internalTemp,_J:internalHumidity,_K:internalDewPoint,_L:internalIO1,_M:internalIO2,_N:internalIO3,_O:internalIO4,'internalRelayState':internalRelayState,'tempSensorTable':tempSensorTable,'tempSensorEntry':tempSensorEntry,_A0:tempSensorIndex,'tempSensorSerial':tempSensorSerial,'tempSensorName':tempSensorName,_P:tempSensorAvail,_Q:tempSensorTemp,'airFlowSensorTable':airFlowSensorTable,'airFlowSensorEntry':airFlowSensorEntry,_A1:airFlowSensorIndex,'airFlowSensorSerial':airFlowSensorSerial,'airFlowSensorName':airFlowSensorName,_R:airFlowSensorAvail,_S:airFlowSensorTemp,_T:airFlowSensorFlow,_U:airFlowSensorHumidity,_V:airFlowSensorDewPoint,'dewPointSensorTable':dewPointSensorTable,'dewPointSensorEntry':dewPointSensorEntry,_A2:dewPointSensorIndex,'dewPointSensorSerial':dewPointSensorSerial,'dewPointSensorName':dewPointSensorName,_W:dewPointSensorAvail,_X:dewPointSensorTemp,_Y:dewPointSensorHumidity,_Z:dewPointSensorDewPoint,'ccatSensorTable':ccatSensorTable,'ccatSensorEntry':ccatSensorEntry,_A3:ccatSensorIndex,'ccatSensorSerial':ccatSensorSerial,'ccatSensorName':ccatSensorName,_a:ccatSensorAvail,_b:ccatSensorValue,_c:ccatSensorType,'ccatSensorDescription':ccatSensorDescription,'t3hdSensorTable':t3hdSensorTable,'t3hdSensorEntry':t3hdSensorEntry,_A4:t3hdSensorIndex,'t3hdSensorSerial':t3hdSensorSerial,'t3hdSensorName':t3hdSensorName,_d:t3hdSensorAvail,'t3hdSensorIntName':t3hdSensorIntName,_e:t3hdSensorIntTemp,_f:t3hdSensorIntHumidity,_g:t3hdSensorIntDewPoint,'t3hdSensorExtAAvail':t3hdSensorExtAAvail,'t3hdSensorExtAName':t3hdSensorExtAName,_h:t3hdSensorExtATemp,'t3hdSensorExtBAvail':t3hdSensorExtBAvail,'t3hdSensorExtBName':t3hdSensorExtBName,_i:t3hdSensorExtBTemp,'thdSensorTable':thdSensorTable,'thdSensorEntry':thdSensorEntry,_A5:thdSensorIndex,'thdSensorSerial':thdSensorSerial,'thdSensorName':thdSensorName,_j:thdSensorAvail,_k:thdSensorTemp,_l:thdSensorHumidity,_m:thdSensorDewPoint,'rpmSensorTable':rpmSensorTable,'rpmSensorEntry':rpmSensorEntry,_A6:rpmSensorIndex,'rpmSensorSerial':rpmSensorSerial,'rpmSensorName':rpmSensorName,_n:rpmSensorAvail,_o:rpmSensorEnergy,_p:rpmSensorVoltage,_q:rpmSensorVoltageMax,_r:rpmSensorVoltageMin,_s:rpmSensorVoltagePeak,_t:rpmSensorCurrent,_u:rpmSensorRealPower,_v:rpmSensorApparentPower,_w:rpmSensorPowerFactor,'rpmSensorOutlet1':rpmSensorOutlet1,'rpmSensorOutlet2':rpmSensorOutlet2,'a2dSensorTable':a2dSensorTable,'a2DSensorEntry':a2DSensorEntry,_A7:a2dSensorIndex,'a2dSensorSerial':a2dSensorSerial,'a2dSensorName':a2dSensorName,_x:a2dSensorAvail,_y:a2dSensorValue,'trap':trap,'trapPrefix':trapPrefix,'internalTestNOTIFY':internalTestNOTIFY,'internalAvailNOTIFY':internalAvailNOTIFY,'internalTempNOTIFY':internalTempNOTIFY,'internalHumidityNOTIFY':internalHumidityNOTIFY,'internalDewPointNOTIFY':internalDewPointNOTIFY,'internalIO1NOTIFY':internalIO1NOTIFY,'internalIO2NOTIFY':internalIO2NOTIFY,'internalIO3NOTIFY':internalIO3NOTIFY,'internalIO4NOTIFY':internalIO4NOTIFY,'tempSensorAvailNOTIFY':tempSensorAvailNOTIFY,'tempSensorTempNOTIFY':tempSensorTempNOTIFY,'airFlowSensorAvailNOTIFY':airFlowSensorAvailNOTIFY,'airFlowSensorTempNOTIFY':airFlowSensorTempNOTIFY,'airFlowSensorFlowNOTIFY':airFlowSensorFlowNOTIFY,'airFlowSensorHumidityNOTIFY':airFlowSensorHumidityNOTIFY,'airFlowSensorDewPointNOTIFY':airFlowSensorDewPointNOTIFY,'dewPointSensorAvailNOTIFY':dewPointSensorAvailNOTIFY,'dewPointSensorTempNOTIFY':dewPointSensorTempNOTIFY,'dewPointSensorHumidityNOTIFY':dewPointSensorHumidityNOTIFY,'dewPointSensorDewPointNOTIFY':dewPointSensorDewPointNOTIFY,'ccatSensorAvailNOTIFY':ccatSensorAvailNOTIFY,'ccatSensorValueNOTIFY':ccatSensorValueNOTIFY,'t3hdSensorAvailNOTIFY':t3hdSensorAvailNOTIFY,'t3hdSensorIntTempNOTIFY':t3hdSensorIntTempNOTIFY,'t3hdSensorIntHumidityNOTIFY':t3hdSensorIntHumidityNOTIFY,'t3hdSensorIntDewPointNOTIFY':t3hdSensorIntDewPointNOTIFY,'t3hdSensorExtATempNOTIFY':t3hdSensorExtATempNOTIFY,'t3hdSensorExtBTempNOTIFY':t3hdSensorExtBTempNOTIFY,'thdSensorAvailNOTIFY':thdSensorAvailNOTIFY,'thdSensorTempNOTIFY':thdSensorTempNOTIFY,'thdSensorHumidityNOTIFY':thdSensorHumidityNOTIFY,'thdSensorDewPointNOTIFY':thdSensorDewPointNOTIFY,'rpmSensorAvailNOTIFY':rpmSensorAvailNOTIFY,'rpmSensorEnergyNOTIFY':rpmSensorEnergyNOTIFY,'rpmSensorVoltageNOTIFY':rpmSensorVoltageNOTIFY,'rpmSensorVoltageMaxNOTIFY':rpmSensorVoltageMaxNOTIFY,'rpmSensorVoltageMinNOTIFY':rpmSensorVoltageMinNOTIFY,'rpmSensorVoltagePeakNOTIFY':rpmSensorVoltagePeakNOTIFY,'rpmSensorCurrentNOTIFY':rpmSensorCurrentNOTIFY,'rpmSensorRealPowerNOTIFY':rpmSensorRealPowerNOTIFY,'rpmSensorApparentPowerNOTIFY':rpmSensorApparentPowerNOTIFY,'rpmSensorPowerFactorNOTIFY':rpmSensorPowerFactorNOTIFY,'a2dSensorAvailNOTIFY':a2dSensorAvailNOTIFY,'a2dSensorValueNOTIFY':a2dSensorValueNOTIFY,'internalAvailCLEAR':internalAvailCLEAR,'internalTempCLEAR':internalTempCLEAR,'internalHumidityCLEAR':internalHumidityCLEAR,'internalDewPointCLEAR':internalDewPointCLEAR,'internalIO1CLEAR':internalIO1CLEAR,'internalIO2CLEAR':internalIO2CLEAR,'internalIO3CLEAR':internalIO3CLEAR,'internalIO4CLEAR':internalIO4CLEAR,'tempSensorAvailCLEAR':tempSensorAvailCLEAR,'tempSensorTempCLEAR':tempSensorTempCLEAR,'airFlowSensorAvailCLEAR':airFlowSensorAvailCLEAR,'airFlowSensorTempCLEAR':airFlowSensorTempCLEAR,'airFlowSensorFlowCLEAR':airFlowSensorFlowCLEAR,'airFlowSensorHumidityCLEAR':airFlowSensorHumidityCLEAR,'airFlowSensorDewPointCLEAR':airFlowSensorDewPointCLEAR,'dewPointSensorAvailCLEAR':dewPointSensorAvailCLEAR,'dewPointSensorTempCLEAR':dewPointSensorTempCLEAR,'dewPointSensorHumidityCLEAR':dewPointSensorHumidityCLEAR,'dewPointSensorDewPointCLEAR':dewPointSensorDewPointCLEAR,'ccatSensorAvailCLEAR':ccatSensorAvailCLEAR,'ccatSensorValueCLEAR':ccatSensorValueCLEAR,'t3hdSensorAvailCLEAR':t3hdSensorAvailCLEAR,'t3hdSensorIntTempCLEAR':t3hdSensorIntTempCLEAR,'t3hdSensorIntHumidityCLEAR':t3hdSensorIntHumidityCLEAR,'t3hdSensorIntDewPointCLEAR':t3hdSensorIntDewPointCLEAR,'t3hdSensorExtATempCLEAR':t3hdSensorExtATempCLEAR,'t3hdSensorExtBTempCLEAR':t3hdSensorExtBTempCLEAR,'thdSensorAvailCLEAR':thdSensorAvailCLEAR,'thdSensorTempCLEAR':thdSensorTempCLEAR,'thdSensorHumidityCLEAR':thdSensorHumidityCLEAR,'thdSensorDewPointCLEAR':thdSensorDewPointCLEAR,'rpmSensorAvailCLEAR':rpmSensorAvailCLEAR,'rpmSensorEnergyCLEAR':rpmSensorEnergyCLEAR,'rpmSensorVoltageCLEAR':rpmSensorVoltageCLEAR,'rpmSensorVoltageMaxCLEAR':rpmSensorVoltageMaxCLEAR,'rpmSensorVoltageMinCLEAR':rpmSensorVoltageMinCLEAR,'rpmSensorVoltagePeakCLEAR':rpmSensorVoltagePeakCLEAR,'rpmSensorCurrentCLEAR':rpmSensorCurrentCLEAR,'rpmSensorRealPowerCLEAR':rpmSensorRealPowerCLEAR,'rpmSensorApparentPowerCLEAR':rpmSensorApparentPowerCLEAR,'rpmSensorPowerFactorCLEAR':rpmSensorPowerFactorCLEAR,'a2dSensorAvailCLEAR':a2dSensorAvailCLEAR,'a2dSensorValueCLEAR':a2dSensorValueCLEAR})
+#
+# PySNMP MIB module GEIST-V4-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/geist/GEIST-V4-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:30:10 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+geist = ModuleIdentity((1, 3, 6, 1, 4, 1, 21239))
+geist.setRevisions(('2012-09-11 00:00',))
+if mibBuilder.loadTexts: geist.setLastUpdated('201209110000Z')
+if mibBuilder.loadTexts: geist.setOrganization('Geist')
+blackbird = MibIdentifier((1, 3, 6, 1, 4, 1, 21239, 5))
+watchdog100 = MibIdentifier((1, 3, 6, 1, 4, 1, 21239, 5, 1))
+deviceInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 21239, 5, 1, 1))
+productTitle = MibScalar((1, 3, 6, 1, 4, 1, 21239, 5, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: productTitle.setStatus('current')
+productVersion = MibScalar((1, 3, 6, 1, 4, 1, 21239, 5, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: productVersion.setStatus('current')
+productFriendlyName = MibScalar((1, 3, 6, 1, 4, 1, 21239, 5, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: productFriendlyName.setStatus('current')
+productMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 21239, 5, 1, 1, 4), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: productMacAddress.setStatus('current')
+productUrl = MibScalar((1, 3, 6, 1, 4, 1, 21239, 5, 1, 1, 5), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: productUrl.setStatus('current')
+deviceCount = MibScalar((1, 3, 6, 1, 4, 1, 21239, 5, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: deviceCount.setStatus('current')
+temperatureUnits = MibScalar((1, 3, 6, 1, 4, 1, 21239, 5, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: temperatureUnits.setStatus('current')
+internalTable = MibTable((1, 3, 6, 1, 4, 1, 21239, 5, 1, 2), )
+if mibBuilder.loadTexts: internalTable.setStatus('current')
+internalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21239, 5, 1, 2, 1), ).setIndexNames((0, "GEIST-V4-MIB", "internalIndex"))
+if mibBuilder.loadTexts: internalEntry.setStatus('current')
+internalIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: internalIndex.setStatus('current')
+internalSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: internalSerial.setStatus('current')
+internalName = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: internalName.setStatus('current')
+internalAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 2, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: internalAvail.setStatus('current')
+internalTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-40, 200))).setUnits('0.1 Degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: internalTemp.setStatus('current')
+internalHumidity = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: internalHumidity.setStatus('current')
+internalDewPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-40, 200))).setUnits('0.1 Degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: internalDewPoint.setStatus('current')
+internalIO1 = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: internalIO1.setStatus('current')
+internalIO2 = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: internalIO2.setStatus('current')
+internalIO3 = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: internalIO3.setStatus('current')
+internalIO4 = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 2, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: internalIO4.setStatus('current')
+internalRelayState = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 2, 1, 12), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: internalRelayState.setStatus('current')
+tempSensorTable = MibTable((1, 3, 6, 1, 4, 1, 21239, 5, 1, 4), )
+if mibBuilder.loadTexts: tempSensorTable.setStatus('current')
+tempSensorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21239, 5, 1, 4, 1), ).setIndexNames((0, "GEIST-V4-MIB", "tempSensorIndex"))
+if mibBuilder.loadTexts: tempSensorEntry.setStatus('current')
+tempSensorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tempSensorIndex.setStatus('current')
+tempSensorSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 4, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tempSensorSerial.setStatus('current')
+tempSensorName = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 4, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tempSensorName.setStatus('current')
+tempSensorAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 4, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tempSensorAvail.setStatus('current')
+tempSensorTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-40, 200))).setUnits('0.1 Degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: tempSensorTemp.setStatus('current')
+airFlowSensorTable = MibTable((1, 3, 6, 1, 4, 1, 21239, 5, 1, 5), )
+if mibBuilder.loadTexts: airFlowSensorTable.setStatus('current')
+airFlowSensorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21239, 5, 1, 5, 1), ).setIndexNames((0, "GEIST-V4-MIB", "airFlowSensorIndex"))
+if mibBuilder.loadTexts: airFlowSensorEntry.setStatus('current')
+airFlowSensorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: airFlowSensorIndex.setStatus('current')
+airFlowSensorSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 5, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: airFlowSensorSerial.setStatus('current')
+airFlowSensorName = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 5, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: airFlowSensorName.setStatus('current')
+airFlowSensorAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 5, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: airFlowSensorAvail.setStatus('current')
+airFlowSensorTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 5, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-40, 200))).setUnits('0.1 Degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: airFlowSensorTemp.setStatus('current')
+airFlowSensorFlow = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 5, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: airFlowSensorFlow.setStatus('current')
+airFlowSensorHumidity = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 5, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: airFlowSensorHumidity.setStatus('current')
+airFlowSensorDewPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 5, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-40, 200))).setUnits('0.1 Degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: airFlowSensorDewPoint.setStatus('current')
+dewPointSensorTable = MibTable((1, 3, 6, 1, 4, 1, 21239, 5, 1, 6), )
+if mibBuilder.loadTexts: dewPointSensorTable.setStatus('current')
+dewPointSensorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21239, 5, 1, 6, 1), ).setIndexNames((0, "GEIST-V4-MIB", "dewPointSensorIndex"))
+if mibBuilder.loadTexts: dewPointSensorEntry.setStatus('current')
+dewPointSensorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dewPointSensorIndex.setStatus('current')
+dewPointSensorSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 6, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dewPointSensorSerial.setStatus('current')
+dewPointSensorName = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 6, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dewPointSensorName.setStatus('current')
+dewPointSensorAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 6, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dewPointSensorAvail.setStatus('current')
+dewPointSensorTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 6, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-40, 200))).setUnits('0.1 Degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: dewPointSensorTemp.setStatus('current')
+dewPointSensorHumidity = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 6, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: dewPointSensorHumidity.setStatus('current')
+dewPointSensorDewPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 6, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-40, 200))).setUnits('0.1 Degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: dewPointSensorDewPoint.setStatus('current')
+ccatSensorTable = MibTable((1, 3, 6, 1, 4, 1, 21239, 5, 1, 7), )
+if mibBuilder.loadTexts: ccatSensorTable.setStatus('current')
+ccatSensorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21239, 5, 1, 7, 1), ).setIndexNames((0, "GEIST-V4-MIB", "ccatSensorIndex"))
+if mibBuilder.loadTexts: ccatSensorEntry.setStatus('current')
+ccatSensorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccatSensorIndex.setStatus('current')
+ccatSensorSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 7, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccatSensorSerial.setStatus('current')
+ccatSensorName = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 7, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccatSensorName.setStatus('current')
+ccatSensorAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 7, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccatSensorAvail.setStatus('current')
+ccatSensorValue = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 7, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-100, 5000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccatSensorValue.setStatus('current')
+ccatSensorType = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 7, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccatSensorType.setStatus('current')
+ccatSensorDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 7, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccatSensorDescription.setStatus('current')
+t3hdSensorTable = MibTable((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8), )
+if mibBuilder.loadTexts: t3hdSensorTable.setStatus('current')
+t3hdSensorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8, 1), ).setIndexNames((0, "GEIST-V4-MIB", "t3hdSensorIndex"))
+if mibBuilder.loadTexts: t3hdSensorEntry.setStatus('current')
+t3hdSensorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: t3hdSensorIndex.setStatus('current')
+t3hdSensorSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: t3hdSensorSerial.setStatus('current')
+t3hdSensorName = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: t3hdSensorName.setStatus('current')
+t3hdSensorAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: t3hdSensorAvail.setStatus('current')
+t3hdSensorIntName = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8, 1, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: t3hdSensorIntName.setStatus('current')
+t3hdSensorIntTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-40, 200))).setUnits('0.1 Degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: t3hdSensorIntTemp.setStatus('current')
+t3hdSensorIntHumidity = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: t3hdSensorIntHumidity.setStatus('current')
+t3hdSensorIntDewPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-40, 200))).setUnits('0.1 Degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: t3hdSensorIntDewPoint.setStatus('current')
+t3hdSensorExtAAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8, 1, 9), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: t3hdSensorExtAAvail.setStatus('current')
+t3hdSensorExtAName = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8, 1, 10), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: t3hdSensorExtAName.setStatus('current')
+t3hdSensorExtATemp = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-40, 200))).setUnits('0.1 Degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: t3hdSensorExtATemp.setStatus('current')
+t3hdSensorExtBAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8, 1, 12), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: t3hdSensorExtBAvail.setStatus('current')
+t3hdSensorExtBName = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8, 1, 13), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: t3hdSensorExtBName.setStatus('current')
+t3hdSensorExtBTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 8, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-40, 200))).setUnits('0.1 Degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: t3hdSensorExtBTemp.setStatus('current')
+thdSensorTable = MibTable((1, 3, 6, 1, 4, 1, 21239, 5, 1, 9), )
+if mibBuilder.loadTexts: thdSensorTable.setStatus('current')
+thdSensorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21239, 5, 1, 9, 1), ).setIndexNames((0, "GEIST-V4-MIB", "thdSensorIndex"))
+if mibBuilder.loadTexts: thdSensorEntry.setStatus('current')
+thdSensorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 9, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: thdSensorIndex.setStatus('current')
+thdSensorSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 9, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: thdSensorSerial.setStatus('current')
+thdSensorName = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 9, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: thdSensorName.setStatus('current')
+thdSensorAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 9, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: thdSensorAvail.setStatus('current')
+thdSensorTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 9, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-40, 200))).setUnits('0.1 Degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: thdSensorTemp.setStatus('current')
+thdSensorHumidity = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 9, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: thdSensorHumidity.setStatus('current')
+thdSensorDewPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 9, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-40, 200))).setUnits('0.1 Degrees').setMaxAccess("readonly")
+if mibBuilder.loadTexts: thdSensorDewPoint.setStatus('current')
+rpmSensorTable = MibTable((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10), )
+if mibBuilder.loadTexts: rpmSensorTable.setStatus('current')
+rpmSensorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1), ).setIndexNames((0, "GEIST-V4-MIB", "rpmSensorIndex"))
+if mibBuilder.loadTexts: rpmSensorEntry.setStatus('current')
+rpmSensorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rpmSensorIndex.setStatus('current')
+rpmSensorSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rpmSensorSerial.setStatus('current')
+rpmSensorName = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rpmSensorName.setStatus('current')
+rpmSensorAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rpmSensorAvail.setStatus('current')
+rpmSensorEnergy = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1, 5), Gauge32()).setUnits('kWh').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rpmSensorEnergy.setStatus('current')
+rpmSensorVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1, 6), Gauge32()).setUnits('Volts (rms)').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rpmSensorVoltage.setStatus('current')
+rpmSensorVoltageMax = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1, 7), Gauge32()).setUnits('Volts (rms)').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rpmSensorVoltageMax.setStatus('current')
+rpmSensorVoltageMin = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1, 8), Gauge32()).setUnits('Volts (rms)').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rpmSensorVoltageMin.setStatus('current')
+rpmSensorVoltagePeak = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1, 9), Gauge32()).setUnits('Volts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rpmSensorVoltagePeak.setStatus('current')
+rpmSensorCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1, 10), Gauge32()).setUnits('0.1 Amps (rms)').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rpmSensorCurrent.setStatus('current')
+rpmSensorRealPower = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1, 11), Gauge32()).setUnits('Watts').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rpmSensorRealPower.setStatus('current')
+rpmSensorApparentPower = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1, 12), Gauge32()).setUnits('Volt-Amps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rpmSensorApparentPower.setStatus('current')
+rpmSensorPowerFactor = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1, 13), Gauge32()).setUnits('%').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rpmSensorPowerFactor.setStatus('current')
+rpmSensorOutlet1 = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1, 14), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rpmSensorOutlet1.setStatus('current')
+rpmSensorOutlet2 = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 10, 1, 15), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rpmSensorOutlet2.setStatus('current')
+a2dSensorTable = MibTable((1, 3, 6, 1, 4, 1, 21239, 5, 1, 11), )
+if mibBuilder.loadTexts: a2dSensorTable.setStatus('current')
+a2DSensorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21239, 5, 1, 11, 1), ).setIndexNames((0, "GEIST-V4-MIB", "a2dSensorIndex"))
+if mibBuilder.loadTexts: a2DSensorEntry.setStatus('current')
+a2dSensorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 11, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a2dSensorIndex.setStatus('current')
+a2dSensorSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 11, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a2dSensorSerial.setStatus('current')
+a2dSensorName = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 11, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a2dSensorName.setStatus('current')
+a2dSensorAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 11, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a2dSensorAvail.setStatus('current')
+a2dSensorValue = MibTableColumn((1, 3, 6, 1, 4, 1, 21239, 5, 1, 11, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1000000, 1000000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: a2dSensorValue.setStatus('current')
+trap = MibIdentifier((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767))
+trapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0))
+internalTestNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10101))
+if mibBuilder.loadTexts: internalTestNOTIFY.setStatus('current')
+internalAvailNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10204)).setObjects(("GEIST-V4-MIB", "internalAvail"))
+if mibBuilder.loadTexts: internalAvailNOTIFY.setStatus('current')
+internalAvailCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20204)).setObjects(("GEIST-V4-MIB", "internalAvail"))
+if mibBuilder.loadTexts: internalAvailCLEAR.setStatus('current')
+internalTempNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10205)).setObjects(("GEIST-V4-MIB", "internalTemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: internalTempNOTIFY.setStatus('current')
+internalTempCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20205)).setObjects(("GEIST-V4-MIB", "internalTemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: internalTempCLEAR.setStatus('current')
+internalHumidityNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10206)).setObjects(("GEIST-V4-MIB", "internalHumidity"))
+if mibBuilder.loadTexts: internalHumidityNOTIFY.setStatus('current')
+internalHumidityCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20206)).setObjects(("GEIST-V4-MIB", "internalHumidity"))
+if mibBuilder.loadTexts: internalHumidityCLEAR.setStatus('current')
+internalDewPointNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10207)).setObjects(("GEIST-V4-MIB", "internalDewPoint"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: internalDewPointNOTIFY.setStatus('current')
+internalDewPointCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20207)).setObjects(("GEIST-V4-MIB", "internalDewPoint"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: internalDewPointCLEAR.setStatus('current')
+internalIO1NOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10208)).setObjects(("GEIST-V4-MIB", "internalIO1"))
+if mibBuilder.loadTexts: internalIO1NOTIFY.setStatus('current')
+internalIO1CLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20208)).setObjects(("GEIST-V4-MIB", "internalIO1"))
+if mibBuilder.loadTexts: internalIO1CLEAR.setStatus('current')
+internalIO2NOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10209)).setObjects(("GEIST-V4-MIB", "internalIO2"))
+if mibBuilder.loadTexts: internalIO2NOTIFY.setStatus('current')
+internalIO2CLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20209)).setObjects(("GEIST-V4-MIB", "internalIO2"))
+if mibBuilder.loadTexts: internalIO2CLEAR.setStatus('current')
+internalIO3NOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10210)).setObjects(("GEIST-V4-MIB", "internalIO3"))
+if mibBuilder.loadTexts: internalIO3NOTIFY.setStatus('current')
+internalIO3CLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20210)).setObjects(("GEIST-V4-MIB", "internalIO3"))
+if mibBuilder.loadTexts: internalIO3CLEAR.setStatus('current')
+internalIO4NOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10211)).setObjects(("GEIST-V4-MIB", "internalIO4"))
+if mibBuilder.loadTexts: internalIO4NOTIFY.setStatus('current')
+internalIO4CLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20211)).setObjects(("GEIST-V4-MIB", "internalIO4"))
+if mibBuilder.loadTexts: internalIO4CLEAR.setStatus('current')
+tempSensorAvailNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10404)).setObjects(("GEIST-V4-MIB", "tempSensorAvail"))
+if mibBuilder.loadTexts: tempSensorAvailNOTIFY.setStatus('current')
+tempSensorAvailCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20404)).setObjects(("GEIST-V4-MIB", "tempSensorAvail"))
+if mibBuilder.loadTexts: tempSensorAvailCLEAR.setStatus('current')
+tempSensorTempNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10405)).setObjects(("GEIST-V4-MIB", "tempSensorTemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: tempSensorTempNOTIFY.setStatus('current')
+tempSensorTempCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20405)).setObjects(("GEIST-V4-MIB", "tempSensorTemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: tempSensorTempCLEAR.setStatus('current')
+airFlowSensorAvailNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10504)).setObjects(("GEIST-V4-MIB", "airFlowSensorAvail"))
+if mibBuilder.loadTexts: airFlowSensorAvailNOTIFY.setStatus('current')
+airFlowSensorAvailCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20504)).setObjects(("GEIST-V4-MIB", "airFlowSensorAvail"))
+if mibBuilder.loadTexts: airFlowSensorAvailCLEAR.setStatus('current')
+airFlowSensorTempNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10505)).setObjects(("GEIST-V4-MIB", "airFlowSensorTemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: airFlowSensorTempNOTIFY.setStatus('current')
+airFlowSensorTempCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20505)).setObjects(("GEIST-V4-MIB", "airFlowSensorTemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: airFlowSensorTempCLEAR.setStatus('current')
+airFlowSensorFlowNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10506)).setObjects(("GEIST-V4-MIB", "airFlowSensorFlow"))
+if mibBuilder.loadTexts: airFlowSensorFlowNOTIFY.setStatus('current')
+airFlowSensorFlowCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20506)).setObjects(("GEIST-V4-MIB", "airFlowSensorFlow"))
+if mibBuilder.loadTexts: airFlowSensorFlowCLEAR.setStatus('current')
+airFlowSensorHumidityNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10507)).setObjects(("GEIST-V4-MIB", "airFlowSensorHumidity"))
+if mibBuilder.loadTexts: airFlowSensorHumidityNOTIFY.setStatus('current')
+airFlowSensorHumidityCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20507)).setObjects(("GEIST-V4-MIB", "airFlowSensorHumidity"))
+if mibBuilder.loadTexts: airFlowSensorHumidityCLEAR.setStatus('current')
+airFlowSensorDewPointNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10508)).setObjects(("GEIST-V4-MIB", "airFlowSensorDewPoint"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: airFlowSensorDewPointNOTIFY.setStatus('current')
+airFlowSensorDewPointCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20508)).setObjects(("GEIST-V4-MIB", "airFlowSensorDewPoint"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: airFlowSensorDewPointCLEAR.setStatus('current')
+dewPointSensorAvailNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10604)).setObjects(("GEIST-V4-MIB", "dewPointSensorAvail"))
+if mibBuilder.loadTexts: dewPointSensorAvailNOTIFY.setStatus('current')
+dewPointSensorAvailCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20604)).setObjects(("GEIST-V4-MIB", "dewPointSensorAvail"))
+if mibBuilder.loadTexts: dewPointSensorAvailCLEAR.setStatus('current')
+dewPointSensorTempNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10605)).setObjects(("GEIST-V4-MIB", "dewPointSensorTemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: dewPointSensorTempNOTIFY.setStatus('current')
+dewPointSensorTempCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20605)).setObjects(("GEIST-V4-MIB", "dewPointSensorTemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: dewPointSensorTempCLEAR.setStatus('current')
+dewPointSensorHumidityNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10606)).setObjects(("GEIST-V4-MIB", "dewPointSensorHumidity"))
+if mibBuilder.loadTexts: dewPointSensorHumidityNOTIFY.setStatus('current')
+dewPointSensorHumidityCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20606)).setObjects(("GEIST-V4-MIB", "dewPointSensorHumidity"))
+if mibBuilder.loadTexts: dewPointSensorHumidityCLEAR.setStatus('current')
+dewPointSensorDewPointNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10607)).setObjects(("GEIST-V4-MIB", "dewPointSensorDewPoint"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: dewPointSensorDewPointNOTIFY.setStatus('current')
+dewPointSensorDewPointCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20607)).setObjects(("GEIST-V4-MIB", "dewPointSensorDewPoint"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: dewPointSensorDewPointCLEAR.setStatus('current')
+ccatSensorAvailNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10704)).setObjects(("GEIST-V4-MIB", "ccatSensorAvail"))
+if mibBuilder.loadTexts: ccatSensorAvailNOTIFY.setStatus('current')
+ccatSensorAvailCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20704)).setObjects(("GEIST-V4-MIB", "ccatSensorAvail"))
+if mibBuilder.loadTexts: ccatSensorAvailCLEAR.setStatus('current')
+ccatSensorValueNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10705)).setObjects(("GEIST-V4-MIB", "ccatSensorValue"), ("GEIST-V4-MIB", "ccatSensorType"))
+if mibBuilder.loadTexts: ccatSensorValueNOTIFY.setStatus('current')
+ccatSensorValueCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20705)).setObjects(("GEIST-V4-MIB", "ccatSensorValue"), ("GEIST-V4-MIB", "ccatSensorType"))
+if mibBuilder.loadTexts: ccatSensorValueCLEAR.setStatus('current')
+t3hdSensorAvailNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10804)).setObjects(("GEIST-V4-MIB", "t3hdSensorAvail"))
+if mibBuilder.loadTexts: t3hdSensorAvailNOTIFY.setStatus('current')
+t3hdSensorAvailCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20804)).setObjects(("GEIST-V4-MIB", "t3hdSensorAvail"))
+if mibBuilder.loadTexts: t3hdSensorAvailCLEAR.setStatus('current')
+t3hdSensorIntTempNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10806)).setObjects(("GEIST-V4-MIB", "t3hdSensorIntTemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: t3hdSensorIntTempNOTIFY.setStatus('current')
+t3hdSensorIntTempCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20806)).setObjects(("GEIST-V4-MIB", "t3hdSensorIntTemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: t3hdSensorIntTempCLEAR.setStatus('current')
+t3hdSensorIntHumidityNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10807)).setObjects(("GEIST-V4-MIB", "t3hdSensorIntHumidity"))
+if mibBuilder.loadTexts: t3hdSensorIntHumidityNOTIFY.setStatus('current')
+t3hdSensorIntHumidityCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20807)).setObjects(("GEIST-V4-MIB", "t3hdSensorIntHumidity"))
+if mibBuilder.loadTexts: t3hdSensorIntHumidityCLEAR.setStatus('current')
+t3hdSensorIntDewPointNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10808)).setObjects(("GEIST-V4-MIB", "t3hdSensorIntDewPoint"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: t3hdSensorIntDewPointNOTIFY.setStatus('current')
+t3hdSensorIntDewPointCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20808)).setObjects(("GEIST-V4-MIB", "t3hdSensorIntDewPoint"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: t3hdSensorIntDewPointCLEAR.setStatus('current')
+t3hdSensorExtATempNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10811)).setObjects(("GEIST-V4-MIB", "t3hdSensorExtATemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: t3hdSensorExtATempNOTIFY.setStatus('current')
+t3hdSensorExtATempCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20811)).setObjects(("GEIST-V4-MIB", "t3hdSensorExtATemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: t3hdSensorExtATempCLEAR.setStatus('current')
+t3hdSensorExtBTempNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10814)).setObjects(("GEIST-V4-MIB", "t3hdSensorExtBTemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: t3hdSensorExtBTempNOTIFY.setStatus('current')
+t3hdSensorExtBTempCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20814)).setObjects(("GEIST-V4-MIB", "t3hdSensorExtBTemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: t3hdSensorExtBTempCLEAR.setStatus('current')
+thdSensorAvailNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10904)).setObjects(("GEIST-V4-MIB", "thdSensorAvail"))
+if mibBuilder.loadTexts: thdSensorAvailNOTIFY.setStatus('current')
+thdSensorAvailCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20904)).setObjects(("GEIST-V4-MIB", "thdSensorAvail"))
+if mibBuilder.loadTexts: thdSensorAvailCLEAR.setStatus('current')
+thdSensorTempNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10905)).setObjects(("GEIST-V4-MIB", "thdSensorTemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: thdSensorTempNOTIFY.setStatus('current')
+thdSensorTempCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20905)).setObjects(("GEIST-V4-MIB", "thdSensorTemp"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: thdSensorTempCLEAR.setStatus('current')
+thdSensorHumidityNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10906)).setObjects(("GEIST-V4-MIB", "thdSensorHumidity"))
+if mibBuilder.loadTexts: thdSensorHumidityNOTIFY.setStatus('current')
+thdSensorHumidityCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20906)).setObjects(("GEIST-V4-MIB", "thdSensorHumidity"))
+if mibBuilder.loadTexts: thdSensorHumidityCLEAR.setStatus('current')
+thdSensorDewPointNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 10907)).setObjects(("GEIST-V4-MIB", "thdSensorDewPoint"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: thdSensorDewPointNOTIFY.setStatus('current')
+thdSensorDewPointCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 20907)).setObjects(("GEIST-V4-MIB", "thdSensorDewPoint"), ("GEIST-V4-MIB", "temperatureUnits"))
+if mibBuilder.loadTexts: thdSensorDewPointCLEAR.setStatus('current')
+rpmSensorAvailNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 11004)).setObjects(("GEIST-V4-MIB", "rpmSensorAvail"))
+if mibBuilder.loadTexts: rpmSensorAvailNOTIFY.setStatus('current')
+rpmSensorAvailCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 21004)).setObjects(("GEIST-V4-MIB", "rpmSensorAvail"))
+if mibBuilder.loadTexts: rpmSensorAvailCLEAR.setStatus('current')
+rpmSensorEnergyNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 11005)).setObjects(("GEIST-V4-MIB", "rpmSensorEnergy"))
+if mibBuilder.loadTexts: rpmSensorEnergyNOTIFY.setStatus('current')
+rpmSensorEnergyCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 21005)).setObjects(("GEIST-V4-MIB", "rpmSensorEnergy"))
+if mibBuilder.loadTexts: rpmSensorEnergyCLEAR.setStatus('current')
+rpmSensorVoltageNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 11006)).setObjects(("GEIST-V4-MIB", "rpmSensorVoltage"))
+if mibBuilder.loadTexts: rpmSensorVoltageNOTIFY.setStatus('current')
+rpmSensorVoltageCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 21006)).setObjects(("GEIST-V4-MIB", "rpmSensorVoltage"))
+if mibBuilder.loadTexts: rpmSensorVoltageCLEAR.setStatus('current')
+rpmSensorVoltageMaxNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 11007)).setObjects(("GEIST-V4-MIB", "rpmSensorVoltageMax"))
+if mibBuilder.loadTexts: rpmSensorVoltageMaxNOTIFY.setStatus('current')
+rpmSensorVoltageMaxCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 21007)).setObjects(("GEIST-V4-MIB", "rpmSensorVoltageMax"))
+if mibBuilder.loadTexts: rpmSensorVoltageMaxCLEAR.setStatus('current')
+rpmSensorVoltageMinNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 11008)).setObjects(("GEIST-V4-MIB", "rpmSensorVoltageMin"))
+if mibBuilder.loadTexts: rpmSensorVoltageMinNOTIFY.setStatus('current')
+rpmSensorVoltageMinCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 21008)).setObjects(("GEIST-V4-MIB", "rpmSensorVoltageMin"))
+if mibBuilder.loadTexts: rpmSensorVoltageMinCLEAR.setStatus('current')
+rpmSensorVoltagePeakNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 11009)).setObjects(("GEIST-V4-MIB", "rpmSensorVoltagePeak"))
+if mibBuilder.loadTexts: rpmSensorVoltagePeakNOTIFY.setStatus('current')
+rpmSensorVoltagePeakCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 21009)).setObjects(("GEIST-V4-MIB", "rpmSensorVoltagePeak"))
+if mibBuilder.loadTexts: rpmSensorVoltagePeakCLEAR.setStatus('current')
+rpmSensorCurrentNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 11010)).setObjects(("GEIST-V4-MIB", "rpmSensorCurrent"))
+if mibBuilder.loadTexts: rpmSensorCurrentNOTIFY.setStatus('current')
+rpmSensorCurrentCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 21010)).setObjects(("GEIST-V4-MIB", "rpmSensorCurrent"))
+if mibBuilder.loadTexts: rpmSensorCurrentCLEAR.setStatus('current')
+rpmSensorRealPowerNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 11011)).setObjects(("GEIST-V4-MIB", "rpmSensorRealPower"))
+if mibBuilder.loadTexts: rpmSensorRealPowerNOTIFY.setStatus('current')
+rpmSensorRealPowerCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 21011)).setObjects(("GEIST-V4-MIB", "rpmSensorRealPower"))
+if mibBuilder.loadTexts: rpmSensorRealPowerCLEAR.setStatus('current')
+rpmSensorApparentPowerNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 11012)).setObjects(("GEIST-V4-MIB", "rpmSensorApparentPower"))
+if mibBuilder.loadTexts: rpmSensorApparentPowerNOTIFY.setStatus('current')
+rpmSensorApparentPowerCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 21012)).setObjects(("GEIST-V4-MIB", "rpmSensorApparentPower"))
+if mibBuilder.loadTexts: rpmSensorApparentPowerCLEAR.setStatus('current')
+rpmSensorPowerFactorNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 11013)).setObjects(("GEIST-V4-MIB", "rpmSensorPowerFactor"))
+if mibBuilder.loadTexts: rpmSensorPowerFactorNOTIFY.setStatus('current')
+rpmSensorPowerFactorCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 21013)).setObjects(("GEIST-V4-MIB", "rpmSensorPowerFactor"))
+if mibBuilder.loadTexts: rpmSensorPowerFactorCLEAR.setStatus('current')
+a2dSensorAvailNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 11104)).setObjects(("GEIST-V4-MIB", "a2dSensorAvail"))
+if mibBuilder.loadTexts: a2dSensorAvailNOTIFY.setStatus('current')
+a2dSensorAvailCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 21104)).setObjects(("GEIST-V4-MIB", "a2dSensorAvail"))
+if mibBuilder.loadTexts: a2dSensorAvailCLEAR.setStatus('current')
+a2dSensorValueNOTIFY = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 11105)).setObjects(("GEIST-V4-MIB", "a2dSensorValue"))
+if mibBuilder.loadTexts: a2dSensorValueNOTIFY.setStatus('current')
+a2dSensorValueCLEAR = NotificationType((1, 3, 6, 1, 4, 1, 21239, 5, 1, 32767, 0, 21105)).setObjects(("GEIST-V4-MIB", "a2dSensorValue"))
+if mibBuilder.loadTexts: a2dSensorValueCLEAR.setStatus('current')
+mibBuilder.exportSymbols("GEIST-V4-MIB", rpmSensorEnergyCLEAR=rpmSensorEnergyCLEAR, t3hdSensorAvail=t3hdSensorAvail, internalHumidityNOTIFY=internalHumidityNOTIFY, rpmSensorRealPowerNOTIFY=rpmSensorRealPowerNOTIFY, airFlowSensorHumidityCLEAR=airFlowSensorHumidityCLEAR, rpmSensorCurrent=rpmSensorCurrent, airFlowSensorTempCLEAR=airFlowSensorTempCLEAR, t3hdSensorExtBTempCLEAR=t3hdSensorExtBTempCLEAR, tempSensorTable=tempSensorTable, internalIO3=internalIO3, t3hdSensorExtATempNOTIFY=t3hdSensorExtATempNOTIFY, dewPointSensorEntry=dewPointSensorEntry, airFlowSensorSerial=airFlowSensorSerial, dewPointSensorDewPoint=dewPointSensorDewPoint, rpmSensorVoltageMinNOTIFY=rpmSensorVoltageMinNOTIFY, tempSensorAvailCLEAR=tempSensorAvailCLEAR, thdSensorHumidityNOTIFY=thdSensorHumidityNOTIFY, airFlowSensorTemp=airFlowSensorTemp, watchdog100=watchdog100, thdSensorEntry=thdSensorEntry, t3hdSensorIntTemp=t3hdSensorIntTemp, rpmSensorSerial=rpmSensorSerial, rpmSensorVoltagePeak=rpmSensorVoltagePeak, dewPointSensorAvailNOTIFY=dewPointSensorAvailNOTIFY, a2dSensorTable=a2dSensorTable, rpmSensorApparentPower=rpmSensorApparentPower, dewPointSensorSerial=dewPointSensorSerial, thdSensorDewPointNOTIFY=thdSensorDewPointNOTIFY, thdSensorDewPoint=thdSensorDewPoint, airFlowSensorAvailNOTIFY=airFlowSensorAvailNOTIFY, t3hdSensorExtBAvail=t3hdSensorExtBAvail, tempSensorAvail=tempSensorAvail, rpmSensorVoltageMinCLEAR=rpmSensorVoltageMinCLEAR, airFlowSensorFlow=airFlowSensorFlow, blackbird=blackbird, ccatSensorAvail=ccatSensorAvail, a2dSensorSerial=a2dSensorSerial, ccatSensorValueCLEAR=ccatSensorValueCLEAR, t3hdSensorExtBTempNOTIFY=t3hdSensorExtBTempNOTIFY, thdSensorAvailNOTIFY=thdSensorAvailNOTIFY, internalDewPoint=internalDewPoint, rpmSensorVoltageMaxCLEAR=rpmSensorVoltageMaxCLEAR, internalTempNOTIFY=internalTempNOTIFY, productMacAddress=productMacAddress, ccatSensorIndex=ccatSensorIndex, rpmSensorVoltage=rpmSensorVoltage, internalIO3NOTIFY=internalIO3NOTIFY, rpmSensorAvailNOTIFY=rpmSensorAvailNOTIFY, airFlowSensorIndex=airFlowSensorIndex, airFlowSensorDewPointCLEAR=airFlowSensorDewPointCLEAR, internalAvailNOTIFY=internalAvailNOTIFY, deviceInfo=deviceInfo, t3hdSensorExtATemp=t3hdSensorExtATemp, rpmSensorEntry=rpmSensorEntry, airFlowSensorAvailCLEAR=airFlowSensorAvailCLEAR, t3hdSensorAvailCLEAR=t3hdSensorAvailCLEAR, rpmSensorEnergyNOTIFY=rpmSensorEnergyNOTIFY, a2dSensorIndex=a2dSensorIndex, thdSensorSerial=thdSensorSerial, t3hdSensorExtAName=t3hdSensorExtAName, t3hdSensorAvailNOTIFY=t3hdSensorAvailNOTIFY, t3hdSensorIntTempNOTIFY=t3hdSensorIntTempNOTIFY, rpmSensorPowerFactorCLEAR=rpmSensorPowerFactorCLEAR, productUrl=productUrl, t3hdSensorIntHumidityNOTIFY=t3hdSensorIntHumidityNOTIFY, ccatSensorType=ccatSensorType, trapPrefix=trapPrefix, a2dSensorAvailCLEAR=a2dSensorAvailCLEAR, thdSensorTempCLEAR=thdSensorTempCLEAR, thdSensorDewPointCLEAR=thdSensorDewPointCLEAR, rpmSensorVoltageCLEAR=rpmSensorVoltageCLEAR, dewPointSensorDewPointNOTIFY=dewPointSensorDewPointNOTIFY, t3hdSensorIntName=t3hdSensorIntName, internalIO2CLEAR=internalIO2CLEAR, rpmSensorAvail=rpmSensorAvail, rpmSensorVoltageMax=rpmSensorVoltageMax, dewPointSensorHumidityNOTIFY=dewPointSensorHumidityNOTIFY, thdSensorTemp=thdSensorTemp, t3hdSensorIntDewPointCLEAR=t3hdSensorIntDewPointCLEAR, temperatureUnits=temperatureUnits, dewPointSensorAvail=dewPointSensorAvail, a2DSensorEntry=a2DSensorEntry, geist=geist, ccatSensorAvailCLEAR=ccatSensorAvailCLEAR, ccatSensorValue=ccatSensorValue, t3hdSensorIntHumidityCLEAR=t3hdSensorIntHumidityCLEAR, a2dSensorValueCLEAR=a2dSensorValueCLEAR, rpmSensorApparentPowerNOTIFY=rpmSensorApparentPowerNOTIFY, airFlowSensorFlowNOTIFY=airFlowSensorFlowNOTIFY, ccatSensorTable=ccatSensorTable, rpmSensorName=rpmSensorName, internalIO1NOTIFY=internalIO1NOTIFY, a2dSensorValueNOTIFY=a2dSensorValueNOTIFY, productFriendlyName=productFriendlyName, internalIO2=internalIO2, thdSensorHumidityCLEAR=thdSensorHumidityCLEAR, t3hdSensorIndex=t3hdSensorIndex, internalTempCLEAR=internalTempCLEAR, trap=trap, internalDewPointCLEAR=internalDewPointCLEAR, thdSensorTempNOTIFY=thdSensorTempNOTIFY, rpmSensorVoltageNOTIFY=rpmSensorVoltageNOTIFY, airFlowSensorHumidity=airFlowSensorHumidity, a2dSensorValue=a2dSensorValue, a2dSensorAvail=a2dSensorAvail, t3hdSensorExtBName=t3hdSensorExtBName, airFlowSensorFlowCLEAR=airFlowSensorFlowCLEAR, thdSensorTable=thdSensorTable, tempSensorAvailNOTIFY=tempSensorAvailNOTIFY, tempSensorTemp=tempSensorTemp, dewPointSensorTempCLEAR=dewPointSensorTempCLEAR, rpmSensorAvailCLEAR=rpmSensorAvailCLEAR, productVersion=productVersion, internalAvailCLEAR=internalAvailCLEAR, internalTemp=internalTemp, internalEntry=internalEntry, airFlowSensorTempNOTIFY=airFlowSensorTempNOTIFY, rpmSensorPowerFactor=rpmSensorPowerFactor, thdSensorName=thdSensorName, a2dSensorAvailNOTIFY=a2dSensorAvailNOTIFY, internalHumidity=internalHumidity, tempSensorSerial=tempSensorSerial, dewPointSensorTemp=dewPointSensorTemp, internalDewPointNOTIFY=internalDewPointNOTIFY, rpmSensorRealPowerCLEAR=rpmSensorRealPowerCLEAR, dewPointSensorDewPointCLEAR=dewPointSensorDewPointCLEAR, thdSensorIndex=thdSensorIndex, thdSensorAvail=thdSensorAvail, rpmSensorVoltagePeakNOTIFY=rpmSensorVoltagePeakNOTIFY, rpmSensorCurrentCLEAR=rpmSensorCurrentCLEAR, productTitle=productTitle, t3hdSensorIntHumidity=t3hdSensorIntHumidity, rpmSensorVoltageMin=rpmSensorVoltageMin, internalAvail=internalAvail, internalHumidityCLEAR=internalHumidityCLEAR, internalTestNOTIFY=internalTestNOTIFY, tempSensorTempCLEAR=tempSensorTempCLEAR, internalIO4CLEAR=internalIO4CLEAR, t3hdSensorExtAAvail=t3hdSensorExtAAvail, airFlowSensorDewPointNOTIFY=airFlowSensorDewPointNOTIFY, tempSensorName=tempSensorName, rpmSensorOutlet1=rpmSensorOutlet1, airFlowSensorHumidityNOTIFY=airFlowSensorHumidityNOTIFY, thdSensorHumidity=thdSensorHumidity, tempSensorIndex=tempSensorIndex, ccatSensorEntry=ccatSensorEntry, airFlowSensorAvail=airFlowSensorAvail, t3hdSensorSerial=t3hdSensorSerial, t3hdSensorName=t3hdSensorName, dewPointSensorName=dewPointSensorName, internalTable=internalTable, dewPointSensorTable=dewPointSensorTable, dewPointSensorHumidity=dewPointSensorHumidity, dewPointSensorTempNOTIFY=dewPointSensorTempNOTIFY, rpmSensorPowerFactorNOTIFY=rpmSensorPowerFactorNOTIFY, internalIO4=internalIO4, a2dSensorName=a2dSensorName, ccatSensorName=ccatSensorName, rpmSensorOutlet2=rpmSensorOutlet2, dewPointSensorAvailCLEAR=dewPointSensorAvailCLEAR, t3hdSensorExtATempCLEAR=t3hdSensorExtATempCLEAR, thdSensorAvailCLEAR=thdSensorAvailCLEAR, internalIndex=internalIndex, dewPointSensorHumidityCLEAR=dewPointSensorHumidityCLEAR, ccatSensorDescription=ccatSensorDescription, ccatSensorAvailNOTIFY=ccatSensorAvailNOTIFY, t3hdSensorIntTempCLEAR=t3hdSensorIntTempCLEAR, rpmSensorVoltagePeakCLEAR=rpmSensorVoltagePeakCLEAR, rpmSensorEnergy=rpmSensorEnergy, rpmSensorApparentPowerCLEAR=rpmSensorApparentPowerCLEAR, airFlowSensorDewPoint=airFlowSensorDewPoint, airFlowSensorEntry=airFlowSensorEntry, internalName=internalName, tempSensorEntry=tempSensorEntry, airFlowSensorName=airFlowSensorName, rpmSensorCurrentNOTIFY=rpmSensorCurrentNOTIFY, rpmSensorIndex=rpmSensorIndex, rpmSensorTable=rpmSensorTable, tempSensorTempNOTIFY=tempSensorTempNOTIFY, deviceCount=deviceCount, internalRelayState=internalRelayState, ccatSensorValueNOTIFY=ccatSensorValueNOTIFY, rpmSensorVoltageMaxNOTIFY=rpmSensorVoltageMaxNOTIFY, t3hdSensorExtBTemp=t3hdSensorExtBTemp, internalSerial=internalSerial, internalIO3CLEAR=internalIO3CLEAR, internalIO4NOTIFY=internalIO4NOTIFY, t3hdSensorTable=t3hdSensorTable, t3hdSensorIntDewPoint=t3hdSensorIntDewPoint, t3hdSensorIntDewPointNOTIFY=t3hdSensorIntDewPointNOTIFY, PYSNMP_MODULE_ID=geist, internalIO1=internalIO1, airFlowSensorTable=airFlowSensorTable, rpmSensorRealPower=rpmSensorRealPower, dewPointSensorIndex=dewPointSensorIndex, internalIO2NOTIFY=internalIO2NOTIFY, ccatSensorSerial=ccatSensorSerial, internalIO1CLEAR=internalIO1CLEAR, t3hdSensorEntry=t3hdSensorEntry)

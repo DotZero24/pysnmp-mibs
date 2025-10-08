@@ -1,55 +1,37 @@
-_D='dot1dBasePort'
-_C='BRIDGE-MIB'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_C,_D)
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelGreenEthernet=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,93))
-_ZyxelGreenEthernetSetup_ObjectIdentity=ObjectIdentity
-zyxelGreenEthernetSetup=_ZyxelGreenEthernetSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,93,1))
-_ZyGreenEthernetEeeState_Type=EnabledStatus
-_ZyGreenEthernetEeeState_Object=MibScalar
-zyGreenEthernetEeeState=_ZyGreenEthernetEeeState_Object((1,3,6,1,4,1,890,1,15,3,93,1,1),_ZyGreenEthernetEeeState_Type())
-zyGreenEthernetEeeState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyGreenEthernetEeeState.setStatus(_A)
-_ZyGreenEthernetAutoPowerDownState_Type=EnabledStatus
-_ZyGreenEthernetAutoPowerDownState_Object=MibScalar
-zyGreenEthernetAutoPowerDownState=_ZyGreenEthernetAutoPowerDownState_Object((1,3,6,1,4,1,890,1,15,3,93,1,2),_ZyGreenEthernetAutoPowerDownState_Type())
-zyGreenEthernetAutoPowerDownState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyGreenEthernetAutoPowerDownState.setStatus(_A)
-_ZyGreenEthernetShortReachState_Type=EnabledStatus
-_ZyGreenEthernetShortReachState_Object=MibScalar
-zyGreenEthernetShortReachState=_ZyGreenEthernetShortReachState_Object((1,3,6,1,4,1,890,1,15,3,93,1,3),_ZyGreenEthernetShortReachState_Type())
-zyGreenEthernetShortReachState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyGreenEthernetShortReachState.setStatus(_A)
-_ZyxelGreenEthernetPortTable_Object=MibTable
-zyxelGreenEthernetPortTable=_ZyxelGreenEthernetPortTable_Object((1,3,6,1,4,1,890,1,15,3,93,1,4))
-if mibBuilder.loadTexts:zyxelGreenEthernetPortTable.setStatus(_A)
-_ZyxelGreenEthernetPortEntry_Object=MibTableRow
-zyxelGreenEthernetPortEntry=_ZyxelGreenEthernetPortEntry_Object((1,3,6,1,4,1,890,1,15,3,93,1,4,1))
-zyxelGreenEthernetPortEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:zyxelGreenEthernetPortEntry.setStatus(_A)
-_ZyGreenEthernetEeePortState_Type=EnabledStatus
-_ZyGreenEthernetEeePortState_Object=MibTableColumn
-zyGreenEthernetEeePortState=_ZyGreenEthernetEeePortState_Object((1,3,6,1,4,1,890,1,15,3,93,1,4,1,1),_ZyGreenEthernetEeePortState_Type())
-zyGreenEthernetEeePortState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyGreenEthernetEeePortState.setStatus(_A)
-_ZyGreenEthernetAutoPowerDownPortState_Type=EnabledStatus
-_ZyGreenEthernetAutoPowerDownPortState_Object=MibTableColumn
-zyGreenEthernetAutoPowerDownPortState=_ZyGreenEthernetAutoPowerDownPortState_Object((1,3,6,1,4,1,890,1,15,3,93,1,4,1,2),_ZyGreenEthernetAutoPowerDownPortState_Type())
-zyGreenEthernetAutoPowerDownPortState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyGreenEthernetAutoPowerDownPortState.setStatus(_A)
-_ZyGreenEthernetShortReachPortState_Type=EnabledStatus
-_ZyGreenEthernetShortReachPortState_Object=MibTableColumn
-zyGreenEthernetShortReachPortState=_ZyGreenEthernetShortReachPortState_Object((1,3,6,1,4,1,890,1,15,3,93,1,4,1,3),_ZyGreenEthernetShortReachPortState_Type())
-zyGreenEthernetShortReachPortState.setMaxAccess(_B)
-if mibBuilder.loadTexts:zyGreenEthernetShortReachPortState.setStatus(_A)
-mibBuilder.exportSymbols('ZYXEL-GREEN-ETHERNET-MIB',**{'zyxelGreenEthernet':zyxelGreenEthernet,'zyxelGreenEthernetSetup':zyxelGreenEthernetSetup,'zyGreenEthernetEeeState':zyGreenEthernetEeeState,'zyGreenEthernetAutoPowerDownState':zyGreenEthernetAutoPowerDownState,'zyGreenEthernetShortReachState':zyGreenEthernetShortReachState,'zyxelGreenEthernetPortTable':zyxelGreenEthernetPortTable,'zyxelGreenEthernetPortEntry':zyxelGreenEthernetPortEntry,'zyGreenEthernetEeePortState':zyGreenEthernetEeePortState,'zyGreenEthernetAutoPowerDownPortState':zyGreenEthernetAutoPowerDownPortState,'zyGreenEthernetShortReachPortState':zyGreenEthernetShortReachPortState})
+#
+# PySNMP MIB module ZYXEL-GREEN-ETHERNET-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-GREEN-ETHERNET-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:05 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelGreenEthernet = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 93))
+if mibBuilder.loadTexts: zyxelGreenEthernet.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelGreenEthernet.setOrganization('Enterprise Solution ZyXEL')
+zyxelGreenEthernetSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 93, 1))
+zyGreenEthernetEeeState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 93, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyGreenEthernetEeeState.setStatus('current')
+zyGreenEthernetAutoPowerDownState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 93, 1, 2), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyGreenEthernetAutoPowerDownState.setStatus('current')
+zyGreenEthernetShortReachState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 93, 1, 3), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyGreenEthernetShortReachState.setStatus('current')
+zyxelGreenEthernetPortTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 93, 1, 4), )
+if mibBuilder.loadTexts: zyxelGreenEthernetPortTable.setStatus('current')
+zyxelGreenEthernetPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 93, 1, 4, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
+if mibBuilder.loadTexts: zyxelGreenEthernetPortEntry.setStatus('current')
+zyGreenEthernetEeePortState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 93, 1, 4, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyGreenEthernetEeePortState.setStatus('current')
+zyGreenEthernetAutoPowerDownPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 93, 1, 4, 1, 2), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyGreenEthernetAutoPowerDownPortState.setStatus('current')
+zyGreenEthernetShortReachPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 93, 1, 4, 1, 3), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyGreenEthernetShortReachPortState.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-GREEN-ETHERNET-MIB", zyGreenEthernetAutoPowerDownState=zyGreenEthernetAutoPowerDownState, zyxelGreenEthernet=zyxelGreenEthernet, zyGreenEthernetEeeState=zyGreenEthernetEeeState, zyGreenEthernetEeePortState=zyGreenEthernetEeePortState, zyxelGreenEthernetPortTable=zyxelGreenEthernetPortTable, zyxelGreenEthernetPortEntry=zyxelGreenEthernetPortEntry, zyGreenEthernetShortReachState=zyGreenEthernetShortReachState, zyxelGreenEthernetSetup=zyxelGreenEthernetSetup, PYSNMP_MODULE_ID=zyxelGreenEthernet, zyGreenEthernetShortReachPortState=zyGreenEthernetShortReachPortState, zyGreenEthernetAutoPowerDownPortState=zyGreenEthernetAutoPowerDownPortState)

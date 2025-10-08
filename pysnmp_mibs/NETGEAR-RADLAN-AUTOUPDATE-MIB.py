@@ -1,42 +1,30 @@
-_B='current'
-_A='read-write'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-rnd,=mibBuilder.importSymbols('NETGEAR-RADLAN-MIB','rnd')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-rlAutoUpdate=ModuleIdentity((1,3,6,1,4,1,4526,17,123))
-_RlAutoUpdateEnable_Type=TruthValue
-_RlAutoUpdateEnable_Object=MibScalar
-rlAutoUpdateEnable=_RlAutoUpdateEnable_Object((1,3,6,1,4,1,4526,17,123,1),_RlAutoUpdateEnable_Type())
-rlAutoUpdateEnable.setMaxAccess(_A)
-if mibBuilder.loadTexts:rlAutoUpdateEnable.setStatus(_B)
-_RlAutoUpdateFilesBoot_Type=TruthValue
-_RlAutoUpdateFilesBoot_Object=MibScalar
-rlAutoUpdateFilesBoot=_RlAutoUpdateFilesBoot_Object((1,3,6,1,4,1,4526,17,123,2),_RlAutoUpdateFilesBoot_Type())
-rlAutoUpdateFilesBoot.setMaxAccess(_A)
-if mibBuilder.loadTexts:rlAutoUpdateFilesBoot.setStatus(_B)
-_RlAutoUpdateFilesImage_Type=TruthValue
-_RlAutoUpdateFilesImage_Object=MibScalar
-rlAutoUpdateFilesImage=_RlAutoUpdateFilesImage_Object((1,3,6,1,4,1,4526,17,123,3),_RlAutoUpdateFilesImage_Type())
-rlAutoUpdateFilesImage.setMaxAccess(_A)
-if mibBuilder.loadTexts:rlAutoUpdateFilesImage.setStatus(_B)
-_RlAutoUpdateFilesConf_Type=TruthValue
-_RlAutoUpdateFilesConf_Object=MibScalar
-rlAutoUpdateFilesConf=_RlAutoUpdateFilesConf_Object((1,3,6,1,4,1,4526,17,123,4),_RlAutoUpdateFilesConf_Type())
-rlAutoUpdateFilesConf.setMaxAccess(_A)
-if mibBuilder.loadTexts:rlAutoUpdateFilesConf.setStatus(_B)
-_RlAutoUpdateCopyEnable_Type=TruthValue
-_RlAutoUpdateCopyEnable_Object=MibScalar
-rlAutoUpdateCopyEnable=_RlAutoUpdateCopyEnable_Object((1,3,6,1,4,1,4526,17,123,5),_RlAutoUpdateCopyEnable_Type())
-rlAutoUpdateCopyEnable.setMaxAccess(_A)
-if mibBuilder.loadTexts:rlAutoUpdateCopyEnable.setStatus(_B)
-_RlAutoUpdatePreserveIP_Type=TruthValue
-_RlAutoUpdatePreserveIP_Object=MibScalar
-rlAutoUpdatePreserveIP=_RlAutoUpdatePreserveIP_Object((1,3,6,1,4,1,4526,17,123,6),_RlAutoUpdatePreserveIP_Type())
-rlAutoUpdatePreserveIP.setMaxAccess(_A)
-if mibBuilder.loadTexts:rlAutoUpdatePreserveIP.setStatus(_B)
-mibBuilder.exportSymbols('NETGEAR-RADLAN-AUTOUPDATE-MIB',**{'rlAutoUpdate':rlAutoUpdate,'rlAutoUpdateEnable':rlAutoUpdateEnable,'rlAutoUpdateFilesBoot':rlAutoUpdateFilesBoot,'rlAutoUpdateFilesImage':rlAutoUpdateFilesImage,'rlAutoUpdateFilesConf':rlAutoUpdateFilesConf,'rlAutoUpdateCopyEnable':rlAutoUpdateCopyEnable,'rlAutoUpdatePreserveIP':rlAutoUpdatePreserveIP})
+#
+# PySNMP MIB module NETGEAR-RADLAN-AUTOUPDATE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/netgear/NETGEAR-RADLAN-AUTOUPDATE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:27:56 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+rnd, = mibBuilder.importSymbols("NETGEAR-RADLAN-MIB", "rnd")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+rlAutoUpdate = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 17, 123))
+if mibBuilder.loadTexts: rlAutoUpdate.setLastUpdated('2007010600Z')
+if mibBuilder.loadTexts: rlAutoUpdate.setOrganization('Radlan Computer Communications Ltd.')
+rlAutoUpdateEnable = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 123, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlAutoUpdateEnable.setStatus('current')
+rlAutoUpdateFilesBoot = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 123, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlAutoUpdateFilesBoot.setStatus('current')
+rlAutoUpdateFilesImage = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 123, 3), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlAutoUpdateFilesImage.setStatus('current')
+rlAutoUpdateFilesConf = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 123, 4), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlAutoUpdateFilesConf.setStatus('current')
+rlAutoUpdateCopyEnable = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 123, 5), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlAutoUpdateCopyEnable.setStatus('current')
+rlAutoUpdatePreserveIP = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 123, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlAutoUpdatePreserveIP.setStatus('current')
+mibBuilder.exportSymbols("NETGEAR-RADLAN-AUTOUPDATE-MIB", PYSNMP_MODULE_ID=rlAutoUpdate, rlAutoUpdateFilesImage=rlAutoUpdateFilesImage, rlAutoUpdateEnable=rlAutoUpdateEnable, rlAutoUpdateFilesBoot=rlAutoUpdateFilesBoot, rlAutoUpdate=rlAutoUpdate, rlAutoUpdatePreserveIP=rlAutoUpdatePreserveIP, rlAutoUpdateFilesConf=rlAutoUpdateFilesConf, rlAutoUpdateCopyEnable=rlAutoUpdateCopyEnable)

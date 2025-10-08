@@ -1,100 +1,55 @@
-_Q='cIfMonNotifEventGroup'
-_P='cIfMonNotifObjectGroup'
-_O='cIfMonNotifEvent'
-_N='cIfMonNotifLastChange'
-_M='cIfMonNotifInterval'
-_L='cIfMonNotifThreshold'
-_K='cIfMonNotifValue'
-_J='cIfMonNotifCause'
-_I='cIfMonNotifSeverity'
-_H='cIfMonNotifCount'
-_G='Integer32'
-_F='ifIndex'
-_E='IF-MIB'
-_D='Unsigned32'
-_C='read-only'
-_B='current'
-_A='CISCO-IF-MONITOR-NOTIF-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoExperiment,=mibBuilder.importSymbols('CISCO-SMI','ciscoExperiment')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp')
-ciscoIfMonitorNotifMIB=ModuleIdentity((1,3,6,1,4,1,9,10,999))
-if mibBuilder.loadTexts:ciscoIfMonitorNotifMIB.setRevisions(('2002-10-11 00:00',))
-_CIfMonNotifMIBNotifications_ObjectIdentity=ObjectIdentity
-cIfMonNotifMIBNotifications=_CIfMonNotifMIBNotifications_ObjectIdentity((1,3,6,1,4,1,9,10,999,0))
-_CIfMonNotifMIBObjects_ObjectIdentity=ObjectIdentity
-cIfMonNotifMIBObjects=_CIfMonNotifMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,10,999,1))
-class _CIfMonNotifCount_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CIfMonNotifCount_Type.__name__=_D
-_CIfMonNotifCount_Object=MibScalar
-cIfMonNotifCount=_CIfMonNotifCount_Object((1,3,6,1,4,1,9,10,999,1,1),_CIfMonNotifCount_Type())
-cIfMonNotifCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIfMonNotifCount.setStatus(_B)
-_CIfMonNotifTable_Object=MibTable
-cIfMonNotifTable=_CIfMonNotifTable_Object((1,3,6,1,4,1,9,10,999,1,2))
-if mibBuilder.loadTexts:cIfMonNotifTable.setStatus(_B)
-_CIfMonNotifEntry_Object=MibTableRow
-cIfMonNotifEntry=_CIfMonNotifEntry_Object((1,3,6,1,4,1,9,10,999,1,2,1))
-cIfMonNotifEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:cIfMonNotifEntry.setStatus(_B)
-_CIfMonNotifLastChange_Type=TimeStamp
-_CIfMonNotifLastChange_Object=MibTableColumn
-cIfMonNotifLastChange=_CIfMonNotifLastChange_Object((1,3,6,1,4,1,9,10,999,1,2,1,1),_CIfMonNotifLastChange_Type())
-cIfMonNotifLastChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIfMonNotifLastChange.setStatus(_B)
-class _CIfMonNotifSeverity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('red',1),('yellow',2)))
-_CIfMonNotifSeverity_Type.__name__=_G
-_CIfMonNotifSeverity_Object=MibTableColumn
-cIfMonNotifSeverity=_CIfMonNotifSeverity_Object((1,3,6,1,4,1,9,10,999,1,2,1,2),_CIfMonNotifSeverity_Type())
-cIfMonNotifSeverity.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIfMonNotifSeverity.setStatus(_B)
-class _CIfMonNotifCause_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('aborts',1),('crc',2),('drops',3),('flaps',4),('frame-reject',5),('runts',6),('sabm',7),('frmr',8),('disc',9)))
-_CIfMonNotifCause_Type.__name__=_G
-_CIfMonNotifCause_Object=MibTableColumn
-cIfMonNotifCause=_CIfMonNotifCause_Object((1,3,6,1,4,1,9,10,999,1,2,1,3),_CIfMonNotifCause_Type())
-cIfMonNotifCause.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIfMonNotifCause.setStatus(_B)
-class _CIfMonNotifValue_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CIfMonNotifValue_Type.__name__=_D
-_CIfMonNotifValue_Object=MibTableColumn
-cIfMonNotifValue=_CIfMonNotifValue_Object((1,3,6,1,4,1,9,10,999,1,2,1,4),_CIfMonNotifValue_Type())
-cIfMonNotifValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIfMonNotifValue.setStatus(_B)
-class _CIfMonNotifThreshold_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100000))
-_CIfMonNotifThreshold_Type.__name__=_D
-_CIfMonNotifThreshold_Object=MibTableColumn
-cIfMonNotifThreshold=_CIfMonNotifThreshold_Object((1,3,6,1,4,1,9,10,999,1,2,1,5),_CIfMonNotifThreshold_Type())
-cIfMonNotifThreshold.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIfMonNotifThreshold.setStatus(_B)
-class _CIfMonNotifInterval_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,600))
-_CIfMonNotifInterval_Type.__name__=_D
-_CIfMonNotifInterval_Object=MibTableColumn
-cIfMonNotifInterval=_CIfMonNotifInterval_Object((1,3,6,1,4,1,9,10,999,1,2,1,6),_CIfMonNotifInterval_Type())
-cIfMonNotifInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:cIfMonNotifInterval.setStatus(_B)
-if mibBuilder.loadTexts:cIfMonNotifInterval.setUnits('seconds')
-_CIfMonNotifMIBConformance_ObjectIdentity=ObjectIdentity
-cIfMonNotifMIBConformance=_CIfMonNotifMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,10,999,2))
-_CIfMonNotifMIBCompliances_ObjectIdentity=ObjectIdentity
-cIfMonNotifMIBCompliances=_CIfMonNotifMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,10,999,2,1))
-_CIfMonNotifMIBGroups_ObjectIdentity=ObjectIdentity
-cIfMonNotifMIBGroups=_CIfMonNotifMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,10,999,2,2))
-cIfMonNotifObjectGroup=ObjectGroup((1,3,6,1,4,1,9,10,999,2,2,1))
-cIfMonNotifObjectGroup.setObjects(*((_A,_H),(_A,_N),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:cIfMonNotifObjectGroup.setStatus(_B)
-cIfMonNotifEvent=NotificationType((1,3,6,1,4,1,9,10,999,0,1))
-cIfMonNotifEvent.setObjects(*((_E,_F),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:cIfMonNotifEvent.setStatus(_B)
-cIfMonNotifEventGroup=NotificationGroup((1,3,6,1,4,1,9,10,999,2,2,2))
-cIfMonNotifEventGroup.setObjects((_A,_O))
-if mibBuilder.loadTexts:cIfMonNotifEventGroup.setStatus(_B)
-cIfMonNotifMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,10,999,2,1,1))
-cIfMonNotifMIBCompliance.setObjects(*((_A,_P),(_A,_Q)))
-if mibBuilder.loadTexts:cIfMonNotifMIBCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ciscoIfMonitorNotifMIB':ciscoIfMonitorNotifMIB,'cIfMonNotifMIBNotifications':cIfMonNotifMIBNotifications,_O:cIfMonNotifEvent,'cIfMonNotifMIBObjects':cIfMonNotifMIBObjects,_H:cIfMonNotifCount,'cIfMonNotifTable':cIfMonNotifTable,'cIfMonNotifEntry':cIfMonNotifEntry,_N:cIfMonNotifLastChange,_I:cIfMonNotifSeverity,_J:cIfMonNotifCause,_K:cIfMonNotifValue,_L:cIfMonNotifThreshold,_M:cIfMonNotifInterval,'cIfMonNotifMIBConformance':cIfMonNotifMIBConformance,'cIfMonNotifMIBCompliances':cIfMonNotifMIBCompliances,'cIfMonNotifMIBCompliance':cIfMonNotifMIBCompliance,'cIfMonNotifMIBGroups':cIfMonNotifMIBGroups,_P:cIfMonNotifObjectGroup,_Q:cIfMonNotifEventGroup})
+#
+# PySNMP MIB module CISCO-IF-MONITOR-NOTIF-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-IF-MONITOR-NOTIF-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:10 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+ciscoIfMonitorNotifMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 999))
+ciscoIfMonitorNotifMIB.setRevisions(('2002-10-11 00:00',))
+if mibBuilder.loadTexts: ciscoIfMonitorNotifMIB.setLastUpdated('200210110000Z')
+if mibBuilder.loadTexts: ciscoIfMonitorNotifMIB.setOrganization('Cisco Systems, Inc.')
+cIfMonNotifMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 0))
+cIfMonNotifMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 1))
+cIfMonNotifMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 2))
+cIfMonNotifCount = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIfMonNotifCount.setStatus('current')
+cIfMonNotifTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 2), )
+if mibBuilder.loadTexts: cIfMonNotifTable.setStatus('current')
+cIfMonNotifEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cIfMonNotifEntry.setStatus('current')
+cIfMonNotifLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 2, 1, 1), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIfMonNotifLastChange.setStatus('current')
+cIfMonNotifSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("red", 1), ("yellow", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIfMonNotifSeverity.setStatus('current')
+cIfMonNotifCause = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("aborts", 1), ("crc", 2), ("drops", 3), ("flaps", 4), ("frame-reject", 5), ("runts", 6), ("sabm", 7), ("frmr", 8), ("disc", 9)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIfMonNotifCause.setStatus('current')
+cIfMonNotifValue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 2, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIfMonNotifValue.setStatus('current')
+cIfMonNotifThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 2, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100000))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIfMonNotifThreshold.setStatus('current')
+cIfMonNotifInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 999, 1, 2, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(5, 600))).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cIfMonNotifInterval.setStatus('current')
+cIfMonNotifEvent = NotificationType((1, 3, 6, 1, 4, 1, 9, 10, 999, 0, 1)).setObjects(("IF-MIB", "ifIndex"), ("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifCount"), ("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifSeverity"), ("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifCause"), ("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifValue"), ("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifThreshold"), ("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifInterval"))
+if mibBuilder.loadTexts: cIfMonNotifEvent.setStatus('current')
+cIfMonNotifMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 1))
+cIfMonNotifMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 2))
+cIfMonNotifMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 1, 1)).setObjects(("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifObjectGroup"), ("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifEventGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cIfMonNotifMIBCompliance = cIfMonNotifMIBCompliance.setStatus('current')
+cIfMonNotifObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 2, 1)).setObjects(("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifCount"), ("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifLastChange"), ("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifSeverity"), ("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifCause"), ("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifValue"), ("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifThreshold"), ("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cIfMonNotifObjectGroup = cIfMonNotifObjectGroup.setStatus('current')
+cIfMonNotifEventGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 2, 2)).setObjects(("CISCO-IF-MONITOR-NOTIF-MIB", "cIfMonNotifEvent"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cIfMonNotifEventGroup = cIfMonNotifEventGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-IF-MONITOR-NOTIF-MIB", cIfMonNotifMIBObjects=cIfMonNotifMIBObjects, cIfMonNotifSeverity=cIfMonNotifSeverity, cIfMonNotifEvent=cIfMonNotifEvent, cIfMonNotifEntry=cIfMonNotifEntry, cIfMonNotifLastChange=cIfMonNotifLastChange, cIfMonNotifInterval=cIfMonNotifInterval, cIfMonNotifMIBCompliances=cIfMonNotifMIBCompliances, cIfMonNotifMIBGroups=cIfMonNotifMIBGroups, cIfMonNotifMIBConformance=cIfMonNotifMIBConformance, cIfMonNotifEventGroup=cIfMonNotifEventGroup, PYSNMP_MODULE_ID=ciscoIfMonitorNotifMIB, cIfMonNotifMIBNotifications=cIfMonNotifMIBNotifications, cIfMonNotifCause=cIfMonNotifCause, cIfMonNotifObjectGroup=cIfMonNotifObjectGroup, cIfMonNotifTable=cIfMonNotifTable, cIfMonNotifCount=cIfMonNotifCount, cIfMonNotifMIBCompliance=cIfMonNotifMIBCompliance, cIfMonNotifValue=cIfMonNotifValue, ciscoIfMonitorNotifMIB=ciscoIfMonitorNotifMIB, cIfMonNotifThreshold=cIfMonNotifThreshold)

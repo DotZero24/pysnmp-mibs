@@ -1,106 +1,51 @@
-_E='enable'
-_D='disable'
-_C='Integer32'
-_B='current'
-_A='read-write'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tplinkMgmt,=mibBuilder.importSymbols('TPLINK-MIB','tplinkMgmt')
-tplinkSslMIB=ModuleIdentity((1,3,6,1,4,1,11863,6,42))
-if mibBuilder.loadTexts:tplinkSslMIB.setRevisions(('2012-12-13 09:30',))
-_TplinkSslMIBObjects_ObjectIdentity=ObjectIdentity
-tplinkSslMIBObjects=_TplinkSslMIBObjects_ObjectIdentity((1,3,6,1,4,1,11863,6,42,1))
-class _TpHttpsEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_TpHttpsEnable_Type.__name__=_C
-_TpHttpsEnable_Object=MibScalar
-tpHttpsEnable=_TpHttpsEnable_Object((1,3,6,1,4,1,11863,6,42,1,1),_TpHttpsEnable_Type())
-tpHttpsEnable.setMaxAccess(_A)
-if mibBuilder.loadTexts:tpHttpsEnable.setStatus(_B)
-class _TpSslProtocolVersion_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('sslv3',1),('tlsv1',2),('tlsv11',3),('tlsv12',4),('all',5)))
-_TpSslProtocolVersion_Type.__name__=_C
-_TpSslProtocolVersion_Object=MibScalar
-tpSslProtocolVersion=_TpSslProtocolVersion_Object((1,3,6,1,4,1,11863,6,42,1,2),_TpSslProtocolVersion_Type())
-tpSslProtocolVersion.setMaxAccess(_A)
-if mibBuilder.loadTexts:tpSslProtocolVersion.setStatus(_B)
-class _TpRc4Md5_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_TpRc4Md5_Type.__name__=_C
-_TpRc4Md5_Object=MibScalar
-tpRc4Md5=_TpRc4Md5_Object((1,3,6,1,4,1,11863,6,42,1,3),_TpRc4Md5_Type())
-tpRc4Md5.setMaxAccess(_A)
-if mibBuilder.loadTexts:tpRc4Md5.setStatus(_B)
-class _TpRc4Sha_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_TpRc4Sha_Type.__name__=_C
-_TpRc4Sha_Object=MibScalar
-tpRc4Sha=_TpRc4Sha_Object((1,3,6,1,4,1,11863,6,42,1,4),_TpRc4Sha_Type())
-tpRc4Sha.setMaxAccess(_A)
-if mibBuilder.loadTexts:tpRc4Sha.setStatus(_B)
-class _TpDesCbcSha_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_TpDesCbcSha_Type.__name__=_C
-_TpDesCbcSha_Object=MibScalar
-tpDesCbcSha=_TpDesCbcSha_Object((1,3,6,1,4,1,11863,6,42,1,5),_TpDesCbcSha_Type())
-tpDesCbcSha.setMaxAccess(_A)
-if mibBuilder.loadTexts:tpDesCbcSha.setStatus(_B)
-class _Tp3DesEdeCbcSha_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_Tp3DesEdeCbcSha_Type.__name__=_C
-_Tp3DesEdeCbcSha_Object=MibScalar
-tp3DesEdeCbcSha=_Tp3DesEdeCbcSha_Object((1,3,6,1,4,1,11863,6,42,1,6),_Tp3DesEdeCbcSha_Type())
-tp3DesEdeCbcSha.setMaxAccess(_A)
-if mibBuilder.loadTexts:tp3DesEdeCbcSha.setStatus(_B)
-class _TpEcdheAes128GcmSha256_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_TpEcdheAes128GcmSha256_Type.__name__=_C
-_TpEcdheAes128GcmSha256_Object=MibScalar
-tpEcdheAes128GcmSha256=_TpEcdheAes128GcmSha256_Object((1,3,6,1,4,1,11863,6,42,1,7),_TpEcdheAes128GcmSha256_Type())
-tpEcdheAes128GcmSha256.setMaxAccess(_A)
-if mibBuilder.loadTexts:tpEcdheAes128GcmSha256.setStatus(_B)
-class _TpEcdheAes256GcmSha384_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_TpEcdheAes256GcmSha384_Type.__name__=_C
-_TpEcdheAes256GcmSha384_Object=MibScalar
-tpEcdheAes256GcmSha384=_TpEcdheAes256GcmSha384_Object((1,3,6,1,4,1,11863,6,42,1,8),_TpEcdheAes256GcmSha384_Type())
-tpEcdheAes256GcmSha384.setMaxAccess(_A)
-if mibBuilder.loadTexts:tpEcdheAes256GcmSha384.setStatus(_B)
-class _TpHttpsSessionTimeOut_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,30))
-_TpHttpsSessionTimeOut_Type.__name__=_C
-_TpHttpsSessionTimeOut_Object=MibScalar
-tpHttpsSessionTimeOut=_TpHttpsSessionTimeOut_Object((1,3,6,1,4,1,11863,6,42,1,9),_TpHttpsSessionTimeOut_Type())
-tpHttpsSessionTimeOut.setMaxAccess(_A)
-if mibBuilder.loadTexts:tpHttpsSessionTimeOut.setStatus(_B)
-class _TpHttpsUserLimitEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_E,1)))
-_TpHttpsUserLimitEnable_Type.__name__=_C
-_TpHttpsUserLimitEnable_Object=MibScalar
-tpHttpsUserLimitEnable=_TpHttpsUserLimitEnable_Object((1,3,6,1,4,1,11863,6,42,1,10),_TpHttpsUserLimitEnable_Type())
-tpHttpsUserLimitEnable.setMaxAccess(_A)
-if mibBuilder.loadTexts:tpHttpsUserLimitEnable.setStatus(_B)
-_TpHttpsUserLimitMaxAdminNum_Type=Integer32
-_TpHttpsUserLimitMaxAdminNum_Object=MibScalar
-tpHttpsUserLimitMaxAdminNum=_TpHttpsUserLimitMaxAdminNum_Object((1,3,6,1,4,1,11863,6,42,1,11),_TpHttpsUserLimitMaxAdminNum_Type())
-tpHttpsUserLimitMaxAdminNum.setMaxAccess(_A)
-if mibBuilder.loadTexts:tpHttpsUserLimitMaxAdminNum.setStatus(_B)
-_TpHttpsUserLimitMaxOperatorNum_Type=Integer32
-_TpHttpsUserLimitMaxOperatorNum_Object=MibScalar
-tpHttpsUserLimitMaxOperatorNum=_TpHttpsUserLimitMaxOperatorNum_Object((1,3,6,1,4,1,11863,6,42,1,12),_TpHttpsUserLimitMaxOperatorNum_Type())
-tpHttpsUserLimitMaxOperatorNum.setMaxAccess(_A)
-if mibBuilder.loadTexts:tpHttpsUserLimitMaxOperatorNum.setStatus(_B)
-_TpHttpsUserLimitMaxPowerUserNum_Type=Integer32
-_TpHttpsUserLimitMaxPowerUserNum_Object=MibScalar
-tpHttpsUserLimitMaxPowerUserNum=_TpHttpsUserLimitMaxPowerUserNum_Object((1,3,6,1,4,1,11863,6,42,1,13),_TpHttpsUserLimitMaxPowerUserNum_Type())
-tpHttpsUserLimitMaxPowerUserNum.setMaxAccess(_A)
-if mibBuilder.loadTexts:tpHttpsUserLimitMaxPowerUserNum.setStatus(_B)
-_TpHttpsUserLimitMaxUserNum_Type=Integer32
-_TpHttpsUserLimitMaxUserNum_Object=MibScalar
-tpHttpsUserLimitMaxUserNum=_TpHttpsUserLimitMaxUserNum_Object((1,3,6,1,4,1,11863,6,42,1,14),_TpHttpsUserLimitMaxUserNum_Type())
-tpHttpsUserLimitMaxUserNum.setMaxAccess(_A)
-if mibBuilder.loadTexts:tpHttpsUserLimitMaxUserNum.setStatus(_B)
-class _TpHttpsPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_TpHttpsPort_Type.__name__=_C
-_TpHttpsPort_Object=MibScalar
-tpHttpsPort=_TpHttpsPort_Object((1,3,6,1,4,1,11863,6,42,1,15),_TpHttpsPort_Type())
-tpHttpsPort.setMaxAccess(_A)
-if mibBuilder.loadTexts:tpHttpsPort.setStatus(_B)
-_TplinkSslNotifications_ObjectIdentity=ObjectIdentity
-tplinkSslNotifications=_TplinkSslNotifications_ObjectIdentity((1,3,6,1,4,1,11863,6,42,2))
-mibBuilder.exportSymbols('TPLINK-SSL-MIB',**{'tplinkSslMIB':tplinkSslMIB,'tplinkSslMIBObjects':tplinkSslMIBObjects,'tpHttpsEnable':tpHttpsEnable,'tpSslProtocolVersion':tpSslProtocolVersion,'tpRc4Md5':tpRc4Md5,'tpRc4Sha':tpRc4Sha,'tpDesCbcSha':tpDesCbcSha,'tp3DesEdeCbcSha':tp3DesEdeCbcSha,'tpEcdheAes128GcmSha256':tpEcdheAes128GcmSha256,'tpEcdheAes256GcmSha384':tpEcdheAes256GcmSha384,'tpHttpsSessionTimeOut':tpHttpsSessionTimeOut,'tpHttpsUserLimitEnable':tpHttpsUserLimitEnable,'tpHttpsUserLimitMaxAdminNum':tpHttpsUserLimitMaxAdminNum,'tpHttpsUserLimitMaxOperatorNum':tpHttpsUserLimitMaxOperatorNum,'tpHttpsUserLimitMaxPowerUserNum':tpHttpsUserLimitMaxPowerUserNum,'tpHttpsUserLimitMaxUserNum':tpHttpsUserLimitMaxUserNum,'tpHttpsPort':tpHttpsPort,'tplinkSslNotifications':tplinkSslNotifications})
+#
+# PySNMP MIB module TPLINK-SSL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-SSL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
+tplinkSslMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 42))
+tplinkSslMIB.setRevisions(('2012-12-13 09:30',))
+if mibBuilder.loadTexts: tplinkSslMIB.setLastUpdated('201212130930Z')
+if mibBuilder.loadTexts: tplinkSslMIB.setOrganization('TPLINK')
+tplinkSslMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1))
+tplinkSslNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 42, 2))
+tpHttpsEnable = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpHttpsEnable.setStatus('current')
+tpSslProtocolVersion = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("sslv3", 1), ("tlsv1", 2), ("tlsv11", 3), ("tlsv12", 4), ("all", 5)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpSslProtocolVersion.setStatus('current')
+tpRc4Md5 = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpRc4Md5.setStatus('current')
+tpRc4Sha = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpRc4Sha.setStatus('current')
+tpDesCbcSha = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpDesCbcSha.setStatus('current')
+tp3DesEdeCbcSha = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tp3DesEdeCbcSha.setStatus('current')
+tpEcdheAes128GcmSha256 = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpEcdheAes128GcmSha256.setStatus('current')
+tpEcdheAes256GcmSha384 = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpEcdheAes256GcmSha384.setStatus('current')
+tpHttpsSessionTimeOut = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 30))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpHttpsSessionTimeOut.setStatus('current')
+tpHttpsUserLimitEnable = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpHttpsUserLimitEnable.setStatus('current')
+tpHttpsUserLimitMaxAdminNum = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 11), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpHttpsUserLimitMaxAdminNum.setStatus('current')
+tpHttpsUserLimitMaxOperatorNum = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 12), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpHttpsUserLimitMaxOperatorNum.setStatus('current')
+tpHttpsUserLimitMaxPowerUserNum = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 13), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpHttpsUserLimitMaxPowerUserNum.setStatus('current')
+tpHttpsUserLimitMaxUserNum = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 14), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpHttpsUserLimitMaxUserNum.setStatus('current')
+tpHttpsPort = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 42, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpHttpsPort.setStatus('current')
+mibBuilder.exportSymbols("TPLINK-SSL-MIB", tpEcdheAes256GcmSha384=tpEcdheAes256GcmSha384, tp3DesEdeCbcSha=tp3DesEdeCbcSha, tpHttpsUserLimitEnable=tpHttpsUserLimitEnable, tpHttpsSessionTimeOut=tpHttpsSessionTimeOut, tpHttpsUserLimitMaxOperatorNum=tpHttpsUserLimitMaxOperatorNum, tpRc4Sha=tpRc4Sha, tpEcdheAes128GcmSha256=tpEcdheAes128GcmSha256, tplinkSslMIB=tplinkSslMIB, tpHttpsUserLimitMaxUserNum=tpHttpsUserLimitMaxUserNum, tpSslProtocolVersion=tpSslProtocolVersion, tpHttpsEnable=tpHttpsEnable, tplinkSslNotifications=tplinkSslNotifications, tpDesCbcSha=tpDesCbcSha, tpHttpsUserLimitMaxPowerUserNum=tpHttpsUserLimitMaxPowerUserNum, PYSNMP_MODULE_ID=tplinkSslMIB, tpHttpsPort=tpHttpsPort, tplinkSslMIBObjects=tplinkSslMIBObjects, tpHttpsUserLimitMaxAdminNum=tpHttpsUserLimitMaxAdminNum, tpRc4Md5=tpRc4Md5)

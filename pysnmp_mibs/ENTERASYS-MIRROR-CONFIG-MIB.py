@@ -1,147 +1,80 @@
-_Y='etsysMirrorConfigGroup2'
-_X='etsysMirrorSystemGroup2'
-_W='etsysMirrorConfigGroup'
-_V='etsysMirrorSystemGroup'
-_U='etsysMirrorDestinationControlMirrorFirstN'
-_T='etsysMirrorDestinationNextAvailableIndex'
-_S='etsysMirrorSystemMaxMirrorFirstN'
-_R='ifIndex'
-_Q='IF-MIB'
-_P='etsysMirrorDestinationPortRowStatus'
-_O='etsysMirrorDestinationPortStorageType'
-_N='etsysMirrorDestinationControlRowStatus'
-_M='etsysMirrorDestinationControlStorageType'
-_L='etsysMirrorDestinationControlOwner'
-_K='deprecated'
-_J='etsysMirrorSystemMaxMirrorDestinationControlGroups'
-_I='etsysMirrorSystemMaxLocalMirrorDestinationPorts'
-_H='etsysMirrorSystemMaxRemoteMirrors'
-_G='etsysMirrorSystemMaxLocalMirrors'
-_F='etsysMirrorDestinationControlIndex'
-_E='Unsigned32'
-_D='read-create'
-_C='read-only'
-_B='current'
-_A='ENTERASYS-MIRROR-CONFIG-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-etsysModules,=mibBuilder.importSymbols('ENTERASYS-MIB-NAMES','etsysModules')
-ifIndex,=mibBuilder.importSymbols(_Q,_R)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','StorageType','TextualConvention')
-etsysMirrorConfigMIB=ModuleIdentity((1,3,6,1,4,1,5624,1,2,72))
-if mibBuilder.loadTexts:etsysMirrorConfigMIB.setRevisions(('2012-08-22 12:16','2009-08-10 18:56'))
-_EtsysMirrorSystem_ObjectIdentity=ObjectIdentity
-etsysMirrorSystem=_EtsysMirrorSystem_ObjectIdentity((1,3,6,1,4,1,5624,1,2,72,1))
-_EtsysMirrorSystemMaxLocalMirrors_Type=Unsigned32
-_EtsysMirrorSystemMaxLocalMirrors_Object=MibScalar
-etsysMirrorSystemMaxLocalMirrors=_EtsysMirrorSystemMaxLocalMirrors_Object((1,3,6,1,4,1,5624,1,2,72,1,1),_EtsysMirrorSystemMaxLocalMirrors_Type())
-etsysMirrorSystemMaxLocalMirrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysMirrorSystemMaxLocalMirrors.setStatus(_B)
-_EtsysMirrorSystemMaxRemoteMirrors_Type=Unsigned32
-_EtsysMirrorSystemMaxRemoteMirrors_Object=MibScalar
-etsysMirrorSystemMaxRemoteMirrors=_EtsysMirrorSystemMaxRemoteMirrors_Object((1,3,6,1,4,1,5624,1,2,72,1,2),_EtsysMirrorSystemMaxRemoteMirrors_Type())
-etsysMirrorSystemMaxRemoteMirrors.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysMirrorSystemMaxRemoteMirrors.setStatus(_B)
-_EtsysMirrorSystemMaxLocalMirrorDestinationPorts_Type=Unsigned32
-_EtsysMirrorSystemMaxLocalMirrorDestinationPorts_Object=MibScalar
-etsysMirrorSystemMaxLocalMirrorDestinationPorts=_EtsysMirrorSystemMaxLocalMirrorDestinationPorts_Object((1,3,6,1,4,1,5624,1,2,72,1,3),_EtsysMirrorSystemMaxLocalMirrorDestinationPorts_Type())
-etsysMirrorSystemMaxLocalMirrorDestinationPorts.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysMirrorSystemMaxLocalMirrorDestinationPorts.setStatus(_B)
-_EtsysMirrorSystemMaxMirrorDestinationControlGroups_Type=Unsigned32
-_EtsysMirrorSystemMaxMirrorDestinationControlGroups_Object=MibScalar
-etsysMirrorSystemMaxMirrorDestinationControlGroups=_EtsysMirrorSystemMaxMirrorDestinationControlGroups_Object((1,3,6,1,4,1,5624,1,2,72,1,4),_EtsysMirrorSystemMaxMirrorDestinationControlGroups_Type())
-etsysMirrorSystemMaxMirrorDestinationControlGroups.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysMirrorSystemMaxMirrorDestinationControlGroups.setStatus(_B)
-_EtsysMirrorSystemMaxMirrorFirstN_Type=Unsigned32
-_EtsysMirrorSystemMaxMirrorFirstN_Object=MibScalar
-etsysMirrorSystemMaxMirrorFirstN=_EtsysMirrorSystemMaxMirrorFirstN_Object((1,3,6,1,4,1,5624,1,2,72,1,5),_EtsysMirrorSystemMaxMirrorFirstN_Type())
-etsysMirrorSystemMaxMirrorFirstN.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysMirrorSystemMaxMirrorFirstN.setStatus(_B)
-_EtsysMirrorConfig_ObjectIdentity=ObjectIdentity
-etsysMirrorConfig=_EtsysMirrorConfig_ObjectIdentity((1,3,6,1,4,1,5624,1,2,72,2))
-class _EtsysMirrorDestinationNextAvailableIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,4294967295))
-_EtsysMirrorDestinationNextAvailableIndex_Type.__name__=_E
-_EtsysMirrorDestinationNextAvailableIndex_Object=MibScalar
-etsysMirrorDestinationNextAvailableIndex=_EtsysMirrorDestinationNextAvailableIndex_Object((1,3,6,1,4,1,5624,1,2,72,2,1),_EtsysMirrorDestinationNextAvailableIndex_Type())
-etsysMirrorDestinationNextAvailableIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:etsysMirrorDestinationNextAvailableIndex.setStatus(_B)
-_EtsysMirrorDestinationControlTable_Object=MibTable
-etsysMirrorDestinationControlTable=_EtsysMirrorDestinationControlTable_Object((1,3,6,1,4,1,5624,1,2,72,2,2))
-if mibBuilder.loadTexts:etsysMirrorDestinationControlTable.setStatus(_B)
-_EtsysMirrorDestinationControlEntry_Object=MibTableRow
-etsysMirrorDestinationControlEntry=_EtsysMirrorDestinationControlEntry_Object((1,3,6,1,4,1,5624,1,2,72,2,2,1))
-etsysMirrorDestinationControlEntry.setIndexNames((0,_A,_F))
-if mibBuilder.loadTexts:etsysMirrorDestinationControlEntry.setStatus(_B)
-_EtsysMirrorDestinationControlIndex_Type=Unsigned32
-_EtsysMirrorDestinationControlIndex_Object=MibTableColumn
-etsysMirrorDestinationControlIndex=_EtsysMirrorDestinationControlIndex_Object((1,3,6,1,4,1,5624,1,2,72,2,2,1,1),_EtsysMirrorDestinationControlIndex_Type())
-etsysMirrorDestinationControlIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:etsysMirrorDestinationControlIndex.setStatus(_B)
-_EtsysMirrorDestinationControlOwner_Type=SnmpAdminString
-_EtsysMirrorDestinationControlOwner_Object=MibTableColumn
-etsysMirrorDestinationControlOwner=_EtsysMirrorDestinationControlOwner_Object((1,3,6,1,4,1,5624,1,2,72,2,2,1,2),_EtsysMirrorDestinationControlOwner_Type())
-etsysMirrorDestinationControlOwner.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysMirrorDestinationControlOwner.setStatus(_B)
-_EtsysMirrorDestinationControlStorageType_Type=StorageType
-_EtsysMirrorDestinationControlStorageType_Object=MibTableColumn
-etsysMirrorDestinationControlStorageType=_EtsysMirrorDestinationControlStorageType_Object((1,3,6,1,4,1,5624,1,2,72,2,2,1,3),_EtsysMirrorDestinationControlStorageType_Type())
-etsysMirrorDestinationControlStorageType.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysMirrorDestinationControlStorageType.setStatus(_B)
-_EtsysMirrorDestinationControlRowStatus_Type=RowStatus
-_EtsysMirrorDestinationControlRowStatus_Object=MibTableColumn
-etsysMirrorDestinationControlRowStatus=_EtsysMirrorDestinationControlRowStatus_Object((1,3,6,1,4,1,5624,1,2,72,2,2,1,4),_EtsysMirrorDestinationControlRowStatus_Type())
-etsysMirrorDestinationControlRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysMirrorDestinationControlRowStatus.setStatus(_B)
-class _EtsysMirrorDestinationControlMirrorFirstN_Type(Unsigned32):defaultValue=0
-_EtsysMirrorDestinationControlMirrorFirstN_Type.__name__=_E
-_EtsysMirrorDestinationControlMirrorFirstN_Object=MibTableColumn
-etsysMirrorDestinationControlMirrorFirstN=_EtsysMirrorDestinationControlMirrorFirstN_Object((1,3,6,1,4,1,5624,1,2,72,2,2,1,5),_EtsysMirrorDestinationControlMirrorFirstN_Type())
-etsysMirrorDestinationControlMirrorFirstN.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysMirrorDestinationControlMirrorFirstN.setStatus(_B)
-_EtsysMirrorDestinationPortTable_Object=MibTable
-etsysMirrorDestinationPortTable=_EtsysMirrorDestinationPortTable_Object((1,3,6,1,4,1,5624,1,2,72,2,3))
-if mibBuilder.loadTexts:etsysMirrorDestinationPortTable.setStatus(_B)
-_EtsysMirrorDestinationPortEntry_Object=MibTableRow
-etsysMirrorDestinationPortEntry=_EtsysMirrorDestinationPortEntry_Object((1,3,6,1,4,1,5624,1,2,72,2,3,1))
-etsysMirrorDestinationPortEntry.setIndexNames((0,_A,_F),(0,_Q,_R))
-if mibBuilder.loadTexts:etsysMirrorDestinationPortEntry.setStatus(_B)
-_EtsysMirrorDestinationPortStorageType_Type=StorageType
-_EtsysMirrorDestinationPortStorageType_Object=MibTableColumn
-etsysMirrorDestinationPortStorageType=_EtsysMirrorDestinationPortStorageType_Object((1,3,6,1,4,1,5624,1,2,72,2,3,1,1),_EtsysMirrorDestinationPortStorageType_Type())
-etsysMirrorDestinationPortStorageType.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysMirrorDestinationPortStorageType.setStatus(_B)
-_EtsysMirrorDestinationPortRowStatus_Type=RowStatus
-_EtsysMirrorDestinationPortRowStatus_Object=MibTableColumn
-etsysMirrorDestinationPortRowStatus=_EtsysMirrorDestinationPortRowStatus_Object((1,3,6,1,4,1,5624,1,2,72,2,3,1,2),_EtsysMirrorDestinationPortRowStatus_Type())
-etsysMirrorDestinationPortRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:etsysMirrorDestinationPortRowStatus.setStatus(_B)
-_EtsysMirrorConformance_ObjectIdentity=ObjectIdentity
-etsysMirrorConformance=_EtsysMirrorConformance_ObjectIdentity((1,3,6,1,4,1,5624,1,2,72,3))
-_EtsysMirrorGroups_ObjectIdentity=ObjectIdentity
-etsysMirrorGroups=_EtsysMirrorGroups_ObjectIdentity((1,3,6,1,4,1,5624,1,2,72,3,1))
-_EtsysMirrorCompliances_ObjectIdentity=ObjectIdentity
-etsysMirrorCompliances=_EtsysMirrorCompliances_ObjectIdentity((1,3,6,1,4,1,5624,1,2,72,3,2))
-etsysMirrorSystemGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,72,3,1,1))
-etsysMirrorSystemGroup.setObjects(*((_A,_G),(_A,_H),(_A,_I),(_A,_J)))
-if mibBuilder.loadTexts:etsysMirrorSystemGroup.setStatus(_K)
-etsysMirrorConfigGroup=ObjectGroup((1,3,6,1,4,1,5624,1,2,72,3,1,2))
-etsysMirrorConfigGroup.setObjects(*((_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P)))
-if mibBuilder.loadTexts:etsysMirrorConfigGroup.setStatus(_K)
-etsysMirrorSystemGroup2=ObjectGroup((1,3,6,1,4,1,5624,1,2,72,3,1,3))
-etsysMirrorSystemGroup2.setObjects(*((_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_S)))
-if mibBuilder.loadTexts:etsysMirrorSystemGroup2.setStatus(_B)
-etsysMirrorConfigGroup2=ObjectGroup((1,3,6,1,4,1,5624,1,2,72,3,1,4))
-etsysMirrorConfigGroup2.setObjects(*((_A,_T),(_A,_L),(_A,_M),(_A,_N),(_A,_U),(_A,_O),(_A,_P)))
-if mibBuilder.loadTexts:etsysMirrorConfigGroup2.setStatus(_B)
-etsysMirrorCompliance=ModuleCompliance((1,3,6,1,4,1,5624,1,2,72,3,2,1))
-etsysMirrorCompliance.setObjects(*((_A,_V),(_A,_W)))
-if mibBuilder.loadTexts:etsysMirrorCompliance.setStatus(_K)
-etsysMirrorCompliance2=ModuleCompliance((1,3,6,1,4,1,5624,1,2,72,3,2,2))
-etsysMirrorCompliance2.setObjects(*((_A,_X),(_A,_Y)))
-if mibBuilder.loadTexts:etsysMirrorCompliance2.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'etsysMirrorConfigMIB':etsysMirrorConfigMIB,'etsysMirrorSystem':etsysMirrorSystem,_G:etsysMirrorSystemMaxLocalMirrors,_H:etsysMirrorSystemMaxRemoteMirrors,_I:etsysMirrorSystemMaxLocalMirrorDestinationPorts,_J:etsysMirrorSystemMaxMirrorDestinationControlGroups,_S:etsysMirrorSystemMaxMirrorFirstN,'etsysMirrorConfig':etsysMirrorConfig,_T:etsysMirrorDestinationNextAvailableIndex,'etsysMirrorDestinationControlTable':etsysMirrorDestinationControlTable,'etsysMirrorDestinationControlEntry':etsysMirrorDestinationControlEntry,_F:etsysMirrorDestinationControlIndex,_L:etsysMirrorDestinationControlOwner,_M:etsysMirrorDestinationControlStorageType,_N:etsysMirrorDestinationControlRowStatus,_U:etsysMirrorDestinationControlMirrorFirstN,'etsysMirrorDestinationPortTable':etsysMirrorDestinationPortTable,'etsysMirrorDestinationPortEntry':etsysMirrorDestinationPortEntry,_O:etsysMirrorDestinationPortStorageType,_P:etsysMirrorDestinationPortRowStatus,'etsysMirrorConformance':etsysMirrorConformance,'etsysMirrorGroups':etsysMirrorGroups,_V:etsysMirrorSystemGroup,_W:etsysMirrorConfigGroup,_X:etsysMirrorSystemGroup2,_Y:etsysMirrorConfigGroup2,'etsysMirrorCompliances':etsysMirrorCompliances,'etsysMirrorCompliance':etsysMirrorCompliance,'etsysMirrorCompliance2':etsysMirrorCompliance2})
+#
+# PySNMP MIB module ENTERASYS-MIRROR-CONFIG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/enterasys/ENTERASYS-MIRROR-CONFIG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:17:29 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention, RowStatus, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus", "StorageType")
+etsysMirrorConfigMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72))
+etsysMirrorConfigMIB.setRevisions(('2012-08-22 12:16', '2009-08-10 18:56',))
+if mibBuilder.loadTexts: etsysMirrorConfigMIB.setLastUpdated('201208221216Z')
+if mibBuilder.loadTexts: etsysMirrorConfigMIB.setOrganization('Enterasys Networks, Inc')
+etsysMirrorSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 1))
+etsysMirrorConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 2))
+etsysMirrorSystemMaxLocalMirrors = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysMirrorSystemMaxLocalMirrors.setStatus('current')
+etsysMirrorSystemMaxRemoteMirrors = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysMirrorSystemMaxRemoteMirrors.setStatus('current')
+etsysMirrorSystemMaxLocalMirrorDestinationPorts = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysMirrorSystemMaxLocalMirrorDestinationPorts.setStatus('current')
+etsysMirrorSystemMaxMirrorDestinationControlGroups = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysMirrorSystemMaxMirrorDestinationControlGroups.setStatus('current')
+etsysMirrorSystemMaxMirrorFirstN = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysMirrorSystemMaxMirrorFirstN.setStatus('current')
+etsysMirrorDestinationNextAvailableIndex = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 2, 1), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 4294967295), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: etsysMirrorDestinationNextAvailableIndex.setStatus('current')
+etsysMirrorDestinationControlTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 2, 2), )
+if mibBuilder.loadTexts: etsysMirrorDestinationControlTable.setStatus('current')
+etsysMirrorDestinationControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 2, 2, 1), ).setIndexNames((0, "ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorDestinationControlIndex"))
+if mibBuilder.loadTexts: etsysMirrorDestinationControlEntry.setStatus('current')
+etsysMirrorDestinationControlIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 2, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: etsysMirrorDestinationControlIndex.setStatus('current')
+etsysMirrorDestinationControlOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 2, 2, 1, 2), SnmpAdminString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: etsysMirrorDestinationControlOwner.setStatus('current')
+etsysMirrorDestinationControlStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 2, 2, 1, 3), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: etsysMirrorDestinationControlStorageType.setStatus('current')
+etsysMirrorDestinationControlRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 2, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: etsysMirrorDestinationControlRowStatus.setStatus('current')
+etsysMirrorDestinationControlMirrorFirstN = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 2, 2, 1, 5), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: etsysMirrorDestinationControlMirrorFirstN.setStatus('current')
+etsysMirrorDestinationPortTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 2, 3), )
+if mibBuilder.loadTexts: etsysMirrorDestinationPortTable.setStatus('current')
+etsysMirrorDestinationPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 2, 3, 1), ).setIndexNames((0, "ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorDestinationControlIndex"), (0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: etsysMirrorDestinationPortEntry.setStatus('current')
+etsysMirrorDestinationPortStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 2, 3, 1, 1), StorageType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: etsysMirrorDestinationPortStorageType.setStatus('current')
+etsysMirrorDestinationPortRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 2, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: etsysMirrorDestinationPortRowStatus.setStatus('current')
+etsysMirrorConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 3))
+etsysMirrorGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 3, 1))
+etsysMirrorCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 3, 2))
+etsysMirrorSystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 3, 1, 1)).setObjects(("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorSystemMaxLocalMirrors"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorSystemMaxRemoteMirrors"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorSystemMaxLocalMirrorDestinationPorts"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorSystemMaxMirrorDestinationControlGroups"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysMirrorSystemGroup = etsysMirrorSystemGroup.setStatus('deprecated')
+etsysMirrorConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 3, 1, 2)).setObjects(("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorDestinationControlOwner"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorDestinationControlStorageType"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorDestinationControlRowStatus"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorDestinationPortStorageType"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorDestinationPortRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysMirrorConfigGroup = etsysMirrorConfigGroup.setStatus('deprecated')
+etsysMirrorSystemGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 3, 1, 3)).setObjects(("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorSystemMaxLocalMirrors"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorSystemMaxRemoteMirrors"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorSystemMaxLocalMirrorDestinationPorts"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorSystemMaxMirrorDestinationControlGroups"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorSystemMaxMirrorFirstN"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysMirrorSystemGroup2 = etsysMirrorSystemGroup2.setStatus('current')
+etsysMirrorConfigGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 3, 1, 4)).setObjects(("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorDestinationNextAvailableIndex"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorDestinationControlOwner"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorDestinationControlStorageType"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorDestinationControlRowStatus"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorDestinationControlMirrorFirstN"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorDestinationPortStorageType"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorDestinationPortRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysMirrorConfigGroup2 = etsysMirrorConfigGroup2.setStatus('current')
+etsysMirrorCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 3, 2, 1)).setObjects(("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorSystemGroup"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysMirrorCompliance = etsysMirrorCompliance.setStatus('deprecated')
+etsysMirrorCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 72, 3, 2, 2)).setObjects(("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorSystemGroup2"), ("ENTERASYS-MIRROR-CONFIG-MIB", "etsysMirrorConfigGroup2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    etsysMirrorCompliance2 = etsysMirrorCompliance2.setStatus('current')
+mibBuilder.exportSymbols("ENTERASYS-MIRROR-CONFIG-MIB", etsysMirrorDestinationPortEntry=etsysMirrorDestinationPortEntry, etsysMirrorSystem=etsysMirrorSystem, etsysMirrorDestinationNextAvailableIndex=etsysMirrorDestinationNextAvailableIndex, etsysMirrorDestinationControlMirrorFirstN=etsysMirrorDestinationControlMirrorFirstN, etsysMirrorSystemMaxMirrorDestinationControlGroups=etsysMirrorSystemMaxMirrorDestinationControlGroups, etsysMirrorSystemMaxMirrorFirstN=etsysMirrorSystemMaxMirrorFirstN, etsysMirrorConfigGroup2=etsysMirrorConfigGroup2, etsysMirrorSystemMaxLocalMirrorDestinationPorts=etsysMirrorSystemMaxLocalMirrorDestinationPorts, etsysMirrorDestinationControlRowStatus=etsysMirrorDestinationControlRowStatus, etsysMirrorConfigGroup=etsysMirrorConfigGroup, etsysMirrorDestinationControlStorageType=etsysMirrorDestinationControlStorageType, etsysMirrorDestinationPortStorageType=etsysMirrorDestinationPortStorageType, etsysMirrorConformance=etsysMirrorConformance, etsysMirrorCompliance=etsysMirrorCompliance, etsysMirrorDestinationControlOwner=etsysMirrorDestinationControlOwner, etsysMirrorConfigMIB=etsysMirrorConfigMIB, PYSNMP_MODULE_ID=etsysMirrorConfigMIB, etsysMirrorSystemGroup2=etsysMirrorSystemGroup2, etsysMirrorSystemMaxLocalMirrors=etsysMirrorSystemMaxLocalMirrors, etsysMirrorConfig=etsysMirrorConfig, etsysMirrorDestinationPortTable=etsysMirrorDestinationPortTable, etsysMirrorCompliances=etsysMirrorCompliances, etsysMirrorDestinationControlEntry=etsysMirrorDestinationControlEntry, etsysMirrorDestinationPortRowStatus=etsysMirrorDestinationPortRowStatus, etsysMirrorDestinationControlTable=etsysMirrorDestinationControlTable, etsysMirrorDestinationControlIndex=etsysMirrorDestinationControlIndex, etsysMirrorSystemGroup=etsysMirrorSystemGroup, etsysMirrorGroups=etsysMirrorGroups, etsysMirrorCompliance2=etsysMirrorCompliance2, etsysMirrorSystemMaxRemoteMirrors=etsysMirrorSystemMaxRemoteMirrors)

@@ -1,75 +1,41 @@
-_I='dhcpRelaySvrVlanIfaceNo'
-_H='read-only'
-_G='dhcpRelaySvrGroupNo'
-_F='GBNL3DhcpRelay-MIB'
-_E='disable'
-_D='enable'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-gbnL3,=mibBuilder.importSymbols('GREENTECH-MASTER-MIB','gbnL3')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-gbnL3DhcpRelay=ModuleIdentity((1,3,6,1,4,1,13464,1,2,5,5))
-if mibBuilder.loadTexts:gbnL3DhcpRelay.setRevisions(('1901-05-03 00:00',))
-class _DhcpRelayEnableStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_DhcpRelayEnableStatus_Type.__name__=_B
-_DhcpRelayEnableStatus_Object=MibScalar
-dhcpRelayEnableStatus=_DhcpRelayEnableStatus_Object((1,3,6,1,4,1,13464,1,2,5,5,1),_DhcpRelayEnableStatus_Type())
-dhcpRelayEnableStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpRelayEnableStatus.setStatus(_A)
-class _DhcpRelayDebugStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_DhcpRelayDebugStatus_Type.__name__=_B
-_DhcpRelayDebugStatus_Object=MibScalar
-dhcpRelayDebugStatus=_DhcpRelayDebugStatus_Object((1,3,6,1,4,1,13464,1,2,5,5,2),_DhcpRelayDebugStatus_Type())
-dhcpRelayDebugStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpRelayDebugStatus.setStatus('obsolete')
-_DhcpRelayGroupTable_Object=MibTable
-dhcpRelayGroupTable=_DhcpRelayGroupTable_Object((1,3,6,1,4,1,13464,1,2,5,5,3))
-if mibBuilder.loadTexts:dhcpRelayGroupTable.setStatus(_A)
-_DhcpRelayGroupEntry_Object=MibTableRow
-dhcpRelayGroupEntry=_DhcpRelayGroupEntry_Object((1,3,6,1,4,1,13464,1,2,5,5,3,1))
-dhcpRelayGroupEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:dhcpRelayGroupEntry.setStatus(_A)
-class _DhcpRelaySvrGroupNo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_DhcpRelaySvrGroupNo_Type.__name__=_B
-_DhcpRelaySvrGroupNo_Object=MibTableColumn
-dhcpRelaySvrGroupNo=_DhcpRelaySvrGroupNo_Object((1,3,6,1,4,1,13464,1,2,5,5,3,1,1),_DhcpRelaySvrGroupNo_Type())
-dhcpRelaySvrGroupNo.setMaxAccess(_H)
-if mibBuilder.loadTexts:dhcpRelaySvrGroupNo.setStatus(_A)
-_DhcpRelayServerIp_Type=IpAddress
-_DhcpRelayServerIp_Object=MibTableColumn
-dhcpRelayServerIp=_DhcpRelayServerIp_Object((1,3,6,1,4,1,13464,1,2,5,5,3,1,2),_DhcpRelayServerIp_Type())
-dhcpRelayServerIp.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpRelayServerIp.setStatus(_A)
-_DhcpRelayIfaceTable_Object=MibTable
-dhcpRelayIfaceTable=_DhcpRelayIfaceTable_Object((1,3,6,1,4,1,13464,1,2,5,5,4))
-if mibBuilder.loadTexts:dhcpRelayIfaceTable.setStatus(_A)
-_DhcpRelayIfaceEntry_Object=MibTableRow
-dhcpRelayIfaceEntry=_DhcpRelayIfaceEntry_Object((1,3,6,1,4,1,13464,1,2,5,5,4,1))
-dhcpRelayIfaceEntry.setIndexNames((0,_F,_I))
-if mibBuilder.loadTexts:dhcpRelayIfaceEntry.setStatus(_A)
-class _DhcpRelaySvrVlanIfaceNo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_DhcpRelaySvrVlanIfaceNo_Type.__name__=_B
-_DhcpRelaySvrVlanIfaceNo_Object=MibTableColumn
-dhcpRelaySvrVlanIfaceNo=_DhcpRelaySvrVlanIfaceNo_Object((1,3,6,1,4,1,13464,1,2,5,5,4,1,1),_DhcpRelaySvrVlanIfaceNo_Type())
-dhcpRelaySvrVlanIfaceNo.setMaxAccess(_H)
-if mibBuilder.loadTexts:dhcpRelaySvrVlanIfaceNo.setStatus(_A)
-class _DhcpRelayVlanIfaceGroupNo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
-_DhcpRelayVlanIfaceGroupNo_Type.__name__=_B
-_DhcpRelayVlanIfaceGroupNo_Object=MibTableColumn
-dhcpRelayVlanIfaceGroupNo=_DhcpRelayVlanIfaceGroupNo_Object((1,3,6,1,4,1,13464,1,2,5,5,4,1,2),_DhcpRelayVlanIfaceGroupNo_Type())
-dhcpRelayVlanIfaceGroupNo.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpRelayVlanIfaceGroupNo.setStatus(_A)
-class _DhcpRelayHideServerIp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_DhcpRelayHideServerIp_Type.__name__=_B
-_DhcpRelayHideServerIp_Object=MibScalar
-dhcpRelayHideServerIp=_DhcpRelayHideServerIp_Object((1,3,6,1,4,1,13464,1,2,5,5,5),_DhcpRelayHideServerIp_Type())
-dhcpRelayHideServerIp.setMaxAccess(_C)
-if mibBuilder.loadTexts:dhcpRelayHideServerIp.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'gbnL3DhcpRelay':gbnL3DhcpRelay,'dhcpRelayEnableStatus':dhcpRelayEnableStatus,'dhcpRelayDebugStatus':dhcpRelayDebugStatus,'dhcpRelayGroupTable':dhcpRelayGroupTable,'dhcpRelayGroupEntry':dhcpRelayGroupEntry,_G:dhcpRelaySvrGroupNo,'dhcpRelayServerIp':dhcpRelayServerIp,'dhcpRelayIfaceTable':dhcpRelayIfaceTable,'dhcpRelayIfaceEntry':dhcpRelayIfaceEntry,_I:dhcpRelaySvrVlanIfaceNo,'dhcpRelayVlanIfaceGroupNo':dhcpRelayVlanIfaceGroupNo,'dhcpRelayHideServerIp':dhcpRelayHideServerIp})
+#
+# PySNMP MIB module GBNL3DhcpRelay-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/gcom/GBNL3DhcpRelay-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:42 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+gbnL3, = mibBuilder.importSymbols("GREENTECH-MASTER-MIB", "gbnL3")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+gbnL3DhcpRelay = ModuleIdentity((1, 3, 6, 1, 4, 1, 13464, 1, 2, 5, 5))
+gbnL3DhcpRelay.setRevisions(('1901-05-03 00:00',))
+if mibBuilder.loadTexts: gbnL3DhcpRelay.setLastUpdated('0105030000Z')
+if mibBuilder.loadTexts: gbnL3DhcpRelay.setOrganization('Greentech')
+dhcpRelayEnableStatus = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 5, 5, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dhcpRelayEnableStatus.setStatus('current')
+dhcpRelayDebugStatus = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 5, 5, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dhcpRelayDebugStatus.setStatus('obsolete')
+dhcpRelayGroupTable = MibTable((1, 3, 6, 1, 4, 1, 13464, 1, 2, 5, 5, 3), )
+if mibBuilder.loadTexts: dhcpRelayGroupTable.setStatus('current')
+dhcpRelayGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13464, 1, 2, 5, 5, 3, 1), ).setIndexNames((0, "GBNL3DhcpRelay-MIB", "dhcpRelaySvrGroupNo"))
+if mibBuilder.loadTexts: dhcpRelayGroupEntry.setStatus('current')
+dhcpRelaySvrGroupNo = MibTableColumn((1, 3, 6, 1, 4, 1, 13464, 1, 2, 5, 5, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcpRelaySvrGroupNo.setStatus('current')
+dhcpRelayServerIp = MibTableColumn((1, 3, 6, 1, 4, 1, 13464, 1, 2, 5, 5, 3, 1, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dhcpRelayServerIp.setStatus('current')
+dhcpRelayIfaceTable = MibTable((1, 3, 6, 1, 4, 1, 13464, 1, 2, 5, 5, 4), )
+if mibBuilder.loadTexts: dhcpRelayIfaceTable.setStatus('current')
+dhcpRelayIfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13464, 1, 2, 5, 5, 4, 1), ).setIndexNames((0, "GBNL3DhcpRelay-MIB", "dhcpRelaySvrVlanIfaceNo"))
+if mibBuilder.loadTexts: dhcpRelayIfaceEntry.setStatus('current')
+dhcpRelaySvrVlanIfaceNo = MibTableColumn((1, 3, 6, 1, 4, 1, 13464, 1, 2, 5, 5, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcpRelaySvrVlanIfaceNo.setStatus('current')
+dhcpRelayVlanIfaceGroupNo = MibTableColumn((1, 3, 6, 1, 4, 1, 13464, 1, 2, 5, 5, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dhcpRelayVlanIfaceGroupNo.setStatus('current')
+dhcpRelayHideServerIp = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 5, 5, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dhcpRelayHideServerIp.setStatus('current')
+mibBuilder.exportSymbols("GBNL3DhcpRelay-MIB", dhcpRelaySvrGroupNo=dhcpRelaySvrGroupNo, dhcpRelayIfaceEntry=dhcpRelayIfaceEntry, dhcpRelayEnableStatus=dhcpRelayEnableStatus, dhcpRelayHideServerIp=dhcpRelayHideServerIp, gbnL3DhcpRelay=gbnL3DhcpRelay, dhcpRelayGroupEntry=dhcpRelayGroupEntry, dhcpRelayIfaceTable=dhcpRelayIfaceTable, dhcpRelayVlanIfaceGroupNo=dhcpRelayVlanIfaceGroupNo, dhcpRelayGroupTable=dhcpRelayGroupTable, dhcpRelaySvrVlanIfaceNo=dhcpRelaySvrVlanIfaceNo, dhcpRelayDebugStatus=dhcpRelayDebugStatus, dhcpRelayServerIp=dhcpRelayServerIp, PYSNMP_MODULE_ID=gbnL3DhcpRelay)

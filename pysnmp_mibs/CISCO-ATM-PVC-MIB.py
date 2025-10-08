@@ -1,112 +1,55 @@
-_R='ciscoAtmPvcMIBGroup'
-_Q='capvcRowStatus'
-_P='capvcVlanId'
-_O='capvcFrequency'
-_N='capvcOAM'
-_M='capvcPCR'
-_L='capvcType'
-_K='capvcVCD'
-_J='capvcVCI'
-_I='capvcVPI'
-_H='capvcPort'
-_G='TruthValue'
-_F='Integer32'
-_E='not-accessible'
-_D='read-create'
-_C='Unsigned32'
-_B='CISCO-ATM-PVC-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_C,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_G)
-ciscoAtmPvcMIB=ModuleIdentity((1,3,6,1,4,1,9,9,94))
-if mibBuilder.loadTexts:ciscoAtmPvcMIB.setRevisions(('2002-04-11 00:00','1997-11-18 00:00'))
-_CiscoAtmPvcMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoAtmPvcMIBObjects=_CiscoAtmPvcMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,94,1))
-_CiscoAtmPvcCreateBindGroup_ObjectIdentity=ObjectIdentity
-ciscoAtmPvcCreateBindGroup=_CiscoAtmPvcCreateBindGroup_ObjectIdentity((1,3,6,1,4,1,9,9,94,1,1))
-_CapvcTable_Object=MibTable
-capvcTable=_CapvcTable_Object((1,3,6,1,4,1,9,9,94,1,1,1))
-if mibBuilder.loadTexts:capvcTable.setStatus(_A)
-_CapvcEntry_Object=MibTableRow
-capvcEntry=_CapvcEntry_Object((1,3,6,1,4,1,9,9,94,1,1,1,1))
-capvcEntry.setIndexNames((0,_B,_H),(0,_B,_I),(0,_B,_J))
-if mibBuilder.loadTexts:capvcEntry.setStatus(_A)
-_CapvcPort_Type=Unsigned32
-_CapvcPort_Object=MibTableColumn
-capvcPort=_CapvcPort_Object((1,3,6,1,4,1,9,9,94,1,1,1,1,1),_CapvcPort_Type())
-capvcPort.setMaxAccess(_E)
-if mibBuilder.loadTexts:capvcPort.setStatus(_A)
-class _CapvcVPI_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_CapvcVPI_Type.__name__=_C
-_CapvcVPI_Object=MibTableColumn
-capvcVPI=_CapvcVPI_Object((1,3,6,1,4,1,9,9,94,1,1,1,1,2),_CapvcVPI_Type())
-capvcVPI.setMaxAccess(_E)
-if mibBuilder.loadTexts:capvcVPI.setStatus(_A)
-class _CapvcVCI_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CapvcVCI_Type.__name__=_C
-_CapvcVCI_Object=MibTableColumn
-capvcVCI=_CapvcVCI_Object((1,3,6,1,4,1,9,9,94,1,1,1,1,3),_CapvcVCI_Type())
-capvcVCI.setMaxAccess(_E)
-if mibBuilder.loadTexts:capvcVCI.setStatus(_A)
-class _CapvcVCD_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_CapvcVCD_Type.__name__=_C
-_CapvcVCD_Object=MibTableColumn
-capvcVCD=_CapvcVCD_Object((1,3,6,1,4,1,9,9,94,1,1,1,1,4),_CapvcVCD_Type())
-capvcVCD.setMaxAccess('read-only')
-if mibBuilder.loadTexts:capvcVCD.setStatus(_A)
-class _CapvcType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('aal5snap',1),('ilmi',2),('qsaal',3)))
-_CapvcType_Type.__name__=_F
-_CapvcType_Object=MibTableColumn
-capvcType=_CapvcType_Object((1,3,6,1,4,1,9,9,94,1,1,1,1,5),_CapvcType_Type())
-capvcType.setMaxAccess(_D)
-if mibBuilder.loadTexts:capvcType.setStatus(_A)
-class _CapvcPCR_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,155000))
-_CapvcPCR_Type.__name__=_C
-_CapvcPCR_Object=MibTableColumn
-capvcPCR=_CapvcPCR_Object((1,3,6,1,4,1,9,9,94,1,1,1,1,6),_CapvcPCR_Type())
-capvcPCR.setMaxAccess(_D)
-if mibBuilder.loadTexts:capvcPCR.setStatus(_A)
-if mibBuilder.loadTexts:capvcPCR.setUnits('kbps')
-class _CapvcOAM_Type(TruthValue):defaultValue=2
-_CapvcOAM_Type.__name__=_G
-_CapvcOAM_Object=MibTableColumn
-capvcOAM=_CapvcOAM_Object((1,3,6,1,4,1,9,9,94,1,1,1,1,7),_CapvcOAM_Type())
-capvcOAM.setMaxAccess(_D)
-if mibBuilder.loadTexts:capvcOAM.setStatus(_A)
-class _CapvcFrequency_Type(Unsigned32):defaultValue=10
-_CapvcFrequency_Type.__name__=_C
-_CapvcFrequency_Object=MibTableColumn
-capvcFrequency=_CapvcFrequency_Object((1,3,6,1,4,1,9,9,94,1,1,1,1,8),_CapvcFrequency_Type())
-capvcFrequency.setMaxAccess(_D)
-if mibBuilder.loadTexts:capvcFrequency.setStatus(_A)
-if mibBuilder.loadTexts:capvcFrequency.setUnits('seconds')
-class _CapvcVlanId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1024))
-_CapvcVlanId_Type.__name__=_C
-_CapvcVlanId_Object=MibTableColumn
-capvcVlanId=_CapvcVlanId_Object((1,3,6,1,4,1,9,9,94,1,1,1,1,9),_CapvcVlanId_Type())
-capvcVlanId.setMaxAccess(_D)
-if mibBuilder.loadTexts:capvcVlanId.setStatus(_A)
-_CapvcRowStatus_Type=RowStatus
-_CapvcRowStatus_Object=MibTableColumn
-capvcRowStatus=_CapvcRowStatus_Object((1,3,6,1,4,1,9,9,94,1,1,1,1,10),_CapvcRowStatus_Type())
-capvcRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:capvcRowStatus.setStatus(_A)
-_CiscoAtmPvcMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoAtmPvcMIBConformance=_CiscoAtmPvcMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,94,3))
-_CiscoAtmPvcMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoAtmPvcMIBCompliances=_CiscoAtmPvcMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,94,3,1))
-_CiscoAtmPvcMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoAtmPvcMIBGroups=_CiscoAtmPvcMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,94,3,2))
-ciscoAtmPvcMIBGroup=ObjectGroup((1,3,6,1,4,1,9,9,94,3,2,1))
-ciscoAtmPvcMIBGroup.setObjects(*((_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:ciscoAtmPvcMIBGroup.setStatus(_A)
-ciscoAtmPvcMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,94,3,1,1))
-ciscoAtmPvcMIBCompliance.setObjects((_B,_R))
-if mibBuilder.loadTexts:ciscoAtmPvcMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ciscoAtmPvcMIB':ciscoAtmPvcMIB,'ciscoAtmPvcMIBObjects':ciscoAtmPvcMIBObjects,'ciscoAtmPvcCreateBindGroup':ciscoAtmPvcCreateBindGroup,'capvcTable':capvcTable,'capvcEntry':capvcEntry,_H:capvcPort,_I:capvcVPI,_J:capvcVCI,_K:capvcVCD,_L:capvcType,_M:capvcPCR,_N:capvcOAM,_O:capvcFrequency,_P:capvcVlanId,_Q:capvcRowStatus,'ciscoAtmPvcMIBConformance':ciscoAtmPvcMIBConformance,'ciscoAtmPvcMIBCompliances':ciscoAtmPvcMIBCompliances,'ciscoAtmPvcMIBCompliance':ciscoAtmPvcMIBCompliance,'ciscoAtmPvcMIBGroups':ciscoAtmPvcMIBGroups,_R:ciscoAtmPvcMIBGroup})
+#
+# PySNMP MIB module CISCO-ATM-PVC-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-ATM-PVC-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ciscoAtmPvcMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 94))
+ciscoAtmPvcMIB.setRevisions(('2002-04-11 00:00', '1997-11-18 00:00',))
+if mibBuilder.loadTexts: ciscoAtmPvcMIB.setLastUpdated('200204110000Z')
+if mibBuilder.loadTexts: ciscoAtmPvcMIB.setOrganization('Cisco Systems, Inc.')
+ciscoAtmPvcMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 94, 1))
+ciscoAtmPvcCreateBindGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 94, 1, 1))
+capvcTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 94, 1, 1, 1), )
+if mibBuilder.loadTexts: capvcTable.setStatus('current')
+capvcEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 94, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-ATM-PVC-MIB", "capvcPort"), (0, "CISCO-ATM-PVC-MIB", "capvcVPI"), (0, "CISCO-ATM-PVC-MIB", "capvcVCI"))
+if mibBuilder.loadTexts: capvcEntry.setStatus('current')
+capvcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 94, 1, 1, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: capvcPort.setStatus('current')
+capvcVPI = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 94, 1, 1, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095)))
+if mibBuilder.loadTexts: capvcVPI.setStatus('current')
+capvcVCI = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 94, 1, 1, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: capvcVCI.setStatus('current')
+capvcVCD = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 94, 1, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: capvcVCD.setStatus('current')
+capvcType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 94, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("aal5snap", 1), ("ilmi", 2), ("qsaal", 3)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: capvcType.setStatus('current')
+capvcPCR = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 94, 1, 1, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 155000))).setUnits('kbps').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: capvcPCR.setStatus('current')
+capvcOAM = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 94, 1, 1, 1, 1, 7), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: capvcOAM.setStatus('current')
+capvcFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 94, 1, 1, 1, 1, 8), Unsigned32().clone(10)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: capvcFrequency.setStatus('current')
+capvcVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 94, 1, 1, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: capvcVlanId.setStatus('current')
+capvcRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 94, 1, 1, 1, 1, 10), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: capvcRowStatus.setStatus('current')
+ciscoAtmPvcMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 94, 3))
+ciscoAtmPvcMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 94, 3, 1))
+ciscoAtmPvcMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 94, 3, 2))
+ciscoAtmPvcMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 94, 3, 1, 1)).setObjects(("CISCO-ATM-PVC-MIB", "ciscoAtmPvcMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmPvcMIBCompliance = ciscoAtmPvcMIBCompliance.setStatus('current')
+ciscoAtmPvcMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 94, 3, 2, 1)).setObjects(("CISCO-ATM-PVC-MIB", "capvcVCD"), ("CISCO-ATM-PVC-MIB", "capvcType"), ("CISCO-ATM-PVC-MIB", "capvcPCR"), ("CISCO-ATM-PVC-MIB", "capvcOAM"), ("CISCO-ATM-PVC-MIB", "capvcFrequency"), ("CISCO-ATM-PVC-MIB", "capvcVlanId"), ("CISCO-ATM-PVC-MIB", "capvcRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmPvcMIBGroup = ciscoAtmPvcMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-ATM-PVC-MIB", ciscoAtmPvcCreateBindGroup=ciscoAtmPvcCreateBindGroup, capvcTable=capvcTable, ciscoAtmPvcMIBCompliances=ciscoAtmPvcMIBCompliances, capvcRowStatus=capvcRowStatus, capvcFrequency=capvcFrequency, capvcType=capvcType, capvcPCR=capvcPCR, ciscoAtmPvcMIBConformance=ciscoAtmPvcMIBConformance, capvcVCI=capvcVCI, capvcPort=capvcPort, capvcOAM=capvcOAM, ciscoAtmPvcMIBGroups=ciscoAtmPvcMIBGroups, ciscoAtmPvcMIBObjects=ciscoAtmPvcMIBObjects, ciscoAtmPvcMIB=ciscoAtmPvcMIB, capvcVCD=capvcVCD, PYSNMP_MODULE_ID=ciscoAtmPvcMIB, ciscoAtmPvcMIBGroup=ciscoAtmPvcMIBGroup, capvcEntry=capvcEntry, capvcVlanId=capvcVlanId, capvcVPI=capvcVPI, ciscoAtmPvcMIBCompliance=ciscoAtmPvcMIBCompliance)

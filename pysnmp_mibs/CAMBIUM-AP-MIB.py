@@ -1,480 +1,194 @@
-_K='read-write'
-_J='cambiumMeshClientMACAddressIndex'
-_I='cambiumWlanIndex'
-_H='cambiumClientMACAddressIndex'
-_G='cambiumRadioIndex'
-_F='cambiumAPMACAddress'
-_E='Integer32'
-_D='CAMBIUM-AP-MIB'
-_C='DisplayString'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso,snmpModules=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso','snmpModules')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_C,'MacAddress','PhysAddress','TextualConvention')
-cnPilotMIB=ModuleIdentity((1,3,6,1,4,1,17713,22))
-if mibBuilder.loadTexts:cnPilotMIB.setRevisions(('2015-09-09 12:38',))
-_Cambium_ObjectIdentity=ObjectIdentity
-cambium=_Cambium_ObjectIdentity((1,3,6,1,4,1,17713))
-_CambiumStateGroup_ObjectIdentity=ObjectIdentity
-cambiumStateGroup=_CambiumStateGroup_ObjectIdentity((1,3,6,1,4,1,17713,22,1))
-_CambiumAccessPointTable_Object=MibTable
-cambiumAccessPointTable=_CambiumAccessPointTable_Object((1,3,6,1,4,1,17713,22,1,1))
-if mibBuilder.loadTexts:cambiumAccessPointTable.setStatus(_A)
-_CambiumAccessPointEntry_Object=MibTableRow
-cambiumAccessPointEntry=_CambiumAccessPointEntry_Object((1,3,6,1,4,1,17713,22,1,1,1))
-cambiumAccessPointEntry.setIndexNames((0,_D,_F))
-if mibBuilder.loadTexts:cambiumAccessPointEntry.setStatus(_A)
-_CambiumAPMACAddress_Type=MacAddress
-_CambiumAPMACAddress_Object=MibTableColumn
-cambiumAPMACAddress=_CambiumAPMACAddress_Object((1,3,6,1,4,1,17713,22,1,1,1,1),_CambiumAPMACAddress_Type())
-cambiumAPMACAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumAPMACAddress.setStatus(_A)
-class _CambiumAPName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CambiumAPName_Type.__name__=_C
-_CambiumAPName_Object=MibTableColumn
-cambiumAPName=_CambiumAPName_Object((1,3,6,1,4,1,17713,22,1,1,1,2),_CambiumAPName_Type())
-cambiumAPName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumAPName.setStatus(_A)
-class _CambiumAPIPAddress_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CambiumAPIPAddress_Type.__name__=_C
-_CambiumAPIPAddress_Object=MibTableColumn
-cambiumAPIPAddress=_CambiumAPIPAddress_Object((1,3,6,1,4,1,17713,22,1,1,1,3),_CambiumAPIPAddress_Type())
-cambiumAPIPAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumAPIPAddress.setStatus(_A)
-class _CambiumAPSerialNum_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CambiumAPSerialNum_Type.__name__=_C
-_CambiumAPSerialNum_Object=MibTableColumn
-cambiumAPSerialNum=_CambiumAPSerialNum_Object((1,3,6,1,4,1,17713,22,1,1,1,4),_CambiumAPSerialNum_Type())
-cambiumAPSerialNum.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumAPSerialNum.setStatus(_A)
-class _CambiumAPModel_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumAPModel_Type.__name__=_C
-_CambiumAPModel_Object=MibTableColumn
-cambiumAPModel=_CambiumAPModel_Object((1,3,6,1,4,1,17713,22,1,1,1,5),_CambiumAPModel_Type())
-cambiumAPModel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumAPModel.setStatus(_A)
-_CambiumAPCPUUtilization_Type=Integer32
-_CambiumAPCPUUtilization_Object=MibTableColumn
-cambiumAPCPUUtilization=_CambiumAPCPUUtilization_Object((1,3,6,1,4,1,17713,22,1,1,1,6),_CambiumAPCPUUtilization_Type())
-cambiumAPCPUUtilization.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumAPCPUUtilization.setStatus(_A)
-_CambiumAPMemoryFree_Type=Integer32
-_CambiumAPMemoryFree_Object=MibTableColumn
-cambiumAPMemoryFree=_CambiumAPMemoryFree_Object((1,3,6,1,4,1,17713,22,1,1,1,7),_CambiumAPMemoryFree_Type())
-cambiumAPMemoryFree.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumAPMemoryFree.setStatus(_A)
-class _CambiumAPSWVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CambiumAPSWVersion_Type.__name__=_C
-_CambiumAPSWVersion_Object=MibTableColumn
-cambiumAPSWVersion=_CambiumAPSWVersion_Object((1,3,6,1,4,1,17713,22,1,1,1,8),_CambiumAPSWVersion_Type())
-cambiumAPSWVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumAPSWVersion.setStatus(_A)
-_CambiumAPUptime_Type=TimeTicks
-_CambiumAPUptime_Object=MibTableColumn
-cambiumAPUptime=_CambiumAPUptime_Object((1,3,6,1,4,1,17713,22,1,1,1,9),_CambiumAPUptime_Type())
-cambiumAPUptime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumAPUptime.setStatus(_A)
-class _CambiumAPHWType_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumAPHWType_Type.__name__=_C
-_CambiumAPHWType_Object=MibTableColumn
-cambiumAPHWType=_CambiumAPHWType_Object((1,3,6,1,4,1,17713,22,1,1,1,10),_CambiumAPHWType_Type())
-cambiumAPHWType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumAPHWType.setStatus(_A)
-class _CambiumAPRegulatory_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumAPRegulatory_Type.__name__=_C
-_CambiumAPRegulatory_Object=MibTableColumn
-cambiumAPRegulatory=_CambiumAPRegulatory_Object((1,3,6,1,4,1,17713,22,1,1,1,11),_CambiumAPRegulatory_Type())
-cambiumAPRegulatory.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumAPRegulatory.setStatus(_A)
-class _CambiumAPCnmConstaus_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumAPCnmConstaus_Type.__name__=_C
-_CambiumAPCnmConstaus_Object=MibTableColumn
-cambiumAPCnmConstaus=_CambiumAPCnmConstaus_Object((1,3,6,1,4,1,17713,22,1,1,1,12),_CambiumAPCnmConstaus_Type())
-cambiumAPCnmConstaus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumAPCnmConstaus.setStatus(_A)
-class _CambiumAPCnmAccID_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumAPCnmAccID_Type.__name__=_C
-_CambiumAPCnmAccID_Object=MibTableColumn
-cambiumAPCnmAccID=_CambiumAPCnmAccID_Object((1,3,6,1,4,1,17713,22,1,1,1,13),_CambiumAPCnmAccID_Type())
-cambiumAPCnmAccID.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumAPCnmAccID.setStatus(_A)
-_CambiumAPTotalClients_Type=Integer32
-_CambiumAPTotalClients_Object=MibTableColumn
-cambiumAPTotalClients=_CambiumAPTotalClients_Object((1,3,6,1,4,1,17713,22,1,1,1,14),_CambiumAPTotalClients_Type())
-cambiumAPTotalClients.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumAPTotalClients.setStatus(_A)
-class _CambiumAPCheckUpgradeStatus_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CambiumAPCheckUpgradeStatus_Type.__name__=_C
-_CambiumAPCheckUpgradeStatus_Object=MibTableColumn
-cambiumAPCheckUpgradeStatus=_CambiumAPCheckUpgradeStatus_Object((1,3,6,1,4,1,17713,22,1,1,1,15),_CambiumAPCheckUpgradeStatus_Type())
-cambiumAPCheckUpgradeStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumAPCheckUpgradeStatus.setStatus(_A)
-_CambiumRadioTable_Object=MibTable
-cambiumRadioTable=_CambiumRadioTable_Object((1,3,6,1,4,1,17713,22,1,2))
-if mibBuilder.loadTexts:cambiumRadioTable.setStatus(_A)
-_CambiumRadioEntry_Object=MibTableRow
-cambiumRadioEntry=_CambiumRadioEntry_Object((1,3,6,1,4,1,17713,22,1,2,1))
-cambiumRadioEntry.setIndexNames((0,_D,_G))
-if mibBuilder.loadTexts:cambiumRadioEntry.setStatus(_A)
-_CambiumRadioIndex_Type=Integer32
-_CambiumRadioIndex_Object=MibTableColumn
-cambiumRadioIndex=_CambiumRadioIndex_Object((1,3,6,1,4,1,17713,22,1,2,1,1),_CambiumRadioIndex_Type())
-cambiumRadioIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioIndex.setStatus(_A)
-_CambiumRadioMACAddress_Type=MacAddress
-_CambiumRadioMACAddress_Object=MibTableColumn
-cambiumRadioMACAddress=_CambiumRadioMACAddress_Object((1,3,6,1,4,1,17713,22,1,2,1,2),_CambiumRadioMACAddress_Type())
-cambiumRadioMACAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioMACAddress.setStatus(_A)
-class _CambiumRadioBandType_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumRadioBandType_Type.__name__=_C
-_CambiumRadioBandType_Object=MibTableColumn
-cambiumRadioBandType=_CambiumRadioBandType_Object((1,3,6,1,4,1,17713,22,1,2,1,3),_CambiumRadioBandType_Type())
-cambiumRadioBandType.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioBandType.setStatus(_A)
-_CambiumRadioWlan_Type=Integer32
-_CambiumRadioWlan_Object=MibTableColumn
-cambiumRadioWlan=_CambiumRadioWlan_Object((1,3,6,1,4,1,17713,22,1,2,1,4),_CambiumRadioWlan_Type())
-cambiumRadioWlan.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioWlan.setStatus(_A)
-_CambiumRadioNumClients_Type=Integer32
-_CambiumRadioNumClients_Object=MibTableColumn
-cambiumRadioNumClients=_CambiumRadioNumClients_Object((1,3,6,1,4,1,17713,22,1,2,1,5),_CambiumRadioNumClients_Type())
-cambiumRadioNumClients.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioNumClients.setStatus(_A)
-class _CambiumRadioChannel_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumRadioChannel_Type.__name__=_C
-_CambiumRadioChannel_Object=MibTableColumn
-cambiumRadioChannel=_CambiumRadioChannel_Object((1,3,6,1,4,1,17713,22,1,2,1,6),_CambiumRadioChannel_Type())
-cambiumRadioChannel.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioChannel.setStatus(_A)
-class _CambiumRadioChannelWidth_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumRadioChannelWidth_Type.__name__=_C
-_CambiumRadioChannelWidth_Object=MibTableColumn
-cambiumRadioChannelWidth=_CambiumRadioChannelWidth_Object((1,3,6,1,4,1,17713,22,1,2,1,7),_CambiumRadioChannelWidth_Type())
-cambiumRadioChannelWidth.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioChannelWidth.setStatus(_A)
-_CambiumRadioTransmitPower_Type=Integer32
-_CambiumRadioTransmitPower_Object=MibTableColumn
-cambiumRadioTransmitPower=_CambiumRadioTransmitPower_Object((1,3,6,1,4,1,17713,22,1,2,1,8),_CambiumRadioTransmitPower_Type())
-cambiumRadioTransmitPower.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioTransmitPower.setStatus(_A)
-_CambiumRadioTotalTxPackets_Type=Counter32
-_CambiumRadioTotalTxPackets_Object=MibTableColumn
-cambiumRadioTotalTxPackets=_CambiumRadioTotalTxPackets_Object((1,3,6,1,4,1,17713,22,1,2,1,9),_CambiumRadioTotalTxPackets_Type())
-cambiumRadioTotalTxPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioTotalTxPackets.setStatus(_A)
-_CambiumRadioTotalRxPackets_Type=Counter32
-_CambiumRadioTotalRxPackets_Object=MibTableColumn
-cambiumRadioTotalRxPackets=_CambiumRadioTotalRxPackets_Object((1,3,6,1,4,1,17713,22,1,2,1,10),_CambiumRadioTotalRxPackets_Type())
-cambiumRadioTotalRxPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioTotalRxPackets.setStatus(_A)
-_CambiumRadioTxDataBytes_Type=Counter32
-_CambiumRadioTxDataBytes_Object=MibTableColumn
-cambiumRadioTxDataBytes=_CambiumRadioTxDataBytes_Object((1,3,6,1,4,1,17713,22,1,2,1,11),_CambiumRadioTxDataBytes_Type())
-cambiumRadioTxDataBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioTxDataBytes.setStatus(_A)
-_CambiumRadioRxDataBytes_Type=Counter32
-_CambiumRadioRxDataBytes_Object=MibTableColumn
-cambiumRadioRxDataBytes=_CambiumRadioRxDataBytes_Object((1,3,6,1,4,1,17713,22,1,2,1,12),_CambiumRadioRxDataBytes_Type())
-cambiumRadioRxDataBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioRxDataBytes.setStatus(_A)
-class _CambiumRadioState_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumRadioState_Type.__name__=_C
-_CambiumRadioState_Object=MibTableColumn
-cambiumRadioState=_CambiumRadioState_Object((1,3,6,1,4,1,17713,22,1,2,1,13),_CambiumRadioState_Type())
-cambiumRadioState.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioState.setStatus(_A)
-_CambiumRadioDfsStatus_Type=Integer32
-_CambiumRadioDfsStatus_Object=MibTableColumn
-cambiumRadioDfsStatus=_CambiumRadioDfsStatus_Object((1,3,6,1,4,1,17713,22,1,2,1,14),_CambiumRadioDfsStatus_Type())
-cambiumRadioDfsStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioDfsStatus.setStatus(_A)
-_CambiumRadioDfsDetect_Type=Integer32
-_CambiumRadioDfsDetect_Object=MibTableColumn
-cambiumRadioDfsDetect=_CambiumRadioDfsDetect_Object((1,3,6,1,4,1,17713,22,1,2,1,15),_CambiumRadioDfsDetect_Type())
-cambiumRadioDfsDetect.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioDfsDetect.setStatus(_A)
-class _CambiumRadioNoiseFloor_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumRadioNoiseFloor_Type.__name__=_C
-_CambiumRadioNoiseFloor_Object=MibTableColumn
-cambiumRadioNoiseFloor=_CambiumRadioNoiseFloor_Object((1,3,6,1,4,1,17713,22,1,2,1,16),_CambiumRadioNoiseFloor_Type())
-cambiumRadioNoiseFloor.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioNoiseFloor.setStatus(_A)
-class _CambiumRadioInterference_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumRadioInterference_Type.__name__=_C
-_CambiumRadioInterference_Object=MibTableColumn
-cambiumRadioInterference=_CambiumRadioInterference_Object((1,3,6,1,4,1,17713,22,1,2,1,17),_CambiumRadioInterference_Type())
-cambiumRadioInterference.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioInterference.setStatus(_A)
-class _CambiumRadioAirtime_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CambiumRadioAirtime_Type.__name__=_C
-_CambiumRadioAirtime_Object=MibTableColumn
-cambiumRadioAirtime=_CambiumRadioAirtime_Object((1,3,6,1,4,1,17713,22,1,2,1,18),_CambiumRadioAirtime_Type())
-cambiumRadioAirtime.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumRadioAirtime.setStatus(_A)
-_CambiumClientTable_Object=MibTable
-cambiumClientTable=_CambiumClientTable_Object((1,3,6,1,4,1,17713,22,1,3))
-if mibBuilder.loadTexts:cambiumClientTable.setStatus(_A)
-_CambiumClientEntry_Object=MibTableRow
-cambiumClientEntry=_CambiumClientEntry_Object((1,3,6,1,4,1,17713,22,1,3,1))
-cambiumClientEntry.setIndexNames((0,_D,_H))
-if mibBuilder.loadTexts:cambiumClientEntry.setStatus(_A)
-_CambiumClientMACAddressIndex_Type=Integer32
-_CambiumClientMACAddressIndex_Object=MibTableColumn
-cambiumClientMACAddressIndex=_CambiumClientMACAddressIndex_Object((1,3,6,1,4,1,17713,22,1,3,1,1),_CambiumClientMACAddressIndex_Type())
-cambiumClientMACAddressIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientMACAddressIndex.setStatus(_A)
-_CambiumClientMACAddress_Type=MacAddress
-_CambiumClientMACAddress_Object=MibTableColumn
-cambiumClientMACAddress=_CambiumClientMACAddress_Object((1,3,6,1,4,1,17713,22,1,3,1,2),_CambiumClientMACAddress_Type())
-cambiumClientMACAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientMACAddress.setStatus(_A)
-class _CambiumClientIPAddress_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumClientIPAddress_Type.__name__=_C
-_CambiumClientIPAddress_Object=MibTableColumn
-cambiumClientIPAddress=_CambiumClientIPAddress_Object((1,3,6,1,4,1,17713,22,1,3,1,3),_CambiumClientIPAddress_Type())
-cambiumClientIPAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientIPAddress.setStatus(_A)
-class _CambiumClientName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumClientName_Type.__name__=_C
-_CambiumClientName_Object=MibTableColumn
-cambiumClientName=_CambiumClientName_Object((1,3,6,1,4,1,17713,22,1,3,1,4),_CambiumClientName_Type())
-cambiumClientName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientName.setStatus(_A)
-class _CambiumClientSsid_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumClientSsid_Type.__name__=_C
-_CambiumClientSsid_Object=MibTableColumn
-cambiumClientSsid=_CambiumClientSsid_Object((1,3,6,1,4,1,17713,22,1,3,1,5),_CambiumClientSsid_Type())
-cambiumClientSsid.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientSsid.setStatus(_A)
-class _CambiumClientVendorName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumClientVendorName_Type.__name__=_C
-_CambiumClientVendorName_Object=MibTableColumn
-cambiumClientVendorName=_CambiumClientVendorName_Object((1,3,6,1,4,1,17713,22,1,3,1,6),_CambiumClientVendorName_Type())
-cambiumClientVendorName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientVendorName.setStatus(_A)
-class _CambiumClientHwmode_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumClientHwmode_Type.__name__=_C
-_CambiumClientHwmode_Object=MibTableColumn
-cambiumClientHwmode=_CambiumClientHwmode_Object((1,3,6,1,4,1,17713,22,1,3,1,7),_CambiumClientHwmode_Type())
-cambiumClientHwmode.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientHwmode.setStatus(_A)
-_CambiumClientRadioIndex_Type=Integer32
-_CambiumClientRadioIndex_Object=MibTableColumn
-cambiumClientRadioIndex=_CambiumClientRadioIndex_Object((1,3,6,1,4,1,17713,22,1,3,1,8),_CambiumClientRadioIndex_Type())
-cambiumClientRadioIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientRadioIndex.setStatus(_A)
-_CambiumClientWlan_Type=Integer32
-_CambiumClientWlan_Object=MibTableColumn
-cambiumClientWlan=_CambiumClientWlan_Object((1,3,6,1,4,1,17713,22,1,3,1,9),_CambiumClientWlan_Type())
-cambiumClientWlan.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientWlan.setStatus(_A)
-_CambiumClientVlan_Type=Integer32
-_CambiumClientVlan_Object=MibTableColumn
-cambiumClientVlan=_CambiumClientVlan_Object((1,3,6,1,4,1,17713,22,1,3,1,10),_CambiumClientVlan_Type())
-cambiumClientVlan.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientVlan.setStatus(_A)
-_CambiumClientSNR_Type=Integer32
-_CambiumClientSNR_Object=MibTableColumn
-cambiumClientSNR=_CambiumClientSNR_Object((1,3,6,1,4,1,17713,22,1,3,1,11),_CambiumClientSNR_Type())
-cambiumClientSNR.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientSNR.setStatus(_A)
-class _CambiumClientTxRate_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumClientTxRate_Type.__name__=_C
-_CambiumClientTxRate_Object=MibTableColumn
-cambiumClientTxRate=_CambiumClientTxRate_Object((1,3,6,1,4,1,17713,22,1,3,1,12),_CambiumClientTxRate_Type())
-cambiumClientTxRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientTxRate.setStatus(_A)
-_CambiumClientTotalTxPackets_Type=Counter32
-_CambiumClientTotalTxPackets_Object=MibTableColumn
-cambiumClientTotalTxPackets=_CambiumClientTotalTxPackets_Object((1,3,6,1,4,1,17713,22,1,3,1,13),_CambiumClientTotalTxPackets_Type())
-cambiumClientTotalTxPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientTotalTxPackets.setStatus(_A)
-_CambiumClientTxDataBytes_Type=Counter32
-_CambiumClientTxDataBytes_Object=MibTableColumn
-cambiumClientTxDataBytes=_CambiumClientTxDataBytes_Object((1,3,6,1,4,1,17713,22,1,3,1,14),_CambiumClientTxDataBytes_Type())
-cambiumClientTxDataBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientTxDataBytes.setStatus(_A)
-_CambiumClientTotalRxPackets_Type=Counter32
-_CambiumClientTotalRxPackets_Object=MibTableColumn
-cambiumClientTotalRxPackets=_CambiumClientTotalRxPackets_Object((1,3,6,1,4,1,17713,22,1,3,1,15),_CambiumClientTotalRxPackets_Type())
-cambiumClientTotalRxPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientTotalRxPackets.setStatus(_A)
-_CambiumClientRxDataBytes_Type=Counter32
-_CambiumClientRxDataBytes_Object=MibTableColumn
-cambiumClientRxDataBytes=_CambiumClientRxDataBytes_Object((1,3,6,1,4,1,17713,22,1,3,1,16),_CambiumClientRxDataBytes_Type())
-cambiumClientRxDataBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumClientRxDataBytes.setStatus(_A)
-_CambiumWlanTable_Object=MibTable
-cambiumWlanTable=_CambiumWlanTable_Object((1,3,6,1,4,1,17713,22,1,4))
-if mibBuilder.loadTexts:cambiumWlanTable.setStatus(_A)
-_CambiumWlanEntry_Object=MibTableRow
-cambiumWlanEntry=_CambiumWlanEntry_Object((1,3,6,1,4,1,17713,22,1,4,1))
-cambiumWlanEntry.setIndexNames((0,_D,_I))
-if mibBuilder.loadTexts:cambiumWlanEntry.setStatus(_A)
-_CambiumWlanIndex_Type=Integer32
-_CambiumWlanIndex_Object=MibTableColumn
-cambiumWlanIndex=_CambiumWlanIndex_Object((1,3,6,1,4,1,17713,22,1,4,1,1),_CambiumWlanIndex_Type())
-cambiumWlanIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumWlanIndex.setStatus(_A)
-class _CambiumWlanSsid_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumWlanSsid_Type.__name__=_C
-_CambiumWlanSsid_Object=MibTableColumn
-cambiumWlanSsid=_CambiumWlanSsid_Object((1,3,6,1,4,1,17713,22,1,4,1,2),_CambiumWlanSsid_Type())
-cambiumWlanSsid.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumWlanSsid.setStatus(_A)
-class _CambiumWlanBand_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumWlanBand_Type.__name__=_C
-_CambiumWlanBand_Object=MibTableColumn
-cambiumWlanBand=_CambiumWlanBand_Object((1,3,6,1,4,1,17713,22,1,4,1,3),_CambiumWlanBand_Type())
-cambiumWlanBand.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumWlanBand.setStatus(_A)
-_CambiumWlanVlan_Type=Integer32
-_CambiumWlanVlan_Object=MibTableColumn
-cambiumWlanVlan=_CambiumWlanVlan_Object((1,3,6,1,4,1,17713,22,1,4,1,4),_CambiumWlanVlan_Type())
-cambiumWlanVlan.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumWlanVlan.setStatus(_A)
-class _CambiumWlanSecurity_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumWlanSecurity_Type.__name__=_C
-_CambiumWlanSecurity_Object=MibTableColumn
-cambiumWlanSecurity=_CambiumWlanSecurity_Object((1,3,6,1,4,1,17713,22,1,4,1,5),_CambiumWlanSecurity_Type())
-cambiumWlanSecurity.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumWlanSecurity.setStatus(_A)
-class _CambiumWlanGuestAccess_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumWlanGuestAccess_Type.__name__=_C
-_CambiumWlanGuestAccess_Object=MibTableColumn
-cambiumWlanGuestAccess=_CambiumWlanGuestAccess_Object((1,3,6,1,4,1,17713,22,1,4,1,6),_CambiumWlanGuestAccess_Type())
-cambiumWlanGuestAccess.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumWlanGuestAccess.setStatus(_A)
-_CambiumWlanNumClients_Type=Integer32
-_CambiumWlanNumClients_Object=MibTableColumn
-cambiumWlanNumClients=_CambiumWlanNumClients_Object((1,3,6,1,4,1,17713,22,1,4,1,7),_CambiumWlanNumClients_Type())
-cambiumWlanNumClients.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumWlanNumClients.setStatus(_A)
-_CambiumWlanTotalTxPackets_Type=Counter32
-_CambiumWlanTotalTxPackets_Object=MibTableColumn
-cambiumWlanTotalTxPackets=_CambiumWlanTotalTxPackets_Object((1,3,6,1,4,1,17713,22,1,4,1,8),_CambiumWlanTotalTxPackets_Type())
-cambiumWlanTotalTxPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumWlanTotalTxPackets.setStatus(_A)
-_CambiumWlanTxDataBytes_Type=Counter32
-_CambiumWlanTxDataBytes_Object=MibTableColumn
-cambiumWlanTxDataBytes=_CambiumWlanTxDataBytes_Object((1,3,6,1,4,1,17713,22,1,4,1,9),_CambiumWlanTxDataBytes_Type())
-cambiumWlanTxDataBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumWlanTxDataBytes.setStatus(_A)
-_CambiumWlanTotalRxPackets_Type=Counter32
-_CambiumWlanTotalRxPackets_Object=MibTableColumn
-cambiumWlanTotalRxPackets=_CambiumWlanTotalRxPackets_Object((1,3,6,1,4,1,17713,22,1,4,1,10),_CambiumWlanTotalRxPackets_Type())
-cambiumWlanTotalRxPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumWlanTotalRxPackets.setStatus(_A)
-_CambiumWlanRxDataBytes_Type=Counter32
-_CambiumWlanRxDataBytes_Object=MibTableColumn
-cambiumWlanRxDataBytes=_CambiumWlanRxDataBytes_Object((1,3,6,1,4,1,17713,22,1,4,1,11),_CambiumWlanRxDataBytes_Type())
-cambiumWlanRxDataBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumWlanRxDataBytes.setStatus(_A)
-_CambiumMeshClientTable_Object=MibTable
-cambiumMeshClientTable=_CambiumMeshClientTable_Object((1,3,6,1,4,1,17713,22,1,5))
-if mibBuilder.loadTexts:cambiumMeshClientTable.setStatus(_A)
-_CambiumMeshClientEntry_Object=MibTableRow
-cambiumMeshClientEntry=_CambiumMeshClientEntry_Object((1,3,6,1,4,1,17713,22,1,5,1))
-cambiumMeshClientEntry.setIndexNames((0,_D,_J))
-if mibBuilder.loadTexts:cambiumMeshClientEntry.setStatus(_A)
-_CambiumMeshClientMACAddressIndex_Type=Integer32
-_CambiumMeshClientMACAddressIndex_Object=MibTableColumn
-cambiumMeshClientMACAddressIndex=_CambiumMeshClientMACAddressIndex_Object((1,3,6,1,4,1,17713,22,1,5,1,1),_CambiumMeshClientMACAddressIndex_Type())
-cambiumMeshClientMACAddressIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumMeshClientMACAddressIndex.setStatus(_A)
-_CambiumMeshClientMACAddress_Type=MacAddress
-_CambiumMeshClientMACAddress_Object=MibTableColumn
-cambiumMeshClientMACAddress=_CambiumMeshClientMACAddress_Object((1,3,6,1,4,1,17713,22,1,5,1,2),_CambiumMeshClientMACAddress_Type())
-cambiumMeshClientMACAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumMeshClientMACAddress.setStatus(_A)
-_CambiumMeshClientBaseMACAddress_Type=MacAddress
-_CambiumMeshClientBaseMACAddress_Object=MibTableColumn
-cambiumMeshClientBaseMACAddress=_CambiumMeshClientBaseMACAddress_Object((1,3,6,1,4,1,17713,22,1,5,1,3),_CambiumMeshClientBaseMACAddress_Type())
-cambiumMeshClientBaseMACAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumMeshClientBaseMACAddress.setStatus(_A)
-class _CambiumMeshClientIPAddress_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumMeshClientIPAddress_Type.__name__=_C
-_CambiumMeshClientIPAddress_Object=MibTableColumn
-cambiumMeshClientIPAddress=_CambiumMeshClientIPAddress_Object((1,3,6,1,4,1,17713,22,1,5,1,4),_CambiumMeshClientIPAddress_Type())
-cambiumMeshClientIPAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumMeshClientIPAddress.setStatus(_A)
-class _CambiumMeshClientName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumMeshClientName_Type.__name__=_C
-_CambiumMeshClientName_Object=MibTableColumn
-cambiumMeshClientName=_CambiumMeshClientName_Object((1,3,6,1,4,1,17713,22,1,5,1,5),_CambiumMeshClientName_Type())
-cambiumMeshClientName.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumMeshClientName.setStatus(_A)
-class _CambiumMeshClientSsid_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumMeshClientSsid_Type.__name__=_C
-_CambiumMeshClientSsid_Object=MibTableColumn
-cambiumMeshClientSsid=_CambiumMeshClientSsid_Object((1,3,6,1,4,1,17713,22,1,5,1,6),_CambiumMeshClientSsid_Type())
-cambiumMeshClientSsid.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumMeshClientSsid.setStatus(_A)
-class _CambiumMeshClientRadioBand_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumMeshClientRadioBand_Type.__name__=_C
-_CambiumMeshClientRadioBand_Object=MibTableColumn
-cambiumMeshClientRadioBand=_CambiumMeshClientRadioBand_Object((1,3,6,1,4,1,17713,22,1,5,1,7),_CambiumMeshClientRadioBand_Type())
-cambiumMeshClientRadioBand.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumMeshClientRadioBand.setStatus(_A)
-_CambiumMeshClientSNR_Type=Integer32
-_CambiumMeshClientSNR_Object=MibTableColumn
-cambiumMeshClientSNR=_CambiumMeshClientSNR_Object((1,3,6,1,4,1,17713,22,1,5,1,8),_CambiumMeshClientSNR_Type())
-cambiumMeshClientSNR.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumMeshClientSNR.setStatus(_A)
-_CambiumMeshClientRSSI_Type=Integer32
-_CambiumMeshClientRSSI_Object=MibTableColumn
-cambiumMeshClientRSSI=_CambiumMeshClientRSSI_Object((1,3,6,1,4,1,17713,22,1,5,1,9),_CambiumMeshClientRSSI_Type())
-cambiumMeshClientRSSI.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumMeshClientRSSI.setStatus(_A)
-class _CambiumMeshClientStatus_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumMeshClientStatus_Type.__name__=_C
-_CambiumMeshClientStatus_Object=MibTableColumn
-cambiumMeshClientStatus=_CambiumMeshClientStatus_Object((1,3,6,1,4,1,17713,22,1,5,1,10),_CambiumMeshClientStatus_Type())
-cambiumMeshClientStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumMeshClientStatus.setStatus(_A)
-class _CambiumMeshClientDataRate_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_CambiumMeshClientDataRate_Type.__name__=_C
-_CambiumMeshClientDataRate_Object=MibTableColumn
-cambiumMeshClientDataRate=_CambiumMeshClientDataRate_Object((1,3,6,1,4,1,17713,22,1,5,1,11),_CambiumMeshClientDataRate_Type())
-cambiumMeshClientDataRate.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumMeshClientDataRate.setStatus(_A)
-_CambiumMeshClientTotalTxPackets_Type=Counter32
-_CambiumMeshClientTotalTxPackets_Object=MibTableColumn
-cambiumMeshClientTotalTxPackets=_CambiumMeshClientTotalTxPackets_Object((1,3,6,1,4,1,17713,22,1,5,1,12),_CambiumMeshClientTotalTxPackets_Type())
-cambiumMeshClientTotalTxPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumMeshClientTotalTxPackets.setStatus(_A)
-_CambiumMeshClientTxDataBytes_Type=Counter32
-_CambiumMeshClientTxDataBytes_Object=MibTableColumn
-cambiumMeshClientTxDataBytes=_CambiumMeshClientTxDataBytes_Object((1,3,6,1,4,1,17713,22,1,5,1,13),_CambiumMeshClientTxDataBytes_Type())
-cambiumMeshClientTxDataBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumMeshClientTxDataBytes.setStatus(_A)
-_CambiumMeshClientTotalRxPackets_Type=Counter32
-_CambiumMeshClientTotalRxPackets_Object=MibTableColumn
-cambiumMeshClientTotalRxPackets=_CambiumMeshClientTotalRxPackets_Object((1,3,6,1,4,1,17713,22,1,5,1,14),_CambiumMeshClientTotalRxPackets_Type())
-cambiumMeshClientTotalRxPackets.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumMeshClientTotalRxPackets.setStatus(_A)
-_CambiumMeshClientRxDataBytes_Type=Counter32
-_CambiumMeshClientRxDataBytes_Object=MibTableColumn
-cambiumMeshClientRxDataBytes=_CambiumMeshClientRxDataBytes_Object((1,3,6,1,4,1,17713,22,1,5,1,15),_CambiumMeshClientRxDataBytes_Type())
-cambiumMeshClientRxDataBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:cambiumMeshClientRxDataBytes.setStatus(_A)
-class _CambiumAPSetIPAddress_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CambiumAPSetIPAddress_Type.__name__=_C
-_CambiumAPSetIPAddress_Object=MibScalar
-cambiumAPSetIPAddress=_CambiumAPSetIPAddress_Object((1,3,6,1,4,1,17713,22,1,6),_CambiumAPSetIPAddress_Type())
-cambiumAPSetIPAddress.setMaxAccess(_K)
-if mibBuilder.loadTexts:cambiumAPSetIPAddress.setStatus(_A)
-class _CambiumAPReboot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1))
-_CambiumAPReboot_Type.__name__=_E
-_CambiumAPReboot_Object=MibScalar
-cambiumAPReboot=_CambiumAPReboot_Object((1,3,6,1,4,1,17713,22,1,7),_CambiumAPReboot_Type())
-cambiumAPReboot.setMaxAccess(_K)
-if mibBuilder.loadTexts:cambiumAPReboot.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'cambium':cambium,'cnPilotMIB':cnPilotMIB,'cambiumStateGroup':cambiumStateGroup,'cambiumAccessPointTable':cambiumAccessPointTable,'cambiumAccessPointEntry':cambiumAccessPointEntry,_F:cambiumAPMACAddress,'cambiumAPName':cambiumAPName,'cambiumAPIPAddress':cambiumAPIPAddress,'cambiumAPSerialNum':cambiumAPSerialNum,'cambiumAPModel':cambiumAPModel,'cambiumAPCPUUtilization':cambiumAPCPUUtilization,'cambiumAPMemoryFree':cambiumAPMemoryFree,'cambiumAPSWVersion':cambiumAPSWVersion,'cambiumAPUptime':cambiumAPUptime,'cambiumAPHWType':cambiumAPHWType,'cambiumAPRegulatory':cambiumAPRegulatory,'cambiumAPCnmConstaus':cambiumAPCnmConstaus,'cambiumAPCnmAccID':cambiumAPCnmAccID,'cambiumAPTotalClients':cambiumAPTotalClients,'cambiumAPCheckUpgradeStatus':cambiumAPCheckUpgradeStatus,'cambiumRadioTable':cambiumRadioTable,'cambiumRadioEntry':cambiumRadioEntry,_G:cambiumRadioIndex,'cambiumRadioMACAddress':cambiumRadioMACAddress,'cambiumRadioBandType':cambiumRadioBandType,'cambiumRadioWlan':cambiumRadioWlan,'cambiumRadioNumClients':cambiumRadioNumClients,'cambiumRadioChannel':cambiumRadioChannel,'cambiumRadioChannelWidth':cambiumRadioChannelWidth,'cambiumRadioTransmitPower':cambiumRadioTransmitPower,'cambiumRadioTotalTxPackets':cambiumRadioTotalTxPackets,'cambiumRadioTotalRxPackets':cambiumRadioTotalRxPackets,'cambiumRadioTxDataBytes':cambiumRadioTxDataBytes,'cambiumRadioRxDataBytes':cambiumRadioRxDataBytes,'cambiumRadioState':cambiumRadioState,'cambiumRadioDfsStatus':cambiumRadioDfsStatus,'cambiumRadioDfsDetect':cambiumRadioDfsDetect,'cambiumRadioNoiseFloor':cambiumRadioNoiseFloor,'cambiumRadioInterference':cambiumRadioInterference,'cambiumRadioAirtime':cambiumRadioAirtime,'cambiumClientTable':cambiumClientTable,'cambiumClientEntry':cambiumClientEntry,_H:cambiumClientMACAddressIndex,'cambiumClientMACAddress':cambiumClientMACAddress,'cambiumClientIPAddress':cambiumClientIPAddress,'cambiumClientName':cambiumClientName,'cambiumClientSsid':cambiumClientSsid,'cambiumClientVendorName':cambiumClientVendorName,'cambiumClientHwmode':cambiumClientHwmode,'cambiumClientRadioIndex':cambiumClientRadioIndex,'cambiumClientWlan':cambiumClientWlan,'cambiumClientVlan':cambiumClientVlan,'cambiumClientSNR':cambiumClientSNR,'cambiumClientTxRate':cambiumClientTxRate,'cambiumClientTotalTxPackets':cambiumClientTotalTxPackets,'cambiumClientTxDataBytes':cambiumClientTxDataBytes,'cambiumClientTotalRxPackets':cambiumClientTotalRxPackets,'cambiumClientRxDataBytes':cambiumClientRxDataBytes,'cambiumWlanTable':cambiumWlanTable,'cambiumWlanEntry':cambiumWlanEntry,_I:cambiumWlanIndex,'cambiumWlanSsid':cambiumWlanSsid,'cambiumWlanBand':cambiumWlanBand,'cambiumWlanVlan':cambiumWlanVlan,'cambiumWlanSecurity':cambiumWlanSecurity,'cambiumWlanGuestAccess':cambiumWlanGuestAccess,'cambiumWlanNumClients':cambiumWlanNumClients,'cambiumWlanTotalTxPackets':cambiumWlanTotalTxPackets,'cambiumWlanTxDataBytes':cambiumWlanTxDataBytes,'cambiumWlanTotalRxPackets':cambiumWlanTotalRxPackets,'cambiumWlanRxDataBytes':cambiumWlanRxDataBytes,'cambiumMeshClientTable':cambiumMeshClientTable,'cambiumMeshClientEntry':cambiumMeshClientEntry,_J:cambiumMeshClientMACAddressIndex,'cambiumMeshClientMACAddress':cambiumMeshClientMACAddress,'cambiumMeshClientBaseMACAddress':cambiumMeshClientBaseMACAddress,'cambiumMeshClientIPAddress':cambiumMeshClientIPAddress,'cambiumMeshClientName':cambiumMeshClientName,'cambiumMeshClientSsid':cambiumMeshClientSsid,'cambiumMeshClientRadioBand':cambiumMeshClientRadioBand,'cambiumMeshClientSNR':cambiumMeshClientSNR,'cambiumMeshClientRSSI':cambiumMeshClientRSSI,'cambiumMeshClientStatus':cambiumMeshClientStatus,'cambiumMeshClientDataRate':cambiumMeshClientDataRate,'cambiumMeshClientTotalTxPackets':cambiumMeshClientTotalTxPackets,'cambiumMeshClientTxDataBytes':cambiumMeshClientTxDataBytes,'cambiumMeshClientTotalRxPackets':cambiumMeshClientTotalRxPackets,'cambiumMeshClientRxDataBytes':cambiumMeshClientRxDataBytes,'cambiumAPSetIPAddress':cambiumAPSetIPAddress,'cambiumAPReboot':cambiumAPReboot})
+#
+# PySNMP MIB module CAMBIUM-AP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cambium/CAMBIUM-AP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, snmpModules, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "snmpModules", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+cnPilotMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 17713, 22))
+cnPilotMIB.setRevisions(('2015-09-09 12:38',))
+if mibBuilder.loadTexts: cnPilotMIB.setLastUpdated('201509091238Z')
+if mibBuilder.loadTexts: cnPilotMIB.setOrganization('Cambium Networks Inc.')
+cambium = MibIdentifier((1, 3, 6, 1, 4, 1, 17713))
+cambiumStateGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 17713, 22, 1))
+cambiumAccessPointTable = MibTable((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1), )
+if mibBuilder.loadTexts: cambiumAccessPointTable.setStatus('current')
+cambiumAccessPointEntry = MibTableRow((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1), ).setIndexNames((0, "CAMBIUM-AP-MIB", "cambiumAPMACAddress"))
+if mibBuilder.loadTexts: cambiumAccessPointEntry.setStatus('current')
+cambiumAPMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1, 1), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumAPMACAddress.setStatus('current')
+cambiumAPName = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumAPName.setStatus('current')
+cambiumAPIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumAPIPAddress.setStatus('current')
+cambiumAPSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumAPSerialNum.setStatus('current')
+cambiumAPModel = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumAPModel.setStatus('current')
+cambiumAPCPUUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumAPCPUUtilization.setStatus('current')
+cambiumAPMemoryFree = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumAPMemoryFree.setStatus('current')
+cambiumAPSWVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumAPSWVersion.setStatus('current')
+cambiumAPUptime = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1, 9), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumAPUptime.setStatus('current')
+cambiumAPHWType = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumAPHWType.setStatus('current')
+cambiumAPRegulatory = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumAPRegulatory.setStatus('current')
+cambiumAPCnmConstaus = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumAPCnmConstaus.setStatus('current')
+cambiumAPCnmAccID = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumAPCnmAccID.setStatus('current')
+cambiumAPTotalClients = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumAPTotalClients.setStatus('current')
+cambiumAPCheckUpgradeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 1, 1, 15), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumAPCheckUpgradeStatus.setStatus('current')
+cambiumRadioTable = MibTable((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2), )
+if mibBuilder.loadTexts: cambiumRadioTable.setStatus('current')
+cambiumRadioEntry = MibTableRow((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1), ).setIndexNames((0, "CAMBIUM-AP-MIB", "cambiumRadioIndex"))
+if mibBuilder.loadTexts: cambiumRadioEntry.setStatus('current')
+cambiumRadioIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioIndex.setStatus('current')
+cambiumRadioMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioMACAddress.setStatus('current')
+cambiumRadioBandType = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioBandType.setStatus('current')
+cambiumRadioWlan = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioWlan.setStatus('current')
+cambiumRadioNumClients = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioNumClients.setStatus('current')
+cambiumRadioChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioChannel.setStatus('current')
+cambiumRadioChannelWidth = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioChannelWidth.setStatus('current')
+cambiumRadioTransmitPower = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioTransmitPower.setStatus('current')
+cambiumRadioTotalTxPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioTotalTxPackets.setStatus('current')
+cambiumRadioTotalRxPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioTotalRxPackets.setStatus('current')
+cambiumRadioTxDataBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioTxDataBytes.setStatus('current')
+cambiumRadioRxDataBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioRxDataBytes.setStatus('current')
+cambiumRadioState = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioState.setStatus('current')
+cambiumRadioDfsStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 14), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioDfsStatus.setStatus('current')
+cambiumRadioDfsDetect = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioDfsDetect.setStatus('current')
+cambiumRadioNoiseFloor = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 16), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioNoiseFloor.setStatus('current')
+cambiumRadioInterference = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 17), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioInterference.setStatus('current')
+cambiumRadioAirtime = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 2, 1, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumRadioAirtime.setStatus('current')
+cambiumClientTable = MibTable((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3), )
+if mibBuilder.loadTexts: cambiumClientTable.setStatus('current')
+cambiumClientEntry = MibTableRow((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1), ).setIndexNames((0, "CAMBIUM-AP-MIB", "cambiumClientMACAddressIndex"))
+if mibBuilder.loadTexts: cambiumClientEntry.setStatus('current')
+cambiumClientMACAddressIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientMACAddressIndex.setStatus('current')
+cambiumClientMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientMACAddress.setStatus('current')
+cambiumClientIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientIPAddress.setStatus('current')
+cambiumClientName = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientName.setStatus('current')
+cambiumClientSsid = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientSsid.setStatus('current')
+cambiumClientVendorName = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientVendorName.setStatus('current')
+cambiumClientHwmode = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientHwmode.setStatus('current')
+cambiumClientRadioIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientRadioIndex.setStatus('current')
+cambiumClientWlan = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientWlan.setStatus('current')
+cambiumClientVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientVlan.setStatus('current')
+cambiumClientSNR = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientSNR.setStatus('current')
+cambiumClientTxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientTxRate.setStatus('current')
+cambiumClientTotalTxPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientTotalTxPackets.setStatus('current')
+cambiumClientTxDataBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientTxDataBytes.setStatus('current')
+cambiumClientTotalRxPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientTotalRxPackets.setStatus('current')
+cambiumClientRxDataBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 3, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumClientRxDataBytes.setStatus('current')
+cambiumWlanTable = MibTable((1, 3, 6, 1, 4, 1, 17713, 22, 1, 4), )
+if mibBuilder.loadTexts: cambiumWlanTable.setStatus('current')
+cambiumWlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 17713, 22, 1, 4, 1), ).setIndexNames((0, "CAMBIUM-AP-MIB", "cambiumWlanIndex"))
+if mibBuilder.loadTexts: cambiumWlanEntry.setStatus('current')
+cambiumWlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 4, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumWlanIndex.setStatus('current')
+cambiumWlanSsid = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 4, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumWlanSsid.setStatus('current')
+cambiumWlanBand = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 4, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumWlanBand.setStatus('current')
+cambiumWlanVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 4, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumWlanVlan.setStatus('current')
+cambiumWlanSecurity = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 4, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumWlanSecurity.setStatus('current')
+cambiumWlanGuestAccess = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 4, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumWlanGuestAccess.setStatus('current')
+cambiumWlanNumClients = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 4, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumWlanNumClients.setStatus('current')
+cambiumWlanTotalTxPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 4, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumWlanTotalTxPackets.setStatus('current')
+cambiumWlanTxDataBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 4, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumWlanTxDataBytes.setStatus('current')
+cambiumWlanTotalRxPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 4, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumWlanTotalRxPackets.setStatus('current')
+cambiumWlanRxDataBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 4, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumWlanRxDataBytes.setStatus('current')
+cambiumMeshClientTable = MibTable((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5), )
+if mibBuilder.loadTexts: cambiumMeshClientTable.setStatus('current')
+cambiumMeshClientEntry = MibTableRow((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1), ).setIndexNames((0, "CAMBIUM-AP-MIB", "cambiumMeshClientMACAddressIndex"))
+if mibBuilder.loadTexts: cambiumMeshClientEntry.setStatus('current')
+cambiumMeshClientMACAddressIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumMeshClientMACAddressIndex.setStatus('current')
+cambiumMeshClientMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumMeshClientMACAddress.setStatus('current')
+cambiumMeshClientBaseMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1, 3), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumMeshClientBaseMACAddress.setStatus('current')
+cambiumMeshClientIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumMeshClientIPAddress.setStatus('current')
+cambiumMeshClientName = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumMeshClientName.setStatus('current')
+cambiumMeshClientSsid = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumMeshClientSsid.setStatus('current')
+cambiumMeshClientRadioBand = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumMeshClientRadioBand.setStatus('current')
+cambiumMeshClientSNR = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumMeshClientSNR.setStatus('current')
+cambiumMeshClientRSSI = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumMeshClientRSSI.setStatus('current')
+cambiumMeshClientStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumMeshClientStatus.setStatus('current')
+cambiumMeshClientDataRate = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumMeshClientDataRate.setStatus('current')
+cambiumMeshClientTotalTxPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumMeshClientTotalTxPackets.setStatus('current')
+cambiumMeshClientTxDataBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumMeshClientTxDataBytes.setStatus('current')
+cambiumMeshClientTotalRxPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumMeshClientTotalRxPackets.setStatus('current')
+cambiumMeshClientRxDataBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 17713, 22, 1, 5, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cambiumMeshClientRxDataBytes.setStatus('current')
+cambiumAPSetIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 17713, 22, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cambiumAPSetIPAddress.setStatus('current')
+cambiumAPReboot = MibScalar((1, 3, 6, 1, 4, 1, 17713, 22, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cambiumAPReboot.setStatus('current')
+mibBuilder.exportSymbols("CAMBIUM-AP-MIB", cambiumMeshClientRxDataBytes=cambiumMeshClientRxDataBytes, cambiumRadioWlan=cambiumRadioWlan, cambiumAPName=cambiumAPName, cambiumRadioEntry=cambiumRadioEntry, cambiumAPTotalClients=cambiumAPTotalClients, cambiumAPModel=cambiumAPModel, cambiumRadioTransmitPower=cambiumRadioTransmitPower, cambiumRadioState=cambiumRadioState, cambiumMeshClientIPAddress=cambiumMeshClientIPAddress, cambiumMeshClientMACAddressIndex=cambiumMeshClientMACAddressIndex, cambiumRadioIndex=cambiumRadioIndex, cambiumRadioRxDataBytes=cambiumRadioRxDataBytes, cambium=cambium, cambiumAPIPAddress=cambiumAPIPAddress, cambiumMeshClientStatus=cambiumMeshClientStatus, cambiumAPCnmAccID=cambiumAPCnmAccID, cambiumMeshClientDataRate=cambiumMeshClientDataRate, cambiumWlanTotalRxPackets=cambiumWlanTotalRxPackets, cambiumClientMACAddress=cambiumClientMACAddress, cambiumMeshClientTxDataBytes=cambiumMeshClientTxDataBytes, cambiumRadioNumClients=cambiumRadioNumClients, cambiumClientRadioIndex=cambiumClientRadioIndex, cambiumMeshClientTotalTxPackets=cambiumMeshClientTotalTxPackets, cambiumWlanTxDataBytes=cambiumWlanTxDataBytes, cambiumWlanSsid=cambiumWlanSsid, cambiumMeshClientRadioBand=cambiumMeshClientRadioBand, cambiumAccessPointTable=cambiumAccessPointTable, cambiumClientHwmode=cambiumClientHwmode, cambiumRadioBandType=cambiumRadioBandType, cambiumAPReboot=cambiumAPReboot, cambiumMeshClientMACAddress=cambiumMeshClientMACAddress, cambiumAPUptime=cambiumAPUptime, cambiumClientWlan=cambiumClientWlan, cambiumMeshClientBaseMACAddress=cambiumMeshClientBaseMACAddress, cambiumRadioAirtime=cambiumRadioAirtime, cambiumWlanSecurity=cambiumWlanSecurity, cambiumAPSetIPAddress=cambiumAPSetIPAddress, cambiumAPCnmConstaus=cambiumAPCnmConstaus, cambiumRadioDfsStatus=cambiumRadioDfsStatus, cambiumMeshClientSsid=cambiumMeshClientSsid, cambiumWlanGuestAccess=cambiumWlanGuestAccess, cambiumClientTable=cambiumClientTable, cambiumClientMACAddressIndex=cambiumClientMACAddressIndex, cambiumMeshClientSNR=cambiumMeshClientSNR, cambiumWlanBand=cambiumWlanBand, cambiumMeshClientName=cambiumMeshClientName, cambiumRadioDfsDetect=cambiumRadioDfsDetect, cambiumWlanRxDataBytes=cambiumWlanRxDataBytes, cambiumRadioTable=cambiumRadioTable, cambiumClientVendorName=cambiumClientVendorName, cambiumRadioNoiseFloor=cambiumRadioNoiseFloor, cambiumRadioTotalTxPackets=cambiumRadioTotalTxPackets, cambiumWlanEntry=cambiumWlanEntry, cambiumRadioInterference=cambiumRadioInterference, cambiumRadioChannelWidth=cambiumRadioChannelWidth, cambiumMeshClientTotalRxPackets=cambiumMeshClientTotalRxPackets, cambiumClientSsid=cambiumClientSsid, cambiumClientTxRate=cambiumClientTxRate, cambiumClientName=cambiumClientName, cambiumStateGroup=cambiumStateGroup, cambiumAPMACAddress=cambiumAPMACAddress, cambiumClientTxDataBytes=cambiumClientTxDataBytes, cambiumMeshClientTable=cambiumMeshClientTable, cambiumAPSWVersion=cambiumAPSWVersion, cambiumWlanIndex=cambiumWlanIndex, cambiumWlanVlan=cambiumWlanVlan, cambiumClientVlan=cambiumClientVlan, cambiumRadioTxDataBytes=cambiumRadioTxDataBytes, cambiumAPHWType=cambiumAPHWType, cambiumMeshClientRSSI=cambiumMeshClientRSSI, cambiumWlanTotalTxPackets=cambiumWlanTotalTxPackets, cambiumClientTotalTxPackets=cambiumClientTotalTxPackets, cambiumWlanNumClients=cambiumWlanNumClients, cnPilotMIB=cnPilotMIB, cambiumClientRxDataBytes=cambiumClientRxDataBytes, cambiumAPMemoryFree=cambiumAPMemoryFree, cambiumAPCheckUpgradeStatus=cambiumAPCheckUpgradeStatus, PYSNMP_MODULE_ID=cnPilotMIB, cambiumAPCPUUtilization=cambiumAPCPUUtilization, cambiumAccessPointEntry=cambiumAccessPointEntry, cambiumRadioChannel=cambiumRadioChannel, cambiumClientSNR=cambiumClientSNR, cambiumRadioMACAddress=cambiumRadioMACAddress, cambiumRadioTotalRxPackets=cambiumRadioTotalRxPackets, cambiumMeshClientEntry=cambiumMeshClientEntry, cambiumClientEntry=cambiumClientEntry, cambiumClientTotalRxPackets=cambiumClientTotalRxPackets, cambiumClientIPAddress=cambiumClientIPAddress, cambiumAPRegulatory=cambiumAPRegulatory, cambiumAPSerialNum=cambiumAPSerialNum, cambiumWlanTable=cambiumWlanTable)

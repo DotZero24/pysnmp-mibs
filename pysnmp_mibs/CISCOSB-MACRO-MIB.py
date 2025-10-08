@@ -1,140 +1,81 @@
-_K='rlSmartPortsMacroDescriptionIndex'
-_J='rlSmartPortsMacroOctetIndex'
-_I='rlSmartPortsMacroIndex'
-_H='rlSmartPortsMacroName'
-_G='not-accessible'
-_F='Integer32'
-_E='CISCOSB-MACRO-MIB'
-_D='DisplayString'
-_C='read-write'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-switch001,=mibBuilder.importSymbols('CISCOSB-MIB','switch001')
-InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB','InterfaceIndexOrZero')
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','RowStatus','TextualConvention')
-rlMacro=ModuleIdentity((1,3,6,1,4,1,9,6,1,101,140))
-if mibBuilder.loadTexts:rlMacro.setRevisions(('2008-07-30 00:00',))
-class MacroType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('rlSmartPortsMacroInterfaceVendorProvided',1),('rlSmartPortsMacroGloablVendorProvided',2),('rlSmartPortsMacroUserCreated',3)))
-class RlSmartPortsMacroName(DisplayString):status=_A;subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-class RlSmartPortsMacroNameOrZero(DisplayString):status=_A;subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_RlSmartPortsMacroManageTable_Object=MibTable
-rlSmartPortsMacroManageTable=_RlSmartPortsMacroManageTable_Object((1,3,6,1,4,1,9,6,1,101,140,1))
-if mibBuilder.loadTexts:rlSmartPortsMacroManageTable.setStatus(_A)
-_RlSmartPortsMacroManageEntry_Object=MibTableRow
-rlSmartPortsMacroManageEntry=_RlSmartPortsMacroManageEntry_Object((1,3,6,1,4,1,9,6,1,101,140,1,1))
-rlSmartPortsMacroManageEntry.setIndexNames((1,_E,_H))
-if mibBuilder.loadTexts:rlSmartPortsMacroManageEntry.setStatus(_A)
-_RlSmartPortsMacroName_Type=RlSmartPortsMacroName
-_RlSmartPortsMacroName_Object=MibTableColumn
-rlSmartPortsMacroName=_RlSmartPortsMacroName_Object((1,3,6,1,4,1,9,6,1,101,140,1,1,1),_RlSmartPortsMacroName_Type())
-rlSmartPortsMacroName.setMaxAccess(_G)
-if mibBuilder.loadTexts:rlSmartPortsMacroName.setStatus(_A)
-_RlSmartPortsMacroIndex_Type=Integer32
-_RlSmartPortsMacroIndex_Object=MibTableColumn
-rlSmartPortsMacroIndex=_RlSmartPortsMacroIndex_Object((1,3,6,1,4,1,9,6,1,101,140,1,1,2),_RlSmartPortsMacroIndex_Type())
-rlSmartPortsMacroIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlSmartPortsMacroIndex.setStatus(_A)
-_RlSmartPortsMacroType_Type=MacroType
-_RlSmartPortsMacroType_Object=MibTableColumn
-rlSmartPortsMacroType=_RlSmartPortsMacroType_Object((1,3,6,1,4,1,9,6,1,101,140,1,1,3),_RlSmartPortsMacroType_Type())
-rlSmartPortsMacroType.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlSmartPortsMacroType.setStatus(_A)
-_RlSmartPortsMacroStatus_Type=RowStatus
-_RlSmartPortsMacroStatus_Object=MibTableColumn
-rlSmartPortsMacroStatus=_RlSmartPortsMacroStatus_Object((1,3,6,1,4,1,9,6,1,101,140,1,1,4),_RlSmartPortsMacroStatus_Type())
-rlSmartPortsMacroStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlSmartPortsMacroStatus.setStatus(_A)
-class _RlSmartPortsMacroKeywords_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,160))
-_RlSmartPortsMacroKeywords_Type.__name__=_D
-_RlSmartPortsMacroKeywords_Object=MibTableColumn
-rlSmartPortsMacroKeywords=_RlSmartPortsMacroKeywords_Object((1,3,6,1,4,1,9,6,1,101,140,1,1,5),_RlSmartPortsMacroKeywords_Type())
-rlSmartPortsMacroKeywords.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlSmartPortsMacroKeywords.setStatus(_A)
-class _RlSmartPortsMacroDesc1_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,160))
-_RlSmartPortsMacroDesc1_Type.__name__=_D
-_RlSmartPortsMacroDesc1_Object=MibTableColumn
-rlSmartPortsMacroDesc1=_RlSmartPortsMacroDesc1_Object((1,3,6,1,4,1,9,6,1,101,140,1,1,6),_RlSmartPortsMacroDesc1_Type())
-rlSmartPortsMacroDesc1.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlSmartPortsMacroDesc1.setStatus(_A)
-class _RlSmartPortsMacroDesc2_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,160))
-_RlSmartPortsMacroDesc2_Type.__name__=_D
-_RlSmartPortsMacroDesc2_Object=MibTableColumn
-rlSmartPortsMacroDesc2=_RlSmartPortsMacroDesc2_Object((1,3,6,1,4,1,9,6,1,101,140,1,1,7),_RlSmartPortsMacroDesc2_Type())
-rlSmartPortsMacroDesc2.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlSmartPortsMacroDesc2.setStatus(_A)
-_RlSmartPortsMacroContentTable_Object=MibTable
-rlSmartPortsMacroContentTable=_RlSmartPortsMacroContentTable_Object((1,3,6,1,4,1,9,6,1,101,140,2))
-if mibBuilder.loadTexts:rlSmartPortsMacroContentTable.setStatus(_A)
-_RlSmartPortsMacroContentEntry_Object=MibTableRow
-rlSmartPortsMacroContentEntry=_RlSmartPortsMacroContentEntry_Object((1,3,6,1,4,1,9,6,1,101,140,2,1))
-rlSmartPortsMacroContentEntry.setIndexNames((0,_E,_I),(0,_E,_J))
-if mibBuilder.loadTexts:rlSmartPortsMacroContentEntry.setStatus(_A)
-class _RlSmartPortsMacroOctetIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,19))
-_RlSmartPortsMacroOctetIndex_Type.__name__=_F
-_RlSmartPortsMacroOctetIndex_Object=MibTableColumn
-rlSmartPortsMacroOctetIndex=_RlSmartPortsMacroOctetIndex_Object((1,3,6,1,4,1,9,6,1,101,140,2,1,1),_RlSmartPortsMacroOctetIndex_Type())
-rlSmartPortsMacroOctetIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:rlSmartPortsMacroOctetIndex.setStatus(_A)
-_RlSmartPortsMacroText_Type=SnmpAdminString
-_RlSmartPortsMacroText_Object=MibTableColumn
-rlSmartPortsMacroText=_RlSmartPortsMacroText_Object((1,3,6,1,4,1,9,6,1,101,140,2,1,2),_RlSmartPortsMacroText_Type())
-rlSmartPortsMacroText.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlSmartPortsMacroText.setStatus(_A)
-_RlSmartPortsMacroDescriptionTable_Object=MibTable
-rlSmartPortsMacroDescriptionTable=_RlSmartPortsMacroDescriptionTable_Object((1,3,6,1,4,1,9,6,1,101,140,3))
-if mibBuilder.loadTexts:rlSmartPortsMacroDescriptionTable.setStatus(_A)
-_RlSmartPortsMacroDescriptionEntry_Object=MibTableRow
-rlSmartPortsMacroDescriptionEntry=_RlSmartPortsMacroDescriptionEntry_Object((1,3,6,1,4,1,9,6,1,101,140,3,1))
-rlSmartPortsMacroDescriptionEntry.setIndexNames((0,_E,_K))
-if mibBuilder.loadTexts:rlSmartPortsMacroDescriptionEntry.setStatus(_A)
-_RlSmartPortsMacroDescriptionIndex_Type=InterfaceIndexOrZero
-_RlSmartPortsMacroDescriptionIndex_Object=MibTableColumn
-rlSmartPortsMacroDescriptionIndex=_RlSmartPortsMacroDescriptionIndex_Object((1,3,6,1,4,1,9,6,1,101,140,3,1,1),_RlSmartPortsMacroDescriptionIndex_Type())
-rlSmartPortsMacroDescriptionIndex.setMaxAccess(_G)
-if mibBuilder.loadTexts:rlSmartPortsMacroDescriptionIndex.setStatus(_A)
-_RlSmartPortsMacroDescriptionText_Type=SnmpAdminString
-_RlSmartPortsMacroDescriptionText_Object=MibTableColumn
-rlSmartPortsMacroDescriptionText=_RlSmartPortsMacroDescriptionText_Object((1,3,6,1,4,1,9,6,1,101,140,3,1,2),_RlSmartPortsMacroDescriptionText_Type())
-rlSmartPortsMacroDescriptionText.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlSmartPortsMacroDescriptionText.setStatus(_A)
-_RlSmartPortsMacroDescriptionStatus_Type=RowStatus
-_RlSmartPortsMacroDescriptionStatus_Object=MibTableColumn
-rlSmartPortsMacroDescriptionStatus=_RlSmartPortsMacroDescriptionStatus_Object((1,3,6,1,4,1,9,6,1,101,140,3,1,3),_RlSmartPortsMacroDescriptionStatus_Type())
-rlSmartPortsMacroDescriptionStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlSmartPortsMacroDescriptionStatus.setStatus(_A)
-_RlSmartPortsFreeIndexes_Type=Integer32
-_RlSmartPortsFreeIndexes_Object=MibScalar
-rlSmartPortsFreeIndexes=_RlSmartPortsFreeIndexes_Object((1,3,6,1,4,1,9,6,1,101,140,4),_RlSmartPortsFreeIndexes_Type())
-rlSmartPortsFreeIndexes.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlSmartPortsFreeIndexes.setStatus(_A)
-class _RlSmartPortsDiagMacroName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_RlSmartPortsDiagMacroName_Type.__name__=_D
-_RlSmartPortsDiagMacroName_Object=MibScalar
-rlSmartPortsDiagMacroName=_RlSmartPortsDiagMacroName_Object((1,3,6,1,4,1,9,6,1,101,140,5),_RlSmartPortsDiagMacroName_Type())
-rlSmartPortsDiagMacroName.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlSmartPortsDiagMacroName.setStatus(_A)
-_RlSmartPortsDiagLineNumber_Type=Integer32
-_RlSmartPortsDiagLineNumber_Object=MibScalar
-rlSmartPortsDiagLineNumber=_RlSmartPortsDiagLineNumber_Object((1,3,6,1,4,1,9,6,1,101,140,6),_RlSmartPortsDiagLineNumber_Type())
-rlSmartPortsDiagLineNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlSmartPortsDiagLineNumber.setStatus(_A)
-_RlSmartPortsDiagCommandLine_Type=SnmpAdminString
-_RlSmartPortsDiagCommandLine_Object=MibScalar
-rlSmartPortsDiagCommandLine=_RlSmartPortsDiagCommandLine_Object((1,3,6,1,4,1,9,6,1,101,140,7),_RlSmartPortsDiagCommandLine_Type())
-rlSmartPortsDiagCommandLine.setMaxAccess(_B)
-if mibBuilder.loadTexts:rlSmartPortsDiagCommandLine.setStatus(_A)
-class _RlSmartPortsCondenseMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_RlSmartPortsCondenseMode_Type.__name__=_F
-_RlSmartPortsCondenseMode_Object=MibScalar
-rlSmartPortsCondenseMode=_RlSmartPortsCondenseMode_Object((1,3,6,1,4,1,9,6,1,101,140,8),_RlSmartPortsCondenseMode_Type())
-rlSmartPortsCondenseMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:rlSmartPortsCondenseMode.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'MacroType':MacroType,'RlSmartPortsMacroName':RlSmartPortsMacroName,'RlSmartPortsMacroNameOrZero':RlSmartPortsMacroNameOrZero,'rlMacro':rlMacro,'rlSmartPortsMacroManageTable':rlSmartPortsMacroManageTable,'rlSmartPortsMacroManageEntry':rlSmartPortsMacroManageEntry,_H:rlSmartPortsMacroName,_I:rlSmartPortsMacroIndex,'rlSmartPortsMacroType':rlSmartPortsMacroType,'rlSmartPortsMacroStatus':rlSmartPortsMacroStatus,'rlSmartPortsMacroKeywords':rlSmartPortsMacroKeywords,'rlSmartPortsMacroDesc1':rlSmartPortsMacroDesc1,'rlSmartPortsMacroDesc2':rlSmartPortsMacroDesc2,'rlSmartPortsMacroContentTable':rlSmartPortsMacroContentTable,'rlSmartPortsMacroContentEntry':rlSmartPortsMacroContentEntry,_J:rlSmartPortsMacroOctetIndex,'rlSmartPortsMacroText':rlSmartPortsMacroText,'rlSmartPortsMacroDescriptionTable':rlSmartPortsMacroDescriptionTable,'rlSmartPortsMacroDescriptionEntry':rlSmartPortsMacroDescriptionEntry,_K:rlSmartPortsMacroDescriptionIndex,'rlSmartPortsMacroDescriptionText':rlSmartPortsMacroDescriptionText,'rlSmartPortsMacroDescriptionStatus':rlSmartPortsMacroDescriptionStatus,'rlSmartPortsFreeIndexes':rlSmartPortsFreeIndexes,'rlSmartPortsDiagMacroName':rlSmartPortsDiagMacroName,'rlSmartPortsDiagLineNumber':rlSmartPortsDiagLineNumber,'rlSmartPortsDiagCommandLine':rlSmartPortsDiagCommandLine,'rlSmartPortsCondenseMode':rlSmartPortsCondenseMode})
+#
+# PySNMP MIB module CISCOSB-MACRO-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciscosb/CISCOSB-MACRO-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:32:19 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+switch001, = mibBuilder.importSymbols("CISCOSB-MIB", "switch001")
+InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+rlMacro = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140))
+rlMacro.setRevisions(('2008-07-30 00:00',))
+if mibBuilder.loadTexts: rlMacro.setLastUpdated('200807300000Z')
+if mibBuilder.loadTexts: rlMacro.setOrganization('Cisco Systems, Inc.')
+class MacroType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("rlSmartPortsMacroInterfaceVendorProvided", 1), ("rlSmartPortsMacroGloablVendorProvided", 2), ("rlSmartPortsMacroUserCreated", 3))
+
+class RlSmartPortsMacroName(DisplayString):
+    status = 'current'
+    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(1, 32)
+
+class RlSmartPortsMacroNameOrZero(DisplayString):
+    status = 'current'
+    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 32)
+
+rlSmartPortsMacroManageTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 1), )
+if mibBuilder.loadTexts: rlSmartPortsMacroManageTable.setStatus('current')
+rlSmartPortsMacroManageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 1, 1), ).setIndexNames((1, "CISCOSB-MACRO-MIB", "rlSmartPortsMacroName"))
+if mibBuilder.loadTexts: rlSmartPortsMacroManageEntry.setStatus('current')
+rlSmartPortsMacroName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 1, 1, 1), RlSmartPortsMacroName())
+if mibBuilder.loadTexts: rlSmartPortsMacroName.setStatus('current')
+rlSmartPortsMacroIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlSmartPortsMacroIndex.setStatus('current')
+rlSmartPortsMacroType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 1, 1, 3), MacroType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSmartPortsMacroType.setStatus('current')
+rlSmartPortsMacroStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 1, 1, 4), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlSmartPortsMacroStatus.setStatus('current')
+rlSmartPortsMacroKeywords = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 160))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSmartPortsMacroKeywords.setStatus('current')
+rlSmartPortsMacroDesc1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 160))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSmartPortsMacroDesc1.setStatus('current')
+rlSmartPortsMacroDesc2 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 1, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 160))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSmartPortsMacroDesc2.setStatus('current')
+rlSmartPortsMacroContentTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 2), )
+if mibBuilder.loadTexts: rlSmartPortsMacroContentTable.setStatus('current')
+rlSmartPortsMacroContentEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 2, 1), ).setIndexNames((0, "CISCOSB-MACRO-MIB", "rlSmartPortsMacroIndex"), (0, "CISCOSB-MACRO-MIB", "rlSmartPortsMacroOctetIndex"))
+if mibBuilder.loadTexts: rlSmartPortsMacroContentEntry.setStatus('current')
+rlSmartPortsMacroOctetIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 19)))
+if mibBuilder.loadTexts: rlSmartPortsMacroOctetIndex.setStatus('current')
+rlSmartPortsMacroText = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 2, 1, 2), SnmpAdminString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlSmartPortsMacroText.setStatus('current')
+rlSmartPortsMacroDescriptionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 3), )
+if mibBuilder.loadTexts: rlSmartPortsMacroDescriptionTable.setStatus('current')
+rlSmartPortsMacroDescriptionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 3, 1), ).setIndexNames((0, "CISCOSB-MACRO-MIB", "rlSmartPortsMacroDescriptionIndex"))
+if mibBuilder.loadTexts: rlSmartPortsMacroDescriptionEntry.setStatus('current')
+rlSmartPortsMacroDescriptionIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 3, 1, 1), InterfaceIndexOrZero())
+if mibBuilder.loadTexts: rlSmartPortsMacroDescriptionIndex.setStatus('current')
+rlSmartPortsMacroDescriptionText = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 3, 1, 2), SnmpAdminString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlSmartPortsMacroDescriptionText.setStatus('current')
+rlSmartPortsMacroDescriptionStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 3, 1, 3), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlSmartPortsMacroDescriptionStatus.setStatus('current')
+rlSmartPortsFreeIndexes = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSmartPortsFreeIndexes.setStatus('current')
+rlSmartPortsDiagMacroName = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSmartPortsDiagMacroName.setStatus('current')
+rlSmartPortsDiagLineNumber = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSmartPortsDiagLineNumber.setStatus('current')
+rlSmartPortsDiagCommandLine = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rlSmartPortsDiagCommandLine.setStatus('current')
+rlSmartPortsCondenseMode = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 140, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rlSmartPortsCondenseMode.setStatus('current')
+mibBuilder.exportSymbols("CISCOSB-MACRO-MIB", rlSmartPortsMacroOctetIndex=rlSmartPortsMacroOctetIndex, rlSmartPortsMacroText=rlSmartPortsMacroText, rlSmartPortsMacroType=rlSmartPortsMacroType, rlSmartPortsMacroContentTable=rlSmartPortsMacroContentTable, RlSmartPortsMacroName=RlSmartPortsMacroName, rlSmartPortsMacroManageEntry=rlSmartPortsMacroManageEntry, rlSmartPortsDiagMacroName=rlSmartPortsDiagMacroName, rlSmartPortsMacroContentEntry=rlSmartPortsMacroContentEntry, rlSmartPortsMacroDescriptionText=rlSmartPortsMacroDescriptionText, rlSmartPortsMacroStatus=rlSmartPortsMacroStatus, rlSmartPortsMacroDescriptionStatus=rlSmartPortsMacroDescriptionStatus, rlSmartPortsFreeIndexes=rlSmartPortsFreeIndexes, rlSmartPortsMacroDesc2=rlSmartPortsMacroDesc2, rlSmartPortsMacroDesc1=rlSmartPortsMacroDesc1, rlSmartPortsMacroDescriptionIndex=rlSmartPortsMacroDescriptionIndex, rlSmartPortsMacroDescriptionTable=rlSmartPortsMacroDescriptionTable, rlSmartPortsMacroManageTable=rlSmartPortsMacroManageTable, PYSNMP_MODULE_ID=rlMacro, rlSmartPortsCondenseMode=rlSmartPortsCondenseMode, MacroType=MacroType, rlSmartPortsMacroKeywords=rlSmartPortsMacroKeywords, rlSmartPortsDiagCommandLine=rlSmartPortsDiagCommandLine, rlSmartPortsMacroName=rlSmartPortsMacroName, rlSmartPortsMacroIndex=rlSmartPortsMacroIndex, RlSmartPortsMacroNameOrZero=RlSmartPortsMacroNameOrZero, rlSmartPortsMacroDescriptionEntry=rlSmartPortsMacroDescriptionEntry, rlSmartPortsDiagLineNumber=rlSmartPortsDiagLineNumber, rlMacro=rlMacro)

@@ -1,51 +1,42 @@
-_G='ciscoAtmIfAdminAddrMIBGroup'
-_F='ciscoAtmIfAdminAddrRowStatus'
-_E='ciscoAtmIfAdminAddrAddress'
-_D='ifIndex'
-_C='IF-MIB'
-_B='CISCO-ATM-ADDR-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoExperiment,=mibBuilder.importSymbols('CISCO-SMI','ciscoExperiment')
-ifIndex,=mibBuilder.importSymbols(_C,_D)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-ciscoAtmAddrMIB=ModuleIdentity((1,3,6,1,4,1,9,10,12))
-if mibBuilder.loadTexts:ciscoAtmAddrMIB.setRevisions(('1996-05-06 00:00',))
-class AtmAddr(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8),ValueSizeConstraint(13,13),ValueSizeConstraint(20,20))
-_CiscoAtmAddrMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoAtmAddrMIBObjects=_CiscoAtmAddrMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,10,12,1))
-_CiscoAtmIfAdminAddrTable_Object=MibTable
-ciscoAtmIfAdminAddrTable=_CiscoAtmIfAdminAddrTable_Object((1,3,6,1,4,1,9,10,12,1,1))
-if mibBuilder.loadTexts:ciscoAtmIfAdminAddrTable.setStatus(_A)
-_CiscoAtmIfAdminAddrEntry_Object=MibTableRow
-ciscoAtmIfAdminAddrEntry=_CiscoAtmIfAdminAddrEntry_Object((1,3,6,1,4,1,9,10,12,1,1,1))
-ciscoAtmIfAdminAddrEntry.setIndexNames((0,_C,_D),(0,_B,_E))
-if mibBuilder.loadTexts:ciscoAtmIfAdminAddrEntry.setStatus(_A)
-_CiscoAtmIfAdminAddrAddress_Type=AtmAddr
-_CiscoAtmIfAdminAddrAddress_Object=MibTableColumn
-ciscoAtmIfAdminAddrAddress=_CiscoAtmIfAdminAddrAddress_Object((1,3,6,1,4,1,9,10,12,1,1,1,1),_CiscoAtmIfAdminAddrAddress_Type())
-ciscoAtmIfAdminAddrAddress.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:ciscoAtmIfAdminAddrAddress.setStatus(_A)
-_CiscoAtmIfAdminAddrRowStatus_Type=RowStatus
-_CiscoAtmIfAdminAddrRowStatus_Object=MibTableColumn
-ciscoAtmIfAdminAddrRowStatus=_CiscoAtmIfAdminAddrRowStatus_Object((1,3,6,1,4,1,9,10,12,1,1,1,2),_CiscoAtmIfAdminAddrRowStatus_Type())
-ciscoAtmIfAdminAddrRowStatus.setMaxAccess('read-write')
-if mibBuilder.loadTexts:ciscoAtmIfAdminAddrRowStatus.setStatus(_A)
-_CiscoAtmIfAdminAddrMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoAtmIfAdminAddrMIBConformance=_CiscoAtmIfAdminAddrMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,10,12,3))
-_CiscoAtmIfAdminAddrMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoAtmIfAdminAddrMIBCompliances=_CiscoAtmIfAdminAddrMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,10,12,3,1))
-_CiscoAtmIfAdminAddrMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoAtmIfAdminAddrMIBGroups=_CiscoAtmIfAdminAddrMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,10,12,3,2))
-ciscoAtmIfAdminAddrMIBGroup=ObjectGroup((1,3,6,1,4,1,9,10,12,3,2,1))
-ciscoAtmIfAdminAddrMIBGroup.setObjects((_B,_F))
-if mibBuilder.loadTexts:ciscoAtmIfAdminAddrMIBGroup.setStatus(_A)
-ciscoAtmIfAdminAddrMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,10,12,3,1,1))
-ciscoAtmIfAdminAddrMIBCompliance.setObjects((_B,_G))
-if mibBuilder.loadTexts:ciscoAtmIfAdminAddrMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'AtmAddr':AtmAddr,'ciscoAtmAddrMIB':ciscoAtmAddrMIB,'ciscoAtmAddrMIBObjects':ciscoAtmAddrMIBObjects,'ciscoAtmIfAdminAddrTable':ciscoAtmIfAdminAddrTable,'ciscoAtmIfAdminAddrEntry':ciscoAtmIfAdminAddrEntry,_E:ciscoAtmIfAdminAddrAddress,_F:ciscoAtmIfAdminAddrRowStatus,'ciscoAtmIfAdminAddrMIBConformance':ciscoAtmIfAdminAddrMIBConformance,'ciscoAtmIfAdminAddrMIBCompliances':ciscoAtmIfAdminAddrMIBCompliances,'ciscoAtmIfAdminAddrMIBCompliance':ciscoAtmIfAdminAddrMIBCompliance,'ciscoAtmIfAdminAddrMIBGroups':ciscoAtmIfAdminAddrMIBGroups,_G:ciscoAtmIfAdminAddrMIBGroup})
+#
+# PySNMP MIB module CISCO-ATM-ADDR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-ATM-ADDR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:36 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+ciscoAtmAddrMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 12))
+ciscoAtmAddrMIB.setRevisions(('1996-05-06 00:00',))
+if mibBuilder.loadTexts: ciscoAtmAddrMIB.setLastUpdated('9605060000Z')
+if mibBuilder.loadTexts: ciscoAtmAddrMIB.setOrganization('Cisco Systems, Inc.')
+class AtmAddr(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(8, 8), ValueSizeConstraint(13, 13), ValueSizeConstraint(20, 20), )
+ciscoAtmAddrMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 12, 1))
+ciscoAtmIfAdminAddrTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 12, 1, 1), )
+if mibBuilder.loadTexts: ciscoAtmIfAdminAddrTable.setStatus('current')
+ciscoAtmIfAdminAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 12, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-ATM-ADDR-MIB", "ciscoAtmIfAdminAddrAddress"))
+if mibBuilder.loadTexts: ciscoAtmIfAdminAddrEntry.setStatus('current')
+ciscoAtmIfAdminAddrAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 12, 1, 1, 1, 1), AtmAddr())
+if mibBuilder.loadTexts: ciscoAtmIfAdminAddrAddress.setStatus('current')
+ciscoAtmIfAdminAddrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 12, 1, 1, 1, 2), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoAtmIfAdminAddrRowStatus.setStatus('current')
+ciscoAtmIfAdminAddrMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 12, 3))
+ciscoAtmIfAdminAddrMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 12, 3, 1))
+ciscoAtmIfAdminAddrMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 12, 3, 2))
+ciscoAtmIfAdminAddrMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 12, 3, 1, 1)).setObjects(("CISCO-ATM-ADDR-MIB", "ciscoAtmIfAdminAddrMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmIfAdminAddrMIBCompliance = ciscoAtmIfAdminAddrMIBCompliance.setStatus('current')
+ciscoAtmIfAdminAddrMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 12, 3, 2, 1)).setObjects(("CISCO-ATM-ADDR-MIB", "ciscoAtmIfAdminAddrRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoAtmIfAdminAddrMIBGroup = ciscoAtmIfAdminAddrMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-ATM-ADDR-MIB", ciscoAtmAddrMIBObjects=ciscoAtmAddrMIBObjects, ciscoAtmIfAdminAddrMIBCompliance=ciscoAtmIfAdminAddrMIBCompliance, ciscoAtmIfAdminAddrEntry=ciscoAtmIfAdminAddrEntry, ciscoAtmIfAdminAddrMIBConformance=ciscoAtmIfAdminAddrMIBConformance, ciscoAtmIfAdminAddrMIBCompliances=ciscoAtmIfAdminAddrMIBCompliances, ciscoAtmIfAdminAddrRowStatus=ciscoAtmIfAdminAddrRowStatus, ciscoAtmIfAdminAddrMIBGroup=ciscoAtmIfAdminAddrMIBGroup, AtmAddr=AtmAddr, ciscoAtmIfAdminAddrAddress=ciscoAtmIfAdminAddrAddress, ciscoAtmIfAdminAddrTable=ciscoAtmIfAdminAddrTable, ciscoAtmIfAdminAddrMIBGroups=ciscoAtmIfAdminAddrMIBGroups, PYSNMP_MODULE_ID=ciscoAtmAddrMIB, ciscoAtmAddrMIB=ciscoAtmAddrMIB)

@@ -1,111 +1,57 @@
-_H='hpnicfMpMemberlinkSeqNumberV2'
-_G='HPN-ICF-MP-V2-MIB'
-_F='Integer32'
-_E='ifIndex'
-_D='IF-MIB'
-_C='DisplayString'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hpnicfCommon,=mibBuilder.importSymbols('HPN-ICF-OID-MIB','hpnicfCommon')
-ifIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_C,'PhysAddress','TextualConvention')
-hpnicfMultilinkPPPV2=ModuleIdentity((1,3,6,1,4,1,11,2,14,11,15,2,140))
-if mibBuilder.loadTexts:hpnicfMultilinkPPPV2.setRevisions(('2013-07-15 00:00',))
-_HpnicfMpObjectsV2_ObjectIdentity=ObjectIdentity
-hpnicfMpObjectsV2=_HpnicfMpObjectsV2_ObjectIdentity((1,3,6,1,4,1,11,2,14,11,15,2,140,1))
-_HpnicfMpMultilinkV2Table_Object=MibTable
-hpnicfMpMultilinkV2Table=_HpnicfMpMultilinkV2Table_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,1))
-if mibBuilder.loadTexts:hpnicfMpMultilinkV2Table.setStatus(_A)
-_HpnicfMpMultilinkV2Entry_Object=MibTableRow
-hpnicfMpMultilinkV2Entry=_HpnicfMpMultilinkV2Entry_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,1,1))
-hpnicfMpMultilinkV2Entry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:hpnicfMpMultilinkV2Entry.setStatus(_A)
-class _HpnicfMpMultilinkDescrV2_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_HpnicfMpMultilinkDescrV2_Type.__name__=_C
-_HpnicfMpMultilinkDescrV2_Object=MibTableColumn
-hpnicfMpMultilinkDescrV2=_HpnicfMpMultilinkDescrV2_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,1,1,1),_HpnicfMpMultilinkDescrV2_Type())
-hpnicfMpMultilinkDescrV2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMpMultilinkDescrV2.setStatus(_A)
-class _HpnicfMpBundleNameV2_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_HpnicfMpBundleNameV2_Type.__name__=_C
-_HpnicfMpBundleNameV2_Object=MibTableColumn
-hpnicfMpBundleNameV2=_HpnicfMpBundleNameV2_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,1,1,2),_HpnicfMpBundleNameV2_Type())
-hpnicfMpBundleNameV2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMpBundleNameV2.setStatus(_A)
-_HpnicfMpBundledSlotV2_Type=Integer32
-_HpnicfMpBundledSlotV2_Object=MibTableColumn
-hpnicfMpBundledSlotV2=_HpnicfMpBundledSlotV2_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,1,1,3),_HpnicfMpBundledSlotV2_Type())
-hpnicfMpBundledSlotV2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMpBundledSlotV2.setStatus(_A)
-_HpnicfMpBundledMemberCntV2_Type=Integer32
-_HpnicfMpBundledMemberCntV2_Object=MibTableColumn
-hpnicfMpBundledMemberCntV2=_HpnicfMpBundledMemberCntV2_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,1,1,4),_HpnicfMpBundledMemberCntV2_Type())
-hpnicfMpBundledMemberCntV2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMpBundledMemberCntV2.setStatus(_A)
-_HpnicfMpLostFragmentsV2_Type=Counter32
-_HpnicfMpLostFragmentsV2_Object=MibTableColumn
-hpnicfMpLostFragmentsV2=_HpnicfMpLostFragmentsV2_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,1,1,5),_HpnicfMpLostFragmentsV2_Type())
-hpnicfMpLostFragmentsV2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMpLostFragmentsV2.setStatus(_A)
-_HpnicfMpReorderedPktsV2_Type=Counter32
-_HpnicfMpReorderedPktsV2_Object=MibTableColumn
-hpnicfMpReorderedPktsV2=_HpnicfMpReorderedPktsV2_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,1,1,6),_HpnicfMpReorderedPktsV2_Type())
-hpnicfMpReorderedPktsV2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMpReorderedPktsV2.setStatus(_A)
-_HpnicfMpUnassignedPktsV2_Type=Counter32
-_HpnicfMpUnassignedPktsV2_Object=MibTableColumn
-hpnicfMpUnassignedPktsV2=_HpnicfMpUnassignedPktsV2_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,1,1,7),_HpnicfMpUnassignedPktsV2_Type())
-hpnicfMpUnassignedPktsV2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMpUnassignedPktsV2.setStatus(_A)
-_HpnicfMpInterleavedPktsV2_Type=Counter32
-_HpnicfMpInterleavedPktsV2_Object=MibTableColumn
-hpnicfMpInterleavedPktsV2=_HpnicfMpInterleavedPktsV2_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,1,1,8),_HpnicfMpInterleavedPktsV2_Type())
-hpnicfMpInterleavedPktsV2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMpInterleavedPktsV2.setStatus(_A)
-_HpnicfMpRcvdSequenceV2_Type=Integer32
-_HpnicfMpRcvdSequenceV2_Object=MibTableColumn
-hpnicfMpRcvdSequenceV2=_HpnicfMpRcvdSequenceV2_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,1,1,9),_HpnicfMpRcvdSequenceV2_Type())
-hpnicfMpRcvdSequenceV2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMpRcvdSequenceV2.setStatus(_A)
-_HpnicfMpSentSequenceV2_Type=Integer32
-_HpnicfMpSentSequenceV2_Object=MibTableColumn
-hpnicfMpSentSequenceV2=_HpnicfMpSentSequenceV2_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,1,1,10),_HpnicfMpSentSequenceV2_Type())
-hpnicfMpSentSequenceV2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMpSentSequenceV2.setStatus(_A)
-_HpnicfMpMemberlinkV2Table_Object=MibTable
-hpnicfMpMemberlinkV2Table=_HpnicfMpMemberlinkV2Table_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,2))
-if mibBuilder.loadTexts:hpnicfMpMemberlinkV2Table.setStatus(_A)
-_HpnicfMpMemberlinkV2Entry_Object=MibTableRow
-hpnicfMpMemberlinkV2Entry=_HpnicfMpMemberlinkV2Entry_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,2,1))
-hpnicfMpMemberlinkV2Entry.setIndexNames((0,_D,_E),(0,_G,_H))
-if mibBuilder.loadTexts:hpnicfMpMemberlinkV2Entry.setStatus(_A)
-class _HpnicfMpMemberlinkSeqNumberV2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,128))
-_HpnicfMpMemberlinkSeqNumberV2_Type.__name__=_F
-_HpnicfMpMemberlinkSeqNumberV2_Object=MibTableColumn
-hpnicfMpMemberlinkSeqNumberV2=_HpnicfMpMemberlinkSeqNumberV2_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,2,1,1),_HpnicfMpMemberlinkSeqNumberV2_Type())
-hpnicfMpMemberlinkSeqNumberV2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMpMemberlinkSeqNumberV2.setStatus(_A)
-_HpnicfMpMemberlinkIfIndexV2_Type=Integer32
-_HpnicfMpMemberlinkIfIndexV2_Object=MibTableColumn
-hpnicfMpMemberlinkIfIndexV2=_HpnicfMpMemberlinkIfIndexV2_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,2,1,2),_HpnicfMpMemberlinkIfIndexV2_Type())
-hpnicfMpMemberlinkIfIndexV2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMpMemberlinkIfIndexV2.setStatus(_A)
-class _HpnicfMpMemberlinkDescrV2_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_HpnicfMpMemberlinkDescrV2_Type.__name__=_C
-_HpnicfMpMemberlinkDescrV2_Object=MibTableColumn
-hpnicfMpMemberlinkDescrV2=_HpnicfMpMemberlinkDescrV2_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,2,1,3),_HpnicfMpMemberlinkDescrV2_Type())
-hpnicfMpMemberlinkDescrV2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMpMemberlinkDescrV2.setStatus(_A)
-class _HpnicfMpMemberlinkMpStatusV2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('active',1),('inactive',2)))
-_HpnicfMpMemberlinkMpStatusV2_Type.__name__=_F
-_HpnicfMpMemberlinkMpStatusV2_Object=MibTableColumn
-hpnicfMpMemberlinkMpStatusV2=_HpnicfMpMemberlinkMpStatusV2_Object((1,3,6,1,4,1,11,2,14,11,15,2,140,1,2,1,4),_HpnicfMpMemberlinkMpStatusV2_Type())
-hpnicfMpMemberlinkMpStatusV2.setMaxAccess(_B)
-if mibBuilder.loadTexts:hpnicfMpMemberlinkMpStatusV2.setStatus(_A)
-mibBuilder.exportSymbols(_G,**{'hpnicfMultilinkPPPV2':hpnicfMultilinkPPPV2,'hpnicfMpObjectsV2':hpnicfMpObjectsV2,'hpnicfMpMultilinkV2Table':hpnicfMpMultilinkV2Table,'hpnicfMpMultilinkV2Entry':hpnicfMpMultilinkV2Entry,'hpnicfMpMultilinkDescrV2':hpnicfMpMultilinkDescrV2,'hpnicfMpBundleNameV2':hpnicfMpBundleNameV2,'hpnicfMpBundledSlotV2':hpnicfMpBundledSlotV2,'hpnicfMpBundledMemberCntV2':hpnicfMpBundledMemberCntV2,'hpnicfMpLostFragmentsV2':hpnicfMpLostFragmentsV2,'hpnicfMpReorderedPktsV2':hpnicfMpReorderedPktsV2,'hpnicfMpUnassignedPktsV2':hpnicfMpUnassignedPktsV2,'hpnicfMpInterleavedPktsV2':hpnicfMpInterleavedPktsV2,'hpnicfMpRcvdSequenceV2':hpnicfMpRcvdSequenceV2,'hpnicfMpSentSequenceV2':hpnicfMpSentSequenceV2,'hpnicfMpMemberlinkV2Table':hpnicfMpMemberlinkV2Table,'hpnicfMpMemberlinkV2Entry':hpnicfMpMemberlinkV2Entry,_H:hpnicfMpMemberlinkSeqNumberV2,'hpnicfMpMemberlinkIfIndexV2':hpnicfMpMemberlinkIfIndexV2,'hpnicfMpMemberlinkDescrV2':hpnicfMpMemberlinkDescrV2,'hpnicfMpMemberlinkMpStatusV2':hpnicfMpMemberlinkMpStatusV2})
+#
+# PySNMP MIB module HPN-ICF-MP-V2-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hp/HPN-ICF-MP-V2-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+hpnicfMultilinkPPPV2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140))
+hpnicfMultilinkPPPV2.setRevisions(('2013-07-15 00:00',))
+if mibBuilder.loadTexts: hpnicfMultilinkPPPV2.setLastUpdated('201307150000Z')
+if mibBuilder.loadTexts: hpnicfMultilinkPPPV2.setOrganization('')
+hpnicfMpObjectsV2 = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1))
+hpnicfMpMultilinkV2Table = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 1), )
+if mibBuilder.loadTexts: hpnicfMpMultilinkV2Table.setStatus('current')
+hpnicfMpMultilinkV2Entry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: hpnicfMpMultilinkV2Entry.setStatus('current')
+hpnicfMpMultilinkDescrV2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfMpMultilinkDescrV2.setStatus('current')
+hpnicfMpBundleNameV2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfMpBundleNameV2.setStatus('current')
+hpnicfMpBundledSlotV2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfMpBundledSlotV2.setStatus('current')
+hpnicfMpBundledMemberCntV2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfMpBundledMemberCntV2.setStatus('current')
+hpnicfMpLostFragmentsV2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfMpLostFragmentsV2.setStatus('current')
+hpnicfMpReorderedPktsV2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfMpReorderedPktsV2.setStatus('current')
+hpnicfMpUnassignedPktsV2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfMpUnassignedPktsV2.setStatus('current')
+hpnicfMpInterleavedPktsV2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfMpInterleavedPktsV2.setStatus('current')
+hpnicfMpRcvdSequenceV2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfMpRcvdSequenceV2.setStatus('current')
+hpnicfMpSentSequenceV2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfMpSentSequenceV2.setStatus('current')
+hpnicfMpMemberlinkV2Table = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 2), )
+if mibBuilder.loadTexts: hpnicfMpMemberlinkV2Table.setStatus('current')
+hpnicfMpMemberlinkV2Entry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "HPN-ICF-MP-V2-MIB", "hpnicfMpMemberlinkSeqNumberV2"))
+if mibBuilder.loadTexts: hpnicfMpMemberlinkV2Entry.setStatus('current')
+hpnicfMpMemberlinkSeqNumberV2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 128))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfMpMemberlinkSeqNumberV2.setStatus('current')
+hpnicfMpMemberlinkIfIndexV2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfMpMemberlinkIfIndexV2.setStatus('current')
+hpnicfMpMemberlinkDescrV2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfMpMemberlinkDescrV2.setStatus('current')
+hpnicfMpMemberlinkMpStatusV2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 140, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hpnicfMpMemberlinkMpStatusV2.setStatus('current')
+mibBuilder.exportSymbols("HPN-ICF-MP-V2-MIB", hpnicfMpObjectsV2=hpnicfMpObjectsV2, hpnicfMpReorderedPktsV2=hpnicfMpReorderedPktsV2, PYSNMP_MODULE_ID=hpnicfMultilinkPPPV2, hpnicfMpBundleNameV2=hpnicfMpBundleNameV2, hpnicfMpMemberlinkSeqNumberV2=hpnicfMpMemberlinkSeqNumberV2, hpnicfMpMemberlinkV2Entry=hpnicfMpMemberlinkV2Entry, hpnicfMpMemberlinkMpStatusV2=hpnicfMpMemberlinkMpStatusV2, hpnicfMpLostFragmentsV2=hpnicfMpLostFragmentsV2, hpnicfMpMemberlinkV2Table=hpnicfMpMemberlinkV2Table, hpnicfMpMultilinkDescrV2=hpnicfMpMultilinkDescrV2, hpnicfMpBundledMemberCntV2=hpnicfMpBundledMemberCntV2, hpnicfMpUnassignedPktsV2=hpnicfMpUnassignedPktsV2, hpnicfMpMemberlinkIfIndexV2=hpnicfMpMemberlinkIfIndexV2, hpnicfMpRcvdSequenceV2=hpnicfMpRcvdSequenceV2, hpnicfMpSentSequenceV2=hpnicfMpSentSequenceV2, hpnicfMpMemberlinkDescrV2=hpnicfMpMemberlinkDescrV2, hpnicfMpInterleavedPktsV2=hpnicfMpInterleavedPktsV2, hpnicfMpBundledSlotV2=hpnicfMpBundledSlotV2, hpnicfMpMultilinkV2Entry=hpnicfMpMultilinkV2Entry, hpnicfMpMultilinkV2Table=hpnicfMpMultilinkV2Table, hpnicfMultilinkPPPV2=hpnicfMultilinkPPPV2)

@@ -1,69 +1,43 @@
-_E='disable'
-_D='enable'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-zte,zxDsl=mibBuilder.importSymbols('ZTE-DSL-MIB','zte','zxDsl')
-zxDslEventMib=ModuleIdentity((1,3,6,1,4,1,3902,1004,37))
-_ZxDslEventObjects_ObjectIdentity=ObjectIdentity
-zxDslEventObjects=_ZxDslEventObjects_ObjectIdentity((1,3,6,1,4,1,3902,1004,37,1))
-class _ZxDslTrapSendEnable_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_ZxDslTrapSendEnable_Type.__name__=_C
-_ZxDslTrapSendEnable_Object=MibScalar
-zxDslTrapSendEnable=_ZxDslTrapSendEnable_Object((1,3,6,1,4,1,3902,1004,37,1,1),_ZxDslTrapSendEnable_Type())
-zxDslTrapSendEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxDslTrapSendEnable.setStatus(_A)
-class _ZxDslEventCurrentEventId_Type(Integer32):defaultValue=0
-_ZxDslEventCurrentEventId_Type.__name__=_C
-_ZxDslEventCurrentEventId_Object=MibScalar
-zxDslEventCurrentEventId=_ZxDslEventCurrentEventId_Object((1,3,6,1,4,1,3902,1004,37,1,2),_ZxDslEventCurrentEventId_Type())
-zxDslEventCurrentEventId.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxDslEventCurrentEventId.setStatus(_A)
-_ZxDslEventConfirmEventId_Type=Integer32
-_ZxDslEventConfirmEventId_Object=MibScalar
-zxDslEventConfirmEventId=_ZxDslEventConfirmEventId_Object((1,3,6,1,4,1,3902,1004,37,1,3),_ZxDslEventConfirmEventId_Type())
-zxDslEventConfirmEventId.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxDslEventConfirmEventId.setStatus(_A)
-_ZxDslEventSynchUnconfirmedEvents_Type=Integer32
-_ZxDslEventSynchUnconfirmedEvents_Object=MibScalar
-zxDslEventSynchUnconfirmedEvents=_ZxDslEventSynchUnconfirmedEvents_Object((1,3,6,1,4,1,3902,1004,37,1,4),_ZxDslEventSynchUnconfirmedEvents_Type())
-zxDslEventSynchUnconfirmedEvents.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxDslEventSynchUnconfirmedEvents.setStatus(_A)
-_ZxDslEventCurrUnconfirmedEventCounter_Type=Integer32
-_ZxDslEventCurrUnconfirmedEventCounter_Object=MibScalar
-zxDslEventCurrUnconfirmedEventCounter=_ZxDslEventCurrUnconfirmedEventCounter_Object((1,3,6,1,4,1,3902,1004,37,1,5),_ZxDslEventCurrUnconfirmedEventCounter_Type())
-zxDslEventCurrUnconfirmedEventCounter.setMaxAccess('read-only')
-if mibBuilder.loadTexts:zxDslEventCurrUnconfirmedEventCounter.setStatus(_A)
-_ZxDslEventNmsHelloTrapMgmt_ObjectIdentity=ObjectIdentity
-zxDslEventNmsHelloTrapMgmt=_ZxDslEventNmsHelloTrapMgmt_ObjectIdentity((1,3,6,1,4,1,3902,1004,37,1,6))
-class _ZxDslEventNmsHelloTrapEnable_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
-_ZxDslEventNmsHelloTrapEnable_Type.__name__=_C
-_ZxDslEventNmsHelloTrapEnable_Object=MibScalar
-zxDslEventNmsHelloTrapEnable=_ZxDslEventNmsHelloTrapEnable_Object((1,3,6,1,4,1,3902,1004,37,1,6,1),_ZxDslEventNmsHelloTrapEnable_Type())
-zxDslEventNmsHelloTrapEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxDslEventNmsHelloTrapEnable.setStatus(_A)
-class _ZxDslEventNmsHelloTrapInterval_Type(Integer32):defaultValue=120;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,600))
-_ZxDslEventNmsHelloTrapInterval_Type.__name__=_C
-_ZxDslEventNmsHelloTrapInterval_Object=MibScalar
-zxDslEventNmsHelloTrapInterval=_ZxDslEventNmsHelloTrapInterval_Object((1,3,6,1,4,1,3902,1004,37,1,6,2),_ZxDslEventNmsHelloTrapInterval_Type())
-zxDslEventNmsHelloTrapInterval.setMaxAccess(_B)
-if mibBuilder.loadTexts:zxDslEventNmsHelloTrapInterval.setStatus(_A)
-if mibBuilder.loadTexts:zxDslEventNmsHelloTrapInterval.setUnits('second')
-_ZxDslEventTrapObjects_ObjectIdentity=ObjectIdentity
-zxDslEventTrapObjects=_ZxDslEventTrapObjects_ObjectIdentity((1,3,6,1,4,1,3902,1004,37,2))
-zxDslDisabledTrapSend=NotificationType((1,3,6,1,4,1,3902,1004,37,2,1))
-if mibBuilder.loadTexts:zxDslDisabledTrapSend.setStatus(_A)
-zxDslEnabledTrapSend=NotificationType((1,3,6,1,4,1,3902,1004,37,2,2))
-if mibBuilder.loadTexts:zxDslEnabledTrapSend.setStatus(_A)
-zxAnEventNmsHelloTrap=NotificationType((1,3,6,1,4,1,3902,1015,190,6,2))
-if mibBuilder.loadTexts:zxAnEventNmsHelloTrap.setStatus(_A)
-mibBuilder.exportSymbols('ZTE-DSL-EVENT-MIB',**{'zxDslEventMib':zxDslEventMib,'zxDslEventObjects':zxDslEventObjects,'zxDslTrapSendEnable':zxDslTrapSendEnable,'zxDslEventCurrentEventId':zxDslEventCurrentEventId,'zxDslEventConfirmEventId':zxDslEventConfirmEventId,'zxDslEventSynchUnconfirmedEvents':zxDslEventSynchUnconfirmedEvents,'zxDslEventCurrUnconfirmedEventCounter':zxDslEventCurrUnconfirmedEventCounter,'zxDslEventNmsHelloTrapMgmt':zxDslEventNmsHelloTrapMgmt,'zxDslEventNmsHelloTrapEnable':zxDslEventNmsHelloTrapEnable,'zxDslEventNmsHelloTrapInterval':zxDslEventNmsHelloTrapInterval,'zxDslEventTrapObjects':zxDslEventTrapObjects,'zxDslDisabledTrapSend':zxDslDisabledTrapSend,'zxDslEnabledTrapSend':zxDslEnabledTrapSend,'zxAnEventNmsHelloTrap':zxAnEventNmsHelloTrap})
+#
+# PySNMP MIB module ZTE-DSL-EVENT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zte/ZTE-DSL-EVENT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:03:51 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+zxDsl, zte = mibBuilder.importSymbols("ZTE-DSL-MIB", "zxDsl", "zte")
+zxDslEventMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1004, 37))
+if mibBuilder.loadTexts: zxDslEventMib.setLastUpdated('200404151500Z')
+if mibBuilder.loadTexts: zxDslEventMib.setOrganization('ZTE Corporation')
+zxDslEventObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1004, 37, 1))
+zxDslEventTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1004, 37, 2))
+zxDslTrapSendEnable = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 37, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslTrapSendEnable.setStatus('current')
+zxDslEventCurrentEventId = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 37, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslEventCurrentEventId.setStatus('current')
+zxDslEventConfirmEventId = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 37, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslEventConfirmEventId.setStatus('current')
+zxDslEventSynchUnconfirmedEvents = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 37, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslEventSynchUnconfirmedEvents.setStatus('current')
+zxDslEventCurrUnconfirmedEventCounter = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 37, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: zxDslEventCurrUnconfirmedEventCounter.setStatus('current')
+zxDslEventNmsHelloTrapMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1004, 37, 1, 6))
+zxDslEventNmsHelloTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 37, 1, 6, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslEventNmsHelloTrapEnable.setStatus('current')
+zxDslEventNmsHelloTrapInterval = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1004, 37, 1, 6, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 600)).clone(120)).setUnits('second').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zxDslEventNmsHelloTrapInterval.setStatus('current')
+zxDslDisabledTrapSend = NotificationType((1, 3, 6, 1, 4, 1, 3902, 1004, 37, 2, 1))
+if mibBuilder.loadTexts: zxDslDisabledTrapSend.setStatus('current')
+zxDslEnabledTrapSend = NotificationType((1, 3, 6, 1, 4, 1, 3902, 1004, 37, 2, 2))
+if mibBuilder.loadTexts: zxDslEnabledTrapSend.setStatus('current')
+zxAnEventNmsHelloTrap = NotificationType((1, 3, 6, 1, 4, 1, 3902, 1015, 190, 6, 2))
+if mibBuilder.loadTexts: zxAnEventNmsHelloTrap.setStatus('current')
+mibBuilder.exportSymbols("ZTE-DSL-EVENT-MIB", zxDslEventNmsHelloTrapEnable=zxDslEventNmsHelloTrapEnable, zxDslDisabledTrapSend=zxDslDisabledTrapSend, zxAnEventNmsHelloTrap=zxAnEventNmsHelloTrap, zxDslEventNmsHelloTrapMgmt=zxDslEventNmsHelloTrapMgmt, zxDslTrapSendEnable=zxDslTrapSendEnable, zxDslEventCurrentEventId=zxDslEventCurrentEventId, zxDslEventMib=zxDslEventMib, zxDslEventSynchUnconfirmedEvents=zxDslEventSynchUnconfirmedEvents, zxDslEnabledTrapSend=zxDslEnabledTrapSend, zxDslEventObjects=zxDslEventObjects, zxDslEventConfirmEventId=zxDslEventConfirmEventId, zxDslEventNmsHelloTrapInterval=zxDslEventNmsHelloTrapInterval, PYSNMP_MODULE_ID=zxDslEventMib, zxDslEventTrapObjects=zxDslEventTrapObjects, zxDslEventCurrUnconfirmedEventCounter=zxDslEventCurrUnconfirmedEventCounter)

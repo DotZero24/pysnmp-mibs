@@ -1,83 +1,45 @@
-_F='devSocketNumber'
-_E='PDN-SOCKET-MIB'
-_D='entPhysicalIndex'
-_C='ENTITY-MIB'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-entPhysicalIndex,=mibBuilder.importSymbols(_C,_D)
-pdn_socket,=mibBuilder.importSymbols('PDN-HEADER-MIB','pdn-socket')
-SocketFamily,SocketState,SocketType=mibBuilder.importSymbols('PDN-TC','SocketFamily','SocketState','SocketType')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TAddress','TextualConvention')
-_DevSocketStatsMIBObjects_ObjectIdentity=ObjectIdentity
-devSocketStatsMIBObjects=_DevSocketStatsMIBObjects_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,19,1))
-_DevSocketStatsTable_Object=MibTable
-devSocketStatsTable=_DevSocketStatsTable_Object((1,3,6,1,4,1,1795,2,24,2,19,1,1))
-if mibBuilder.loadTexts:devSocketStatsTable.setStatus(_A)
-_DevSocketStatsEntry_Object=MibTableRow
-devSocketStatsEntry=_DevSocketStatsEntry_Object((1,3,6,1,4,1,1795,2,24,2,19,1,1,1))
-devSocketStatsEntry.setIndexNames((0,_C,_D),(0,_E,_F))
-if mibBuilder.loadTexts:devSocketStatsEntry.setStatus(_A)
-_DevSocketNumber_Type=Integer32
-_DevSocketNumber_Object=MibTableColumn
-devSocketNumber=_DevSocketNumber_Object((1,3,6,1,4,1,1795,2,24,2,19,1,1,1,1),_DevSocketNumber_Type())
-devSocketNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:devSocketNumber.setStatus(_A)
-_DevSocketName_Type=DisplayString
-_DevSocketName_Object=MibTableColumn
-devSocketName=_DevSocketName_Object((1,3,6,1,4,1,1795,2,24,2,19,1,1,1,2),_DevSocketName_Type())
-devSocketName.setMaxAccess(_B)
-if mibBuilder.loadTexts:devSocketName.setStatus(_A)
-_DevSocketFamily_Type=SocketFamily
-_DevSocketFamily_Object=MibTableColumn
-devSocketFamily=_DevSocketFamily_Object((1,3,6,1,4,1,1795,2,24,2,19,1,1,1,3),_DevSocketFamily_Type())
-devSocketFamily.setMaxAccess(_B)
-if mibBuilder.loadTexts:devSocketFamily.setStatus(_A)
-_DevSocketType_Type=SocketType
-_DevSocketType_Object=MibTableColumn
-devSocketType=_DevSocketType_Object((1,3,6,1,4,1,1795,2,24,2,19,1,1,1,4),_DevSocketType_Type())
-devSocketType.setMaxAccess(_B)
-if mibBuilder.loadTexts:devSocketType.setStatus(_A)
-_DevSocketLocalAddress_Type=TAddress
-_DevSocketLocalAddress_Object=MibTableColumn
-devSocketLocalAddress=_DevSocketLocalAddress_Object((1,3,6,1,4,1,1795,2,24,2,19,1,1,1,5),_DevSocketLocalAddress_Type())
-devSocketLocalAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:devSocketLocalAddress.setStatus(_A)
-_DevSocketRemoteAddress_Type=TAddress
-_DevSocketRemoteAddress_Object=MibTableColumn
-devSocketRemoteAddress=_DevSocketRemoteAddress_Object((1,3,6,1,4,1,1795,2,24,2,19,1,1,1,6),_DevSocketRemoteAddress_Type())
-devSocketRemoteAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:devSocketRemoteAddress.setStatus(_A)
-_DevSocketState_Type=SocketState
-_DevSocketState_Object=MibTableColumn
-devSocketState=_DevSocketState_Object((1,3,6,1,4,1,1795,2,24,2,19,1,1,1,7),_DevSocketState_Type())
-devSocketState.setMaxAccess(_B)
-if mibBuilder.loadTexts:devSocketState.setStatus(_A)
-_DevSocketInputBytes_Type=Integer32
-_DevSocketInputBytes_Object=MibTableColumn
-devSocketInputBytes=_DevSocketInputBytes_Object((1,3,6,1,4,1,1795,2,24,2,19,1,1,1,8),_DevSocketInputBytes_Type())
-devSocketInputBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:devSocketInputBytes.setStatus(_A)
-_DevSocketOutputBytes_Type=Integer32
-_DevSocketOutputBytes_Object=MibTableColumn
-devSocketOutputBytes=_DevSocketOutputBytes_Object((1,3,6,1,4,1,1795,2,24,2,19,1,1,1,9),_DevSocketOutputBytes_Type())
-devSocketOutputBytes.setMaxAccess(_B)
-if mibBuilder.loadTexts:devSocketOutputBytes.setStatus(_A)
-_DevSocketPDUDrops_Type=Integer32
-_DevSocketPDUDrops_Object=MibTableColumn
-devSocketPDUDrops=_DevSocketPDUDrops_Object((1,3,6,1,4,1,1795,2,24,2,19,1,1,1,10),_DevSocketPDUDrops_Type())
-devSocketPDUDrops.setMaxAccess(_B)
-if mibBuilder.loadTexts:devSocketPDUDrops.setStatus(_A)
-_DevSocketByteDrops_Type=Integer32
-_DevSocketByteDrops_Object=MibTableColumn
-devSocketByteDrops=_DevSocketByteDrops_Object((1,3,6,1,4,1,1795,2,24,2,19,1,1,1,11),_DevSocketByteDrops_Type())
-devSocketByteDrops.setMaxAccess(_B)
-if mibBuilder.loadTexts:devSocketByteDrops.setStatus(_A)
-_DevSocketStatsMIBTraps_ObjectIdentity=ObjectIdentity
-devSocketStatsMIBTraps=_DevSocketStatsMIBTraps_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,19,2))
-mibBuilder.exportSymbols(_E,**{'devSocketStatsMIBObjects':devSocketStatsMIBObjects,'devSocketStatsTable':devSocketStatsTable,'devSocketStatsEntry':devSocketStatsEntry,_F:devSocketNumber,'devSocketName':devSocketName,'devSocketFamily':devSocketFamily,'devSocketType':devSocketType,'devSocketLocalAddress':devSocketLocalAddress,'devSocketRemoteAddress':devSocketRemoteAddress,'devSocketState':devSocketState,'devSocketInputBytes':devSocketInputBytes,'devSocketOutputBytes':devSocketOutputBytes,'devSocketPDUDrops':devSocketPDUDrops,'devSocketByteDrops':devSocketByteDrops,'devSocketStatsMIBTraps':devSocketStatsMIBTraps})
+#
+# PySNMP MIB module PDN-SOCKET-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/paradyne/PDN-SOCKET-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:38 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+pdn_socket, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-socket")
+SocketFamily, SocketState, SocketType = mibBuilder.importSymbols("PDN-TC", "SocketFamily", "SocketState", "SocketType")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+TAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TAddress", "DisplayString", "TextualConvention")
+devSocketStatsMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 19, 1))
+devSocketStatsMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 19, 2))
+devSocketStatsTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 19, 1, 1), )
+if mibBuilder.loadTexts: devSocketStatsTable.setStatus('mandatory')
+devSocketStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 19, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "PDN-SOCKET-MIB", "devSocketNumber"))
+if mibBuilder.loadTexts: devSocketStatsEntry.setStatus('mandatory')
+devSocketNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 19, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devSocketNumber.setStatus('mandatory')
+devSocketName = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 19, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devSocketName.setStatus('mandatory')
+devSocketFamily = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 19, 1, 1, 1, 3), SocketFamily()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devSocketFamily.setStatus('mandatory')
+devSocketType = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 19, 1, 1, 1, 4), SocketType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devSocketType.setStatus('mandatory')
+devSocketLocalAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 19, 1, 1, 1, 5), TAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devSocketLocalAddress.setStatus('mandatory')
+devSocketRemoteAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 19, 1, 1, 1, 6), TAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devSocketRemoteAddress.setStatus('mandatory')
+devSocketState = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 19, 1, 1, 1, 7), SocketState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devSocketState.setStatus('mandatory')
+devSocketInputBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 19, 1, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devSocketInputBytes.setStatus('mandatory')
+devSocketOutputBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 19, 1, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devSocketOutputBytes.setStatus('mandatory')
+devSocketPDUDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 19, 1, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devSocketPDUDrops.setStatus('mandatory')
+devSocketByteDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 19, 1, 1, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: devSocketByteDrops.setStatus('mandatory')
+mibBuilder.exportSymbols("PDN-SOCKET-MIB", devSocketStatsEntry=devSocketStatsEntry, devSocketByteDrops=devSocketByteDrops, devSocketOutputBytes=devSocketOutputBytes, devSocketPDUDrops=devSocketPDUDrops, devSocketRemoteAddress=devSocketRemoteAddress, devSocketType=devSocketType, devSocketState=devSocketState, devSocketStatsMIBObjects=devSocketStatsMIBObjects, devSocketNumber=devSocketNumber, devSocketInputBytes=devSocketInputBytes, devSocketFamily=devSocketFamily, devSocketStatsTable=devSocketStatsTable, devSocketStatsMIBTraps=devSocketStatsMIBTraps, devSocketLocalAddress=devSocketLocalAddress, devSocketName=devSocketName)

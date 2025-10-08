@@ -1,93 +1,53 @@
-_P='pxmPwGroup'
-_O='pxmPwAssociatedMPLSTunnel'
-_N='pxmPwFlapActionClear'
-_M='pxmPwSplitHorizonGroupID'
-_L='pxmPwPmHistStatsEnable'
-_K='pxmPwCreationType'
-_J='pxmPwOutgoingLabel'
-_I='pxmPwIncomingLabel'
-_H='pxmPwSetupMode'
-_G='pxmPwMTUSize'
-_F='ifIndex'
-_E='IF-MIB'
-_D='read-write'
-_C='read-only'
-_B='INFINERA-TP-PXPW-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-terminationPoint,=mibBuilder.importSymbols('INFINERA-REG-MIB','terminationPoint')
-FloatHundredths,FloatTenths,InfnCreationType,InfnFlapActionClear,InfnPWSetupMode,InfnPmHistStatsControl=mibBuilder.importSymbols('INFINERA-TC-MIB','FloatHundredths','FloatTenths','InfnCreationType','InfnFlapActionClear','InfnPWSetupMode','InfnPmHistStatsControl')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-pxmPwMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,2,75))
-if mibBuilder.loadTexts:pxmPwMIB.setRevisions(('2016-05-20 00:00',))
-_PxmPwTable_Object=MibTable
-pxmPwTable=_PxmPwTable_Object((1,3,6,1,4,1,21296,2,2,2,2,75,1))
-if mibBuilder.loadTexts:pxmPwTable.setStatus(_A)
-_PxmPwEntry_Object=MibTableRow
-pxmPwEntry=_PxmPwEntry_Object((1,3,6,1,4,1,21296,2,2,2,2,75,1,1))
-pxmPwEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:pxmPwEntry.setStatus(_A)
-_PxmPwMTUSize_Type=Integer32
-_PxmPwMTUSize_Object=MibTableColumn
-pxmPwMTUSize=_PxmPwMTUSize_Object((1,3,6,1,4,1,21296,2,2,2,2,75,1,1,1),_PxmPwMTUSize_Type())
-pxmPwMTUSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmPwMTUSize.setStatus(_A)
-_PxmPwSetupMode_Type=InfnPWSetupMode
-_PxmPwSetupMode_Object=MibTableColumn
-pxmPwSetupMode=_PxmPwSetupMode_Object((1,3,6,1,4,1,21296,2,2,2,2,75,1,1,2),_PxmPwSetupMode_Type())
-pxmPwSetupMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:pxmPwSetupMode.setStatus(_A)
-_PxmPwIncomingLabel_Type=Integer32
-_PxmPwIncomingLabel_Object=MibTableColumn
-pxmPwIncomingLabel=_PxmPwIncomingLabel_Object((1,3,6,1,4,1,21296,2,2,2,2,75,1,1,3),_PxmPwIncomingLabel_Type())
-pxmPwIncomingLabel.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmPwIncomingLabel.setStatus(_A)
-_PxmPwOutgoingLabel_Type=Integer32
-_PxmPwOutgoingLabel_Object=MibTableColumn
-pxmPwOutgoingLabel=_PxmPwOutgoingLabel_Object((1,3,6,1,4,1,21296,2,2,2,2,75,1,1,4),_PxmPwOutgoingLabel_Type())
-pxmPwOutgoingLabel.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmPwOutgoingLabel.setStatus(_A)
-_PxmPwCreationType_Type=InfnCreationType
-_PxmPwCreationType_Object=MibTableColumn
-pxmPwCreationType=_PxmPwCreationType_Object((1,3,6,1,4,1,21296,2,2,2,2,75,1,1,5),_PxmPwCreationType_Type())
-pxmPwCreationType.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmPwCreationType.setStatus(_A)
-_PxmPwPmHistStatsEnable_Type=InfnPmHistStatsControl
-_PxmPwPmHistStatsEnable_Object=MibTableColumn
-pxmPwPmHistStatsEnable=_PxmPwPmHistStatsEnable_Object((1,3,6,1,4,1,21296,2,2,2,2,75,1,1,6),_PxmPwPmHistStatsEnable_Type())
-pxmPwPmHistStatsEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:pxmPwPmHistStatsEnable.setStatus(_A)
-_PxmPwSplitHorizonGroupID_Type=Integer32
-_PxmPwSplitHorizonGroupID_Object=MibTableColumn
-pxmPwSplitHorizonGroupID=_PxmPwSplitHorizonGroupID_Object((1,3,6,1,4,1,21296,2,2,2,2,75,1,1,7),_PxmPwSplitHorizonGroupID_Type())
-pxmPwSplitHorizonGroupID.setMaxAccess(_C)
-if mibBuilder.loadTexts:pxmPwSplitHorizonGroupID.setStatus(_A)
-_PxmPwFlapActionClear_Type=InfnFlapActionClear
-_PxmPwFlapActionClear_Object=MibTableColumn
-pxmPwFlapActionClear=_PxmPwFlapActionClear_Object((1,3,6,1,4,1,21296,2,2,2,2,75,1,1,8),_PxmPwFlapActionClear_Type())
-pxmPwFlapActionClear.setMaxAccess(_D)
-if mibBuilder.loadTexts:pxmPwFlapActionClear.setStatus(_A)
-_PxmPwAssociatedMPLSTunnel_Type=DisplayString
-_PxmPwAssociatedMPLSTunnel_Object=MibTableColumn
-pxmPwAssociatedMPLSTunnel=_PxmPwAssociatedMPLSTunnel_Object((1,3,6,1,4,1,21296,2,2,2,2,75,1,1,9),_PxmPwAssociatedMPLSTunnel_Type())
-pxmPwAssociatedMPLSTunnel.setMaxAccess(_D)
-if mibBuilder.loadTexts:pxmPwAssociatedMPLSTunnel.setStatus(_A)
-_PxmPwConformance_ObjectIdentity=ObjectIdentity
-pxmPwConformance=_PxmPwConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,75,3))
-_PxmPwCompliances_ObjectIdentity=ObjectIdentity
-pxmPwCompliances=_PxmPwCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,75,3,1))
-_PxmPwGroups_ObjectIdentity=ObjectIdentity
-pxmPwGroups=_PxmPwGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,75,3,2))
-pxmPwGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,2,75,3,2,1))
-pxmPwGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:pxmPwGroup.setStatus(_A)
-pxmPwCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,2,75,3,1,1))
-pxmPwCompliance.setObjects((_B,_P))
-if mibBuilder.loadTexts:pxmPwCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'pxmPwMIB':pxmPwMIB,'pxmPwTable':pxmPwTable,'pxmPwEntry':pxmPwEntry,_G:pxmPwMTUSize,_H:pxmPwSetupMode,_I:pxmPwIncomingLabel,_J:pxmPwOutgoingLabel,_K:pxmPwCreationType,_L:pxmPwPmHistStatsEnable,_M:pxmPwSplitHorizonGroupID,_N:pxmPwFlapActionClear,_O:pxmPwAssociatedMPLSTunnel,'pxmPwConformance':pxmPwConformance,'pxmPwCompliances':pxmPwCompliances,'pxmPwCompliance':pxmPwCompliance,'pxmPwGroups':pxmPwGroups,_P:pxmPwGroup})
+#
+# PySNMP MIB module INFINERA-TP-PXPW-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-PXPW-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
+FloatTenths, InfnPWSetupMode, InfnCreationType, InfnPmHistStatsControl, InfnFlapActionClear, FloatHundredths = mibBuilder.importSymbols("INFINERA-TC-MIB", "FloatTenths", "InfnPWSetupMode", "InfnCreationType", "InfnPmHistStatsControl", "InfnFlapActionClear", "FloatHundredths")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+pxmPwMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75))
+pxmPwMIB.setRevisions(('2016-05-20 00:00',))
+if mibBuilder.loadTexts: pxmPwMIB.setLastUpdated('201605200000Z')
+if mibBuilder.loadTexts: pxmPwMIB.setOrganization('Infinera')
+pxmPwConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 3))
+pxmPwCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 3, 1))
+pxmPwGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 3, 2))
+pxmPwTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 1), )
+if mibBuilder.loadTexts: pxmPwTable.setStatus('current')
+pxmPwEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: pxmPwEntry.setStatus('current')
+pxmPwMTUSize = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pxmPwMTUSize.setStatus('current')
+pxmPwSetupMode = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 1, 1, 2), InfnPWSetupMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmPwSetupMode.setStatus('current')
+pxmPwIncomingLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pxmPwIncomingLabel.setStatus('current')
+pxmPwOutgoingLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pxmPwOutgoingLabel.setStatus('current')
+pxmPwCreationType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 1, 1, 5), InfnCreationType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pxmPwCreationType.setStatus('current')
+pxmPwPmHistStatsEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 1, 1, 6), InfnPmHistStatsControl()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmPwPmHistStatsEnable.setStatus('current')
+pxmPwSplitHorizonGroupID = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 1, 1, 7), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: pxmPwSplitHorizonGroupID.setStatus('current')
+pxmPwFlapActionClear = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 1, 1, 8), InfnFlapActionClear()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmPwFlapActionClear.setStatus('current')
+pxmPwAssociatedMPLSTunnel = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 1, 1, 9), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: pxmPwAssociatedMPLSTunnel.setStatus('current')
+pxmPwCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 3, 1, 1)).setObjects(("INFINERA-TP-PXPW-MIB", "pxmPwGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pxmPwCompliance = pxmPwCompliance.setStatus('current')
+pxmPwGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 75, 3, 2, 1)).setObjects(("INFINERA-TP-PXPW-MIB", "pxmPwMTUSize"), ("INFINERA-TP-PXPW-MIB", "pxmPwSetupMode"), ("INFINERA-TP-PXPW-MIB", "pxmPwIncomingLabel"), ("INFINERA-TP-PXPW-MIB", "pxmPwOutgoingLabel"), ("INFINERA-TP-PXPW-MIB", "pxmPwCreationType"), ("INFINERA-TP-PXPW-MIB", "pxmPwPmHistStatsEnable"), ("INFINERA-TP-PXPW-MIB", "pxmPwSplitHorizonGroupID"), ("INFINERA-TP-PXPW-MIB", "pxmPwFlapActionClear"), ("INFINERA-TP-PXPW-MIB", "pxmPwAssociatedMPLSTunnel"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pxmPwGroup = pxmPwGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-TP-PXPW-MIB", pxmPwSplitHorizonGroupID=pxmPwSplitHorizonGroupID, pxmPwEntry=pxmPwEntry, pxmPwAssociatedMPLSTunnel=pxmPwAssociatedMPLSTunnel, pxmPwMIB=pxmPwMIB, pxmPwSetupMode=pxmPwSetupMode, pxmPwGroups=pxmPwGroups, pxmPwCreationType=pxmPwCreationType, pxmPwTable=pxmPwTable, pxmPwCompliances=pxmPwCompliances, pxmPwConformance=pxmPwConformance, pxmPwCompliance=pxmPwCompliance, pxmPwIncomingLabel=pxmPwIncomingLabel, pxmPwGroup=pxmPwGroup, pxmPwFlapActionClear=pxmPwFlapActionClear, pxmPwMTUSize=pxmPwMTUSize, PYSNMP_MODULE_ID=pxmPwMIB, pxmPwPmHistStatsEnable=pxmPwPmHistStatsEnable, pxmPwOutgoingLabel=pxmPwOutgoingLabel)

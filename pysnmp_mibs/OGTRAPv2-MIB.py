@@ -1,357 +1,153 @@
-_S='NotificationType'
-_R='OctetString'
-_Q='Integer32'
-_P='mandatory'
-_O='read-only'
-_N='ogAlarmUser'
-_M='ogAlarmPreviousValue'
-_L='ogAlarmState'
-_K='ogAlarmCurrentValue'
-_J='ogAlarmTriggerValue'
-_I='ogAlarmDevice'
-_H='ogAlarmSummary'
-_G='ogAlarmType'
-_F='ogAlarmTime'
-_E='ogAlarmInstance'
-_D='ogAlarmCheck'
-_C='ogAlarmName'
-_B='ogAlarmEventId'
-_A='OGTRAPv2-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_R,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_Q,'IpAddress','ModuleIdentity','MibIdentifier',_S,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_S,'TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Opengear_ObjectIdentity=ObjectIdentity
-opengear=_Opengear_ObjectIdentity((1,3,6,1,4,1,25049))
-_OgLegacyMgmt_ObjectIdentity=ObjectIdentity
-ogLegacyMgmt=_OgLegacyMgmt_ObjectIdentity((1,3,6,1,4,1,25049,2))
-_OgNotification_ObjectIdentity=ObjectIdentity
-ogNotification=_OgNotification_ObjectIdentity((1,3,6,1,4,1,25049,2,0))
-_OgAlarmMib_ObjectIdentity=ObjectIdentity
-ogAlarmMib=_OgAlarmMib_ObjectIdentity((1,3,6,1,4,1,25049,2,101))
-_OgAlarmMibObjects_ObjectIdentity=ObjectIdentity
-ogAlarmMibObjects=_OgAlarmMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,2,101,1))
-_OgAlarm_ObjectIdentity=ObjectIdentity
-ogAlarm=_OgAlarm_ObjectIdentity((1,3,6,1,4,1,25049,2,101,1,1))
-_OgAlarmTable_ObjectIdentity=ObjectIdentity
-ogAlarmTable=_OgAlarmTable_ObjectIdentity((1,3,6,1,4,1,25049,2,101,1,1,1))
-_OgAlarmEntry_ObjectIdentity=ObjectIdentity
-ogAlarmEntry=_OgAlarmEntry_ObjectIdentity((1,3,6,1,4,1,25049,2,101,1,1,1,1))
-_OgAlarmIndex_Type=Integer32
-_OgAlarmIndex_Object=MibScalar
-ogAlarmIndex=_OgAlarmIndex_Object((1,3,6,1,4,1,25049,2,101,1,1,1,1,1),_OgAlarmIndex_Type())
-ogAlarmIndex.setMaxAccess(_O)
-if mibBuilder.loadTexts:ogAlarmIndex.setStatus(_P)
-_OgAlarmEventId_Type=Integer32
-_OgAlarmEventId_Object=MibScalar
-ogAlarmEventId=_OgAlarmEventId_Object((1,3,6,1,4,1,25049,2,101,1,1,1,1,2),_OgAlarmEventId_Type())
-ogAlarmEventId.setMaxAccess(_O)
-if mibBuilder.loadTexts:ogAlarmEventId.setStatus(_P)
-_OgAlarmName_Type=OctetString
-_OgAlarmName_Object=MibScalar
-ogAlarmName=_OgAlarmName_Object((1,3,6,1,4,1,25049,2,101,1,1,1,1,3),_OgAlarmName_Type())
-ogAlarmName.setMaxAccess(_O)
-if mibBuilder.loadTexts:ogAlarmName.setStatus(_P)
-class _OgAlarmCheck_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_OgAlarmCheck_Type.__name__=_Q
-_OgAlarmCheck_Object=MibScalar
-ogAlarmCheck=_OgAlarmCheck_Object((1,3,6,1,4,1,25049,2,101,1,1,1,1,4),_OgAlarmCheck_Type())
-ogAlarmCheck.setMaxAccess(_O)
-if mibBuilder.loadTexts:ogAlarmCheck.setStatus(_P)
-class _OgAlarmInstance_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_OgAlarmInstance_Type.__name__=_Q
-_OgAlarmInstance_Object=MibScalar
-ogAlarmInstance=_OgAlarmInstance_Object((1,3,6,1,4,1,25049,2,101,1,1,1,1,5),_OgAlarmInstance_Type())
-ogAlarmInstance.setMaxAccess(_O)
-if mibBuilder.loadTexts:ogAlarmInstance.setStatus(_P)
-class _OgAlarmTime_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8),ValueSizeConstraint(11,11))
-_OgAlarmTime_Type.__name__=_R
-_OgAlarmTime_Object=MibScalar
-ogAlarmTime=_OgAlarmTime_Object((1,3,6,1,4,1,25049,2,101,1,1,1,1,6),_OgAlarmTime_Type())
-ogAlarmTime.setMaxAccess(_O)
-if mibBuilder.loadTexts:ogAlarmTime.setStatus(_P)
-class _OgAlarmType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,255,65535)));namedValues=NamedValues(*(('serialSignalCts',1),('serialSignalDcd',2),('serialSignalDsr',3),('serialPatternTx',4),('serialPatternRx',5),('serialUserSession',6),('hostPingDown',7),('hostPingUp',8),('hostServiceDown',9),('hostServiceUp',10),('hostUserSession',11),('webUserSession',12),('envTemperatureLow',13),('envTemperatureHigh',14),('envHumidityLow',15),('envHumidityHigh',16),('dioSignalOpened',17),('dioSignalClosed',18),('netInterfaceDown',19),('netInterfaceStarting',20),('netInterfaceUp',21),('netInterfaceStopping',22),('powerSupplyInputVoltageLow',23),('powerSupplyInputVoltageHigh',24),('powerSupplyOutputCurrentLow',25),('powerSupplyOutputCurrentHigh',26),('powerSupplyTemperatureLow',27),('powerSupplyTemperatureHigh',28),('upsTemperatureHigh',29),('upsTemperatureLow',30),('upsHumidityHigh',31),('upsHumidityLow',32),('upsOnBattery',33),('upsLowBattery',34),('upsBatteryChargeLow',35),('upsBatteryChargeHigh',36),('upsBatteryVoltageLow',37),('upsBatteryVoltageHigh',38),('upsBatteryCurrentLow',39),('upsBatteryCurrentHigh',40),('upsBatteryTemperatureLow',41),('upsBatteryTemperatureHigh',42),('upsInputFrequencyLow',43),('upsInputFrequencyHigh',44),('upsInputVoltageLow',45),('upsInputVoltageHigh',46),('upsInputCurrentLow',47),('upsInputCurrentHigh',48),('upsOutputFrequencyLow',49),('upsOutputFrequencyHigh',50),('upsOutputVoltageLow',51),('upsOutputVoltageHigh',52),('upsOutputCurrentLow',53),('upsOutputCurrentHigh',54),('upsOutputLoadLow',55),('upsOutputLoadHigh',56),('upsOutputPowerLow',57),('upsOutputPowerHigh',58),('upsOutputTruePowerLow',59),('upsOutputTruePowerHigh',60),('rpcInputFrequencyLow',61),('rpcInputFrequencyHigh',62),('rpcInputVoltageLow',63),('rpcInputVoltageHigh',64),('rpcInputCurrentLow',65),('rpcInputCurrentHigh',66),('rpcOutletFrequencyHigh',67),('rpcOutletFrequencyLow',68),('rpcOutletVoltageHigh',69),('rpcOutletVoltageLow',70),('rpcOutletCurrentHigh',71),('rpcOutletCurrentLow',72),('rpcOutletStateOff',73),('rpcOutletStateOn',74),('cellDataUsage',75),('cellMessageReceived',76),('cellSignalLow',77),('cellSignalHigh',78),('cellApnChanged',79),('cellTowerChanged',80),('cellNetworkChanged',81),('wirelessClientConnected',82),('wirelessClientDisconnected',83),('wirelessClientSignalLow',84),('wirelessClientSignalHigh',85),('wirelessApAssociation',86),('wirelessApDisassociation',87),('wirelessApAuthenticationFailure',88),('dialPoolHealth',89),('customCheckFailure',255),('unknown',65535)))
-_OgAlarmType_Type.__name__=_Q
-_OgAlarmType_Object=MibScalar
-ogAlarmType=_OgAlarmType_Object((1,3,6,1,4,1,25049,2,101,1,1,1,1,7),_OgAlarmType_Type())
-ogAlarmType.setMaxAccess(_O)
-if mibBuilder.loadTexts:ogAlarmType.setStatus(_P)
-_OgAlarmSummary_Type=OctetString
-_OgAlarmSummary_Object=MibScalar
-ogAlarmSummary=_OgAlarmSummary_Object((1,3,6,1,4,1,25049,2,101,1,1,1,1,8),_OgAlarmSummary_Type())
-ogAlarmSummary.setMaxAccess(_O)
-if mibBuilder.loadTexts:ogAlarmSummary.setStatus(_P)
-_OgAlarmDevice_Type=OctetString
-_OgAlarmDevice_Object=MibScalar
-ogAlarmDevice=_OgAlarmDevice_Object((1,3,6,1,4,1,25049,2,101,1,1,1,1,9),_OgAlarmDevice_Type())
-ogAlarmDevice.setMaxAccess(_O)
-if mibBuilder.loadTexts:ogAlarmDevice.setStatus(_P)
-_OgAlarmUser_Type=OctetString
-_OgAlarmUser_Object=MibScalar
-ogAlarmUser=_OgAlarmUser_Object((1,3,6,1,4,1,25049,2,101,1,1,1,1,10),_OgAlarmUser_Type())
-ogAlarmUser.setMaxAccess(_O)
-if mibBuilder.loadTexts:ogAlarmUser.setStatus(_P)
-_OgAlarmTriggerValue_Type=Integer32
-_OgAlarmTriggerValue_Object=MibScalar
-ogAlarmTriggerValue=_OgAlarmTriggerValue_Object((1,3,6,1,4,1,25049,2,101,1,1,1,1,11),_OgAlarmTriggerValue_Type())
-ogAlarmTriggerValue.setMaxAccess(_O)
-if mibBuilder.loadTexts:ogAlarmTriggerValue.setStatus(_P)
-_OgAlarmCurrentValue_Type=Integer32
-_OgAlarmCurrentValue_Object=MibScalar
-ogAlarmCurrentValue=_OgAlarmCurrentValue_Object((1,3,6,1,4,1,25049,2,101,1,1,1,1,12),_OgAlarmCurrentValue_Type())
-ogAlarmCurrentValue.setMaxAccess(_O)
-if mibBuilder.loadTexts:ogAlarmCurrentValue.setStatus(_P)
-_OgAlarmPreviousValue_Type=Integer32
-_OgAlarmPreviousValue_Object=MibScalar
-ogAlarmPreviousValue=_OgAlarmPreviousValue_Object((1,3,6,1,4,1,25049,2,101,1,1,1,1,13),_OgAlarmPreviousValue_Type())
-ogAlarmPreviousValue.setMaxAccess(_O)
-if mibBuilder.loadTexts:ogAlarmPreviousValue.setStatus(_P)
-class _OgAlarmState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('normal',1),('triggered',2),('resolving',3),('waiting',4),('disabled',5),('unresolvable',6)))
-_OgAlarmState_Type.__name__=_Q
-_OgAlarmState_Object=MibScalar
-ogAlarmState=_OgAlarmState_Object((1,3,6,1,4,1,25049,2,101,1,1,1,1,14),_OgAlarmState_Type())
-ogAlarmState.setMaxAccess(_O)
-if mibBuilder.loadTexts:ogAlarmState.setStatus(_P)
-_OgSerialSignalMib_ObjectIdentity=ObjectIdentity
-ogSerialSignalMib=_OgSerialSignalMib_ObjectIdentity((1,3,6,1,4,1,25049,2,102))
-_OgSerialSignalMibObjects_ObjectIdentity=ObjectIdentity
-ogSerialSignalMibObjects=_OgSerialSignalMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,2,102,1))
-_OgSerialSignalAlarm_ObjectIdentity=ObjectIdentity
-ogSerialSignalAlarm=_OgSerialSignalAlarm_ObjectIdentity((1,3,6,1,4,1,25049,2,102,1,1))
-_OgSerialSignalAlarmTable_ObjectIdentity=ObjectIdentity
-ogSerialSignalAlarmTable=_OgSerialSignalAlarmTable_ObjectIdentity((1,3,6,1,4,1,25049,2,102,1,1,1))
-_OgSerialSignalAlarmEntry_ObjectIdentity=ObjectIdentity
-ogSerialSignalAlarmEntry=_OgSerialSignalAlarmEntry_ObjectIdentity((1,3,6,1,4,1,25049,2,102,1,1,1,1))
-_OgSerialPatternMib_ObjectIdentity=ObjectIdentity
-ogSerialPatternMib=_OgSerialPatternMib_ObjectIdentity((1,3,6,1,4,1,25049,2,103))
-_OgSerialPatternMibObjects_ObjectIdentity=ObjectIdentity
-ogSerialPatternMibObjects=_OgSerialPatternMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,2,103,1))
-_OgSerialPatternAlarm_ObjectIdentity=ObjectIdentity
-ogSerialPatternAlarm=_OgSerialPatternAlarm_ObjectIdentity((1,3,6,1,4,1,25049,2,103,1,1))
-_OgSerialPatternAlarmTable_ObjectIdentity=ObjectIdentity
-ogSerialPatternAlarmTable=_OgSerialPatternAlarmTable_ObjectIdentity((1,3,6,1,4,1,25049,2,103,1,1,1))
-_OgSerialPatternAlarmEntry_ObjectIdentity=ObjectIdentity
-ogSerialPatternAlarmEntry=_OgSerialPatternAlarmEntry_ObjectIdentity((1,3,6,1,4,1,25049,2,103,1,1,1,1))
-_OgSerialUserMib_ObjectIdentity=ObjectIdentity
-ogSerialUserMib=_OgSerialUserMib_ObjectIdentity((1,3,6,1,4,1,25049,2,104))
-_OgSerialUserMibObjects_ObjectIdentity=ObjectIdentity
-ogSerialUserMibObjects=_OgSerialUserMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,2,104,1))
-_OgSerialUserAlarm_ObjectIdentity=ObjectIdentity
-ogSerialUserAlarm=_OgSerialUserAlarm_ObjectIdentity((1,3,6,1,4,1,25049,2,104,1,1))
-_OgSerialUserAlarmTable_ObjectIdentity=ObjectIdentity
-ogSerialUserAlarmTable=_OgSerialUserAlarmTable_ObjectIdentity((1,3,6,1,4,1,25049,2,104,1,1,1))
-_OgSerialUserAlarmEntry_ObjectIdentity=ObjectIdentity
-ogSerialUserAlarmEntry=_OgSerialUserAlarmEntry_ObjectIdentity((1,3,6,1,4,1,25049,2,104,1,1,1,1))
-_OgHostMib_ObjectIdentity=ObjectIdentity
-ogHostMib=_OgHostMib_ObjectIdentity((1,3,6,1,4,1,25049,2,105))
-_OgHostMibObjects_ObjectIdentity=ObjectIdentity
-ogHostMibObjects=_OgHostMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,2,105,1))
-_OgHostEvent_ObjectIdentity=ObjectIdentity
-ogHostEvent=_OgHostEvent_ObjectIdentity((1,3,6,1,4,1,25049,2,105,1,1))
-_OgHostEventTable_ObjectIdentity=ObjectIdentity
-ogHostEventTable=_OgHostEventTable_ObjectIdentity((1,3,6,1,4,1,25049,2,105,1,1,1))
-_OgHostEventEntry_ObjectIdentity=ObjectIdentity
-ogHostEventEntry=_OgHostEventEntry_ObjectIdentity((1,3,6,1,4,1,25049,2,105,1,1,1,1))
-_OgWebMib_ObjectIdentity=ObjectIdentity
-ogWebMib=_OgWebMib_ObjectIdentity((1,3,6,1,4,1,25049,2,106))
-_OgWebMibObjects_ObjectIdentity=ObjectIdentity
-ogWebMibObjects=_OgWebMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,2,106,1))
-_OgWebEvent_ObjectIdentity=ObjectIdentity
-ogWebEvent=_OgWebEvent_ObjectIdentity((1,3,6,1,4,1,25049,2,106,1,1))
-_OgWebEventTable_ObjectIdentity=ObjectIdentity
-ogWebEventTable=_OgWebEventTable_ObjectIdentity((1,3,6,1,4,1,25049,2,106,1,1,1))
-_OgWebEventEntry_ObjectIdentity=ObjectIdentity
-ogWebEventEntry=_OgWebEventEntry_ObjectIdentity((1,3,6,1,4,1,25049,2,106,1,1,1,1))
-_OgEmdMib_ObjectIdentity=ObjectIdentity
-ogEmdMib=_OgEmdMib_ObjectIdentity((1,3,6,1,4,1,25049,2,107))
-_OgEmdMibObjects_ObjectIdentity=ObjectIdentity
-ogEmdMibObjects=_OgEmdMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,2,107,1))
-_OgEmdAlarm_ObjectIdentity=ObjectIdentity
-ogEmdAlarm=_OgEmdAlarm_ObjectIdentity((1,3,6,1,4,1,25049,2,107,1,1))
-_OgEmdAlarmTable_ObjectIdentity=ObjectIdentity
-ogEmdAlarmTable=_OgEmdAlarmTable_ObjectIdentity((1,3,6,1,4,1,25049,2,107,1,1,1))
-_OgEmdAlarmEntry_ObjectIdentity=ObjectIdentity
-ogEmdAlarmEntry=_OgEmdAlarmEntry_ObjectIdentity((1,3,6,1,4,1,25049,2,107,1,1,1,1))
-_OgPowerSupplyMib_ObjectIdentity=ObjectIdentity
-ogPowerSupplyMib=_OgPowerSupplyMib_ObjectIdentity((1,3,6,1,4,1,25049,2,108))
-_OgPowerSupplyMibObjects_ObjectIdentity=ObjectIdentity
-ogPowerSupplyMibObjects=_OgPowerSupplyMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,2,108,1))
-_OgPowerSupplyAlarm_ObjectIdentity=ObjectIdentity
-ogPowerSupplyAlarm=_OgPowerSupplyAlarm_ObjectIdentity((1,3,6,1,4,1,25049,2,108,1,1))
-_OgPowerSupplyAlarmTable_ObjectIdentity=ObjectIdentity
-ogPowerSupplyAlarmTable=_OgPowerSupplyAlarmTable_ObjectIdentity((1,3,6,1,4,1,25049,2,108,1,1,1))
-_OgPowerSupplyAlarmEntry_ObjectIdentity=ObjectIdentity
-ogPowerSupplyAlarmEntry=_OgPowerSupplyAlarmEntry_ObjectIdentity((1,3,6,1,4,1,25049,2,108,1,1,1,1))
-_OgUpsMib_ObjectIdentity=ObjectIdentity
-ogUpsMib=_OgUpsMib_ObjectIdentity((1,3,6,1,4,1,25049,2,109))
-_OgUpsMibObjects_ObjectIdentity=ObjectIdentity
-ogUpsMibObjects=_OgUpsMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,2,109,1))
-_OgUpsAlarm_ObjectIdentity=ObjectIdentity
-ogUpsAlarm=_OgUpsAlarm_ObjectIdentity((1,3,6,1,4,1,25049,2,109,1,1))
-_OgUpsAlarmTable_ObjectIdentity=ObjectIdentity
-ogUpsAlarmTable=_OgUpsAlarmTable_ObjectIdentity((1,3,6,1,4,1,25049,2,109,1,1,1))
-_OgUpsAlarmEntry_ObjectIdentity=ObjectIdentity
-ogUpsAlarmEntry=_OgUpsAlarmEntry_ObjectIdentity((1,3,6,1,4,1,25049,2,109,1,1,1,1))
-_OgRpcMib_ObjectIdentity=ObjectIdentity
-ogRpcMib=_OgRpcMib_ObjectIdentity((1,3,6,1,4,1,25049,2,110))
-_OgRpcMibObjects_ObjectIdentity=ObjectIdentity
-ogRpcMibObjects=_OgRpcMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,2,110,1))
-_OgRpcAlarm_ObjectIdentity=ObjectIdentity
-ogRpcAlarm=_OgRpcAlarm_ObjectIdentity((1,3,6,1,4,1,25049,2,110,1,1))
-_OgRpcAlarmTable_ObjectIdentity=ObjectIdentity
-ogRpcAlarmTable=_OgRpcAlarmTable_ObjectIdentity((1,3,6,1,4,1,25049,2,110,1,1,1))
-_OgRpcAlarmEntry_ObjectIdentity=ObjectIdentity
-ogRpcAlarmEntry=_OgRpcAlarmEntry_ObjectIdentity((1,3,6,1,4,1,25049,2,110,1,1,1,1))
-_OgNetMib_ObjectIdentity=ObjectIdentity
-ogNetMib=_OgNetMib_ObjectIdentity((1,3,6,1,4,1,25049,2,111))
-_OgNetMibObjects_ObjectIdentity=ObjectIdentity
-ogNetMibObjects=_OgNetMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,2,111,1))
-_OgNetAlarm_ObjectIdentity=ObjectIdentity
-ogNetAlarm=_OgNetAlarm_ObjectIdentity((1,3,6,1,4,1,25049,2,111,1,1))
-_OgNetAlarmTable_ObjectIdentity=ObjectIdentity
-ogNetAlarmTable=_OgNetAlarmTable_ObjectIdentity((1,3,6,1,4,1,25049,2,111,1,1,1))
-_OgNetAlarmEntry_ObjectIdentity=ObjectIdentity
-ogNetAlarmEntry=_OgNetAlarmEntry_ObjectIdentity((1,3,6,1,4,1,25049,2,111,1,1,1,1))
-_OgCellMib_ObjectIdentity=ObjectIdentity
-ogCellMib=_OgCellMib_ObjectIdentity((1,3,6,1,4,1,25049,2,112))
-_OgCellMibObjects_ObjectIdentity=ObjectIdentity
-ogCellMibObjects=_OgCellMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,2,112,1))
-_OgCellAlarm_ObjectIdentity=ObjectIdentity
-ogCellAlarm=_OgCellAlarm_ObjectIdentity((1,3,6,1,4,1,25049,2,112,1,1))
-_OgCellAlarmTable_ObjectIdentity=ObjectIdentity
-ogCellAlarmTable=_OgCellAlarmTable_ObjectIdentity((1,3,6,1,4,1,25049,2,112,1,1,1))
-_OgCellAlarmEntry_ObjectIdentity=ObjectIdentity
-ogCellAlarmEntry=_OgCellAlarmEntry_ObjectIdentity((1,3,6,1,4,1,25049,2,112,1,1,1,1))
-_OgWifiMib_ObjectIdentity=ObjectIdentity
-ogWifiMib=_OgWifiMib_ObjectIdentity((1,3,6,1,4,1,25049,2,113))
-_OgWifiMibObjects_ObjectIdentity=ObjectIdentity
-ogWifiMibObjects=_OgWifiMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,2,113,1))
-_OgWifiAlarm_ObjectIdentity=ObjectIdentity
-ogWifiAlarm=_OgWifiAlarm_ObjectIdentity((1,3,6,1,4,1,25049,2,113,1,1))
-_OgWifiAlarmTable_ObjectIdentity=ObjectIdentity
-ogWifiAlarmTable=_OgWifiAlarmTable_ObjectIdentity((1,3,6,1,4,1,25049,2,113,1,1,1))
-_OgWifiAlarmEntry_ObjectIdentity=ObjectIdentity
-ogWifiAlarmEntry=_OgWifiAlarmEntry_ObjectIdentity((1,3,6,1,4,1,25049,2,113,1,1,1,1))
-_OgDialPoolMib_ObjectIdentity=ObjectIdentity
-ogDialPoolMib=_OgDialPoolMib_ObjectIdentity((1,3,6,1,4,1,25049,2,114))
-_OgDialPoolMibObjects_ObjectIdentity=ObjectIdentity
-ogDialPoolMibObjects=_OgDialPoolMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,2,114,1))
-_OgDialPoolAlarm_ObjectIdentity=ObjectIdentity
-ogDialPoolAlarm=_OgDialPoolAlarm_ObjectIdentity((1,3,6,1,4,1,25049,2,114,1,1))
-_OgDialPoolAlarmTable_ObjectIdentity=ObjectIdentity
-ogDialPoolAlarmTable=_OgDialPoolAlarmTable_ObjectIdentity((1,3,6,1,4,1,25049,2,114,1,1,1))
-_OgDialPoolAlarmEntry_ObjectIdentity=ObjectIdentity
-ogDialPoolAlarmEntry=_OgDialPoolAlarmEntry_ObjectIdentity((1,3,6,1,4,1,25049,2,114,1,1,1,1))
-_OgCustomMib_ObjectIdentity=ObjectIdentity
-ogCustomMib=_OgCustomMib_ObjectIdentity((1,3,6,1,4,1,25049,2,115))
-_OgCustomMibObjects_ObjectIdentity=ObjectIdentity
-ogCustomMibObjects=_OgCustomMibObjects_ObjectIdentity((1,3,6,1,4,1,25049,2,115,1))
-_OgCustomAlarm_ObjectIdentity=ObjectIdentity
-ogCustomAlarm=_OgCustomAlarm_ObjectIdentity((1,3,6,1,4,1,25049,2,115,1,1))
-_OgCustomAlarmTable_ObjectIdentity=ObjectIdentity
-ogCustomAlarmTable=_OgCustomAlarmTable_ObjectIdentity((1,3,6,1,4,1,25049,2,115,1,1,1))
-_OgCustomAlarmEntry_ObjectIdentity=ObjectIdentity
-ogCustomAlarmEntry=_OgCustomAlarmEntry_ObjectIdentity((1,3,6,1,4,1,25049,2,115,1,1,1,1))
-ogSerialSignalNotification=NotificationType((1,3,6,1,4,1,25049,0,1))
-ogSerialSignalNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogSerialSignalNotification.setStatus('')
-ogSerialPatternNotification=NotificationType((1,3,6,1,4,1,25049,0,2))
-ogSerialPatternNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L)))
-if mibBuilder.loadTexts:ogSerialPatternNotification.setStatus('')
-ogSerialUserNotification=NotificationType((1,3,6,1,4,1,25049,0,3))
-ogSerialUserNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogSerialUserNotification.setStatus('')
-ogHostPingNotification=NotificationType((1,3,6,1,4,1,25049,0,4))
-ogHostPingNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogHostPingNotification.setStatus('')
-ogHostServiceNotification=NotificationType((1,3,6,1,4,1,25049,0,5))
-ogHostServiceNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogHostServiceNotification.setStatus('')
-ogHostUserNotification=NotificationType((1,3,6,1,4,1,25049,0,6))
-ogHostUserNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogHostUserNotification.setStatus('')
-ogWebUserNotification=NotificationType((1,3,6,1,4,1,25049,0,7))
-ogWebUserNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogWebUserNotification.setStatus('')
-ogEmdTemperatureNotification=NotificationType((1,3,6,1,4,1,25049,0,8))
-ogEmdTemperatureNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogEmdTemperatureNotification.setStatus('')
-ogEmdHumidityNotification=NotificationType((1,3,6,1,4,1,25049,0,9))
-ogEmdHumidityNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogEmdHumidityNotification.setStatus('')
-ogEmdDioNotification=NotificationType((1,3,6,1,4,1,25049,0,10))
-ogEmdDioNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogEmdDioNotification.setStatus('')
-ogPowerSupplyInputNotification=NotificationType((1,3,6,1,4,1,25049,0,11))
-ogPowerSupplyInputNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogPowerSupplyInputNotification.setStatus('')
-ogPowerSupplyOutputNotification=NotificationType((1,3,6,1,4,1,25049,0,12))
-ogPowerSupplyOutputNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogPowerSupplyOutputNotification.setStatus('')
-ogPowerSupplyTempNotification=NotificationType((1,3,6,1,4,1,25049,0,13))
-ogPowerSupplyTempNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogPowerSupplyTempNotification.setStatus('')
-ogUpsNotification=NotificationType((1,3,6,1,4,1,25049,0,14))
-ogUpsNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogUpsNotification.setStatus('')
-ogUpsBatteryNotification=NotificationType((1,3,6,1,4,1,25049,0,15))
-ogUpsBatteryNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogUpsBatteryNotification.setStatus('')
-ogUpsInputNotification=NotificationType((1,3,6,1,4,1,25049,0,16))
-ogUpsInputNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogUpsInputNotification.setStatus('')
-ogUpsOutputNotification=NotificationType((1,3,6,1,4,1,25049,0,17))
-ogUpsOutputNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogUpsOutputNotification.setStatus('')
-ogRpcInputNotification=NotificationType((1,3,6,1,4,1,25049,0,18))
-ogRpcInputNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogRpcInputNotification.setStatus('')
-ogRpcOutputNotification=NotificationType((1,3,6,1,4,1,25049,0,19))
-ogRpcOutputNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogRpcOutputNotification.setStatus('')
-ogRpcOutletNotification=NotificationType((1,3,6,1,4,1,25049,0,20))
-ogRpcOutletNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogRpcOutletNotification.setStatus('')
-ogNetInterfaceNotification=NotificationType((1,3,6,1,4,1,25049,0,21))
-ogNetInterfaceNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogNetInterfaceNotification.setStatus('')
-ogCellDataNotification=NotificationType((1,3,6,1,4,1,25049,0,22))
-ogCellDataNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogCellDataNotification.setStatus('')
-ogCellMessageNotification=NotificationType((1,3,6,1,4,1,25049,0,23))
-ogCellMessageNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogCellMessageNotification.setStatus('')
-ogCellSignalNotification=NotificationType((1,3,6,1,4,1,25049,0,24))
-ogCellSignalNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogCellSignalNotification.setStatus('')
-ogCellApnNotification=NotificationType((1,3,6,1,4,1,25049,0,25))
-ogCellApnNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogCellApnNotification.setStatus('')
-ogCellTowerNotification=NotificationType((1,3,6,1,4,1,25049,0,26))
-ogCellTowerNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogCellTowerNotification.setStatus('')
-ogCellNetworkNotification=NotificationType((1,3,6,1,4,1,25049,0,27))
-ogCellNetworkNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogCellNetworkNotification.setStatus('')
-ogWifiClientConnectNotification=NotificationType((1,3,6,1,4,1,25049,0,28))
-ogWifiClientConnectNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogWifiClientConnectNotification.setStatus('')
-ogWifiClientSignalNotification=NotificationType((1,3,6,1,4,1,25049,0,29))
-ogWifiClientSignalNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogWifiClientSignalNotification.setStatus('')
-ogWifiApAssociationNotification=NotificationType((1,3,6,1,4,1,25049,0,30))
-ogWifiApAssociationNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogWifiApAssociationNotification.setStatus('')
-ogWifiApAuthNotification=NotificationType((1,3,6,1,4,1,25049,0,31))
-ogWifiApAuthNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogWifiApAuthNotification.setStatus('')
-ogDialPoolHealthNotification=NotificationType((1,3,6,1,4,1,25049,0,32))
-ogDialPoolHealthNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogDialPoolHealthNotification.setStatus('')
-ogCustomNotification=NotificationType((1,3,6,1,4,1,25049,0,33))
-ogCustomNotification.setObjects(*((_A,_B),(_A,_C),(_A,_D),(_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_N),(_A,_J),(_A,_K),(_A,_M),(_A,_L)))
-if mibBuilder.loadTexts:ogCustomNotification.setStatus('')
-mibBuilder.exportSymbols(_A,**{'opengear':opengear,'ogSerialSignalNotification':ogSerialSignalNotification,'ogSerialPatternNotification':ogSerialPatternNotification,'ogSerialUserNotification':ogSerialUserNotification,'ogHostPingNotification':ogHostPingNotification,'ogHostServiceNotification':ogHostServiceNotification,'ogHostUserNotification':ogHostUserNotification,'ogWebUserNotification':ogWebUserNotification,'ogEmdTemperatureNotification':ogEmdTemperatureNotification,'ogEmdHumidityNotification':ogEmdHumidityNotification,'ogEmdDioNotification':ogEmdDioNotification,'ogPowerSupplyInputNotification':ogPowerSupplyInputNotification,'ogPowerSupplyOutputNotification':ogPowerSupplyOutputNotification,'ogPowerSupplyTempNotification':ogPowerSupplyTempNotification,'ogUpsNotification':ogUpsNotification,'ogUpsBatteryNotification':ogUpsBatteryNotification,'ogUpsInputNotification':ogUpsInputNotification,'ogUpsOutputNotification':ogUpsOutputNotification,'ogRpcInputNotification':ogRpcInputNotification,'ogRpcOutputNotification':ogRpcOutputNotification,'ogRpcOutletNotification':ogRpcOutletNotification,'ogNetInterfaceNotification':ogNetInterfaceNotification,'ogCellDataNotification':ogCellDataNotification,'ogCellMessageNotification':ogCellMessageNotification,'ogCellSignalNotification':ogCellSignalNotification,'ogCellApnNotification':ogCellApnNotification,'ogCellTowerNotification':ogCellTowerNotification,'ogCellNetworkNotification':ogCellNetworkNotification,'ogWifiClientConnectNotification':ogWifiClientConnectNotification,'ogWifiClientSignalNotification':ogWifiClientSignalNotification,'ogWifiApAssociationNotification':ogWifiApAssociationNotification,'ogWifiApAuthNotification':ogWifiApAuthNotification,'ogDialPoolHealthNotification':ogDialPoolHealthNotification,'ogCustomNotification':ogCustomNotification,'ogLegacyMgmt':ogLegacyMgmt,'ogNotification':ogNotification,'ogAlarmMib':ogAlarmMib,'ogAlarmMibObjects':ogAlarmMibObjects,'ogAlarm':ogAlarm,'ogAlarmTable':ogAlarmTable,'ogAlarmEntry':ogAlarmEntry,'ogAlarmIndex':ogAlarmIndex,_B:ogAlarmEventId,_C:ogAlarmName,_D:ogAlarmCheck,_E:ogAlarmInstance,_F:ogAlarmTime,_G:ogAlarmType,_H:ogAlarmSummary,_I:ogAlarmDevice,_N:ogAlarmUser,_J:ogAlarmTriggerValue,_K:ogAlarmCurrentValue,_M:ogAlarmPreviousValue,_L:ogAlarmState,'ogSerialSignalMib':ogSerialSignalMib,'ogSerialSignalMibObjects':ogSerialSignalMibObjects,'ogSerialSignalAlarm':ogSerialSignalAlarm,'ogSerialSignalAlarmTable':ogSerialSignalAlarmTable,'ogSerialSignalAlarmEntry':ogSerialSignalAlarmEntry,'ogSerialPatternMib':ogSerialPatternMib,'ogSerialPatternMibObjects':ogSerialPatternMibObjects,'ogSerialPatternAlarm':ogSerialPatternAlarm,'ogSerialPatternAlarmTable':ogSerialPatternAlarmTable,'ogSerialPatternAlarmEntry':ogSerialPatternAlarmEntry,'ogSerialUserMib':ogSerialUserMib,'ogSerialUserMibObjects':ogSerialUserMibObjects,'ogSerialUserAlarm':ogSerialUserAlarm,'ogSerialUserAlarmTable':ogSerialUserAlarmTable,'ogSerialUserAlarmEntry':ogSerialUserAlarmEntry,'ogHostMib':ogHostMib,'ogHostMibObjects':ogHostMibObjects,'ogHostEvent':ogHostEvent,'ogHostEventTable':ogHostEventTable,'ogHostEventEntry':ogHostEventEntry,'ogWebMib':ogWebMib,'ogWebMibObjects':ogWebMibObjects,'ogWebEvent':ogWebEvent,'ogWebEventTable':ogWebEventTable,'ogWebEventEntry':ogWebEventEntry,'ogEmdMib':ogEmdMib,'ogEmdMibObjects':ogEmdMibObjects,'ogEmdAlarm':ogEmdAlarm,'ogEmdAlarmTable':ogEmdAlarmTable,'ogEmdAlarmEntry':ogEmdAlarmEntry,'ogPowerSupplyMib':ogPowerSupplyMib,'ogPowerSupplyMibObjects':ogPowerSupplyMibObjects,'ogPowerSupplyAlarm':ogPowerSupplyAlarm,'ogPowerSupplyAlarmTable':ogPowerSupplyAlarmTable,'ogPowerSupplyAlarmEntry':ogPowerSupplyAlarmEntry,'ogUpsMib':ogUpsMib,'ogUpsMibObjects':ogUpsMibObjects,'ogUpsAlarm':ogUpsAlarm,'ogUpsAlarmTable':ogUpsAlarmTable,'ogUpsAlarmEntry':ogUpsAlarmEntry,'ogRpcMib':ogRpcMib,'ogRpcMibObjects':ogRpcMibObjects,'ogRpcAlarm':ogRpcAlarm,'ogRpcAlarmTable':ogRpcAlarmTable,'ogRpcAlarmEntry':ogRpcAlarmEntry,'ogNetMib':ogNetMib,'ogNetMibObjects':ogNetMibObjects,'ogNetAlarm':ogNetAlarm,'ogNetAlarmTable':ogNetAlarmTable,'ogNetAlarmEntry':ogNetAlarmEntry,'ogCellMib':ogCellMib,'ogCellMibObjects':ogCellMibObjects,'ogCellAlarm':ogCellAlarm,'ogCellAlarmTable':ogCellAlarmTable,'ogCellAlarmEntry':ogCellAlarmEntry,'ogWifiMib':ogWifiMib,'ogWifiMibObjects':ogWifiMibObjects,'ogWifiAlarm':ogWifiAlarm,'ogWifiAlarmTable':ogWifiAlarmTable,'ogWifiAlarmEntry':ogWifiAlarmEntry,'ogDialPoolMib':ogDialPoolMib,'ogDialPoolMibObjects':ogDialPoolMibObjects,'ogDialPoolAlarm':ogDialPoolAlarm,'ogDialPoolAlarmTable':ogDialPoolAlarmTable,'ogDialPoolAlarmEntry':ogDialPoolAlarmEntry,'ogCustomMib':ogCustomMib,'ogCustomMibObjects':ogCustomMibObjects,'ogCustomAlarm':ogCustomAlarm,'ogCustomAlarmTable':ogCustomAlarmTable,'ogCustomAlarmEntry':ogCustomAlarmEntry})
+#
+# PySNMP MIB module OGTRAPv2-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/opengear/OGTRAPv2-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+opengear = MibIdentifier((1, 3, 6, 1, 4, 1, 25049))
+ogLegacyMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2))
+ogNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 0))
+ogAlarmMib = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 101))
+ogSerialSignalMib = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 102))
+ogSerialPatternMib = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 103))
+ogSerialUserMib = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 104))
+ogHostMib = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 105))
+ogWebMib = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 106))
+ogEmdMib = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 107))
+ogPowerSupplyMib = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 108))
+ogUpsMib = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 109))
+ogRpcMib = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 110))
+ogNetMib = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 111))
+ogCellMib = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 112))
+ogWifiMib = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 113))
+ogDialPoolMib = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 114))
+ogCustomMib = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 115))
+ogAlarmMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1))
+ogAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1))
+ogAlarmTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1))
+ogAlarmEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1, 1))
+ogAlarmIndex = MibScalar((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogAlarmIndex.setStatus('mandatory')
+ogAlarmEventId = MibScalar((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogAlarmEventId.setStatus('mandatory')
+ogAlarmName = MibScalar((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1, 1, 3), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogAlarmName.setStatus('mandatory')
+ogAlarmCheck = MibScalar((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogAlarmCheck.setStatus('mandatory')
+ogAlarmInstance = MibScalar((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogAlarmInstance.setStatus('mandatory')
+ogAlarmTime = MibScalar((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1, 1, 6), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(8, 8), ValueSizeConstraint(11, 11), ))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogAlarmTime.setStatus('mandatory')
+ogAlarmType = MibScalar((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 255, 65535))).clone(namedValues=NamedValues(("serialSignalCts", 1), ("serialSignalDcd", 2), ("serialSignalDsr", 3), ("serialPatternTx", 4), ("serialPatternRx", 5), ("serialUserSession", 6), ("hostPingDown", 7), ("hostPingUp", 8), ("hostServiceDown", 9), ("hostServiceUp", 10), ("hostUserSession", 11), ("webUserSession", 12), ("envTemperatureLow", 13), ("envTemperatureHigh", 14), ("envHumidityLow", 15), ("envHumidityHigh", 16), ("dioSignalOpened", 17), ("dioSignalClosed", 18), ("netInterfaceDown", 19), ("netInterfaceStarting", 20), ("netInterfaceUp", 21), ("netInterfaceStopping", 22), ("powerSupplyInputVoltageLow", 23), ("powerSupplyInputVoltageHigh", 24), ("powerSupplyOutputCurrentLow", 25), ("powerSupplyOutputCurrentHigh", 26), ("powerSupplyTemperatureLow", 27), ("powerSupplyTemperatureHigh", 28), ("upsTemperatureHigh", 29), ("upsTemperatureLow", 30), ("upsHumidityHigh", 31), ("upsHumidityLow", 32), ("upsOnBattery", 33), ("upsLowBattery", 34), ("upsBatteryChargeLow", 35), ("upsBatteryChargeHigh", 36), ("upsBatteryVoltageLow", 37), ("upsBatteryVoltageHigh", 38), ("upsBatteryCurrentLow", 39), ("upsBatteryCurrentHigh", 40), ("upsBatteryTemperatureLow", 41), ("upsBatteryTemperatureHigh", 42), ("upsInputFrequencyLow", 43), ("upsInputFrequencyHigh", 44), ("upsInputVoltageLow", 45), ("upsInputVoltageHigh", 46), ("upsInputCurrentLow", 47), ("upsInputCurrentHigh", 48), ("upsOutputFrequencyLow", 49), ("upsOutputFrequencyHigh", 50), ("upsOutputVoltageLow", 51), ("upsOutputVoltageHigh", 52), ("upsOutputCurrentLow", 53), ("upsOutputCurrentHigh", 54), ("upsOutputLoadLow", 55), ("upsOutputLoadHigh", 56), ("upsOutputPowerLow", 57), ("upsOutputPowerHigh", 58), ("upsOutputTruePowerLow", 59), ("upsOutputTruePowerHigh", 60), ("rpcInputFrequencyLow", 61), ("rpcInputFrequencyHigh", 62), ("rpcInputVoltageLow", 63), ("rpcInputVoltageHigh", 64), ("rpcInputCurrentLow", 65), ("rpcInputCurrentHigh", 66), ("rpcOutletFrequencyHigh", 67), ("rpcOutletFrequencyLow", 68), ("rpcOutletVoltageHigh", 69), ("rpcOutletVoltageLow", 70), ("rpcOutletCurrentHigh", 71), ("rpcOutletCurrentLow", 72), ("rpcOutletStateOff", 73), ("rpcOutletStateOn", 74), ("cellDataUsage", 75), ("cellMessageReceived", 76), ("cellSignalLow", 77), ("cellSignalHigh", 78), ("cellApnChanged", 79), ("cellTowerChanged", 80), ("cellNetworkChanged", 81), ("wirelessClientConnected", 82), ("wirelessClientDisconnected", 83), ("wirelessClientSignalLow", 84), ("wirelessClientSignalHigh", 85), ("wirelessApAssociation", 86), ("wirelessApDisassociation", 87), ("wirelessApAuthenticationFailure", 88), ("dialPoolHealth", 89), ("customCheckFailure", 255), ("unknown", 65535)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogAlarmType.setStatus('mandatory')
+ogAlarmSummary = MibScalar((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1, 1, 8), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogAlarmSummary.setStatus('mandatory')
+ogAlarmDevice = MibScalar((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1, 1, 9), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogAlarmDevice.setStatus('mandatory')
+ogAlarmUser = MibScalar((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1, 1, 10), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogAlarmUser.setStatus('mandatory')
+ogAlarmTriggerValue = MibScalar((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogAlarmTriggerValue.setStatus('mandatory')
+ogAlarmCurrentValue = MibScalar((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogAlarmCurrentValue.setStatus('mandatory')
+ogAlarmPreviousValue = MibScalar((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogAlarmPreviousValue.setStatus('mandatory')
+ogAlarmState = MibScalar((1, 3, 6, 1, 4, 1, 25049, 2, 101, 1, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("normal", 1), ("triggered", 2), ("resolving", 3), ("waiting", 4), ("disabled", 5), ("unresolvable", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ogAlarmState.setStatus('mandatory')
+ogSerialSignalMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 102, 1))
+ogSerialSignalAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 102, 1, 1))
+ogSerialSignalAlarmTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 102, 1, 1, 1))
+ogSerialSignalAlarmEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 102, 1, 1, 1, 1))
+ogSerialSignalNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,1)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogSerialPatternMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 103, 1))
+ogSerialPatternAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 103, 1, 1))
+ogSerialPatternAlarmTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 103, 1, 1, 1))
+ogSerialPatternAlarmEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 103, 1, 1, 1, 1))
+ogSerialPatternNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,2)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogSerialUserMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 104, 1))
+ogSerialUserAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 104, 1, 1))
+ogSerialUserAlarmTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 104, 1, 1, 1))
+ogSerialUserAlarmEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 104, 1, 1, 1, 1))
+ogSerialUserNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,3)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogHostMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 105, 1))
+ogHostEvent = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 105, 1, 1))
+ogHostEventTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 105, 1, 1, 1))
+ogHostEventEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 105, 1, 1, 1, 1))
+ogHostPingNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,4)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogHostServiceNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,5)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogHostUserNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,6)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogWebMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 106, 1))
+ogWebEvent = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 106, 1, 1))
+ogWebEventTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 106, 1, 1, 1))
+ogWebEventEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 106, 1, 1, 1, 1))
+ogWebUserNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,7)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogEmdMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 107, 1))
+ogEmdAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 107, 1, 1))
+ogEmdAlarmTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 107, 1, 1, 1))
+ogEmdAlarmEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 107, 1, 1, 1, 1))
+ogEmdTemperatureNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,8)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogEmdHumidityNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,9)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogEmdDioNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,10)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogPowerSupplyMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 108, 1))
+ogPowerSupplyAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 108, 1, 1))
+ogPowerSupplyAlarmTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 108, 1, 1, 1))
+ogPowerSupplyAlarmEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 108, 1, 1, 1, 1))
+ogPowerSupplyInputNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,11)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogPowerSupplyOutputNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,12)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogPowerSupplyTempNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,13)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogUpsMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 109, 1))
+ogUpsAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 109, 1, 1))
+ogUpsAlarmTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 109, 1, 1, 1))
+ogUpsAlarmEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 109, 1, 1, 1, 1))
+ogUpsNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,14)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogUpsBatteryNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,15)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogUpsInputNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,16)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogUpsOutputNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,17)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogRpcMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 110, 1))
+ogRpcAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 110, 1, 1))
+ogRpcAlarmTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 110, 1, 1, 1))
+ogRpcAlarmEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 110, 1, 1, 1, 1))
+ogRpcInputNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,18)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogRpcOutputNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,19)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogRpcOutletNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,20)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogNetMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 111, 1))
+ogNetAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 111, 1, 1))
+ogNetAlarmTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 111, 1, 1, 1))
+ogNetAlarmEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 111, 1, 1, 1, 1))
+ogNetInterfaceNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,21)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogCellMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 112, 1))
+ogCellAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 112, 1, 1))
+ogCellAlarmTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 112, 1, 1, 1))
+ogCellAlarmEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 112, 1, 1, 1, 1))
+ogCellDataNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,22)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogCellMessageNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,23)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogCellSignalNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,24)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogCellApnNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,25)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogCellTowerNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,26)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogCellNetworkNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,27)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogWifiMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 113, 1))
+ogWifiAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 113, 1, 1))
+ogWifiAlarmTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 113, 1, 1, 1))
+ogWifiAlarmEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 113, 1, 1, 1, 1))
+ogWifiClientConnectNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,28)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogWifiClientSignalNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,29)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogWifiApAssociationNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,30)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogWifiApAuthNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,31)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogDialPoolMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 114, 1))
+ogDialPoolAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 114, 1, 1))
+ogDialPoolAlarmTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 114, 1, 1, 1))
+ogDialPoolAlarmEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 114, 1, 1, 1, 1))
+ogDialPoolHealthNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,32)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+ogCustomMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 115, 1))
+ogCustomAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 115, 1, 1))
+ogCustomAlarmTable = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 115, 1, 1, 1))
+ogCustomAlarmEntry = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 2, 115, 1, 1, 1, 1))
+ogCustomNotification = NotificationType((1, 3, 6, 1, 4, 1, 25049) + (0,33)).setObjects(("OGTRAPv2-MIB", "ogAlarmEventId"), ("OGTRAPv2-MIB", "ogAlarmName"), ("OGTRAPv2-MIB", "ogAlarmCheck"), ("OGTRAPv2-MIB", "ogAlarmInstance"), ("OGTRAPv2-MIB", "ogAlarmTime"), ("OGTRAPv2-MIB", "ogAlarmType"), ("OGTRAPv2-MIB", "ogAlarmSummary"), ("OGTRAPv2-MIB", "ogAlarmDevice"), ("OGTRAPv2-MIB", "ogAlarmUser"), ("OGTRAPv2-MIB", "ogAlarmTriggerValue"), ("OGTRAPv2-MIB", "ogAlarmCurrentValue"), ("OGTRAPv2-MIB", "ogAlarmPreviousValue"), ("OGTRAPv2-MIB", "ogAlarmState"))
+mibBuilder.exportSymbols("OGTRAPv2-MIB", ogDialPoolHealthNotification=ogDialPoolHealthNotification, ogWifiMib=ogWifiMib, ogAlarmDevice=ogAlarmDevice, ogRpcAlarmTable=ogRpcAlarmTable, ogUpsAlarmTable=ogUpsAlarmTable, ogUpsNotification=ogUpsNotification, ogNetInterfaceNotification=ogNetInterfaceNotification, ogSerialSignalAlarm=ogSerialSignalAlarm, ogNetAlarmTable=ogNetAlarmTable, ogDialPoolMib=ogDialPoolMib, ogUpsAlarm=ogUpsAlarm, ogSerialUserAlarmEntry=ogSerialUserAlarmEntry, ogEmdMib=ogEmdMib, ogNetAlarmEntry=ogNetAlarmEntry, ogSerialSignalAlarmTable=ogSerialSignalAlarmTable, ogEmdHumidityNotification=ogEmdHumidityNotification, ogEmdMibObjects=ogEmdMibObjects, ogSerialUserNotification=ogSerialUserNotification, ogCellAlarmTable=ogCellAlarmTable, ogCellTowerNotification=ogCellTowerNotification, ogHostEventEntry=ogHostEventEntry, ogNetMibObjects=ogNetMibObjects, ogSerialPatternNotification=ogSerialPatternNotification, ogWifiAlarmTable=ogWifiAlarmTable, ogEmdTemperatureNotification=ogEmdTemperatureNotification, ogDialPoolAlarm=ogDialPoolAlarm, ogNetMib=ogNetMib, ogUpsMib=ogUpsMib, ogSerialPatternAlarmTable=ogSerialPatternAlarmTable, ogAlarmInstance=ogAlarmInstance, ogCellAlarmEntry=ogCellAlarmEntry, ogSerialPatternMib=ogSerialPatternMib, ogCellMib=ogCellMib, ogEmdAlarm=ogEmdAlarm, ogHostEvent=ogHostEvent, ogAlarmMib=ogAlarmMib, ogCustomMib=ogCustomMib, ogDialPoolMibObjects=ogDialPoolMibObjects, ogWifiApAuthNotification=ogWifiApAuthNotification, ogWifiAlarmEntry=ogWifiAlarmEntry, ogSerialUserMibObjects=ogSerialUserMibObjects, ogSerialPatternAlarmEntry=ogSerialPatternAlarmEntry, ogPowerSupplyAlarmTable=ogPowerSupplyAlarmTable, ogUpsInputNotification=ogUpsInputNotification, ogWebEvent=ogWebEvent, ogDialPoolAlarmTable=ogDialPoolAlarmTable, ogRpcAlarmEntry=ogRpcAlarmEntry, ogCellDataNotification=ogCellDataNotification, ogUpsAlarmEntry=ogUpsAlarmEntry, ogSerialSignalNotification=ogSerialSignalNotification, ogDialPoolAlarmEntry=ogDialPoolAlarmEntry, ogWifiApAssociationNotification=ogWifiApAssociationNotification, ogHostEventTable=ogHostEventTable, ogCustomMibObjects=ogCustomMibObjects, ogCustomAlarm=ogCustomAlarm, ogCellNetworkNotification=ogCellNetworkNotification, ogHostPingNotification=ogHostPingNotification, ogPowerSupplyAlarm=ogPowerSupplyAlarm, ogHostUserNotification=ogHostUserNotification, opengear=opengear, ogWifiClientConnectNotification=ogWifiClientConnectNotification, ogCellMessageNotification=ogCellMessageNotification, ogAlarmMibObjects=ogAlarmMibObjects, ogWifiMibObjects=ogWifiMibObjects, ogAlarmTable=ogAlarmTable, ogAlarmEntry=ogAlarmEntry, ogAlarmState=ogAlarmState, ogPowerSupplyMibObjects=ogPowerSupplyMibObjects, ogPowerSupplyInputNotification=ogPowerSupplyInputNotification, ogHostMibObjects=ogHostMibObjects, ogPowerSupplyTempNotification=ogPowerSupplyTempNotification, ogSerialUserAlarm=ogSerialUserAlarm, ogAlarmIndex=ogAlarmIndex, ogAlarmUser=ogAlarmUser, ogEmdDioNotification=ogEmdDioNotification, ogCellSignalNotification=ogCellSignalNotification, ogAlarmSummary=ogAlarmSummary, ogRpcInputNotification=ogRpcInputNotification, ogSerialPatternAlarm=ogSerialPatternAlarm, ogAlarmName=ogAlarmName, ogAlarm=ogAlarm, ogPowerSupplyAlarmEntry=ogPowerSupplyAlarmEntry, ogPowerSupplyMib=ogPowerSupplyMib, ogAlarmCheck=ogAlarmCheck, ogWebMib=ogWebMib, ogNetAlarm=ogNetAlarm, ogWifiClientSignalNotification=ogWifiClientSignalNotification, ogHostServiceNotification=ogHostServiceNotification, ogCustomAlarmTable=ogCustomAlarmTable, ogWebEventTable=ogWebEventTable, ogSerialSignalMibObjects=ogSerialSignalMibObjects, ogUpsMibObjects=ogUpsMibObjects, ogAlarmCurrentValue=ogAlarmCurrentValue, ogSerialUserMib=ogSerialUserMib, ogHostMib=ogHostMib, ogRpcMibObjects=ogRpcMibObjects, ogRpcOutletNotification=ogRpcOutletNotification, ogCellMibObjects=ogCellMibObjects, ogSerialSignalMib=ogSerialSignalMib, ogCellApnNotification=ogCellApnNotification, ogWebUserNotification=ogWebUserNotification, ogNotification=ogNotification, ogAlarmTriggerValue=ogAlarmTriggerValue, ogUpsBatteryNotification=ogUpsBatteryNotification, ogCellAlarm=ogCellAlarm, ogCustomAlarmEntry=ogCustomAlarmEntry, ogAlarmPreviousValue=ogAlarmPreviousValue, ogEmdAlarmEntry=ogEmdAlarmEntry, ogRpcOutputNotification=ogRpcOutputNotification, ogRpcAlarm=ogRpcAlarm, ogWebMibObjects=ogWebMibObjects, ogWebEventEntry=ogWebEventEntry, ogSerialSignalAlarmEntry=ogSerialSignalAlarmEntry, ogAlarmTime=ogAlarmTime, ogAlarmType=ogAlarmType, ogUpsOutputNotification=ogUpsOutputNotification, ogWifiAlarm=ogWifiAlarm, ogSerialPatternMibObjects=ogSerialPatternMibObjects, ogSerialUserAlarmTable=ogSerialUserAlarmTable, ogPowerSupplyOutputNotification=ogPowerSupplyOutputNotification, ogLegacyMgmt=ogLegacyMgmt, ogRpcMib=ogRpcMib, ogEmdAlarmTable=ogEmdAlarmTable, ogAlarmEventId=ogAlarmEventId, ogCustomNotification=ogCustomNotification)

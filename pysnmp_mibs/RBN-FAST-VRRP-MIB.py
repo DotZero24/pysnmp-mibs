@@ -1,54 +1,40 @@
-_H='rbnFastVrrpObjectGroup'
-_G='rbnFastVrrpOperAdvertisementInterval'
-_F='rbnFastVrrpOperVrId'
-_E='Integer32'
-_D='ifIndex'
-_C='IF-MIB'
-_B='RBN-FAST-VRRP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_C,_D)
-rbnMgmt,=mibBuilder.importSymbols('RBN-SMI','rbnMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-VrId,=mibBuilder.importSymbols('VRRP-MIB','VrId')
-rbnFastVrrpMIB=ModuleIdentity((1,3,6,1,4,1,2352,2,45))
-if mibBuilder.loadTexts:rbnFastVrrpMIB.setRevisions(('2008-05-21 00:00',))
-_RbnFastVrrpMIBObjects_ObjectIdentity=ObjectIdentity
-rbnFastVrrpMIBObjects=_RbnFastVrrpMIBObjects_ObjectIdentity((1,3,6,1,4,1,2352,2,45,1))
-_RbnFastVrrpOperTable_Object=MibTable
-rbnFastVrrpOperTable=_RbnFastVrrpOperTable_Object((1,3,6,1,4,1,2352,2,45,1,1))
-if mibBuilder.loadTexts:rbnFastVrrpOperTable.setStatus(_A)
-_RbnFastVrrpOperEntry_Object=MibTableRow
-rbnFastVrrpOperEntry=_RbnFastVrrpOperEntry_Object((1,3,6,1,4,1,2352,2,45,1,1,1))
-rbnFastVrrpOperEntry.setIndexNames((0,_C,_D),(0,_B,_F))
-if mibBuilder.loadTexts:rbnFastVrrpOperEntry.setStatus(_A)
-_RbnFastVrrpOperVrId_Type=VrId
-_RbnFastVrrpOperVrId_Object=MibTableColumn
-rbnFastVrrpOperVrId=_RbnFastVrrpOperVrId_Object((1,3,6,1,4,1,2352,2,45,1,1,1,1),_RbnFastVrrpOperVrId_Type())
-rbnFastVrrpOperVrId.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:rbnFastVrrpOperVrId.setStatus(_A)
-class _RbnFastVrrpOperAdvertisementInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,999))
-_RbnFastVrrpOperAdvertisementInterval_Type.__name__=_E
-_RbnFastVrrpOperAdvertisementInterval_Object=MibTableColumn
-rbnFastVrrpOperAdvertisementInterval=_RbnFastVrrpOperAdvertisementInterval_Object((1,3,6,1,4,1,2352,2,45,1,1,1,2),_RbnFastVrrpOperAdvertisementInterval_Type())
-rbnFastVrrpOperAdvertisementInterval.setMaxAccess('read-only')
-if mibBuilder.loadTexts:rbnFastVrrpOperAdvertisementInterval.setStatus(_A)
-if mibBuilder.loadTexts:rbnFastVrrpOperAdvertisementInterval.setUnits('milliseconds')
-_RbnFastVrrpConformance_ObjectIdentity=ObjectIdentity
-rbnFastVrrpConformance=_RbnFastVrrpConformance_ObjectIdentity((1,3,6,1,4,1,2352,2,45,2))
-_RbnFastVrrpMIBCompliances_ObjectIdentity=ObjectIdentity
-rbnFastVrrpMIBCompliances=_RbnFastVrrpMIBCompliances_ObjectIdentity((1,3,6,1,4,1,2352,2,45,2,1))
-_RbnFastVrrpMIBGroups_ObjectIdentity=ObjectIdentity
-rbnFastVrrpMIBGroups=_RbnFastVrrpMIBGroups_ObjectIdentity((1,3,6,1,4,1,2352,2,45,2,2))
-rbnFastVrrpObjectGroup=ObjectGroup((1,3,6,1,4,1,2352,2,45,2,2,1))
-rbnFastVrrpObjectGroup.setObjects((_B,_G))
-if mibBuilder.loadTexts:rbnFastVrrpObjectGroup.setStatus(_A)
-rbnFastVrrpCompliance=ModuleCompliance((1,3,6,1,4,1,2352,2,45,2,1,1))
-rbnFastVrrpCompliance.setObjects((_B,_H))
-if mibBuilder.loadTexts:rbnFastVrrpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'rbnFastVrrpMIB':rbnFastVrrpMIB,'rbnFastVrrpMIBObjects':rbnFastVrrpMIBObjects,'rbnFastVrrpOperTable':rbnFastVrrpOperTable,'rbnFastVrrpOperEntry':rbnFastVrrpOperEntry,_F:rbnFastVrrpOperVrId,_G:rbnFastVrrpOperAdvertisementInterval,'rbnFastVrrpConformance':rbnFastVrrpConformance,'rbnFastVrrpMIBCompliances':rbnFastVrrpMIBCompliances,'rbnFastVrrpCompliance':rbnFastVrrpCompliance,'rbnFastVrrpMIBGroups':rbnFastVrrpMIBGroups,_H:rbnFastVrrpObjectGroup})
+#
+# PySNMP MIB module RBN-FAST-VRRP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ericsson/RBN-FAST-VRRP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:25:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+rbnMgmt, = mibBuilder.importSymbols("RBN-SMI", "rbnMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+VrId, = mibBuilder.importSymbols("VRRP-MIB", "VrId")
+rbnFastVrrpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2352, 2, 45))
+rbnFastVrrpMIB.setRevisions(('2008-05-21 00:00',))
+if mibBuilder.loadTexts: rbnFastVrrpMIB.setLastUpdated('200805210000Z')
+if mibBuilder.loadTexts: rbnFastVrrpMIB.setOrganization('Redback Networks, Inc.')
+rbnFastVrrpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 45, 1))
+rbnFastVrrpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 45, 2))
+rbnFastVrrpOperTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 2, 45, 1, 1), )
+if mibBuilder.loadTexts: rbnFastVrrpOperTable.setStatus('current')
+rbnFastVrrpOperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 2, 45, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "RBN-FAST-VRRP-MIB", "rbnFastVrrpOperVrId"))
+if mibBuilder.loadTexts: rbnFastVrrpOperEntry.setStatus('current')
+rbnFastVrrpOperVrId = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 45, 1, 1, 1, 1), VrId())
+if mibBuilder.loadTexts: rbnFastVrrpOperVrId.setStatus('current')
+rbnFastVrrpOperAdvertisementInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 45, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100, 999))).setUnits('milliseconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: rbnFastVrrpOperAdvertisementInterval.setStatus('current')
+rbnFastVrrpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 45, 2, 1))
+rbnFastVrrpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 45, 2, 2))
+rbnFastVrrpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 45, 2, 1, 1)).setObjects(("RBN-FAST-VRRP-MIB", "rbnFastVrrpObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnFastVrrpCompliance = rbnFastVrrpCompliance.setStatus('current')
+rbnFastVrrpObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 45, 2, 2, 1)).setObjects(("RBN-FAST-VRRP-MIB", "rbnFastVrrpOperAdvertisementInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rbnFastVrrpObjectGroup = rbnFastVrrpObjectGroup.setStatus('current')
+mibBuilder.exportSymbols("RBN-FAST-VRRP-MIB", rbnFastVrrpMIBObjects=rbnFastVrrpMIBObjects, rbnFastVrrpMIBGroups=rbnFastVrrpMIBGroups, PYSNMP_MODULE_ID=rbnFastVrrpMIB, rbnFastVrrpOperVrId=rbnFastVrrpOperVrId, rbnFastVrrpOperAdvertisementInterval=rbnFastVrrpOperAdvertisementInterval, rbnFastVrrpConformance=rbnFastVrrpConformance, rbnFastVrrpOperTable=rbnFastVrrpOperTable, rbnFastVrrpMIB=rbnFastVrrpMIB, rbnFastVrrpCompliance=rbnFastVrrpCompliance, rbnFastVrrpMIBCompliances=rbnFastVrrpMIBCompliances, rbnFastVrrpOperEntry=rbnFastVrrpOperEntry, rbnFastVrrpObjectGroup=rbnFastVrrpObjectGroup)

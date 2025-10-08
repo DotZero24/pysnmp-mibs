@@ -1,115 +1,65 @@
-_F='callActiveSetupTime'
-_E='callActiveIndex'
-_D='Integer32'
-_C='DIAL-CONTROL-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-callActiveIndex,callActiveSetupTime=mibBuilder.importSymbols(_C,_E,_F)
-H3cCodecType,=mibBuilder.importSymbols('H3C-VOICE-DIAL-CONTROL-MIB','H3cCodecType')
-h3cVoice,=mibBuilder.importSymbols('HUAWEI-3COM-OID-MIB','h3cVoice')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-h3cVoCallActive=ModuleIdentity((1,3,6,1,4,1,2011,10,2,39,15))
-if mibBuilder.loadTexts:h3cVoCallActive.setRevisions(('2008-02-17 00:00',))
-class H3cGUid(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_H3cVoiceCallActiveObjects_ObjectIdentity=ObjectIdentity
-h3cVoiceCallActiveObjects=_H3cVoiceCallActiveObjects_ObjectIdentity((1,3,6,1,4,1,2011,10,2,39,15,1))
-_H3cVoiceCallActiveTable_Object=MibTable
-h3cVoiceCallActiveTable=_H3cVoiceCallActiveTable_Object((1,3,6,1,4,1,2011,10,2,39,15,1,1))
-if mibBuilder.loadTexts:h3cVoiceCallActiveTable.setStatus(_A)
-_H3cVoiceCallActiveEntry_Object=MibTableRow
-h3cVoiceCallActiveEntry=_H3cVoiceCallActiveEntry_Object((1,3,6,1,4,1,2011,10,2,39,15,1,1,1))
-h3cVoiceCallActiveEntry.setIndexNames((0,_C,_F),(0,_C,_E))
-if mibBuilder.loadTexts:h3cVoiceCallActiveEntry.setStatus(_A)
-_H3cVoCallActiveConnectionId_Type=H3cGUid
-_H3cVoCallActiveConnectionId_Object=MibTableColumn
-h3cVoCallActiveConnectionId=_H3cVoCallActiveConnectionId_Object((1,3,6,1,4,1,2011,10,2,39,15,1,1,1,1),_H3cVoCallActiveConnectionId_Type())
-h3cVoCallActiveConnectionId.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVoCallActiveConnectionId.setStatus(_A)
-_H3cVoCallActiveTxDuration_Type=Gauge32
-_H3cVoCallActiveTxDuration_Object=MibTableColumn
-h3cVoCallActiveTxDuration=_H3cVoCallActiveTxDuration_Object((1,3,6,1,4,1,2011,10,2,39,15,1,1,1,2),_H3cVoCallActiveTxDuration_Type())
-h3cVoCallActiveTxDuration.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVoCallActiveTxDuration.setStatus(_A)
-_H3cVoCallActiveVoiceTxDuration_Type=Gauge32
-_H3cVoCallActiveVoiceTxDuration_Object=MibTableColumn
-h3cVoCallActiveVoiceTxDuration=_H3cVoCallActiveVoiceTxDuration_Object((1,3,6,1,4,1,2011,10,2,39,15,1,1,1,3),_H3cVoCallActiveVoiceTxDuration_Type())
-h3cVoCallActiveVoiceTxDuration.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVoCallActiveVoiceTxDuration.setStatus(_A)
-_H3cVoCallActiveFaxTxDuration_Type=Gauge32
-_H3cVoCallActiveFaxTxDuration_Object=MibTableColumn
-h3cVoCallActiveFaxTxDuration=_H3cVoCallActiveFaxTxDuration_Object((1,3,6,1,4,1,2011,10,2,39,15,1,1,1,4),_H3cVoCallActiveFaxTxDuration_Type())
-h3cVoCallActiveFaxTxDuration.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVoCallActiveFaxTxDuration.setStatus(_A)
-_H3cVoCallActiveCoderType_Type=H3cCodecType
-_H3cVoCallActiveCoderType_Object=MibTableColumn
-h3cVoCallActiveCoderType=_H3cVoCallActiveCoderType_Object((1,3,6,1,4,1,2011,10,2,39,15,1,1,1,5),_H3cVoCallActiveCoderType_Type())
-h3cVoCallActiveCoderType.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVoCallActiveCoderType.setStatus(_A)
-_H3cVoCallActiveImgPageCount_Type=Gauge32
-_H3cVoCallActiveImgPageCount_Object=MibTableColumn
-h3cVoCallActiveImgPageCount=_H3cVoCallActiveImgPageCount_Object((1,3,6,1,4,1,2011,10,2,39,15,1,1,1,6),_H3cVoCallActiveImgPageCount_Type())
-h3cVoCallActiveImgPageCount.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVoCallActiveImgPageCount.setStatus(_A)
-_H3cVoiceVoIPCallActiveTable_Object=MibTable
-h3cVoiceVoIPCallActiveTable=_H3cVoiceVoIPCallActiveTable_Object((1,3,6,1,4,1,2011,10,2,39,15,1,2))
-if mibBuilder.loadTexts:h3cVoiceVoIPCallActiveTable.setStatus(_A)
-_H3cVoiceVoIPCallActiveEntry_Object=MibTableRow
-h3cVoiceVoIPCallActiveEntry=_H3cVoiceVoIPCallActiveEntry_Object((1,3,6,1,4,1,2011,10,2,39,15,1,2,1))
-h3cVoiceVoIPCallActiveEntry.setIndexNames((0,_C,_F),(0,_C,_E))
-if mibBuilder.loadTexts:h3cVoiceVoIPCallActiveEntry.setStatus(_A)
-_H3cVoVoIPCallActiveConnectionId_Type=H3cGUid
-_H3cVoVoIPCallActiveConnectionId_Object=MibTableColumn
-h3cVoVoIPCallActiveConnectionId=_H3cVoVoIPCallActiveConnectionId_Object((1,3,6,1,4,1,2011,10,2,39,15,1,2,1,1),_H3cVoVoIPCallActiveConnectionId_Type())
-h3cVoVoIPCallActiveConnectionId.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVoVoIPCallActiveConnectionId.setStatus(_A)
-_H3cVoVoIPCallActiveRemSigIPType_Type=InetAddressType
-_H3cVoVoIPCallActiveRemSigIPType_Object=MibTableColumn
-h3cVoVoIPCallActiveRemSigIPType=_H3cVoVoIPCallActiveRemSigIPType_Object((1,3,6,1,4,1,2011,10,2,39,15,1,2,1,2),_H3cVoVoIPCallActiveRemSigIPType_Type())
-h3cVoVoIPCallActiveRemSigIPType.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVoVoIPCallActiveRemSigIPType.setStatus(_A)
-_H3cVoVoIPCallActiveRemSigIPAddr_Type=InetAddress
-_H3cVoVoIPCallActiveRemSigIPAddr_Object=MibTableColumn
-h3cVoVoIPCallActiveRemSigIPAddr=_H3cVoVoIPCallActiveRemSigIPAddr_Object((1,3,6,1,4,1,2011,10,2,39,15,1,2,1,3),_H3cVoVoIPCallActiveRemSigIPAddr_Type())
-h3cVoVoIPCallActiveRemSigIPAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVoVoIPCallActiveRemSigIPAddr.setStatus(_A)
-class _H3cVoVoIPCallActiveRemSigPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_H3cVoVoIPCallActiveRemSigPort_Type.__name__=_D
-_H3cVoVoIPCallActiveRemSigPort_Object=MibTableColumn
-h3cVoVoIPCallActiveRemSigPort=_H3cVoVoIPCallActiveRemSigPort_Object((1,3,6,1,4,1,2011,10,2,39,15,1,2,1,4),_H3cVoVoIPCallActiveRemSigPort_Type())
-h3cVoVoIPCallActiveRemSigPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVoVoIPCallActiveRemSigPort.setStatus(_A)
-_H3cVoVoIPCallActiveRemMedIPType_Type=InetAddressType
-_H3cVoVoIPCallActiveRemMedIPType_Object=MibTableColumn
-h3cVoVoIPCallActiveRemMedIPType=_H3cVoVoIPCallActiveRemMedIPType_Object((1,3,6,1,4,1,2011,10,2,39,15,1,2,1,5),_H3cVoVoIPCallActiveRemMedIPType_Type())
-h3cVoVoIPCallActiveRemMedIPType.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVoVoIPCallActiveRemMedIPType.setStatus(_A)
-_H3cVoVoIPCallActiveRemMedIPAddr_Type=InetAddress
-_H3cVoVoIPCallActiveRemMedIPAddr_Object=MibTableColumn
-h3cVoVoIPCallActiveRemMedIPAddr=_H3cVoVoIPCallActiveRemMedIPAddr_Object((1,3,6,1,4,1,2011,10,2,39,15,1,2,1,6),_H3cVoVoIPCallActiveRemMedIPAddr_Type())
-h3cVoVoIPCallActiveRemMedIPAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVoVoIPCallActiveRemMedIPAddr.setStatus(_A)
-class _H3cVoVoIPCallActiveRemMedPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_H3cVoVoIPCallActiveRemMedPort_Type.__name__=_D
-_H3cVoVoIPCallActiveRemMedPort_Object=MibTableColumn
-h3cVoVoIPCallActiveRemMedPort=_H3cVoVoIPCallActiveRemMedPort_Object((1,3,6,1,4,1,2011,10,2,39,15,1,2,1,7),_H3cVoVoIPCallActiveRemMedPort_Type())
-h3cVoVoIPCallActiveRemMedPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVoVoIPCallActiveRemMedPort.setStatus(_A)
-class _H3cVoVoIPCallActiveSessProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('unknown',1),('h323',2),('sip',3)))
-_H3cVoVoIPCallActiveSessProtocol_Type.__name__=_D
-_H3cVoVoIPCallActiveSessProtocol_Object=MibTableColumn
-h3cVoVoIPCallActiveSessProtocol=_H3cVoVoIPCallActiveSessProtocol_Object((1,3,6,1,4,1,2011,10,2,39,15,1,2,1,8),_H3cVoVoIPCallActiveSessProtocol_Type())
-h3cVoVoIPCallActiveSessProtocol.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVoVoIPCallActiveSessProtocol.setStatus(_A)
-_H3cVoVoIPCallActiveCoderType_Type=H3cCodecType
-_H3cVoVoIPCallActiveCoderType_Object=MibTableColumn
-h3cVoVoIPCallActiveCoderType=_H3cVoVoIPCallActiveCoderType_Object((1,3,6,1,4,1,2011,10,2,39,15,1,2,1,9),_H3cVoVoIPCallActiveCoderType_Type())
-h3cVoVoIPCallActiveCoderType.setMaxAccess(_B)
-if mibBuilder.loadTexts:h3cVoVoIPCallActiveCoderType.setStatus(_A)
-mibBuilder.exportSymbols('H3C-VOICE-CALL-ACTIVE-MIB',**{'H3cGUid':H3cGUid,'h3cVoCallActive':h3cVoCallActive,'h3cVoiceCallActiveObjects':h3cVoiceCallActiveObjects,'h3cVoiceCallActiveTable':h3cVoiceCallActiveTable,'h3cVoiceCallActiveEntry':h3cVoiceCallActiveEntry,'h3cVoCallActiveConnectionId':h3cVoCallActiveConnectionId,'h3cVoCallActiveTxDuration':h3cVoCallActiveTxDuration,'h3cVoCallActiveVoiceTxDuration':h3cVoCallActiveVoiceTxDuration,'h3cVoCallActiveFaxTxDuration':h3cVoCallActiveFaxTxDuration,'h3cVoCallActiveCoderType':h3cVoCallActiveCoderType,'h3cVoCallActiveImgPageCount':h3cVoCallActiveImgPageCount,'h3cVoiceVoIPCallActiveTable':h3cVoiceVoIPCallActiveTable,'h3cVoiceVoIPCallActiveEntry':h3cVoiceVoIPCallActiveEntry,'h3cVoVoIPCallActiveConnectionId':h3cVoVoIPCallActiveConnectionId,'h3cVoVoIPCallActiveRemSigIPType':h3cVoVoIPCallActiveRemSigIPType,'h3cVoVoIPCallActiveRemSigIPAddr':h3cVoVoIPCallActiveRemSigIPAddr,'h3cVoVoIPCallActiveRemSigPort':h3cVoVoIPCallActiveRemSigPort,'h3cVoVoIPCallActiveRemMedIPType':h3cVoVoIPCallActiveRemMedIPType,'h3cVoVoIPCallActiveRemMedIPAddr':h3cVoVoIPCallActiveRemMedIPAddr,'h3cVoVoIPCallActiveRemMedPort':h3cVoVoIPCallActiveRemMedPort,'h3cVoVoIPCallActiveSessProtocol':h3cVoVoIPCallActiveSessProtocol,'h3cVoVoIPCallActiveCoderType':h3cVoVoIPCallActiveCoderType})
+#
+# PySNMP MIB module H3C-VOICE-CALL-ACTIVE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/h3c/H3C-VOICE-CALL-ACTIVE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:53 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+callActiveSetupTime, callActiveIndex = mibBuilder.importSymbols("DIAL-CONTROL-MIB", "callActiveSetupTime", "callActiveIndex")
+H3cCodecType, = mibBuilder.importSymbols("H3C-VOICE-DIAL-CONTROL-MIB", "H3cCodecType")
+h3cVoice, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cVoice")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+h3cVoCallActive = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15))
+h3cVoCallActive.setRevisions(('2008-02-17 00:00',))
+if mibBuilder.loadTexts: h3cVoCallActive.setLastUpdated('200802170000Z')
+if mibBuilder.loadTexts: h3cVoCallActive.setOrganization('Hangzhou H3C Technologies Co., Ltd.')
+class H3cGUid(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 16)
+
+h3cVoiceCallActiveObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1))
+h3cVoiceCallActiveTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 1), )
+if mibBuilder.loadTexts: h3cVoiceCallActiveTable.setStatus('current')
+h3cVoiceCallActiveEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 1, 1), ).setIndexNames((0, "DIAL-CONTROL-MIB", "callActiveSetupTime"), (0, "DIAL-CONTROL-MIB", "callActiveIndex"))
+if mibBuilder.loadTexts: h3cVoiceCallActiveEntry.setStatus('current')
+h3cVoCallActiveConnectionId = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 1, 1, 1), H3cGUid()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVoCallActiveConnectionId.setStatus('current')
+h3cVoCallActiveTxDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 1, 1, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVoCallActiveTxDuration.setStatus('current')
+h3cVoCallActiveVoiceTxDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 1, 1, 3), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVoCallActiveVoiceTxDuration.setStatus('current')
+h3cVoCallActiveFaxTxDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 1, 1, 4), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVoCallActiveFaxTxDuration.setStatus('current')
+h3cVoCallActiveCoderType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 1, 1, 5), H3cCodecType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVoCallActiveCoderType.setStatus('current')
+h3cVoCallActiveImgPageCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 1, 1, 6), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVoCallActiveImgPageCount.setStatus('current')
+h3cVoiceVoIPCallActiveTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 2), )
+if mibBuilder.loadTexts: h3cVoiceVoIPCallActiveTable.setStatus('current')
+h3cVoiceVoIPCallActiveEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 2, 1), ).setIndexNames((0, "DIAL-CONTROL-MIB", "callActiveSetupTime"), (0, "DIAL-CONTROL-MIB", "callActiveIndex"))
+if mibBuilder.loadTexts: h3cVoiceVoIPCallActiveEntry.setStatus('current')
+h3cVoVoIPCallActiveConnectionId = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 2, 1, 1), H3cGUid()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVoVoIPCallActiveConnectionId.setStatus('current')
+h3cVoVoIPCallActiveRemSigIPType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 2, 1, 2), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVoVoIPCallActiveRemSigIPType.setStatus('current')
+h3cVoVoIPCallActiveRemSigIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 2, 1, 3), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVoVoIPCallActiveRemSigIPAddr.setStatus('current')
+h3cVoVoIPCallActiveRemSigPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVoVoIPCallActiveRemSigPort.setStatus('current')
+h3cVoVoIPCallActiveRemMedIPType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 2, 1, 5), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVoVoIPCallActiveRemMedIPType.setStatus('current')
+h3cVoVoIPCallActiveRemMedIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 2, 1, 6), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVoVoIPCallActiveRemMedIPAddr.setStatus('current')
+h3cVoVoIPCallActiveRemMedPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVoVoIPCallActiveRemMedPort.setStatus('current')
+h3cVoVoIPCallActiveSessProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("h323", 2), ("sip", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVoVoIPCallActiveSessProtocol.setStatus('current')
+h3cVoVoIPCallActiveCoderType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 39, 15, 1, 2, 1, 9), H3cCodecType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: h3cVoVoIPCallActiveCoderType.setStatus('current')
+mibBuilder.exportSymbols("H3C-VOICE-CALL-ACTIVE-MIB", h3cVoVoIPCallActiveRemSigIPAddr=h3cVoVoIPCallActiveRemSigIPAddr, h3cVoCallActiveFaxTxDuration=h3cVoCallActiveFaxTxDuration, h3cVoVoIPCallActiveConnectionId=h3cVoVoIPCallActiveConnectionId, h3cVoiceCallActiveEntry=h3cVoiceCallActiveEntry, h3cVoVoIPCallActiveRemSigIPType=h3cVoVoIPCallActiveRemSigIPType, h3cVoVoIPCallActiveRemMedPort=h3cVoVoIPCallActiveRemMedPort, h3cVoCallActiveTxDuration=h3cVoCallActiveTxDuration, h3cVoVoIPCallActiveSessProtocol=h3cVoVoIPCallActiveSessProtocol, PYSNMP_MODULE_ID=h3cVoCallActive, h3cVoCallActiveConnectionId=h3cVoCallActiveConnectionId, h3cVoCallActive=h3cVoCallActive, h3cVoVoIPCallActiveRemMedIPAddr=h3cVoVoIPCallActiveRemMedIPAddr, h3cVoiceCallActiveObjects=h3cVoiceCallActiveObjects, h3cVoCallActiveCoderType=h3cVoCallActiveCoderType, h3cVoCallActiveImgPageCount=h3cVoCallActiveImgPageCount, h3cVoVoIPCallActiveRemMedIPType=h3cVoVoIPCallActiveRemMedIPType, h3cVoiceVoIPCallActiveTable=h3cVoiceVoIPCallActiveTable, h3cVoiceCallActiveTable=h3cVoiceCallActiveTable, h3cVoiceVoIPCallActiveEntry=h3cVoiceVoIPCallActiveEntry, h3cVoVoIPCallActiveRemSigPort=h3cVoVoIPCallActiveRemSigPort, H3cGUid=H3cGUid, h3cVoVoIPCallActiveCoderType=h3cVoVoIPCallActiveCoderType, h3cVoCallActiveVoiceTxDuration=h3cVoCallActiveVoiceTxDuration)

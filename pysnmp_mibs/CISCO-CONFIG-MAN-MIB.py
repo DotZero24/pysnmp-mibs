@@ -1,328 +1,156 @@
-_A1='ciscoConfigManCTIDObjectGroup'
-_A0='ciscoConfigManCTIDNotifyGroup'
-_z='ciscoConfigManHistoryGroupRev1'
-_y='ciscoConfigManHistoryGroup'
-_x='ccmCTIDRolledOver'
-_w='ccmCLIRunningConfigChanged'
-_v='ciscoConfigManEvent'
-_u='ccmCTIDRolledOverNotifEnable'
-_t='ccmCTIDWhoChanged'
-_s='ccmCTIDLastChangeTime'
-_r='ccmCTID'
-_q='ccmHistoryEventServerAddrRev1'
-_p='ccmHistoryEventServerAddrType'
-_o='ccmHistoryEventCommandSourceAddrRev1'
-_n='ccmHistoryEventCommandSourceAddrType'
-_m='ccmCLICfgRunConfNotifEnable'
-_l='ccmCLIHistoryCommand'
-_k='ccmCLIHistoryCmdEntriesAllowed'
-_j='ccmCLIHistoryCmdEntries'
-_i='ccmCLIHistoryMaxCmdEntries'
-_h='ccmCLIHistoryCommandIndex'
-_g='not-accessible'
-_f='ciscoConfigManHistoryGroupRev2'
-_e='ccmHistoryCLICmdEntriesBumped'
-_d='ccmHistoryEventServerAddress'
-_c='ccmHistoryEventCommandSourceAddress'
-_b='read-write'
-_a='ccmHistoryEventIndex'
-_Z='TruthValue'
-_Y='Unsigned32'
-_X='ciscoConfigManHistNotifyGroup'
-_W='ciscoConfigManCLIHistCmdGroup'
-_V='ccmHistoryEventRcpUser'
-_U='ccmHistoryEventFile'
-_T='ccmHistoryEventVirtualHostName'
-_S='ccmHistoryEventTerminalLocation'
-_R='ccmHistoryEventTerminalNumber'
-_Q='ccmHistoryEventTime'
-_P='ccmHistoryEventEntriesBumped'
-_O='ccmHistoryMaxEventEntries'
-_N='ccmHistoryStartupLastChanged'
-_M='ccmHistoryRunningLastSaved'
-_L='ccmHistoryEventTerminalType'
-_K='ccmHistoryEventConfigDestination'
-_J='ccmHistoryEventConfigSource'
-_I='ccmHistoryEventCommandSource'
-_H='ccmHistoryRunningLastChanged'
-_G='ccmHistoryEventTerminalUser'
-_F='DisplayString'
-_E='Integer32'
-_D='deprecated'
-_C='read-only'
-_B='current'
-_A='CISCO-CONFIG-MAN-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-Unsigned64,=mibBuilder.importSymbols('CISCO-TC','Unsigned64')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_Y,'iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_F,'PhysAddress','TextualConvention',_Z)
-ciscoConfigManMIB=ModuleIdentity((1,3,6,1,4,1,9,9,43))
-if mibBuilder.loadTexts:ciscoConfigManMIB.setRevisions(('2019-03-11 00:00','2006-08-17 00:00','2004-06-18 00:00','2002-06-07 00:00','2002-03-12 00:00','1995-11-28 00:00'))
-class HistoryEventMedium(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('erase',1),('commandSource',2),('running',3),('startup',4),('local',5),('networkTftp',6),('networkRcp',7),('networkFtp',8),('networkScp',9)))
-_CiscoConfigManMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoConfigManMIBObjects=_CiscoConfigManMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,43,1))
-_CcmHistory_ObjectIdentity=ObjectIdentity
-ccmHistory=_CcmHistory_ObjectIdentity((1,3,6,1,4,1,9,9,43,1,1))
-_CcmHistoryRunningLastChanged_Type=TimeTicks
-_CcmHistoryRunningLastChanged_Object=MibScalar
-ccmHistoryRunningLastChanged=_CcmHistoryRunningLastChanged_Object((1,3,6,1,4,1,9,9,43,1,1,1),_CcmHistoryRunningLastChanged_Type())
-ccmHistoryRunningLastChanged.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryRunningLastChanged.setStatus(_B)
-_CcmHistoryRunningLastSaved_Type=TimeTicks
-_CcmHistoryRunningLastSaved_Object=MibScalar
-ccmHistoryRunningLastSaved=_CcmHistoryRunningLastSaved_Object((1,3,6,1,4,1,9,9,43,1,1,2),_CcmHistoryRunningLastSaved_Type())
-ccmHistoryRunningLastSaved.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryRunningLastSaved.setStatus(_B)
-_CcmHistoryStartupLastChanged_Type=TimeTicks
-_CcmHistoryStartupLastChanged_Object=MibScalar
-ccmHistoryStartupLastChanged=_CcmHistoryStartupLastChanged_Object((1,3,6,1,4,1,9,9,43,1,1,3),_CcmHistoryStartupLastChanged_Type())
-ccmHistoryStartupLastChanged.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryStartupLastChanged.setStatus(_B)
-class _CcmHistoryMaxEventEntries_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CcmHistoryMaxEventEntries_Type.__name__=_E
-_CcmHistoryMaxEventEntries_Object=MibScalar
-ccmHistoryMaxEventEntries=_CcmHistoryMaxEventEntries_Object((1,3,6,1,4,1,9,9,43,1,1,4),_CcmHistoryMaxEventEntries_Type())
-ccmHistoryMaxEventEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryMaxEventEntries.setStatus(_B)
-_CcmHistoryEventEntriesBumped_Type=Counter32
-_CcmHistoryEventEntriesBumped_Object=MibScalar
-ccmHistoryEventEntriesBumped=_CcmHistoryEventEntriesBumped_Object((1,3,6,1,4,1,9,9,43,1,1,5),_CcmHistoryEventEntriesBumped_Type())
-ccmHistoryEventEntriesBumped.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventEntriesBumped.setStatus(_B)
-_CcmHistoryEventTable_Object=MibTable
-ccmHistoryEventTable=_CcmHistoryEventTable_Object((1,3,6,1,4,1,9,9,43,1,1,6))
-if mibBuilder.loadTexts:ccmHistoryEventTable.setStatus(_B)
-_CcmHistoryEventEntry_Object=MibTableRow
-ccmHistoryEventEntry=_CcmHistoryEventEntry_Object((1,3,6,1,4,1,9,9,43,1,1,6,1))
-ccmHistoryEventEntry.setIndexNames((0,_A,_a))
-if mibBuilder.loadTexts:ccmHistoryEventEntry.setStatus(_B)
-class _CcmHistoryEventIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_CcmHistoryEventIndex_Type.__name__=_E
-_CcmHistoryEventIndex_Object=MibTableColumn
-ccmHistoryEventIndex=_CcmHistoryEventIndex_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,1),_CcmHistoryEventIndex_Type())
-ccmHistoryEventIndex.setMaxAccess(_g)
-if mibBuilder.loadTexts:ccmHistoryEventIndex.setStatus(_B)
-_CcmHistoryEventTime_Type=TimeTicks
-_CcmHistoryEventTime_Object=MibTableColumn
-ccmHistoryEventTime=_CcmHistoryEventTime_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,2),_CcmHistoryEventTime_Type())
-ccmHistoryEventTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventTime.setStatus(_B)
-class _CcmHistoryEventCommandSource_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('commandLine',1),('snmp',2)))
-_CcmHistoryEventCommandSource_Type.__name__=_E
-_CcmHistoryEventCommandSource_Object=MibTableColumn
-ccmHistoryEventCommandSource=_CcmHistoryEventCommandSource_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,3),_CcmHistoryEventCommandSource_Type())
-ccmHistoryEventCommandSource.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventCommandSource.setStatus(_B)
-_CcmHistoryEventConfigSource_Type=HistoryEventMedium
-_CcmHistoryEventConfigSource_Object=MibTableColumn
-ccmHistoryEventConfigSource=_CcmHistoryEventConfigSource_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,4),_CcmHistoryEventConfigSource_Type())
-ccmHistoryEventConfigSource.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventConfigSource.setStatus(_B)
-_CcmHistoryEventConfigDestination_Type=HistoryEventMedium
-_CcmHistoryEventConfigDestination_Object=MibTableColumn
-ccmHistoryEventConfigDestination=_CcmHistoryEventConfigDestination_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,5),_CcmHistoryEventConfigDestination_Type())
-ccmHistoryEventConfigDestination.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventConfigDestination.setStatus(_B)
-class _CcmHistoryEventTerminalType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('notApplicable',1),('unknown',2),('console',3),('terminal',4),('virtual',5),('auxiliary',6)))
-_CcmHistoryEventTerminalType_Type.__name__=_E
-_CcmHistoryEventTerminalType_Object=MibTableColumn
-ccmHistoryEventTerminalType=_CcmHistoryEventTerminalType_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,6),_CcmHistoryEventTerminalType_Type())
-ccmHistoryEventTerminalType.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventTerminalType.setStatus(_B)
-class _CcmHistoryEventTerminalNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2147483648,2147483647))
-_CcmHistoryEventTerminalNumber_Type.__name__=_E
-_CcmHistoryEventTerminalNumber_Object=MibTableColumn
-ccmHistoryEventTerminalNumber=_CcmHistoryEventTerminalNumber_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,7),_CcmHistoryEventTerminalNumber_Type())
-ccmHistoryEventTerminalNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventTerminalNumber.setStatus(_B)
-class _CcmHistoryEventTerminalUser_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CcmHistoryEventTerminalUser_Type.__name__=_F
-_CcmHistoryEventTerminalUser_Object=MibTableColumn
-ccmHistoryEventTerminalUser=_CcmHistoryEventTerminalUser_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,8),_CcmHistoryEventTerminalUser_Type())
-ccmHistoryEventTerminalUser.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventTerminalUser.setStatus(_B)
-class _CcmHistoryEventTerminalLocation_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CcmHistoryEventTerminalLocation_Type.__name__=_F
-_CcmHistoryEventTerminalLocation_Object=MibTableColumn
-ccmHistoryEventTerminalLocation=_CcmHistoryEventTerminalLocation_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,9),_CcmHistoryEventTerminalLocation_Type())
-ccmHistoryEventTerminalLocation.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventTerminalLocation.setStatus(_B)
-_CcmHistoryEventCommandSourceAddress_Type=IpAddress
-_CcmHistoryEventCommandSourceAddress_Object=MibTableColumn
-ccmHistoryEventCommandSourceAddress=_CcmHistoryEventCommandSourceAddress_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,10),_CcmHistoryEventCommandSourceAddress_Type())
-ccmHistoryEventCommandSourceAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventCommandSourceAddress.setStatus(_D)
-class _CcmHistoryEventVirtualHostName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CcmHistoryEventVirtualHostName_Type.__name__=_F
-_CcmHistoryEventVirtualHostName_Object=MibTableColumn
-ccmHistoryEventVirtualHostName=_CcmHistoryEventVirtualHostName_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,11),_CcmHistoryEventVirtualHostName_Type())
-ccmHistoryEventVirtualHostName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventVirtualHostName.setStatus(_B)
-_CcmHistoryEventServerAddress_Type=IpAddress
-_CcmHistoryEventServerAddress_Object=MibTableColumn
-ccmHistoryEventServerAddress=_CcmHistoryEventServerAddress_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,12),_CcmHistoryEventServerAddress_Type())
-ccmHistoryEventServerAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventServerAddress.setStatus(_D)
-class _CcmHistoryEventFile_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CcmHistoryEventFile_Type.__name__=_F
-_CcmHistoryEventFile_Object=MibTableColumn
-ccmHistoryEventFile=_CcmHistoryEventFile_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,13),_CcmHistoryEventFile_Type())
-ccmHistoryEventFile.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventFile.setStatus(_B)
-class _CcmHistoryEventRcpUser_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CcmHistoryEventRcpUser_Type.__name__=_F
-_CcmHistoryEventRcpUser_Object=MibTableColumn
-ccmHistoryEventRcpUser=_CcmHistoryEventRcpUser_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,14),_CcmHistoryEventRcpUser_Type())
-ccmHistoryEventRcpUser.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventRcpUser.setStatus(_B)
-_CcmHistoryCLICmdEntriesBumped_Type=Counter32
-_CcmHistoryCLICmdEntriesBumped_Object=MibTableColumn
-ccmHistoryCLICmdEntriesBumped=_CcmHistoryCLICmdEntriesBumped_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,15),_CcmHistoryCLICmdEntriesBumped_Type())
-ccmHistoryCLICmdEntriesBumped.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryCLICmdEntriesBumped.setStatus(_B)
-_CcmHistoryEventCommandSourceAddrType_Type=InetAddressType
-_CcmHistoryEventCommandSourceAddrType_Object=MibTableColumn
-ccmHistoryEventCommandSourceAddrType=_CcmHistoryEventCommandSourceAddrType_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,16),_CcmHistoryEventCommandSourceAddrType_Type())
-ccmHistoryEventCommandSourceAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventCommandSourceAddrType.setStatus(_B)
-_CcmHistoryEventCommandSourceAddrRev1_Type=InetAddress
-_CcmHistoryEventCommandSourceAddrRev1_Object=MibTableColumn
-ccmHistoryEventCommandSourceAddrRev1=_CcmHistoryEventCommandSourceAddrRev1_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,17),_CcmHistoryEventCommandSourceAddrRev1_Type())
-ccmHistoryEventCommandSourceAddrRev1.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventCommandSourceAddrRev1.setStatus(_B)
-_CcmHistoryEventServerAddrType_Type=InetAddressType
-_CcmHistoryEventServerAddrType_Object=MibTableColumn
-ccmHistoryEventServerAddrType=_CcmHistoryEventServerAddrType_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,18),_CcmHistoryEventServerAddrType_Type())
-ccmHistoryEventServerAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventServerAddrType.setStatus(_B)
-_CcmHistoryEventServerAddrRev1_Type=InetAddress
-_CcmHistoryEventServerAddrRev1_Object=MibTableColumn
-ccmHistoryEventServerAddrRev1=_CcmHistoryEventServerAddrRev1_Object((1,3,6,1,4,1,9,9,43,1,1,6,1,19),_CcmHistoryEventServerAddrRev1_Type())
-ccmHistoryEventServerAddrRev1.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmHistoryEventServerAddrRev1.setStatus(_B)
-_CcmCLIHistory_ObjectIdentity=ObjectIdentity
-ccmCLIHistory=_CcmCLIHistory_ObjectIdentity((1,3,6,1,4,1,9,9,43,1,2))
-class _CcmCLIHistoryMaxCmdEntries_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CcmCLIHistoryMaxCmdEntries_Type.__name__=_Y
-_CcmCLIHistoryMaxCmdEntries_Object=MibScalar
-ccmCLIHistoryMaxCmdEntries=_CcmCLIHistoryMaxCmdEntries_Object((1,3,6,1,4,1,9,9,43,1,2,1),_CcmCLIHistoryMaxCmdEntries_Type())
-ccmCLIHistoryMaxCmdEntries.setMaxAccess(_b)
-if mibBuilder.loadTexts:ccmCLIHistoryMaxCmdEntries.setStatus(_B)
-_CcmCLIHistoryCmdEntries_Type=Gauge32
-_CcmCLIHistoryCmdEntries_Object=MibScalar
-ccmCLIHistoryCmdEntries=_CcmCLIHistoryCmdEntries_Object((1,3,6,1,4,1,9,9,43,1,2,2),_CcmCLIHistoryCmdEntries_Type())
-ccmCLIHistoryCmdEntries.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmCLIHistoryCmdEntries.setStatus(_B)
-_CcmCLIHistoryCmdEntriesAllowed_Type=Unsigned32
-_CcmCLIHistoryCmdEntriesAllowed_Object=MibScalar
-ccmCLIHistoryCmdEntriesAllowed=_CcmCLIHistoryCmdEntriesAllowed_Object((1,3,6,1,4,1,9,9,43,1,2,3),_CcmCLIHistoryCmdEntriesAllowed_Type())
-ccmCLIHistoryCmdEntriesAllowed.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmCLIHistoryCmdEntriesAllowed.setStatus(_B)
-_CcmCLIHistoryCommandTable_Object=MibTable
-ccmCLIHistoryCommandTable=_CcmCLIHistoryCommandTable_Object((1,3,6,1,4,1,9,9,43,1,2,4))
-if mibBuilder.loadTexts:ccmCLIHistoryCommandTable.setStatus(_B)
-_CcmCLIHistoryCommandEntry_Object=MibTableRow
-ccmCLIHistoryCommandEntry=_CcmCLIHistoryCommandEntry_Object((1,3,6,1,4,1,9,9,43,1,2,4,1))
-ccmCLIHistoryCommandEntry.setIndexNames((0,_A,_a),(0,_A,_h))
-if mibBuilder.loadTexts:ccmCLIHistoryCommandEntry.setStatus(_B)
-class _CcmCLIHistoryCommandIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CcmCLIHistoryCommandIndex_Type.__name__=_Y
-_CcmCLIHistoryCommandIndex_Object=MibTableColumn
-ccmCLIHistoryCommandIndex=_CcmCLIHistoryCommandIndex_Object((1,3,6,1,4,1,9,9,43,1,2,4,1,1),_CcmCLIHistoryCommandIndex_Type())
-ccmCLIHistoryCommandIndex.setMaxAccess(_g)
-if mibBuilder.loadTexts:ccmCLIHistoryCommandIndex.setStatus(_B)
-_CcmCLIHistoryCommand_Type=DisplayString
-_CcmCLIHistoryCommand_Object=MibTableColumn
-ccmCLIHistoryCommand=_CcmCLIHistoryCommand_Object((1,3,6,1,4,1,9,9,43,1,2,4,1,2),_CcmCLIHistoryCommand_Type())
-ccmCLIHistoryCommand.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmCLIHistoryCommand.setStatus(_B)
-_CcmCLICfg_ObjectIdentity=ObjectIdentity
-ccmCLICfg=_CcmCLICfg_ObjectIdentity((1,3,6,1,4,1,9,9,43,1,3))
-class _CcmCLICfgRunConfNotifEnable_Type(TruthValue):defaultValue=2
-_CcmCLICfgRunConfNotifEnable_Type.__name__=_Z
-_CcmCLICfgRunConfNotifEnable_Object=MibScalar
-ccmCLICfgRunConfNotifEnable=_CcmCLICfgRunConfNotifEnable_Object((1,3,6,1,4,1,9,9,43,1,3,1),_CcmCLICfgRunConfNotifEnable_Type())
-ccmCLICfgRunConfNotifEnable.setMaxAccess(_b)
-if mibBuilder.loadTexts:ccmCLICfgRunConfNotifEnable.setStatus(_B)
-_CcmCTIDObjects_ObjectIdentity=ObjectIdentity
-ccmCTIDObjects=_CcmCTIDObjects_ObjectIdentity((1,3,6,1,4,1,9,9,43,1,4))
-_CcmCTID_Type=Unsigned64
-_CcmCTID_Object=MibScalar
-ccmCTID=_CcmCTID_Object((1,3,6,1,4,1,9,9,43,1,4,1),_CcmCTID_Type())
-ccmCTID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmCTID.setStatus(_B)
-_CcmCTIDLastChangeTime_Type=DateAndTime
-_CcmCTIDLastChangeTime_Object=MibScalar
-ccmCTIDLastChangeTime=_CcmCTIDLastChangeTime_Object((1,3,6,1,4,1,9,9,43,1,4,2),_CcmCTIDLastChangeTime_Type())
-ccmCTIDLastChangeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmCTIDLastChangeTime.setStatus(_B)
-_CcmCTIDWhoChanged_Type=SnmpAdminString
-_CcmCTIDWhoChanged_Object=MibScalar
-ccmCTIDWhoChanged=_CcmCTIDWhoChanged_Object((1,3,6,1,4,1,9,9,43,1,4,3),_CcmCTIDWhoChanged_Type())
-ccmCTIDWhoChanged.setMaxAccess(_C)
-if mibBuilder.loadTexts:ccmCTIDWhoChanged.setStatus(_B)
-class _CcmCTIDRolledOverNotifEnable_Type(TruthValue):defaultValue=2
-_CcmCTIDRolledOverNotifEnable_Type.__name__=_Z
-_CcmCTIDRolledOverNotifEnable_Object=MibScalar
-ccmCTIDRolledOverNotifEnable=_CcmCTIDRolledOverNotifEnable_Object((1,3,6,1,4,1,9,9,43,1,4,4),_CcmCTIDRolledOverNotifEnable_Type())
-ccmCTIDRolledOverNotifEnable.setMaxAccess(_b)
-if mibBuilder.loadTexts:ccmCTIDRolledOverNotifEnable.setStatus(_B)
-_CiscoConfigManMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
-ciscoConfigManMIBNotificationPrefix=_CiscoConfigManMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,9,9,43,2))
-_CiscoConfigManMIBNotifications_ObjectIdentity=ObjectIdentity
-ciscoConfigManMIBNotifications=_CiscoConfigManMIBNotifications_ObjectIdentity((1,3,6,1,4,1,9,9,43,2,0))
-_CiscoConfigManMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoConfigManMIBConformance=_CiscoConfigManMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,43,3))
-_CiscoConfigManMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoConfigManMIBCompliances=_CiscoConfigManMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,43,3,1))
-_CiscoConfigManMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoConfigManMIBGroups=_CiscoConfigManMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,43,3,2))
-ciscoConfigManHistoryGroup=ObjectGroup((1,3,6,1,4,1,9,9,43,3,2,1))
-ciscoConfigManHistoryGroup.setObjects(*((_A,_H),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_R),(_A,_G),(_A,_S),(_A,_c),(_A,_T),(_A,_d),(_A,_U),(_A,_V)))
-if mibBuilder.loadTexts:ciscoConfigManHistoryGroup.setStatus(_D)
-ciscoConfigManHistoryGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,43,3,2,2))
-ciscoConfigManHistoryGroupRev1.setObjects(*((_A,_H),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_R),(_A,_G),(_A,_S),(_A,_c),(_A,_T),(_A,_d),(_A,_U),(_A,_V),(_A,_e)))
-if mibBuilder.loadTexts:ciscoConfigManHistoryGroupRev1.setStatus(_D)
-ciscoConfigManCLIHistCmdGroup=ObjectGroup((1,3,6,1,4,1,9,9,43,3,2,4))
-ciscoConfigManCLIHistCmdGroup.setObjects(*((_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m)))
-if mibBuilder.loadTexts:ciscoConfigManCLIHistCmdGroup.setStatus(_B)
-ciscoConfigManHistoryGroupRev2=ObjectGroup((1,3,6,1,4,1,9,9,43,3,2,5))
-ciscoConfigManHistoryGroupRev2.setObjects(*((_A,_H),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_R),(_A,_G),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_e),(_A,_n),(_A,_o),(_A,_p),(_A,_q)))
-if mibBuilder.loadTexts:ciscoConfigManHistoryGroupRev2.setStatus(_B)
-ciscoConfigManCTIDObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,43,3,2,7))
-ciscoConfigManCTIDObjectGroup.setObjects(*((_A,_r),(_A,_s),(_A,_t),(_A,_u)))
-if mibBuilder.loadTexts:ciscoConfigManCTIDObjectGroup.setStatus(_B)
-ciscoConfigManEvent=NotificationType((1,3,6,1,4,1,9,9,43,2,0,1))
-ciscoConfigManEvent.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_G)))
-if mibBuilder.loadTexts:ciscoConfigManEvent.setStatus(_B)
-ccmCLIRunningConfigChanged=NotificationType((1,3,6,1,4,1,9,9,43,2,0,2))
-ccmCLIRunningConfigChanged.setObjects(*((_A,_H),(_A,_L),(_A,_G)))
-if mibBuilder.loadTexts:ccmCLIRunningConfigChanged.setStatus(_B)
-ccmCTIDRolledOver=NotificationType((1,3,6,1,4,1,9,9,43,2,0,3))
-if mibBuilder.loadTexts:ccmCTIDRolledOver.setStatus(_B)
-ciscoConfigManHistNotifyGroup=NotificationGroup((1,3,6,1,4,1,9,9,43,3,2,3))
-ciscoConfigManHistNotifyGroup.setObjects(*((_A,_v),(_A,_w)))
-if mibBuilder.loadTexts:ciscoConfigManHistNotifyGroup.setStatus(_B)
-ciscoConfigManCTIDNotifyGroup=NotificationGroup((1,3,6,1,4,1,9,9,43,3,2,6))
-ciscoConfigManCTIDNotifyGroup.setObjects((_A,_x))
-if mibBuilder.loadTexts:ciscoConfigManCTIDNotifyGroup.setStatus(_B)
-ciscoConfigManMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,43,3,1,1))
-ciscoConfigManMIBCompliance.setObjects((_A,_y))
-if mibBuilder.loadTexts:ciscoConfigManMIBCompliance.setStatus(_D)
-ciscoConfigManMIBComplianceRev2=ModuleCompliance((1,3,6,1,4,1,9,9,43,3,1,2))
-ciscoConfigManMIBComplianceRev2.setObjects(*((_A,_z),(_A,_W),(_A,_X)))
-if mibBuilder.loadTexts:ciscoConfigManMIBComplianceRev2.setStatus(_D)
-ciscoConfigManMIBComplianceRev3=ModuleCompliance((1,3,6,1,4,1,9,9,43,3,1,3))
-ciscoConfigManMIBComplianceRev3.setObjects(*((_A,_f),(_A,_W),(_A,_X)))
-if mibBuilder.loadTexts:ciscoConfigManMIBComplianceRev3.setStatus(_D)
-ciscoConfigManMIBComplianceRev4=ModuleCompliance((1,3,6,1,4,1,9,9,43,3,1,4))
-ciscoConfigManMIBComplianceRev4.setObjects(*((_A,_f),(_A,_W),(_A,_X),(_A,_A0),(_A,_A1)))
-if mibBuilder.loadTexts:ciscoConfigManMIBComplianceRev4.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'HistoryEventMedium':HistoryEventMedium,'ciscoConfigManMIB':ciscoConfigManMIB,'ciscoConfigManMIBObjects':ciscoConfigManMIBObjects,'ccmHistory':ccmHistory,_H:ccmHistoryRunningLastChanged,_M:ccmHistoryRunningLastSaved,_N:ccmHistoryStartupLastChanged,_O:ccmHistoryMaxEventEntries,_P:ccmHistoryEventEntriesBumped,'ccmHistoryEventTable':ccmHistoryEventTable,'ccmHistoryEventEntry':ccmHistoryEventEntry,_a:ccmHistoryEventIndex,_Q:ccmHistoryEventTime,_I:ccmHistoryEventCommandSource,_J:ccmHistoryEventConfigSource,_K:ccmHistoryEventConfigDestination,_L:ccmHistoryEventTerminalType,_R:ccmHistoryEventTerminalNumber,_G:ccmHistoryEventTerminalUser,_S:ccmHistoryEventTerminalLocation,_c:ccmHistoryEventCommandSourceAddress,_T:ccmHistoryEventVirtualHostName,_d:ccmHistoryEventServerAddress,_U:ccmHistoryEventFile,_V:ccmHistoryEventRcpUser,_e:ccmHistoryCLICmdEntriesBumped,_n:ccmHistoryEventCommandSourceAddrType,_o:ccmHistoryEventCommandSourceAddrRev1,_p:ccmHistoryEventServerAddrType,_q:ccmHistoryEventServerAddrRev1,'ccmCLIHistory':ccmCLIHistory,_i:ccmCLIHistoryMaxCmdEntries,_j:ccmCLIHistoryCmdEntries,_k:ccmCLIHistoryCmdEntriesAllowed,'ccmCLIHistoryCommandTable':ccmCLIHistoryCommandTable,'ccmCLIHistoryCommandEntry':ccmCLIHistoryCommandEntry,_h:ccmCLIHistoryCommandIndex,_l:ccmCLIHistoryCommand,'ccmCLICfg':ccmCLICfg,_m:ccmCLICfgRunConfNotifEnable,'ccmCTIDObjects':ccmCTIDObjects,_r:ccmCTID,_s:ccmCTIDLastChangeTime,_t:ccmCTIDWhoChanged,_u:ccmCTIDRolledOverNotifEnable,'ciscoConfigManMIBNotificationPrefix':ciscoConfigManMIBNotificationPrefix,'ciscoConfigManMIBNotifications':ciscoConfigManMIBNotifications,_v:ciscoConfigManEvent,_w:ccmCLIRunningConfigChanged,_x:ccmCTIDRolledOver,'ciscoConfigManMIBConformance':ciscoConfigManMIBConformance,'ciscoConfigManMIBCompliances':ciscoConfigManMIBCompliances,'ciscoConfigManMIBCompliance':ciscoConfigManMIBCompliance,'ciscoConfigManMIBComplianceRev2':ciscoConfigManMIBComplianceRev2,'ciscoConfigManMIBComplianceRev3':ciscoConfigManMIBComplianceRev3,'ciscoConfigManMIBComplianceRev4':ciscoConfigManMIBComplianceRev4,'ciscoConfigManMIBGroups':ciscoConfigManMIBGroups,_y:ciscoConfigManHistoryGroup,_z:ciscoConfigManHistoryGroupRev1,_X:ciscoConfigManHistNotifyGroup,_W:ciscoConfigManCLIHistCmdGroup,_f:ciscoConfigManHistoryGroupRev2,_A0:ciscoConfigManCTIDNotifyGroup,_A1:ciscoConfigManCTIDObjectGroup})
+#
+# PySNMP MIB module CISCO-CONFIG-MAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-CONFIG-MAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:36 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+Unsigned64, = mibBuilder.importSymbols("CISCO-TC", "Unsigned64")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "DateAndTime", "TextualConvention")
+ciscoConfigManMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 43))
+ciscoConfigManMIB.setRevisions(('2019-03-11 00:00', '2006-08-17 00:00', '2004-06-18 00:00', '2002-06-07 00:00', '2002-03-12 00:00', '1995-11-28 00:00',))
+if mibBuilder.loadTexts: ciscoConfigManMIB.setLastUpdated('200608220000Z')
+if mibBuilder.loadTexts: ciscoConfigManMIB.setOrganization('Cisco Systems, Inc.')
+ciscoConfigManMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 43, 1))
+ccmHistory = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1))
+ccmCLIHistory = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 2))
+ccmCLICfg = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 3))
+ccmCTIDObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 4))
+class HistoryEventMedium(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))
+    namedValues = NamedValues(("erase", 1), ("commandSource", 2), ("running", 3), ("startup", 4), ("local", 5), ("networkTftp", 6), ("networkRcp", 7), ("networkFtp", 8), ("networkScp", 9))
+
+ccmHistoryRunningLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 1), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryRunningLastChanged.setStatus('current')
+ccmHistoryRunningLastSaved = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 2), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryRunningLastSaved.setStatus('current')
+ccmHistoryStartupLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 3), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryStartupLastChanged.setStatus('current')
+ccmHistoryMaxEventEntries = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryMaxEventEntries.setStatus('current')
+ccmHistoryEventEntriesBumped = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventEntriesBumped.setStatus('current')
+ccmHistoryEventTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6), )
+if mibBuilder.loadTexts: ccmHistoryEventTable.setStatus('current')
+ccmHistoryEventEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1), ).setIndexNames((0, "CISCO-CONFIG-MAN-MIB", "ccmHistoryEventIndex"))
+if mibBuilder.loadTexts: ccmHistoryEventEntry.setStatus('current')
+ccmHistoryEventIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: ccmHistoryEventIndex.setStatus('current')
+ccmHistoryEventTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 2), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventTime.setStatus('current')
+ccmHistoryEventCommandSource = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("commandLine", 1), ("snmp", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventCommandSource.setStatus('current')
+ccmHistoryEventConfigSource = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 4), HistoryEventMedium()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventConfigSource.setStatus('current')
+ccmHistoryEventConfigDestination = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 5), HistoryEventMedium()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventConfigDestination.setStatus('current')
+ccmHistoryEventTerminalType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("notApplicable", 1), ("unknown", 2), ("console", 3), ("terminal", 4), ("virtual", 5), ("auxiliary", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventTerminalType.setStatus('current')
+ccmHistoryEventTerminalNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-2147483648, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventTerminalNumber.setStatus('current')
+ccmHistoryEventTerminalUser = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventTerminalUser.setStatus('current')
+ccmHistoryEventTerminalLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventTerminalLocation.setStatus('current')
+ccmHistoryEventCommandSourceAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 10), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventCommandSourceAddress.setStatus('deprecated')
+ccmHistoryEventVirtualHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventVirtualHostName.setStatus('current')
+ccmHistoryEventServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 12), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventServerAddress.setStatus('deprecated')
+ccmHistoryEventFile = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventFile.setStatus('current')
+ccmHistoryEventRcpUser = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventRcpUser.setStatus('current')
+ccmHistoryCLICmdEntriesBumped = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryCLICmdEntriesBumped.setStatus('current')
+ccmHistoryEventCommandSourceAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 16), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventCommandSourceAddrType.setStatus('current')
+ccmHistoryEventCommandSourceAddrRev1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 17), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventCommandSourceAddrRev1.setStatus('current')
+ccmHistoryEventServerAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 18), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventServerAddrType.setStatus('current')
+ccmHistoryEventServerAddrRev1 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 1, 6, 1, 19), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmHistoryEventServerAddrRev1.setStatus('current')
+ccmCLIHistoryMaxCmdEntries = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 2, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccmCLIHistoryMaxCmdEntries.setStatus('current')
+ccmCLIHistoryCmdEntries = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 2, 2), Gauge32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmCLIHistoryCmdEntries.setStatus('current')
+ccmCLIHistoryCmdEntriesAllowed = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 2, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmCLIHistoryCmdEntriesAllowed.setStatus('current')
+ccmCLIHistoryCommandTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 2, 4), )
+if mibBuilder.loadTexts: ccmCLIHistoryCommandTable.setStatus('current')
+ccmCLIHistoryCommandEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 2, 4, 1), ).setIndexNames((0, "CISCO-CONFIG-MAN-MIB", "ccmHistoryEventIndex"), (0, "CISCO-CONFIG-MAN-MIB", "ccmCLIHistoryCommandIndex"))
+if mibBuilder.loadTexts: ccmCLIHistoryCommandEntry.setStatus('current')
+ccmCLIHistoryCommandIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 2, 4, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: ccmCLIHistoryCommandIndex.setStatus('current')
+ccmCLIHistoryCommand = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 2, 4, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmCLIHistoryCommand.setStatus('current')
+ccmCLICfgRunConfNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 3, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccmCLICfgRunConfNotifEnable.setStatus('current')
+ccmCTID = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 4, 1), Unsigned64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmCTID.setStatus('current')
+ccmCTIDLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 4, 2), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmCTIDLastChangeTime.setStatus('current')
+ccmCTIDWhoChanged = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 4, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ccmCTIDWhoChanged.setStatus('current')
+ccmCTIDRolledOverNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 43, 1, 4, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ccmCTIDRolledOverNotifEnable.setStatus('current')
+ciscoConfigManMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 43, 2))
+ciscoConfigManMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 43, 2, 0))
+ciscoConfigManEvent = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 43, 2, 0, 1)).setObjects(("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventCommandSource"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventConfigSource"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventConfigDestination"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTerminalUser"))
+if mibBuilder.loadTexts: ciscoConfigManEvent.setStatus('current')
+ccmCLIRunningConfigChanged = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 43, 2, 0, 2)).setObjects(("CISCO-CONFIG-MAN-MIB", "ccmHistoryRunningLastChanged"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTerminalType"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTerminalUser"))
+if mibBuilder.loadTexts: ccmCLIRunningConfigChanged.setStatus('current')
+ccmCTIDRolledOver = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 43, 2, 0, 3))
+if mibBuilder.loadTexts: ccmCTIDRolledOver.setStatus('current')
+ciscoConfigManMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 43, 3))
+ciscoConfigManMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 43, 3, 1))
+ciscoConfigManMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 43, 3, 2))
+ciscoConfigManMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 43, 3, 1, 1)).setObjects(("CISCO-CONFIG-MAN-MIB", "ciscoConfigManHistoryGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoConfigManMIBCompliance = ciscoConfigManMIBCompliance.setStatus('deprecated')
+ciscoConfigManMIBComplianceRev2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 43, 3, 1, 2)).setObjects(("CISCO-CONFIG-MAN-MIB", "ciscoConfigManHistoryGroupRev1"), ("CISCO-CONFIG-MAN-MIB", "ciscoConfigManCLIHistCmdGroup"), ("CISCO-CONFIG-MAN-MIB", "ciscoConfigManHistNotifyGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoConfigManMIBComplianceRev2 = ciscoConfigManMIBComplianceRev2.setStatus('deprecated')
+ciscoConfigManMIBComplianceRev3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 43, 3, 1, 3)).setObjects(("CISCO-CONFIG-MAN-MIB", "ciscoConfigManHistoryGroupRev2"), ("CISCO-CONFIG-MAN-MIB", "ciscoConfigManCLIHistCmdGroup"), ("CISCO-CONFIG-MAN-MIB", "ciscoConfigManHistNotifyGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoConfigManMIBComplianceRev3 = ciscoConfigManMIBComplianceRev3.setStatus('deprecated')
+ciscoConfigManMIBComplianceRev4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 43, 3, 1, 4)).setObjects(("CISCO-CONFIG-MAN-MIB", "ciscoConfigManHistoryGroupRev2"), ("CISCO-CONFIG-MAN-MIB", "ciscoConfigManCLIHistCmdGroup"), ("CISCO-CONFIG-MAN-MIB", "ciscoConfigManHistNotifyGroup"), ("CISCO-CONFIG-MAN-MIB", "ciscoConfigManCTIDNotifyGroup"), ("CISCO-CONFIG-MAN-MIB", "ciscoConfigManCTIDObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoConfigManMIBComplianceRev4 = ciscoConfigManMIBComplianceRev4.setStatus('current')
+ciscoConfigManHistoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 43, 3, 2, 1)).setObjects(("CISCO-CONFIG-MAN-MIB", "ccmHistoryRunningLastChanged"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryRunningLastSaved"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryStartupLastChanged"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryMaxEventEntries"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventEntriesBumped"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTime"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventCommandSource"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventConfigSource"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventConfigDestination"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTerminalType"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTerminalNumber"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTerminalUser"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTerminalLocation"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventCommandSourceAddress"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventVirtualHostName"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventServerAddress"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventFile"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventRcpUser"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoConfigManHistoryGroup = ciscoConfigManHistoryGroup.setStatus('deprecated')
+ciscoConfigManHistoryGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 43, 3, 2, 2)).setObjects(("CISCO-CONFIG-MAN-MIB", "ccmHistoryRunningLastChanged"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryRunningLastSaved"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryStartupLastChanged"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryMaxEventEntries"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventEntriesBumped"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTime"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventCommandSource"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventConfigSource"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventConfigDestination"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTerminalType"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTerminalNumber"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTerminalUser"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTerminalLocation"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventCommandSourceAddress"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventVirtualHostName"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventServerAddress"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventFile"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventRcpUser"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryCLICmdEntriesBumped"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoConfigManHistoryGroupRev1 = ciscoConfigManHistoryGroupRev1.setStatus('deprecated')
+ciscoConfigManHistNotifyGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 43, 3, 2, 3)).setObjects(("CISCO-CONFIG-MAN-MIB", "ciscoConfigManEvent"), ("CISCO-CONFIG-MAN-MIB", "ccmCLIRunningConfigChanged"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoConfigManHistNotifyGroup = ciscoConfigManHistNotifyGroup.setStatus('current')
+ciscoConfigManHistoryGroupRev2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 43, 3, 2, 5)).setObjects(("CISCO-CONFIG-MAN-MIB", "ccmHistoryRunningLastChanged"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryRunningLastSaved"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryStartupLastChanged"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryMaxEventEntries"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventEntriesBumped"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTime"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventCommandSource"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventConfigSource"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventConfigDestination"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTerminalType"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTerminalNumber"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTerminalUser"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventTerminalLocation"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventVirtualHostName"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventFile"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventRcpUser"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryCLICmdEntriesBumped"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventCommandSourceAddrType"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventCommandSourceAddrRev1"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventServerAddrType"), ("CISCO-CONFIG-MAN-MIB", "ccmHistoryEventServerAddrRev1"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoConfigManHistoryGroupRev2 = ciscoConfigManHistoryGroupRev2.setStatus('current')
+ciscoConfigManCLIHistCmdGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 43, 3, 2, 4)).setObjects(("CISCO-CONFIG-MAN-MIB", "ccmCLIHistoryMaxCmdEntries"), ("CISCO-CONFIG-MAN-MIB", "ccmCLIHistoryCmdEntries"), ("CISCO-CONFIG-MAN-MIB", "ccmCLIHistoryCmdEntriesAllowed"), ("CISCO-CONFIG-MAN-MIB", "ccmCLIHistoryCommand"), ("CISCO-CONFIG-MAN-MIB", "ccmCLICfgRunConfNotifEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoConfigManCLIHistCmdGroup = ciscoConfigManCLIHistCmdGroup.setStatus('current')
+ciscoConfigManCTIDNotifyGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 43, 3, 2, 6)).setObjects(("CISCO-CONFIG-MAN-MIB", "ccmCTIDRolledOver"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoConfigManCTIDNotifyGroup = ciscoConfigManCTIDNotifyGroup.setStatus('current')
+ciscoConfigManCTIDObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 43, 3, 2, 7)).setObjects(("CISCO-CONFIG-MAN-MIB", "ccmCTID"), ("CISCO-CONFIG-MAN-MIB", "ccmCTIDLastChangeTime"), ("CISCO-CONFIG-MAN-MIB", "ccmCTIDWhoChanged"), ("CISCO-CONFIG-MAN-MIB", "ccmCTIDRolledOverNotifEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoConfigManCTIDObjectGroup = ciscoConfigManCTIDObjectGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-CONFIG-MAN-MIB", ccmCTIDObjects=ccmCTIDObjects, ccmCTIDLastChangeTime=ccmCTIDLastChangeTime, ccmHistoryStartupLastChanged=ccmHistoryStartupLastChanged, ccmCTIDWhoChanged=ccmCTIDWhoChanged, ccmHistoryEventCommandSourceAddrRev1=ccmHistoryEventCommandSourceAddrRev1, ciscoConfigManCLIHistCmdGroup=ciscoConfigManCLIHistCmdGroup, ccmHistoryEventServerAddress=ccmHistoryEventServerAddress, ccmHistoryEventConfigSource=ccmHistoryEventConfigSource, ccmHistoryEventTable=ccmHistoryEventTable, ccmCTIDRolledOver=ccmCTIDRolledOver, ciscoConfigManCTIDObjectGroup=ciscoConfigManCTIDObjectGroup, ccmCLIRunningConfigChanged=ccmCLIRunningConfigChanged, ccmCLIHistoryCommandEntry=ccmCLIHistoryCommandEntry, ccmCTIDRolledOverNotifEnable=ccmCTIDRolledOverNotifEnable, ciscoConfigManCTIDNotifyGroup=ciscoConfigManCTIDNotifyGroup, ccmHistoryCLICmdEntriesBumped=ccmHistoryCLICmdEntriesBumped, ccmCLIHistory=ccmCLIHistory, ciscoConfigManMIBGroups=ciscoConfigManMIBGroups, ciscoConfigManMIBComplianceRev2=ciscoConfigManMIBComplianceRev2, ccmCLIHistoryCmdEntries=ccmCLIHistoryCmdEntries, ciscoConfigManMIBNotifications=ciscoConfigManMIBNotifications, PYSNMP_MODULE_ID=ciscoConfigManMIB, ciscoConfigManEvent=ciscoConfigManEvent, ccmHistoryEventTerminalType=ccmHistoryEventTerminalType, ccmHistoryMaxEventEntries=ccmHistoryMaxEventEntries, ciscoConfigManHistoryGroup=ciscoConfigManHistoryGroup, ccmCLIHistoryCommandTable=ccmCLIHistoryCommandTable, ccmHistoryEventRcpUser=ccmHistoryEventRcpUser, ccmHistoryEventEntry=ccmHistoryEventEntry, ccmCLICfg=ccmCLICfg, ciscoConfigManMIBComplianceRev4=ciscoConfigManMIBComplianceRev4, ciscoConfigManHistoryGroupRev2=ciscoConfigManHistoryGroupRev2, ccmHistoryEventServerAddrRev1=ccmHistoryEventServerAddrRev1, ccmHistoryEventCommandSourceAddrType=ccmHistoryEventCommandSourceAddrType, ccmHistoryEventServerAddrType=ccmHistoryEventServerAddrType, ccmHistoryEventTerminalUser=ccmHistoryEventTerminalUser, ciscoConfigManMIBNotificationPrefix=ciscoConfigManMIBNotificationPrefix, ciscoConfigManMIBComplianceRev3=ciscoConfigManMIBComplianceRev3, ccmHistoryRunningLastChanged=ccmHistoryRunningLastChanged, ccmHistory=ccmHistory, ccmHistoryEventEntriesBumped=ccmHistoryEventEntriesBumped, ccmCLIHistoryMaxCmdEntries=ccmCLIHistoryMaxCmdEntries, ccmCLIHistoryCommand=ccmCLIHistoryCommand, ciscoConfigManMIBConformance=ciscoConfigManMIBConformance, ccmHistoryEventTime=ccmHistoryEventTime, ccmHistoryEventIndex=ccmHistoryEventIndex, ciscoConfigManMIBCompliance=ciscoConfigManMIBCompliance, ccmHistoryEventConfigDestination=ccmHistoryEventConfigDestination, ccmHistoryEventTerminalLocation=ccmHistoryEventTerminalLocation, ciscoConfigManMIB=ciscoConfigManMIB, HistoryEventMedium=HistoryEventMedium, ccmHistoryEventFile=ccmHistoryEventFile, ciscoConfigManHistNotifyGroup=ciscoConfigManHistNotifyGroup, ccmCLIHistoryCommandIndex=ccmCLIHistoryCommandIndex, ccmHistoryEventVirtualHostName=ccmHistoryEventVirtualHostName, ccmCLIHistoryCmdEntriesAllowed=ccmCLIHistoryCmdEntriesAllowed, ccmHistoryEventCommandSource=ccmHistoryEventCommandSource, ccmHistoryEventTerminalNumber=ccmHistoryEventTerminalNumber, ciscoConfigManMIBCompliances=ciscoConfigManMIBCompliances, ciscoConfigManMIBObjects=ciscoConfigManMIBObjects, ccmCTID=ccmCTID, ciscoConfigManHistoryGroupRev1=ciscoConfigManHistoryGroupRev1, ccmCLICfgRunConfNotifEnable=ccmCLICfgRunConfNotifEnable, ccmHistoryRunningLastSaved=ccmHistoryRunningLastSaved, ccmHistoryEventCommandSourceAddress=ccmHistoryEventCommandSourceAddress)

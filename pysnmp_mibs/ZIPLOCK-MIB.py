@@ -1,43 +1,28 @@
-_E='read-write'
-_D='read-only'
-_C='ctZiplockNumber'
-_B='ZIPLOCK-MIB'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ctResource,=mibBuilder.importSymbols('CTRON-MIB-NAMES','ctResource')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_CtZiplock_ObjectIdentity=ObjectIdentity
-ctZiplock=_CtZiplock_ObjectIdentity((1,3,6,1,4,1,52,4,1,1,12,3))
-_CtZiplockTable_Object=MibTable
-ctZiplockTable=_CtZiplockTable_Object((1,3,6,1,4,1,52,4,1,1,12,3,1))
-if mibBuilder.loadTexts:ctZiplockTable.setStatus(_A)
-_CtZiplockEntry_Object=MibTableRow
-ctZiplockEntry=_CtZiplockEntry_Object((1,3,6,1,4,1,52,4,1,1,12,3,1,1))
-ctZiplockEntry.setIndexNames((0,_B,_C))
-if mibBuilder.loadTexts:ctZiplockEntry.setStatus(_A)
-_CtZiplockNumber_Type=Integer32
-_CtZiplockNumber_Object=MibTableColumn
-ctZiplockNumber=_CtZiplockNumber_Object((1,3,6,1,4,1,52,4,1,1,12,3,1,1,1),_CtZiplockNumber_Type())
-ctZiplockNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctZiplockNumber.setStatus(_A)
-_CtZiplockPresence_Type=Integer32
-_CtZiplockPresence_Object=MibTableColumn
-ctZiplockPresence=_CtZiplockPresence_Object((1,3,6,1,4,1,52,4,1,1,12,3,1,1,2),_CtZiplockPresence_Type())
-ctZiplockPresence.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctZiplockPresence.setStatus(_A)
-_CtZiplockRevision_Type=Integer32
-_CtZiplockRevision_Object=MibTableColumn
-ctZiplockRevision=_CtZiplockRevision_Object((1,3,6,1,4,1,52,4,1,1,12,3,1,1,3),_CtZiplockRevision_Type())
-ctZiplockRevision.setMaxAccess(_E)
-if mibBuilder.loadTexts:ctZiplockRevision.setStatus(_A)
-_CtZiplockStatus_Type=Integer32
-_CtZiplockStatus_Object=MibTableColumn
-ctZiplockStatus=_CtZiplockStatus_Object((1,3,6,1,4,1,52,4,1,1,12,3,1,1,4),_CtZiplockStatus_Type())
-ctZiplockStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ctZiplockStatus.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ctZiplock':ctZiplock,'ctZiplockTable':ctZiplockTable,'ctZiplockEntry':ctZiplockEntry,_C:ctZiplockNumber,'ctZiplockPresence':ctZiplockPresence,'ctZiplockRevision':ctZiplockRevision,'ctZiplockStatus':ctZiplockStatus})
+#
+# PySNMP MIB module ZIPLOCK-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/ZIPLOCK-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ctResource, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctResource")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ctZiplock = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 12, 3))
+ctZiplockTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 12, 3, 1), )
+if mibBuilder.loadTexts: ctZiplockTable.setStatus('mandatory')
+ctZiplockEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 12, 3, 1, 1), ).setIndexNames((0, "ZIPLOCK-MIB", "ctZiplockNumber"))
+if mibBuilder.loadTexts: ctZiplockEntry.setStatus('mandatory')
+ctZiplockNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 12, 3, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctZiplockNumber.setStatus('mandatory')
+ctZiplockPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 12, 3, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctZiplockPresence.setStatus('mandatory')
+ctZiplockRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 12, 3, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctZiplockRevision.setStatus('mandatory')
+ctZiplockStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 12, 3, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctZiplockStatus.setStatus('mandatory')
+mibBuilder.exportSymbols("ZIPLOCK-MIB", ctZiplockTable=ctZiplockTable, ctZiplockRevision=ctZiplockRevision, ctZiplockPresence=ctZiplockPresence, ctZiplockNumber=ctZiplockNumber, ctZiplockEntry=ctZiplockEntry, ctZiplock=ctZiplock, ctZiplockStatus=ctZiplockStatus)

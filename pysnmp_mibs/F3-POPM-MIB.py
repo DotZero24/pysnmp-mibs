@@ -1,389 +1,185 @@
-_A9='f3POPMStatsGroup'
-_A8='f3POPMFacilityGroup'
-_A7='f3EthernetNetPortPOPMHistoryOPROOV'
-_A6='f3EthernetNetPortPOPMHistoryOPROOR'
-_A5='f3EthernetNetPortPOPMHistoryOPRRTR'
-_A4='f3EthernetNetPortPOPMHistoryOPRGlitchRejects'
-_A3='f3EthernetNetPortPOPMHistoryOPRMaxVar'
-_A2='f3EthernetNetPortPOPMHistoryOPRVar'
-_A1='f3EthernetNetPortPOPMHistoryAOPR'
-_A0='f3EthernetNetPortPOPMHistoryOPR'
-_z='f3EthernetNetPortPOPMStatsOPROOV'
-_y='f3EthernetNetPortPOPMStatsOPROOR'
-_x='f3EthernetNetPortPOPMStatsOPRRTR'
-_w='f3EthernetNetPortPOPMStatsOPRGlitchRejects'
-_v='f3EthernetNetPortPOPMStatsOPRMaxVar'
-_u='f3EthernetNetPortPOPMStatsOPRVar'
-_t='f3EthernetNetPortPOPMStatsAOPR'
-_s='f3EthernetNetPortPOPMStatsOPR'
-_r='f3EthernetAccPortPOPMHistoryOPROOV'
-_q='f3EthernetAccPortPOPMHistoryOPROOR'
-_p='f3EthernetAccPortPOPMHistoryOPRRTR'
-_o='f3EthernetAccPortPOPMHistoryOPRGlitchRejects'
-_n='f3EthernetAccPortPOPMHistoryOPRMaxVar'
-_m='f3EthernetAccPortPOPMHistoryOPRVar'
-_l='f3EthernetAccPortPOPMHistoryAOPR'
-_k='f3EthernetAccPortPOPMHistoryOPR'
-_j='f3EthernetAccPortPOPMStatsOPROOV'
-_i='f3EthernetAccPortPOPMStatsOPROOR'
-_h='f3EthernetAccPortPOPMStatsOPRRTR'
-_g='f3EthernetAccPortPOPMStatsOPRGlitchRejects'
-_f='f3EthernetAccPortPOPMStatsOPRMaxVar'
-_e='f3EthernetAccPortPOPMStatsOPRVar'
-_d='f3EthernetAccPortPOPMStatsAOPR'
-_c='f3EthernetAccPortPOPMStatsOPR'
-_b='f3EthernetNetPortPOPMonitorClearAction'
-_a='f3EthernetNetPortPOPMonitorState'
-_Z='f3EthernetNetPortPOPMonitorGlitchRejectionLevel'
-_Y='f3EthernetNetPortPOPMonitorWindowSize'
-_X='f3EthernetNetPortPOPMonitorVariance'
-_W='f3EthernetNetPortPOPMonitorOperRangeLow'
-_V='f3EthernetNetPortPOPMonitorOperRangeHi'
-_U='f3EthernetNetPortPOPMonitorEnabled'
-_T='f3EthernetAccPortPOPMonitorClearAction'
-_S='f3EthernetAccPortPOPMonitorState'
-_R='f3EthernetAccPortPOPMonitorGlitchRejectionLevel'
-_Q='f3EthernetAccPortPOPMonitorWindowSize'
-_P='f3EthernetAccPortPOPMonitorVariance'
-_O='f3EthernetAccPortPOPMonitorOperRangeLow'
-_N='f3EthernetAccPortPOPMonitorOperRangeHi'
-_M='f3EthernetAccPortPOPMonitorEnabled'
-_L='f3EthernetNetPortPOPMHistoryEntry'
-_K='f3EthernetNetPortPOPMStatsEntry'
-_J='f3EthernetAccPortPOPMHistoryEntry'
-_I='f3EthernetAccPortPOPMStatsEntry'
-_H='f3EthernetAccPortPOPMonitorEntry'
-_G='f3EthernetNetPortPOPMonitorEntry'
-_F='not-applicable'
-_E='Integer32'
-_D='read-write'
-_C='read-only'
-_B='F3-POPM-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsp150cm,=mibBuilder.importSymbols('ADVA-MIB','fsp150cm')
-PerfCounter64,=mibBuilder.importSymbols('CM-COMMON-MIB','PerfCounter64')
-neIndex,shelfIndex,slotIndex=mibBuilder.importSymbols('CM-ENTITY-MIB','neIndex','shelfIndex','slotIndex')
-cmEthernetAccPortEntry,cmEthernetNetPortEntry=mibBuilder.importSymbols('CM-FACILITY-MIB','cmEthernetAccPortEntry','cmEthernetNetPortEntry')
-cmEthernetAccPortHistoryEntry,cmEthernetAccPortStatsEntry,cmEthernetNetPortHistoryEntry,cmEthernetNetPortStatsEntry=mibBuilder.importSymbols('CM-PERFORMANCE-MIB','cmEthernetAccPortHistoryEntry','cmEthernetAccPortStatsEntry','cmEthernetNetPortHistoryEntry','cmEthernetNetPortStatsEntry')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention,TruthValue,VariablePointer=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention','TruthValue','VariablePointer')
-f3POPMMib=ModuleIdentity((1,3,6,1,4,1,2544,1,12,16))
-if mibBuilder.loadTexts:f3POPMMib.setRevisions(('2011-10-10 00:00',))
-class POPMGlitchRejectionLevel(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('none',1),('low',2),('medium',3),('high',4)))
-class POPMState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_F,1),('inoperable',2),('not-available',3),('calibrating',4),('monitoring',5),('paused',6),('inhibited-R',7),('inhibited-NR',8)))
-class POPMClearAlarmsAction(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_F,0),('clear',1)))
-_F3POPMObjects_ObjectIdentity=ObjectIdentity
-f3POPMObjects=_F3POPMObjects_ObjectIdentity((1,3,6,1,4,1,2544,1,12,16,1))
-_F3EthernetNetPortPOPMonitorTable_Object=MibTable
-f3EthernetNetPortPOPMonitorTable=_F3EthernetNetPortPOPMonitorTable_Object((1,3,6,1,4,1,2544,1,12,16,1,1))
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMonitorTable.setStatus(_A)
-_F3EthernetNetPortPOPMonitorEntry_Object=MibTableRow
-f3EthernetNetPortPOPMonitorEntry=_F3EthernetNetPortPOPMonitorEntry_Object((1,3,6,1,4,1,2544,1,12,16,1,1,1))
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMonitorEntry.setStatus(_A)
-_F3EthernetNetPortPOPMonitorEnabled_Type=TruthValue
-_F3EthernetNetPortPOPMonitorEnabled_Object=MibTableColumn
-f3EthernetNetPortPOPMonitorEnabled=_F3EthernetNetPortPOPMonitorEnabled_Object((1,3,6,1,4,1,2544,1,12,16,1,1,1,1),_F3EthernetNetPortPOPMonitorEnabled_Type())
-f3EthernetNetPortPOPMonitorEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMonitorEnabled.setStatus(_A)
-_F3EthernetNetPortPOPMonitorOperRangeHi_Type=Integer32
-_F3EthernetNetPortPOPMonitorOperRangeHi_Object=MibTableColumn
-f3EthernetNetPortPOPMonitorOperRangeHi=_F3EthernetNetPortPOPMonitorOperRangeHi_Object((1,3,6,1,4,1,2544,1,12,16,1,1,1,2),_F3EthernetNetPortPOPMonitorOperRangeHi_Type())
-f3EthernetNetPortPOPMonitorOperRangeHi.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMonitorOperRangeHi.setStatus(_A)
-_F3EthernetNetPortPOPMonitorOperRangeLow_Type=Integer32
-_F3EthernetNetPortPOPMonitorOperRangeLow_Object=MibTableColumn
-f3EthernetNetPortPOPMonitorOperRangeLow=_F3EthernetNetPortPOPMonitorOperRangeLow_Object((1,3,6,1,4,1,2544,1,12,16,1,1,1,3),_F3EthernetNetPortPOPMonitorOperRangeLow_Type())
-f3EthernetNetPortPOPMonitorOperRangeLow.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMonitorOperRangeLow.setStatus(_A)
-_F3EthernetNetPortPOPMonitorVariance_Type=Integer32
-_F3EthernetNetPortPOPMonitorVariance_Object=MibTableColumn
-f3EthernetNetPortPOPMonitorVariance=_F3EthernetNetPortPOPMonitorVariance_Object((1,3,6,1,4,1,2544,1,12,16,1,1,1,4),_F3EthernetNetPortPOPMonitorVariance_Type())
-f3EthernetNetPortPOPMonitorVariance.setMaxAccess(_D)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMonitorVariance.setStatus(_A)
-class _F3EthernetNetPortPOPMonitorWindowSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3600))
-_F3EthernetNetPortPOPMonitorWindowSize_Type.__name__=_E
-_F3EthernetNetPortPOPMonitorWindowSize_Object=MibTableColumn
-f3EthernetNetPortPOPMonitorWindowSize=_F3EthernetNetPortPOPMonitorWindowSize_Object((1,3,6,1,4,1,2544,1,12,16,1,1,1,5),_F3EthernetNetPortPOPMonitorWindowSize_Type())
-f3EthernetNetPortPOPMonitorWindowSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMonitorWindowSize.setStatus(_A)
-_F3EthernetNetPortPOPMonitorGlitchRejectionLevel_Type=POPMGlitchRejectionLevel
-_F3EthernetNetPortPOPMonitorGlitchRejectionLevel_Object=MibTableColumn
-f3EthernetNetPortPOPMonitorGlitchRejectionLevel=_F3EthernetNetPortPOPMonitorGlitchRejectionLevel_Object((1,3,6,1,4,1,2544,1,12,16,1,1,1,6),_F3EthernetNetPortPOPMonitorGlitchRejectionLevel_Type())
-f3EthernetNetPortPOPMonitorGlitchRejectionLevel.setMaxAccess(_D)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMonitorGlitchRejectionLevel.setStatus(_A)
-_F3EthernetNetPortPOPMonitorState_Type=POPMState
-_F3EthernetNetPortPOPMonitorState_Object=MibTableColumn
-f3EthernetNetPortPOPMonitorState=_F3EthernetNetPortPOPMonitorState_Object((1,3,6,1,4,1,2544,1,12,16,1,1,1,7),_F3EthernetNetPortPOPMonitorState_Type())
-f3EthernetNetPortPOPMonitorState.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMonitorState.setStatus(_A)
-_F3EthernetNetPortPOPMonitorClearAction_Type=POPMClearAlarmsAction
-_F3EthernetNetPortPOPMonitorClearAction_Object=MibTableColumn
-f3EthernetNetPortPOPMonitorClearAction=_F3EthernetNetPortPOPMonitorClearAction_Object((1,3,6,1,4,1,2544,1,12,16,1,1,1,8),_F3EthernetNetPortPOPMonitorClearAction_Type())
-f3EthernetNetPortPOPMonitorClearAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMonitorClearAction.setStatus(_A)
-_F3EthernetAccPortPOPMonitorTable_Object=MibTable
-f3EthernetAccPortPOPMonitorTable=_F3EthernetAccPortPOPMonitorTable_Object((1,3,6,1,4,1,2544,1,12,16,1,2))
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMonitorTable.setStatus(_A)
-_F3EthernetAccPortPOPMonitorEntry_Object=MibTableRow
-f3EthernetAccPortPOPMonitorEntry=_F3EthernetAccPortPOPMonitorEntry_Object((1,3,6,1,4,1,2544,1,12,16,1,2,1))
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMonitorEntry.setStatus(_A)
-_F3EthernetAccPortPOPMonitorEnabled_Type=TruthValue
-_F3EthernetAccPortPOPMonitorEnabled_Object=MibTableColumn
-f3EthernetAccPortPOPMonitorEnabled=_F3EthernetAccPortPOPMonitorEnabled_Object((1,3,6,1,4,1,2544,1,12,16,1,2,1,1),_F3EthernetAccPortPOPMonitorEnabled_Type())
-f3EthernetAccPortPOPMonitorEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMonitorEnabled.setStatus(_A)
-_F3EthernetAccPortPOPMonitorOperRangeHi_Type=Integer32
-_F3EthernetAccPortPOPMonitorOperRangeHi_Object=MibTableColumn
-f3EthernetAccPortPOPMonitorOperRangeHi=_F3EthernetAccPortPOPMonitorOperRangeHi_Object((1,3,6,1,4,1,2544,1,12,16,1,2,1,2),_F3EthernetAccPortPOPMonitorOperRangeHi_Type())
-f3EthernetAccPortPOPMonitorOperRangeHi.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMonitorOperRangeHi.setStatus(_A)
-_F3EthernetAccPortPOPMonitorOperRangeLow_Type=Integer32
-_F3EthernetAccPortPOPMonitorOperRangeLow_Object=MibTableColumn
-f3EthernetAccPortPOPMonitorOperRangeLow=_F3EthernetAccPortPOPMonitorOperRangeLow_Object((1,3,6,1,4,1,2544,1,12,16,1,2,1,3),_F3EthernetAccPortPOPMonitorOperRangeLow_Type())
-f3EthernetAccPortPOPMonitorOperRangeLow.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMonitorOperRangeLow.setStatus(_A)
-_F3EthernetAccPortPOPMonitorVariance_Type=Integer32
-_F3EthernetAccPortPOPMonitorVariance_Object=MibTableColumn
-f3EthernetAccPortPOPMonitorVariance=_F3EthernetAccPortPOPMonitorVariance_Object((1,3,6,1,4,1,2544,1,12,16,1,2,1,4),_F3EthernetAccPortPOPMonitorVariance_Type())
-f3EthernetAccPortPOPMonitorVariance.setMaxAccess(_D)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMonitorVariance.setStatus(_A)
-class _F3EthernetAccPortPOPMonitorWindowSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3600))
-_F3EthernetAccPortPOPMonitorWindowSize_Type.__name__=_E
-_F3EthernetAccPortPOPMonitorWindowSize_Object=MibTableColumn
-f3EthernetAccPortPOPMonitorWindowSize=_F3EthernetAccPortPOPMonitorWindowSize_Object((1,3,6,1,4,1,2544,1,12,16,1,2,1,5),_F3EthernetAccPortPOPMonitorWindowSize_Type())
-f3EthernetAccPortPOPMonitorWindowSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMonitorWindowSize.setStatus(_A)
-_F3EthernetAccPortPOPMonitorGlitchRejectionLevel_Type=POPMGlitchRejectionLevel
-_F3EthernetAccPortPOPMonitorGlitchRejectionLevel_Object=MibTableColumn
-f3EthernetAccPortPOPMonitorGlitchRejectionLevel=_F3EthernetAccPortPOPMonitorGlitchRejectionLevel_Object((1,3,6,1,4,1,2544,1,12,16,1,2,1,6),_F3EthernetAccPortPOPMonitorGlitchRejectionLevel_Type())
-f3EthernetAccPortPOPMonitorGlitchRejectionLevel.setMaxAccess(_D)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMonitorGlitchRejectionLevel.setStatus(_A)
-_F3EthernetAccPortPOPMonitorState_Type=POPMState
-_F3EthernetAccPortPOPMonitorState_Object=MibTableColumn
-f3EthernetAccPortPOPMonitorState=_F3EthernetAccPortPOPMonitorState_Object((1,3,6,1,4,1,2544,1,12,16,1,2,1,7),_F3EthernetAccPortPOPMonitorState_Type())
-f3EthernetAccPortPOPMonitorState.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMonitorState.setStatus(_A)
-_F3EthernetAccPortPOPMonitorClearAction_Type=POPMClearAlarmsAction
-_F3EthernetAccPortPOPMonitorClearAction_Object=MibTableColumn
-f3EthernetAccPortPOPMonitorClearAction=_F3EthernetAccPortPOPMonitorClearAction_Object((1,3,6,1,4,1,2544,1,12,16,1,2,1,8),_F3EthernetAccPortPOPMonitorClearAction_Type())
-f3EthernetAccPortPOPMonitorClearAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMonitorClearAction.setStatus(_A)
-_F3POPMPerfObjects_ObjectIdentity=ObjectIdentity
-f3POPMPerfObjects=_F3POPMPerfObjects_ObjectIdentity((1,3,6,1,4,1,2544,1,12,16,2))
-_F3EthernetAccPortPOPMStatsTable_Object=MibTable
-f3EthernetAccPortPOPMStatsTable=_F3EthernetAccPortPOPMStatsTable_Object((1,3,6,1,4,1,2544,1,12,16,2,1))
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMStatsTable.setStatus(_A)
-_F3EthernetAccPortPOPMStatsEntry_Object=MibTableRow
-f3EthernetAccPortPOPMStatsEntry=_F3EthernetAccPortPOPMStatsEntry_Object((1,3,6,1,4,1,2544,1,12,16,2,1,1))
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMStatsEntry.setStatus(_A)
-_F3EthernetAccPortPOPMStatsOPR_Type=Integer32
-_F3EthernetAccPortPOPMStatsOPR_Object=MibTableColumn
-f3EthernetAccPortPOPMStatsOPR=_F3EthernetAccPortPOPMStatsOPR_Object((1,3,6,1,4,1,2544,1,12,16,2,1,1,1),_F3EthernetAccPortPOPMStatsOPR_Type())
-f3EthernetAccPortPOPMStatsOPR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMStatsOPR.setStatus(_A)
-_F3EthernetAccPortPOPMStatsAOPR_Type=Integer32
-_F3EthernetAccPortPOPMStatsAOPR_Object=MibTableColumn
-f3EthernetAccPortPOPMStatsAOPR=_F3EthernetAccPortPOPMStatsAOPR_Object((1,3,6,1,4,1,2544,1,12,16,2,1,1,2),_F3EthernetAccPortPOPMStatsAOPR_Type())
-f3EthernetAccPortPOPMStatsAOPR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMStatsAOPR.setStatus(_A)
-_F3EthernetAccPortPOPMStatsOPRVar_Type=Integer32
-_F3EthernetAccPortPOPMStatsOPRVar_Object=MibTableColumn
-f3EthernetAccPortPOPMStatsOPRVar=_F3EthernetAccPortPOPMStatsOPRVar_Object((1,3,6,1,4,1,2544,1,12,16,2,1,1,3),_F3EthernetAccPortPOPMStatsOPRVar_Type())
-f3EthernetAccPortPOPMStatsOPRVar.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMStatsOPRVar.setStatus(_A)
-_F3EthernetAccPortPOPMStatsOPRMaxVar_Type=Integer32
-_F3EthernetAccPortPOPMStatsOPRMaxVar_Object=MibTableColumn
-f3EthernetAccPortPOPMStatsOPRMaxVar=_F3EthernetAccPortPOPMStatsOPRMaxVar_Object((1,3,6,1,4,1,2544,1,12,16,2,1,1,4),_F3EthernetAccPortPOPMStatsOPRMaxVar_Type())
-f3EthernetAccPortPOPMStatsOPRMaxVar.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMStatsOPRMaxVar.setStatus(_A)
-_F3EthernetAccPortPOPMStatsOPRGlitchRejects_Type=Unsigned32
-_F3EthernetAccPortPOPMStatsOPRGlitchRejects_Object=MibTableColumn
-f3EthernetAccPortPOPMStatsOPRGlitchRejects=_F3EthernetAccPortPOPMStatsOPRGlitchRejects_Object((1,3,6,1,4,1,2544,1,12,16,2,1,1,5),_F3EthernetAccPortPOPMStatsOPRGlitchRejects_Type())
-f3EthernetAccPortPOPMStatsOPRGlitchRejects.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMStatsOPRGlitchRejects.setStatus(_A)
-_F3EthernetAccPortPOPMStatsOPRRTR_Type=Unsigned32
-_F3EthernetAccPortPOPMStatsOPRRTR_Object=MibTableColumn
-f3EthernetAccPortPOPMStatsOPRRTR=_F3EthernetAccPortPOPMStatsOPRRTR_Object((1,3,6,1,4,1,2544,1,12,16,2,1,1,6),_F3EthernetAccPortPOPMStatsOPRRTR_Type())
-f3EthernetAccPortPOPMStatsOPRRTR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMStatsOPRRTR.setStatus(_A)
-_F3EthernetAccPortPOPMStatsOPROOR_Type=Unsigned32
-_F3EthernetAccPortPOPMStatsOPROOR_Object=MibTableColumn
-f3EthernetAccPortPOPMStatsOPROOR=_F3EthernetAccPortPOPMStatsOPROOR_Object((1,3,6,1,4,1,2544,1,12,16,2,1,1,7),_F3EthernetAccPortPOPMStatsOPROOR_Type())
-f3EthernetAccPortPOPMStatsOPROOR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMStatsOPROOR.setStatus(_A)
-_F3EthernetAccPortPOPMStatsOPROOV_Type=Unsigned32
-_F3EthernetAccPortPOPMStatsOPROOV_Object=MibTableColumn
-f3EthernetAccPortPOPMStatsOPROOV=_F3EthernetAccPortPOPMStatsOPROOV_Object((1,3,6,1,4,1,2544,1,12,16,2,1,1,8),_F3EthernetAccPortPOPMStatsOPROOV_Type())
-f3EthernetAccPortPOPMStatsOPROOV.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMStatsOPROOV.setStatus(_A)
-_F3EthernetAccPortPOPMHistoryTable_Object=MibTable
-f3EthernetAccPortPOPMHistoryTable=_F3EthernetAccPortPOPMHistoryTable_Object((1,3,6,1,4,1,2544,1,12,16,2,2))
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMHistoryTable.setStatus(_A)
-_F3EthernetAccPortPOPMHistoryEntry_Object=MibTableRow
-f3EthernetAccPortPOPMHistoryEntry=_F3EthernetAccPortPOPMHistoryEntry_Object((1,3,6,1,4,1,2544,1,12,16,2,2,1))
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMHistoryEntry.setStatus(_A)
-_F3EthernetAccPortPOPMHistoryOPR_Type=Integer32
-_F3EthernetAccPortPOPMHistoryOPR_Object=MibTableColumn
-f3EthernetAccPortPOPMHistoryOPR=_F3EthernetAccPortPOPMHistoryOPR_Object((1,3,6,1,4,1,2544,1,12,16,2,2,1,1),_F3EthernetAccPortPOPMHistoryOPR_Type())
-f3EthernetAccPortPOPMHistoryOPR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMHistoryOPR.setStatus(_A)
-_F3EthernetAccPortPOPMHistoryAOPR_Type=Integer32
-_F3EthernetAccPortPOPMHistoryAOPR_Object=MibTableColumn
-f3EthernetAccPortPOPMHistoryAOPR=_F3EthernetAccPortPOPMHistoryAOPR_Object((1,3,6,1,4,1,2544,1,12,16,2,2,1,2),_F3EthernetAccPortPOPMHistoryAOPR_Type())
-f3EthernetAccPortPOPMHistoryAOPR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMHistoryAOPR.setStatus(_A)
-_F3EthernetAccPortPOPMHistoryOPRVar_Type=Integer32
-_F3EthernetAccPortPOPMHistoryOPRVar_Object=MibTableColumn
-f3EthernetAccPortPOPMHistoryOPRVar=_F3EthernetAccPortPOPMHistoryOPRVar_Object((1,3,6,1,4,1,2544,1,12,16,2,2,1,3),_F3EthernetAccPortPOPMHistoryOPRVar_Type())
-f3EthernetAccPortPOPMHistoryOPRVar.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMHistoryOPRVar.setStatus(_A)
-_F3EthernetAccPortPOPMHistoryOPRMaxVar_Type=Integer32
-_F3EthernetAccPortPOPMHistoryOPRMaxVar_Object=MibTableColumn
-f3EthernetAccPortPOPMHistoryOPRMaxVar=_F3EthernetAccPortPOPMHistoryOPRMaxVar_Object((1,3,6,1,4,1,2544,1,12,16,2,2,1,4),_F3EthernetAccPortPOPMHistoryOPRMaxVar_Type())
-f3EthernetAccPortPOPMHistoryOPRMaxVar.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMHistoryOPRMaxVar.setStatus(_A)
-_F3EthernetAccPortPOPMHistoryOPRGlitchRejects_Type=Unsigned32
-_F3EthernetAccPortPOPMHistoryOPRGlitchRejects_Object=MibTableColumn
-f3EthernetAccPortPOPMHistoryOPRGlitchRejects=_F3EthernetAccPortPOPMHistoryOPRGlitchRejects_Object((1,3,6,1,4,1,2544,1,12,16,2,2,1,5),_F3EthernetAccPortPOPMHistoryOPRGlitchRejects_Type())
-f3EthernetAccPortPOPMHistoryOPRGlitchRejects.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMHistoryOPRGlitchRejects.setStatus(_A)
-_F3EthernetAccPortPOPMHistoryOPRRTR_Type=Unsigned32
-_F3EthernetAccPortPOPMHistoryOPRRTR_Object=MibTableColumn
-f3EthernetAccPortPOPMHistoryOPRRTR=_F3EthernetAccPortPOPMHistoryOPRRTR_Object((1,3,6,1,4,1,2544,1,12,16,2,2,1,6),_F3EthernetAccPortPOPMHistoryOPRRTR_Type())
-f3EthernetAccPortPOPMHistoryOPRRTR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMHistoryOPRRTR.setStatus(_A)
-_F3EthernetAccPortPOPMHistoryOPROOR_Type=Unsigned32
-_F3EthernetAccPortPOPMHistoryOPROOR_Object=MibTableColumn
-f3EthernetAccPortPOPMHistoryOPROOR=_F3EthernetAccPortPOPMHistoryOPROOR_Object((1,3,6,1,4,1,2544,1,12,16,2,2,1,7),_F3EthernetAccPortPOPMHistoryOPROOR_Type())
-f3EthernetAccPortPOPMHistoryOPROOR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMHistoryOPROOR.setStatus(_A)
-_F3EthernetAccPortPOPMHistoryOPROOV_Type=Unsigned32
-_F3EthernetAccPortPOPMHistoryOPROOV_Object=MibTableColumn
-f3EthernetAccPortPOPMHistoryOPROOV=_F3EthernetAccPortPOPMHistoryOPROOV_Object((1,3,6,1,4,1,2544,1,12,16,2,2,1,8),_F3EthernetAccPortPOPMHistoryOPROOV_Type())
-f3EthernetAccPortPOPMHistoryOPROOV.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetAccPortPOPMHistoryOPROOV.setStatus(_A)
-_F3EthernetNetPortPOPMStatsTable_Object=MibTable
-f3EthernetNetPortPOPMStatsTable=_F3EthernetNetPortPOPMStatsTable_Object((1,3,6,1,4,1,2544,1,12,16,2,3))
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMStatsTable.setStatus(_A)
-_F3EthernetNetPortPOPMStatsEntry_Object=MibTableRow
-f3EthernetNetPortPOPMStatsEntry=_F3EthernetNetPortPOPMStatsEntry_Object((1,3,6,1,4,1,2544,1,12,16,2,3,1))
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMStatsEntry.setStatus(_A)
-_F3EthernetNetPortPOPMStatsOPR_Type=Integer32
-_F3EthernetNetPortPOPMStatsOPR_Object=MibTableColumn
-f3EthernetNetPortPOPMStatsOPR=_F3EthernetNetPortPOPMStatsOPR_Object((1,3,6,1,4,1,2544,1,12,16,2,3,1,1),_F3EthernetNetPortPOPMStatsOPR_Type())
-f3EthernetNetPortPOPMStatsOPR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMStatsOPR.setStatus(_A)
-_F3EthernetNetPortPOPMStatsAOPR_Type=Integer32
-_F3EthernetNetPortPOPMStatsAOPR_Object=MibTableColumn
-f3EthernetNetPortPOPMStatsAOPR=_F3EthernetNetPortPOPMStatsAOPR_Object((1,3,6,1,4,1,2544,1,12,16,2,3,1,2),_F3EthernetNetPortPOPMStatsAOPR_Type())
-f3EthernetNetPortPOPMStatsAOPR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMStatsAOPR.setStatus(_A)
-_F3EthernetNetPortPOPMStatsOPRVar_Type=Integer32
-_F3EthernetNetPortPOPMStatsOPRVar_Object=MibTableColumn
-f3EthernetNetPortPOPMStatsOPRVar=_F3EthernetNetPortPOPMStatsOPRVar_Object((1,3,6,1,4,1,2544,1,12,16,2,3,1,3),_F3EthernetNetPortPOPMStatsOPRVar_Type())
-f3EthernetNetPortPOPMStatsOPRVar.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMStatsOPRVar.setStatus(_A)
-_F3EthernetNetPortPOPMStatsOPRMaxVar_Type=Integer32
-_F3EthernetNetPortPOPMStatsOPRMaxVar_Object=MibTableColumn
-f3EthernetNetPortPOPMStatsOPRMaxVar=_F3EthernetNetPortPOPMStatsOPRMaxVar_Object((1,3,6,1,4,1,2544,1,12,16,2,3,1,4),_F3EthernetNetPortPOPMStatsOPRMaxVar_Type())
-f3EthernetNetPortPOPMStatsOPRMaxVar.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMStatsOPRMaxVar.setStatus(_A)
-_F3EthernetNetPortPOPMStatsOPRGlitchRejects_Type=Unsigned32
-_F3EthernetNetPortPOPMStatsOPRGlitchRejects_Object=MibTableColumn
-f3EthernetNetPortPOPMStatsOPRGlitchRejects=_F3EthernetNetPortPOPMStatsOPRGlitchRejects_Object((1,3,6,1,4,1,2544,1,12,16,2,3,1,5),_F3EthernetNetPortPOPMStatsOPRGlitchRejects_Type())
-f3EthernetNetPortPOPMStatsOPRGlitchRejects.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMStatsOPRGlitchRejects.setStatus(_A)
-_F3EthernetNetPortPOPMStatsOPRRTR_Type=Unsigned32
-_F3EthernetNetPortPOPMStatsOPRRTR_Object=MibTableColumn
-f3EthernetNetPortPOPMStatsOPRRTR=_F3EthernetNetPortPOPMStatsOPRRTR_Object((1,3,6,1,4,1,2544,1,12,16,2,3,1,6),_F3EthernetNetPortPOPMStatsOPRRTR_Type())
-f3EthernetNetPortPOPMStatsOPRRTR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMStatsOPRRTR.setStatus(_A)
-_F3EthernetNetPortPOPMStatsOPROOR_Type=Unsigned32
-_F3EthernetNetPortPOPMStatsOPROOR_Object=MibTableColumn
-f3EthernetNetPortPOPMStatsOPROOR=_F3EthernetNetPortPOPMStatsOPROOR_Object((1,3,6,1,4,1,2544,1,12,16,2,3,1,7),_F3EthernetNetPortPOPMStatsOPROOR_Type())
-f3EthernetNetPortPOPMStatsOPROOR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMStatsOPROOR.setStatus(_A)
-_F3EthernetNetPortPOPMStatsOPROOV_Type=Unsigned32
-_F3EthernetNetPortPOPMStatsOPROOV_Object=MibTableColumn
-f3EthernetNetPortPOPMStatsOPROOV=_F3EthernetNetPortPOPMStatsOPROOV_Object((1,3,6,1,4,1,2544,1,12,16,2,3,1,8),_F3EthernetNetPortPOPMStatsOPROOV_Type())
-f3EthernetNetPortPOPMStatsOPROOV.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMStatsOPROOV.setStatus(_A)
-_F3EthernetNetPortPOPMHistoryTable_Object=MibTable
-f3EthernetNetPortPOPMHistoryTable=_F3EthernetNetPortPOPMHistoryTable_Object((1,3,6,1,4,1,2544,1,12,16,2,4))
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMHistoryTable.setStatus(_A)
-_F3EthernetNetPortPOPMHistoryEntry_Object=MibTableRow
-f3EthernetNetPortPOPMHistoryEntry=_F3EthernetNetPortPOPMHistoryEntry_Object((1,3,6,1,4,1,2544,1,12,16,2,4,1))
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMHistoryEntry.setStatus(_A)
-_F3EthernetNetPortPOPMHistoryOPR_Type=Integer32
-_F3EthernetNetPortPOPMHistoryOPR_Object=MibTableColumn
-f3EthernetNetPortPOPMHistoryOPR=_F3EthernetNetPortPOPMHistoryOPR_Object((1,3,6,1,4,1,2544,1,12,16,2,4,1,1),_F3EthernetNetPortPOPMHistoryOPR_Type())
-f3EthernetNetPortPOPMHistoryOPR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMHistoryOPR.setStatus(_A)
-_F3EthernetNetPortPOPMHistoryAOPR_Type=Integer32
-_F3EthernetNetPortPOPMHistoryAOPR_Object=MibTableColumn
-f3EthernetNetPortPOPMHistoryAOPR=_F3EthernetNetPortPOPMHistoryAOPR_Object((1,3,6,1,4,1,2544,1,12,16,2,4,1,2),_F3EthernetNetPortPOPMHistoryAOPR_Type())
-f3EthernetNetPortPOPMHistoryAOPR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMHistoryAOPR.setStatus(_A)
-_F3EthernetNetPortPOPMHistoryOPRVar_Type=Integer32
-_F3EthernetNetPortPOPMHistoryOPRVar_Object=MibTableColumn
-f3EthernetNetPortPOPMHistoryOPRVar=_F3EthernetNetPortPOPMHistoryOPRVar_Object((1,3,6,1,4,1,2544,1,12,16,2,4,1,3),_F3EthernetNetPortPOPMHistoryOPRVar_Type())
-f3EthernetNetPortPOPMHistoryOPRVar.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMHistoryOPRVar.setStatus(_A)
-_F3EthernetNetPortPOPMHistoryOPRMaxVar_Type=Integer32
-_F3EthernetNetPortPOPMHistoryOPRMaxVar_Object=MibTableColumn
-f3EthernetNetPortPOPMHistoryOPRMaxVar=_F3EthernetNetPortPOPMHistoryOPRMaxVar_Object((1,3,6,1,4,1,2544,1,12,16,2,4,1,4),_F3EthernetNetPortPOPMHistoryOPRMaxVar_Type())
-f3EthernetNetPortPOPMHistoryOPRMaxVar.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMHistoryOPRMaxVar.setStatus(_A)
-_F3EthernetNetPortPOPMHistoryOPRGlitchRejects_Type=Unsigned32
-_F3EthernetNetPortPOPMHistoryOPRGlitchRejects_Object=MibTableColumn
-f3EthernetNetPortPOPMHistoryOPRGlitchRejects=_F3EthernetNetPortPOPMHistoryOPRGlitchRejects_Object((1,3,6,1,4,1,2544,1,12,16,2,4,1,5),_F3EthernetNetPortPOPMHistoryOPRGlitchRejects_Type())
-f3EthernetNetPortPOPMHistoryOPRGlitchRejects.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMHistoryOPRGlitchRejects.setStatus(_A)
-_F3EthernetNetPortPOPMHistoryOPRRTR_Type=Unsigned32
-_F3EthernetNetPortPOPMHistoryOPRRTR_Object=MibTableColumn
-f3EthernetNetPortPOPMHistoryOPRRTR=_F3EthernetNetPortPOPMHistoryOPRRTR_Object((1,3,6,1,4,1,2544,1,12,16,2,4,1,6),_F3EthernetNetPortPOPMHistoryOPRRTR_Type())
-f3EthernetNetPortPOPMHistoryOPRRTR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMHistoryOPRRTR.setStatus(_A)
-_F3EthernetNetPortPOPMHistoryOPROOR_Type=Unsigned32
-_F3EthernetNetPortPOPMHistoryOPROOR_Object=MibTableColumn
-f3EthernetNetPortPOPMHistoryOPROOR=_F3EthernetNetPortPOPMHistoryOPROOR_Object((1,3,6,1,4,1,2544,1,12,16,2,4,1,7),_F3EthernetNetPortPOPMHistoryOPROOR_Type())
-f3EthernetNetPortPOPMHistoryOPROOR.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMHistoryOPROOR.setStatus(_A)
-_F3EthernetNetPortPOPMHistoryOPROOV_Type=Unsigned32
-_F3EthernetNetPortPOPMHistoryOPROOV_Object=MibTableColumn
-f3EthernetNetPortPOPMHistoryOPROOV=_F3EthernetNetPortPOPMHistoryOPROOV_Object((1,3,6,1,4,1,2544,1,12,16,2,4,1,8),_F3EthernetNetPortPOPMHistoryOPROOV_Type())
-f3EthernetNetPortPOPMHistoryOPROOV.setMaxAccess(_C)
-if mibBuilder.loadTexts:f3EthernetNetPortPOPMHistoryOPROOV.setStatus(_A)
-_F3POPMConformance_ObjectIdentity=ObjectIdentity
-f3POPMConformance=_F3POPMConformance_ObjectIdentity((1,3,6,1,4,1,2544,1,12,16,3))
-_F3POPMCompliances_ObjectIdentity=ObjectIdentity
-f3POPMCompliances=_F3POPMCompliances_ObjectIdentity((1,3,6,1,4,1,2544,1,12,16,3,1))
-_F3POPMGroups_ObjectIdentity=ObjectIdentity
-f3POPMGroups=_F3POPMGroups_ObjectIdentity((1,3,6,1,4,1,2544,1,12,16,3,2))
-cmEthernetNetPortEntry.registerAugmentions((_B,_G))
-f3EthernetNetPortPOPMonitorEntry.setIndexNames(*cmEthernetNetPortEntry.getIndexNames())
-cmEthernetAccPortEntry.registerAugmentions((_B,_H))
+#
+# PySNMP MIB module F3-POPM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/adva/F3-POPM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:52 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+fsp150cm, = mibBuilder.importSymbols("ADVA-MIB", "fsp150cm")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+PerfCounter64, = mibBuilder.importSymbols("CM-COMMON-MIB", "PerfCounter64")
+neIndex, shelfIndex, slotIndex = mibBuilder.importSymbols("CM-ENTITY-MIB", "neIndex", "shelfIndex", "slotIndex")
+cmEthernetNetPortEntry, cmEthernetAccPortEntry = mibBuilder.importSymbols("CM-FACILITY-MIB", "cmEthernetNetPortEntry", "cmEthernetAccPortEntry")
+cmEthernetAccPortStatsEntry, cmEthernetAccPortHistoryEntry, cmEthernetNetPortStatsEntry, cmEthernetNetPortHistoryEntry = mibBuilder.importSymbols("CM-PERFORMANCE-MIB", "cmEthernetAccPortStatsEntry", "cmEthernetAccPortHistoryEntry", "cmEthernetNetPortStatsEntry", "cmEthernetNetPortHistoryEntry")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, VariablePointer, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "VariablePointer", "DateAndTime", "TruthValue", "TextualConvention")
+f3POPMMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16))
+f3POPMMib.setRevisions(('2011-10-10 00:00',))
+if mibBuilder.loadTexts: f3POPMMib.setLastUpdated('201110100000Z')
+if mibBuilder.loadTexts: f3POPMMib.setOrganization('ADVA Optical Networking')
+f3POPMObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1))
+f3POPMPerfObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2))
+f3POPMConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 3))
+class POPMGlitchRejectionLevel(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("none", 1), ("low", 2), ("medium", 3), ("high", 4))
+
+class POPMState(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))
+    namedValues = NamedValues(("not-applicable", 1), ("inoperable", 2), ("not-available", 3), ("calibrating", 4), ("monitoring", 5), ("paused", 6), ("inhibited-R", 7), ("inhibited-NR", 8))
+
+class POPMClearAlarmsAction(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
+    namedValues = NamedValues(("not-applicable", 0), ("clear", 1))
+
+f3EthernetAccPortPOPMonitorTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 2), )
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMonitorTable.setStatus('current')
+f3EthernetAccPortPOPMonitorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 2, 1), )
+cmEthernetAccPortEntry.registerAugmentions(("F3-POPM-MIB", "f3EthernetAccPortPOPMonitorEntry"))
 f3EthernetAccPortPOPMonitorEntry.setIndexNames(*cmEthernetAccPortEntry.getIndexNames())
-cmEthernetAccPortStatsEntry.registerAugmentions((_B,_I))
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMonitorEntry.setStatus('current')
+f3EthernetAccPortPOPMonitorEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 2, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMonitorEnabled.setStatus('current')
+f3EthernetAccPortPOPMonitorOperRangeHi = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMonitorOperRangeHi.setStatus('current')
+f3EthernetAccPortPOPMonitorOperRangeLow = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMonitorOperRangeLow.setStatus('current')
+f3EthernetAccPortPOPMonitorVariance = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 2, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMonitorVariance.setStatus('current')
+f3EthernetAccPortPOPMonitorWindowSize = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3600))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMonitorWindowSize.setStatus('current')
+f3EthernetAccPortPOPMonitorGlitchRejectionLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 2, 1, 6), POPMGlitchRejectionLevel()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMonitorGlitchRejectionLevel.setStatus('current')
+f3EthernetAccPortPOPMonitorState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 2, 1, 7), POPMState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMonitorState.setStatus('current')
+f3EthernetAccPortPOPMonitorClearAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 2, 1, 8), POPMClearAlarmsAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMonitorClearAction.setStatus('current')
+f3EthernetNetPortPOPMonitorTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 1), )
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMonitorTable.setStatus('current')
+f3EthernetNetPortPOPMonitorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 1, 1), )
+cmEthernetNetPortEntry.registerAugmentions(("F3-POPM-MIB", "f3EthernetNetPortPOPMonitorEntry"))
+f3EthernetNetPortPOPMonitorEntry.setIndexNames(*cmEthernetNetPortEntry.getIndexNames())
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMonitorEntry.setStatus('current')
+f3EthernetNetPortPOPMonitorEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMonitorEnabled.setStatus('current')
+f3EthernetNetPortPOPMonitorOperRangeHi = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMonitorOperRangeHi.setStatus('current')
+f3EthernetNetPortPOPMonitorOperRangeLow = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMonitorOperRangeLow.setStatus('current')
+f3EthernetNetPortPOPMonitorVariance = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMonitorVariance.setStatus('current')
+f3EthernetNetPortPOPMonitorWindowSize = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3600))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMonitorWindowSize.setStatus('current')
+f3EthernetNetPortPOPMonitorGlitchRejectionLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 1, 1, 6), POPMGlitchRejectionLevel()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMonitorGlitchRejectionLevel.setStatus('current')
+f3EthernetNetPortPOPMonitorState = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 1, 1, 7), POPMState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMonitorState.setStatus('current')
+f3EthernetNetPortPOPMonitorClearAction = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 1, 1, 1, 8), POPMClearAlarmsAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMonitorClearAction.setStatus('current')
+f3EthernetAccPortPOPMStatsTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 1), )
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMStatsTable.setStatus('current')
+f3EthernetAccPortPOPMStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 1, 1), )
+cmEthernetAccPortStatsEntry.registerAugmentions(("F3-POPM-MIB", "f3EthernetAccPortPOPMStatsEntry"))
 f3EthernetAccPortPOPMStatsEntry.setIndexNames(*cmEthernetAccPortStatsEntry.getIndexNames())
-cmEthernetAccPortHistoryEntry.registerAugmentions((_B,_J))
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMStatsEntry.setStatus('current')
+f3EthernetAccPortPOPMStatsOPR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMStatsOPR.setStatus('current')
+f3EthernetAccPortPOPMStatsAOPR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMStatsAOPR.setStatus('current')
+f3EthernetAccPortPOPMStatsOPRVar = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 1, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMStatsOPRVar.setStatus('current')
+f3EthernetAccPortPOPMStatsOPRMaxVar = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 1, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMStatsOPRMaxVar.setStatus('current')
+f3EthernetAccPortPOPMStatsOPRGlitchRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMStatsOPRGlitchRejects.setStatus('current')
+f3EthernetAccPortPOPMStatsOPRRTR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMStatsOPRRTR.setStatus('current')
+f3EthernetAccPortPOPMStatsOPROOR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMStatsOPROOR.setStatus('current')
+f3EthernetAccPortPOPMStatsOPROOV = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 1, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMStatsOPROOV.setStatus('current')
+f3EthernetAccPortPOPMHistoryTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 2), )
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMHistoryTable.setStatus('current')
+f3EthernetAccPortPOPMHistoryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 2, 1), )
+cmEthernetAccPortHistoryEntry.registerAugmentions(("F3-POPM-MIB", "f3EthernetAccPortPOPMHistoryEntry"))
 f3EthernetAccPortPOPMHistoryEntry.setIndexNames(*cmEthernetAccPortHistoryEntry.getIndexNames())
-cmEthernetNetPortStatsEntry.registerAugmentions((_B,_K))
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMHistoryEntry.setStatus('current')
+f3EthernetAccPortPOPMHistoryOPR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 2, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMHistoryOPR.setStatus('current')
+f3EthernetAccPortPOPMHistoryAOPR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 2, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMHistoryAOPR.setStatus('current')
+f3EthernetAccPortPOPMHistoryOPRVar = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 2, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMHistoryOPRVar.setStatus('current')
+f3EthernetAccPortPOPMHistoryOPRMaxVar = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 2, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMHistoryOPRMaxVar.setStatus('current')
+f3EthernetAccPortPOPMHistoryOPRGlitchRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 2, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMHistoryOPRGlitchRejects.setStatus('current')
+f3EthernetAccPortPOPMHistoryOPRRTR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 2, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMHistoryOPRRTR.setStatus('current')
+f3EthernetAccPortPOPMHistoryOPROOR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 2, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMHistoryOPROOR.setStatus('current')
+f3EthernetAccPortPOPMHistoryOPROOV = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 2, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetAccPortPOPMHistoryOPROOV.setStatus('current')
+f3EthernetNetPortPOPMStatsTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 3), )
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMStatsTable.setStatus('current')
+f3EthernetNetPortPOPMStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 3, 1), )
+cmEthernetNetPortStatsEntry.registerAugmentions(("F3-POPM-MIB", "f3EthernetNetPortPOPMStatsEntry"))
 f3EthernetNetPortPOPMStatsEntry.setIndexNames(*cmEthernetNetPortStatsEntry.getIndexNames())
-cmEthernetNetPortHistoryEntry.registerAugmentions((_B,_L))
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMStatsEntry.setStatus('current')
+f3EthernetNetPortPOPMStatsOPR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 3, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMStatsOPR.setStatus('current')
+f3EthernetNetPortPOPMStatsAOPR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 3, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMStatsAOPR.setStatus('current')
+f3EthernetNetPortPOPMStatsOPRVar = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 3, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMStatsOPRVar.setStatus('current')
+f3EthernetNetPortPOPMStatsOPRMaxVar = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 3, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMStatsOPRMaxVar.setStatus('current')
+f3EthernetNetPortPOPMStatsOPRGlitchRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 3, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMStatsOPRGlitchRejects.setStatus('current')
+f3EthernetNetPortPOPMStatsOPRRTR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 3, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMStatsOPRRTR.setStatus('current')
+f3EthernetNetPortPOPMStatsOPROOR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 3, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMStatsOPROOR.setStatus('current')
+f3EthernetNetPortPOPMStatsOPROOV = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 3, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMStatsOPROOV.setStatus('current')
+f3EthernetNetPortPOPMHistoryTable = MibTable((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 4), )
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMHistoryTable.setStatus('current')
+f3EthernetNetPortPOPMHistoryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 4, 1), )
+cmEthernetNetPortHistoryEntry.registerAugmentions(("F3-POPM-MIB", "f3EthernetNetPortPOPMHistoryEntry"))
 f3EthernetNetPortPOPMHistoryEntry.setIndexNames(*cmEthernetNetPortHistoryEntry.getIndexNames())
-f3POPMFacilityGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,16,3,2,1))
-f3POPMFacilityGroup.setObjects(*((_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b)))
-if mibBuilder.loadTexts:f3POPMFacilityGroup.setStatus(_A)
-f3POPMStatsGroup=ObjectGroup((1,3,6,1,4,1,2544,1,12,16,3,2,2))
-f3POPMStatsGroup.setObjects(*((_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7)))
-if mibBuilder.loadTexts:f3POPMStatsGroup.setStatus(_A)
-f3POPMCompliance=ModuleCompliance((1,3,6,1,4,1,2544,1,12,16,3,1,1))
-f3POPMCompliance.setObjects(*((_B,_A8),(_B,_A9)))
-if mibBuilder.loadTexts:f3POPMCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'POPMGlitchRejectionLevel':POPMGlitchRejectionLevel,'POPMState':POPMState,'POPMClearAlarmsAction':POPMClearAlarmsAction,'f3POPMMib':f3POPMMib,'f3POPMObjects':f3POPMObjects,'f3EthernetNetPortPOPMonitorTable':f3EthernetNetPortPOPMonitorTable,_G:f3EthernetNetPortPOPMonitorEntry,_U:f3EthernetNetPortPOPMonitorEnabled,_V:f3EthernetNetPortPOPMonitorOperRangeHi,_W:f3EthernetNetPortPOPMonitorOperRangeLow,_X:f3EthernetNetPortPOPMonitorVariance,_Y:f3EthernetNetPortPOPMonitorWindowSize,_Z:f3EthernetNetPortPOPMonitorGlitchRejectionLevel,_a:f3EthernetNetPortPOPMonitorState,_b:f3EthernetNetPortPOPMonitorClearAction,'f3EthernetAccPortPOPMonitorTable':f3EthernetAccPortPOPMonitorTable,_H:f3EthernetAccPortPOPMonitorEntry,_M:f3EthernetAccPortPOPMonitorEnabled,_N:f3EthernetAccPortPOPMonitorOperRangeHi,_O:f3EthernetAccPortPOPMonitorOperRangeLow,_P:f3EthernetAccPortPOPMonitorVariance,_Q:f3EthernetAccPortPOPMonitorWindowSize,_R:f3EthernetAccPortPOPMonitorGlitchRejectionLevel,_S:f3EthernetAccPortPOPMonitorState,_T:f3EthernetAccPortPOPMonitorClearAction,'f3POPMPerfObjects':f3POPMPerfObjects,'f3EthernetAccPortPOPMStatsTable':f3EthernetAccPortPOPMStatsTable,_I:f3EthernetAccPortPOPMStatsEntry,_c:f3EthernetAccPortPOPMStatsOPR,_d:f3EthernetAccPortPOPMStatsAOPR,_e:f3EthernetAccPortPOPMStatsOPRVar,_f:f3EthernetAccPortPOPMStatsOPRMaxVar,_g:f3EthernetAccPortPOPMStatsOPRGlitchRejects,_h:f3EthernetAccPortPOPMStatsOPRRTR,_i:f3EthernetAccPortPOPMStatsOPROOR,_j:f3EthernetAccPortPOPMStatsOPROOV,'f3EthernetAccPortPOPMHistoryTable':f3EthernetAccPortPOPMHistoryTable,_J:f3EthernetAccPortPOPMHistoryEntry,_k:f3EthernetAccPortPOPMHistoryOPR,_l:f3EthernetAccPortPOPMHistoryAOPR,_m:f3EthernetAccPortPOPMHistoryOPRVar,_n:f3EthernetAccPortPOPMHistoryOPRMaxVar,_o:f3EthernetAccPortPOPMHistoryOPRGlitchRejects,_p:f3EthernetAccPortPOPMHistoryOPRRTR,_q:f3EthernetAccPortPOPMHistoryOPROOR,_r:f3EthernetAccPortPOPMHistoryOPROOV,'f3EthernetNetPortPOPMStatsTable':f3EthernetNetPortPOPMStatsTable,_K:f3EthernetNetPortPOPMStatsEntry,_s:f3EthernetNetPortPOPMStatsOPR,_t:f3EthernetNetPortPOPMStatsAOPR,_u:f3EthernetNetPortPOPMStatsOPRVar,_v:f3EthernetNetPortPOPMStatsOPRMaxVar,_w:f3EthernetNetPortPOPMStatsOPRGlitchRejects,_x:f3EthernetNetPortPOPMStatsOPRRTR,_y:f3EthernetNetPortPOPMStatsOPROOR,_z:f3EthernetNetPortPOPMStatsOPROOV,'f3EthernetNetPortPOPMHistoryTable':f3EthernetNetPortPOPMHistoryTable,_L:f3EthernetNetPortPOPMHistoryEntry,_A0:f3EthernetNetPortPOPMHistoryOPR,_A1:f3EthernetNetPortPOPMHistoryAOPR,_A2:f3EthernetNetPortPOPMHistoryOPRVar,_A3:f3EthernetNetPortPOPMHistoryOPRMaxVar,_A4:f3EthernetNetPortPOPMHistoryOPRGlitchRejects,_A5:f3EthernetNetPortPOPMHistoryOPRRTR,_A6:f3EthernetNetPortPOPMHistoryOPROOR,_A7:f3EthernetNetPortPOPMHistoryOPROOV,'f3POPMConformance':f3POPMConformance,'f3POPMCompliances':f3POPMCompliances,'f3POPMCompliance':f3POPMCompliance,'f3POPMGroups':f3POPMGroups,_A8:f3POPMFacilityGroup,_A9:f3POPMStatsGroup})
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMHistoryEntry.setStatus('current')
+f3EthernetNetPortPOPMHistoryOPR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 4, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMHistoryOPR.setStatus('current')
+f3EthernetNetPortPOPMHistoryAOPR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 4, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMHistoryAOPR.setStatus('current')
+f3EthernetNetPortPOPMHistoryOPRVar = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 4, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMHistoryOPRVar.setStatus('current')
+f3EthernetNetPortPOPMHistoryOPRMaxVar = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 4, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMHistoryOPRMaxVar.setStatus('current')
+f3EthernetNetPortPOPMHistoryOPRGlitchRejects = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 4, 1, 5), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMHistoryOPRGlitchRejects.setStatus('current')
+f3EthernetNetPortPOPMHistoryOPRRTR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 4, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMHistoryOPRRTR.setStatus('current')
+f3EthernetNetPortPOPMHistoryOPROOR = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 4, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMHistoryOPROOR.setStatus('current')
+f3EthernetNetPortPOPMHistoryOPROOV = MibTableColumn((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 2, 4, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: f3EthernetNetPortPOPMHistoryOPROOV.setStatus('current')
+f3POPMCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 3, 1))
+f3POPMGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 3, 2))
+f3POPMCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 3, 1, 1)).setObjects(("F3-POPM-MIB", "f3POPMFacilityGroup"), ("F3-POPM-MIB", "f3POPMStatsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    f3POPMCompliance = f3POPMCompliance.setStatus('current')
+f3POPMFacilityGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 3, 2, 1)).setObjects(("F3-POPM-MIB", "f3EthernetAccPortPOPMonitorEnabled"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMonitorOperRangeHi"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMonitorOperRangeLow"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMonitorVariance"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMonitorWindowSize"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMonitorGlitchRejectionLevel"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMonitorState"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMonitorClearAction"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMonitorEnabled"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMonitorOperRangeHi"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMonitorOperRangeLow"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMonitorVariance"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMonitorWindowSize"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMonitorGlitchRejectionLevel"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMonitorState"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMonitorClearAction"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    f3POPMFacilityGroup = f3POPMFacilityGroup.setStatus('current')
+f3POPMStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 16, 3, 2, 2)).setObjects(("F3-POPM-MIB", "f3EthernetAccPortPOPMStatsOPR"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMStatsAOPR"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMStatsOPRVar"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMStatsOPRMaxVar"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMStatsOPRGlitchRejects"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMStatsOPRRTR"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMStatsOPROOR"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMStatsOPROOV"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMHistoryOPR"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMHistoryAOPR"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMHistoryOPRVar"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMHistoryOPRMaxVar"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMHistoryOPRGlitchRejects"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMHistoryOPRRTR"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMHistoryOPROOR"), ("F3-POPM-MIB", "f3EthernetAccPortPOPMHistoryOPROOV"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMStatsOPR"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMStatsAOPR"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMStatsOPRVar"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMStatsOPRMaxVar"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMStatsOPRGlitchRejects"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMStatsOPRRTR"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMStatsOPROOR"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMStatsOPROOV"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMHistoryOPR"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMHistoryAOPR"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMHistoryOPRVar"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMHistoryOPRMaxVar"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMHistoryOPRGlitchRejects"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMHistoryOPRRTR"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMHistoryOPROOR"), ("F3-POPM-MIB", "f3EthernetNetPortPOPMHistoryOPROOV"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    f3POPMStatsGroup = f3POPMStatsGroup.setStatus('current')
+mibBuilder.exportSymbols("F3-POPM-MIB", f3EthernetAccPortPOPMonitorState=f3EthernetAccPortPOPMonitorState, f3EthernetAccPortPOPMStatsEntry=f3EthernetAccPortPOPMStatsEntry, f3EthernetAccPortPOPMHistoryOPRMaxVar=f3EthernetAccPortPOPMHistoryOPRMaxVar, f3EthernetAccPortPOPMonitorWindowSize=f3EthernetAccPortPOPMonitorWindowSize, f3EthernetAccPortPOPMonitorGlitchRejectionLevel=f3EthernetAccPortPOPMonitorGlitchRejectionLevel, f3EthernetAccPortPOPMStatsOPRRTR=f3EthernetAccPortPOPMStatsOPRRTR, f3EthernetNetPortPOPMonitorTable=f3EthernetNetPortPOPMonitorTable, f3EthernetNetPortPOPMonitorOperRangeLow=f3EthernetNetPortPOPMonitorOperRangeLow, POPMClearAlarmsAction=POPMClearAlarmsAction, f3EthernetNetPortPOPMHistoryOPROOR=f3EthernetNetPortPOPMHistoryOPROOR, f3EthernetAccPortPOPMStatsOPRVar=f3EthernetAccPortPOPMStatsOPRVar, f3EthernetNetPortPOPMStatsAOPR=f3EthernetNetPortPOPMStatsAOPR, f3EthernetAccPortPOPMHistoryEntry=f3EthernetAccPortPOPMHistoryEntry, POPMState=POPMState, f3EthernetAccPortPOPMStatsOPRGlitchRejects=f3EthernetAccPortPOPMStatsOPRGlitchRejects, f3EthernetAccPortPOPMStatsOPROOV=f3EthernetAccPortPOPMStatsOPROOV, f3POPMStatsGroup=f3POPMStatsGroup, f3EthernetNetPortPOPMonitorVariance=f3EthernetNetPortPOPMonitorVariance, f3EthernetAccPortPOPMonitorVariance=f3EthernetAccPortPOPMonitorVariance, f3EthernetNetPortPOPMonitorClearAction=f3EthernetNetPortPOPMonitorClearAction, f3EthernetAccPortPOPMHistoryOPROOR=f3EthernetAccPortPOPMHistoryOPROOR, f3EthernetNetPortPOPMHistoryAOPR=f3EthernetNetPortPOPMHistoryAOPR, f3EthernetNetPortPOPMStatsOPROOV=f3EthernetNetPortPOPMStatsOPROOV, f3EthernetAccPortPOPMHistoryOPRRTR=f3EthernetAccPortPOPMHistoryOPRRTR, f3EthernetNetPortPOPMonitorState=f3EthernetNetPortPOPMonitorState, f3EthernetNetPortPOPMonitorEnabled=f3EthernetNetPortPOPMonitorEnabled, f3POPMPerfObjects=f3POPMPerfObjects, f3POPMMib=f3POPMMib, f3EthernetAccPortPOPMStatsAOPR=f3EthernetAccPortPOPMStatsAOPR, f3EthernetNetPortPOPMStatsOPR=f3EthernetNetPortPOPMStatsOPR, f3EthernetAccPortPOPMStatsTable=f3EthernetAccPortPOPMStatsTable, f3EthernetNetPortPOPMHistoryOPR=f3EthernetNetPortPOPMHistoryOPR, PYSNMP_MODULE_ID=f3POPMMib, f3EthernetAccPortPOPMStatsOPROOR=f3EthernetAccPortPOPMStatsOPROOR, f3EthernetNetPortPOPMonitorWindowSize=f3EthernetNetPortPOPMonitorWindowSize, f3EthernetAccPortPOPMStatsOPRMaxVar=f3EthernetAccPortPOPMStatsOPRMaxVar, f3POPMCompliance=f3POPMCompliance, f3EthernetNetPortPOPMHistoryTable=f3EthernetNetPortPOPMHistoryTable, f3EthernetNetPortPOPMonitorEntry=f3EthernetNetPortPOPMonitorEntry, f3EthernetAccPortPOPMHistoryOPRGlitchRejects=f3EthernetAccPortPOPMHistoryOPRGlitchRejects, f3EthernetAccPortPOPMonitorEntry=f3EthernetAccPortPOPMonitorEntry, f3POPMObjects=f3POPMObjects, f3EthernetAccPortPOPMonitorEnabled=f3EthernetAccPortPOPMonitorEnabled, f3EthernetAccPortPOPMonitorClearAction=f3EthernetAccPortPOPMonitorClearAction, f3EthernetNetPortPOPMStatsOPRGlitchRejects=f3EthernetNetPortPOPMStatsOPRGlitchRejects, POPMGlitchRejectionLevel=POPMGlitchRejectionLevel, f3EthernetAccPortPOPMonitorOperRangeLow=f3EthernetAccPortPOPMonitorOperRangeLow, f3EthernetNetPortPOPMonitorOperRangeHi=f3EthernetNetPortPOPMonitorOperRangeHi, f3EthernetAccPortPOPMHistoryOPROOV=f3EthernetAccPortPOPMHistoryOPROOV, f3POPMCompliances=f3POPMCompliances, f3EthernetNetPortPOPMonitorGlitchRejectionLevel=f3EthernetNetPortPOPMonitorGlitchRejectionLevel, f3EthernetAccPortPOPMonitorTable=f3EthernetAccPortPOPMonitorTable, f3EthernetNetPortPOPMHistoryOPRVar=f3EthernetNetPortPOPMHistoryOPRVar, f3EthernetAccPortPOPMHistoryAOPR=f3EthernetAccPortPOPMHistoryAOPR, f3EthernetNetPortPOPMHistoryOPROOV=f3EthernetNetPortPOPMHistoryOPROOV, f3POPMGroups=f3POPMGroups, f3EthernetNetPortPOPMStatsOPRRTR=f3EthernetNetPortPOPMStatsOPRRTR, f3EthernetNetPortPOPMHistoryOPRMaxVar=f3EthernetNetPortPOPMHistoryOPRMaxVar, f3POPMConformance=f3POPMConformance, f3EthernetAccPortPOPMHistoryTable=f3EthernetAccPortPOPMHistoryTable, f3EthernetNetPortPOPMStatsOPRMaxVar=f3EthernetNetPortPOPMStatsOPRMaxVar, f3EthernetNetPortPOPMStatsOPRVar=f3EthernetNetPortPOPMStatsOPRVar, f3POPMFacilityGroup=f3POPMFacilityGroup, f3EthernetNetPortPOPMStatsOPROOR=f3EthernetNetPortPOPMStatsOPROOR, f3EthernetAccPortPOPMonitorOperRangeHi=f3EthernetAccPortPOPMonitorOperRangeHi, f3EthernetNetPortPOPMHistoryOPRGlitchRejects=f3EthernetNetPortPOPMHistoryOPRGlitchRejects, f3EthernetNetPortPOPMHistoryEntry=f3EthernetNetPortPOPMHistoryEntry, f3EthernetAccPortPOPMHistoryOPR=f3EthernetAccPortPOPMHistoryOPR, f3EthernetNetPortPOPMHistoryOPRRTR=f3EthernetNetPortPOPMHistoryOPRRTR, f3EthernetNetPortPOPMStatsTable=f3EthernetNetPortPOPMStatsTable, f3EthernetNetPortPOPMStatsEntry=f3EthernetNetPortPOPMStatsEntry, f3EthernetAccPortPOPMHistoryOPRVar=f3EthernetAccPortPOPMHistoryOPRVar, f3EthernetAccPortPOPMStatsOPR=f3EthernetAccPortPOPMStatsOPR)

@@ -1,25 +1,23 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_mgmt,dlink_products=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-mgmt','dlink-products')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Dlink_Dgs3200SeriesProd_ObjectIdentity=ObjectIdentity
-dlink_Dgs3200SeriesProd=_Dlink_Dgs3200SeriesProd_ObjectIdentity((1,3,6,1,4,1,171,10,101))
-_Dgs3200_Prod_ObjectIdentity=ObjectIdentity
-dgs3200_Prod=_Dgs3200_Prod_ObjectIdentity((1,3,6,1,4,1,171,10,101,1))
-_Dgs3216_Prod_ObjectIdentity=ObjectIdentity
-dgs3216_Prod=_Dgs3216_Prod_ObjectIdentity((1,3,6,1,4,1,171,10,101,2))
-_Dgs3224_Prod_ObjectIdentity=ObjectIdentity
-dgs3224_Prod=_Dgs3224_Prod_ObjectIdentity((1,3,6,1,4,1,171,10,101,3))
-_Dlink_Dgs3200Series_ObjectIdentity=ObjectIdentity
-dlink_Dgs3200Series=_Dlink_Dgs3200Series_ObjectIdentity((1,3,6,1,4,1,171,11,101))
-_Dgs3200_ObjectIdentity=ObjectIdentity
-dgs3200=_Dgs3200_ObjectIdentity((1,3,6,1,4,1,171,11,101,1))
-_Dgs3216_ObjectIdentity=ObjectIdentity
-dgs3216=_Dgs3216_ObjectIdentity((1,3,6,1,4,1,171,11,101,2))
-_Dgs3224_ObjectIdentity=ObjectIdentity
-dgs3224=_Dgs3224_ObjectIdentity((1,3,6,1,4,1,171,11,101,3))
-mibBuilder.exportSymbols('SW3200PRIMGMT-MIB',**{'dlink-Dgs3200SeriesProd':dlink_Dgs3200SeriesProd,'dgs3200-Prod':dgs3200_Prod,'dgs3216-Prod':dgs3216_Prod,'dgs3224-Prod':dgs3224_Prod,'dlink-Dgs3200Series':dlink_Dgs3200Series,'dgs3200':dgs3200,'dgs3216':dgs3216,'dgs3224':dgs3224})
+#
+# PySNMP MIB module SW3200PRIMGMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/SW3200PRIMGMT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:34 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_mgmt, dlink_products = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-mgmt", "dlink-products")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+dlink_Dgs3200Series = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 101)).setLabel("dlink-Dgs3200Series")
+dgs3200 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 101, 1))
+dgs3216 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 101, 2))
+dgs3224 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 101, 3))
+dlink_Dgs3200SeriesProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 101)).setLabel("dlink-Dgs3200SeriesProd")
+dgs3200_Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 101, 1)).setLabel("dgs3200-Prod")
+dgs3216_Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 101, 2)).setLabel("dgs3216-Prod")
+dgs3224_Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 101, 3)).setLabel("dgs3224-Prod")
+mibBuilder.exportSymbols("SW3200PRIMGMT-MIB", dgs3216=dgs3216, dlink_Dgs3200Series=dlink_Dgs3200Series, dgs3200=dgs3200, dgs3216_Prod=dgs3216_Prod, dgs3200_Prod=dgs3200_Prod, dgs3224=dgs3224, dlink_Dgs3200SeriesProd=dlink_Dgs3200SeriesProd, dgs3224_Prod=dgs3224_Prod)

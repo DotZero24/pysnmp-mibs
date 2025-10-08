@@ -1,85 +1,47 @@
-_P='osSnmpMandatoryGroup'
-_O='osSnmpChangeLogMode'
-_N='osSnmpAlarmMangerMode'
-_M='osSnmpChangeCliNodeName'
-_L='osSnmpChangeCliCommand'
-_K='osSnmpChangeCliUser'
-_J='osSnmpChangeV3User'
-_I='osSnmpChangeV2Community'
-_H='osSnmpChangeSourceAddress'
-_G='read-write'
-_F='enable'
-_E='disable'
-_D='Integer32'
-_C='accessible-for-notify'
-_B='OS-SNMP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-adva,=mibBuilder.importSymbols('OS-COMMON-TC-MIB','adva')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-osSnmp=ModuleIdentity((1,3,6,1,4,1,629,2544,7))
-if mibBuilder.loadTexts:osSnmp.setRevisions(('2020-12-09 00:00',))
-_OsSnmpNotificationObjects_ObjectIdentity=ObjectIdentity
-osSnmpNotificationObjects=_OsSnmpNotificationObjects_ObjectIdentity((1,3,6,1,4,1,629,2544,7,1))
-_OsSnmpChangeSourceAddress_Type=DisplayString
-_OsSnmpChangeSourceAddress_Object=MibScalar
-osSnmpChangeSourceAddress=_OsSnmpChangeSourceAddress_Object((1,3,6,1,4,1,629,2544,7,1,1),_OsSnmpChangeSourceAddress_Type())
-osSnmpChangeSourceAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:osSnmpChangeSourceAddress.setStatus(_A)
-_OsSnmpChangeV2Community_Type=DisplayString
-_OsSnmpChangeV2Community_Object=MibScalar
-osSnmpChangeV2Community=_OsSnmpChangeV2Community_Object((1,3,6,1,4,1,629,2544,7,1,2),_OsSnmpChangeV2Community_Type())
-osSnmpChangeV2Community.setMaxAccess(_C)
-if mibBuilder.loadTexts:osSnmpChangeV2Community.setStatus(_A)
-_OsSnmpChangeV3User_Type=DisplayString
-_OsSnmpChangeV3User_Object=MibScalar
-osSnmpChangeV3User=_OsSnmpChangeV3User_Object((1,3,6,1,4,1,629,2544,7,1,3),_OsSnmpChangeV3User_Type())
-osSnmpChangeV3User.setMaxAccess(_C)
-if mibBuilder.loadTexts:osSnmpChangeV3User.setStatus(_A)
-_OsSnmpChangeCliUser_Type=DisplayString
-_OsSnmpChangeCliUser_Object=MibScalar
-osSnmpChangeCliUser=_OsSnmpChangeCliUser_Object((1,3,6,1,4,1,629,2544,7,1,4),_OsSnmpChangeCliUser_Type())
-osSnmpChangeCliUser.setMaxAccess(_C)
-if mibBuilder.loadTexts:osSnmpChangeCliUser.setStatus(_A)
-_OsSnmpChangeCliCommand_Type=DisplayString
-_OsSnmpChangeCliCommand_Object=MibScalar
-osSnmpChangeCliCommand=_OsSnmpChangeCliCommand_Object((1,3,6,1,4,1,629,2544,7,1,5),_OsSnmpChangeCliCommand_Type())
-osSnmpChangeCliCommand.setMaxAccess(_C)
-if mibBuilder.loadTexts:osSnmpChangeCliCommand.setStatus(_A)
-_OsSnmpChangeCliNodeName_Type=DisplayString
-_OsSnmpChangeCliNodeName_Object=MibScalar
-osSnmpChangeCliNodeName=_OsSnmpChangeCliNodeName_Object((1,3,6,1,4,1,629,2544,7,1,6),_OsSnmpChangeCliNodeName_Type())
-osSnmpChangeCliNodeName.setMaxAccess(_C)
-if mibBuilder.loadTexts:osSnmpChangeCliNodeName.setStatus(_A)
-_OsSnmpCfg_ObjectIdentity=ObjectIdentity
-osSnmpCfg=_OsSnmpCfg_ObjectIdentity((1,3,6,1,4,1,629,2544,7,2))
-class _OsSnmpAlarmMangerMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_OsSnmpAlarmMangerMode_Type.__name__=_D
-_OsSnmpAlarmMangerMode_Object=MibScalar
-osSnmpAlarmMangerMode=_OsSnmpAlarmMangerMode_Object((1,3,6,1,4,1,629,2544,7,2,1),_OsSnmpAlarmMangerMode_Type())
-osSnmpAlarmMangerMode.setMaxAccess(_G)
-if mibBuilder.loadTexts:osSnmpAlarmMangerMode.setStatus(_A)
-class _OsSnmpChangeLogMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_OsSnmpChangeLogMode_Type.__name__=_D
-_OsSnmpChangeLogMode_Object=MibScalar
-osSnmpChangeLogMode=_OsSnmpChangeLogMode_Object((1,3,6,1,4,1,629,2544,7,2,2),_OsSnmpChangeLogMode_Type())
-osSnmpChangeLogMode.setMaxAccess(_G)
-if mibBuilder.loadTexts:osSnmpChangeLogMode.setStatus(_A)
-_OsSnmpConformance_ObjectIdentity=ObjectIdentity
-osSnmpConformance=_OsSnmpConformance_ObjectIdentity((1,3,6,1,4,1,629,2544,7,100))
-_OsSnmpMIBCompliances_ObjectIdentity=ObjectIdentity
-osSnmpMIBCompliances=_OsSnmpMIBCompliances_ObjectIdentity((1,3,6,1,4,1,629,2544,7,100,1))
-_OsSnmpMIBGroups_ObjectIdentity=ObjectIdentity
-osSnmpMIBGroups=_OsSnmpMIBGroups_ObjectIdentity((1,3,6,1,4,1,629,2544,7,100,2))
-osSnmpMandatoryGroup=ObjectGroup((1,3,6,1,4,1,629,2544,7,100,2,1))
-osSnmpMandatoryGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:osSnmpMandatoryGroup.setStatus(_A)
-osSnmpMIBCompliance=ModuleCompliance((1,3,6,1,4,1,629,2544,7,100,1,1))
-osSnmpMIBCompliance.setObjects((_B,_P))
-if mibBuilder.loadTexts:osSnmpMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'osSnmp':osSnmp,'osSnmpNotificationObjects':osSnmpNotificationObjects,_H:osSnmpChangeSourceAddress,_I:osSnmpChangeV2Community,_J:osSnmpChangeV3User,_K:osSnmpChangeCliUser,_L:osSnmpChangeCliCommand,_M:osSnmpChangeCliNodeName,'osSnmpCfg':osSnmpCfg,_N:osSnmpAlarmMangerMode,_O:osSnmpChangeLogMode,'osSnmpConformance':osSnmpConformance,'osSnmpMIBCompliances':osSnmpMIBCompliances,'osSnmpMIBCompliance':osSnmpMIBCompliance,'osSnmpMIBGroups':osSnmpMIBGroups,_P:osSnmpMandatoryGroup})
+#
+# PySNMP MIB module OS-SNMP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/OS-SNMP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:32 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+adva, = mibBuilder.importSymbols("OS-COMMON-TC-MIB", "adva")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+osSnmp = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 2544, 7))
+osSnmp.setRevisions(('2020-12-09 00:00',))
+if mibBuilder.loadTexts: osSnmp.setLastUpdated('202012090000Z')
+if mibBuilder.loadTexts: osSnmp.setOrganization('MRV Communications, Inc.')
+osSnmpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 2544, 7, 100))
+osSnmpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 2544, 7, 100, 1))
+osSnmpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 2544, 7, 100, 2))
+osSnmpNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 2544, 7, 1))
+osSnmpCfg = MibIdentifier((1, 3, 6, 1, 4, 1, 629, 2544, 7, 2))
+osSnmpChangeSourceAddress = MibScalar((1, 3, 6, 1, 4, 1, 629, 2544, 7, 1, 1), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: osSnmpChangeSourceAddress.setStatus('current')
+osSnmpChangeV2Community = MibScalar((1, 3, 6, 1, 4, 1, 629, 2544, 7, 1, 2), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: osSnmpChangeV2Community.setStatus('current')
+osSnmpChangeV3User = MibScalar((1, 3, 6, 1, 4, 1, 629, 2544, 7, 1, 3), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: osSnmpChangeV3User.setStatus('current')
+osSnmpChangeCliUser = MibScalar((1, 3, 6, 1, 4, 1, 629, 2544, 7, 1, 4), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: osSnmpChangeCliUser.setStatus('current')
+osSnmpChangeCliCommand = MibScalar((1, 3, 6, 1, 4, 1, 629, 2544, 7, 1, 5), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: osSnmpChangeCliCommand.setStatus('current')
+osSnmpChangeCliNodeName = MibScalar((1, 3, 6, 1, 4, 1, 629, 2544, 7, 1, 6), DisplayString()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: osSnmpChangeCliNodeName.setStatus('current')
+osSnmpAlarmMangerMode = MibScalar((1, 3, 6, 1, 4, 1, 629, 2544, 7, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: osSnmpAlarmMangerMode.setStatus('current')
+osSnmpChangeLogMode = MibScalar((1, 3, 6, 1, 4, 1, 629, 2544, 7, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: osSnmpChangeLogMode.setStatus('current')
+osSnmpMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 629, 2544, 7, 100, 1, 1)).setObjects(("OS-SNMP-MIB", "osSnmpMandatoryGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    osSnmpMIBCompliance = osSnmpMIBCompliance.setStatus('current')
+osSnmpMandatoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 629, 2544, 7, 100, 2, 1)).setObjects(("OS-SNMP-MIB", "osSnmpChangeSourceAddress"), ("OS-SNMP-MIB", "osSnmpChangeV2Community"), ("OS-SNMP-MIB", "osSnmpChangeV3User"), ("OS-SNMP-MIB", "osSnmpChangeCliUser"), ("OS-SNMP-MIB", "osSnmpChangeCliCommand"), ("OS-SNMP-MIB", "osSnmpChangeCliNodeName"), ("OS-SNMP-MIB", "osSnmpAlarmMangerMode"), ("OS-SNMP-MIB", "osSnmpChangeLogMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    osSnmpMandatoryGroup = osSnmpMandatoryGroup.setStatus('current')
+mibBuilder.exportSymbols("OS-SNMP-MIB", osSnmpChangeV2Community=osSnmpChangeV2Community, osSnmpMIBCompliance=osSnmpMIBCompliance, osSnmp=osSnmp, osSnmpChangeLogMode=osSnmpChangeLogMode, osSnmpChangeCliCommand=osSnmpChangeCliCommand, osSnmpMIBCompliances=osSnmpMIBCompliances, osSnmpChangeCliNodeName=osSnmpChangeCliNodeName, osSnmpCfg=osSnmpCfg, osSnmpMandatoryGroup=osSnmpMandatoryGroup, osSnmpChangeV3User=osSnmpChangeV3User, PYSNMP_MODULE_ID=osSnmp, osSnmpChangeSourceAddress=osSnmpChangeSourceAddress, osSnmpChangeCliUser=osSnmpChangeCliUser, osSnmpAlarmMangerMode=osSnmpAlarmMangerMode, osSnmpConformance=osSnmpConformance, osSnmpNotificationObjects=osSnmpNotificationObjects, osSnmpMIBGroups=osSnmpMIBGroups)

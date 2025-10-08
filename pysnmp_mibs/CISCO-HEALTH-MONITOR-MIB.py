@@ -1,128 +1,68 @@
-_W='ciscoHealthMonitorGroup'
-_V='ciscoHealthMonitorHealthLevel'
-_U='ciscoHealthMonitorPositiveEvents'
-_T='ciscoHealthMonitorLowSeverityFaults'
-_S='ciscoHealthMonitorMediumSeverityFaults'
-_R='ciscoHealthMonitorHighSeverityFaults'
-_Q='ciscoHealthMonitorCriticalFaults'
-_P='ciscoHealthMonitorCatastrophicFaults'
-_O='ciscoHealthMonitorHealthNotifyLowThreshold'
-_N='ciscoHealthMonitorHealthNotifyHighThreshold'
-_M='ciscoHealthMonitorHealthNotifyEnable'
-_L='ciscoHealthMonitorSubsysName'
-_K='TruthValue'
-_J='SnmpAdminString'
-_I='entPhysicalIndex'
-_H='ENTITY-MIB'
-_G='ciscoHealthMonitorHealth'
-_F='HealthLevel'
-_E='read-write'
-_D='0.01 percent'
-_C='read-only'
-_B='CISCO-HEALTH-MONITOR-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-entPhysicalIndex,=mibBuilder.importSymbols(_H,_I)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_J)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_K)
-ciscoHealthMonitorMIB=ModuleIdentity((1,3,6,1,4,1,9,9,243))
-if mibBuilder.loadTexts:ciscoHealthMonitorMIB.setRevisions(('2003-09-12 12:30',))
-class HealthLevel(TextualConvention,Gauge32):status=_A;subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
-_CiscoHealthMonitorMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoHealthMonitorMIBNotifs=_CiscoHealthMonitorMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,243,0))
-_CiscoHealthMonitorMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoHealthMonitorMIBObjects=_CiscoHealthMonitorMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,243,1))
-_CiscoHealthMonitorTable_Object=MibTable
-ciscoHealthMonitorTable=_CiscoHealthMonitorTable_Object((1,3,6,1,4,1,9,9,243,1,1))
-if mibBuilder.loadTexts:ciscoHealthMonitorTable.setStatus(_A)
-_CiscoHealthMonitorEntry_Object=MibTableRow
-ciscoHealthMonitorEntry=_CiscoHealthMonitorEntry_Object((1,3,6,1,4,1,9,9,243,1,1,1))
-ciscoHealthMonitorEntry.setIndexNames((0,_H,_I),(1,_B,_L))
-if mibBuilder.loadTexts:ciscoHealthMonitorEntry.setStatus(_A)
-class _CiscoHealthMonitorSubsysName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,128))
-_CiscoHealthMonitorSubsysName_Type.__name__=_J
-_CiscoHealthMonitorSubsysName_Object=MibTableColumn
-ciscoHealthMonitorSubsysName=_CiscoHealthMonitorSubsysName_Object((1,3,6,1,4,1,9,9,243,1,1,1,1),_CiscoHealthMonitorSubsysName_Type())
-ciscoHealthMonitorSubsysName.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:ciscoHealthMonitorSubsysName.setStatus(_A)
-_CiscoHealthMonitorHealth_Type=HealthLevel
-_CiscoHealthMonitorHealth_Object=MibTableColumn
-ciscoHealthMonitorHealth=_CiscoHealthMonitorHealth_Object((1,3,6,1,4,1,9,9,243,1,1,1,2),_CiscoHealthMonitorHealth_Type())
-ciscoHealthMonitorHealth.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoHealthMonitorHealth.setStatus(_A)
-if mibBuilder.loadTexts:ciscoHealthMonitorHealth.setUnits(_D)
-class _CiscoHealthMonitorHealthNotifyEnable_Type(TruthValue):defaultValue=2
-_CiscoHealthMonitorHealthNotifyEnable_Type.__name__=_K
-_CiscoHealthMonitorHealthNotifyEnable_Object=MibTableColumn
-ciscoHealthMonitorHealthNotifyEnable=_CiscoHealthMonitorHealthNotifyEnable_Object((1,3,6,1,4,1,9,9,243,1,1,1,3),_CiscoHealthMonitorHealthNotifyEnable_Type())
-ciscoHealthMonitorHealthNotifyEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciscoHealthMonitorHealthNotifyEnable.setStatus(_A)
-class _CiscoHealthMonitorHealthNotifyHighThreshold_Type(HealthLevel):defaultValue=10000
-_CiscoHealthMonitorHealthNotifyHighThreshold_Type.__name__=_F
-_CiscoHealthMonitorHealthNotifyHighThreshold_Object=MibTableColumn
-ciscoHealthMonitorHealthNotifyHighThreshold=_CiscoHealthMonitorHealthNotifyHighThreshold_Object((1,3,6,1,4,1,9,9,243,1,1,1,4),_CiscoHealthMonitorHealthNotifyHighThreshold_Type())
-ciscoHealthMonitorHealthNotifyHighThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciscoHealthMonitorHealthNotifyHighThreshold.setStatus(_A)
-if mibBuilder.loadTexts:ciscoHealthMonitorHealthNotifyHighThreshold.setUnits(_D)
-class _CiscoHealthMonitorHealthNotifyLowThreshold_Type(HealthLevel):defaultValue=0
-_CiscoHealthMonitorHealthNotifyLowThreshold_Type.__name__=_F
-_CiscoHealthMonitorHealthNotifyLowThreshold_Object=MibTableColumn
-ciscoHealthMonitorHealthNotifyLowThreshold=_CiscoHealthMonitorHealthNotifyLowThreshold_Object((1,3,6,1,4,1,9,9,243,1,1,1,5),_CiscoHealthMonitorHealthNotifyLowThreshold_Type())
-ciscoHealthMonitorHealthNotifyLowThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:ciscoHealthMonitorHealthNotifyLowThreshold.setStatus(_A)
-if mibBuilder.loadTexts:ciscoHealthMonitorHealthNotifyLowThreshold.setUnits(_D)
-_CiscoHealthMonitorCatastrophicFaults_Type=Counter32
-_CiscoHealthMonitorCatastrophicFaults_Object=MibTableColumn
-ciscoHealthMonitorCatastrophicFaults=_CiscoHealthMonitorCatastrophicFaults_Object((1,3,6,1,4,1,9,9,243,1,1,1,6),_CiscoHealthMonitorCatastrophicFaults_Type())
-ciscoHealthMonitorCatastrophicFaults.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoHealthMonitorCatastrophicFaults.setStatus(_A)
-_CiscoHealthMonitorCriticalFaults_Type=Counter32
-_CiscoHealthMonitorCriticalFaults_Object=MibTableColumn
-ciscoHealthMonitorCriticalFaults=_CiscoHealthMonitorCriticalFaults_Object((1,3,6,1,4,1,9,9,243,1,1,1,7),_CiscoHealthMonitorCriticalFaults_Type())
-ciscoHealthMonitorCriticalFaults.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoHealthMonitorCriticalFaults.setStatus(_A)
-_CiscoHealthMonitorHighSeverityFaults_Type=Counter32
-_CiscoHealthMonitorHighSeverityFaults_Object=MibTableColumn
-ciscoHealthMonitorHighSeverityFaults=_CiscoHealthMonitorHighSeverityFaults_Object((1,3,6,1,4,1,9,9,243,1,1,1,8),_CiscoHealthMonitorHighSeverityFaults_Type())
-ciscoHealthMonitorHighSeverityFaults.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoHealthMonitorHighSeverityFaults.setStatus(_A)
-_CiscoHealthMonitorMediumSeverityFaults_Type=Counter32
-_CiscoHealthMonitorMediumSeverityFaults_Object=MibTableColumn
-ciscoHealthMonitorMediumSeverityFaults=_CiscoHealthMonitorMediumSeverityFaults_Object((1,3,6,1,4,1,9,9,243,1,1,1,9),_CiscoHealthMonitorMediumSeverityFaults_Type())
-ciscoHealthMonitorMediumSeverityFaults.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoHealthMonitorMediumSeverityFaults.setStatus(_A)
-_CiscoHealthMonitorLowSeverityFaults_Type=Counter32
-_CiscoHealthMonitorLowSeverityFaults_Object=MibTableColumn
-ciscoHealthMonitorLowSeverityFaults=_CiscoHealthMonitorLowSeverityFaults_Object((1,3,6,1,4,1,9,9,243,1,1,1,10),_CiscoHealthMonitorLowSeverityFaults_Type())
-ciscoHealthMonitorLowSeverityFaults.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoHealthMonitorLowSeverityFaults.setStatus(_A)
-_CiscoHealthMonitorPositiveEvents_Type=Counter32
-_CiscoHealthMonitorPositiveEvents_Object=MibTableColumn
-ciscoHealthMonitorPositiveEvents=_CiscoHealthMonitorPositiveEvents_Object((1,3,6,1,4,1,9,9,243,1,1,1,11),_CiscoHealthMonitorPositiveEvents_Type())
-ciscoHealthMonitorPositiveEvents.setMaxAccess(_C)
-if mibBuilder.loadTexts:ciscoHealthMonitorPositiveEvents.setStatus(_A)
-_CiscoHealthMonitorMIBConform_ObjectIdentity=ObjectIdentity
-ciscoHealthMonitorMIBConform=_CiscoHealthMonitorMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,243,2))
-_CiscoHealthMonitorMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoHealthMonitorMIBCompliances=_CiscoHealthMonitorMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,243,2,1))
-_CiscoHealthMonitorMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoHealthMonitorMIBGroups=_CiscoHealthMonitorMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,243,2,2))
-ciscoHealthMonitorGroup=ObjectGroup((1,3,6,1,4,1,9,9,243,2,2,1))
-ciscoHealthMonitorGroup.setObjects(*((_B,_G),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:ciscoHealthMonitorGroup.setStatus(_A)
-ciscoHealthMonitorHealthLevel=NotificationType((1,3,6,1,4,1,9,9,243,0,1))
-ciscoHealthMonitorHealthLevel.setObjects((_B,_G))
-if mibBuilder.loadTexts:ciscoHealthMonitorHealthLevel.setStatus(_A)
-ciscoHealthMonitorMIBNotificationGroup=NotificationGroup((1,3,6,1,4,1,9,9,243,2,2,2))
-ciscoHealthMonitorMIBNotificationGroup.setObjects((_B,_V))
-if mibBuilder.loadTexts:ciscoHealthMonitorMIBNotificationGroup.setStatus(_A)
-ciscoHealthMonitorMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,243,2,1,1))
-ciscoHealthMonitorMIBCompliance.setObjects((_B,_W))
-if mibBuilder.loadTexts:ciscoHealthMonitorMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_F:HealthLevel,'ciscoHealthMonitorMIB':ciscoHealthMonitorMIB,'ciscoHealthMonitorMIBNotifs':ciscoHealthMonitorMIBNotifs,_V:ciscoHealthMonitorHealthLevel,'ciscoHealthMonitorMIBObjects':ciscoHealthMonitorMIBObjects,'ciscoHealthMonitorTable':ciscoHealthMonitorTable,'ciscoHealthMonitorEntry':ciscoHealthMonitorEntry,_L:ciscoHealthMonitorSubsysName,_G:ciscoHealthMonitorHealth,_M:ciscoHealthMonitorHealthNotifyEnable,_N:ciscoHealthMonitorHealthNotifyHighThreshold,_O:ciscoHealthMonitorHealthNotifyLowThreshold,_P:ciscoHealthMonitorCatastrophicFaults,_Q:ciscoHealthMonitorCriticalFaults,_R:ciscoHealthMonitorHighSeverityFaults,_S:ciscoHealthMonitorMediumSeverityFaults,_T:ciscoHealthMonitorLowSeverityFaults,_U:ciscoHealthMonitorPositiveEvents,'ciscoHealthMonitorMIBConform':ciscoHealthMonitorMIBConform,'ciscoHealthMonitorMIBCompliances':ciscoHealthMonitorMIBCompliances,'ciscoHealthMonitorMIBCompliance':ciscoHealthMonitorMIBCompliance,'ciscoHealthMonitorMIBGroups':ciscoHealthMonitorMIBGroups,_W:ciscoHealthMonitorGroup,'ciscoHealthMonitorMIBNotificationGroup':ciscoHealthMonitorMIBNotificationGroup})
+#
+# PySNMP MIB module CISCO-HEALTH-MONITOR-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-HEALTH-MONITOR-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ciscoHealthMonitorMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 243))
+ciscoHealthMonitorMIB.setRevisions(('2003-09-12 12:30',))
+if mibBuilder.loadTexts: ciscoHealthMonitorMIB.setLastUpdated('200309121230Z')
+if mibBuilder.loadTexts: ciscoHealthMonitorMIB.setOrganization('Cisco Systems, Inc.')
+ciscoHealthMonitorMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 243, 1))
+class HealthLevel(TextualConvention, Gauge32):
+    status = 'current'
+    subtypeSpec = Gauge32.subtypeSpec + ValueRangeConstraint(0, 10000)
+
+ciscoHealthMonitorTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 243, 1, 1), )
+if mibBuilder.loadTexts: ciscoHealthMonitorTable.setStatus('current')
+ciscoHealthMonitorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 243, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (1, "CISCO-HEALTH-MONITOR-MIB", "ciscoHealthMonitorSubsysName"))
+if mibBuilder.loadTexts: ciscoHealthMonitorEntry.setStatus('current')
+ciscoHealthMonitorSubsysName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 243, 1, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 128)))
+if mibBuilder.loadTexts: ciscoHealthMonitorSubsysName.setStatus('current')
+ciscoHealthMonitorHealth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 243, 1, 1, 1, 2), HealthLevel()).setUnits('0.01 percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoHealthMonitorHealth.setStatus('current')
+ciscoHealthMonitorHealthNotifyEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 243, 1, 1, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoHealthMonitorHealthNotifyEnable.setStatus('current')
+ciscoHealthMonitorHealthNotifyHighThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 243, 1, 1, 1, 4), HealthLevel().clone(10000)).setUnits('0.01 percent').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoHealthMonitorHealthNotifyHighThreshold.setStatus('current')
+ciscoHealthMonitorHealthNotifyLowThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 243, 1, 1, 1, 5), HealthLevel()).setUnits('0.01 percent').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ciscoHealthMonitorHealthNotifyLowThreshold.setStatus('current')
+ciscoHealthMonitorCatastrophicFaults = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 243, 1, 1, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoHealthMonitorCatastrophicFaults.setStatus('current')
+ciscoHealthMonitorCriticalFaults = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 243, 1, 1, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoHealthMonitorCriticalFaults.setStatus('current')
+ciscoHealthMonitorHighSeverityFaults = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 243, 1, 1, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoHealthMonitorHighSeverityFaults.setStatus('current')
+ciscoHealthMonitorMediumSeverityFaults = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 243, 1, 1, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoHealthMonitorMediumSeverityFaults.setStatus('current')
+ciscoHealthMonitorLowSeverityFaults = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 243, 1, 1, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoHealthMonitorLowSeverityFaults.setStatus('current')
+ciscoHealthMonitorPositiveEvents = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 243, 1, 1, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ciscoHealthMonitorPositiveEvents.setStatus('current')
+ciscoHealthMonitorMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 243, 0))
+ciscoHealthMonitorHealthLevel = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 243, 0, 1)).setObjects(("CISCO-HEALTH-MONITOR-MIB", "ciscoHealthMonitorHealth"))
+if mibBuilder.loadTexts: ciscoHealthMonitorHealthLevel.setStatus('current')
+ciscoHealthMonitorMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 243, 2))
+ciscoHealthMonitorMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 243, 2, 1))
+ciscoHealthMonitorMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 243, 2, 2))
+ciscoHealthMonitorMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 243, 2, 1, 1)).setObjects(("CISCO-HEALTH-MONITOR-MIB", "ciscoHealthMonitorGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoHealthMonitorMIBCompliance = ciscoHealthMonitorMIBCompliance.setStatus('current')
+ciscoHealthMonitorGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 243, 2, 2, 1)).setObjects(("CISCO-HEALTH-MONITOR-MIB", "ciscoHealthMonitorHealth"), ("CISCO-HEALTH-MONITOR-MIB", "ciscoHealthMonitorHealthNotifyEnable"), ("CISCO-HEALTH-MONITOR-MIB", "ciscoHealthMonitorHealthNotifyHighThreshold"), ("CISCO-HEALTH-MONITOR-MIB", "ciscoHealthMonitorHealthNotifyLowThreshold"), ("CISCO-HEALTH-MONITOR-MIB", "ciscoHealthMonitorCatastrophicFaults"), ("CISCO-HEALTH-MONITOR-MIB", "ciscoHealthMonitorCriticalFaults"), ("CISCO-HEALTH-MONITOR-MIB", "ciscoHealthMonitorHighSeverityFaults"), ("CISCO-HEALTH-MONITOR-MIB", "ciscoHealthMonitorMediumSeverityFaults"), ("CISCO-HEALTH-MONITOR-MIB", "ciscoHealthMonitorLowSeverityFaults"), ("CISCO-HEALTH-MONITOR-MIB", "ciscoHealthMonitorPositiveEvents"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoHealthMonitorGroup = ciscoHealthMonitorGroup.setStatus('current')
+ciscoHealthMonitorMIBNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 243, 2, 2, 2)).setObjects(("CISCO-HEALTH-MONITOR-MIB", "ciscoHealthMonitorHealthLevel"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoHealthMonitorMIBNotificationGroup = ciscoHealthMonitorMIBNotificationGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-HEALTH-MONITOR-MIB", ciscoHealthMonitorEntry=ciscoHealthMonitorEntry, ciscoHealthMonitorHighSeverityFaults=ciscoHealthMonitorHighSeverityFaults, ciscoHealthMonitorGroup=ciscoHealthMonitorGroup, ciscoHealthMonitorMIBObjects=ciscoHealthMonitorMIBObjects, ciscoHealthMonitorCatastrophicFaults=ciscoHealthMonitorCatastrophicFaults, ciscoHealthMonitorHealthLevel=ciscoHealthMonitorHealthLevel, ciscoHealthMonitorHealthNotifyHighThreshold=ciscoHealthMonitorHealthNotifyHighThreshold, ciscoHealthMonitorMIBCompliances=ciscoHealthMonitorMIBCompliances, PYSNMP_MODULE_ID=ciscoHealthMonitorMIB, ciscoHealthMonitorLowSeverityFaults=ciscoHealthMonitorLowSeverityFaults, ciscoHealthMonitorCriticalFaults=ciscoHealthMonitorCriticalFaults, ciscoHealthMonitorMediumSeverityFaults=ciscoHealthMonitorMediumSeverityFaults, ciscoHealthMonitorMIBNotifs=ciscoHealthMonitorMIBNotifs, ciscoHealthMonitorHealth=ciscoHealthMonitorHealth, ciscoHealthMonitorMIBConform=ciscoHealthMonitorMIBConform, ciscoHealthMonitorMIBGroups=ciscoHealthMonitorMIBGroups, ciscoHealthMonitorMIB=ciscoHealthMonitorMIB, ciscoHealthMonitorMIBCompliance=ciscoHealthMonitorMIBCompliance, ciscoHealthMonitorHealthNotifyEnable=ciscoHealthMonitorHealthNotifyEnable, HealthLevel=HealthLevel, ciscoHealthMonitorMIBNotificationGroup=ciscoHealthMonitorMIBNotificationGroup, ciscoHealthMonitorSubsysName=ciscoHealthMonitorSubsysName, ciscoHealthMonitorHealthNotifyLowThreshold=ciscoHealthMonitorHealthNotifyLowThreshold, ciscoHealthMonitorPositiveEvents=ciscoHealthMonitorPositiveEvents, ciscoHealthMonitorTable=ciscoHealthMonitorTable)

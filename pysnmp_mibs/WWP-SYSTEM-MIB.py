@@ -1,99 +1,52 @@
-_F='read-only'
-_E='TruthValue'
-_D='Unsigned32'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','TextualConvention',_E)
-wwpModules,=mibBuilder.importSymbols('WWP-SMI','wwpModules')
-wwpSystemMIB=ModuleIdentity((1,3,6,1,4,1,6141,2,2))
-if mibBuilder.loadTexts:wwpSystemMIB.setRevisions(('2003-03-11 00:00','2001-04-03 17:00'))
-_WwpSystemMIBObjects_ObjectIdentity=ObjectIdentity
-wwpSystemMIBObjects=_WwpSystemMIBObjects_ObjectIdentity((1,3,6,1,4,1,6141,2,2,1))
-_WwpSystemClock_ObjectIdentity=ObjectIdentity
-wwpSystemClock=_WwpSystemClock_ObjectIdentity((1,3,6,1,4,1,6141,2,2,1,1))
-_WwpSysClockDateTime_Type=DateAndTime
-_WwpSysClockDateTime_Object=MibScalar
-wwpSysClockDateTime=_WwpSysClockDateTime_Object((1,3,6,1,4,1,6141,2,2,1,1,1),_WwpSysClockDateTime_Type())
-wwpSysClockDateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpSysClockDateTime.setStatus(_A)
-class _WwpSysClockTimeOffset_Type(Integer32):defaultValue=0
-_WwpSysClockTimeOffset_Type.__name__=_C
-_WwpSysClockTimeOffset_Object=MibScalar
-wwpSysClockTimeOffset=_WwpSysClockTimeOffset_Object((1,3,6,1,4,1,6141,2,2,1,1,2),_WwpSysClockTimeOffset_Type())
-wwpSysClockTimeOffset.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpSysClockTimeOffset.setStatus(_A)
-_WwpSystemBootp_ObjectIdentity=ObjectIdentity
-wwpSystemBootp=_WwpSystemBootp_ObjectIdentity((1,3,6,1,4,1,6141,2,2,1,2))
-class _WwpSystemBootpMsgFreq_Type(Unsigned32):defaultValue=12;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_WwpSystemBootpMsgFreq_Type.__name__=_D
-_WwpSystemBootpMsgFreq_Object=MibScalar
-wwpSystemBootpMsgFreq=_WwpSystemBootpMsgFreq_Object((1,3,6,1,4,1,6141,2,2,1,2,1),_WwpSystemBootpMsgFreq_Type())
-wwpSystemBootpMsgFreq.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpSystemBootpMsgFreq.setStatus('deprecated')
-if mibBuilder.loadTexts:wwpSystemBootpMsgFreq.setUnits('in seconds')
-_WwpSystemAttr_ObjectIdentity=ObjectIdentity
-wwpSystemAttr=_WwpSystemAttr_ObjectIdentity((1,3,6,1,4,1,6141,2,2,1,3))
-_WwpSystemStartMacAddr_Type=MacAddress
-_WwpSystemStartMacAddr_Object=MibScalar
-wwpSystemStartMacAddr=_WwpSystemStartMacAddr_Object((1,3,6,1,4,1,6141,2,2,1,3,1),_WwpSystemStartMacAddr_Type())
-wwpSystemStartMacAddr.setMaxAccess(_F)
-if mibBuilder.loadTexts:wwpSystemStartMacAddr.setStatus(_A)
-_WwpSystemDefaultGateway_Type=IpAddress
-_WwpSystemDefaultGateway_Object=MibScalar
-wwpSystemDefaultGateway=_WwpSystemDefaultGateway_Object((1,3,6,1,4,1,6141,2,2,1,3,2),_WwpSystemDefaultGateway_Type())
-wwpSystemDefaultGateway.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpSystemDefaultGateway.setStatus(_A)
-_WwpSystemTftpServer_Type=IpAddress
-_WwpSystemTftpServer_Object=MibScalar
-wwpSystemTftpServer=_WwpSystemTftpServer_Object((1,3,6,1,4,1,6141,2,2,1,3,3),_WwpSystemTftpServer_Type())
-wwpSystemTftpServer.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpSystemTftpServer.setStatus(_A)
-_WwpSystemBootFile_Type=DisplayString
-_WwpSystemBootFile_Object=MibScalar
-wwpSystemBootFile=_WwpSystemBootFile_Object((1,3,6,1,4,1,6141,2,2,1,3,4),_WwpSystemBootFile_Type())
-wwpSystemBootFile.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpSystemBootFile.setStatus(_A)
-_WwpSystemInterfaceHostName_Type=DisplayString
-_WwpSystemInterfaceHostName_Object=MibScalar
-wwpSystemInterfaceHostName=_WwpSystemInterfaceHostName_Object((1,3,6,1,4,1,6141,2,2,1,3,5),_WwpSystemInterfaceHostName_Type())
-wwpSystemInterfaceHostName.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpSystemInterfaceHostName.setStatus(_A)
-_WwpSystemCfg_ObjectIdentity=ObjectIdentity
-wwpSystemCfg=_WwpSystemCfg_ObjectIdentity((1,3,6,1,4,1,6141,2,2,1,4))
-class _WwpSystemCfgControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('none',0),('save',1),('updatePasswords',2),('updateSnmpCfg',3),('mfgDefaultCfg',4)))
-_WwpSystemCfgControl_Type.__name__=_C
-_WwpSystemCfgControl_Object=MibScalar
-wwpSystemCfgControl=_WwpSystemCfgControl_Object((1,3,6,1,4,1,6141,2,2,1,4,1),_WwpSystemCfgControl_Type())
-wwpSystemCfgControl.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpSystemCfgControl.setStatus(_A)
-_WwpSystemCfgFilepath_Type=DisplayString
-_WwpSystemCfgFilepath_Object=MibScalar
-wwpSystemCfgFilepath=_WwpSystemCfgFilepath_Object((1,3,6,1,4,1,6141,2,2,1,4,2),_WwpSystemCfgFilepath_Type())
-wwpSystemCfgFilepath.setMaxAccess(_F)
-if mibBuilder.loadTexts:wwpSystemCfgFilepath.setStatus(_A)
-_WwpSystemDebug_ObjectIdentity=ObjectIdentity
-wwpSystemDebug=_WwpSystemDebug_ObjectIdentity((1,3,6,1,4,1,6141,2,2,1,5))
-class _WwpSystemConsolePortEnable_Type(TruthValue):defaultValue=2
-_WwpSystemConsolePortEnable_Type.__name__=_E
-_WwpSystemConsolePortEnable_Object=MibScalar
-wwpSystemConsolePortEnable=_WwpSystemConsolePortEnable_Object((1,3,6,1,4,1,6141,2,2,1,5,1),_WwpSystemConsolePortEnable_Type())
-wwpSystemConsolePortEnable.setMaxAccess(_B)
-if mibBuilder.loadTexts:wwpSystemConsolePortEnable.setStatus(_A)
-_WwpSystemMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
-wwpSystemMIBNotificationPrefix=_WwpSystemMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,6141,2,2,2))
-_WwpSystemMIBNotifications_ObjectIdentity=ObjectIdentity
-wwpSystemMIBNotifications=_WwpSystemMIBNotifications_ObjectIdentity((1,3,6,1,4,1,6141,2,2,2,0))
-_WwpSystemMIBConformance_ObjectIdentity=ObjectIdentity
-wwpSystemMIBConformance=_WwpSystemMIBConformance_ObjectIdentity((1,3,6,1,4,1,6141,2,2,3))
-_WwpSystemMIBCompliances_ObjectIdentity=ObjectIdentity
-wwpSystemMIBCompliances=_WwpSystemMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6141,2,2,3,1))
-_WwpSystemMIBGroups_ObjectIdentity=ObjectIdentity
-wwpSystemMIBGroups=_WwpSystemMIBGroups_ObjectIdentity((1,3,6,1,4,1,6141,2,2,3,2))
-mibBuilder.exportSymbols('WWP-SYSTEM-MIB',**{'wwpSystemMIB':wwpSystemMIB,'wwpSystemMIBObjects':wwpSystemMIBObjects,'wwpSystemClock':wwpSystemClock,'wwpSysClockDateTime':wwpSysClockDateTime,'wwpSysClockTimeOffset':wwpSysClockTimeOffset,'wwpSystemBootp':wwpSystemBootp,'wwpSystemBootpMsgFreq':wwpSystemBootpMsgFreq,'wwpSystemAttr':wwpSystemAttr,'wwpSystemStartMacAddr':wwpSystemStartMacAddr,'wwpSystemDefaultGateway':wwpSystemDefaultGateway,'wwpSystemTftpServer':wwpSystemTftpServer,'wwpSystemBootFile':wwpSystemBootFile,'wwpSystemInterfaceHostName':wwpSystemInterfaceHostName,'wwpSystemCfg':wwpSystemCfg,'wwpSystemCfgControl':wwpSystemCfgControl,'wwpSystemCfgFilepath':wwpSystemCfgFilepath,'wwpSystemDebug':wwpSystemDebug,'wwpSystemConsolePortEnable':wwpSystemConsolePortEnable,'wwpSystemMIBNotificationPrefix':wwpSystemMIBNotificationPrefix,'wwpSystemMIBNotifications':wwpSystemMIBNotifications,'wwpSystemMIBConformance':wwpSystemMIBConformance,'wwpSystemMIBCompliances':wwpSystemMIBCompliances,'wwpSystemMIBGroups':wwpSystemMIBGroups})
+#
+# PySNMP MIB module WWP-SYSTEM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ciena/WWP-SYSTEM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:10 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "DateAndTime", "TruthValue", "TextualConvention")
+wwpModules, = mibBuilder.importSymbols("WWP-SMI", "wwpModules")
+wwpSystemMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 2))
+wwpSystemMIB.setRevisions(('2003-03-11 00:00', '2001-04-03 17:00',))
+if mibBuilder.loadTexts: wwpSystemMIB.setLastUpdated('200104031700Z')
+if mibBuilder.loadTexts: wwpSystemMIB.setOrganization('World Wide Packets, Inc')
+wwpSystemMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1))
+wwpSystemClock = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 1))
+wwpSystemBootp = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 2))
+wwpSystemAttr = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 3))
+wwpSystemCfg = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 4))
+wwpSystemDebug = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 5))
+wwpSystemMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 2, 2))
+wwpSystemMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 2, 2, 0))
+wwpSystemMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 2, 3))
+wwpSystemMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 2, 3, 1))
+wwpSystemMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 2, 3, 2))
+wwpSysClockDateTime = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 1, 1), DateAndTime()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpSysClockDateTime.setStatus('current')
+wwpSysClockTimeOffset = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpSysClockTimeOffset.setStatus('current')
+wwpSystemBootpMsgFreq = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 2, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)).clone(12)).setUnits('in seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpSystemBootpMsgFreq.setStatus('deprecated')
+wwpSystemStartMacAddr = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 3, 1), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpSystemStartMacAddr.setStatus('current')
+wwpSystemDefaultGateway = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 3, 2), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpSystemDefaultGateway.setStatus('current')
+wwpSystemTftpServer = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 3, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpSystemTftpServer.setStatus('current')
+wwpSystemBootFile = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 3, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpSystemBootFile.setStatus('current')
+wwpSystemInterfaceHostName = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 3, 5), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpSystemInterfaceHostName.setStatus('current')
+wwpSystemCfgControl = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 0), ("save", 1), ("updatePasswords", 2), ("updateSnmpCfg", 3), ("mfgDefaultCfg", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpSystemCfgControl.setStatus('current')
+wwpSystemCfgFilepath = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 4, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: wwpSystemCfgFilepath.setStatus('current')
+wwpSystemConsolePortEnable = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 2, 1, 5, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: wwpSystemConsolePortEnable.setStatus('current')
+mibBuilder.exportSymbols("WWP-SYSTEM-MIB", wwpSystemDebug=wwpSystemDebug, wwpSystemMIBCompliances=wwpSystemMIBCompliances, wwpSystemCfgControl=wwpSystemCfgControl, wwpSystemInterfaceHostName=wwpSystemInterfaceHostName, wwpSysClockTimeOffset=wwpSysClockTimeOffset, wwpSystemMIBConformance=wwpSystemMIBConformance, PYSNMP_MODULE_ID=wwpSystemMIB, wwpSystemMIBObjects=wwpSystemMIBObjects, wwpSystemMIB=wwpSystemMIB, wwpSystemClock=wwpSystemClock, wwpSystemMIBNotifications=wwpSystemMIBNotifications, wwpSystemBootp=wwpSystemBootp, wwpSystemMIBNotificationPrefix=wwpSystemMIBNotificationPrefix, wwpSystemBootpMsgFreq=wwpSystemBootpMsgFreq, wwpSystemMIBGroups=wwpSystemMIBGroups, wwpSystemConsolePortEnable=wwpSystemConsolePortEnable, wwpSystemTftpServer=wwpSystemTftpServer, wwpSystemDefaultGateway=wwpSystemDefaultGateway, wwpSystemBootFile=wwpSystemBootFile, wwpSystemCfg=wwpSystemCfg, wwpSystemCfgFilepath=wwpSystemCfgFilepath, wwpSystemAttr=wwpSystemAttr, wwpSysClockDateTime=wwpSysClockDateTime, wwpSystemStartMacAddr=wwpSystemStartMacAddr)

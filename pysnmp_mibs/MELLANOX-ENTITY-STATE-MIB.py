@@ -1,51 +1,40 @@
-_H='mellanoxEntStateModuleStateDescr'
-_G='mellanoxEntStateModulePreviousState'
-_F='mellanoxEntStateModuleCurrentState'
-_E='read-only'
-_D='entPhysicalIndex'
-_C='ENTITY-MIB'
-_B='MELLANOX-ENTITY-STATE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-entPhysicalIndex,=mibBuilder.importSymbols(_C,_D)
-mellanoxEntState,=mibBuilder.importSymbols('MELLANOX-SMI-MIB','mellanoxEntState')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-mellanoxEntStateMib=ModuleIdentity((1,3,6,1,4,1,33049,7,1))
-if mibBuilder.loadTexts:mellanoxEntStateMib.setRevisions(('2017-07-25 00:00',))
-class ModuleStateType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('ok',1),('disabled',2),('reset',3),('missing',4),('criticalFault',5),('nonCriticalFault',6),('unknown',7)))
-_MellanoxEntStateMibNotifications_ObjectIdentity=ObjectIdentity
-mellanoxEntStateMibNotifications=_MellanoxEntStateMibNotifications_ObjectIdentity((1,3,6,1,4,1,33049,7,1,0))
-_MellanoxEntStateMibObjects_ObjectIdentity=ObjectIdentity
-mellanoxEntStateMibObjects=_MellanoxEntStateMibObjects_ObjectIdentity((1,3,6,1,4,1,33049,7,1,1))
-_MellanoxEntStateTable_Object=MibTable
-mellanoxEntStateTable=_MellanoxEntStateTable_Object((1,3,6,1,4,1,33049,7,1,1,1))
-if mibBuilder.loadTexts:mellanoxEntStateTable.setStatus(_A)
-_MellanoxEntStateEntry_Object=MibTableRow
-mellanoxEntStateEntry=_MellanoxEntStateEntry_Object((1,3,6,1,4,1,33049,7,1,1,1,1))
-mellanoxEntStateEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:mellanoxEntStateEntry.setStatus(_A)
-_MellanoxEntStateModuleCurrentState_Type=ModuleStateType
-_MellanoxEntStateModuleCurrentState_Object=MibTableColumn
-mellanoxEntStateModuleCurrentState=_MellanoxEntStateModuleCurrentState_Object((1,3,6,1,4,1,33049,7,1,1,1,1,1),_MellanoxEntStateModuleCurrentState_Type())
-mellanoxEntStateModuleCurrentState.setMaxAccess(_E)
-if mibBuilder.loadTexts:mellanoxEntStateModuleCurrentState.setStatus(_A)
-_MellanoxEntStateModulePreviousState_Type=ModuleStateType
-_MellanoxEntStateModulePreviousState_Object=MibTableColumn
-mellanoxEntStateModulePreviousState=_MellanoxEntStateModulePreviousState_Object((1,3,6,1,4,1,33049,7,1,1,1,1,2),_MellanoxEntStateModulePreviousState_Type())
-mellanoxEntStateModulePreviousState.setMaxAccess(_E)
-if mibBuilder.loadTexts:mellanoxEntStateModulePreviousState.setStatus(_A)
-_MellanoxEntStateModuleStateDescr_Type=SnmpAdminString
-_MellanoxEntStateModuleStateDescr_Object=MibTableColumn
-mellanoxEntStateModuleStateDescr=_MellanoxEntStateModuleStateDescr_Object((1,3,6,1,4,1,33049,7,1,1,1,1,3),_MellanoxEntStateModuleStateDescr_Type())
-mellanoxEntStateModuleStateDescr.setMaxAccess(_E)
-if mibBuilder.loadTexts:mellanoxEntStateModuleStateDescr.setStatus(_A)
-mellanoxEntStateChangeAlarm=NotificationType((1,3,6,1,4,1,33049,7,1,0,1))
-mellanoxEntStateChangeAlarm.setObjects(*((_C,_D),(_B,'entPhysicalDescr'),(_B,'entPhysicalName'),(_B,_F),(_B,_G),(_B,_H),(_B,'entStateAlarm')))
-if mibBuilder.loadTexts:mellanoxEntStateChangeAlarm.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ModuleStateType':ModuleStateType,'mellanoxEntStateMib':mellanoxEntStateMib,'mellanoxEntStateMibNotifications':mellanoxEntStateMibNotifications,'mellanoxEntStateChangeAlarm':mellanoxEntStateChangeAlarm,'mellanoxEntStateMibObjects':mellanoxEntStateMibObjects,'mellanoxEntStateTable':mellanoxEntStateTable,'mellanoxEntStateEntry':mellanoxEntStateEntry,_F:mellanoxEntStateModuleCurrentState,_G:mellanoxEntStateModulePreviousState,_H:mellanoxEntStateModuleStateDescr})
+#
+# PySNMP MIB module MELLANOX-ENTITY-STATE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mellanox/MELLANOX-ENTITY-STATE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:05 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+mellanoxEntState, = mibBuilder.importSymbols("MELLANOX-SMI-MIB", "mellanoxEntState")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+mellanoxEntStateMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 33049, 7, 1))
+mellanoxEntStateMib.setRevisions(('2017-07-25 00:00',))
+if mibBuilder.loadTexts: mellanoxEntStateMib.setLastUpdated('201707250000Z')
+if mibBuilder.loadTexts: mellanoxEntStateMib.setOrganization('Mellanox Technologies, Inc.')
+mellanoxEntStateMibNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 33049, 7, 1, 0))
+mellanoxEntStateMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 33049, 7, 1, 1))
+class ModuleStateType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
+    namedValues = NamedValues(("ok", 1), ("disabled", 2), ("reset", 3), ("missing", 4), ("criticalFault", 5), ("nonCriticalFault", 6), ("unknown", 7))
+
+mellanoxEntStateTable = MibTable((1, 3, 6, 1, 4, 1, 33049, 7, 1, 1, 1), )
+if mibBuilder.loadTexts: mellanoxEntStateTable.setStatus('current')
+mellanoxEntStateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 33049, 7, 1, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: mellanoxEntStateEntry.setStatus('current')
+mellanoxEntStateModuleCurrentState = MibTableColumn((1, 3, 6, 1, 4, 1, 33049, 7, 1, 1, 1, 1, 1), ModuleStateType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mellanoxEntStateModuleCurrentState.setStatus('current')
+mellanoxEntStateModulePreviousState = MibTableColumn((1, 3, 6, 1, 4, 1, 33049, 7, 1, 1, 1, 1, 2), ModuleStateType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mellanoxEntStateModulePreviousState.setStatus('current')
+mellanoxEntStateModuleStateDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 33049, 7, 1, 1, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mellanoxEntStateModuleStateDescr.setStatus('current')
+mellanoxEntStateChangeAlarm = NotificationType((1, 3, 6, 1, 4, 1, 33049, 7, 1, 0, 1)).setObjects(("ENTITY-MIB", "entPhysicalIndex"), ("MELLANOX-ENTITY-STATE-MIB", "entPhysicalDescr"), ("MELLANOX-ENTITY-STATE-MIB", "entPhysicalName"), ("MELLANOX-ENTITY-STATE-MIB", "mellanoxEntStateModuleCurrentState"), ("MELLANOX-ENTITY-STATE-MIB", "mellanoxEntStateModulePreviousState"), ("MELLANOX-ENTITY-STATE-MIB", "mellanoxEntStateModuleStateDescr"), ("MELLANOX-ENTITY-STATE-MIB", "entStateAlarm"))
+if mibBuilder.loadTexts: mellanoxEntStateChangeAlarm.setStatus('current')
+mibBuilder.exportSymbols("MELLANOX-ENTITY-STATE-MIB", mellanoxEntStateMibObjects=mellanoxEntStateMibObjects, mellanoxEntStateChangeAlarm=mellanoxEntStateChangeAlarm, mellanoxEntStateModuleCurrentState=mellanoxEntStateModuleCurrentState, mellanoxEntStateMibNotifications=mellanoxEntStateMibNotifications, mellanoxEntStateModuleStateDescr=mellanoxEntStateModuleStateDescr, mellanoxEntStateTable=mellanoxEntStateTable, ModuleStateType=ModuleStateType, mellanoxEntStateEntry=mellanoxEntStateEntry, mellanoxEntStateModulePreviousState=mellanoxEntStateModulePreviousState, PYSNMP_MODULE_ID=mellanoxEntStateMib, mellanoxEntStateMib=mellanoxEntStateMib)

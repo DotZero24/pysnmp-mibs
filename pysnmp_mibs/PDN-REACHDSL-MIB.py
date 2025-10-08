@@ -1,231 +1,108 @@
-_l='pdnReachDSLQuadModeGroup'
-_k='pdnReachDSLLoopLengthModeGroup'
-_j='pdnReachDSLEWLModeGroup'
-_i='pdnReachDSLGeneralInformationGroup'
-_h='pdnReachDSLGeneralConfigGroup'
-_g='pdnReachDSLInformationGroup'
-_f='pdnReachDSLConfigurationGroup'
-_e='reachDSLSpectrumMgmtConfQuadMode'
-_d='reachDSLSpectrumMgmtZone'
-_c='DisplayString'
-_b='reachDSLSpectrumMgmtMode'
-_a='reachDSLSpectrumMgmtEWLUnits'
-_Z='reachDSLSpectrumMgmtLoopMeasurementMethod'
-_Y='reachDSLSpectrumMgmtMaxEWL'
-_X='reachDSLSpectrumMgmtMinEWL'
-_W='reachDSLSpectrumMgmtAturMaxTxPower'
-_V='reachDSLSpectrumMgmtAturMinTxRate'
-_U='reachDSLSpectrumMgmtAturMaxTxRate'
-_T='reachDSLSpectrumMgmtAtucMaxTxPower'
-_S='reachDSLSpectrumMgmtAtucMinTxRate'
-_R='reachDSLSpectrumMgmtAtucMaxTxRate'
-_Q='reachDSLCircuitIdentifier'
-_P='reachDSLPotsDetectionVoltage'
-_O='reachDSLSpectrumMgmtConfAturMaxTxPower'
-_N='reachDSLSpectrumMgmtConfAtucMaxTxPower'
-_M='reachDSLSpectrumMgmtConfLoopLength'
-_L='reachDSLSpectrumMgmtConfEWL'
-_K='reachDSLSpectrumMgmtSelection'
-_J='bps'
-_I='tenth dB'
-_H='ifIndex'
-_G='IF-MIB'
-_F='deprecated'
-_E='read-write'
-_D='read-only'
-_C='Integer32'
-_B='current'
-_A='PDN-REACHDSL-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_G,_H)
-pdn_interfaces,=mibBuilder.importSymbols('PDN-HEADER-MIB','pdn-interfaces')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_c,'PhysAddress','TextualConvention')
-pdnReachDSL=ModuleIdentity((1,3,6,1,4,1,1795,2,24,2,6,20))
-if mibBuilder.loadTexts:pdnReachDSL.setRevisions(('2003-01-15 12:00','2003-01-12 12:00','2002-10-15 17:00','2002-07-12 03:15'))
-_PdnReachDSLObjects_ObjectIdentity=ObjectIdentity
-pdnReachDSLObjects=_PdnReachDSLObjects_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,6,20,1))
-class _ReachDSLSpectrumMgmtSelection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_ReachDSLSpectrumMgmtSelection_Type.__name__=_C
-_ReachDSLSpectrumMgmtSelection_Object=MibScalar
-reachDSLSpectrumMgmtSelection=_ReachDSLSpectrumMgmtSelection_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,1),_ReachDSLSpectrumMgmtSelection_Type())
-reachDSLSpectrumMgmtSelection.setMaxAccess(_E)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtSelection.setStatus(_B)
-class _ReachDSLSpectrumMgmtZone_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('usa1',1),('uk1',2),('canada1',3),('japan1',4),('emea1',5)))
-_ReachDSLSpectrumMgmtZone_Type.__name__=_C
-_ReachDSLSpectrumMgmtZone_Object=MibScalar
-reachDSLSpectrumMgmtZone=_ReachDSLSpectrumMgmtZone_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,2),_ReachDSLSpectrumMgmtZone_Type())
-reachDSLSpectrumMgmtZone.setMaxAccess(_D)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtZone.setStatus(_F)
-_ReachDSLSpectrumMgmtConfTable_Object=MibTable
-reachDSLSpectrumMgmtConfTable=_ReachDSLSpectrumMgmtConfTable_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,3))
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtConfTable.setStatus(_B)
-_ReachDSLSpectrumMgmtConfEntry_Object=MibTableRow
-reachDSLSpectrumMgmtConfEntry=_ReachDSLSpectrumMgmtConfEntry_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,3,1))
-reachDSLSpectrumMgmtConfEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtConfEntry.setStatus(_B)
-_ReachDSLSpectrumMgmtConfEWL_Type=Unsigned32
-_ReachDSLSpectrumMgmtConfEWL_Object=MibTableColumn
-reachDSLSpectrumMgmtConfEWL=_ReachDSLSpectrumMgmtConfEWL_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,3,1,1),_ReachDSLSpectrumMgmtConfEWL_Type())
-reachDSLSpectrumMgmtConfEWL.setMaxAccess(_E)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtConfEWL.setStatus(_B)
-class _ReachDSLSpectrumMgmtConfLoopLength_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('short',1),('medium',2),('long',3)))
-_ReachDSLSpectrumMgmtConfLoopLength_Type.__name__=_C
-_ReachDSLSpectrumMgmtConfLoopLength_Object=MibTableColumn
-reachDSLSpectrumMgmtConfLoopLength=_ReachDSLSpectrumMgmtConfLoopLength_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,3,1,2),_ReachDSLSpectrumMgmtConfLoopLength_Type())
-reachDSLSpectrumMgmtConfLoopLength.setMaxAccess(_E)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtConfLoopLength.setStatus(_B)
-class _ReachDSLSpectrumMgmtConfAtucMaxTxPower_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-140,120))
-_ReachDSLSpectrumMgmtConfAtucMaxTxPower_Type.__name__=_C
-_ReachDSLSpectrumMgmtConfAtucMaxTxPower_Object=MibTableColumn
-reachDSLSpectrumMgmtConfAtucMaxTxPower=_ReachDSLSpectrumMgmtConfAtucMaxTxPower_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,3,1,3),_ReachDSLSpectrumMgmtConfAtucMaxTxPower_Type())
-reachDSLSpectrumMgmtConfAtucMaxTxPower.setMaxAccess(_E)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtConfAtucMaxTxPower.setStatus(_B)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtConfAtucMaxTxPower.setUnits(_I)
-class _ReachDSLSpectrumMgmtConfAturMaxTxPower_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-140,120))
-_ReachDSLSpectrumMgmtConfAturMaxTxPower_Type.__name__=_C
-_ReachDSLSpectrumMgmtConfAturMaxTxPower_Object=MibTableColumn
-reachDSLSpectrumMgmtConfAturMaxTxPower=_ReachDSLSpectrumMgmtConfAturMaxTxPower_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,3,1,4),_ReachDSLSpectrumMgmtConfAturMaxTxPower_Type())
-reachDSLSpectrumMgmtConfAturMaxTxPower.setMaxAccess(_E)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtConfAturMaxTxPower.setStatus(_B)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtConfAturMaxTxPower.setUnits(_I)
-class _ReachDSLSpectrumMgmtConfQuadMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('sameQuad',1),('segregatedQuadUpto3km',2),('segregatedQuadAbove3km',3)))
-_ReachDSLSpectrumMgmtConfQuadMode_Type.__name__=_C
-_ReachDSLSpectrumMgmtConfQuadMode_Object=MibTableColumn
-reachDSLSpectrumMgmtConfQuadMode=_ReachDSLSpectrumMgmtConfQuadMode_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,3,1,5),_ReachDSLSpectrumMgmtConfQuadMode_Type())
-reachDSLSpectrumMgmtConfQuadMode.setMaxAccess(_E)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtConfQuadMode.setStatus(_B)
-_ReachDSLSpectrumMgmtLineInfoTable_Object=MibTable
-reachDSLSpectrumMgmtLineInfoTable=_ReachDSLSpectrumMgmtLineInfoTable_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,4))
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtLineInfoTable.setStatus(_B)
-_ReachDSLSpectrumMgmtLineInfoEntry_Object=MibTableRow
-reachDSLSpectrumMgmtLineInfoEntry=_ReachDSLSpectrumMgmtLineInfoEntry_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,4,1))
-reachDSLSpectrumMgmtLineInfoEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtLineInfoEntry.setStatus(_B)
-_ReachDSLSpectrumMgmtAtucMaxTxRate_Type=Unsigned32
-_ReachDSLSpectrumMgmtAtucMaxTxRate_Object=MibTableColumn
-reachDSLSpectrumMgmtAtucMaxTxRate=_ReachDSLSpectrumMgmtAtucMaxTxRate_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,4,1,1),_ReachDSLSpectrumMgmtAtucMaxTxRate_Type())
-reachDSLSpectrumMgmtAtucMaxTxRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtAtucMaxTxRate.setStatus(_B)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtAtucMaxTxRate.setUnits(_J)
-_ReachDSLSpectrumMgmtAtucMinTxRate_Type=Unsigned32
-_ReachDSLSpectrumMgmtAtucMinTxRate_Object=MibTableColumn
-reachDSLSpectrumMgmtAtucMinTxRate=_ReachDSLSpectrumMgmtAtucMinTxRate_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,4,1,2),_ReachDSLSpectrumMgmtAtucMinTxRate_Type())
-reachDSLSpectrumMgmtAtucMinTxRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtAtucMinTxRate.setStatus(_B)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtAtucMinTxRate.setUnits(_J)
-class _ReachDSLSpectrumMgmtAtucMaxTxPower_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-140,120))
-_ReachDSLSpectrumMgmtAtucMaxTxPower_Type.__name__=_C
-_ReachDSLSpectrumMgmtAtucMaxTxPower_Object=MibTableColumn
-reachDSLSpectrumMgmtAtucMaxTxPower=_ReachDSLSpectrumMgmtAtucMaxTxPower_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,4,1,3),_ReachDSLSpectrumMgmtAtucMaxTxPower_Type())
-reachDSLSpectrumMgmtAtucMaxTxPower.setMaxAccess(_D)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtAtucMaxTxPower.setStatus(_B)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtAtucMaxTxPower.setUnits(_I)
-_ReachDSLSpectrumMgmtAturMaxTxRate_Type=Unsigned32
-_ReachDSLSpectrumMgmtAturMaxTxRate_Object=MibTableColumn
-reachDSLSpectrumMgmtAturMaxTxRate=_ReachDSLSpectrumMgmtAturMaxTxRate_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,4,1,4),_ReachDSLSpectrumMgmtAturMaxTxRate_Type())
-reachDSLSpectrumMgmtAturMaxTxRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtAturMaxTxRate.setStatus(_B)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtAturMaxTxRate.setUnits(_J)
-_ReachDSLSpectrumMgmtAturMinTxRate_Type=Unsigned32
-_ReachDSLSpectrumMgmtAturMinTxRate_Object=MibTableColumn
-reachDSLSpectrumMgmtAturMinTxRate=_ReachDSLSpectrumMgmtAturMinTxRate_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,4,1,5),_ReachDSLSpectrumMgmtAturMinTxRate_Type())
-reachDSLSpectrumMgmtAturMinTxRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtAturMinTxRate.setStatus(_B)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtAturMinTxRate.setUnits(_J)
-class _ReachDSLSpectrumMgmtAturMaxTxPower_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-140,120))
-_ReachDSLSpectrumMgmtAturMaxTxPower_Type.__name__=_C
-_ReachDSLSpectrumMgmtAturMaxTxPower_Object=MibTableColumn
-reachDSLSpectrumMgmtAturMaxTxPower=_ReachDSLSpectrumMgmtAturMaxTxPower_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,4,1,6),_ReachDSLSpectrumMgmtAturMaxTxPower_Type())
-reachDSLSpectrumMgmtAturMaxTxPower.setMaxAccess(_D)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtAturMaxTxPower.setStatus(_B)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtAturMaxTxPower.setUnits(_I)
-_ReachDSLSpectrumMgmtMinEWL_Type=Unsigned32
-_ReachDSLSpectrumMgmtMinEWL_Object=MibTableColumn
-reachDSLSpectrumMgmtMinEWL=_ReachDSLSpectrumMgmtMinEWL_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,4,1,7),_ReachDSLSpectrumMgmtMinEWL_Type())
-reachDSLSpectrumMgmtMinEWL.setMaxAccess(_D)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtMinEWL.setStatus(_B)
-_ReachDSLSpectrumMgmtMaxEWL_Type=Unsigned32
-_ReachDSLSpectrumMgmtMaxEWL_Object=MibTableColumn
-reachDSLSpectrumMgmtMaxEWL=_ReachDSLSpectrumMgmtMaxEWL_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,4,1,8),_ReachDSLSpectrumMgmtMaxEWL_Type())
-reachDSLSpectrumMgmtMaxEWL.setMaxAccess(_D)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtMaxEWL.setStatus(_B)
-_ReachDSLLineTable_Object=MibTable
-reachDSLLineTable=_ReachDSLLineTable_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,5))
-if mibBuilder.loadTexts:reachDSLLineTable.setStatus(_B)
-_ReachDSLLineEntry_Object=MibTableRow
-reachDSLLineEntry=_ReachDSLLineEntry_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,5,1))
-reachDSLLineEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:reachDSLLineEntry.setStatus(_B)
-class _ReachDSLPotsDetectionVoltage_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,74))
-_ReachDSLPotsDetectionVoltage_Type.__name__=_C
-_ReachDSLPotsDetectionVoltage_Object=MibTableColumn
-reachDSLPotsDetectionVoltage=_ReachDSLPotsDetectionVoltage_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,5,1,1),_ReachDSLPotsDetectionVoltage_Type())
-reachDSLPotsDetectionVoltage.setMaxAccess(_E)
-if mibBuilder.loadTexts:reachDSLPotsDetectionVoltage.setStatus(_B)
-if mibBuilder.loadTexts:reachDSLPotsDetectionVoltage.setUnits('volts')
-class _ReachDSLCircuitIdentifier_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_ReachDSLCircuitIdentifier_Type.__name__=_c
-_ReachDSLCircuitIdentifier_Object=MibTableColumn
-reachDSLCircuitIdentifier=_ReachDSLCircuitIdentifier_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,5,1,2),_ReachDSLCircuitIdentifier_Type())
-reachDSLCircuitIdentifier.setMaxAccess(_E)
-if mibBuilder.loadTexts:reachDSLCircuitIdentifier.setStatus(_F)
-class _ReachDSLSpectrumMgmtLoopMeasurementMethod_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('none',1),('loopLength',2),('ewl',3),('quadMode',4)))
-_ReachDSLSpectrumMgmtLoopMeasurementMethod_Type.__name__=_C
-_ReachDSLSpectrumMgmtLoopMeasurementMethod_Object=MibScalar
-reachDSLSpectrumMgmtLoopMeasurementMethod=_ReachDSLSpectrumMgmtLoopMeasurementMethod_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,6),_ReachDSLSpectrumMgmtLoopMeasurementMethod_Type())
-reachDSLSpectrumMgmtLoopMeasurementMethod.setMaxAccess(_D)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtLoopMeasurementMethod.setStatus(_B)
-class _ReachDSLSpectrumMgmtEWLUnits_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('feet',2),('meters',3)))
-_ReachDSLSpectrumMgmtEWLUnits_Type.__name__=_C
-_ReachDSLSpectrumMgmtEWLUnits_Object=MibScalar
-reachDSLSpectrumMgmtEWLUnits=_ReachDSLSpectrumMgmtEWLUnits_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,7),_ReachDSLSpectrumMgmtEWLUnits_Type())
-reachDSLSpectrumMgmtEWLUnits.setMaxAccess(_D)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtEWLUnits.setStatus(_B)
-class _ReachDSLSpectrumMgmtMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('enableOnly',1),('disableOnly',2),('both',3)))
-_ReachDSLSpectrumMgmtMode_Type.__name__=_C
-_ReachDSLSpectrumMgmtMode_Object=MibScalar
-reachDSLSpectrumMgmtMode=_ReachDSLSpectrumMgmtMode_Object((1,3,6,1,4,1,1795,2,24,2,6,20,1,8),_ReachDSLSpectrumMgmtMode_Type())
-reachDSLSpectrumMgmtMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:reachDSLSpectrumMgmtMode.setStatus(_B)
-_PdnReachDSLConformance_ObjectIdentity=ObjectIdentity
-pdnReachDSLConformance=_PdnReachDSLConformance_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,6,20,2))
-_PdnReachDSLGroups_ObjectIdentity=ObjectIdentity
-pdnReachDSLGroups=_PdnReachDSLGroups_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,6,20,2,1))
-_PdnReachDSLCompliances_ObjectIdentity=ObjectIdentity
-pdnReachDSLCompliances=_PdnReachDSLCompliances_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,6,20,2,2))
-pdnReachDSLConfigurationGroup=ObjectGroup((1,3,6,1,4,1,1795,2,24,2,6,20,2,1,1))
-pdnReachDSLConfigurationGroup.setObjects(*((_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q)))
-if mibBuilder.loadTexts:pdnReachDSLConfigurationGroup.setStatus(_F)
-pdnReachDSLInformationGroup=ObjectGroup((1,3,6,1,4,1,1795,2,24,2,6,20,2,1,2))
-pdnReachDSLInformationGroup.setObjects(*((_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b)))
-if mibBuilder.loadTexts:pdnReachDSLInformationGroup.setStatus(_F)
-pdnReachDSLDeprecatedGroup=ObjectGroup((1,3,6,1,4,1,1795,2,24,2,6,20,2,1,3))
-pdnReachDSLDeprecatedGroup.setObjects(*((_A,_d),(_A,_Q)))
-if mibBuilder.loadTexts:pdnReachDSLDeprecatedGroup.setStatus(_F)
-pdnReachDSLGeneralConfigGroup=ObjectGroup((1,3,6,1,4,1,1795,2,24,2,6,20,2,1,4))
-pdnReachDSLGeneralConfigGroup.setObjects(*((_A,_K),(_A,_N),(_A,_O),(_A,_P)))
-if mibBuilder.loadTexts:pdnReachDSLGeneralConfigGroup.setStatus(_B)
-pdnReachDSLGeneralInformationGroup=ObjectGroup((1,3,6,1,4,1,1795,2,24,2,6,20,2,1,5))
-pdnReachDSLGeneralInformationGroup.setObjects(*((_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_Z),(_A,_a),(_A,_b)))
-if mibBuilder.loadTexts:pdnReachDSLGeneralInformationGroup.setStatus(_B)
-pdnReachDSLEWLModeGroup=ObjectGroup((1,3,6,1,4,1,1795,2,24,2,6,20,2,1,6))
-pdnReachDSLEWLModeGroup.setObjects(*((_A,_L),(_A,_X),(_A,_Y)))
-if mibBuilder.loadTexts:pdnReachDSLEWLModeGroup.setStatus(_B)
-pdnReachDSLLoopLengthModeGroup=ObjectGroup((1,3,6,1,4,1,1795,2,24,2,6,20,2,1,7))
-pdnReachDSLLoopLengthModeGroup.setObjects((_A,_M))
-if mibBuilder.loadTexts:pdnReachDSLLoopLengthModeGroup.setStatus(_B)
-pdnReachDSLQuadModeGroup=ObjectGroup((1,3,6,1,4,1,1795,2,24,2,6,20,2,1,8))
-pdnReachDSLQuadModeGroup.setObjects((_A,_e))
-if mibBuilder.loadTexts:pdnReachDSLQuadModeGroup.setStatus(_B)
-pdnReachDSLCompliance=ModuleCompliance((1,3,6,1,4,1,1795,2,24,2,6,20,2,2,1))
-pdnReachDSLCompliance.setObjects(*((_A,_f),(_A,_g)))
-if mibBuilder.loadTexts:pdnReachDSLCompliance.setStatus(_F)
-pdnReachDSLCompliance1=ModuleCompliance((1,3,6,1,4,1,1795,2,24,2,6,20,2,2,2))
-pdnReachDSLCompliance1.setObjects(*((_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l)))
-if mibBuilder.loadTexts:pdnReachDSLCompliance1.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'pdnReachDSL':pdnReachDSL,'pdnReachDSLObjects':pdnReachDSLObjects,_K:reachDSLSpectrumMgmtSelection,_d:reachDSLSpectrumMgmtZone,'reachDSLSpectrumMgmtConfTable':reachDSLSpectrumMgmtConfTable,'reachDSLSpectrumMgmtConfEntry':reachDSLSpectrumMgmtConfEntry,_L:reachDSLSpectrumMgmtConfEWL,_M:reachDSLSpectrumMgmtConfLoopLength,_N:reachDSLSpectrumMgmtConfAtucMaxTxPower,_O:reachDSLSpectrumMgmtConfAturMaxTxPower,_e:reachDSLSpectrumMgmtConfQuadMode,'reachDSLSpectrumMgmtLineInfoTable':reachDSLSpectrumMgmtLineInfoTable,'reachDSLSpectrumMgmtLineInfoEntry':reachDSLSpectrumMgmtLineInfoEntry,_R:reachDSLSpectrumMgmtAtucMaxTxRate,_S:reachDSLSpectrumMgmtAtucMinTxRate,_T:reachDSLSpectrumMgmtAtucMaxTxPower,_U:reachDSLSpectrumMgmtAturMaxTxRate,_V:reachDSLSpectrumMgmtAturMinTxRate,_W:reachDSLSpectrumMgmtAturMaxTxPower,_X:reachDSLSpectrumMgmtMinEWL,_Y:reachDSLSpectrumMgmtMaxEWL,'reachDSLLineTable':reachDSLLineTable,'reachDSLLineEntry':reachDSLLineEntry,_P:reachDSLPotsDetectionVoltage,_Q:reachDSLCircuitIdentifier,_Z:reachDSLSpectrumMgmtLoopMeasurementMethod,_a:reachDSLSpectrumMgmtEWLUnits,_b:reachDSLSpectrumMgmtMode,'pdnReachDSLConformance':pdnReachDSLConformance,'pdnReachDSLGroups':pdnReachDSLGroups,_f:pdnReachDSLConfigurationGroup,_g:pdnReachDSLInformationGroup,'pdnReachDSLDeprecatedGroup':pdnReachDSLDeprecatedGroup,_h:pdnReachDSLGeneralConfigGroup,_i:pdnReachDSLGeneralInformationGroup,_j:pdnReachDSLEWLModeGroup,_k:pdnReachDSLLoopLengthModeGroup,_l:pdnReachDSLQuadModeGroup,'pdnReachDSLCompliances':pdnReachDSLCompliances,'pdnReachDSLCompliance':pdnReachDSLCompliance,'pdnReachDSLCompliance1':pdnReachDSLCompliance1})
+#
+# PySNMP MIB module PDN-REACHDSL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/paradyne/PDN-REACHDSL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+pdn_interfaces, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-interfaces")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+pdnReachDSL = ModuleIdentity((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20))
+pdnReachDSL.setRevisions(('2003-01-15 12:00', '2003-01-12 12:00', '2002-10-15 17:00', '2002-07-12 03:15',))
+if mibBuilder.loadTexts: pdnReachDSL.setLastUpdated('200210151700Z')
+if mibBuilder.loadTexts: pdnReachDSL.setOrganization('Paradyne Corp MIB Working Group')
+pdnReachDSLObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1))
+reachDSLSpectrumMgmtSelection = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtSelection.setStatus('current')
+reachDSLSpectrumMgmtZone = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("usa1", 1), ("uk1", 2), ("canada1", 3), ("japan1", 4), ("emea1", 5))).clone('usa1')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtZone.setStatus('deprecated')
+reachDSLSpectrumMgmtConfTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 3), )
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtConfTable.setStatus('current')
+reachDSLSpectrumMgmtConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtConfEntry.setStatus('current')
+reachDSLSpectrumMgmtConfEWL = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 3, 1, 1), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtConfEWL.setStatus('current')
+reachDSLSpectrumMgmtConfLoopLength = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("short", 1), ("medium", 2), ("long", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtConfLoopLength.setStatus('current')
+reachDSLSpectrumMgmtConfAtucMaxTxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-140, 120))).setUnits('tenth dB').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtConfAtucMaxTxPower.setStatus('current')
+reachDSLSpectrumMgmtConfAturMaxTxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-140, 120))).setUnits('tenth dB').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtConfAturMaxTxPower.setStatus('current')
+reachDSLSpectrumMgmtConfQuadMode = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("sameQuad", 1), ("segregatedQuadUpto3km", 2), ("segregatedQuadAbove3km", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtConfQuadMode.setStatus('current')
+reachDSLSpectrumMgmtLineInfoTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 4), )
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtLineInfoTable.setStatus('current')
+reachDSLSpectrumMgmtLineInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtLineInfoEntry.setStatus('current')
+reachDSLSpectrumMgmtAtucMaxTxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 4, 1, 1), Unsigned32()).setUnits('bps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtAtucMaxTxRate.setStatus('current')
+reachDSLSpectrumMgmtAtucMinTxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 4, 1, 2), Unsigned32()).setUnits('bps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtAtucMinTxRate.setStatus('current')
+reachDSLSpectrumMgmtAtucMaxTxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-140, 120))).setUnits('tenth dB').setMaxAccess("readonly")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtAtucMaxTxPower.setStatus('current')
+reachDSLSpectrumMgmtAturMaxTxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 4, 1, 4), Unsigned32()).setUnits('bps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtAturMaxTxRate.setStatus('current')
+reachDSLSpectrumMgmtAturMinTxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 4, 1, 5), Unsigned32()).setUnits('bps').setMaxAccess("readonly")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtAturMinTxRate.setStatus('current')
+reachDSLSpectrumMgmtAturMaxTxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 4, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-140, 120))).setUnits('tenth dB').setMaxAccess("readonly")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtAturMaxTxPower.setStatus('current')
+reachDSLSpectrumMgmtMinEWL = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 4, 1, 7), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtMinEWL.setStatus('current')
+reachDSLSpectrumMgmtMaxEWL = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 4, 1, 8), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtMaxEWL.setStatus('current')
+reachDSLLineTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 5), )
+if mibBuilder.loadTexts: reachDSLLineTable.setStatus('current')
+reachDSLLineEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: reachDSLLineEntry.setStatus('current')
+reachDSLPotsDetectionVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 74)).clone(3)).setUnits('volts').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: reachDSLPotsDetectionVoltage.setStatus('current')
+reachDSLCircuitIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 5, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: reachDSLCircuitIdentifier.setStatus('deprecated')
+reachDSLSpectrumMgmtLoopMeasurementMethod = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("loopLength", 2), ("ewl", 3), ("quadMode", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtLoopMeasurementMethod.setStatus('current')
+reachDSLSpectrumMgmtEWLUnits = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("feet", 2), ("meters", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtEWLUnits.setStatus('current')
+reachDSLSpectrumMgmtMode = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("enableOnly", 1), ("disableOnly", 2), ("both", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: reachDSLSpectrumMgmtMode.setStatus('current')
+pdnReachDSLConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 2))
+pdnReachDSLGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 2, 1))
+pdnReachDSLCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 2, 2))
+pdnReachDSLCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 2, 2, 2)).setObjects(("PDN-REACHDSL-MIB", "pdnReachDSLGeneralConfigGroup"), ("PDN-REACHDSL-MIB", "pdnReachDSLGeneralInformationGroup"), ("PDN-REACHDSL-MIB", "pdnReachDSLEWLModeGroup"), ("PDN-REACHDSL-MIB", "pdnReachDSLLoopLengthModeGroup"), ("PDN-REACHDSL-MIB", "pdnReachDSLQuadModeGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnReachDSLCompliance1 = pdnReachDSLCompliance1.setStatus('current')
+pdnReachDSLGeneralConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 2, 1, 4)).setObjects(("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtSelection"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtConfAtucMaxTxPower"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtConfAturMaxTxPower"), ("PDN-REACHDSL-MIB", "reachDSLPotsDetectionVoltage"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnReachDSLGeneralConfigGroup = pdnReachDSLGeneralConfigGroup.setStatus('current')
+pdnReachDSLGeneralInformationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 2, 1, 5)).setObjects(("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtAtucMaxTxRate"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtAtucMinTxRate"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtAtucMaxTxPower"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtAturMaxTxRate"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtAturMinTxRate"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtAturMaxTxPower"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtLoopMeasurementMethod"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtEWLUnits"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnReachDSLGeneralInformationGroup = pdnReachDSLGeneralInformationGroup.setStatus('current')
+pdnReachDSLEWLModeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 2, 1, 6)).setObjects(("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtConfEWL"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtMinEWL"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtMaxEWL"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnReachDSLEWLModeGroup = pdnReachDSLEWLModeGroup.setStatus('current')
+pdnReachDSLLoopLengthModeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 2, 1, 7)).setObjects(("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtConfLoopLength"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnReachDSLLoopLengthModeGroup = pdnReachDSLLoopLengthModeGroup.setStatus('current')
+pdnReachDSLQuadModeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 2, 1, 8)).setObjects(("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtConfQuadMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnReachDSLQuadModeGroup = pdnReachDSLQuadModeGroup.setStatus('current')
+pdnReachDSLCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 2, 2, 1)).setObjects(("PDN-REACHDSL-MIB", "pdnReachDSLConfigurationGroup"), ("PDN-REACHDSL-MIB", "pdnReachDSLInformationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnReachDSLCompliance = pdnReachDSLCompliance.setStatus('deprecated')
+pdnReachDSLConfigurationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 2, 1, 1)).setObjects(("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtSelection"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtConfEWL"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtConfLoopLength"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtConfAtucMaxTxPower"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtConfAturMaxTxPower"), ("PDN-REACHDSL-MIB", "reachDSLPotsDetectionVoltage"), ("PDN-REACHDSL-MIB", "reachDSLCircuitIdentifier"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnReachDSLConfigurationGroup = pdnReachDSLConfigurationGroup.setStatus('deprecated')
+pdnReachDSLInformationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 2, 1, 2)).setObjects(("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtAtucMaxTxRate"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtAtucMinTxRate"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtAtucMaxTxPower"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtAturMaxTxRate"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtAturMinTxRate"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtAturMaxTxPower"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtMinEWL"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtMaxEWL"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtLoopMeasurementMethod"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtEWLUnits"), ("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnReachDSLInformationGroup = pdnReachDSLInformationGroup.setStatus('deprecated')
+pdnReachDSLDeprecatedGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 20, 2, 1, 3)).setObjects(("PDN-REACHDSL-MIB", "reachDSLSpectrumMgmtZone"), ("PDN-REACHDSL-MIB", "reachDSLCircuitIdentifier"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    pdnReachDSLDeprecatedGroup = pdnReachDSLDeprecatedGroup.setStatus('deprecated')
+mibBuilder.exportSymbols("PDN-REACHDSL-MIB", pdnReachDSLCompliance=pdnReachDSLCompliance, pdnReachDSLConfigurationGroup=pdnReachDSLConfigurationGroup, reachDSLSpectrumMgmtEWLUnits=reachDSLSpectrumMgmtEWLUnits, pdnReachDSLInformationGroup=pdnReachDSLInformationGroup, reachDSLSpectrumMgmtLineInfoEntry=reachDSLSpectrumMgmtLineInfoEntry, reachDSLCircuitIdentifier=reachDSLCircuitIdentifier, reachDSLSpectrumMgmtConfAturMaxTxPower=reachDSLSpectrumMgmtConfAturMaxTxPower, pdnReachDSLGroups=pdnReachDSLGroups, pdnReachDSLCompliance1=pdnReachDSLCompliance1, reachDSLSpectrumMgmtConfEWL=reachDSLSpectrumMgmtConfEWL, reachDSLSpectrumMgmtMaxEWL=reachDSLSpectrumMgmtMaxEWL, reachDSLSpectrumMgmtAturMaxTxPower=reachDSLSpectrumMgmtAturMaxTxPower, pdnReachDSLGeneralInformationGroup=pdnReachDSLGeneralInformationGroup, reachDSLSpectrumMgmtConfEntry=reachDSLSpectrumMgmtConfEntry, reachDSLSpectrumMgmtMinEWL=reachDSLSpectrumMgmtMinEWL, pdnReachDSLConformance=pdnReachDSLConformance, reachDSLSpectrumMgmtAturMinTxRate=reachDSLSpectrumMgmtAturMinTxRate, pdnReachDSLDeprecatedGroup=pdnReachDSLDeprecatedGroup, reachDSLSpectrumMgmtZone=reachDSLSpectrumMgmtZone, reachDSLSpectrumMgmtConfLoopLength=reachDSLSpectrumMgmtConfLoopLength, reachDSLSpectrumMgmtSelection=reachDSLSpectrumMgmtSelection, reachDSLSpectrumMgmtConfAtucMaxTxPower=reachDSLSpectrumMgmtConfAtucMaxTxPower, reachDSLLineTable=reachDSLLineTable, reachDSLSpectrumMgmtLoopMeasurementMethod=reachDSLSpectrumMgmtLoopMeasurementMethod, pdnReachDSLQuadModeGroup=pdnReachDSLQuadModeGroup, reachDSLSpectrumMgmtAtucMinTxRate=reachDSLSpectrumMgmtAtucMinTxRate, pdnReachDSL=pdnReachDSL, reachDSLSpectrumMgmtConfTable=reachDSLSpectrumMgmtConfTable, reachDSLSpectrumMgmtAtucMaxTxPower=reachDSLSpectrumMgmtAtucMaxTxPower, reachDSLSpectrumMgmtMode=reachDSLSpectrumMgmtMode, pdnReachDSLLoopLengthModeGroup=pdnReachDSLLoopLengthModeGroup, PYSNMP_MODULE_ID=pdnReachDSL, pdnReachDSLCompliances=pdnReachDSLCompliances, reachDSLSpectrumMgmtConfQuadMode=reachDSLSpectrumMgmtConfQuadMode, reachDSLPotsDetectionVoltage=reachDSLPotsDetectionVoltage, pdnReachDSLEWLModeGroup=pdnReachDSLEWLModeGroup, reachDSLLineEntry=reachDSLLineEntry, reachDSLSpectrumMgmtAturMaxTxRate=reachDSLSpectrumMgmtAturMaxTxRate, reachDSLSpectrumMgmtLineInfoTable=reachDSLSpectrumMgmtLineInfoTable, pdnReachDSLGeneralConfigGroup=pdnReachDSLGeneralConfigGroup, pdnReachDSLObjects=pdnReachDSLObjects, reachDSLSpectrumMgmtAtucMaxTxRate=reachDSLSpectrumMgmtAtucMaxTxRate)

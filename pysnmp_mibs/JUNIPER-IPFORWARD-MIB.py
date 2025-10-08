@@ -1,48 +1,37 @@
-_G='jnxInetCidrRouteEntry'
-_F='jnxIpCidrRouteEntry'
-_E='read-only'
-_D='JUNIPER-IPFORWARD-MIB'
-_C='current'
-_B='deprecated'
-_A='SnmpAdminString'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-inetCidrRouteEntry,ipCidrRouteEntry=mibBuilder.importSymbols('IP-FORWARD-MIB','inetCidrRouteEntry','ipCidrRouteEntry')
-jnxMibs,=mibBuilder.importSymbols('JUNIPER-SMI','jnxMibs')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_A)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-jnxIpForwardMIB=ModuleIdentity((1,3,6,1,4,1,2636,3,38))
-if mibBuilder.loadTexts:jnxIpForwardMIB.setRevisions(('2011-11-13 00:00',))
-_JnxIpCidrRouteTable_Object=MibTable
-jnxIpCidrRouteTable=_JnxIpCidrRouteTable_Object((1,3,6,1,4,1,2636,3,38,1))
-if mibBuilder.loadTexts:jnxIpCidrRouteTable.setStatus(_B)
-_JnxIpCidrRouteEntry_Object=MibTableRow
-jnxIpCidrRouteEntry=_JnxIpCidrRouteEntry_Object((1,3,6,1,4,1,2636,3,38,1,1))
-if mibBuilder.loadTexts:jnxIpCidrRouteEntry.setStatus(_B)
-class _JnxIpCidrRouteTunnelName_Type(SnmpAdminString):defaultValue=OctetString('')
-_JnxIpCidrRouteTunnelName_Type.__name__=_A
-_JnxIpCidrRouteTunnelName_Object=MibTableColumn
-jnxIpCidrRouteTunnelName=_JnxIpCidrRouteTunnelName_Object((1,3,6,1,4,1,2636,3,38,1,1,1),_JnxIpCidrRouteTunnelName_Type())
-jnxIpCidrRouteTunnelName.setMaxAccess(_E)
-if mibBuilder.loadTexts:jnxIpCidrRouteTunnelName.setStatus(_B)
-_JnxInetCidrRouteTable_Object=MibTable
-jnxInetCidrRouteTable=_JnxInetCidrRouteTable_Object((1,3,6,1,4,1,2636,3,38,2))
-if mibBuilder.loadTexts:jnxInetCidrRouteTable.setStatus(_C)
-_JnxInetCidrRouteEntry_Object=MibTableRow
-jnxInetCidrRouteEntry=_JnxInetCidrRouteEntry_Object((1,3,6,1,4,1,2636,3,38,2,1))
-if mibBuilder.loadTexts:jnxInetCidrRouteEntry.setStatus(_C)
-class _JnxInetCidrRouteTunnelName_Type(SnmpAdminString):defaultValue=OctetString('')
-_JnxInetCidrRouteTunnelName_Type.__name__=_A
-_JnxInetCidrRouteTunnelName_Object=MibTableColumn
-jnxInetCidrRouteTunnelName=_JnxInetCidrRouteTunnelName_Object((1,3,6,1,4,1,2636,3,38,2,1,1),_JnxInetCidrRouteTunnelName_Type())
-jnxInetCidrRouteTunnelName.setMaxAccess(_E)
-if mibBuilder.loadTexts:jnxInetCidrRouteTunnelName.setStatus(_C)
-ipCidrRouteEntry.registerAugmentions((_D,_F))
+#
+# PySNMP MIB module JUNIPER-IPFORWARD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/juniper/JUNIPER-IPFORWARD-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:13 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ipCidrRouteEntry, inetCidrRouteEntry = mibBuilder.importSymbols("IP-FORWARD-MIB", "ipCidrRouteEntry", "inetCidrRouteEntry")
+jnxMibs, = mibBuilder.importSymbols("JUNIPER-SMI", "jnxMibs")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+jnxIpForwardMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 38))
+jnxIpForwardMIB.setRevisions(('2011-11-13 00:00',))
+if mibBuilder.loadTexts: jnxIpForwardMIB.setLastUpdated('201111130000Z')
+if mibBuilder.loadTexts: jnxIpForwardMIB.setOrganization('Juniper Networks, Inc.')
+jnxIpCidrRouteTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 38, 1), )
+if mibBuilder.loadTexts: jnxIpCidrRouteTable.setStatus('deprecated')
+jnxIpCidrRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 38, 1, 1), )
+ipCidrRouteEntry.registerAugmentions(("JUNIPER-IPFORWARD-MIB", "jnxIpCidrRouteEntry"))
 jnxIpCidrRouteEntry.setIndexNames(*ipCidrRouteEntry.getIndexNames())
-inetCidrRouteEntry.registerAugmentions((_D,_G))
+if mibBuilder.loadTexts: jnxIpCidrRouteEntry.setStatus('deprecated')
+jnxIpCidrRouteTunnelName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 38, 1, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxIpCidrRouteTunnelName.setStatus('deprecated')
+jnxInetCidrRouteTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 38, 2), )
+if mibBuilder.loadTexts: jnxInetCidrRouteTable.setStatus('current')
+jnxInetCidrRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 38, 2, 1), )
+inetCidrRouteEntry.registerAugmentions(("JUNIPER-IPFORWARD-MIB", "jnxInetCidrRouteEntry"))
 jnxInetCidrRouteEntry.setIndexNames(*inetCidrRouteEntry.getIndexNames())
-mibBuilder.exportSymbols(_D,**{'jnxIpForwardMIB':jnxIpForwardMIB,'jnxIpCidrRouteTable':jnxIpCidrRouteTable,_F:jnxIpCidrRouteEntry,'jnxIpCidrRouteTunnelName':jnxIpCidrRouteTunnelName,'jnxInetCidrRouteTable':jnxInetCidrRouteTable,_G:jnxInetCidrRouteEntry,'jnxInetCidrRouteTunnelName':jnxInetCidrRouteTunnelName})
+if mibBuilder.loadTexts: jnxInetCidrRouteEntry.setStatus('current')
+jnxInetCidrRouteTunnelName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 38, 2, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: jnxInetCidrRouteTunnelName.setStatus('current')
+mibBuilder.exportSymbols("JUNIPER-IPFORWARD-MIB", jnxIpForwardMIB=jnxIpForwardMIB, PYSNMP_MODULE_ID=jnxIpForwardMIB, jnxIpCidrRouteTable=jnxIpCidrRouteTable, jnxIpCidrRouteTunnelName=jnxIpCidrRouteTunnelName, jnxIpCidrRouteEntry=jnxIpCidrRouteEntry, jnxInetCidrRouteEntry=jnxInetCidrRouteEntry, jnxInetCidrRouteTunnelName=jnxInetCidrRouteTunnelName, jnxInetCidrRouteTable=jnxInetCidrRouteTable)

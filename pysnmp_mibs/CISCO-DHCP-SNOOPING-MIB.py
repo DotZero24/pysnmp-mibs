@@ -1,560 +1,280 @@
-_Ab='cdsVlanOperStatusGroup'
-_Aa='cdsIfSrcGuardGroup'
-_AZ='cdsBindingsNotification'
-_AY='cdsVlanDhcpSnoopingOperStatus'
-_AX='cdsIfVlanRelayInfoOptCircuitIdDirect'
-_AW='cdsBindingsNotifEnabled'
-_AV='cdsForwardedWithoutOption82Pkts'
-_AU='cdsIfVlanRelayInfoOptCircuitIdStatus'
-_AT='cdsIfVlanRelayInfoOptCircuitId'
-_AS='cdsRelayAgentInfoOptRemoteIdSub'
-_AR='cdsBindingsHostname'
-_AQ='cdsIfSrcGuardFilterType'
-_AP='cdsIfSrcGuardVlansHigh'
-_AO='cdsIfSrcGuardVlansLow'
-_AN='cdsIfSrcGuardMacFilterAction'
-_AM='cdsIfSrcGuardMacAddress'
-_AL='cdsIfSrcGuardFilterMode'
-_AK='cdsIfSrcGuardIpFilterAction'
-_AJ='cdsStaticBindingsStatus'
-_AI='cdsStaticBindingsInterface'
-_AH='cdsStaticBindingsIpAddress'
-_AG='cdsStaticBindingsAddrType'
-_AF='cdsIfBindingsLimit'
-_AE='cdsGlobalMaxBindingsLimit'
-_AD='cdsIfFeatureEnable'
-_AC='cdsMatchMacAddressEnable'
-_AB='cdsRelayAgentInfoOptRemoteId'
-_AA='cdsIfSrcGuardEnable'
-_A9='cdsRelayAgentInfoOptEnable'
-_A8='cdsUntrustedPortDroppedPkts'
-_A7='cdsTotalDroppedPkts'
-_A6='cdsTotalForwardedPkts'
-_A5='cdsBindingsStatus'
-_A4='cdsBindingsLeasedTime'
-_A3='cdsBindingsInterface'
-_A2='cdsIfRateLimit'
-_A1='cdsIfTrustEnable'
-_A0='cdsVlanDhcpSnoopingEnable'
-_z='cdsDatabaseUpdateInterval'
-_y='cdsDatabaseFile'
-_x='cdsFeatureEnable'
-_w='cdsIfSrcGuardIndex'
-_v='cdsStaticBindingsMacAddress'
-_u='cdsStaticBindingsVlan'
-_t='cdsBindingsMacAddress'
-_s='cdsBindingsVlan'
-_r='cdsIfVlan'
-_q='cdsVlanIndex'
-_p='seconds'
-_o='ifName'
-_n='cdsIfVlanRelayInfoOptCircuitIdGroupSup1'
-_m='cdsRelayAgentRemoteIdGroup'
-_l='cdsIfSrcGuardAddress'
-_k='cdsIfSrcGuardAddrType'
-_j='cdsBindingsIpAddress'
-_i='cdsBindingsAddrType'
-_h='cdsBindingsNotificationGroup'
-_g='cdsNotifControlGroup'
-_f='packets'
-_e='cdsStatisticsExtGroup'
-_d='cdsIfVlanRelayInfoOptCircuitIdGroup'
-_c='cdsRelayAgentInfoOptRemoteIdSubGroup'
-_b='OctetString'
-_a='cdsBindingsHostnameGroup'
-_Z='Integer32'
-_Y='cdsIfSrcGuardTrafficFilterGroup'
-_X='cdsIfSrcGuardExtGroup'
-_W='cdsIfSrcGuardIpFilterGroup'
-_V='cdsStaticBindingsGroup'
-_U='cdsBindingsLimitGroup'
-_T='cdsIfFeatureConfigGroup'
-_S='cdsIfSrcGuardGroupRev1'
-_R='not-accessible'
-_Q='cdsMatchMacAddressGroup'
-_P='cdsRelayAgentInfoOptGroup'
-_O='cdsStatisticsGroup'
-_N='cdsIfRateLimitGroup'
-_M='cdsVlanConfigGroup'
-_L='cdsDatabaseGroup'
-_K='cdsGlobalEnableGroup'
-_J='cdsBindingsGroup'
-_I='cdsIfConfigGroup'
-_H='read-create'
-_G='ifIndex'
-_F='IF-MIB'
-_E='deprecated'
-_D='read-write'
-_C='read-only'
-_B='current'
-_A='CISCO-DHCP-SNOOPING-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_b,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-InterfaceIndex,ifIndex,ifName=mibBuilder.importSymbols(_F,'InterfaceIndex',_G,_o)
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-VlanIndex,=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanIndex')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_Z,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
-ciscoDhcpSnoopingMIB=ModuleIdentity((1,3,6,1,4,1,9,9,380))
-if mibBuilder.loadTexts:ciscoDhcpSnoopingMIB.setRevisions(('2009-08-26 00:00','2009-08-10 00:00','2009-04-12 00:00','2007-11-13 00:00','2007-07-12 00:00','2007-05-30 00:00','2006-03-16 16:00','2005-10-26 00:00','2004-03-04 00:00'))
-_CiscoDhcpSnoopingMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoDhcpSnoopingMIBNotifs=_CiscoDhcpSnoopingMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,380,0))
-_CiscoDhcpSnoopingMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoDhcpSnoopingMIBObjects=_CiscoDhcpSnoopingMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,380,1))
-_CdsGlobal_ObjectIdentity=ObjectIdentity
-cdsGlobal=_CdsGlobal_ObjectIdentity((1,3,6,1,4,1,9,9,380,1,1))
-_CdsFeatureEnable_Type=TruthValue
-_CdsFeatureEnable_Object=MibScalar
-cdsFeatureEnable=_CdsFeatureEnable_Object((1,3,6,1,4,1,9,9,380,1,1,1),_CdsFeatureEnable_Type())
-cdsFeatureEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdsFeatureEnable.setStatus(_B)
-_CdsDatabaseFile_Type=SnmpAdminString
-_CdsDatabaseFile_Object=MibScalar
-cdsDatabaseFile=_CdsDatabaseFile_Object((1,3,6,1,4,1,9,9,380,1,1,2),_CdsDatabaseFile_Type())
-cdsDatabaseFile.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdsDatabaseFile.setStatus(_B)
-_CdsDatabaseUpdateInterval_Type=Unsigned32
-_CdsDatabaseUpdateInterval_Object=MibScalar
-cdsDatabaseUpdateInterval=_CdsDatabaseUpdateInterval_Object((1,3,6,1,4,1,9,9,380,1,1,3),_CdsDatabaseUpdateInterval_Type())
-cdsDatabaseUpdateInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdsDatabaseUpdateInterval.setStatus(_B)
-if mibBuilder.loadTexts:cdsDatabaseUpdateInterval.setUnits(_p)
-_CdsRelayAgentInfoOptEnable_Type=TruthValue
-_CdsRelayAgentInfoOptEnable_Object=MibScalar
-cdsRelayAgentInfoOptEnable=_CdsRelayAgentInfoOptEnable_Object((1,3,6,1,4,1,9,9,380,1,1,4),_CdsRelayAgentInfoOptEnable_Type())
-cdsRelayAgentInfoOptEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdsRelayAgentInfoOptEnable.setStatus(_B)
-_CdsRelayAgentInfoOptRemoteId_Type=MacAddress
-_CdsRelayAgentInfoOptRemoteId_Object=MibScalar
-cdsRelayAgentInfoOptRemoteId=_CdsRelayAgentInfoOptRemoteId_Object((1,3,6,1,4,1,9,9,380,1,1,5),_CdsRelayAgentInfoOptRemoteId_Type())
-cdsRelayAgentInfoOptRemoteId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsRelayAgentInfoOptRemoteId.setStatus(_E)
-_CdsMatchMacAddressEnable_Type=TruthValue
-_CdsMatchMacAddressEnable_Object=MibScalar
-cdsMatchMacAddressEnable=_CdsMatchMacAddressEnable_Object((1,3,6,1,4,1,9,9,380,1,1,6),_CdsMatchMacAddressEnable_Type())
-cdsMatchMacAddressEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdsMatchMacAddressEnable.setStatus(_B)
-_CdsGlobalMaxBindingsLimit_Type=Unsigned32
-_CdsGlobalMaxBindingsLimit_Object=MibScalar
-cdsGlobalMaxBindingsLimit=_CdsGlobalMaxBindingsLimit_Object((1,3,6,1,4,1,9,9,380,1,1,7),_CdsGlobalMaxBindingsLimit_Type())
-cdsGlobalMaxBindingsLimit.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdsGlobalMaxBindingsLimit.setStatus(_B)
-class _CdsRelayAgentInfoOptRemoteIdSub_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_CdsRelayAgentInfoOptRemoteIdSub_Type.__name__=_b
-_CdsRelayAgentInfoOptRemoteIdSub_Object=MibScalar
-cdsRelayAgentInfoOptRemoteIdSub=_CdsRelayAgentInfoOptRemoteIdSub_Object((1,3,6,1,4,1,9,9,380,1,1,8),_CdsRelayAgentInfoOptRemoteIdSub_Type())
-cdsRelayAgentInfoOptRemoteIdSub.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdsRelayAgentInfoOptRemoteIdSub.setStatus(_B)
-_CdsBindingsNotifEnabled_Type=TruthValue
-_CdsBindingsNotifEnabled_Object=MibScalar
-cdsBindingsNotifEnabled=_CdsBindingsNotifEnabled_Object((1,3,6,1,4,1,9,9,380,1,1,9),_CdsBindingsNotifEnabled_Type())
-cdsBindingsNotifEnabled.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdsBindingsNotifEnabled.setStatus(_B)
-_CdsVlan_ObjectIdentity=ObjectIdentity
-cdsVlan=_CdsVlan_ObjectIdentity((1,3,6,1,4,1,9,9,380,1,2))
-_CdsVlanConfigTable_Object=MibTable
-cdsVlanConfigTable=_CdsVlanConfigTable_Object((1,3,6,1,4,1,9,9,380,1,2,1))
-if mibBuilder.loadTexts:cdsVlanConfigTable.setStatus(_B)
-_CdsVlanConfigEntry_Object=MibTableRow
-cdsVlanConfigEntry=_CdsVlanConfigEntry_Object((1,3,6,1,4,1,9,9,380,1,2,1,1))
-cdsVlanConfigEntry.setIndexNames((0,_A,_q))
-if mibBuilder.loadTexts:cdsVlanConfigEntry.setStatus(_B)
-_CdsVlanIndex_Type=VlanIndex
-_CdsVlanIndex_Object=MibTableColumn
-cdsVlanIndex=_CdsVlanIndex_Object((1,3,6,1,4,1,9,9,380,1,2,1,1,1),_CdsVlanIndex_Type())
-cdsVlanIndex.setMaxAccess(_R)
-if mibBuilder.loadTexts:cdsVlanIndex.setStatus(_B)
-_CdsVlanDhcpSnoopingEnable_Type=TruthValue
-_CdsVlanDhcpSnoopingEnable_Object=MibTableColumn
-cdsVlanDhcpSnoopingEnable=_CdsVlanDhcpSnoopingEnable_Object((1,3,6,1,4,1,9,9,380,1,2,1,1,2),_CdsVlanDhcpSnoopingEnable_Type())
-cdsVlanDhcpSnoopingEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdsVlanDhcpSnoopingEnable.setStatus(_B)
-class _CdsVlanDhcpSnoopingOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('operational',1),('notOperational',2)))
-_CdsVlanDhcpSnoopingOperStatus_Type.__name__=_Z
-_CdsVlanDhcpSnoopingOperStatus_Object=MibTableColumn
-cdsVlanDhcpSnoopingOperStatus=_CdsVlanDhcpSnoopingOperStatus_Object((1,3,6,1,4,1,9,9,380,1,2,1,1,3),_CdsVlanDhcpSnoopingOperStatus_Type())
-cdsVlanDhcpSnoopingOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsVlanDhcpSnoopingOperStatus.setStatus(_B)
-_CdsInterface_ObjectIdentity=ObjectIdentity
-cdsInterface=_CdsInterface_ObjectIdentity((1,3,6,1,4,1,9,9,380,1,3))
-_CdsIfConfigTable_Object=MibTable
-cdsIfConfigTable=_CdsIfConfigTable_Object((1,3,6,1,4,1,9,9,380,1,3,1))
-if mibBuilder.loadTexts:cdsIfConfigTable.setStatus(_B)
-_CdsIfConfigEntry_Object=MibTableRow
-cdsIfConfigEntry=_CdsIfConfigEntry_Object((1,3,6,1,4,1,9,9,380,1,3,1,1))
-cdsIfConfigEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:cdsIfConfigEntry.setStatus(_B)
-_CdsIfTrustEnable_Type=TruthValue
-_CdsIfTrustEnable_Object=MibTableColumn
-cdsIfTrustEnable=_CdsIfTrustEnable_Object((1,3,6,1,4,1,9,9,380,1,3,1,1,1),_CdsIfTrustEnable_Type())
-cdsIfTrustEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdsIfTrustEnable.setStatus(_B)
-_CdsIfRateLimitTable_Object=MibTable
-cdsIfRateLimitTable=_CdsIfRateLimitTable_Object((1,3,6,1,4,1,9,9,380,1,3,2))
-if mibBuilder.loadTexts:cdsIfRateLimitTable.setStatus(_B)
-_CdsIfRateLimitEntry_Object=MibTableRow
-cdsIfRateLimitEntry=_CdsIfRateLimitEntry_Object((1,3,6,1,4,1,9,9,380,1,3,2,1))
-cdsIfRateLimitEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:cdsIfRateLimitEntry.setStatus(_B)
-_CdsIfRateLimit_Type=Unsigned32
-_CdsIfRateLimit_Object=MibTableColumn
-cdsIfRateLimit=_CdsIfRateLimit_Object((1,3,6,1,4,1,9,9,380,1,3,2,1,1),_CdsIfRateLimit_Type())
-cdsIfRateLimit.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdsIfRateLimit.setStatus(_B)
-if mibBuilder.loadTexts:cdsIfRateLimit.setUnits('packets per second')
-_CdsIfFeatureConfigTable_Object=MibTable
-cdsIfFeatureConfigTable=_CdsIfFeatureConfigTable_Object((1,3,6,1,4,1,9,9,380,1,3,3))
-if mibBuilder.loadTexts:cdsIfFeatureConfigTable.setStatus(_B)
-_CdsIfFeatureConfigEntry_Object=MibTableRow
-cdsIfFeatureConfigEntry=_CdsIfFeatureConfigEntry_Object((1,3,6,1,4,1,9,9,380,1,3,3,1))
-cdsIfFeatureConfigEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:cdsIfFeatureConfigEntry.setStatus(_B)
-_CdsIfFeatureEnable_Type=TruthValue
-_CdsIfFeatureEnable_Object=MibTableColumn
-cdsIfFeatureEnable=_CdsIfFeatureEnable_Object((1,3,6,1,4,1,9,9,380,1,3,3,1,1),_CdsIfFeatureEnable_Type())
-cdsIfFeatureEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdsIfFeatureEnable.setStatus(_B)
-_CdsIfBindingsLimitTable_Object=MibTable
-cdsIfBindingsLimitTable=_CdsIfBindingsLimitTable_Object((1,3,6,1,4,1,9,9,380,1,3,4))
-if mibBuilder.loadTexts:cdsIfBindingsLimitTable.setStatus(_B)
-_CdsIfBindingsLimitEntry_Object=MibTableRow
-cdsIfBindingsLimitEntry=_CdsIfBindingsLimitEntry_Object((1,3,6,1,4,1,9,9,380,1,3,4,1))
-cdsIfBindingsLimitEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:cdsIfBindingsLimitEntry.setStatus(_B)
-_CdsIfBindingsLimit_Type=Unsigned32
-_CdsIfBindingsLimit_Object=MibTableColumn
-cdsIfBindingsLimit=_CdsIfBindingsLimit_Object((1,3,6,1,4,1,9,9,380,1,3,4,1,1),_CdsIfBindingsLimit_Type())
-cdsIfBindingsLimit.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdsIfBindingsLimit.setStatus(_B)
-_CdsIfVlanRelayInfoOptCircuitIdTable_Object=MibTable
-cdsIfVlanRelayInfoOptCircuitIdTable=_CdsIfVlanRelayInfoOptCircuitIdTable_Object((1,3,6,1,4,1,9,9,380,1,3,5))
-if mibBuilder.loadTexts:cdsIfVlanRelayInfoOptCircuitIdTable.setStatus(_B)
-_CdsIfVlanRelayInfoOptCircuitIdEntry_Object=MibTableRow
-cdsIfVlanRelayInfoOptCircuitIdEntry=_CdsIfVlanRelayInfoOptCircuitIdEntry_Object((1,3,6,1,4,1,9,9,380,1,3,5,1))
-cdsIfVlanRelayInfoOptCircuitIdEntry.setIndexNames((0,_F,_G),(0,_A,_r))
-if mibBuilder.loadTexts:cdsIfVlanRelayInfoOptCircuitIdEntry.setStatus(_B)
-_CdsIfVlan_Type=VlanIndex
-_CdsIfVlan_Object=MibTableColumn
-cdsIfVlan=_CdsIfVlan_Object((1,3,6,1,4,1,9,9,380,1,3,5,1,1),_CdsIfVlan_Type())
-cdsIfVlan.setMaxAccess(_R)
-if mibBuilder.loadTexts:cdsIfVlan.setStatus(_B)
-class _CdsIfVlanRelayInfoOptCircuitId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_CdsIfVlanRelayInfoOptCircuitId_Type.__name__=_b
-_CdsIfVlanRelayInfoOptCircuitId_Object=MibTableColumn
-cdsIfVlanRelayInfoOptCircuitId=_CdsIfVlanRelayInfoOptCircuitId_Object((1,3,6,1,4,1,9,9,380,1,3,5,1,2),_CdsIfVlanRelayInfoOptCircuitId_Type())
-cdsIfVlanRelayInfoOptCircuitId.setMaxAccess(_H)
-if mibBuilder.loadTexts:cdsIfVlanRelayInfoOptCircuitId.setStatus(_B)
-_CdsIfVlanRelayInfoOptCircuitIdStatus_Type=RowStatus
-_CdsIfVlanRelayInfoOptCircuitIdStatus_Object=MibTableColumn
-cdsIfVlanRelayInfoOptCircuitIdStatus=_CdsIfVlanRelayInfoOptCircuitIdStatus_Object((1,3,6,1,4,1,9,9,380,1,3,5,1,3),_CdsIfVlanRelayInfoOptCircuitIdStatus_Type())
-cdsIfVlanRelayInfoOptCircuitIdStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:cdsIfVlanRelayInfoOptCircuitIdStatus.setStatus(_B)
-_CdsIfVlanRelayInfoOptCircuitIdDirect_Type=TruthValue
-_CdsIfVlanRelayInfoOptCircuitIdDirect_Object=MibTableColumn
-cdsIfVlanRelayInfoOptCircuitIdDirect=_CdsIfVlanRelayInfoOptCircuitIdDirect_Object((1,3,6,1,4,1,9,9,380,1,3,5,1,4),_CdsIfVlanRelayInfoOptCircuitIdDirect_Type())
-cdsIfVlanRelayInfoOptCircuitIdDirect.setMaxAccess(_H)
-if mibBuilder.loadTexts:cdsIfVlanRelayInfoOptCircuitIdDirect.setStatus(_B)
-_CdsBindings_ObjectIdentity=ObjectIdentity
-cdsBindings=_CdsBindings_ObjectIdentity((1,3,6,1,4,1,9,9,380,1,4))
-_CdsBindingsTable_Object=MibTable
-cdsBindingsTable=_CdsBindingsTable_Object((1,3,6,1,4,1,9,9,380,1,4,1))
-if mibBuilder.loadTexts:cdsBindingsTable.setStatus(_B)
-_CdsBindingsEntry_Object=MibTableRow
-cdsBindingsEntry=_CdsBindingsEntry_Object((1,3,6,1,4,1,9,9,380,1,4,1,1))
-cdsBindingsEntry.setIndexNames((0,_A,_s),(0,_A,_t))
-if mibBuilder.loadTexts:cdsBindingsEntry.setStatus(_B)
-_CdsBindingsVlan_Type=VlanIndex
-_CdsBindingsVlan_Object=MibTableColumn
-cdsBindingsVlan=_CdsBindingsVlan_Object((1,3,6,1,4,1,9,9,380,1,4,1,1,1),_CdsBindingsVlan_Type())
-cdsBindingsVlan.setMaxAccess(_R)
-if mibBuilder.loadTexts:cdsBindingsVlan.setStatus(_B)
-_CdsBindingsMacAddress_Type=MacAddress
-_CdsBindingsMacAddress_Object=MibTableColumn
-cdsBindingsMacAddress=_CdsBindingsMacAddress_Object((1,3,6,1,4,1,9,9,380,1,4,1,1,2),_CdsBindingsMacAddress_Type())
-cdsBindingsMacAddress.setMaxAccess(_R)
-if mibBuilder.loadTexts:cdsBindingsMacAddress.setStatus(_B)
-_CdsBindingsAddrType_Type=InetAddressType
-_CdsBindingsAddrType_Object=MibTableColumn
-cdsBindingsAddrType=_CdsBindingsAddrType_Object((1,3,6,1,4,1,9,9,380,1,4,1,1,3),_CdsBindingsAddrType_Type())
-cdsBindingsAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsBindingsAddrType.setStatus(_B)
-_CdsBindingsIpAddress_Type=InetAddress
-_CdsBindingsIpAddress_Object=MibTableColumn
-cdsBindingsIpAddress=_CdsBindingsIpAddress_Object((1,3,6,1,4,1,9,9,380,1,4,1,1,4),_CdsBindingsIpAddress_Type())
-cdsBindingsIpAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsBindingsIpAddress.setStatus(_B)
-_CdsBindingsInterface_Type=InterfaceIndex
-_CdsBindingsInterface_Object=MibTableColumn
-cdsBindingsInterface=_CdsBindingsInterface_Object((1,3,6,1,4,1,9,9,380,1,4,1,1,5),_CdsBindingsInterface_Type())
-cdsBindingsInterface.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsBindingsInterface.setStatus(_B)
-_CdsBindingsLeasedTime_Type=Unsigned32
-_CdsBindingsLeasedTime_Object=MibTableColumn
-cdsBindingsLeasedTime=_CdsBindingsLeasedTime_Object((1,3,6,1,4,1,9,9,380,1,4,1,1,6),_CdsBindingsLeasedTime_Type())
-cdsBindingsLeasedTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsBindingsLeasedTime.setStatus(_B)
-if mibBuilder.loadTexts:cdsBindingsLeasedTime.setUnits(_p)
-_CdsBindingsStatus_Type=RowStatus
-_CdsBindingsStatus_Object=MibTableColumn
-cdsBindingsStatus=_CdsBindingsStatus_Object((1,3,6,1,4,1,9,9,380,1,4,1,1,7),_CdsBindingsStatus_Type())
-cdsBindingsStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:cdsBindingsStatus.setStatus(_B)
-_CdsBindingsHostname_Type=SnmpAdminString
-_CdsBindingsHostname_Object=MibTableColumn
-cdsBindingsHostname=_CdsBindingsHostname_Object((1,3,6,1,4,1,9,9,380,1,4,1,1,8),_CdsBindingsHostname_Type())
-cdsBindingsHostname.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsBindingsHostname.setStatus(_B)
-_CdsStaticBindingsTable_Object=MibTable
-cdsStaticBindingsTable=_CdsStaticBindingsTable_Object((1,3,6,1,4,1,9,9,380,1,4,2))
-if mibBuilder.loadTexts:cdsStaticBindingsTable.setStatus(_B)
-_CdsStaticBindingsEntry_Object=MibTableRow
-cdsStaticBindingsEntry=_CdsStaticBindingsEntry_Object((1,3,6,1,4,1,9,9,380,1,4,2,1))
-cdsStaticBindingsEntry.setIndexNames((0,_A,_u),(0,_A,_v))
-if mibBuilder.loadTexts:cdsStaticBindingsEntry.setStatus(_B)
-_CdsStaticBindingsVlan_Type=VlanIndex
-_CdsStaticBindingsVlan_Object=MibTableColumn
-cdsStaticBindingsVlan=_CdsStaticBindingsVlan_Object((1,3,6,1,4,1,9,9,380,1,4,2,1,1),_CdsStaticBindingsVlan_Type())
-cdsStaticBindingsVlan.setMaxAccess(_R)
-if mibBuilder.loadTexts:cdsStaticBindingsVlan.setStatus(_B)
-_CdsStaticBindingsMacAddress_Type=MacAddress
-_CdsStaticBindingsMacAddress_Object=MibTableColumn
-cdsStaticBindingsMacAddress=_CdsStaticBindingsMacAddress_Object((1,3,6,1,4,1,9,9,380,1,4,2,1,2),_CdsStaticBindingsMacAddress_Type())
-cdsStaticBindingsMacAddress.setMaxAccess(_R)
-if mibBuilder.loadTexts:cdsStaticBindingsMacAddress.setStatus(_B)
-_CdsStaticBindingsAddrType_Type=InetAddressType
-_CdsStaticBindingsAddrType_Object=MibTableColumn
-cdsStaticBindingsAddrType=_CdsStaticBindingsAddrType_Object((1,3,6,1,4,1,9,9,380,1,4,2,1,3),_CdsStaticBindingsAddrType_Type())
-cdsStaticBindingsAddrType.setMaxAccess(_H)
-if mibBuilder.loadTexts:cdsStaticBindingsAddrType.setStatus(_B)
-_CdsStaticBindingsIpAddress_Type=InetAddress
-_CdsStaticBindingsIpAddress_Object=MibTableColumn
-cdsStaticBindingsIpAddress=_CdsStaticBindingsIpAddress_Object((1,3,6,1,4,1,9,9,380,1,4,2,1,4),_CdsStaticBindingsIpAddress_Type())
-cdsStaticBindingsIpAddress.setMaxAccess(_H)
-if mibBuilder.loadTexts:cdsStaticBindingsIpAddress.setStatus(_B)
-_CdsStaticBindingsInterface_Type=InterfaceIndex
-_CdsStaticBindingsInterface_Object=MibTableColumn
-cdsStaticBindingsInterface=_CdsStaticBindingsInterface_Object((1,3,6,1,4,1,9,9,380,1,4,2,1,5),_CdsStaticBindingsInterface_Type())
-cdsStaticBindingsInterface.setMaxAccess(_H)
-if mibBuilder.loadTexts:cdsStaticBindingsInterface.setStatus(_B)
-_CdsStaticBindingsStatus_Type=RowStatus
-_CdsStaticBindingsStatus_Object=MibTableColumn
-cdsStaticBindingsStatus=_CdsStaticBindingsStatus_Object((1,3,6,1,4,1,9,9,380,1,4,2,1,6),_CdsStaticBindingsStatus_Type())
-cdsStaticBindingsStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:cdsStaticBindingsStatus.setStatus(_B)
-_CdsStatistics_ObjectIdentity=ObjectIdentity
-cdsStatistics=_CdsStatistics_ObjectIdentity((1,3,6,1,4,1,9,9,380,1,5))
-_CdsTotalForwardedPkts_Type=Counter64
-_CdsTotalForwardedPkts_Object=MibScalar
-cdsTotalForwardedPkts=_CdsTotalForwardedPkts_Object((1,3,6,1,4,1,9,9,380,1,5,1),_CdsTotalForwardedPkts_Type())
-cdsTotalForwardedPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsTotalForwardedPkts.setStatus(_B)
-if mibBuilder.loadTexts:cdsTotalForwardedPkts.setUnits(_f)
-_CdsTotalDroppedPkts_Type=Counter64
-_CdsTotalDroppedPkts_Object=MibScalar
-cdsTotalDroppedPkts=_CdsTotalDroppedPkts_Object((1,3,6,1,4,1,9,9,380,1,5,2),_CdsTotalDroppedPkts_Type())
-cdsTotalDroppedPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsTotalDroppedPkts.setStatus(_B)
-if mibBuilder.loadTexts:cdsTotalDroppedPkts.setUnits(_f)
-_CdsUntrustedPortDroppedPkts_Type=Counter64
-_CdsUntrustedPortDroppedPkts_Object=MibScalar
-cdsUntrustedPortDroppedPkts=_CdsUntrustedPortDroppedPkts_Object((1,3,6,1,4,1,9,9,380,1,5,3),_CdsUntrustedPortDroppedPkts_Type())
-cdsUntrustedPortDroppedPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsUntrustedPortDroppedPkts.setStatus(_B)
-if mibBuilder.loadTexts:cdsUntrustedPortDroppedPkts.setUnits(_f)
-_CdsForwardedWithoutOption82Pkts_Type=Counter32
-_CdsForwardedWithoutOption82Pkts_Object=MibScalar
-cdsForwardedWithoutOption82Pkts=_CdsForwardedWithoutOption82Pkts_Object((1,3,6,1,4,1,9,9,380,1,5,4),_CdsForwardedWithoutOption82Pkts_Type())
-cdsForwardedWithoutOption82Pkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsForwardedWithoutOption82Pkts.setStatus(_B)
-if mibBuilder.loadTexts:cdsForwardedWithoutOption82Pkts.setUnits(_f)
-_CdsSrcGuard_ObjectIdentity=ObjectIdentity
-cdsSrcGuard=_CdsSrcGuard_ObjectIdentity((1,3,6,1,4,1,9,9,380,1,6))
-_CdsIfSrcGuardConfigTable_Object=MibTable
-cdsIfSrcGuardConfigTable=_CdsIfSrcGuardConfigTable_Object((1,3,6,1,4,1,9,9,380,1,6,1))
-if mibBuilder.loadTexts:cdsIfSrcGuardConfigTable.setStatus(_B)
-_CdsIfSrcGuardConfigEntry_Object=MibTableRow
-cdsIfSrcGuardConfigEntry=_CdsIfSrcGuardConfigEntry_Object((1,3,6,1,4,1,9,9,380,1,6,1,1))
-cdsIfSrcGuardConfigEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:cdsIfSrcGuardConfigEntry.setStatus(_B)
-_CdsIfSrcGuardEnable_Type=TruthValue
-_CdsIfSrcGuardEnable_Object=MibTableColumn
-cdsIfSrcGuardEnable=_CdsIfSrcGuardEnable_Object((1,3,6,1,4,1,9,9,380,1,6,1,1,1),_CdsIfSrcGuardEnable_Type())
-cdsIfSrcGuardEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdsIfSrcGuardEnable.setStatus(_E)
-class _CdsIfSrcGuardFilterType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('disable',1),('ip',2),('ipMac',3),('strictIpMac',4)))
-_CdsIfSrcGuardFilterType_Type.__name__=_Z
-_CdsIfSrcGuardFilterType_Object=MibTableColumn
-cdsIfSrcGuardFilterType=_CdsIfSrcGuardFilterType_Object((1,3,6,1,4,1,9,9,380,1,6,1,1,2),_CdsIfSrcGuardFilterType_Type())
-cdsIfSrcGuardFilterType.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdsIfSrcGuardFilterType.setStatus(_B)
-_CdsIfSrcGuardAddrTable_Object=MibTable
-cdsIfSrcGuardAddrTable=_CdsIfSrcGuardAddrTable_Object((1,3,6,1,4,1,9,9,380,1,6,2))
-if mibBuilder.loadTexts:cdsIfSrcGuardAddrTable.setStatus(_B)
-_CdsIfSrcGuardAddrEntry_Object=MibTableRow
-cdsIfSrcGuardAddrEntry=_CdsIfSrcGuardAddrEntry_Object((1,3,6,1,4,1,9,9,380,1,6,2,1))
-cdsIfSrcGuardAddrEntry.setIndexNames((0,_F,_G),(0,_A,_w))
-if mibBuilder.loadTexts:cdsIfSrcGuardAddrEntry.setStatus(_B)
-_CdsIfSrcGuardIndex_Type=Unsigned32
-_CdsIfSrcGuardIndex_Object=MibTableColumn
-cdsIfSrcGuardIndex=_CdsIfSrcGuardIndex_Object((1,3,6,1,4,1,9,9,380,1,6,2,1,1),_CdsIfSrcGuardIndex_Type())
-cdsIfSrcGuardIndex.setMaxAccess(_R)
-if mibBuilder.loadTexts:cdsIfSrcGuardIndex.setStatus(_B)
-_CdsIfSrcGuardAddrType_Type=InetAddressType
-_CdsIfSrcGuardAddrType_Object=MibTableColumn
-cdsIfSrcGuardAddrType=_CdsIfSrcGuardAddrType_Object((1,3,6,1,4,1,9,9,380,1,6,2,1,2),_CdsIfSrcGuardAddrType_Type())
-cdsIfSrcGuardAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsIfSrcGuardAddrType.setStatus(_B)
-_CdsIfSrcGuardAddress_Type=InetAddress
-_CdsIfSrcGuardAddress_Object=MibTableColumn
-cdsIfSrcGuardAddress=_CdsIfSrcGuardAddress_Object((1,3,6,1,4,1,9,9,380,1,6,2,1,3),_CdsIfSrcGuardAddress_Type())
-cdsIfSrcGuardAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsIfSrcGuardAddress.setStatus(_B)
-class _CdsIfSrcGuardIpFilterAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('permitIpAddress',1),('denyAllIpAddress',2)))
-_CdsIfSrcGuardIpFilterAction_Type.__name__=_Z
-_CdsIfSrcGuardIpFilterAction_Object=MibTableColumn
-cdsIfSrcGuardIpFilterAction=_CdsIfSrcGuardIpFilterAction_Object((1,3,6,1,4,1,9,9,380,1,6,2,1,4),_CdsIfSrcGuardIpFilterAction_Type())
-cdsIfSrcGuardIpFilterAction.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsIfSrcGuardIpFilterAction.setStatus(_B)
-class _CdsIfSrcGuardFilterMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('active',1),('inactiveTrustPort',2),('inactiveNoSnoopingVlan',3)))
-_CdsIfSrcGuardFilterMode_Type.__name__=_Z
-_CdsIfSrcGuardFilterMode_Object=MibTableColumn
-cdsIfSrcGuardFilterMode=_CdsIfSrcGuardFilterMode_Object((1,3,6,1,4,1,9,9,380,1,6,2,1,5),_CdsIfSrcGuardFilterMode_Type())
-cdsIfSrcGuardFilterMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsIfSrcGuardFilterMode.setStatus(_B)
-_CdsIfSrcGuardMacAddress_Type=MacAddress
-_CdsIfSrcGuardMacAddress_Object=MibTableColumn
-cdsIfSrcGuardMacAddress=_CdsIfSrcGuardMacAddress_Object((1,3,6,1,4,1,9,9,380,1,6,2,1,6),_CdsIfSrcGuardMacAddress_Type())
-cdsIfSrcGuardMacAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsIfSrcGuardMacAddress.setStatus(_B)
-class _CdsIfSrcGuardMacFilterAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('allowMacAddress',1),('denyAllMacAddresses',2),('permitAllMacAddresses',3)))
-_CdsIfSrcGuardMacFilterAction_Type.__name__=_Z
-_CdsIfSrcGuardMacFilterAction_Object=MibTableColumn
-cdsIfSrcGuardMacFilterAction=_CdsIfSrcGuardMacFilterAction_Object((1,3,6,1,4,1,9,9,380,1,6,2,1,7),_CdsIfSrcGuardMacFilterAction_Type())
-cdsIfSrcGuardMacFilterAction.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsIfSrcGuardMacFilterAction.setStatus(_B)
-class _CdsIfSrcGuardVlansLow_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_CdsIfSrcGuardVlansLow_Type.__name__=_b
-_CdsIfSrcGuardVlansLow_Object=MibTableColumn
-cdsIfSrcGuardVlansLow=_CdsIfSrcGuardVlansLow_Object((1,3,6,1,4,1,9,9,380,1,6,2,1,8),_CdsIfSrcGuardVlansLow_Type())
-cdsIfSrcGuardVlansLow.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsIfSrcGuardVlansLow.setStatus(_B)
-class _CdsIfSrcGuardVlansHigh_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
-_CdsIfSrcGuardVlansHigh_Type.__name__=_b
-_CdsIfSrcGuardVlansHigh_Object=MibTableColumn
-cdsIfSrcGuardVlansHigh=_CdsIfSrcGuardVlansHigh_Object((1,3,6,1,4,1,9,9,380,1,6,2,1,9),_CdsIfSrcGuardVlansHigh_Type())
-cdsIfSrcGuardVlansHigh.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdsIfSrcGuardVlansHigh.setStatus(_B)
-_CiscoDhcpSnoopingMIBConformance_ObjectIdentity=ObjectIdentity
-ciscoDhcpSnoopingMIBConformance=_CiscoDhcpSnoopingMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,380,2))
-_CdsMIBCompliances_ObjectIdentity=ObjectIdentity
-cdsMIBCompliances=_CdsMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,380,2,1))
-_CdsMIBGroups_ObjectIdentity=ObjectIdentity
-cdsMIBGroups=_CdsMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,380,2,2))
-cdsGlobalEnableGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,1))
-cdsGlobalEnableGroup.setObjects((_A,_x))
-if mibBuilder.loadTexts:cdsGlobalEnableGroup.setStatus(_B)
-cdsDatabaseGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,2))
-cdsDatabaseGroup.setObjects(*((_A,_y),(_A,_z)))
-if mibBuilder.loadTexts:cdsDatabaseGroup.setStatus(_B)
-cdsVlanConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,3))
-cdsVlanConfigGroup.setObjects((_A,_A0))
-if mibBuilder.loadTexts:cdsVlanConfigGroup.setStatus(_B)
-cdsIfConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,4))
-cdsIfConfigGroup.setObjects((_A,_A1))
-if mibBuilder.loadTexts:cdsIfConfigGroup.setStatus(_B)
-cdsIfRateLimitGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,5))
-cdsIfRateLimitGroup.setObjects((_A,_A2))
-if mibBuilder.loadTexts:cdsIfRateLimitGroup.setStatus(_B)
-cdsBindingsGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,6))
-cdsBindingsGroup.setObjects(*((_A,_i),(_A,_j),(_A,_A3),(_A,_A4),(_A,_A5)))
-if mibBuilder.loadTexts:cdsBindingsGroup.setStatus(_B)
-cdsStatisticsGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,7))
-cdsStatisticsGroup.setObjects(*((_A,_A6),(_A,_A7),(_A,_A8)))
-if mibBuilder.loadTexts:cdsStatisticsGroup.setStatus(_B)
-cdsRelayAgentInfoOptGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,8))
-cdsRelayAgentInfoOptGroup.setObjects((_A,_A9))
-if mibBuilder.loadTexts:cdsRelayAgentInfoOptGroup.setStatus(_B)
-cdsIfSrcGuardGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,9))
-cdsIfSrcGuardGroup.setObjects(*((_A,_AA),(_A,_k),(_A,_l)))
-if mibBuilder.loadTexts:cdsIfSrcGuardGroup.setStatus(_E)
-cdsRelayAgentRemoteIdGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,10))
-cdsRelayAgentRemoteIdGroup.setObjects((_A,_AB))
-if mibBuilder.loadTexts:cdsRelayAgentRemoteIdGroup.setStatus(_E)
-cdsMatchMacAddressGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,11))
-cdsMatchMacAddressGroup.setObjects((_A,_AC))
-if mibBuilder.loadTexts:cdsMatchMacAddressGroup.setStatus(_B)
-cdsIfFeatureConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,12))
-cdsIfFeatureConfigGroup.setObjects((_A,_AD))
-if mibBuilder.loadTexts:cdsIfFeatureConfigGroup.setStatus(_B)
-cdsBindingsLimitGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,13))
-cdsBindingsLimitGroup.setObjects(*((_A,_AE),(_A,_AF)))
-if mibBuilder.loadTexts:cdsBindingsLimitGroup.setStatus(_B)
-cdsStaticBindingsGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,14))
-cdsStaticBindingsGroup.setObjects(*((_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ)))
-if mibBuilder.loadTexts:cdsStaticBindingsGroup.setStatus(_B)
-cdsIfSrcGuardIpFilterGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,15))
-cdsIfSrcGuardIpFilterGroup.setObjects(*((_A,_AK),(_A,_AL)))
-if mibBuilder.loadTexts:cdsIfSrcGuardIpFilterGroup.setStatus(_B)
-cdsIfSrcGuardExtGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,16))
-cdsIfSrcGuardExtGroup.setObjects(*((_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP)))
-if mibBuilder.loadTexts:cdsIfSrcGuardExtGroup.setStatus(_B)
-cdsIfSrcGuardTrafficFilterGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,17))
-cdsIfSrcGuardTrafficFilterGroup.setObjects((_A,_AQ))
-if mibBuilder.loadTexts:cdsIfSrcGuardTrafficFilterGroup.setStatus(_B)
-cdsIfSrcGuardGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,18))
-cdsIfSrcGuardGroupRev1.setObjects(*((_A,_k),(_A,_l)))
-if mibBuilder.loadTexts:cdsIfSrcGuardGroupRev1.setStatus(_B)
-cdsBindingsHostnameGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,19))
-cdsBindingsHostnameGroup.setObjects((_A,_AR))
-if mibBuilder.loadTexts:cdsBindingsHostnameGroup.setStatus(_B)
-cdsRelayAgentInfoOptRemoteIdSubGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,20))
-cdsRelayAgentInfoOptRemoteIdSubGroup.setObjects((_A,_AS))
-if mibBuilder.loadTexts:cdsRelayAgentInfoOptRemoteIdSubGroup.setStatus(_B)
-cdsIfVlanRelayInfoOptCircuitIdGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,21))
-cdsIfVlanRelayInfoOptCircuitIdGroup.setObjects(*((_A,_AT),(_A,_AU)))
-if mibBuilder.loadTexts:cdsIfVlanRelayInfoOptCircuitIdGroup.setStatus(_B)
-cdsStatisticsExtGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,22))
-cdsStatisticsExtGroup.setObjects((_A,_AV))
-if mibBuilder.loadTexts:cdsStatisticsExtGroup.setStatus(_B)
-cdsNotifControlGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,23))
-cdsNotifControlGroup.setObjects((_A,_AW))
-if mibBuilder.loadTexts:cdsNotifControlGroup.setStatus(_B)
-cdsIfVlanRelayInfoOptCircuitIdGroupSup1=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,25))
-cdsIfVlanRelayInfoOptCircuitIdGroupSup1.setObjects((_A,_AX))
-if mibBuilder.loadTexts:cdsIfVlanRelayInfoOptCircuitIdGroupSup1.setStatus(_B)
-cdsVlanOperStatusGroup=ObjectGroup((1,3,6,1,4,1,9,9,380,2,2,26))
-cdsVlanOperStatusGroup.setObjects((_A,_AY))
-if mibBuilder.loadTexts:cdsVlanOperStatusGroup.setStatus(_B)
-cdsBindingsNotification=NotificationType((1,3,6,1,4,1,9,9,380,0,1))
-cdsBindingsNotification.setObjects(*((_A,_i),(_A,_j),(_F,_o)))
-if mibBuilder.loadTexts:cdsBindingsNotification.setStatus(_B)
-cdsBindingsNotificationGroup=NotificationGroup((1,3,6,1,4,1,9,9,380,2,2,24))
-cdsBindingsNotificationGroup.setObjects((_A,_AZ))
-if mibBuilder.loadTexts:cdsBindingsNotificationGroup.setStatus(_B)
-cdsMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,380,2,1,1))
-cdsMIBCompliance.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Aa),(_A,_Q)))
-if mibBuilder.loadTexts:cdsMIBCompliance.setStatus(_E)
-cdsMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,9,9,380,2,1,2))
-cdsMIBCompliance2.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_S),(_A,_Q),(_A,_m),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y)))
-if mibBuilder.loadTexts:cdsMIBCompliance2.setStatus(_E)
-cdsMIBCompliance3=ModuleCompliance((1,3,6,1,4,1,9,9,380,2,1,3))
-cdsMIBCompliance3.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_S),(_A,_Q),(_A,_m),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_a)))
-if mibBuilder.loadTexts:cdsMIBCompliance3.setStatus(_E)
-cdsMIBCompliance4=ModuleCompliance((1,3,6,1,4,1,9,9,380,2,1,4))
-cdsMIBCompliance4.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_S),(_A,_Q),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_a),(_A,_c),(_A,_d),(_A,_e)))
-if mibBuilder.loadTexts:cdsMIBCompliance4.setStatus(_E)
-cdsMIBCompliance5=ModuleCompliance((1,3,6,1,4,1,9,9,380,2,1,5))
-cdsMIBCompliance5.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_S),(_A,_Q),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_a),(_A,_c),(_A,_d),(_A,_e),(_A,_g),(_A,_h)))
-if mibBuilder.loadTexts:cdsMIBCompliance5.setStatus(_E)
-cdsMIBCompliance6=ModuleCompliance((1,3,6,1,4,1,9,9,380,2,1,6))
-cdsMIBCompliance6.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_S),(_A,_Q),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_a),(_A,_c),(_A,_d),(_A,_e),(_A,_g),(_A,_h),(_A,_n)))
-if mibBuilder.loadTexts:cdsMIBCompliance6.setStatus(_E)
-cdsMIBCompliance7=ModuleCompliance((1,3,6,1,4,1,9,9,380,2,1,7))
-cdsMIBCompliance7.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_S),(_A,_Q),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_a),(_A,_c),(_A,_d),(_A,_e),(_A,_g),(_A,_h),(_A,_n),(_A,_Ab)))
-if mibBuilder.loadTexts:cdsMIBCompliance7.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ciscoDhcpSnoopingMIB':ciscoDhcpSnoopingMIB,'ciscoDhcpSnoopingMIBNotifs':ciscoDhcpSnoopingMIBNotifs,_AZ:cdsBindingsNotification,'ciscoDhcpSnoopingMIBObjects':ciscoDhcpSnoopingMIBObjects,'cdsGlobal':cdsGlobal,_x:cdsFeatureEnable,_y:cdsDatabaseFile,_z:cdsDatabaseUpdateInterval,_A9:cdsRelayAgentInfoOptEnable,_AB:cdsRelayAgentInfoOptRemoteId,_AC:cdsMatchMacAddressEnable,_AE:cdsGlobalMaxBindingsLimit,_AS:cdsRelayAgentInfoOptRemoteIdSub,_AW:cdsBindingsNotifEnabled,'cdsVlan':cdsVlan,'cdsVlanConfigTable':cdsVlanConfigTable,'cdsVlanConfigEntry':cdsVlanConfigEntry,_q:cdsVlanIndex,_A0:cdsVlanDhcpSnoopingEnable,_AY:cdsVlanDhcpSnoopingOperStatus,'cdsInterface':cdsInterface,'cdsIfConfigTable':cdsIfConfigTable,'cdsIfConfigEntry':cdsIfConfigEntry,_A1:cdsIfTrustEnable,'cdsIfRateLimitTable':cdsIfRateLimitTable,'cdsIfRateLimitEntry':cdsIfRateLimitEntry,_A2:cdsIfRateLimit,'cdsIfFeatureConfigTable':cdsIfFeatureConfigTable,'cdsIfFeatureConfigEntry':cdsIfFeatureConfigEntry,_AD:cdsIfFeatureEnable,'cdsIfBindingsLimitTable':cdsIfBindingsLimitTable,'cdsIfBindingsLimitEntry':cdsIfBindingsLimitEntry,_AF:cdsIfBindingsLimit,'cdsIfVlanRelayInfoOptCircuitIdTable':cdsIfVlanRelayInfoOptCircuitIdTable,'cdsIfVlanRelayInfoOptCircuitIdEntry':cdsIfVlanRelayInfoOptCircuitIdEntry,_r:cdsIfVlan,_AT:cdsIfVlanRelayInfoOptCircuitId,_AU:cdsIfVlanRelayInfoOptCircuitIdStatus,_AX:cdsIfVlanRelayInfoOptCircuitIdDirect,'cdsBindings':cdsBindings,'cdsBindingsTable':cdsBindingsTable,'cdsBindingsEntry':cdsBindingsEntry,_s:cdsBindingsVlan,_t:cdsBindingsMacAddress,_i:cdsBindingsAddrType,_j:cdsBindingsIpAddress,_A3:cdsBindingsInterface,_A4:cdsBindingsLeasedTime,_A5:cdsBindingsStatus,_AR:cdsBindingsHostname,'cdsStaticBindingsTable':cdsStaticBindingsTable,'cdsStaticBindingsEntry':cdsStaticBindingsEntry,_u:cdsStaticBindingsVlan,_v:cdsStaticBindingsMacAddress,_AG:cdsStaticBindingsAddrType,_AH:cdsStaticBindingsIpAddress,_AI:cdsStaticBindingsInterface,_AJ:cdsStaticBindingsStatus,'cdsStatistics':cdsStatistics,_A6:cdsTotalForwardedPkts,_A7:cdsTotalDroppedPkts,_A8:cdsUntrustedPortDroppedPkts,_AV:cdsForwardedWithoutOption82Pkts,'cdsSrcGuard':cdsSrcGuard,'cdsIfSrcGuardConfigTable':cdsIfSrcGuardConfigTable,'cdsIfSrcGuardConfigEntry':cdsIfSrcGuardConfigEntry,_AA:cdsIfSrcGuardEnable,_AQ:cdsIfSrcGuardFilterType,'cdsIfSrcGuardAddrTable':cdsIfSrcGuardAddrTable,'cdsIfSrcGuardAddrEntry':cdsIfSrcGuardAddrEntry,_w:cdsIfSrcGuardIndex,_k:cdsIfSrcGuardAddrType,_l:cdsIfSrcGuardAddress,_AK:cdsIfSrcGuardIpFilterAction,_AL:cdsIfSrcGuardFilterMode,_AM:cdsIfSrcGuardMacAddress,_AN:cdsIfSrcGuardMacFilterAction,_AO:cdsIfSrcGuardVlansLow,_AP:cdsIfSrcGuardVlansHigh,'ciscoDhcpSnoopingMIBConformance':ciscoDhcpSnoopingMIBConformance,'cdsMIBCompliances':cdsMIBCompliances,'cdsMIBCompliance':cdsMIBCompliance,'cdsMIBCompliance2':cdsMIBCompliance2,'cdsMIBCompliance3':cdsMIBCompliance3,'cdsMIBCompliance4':cdsMIBCompliance4,'cdsMIBCompliance5':cdsMIBCompliance5,'cdsMIBCompliance6':cdsMIBCompliance6,'cdsMIBCompliance7':cdsMIBCompliance7,'cdsMIBGroups':cdsMIBGroups,_K:cdsGlobalEnableGroup,_L:cdsDatabaseGroup,_M:cdsVlanConfigGroup,_I:cdsIfConfigGroup,_N:cdsIfRateLimitGroup,_J:cdsBindingsGroup,_O:cdsStatisticsGroup,_P:cdsRelayAgentInfoOptGroup,_Aa:cdsIfSrcGuardGroup,_m:cdsRelayAgentRemoteIdGroup,_Q:cdsMatchMacAddressGroup,_T:cdsIfFeatureConfigGroup,_U:cdsBindingsLimitGroup,_V:cdsStaticBindingsGroup,_W:cdsIfSrcGuardIpFilterGroup,_X:cdsIfSrcGuardExtGroup,_Y:cdsIfSrcGuardTrafficFilterGroup,_S:cdsIfSrcGuardGroupRev1,_a:cdsBindingsHostnameGroup,_c:cdsRelayAgentInfoOptRemoteIdSubGroup,_d:cdsIfVlanRelayInfoOptCircuitIdGroup,_e:cdsStatisticsExtGroup,_g:cdsNotifControlGroup,_h:cdsBindingsNotificationGroup,_n:cdsIfVlanRelayInfoOptCircuitIdGroupSup1,_Ab:cdsVlanOperStatusGroup})
+#
+# PySNMP MIB module CISCO-DHCP-SNOOPING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-DHCP-SNOOPING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:14:58 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+ifIndex, InterfaceIndex, ifName = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex", "ifName")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+VlanIndex, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+ciscoDhcpSnoopingMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 380))
+ciscoDhcpSnoopingMIB.setRevisions(('2009-08-26 00:00', '2009-08-10 00:00', '2009-04-12 00:00', '2007-11-13 00:00', '2007-07-12 00:00', '2007-05-30 00:00', '2006-03-16 16:00', '2005-10-26 00:00', '2004-03-04 00:00',))
+if mibBuilder.loadTexts: ciscoDhcpSnoopingMIB.setLastUpdated('200908260000Z')
+if mibBuilder.loadTexts: ciscoDhcpSnoopingMIB.setOrganization('Cisco Systems, Inc.')
+ciscoDhcpSnoopingMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 380, 0))
+ciscoDhcpSnoopingMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 380, 1))
+ciscoDhcpSnoopingMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 380, 2))
+cdsGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 1))
+cdsVlan = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 2))
+cdsInterface = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3))
+cdsBindings = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4))
+cdsStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 5))
+cdsSrcGuard = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6))
+cdsFeatureEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdsFeatureEnable.setStatus('current')
+cdsDatabaseFile = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 1, 2), SnmpAdminString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdsDatabaseFile.setStatus('current')
+cdsDatabaseUpdateInterval = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 1, 3), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdsDatabaseUpdateInterval.setStatus('current')
+cdsRelayAgentInfoOptEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 1, 4), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdsRelayAgentInfoOptEnable.setStatus('current')
+cdsRelayAgentInfoOptRemoteId = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 1, 5), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsRelayAgentInfoOptRemoteId.setStatus('deprecated')
+cdsMatchMacAddressEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 1, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdsMatchMacAddressEnable.setStatus('current')
+cdsGlobalMaxBindingsLimit = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 1, 7), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdsGlobalMaxBindingsLimit.setStatus('current')
+cdsRelayAgentInfoOptRemoteIdSub = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdsRelayAgentInfoOptRemoteIdSub.setStatus('current')
+cdsBindingsNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 1, 9), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdsBindingsNotifEnabled.setStatus('current')
+cdsVlanConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 2, 1), )
+if mibBuilder.loadTexts: cdsVlanConfigTable.setStatus('current')
+cdsVlanConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 2, 1, 1), ).setIndexNames((0, "CISCO-DHCP-SNOOPING-MIB", "cdsVlanIndex"))
+if mibBuilder.loadTexts: cdsVlanConfigEntry.setStatus('current')
+cdsVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 2, 1, 1, 1), VlanIndex())
+if mibBuilder.loadTexts: cdsVlanIndex.setStatus('current')
+cdsVlanDhcpSnoopingEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 2, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdsVlanDhcpSnoopingEnable.setStatus('current')
+cdsVlanDhcpSnoopingOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("operational", 1), ("notOperational", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsVlanDhcpSnoopingOperStatus.setStatus('current')
+cdsIfConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 1), )
+if mibBuilder.loadTexts: cdsIfConfigTable.setStatus('current')
+cdsIfConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cdsIfConfigEntry.setStatus('current')
+cdsIfTrustEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdsIfTrustEnable.setStatus('current')
+cdsIfRateLimitTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 2), )
+if mibBuilder.loadTexts: cdsIfRateLimitTable.setStatus('current')
+cdsIfRateLimitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cdsIfRateLimitEntry.setStatus('current')
+cdsIfRateLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 2, 1, 1), Unsigned32()).setUnits('packets per second').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdsIfRateLimit.setStatus('current')
+cdsIfFeatureConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 3), )
+if mibBuilder.loadTexts: cdsIfFeatureConfigTable.setStatus('current')
+cdsIfFeatureConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cdsIfFeatureConfigEntry.setStatus('current')
+cdsIfFeatureEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 3, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdsIfFeatureEnable.setStatus('current')
+cdsIfBindingsLimitTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 4), )
+if mibBuilder.loadTexts: cdsIfBindingsLimitTable.setStatus('current')
+cdsIfBindingsLimitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cdsIfBindingsLimitEntry.setStatus('current')
+cdsIfBindingsLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 4, 1, 1), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdsIfBindingsLimit.setStatus('current')
+cdsIfVlanRelayInfoOptCircuitIdTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 5), )
+if mibBuilder.loadTexts: cdsIfVlanRelayInfoOptCircuitIdTable.setStatus('current')
+cdsIfVlanRelayInfoOptCircuitIdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-DHCP-SNOOPING-MIB", "cdsIfVlan"))
+if mibBuilder.loadTexts: cdsIfVlanRelayInfoOptCircuitIdEntry.setStatus('current')
+cdsIfVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 5, 1, 1), VlanIndex())
+if mibBuilder.loadTexts: cdsIfVlan.setStatus('current')
+cdsIfVlanRelayInfoOptCircuitId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 5, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdsIfVlanRelayInfoOptCircuitId.setStatus('current')
+cdsIfVlanRelayInfoOptCircuitIdStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 5, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdsIfVlanRelayInfoOptCircuitIdStatus.setStatus('current')
+cdsIfVlanRelayInfoOptCircuitIdDirect = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 3, 5, 1, 4), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdsIfVlanRelayInfoOptCircuitIdDirect.setStatus('current')
+cdsBindingsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 1), )
+if mibBuilder.loadTexts: cdsBindingsTable.setStatus('current')
+cdsBindingsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 1, 1), ).setIndexNames((0, "CISCO-DHCP-SNOOPING-MIB", "cdsBindingsVlan"), (0, "CISCO-DHCP-SNOOPING-MIB", "cdsBindingsMacAddress"))
+if mibBuilder.loadTexts: cdsBindingsEntry.setStatus('current')
+cdsBindingsVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 1, 1, 1), VlanIndex())
+if mibBuilder.loadTexts: cdsBindingsVlan.setStatus('current')
+cdsBindingsMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 1, 1, 2), MacAddress())
+if mibBuilder.loadTexts: cdsBindingsMacAddress.setStatus('current')
+cdsBindingsAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 1, 1, 3), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsBindingsAddrType.setStatus('current')
+cdsBindingsIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 1, 1, 4), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsBindingsIpAddress.setStatus('current')
+cdsBindingsInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 1, 1, 5), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsBindingsInterface.setStatus('current')
+cdsBindingsLeasedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 1, 1, 6), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsBindingsLeasedTime.setStatus('current')
+cdsBindingsStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdsBindingsStatus.setStatus('current')
+cdsBindingsHostname = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsBindingsHostname.setStatus('current')
+cdsStaticBindingsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 2), )
+if mibBuilder.loadTexts: cdsStaticBindingsTable.setStatus('current')
+cdsStaticBindingsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 2, 1), ).setIndexNames((0, "CISCO-DHCP-SNOOPING-MIB", "cdsStaticBindingsVlan"), (0, "CISCO-DHCP-SNOOPING-MIB", "cdsStaticBindingsMacAddress"))
+if mibBuilder.loadTexts: cdsStaticBindingsEntry.setStatus('current')
+cdsStaticBindingsVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 2, 1, 1), VlanIndex())
+if mibBuilder.loadTexts: cdsStaticBindingsVlan.setStatus('current')
+cdsStaticBindingsMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 2, 1, 2), MacAddress())
+if mibBuilder.loadTexts: cdsStaticBindingsMacAddress.setStatus('current')
+cdsStaticBindingsAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 2, 1, 3), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdsStaticBindingsAddrType.setStatus('current')
+cdsStaticBindingsIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 2, 1, 4), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdsStaticBindingsIpAddress.setStatus('current')
+cdsStaticBindingsInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 2, 1, 5), InterfaceIndex()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdsStaticBindingsInterface.setStatus('current')
+cdsStaticBindingsStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 4, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdsStaticBindingsStatus.setStatus('current')
+cdsTotalForwardedPkts = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 5, 1), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsTotalForwardedPkts.setStatus('current')
+cdsTotalDroppedPkts = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 5, 2), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsTotalDroppedPkts.setStatus('current')
+cdsUntrustedPortDroppedPkts = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 5, 3), Counter64()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsUntrustedPortDroppedPkts.setStatus('current')
+cdsForwardedWithoutOption82Pkts = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 5, 4), Counter32()).setUnits('packets').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsForwardedWithoutOption82Pkts.setStatus('current')
+cdsIfSrcGuardConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6, 1), )
+if mibBuilder.loadTexts: cdsIfSrcGuardConfigTable.setStatus('current')
+cdsIfSrcGuardConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: cdsIfSrcGuardConfigEntry.setStatus('current')
+cdsIfSrcGuardEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdsIfSrcGuardEnable.setStatus('deprecated')
+cdsIfSrcGuardFilterType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("disable", 1), ("ip", 2), ("ipMac", 3), ("strictIpMac", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdsIfSrcGuardFilterType.setStatus('current')
+cdsIfSrcGuardAddrTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6, 2), )
+if mibBuilder.loadTexts: cdsIfSrcGuardAddrTable.setStatus('current')
+cdsIfSrcGuardAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardIndex"))
+if mibBuilder.loadTexts: cdsIfSrcGuardAddrEntry.setStatus('current')
+cdsIfSrcGuardIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: cdsIfSrcGuardIndex.setStatus('current')
+cdsIfSrcGuardAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6, 2, 1, 2), InetAddressType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsIfSrcGuardAddrType.setStatus('current')
+cdsIfSrcGuardAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6, 2, 1, 3), InetAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsIfSrcGuardAddress.setStatus('current')
+cdsIfSrcGuardIpFilterAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("permitIpAddress", 1), ("denyAllIpAddress", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsIfSrcGuardIpFilterAction.setStatus('current')
+cdsIfSrcGuardFilterMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("active", 1), ("inactiveTrustPort", 2), ("inactiveNoSnoopingVlan", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsIfSrcGuardFilterMode.setStatus('current')
+cdsIfSrcGuardMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6, 2, 1, 6), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsIfSrcGuardMacAddress.setStatus('current')
+cdsIfSrcGuardMacFilterAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("allowMacAddress", 1), ("denyAllMacAddresses", 2), ("permitAllMacAddresses", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsIfSrcGuardMacFilterAction.setStatus('current')
+cdsIfSrcGuardVlansLow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6, 2, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsIfSrcGuardVlansLow.setStatus('current')
+cdsIfSrcGuardVlansHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 380, 1, 6, 2, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 256))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdsIfSrcGuardVlansHigh.setStatus('current')
+cdsBindingsNotification = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 380, 0, 1)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsAddrType"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsIpAddress"), ("IF-MIB", "ifName"))
+if mibBuilder.loadTexts: cdsBindingsNotification.setStatus('current')
+cdsMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 1))
+cdsMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2))
+cdsMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 1, 1)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsGlobalEnableGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsDatabaseGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsVlanConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfRateLimitGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStatisticsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentInfoOptGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsMatchMacAddressGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsMIBCompliance = cdsMIBCompliance.setStatus('deprecated')
+cdsMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 1, 2)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsGlobalEnableGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsDatabaseGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsVlanConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfRateLimitGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStatisticsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentInfoOptGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardGroupRev1"), ("CISCO-DHCP-SNOOPING-MIB", "cdsMatchMacAddressGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentRemoteIdGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfFeatureConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsLimitGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStaticBindingsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardIpFilterGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardExtGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardTrafficFilterGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsMIBCompliance2 = cdsMIBCompliance2.setStatus('deprecated')
+cdsMIBCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 1, 3)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsGlobalEnableGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsDatabaseGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsVlanConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfRateLimitGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStatisticsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentInfoOptGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardGroupRev1"), ("CISCO-DHCP-SNOOPING-MIB", "cdsMatchMacAddressGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentRemoteIdGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfFeatureConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsLimitGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStaticBindingsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardIpFilterGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardExtGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardTrafficFilterGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsHostnameGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsMIBCompliance3 = cdsMIBCompliance3.setStatus('deprecated')
+cdsMIBCompliance4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 1, 4)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsGlobalEnableGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsDatabaseGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsVlanConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfRateLimitGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStatisticsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentInfoOptGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardGroupRev1"), ("CISCO-DHCP-SNOOPING-MIB", "cdsMatchMacAddressGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfFeatureConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsLimitGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStaticBindingsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardIpFilterGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardExtGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardTrafficFilterGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsHostnameGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentInfoOptRemoteIdSubGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfVlanRelayInfoOptCircuitIdGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStatisticsExtGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsMIBCompliance4 = cdsMIBCompliance4.setStatus('deprecated')
+cdsMIBCompliance5 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 1, 5)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsGlobalEnableGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsDatabaseGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsVlanConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfRateLimitGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStatisticsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentInfoOptGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardGroupRev1"), ("CISCO-DHCP-SNOOPING-MIB", "cdsMatchMacAddressGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfFeatureConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsLimitGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStaticBindingsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardIpFilterGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardExtGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardTrafficFilterGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsHostnameGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentInfoOptRemoteIdSubGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfVlanRelayInfoOptCircuitIdGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStatisticsExtGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsNotifControlGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsMIBCompliance5 = cdsMIBCompliance5.setStatus('deprecated')
+cdsMIBCompliance6 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 1, 6)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsGlobalEnableGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsDatabaseGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsVlanConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfRateLimitGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStatisticsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentInfoOptGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardGroupRev1"), ("CISCO-DHCP-SNOOPING-MIB", "cdsMatchMacAddressGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfFeatureConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsLimitGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStaticBindingsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardIpFilterGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardExtGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardTrafficFilterGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsHostnameGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentInfoOptRemoteIdSubGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfVlanRelayInfoOptCircuitIdGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStatisticsExtGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsNotifControlGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsNotificationGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfVlanRelayInfoOptCircuitIdGroupSup1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsMIBCompliance6 = cdsMIBCompliance6.setStatus('deprecated')
+cdsMIBCompliance7 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 1, 7)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsGlobalEnableGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsDatabaseGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsVlanConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfRateLimitGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStatisticsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentInfoOptGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardGroupRev1"), ("CISCO-DHCP-SNOOPING-MIB", "cdsMatchMacAddressGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfFeatureConfigGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsLimitGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStaticBindingsGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardIpFilterGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardExtGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardTrafficFilterGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsHostnameGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentInfoOptRemoteIdSubGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfVlanRelayInfoOptCircuitIdGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStatisticsExtGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsNotifControlGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsNotificationGroup"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfVlanRelayInfoOptCircuitIdGroupSup1"), ("CISCO-DHCP-SNOOPING-MIB", "cdsVlanOperStatusGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsMIBCompliance7 = cdsMIBCompliance7.setStatus('current')
+cdsGlobalEnableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 1)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsFeatureEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsGlobalEnableGroup = cdsGlobalEnableGroup.setStatus('current')
+cdsDatabaseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 2)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsDatabaseFile"), ("CISCO-DHCP-SNOOPING-MIB", "cdsDatabaseUpdateInterval"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsDatabaseGroup = cdsDatabaseGroup.setStatus('current')
+cdsVlanConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 3)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsVlanDhcpSnoopingEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsVlanConfigGroup = cdsVlanConfigGroup.setStatus('current')
+cdsIfConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 4)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfTrustEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsIfConfigGroup = cdsIfConfigGroup.setStatus('current')
+cdsIfRateLimitGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 5)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfRateLimit"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsIfRateLimitGroup = cdsIfRateLimitGroup.setStatus('current')
+cdsBindingsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 6)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsAddrType"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsIpAddress"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsInterface"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsLeasedTime"), ("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsBindingsGroup = cdsBindingsGroup.setStatus('current')
+cdsStatisticsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 7)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsTotalForwardedPkts"), ("CISCO-DHCP-SNOOPING-MIB", "cdsTotalDroppedPkts"), ("CISCO-DHCP-SNOOPING-MIB", "cdsUntrustedPortDroppedPkts"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsStatisticsGroup = cdsStatisticsGroup.setStatus('current')
+cdsRelayAgentInfoOptGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 8)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentInfoOptEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsRelayAgentInfoOptGroup = cdsRelayAgentInfoOptGroup.setStatus('current')
+cdsIfSrcGuardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 9)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardEnable"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardAddrType"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsIfSrcGuardGroup = cdsIfSrcGuardGroup.setStatus('deprecated')
+cdsRelayAgentRemoteIdGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 10)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentInfoOptRemoteId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsRelayAgentRemoteIdGroup = cdsRelayAgentRemoteIdGroup.setStatus('deprecated')
+cdsMatchMacAddressGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 11)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsMatchMacAddressEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsMatchMacAddressGroup = cdsMatchMacAddressGroup.setStatus('current')
+cdsIfFeatureConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 12)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfFeatureEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsIfFeatureConfigGroup = cdsIfFeatureConfigGroup.setStatus('current')
+cdsBindingsLimitGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 13)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsGlobalMaxBindingsLimit"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfBindingsLimit"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsBindingsLimitGroup = cdsBindingsLimitGroup.setStatus('current')
+cdsStaticBindingsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 14)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsStaticBindingsAddrType"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStaticBindingsIpAddress"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStaticBindingsInterface"), ("CISCO-DHCP-SNOOPING-MIB", "cdsStaticBindingsStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsStaticBindingsGroup = cdsStaticBindingsGroup.setStatus('current')
+cdsIfSrcGuardIpFilterGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 15)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardIpFilterAction"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardFilterMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsIfSrcGuardIpFilterGroup = cdsIfSrcGuardIpFilterGroup.setStatus('current')
+cdsIfSrcGuardExtGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 16)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardMacAddress"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardMacFilterAction"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardVlansLow"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardVlansHigh"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsIfSrcGuardExtGroup = cdsIfSrcGuardExtGroup.setStatus('current')
+cdsIfSrcGuardTrafficFilterGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 17)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardFilterType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsIfSrcGuardTrafficFilterGroup = cdsIfSrcGuardTrafficFilterGroup.setStatus('current')
+cdsIfSrcGuardGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 18)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardAddrType"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfSrcGuardAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsIfSrcGuardGroupRev1 = cdsIfSrcGuardGroupRev1.setStatus('current')
+cdsBindingsHostnameGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 19)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsHostname"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsBindingsHostnameGroup = cdsBindingsHostnameGroup.setStatus('current')
+cdsRelayAgentInfoOptRemoteIdSubGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 20)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsRelayAgentInfoOptRemoteIdSub"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsRelayAgentInfoOptRemoteIdSubGroup = cdsRelayAgentInfoOptRemoteIdSubGroup.setStatus('current')
+cdsIfVlanRelayInfoOptCircuitIdGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 21)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfVlanRelayInfoOptCircuitId"), ("CISCO-DHCP-SNOOPING-MIB", "cdsIfVlanRelayInfoOptCircuitIdStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsIfVlanRelayInfoOptCircuitIdGroup = cdsIfVlanRelayInfoOptCircuitIdGroup.setStatus('current')
+cdsStatisticsExtGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 22)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsForwardedWithoutOption82Pkts"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsStatisticsExtGroup = cdsStatisticsExtGroup.setStatus('current')
+cdsNotifControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 23)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsNotifEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsNotifControlGroup = cdsNotifControlGroup.setStatus('current')
+cdsBindingsNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 24)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsBindingsNotification"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsBindingsNotificationGroup = cdsBindingsNotificationGroup.setStatus('current')
+cdsIfVlanRelayInfoOptCircuitIdGroupSup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 25)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsIfVlanRelayInfoOptCircuitIdDirect"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsIfVlanRelayInfoOptCircuitIdGroupSup1 = cdsIfVlanRelayInfoOptCircuitIdGroupSup1.setStatus('current')
+cdsVlanOperStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 380, 2, 2, 26)).setObjects(("CISCO-DHCP-SNOOPING-MIB", "cdsVlanDhcpSnoopingOperStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdsVlanOperStatusGroup = cdsVlanOperStatusGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-DHCP-SNOOPING-MIB", cdsIfBindingsLimitEntry=cdsIfBindingsLimitEntry, cdsIfBindingsLimit=cdsIfBindingsLimit, cdsStatisticsGroup=cdsStatisticsGroup, cdsIfFeatureConfigEntry=cdsIfFeatureConfigEntry, cdsMIBCompliance7=cdsMIBCompliance7, cdsVlanOperStatusGroup=cdsVlanOperStatusGroup, cdsIfSrcGuardVlansLow=cdsIfSrcGuardVlansLow, cdsDatabaseUpdateInterval=cdsDatabaseUpdateInterval, cdsStatistics=cdsStatistics, ciscoDhcpSnoopingMIB=ciscoDhcpSnoopingMIB, cdsBindingsNotifEnabled=cdsBindingsNotifEnabled, cdsIfSrcGuardGroupRev1=cdsIfSrcGuardGroupRev1, cdsFeatureEnable=cdsFeatureEnable, cdsDatabaseFile=cdsDatabaseFile, cdsIfRateLimit=cdsIfRateLimit, cdsIfVlanRelayInfoOptCircuitId=cdsIfVlanRelayInfoOptCircuitId, cdsIfSrcGuardAddrEntry=cdsIfSrcGuardAddrEntry, ciscoDhcpSnoopingMIBNotifs=ciscoDhcpSnoopingMIBNotifs, cdsBindingsMacAddress=cdsBindingsMacAddress, cdsVlanConfigTable=cdsVlanConfigTable, cdsBindingsNotificationGroup=cdsBindingsNotificationGroup, cdsIfVlanRelayInfoOptCircuitIdGroup=cdsIfVlanRelayInfoOptCircuitIdGroup, cdsIfRateLimitEntry=cdsIfRateLimitEntry, cdsVlan=cdsVlan, cdsRelayAgentInfoOptGroup=cdsRelayAgentInfoOptGroup, cdsIfTrustEnable=cdsIfTrustEnable, cdsIfSrcGuardVlansHigh=cdsIfSrcGuardVlansHigh, cdsIfVlanRelayInfoOptCircuitIdGroupSup1=cdsIfVlanRelayInfoOptCircuitIdGroupSup1, cdsMatchMacAddressEnable=cdsMatchMacAddressEnable, cdsIfSrcGuardTrafficFilterGroup=cdsIfSrcGuardTrafficFilterGroup, cdsStaticBindingsAddrType=cdsStaticBindingsAddrType, cdsDatabaseGroup=cdsDatabaseGroup, cdsIfSrcGuardFilterMode=cdsIfSrcGuardFilterMode, cdsIfSrcGuardAddrType=cdsIfSrcGuardAddrType, cdsBindingsNotification=cdsBindingsNotification, cdsBindingsInterface=cdsBindingsInterface, cdsIfSrcGuardFilterType=cdsIfSrcGuardFilterType, cdsMIBCompliance4=cdsMIBCompliance4, cdsStaticBindingsTable=cdsStaticBindingsTable, cdsStaticBindingsIpAddress=cdsStaticBindingsIpAddress, cdsIfConfigGroup=cdsIfConfigGroup, cdsBindingsHostname=cdsBindingsHostname, cdsStaticBindingsStatus=cdsStaticBindingsStatus, cdsMIBCompliance5=cdsMIBCompliance5, cdsBindingsGroup=cdsBindingsGroup, cdsMIBCompliance2=cdsMIBCompliance2, cdsIfSrcGuardIpFilterGroup=cdsIfSrcGuardIpFilterGroup, cdsNotifControlGroup=cdsNotifControlGroup, cdsIfConfigEntry=cdsIfConfigEntry, cdsIfVlan=cdsIfVlan, cdsIfSrcGuardIpFilterAction=cdsIfSrcGuardIpFilterAction, cdsVlanIndex=cdsVlanIndex, cdsIfConfigTable=cdsIfConfigTable, cdsStaticBindingsEntry=cdsStaticBindingsEntry, cdsVlanConfigEntry=cdsVlanConfigEntry, cdsStaticBindingsMacAddress=cdsStaticBindingsMacAddress, cdsBindingsIpAddress=cdsBindingsIpAddress, cdsIfVlanRelayInfoOptCircuitIdTable=cdsIfVlanRelayInfoOptCircuitIdTable, ciscoDhcpSnoopingMIBObjects=ciscoDhcpSnoopingMIBObjects, cdsMIBCompliance=cdsMIBCompliance, cdsIfRateLimitTable=cdsIfRateLimitTable, cdsRelayAgentInfoOptRemoteId=cdsRelayAgentInfoOptRemoteId, cdsIfFeatureEnable=cdsIfFeatureEnable, cdsVlanDhcpSnoopingOperStatus=cdsVlanDhcpSnoopingOperStatus, cdsSrcGuard=cdsSrcGuard, cdsTotalForwardedPkts=cdsTotalForwardedPkts, ciscoDhcpSnoopingMIBConformance=ciscoDhcpSnoopingMIBConformance, cdsStaticBindingsGroup=cdsStaticBindingsGroup, cdsBindingsEntry=cdsBindingsEntry, cdsIfSrcGuardConfigEntry=cdsIfSrcGuardConfigEntry, cdsIfRateLimitGroup=cdsIfRateLimitGroup, cdsStatisticsExtGroup=cdsStatisticsExtGroup, cdsMIBCompliance3=cdsMIBCompliance3, cdsIfVlanRelayInfoOptCircuitIdStatus=cdsIfVlanRelayInfoOptCircuitIdStatus, cdsBindingsStatus=cdsBindingsStatus, cdsMIBCompliances=cdsMIBCompliances, cdsIfVlanRelayInfoOptCircuitIdDirect=cdsIfVlanRelayInfoOptCircuitIdDirect, cdsBindingsAddrType=cdsBindingsAddrType, cdsStaticBindingsInterface=cdsStaticBindingsInterface, cdsVlanConfigGroup=cdsVlanConfigGroup, cdsGlobalEnableGroup=cdsGlobalEnableGroup, cdsIfFeatureConfigGroup=cdsIfFeatureConfigGroup, cdsIfSrcGuardMacFilterAction=cdsIfSrcGuardMacFilterAction, cdsIfFeatureConfigTable=cdsIfFeatureConfigTable, cdsInterface=cdsInterface, cdsIfBindingsLimitTable=cdsIfBindingsLimitTable, cdsIfSrcGuardConfigTable=cdsIfSrcGuardConfigTable, cdsBindingsLimitGroup=cdsBindingsLimitGroup, cdsMIBGroups=cdsMIBGroups, cdsGlobal=cdsGlobal, cdsIfSrcGuardAddress=cdsIfSrcGuardAddress, cdsVlanDhcpSnoopingEnable=cdsVlanDhcpSnoopingEnable, cdsIfSrcGuardIndex=cdsIfSrcGuardIndex, cdsBindings=cdsBindings, cdsIfSrcGuardAddrTable=cdsIfSrcGuardAddrTable, cdsIfSrcGuardEnable=cdsIfSrcGuardEnable, cdsIfSrcGuardGroup=cdsIfSrcGuardGroup, cdsBindingsVlan=cdsBindingsVlan, cdsForwardedWithoutOption82Pkts=cdsForwardedWithoutOption82Pkts, cdsIfSrcGuardExtGroup=cdsIfSrcGuardExtGroup, cdsGlobalMaxBindingsLimit=cdsGlobalMaxBindingsLimit, cdsMatchMacAddressGroup=cdsMatchMacAddressGroup, cdsBindingsTable=cdsBindingsTable, cdsRelayAgentInfoOptRemoteIdSubGroup=cdsRelayAgentInfoOptRemoteIdSubGroup, cdsStaticBindingsVlan=cdsStaticBindingsVlan, cdsRelayAgentInfoOptRemoteIdSub=cdsRelayAgentInfoOptRemoteIdSub, cdsBindingsLeasedTime=cdsBindingsLeasedTime, cdsIfVlanRelayInfoOptCircuitIdEntry=cdsIfVlanRelayInfoOptCircuitIdEntry, cdsBindingsHostnameGroup=cdsBindingsHostnameGroup, cdsRelayAgentInfoOptEnable=cdsRelayAgentInfoOptEnable, cdsTotalDroppedPkts=cdsTotalDroppedPkts, cdsRelayAgentRemoteIdGroup=cdsRelayAgentRemoteIdGroup, cdsMIBCompliance6=cdsMIBCompliance6, PYSNMP_MODULE_ID=ciscoDhcpSnoopingMIB, cdsUntrustedPortDroppedPkts=cdsUntrustedPortDroppedPkts, cdsIfSrcGuardMacAddress=cdsIfSrcGuardMacAddress)

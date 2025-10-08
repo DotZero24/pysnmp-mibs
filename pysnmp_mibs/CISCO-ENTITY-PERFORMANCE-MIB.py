@@ -1,299 +1,162 @@
-_y='ciscoEntityPerformanceMIBThroughputGroup'
-_x='ciscoEntityPerformanceMIBEntityIntervalGroup'
-_w='ciscoEntityPerformanceMIBNotifControlGroup'
-_v='ciscoEntityPerformanceMIBIntervalStatsGroup'
-_u='ciscoEntityPerformanceMIBPerfStatsGroup'
-_t='ciscoEntityPerformanceMIBNotificationGroup'
-_s='ciscoEntityPerformanceMIBConfigGroup'
-_r='ciscoEntityPerformanceMIBEntityGroup'
-_q='cepThroughputNotif'
-_p='cepPerfThreshFallingEvent'
-_o='cepPerfThreshRisingEvent'
-_n='cepThroughputThreshold'
-_m='cepThroughputInterval'
-_l='cepThroughputNotifEnabled'
-_k='cepThresholdNotifEnabled'
-_j='cepIntervalStatsRange'
-_i='cepIntervalStatsCreateTime'
-_h='cepIntervalStatsMeasurement'
-_g='cepIntervalStatsValidData'
-_f='cepValidIntervalCount'
-_e='cepIntervalTimeElapsed'
-_d='cepStatsAlgorithm'
-_c='cepConfigThresholdNotifEnabled'
-_b='cepEntityLastReloadTime'
-_a='cepEntityNumReloads'
-_Z='bits per second'
-_Y='cepIntervalNumber'
-_X='seconds'
-_W='fifteenMinutes'
-_V='fiveMinutes'
-_U='oneMinute'
-_T='cepThroughputAvgRate'
-_S='cepThroughputLevel'
-_R='cepThroughputLicensedBW'
-_Q='cepConfigFallingThreshold'
-_P='cepConfigRisingThreshold'
-_O='cepHistInterval'
-_N='cepConfigInterval'
-_M='cepStatsMeasurement'
-_L='cepConfigPerfRange'
-_K='not-accessible'
-_J='cepConfigPerfType'
-_I='TruthValue'
-_H='Unsigned32'
-_G='Integer32'
-_F='read-write'
-_E='entPhysicalIndex'
-_D='ENTITY-MIB'
-_C='read-only'
-_B='CISCO-ENTITY-PERFORMANCE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-entPhysicalIndex,=mibBuilder.importSymbols(_D,_E)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_H,'iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention','TimeStamp',_I)
-ciscoEntityPerformanceMIB=ModuleIdentity((1,3,6,1,4,1,9,9,756))
-if mibBuilder.loadTexts:ciscoEntityPerformanceMIB.setRevisions(('2014-06-18 00:00','2010-09-09 00:00'))
-class CiscoEntPerfMeasurement(TextualConvention,Counter64):status=_A
-class CiscoEntPerfRange(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('rangePercentage',1),('rangeInt32',2),('rangeInt64',3)))
-class CiscoEntPerfType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('utilization',1),('bitInputRate',2),('bitOutputRate',3),('bitDropRate',4),('packetInputRate',5),('packetOutputRate',6),('packetDropRate',7)))
-class CiscoEntPerfInterval(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_A,1),(_U,2),(_V,3),(_W,4)))
-class CiscoEntPerfHistInterval(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_U,1),(_V,2),(_W,3)))
-class CiscoEntPerfIntervalAlgo(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('unknown',1),('other',2),(_A,3),('algoSMA',4)))
-_CiscoEntityPerformanceMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoEntityPerformanceMIBNotifs=_CiscoEntityPerformanceMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,756,0))
-_CiscoEntityPerformanceMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoEntityPerformanceMIBObjects=_CiscoEntityPerformanceMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,756,1))
-_CepEntityTable_Object=MibTable
-cepEntityTable=_CepEntityTable_Object((1,3,6,1,4,1,9,9,756,1,1))
-if mibBuilder.loadTexts:cepEntityTable.setStatus(_A)
-_CepEntityEntry_Object=MibTableRow
-cepEntityEntry=_CepEntityEntry_Object((1,3,6,1,4,1,9,9,756,1,1,1))
-cepEntityEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:cepEntityEntry.setStatus(_A)
-_CepEntityNumReloads_Type=Counter32
-_CepEntityNumReloads_Object=MibTableColumn
-cepEntityNumReloads=_CepEntityNumReloads_Object((1,3,6,1,4,1,9,9,756,1,1,1,1),_CepEntityNumReloads_Type())
-cepEntityNumReloads.setMaxAccess(_C)
-if mibBuilder.loadTexts:cepEntityNumReloads.setStatus(_A)
-if mibBuilder.loadTexts:cepEntityNumReloads.setUnits('reloads')
-_CepEntityLastReloadTime_Type=DateAndTime
-_CepEntityLastReloadTime_Object=MibTableColumn
-cepEntityLastReloadTime=_CepEntityLastReloadTime_Object((1,3,6,1,4,1,9,9,756,1,1,1,2),_CepEntityLastReloadTime_Type())
-cepEntityLastReloadTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cepEntityLastReloadTime.setStatus(_A)
-_CepConfigTable_Object=MibTable
-cepConfigTable=_CepConfigTable_Object((1,3,6,1,4,1,9,9,756,1,2))
-if mibBuilder.loadTexts:cepConfigTable.setStatus(_A)
-_CepConfigEntry_Object=MibTableRow
-cepConfigEntry=_CepConfigEntry_Object((1,3,6,1,4,1,9,9,756,1,2,1))
-cepConfigEntry.setIndexNames((0,_D,_E),(0,_B,_N),(0,_B,_J))
-if mibBuilder.loadTexts:cepConfigEntry.setStatus(_A)
-_CepConfigInterval_Type=CiscoEntPerfInterval
-_CepConfigInterval_Object=MibTableColumn
-cepConfigInterval=_CepConfigInterval_Object((1,3,6,1,4,1,9,9,756,1,2,1,1),_CepConfigInterval_Type())
-cepConfigInterval.setMaxAccess(_K)
-if mibBuilder.loadTexts:cepConfigInterval.setStatus(_A)
-_CepConfigPerfType_Type=CiscoEntPerfType
-_CepConfigPerfType_Object=MibTableColumn
-cepConfigPerfType=_CepConfigPerfType_Object((1,3,6,1,4,1,9,9,756,1,2,1,2),_CepConfigPerfType_Type())
-cepConfigPerfType.setMaxAccess(_K)
-if mibBuilder.loadTexts:cepConfigPerfType.setStatus(_A)
-_CepConfigPerfRange_Type=CiscoEntPerfRange
-_CepConfigPerfRange_Object=MibTableColumn
-cepConfigPerfRange=_CepConfigPerfRange_Object((1,3,6,1,4,1,9,9,756,1,2,1,3),_CepConfigPerfRange_Type())
-cepConfigPerfRange.setMaxAccess(_C)
-if mibBuilder.loadTexts:cepConfigPerfRange.setStatus(_A)
-_CepConfigRisingThreshold_Type=CiscoEntPerfMeasurement
-_CepConfigRisingThreshold_Object=MibTableColumn
-cepConfigRisingThreshold=_CepConfigRisingThreshold_Object((1,3,6,1,4,1,9,9,756,1,2,1,4),_CepConfigRisingThreshold_Type())
-cepConfigRisingThreshold.setMaxAccess(_F)
-if mibBuilder.loadTexts:cepConfigRisingThreshold.setStatus(_A)
-_CepConfigFallingThreshold_Type=CiscoEntPerfMeasurement
-_CepConfigFallingThreshold_Object=MibTableColumn
-cepConfigFallingThreshold=_CepConfigFallingThreshold_Object((1,3,6,1,4,1,9,9,756,1,2,1,5),_CepConfigFallingThreshold_Type())
-cepConfigFallingThreshold.setMaxAccess(_F)
-if mibBuilder.loadTexts:cepConfigFallingThreshold.setStatus(_A)
-class _CepConfigThresholdNotifEnabled_Type(TruthValue):defaultValue=2
-_CepConfigThresholdNotifEnabled_Type.__name__=_I
-_CepConfigThresholdNotifEnabled_Object=MibTableColumn
-cepConfigThresholdNotifEnabled=_CepConfigThresholdNotifEnabled_Object((1,3,6,1,4,1,9,9,756,1,2,1,6),_CepConfigThresholdNotifEnabled_Type())
-cepConfigThresholdNotifEnabled.setMaxAccess(_F)
-if mibBuilder.loadTexts:cepConfigThresholdNotifEnabled.setStatus(_A)
-_CepStatsTable_Object=MibTable
-cepStatsTable=_CepStatsTable_Object((1,3,6,1,4,1,9,9,756,1,3))
-if mibBuilder.loadTexts:cepStatsTable.setStatus(_A)
-_CepStatsEntry_Object=MibTableRow
-cepStatsEntry=_CepStatsEntry_Object((1,3,6,1,4,1,9,9,756,1,3,1))
-cepStatsEntry.setIndexNames((0,_D,_E),(0,_B,_N),(0,_B,_J))
-if mibBuilder.loadTexts:cepStatsEntry.setStatus(_A)
-_CepStatsAlgorithm_Type=CiscoEntPerfIntervalAlgo
-_CepStatsAlgorithm_Object=MibTableColumn
-cepStatsAlgorithm=_CepStatsAlgorithm_Object((1,3,6,1,4,1,9,9,756,1,3,1,1),_CepStatsAlgorithm_Type())
-cepStatsAlgorithm.setMaxAccess(_C)
-if mibBuilder.loadTexts:cepStatsAlgorithm.setStatus(_A)
-_CepStatsMeasurement_Type=CiscoEntPerfMeasurement
-_CepStatsMeasurement_Object=MibTableColumn
-cepStatsMeasurement=_CepStatsMeasurement_Object((1,3,6,1,4,1,9,9,756,1,3,1,2),_CepStatsMeasurement_Type())
-cepStatsMeasurement.setMaxAccess(_C)
-if mibBuilder.loadTexts:cepStatsMeasurement.setStatus(_A)
-_CepEntityIntervalTable_Object=MibTable
-cepEntityIntervalTable=_CepEntityIntervalTable_Object((1,3,6,1,4,1,9,9,756,1,4))
-if mibBuilder.loadTexts:cepEntityIntervalTable.setStatus(_A)
-_CepEntityIntervalEntry_Object=MibTableRow
-cepEntityIntervalEntry=_CepEntityIntervalEntry_Object((1,3,6,1,4,1,9,9,756,1,4,1))
-cepEntityIntervalEntry.setIndexNames((0,_D,_E),(0,_B,_O))
-if mibBuilder.loadTexts:cepEntityIntervalEntry.setStatus(_A)
-_CepHistInterval_Type=CiscoEntPerfHistInterval
-_CepHistInterval_Object=MibTableColumn
-cepHistInterval=_CepHistInterval_Object((1,3,6,1,4,1,9,9,756,1,4,1,1),_CepHistInterval_Type())
-cepHistInterval.setMaxAccess(_K)
-if mibBuilder.loadTexts:cepHistInterval.setStatus(_A)
-class _CepIntervalTimeElapsed_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,899))
-_CepIntervalTimeElapsed_Type.__name__=_H
-_CepIntervalTimeElapsed_Object=MibTableColumn
-cepIntervalTimeElapsed=_CepIntervalTimeElapsed_Object((1,3,6,1,4,1,9,9,756,1,4,1,2),_CepIntervalTimeElapsed_Type())
-cepIntervalTimeElapsed.setMaxAccess(_C)
-if mibBuilder.loadTexts:cepIntervalTimeElapsed.setStatus(_A)
-if mibBuilder.loadTexts:cepIntervalTimeElapsed.setUnits(_X)
-class _CepValidIntervalCount_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,96))
-_CepValidIntervalCount_Type.__name__=_H
-_CepValidIntervalCount_Object=MibTableColumn
-cepValidIntervalCount=_CepValidIntervalCount_Object((1,3,6,1,4,1,9,9,756,1,4,1,3),_CepValidIntervalCount_Type())
-cepValidIntervalCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:cepValidIntervalCount.setStatus(_A)
-_CepIntervalStatsTable_Object=MibTable
-cepIntervalStatsTable=_CepIntervalStatsTable_Object((1,3,6,1,4,1,9,9,756,1,5))
-if mibBuilder.loadTexts:cepIntervalStatsTable.setStatus(_A)
-_CepIntervalStatsEntry_Object=MibTableRow
-cepIntervalStatsEntry=_CepIntervalStatsEntry_Object((1,3,6,1,4,1,9,9,756,1,5,1))
-cepIntervalStatsEntry.setIndexNames((0,_D,_E),(0,_B,_O),(0,_B,_J),(0,_B,_Y))
-if mibBuilder.loadTexts:cepIntervalStatsEntry.setStatus(_A)
-class _CepIntervalNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,96))
-_CepIntervalNumber_Type.__name__=_H
-_CepIntervalNumber_Object=MibTableColumn
-cepIntervalNumber=_CepIntervalNumber_Object((1,3,6,1,4,1,9,9,756,1,5,1,1),_CepIntervalNumber_Type())
-cepIntervalNumber.setMaxAccess(_K)
-if mibBuilder.loadTexts:cepIntervalNumber.setStatus(_A)
-_CepIntervalStatsValidData_Type=TruthValue
-_CepIntervalStatsValidData_Object=MibTableColumn
-cepIntervalStatsValidData=_CepIntervalStatsValidData_Object((1,3,6,1,4,1,9,9,756,1,5,1,2),_CepIntervalStatsValidData_Type())
-cepIntervalStatsValidData.setMaxAccess(_C)
-if mibBuilder.loadTexts:cepIntervalStatsValidData.setStatus(_A)
-_CepIntervalStatsRange_Type=CiscoEntPerfRange
-_CepIntervalStatsRange_Object=MibTableColumn
-cepIntervalStatsRange=_CepIntervalStatsRange_Object((1,3,6,1,4,1,9,9,756,1,5,1,3),_CepIntervalStatsRange_Type())
-cepIntervalStatsRange.setMaxAccess(_C)
-if mibBuilder.loadTexts:cepIntervalStatsRange.setStatus(_A)
-_CepIntervalStatsMeasurement_Type=CiscoEntPerfMeasurement
-_CepIntervalStatsMeasurement_Object=MibTableColumn
-cepIntervalStatsMeasurement=_CepIntervalStatsMeasurement_Object((1,3,6,1,4,1,9,9,756,1,5,1,4),_CepIntervalStatsMeasurement_Type())
-cepIntervalStatsMeasurement.setMaxAccess(_C)
-if mibBuilder.loadTexts:cepIntervalStatsMeasurement.setStatus(_A)
-_CepIntervalStatsCreateTime_Type=TimeStamp
-_CepIntervalStatsCreateTime_Object=MibTableColumn
-cepIntervalStatsCreateTime=_CepIntervalStatsCreateTime_Object((1,3,6,1,4,1,9,9,756,1,5,1,5),_CepIntervalStatsCreateTime_Type())
-cepIntervalStatsCreateTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cepIntervalStatsCreateTime.setStatus(_A)
-_CiscoEntityPerformanceMIBNotifObjects_ObjectIdentity=ObjectIdentity
-ciscoEntityPerformanceMIBNotifObjects=_CiscoEntityPerformanceMIBNotifObjects_ObjectIdentity((1,3,6,1,4,1,9,9,756,1,6))
-class _CepThresholdNotifEnabled_Type(TruthValue):defaultValue=2
-_CepThresholdNotifEnabled_Type.__name__=_I
-_CepThresholdNotifEnabled_Object=MibScalar
-cepThresholdNotifEnabled=_CepThresholdNotifEnabled_Object((1,3,6,1,4,1,9,9,756,1,6,1),_CepThresholdNotifEnabled_Type())
-cepThresholdNotifEnabled.setMaxAccess(_F)
-if mibBuilder.loadTexts:cepThresholdNotifEnabled.setStatus(_A)
-class _CepThroughputNotifEnabled_Type(TruthValue):defaultValue=2
-_CepThroughputNotifEnabled_Type.__name__=_I
-_CepThroughputNotifEnabled_Object=MibScalar
-cepThroughputNotifEnabled=_CepThroughputNotifEnabled_Object((1,3,6,1,4,1,9,9,756,1,6,2),_CepThroughputNotifEnabled_Type())
-cepThroughputNotifEnabled.setMaxAccess(_F)
-if mibBuilder.loadTexts:cepThroughputNotifEnabled.setStatus(_A)
-_CepThroughputTable_Object=MibTable
-cepThroughputTable=_CepThroughputTable_Object((1,3,6,1,4,1,9,9,756,1,7))
-if mibBuilder.loadTexts:cepThroughputTable.setStatus(_A)
-_CepThroughputEntry_Object=MibTableRow
-cepThroughputEntry=_CepThroughputEntry_Object((1,3,6,1,4,1,9,9,756,1,7,1))
-cepThroughputEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:cepThroughputEntry.setStatus(_A)
-_CepThroughputLicensedBW_Type=Counter64
-_CepThroughputLicensedBW_Object=MibTableColumn
-cepThroughputLicensedBW=_CepThroughputLicensedBW_Object((1,3,6,1,4,1,9,9,756,1,7,1,1),_CepThroughputLicensedBW_Type())
-cepThroughputLicensedBW.setMaxAccess(_C)
-if mibBuilder.loadTexts:cepThroughputLicensedBW.setStatus(_A)
-if mibBuilder.loadTexts:cepThroughputLicensedBW.setUnits(_Z)
-class _CepThroughputLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('normal',1),('warning',2),('exceed',3)))
-_CepThroughputLevel_Type.__name__=_G
-_CepThroughputLevel_Object=MibTableColumn
-cepThroughputLevel=_CepThroughputLevel_Object((1,3,6,1,4,1,9,9,756,1,7,1,2),_CepThroughputLevel_Type())
-cepThroughputLevel.setMaxAccess(_C)
-if mibBuilder.loadTexts:cepThroughputLevel.setStatus(_A)
-class _CepThroughputInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,86400))
-_CepThroughputInterval_Type.__name__=_G
-_CepThroughputInterval_Object=MibTableColumn
-cepThroughputInterval=_CepThroughputInterval_Object((1,3,6,1,4,1,9,9,756,1,7,1,3),_CepThroughputInterval_Type())
-cepThroughputInterval.setMaxAccess(_F)
-if mibBuilder.loadTexts:cepThroughputInterval.setStatus(_A)
-if mibBuilder.loadTexts:cepThroughputInterval.setUnits(_X)
-class _CepThroughputThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(75,95))
-_CepThroughputThreshold_Type.__name__=_G
-_CepThroughputThreshold_Object=MibTableColumn
-cepThroughputThreshold=_CepThroughputThreshold_Object((1,3,6,1,4,1,9,9,756,1,7,1,4),_CepThroughputThreshold_Type())
-cepThroughputThreshold.setMaxAccess(_F)
-if mibBuilder.loadTexts:cepThroughputThreshold.setStatus(_A)
-if mibBuilder.loadTexts:cepThroughputThreshold.setUnits('percent')
-_CepThroughputAvgRate_Type=Counter64
-_CepThroughputAvgRate_Object=MibTableColumn
-cepThroughputAvgRate=_CepThroughputAvgRate_Object((1,3,6,1,4,1,9,9,756,1,7,1,5),_CepThroughputAvgRate_Type())
-cepThroughputAvgRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:cepThroughputAvgRate.setStatus(_A)
-if mibBuilder.loadTexts:cepThroughputAvgRate.setUnits(_Z)
-_CiscoEntityPerformanceMIBConform_ObjectIdentity=ObjectIdentity
-ciscoEntityPerformanceMIBConform=_CiscoEntityPerformanceMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,756,2))
-_CiscoEntityPerformanceMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoEntityPerformanceMIBCompliances=_CiscoEntityPerformanceMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,756,2,1))
-_CiscoEntityPerformanceMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoEntityPerformanceMIBGroups=_CiscoEntityPerformanceMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,756,2,2))
-ciscoEntityPerformanceMIBEntityGroup=ObjectGroup((1,3,6,1,4,1,9,9,756,2,2,1))
-ciscoEntityPerformanceMIBEntityGroup.setObjects(*((_B,_a),(_B,_b)))
-if mibBuilder.loadTexts:ciscoEntityPerformanceMIBEntityGroup.setStatus(_A)
-ciscoEntityPerformanceMIBConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,756,2,2,2))
-ciscoEntityPerformanceMIBConfigGroup.setObjects(*((_B,_P),(_B,_Q),(_B,_L),(_B,_c)))
-if mibBuilder.loadTexts:ciscoEntityPerformanceMIBConfigGroup.setStatus(_A)
-ciscoEntityPerformanceMIBPerfStatsGroup=ObjectGroup((1,3,6,1,4,1,9,9,756,2,2,3))
-ciscoEntityPerformanceMIBPerfStatsGroup.setObjects(*((_B,_d),(_B,_M)))
-if mibBuilder.loadTexts:ciscoEntityPerformanceMIBPerfStatsGroup.setStatus(_A)
-ciscoEntityPerformanceMIBEntityIntervalGroup=ObjectGroup((1,3,6,1,4,1,9,9,756,2,2,4))
-ciscoEntityPerformanceMIBEntityIntervalGroup.setObjects(*((_B,_e),(_B,_f)))
-if mibBuilder.loadTexts:ciscoEntityPerformanceMIBEntityIntervalGroup.setStatus(_A)
-ciscoEntityPerformanceMIBIntervalStatsGroup=ObjectGroup((1,3,6,1,4,1,9,9,756,2,2,5))
-ciscoEntityPerformanceMIBIntervalStatsGroup.setObjects(*((_B,_g),(_B,_h),(_B,_i),(_B,_j)))
-if mibBuilder.loadTexts:ciscoEntityPerformanceMIBIntervalStatsGroup.setStatus(_A)
-ciscoEntityPerformanceMIBNotifControlGroup=ObjectGroup((1,3,6,1,4,1,9,9,756,2,2,6))
-ciscoEntityPerformanceMIBNotifControlGroup.setObjects(*((_B,_k),(_B,_l)))
-if mibBuilder.loadTexts:ciscoEntityPerformanceMIBNotifControlGroup.setStatus(_A)
-ciscoEntityPerformanceMIBThroughputGroup=ObjectGroup((1,3,6,1,4,1,9,9,756,2,2,8))
-ciscoEntityPerformanceMIBThroughputGroup.setObjects(*((_B,_R),(_B,_S),(_B,_m),(_B,_n),(_B,_T)))
-if mibBuilder.loadTexts:ciscoEntityPerformanceMIBThroughputGroup.setStatus(_A)
-cepPerfThreshRisingEvent=NotificationType((1,3,6,1,4,1,9,9,756,0,1))
-cepPerfThreshRisingEvent.setObjects(*((_B,_L),(_B,_P),(_B,_M)))
-if mibBuilder.loadTexts:cepPerfThreshRisingEvent.setStatus(_A)
-cepPerfThreshFallingEvent=NotificationType((1,3,6,1,4,1,9,9,756,0,2))
-cepPerfThreshFallingEvent.setObjects(*((_B,_L),(_B,_Q),(_B,_M)))
-if mibBuilder.loadTexts:cepPerfThreshFallingEvent.setStatus(_A)
-cepThroughputNotif=NotificationType((1,3,6,1,4,1,9,9,756,0,3))
-cepThroughputNotif.setObjects(*((_B,_R),(_B,_S),(_B,_T)))
-if mibBuilder.loadTexts:cepThroughputNotif.setStatus(_A)
-ciscoEntityPerformanceMIBNotificationGroup=NotificationGroup((1,3,6,1,4,1,9,9,756,2,2,7))
-ciscoEntityPerformanceMIBNotificationGroup.setObjects(*((_B,_o),(_B,_p),(_B,_q)))
-if mibBuilder.loadTexts:ciscoEntityPerformanceMIBNotificationGroup.setStatus(_A)
-ciscoEntityPerformanceMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,756,2,1,1))
-ciscoEntityPerformanceMIBCompliance.setObjects(*((_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y)))
-if mibBuilder.loadTexts:ciscoEntityPerformanceMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CiscoEntPerfMeasurement':CiscoEntPerfMeasurement,'CiscoEntPerfRange':CiscoEntPerfRange,'CiscoEntPerfType':CiscoEntPerfType,'CiscoEntPerfInterval':CiscoEntPerfInterval,'CiscoEntPerfHistInterval':CiscoEntPerfHistInterval,'CiscoEntPerfIntervalAlgo':CiscoEntPerfIntervalAlgo,'ciscoEntityPerformanceMIB':ciscoEntityPerformanceMIB,'ciscoEntityPerformanceMIBNotifs':ciscoEntityPerformanceMIBNotifs,_o:cepPerfThreshRisingEvent,_p:cepPerfThreshFallingEvent,_q:cepThroughputNotif,'ciscoEntityPerformanceMIBObjects':ciscoEntityPerformanceMIBObjects,'cepEntityTable':cepEntityTable,'cepEntityEntry':cepEntityEntry,_a:cepEntityNumReloads,_b:cepEntityLastReloadTime,'cepConfigTable':cepConfigTable,'cepConfigEntry':cepConfigEntry,_N:cepConfigInterval,_J:cepConfigPerfType,_L:cepConfigPerfRange,_P:cepConfigRisingThreshold,_Q:cepConfigFallingThreshold,_c:cepConfigThresholdNotifEnabled,'cepStatsTable':cepStatsTable,'cepStatsEntry':cepStatsEntry,_d:cepStatsAlgorithm,_M:cepStatsMeasurement,'cepEntityIntervalTable':cepEntityIntervalTable,'cepEntityIntervalEntry':cepEntityIntervalEntry,_O:cepHistInterval,_e:cepIntervalTimeElapsed,_f:cepValidIntervalCount,'cepIntervalStatsTable':cepIntervalStatsTable,'cepIntervalStatsEntry':cepIntervalStatsEntry,_Y:cepIntervalNumber,_g:cepIntervalStatsValidData,_j:cepIntervalStatsRange,_h:cepIntervalStatsMeasurement,_i:cepIntervalStatsCreateTime,'ciscoEntityPerformanceMIBNotifObjects':ciscoEntityPerformanceMIBNotifObjects,_k:cepThresholdNotifEnabled,_l:cepThroughputNotifEnabled,'cepThroughputTable':cepThroughputTable,'cepThroughputEntry':cepThroughputEntry,_R:cepThroughputLicensedBW,_S:cepThroughputLevel,_m:cepThroughputInterval,_n:cepThroughputThreshold,_T:cepThroughputAvgRate,'ciscoEntityPerformanceMIBConform':ciscoEntityPerformanceMIBConform,'ciscoEntityPerformanceMIBCompliances':ciscoEntityPerformanceMIBCompliances,'ciscoEntityPerformanceMIBCompliance':ciscoEntityPerformanceMIBCompliance,'ciscoEntityPerformanceMIBGroups':ciscoEntityPerformanceMIBGroups,_r:ciscoEntityPerformanceMIBEntityGroup,_s:ciscoEntityPerformanceMIBConfigGroup,_u:ciscoEntityPerformanceMIBPerfStatsGroup,_x:ciscoEntityPerformanceMIBEntityIntervalGroup,_v:ciscoEntityPerformanceMIBIntervalStatsGroup,_w:ciscoEntityPerformanceMIBNotifControlGroup,_t:ciscoEntityPerformanceMIBNotificationGroup,_y:ciscoEntityPerformanceMIBThroughputGroup})
+#
+# PySNMP MIB module CISCO-ENTITY-PERFORMANCE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-ENTITY-PERFORMANCE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "DateAndTime", "TruthValue", "TextualConvention")
+ciscoEntityPerformanceMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 756))
+ciscoEntityPerformanceMIB.setRevisions(('2014-06-18 00:00', '2010-09-09 00:00',))
+if mibBuilder.loadTexts: ciscoEntityPerformanceMIB.setLastUpdated('201406180000Z')
+if mibBuilder.loadTexts: ciscoEntityPerformanceMIB.setOrganization('Cisco Systems, Inc.')
+class CiscoEntPerfMeasurement(TextualConvention, Counter64):
+    status = 'current'
+
+class CiscoEntPerfRange(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("rangePercentage", 1), ("rangeInt32", 2), ("rangeInt64", 3))
+
+class CiscoEntPerfType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
+    namedValues = NamedValues(("utilization", 1), ("bitInputRate", 2), ("bitOutputRate", 3), ("bitDropRate", 4), ("packetInputRate", 5), ("packetOutputRate", 6), ("packetDropRate", 7))
+
+class CiscoEntPerfInterval(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("current", 1), ("oneMinute", 2), ("fiveMinutes", 3), ("fifteenMinutes", 4))
+
+class CiscoEntPerfHistInterval(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("oneMinute", 1), ("fiveMinutes", 2), ("fifteenMinutes", 3))
+
+class CiscoEntPerfIntervalAlgo(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("unknown", 1), ("other", 2), ("current", 3), ("algoSMA", 4))
+
+ciscoEntityPerformanceMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 756, 0))
+ciscoEntityPerformanceMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 756, 1))
+ciscoEntityPerformanceMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 756, 2))
+cepEntityTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 1), )
+if mibBuilder.loadTexts: cepEntityTable.setStatus('current')
+cepEntityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: cepEntityEntry.setStatus('current')
+cepEntityNumReloads = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 1, 1, 1), Counter32()).setUnits('reloads').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cepEntityNumReloads.setStatus('current')
+cepEntityLastReloadTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 1, 1, 2), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cepEntityLastReloadTime.setStatus('current')
+cepConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 2), )
+if mibBuilder.loadTexts: cepConfigTable.setStatus('current')
+cepConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-ENTITY-PERFORMANCE-MIB", "cepConfigInterval"), (0, "CISCO-ENTITY-PERFORMANCE-MIB", "cepConfigPerfType"))
+if mibBuilder.loadTexts: cepConfigEntry.setStatus('current')
+cepConfigInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 2, 1, 1), CiscoEntPerfInterval())
+if mibBuilder.loadTexts: cepConfigInterval.setStatus('current')
+cepConfigPerfType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 2, 1, 2), CiscoEntPerfType())
+if mibBuilder.loadTexts: cepConfigPerfType.setStatus('current')
+cepConfigPerfRange = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 2, 1, 3), CiscoEntPerfRange()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cepConfigPerfRange.setStatus('current')
+cepConfigRisingThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 2, 1, 4), CiscoEntPerfMeasurement()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cepConfigRisingThreshold.setStatus('current')
+cepConfigFallingThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 2, 1, 5), CiscoEntPerfMeasurement()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cepConfigFallingThreshold.setStatus('current')
+cepConfigThresholdNotifEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 2, 1, 6), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cepConfigThresholdNotifEnabled.setStatus('current')
+cepStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 3), )
+if mibBuilder.loadTexts: cepStatsTable.setStatus('current')
+cepStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 3, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-ENTITY-PERFORMANCE-MIB", "cepConfigInterval"), (0, "CISCO-ENTITY-PERFORMANCE-MIB", "cepConfigPerfType"))
+if mibBuilder.loadTexts: cepStatsEntry.setStatus('current')
+cepStatsAlgorithm = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 3, 1, 1), CiscoEntPerfIntervalAlgo()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cepStatsAlgorithm.setStatus('current')
+cepStatsMeasurement = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 3, 1, 2), CiscoEntPerfMeasurement()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cepStatsMeasurement.setStatus('current')
+cepEntityIntervalTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 4), )
+if mibBuilder.loadTexts: cepEntityIntervalTable.setStatus('current')
+cepEntityIntervalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 4, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-ENTITY-PERFORMANCE-MIB", "cepHistInterval"))
+if mibBuilder.loadTexts: cepEntityIntervalEntry.setStatus('current')
+cepHistInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 4, 1, 1), CiscoEntPerfHistInterval())
+if mibBuilder.loadTexts: cepHistInterval.setStatus('current')
+cepIntervalTimeElapsed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 4, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 899))).setUnits('seconds').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cepIntervalTimeElapsed.setStatus('current')
+cepValidIntervalCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 4, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 96))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cepValidIntervalCount.setStatus('current')
+cepIntervalStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 5), )
+if mibBuilder.loadTexts: cepIntervalStatsTable.setStatus('current')
+cepIntervalStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 5, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-ENTITY-PERFORMANCE-MIB", "cepHistInterval"), (0, "CISCO-ENTITY-PERFORMANCE-MIB", "cepConfigPerfType"), (0, "CISCO-ENTITY-PERFORMANCE-MIB", "cepIntervalNumber"))
+if mibBuilder.loadTexts: cepIntervalStatsEntry.setStatus('current')
+cepIntervalNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 5, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 96)))
+if mibBuilder.loadTexts: cepIntervalNumber.setStatus('current')
+cepIntervalStatsValidData = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 5, 1, 2), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cepIntervalStatsValidData.setStatus('current')
+cepIntervalStatsRange = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 5, 1, 3), CiscoEntPerfRange()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cepIntervalStatsRange.setStatus('current')
+cepIntervalStatsMeasurement = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 5, 1, 4), CiscoEntPerfMeasurement()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cepIntervalStatsMeasurement.setStatus('current')
+cepIntervalStatsCreateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 5, 1, 5), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cepIntervalStatsCreateTime.setStatus('current')
+ciscoEntityPerformanceMIBNotifObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 6))
+cepThroughputTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 7), )
+if mibBuilder.loadTexts: cepThroughputTable.setStatus('current')
+cepThroughputEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 7, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: cepThroughputEntry.setStatus('current')
+cepThroughputLicensedBW = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 7, 1, 1), Counter64()).setUnits('bits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cepThroughputLicensedBW.setStatus('current')
+cepThroughputLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 7, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("normal", 1), ("warning", 2), ("exceed", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cepThroughputLevel.setStatus('current')
+cepThroughputInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 7, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 86400))).setUnits('seconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cepThroughputInterval.setStatus('current')
+cepThroughputThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 7, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(75, 95))).setUnits('percent').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cepThroughputThreshold.setStatus('current')
+cepThroughputAvgRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 7, 1, 5), Counter64()).setUnits('bits per second').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cepThroughputAvgRate.setStatus('current')
+cepThresholdNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 6, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cepThresholdNotifEnabled.setStatus('current')
+cepThroughputNotifEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 756, 1, 6, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cepThroughputNotifEnabled.setStatus('current')
+cepPerfThreshRisingEvent = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 756, 0, 1)).setObjects(("CISCO-ENTITY-PERFORMANCE-MIB", "cepConfigPerfRange"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepConfigRisingThreshold"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepStatsMeasurement"))
+if mibBuilder.loadTexts: cepPerfThreshRisingEvent.setStatus('current')
+cepPerfThreshFallingEvent = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 756, 0, 2)).setObjects(("CISCO-ENTITY-PERFORMANCE-MIB", "cepConfigPerfRange"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepConfigFallingThreshold"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepStatsMeasurement"))
+if mibBuilder.loadTexts: cepPerfThreshFallingEvent.setStatus('current')
+cepThroughputNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 756, 0, 3)).setObjects(("CISCO-ENTITY-PERFORMANCE-MIB", "cepThroughputLicensedBW"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepThroughputLevel"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepThroughputAvgRate"))
+if mibBuilder.loadTexts: cepThroughputNotif.setStatus('current')
+ciscoEntityPerformanceMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 756, 2, 1))
+ciscoEntityPerformanceMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 756, 2, 2))
+ciscoEntityPerformanceMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 756, 2, 1, 1)).setObjects(("CISCO-ENTITY-PERFORMANCE-MIB", "ciscoEntityPerformanceMIBEntityGroup"), ("CISCO-ENTITY-PERFORMANCE-MIB", "ciscoEntityPerformanceMIBConfigGroup"), ("CISCO-ENTITY-PERFORMANCE-MIB", "ciscoEntityPerformanceMIBNotificationGroup"), ("CISCO-ENTITY-PERFORMANCE-MIB", "ciscoEntityPerformanceMIBPerfStatsGroup"), ("CISCO-ENTITY-PERFORMANCE-MIB", "ciscoEntityPerformanceMIBIntervalStatsGroup"), ("CISCO-ENTITY-PERFORMANCE-MIB", "ciscoEntityPerformanceMIBNotifControlGroup"), ("CISCO-ENTITY-PERFORMANCE-MIB", "ciscoEntityPerformanceMIBEntityIntervalGroup"), ("CISCO-ENTITY-PERFORMANCE-MIB", "ciscoEntityPerformanceMIBThroughputGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoEntityPerformanceMIBCompliance = ciscoEntityPerformanceMIBCompliance.setStatus('current')
+ciscoEntityPerformanceMIBEntityGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 756, 2, 2, 1)).setObjects(("CISCO-ENTITY-PERFORMANCE-MIB", "cepEntityNumReloads"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepEntityLastReloadTime"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoEntityPerformanceMIBEntityGroup = ciscoEntityPerformanceMIBEntityGroup.setStatus('current')
+ciscoEntityPerformanceMIBConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 756, 2, 2, 2)).setObjects(("CISCO-ENTITY-PERFORMANCE-MIB", "cepConfigRisingThreshold"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepConfigFallingThreshold"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepConfigPerfRange"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepConfigThresholdNotifEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoEntityPerformanceMIBConfigGroup = ciscoEntityPerformanceMIBConfigGroup.setStatus('current')
+ciscoEntityPerformanceMIBPerfStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 756, 2, 2, 3)).setObjects(("CISCO-ENTITY-PERFORMANCE-MIB", "cepStatsAlgorithm"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepStatsMeasurement"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoEntityPerformanceMIBPerfStatsGroup = ciscoEntityPerformanceMIBPerfStatsGroup.setStatus('current')
+ciscoEntityPerformanceMIBEntityIntervalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 756, 2, 2, 4)).setObjects(("CISCO-ENTITY-PERFORMANCE-MIB", "cepIntervalTimeElapsed"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepValidIntervalCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoEntityPerformanceMIBEntityIntervalGroup = ciscoEntityPerformanceMIBEntityIntervalGroup.setStatus('current')
+ciscoEntityPerformanceMIBIntervalStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 756, 2, 2, 5)).setObjects(("CISCO-ENTITY-PERFORMANCE-MIB", "cepIntervalStatsValidData"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepIntervalStatsMeasurement"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepIntervalStatsCreateTime"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepIntervalStatsRange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoEntityPerformanceMIBIntervalStatsGroup = ciscoEntityPerformanceMIBIntervalStatsGroup.setStatus('current')
+ciscoEntityPerformanceMIBNotifControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 756, 2, 2, 6)).setObjects(("CISCO-ENTITY-PERFORMANCE-MIB", "cepThresholdNotifEnabled"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepThroughputNotifEnabled"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoEntityPerformanceMIBNotifControlGroup = ciscoEntityPerformanceMIBNotifControlGroup.setStatus('current')
+ciscoEntityPerformanceMIBNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 756, 2, 2, 7)).setObjects(("CISCO-ENTITY-PERFORMANCE-MIB", "cepPerfThreshRisingEvent"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepPerfThreshFallingEvent"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepThroughputNotif"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoEntityPerformanceMIBNotificationGroup = ciscoEntityPerformanceMIBNotificationGroup.setStatus('current')
+ciscoEntityPerformanceMIBThroughputGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 756, 2, 2, 8)).setObjects(("CISCO-ENTITY-PERFORMANCE-MIB", "cepThroughputLicensedBW"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepThroughputLevel"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepThroughputInterval"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepThroughputThreshold"), ("CISCO-ENTITY-PERFORMANCE-MIB", "cepThroughputAvgRate"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoEntityPerformanceMIBThroughputGroup = ciscoEntityPerformanceMIBThroughputGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-ENTITY-PERFORMANCE-MIB", cepThroughputTable=cepThroughputTable, cepThroughputInterval=cepThroughputInterval, ciscoEntityPerformanceMIBEntityIntervalGroup=ciscoEntityPerformanceMIBEntityIntervalGroup, ciscoEntityPerformanceMIBCompliances=ciscoEntityPerformanceMIBCompliances, CiscoEntPerfHistInterval=CiscoEntPerfHistInterval, cepThroughputAvgRate=cepThroughputAvgRate, cepPerfThreshRisingEvent=cepPerfThreshRisingEvent, cepStatsMeasurement=cepStatsMeasurement, cepThroughputNotif=cepThroughputNotif, cepThroughputEntry=cepThroughputEntry, CiscoEntPerfInterval=CiscoEntPerfInterval, cepEntityTable=cepEntityTable, cepStatsEntry=cepStatsEntry, cepThresholdNotifEnabled=cepThresholdNotifEnabled, cepEntityNumReloads=cepEntityNumReloads, cepEntityIntervalTable=cepEntityIntervalTable, cepIntervalStatsEntry=cepIntervalStatsEntry, cepHistInterval=cepHistInterval, ciscoEntityPerformanceMIBNotifObjects=ciscoEntityPerformanceMIBNotifObjects, ciscoEntityPerformanceMIBNotificationGroup=ciscoEntityPerformanceMIBNotificationGroup, cepConfigRisingThreshold=cepConfigRisingThreshold, cepIntervalStatsValidData=cepIntervalStatsValidData, ciscoEntityPerformanceMIBGroups=ciscoEntityPerformanceMIBGroups, CiscoEntPerfMeasurement=CiscoEntPerfMeasurement, CiscoEntPerfIntervalAlgo=CiscoEntPerfIntervalAlgo, cepStatsAlgorithm=cepStatsAlgorithm, cepIntervalNumber=cepIntervalNumber, ciscoEntityPerformanceMIBCompliance=ciscoEntityPerformanceMIBCompliance, cepConfigTable=cepConfigTable, ciscoEntityPerformanceMIBNotifs=ciscoEntityPerformanceMIBNotifs, cepThroughputLevel=cepThroughputLevel, ciscoEntityPerformanceMIBNotifControlGroup=ciscoEntityPerformanceMIBNotifControlGroup, ciscoEntityPerformanceMIBConform=ciscoEntityPerformanceMIBConform, cepValidIntervalCount=cepValidIntervalCount, cepThroughputNotifEnabled=cepThroughputNotifEnabled, ciscoEntityPerformanceMIBObjects=ciscoEntityPerformanceMIBObjects, ciscoEntityPerformanceMIBConfigGroup=ciscoEntityPerformanceMIBConfigGroup, cepIntervalStatsCreateTime=cepIntervalStatsCreateTime, cepThroughputLicensedBW=cepThroughputLicensedBW, ciscoEntityPerformanceMIBEntityGroup=ciscoEntityPerformanceMIBEntityGroup, cepConfigPerfRange=cepConfigPerfRange, cepConfigEntry=cepConfigEntry, cepStatsTable=cepStatsTable, cepConfigInterval=cepConfigInterval, CiscoEntPerfType=CiscoEntPerfType, cepEntityIntervalEntry=cepEntityIntervalEntry, cepEntityEntry=cepEntityEntry, cepEntityLastReloadTime=cepEntityLastReloadTime, cepConfigPerfType=cepConfigPerfType, cepIntervalStatsMeasurement=cepIntervalStatsMeasurement, cepIntervalStatsRange=cepIntervalStatsRange, cepThroughputThreshold=cepThroughputThreshold, PYSNMP_MODULE_ID=ciscoEntityPerformanceMIB, ciscoEntityPerformanceMIB=ciscoEntityPerformanceMIB, cepConfigThresholdNotifEnabled=cepConfigThresholdNotifEnabled, cepIntervalTimeElapsed=cepIntervalTimeElapsed, ciscoEntityPerformanceMIBPerfStatsGroup=ciscoEntityPerformanceMIBPerfStatsGroup, ciscoEntityPerformanceMIBIntervalStatsGroup=ciscoEntityPerformanceMIBIntervalStatsGroup, ciscoEntityPerformanceMIBThroughputGroup=ciscoEntityPerformanceMIBThroughputGroup, cepIntervalStatsTable=cepIntervalStatsTable, cepPerfThreshFallingEvent=cepPerfThreshFallingEvent, CiscoEntPerfRange=CiscoEntPerfRange, cepConfigFallingThreshold=cepConfigFallingThreshold)

@@ -1,51 +1,31 @@
-_C='OctetString'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-commonInventory,=mibBuilder.importSymbols('ELECTROLINE-COMMON-ROOT-MIB','commonInventory')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
-_InvHwType_Type=Integer32
-_InvHwType_Object=MibScalar
-invHwType=_InvHwType_Object((1,3,6,1,4,1,5802,1,3,1,4,1,1),_InvHwType_Type())
-invHwType.setMaxAccess(_B)
-if mibBuilder.loadTexts:invHwType.setStatus(_A)
-_InvHwMinorRev_Type=Integer32
-_InvHwMinorRev_Object=MibScalar
-invHwMinorRev=_InvHwMinorRev_Object((1,3,6,1,4,1,5802,1,3,1,4,1,2),_InvHwMinorRev_Type())
-invHwMinorRev.setMaxAccess(_B)
-if mibBuilder.loadTexts:invHwMinorRev.setStatus(_A)
-_InvHwMajorRev_Type=Integer32
-_InvHwMajorRev_Object=MibScalar
-invHwMajorRev=_InvHwMajorRev_Object((1,3,6,1,4,1,5802,1,3,1,4,1,3),_InvHwMajorRev_Type())
-invHwMajorRev.setMaxAccess(_B)
-if mibBuilder.loadTexts:invHwMajorRev.setStatus(_A)
-_InvHwDrvRev_Type=Integer32
-_InvHwDrvRev_Object=MibScalar
-invHwDrvRev=_InvHwDrvRev_Object((1,3,6,1,4,1,5802,1,3,1,4,1,4),_InvHwDrvRev_Type())
-invHwDrvRev.setMaxAccess(_B)
-if mibBuilder.loadTexts:invHwDrvRev.setStatus(_A)
-class _ModelNumber_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_ModelNumber_Type.__name__=_C
-_ModelNumber_Object=MibScalar
-modelNumber=_ModelNumber_Object((1,3,6,1,4,1,5802,1,3,1,4,1,5),_ModelNumber_Type())
-modelNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:modelNumber.setStatus(_A)
-_ManufacturingInfo_ObjectIdentity=ObjectIdentity
-manufacturingInfo=_ManufacturingInfo_ObjectIdentity((1,3,6,1,4,1,5802,1,3,1,4,1,10))
-if mibBuilder.loadTexts:manufacturingInfo.setStatus(_A)
-_MfcDateTime_Type=DateAndTime
-_MfcDateTime_Object=MibScalar
-mfcDateTime=_MfcDateTime_Object((1,3,6,1,4,1,5802,1,3,1,4,1,10,1),_MfcDateTime_Type())
-mfcDateTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:mfcDateTime.setStatus(_A)
-_MfcTestSwVersion_Type=OctetString
-_MfcTestSwVersion_Object=MibScalar
-mfcTestSwVersion=_MfcTestSwVersion_Object((1,3,6,1,4,1,5802,1,3,1,4,1,10,2),_MfcTestSwVersion_Type())
-mfcTestSwVersion.setMaxAccess(_B)
-if mibBuilder.loadTexts:mfcTestSwVersion.setStatus(_A)
-mibBuilder.exportSymbols('ELECTROLINE-COMMON-INVENTORY-MIB',**{'invHwType':invHwType,'invHwMinorRev':invHwMinorRev,'invHwMajorRev':invHwMajorRev,'invHwDrvRev':invHwDrvRev,'modelNumber':modelNumber,'manufacturingInfo':manufacturingInfo,'mfcDateTime':mfcDateTime,'mfcTestSwVersion':mfcTestSwVersion})
+#
+# PySNMP MIB module ELECTROLINE-COMMON-INVENTORY-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/electroline/ELECTROLINE-COMMON-INVENTORY-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:23:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+commonInventory, = mibBuilder.importSymbols("ELECTROLINE-COMMON-ROOT-MIB", "commonInventory")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+invHwType = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 4, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: invHwType.setStatus('current')
+invHwMinorRev = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 4, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: invHwMinorRev.setStatus('current')
+invHwMajorRev = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 4, 1, 3), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: invHwMajorRev.setStatus('current')
+invHwDrvRev = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 4, 1, 4), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: invHwDrvRev.setStatus('current')
+modelNumber = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 4, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: modelNumber.setStatus('current')
+manufacturingInfo = ObjectIdentity((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 4, 1, 10))
+if mibBuilder.loadTexts: manufacturingInfo.setStatus('current')
+mfcDateTime = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 4, 1, 10, 1), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mfcDateTime.setStatus('current')
+mfcTestSwVersion = MibScalar((1, 3, 6, 1, 4, 1, 5802, 1, 3, 1, 4, 1, 10, 2), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mfcTestSwVersion.setStatus('current')
+mibBuilder.exportSymbols("ELECTROLINE-COMMON-INVENTORY-MIB", mfcTestSwVersion=mfcTestSwVersion, modelNumber=modelNumber, invHwType=invHwType, invHwDrvRev=invHwDrvRev, mfcDateTime=mfcDateTime, manufacturingInfo=manufacturingInfo, invHwMinorRev=invHwMinorRev, invHwMajorRev=invHwMajorRev)

@@ -1,66 +1,36 @@
-_E='Unsigned32'
-_D='DisplayString'
-_C='Integer32'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_common_mgmt,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-common-mgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention')
-swSSLMIB=ModuleIdentity((1,3,6,1,4,1,171,12,7))
-_SwSSLMgmt_ObjectIdentity=ObjectIdentity
-swSSLMgmt=_SwSSLMgmt_ObjectIdentity((1,3,6,1,4,1,171,12,7,1))
-class _SwSSLStatusAdmin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('other',1),('disabled',2),('enabled',3)))
-_SwSSLStatusAdmin_Type.__name__=_C
-_SwSSLStatusAdmin_Object=MibScalar
-swSSLStatusAdmin=_SwSSLStatusAdmin_Object((1,3,6,1,4,1,171,12,7,1,1),_SwSSLStatusAdmin_Type())
-swSSLStatusAdmin.setMaxAccess(_B)
-if mibBuilder.loadTexts:swSSLStatusAdmin.setStatus(_A)
-class _SwSSLCipherSuites_Type(Bits):namedValues=NamedValues(*(('rsa-with-rc4-128-MD5',0),('rsa-with-3des-ede-cbc-sha',1),('dhe-dss-with-3des-ede-cbc-sha',2),('rsa-export-with-rc4-40-md5',3)))
-_SwSSLCipherSuites_Type.__name__='Bits'
-_SwSSLCipherSuites_Object=MibScalar
-swSSLCipherSuites=_SwSSLCipherSuites_Object((1,3,6,1,4,1,171,12,7,1,2),_SwSSLCipherSuites_Type())
-swSSLCipherSuites.setMaxAccess(_B)
-if mibBuilder.loadTexts:swSSLCipherSuites.setStatus(_A)
-class _SwSSLCacheTimeout_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,86400))
-_SwSSLCacheTimeout_Type.__name__=_E
-_SwSSLCacheTimeout_Object=MibScalar
-swSSLCacheTimeout=_SwSSLCacheTimeout_Object((1,3,6,1,4,1,171,12,7,1,3),_SwSSLCacheTimeout_Type())
-swSSLCacheTimeout.setMaxAccess(_B)
-if mibBuilder.loadTexts:swSSLCacheTimeout.setStatus(_A)
-_SwSSLCertificateFile_ObjectIdentity=ObjectIdentity
-swSSLCertificateFile=_SwSSLCertificateFile_ObjectIdentity((1,3,6,1,4,1,171,12,7,2))
-_SwSSLCertificateFileIPAddr_Type=IpAddress
-_SwSSLCertificateFileIPAddr_Object=MibScalar
-swSSLCertificateFileIPAddr=_SwSSLCertificateFileIPAddr_Object((1,3,6,1,4,1,171,12,7,2,1),_SwSSLCertificateFileIPAddr_Type())
-swSSLCertificateFileIPAddr.setMaxAccess(_B)
-if mibBuilder.loadTexts:swSSLCertificateFileIPAddr.setStatus(_A)
-class _SwSSLCertificateFilePath_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSSLCertificateFilePath_Type.__name__=_D
-_SwSSLCertificateFilePath_Object=MibScalar
-swSSLCertificateFilePath=_SwSSLCertificateFilePath_Object((1,3,6,1,4,1,171,12,7,2,2),_SwSSLCertificateFilePath_Type())
-swSSLCertificateFilePath.setMaxAccess(_B)
-if mibBuilder.loadTexts:swSSLCertificateFilePath.setStatus(_A)
-class _SwSSLCertificateKeyFilePath_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_SwSSLCertificateKeyFilePath_Type.__name__=_D
-_SwSSLCertificateKeyFilePath_Object=MibScalar
-swSSLCertificateKeyFilePath=_SwSSLCertificateKeyFilePath_Object((1,3,6,1,4,1,171,12,7,2,3),_SwSSLCertificateKeyFilePath_Type())
-swSSLCertificateKeyFilePath.setMaxAccess(_B)
-if mibBuilder.loadTexts:swSSLCertificateKeyFilePath.setStatus(_A)
-class _SwSSLCertificateFileCtrl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('other',1),('inactive',2),('start',3),('delete',4)))
-_SwSSLCertificateFileCtrl_Type.__name__=_C
-_SwSSLCertificateFileCtrl_Object=MibScalar
-swSSLCertificateFileCtrl=_SwSSLCertificateFileCtrl_Object((1,3,6,1,4,1,171,12,7,2,4),_SwSSLCertificateFileCtrl_Type())
-swSSLCertificateFileCtrl.setMaxAccess(_B)
-if mibBuilder.loadTexts:swSSLCertificateFileCtrl.setStatus(_A)
-class _SwSSLCertificateFileShowSatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('rsa',2),('dsa',3)))
-_SwSSLCertificateFileShowSatus_Type.__name__=_C
-_SwSSLCertificateFileShowSatus_Object=MibScalar
-swSSLCertificateFileShowSatus=_SwSSLCertificateFileShowSatus_Object((1,3,6,1,4,1,171,12,7,2,5),_SwSSLCertificateFileShowSatus_Type())
-swSSLCertificateFileShowSatus.setMaxAccess('read-only')
-if mibBuilder.loadTexts:swSSLCertificateFileShowSatus.setStatus(_A)
-mibBuilder.exportSymbols('SSL-MIB',**{'swSSLMIB':swSSLMIB,'swSSLMgmt':swSSLMgmt,'swSSLStatusAdmin':swSSLStatusAdmin,'swSSLCipherSuites':swSSLCipherSuites,'swSSLCacheTimeout':swSSLCacheTimeout,'swSSLCertificateFile':swSSLCertificateFile,'swSSLCertificateFileIPAddr':swSSLCertificateFileIPAddr,'swSSLCertificateFilePath':swSSLCertificateFilePath,'swSSLCertificateKeyFilePath':swSSLCertificateKeyFilePath,'swSSLCertificateFileCtrl':swSSLCertificateFileCtrl,'swSSLCertificateFileShowSatus':swSSLCertificateFileShowSatus})
+#
+# PySNMP MIB module SSL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/SSL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:34:18 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+swSSLMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 7))
+if mibBuilder.loadTexts: swSSLMIB.setLastUpdated('9911220000Z')
+if mibBuilder.loadTexts: swSSLMIB.setOrganization('Working Group')
+swSSLMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 7, 1))
+swSSLStatusAdmin = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 7, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSSLStatusAdmin.setStatus('current')
+swSSLCipherSuites = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 7, 1, 2), Bits().clone(namedValues=NamedValues(("rsa-with-rc4-128-MD5", 0), ("rsa-with-3des-ede-cbc-sha", 1), ("dhe-dss-with-3des-ede-cbc-sha", 2), ("rsa-export-with-rc4-40-md5", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSSLCipherSuites.setStatus('current')
+swSSLCacheTimeout = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 7, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(60, 86400))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSSLCacheTimeout.setStatus('current')
+swSSLCertificateFile = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 7, 2))
+swSSLCertificateFileIPAddr = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 7, 2, 1), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSSLCertificateFileIPAddr.setStatus('current')
+swSSLCertificateFilePath = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 7, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSSLCertificateFilePath.setStatus('current')
+swSSLCertificateKeyFilePath = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 7, 2, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSSLCertificateKeyFilePath.setStatus('current')
+swSSLCertificateFileCtrl = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 7, 2, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("inactive", 2), ("start", 3), ("delete", 4)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swSSLCertificateFileCtrl.setStatus('current')
+swSSLCertificateFileShowSatus = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 7, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("rsa", 2), ("dsa", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swSSLCertificateFileShowSatus.setStatus('current')
+mibBuilder.exportSymbols("SSL-MIB", swSSLStatusAdmin=swSSLStatusAdmin, swSSLCertificateFileCtrl=swSSLCertificateFileCtrl, swSSLCipherSuites=swSSLCipherSuites, swSSLCertificateKeyFilePath=swSSLCertificateKeyFilePath, swSSLCertificateFileShowSatus=swSSLCertificateFileShowSatus, swSSLMgmt=swSSLMgmt, swSSLCertificateFile=swSSLCertificateFile, PYSNMP_MODULE_ID=swSSLMIB, swSSLCacheTimeout=swSSLCacheTimeout, swSSLMIB=swSSLMIB, swSSLCertificateFilePath=swSSLCertificateFilePath, swSSLCertificateFileIPAddr=swSSLCertificateFileIPAddr)

@@ -1,53 +1,32 @@
-_C='Integer32'
-_B='mandatory'
-_A='read-write'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-pdn_time,=mibBuilder.importSymbols('PDN-HEADER-MIB','pdn-time')
-NTPMode,=mibBuilder.importSymbols('PDN-TC','NTPMode')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
-_DevTimeMIBObjects_ObjectIdentity=ObjectIdentity
-devTimeMIBObjects=_DevTimeMIBObjects_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,20,1))
-_DevTimeAndDate_ObjectIdentity=ObjectIdentity
-devTimeAndDate=_DevTimeAndDate_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,20,1,1))
-_DevDateAndTime_Type=DateAndTime
-_DevDateAndTime_Object=MibScalar
-devDateAndTime=_DevDateAndTime_Object((1,3,6,1,4,1,1795,2,24,2,20,1,1,1),_DevDateAndTime_Type())
-devDateAndTime.setMaxAccess(_A)
-if mibBuilder.loadTexts:devDateAndTime.setStatus(_B)
-_DevNTP_ObjectIdentity=ObjectIdentity
-devNTP=_DevNTP_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,20,1,2))
-_DevNTPServerIP_Type=IpAddress
-_DevNTPServerIP_Object=MibScalar
-devNTPServerIP=_DevNTPServerIP_Object((1,3,6,1,4,1,1795,2,24,2,20,1,2,1),_DevNTPServerIP_Type())
-devNTPServerIP.setMaxAccess(_A)
-if mibBuilder.loadTexts:devNTPServerIP.setStatus(_B)
-_DevNTPMode_Type=NTPMode
-_DevNTPMode_Object=MibScalar
-devNTPMode=_DevNTPMode_Object((1,3,6,1,4,1,1795,2,24,2,20,1,2,2),_DevNTPMode_Type())
-devNTPMode.setMaxAccess(_A)
-if mibBuilder.loadTexts:devNTPMode.setStatus(_B)
-class _DevNTPSynchronised_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,24))
-_DevNTPSynchronised_Type.__name__=_C
-_DevNTPSynchronised_Object=MibScalar
-devNTPSynchronised=_DevNTPSynchronised_Object((1,3,6,1,4,1,1795,2,24,2,20,1,2,3),_DevNTPSynchronised_Type())
-devNTPSynchronised.setMaxAccess(_A)
-if mibBuilder.loadTexts:devNTPSynchronised.setStatus(_B)
-class _DevNTPEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_DevNTPEnable_Type.__name__=_C
-_DevNTPEnable_Object=MibScalar
-devNTPEnable=_DevNTPEnable_Object((1,3,6,1,4,1,1795,2,24,2,20,1,2,4),_DevNTPEnable_Type())
-devNTPEnable.setMaxAccess(_A)
-if mibBuilder.loadTexts:devNTPEnable.setStatus(_B)
-_DevNTPOffsetFromUTC_Type=Integer32
-_DevNTPOffsetFromUTC_Object=MibScalar
-devNTPOffsetFromUTC=_DevNTPOffsetFromUTC_Object((1,3,6,1,4,1,1795,2,24,2,20,1,2,5),_DevNTPOffsetFromUTC_Type())
-devNTPOffsetFromUTC.setMaxAccess(_A)
-if mibBuilder.loadTexts:devNTPOffsetFromUTC.setStatus(_B)
-_DevTimeMIBTraps_ObjectIdentity=ObjectIdentity
-devTimeMIBTraps=_DevTimeMIBTraps_ObjectIdentity((1,3,6,1,4,1,1795,2,24,2,20,2))
-mibBuilder.exportSymbols('PDN-DEVICE-TIME-MIB',**{'devTimeMIBObjects':devTimeMIBObjects,'devTimeAndDate':devTimeAndDate,'devDateAndTime':devDateAndTime,'devNTP':devNTP,'devNTPServerIP':devNTPServerIP,'devNTPMode':devNTPMode,'devNTPSynchronised':devNTPSynchronised,'devNTPEnable':devNTPEnable,'devNTPOffsetFromUTC':devNTPOffsetFromUTC,'devTimeMIBTraps':devTimeMIBTraps})
+#
+# PySNMP MIB module PDN-DEVICE-TIME-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/paradyne/PDN-DEVICE-TIME-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:40 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+pdn_time, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-time")
+NTPMode, = mibBuilder.importSymbols("PDN-TC", "NTPMode")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+devTimeMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 20, 1))
+devTimeMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 20, 2))
+devTimeAndDate = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 20, 1, 1))
+devNTP = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 20, 1, 2))
+devDateAndTime = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 20, 1, 1, 1), DateAndTime()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devDateAndTime.setStatus('mandatory')
+devNTPServerIP = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 20, 1, 2, 1), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devNTPServerIP.setStatus('mandatory')
+devNTPMode = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 20, 1, 2, 2), NTPMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devNTPMode.setStatus('mandatory')
+devNTPSynchronised = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 20, 1, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 24))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devNTPSynchronised.setStatus('mandatory')
+devNTPEnable = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 20, 1, 2, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devNTPEnable.setStatus('mandatory')
+devNTPOffsetFromUTC = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 20, 1, 2, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: devNTPOffsetFromUTC.setStatus('mandatory')
+mibBuilder.exportSymbols("PDN-DEVICE-TIME-MIB", devNTPSynchronised=devNTPSynchronised, devTimeMIBTraps=devTimeMIBTraps, devNTPEnable=devNTPEnable, devNTPMode=devNTPMode, devNTPServerIP=devNTPServerIP, devDateAndTime=devDateAndTime, devNTP=devNTP, devTimeAndDate=devTimeAndDate, devTimeMIBObjects=devTimeMIBObjects, devNTPOffsetFromUTC=devNTPOffsetFromUTC)

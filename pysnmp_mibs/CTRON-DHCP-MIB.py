@@ -1,215 +1,96 @@
-_I='ctDhcpClientStatsID'
-_H='ctDhcpIfIndex'
-_G='CTRON-DHCP-MIB'
-_F='enabled'
-_E='disabled'
-_D='Integer32'
-_C='read-write'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-nwIpClientServices,nwIpComponents,nwIpMibs,nwIpRouter=mibBuilder.importSymbols('CTRON-IP-ROUTER-MIB','nwIpClientServices','nwIpComponents','nwIpMibs','nwIpRouter')
-nwRtrProtoSuites,=mibBuilder.importSymbols('ROUTER-OIDS','nwRtrProtoSuites')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_CtDhcp_ObjectIdentity=ObjectIdentity
-ctDhcp=_CtDhcp_ObjectIdentity((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2))
-_CtDhcpServerStats_ObjectIdentity=ObjectIdentity
-ctDhcpServerStats=_CtDhcpServerStats_ObjectIdentity((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,1))
-class _CtDhcpAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_CtDhcpAdminStatus_Type.__name__=_D
-_CtDhcpAdminStatus_Object=MibScalar
-ctDhcpAdminStatus=_CtDhcpAdminStatus_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,1,1),_CtDhcpAdminStatus_Type())
-ctDhcpAdminStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctDhcpAdminStatus.setStatus(_A)
-class _CtDhcpOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_CtDhcpOperStatus_Type.__name__=_D
-_CtDhcpOperStatus_Object=MibScalar
-ctDhcpOperStatus=_CtDhcpOperStatus_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,1,2),_CtDhcpOperStatus_Type())
-ctDhcpOperStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpOperStatus.setStatus(_A)
-_CtDhcpDiscovers_Type=Counter32
-_CtDhcpDiscovers_Object=MibScalar
-ctDhcpDiscovers=_CtDhcpDiscovers_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,1,3),_CtDhcpDiscovers_Type())
-ctDhcpDiscovers.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpDiscovers.setStatus(_A)
-_CtDhcpOffers_Type=Counter32
-_CtDhcpOffers_Object=MibScalar
-ctDhcpOffers=_CtDhcpOffers_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,1,4),_CtDhcpOffers_Type())
-ctDhcpOffers.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpOffers.setStatus(_A)
-_CtDhcpRequests_Type=Counter32
-_CtDhcpRequests_Object=MibScalar
-ctDhcpRequests=_CtDhcpRequests_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,1,5),_CtDhcpRequests_Type())
-ctDhcpRequests.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpRequests.setStatus(_A)
-_CtDhcpDeclines_Type=Counter32
-_CtDhcpDeclines_Object=MibScalar
-ctDhcpDeclines=_CtDhcpDeclines_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,1,6),_CtDhcpDeclines_Type())
-ctDhcpDeclines.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpDeclines.setStatus(_A)
-_CtDhcpReleases_Type=Counter32
-_CtDhcpReleases_Object=MibScalar
-ctDhcpReleases=_CtDhcpReleases_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,1,7),_CtDhcpReleases_Type())
-ctDhcpReleases.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpReleases.setStatus(_A)
-_CtDhcpAcks_Type=Counter32
-_CtDhcpAcks_Object=MibScalar
-ctDhcpAcks=_CtDhcpAcks_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,1,8),_CtDhcpAcks_Type())
-ctDhcpAcks.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpAcks.setStatus(_A)
-_CtDhcpNaks_Type=Counter32
-_CtDhcpNaks_Object=MibScalar
-ctDhcpNaks=_CtDhcpNaks_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,1,9),_CtDhcpNaks_Type())
-ctDhcpNaks.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpNaks.setStatus(_A)
-_CtDhcpOtherServers_Type=Counter32
-_CtDhcpOtherServers_Object=MibScalar
-ctDhcpOtherServers=_CtDhcpOtherServers_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,1,10),_CtDhcpOtherServers_Type())
-ctDhcpOtherServers.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpOtherServers.setStatus(_A)
-_CtDhcpProtocolErrors_Type=Counter32
-_CtDhcpProtocolErrors_Object=MibScalar
-ctDhcpProtocolErrors=_CtDhcpProtocolErrors_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,1,11),_CtDhcpProtocolErrors_Type())
-ctDhcpProtocolErrors.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpProtocolErrors.setStatus(_A)
-_CtDhcpServerTime_Type=Integer32
-_CtDhcpServerTime_Object=MibScalar
-ctDhcpServerTime=_CtDhcpServerTime_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,1,12),_CtDhcpServerTime_Type())
-ctDhcpServerTime.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpServerTime.setStatus(_A)
-_CtDhcpNoOfActiveClients_Type=Integer32
-_CtDhcpNoOfActiveClients_Object=MibScalar
-ctDhcpNoOfActiveClients=_CtDhcpNoOfActiveClients_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,1,13),_CtDhcpNoOfActiveClients_Type())
-ctDhcpNoOfActiveClients.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpNoOfActiveClients.setStatus(_A)
-_CtDhcpReclaimIP_Type=IpAddress
-_CtDhcpReclaimIP_Object=MibScalar
-ctDhcpReclaimIP=_CtDhcpReclaimIP_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,1,14),_CtDhcpReclaimIP_Type())
-ctDhcpReclaimIP.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctDhcpReclaimIP.setStatus(_A)
-_CtDhcpInterfaceConfig_ObjectIdentity=ObjectIdentity
-ctDhcpInterfaceConfig=_CtDhcpInterfaceConfig_ObjectIdentity((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2))
-_CtDhcpServerIfTable_Object=MibTable
-ctDhcpServerIfTable=_CtDhcpServerIfTable_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1))
-if mibBuilder.loadTexts:ctDhcpServerIfTable.setStatus(_A)
-_CtDhcpServerIfEntry_Object=MibTableRow
-ctDhcpServerIfEntry=_CtDhcpServerIfEntry_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1))
-ctDhcpServerIfEntry.setIndexNames((0,_G,_H))
-if mibBuilder.loadTexts:ctDhcpServerIfEntry.setStatus(_A)
-_CtDhcpIfIndex_Type=Integer32
-_CtDhcpIfIndex_Object=MibTableColumn
-ctDhcpIfIndex=_CtDhcpIfIndex_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1,1),_CtDhcpIfIndex_Type())
-ctDhcpIfIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpIfIndex.setStatus(_A)
-class _CtDhcpIfAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
-_CtDhcpIfAdminStatus_Type.__name__=_D
-_CtDhcpIfAdminStatus_Object=MibTableColumn
-ctDhcpIfAdminStatus=_CtDhcpIfAdminStatus_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1,2),_CtDhcpIfAdminStatus_Type())
-ctDhcpIfAdminStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctDhcpIfAdminStatus.setStatus(_A)
-class _CtDhcpIfOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_E,1),(_F,2),('invalid-config',3)))
-_CtDhcpIfOperStatus_Type.__name__=_D
-_CtDhcpIfOperStatus_Object=MibTableColumn
-ctDhcpIfOperStatus=_CtDhcpIfOperStatus_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1,3),_CtDhcpIfOperStatus_Type())
-ctDhcpIfOperStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpIfOperStatus.setStatus(_A)
-_CtDhcpIfServerAddress_Type=IpAddress
-_CtDhcpIfServerAddress_Object=MibTableColumn
-ctDhcpIfServerAddress=_CtDhcpIfServerAddress_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1,4),_CtDhcpIfServerAddress_Type())
-ctDhcpIfServerAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpIfServerAddress.setStatus(_A)
-_CtDhcpIfNetworkAddress_Type=IpAddress
-_CtDhcpIfNetworkAddress_Object=MibTableColumn
-ctDhcpIfNetworkAddress=_CtDhcpIfNetworkAddress_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1,5),_CtDhcpIfNetworkAddress_Type())
-ctDhcpIfNetworkAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctDhcpIfNetworkAddress.setStatus(_A)
-_CtDhcpIfSubnetMask_Type=IpAddress
-_CtDhcpIfSubnetMask_Object=MibTableColumn
-ctDhcpIfSubnetMask=_CtDhcpIfSubnetMask_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1,6),_CtDhcpIfSubnetMask_Type())
-ctDhcpIfSubnetMask.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctDhcpIfSubnetMask.setStatus(_A)
-_CtDhcpIfLowestaddress_Type=IpAddress
-_CtDhcpIfLowestaddress_Object=MibTableColumn
-ctDhcpIfLowestaddress=_CtDhcpIfLowestaddress_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1,7),_CtDhcpIfLowestaddress_Type())
-ctDhcpIfLowestaddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctDhcpIfLowestaddress.setStatus(_A)
-_CtDhcpIfHighestAddress_Type=IpAddress
-_CtDhcpIfHighestAddress_Object=MibTableColumn
-ctDhcpIfHighestAddress=_CtDhcpIfHighestAddress_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1,8),_CtDhcpIfHighestAddress_Type())
-ctDhcpIfHighestAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctDhcpIfHighestAddress.setStatus(_A)
-_CtDhcpIfAddressesUsed_Type=Integer32
-_CtDhcpIfAddressesUsed_Object=MibTableColumn
-ctDhcpIfAddressesUsed=_CtDhcpIfAddressesUsed_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1,9),_CtDhcpIfAddressesUsed_Type())
-ctDhcpIfAddressesUsed.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpIfAddressesUsed.setStatus(_A)
-_CtDhcpIfAddressesFree_Type=Integer32
-_CtDhcpIfAddressesFree_Object=MibTableColumn
-ctDhcpIfAddressesFree=_CtDhcpIfAddressesFree_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1,10),_CtDhcpIfAddressesFree_Type())
-ctDhcpIfAddressesFree.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpIfAddressesFree.setStatus(_A)
-_CtDhcpIfLeasePeriod_Type=Integer32
-_CtDhcpIfLeasePeriod_Object=MibTableColumn
-ctDhcpIfLeasePeriod=_CtDhcpIfLeasePeriod_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1,11),_CtDhcpIfLeasePeriod_Type())
-ctDhcpIfLeasePeriod.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctDhcpIfLeasePeriod.setStatus(_A)
-_CtDhcpIfDefaultGateway_Type=IpAddress
-_CtDhcpIfDefaultGateway_Object=MibTableColumn
-ctDhcpIfDefaultGateway=_CtDhcpIfDefaultGateway_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1,12),_CtDhcpIfDefaultGateway_Type())
-ctDhcpIfDefaultGateway.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctDhcpIfDefaultGateway.setStatus(_A)
-_CtDhcpIfDomainNameServer_Type=IpAddress
-_CtDhcpIfDomainNameServer_Object=MibTableColumn
-ctDhcpIfDomainNameServer=_CtDhcpIfDomainNameServer_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1,13),_CtDhcpIfDomainNameServer_Type())
-ctDhcpIfDomainNameServer.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctDhcpIfDomainNameServer.setStatus(_A)
-_CtDhcpIfDomainName_Type=OctetString
-_CtDhcpIfDomainName_Object=MibTableColumn
-ctDhcpIfDomainName=_CtDhcpIfDomainName_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1,14),_CtDhcpIfDomainName_Type())
-ctDhcpIfDomainName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctDhcpIfDomainName.setStatus(_A)
-_CtDhcpIfWINServer_Type=IpAddress
-_CtDhcpIfWINServer_Object=MibTableColumn
-ctDhcpIfWINServer=_CtDhcpIfWINServer_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,2,1,1,15),_CtDhcpIfWINServer_Type())
-ctDhcpIfWINServer.setMaxAccess(_C)
-if mibBuilder.loadTexts:ctDhcpIfWINServer.setStatus(_A)
-_CtDhcpClientStatusTable_ObjectIdentity=ObjectIdentity
-ctDhcpClientStatusTable=_CtDhcpClientStatusTable_ObjectIdentity((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,3))
-_CtDhcpClientStatsTable_Object=MibTable
-ctDhcpClientStatsTable=_CtDhcpClientStatsTable_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,3,1))
-if mibBuilder.loadTexts:ctDhcpClientStatsTable.setStatus(_A)
-_CtDhcpClientStatsEntry_Object=MibTableRow
-ctDhcpClientStatsEntry=_CtDhcpClientStatsEntry_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,3,1,1))
-ctDhcpClientStatsEntry.setIndexNames((0,_G,_I))
-if mibBuilder.loadTexts:ctDhcpClientStatsEntry.setStatus(_A)
-_CtDhcpClientStatsID_Type=Integer32
-_CtDhcpClientStatsID_Object=MibTableColumn
-ctDhcpClientStatsID=_CtDhcpClientStatsID_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,3,1,1,1),_CtDhcpClientStatsID_Type())
-ctDhcpClientStatsID.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpClientStatsID.setStatus(_A)
-_CtDhcpClientName_Type=OctetString
-_CtDhcpClientName_Object=MibTableColumn
-ctDhcpClientName=_CtDhcpClientName_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,3,1,1,2),_CtDhcpClientName_Type())
-ctDhcpClientName.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpClientName.setStatus(_A)
-_CtDhcpClientIP_Type=IpAddress
-_CtDhcpClientIP_Object=MibTableColumn
-ctDhcpClientIP=_CtDhcpClientIP_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,3,1,1,3),_CtDhcpClientIP_Type())
-ctDhcpClientIP.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpClientIP.setStatus(_A)
-_CtDhcpClientID_Type=OctetString
-_CtDhcpClientID_Object=MibTableColumn
-ctDhcpClientID=_CtDhcpClientID_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,3,1,1,4),_CtDhcpClientID_Type())
-ctDhcpClientID.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpClientID.setStatus(_A)
-_CtDhcpEndOfLease_Type=Integer32
-_CtDhcpEndOfLease_Object=MibTableColumn
-ctDhcpEndOfLease=_CtDhcpEndOfLease_Object((1,3,6,1,4,1,52,4,2,2,2,3,1,2,12,2,3,1,1,5),_CtDhcpEndOfLease_Type())
-ctDhcpEndOfLease.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctDhcpEndOfLease.setStatus(_A)
-mibBuilder.exportSymbols(_G,**{'ctDhcp':ctDhcp,'ctDhcpServerStats':ctDhcpServerStats,'ctDhcpAdminStatus':ctDhcpAdminStatus,'ctDhcpOperStatus':ctDhcpOperStatus,'ctDhcpDiscovers':ctDhcpDiscovers,'ctDhcpOffers':ctDhcpOffers,'ctDhcpRequests':ctDhcpRequests,'ctDhcpDeclines':ctDhcpDeclines,'ctDhcpReleases':ctDhcpReleases,'ctDhcpAcks':ctDhcpAcks,'ctDhcpNaks':ctDhcpNaks,'ctDhcpOtherServers':ctDhcpOtherServers,'ctDhcpProtocolErrors':ctDhcpProtocolErrors,'ctDhcpServerTime':ctDhcpServerTime,'ctDhcpNoOfActiveClients':ctDhcpNoOfActiveClients,'ctDhcpReclaimIP':ctDhcpReclaimIP,'ctDhcpInterfaceConfig':ctDhcpInterfaceConfig,'ctDhcpServerIfTable':ctDhcpServerIfTable,'ctDhcpServerIfEntry':ctDhcpServerIfEntry,_H:ctDhcpIfIndex,'ctDhcpIfAdminStatus':ctDhcpIfAdminStatus,'ctDhcpIfOperStatus':ctDhcpIfOperStatus,'ctDhcpIfServerAddress':ctDhcpIfServerAddress,'ctDhcpIfNetworkAddress':ctDhcpIfNetworkAddress,'ctDhcpIfSubnetMask':ctDhcpIfSubnetMask,'ctDhcpIfLowestaddress':ctDhcpIfLowestaddress,'ctDhcpIfHighestAddress':ctDhcpIfHighestAddress,'ctDhcpIfAddressesUsed':ctDhcpIfAddressesUsed,'ctDhcpIfAddressesFree':ctDhcpIfAddressesFree,'ctDhcpIfLeasePeriod':ctDhcpIfLeasePeriod,'ctDhcpIfDefaultGateway':ctDhcpIfDefaultGateway,'ctDhcpIfDomainNameServer':ctDhcpIfDomainNameServer,'ctDhcpIfDomainName':ctDhcpIfDomainName,'ctDhcpIfWINServer':ctDhcpIfWINServer,'ctDhcpClientStatusTable':ctDhcpClientStatusTable,'ctDhcpClientStatsTable':ctDhcpClientStatsTable,'ctDhcpClientStatsEntry':ctDhcpClientStatsEntry,_I:ctDhcpClientStatsID,'ctDhcpClientName':ctDhcpClientName,'ctDhcpClientIP':ctDhcpClientIP,'ctDhcpClientID':ctDhcpClientID,'ctDhcpEndOfLease':ctDhcpEndOfLease})
+#
+# PySNMP MIB module CTRON-DHCP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CTRON-DHCP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:54 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+nwIpComponents, nwIpRouter, nwIpClientServices, nwIpMibs = mibBuilder.importSymbols("CTRON-IP-ROUTER-MIB", "nwIpComponents", "nwIpRouter", "nwIpClientServices", "nwIpMibs")
+nwRtrProtoSuites, = mibBuilder.importSymbols("ROUTER-OIDS", "nwRtrProtoSuites")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "PhysAddress")
+ctDhcp = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2))
+ctDhcpServerStats = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 1))
+ctDhcpInterfaceConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2))
+ctDhcpClientStatusTable = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 3))
+ctDhcpAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctDhcpAdminStatus.setStatus('mandatory')
+ctDhcpOperStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpOperStatus.setStatus('mandatory')
+ctDhcpDiscovers = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpDiscovers.setStatus('mandatory')
+ctDhcpOffers = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpOffers.setStatus('mandatory')
+ctDhcpRequests = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpRequests.setStatus('mandatory')
+ctDhcpDeclines = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpDeclines.setStatus('mandatory')
+ctDhcpReleases = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpReleases.setStatus('mandatory')
+ctDhcpAcks = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpAcks.setStatus('mandatory')
+ctDhcpNaks = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpNaks.setStatus('mandatory')
+ctDhcpOtherServers = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpOtherServers.setStatus('mandatory')
+ctDhcpProtocolErrors = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpProtocolErrors.setStatus('mandatory')
+ctDhcpServerTime = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpServerTime.setStatus('mandatory')
+ctDhcpNoOfActiveClients = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 1, 13), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpNoOfActiveClients.setStatus('mandatory')
+ctDhcpReclaimIP = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 1, 14), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctDhcpReclaimIP.setStatus('mandatory')
+ctDhcpServerIfTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1), )
+if mibBuilder.loadTexts: ctDhcpServerIfTable.setStatus('mandatory')
+ctDhcpServerIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1), ).setIndexNames((0, "CTRON-DHCP-MIB", "ctDhcpIfIndex"))
+if mibBuilder.loadTexts: ctDhcpServerIfEntry.setStatus('mandatory')
+ctDhcpIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpIfIndex.setStatus('mandatory')
+ctDhcpIfAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctDhcpIfAdminStatus.setStatus('mandatory')
+ctDhcpIfOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2), ("invalid-config", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpIfOperStatus.setStatus('mandatory')
+ctDhcpIfServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpIfServerAddress.setStatus('mandatory')
+ctDhcpIfNetworkAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1, 5), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctDhcpIfNetworkAddress.setStatus('mandatory')
+ctDhcpIfSubnetMask = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1, 6), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctDhcpIfSubnetMask.setStatus('mandatory')
+ctDhcpIfLowestaddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1, 7), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctDhcpIfLowestaddress.setStatus('mandatory')
+ctDhcpIfHighestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1, 8), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctDhcpIfHighestAddress.setStatus('mandatory')
+ctDhcpIfAddressesUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1, 9), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpIfAddressesUsed.setStatus('mandatory')
+ctDhcpIfAddressesFree = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpIfAddressesFree.setStatus('mandatory')
+ctDhcpIfLeasePeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1, 11), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctDhcpIfLeasePeriod.setStatus('mandatory')
+ctDhcpIfDefaultGateway = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1, 12), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctDhcpIfDefaultGateway.setStatus('mandatory')
+ctDhcpIfDomainNameServer = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1, 13), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctDhcpIfDomainNameServer.setStatus('mandatory')
+ctDhcpIfDomainName = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1, 14), OctetString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctDhcpIfDomainName.setStatus('mandatory')
+ctDhcpIfWINServer = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 2, 1, 1, 15), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctDhcpIfWINServer.setStatus('mandatory')
+ctDhcpClientStatsTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 3, 1), )
+if mibBuilder.loadTexts: ctDhcpClientStatsTable.setStatus('mandatory')
+ctDhcpClientStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 3, 1, 1), ).setIndexNames((0, "CTRON-DHCP-MIB", "ctDhcpClientStatsID"))
+if mibBuilder.loadTexts: ctDhcpClientStatsEntry.setStatus('mandatory')
+ctDhcpClientStatsID = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 3, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpClientStatsID.setStatus('mandatory')
+ctDhcpClientName = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 3, 1, 1, 2), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpClientName.setStatus('mandatory')
+ctDhcpClientIP = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 3, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpClientIP.setStatus('mandatory')
+ctDhcpClientID = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 3, 1, 1, 4), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpClientID.setStatus('mandatory')
+ctDhcpEndOfLease = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 2, 2, 3, 1, 2, 12, 2, 3, 1, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctDhcpEndOfLease.setStatus('mandatory')
+mibBuilder.exportSymbols("CTRON-DHCP-MIB", ctDhcpDeclines=ctDhcpDeclines, ctDhcpAdminStatus=ctDhcpAdminStatus, ctDhcpEndOfLease=ctDhcpEndOfLease, ctDhcpClientName=ctDhcpClientName, ctDhcpIfWINServer=ctDhcpIfWINServer, ctDhcpIfIndex=ctDhcpIfIndex, ctDhcpIfOperStatus=ctDhcpIfOperStatus, ctDhcpIfAddressesUsed=ctDhcpIfAddressesUsed, ctDhcpOperStatus=ctDhcpOperStatus, ctDhcpIfDomainName=ctDhcpIfDomainName, ctDhcpNoOfActiveClients=ctDhcpNoOfActiveClients, ctDhcpInterfaceConfig=ctDhcpInterfaceConfig, ctDhcpClientStatusTable=ctDhcpClientStatusTable, ctDhcpClientID=ctDhcpClientID, ctDhcpIfLeasePeriod=ctDhcpIfLeasePeriod, ctDhcpAcks=ctDhcpAcks, ctDhcpReclaimIP=ctDhcpReclaimIP, ctDhcpIfAdminStatus=ctDhcpIfAdminStatus, ctDhcpClientStatsTable=ctDhcpClientStatsTable, ctDhcpIfDomainNameServer=ctDhcpIfDomainNameServer, ctDhcp=ctDhcp, ctDhcpNaks=ctDhcpNaks, ctDhcpIfDefaultGateway=ctDhcpIfDefaultGateway, ctDhcpOffers=ctDhcpOffers, ctDhcpIfHighestAddress=ctDhcpIfHighestAddress, ctDhcpIfAddressesFree=ctDhcpIfAddressesFree, ctDhcpServerTime=ctDhcpServerTime, ctDhcpServerIfEntry=ctDhcpServerIfEntry, ctDhcpClientStatsEntry=ctDhcpClientStatsEntry, ctDhcpProtocolErrors=ctDhcpProtocolErrors, ctDhcpIfSubnetMask=ctDhcpIfSubnetMask, ctDhcpServerStats=ctDhcpServerStats, ctDhcpReleases=ctDhcpReleases, ctDhcpIfNetworkAddress=ctDhcpIfNetworkAddress, ctDhcpClientStatsID=ctDhcpClientStatsID, ctDhcpServerIfTable=ctDhcpServerIfTable, ctDhcpDiscovers=ctDhcpDiscovers, ctDhcpOtherServers=ctDhcpOtherServers, ctDhcpClientIP=ctDhcpClientIP, ctDhcpIfServerAddress=ctDhcpIfServerAddress, ctDhcpIfLowestaddress=ctDhcpIfLowestaddress, ctDhcpRequests=ctDhcpRequests)

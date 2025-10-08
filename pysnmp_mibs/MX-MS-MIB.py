@@ -1,151 +1,72 @@
-_i='msBasicNotificationGroupVer1'
-_h='msServerGroupVer1'
-_g='msBasicGroupVer1'
-_f='msTrapStatusConfigFile'
-_e='msTrapStatusInformation'
-_d='msTrapConfigInformation'
-_c='msDhcpSiteSpecificCode'
-_b='msStaticTrapPort'
-_a='msStaticHost'
-_Z='msSelectConfigSource'
-_Y='msTrapPort'
-_X='msHost'
-_W='msConfigSource'
-_V='msTrapRetransmissionRetryCount'
-_U='msTrapRetransmissionPeriod'
-_T='msEnable'
-_S='192.168.0.10'
-_R='Unsigned32'
-_Q='sysObjectID'
-_P='SNMPv2-MIB'
-_O='MxIpSelectConfigSource'
-_N='MxIpDhcpSiteSpecificCode'
-_M='MxIpConfigSource'
-_L='sysConfigDownloadConfigMode'
-_K='read-only'
-_J='Integer32'
-_I='MxIpPort'
-_H='MxIpHostName'
-_G='sysConfigDownloadConfigFile'
-_F='sysMacAddress'
-_E='MX-SYSTEM-MGMT-MIB'
-_D='MX-SYSTEM-CONFIG-MIB'
-_C='read-write'
-_B='MX-MS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ipAddressConfig,ipAddressStatus,mediatrixConfig=mibBuilder.importSymbols('MX-SMI','ipAddressConfig','ipAddressStatus','mediatrixConfig')
-sysConfigDownloadConfigFile,sysConfigDownloadConfigMode=mibBuilder.importSymbols(_D,_G,_L)
-sysMacAddress,=mibBuilder.importSymbols(_E,_F)
-MxIpConfigSource,MxIpDhcpSiteSpecificCode,MxIpHostName,MxIpPort,MxIpSelectConfigSource=mibBuilder.importSymbols('MX-TC',_M,_N,_H,_I,_O)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-sysObjectID,=mibBuilder.importSymbols(_P,_Q)
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_J,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_R,'iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-msMIB=ModuleIdentity((1,3,6,1,4,1,4935,15,15))
-if mibBuilder.loadTexts:msMIB.setRevisions(('2004-05-25 00:00','1903-11-11 00:00'))
-_IpAddressStatusMs_ObjectIdentity=ObjectIdentity
-ipAddressStatusMs=_IpAddressStatusMs_ObjectIdentity((1,3,6,1,4,1,4935,10,1,10))
-class _MsConfigSource_Type(MxIpConfigSource):defaultValue=1
-_MsConfigSource_Type.__name__=_M
-_MsConfigSource_Object=MibScalar
-msConfigSource=_MsConfigSource_Object((1,3,6,1,4,1,4935,10,1,10,1),_MsConfigSource_Type())
-msConfigSource.setMaxAccess(_K)
-if mibBuilder.loadTexts:msConfigSource.setStatus(_A)
-class _MsHost_Type(MxIpHostName):defaultValue=OctetString(_S)
-_MsHost_Type.__name__=_H
-_MsHost_Object=MibScalar
-msHost=_MsHost_Object((1,3,6,1,4,1,4935,10,1,10,2),_MsHost_Type())
-msHost.setMaxAccess(_K)
-if mibBuilder.loadTexts:msHost.setStatus(_A)
-class _MsTrapPort_Type(MxIpPort):defaultValue=162
-_MsTrapPort_Type.__name__=_I
-_MsTrapPort_Object=MibScalar
-msTrapPort=_MsTrapPort_Object((1,3,6,1,4,1,4935,10,1,10,3),_MsTrapPort_Type())
-msTrapPort.setMaxAccess(_K)
-if mibBuilder.loadTexts:msTrapPort.setStatus(_A)
-_IpAddressConfigMs_ObjectIdentity=ObjectIdentity
-ipAddressConfigMs=_IpAddressConfigMs_ObjectIdentity((1,3,6,1,4,1,4935,15,1,10))
-class _MsSelectConfigSource_Type(MxIpSelectConfigSource):defaultValue=1
-_MsSelectConfigSource_Type.__name__=_O
-_MsSelectConfigSource_Object=MibScalar
-msSelectConfigSource=_MsSelectConfigSource_Object((1,3,6,1,4,1,4935,15,1,10,1),_MsSelectConfigSource_Type())
-msSelectConfigSource.setMaxAccess(_C)
-if mibBuilder.loadTexts:msSelectConfigSource.setStatus(_A)
-_IpAddressConfigMsStatic_ObjectIdentity=ObjectIdentity
-ipAddressConfigMsStatic=_IpAddressConfigMsStatic_ObjectIdentity((1,3,6,1,4,1,4935,15,1,10,10))
-class _MsStaticHost_Type(MxIpHostName):defaultValue=OctetString(_S)
-_MsStaticHost_Type.__name__=_H
-_MsStaticHost_Object=MibScalar
-msStaticHost=_MsStaticHost_Object((1,3,6,1,4,1,4935,15,1,10,10,1),_MsStaticHost_Type())
-msStaticHost.setMaxAccess(_C)
-if mibBuilder.loadTexts:msStaticHost.setStatus(_A)
-class _MsStaticTrapPort_Type(MxIpPort):defaultValue=162
-_MsStaticTrapPort_Type.__name__=_I
-_MsStaticTrapPort_Object=MibScalar
-msStaticTrapPort=_MsStaticTrapPort_Object((1,3,6,1,4,1,4935,15,1,10,10,2),_MsStaticTrapPort_Type())
-msStaticTrapPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:msStaticTrapPort.setStatus(_A)
-_IpAddressConfigMsDhcp_ObjectIdentity=ObjectIdentity
-ipAddressConfigMsDhcp=_IpAddressConfigMsDhcp_ObjectIdentity((1,3,6,1,4,1,4935,15,1,10,30))
-class _MsDhcpSiteSpecificCode_Type(MxIpDhcpSiteSpecificCode):defaultValue=0
-_MsDhcpSiteSpecificCode_Type.__name__=_N
-_MsDhcpSiteSpecificCode_Object=MibScalar
-msDhcpSiteSpecificCode=_MsDhcpSiteSpecificCode_Object((1,3,6,1,4,1,4935,15,1,10,30,1),_MsDhcpSiteSpecificCode_Type())
-msDhcpSiteSpecificCode.setMaxAccess(_C)
-if mibBuilder.loadTexts:msDhcpSiteSpecificCode.setStatus(_A)
-_MsMIBObjects_ObjectIdentity=ObjectIdentity
-msMIBObjects=_MsMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,15,15,1))
-class _MsEnable_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disable',0),('enable',1)))
-_MsEnable_Type.__name__=_J
-_MsEnable_Object=MibScalar
-msEnable=_MsEnable_Object((1,3,6,1,4,1,4935,15,15,1,5),_MsEnable_Type())
-msEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:msEnable.setStatus(_A)
-class _MsTrapRetransmissionPeriod_Type(Unsigned32):defaultValue=60000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,604800000))
-_MsTrapRetransmissionPeriod_Type.__name__=_R
-_MsTrapRetransmissionPeriod_Object=MibScalar
-msTrapRetransmissionPeriod=_MsTrapRetransmissionPeriod_Object((1,3,6,1,4,1,4935,15,15,1,20),_MsTrapRetransmissionPeriod_Type())
-msTrapRetransmissionPeriod.setMaxAccess(_C)
-if mibBuilder.loadTexts:msTrapRetransmissionPeriod.setStatus(_A)
-class _MsTrapRetransmissionRetryCount_Type(Integer32):defaultValue=10;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
-_MsTrapRetransmissionRetryCount_Type.__name__=_J
-_MsTrapRetransmissionRetryCount_Object=MibScalar
-msTrapRetransmissionRetryCount=_MsTrapRetransmissionRetryCount_Object((1,3,6,1,4,1,4935,15,15,1,21),_MsTrapRetransmissionRetryCount_Type())
-msTrapRetransmissionRetryCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:msTrapRetransmissionRetryCount.setStatus(_A)
-_MsConformance_ObjectIdentity=ObjectIdentity
-msConformance=_MsConformance_ObjectIdentity((1,3,6,1,4,1,4935,15,15,2))
-_MsCompliances_ObjectIdentity=ObjectIdentity
-msCompliances=_MsCompliances_ObjectIdentity((1,3,6,1,4,1,4935,15,15,2,1))
-_MsGroups_ObjectIdentity=ObjectIdentity
-msGroups=_MsGroups_ObjectIdentity((1,3,6,1,4,1,4935,15,15,2,2))
-_MsEvents_ObjectIdentity=ObjectIdentity
-msEvents=_MsEvents_ObjectIdentity((1,3,6,1,4,1,4935,15,15,3))
-_MsNotifications_ObjectIdentity=ObjectIdentity
-msNotifications=_MsNotifications_ObjectIdentity((1,3,6,1,4,1,4935,15,15,3,2))
-msBasicGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,15,15,2,2,1))
-msBasicGroupVer1.setObjects(*((_B,_T),(_B,_U),(_B,_V)))
-if mibBuilder.loadTexts:msBasicGroupVer1.setStatus(_A)
-msServerGroupVer1=ObjectGroup((1,3,6,1,4,1,4935,15,15,2,2,2))
-msServerGroupVer1.setObjects(*((_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c)))
-if mibBuilder.loadTexts:msServerGroupVer1.setStatus(_A)
-msTrapConfigInformation=NotificationType((1,3,6,1,4,1,4935,15,15,3,2,700))
-msTrapConfigInformation.setObjects(*((_P,_Q),(_E,_F),(_D,_G)))
-if mibBuilder.loadTexts:msTrapConfigInformation.setStatus(_A)
-msTrapStatusInformation=NotificationType((1,3,6,1,4,1,4935,15,15,3,2,800))
-msTrapStatusInformation.setObjects(*((_E,_F),(_D,_L)))
-if mibBuilder.loadTexts:msTrapStatusInformation.setStatus(_A)
-msTrapStatusConfigFile=NotificationType((1,3,6,1,4,1,4935,15,15,3,2,900))
-msTrapStatusConfigFile.setObjects(*((_E,_F),(_D,_G)))
-if mibBuilder.loadTexts:msTrapStatusConfigFile.setStatus(_A)
-msBasicNotificationGroupVer1=NotificationGroup((1,3,6,1,4,1,4935,15,15,2,2,3))
-msBasicNotificationGroupVer1.setObjects(*((_B,_d),(_B,_e),(_B,_f)))
-if mibBuilder.loadTexts:msBasicNotificationGroupVer1.setStatus(_A)
-msBasicComplVer1=ModuleCompliance((1,3,6,1,4,1,4935,15,15,2,1,1))
-msBasicComplVer1.setObjects(*((_B,_g),(_B,_h),(_B,_i)))
-if mibBuilder.loadTexts:msBasicComplVer1.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'ipAddressStatusMs':ipAddressStatusMs,_W:msConfigSource,_X:msHost,_Y:msTrapPort,'ipAddressConfigMs':ipAddressConfigMs,_Z:msSelectConfigSource,'ipAddressConfigMsStatic':ipAddressConfigMsStatic,_a:msStaticHost,_b:msStaticTrapPort,'ipAddressConfigMsDhcp':ipAddressConfigMsDhcp,_c:msDhcpSiteSpecificCode,'msMIB':msMIB,'msMIBObjects':msMIBObjects,_T:msEnable,_U:msTrapRetransmissionPeriod,_V:msTrapRetransmissionRetryCount,'msConformance':msConformance,'msCompliances':msCompliances,'msBasicComplVer1':msBasicComplVer1,'msGroups':msGroups,_g:msBasicGroupVer1,_h:msServerGroupVer1,_i:msBasicNotificationGroupVer1,'msEvents':msEvents,'msNotifications':msNotifications,_d:msTrapConfigInformation,_e:msTrapStatusInformation,_f:msTrapStatusConfigFile})
+#
+# PySNMP MIB module MX-MS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/media5/MX-MS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:39:24 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ipAddressStatus, mediatrixConfig, ipAddressConfig = mibBuilder.importSymbols("MX-SMI", "ipAddressStatus", "mediatrixConfig", "ipAddressConfig")
+sysConfigDownloadConfigFile, sysConfigDownloadConfigMode = mibBuilder.importSymbols("MX-SYSTEM-CONFIG-MIB", "sysConfigDownloadConfigFile", "sysConfigDownloadConfigMode")
+sysMacAddress, = mibBuilder.importSymbols("MX-SYSTEM-MGMT-MIB", "sysMacAddress")
+MxIpSelectConfigSource, MxIpConfigSource, MxIpPort, MxIpHostName, MxIpDhcpSiteSpecificCode = mibBuilder.importSymbols("MX-TC", "MxIpSelectConfigSource", "MxIpConfigSource", "MxIpPort", "MxIpHostName", "MxIpDhcpSiteSpecificCode")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+sysObjectID, = mibBuilder.importSymbols("SNMPv2-MIB", "sysObjectID")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+msMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 15, 15))
+msMIB.setRevisions(('2004-05-25 00:00', '1903-11-11 00:00',))
+if mibBuilder.loadTexts: msMIB.setLastUpdated('200405250000Z')
+if mibBuilder.loadTexts: msMIB.setOrganization('Mediatrix Telecom, Inc.')
+msMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 15, 1))
+msConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 15, 2))
+msEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 15, 3))
+msEnable = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 15, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1))).clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: msEnable.setStatus('current')
+msTrapRetransmissionPeriod = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 15, 1, 20), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10, 604800000)).clone(60000)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: msTrapRetransmissionPeriod.setStatus('current')
+msTrapRetransmissionRetryCount = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 15, 1, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647)).clone(10)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: msTrapRetransmissionRetryCount.setStatus('current')
+ipAddressStatusMs = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 10, 1, 10))
+ipAddressConfigMs = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 1, 10))
+msConfigSource = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 1, 10, 1), MxIpConfigSource().clone('dhcp')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: msConfigSource.setStatus('current')
+msHost = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 1, 10, 2), MxIpHostName().clone('192.168.0.10')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: msHost.setStatus('current')
+msTrapPort = MibScalar((1, 3, 6, 1, 4, 1, 4935, 10, 1, 10, 3), MxIpPort().clone(162)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: msTrapPort.setStatus('current')
+msSelectConfigSource = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 1, 10, 1), MxIpSelectConfigSource().clone('dhcp')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: msSelectConfigSource.setStatus('current')
+ipAddressConfigMsStatic = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 1, 10, 10))
+msStaticHost = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 1, 10, 10, 1), MxIpHostName().clone('192.168.0.10')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: msStaticHost.setStatus('current')
+msStaticTrapPort = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 1, 10, 10, 2), MxIpPort().clone(162)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: msStaticTrapPort.setStatus('current')
+ipAddressConfigMsDhcp = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 1, 10, 30))
+msDhcpSiteSpecificCode = MibScalar((1, 3, 6, 1, 4, 1, 4935, 15, 1, 10, 30, 1), MxIpDhcpSiteSpecificCode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: msDhcpSiteSpecificCode.setStatus('current')
+msNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 15, 3, 2))
+msTrapConfigInformation = NotificationType((1, 3, 6, 1, 4, 1, 4935, 15, 15, 3, 2, 700)).setObjects(("SNMPv2-MIB", "sysObjectID"), ("MX-SYSTEM-MGMT-MIB", "sysMacAddress"), ("MX-SYSTEM-CONFIG-MIB", "sysConfigDownloadConfigFile"))
+if mibBuilder.loadTexts: msTrapConfigInformation.setStatus('current')
+msTrapStatusInformation = NotificationType((1, 3, 6, 1, 4, 1, 4935, 15, 15, 3, 2, 800)).setObjects(("MX-SYSTEM-MGMT-MIB", "sysMacAddress"), ("MX-SYSTEM-CONFIG-MIB", "sysConfigDownloadConfigMode"))
+if mibBuilder.loadTexts: msTrapStatusInformation.setStatus('current')
+msTrapStatusConfigFile = NotificationType((1, 3, 6, 1, 4, 1, 4935, 15, 15, 3, 2, 900)).setObjects(("MX-SYSTEM-MGMT-MIB", "sysMacAddress"), ("MX-SYSTEM-CONFIG-MIB", "sysConfigDownloadConfigFile"))
+if mibBuilder.loadTexts: msTrapStatusConfigFile.setStatus('current')
+msCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 15, 2, 1))
+msBasicComplVer1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4935, 15, 15, 2, 1, 1)).setObjects(("MX-MS-MIB", "msBasicGroupVer1"), ("MX-MS-MIB", "msServerGroupVer1"), ("MX-MS-MIB", "msBasicNotificationGroupVer1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    msBasicComplVer1 = msBasicComplVer1.setStatus('current')
+msGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 15, 15, 2, 2))
+msBasicGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 15, 2, 2, 1)).setObjects(("MX-MS-MIB", "msEnable"), ("MX-MS-MIB", "msTrapRetransmissionPeriod"), ("MX-MS-MIB", "msTrapRetransmissionRetryCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    msBasicGroupVer1 = msBasicGroupVer1.setStatus('current')
+msServerGroupVer1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4935, 15, 15, 2, 2, 2)).setObjects(("MX-MS-MIB", "msConfigSource"), ("MX-MS-MIB", "msHost"), ("MX-MS-MIB", "msTrapPort"), ("MX-MS-MIB", "msSelectConfigSource"), ("MX-MS-MIB", "msStaticHost"), ("MX-MS-MIB", "msStaticTrapPort"), ("MX-MS-MIB", "msDhcpSiteSpecificCode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    msServerGroupVer1 = msServerGroupVer1.setStatus('current')
+msBasicNotificationGroupVer1 = NotificationGroup((1, 3, 6, 1, 4, 1, 4935, 15, 15, 2, 2, 3)).setObjects(("MX-MS-MIB", "msTrapConfigInformation"), ("MX-MS-MIB", "msTrapStatusInformation"), ("MX-MS-MIB", "msTrapStatusConfigFile"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    msBasicNotificationGroupVer1 = msBasicNotificationGroupVer1.setStatus('current')
+mibBuilder.exportSymbols("MX-MS-MIB", msConformance=msConformance, ipAddressStatusMs=ipAddressStatusMs, msTrapStatusInformation=msTrapStatusInformation, msDhcpSiteSpecificCode=msDhcpSiteSpecificCode, msTrapPort=msTrapPort, msServerGroupVer1=msServerGroupVer1, msEnable=msEnable, msTrapStatusConfigFile=msTrapStatusConfigFile, msTrapRetransmissionPeriod=msTrapRetransmissionPeriod, PYSNMP_MODULE_ID=msMIB, msCompliances=msCompliances, msHost=msHost, msMIB=msMIB, msNotifications=msNotifications, ipAddressConfigMs=ipAddressConfigMs, ipAddressConfigMsStatic=ipAddressConfigMsStatic, msMIBObjects=msMIBObjects, msStaticTrapPort=msStaticTrapPort, msGroups=msGroups, msBasicGroupVer1=msBasicGroupVer1, msBasicNotificationGroupVer1=msBasicNotificationGroupVer1, msEvents=msEvents, msBasicComplVer1=msBasicComplVer1, msSelectConfigSource=msSelectConfigSource, msTrapConfigInformation=msTrapConfigInformation, msStaticHost=msStaticHost, msTrapRetransmissionRetryCount=msTrapRetransmissionRetryCount, ipAddressConfigMsDhcp=ipAddressConfigMsDhcp, msConfigSource=msConfigSource)

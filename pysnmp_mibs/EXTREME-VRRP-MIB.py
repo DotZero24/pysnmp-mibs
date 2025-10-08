@@ -1,49 +1,38 @@
-_I='extremeVrrpOperGroup'
-_H='extremeVrrpFabricRoutingMode'
-_G='vrrpOperVrId'
-_F='VRRP-MIB'
-_E='Integer32'
-_D='ifIndex'
-_C='IF-MIB'
-_B='EXTREME-VRRP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-extremeAgent,=mibBuilder.importSymbols('EXTREME-BASE-MIB','extremeAgent')
-ifIndex,=mibBuilder.importSymbols(_C,_D)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
-vrrpOperVrId,=mibBuilder.importSymbols(_F,_G)
-extremeVrrpMIB=ModuleIdentity((1,3,6,1,4,1,1916,1,49))
-if mibBuilder.loadTexts:extremeVrrpMIB.setRevisions(('2016-01-04 00:00',))
-_ExtremeVrrpOperations_ObjectIdentity=ObjectIdentity
-extremeVrrpOperations=_ExtremeVrrpOperations_ObjectIdentity((1,3,6,1,4,1,1916,1,49,1))
-_ExtremeVrrpOperTable_Object=MibTable
-extremeVrrpOperTable=_ExtremeVrrpOperTable_Object((1,3,6,1,4,1,1916,1,49,1,1))
-if mibBuilder.loadTexts:extremeVrrpOperTable.setStatus(_A)
-_ExtremeVrrpOperEntry_Object=MibTableRow
-extremeVrrpOperEntry=_ExtremeVrrpOperEntry_Object((1,3,6,1,4,1,1916,1,49,1,1,1))
-extremeVrrpOperEntry.setIndexNames((0,_C,_D),(0,_F,_G))
-if mibBuilder.loadTexts:extremeVrrpOperEntry.setStatus(_A)
-class _ExtremeVrrpFabricRoutingMode_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_ExtremeVrrpFabricRoutingMode_Type.__name__=_E
-_ExtremeVrrpFabricRoutingMode_Object=MibTableColumn
-extremeVrrpFabricRoutingMode=_ExtremeVrrpFabricRoutingMode_Object((1,3,6,1,4,1,1916,1,49,1,1,1,1),_ExtremeVrrpFabricRoutingMode_Type())
-extremeVrrpFabricRoutingMode.setMaxAccess('read-write')
-if mibBuilder.loadTexts:extremeVrrpFabricRoutingMode.setStatus(_A)
-_ExtremeVrrpConformance_ObjectIdentity=ObjectIdentity
-extremeVrrpConformance=_ExtremeVrrpConformance_ObjectIdentity((1,3,6,1,4,1,1916,1,49,2))
-_ExtremeVrrpMIBCompliances_ObjectIdentity=ObjectIdentity
-extremeVrrpMIBCompliances=_ExtremeVrrpMIBCompliances_ObjectIdentity((1,3,6,1,4,1,1916,1,49,2,1))
-_ExtremeVrrpMIBGroups_ObjectIdentity=ObjectIdentity
-extremeVrrpMIBGroups=_ExtremeVrrpMIBGroups_ObjectIdentity((1,3,6,1,4,1,1916,1,49,2,2))
-extremeVrrpOperGroup=ObjectGroup((1,3,6,1,4,1,1916,1,49,2,2,1))
-extremeVrrpOperGroup.setObjects((_B,_H))
-if mibBuilder.loadTexts:extremeVrrpOperGroup.setStatus(_A)
-extremeVrrpMIBCompliance=ModuleCompliance((1,3,6,1,4,1,1916,1,49,2,1,1))
-extremeVrrpMIBCompliance.setObjects((_B,_I))
-if mibBuilder.loadTexts:extremeVrrpMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'extremeVrrpMIB':extremeVrrpMIB,'extremeVrrpOperations':extremeVrrpOperations,'extremeVrrpOperTable':extremeVrrpOperTable,'extremeVrrpOperEntry':extremeVrrpOperEntry,_H:extremeVrrpFabricRoutingMode,'extremeVrrpConformance':extremeVrrpConformance,'extremeVrrpMIBCompliances':extremeVrrpMIBCompliances,'extremeVrrpMIBCompliance':extremeVrrpMIBCompliance,'extremeVrrpMIBGroups':extremeVrrpMIBGroups,_I:extremeVrrpOperGroup})
+#
+# PySNMP MIB module EXTREME-VRRP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/extreme/EXTREME-VRRP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:50 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+extremeAgent, = mibBuilder.importSymbols("EXTREME-BASE-MIB", "extremeAgent")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+vrrpOperVrId, = mibBuilder.importSymbols("VRRP-MIB", "vrrpOperVrId")
+extremeVrrpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1916, 1, 49))
+extremeVrrpMIB.setRevisions(('2016-01-04 00:00',))
+if mibBuilder.loadTexts: extremeVrrpMIB.setLastUpdated('201601040000Z')
+if mibBuilder.loadTexts: extremeVrrpMIB.setOrganization('Extreme Networks, Inc.')
+extremeVrrpOperations = MibIdentifier((1, 3, 6, 1, 4, 1, 1916, 1, 49, 1))
+extremeVrrpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1916, 1, 49, 2))
+extremeVrrpOperTable = MibTable((1, 3, 6, 1, 4, 1, 1916, 1, 49, 1, 1), )
+if mibBuilder.loadTexts: extremeVrrpOperTable.setStatus('current')
+extremeVrrpOperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1916, 1, 49, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "VRRP-MIB", "vrrpOperVrId"))
+if mibBuilder.loadTexts: extremeVrrpOperEntry.setStatus('current')
+extremeVrrpFabricRoutingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 49, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: extremeVrrpFabricRoutingMode.setStatus('current')
+extremeVrrpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1916, 1, 49, 2, 1))
+extremeVrrpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1916, 1, 49, 2, 2))
+extremeVrrpMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 1916, 1, 49, 2, 1, 1)).setObjects(("EXTREME-VRRP-MIB", "extremeVrrpOperGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    extremeVrrpMIBCompliance = extremeVrrpMIBCompliance.setStatus('current')
+extremeVrrpOperGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1916, 1, 49, 2, 2, 1)).setObjects(("EXTREME-VRRP-MIB", "extremeVrrpFabricRoutingMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    extremeVrrpOperGroup = extremeVrrpOperGroup.setStatus('current')
+mibBuilder.exportSymbols("EXTREME-VRRP-MIB", extremeVrrpOperTable=extremeVrrpOperTable, extremeVrrpMIB=extremeVrrpMIB, extremeVrrpMIBGroups=extremeVrrpMIBGroups, extremeVrrpMIBCompliance=extremeVrrpMIBCompliance, extremeVrrpOperGroup=extremeVrrpOperGroup, PYSNMP_MODULE_ID=extremeVrrpMIB, extremeVrrpFabricRoutingMode=extremeVrrpFabricRoutingMode, extremeVrrpConformance=extremeVrrpConformance, extremeVrrpOperations=extremeVrrpOperations, extremeVrrpOperEntry=extremeVrrpOperEntry, extremeVrrpMIBCompliances=extremeVrrpMIBCompliances)

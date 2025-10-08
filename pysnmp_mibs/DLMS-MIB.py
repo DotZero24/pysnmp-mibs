@@ -1,142 +1,75 @@
-_N='expired'
-_M='active'
-_L='read-write'
-_K='OctetString'
-_J='swDlmsStackLicenseAc'
-_I='swDlmsLicenseAc'
-_H='Integer32'
-_G='swDlmsInstallAc'
-_F='swDlmsStackLicenseModelName'
-_E='swDlmsStackLicenseModelUnitId'
-_D='swDlmsLicenseModelName'
-_C='read-only'
-_B='DLMS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_K,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dlink_common_mgmt,=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-common-mgmt')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-swDlmsMIB=ModuleIdentity((1,3,6,1,4,1,171,12,101))
-_SwDlmsNotifications_ObjectIdentity=ObjectIdentity
-swDlmsNotifications=_SwDlmsNotifications_ObjectIdentity((1,3,6,1,4,1,171,12,101,0))
-_SwDlmsObjects_ObjectIdentity=ObjectIdentity
-swDlmsObjects=_SwDlmsObjects_ObjectIdentity((1,3,6,1,4,1,171,12,101,1))
-_SwDlmsGeneralGroup_ObjectIdentity=ObjectIdentity
-swDlmsGeneralGroup=_SwDlmsGeneralGroup_ObjectIdentity((1,3,6,1,4,1,171,12,101,1,1))
-class _SwDlmsInstallAc_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,25))
-_SwDlmsInstallAc_Type.__name__=_K
-_SwDlmsInstallAc_Object=MibScalar
-swDlmsInstallAc=_SwDlmsInstallAc_Object((1,3,6,1,4,1,171,12,101,1,1,1),_SwDlmsInstallAc_Type())
-swDlmsInstallAc.setMaxAccess(_L)
-if mibBuilder.loadTexts:swDlmsInstallAc.setStatus(_A)
-class _SwDlmsInstallStackUnitId_Type(Integer32):defaultValue=0
-_SwDlmsInstallStackUnitId_Type.__name__=_H
-_SwDlmsInstallStackUnitId_Object=MibScalar
-swDlmsInstallStackUnitId=_SwDlmsInstallStackUnitId_Object((1,3,6,1,4,1,171,12,101,1,1,2),_SwDlmsInstallStackUnitId_Type())
-swDlmsInstallStackUnitId.setMaxAccess(_L)
-if mibBuilder.loadTexts:swDlmsInstallStackUnitId.setStatus(_A)
-_SwDlmsLicense_ObjectIdentity=ObjectIdentity
-swDlmsLicense=_SwDlmsLicense_ObjectIdentity((1,3,6,1,4,1,171,12,101,1,2))
-_SwDlmsLicenseModelTable_Object=MibTable
-swDlmsLicenseModelTable=_SwDlmsLicenseModelTable_Object((1,3,6,1,4,1,171,12,101,1,2,1))
-if mibBuilder.loadTexts:swDlmsLicenseModelTable.setStatus(_A)
-_SwDlmsLicenseModelEntry_Object=MibTableRow
-swDlmsLicenseModelEntry=_SwDlmsLicenseModelEntry_Object((1,3,6,1,4,1,171,12,101,1,2,1,1))
-swDlmsLicenseModelEntry.setIndexNames((0,_B,_D))
-if mibBuilder.loadTexts:swDlmsLicenseModelEntry.setStatus(_A)
-_SwDlmsLicenseModelName_Type=DisplayString
-_SwDlmsLicenseModelName_Object=MibTableColumn
-swDlmsLicenseModelName=_SwDlmsLicenseModelName_Object((1,3,6,1,4,1,171,12,101,1,2,1,1,1),_SwDlmsLicenseModelName_Type())
-swDlmsLicenseModelName.setMaxAccess(_C)
-if mibBuilder.loadTexts:swDlmsLicenseModelName.setStatus(_A)
-_SwDlmsLicenseModelRemaining_Type=DisplayString
-_SwDlmsLicenseModelRemaining_Object=MibTableColumn
-swDlmsLicenseModelRemaining=_SwDlmsLicenseModelRemaining_Object((1,3,6,1,4,1,171,12,101,1,2,1,1,2),_SwDlmsLicenseModelRemaining_Type())
-swDlmsLicenseModelRemaining.setMaxAccess(_C)
-if mibBuilder.loadTexts:swDlmsLicenseModelRemaining.setStatus(_A)
-_SwDlmsLicenseAcTable_Object=MibTable
-swDlmsLicenseAcTable=_SwDlmsLicenseAcTable_Object((1,3,6,1,4,1,171,12,101,1,2,2))
-if mibBuilder.loadTexts:swDlmsLicenseAcTable.setStatus(_A)
-_SwDlmsLicenseAcEntry_Object=MibTableRow
-swDlmsLicenseAcEntry=_SwDlmsLicenseAcEntry_Object((1,3,6,1,4,1,171,12,101,1,2,2,1))
-swDlmsLicenseAcEntry.setIndexNames((0,_B,_D),(0,_B,_I))
-if mibBuilder.loadTexts:swDlmsLicenseAcEntry.setStatus(_A)
-_SwDlmsLicenseAc_Type=OctetString
-_SwDlmsLicenseAc_Object=MibTableColumn
-swDlmsLicenseAc=_SwDlmsLicenseAc_Object((1,3,6,1,4,1,171,12,101,1,2,2,1,1),_SwDlmsLicenseAc_Type())
-swDlmsLicenseAc.setMaxAccess(_C)
-if mibBuilder.loadTexts:swDlmsLicenseAc.setStatus(_A)
-class _SwDlmsLicenseAcStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_M,1),(_N,2)))
-_SwDlmsLicenseAcStatus_Type.__name__=_H
-_SwDlmsLicenseAcStatus_Object=MibTableColumn
-swDlmsLicenseAcStatus=_SwDlmsLicenseAcStatus_Object((1,3,6,1,4,1,171,12,101,1,2,2,1,2),_SwDlmsLicenseAcStatus_Type())
-swDlmsLicenseAcStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:swDlmsLicenseAcStatus.setStatus(_A)
-_SwDlmsStackLicense_ObjectIdentity=ObjectIdentity
-swDlmsStackLicense=_SwDlmsStackLicense_ObjectIdentity((1,3,6,1,4,1,171,12,101,1,3))
-_SwDlmsStackLicenseModelTable_Object=MibTable
-swDlmsStackLicenseModelTable=_SwDlmsStackLicenseModelTable_Object((1,3,6,1,4,1,171,12,101,1,3,1))
-if mibBuilder.loadTexts:swDlmsStackLicenseModelTable.setStatus(_A)
-_SwDlmsStackLicenseModelEntry_Object=MibTableRow
-swDlmsStackLicenseModelEntry=_SwDlmsStackLicenseModelEntry_Object((1,3,6,1,4,1,171,12,101,1,3,1,1))
-swDlmsStackLicenseModelEntry.setIndexNames((0,_B,_E),(0,_B,_F))
-if mibBuilder.loadTexts:swDlmsStackLicenseModelEntry.setStatus(_A)
-_SwDlmsStackLicenseModelUnitId_Type=Integer32
-_SwDlmsStackLicenseModelUnitId_Object=MibTableColumn
-swDlmsStackLicenseModelUnitId=_SwDlmsStackLicenseModelUnitId_Object((1,3,6,1,4,1,171,12,101,1,3,1,1,1),_SwDlmsStackLicenseModelUnitId_Type())
-swDlmsStackLicenseModelUnitId.setMaxAccess(_C)
-if mibBuilder.loadTexts:swDlmsStackLicenseModelUnitId.setStatus(_A)
-_SwDlmsStackLicenseModelName_Type=DisplayString
-_SwDlmsStackLicenseModelName_Object=MibTableColumn
-swDlmsStackLicenseModelName=_SwDlmsStackLicenseModelName_Object((1,3,6,1,4,1,171,12,101,1,3,1,1,2),_SwDlmsStackLicenseModelName_Type())
-swDlmsStackLicenseModelName.setMaxAccess(_C)
-if mibBuilder.loadTexts:swDlmsStackLicenseModelName.setStatus(_A)
-_SwDlmsStackLicenseModelRemaining_Type=DisplayString
-_SwDlmsStackLicenseModelRemaining_Object=MibTableColumn
-swDlmsStackLicenseModelRemaining=_SwDlmsStackLicenseModelRemaining_Object((1,3,6,1,4,1,171,12,101,1,3,1,1,3),_SwDlmsStackLicenseModelRemaining_Type())
-swDlmsStackLicenseModelRemaining.setMaxAccess(_C)
-if mibBuilder.loadTexts:swDlmsStackLicenseModelRemaining.setStatus(_A)
-_SwDlmsStackLicenseAcTable_Object=MibTable
-swDlmsStackLicenseAcTable=_SwDlmsStackLicenseAcTable_Object((1,3,6,1,4,1,171,12,101,1,3,2))
-if mibBuilder.loadTexts:swDlmsStackLicenseAcTable.setStatus(_A)
-_SwDlmsStackLicenseAcEntry_Object=MibTableRow
-swDlmsStackLicenseAcEntry=_SwDlmsStackLicenseAcEntry_Object((1,3,6,1,4,1,171,12,101,1,3,2,1))
-swDlmsStackLicenseAcEntry.setIndexNames((0,_B,_E),(0,_B,_F),(0,_B,_J))
-if mibBuilder.loadTexts:swDlmsStackLicenseAcEntry.setStatus(_A)
-_SwDlmsStackLicenseAc_Type=OctetString
-_SwDlmsStackLicenseAc_Object=MibTableColumn
-swDlmsStackLicenseAc=_SwDlmsStackLicenseAc_Object((1,3,6,1,4,1,171,12,101,1,3,2,1,1),_SwDlmsStackLicenseAc_Type())
-swDlmsStackLicenseAc.setMaxAccess(_C)
-if mibBuilder.loadTexts:swDlmsStackLicenseAc.setStatus(_A)
-class _SwDlmsStackLicenseAcStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_M,1),(_N,2)))
-_SwDlmsStackLicenseAcStatus_Type.__name__=_H
-_SwDlmsStackLicenseAcStatus_Object=MibTableColumn
-swDlmsStackLicenseAcStatus=_SwDlmsStackLicenseAcStatus_Object((1,3,6,1,4,1,171,12,101,1,3,2,1,2),_SwDlmsStackLicenseAcStatus_Type())
-swDlmsStackLicenseAcStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:swDlmsStackLicenseAcStatus.setStatus(_A)
-swDlmsIllegalAc=NotificationType((1,3,6,1,4,1,171,12,101,0,1))
-swDlmsIllegalAc.setObjects((_B,_G))
-if mibBuilder.loadTexts:swDlmsIllegalAc.setStatus(_A)
-swDlmsLicenseExpired=NotificationType((1,3,6,1,4,1,171,12,101,0,2))
-swDlmsLicenseExpired.setObjects(*((_B,_D),(_B,_I)))
-if mibBuilder.loadTexts:swDlmsLicenseExpired.setStatus(_A)
-swDlmsLicenseInstallationSuccess=NotificationType((1,3,6,1,4,1,171,12,101,0,3))
-swDlmsLicenseInstallationSuccess.setObjects(*((_B,_D),(_B,_G)))
-if mibBuilder.loadTexts:swDlmsLicenseInstallationSuccess.setStatus(_A)
-swDlmsLicenseExpiresIn30Days=NotificationType((1,3,6,1,4,1,171,12,101,0,4))
-swDlmsLicenseExpiresIn30Days.setObjects(*((_B,_D),(_B,_G)))
-if mibBuilder.loadTexts:swDlmsLicenseExpiresIn30Days.setStatus(_A)
-swDlmsStackLicenseExpired=NotificationType((1,3,6,1,4,1,171,12,101,0,21))
-swDlmsStackLicenseExpired.setObjects(*((_B,_E),(_B,_F),(_B,_J)))
-if mibBuilder.loadTexts:swDlmsStackLicenseExpired.setStatus(_A)
-swDlmsStackLicenseInstallationSuccess=NotificationType((1,3,6,1,4,1,171,12,101,0,22))
-swDlmsStackLicenseInstallationSuccess.setObjects(*((_B,_E),(_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:swDlmsStackLicenseInstallationSuccess.setStatus(_A)
-swDlmsStackLicenseExpiresIn30Days=NotificationType((1,3,6,1,4,1,171,12,101,0,23))
-swDlmsStackLicenseExpiresIn30Days.setObjects(*((_B,_E),(_B,_F),(_B,_G)))
-if mibBuilder.loadTexts:swDlmsStackLicenseExpiresIn30Days.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'swDlmsMIB':swDlmsMIB,'swDlmsNotifications':swDlmsNotifications,'swDlmsIllegalAc':swDlmsIllegalAc,'swDlmsLicenseExpired':swDlmsLicenseExpired,'swDlmsLicenseInstallationSuccess':swDlmsLicenseInstallationSuccess,'swDlmsLicenseExpiresIn30Days':swDlmsLicenseExpiresIn30Days,'swDlmsStackLicenseExpired':swDlmsStackLicenseExpired,'swDlmsStackLicenseInstallationSuccess':swDlmsStackLicenseInstallationSuccess,'swDlmsStackLicenseExpiresIn30Days':swDlmsStackLicenseExpiresIn30Days,'swDlmsObjects':swDlmsObjects,'swDlmsGeneralGroup':swDlmsGeneralGroup,_G:swDlmsInstallAc,'swDlmsInstallStackUnitId':swDlmsInstallStackUnitId,'swDlmsLicense':swDlmsLicense,'swDlmsLicenseModelTable':swDlmsLicenseModelTable,'swDlmsLicenseModelEntry':swDlmsLicenseModelEntry,_D:swDlmsLicenseModelName,'swDlmsLicenseModelRemaining':swDlmsLicenseModelRemaining,'swDlmsLicenseAcTable':swDlmsLicenseAcTable,'swDlmsLicenseAcEntry':swDlmsLicenseAcEntry,_I:swDlmsLicenseAc,'swDlmsLicenseAcStatus':swDlmsLicenseAcStatus,'swDlmsStackLicense':swDlmsStackLicense,'swDlmsStackLicenseModelTable':swDlmsStackLicenseModelTable,'swDlmsStackLicenseModelEntry':swDlmsStackLicenseModelEntry,_E:swDlmsStackLicenseModelUnitId,_F:swDlmsStackLicenseModelName,'swDlmsStackLicenseModelRemaining':swDlmsStackLicenseModelRemaining,'swDlmsStackLicenseAcTable':swDlmsStackLicenseAcTable,'swDlmsStackLicenseAcEntry':swDlmsStackLicenseAcEntry,_J:swDlmsStackLicenseAc,'swDlmsStackLicenseAcStatus':swDlmsStackLicenseAcStatus})
+#
+# PySNMP MIB module DLMS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/d-link/DLMS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:35:09 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+swDlmsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 101))
+if mibBuilder.loadTexts: swDlmsMIB.setLastUpdated('201108100000Z')
+if mibBuilder.loadTexts: swDlmsMIB.setOrganization('D-Link Corporation')
+swDlmsNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 101, 0))
+swDlmsObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 101, 1))
+swDlmsGeneralGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 1))
+swDlmsLicense = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 2))
+swDlmsStackLicense = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 3))
+swDlmsInstallAc = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 25))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swDlmsInstallAc.setStatus('current')
+swDlmsInstallStackUnitId = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: swDlmsInstallStackUnitId.setStatus('current')
+swDlmsLicenseModelTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 2, 1), )
+if mibBuilder.loadTexts: swDlmsLicenseModelTable.setStatus('current')
+swDlmsLicenseModelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 2, 1, 1), ).setIndexNames((0, "DLMS-MIB", "swDlmsLicenseModelName"))
+if mibBuilder.loadTexts: swDlmsLicenseModelEntry.setStatus('current')
+swDlmsLicenseModelName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 2, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swDlmsLicenseModelName.setStatus('current')
+swDlmsLicenseModelRemaining = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 2, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swDlmsLicenseModelRemaining.setStatus('current')
+swDlmsLicenseAcTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 2, 2), )
+if mibBuilder.loadTexts: swDlmsLicenseAcTable.setStatus('current')
+swDlmsLicenseAcEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 2, 2, 1), ).setIndexNames((0, "DLMS-MIB", "swDlmsLicenseModelName"), (0, "DLMS-MIB", "swDlmsLicenseAc"))
+if mibBuilder.loadTexts: swDlmsLicenseAcEntry.setStatus('current')
+swDlmsLicenseAc = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 2, 2, 1, 1), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swDlmsLicenseAc.setStatus('current')
+swDlmsLicenseAcStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("expired", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swDlmsLicenseAcStatus.setStatus('current')
+swDlmsStackLicenseModelTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 3, 1), )
+if mibBuilder.loadTexts: swDlmsStackLicenseModelTable.setStatus('current')
+swDlmsStackLicenseModelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 3, 1, 1), ).setIndexNames((0, "DLMS-MIB", "swDlmsStackLicenseModelUnitId"), (0, "DLMS-MIB", "swDlmsStackLicenseModelName"))
+if mibBuilder.loadTexts: swDlmsStackLicenseModelEntry.setStatus('current')
+swDlmsStackLicenseModelUnitId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 3, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swDlmsStackLicenseModelUnitId.setStatus('current')
+swDlmsStackLicenseModelName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 3, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swDlmsStackLicenseModelName.setStatus('current')
+swDlmsStackLicenseModelRemaining = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 3, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swDlmsStackLicenseModelRemaining.setStatus('current')
+swDlmsStackLicenseAcTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 3, 2), )
+if mibBuilder.loadTexts: swDlmsStackLicenseAcTable.setStatus('current')
+swDlmsStackLicenseAcEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 3, 2, 1), ).setIndexNames((0, "DLMS-MIB", "swDlmsStackLicenseModelUnitId"), (0, "DLMS-MIB", "swDlmsStackLicenseModelName"), (0, "DLMS-MIB", "swDlmsStackLicenseAc"))
+if mibBuilder.loadTexts: swDlmsStackLicenseAcEntry.setStatus('current')
+swDlmsStackLicenseAc = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 3, 2, 1, 1), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swDlmsStackLicenseAc.setStatus('current')
+swDlmsStackLicenseAcStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 101, 1, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("expired", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: swDlmsStackLicenseAcStatus.setStatus('current')
+swDlmsIllegalAc = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 101, 0, 1)).setObjects(("DLMS-MIB", "swDlmsInstallAc"))
+if mibBuilder.loadTexts: swDlmsIllegalAc.setStatus('current')
+swDlmsLicenseExpired = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 101, 0, 2)).setObjects(("DLMS-MIB", "swDlmsLicenseModelName"), ("DLMS-MIB", "swDlmsLicenseAc"))
+if mibBuilder.loadTexts: swDlmsLicenseExpired.setStatus('current')
+swDlmsLicenseInstallationSuccess = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 101, 0, 3)).setObjects(("DLMS-MIB", "swDlmsLicenseModelName"), ("DLMS-MIB", "swDlmsInstallAc"))
+if mibBuilder.loadTexts: swDlmsLicenseInstallationSuccess.setStatus('current')
+swDlmsLicenseExpiresIn30Days = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 101, 0, 4)).setObjects(("DLMS-MIB", "swDlmsLicenseModelName"), ("DLMS-MIB", "swDlmsInstallAc"))
+if mibBuilder.loadTexts: swDlmsLicenseExpiresIn30Days.setStatus('current')
+swDlmsStackLicenseExpired = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 101, 0, 21)).setObjects(("DLMS-MIB", "swDlmsStackLicenseModelUnitId"), ("DLMS-MIB", "swDlmsStackLicenseModelName"), ("DLMS-MIB", "swDlmsStackLicenseAc"))
+if mibBuilder.loadTexts: swDlmsStackLicenseExpired.setStatus('current')
+swDlmsStackLicenseInstallationSuccess = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 101, 0, 22)).setObjects(("DLMS-MIB", "swDlmsStackLicenseModelUnitId"), ("DLMS-MIB", "swDlmsStackLicenseModelName"), ("DLMS-MIB", "swDlmsInstallAc"))
+if mibBuilder.loadTexts: swDlmsStackLicenseInstallationSuccess.setStatus('current')
+swDlmsStackLicenseExpiresIn30Days = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 101, 0, 23)).setObjects(("DLMS-MIB", "swDlmsStackLicenseModelUnitId"), ("DLMS-MIB", "swDlmsStackLicenseModelName"), ("DLMS-MIB", "swDlmsInstallAc"))
+if mibBuilder.loadTexts: swDlmsStackLicenseExpiresIn30Days.setStatus('current')
+mibBuilder.exportSymbols("DLMS-MIB", swDlmsStackLicenseAcStatus=swDlmsStackLicenseAcStatus, swDlmsStackLicenseModelEntry=swDlmsStackLicenseModelEntry, swDlmsStackLicenseModelName=swDlmsStackLicenseModelName, swDlmsNotifications=swDlmsNotifications, swDlmsLicenseExpired=swDlmsLicenseExpired, swDlmsStackLicenseAc=swDlmsStackLicenseAc, swDlmsLicenseModelRemaining=swDlmsLicenseModelRemaining, swDlmsStackLicense=swDlmsStackLicense, swDlmsStackLicenseModelRemaining=swDlmsStackLicenseModelRemaining, swDlmsLicense=swDlmsLicense, swDlmsLicenseInstallationSuccess=swDlmsLicenseInstallationSuccess, swDlmsLicenseAcTable=swDlmsLicenseAcTable, swDlmsLicenseAcEntry=swDlmsLicenseAcEntry, swDlmsMIB=swDlmsMIB, swDlmsInstallAc=swDlmsInstallAc, swDlmsLicenseAcStatus=swDlmsLicenseAcStatus, swDlmsLicenseModelEntry=swDlmsLicenseModelEntry, swDlmsStackLicenseExpiresIn30Days=swDlmsStackLicenseExpiresIn30Days, swDlmsIllegalAc=swDlmsIllegalAc, swDlmsLicenseModelName=swDlmsLicenseModelName, swDlmsInstallStackUnitId=swDlmsInstallStackUnitId, swDlmsLicenseExpiresIn30Days=swDlmsLicenseExpiresIn30Days, PYSNMP_MODULE_ID=swDlmsMIB, swDlmsStackLicenseAcEntry=swDlmsStackLicenseAcEntry, swDlmsObjects=swDlmsObjects, swDlmsGeneralGroup=swDlmsGeneralGroup, swDlmsStackLicenseAcTable=swDlmsStackLicenseAcTable, swDlmsLicenseAc=swDlmsLicenseAc, swDlmsStackLicenseExpired=swDlmsStackLicenseExpired, swDlmsStackLicenseModelUnitId=swDlmsStackLicenseModelUnitId, swDlmsStackLicenseInstallationSuccess=swDlmsStackLicenseInstallationSuccess, swDlmsLicenseModelTable=swDlmsLicenseModelTable, swDlmsStackLicenseModelTable=swDlmsStackLicenseModelTable)

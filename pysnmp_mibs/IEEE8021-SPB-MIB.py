@@ -1,942 +1,506 @@
-_Bd='ieee8021PcrTopSrvTableGroupVid'
-_Bc='ieee8021PcrTopEdgeTableGroup'
-_Bb='ieee8021PcrTopEctTableGroup'
-_Ba='ieee8021PcrTopNodeTableGroup'
-_BZ='ieee8021PcrAdjDynamicTableGroup'
-_BY='ieee8021PcrAdjStaticTableGroup'
-_BX='ieee8021PcrEctDynamicTableGroup'
-_BW='ieee8021PcrEctStaticTableGroupMrt'
-_BV='ieee8021PcrEctStaticTableGroupVID'
-_BU='ieee8021PcrEctStaticTableGroupMAC'
-_BT='ieee8021PcrTopIxDynamicTableGroup'
-_BS='ieee8021PcrMtidStaticTableGroup'
-_BR='ieee8021PcrSysGroup'
-_BQ='ieee8021SpbvTopSrvTableGroupSPBV'
-_BP='ieee8021SpbTopEdgeTableGroupSPBV'
-_BO='ieee8021SpbTopEctTableGroupSPBV'
-_BN='ieee8021SpbTopNodeTableGroupSPBV'
-_BM='ieee8021SpbAdjDynamicTableGroupSPBV'
-_BL='ieee8021SpbAdjStaticTableGroupSPBV'
-_BK='ieee8021SpbEctDynamicTableGroupSPBV'
-_BJ='ieee8021SpbEctStaticTableGroupSPBV'
-_BI='ieee8021SpbTopIxDynamicTableGroupSPBV'
-_BH='ieee8021SpbMtidStaticTableGroupSPBV'
-_BG='ieee8021SpbSysGroupSPBV'
-_BF='dot1agCfmMepSpbmEspTableGroupSPBM'
-_BE='dot1agCfmMepSpbmTableGroupSPBM'
-_BD='ieee8021SpbmBsiStaticTableGroupSPBM'
-_BC='ieee8021SpbmTopSrvTableGroupSPBM'
-_BB='ieee8021SpbTopEdgeTableGroupSPBM'
-_BA='ieee8021SpbTopEctTableGroupSPBM'
-_B9='ieee8021SpbTopNodeTableGroupSPBM'
-_B8='ieee8021SpbAdjDynamicTableGroupSPBM'
-_B7='ieee8021SpbAdjStaticTableGroupSPBM'
-_B6='ieee8021SpbEctDynamicTableGroupSPBM'
-_B5='ieee8021SpbEctStaticTableGroupSPBM'
-_B4='ieee8021SpbTopIxDynamicTableGroupSPBM'
-_B3='ieee8021SpbMtidStaticTableGroupSPBM'
-_B2='ieee8021SpbSysGroupSPBM'
-_B1='ieee8021PcrTopEctEntryMrtRedVid'
-_B0='ieee8021PcrTopEctEntryMrtBlueVid'
-_A_='ieee8021PcrTopEctEntryMode'
-_Az='ieee8021PcrEctStaticEntryRowStatus'
-_Ay='ieee8021PcrEctStaticEntryMrtRedVid'
-_Ax='ieee8021PcrEctStaticEntryMrtBlueVid'
-_Aw='dot1agCfmMepSpbmEspRowStatus'
-_Av='dot1agCfmMepSpbmEspEsp'
-_Au='dot1agCfmMepTransmitLtmSpbmDA'
-_At='dot1agCfmMepTransmitLbmSpbmDA'
-_As='ieee8021SpbmBsiStaticEntryRowStatus'
-_Ar='ieee8021SpbmBsiStaticEntryTieBreakMask'
-_Aq='ieee8021SpbmBsiStaticEntryTsBit'
-_Ap='ieee8021SpbmBsiStaticEntryRBit'
-_Ao='ieee8021SpbmBsiStaticEntryTBit'
-_An='ieee8021SpbvTopEctEntrySpvid'
-_Am='ieee8021SpbvTopEctSysMode'
-_Al='ieee8021SpbmTopSrvEntryIsidFlags'
-_Ak='dot1agCfmMepSpbmEntry'
-_Aj='ieee8021PcrTopEctEntryBaseVid'
-_Ai='ieee8021PcrTopEctEntrySysId'
-_Ah='ieee8021PcrTopEctEntryTopIx'
-_Ag='ieee8021PcrEctStaticEntryBaseVid'
-_Af='ieee8021PcrEctStaticEntryTopIx'
-_Ae='dot1agCfmMepSpbmEspIndex'
-_Ad='ieee8021SpbmBsiStaticEntryBaseVid'
-_Ac='ieee8021SpbmBsiStaticEntryIsid'
-_Ab='ieee8021SpbvTopSrvEntryMMac'
-_Aa='ieee8021SpbvTopSrvEntrySysId'
-_AZ='ieee8021SpbvTopSrvEntryTopIx'
-_AY='ieee8021SpbmTopSrvEntryMac'
-_AX='ieee8021SpbmTopSrvEntryBaseVid'
-_AW='ieee8021SpbmTopSrvEntryIsid'
-_AV='ieee8021SpbmTopSrvEntrySysId'
-_AU='ieee8021SpbmTopSrvEntryTopIx'
-_AT='ieee8021SpbTopEdgeEntrySysIdFar'
-_AS='ieee8021SpbTopEdgeEntrySysIdNear'
-_AR='ieee8021SpbTopEdgeEntryTopIx'
-_AQ='ieee8021SpbTopEctEntryBaseVid'
-_AP='ieee8021SpbTopEctEntrySysId'
-_AO='ieee8021SpbTopEctEntryTopIx'
-_AN='ieee8021SpbTopNodeEntrySysId'
-_AM='ieee8021SpbTopNodeEntryTopIx'
-_AL='ieee8021SpbAdjDynamicEntryPeerSysId'
-_AK='ieee8021SpbAdjDynamicEntryIfIndex'
-_AJ='ieee8021SpbAdjDynamicEntryTopIx'
-_AI='ieee8021SpbAdjStaticEntryIfIndex'
-_AH='ieee8021SpbAdjStaticEntryTopIx'
-_AG='ieee8021SpbEctDynamicEntryBaseVid'
-_AF='ieee8021SpbEctDynamicEntryTopIx'
-_AE='ieee8021SpbEctStaticEntryBaseVid'
-_AD='ieee8021SpbEctStaticEntryTopIx'
-_AC='ieee8021SpbTopIxDynamicEntryTopIx'
-_AB='ieee8021SpbMtidStaticEntryMtid'
-_AA='IEEE8021SpbDigestConvention'
-_A9='TruthValue'
-_A8='Unsigned32'
-_A7='Integer32'
-_A6='dot1agCfmMdIndex'
-_A5='dot1agCfmMaIndex'
-_A4='ieee8021BridgeBasePort'
-_A3='IEEE8021-BRIDGE-MIB'
-_A2='ieee8021SpbvTopSrvEntryMMacFlags'
-_A1='ieee8021SpbvTopSrvEntryBaseVid'
-_A0='ieee8021SpbvEctStaticEntrySpvid'
-_z='ieee8021SpbvSysMode'
-_y='ieee8021SpbTopEctEntryLocalUse'
-_x='ieee8021SpbTopEctEntryMode'
-_w='ieee8021SpbTopEctEntryEctAlgorithm'
-_v='ieee8021SpbmTopNodeEntrySPsourceID'
-_u='ieee8021SpbmSysMode'
-_t='ieee8021SpbmSysSPSourceId'
-_s='ieee8021SpbTopIx'
-_r='IEEE8021SpbMode'
-_q='IEEE8021-CFM-MIB'
-_p='ieee8021SpbTopEdgeEntryMetricFar2Near'
-_o='ieee8021SpbTopEdgeEntryMetricNear2Far'
-_n='ieee8021SpbTopNodeEntrySysName'
-_m='ieee8021SpbTopNodeEntryBridgePriority'
-_l='ieee8021SpbAdjDynamicEntryIsisCircIndex'
-_k='ieee8021SpbAdjDynamicEntryPeerPortIdentifier'
-_j='ieee8021SpbAdjDynamicEntryPortIdentifier'
-_i='ieee8021SpbAdjDynamicEntryPeerLocalCircuitID'
-_h='ieee8021SpbAdjDynamicEntryLocalCircuitID'
-_g='ieee8021SpbAdjDynamicEntryPeerAuxMCID'
-_f='ieee8021SpbAdjDynamicEntryPeerMCID'
-_e='ieee8021SpbAdjDynamicEntryPeerAgreeDigest'
-_d='ieee8021SpbAdjDynamicEntryPeerSysName'
-_c='ieee8021SpbAdjDynamicEntryIfOperState'
-_b='ieee8021SpbAdjDynamicEntryPort'
-_a='ieee8021SpbAdjStaticEntryRowStatus'
-_Z='ieee8021SpbAdjStaticEntryIfAdminState'
-_Y='ieee8021SpbAdjStaticEntryMetric'
-_X='ieee8021SpbEctDynamicEntryIngressCheckDiscards'
-_W='ieee8021SpbEctDynamicEntryRemoteUse'
-_V='ieee8021SpbEctDynamicEntryLocalUse'
-_U='ieee8021SpbEctDynamicEntryMode'
-_T='ieee8021SpbTopIxDynamicEntryAuxMCID'
-_S='ieee8021SpbTopIxDynamicEntryMCID'
-_R='ieee8021SpbTopIxDynamicEntryAgreeDigest'
-_Q='ieee8021SpbMtidStaticEntryRowStatus'
-_P='ieee8021SpbMTidStaticEntryMtidOverload'
-_O='ieee8021SpbSysDigestConvention'
-_N='ieee8021SpbSysBridgePriority'
-_M='ieee8021SpbSysName'
-_L='ieee8021SpbSysControlAddr'
-_K='ieee8021SpbSysId'
-_J='ieee8021SpbSysAreaAddress'
-_I='SnmpAdminString'
-_H='ieee8021SpbEctStaticEntryRowStatus'
-_G='ieee8021SpbEctStaticEntryEctAlgorithm'
-_F='read-write'
-_E='read-create'
-_D='not-accessible'
-_C='read-only'
-_B='current'
-_A='IEEE8021-SPB-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ieee8021BridgeBasePort,=mibBuilder.importSymbols(_A3,_A4)
-dot1agCfmMaIndex,dot1agCfmMdIndex,dot1agCfmMepEntry=mibBuilder.importSymbols(_q,_A5,_A6,'dot1agCfmMepEntry')
-IEEE8021BridgePortNumber,IEEE8021PbbIngressEgress,IEEE8021PbbServiceIdentifier,IEEE8021PbbTeEsp,ieee802dot1mibs=mibBuilder.importSymbols('IEEE8021-TC-MIB','IEEE8021BridgePortNumber','IEEE8021PbbIngressEgress','IEEE8021PbbServiceIdentifier','IEEE8021PbbTeEsp','ieee802dot1mibs')
-InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB','InterfaceIndexOrZero')
-VlanId,VlanIdOrAny,VlanIdOrNone=mibBuilder.importSymbols('Q-BRIDGE-MIB','VlanId','VlanIdOrAny','VlanIdOrNone')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_I)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_A7,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_A8,'iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention',_A9)
-ieee8021SpbMib=ModuleIdentity((1,3,111,2,802,1,1,26))
-if mibBuilder.loadTexts:ieee8021SpbMib.setRevisions(('2018-06-28 00:00','2015-06-23 00:00','2013-05-13 00:00','2012-02-03 00:00'))
-class IEEE8021SpbAreaAddress(TextualConvention,OctetString):status=_B;displayHint='1x:';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,3));fixedLength=3
-class IEEE8021SpbEctAlgorithm(TextualConvention,OctetString):status=_B;displayHint='1x-';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
-class IEEE8021SpbMode(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('auto',1),('manual',2)))
-class IEEE8021SpbEctMode(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('disabled',1),('spbm',2),('spbv',3)))
-class IEEE8021SpbDigestConvention(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('off',1),('loopFreeBoth',2),('loopFreeMcastOnly',3)))
-class IEEE8021SpbLinkMetric(TextualConvention,Integer32):status=_B;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16777215))
-class IEEE8021SpbAdjState(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('up',1),('down',2),('testing',3)))
-class IEEE8021SpbmSPsourceId(TextualConvention,OctetString):status=_B;displayHint='1x:';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,3));fixedLength=3
-class IEEE8021SpbDigest(TextualConvention,OctetString):status=_B;displayHint='1x';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(32,32));fixedLength=32
-class IEEE8021SpbMCID(TextualConvention,OctetString):status=_B;displayHint='1x';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(51,51));fixedLength=51
-class IEEE8021SpbBridgePriority(TextualConvention,OctetString):status=_B;displayHint='1x';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
-class IEEE8021SpbMTID(TextualConvention,Unsigned32):status=_B;displayHint='d'
-class IEEE8021SpbServiceIdentifierOrAny(TextualConvention,Unsigned32):status=_B;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(255,16777215))
-_Ieee8021SpbObjects_ObjectIdentity=ObjectIdentity
-ieee8021SpbObjects=_Ieee8021SpbObjects_ObjectIdentity((1,3,111,2,802,1,1,26,1))
-_Ieee8021SpbSys_ObjectIdentity=ObjectIdentity
-ieee8021SpbSys=_Ieee8021SpbSys_ObjectIdentity((1,3,111,2,802,1,1,26,1,1))
-_Ieee8021SpbSysAreaAddress_Type=IEEE8021SpbAreaAddress
-_Ieee8021SpbSysAreaAddress_Object=MibScalar
-ieee8021SpbSysAreaAddress=_Ieee8021SpbSysAreaAddress_Object((1,3,111,2,802,1,1,26,1,1,1),_Ieee8021SpbSysAreaAddress_Type())
-ieee8021SpbSysAreaAddress.setMaxAccess(_F)
-if mibBuilder.loadTexts:ieee8021SpbSysAreaAddress.setStatus(_B)
-_Ieee8021SpbSysId_Type=MacAddress
-_Ieee8021SpbSysId_Object=MibScalar
-ieee8021SpbSysId=_Ieee8021SpbSysId_Object((1,3,111,2,802,1,1,26,1,1,2),_Ieee8021SpbSysId_Type())
-ieee8021SpbSysId.setMaxAccess(_F)
-if mibBuilder.loadTexts:ieee8021SpbSysId.setStatus(_B)
-_Ieee8021SpbSysControlAddr_Type=MacAddress
-_Ieee8021SpbSysControlAddr_Object=MibScalar
-ieee8021SpbSysControlAddr=_Ieee8021SpbSysControlAddr_Object((1,3,111,2,802,1,1,26,1,1,3),_Ieee8021SpbSysControlAddr_Type())
-ieee8021SpbSysControlAddr.setMaxAccess(_F)
-if mibBuilder.loadTexts:ieee8021SpbSysControlAddr.setStatus(_B)
-class _Ieee8021SpbSysName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Ieee8021SpbSysName_Type.__name__=_I
-_Ieee8021SpbSysName_Object=MibScalar
-ieee8021SpbSysName=_Ieee8021SpbSysName_Object((1,3,111,2,802,1,1,26,1,1,4),_Ieee8021SpbSysName_Type())
-ieee8021SpbSysName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbSysName.setStatus(_B)
-_Ieee8021SpbSysBridgePriority_Type=IEEE8021SpbBridgePriority
-_Ieee8021SpbSysBridgePriority_Object=MibScalar
-ieee8021SpbSysBridgePriority=_Ieee8021SpbSysBridgePriority_Object((1,3,111,2,802,1,1,26,1,1,5),_Ieee8021SpbSysBridgePriority_Type())
-ieee8021SpbSysBridgePriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbSysBridgePriority.setStatus(_B)
-_Ieee8021SpbmSysSPSourceId_Type=IEEE8021SpbmSPsourceId
-_Ieee8021SpbmSysSPSourceId_Object=MibScalar
-ieee8021SpbmSysSPSourceId=_Ieee8021SpbmSysSPSourceId_Object((1,3,111,2,802,1,1,26,1,1,6),_Ieee8021SpbmSysSPSourceId_Type())
-ieee8021SpbmSysSPSourceId.setMaxAccess(_F)
-if mibBuilder.loadTexts:ieee8021SpbmSysSPSourceId.setStatus(_B)
-class _Ieee8021SpbvSysMode_Type(IEEE8021SpbMode):defaultValue=1
-_Ieee8021SpbvSysMode_Type.__name__=_r
-_Ieee8021SpbvSysMode_Object=MibScalar
-ieee8021SpbvSysMode=_Ieee8021SpbvSysMode_Object((1,3,111,2,802,1,1,26,1,1,7),_Ieee8021SpbvSysMode_Type())
-ieee8021SpbvSysMode.setMaxAccess(_F)
-if mibBuilder.loadTexts:ieee8021SpbvSysMode.setStatus(_B)
-class _Ieee8021SpbmSysMode_Type(IEEE8021SpbMode):defaultValue=1
-_Ieee8021SpbmSysMode_Type.__name__=_r
-_Ieee8021SpbmSysMode_Object=MibScalar
-ieee8021SpbmSysMode=_Ieee8021SpbmSysMode_Object((1,3,111,2,802,1,1,26,1,1,8),_Ieee8021SpbmSysMode_Type())
-ieee8021SpbmSysMode.setMaxAccess(_F)
-if mibBuilder.loadTexts:ieee8021SpbmSysMode.setStatus(_B)
-class _Ieee8021SpbSysDigestConvention_Type(IEEE8021SpbDigestConvention):defaultValue=2
-_Ieee8021SpbSysDigestConvention_Type.__name__=_AA
-_Ieee8021SpbSysDigestConvention_Object=MibScalar
-ieee8021SpbSysDigestConvention=_Ieee8021SpbSysDigestConvention_Object((1,3,111,2,802,1,1,26,1,1,9),_Ieee8021SpbSysDigestConvention_Type())
-ieee8021SpbSysDigestConvention.setMaxAccess(_F)
-if mibBuilder.loadTexts:ieee8021SpbSysDigestConvention.setStatus(_B)
-_Ieee8021SpbMtidStaticTable_Object=MibTable
-ieee8021SpbMtidStaticTable=_Ieee8021SpbMtidStaticTable_Object((1,3,111,2,802,1,1,26,1,2))
-if mibBuilder.loadTexts:ieee8021SpbMtidStaticTable.setStatus(_B)
-_Ieee8021SpbMtidStaticTableEntry_Object=MibTableRow
-ieee8021SpbMtidStaticTableEntry=_Ieee8021SpbMtidStaticTableEntry_Object((1,3,111,2,802,1,1,26,1,2,1))
-ieee8021SpbMtidStaticTableEntry.setIndexNames((0,_A,_AB),(0,_A,_s))
-if mibBuilder.loadTexts:ieee8021SpbMtidStaticTableEntry.setStatus(_B)
-_Ieee8021SpbMtidStaticEntryMtid_Type=IEEE8021SpbMTID
-_Ieee8021SpbMtidStaticEntryMtid_Object=MibTableColumn
-ieee8021SpbMtidStaticEntryMtid=_Ieee8021SpbMtidStaticEntryMtid_Object((1,3,111,2,802,1,1,26,1,2,1,1),_Ieee8021SpbMtidStaticEntryMtid_Type())
-ieee8021SpbMtidStaticEntryMtid.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbMtidStaticEntryMtid.setStatus(_B)
-class _Ieee8021SpbMTidStaticEntryMtidOverload_Type(TruthValue):defaultValue=2
-_Ieee8021SpbMTidStaticEntryMtidOverload_Type.__name__=_A9
-_Ieee8021SpbMTidStaticEntryMtidOverload_Object=MibTableColumn
-ieee8021SpbMTidStaticEntryMtidOverload=_Ieee8021SpbMTidStaticEntryMtidOverload_Object((1,3,111,2,802,1,1,26,1,2,1,2),_Ieee8021SpbMTidStaticEntryMtidOverload_Type())
-ieee8021SpbMTidStaticEntryMtidOverload.setMaxAccess(_E)
-if mibBuilder.loadTexts:ieee8021SpbMTidStaticEntryMtidOverload.setStatus(_B)
-_Ieee8021SpbMtidStaticEntryRowStatus_Type=RowStatus
-_Ieee8021SpbMtidStaticEntryRowStatus_Object=MibTableColumn
-ieee8021SpbMtidStaticEntryRowStatus=_Ieee8021SpbMtidStaticEntryRowStatus_Object((1,3,111,2,802,1,1,26,1,2,1,3),_Ieee8021SpbMtidStaticEntryRowStatus_Type())
-ieee8021SpbMtidStaticEntryRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ieee8021SpbMtidStaticEntryRowStatus.setStatus(_B)
-_Ieee8021SpbTopIx_Type=IEEE8021SpbMTID
-_Ieee8021SpbTopIx_Object=MibTableColumn
-ieee8021SpbTopIx=_Ieee8021SpbTopIx_Object((1,3,111,2,802,1,1,26,1,2,1,4),_Ieee8021SpbTopIx_Type())
-ieee8021SpbTopIx.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbTopIx.setStatus(_B)
-_Ieee8021SpbTopIxDynamicTable_Object=MibTable
-ieee8021SpbTopIxDynamicTable=_Ieee8021SpbTopIxDynamicTable_Object((1,3,111,2,802,1,1,26,1,3))
-if mibBuilder.loadTexts:ieee8021SpbTopIxDynamicTable.setStatus(_B)
-_Ieee8021SpbTopIxDynamicTableEntry_Object=MibTableRow
-ieee8021SpbTopIxDynamicTableEntry=_Ieee8021SpbTopIxDynamicTableEntry_Object((1,3,111,2,802,1,1,26,1,3,1))
-ieee8021SpbTopIxDynamicTableEntry.setIndexNames((0,_A,_AC))
-if mibBuilder.loadTexts:ieee8021SpbTopIxDynamicTableEntry.setStatus(_B)
-_Ieee8021SpbTopIxDynamicEntryTopIx_Type=IEEE8021SpbMTID
-_Ieee8021SpbTopIxDynamicEntryTopIx_Object=MibTableColumn
-ieee8021SpbTopIxDynamicEntryTopIx=_Ieee8021SpbTopIxDynamicEntryTopIx_Object((1,3,111,2,802,1,1,26,1,3,1,1),_Ieee8021SpbTopIxDynamicEntryTopIx_Type())
-ieee8021SpbTopIxDynamicEntryTopIx.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbTopIxDynamicEntryTopIx.setStatus(_B)
-_Ieee8021SpbTopIxDynamicEntryAgreeDigest_Type=IEEE8021SpbDigest
-_Ieee8021SpbTopIxDynamicEntryAgreeDigest_Object=MibTableColumn
-ieee8021SpbTopIxDynamicEntryAgreeDigest=_Ieee8021SpbTopIxDynamicEntryAgreeDigest_Object((1,3,111,2,802,1,1,26,1,3,1,2),_Ieee8021SpbTopIxDynamicEntryAgreeDigest_Type())
-ieee8021SpbTopIxDynamicEntryAgreeDigest.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbTopIxDynamicEntryAgreeDigest.setStatus(_B)
-_Ieee8021SpbTopIxDynamicEntryMCID_Type=IEEE8021SpbMCID
-_Ieee8021SpbTopIxDynamicEntryMCID_Object=MibTableColumn
-ieee8021SpbTopIxDynamicEntryMCID=_Ieee8021SpbTopIxDynamicEntryMCID_Object((1,3,111,2,802,1,1,26,1,3,1,3),_Ieee8021SpbTopIxDynamicEntryMCID_Type())
-ieee8021SpbTopIxDynamicEntryMCID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbTopIxDynamicEntryMCID.setStatus(_B)
-_Ieee8021SpbTopIxDynamicEntryAuxMCID_Type=IEEE8021SpbMCID
-_Ieee8021SpbTopIxDynamicEntryAuxMCID_Object=MibTableColumn
-ieee8021SpbTopIxDynamicEntryAuxMCID=_Ieee8021SpbTopIxDynamicEntryAuxMCID_Object((1,3,111,2,802,1,1,26,1,3,1,4),_Ieee8021SpbTopIxDynamicEntryAuxMCID_Type())
-ieee8021SpbTopIxDynamicEntryAuxMCID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbTopIxDynamicEntryAuxMCID.setStatus(_B)
-_Ieee8021SpbEctStaticTable_Object=MibTable
-ieee8021SpbEctStaticTable=_Ieee8021SpbEctStaticTable_Object((1,3,111,2,802,1,1,26,1,4))
-if mibBuilder.loadTexts:ieee8021SpbEctStaticTable.setStatus(_B)
-_Ieee8021SpbEctStaticTableEntry_Object=MibTableRow
-ieee8021SpbEctStaticTableEntry=_Ieee8021SpbEctStaticTableEntry_Object((1,3,111,2,802,1,1,26,1,4,1))
-ieee8021SpbEctStaticTableEntry.setIndexNames((0,_A,_AD),(0,_A,_AE))
-if mibBuilder.loadTexts:ieee8021SpbEctStaticTableEntry.setStatus(_B)
-_Ieee8021SpbEctStaticEntryTopIx_Type=IEEE8021SpbMTID
-_Ieee8021SpbEctStaticEntryTopIx_Object=MibTableColumn
-ieee8021SpbEctStaticEntryTopIx=_Ieee8021SpbEctStaticEntryTopIx_Object((1,3,111,2,802,1,1,26,1,4,1,1),_Ieee8021SpbEctStaticEntryTopIx_Type())
-ieee8021SpbEctStaticEntryTopIx.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbEctStaticEntryTopIx.setStatus(_B)
-_Ieee8021SpbEctStaticEntryBaseVid_Type=VlanIdOrAny
-_Ieee8021SpbEctStaticEntryBaseVid_Object=MibTableColumn
-ieee8021SpbEctStaticEntryBaseVid=_Ieee8021SpbEctStaticEntryBaseVid_Object((1,3,111,2,802,1,1,26,1,4,1,2),_Ieee8021SpbEctStaticEntryBaseVid_Type())
-ieee8021SpbEctStaticEntryBaseVid.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbEctStaticEntryBaseVid.setStatus(_B)
-_Ieee8021SpbEctStaticEntryEctAlgorithm_Type=IEEE8021SpbEctAlgorithm
-_Ieee8021SpbEctStaticEntryEctAlgorithm_Object=MibTableColumn
-ieee8021SpbEctStaticEntryEctAlgorithm=_Ieee8021SpbEctStaticEntryEctAlgorithm_Object((1,3,111,2,802,1,1,26,1,4,1,3),_Ieee8021SpbEctStaticEntryEctAlgorithm_Type())
-ieee8021SpbEctStaticEntryEctAlgorithm.setMaxAccess(_E)
-if mibBuilder.loadTexts:ieee8021SpbEctStaticEntryEctAlgorithm.setStatus(_B)
-_Ieee8021SpbvEctStaticEntrySpvid_Type=VlanIdOrNone
-_Ieee8021SpbvEctStaticEntrySpvid_Object=MibTableColumn
-ieee8021SpbvEctStaticEntrySpvid=_Ieee8021SpbvEctStaticEntrySpvid_Object((1,3,111,2,802,1,1,26,1,4,1,4),_Ieee8021SpbvEctStaticEntrySpvid_Type())
-ieee8021SpbvEctStaticEntrySpvid.setMaxAccess(_E)
-if mibBuilder.loadTexts:ieee8021SpbvEctStaticEntrySpvid.setStatus(_B)
-_Ieee8021SpbEctStaticEntryRowStatus_Type=RowStatus
-_Ieee8021SpbEctStaticEntryRowStatus_Object=MibTableColumn
-ieee8021SpbEctStaticEntryRowStatus=_Ieee8021SpbEctStaticEntryRowStatus_Object((1,3,111,2,802,1,1,26,1,4,1,5),_Ieee8021SpbEctStaticEntryRowStatus_Type())
-ieee8021SpbEctStaticEntryRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ieee8021SpbEctStaticEntryRowStatus.setStatus(_B)
-_Ieee8021SpbEctDynamicTable_Object=MibTable
-ieee8021SpbEctDynamicTable=_Ieee8021SpbEctDynamicTable_Object((1,3,111,2,802,1,1,26,1,5))
-if mibBuilder.loadTexts:ieee8021SpbEctDynamicTable.setStatus(_B)
-_Ieee8021SpbEctDynamicTableEntry_Object=MibTableRow
-ieee8021SpbEctDynamicTableEntry=_Ieee8021SpbEctDynamicTableEntry_Object((1,3,111,2,802,1,1,26,1,5,1))
-ieee8021SpbEctDynamicTableEntry.setIndexNames((0,_A,_AF),(0,_A,_AG))
-if mibBuilder.loadTexts:ieee8021SpbEctDynamicTableEntry.setStatus(_B)
-_Ieee8021SpbEctDynamicEntryTopIx_Type=IEEE8021SpbMTID
-_Ieee8021SpbEctDynamicEntryTopIx_Object=MibTableColumn
-ieee8021SpbEctDynamicEntryTopIx=_Ieee8021SpbEctDynamicEntryTopIx_Object((1,3,111,2,802,1,1,26,1,5,1,1),_Ieee8021SpbEctDynamicEntryTopIx_Type())
-ieee8021SpbEctDynamicEntryTopIx.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbEctDynamicEntryTopIx.setStatus(_B)
-_Ieee8021SpbEctDynamicEntryBaseVid_Type=VlanId
-_Ieee8021SpbEctDynamicEntryBaseVid_Object=MibTableColumn
-ieee8021SpbEctDynamicEntryBaseVid=_Ieee8021SpbEctDynamicEntryBaseVid_Object((1,3,111,2,802,1,1,26,1,5,1,2),_Ieee8021SpbEctDynamicEntryBaseVid_Type())
-ieee8021SpbEctDynamicEntryBaseVid.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbEctDynamicEntryBaseVid.setStatus(_B)
-_Ieee8021SpbEctDynamicEntryMode_Type=IEEE8021SpbEctMode
-_Ieee8021SpbEctDynamicEntryMode_Object=MibTableColumn
-ieee8021SpbEctDynamicEntryMode=_Ieee8021SpbEctDynamicEntryMode_Object((1,3,111,2,802,1,1,26,1,5,1,3),_Ieee8021SpbEctDynamicEntryMode_Type())
-ieee8021SpbEctDynamicEntryMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbEctDynamicEntryMode.setStatus(_B)
-_Ieee8021SpbEctDynamicEntryLocalUse_Type=TruthValue
-_Ieee8021SpbEctDynamicEntryLocalUse_Object=MibTableColumn
-ieee8021SpbEctDynamicEntryLocalUse=_Ieee8021SpbEctDynamicEntryLocalUse_Object((1,3,111,2,802,1,1,26,1,5,1,4),_Ieee8021SpbEctDynamicEntryLocalUse_Type())
-ieee8021SpbEctDynamicEntryLocalUse.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbEctDynamicEntryLocalUse.setStatus(_B)
-_Ieee8021SpbEctDynamicEntryRemoteUse_Type=TruthValue
-_Ieee8021SpbEctDynamicEntryRemoteUse_Object=MibTableColumn
-ieee8021SpbEctDynamicEntryRemoteUse=_Ieee8021SpbEctDynamicEntryRemoteUse_Object((1,3,111,2,802,1,1,26,1,5,1,5),_Ieee8021SpbEctDynamicEntryRemoteUse_Type())
-ieee8021SpbEctDynamicEntryRemoteUse.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbEctDynamicEntryRemoteUse.setStatus(_B)
-_Ieee8021SpbEctDynamicEntryIngressCheckDiscards_Type=Unsigned32
-_Ieee8021SpbEctDynamicEntryIngressCheckDiscards_Object=MibTableColumn
-ieee8021SpbEctDynamicEntryIngressCheckDiscards=_Ieee8021SpbEctDynamicEntryIngressCheckDiscards_Object((1,3,111,2,802,1,1,26,1,5,1,6),_Ieee8021SpbEctDynamicEntryIngressCheckDiscards_Type())
-ieee8021SpbEctDynamicEntryIngressCheckDiscards.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbEctDynamicEntryIngressCheckDiscards.setStatus(_B)
-_Ieee8021SpbAdjStaticTable_Object=MibTable
-ieee8021SpbAdjStaticTable=_Ieee8021SpbAdjStaticTable_Object((1,3,111,2,802,1,1,26,1,6))
-if mibBuilder.loadTexts:ieee8021SpbAdjStaticTable.setStatus(_B)
-_Ieee8021SpbAdjStaticTableEntry_Object=MibTableRow
-ieee8021SpbAdjStaticTableEntry=_Ieee8021SpbAdjStaticTableEntry_Object((1,3,111,2,802,1,1,26,1,6,1))
-ieee8021SpbAdjStaticTableEntry.setIndexNames((0,_A,_AH),(0,_A,_AI))
-if mibBuilder.loadTexts:ieee8021SpbAdjStaticTableEntry.setStatus(_B)
-_Ieee8021SpbAdjStaticEntryTopIx_Type=IEEE8021SpbMTID
-_Ieee8021SpbAdjStaticEntryTopIx_Object=MibTableColumn
-ieee8021SpbAdjStaticEntryTopIx=_Ieee8021SpbAdjStaticEntryTopIx_Object((1,3,111,2,802,1,1,26,1,6,1,1),_Ieee8021SpbAdjStaticEntryTopIx_Type())
-ieee8021SpbAdjStaticEntryTopIx.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbAdjStaticEntryTopIx.setStatus(_B)
-_Ieee8021SpbAdjStaticEntryIfIndex_Type=InterfaceIndexOrZero
-_Ieee8021SpbAdjStaticEntryIfIndex_Object=MibTableColumn
-ieee8021SpbAdjStaticEntryIfIndex=_Ieee8021SpbAdjStaticEntryIfIndex_Object((1,3,111,2,802,1,1,26,1,6,1,2),_Ieee8021SpbAdjStaticEntryIfIndex_Type())
-ieee8021SpbAdjStaticEntryIfIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbAdjStaticEntryIfIndex.setStatus(_B)
-_Ieee8021SpbAdjStaticEntryMetric_Type=IEEE8021SpbLinkMetric
-_Ieee8021SpbAdjStaticEntryMetric_Object=MibTableColumn
-ieee8021SpbAdjStaticEntryMetric=_Ieee8021SpbAdjStaticEntryMetric_Object((1,3,111,2,802,1,1,26,1,6,1,3),_Ieee8021SpbAdjStaticEntryMetric_Type())
-ieee8021SpbAdjStaticEntryMetric.setMaxAccess(_E)
-if mibBuilder.loadTexts:ieee8021SpbAdjStaticEntryMetric.setStatus(_B)
-_Ieee8021SpbAdjStaticEntryIfAdminState_Type=IEEE8021SpbAdjState
-_Ieee8021SpbAdjStaticEntryIfAdminState_Object=MibTableColumn
-ieee8021SpbAdjStaticEntryIfAdminState=_Ieee8021SpbAdjStaticEntryIfAdminState_Object((1,3,111,2,802,1,1,26,1,6,1,4),_Ieee8021SpbAdjStaticEntryIfAdminState_Type())
-ieee8021SpbAdjStaticEntryIfAdminState.setMaxAccess(_E)
-if mibBuilder.loadTexts:ieee8021SpbAdjStaticEntryIfAdminState.setStatus(_B)
-_Ieee8021SpbAdjStaticEntryRowStatus_Type=RowStatus
-_Ieee8021SpbAdjStaticEntryRowStatus_Object=MibTableColumn
-ieee8021SpbAdjStaticEntryRowStatus=_Ieee8021SpbAdjStaticEntryRowStatus_Object((1,3,111,2,802,1,1,26,1,6,1,5),_Ieee8021SpbAdjStaticEntryRowStatus_Type())
-ieee8021SpbAdjStaticEntryRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ieee8021SpbAdjStaticEntryRowStatus.setStatus(_B)
-_Ieee8021SpbAdjDynamicTable_Object=MibTable
-ieee8021SpbAdjDynamicTable=_Ieee8021SpbAdjDynamicTable_Object((1,3,111,2,802,1,1,26,1,7))
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicTable.setStatus(_B)
-_Ieee8021SpbAdjDynamicTableEntry_Object=MibTableRow
-ieee8021SpbAdjDynamicTableEntry=_Ieee8021SpbAdjDynamicTableEntry_Object((1,3,111,2,802,1,1,26,1,7,1))
-ieee8021SpbAdjDynamicTableEntry.setIndexNames((0,_A,_AJ),(0,_A,_AK),(0,_A,_AL))
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicTableEntry.setStatus(_B)
-_Ieee8021SpbAdjDynamicEntryTopIx_Type=IEEE8021SpbMTID
-_Ieee8021SpbAdjDynamicEntryTopIx_Object=MibTableColumn
-ieee8021SpbAdjDynamicEntryTopIx=_Ieee8021SpbAdjDynamicEntryTopIx_Object((1,3,111,2,802,1,1,26,1,7,1,1),_Ieee8021SpbAdjDynamicEntryTopIx_Type())
-ieee8021SpbAdjDynamicEntryTopIx.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicEntryTopIx.setStatus(_B)
-_Ieee8021SpbAdjDynamicEntryIfIndex_Type=InterfaceIndexOrZero
-_Ieee8021SpbAdjDynamicEntryIfIndex_Object=MibTableColumn
-ieee8021SpbAdjDynamicEntryIfIndex=_Ieee8021SpbAdjDynamicEntryIfIndex_Object((1,3,111,2,802,1,1,26,1,7,1,2),_Ieee8021SpbAdjDynamicEntryIfIndex_Type())
-ieee8021SpbAdjDynamicEntryIfIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicEntryIfIndex.setStatus(_B)
-_Ieee8021SpbAdjDynamicEntryPeerSysId_Type=MacAddress
-_Ieee8021SpbAdjDynamicEntryPeerSysId_Object=MibTableColumn
-ieee8021SpbAdjDynamicEntryPeerSysId=_Ieee8021SpbAdjDynamicEntryPeerSysId_Object((1,3,111,2,802,1,1,26,1,7,1,3),_Ieee8021SpbAdjDynamicEntryPeerSysId_Type())
-ieee8021SpbAdjDynamicEntryPeerSysId.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicEntryPeerSysId.setStatus(_B)
-_Ieee8021SpbAdjDynamicEntryPort_Type=IEEE8021BridgePortNumber
-_Ieee8021SpbAdjDynamicEntryPort_Object=MibTableColumn
-ieee8021SpbAdjDynamicEntryPort=_Ieee8021SpbAdjDynamicEntryPort_Object((1,3,111,2,802,1,1,26,1,7,1,4),_Ieee8021SpbAdjDynamicEntryPort_Type())
-ieee8021SpbAdjDynamicEntryPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicEntryPort.setStatus(_B)
-_Ieee8021SpbAdjDynamicEntryIfOperState_Type=IEEE8021SpbAdjState
-_Ieee8021SpbAdjDynamicEntryIfOperState_Object=MibTableColumn
-ieee8021SpbAdjDynamicEntryIfOperState=_Ieee8021SpbAdjDynamicEntryIfOperState_Object((1,3,111,2,802,1,1,26,1,7,1,5),_Ieee8021SpbAdjDynamicEntryIfOperState_Type())
-ieee8021SpbAdjDynamicEntryIfOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicEntryIfOperState.setStatus(_B)
-class _Ieee8021SpbAdjDynamicEntryPeerSysName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Ieee8021SpbAdjDynamicEntryPeerSysName_Type.__name__=_I
-_Ieee8021SpbAdjDynamicEntryPeerSysName_Object=MibTableColumn
-ieee8021SpbAdjDynamicEntryPeerSysName=_Ieee8021SpbAdjDynamicEntryPeerSysName_Object((1,3,111,2,802,1,1,26,1,7,1,6),_Ieee8021SpbAdjDynamicEntryPeerSysName_Type())
-ieee8021SpbAdjDynamicEntryPeerSysName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicEntryPeerSysName.setStatus(_B)
-_Ieee8021SpbAdjDynamicEntryPeerAgreeDigest_Type=IEEE8021SpbDigest
-_Ieee8021SpbAdjDynamicEntryPeerAgreeDigest_Object=MibTableColumn
-ieee8021SpbAdjDynamicEntryPeerAgreeDigest=_Ieee8021SpbAdjDynamicEntryPeerAgreeDigest_Object((1,3,111,2,802,1,1,26,1,7,1,7),_Ieee8021SpbAdjDynamicEntryPeerAgreeDigest_Type())
-ieee8021SpbAdjDynamicEntryPeerAgreeDigest.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicEntryPeerAgreeDigest.setStatus(_B)
-_Ieee8021SpbAdjDynamicEntryPeerMCID_Type=IEEE8021SpbMCID
-_Ieee8021SpbAdjDynamicEntryPeerMCID_Object=MibTableColumn
-ieee8021SpbAdjDynamicEntryPeerMCID=_Ieee8021SpbAdjDynamicEntryPeerMCID_Object((1,3,111,2,802,1,1,26,1,7,1,8),_Ieee8021SpbAdjDynamicEntryPeerMCID_Type())
-ieee8021SpbAdjDynamicEntryPeerMCID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicEntryPeerMCID.setStatus(_B)
-_Ieee8021SpbAdjDynamicEntryPeerAuxMCID_Type=IEEE8021SpbMCID
-_Ieee8021SpbAdjDynamicEntryPeerAuxMCID_Object=MibTableColumn
-ieee8021SpbAdjDynamicEntryPeerAuxMCID=_Ieee8021SpbAdjDynamicEntryPeerAuxMCID_Object((1,3,111,2,802,1,1,26,1,7,1,9),_Ieee8021SpbAdjDynamicEntryPeerAuxMCID_Type())
-ieee8021SpbAdjDynamicEntryPeerAuxMCID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicEntryPeerAuxMCID.setStatus(_B)
-_Ieee8021SpbAdjDynamicEntryLocalCircuitID_Type=Unsigned32
-_Ieee8021SpbAdjDynamicEntryLocalCircuitID_Object=MibTableColumn
-ieee8021SpbAdjDynamicEntryLocalCircuitID=_Ieee8021SpbAdjDynamicEntryLocalCircuitID_Object((1,3,111,2,802,1,1,26,1,7,1,10),_Ieee8021SpbAdjDynamicEntryLocalCircuitID_Type())
-ieee8021SpbAdjDynamicEntryLocalCircuitID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicEntryLocalCircuitID.setStatus(_B)
-_Ieee8021SpbAdjDynamicEntryPeerLocalCircuitID_Type=Unsigned32
-_Ieee8021SpbAdjDynamicEntryPeerLocalCircuitID_Object=MibTableColumn
-ieee8021SpbAdjDynamicEntryPeerLocalCircuitID=_Ieee8021SpbAdjDynamicEntryPeerLocalCircuitID_Object((1,3,111,2,802,1,1,26,1,7,1,11),_Ieee8021SpbAdjDynamicEntryPeerLocalCircuitID_Type())
-ieee8021SpbAdjDynamicEntryPeerLocalCircuitID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicEntryPeerLocalCircuitID.setStatus(_B)
-_Ieee8021SpbAdjDynamicEntryPortIdentifier_Type=Unsigned32
-_Ieee8021SpbAdjDynamicEntryPortIdentifier_Object=MibTableColumn
-ieee8021SpbAdjDynamicEntryPortIdentifier=_Ieee8021SpbAdjDynamicEntryPortIdentifier_Object((1,3,111,2,802,1,1,26,1,7,1,12),_Ieee8021SpbAdjDynamicEntryPortIdentifier_Type())
-ieee8021SpbAdjDynamicEntryPortIdentifier.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicEntryPortIdentifier.setStatus(_B)
-_Ieee8021SpbAdjDynamicEntryPeerPortIdentifier_Type=Unsigned32
-_Ieee8021SpbAdjDynamicEntryPeerPortIdentifier_Object=MibTableColumn
-ieee8021SpbAdjDynamicEntryPeerPortIdentifier=_Ieee8021SpbAdjDynamicEntryPeerPortIdentifier_Object((1,3,111,2,802,1,1,26,1,7,1,13),_Ieee8021SpbAdjDynamicEntryPeerPortIdentifier_Type())
-ieee8021SpbAdjDynamicEntryPeerPortIdentifier.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicEntryPeerPortIdentifier.setStatus(_B)
-_Ieee8021SpbAdjDynamicEntryIsisCircIndex_Type=Unsigned32
-_Ieee8021SpbAdjDynamicEntryIsisCircIndex_Object=MibTableColumn
-ieee8021SpbAdjDynamicEntryIsisCircIndex=_Ieee8021SpbAdjDynamicEntryIsisCircIndex_Object((1,3,111,2,802,1,1,26,1,7,1,14),_Ieee8021SpbAdjDynamicEntryIsisCircIndex_Type())
-ieee8021SpbAdjDynamicEntryIsisCircIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicEntryIsisCircIndex.setStatus(_B)
-_Ieee8021SpbTopNodeTable_Object=MibTable
-ieee8021SpbTopNodeTable=_Ieee8021SpbTopNodeTable_Object((1,3,111,2,802,1,1,26,1,8))
-if mibBuilder.loadTexts:ieee8021SpbTopNodeTable.setStatus(_B)
-_Ieee8021SpbTopNodeTableEntry_Object=MibTableRow
-ieee8021SpbTopNodeTableEntry=_Ieee8021SpbTopNodeTableEntry_Object((1,3,111,2,802,1,1,26,1,8,1))
-ieee8021SpbTopNodeTableEntry.setIndexNames((0,_A,_AM),(0,_A,_AN))
-if mibBuilder.loadTexts:ieee8021SpbTopNodeTableEntry.setStatus(_B)
-_Ieee8021SpbTopNodeEntryTopIx_Type=IEEE8021SpbMTID
-_Ieee8021SpbTopNodeEntryTopIx_Object=MibTableColumn
-ieee8021SpbTopNodeEntryTopIx=_Ieee8021SpbTopNodeEntryTopIx_Object((1,3,111,2,802,1,1,26,1,8,1,1),_Ieee8021SpbTopNodeEntryTopIx_Type())
-ieee8021SpbTopNodeEntryTopIx.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbTopNodeEntryTopIx.setStatus(_B)
-_Ieee8021SpbTopNodeEntrySysId_Type=MacAddress
-_Ieee8021SpbTopNodeEntrySysId_Object=MibTableColumn
-ieee8021SpbTopNodeEntrySysId=_Ieee8021SpbTopNodeEntrySysId_Object((1,3,111,2,802,1,1,26,1,8,1,2),_Ieee8021SpbTopNodeEntrySysId_Type())
-ieee8021SpbTopNodeEntrySysId.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbTopNodeEntrySysId.setStatus(_B)
-_Ieee8021SpbTopNodeEntryBridgePriority_Type=IEEE8021SpbBridgePriority
-_Ieee8021SpbTopNodeEntryBridgePriority_Object=MibTableColumn
-ieee8021SpbTopNodeEntryBridgePriority=_Ieee8021SpbTopNodeEntryBridgePriority_Object((1,3,111,2,802,1,1,26,1,8,1,3),_Ieee8021SpbTopNodeEntryBridgePriority_Type())
-ieee8021SpbTopNodeEntryBridgePriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbTopNodeEntryBridgePriority.setStatus(_B)
-_Ieee8021SpbmTopNodeEntrySPsourceID_Type=IEEE8021SpbmSPsourceId
-_Ieee8021SpbmTopNodeEntrySPsourceID_Object=MibTableColumn
-ieee8021SpbmTopNodeEntrySPsourceID=_Ieee8021SpbmTopNodeEntrySPsourceID_Object((1,3,111,2,802,1,1,26,1,8,1,4),_Ieee8021SpbmTopNodeEntrySPsourceID_Type())
-ieee8021SpbmTopNodeEntrySPsourceID.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbmTopNodeEntrySPsourceID.setStatus(_B)
-class _Ieee8021SpbTopNodeEntrySysName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-_Ieee8021SpbTopNodeEntrySysName_Type.__name__=_I
-_Ieee8021SpbTopNodeEntrySysName_Object=MibTableColumn
-ieee8021SpbTopNodeEntrySysName=_Ieee8021SpbTopNodeEntrySysName_Object((1,3,111,2,802,1,1,26,1,8,1,5),_Ieee8021SpbTopNodeEntrySysName_Type())
-ieee8021SpbTopNodeEntrySysName.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbTopNodeEntrySysName.setStatus(_B)
-_Ieee8021SpbTopEctTable_Object=MibTable
-ieee8021SpbTopEctTable=_Ieee8021SpbTopEctTable_Object((1,3,111,2,802,1,1,26,1,9))
-if mibBuilder.loadTexts:ieee8021SpbTopEctTable.setStatus(_B)
-_Ieee8021SpbTopEctTableEntry_Object=MibTableRow
-ieee8021SpbTopEctTableEntry=_Ieee8021SpbTopEctTableEntry_Object((1,3,111,2,802,1,1,26,1,9,1))
-ieee8021SpbTopEctTableEntry.setIndexNames((0,_A,_AO),(0,_A,_AP),(0,_A,_AQ))
-if mibBuilder.loadTexts:ieee8021SpbTopEctTableEntry.setStatus(_B)
-_Ieee8021SpbTopEctEntryTopIx_Type=IEEE8021SpbMTID
-_Ieee8021SpbTopEctEntryTopIx_Object=MibTableColumn
-ieee8021SpbTopEctEntryTopIx=_Ieee8021SpbTopEctEntryTopIx_Object((1,3,111,2,802,1,1,26,1,9,1,1),_Ieee8021SpbTopEctEntryTopIx_Type())
-ieee8021SpbTopEctEntryTopIx.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbTopEctEntryTopIx.setStatus(_B)
-_Ieee8021SpbTopEctEntrySysId_Type=MacAddress
-_Ieee8021SpbTopEctEntrySysId_Object=MibTableColumn
-ieee8021SpbTopEctEntrySysId=_Ieee8021SpbTopEctEntrySysId_Object((1,3,111,2,802,1,1,26,1,9,1,2),_Ieee8021SpbTopEctEntrySysId_Type())
-ieee8021SpbTopEctEntrySysId.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbTopEctEntrySysId.setStatus(_B)
-_Ieee8021SpbTopEctEntryBaseVid_Type=VlanIdOrAny
-_Ieee8021SpbTopEctEntryBaseVid_Object=MibTableColumn
-ieee8021SpbTopEctEntryBaseVid=_Ieee8021SpbTopEctEntryBaseVid_Object((1,3,111,2,802,1,1,26,1,9,1,3),_Ieee8021SpbTopEctEntryBaseVid_Type())
-ieee8021SpbTopEctEntryBaseVid.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbTopEctEntryBaseVid.setStatus(_B)
-_Ieee8021SpbTopEctEntryEctAlgorithm_Type=IEEE8021SpbEctAlgorithm
-_Ieee8021SpbTopEctEntryEctAlgorithm_Object=MibTableColumn
-ieee8021SpbTopEctEntryEctAlgorithm=_Ieee8021SpbTopEctEntryEctAlgorithm_Object((1,3,111,2,802,1,1,26,1,9,1,4),_Ieee8021SpbTopEctEntryEctAlgorithm_Type())
-ieee8021SpbTopEctEntryEctAlgorithm.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbTopEctEntryEctAlgorithm.setStatus(_B)
-_Ieee8021SpbTopEctEntryMode_Type=IEEE8021SpbEctMode
-_Ieee8021SpbTopEctEntryMode_Object=MibTableColumn
-ieee8021SpbTopEctEntryMode=_Ieee8021SpbTopEctEntryMode_Object((1,3,111,2,802,1,1,26,1,9,1,5),_Ieee8021SpbTopEctEntryMode_Type())
-ieee8021SpbTopEctEntryMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbTopEctEntryMode.setStatus(_B)
-_Ieee8021SpbvTopEctSysMode_Type=IEEE8021SpbMode
-_Ieee8021SpbvTopEctSysMode_Object=MibTableColumn
-ieee8021SpbvTopEctSysMode=_Ieee8021SpbvTopEctSysMode_Object((1,3,111,2,802,1,1,26,1,9,1,6),_Ieee8021SpbvTopEctSysMode_Type())
-ieee8021SpbvTopEctSysMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbvTopEctSysMode.setStatus(_B)
-_Ieee8021SpbvTopEctEntrySpvid_Type=VlanIdOrNone
-_Ieee8021SpbvTopEctEntrySpvid_Object=MibTableColumn
-ieee8021SpbvTopEctEntrySpvid=_Ieee8021SpbvTopEctEntrySpvid_Object((1,3,111,2,802,1,1,26,1,9,1,7),_Ieee8021SpbvTopEctEntrySpvid_Type())
-ieee8021SpbvTopEctEntrySpvid.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbvTopEctEntrySpvid.setStatus(_B)
-_Ieee8021SpbTopEctEntryLocalUse_Type=TruthValue
-_Ieee8021SpbTopEctEntryLocalUse_Object=MibTableColumn
-ieee8021SpbTopEctEntryLocalUse=_Ieee8021SpbTopEctEntryLocalUse_Object((1,3,111,2,802,1,1,26,1,9,1,8),_Ieee8021SpbTopEctEntryLocalUse_Type())
-ieee8021SpbTopEctEntryLocalUse.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbTopEctEntryLocalUse.setStatus(_B)
-_Ieee8021SpbTopEdgeTable_Object=MibTable
-ieee8021SpbTopEdgeTable=_Ieee8021SpbTopEdgeTable_Object((1,3,111,2,802,1,1,26,1,10))
-if mibBuilder.loadTexts:ieee8021SpbTopEdgeTable.setStatus(_B)
-_Ieee8021SpbTopEdgeTableEntry_Object=MibTableRow
-ieee8021SpbTopEdgeTableEntry=_Ieee8021SpbTopEdgeTableEntry_Object((1,3,111,2,802,1,1,26,1,10,1))
-ieee8021SpbTopEdgeTableEntry.setIndexNames((0,_A,_AR),(0,_A,_AS),(0,_A,_AT))
-if mibBuilder.loadTexts:ieee8021SpbTopEdgeTableEntry.setStatus(_B)
-_Ieee8021SpbTopEdgeEntryTopIx_Type=IEEE8021SpbMTID
-_Ieee8021SpbTopEdgeEntryTopIx_Object=MibTableColumn
-ieee8021SpbTopEdgeEntryTopIx=_Ieee8021SpbTopEdgeEntryTopIx_Object((1,3,111,2,802,1,1,26,1,10,1,1),_Ieee8021SpbTopEdgeEntryTopIx_Type())
-ieee8021SpbTopEdgeEntryTopIx.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbTopEdgeEntryTopIx.setStatus(_B)
-_Ieee8021SpbTopEdgeEntrySysIdNear_Type=MacAddress
-_Ieee8021SpbTopEdgeEntrySysIdNear_Object=MibTableColumn
-ieee8021SpbTopEdgeEntrySysIdNear=_Ieee8021SpbTopEdgeEntrySysIdNear_Object((1,3,111,2,802,1,1,26,1,10,1,2),_Ieee8021SpbTopEdgeEntrySysIdNear_Type())
-ieee8021SpbTopEdgeEntrySysIdNear.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbTopEdgeEntrySysIdNear.setStatus(_B)
-_Ieee8021SpbTopEdgeEntrySysIdFar_Type=MacAddress
-_Ieee8021SpbTopEdgeEntrySysIdFar_Object=MibTableColumn
-ieee8021SpbTopEdgeEntrySysIdFar=_Ieee8021SpbTopEdgeEntrySysIdFar_Object((1,3,111,2,802,1,1,26,1,10,1,3),_Ieee8021SpbTopEdgeEntrySysIdFar_Type())
-ieee8021SpbTopEdgeEntrySysIdFar.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbTopEdgeEntrySysIdFar.setStatus(_B)
-_Ieee8021SpbTopEdgeEntryMetricNear2Far_Type=IEEE8021SpbLinkMetric
-_Ieee8021SpbTopEdgeEntryMetricNear2Far_Object=MibTableColumn
-ieee8021SpbTopEdgeEntryMetricNear2Far=_Ieee8021SpbTopEdgeEntryMetricNear2Far_Object((1,3,111,2,802,1,1,26,1,10,1,4),_Ieee8021SpbTopEdgeEntryMetricNear2Far_Type())
-ieee8021SpbTopEdgeEntryMetricNear2Far.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbTopEdgeEntryMetricNear2Far.setStatus(_B)
-_Ieee8021SpbTopEdgeEntryMetricFar2Near_Type=IEEE8021SpbLinkMetric
-_Ieee8021SpbTopEdgeEntryMetricFar2Near_Object=MibTableColumn
-ieee8021SpbTopEdgeEntryMetricFar2Near=_Ieee8021SpbTopEdgeEntryMetricFar2Near_Object((1,3,111,2,802,1,1,26,1,10,1,5),_Ieee8021SpbTopEdgeEntryMetricFar2Near_Type())
-ieee8021SpbTopEdgeEntryMetricFar2Near.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbTopEdgeEntryMetricFar2Near.setStatus(_B)
-_Ieee8021SpbmTopSrvTable_Object=MibTable
-ieee8021SpbmTopSrvTable=_Ieee8021SpbmTopSrvTable_Object((1,3,111,2,802,1,1,26,1,11))
-if mibBuilder.loadTexts:ieee8021SpbmTopSrvTable.setStatus(_B)
-_Ieee8021SpbmTopSrvTableEntry_Object=MibTableRow
-ieee8021SpbmTopSrvTableEntry=_Ieee8021SpbmTopSrvTableEntry_Object((1,3,111,2,802,1,1,26,1,11,1))
-ieee8021SpbmTopSrvTableEntry.setIndexNames((0,_A,_AU),(0,_A,_AV),(0,_A,_AW),(0,_A,_AX),(0,_A,_AY))
-if mibBuilder.loadTexts:ieee8021SpbmTopSrvTableEntry.setStatus(_B)
-_Ieee8021SpbmTopSrvEntryTopIx_Type=IEEE8021SpbMTID
-_Ieee8021SpbmTopSrvEntryTopIx_Object=MibTableColumn
-ieee8021SpbmTopSrvEntryTopIx=_Ieee8021SpbmTopSrvEntryTopIx_Object((1,3,111,2,802,1,1,26,1,11,1,1),_Ieee8021SpbmTopSrvEntryTopIx_Type())
-ieee8021SpbmTopSrvEntryTopIx.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbmTopSrvEntryTopIx.setStatus(_B)
-_Ieee8021SpbmTopSrvEntrySysId_Type=MacAddress
-_Ieee8021SpbmTopSrvEntrySysId_Object=MibTableColumn
-ieee8021SpbmTopSrvEntrySysId=_Ieee8021SpbmTopSrvEntrySysId_Object((1,3,111,2,802,1,1,26,1,11,1,2),_Ieee8021SpbmTopSrvEntrySysId_Type())
-ieee8021SpbmTopSrvEntrySysId.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbmTopSrvEntrySysId.setStatus(_B)
-_Ieee8021SpbmTopSrvEntryIsid_Type=IEEE8021SpbServiceIdentifierOrAny
-_Ieee8021SpbmTopSrvEntryIsid_Object=MibTableColumn
-ieee8021SpbmTopSrvEntryIsid=_Ieee8021SpbmTopSrvEntryIsid_Object((1,3,111,2,802,1,1,26,1,11,1,3),_Ieee8021SpbmTopSrvEntryIsid_Type())
-ieee8021SpbmTopSrvEntryIsid.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbmTopSrvEntryIsid.setStatus(_B)
-_Ieee8021SpbmTopSrvEntryBaseVid_Type=VlanIdOrAny
-_Ieee8021SpbmTopSrvEntryBaseVid_Object=MibTableColumn
-ieee8021SpbmTopSrvEntryBaseVid=_Ieee8021SpbmTopSrvEntryBaseVid_Object((1,3,111,2,802,1,1,26,1,11,1,4),_Ieee8021SpbmTopSrvEntryBaseVid_Type())
-ieee8021SpbmTopSrvEntryBaseVid.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbmTopSrvEntryBaseVid.setStatus(_B)
-_Ieee8021SpbmTopSrvEntryMac_Type=MacAddress
-_Ieee8021SpbmTopSrvEntryMac_Object=MibTableColumn
-ieee8021SpbmTopSrvEntryMac=_Ieee8021SpbmTopSrvEntryMac_Object((1,3,111,2,802,1,1,26,1,11,1,5),_Ieee8021SpbmTopSrvEntryMac_Type())
-ieee8021SpbmTopSrvEntryMac.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbmTopSrvEntryMac.setStatus(_B)
-_Ieee8021SpbmTopSrvEntryIsidFlags_Type=IEEE8021PbbIngressEgress
-_Ieee8021SpbmTopSrvEntryIsidFlags_Object=MibTableColumn
-ieee8021SpbmTopSrvEntryIsidFlags=_Ieee8021SpbmTopSrvEntryIsidFlags_Object((1,3,111,2,802,1,1,26,1,11,1,6),_Ieee8021SpbmTopSrvEntryIsidFlags_Type())
-ieee8021SpbmTopSrvEntryIsidFlags.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbmTopSrvEntryIsidFlags.setStatus(_B)
-_Ieee8021SpbvTopSrvTable_Object=MibTable
-ieee8021SpbvTopSrvTable=_Ieee8021SpbvTopSrvTable_Object((1,3,111,2,802,1,1,26,1,12))
-if mibBuilder.loadTexts:ieee8021SpbvTopSrvTable.setStatus(_B)
-_Ieee8021SpbvTopSrvTableEntry_Object=MibTableRow
-ieee8021SpbvTopSrvTableEntry=_Ieee8021SpbvTopSrvTableEntry_Object((1,3,111,2,802,1,1,26,1,12,1))
-ieee8021SpbvTopSrvTableEntry.setIndexNames((0,_A,_AZ),(0,_A,_Aa),(0,_A,_Ab))
-if mibBuilder.loadTexts:ieee8021SpbvTopSrvTableEntry.setStatus(_B)
-_Ieee8021SpbvTopSrvEntryTopIx_Type=IEEE8021SpbMTID
-_Ieee8021SpbvTopSrvEntryTopIx_Object=MibTableColumn
-ieee8021SpbvTopSrvEntryTopIx=_Ieee8021SpbvTopSrvEntryTopIx_Object((1,3,111,2,802,1,1,26,1,12,1,1),_Ieee8021SpbvTopSrvEntryTopIx_Type())
-ieee8021SpbvTopSrvEntryTopIx.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbvTopSrvEntryTopIx.setStatus(_B)
-_Ieee8021SpbvTopSrvEntrySysId_Type=MacAddress
-_Ieee8021SpbvTopSrvEntrySysId_Object=MibTableColumn
-ieee8021SpbvTopSrvEntrySysId=_Ieee8021SpbvTopSrvEntrySysId_Object((1,3,111,2,802,1,1,26,1,12,1,2),_Ieee8021SpbvTopSrvEntrySysId_Type())
-ieee8021SpbvTopSrvEntrySysId.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbvTopSrvEntrySysId.setStatus(_B)
-_Ieee8021SpbvTopSrvEntryMMac_Type=MacAddress
-_Ieee8021SpbvTopSrvEntryMMac_Object=MibTableColumn
-ieee8021SpbvTopSrvEntryMMac=_Ieee8021SpbvTopSrvEntryMMac_Object((1,3,111,2,802,1,1,26,1,12,1,3),_Ieee8021SpbvTopSrvEntryMMac_Type())
-ieee8021SpbvTopSrvEntryMMac.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbvTopSrvEntryMMac.setStatus(_B)
-_Ieee8021SpbvTopSrvEntryBaseVid_Type=VlanId
-_Ieee8021SpbvTopSrvEntryBaseVid_Object=MibTableColumn
-ieee8021SpbvTopSrvEntryBaseVid=_Ieee8021SpbvTopSrvEntryBaseVid_Object((1,3,111,2,802,1,1,26,1,12,1,4),_Ieee8021SpbvTopSrvEntryBaseVid_Type())
-ieee8021SpbvTopSrvEntryBaseVid.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbvTopSrvEntryBaseVid.setStatus(_B)
-_Ieee8021SpbvTopSrvEntryMMacFlags_Type=IEEE8021PbbIngressEgress
-_Ieee8021SpbvTopSrvEntryMMacFlags_Object=MibTableColumn
-ieee8021SpbvTopSrvEntryMMacFlags=_Ieee8021SpbvTopSrvEntryMMacFlags_Object((1,3,111,2,802,1,1,26,1,12,1,5),_Ieee8021SpbvTopSrvEntryMMacFlags_Type())
-ieee8021SpbvTopSrvEntryMMacFlags.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021SpbvTopSrvEntryMMacFlags.setStatus(_B)
-_Ieee8021SpbmBsiStaticTable_Object=MibTable
-ieee8021SpbmBsiStaticTable=_Ieee8021SpbmBsiStaticTable_Object((1,3,111,2,802,1,1,26,1,13))
-if mibBuilder.loadTexts:ieee8021SpbmBsiStaticTable.setStatus(_B)
-_Ieee8021SpbmBsiStaticEntry_Object=MibTableRow
-ieee8021SpbmBsiStaticEntry=_Ieee8021SpbmBsiStaticEntry_Object((1,3,111,2,802,1,1,26,1,13,1))
-ieee8021SpbmBsiStaticEntry.setIndexNames((0,_A,_s),(0,_A3,_A4),(0,_A,_Ac),(0,_A,_Ad))
-if mibBuilder.loadTexts:ieee8021SpbmBsiStaticEntry.setStatus(_B)
-_Ieee8021SpbmBsiStaticEntryIsid_Type=IEEE8021PbbServiceIdentifier
-_Ieee8021SpbmBsiStaticEntryIsid_Object=MibTableColumn
-ieee8021SpbmBsiStaticEntryIsid=_Ieee8021SpbmBsiStaticEntryIsid_Object((1,3,111,2,802,1,1,26,1,13,1,1),_Ieee8021SpbmBsiStaticEntryIsid_Type())
-ieee8021SpbmBsiStaticEntryIsid.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbmBsiStaticEntryIsid.setStatus(_B)
-_Ieee8021SpbmBsiStaticEntryBaseVid_Type=VlanId
-_Ieee8021SpbmBsiStaticEntryBaseVid_Object=MibTableColumn
-ieee8021SpbmBsiStaticEntryBaseVid=_Ieee8021SpbmBsiStaticEntryBaseVid_Object((1,3,111,2,802,1,1,26,1,13,1,2),_Ieee8021SpbmBsiStaticEntryBaseVid_Type())
-ieee8021SpbmBsiStaticEntryBaseVid.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021SpbmBsiStaticEntryBaseVid.setStatus(_B)
-_Ieee8021SpbmBsiStaticEntryTBit_Type=TruthValue
-_Ieee8021SpbmBsiStaticEntryTBit_Object=MibTableColumn
-ieee8021SpbmBsiStaticEntryTBit=_Ieee8021SpbmBsiStaticEntryTBit_Object((1,3,111,2,802,1,1,26,1,13,1,3),_Ieee8021SpbmBsiStaticEntryTBit_Type())
-ieee8021SpbmBsiStaticEntryTBit.setMaxAccess(_E)
-if mibBuilder.loadTexts:ieee8021SpbmBsiStaticEntryTBit.setStatus(_B)
-_Ieee8021SpbmBsiStaticEntryRBit_Type=TruthValue
-_Ieee8021SpbmBsiStaticEntryRBit_Object=MibTableColumn
-ieee8021SpbmBsiStaticEntryRBit=_Ieee8021SpbmBsiStaticEntryRBit_Object((1,3,111,2,802,1,1,26,1,13,1,4),_Ieee8021SpbmBsiStaticEntryRBit_Type())
-ieee8021SpbmBsiStaticEntryRBit.setMaxAccess(_E)
-if mibBuilder.loadTexts:ieee8021SpbmBsiStaticEntryRBit.setStatus(_B)
-_Ieee8021SpbmBsiStaticEntryTsBit_Type=TruthValue
-_Ieee8021SpbmBsiStaticEntryTsBit_Object=MibTableColumn
-ieee8021SpbmBsiStaticEntryTsBit=_Ieee8021SpbmBsiStaticEntryTsBit_Object((1,3,111,2,802,1,1,26,1,13,1,5),_Ieee8021SpbmBsiStaticEntryTsBit_Type())
-ieee8021SpbmBsiStaticEntryTsBit.setMaxAccess(_E)
-if mibBuilder.loadTexts:ieee8021SpbmBsiStaticEntryTsBit.setStatus(_B)
-class _Ieee8021SpbmBsiStaticEntryTieBreakMask_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
-_Ieee8021SpbmBsiStaticEntryTieBreakMask_Type.__name__=_A7
-_Ieee8021SpbmBsiStaticEntryTieBreakMask_Object=MibTableColumn
-ieee8021SpbmBsiStaticEntryTieBreakMask=_Ieee8021SpbmBsiStaticEntryTieBreakMask_Object((1,3,111,2,802,1,1,26,1,13,1,6),_Ieee8021SpbmBsiStaticEntryTieBreakMask_Type())
-ieee8021SpbmBsiStaticEntryTieBreakMask.setMaxAccess(_E)
-if mibBuilder.loadTexts:ieee8021SpbmBsiStaticEntryTieBreakMask.setStatus(_B)
-_Ieee8021SpbmBsiStaticEntryRowStatus_Type=RowStatus
-_Ieee8021SpbmBsiStaticEntryRowStatus_Object=MibTableColumn
-ieee8021SpbmBsiStaticEntryRowStatus=_Ieee8021SpbmBsiStaticEntryRowStatus_Object((1,3,111,2,802,1,1,26,1,13,1,7),_Ieee8021SpbmBsiStaticEntryRowStatus_Type())
-ieee8021SpbmBsiStaticEntryRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ieee8021SpbmBsiStaticEntryRowStatus.setStatus(_B)
-_Dot1agCfmMepSpbmTable_Object=MibTable
-dot1agCfmMepSpbmTable=_Dot1agCfmMepSpbmTable_Object((1,3,111,2,802,1,1,26,1,14))
-if mibBuilder.loadTexts:dot1agCfmMepSpbmTable.setStatus(_B)
-_Dot1agCfmMepSpbmEntry_Object=MibTableRow
-dot1agCfmMepSpbmEntry=_Dot1agCfmMepSpbmEntry_Object((1,3,111,2,802,1,1,26,1,14,1))
-if mibBuilder.loadTexts:dot1agCfmMepSpbmEntry.setStatus(_B)
-_Dot1agCfmMepTransmitLbmSpbmDA_Type=MacAddress
-_Dot1agCfmMepTransmitLbmSpbmDA_Object=MibTableColumn
-dot1agCfmMepTransmitLbmSpbmDA=_Dot1agCfmMepTransmitLbmSpbmDA_Object((1,3,111,2,802,1,1,26,1,14,1,1),_Dot1agCfmMepTransmitLbmSpbmDA_Type())
-dot1agCfmMepTransmitLbmSpbmDA.setMaxAccess(_E)
-if mibBuilder.loadTexts:dot1agCfmMepTransmitLbmSpbmDA.setStatus(_B)
-_Dot1agCfmMepTransmitLtmSpbmDA_Type=MacAddress
-_Dot1agCfmMepTransmitLtmSpbmDA_Object=MibTableColumn
-dot1agCfmMepTransmitLtmSpbmDA=_Dot1agCfmMepTransmitLtmSpbmDA_Object((1,3,111,2,802,1,1,26,1,14,1,2),_Dot1agCfmMepTransmitLtmSpbmDA_Type())
-dot1agCfmMepTransmitLtmSpbmDA.setMaxAccess(_E)
-if mibBuilder.loadTexts:dot1agCfmMepTransmitLtmSpbmDA.setStatus(_B)
-_Dot1agCfmMepSpbmEspTable_Object=MibTable
-dot1agCfmMepSpbmEspTable=_Dot1agCfmMepSpbmEspTable_Object((1,3,111,2,802,1,1,26,1,15))
-if mibBuilder.loadTexts:dot1agCfmMepSpbmEspTable.setStatus(_B)
-_Dot1agCfmMepSpbmEspEntry_Object=MibTableRow
-dot1agCfmMepSpbmEspEntry=_Dot1agCfmMepSpbmEspEntry_Object((1,3,111,2,802,1,1,26,1,15,1))
-dot1agCfmMepSpbmEspEntry.setIndexNames((0,_q,_A6),(0,_q,_A5),(0,_A,_Ae))
-if mibBuilder.loadTexts:dot1agCfmMepSpbmEspEntry.setStatus(_B)
-class _Dot1agCfmMepSpbmEspIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_Dot1agCfmMepSpbmEspIndex_Type.__name__=_A8
-_Dot1agCfmMepSpbmEspIndex_Object=MibTableColumn
-dot1agCfmMepSpbmEspIndex=_Dot1agCfmMepSpbmEspIndex_Object((1,3,111,2,802,1,1,26,1,15,1,1),_Dot1agCfmMepSpbmEspIndex_Type())
-dot1agCfmMepSpbmEspIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:dot1agCfmMepSpbmEspIndex.setStatus(_B)
-_Dot1agCfmMepSpbmEspEsp_Type=IEEE8021PbbTeEsp
-_Dot1agCfmMepSpbmEspEsp_Object=MibTableColumn
-dot1agCfmMepSpbmEspEsp=_Dot1agCfmMepSpbmEspEsp_Object((1,3,111,2,802,1,1,26,1,15,1,2),_Dot1agCfmMepSpbmEspEsp_Type())
-dot1agCfmMepSpbmEspEsp.setMaxAccess(_E)
-if mibBuilder.loadTexts:dot1agCfmMepSpbmEspEsp.setStatus(_B)
-_Dot1agCfmMepSpbmEspRowStatus_Type=RowStatus
-_Dot1agCfmMepSpbmEspRowStatus_Object=MibTableColumn
-dot1agCfmMepSpbmEspRowStatus=_Dot1agCfmMepSpbmEspRowStatus_Object((1,3,111,2,802,1,1,26,1,15,1,3),_Dot1agCfmMepSpbmEspRowStatus_Type())
-dot1agCfmMepSpbmEspRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:dot1agCfmMepSpbmEspRowStatus.setStatus(_B)
-_Ieee8021SpbConformance_ObjectIdentity=ObjectIdentity
-ieee8021SpbConformance=_Ieee8021SpbConformance_ObjectIdentity((1,3,111,2,802,1,1,26,2))
-_Ieee8021SpbGroups_ObjectIdentity=ObjectIdentity
-ieee8021SpbGroups=_Ieee8021SpbGroups_ObjectIdentity((1,3,111,2,802,1,1,26,2,1))
-_Ieee8021SpbCompliances_ObjectIdentity=ObjectIdentity
-ieee8021SpbCompliances=_Ieee8021SpbCompliances_ObjectIdentity((1,3,111,2,802,1,1,26,2,2))
-_Ieee8021PcrObjects_ObjectIdentity=ObjectIdentity
-ieee8021PcrObjects=_Ieee8021PcrObjects_ObjectIdentity((1,3,111,2,802,1,1,26,3))
-_Ieee8021PcrEctStaticTable_Object=MibTable
-ieee8021PcrEctStaticTable=_Ieee8021PcrEctStaticTable_Object((1,3,111,2,802,1,1,26,3,1))
-if mibBuilder.loadTexts:ieee8021PcrEctStaticTable.setStatus(_B)
-_Ieee8021PcrEctStaticTableEntry_Object=MibTableRow
-ieee8021PcrEctStaticTableEntry=_Ieee8021PcrEctStaticTableEntry_Object((1,3,111,2,802,1,1,26,3,1,1))
-ieee8021PcrEctStaticTableEntry.setIndexNames((0,_A,_Af),(0,_A,_Ag))
-if mibBuilder.loadTexts:ieee8021PcrEctStaticTableEntry.setStatus(_B)
-_Ieee8021PcrEctStaticEntryTopIx_Type=IEEE8021SpbMTID
-_Ieee8021PcrEctStaticEntryTopIx_Object=MibTableColumn
-ieee8021PcrEctStaticEntryTopIx=_Ieee8021PcrEctStaticEntryTopIx_Object((1,3,111,2,802,1,1,26,3,1,1,1),_Ieee8021PcrEctStaticEntryTopIx_Type())
-ieee8021PcrEctStaticEntryTopIx.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021PcrEctStaticEntryTopIx.setStatus(_B)
-_Ieee8021PcrEctStaticEntryBaseVid_Type=VlanIdOrAny
-_Ieee8021PcrEctStaticEntryBaseVid_Object=MibTableColumn
-ieee8021PcrEctStaticEntryBaseVid=_Ieee8021PcrEctStaticEntryBaseVid_Object((1,3,111,2,802,1,1,26,3,1,1,2),_Ieee8021PcrEctStaticEntryBaseVid_Type())
-ieee8021PcrEctStaticEntryBaseVid.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021PcrEctStaticEntryBaseVid.setStatus(_B)
-_Ieee8021PcrEctStaticEntryMrtBlueVid_Type=VlanIdOrNone
-_Ieee8021PcrEctStaticEntryMrtBlueVid_Object=MibTableColumn
-ieee8021PcrEctStaticEntryMrtBlueVid=_Ieee8021PcrEctStaticEntryMrtBlueVid_Object((1,3,111,2,802,1,1,26,3,1,1,3),_Ieee8021PcrEctStaticEntryMrtBlueVid_Type())
-ieee8021PcrEctStaticEntryMrtBlueVid.setMaxAccess(_F)
-if mibBuilder.loadTexts:ieee8021PcrEctStaticEntryMrtBlueVid.setStatus(_B)
-_Ieee8021PcrEctStaticEntryMrtRedVid_Type=VlanIdOrNone
-_Ieee8021PcrEctStaticEntryMrtRedVid_Object=MibTableColumn
-ieee8021PcrEctStaticEntryMrtRedVid=_Ieee8021PcrEctStaticEntryMrtRedVid_Object((1,3,111,2,802,1,1,26,3,1,1,4),_Ieee8021PcrEctStaticEntryMrtRedVid_Type())
-ieee8021PcrEctStaticEntryMrtRedVid.setMaxAccess(_F)
-if mibBuilder.loadTexts:ieee8021PcrEctStaticEntryMrtRedVid.setStatus(_B)
-_Ieee8021PcrEctStaticEntryRowStatus_Type=RowStatus
-_Ieee8021PcrEctStaticEntryRowStatus_Object=MibTableColumn
-ieee8021PcrEctStaticEntryRowStatus=_Ieee8021PcrEctStaticEntryRowStatus_Object((1,3,111,2,802,1,1,26,3,1,1,5),_Ieee8021PcrEctStaticEntryRowStatus_Type())
-ieee8021PcrEctStaticEntryRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:ieee8021PcrEctStaticEntryRowStatus.setStatus(_B)
-_Ieee8021PcrTopEctTable_Object=MibTable
-ieee8021PcrTopEctTable=_Ieee8021PcrTopEctTable_Object((1,3,111,2,802,1,1,26,3,2))
-if mibBuilder.loadTexts:ieee8021PcrTopEctTable.setStatus(_B)
-_Ieee8021PcrTopEctTableEntry_Object=MibTableRow
-ieee8021PcrTopEctTableEntry=_Ieee8021PcrTopEctTableEntry_Object((1,3,111,2,802,1,1,26,3,2,1))
-ieee8021PcrTopEctTableEntry.setIndexNames((0,_A,_Ah),(0,_A,_Ai),(0,_A,_Aj))
-if mibBuilder.loadTexts:ieee8021PcrTopEctTableEntry.setStatus(_B)
-_Ieee8021PcrTopEctEntryTopIx_Type=IEEE8021SpbMTID
-_Ieee8021PcrTopEctEntryTopIx_Object=MibTableColumn
-ieee8021PcrTopEctEntryTopIx=_Ieee8021PcrTopEctEntryTopIx_Object((1,3,111,2,802,1,1,26,3,2,1,1),_Ieee8021PcrTopEctEntryTopIx_Type())
-ieee8021PcrTopEctEntryTopIx.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021PcrTopEctEntryTopIx.setStatus(_B)
-_Ieee8021PcrTopEctEntrySysId_Type=MacAddress
-_Ieee8021PcrTopEctEntrySysId_Object=MibTableColumn
-ieee8021PcrTopEctEntrySysId=_Ieee8021PcrTopEctEntrySysId_Object((1,3,111,2,802,1,1,26,3,2,1,2),_Ieee8021PcrTopEctEntrySysId_Type())
-ieee8021PcrTopEctEntrySysId.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021PcrTopEctEntrySysId.setStatus(_B)
-_Ieee8021PcrTopEctEntryBaseVid_Type=VlanIdOrAny
-_Ieee8021PcrTopEctEntryBaseVid_Object=MibTableColumn
-ieee8021PcrTopEctEntryBaseVid=_Ieee8021PcrTopEctEntryBaseVid_Object((1,3,111,2,802,1,1,26,3,2,1,3),_Ieee8021PcrTopEctEntryBaseVid_Type())
-ieee8021PcrTopEctEntryBaseVid.setMaxAccess(_D)
-if mibBuilder.loadTexts:ieee8021PcrTopEctEntryBaseVid.setStatus(_B)
-_Ieee8021PcrTopEctEntryMode_Type=IEEE8021SpbEctMode
-_Ieee8021PcrTopEctEntryMode_Object=MibTableColumn
-ieee8021PcrTopEctEntryMode=_Ieee8021PcrTopEctEntryMode_Object((1,3,111,2,802,1,1,26,3,2,1,4),_Ieee8021PcrTopEctEntryMode_Type())
-ieee8021PcrTopEctEntryMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021PcrTopEctEntryMode.setStatus(_B)
-_Ieee8021PcrTopEctEntryMrtBlueVid_Type=VlanIdOrNone
-_Ieee8021PcrTopEctEntryMrtBlueVid_Object=MibTableColumn
-ieee8021PcrTopEctEntryMrtBlueVid=_Ieee8021PcrTopEctEntryMrtBlueVid_Object((1,3,111,2,802,1,1,26,3,2,1,5),_Ieee8021PcrTopEctEntryMrtBlueVid_Type())
-ieee8021PcrTopEctEntryMrtBlueVid.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021PcrTopEctEntryMrtBlueVid.setStatus(_B)
-_Ieee8021PcrTopEctEntryMrtRedVid_Type=VlanIdOrNone
-_Ieee8021PcrTopEctEntryMrtRedVid_Object=MibTableColumn
-ieee8021PcrTopEctEntryMrtRedVid=_Ieee8021PcrTopEctEntryMrtRedVid_Object((1,3,111,2,802,1,1,26,3,2,1,6),_Ieee8021PcrTopEctEntryMrtRedVid_Type())
-ieee8021PcrTopEctEntryMrtRedVid.setMaxAccess(_C)
-if mibBuilder.loadTexts:ieee8021PcrTopEctEntryMrtRedVid.setStatus(_B)
-_Ieee8021PcrConformance_ObjectIdentity=ObjectIdentity
-ieee8021PcrConformance=_Ieee8021PcrConformance_ObjectIdentity((1,3,111,2,802,1,1,26,4))
-_Ieee8021PcrGroups_ObjectIdentity=ObjectIdentity
-ieee8021PcrGroups=_Ieee8021PcrGroups_ObjectIdentity((1,3,111,2,802,1,1,26,4,1))
-_Ieee8021PcrCompliances_ObjectIdentity=ObjectIdentity
-ieee8021PcrCompliances=_Ieee8021PcrCompliances_ObjectIdentity((1,3,111,2,802,1,1,26,4,2))
-dot1agCfmMepEntry.registerAugmentions((_A,_Ak))
+#
+# PySNMP MIB module IEEE8021-SPB-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/IEEE8021-SPB-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:27:45 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ieee8021BridgeBasePort, = mibBuilder.importSymbols("IEEE8021-BRIDGE-MIB", "ieee8021BridgeBasePort")
+dot1agCfmMaIndex, dot1agCfmMepEntry, dot1agCfmMdIndex = mibBuilder.importSymbols("IEEE8021-CFM-MIB", "dot1agCfmMaIndex", "dot1agCfmMepEntry", "dot1agCfmMdIndex")
+IEEE8021PbbTeEsp, IEEE8021PbbIngressEgress, IEEE8021PbbServiceIdentifier, ieee802dot1mibs, IEEE8021BridgePortNumber = mibBuilder.importSymbols("IEEE8021-TC-MIB", "IEEE8021PbbTeEsp", "IEEE8021PbbIngressEgress", "IEEE8021PbbServiceIdentifier", "ieee802dot1mibs", "IEEE8021BridgePortNumber")
+InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
+VlanId, VlanIdOrNone, VlanIdOrAny = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId", "VlanIdOrNone", "VlanIdOrAny")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+ieee8021SpbMib = ModuleIdentity((1, 3, 111, 2, 802, 1, 1, 26))
+ieee8021SpbMib.setRevisions(('2018-06-28 00:00', '2015-06-23 00:00', '2013-05-13 00:00', '2012-02-03 00:00',))
+if mibBuilder.loadTexts: ieee8021SpbMib.setLastUpdated('201806280000Z')
+if mibBuilder.loadTexts: ieee8021SpbMib.setOrganization('IEEE 802.1 Working Group')
+class IEEE8021SpbAreaAddress(TextualConvention, OctetString):
+    reference = '12.25.1.1.2 a), 12.25.1.2.2 a), 12.25.1.3.2 a), 12.25.1.4.2 a)'
+    status = 'current'
+    displayHint = '1x:'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(3, 3)
+    fixedLength = 3
+
+class IEEE8021SpbEctAlgorithm(TextualConvention, OctetString):
+    reference = '12.3 q)'
+    status = 'current'
+    displayHint = '1x-'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
+    fixedLength = 4
+
+class IEEE8021SpbMode(TextualConvention, Integer32):
+    reference = '27.10'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("auto", 1), ("manual", 2))
+
+class IEEE8021SpbEctMode(TextualConvention, Integer32):
+    reference = '12.25.5.1.3 c), 12.25.9.1.3 e)'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("disabled", 1), ("spbm", 2), ("spbv", 3))
+
+class IEEE8021SpbDigestConvention(TextualConvention, Integer32):
+    reference = '28.4.3'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("off", 1), ("loopFreeBoth", 2), ("loopFreeMcastOnly", 3))
+
+class IEEE8021SpbLinkMetric(TextualConvention, Integer32):
+    reference = '28.2'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 16777215)
+
+class IEEE8021SpbAdjState(TextualConvention, Integer32):
+    reference = '12.25.6.1.3 d), 12.25.6.2.3 d), 12.25.7.1.3 (e'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("up", 1), ("down", 2), ("testing", 3))
+
+class IEEE8021SpbmSPsourceId(TextualConvention, OctetString):
+    reference = '27.15'
+    status = 'current'
+    displayHint = '1x:'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(3, 3)
+    fixedLength = 3
+
+class IEEE8021SpbDigest(TextualConvention, OctetString):
+    reference = '28.4'
+    status = 'current'
+    displayHint = '1x'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(32, 32)
+    fixedLength = 32
+
+class IEEE8021SpbMCID(TextualConvention, OctetString):
+    reference = '13.8'
+    status = 'current'
+    displayHint = '1x'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(51, 51)
+    fixedLength = 51
+
+class IEEE8021SpbBridgePriority(TextualConvention, OctetString):
+    reference = '13.26.3'
+    status = 'current'
+    displayHint = '1x'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(2, 2)
+    fixedLength = 2
+
+class IEEE8021SpbMTID(TextualConvention, Unsigned32):
+    reference = '3.157, 3.158'
+    status = 'current'
+    displayHint = 'd'
+
+class IEEE8021SpbServiceIdentifierOrAny(TextualConvention, Unsigned32):
+    reference = '3.157, 3.158'
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(255, 16777215)
+
+ieee8021SpbObjects = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 26, 1))
+ieee8021PcrObjects = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 26, 3))
+ieee8021SpbSys = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 26, 1, 1))
+ieee8021SpbSysAreaAddress = MibScalar((1, 3, 111, 2, 802, 1, 1, 26, 1, 1, 1), IEEE8021SpbAreaAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021SpbSysAreaAddress.setStatus('current')
+ieee8021SpbSysId = MibScalar((1, 3, 111, 2, 802, 1, 1, 26, 1, 1, 2), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021SpbSysId.setStatus('current')
+ieee8021SpbSysControlAddr = MibScalar((1, 3, 111, 2, 802, 1, 1, 26, 1, 1, 3), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021SpbSysControlAddr.setStatus('current')
+ieee8021SpbSysName = MibScalar((1, 3, 111, 2, 802, 1, 1, 26, 1, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbSysName.setStatus('current')
+ieee8021SpbSysBridgePriority = MibScalar((1, 3, 111, 2, 802, 1, 1, 26, 1, 1, 5), IEEE8021SpbBridgePriority()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbSysBridgePriority.setStatus('current')
+ieee8021SpbmSysSPSourceId = MibScalar((1, 3, 111, 2, 802, 1, 1, 26, 1, 1, 6), IEEE8021SpbmSPsourceId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021SpbmSysSPSourceId.setStatus('current')
+ieee8021SpbvSysMode = MibScalar((1, 3, 111, 2, 802, 1, 1, 26, 1, 1, 7), IEEE8021SpbMode().clone('auto')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021SpbvSysMode.setStatus('current')
+ieee8021SpbmSysMode = MibScalar((1, 3, 111, 2, 802, 1, 1, 26, 1, 1, 8), IEEE8021SpbMode().clone('auto')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021SpbmSysMode.setStatus('current')
+ieee8021SpbSysDigestConvention = MibScalar((1, 3, 111, 2, 802, 1, 1, 26, 1, 1, 9), IEEE8021SpbDigestConvention().clone('loopFreeBoth')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021SpbSysDigestConvention.setStatus('current')
+ieee8021SpbMtidStaticTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 1, 2), )
+if mibBuilder.loadTexts: ieee8021SpbMtidStaticTable.setStatus('current')
+ieee8021SpbMtidStaticTableEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 1, 2, 1), ).setIndexNames((0, "IEEE8021-SPB-MIB", "ieee8021SpbMtidStaticEntryMtid"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbTopIx"))
+if mibBuilder.loadTexts: ieee8021SpbMtidStaticTableEntry.setStatus('current')
+ieee8021SpbMtidStaticEntryMtid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 2, 1, 1), IEEE8021SpbMTID())
+if mibBuilder.loadTexts: ieee8021SpbMtidStaticEntryMtid.setStatus('current')
+ieee8021SpbMTidStaticEntryMtidOverload = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 2, 1, 2), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021SpbMTidStaticEntryMtidOverload.setStatus('current')
+ieee8021SpbMtidStaticEntryRowStatus = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021SpbMtidStaticEntryRowStatus.setStatus('current')
+ieee8021SpbTopIx = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 2, 1, 4), IEEE8021SpbMTID())
+if mibBuilder.loadTexts: ieee8021SpbTopIx.setStatus('current')
+ieee8021SpbTopIxDynamicTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 1, 3), )
+if mibBuilder.loadTexts: ieee8021SpbTopIxDynamicTable.setStatus('current')
+ieee8021SpbTopIxDynamicTableEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 1, 3, 1), ).setIndexNames((0, "IEEE8021-SPB-MIB", "ieee8021SpbTopIxDynamicEntryTopIx"))
+if mibBuilder.loadTexts: ieee8021SpbTopIxDynamicTableEntry.setStatus('current')
+ieee8021SpbTopIxDynamicEntryTopIx = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 3, 1, 1), IEEE8021SpbMTID())
+if mibBuilder.loadTexts: ieee8021SpbTopIxDynamicEntryTopIx.setStatus('current')
+ieee8021SpbTopIxDynamicEntryAgreeDigest = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 3, 1, 2), IEEE8021SpbDigest()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbTopIxDynamicEntryAgreeDigest.setStatus('current')
+ieee8021SpbTopIxDynamicEntryMCID = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 3, 1, 3), IEEE8021SpbMCID()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbTopIxDynamicEntryMCID.setStatus('current')
+ieee8021SpbTopIxDynamicEntryAuxMCID = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 3, 1, 4), IEEE8021SpbMCID()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbTopIxDynamicEntryAuxMCID.setStatus('current')
+ieee8021SpbEctStaticTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 1, 4), )
+if mibBuilder.loadTexts: ieee8021SpbEctStaticTable.setStatus('current')
+ieee8021SpbEctStaticTableEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 1, 4, 1), ).setIndexNames((0, "IEEE8021-SPB-MIB", "ieee8021SpbEctStaticEntryTopIx"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbEctStaticEntryBaseVid"))
+if mibBuilder.loadTexts: ieee8021SpbEctStaticTableEntry.setStatus('current')
+ieee8021SpbEctStaticEntryTopIx = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 4, 1, 1), IEEE8021SpbMTID())
+if mibBuilder.loadTexts: ieee8021SpbEctStaticEntryTopIx.setStatus('current')
+ieee8021SpbEctStaticEntryBaseVid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 4, 1, 2), VlanIdOrAny())
+if mibBuilder.loadTexts: ieee8021SpbEctStaticEntryBaseVid.setStatus('current')
+ieee8021SpbEctStaticEntryEctAlgorithm = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 4, 1, 3), IEEE8021SpbEctAlgorithm().clone('00-80-c2-01')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021SpbEctStaticEntryEctAlgorithm.setStatus('current')
+ieee8021SpbvEctStaticEntrySpvid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 4, 1, 4), VlanIdOrNone()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021SpbvEctStaticEntrySpvid.setStatus('current')
+ieee8021SpbEctStaticEntryRowStatus = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 4, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021SpbEctStaticEntryRowStatus.setStatus('current')
+ieee8021SpbEctDynamicTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 1, 5), )
+if mibBuilder.loadTexts: ieee8021SpbEctDynamicTable.setStatus('current')
+ieee8021SpbEctDynamicTableEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 1, 5, 1), ).setIndexNames((0, "IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicEntryTopIx"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicEntryBaseVid"))
+if mibBuilder.loadTexts: ieee8021SpbEctDynamicTableEntry.setStatus('current')
+ieee8021SpbEctDynamicEntryTopIx = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 5, 1, 1), IEEE8021SpbMTID())
+if mibBuilder.loadTexts: ieee8021SpbEctDynamicEntryTopIx.setStatus('current')
+ieee8021SpbEctDynamicEntryBaseVid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 5, 1, 2), VlanId())
+if mibBuilder.loadTexts: ieee8021SpbEctDynamicEntryBaseVid.setStatus('current')
+ieee8021SpbEctDynamicEntryMode = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 5, 1, 3), IEEE8021SpbEctMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbEctDynamicEntryMode.setStatus('current')
+ieee8021SpbEctDynamicEntryLocalUse = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 5, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbEctDynamicEntryLocalUse.setStatus('current')
+ieee8021SpbEctDynamicEntryRemoteUse = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 5, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbEctDynamicEntryRemoteUse.setStatus('current')
+ieee8021SpbEctDynamicEntryIngressCheckDiscards = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 5, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbEctDynamicEntryIngressCheckDiscards.setStatus('current')
+ieee8021SpbAdjStaticTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 1, 6), )
+if mibBuilder.loadTexts: ieee8021SpbAdjStaticTable.setStatus('current')
+ieee8021SpbAdjStaticTableEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 1, 6, 1), ).setIndexNames((0, "IEEE8021-SPB-MIB", "ieee8021SpbAdjStaticEntryTopIx"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbAdjStaticEntryIfIndex"))
+if mibBuilder.loadTexts: ieee8021SpbAdjStaticTableEntry.setStatus('current')
+ieee8021SpbAdjStaticEntryTopIx = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 6, 1, 1), IEEE8021SpbMTID())
+if mibBuilder.loadTexts: ieee8021SpbAdjStaticEntryTopIx.setStatus('current')
+ieee8021SpbAdjStaticEntryIfIndex = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 6, 1, 2), InterfaceIndexOrZero())
+if mibBuilder.loadTexts: ieee8021SpbAdjStaticEntryIfIndex.setStatus('current')
+ieee8021SpbAdjStaticEntryMetric = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 6, 1, 3), IEEE8021SpbLinkMetric()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021SpbAdjStaticEntryMetric.setStatus('current')
+ieee8021SpbAdjStaticEntryIfAdminState = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 6, 1, 4), IEEE8021SpbAdjState()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021SpbAdjStaticEntryIfAdminState.setStatus('current')
+ieee8021SpbAdjStaticEntryRowStatus = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 6, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021SpbAdjStaticEntryRowStatus.setStatus('current')
+ieee8021SpbAdjDynamicTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 1, 7), )
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicTable.setStatus('current')
+ieee8021SpbAdjDynamicTableEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 1, 7, 1), ).setIndexNames((0, "IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryTopIx"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryIfIndex"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerSysId"))
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicTableEntry.setStatus('current')
+ieee8021SpbAdjDynamicEntryTopIx = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 7, 1, 1), IEEE8021SpbMTID())
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicEntryTopIx.setStatus('current')
+ieee8021SpbAdjDynamicEntryIfIndex = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 7, 1, 2), InterfaceIndexOrZero())
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicEntryIfIndex.setStatus('current')
+ieee8021SpbAdjDynamicEntryPeerSysId = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 7, 1, 3), MacAddress())
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicEntryPeerSysId.setStatus('current')
+ieee8021SpbAdjDynamicEntryPort = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 7, 1, 4), IEEE8021BridgePortNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicEntryPort.setStatus('current')
+ieee8021SpbAdjDynamicEntryIfOperState = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 7, 1, 5), IEEE8021SpbAdjState()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicEntryIfOperState.setStatus('current')
+ieee8021SpbAdjDynamicEntryPeerSysName = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 7, 1, 6), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicEntryPeerSysName.setStatus('current')
+ieee8021SpbAdjDynamicEntryPeerAgreeDigest = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 7, 1, 7), IEEE8021SpbDigest()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicEntryPeerAgreeDigest.setStatus('current')
+ieee8021SpbAdjDynamicEntryPeerMCID = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 7, 1, 8), IEEE8021SpbMCID()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicEntryPeerMCID.setStatus('current')
+ieee8021SpbAdjDynamicEntryPeerAuxMCID = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 7, 1, 9), IEEE8021SpbMCID()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicEntryPeerAuxMCID.setStatus('current')
+ieee8021SpbAdjDynamicEntryLocalCircuitID = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 7, 1, 10), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicEntryLocalCircuitID.setStatus('current')
+ieee8021SpbAdjDynamicEntryPeerLocalCircuitID = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 7, 1, 11), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicEntryPeerLocalCircuitID.setStatus('current')
+ieee8021SpbAdjDynamicEntryPortIdentifier = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 7, 1, 12), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicEntryPortIdentifier.setStatus('current')
+ieee8021SpbAdjDynamicEntryPeerPortIdentifier = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 7, 1, 13), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicEntryPeerPortIdentifier.setStatus('current')
+ieee8021SpbAdjDynamicEntryIsisCircIndex = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 7, 1, 14), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbAdjDynamicEntryIsisCircIndex.setStatus('current')
+ieee8021SpbTopNodeTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 1, 8), )
+if mibBuilder.loadTexts: ieee8021SpbTopNodeTable.setStatus('current')
+ieee8021SpbTopNodeTableEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 1, 8, 1), ).setIndexNames((0, "IEEE8021-SPB-MIB", "ieee8021SpbTopNodeEntryTopIx"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbTopNodeEntrySysId"))
+if mibBuilder.loadTexts: ieee8021SpbTopNodeTableEntry.setStatus('current')
+ieee8021SpbTopNodeEntryTopIx = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 8, 1, 1), IEEE8021SpbMTID())
+if mibBuilder.loadTexts: ieee8021SpbTopNodeEntryTopIx.setStatus('current')
+ieee8021SpbTopNodeEntrySysId = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 8, 1, 2), MacAddress())
+if mibBuilder.loadTexts: ieee8021SpbTopNodeEntrySysId.setStatus('current')
+ieee8021SpbTopNodeEntryBridgePriority = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 8, 1, 3), IEEE8021SpbBridgePriority()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbTopNodeEntryBridgePriority.setStatus('current')
+ieee8021SpbmTopNodeEntrySPsourceID = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 8, 1, 4), IEEE8021SpbmSPsourceId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbmTopNodeEntrySPsourceID.setStatus('current')
+ieee8021SpbTopNodeEntrySysName = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 8, 1, 5), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbTopNodeEntrySysName.setStatus('current')
+ieee8021SpbTopEctTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 1, 9), )
+if mibBuilder.loadTexts: ieee8021SpbTopEctTable.setStatus('current')
+ieee8021SpbTopEctTableEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 1, 9, 1), ).setIndexNames((0, "IEEE8021-SPB-MIB", "ieee8021SpbTopEctEntryTopIx"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbTopEctEntrySysId"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbTopEctEntryBaseVid"))
+if mibBuilder.loadTexts: ieee8021SpbTopEctTableEntry.setStatus('current')
+ieee8021SpbTopEctEntryTopIx = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 9, 1, 1), IEEE8021SpbMTID())
+if mibBuilder.loadTexts: ieee8021SpbTopEctEntryTopIx.setStatus('current')
+ieee8021SpbTopEctEntrySysId = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 9, 1, 2), MacAddress())
+if mibBuilder.loadTexts: ieee8021SpbTopEctEntrySysId.setStatus('current')
+ieee8021SpbTopEctEntryBaseVid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 9, 1, 3), VlanIdOrAny())
+if mibBuilder.loadTexts: ieee8021SpbTopEctEntryBaseVid.setStatus('current')
+ieee8021SpbTopEctEntryEctAlgorithm = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 9, 1, 4), IEEE8021SpbEctAlgorithm()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbTopEctEntryEctAlgorithm.setStatus('current')
+ieee8021SpbTopEctEntryMode = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 9, 1, 5), IEEE8021SpbEctMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbTopEctEntryMode.setStatus('current')
+ieee8021SpbvTopEctSysMode = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 9, 1, 6), IEEE8021SpbMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbvTopEctSysMode.setStatus('current')
+ieee8021SpbvTopEctEntrySpvid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 9, 1, 7), VlanIdOrNone()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbvTopEctEntrySpvid.setStatus('current')
+ieee8021SpbTopEctEntryLocalUse = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 9, 1, 8), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbTopEctEntryLocalUse.setStatus('current')
+ieee8021SpbTopEdgeTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 1, 10), )
+if mibBuilder.loadTexts: ieee8021SpbTopEdgeTable.setStatus('current')
+ieee8021SpbTopEdgeTableEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 1, 10, 1), ).setIndexNames((0, "IEEE8021-SPB-MIB", "ieee8021SpbTopEdgeEntryTopIx"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbTopEdgeEntrySysIdNear"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbTopEdgeEntrySysIdFar"))
+if mibBuilder.loadTexts: ieee8021SpbTopEdgeTableEntry.setStatus('current')
+ieee8021SpbTopEdgeEntryTopIx = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 10, 1, 1), IEEE8021SpbMTID())
+if mibBuilder.loadTexts: ieee8021SpbTopEdgeEntryTopIx.setStatus('current')
+ieee8021SpbTopEdgeEntrySysIdNear = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 10, 1, 2), MacAddress())
+if mibBuilder.loadTexts: ieee8021SpbTopEdgeEntrySysIdNear.setStatus('current')
+ieee8021SpbTopEdgeEntrySysIdFar = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 10, 1, 3), MacAddress())
+if mibBuilder.loadTexts: ieee8021SpbTopEdgeEntrySysIdFar.setStatus('current')
+ieee8021SpbTopEdgeEntryMetricNear2Far = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 10, 1, 4), IEEE8021SpbLinkMetric()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbTopEdgeEntryMetricNear2Far.setStatus('current')
+ieee8021SpbTopEdgeEntryMetricFar2Near = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 10, 1, 5), IEEE8021SpbLinkMetric()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbTopEdgeEntryMetricFar2Near.setStatus('current')
+ieee8021SpbmTopSrvTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 1, 11), )
+if mibBuilder.loadTexts: ieee8021SpbmTopSrvTable.setStatus('current')
+ieee8021SpbmTopSrvTableEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 1, 11, 1), ).setIndexNames((0, "IEEE8021-SPB-MIB", "ieee8021SpbmTopSrvEntryTopIx"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbmTopSrvEntrySysId"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbmTopSrvEntryIsid"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbmTopSrvEntryBaseVid"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbmTopSrvEntryMac"))
+if mibBuilder.loadTexts: ieee8021SpbmTopSrvTableEntry.setStatus('current')
+ieee8021SpbmTopSrvEntryTopIx = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 11, 1, 1), IEEE8021SpbMTID())
+if mibBuilder.loadTexts: ieee8021SpbmTopSrvEntryTopIx.setStatus('current')
+ieee8021SpbmTopSrvEntrySysId = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 11, 1, 2), MacAddress())
+if mibBuilder.loadTexts: ieee8021SpbmTopSrvEntrySysId.setStatus('current')
+ieee8021SpbmTopSrvEntryIsid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 11, 1, 3), IEEE8021SpbServiceIdentifierOrAny())
+if mibBuilder.loadTexts: ieee8021SpbmTopSrvEntryIsid.setStatus('current')
+ieee8021SpbmTopSrvEntryBaseVid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 11, 1, 4), VlanIdOrAny())
+if mibBuilder.loadTexts: ieee8021SpbmTopSrvEntryBaseVid.setStatus('current')
+ieee8021SpbmTopSrvEntryMac = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 11, 1, 5), MacAddress())
+if mibBuilder.loadTexts: ieee8021SpbmTopSrvEntryMac.setStatus('current')
+ieee8021SpbmTopSrvEntryIsidFlags = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 11, 1, 6), IEEE8021PbbIngressEgress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbmTopSrvEntryIsidFlags.setStatus('current')
+ieee8021SpbvTopSrvTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 1, 12), )
+if mibBuilder.loadTexts: ieee8021SpbvTopSrvTable.setStatus('current')
+ieee8021SpbvTopSrvTableEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 1, 12, 1), ).setIndexNames((0, "IEEE8021-SPB-MIB", "ieee8021SpbvTopSrvEntryTopIx"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbvTopSrvEntrySysId"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbvTopSrvEntryMMac"))
+if mibBuilder.loadTexts: ieee8021SpbvTopSrvTableEntry.setStatus('current')
+ieee8021SpbvTopSrvEntryTopIx = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 12, 1, 1), IEEE8021SpbMTID())
+if mibBuilder.loadTexts: ieee8021SpbvTopSrvEntryTopIx.setStatus('current')
+ieee8021SpbvTopSrvEntrySysId = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 12, 1, 2), MacAddress())
+if mibBuilder.loadTexts: ieee8021SpbvTopSrvEntrySysId.setStatus('current')
+ieee8021SpbvTopSrvEntryMMac = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 12, 1, 3), MacAddress())
+if mibBuilder.loadTexts: ieee8021SpbvTopSrvEntryMMac.setStatus('current')
+ieee8021SpbvTopSrvEntryBaseVid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 12, 1, 4), VlanId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbvTopSrvEntryBaseVid.setStatus('current')
+ieee8021SpbvTopSrvEntryMMacFlags = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 12, 1, 5), IEEE8021PbbIngressEgress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021SpbvTopSrvEntryMMacFlags.setStatus('current')
+ieee8021SpbmBsiStaticTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 1, 13), )
+if mibBuilder.loadTexts: ieee8021SpbmBsiStaticTable.setStatus('current')
+ieee8021SpbmBsiStaticEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 1, 13, 1), ).setIndexNames((0, "IEEE8021-SPB-MIB", "ieee8021SpbTopIx"), (0, "IEEE8021-BRIDGE-MIB", "ieee8021BridgeBasePort"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbmBsiStaticEntryIsid"), (0, "IEEE8021-SPB-MIB", "ieee8021SpbmBsiStaticEntryBaseVid"))
+if mibBuilder.loadTexts: ieee8021SpbmBsiStaticEntry.setStatus('current')
+ieee8021SpbmBsiStaticEntryIsid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 13, 1, 1), IEEE8021PbbServiceIdentifier())
+if mibBuilder.loadTexts: ieee8021SpbmBsiStaticEntryIsid.setStatus('current')
+ieee8021SpbmBsiStaticEntryBaseVid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 13, 1, 2), VlanId())
+if mibBuilder.loadTexts: ieee8021SpbmBsiStaticEntryBaseVid.setStatus('current')
+ieee8021SpbmBsiStaticEntryTBit = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 13, 1, 3), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021SpbmBsiStaticEntryTBit.setStatus('current')
+ieee8021SpbmBsiStaticEntryRBit = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 13, 1, 4), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021SpbmBsiStaticEntryRBit.setStatus('current')
+ieee8021SpbmBsiStaticEntryTsBit = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 13, 1, 5), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021SpbmBsiStaticEntryTsBit.setStatus('current')
+ieee8021SpbmBsiStaticEntryTieBreakMask = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 13, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021SpbmBsiStaticEntryTieBreakMask.setStatus('current')
+ieee8021SpbmBsiStaticEntryRowStatus = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 13, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021SpbmBsiStaticEntryRowStatus.setStatus('current')
+dot1agCfmMepSpbmTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 1, 14), )
+if mibBuilder.loadTexts: dot1agCfmMepSpbmTable.setStatus('current')
+dot1agCfmMepSpbmEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 1, 14, 1), )
+dot1agCfmMepEntry.registerAugmentions(("IEEE8021-SPB-MIB", "dot1agCfmMepSpbmEntry"))
 dot1agCfmMepSpbmEntry.setIndexNames(*dot1agCfmMepEntry.getIndexNames())
-ieee8021SpbSysGroupSPBM=ObjectGroup((1,3,111,2,802,1,1,26,2,1,1))
-ieee8021SpbSysGroupSPBM.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_t),(_A,_u),(_A,_O)))
-if mibBuilder.loadTexts:ieee8021SpbSysGroupSPBM.setStatus(_B)
-ieee8021SpbMtidStaticTableGroupSPBM=ObjectGroup((1,3,111,2,802,1,1,26,2,1,2))
-ieee8021SpbMtidStaticTableGroupSPBM.setObjects(*((_A,_P),(_A,_Q)))
-if mibBuilder.loadTexts:ieee8021SpbMtidStaticTableGroupSPBM.setStatus(_B)
-ieee8021SpbTopIxDynamicTableGroupSPBM=ObjectGroup((1,3,111,2,802,1,1,26,2,1,3))
-ieee8021SpbTopIxDynamicTableGroupSPBM.setObjects(*((_A,_R),(_A,_S),(_A,_T)))
-if mibBuilder.loadTexts:ieee8021SpbTopIxDynamicTableGroupSPBM.setStatus(_B)
-ieee8021SpbEctStaticTableGroupSPBM=ObjectGroup((1,3,111,2,802,1,1,26,2,1,4))
-ieee8021SpbEctStaticTableGroupSPBM.setObjects(*((_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:ieee8021SpbEctStaticTableGroupSPBM.setStatus(_B)
-ieee8021SpbEctDynamicTableGroupSPBM=ObjectGroup((1,3,111,2,802,1,1,26,2,1,5))
-ieee8021SpbEctDynamicTableGroupSPBM.setObjects(*((_A,_U),(_A,_V),(_A,_W),(_A,_X)))
-if mibBuilder.loadTexts:ieee8021SpbEctDynamicTableGroupSPBM.setStatus(_B)
-ieee8021SpbAdjStaticTableGroupSPBM=ObjectGroup((1,3,111,2,802,1,1,26,2,1,6))
-ieee8021SpbAdjStaticTableGroupSPBM.setObjects(*((_A,_Y),(_A,_Z),(_A,_a)))
-if mibBuilder.loadTexts:ieee8021SpbAdjStaticTableGroupSPBM.setStatus(_B)
-ieee8021SpbAdjDynamicTableGroupSPBM=ObjectGroup((1,3,111,2,802,1,1,26,2,1,7))
-ieee8021SpbAdjDynamicTableGroupSPBM.setObjects(*((_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l)))
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicTableGroupSPBM.setStatus(_B)
-ieee8021SpbTopNodeTableGroupSPBM=ObjectGroup((1,3,111,2,802,1,1,26,2,1,8))
-ieee8021SpbTopNodeTableGroupSPBM.setObjects(*((_A,_m),(_A,_v),(_A,_n)))
-if mibBuilder.loadTexts:ieee8021SpbTopNodeTableGroupSPBM.setStatus(_B)
-ieee8021SpbTopEctTableGroupSPBM=ObjectGroup((1,3,111,2,802,1,1,26,2,1,9))
-ieee8021SpbTopEctTableGroupSPBM.setObjects(*((_A,_w),(_A,_x),(_A,_y)))
-if mibBuilder.loadTexts:ieee8021SpbTopEctTableGroupSPBM.setStatus(_B)
-ieee8021SpbTopEdgeTableGroupSPBM=ObjectGroup((1,3,111,2,802,1,1,26,2,1,10))
-ieee8021SpbTopEdgeTableGroupSPBM.setObjects(*((_A,_o),(_A,_p)))
-if mibBuilder.loadTexts:ieee8021SpbTopEdgeTableGroupSPBM.setStatus(_B)
-ieee8021SpbmTopSrvTableGroupSPBM=ObjectGroup((1,3,111,2,802,1,1,26,2,1,11))
-ieee8021SpbmTopSrvTableGroupSPBM.setObjects((_A,_Al))
-if mibBuilder.loadTexts:ieee8021SpbmTopSrvTableGroupSPBM.setStatus(_B)
-ieee8021SpbSysGroupSPBV=ObjectGroup((1,3,111,2,802,1,1,26,2,1,12))
-ieee8021SpbSysGroupSPBV.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_z),(_A,_O)))
-if mibBuilder.loadTexts:ieee8021SpbSysGroupSPBV.setStatus(_B)
-ieee8021SpbMtidStaticTableGroupSPBV=ObjectGroup((1,3,111,2,802,1,1,26,2,1,13))
-ieee8021SpbMtidStaticTableGroupSPBV.setObjects(*((_A,_P),(_A,_Q)))
-if mibBuilder.loadTexts:ieee8021SpbMtidStaticTableGroupSPBV.setStatus(_B)
-ieee8021SpbTopIxDynamicTableGroupSPBV=ObjectGroup((1,3,111,2,802,1,1,26,2,1,14))
-ieee8021SpbTopIxDynamicTableGroupSPBV.setObjects(*((_A,_R),(_A,_S),(_A,_T)))
-if mibBuilder.loadTexts:ieee8021SpbTopIxDynamicTableGroupSPBV.setStatus(_B)
-ieee8021SpbEctStaticTableGroupSPBV=ObjectGroup((1,3,111,2,802,1,1,26,2,1,15))
-ieee8021SpbEctStaticTableGroupSPBV.setObjects(*((_A,_G),(_A,_A0),(_A,_H)))
-if mibBuilder.loadTexts:ieee8021SpbEctStaticTableGroupSPBV.setStatus(_B)
-ieee8021SpbEctDynamicTableGroupSPBV=ObjectGroup((1,3,111,2,802,1,1,26,2,1,16))
-ieee8021SpbEctDynamicTableGroupSPBV.setObjects(*((_A,_U),(_A,_V),(_A,_W),(_A,_X)))
-if mibBuilder.loadTexts:ieee8021SpbEctDynamicTableGroupSPBV.setStatus(_B)
-ieee8021SpbAdjStaticTableGroupSPBV=ObjectGroup((1,3,111,2,802,1,1,26,2,1,17))
-ieee8021SpbAdjStaticTableGroupSPBV.setObjects(*((_A,_Y),(_A,_Z),(_A,_a)))
-if mibBuilder.loadTexts:ieee8021SpbAdjStaticTableGroupSPBV.setStatus(_B)
-ieee8021SpbAdjDynamicTableGroupSPBV=ObjectGroup((1,3,111,2,802,1,1,26,2,1,18))
-ieee8021SpbAdjDynamicTableGroupSPBV.setObjects(*((_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l)))
-if mibBuilder.loadTexts:ieee8021SpbAdjDynamicTableGroupSPBV.setStatus(_B)
-ieee8021SpbTopNodeTableGroupSPBV=ObjectGroup((1,3,111,2,802,1,1,26,2,1,19))
-ieee8021SpbTopNodeTableGroupSPBV.setObjects(*((_A,_m),(_A,_n)))
-if mibBuilder.loadTexts:ieee8021SpbTopNodeTableGroupSPBV.setStatus(_B)
-ieee8021SpbTopEctTableGroupSPBV=ObjectGroup((1,3,111,2,802,1,1,26,2,1,20))
-ieee8021SpbTopEctTableGroupSPBV.setObjects(*((_A,_w),(_A,_x),(_A,_Am),(_A,_An),(_A,_y)))
-if mibBuilder.loadTexts:ieee8021SpbTopEctTableGroupSPBV.setStatus(_B)
-ieee8021SpbTopEdgeTableGroupSPBV=ObjectGroup((1,3,111,2,802,1,1,26,2,1,21))
-ieee8021SpbTopEdgeTableGroupSPBV.setObjects(*((_A,_o),(_A,_p)))
-if mibBuilder.loadTexts:ieee8021SpbTopEdgeTableGroupSPBV.setStatus(_B)
-ieee8021SpbvTopSrvTableGroupSPBV=ObjectGroup((1,3,111,2,802,1,1,26,2,1,22))
-ieee8021SpbvTopSrvTableGroupSPBV.setObjects(*((_A,_A1),(_A,_A2)))
-if mibBuilder.loadTexts:ieee8021SpbvTopSrvTableGroupSPBV.setStatus(_B)
-ieee8021SpbmBsiStaticTableGroupSPBM=ObjectGroup((1,3,111,2,802,1,1,26,2,1,23))
-ieee8021SpbmBsiStaticTableGroupSPBM.setObjects(*((_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As)))
-if mibBuilder.loadTexts:ieee8021SpbmBsiStaticTableGroupSPBM.setStatus(_B)
-dot1agCfmMepSpbmTableGroupSPBM=ObjectGroup((1,3,111,2,802,1,1,26,2,1,24))
-dot1agCfmMepSpbmTableGroupSPBM.setObjects(*((_A,_At),(_A,_Au)))
-if mibBuilder.loadTexts:dot1agCfmMepSpbmTableGroupSPBM.setStatus(_B)
-dot1agCfmMepSpbmEspTableGroupSPBM=ObjectGroup((1,3,111,2,802,1,1,26,2,1,25))
-dot1agCfmMepSpbmEspTableGroupSPBM.setObjects(*((_A,_Av),(_A,_Aw)))
-if mibBuilder.loadTexts:dot1agCfmMepSpbmEspTableGroupSPBM.setStatus(_B)
-ieee8021PcrSysGroup=ObjectGroup((1,3,111,2,802,1,1,26,4,1,1))
-ieee8021PcrSysGroup.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_t),(_A,_u),(_A,_z),(_A,_O)))
-if mibBuilder.loadTexts:ieee8021PcrSysGroup.setStatus(_B)
-ieee8021PcrMtidStaticTableGroup=ObjectGroup((1,3,111,2,802,1,1,26,4,1,2))
-ieee8021PcrMtidStaticTableGroup.setObjects(*((_A,_P),(_A,_Q)))
-if mibBuilder.loadTexts:ieee8021PcrMtidStaticTableGroup.setStatus(_B)
-ieee8021PcrTopIxDynamicTableGroup=ObjectGroup((1,3,111,2,802,1,1,26,4,1,3))
-ieee8021PcrTopIxDynamicTableGroup.setObjects(*((_A,_R),(_A,_S),(_A,_T)))
-if mibBuilder.loadTexts:ieee8021PcrTopIxDynamicTableGroup.setStatus(_B)
-ieee8021PcrEctStaticTableGroupMAC=ObjectGroup((1,3,111,2,802,1,1,26,4,1,4))
-ieee8021PcrEctStaticTableGroupMAC.setObjects(*((_A,_G),(_A,_H)))
-if mibBuilder.loadTexts:ieee8021PcrEctStaticTableGroupMAC.setStatus(_B)
-ieee8021PcrEctStaticTableGroupVID=ObjectGroup((1,3,111,2,802,1,1,26,4,1,5))
-ieee8021PcrEctStaticTableGroupVID.setObjects(*((_A,_G),(_A,_A0),(_A,_H)))
-if mibBuilder.loadTexts:ieee8021PcrEctStaticTableGroupVID.setStatus(_B)
-ieee8021PcrEctStaticTableGroupMrt=ObjectGroup((1,3,111,2,802,1,1,26,4,1,6))
-ieee8021PcrEctStaticTableGroupMrt.setObjects(*((_A,_Ax),(_A,_Ay),(_A,_Az)))
-if mibBuilder.loadTexts:ieee8021PcrEctStaticTableGroupMrt.setStatus(_B)
-ieee8021PcrEctDynamicTableGroup=ObjectGroup((1,3,111,2,802,1,1,26,4,1,7))
-ieee8021PcrEctDynamicTableGroup.setObjects(*((_A,_U),(_A,_V),(_A,_W),(_A,_X)))
-if mibBuilder.loadTexts:ieee8021PcrEctDynamicTableGroup.setStatus(_B)
-ieee8021PcrAdjStaticTableGroup=ObjectGroup((1,3,111,2,802,1,1,26,4,1,8))
-ieee8021PcrAdjStaticTableGroup.setObjects(*((_A,_Y),(_A,_Z),(_A,_a)))
-if mibBuilder.loadTexts:ieee8021PcrAdjStaticTableGroup.setStatus(_B)
-ieee8021PcrAdjDynamicTableGroup=ObjectGroup((1,3,111,2,802,1,1,26,4,1,9))
-ieee8021PcrAdjDynamicTableGroup.setObjects(*((_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l)))
-if mibBuilder.loadTexts:ieee8021PcrAdjDynamicTableGroup.setStatus(_B)
-ieee8021PcrTopNodeTableGroup=ObjectGroup((1,3,111,2,802,1,1,26,4,1,10))
-ieee8021PcrTopNodeTableGroup.setObjects(*((_A,_m),(_A,_v),(_A,_n)))
-if mibBuilder.loadTexts:ieee8021PcrTopNodeTableGroup.setStatus(_B)
-ieee8021PcrTopEctTableGroup=ObjectGroup((1,3,111,2,802,1,1,26,4,1,11))
-ieee8021PcrTopEctTableGroup.setObjects(*((_A,_A_),(_A,_B0),(_A,_B1)))
-if mibBuilder.loadTexts:ieee8021PcrTopEctTableGroup.setStatus(_B)
-ieee8021PcrTopEdgeTableGroup=ObjectGroup((1,3,111,2,802,1,1,26,4,1,12))
-ieee8021PcrTopEdgeTableGroup.setObjects(*((_A,_o),(_A,_p)))
-if mibBuilder.loadTexts:ieee8021PcrTopEdgeTableGroup.setStatus(_B)
-ieee8021PcrTopSrvTableGroupVid=ObjectGroup((1,3,111,2,802,1,1,26,4,1,13))
-ieee8021PcrTopSrvTableGroupVid.setObjects(*((_A,_A1),(_A,_A2)))
-if mibBuilder.loadTexts:ieee8021PcrTopSrvTableGroupVid.setStatus(_B)
-ieee8021SpbComplianceSPBM=ModuleCompliance((1,3,111,2,802,1,1,26,2,2,1))
-ieee8021SpbComplianceSPBM.setObjects(*((_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BE),(_A,_BF)))
-if mibBuilder.loadTexts:ieee8021SpbComplianceSPBM.setStatus(_B)
-ieee8021SpbComplianceSPBV=ModuleCompliance((1,3,111,2,802,1,1,26,2,2,2))
-ieee8021SpbComplianceSPBV.setObjects(*((_A,_BG),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_BQ)))
-if mibBuilder.loadTexts:ieee8021SpbComplianceSPBV.setStatus(_B)
-ieee8021PcrCompliance=ModuleCompliance((1,3,111,2,802,1,1,26,4,2,1))
-ieee8021PcrCompliance.setObjects(*((_A,_BR),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd)))
-if mibBuilder.loadTexts:ieee8021PcrCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'IEEE8021SpbAreaAddress':IEEE8021SpbAreaAddress,'IEEE8021SpbEctAlgorithm':IEEE8021SpbEctAlgorithm,_r:IEEE8021SpbMode,'IEEE8021SpbEctMode':IEEE8021SpbEctMode,_AA:IEEE8021SpbDigestConvention,'IEEE8021SpbLinkMetric':IEEE8021SpbLinkMetric,'IEEE8021SpbAdjState':IEEE8021SpbAdjState,'IEEE8021SpbmSPsourceId':IEEE8021SpbmSPsourceId,'IEEE8021SpbDigest':IEEE8021SpbDigest,'IEEE8021SpbMCID':IEEE8021SpbMCID,'IEEE8021SpbBridgePriority':IEEE8021SpbBridgePriority,'IEEE8021SpbMTID':IEEE8021SpbMTID,'IEEE8021SpbServiceIdentifierOrAny':IEEE8021SpbServiceIdentifierOrAny,'ieee8021SpbMib':ieee8021SpbMib,'ieee8021SpbObjects':ieee8021SpbObjects,'ieee8021SpbSys':ieee8021SpbSys,_J:ieee8021SpbSysAreaAddress,_K:ieee8021SpbSysId,_L:ieee8021SpbSysControlAddr,_M:ieee8021SpbSysName,_N:ieee8021SpbSysBridgePriority,_t:ieee8021SpbmSysSPSourceId,_z:ieee8021SpbvSysMode,_u:ieee8021SpbmSysMode,_O:ieee8021SpbSysDigestConvention,'ieee8021SpbMtidStaticTable':ieee8021SpbMtidStaticTable,'ieee8021SpbMtidStaticTableEntry':ieee8021SpbMtidStaticTableEntry,_AB:ieee8021SpbMtidStaticEntryMtid,_P:ieee8021SpbMTidStaticEntryMtidOverload,_Q:ieee8021SpbMtidStaticEntryRowStatus,_s:ieee8021SpbTopIx,'ieee8021SpbTopIxDynamicTable':ieee8021SpbTopIxDynamicTable,'ieee8021SpbTopIxDynamicTableEntry':ieee8021SpbTopIxDynamicTableEntry,_AC:ieee8021SpbTopIxDynamicEntryTopIx,_R:ieee8021SpbTopIxDynamicEntryAgreeDigest,_S:ieee8021SpbTopIxDynamicEntryMCID,_T:ieee8021SpbTopIxDynamicEntryAuxMCID,'ieee8021SpbEctStaticTable':ieee8021SpbEctStaticTable,'ieee8021SpbEctStaticTableEntry':ieee8021SpbEctStaticTableEntry,_AD:ieee8021SpbEctStaticEntryTopIx,_AE:ieee8021SpbEctStaticEntryBaseVid,_G:ieee8021SpbEctStaticEntryEctAlgorithm,_A0:ieee8021SpbvEctStaticEntrySpvid,_H:ieee8021SpbEctStaticEntryRowStatus,'ieee8021SpbEctDynamicTable':ieee8021SpbEctDynamicTable,'ieee8021SpbEctDynamicTableEntry':ieee8021SpbEctDynamicTableEntry,_AF:ieee8021SpbEctDynamicEntryTopIx,_AG:ieee8021SpbEctDynamicEntryBaseVid,_U:ieee8021SpbEctDynamicEntryMode,_V:ieee8021SpbEctDynamicEntryLocalUse,_W:ieee8021SpbEctDynamicEntryRemoteUse,_X:ieee8021SpbEctDynamicEntryIngressCheckDiscards,'ieee8021SpbAdjStaticTable':ieee8021SpbAdjStaticTable,'ieee8021SpbAdjStaticTableEntry':ieee8021SpbAdjStaticTableEntry,_AH:ieee8021SpbAdjStaticEntryTopIx,_AI:ieee8021SpbAdjStaticEntryIfIndex,_Y:ieee8021SpbAdjStaticEntryMetric,_Z:ieee8021SpbAdjStaticEntryIfAdminState,_a:ieee8021SpbAdjStaticEntryRowStatus,'ieee8021SpbAdjDynamicTable':ieee8021SpbAdjDynamicTable,'ieee8021SpbAdjDynamicTableEntry':ieee8021SpbAdjDynamicTableEntry,_AJ:ieee8021SpbAdjDynamicEntryTopIx,_AK:ieee8021SpbAdjDynamicEntryIfIndex,_AL:ieee8021SpbAdjDynamicEntryPeerSysId,_b:ieee8021SpbAdjDynamicEntryPort,_c:ieee8021SpbAdjDynamicEntryIfOperState,_d:ieee8021SpbAdjDynamicEntryPeerSysName,_e:ieee8021SpbAdjDynamicEntryPeerAgreeDigest,_f:ieee8021SpbAdjDynamicEntryPeerMCID,_g:ieee8021SpbAdjDynamicEntryPeerAuxMCID,_h:ieee8021SpbAdjDynamicEntryLocalCircuitID,_i:ieee8021SpbAdjDynamicEntryPeerLocalCircuitID,_j:ieee8021SpbAdjDynamicEntryPortIdentifier,_k:ieee8021SpbAdjDynamicEntryPeerPortIdentifier,_l:ieee8021SpbAdjDynamicEntryIsisCircIndex,'ieee8021SpbTopNodeTable':ieee8021SpbTopNodeTable,'ieee8021SpbTopNodeTableEntry':ieee8021SpbTopNodeTableEntry,_AM:ieee8021SpbTopNodeEntryTopIx,_AN:ieee8021SpbTopNodeEntrySysId,_m:ieee8021SpbTopNodeEntryBridgePriority,_v:ieee8021SpbmTopNodeEntrySPsourceID,_n:ieee8021SpbTopNodeEntrySysName,'ieee8021SpbTopEctTable':ieee8021SpbTopEctTable,'ieee8021SpbTopEctTableEntry':ieee8021SpbTopEctTableEntry,_AO:ieee8021SpbTopEctEntryTopIx,_AP:ieee8021SpbTopEctEntrySysId,_AQ:ieee8021SpbTopEctEntryBaseVid,_w:ieee8021SpbTopEctEntryEctAlgorithm,_x:ieee8021SpbTopEctEntryMode,_Am:ieee8021SpbvTopEctSysMode,_An:ieee8021SpbvTopEctEntrySpvid,_y:ieee8021SpbTopEctEntryLocalUse,'ieee8021SpbTopEdgeTable':ieee8021SpbTopEdgeTable,'ieee8021SpbTopEdgeTableEntry':ieee8021SpbTopEdgeTableEntry,_AR:ieee8021SpbTopEdgeEntryTopIx,_AS:ieee8021SpbTopEdgeEntrySysIdNear,_AT:ieee8021SpbTopEdgeEntrySysIdFar,_o:ieee8021SpbTopEdgeEntryMetricNear2Far,_p:ieee8021SpbTopEdgeEntryMetricFar2Near,'ieee8021SpbmTopSrvTable':ieee8021SpbmTopSrvTable,'ieee8021SpbmTopSrvTableEntry':ieee8021SpbmTopSrvTableEntry,_AU:ieee8021SpbmTopSrvEntryTopIx,_AV:ieee8021SpbmTopSrvEntrySysId,_AW:ieee8021SpbmTopSrvEntryIsid,_AX:ieee8021SpbmTopSrvEntryBaseVid,_AY:ieee8021SpbmTopSrvEntryMac,_Al:ieee8021SpbmTopSrvEntryIsidFlags,'ieee8021SpbvTopSrvTable':ieee8021SpbvTopSrvTable,'ieee8021SpbvTopSrvTableEntry':ieee8021SpbvTopSrvTableEntry,_AZ:ieee8021SpbvTopSrvEntryTopIx,_Aa:ieee8021SpbvTopSrvEntrySysId,_Ab:ieee8021SpbvTopSrvEntryMMac,_A1:ieee8021SpbvTopSrvEntryBaseVid,_A2:ieee8021SpbvTopSrvEntryMMacFlags,'ieee8021SpbmBsiStaticTable':ieee8021SpbmBsiStaticTable,'ieee8021SpbmBsiStaticEntry':ieee8021SpbmBsiStaticEntry,_Ac:ieee8021SpbmBsiStaticEntryIsid,_Ad:ieee8021SpbmBsiStaticEntryBaseVid,_Ao:ieee8021SpbmBsiStaticEntryTBit,_Ap:ieee8021SpbmBsiStaticEntryRBit,_Aq:ieee8021SpbmBsiStaticEntryTsBit,_Ar:ieee8021SpbmBsiStaticEntryTieBreakMask,_As:ieee8021SpbmBsiStaticEntryRowStatus,'dot1agCfmMepSpbmTable':dot1agCfmMepSpbmTable,_Ak:dot1agCfmMepSpbmEntry,_At:dot1agCfmMepTransmitLbmSpbmDA,_Au:dot1agCfmMepTransmitLtmSpbmDA,'dot1agCfmMepSpbmEspTable':dot1agCfmMepSpbmEspTable,'dot1agCfmMepSpbmEspEntry':dot1agCfmMepSpbmEspEntry,_Ae:dot1agCfmMepSpbmEspIndex,_Av:dot1agCfmMepSpbmEspEsp,_Aw:dot1agCfmMepSpbmEspRowStatus,'ieee8021SpbConformance':ieee8021SpbConformance,'ieee8021SpbGroups':ieee8021SpbGroups,_B2:ieee8021SpbSysGroupSPBM,_B3:ieee8021SpbMtidStaticTableGroupSPBM,_B4:ieee8021SpbTopIxDynamicTableGroupSPBM,_B5:ieee8021SpbEctStaticTableGroupSPBM,_B6:ieee8021SpbEctDynamicTableGroupSPBM,_B7:ieee8021SpbAdjStaticTableGroupSPBM,_B8:ieee8021SpbAdjDynamicTableGroupSPBM,_B9:ieee8021SpbTopNodeTableGroupSPBM,_BA:ieee8021SpbTopEctTableGroupSPBM,_BB:ieee8021SpbTopEdgeTableGroupSPBM,_BC:ieee8021SpbmTopSrvTableGroupSPBM,_BG:ieee8021SpbSysGroupSPBV,_BH:ieee8021SpbMtidStaticTableGroupSPBV,_BI:ieee8021SpbTopIxDynamicTableGroupSPBV,_BJ:ieee8021SpbEctStaticTableGroupSPBV,_BK:ieee8021SpbEctDynamicTableGroupSPBV,_BL:ieee8021SpbAdjStaticTableGroupSPBV,_BM:ieee8021SpbAdjDynamicTableGroupSPBV,_BN:ieee8021SpbTopNodeTableGroupSPBV,_BO:ieee8021SpbTopEctTableGroupSPBV,_BP:ieee8021SpbTopEdgeTableGroupSPBV,_BQ:ieee8021SpbvTopSrvTableGroupSPBV,_BD:ieee8021SpbmBsiStaticTableGroupSPBM,_BE:dot1agCfmMepSpbmTableGroupSPBM,_BF:dot1agCfmMepSpbmEspTableGroupSPBM,'ieee8021SpbCompliances':ieee8021SpbCompliances,'ieee8021SpbComplianceSPBM':ieee8021SpbComplianceSPBM,'ieee8021SpbComplianceSPBV':ieee8021SpbComplianceSPBV,'ieee8021PcrObjects':ieee8021PcrObjects,'ieee8021PcrEctStaticTable':ieee8021PcrEctStaticTable,'ieee8021PcrEctStaticTableEntry':ieee8021PcrEctStaticTableEntry,_Af:ieee8021PcrEctStaticEntryTopIx,_Ag:ieee8021PcrEctStaticEntryBaseVid,_Ax:ieee8021PcrEctStaticEntryMrtBlueVid,_Ay:ieee8021PcrEctStaticEntryMrtRedVid,_Az:ieee8021PcrEctStaticEntryRowStatus,'ieee8021PcrTopEctTable':ieee8021PcrTopEctTable,'ieee8021PcrTopEctTableEntry':ieee8021PcrTopEctTableEntry,_Ah:ieee8021PcrTopEctEntryTopIx,_Ai:ieee8021PcrTopEctEntrySysId,_Aj:ieee8021PcrTopEctEntryBaseVid,_A_:ieee8021PcrTopEctEntryMode,_B0:ieee8021PcrTopEctEntryMrtBlueVid,_B1:ieee8021PcrTopEctEntryMrtRedVid,'ieee8021PcrConformance':ieee8021PcrConformance,'ieee8021PcrGroups':ieee8021PcrGroups,_BR:ieee8021PcrSysGroup,_BS:ieee8021PcrMtidStaticTableGroup,_BT:ieee8021PcrTopIxDynamicTableGroup,_BU:ieee8021PcrEctStaticTableGroupMAC,_BV:ieee8021PcrEctStaticTableGroupVID,_BW:ieee8021PcrEctStaticTableGroupMrt,_BX:ieee8021PcrEctDynamicTableGroup,_BY:ieee8021PcrAdjStaticTableGroup,_BZ:ieee8021PcrAdjDynamicTableGroup,_Ba:ieee8021PcrTopNodeTableGroup,_Bb:ieee8021PcrTopEctTableGroup,_Bc:ieee8021PcrTopEdgeTableGroup,_Bd:ieee8021PcrTopSrvTableGroupVid,'ieee8021PcrCompliances':ieee8021PcrCompliances,'ieee8021PcrCompliance':ieee8021PcrCompliance})
+if mibBuilder.loadTexts: dot1agCfmMepSpbmEntry.setStatus('current')
+dot1agCfmMepTransmitLbmSpbmDA = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 14, 1, 1), MacAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dot1agCfmMepTransmitLbmSpbmDA.setStatus('current')
+dot1agCfmMepTransmitLtmSpbmDA = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 14, 1, 2), MacAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dot1agCfmMepTransmitLtmSpbmDA.setStatus('current')
+dot1agCfmMepSpbmEspTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 1, 15), )
+if mibBuilder.loadTexts: dot1agCfmMepSpbmEspTable.setStatus('current')
+dot1agCfmMepSpbmEspEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 1, 15, 1), ).setIndexNames((0, "IEEE8021-CFM-MIB", "dot1agCfmMdIndex"), (0, "IEEE8021-CFM-MIB", "dot1agCfmMaIndex"), (0, "IEEE8021-SPB-MIB", "dot1agCfmMepSpbmEspIndex"))
+if mibBuilder.loadTexts: dot1agCfmMepSpbmEspEntry.setStatus('current')
+dot1agCfmMepSpbmEspIndex = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 15, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: dot1agCfmMepSpbmEspIndex.setStatus('current')
+dot1agCfmMepSpbmEspEsp = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 15, 1, 2), IEEE8021PbbTeEsp()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dot1agCfmMepSpbmEspEsp.setStatus('current')
+dot1agCfmMepSpbmEspRowStatus = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 1, 15, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dot1agCfmMepSpbmEspRowStatus.setStatus('current')
+ieee8021PcrEctStaticTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 3, 1), )
+if mibBuilder.loadTexts: ieee8021PcrEctStaticTable.setStatus('current')
+ieee8021PcrEctStaticTableEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 3, 1, 1), ).setIndexNames((0, "IEEE8021-SPB-MIB", "ieee8021PcrEctStaticEntryTopIx"), (0, "IEEE8021-SPB-MIB", "ieee8021PcrEctStaticEntryBaseVid"))
+if mibBuilder.loadTexts: ieee8021PcrEctStaticTableEntry.setStatus('current')
+ieee8021PcrEctStaticEntryTopIx = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 3, 1, 1, 1), IEEE8021SpbMTID())
+if mibBuilder.loadTexts: ieee8021PcrEctStaticEntryTopIx.setStatus('current')
+ieee8021PcrEctStaticEntryBaseVid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 3, 1, 1, 2), VlanIdOrAny())
+if mibBuilder.loadTexts: ieee8021PcrEctStaticEntryBaseVid.setStatus('current')
+ieee8021PcrEctStaticEntryMrtBlueVid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 3, 1, 1, 3), VlanIdOrNone()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021PcrEctStaticEntryMrtBlueVid.setStatus('current')
+ieee8021PcrEctStaticEntryMrtRedVid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 3, 1, 1, 4), VlanIdOrNone()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ieee8021PcrEctStaticEntryMrtRedVid.setStatus('current')
+ieee8021PcrEctStaticEntryRowStatus = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 3, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: ieee8021PcrEctStaticEntryRowStatus.setStatus('current')
+ieee8021PcrTopEctTable = MibTable((1, 3, 111, 2, 802, 1, 1, 26, 3, 2), )
+if mibBuilder.loadTexts: ieee8021PcrTopEctTable.setStatus('current')
+ieee8021PcrTopEctTableEntry = MibTableRow((1, 3, 111, 2, 802, 1, 1, 26, 3, 2, 1), ).setIndexNames((0, "IEEE8021-SPB-MIB", "ieee8021PcrTopEctEntryTopIx"), (0, "IEEE8021-SPB-MIB", "ieee8021PcrTopEctEntrySysId"), (0, "IEEE8021-SPB-MIB", "ieee8021PcrTopEctEntryBaseVid"))
+if mibBuilder.loadTexts: ieee8021PcrTopEctTableEntry.setStatus('current')
+ieee8021PcrTopEctEntryTopIx = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 3, 2, 1, 1), IEEE8021SpbMTID())
+if mibBuilder.loadTexts: ieee8021PcrTopEctEntryTopIx.setStatus('current')
+ieee8021PcrTopEctEntrySysId = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 3, 2, 1, 2), MacAddress())
+if mibBuilder.loadTexts: ieee8021PcrTopEctEntrySysId.setStatus('current')
+ieee8021PcrTopEctEntryBaseVid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 3, 2, 1, 3), VlanIdOrAny())
+if mibBuilder.loadTexts: ieee8021PcrTopEctEntryBaseVid.setStatus('current')
+ieee8021PcrTopEctEntryMode = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 3, 2, 1, 4), IEEE8021SpbEctMode()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021PcrTopEctEntryMode.setStatus('current')
+ieee8021PcrTopEctEntryMrtBlueVid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 3, 2, 1, 5), VlanIdOrNone()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021PcrTopEctEntryMrtBlueVid.setStatus('current')
+ieee8021PcrTopEctEntryMrtRedVid = MibTableColumn((1, 3, 111, 2, 802, 1, 1, 26, 3, 2, 1, 6), VlanIdOrNone()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ieee8021PcrTopEctEntryMrtRedVid.setStatus('current')
+ieee8021SpbConformance = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 26, 2))
+ieee8021SpbGroups = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 26, 2, 1))
+ieee8021SpbCompliances = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 26, 2, 2))
+ieee8021PcrConformance = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 26, 4))
+ieee8021PcrGroups = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 26, 4, 1))
+ieee8021PcrCompliances = MibIdentifier((1, 3, 111, 2, 802, 1, 1, 26, 4, 2))
+ieee8021SpbSysGroupSPBM = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 1)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbSysAreaAddress"), ("IEEE8021-SPB-MIB", "ieee8021SpbSysId"), ("IEEE8021-SPB-MIB", "ieee8021SpbSysControlAddr"), ("IEEE8021-SPB-MIB", "ieee8021SpbSysName"), ("IEEE8021-SPB-MIB", "ieee8021SpbSysBridgePriority"), ("IEEE8021-SPB-MIB", "ieee8021SpbmSysSPSourceId"), ("IEEE8021-SPB-MIB", "ieee8021SpbmSysMode"), ("IEEE8021-SPB-MIB", "ieee8021SpbSysDigestConvention"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbSysGroupSPBM = ieee8021SpbSysGroupSPBM.setStatus('current')
+ieee8021SpbMtidStaticTableGroupSPBM = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 2)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbMTidStaticEntryMtidOverload"), ("IEEE8021-SPB-MIB", "ieee8021SpbMtidStaticEntryRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbMtidStaticTableGroupSPBM = ieee8021SpbMtidStaticTableGroupSPBM.setStatus('current')
+ieee8021SpbTopIxDynamicTableGroupSPBM = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 3)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbTopIxDynamicEntryAgreeDigest"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopIxDynamicEntryMCID"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopIxDynamicEntryAuxMCID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbTopIxDynamicTableGroupSPBM = ieee8021SpbTopIxDynamicTableGroupSPBM.setStatus('current')
+ieee8021SpbEctStaticTableGroupSPBM = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 4)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbEctStaticEntryEctAlgorithm"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctStaticEntryRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbEctStaticTableGroupSPBM = ieee8021SpbEctStaticTableGroupSPBM.setStatus('current')
+ieee8021SpbEctDynamicTableGroupSPBM = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 5)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicEntryMode"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicEntryLocalUse"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicEntryRemoteUse"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicEntryIngressCheckDiscards"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbEctDynamicTableGroupSPBM = ieee8021SpbEctDynamicTableGroupSPBM.setStatus('current')
+ieee8021SpbAdjStaticTableGroupSPBM = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 6)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbAdjStaticEntryMetric"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjStaticEntryIfAdminState"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjStaticEntryRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbAdjStaticTableGroupSPBM = ieee8021SpbAdjStaticTableGroupSPBM.setStatus('current')
+ieee8021SpbAdjDynamicTableGroupSPBM = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 7)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPort"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryIfOperState"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerSysName"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerAgreeDigest"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerMCID"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerAuxMCID"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryLocalCircuitID"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerLocalCircuitID"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPortIdentifier"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerPortIdentifier"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryIsisCircIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbAdjDynamicTableGroupSPBM = ieee8021SpbAdjDynamicTableGroupSPBM.setStatus('current')
+ieee8021SpbTopNodeTableGroupSPBM = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 8)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbTopNodeEntryBridgePriority"), ("IEEE8021-SPB-MIB", "ieee8021SpbmTopNodeEntrySPsourceID"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopNodeEntrySysName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbTopNodeTableGroupSPBM = ieee8021SpbTopNodeTableGroupSPBM.setStatus('current')
+ieee8021SpbTopEctTableGroupSPBM = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 9)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbTopEctEntryEctAlgorithm"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopEctEntryMode"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopEctEntryLocalUse"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbTopEctTableGroupSPBM = ieee8021SpbTopEctTableGroupSPBM.setStatus('current')
+ieee8021SpbTopEdgeTableGroupSPBM = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 10)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbTopEdgeEntryMetricNear2Far"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopEdgeEntryMetricFar2Near"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbTopEdgeTableGroupSPBM = ieee8021SpbTopEdgeTableGroupSPBM.setStatus('current')
+ieee8021SpbmTopSrvTableGroupSPBM = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 11)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbmTopSrvEntryIsidFlags"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbmTopSrvTableGroupSPBM = ieee8021SpbmTopSrvTableGroupSPBM.setStatus('current')
+ieee8021SpbSysGroupSPBV = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 12)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbSysAreaAddress"), ("IEEE8021-SPB-MIB", "ieee8021SpbSysId"), ("IEEE8021-SPB-MIB", "ieee8021SpbSysControlAddr"), ("IEEE8021-SPB-MIB", "ieee8021SpbSysName"), ("IEEE8021-SPB-MIB", "ieee8021SpbSysBridgePriority"), ("IEEE8021-SPB-MIB", "ieee8021SpbvSysMode"), ("IEEE8021-SPB-MIB", "ieee8021SpbSysDigestConvention"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbSysGroupSPBV = ieee8021SpbSysGroupSPBV.setStatus('current')
+ieee8021SpbMtidStaticTableGroupSPBV = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 13)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbMTidStaticEntryMtidOverload"), ("IEEE8021-SPB-MIB", "ieee8021SpbMtidStaticEntryRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbMtidStaticTableGroupSPBV = ieee8021SpbMtidStaticTableGroupSPBV.setStatus('current')
+ieee8021SpbTopIxDynamicTableGroupSPBV = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 14)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbTopIxDynamicEntryAgreeDigest"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopIxDynamicEntryMCID"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopIxDynamicEntryAuxMCID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbTopIxDynamicTableGroupSPBV = ieee8021SpbTopIxDynamicTableGroupSPBV.setStatus('current')
+ieee8021SpbEctStaticTableGroupSPBV = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 15)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbEctStaticEntryEctAlgorithm"), ("IEEE8021-SPB-MIB", "ieee8021SpbvEctStaticEntrySpvid"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctStaticEntryRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbEctStaticTableGroupSPBV = ieee8021SpbEctStaticTableGroupSPBV.setStatus('current')
+ieee8021SpbEctDynamicTableGroupSPBV = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 16)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicEntryMode"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicEntryLocalUse"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicEntryRemoteUse"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicEntryIngressCheckDiscards"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbEctDynamicTableGroupSPBV = ieee8021SpbEctDynamicTableGroupSPBV.setStatus('current')
+ieee8021SpbAdjStaticTableGroupSPBV = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 17)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbAdjStaticEntryMetric"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjStaticEntryIfAdminState"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjStaticEntryRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbAdjStaticTableGroupSPBV = ieee8021SpbAdjStaticTableGroupSPBV.setStatus('current')
+ieee8021SpbAdjDynamicTableGroupSPBV = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 18)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPort"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryIfOperState"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerSysName"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerAgreeDigest"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerMCID"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerAuxMCID"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryLocalCircuitID"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerLocalCircuitID"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPortIdentifier"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerPortIdentifier"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryIsisCircIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbAdjDynamicTableGroupSPBV = ieee8021SpbAdjDynamicTableGroupSPBV.setStatus('current')
+ieee8021SpbTopNodeTableGroupSPBV = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 19)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbTopNodeEntryBridgePriority"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopNodeEntrySysName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbTopNodeTableGroupSPBV = ieee8021SpbTopNodeTableGroupSPBV.setStatus('current')
+ieee8021SpbTopEctTableGroupSPBV = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 20)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbTopEctEntryEctAlgorithm"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopEctEntryMode"), ("IEEE8021-SPB-MIB", "ieee8021SpbvTopEctSysMode"), ("IEEE8021-SPB-MIB", "ieee8021SpbvTopEctEntrySpvid"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopEctEntryLocalUse"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbTopEctTableGroupSPBV = ieee8021SpbTopEctTableGroupSPBV.setStatus('current')
+ieee8021SpbTopEdgeTableGroupSPBV = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 21)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbTopEdgeEntryMetricNear2Far"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopEdgeEntryMetricFar2Near"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbTopEdgeTableGroupSPBV = ieee8021SpbTopEdgeTableGroupSPBV.setStatus('current')
+ieee8021SpbvTopSrvTableGroupSPBV = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 22)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbvTopSrvEntryBaseVid"), ("IEEE8021-SPB-MIB", "ieee8021SpbvTopSrvEntryMMacFlags"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbvTopSrvTableGroupSPBV = ieee8021SpbvTopSrvTableGroupSPBV.setStatus('current')
+ieee8021SpbmBsiStaticTableGroupSPBM = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 23)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbmBsiStaticEntryTBit"), ("IEEE8021-SPB-MIB", "ieee8021SpbmBsiStaticEntryRBit"), ("IEEE8021-SPB-MIB", "ieee8021SpbmBsiStaticEntryTsBit"), ("IEEE8021-SPB-MIB", "ieee8021SpbmBsiStaticEntryTieBreakMask"), ("IEEE8021-SPB-MIB", "ieee8021SpbmBsiStaticEntryRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbmBsiStaticTableGroupSPBM = ieee8021SpbmBsiStaticTableGroupSPBM.setStatus('current')
+dot1agCfmMepSpbmTableGroupSPBM = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 24)).setObjects(("IEEE8021-SPB-MIB", "dot1agCfmMepTransmitLbmSpbmDA"), ("IEEE8021-SPB-MIB", "dot1agCfmMepTransmitLtmSpbmDA"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dot1agCfmMepSpbmTableGroupSPBM = dot1agCfmMepSpbmTableGroupSPBM.setStatus('current')
+dot1agCfmMepSpbmEspTableGroupSPBM = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 2, 1, 25)).setObjects(("IEEE8021-SPB-MIB", "dot1agCfmMepSpbmEspEsp"), ("IEEE8021-SPB-MIB", "dot1agCfmMepSpbmEspRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    dot1agCfmMepSpbmEspTableGroupSPBM = dot1agCfmMepSpbmEspTableGroupSPBM.setStatus('current')
+ieee8021PcrSysGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 4, 1, 1)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbSysAreaAddress"), ("IEEE8021-SPB-MIB", "ieee8021SpbSysId"), ("IEEE8021-SPB-MIB", "ieee8021SpbSysControlAddr"), ("IEEE8021-SPB-MIB", "ieee8021SpbSysName"), ("IEEE8021-SPB-MIB", "ieee8021SpbSysBridgePriority"), ("IEEE8021-SPB-MIB", "ieee8021SpbmSysSPSourceId"), ("IEEE8021-SPB-MIB", "ieee8021SpbmSysMode"), ("IEEE8021-SPB-MIB", "ieee8021SpbvSysMode"), ("IEEE8021-SPB-MIB", "ieee8021SpbSysDigestConvention"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021PcrSysGroup = ieee8021PcrSysGroup.setStatus('current')
+ieee8021PcrMtidStaticTableGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 4, 1, 2)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbMTidStaticEntryMtidOverload"), ("IEEE8021-SPB-MIB", "ieee8021SpbMtidStaticEntryRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021PcrMtidStaticTableGroup = ieee8021PcrMtidStaticTableGroup.setStatus('current')
+ieee8021PcrTopIxDynamicTableGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 4, 1, 3)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbTopIxDynamicEntryAgreeDigest"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopIxDynamicEntryMCID"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopIxDynamicEntryAuxMCID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021PcrTopIxDynamicTableGroup = ieee8021PcrTopIxDynamicTableGroup.setStatus('current')
+ieee8021PcrEctStaticTableGroupMAC = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 4, 1, 4)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbEctStaticEntryEctAlgorithm"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctStaticEntryRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021PcrEctStaticTableGroupMAC = ieee8021PcrEctStaticTableGroupMAC.setStatus('current')
+ieee8021PcrEctStaticTableGroupVID = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 4, 1, 5)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbEctStaticEntryEctAlgorithm"), ("IEEE8021-SPB-MIB", "ieee8021SpbvEctStaticEntrySpvid"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctStaticEntryRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021PcrEctStaticTableGroupVID = ieee8021PcrEctStaticTableGroupVID.setStatus('current')
+ieee8021PcrEctStaticTableGroupMrt = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 4, 1, 6)).setObjects(("IEEE8021-SPB-MIB", "ieee8021PcrEctStaticEntryMrtBlueVid"), ("IEEE8021-SPB-MIB", "ieee8021PcrEctStaticEntryMrtRedVid"), ("IEEE8021-SPB-MIB", "ieee8021PcrEctStaticEntryRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021PcrEctStaticTableGroupMrt = ieee8021PcrEctStaticTableGroupMrt.setStatus('current')
+ieee8021PcrEctDynamicTableGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 4, 1, 7)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicEntryMode"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicEntryLocalUse"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicEntryRemoteUse"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicEntryIngressCheckDiscards"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021PcrEctDynamicTableGroup = ieee8021PcrEctDynamicTableGroup.setStatus('current')
+ieee8021PcrAdjStaticTableGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 4, 1, 8)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbAdjStaticEntryMetric"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjStaticEntryIfAdminState"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjStaticEntryRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021PcrAdjStaticTableGroup = ieee8021PcrAdjStaticTableGroup.setStatus('current')
+ieee8021PcrAdjDynamicTableGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 4, 1, 9)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPort"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryIfOperState"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerSysName"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerAgreeDigest"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerMCID"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerAuxMCID"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryLocalCircuitID"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerLocalCircuitID"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPortIdentifier"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryPeerPortIdentifier"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicEntryIsisCircIndex"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021PcrAdjDynamicTableGroup = ieee8021PcrAdjDynamicTableGroup.setStatus('current')
+ieee8021PcrTopNodeTableGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 4, 1, 10)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbTopNodeEntryBridgePriority"), ("IEEE8021-SPB-MIB", "ieee8021SpbmTopNodeEntrySPsourceID"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopNodeEntrySysName"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021PcrTopNodeTableGroup = ieee8021PcrTopNodeTableGroup.setStatus('current')
+ieee8021PcrTopEctTableGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 4, 1, 11)).setObjects(("IEEE8021-SPB-MIB", "ieee8021PcrTopEctEntryMode"), ("IEEE8021-SPB-MIB", "ieee8021PcrTopEctEntryMrtBlueVid"), ("IEEE8021-SPB-MIB", "ieee8021PcrTopEctEntryMrtRedVid"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021PcrTopEctTableGroup = ieee8021PcrTopEctTableGroup.setStatus('current')
+ieee8021PcrTopEdgeTableGroup = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 4, 1, 12)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbTopEdgeEntryMetricNear2Far"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopEdgeEntryMetricFar2Near"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021PcrTopEdgeTableGroup = ieee8021PcrTopEdgeTableGroup.setStatus('current')
+ieee8021PcrTopSrvTableGroupVid = ObjectGroup((1, 3, 111, 2, 802, 1, 1, 26, 4, 1, 13)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbvTopSrvEntryBaseVid"), ("IEEE8021-SPB-MIB", "ieee8021SpbvTopSrvEntryMMacFlags"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021PcrTopSrvTableGroupVid = ieee8021PcrTopSrvTableGroupVid.setStatus('current')
+ieee8021SpbComplianceSPBM = ModuleCompliance((1, 3, 111, 2, 802, 1, 1, 26, 2, 2, 1)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbSysGroupSPBM"), ("IEEE8021-SPB-MIB", "ieee8021SpbMtidStaticTableGroupSPBM"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopIxDynamicTableGroupSPBM"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctStaticTableGroupSPBM"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicTableGroupSPBM"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjStaticTableGroupSPBM"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicTableGroupSPBM"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopNodeTableGroupSPBM"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopEctTableGroupSPBM"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopEdgeTableGroupSPBM"), ("IEEE8021-SPB-MIB", "ieee8021SpbmTopSrvTableGroupSPBM"), ("IEEE8021-SPB-MIB", "ieee8021SpbmBsiStaticTableGroupSPBM"), ("IEEE8021-SPB-MIB", "dot1agCfmMepSpbmTableGroupSPBM"), ("IEEE8021-SPB-MIB", "dot1agCfmMepSpbmEspTableGroupSPBM"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbComplianceSPBM = ieee8021SpbComplianceSPBM.setStatus('current')
+ieee8021SpbComplianceSPBV = ModuleCompliance((1, 3, 111, 2, 802, 1, 1, 26, 2, 2, 2)).setObjects(("IEEE8021-SPB-MIB", "ieee8021SpbSysGroupSPBV"), ("IEEE8021-SPB-MIB", "ieee8021SpbMtidStaticTableGroupSPBV"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopIxDynamicTableGroupSPBV"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctStaticTableGroupSPBV"), ("IEEE8021-SPB-MIB", "ieee8021SpbEctDynamicTableGroupSPBV"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjStaticTableGroupSPBV"), ("IEEE8021-SPB-MIB", "ieee8021SpbAdjDynamicTableGroupSPBV"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopNodeTableGroupSPBV"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopEctTableGroupSPBV"), ("IEEE8021-SPB-MIB", "ieee8021SpbTopEdgeTableGroupSPBV"), ("IEEE8021-SPB-MIB", "ieee8021SpbvTopSrvTableGroupSPBV"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021SpbComplianceSPBV = ieee8021SpbComplianceSPBV.setStatus('current')
+ieee8021PcrCompliance = ModuleCompliance((1, 3, 111, 2, 802, 1, 1, 26, 4, 2, 1)).setObjects(("IEEE8021-SPB-MIB", "ieee8021PcrSysGroup"), ("IEEE8021-SPB-MIB", "ieee8021PcrMtidStaticTableGroup"), ("IEEE8021-SPB-MIB", "ieee8021PcrTopIxDynamicTableGroup"), ("IEEE8021-SPB-MIB", "ieee8021PcrEctStaticTableGroupMAC"), ("IEEE8021-SPB-MIB", "ieee8021PcrEctStaticTableGroupVID"), ("IEEE8021-SPB-MIB", "ieee8021PcrEctStaticTableGroupMrt"), ("IEEE8021-SPB-MIB", "ieee8021PcrEctDynamicTableGroup"), ("IEEE8021-SPB-MIB", "ieee8021PcrAdjStaticTableGroup"), ("IEEE8021-SPB-MIB", "ieee8021PcrAdjDynamicTableGroup"), ("IEEE8021-SPB-MIB", "ieee8021PcrTopNodeTableGroup"), ("IEEE8021-SPB-MIB", "ieee8021PcrTopEctTableGroup"), ("IEEE8021-SPB-MIB", "ieee8021PcrTopEdgeTableGroup"), ("IEEE8021-SPB-MIB", "ieee8021PcrTopSrvTableGroupVid"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ieee8021PcrCompliance = ieee8021PcrCompliance.setStatus('current')
+mibBuilder.exportSymbols("IEEE8021-SPB-MIB", ieee8021SpbEctStaticEntryEctAlgorithm=ieee8021SpbEctStaticEntryEctAlgorithm, ieee8021PcrEctStaticTableGroupMAC=ieee8021PcrEctStaticTableGroupMAC, ieee8021PcrEctStaticTableGroupMrt=ieee8021PcrEctStaticTableGroupMrt, ieee8021SpbSysAreaAddress=ieee8021SpbSysAreaAddress, ieee8021SpbCompliances=ieee8021SpbCompliances, ieee8021SpbmTopSrvEntryIsidFlags=ieee8021SpbmTopSrvEntryIsidFlags, ieee8021SpbTopNodeEntryTopIx=ieee8021SpbTopNodeEntryTopIx, IEEE8021SpbBridgePriority=IEEE8021SpbBridgePriority, ieee8021SpbComplianceSPBM=ieee8021SpbComplianceSPBM, IEEE8021SpbDigestConvention=IEEE8021SpbDigestConvention, ieee8021PcrEctStaticTableGroupVID=ieee8021PcrEctStaticTableGroupVID, ieee8021SpbComplianceSPBV=ieee8021SpbComplianceSPBV, ieee8021PcrEctStaticEntryMrtRedVid=ieee8021PcrEctStaticEntryMrtRedVid, IEEE8021SpbServiceIdentifierOrAny=IEEE8021SpbServiceIdentifierOrAny, ieee8021SpbSys=ieee8021SpbSys, ieee8021SpbTopEdgeEntryMetricFar2Near=ieee8021SpbTopEdgeEntryMetricFar2Near, ieee8021PcrTopEctEntryBaseVid=ieee8021PcrTopEctEntryBaseVid, ieee8021SpbAdjDynamicTableEntry=ieee8021SpbAdjDynamicTableEntry, ieee8021SpbvTopSrvTableEntry=ieee8021SpbvTopSrvTableEntry, ieee8021PcrObjects=ieee8021PcrObjects, ieee8021SpbTopEdgeEntrySysIdNear=ieee8021SpbTopEdgeEntrySysIdNear, ieee8021SpbmTopSrvEntryTopIx=ieee8021SpbmTopSrvEntryTopIx, ieee8021SpbMtidStaticTableGroupSPBM=ieee8021SpbMtidStaticTableGroupSPBM, ieee8021SpbTopEdgeEntrySysIdFar=ieee8021SpbTopEdgeEntrySysIdFar, ieee8021PcrTopEctTableEntry=ieee8021PcrTopEctTableEntry, ieee8021SpbEctDynamicTableGroupSPBV=ieee8021SpbEctDynamicTableGroupSPBV, ieee8021SpbAdjDynamicEntryPeerPortIdentifier=ieee8021SpbAdjDynamicEntryPeerPortIdentifier, ieee8021SpbSysDigestConvention=ieee8021SpbSysDigestConvention, ieee8021SpbEctDynamicEntryBaseVid=ieee8021SpbEctDynamicEntryBaseVid, ieee8021SpbTopEctTable=ieee8021SpbTopEctTable, dot1agCfmMepSpbmEspTable=dot1agCfmMepSpbmEspTable, ieee8021SpbEctStaticEntryTopIx=ieee8021SpbEctStaticEntryTopIx, ieee8021SpbTopEdgeTableGroupSPBV=ieee8021SpbTopEdgeTableGroupSPBV, ieee8021PcrTopEctEntrySysId=ieee8021PcrTopEctEntrySysId, ieee8021SpbAdjDynamicTableGroupSPBM=ieee8021SpbAdjDynamicTableGroupSPBM, ieee8021PcrConformance=ieee8021PcrConformance, ieee8021SpbMtidStaticTable=ieee8021SpbMtidStaticTable, ieee8021SpbmBsiStaticEntryTieBreakMask=ieee8021SpbmBsiStaticEntryTieBreakMask, ieee8021SpbmSysSPSourceId=ieee8021SpbmSysSPSourceId, ieee8021SpbAdjDynamicEntryPeerLocalCircuitID=ieee8021SpbAdjDynamicEntryPeerLocalCircuitID, ieee8021SpbmTopSrvEntryBaseVid=ieee8021SpbmTopSrvEntryBaseVid, ieee8021SpbTopNodeTableGroupSPBV=ieee8021SpbTopNodeTableGroupSPBV, IEEE8021SpbMTID=IEEE8021SpbMTID, ieee8021SpbAdjStaticEntryRowStatus=ieee8021SpbAdjStaticEntryRowStatus, dot1agCfmMepSpbmTableGroupSPBM=dot1agCfmMepSpbmTableGroupSPBM, ieee8021SpbmTopSrvTableEntry=ieee8021SpbmTopSrvTableEntry, dot1agCfmMepSpbmTable=dot1agCfmMepSpbmTable, ieee8021SpbmTopSrvTable=ieee8021SpbmTopSrvTable, ieee8021SpbAdjDynamicTableGroupSPBV=ieee8021SpbAdjDynamicTableGroupSPBV, ieee8021SpbTopIx=ieee8021SpbTopIx, ieee8021SpbmBsiStaticEntryRBit=ieee8021SpbmBsiStaticEntryRBit, ieee8021SpbEctStaticEntryRowStatus=ieee8021SpbEctStaticEntryRowStatus, ieee8021SpbEctDynamicEntryIngressCheckDiscards=ieee8021SpbEctDynamicEntryIngressCheckDiscards, ieee8021SpbAdjDynamicEntryTopIx=ieee8021SpbAdjDynamicEntryTopIx, ieee8021PcrTopNodeTableGroup=ieee8021PcrTopNodeTableGroup, ieee8021SpbAdjStaticEntryIfAdminState=ieee8021SpbAdjStaticEntryIfAdminState, ieee8021SpbmSysMode=ieee8021SpbmSysMode, ieee8021SpbTopEctEntrySysId=ieee8021SpbTopEctEntrySysId, ieee8021SpbmBsiStaticEntryBaseVid=ieee8021SpbmBsiStaticEntryBaseVid, ieee8021SpbEctDynamicEntryLocalUse=ieee8021SpbEctDynamicEntryLocalUse, ieee8021SpbTopEdgeEntryTopIx=ieee8021SpbTopEdgeEntryTopIx, ieee8021SpbvTopEctEntrySpvid=ieee8021SpbvTopEctEntrySpvid, PYSNMP_MODULE_ID=ieee8021SpbMib, IEEE8021SpbAreaAddress=IEEE8021SpbAreaAddress, ieee8021SpbTopNodeTable=ieee8021SpbTopNodeTable, ieee8021PcrTopEctEntryMrtRedVid=ieee8021PcrTopEctEntryMrtRedVid, ieee8021SpbEctDynamicTable=ieee8021SpbEctDynamicTable, IEEE8021SpbEctMode=IEEE8021SpbEctMode, ieee8021PcrTopEctTableGroup=ieee8021PcrTopEctTableGroup, ieee8021SpbEctStaticEntryBaseVid=ieee8021SpbEctStaticEntryBaseVid, ieee8021SpbAdjStaticTableEntry=ieee8021SpbAdjStaticTableEntry, ieee8021SpbTopEctEntryLocalUse=ieee8021SpbTopEctEntryLocalUse, ieee8021SpbvTopSrvTableGroupSPBV=ieee8021SpbvTopSrvTableGroupSPBV, ieee8021SpbSysName=ieee8021SpbSysName, ieee8021SpbTopIxDynamicTableGroupSPBM=ieee8021SpbTopIxDynamicTableGroupSPBM, ieee8021SpbAdjDynamicEntryPortIdentifier=ieee8021SpbAdjDynamicEntryPortIdentifier, ieee8021SpbmBsiStaticEntryTsBit=ieee8021SpbmBsiStaticEntryTsBit, ieee8021SpbSysControlAddr=ieee8021SpbSysControlAddr, ieee8021SpbmTopSrvTableGroupSPBM=ieee8021SpbmTopSrvTableGroupSPBM, ieee8021SpbAdjStaticEntryMetric=ieee8021SpbAdjStaticEntryMetric, dot1agCfmMepSpbmEspEsp=dot1agCfmMepSpbmEspEsp, ieee8021SpbAdjDynamicTable=ieee8021SpbAdjDynamicTable, dot1agCfmMepSpbmEspEntry=dot1agCfmMepSpbmEspEntry, ieee8021SpbTopIxDynamicTableGroupSPBV=ieee8021SpbTopIxDynamicTableGroupSPBV, ieee8021SpbAdjDynamicEntryIfOperState=ieee8021SpbAdjDynamicEntryIfOperState, ieee8021SpbTopEdgeTableEntry=ieee8021SpbTopEdgeTableEntry, ieee8021SpbTopIxDynamicEntryTopIx=ieee8021SpbTopIxDynamicEntryTopIx, ieee8021SpbTopIxDynamicTable=ieee8021SpbTopIxDynamicTable, dot1agCfmMepTransmitLtmSpbmDA=dot1agCfmMepTransmitLtmSpbmDA, ieee8021SpbTopNodeTableEntry=ieee8021SpbTopNodeTableEntry, ieee8021SpbvTopSrvEntryMMac=ieee8021SpbvTopSrvEntryMMac, ieee8021PcrTopEdgeTableGroup=ieee8021PcrTopEdgeTableGroup, ieee8021SpbSysBridgePriority=ieee8021SpbSysBridgePriority, ieee8021SpbAdjStaticTableGroupSPBV=ieee8021SpbAdjStaticTableGroupSPBV, ieee8021SpbTopEctEntryTopIx=ieee8021SpbTopEctEntryTopIx, ieee8021SpbvTopSrvEntryMMacFlags=ieee8021SpbvTopSrvEntryMMacFlags, ieee8021SpbSysId=ieee8021SpbSysId, ieee8021SpbAdjDynamicEntryIsisCircIndex=ieee8021SpbAdjDynamicEntryIsisCircIndex, ieee8021SpbEctStaticTableGroupSPBM=ieee8021SpbEctStaticTableGroupSPBM, ieee8021SpbEctStaticTableGroupSPBV=ieee8021SpbEctStaticTableGroupSPBV, ieee8021PcrEctStaticEntryMrtBlueVid=ieee8021PcrEctStaticEntryMrtBlueVid, dot1agCfmMepSpbmEspIndex=dot1agCfmMepSpbmEspIndex, ieee8021PcrTopIxDynamicTableGroup=ieee8021PcrTopIxDynamicTableGroup, IEEE8021SpbLinkMetric=IEEE8021SpbLinkMetric, IEEE8021SpbMode=IEEE8021SpbMode, ieee8021PcrEctStaticEntryTopIx=ieee8021PcrEctStaticEntryTopIx, ieee8021SpbMtidStaticEntryRowStatus=ieee8021SpbMtidStaticEntryRowStatus, ieee8021SpbTopNodeEntryBridgePriority=ieee8021SpbTopNodeEntryBridgePriority, ieee8021SpbAdjStaticEntryTopIx=ieee8021SpbAdjStaticEntryTopIx, ieee8021SpbSysGroupSPBM=ieee8021SpbSysGroupSPBM, ieee8021SpbAdjDynamicEntryPeerMCID=ieee8021SpbAdjDynamicEntryPeerMCID, ieee8021SpbvTopSrvTable=ieee8021SpbvTopSrvTable, ieee8021SpbMtidStaticTableGroupSPBV=ieee8021SpbMtidStaticTableGroupSPBV, ieee8021SpbTopEdgeTable=ieee8021SpbTopEdgeTable, dot1agCfmMepSpbmEntry=dot1agCfmMepSpbmEntry, ieee8021PcrMtidStaticTableGroup=ieee8021PcrMtidStaticTableGroup, ieee8021SpbMtidStaticTableEntry=ieee8021SpbMtidStaticTableEntry, ieee8021PcrEctStaticEntryRowStatus=ieee8021PcrEctStaticEntryRowStatus, ieee8021SpbEctDynamicTableEntry=ieee8021SpbEctDynamicTableEntry, IEEE8021SpbEctAlgorithm=IEEE8021SpbEctAlgorithm, ieee8021PcrTopEctEntryMrtBlueVid=ieee8021PcrTopEctEntryMrtBlueVid, ieee8021SpbEctDynamicTableGroupSPBM=ieee8021SpbEctDynamicTableGroupSPBM, ieee8021SpbmBsiStaticEntry=ieee8021SpbmBsiStaticEntry, IEEE8021SpbMCID=IEEE8021SpbMCID, ieee8021SpbTopEctEntryMode=ieee8021SpbTopEctEntryMode, ieee8021SpbTopNodeTableGroupSPBM=ieee8021SpbTopNodeTableGroupSPBM, ieee8021PcrGroups=ieee8021PcrGroups, ieee8021SpbTopIxDynamicTableEntry=ieee8021SpbTopIxDynamicTableEntry, ieee8021SpbTopEctEntryBaseVid=ieee8021SpbTopEctEntryBaseVid, ieee8021SpbTopNodeEntrySysName=ieee8021SpbTopNodeEntrySysName, ieee8021SpbmTopSrvEntrySysId=ieee8021SpbmTopSrvEntrySysId, ieee8021SpbEctDynamicEntryTopIx=ieee8021SpbEctDynamicEntryTopIx, ieee8021PcrTopEctEntryMode=ieee8021PcrTopEctEntryMode, ieee8021PcrEctStaticTable=ieee8021PcrEctStaticTable, ieee8021SpbTopIxDynamicEntryAuxMCID=ieee8021SpbTopIxDynamicEntryAuxMCID, ieee8021SpbAdjDynamicEntryIfIndex=ieee8021SpbAdjDynamicEntryIfIndex, dot1agCfmMepTransmitLbmSpbmDA=dot1agCfmMepTransmitLbmSpbmDA, ieee8021PcrTopEctTable=ieee8021PcrTopEctTable, IEEE8021SpbDigest=IEEE8021SpbDigest, IEEE8021SpbmSPsourceId=IEEE8021SpbmSPsourceId, ieee8021PcrSysGroup=ieee8021PcrSysGroup, ieee8021SpbEctStaticTable=ieee8021SpbEctStaticTable, ieee8021SpbAdjDynamicEntryPort=ieee8021SpbAdjDynamicEntryPort, ieee8021SpbmBsiStaticTable=ieee8021SpbmBsiStaticTable, ieee8021SpbSysGroupSPBV=ieee8021SpbSysGroupSPBV, ieee8021SpbAdjDynamicEntryLocalCircuitID=ieee8021SpbAdjDynamicEntryLocalCircuitID, ieee8021SpbvEctStaticEntrySpvid=ieee8021SpbvEctStaticEntrySpvid, ieee8021SpbmBsiStaticEntryTBit=ieee8021SpbmBsiStaticEntryTBit, ieee8021SpbmBsiStaticEntryIsid=ieee8021SpbmBsiStaticEntryIsid, ieee8021SpbvTopSrvEntryTopIx=ieee8021SpbvTopSrvEntryTopIx, ieee8021PcrEctDynamicTableGroup=ieee8021PcrEctDynamicTableGroup, ieee8021SpbAdjDynamicEntryPeerAgreeDigest=ieee8021SpbAdjDynamicEntryPeerAgreeDigest, ieee8021SpbmTopNodeEntrySPsourceID=ieee8021SpbmTopNodeEntrySPsourceID, ieee8021SpbAdjDynamicEntryPeerAuxMCID=ieee8021SpbAdjDynamicEntryPeerAuxMCID, ieee8021SpbAdjDynamicEntryPeerSysId=ieee8021SpbAdjDynamicEntryPeerSysId, ieee8021SpbMtidStaticEntryMtid=ieee8021SpbMtidStaticEntryMtid, ieee8021PcrAdjStaticTableGroup=ieee8021PcrAdjStaticTableGroup, ieee8021SpbEctDynamicEntryRemoteUse=ieee8021SpbEctDynamicEntryRemoteUse, dot1agCfmMepSpbmEspRowStatus=dot1agCfmMepSpbmEspRowStatus, ieee8021SpbmBsiStaticEntryRowStatus=ieee8021SpbmBsiStaticEntryRowStatus, ieee8021SpbTopEctTableEntry=ieee8021SpbTopEctTableEntry, ieee8021SpbTopEdgeTableGroupSPBM=ieee8021SpbTopEdgeTableGroupSPBM, ieee8021PcrEctStaticEntryBaseVid=ieee8021PcrEctStaticEntryBaseVid, ieee8021SpbAdjStaticTable=ieee8021SpbAdjStaticTable, ieee8021SpbTopEctEntryEctAlgorithm=ieee8021SpbTopEctEntryEctAlgorithm, ieee8021PcrCompliances=ieee8021PcrCompliances, dot1agCfmMepSpbmEspTableGroupSPBM=dot1agCfmMepSpbmEspTableGroupSPBM, ieee8021PcrTopEctEntryTopIx=ieee8021PcrTopEctEntryTopIx, ieee8021SpbMib=ieee8021SpbMib, ieee8021SpbEctStaticTableEntry=ieee8021SpbEctStaticTableEntry, ieee8021SpbAdjStaticTableGroupSPBM=ieee8021SpbAdjStaticTableGroupSPBM, ieee8021SpbTopEctTableGroupSPBV=ieee8021SpbTopEctTableGroupSPBV, IEEE8021SpbAdjState=IEEE8021SpbAdjState, ieee8021SpbvSysMode=ieee8021SpbvSysMode, ieee8021SpbTopNodeEntrySysId=ieee8021SpbTopNodeEntrySysId, ieee8021SpbvTopEctSysMode=ieee8021SpbvTopEctSysMode, ieee8021PcrEctStaticTableEntry=ieee8021PcrEctStaticTableEntry, ieee8021SpbvTopSrvEntrySysId=ieee8021SpbvTopSrvEntrySysId, ieee8021SpbvTopSrvEntryBaseVid=ieee8021SpbvTopSrvEntryBaseVid, ieee8021SpbmBsiStaticTableGroupSPBM=ieee8021SpbmBsiStaticTableGroupSPBM, ieee8021PcrCompliance=ieee8021PcrCompliance, ieee8021SpbMTidStaticEntryMtidOverload=ieee8021SpbMTidStaticEntryMtidOverload, ieee8021SpbmTopSrvEntryMac=ieee8021SpbmTopSrvEntryMac, ieee8021SpbAdjStaticEntryIfIndex=ieee8021SpbAdjStaticEntryIfIndex, ieee8021SpbTopIxDynamicEntryMCID=ieee8021SpbTopIxDynamicEntryMCID, ieee8021SpbTopEdgeEntryMetricNear2Far=ieee8021SpbTopEdgeEntryMetricNear2Far, ieee8021SpbTopIxDynamicEntryAgreeDigest=ieee8021SpbTopIxDynamicEntryAgreeDigest, ieee8021SpbEctDynamicEntryMode=ieee8021SpbEctDynamicEntryMode, ieee8021PcrTopSrvTableGroupVid=ieee8021PcrTopSrvTableGroupVid, ieee8021SpbTopEctTableGroupSPBM=ieee8021SpbTopEctTableGroupSPBM, ieee8021SpbAdjDynamicEntryPeerSysName=ieee8021SpbAdjDynamicEntryPeerSysName, ieee8021SpbConformance=ieee8021SpbConformance, ieee8021PcrAdjDynamicTableGroup=ieee8021PcrAdjDynamicTableGroup, ieee8021SpbGroups=ieee8021SpbGroups, ieee8021SpbObjects=ieee8021SpbObjects, ieee8021SpbmTopSrvEntryIsid=ieee8021SpbmTopSrvEntryIsid)

@@ -1,109 +1,57 @@
-_Q='oaLdPortsCntrGroup'
-_P='oaLdPortsCntrOutOctets'
-_O='oaLdPortsCntrInOctets'
-_N='oaLdPortsCntrOutPkts'
-_M='oaLdPortsCntrInPkts'
-_L='oaLdPortsCntrCodeViols'
-_K='oaLdPortsCntrOutRateBits'
-_J='oaLdPortsCntrInRateBits'
-_I='oaLdPortsCntrCrcErrs'
-_H='oaLdPortsCntrSyncErrs'
-_G='not-accessible'
-_F='oaLdPortsCntrPortNumber'
-_E='oaLdPortsCntrSlotNumber'
-_D='Integer32'
-_C='read-only'
-_B='OADWDM-EXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-oaLambdaDriver=ModuleIdentity((1,3,6,1,4,1,6926,1,41))
-if mibBuilder.loadTexts:oaLambdaDriver.setRevisions(('2009-06-28 00:00',))
-_Oaccess_ObjectIdentity=ObjectIdentity
-oaccess=_Oaccess_ObjectIdentity((1,3,6,1,4,1,6926))
-_OaManagement_ObjectIdentity=ObjectIdentity
-oaManagement=_OaManagement_ObjectIdentity((1,3,6,1,4,1,6926,1))
-_OaLdPortsCntr_ObjectIdentity=ObjectIdentity
-oaLdPortsCntr=_OaLdPortsCntr_ObjectIdentity((1,3,6,1,4,1,6926,1,41,10))
-_OaLdPortsCntrTable_Object=MibTable
-oaLdPortsCntrTable=_OaLdPortsCntrTable_Object((1,3,6,1,4,1,6926,1,41,10,2))
-if mibBuilder.loadTexts:oaLdPortsCntrTable.setStatus(_A)
-_OaLdPortsCntrEntry_Object=MibTableRow
-oaLdPortsCntrEntry=_OaLdPortsCntrEntry_Object((1,3,6,1,4,1,6926,1,41,10,2,1))
-oaLdPortsCntrEntry.setIndexNames((0,_B,_E),(0,_B,_F))
-if mibBuilder.loadTexts:oaLdPortsCntrEntry.setStatus(_A)
-class _OaLdPortsCntrSlotNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,24))
-_OaLdPortsCntrSlotNumber_Type.__name__=_D
-_OaLdPortsCntrSlotNumber_Object=MibTableColumn
-oaLdPortsCntrSlotNumber=_OaLdPortsCntrSlotNumber_Object((1,3,6,1,4,1,6926,1,41,10,2,1,1),_OaLdPortsCntrSlotNumber_Type())
-oaLdPortsCntrSlotNumber.setMaxAccess(_G)
-if mibBuilder.loadTexts:oaLdPortsCntrSlotNumber.setStatus(_A)
-class _OaLdPortsCntrPortNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,40))
-_OaLdPortsCntrPortNumber_Type.__name__=_D
-_OaLdPortsCntrPortNumber_Object=MibTableColumn
-oaLdPortsCntrPortNumber=_OaLdPortsCntrPortNumber_Object((1,3,6,1,4,1,6926,1,41,10,2,1,2),_OaLdPortsCntrPortNumber_Type())
-oaLdPortsCntrPortNumber.setMaxAccess(_G)
-if mibBuilder.loadTexts:oaLdPortsCntrPortNumber.setStatus(_A)
-_OaLdPortsCntrSyncErrs_Type=Counter32
-_OaLdPortsCntrSyncErrs_Object=MibTableColumn
-oaLdPortsCntrSyncErrs=_OaLdPortsCntrSyncErrs_Object((1,3,6,1,4,1,6926,1,41,10,2,1,3),_OaLdPortsCntrSyncErrs_Type())
-oaLdPortsCntrSyncErrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:oaLdPortsCntrSyncErrs.setStatus(_A)
-_OaLdPortsCntrCrcErrs_Type=Counter32
-_OaLdPortsCntrCrcErrs_Object=MibTableColumn
-oaLdPortsCntrCrcErrs=_OaLdPortsCntrCrcErrs_Object((1,3,6,1,4,1,6926,1,41,10,2,1,4),_OaLdPortsCntrCrcErrs_Type())
-oaLdPortsCntrCrcErrs.setMaxAccess(_C)
-if mibBuilder.loadTexts:oaLdPortsCntrCrcErrs.setStatus(_A)
-_OaLdPortsCntrInRateBits_Type=Integer32
-_OaLdPortsCntrInRateBits_Object=MibTableColumn
-oaLdPortsCntrInRateBits=_OaLdPortsCntrInRateBits_Object((1,3,6,1,4,1,6926,1,41,10,2,1,5),_OaLdPortsCntrInRateBits_Type())
-oaLdPortsCntrInRateBits.setMaxAccess(_C)
-if mibBuilder.loadTexts:oaLdPortsCntrInRateBits.setStatus(_A)
-_OaLdPortsCntrOutRateBits_Type=Integer32
-_OaLdPortsCntrOutRateBits_Object=MibTableColumn
-oaLdPortsCntrOutRateBits=_OaLdPortsCntrOutRateBits_Object((1,3,6,1,4,1,6926,1,41,10,2,1,6),_OaLdPortsCntrOutRateBits_Type())
-oaLdPortsCntrOutRateBits.setMaxAccess(_C)
-if mibBuilder.loadTexts:oaLdPortsCntrOutRateBits.setStatus(_A)
-_OaLdPortsCntrCodeViols_Type=Counter32
-_OaLdPortsCntrCodeViols_Object=MibTableColumn
-oaLdPortsCntrCodeViols=_OaLdPortsCntrCodeViols_Object((1,3,6,1,4,1,6926,1,41,10,2,1,7),_OaLdPortsCntrCodeViols_Type())
-oaLdPortsCntrCodeViols.setMaxAccess(_C)
-if mibBuilder.loadTexts:oaLdPortsCntrCodeViols.setStatus(_A)
-_OaLdPortsCntrInPkts_Type=Counter64
-_OaLdPortsCntrInPkts_Object=MibTableColumn
-oaLdPortsCntrInPkts=_OaLdPortsCntrInPkts_Object((1,3,6,1,4,1,6926,1,41,10,2,1,8),_OaLdPortsCntrInPkts_Type())
-oaLdPortsCntrInPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:oaLdPortsCntrInPkts.setStatus(_A)
-_OaLdPortsCntrOutPkts_Type=Counter64
-_OaLdPortsCntrOutPkts_Object=MibTableColumn
-oaLdPortsCntrOutPkts=_OaLdPortsCntrOutPkts_Object((1,3,6,1,4,1,6926,1,41,10,2,1,9),_OaLdPortsCntrOutPkts_Type())
-oaLdPortsCntrOutPkts.setMaxAccess(_C)
-if mibBuilder.loadTexts:oaLdPortsCntrOutPkts.setStatus(_A)
-_OaLdPortsCntrInOctets_Type=Counter64
-_OaLdPortsCntrInOctets_Object=MibTableColumn
-oaLdPortsCntrInOctets=_OaLdPortsCntrInOctets_Object((1,3,6,1,4,1,6926,1,41,10,2,1,10),_OaLdPortsCntrInOctets_Type())
-oaLdPortsCntrInOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:oaLdPortsCntrInOctets.setStatus(_A)
-_OaLdPortsCntrOutOctets_Type=Counter64
-_OaLdPortsCntrOutOctets_Object=MibTableColumn
-oaLdPortsCntrOutOctets=_OaLdPortsCntrOutOctets_Object((1,3,6,1,4,1,6926,1,41,10,2,1,11),_OaLdPortsCntrOutOctets_Type())
-oaLdPortsCntrOutOctets.setMaxAccess(_C)
-if mibBuilder.loadTexts:oaLdPortsCntrOutOctets.setStatus(_A)
-_OaLdPortsCntrConformance_ObjectIdentity=ObjectIdentity
-oaLdPortsCntrConformance=_OaLdPortsCntrConformance_ObjectIdentity((1,3,6,1,4,1,6926,1,41,100))
-_OaLdPortsCntrGroups_ObjectIdentity=ObjectIdentity
-oaLdPortsCntrGroups=_OaLdPortsCntrGroups_ObjectIdentity((1,3,6,1,4,1,6926,1,41,100,1))
-_OaLdPortsCntrCompliances_ObjectIdentity=ObjectIdentity
-oaLdPortsCntrCompliances=_OaLdPortsCntrCompliances_ObjectIdentity((1,3,6,1,4,1,6926,1,41,100,2))
-oaLdPortsCntrGroup=ObjectGroup((1,3,6,1,4,1,6926,1,41,100,1,1))
-oaLdPortsCntrGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P)))
-if mibBuilder.loadTexts:oaLdPortsCntrGroup.setStatus(_A)
-oaLdPortsCntrCompliance=ModuleCompliance((1,3,6,1,4,1,6926,1,41,100,2,1))
-oaLdPortsCntrCompliance.setObjects((_B,_Q))
-if mibBuilder.loadTexts:oaLdPortsCntrCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'oaccess':oaccess,'oaManagement':oaManagement,'oaLambdaDriver':oaLambdaDriver,'oaLdPortsCntr':oaLdPortsCntr,'oaLdPortsCntrTable':oaLdPortsCntrTable,'oaLdPortsCntrEntry':oaLdPortsCntrEntry,_E:oaLdPortsCntrSlotNumber,_F:oaLdPortsCntrPortNumber,_H:oaLdPortsCntrSyncErrs,_I:oaLdPortsCntrCrcErrs,_J:oaLdPortsCntrInRateBits,_K:oaLdPortsCntrOutRateBits,_L:oaLdPortsCntrCodeViols,_M:oaLdPortsCntrInPkts,_N:oaLdPortsCntrOutPkts,_O:oaLdPortsCntrInOctets,_P:oaLdPortsCntrOutOctets,'oaLdPortsCntrConformance':oaLdPortsCntrConformance,'oaLdPortsCntrGroups':oaLdPortsCntrGroups,_Q:oaLdPortsCntrGroup,'oaLdPortsCntrCompliances':oaLdPortsCntrCompliances,'oaLdPortsCntrCompliance':oaLdPortsCntrCompliance})
+#
+# PySNMP MIB module OADWDM-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/OADWDM-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:43 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Integer32, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+oaLambdaDriver = ModuleIdentity((1, 3, 6, 1, 4, 1, 6926, 1, 41))
+oaLambdaDriver.setRevisions(('2009-06-28 00:00',))
+if mibBuilder.loadTexts: oaLambdaDriver.setLastUpdated('200907010000Z')
+if mibBuilder.loadTexts: oaLambdaDriver.setOrganization('MRV Communications')
+oaccess = MibIdentifier((1, 3, 6, 1, 4, 1, 6926))
+oaManagement = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1))
+oaLdPortsCntr = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 41, 10))
+oaLdPortsCntrConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 41, 100))
+oaLdPortsCntrTable = MibTable((1, 3, 6, 1, 4, 1, 6926, 1, 41, 10, 2), )
+if mibBuilder.loadTexts: oaLdPortsCntrTable.setStatus('current')
+oaLdPortsCntrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6926, 1, 41, 10, 2, 1), ).setIndexNames((0, "OADWDM-EXT-MIB", "oaLdPortsCntrSlotNumber"), (0, "OADWDM-EXT-MIB", "oaLdPortsCntrPortNumber"))
+if mibBuilder.loadTexts: oaLdPortsCntrEntry.setStatus('current')
+oaLdPortsCntrSlotNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 41, 10, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 24)))
+if mibBuilder.loadTexts: oaLdPortsCntrSlotNumber.setStatus('current')
+oaLdPortsCntrPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 41, 10, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 40)))
+if mibBuilder.loadTexts: oaLdPortsCntrPortNumber.setStatus('current')
+oaLdPortsCntrSyncErrs = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 41, 10, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaLdPortsCntrSyncErrs.setStatus('current')
+oaLdPortsCntrCrcErrs = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 41, 10, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaLdPortsCntrCrcErrs.setStatus('current')
+oaLdPortsCntrInRateBits = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 41, 10, 2, 1, 5), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaLdPortsCntrInRateBits.setStatus('current')
+oaLdPortsCntrOutRateBits = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 41, 10, 2, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaLdPortsCntrOutRateBits.setStatus('current')
+oaLdPortsCntrCodeViols = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 41, 10, 2, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaLdPortsCntrCodeViols.setStatus('current')
+oaLdPortsCntrInPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 41, 10, 2, 1, 8), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaLdPortsCntrInPkts.setStatus('current')
+oaLdPortsCntrOutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 41, 10, 2, 1, 9), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaLdPortsCntrOutPkts.setStatus('current')
+oaLdPortsCntrInOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 41, 10, 2, 1, 10), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaLdPortsCntrInOctets.setStatus('current')
+oaLdPortsCntrOutOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 41, 10, 2, 1, 11), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: oaLdPortsCntrOutOctets.setStatus('current')
+oaLdPortsCntrGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 41, 100, 1))
+oaLdPortsCntrCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 41, 100, 2))
+oaLdPortsCntrCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6926, 1, 41, 100, 2, 1)).setObjects(("OADWDM-EXT-MIB", "oaLdPortsCntrGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oaLdPortsCntrCompliance = oaLdPortsCntrCompliance.setStatus('current')
+oaLdPortsCntrGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6926, 1, 41, 100, 1, 1)).setObjects(("OADWDM-EXT-MIB", "oaLdPortsCntrSyncErrs"), ("OADWDM-EXT-MIB", "oaLdPortsCntrCrcErrs"), ("OADWDM-EXT-MIB", "oaLdPortsCntrInRateBits"), ("OADWDM-EXT-MIB", "oaLdPortsCntrOutRateBits"), ("OADWDM-EXT-MIB", "oaLdPortsCntrCodeViols"), ("OADWDM-EXT-MIB", "oaLdPortsCntrInPkts"), ("OADWDM-EXT-MIB", "oaLdPortsCntrOutPkts"), ("OADWDM-EXT-MIB", "oaLdPortsCntrInOctets"), ("OADWDM-EXT-MIB", "oaLdPortsCntrOutOctets"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    oaLdPortsCntrGroup = oaLdPortsCntrGroup.setStatus('current')
+mibBuilder.exportSymbols("OADWDM-EXT-MIB", oaLdPortsCntrInOctets=oaLdPortsCntrInOctets, oaLdPortsCntr=oaLdPortsCntr, oaLdPortsCntrInRateBits=oaLdPortsCntrInRateBits, oaLdPortsCntrOutOctets=oaLdPortsCntrOutOctets, PYSNMP_MODULE_ID=oaLambdaDriver, oaLambdaDriver=oaLambdaDriver, oaLdPortsCntrInPkts=oaLdPortsCntrInPkts, oaLdPortsCntrConformance=oaLdPortsCntrConformance, oaLdPortsCntrOutPkts=oaLdPortsCntrOutPkts, oaLdPortsCntrSlotNumber=oaLdPortsCntrSlotNumber, oaLdPortsCntrOutRateBits=oaLdPortsCntrOutRateBits, oaLdPortsCntrCompliances=oaLdPortsCntrCompliances, oaLdPortsCntrSyncErrs=oaLdPortsCntrSyncErrs, oaccess=oaccess, oaLdPortsCntrGroups=oaLdPortsCntrGroups, oaLdPortsCntrCrcErrs=oaLdPortsCntrCrcErrs, oaLdPortsCntrTable=oaLdPortsCntrTable, oaLdPortsCntrCompliance=oaLdPortsCntrCompliance, oaManagement=oaManagement, oaLdPortsCntrPortNumber=oaLdPortsCntrPortNumber, oaLdPortsCntrEntry=oaLdPortsCntrEntry, oaLdPortsCntrGroup=oaLdPortsCntrGroup, oaLdPortsCntrCodeViols=oaLdPortsCntrCodeViols)

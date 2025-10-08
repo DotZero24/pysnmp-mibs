@@ -1,270 +1,115 @@
-_r='cpkiConfigGroup'
-_q='cpkiTrustPointConfigRowStatus'
-_p='cpkiTrustPointStorageType'
-_o='cpkiLastActionFailureReason'
-_n='cpkiLastActionResult'
-_m='cpkiLastAction'
-_l='cpkiActionPassword'
-_k='cpkiActionUrl'
-_j='cpkiAction'
-_i='cpkiOCSPurl'
-_h='cpkiRevokeCheckMethods'
-_g='cpkiIssuerCertFingerPrint'
-_f='cpkiIssuerCertEndDate'
-_e='cpkiIssuerCertStartDate'
-_d='cpkiIssuerCertSerialNum'
-_c='cpkiIssuerCertSubjectName'
-_b='cpkiIssuerCertFileName'
-_a='cpkiIdCertFingerPrint'
-_Z='cpkiIdCertEndDate'
-_Y='cpkiIdCertStartDate'
-_X='cpkiIdCertSerialNum'
-_W='cpkiIdCertSubjectName'
-_V='cpkiIdCertFileName'
-_U='cpkiKeyPairName'
-_T='cpkiTrustPointId'
-_S='cpkiRSAKeyPairConfigRowStatus'
-_R='cpkiRSAKeyPairStorageType'
-_Q='cpkiRSAKeyPairExportable'
-_P='cpkiRSAPvtKeyFileName'
-_O='cpkiRSAKeyPairSize'
-_N='cpkiRSAKeyPairId'
-_M='CiscoPkiAction'
-_L='cpkiTrustPointName'
-_K='not-accessible'
-_J='cpkiRSAKeyPairName'
-_I='TruthValue'
-_H='Integer32'
-_G='OctetString'
-_F='StorageType'
-_E='read-create'
-_D='SnmpAdminString'
-_C='read-only'
-_B='CISCO-PKI-PARTICIPATION-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_G,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_D)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','RowStatus',_F,'TextualConvention',_I)
-cpkiMIB=ModuleIdentity((1,3,6,1,4,1,9,9,505))
-if mibBuilder.loadTexts:cpkiMIB.setRevisions(('2005-10-22 00:00',))
-class CiscoPkiAction(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13)));namedValues=NamedValues(*(('noop',1),('caauth',2),('cadelete',3),('certreq',4),('certimport',5),('certdelete',6),('pkcs12import',7),('pkcs12export',8),('certconfirm',9),('certnoconfirm',10),('forcecertdelete',11),('crlimport',12),('crldelete',13)))
-class CiscoPkiActionResult(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('none',1),('success',2),('failed',3),('inProgress',4),('needConfirm',5)))
-_CpkiMIBNotifs_ObjectIdentity=ObjectIdentity
-cpkiMIBNotifs=_CpkiMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,505,0))
-_CpkiMIBObjects_ObjectIdentity=ObjectIdentity
-cpkiMIBObjects=_CpkiMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,505,1))
-_CpkiConfig_ObjectIdentity=ObjectIdentity
-cpkiConfig=_CpkiConfig_ObjectIdentity((1,3,6,1,4,1,9,9,505,1,1))
-_CpkiRSAKeyPairTable_Object=MibTable
-cpkiRSAKeyPairTable=_CpkiRSAKeyPairTable_Object((1,3,6,1,4,1,9,9,505,1,1,1))
-if mibBuilder.loadTexts:cpkiRSAKeyPairTable.setStatus(_A)
-_CpkiRSAKeyPairEntry_Object=MibTableRow
-cpkiRSAKeyPairEntry=_CpkiRSAKeyPairEntry_Object((1,3,6,1,4,1,9,9,505,1,1,1,1))
-cpkiRSAKeyPairEntry.setIndexNames((0,_B,_J))
-if mibBuilder.loadTexts:cpkiRSAKeyPairEntry.setStatus(_A)
-class _CpkiRSAKeyPairName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_CpkiRSAKeyPairName_Type.__name__=_D
-_CpkiRSAKeyPairName_Object=MibTableColumn
-cpkiRSAKeyPairName=_CpkiRSAKeyPairName_Object((1,3,6,1,4,1,9,9,505,1,1,1,1,1),_CpkiRSAKeyPairName_Type())
-cpkiRSAKeyPairName.setMaxAccess(_K)
-if mibBuilder.loadTexts:cpkiRSAKeyPairName.setStatus(_A)
-_CpkiRSAKeyPairId_Type=Unsigned32
-_CpkiRSAKeyPairId_Object=MibTableColumn
-cpkiRSAKeyPairId=_CpkiRSAKeyPairId_Object((1,3,6,1,4,1,9,9,505,1,1,1,1,2),_CpkiRSAKeyPairId_Type())
-cpkiRSAKeyPairId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiRSAKeyPairId.setStatus(_A)
-class _CpkiRSAKeyPairSize_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('rsa512',1),('rsa768',2),('rsa1024',3),('rsa1536',4),('rsa2048',5)))
-_CpkiRSAKeyPairSize_Type.__name__=_H
-_CpkiRSAKeyPairSize_Object=MibTableColumn
-cpkiRSAKeyPairSize=_CpkiRSAKeyPairSize_Object((1,3,6,1,4,1,9,9,505,1,1,1,1,3),_CpkiRSAKeyPairSize_Type())
-cpkiRSAKeyPairSize.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpkiRSAKeyPairSize.setStatus(_A)
-class _CpkiRSAPvtKeyFileName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CpkiRSAPvtKeyFileName_Type.__name__=_D
-_CpkiRSAPvtKeyFileName_Object=MibTableColumn
-cpkiRSAPvtKeyFileName=_CpkiRSAPvtKeyFileName_Object((1,3,6,1,4,1,9,9,505,1,1,1,1,4),_CpkiRSAPvtKeyFileName_Type())
-cpkiRSAPvtKeyFileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiRSAPvtKeyFileName.setStatus(_A)
-class _CpkiRSAKeyPairExportable_Type(TruthValue):defaultValue=1
-_CpkiRSAKeyPairExportable_Type.__name__=_I
-_CpkiRSAKeyPairExportable_Object=MibTableColumn
-cpkiRSAKeyPairExportable=_CpkiRSAKeyPairExportable_Object((1,3,6,1,4,1,9,9,505,1,1,1,1,5),_CpkiRSAKeyPairExportable_Type())
-cpkiRSAKeyPairExportable.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpkiRSAKeyPairExportable.setStatus(_A)
-class _CpkiRSAKeyPairStorageType_Type(StorageType):defaultValue=3
-_CpkiRSAKeyPairStorageType_Type.__name__=_F
-_CpkiRSAKeyPairStorageType_Object=MibTableColumn
-cpkiRSAKeyPairStorageType=_CpkiRSAKeyPairStorageType_Object((1,3,6,1,4,1,9,9,505,1,1,1,1,6),_CpkiRSAKeyPairStorageType_Type())
-cpkiRSAKeyPairStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpkiRSAKeyPairStorageType.setStatus(_A)
-_CpkiRSAKeyPairConfigRowStatus_Type=RowStatus
-_CpkiRSAKeyPairConfigRowStatus_Object=MibTableColumn
-cpkiRSAKeyPairConfigRowStatus=_CpkiRSAKeyPairConfigRowStatus_Object((1,3,6,1,4,1,9,9,505,1,1,1,1,7),_CpkiRSAKeyPairConfigRowStatus_Type())
-cpkiRSAKeyPairConfigRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpkiRSAKeyPairConfigRowStatus.setStatus(_A)
-_CpkiTrustPointTable_Object=MibTable
-cpkiTrustPointTable=_CpkiTrustPointTable_Object((1,3,6,1,4,1,9,9,505,1,1,2))
-if mibBuilder.loadTexts:cpkiTrustPointTable.setStatus(_A)
-_CpkiTrustPointEntry_Object=MibTableRow
-cpkiTrustPointEntry=_CpkiTrustPointEntry_Object((1,3,6,1,4,1,9,9,505,1,1,2,1))
-cpkiTrustPointEntry.setIndexNames((0,_B,_L))
-if mibBuilder.loadTexts:cpkiTrustPointEntry.setStatus(_A)
-class _CpkiTrustPointName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_CpkiTrustPointName_Type.__name__=_D
-_CpkiTrustPointName_Object=MibTableColumn
-cpkiTrustPointName=_CpkiTrustPointName_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,1),_CpkiTrustPointName_Type())
-cpkiTrustPointName.setMaxAccess(_K)
-if mibBuilder.loadTexts:cpkiTrustPointName.setStatus(_A)
-_CpkiTrustPointId_Type=Unsigned32
-_CpkiTrustPointId_Object=MibTableColumn
-cpkiTrustPointId=_CpkiTrustPointId_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,2),_CpkiTrustPointId_Type())
-cpkiTrustPointId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiTrustPointId.setStatus(_A)
-class _CpkiKeyPairName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CpkiKeyPairName_Type.__name__=_D
-_CpkiKeyPairName_Object=MibTableColumn
-cpkiKeyPairName=_CpkiKeyPairName_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,3),_CpkiKeyPairName_Type())
-cpkiKeyPairName.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpkiKeyPairName.setStatus(_A)
-class _CpkiIdCertFileName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CpkiIdCertFileName_Type.__name__=_D
-_CpkiIdCertFileName_Object=MibTableColumn
-cpkiIdCertFileName=_CpkiIdCertFileName_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,4),_CpkiIdCertFileName_Type())
-cpkiIdCertFileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiIdCertFileName.setStatus(_A)
-class _CpkiIdCertSubjectName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CpkiIdCertSubjectName_Type.__name__=_D
-_CpkiIdCertSubjectName_Object=MibTableColumn
-cpkiIdCertSubjectName=_CpkiIdCertSubjectName_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,5),_CpkiIdCertSubjectName_Type())
-cpkiIdCertSubjectName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiIdCertSubjectName.setStatus(_A)
-class _CpkiIdCertSerialNum_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CpkiIdCertSerialNum_Type.__name__=_D
-_CpkiIdCertSerialNum_Object=MibTableColumn
-cpkiIdCertSerialNum=_CpkiIdCertSerialNum_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,6),_CpkiIdCertSerialNum_Type())
-cpkiIdCertSerialNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiIdCertSerialNum.setStatus(_A)
-_CpkiIdCertStartDate_Type=DateAndTime
-_CpkiIdCertStartDate_Object=MibTableColumn
-cpkiIdCertStartDate=_CpkiIdCertStartDate_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,7),_CpkiIdCertStartDate_Type())
-cpkiIdCertStartDate.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiIdCertStartDate.setStatus(_A)
-_CpkiIdCertEndDate_Type=DateAndTime
-_CpkiIdCertEndDate_Object=MibTableColumn
-cpkiIdCertEndDate=_CpkiIdCertEndDate_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,8),_CpkiIdCertEndDate_Type())
-cpkiIdCertEndDate.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiIdCertEndDate.setStatus(_A)
-class _CpkiIdCertFingerPrint_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CpkiIdCertFingerPrint_Type.__name__=_D
-_CpkiIdCertFingerPrint_Object=MibTableColumn
-cpkiIdCertFingerPrint=_CpkiIdCertFingerPrint_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,9),_CpkiIdCertFingerPrint_Type())
-cpkiIdCertFingerPrint.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiIdCertFingerPrint.setStatus(_A)
-class _CpkiIssuerCertFileName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CpkiIssuerCertFileName_Type.__name__=_D
-_CpkiIssuerCertFileName_Object=MibTableColumn
-cpkiIssuerCertFileName=_CpkiIssuerCertFileName_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,10),_CpkiIssuerCertFileName_Type())
-cpkiIssuerCertFileName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiIssuerCertFileName.setStatus(_A)
-class _CpkiIssuerCertSubjectName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CpkiIssuerCertSubjectName_Type.__name__=_D
-_CpkiIssuerCertSubjectName_Object=MibTableColumn
-cpkiIssuerCertSubjectName=_CpkiIssuerCertSubjectName_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,11),_CpkiIssuerCertSubjectName_Type())
-cpkiIssuerCertSubjectName.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiIssuerCertSubjectName.setStatus(_A)
-class _CpkiIssuerCertSerialNum_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CpkiIssuerCertSerialNum_Type.__name__=_D
-_CpkiIssuerCertSerialNum_Object=MibTableColumn
-cpkiIssuerCertSerialNum=_CpkiIssuerCertSerialNum_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,12),_CpkiIssuerCertSerialNum_Type())
-cpkiIssuerCertSerialNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiIssuerCertSerialNum.setStatus(_A)
-_CpkiIssuerCertStartDate_Type=DateAndTime
-_CpkiIssuerCertStartDate_Object=MibTableColumn
-cpkiIssuerCertStartDate=_CpkiIssuerCertStartDate_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,13),_CpkiIssuerCertStartDate_Type())
-cpkiIssuerCertStartDate.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiIssuerCertStartDate.setStatus(_A)
-_CpkiIssuerCertEndDate_Type=DateAndTime
-_CpkiIssuerCertEndDate_Object=MibTableColumn
-cpkiIssuerCertEndDate=_CpkiIssuerCertEndDate_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,14),_CpkiIssuerCertEndDate_Type())
-cpkiIssuerCertEndDate.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiIssuerCertEndDate.setStatus(_A)
-class _CpkiIssuerCertFingerPrint_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CpkiIssuerCertFingerPrint_Type.__name__=_D
-_CpkiIssuerCertFingerPrint_Object=MibTableColumn
-cpkiIssuerCertFingerPrint=_CpkiIssuerCertFingerPrint_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,15),_CpkiIssuerCertFingerPrint_Type())
-cpkiIssuerCertFingerPrint.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiIssuerCertFingerPrint.setStatus(_A)
-class _CpkiRevokeCheckMethods_Type(OctetString):defaultHexValue='02000000000000000000000000000000';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
-_CpkiRevokeCheckMethods_Type.__name__=_G
-_CpkiRevokeCheckMethods_Object=MibTableColumn
-cpkiRevokeCheckMethods=_CpkiRevokeCheckMethods_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,16),_CpkiRevokeCheckMethods_Type())
-cpkiRevokeCheckMethods.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpkiRevokeCheckMethods.setStatus(_A)
-class _CpkiOCSPurl_Type(SnmpAdminString):defaultHexValue='';subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CpkiOCSPurl_Type.__name__=_D
-_CpkiOCSPurl_Object=MibTableColumn
-cpkiOCSPurl=_CpkiOCSPurl_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,17),_CpkiOCSPurl_Type())
-cpkiOCSPurl.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpkiOCSPurl.setStatus(_A)
-class _CpkiAction_Type(CiscoPkiAction):defaultValue=1
-_CpkiAction_Type.__name__=_M
-_CpkiAction_Object=MibTableColumn
-cpkiAction=_CpkiAction_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,18),_CpkiAction_Type())
-cpkiAction.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpkiAction.setStatus(_A)
-_CpkiActionUrl_Type=SnmpAdminString
-_CpkiActionUrl_Object=MibTableColumn
-cpkiActionUrl=_CpkiActionUrl_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,19),_CpkiActionUrl_Type())
-cpkiActionUrl.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpkiActionUrl.setStatus(_A)
-class _CpkiActionPassword_Type(SnmpAdminString):defaultHexValue='';subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CpkiActionPassword_Type.__name__=_D
-_CpkiActionPassword_Object=MibTableColumn
-cpkiActionPassword=_CpkiActionPassword_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,20),_CpkiActionPassword_Type())
-cpkiActionPassword.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpkiActionPassword.setStatus(_A)
-_CpkiLastAction_Type=CiscoPkiAction
-_CpkiLastAction_Object=MibTableColumn
-cpkiLastAction=_CpkiLastAction_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,21),_CpkiLastAction_Type())
-cpkiLastAction.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiLastAction.setStatus(_A)
-_CpkiLastActionResult_Type=CiscoPkiActionResult
-_CpkiLastActionResult_Object=MibTableColumn
-cpkiLastActionResult=_CpkiLastActionResult_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,22),_CpkiLastActionResult_Type())
-cpkiLastActionResult.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiLastActionResult.setStatus(_A)
-_CpkiLastActionFailureReason_Type=SnmpAdminString
-_CpkiLastActionFailureReason_Object=MibTableColumn
-cpkiLastActionFailureReason=_CpkiLastActionFailureReason_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,23),_CpkiLastActionFailureReason_Type())
-cpkiLastActionFailureReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:cpkiLastActionFailureReason.setStatus(_A)
-class _CpkiTrustPointStorageType_Type(StorageType):defaultValue=3
-_CpkiTrustPointStorageType_Type.__name__=_F
-_CpkiTrustPointStorageType_Object=MibTableColumn
-cpkiTrustPointStorageType=_CpkiTrustPointStorageType_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,24),_CpkiTrustPointStorageType_Type())
-cpkiTrustPointStorageType.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpkiTrustPointStorageType.setStatus(_A)
-_CpkiTrustPointConfigRowStatus_Type=RowStatus
-_CpkiTrustPointConfigRowStatus_Object=MibTableColumn
-cpkiTrustPointConfigRowStatus=_CpkiTrustPointConfigRowStatus_Object((1,3,6,1,4,1,9,9,505,1,1,2,1,25),_CpkiTrustPointConfigRowStatus_Type())
-cpkiTrustPointConfigRowStatus.setMaxAccess(_E)
-if mibBuilder.loadTexts:cpkiTrustPointConfigRowStatus.setStatus(_A)
-_CpkiMIBConform_ObjectIdentity=ObjectIdentity
-cpkiMIBConform=_CpkiMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,505,2))
-_CpkiMIBCompliances_ObjectIdentity=ObjectIdentity
-cpkiMIBCompliances=_CpkiMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,505,2,1))
-_CpkiMIBGroups_ObjectIdentity=ObjectIdentity
-cpkiMIBGroups=_CpkiMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,505,2,2))
-cpkiConfigGroup=ObjectGroup((1,3,6,1,4,1,9,9,505,2,2,1))
-cpkiConfigGroup.setObjects(*((_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q)))
-if mibBuilder.loadTexts:cpkiConfigGroup.setStatus(_A)
-cpkiMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,505,2,1,1))
-cpkiMIBCompliance.setObjects((_B,_r))
-if mibBuilder.loadTexts:cpkiMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_M:CiscoPkiAction,'CiscoPkiActionResult':CiscoPkiActionResult,'cpkiMIB':cpkiMIB,'cpkiMIBNotifs':cpkiMIBNotifs,'cpkiMIBObjects':cpkiMIBObjects,'cpkiConfig':cpkiConfig,'cpkiRSAKeyPairTable':cpkiRSAKeyPairTable,'cpkiRSAKeyPairEntry':cpkiRSAKeyPairEntry,_J:cpkiRSAKeyPairName,_N:cpkiRSAKeyPairId,_O:cpkiRSAKeyPairSize,_P:cpkiRSAPvtKeyFileName,_Q:cpkiRSAKeyPairExportable,_R:cpkiRSAKeyPairStorageType,_S:cpkiRSAKeyPairConfigRowStatus,'cpkiTrustPointTable':cpkiTrustPointTable,'cpkiTrustPointEntry':cpkiTrustPointEntry,_L:cpkiTrustPointName,_T:cpkiTrustPointId,_U:cpkiKeyPairName,_V:cpkiIdCertFileName,_W:cpkiIdCertSubjectName,_X:cpkiIdCertSerialNum,_Y:cpkiIdCertStartDate,_Z:cpkiIdCertEndDate,_a:cpkiIdCertFingerPrint,_b:cpkiIssuerCertFileName,_c:cpkiIssuerCertSubjectName,_d:cpkiIssuerCertSerialNum,_e:cpkiIssuerCertStartDate,_f:cpkiIssuerCertEndDate,_g:cpkiIssuerCertFingerPrint,_h:cpkiRevokeCheckMethods,_i:cpkiOCSPurl,_j:cpkiAction,_k:cpkiActionUrl,_l:cpkiActionPassword,_m:cpkiLastAction,_n:cpkiLastActionResult,_o:cpkiLastActionFailureReason,_p:cpkiTrustPointStorageType,_q:cpkiTrustPointConfigRowStatus,'cpkiMIBConform':cpkiMIBConform,'cpkiMIBCompliances':cpkiMIBCompliances,'cpkiMIBCompliance':cpkiMIBCompliance,'cpkiMIBGroups':cpkiMIBGroups,_r:cpkiConfigGroup})
+#
+# PySNMP MIB module CISCO-PKI-PARTICIPATION-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-PKI-PARTICIPATION-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:15:58 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, StorageType, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "StorageType", "DateAndTime", "TruthValue", "TextualConvention")
+cpkiMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 505))
+cpkiMIB.setRevisions(('2005-10-22 00:00',))
+if mibBuilder.loadTexts: cpkiMIB.setLastUpdated('200510220000Z')
+if mibBuilder.loadTexts: cpkiMIB.setOrganization('Cisco Systems, Inc.')
+cpkiMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 505, 0))
+cpkiMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 505, 1))
+cpkiMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 505, 2))
+cpkiConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1))
+class CiscoPkiAction(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13))
+    namedValues = NamedValues(("noop", 1), ("caauth", 2), ("cadelete", 3), ("certreq", 4), ("certimport", 5), ("certdelete", 6), ("pkcs12import", 7), ("pkcs12export", 8), ("certconfirm", 9), ("certnoconfirm", 10), ("forcecertdelete", 11), ("crlimport", 12), ("crldelete", 13))
+
+class CiscoPkiActionResult(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("none", 1), ("success", 2), ("failed", 3), ("inProgress", 4), ("needConfirm", 5))
+
+cpkiRSAKeyPairTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 1), )
+if mibBuilder.loadTexts: cpkiRSAKeyPairTable.setStatus('current')
+cpkiRSAKeyPairEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-PKI-PARTICIPATION-MIB", "cpkiRSAKeyPairName"))
+if mibBuilder.loadTexts: cpkiRSAKeyPairEntry.setStatus('current')
+cpkiRSAKeyPairName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 64)))
+if mibBuilder.loadTexts: cpkiRSAKeyPairName.setStatus('current')
+cpkiRSAKeyPairId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiRSAKeyPairId.setStatus('current')
+cpkiRSAKeyPairSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("rsa512", 1), ("rsa768", 2), ("rsa1024", 3), ("rsa1536", 4), ("rsa2048", 5))).clone('rsa512')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cpkiRSAKeyPairSize.setStatus('current')
+cpkiRSAPvtKeyFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 1, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiRSAPvtKeyFileName.setStatus('current')
+cpkiRSAKeyPairExportable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 1, 1, 5), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cpkiRSAKeyPairExportable.setStatus('current')
+cpkiRSAKeyPairStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 1, 1, 6), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cpkiRSAKeyPairStorageType.setStatus('current')
+cpkiRSAKeyPairConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cpkiRSAKeyPairConfigRowStatus.setStatus('current')
+cpkiTrustPointTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2), )
+if mibBuilder.loadTexts: cpkiTrustPointTable.setStatus('current')
+cpkiTrustPointEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1), ).setIndexNames((0, "CISCO-PKI-PARTICIPATION-MIB", "cpkiTrustPointName"))
+if mibBuilder.loadTexts: cpkiTrustPointEntry.setStatus('current')
+cpkiTrustPointName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 64)))
+if mibBuilder.loadTexts: cpkiTrustPointName.setStatus('current')
+cpkiTrustPointId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiTrustPointId.setStatus('current')
+cpkiKeyPairName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cpkiKeyPairName.setStatus('current')
+cpkiIdCertFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiIdCertFileName.setStatus('current')
+cpkiIdCertSubjectName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 5), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiIdCertSubjectName.setStatus('current')
+cpkiIdCertSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 6), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiIdCertSerialNum.setStatus('current')
+cpkiIdCertStartDate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 7), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiIdCertStartDate.setStatus('current')
+cpkiIdCertEndDate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 8), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiIdCertEndDate.setStatus('current')
+cpkiIdCertFingerPrint = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 9), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiIdCertFingerPrint.setStatus('current')
+cpkiIssuerCertFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 10), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiIssuerCertFileName.setStatus('current')
+cpkiIssuerCertSubjectName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 11), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiIssuerCertSubjectName.setStatus('current')
+cpkiIssuerCertSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 12), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiIssuerCertSerialNum.setStatus('current')
+cpkiIssuerCertStartDate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 13), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiIssuerCertStartDate.setStatus('current')
+cpkiIssuerCertEndDate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 14), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiIssuerCertEndDate.setStatus('current')
+cpkiIssuerCertFingerPrint = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 15), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiIssuerCertFingerPrint.setStatus('current')
+cpkiRevokeCheckMethods = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 16), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16).clone(hexValue="02000000000000000000000000000000")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cpkiRevokeCheckMethods.setStatus('current')
+cpkiOCSPurl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 17), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 255)).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cpkiOCSPurl.setStatus('current')
+cpkiAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 18), CiscoPkiAction().clone('noop')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cpkiAction.setStatus('current')
+cpkiActionUrl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 19), SnmpAdminString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cpkiActionUrl.setStatus('current')
+cpkiActionPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 20), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64)).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cpkiActionPassword.setStatus('current')
+cpkiLastAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 21), CiscoPkiAction()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiLastAction.setStatus('current')
+cpkiLastActionResult = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 22), CiscoPkiActionResult()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiLastActionResult.setStatus('current')
+cpkiLastActionFailureReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 23), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cpkiLastActionFailureReason.setStatus('current')
+cpkiTrustPointStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 24), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cpkiTrustPointStorageType.setStatus('current')
+cpkiTrustPointConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 505, 1, 1, 2, 1, 25), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cpkiTrustPointConfigRowStatus.setStatus('current')
+cpkiMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 505, 2, 1))
+cpkiMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 505, 2, 2))
+cpkiMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 505, 2, 1, 1)).setObjects(("CISCO-PKI-PARTICIPATION-MIB", "cpkiConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpkiMIBCompliance = cpkiMIBCompliance.setStatus('current')
+cpkiConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 505, 2, 2, 1)).setObjects(("CISCO-PKI-PARTICIPATION-MIB", "cpkiRSAKeyPairId"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiRSAKeyPairSize"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiRSAPvtKeyFileName"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiRSAKeyPairExportable"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiRSAKeyPairStorageType"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiRSAKeyPairConfigRowStatus"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiTrustPointId"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiKeyPairName"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiIdCertFileName"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiIdCertSubjectName"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiIdCertSerialNum"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiIdCertStartDate"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiIdCertEndDate"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiIdCertFingerPrint"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiIssuerCertFileName"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiIssuerCertSubjectName"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiIssuerCertSerialNum"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiIssuerCertStartDate"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiIssuerCertEndDate"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiIssuerCertFingerPrint"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiRevokeCheckMethods"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiOCSPurl"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiAction"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiActionUrl"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiActionPassword"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiLastAction"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiLastActionResult"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiLastActionFailureReason"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiTrustPointStorageType"), ("CISCO-PKI-PARTICIPATION-MIB", "cpkiTrustPointConfigRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cpkiConfigGroup = cpkiConfigGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-PKI-PARTICIPATION-MIB", cpkiLastAction=cpkiLastAction, cpkiIdCertEndDate=cpkiIdCertEndDate, cpkiLastActionResult=cpkiLastActionResult, cpkiMIB=cpkiMIB, PYSNMP_MODULE_ID=cpkiMIB, cpkiTrustPointEntry=cpkiTrustPointEntry, cpkiIssuerCertSerialNum=cpkiIssuerCertSerialNum, cpkiIssuerCertEndDate=cpkiIssuerCertEndDate, cpkiIssuerCertSubjectName=cpkiIssuerCertSubjectName, cpkiIdCertFingerPrint=cpkiIdCertFingerPrint, cpkiTrustPointTable=cpkiTrustPointTable, cpkiIdCertStartDate=cpkiIdCertStartDate, cpkiTrustPointName=cpkiTrustPointName, cpkiMIBConform=cpkiMIBConform, cpkiOCSPurl=cpkiOCSPurl, cpkiIssuerCertFileName=cpkiIssuerCertFileName, cpkiKeyPairName=cpkiKeyPairName, cpkiIssuerCertStartDate=cpkiIssuerCertStartDate, cpkiIssuerCertFingerPrint=cpkiIssuerCertFingerPrint, cpkiRSAKeyPairStorageType=cpkiRSAKeyPairStorageType, cpkiMIBObjects=cpkiMIBObjects, cpkiConfig=cpkiConfig, cpkiRSAKeyPairTable=cpkiRSAKeyPairTable, cpkiTrustPointConfigRowStatus=cpkiTrustPointConfigRowStatus, cpkiRSAKeyPairSize=cpkiRSAKeyPairSize, cpkiActionUrl=cpkiActionUrl, cpkiMIBGroups=cpkiMIBGroups, cpkiActionPassword=cpkiActionPassword, cpkiAction=cpkiAction, cpkiLastActionFailureReason=cpkiLastActionFailureReason, cpkiIdCertSerialNum=cpkiIdCertSerialNum, cpkiRSAKeyPairId=cpkiRSAKeyPairId, cpkiRSAKeyPairExportable=cpkiRSAKeyPairExportable, CiscoPkiActionResult=CiscoPkiActionResult, cpkiRSAKeyPairEntry=cpkiRSAKeyPairEntry, CiscoPkiAction=CiscoPkiAction, cpkiRSAKeyPairName=cpkiRSAKeyPairName, cpkiMIBNotifs=cpkiMIBNotifs, cpkiRSAKeyPairConfigRowStatus=cpkiRSAKeyPairConfigRowStatus, cpkiIdCertSubjectName=cpkiIdCertSubjectName, cpkiMIBCompliances=cpkiMIBCompliances, cpkiConfigGroup=cpkiConfigGroup, cpkiRSAPvtKeyFileName=cpkiRSAPvtKeyFileName, cpkiIdCertFileName=cpkiIdCertFileName, cpkiTrustPointStorageType=cpkiTrustPointStorageType, cpkiTrustPointId=cpkiTrustPointId, cpkiMIBCompliance=cpkiMIBCompliance, cpkiRevokeCheckMethods=cpkiRevokeCheckMethods)

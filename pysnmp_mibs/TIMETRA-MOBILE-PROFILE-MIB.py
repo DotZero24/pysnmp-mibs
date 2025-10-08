@@ -1,2760 +1,939 @@
-_Fy='tmnxMobProfDccaV4v0Group'
-_Fx='tmnxMobProfDccaFirstPktBehavior'
-_Fw='tmnxMobProfDccaDefaultQht'
-_Fv='tmnxMobProfDccaFhSessContTimer'
-_Fu='tmnxMobProfPolConfRefCount'
-_Ft='tmnxMobProfPolBaseConfRefCount'
-_Fs='tmnxMobProfSgwChrgCitSgwChange'
-_Fr='tmnxMobProfPmipv6KeepAlvIntvl'
-_Fq='tmnxMobProfPmipv6IpDscp'
-_Fp='tmnxMobProfPmipv6IpTtl'
-_Fo='tmnxMobProfPmipv6KeepAlvRetryCnt'
-_Fn='tmnxMobProfPmipv6KeepAlvTimeout'
-_Fm='tmnxMobProfPmipv6MsgReTxRetryCnt'
-_Fl='tmnxMobProfPmipv6MsgReTxTimeout'
-_Fk='tmnxMobProfPmipv6Description'
-_Fj='tmnxMobProfPmipv6LastChanged'
-_Fi='tmnxMobProfPmipv6RowStatus'
-_Fh='tmnxMobProfPolBaseRefCount'
-_Fg='tmnxMobProfPolBaseInUse'
-_Ff='tmnxMobProfChgUnitRefCount'
-_Fe='tmnxMobProfChgUnitInUse'
-_Fd='tmnxMobProfPolRefCount'
-_Fc='tmnxMobProfPolInUse'
-_Fb='tmnxMobProfPolUntRefCount'
-_Fa='tmnxMobProfPolUntInUse'
-_FZ='tmnxMobProfHttpRedirctPrecedence'
-_FY='tmnxMobProfPolUntFlwAaApp'
-_FX='tmnxMobProfPolUntRedirectAddr'
-_FW='tmnxMobProfPolUntRedirectAdrType'
-_FV='tmnxMobProfHttpRedirectLstChgd'
-_FU='tmnxMobProfHttpRedirectRowStatus'
-_FT='tmnxMobProfPolPrecedence'
-_FS='tmnxMobProfChgUnitMeteringMethod'
-_FR='tmnxMobProfChgUnitChargingMethod'
-_FQ='tmnxMobProfChgUnitReportingLevel'
-_FP='tmnxMobProfChgUnitServIdentifier'
-_FO='tmnxMobProfChgUnitRatingGroup'
-_FN='tmnxMobProfChgUnitLastChanged'
-_FM='tmnxMobProfChgUnitRowStatus'
-_FL='tmnxMobProfPolUntFlwGateStatus'
-_FK='tmnxMobProfPolUnitDwnlinkMbrRate'
-_FJ='tmnxMobProfPolUnitDwnlinkGbrRate'
-_FI='tmnxMobProfPolUnitUplinkMbrRate'
-_FH='tmnxMobProfPolUnitUplinkGbrRate'
-_FG='tmnxMobProfPolUnitLastChanged'
-_FF='tmnxMobProfPolUnitRowStatus'
-_FE='tmnxMobProfPolBasePreActivate'
-_FD='tmnxMobProfPolBasePrecedence'
-_FC='tmnxMobProfPolBaseLastChanged'
-_FB='tmnxMobProfPolBaseRowStatus'
-_FA='tmnxMobProfPolUntFlwRmtPortOper'
-_F9='tmnxMobProfPolUntFlwRmtPortVal2'
-_F8='tmnxMobProfPolUntFlwRmtPortVal1'
-_F7='tmnxMobProfPolUntFlwLclPortOper'
-_F6='tmnxMobProfPolUntFlwLclPortVal2'
-_F5='tmnxMobProfPolUntFlwLclPortVal1'
-_F4='tmnxMobProfPolUntFlwRmtPrefixLen'
-_F3='tmnxMobProfPolUntFlwRmtAddr'
-_F2='tmnxMobProfPolUntFlwRmtAddrType'
-_F1='tmnxMobProfPolUntFlwLclPrefixLen'
-_F0='tmnxMobProfPolUntFlwLclAddr'
-_E_='tmnxMobProfPolUntFlwLclAddrType'
-_Ez='tmnxMobProfPolUntFlwMatchPrtcl'
-_Ey='tmnxMobProfPolUntFlwDirection'
-_Ex='tmnxMobProfPolUntFlwLastChanged'
-_Ew='tmnxMobProfPolUntFlwRowStatus'
-_Ev='tmnxMobProfPolArpValue'
-_Eu='tmnxMobProfPolQciValue'
-_Et='tmnxMobProfChgRuleUnitName'
-_Es='tmnxMobProfPolRuleUnitName'
-_Er='tmnxMobProfPolLastChanged'
-_Eq='tmnxMobProfPolRowStatus'
-_Ep='tmnxMobProfPeerListPeerPlmnMnc'
-_Eo='tmnxMobProfPeerListPeerPlmnMcc'
-_En='tmnxMobProfPeerListPeerForeign'
-_Em='tmnxMobProfPeerListPeerRatType'
-_El='tmnxMobProfPeerListPeerAdmnState'
-_Ek='tmnxMobProfPeerListPeerKeepAlive'
-_Ej='tmnxMobProfPeerListPeerDesc'
-_Ei='tmnxMobProfPeerListPeerLastChgd'
-_Eh='tmnxMobProfPeerListPeerRowStatus'
-_Eg='tmnxMobProfPeerListDescription'
-_Ef='tmnxMobProfPeerListLastChanged'
-_Ee='tmnxMobProfPeerListRowStatus'
-_Ed='tmnxMobProfHTTPRedirctTblLstChgd'
-_Ec='tmnxMobProfChgUnitTblLstChgd'
-_Eb='tmnxMobProfPolUnitTblLstChgd'
-_Ea='tmnxMobProfRadPeerTblLstChgd'
-_EZ='tmnxMobProfRadGrpTblLstChgd'
-_EY='tmnxMobProfRadTblLstChgd'
-_EX='tmnxMobProfDccaTblLstChgd'
-_EW='tmnxMobProfDccaValidityTimeExp'
-_EV='tmnxMobProfDccaRatingCondtChng'
-_EU='tmnxMobProfDccaQuotaUnavail'
-_ET='tmnxMobProfDccaQuotaExThrsldAct'
-_ES='tmnxMobProfDccaQuotaExNoThrsld'
-_ER='tmnxMobProfDccaForcedReAuth'
-_EQ='tmnxMobProfDccaCcSessFlovrHndl'
-_EP='tmnxMobProfDccaCcSessFailover'
-_EO='tmnxMobProfDccaCalledStationId'
-_EN='tmnxMobProfDccaQosInformation'
-_EM='tmnxMobProfDcca3GppQosNegProf'
-_EL='tmnxMobProfDccaRetryCnt'
-_EK='tmnxMobProfDccaApplTxTimer'
-_EJ='tmnxMobProfDccaDescription'
-_EI='tmnxMobProfDccaLastChanged'
-_EH='tmnxMobProfDccaRowStatus'
-_EG='tmnxMobProfSgwChrgPrctSrvNdChLmt'
-_EF='tmnxMobProfPgwChrgPrctSrvNdChLmt'
-_EE='tmnxMobProfPgwGyDccaProf'
-_ED='tmnxMobProfPgwGySecOcsDiaPeer'
-_EC='tmnxMobProfPgwGyPriOcsDiaPeer'
-_EB='tmnxMobProfPgwChrgGyState'
-_EA='tmnxMobProfRadPeerRadProfile'
-_E9='tmnxMobProfRadPeerSecret'
-_E8='tmnxMobProfRadPeerAcctSvrPort'
-_E7='tmnxMobProfRadPeerAuthSvrPort'
-_E6='tmnxMobProfRadPeerPriority'
-_E5='tmnxMobProfRadPeerAddr'
-_E4='tmnxMobProfRadPeerAddrType'
-_E3='tmnxMobProfRadPeerAdminState'
-_E2='tmnxMobProfRadPeerLastChngd'
-_E1='tmnxMobProfRadPeerRowStatus'
-_E0='tmnxMobProfRadGrpIgnAcctResp'
-_D_='tmnxMobProfRadGrpRadiusProfile'
-_Dz='tmnxMobProfRadGrpServerType'
-_Dy='tmnxMobProfRadGrpIntUpdateIntvl'
-_Dx='tmnxMobProfRadGrpSecret'
-_Dw='tmnxMobProfRadGrpAcctServerPort'
-_Dv='tmnxMobProfRadGrpAuthServerPort'
-_Du='tmnxMobProfRadGrpIfIndex'
-_Dt='tmnxMobProfRadGrpIfVRtrId'
-_Ds='tmnxMobProfRadGrpDescription'
-_Dr='tmnxMobProfRadGrpLastChanged'
-_Dq='tmnxMobProfRadGrpRowStatus'
-_Dp='tmnxMobProfRadRetryCount'
-_Do='tmnxMobProfRadRetryTimeout'
-_Dn='tmnxMobProfRadServerDeadTime'
-_Dm='tmnxMobProfRadAuthProbeInt'
-_Dl='tmnxMobProfRadDescription'
-_Dk='tmnxMobProfRadLastChanged'
-_Dj='tmnxMobProfRadRowStatus'
-_Di='tmnxMobUmtsQosPolBackground'
-_Dh='tmnxMobUmtsQosPolInterP3Qci'
-_Dg='tmnxMobUmtsQosPolInterP2Qci'
-_Df='tmnxMobUmtsQosPolInterP1Qci'
-_De='tmnxMobUmtsQosPolInterSigP1Qci'
-_Dd='tmnxMobUmtsQosPolStreamQciValue'
-_Dc='tmnxMobUmtsQosPolConvUnkTdl'
-_Db='tmnxMobUmtsQosPolConvUnkTdg'
-_Da='tmnxMobUmtsQosPolConvSpeechQci'
-_DZ='tmnxMobUmtsQosPolLastChanged'
-_DY='tmnxMobUmtsQosPolRowStatus'
-_DX='tmnxMobGtpPriServerPathProtocol'
-_DW='tmnxMobGtpPriServerPriority'
-_DV='tmnxMobGtpPriServerNodeAlive'
-_DU='tmnxMobGtpPriServerMaxRequests'
-_DT='tmnxMobGtpPriServerEchoInterval'
-_DS='tmnxMobGtpPriServerTimeout'
-_DR='tmnxMobGtpPriServerRetries'
-_DQ='tmnxMobGtpPriServerPort'
-_DP='tmnxMobGtpPriServerAddr'
-_DO='tmnxMobGtpPriServerAddrType'
-_DN='tmnxMobGtpPriServerAdminState'
-_DM='tmnxMobGtpPriServerLastChngd'
-_DL='tmnxMobGtpPriServerRowStatus'
-_DK='tmnxMobGtpPriGrpInactiveTimer'
-_DJ='tmnxMobGtpPriGrpAdminState'
-_DI='tmnxMobGtpPriGrpQueueSize'
-_DH='tmnxMobGtpPriGrpCpmMemoryState'
-_DG='tmnxMobGtpPriGrpCf2Limit'
-_DF='tmnxMobGtpPriGrpCf2State'
-_DE='tmnxMobGtpPriGrpCf1Limit'
-_DD='tmnxMobGtpPriGrpCf1State'
-_DC='tmnxMobGtpPriGrpPrimaryCf'
-_DB='tmnxMobGtpPriGrpFileObsoleteTime'
-_DA='tmnxMobGtpPriGrpFileClsMaxRecs'
-_D9='tmnxMobGtpPriGrpFileClsLifeTime'
-_D8='tmnxMobGtpPriGrpFileClosureSize'
-_D7='tmnxMobGtpPriGrpFileExtension'
-_D6='tmnxMobGtpPriGrpFilePrivateInfo'
-_D5='tmnxMobGtpPriGrpLocalCdrStorage'
-_D4='tmnxMobGtpPriGrpIfIndex'
-_D3='tmnxMobGtpPriGrpIfVRtrId'
-_D2='tmnxMobGtpPriGrpRedirection'
-_D1='tmnxMobGtpPriGrpDeadtime'
-_D0='tmnxMobGtpPriGrpMaxCdrsPerPdu'
-_C_='tmnxMobGtpPriGrpDescription'
-_Cz='tmnxMobGtpPriGrpLastChanged'
-_Cy='tmnxMobGtpPriGrpRowStatus'
-_Cx='tmnxMobProfPgwChrgPrctRatChange'
-_Cw='tmnxMobProfPgwChrgPrctPlmnChange'
-_Cv='tmnxMobProfPgwChrgPrctMsTmzChnge'
-_Cu='tmnxMobProfPgwChrgPrctMaxChCond'
-_Ct='tmnxMobProfPgwChrgPrctVolumeLmt'
-_Cs='tmnxMobProfPgwChrgPrctTimeLmt'
-_Cr='tmnxMobProfPgwChrgCitTermServDf'
-_Cq='tmnxMobProfPgwChrgCitVolumeLmtRg'
-_Cp='tmnxMobProfPgwChrgCitTimeLmtRg'
-_Co='tmnxMobProfPgwChrgCitSgwChange'
-_Cn='tmnxMobProfPgwChrgCitTrfTmEnd'
-_Cm='tmnxMobProfPgwChrgCitTrfTmStart'
-_Cl='tmnxMobProfPgwChrgCitTrfTimeChng'
-_Ck='tmnxMobProfPgwChrgCitUsrLocChnge'
-_Cj='tmnxMobProfPgwChrgCitQosChange'
-_Ci='tmnxMobProfPgwChrgSecCdfDiaPeer'
-_Ch='tmnxMobProfPgwChrgPriCdfDiaPeer'
-_Cg='tmnxMobProfPgwChrgOffLineState'
-_Cf='tmnxMobProfPgwChrgDesc'
-_Ce='tmnxMobProfPgwChrgLastChanged'
-_Cd='tmnxMobProfPgwChrgRowStatus'
-_Cc='tmnxMobProfSgwChrgPrctMgmtInterv'
-_Cb='tmnxMobProfSgwChrgPrctRatChange'
-_Ca='tmnxMobProfSgwChrgPrctPlmnChange'
-_CZ='tmnxMobProfSgwChrgPrctMsTmzChnge'
-_CY='tmnxMobProfSgwChrgPrctMaxChCond'
-_CX='tmnxMobProfSgwChrgPrctVolumeLmt'
-_CW='tmnxMobProfSgwChrgPrctTimeLmt'
-_CV='tmnxMobProfSgwChrgCitTrfTmEnd'
-_CU='tmnxMobProfSgwChrgCitTrfTmStart'
-_CT='tmnxMobProfSgwChrgCitTrfTimeChng'
-_CS='tmnxMobProfSgwChrgCitUsrLocChnge'
-_CR='tmnxMobProfSgwChrgCitQosChange'
-_CQ='tmnxMobProfSgwChrgSecCdfDiaPeer'
-_CP='tmnxMobProfSgwChrgPriCdfDiaPeer'
-_CO='tmnxMobProfSgwChrgOffLineState'
-_CN='tmnxMobProfSgwChrgDesc'
-_CM='tmnxMobProfSgwChrgLastChanged'
-_CL='tmnxMobProfSgwChrgRowStatus'
-_CK='tmnxMobProfQciPolDescription'
-_CJ='tmnxMobProfGtpDescription'
-_CI='tmnxMobProfDiaPeerDescription'
-_CH='tmnxMobProfDiaDescription'
-_CG='tmnxMobProfSysDescription'
-_CF='tmnxMobProfPlmnListRowStatus'
-_CE='tmnxMobProfPlmnListTblLstChgd'
-_CD='tmnxMobProfDiaPeerAdminState'
-_CC='tmnxMobProfDiaPeerListPort'
-_CB='tmnxMobProfDiaPeerListAddr'
-_CA='tmnxMobProfDiaPeerListAddrType'
-_C9='tmnxMobProfDiaPeerListLastChngd'
-_C8='tmnxMobProfDiaPeerListRowStatus'
-_C7='tmnxMobProfDiaPeerApplication'
-_C6='tmnxMobProfDiaPeerIfIndex'
-_C5='tmnxMobProfDiaPeerIfVRtrId'
-_C4='tmnxMobProfDiaPeerLoadBalance'
-_C3='tmnxMobProfDiaPeerTransport'
-_C2='tmnxMobProfDiaPeerDestRealm'
-_C1='tmnxMobProfDiaPeerDiaProfName'
-_C0='tmnxMobProfDiaPeerLastChanged'
-_B_='tmnxMobProfDiaPeerRowStatus'
-_Bz='tmnxMobProfDiaDnsRefreshInt'
-_By='tmnxMobProfDiaPermFailRetryTime'
-_Bx='tmnxMobProfDiaDprTimeout'
-_Bw='tmnxMobProfDiaIpDscp'
-_Bv='tmnxMobProfDiaIpTtl'
-_Bu='tmnxMobProfDiaTransTimer'
-_Bt='tmnxMobProfDiaConnTimer'
-_Bs='tmnxMobProfDiaWatchdgTimer'
-_Br='tmnxMobProfDiaLastChanged'
-_Bq='tmnxMobProfDiaRowStatus'
-_Bp='tmnxMobProfQciPolQciProfile'
-_Bo='tmnxMobProfQciPolQciFcName'
-_Bn='tmnxMobProfQciPolQciDscpOut'
-_Bm='tmnxMobProfQciPolQciDscp'
-_Bl='tmnxMobProfQciPolQciDscpPreserve'
-_Bk='tmnxMobProfQciPolQciLastChanged'
-_Bj='tmnxMobProfQciPolLastChanged'
-_Bi='tmnxMobProfQciPolRowStatus'
-_Bh='tmnxMobProfGtpIpDscp'
-_Bg='tmnxMobProfGtpIpTtl'
-_Bf='tmnxMobProfGtpKeepAlvResp'
-_Be='tmnxMobProfGtpKeepAlvRetryCnt'
-_Bd='tmnxMobProfGtpKeepAlvTimeout'
-_Bc='tmnxMobProfGtpMsgReTxRetryCnt'
-_Bb='tmnxMobProfGtpMsgReTxTimeout'
-_Ba='tmnxMobProfGtpLastChanged'
-_BZ='tmnxMobProfGtpRowStatus'
-_BY='tmnxMobProfSysS1BufferSize'
-_BX='tmnxMobProfSysS1BufferLimit'
-_BW='tmnxMobProfSysPagingTimeout'
-_BV='tmnxMobProfSysPagingBufferSize'
-_BU='tmnxMobProfSysPagingBufferLimit'
-_BT='tmnxMobProfSysTrfcDropThrshldS8'
-_BS='tmnxMobProfSysTrfcDropThrshldS5'
-_BR='tmnxMobProfSysTrfcDropThrshldS1u'
-_BQ='tmnxMobProfSysSgnlFailThrshldGxc'
-_BP='tmnxMobProfSysSgnlFailThrshldS11'
-_BO='tmnxMobProfSysSgnlFailThrshldS8'
-_BN='tmnxMobProfSysSgnlFailThrshldS5'
-_BM='tmnxMobProfSysMemThreshldMinor'
-_BL='tmnxMobProfSysMemThreshldMajor'
-_BK='tmnxMobProfSysMemThreshldCriticl'
-_BJ='tmnxMobProfSysCpuThreshldMinor'
-_BI='tmnxMobProfSysCpuThreshldMajor'
-_BH='tmnxMobProfSysCpuThreshldCriticl'
-_BG='tmnxMobProfSysSDFIpv6Limit'
-_BF='tmnxMobProfSysSDFIpv4Limit'
-_BE='tmnxMobProfSysBCUeLimit'
-_BD='tmnxMobProfSysBCPdnLimit'
-_BC='tmnxMobProfSysBCActivtyRate'
-_BB='tmnxMobProfSysBCLimit'
-_BA='tmnxMobProfSysLastChanged'
-_B9='tmnxMobProfSysRowStatus'
-_B8='tmnxMobProfPmipv6TblLstChgd'
-_B7='tmnxMobUmtsQosPolTblLstChgd'
-_B6='tmnxMobGtpPriServerTblLstChgd'
-_B5='tmnxMobGtpPriGrpTblLstChgd'
-_B4='tmnxMobProfPgwChargingTblLstChgd'
-_B3='tmnxMobProfSgwChargingTblLstChgd'
-_B2='tmnxMobProfPolBaseTblLstChgd'
-_B1='tmnxMobProfPolUntFlowTblLstChgd'
-_B0='tmnxMobProfPolTblLstChgd'
-_A_='tmnxMobProfPeerListPeerTblLtCgd'
-_Az='tmnxMobProfPeerListTblLstChgd'
-_Ay='tmnxMobProfQciPolQciTblLstChgd'
-_Ax='tmnxMobProfQciPolTblLstChgd'
-_Aw='tmnxMobProfGtpTblLstChgd'
-_Av='tmnxMobProfDiaPeerListTblLstChgd'
-_Au='tmnxMobProfDiaPeerTblLstChgd'
-_At='tmnxMobProfDiaTblLstChgd'
-_As='tmnxMobProfSysTblLstChgd'
-_Ar='tmnxMobProfHttpRedirectName'
-_Aq='tmnxMobProfChgUnitName'
-_Ap='tmnxMobProfDccaName'
-_Ao='tmnxMobProfRadPeerIndex'
-_An='tmnxMobProfRadName'
-_Am='tmnxMobUmtsQosPolName'
-_Al='tmnxMobGtpPriServerIndex'
-_Ak='tmnxMobProfPgwChrgId'
-_Aj='tmnxMobProfSgwChrgId'
-_Ai='tmnxMobProfPeerListPeerPrefixLen'
-_Ah='tmnxMobProfPeerListPeerAddr'
-_Ag='tmnxMobProfPeerListPeerAddrType'
-_Af='tmnxMobProfQciPolQciArpValue'
-_Ae='tmnxMobProfQciPolQciValue'
-_Ad='tmnxMobProfPolBaseName'
-_Ac='tmnxMobProfPolUntFlwId'
-_Ab='tmnxMobProfPlmnListMnc'
-_Aa='tmnxMobProfPlmnListMcc'
-_AZ='tmnxMobProfPlmnListName'
-_AY='TmnxMobProfKeepAliveTimeout'
-_AX='tmnxMobProfGtpName'
-_AW='TmnxMobProfKeepAliveInterval'
-_AV='tmnxMobProfPmipv6Name'
-_AU='tmnxMobProfDiaPeerListIndex'
-_AT='tmnxMobProfDiaName'
-_AS='tmnxMobProfSysName'
-_AR='TIpProtocol'
-_AQ='TmnxMobQciValueOrZero'
-_AP='TmnxMobProfPolReportingLevel'
-_AO='TmnxMobProfPolMeteringMethod'
-_AN='TmnxMobProfPolChargingMethod'
-_AM='TmnxMobMncOrEmpty'
-_AL='TmnxMobMccOrEmpty'
-_AK='TmnxMobDiaTransTimer'
-_AJ='TmnxMobDiaPeerHost'
-_AI='TmnxMobArpValueOrZero'
-_AH='DisplayString'
-_AG='tmnxMobProfUnsupportedGroup'
-_AF='tmnxMobProfPolicyRulesV31Group'
-_AE='tmnxMobProfRadGrpName'
-_AD='megabytes'
-_AC='tmnxMobGtpPriGrpName'
-_AB='obsolete'
-_AA='kbytes'
-_A9='tmnxMobProfPeerListName'
-_A8='tmnxMobProfQciPolName'
-_A7='tmnxMobProfPolName'
-_A6='TmnxMobProfKeepAliveRetryCount'
-_A5='TmnxMobProfKeepAliveResponse'
-_A4='TmnxMobProfMsgReTxRetryCount'
-_A3='TmnxMobProfMsgReTxTimeout'
-_A2='tmnxMobProfDiaPeerName'
-_A1='TTcpUdpPortOperator'
-_A0='TmnxMobQueueLimit'
-_z='TmnxMobProfMbrRate'
-_y='TmnxMobProfGbrRate'
-_x='TmnxMobBufferLimit'
-_w='InetAddressPrefixLength'
-_v='OctetString'
-_u='tmnxMobProfPmipv6V3Group'
-_t='tmnxMobProfPolicyRulesV3Group'
-_s='tmnxMobProfV3Group'
-_r='tmnxMobProfGlobalV3Group'
-_q='tmnxMobProfDccaGroup'
-_p='tmnxMobProfChargingV3Group'
-_o='tmnxMobProfRadiusGroup'
-_n='kbps'
-_m='tmnxMobProfPolUnitName'
-_l='none'
-_k='TmnxVRtrID'
-_j='TDSCPValue'
-_i='TmnxMobStaticPolPrecedenceOrZero'
-_h='TmnxMobProfIpTtl'
-_g='InetAddressType'
-_f='InterfaceIndexOrZero'
-_e='tmnxMobProfUmtsQosPolGroup'
-_d='tmnxMobProfGtpPrimeServerGroup'
-_c='tmnxMobProfChargingGroup'
-_b='tmnxMobProfDiameterGroup'
-_a='tmnxMobProfQciPolicyGroup'
-_Z='tmnxMobProfGroup'
-_Y='tmnxMobProfGlobalGroup'
-_X='read-write'
-_W='minutes'
-_V='TmnxTimeInSec'
-_U='TTcpUdpPort'
-_T='TNamedItemOrEmpty'
-_S='TmnxAdminState'
-_R='TmnxMobProfAllowDiscard'
-_Q='InetPortNumber'
-_P='InetAddress'
-_O='TmnxMobQciValue'
-_N='TmnxMobProfNameOrEmpty'
-_M='percentage'
-_L='TruthValue'
-_K='Integer32'
-_J='TmnxMobProfThreshold'
-_I='TItemDescription'
-_H='seconds'
-_G='TmnxEnabledDisabled'
-_F='not-accessible'
-_E='Unsigned32'
-_D='read-only'
-_C='read-create'
-_B='TIMETRA-MOBILE-PROFILE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_v,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB',_f)
-InetAddress,InetAddressPrefixLength,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB',_P,_w,_g,_Q)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_K,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_AH,'PhysAddress','RowStatus','TextualConvention','TimeStamp',_L)
-timetraSRMIBModules,tmnxSRConfs,tmnxSRObjs=mibBuilder.importSymbols('TIMETRA-GLOBAL-MIB','timetraSRMIBModules','tmnxSRConfs','tmnxSRObjs')
-TmnxMobArpValue,TmnxMobArpValueOrZero,TmnxMobBufferLimit,TmnxMobChargingProfile,TmnxMobDiaPeerHost,TmnxMobDiaTransTimer,TmnxMobMcc,TmnxMobMccOrEmpty,TmnxMobMnc,TmnxMobMncOrEmpty,TmnxMobProfGbrRate,TmnxMobProfIpTtl,TmnxMobProfMbrRate,TmnxMobProfName,TmnxMobProfNameOrEmpty,TmnxMobProfPolChargingMethod,TmnxMobProfPolMeteringMethod,TmnxMobProfPolReportingLevel,TmnxMobQciValue,TmnxMobQciValueOrZero,TmnxMobQueueLimit,TmnxMobStaticPolPrecedenceOrZero=mibBuilder.importSymbols('TIMETRA-TC-MG-MIB','TmnxMobArpValue',_AI,_x,'TmnxMobChargingProfile',_AJ,_AK,'TmnxMobMcc',_AL,'TmnxMobMnc',_AM,_y,_h,_z,'TmnxMobProfName',_N,_AN,_AO,_AP,_O,_AQ,_A0,_i)
-TDSCPName,TDSCPValue,TFCName,TIpProtocol,TItemDescription,TNamedItemOrEmpty,TTcpUdpPort,TTcpUdpPortOperator,TmnxAdminState,TmnxEnabledDisabled,TmnxTimeInSec,TmnxVRtrID=mibBuilder.importSymbols('TIMETRA-TC-MIB','TDSCPName',_j,'TFCName',_AR,_I,_T,_U,_A1,_S,_G,_V,_k)
-timetraMobProfileMIBModule=ModuleIdentity((1,3,6,1,4,1,6527,1,1,3,67))
-if mibBuilder.loadTexts:timetraMobProfileMIBModule.setRevisions(('2009-12-23 00:00',))
-class TmnxMobProfThreshold(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-class TmnxMobProfMsgReTxTimeout(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,30))
-class TmnxMobProfMsgReTxRetryCount(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-class TmnxMobProfKeepAliveTimeout(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(60,180))
-class TmnxMobProfKeepAliveRetryCount(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,15))
-class TmnxMobProfKeepAliveResponse(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,20))
-class TmnxMobProfKeepAliveInterval(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(60,180))
-class TmnxMobProfAllowDiscard(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('allow',1),('discard',2)))
-_TmnxMobProfileConformance_ObjectIdentity=ObjectIdentity
-tmnxMobProfileConformance=_TmnxMobProfileConformance_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,67))
-_TmnxMobProfileCompliances_ObjectIdentity=ObjectIdentity
-tmnxMobProfileCompliances=_TmnxMobProfileCompliances_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,67,1))
-_TmnxMobProfileGroups_ObjectIdentity=ObjectIdentity
-tmnxMobProfileGroups=_TmnxMobProfileGroups_ObjectIdentity((1,3,6,1,4,1,6527,3,1,1,67,2))
-_TmnxMobProfile_ObjectIdentity=ObjectIdentity
-tmnxMobProfile=_TmnxMobProfile_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,67))
-_TmnxMobProfileObjs_ObjectIdentity=ObjectIdentity
-tmnxMobProfileObjs=_TmnxMobProfileObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,67,1))
-_TmnxMobProfSysTable_Object=MibTable
-tmnxMobProfSysTable=_TmnxMobProfSysTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1))
-if mibBuilder.loadTexts:tmnxMobProfSysTable.setStatus(_A)
-_TmnxMobProfSysEntry_Object=MibTableRow
-tmnxMobProfSysEntry=_TmnxMobProfSysEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1))
-tmnxMobProfSysEntry.setIndexNames((1,_B,_AS))
-if mibBuilder.loadTexts:tmnxMobProfSysEntry.setStatus(_A)
-_TmnxMobProfSysName_Type=TmnxMobProfName
-_TmnxMobProfSysName_Object=MibTableColumn
-tmnxMobProfSysName=_TmnxMobProfSysName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,1),_TmnxMobProfSysName_Type())
-tmnxMobProfSysName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfSysName.setStatus(_A)
-_TmnxMobProfSysRowStatus_Type=RowStatus
-_TmnxMobProfSysRowStatus_Object=MibTableColumn
-tmnxMobProfSysRowStatus=_TmnxMobProfSysRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,2),_TmnxMobProfSysRowStatus_Type())
-tmnxMobProfSysRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysRowStatus.setStatus(_A)
-_TmnxMobProfSysLastChanged_Type=TimeStamp
-_TmnxMobProfSysLastChanged_Object=MibTableColumn
-tmnxMobProfSysLastChanged=_TmnxMobProfSysLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,3),_TmnxMobProfSysLastChanged_Type())
-tmnxMobProfSysLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfSysLastChanged.setStatus(_A)
-class _TmnxMobProfSysDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxMobProfSysDescription_Type.__name__=_I
-_TmnxMobProfSysDescription_Object=MibTableColumn
-tmnxMobProfSysDescription=_TmnxMobProfSysDescription_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,4),_TmnxMobProfSysDescription_Type())
-tmnxMobProfSysDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysDescription.setStatus(_A)
-class _TmnxMobProfSysBCLimit_Type(Unsigned32):defaultValue=250000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10000,250000))
-_TmnxMobProfSysBCLimit_Type.__name__=_E
-_TmnxMobProfSysBCLimit_Object=MibTableColumn
-tmnxMobProfSysBCLimit=_TmnxMobProfSysBCLimit_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,5),_TmnxMobProfSysBCLimit_Type())
-tmnxMobProfSysBCLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysBCLimit.setStatus(_A)
-class _TmnxMobProfSysBCActivtyRate_Type(Unsigned32):defaultValue=500;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,1000))
-_TmnxMobProfSysBCActivtyRate_Type.__name__=_E
-_TmnxMobProfSysBCActivtyRate_Object=MibTableColumn
-tmnxMobProfSysBCActivtyRate=_TmnxMobProfSysBCActivtyRate_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,6),_TmnxMobProfSysBCActivtyRate_Type())
-tmnxMobProfSysBCActivtyRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysBCActivtyRate.setStatus(_A)
-class _TmnxMobProfSysBCPdnLimit_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,11))
-_TmnxMobProfSysBCPdnLimit_Type.__name__=_E
-_TmnxMobProfSysBCPdnLimit_Object=MibTableColumn
-tmnxMobProfSysBCPdnLimit=_TmnxMobProfSysBCPdnLimit_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,7),_TmnxMobProfSysBCPdnLimit_Type())
-tmnxMobProfSysBCPdnLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysBCPdnLimit.setStatus(_A)
-class _TmnxMobProfSysBCUeLimit_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,11))
-_TmnxMobProfSysBCUeLimit_Type.__name__=_E
-_TmnxMobProfSysBCUeLimit_Object=MibTableColumn
-tmnxMobProfSysBCUeLimit=_TmnxMobProfSysBCUeLimit_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,8),_TmnxMobProfSysBCUeLimit_Type())
-tmnxMobProfSysBCUeLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysBCUeLimit.setStatus(_A)
-class _TmnxMobProfSysSDFIpv4Limit_Type(Unsigned32):defaultValue=390000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1500000))
-_TmnxMobProfSysSDFIpv4Limit_Type.__name__=_E
-_TmnxMobProfSysSDFIpv4Limit_Object=MibTableColumn
-tmnxMobProfSysSDFIpv4Limit=_TmnxMobProfSysSDFIpv4Limit_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,9),_TmnxMobProfSysSDFIpv4Limit_Type())
-tmnxMobProfSysSDFIpv4Limit.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysSDFIpv4Limit.setStatus(_A)
-class _TmnxMobProfSysSDFIpv6Limit_Type(Unsigned32):defaultValue=190000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,512000))
-_TmnxMobProfSysSDFIpv6Limit_Type.__name__=_E
-_TmnxMobProfSysSDFIpv6Limit_Object=MibTableColumn
-tmnxMobProfSysSDFIpv6Limit=_TmnxMobProfSysSDFIpv6Limit_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,10),_TmnxMobProfSysSDFIpv6Limit_Type())
-tmnxMobProfSysSDFIpv6Limit.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysSDFIpv6Limit.setStatus(_A)
-class _TmnxMobProfSysCpuThreshldCriticl_Type(TmnxMobProfThreshold):defaultValue=50
-_TmnxMobProfSysCpuThreshldCriticl_Type.__name__=_J
-_TmnxMobProfSysCpuThreshldCriticl_Object=MibTableColumn
-tmnxMobProfSysCpuThreshldCriticl=_TmnxMobProfSysCpuThreshldCriticl_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,11),_TmnxMobProfSysCpuThreshldCriticl_Type())
-tmnxMobProfSysCpuThreshldCriticl.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysCpuThreshldCriticl.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysCpuThreshldCriticl.setUnits(_M)
-class _TmnxMobProfSysCpuThreshldMajor_Type(TmnxMobProfThreshold):defaultValue=50
-_TmnxMobProfSysCpuThreshldMajor_Type.__name__=_J
-_TmnxMobProfSysCpuThreshldMajor_Object=MibTableColumn
-tmnxMobProfSysCpuThreshldMajor=_TmnxMobProfSysCpuThreshldMajor_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,12),_TmnxMobProfSysCpuThreshldMajor_Type())
-tmnxMobProfSysCpuThreshldMajor.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysCpuThreshldMajor.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysCpuThreshldMajor.setUnits(_M)
-class _TmnxMobProfSysCpuThreshldMinor_Type(TmnxMobProfThreshold):defaultValue=50
-_TmnxMobProfSysCpuThreshldMinor_Type.__name__=_J
-_TmnxMobProfSysCpuThreshldMinor_Object=MibTableColumn
-tmnxMobProfSysCpuThreshldMinor=_TmnxMobProfSysCpuThreshldMinor_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,13),_TmnxMobProfSysCpuThreshldMinor_Type())
-tmnxMobProfSysCpuThreshldMinor.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysCpuThreshldMinor.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysCpuThreshldMinor.setUnits(_M)
-class _TmnxMobProfSysMemThreshldCriticl_Type(TmnxMobProfThreshold):defaultValue=50
-_TmnxMobProfSysMemThreshldCriticl_Type.__name__=_J
-_TmnxMobProfSysMemThreshldCriticl_Object=MibTableColumn
-tmnxMobProfSysMemThreshldCriticl=_TmnxMobProfSysMemThreshldCriticl_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,14),_TmnxMobProfSysMemThreshldCriticl_Type())
-tmnxMobProfSysMemThreshldCriticl.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysMemThreshldCriticl.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysMemThreshldCriticl.setUnits(_M)
-class _TmnxMobProfSysMemThreshldMajor_Type(TmnxMobProfThreshold):defaultValue=50
-_TmnxMobProfSysMemThreshldMajor_Type.__name__=_J
-_TmnxMobProfSysMemThreshldMajor_Object=MibTableColumn
-tmnxMobProfSysMemThreshldMajor=_TmnxMobProfSysMemThreshldMajor_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,15),_TmnxMobProfSysMemThreshldMajor_Type())
-tmnxMobProfSysMemThreshldMajor.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysMemThreshldMajor.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysMemThreshldMajor.setUnits(_M)
-class _TmnxMobProfSysMemThreshldMinor_Type(TmnxMobProfThreshold):defaultValue=50
-_TmnxMobProfSysMemThreshldMinor_Type.__name__=_J
-_TmnxMobProfSysMemThreshldMinor_Object=MibTableColumn
-tmnxMobProfSysMemThreshldMinor=_TmnxMobProfSysMemThreshldMinor_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,16),_TmnxMobProfSysMemThreshldMinor_Type())
-tmnxMobProfSysMemThreshldMinor.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysMemThreshldMinor.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysMemThreshldMinor.setUnits(_M)
-class _TmnxMobProfSysSgnlFailThrshldS5_Type(TmnxMobProfThreshold):defaultValue=50
-_TmnxMobProfSysSgnlFailThrshldS5_Type.__name__=_J
-_TmnxMobProfSysSgnlFailThrshldS5_Object=MibTableColumn
-tmnxMobProfSysSgnlFailThrshldS5=_TmnxMobProfSysSgnlFailThrshldS5_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,17),_TmnxMobProfSysSgnlFailThrshldS5_Type())
-tmnxMobProfSysSgnlFailThrshldS5.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysSgnlFailThrshldS5.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysSgnlFailThrshldS5.setUnits(_M)
-class _TmnxMobProfSysSgnlFailThrshldS8_Type(TmnxMobProfThreshold):defaultValue=50
-_TmnxMobProfSysSgnlFailThrshldS8_Type.__name__=_J
-_TmnxMobProfSysSgnlFailThrshldS8_Object=MibTableColumn
-tmnxMobProfSysSgnlFailThrshldS8=_TmnxMobProfSysSgnlFailThrshldS8_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,18),_TmnxMobProfSysSgnlFailThrshldS8_Type())
-tmnxMobProfSysSgnlFailThrshldS8.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysSgnlFailThrshldS8.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysSgnlFailThrshldS8.setUnits(_M)
-class _TmnxMobProfSysSgnlFailThrshldS11_Type(TmnxMobProfThreshold):defaultValue=50
-_TmnxMobProfSysSgnlFailThrshldS11_Type.__name__=_J
-_TmnxMobProfSysSgnlFailThrshldS11_Object=MibTableColumn
-tmnxMobProfSysSgnlFailThrshldS11=_TmnxMobProfSysSgnlFailThrshldS11_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,19),_TmnxMobProfSysSgnlFailThrshldS11_Type())
-tmnxMobProfSysSgnlFailThrshldS11.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysSgnlFailThrshldS11.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysSgnlFailThrshldS11.setUnits(_M)
-class _TmnxMobProfSysSgnlFailThrshldGxc_Type(TmnxMobProfThreshold):defaultValue=50
-_TmnxMobProfSysSgnlFailThrshldGxc_Type.__name__=_J
-_TmnxMobProfSysSgnlFailThrshldGxc_Object=MibTableColumn
-tmnxMobProfSysSgnlFailThrshldGxc=_TmnxMobProfSysSgnlFailThrshldGxc_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,20),_TmnxMobProfSysSgnlFailThrshldGxc_Type())
-tmnxMobProfSysSgnlFailThrshldGxc.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysSgnlFailThrshldGxc.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysSgnlFailThrshldGxc.setUnits(_M)
-class _TmnxMobProfSysTrfcDropThrshldS1u_Type(TmnxMobProfThreshold):defaultValue=50
-_TmnxMobProfSysTrfcDropThrshldS1u_Type.__name__=_J
-_TmnxMobProfSysTrfcDropThrshldS1u_Object=MibTableColumn
-tmnxMobProfSysTrfcDropThrshldS1u=_TmnxMobProfSysTrfcDropThrshldS1u_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,21),_TmnxMobProfSysTrfcDropThrshldS1u_Type())
-tmnxMobProfSysTrfcDropThrshldS1u.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysTrfcDropThrshldS1u.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysTrfcDropThrshldS1u.setUnits(_M)
-class _TmnxMobProfSysTrfcDropThrshldS5_Type(TmnxMobProfThreshold):defaultValue=50
-_TmnxMobProfSysTrfcDropThrshldS5_Type.__name__=_J
-_TmnxMobProfSysTrfcDropThrshldS5_Object=MibTableColumn
-tmnxMobProfSysTrfcDropThrshldS5=_TmnxMobProfSysTrfcDropThrshldS5_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,22),_TmnxMobProfSysTrfcDropThrshldS5_Type())
-tmnxMobProfSysTrfcDropThrshldS5.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysTrfcDropThrshldS5.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysTrfcDropThrshldS5.setUnits(_M)
-class _TmnxMobProfSysTrfcDropThrshldS8_Type(TmnxMobProfThreshold):defaultValue=50
-_TmnxMobProfSysTrfcDropThrshldS8_Type.__name__=_J
-_TmnxMobProfSysTrfcDropThrshldS8_Object=MibTableColumn
-tmnxMobProfSysTrfcDropThrshldS8=_TmnxMobProfSysTrfcDropThrshldS8_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,23),_TmnxMobProfSysTrfcDropThrshldS8_Type())
-tmnxMobProfSysTrfcDropThrshldS8.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysTrfcDropThrshldS8.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysTrfcDropThrshldS8.setUnits(_M)
-class _TmnxMobProfSysPagingBufferLimit_Type(TmnxMobBufferLimit):defaultValue=8000
-_TmnxMobProfSysPagingBufferLimit_Type.__name__=_x
-_TmnxMobProfSysPagingBufferLimit_Object=MibTableColumn
-tmnxMobProfSysPagingBufferLimit=_TmnxMobProfSysPagingBufferLimit_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,24),_TmnxMobProfSysPagingBufferLimit_Type())
-tmnxMobProfSysPagingBufferLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysPagingBufferLimit.setStatus(_A)
-class _TmnxMobProfSysPagingBufferSize_Type(TmnxMobQueueLimit):defaultValue=8000
-_TmnxMobProfSysPagingBufferSize_Type.__name__=_A0
-_TmnxMobProfSysPagingBufferSize_Object=MibTableColumn
-tmnxMobProfSysPagingBufferSize=_TmnxMobProfSysPagingBufferSize_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,25),_TmnxMobProfSysPagingBufferSize_Type())
-tmnxMobProfSysPagingBufferSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysPagingBufferSize.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysPagingBufferSize.setUnits('bytes')
-class _TmnxMobProfSysPagingTimeout_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,60))
-_TmnxMobProfSysPagingTimeout_Type.__name__=_E
-_TmnxMobProfSysPagingTimeout_Object=MibTableColumn
-tmnxMobProfSysPagingTimeout=_TmnxMobProfSysPagingTimeout_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,26),_TmnxMobProfSysPagingTimeout_Type())
-tmnxMobProfSysPagingTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysPagingTimeout.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysPagingTimeout.setUnits(_H)
-class _TmnxMobProfSysS1BufferLimit_Type(TmnxMobBufferLimit):defaultValue=8000
-_TmnxMobProfSysS1BufferLimit_Type.__name__=_x
-_TmnxMobProfSysS1BufferLimit_Object=MibTableColumn
-tmnxMobProfSysS1BufferLimit=_TmnxMobProfSysS1BufferLimit_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,27),_TmnxMobProfSysS1BufferLimit_Type())
-tmnxMobProfSysS1BufferLimit.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysS1BufferLimit.setStatus(_A)
-class _TmnxMobProfSysS1BufferSize_Type(TmnxMobQueueLimit):defaultValue=8000
-_TmnxMobProfSysS1BufferSize_Type.__name__=_A0
-_TmnxMobProfSysS1BufferSize_Object=MibTableColumn
-tmnxMobProfSysS1BufferSize=_TmnxMobProfSysS1BufferSize_Object((1,3,6,1,4,1,6527,3,1,2,67,1,1,1,28),_TmnxMobProfSysS1BufferSize_Type())
-tmnxMobProfSysS1BufferSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSysS1BufferSize.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSysS1BufferSize.setUnits('bytes')
-_TmnxMobProfDiaTable_Object=MibTable
-tmnxMobProfDiaTable=_TmnxMobProfDiaTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,2))
-if mibBuilder.loadTexts:tmnxMobProfDiaTable.setStatus(_A)
-_TmnxMobProfDiaEntry_Object=MibTableRow
-tmnxMobProfDiaEntry=_TmnxMobProfDiaEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,2,1))
-tmnxMobProfDiaEntry.setIndexNames((1,_B,_AT))
-if mibBuilder.loadTexts:tmnxMobProfDiaEntry.setStatus(_A)
-_TmnxMobProfDiaName_Type=TmnxMobProfName
-_TmnxMobProfDiaName_Object=MibTableColumn
-tmnxMobProfDiaName=_TmnxMobProfDiaName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,2,1,1),_TmnxMobProfDiaName_Type())
-tmnxMobProfDiaName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfDiaName.setStatus(_A)
-_TmnxMobProfDiaRowStatus_Type=RowStatus
-_TmnxMobProfDiaRowStatus_Object=MibTableColumn
-tmnxMobProfDiaRowStatus=_TmnxMobProfDiaRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,2,1,2),_TmnxMobProfDiaRowStatus_Type())
-tmnxMobProfDiaRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaRowStatus.setStatus(_A)
-_TmnxMobProfDiaLastChanged_Type=TimeStamp
-_TmnxMobProfDiaLastChanged_Object=MibTableColumn
-tmnxMobProfDiaLastChanged=_TmnxMobProfDiaLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,2,1,3),_TmnxMobProfDiaLastChanged_Type())
-tmnxMobProfDiaLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfDiaLastChanged.setStatus(_A)
-class _TmnxMobProfDiaDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxMobProfDiaDescription_Type.__name__=_I
-_TmnxMobProfDiaDescription_Object=MibTableColumn
-tmnxMobProfDiaDescription=_TmnxMobProfDiaDescription_Object((1,3,6,1,4,1,6527,3,1,2,67,1,2,1,4),_TmnxMobProfDiaDescription_Type())
-tmnxMobProfDiaDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaDescription.setStatus(_A)
-class _TmnxMobProfDiaWatchdgTimer_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,180))
-_TmnxMobProfDiaWatchdgTimer_Type.__name__=_E
-_TmnxMobProfDiaWatchdgTimer_Object=MibTableColumn
-tmnxMobProfDiaWatchdgTimer=_TmnxMobProfDiaWatchdgTimer_Object((1,3,6,1,4,1,6527,3,1,2,67,1,2,1,5),_TmnxMobProfDiaWatchdgTimer_Type())
-tmnxMobProfDiaWatchdgTimer.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaWatchdgTimer.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfDiaWatchdgTimer.setUnits(_H)
-class _TmnxMobProfDiaConnTimer_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,180))
-_TmnxMobProfDiaConnTimer_Type.__name__=_E
-_TmnxMobProfDiaConnTimer_Object=MibTableColumn
-tmnxMobProfDiaConnTimer=_TmnxMobProfDiaConnTimer_Object((1,3,6,1,4,1,6527,3,1,2,67,1,2,1,6),_TmnxMobProfDiaConnTimer_Type())
-tmnxMobProfDiaConnTimer.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaConnTimer.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfDiaConnTimer.setUnits(_H)
-class _TmnxMobProfDiaTransTimer_Type(TmnxMobDiaTransTimer):defaultValue=5
-_TmnxMobProfDiaTransTimer_Type.__name__=_AK
-_TmnxMobProfDiaTransTimer_Object=MibTableColumn
-tmnxMobProfDiaTransTimer=_TmnxMobProfDiaTransTimer_Object((1,3,6,1,4,1,6527,3,1,2,67,1,2,1,7),_TmnxMobProfDiaTransTimer_Type())
-tmnxMobProfDiaTransTimer.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaTransTimer.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfDiaTransTimer.setUnits(_H)
-class _TmnxMobProfDiaIpTtl_Type(TmnxMobProfIpTtl):defaultValue=255
-_TmnxMobProfDiaIpTtl_Type.__name__=_h
-_TmnxMobProfDiaIpTtl_Object=MibTableColumn
-tmnxMobProfDiaIpTtl=_TmnxMobProfDiaIpTtl_Object((1,3,6,1,4,1,6527,3,1,2,67,1,2,1,8),_TmnxMobProfDiaIpTtl_Type())
-tmnxMobProfDiaIpTtl.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaIpTtl.setStatus(_A)
-class _TmnxMobProfDiaIpDscp_Type(TDSCPValue):defaultValue=56
-_TmnxMobProfDiaIpDscp_Type.__name__=_j
-_TmnxMobProfDiaIpDscp_Object=MibTableColumn
-tmnxMobProfDiaIpDscp=_TmnxMobProfDiaIpDscp_Object((1,3,6,1,4,1,6527,3,1,2,67,1,2,1,9),_TmnxMobProfDiaIpDscp_Type())
-tmnxMobProfDiaIpDscp.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaIpDscp.setStatus(_A)
-class _TmnxMobProfDiaDprTimeout_Type(Unsigned32):defaultValue=1800;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3600))
-_TmnxMobProfDiaDprTimeout_Type.__name__=_E
-_TmnxMobProfDiaDprTimeout_Object=MibTableColumn
-tmnxMobProfDiaDprTimeout=_TmnxMobProfDiaDprTimeout_Object((1,3,6,1,4,1,6527,3,1,2,67,1,2,1,10),_TmnxMobProfDiaDprTimeout_Type())
-tmnxMobProfDiaDprTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaDprTimeout.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfDiaDprTimeout.setUnits(_H)
-class _TmnxMobProfDiaPermFailRetryTime_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1440))
-_TmnxMobProfDiaPermFailRetryTime_Type.__name__=_E
-_TmnxMobProfDiaPermFailRetryTime_Object=MibTableColumn
-tmnxMobProfDiaPermFailRetryTime=_TmnxMobProfDiaPermFailRetryTime_Object((1,3,6,1,4,1,6527,3,1,2,67,1,2,1,11),_TmnxMobProfDiaPermFailRetryTime_Type())
-tmnxMobProfDiaPermFailRetryTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaPermFailRetryTime.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfDiaPermFailRetryTime.setUnits(_W)
-class _TmnxMobProfDiaDnsRefreshInt_Type(Unsigned32):defaultValue=21600;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,86400))
-_TmnxMobProfDiaDnsRefreshInt_Type.__name__=_E
-_TmnxMobProfDiaDnsRefreshInt_Object=MibTableColumn
-tmnxMobProfDiaDnsRefreshInt=_TmnxMobProfDiaDnsRefreshInt_Object((1,3,6,1,4,1,6527,3,1,2,67,1,2,1,12),_TmnxMobProfDiaDnsRefreshInt_Type())
-tmnxMobProfDiaDnsRefreshInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaDnsRefreshInt.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfDiaDnsRefreshInt.setUnits(_H)
-_TmnxMobProfDiaPeerTable_Object=MibTable
-tmnxMobProfDiaPeerTable=_TmnxMobProfDiaPeerTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,3))
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerTable.setStatus(_A)
-_TmnxMobProfDiaPeerEntry_Object=MibTableRow
-tmnxMobProfDiaPeerEntry=_TmnxMobProfDiaPeerEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,3,1))
-tmnxMobProfDiaPeerEntry.setIndexNames((0,_B,_A2))
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerEntry.setStatus(_A)
-_TmnxMobProfDiaPeerName_Type=TmnxMobProfName
-_TmnxMobProfDiaPeerName_Object=MibTableColumn
-tmnxMobProfDiaPeerName=_TmnxMobProfDiaPeerName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,3,1,1),_TmnxMobProfDiaPeerName_Type())
-tmnxMobProfDiaPeerName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerName.setStatus(_A)
-_TmnxMobProfDiaPeerRowStatus_Type=RowStatus
-_TmnxMobProfDiaPeerRowStatus_Object=MibTableColumn
-tmnxMobProfDiaPeerRowStatus=_TmnxMobProfDiaPeerRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,3,1,2),_TmnxMobProfDiaPeerRowStatus_Type())
-tmnxMobProfDiaPeerRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerRowStatus.setStatus(_A)
-_TmnxMobProfDiaPeerLastChanged_Type=TimeStamp
-_TmnxMobProfDiaPeerLastChanged_Object=MibTableColumn
-tmnxMobProfDiaPeerLastChanged=_TmnxMobProfDiaPeerLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,3,1,3),_TmnxMobProfDiaPeerLastChanged_Type())
-tmnxMobProfDiaPeerLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerLastChanged.setStatus(_A)
-class _TmnxMobProfDiaPeerDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxMobProfDiaPeerDescription_Type.__name__=_I
-_TmnxMobProfDiaPeerDescription_Object=MibTableColumn
-tmnxMobProfDiaPeerDescription=_TmnxMobProfDiaPeerDescription_Object((1,3,6,1,4,1,6527,3,1,2,67,1,3,1,4),_TmnxMobProfDiaPeerDescription_Type())
-tmnxMobProfDiaPeerDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerDescription.setStatus(_A)
-class _TmnxMobProfDiaPeerDiaProfName_Type(TmnxMobProfNameOrEmpty):defaultHexValue=''
-_TmnxMobProfDiaPeerDiaProfName_Type.__name__=_N
-_TmnxMobProfDiaPeerDiaProfName_Object=MibTableColumn
-tmnxMobProfDiaPeerDiaProfName=_TmnxMobProfDiaPeerDiaProfName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,3,1,5),_TmnxMobProfDiaPeerDiaProfName_Type())
-tmnxMobProfDiaPeerDiaProfName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerDiaProfName.setStatus(_A)
-class _TmnxMobProfDiaPeerDestRealm_Type(TmnxMobDiaPeerHost):defaultHexValue=''
-_TmnxMobProfDiaPeerDestRealm_Type.__name__=_AJ
-_TmnxMobProfDiaPeerDestRealm_Object=MibTableColumn
-tmnxMobProfDiaPeerDestRealm=_TmnxMobProfDiaPeerDestRealm_Object((1,3,6,1,4,1,6527,3,1,2,67,1,3,1,6),_TmnxMobProfDiaPeerDestRealm_Type())
-tmnxMobProfDiaPeerDestRealm.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerDestRealm.setStatus(_A)
-class _TmnxMobProfDiaPeerTransport_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('tcp',1),('sctp',2)))
-_TmnxMobProfDiaPeerTransport_Type.__name__=_K
-_TmnxMobProfDiaPeerTransport_Object=MibTableColumn
-tmnxMobProfDiaPeerTransport=_TmnxMobProfDiaPeerTransport_Object((1,3,6,1,4,1,6527,3,1,2,67,1,3,1,7),_TmnxMobProfDiaPeerTransport_Type())
-tmnxMobProfDiaPeerTransport.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerTransport.setStatus(_A)
-class _TmnxMobProfDiaPeerLoadBalance_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfDiaPeerLoadBalance_Type.__name__=_G
-_TmnxMobProfDiaPeerLoadBalance_Object=MibTableColumn
-tmnxMobProfDiaPeerLoadBalance=_TmnxMobProfDiaPeerLoadBalance_Object((1,3,6,1,4,1,6527,3,1,2,67,1,3,1,8),_TmnxMobProfDiaPeerLoadBalance_Type())
-tmnxMobProfDiaPeerLoadBalance.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerLoadBalance.setStatus(_A)
-class _TmnxMobProfDiaPeerIfVRtrId_Type(TmnxVRtrID):defaultValue=1
-_TmnxMobProfDiaPeerIfVRtrId_Type.__name__=_k
-_TmnxMobProfDiaPeerIfVRtrId_Object=MibTableColumn
-tmnxMobProfDiaPeerIfVRtrId=_TmnxMobProfDiaPeerIfVRtrId_Object((1,3,6,1,4,1,6527,3,1,2,67,1,3,1,9),_TmnxMobProfDiaPeerIfVRtrId_Type())
-tmnxMobProfDiaPeerIfVRtrId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerIfVRtrId.setStatus(_A)
-class _TmnxMobProfDiaPeerIfIndex_Type(InterfaceIndexOrZero):defaultValue=0
-_TmnxMobProfDiaPeerIfIndex_Type.__name__=_f
-_TmnxMobProfDiaPeerIfIndex_Object=MibTableColumn
-tmnxMobProfDiaPeerIfIndex=_TmnxMobProfDiaPeerIfIndex_Object((1,3,6,1,4,1,6527,3,1,2,67,1,3,1,10),_TmnxMobProfDiaPeerIfIndex_Type())
-tmnxMobProfDiaPeerIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerIfIndex.setStatus(_A)
-class _TmnxMobProfDiaPeerApplication_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*((_l,0),('gx',1),('gxc',2),('rf',3),('gy',4),('s6b',5)))
-_TmnxMobProfDiaPeerApplication_Type.__name__=_K
-_TmnxMobProfDiaPeerApplication_Object=MibTableColumn
-tmnxMobProfDiaPeerApplication=_TmnxMobProfDiaPeerApplication_Object((1,3,6,1,4,1,6527,3,1,2,67,1,3,1,11),_TmnxMobProfDiaPeerApplication_Type())
-tmnxMobProfDiaPeerApplication.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerApplication.setStatus(_A)
-_TmnxMobProfDiaPeerListTable_Object=MibTable
-tmnxMobProfDiaPeerListTable=_TmnxMobProfDiaPeerListTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,4))
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerListTable.setStatus(_A)
-_TmnxMobProfDiaPeerListEntry_Object=MibTableRow
-tmnxMobProfDiaPeerListEntry=_TmnxMobProfDiaPeerListEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,4,1))
-tmnxMobProfDiaPeerListEntry.setIndexNames((0,_B,_A2),(0,_B,_AU))
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerListEntry.setStatus(_A)
-class _TmnxMobProfDiaPeerListIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,19))
-_TmnxMobProfDiaPeerListIndex_Type.__name__=_E
-_TmnxMobProfDiaPeerListIndex_Object=MibTableColumn
-tmnxMobProfDiaPeerListIndex=_TmnxMobProfDiaPeerListIndex_Object((1,3,6,1,4,1,6527,3,1,2,67,1,4,1,1),_TmnxMobProfDiaPeerListIndex_Type())
-tmnxMobProfDiaPeerListIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerListIndex.setStatus(_A)
-_TmnxMobProfDiaPeerListRowStatus_Type=RowStatus
-_TmnxMobProfDiaPeerListRowStatus_Object=MibTableColumn
-tmnxMobProfDiaPeerListRowStatus=_TmnxMobProfDiaPeerListRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,4,1,2),_TmnxMobProfDiaPeerListRowStatus_Type())
-tmnxMobProfDiaPeerListRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerListRowStatus.setStatus(_A)
-_TmnxMobProfDiaPeerListLastChngd_Type=TimeStamp
-_TmnxMobProfDiaPeerListLastChngd_Object=MibTableColumn
-tmnxMobProfDiaPeerListLastChngd=_TmnxMobProfDiaPeerListLastChngd_Object((1,3,6,1,4,1,6527,3,1,2,67,1,4,1,3),_TmnxMobProfDiaPeerListLastChngd_Type())
-tmnxMobProfDiaPeerListLastChngd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerListLastChngd.setStatus(_A)
-_TmnxMobProfDiaPeerListAddrType_Type=InetAddressType
-_TmnxMobProfDiaPeerListAddrType_Object=MibTableColumn
-tmnxMobProfDiaPeerListAddrType=_TmnxMobProfDiaPeerListAddrType_Object((1,3,6,1,4,1,6527,3,1,2,67,1,4,1,4),_TmnxMobProfDiaPeerListAddrType_Type())
-tmnxMobProfDiaPeerListAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerListAddrType.setStatus(_A)
-class _TmnxMobProfDiaPeerListAddr_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_TmnxMobProfDiaPeerListAddr_Type.__name__=_P
-_TmnxMobProfDiaPeerListAddr_Object=MibTableColumn
-tmnxMobProfDiaPeerListAddr=_TmnxMobProfDiaPeerListAddr_Object((1,3,6,1,4,1,6527,3,1,2,67,1,4,1,5),_TmnxMobProfDiaPeerListAddr_Type())
-tmnxMobProfDiaPeerListAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerListAddr.setStatus(_A)
-class _TmnxMobProfDiaPeerListPort_Type(InetPortNumber):defaultValue=3868;subtypeSpec=InetPortNumber.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3868,3888))
-_TmnxMobProfDiaPeerListPort_Type.__name__=_Q
-_TmnxMobProfDiaPeerListPort_Object=MibTableColumn
-tmnxMobProfDiaPeerListPort=_TmnxMobProfDiaPeerListPort_Object((1,3,6,1,4,1,6527,3,1,2,67,1,4,1,6),_TmnxMobProfDiaPeerListPort_Type())
-tmnxMobProfDiaPeerListPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerListPort.setStatus(_A)
-class _TmnxMobProfDiaPeerAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxMobProfDiaPeerAdminState_Type.__name__=_S
-_TmnxMobProfDiaPeerAdminState_Object=MibTableColumn
-tmnxMobProfDiaPeerAdminState=_TmnxMobProfDiaPeerAdminState_Object((1,3,6,1,4,1,6527,3,1,2,67,1,4,1,7),_TmnxMobProfDiaPeerAdminState_Type())
-tmnxMobProfDiaPeerAdminState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerAdminState.setStatus(_A)
-_TmnxMobProfPmipv6Table_Object=MibTable
-tmnxMobProfPmipv6Table=_TmnxMobProfPmipv6Table_Object((1,3,6,1,4,1,6527,3,1,2,67,1,5))
-if mibBuilder.loadTexts:tmnxMobProfPmipv6Table.setStatus(_A)
-_TmnxMobProfPmipv6Entry_Object=MibTableRow
-tmnxMobProfPmipv6Entry=_TmnxMobProfPmipv6Entry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,5,1))
-tmnxMobProfPmipv6Entry.setIndexNames((1,_B,_AV))
-if mibBuilder.loadTexts:tmnxMobProfPmipv6Entry.setStatus(_A)
-_TmnxMobProfPmipv6Name_Type=TmnxMobProfName
-_TmnxMobProfPmipv6Name_Object=MibTableColumn
-tmnxMobProfPmipv6Name=_TmnxMobProfPmipv6Name_Object((1,3,6,1,4,1,6527,3,1,2,67,1,5,1,1),_TmnxMobProfPmipv6Name_Type())
-tmnxMobProfPmipv6Name.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfPmipv6Name.setStatus(_A)
-_TmnxMobProfPmipv6RowStatus_Type=RowStatus
-_TmnxMobProfPmipv6RowStatus_Object=MibTableColumn
-tmnxMobProfPmipv6RowStatus=_TmnxMobProfPmipv6RowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,5,1,2),_TmnxMobProfPmipv6RowStatus_Type())
-tmnxMobProfPmipv6RowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPmipv6RowStatus.setStatus(_A)
-_TmnxMobProfPmipv6LastChanged_Type=TimeStamp
-_TmnxMobProfPmipv6LastChanged_Object=MibTableColumn
-tmnxMobProfPmipv6LastChanged=_TmnxMobProfPmipv6LastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,5,1,3),_TmnxMobProfPmipv6LastChanged_Type())
-tmnxMobProfPmipv6LastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPmipv6LastChanged.setStatus(_A)
-class _TmnxMobProfPmipv6Description_Type(TItemDescription):defaultHexValue=''
-_TmnxMobProfPmipv6Description_Type.__name__=_I
-_TmnxMobProfPmipv6Description_Object=MibTableColumn
-tmnxMobProfPmipv6Description=_TmnxMobProfPmipv6Description_Object((1,3,6,1,4,1,6527,3,1,2,67,1,5,1,4),_TmnxMobProfPmipv6Description_Type())
-tmnxMobProfPmipv6Description.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPmipv6Description.setStatus(_A)
-class _TmnxMobProfPmipv6MsgReTxTimeout_Type(TmnxMobProfMsgReTxTimeout):defaultValue=5
-_TmnxMobProfPmipv6MsgReTxTimeout_Type.__name__=_A3
-_TmnxMobProfPmipv6MsgReTxTimeout_Object=MibTableColumn
-tmnxMobProfPmipv6MsgReTxTimeout=_TmnxMobProfPmipv6MsgReTxTimeout_Object((1,3,6,1,4,1,6527,3,1,2,67,1,5,1,5),_TmnxMobProfPmipv6MsgReTxTimeout_Type())
-tmnxMobProfPmipv6MsgReTxTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPmipv6MsgReTxTimeout.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfPmipv6MsgReTxTimeout.setUnits(_H)
-class _TmnxMobProfPmipv6MsgReTxRetryCnt_Type(TmnxMobProfMsgReTxRetryCount):defaultValue=3
-_TmnxMobProfPmipv6MsgReTxRetryCnt_Type.__name__=_A4
-_TmnxMobProfPmipv6MsgReTxRetryCnt_Object=MibTableColumn
-tmnxMobProfPmipv6MsgReTxRetryCnt=_TmnxMobProfPmipv6MsgReTxRetryCnt_Object((1,3,6,1,4,1,6527,3,1,2,67,1,5,1,6),_TmnxMobProfPmipv6MsgReTxRetryCnt_Type())
-tmnxMobProfPmipv6MsgReTxRetryCnt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPmipv6MsgReTxRetryCnt.setStatus(_A)
-class _TmnxMobProfPmipv6KeepAlvTimeout_Type(TmnxMobProfKeepAliveResponse):defaultValue=5
-_TmnxMobProfPmipv6KeepAlvTimeout_Type.__name__=_A5
-_TmnxMobProfPmipv6KeepAlvTimeout_Object=MibTableColumn
-tmnxMobProfPmipv6KeepAlvTimeout=_TmnxMobProfPmipv6KeepAlvTimeout_Object((1,3,6,1,4,1,6527,3,1,2,67,1,5,1,7),_TmnxMobProfPmipv6KeepAlvTimeout_Type())
-tmnxMobProfPmipv6KeepAlvTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPmipv6KeepAlvTimeout.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfPmipv6KeepAlvTimeout.setUnits(_H)
-class _TmnxMobProfPmipv6KeepAlvRetryCnt_Type(TmnxMobProfKeepAliveRetryCount):defaultValue=4
-_TmnxMobProfPmipv6KeepAlvRetryCnt_Type.__name__=_A6
-_TmnxMobProfPmipv6KeepAlvRetryCnt_Object=MibTableColumn
-tmnxMobProfPmipv6KeepAlvRetryCnt=_TmnxMobProfPmipv6KeepAlvRetryCnt_Object((1,3,6,1,4,1,6527,3,1,2,67,1,5,1,8),_TmnxMobProfPmipv6KeepAlvRetryCnt_Type())
-tmnxMobProfPmipv6KeepAlvRetryCnt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPmipv6KeepAlvRetryCnt.setStatus(_A)
-class _TmnxMobProfPmipv6KeepAlvIntvl_Type(TmnxMobProfKeepAliveInterval):defaultValue=60
-_TmnxMobProfPmipv6KeepAlvIntvl_Type.__name__=_AW
-_TmnxMobProfPmipv6KeepAlvIntvl_Object=MibTableColumn
-tmnxMobProfPmipv6KeepAlvIntvl=_TmnxMobProfPmipv6KeepAlvIntvl_Object((1,3,6,1,4,1,6527,3,1,2,67,1,5,1,9),_TmnxMobProfPmipv6KeepAlvIntvl_Type())
-tmnxMobProfPmipv6KeepAlvIntvl.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPmipv6KeepAlvIntvl.setStatus(_A)
-class _TmnxMobProfPmipv6IpTtl_Type(TmnxMobProfIpTtl):defaultValue=255
-_TmnxMobProfPmipv6IpTtl_Type.__name__=_h
-_TmnxMobProfPmipv6IpTtl_Object=MibTableColumn
-tmnxMobProfPmipv6IpTtl=_TmnxMobProfPmipv6IpTtl_Object((1,3,6,1,4,1,6527,3,1,2,67,1,5,1,10),_TmnxMobProfPmipv6IpTtl_Type())
-tmnxMobProfPmipv6IpTtl.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPmipv6IpTtl.setStatus(_A)
-class _TmnxMobProfPmipv6IpDscp_Type(TDSCPValue):defaultValue=56
-_TmnxMobProfPmipv6IpDscp_Type.__name__=_j
-_TmnxMobProfPmipv6IpDscp_Object=MibTableColumn
-tmnxMobProfPmipv6IpDscp=_TmnxMobProfPmipv6IpDscp_Object((1,3,6,1,4,1,6527,3,1,2,67,1,5,1,11),_TmnxMobProfPmipv6IpDscp_Type())
-tmnxMobProfPmipv6IpDscp.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPmipv6IpDscp.setStatus(_A)
-_TmnxMobProfGtpTable_Object=MibTable
-tmnxMobProfGtpTable=_TmnxMobProfGtpTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,6))
-if mibBuilder.loadTexts:tmnxMobProfGtpTable.setStatus(_A)
-_TmnxMobProfGtpEntry_Object=MibTableRow
-tmnxMobProfGtpEntry=_TmnxMobProfGtpEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,6,1))
-tmnxMobProfGtpEntry.setIndexNames((1,_B,_AX))
-if mibBuilder.loadTexts:tmnxMobProfGtpEntry.setStatus(_A)
-_TmnxMobProfGtpName_Type=TmnxMobProfName
-_TmnxMobProfGtpName_Object=MibTableColumn
-tmnxMobProfGtpName=_TmnxMobProfGtpName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,6,1,1),_TmnxMobProfGtpName_Type())
-tmnxMobProfGtpName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfGtpName.setStatus(_A)
-_TmnxMobProfGtpRowStatus_Type=RowStatus
-_TmnxMobProfGtpRowStatus_Object=MibTableColumn
-tmnxMobProfGtpRowStatus=_TmnxMobProfGtpRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,6,1,2),_TmnxMobProfGtpRowStatus_Type())
-tmnxMobProfGtpRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfGtpRowStatus.setStatus(_A)
-_TmnxMobProfGtpLastChanged_Type=TimeStamp
-_TmnxMobProfGtpLastChanged_Object=MibTableColumn
-tmnxMobProfGtpLastChanged=_TmnxMobProfGtpLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,6,1,3),_TmnxMobProfGtpLastChanged_Type())
-tmnxMobProfGtpLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfGtpLastChanged.setStatus(_A)
-class _TmnxMobProfGtpDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxMobProfGtpDescription_Type.__name__=_I
-_TmnxMobProfGtpDescription_Object=MibTableColumn
-tmnxMobProfGtpDescription=_TmnxMobProfGtpDescription_Object((1,3,6,1,4,1,6527,3,1,2,67,1,6,1,4),_TmnxMobProfGtpDescription_Type())
-tmnxMobProfGtpDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfGtpDescription.setStatus(_A)
-class _TmnxMobProfGtpMsgReTxTimeout_Type(TmnxMobProfMsgReTxTimeout):defaultValue=5
-_TmnxMobProfGtpMsgReTxTimeout_Type.__name__=_A3
-_TmnxMobProfGtpMsgReTxTimeout_Object=MibTableColumn
-tmnxMobProfGtpMsgReTxTimeout=_TmnxMobProfGtpMsgReTxTimeout_Object((1,3,6,1,4,1,6527,3,1,2,67,1,6,1,5),_TmnxMobProfGtpMsgReTxTimeout_Type())
-tmnxMobProfGtpMsgReTxTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfGtpMsgReTxTimeout.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfGtpMsgReTxTimeout.setUnits(_H)
-class _TmnxMobProfGtpMsgReTxRetryCnt_Type(TmnxMobProfMsgReTxRetryCount):defaultValue=3
-_TmnxMobProfGtpMsgReTxRetryCnt_Type.__name__=_A4
-_TmnxMobProfGtpMsgReTxRetryCnt_Object=MibTableColumn
-tmnxMobProfGtpMsgReTxRetryCnt=_TmnxMobProfGtpMsgReTxRetryCnt_Object((1,3,6,1,4,1,6527,3,1,2,67,1,6,1,6),_TmnxMobProfGtpMsgReTxRetryCnt_Type())
-tmnxMobProfGtpMsgReTxRetryCnt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfGtpMsgReTxRetryCnt.setStatus(_A)
-class _TmnxMobProfGtpKeepAlvTimeout_Type(TmnxMobProfKeepAliveTimeout):defaultValue=60
-_TmnxMobProfGtpKeepAlvTimeout_Type.__name__=_AY
-_TmnxMobProfGtpKeepAlvTimeout_Object=MibTableColumn
-tmnxMobProfGtpKeepAlvTimeout=_TmnxMobProfGtpKeepAlvTimeout_Object((1,3,6,1,4,1,6527,3,1,2,67,1,6,1,7),_TmnxMobProfGtpKeepAlvTimeout_Type())
-tmnxMobProfGtpKeepAlvTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfGtpKeepAlvTimeout.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfGtpKeepAlvTimeout.setUnits(_H)
-class _TmnxMobProfGtpKeepAlvRetryCnt_Type(TmnxMobProfKeepAliveRetryCount):defaultValue=4
-_TmnxMobProfGtpKeepAlvRetryCnt_Type.__name__=_A6
-_TmnxMobProfGtpKeepAlvRetryCnt_Object=MibTableColumn
-tmnxMobProfGtpKeepAlvRetryCnt=_TmnxMobProfGtpKeepAlvRetryCnt_Object((1,3,6,1,4,1,6527,3,1,2,67,1,6,1,8),_TmnxMobProfGtpKeepAlvRetryCnt_Type())
-tmnxMobProfGtpKeepAlvRetryCnt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfGtpKeepAlvRetryCnt.setStatus(_A)
-class _TmnxMobProfGtpKeepAlvResp_Type(TmnxMobProfKeepAliveResponse):defaultValue=5
-_TmnxMobProfGtpKeepAlvResp_Type.__name__=_A5
-_TmnxMobProfGtpKeepAlvResp_Object=MibTableColumn
-tmnxMobProfGtpKeepAlvResp=_TmnxMobProfGtpKeepAlvResp_Object((1,3,6,1,4,1,6527,3,1,2,67,1,6,1,9),_TmnxMobProfGtpKeepAlvResp_Type())
-tmnxMobProfGtpKeepAlvResp.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfGtpKeepAlvResp.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfGtpKeepAlvResp.setUnits(_H)
-class _TmnxMobProfGtpIpTtl_Type(TmnxMobProfIpTtl):defaultValue=255
-_TmnxMobProfGtpIpTtl_Type.__name__=_h
-_TmnxMobProfGtpIpTtl_Object=MibTableColumn
-tmnxMobProfGtpIpTtl=_TmnxMobProfGtpIpTtl_Object((1,3,6,1,4,1,6527,3,1,2,67,1,6,1,10),_TmnxMobProfGtpIpTtl_Type())
-tmnxMobProfGtpIpTtl.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfGtpIpTtl.setStatus(_A)
-class _TmnxMobProfGtpIpDscp_Type(TDSCPValue):defaultValue=56
-_TmnxMobProfGtpIpDscp_Type.__name__=_j
-_TmnxMobProfGtpIpDscp_Object=MibTableColumn
-tmnxMobProfGtpIpDscp=_TmnxMobProfGtpIpDscp_Object((1,3,6,1,4,1,6527,3,1,2,67,1,6,1,11),_TmnxMobProfGtpIpDscp_Type())
-tmnxMobProfGtpIpDscp.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfGtpIpDscp.setStatus(_A)
-_TmnxMobProfPlmnListTable_Object=MibTable
-tmnxMobProfPlmnListTable=_TmnxMobProfPlmnListTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,7))
-if mibBuilder.loadTexts:tmnxMobProfPlmnListTable.setStatus(_A)
-_TmnxMobProfPlmnListEntry_Object=MibTableRow
-tmnxMobProfPlmnListEntry=_TmnxMobProfPlmnListEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,7,1))
-tmnxMobProfPlmnListEntry.setIndexNames((0,_B,_AZ),(0,_B,_Aa),(0,_B,_Ab))
-if mibBuilder.loadTexts:tmnxMobProfPlmnListEntry.setStatus(_A)
-_TmnxMobProfPlmnListName_Type=TmnxMobProfName
-_TmnxMobProfPlmnListName_Object=MibTableColumn
-tmnxMobProfPlmnListName=_TmnxMobProfPlmnListName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,7,1,1),_TmnxMobProfPlmnListName_Type())
-tmnxMobProfPlmnListName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfPlmnListName.setStatus(_A)
-_TmnxMobProfPlmnListMcc_Type=TmnxMobMcc
-_TmnxMobProfPlmnListMcc_Object=MibTableColumn
-tmnxMobProfPlmnListMcc=_TmnxMobProfPlmnListMcc_Object((1,3,6,1,4,1,6527,3,1,2,67,1,7,1,2),_TmnxMobProfPlmnListMcc_Type())
-tmnxMobProfPlmnListMcc.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfPlmnListMcc.setStatus(_A)
-_TmnxMobProfPlmnListMnc_Type=TmnxMobMnc
-_TmnxMobProfPlmnListMnc_Object=MibTableColumn
-tmnxMobProfPlmnListMnc=_TmnxMobProfPlmnListMnc_Object((1,3,6,1,4,1,6527,3,1,2,67,1,7,1,3),_TmnxMobProfPlmnListMnc_Type())
-tmnxMobProfPlmnListMnc.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfPlmnListMnc.setStatus(_A)
-_TmnxMobProfPlmnListRowStatus_Type=RowStatus
-_TmnxMobProfPlmnListRowStatus_Object=MibTableColumn
-tmnxMobProfPlmnListRowStatus=_TmnxMobProfPlmnListRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,7,1,4),_TmnxMobProfPlmnListRowStatus_Type())
-tmnxMobProfPlmnListRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPlmnListRowStatus.setStatus(_A)
-_TmnxMobProfPolTable_Object=MibTable
-tmnxMobProfPolTable=_TmnxMobProfPolTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,8))
-if mibBuilder.loadTexts:tmnxMobProfPolTable.setStatus(_A)
-_TmnxMobProfPolEntry_Object=MibTableRow
-tmnxMobProfPolEntry=_TmnxMobProfPolEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,8,1))
-tmnxMobProfPolEntry.setIndexNames((0,_B,_A7))
-if mibBuilder.loadTexts:tmnxMobProfPolEntry.setStatus(_A)
-_TmnxMobProfPolName_Type=TmnxMobProfName
-_TmnxMobProfPolName_Object=MibTableColumn
-tmnxMobProfPolName=_TmnxMobProfPolName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,8,1,1),_TmnxMobProfPolName_Type())
-tmnxMobProfPolName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfPolName.setStatus(_A)
-_TmnxMobProfPolRowStatus_Type=RowStatus
-_TmnxMobProfPolRowStatus_Object=MibTableColumn
-tmnxMobProfPolRowStatus=_TmnxMobProfPolRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,8,1,2),_TmnxMobProfPolRowStatus_Type())
-tmnxMobProfPolRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolRowStatus.setStatus(_A)
-_TmnxMobProfPolLastChanged_Type=TimeStamp
-_TmnxMobProfPolLastChanged_Object=MibTableColumn
-tmnxMobProfPolLastChanged=_TmnxMobProfPolLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,8,1,3),_TmnxMobProfPolLastChanged_Type())
-tmnxMobProfPolLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolLastChanged.setStatus(_A)
-class _TmnxMobProfPolRuleUnitName_Type(TNamedItemOrEmpty):defaultHexValue=''
-_TmnxMobProfPolRuleUnitName_Type.__name__=_T
-_TmnxMobProfPolRuleUnitName_Object=MibTableColumn
-tmnxMobProfPolRuleUnitName=_TmnxMobProfPolRuleUnitName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,8,1,4),_TmnxMobProfPolRuleUnitName_Type())
-tmnxMobProfPolRuleUnitName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolRuleUnitName.setStatus(_A)
-class _TmnxMobProfChgRuleUnitName_Type(TNamedItemOrEmpty):defaultHexValue=''
-_TmnxMobProfChgRuleUnitName_Type.__name__=_T
-_TmnxMobProfChgRuleUnitName_Object=MibTableColumn
-tmnxMobProfChgRuleUnitName=_TmnxMobProfChgRuleUnitName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,8,1,5),_TmnxMobProfChgRuleUnitName_Type())
-tmnxMobProfChgRuleUnitName.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfChgRuleUnitName.setStatus(_A)
-class _TmnxMobProfPolQciValue_Type(TmnxMobQciValueOrZero):defaultValue=0
-_TmnxMobProfPolQciValue_Type.__name__=_AQ
-_TmnxMobProfPolQciValue_Object=MibTableColumn
-tmnxMobProfPolQciValue=_TmnxMobProfPolQciValue_Object((1,3,6,1,4,1,6527,3,1,2,67,1,8,1,6),_TmnxMobProfPolQciValue_Type())
-tmnxMobProfPolQciValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolQciValue.setStatus(_A)
-class _TmnxMobProfPolArpValue_Type(TmnxMobArpValueOrZero):defaultValue=0
-_TmnxMobProfPolArpValue_Type.__name__=_AI
-_TmnxMobProfPolArpValue_Object=MibTableColumn
-tmnxMobProfPolArpValue=_TmnxMobProfPolArpValue_Object((1,3,6,1,4,1,6527,3,1,2,67,1,8,1,7),_TmnxMobProfPolArpValue_Type())
-tmnxMobProfPolArpValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolArpValue.setStatus(_A)
-class _TmnxMobProfPolPrecedence_Type(TmnxMobStaticPolPrecedenceOrZero):defaultValue=0
-_TmnxMobProfPolPrecedence_Type.__name__=_i
-_TmnxMobProfPolPrecedence_Object=MibTableColumn
-tmnxMobProfPolPrecedence=_TmnxMobProfPolPrecedence_Object((1,3,6,1,4,1,6527,3,1,2,67,1,8,1,8),_TmnxMobProfPolPrecedence_Type())
-tmnxMobProfPolPrecedence.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolPrecedence.setStatus(_A)
-class _TmnxMobProfPolInUse_Type(TruthValue):defaultValue=2
-_TmnxMobProfPolInUse_Type.__name__=_L
-_TmnxMobProfPolInUse_Object=MibTableColumn
-tmnxMobProfPolInUse=_TmnxMobProfPolInUse_Object((1,3,6,1,4,1,6527,3,1,2,67,1,8,1,9),_TmnxMobProfPolInUse_Type())
-tmnxMobProfPolInUse.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolInUse.setStatus(_A)
-_TmnxMobProfPolRefCount_Type=Counter32
-_TmnxMobProfPolRefCount_Object=MibTableColumn
-tmnxMobProfPolRefCount=_TmnxMobProfPolRefCount_Object((1,3,6,1,4,1,6527,3,1,2,67,1,8,1,10),_TmnxMobProfPolRefCount_Type())
-tmnxMobProfPolRefCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolRefCount.setStatus(_A)
-_TmnxMobProfPolConfRefCount_Type=Counter32
-_TmnxMobProfPolConfRefCount_Object=MibTableColumn
-tmnxMobProfPolConfRefCount=_TmnxMobProfPolConfRefCount_Object((1,3,6,1,4,1,6527,3,1,2,67,1,8,1,11),_TmnxMobProfPolConfRefCount_Type())
-tmnxMobProfPolConfRefCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolConfRefCount.setStatus(_A)
-_TmnxMobProfPolUntFlwTable_Object=MibTable
-tmnxMobProfPolUntFlwTable=_TmnxMobProfPolUntFlwTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9))
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwTable.setStatus(_A)
-_TmnxMobProfPolUntFlwEntry_Object=MibTableRow
-tmnxMobProfPolUntFlwEntry=_TmnxMobProfPolUntFlwEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1))
-tmnxMobProfPolUntFlwEntry.setIndexNames((0,_B,_m),(0,_B,_Ac))
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwEntry.setStatus(_A)
-class _TmnxMobProfPolUntFlwId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_TmnxMobProfPolUntFlwId_Type.__name__=_E
-_TmnxMobProfPolUntFlwId_Object=MibTableColumn
-tmnxMobProfPolUntFlwId=_TmnxMobProfPolUntFlwId_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,1),_TmnxMobProfPolUntFlwId_Type())
-tmnxMobProfPolUntFlwId.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwId.setStatus(_A)
-_TmnxMobProfPolUntFlwRowStatus_Type=RowStatus
-_TmnxMobProfPolUntFlwRowStatus_Object=MibTableColumn
-tmnxMobProfPolUntFlwRowStatus=_TmnxMobProfPolUntFlwRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,2),_TmnxMobProfPolUntFlwRowStatus_Type())
-tmnxMobProfPolUntFlwRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwRowStatus.setStatus(_A)
-_TmnxMobProfPolUntFlwLastChanged_Type=TimeStamp
-_TmnxMobProfPolUntFlwLastChanged_Object=MibTableColumn
-tmnxMobProfPolUntFlwLastChanged=_TmnxMobProfPolUntFlwLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,3),_TmnxMobProfPolUntFlwLastChanged_Type())
-tmnxMobProfPolUntFlwLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwLastChanged.setStatus(_A)
-class _TmnxMobProfPolUntFlwDirection_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('downLink',1),('upLink',2),('both',3)))
-_TmnxMobProfPolUntFlwDirection_Type.__name__=_K
-_TmnxMobProfPolUntFlwDirection_Object=MibTableColumn
-tmnxMobProfPolUntFlwDirection=_TmnxMobProfPolUntFlwDirection_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,4),_TmnxMobProfPolUntFlwDirection_Type())
-tmnxMobProfPolUntFlwDirection.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwDirection.setStatus(_A)
-class _TmnxMobProfPolUntFlwMatchPrtcl_Type(TIpProtocol):defaultValue=-2
-_TmnxMobProfPolUntFlwMatchPrtcl_Type.__name__=_AR
-_TmnxMobProfPolUntFlwMatchPrtcl_Object=MibTableColumn
-tmnxMobProfPolUntFlwMatchPrtcl=_TmnxMobProfPolUntFlwMatchPrtcl_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,5),_TmnxMobProfPolUntFlwMatchPrtcl_Type())
-tmnxMobProfPolUntFlwMatchPrtcl.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwMatchPrtcl.setStatus(_A)
-class _TmnxMobProfPolUntFlwLclAddrType_Type(InetAddressType):defaultValue=0
-_TmnxMobProfPolUntFlwLclAddrType_Type.__name__=_g
-_TmnxMobProfPolUntFlwLclAddrType_Object=MibTableColumn
-tmnxMobProfPolUntFlwLclAddrType=_TmnxMobProfPolUntFlwLclAddrType_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,6),_TmnxMobProfPolUntFlwLclAddrType_Type())
-tmnxMobProfPolUntFlwLclAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwLclAddrType.setStatus(_A)
-class _TmnxMobProfPolUntFlwLclAddr_Type(InetAddress):defaultHexValue='';subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxMobProfPolUntFlwLclAddr_Type.__name__=_P
-_TmnxMobProfPolUntFlwLclAddr_Object=MibTableColumn
-tmnxMobProfPolUntFlwLclAddr=_TmnxMobProfPolUntFlwLclAddr_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,7),_TmnxMobProfPolUntFlwLclAddr_Type())
-tmnxMobProfPolUntFlwLclAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwLclAddr.setStatus(_A)
-class _TmnxMobProfPolUntFlwLclPrefixLen_Type(InetAddressPrefixLength):defaultValue=0
-_TmnxMobProfPolUntFlwLclPrefixLen_Type.__name__=_w
-_TmnxMobProfPolUntFlwLclPrefixLen_Object=MibTableColumn
-tmnxMobProfPolUntFlwLclPrefixLen=_TmnxMobProfPolUntFlwLclPrefixLen_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,8),_TmnxMobProfPolUntFlwLclPrefixLen_Type())
-tmnxMobProfPolUntFlwLclPrefixLen.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwLclPrefixLen.setStatus(_A)
-class _TmnxMobProfPolUntFlwRmtAddrType_Type(InetAddressType):defaultValue=0
-_TmnxMobProfPolUntFlwRmtAddrType_Type.__name__=_g
-_TmnxMobProfPolUntFlwRmtAddrType_Object=MibTableColumn
-tmnxMobProfPolUntFlwRmtAddrType=_TmnxMobProfPolUntFlwRmtAddrType_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,9),_TmnxMobProfPolUntFlwRmtAddrType_Type())
-tmnxMobProfPolUntFlwRmtAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwRmtAddrType.setStatus(_A)
-class _TmnxMobProfPolUntFlwRmtAddr_Type(InetAddress):defaultHexValue='';subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxMobProfPolUntFlwRmtAddr_Type.__name__=_P
-_TmnxMobProfPolUntFlwRmtAddr_Object=MibTableColumn
-tmnxMobProfPolUntFlwRmtAddr=_TmnxMobProfPolUntFlwRmtAddr_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,10),_TmnxMobProfPolUntFlwRmtAddr_Type())
-tmnxMobProfPolUntFlwRmtAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwRmtAddr.setStatus(_A)
-class _TmnxMobProfPolUntFlwRmtPrefixLen_Type(InetAddressPrefixLength):defaultValue=0
-_TmnxMobProfPolUntFlwRmtPrefixLen_Type.__name__=_w
-_TmnxMobProfPolUntFlwRmtPrefixLen_Object=MibTableColumn
-tmnxMobProfPolUntFlwRmtPrefixLen=_TmnxMobProfPolUntFlwRmtPrefixLen_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,11),_TmnxMobProfPolUntFlwRmtPrefixLen_Type())
-tmnxMobProfPolUntFlwRmtPrefixLen.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwRmtPrefixLen.setStatus(_A)
-class _TmnxMobProfPolUntFlwLclPortVal1_Type(TTcpUdpPort):defaultValue=0
-_TmnxMobProfPolUntFlwLclPortVal1_Type.__name__=_U
-_TmnxMobProfPolUntFlwLclPortVal1_Object=MibTableColumn
-tmnxMobProfPolUntFlwLclPortVal1=_TmnxMobProfPolUntFlwLclPortVal1_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,12),_TmnxMobProfPolUntFlwLclPortVal1_Type())
-tmnxMobProfPolUntFlwLclPortVal1.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwLclPortVal1.setStatus(_A)
-class _TmnxMobProfPolUntFlwLclPortVal2_Type(TTcpUdpPort):defaultValue=0
-_TmnxMobProfPolUntFlwLclPortVal2_Type.__name__=_U
-_TmnxMobProfPolUntFlwLclPortVal2_Object=MibTableColumn
-tmnxMobProfPolUntFlwLclPortVal2=_TmnxMobProfPolUntFlwLclPortVal2_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,13),_TmnxMobProfPolUntFlwLclPortVal2_Type())
-tmnxMobProfPolUntFlwLclPortVal2.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwLclPortVal2.setStatus(_A)
-class _TmnxMobProfPolUntFlwLclPortOper_Type(TTcpUdpPortOperator):defaultValue=0
-_TmnxMobProfPolUntFlwLclPortOper_Type.__name__=_A1
-_TmnxMobProfPolUntFlwLclPortOper_Object=MibTableColumn
-tmnxMobProfPolUntFlwLclPortOper=_TmnxMobProfPolUntFlwLclPortOper_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,14),_TmnxMobProfPolUntFlwLclPortOper_Type())
-tmnxMobProfPolUntFlwLclPortOper.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwLclPortOper.setStatus(_A)
-class _TmnxMobProfPolUntFlwRmtPortVal1_Type(TTcpUdpPort):defaultValue=0
-_TmnxMobProfPolUntFlwRmtPortVal1_Type.__name__=_U
-_TmnxMobProfPolUntFlwRmtPortVal1_Object=MibTableColumn
-tmnxMobProfPolUntFlwRmtPortVal1=_TmnxMobProfPolUntFlwRmtPortVal1_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,15),_TmnxMobProfPolUntFlwRmtPortVal1_Type())
-tmnxMobProfPolUntFlwRmtPortVal1.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwRmtPortVal1.setStatus(_A)
-class _TmnxMobProfPolUntFlwRmtPortVal2_Type(TTcpUdpPort):defaultValue=0
-_TmnxMobProfPolUntFlwRmtPortVal2_Type.__name__=_U
-_TmnxMobProfPolUntFlwRmtPortVal2_Object=MibTableColumn
-tmnxMobProfPolUntFlwRmtPortVal2=_TmnxMobProfPolUntFlwRmtPortVal2_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,16),_TmnxMobProfPolUntFlwRmtPortVal2_Type())
-tmnxMobProfPolUntFlwRmtPortVal2.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwRmtPortVal2.setStatus(_A)
-class _TmnxMobProfPolUntFlwRmtPortOper_Type(TTcpUdpPortOperator):defaultValue=0
-_TmnxMobProfPolUntFlwRmtPortOper_Type.__name__=_A1
-_TmnxMobProfPolUntFlwRmtPortOper_Object=MibTableColumn
-tmnxMobProfPolUntFlwRmtPortOper=_TmnxMobProfPolUntFlwRmtPortOper_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,17),_TmnxMobProfPolUntFlwRmtPortOper_Type())
-tmnxMobProfPolUntFlwRmtPortOper.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwRmtPortOper.setStatus(_A)
-class _TmnxMobProfPolUntFlwAaApp_Type(TNamedItemOrEmpty):defaultHexValue=''
-_TmnxMobProfPolUntFlwAaApp_Type.__name__=_T
-_TmnxMobProfPolUntFlwAaApp_Object=MibTableColumn
-tmnxMobProfPolUntFlwAaApp=_TmnxMobProfPolUntFlwAaApp_Object((1,3,6,1,4,1,6527,3,1,2,67,1,9,1,18),_TmnxMobProfPolUntFlwAaApp_Type())
-tmnxMobProfPolUntFlwAaApp.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwAaApp.setStatus(_A)
-_TmnxMobProfPolBaseTable_Object=MibTable
-tmnxMobProfPolBaseTable=_TmnxMobProfPolBaseTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,10))
-if mibBuilder.loadTexts:tmnxMobProfPolBaseTable.setStatus(_A)
-_TmnxMobProfPolBaseEntry_Object=MibTableRow
-tmnxMobProfPolBaseEntry=_TmnxMobProfPolBaseEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,10,1))
-tmnxMobProfPolBaseEntry.setIndexNames((0,_B,_Ad),(0,_B,_A7))
-if mibBuilder.loadTexts:tmnxMobProfPolBaseEntry.setStatus(_A)
-_TmnxMobProfPolBaseName_Type=TmnxMobProfName
-_TmnxMobProfPolBaseName_Object=MibTableColumn
-tmnxMobProfPolBaseName=_TmnxMobProfPolBaseName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,10,1,1),_TmnxMobProfPolBaseName_Type())
-tmnxMobProfPolBaseName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfPolBaseName.setStatus(_A)
-_TmnxMobProfPolBaseRowStatus_Type=RowStatus
-_TmnxMobProfPolBaseRowStatus_Object=MibTableColumn
-tmnxMobProfPolBaseRowStatus=_TmnxMobProfPolBaseRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,10,1,2),_TmnxMobProfPolBaseRowStatus_Type())
-tmnxMobProfPolBaseRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolBaseRowStatus.setStatus(_A)
-_TmnxMobProfPolBaseLastChanged_Type=TimeStamp
-_TmnxMobProfPolBaseLastChanged_Object=MibTableColumn
-tmnxMobProfPolBaseLastChanged=_TmnxMobProfPolBaseLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,10,1,3),_TmnxMobProfPolBaseLastChanged_Type())
-tmnxMobProfPolBaseLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolBaseLastChanged.setStatus(_A)
-class _TmnxMobProfPolBasePrecedence_Type(TmnxMobStaticPolPrecedenceOrZero):defaultValue=0
-_TmnxMobProfPolBasePrecedence_Type.__name__=_i
-_TmnxMobProfPolBasePrecedence_Object=MibTableColumn
-tmnxMobProfPolBasePrecedence=_TmnxMobProfPolBasePrecedence_Object((1,3,6,1,4,1,6527,3,1,2,67,1,10,1,4),_TmnxMobProfPolBasePrecedence_Type())
-tmnxMobProfPolBasePrecedence.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolBasePrecedence.setStatus(_A)
-class _TmnxMobProfPolBasePreActivate_Type(TruthValue):defaultValue=2
-_TmnxMobProfPolBasePreActivate_Type.__name__=_L
-_TmnxMobProfPolBasePreActivate_Object=MibTableColumn
-tmnxMobProfPolBasePreActivate=_TmnxMobProfPolBasePreActivate_Object((1,3,6,1,4,1,6527,3,1,2,67,1,10,1,5),_TmnxMobProfPolBasePreActivate_Type())
-tmnxMobProfPolBasePreActivate.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolBasePreActivate.setStatus(_A)
-class _TmnxMobProfPolBaseInUse_Type(TruthValue):defaultValue=2
-_TmnxMobProfPolBaseInUse_Type.__name__=_L
-_TmnxMobProfPolBaseInUse_Object=MibTableColumn
-tmnxMobProfPolBaseInUse=_TmnxMobProfPolBaseInUse_Object((1,3,6,1,4,1,6527,3,1,2,67,1,10,1,6),_TmnxMobProfPolBaseInUse_Type())
-tmnxMobProfPolBaseInUse.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolBaseInUse.setStatus(_A)
-_TmnxMobProfPolBaseRefCount_Type=Counter32
-_TmnxMobProfPolBaseRefCount_Object=MibTableColumn
-tmnxMobProfPolBaseRefCount=_TmnxMobProfPolBaseRefCount_Object((1,3,6,1,4,1,6527,3,1,2,67,1,10,1,7),_TmnxMobProfPolBaseRefCount_Type())
-tmnxMobProfPolBaseRefCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolBaseRefCount.setStatus(_A)
-_TmnxMobProfPolBaseConfRefCount_Type=Counter32
-_TmnxMobProfPolBaseConfRefCount_Object=MibTableColumn
-tmnxMobProfPolBaseConfRefCount=_TmnxMobProfPolBaseConfRefCount_Object((1,3,6,1,4,1,6527,3,1,2,67,1,10,1,8),_TmnxMobProfPolBaseConfRefCount_Type())
-tmnxMobProfPolBaseConfRefCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolBaseConfRefCount.setStatus(_A)
-_TmnxMobProfQciPolTable_Object=MibTable
-tmnxMobProfQciPolTable=_TmnxMobProfQciPolTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,11))
-if mibBuilder.loadTexts:tmnxMobProfQciPolTable.setStatus(_A)
-_TmnxMobProfQciPolEntry_Object=MibTableRow
-tmnxMobProfQciPolEntry=_TmnxMobProfQciPolEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,11,1))
-tmnxMobProfQciPolEntry.setIndexNames((0,_B,_A8))
-if mibBuilder.loadTexts:tmnxMobProfQciPolEntry.setStatus(_A)
-_TmnxMobProfQciPolName_Type=TmnxMobProfName
-_TmnxMobProfQciPolName_Object=MibTableColumn
-tmnxMobProfQciPolName=_TmnxMobProfQciPolName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,11,1,1),_TmnxMobProfQciPolName_Type())
-tmnxMobProfQciPolName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfQciPolName.setStatus(_A)
-_TmnxMobProfQciPolRowStatus_Type=RowStatus
-_TmnxMobProfQciPolRowStatus_Object=MibTableColumn
-tmnxMobProfQciPolRowStatus=_TmnxMobProfQciPolRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,11,1,2),_TmnxMobProfQciPolRowStatus_Type())
-tmnxMobProfQciPolRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfQciPolRowStatus.setStatus(_A)
-_TmnxMobProfQciPolLastChanged_Type=TimeStamp
-_TmnxMobProfQciPolLastChanged_Object=MibTableColumn
-tmnxMobProfQciPolLastChanged=_TmnxMobProfQciPolLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,11,1,3),_TmnxMobProfQciPolLastChanged_Type())
-tmnxMobProfQciPolLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfQciPolLastChanged.setStatus(_A)
-class _TmnxMobProfQciPolDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxMobProfQciPolDescription_Type.__name__=_I
-_TmnxMobProfQciPolDescription_Object=MibTableColumn
-tmnxMobProfQciPolDescription=_TmnxMobProfQciPolDescription_Object((1,3,6,1,4,1,6527,3,1,2,67,1,11,1,4),_TmnxMobProfQciPolDescription_Type())
-tmnxMobProfQciPolDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfQciPolDescription.setStatus(_A)
-_TmnxMobProfQciPolQciTable_Object=MibTable
-tmnxMobProfQciPolQciTable=_TmnxMobProfQciPolQciTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,12))
-if mibBuilder.loadTexts:tmnxMobProfQciPolQciTable.setStatus(_A)
-_TmnxMobProfQciPolQciEntry_Object=MibTableRow
-tmnxMobProfQciPolQciEntry=_TmnxMobProfQciPolQciEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,12,1))
-tmnxMobProfQciPolQciEntry.setIndexNames((0,_B,_A8),(0,_B,_Ae),(0,_B,_Af))
-if mibBuilder.loadTexts:tmnxMobProfQciPolQciEntry.setStatus(_A)
-_TmnxMobProfQciPolQciValue_Type=TmnxMobQciValue
-_TmnxMobProfQciPolQciValue_Object=MibTableColumn
-tmnxMobProfQciPolQciValue=_TmnxMobProfQciPolQciValue_Object((1,3,6,1,4,1,6527,3,1,2,67,1,12,1,1),_TmnxMobProfQciPolQciValue_Type())
-tmnxMobProfQciPolQciValue.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfQciPolQciValue.setStatus(_A)
-_TmnxMobProfQciPolQciArpValue_Type=TmnxMobArpValue
-_TmnxMobProfQciPolQciArpValue_Object=MibTableColumn
-tmnxMobProfQciPolQciArpValue=_TmnxMobProfQciPolQciArpValue_Object((1,3,6,1,4,1,6527,3,1,2,67,1,12,1,2),_TmnxMobProfQciPolQciArpValue_Type())
-tmnxMobProfQciPolQciArpValue.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfQciPolQciArpValue.setStatus(_A)
-_TmnxMobProfQciPolQciLastChanged_Type=TimeStamp
-_TmnxMobProfQciPolQciLastChanged_Object=MibTableColumn
-tmnxMobProfQciPolQciLastChanged=_TmnxMobProfQciPolQciLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,12,1,3),_TmnxMobProfQciPolQciLastChanged_Type())
-tmnxMobProfQciPolQciLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfQciPolQciLastChanged.setStatus(_A)
-class _TmnxMobProfQciPolQciDscpPreserve_Type(TmnxEnabledDisabled):defaultValue=1
-_TmnxMobProfQciPolQciDscpPreserve_Type.__name__=_G
-_TmnxMobProfQciPolQciDscpPreserve_Object=MibTableColumn
-tmnxMobProfQciPolQciDscpPreserve=_TmnxMobProfQciPolQciDscpPreserve_Object((1,3,6,1,4,1,6527,3,1,2,67,1,12,1,4),_TmnxMobProfQciPolQciDscpPreserve_Type())
-tmnxMobProfQciPolQciDscpPreserve.setMaxAccess(_X)
-if mibBuilder.loadTexts:tmnxMobProfQciPolQciDscpPreserve.setStatus(_A)
-_TmnxMobProfQciPolQciDscp_Type=TDSCPName
-_TmnxMobProfQciPolQciDscp_Object=MibTableColumn
-tmnxMobProfQciPolQciDscp=_TmnxMobProfQciPolQciDscp_Object((1,3,6,1,4,1,6527,3,1,2,67,1,12,1,5),_TmnxMobProfQciPolQciDscp_Type())
-tmnxMobProfQciPolQciDscp.setMaxAccess(_X)
-if mibBuilder.loadTexts:tmnxMobProfQciPolQciDscp.setStatus(_A)
-_TmnxMobProfQciPolQciDscpOut_Type=TDSCPName
-_TmnxMobProfQciPolQciDscpOut_Object=MibTableColumn
-tmnxMobProfQciPolQciDscpOut=_TmnxMobProfQciPolQciDscpOut_Object((1,3,6,1,4,1,6527,3,1,2,67,1,12,1,6),_TmnxMobProfQciPolQciDscpOut_Type())
-tmnxMobProfQciPolQciDscpOut.setMaxAccess(_X)
-if mibBuilder.loadTexts:tmnxMobProfQciPolQciDscpOut.setStatus(_A)
-_TmnxMobProfQciPolQciFcName_Type=TFCName
-_TmnxMobProfQciPolQciFcName_Object=MibTableColumn
-tmnxMobProfQciPolQciFcName=_TmnxMobProfQciPolQciFcName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,12,1,7),_TmnxMobProfQciPolQciFcName_Type())
-tmnxMobProfQciPolQciFcName.setMaxAccess(_X)
-if mibBuilder.loadTexts:tmnxMobProfQciPolQciFcName.setStatus(_A)
-class _TmnxMobProfQciPolQciProfile_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_l,0),('in',1),('out',2),('applyCir',3)))
-_TmnxMobProfQciPolQciProfile_Type.__name__=_K
-_TmnxMobProfQciPolQciProfile_Object=MibTableColumn
-tmnxMobProfQciPolQciProfile=_TmnxMobProfQciPolQciProfile_Object((1,3,6,1,4,1,6527,3,1,2,67,1,12,1,8),_TmnxMobProfQciPolQciProfile_Type())
-tmnxMobProfQciPolQciProfile.setMaxAccess(_X)
-if mibBuilder.loadTexts:tmnxMobProfQciPolQciProfile.setStatus(_A)
-_TmnxMobProfPeerListTable_Object=MibTable
-tmnxMobProfPeerListTable=_TmnxMobProfPeerListTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,13))
-if mibBuilder.loadTexts:tmnxMobProfPeerListTable.setStatus(_A)
-_TmnxMobProfPeerListEntry_Object=MibTableRow
-tmnxMobProfPeerListEntry=_TmnxMobProfPeerListEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,13,1))
-tmnxMobProfPeerListEntry.setIndexNames((0,_B,_A9))
-if mibBuilder.loadTexts:tmnxMobProfPeerListEntry.setStatus(_A)
-_TmnxMobProfPeerListName_Type=TmnxMobProfName
-_TmnxMobProfPeerListName_Object=MibTableColumn
-tmnxMobProfPeerListName=_TmnxMobProfPeerListName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,13,1,1),_TmnxMobProfPeerListName_Type())
-tmnxMobProfPeerListName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfPeerListName.setStatus(_A)
-_TmnxMobProfPeerListRowStatus_Type=RowStatus
-_TmnxMobProfPeerListRowStatus_Object=MibTableColumn
-tmnxMobProfPeerListRowStatus=_TmnxMobProfPeerListRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,13,1,2),_TmnxMobProfPeerListRowStatus_Type())
-tmnxMobProfPeerListRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPeerListRowStatus.setStatus(_A)
-_TmnxMobProfPeerListLastChanged_Type=TimeStamp
-_TmnxMobProfPeerListLastChanged_Object=MibTableColumn
-tmnxMobProfPeerListLastChanged=_TmnxMobProfPeerListLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,13,1,3),_TmnxMobProfPeerListLastChanged_Type())
-tmnxMobProfPeerListLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPeerListLastChanged.setStatus(_A)
-class _TmnxMobProfPeerListDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxMobProfPeerListDescription_Type.__name__=_I
-_TmnxMobProfPeerListDescription_Object=MibTableColumn
-tmnxMobProfPeerListDescription=_TmnxMobProfPeerListDescription_Object((1,3,6,1,4,1,6527,3,1,2,67,1,13,1,4),_TmnxMobProfPeerListDescription_Type())
-tmnxMobProfPeerListDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPeerListDescription.setStatus(_A)
-_TmnxMobProfPeerListPeerTable_Object=MibTable
-tmnxMobProfPeerListPeerTable=_TmnxMobProfPeerListPeerTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,14))
-if mibBuilder.loadTexts:tmnxMobProfPeerListPeerTable.setStatus(_A)
-_TmnxMobProfPeerListPeerEntry_Object=MibTableRow
-tmnxMobProfPeerListPeerEntry=_TmnxMobProfPeerListPeerEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,14,1))
-tmnxMobProfPeerListPeerEntry.setIndexNames((0,_B,_A9),(0,_B,_Ag),(0,_B,_Ah),(0,_B,_Ai))
-if mibBuilder.loadTexts:tmnxMobProfPeerListPeerEntry.setStatus(_A)
-_TmnxMobProfPeerListPeerAddrType_Type=InetAddressType
-_TmnxMobProfPeerListPeerAddrType_Object=MibTableColumn
-tmnxMobProfPeerListPeerAddrType=_TmnxMobProfPeerListPeerAddrType_Object((1,3,6,1,4,1,6527,3,1,2,67,1,14,1,1),_TmnxMobProfPeerListPeerAddrType_Type())
-tmnxMobProfPeerListPeerAddrType.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfPeerListPeerAddrType.setStatus(_A)
-class _TmnxMobProfPeerListPeerAddr_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
-_TmnxMobProfPeerListPeerAddr_Type.__name__=_P
-_TmnxMobProfPeerListPeerAddr_Object=MibTableColumn
-tmnxMobProfPeerListPeerAddr=_TmnxMobProfPeerListPeerAddr_Object((1,3,6,1,4,1,6527,3,1,2,67,1,14,1,2),_TmnxMobProfPeerListPeerAddr_Type())
-tmnxMobProfPeerListPeerAddr.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfPeerListPeerAddr.setStatus(_A)
-_TmnxMobProfPeerListPeerPrefixLen_Type=InetAddressPrefixLength
-_TmnxMobProfPeerListPeerPrefixLen_Object=MibTableColumn
-tmnxMobProfPeerListPeerPrefixLen=_TmnxMobProfPeerListPeerPrefixLen_Object((1,3,6,1,4,1,6527,3,1,2,67,1,14,1,3),_TmnxMobProfPeerListPeerPrefixLen_Type())
-tmnxMobProfPeerListPeerPrefixLen.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfPeerListPeerPrefixLen.setStatus(_A)
-_TmnxMobProfPeerListPeerRowStatus_Type=RowStatus
-_TmnxMobProfPeerListPeerRowStatus_Object=MibTableColumn
-tmnxMobProfPeerListPeerRowStatus=_TmnxMobProfPeerListPeerRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,14,1,4),_TmnxMobProfPeerListPeerRowStatus_Type())
-tmnxMobProfPeerListPeerRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPeerListPeerRowStatus.setStatus(_A)
-_TmnxMobProfPeerListPeerLastChgd_Type=TimeStamp
-_TmnxMobProfPeerListPeerLastChgd_Object=MibTableColumn
-tmnxMobProfPeerListPeerLastChgd=_TmnxMobProfPeerListPeerLastChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,1,14,1,5),_TmnxMobProfPeerListPeerLastChgd_Type())
-tmnxMobProfPeerListPeerLastChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPeerListPeerLastChgd.setStatus(_A)
-class _TmnxMobProfPeerListPeerDesc_Type(TItemDescription):defaultHexValue=''
-_TmnxMobProfPeerListPeerDesc_Type.__name__=_I
-_TmnxMobProfPeerListPeerDesc_Object=MibTableColumn
-tmnxMobProfPeerListPeerDesc=_TmnxMobProfPeerListPeerDesc_Object((1,3,6,1,4,1,6527,3,1,2,67,1,14,1,6),_TmnxMobProfPeerListPeerDesc_Type())
-tmnxMobProfPeerListPeerDesc.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPeerListPeerDesc.setStatus(_A)
-class _TmnxMobProfPeerListPeerKeepAlive_Type(TruthValue):defaultValue=1
-_TmnxMobProfPeerListPeerKeepAlive_Type.__name__=_L
-_TmnxMobProfPeerListPeerKeepAlive_Object=MibTableColumn
-tmnxMobProfPeerListPeerKeepAlive=_TmnxMobProfPeerListPeerKeepAlive_Object((1,3,6,1,4,1,6527,3,1,2,67,1,14,1,7),_TmnxMobProfPeerListPeerKeepAlive_Type())
-tmnxMobProfPeerListPeerKeepAlive.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPeerListPeerKeepAlive.setStatus(_A)
-class _TmnxMobProfPeerListPeerAdmnState_Type(TmnxAdminState):defaultValue=2
-_TmnxMobProfPeerListPeerAdmnState_Type.__name__=_S
-_TmnxMobProfPeerListPeerAdmnState_Object=MibTableColumn
-tmnxMobProfPeerListPeerAdmnState=_TmnxMobProfPeerListPeerAdmnState_Object((1,3,6,1,4,1,6527,3,1,2,67,1,14,1,8),_TmnxMobProfPeerListPeerAdmnState_Type())
-tmnxMobProfPeerListPeerAdmnState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPeerListPeerAdmnState.setStatus(_A)
-class _TmnxMobProfPeerListPeerRatType_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('geran',1),('utran',2),('eutran',3),('ehrpd',4),('hrpd',5),('oneXrtt',6),('umb',7)))
-_TmnxMobProfPeerListPeerRatType_Type.__name__=_K
-_TmnxMobProfPeerListPeerRatType_Object=MibTableColumn
-tmnxMobProfPeerListPeerRatType=_TmnxMobProfPeerListPeerRatType_Object((1,3,6,1,4,1,6527,3,1,2,67,1,14,1,9),_TmnxMobProfPeerListPeerRatType_Type())
-tmnxMobProfPeerListPeerRatType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPeerListPeerRatType.setStatus(_A)
-class _TmnxMobProfPeerListPeerForeign_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('home',1),('foreign',2),(_l,3)))
-_TmnxMobProfPeerListPeerForeign_Type.__name__=_K
-_TmnxMobProfPeerListPeerForeign_Object=MibTableColumn
-tmnxMobProfPeerListPeerForeign=_TmnxMobProfPeerListPeerForeign_Object((1,3,6,1,4,1,6527,3,1,2,67,1,14,1,10),_TmnxMobProfPeerListPeerForeign_Type())
-tmnxMobProfPeerListPeerForeign.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPeerListPeerForeign.setStatus(_A)
-class _TmnxMobProfPeerListPeerPlmnMcc_Type(TmnxMobMccOrEmpty):defaultHexValue=''
-_TmnxMobProfPeerListPeerPlmnMcc_Type.__name__=_AL
-_TmnxMobProfPeerListPeerPlmnMcc_Object=MibTableColumn
-tmnxMobProfPeerListPeerPlmnMcc=_TmnxMobProfPeerListPeerPlmnMcc_Object((1,3,6,1,4,1,6527,3,1,2,67,1,14,1,11),_TmnxMobProfPeerListPeerPlmnMcc_Type())
-tmnxMobProfPeerListPeerPlmnMcc.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPeerListPeerPlmnMcc.setStatus(_A)
-class _TmnxMobProfPeerListPeerPlmnMnc_Type(TmnxMobMncOrEmpty):defaultHexValue=''
-_TmnxMobProfPeerListPeerPlmnMnc_Type.__name__=_AM
-_TmnxMobProfPeerListPeerPlmnMnc_Object=MibTableColumn
-tmnxMobProfPeerListPeerPlmnMnc=_TmnxMobProfPeerListPeerPlmnMnc_Object((1,3,6,1,4,1,6527,3,1,2,67,1,14,1,12),_TmnxMobProfPeerListPeerPlmnMnc_Type())
-tmnxMobProfPeerListPeerPlmnMnc.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPeerListPeerPlmnMnc.setStatus(_A)
-_TmnxMobProfSgwChargingTable_Object=MibTable
-tmnxMobProfSgwChargingTable=_TmnxMobProfSgwChargingTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15))
-if mibBuilder.loadTexts:tmnxMobProfSgwChargingTable.setStatus(_A)
-_TmnxMobProfSgwChargingEntry_Object=MibTableRow
-tmnxMobProfSgwChargingEntry=_TmnxMobProfSgwChargingEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1))
-tmnxMobProfSgwChargingEntry.setIndexNames((0,_B,_Aj))
-if mibBuilder.loadTexts:tmnxMobProfSgwChargingEntry.setStatus(_A)
-_TmnxMobProfSgwChrgId_Type=TmnxMobChargingProfile
-_TmnxMobProfSgwChrgId_Object=MibTableColumn
-tmnxMobProfSgwChrgId=_TmnxMobProfSgwChrgId_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,1),_TmnxMobProfSgwChrgId_Type())
-tmnxMobProfSgwChrgId.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgId.setStatus(_A)
-_TmnxMobProfSgwChrgRowStatus_Type=RowStatus
-_TmnxMobProfSgwChrgRowStatus_Object=MibTableColumn
-tmnxMobProfSgwChrgRowStatus=_TmnxMobProfSgwChrgRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,2),_TmnxMobProfSgwChrgRowStatus_Type())
-tmnxMobProfSgwChrgRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgRowStatus.setStatus(_A)
-_TmnxMobProfSgwChrgLastChanged_Type=TimeStamp
-_TmnxMobProfSgwChrgLastChanged_Object=MibTableColumn
-tmnxMobProfSgwChrgLastChanged=_TmnxMobProfSgwChrgLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,3),_TmnxMobProfSgwChrgLastChanged_Type())
-tmnxMobProfSgwChrgLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgLastChanged.setStatus(_A)
-class _TmnxMobProfSgwChrgDesc_Type(TItemDescription):defaultHexValue=''
-_TmnxMobProfSgwChrgDesc_Type.__name__=_I
-_TmnxMobProfSgwChrgDesc_Object=MibTableColumn
-tmnxMobProfSgwChrgDesc=_TmnxMobProfSgwChrgDesc_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,4),_TmnxMobProfSgwChrgDesc_Type())
-tmnxMobProfSgwChrgDesc.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgDesc.setStatus(_A)
-class _TmnxMobProfSgwChrgOffLineState_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfSgwChrgOffLineState_Type.__name__=_G
-_TmnxMobProfSgwChrgOffLineState_Object=MibTableColumn
-tmnxMobProfSgwChrgOffLineState=_TmnxMobProfSgwChrgOffLineState_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,5),_TmnxMobProfSgwChrgOffLineState_Type())
-tmnxMobProfSgwChrgOffLineState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgOffLineState.setStatus(_A)
-class _TmnxMobProfSgwChrgPriCdfDiaPeer_Type(TmnxMobProfNameOrEmpty):defaultHexValue=''
-_TmnxMobProfSgwChrgPriCdfDiaPeer_Type.__name__=_N
-_TmnxMobProfSgwChrgPriCdfDiaPeer_Object=MibTableColumn
-tmnxMobProfSgwChrgPriCdfDiaPeer=_TmnxMobProfSgwChrgPriCdfDiaPeer_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,6),_TmnxMobProfSgwChrgPriCdfDiaPeer_Type())
-tmnxMobProfSgwChrgPriCdfDiaPeer.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgPriCdfDiaPeer.setStatus(_A)
-class _TmnxMobProfSgwChrgSecCdfDiaPeer_Type(TmnxMobProfNameOrEmpty):defaultHexValue=''
-_TmnxMobProfSgwChrgSecCdfDiaPeer_Type.__name__=_N
-_TmnxMobProfSgwChrgSecCdfDiaPeer_Object=MibTableColumn
-tmnxMobProfSgwChrgSecCdfDiaPeer=_TmnxMobProfSgwChrgSecCdfDiaPeer_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,7),_TmnxMobProfSgwChrgSecCdfDiaPeer_Type())
-tmnxMobProfSgwChrgSecCdfDiaPeer.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgSecCdfDiaPeer.setStatus(_A)
-class _TmnxMobProfSgwChrgCitQosChange_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfSgwChrgCitQosChange_Type.__name__=_G
-_TmnxMobProfSgwChrgCitQosChange_Object=MibTableColumn
-tmnxMobProfSgwChrgCitQosChange=_TmnxMobProfSgwChrgCitQosChange_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,8),_TmnxMobProfSgwChrgCitQosChange_Type())
-tmnxMobProfSgwChrgCitQosChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgCitQosChange.setStatus(_A)
-class _TmnxMobProfSgwChrgCitUsrLocChnge_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfSgwChrgCitUsrLocChnge_Type.__name__=_G
-_TmnxMobProfSgwChrgCitUsrLocChnge_Object=MibTableColumn
-tmnxMobProfSgwChrgCitUsrLocChnge=_TmnxMobProfSgwChrgCitUsrLocChnge_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,9),_TmnxMobProfSgwChrgCitUsrLocChnge_Type())
-tmnxMobProfSgwChrgCitUsrLocChnge.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgCitUsrLocChnge.setStatus(_A)
-class _TmnxMobProfSgwChrgCitTrfTimeChng_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfSgwChrgCitTrfTimeChng_Type.__name__=_G
-_TmnxMobProfSgwChrgCitTrfTimeChng_Object=MibTableColumn
-tmnxMobProfSgwChrgCitTrfTimeChng=_TmnxMobProfSgwChrgCitTrfTimeChng_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,10),_TmnxMobProfSgwChrgCitTrfTimeChng_Type())
-tmnxMobProfSgwChrgCitTrfTimeChng.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgCitTrfTimeChng.setStatus(_A)
-class _TmnxMobProfSgwChrgCitTrfTmStart_Type(TmnxTimeInSec):defaultValue=0
-_TmnxMobProfSgwChrgCitTrfTmStart_Type.__name__=_V
-_TmnxMobProfSgwChrgCitTrfTmStart_Object=MibTableColumn
-tmnxMobProfSgwChrgCitTrfTmStart=_TmnxMobProfSgwChrgCitTrfTmStart_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,11),_TmnxMobProfSgwChrgCitTrfTmStart_Type())
-tmnxMobProfSgwChrgCitTrfTmStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgCitTrfTmStart.setStatus(_A)
-class _TmnxMobProfSgwChrgCitTrfTmEnd_Type(TmnxTimeInSec):defaultValue=0
-_TmnxMobProfSgwChrgCitTrfTmEnd_Type.__name__=_V
-_TmnxMobProfSgwChrgCitTrfTmEnd_Object=MibTableColumn
-tmnxMobProfSgwChrgCitTrfTmEnd=_TmnxMobProfSgwChrgCitTrfTmEnd_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,12),_TmnxMobProfSgwChrgCitTrfTmEnd_Type())
-tmnxMobProfSgwChrgCitTrfTmEnd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgCitTrfTmEnd.setStatus(_A)
-class _TmnxMobProfSgwChrgPrctTimeLmt_Type(Unsigned32):defaultValue=3600;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,86400))
-_TmnxMobProfSgwChrgPrctTimeLmt_Type.__name__=_E
-_TmnxMobProfSgwChrgPrctTimeLmt_Object=MibTableColumn
-tmnxMobProfSgwChrgPrctTimeLmt=_TmnxMobProfSgwChrgPrctTimeLmt_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,13),_TmnxMobProfSgwChrgPrctTimeLmt_Type())
-tmnxMobProfSgwChrgPrctTimeLmt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgPrctTimeLmt.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgPrctTimeLmt.setUnits(_H)
-class _TmnxMobProfSgwChrgPrctVolumeLmt_Type(Unsigned32):defaultValue=4096;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_TmnxMobProfSgwChrgPrctVolumeLmt_Type.__name__=_E
-_TmnxMobProfSgwChrgPrctVolumeLmt_Object=MibTableColumn
-tmnxMobProfSgwChrgPrctVolumeLmt=_TmnxMobProfSgwChrgPrctVolumeLmt_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,14),_TmnxMobProfSgwChrgPrctVolumeLmt_Type())
-tmnxMobProfSgwChrgPrctVolumeLmt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgPrctVolumeLmt.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgPrctVolumeLmt.setUnits(_AA)
-class _TmnxMobProfSgwChrgPrctMaxChCond_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_TmnxMobProfSgwChrgPrctMaxChCond_Type.__name__=_E
-_TmnxMobProfSgwChrgPrctMaxChCond_Object=MibTableColumn
-tmnxMobProfSgwChrgPrctMaxChCond=_TmnxMobProfSgwChrgPrctMaxChCond_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,15),_TmnxMobProfSgwChrgPrctMaxChCond_Type())
-tmnxMobProfSgwChrgPrctMaxChCond.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgPrctMaxChCond.setStatus(_A)
-class _TmnxMobProfSgwChrgPrctMsTmzChnge_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfSgwChrgPrctMsTmzChnge_Type.__name__=_G
-_TmnxMobProfSgwChrgPrctMsTmzChnge_Object=MibTableColumn
-tmnxMobProfSgwChrgPrctMsTmzChnge=_TmnxMobProfSgwChrgPrctMsTmzChnge_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,16),_TmnxMobProfSgwChrgPrctMsTmzChnge_Type())
-tmnxMobProfSgwChrgPrctMsTmzChnge.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgPrctMsTmzChnge.setStatus(_A)
-class _TmnxMobProfSgwChrgPrctPlmnChange_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfSgwChrgPrctPlmnChange_Type.__name__=_G
-_TmnxMobProfSgwChrgPrctPlmnChange_Object=MibTableColumn
-tmnxMobProfSgwChrgPrctPlmnChange=_TmnxMobProfSgwChrgPrctPlmnChange_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,17),_TmnxMobProfSgwChrgPrctPlmnChange_Type())
-tmnxMobProfSgwChrgPrctPlmnChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgPrctPlmnChange.setStatus(_A)
-class _TmnxMobProfSgwChrgPrctRatChange_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfSgwChrgPrctRatChange_Type.__name__=_G
-_TmnxMobProfSgwChrgPrctRatChange_Object=MibTableColumn
-tmnxMobProfSgwChrgPrctRatChange=_TmnxMobProfSgwChrgPrctRatChange_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,18),_TmnxMobProfSgwChrgPrctRatChange_Type())
-tmnxMobProfSgwChrgPrctRatChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgPrctRatChange.setStatus(_A)
-class _TmnxMobProfSgwChrgPrctMgmtInterv_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfSgwChrgPrctMgmtInterv_Type.__name__=_G
-_TmnxMobProfSgwChrgPrctMgmtInterv_Object=MibTableColumn
-tmnxMobProfSgwChrgPrctMgmtInterv=_TmnxMobProfSgwChrgPrctMgmtInterv_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,19),_TmnxMobProfSgwChrgPrctMgmtInterv_Type())
-tmnxMobProfSgwChrgPrctMgmtInterv.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgPrctMgmtInterv.setStatus(_A)
-class _TmnxMobProfSgwChrgCitSgwChange_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfSgwChrgCitSgwChange_Type.__name__=_G
-_TmnxMobProfSgwChrgCitSgwChange_Object=MibTableColumn
-tmnxMobProfSgwChrgCitSgwChange=_TmnxMobProfSgwChrgCitSgwChange_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,20),_TmnxMobProfSgwChrgCitSgwChange_Type())
-tmnxMobProfSgwChrgCitSgwChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgCitSgwChange.setStatus(_AB)
-class _TmnxMobProfSgwChrgPrctSrvNdChLmt_Type(Unsigned32):defaultValue=15;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
-_TmnxMobProfSgwChrgPrctSrvNdChLmt_Type.__name__=_E
-_TmnxMobProfSgwChrgPrctSrvNdChLmt_Object=MibTableColumn
-tmnxMobProfSgwChrgPrctSrvNdChLmt=_TmnxMobProfSgwChrgPrctSrvNdChLmt_Object((1,3,6,1,4,1,6527,3,1,2,67,1,15,1,21),_TmnxMobProfSgwChrgPrctSrvNdChLmt_Type())
-tmnxMobProfSgwChrgPrctSrvNdChLmt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfSgwChrgPrctSrvNdChLmt.setStatus(_A)
-_TmnxMobProfPgwChargingTable_Object=MibTable
-tmnxMobProfPgwChargingTable=_TmnxMobProfPgwChargingTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16))
-if mibBuilder.loadTexts:tmnxMobProfPgwChargingTable.setStatus(_A)
-_TmnxMobProfPgwChargingEntry_Object=MibTableRow
-tmnxMobProfPgwChargingEntry=_TmnxMobProfPgwChargingEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1))
-tmnxMobProfPgwChargingEntry.setIndexNames((0,_B,_Ak))
-if mibBuilder.loadTexts:tmnxMobProfPgwChargingEntry.setStatus(_A)
-_TmnxMobProfPgwChrgId_Type=TmnxMobChargingProfile
-_TmnxMobProfPgwChrgId_Object=MibTableColumn
-tmnxMobProfPgwChrgId=_TmnxMobProfPgwChrgId_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,1),_TmnxMobProfPgwChrgId_Type())
-tmnxMobProfPgwChrgId.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgId.setStatus(_A)
-_TmnxMobProfPgwChrgRowStatus_Type=RowStatus
-_TmnxMobProfPgwChrgRowStatus_Object=MibTableColumn
-tmnxMobProfPgwChrgRowStatus=_TmnxMobProfPgwChrgRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,2),_TmnxMobProfPgwChrgRowStatus_Type())
-tmnxMobProfPgwChrgRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgRowStatus.setStatus(_A)
-_TmnxMobProfPgwChrgLastChanged_Type=TimeStamp
-_TmnxMobProfPgwChrgLastChanged_Object=MibTableColumn
-tmnxMobProfPgwChrgLastChanged=_TmnxMobProfPgwChrgLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,3),_TmnxMobProfPgwChrgLastChanged_Type())
-tmnxMobProfPgwChrgLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgLastChanged.setStatus(_A)
-class _TmnxMobProfPgwChrgDesc_Type(TItemDescription):defaultHexValue=''
-_TmnxMobProfPgwChrgDesc_Type.__name__=_I
-_TmnxMobProfPgwChrgDesc_Object=MibTableColumn
-tmnxMobProfPgwChrgDesc=_TmnxMobProfPgwChrgDesc_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,4),_TmnxMobProfPgwChrgDesc_Type())
-tmnxMobProfPgwChrgDesc.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgDesc.setStatus(_A)
-class _TmnxMobProfPgwChrgOffLineState_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfPgwChrgOffLineState_Type.__name__=_G
-_TmnxMobProfPgwChrgOffLineState_Object=MibTableColumn
-tmnxMobProfPgwChrgOffLineState=_TmnxMobProfPgwChrgOffLineState_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,5),_TmnxMobProfPgwChrgOffLineState_Type())
-tmnxMobProfPgwChrgOffLineState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgOffLineState.setStatus(_A)
-class _TmnxMobProfPgwChrgPriCdfDiaPeer_Type(TmnxMobProfNameOrEmpty):defaultHexValue=''
-_TmnxMobProfPgwChrgPriCdfDiaPeer_Type.__name__=_N
-_TmnxMobProfPgwChrgPriCdfDiaPeer_Object=MibTableColumn
-tmnxMobProfPgwChrgPriCdfDiaPeer=_TmnxMobProfPgwChrgPriCdfDiaPeer_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,6),_TmnxMobProfPgwChrgPriCdfDiaPeer_Type())
-tmnxMobProfPgwChrgPriCdfDiaPeer.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgPriCdfDiaPeer.setStatus(_A)
-class _TmnxMobProfPgwChrgSecCdfDiaPeer_Type(TmnxMobProfNameOrEmpty):defaultHexValue=''
-_TmnxMobProfPgwChrgSecCdfDiaPeer_Type.__name__=_N
-_TmnxMobProfPgwChrgSecCdfDiaPeer_Object=MibTableColumn
-tmnxMobProfPgwChrgSecCdfDiaPeer=_TmnxMobProfPgwChrgSecCdfDiaPeer_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,7),_TmnxMobProfPgwChrgSecCdfDiaPeer_Type())
-tmnxMobProfPgwChrgSecCdfDiaPeer.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgSecCdfDiaPeer.setStatus(_A)
-class _TmnxMobProfPgwChrgCitQosChange_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfPgwChrgCitQosChange_Type.__name__=_G
-_TmnxMobProfPgwChrgCitQosChange_Object=MibTableColumn
-tmnxMobProfPgwChrgCitQosChange=_TmnxMobProfPgwChrgCitQosChange_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,8),_TmnxMobProfPgwChrgCitQosChange_Type())
-tmnxMobProfPgwChrgCitQosChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgCitQosChange.setStatus(_A)
-class _TmnxMobProfPgwChrgCitUsrLocChnge_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfPgwChrgCitUsrLocChnge_Type.__name__=_G
-_TmnxMobProfPgwChrgCitUsrLocChnge_Object=MibTableColumn
-tmnxMobProfPgwChrgCitUsrLocChnge=_TmnxMobProfPgwChrgCitUsrLocChnge_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,9),_TmnxMobProfPgwChrgCitUsrLocChnge_Type())
-tmnxMobProfPgwChrgCitUsrLocChnge.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgCitUsrLocChnge.setStatus(_A)
-class _TmnxMobProfPgwChrgCitTrfTimeChng_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfPgwChrgCitTrfTimeChng_Type.__name__=_G
-_TmnxMobProfPgwChrgCitTrfTimeChng_Object=MibTableColumn
-tmnxMobProfPgwChrgCitTrfTimeChng=_TmnxMobProfPgwChrgCitTrfTimeChng_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,10),_TmnxMobProfPgwChrgCitTrfTimeChng_Type())
-tmnxMobProfPgwChrgCitTrfTimeChng.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgCitTrfTimeChng.setStatus(_A)
-class _TmnxMobProfPgwChrgCitTrfTmStart_Type(TmnxTimeInSec):defaultValue=0
-_TmnxMobProfPgwChrgCitTrfTmStart_Type.__name__=_V
-_TmnxMobProfPgwChrgCitTrfTmStart_Object=MibTableColumn
-tmnxMobProfPgwChrgCitTrfTmStart=_TmnxMobProfPgwChrgCitTrfTmStart_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,11),_TmnxMobProfPgwChrgCitTrfTmStart_Type())
-tmnxMobProfPgwChrgCitTrfTmStart.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgCitTrfTmStart.setStatus(_A)
-class _TmnxMobProfPgwChrgCitTrfTmEnd_Type(TmnxTimeInSec):defaultValue=0
-_TmnxMobProfPgwChrgCitTrfTmEnd_Type.__name__=_V
-_TmnxMobProfPgwChrgCitTrfTmEnd_Object=MibTableColumn
-tmnxMobProfPgwChrgCitTrfTmEnd=_TmnxMobProfPgwChrgCitTrfTmEnd_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,12),_TmnxMobProfPgwChrgCitTrfTmEnd_Type())
-tmnxMobProfPgwChrgCitTrfTmEnd.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgCitTrfTmEnd.setStatus(_A)
-class _TmnxMobProfPgwChrgCitSgwChange_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfPgwChrgCitSgwChange_Type.__name__=_G
-_TmnxMobProfPgwChrgCitSgwChange_Object=MibTableColumn
-tmnxMobProfPgwChrgCitSgwChange=_TmnxMobProfPgwChrgCitSgwChange_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,13),_TmnxMobProfPgwChrgCitSgwChange_Type())
-tmnxMobProfPgwChrgCitSgwChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgCitSgwChange.setStatus(_A)
-class _TmnxMobProfPgwChrgCitTimeLmtRg_Type(Unsigned32):defaultValue=1800;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,86400))
-_TmnxMobProfPgwChrgCitTimeLmtRg_Type.__name__=_E
-_TmnxMobProfPgwChrgCitTimeLmtRg_Object=MibTableColumn
-tmnxMobProfPgwChrgCitTimeLmtRg=_TmnxMobProfPgwChrgCitTimeLmtRg_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,16),_TmnxMobProfPgwChrgCitTimeLmtRg_Type())
-tmnxMobProfPgwChrgCitTimeLmtRg.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgCitTimeLmtRg.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgCitTimeLmtRg.setUnits(_H)
-class _TmnxMobProfPgwChrgCitVolumeLmtRg_Type(Unsigned32):defaultValue=2048;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32768))
-_TmnxMobProfPgwChrgCitVolumeLmtRg_Type.__name__=_E
-_TmnxMobProfPgwChrgCitVolumeLmtRg_Object=MibTableColumn
-tmnxMobProfPgwChrgCitVolumeLmtRg=_TmnxMobProfPgwChrgCitVolumeLmtRg_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,17),_TmnxMobProfPgwChrgCitVolumeLmtRg_Type())
-tmnxMobProfPgwChrgCitVolumeLmtRg.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgCitVolumeLmtRg.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgCitVolumeLmtRg.setUnits(_AA)
-class _TmnxMobProfPgwChrgCitTermServDf_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfPgwChrgCitTermServDf_Type.__name__=_G
-_TmnxMobProfPgwChrgCitTermServDf_Object=MibTableColumn
-tmnxMobProfPgwChrgCitTermServDf=_TmnxMobProfPgwChrgCitTermServDf_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,18),_TmnxMobProfPgwChrgCitTermServDf_Type())
-tmnxMobProfPgwChrgCitTermServDf.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgCitTermServDf.setStatus(_A)
-class _TmnxMobProfPgwChrgPrctTimeLmt_Type(Unsigned32):defaultValue=3600;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,86400))
-_TmnxMobProfPgwChrgPrctTimeLmt_Type.__name__=_E
-_TmnxMobProfPgwChrgPrctTimeLmt_Object=MibTableColumn
-tmnxMobProfPgwChrgPrctTimeLmt=_TmnxMobProfPgwChrgPrctTimeLmt_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,19),_TmnxMobProfPgwChrgPrctTimeLmt_Type())
-tmnxMobProfPgwChrgPrctTimeLmt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgPrctTimeLmt.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgPrctTimeLmt.setUnits(_H)
-class _TmnxMobProfPgwChrgPrctVolumeLmt_Type(Unsigned32):defaultValue=4096;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_TmnxMobProfPgwChrgPrctVolumeLmt_Type.__name__=_E
-_TmnxMobProfPgwChrgPrctVolumeLmt_Object=MibTableColumn
-tmnxMobProfPgwChrgPrctVolumeLmt=_TmnxMobProfPgwChrgPrctVolumeLmt_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,20),_TmnxMobProfPgwChrgPrctVolumeLmt_Type())
-tmnxMobProfPgwChrgPrctVolumeLmt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgPrctVolumeLmt.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgPrctVolumeLmt.setUnits(_AA)
-class _TmnxMobProfPgwChrgPrctMaxChCond_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
-_TmnxMobProfPgwChrgPrctMaxChCond_Type.__name__=_E
-_TmnxMobProfPgwChrgPrctMaxChCond_Object=MibTableColumn
-tmnxMobProfPgwChrgPrctMaxChCond=_TmnxMobProfPgwChrgPrctMaxChCond_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,21),_TmnxMobProfPgwChrgPrctMaxChCond_Type())
-tmnxMobProfPgwChrgPrctMaxChCond.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgPrctMaxChCond.setStatus(_A)
-class _TmnxMobProfPgwChrgPrctMsTmzChnge_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfPgwChrgPrctMsTmzChnge_Type.__name__=_G
-_TmnxMobProfPgwChrgPrctMsTmzChnge_Object=MibTableColumn
-tmnxMobProfPgwChrgPrctMsTmzChnge=_TmnxMobProfPgwChrgPrctMsTmzChnge_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,22),_TmnxMobProfPgwChrgPrctMsTmzChnge_Type())
-tmnxMobProfPgwChrgPrctMsTmzChnge.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgPrctMsTmzChnge.setStatus(_A)
-class _TmnxMobProfPgwChrgPrctPlmnChange_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfPgwChrgPrctPlmnChange_Type.__name__=_G
-_TmnxMobProfPgwChrgPrctPlmnChange_Object=MibTableColumn
-tmnxMobProfPgwChrgPrctPlmnChange=_TmnxMobProfPgwChrgPrctPlmnChange_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,23),_TmnxMobProfPgwChrgPrctPlmnChange_Type())
-tmnxMobProfPgwChrgPrctPlmnChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgPrctPlmnChange.setStatus(_A)
-class _TmnxMobProfPgwChrgPrctRatChange_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfPgwChrgPrctRatChange_Type.__name__=_G
-_TmnxMobProfPgwChrgPrctRatChange_Object=MibTableColumn
-tmnxMobProfPgwChrgPrctRatChange=_TmnxMobProfPgwChrgPrctRatChange_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,24),_TmnxMobProfPgwChrgPrctRatChange_Type())
-tmnxMobProfPgwChrgPrctRatChange.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgPrctRatChange.setStatus(_A)
-class _TmnxMobProfPgwChrgGyState_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfPgwChrgGyState_Type.__name__=_G
-_TmnxMobProfPgwChrgGyState_Object=MibTableColumn
-tmnxMobProfPgwChrgGyState=_TmnxMobProfPgwChrgGyState_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,25),_TmnxMobProfPgwChrgGyState_Type())
-tmnxMobProfPgwChrgGyState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgGyState.setStatus(_A)
-class _TmnxMobProfPgwGyPriOcsDiaPeer_Type(TmnxMobProfNameOrEmpty):defaultHexValue=''
-_TmnxMobProfPgwGyPriOcsDiaPeer_Type.__name__=_N
-_TmnxMobProfPgwGyPriOcsDiaPeer_Object=MibTableColumn
-tmnxMobProfPgwGyPriOcsDiaPeer=_TmnxMobProfPgwGyPriOcsDiaPeer_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,26),_TmnxMobProfPgwGyPriOcsDiaPeer_Type())
-tmnxMobProfPgwGyPriOcsDiaPeer.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwGyPriOcsDiaPeer.setStatus(_A)
-class _TmnxMobProfPgwGySecOcsDiaPeer_Type(TmnxMobProfNameOrEmpty):defaultHexValue=''
-_TmnxMobProfPgwGySecOcsDiaPeer_Type.__name__=_N
-_TmnxMobProfPgwGySecOcsDiaPeer_Object=MibTableColumn
-tmnxMobProfPgwGySecOcsDiaPeer=_TmnxMobProfPgwGySecOcsDiaPeer_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,27),_TmnxMobProfPgwGySecOcsDiaPeer_Type())
-tmnxMobProfPgwGySecOcsDiaPeer.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwGySecOcsDiaPeer.setStatus(_A)
-class _TmnxMobProfPgwGyDccaProf_Type(TmnxMobProfNameOrEmpty):defaultHexValue=''
-_TmnxMobProfPgwGyDccaProf_Type.__name__=_N
-_TmnxMobProfPgwGyDccaProf_Object=MibTableColumn
-tmnxMobProfPgwGyDccaProf=_TmnxMobProfPgwGyDccaProf_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,28),_TmnxMobProfPgwGyDccaProf_Type())
-tmnxMobProfPgwGyDccaProf.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwGyDccaProf.setStatus(_A)
-class _TmnxMobProfPgwChrgPrctSrvNdChLmt_Type(Unsigned32):defaultValue=15;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
-_TmnxMobProfPgwChrgPrctSrvNdChLmt_Type.__name__=_E
-_TmnxMobProfPgwChrgPrctSrvNdChLmt_Object=MibTableColumn
-tmnxMobProfPgwChrgPrctSrvNdChLmt=_TmnxMobProfPgwChrgPrctSrvNdChLmt_Object((1,3,6,1,4,1,6527,3,1,2,67,1,16,1,29),_TmnxMobProfPgwChrgPrctSrvNdChLmt_Type())
-tmnxMobProfPgwChrgPrctSrvNdChLmt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPgwChrgPrctSrvNdChLmt.setStatus(_A)
-_TmnxMobGtpPriGrpTable_Object=MibTable
-tmnxMobGtpPriGrpTable=_TmnxMobGtpPriGrpTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17))
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpTable.setStatus(_A)
-_TmnxMobGtpPriGrpEntry_Object=MibTableRow
-tmnxMobGtpPriGrpEntry=_TmnxMobGtpPriGrpEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1))
-tmnxMobGtpPriGrpEntry.setIndexNames((0,_B,_AC))
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpEntry.setStatus(_A)
-_TmnxMobGtpPriGrpName_Type=TmnxMobProfName
-_TmnxMobGtpPriGrpName_Object=MibTableColumn
-tmnxMobGtpPriGrpName=_TmnxMobGtpPriGrpName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,1),_TmnxMobGtpPriGrpName_Type())
-tmnxMobGtpPriGrpName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpName.setStatus(_A)
-_TmnxMobGtpPriGrpRowStatus_Type=RowStatus
-_TmnxMobGtpPriGrpRowStatus_Object=MibTableColumn
-tmnxMobGtpPriGrpRowStatus=_TmnxMobGtpPriGrpRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,2),_TmnxMobGtpPriGrpRowStatus_Type())
-tmnxMobGtpPriGrpRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpRowStatus.setStatus(_A)
-_TmnxMobGtpPriGrpLastChanged_Type=TimeStamp
-_TmnxMobGtpPriGrpLastChanged_Object=MibTableColumn
-tmnxMobGtpPriGrpLastChanged=_TmnxMobGtpPriGrpLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,3),_TmnxMobGtpPriGrpLastChanged_Type())
-tmnxMobGtpPriGrpLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpLastChanged.setStatus(_A)
-class _TmnxMobGtpPriGrpDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxMobGtpPriGrpDescription_Type.__name__=_I
-_TmnxMobGtpPriGrpDescription_Object=MibTableColumn
-tmnxMobGtpPriGrpDescription=_TmnxMobGtpPriGrpDescription_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,4),_TmnxMobGtpPriGrpDescription_Type())
-tmnxMobGtpPriGrpDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpDescription.setStatus(_A)
-class _TmnxMobGtpPriGrpMaxCdrsPerPdu_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_TmnxMobGtpPriGrpMaxCdrsPerPdu_Type.__name__=_E
-_TmnxMobGtpPriGrpMaxCdrsPerPdu_Object=MibTableColumn
-tmnxMobGtpPriGrpMaxCdrsPerPdu=_TmnxMobGtpPriGrpMaxCdrsPerPdu_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,5),_TmnxMobGtpPriGrpMaxCdrsPerPdu_Type())
-tmnxMobGtpPriGrpMaxCdrsPerPdu.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpMaxCdrsPerPdu.setStatus(_A)
-class _TmnxMobGtpPriGrpDeadtime_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3600))
-_TmnxMobGtpPriGrpDeadtime_Type.__name__=_E
-_TmnxMobGtpPriGrpDeadtime_Object=MibTableColumn
-tmnxMobGtpPriGrpDeadtime=_TmnxMobGtpPriGrpDeadtime_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,6),_TmnxMobGtpPriGrpDeadtime_Type())
-tmnxMobGtpPriGrpDeadtime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpDeadtime.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpDeadtime.setUnits(_H)
-class _TmnxMobGtpPriGrpRedirection_Type(TruthValue):defaultValue=2
-_TmnxMobGtpPriGrpRedirection_Type.__name__=_L
-_TmnxMobGtpPriGrpRedirection_Object=MibTableColumn
-tmnxMobGtpPriGrpRedirection=_TmnxMobGtpPriGrpRedirection_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,7),_TmnxMobGtpPriGrpRedirection_Type())
-tmnxMobGtpPriGrpRedirection.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpRedirection.setStatus(_A)
-class _TmnxMobGtpPriGrpIfVRtrId_Type(TmnxVRtrID):defaultValue=1
-_TmnxMobGtpPriGrpIfVRtrId_Type.__name__=_k
-_TmnxMobGtpPriGrpIfVRtrId_Object=MibTableColumn
-tmnxMobGtpPriGrpIfVRtrId=_TmnxMobGtpPriGrpIfVRtrId_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,8),_TmnxMobGtpPriGrpIfVRtrId_Type())
-tmnxMobGtpPriGrpIfVRtrId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpIfVRtrId.setStatus(_A)
-class _TmnxMobGtpPriGrpIfIndex_Type(InterfaceIndexOrZero):defaultValue=0
-_TmnxMobGtpPriGrpIfIndex_Type.__name__=_f
-_TmnxMobGtpPriGrpIfIndex_Object=MibTableColumn
-tmnxMobGtpPriGrpIfIndex=_TmnxMobGtpPriGrpIfIndex_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,9),_TmnxMobGtpPriGrpIfIndex_Type())
-tmnxMobGtpPriGrpIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpIfIndex.setStatus(_A)
-class _TmnxMobGtpPriGrpLocalCdrStorage_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobGtpPriGrpLocalCdrStorage_Type.__name__=_G
-_TmnxMobGtpPriGrpLocalCdrStorage_Object=MibTableColumn
-tmnxMobGtpPriGrpLocalCdrStorage=_TmnxMobGtpPriGrpLocalCdrStorage_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,10),_TmnxMobGtpPriGrpLocalCdrStorage_Type())
-tmnxMobGtpPriGrpLocalCdrStorage.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpLocalCdrStorage.setStatus(_A)
-class _TmnxMobGtpPriGrpFilePrivateInfo_Type(TNamedItemOrEmpty):defaultHexValue=''
-_TmnxMobGtpPriGrpFilePrivateInfo_Type.__name__=_T
-_TmnxMobGtpPriGrpFilePrivateInfo_Object=MibTableColumn
-tmnxMobGtpPriGrpFilePrivateInfo=_TmnxMobGtpPriGrpFilePrivateInfo_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,11),_TmnxMobGtpPriGrpFilePrivateInfo_Type())
-tmnxMobGtpPriGrpFilePrivateInfo.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpFilePrivateInfo.setStatus(_A)
-class _TmnxMobGtpPriGrpFileExtension_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
-_TmnxMobGtpPriGrpFileExtension_Type.__name__=_AH
-_TmnxMobGtpPriGrpFileExtension_Object=MibTableColumn
-tmnxMobGtpPriGrpFileExtension=_TmnxMobGtpPriGrpFileExtension_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,12),_TmnxMobGtpPriGrpFileExtension_Type())
-tmnxMobGtpPriGrpFileExtension.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpFileExtension.setStatus(_A)
-class _TmnxMobGtpPriGrpFileClosureSize_Type(Unsigned32):defaultValue=50;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_TmnxMobGtpPriGrpFileClosureSize_Type.__name__=_E
-_TmnxMobGtpPriGrpFileClosureSize_Object=MibTableColumn
-tmnxMobGtpPriGrpFileClosureSize=_TmnxMobGtpPriGrpFileClosureSize_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,13),_TmnxMobGtpPriGrpFileClosureSize_Type())
-tmnxMobGtpPriGrpFileClosureSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpFileClosureSize.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpFileClosureSize.setUnits(_AD)
-class _TmnxMobGtpPriGrpFileClsLifeTime_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,24))
-_TmnxMobGtpPriGrpFileClsLifeTime_Type.__name__=_E
-_TmnxMobGtpPriGrpFileClsLifeTime_Object=MibTableColumn
-tmnxMobGtpPriGrpFileClsLifeTime=_TmnxMobGtpPriGrpFileClsLifeTime_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,14),_TmnxMobGtpPriGrpFileClsLifeTime_Type())
-tmnxMobGtpPriGrpFileClsLifeTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpFileClsLifeTime.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpFileClsLifeTime.setUnits('hours')
-class _TmnxMobGtpPriGrpFileClsMaxRecs_Type(Unsigned32):defaultValue=50000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,75000))
-_TmnxMobGtpPriGrpFileClsMaxRecs_Type.__name__=_E
-_TmnxMobGtpPriGrpFileClsMaxRecs_Object=MibTableColumn
-tmnxMobGtpPriGrpFileClsMaxRecs=_TmnxMobGtpPriGrpFileClsMaxRecs_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,15),_TmnxMobGtpPriGrpFileClsMaxRecs_Type())
-tmnxMobGtpPriGrpFileClsMaxRecs.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpFileClsMaxRecs.setStatus(_A)
-class _TmnxMobGtpPriGrpFileObsoleteTime_Type(Unsigned32):defaultValue=7;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,31))
-_TmnxMobGtpPriGrpFileObsoleteTime_Type.__name__=_E
-_TmnxMobGtpPriGrpFileObsoleteTime_Object=MibTableColumn
-tmnxMobGtpPriGrpFileObsoleteTime=_TmnxMobGtpPriGrpFileObsoleteTime_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,16),_TmnxMobGtpPriGrpFileObsoleteTime_Type())
-tmnxMobGtpPriGrpFileObsoleteTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpFileObsoleteTime.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpFileObsoleteTime.setUnits('days')
-class _TmnxMobGtpPriGrpPrimaryCf_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('cf1',1),('cf2',2)))
-_TmnxMobGtpPriGrpPrimaryCf_Type.__name__=_K
-_TmnxMobGtpPriGrpPrimaryCf_Object=MibTableColumn
-tmnxMobGtpPriGrpPrimaryCf=_TmnxMobGtpPriGrpPrimaryCf_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,17),_TmnxMobGtpPriGrpPrimaryCf_Type())
-tmnxMobGtpPriGrpPrimaryCf.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpPrimaryCf.setStatus(_A)
-class _TmnxMobGtpPriGrpCf1State_Type(TruthValue):defaultValue=1
-_TmnxMobGtpPriGrpCf1State_Type.__name__=_L
-_TmnxMobGtpPriGrpCf1State_Object=MibTableColumn
-tmnxMobGtpPriGrpCf1State=_TmnxMobGtpPriGrpCf1State_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,18),_TmnxMobGtpPriGrpCf1State_Type())
-tmnxMobGtpPriGrpCf1State.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpCf1State.setStatus(_A)
-class _TmnxMobGtpPriGrpCf1Limit_Type(Unsigned32):defaultValue=0
-_TmnxMobGtpPriGrpCf1Limit_Type.__name__=_E
-_TmnxMobGtpPriGrpCf1Limit_Object=MibTableColumn
-tmnxMobGtpPriGrpCf1Limit=_TmnxMobGtpPriGrpCf1Limit_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,19),_TmnxMobGtpPriGrpCf1Limit_Type())
-tmnxMobGtpPriGrpCf1Limit.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpCf1Limit.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpCf1Limit.setUnits(_AD)
-class _TmnxMobGtpPriGrpCf2State_Type(TruthValue):defaultValue=1
-_TmnxMobGtpPriGrpCf2State_Type.__name__=_L
-_TmnxMobGtpPriGrpCf2State_Object=MibTableColumn
-tmnxMobGtpPriGrpCf2State=_TmnxMobGtpPriGrpCf2State_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,20),_TmnxMobGtpPriGrpCf2State_Type())
-tmnxMobGtpPriGrpCf2State.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpCf2State.setStatus(_A)
-class _TmnxMobGtpPriGrpCf2Limit_Type(Unsigned32):defaultValue=0
-_TmnxMobGtpPriGrpCf2Limit_Type.__name__=_E
-_TmnxMobGtpPriGrpCf2Limit_Object=MibTableColumn
-tmnxMobGtpPriGrpCf2Limit=_TmnxMobGtpPriGrpCf2Limit_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,21),_TmnxMobGtpPriGrpCf2Limit_Type())
-tmnxMobGtpPriGrpCf2Limit.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpCf2Limit.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpCf2Limit.setUnits(_AD)
-class _TmnxMobGtpPriGrpCpmMemoryState_Type(TruthValue):defaultValue=2
-_TmnxMobGtpPriGrpCpmMemoryState_Type.__name__=_L
-_TmnxMobGtpPriGrpCpmMemoryState_Object=MibTableColumn
-tmnxMobGtpPriGrpCpmMemoryState=_TmnxMobGtpPriGrpCpmMemoryState_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,22),_TmnxMobGtpPriGrpCpmMemoryState_Type())
-tmnxMobGtpPriGrpCpmMemoryState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpCpmMemoryState.setStatus(_A)
-class _TmnxMobGtpPriGrpQueueSize_Type(Unsigned32):defaultValue=100000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10000,500000))
-_TmnxMobGtpPriGrpQueueSize_Type.__name__=_E
-_TmnxMobGtpPriGrpQueueSize_Object=MibTableColumn
-tmnxMobGtpPriGrpQueueSize=_TmnxMobGtpPriGrpQueueSize_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,23),_TmnxMobGtpPriGrpQueueSize_Type())
-tmnxMobGtpPriGrpQueueSize.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpQueueSize.setStatus(_A)
-class _TmnxMobGtpPriGrpAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxMobGtpPriGrpAdminState_Type.__name__=_S
-_TmnxMobGtpPriGrpAdminState_Object=MibTableColumn
-tmnxMobGtpPriGrpAdminState=_TmnxMobGtpPriGrpAdminState_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,24),_TmnxMobGtpPriGrpAdminState_Type())
-tmnxMobGtpPriGrpAdminState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpAdminState.setStatus(_A)
-class _TmnxMobGtpPriGrpInactiveTimer_Type(Unsigned32):defaultValue=10;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,60))
-_TmnxMobGtpPriGrpInactiveTimer_Type.__name__=_E
-_TmnxMobGtpPriGrpInactiveTimer_Object=MibTableColumn
-tmnxMobGtpPriGrpInactiveTimer=_TmnxMobGtpPriGrpInactiveTimer_Object((1,3,6,1,4,1,6527,3,1,2,67,1,17,1,25),_TmnxMobGtpPriGrpInactiveTimer_Type())
-tmnxMobGtpPriGrpInactiveTimer.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpInactiveTimer.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpInactiveTimer.setUnits(_W)
-_TmnxMobGtpPriServerTable_Object=MibTable
-tmnxMobGtpPriServerTable=_TmnxMobGtpPriServerTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18))
-if mibBuilder.loadTexts:tmnxMobGtpPriServerTable.setStatus(_A)
-_TmnxMobGtpPriServerEntry_Object=MibTableRow
-tmnxMobGtpPriServerEntry=_TmnxMobGtpPriServerEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18,1))
-tmnxMobGtpPriServerEntry.setIndexNames((0,_B,_AC),(0,_B,_Al))
-if mibBuilder.loadTexts:tmnxMobGtpPriServerEntry.setStatus(_A)
-_TmnxMobGtpPriServerIndex_Type=Unsigned32
-_TmnxMobGtpPriServerIndex_Object=MibTableColumn
-tmnxMobGtpPriServerIndex=_TmnxMobGtpPriServerIndex_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18,1,1),_TmnxMobGtpPriServerIndex_Type())
-tmnxMobGtpPriServerIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerIndex.setStatus(_A)
-_TmnxMobGtpPriServerRowStatus_Type=RowStatus
-_TmnxMobGtpPriServerRowStatus_Object=MibTableColumn
-tmnxMobGtpPriServerRowStatus=_TmnxMobGtpPriServerRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18,1,2),_TmnxMobGtpPriServerRowStatus_Type())
-tmnxMobGtpPriServerRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerRowStatus.setStatus(_A)
-_TmnxMobGtpPriServerLastChngd_Type=TimeStamp
-_TmnxMobGtpPriServerLastChngd_Object=MibTableColumn
-tmnxMobGtpPriServerLastChngd=_TmnxMobGtpPriServerLastChngd_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18,1,3),_TmnxMobGtpPriServerLastChngd_Type())
-tmnxMobGtpPriServerLastChngd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerLastChngd.setStatus(_A)
-class _TmnxMobGtpPriServerAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxMobGtpPriServerAdminState_Type.__name__=_S
-_TmnxMobGtpPriServerAdminState_Object=MibTableColumn
-tmnxMobGtpPriServerAdminState=_TmnxMobGtpPriServerAdminState_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18,1,4),_TmnxMobGtpPriServerAdminState_Type())
-tmnxMobGtpPriServerAdminState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerAdminState.setStatus(_A)
-_TmnxMobGtpPriServerAddrType_Type=InetAddressType
-_TmnxMobGtpPriServerAddrType_Object=MibTableColumn
-tmnxMobGtpPriServerAddrType=_TmnxMobGtpPriServerAddrType_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18,1,5),_TmnxMobGtpPriServerAddrType_Type())
-tmnxMobGtpPriServerAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerAddrType.setStatus(_A)
-class _TmnxMobGtpPriServerAddr_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_TmnxMobGtpPriServerAddr_Type.__name__=_P
-_TmnxMobGtpPriServerAddr_Object=MibTableColumn
-tmnxMobGtpPriServerAddr=_TmnxMobGtpPriServerAddr_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18,1,6),_TmnxMobGtpPriServerAddr_Type())
-tmnxMobGtpPriServerAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerAddr.setStatus(_A)
-class _TmnxMobGtpPriServerPort_Type(InetPortNumber):defaultValue=3386
-_TmnxMobGtpPriServerPort_Type.__name__=_Q
-_TmnxMobGtpPriServerPort_Object=MibTableColumn
-tmnxMobGtpPriServerPort=_TmnxMobGtpPriServerPort_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18,1,7),_TmnxMobGtpPriServerPort_Type())
-tmnxMobGtpPriServerPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerPort.setStatus(_A)
-class _TmnxMobGtpPriServerRetries_Type(Unsigned32):defaultValue=4;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_TmnxMobGtpPriServerRetries_Type.__name__=_E
-_TmnxMobGtpPriServerRetries_Object=MibTableColumn
-tmnxMobGtpPriServerRetries=_TmnxMobGtpPriServerRetries_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18,1,8),_TmnxMobGtpPriServerRetries_Type())
-tmnxMobGtpPriServerRetries.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerRetries.setStatus(_A)
-class _TmnxMobGtpPriServerTimeout_Type(Unsigned32):defaultValue=20;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,180))
-_TmnxMobGtpPriServerTimeout_Type.__name__=_E
-_TmnxMobGtpPriServerTimeout_Object=MibTableColumn
-tmnxMobGtpPriServerTimeout=_TmnxMobGtpPriServerTimeout_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18,1,9),_TmnxMobGtpPriServerTimeout_Type())
-tmnxMobGtpPriServerTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerTimeout.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerTimeout.setUnits(_H)
-class _TmnxMobGtpPriServerEchoInterval_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3600))
-_TmnxMobGtpPriServerEchoInterval_Type.__name__=_E
-_TmnxMobGtpPriServerEchoInterval_Object=MibTableColumn
-tmnxMobGtpPriServerEchoInterval=_TmnxMobGtpPriServerEchoInterval_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18,1,10),_TmnxMobGtpPriServerEchoInterval_Type())
-tmnxMobGtpPriServerEchoInterval.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerEchoInterval.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerEchoInterval.setUnits(_H)
-class _TmnxMobGtpPriServerMaxRequests_Type(Unsigned32):defaultValue=256;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,512))
-_TmnxMobGtpPriServerMaxRequests_Type.__name__=_E
-_TmnxMobGtpPriServerMaxRequests_Object=MibTableColumn
-tmnxMobGtpPriServerMaxRequests=_TmnxMobGtpPriServerMaxRequests_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18,1,11),_TmnxMobGtpPriServerMaxRequests_Type())
-tmnxMobGtpPriServerMaxRequests.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerMaxRequests.setStatus(_A)
-class _TmnxMobGtpPriServerNodeAlive_Type(TruthValue):defaultValue=2
-_TmnxMobGtpPriServerNodeAlive_Type.__name__=_L
-_TmnxMobGtpPriServerNodeAlive_Object=MibTableColumn
-tmnxMobGtpPriServerNodeAlive=_TmnxMobGtpPriServerNodeAlive_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18,1,12),_TmnxMobGtpPriServerNodeAlive_Type())
-tmnxMobGtpPriServerNodeAlive.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerNodeAlive.setStatus(_A)
-class _TmnxMobGtpPriServerPriority_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_TmnxMobGtpPriServerPriority_Type.__name__=_E
-_TmnxMobGtpPriServerPriority_Object=MibTableColumn
-tmnxMobGtpPriServerPriority=_TmnxMobGtpPriServerPriority_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18,1,13),_TmnxMobGtpPriServerPriority_Type())
-tmnxMobGtpPriServerPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerPriority.setStatus(_A)
-class _TmnxMobGtpPriServerPathProtocol_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('tcp',1),('udp',2)))
-_TmnxMobGtpPriServerPathProtocol_Type.__name__=_K
-_TmnxMobGtpPriServerPathProtocol_Object=MibTableColumn
-tmnxMobGtpPriServerPathProtocol=_TmnxMobGtpPriServerPathProtocol_Object((1,3,6,1,4,1,6527,3,1,2,67,1,18,1,14),_TmnxMobGtpPriServerPathProtocol_Type())
-tmnxMobGtpPriServerPathProtocol.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerPathProtocol.setStatus(_A)
-_TmnxMobUmtsQosPolTable_Object=MibTable
-tmnxMobUmtsQosPolTable=_TmnxMobUmtsQosPolTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,19))
-if mibBuilder.loadTexts:tmnxMobUmtsQosPolTable.setStatus(_A)
-_TmnxMobUmtsQosPolEntry_Object=MibTableRow
-tmnxMobUmtsQosPolEntry=_TmnxMobUmtsQosPolEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,19,1))
-tmnxMobUmtsQosPolEntry.setIndexNames((0,_B,_Am))
-if mibBuilder.loadTexts:tmnxMobUmtsQosPolEntry.setStatus(_A)
-_TmnxMobUmtsQosPolName_Type=TmnxMobProfName
-_TmnxMobUmtsQosPolName_Object=MibTableColumn
-tmnxMobUmtsQosPolName=_TmnxMobUmtsQosPolName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,19,1,1),_TmnxMobUmtsQosPolName_Type())
-tmnxMobUmtsQosPolName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobUmtsQosPolName.setStatus(_A)
-_TmnxMobUmtsQosPolRowStatus_Type=RowStatus
-_TmnxMobUmtsQosPolRowStatus_Object=MibTableColumn
-tmnxMobUmtsQosPolRowStatus=_TmnxMobUmtsQosPolRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,19,1,2),_TmnxMobUmtsQosPolRowStatus_Type())
-tmnxMobUmtsQosPolRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobUmtsQosPolRowStatus.setStatus(_A)
-_TmnxMobUmtsQosPolLastChanged_Type=TimeStamp
-_TmnxMobUmtsQosPolLastChanged_Object=MibTableColumn
-tmnxMobUmtsQosPolLastChanged=_TmnxMobUmtsQosPolLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,19,1,3),_TmnxMobUmtsQosPolLastChanged_Type())
-tmnxMobUmtsQosPolLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobUmtsQosPolLastChanged.setStatus(_A)
-class _TmnxMobUmtsQosPolConvSpeechQci_Type(TmnxMobQciValue):defaultValue=1
-_TmnxMobUmtsQosPolConvSpeechQci_Type.__name__=_O
-_TmnxMobUmtsQosPolConvSpeechQci_Object=MibTableColumn
-tmnxMobUmtsQosPolConvSpeechQci=_TmnxMobUmtsQosPolConvSpeechQci_Object((1,3,6,1,4,1,6527,3,1,2,67,1,19,1,4),_TmnxMobUmtsQosPolConvSpeechQci_Type())
-tmnxMobUmtsQosPolConvSpeechQci.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobUmtsQosPolConvSpeechQci.setStatus(_A)
-class _TmnxMobUmtsQosPolConvUnkTdg_Type(TmnxMobQciValue):defaultValue=2
-_TmnxMobUmtsQosPolConvUnkTdg_Type.__name__=_O
-_TmnxMobUmtsQosPolConvUnkTdg_Object=MibTableColumn
-tmnxMobUmtsQosPolConvUnkTdg=_TmnxMobUmtsQosPolConvUnkTdg_Object((1,3,6,1,4,1,6527,3,1,2,67,1,19,1,5),_TmnxMobUmtsQosPolConvUnkTdg_Type())
-tmnxMobUmtsQosPolConvUnkTdg.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobUmtsQosPolConvUnkTdg.setStatus(_A)
-class _TmnxMobUmtsQosPolConvUnkTdl_Type(TmnxMobQciValue):defaultValue=3
-_TmnxMobUmtsQosPolConvUnkTdl_Type.__name__=_O
-_TmnxMobUmtsQosPolConvUnkTdl_Object=MibTableColumn
-tmnxMobUmtsQosPolConvUnkTdl=_TmnxMobUmtsQosPolConvUnkTdl_Object((1,3,6,1,4,1,6527,3,1,2,67,1,19,1,6),_TmnxMobUmtsQosPolConvUnkTdl_Type())
-tmnxMobUmtsQosPolConvUnkTdl.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobUmtsQosPolConvUnkTdl.setStatus(_A)
-class _TmnxMobUmtsQosPolStreamQciValue_Type(TmnxMobQciValue):defaultValue=4
-_TmnxMobUmtsQosPolStreamQciValue_Type.__name__=_O
-_TmnxMobUmtsQosPolStreamQciValue_Object=MibTableColumn
-tmnxMobUmtsQosPolStreamQciValue=_TmnxMobUmtsQosPolStreamQciValue_Object((1,3,6,1,4,1,6527,3,1,2,67,1,19,1,7),_TmnxMobUmtsQosPolStreamQciValue_Type())
-tmnxMobUmtsQosPolStreamQciValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobUmtsQosPolStreamQciValue.setStatus(_A)
-class _TmnxMobUmtsQosPolInterSigP1Qci_Type(TmnxMobQciValue):defaultValue=5
-_TmnxMobUmtsQosPolInterSigP1Qci_Type.__name__=_O
-_TmnxMobUmtsQosPolInterSigP1Qci_Object=MibTableColumn
-tmnxMobUmtsQosPolInterSigP1Qci=_TmnxMobUmtsQosPolInterSigP1Qci_Object((1,3,6,1,4,1,6527,3,1,2,67,1,19,1,8),_TmnxMobUmtsQosPolInterSigP1Qci_Type())
-tmnxMobUmtsQosPolInterSigP1Qci.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobUmtsQosPolInterSigP1Qci.setStatus(_A)
-class _TmnxMobUmtsQosPolInterP1Qci_Type(TmnxMobQciValue):defaultValue=6
-_TmnxMobUmtsQosPolInterP1Qci_Type.__name__=_O
-_TmnxMobUmtsQosPolInterP1Qci_Object=MibTableColumn
-tmnxMobUmtsQosPolInterP1Qci=_TmnxMobUmtsQosPolInterP1Qci_Object((1,3,6,1,4,1,6527,3,1,2,67,1,19,1,9),_TmnxMobUmtsQosPolInterP1Qci_Type())
-tmnxMobUmtsQosPolInterP1Qci.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobUmtsQosPolInterP1Qci.setStatus(_A)
-class _TmnxMobUmtsQosPolInterP2Qci_Type(TmnxMobQciValue):defaultValue=7
-_TmnxMobUmtsQosPolInterP2Qci_Type.__name__=_O
-_TmnxMobUmtsQosPolInterP2Qci_Object=MibTableColumn
-tmnxMobUmtsQosPolInterP2Qci=_TmnxMobUmtsQosPolInterP2Qci_Object((1,3,6,1,4,1,6527,3,1,2,67,1,19,1,10),_TmnxMobUmtsQosPolInterP2Qci_Type())
-tmnxMobUmtsQosPolInterP2Qci.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobUmtsQosPolInterP2Qci.setStatus(_A)
-class _TmnxMobUmtsQosPolInterP3Qci_Type(TmnxMobQciValue):defaultValue=8
-_TmnxMobUmtsQosPolInterP3Qci_Type.__name__=_O
-_TmnxMobUmtsQosPolInterP3Qci_Object=MibTableColumn
-tmnxMobUmtsQosPolInterP3Qci=_TmnxMobUmtsQosPolInterP3Qci_Object((1,3,6,1,4,1,6527,3,1,2,67,1,19,1,11),_TmnxMobUmtsQosPolInterP3Qci_Type())
-tmnxMobUmtsQosPolInterP3Qci.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobUmtsQosPolInterP3Qci.setStatus(_A)
-class _TmnxMobUmtsQosPolBackground_Type(TmnxMobQciValue):defaultValue=9
-_TmnxMobUmtsQosPolBackground_Type.__name__=_O
-_TmnxMobUmtsQosPolBackground_Object=MibTableColumn
-tmnxMobUmtsQosPolBackground=_TmnxMobUmtsQosPolBackground_Object((1,3,6,1,4,1,6527,3,1,2,67,1,19,1,12),_TmnxMobUmtsQosPolBackground_Type())
-tmnxMobUmtsQosPolBackground.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobUmtsQosPolBackground.setStatus(_A)
-_TmnxMobProfRadTable_Object=MibTable
-tmnxMobProfRadTable=_TmnxMobProfRadTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,20))
-if mibBuilder.loadTexts:tmnxMobProfRadTable.setStatus(_A)
-_TmnxMobProfRadEntry_Object=MibTableRow
-tmnxMobProfRadEntry=_TmnxMobProfRadEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,20,1))
-tmnxMobProfRadEntry.setIndexNames((1,_B,_An))
-if mibBuilder.loadTexts:tmnxMobProfRadEntry.setStatus(_A)
-_TmnxMobProfRadName_Type=TmnxMobProfName
-_TmnxMobProfRadName_Object=MibTableColumn
-tmnxMobProfRadName=_TmnxMobProfRadName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,20,1,1),_TmnxMobProfRadName_Type())
-tmnxMobProfRadName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfRadName.setStatus(_A)
-_TmnxMobProfRadRowStatus_Type=RowStatus
-_TmnxMobProfRadRowStatus_Object=MibTableColumn
-tmnxMobProfRadRowStatus=_TmnxMobProfRadRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,20,1,2),_TmnxMobProfRadRowStatus_Type())
-tmnxMobProfRadRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadRowStatus.setStatus(_A)
-_TmnxMobProfRadLastChanged_Type=TimeStamp
-_TmnxMobProfRadLastChanged_Object=MibTableColumn
-tmnxMobProfRadLastChanged=_TmnxMobProfRadLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,20,1,3),_TmnxMobProfRadLastChanged_Type())
-tmnxMobProfRadLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfRadLastChanged.setStatus(_A)
-class _TmnxMobProfRadDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxMobProfRadDescription_Type.__name__=_I
-_TmnxMobProfRadDescription_Object=MibTableColumn
-tmnxMobProfRadDescription=_TmnxMobProfRadDescription_Object((1,3,6,1,4,1,6527,3,1,2,67,1,20,1,4),_TmnxMobProfRadDescription_Type())
-tmnxMobProfRadDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadDescription.setStatus(_A)
-class _TmnxMobProfRadAuthProbeInt_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(20,600))
-_TmnxMobProfRadAuthProbeInt_Type.__name__=_E
-_TmnxMobProfRadAuthProbeInt_Object=MibTableColumn
-tmnxMobProfRadAuthProbeInt=_TmnxMobProfRadAuthProbeInt_Object((1,3,6,1,4,1,6527,3,1,2,67,1,20,1,5),_TmnxMobProfRadAuthProbeInt_Type())
-tmnxMobProfRadAuthProbeInt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadAuthProbeInt.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfRadAuthProbeInt.setUnits(_H)
-class _TmnxMobProfRadServerDeadTime_Type(Unsigned32):defaultValue=300;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(60,3600))
-_TmnxMobProfRadServerDeadTime_Type.__name__=_E
-_TmnxMobProfRadServerDeadTime_Object=MibTableColumn
-tmnxMobProfRadServerDeadTime=_TmnxMobProfRadServerDeadTime_Object((1,3,6,1,4,1,6527,3,1,2,67,1,20,1,6),_TmnxMobProfRadServerDeadTime_Type())
-tmnxMobProfRadServerDeadTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadServerDeadTime.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfRadServerDeadTime.setUnits(_H)
-class _TmnxMobProfRadRetryTimeout_Type(Unsigned32):defaultValue=4;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3,20))
-_TmnxMobProfRadRetryTimeout_Type.__name__=_E
-_TmnxMobProfRadRetryTimeout_Object=MibTableColumn
-tmnxMobProfRadRetryTimeout=_TmnxMobProfRadRetryTimeout_Object((1,3,6,1,4,1,6527,3,1,2,67,1,20,1,7),_TmnxMobProfRadRetryTimeout_Type())
-tmnxMobProfRadRetryTimeout.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadRetryTimeout.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfRadRetryTimeout.setUnits(_H)
-class _TmnxMobProfRadRetryCount_Type(Unsigned32):defaultValue=4;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_TmnxMobProfRadRetryCount_Type.__name__=_E
-_TmnxMobProfRadRetryCount_Object=MibTableColumn
-tmnxMobProfRadRetryCount=_TmnxMobProfRadRetryCount_Object((1,3,6,1,4,1,6527,3,1,2,67,1,20,1,8),_TmnxMobProfRadRetryCount_Type())
-tmnxMobProfRadRetryCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadRetryCount.setStatus(_A)
-_TmnxMobProfRadGrpTable_Object=MibTable
-tmnxMobProfRadGrpTable=_TmnxMobProfRadGrpTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,21))
-if mibBuilder.loadTexts:tmnxMobProfRadGrpTable.setStatus(_A)
-_TmnxMobProfRadGrpEntry_Object=MibTableRow
-tmnxMobProfRadGrpEntry=_TmnxMobProfRadGrpEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,21,1))
-tmnxMobProfRadGrpEntry.setIndexNames((0,_B,_AE))
-if mibBuilder.loadTexts:tmnxMobProfRadGrpEntry.setStatus(_A)
-_TmnxMobProfRadGrpName_Type=TmnxMobProfName
-_TmnxMobProfRadGrpName_Object=MibTableColumn
-tmnxMobProfRadGrpName=_TmnxMobProfRadGrpName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,21,1,1),_TmnxMobProfRadGrpName_Type())
-tmnxMobProfRadGrpName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfRadGrpName.setStatus(_A)
-_TmnxMobProfRadGrpRowStatus_Type=RowStatus
-_TmnxMobProfRadGrpRowStatus_Object=MibTableColumn
-tmnxMobProfRadGrpRowStatus=_TmnxMobProfRadGrpRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,21,1,2),_TmnxMobProfRadGrpRowStatus_Type())
-tmnxMobProfRadGrpRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadGrpRowStatus.setStatus(_A)
-_TmnxMobProfRadGrpLastChanged_Type=TimeStamp
-_TmnxMobProfRadGrpLastChanged_Object=MibTableColumn
-tmnxMobProfRadGrpLastChanged=_TmnxMobProfRadGrpLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,21,1,3),_TmnxMobProfRadGrpLastChanged_Type())
-tmnxMobProfRadGrpLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfRadGrpLastChanged.setStatus(_A)
-class _TmnxMobProfRadGrpDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxMobProfRadGrpDescription_Type.__name__=_I
-_TmnxMobProfRadGrpDescription_Object=MibTableColumn
-tmnxMobProfRadGrpDescription=_TmnxMobProfRadGrpDescription_Object((1,3,6,1,4,1,6527,3,1,2,67,1,21,1,4),_TmnxMobProfRadGrpDescription_Type())
-tmnxMobProfRadGrpDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadGrpDescription.setStatus(_A)
-class _TmnxMobProfRadGrpIfVRtrId_Type(TmnxVRtrID):defaultValue=1
-_TmnxMobProfRadGrpIfVRtrId_Type.__name__=_k
-_TmnxMobProfRadGrpIfVRtrId_Object=MibTableColumn
-tmnxMobProfRadGrpIfVRtrId=_TmnxMobProfRadGrpIfVRtrId_Object((1,3,6,1,4,1,6527,3,1,2,67,1,21,1,5),_TmnxMobProfRadGrpIfVRtrId_Type())
-tmnxMobProfRadGrpIfVRtrId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadGrpIfVRtrId.setStatus(_A)
-class _TmnxMobProfRadGrpIfIndex_Type(InterfaceIndexOrZero):defaultValue=0
-_TmnxMobProfRadGrpIfIndex_Type.__name__=_f
-_TmnxMobProfRadGrpIfIndex_Object=MibTableColumn
-tmnxMobProfRadGrpIfIndex=_TmnxMobProfRadGrpIfIndex_Object((1,3,6,1,4,1,6527,3,1,2,67,1,21,1,6),_TmnxMobProfRadGrpIfIndex_Type())
-tmnxMobProfRadGrpIfIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadGrpIfIndex.setStatus(_A)
-class _TmnxMobProfRadGrpAuthServerPort_Type(InetPortNumber):defaultValue=1812
-_TmnxMobProfRadGrpAuthServerPort_Type.__name__=_Q
-_TmnxMobProfRadGrpAuthServerPort_Object=MibTableColumn
-tmnxMobProfRadGrpAuthServerPort=_TmnxMobProfRadGrpAuthServerPort_Object((1,3,6,1,4,1,6527,3,1,2,67,1,21,1,7),_TmnxMobProfRadGrpAuthServerPort_Type())
-tmnxMobProfRadGrpAuthServerPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadGrpAuthServerPort.setStatus(_A)
-class _TmnxMobProfRadGrpAcctServerPort_Type(InetPortNumber):defaultValue=1813
-_TmnxMobProfRadGrpAcctServerPort_Type.__name__=_Q
-_TmnxMobProfRadGrpAcctServerPort_Object=MibTableColumn
-tmnxMobProfRadGrpAcctServerPort=_TmnxMobProfRadGrpAcctServerPort_Object((1,3,6,1,4,1,6527,3,1,2,67,1,21,1,8),_TmnxMobProfRadGrpAcctServerPort_Type())
-tmnxMobProfRadGrpAcctServerPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadGrpAcctServerPort.setStatus(_A)
-class _TmnxMobProfRadGrpSecret_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_TmnxMobProfRadGrpSecret_Type.__name__=_v
-_TmnxMobProfRadGrpSecret_Object=MibTableColumn
-tmnxMobProfRadGrpSecret=_TmnxMobProfRadGrpSecret_Object((1,3,6,1,4,1,6527,3,1,2,67,1,21,1,9),_TmnxMobProfRadGrpSecret_Type())
-tmnxMobProfRadGrpSecret.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadGrpSecret.setStatus(_A)
-class _TmnxMobProfRadGrpIntUpdateIntvl_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(15,1440))
-_TmnxMobProfRadGrpIntUpdateIntvl_Type.__name__=_E
-_TmnxMobProfRadGrpIntUpdateIntvl_Object=MibTableColumn
-tmnxMobProfRadGrpIntUpdateIntvl=_TmnxMobProfRadGrpIntUpdateIntvl_Object((1,3,6,1,4,1,6527,3,1,2,67,1,21,1,10),_TmnxMobProfRadGrpIntUpdateIntvl_Type())
-tmnxMobProfRadGrpIntUpdateIntvl.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadGrpIntUpdateIntvl.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfRadGrpIntUpdateIntvl.setUnits(_W)
-class _TmnxMobProfRadGrpServerType_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_l,0),('auth',1),('acct',2),('both',3)))
-_TmnxMobProfRadGrpServerType_Type.__name__=_K
-_TmnxMobProfRadGrpServerType_Object=MibTableColumn
-tmnxMobProfRadGrpServerType=_TmnxMobProfRadGrpServerType_Object((1,3,6,1,4,1,6527,3,1,2,67,1,21,1,11),_TmnxMobProfRadGrpServerType_Type())
-tmnxMobProfRadGrpServerType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadGrpServerType.setStatus(_A)
-class _TmnxMobProfRadGrpRadiusProfile_Type(TmnxMobProfNameOrEmpty):defaultHexValue=''
-_TmnxMobProfRadGrpRadiusProfile_Type.__name__=_N
-_TmnxMobProfRadGrpRadiusProfile_Object=MibTableColumn
-tmnxMobProfRadGrpRadiusProfile=_TmnxMobProfRadGrpRadiusProfile_Object((1,3,6,1,4,1,6527,3,1,2,67,1,21,1,12),_TmnxMobProfRadGrpRadiusProfile_Type())
-tmnxMobProfRadGrpRadiusProfile.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadGrpRadiusProfile.setStatus(_A)
-class _TmnxMobProfRadGrpIgnAcctResp_Type(TruthValue):defaultValue=2
-_TmnxMobProfRadGrpIgnAcctResp_Type.__name__=_L
-_TmnxMobProfRadGrpIgnAcctResp_Object=MibTableColumn
-tmnxMobProfRadGrpIgnAcctResp=_TmnxMobProfRadGrpIgnAcctResp_Object((1,3,6,1,4,1,6527,3,1,2,67,1,21,1,13),_TmnxMobProfRadGrpIgnAcctResp_Type())
-tmnxMobProfRadGrpIgnAcctResp.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadGrpIgnAcctResp.setStatus(_A)
-_TmnxMobProfRadPeerTable_Object=MibTable
-tmnxMobProfRadPeerTable=_TmnxMobProfRadPeerTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,22))
-if mibBuilder.loadTexts:tmnxMobProfRadPeerTable.setStatus(_A)
-_TmnxMobProfRadPeerEntry_Object=MibTableRow
-tmnxMobProfRadPeerEntry=_TmnxMobProfRadPeerEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,22,1))
-tmnxMobProfRadPeerEntry.setIndexNames((0,_B,_AE),(0,_B,_Ao))
-if mibBuilder.loadTexts:tmnxMobProfRadPeerEntry.setStatus(_A)
-_TmnxMobProfRadPeerIndex_Type=Unsigned32
-_TmnxMobProfRadPeerIndex_Object=MibTableColumn
-tmnxMobProfRadPeerIndex=_TmnxMobProfRadPeerIndex_Object((1,3,6,1,4,1,6527,3,1,2,67,1,22,1,1),_TmnxMobProfRadPeerIndex_Type())
-tmnxMobProfRadPeerIndex.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfRadPeerIndex.setStatus(_A)
-_TmnxMobProfRadPeerRowStatus_Type=RowStatus
-_TmnxMobProfRadPeerRowStatus_Object=MibTableColumn
-tmnxMobProfRadPeerRowStatus=_TmnxMobProfRadPeerRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,22,1,2),_TmnxMobProfRadPeerRowStatus_Type())
-tmnxMobProfRadPeerRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadPeerRowStatus.setStatus(_A)
-_TmnxMobProfRadPeerLastChngd_Type=TimeStamp
-_TmnxMobProfRadPeerLastChngd_Object=MibTableColumn
-tmnxMobProfRadPeerLastChngd=_TmnxMobProfRadPeerLastChngd_Object((1,3,6,1,4,1,6527,3,1,2,67,1,22,1,3),_TmnxMobProfRadPeerLastChngd_Type())
-tmnxMobProfRadPeerLastChngd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfRadPeerLastChngd.setStatus(_A)
-class _TmnxMobProfRadPeerAdminState_Type(TmnxAdminState):defaultValue=3
-_TmnxMobProfRadPeerAdminState_Type.__name__=_S
-_TmnxMobProfRadPeerAdminState_Object=MibTableColumn
-tmnxMobProfRadPeerAdminState=_TmnxMobProfRadPeerAdminState_Object((1,3,6,1,4,1,6527,3,1,2,67,1,22,1,4),_TmnxMobProfRadPeerAdminState_Type())
-tmnxMobProfRadPeerAdminState.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadPeerAdminState.setStatus(_A)
-_TmnxMobProfRadPeerAddrType_Type=InetAddressType
-_TmnxMobProfRadPeerAddrType_Object=MibTableColumn
-tmnxMobProfRadPeerAddrType=_TmnxMobProfRadPeerAddrType_Object((1,3,6,1,4,1,6527,3,1,2,67,1,22,1,5),_TmnxMobProfRadPeerAddrType_Type())
-tmnxMobProfRadPeerAddrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadPeerAddrType.setStatus(_A)
-class _TmnxMobProfRadPeerAddr_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_TmnxMobProfRadPeerAddr_Type.__name__=_P
-_TmnxMobProfRadPeerAddr_Object=MibTableColumn
-tmnxMobProfRadPeerAddr=_TmnxMobProfRadPeerAddr_Object((1,3,6,1,4,1,6527,3,1,2,67,1,22,1,6),_TmnxMobProfRadPeerAddr_Type())
-tmnxMobProfRadPeerAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadPeerAddr.setStatus(_A)
-class _TmnxMobProfRadPeerPriority_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3))
-_TmnxMobProfRadPeerPriority_Type.__name__=_E
-_TmnxMobProfRadPeerPriority_Object=MibTableColumn
-tmnxMobProfRadPeerPriority=_TmnxMobProfRadPeerPriority_Object((1,3,6,1,4,1,6527,3,1,2,67,1,22,1,7),_TmnxMobProfRadPeerPriority_Type())
-tmnxMobProfRadPeerPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadPeerPriority.setStatus(_A)
-class _TmnxMobProfRadPeerAuthSvrPort_Type(InetPortNumber):defaultValue=0
-_TmnxMobProfRadPeerAuthSvrPort_Type.__name__=_Q
-_TmnxMobProfRadPeerAuthSvrPort_Object=MibTableColumn
-tmnxMobProfRadPeerAuthSvrPort=_TmnxMobProfRadPeerAuthSvrPort_Object((1,3,6,1,4,1,6527,3,1,2,67,1,22,1,8),_TmnxMobProfRadPeerAuthSvrPort_Type())
-tmnxMobProfRadPeerAuthSvrPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadPeerAuthSvrPort.setStatus(_A)
-class _TmnxMobProfRadPeerAcctSvrPort_Type(InetPortNumber):defaultValue=0
-_TmnxMobProfRadPeerAcctSvrPort_Type.__name__=_Q
-_TmnxMobProfRadPeerAcctSvrPort_Object=MibTableColumn
-tmnxMobProfRadPeerAcctSvrPort=_TmnxMobProfRadPeerAcctSvrPort_Object((1,3,6,1,4,1,6527,3,1,2,67,1,22,1,9),_TmnxMobProfRadPeerAcctSvrPort_Type())
-tmnxMobProfRadPeerAcctSvrPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadPeerAcctSvrPort.setStatus(_A)
-class _TmnxMobProfRadPeerSecret_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
-_TmnxMobProfRadPeerSecret_Type.__name__=_v
-_TmnxMobProfRadPeerSecret_Object=MibTableColumn
-tmnxMobProfRadPeerSecret=_TmnxMobProfRadPeerSecret_Object((1,3,6,1,4,1,6527,3,1,2,67,1,22,1,10),_TmnxMobProfRadPeerSecret_Type())
-tmnxMobProfRadPeerSecret.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadPeerSecret.setStatus(_A)
-class _TmnxMobProfRadPeerRadProfile_Type(TmnxMobProfNameOrEmpty):defaultHexValue=''
-_TmnxMobProfRadPeerRadProfile_Type.__name__=_N
-_TmnxMobProfRadPeerRadProfile_Object=MibTableColumn
-tmnxMobProfRadPeerRadProfile=_TmnxMobProfRadPeerRadProfile_Object((1,3,6,1,4,1,6527,3,1,2,67,1,22,1,11),_TmnxMobProfRadPeerRadProfile_Type())
-tmnxMobProfRadPeerRadProfile.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfRadPeerRadProfile.setStatus(_A)
-_TmnxMobProfDccaTable_Object=MibTable
-tmnxMobProfDccaTable=_TmnxMobProfDccaTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23))
-if mibBuilder.loadTexts:tmnxMobProfDccaTable.setStatus(_A)
-_TmnxMobProfDccaEntry_Object=MibTableRow
-tmnxMobProfDccaEntry=_TmnxMobProfDccaEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1))
-tmnxMobProfDccaEntry.setIndexNames((1,_B,_Ap))
-if mibBuilder.loadTexts:tmnxMobProfDccaEntry.setStatus(_A)
-_TmnxMobProfDccaName_Type=TmnxMobProfName
-_TmnxMobProfDccaName_Object=MibTableColumn
-tmnxMobProfDccaName=_TmnxMobProfDccaName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,1),_TmnxMobProfDccaName_Type())
-tmnxMobProfDccaName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfDccaName.setStatus(_A)
-_TmnxMobProfDccaRowStatus_Type=RowStatus
-_TmnxMobProfDccaRowStatus_Object=MibTableColumn
-tmnxMobProfDccaRowStatus=_TmnxMobProfDccaRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,2),_TmnxMobProfDccaRowStatus_Type())
-tmnxMobProfDccaRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaRowStatus.setStatus(_A)
-_TmnxMobProfDccaLastChanged_Type=TimeStamp
-_TmnxMobProfDccaLastChanged_Object=MibTableColumn
-tmnxMobProfDccaLastChanged=_TmnxMobProfDccaLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,3),_TmnxMobProfDccaLastChanged_Type())
-tmnxMobProfDccaLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfDccaLastChanged.setStatus(_A)
-class _TmnxMobProfDccaDescription_Type(TItemDescription):defaultHexValue=''
-_TmnxMobProfDccaDescription_Type.__name__=_I
-_TmnxMobProfDccaDescription_Object=MibTableColumn
-tmnxMobProfDccaDescription=_TmnxMobProfDccaDescription_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,4),_TmnxMobProfDccaDescription_Type())
-tmnxMobProfDccaDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaDescription.setStatus(_A)
-class _TmnxMobProfDccaApplTxTimer_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,30))
-_TmnxMobProfDccaApplTxTimer_Type.__name__=_E
-_TmnxMobProfDccaApplTxTimer_Object=MibTableColumn
-tmnxMobProfDccaApplTxTimer=_TmnxMobProfDccaApplTxTimer_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,5),_TmnxMobProfDccaApplTxTimer_Type())
-tmnxMobProfDccaApplTxTimer.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaApplTxTimer.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfDccaApplTxTimer.setUnits(_H)
-class _TmnxMobProfDccaRetryCnt_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3))
-_TmnxMobProfDccaRetryCnt_Type.__name__=_E
-_TmnxMobProfDccaRetryCnt_Object=MibTableColumn
-tmnxMobProfDccaRetryCnt=_TmnxMobProfDccaRetryCnt_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,6),_TmnxMobProfDccaRetryCnt_Type())
-tmnxMobProfDccaRetryCnt.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaRetryCnt.setStatus(_A)
-class _TmnxMobProfDcca3GppQosNegProf_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfDcca3GppQosNegProf_Type.__name__=_G
-_TmnxMobProfDcca3GppQosNegProf_Object=MibTableColumn
-tmnxMobProfDcca3GppQosNegProf=_TmnxMobProfDcca3GppQosNegProf_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,7),_TmnxMobProfDcca3GppQosNegProf_Type())
-tmnxMobProfDcca3GppQosNegProf.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDcca3GppQosNegProf.setStatus(_A)
-class _TmnxMobProfDccaQosInformation_Type(TmnxEnabledDisabled):defaultValue=2
-_TmnxMobProfDccaQosInformation_Type.__name__=_G
-_TmnxMobProfDccaQosInformation_Object=MibTableColumn
-tmnxMobProfDccaQosInformation=_TmnxMobProfDccaQosInformation_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,8),_TmnxMobProfDccaQosInformation_Type())
-tmnxMobProfDccaQosInformation.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaQosInformation.setStatus(_A)
-class _TmnxMobProfDccaCalledStationId_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('real',1),('virtual',2)))
-_TmnxMobProfDccaCalledStationId_Type.__name__=_K
-_TmnxMobProfDccaCalledStationId_Object=MibTableColumn
-tmnxMobProfDccaCalledStationId=_TmnxMobProfDccaCalledStationId_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,9),_TmnxMobProfDccaCalledStationId_Type())
-tmnxMobProfDccaCalledStationId.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaCalledStationId.setStatus(_A)
-class _TmnxMobProfDccaCcSessFailover_Type(TmnxEnabledDisabled):defaultValue=1
-_TmnxMobProfDccaCcSessFailover_Type.__name__=_G
-_TmnxMobProfDccaCcSessFailover_Object=MibTableColumn
-tmnxMobProfDccaCcSessFailover=_TmnxMobProfDccaCcSessFailover_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,10),_TmnxMobProfDccaCcSessFailover_Type())
-tmnxMobProfDccaCcSessFailover.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaCcSessFailover.setStatus(_A)
-class _TmnxMobProfDccaCcSessFlovrHndl_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('terminate',1),('continue',2),('retryAndTerm',3)))
-_TmnxMobProfDccaCcSessFlovrHndl_Type.__name__=_K
-_TmnxMobProfDccaCcSessFlovrHndl_Object=MibTableColumn
-tmnxMobProfDccaCcSessFlovrHndl=_TmnxMobProfDccaCcSessFlovrHndl_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,11),_TmnxMobProfDccaCcSessFlovrHndl_Type())
-tmnxMobProfDccaCcSessFlovrHndl.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaCcSessFlovrHndl.setStatus(_A)
-class _TmnxMobProfDccaForcedReAuth_Type(TmnxMobProfAllowDiscard):defaultValue=1
-_TmnxMobProfDccaForcedReAuth_Type.__name__=_R
-_TmnxMobProfDccaForcedReAuth_Object=MibTableColumn
-tmnxMobProfDccaForcedReAuth=_TmnxMobProfDccaForcedReAuth_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,12),_TmnxMobProfDccaForcedReAuth_Type())
-tmnxMobProfDccaForcedReAuth.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaForcedReAuth.setStatus(_A)
-class _TmnxMobProfDccaQuotaExNoThrsld_Type(TmnxMobProfAllowDiscard):defaultValue=1
-_TmnxMobProfDccaQuotaExNoThrsld_Type.__name__=_R
-_TmnxMobProfDccaQuotaExNoThrsld_Object=MibTableColumn
-tmnxMobProfDccaQuotaExNoThrsld=_TmnxMobProfDccaQuotaExNoThrsld_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,13),_TmnxMobProfDccaQuotaExNoThrsld_Type())
-tmnxMobProfDccaQuotaExNoThrsld.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaQuotaExNoThrsld.setStatus(_A)
-class _TmnxMobProfDccaQuotaExThrsldAct_Type(TmnxMobProfAllowDiscard):defaultValue=1
-_TmnxMobProfDccaQuotaExThrsldAct_Type.__name__=_R
-_TmnxMobProfDccaQuotaExThrsldAct_Object=MibTableColumn
-tmnxMobProfDccaQuotaExThrsldAct=_TmnxMobProfDccaQuotaExThrsldAct_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,14),_TmnxMobProfDccaQuotaExThrsldAct_Type())
-tmnxMobProfDccaQuotaExThrsldAct.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaQuotaExThrsldAct.setStatus(_A)
-class _TmnxMobProfDccaQuotaUnavail_Type(TmnxMobProfAllowDiscard):defaultValue=1
-_TmnxMobProfDccaQuotaUnavail_Type.__name__=_R
-_TmnxMobProfDccaQuotaUnavail_Object=MibTableColumn
-tmnxMobProfDccaQuotaUnavail=_TmnxMobProfDccaQuotaUnavail_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,15),_TmnxMobProfDccaQuotaUnavail_Type())
-tmnxMobProfDccaQuotaUnavail.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaQuotaUnavail.setStatus(_A)
-class _TmnxMobProfDccaRatingCondtChng_Type(TmnxMobProfAllowDiscard):defaultValue=1
-_TmnxMobProfDccaRatingCondtChng_Type.__name__=_R
-_TmnxMobProfDccaRatingCondtChng_Object=MibTableColumn
-tmnxMobProfDccaRatingCondtChng=_TmnxMobProfDccaRatingCondtChng_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,16),_TmnxMobProfDccaRatingCondtChng_Type())
-tmnxMobProfDccaRatingCondtChng.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaRatingCondtChng.setStatus(_A)
-class _TmnxMobProfDccaValidityTimeExp_Type(TmnxMobProfAllowDiscard):defaultValue=1
-_TmnxMobProfDccaValidityTimeExp_Type.__name__=_R
-_TmnxMobProfDccaValidityTimeExp_Object=MibTableColumn
-tmnxMobProfDccaValidityTimeExp=_TmnxMobProfDccaValidityTimeExp_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,17),_TmnxMobProfDccaValidityTimeExp_Type())
-tmnxMobProfDccaValidityTimeExp.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaValidityTimeExp.setStatus(_A)
-class _TmnxMobProfDccaFhSessContTimer_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1440))
-_TmnxMobProfDccaFhSessContTimer_Type.__name__=_E
-_TmnxMobProfDccaFhSessContTimer_Object=MibTableColumn
-tmnxMobProfDccaFhSessContTimer=_TmnxMobProfDccaFhSessContTimer_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,18),_TmnxMobProfDccaFhSessContTimer_Type())
-tmnxMobProfDccaFhSessContTimer.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaFhSessContTimer.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfDccaFhSessContTimer.setUnits(_W)
-class _TmnxMobProfDccaDefaultQht_Type(Unsigned32):defaultValue=2;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,5))
-_TmnxMobProfDccaDefaultQht_Type.__name__=_E
-_TmnxMobProfDccaDefaultQht_Object=MibTableColumn
-tmnxMobProfDccaDefaultQht=_TmnxMobProfDccaDefaultQht_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,19),_TmnxMobProfDccaDefaultQht_Type())
-tmnxMobProfDccaDefaultQht.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaDefaultQht.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfDccaDefaultQht.setUnits(_W)
-class _TmnxMobProfDccaFirstPktBehavior_Type(TmnxEnabledDisabled):defaultValue=1
-_TmnxMobProfDccaFirstPktBehavior_Type.__name__=_G
-_TmnxMobProfDccaFirstPktBehavior_Object=MibTableColumn
-tmnxMobProfDccaFirstPktBehavior=_TmnxMobProfDccaFirstPktBehavior_Object((1,3,6,1,4,1,6527,3,1,2,67,1,23,1,20),_TmnxMobProfDccaFirstPktBehavior_Type())
-tmnxMobProfDccaFirstPktBehavior.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfDccaFirstPktBehavior.setStatus(_A)
-_TmnxMobProfPolUnitTable_Object=MibTable
-tmnxMobProfPolUnitTable=_TmnxMobProfPolUnitTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,24))
-if mibBuilder.loadTexts:tmnxMobProfPolUnitTable.setStatus(_A)
-_TmnxMobProfPolUnitEntry_Object=MibTableRow
-tmnxMobProfPolUnitEntry=_TmnxMobProfPolUnitEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,24,1))
-tmnxMobProfPolUnitEntry.setIndexNames((0,_B,_m))
-if mibBuilder.loadTexts:tmnxMobProfPolUnitEntry.setStatus(_A)
-_TmnxMobProfPolUnitName_Type=TmnxMobProfName
-_TmnxMobProfPolUnitName_Object=MibTableColumn
-tmnxMobProfPolUnitName=_TmnxMobProfPolUnitName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,24,1,1),_TmnxMobProfPolUnitName_Type())
-tmnxMobProfPolUnitName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfPolUnitName.setStatus(_A)
-_TmnxMobProfPolUnitRowStatus_Type=RowStatus
-_TmnxMobProfPolUnitRowStatus_Object=MibTableColumn
-tmnxMobProfPolUnitRowStatus=_TmnxMobProfPolUnitRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,24,1,2),_TmnxMobProfPolUnitRowStatus_Type())
-tmnxMobProfPolUnitRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUnitRowStatus.setStatus(_A)
-_TmnxMobProfPolUnitLastChanged_Type=TimeStamp
-_TmnxMobProfPolUnitLastChanged_Object=MibTableColumn
-tmnxMobProfPolUnitLastChanged=_TmnxMobProfPolUnitLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,24,1,3),_TmnxMobProfPolUnitLastChanged_Type())
-tmnxMobProfPolUnitLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolUnitLastChanged.setStatus(_A)
-class _TmnxMobProfPolUnitUplinkGbrRate_Type(TmnxMobProfGbrRate):defaultValue=0
-_TmnxMobProfPolUnitUplinkGbrRate_Type.__name__=_y
-_TmnxMobProfPolUnitUplinkGbrRate_Object=MibTableColumn
-tmnxMobProfPolUnitUplinkGbrRate=_TmnxMobProfPolUnitUplinkGbrRate_Object((1,3,6,1,4,1,6527,3,1,2,67,1,24,1,4),_TmnxMobProfPolUnitUplinkGbrRate_Type())
-tmnxMobProfPolUnitUplinkGbrRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUnitUplinkGbrRate.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfPolUnitUplinkGbrRate.setUnits(_n)
-class _TmnxMobProfPolUnitUplinkMbrRate_Type(TmnxMobProfMbrRate):defaultValue=0
-_TmnxMobProfPolUnitUplinkMbrRate_Type.__name__=_z
-_TmnxMobProfPolUnitUplinkMbrRate_Object=MibTableColumn
-tmnxMobProfPolUnitUplinkMbrRate=_TmnxMobProfPolUnitUplinkMbrRate_Object((1,3,6,1,4,1,6527,3,1,2,67,1,24,1,5),_TmnxMobProfPolUnitUplinkMbrRate_Type())
-tmnxMobProfPolUnitUplinkMbrRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUnitUplinkMbrRate.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfPolUnitUplinkMbrRate.setUnits(_n)
-class _TmnxMobProfPolUnitDwnlinkGbrRate_Type(TmnxMobProfGbrRate):defaultValue=0
-_TmnxMobProfPolUnitDwnlinkGbrRate_Type.__name__=_y
-_TmnxMobProfPolUnitDwnlinkGbrRate_Object=MibTableColumn
-tmnxMobProfPolUnitDwnlinkGbrRate=_TmnxMobProfPolUnitDwnlinkGbrRate_Object((1,3,6,1,4,1,6527,3,1,2,67,1,24,1,6),_TmnxMobProfPolUnitDwnlinkGbrRate_Type())
-tmnxMobProfPolUnitDwnlinkGbrRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUnitDwnlinkGbrRate.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfPolUnitDwnlinkGbrRate.setUnits(_n)
-class _TmnxMobProfPolUnitDwnlinkMbrRate_Type(TmnxMobProfMbrRate):defaultValue=0
-_TmnxMobProfPolUnitDwnlinkMbrRate_Type.__name__=_z
-_TmnxMobProfPolUnitDwnlinkMbrRate_Object=MibTableColumn
-tmnxMobProfPolUnitDwnlinkMbrRate=_TmnxMobProfPolUnitDwnlinkMbrRate_Object((1,3,6,1,4,1,6527,3,1,2,67,1,24,1,7),_TmnxMobProfPolUnitDwnlinkMbrRate_Type())
-tmnxMobProfPolUnitDwnlinkMbrRate.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUnitDwnlinkMbrRate.setStatus(_A)
-if mibBuilder.loadTexts:tmnxMobProfPolUnitDwnlinkMbrRate.setUnits(_n)
-class _TmnxMobProfPolUntFlwGateStatus_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('allowUL',1),('allowDL',2),('allow',3),('drop',4),('autoRedirect',5),('redirect',6)))
-_TmnxMobProfPolUntFlwGateStatus_Type.__name__=_K
-_TmnxMobProfPolUntFlwGateStatus_Object=MibTableColumn
-tmnxMobProfPolUntFlwGateStatus=_TmnxMobProfPolUntFlwGateStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,24,1,8),_TmnxMobProfPolUntFlwGateStatus_Type())
-tmnxMobProfPolUntFlwGateStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlwGateStatus.setStatus(_A)
-class _TmnxMobProfPolUntRedirectAdrType_Type(InetAddressType):defaultValue=0
-_TmnxMobProfPolUntRedirectAdrType_Type.__name__=_g
-_TmnxMobProfPolUntRedirectAdrType_Object=MibTableColumn
-tmnxMobProfPolUntRedirectAdrType=_TmnxMobProfPolUntRedirectAdrType_Object((1,3,6,1,4,1,6527,3,1,2,67,1,24,1,9),_TmnxMobProfPolUntRedirectAdrType_Type())
-tmnxMobProfPolUntRedirectAdrType.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntRedirectAdrType.setStatus(_A)
-class _TmnxMobProfPolUntRedirectAddr_Type(InetAddress):defaultHexValue='';subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_TmnxMobProfPolUntRedirectAddr_Type.__name__=_P
-_TmnxMobProfPolUntRedirectAddr_Object=MibTableColumn
-tmnxMobProfPolUntRedirectAddr=_TmnxMobProfPolUntRedirectAddr_Object((1,3,6,1,4,1,6527,3,1,2,67,1,24,1,10),_TmnxMobProfPolUntRedirectAddr_Type())
-tmnxMobProfPolUntRedirectAddr.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfPolUntRedirectAddr.setStatus(_A)
-class _TmnxMobProfPolUntInUse_Type(TruthValue):defaultValue=2
-_TmnxMobProfPolUntInUse_Type.__name__=_L
-_TmnxMobProfPolUntInUse_Object=MibTableColumn
-tmnxMobProfPolUntInUse=_TmnxMobProfPolUntInUse_Object((1,3,6,1,4,1,6527,3,1,2,67,1,24,1,11),_TmnxMobProfPolUntInUse_Type())
-tmnxMobProfPolUntInUse.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolUntInUse.setStatus(_A)
-_TmnxMobProfPolUntRefCount_Type=Counter32
-_TmnxMobProfPolUntRefCount_Object=MibTableColumn
-tmnxMobProfPolUntRefCount=_TmnxMobProfPolUntRefCount_Object((1,3,6,1,4,1,6527,3,1,2,67,1,24,1,12),_TmnxMobProfPolUntRefCount_Type())
-tmnxMobProfPolUntRefCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolUntRefCount.setStatus(_A)
-_TmnxMobProfChgUnitTable_Object=MibTable
-tmnxMobProfChgUnitTable=_TmnxMobProfChgUnitTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,25))
-if mibBuilder.loadTexts:tmnxMobProfChgUnitTable.setStatus(_A)
-_TmnxMobProfChgUnitEntry_Object=MibTableRow
-tmnxMobProfChgUnitEntry=_TmnxMobProfChgUnitEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,25,1))
-tmnxMobProfChgUnitEntry.setIndexNames((0,_B,_Aq))
-if mibBuilder.loadTexts:tmnxMobProfChgUnitEntry.setStatus(_A)
-_TmnxMobProfChgUnitName_Type=TmnxMobProfName
-_TmnxMobProfChgUnitName_Object=MibTableColumn
-tmnxMobProfChgUnitName=_TmnxMobProfChgUnitName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,25,1,1),_TmnxMobProfChgUnitName_Type())
-tmnxMobProfChgUnitName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfChgUnitName.setStatus(_A)
-_TmnxMobProfChgUnitRowStatus_Type=RowStatus
-_TmnxMobProfChgUnitRowStatus_Object=MibTableColumn
-tmnxMobProfChgUnitRowStatus=_TmnxMobProfChgUnitRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,25,1,2),_TmnxMobProfChgUnitRowStatus_Type())
-tmnxMobProfChgUnitRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfChgUnitRowStatus.setStatus(_A)
-_TmnxMobProfChgUnitLastChanged_Type=TimeStamp
-_TmnxMobProfChgUnitLastChanged_Object=MibTableColumn
-tmnxMobProfChgUnitLastChanged=_TmnxMobProfChgUnitLastChanged_Object((1,3,6,1,4,1,6527,3,1,2,67,1,25,1,3),_TmnxMobProfChgUnitLastChanged_Type())
-tmnxMobProfChgUnitLastChanged.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfChgUnitLastChanged.setStatus(_A)
-class _TmnxMobProfChgUnitRatingGroup_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_TmnxMobProfChgUnitRatingGroup_Type.__name__=_E
-_TmnxMobProfChgUnitRatingGroup_Object=MibTableColumn
-tmnxMobProfChgUnitRatingGroup=_TmnxMobProfChgUnitRatingGroup_Object((1,3,6,1,4,1,6527,3,1,2,67,1,25,1,4),_TmnxMobProfChgUnitRatingGroup_Type())
-tmnxMobProfChgUnitRatingGroup.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfChgUnitRatingGroup.setStatus(_A)
-class _TmnxMobProfChgUnitServIdentifier_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_TmnxMobProfChgUnitServIdentifier_Type.__name__=_E
-_TmnxMobProfChgUnitServIdentifier_Object=MibTableColumn
-tmnxMobProfChgUnitServIdentifier=_TmnxMobProfChgUnitServIdentifier_Object((1,3,6,1,4,1,6527,3,1,2,67,1,25,1,5),_TmnxMobProfChgUnitServIdentifier_Type())
-tmnxMobProfChgUnitServIdentifier.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfChgUnitServIdentifier.setStatus(_A)
-class _TmnxMobProfChgUnitReportingLevel_Type(TmnxMobProfPolReportingLevel):defaultValue=2
-_TmnxMobProfChgUnitReportingLevel_Type.__name__=_AP
-_TmnxMobProfChgUnitReportingLevel_Object=MibTableColumn
-tmnxMobProfChgUnitReportingLevel=_TmnxMobProfChgUnitReportingLevel_Object((1,3,6,1,4,1,6527,3,1,2,67,1,25,1,6),_TmnxMobProfChgUnitReportingLevel_Type())
-tmnxMobProfChgUnitReportingLevel.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfChgUnitReportingLevel.setStatus(_A)
-class _TmnxMobProfChgUnitChargingMethod_Type(TmnxMobProfPolChargingMethod):defaultValue=0
-_TmnxMobProfChgUnitChargingMethod_Type.__name__=_AN
-_TmnxMobProfChgUnitChargingMethod_Object=MibTableColumn
-tmnxMobProfChgUnitChargingMethod=_TmnxMobProfChgUnitChargingMethod_Object((1,3,6,1,4,1,6527,3,1,2,67,1,25,1,7),_TmnxMobProfChgUnitChargingMethod_Type())
-tmnxMobProfChgUnitChargingMethod.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfChgUnitChargingMethod.setStatus(_A)
-class _TmnxMobProfChgUnitMeteringMethod_Type(TmnxMobProfPolMeteringMethod):defaultValue=2
-_TmnxMobProfChgUnitMeteringMethod_Type.__name__=_AO
-_TmnxMobProfChgUnitMeteringMethod_Object=MibTableColumn
-tmnxMobProfChgUnitMeteringMethod=_TmnxMobProfChgUnitMeteringMethod_Object((1,3,6,1,4,1,6527,3,1,2,67,1,25,1,8),_TmnxMobProfChgUnitMeteringMethod_Type())
-tmnxMobProfChgUnitMeteringMethod.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfChgUnitMeteringMethod.setStatus(_A)
-class _TmnxMobProfChgUnitInUse_Type(TruthValue):defaultValue=2
-_TmnxMobProfChgUnitInUse_Type.__name__=_L
-_TmnxMobProfChgUnitInUse_Object=MibTableColumn
-tmnxMobProfChgUnitInUse=_TmnxMobProfChgUnitInUse_Object((1,3,6,1,4,1,6527,3,1,2,67,1,25,1,9),_TmnxMobProfChgUnitInUse_Type())
-tmnxMobProfChgUnitInUse.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfChgUnitInUse.setStatus(_A)
-_TmnxMobProfChgUnitRefCount_Type=Counter32
-_TmnxMobProfChgUnitRefCount_Object=MibTableColumn
-tmnxMobProfChgUnitRefCount=_TmnxMobProfChgUnitRefCount_Object((1,3,6,1,4,1,6527,3,1,2,67,1,25,1,10),_TmnxMobProfChgUnitRefCount_Type())
-tmnxMobProfChgUnitRefCount.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfChgUnitRefCount.setStatus(_A)
-_TmnxMobProfHTTPRedirectTable_Object=MibTable
-tmnxMobProfHTTPRedirectTable=_TmnxMobProfHTTPRedirectTable_Object((1,3,6,1,4,1,6527,3,1,2,67,1,26))
-if mibBuilder.loadTexts:tmnxMobProfHTTPRedirectTable.setStatus(_A)
-_TmnxMobProfHTTPRedirectEntry_Object=MibTableRow
-tmnxMobProfHTTPRedirectEntry=_TmnxMobProfHTTPRedirectEntry_Object((1,3,6,1,4,1,6527,3,1,2,67,1,26,1))
-tmnxMobProfHTTPRedirectEntry.setIndexNames((0,_B,_Ar),(0,_B,_m))
-if mibBuilder.loadTexts:tmnxMobProfHTTPRedirectEntry.setStatus(_A)
-_TmnxMobProfHttpRedirectName_Type=TmnxMobProfName
-_TmnxMobProfHttpRedirectName_Object=MibTableColumn
-tmnxMobProfHttpRedirectName=_TmnxMobProfHttpRedirectName_Object((1,3,6,1,4,1,6527,3,1,2,67,1,26,1,1),_TmnxMobProfHttpRedirectName_Type())
-tmnxMobProfHttpRedirectName.setMaxAccess(_F)
-if mibBuilder.loadTexts:tmnxMobProfHttpRedirectName.setStatus(_A)
-_TmnxMobProfHttpRedirectRowStatus_Type=RowStatus
-_TmnxMobProfHttpRedirectRowStatus_Object=MibTableColumn
-tmnxMobProfHttpRedirectRowStatus=_TmnxMobProfHttpRedirectRowStatus_Object((1,3,6,1,4,1,6527,3,1,2,67,1,26,1,2),_TmnxMobProfHttpRedirectRowStatus_Type())
-tmnxMobProfHttpRedirectRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfHttpRedirectRowStatus.setStatus(_A)
-_TmnxMobProfHttpRedirectLstChgd_Type=TimeStamp
-_TmnxMobProfHttpRedirectLstChgd_Object=MibTableColumn
-tmnxMobProfHttpRedirectLstChgd=_TmnxMobProfHttpRedirectLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,1,26,1,3),_TmnxMobProfHttpRedirectLstChgd_Type())
-tmnxMobProfHttpRedirectLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfHttpRedirectLstChgd.setStatus(_A)
-class _TmnxMobProfHttpRedirctPrecedence_Type(TmnxMobStaticPolPrecedenceOrZero):defaultValue=0
-_TmnxMobProfHttpRedirctPrecedence_Type.__name__=_i
-_TmnxMobProfHttpRedirctPrecedence_Object=MibTableColumn
-tmnxMobProfHttpRedirctPrecedence=_TmnxMobProfHttpRedirctPrecedence_Object((1,3,6,1,4,1,6527,3,1,2,67,1,26,1,4),_TmnxMobProfHttpRedirctPrecedence_Type())
-tmnxMobProfHttpRedirctPrecedence.setMaxAccess(_C)
-if mibBuilder.loadTexts:tmnxMobProfHttpRedirctPrecedence.setStatus(_A)
-_TmnxMobProfileGlobalObjs_ObjectIdentity=ObjectIdentity
-tmnxMobProfileGlobalObjs=_TmnxMobProfileGlobalObjs_ObjectIdentity((1,3,6,1,4,1,6527,3,1,2,67,2))
-_TmnxMobProfSysTblLstChgd_Type=TimeStamp
-_TmnxMobProfSysTblLstChgd_Object=MibScalar
-tmnxMobProfSysTblLstChgd=_TmnxMobProfSysTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,1),_TmnxMobProfSysTblLstChgd_Type())
-tmnxMobProfSysTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfSysTblLstChgd.setStatus(_A)
-_TmnxMobProfDiaTblLstChgd_Type=TimeStamp
-_TmnxMobProfDiaTblLstChgd_Object=MibScalar
-tmnxMobProfDiaTblLstChgd=_TmnxMobProfDiaTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,2),_TmnxMobProfDiaTblLstChgd_Type())
-tmnxMobProfDiaTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfDiaTblLstChgd.setStatus(_A)
-_TmnxMobProfDiaPeerTblLstChgd_Type=TimeStamp
-_TmnxMobProfDiaPeerTblLstChgd_Object=MibScalar
-tmnxMobProfDiaPeerTblLstChgd=_TmnxMobProfDiaPeerTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,3),_TmnxMobProfDiaPeerTblLstChgd_Type())
-tmnxMobProfDiaPeerTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerTblLstChgd.setStatus(_A)
-_TmnxMobProfDiaPeerListTblLstChgd_Type=TimeStamp
-_TmnxMobProfDiaPeerListTblLstChgd_Object=MibScalar
-tmnxMobProfDiaPeerListTblLstChgd=_TmnxMobProfDiaPeerListTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,4),_TmnxMobProfDiaPeerListTblLstChgd_Type())
-tmnxMobProfDiaPeerListTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfDiaPeerListTblLstChgd.setStatus(_A)
-_TmnxMobProfPmipv6TblLstChgd_Type=TimeStamp
-_TmnxMobProfPmipv6TblLstChgd_Object=MibScalar
-tmnxMobProfPmipv6TblLstChgd=_TmnxMobProfPmipv6TblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,5),_TmnxMobProfPmipv6TblLstChgd_Type())
-tmnxMobProfPmipv6TblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPmipv6TblLstChgd.setStatus(_A)
-_TmnxMobProfGtpTblLstChgd_Type=TimeStamp
-_TmnxMobProfGtpTblLstChgd_Object=MibScalar
-tmnxMobProfGtpTblLstChgd=_TmnxMobProfGtpTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,6),_TmnxMobProfGtpTblLstChgd_Type())
-tmnxMobProfGtpTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfGtpTblLstChgd.setStatus(_A)
-_TmnxMobProfPlmnListTblLstChgd_Type=TimeStamp
-_TmnxMobProfPlmnListTblLstChgd_Object=MibScalar
-tmnxMobProfPlmnListTblLstChgd=_TmnxMobProfPlmnListTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,7),_TmnxMobProfPlmnListTblLstChgd_Type())
-tmnxMobProfPlmnListTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPlmnListTblLstChgd.setStatus(_A)
-_TmnxMobProfPolTblLstChgd_Type=TimeStamp
-_TmnxMobProfPolTblLstChgd_Object=MibScalar
-tmnxMobProfPolTblLstChgd=_TmnxMobProfPolTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,8),_TmnxMobProfPolTblLstChgd_Type())
-tmnxMobProfPolTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolTblLstChgd.setStatus(_A)
-_TmnxMobProfPolUntFlowTblLstChgd_Type=TimeStamp
-_TmnxMobProfPolUntFlowTblLstChgd_Object=MibScalar
-tmnxMobProfPolUntFlowTblLstChgd=_TmnxMobProfPolUntFlowTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,9),_TmnxMobProfPolUntFlowTblLstChgd_Type())
-tmnxMobProfPolUntFlowTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolUntFlowTblLstChgd.setStatus(_A)
-_TmnxMobProfPolBaseTblLstChgd_Type=TimeStamp
-_TmnxMobProfPolBaseTblLstChgd_Object=MibScalar
-tmnxMobProfPolBaseTblLstChgd=_TmnxMobProfPolBaseTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,10),_TmnxMobProfPolBaseTblLstChgd_Type())
-tmnxMobProfPolBaseTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolBaseTblLstChgd.setStatus(_A)
-_TmnxMobProfQciPolTblLstChgd_Type=TimeStamp
-_TmnxMobProfQciPolTblLstChgd_Object=MibScalar
-tmnxMobProfQciPolTblLstChgd=_TmnxMobProfQciPolTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,11),_TmnxMobProfQciPolTblLstChgd_Type())
-tmnxMobProfQciPolTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfQciPolTblLstChgd.setStatus(_A)
-_TmnxMobProfQciPolQciTblLstChgd_Type=TimeStamp
-_TmnxMobProfQciPolQciTblLstChgd_Object=MibScalar
-tmnxMobProfQciPolQciTblLstChgd=_TmnxMobProfQciPolQciTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,12),_TmnxMobProfQciPolQciTblLstChgd_Type())
-tmnxMobProfQciPolQciTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfQciPolQciTblLstChgd.setStatus(_A)
-_TmnxMobProfPeerListTblLstChgd_Type=TimeStamp
-_TmnxMobProfPeerListTblLstChgd_Object=MibScalar
-tmnxMobProfPeerListTblLstChgd=_TmnxMobProfPeerListTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,13),_TmnxMobProfPeerListTblLstChgd_Type())
-tmnxMobProfPeerListTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPeerListTblLstChgd.setStatus(_A)
-_TmnxMobProfPeerListPeerTblLtCgd_Type=TimeStamp
-_TmnxMobProfPeerListPeerTblLtCgd_Object=MibScalar
-tmnxMobProfPeerListPeerTblLtCgd=_TmnxMobProfPeerListPeerTblLtCgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,14),_TmnxMobProfPeerListPeerTblLtCgd_Type())
-tmnxMobProfPeerListPeerTblLtCgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPeerListPeerTblLtCgd.setStatus(_A)
-_TmnxMobProfSgwChargingTblLstChgd_Type=TimeStamp
-_TmnxMobProfSgwChargingTblLstChgd_Object=MibScalar
-tmnxMobProfSgwChargingTblLstChgd=_TmnxMobProfSgwChargingTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,15),_TmnxMobProfSgwChargingTblLstChgd_Type())
-tmnxMobProfSgwChargingTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfSgwChargingTblLstChgd.setStatus(_A)
-_TmnxMobProfPgwChargingTblLstChgd_Type=TimeStamp
-_TmnxMobProfPgwChargingTblLstChgd_Object=MibScalar
-tmnxMobProfPgwChargingTblLstChgd=_TmnxMobProfPgwChargingTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,16),_TmnxMobProfPgwChargingTblLstChgd_Type())
-tmnxMobProfPgwChargingTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPgwChargingTblLstChgd.setStatus(_A)
-_TmnxMobGtpPriGrpTblLstChgd_Type=TimeStamp
-_TmnxMobGtpPriGrpTblLstChgd_Object=MibScalar
-tmnxMobGtpPriGrpTblLstChgd=_TmnxMobGtpPriGrpTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,17),_TmnxMobGtpPriGrpTblLstChgd_Type())
-tmnxMobGtpPriGrpTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobGtpPriGrpTblLstChgd.setStatus(_A)
-_TmnxMobGtpPriServerTblLstChgd_Type=TimeStamp
-_TmnxMobGtpPriServerTblLstChgd_Object=MibScalar
-tmnxMobGtpPriServerTblLstChgd=_TmnxMobGtpPriServerTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,18),_TmnxMobGtpPriServerTblLstChgd_Type())
-tmnxMobGtpPriServerTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobGtpPriServerTblLstChgd.setStatus(_A)
-_TmnxMobUmtsQosPolTblLstChgd_Type=TimeStamp
-_TmnxMobUmtsQosPolTblLstChgd_Object=MibScalar
-tmnxMobUmtsQosPolTblLstChgd=_TmnxMobUmtsQosPolTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,19),_TmnxMobUmtsQosPolTblLstChgd_Type())
-tmnxMobUmtsQosPolTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobUmtsQosPolTblLstChgd.setStatus(_A)
-_TmnxMobProfRadTblLstChgd_Type=TimeStamp
-_TmnxMobProfRadTblLstChgd_Object=MibScalar
-tmnxMobProfRadTblLstChgd=_TmnxMobProfRadTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,20),_TmnxMobProfRadTblLstChgd_Type())
-tmnxMobProfRadTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfRadTblLstChgd.setStatus(_A)
-_TmnxMobProfRadGrpTblLstChgd_Type=TimeStamp
-_TmnxMobProfRadGrpTblLstChgd_Object=MibScalar
-tmnxMobProfRadGrpTblLstChgd=_TmnxMobProfRadGrpTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,21),_TmnxMobProfRadGrpTblLstChgd_Type())
-tmnxMobProfRadGrpTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfRadGrpTblLstChgd.setStatus(_A)
-_TmnxMobProfRadPeerTblLstChgd_Type=TimeStamp
-_TmnxMobProfRadPeerTblLstChgd_Object=MibScalar
-tmnxMobProfRadPeerTblLstChgd=_TmnxMobProfRadPeerTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,22),_TmnxMobProfRadPeerTblLstChgd_Type())
-tmnxMobProfRadPeerTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfRadPeerTblLstChgd.setStatus(_A)
-_TmnxMobProfDccaTblLstChgd_Type=TimeStamp
-_TmnxMobProfDccaTblLstChgd_Object=MibScalar
-tmnxMobProfDccaTblLstChgd=_TmnxMobProfDccaTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,23),_TmnxMobProfDccaTblLstChgd_Type())
-tmnxMobProfDccaTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfDccaTblLstChgd.setStatus(_A)
-_TmnxMobProfPolUnitTblLstChgd_Type=TimeStamp
-_TmnxMobProfPolUnitTblLstChgd_Object=MibScalar
-tmnxMobProfPolUnitTblLstChgd=_TmnxMobProfPolUnitTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,24),_TmnxMobProfPolUnitTblLstChgd_Type())
-tmnxMobProfPolUnitTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfPolUnitTblLstChgd.setStatus(_A)
-_TmnxMobProfChgUnitTblLstChgd_Type=TimeStamp
-_TmnxMobProfChgUnitTblLstChgd_Object=MibScalar
-tmnxMobProfChgUnitTblLstChgd=_TmnxMobProfChgUnitTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,25),_TmnxMobProfChgUnitTblLstChgd_Type())
-tmnxMobProfChgUnitTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfChgUnitTblLstChgd.setStatus(_A)
-_TmnxMobProfHTTPRedirctTblLstChgd_Type=TimeStamp
-_TmnxMobProfHTTPRedirctTblLstChgd_Object=MibScalar
-tmnxMobProfHTTPRedirctTblLstChgd=_TmnxMobProfHTTPRedirctTblLstChgd_Object((1,3,6,1,4,1,6527,3,1,2,67,2,26),_TmnxMobProfHTTPRedirctTblLstChgd_Type())
-tmnxMobProfHTTPRedirctTblLstChgd.setMaxAccess(_D)
-if mibBuilder.loadTexts:tmnxMobProfHTTPRedirctTblLstChgd.setStatus(_A)
-tmnxMobProfGlobalGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,1))
-tmnxMobProfGlobalGroup.setObjects(*((_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7),(_B,_B8)))
-if mibBuilder.loadTexts:tmnxMobProfGlobalGroup.setStatus(_A)
-tmnxMobProfGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,2))
-tmnxMobProfGroup.setObjects(*((_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_BU),(_B,_BV),(_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,_Bb),(_B,_Bc),(_B,_Bd),(_B,_Be),(_B,_Bf),(_B,_Bg),(_B,_Bh)))
-if mibBuilder.loadTexts:tmnxMobProfGroup.setStatus(_A)
-tmnxMobProfQciPolicyGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,3))
-tmnxMobProfQciPolicyGroup.setObjects(*((_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm),(_B,_Bn),(_B,_Bo),(_B,_Bp)))
-if mibBuilder.loadTexts:tmnxMobProfQciPolicyGroup.setStatus(_A)
-tmnxMobProfDiameterGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,4))
-tmnxMobProfDiameterGroup.setObjects(*((_B,_Bq),(_B,_Br),(_B,_Bs),(_B,_Bt),(_B,_Bu),(_B,_Bv),(_B,_Bw),(_B,_Bx),(_B,_By),(_B,_Bz),(_B,_B_),(_B,_C0),(_B,_C1),(_B,_C2),(_B,_C3),(_B,_C4),(_B,_C5),(_B,_C6),(_B,_C7),(_B,_C8),(_B,_C9),(_B,_CA),(_B,_CB),(_B,_CC),(_B,_CD)))
-if mibBuilder.loadTexts:tmnxMobProfDiameterGroup.setStatus(_A)
-tmnxMobProfUnsupportedGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,5))
-tmnxMobProfUnsupportedGroup.setObjects(*((_B,_CE),(_B,_CF),(_B,_CG),(_B,_CH),(_B,_CI),(_B,_CJ),(_B,_CK)))
-if mibBuilder.loadTexts:tmnxMobProfUnsupportedGroup.setStatus(_A)
-tmnxMobProfChargingGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,6))
-tmnxMobProfChargingGroup.setObjects(*((_B,_CL),(_B,_CM),(_B,_CN),(_B,_CO),(_B,_CP),(_B,_CQ),(_B,_CR),(_B,_CS),(_B,_CT),(_B,_CU),(_B,_CV),(_B,_CW),(_B,_CX),(_B,_CY),(_B,_CZ),(_B,_Ca),(_B,_Cb),(_B,_Cc),(_B,_Cd),(_B,_Ce),(_B,_Cf),(_B,_Cg),(_B,_Ch),(_B,_Ci),(_B,_Cj),(_B,_Ck),(_B,_Cl),(_B,_Cm),(_B,_Cn),(_B,_Co),(_B,_Cp),(_B,_Cq),(_B,_Cr),(_B,_Cs),(_B,_Ct),(_B,_Cu),(_B,_Cv),(_B,_Cw),(_B,_Cx)))
-if mibBuilder.loadTexts:tmnxMobProfChargingGroup.setStatus(_A)
-tmnxMobProfGtpPrimeServerGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,8))
-tmnxMobProfGtpPrimeServerGroup.setObjects(*((_B,_Cy),(_B,_Cz),(_B,_C_),(_B,_D0),(_B,_D1),(_B,_D2),(_B,_D3),(_B,_D4),(_B,_D5),(_B,_D6),(_B,_D7),(_B,_D8),(_B,_D9),(_B,_DA),(_B,_DB),(_B,_DC),(_B,_DD),(_B,_DE),(_B,_DF),(_B,_DG),(_B,_DH),(_B,_DI),(_B,_DJ),(_B,_DK),(_B,_DL),(_B,_DM),(_B,_DN),(_B,_DO),(_B,_DP),(_B,_DQ),(_B,_DR),(_B,_DS),(_B,_DT),(_B,_DU),(_B,_DV),(_B,_DW),(_B,_DX)))
-if mibBuilder.loadTexts:tmnxMobProfGtpPrimeServerGroup.setStatus(_A)
-tmnxMobProfUmtsQosPolGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,9))
-tmnxMobProfUmtsQosPolGroup.setObjects(*((_B,_DY),(_B,_DZ),(_B,_Da),(_B,_Db),(_B,_Dc),(_B,_Dd),(_B,_De),(_B,_Df),(_B,_Dg),(_B,_Dh),(_B,_Di)))
-if mibBuilder.loadTexts:tmnxMobProfUmtsQosPolGroup.setStatus(_A)
-tmnxMobProfRadiusGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,10))
-tmnxMobProfRadiusGroup.setObjects(*((_B,_Dj),(_B,_Dk),(_B,_Dl),(_B,_Dm),(_B,_Dn),(_B,_Do),(_B,_Dp),(_B,_Dq),(_B,_Dr),(_B,_Ds),(_B,_Dt),(_B,_Du),(_B,_Dv),(_B,_Dw),(_B,_Dx),(_B,_Dy),(_B,_Dz),(_B,_D_),(_B,_E0),(_B,_E1),(_B,_E2),(_B,_E3),(_B,_E4),(_B,_E5),(_B,_E6),(_B,_E7),(_B,_E8),(_B,_E9),(_B,_EA)))
-if mibBuilder.loadTexts:tmnxMobProfRadiusGroup.setStatus(_A)
-tmnxMobProfChargingV3Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,11))
-tmnxMobProfChargingV3Group.setObjects(*((_B,_EB),(_B,_EC),(_B,_ED),(_B,_EE),(_B,_EF),(_B,_EG)))
-if mibBuilder.loadTexts:tmnxMobProfChargingV3Group.setStatus(_A)
-tmnxMobProfDccaGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,12))
-tmnxMobProfDccaGroup.setObjects(*((_B,_EH),(_B,_EI),(_B,_EJ),(_B,_EK),(_B,_EL),(_B,_EM),(_B,_EN),(_B,_EO),(_B,_EP),(_B,_EQ),(_B,_ER),(_B,_ES),(_B,_ET),(_B,_EU),(_B,_EV),(_B,_EW)))
-if mibBuilder.loadTexts:tmnxMobProfDccaGroup.setStatus(_A)
-tmnxMobProfGlobalV3Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,13))
-tmnxMobProfGlobalV3Group.setObjects(*((_B,_EX),(_B,_EY),(_B,_EZ),(_B,_Ea),(_B,_Eb),(_B,_Ec),(_B,_Ed)))
-if mibBuilder.loadTexts:tmnxMobProfGlobalV3Group.setStatus(_A)
-tmnxMobProfV3Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,14))
-tmnxMobProfV3Group.setObjects(*((_B,_Ee),(_B,_Ef),(_B,_Eg),(_B,_Eh),(_B,_Ei),(_B,_Ej),(_B,_Ek),(_B,_El),(_B,_Em),(_B,_En),(_B,_Eo),(_B,_Ep)))
-if mibBuilder.loadTexts:tmnxMobProfV3Group.setStatus(_A)
-tmnxMobProfPolicyRulesV3Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,15))
-tmnxMobProfPolicyRulesV3Group.setObjects(*((_B,_Eq),(_B,_Er),(_B,_Es),(_B,_Et),(_B,_Eu),(_B,_Ev),(_B,_Ew),(_B,_Ex),(_B,_Ey),(_B,_Ez),(_B,_E_),(_B,_F0),(_B,_F1),(_B,_F2),(_B,_F3),(_B,_F4),(_B,_F5),(_B,_F6),(_B,_F7),(_B,_F8),(_B,_F9),(_B,_FA),(_B,_FB),(_B,_FC),(_B,_FD),(_B,_FE),(_B,_FF),(_B,_FG),(_B,_FH),(_B,_FI),(_B,_FJ),(_B,_FK),(_B,_FL),(_B,_FM),(_B,_FN),(_B,_FO),(_B,_FP),(_B,_FQ),(_B,_FR),(_B,_FS),(_B,_FT),(_B,_FU),(_B,_FV),(_B,_FW),(_B,_FX),(_B,_FY),(_B,_FZ),(_B,_Fa),(_B,_Fb),(_B,_Fc),(_B,_Fd),(_B,_Fe),(_B,_Ff),(_B,_Fg),(_B,_Fh)))
-if mibBuilder.loadTexts:tmnxMobProfPolicyRulesV3Group.setStatus(_A)
-tmnxMobProfPmipv6V3Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,16))
-tmnxMobProfPmipv6V3Group.setObjects(*((_B,_Fi),(_B,_Fj),(_B,_Fk),(_B,_Fl),(_B,_Fm),(_B,_Fn),(_B,_Fo),(_B,_Fp),(_B,_Fq),(_B,_Fr)))
-if mibBuilder.loadTexts:tmnxMobProfPmipv6V3Group.setStatus(_A)
-tmnxMobProfileObsoletedGroup=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,17))
-tmnxMobProfileObsoletedGroup.setObjects((_B,_Fs))
-if mibBuilder.loadTexts:tmnxMobProfileObsoletedGroup.setStatus(_A)
-tmnxMobProfPolicyRulesV31Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,18))
-tmnxMobProfPolicyRulesV31Group.setObjects(*((_B,_Ft),(_B,_Fu)))
-if mibBuilder.loadTexts:tmnxMobProfPolicyRulesV31Group.setStatus(_A)
-tmnxMobProfDccaV4v0Group=ObjectGroup((1,3,6,1,4,1,6527,3,1,1,67,2,19))
-tmnxMobProfDccaV4v0Group.setObjects(*((_B,_Fv),(_B,_Fw),(_B,_Fx)))
-if mibBuilder.loadTexts:tmnxMobProfDccaV4v0Group.setStatus(_A)
-tmnxMobProfV1v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,67,1,1))
-tmnxMobProfV1v0Compliance.setObjects(*((_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e)))
-if mibBuilder.loadTexts:tmnxMobProfV1v0Compliance.setStatus(_AB)
-tmnxMobProfV3v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,67,1,2))
-tmnxMobProfV3v0Compliance.setObjects(*((_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u)))
-if mibBuilder.loadTexts:tmnxMobProfV3v0Compliance.setStatus(_AB)
-tmnxMobProf7xxxV10v0Compl=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,67,1,3))
-tmnxMobProf7xxxV10v0Compl.setObjects(*((_B,_c),(_B,_p),(_B,_q),(_B,_b),(_B,_Y),(_B,_r),(_B,_Z),(_B,_d),(_B,_u),(_B,_AF),(_B,_t),(_B,_a),(_B,_o),(_B,_e),(_B,_s),(_B,_AG)))
-if mibBuilder.loadTexts:tmnxMobProf7xxxV10v0Compl.setStatus(_A)
-tmnxMobProfV4v0Compliance=ModuleCompliance((1,3,6,1,4,1,6527,3,1,1,67,1,4))
-tmnxMobProfV4v0Compliance.setObjects(*((_B,_c),(_B,_p),(_B,_q),(_B,_b),(_B,_Y),(_B,_r),(_B,_Z),(_B,_d),(_B,_u),(_B,_AF),(_B,_t),(_B,_a),(_B,_o),(_B,_e),(_B,_s),(_B,_AG),(_B,_Fy)))
-if mibBuilder.loadTexts:tmnxMobProfV4v0Compliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_J:TmnxMobProfThreshold,_A3:TmnxMobProfMsgReTxTimeout,_A4:TmnxMobProfMsgReTxRetryCount,_AY:TmnxMobProfKeepAliveTimeout,_A6:TmnxMobProfKeepAliveRetryCount,_A5:TmnxMobProfKeepAliveResponse,_AW:TmnxMobProfKeepAliveInterval,_R:TmnxMobProfAllowDiscard,'timetraMobProfileMIBModule':timetraMobProfileMIBModule,'tmnxMobProfileConformance':tmnxMobProfileConformance,'tmnxMobProfileCompliances':tmnxMobProfileCompliances,'tmnxMobProfV1v0Compliance':tmnxMobProfV1v0Compliance,'tmnxMobProfV3v0Compliance':tmnxMobProfV3v0Compliance,'tmnxMobProf7xxxV10v0Compl':tmnxMobProf7xxxV10v0Compl,'tmnxMobProfV4v0Compliance':tmnxMobProfV4v0Compliance,'tmnxMobProfileGroups':tmnxMobProfileGroups,_Y:tmnxMobProfGlobalGroup,_Z:tmnxMobProfGroup,_a:tmnxMobProfQciPolicyGroup,_b:tmnxMobProfDiameterGroup,_AG:tmnxMobProfUnsupportedGroup,_c:tmnxMobProfChargingGroup,_d:tmnxMobProfGtpPrimeServerGroup,_e:tmnxMobProfUmtsQosPolGroup,_o:tmnxMobProfRadiusGroup,_p:tmnxMobProfChargingV3Group,_q:tmnxMobProfDccaGroup,_r:tmnxMobProfGlobalV3Group,_s:tmnxMobProfV3Group,_t:tmnxMobProfPolicyRulesV3Group,_u:tmnxMobProfPmipv6V3Group,'tmnxMobProfileObsoletedGroup':tmnxMobProfileObsoletedGroup,_AF:tmnxMobProfPolicyRulesV31Group,_Fy:tmnxMobProfDccaV4v0Group,'tmnxMobProfile':tmnxMobProfile,'tmnxMobProfileObjs':tmnxMobProfileObjs,'tmnxMobProfSysTable':tmnxMobProfSysTable,'tmnxMobProfSysEntry':tmnxMobProfSysEntry,_AS:tmnxMobProfSysName,_B9:tmnxMobProfSysRowStatus,_BA:tmnxMobProfSysLastChanged,_CG:tmnxMobProfSysDescription,_BB:tmnxMobProfSysBCLimit,_BC:tmnxMobProfSysBCActivtyRate,_BD:tmnxMobProfSysBCPdnLimit,_BE:tmnxMobProfSysBCUeLimit,_BF:tmnxMobProfSysSDFIpv4Limit,_BG:tmnxMobProfSysSDFIpv6Limit,_BH:tmnxMobProfSysCpuThreshldCriticl,_BI:tmnxMobProfSysCpuThreshldMajor,_BJ:tmnxMobProfSysCpuThreshldMinor,_BK:tmnxMobProfSysMemThreshldCriticl,_BL:tmnxMobProfSysMemThreshldMajor,_BM:tmnxMobProfSysMemThreshldMinor,_BN:tmnxMobProfSysSgnlFailThrshldS5,_BO:tmnxMobProfSysSgnlFailThrshldS8,_BP:tmnxMobProfSysSgnlFailThrshldS11,_BQ:tmnxMobProfSysSgnlFailThrshldGxc,_BR:tmnxMobProfSysTrfcDropThrshldS1u,_BS:tmnxMobProfSysTrfcDropThrshldS5,_BT:tmnxMobProfSysTrfcDropThrshldS8,_BU:tmnxMobProfSysPagingBufferLimit,_BV:tmnxMobProfSysPagingBufferSize,_BW:tmnxMobProfSysPagingTimeout,_BX:tmnxMobProfSysS1BufferLimit,_BY:tmnxMobProfSysS1BufferSize,'tmnxMobProfDiaTable':tmnxMobProfDiaTable,'tmnxMobProfDiaEntry':tmnxMobProfDiaEntry,_AT:tmnxMobProfDiaName,_Bq:tmnxMobProfDiaRowStatus,_Br:tmnxMobProfDiaLastChanged,_CH:tmnxMobProfDiaDescription,_Bs:tmnxMobProfDiaWatchdgTimer,_Bt:tmnxMobProfDiaConnTimer,_Bu:tmnxMobProfDiaTransTimer,_Bv:tmnxMobProfDiaIpTtl,_Bw:tmnxMobProfDiaIpDscp,_Bx:tmnxMobProfDiaDprTimeout,_By:tmnxMobProfDiaPermFailRetryTime,_Bz:tmnxMobProfDiaDnsRefreshInt,'tmnxMobProfDiaPeerTable':tmnxMobProfDiaPeerTable,'tmnxMobProfDiaPeerEntry':tmnxMobProfDiaPeerEntry,_A2:tmnxMobProfDiaPeerName,_B_:tmnxMobProfDiaPeerRowStatus,_C0:tmnxMobProfDiaPeerLastChanged,_CI:tmnxMobProfDiaPeerDescription,_C1:tmnxMobProfDiaPeerDiaProfName,_C2:tmnxMobProfDiaPeerDestRealm,_C3:tmnxMobProfDiaPeerTransport,_C4:tmnxMobProfDiaPeerLoadBalance,_C5:tmnxMobProfDiaPeerIfVRtrId,_C6:tmnxMobProfDiaPeerIfIndex,_C7:tmnxMobProfDiaPeerApplication,'tmnxMobProfDiaPeerListTable':tmnxMobProfDiaPeerListTable,'tmnxMobProfDiaPeerListEntry':tmnxMobProfDiaPeerListEntry,_AU:tmnxMobProfDiaPeerListIndex,_C8:tmnxMobProfDiaPeerListRowStatus,_C9:tmnxMobProfDiaPeerListLastChngd,_CA:tmnxMobProfDiaPeerListAddrType,_CB:tmnxMobProfDiaPeerListAddr,_CC:tmnxMobProfDiaPeerListPort,_CD:tmnxMobProfDiaPeerAdminState,'tmnxMobProfPmipv6Table':tmnxMobProfPmipv6Table,'tmnxMobProfPmipv6Entry':tmnxMobProfPmipv6Entry,_AV:tmnxMobProfPmipv6Name,_Fi:tmnxMobProfPmipv6RowStatus,_Fj:tmnxMobProfPmipv6LastChanged,_Fk:tmnxMobProfPmipv6Description,_Fl:tmnxMobProfPmipv6MsgReTxTimeout,_Fm:tmnxMobProfPmipv6MsgReTxRetryCnt,_Fn:tmnxMobProfPmipv6KeepAlvTimeout,_Fo:tmnxMobProfPmipv6KeepAlvRetryCnt,_Fr:tmnxMobProfPmipv6KeepAlvIntvl,_Fp:tmnxMobProfPmipv6IpTtl,_Fq:tmnxMobProfPmipv6IpDscp,'tmnxMobProfGtpTable':tmnxMobProfGtpTable,'tmnxMobProfGtpEntry':tmnxMobProfGtpEntry,_AX:tmnxMobProfGtpName,_BZ:tmnxMobProfGtpRowStatus,_Ba:tmnxMobProfGtpLastChanged,_CJ:tmnxMobProfGtpDescription,_Bb:tmnxMobProfGtpMsgReTxTimeout,_Bc:tmnxMobProfGtpMsgReTxRetryCnt,_Bd:tmnxMobProfGtpKeepAlvTimeout,_Be:tmnxMobProfGtpKeepAlvRetryCnt,_Bf:tmnxMobProfGtpKeepAlvResp,_Bg:tmnxMobProfGtpIpTtl,_Bh:tmnxMobProfGtpIpDscp,'tmnxMobProfPlmnListTable':tmnxMobProfPlmnListTable,'tmnxMobProfPlmnListEntry':tmnxMobProfPlmnListEntry,_AZ:tmnxMobProfPlmnListName,_Aa:tmnxMobProfPlmnListMcc,_Ab:tmnxMobProfPlmnListMnc,_CF:tmnxMobProfPlmnListRowStatus,'tmnxMobProfPolTable':tmnxMobProfPolTable,'tmnxMobProfPolEntry':tmnxMobProfPolEntry,_A7:tmnxMobProfPolName,_Eq:tmnxMobProfPolRowStatus,_Er:tmnxMobProfPolLastChanged,_Es:tmnxMobProfPolRuleUnitName,_Et:tmnxMobProfChgRuleUnitName,_Eu:tmnxMobProfPolQciValue,_Ev:tmnxMobProfPolArpValue,_FT:tmnxMobProfPolPrecedence,_Fc:tmnxMobProfPolInUse,_Fd:tmnxMobProfPolRefCount,_Fu:tmnxMobProfPolConfRefCount,'tmnxMobProfPolUntFlwTable':tmnxMobProfPolUntFlwTable,'tmnxMobProfPolUntFlwEntry':tmnxMobProfPolUntFlwEntry,_Ac:tmnxMobProfPolUntFlwId,_Ew:tmnxMobProfPolUntFlwRowStatus,_Ex:tmnxMobProfPolUntFlwLastChanged,_Ey:tmnxMobProfPolUntFlwDirection,_Ez:tmnxMobProfPolUntFlwMatchPrtcl,_E_:tmnxMobProfPolUntFlwLclAddrType,_F0:tmnxMobProfPolUntFlwLclAddr,_F1:tmnxMobProfPolUntFlwLclPrefixLen,_F2:tmnxMobProfPolUntFlwRmtAddrType,_F3:tmnxMobProfPolUntFlwRmtAddr,_F4:tmnxMobProfPolUntFlwRmtPrefixLen,_F5:tmnxMobProfPolUntFlwLclPortVal1,_F6:tmnxMobProfPolUntFlwLclPortVal2,_F7:tmnxMobProfPolUntFlwLclPortOper,_F8:tmnxMobProfPolUntFlwRmtPortVal1,_F9:tmnxMobProfPolUntFlwRmtPortVal2,_FA:tmnxMobProfPolUntFlwRmtPortOper,_FY:tmnxMobProfPolUntFlwAaApp,'tmnxMobProfPolBaseTable':tmnxMobProfPolBaseTable,'tmnxMobProfPolBaseEntry':tmnxMobProfPolBaseEntry,_Ad:tmnxMobProfPolBaseName,_FB:tmnxMobProfPolBaseRowStatus,_FC:tmnxMobProfPolBaseLastChanged,_FD:tmnxMobProfPolBasePrecedence,_FE:tmnxMobProfPolBasePreActivate,_Fg:tmnxMobProfPolBaseInUse,_Fh:tmnxMobProfPolBaseRefCount,_Ft:tmnxMobProfPolBaseConfRefCount,'tmnxMobProfQciPolTable':tmnxMobProfQciPolTable,'tmnxMobProfQciPolEntry':tmnxMobProfQciPolEntry,_A8:tmnxMobProfQciPolName,_Bi:tmnxMobProfQciPolRowStatus,_Bj:tmnxMobProfQciPolLastChanged,_CK:tmnxMobProfQciPolDescription,'tmnxMobProfQciPolQciTable':tmnxMobProfQciPolQciTable,'tmnxMobProfQciPolQciEntry':tmnxMobProfQciPolQciEntry,_Ae:tmnxMobProfQciPolQciValue,_Af:tmnxMobProfQciPolQciArpValue,_Bk:tmnxMobProfQciPolQciLastChanged,_Bl:tmnxMobProfQciPolQciDscpPreserve,_Bm:tmnxMobProfQciPolQciDscp,_Bn:tmnxMobProfQciPolQciDscpOut,_Bo:tmnxMobProfQciPolQciFcName,_Bp:tmnxMobProfQciPolQciProfile,'tmnxMobProfPeerListTable':tmnxMobProfPeerListTable,'tmnxMobProfPeerListEntry':tmnxMobProfPeerListEntry,_A9:tmnxMobProfPeerListName,_Ee:tmnxMobProfPeerListRowStatus,_Ef:tmnxMobProfPeerListLastChanged,_Eg:tmnxMobProfPeerListDescription,'tmnxMobProfPeerListPeerTable':tmnxMobProfPeerListPeerTable,'tmnxMobProfPeerListPeerEntry':tmnxMobProfPeerListPeerEntry,_Ag:tmnxMobProfPeerListPeerAddrType,_Ah:tmnxMobProfPeerListPeerAddr,_Ai:tmnxMobProfPeerListPeerPrefixLen,_Eh:tmnxMobProfPeerListPeerRowStatus,_Ei:tmnxMobProfPeerListPeerLastChgd,_Ej:tmnxMobProfPeerListPeerDesc,_Ek:tmnxMobProfPeerListPeerKeepAlive,_El:tmnxMobProfPeerListPeerAdmnState,_Em:tmnxMobProfPeerListPeerRatType,_En:tmnxMobProfPeerListPeerForeign,_Eo:tmnxMobProfPeerListPeerPlmnMcc,_Ep:tmnxMobProfPeerListPeerPlmnMnc,'tmnxMobProfSgwChargingTable':tmnxMobProfSgwChargingTable,'tmnxMobProfSgwChargingEntry':tmnxMobProfSgwChargingEntry,_Aj:tmnxMobProfSgwChrgId,_CL:tmnxMobProfSgwChrgRowStatus,_CM:tmnxMobProfSgwChrgLastChanged,_CN:tmnxMobProfSgwChrgDesc,_CO:tmnxMobProfSgwChrgOffLineState,_CP:tmnxMobProfSgwChrgPriCdfDiaPeer,_CQ:tmnxMobProfSgwChrgSecCdfDiaPeer,_CR:tmnxMobProfSgwChrgCitQosChange,_CS:tmnxMobProfSgwChrgCitUsrLocChnge,_CT:tmnxMobProfSgwChrgCitTrfTimeChng,_CU:tmnxMobProfSgwChrgCitTrfTmStart,_CV:tmnxMobProfSgwChrgCitTrfTmEnd,_CW:tmnxMobProfSgwChrgPrctTimeLmt,_CX:tmnxMobProfSgwChrgPrctVolumeLmt,_CY:tmnxMobProfSgwChrgPrctMaxChCond,_CZ:tmnxMobProfSgwChrgPrctMsTmzChnge,_Ca:tmnxMobProfSgwChrgPrctPlmnChange,_Cb:tmnxMobProfSgwChrgPrctRatChange,_Cc:tmnxMobProfSgwChrgPrctMgmtInterv,_Fs:tmnxMobProfSgwChrgCitSgwChange,_EG:tmnxMobProfSgwChrgPrctSrvNdChLmt,'tmnxMobProfPgwChargingTable':tmnxMobProfPgwChargingTable,'tmnxMobProfPgwChargingEntry':tmnxMobProfPgwChargingEntry,_Ak:tmnxMobProfPgwChrgId,_Cd:tmnxMobProfPgwChrgRowStatus,_Ce:tmnxMobProfPgwChrgLastChanged,_Cf:tmnxMobProfPgwChrgDesc,_Cg:tmnxMobProfPgwChrgOffLineState,_Ch:tmnxMobProfPgwChrgPriCdfDiaPeer,_Ci:tmnxMobProfPgwChrgSecCdfDiaPeer,_Cj:tmnxMobProfPgwChrgCitQosChange,_Ck:tmnxMobProfPgwChrgCitUsrLocChnge,_Cl:tmnxMobProfPgwChrgCitTrfTimeChng,_Cm:tmnxMobProfPgwChrgCitTrfTmStart,_Cn:tmnxMobProfPgwChrgCitTrfTmEnd,_Co:tmnxMobProfPgwChrgCitSgwChange,_Cp:tmnxMobProfPgwChrgCitTimeLmtRg,_Cq:tmnxMobProfPgwChrgCitVolumeLmtRg,_Cr:tmnxMobProfPgwChrgCitTermServDf,_Cs:tmnxMobProfPgwChrgPrctTimeLmt,_Ct:tmnxMobProfPgwChrgPrctVolumeLmt,_Cu:tmnxMobProfPgwChrgPrctMaxChCond,_Cv:tmnxMobProfPgwChrgPrctMsTmzChnge,_Cw:tmnxMobProfPgwChrgPrctPlmnChange,_Cx:tmnxMobProfPgwChrgPrctRatChange,_EB:tmnxMobProfPgwChrgGyState,_EC:tmnxMobProfPgwGyPriOcsDiaPeer,_ED:tmnxMobProfPgwGySecOcsDiaPeer,_EE:tmnxMobProfPgwGyDccaProf,_EF:tmnxMobProfPgwChrgPrctSrvNdChLmt,'tmnxMobGtpPriGrpTable':tmnxMobGtpPriGrpTable,'tmnxMobGtpPriGrpEntry':tmnxMobGtpPriGrpEntry,_AC:tmnxMobGtpPriGrpName,_Cy:tmnxMobGtpPriGrpRowStatus,_Cz:tmnxMobGtpPriGrpLastChanged,_C_:tmnxMobGtpPriGrpDescription,_D0:tmnxMobGtpPriGrpMaxCdrsPerPdu,_D1:tmnxMobGtpPriGrpDeadtime,_D2:tmnxMobGtpPriGrpRedirection,_D3:tmnxMobGtpPriGrpIfVRtrId,_D4:tmnxMobGtpPriGrpIfIndex,_D5:tmnxMobGtpPriGrpLocalCdrStorage,_D6:tmnxMobGtpPriGrpFilePrivateInfo,_D7:tmnxMobGtpPriGrpFileExtension,_D8:tmnxMobGtpPriGrpFileClosureSize,_D9:tmnxMobGtpPriGrpFileClsLifeTime,_DA:tmnxMobGtpPriGrpFileClsMaxRecs,_DB:tmnxMobGtpPriGrpFileObsoleteTime,_DC:tmnxMobGtpPriGrpPrimaryCf,_DD:tmnxMobGtpPriGrpCf1State,_DE:tmnxMobGtpPriGrpCf1Limit,_DF:tmnxMobGtpPriGrpCf2State,_DG:tmnxMobGtpPriGrpCf2Limit,_DH:tmnxMobGtpPriGrpCpmMemoryState,_DI:tmnxMobGtpPriGrpQueueSize,_DJ:tmnxMobGtpPriGrpAdminState,_DK:tmnxMobGtpPriGrpInactiveTimer,'tmnxMobGtpPriServerTable':tmnxMobGtpPriServerTable,'tmnxMobGtpPriServerEntry':tmnxMobGtpPriServerEntry,_Al:tmnxMobGtpPriServerIndex,_DL:tmnxMobGtpPriServerRowStatus,_DM:tmnxMobGtpPriServerLastChngd,_DN:tmnxMobGtpPriServerAdminState,_DO:tmnxMobGtpPriServerAddrType,_DP:tmnxMobGtpPriServerAddr,_DQ:tmnxMobGtpPriServerPort,_DR:tmnxMobGtpPriServerRetries,_DS:tmnxMobGtpPriServerTimeout,_DT:tmnxMobGtpPriServerEchoInterval,_DU:tmnxMobGtpPriServerMaxRequests,_DV:tmnxMobGtpPriServerNodeAlive,_DW:tmnxMobGtpPriServerPriority,_DX:tmnxMobGtpPriServerPathProtocol,'tmnxMobUmtsQosPolTable':tmnxMobUmtsQosPolTable,'tmnxMobUmtsQosPolEntry':tmnxMobUmtsQosPolEntry,_Am:tmnxMobUmtsQosPolName,_DY:tmnxMobUmtsQosPolRowStatus,_DZ:tmnxMobUmtsQosPolLastChanged,_Da:tmnxMobUmtsQosPolConvSpeechQci,_Db:tmnxMobUmtsQosPolConvUnkTdg,_Dc:tmnxMobUmtsQosPolConvUnkTdl,_Dd:tmnxMobUmtsQosPolStreamQciValue,_De:tmnxMobUmtsQosPolInterSigP1Qci,_Df:tmnxMobUmtsQosPolInterP1Qci,_Dg:tmnxMobUmtsQosPolInterP2Qci,_Dh:tmnxMobUmtsQosPolInterP3Qci,_Di:tmnxMobUmtsQosPolBackground,'tmnxMobProfRadTable':tmnxMobProfRadTable,'tmnxMobProfRadEntry':tmnxMobProfRadEntry,_An:tmnxMobProfRadName,_Dj:tmnxMobProfRadRowStatus,_Dk:tmnxMobProfRadLastChanged,_Dl:tmnxMobProfRadDescription,_Dm:tmnxMobProfRadAuthProbeInt,_Dn:tmnxMobProfRadServerDeadTime,_Do:tmnxMobProfRadRetryTimeout,_Dp:tmnxMobProfRadRetryCount,'tmnxMobProfRadGrpTable':tmnxMobProfRadGrpTable,'tmnxMobProfRadGrpEntry':tmnxMobProfRadGrpEntry,_AE:tmnxMobProfRadGrpName,_Dq:tmnxMobProfRadGrpRowStatus,_Dr:tmnxMobProfRadGrpLastChanged,_Ds:tmnxMobProfRadGrpDescription,_Dt:tmnxMobProfRadGrpIfVRtrId,_Du:tmnxMobProfRadGrpIfIndex,_Dv:tmnxMobProfRadGrpAuthServerPort,_Dw:tmnxMobProfRadGrpAcctServerPort,_Dx:tmnxMobProfRadGrpSecret,_Dy:tmnxMobProfRadGrpIntUpdateIntvl,_Dz:tmnxMobProfRadGrpServerType,_D_:tmnxMobProfRadGrpRadiusProfile,_E0:tmnxMobProfRadGrpIgnAcctResp,'tmnxMobProfRadPeerTable':tmnxMobProfRadPeerTable,'tmnxMobProfRadPeerEntry':tmnxMobProfRadPeerEntry,_Ao:tmnxMobProfRadPeerIndex,_E1:tmnxMobProfRadPeerRowStatus,_E2:tmnxMobProfRadPeerLastChngd,_E3:tmnxMobProfRadPeerAdminState,_E4:tmnxMobProfRadPeerAddrType,_E5:tmnxMobProfRadPeerAddr,_E6:tmnxMobProfRadPeerPriority,_E7:tmnxMobProfRadPeerAuthSvrPort,_E8:tmnxMobProfRadPeerAcctSvrPort,_E9:tmnxMobProfRadPeerSecret,_EA:tmnxMobProfRadPeerRadProfile,'tmnxMobProfDccaTable':tmnxMobProfDccaTable,'tmnxMobProfDccaEntry':tmnxMobProfDccaEntry,_Ap:tmnxMobProfDccaName,_EH:tmnxMobProfDccaRowStatus,_EI:tmnxMobProfDccaLastChanged,_EJ:tmnxMobProfDccaDescription,_EK:tmnxMobProfDccaApplTxTimer,_EL:tmnxMobProfDccaRetryCnt,_EM:tmnxMobProfDcca3GppQosNegProf,_EN:tmnxMobProfDccaQosInformation,_EO:tmnxMobProfDccaCalledStationId,_EP:tmnxMobProfDccaCcSessFailover,_EQ:tmnxMobProfDccaCcSessFlovrHndl,_ER:tmnxMobProfDccaForcedReAuth,_ES:tmnxMobProfDccaQuotaExNoThrsld,_ET:tmnxMobProfDccaQuotaExThrsldAct,_EU:tmnxMobProfDccaQuotaUnavail,_EV:tmnxMobProfDccaRatingCondtChng,_EW:tmnxMobProfDccaValidityTimeExp,_Fv:tmnxMobProfDccaFhSessContTimer,_Fw:tmnxMobProfDccaDefaultQht,_Fx:tmnxMobProfDccaFirstPktBehavior,'tmnxMobProfPolUnitTable':tmnxMobProfPolUnitTable,'tmnxMobProfPolUnitEntry':tmnxMobProfPolUnitEntry,_m:tmnxMobProfPolUnitName,_FF:tmnxMobProfPolUnitRowStatus,_FG:tmnxMobProfPolUnitLastChanged,_FH:tmnxMobProfPolUnitUplinkGbrRate,_FI:tmnxMobProfPolUnitUplinkMbrRate,_FJ:tmnxMobProfPolUnitDwnlinkGbrRate,_FK:tmnxMobProfPolUnitDwnlinkMbrRate,_FL:tmnxMobProfPolUntFlwGateStatus,_FW:tmnxMobProfPolUntRedirectAdrType,_FX:tmnxMobProfPolUntRedirectAddr,_Fa:tmnxMobProfPolUntInUse,_Fb:tmnxMobProfPolUntRefCount,'tmnxMobProfChgUnitTable':tmnxMobProfChgUnitTable,'tmnxMobProfChgUnitEntry':tmnxMobProfChgUnitEntry,_Aq:tmnxMobProfChgUnitName,_FM:tmnxMobProfChgUnitRowStatus,_FN:tmnxMobProfChgUnitLastChanged,_FO:tmnxMobProfChgUnitRatingGroup,_FP:tmnxMobProfChgUnitServIdentifier,_FQ:tmnxMobProfChgUnitReportingLevel,_FR:tmnxMobProfChgUnitChargingMethod,_FS:tmnxMobProfChgUnitMeteringMethod,_Fe:tmnxMobProfChgUnitInUse,_Ff:tmnxMobProfChgUnitRefCount,'tmnxMobProfHTTPRedirectTable':tmnxMobProfHTTPRedirectTable,'tmnxMobProfHTTPRedirectEntry':tmnxMobProfHTTPRedirectEntry,_Ar:tmnxMobProfHttpRedirectName,_FU:tmnxMobProfHttpRedirectRowStatus,_FV:tmnxMobProfHttpRedirectLstChgd,_FZ:tmnxMobProfHttpRedirctPrecedence,'tmnxMobProfileGlobalObjs':tmnxMobProfileGlobalObjs,_As:tmnxMobProfSysTblLstChgd,_At:tmnxMobProfDiaTblLstChgd,_Au:tmnxMobProfDiaPeerTblLstChgd,_Av:tmnxMobProfDiaPeerListTblLstChgd,_B8:tmnxMobProfPmipv6TblLstChgd,_Aw:tmnxMobProfGtpTblLstChgd,_CE:tmnxMobProfPlmnListTblLstChgd,_B0:tmnxMobProfPolTblLstChgd,_B1:tmnxMobProfPolUntFlowTblLstChgd,_B2:tmnxMobProfPolBaseTblLstChgd,_Ax:tmnxMobProfQciPolTblLstChgd,_Ay:tmnxMobProfQciPolQciTblLstChgd,_Az:tmnxMobProfPeerListTblLstChgd,_A_:tmnxMobProfPeerListPeerTblLtCgd,_B3:tmnxMobProfSgwChargingTblLstChgd,_B4:tmnxMobProfPgwChargingTblLstChgd,_B5:tmnxMobGtpPriGrpTblLstChgd,_B6:tmnxMobGtpPriServerTblLstChgd,_B7:tmnxMobUmtsQosPolTblLstChgd,_EY:tmnxMobProfRadTblLstChgd,_EZ:tmnxMobProfRadGrpTblLstChgd,_Ea:tmnxMobProfRadPeerTblLstChgd,_EX:tmnxMobProfDccaTblLstChgd,_Eb:tmnxMobProfPolUnitTblLstChgd,_Ec:tmnxMobProfChgUnitTblLstChgd,_Ed:tmnxMobProfHTTPRedirctTblLstChgd})
+#
+# PySNMP MIB module TIMETRA-MOBILE-PROFILE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nokia/TIMETRA-MOBILE-PROFILE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:21:59 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
+InetAddressPrefixLength, InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetPortNumber", "InetAddressType", "InetAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "TruthValue", "TextualConvention")
+tmnxSRConfs, tmnxSRObjs, timetraSRMIBModules = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRConfs", "tmnxSRObjs", "timetraSRMIBModules")
+TmnxMobProfIpTtl, TmnxMobProfNameOrEmpty, TmnxMobQciValue, TmnxMobQciValueOrZero, TmnxMobArpValue, TmnxMobBufferLimit, TmnxMobStaticPolPrecedenceOrZero, TmnxMobDiaTransTimer, TmnxMobDiaPeerHost, TmnxMobQueueLimit, TmnxMobMccOrEmpty, TmnxMobChargingProfile, TmnxMobMnc, TmnxMobMncOrEmpty, TmnxMobProfPolReportingLevel, TmnxMobProfMbrRate, TmnxMobMcc, TmnxMobArpValueOrZero, TmnxMobProfGbrRate, TmnxMobProfName, TmnxMobProfPolMeteringMethod, TmnxMobProfPolChargingMethod = mibBuilder.importSymbols("TIMETRA-TC-MG-MIB", "TmnxMobProfIpTtl", "TmnxMobProfNameOrEmpty", "TmnxMobQciValue", "TmnxMobQciValueOrZero", "TmnxMobArpValue", "TmnxMobBufferLimit", "TmnxMobStaticPolPrecedenceOrZero", "TmnxMobDiaTransTimer", "TmnxMobDiaPeerHost", "TmnxMobQueueLimit", "TmnxMobMccOrEmpty", "TmnxMobChargingProfile", "TmnxMobMnc", "TmnxMobMncOrEmpty", "TmnxMobProfPolReportingLevel", "TmnxMobProfMbrRate", "TmnxMobMcc", "TmnxMobArpValueOrZero", "TmnxMobProfGbrRate", "TmnxMobProfName", "TmnxMobProfPolMeteringMethod", "TmnxMobProfPolChargingMethod")
+TmnxVRtrID, TNamedItemOrEmpty, TDSCPValue, TTcpUdpPortOperator, TmnxEnabledDisabled, TItemDescription, TDSCPName, TTcpUdpPort, TIpProtocol, TmnxTimeInSec, TmnxAdminState, TFCName = mibBuilder.importSymbols("TIMETRA-TC-MIB", "TmnxVRtrID", "TNamedItemOrEmpty", "TDSCPValue", "TTcpUdpPortOperator", "TmnxEnabledDisabled", "TItemDescription", "TDSCPName", "TTcpUdpPort", "TIpProtocol", "TmnxTimeInSec", "TmnxAdminState", "TFCName")
+timetraMobProfileMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 67))
+timetraMobProfileMIBModule.setRevisions(('2009-12-23 00:00',))
+if mibBuilder.loadTexts: timetraMobProfileMIBModule.setLastUpdated('0912230000Z')
+if mibBuilder.loadTexts: timetraMobProfileMIBModule.setOrganization('Nokia')
+tmnxMobProfile = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67))
+tmnxMobProfileObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1))
+tmnxMobProfileGlobalObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2))
+tmnxMobProfileConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67))
+tmnxMobProfileCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 1))
+tmnxMobProfileGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2))
+class TmnxMobProfThreshold(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 100)
+
+class TmnxMobProfMsgReTxTimeout(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 30)
+
+class TmnxMobProfMsgReTxRetryCount(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 8)
+
+class TmnxMobProfKeepAliveTimeout(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(60, 180), )
+class TmnxMobProfKeepAliveRetryCount(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 15)
+
+class TmnxMobProfKeepAliveResponse(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 20)
+
+class TmnxMobProfKeepAliveInterval(TextualConvention, Unsigned32):
+    status = 'current'
+    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(60, 180), )
+class TmnxMobProfAllowDiscard(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("allow", 1), ("discard", 2))
+
+tmnxMobProfSysTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 1), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfSysTblLstChgd.setStatus('current')
+tmnxMobProfSysTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1), )
+if mibBuilder.loadTexts: tmnxMobProfSysTable.setStatus('current')
+tmnxMobProfSysEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1), ).setIndexNames((1, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysName"))
+if mibBuilder.loadTexts: tmnxMobProfSysEntry.setStatus('current')
+tmnxMobProfSysName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfSysName.setStatus('current')
+tmnxMobProfSysRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysRowStatus.setStatus('current')
+tmnxMobProfSysLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfSysLastChanged.setStatus('current')
+tmnxMobProfSysDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 4), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysDescription.setStatus('current')
+tmnxMobProfSysBCLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10000, 250000)).clone(250000)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysBCLimit.setStatus('current')
+tmnxMobProfSysBCActivtyRate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(100, 1000)).clone(500)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysBCActivtyRate.setStatus('current')
+tmnxMobProfSysBCPdnLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 11)).clone(5)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysBCPdnLimit.setStatus('current')
+tmnxMobProfSysBCUeLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 11)).clone(5)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysBCUeLimit.setStatus('current')
+tmnxMobProfSysSDFIpv4Limit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1500000)).clone(390000)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysSDFIpv4Limit.setStatus('current')
+tmnxMobProfSysSDFIpv6Limit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 512000)).clone(190000)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysSDFIpv6Limit.setStatus('current')
+tmnxMobProfSysCpuThreshldCriticl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 11), TmnxMobProfThreshold().clone(50)).setUnits('percentage').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysCpuThreshldCriticl.setStatus('current')
+tmnxMobProfSysCpuThreshldMajor = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 12), TmnxMobProfThreshold().clone(50)).setUnits('percentage').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysCpuThreshldMajor.setStatus('current')
+tmnxMobProfSysCpuThreshldMinor = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 13), TmnxMobProfThreshold().clone(50)).setUnits('percentage').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysCpuThreshldMinor.setStatus('current')
+tmnxMobProfSysMemThreshldCriticl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 14), TmnxMobProfThreshold().clone(50)).setUnits('percentage').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysMemThreshldCriticl.setStatus('current')
+tmnxMobProfSysMemThreshldMajor = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 15), TmnxMobProfThreshold().clone(50)).setUnits('percentage').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysMemThreshldMajor.setStatus('current')
+tmnxMobProfSysMemThreshldMinor = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 16), TmnxMobProfThreshold().clone(50)).setUnits('percentage').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysMemThreshldMinor.setStatus('current')
+tmnxMobProfSysSgnlFailThrshldS5 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 17), TmnxMobProfThreshold().clone(50)).setUnits('percentage').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysSgnlFailThrshldS5.setStatus('current')
+tmnxMobProfSysSgnlFailThrshldS8 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 18), TmnxMobProfThreshold().clone(50)).setUnits('percentage').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysSgnlFailThrshldS8.setStatus('current')
+tmnxMobProfSysSgnlFailThrshldS11 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 19), TmnxMobProfThreshold().clone(50)).setUnits('percentage').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysSgnlFailThrshldS11.setStatus('current')
+tmnxMobProfSysSgnlFailThrshldGxc = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 20), TmnxMobProfThreshold().clone(50)).setUnits('percentage').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysSgnlFailThrshldGxc.setStatus('current')
+tmnxMobProfSysTrfcDropThrshldS1u = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 21), TmnxMobProfThreshold().clone(50)).setUnits('percentage').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysTrfcDropThrshldS1u.setStatus('current')
+tmnxMobProfSysTrfcDropThrshldS5 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 22), TmnxMobProfThreshold().clone(50)).setUnits('percentage').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysTrfcDropThrshldS5.setStatus('current')
+tmnxMobProfSysTrfcDropThrshldS8 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 23), TmnxMobProfThreshold().clone(50)).setUnits('percentage').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysTrfcDropThrshldS8.setStatus('current')
+tmnxMobProfSysPagingBufferLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 24), TmnxMobBufferLimit().clone(8000)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysPagingBufferLimit.setStatus('current')
+tmnxMobProfSysPagingBufferSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 25), TmnxMobQueueLimit().clone(8000)).setUnits('bytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysPagingBufferSize.setStatus('current')
+tmnxMobProfSysPagingTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 26), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 60)).clone(30)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysPagingTimeout.setStatus('current')
+tmnxMobProfSysS1BufferLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 27), TmnxMobBufferLimit().clone(8000)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysS1BufferLimit.setStatus('current')
+tmnxMobProfSysS1BufferSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 1, 1, 28), TmnxMobQueueLimit().clone(8000)).setUnits('bytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSysS1BufferSize.setStatus('current')
+tmnxMobProfDiaTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 2), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfDiaTblLstChgd.setStatus('current')
+tmnxMobProfDiaTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 2), )
+if mibBuilder.loadTexts: tmnxMobProfDiaTable.setStatus('current')
+tmnxMobProfDiaEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 2, 1), ).setIndexNames((1, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaName"))
+if mibBuilder.loadTexts: tmnxMobProfDiaEntry.setStatus('current')
+tmnxMobProfDiaName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 2, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfDiaName.setStatus('current')
+tmnxMobProfDiaRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaRowStatus.setStatus('current')
+tmnxMobProfDiaLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 2, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfDiaLastChanged.setStatus('current')
+tmnxMobProfDiaDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 2, 1, 4), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaDescription.setStatus('current')
+tmnxMobProfDiaWatchdgTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 2, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 180)).clone(30)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaWatchdgTimer.setStatus('current')
+tmnxMobProfDiaConnTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 2, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 180)).clone(30)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaConnTimer.setStatus('current')
+tmnxMobProfDiaTransTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 2, 1, 7), TmnxMobDiaTransTimer().clone(5)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaTransTimer.setStatus('current')
+tmnxMobProfDiaIpTtl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 2, 1, 8), TmnxMobProfIpTtl().clone(255)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaIpTtl.setStatus('current')
+tmnxMobProfDiaIpDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 2, 1, 9), TDSCPValue().clone(56)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaIpDscp.setStatus('current')
+tmnxMobProfDiaDprTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 2, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 3600)).clone(1800)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaDprTimeout.setStatus('current')
+tmnxMobProfDiaPermFailRetryTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 2, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1440)).clone(30)).setUnits('minutes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaPermFailRetryTime.setStatus('current')
+tmnxMobProfDiaDnsRefreshInt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 2, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 86400)).clone(21600)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaDnsRefreshInt.setStatus('current')
+tmnxMobProfDiaPeerTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerTblLstChgd.setStatus('current')
+tmnxMobProfDiaPeerTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 3), )
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerTable.setStatus('current')
+tmnxMobProfDiaPeerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 3, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerName"))
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerEntry.setStatus('current')
+tmnxMobProfDiaPeerName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 3, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerName.setStatus('current')
+tmnxMobProfDiaPeerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerRowStatus.setStatus('current')
+tmnxMobProfDiaPeerLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 3, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerLastChanged.setStatus('current')
+tmnxMobProfDiaPeerDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 3, 1, 4), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerDescription.setStatus('current')
+tmnxMobProfDiaPeerDiaProfName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 3, 1, 5), TmnxMobProfNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerDiaProfName.setStatus('current')
+tmnxMobProfDiaPeerDestRealm = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 3, 1, 6), TmnxMobDiaPeerHost().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerDestRealm.setStatus('current')
+tmnxMobProfDiaPeerTransport = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("tcp", 1), ("sctp", 2))).clone('tcp')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerTransport.setStatus('current')
+tmnxMobProfDiaPeerLoadBalance = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 3, 1, 8), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerLoadBalance.setStatus('current')
+tmnxMobProfDiaPeerIfVRtrId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 3, 1, 9), TmnxVRtrID().clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerIfVRtrId.setStatus('current')
+tmnxMobProfDiaPeerIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 3, 1, 10), InterfaceIndexOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerIfIndex.setStatus('current')
+tmnxMobProfDiaPeerApplication = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 3, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 0), ("gx", 1), ("gxc", 2), ("rf", 3), ("gy", 4), ("s6b", 5))).clone('none')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerApplication.setStatus('current')
+tmnxMobProfDiaPeerListTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 4), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerListTblLstChgd.setStatus('current')
+tmnxMobProfDiaPeerListTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 4), )
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerListTable.setStatus('current')
+tmnxMobProfDiaPeerListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 4, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerName"), (0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerListIndex"))
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerListEntry.setStatus('current')
+tmnxMobProfDiaPeerListIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 4, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 19)))
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerListIndex.setStatus('current')
+tmnxMobProfDiaPeerListRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 4, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerListRowStatus.setStatus('current')
+tmnxMobProfDiaPeerListLastChngd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 4, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerListLastChngd.setStatus('current')
+tmnxMobProfDiaPeerListAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 4, 1, 4), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerListAddrType.setStatus('current')
+tmnxMobProfDiaPeerListAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 4, 1, 5), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerListAddr.setStatus('current')
+tmnxMobProfDiaPeerListPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 4, 1, 6), InetPortNumber().subtype(subtypeSpec=ValueRangeConstraint(3868, 3888)).clone(3868)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerListPort.setStatus('current')
+tmnxMobProfDiaPeerAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 4, 1, 7), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDiaPeerAdminState.setStatus('current')
+tmnxMobProfPmipv6TblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 5), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPmipv6TblLstChgd.setStatus('current')
+tmnxMobProfPmipv6Table = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 5), )
+if mibBuilder.loadTexts: tmnxMobProfPmipv6Table.setStatus('current')
+tmnxMobProfPmipv6Entry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 5, 1), ).setIndexNames((1, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPmipv6Name"))
+if mibBuilder.loadTexts: tmnxMobProfPmipv6Entry.setStatus('current')
+tmnxMobProfPmipv6Name = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 5, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfPmipv6Name.setStatus('current')
+tmnxMobProfPmipv6RowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 5, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPmipv6RowStatus.setStatus('current')
+tmnxMobProfPmipv6LastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 5, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPmipv6LastChanged.setStatus('current')
+tmnxMobProfPmipv6Description = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 5, 1, 4), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPmipv6Description.setStatus('current')
+tmnxMobProfPmipv6MsgReTxTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 5, 1, 5), TmnxMobProfMsgReTxTimeout().clone(5)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPmipv6MsgReTxTimeout.setStatus('current')
+tmnxMobProfPmipv6MsgReTxRetryCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 5, 1, 6), TmnxMobProfMsgReTxRetryCount().clone(3)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPmipv6MsgReTxRetryCnt.setStatus('current')
+tmnxMobProfPmipv6KeepAlvTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 5, 1, 7), TmnxMobProfKeepAliveResponse().clone(5)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPmipv6KeepAlvTimeout.setStatus('current')
+tmnxMobProfPmipv6KeepAlvRetryCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 5, 1, 8), TmnxMobProfKeepAliveRetryCount().clone(4)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPmipv6KeepAlvRetryCnt.setStatus('current')
+tmnxMobProfPmipv6KeepAlvIntvl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 5, 1, 9), TmnxMobProfKeepAliveInterval().clone(60)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPmipv6KeepAlvIntvl.setStatus('current')
+tmnxMobProfPmipv6IpTtl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 5, 1, 10), TmnxMobProfIpTtl().clone(255)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPmipv6IpTtl.setStatus('current')
+tmnxMobProfPmipv6IpDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 5, 1, 11), TDSCPValue().clone(56)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPmipv6IpDscp.setStatus('current')
+tmnxMobProfGtpTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 6), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfGtpTblLstChgd.setStatus('current')
+tmnxMobProfGtpTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 6), )
+if mibBuilder.loadTexts: tmnxMobProfGtpTable.setStatus('current')
+tmnxMobProfGtpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 6, 1), ).setIndexNames((1, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpName"))
+if mibBuilder.loadTexts: tmnxMobProfGtpEntry.setStatus('current')
+tmnxMobProfGtpName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 6, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfGtpName.setStatus('current')
+tmnxMobProfGtpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 6, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfGtpRowStatus.setStatus('current')
+tmnxMobProfGtpLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 6, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfGtpLastChanged.setStatus('current')
+tmnxMobProfGtpDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 6, 1, 4), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfGtpDescription.setStatus('current')
+tmnxMobProfGtpMsgReTxTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 6, 1, 5), TmnxMobProfMsgReTxTimeout().clone(5)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfGtpMsgReTxTimeout.setStatus('current')
+tmnxMobProfGtpMsgReTxRetryCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 6, 1, 6), TmnxMobProfMsgReTxRetryCount().clone(3)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfGtpMsgReTxRetryCnt.setStatus('current')
+tmnxMobProfGtpKeepAlvTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 6, 1, 7), TmnxMobProfKeepAliveTimeout().clone(60)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfGtpKeepAlvTimeout.setStatus('current')
+tmnxMobProfGtpKeepAlvRetryCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 6, 1, 8), TmnxMobProfKeepAliveRetryCount().clone(4)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfGtpKeepAlvRetryCnt.setStatus('current')
+tmnxMobProfGtpKeepAlvResp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 6, 1, 9), TmnxMobProfKeepAliveResponse().clone(5)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfGtpKeepAlvResp.setStatus('current')
+tmnxMobProfGtpIpTtl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 6, 1, 10), TmnxMobProfIpTtl().clone(255)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfGtpIpTtl.setStatus('current')
+tmnxMobProfGtpIpDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 6, 1, 11), TDSCPValue().clone(56)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfGtpIpDscp.setStatus('current')
+tmnxMobProfPlmnListTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 7), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPlmnListTblLstChgd.setStatus('current')
+tmnxMobProfPlmnListTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 7), )
+if mibBuilder.loadTexts: tmnxMobProfPlmnListTable.setStatus('current')
+tmnxMobProfPlmnListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 7, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPlmnListName"), (0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPlmnListMcc"), (0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPlmnListMnc"))
+if mibBuilder.loadTexts: tmnxMobProfPlmnListEntry.setStatus('current')
+tmnxMobProfPlmnListName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 7, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfPlmnListName.setStatus('current')
+tmnxMobProfPlmnListMcc = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 7, 1, 2), TmnxMobMcc())
+if mibBuilder.loadTexts: tmnxMobProfPlmnListMcc.setStatus('current')
+tmnxMobProfPlmnListMnc = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 7, 1, 3), TmnxMobMnc())
+if mibBuilder.loadTexts: tmnxMobProfPlmnListMnc.setStatus('current')
+tmnxMobProfPlmnListRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 7, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPlmnListRowStatus.setStatus('current')
+tmnxMobProfPolTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 8), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolTblLstChgd.setStatus('current')
+tmnxMobProfPolTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 8), )
+if mibBuilder.loadTexts: tmnxMobProfPolTable.setStatus('current')
+tmnxMobProfPolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 8, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolName"))
+if mibBuilder.loadTexts: tmnxMobProfPolEntry.setStatus('current')
+tmnxMobProfPolName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 8, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfPolName.setStatus('current')
+tmnxMobProfPolRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 8, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolRowStatus.setStatus('current')
+tmnxMobProfPolLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 8, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolLastChanged.setStatus('current')
+tmnxMobProfPolRuleUnitName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 8, 1, 4), TNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolRuleUnitName.setStatus('current')
+tmnxMobProfChgRuleUnitName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 8, 1, 5), TNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfChgRuleUnitName.setStatus('current')
+tmnxMobProfPolQciValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 8, 1, 6), TmnxMobQciValueOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolQciValue.setStatus('current')
+tmnxMobProfPolArpValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 8, 1, 7), TmnxMobArpValueOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolArpValue.setStatus('current')
+tmnxMobProfPolPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 8, 1, 8), TmnxMobStaticPolPrecedenceOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolPrecedence.setStatus('current')
+tmnxMobProfPolInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 8, 1, 9), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolInUse.setStatus('current')
+tmnxMobProfPolRefCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 8, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolRefCount.setStatus('current')
+tmnxMobProfPolConfRefCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 8, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolConfRefCount.setStatus('current')
+tmnxMobProfPolUntFlowTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 9), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlowTblLstChgd.setStatus('current')
+tmnxMobProfPolUntFlwTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9), )
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwTable.setStatus('current')
+tmnxMobProfPolUntFlwEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUnitName"), (0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwId"))
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwEntry.setStatus('current')
+tmnxMobProfPolUntFlwId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)))
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwId.setStatus('current')
+tmnxMobProfPolUntFlwRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwRowStatus.setStatus('current')
+tmnxMobProfPolUntFlwLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwLastChanged.setStatus('current')
+tmnxMobProfPolUntFlwDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("downLink", 1), ("upLink", 2), ("both", 3))).clone('both')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwDirection.setStatus('current')
+tmnxMobProfPolUntFlwMatchPrtcl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 5), TIpProtocol().clone(-2)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwMatchPrtcl.setStatus('current')
+tmnxMobProfPolUntFlwLclAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 6), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwLclAddrType.setStatus('current')
+tmnxMobProfPolUntFlwLclAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 7), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwLclAddr.setStatus('current')
+tmnxMobProfPolUntFlwLclPrefixLen = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 8), InetAddressPrefixLength()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwLclPrefixLen.setStatus('current')
+tmnxMobProfPolUntFlwRmtAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 9), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwRmtAddrType.setStatus('current')
+tmnxMobProfPolUntFlwRmtAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 10), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwRmtAddr.setStatus('current')
+tmnxMobProfPolUntFlwRmtPrefixLen = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 11), InetAddressPrefixLength()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwRmtPrefixLen.setStatus('current')
+tmnxMobProfPolUntFlwLclPortVal1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 12), TTcpUdpPort()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwLclPortVal1.setStatus('current')
+tmnxMobProfPolUntFlwLclPortVal2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 13), TTcpUdpPort()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwLclPortVal2.setStatus('current')
+tmnxMobProfPolUntFlwLclPortOper = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 14), TTcpUdpPortOperator().clone('none')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwLclPortOper.setStatus('current')
+tmnxMobProfPolUntFlwRmtPortVal1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 15), TTcpUdpPort()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwRmtPortVal1.setStatus('current')
+tmnxMobProfPolUntFlwRmtPortVal2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 16), TTcpUdpPort()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwRmtPortVal2.setStatus('current')
+tmnxMobProfPolUntFlwRmtPortOper = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 17), TTcpUdpPortOperator().clone('none')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwRmtPortOper.setStatus('current')
+tmnxMobProfPolUntFlwAaApp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 9, 1, 18), TNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwAaApp.setStatus('current')
+tmnxMobProfPolBaseTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 10), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolBaseTblLstChgd.setStatus('current')
+tmnxMobProfPolBaseTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 10), )
+if mibBuilder.loadTexts: tmnxMobProfPolBaseTable.setStatus('current')
+tmnxMobProfPolBaseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 10, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolBaseName"), (0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolName"))
+if mibBuilder.loadTexts: tmnxMobProfPolBaseEntry.setStatus('current')
+tmnxMobProfPolBaseName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 10, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfPolBaseName.setStatus('current')
+tmnxMobProfPolBaseRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 10, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolBaseRowStatus.setStatus('current')
+tmnxMobProfPolBaseLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 10, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolBaseLastChanged.setStatus('current')
+tmnxMobProfPolBasePrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 10, 1, 4), TmnxMobStaticPolPrecedenceOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolBasePrecedence.setStatus('current')
+tmnxMobProfPolBasePreActivate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 10, 1, 5), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolBasePreActivate.setStatus('current')
+tmnxMobProfPolBaseInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 10, 1, 6), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolBaseInUse.setStatus('current')
+tmnxMobProfPolBaseRefCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 10, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolBaseRefCount.setStatus('current')
+tmnxMobProfPolBaseConfRefCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 10, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolBaseConfRefCount.setStatus('current')
+tmnxMobProfQciPolTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 11), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfQciPolTblLstChgd.setStatus('current')
+tmnxMobProfQciPolTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 11), )
+if mibBuilder.loadTexts: tmnxMobProfQciPolTable.setStatus('current')
+tmnxMobProfQciPolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 11, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolName"))
+if mibBuilder.loadTexts: tmnxMobProfQciPolEntry.setStatus('current')
+tmnxMobProfQciPolName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 11, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfQciPolName.setStatus('current')
+tmnxMobProfQciPolRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 11, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfQciPolRowStatus.setStatus('current')
+tmnxMobProfQciPolLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 11, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfQciPolLastChanged.setStatus('current')
+tmnxMobProfQciPolDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 11, 1, 4), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfQciPolDescription.setStatus('current')
+tmnxMobProfQciPolQciTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 12), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfQciPolQciTblLstChgd.setStatus('current')
+tmnxMobProfQciPolQciTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 12), )
+if mibBuilder.loadTexts: tmnxMobProfQciPolQciTable.setStatus('current')
+tmnxMobProfQciPolQciEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 12, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolName"), (0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolQciValue"), (0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolQciArpValue"))
+if mibBuilder.loadTexts: tmnxMobProfQciPolQciEntry.setStatus('current')
+tmnxMobProfQciPolQciValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 12, 1, 1), TmnxMobQciValue())
+if mibBuilder.loadTexts: tmnxMobProfQciPolQciValue.setStatus('current')
+tmnxMobProfQciPolQciArpValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 12, 1, 2), TmnxMobArpValue())
+if mibBuilder.loadTexts: tmnxMobProfQciPolQciArpValue.setStatus('current')
+tmnxMobProfQciPolQciLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 12, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfQciPolQciLastChanged.setStatus('current')
+tmnxMobProfQciPolQciDscpPreserve = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 12, 1, 4), TmnxEnabledDisabled().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxMobProfQciPolQciDscpPreserve.setStatus('current')
+tmnxMobProfQciPolQciDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 12, 1, 5), TDSCPName()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxMobProfQciPolQciDscp.setStatus('current')
+tmnxMobProfQciPolQciDscpOut = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 12, 1, 6), TDSCPName()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxMobProfQciPolQciDscpOut.setStatus('current')
+tmnxMobProfQciPolQciFcName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 12, 1, 7), TFCName()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxMobProfQciPolQciFcName.setStatus('current')
+tmnxMobProfQciPolQciProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 12, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("none", 0), ("in", 1), ("out", 2), ("applyCir", 3))).clone('none')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tmnxMobProfQciPolQciProfile.setStatus('current')
+tmnxMobProfPeerListTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 13), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPeerListTblLstChgd.setStatus('current')
+tmnxMobProfPeerListTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 13), )
+if mibBuilder.loadTexts: tmnxMobProfPeerListTable.setStatus('current')
+tmnxMobProfPeerListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 13, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListName"))
+if mibBuilder.loadTexts: tmnxMobProfPeerListEntry.setStatus('current')
+tmnxMobProfPeerListName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 13, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfPeerListName.setStatus('current')
+tmnxMobProfPeerListRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 13, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPeerListRowStatus.setStatus('current')
+tmnxMobProfPeerListLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 13, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPeerListLastChanged.setStatus('current')
+tmnxMobProfPeerListDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 13, 1, 4), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPeerListDescription.setStatus('current')
+tmnxMobProfPeerListPeerTblLtCgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 14), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPeerListPeerTblLtCgd.setStatus('current')
+tmnxMobProfPeerListPeerTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 14), )
+if mibBuilder.loadTexts: tmnxMobProfPeerListPeerTable.setStatus('current')
+tmnxMobProfPeerListPeerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 14, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListName"), (0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListPeerAddrType"), (0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListPeerAddr"), (0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListPeerPrefixLen"))
+if mibBuilder.loadTexts: tmnxMobProfPeerListPeerEntry.setStatus('current')
+tmnxMobProfPeerListPeerAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 14, 1, 1), InetAddressType())
+if mibBuilder.loadTexts: tmnxMobProfPeerListPeerAddrType.setStatus('current')
+tmnxMobProfPeerListPeerAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 14, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
+if mibBuilder.loadTexts: tmnxMobProfPeerListPeerAddr.setStatus('current')
+tmnxMobProfPeerListPeerPrefixLen = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 14, 1, 3), InetAddressPrefixLength())
+if mibBuilder.loadTexts: tmnxMobProfPeerListPeerPrefixLen.setStatus('current')
+tmnxMobProfPeerListPeerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 14, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPeerListPeerRowStatus.setStatus('current')
+tmnxMobProfPeerListPeerLastChgd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 14, 1, 5), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPeerListPeerLastChgd.setStatus('current')
+tmnxMobProfPeerListPeerDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 14, 1, 6), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPeerListPeerDesc.setStatus('current')
+tmnxMobProfPeerListPeerKeepAlive = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 14, 1, 7), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPeerListPeerKeepAlive.setStatus('current')
+tmnxMobProfPeerListPeerAdmnState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 14, 1, 8), TmnxAdminState().clone('inService')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPeerListPeerAdmnState.setStatus('current')
+tmnxMobProfPeerListPeerRatType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 14, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("geran", 1), ("utran", 2), ("eutran", 3), ("ehrpd", 4), ("hrpd", 5), ("oneXrtt", 6), ("umb", 7))).clone('utran')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPeerListPeerRatType.setStatus('current')
+tmnxMobProfPeerListPeerForeign = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 14, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("home", 1), ("foreign", 2), ("none", 3))).clone('home')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPeerListPeerForeign.setStatus('current')
+tmnxMobProfPeerListPeerPlmnMcc = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 14, 1, 11), TmnxMobMccOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPeerListPeerPlmnMcc.setStatus('current')
+tmnxMobProfPeerListPeerPlmnMnc = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 14, 1, 12), TmnxMobMncOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPeerListPeerPlmnMnc.setStatus('current')
+tmnxMobProfSgwChargingTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 15), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfSgwChargingTblLstChgd.setStatus('current')
+tmnxMobProfSgwChargingTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15), )
+if mibBuilder.loadTexts: tmnxMobProfSgwChargingTable.setStatus('current')
+tmnxMobProfSgwChargingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgId"))
+if mibBuilder.loadTexts: tmnxMobProfSgwChargingEntry.setStatus('current')
+tmnxMobProfSgwChrgId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 1), TmnxMobChargingProfile())
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgId.setStatus('current')
+tmnxMobProfSgwChrgRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgRowStatus.setStatus('current')
+tmnxMobProfSgwChrgLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgLastChanged.setStatus('current')
+tmnxMobProfSgwChrgDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 4), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgDesc.setStatus('current')
+tmnxMobProfSgwChrgOffLineState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 5), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgOffLineState.setStatus('current')
+tmnxMobProfSgwChrgPriCdfDiaPeer = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 6), TmnxMobProfNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgPriCdfDiaPeer.setStatus('current')
+tmnxMobProfSgwChrgSecCdfDiaPeer = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 7), TmnxMobProfNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgSecCdfDiaPeer.setStatus('current')
+tmnxMobProfSgwChrgCitQosChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 8), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgCitQosChange.setStatus('current')
+tmnxMobProfSgwChrgCitUsrLocChnge = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 9), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgCitUsrLocChnge.setStatus('current')
+tmnxMobProfSgwChrgCitTrfTimeChng = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 10), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgCitTrfTimeChng.setStatus('current')
+tmnxMobProfSgwChrgCitTrfTmStart = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 11), TmnxTimeInSec()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgCitTrfTmStart.setStatus('current')
+tmnxMobProfSgwChrgCitTrfTmEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 12), TmnxTimeInSec()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgCitTrfTmEnd.setStatus('current')
+tmnxMobProfSgwChrgPrctTimeLmt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 86400)).clone(3600)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgPrctTimeLmt.setStatus('current')
+tmnxMobProfSgwChrgPrctVolumeLmt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(4096)).setUnits('kbytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgPrctVolumeLmt.setStatus('current')
+tmnxMobProfSgwChrgPrctMaxChCond = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgPrctMaxChCond.setStatus('current')
+tmnxMobProfSgwChrgPrctMsTmzChnge = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 16), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgPrctMsTmzChnge.setStatus('current')
+tmnxMobProfSgwChrgPrctPlmnChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 17), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgPrctPlmnChange.setStatus('current')
+tmnxMobProfSgwChrgPrctRatChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 18), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgPrctRatChange.setStatus('current')
+tmnxMobProfSgwChrgPrctMgmtInterv = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 19), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgPrctMgmtInterv.setStatus('current')
+tmnxMobProfSgwChrgCitSgwChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 20), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgCitSgwChange.setStatus('obsolete')
+tmnxMobProfSgwChrgPrctSrvNdChLmt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 15, 1, 21), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 15)).clone(15)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfSgwChrgPrctSrvNdChLmt.setStatus('current')
+tmnxMobProfPgwChargingTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 16), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPgwChargingTblLstChgd.setStatus('current')
+tmnxMobProfPgwChargingTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16), )
+if mibBuilder.loadTexts: tmnxMobProfPgwChargingTable.setStatus('current')
+tmnxMobProfPgwChargingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgId"))
+if mibBuilder.loadTexts: tmnxMobProfPgwChargingEntry.setStatus('current')
+tmnxMobProfPgwChrgId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 1), TmnxMobChargingProfile())
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgId.setStatus('current')
+tmnxMobProfPgwChrgRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgRowStatus.setStatus('current')
+tmnxMobProfPgwChrgLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgLastChanged.setStatus('current')
+tmnxMobProfPgwChrgDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 4), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgDesc.setStatus('current')
+tmnxMobProfPgwChrgOffLineState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 5), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgOffLineState.setStatus('current')
+tmnxMobProfPgwChrgPriCdfDiaPeer = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 6), TmnxMobProfNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgPriCdfDiaPeer.setStatus('current')
+tmnxMobProfPgwChrgSecCdfDiaPeer = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 7), TmnxMobProfNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgSecCdfDiaPeer.setStatus('current')
+tmnxMobProfPgwChrgCitQosChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 8), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgCitQosChange.setStatus('current')
+tmnxMobProfPgwChrgCitUsrLocChnge = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 9), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgCitUsrLocChnge.setStatus('current')
+tmnxMobProfPgwChrgCitTrfTimeChng = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 10), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgCitTrfTimeChng.setStatus('current')
+tmnxMobProfPgwChrgCitTrfTmStart = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 11), TmnxTimeInSec()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgCitTrfTmStart.setStatus('current')
+tmnxMobProfPgwChrgCitTrfTmEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 12), TmnxTimeInSec()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgCitTrfTmEnd.setStatus('current')
+tmnxMobProfPgwChrgCitSgwChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 13), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgCitSgwChange.setStatus('current')
+tmnxMobProfPgwChrgCitTimeLmtRg = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 16), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 86400)).clone(1800)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgCitTimeLmtRg.setStatus('current')
+tmnxMobProfPgwChrgCitVolumeLmtRg = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 17), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32768)).clone(2048)).setUnits('kbytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgCitVolumeLmtRg.setStatus('current')
+tmnxMobProfPgwChrgCitTermServDf = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 18), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgCitTermServDf.setStatus('current')
+tmnxMobProfPgwChrgPrctTimeLmt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 19), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 86400)).clone(3600)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgPrctTimeLmt.setStatus('current')
+tmnxMobProfPgwChrgPrctVolumeLmt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 20), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(4096)).setUnits('kbytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgPrctVolumeLmt.setStatus('current')
+tmnxMobProfPgwChrgPrctMaxChCond = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 21), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgPrctMaxChCond.setStatus('current')
+tmnxMobProfPgwChrgPrctMsTmzChnge = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 22), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgPrctMsTmzChnge.setStatus('current')
+tmnxMobProfPgwChrgPrctPlmnChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 23), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgPrctPlmnChange.setStatus('current')
+tmnxMobProfPgwChrgPrctRatChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 24), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgPrctRatChange.setStatus('current')
+tmnxMobProfPgwChrgGyState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 25), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgGyState.setStatus('current')
+tmnxMobProfPgwGyPriOcsDiaPeer = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 26), TmnxMobProfNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwGyPriOcsDiaPeer.setStatus('current')
+tmnxMobProfPgwGySecOcsDiaPeer = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 27), TmnxMobProfNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwGySecOcsDiaPeer.setStatus('current')
+tmnxMobProfPgwGyDccaProf = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 28), TmnxMobProfNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwGyDccaProf.setStatus('current')
+tmnxMobProfPgwChrgPrctSrvNdChLmt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 16, 1, 29), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 15)).clone(15)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPgwChrgPrctSrvNdChLmt.setStatus('current')
+tmnxMobGtpPriGrpTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 17), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpTblLstChgd.setStatus('current')
+tmnxMobGtpPriGrpTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17), )
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpTable.setStatus('current')
+tmnxMobGtpPriGrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpName"))
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpEntry.setStatus('current')
+tmnxMobGtpPriGrpName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpName.setStatus('current')
+tmnxMobGtpPriGrpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpRowStatus.setStatus('current')
+tmnxMobGtpPriGrpLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpLastChanged.setStatus('current')
+tmnxMobGtpPriGrpDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 4), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpDescription.setStatus('current')
+tmnxMobGtpPriGrpMaxCdrsPerPdu = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpMaxCdrsPerPdu.setStatus('current')
+tmnxMobGtpPriGrpDeadtime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 3600))).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpDeadtime.setStatus('current')
+tmnxMobGtpPriGrpRedirection = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 7), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpRedirection.setStatus('current')
+tmnxMobGtpPriGrpIfVRtrId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 8), TmnxVRtrID().clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpIfVRtrId.setStatus('current')
+tmnxMobGtpPriGrpIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 9), InterfaceIndexOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpIfIndex.setStatus('current')
+tmnxMobGtpPriGrpLocalCdrStorage = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 10), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpLocalCdrStorage.setStatus('current')
+tmnxMobGtpPriGrpFilePrivateInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 11), TNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpFilePrivateInfo.setStatus('current')
+tmnxMobGtpPriGrpFileExtension = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8)).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpFileExtension.setStatus('current')
+tmnxMobGtpPriGrpFileClosureSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(50)).setUnits('megabytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpFileClosureSize.setStatus('current')
+tmnxMobGtpPriGrpFileClsLifeTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 24)).clone(1)).setUnits('hours').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpFileClsLifeTime.setStatus('current')
+tmnxMobGtpPriGrpFileClsMaxRecs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(100, 75000)).clone(50000)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpFileClsMaxRecs.setStatus('current')
+tmnxMobGtpPriGrpFileObsoleteTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 16), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 31)).clone(7)).setUnits('days').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpFileObsoleteTime.setStatus('current')
+tmnxMobGtpPriGrpPrimaryCf = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("cf1", 1), ("cf2", 2))).clone('cf1')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpPrimaryCf.setStatus('current')
+tmnxMobGtpPriGrpCf1State = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 18), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpCf1State.setStatus('current')
+tmnxMobGtpPriGrpCf1Limit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 19), Unsigned32()).setUnits('megabytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpCf1Limit.setStatus('current')
+tmnxMobGtpPriGrpCf2State = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 20), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpCf2State.setStatus('current')
+tmnxMobGtpPriGrpCf2Limit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 21), Unsigned32()).setUnits('megabytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpCf2Limit.setStatus('current')
+tmnxMobGtpPriGrpCpmMemoryState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 22), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpCpmMemoryState.setStatus('current')
+tmnxMobGtpPriGrpQueueSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 23), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10000, 500000)).clone(100000)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpQueueSize.setStatus('current')
+tmnxMobGtpPriGrpAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 24), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpAdminState.setStatus('current')
+tmnxMobGtpPriGrpInactiveTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 17, 1, 25), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 60)).clone(10)).setUnits('minutes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriGrpInactiveTimer.setStatus('current')
+tmnxMobGtpPriServerTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 18), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobGtpPriServerTblLstChgd.setStatus('current')
+tmnxMobGtpPriServerTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18), )
+if mibBuilder.loadTexts: tmnxMobGtpPriServerTable.setStatus('current')
+tmnxMobGtpPriServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpName"), (0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriServerIndex"))
+if mibBuilder.loadTexts: tmnxMobGtpPriServerEntry.setStatus('current')
+tmnxMobGtpPriServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: tmnxMobGtpPriServerIndex.setStatus('current')
+tmnxMobGtpPriServerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriServerRowStatus.setStatus('current')
+tmnxMobGtpPriServerLastChngd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobGtpPriServerLastChngd.setStatus('current')
+tmnxMobGtpPriServerAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18, 1, 4), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriServerAdminState.setStatus('current')
+tmnxMobGtpPriServerAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18, 1, 5), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriServerAddrType.setStatus('current')
+tmnxMobGtpPriServerAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18, 1, 6), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriServerAddr.setStatus('current')
+tmnxMobGtpPriServerPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18, 1, 7), InetPortNumber().clone(3386)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriServerPort.setStatus('current')
+tmnxMobGtpPriServerRetries = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)).clone(4)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriServerRetries.setStatus('current')
+tmnxMobGtpPriServerTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 180)).clone(20)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriServerTimeout.setStatus('current')
+tmnxMobGtpPriServerEchoInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 3600)).clone(60)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriServerEchoInterval.setStatus('current')
+tmnxMobGtpPriServerMaxRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 512)).clone(256)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriServerMaxRequests.setStatus('current')
+tmnxMobGtpPriServerNodeAlive = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18, 1, 12), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriServerNodeAlive.setStatus('current')
+tmnxMobGtpPriServerPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriServerPriority.setStatus('current')
+tmnxMobGtpPriServerPathProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 18, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("tcp", 1), ("udp", 2))).clone('udp')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobGtpPriServerPathProtocol.setStatus('current')
+tmnxMobUmtsQosPolTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 19), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobUmtsQosPolTblLstChgd.setStatus('current')
+tmnxMobUmtsQosPolTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 19), )
+if mibBuilder.loadTexts: tmnxMobUmtsQosPolTable.setStatus('current')
+tmnxMobUmtsQosPolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 19, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobUmtsQosPolName"))
+if mibBuilder.loadTexts: tmnxMobUmtsQosPolEntry.setStatus('current')
+tmnxMobUmtsQosPolName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 19, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobUmtsQosPolName.setStatus('current')
+tmnxMobUmtsQosPolRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 19, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobUmtsQosPolRowStatus.setStatus('current')
+tmnxMobUmtsQosPolLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 19, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobUmtsQosPolLastChanged.setStatus('current')
+tmnxMobUmtsQosPolConvSpeechQci = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 19, 1, 4), TmnxMobQciValue().clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobUmtsQosPolConvSpeechQci.setStatus('current')
+tmnxMobUmtsQosPolConvUnkTdg = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 19, 1, 5), TmnxMobQciValue().clone(2)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobUmtsQosPolConvUnkTdg.setStatus('current')
+tmnxMobUmtsQosPolConvUnkTdl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 19, 1, 6), TmnxMobQciValue().clone(3)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobUmtsQosPolConvUnkTdl.setStatus('current')
+tmnxMobUmtsQosPolStreamQciValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 19, 1, 7), TmnxMobQciValue().clone(4)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobUmtsQosPolStreamQciValue.setStatus('current')
+tmnxMobUmtsQosPolInterSigP1Qci = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 19, 1, 8), TmnxMobQciValue().clone(5)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobUmtsQosPolInterSigP1Qci.setStatus('current')
+tmnxMobUmtsQosPolInterP1Qci = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 19, 1, 9), TmnxMobQciValue().clone(6)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobUmtsQosPolInterP1Qci.setStatus('current')
+tmnxMobUmtsQosPolInterP2Qci = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 19, 1, 10), TmnxMobQciValue().clone(7)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobUmtsQosPolInterP2Qci.setStatus('current')
+tmnxMobUmtsQosPolInterP3Qci = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 19, 1, 11), TmnxMobQciValue().clone(8)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobUmtsQosPolInterP3Qci.setStatus('current')
+tmnxMobUmtsQosPolBackground = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 19, 1, 12), TmnxMobQciValue().clone(9)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobUmtsQosPolBackground.setStatus('current')
+tmnxMobProfRadTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 20), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfRadTblLstChgd.setStatus('current')
+tmnxMobProfRadTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 20), )
+if mibBuilder.loadTexts: tmnxMobProfRadTable.setStatus('current')
+tmnxMobProfRadEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 20, 1), ).setIndexNames((1, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadName"))
+if mibBuilder.loadTexts: tmnxMobProfRadEntry.setStatus('current')
+tmnxMobProfRadName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 20, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfRadName.setStatus('current')
+tmnxMobProfRadRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 20, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadRowStatus.setStatus('current')
+tmnxMobProfRadLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 20, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfRadLastChanged.setStatus('current')
+tmnxMobProfRadDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 20, 1, 4), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadDescription.setStatus('current')
+tmnxMobProfRadAuthProbeInt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 20, 1, 5), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(20, 600), ))).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadAuthProbeInt.setStatus('current')
+tmnxMobProfRadServerDeadTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 20, 1, 6), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(60, 3600), )).clone(300)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadServerDeadTime.setStatus('current')
+tmnxMobProfRadRetryTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 20, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(3, 20)).clone(4)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadRetryTimeout.setStatus('current')
+tmnxMobProfRadRetryCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 20, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)).clone(4)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadRetryCount.setStatus('current')
+tmnxMobProfRadGrpTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 21), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfRadGrpTblLstChgd.setStatus('current')
+tmnxMobProfRadGrpTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 21), )
+if mibBuilder.loadTexts: tmnxMobProfRadGrpTable.setStatus('current')
+tmnxMobProfRadGrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 21, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadGrpName"))
+if mibBuilder.loadTexts: tmnxMobProfRadGrpEntry.setStatus('current')
+tmnxMobProfRadGrpName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 21, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfRadGrpName.setStatus('current')
+tmnxMobProfRadGrpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 21, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadGrpRowStatus.setStatus('current')
+tmnxMobProfRadGrpLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 21, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfRadGrpLastChanged.setStatus('current')
+tmnxMobProfRadGrpDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 21, 1, 4), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadGrpDescription.setStatus('current')
+tmnxMobProfRadGrpIfVRtrId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 21, 1, 5), TmnxVRtrID().clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadGrpIfVRtrId.setStatus('current')
+tmnxMobProfRadGrpIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 21, 1, 6), InterfaceIndexOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadGrpIfIndex.setStatus('current')
+tmnxMobProfRadGrpAuthServerPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 21, 1, 7), InetPortNumber().clone(1812)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadGrpAuthServerPort.setStatus('current')
+tmnxMobProfRadGrpAcctServerPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 21, 1, 8), InetPortNumber().clone(1813)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadGrpAcctServerPort.setStatus('current')
+tmnxMobProfRadGrpSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 21, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 20)).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadGrpSecret.setStatus('current')
+tmnxMobProfRadGrpIntUpdateIntvl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 21, 1, 10), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(15, 1440), ))).setUnits('minutes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadGrpIntUpdateIntvl.setStatus('current')
+tmnxMobProfRadGrpServerType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 21, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("none", 0), ("auth", 1), ("acct", 2), ("both", 3))).clone('none')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadGrpServerType.setStatus('current')
+tmnxMobProfRadGrpRadiusProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 21, 1, 12), TmnxMobProfNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadGrpRadiusProfile.setStatus('current')
+tmnxMobProfRadGrpIgnAcctResp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 21, 1, 13), TruthValue().clone('false')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadGrpIgnAcctResp.setStatus('current')
+tmnxMobProfRadPeerTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 22), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfRadPeerTblLstChgd.setStatus('current')
+tmnxMobProfRadPeerTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 22), )
+if mibBuilder.loadTexts: tmnxMobProfRadPeerTable.setStatus('current')
+tmnxMobProfRadPeerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 22, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadGrpName"), (0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadPeerIndex"))
+if mibBuilder.loadTexts: tmnxMobProfRadPeerEntry.setStatus('current')
+tmnxMobProfRadPeerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 22, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: tmnxMobProfRadPeerIndex.setStatus('current')
+tmnxMobProfRadPeerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 22, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadPeerRowStatus.setStatus('current')
+tmnxMobProfRadPeerLastChngd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 22, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfRadPeerLastChngd.setStatus('current')
+tmnxMobProfRadPeerAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 22, 1, 4), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadPeerAdminState.setStatus('current')
+tmnxMobProfRadPeerAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 22, 1, 5), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadPeerAddrType.setStatus('current')
+tmnxMobProfRadPeerAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 22, 1, 6), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadPeerAddr.setStatus('current')
+tmnxMobProfRadPeerPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 22, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 3)).clone(1)).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadPeerPriority.setStatus('current')
+tmnxMobProfRadPeerAuthSvrPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 22, 1, 8), InetPortNumber()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadPeerAuthSvrPort.setStatus('current')
+tmnxMobProfRadPeerAcctSvrPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 22, 1, 9), InetPortNumber()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadPeerAcctSvrPort.setStatus('current')
+tmnxMobProfRadPeerSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 22, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 20)).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadPeerSecret.setStatus('current')
+tmnxMobProfRadPeerRadProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 22, 1, 11), TmnxMobProfNameOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfRadPeerRadProfile.setStatus('current')
+tmnxMobProfDccaTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 23), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfDccaTblLstChgd.setStatus('current')
+tmnxMobProfDccaTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23), )
+if mibBuilder.loadTexts: tmnxMobProfDccaTable.setStatus('current')
+tmnxMobProfDccaEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1), ).setIndexNames((1, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaName"))
+if mibBuilder.loadTexts: tmnxMobProfDccaEntry.setStatus('current')
+tmnxMobProfDccaName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfDccaName.setStatus('current')
+tmnxMobProfDccaRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaRowStatus.setStatus('current')
+tmnxMobProfDccaLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfDccaLastChanged.setStatus('current')
+tmnxMobProfDccaDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 4), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaDescription.setStatus('current')
+tmnxMobProfDccaApplTxTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 30)).clone(5)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaApplTxTimer.setStatus('current')
+tmnxMobProfDccaRetryCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaRetryCnt.setStatus('current')
+tmnxMobProfDcca3GppQosNegProf = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 7), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDcca3GppQosNegProf.setStatus('current')
+tmnxMobProfDccaQosInformation = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 8), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaQosInformation.setStatus('current')
+tmnxMobProfDccaCalledStationId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("real", 1), ("virtual", 2))).clone('real')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaCalledStationId.setStatus('current')
+tmnxMobProfDccaCcSessFailover = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 10), TmnxEnabledDisabled().clone('enabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaCcSessFailover.setStatus('current')
+tmnxMobProfDccaCcSessFlovrHndl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("terminate", 1), ("continue", 2), ("retryAndTerm", 3))).clone('terminate')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaCcSessFlovrHndl.setStatus('current')
+tmnxMobProfDccaForcedReAuth = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 12), TmnxMobProfAllowDiscard().clone('allow')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaForcedReAuth.setStatus('current')
+tmnxMobProfDccaQuotaExNoThrsld = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 13), TmnxMobProfAllowDiscard().clone('allow')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaQuotaExNoThrsld.setStatus('current')
+tmnxMobProfDccaQuotaExThrsldAct = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 14), TmnxMobProfAllowDiscard().clone('allow')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaQuotaExThrsldAct.setStatus('current')
+tmnxMobProfDccaQuotaUnavail = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 15), TmnxMobProfAllowDiscard().clone('allow')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaQuotaUnavail.setStatus('current')
+tmnxMobProfDccaRatingCondtChng = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 16), TmnxMobProfAllowDiscard().clone('allow')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaRatingCondtChng.setStatus('current')
+tmnxMobProfDccaValidityTimeExp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 17), TmnxMobProfAllowDiscard().clone('allow')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaValidityTimeExp.setStatus('current')
+tmnxMobProfDccaFhSessContTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 18), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1440)).clone(30)).setUnits('minutes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaFhSessContTimer.setStatus('current')
+tmnxMobProfDccaDefaultQht = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 19), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 5)).clone(2)).setUnits('minutes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaDefaultQht.setStatus('current')
+tmnxMobProfDccaFirstPktBehavior = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 23, 1, 20), TmnxEnabledDisabled().clone('enabled')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfDccaFirstPktBehavior.setStatus('current')
+tmnxMobProfPolUnitTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 24), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolUnitTblLstChgd.setStatus('current')
+tmnxMobProfPolUnitTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 24), )
+if mibBuilder.loadTexts: tmnxMobProfPolUnitTable.setStatus('current')
+tmnxMobProfPolUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 24, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUnitName"))
+if mibBuilder.loadTexts: tmnxMobProfPolUnitEntry.setStatus('current')
+tmnxMobProfPolUnitName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 24, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfPolUnitName.setStatus('current')
+tmnxMobProfPolUnitRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 24, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUnitRowStatus.setStatus('current')
+tmnxMobProfPolUnitLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 24, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolUnitLastChanged.setStatus('current')
+tmnxMobProfPolUnitUplinkGbrRate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 24, 1, 4), TmnxMobProfGbrRate()).setUnits('kbps').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUnitUplinkGbrRate.setStatus('current')
+tmnxMobProfPolUnitUplinkMbrRate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 24, 1, 5), TmnxMobProfMbrRate()).setUnits('kbps').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUnitUplinkMbrRate.setStatus('current')
+tmnxMobProfPolUnitDwnlinkGbrRate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 24, 1, 6), TmnxMobProfGbrRate()).setUnits('kbps').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUnitDwnlinkGbrRate.setStatus('current')
+tmnxMobProfPolUnitDwnlinkMbrRate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 24, 1, 7), TmnxMobProfMbrRate()).setUnits('kbps').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUnitDwnlinkMbrRate.setStatus('current')
+tmnxMobProfPolUntFlwGateStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 24, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("allowUL", 1), ("allowDL", 2), ("allow", 3), ("drop", 4), ("autoRedirect", 5), ("redirect", 6))).clone('allow')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntFlwGateStatus.setStatus('current')
+tmnxMobProfPolUntRedirectAdrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 24, 1, 9), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntRedirectAdrType.setStatus('current')
+tmnxMobProfPolUntRedirectAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 24, 1, 10), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 255)).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfPolUntRedirectAddr.setStatus('current')
+tmnxMobProfPolUntInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 24, 1, 11), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolUntInUse.setStatus('current')
+tmnxMobProfPolUntRefCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 24, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfPolUntRefCount.setStatus('current')
+tmnxMobProfChgUnitTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 25), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfChgUnitTblLstChgd.setStatus('current')
+tmnxMobProfChgUnitTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 25), )
+if mibBuilder.loadTexts: tmnxMobProfChgUnitTable.setStatus('current')
+tmnxMobProfChgUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 25, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChgUnitName"))
+if mibBuilder.loadTexts: tmnxMobProfChgUnitEntry.setStatus('current')
+tmnxMobProfChgUnitName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 25, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfChgUnitName.setStatus('current')
+tmnxMobProfChgUnitRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 25, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfChgUnitRowStatus.setStatus('current')
+tmnxMobProfChgUnitLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 25, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfChgUnitLastChanged.setStatus('current')
+tmnxMobProfChgUnitRatingGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 25, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfChgUnitRatingGroup.setStatus('current')
+tmnxMobProfChgUnitServIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 25, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfChgUnitServIdentifier.setStatus('current')
+tmnxMobProfChgUnitReportingLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 25, 1, 6), TmnxMobProfPolReportingLevel().clone('ratingGrp')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfChgUnitReportingLevel.setStatus('current')
+tmnxMobProfChgUnitChargingMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 25, 1, 7), TmnxMobProfPolChargingMethod().clone('profChargingMtd')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfChgUnitChargingMethod.setStatus('current')
+tmnxMobProfChgUnitMeteringMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 25, 1, 8), TmnxMobProfPolMeteringMethod().clone('volBased')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfChgUnitMeteringMethod.setStatus('current')
+tmnxMobProfChgUnitInUse = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 25, 1, 9), TruthValue().clone('false')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfChgUnitInUse.setStatus('current')
+tmnxMobProfChgUnitRefCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 25, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfChgUnitRefCount.setStatus('current')
+tmnxMobProfHTTPRedirctTblLstChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 2, 26), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfHTTPRedirctTblLstChgd.setStatus('current')
+tmnxMobProfHTTPRedirectTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 26), )
+if mibBuilder.loadTexts: tmnxMobProfHTTPRedirectTable.setStatus('current')
+tmnxMobProfHTTPRedirectEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 26, 1), ).setIndexNames((0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfHttpRedirectName"), (0, "TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUnitName"))
+if mibBuilder.loadTexts: tmnxMobProfHTTPRedirectEntry.setStatus('current')
+tmnxMobProfHttpRedirectName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 26, 1, 1), TmnxMobProfName())
+if mibBuilder.loadTexts: tmnxMobProfHttpRedirectName.setStatus('current')
+tmnxMobProfHttpRedirectRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 26, 1, 2), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfHttpRedirectRowStatus.setStatus('current')
+tmnxMobProfHttpRedirectLstChgd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 26, 1, 3), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tmnxMobProfHttpRedirectLstChgd.setStatus('current')
+tmnxMobProfHttpRedirctPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 67, 1, 26, 1, 4), TmnxMobStaticPolPrecedenceOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: tmnxMobProfHttpRedirctPrecedence.setStatus('current')
+tmnxMobProfV1v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 1, 1)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGlobalGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolicyGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiameterGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChargingGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpPrimeServerGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfUmtsQosPolGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfV1v0Compliance = tmnxMobProfV1v0Compliance.setStatus('obsolete')
+tmnxMobProfV3v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 1, 2)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGlobalGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolicyGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiameterGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChargingGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpPrimeServerGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfUmtsQosPolGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadiusGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChargingV3Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGlobalV3Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfV3Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolicyRulesV3Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPmipv6V3Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfV3v0Compliance = tmnxMobProfV3v0Compliance.setStatus('obsolete')
+tmnxMobProf7xxxV10v0Compl = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 1, 3)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChargingGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChargingV3Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiameterGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGlobalGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGlobalV3Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpPrimeServerGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPmipv6V3Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolicyRulesV31Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolicyRulesV3Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolicyGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadiusGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfUmtsQosPolGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfV3Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfUnsupportedGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProf7xxxV10v0Compl = tmnxMobProf7xxxV10v0Compl.setStatus('current')
+tmnxMobProfV4v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 1, 4)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChargingGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChargingV3Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiameterGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGlobalGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGlobalV3Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpPrimeServerGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPmipv6V3Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolicyRulesV31Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolicyRulesV3Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolicyGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadiusGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfUmtsQosPolGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfV3Group"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfUnsupportedGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaV4v0Group"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfV4v0Compliance = tmnxMobProfV4v0Compliance.setStatus('current')
+tmnxMobProfGlobalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 1)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerListTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolQciTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListPeerTblLtCgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlowTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolBaseTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChargingTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChargingTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriServerTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobUmtsQosPolTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPmipv6TblLstChgd"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfGlobalGroup = tmnxMobProfGlobalGroup.setStatus('current')
+tmnxMobProfGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 2)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysBCLimit"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysBCActivtyRate"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysBCPdnLimit"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysBCUeLimit"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysSDFIpv4Limit"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysSDFIpv6Limit"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysCpuThreshldCriticl"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysCpuThreshldMajor"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysCpuThreshldMinor"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysMemThreshldCriticl"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysMemThreshldMajor"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysMemThreshldMinor"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysSgnlFailThrshldS5"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysSgnlFailThrshldS8"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysSgnlFailThrshldS11"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysSgnlFailThrshldGxc"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysTrfcDropThrshldS1u"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysTrfcDropThrshldS5"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysTrfcDropThrshldS8"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysPagingBufferLimit"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysPagingBufferSize"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysPagingTimeout"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysS1BufferLimit"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysS1BufferSize"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpMsgReTxTimeout"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpMsgReTxRetryCnt"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpKeepAlvTimeout"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpKeepAlvRetryCnt"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpKeepAlvResp"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpIpTtl"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpIpDscp"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfGroup = tmnxMobProfGroup.setStatus('current')
+tmnxMobProfQciPolicyGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 3)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolQciLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolQciDscpPreserve"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolQciDscp"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolQciDscpOut"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolQciFcName"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolQciProfile"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfQciPolicyGroup = tmnxMobProfQciPolicyGroup.setStatus('current')
+tmnxMobProfDiameterGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 4)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaWatchdgTimer"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaConnTimer"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaTransTimer"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaIpTtl"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaIpDscp"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaDprTimeout"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPermFailRetryTime"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaDnsRefreshInt"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerDiaProfName"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerDestRealm"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerTransport"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerLoadBalance"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerIfVRtrId"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerIfIndex"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerApplication"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerListRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerListLastChngd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerListAddrType"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerListAddr"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerListPort"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerAdminState"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfDiameterGroup = tmnxMobProfDiameterGroup.setStatus('current')
+tmnxMobProfUnsupportedGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 5)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPlmnListTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPlmnListRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSysDescription"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaDescription"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDiaPeerDescription"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfGtpDescription"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfQciPolDescription"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfUnsupportedGroup = tmnxMobProfUnsupportedGroup.setStatus('current')
+tmnxMobProfChargingGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 6)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgDesc"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgOffLineState"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgPriCdfDiaPeer"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgSecCdfDiaPeer"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgCitQosChange"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgCitUsrLocChnge"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgCitTrfTimeChng"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgCitTrfTmStart"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgCitTrfTmEnd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgPrctTimeLmt"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgPrctVolumeLmt"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgPrctMaxChCond"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgPrctMsTmzChnge"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgPrctPlmnChange"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgPrctRatChange"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgPrctMgmtInterv"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgDesc"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgOffLineState"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgPriCdfDiaPeer"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgSecCdfDiaPeer"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgCitQosChange"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgCitUsrLocChnge"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgCitTrfTimeChng"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgCitTrfTmStart"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgCitTrfTmEnd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgCitSgwChange"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgCitTimeLmtRg"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgCitVolumeLmtRg"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgCitTermServDf"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgPrctTimeLmt"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgPrctVolumeLmt"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgPrctMaxChCond"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgPrctMsTmzChnge"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgPrctPlmnChange"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgPrctRatChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfChargingGroup = tmnxMobProfChargingGroup.setStatus('current')
+tmnxMobProfGtpPrimeServerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 8)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpDescription"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpMaxCdrsPerPdu"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpDeadtime"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpRedirection"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpIfVRtrId"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpIfIndex"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpLocalCdrStorage"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpFilePrivateInfo"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpFileExtension"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpFileClosureSize"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpFileClsLifeTime"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpFileClsMaxRecs"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpFileObsoleteTime"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpPrimaryCf"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpCf1State"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpCf1Limit"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpCf2State"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpCf2Limit"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpCpmMemoryState"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpQueueSize"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpAdminState"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriGrpInactiveTimer"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriServerRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriServerLastChngd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriServerAdminState"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriServerAddrType"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriServerAddr"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriServerPort"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriServerRetries"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriServerTimeout"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriServerEchoInterval"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriServerMaxRequests"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriServerNodeAlive"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriServerPriority"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobGtpPriServerPathProtocol"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfGtpPrimeServerGroup = tmnxMobProfGtpPrimeServerGroup.setStatus('current')
+tmnxMobProfUmtsQosPolGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 9)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobUmtsQosPolRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobUmtsQosPolLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobUmtsQosPolConvSpeechQci"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobUmtsQosPolConvUnkTdg"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobUmtsQosPolConvUnkTdl"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobUmtsQosPolStreamQciValue"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobUmtsQosPolInterSigP1Qci"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobUmtsQosPolInterP1Qci"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobUmtsQosPolInterP2Qci"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobUmtsQosPolInterP3Qci"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobUmtsQosPolBackground"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfUmtsQosPolGroup = tmnxMobProfUmtsQosPolGroup.setStatus('current')
+tmnxMobProfRadiusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 10)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadDescription"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadAuthProbeInt"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadServerDeadTime"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadRetryTimeout"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadRetryCount"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadGrpRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadGrpLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadGrpDescription"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadGrpIfVRtrId"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadGrpIfIndex"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadGrpAuthServerPort"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadGrpAcctServerPort"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadGrpSecret"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadGrpIntUpdateIntvl"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadGrpServerType"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadGrpRadiusProfile"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadGrpIgnAcctResp"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadPeerRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadPeerLastChngd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadPeerAdminState"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadPeerAddrType"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadPeerAddr"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadPeerPriority"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadPeerAuthSvrPort"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadPeerAcctSvrPort"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadPeerSecret"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadPeerRadProfile"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfRadiusGroup = tmnxMobProfRadiusGroup.setStatus('current')
+tmnxMobProfChargingV3Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 11)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgGyState"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwGyPriOcsDiaPeer"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwGySecOcsDiaPeer"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwGyDccaProf"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPgwChrgPrctSrvNdChLmt"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgPrctSrvNdChLmt"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfChargingV3Group = tmnxMobProfChargingV3Group.setStatus('current')
+tmnxMobProfDccaGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 12)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaDescription"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaApplTxTimer"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaRetryCnt"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDcca3GppQosNegProf"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaQosInformation"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaCalledStationId"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaCcSessFailover"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaCcSessFlovrHndl"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaForcedReAuth"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaQuotaExNoThrsld"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaQuotaExThrsldAct"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaQuotaUnavail"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaRatingCondtChng"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaValidityTimeExp"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfDccaGroup = tmnxMobProfDccaGroup.setStatus('current')
+tmnxMobProfGlobalV3Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 13)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadGrpTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfRadPeerTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUnitTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChgUnitTblLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfHTTPRedirctTblLstChgd"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfGlobalV3Group = tmnxMobProfGlobalV3Group.setStatus('current')
+tmnxMobProfV3Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 14)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListDescription"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListPeerRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListPeerLastChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListPeerDesc"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListPeerKeepAlive"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListPeerAdmnState"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListPeerRatType"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListPeerForeign"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListPeerPlmnMcc"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPeerListPeerPlmnMnc"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfV3Group = tmnxMobProfV3Group.setStatus('current')
+tmnxMobProfPolicyRulesV3Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 15)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolRuleUnitName"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChgRuleUnitName"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolQciValue"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolArpValue"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwDirection"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwMatchPrtcl"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwLclAddrType"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwLclAddr"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwLclPrefixLen"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwRmtAddrType"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwRmtAddr"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwRmtPrefixLen"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwLclPortVal1"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwLclPortVal2"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwLclPortOper"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwRmtPortVal1"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwRmtPortVal2"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwRmtPortOper"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolBaseRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolBaseLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolBasePrecedence"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolBasePreActivate"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUnitRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUnitLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUnitUplinkGbrRate"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUnitUplinkMbrRate"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUnitDwnlinkGbrRate"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUnitDwnlinkMbrRate"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwGateStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChgUnitRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChgUnitLastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChgUnitRatingGroup"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChgUnitServIdentifier"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChgUnitReportingLevel"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChgUnitChargingMethod"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChgUnitMeteringMethod"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolPrecedence"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfHttpRedirectRowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfHttpRedirectLstChgd"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntRedirectAdrType"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntRedirectAddr"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntFlwAaApp"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfHttpRedirctPrecedence"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntInUse"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolUntRefCount"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolInUse"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolRefCount"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChgUnitInUse"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfChgUnitRefCount"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolBaseInUse"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolBaseRefCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfPolicyRulesV3Group = tmnxMobProfPolicyRulesV3Group.setStatus('current')
+tmnxMobProfPmipv6V3Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 16)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPmipv6RowStatus"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPmipv6LastChanged"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPmipv6Description"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPmipv6MsgReTxTimeout"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPmipv6MsgReTxRetryCnt"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPmipv6KeepAlvTimeout"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPmipv6KeepAlvRetryCnt"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPmipv6IpTtl"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPmipv6IpDscp"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPmipv6KeepAlvIntvl"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfPmipv6V3Group = tmnxMobProfPmipv6V3Group.setStatus('current')
+tmnxMobProfileObsoletedGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 17)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfSgwChrgCitSgwChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfileObsoletedGroup = tmnxMobProfileObsoletedGroup.setStatus('current')
+tmnxMobProfPolicyRulesV31Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 18)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolBaseConfRefCount"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfPolConfRefCount"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfPolicyRulesV31Group = tmnxMobProfPolicyRulesV31Group.setStatus('current')
+tmnxMobProfDccaV4v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 67, 2, 19)).setObjects(("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaFhSessContTimer"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaDefaultQht"), ("TIMETRA-MOBILE-PROFILE-MIB", "tmnxMobProfDccaFirstPktBehavior"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    tmnxMobProfDccaV4v0Group = tmnxMobProfDccaV4v0Group.setStatus('current')
+mibBuilder.exportSymbols("TIMETRA-MOBILE-PROFILE-MIB", tmnxMobProfSgwChrgCitTrfTmStart=tmnxMobProfSgwChrgCitTrfTmStart, tmnxMobProfDiaDprTimeout=tmnxMobProfDiaDprTimeout, tmnxMobProfUnsupportedGroup=tmnxMobProfUnsupportedGroup, tmnxMobProfPolBasePrecedence=tmnxMobProfPolBasePrecedence, tmnxMobProfSgwChrgCitSgwChange=tmnxMobProfSgwChrgCitSgwChange, tmnxMobProfSysCpuThreshldMajor=tmnxMobProfSysCpuThreshldMajor, tmnxMobProfDiaPeerListPort=tmnxMobProfDiaPeerListPort, tmnxMobGtpPriGrpPrimaryCf=tmnxMobGtpPriGrpPrimaryCf, tmnxMobProfSgwChrgCitTrfTmEnd=tmnxMobProfSgwChrgCitTrfTmEnd, tmnxMobProfRadGrpIgnAcctResp=tmnxMobProfRadGrpIgnAcctResp, tmnxMobProfChgUnitTblLstChgd=tmnxMobProfChgUnitTblLstChgd, tmnxMobProfPolUntInUse=tmnxMobProfPolUntInUse, tmnxMobProfRadGrpLastChanged=tmnxMobProfRadGrpLastChanged, tmnxMobGtpPriServerRetries=tmnxMobGtpPriServerRetries, tmnxMobProfPolUnitTable=tmnxMobProfPolUnitTable, tmnxMobProfDccaForcedReAuth=tmnxMobProfDccaForcedReAuth, tmnxMobProfV1v0Compliance=tmnxMobProfV1v0Compliance, tmnxMobProfRadGrpIfVRtrId=tmnxMobProfRadGrpIfVRtrId, tmnxMobProfQciPolQciFcName=tmnxMobProfQciPolQciFcName, tmnxMobProfSysPagingBufferSize=tmnxMobProfSysPagingBufferSize, tmnxMobGtpPriGrpFileClsMaxRecs=tmnxMobGtpPriGrpFileClsMaxRecs, tmnxMobGtpPriGrpLocalCdrStorage=tmnxMobGtpPriGrpLocalCdrStorage, tmnxMobProfDccaRatingCondtChng=tmnxMobProfDccaRatingCondtChng, tmnxMobProfSgwChrgDesc=tmnxMobProfSgwChrgDesc, tmnxMobProfDiaPeerDestRealm=tmnxMobProfDiaPeerDestRealm, tmnxMobProfPolUntFlwMatchPrtcl=tmnxMobProfPolUntFlwMatchPrtcl, tmnxMobProfChgUnitChargingMethod=tmnxMobProfChgUnitChargingMethod, tmnxMobProfSysEntry=tmnxMobProfSysEntry, tmnxMobProfPgwChrgRowStatus=tmnxMobProfPgwChrgRowStatus, tmnxMobGtpPriServerAddr=tmnxMobGtpPriServerAddr, tmnxMobProfPmipv6LastChanged=tmnxMobProfPmipv6LastChanged, tmnxMobProfPeerListPeerRatType=tmnxMobProfPeerListPeerRatType, tmnxMobProfPolEntry=tmnxMobProfPolEntry, tmnxMobProfSgwChrgCitUsrLocChnge=tmnxMobProfSgwChrgCitUsrLocChnge, tmnxMobUmtsQosPolInterSigP1Qci=tmnxMobUmtsQosPolInterSigP1Qci, tmnxMobUmtsQosPolEntry=tmnxMobUmtsQosPolEntry, tmnxMobProfPeerListPeerPlmnMcc=tmnxMobProfPeerListPeerPlmnMcc, tmnxMobProfPolUntFlwGateStatus=tmnxMobProfPolUntFlwGateStatus, tmnxMobProfPgwGySecOcsDiaPeer=tmnxMobProfPgwGySecOcsDiaPeer, tmnxMobProfDccaQuotaExThrsldAct=tmnxMobProfDccaQuotaExThrsldAct, tmnxMobProfRadPeerLastChngd=tmnxMobProfRadPeerLastChngd, tmnxMobProfPolUntFlwDirection=tmnxMobProfPolUntFlwDirection, tmnxMobProfDiaDescription=tmnxMobProfDiaDescription, tmnxMobUmtsQosPolTable=tmnxMobUmtsQosPolTable, tmnxMobProfPeerListPeerDesc=tmnxMobProfPeerListPeerDesc, tmnxMobProfSysLastChanged=tmnxMobProfSysLastChanged, tmnxMobProfDccaQuotaExNoThrsld=tmnxMobProfDccaQuotaExNoThrsld, tmnxMobProfDiaName=tmnxMobProfDiaName, tmnxMobProfPgwChrgGyState=tmnxMobProfPgwChrgGyState, tmnxMobProfRadGrpAcctServerPort=tmnxMobProfRadGrpAcctServerPort, PYSNMP_MODULE_ID=timetraMobProfileMIBModule, tmnxMobProfChgUnitRefCount=tmnxMobProfChgUnitRefCount, tmnxMobProfPeerListName=tmnxMobProfPeerListName, tmnxMobProfPgwChrgCitTrfTmStart=tmnxMobProfPgwChrgCitTrfTmStart, tmnxMobProfDccaEntry=tmnxMobProfDccaEntry, tmnxMobProfDiaConnTimer=tmnxMobProfDiaConnTimer, tmnxMobProfSgwChrgPrctMgmtInterv=tmnxMobProfSgwChrgPrctMgmtInterv, tmnxMobProfSysCpuThreshldCriticl=tmnxMobProfSysCpuThreshldCriticl, tmnxMobProfHttpRedirectRowStatus=tmnxMobProfHttpRedirectRowStatus, tmnxMobProfPeerListPeerForeign=tmnxMobProfPeerListPeerForeign, tmnxMobProfDccaQosInformation=tmnxMobProfDccaQosInformation, tmnxMobProfDccaCcSessFlovrHndl=tmnxMobProfDccaCcSessFlovrHndl, tmnxMobProfSysTrfcDropThrshldS5=tmnxMobProfSysTrfcDropThrshldS5, tmnxMobProfPlmnListMnc=tmnxMobProfPlmnListMnc, tmnxMobProfPolConfRefCount=tmnxMobProfPolConfRefCount, tmnxMobProfPolInUse=tmnxMobProfPolInUse, tmnxMobProfHTTPRedirectTable=tmnxMobProfHTTPRedirectTable, tmnxMobProfileGroups=tmnxMobProfileGroups, tmnxMobProfGtpTblLstChgd=tmnxMobProfGtpTblLstChgd, tmnxMobProfPeerListPeerRowStatus=tmnxMobProfPeerListPeerRowStatus, tmnxMobProfQciPolQciDscpOut=tmnxMobProfQciPolQciDscpOut, tmnxMobGtpPriGrpAdminState=tmnxMobGtpPriGrpAdminState, tmnxMobProfDiaTransTimer=tmnxMobProfDiaTransTimer, tmnxMobProfQciPolQciLastChanged=tmnxMobProfQciPolQciLastChanged, tmnxMobProfChgUnitName=tmnxMobProfChgUnitName, tmnxMobProfPolUntFlwAaApp=tmnxMobProfPolUntFlwAaApp, tmnxMobProfPgwChrgPrctMsTmzChnge=tmnxMobProfPgwChrgPrctMsTmzChnge, tmnxMobUmtsQosPolLastChanged=tmnxMobUmtsQosPolLastChanged, tmnxMobProfPolUntFlwLastChanged=tmnxMobProfPolUntFlwLastChanged, tmnxMobProfPolQciValue=tmnxMobProfPolQciValue, tmnxMobProfPgwChargingTblLstChgd=tmnxMobProfPgwChargingTblLstChgd, tmnxMobProfPeerListPeerAddr=tmnxMobProfPeerListPeerAddr, tmnxMobProfPolBaseEntry=tmnxMobProfPolBaseEntry, tmnxMobProfDccaRetryCnt=tmnxMobProfDccaRetryCnt, tmnxMobUmtsQosPolName=tmnxMobUmtsQosPolName, tmnxMobProfDiaPeerTable=tmnxMobProfDiaPeerTable, tmnxMobProfGlobalGroup=tmnxMobProfGlobalGroup, tmnxMobProfPolUntFlwRmtPrefixLen=tmnxMobProfPolUntFlwRmtPrefixLen, tmnxMobProfGtpIpTtl=tmnxMobProfGtpIpTtl, tmnxMobProfPolUntFlowTblLstChgd=tmnxMobProfPolUntFlowTblLstChgd, tmnxMobProfUmtsQosPolGroup=tmnxMobProfUmtsQosPolGroup, tmnxMobProfSysTblLstChgd=tmnxMobProfSysTblLstChgd, tmnxMobProfChgUnitEntry=tmnxMobProfChgUnitEntry, tmnxMobProfDiaPeerLastChanged=tmnxMobProfDiaPeerLastChanged, tmnxMobProfPgwChrgCitVolumeLmtRg=tmnxMobProfPgwChrgCitVolumeLmtRg, tmnxMobGtpPriGrpFileObsoleteTime=tmnxMobGtpPriGrpFileObsoleteTime, tmnxMobProfPolUnitRowStatus=tmnxMobProfPolUnitRowStatus, tmnxMobProfileCompliances=tmnxMobProfileCompliances, tmnxMobProfHttpRedirectLstChgd=tmnxMobProfHttpRedirectLstChgd, tmnxMobProfV4v0Compliance=tmnxMobProfV4v0Compliance, tmnxMobProfSysPagingTimeout=tmnxMobProfSysPagingTimeout, tmnxMobProfPgwChrgCitSgwChange=tmnxMobProfPgwChrgCitSgwChange, tmnxMobProfDiameterGroup=tmnxMobProfDiameterGroup, tmnxMobProfPmipv6KeepAlvIntvl=tmnxMobProfPmipv6KeepAlvIntvl, tmnxMobProfDiaPeerListAddrType=tmnxMobProfDiaPeerListAddrType, tmnxMobProfPolBaseRowStatus=tmnxMobProfPolBaseRowStatus, tmnxMobProfRadPeerAdminState=tmnxMobProfRadPeerAdminState, tmnxMobProfQciPolTable=tmnxMobProfQciPolTable, tmnxMobProfRadGrpServerType=tmnxMobProfRadGrpServerType, tmnxMobProfPolUntFlwRmtPortVal1=tmnxMobProfPolUntFlwRmtPortVal1, tmnxMobProfSgwChargingTable=tmnxMobProfSgwChargingTable, tmnxMobProfPeerListPeerKeepAlive=tmnxMobProfPeerListPeerKeepAlive, tmnxMobProfPeerListPeerTable=tmnxMobProfPeerListPeerTable, tmnxMobProfSgwChrgId=tmnxMobProfSgwChrgId, tmnxMobProfSgwChargingEntry=tmnxMobProfSgwChargingEntry, tmnxMobProfPeerListTblLstChgd=tmnxMobProfPeerListTblLstChgd, tmnxMobGtpPriGrpTblLstChgd=tmnxMobGtpPriGrpTblLstChgd, tmnxMobProfRadGrpDescription=tmnxMobProfRadGrpDescription, tmnxMobGtpPriServerAdminState=tmnxMobGtpPriServerAdminState, tmnxMobProfSysBCPdnLimit=tmnxMobProfSysBCPdnLimit, tmnxMobProfSysMemThreshldMinor=tmnxMobProfSysMemThreshldMinor, tmnxMobProfPolUnitUplinkGbrRate=tmnxMobProfPolUnitUplinkGbrRate, tmnxMobProfPmipv6KeepAlvRetryCnt=tmnxMobProfPmipv6KeepAlvRetryCnt, tmnxMobProfPolUntFlwLclAddrType=tmnxMobProfPolUntFlwLclAddrType, tmnxMobProfPgwChrgCitTrfTimeChng=tmnxMobProfPgwChrgCitTrfTimeChng, tmnxMobUmtsQosPolRowStatus=tmnxMobUmtsQosPolRowStatus, tmnxMobProfGtpKeepAlvTimeout=tmnxMobProfGtpKeepAlvTimeout, tmnxMobProfDiaPeerIfVRtrId=tmnxMobProfDiaPeerIfVRtrId, tmnxMobProfRadiusGroup=tmnxMobProfRadiusGroup, tmnxMobGtpPriGrpInactiveTimer=tmnxMobGtpPriGrpInactiveTimer, tmnxMobGtpPriGrpFileClosureSize=tmnxMobGtpPriGrpFileClosureSize, tmnxMobProfPolUntFlwRmtAddrType=tmnxMobProfPolUntFlwRmtAddrType, tmnxMobProfRadGrpIfIndex=tmnxMobProfRadGrpIfIndex, tmnxMobProfPmipv6RowStatus=tmnxMobProfPmipv6RowStatus, tmnxMobUmtsQosPolConvSpeechQci=tmnxMobUmtsQosPolConvSpeechQci, tmnxMobProfSgwChrgPrctMaxChCond=tmnxMobProfSgwChrgPrctMaxChCond, tmnxMobGtpPriServerTimeout=tmnxMobGtpPriServerTimeout, tmnxMobProfPolUntFlwRowStatus=tmnxMobProfPolUntFlwRowStatus, tmnxMobProfRadGrpAuthServerPort=tmnxMobProfRadGrpAuthServerPort, tmnxMobProfDccaValidityTimeExp=tmnxMobProfDccaValidityTimeExp, tmnxMobProfDiaLastChanged=tmnxMobProfDiaLastChanged, tmnxMobProfDiaPeerIfIndex=tmnxMobProfDiaPeerIfIndex, tmnxMobProfile=tmnxMobProfile, tmnxMobGtpPriGrpName=tmnxMobGtpPriGrpName, tmnxMobGtpPriGrpQueueSize=tmnxMobGtpPriGrpQueueSize, tmnxMobGtpPriServerIndex=tmnxMobGtpPriServerIndex, tmnxMobGtpPriGrpFilePrivateInfo=tmnxMobGtpPriGrpFilePrivateInfo, tmnxMobProfPolTable=tmnxMobProfPolTable, tmnxMobProfDiaIpTtl=tmnxMobProfDiaIpTtl, tmnxMobProfDiaTblLstChgd=tmnxMobProfDiaTblLstChgd, tmnxMobProfChgUnitInUse=tmnxMobProfChgUnitInUse, tmnxMobProfQciPolQciTblLstChgd=tmnxMobProfQciPolQciTblLstChgd, tmnxMobProfGroup=tmnxMobProfGroup, tmnxMobProfHttpRedirectName=tmnxMobProfHttpRedirectName, tmnxMobProfRadPeerTblLstChgd=tmnxMobProfRadPeerTblLstChgd, tmnxMobProfRadGrpEntry=tmnxMobProfRadGrpEntry, tmnxMobGtpPriGrpFileExtension=tmnxMobGtpPriGrpFileExtension, tmnxMobProfRadPeerRowStatus=tmnxMobProfRadPeerRowStatus, tmnxMobGtpPriServerAddrType=tmnxMobGtpPriServerAddrType, tmnxMobProfPmipv6Entry=tmnxMobProfPmipv6Entry, tmnxMobProfDiaPeerListLastChngd=tmnxMobProfDiaPeerListLastChngd, tmnxMobProfDiaPeerAdminState=tmnxMobProfDiaPeerAdminState, tmnxMobProfQciPolRowStatus=tmnxMobProfQciPolRowStatus, tmnxMobProfChgRuleUnitName=tmnxMobProfChgRuleUnitName, tmnxMobProfPgwChrgCitTermServDf=tmnxMobProfPgwChrgCitTermServDf, tmnxMobProfPeerListLastChanged=tmnxMobProfPeerListLastChanged, tmnxMobProfPeerListPeerTblLtCgd=tmnxMobProfPeerListPeerTblLtCgd, tmnxMobProfPolRefCount=tmnxMobProfPolRefCount, tmnxMobProfPolUntFlwLclPortVal2=tmnxMobProfPolUntFlwLclPortVal2, tmnxMobProfGtpMsgReTxRetryCnt=tmnxMobProfGtpMsgReTxRetryCnt, tmnxMobUmtsQosPolBackground=tmnxMobUmtsQosPolBackground, tmnxMobProfSysBCUeLimit=tmnxMobProfSysBCUeLimit, timetraMobProfileMIBModule=timetraMobProfileMIBModule, tmnxMobProfPeerListEntry=tmnxMobProfPeerListEntry, tmnxMobGtpPriServerNodeAlive=tmnxMobGtpPriServerNodeAlive, tmnxMobProfPmipv6V3Group=tmnxMobProfPmipv6V3Group, tmnxMobProfHTTPRedirctTblLstChgd=tmnxMobProfHTTPRedirctTblLstChgd, tmnxMobProfRadPeerIndex=tmnxMobProfRadPeerIndex, tmnxMobProfDiaPermFailRetryTime=tmnxMobProfDiaPermFailRetryTime, tmnxMobProfPlmnListName=tmnxMobProfPlmnListName, tmnxMobProfQciPolQciDscp=tmnxMobProfQciPolQciDscp, tmnxMobProfPgwChargingEntry=tmnxMobProfPgwChargingEntry, tmnxMobProfDccaFirstPktBehavior=tmnxMobProfDccaFirstPktBehavior, tmnxMobProfSgwChargingTblLstChgd=tmnxMobProfSgwChargingTblLstChgd, tmnxMobProfPlmnListRowStatus=tmnxMobProfPlmnListRowStatus, tmnxMobProfDiaPeerTblLstChgd=tmnxMobProfDiaPeerTblLstChgd, tmnxMobProfPeerListTable=tmnxMobProfPeerListTable, tmnxMobProfSgwChrgPrctRatChange=tmnxMobProfSgwChrgPrctRatChange, tmnxMobProfSysSgnlFailThrshldS5=tmnxMobProfSysSgnlFailThrshldS5, tmnxMobProfGtpMsgReTxTimeout=tmnxMobProfGtpMsgReTxTimeout, tmnxMobProfChgUnitMeteringMethod=tmnxMobProfChgUnitMeteringMethod, tmnxMobProfSysTrfcDropThrshldS1u=tmnxMobProfSysTrfcDropThrshldS1u, tmnxMobProfV3Group=tmnxMobProfV3Group, tmnxMobProfSgwChrgPriCdfDiaPeer=tmnxMobProfSgwChrgPriCdfDiaPeer, tmnxMobProfDccaLastChanged=tmnxMobProfDccaLastChanged, tmnxMobProfPgwChrgCitTrfTmEnd=tmnxMobProfPgwChrgCitTrfTmEnd, tmnxMobUmtsQosPolInterP2Qci=tmnxMobUmtsQosPolInterP2Qci, tmnxMobProfSgwChrgPrctVolumeLmt=tmnxMobProfSgwChrgPrctVolumeLmt, tmnxMobProfDccaName=tmnxMobProfDccaName, tmnxMobProfPolUntFlwRmtPortVal2=tmnxMobProfPolUntFlwRmtPortVal2, tmnxMobProfPolUntFlwRmtAddr=tmnxMobProfPolUntFlwRmtAddr, tmnxMobProfDiaPeerListIndex=tmnxMobProfDiaPeerListIndex, tmnxMobProfPolBaseConfRefCount=tmnxMobProfPolBaseConfRefCount, tmnxMobProfPolUnitTblLstChgd=tmnxMobProfPolUnitTblLstChgd, tmnxMobProfPolBasePreActivate=tmnxMobProfPolBasePreActivate, tmnxMobProfRadName=tmnxMobProfRadName, tmnxMobProfPolArpValue=tmnxMobProfPolArpValue, tmnxMobProfGtpKeepAlvRetryCnt=tmnxMobProfGtpKeepAlvRetryCnt, tmnxMobProfPolBaseRefCount=tmnxMobProfPolBaseRefCount, tmnxMobGtpPriServerEchoInterval=tmnxMobGtpPriServerEchoInterval, tmnxMobProfSysSDFIpv4Limit=tmnxMobProfSysSDFIpv4Limit, TmnxMobProfMsgReTxTimeout=TmnxMobProfMsgReTxTimeout, tmnxMobProfileObjs=tmnxMobProfileObjs, tmnxMobProfRadGrpTblLstChgd=tmnxMobProfRadGrpTblLstChgd, tmnxMobProfSysTrfcDropThrshldS8=tmnxMobProfSysTrfcDropThrshldS8, tmnxMobUmtsQosPolStreamQciValue=tmnxMobUmtsQosPolStreamQciValue, tmnxMobProfChgUnitRowStatus=tmnxMobProfChgUnitRowStatus, TmnxMobProfKeepAliveResponse=TmnxMobProfKeepAliveResponse, tmnxMobProfGtpKeepAlvResp=tmnxMobProfGtpKeepAlvResp, tmnxMobProfPlmnListTable=tmnxMobProfPlmnListTable, tmnxMobProfSysSgnlFailThrshldS11=tmnxMobProfSysSgnlFailThrshldS11, tmnxMobUmtsQosPolInterP3Qci=tmnxMobUmtsQosPolInterP3Qci, tmnxMobProfPgwChrgPrctPlmnChange=tmnxMobProfPgwChrgPrctPlmnChange, tmnxMobProfGtpTable=tmnxMobProfGtpTable, tmnxMobProfHttpRedirctPrecedence=tmnxMobProfHttpRedirctPrecedence, tmnxMobProfQciPolDescription=tmnxMobProfQciPolDescription, tmnxMobProfPlmnListTblLstChgd=tmnxMobProfPlmnListTblLstChgd, tmnxMobProfPeerListRowStatus=tmnxMobProfPeerListRowStatus, tmnxMobProfRadTblLstChgd=tmnxMobProfRadTblLstChgd, tmnxMobProfChargingGroup=tmnxMobProfChargingGroup, tmnxMobProfHTTPRedirectEntry=tmnxMobProfHTTPRedirectEntry, tmnxMobProfRadPeerAddrType=tmnxMobProfRadPeerAddrType, tmnxMobUmtsQosPolConvUnkTdl=tmnxMobUmtsQosPolConvUnkTdl, tmnxMobProfPolUnitEntry=tmnxMobProfPolUnitEntry, tmnxMobProfDccaQuotaUnavail=tmnxMobProfDccaQuotaUnavail, tmnxMobProfileObsoletedGroup=tmnxMobProfileObsoletedGroup, tmnxMobProfPeerListDescription=tmnxMobProfPeerListDescription, tmnxMobProfPgwChrgLastChanged=tmnxMobProfPgwChrgLastChanged, tmnxMobProfPlmnListMcc=tmnxMobProfPlmnListMcc, tmnxMobProfPgwChargingTable=tmnxMobProfPgwChargingTable, tmnxMobGtpPriServerTblLstChgd=tmnxMobGtpPriServerTblLstChgd, tmnxMobProfRadPeerAuthSvrPort=tmnxMobProfRadPeerAuthSvrPort, tmnxMobProfPgwChrgPrctVolumeLmt=tmnxMobProfPgwChrgPrctVolumeLmt, tmnxMobProfSysName=tmnxMobProfSysName, tmnxMobProfPolUntRedirectAddr=tmnxMobProfPolUntRedirectAddr, tmnxMobProfPolUntFlwLclPortVal1=tmnxMobProfPolUntFlwLclPortVal1, tmnxMobProfDiaIpDscp=tmnxMobProfDiaIpDscp, tmnxMobGtpPriServerMaxRequests=tmnxMobGtpPriServerMaxRequests, tmnxMobProfPolUnitDwnlinkMbrRate=tmnxMobProfPolUnitDwnlinkMbrRate, tmnxMobProfDiaPeerListAddr=tmnxMobProfDiaPeerListAddr, tmnxMobProfileGlobalObjs=tmnxMobProfileGlobalObjs, tmnxMobGtpPriGrpDeadtime=tmnxMobGtpPriGrpDeadtime, tmnxMobProfPolUnitDwnlinkGbrRate=tmnxMobProfPolUnitDwnlinkGbrRate, tmnxMobProfSysBCLimit=tmnxMobProfSysBCLimit)
+mibBuilder.exportSymbols("TIMETRA-MOBILE-PROFILE-MIB", tmnxMobGtpPriGrpFileClsLifeTime=tmnxMobGtpPriGrpFileClsLifeTime, tmnxMobProfPgwChrgSecCdfDiaPeer=tmnxMobProfPgwChrgSecCdfDiaPeer, tmnxMobProfSgwChrgRowStatus=tmnxMobProfSgwChrgRowStatus, tmnxMobProfPgwGyDccaProf=tmnxMobProfPgwGyDccaProf, tmnxMobProfChgUnitTable=tmnxMobProfChgUnitTable, tmnxMobGtpPriGrpCf1State=tmnxMobGtpPriGrpCf1State, tmnxMobProfSgwChrgCitTrfTimeChng=tmnxMobProfSgwChrgCitTrfTimeChng, tmnxMobProfDccaV4v0Group=tmnxMobProfDccaV4v0Group, tmnxMobProfPolBaseLastChanged=tmnxMobProfPolBaseLastChanged, TmnxMobProfKeepAliveRetryCount=TmnxMobProfKeepAliveRetryCount, tmnxMobProfDccaFhSessContTimer=tmnxMobProfDccaFhSessContTimer, tmnxMobProfPolUntFlwId=tmnxMobProfPolUntFlwId, tmnxMobProfRadPeerSecret=tmnxMobProfRadPeerSecret, TmnxMobProfMsgReTxRetryCount=TmnxMobProfMsgReTxRetryCount, tmnxMobProfQciPolLastChanged=tmnxMobProfQciPolLastChanged, tmnxMobProfRadPeerTable=tmnxMobProfRadPeerTable, tmnxMobProfRadPeerPriority=tmnxMobProfRadPeerPriority, tmnxMobProfGtpEntry=tmnxMobProfGtpEntry, tmnxMobProfSysCpuThreshldMinor=tmnxMobProfSysCpuThreshldMinor, tmnxMobProfGtpRowStatus=tmnxMobProfGtpRowStatus, tmnxMobProfPmipv6Table=tmnxMobProfPmipv6Table, tmnxMobProfPolName=tmnxMobProfPolName, tmnxMobProfPmipv6IpTtl=tmnxMobProfPmipv6IpTtl, tmnxMobProfPgwChrgPriCdfDiaPeer=tmnxMobProfPgwChrgPriCdfDiaPeer, tmnxMobProfRadPeerEntry=tmnxMobProfRadPeerEntry, tmnxMobProfRadRetryCount=tmnxMobProfRadRetryCount, tmnxMobProfChgUnitRatingGroup=tmnxMobProfChgUnitRatingGroup, tmnxMobProfDccaTblLstChgd=tmnxMobProfDccaTblLstChgd, tmnxMobProfSysMemThreshldCriticl=tmnxMobProfSysMemThreshldCriticl, tmnxMobProfDiaPeerDiaProfName=tmnxMobProfDiaPeerDiaProfName, tmnxMobProfQciPolQciEntry=tmnxMobProfQciPolQciEntry, tmnxMobProfSysS1BufferSize=tmnxMobProfSysS1BufferSize, tmnxMobProfDiaPeerApplication=tmnxMobProfDiaPeerApplication, tmnxMobProfPmipv6Name=tmnxMobProfPmipv6Name, tmnxMobProfPeerListPeerPlmnMnc=tmnxMobProfPeerListPeerPlmnMnc, tmnxMobProfRadEntry=tmnxMobProfRadEntry, tmnxMobProfRadRetryTimeout=tmnxMobProfRadRetryTimeout, tmnxMobProfDccaCalledStationId=tmnxMobProfDccaCalledStationId, tmnxMobProfPolicyRulesV3Group=tmnxMobProfPolicyRulesV3Group, tmnxMobProfPolUnitUplinkMbrRate=tmnxMobProfPolUnitUplinkMbrRate, tmnxMobProfPgwChrgCitUsrLocChnge=tmnxMobProfPgwChrgCitUsrLocChnge, tmnxMobProfDiaWatchdgTimer=tmnxMobProfDiaWatchdgTimer, tmnxMobProfChgUnitLastChanged=tmnxMobProfChgUnitLastChanged, tmnxMobProfPolUntFlwEntry=tmnxMobProfPolUntFlwEntry, tmnxMobProfQciPolQciArpValue=tmnxMobProfQciPolQciArpValue, tmnxMobGtpPriGrpIfVRtrId=tmnxMobGtpPriGrpIfVRtrId, tmnxMobProfGtpLastChanged=tmnxMobProfGtpLastChanged, tmnxMobGtpPriGrpIfIndex=tmnxMobGtpPriGrpIfIndex, tmnxMobProfPgwChrgId=tmnxMobProfPgwChrgId, tmnxMobProfSgwChrgPrctTimeLmt=tmnxMobProfSgwChrgPrctTimeLmt, tmnxMobProfSysMemThreshldMajor=tmnxMobProfSysMemThreshldMajor, tmnxMobProfPolBaseInUse=tmnxMobProfPolBaseInUse, tmnxMobProfDccaDescription=tmnxMobProfDccaDescription, tmnxMobProfPgwGyPriOcsDiaPeer=tmnxMobProfPgwGyPriOcsDiaPeer, tmnxMobProfQciPolQciTable=tmnxMobProfQciPolQciTable, tmnxMobGtpPriGrpMaxCdrsPerPdu=tmnxMobGtpPriGrpMaxCdrsPerPdu, tmnxMobGtpPriServerEntry=tmnxMobGtpPriServerEntry, tmnxMobProfPolUnitName=tmnxMobProfPolUnitName, tmnxMobGtpPriGrpRedirection=tmnxMobGtpPriGrpRedirection, tmnxMobProfileConformance=tmnxMobProfileConformance, tmnxMobProfPolLastChanged=tmnxMobProfPolLastChanged, tmnxMobProfSysBCActivtyRate=tmnxMobProfSysBCActivtyRate, tmnxMobProfPgwChrgDesc=tmnxMobProfPgwChrgDesc, tmnxMobGtpPriServerPriority=tmnxMobGtpPriServerPriority, tmnxMobProfDiaPeerRowStatus=tmnxMobProfDiaPeerRowStatus, tmnxMobProfPolUntRedirectAdrType=tmnxMobProfPolUntRedirectAdrType, tmnxMobProf7xxxV10v0Compl=tmnxMobProf7xxxV10v0Compl, tmnxMobProfPolTblLstChgd=tmnxMobProfPolTblLstChgd, tmnxMobProfRadLastChanged=tmnxMobProfRadLastChanged, tmnxMobProfRadPeerRadProfile=tmnxMobProfRadPeerRadProfile, tmnxMobGtpPriServerTable=tmnxMobGtpPriServerTable, tmnxMobProfPmipv6Description=tmnxMobProfPmipv6Description, tmnxMobProfPmipv6MsgReTxRetryCnt=tmnxMobProfPmipv6MsgReTxRetryCnt, tmnxMobProfGtpPrimeServerGroup=tmnxMobProfGtpPrimeServerGroup, tmnxMobProfRadAuthProbeInt=tmnxMobProfRadAuthProbeInt, tmnxMobProfRadGrpName=tmnxMobProfRadGrpName, tmnxMobProfQciPolName=tmnxMobProfQciPolName, tmnxMobProfQciPolicyGroup=tmnxMobProfQciPolicyGroup, tmnxMobProfPolUnitLastChanged=tmnxMobProfPolUnitLastChanged, tmnxMobProfPgwChrgCitQosChange=tmnxMobProfPgwChrgCitQosChange, tmnxMobProfPolUntFlwLclPrefixLen=tmnxMobProfPolUntFlwLclPrefixLen, tmnxMobProfDccaApplTxTimer=tmnxMobProfDccaApplTxTimer, tmnxMobProfGlobalV3Group=tmnxMobProfGlobalV3Group, tmnxMobProfQciPolQciProfile=tmnxMobProfQciPolQciProfile, tmnxMobProfPmipv6TblLstChgd=tmnxMobProfPmipv6TblLstChgd, TmnxMobProfKeepAliveInterval=TmnxMobProfKeepAliveInterval, tmnxMobProfPgwChrgPrctRatChange=tmnxMobProfPgwChrgPrctRatChange, tmnxMobProfSysPagingBufferLimit=tmnxMobProfSysPagingBufferLimit, tmnxMobGtpPriServerLastChngd=tmnxMobGtpPriServerLastChngd, tmnxMobProfPgwChrgOffLineState=tmnxMobProfPgwChrgOffLineState, tmnxMobProfChargingV3Group=tmnxMobProfChargingV3Group, tmnxMobProfDiaPeerListEntry=tmnxMobProfDiaPeerListEntry, tmnxMobGtpPriGrpLastChanged=tmnxMobGtpPriGrpLastChanged, tmnxMobProfPgwChrgPrctTimeLmt=tmnxMobProfPgwChrgPrctTimeLmt, tmnxMobProfDiaPeerLoadBalance=tmnxMobProfDiaPeerLoadBalance, tmnxMobUmtsQosPolTblLstChgd=tmnxMobUmtsQosPolTblLstChgd, tmnxMobProfPolUntFlwLclPortOper=tmnxMobProfPolUntFlwLclPortOper, tmnxMobProfSgwChrgLastChanged=tmnxMobProfSgwChrgLastChanged, tmnxMobProfDccaRowStatus=tmnxMobProfDccaRowStatus, tmnxMobProfPgwChrgCitTimeLmtRg=tmnxMobProfPgwChrgCitTimeLmtRg, tmnxMobProfPmipv6MsgReTxTimeout=tmnxMobProfPmipv6MsgReTxTimeout, TmnxMobProfKeepAliveTimeout=TmnxMobProfKeepAliveTimeout, tmnxMobProfQciPolEntry=tmnxMobProfQciPolEntry, tmnxMobProfPeerListPeerAddrType=tmnxMobProfPeerListPeerAddrType, tmnxMobGtpPriGrpCf1Limit=tmnxMobGtpPriGrpCf1Limit, tmnxMobProfRadDescription=tmnxMobProfRadDescription, tmnxMobProfSgwChrgPrctMsTmzChnge=tmnxMobProfSgwChrgPrctMsTmzChnge, tmnxMobProfPolicyRulesV31Group=tmnxMobProfPolicyRulesV31Group, tmnxMobProfChgUnitServIdentifier=tmnxMobProfChgUnitServIdentifier, tmnxMobProfGtpName=tmnxMobProfGtpName, tmnxMobProfDiaDnsRefreshInt=tmnxMobProfDiaDnsRefreshInt, tmnxMobProfSysSgnlFailThrshldGxc=tmnxMobProfSysSgnlFailThrshldGxc, tmnxMobProfSgwChrgOffLineState=tmnxMobProfSgwChrgOffLineState, TmnxMobProfAllowDiscard=TmnxMobProfAllowDiscard, tmnxMobProfRadPeerAddr=tmnxMobProfRadPeerAddr, tmnxMobProfDiaTable=tmnxMobProfDiaTable, tmnxMobProfPolUntFlwTable=tmnxMobProfPolUntFlwTable, tmnxMobProfSgwChrgPrctSrvNdChLmt=tmnxMobProfSgwChrgPrctSrvNdChLmt, tmnxMobProfDccaTable=tmnxMobProfDccaTable, tmnxMobProfDiaPeerTransport=tmnxMobProfDiaPeerTransport, tmnxMobProfQciPolQciDscpPreserve=tmnxMobProfQciPolQciDscpPreserve, tmnxMobProfPolUntFlwRmtPortOper=tmnxMobProfPolUntFlwRmtPortOper, tmnxMobGtpPriServerPathProtocol=tmnxMobGtpPriServerPathProtocol, tmnxMobProfDiaPeerName=tmnxMobProfDiaPeerName, tmnxMobProfSysTable=tmnxMobProfSysTable, tmnxMobProfPolBaseTable=tmnxMobProfPolBaseTable, tmnxMobGtpPriServerRowStatus=tmnxMobGtpPriServerRowStatus, tmnxMobGtpPriGrpEntry=tmnxMobGtpPriGrpEntry, tmnxMobProfSysRowStatus=tmnxMobProfSysRowStatus, tmnxMobProfSgwChrgCitQosChange=tmnxMobProfSgwChrgCitQosChange, tmnxMobProfPeerListPeerEntry=tmnxMobProfPeerListPeerEntry, tmnxMobProfRadGrpIntUpdateIntvl=tmnxMobProfRadGrpIntUpdateIntvl, tmnxMobProfDiaPeerListTblLstChgd=tmnxMobProfDiaPeerListTblLstChgd, tmnxMobProfSysS1BufferLimit=tmnxMobProfSysS1BufferLimit, tmnxMobProfQciPolTblLstChgd=tmnxMobProfQciPolTblLstChgd, tmnxMobProfRadGrpTable=tmnxMobProfRadGrpTable, tmnxMobProfSgwChrgPrctPlmnChange=tmnxMobProfSgwChrgPrctPlmnChange, tmnxMobProfV3v0Compliance=tmnxMobProfV3v0Compliance, tmnxMobUmtsQosPolInterP1Qci=tmnxMobUmtsQosPolInterP1Qci, tmnxMobProfPeerListPeerAdmnState=tmnxMobProfPeerListPeerAdmnState, tmnxMobProfPeerListPeerLastChgd=tmnxMobProfPeerListPeerLastChgd, tmnxMobProfRadGrpRadiusProfile=tmnxMobProfRadGrpRadiusProfile, tmnxMobProfPgwChrgPrctMaxChCond=tmnxMobProfPgwChrgPrctMaxChCond, tmnxMobProfGtpIpDscp=tmnxMobProfGtpIpDscp, tmnxMobGtpPriGrpCpmMemoryState=tmnxMobGtpPriGrpCpmMemoryState, tmnxMobGtpPriServerPort=tmnxMobGtpPriServerPort, tmnxMobProfPolRuleUnitName=tmnxMobProfPolRuleUnitName, tmnxMobProfPolBaseTblLstChgd=tmnxMobProfPolBaseTblLstChgd, tmnxMobProfPolBaseName=tmnxMobProfPolBaseName, tmnxMobProfRadTable=tmnxMobProfRadTable, tmnxMobProfPolRowStatus=tmnxMobProfPolRowStatus, tmnxMobProfDiaPeerDescription=tmnxMobProfDiaPeerDescription, tmnxMobProfRadGrpRowStatus=tmnxMobProfRadGrpRowStatus, tmnxMobProfSgwChrgSecCdfDiaPeer=tmnxMobProfSgwChrgSecCdfDiaPeer, tmnxMobProfPlmnListEntry=tmnxMobProfPlmnListEntry, tmnxMobProfDiaRowStatus=tmnxMobProfDiaRowStatus, tmnxMobProfQciPolQciValue=tmnxMobProfQciPolQciValue, tmnxMobProfRadRowStatus=tmnxMobProfRadRowStatus, tmnxMobProfDccaDefaultQht=tmnxMobProfDccaDefaultQht, tmnxMobGtpPriGrpTable=tmnxMobGtpPriGrpTable, TmnxMobProfThreshold=TmnxMobProfThreshold, tmnxMobUmtsQosPolConvUnkTdg=tmnxMobUmtsQosPolConvUnkTdg, tmnxMobProfDiaEntry=tmnxMobProfDiaEntry, tmnxMobProfDccaCcSessFailover=tmnxMobProfDccaCcSessFailover, tmnxMobProfPmipv6KeepAlvTimeout=tmnxMobProfPmipv6KeepAlvTimeout, tmnxMobProfPmipv6IpDscp=tmnxMobProfPmipv6IpDscp, tmnxMobProfRadServerDeadTime=tmnxMobProfRadServerDeadTime, tmnxMobProfDiaPeerEntry=tmnxMobProfDiaPeerEntry, tmnxMobProfRadPeerAcctSvrPort=tmnxMobProfRadPeerAcctSvrPort, tmnxMobGtpPriGrpDescription=tmnxMobGtpPriGrpDescription, tmnxMobProfPgwChrgPrctSrvNdChLmt=tmnxMobProfPgwChrgPrctSrvNdChLmt, tmnxMobProfSysDescription=tmnxMobProfSysDescription, tmnxMobProfPeerListPeerPrefixLen=tmnxMobProfPeerListPeerPrefixLen, tmnxMobProfSysSDFIpv6Limit=tmnxMobProfSysSDFIpv6Limit, tmnxMobProfPolPrecedence=tmnxMobProfPolPrecedence, tmnxMobProfDcca3GppQosNegProf=tmnxMobProfDcca3GppQosNegProf, tmnxMobProfRadGrpSecret=tmnxMobProfRadGrpSecret, tmnxMobProfPolUntFlwLclAddr=tmnxMobProfPolUntFlwLclAddr, tmnxMobProfGtpDescription=tmnxMobProfGtpDescription, tmnxMobProfSysSgnlFailThrshldS8=tmnxMobProfSysSgnlFailThrshldS8, tmnxMobProfDccaGroup=tmnxMobProfDccaGroup, tmnxMobGtpPriGrpCf2State=tmnxMobGtpPriGrpCf2State, tmnxMobProfPolUntRefCount=tmnxMobProfPolUntRefCount, tmnxMobGtpPriGrpCf2Limit=tmnxMobGtpPriGrpCf2Limit, tmnxMobGtpPriGrpRowStatus=tmnxMobGtpPriGrpRowStatus, tmnxMobProfDiaPeerListRowStatus=tmnxMobProfDiaPeerListRowStatus, tmnxMobProfChgUnitReportingLevel=tmnxMobProfChgUnitReportingLevel, tmnxMobProfDiaPeerListTable=tmnxMobProfDiaPeerListTable)

@@ -1,53 +1,32 @@
-_F='read-write'
-_E='Integer32'
-_D='ifIndex'
-_C='IF-MIB'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_C,_D)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tplinkArpInspectionMIBObjects,=mibBuilder.importSymbols('TPLINK-ARP-INSPECTION-MIB','tplinkArpInspectionMIBObjects')
-_TpArpDefend_ObjectIdentity=ObjectIdentity
-tpArpDefend=_TpArpDefend_ObjectIdentity((1,3,6,1,4,1,11863,6,28,1,2))
-_TpArpDefendConfig_ObjectIdentity=ObjectIdentity
-tpArpDefendConfig=_TpArpDefendConfig_ObjectIdentity((1,3,6,1,4,1,11863,6,28,1,2,1))
-_TpArpDefendConfigTable_Object=MibTable
-tpArpDefendConfigTable=_TpArpDefendConfigTable_Object((1,3,6,1,4,1,11863,6,28,1,2,1,1))
-if mibBuilder.loadTexts:tpArpDefendConfigTable.setStatus(_A)
-_TpArpDefendConfigEntry_Object=MibTableRow
-tpArpDefendConfigEntry=_TpArpDefendConfigEntry_Object((1,3,6,1,4,1,11863,6,28,1,2,1,1,1))
-tpArpDefendConfigEntry.setIndexNames((0,_C,_D))
-if mibBuilder.loadTexts:tpArpDefendConfigEntry.setStatus(_A)
-_TpArpDefendConfigPort_Type=OctetString
-_TpArpDefendConfigPort_Object=MibTableColumn
-tpArpDefendConfigPort=_TpArpDefendConfigPort_Object((1,3,6,1,4,1,11863,6,28,1,2,1,1,1,1),_TpArpDefendConfigPort_Type())
-tpArpDefendConfigPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpArpDefendConfigPort.setStatus(_A)
-class _TpArpDefendConfigEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('disable',0),('enable',1)))
-_TpArpDefendConfigEnable_Type.__name__=_E
-_TpArpDefendConfigEnable_Object=MibTableColumn
-tpArpDefendConfigEnable=_TpArpDefendConfigEnable_Object((1,3,6,1,4,1,11863,6,28,1,2,1,1,1,2),_TpArpDefendConfigEnable_Type())
-tpArpDefendConfigEnable.setMaxAccess(_F)
-if mibBuilder.loadTexts:tpArpDefendConfigEnable.setStatus(_A)
-_TpArpDefendConfigRate_Type=Integer32
-_TpArpDefendConfigRate_Object=MibTableColumn
-tpArpDefendConfigRate=_TpArpDefendConfigRate_Object((1,3,6,1,4,1,11863,6,28,1,2,1,1,1,3),_TpArpDefendConfigRate_Type())
-tpArpDefendConfigRate.setMaxAccess(_F)
-if mibBuilder.loadTexts:tpArpDefendConfigRate.setStatus(_A)
-_TpArpDefendConfigState_Type=OctetString
-_TpArpDefendConfigState_Object=MibTableColumn
-tpArpDefendConfigState=_TpArpDefendConfigState_Object((1,3,6,1,4,1,11863,6,28,1,2,1,1,1,4),_TpArpDefendConfigState_Type())
-tpArpDefendConfigState.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpArpDefendConfigState.setStatus(_A)
-_TpArpDefendConfigPortLag_Type=OctetString
-_TpArpDefendConfigPortLag_Object=MibTableColumn
-tpArpDefendConfigPortLag=_TpArpDefendConfigPortLag_Object((1,3,6,1,4,1,11863,6,28,1,2,1,1,1,5),_TpArpDefendConfigPortLag_Type())
-tpArpDefendConfigPortLag.setMaxAccess(_B)
-if mibBuilder.loadTexts:tpArpDefendConfigPortLag.setStatus(_A)
-mibBuilder.exportSymbols('TPLINK-ARP-DEFEND-MIB',**{'tpArpDefend':tpArpDefend,'tpArpDefendConfig':tpArpDefendConfig,'tpArpDefendConfigTable':tpArpDefendConfigTable,'tpArpDefendConfigEntry':tpArpDefendConfigEntry,'tpArpDefendConfigPort':tpArpDefendConfigPort,'tpArpDefendConfigEnable':tpArpDefendConfigEnable,'tpArpDefendConfigRate':tpArpDefendConfigRate,'tpArpDefendConfigState':tpArpDefendConfigState,'tpArpDefendConfigPortLag':tpArpDefendConfigPortLag})
+#
+# PySNMP MIB module TPLINK-ARP-DEFEND-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-ARP-DEFEND-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tplinkArpInspectionMIBObjects, = mibBuilder.importSymbols("TPLINK-ARP-INSPECTION-MIB", "tplinkArpInspectionMIBObjects")
+tpArpDefend = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 28, 1, 2))
+tpArpDefendConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 28, 1, 2, 1))
+tpArpDefendConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 28, 1, 2, 1, 1), )
+if mibBuilder.loadTexts: tpArpDefendConfigTable.setStatus('current')
+tpArpDefendConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 28, 1, 2, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: tpArpDefendConfigEntry.setStatus('current')
+tpArpDefendConfigPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 28, 1, 2, 1, 1, 1, 1), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpArpDefendConfigPort.setStatus('current')
+tpArpDefendConfigEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 28, 1, 2, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 0))).clone(namedValues=NamedValues(("enable", 1), ("disable", 0)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpArpDefendConfigEnable.setStatus('current')
+tpArpDefendConfigRate = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 28, 1, 2, 1, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: tpArpDefendConfigRate.setStatus('current')
+tpArpDefendConfigState = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 28, 1, 2, 1, 1, 1, 4), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpArpDefendConfigState.setStatus('current')
+tpArpDefendConfigPortLag = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 28, 1, 2, 1, 1, 1, 5), OctetString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: tpArpDefendConfigPortLag.setStatus('current')
+mibBuilder.exportSymbols("TPLINK-ARP-DEFEND-MIB", tpArpDefendConfigRate=tpArpDefendConfigRate, tpArpDefend=tpArpDefend, tpArpDefendConfigTable=tpArpDefendConfigTable, tpArpDefendConfigEnable=tpArpDefendConfigEnable, tpArpDefendConfigState=tpArpDefendConfigState, tpArpDefendConfigPort=tpArpDefendConfigPort, tpArpDefendConfig=tpArpDefendConfig, tpArpDefendConfigPortLag=tpArpDefendConfigPortLag, tpArpDefendConfigEntry=tpArpDefendConfigEntry)

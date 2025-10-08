@@ -1,36 +1,28 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Ibm_ObjectIdentity=ObjectIdentity
-ibm=_Ibm_ObjectIdentity((1,3,6,1,4,1,2))
-_IbmResearch_ObjectIdentity=ObjectIdentity
-ibmResearch=_IbmResearch_ObjectIdentity((1,3,6,1,4,1,2,2))
-_IbmAgents_ObjectIdentity=ObjectIdentity
-ibmAgents=_IbmAgents_ObjectIdentity((1,3,6,1,4,1,2,3))
-_IbmArchitecture_ObjectIdentity=ObjectIdentity
-ibmArchitecture=_IbmArchitecture_ObjectIdentity((1,3,6,1,4,1,2,5))
-_Alert_ObjectIdentity=ObjectIdentity
-alert=_Alert_ObjectIdentity((1,3,6,1,4,1,2,5,1))
-_Fddi_ObjectIdentity=ObjectIdentity
-fddi=_Fddi_ObjectIdentity((1,3,6,1,4,1,2,5,2))
-_Topology_ObjectIdentity=ObjectIdentity
-topology=_Topology_ObjectIdentity((1,3,6,1,4,1,2,5,3))
-_TokenRing_ObjectIdentity=ObjectIdentity
-tokenRing=_TokenRing_ObjectIdentity((1,3,6,1,4,1,2,5,4))
-_IbmProd_ObjectIdentity=ObjectIdentity
-ibmProd=_IbmProd_ObjectIdentity((1,3,6,1,4,1,2,6))
-_Ibm3172_ObjectIdentity=ObjectIdentity
-ibm3172=_Ibm3172_ObjectIdentity((1,3,6,1,4,1,2,6,1))
-_Ibm6611_ObjectIdentity=ObjectIdentity
-ibm6611=_Ibm6611_ObjectIdentity((1,3,6,1,4,1,2,6,2))
-_NetView6000_ObjectIdentity=ObjectIdentity
-netView6000=_NetView6000_ObjectIdentity((1,3,6,1,4,1,2,6,3))
-_NetView6000SubAgent_ObjectIdentity=ObjectIdentity
-netView6000SubAgent=_NetView6000SubAgent_ObjectIdentity((1,3,6,1,4,1,2,6,4))
-_SystemsMonitor6000_ObjectIdentity=ObjectIdentity
-systemsMonitor6000=_SystemsMonitor6000_ObjectIdentity((1,3,6,1,4,1,2,6,12))
-mibBuilder.exportSymbols('IBM-MIB',**{'ibm':ibm,'ibmResearch':ibmResearch,'ibmAgents':ibmAgents,'ibmArchitecture':ibmArchitecture,'alert':alert,'fddi':fddi,'topology':topology,'tokenRing':tokenRing,'ibmProd':ibmProd,'ibm3172':ibm3172,'ibm6611':ibm6611,'netView6000':netView6000,'netView6000SubAgent':netView6000SubAgent,'systemsMonitor6000':systemsMonitor6000})
+#
+# PySNMP MIB module IBM-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/ibm/IBM-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:24:38 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ibm = MibIdentifier((1, 3, 6, 1, 4, 1, 2))
+ibmResearch = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 2))
+ibmAgents = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 3))
+ibmArchitecture = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 5))
+alert = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 5, 1))
+fddi = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 5, 2))
+topology = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 5, 3))
+tokenRing = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 5, 4))
+ibmProd = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6))
+ibm3172 = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 1))
+ibm6611 = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 2))
+netView6000 = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 3))
+netView6000SubAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 4))
+systemsMonitor6000 = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 12))
+mibBuilder.exportSymbols("IBM-MIB", ibmResearch=ibmResearch, ibmProd=ibmProd, netView6000=netView6000, topology=topology, netView6000SubAgent=netView6000SubAgent, fddi=fddi, ibm3172=ibm3172, ibm6611=ibm6611, ibmAgents=ibmAgents, alert=alert, tokenRing=tokenRing, systemsMonitor6000=systemsMonitor6000, ibm=ibm, ibmArchitecture=ibmArchitecture)

@@ -1,165 +1,77 @@
-_b='fbmScgPtpGroup'
-_a='fbmScgPtpLastPathLossCheckFailedReason'
-_Z='fbmScgPtpLastPathLossCheckAttemptStatus'
-_Y='fbmScgPtpLastPathLossCheckAttemptTS'
-_X='fbmScgPtpPathLossCheckDetectedPort'
-_W='fbmScgPtpPathLoss'
-_V='fbmScgPtpLastSuccessfullPathLossCheckTS'
-_U='fbmScgPtpPathLossCheckControlStatus'
-_T='fbmScgPtpLineOperatingMode'
-_S='fbmScgPtpAvailableFreqSlotList'
-_R='fbmScgPtpUsedFreqSlotList'
-_Q='fbmScgPtpPmHistStatsEnable'
-_P='fbmScgPtpProvisionedOpenWaveRemotePtp'
-_O='fbmScgPtpProvisionedNeighborAdTpType'
-_N='fbmScgPtpProvisionedNeighborTP'
-_M='fbmScgPtpInterfaceType'
-_L='fbmScgPtpDiscoveredNeighborTP'
-_K='fbmScgPtpProvisionedFPMPO'
-_J='fbmScgPtpMPOAID'
-_I='fbmScgPtpScgSupEqptType'
-_H='fbmScgPtpScgNumber'
-_G='fbmScgPtpMoId'
-_F='ifIndex'
-_E='IF-MIB'
-_D='read-write'
-_C='read-only'
-_B='INFINERA-TP-FBMSCGPTP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-terminationPoint,=mibBuilder.importSymbols('INFINERA-REG-MIB','terminationPoint')
-FloatArbitraryPrecision,FloatHundredths,InfnAdTpType,InfnEnableDisableType,InfnEqptType,InfnLastPathLossCheckAttemptStatus,InfnLastPathLossCheckFailedReason,InfnLineOperatingMode,InfnPathLossCheckControlStatus,InfnPmHistStatsControl,InfnWaveInterfaceType=mibBuilder.importSymbols('INFINERA-TC-MIB','FloatArbitraryPrecision','FloatHundredths','InfnAdTpType','InfnEnableDisableType','InfnEqptType','InfnLastPathLossCheckAttemptStatus','InfnLastPathLossCheckFailedReason','InfnLineOperatingMode','InfnPathLossCheckControlStatus','InfnPmHistStatsControl','InfnWaveInterfaceType')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-fbmScgPtpMIB=ModuleIdentity((1,3,6,1,4,1,21296,2,2,2,2,81))
-if mibBuilder.loadTexts:fbmScgPtpMIB.setRevisions(('2016-01-23 00:00',))
-_FbmScgPtpTable_Object=MibTable
-fbmScgPtpTable=_FbmScgPtpTable_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1))
-if mibBuilder.loadTexts:fbmScgPtpTable.setStatus(_A)
-_FbmScgPtpEntry_Object=MibTableRow
-fbmScgPtpEntry=_FbmScgPtpEntry_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1))
-fbmScgPtpEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:fbmScgPtpEntry.setStatus(_A)
-_FbmScgPtpMoId_Type=DisplayString
-_FbmScgPtpMoId_Object=MibTableColumn
-fbmScgPtpMoId=_FbmScgPtpMoId_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,1),_FbmScgPtpMoId_Type())
-fbmScgPtpMoId.setMaxAccess(_D)
-if mibBuilder.loadTexts:fbmScgPtpMoId.setStatus(_A)
-_FbmScgPtpScgNumber_Type=Integer32
-_FbmScgPtpScgNumber_Object=MibTableColumn
-fbmScgPtpScgNumber=_FbmScgPtpScgNumber_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,2),_FbmScgPtpScgNumber_Type())
-fbmScgPtpScgNumber.setMaxAccess(_C)
-if mibBuilder.loadTexts:fbmScgPtpScgNumber.setStatus(_A)
-_FbmScgPtpScgSupEqptType_Type=InfnEqptType
-_FbmScgPtpScgSupEqptType_Object=MibTableColumn
-fbmScgPtpScgSupEqptType=_FbmScgPtpScgSupEqptType_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,3),_FbmScgPtpScgSupEqptType_Type())
-fbmScgPtpScgSupEqptType.setMaxAccess(_D)
-if mibBuilder.loadTexts:fbmScgPtpScgSupEqptType.setStatus(_A)
-_FbmScgPtpMPOAID_Type=DisplayString
-_FbmScgPtpMPOAID_Object=MibTableColumn
-fbmScgPtpMPOAID=_FbmScgPtpMPOAID_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,4),_FbmScgPtpMPOAID_Type())
-fbmScgPtpMPOAID.setMaxAccess(_D)
-if mibBuilder.loadTexts:fbmScgPtpMPOAID.setStatus(_A)
-_FbmScgPtpProvisionedFPMPO_Type=DisplayString
-_FbmScgPtpProvisionedFPMPO_Object=MibTableColumn
-fbmScgPtpProvisionedFPMPO=_FbmScgPtpProvisionedFPMPO_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,5),_FbmScgPtpProvisionedFPMPO_Type())
-fbmScgPtpProvisionedFPMPO.setMaxAccess(_D)
-if mibBuilder.loadTexts:fbmScgPtpProvisionedFPMPO.setStatus(_A)
-_FbmScgPtpDiscoveredNeighborTP_Type=DisplayString
-_FbmScgPtpDiscoveredNeighborTP_Object=MibTableColumn
-fbmScgPtpDiscoveredNeighborTP=_FbmScgPtpDiscoveredNeighborTP_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,6),_FbmScgPtpDiscoveredNeighborTP_Type())
-fbmScgPtpDiscoveredNeighborTP.setMaxAccess(_C)
-if mibBuilder.loadTexts:fbmScgPtpDiscoveredNeighborTP.setStatus(_A)
-_FbmScgPtpProvisionedNeighborTP_Type=DisplayString
-_FbmScgPtpProvisionedNeighborTP_Object=MibTableColumn
-fbmScgPtpProvisionedNeighborTP=_FbmScgPtpProvisionedNeighborTP_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,7),_FbmScgPtpProvisionedNeighborTP_Type())
-fbmScgPtpProvisionedNeighborTP.setMaxAccess(_C)
-if mibBuilder.loadTexts:fbmScgPtpProvisionedNeighborTP.setStatus(_A)
-_FbmScgPtpProvisionedNeighborAdTpType_Type=InfnAdTpType
-_FbmScgPtpProvisionedNeighborAdTpType_Object=MibTableColumn
-fbmScgPtpProvisionedNeighborAdTpType=_FbmScgPtpProvisionedNeighborAdTpType_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,8),_FbmScgPtpProvisionedNeighborAdTpType_Type())
-fbmScgPtpProvisionedNeighborAdTpType.setMaxAccess(_C)
-if mibBuilder.loadTexts:fbmScgPtpProvisionedNeighborAdTpType.setStatus(_A)
-_FbmScgPtpInterfaceType_Type=InfnWaveInterfaceType
-_FbmScgPtpInterfaceType_Object=MibTableColumn
-fbmScgPtpInterfaceType=_FbmScgPtpInterfaceType_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,9),_FbmScgPtpInterfaceType_Type())
-fbmScgPtpInterfaceType.setMaxAccess(_D)
-if mibBuilder.loadTexts:fbmScgPtpInterfaceType.setStatus(_A)
-_FbmScgPtpProvisionedOpenWaveRemotePtp_Type=DisplayString
-_FbmScgPtpProvisionedOpenWaveRemotePtp_Object=MibTableColumn
-fbmScgPtpProvisionedOpenWaveRemotePtp=_FbmScgPtpProvisionedOpenWaveRemotePtp_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,10),_FbmScgPtpProvisionedOpenWaveRemotePtp_Type())
-fbmScgPtpProvisionedOpenWaveRemotePtp.setMaxAccess(_D)
-if mibBuilder.loadTexts:fbmScgPtpProvisionedOpenWaveRemotePtp.setStatus(_A)
-_FbmScgPtpPmHistStatsEnable_Type=InfnPmHistStatsControl
-_FbmScgPtpPmHistStatsEnable_Object=MibTableColumn
-fbmScgPtpPmHistStatsEnable=_FbmScgPtpPmHistStatsEnable_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,11),_FbmScgPtpPmHistStatsEnable_Type())
-fbmScgPtpPmHistStatsEnable.setMaxAccess(_D)
-if mibBuilder.loadTexts:fbmScgPtpPmHistStatsEnable.setStatus(_A)
-_FbmScgPtpUsedFreqSlotList_Type=DisplayString
-_FbmScgPtpUsedFreqSlotList_Object=MibTableColumn
-fbmScgPtpUsedFreqSlotList=_FbmScgPtpUsedFreqSlotList_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,12),_FbmScgPtpUsedFreqSlotList_Type())
-fbmScgPtpUsedFreqSlotList.setMaxAccess(_C)
-if mibBuilder.loadTexts:fbmScgPtpUsedFreqSlotList.setStatus(_A)
-_FbmScgPtpAvailableFreqSlotList_Type=DisplayString
-_FbmScgPtpAvailableFreqSlotList_Object=MibTableColumn
-fbmScgPtpAvailableFreqSlotList=_FbmScgPtpAvailableFreqSlotList_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,13),_FbmScgPtpAvailableFreqSlotList_Type())
-fbmScgPtpAvailableFreqSlotList.setMaxAccess(_C)
-if mibBuilder.loadTexts:fbmScgPtpAvailableFreqSlotList.setStatus(_A)
-_FbmScgPtpLineOperatingMode_Type=InfnLineOperatingMode
-_FbmScgPtpLineOperatingMode_Object=MibTableColumn
-fbmScgPtpLineOperatingMode=_FbmScgPtpLineOperatingMode_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,14),_FbmScgPtpLineOperatingMode_Type())
-fbmScgPtpLineOperatingMode.setMaxAccess(_D)
-if mibBuilder.loadTexts:fbmScgPtpLineOperatingMode.setStatus(_A)
-_FbmScgPtpPathLossCheckControlStatus_Type=InfnPathLossCheckControlStatus
-_FbmScgPtpPathLossCheckControlStatus_Object=MibTableColumn
-fbmScgPtpPathLossCheckControlStatus=_FbmScgPtpPathLossCheckControlStatus_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,15),_FbmScgPtpPathLossCheckControlStatus_Type())
-fbmScgPtpPathLossCheckControlStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:fbmScgPtpPathLossCheckControlStatus.setStatus(_A)
-_FbmScgPtpLastSuccessfullPathLossCheckTS_Type=Integer32
-_FbmScgPtpLastSuccessfullPathLossCheckTS_Object=MibTableColumn
-fbmScgPtpLastSuccessfullPathLossCheckTS=_FbmScgPtpLastSuccessfullPathLossCheckTS_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,16),_FbmScgPtpLastSuccessfullPathLossCheckTS_Type())
-fbmScgPtpLastSuccessfullPathLossCheckTS.setMaxAccess(_C)
-if mibBuilder.loadTexts:fbmScgPtpLastSuccessfullPathLossCheckTS.setStatus(_A)
-_FbmScgPtpPathLoss_Type=FloatArbitraryPrecision
-_FbmScgPtpPathLoss_Object=MibTableColumn
-fbmScgPtpPathLoss=_FbmScgPtpPathLoss_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,17),_FbmScgPtpPathLoss_Type())
-fbmScgPtpPathLoss.setMaxAccess(_C)
-if mibBuilder.loadTexts:fbmScgPtpPathLoss.setStatus(_A)
-_FbmScgPtpPathLossCheckDetectedPort_Type=DisplayString
-_FbmScgPtpPathLossCheckDetectedPort_Object=MibTableColumn
-fbmScgPtpPathLossCheckDetectedPort=_FbmScgPtpPathLossCheckDetectedPort_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,18),_FbmScgPtpPathLossCheckDetectedPort_Type())
-fbmScgPtpPathLossCheckDetectedPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:fbmScgPtpPathLossCheckDetectedPort.setStatus(_A)
-_FbmScgPtpLastPathLossCheckAttemptTS_Type=Integer32
-_FbmScgPtpLastPathLossCheckAttemptTS_Object=MibTableColumn
-fbmScgPtpLastPathLossCheckAttemptTS=_FbmScgPtpLastPathLossCheckAttemptTS_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,19),_FbmScgPtpLastPathLossCheckAttemptTS_Type())
-fbmScgPtpLastPathLossCheckAttemptTS.setMaxAccess(_C)
-if mibBuilder.loadTexts:fbmScgPtpLastPathLossCheckAttemptTS.setStatus(_A)
-_FbmScgPtpLastPathLossCheckAttemptStatus_Type=InfnLastPathLossCheckAttemptStatus
-_FbmScgPtpLastPathLossCheckAttemptStatus_Object=MibTableColumn
-fbmScgPtpLastPathLossCheckAttemptStatus=_FbmScgPtpLastPathLossCheckAttemptStatus_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,20),_FbmScgPtpLastPathLossCheckAttemptStatus_Type())
-fbmScgPtpLastPathLossCheckAttemptStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:fbmScgPtpLastPathLossCheckAttemptStatus.setStatus(_A)
-_FbmScgPtpLastPathLossCheckFailedReason_Type=InfnLastPathLossCheckFailedReason
-_FbmScgPtpLastPathLossCheckFailedReason_Object=MibTableColumn
-fbmScgPtpLastPathLossCheckFailedReason=_FbmScgPtpLastPathLossCheckFailedReason_Object((1,3,6,1,4,1,21296,2,2,2,2,81,1,1,21),_FbmScgPtpLastPathLossCheckFailedReason_Type())
-fbmScgPtpLastPathLossCheckFailedReason.setMaxAccess(_C)
-if mibBuilder.loadTexts:fbmScgPtpLastPathLossCheckFailedReason.setStatus(_A)
-_FbmScgPtpConformance_ObjectIdentity=ObjectIdentity
-fbmScgPtpConformance=_FbmScgPtpConformance_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,81,3))
-_FbmScgPtpCompliances_ObjectIdentity=ObjectIdentity
-fbmScgPtpCompliances=_FbmScgPtpCompliances_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,81,3,1))
-_FbmScgPtpGroups_ObjectIdentity=ObjectIdentity
-fbmScgPtpGroups=_FbmScgPtpGroups_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2,81,3,2))
-fbmScgPtpGroup=ObjectGroup((1,3,6,1,4,1,21296,2,2,2,2,81,3,2,1))
-fbmScgPtpGroup.setObjects(*((_B,_G),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a)))
-if mibBuilder.loadTexts:fbmScgPtpGroup.setStatus(_A)
-fbmScgPtpCompliance=ModuleCompliance((1,3,6,1,4,1,21296,2,2,2,2,81,3,1,1))
-fbmScgPtpCompliance.setObjects((_B,_b))
-if mibBuilder.loadTexts:fbmScgPtpCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'fbmScgPtpMIB':fbmScgPtpMIB,'fbmScgPtpTable':fbmScgPtpTable,'fbmScgPtpEntry':fbmScgPtpEntry,_G:fbmScgPtpMoId,_H:fbmScgPtpScgNumber,_I:fbmScgPtpScgSupEqptType,_J:fbmScgPtpMPOAID,_K:fbmScgPtpProvisionedFPMPO,_L:fbmScgPtpDiscoveredNeighborTP,_N:fbmScgPtpProvisionedNeighborTP,_O:fbmScgPtpProvisionedNeighborAdTpType,_M:fbmScgPtpInterfaceType,_P:fbmScgPtpProvisionedOpenWaveRemotePtp,_Q:fbmScgPtpPmHistStatsEnable,_R:fbmScgPtpUsedFreqSlotList,_S:fbmScgPtpAvailableFreqSlotList,_T:fbmScgPtpLineOperatingMode,_U:fbmScgPtpPathLossCheckControlStatus,_V:fbmScgPtpLastSuccessfullPathLossCheckTS,_W:fbmScgPtpPathLoss,_X:fbmScgPtpPathLossCheckDetectedPort,_Y:fbmScgPtpLastPathLossCheckAttemptTS,_Z:fbmScgPtpLastPathLossCheckAttemptStatus,_a:fbmScgPtpLastPathLossCheckFailedReason,'fbmScgPtpConformance':fbmScgPtpConformance,'fbmScgPtpCompliances':fbmScgPtpCompliances,'fbmScgPtpCompliance':fbmScgPtpCompliance,'fbmScgPtpGroups':fbmScgPtpGroups,_b:fbmScgPtpGroup})
+#
+# PySNMP MIB module INFINERA-TP-FBMSCGPTP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-TP-FBMSCGPTP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:09:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
+InfnEnableDisableType, FloatArbitraryPrecision, InfnPathLossCheckControlStatus, InfnWaveInterfaceType, InfnEqptType, InfnLineOperatingMode, InfnPmHistStatsControl, InfnLastPathLossCheckAttemptStatus, FloatHundredths, InfnAdTpType, InfnLastPathLossCheckFailedReason = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnEnableDisableType", "FloatArbitraryPrecision", "InfnPathLossCheckControlStatus", "InfnWaveInterfaceType", "InfnEqptType", "InfnLineOperatingMode", "InfnPmHistStatsControl", "InfnLastPathLossCheckAttemptStatus", "FloatHundredths", "InfnAdTpType", "InfnLastPathLossCheckFailedReason")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+fbmScgPtpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81))
+fbmScgPtpMIB.setRevisions(('2016-01-23 00:00',))
+if mibBuilder.loadTexts: fbmScgPtpMIB.setLastUpdated('201601230000Z')
+if mibBuilder.loadTexts: fbmScgPtpMIB.setOrganization('Infinera')
+fbmScgPtpTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1), )
+if mibBuilder.loadTexts: fbmScgPtpTable.setStatus('current')
+fbmScgPtpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: fbmScgPtpEntry.setStatus('current')
+fbmScgPtpMoId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 1), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fbmScgPtpMoId.setStatus('current')
+fbmScgPtpScgNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fbmScgPtpScgNumber.setStatus('current')
+fbmScgPtpScgSupEqptType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 3), InfnEqptType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fbmScgPtpScgSupEqptType.setStatus('current')
+fbmScgPtpMPOAID = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fbmScgPtpMPOAID.setStatus('current')
+fbmScgPtpProvisionedFPMPO = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 5), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fbmScgPtpProvisionedFPMPO.setStatus('current')
+fbmScgPtpDiscoveredNeighborTP = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fbmScgPtpDiscoveredNeighborTP.setStatus('current')
+fbmScgPtpProvisionedNeighborTP = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fbmScgPtpProvisionedNeighborTP.setStatus('current')
+fbmScgPtpProvisionedNeighborAdTpType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 8), InfnAdTpType()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fbmScgPtpProvisionedNeighborAdTpType.setStatus('current')
+fbmScgPtpInterfaceType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 9), InfnWaveInterfaceType()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fbmScgPtpInterfaceType.setStatus('current')
+fbmScgPtpProvisionedOpenWaveRemotePtp = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 10), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fbmScgPtpProvisionedOpenWaveRemotePtp.setStatus('current')
+fbmScgPtpPmHistStatsEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 11), InfnPmHistStatsControl()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fbmScgPtpPmHistStatsEnable.setStatus('current')
+fbmScgPtpUsedFreqSlotList = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 12), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fbmScgPtpUsedFreqSlotList.setStatus('current')
+fbmScgPtpAvailableFreqSlotList = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 13), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fbmScgPtpAvailableFreqSlotList.setStatus('current')
+fbmScgPtpLineOperatingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 14), InfnLineOperatingMode()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fbmScgPtpLineOperatingMode.setStatus('current')
+fbmScgPtpPathLossCheckControlStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 15), InfnPathLossCheckControlStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fbmScgPtpPathLossCheckControlStatus.setStatus('current')
+fbmScgPtpLastSuccessfullPathLossCheckTS = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 16), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fbmScgPtpLastSuccessfullPathLossCheckTS.setStatus('current')
+fbmScgPtpPathLoss = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 17), FloatArbitraryPrecision()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fbmScgPtpPathLoss.setStatus('current')
+fbmScgPtpPathLossCheckDetectedPort = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 18), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fbmScgPtpPathLossCheckDetectedPort.setStatus('current')
+fbmScgPtpLastPathLossCheckAttemptTS = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 19), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fbmScgPtpLastPathLossCheckAttemptTS.setStatus('current')
+fbmScgPtpLastPathLossCheckAttemptStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 20), InfnLastPathLossCheckAttemptStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fbmScgPtpLastPathLossCheckAttemptStatus.setStatus('current')
+fbmScgPtpLastPathLossCheckFailedReason = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 1, 1, 21), InfnLastPathLossCheckFailedReason()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fbmScgPtpLastPathLossCheckFailedReason.setStatus('current')
+fbmScgPtpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 3))
+fbmScgPtpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 3, 1))
+fbmScgPtpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 3, 2))
+fbmScgPtpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 3, 1, 1)).setObjects(("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fbmScgPtpCompliance = fbmScgPtpCompliance.setStatus('current')
+fbmScgPtpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 81, 3, 2, 1)).setObjects(("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpMoId"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpScgNumber"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpScgSupEqptType"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpMPOAID"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpProvisionedFPMPO"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpDiscoveredNeighborTP"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpInterfaceType"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpProvisionedNeighborTP"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpProvisionedNeighborAdTpType"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpProvisionedOpenWaveRemotePtp"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpPmHistStatsEnable"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpUsedFreqSlotList"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpAvailableFreqSlotList"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpLineOperatingMode"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpPathLossCheckControlStatus"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpLastSuccessfullPathLossCheckTS"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpPathLoss"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpPathLossCheckDetectedPort"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpLastPathLossCheckAttemptTS"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpLastPathLossCheckAttemptStatus"), ("INFINERA-TP-FBMSCGPTP-MIB", "fbmScgPtpLastPathLossCheckFailedReason"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fbmScgPtpGroup = fbmScgPtpGroup.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-TP-FBMSCGPTP-MIB", fbmScgPtpProvisionedOpenWaveRemotePtp=fbmScgPtpProvisionedOpenWaveRemotePtp, fbmScgPtpPathLossCheckControlStatus=fbmScgPtpPathLossCheckControlStatus, fbmScgPtpDiscoveredNeighborTP=fbmScgPtpDiscoveredNeighborTP, fbmScgPtpLastPathLossCheckAttemptTS=fbmScgPtpLastPathLossCheckAttemptTS, fbmScgPtpCompliance=fbmScgPtpCompliance, fbmScgPtpLastSuccessfullPathLossCheckTS=fbmScgPtpLastSuccessfullPathLossCheckTS, fbmScgPtpGroup=fbmScgPtpGroup, fbmScgPtpPathLossCheckDetectedPort=fbmScgPtpPathLossCheckDetectedPort, fbmScgPtpLastPathLossCheckFailedReason=fbmScgPtpLastPathLossCheckFailedReason, fbmScgPtpMoId=fbmScgPtpMoId, fbmScgPtpScgSupEqptType=fbmScgPtpScgSupEqptType, fbmScgPtpTable=fbmScgPtpTable, fbmScgPtpCompliances=fbmScgPtpCompliances, fbmScgPtpPmHistStatsEnable=fbmScgPtpPmHistStatsEnable, fbmScgPtpUsedFreqSlotList=fbmScgPtpUsedFreqSlotList, fbmScgPtpLastPathLossCheckAttemptStatus=fbmScgPtpLastPathLossCheckAttemptStatus, fbmScgPtpMIB=fbmScgPtpMIB, PYSNMP_MODULE_ID=fbmScgPtpMIB, fbmScgPtpMPOAID=fbmScgPtpMPOAID, fbmScgPtpEntry=fbmScgPtpEntry, fbmScgPtpInterfaceType=fbmScgPtpInterfaceType, fbmScgPtpGroups=fbmScgPtpGroups, fbmScgPtpLineOperatingMode=fbmScgPtpLineOperatingMode, fbmScgPtpProvisionedNeighborAdTpType=fbmScgPtpProvisionedNeighborAdTpType, fbmScgPtpScgNumber=fbmScgPtpScgNumber, fbmScgPtpConformance=fbmScgPtpConformance, fbmScgPtpProvisionedNeighborTP=fbmScgPtpProvisionedNeighborTP, fbmScgPtpAvailableFreqSlotList=fbmScgPtpAvailableFreqSlotList, fbmScgPtpProvisionedFPMPO=fbmScgPtpProvisionedFPMPO, fbmScgPtpPathLoss=fbmScgPtpPathLoss)

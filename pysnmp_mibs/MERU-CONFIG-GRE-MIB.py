@@ -1,75 +1,44 @@
-_E='mwGreTableIndex'
-_D='MERU-CONFIG-GRE-MIB'
-_C='DisplayString'
-_B='read-create'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-Ipv6Address,=mibBuilder.importSymbols('IPV6-TC','Ipv6Address')
-mwConfiguration,=mibBuilder.importSymbols('MERU-SMI','mwConfiguration')
-MwlOnOffSwitch,MwlProfileOwner=mibBuilder.importSymbols('MERU-TC','MwlOnOffSwitch','MwlProfileOwner')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DateAndTime,DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_C,'MacAddress','PhysAddress','RowStatus','TextualConvention','TimeInterval','TimeStamp','TruthValue')
-mwConfigGRE=ModuleIdentity((1,3,6,1,4,1,15983,1,1,4,15))
-_MwGreTable_Object=MibTable
-mwGreTable=_MwGreTable_Object((1,3,6,1,4,1,15983,1,1,4,15,1))
-if mibBuilder.loadTexts:mwGreTable.setStatus(_A)
-_MwGreEntry_Object=MibTableRow
-mwGreEntry=_MwGreEntry_Object((1,3,6,1,4,1,15983,1,1,4,15,1,1))
-mwGreEntry.setIndexNames((0,_D,_E))
-if mibBuilder.loadTexts:mwGreEntry.setStatus(_A)
-_MwGreTableIndex_Type=Integer32
-_MwGreTableIndex_Object=MibTableColumn
-mwGreTableIndex=_MwGreTableIndex_Object((1,3,6,1,4,1,15983,1,1,4,15,1,1,1),_MwGreTableIndex_Type())
-mwGreTableIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:mwGreTableIndex.setStatus(_A)
-class _MwGreName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_MwGreName_Type.__name__=_C
-_MwGreName_Object=MibTableColumn
-mwGreName=_MwGreName_Object((1,3,6,1,4,1,15983,1,1,4,15,1,1,2),_MwGreName_Type())
-mwGreName.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwGreName.setStatus(_A)
-_MwGreInterfaceIndex_Type=Unsigned32
-_MwGreInterfaceIndex_Object=MibTableColumn
-mwGreInterfaceIndex=_MwGreInterfaceIndex_Object((1,3,6,1,4,1,15983,1,1,4,15,1,1,3),_MwGreInterfaceIndex_Type())
-mwGreInterfaceIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwGreInterfaceIndex.setStatus(_A)
-_MwGreDHCPServerIpAddress_Type=IpAddress
-_MwGreDHCPServerIpAddress_Object=MibTableColumn
-mwGreDHCPServerIpAddress=_MwGreDHCPServerIpAddress_Object((1,3,6,1,4,1,15983,1,1,4,15,1,1,4),_MwGreDHCPServerIpAddress_Type())
-mwGreDHCPServerIpAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwGreDHCPServerIpAddress.setStatus(_A)
-_MwGreLocalInternalAddress_Type=IpAddress
-_MwGreLocalInternalAddress_Object=MibTableColumn
-mwGreLocalInternalAddress=_MwGreLocalInternalAddress_Object((1,3,6,1,4,1,15983,1,1,4,15,1,1,5),_MwGreLocalInternalAddress_Type())
-mwGreLocalInternalAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwGreLocalInternalAddress.setStatus(_A)
-_MwGreLocalInternalNetmask_Type=IpAddress
-_MwGreLocalInternalNetmask_Object=MibTableColumn
-mwGreLocalInternalNetmask=_MwGreLocalInternalNetmask_Object((1,3,6,1,4,1,15983,1,1,4,15,1,1,6),_MwGreLocalInternalNetmask_Type())
-mwGreLocalInternalNetmask.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwGreLocalInternalNetmask.setStatus(_A)
-_MwGreRemoteEndpointAddress_Type=IpAddress
-_MwGreRemoteEndpointAddress_Object=MibTableColumn
-mwGreRemoteEndpointAddress=_MwGreRemoteEndpointAddress_Object((1,3,6,1,4,1,15983,1,1,4,15,1,1,7),_MwGreRemoteEndpointAddress_Type())
-mwGreRemoteEndpointAddress.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwGreRemoteEndpointAddress.setStatus(_A)
-_MwGreOverrideDefaultDHCPServer_Type=MwlOnOffSwitch
-_MwGreOverrideDefaultDHCPServer_Object=MibTableColumn
-mwGreOverrideDefaultDHCPServer=_MwGreOverrideDefaultDHCPServer_Object((1,3,6,1,4,1,15983,1,1,4,15,1,1,8),_MwGreOverrideDefaultDHCPServer_Type())
-mwGreOverrideDefaultDHCPServer.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwGreOverrideDefaultDHCPServer.setStatus(_A)
-_MwGreOwner_Type=MwlProfileOwner
-_MwGreOwner_Object=MibTableColumn
-mwGreOwner=_MwGreOwner_Object((1,3,6,1,4,1,15983,1,1,4,15,1,1,9),_MwGreOwner_Type())
-mwGreOwner.setMaxAccess('read-only')
-if mibBuilder.loadTexts:mwGreOwner.setStatus(_A)
-_MwGreRowStatus_Type=RowStatus
-_MwGreRowStatus_Object=MibTableColumn
-mwGreRowStatus=_MwGreRowStatus_Object((1,3,6,1,4,1,15983,1,1,4,15,1,1,17),_MwGreRowStatus_Type())
-mwGreRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:mwGreRowStatus.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'mwConfigGRE':mwConfigGRE,'mwGreTable':mwGreTable,'mwGreEntry':mwGreEntry,_E:mwGreTableIndex,'mwGreName':mwGreName,'mwGreInterfaceIndex':mwGreInterfaceIndex,'mwGreDHCPServerIpAddress':mwGreDHCPServerIpAddress,'mwGreLocalInternalAddress':mwGreLocalInternalAddress,'mwGreLocalInternalNetmask':mwGreLocalInternalNetmask,'mwGreRemoteEndpointAddress':mwGreRemoteEndpointAddress,'mwGreOverrideDefaultDHCPServer':mwGreOverrideDefaultDHCPServer,'mwGreOwner':mwGreOwner,'mwGreRowStatus':mwGreRowStatus})
+#
+# PySNMP MIB module MERU-CONFIG-GRE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/meru/MERU-CONFIG-GRE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:41:26 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+Ipv6Address, = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address")
+mwConfiguration, = mibBuilder.importSymbols("MERU-SMI", "mwConfiguration")
+MwlProfileOwner, MwlOnOffSwitch = mibBuilder.importSymbols("MERU-TC", "MwlProfileOwner", "MwlOnOffSwitch")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Integer32, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Counter64, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Counter64", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TimeInterval, TimeStamp, RowStatus, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TimeInterval", "TimeStamp", "RowStatus", "DateAndTime", "TruthValue", "TextualConvention")
+mwConfigGRE = ModuleIdentity((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 15))
+if mibBuilder.loadTexts: mwConfigGRE.setLastUpdated('200506050000Z')
+if mibBuilder.loadTexts: mwConfigGRE.setOrganization('Meru Networks')
+mwGreTable = MibTable((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 15, 1), )
+if mibBuilder.loadTexts: mwGreTable.setStatus('current')
+mwGreEntry = MibTableRow((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 15, 1, 1), ).setIndexNames((0, "MERU-CONFIG-GRE-MIB", "mwGreTableIndex"))
+if mibBuilder.loadTexts: mwGreEntry.setStatus('current')
+mwGreTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 15, 1, 1, 1), Integer32())
+if mibBuilder.loadTexts: mwGreTableIndex.setStatus('current')
+mwGreName = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 15, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwGreName.setStatus('current')
+mwGreInterfaceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 15, 1, 1, 3), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwGreInterfaceIndex.setStatus('current')
+mwGreDHCPServerIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 15, 1, 1, 4), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwGreDHCPServerIpAddress.setStatus('current')
+mwGreLocalInternalAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 15, 1, 1, 5), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwGreLocalInternalAddress.setStatus('current')
+mwGreLocalInternalNetmask = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 15, 1, 1, 6), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwGreLocalInternalNetmask.setStatus('current')
+mwGreRemoteEndpointAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 15, 1, 1, 7), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwGreRemoteEndpointAddress.setStatus('current')
+mwGreOverrideDefaultDHCPServer = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 15, 1, 1, 8), MwlOnOffSwitch()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwGreOverrideDefaultDHCPServer.setStatus('current')
+mwGreOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 15, 1, 1, 9), MwlProfileOwner()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: mwGreOwner.setStatus('current')
+mwGreRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 15, 1, 1, 17), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mwGreRowStatus.setStatus('current')
+mibBuilder.exportSymbols("MERU-CONFIG-GRE-MIB", mwConfigGRE=mwConfigGRE, mwGreTableIndex=mwGreTableIndex, mwGreDHCPServerIpAddress=mwGreDHCPServerIpAddress, mwGreLocalInternalNetmask=mwGreLocalInternalNetmask, mwGreOwner=mwGreOwner, mwGreInterfaceIndex=mwGreInterfaceIndex, mwGreName=mwGreName, mwGreOverrideDefaultDHCPServer=mwGreOverrideDefaultDHCPServer, mwGreRowStatus=mwGreRowStatus, mwGreEntry=mwGreEntry, PYSNMP_MODULE_ID=mwConfigGRE, mwGreRemoteEndpointAddress=mwGreRemoteEndpointAddress, mwGreTable=mwGreTable, mwGreLocalInternalAddress=mwGreLocalInternalAddress)

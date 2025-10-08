@@ -1,112 +1,67 @@
-_S='juniSubscriberLocalGroup2'
-_R='juniSubscriberLocalGroup'
-_Q='juniSubscrLocalAuthentication'
-_P='obsolete'
-_O='not-accessible'
-_N='juniSubscrLocalEncaps'
-_M='juniSubscrLocalIfIndex'
-_L='Integer32'
-_K='JuniEnable'
-_J='juniSubscrLocalDomain'
-_I='juniSubscrLocalPassword'
-_H='juniSubscrLocalPasswordPrefix'
-_G='juniSubscrLocalName'
-_F='juniSubscrLocalNamePrefix'
-_E='juniSubscrLocalControl'
-_D='DisplayString'
-_C='read-write'
-_B='current'
-_A='Juniper-SUBSCRIBER-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-juniMibs,=mibBuilder.importSymbols('Juniper-MIBs','juniMibs')
-JuniEnable,=mibBuilder.importSymbols('Juniper-TC',_K)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_L,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention')
-juniSubscriberMIB=ModuleIdentity((1,3,6,1,4,1,4874,2,2,49))
-if mibBuilder.loadTexts:juniSubscriberMIB.setRevisions(('2002-09-16 21:44','2002-05-10 19:53','2000-11-16 00:00'))
-class JuniSubscrEncaps(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,19)));namedValues=NamedValues(*(('ip',0),('bridgedEthernet',19)))
-_JuniSubscrObjects_ObjectIdentity=ObjectIdentity
-juniSubscrObjects=_JuniSubscrObjects_ObjectIdentity((1,3,6,1,4,1,4874,2,2,49,1))
-_JuniSubscrLocal_ObjectIdentity=ObjectIdentity
-juniSubscrLocal=_JuniSubscrLocal_ObjectIdentity((1,3,6,1,4,1,4874,2,2,49,1,1))
-_JuniSubscrLocalTable_Object=MibTable
-juniSubscrLocalTable=_JuniSubscrLocalTable_Object((1,3,6,1,4,1,4874,2,2,49,1,1,1))
-if mibBuilder.loadTexts:juniSubscrLocalTable.setStatus(_B)
-_JuniSubscrLocalEntry_Object=MibTableRow
-juniSubscrLocalEntry=_JuniSubscrLocalEntry_Object((1,3,6,1,4,1,4874,2,2,49,1,1,1,1))
-juniSubscrLocalEntry.setIndexNames((0,_A,_M),(0,_A,_N))
-if mibBuilder.loadTexts:juniSubscrLocalEntry.setStatus(_B)
-_JuniSubscrLocalIfIndex_Type=InterfaceIndex
-_JuniSubscrLocalIfIndex_Object=MibTableColumn
-juniSubscrLocalIfIndex=_JuniSubscrLocalIfIndex_Object((1,3,6,1,4,1,4874,2,2,49,1,1,1,1,1),_JuniSubscrLocalIfIndex_Type())
-juniSubscrLocalIfIndex.setMaxAccess(_O)
-if mibBuilder.loadTexts:juniSubscrLocalIfIndex.setStatus(_B)
-_JuniSubscrLocalEncaps_Type=JuniSubscrEncaps
-_JuniSubscrLocalEncaps_Object=MibTableColumn
-juniSubscrLocalEncaps=_JuniSubscrLocalEncaps_Object((1,3,6,1,4,1,4874,2,2,49,1,1,1,1,2),_JuniSubscrLocalEncaps_Type())
-juniSubscrLocalEncaps.setMaxAccess(_O)
-if mibBuilder.loadTexts:juniSubscrLocalEncaps.setStatus(_B)
-class _JuniSubscrLocalControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('ok',0),('clear',1)))
-_JuniSubscrLocalControl_Type.__name__=_L
-_JuniSubscrLocalControl_Object=MibTableColumn
-juniSubscrLocalControl=_JuniSubscrLocalControl_Object((1,3,6,1,4,1,4874,2,2,49,1,1,1,1,3),_JuniSubscrLocalControl_Type())
-juniSubscrLocalControl.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniSubscrLocalControl.setStatus(_B)
-_JuniSubscrLocalNamePrefix_Type=JuniEnable
-_JuniSubscrLocalNamePrefix_Object=MibTableColumn
-juniSubscrLocalNamePrefix=_JuniSubscrLocalNamePrefix_Object((1,3,6,1,4,1,4874,2,2,49,1,1,1,1,4),_JuniSubscrLocalNamePrefix_Type())
-juniSubscrLocalNamePrefix.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniSubscrLocalNamePrefix.setStatus(_B)
-class _JuniSubscrLocalName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_JuniSubscrLocalName_Type.__name__=_D
-_JuniSubscrLocalName_Object=MibTableColumn
-juniSubscrLocalName=_JuniSubscrLocalName_Object((1,3,6,1,4,1,4874,2,2,49,1,1,1,1,5),_JuniSubscrLocalName_Type())
-juniSubscrLocalName.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniSubscrLocalName.setStatus(_B)
-_JuniSubscrLocalPasswordPrefix_Type=JuniEnable
-_JuniSubscrLocalPasswordPrefix_Object=MibTableColumn
-juniSubscrLocalPasswordPrefix=_JuniSubscrLocalPasswordPrefix_Object((1,3,6,1,4,1,4874,2,2,49,1,1,1,1,6),_JuniSubscrLocalPasswordPrefix_Type())
-juniSubscrLocalPasswordPrefix.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniSubscrLocalPasswordPrefix.setStatus(_B)
-class _JuniSubscrLocalPassword_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_JuniSubscrLocalPassword_Type.__name__=_D
-_JuniSubscrLocalPassword_Object=MibTableColumn
-juniSubscrLocalPassword=_JuniSubscrLocalPassword_Object((1,3,6,1,4,1,4874,2,2,49,1,1,1,1,7),_JuniSubscrLocalPassword_Type())
-juniSubscrLocalPassword.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniSubscrLocalPassword.setStatus(_B)
-class _JuniSubscrLocalDomain_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
-_JuniSubscrLocalDomain_Type.__name__=_D
-_JuniSubscrLocalDomain_Object=MibTableColumn
-juniSubscrLocalDomain=_JuniSubscrLocalDomain_Object((1,3,6,1,4,1,4874,2,2,49,1,1,1,1,8),_JuniSubscrLocalDomain_Type())
-juniSubscrLocalDomain.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniSubscrLocalDomain.setStatus(_B)
-class _JuniSubscrLocalAuthentication_Type(JuniEnable):defaultValue=1
-_JuniSubscrLocalAuthentication_Type.__name__=_K
-_JuniSubscrLocalAuthentication_Object=MibTableColumn
-juniSubscrLocalAuthentication=_JuniSubscrLocalAuthentication_Object((1,3,6,1,4,1,4874,2,2,49,1,1,1,1,9),_JuniSubscrLocalAuthentication_Type())
-juniSubscrLocalAuthentication.setMaxAccess(_C)
-if mibBuilder.loadTexts:juniSubscrLocalAuthentication.setStatus(_B)
-_JuniSubscriberMIBConformance_ObjectIdentity=ObjectIdentity
-juniSubscriberMIBConformance=_JuniSubscriberMIBConformance_ObjectIdentity((1,3,6,1,4,1,4874,2,2,49,4))
-_JuniSubscriberMIBCompliances_ObjectIdentity=ObjectIdentity
-juniSubscriberMIBCompliances=_JuniSubscriberMIBCompliances_ObjectIdentity((1,3,6,1,4,1,4874,2,2,49,4,1))
-_JuniSubscriberMIBGroups_ObjectIdentity=ObjectIdentity
-juniSubscriberMIBGroups=_JuniSubscriberMIBGroups_ObjectIdentity((1,3,6,1,4,1,4874,2,2,49,4,2))
-juniSubscriberLocalGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,49,4,2,1))
-juniSubscriberLocalGroup.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J)))
-if mibBuilder.loadTexts:juniSubscriberLocalGroup.setStatus(_P)
-juniSubscriberLocalGroup2=ObjectGroup((1,3,6,1,4,1,4874,2,2,49,4,2,2))
-juniSubscriberLocalGroup2.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_Q)))
-if mibBuilder.loadTexts:juniSubscriberLocalGroup2.setStatus(_B)
-juniSubscriberCompliance=ModuleCompliance((1,3,6,1,4,1,4874,2,2,49,4,1,1))
-juniSubscriberCompliance.setObjects((_A,_R))
-if mibBuilder.loadTexts:juniSubscriberCompliance.setStatus(_P)
-juniSubscriberCompliance2=ModuleCompliance((1,3,6,1,4,1,4874,2,2,49,4,1,2))
-juniSubscriberCompliance2.setObjects((_A,_S))
-if mibBuilder.loadTexts:juniSubscriberCompliance2.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'JuniSubscrEncaps':JuniSubscrEncaps,'juniSubscriberMIB':juniSubscriberMIB,'juniSubscrObjects':juniSubscrObjects,'juniSubscrLocal':juniSubscrLocal,'juniSubscrLocalTable':juniSubscrLocalTable,'juniSubscrLocalEntry':juniSubscrLocalEntry,_M:juniSubscrLocalIfIndex,_N:juniSubscrLocalEncaps,_E:juniSubscrLocalControl,_F:juniSubscrLocalNamePrefix,_G:juniSubscrLocalName,_H:juniSubscrLocalPasswordPrefix,_I:juniSubscrLocalPassword,_J:juniSubscrLocalDomain,_Q:juniSubscrLocalAuthentication,'juniSubscriberMIBConformance':juniSubscriberMIBConformance,'juniSubscriberMIBCompliances':juniSubscriberMIBCompliances,'juniSubscriberCompliance':juniSubscriberCompliance,'juniSubscriberCompliance2':juniSubscriberCompliance2,'juniSubscriberMIBGroups':juniSubscriberMIBGroups,_R:juniSubscriberLocalGroup,_S:juniSubscriberLocalGroup2})
+#
+# PySNMP MIB module Juniper-SUBSCRIBER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/junose/JUNIPER-SUBSCRIBER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:31:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+juniMibs, = mibBuilder.importSymbols("Juniper-MIBs", "juniMibs")
+JuniEnable, = mibBuilder.importSymbols("Juniper-TC", "JuniEnable")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+juniSubscriberMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49))
+juniSubscriberMIB.setRevisions(('2002-09-16 21:44', '2002-05-10 19:53', '2000-11-16 00:00',))
+if mibBuilder.loadTexts: juniSubscriberMIB.setLastUpdated('200209162144Z')
+if mibBuilder.loadTexts: juniSubscriberMIB.setOrganization('Juniper Networks, Inc.')
+class JuniSubscrEncaps(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 19))
+    namedValues = NamedValues(("ip", 0), ("bridgedEthernet", 19))
+
+juniSubscrObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 1))
+juniSubscrLocal = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 1, 1))
+juniSubscrLocalTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 1, 1, 1), )
+if mibBuilder.loadTexts: juniSubscrLocalTable.setStatus('current')
+juniSubscrLocalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 1, 1, 1, 1), ).setIndexNames((0, "Juniper-SUBSCRIBER-MIB", "juniSubscrLocalIfIndex"), (0, "Juniper-SUBSCRIBER-MIB", "juniSubscrLocalEncaps"))
+if mibBuilder.loadTexts: juniSubscrLocalEntry.setStatus('current')
+juniSubscrLocalIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 1, 1, 1, 1, 1), InterfaceIndex())
+if mibBuilder.loadTexts: juniSubscrLocalIfIndex.setStatus('current')
+juniSubscrLocalEncaps = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 1, 1, 1, 1, 2), JuniSubscrEncaps())
+if mibBuilder.loadTexts: juniSubscrLocalEncaps.setStatus('current')
+juniSubscrLocalControl = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("ok", 0), ("clear", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniSubscrLocalControl.setStatus('current')
+juniSubscrLocalNamePrefix = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 1, 1, 1, 1, 4), JuniEnable()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniSubscrLocalNamePrefix.setStatus('current')
+juniSubscrLocalName = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 1, 1, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniSubscrLocalName.setStatus('current')
+juniSubscrLocalPasswordPrefix = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 1, 1, 1, 1, 6), JuniEnable()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniSubscrLocalPasswordPrefix.setStatus('current')
+juniSubscrLocalPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 1, 1, 1, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniSubscrLocalPassword.setStatus('current')
+juniSubscrLocalDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 1, 1, 1, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniSubscrLocalDomain.setStatus('current')
+juniSubscrLocalAuthentication = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 1, 1, 1, 1, 9), JuniEnable().clone('enable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: juniSubscrLocalAuthentication.setStatus('current')
+juniSubscriberMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 4))
+juniSubscriberMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 4, 1))
+juniSubscriberMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 4, 2))
+juniSubscriberCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 4, 1, 1)).setObjects(("Juniper-SUBSCRIBER-MIB", "juniSubscriberLocalGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniSubscriberCompliance = juniSubscriberCompliance.setStatus('obsolete')
+juniSubscriberCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 4, 1, 2)).setObjects(("Juniper-SUBSCRIBER-MIB", "juniSubscriberLocalGroup2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniSubscriberCompliance2 = juniSubscriberCompliance2.setStatus('current')
+juniSubscriberLocalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 4, 2, 1)).setObjects(("Juniper-SUBSCRIBER-MIB", "juniSubscrLocalControl"), ("Juniper-SUBSCRIBER-MIB", "juniSubscrLocalNamePrefix"), ("Juniper-SUBSCRIBER-MIB", "juniSubscrLocalName"), ("Juniper-SUBSCRIBER-MIB", "juniSubscrLocalPasswordPrefix"), ("Juniper-SUBSCRIBER-MIB", "juniSubscrLocalPassword"), ("Juniper-SUBSCRIBER-MIB", "juniSubscrLocalDomain"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniSubscriberLocalGroup = juniSubscriberLocalGroup.setStatus('obsolete')
+juniSubscriberLocalGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 49, 4, 2, 2)).setObjects(("Juniper-SUBSCRIBER-MIB", "juniSubscrLocalControl"), ("Juniper-SUBSCRIBER-MIB", "juniSubscrLocalNamePrefix"), ("Juniper-SUBSCRIBER-MIB", "juniSubscrLocalName"), ("Juniper-SUBSCRIBER-MIB", "juniSubscrLocalPasswordPrefix"), ("Juniper-SUBSCRIBER-MIB", "juniSubscrLocalPassword"), ("Juniper-SUBSCRIBER-MIB", "juniSubscrLocalDomain"), ("Juniper-SUBSCRIBER-MIB", "juniSubscrLocalAuthentication"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    juniSubscriberLocalGroup2 = juniSubscriberLocalGroup2.setStatus('current')
+mibBuilder.exportSymbols("Juniper-SUBSCRIBER-MIB", juniSubscrLocalDomain=juniSubscrLocalDomain, juniSubscrLocalEntry=juniSubscrLocalEntry, juniSubscriberLocalGroup2=juniSubscriberLocalGroup2, juniSubscrLocalNamePrefix=juniSubscrLocalNamePrefix, JuniSubscrEncaps=JuniSubscrEncaps, juniSubscrLocalControl=juniSubscrLocalControl, juniSubscrLocalPasswordPrefix=juniSubscrLocalPasswordPrefix, juniSubscriberMIBConformance=juniSubscriberMIBConformance, juniSubscriberCompliance2=juniSubscriberCompliance2, juniSubscriberMIB=juniSubscriberMIB, juniSubscrLocal=juniSubscrLocal, juniSubscrLocalEncaps=juniSubscrLocalEncaps, juniSubscrLocalName=juniSubscrLocalName, juniSubscrObjects=juniSubscrObjects, juniSubscrLocalIfIndex=juniSubscrLocalIfIndex, juniSubscriberCompliance=juniSubscriberCompliance, juniSubscrLocalAuthentication=juniSubscrLocalAuthentication, juniSubscrLocalTable=juniSubscrLocalTable, PYSNMP_MODULE_ID=juniSubscriberMIB, juniSubscrLocalPassword=juniSubscrLocalPassword, juniSubscriberMIBCompliances=juniSubscriberMIBCompliances, juniSubscriberLocalGroup=juniSubscriberLocalGroup, juniSubscriberMIBGroups=juniSubscriberMIBGroups)

@@ -1,101 +1,63 @@
-_S='aristaBridgeExtNotificationGroup'
-_R='aristaBridgeExtBaseGroup'
-_Q='aristaMacAge'
-_P='aristaMacLearn'
-_O='aristaMacMove'
-_N='aristaMacStatsEntries'
-_M='aristaDot1qTpFdbLastMove'
-_L='aristaMacStatsEntryType'
-_K='not-accessible'
-_J='aristaDot1qTpFdbTimeMark'
-_I='Integer32'
-_H='dot1qTpFdbAddress'
-_G='aristaDot1qTpFdbNumMoves'
-_F='read-only'
-_E='dot1qFdbId'
-_D='dot1qTpFdbPort'
-_C='Q-BRIDGE-MIB'
-_B='ARISTA-BRIDGE-EXT-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-aristaMibs,=mibBuilder.importSymbols('ARISTA-SMI-MIB','aristaMibs')
-dot1qFdbId,dot1qTpFdbAddress,dot1qTpFdbPort=mibBuilder.importSymbols(_C,_E,_H,_D)
-TimeFilter,=mibBuilder.importSymbols('RMON2-MIB','TimeFilter')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-aristaBridgeExtMIB=ModuleIdentity((1,3,6,1,4,1,30065,3,2))
-if mibBuilder.loadTexts:aristaBridgeExtMIB.setRevisions(('2020-09-29 00:00','2019-09-15 00:00','2014-08-15 00:00','2011-03-31 13:00','2010-05-03 00:00'))
-_AristaBridgeExtNotifications_ObjectIdentity=ObjectIdentity
-aristaBridgeExtNotifications=_AristaBridgeExtNotifications_ObjectIdentity((1,3,6,1,4,1,30065,3,2,0))
-_AristaDot1qTpFdbTable_Object=MibTable
-aristaDot1qTpFdbTable=_AristaDot1qTpFdbTable_Object((1,3,6,1,4,1,30065,3,2,1))
-if mibBuilder.loadTexts:aristaDot1qTpFdbTable.setStatus(_A)
-_AristaDot1qTpFdbEntry_Object=MibTableRow
-aristaDot1qTpFdbEntry=_AristaDot1qTpFdbEntry_Object((1,3,6,1,4,1,30065,3,2,1,1))
-aristaDot1qTpFdbEntry.setIndexNames((0,_B,_J),(0,_C,_E),(0,_C,_H))
-if mibBuilder.loadTexts:aristaDot1qTpFdbEntry.setStatus(_A)
-_AristaDot1qTpFdbTimeMark_Type=TimeFilter
-_AristaDot1qTpFdbTimeMark_Object=MibTableColumn
-aristaDot1qTpFdbTimeMark=_AristaDot1qTpFdbTimeMark_Object((1,3,6,1,4,1,30065,3,2,1,1,1),_AristaDot1qTpFdbTimeMark_Type())
-aristaDot1qTpFdbTimeMark.setMaxAccess(_K)
-if mibBuilder.loadTexts:aristaDot1qTpFdbTimeMark.setStatus(_A)
-_AristaDot1qTpFdbNumMoves_Type=Counter32
-_AristaDot1qTpFdbNumMoves_Object=MibTableColumn
-aristaDot1qTpFdbNumMoves=_AristaDot1qTpFdbNumMoves_Object((1,3,6,1,4,1,30065,3,2,1,1,2),_AristaDot1qTpFdbNumMoves_Type())
-aristaDot1qTpFdbNumMoves.setMaxAccess(_F)
-if mibBuilder.loadTexts:aristaDot1qTpFdbNumMoves.setStatus(_A)
-_AristaDot1qTpFdbLastMove_Type=TimeTicks
-_AristaDot1qTpFdbLastMove_Object=MibTableColumn
-aristaDot1qTpFdbLastMove=_AristaDot1qTpFdbLastMove_Object((1,3,6,1,4,1,30065,3,2,1,1,3),_AristaDot1qTpFdbLastMove_Type())
-aristaDot1qTpFdbLastMove.setMaxAccess(_F)
-if mibBuilder.loadTexts:aristaDot1qTpFdbLastMove.setStatus(_A)
-_AristaBridgeExtConformance_ObjectIdentity=ObjectIdentity
-aristaBridgeExtConformance=_AristaBridgeExtConformance_ObjectIdentity((1,3,6,1,4,1,30065,3,2,2))
-_AristaBridgeExtGroups_ObjectIdentity=ObjectIdentity
-aristaBridgeExtGroups=_AristaBridgeExtGroups_ObjectIdentity((1,3,6,1,4,1,30065,3,2,2,1))
-_AristaBridgeExtCompliances_ObjectIdentity=ObjectIdentity
-aristaBridgeExtCompliances=_AristaBridgeExtCompliances_ObjectIdentity((1,3,6,1,4,1,30065,3,2,2,2))
-_AristaMacStatsTable_Object=MibTable
-aristaMacStatsTable=_AristaMacStatsTable_Object((1,3,6,1,4,1,30065,3,2,3))
-if mibBuilder.loadTexts:aristaMacStatsTable.setStatus(_A)
-_AristaMacStatsEntry_Object=MibTableRow
-aristaMacStatsEntry=_AristaMacStatsEntry_Object((1,3,6,1,4,1,30065,3,2,3,1))
-aristaMacStatsEntry.setIndexNames((0,_C,_E),(0,_B,_L))
-if mibBuilder.loadTexts:aristaMacStatsEntry.setStatus(_A)
-class _AristaMacStatsEntryType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('local',1),('remote',2)))
-_AristaMacStatsEntryType_Type.__name__=_I
-_AristaMacStatsEntryType_Object=MibTableColumn
-aristaMacStatsEntryType=_AristaMacStatsEntryType_Object((1,3,6,1,4,1,30065,3,2,3,1,1),_AristaMacStatsEntryType_Type())
-aristaMacStatsEntryType.setMaxAccess(_K)
-if mibBuilder.loadTexts:aristaMacStatsEntryType.setStatus(_A)
-_AristaMacStatsEntries_Type=Counter32
-_AristaMacStatsEntries_Object=MibTableColumn
-aristaMacStatsEntries=_AristaMacStatsEntries_Object((1,3,6,1,4,1,30065,3,2,3,1,2),_AristaMacStatsEntries_Type())
-aristaMacStatsEntries.setMaxAccess(_F)
-if mibBuilder.loadTexts:aristaMacStatsEntries.setStatus(_A)
-aristaBridgeExtBaseGroup=ObjectGroup((1,3,6,1,4,1,30065,3,2,2,1,1))
-aristaBridgeExtBaseGroup.setObjects(*((_B,_G),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:aristaBridgeExtBaseGroup.setStatus(_A)
-aristaMacMove=NotificationType((1,3,6,1,4,1,30065,3,2,0,1))
-aristaMacMove.setObjects(*((_B,_G),(_C,_D)))
-if mibBuilder.loadTexts:aristaMacMove.setStatus(_A)
-aristaMacLearn=NotificationType((1,3,6,1,4,1,30065,3,2,0,2))
-aristaMacLearn.setObjects((_C,_D))
-if mibBuilder.loadTexts:aristaMacLearn.setStatus(_A)
-aristaMacAge=NotificationType((1,3,6,1,4,1,30065,3,2,0,3))
-aristaMacAge.setObjects((_C,_D))
-if mibBuilder.loadTexts:aristaMacAge.setStatus(_A)
-aristaBridgeExtNotificationGroup=NotificationGroup((1,3,6,1,4,1,30065,3,2,2,1,2))
-aristaBridgeExtNotificationGroup.setObjects(*((_B,_O),(_B,_P),(_B,_Q)))
-if mibBuilder.loadTexts:aristaBridgeExtNotificationGroup.setStatus(_A)
-aristaBridgeExtCompliance=ModuleCompliance((1,3,6,1,4,1,30065,3,2,2,2,1))
-aristaBridgeExtCompliance.setObjects((_B,_R))
-if mibBuilder.loadTexts:aristaBridgeExtCompliance.setStatus(_A)
-aristaBridgeExtNotificationCompliance=ModuleCompliance((1,3,6,1,4,1,30065,3,2,2,2,2))
-aristaBridgeExtNotificationCompliance.setObjects((_B,_S))
-if mibBuilder.loadTexts:aristaBridgeExtNotificationCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'aristaBridgeExtMIB':aristaBridgeExtMIB,'aristaBridgeExtNotifications':aristaBridgeExtNotifications,_O:aristaMacMove,_P:aristaMacLearn,_Q:aristaMacAge,'aristaDot1qTpFdbTable':aristaDot1qTpFdbTable,'aristaDot1qTpFdbEntry':aristaDot1qTpFdbEntry,_J:aristaDot1qTpFdbTimeMark,_G:aristaDot1qTpFdbNumMoves,_M:aristaDot1qTpFdbLastMove,'aristaBridgeExtConformance':aristaBridgeExtConformance,'aristaBridgeExtGroups':aristaBridgeExtGroups,_R:aristaBridgeExtBaseGroup,_S:aristaBridgeExtNotificationGroup,'aristaBridgeExtCompliances':aristaBridgeExtCompliances,'aristaBridgeExtCompliance':aristaBridgeExtCompliance,'aristaBridgeExtNotificationCompliance':aristaBridgeExtNotificationCompliance,'aristaMacStatsTable':aristaMacStatsTable,'aristaMacStatsEntry':aristaMacStatsEntry,_L:aristaMacStatsEntryType,_N:aristaMacStatsEntries})
+#
+# PySNMP MIB module ARISTA-BRIDGE-EXT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/arista/ARISTA-BRIDGE-EXT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:28 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1qTpFdbAddress, dot1qTpFdbPort, dot1qFdbId = mibBuilder.importSymbols("Q-BRIDGE-MIB", "dot1qTpFdbAddress", "dot1qTpFdbPort", "dot1qFdbId")
+TimeFilter, = mibBuilder.importSymbols("RMON2-MIB", "TimeFilter")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+aristaBridgeExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 2))
+aristaBridgeExtMIB.setRevisions(('2020-09-29 00:00', '2019-09-15 00:00', '2014-08-15 00:00', '2011-03-31 13:00', '2010-05-03 00:00',))
+if mibBuilder.loadTexts: aristaBridgeExtMIB.setLastUpdated('202009290000Z')
+if mibBuilder.loadTexts: aristaBridgeExtMIB.setOrganization('Arista Networks, Inc.')
+aristaBridgeExtNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 2, 0))
+aristaDot1qTpFdbTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 2, 1), )
+if mibBuilder.loadTexts: aristaDot1qTpFdbTable.setStatus('current')
+aristaDot1qTpFdbEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 2, 1, 1), ).setIndexNames((0, "ARISTA-BRIDGE-EXT-MIB", "aristaDot1qTpFdbTimeMark"), (0, "Q-BRIDGE-MIB", "dot1qFdbId"), (0, "Q-BRIDGE-MIB", "dot1qTpFdbAddress"))
+if mibBuilder.loadTexts: aristaDot1qTpFdbEntry.setStatus('current')
+aristaDot1qTpFdbTimeMark = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 2, 1, 1, 1), TimeFilter())
+if mibBuilder.loadTexts: aristaDot1qTpFdbTimeMark.setStatus('current')
+aristaDot1qTpFdbNumMoves = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 2, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaDot1qTpFdbNumMoves.setStatus('current')
+aristaDot1qTpFdbLastMove = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 2, 1, 1, 3), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaDot1qTpFdbLastMove.setStatus('current')
+aristaMacStatsTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 2, 3), )
+if mibBuilder.loadTexts: aristaMacStatsTable.setStatus('current')
+aristaMacStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 2, 3, 1), ).setIndexNames((0, "Q-BRIDGE-MIB", "dot1qFdbId"), (0, "ARISTA-BRIDGE-EXT-MIB", "aristaMacStatsEntryType"))
+if mibBuilder.loadTexts: aristaMacStatsEntry.setStatus('current')
+aristaMacStatsEntryType = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("local", 1), ("remote", 2))))
+if mibBuilder.loadTexts: aristaMacStatsEntryType.setStatus('current')
+aristaMacStatsEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 2, 3, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: aristaMacStatsEntries.setStatus('current')
+aristaMacMove = NotificationType((1, 3, 6, 1, 4, 1, 30065, 3, 2, 0, 1)).setObjects(("ARISTA-BRIDGE-EXT-MIB", "aristaDot1qTpFdbNumMoves"), ("Q-BRIDGE-MIB", "dot1qTpFdbPort"))
+if mibBuilder.loadTexts: aristaMacMove.setStatus('current')
+aristaMacLearn = NotificationType((1, 3, 6, 1, 4, 1, 30065, 3, 2, 0, 2)).setObjects(("Q-BRIDGE-MIB", "dot1qTpFdbPort"))
+if mibBuilder.loadTexts: aristaMacLearn.setStatus('current')
+aristaMacAge = NotificationType((1, 3, 6, 1, 4, 1, 30065, 3, 2, 0, 3)).setObjects(("Q-BRIDGE-MIB", "dot1qTpFdbPort"))
+if mibBuilder.loadTexts: aristaMacAge.setStatus('current')
+aristaBridgeExtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 2, 2))
+aristaBridgeExtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 2, 2, 1))
+aristaBridgeExtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 2, 2, 2))
+aristaBridgeExtBaseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 2, 2, 1, 1)).setObjects(("ARISTA-BRIDGE-EXT-MIB", "aristaDot1qTpFdbNumMoves"), ("ARISTA-BRIDGE-EXT-MIB", "aristaDot1qTpFdbLastMove"), ("ARISTA-BRIDGE-EXT-MIB", "aristaMacStatsEntries"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaBridgeExtBaseGroup = aristaBridgeExtBaseGroup.setStatus('current')
+aristaBridgeExtNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 30065, 3, 2, 2, 1, 2)).setObjects(("ARISTA-BRIDGE-EXT-MIB", "aristaMacMove"), ("ARISTA-BRIDGE-EXT-MIB", "aristaMacLearn"), ("ARISTA-BRIDGE-EXT-MIB", "aristaMacAge"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaBridgeExtNotificationGroup = aristaBridgeExtNotificationGroup.setStatus('current')
+aristaBridgeExtCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 30065, 3, 2, 2, 2, 1)).setObjects(("ARISTA-BRIDGE-EXT-MIB", "aristaBridgeExtBaseGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaBridgeExtCompliance = aristaBridgeExtCompliance.setStatus('current')
+aristaBridgeExtNotificationCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 30065, 3, 2, 2, 2, 2)).setObjects(("ARISTA-BRIDGE-EXT-MIB", "aristaBridgeExtNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    aristaBridgeExtNotificationCompliance = aristaBridgeExtNotificationCompliance.setStatus('current')
+mibBuilder.exportSymbols("ARISTA-BRIDGE-EXT-MIB", aristaMacLearn=aristaMacLearn, aristaDot1qTpFdbTable=aristaDot1qTpFdbTable, aristaBridgeExtBaseGroup=aristaBridgeExtBaseGroup, PYSNMP_MODULE_ID=aristaBridgeExtMIB, aristaDot1qTpFdbEntry=aristaDot1qTpFdbEntry, aristaMacStatsEntry=aristaMacStatsEntry, aristaBridgeExtCompliance=aristaBridgeExtCompliance, aristaMacStatsEntries=aristaMacStatsEntries, aristaDot1qTpFdbLastMove=aristaDot1qTpFdbLastMove, aristaDot1qTpFdbTimeMark=aristaDot1qTpFdbTimeMark, aristaMacStatsTable=aristaMacStatsTable, aristaDot1qTpFdbNumMoves=aristaDot1qTpFdbNumMoves, aristaBridgeExtNotifications=aristaBridgeExtNotifications, aristaBridgeExtNotificationCompliance=aristaBridgeExtNotificationCompliance, aristaBridgeExtGroups=aristaBridgeExtGroups, aristaMacStatsEntryType=aristaMacStatsEntryType, aristaBridgeExtConformance=aristaBridgeExtConformance, aristaBridgeExtNotificationGroup=aristaBridgeExtNotificationGroup, aristaMacMove=aristaMacMove, aristaBridgeExtCompliances=aristaBridgeExtCompliances, aristaBridgeExtMIB=aristaBridgeExtMIB, aristaMacAge=aristaMacAge)

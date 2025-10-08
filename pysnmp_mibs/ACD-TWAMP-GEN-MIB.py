@@ -1,1028 +1,372 @@
-_Br='acdTwampGenHistResultGroup'
-_Bq='acdTwampGenCfgGroup'
-_Bp='acdTwampGenStatusGroup'
-_Bo='acdTwampGenResultGroup'
-_Bn='acdTwampGenHistResultPktLossLargestGap'
-_Bm='acdTwampGenHistResultPktLossGaps'
-_Bl='acdTwampGenHistResultPktLossDuplicate'
-_Bk='acdTwampGenHistResultPktLossOutOfOrder'
-_Bj='acdTwampGenHistResultPktLossLossRatio'
-_Bi='acdTwampGenHistResultPktLossLostPackets'
-_Bh='acdTwampGenHistResultPktLossSamples'
-_Bg='acdTwampGenHistResultOneWayFeDvThreshEx'
-_Bf='acdTwampGenHistResultOneWayFeDvAvgValue'
-_Be='acdTwampGenHistResultOneWayFeDvMaxValue'
-_Bd='acdTwampGenHistResultOneWayFeDvMinValue'
-_Bc='acdTwampGenHistResultOneWayFeDvSamples'
-_Bb='acdTwampGenHistResultOneWayFeDvInstValue'
-_Ba='acdTwampGenHistResultOneWayFeDvValid'
-_BZ='acdTwampGenHistResultOneWayFeDelayThreshEx'
-_BY='acdTwampGenHistResultOneWayFeDelayAvgValue'
-_BX='acdTwampGenHistResultOneWayFeDelayMaxValue'
-_BW='acdTwampGenHistResultOneWayFeDelayMinValue'
-_BV='acdTwampGenHistResultOneWayFeDelaySamples'
-_BU='acdTwampGenHistResultOneWayFeDelayInstValue'
-_BT='acdTwampGenHistResultOneWayFeDelayValid'
-_BS='acdTwampGenHistResultOneWayNeDvThreshEx'
-_BR='acdTwampGenHistResultOneWayNeDvAvgValue'
-_BQ='acdTwampGenHistResultOneWayNeDvMaxValue'
-_BP='acdTwampGenHistResultOneWayNeDvMinValue'
-_BO='acdTwampGenHistResultOneWayNeDvSamples'
-_BN='acdTwampGenHistResultOneWayNeDvInstValue'
-_BM='acdTwampGenHistResultOneWayNeDvValid'
-_BL='acdTwampGenHistResultOneWayNeDelayThreshEx'
-_BK='acdTwampGenHistResultOneWayNeDelayAvgValue'
-_BJ='acdTwampGenHistResultOneWayNeDelayMaxValue'
-_BI='acdTwampGenHistResultOneWayNeDelayMinValue'
-_BH='acdTwampGenHistResultOneWayNeDelaySamples'
-_BG='acdTwampGenHistResultOneWayNeDelayInstValue'
-_BF='acdTwampGenHistResultOneWayNeDelayValid'
-_BE='acdTwampGenHistResultTwoWayDvThreshEx'
-_BD='acdTwampGenHistResultTwoWayDvAvgValue'
-_BC='acdTwampGenHistResultTwoWayDvMaxValue'
-_BB='acdTwampGenHistResultTwoWayDvMinValue'
-_BA='acdTwampGenHistResultTwoWayDvSamples'
-_B9='acdTwampGenHistResultTwoWayDvInstValue'
-_B8='acdTwampGenHistResultTwoWayDvValid'
-_B7='acdTwampGenHistResultTwoWayDelayThreshEx'
-_B6='acdTwampGenHistResultTwoWayDelayAvgValue'
-_B5='acdTwampGenHistResultTwoWayDelayMaxValue'
-_B4='acdTwampGenHistResultTwoWayDelayMinValue'
-_B3='acdTwampGenHistResultTwoWayDelaySamples'
-_B2='acdTwampGenHistResultTwoWayDelayInstValue'
-_B1='acdTwampGenHistResultTwoWayDelayValid'
-_B0='acdTwampGenHistResultRxPacketCount'
-_A_='acdTwampGenHistResultTxPacketCount'
-_Az='acdTwampGenHistResultPeriodTime'
-_Ay='acdTwampGenHistResultInstName'
-_Ax='acdTwampGenCfgPacketLossRate'
-_Aw='acdTwampGenCfgPacketLossContinuityCheck'
-_Av='acdTwampGenCfgOneWayFarEndAvgDvThrs'
-_Au='acdTwampGenCfgOneWayFarEndMaxDvThrs'
-_At='acdTwampGenCfgOneWayFarEndMaxDv'
-_As='acdTwampGenCfgOneWayFarEndAvgDelayThrs'
-_Ar='acdTwampGenCfgOneWayFarEndMaxDelayThrs'
-_Aq='acdTwampGenCfgOneWayFarEndMaxDelay'
-_Ap='acdTwampGenCfgOneWayNearEndAvgDvThrs'
-_Ao='acdTwampGenCfgOneWayNearEndMaxDvThrs'
-_An='acdTwampGenCfgOneWayNearEndMaxDv'
-_Am='acdTwampGenCfgOneWayNearEndAvgDelayThrs'
-_Al='acdTwampGenCfgOneWayNearEndMaxDelayThrs'
-_Ak='acdTwampGenCfgOneWayNearEndMaxDelay'
-_Aj='acdTwampGenCfgTwoWayAvgDvThrs'
-_Ai='acdTwampGenCfgTwoWayMaxDvThrs'
-_Ah='acdTwampGenCfgTwoWayMaxDv'
-_Ag='acdTwampGenCfgTwoWayAvgDelayThrs'
-_Af='acdTwampGenCfgTwoWayMaxDelayThrs'
-_Ae='acdTwampGenCfgTwoWayMaxDelay'
-_Ad='acdTwampGenCfgVlan1Priority'
-_Ac='acdTwampGenCfgEcn'
-_Ab='acdTwampGenCfgDscp'
-_Aa='acdTwampGenCfgDestPortNumber'
-_AZ='acdTwampGenCfgSourcePortNumber'
-_AY='acdTwampGenCfgDestIPv4Addr'
-_AX='acdTwampGenCfgPktSize'
-_AW='acdTwampGenCfgReferencePeriod'
-_AV='acdTwampGenCfgInterval'
-_AU='acdTwampGenCfgState'
-_AT='acdTwampGenCfgName'
-_AS='acdTwampGenStatusPacketLossExcessivePacketLossAlert'
-_AR='acdTwampGenStatusPacketLossContinuityCheckAlert'
-_AQ='acdTwampGenStatusOneWayFeAvgDvAlert'
-_AP='acdTwampGenStatusOneWayFeDvAlert'
-_AO='acdTwampGenStatusOneWayFeAvgDelayAlert'
-_AN='acdTwampGenStatusOneWayFeDelayAlert'
-_AM='acdTwampGenStatusOneWayNeAvgDvAlert'
-_AL='acdTwampGenStatusOneWayNeDvAlert'
-_AK='acdTwampGenStatusOneWayNeAvgDelayAlert'
-_AJ='acdTwampGenStatusOneWayNeDelayAlert'
-_AI='acdTwampGenStatusTwoWayAvgDvAlert'
-_AH='acdTwampGenStatusTwoWayDvAlert'
-_AG='acdTwampGenStatusTwoWayAvgDelayAlert'
-_AF='acdTwampGenStatusTwoWayDelayAlert'
-_AE='acdTwampGenStatusInstName'
-_AD='acdTwampGenResultPktLossCurrLargestGap'
-_AC='acdTwampGenResultPktLossCurrGaps'
-_AB='acdTwampGenResultPktLossCurrDuplicate'
-_AA='acdTwampGenResultPktLossCurrOutOfOrder'
-_A9='acdTwampGenResultPktLossCurrLossRatio'
-_A8='acdTwampGenResultPktLossCurrLostPackets'
-_A7='acdTwampGenResultPktLossCurrSamples'
-_A6='acdTwampGenResultOneWayFeDvCurrThreshEx'
-_A5='acdTwampGenResultOneWayFeDvCurrAvgValue'
-_A4='acdTwampGenResultOneWayFeDvCurrMaxValue'
-_A3='acdTwampGenResultOneWayFeDvCurrMinValue'
-_A2='acdTwampGenResultOneWayFeDvCurrSamples'
-_A1='acdTwampGenResultOneWayFeDvInstValue'
-_A0='acdTwampGenResultOneWayFeDvValid'
-_z='acdTwampGenResultOneWayFeDelayCurrThreshEx'
-_y='acdTwampGenResultOneWayFeDelayCurrAvgValue'
-_x='acdTwampGenResultOneWayFeDelayCurrMaxValue'
-_w='acdTwampGenResultOneWayFeDelayCurrMinValue'
-_v='acdTwampGenResultOneWayFeDelayCurrSamples'
-_u='acdTwampGenResultOneWayFeDelayInstValue'
-_t='acdTwampGenResultOneWayFeDelayValid'
-_s='acdTwampGenResultOneWayNeDvCurrThreshEx'
-_r='acdTwampGenResultOneWayNeDvCurrAvgValue'
-_q='acdTwampGenResultOneWayNeDvCurrMaxValue'
-_p='acdTwampGenResultOneWayNeDvCurrMinValue'
-_o='acdTwampGenResultOneWayNeDvCurrSamples'
-_n='acdTwampGenResultOneWayNeDvInstValue'
-_m='acdTwampGenResultOneWayNeDvValid'
-_l='acdTwampGenResultOneWayNeDelayCurrThreshEx'
-_k='acdTwampGenResultOneWayNeDelayCurrAvgValue'
-_j='acdTwampGenResultOneWayNeDelayCurrMaxValue'
-_i='acdTwampGenResultOneWayNeDelayCurrMinValue'
-_h='acdTwampGenResultOneWayNeDelayCurrSamples'
-_g='acdTwampGenResultOneWayNeDelayInstValue'
-_f='acdTwampGenResultOneWayNeDelayValid'
-_e='acdTwampGenResultTwoWayDvCurrThreshEx'
-_d='acdTwampGenResultTwoWayDvCurrAvgValue'
-_c='acdTwampGenResultTwoWayDvCurrMaxValue'
-_b='acdTwampGenResultTwoWayDvCurrMinValue'
-_a='acdTwampGenResultTwoWayDvCurrSamples'
-_Z='acdTwampGenResultTwoWayDvInstValue'
-_Y='acdTwampGenResultTwoWayDvValid'
-_X='acdTwampGenResultTwoWayDelayCurrThreshEx'
-_W='acdTwampGenResultTwoWayDelayCurrAvgValue'
-_V='acdTwampGenResultTwoWayDelayCurrMaxValue'
-_U='acdTwampGenResultTwoWayDelayCurrMinValue'
-_T='acdTwampGenResultTwoWayDelayCurrSamples'
-_S='acdTwampGenResultTwoWayDelayInstValue'
-_R='acdTwampGenResultTwoWayDelayValid'
-_Q='acdTwampGenResultCurrRxPacketCount'
-_P='acdTwampGenResultCurrTxPacketCount'
-_O='acdTwampGenResultPeriodTime'
-_N='acdTwampGenResultPeriodNb'
-_M='acdTwampGenResultInstName'
-_L='acdTwampGenCfgID'
-_K='acdTwampGenStatusID'
-_J='acdTwampGenResultID'
-_I='Integer32'
-_H='acdTwampGenHistResultSampleIndex'
-_G='acdTwampGenHistResultID'
-_F='not-accessible'
-_E='DisplayString'
-_D='read-write'
-_C='read-only'
-_B='ACD-TWAMP-GEN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-acdMibs,=mibBuilder.importSymbols('ACCEDIAN-SMI','acdMibs')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DateAndTime,DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_E,'PhysAddress','TextualConvention','TruthValue')
-acdTwampGen=ModuleIdentity((1,3,6,1,4,1,22420,2,19))
-if mibBuilder.loadTexts:acdTwampGen.setRevisions(('2016-09-23 01:00','2016-05-26 01:00','2014-02-24 00:00'))
-_AcdTwampGenResultTable_Object=MibTable
-acdTwampGenResultTable=_AcdTwampGenResultTable_Object((1,3,6,1,4,1,22420,2,19,1))
-if mibBuilder.loadTexts:acdTwampGenResultTable.setStatus(_A)
-_AcdTwampGenResultEntry_Object=MibTableRow
-acdTwampGenResultEntry=_AcdTwampGenResultEntry_Object((1,3,6,1,4,1,22420,2,19,1,1))
-acdTwampGenResultEntry.setIndexNames((0,_B,_J))
-if mibBuilder.loadTexts:acdTwampGenResultEntry.setStatus(_A)
-_AcdTwampGenResultID_Type=Unsigned32
-_AcdTwampGenResultID_Object=MibTableColumn
-acdTwampGenResultID=_AcdTwampGenResultID_Object((1,3,6,1,4,1,22420,2,19,1,1,1),_AcdTwampGenResultID_Type())
-acdTwampGenResultID.setMaxAccess(_F)
-if mibBuilder.loadTexts:acdTwampGenResultID.setStatus(_A)
-class _AcdTwampGenResultInstName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_AcdTwampGenResultInstName_Type.__name__=_E
-_AcdTwampGenResultInstName_Object=MibTableColumn
-acdTwampGenResultInstName=_AcdTwampGenResultInstName_Object((1,3,6,1,4,1,22420,2,19,1,1,2),_AcdTwampGenResultInstName_Type())
-acdTwampGenResultInstName.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultInstName.setStatus(_A)
-_AcdTwampGenResultPeriodNb_Type=Unsigned32
-_AcdTwampGenResultPeriodNb_Object=MibTableColumn
-acdTwampGenResultPeriodNb=_AcdTwampGenResultPeriodNb_Object((1,3,6,1,4,1,22420,2,19,1,1,3),_AcdTwampGenResultPeriodNb_Type())
-acdTwampGenResultPeriodNb.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultPeriodNb.setStatus(_A)
-_AcdTwampGenResultPeriodTime_Type=DateAndTime
-_AcdTwampGenResultPeriodTime_Object=MibTableColumn
-acdTwampGenResultPeriodTime=_AcdTwampGenResultPeriodTime_Object((1,3,6,1,4,1,22420,2,19,1,1,4),_AcdTwampGenResultPeriodTime_Type())
-acdTwampGenResultPeriodTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultPeriodTime.setStatus(_A)
-_AcdTwampGenResultCurrTxPacketCount_Type=Counter64
-_AcdTwampGenResultCurrTxPacketCount_Object=MibTableColumn
-acdTwampGenResultCurrTxPacketCount=_AcdTwampGenResultCurrTxPacketCount_Object((1,3,6,1,4,1,22420,2,19,1,1,5),_AcdTwampGenResultCurrTxPacketCount_Type())
-acdTwampGenResultCurrTxPacketCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultCurrTxPacketCount.setStatus(_A)
-_AcdTwampGenResultCurrRxPacketCount_Type=Counter64
-_AcdTwampGenResultCurrRxPacketCount_Object=MibTableColumn
-acdTwampGenResultCurrRxPacketCount=_AcdTwampGenResultCurrRxPacketCount_Object((1,3,6,1,4,1,22420,2,19,1,1,6),_AcdTwampGenResultCurrRxPacketCount_Type())
-acdTwampGenResultCurrRxPacketCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultCurrRxPacketCount.setStatus(_A)
-_AcdTwampGenResultTwoWayDelayValid_Type=TruthValue
-_AcdTwampGenResultTwoWayDelayValid_Object=MibTableColumn
-acdTwampGenResultTwoWayDelayValid=_AcdTwampGenResultTwoWayDelayValid_Object((1,3,6,1,4,1,22420,2,19,1,1,7),_AcdTwampGenResultTwoWayDelayValid_Type())
-acdTwampGenResultTwoWayDelayValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultTwoWayDelayValid.setStatus(_A)
-_AcdTwampGenResultTwoWayDelayInstValue_Type=Integer32
-_AcdTwampGenResultTwoWayDelayInstValue_Object=MibTableColumn
-acdTwampGenResultTwoWayDelayInstValue=_AcdTwampGenResultTwoWayDelayInstValue_Object((1,3,6,1,4,1,22420,2,19,1,1,8),_AcdTwampGenResultTwoWayDelayInstValue_Type())
-acdTwampGenResultTwoWayDelayInstValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultTwoWayDelayInstValue.setStatus(_A)
-_AcdTwampGenResultTwoWayDelayCurrSamples_Type=Unsigned32
-_AcdTwampGenResultTwoWayDelayCurrSamples_Object=MibTableColumn
-acdTwampGenResultTwoWayDelayCurrSamples=_AcdTwampGenResultTwoWayDelayCurrSamples_Object((1,3,6,1,4,1,22420,2,19,1,1,9),_AcdTwampGenResultTwoWayDelayCurrSamples_Type())
-acdTwampGenResultTwoWayDelayCurrSamples.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultTwoWayDelayCurrSamples.setStatus(_A)
-_AcdTwampGenResultTwoWayDelayCurrMinValue_Type=Integer32
-_AcdTwampGenResultTwoWayDelayCurrMinValue_Object=MibTableColumn
-acdTwampGenResultTwoWayDelayCurrMinValue=_AcdTwampGenResultTwoWayDelayCurrMinValue_Object((1,3,6,1,4,1,22420,2,19,1,1,10),_AcdTwampGenResultTwoWayDelayCurrMinValue_Type())
-acdTwampGenResultTwoWayDelayCurrMinValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultTwoWayDelayCurrMinValue.setStatus(_A)
-_AcdTwampGenResultTwoWayDelayCurrMaxValue_Type=Integer32
-_AcdTwampGenResultTwoWayDelayCurrMaxValue_Object=MibTableColumn
-acdTwampGenResultTwoWayDelayCurrMaxValue=_AcdTwampGenResultTwoWayDelayCurrMaxValue_Object((1,3,6,1,4,1,22420,2,19,1,1,11),_AcdTwampGenResultTwoWayDelayCurrMaxValue_Type())
-acdTwampGenResultTwoWayDelayCurrMaxValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultTwoWayDelayCurrMaxValue.setStatus(_A)
-_AcdTwampGenResultTwoWayDelayCurrAvgValue_Type=Integer32
-_AcdTwampGenResultTwoWayDelayCurrAvgValue_Object=MibTableColumn
-acdTwampGenResultTwoWayDelayCurrAvgValue=_AcdTwampGenResultTwoWayDelayCurrAvgValue_Object((1,3,6,1,4,1,22420,2,19,1,1,12),_AcdTwampGenResultTwoWayDelayCurrAvgValue_Type())
-acdTwampGenResultTwoWayDelayCurrAvgValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultTwoWayDelayCurrAvgValue.setStatus(_A)
-_AcdTwampGenResultTwoWayDelayCurrThreshEx_Type=Unsigned32
-_AcdTwampGenResultTwoWayDelayCurrThreshEx_Object=MibTableColumn
-acdTwampGenResultTwoWayDelayCurrThreshEx=_AcdTwampGenResultTwoWayDelayCurrThreshEx_Object((1,3,6,1,4,1,22420,2,19,1,1,13),_AcdTwampGenResultTwoWayDelayCurrThreshEx_Type())
-acdTwampGenResultTwoWayDelayCurrThreshEx.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultTwoWayDelayCurrThreshEx.setStatus(_A)
-_AcdTwampGenResultTwoWayDvValid_Type=TruthValue
-_AcdTwampGenResultTwoWayDvValid_Object=MibTableColumn
-acdTwampGenResultTwoWayDvValid=_AcdTwampGenResultTwoWayDvValid_Object((1,3,6,1,4,1,22420,2,19,1,1,14),_AcdTwampGenResultTwoWayDvValid_Type())
-acdTwampGenResultTwoWayDvValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultTwoWayDvValid.setStatus(_A)
-_AcdTwampGenResultTwoWayDvInstValue_Type=Integer32
-_AcdTwampGenResultTwoWayDvInstValue_Object=MibTableColumn
-acdTwampGenResultTwoWayDvInstValue=_AcdTwampGenResultTwoWayDvInstValue_Object((1,3,6,1,4,1,22420,2,19,1,1,15),_AcdTwampGenResultTwoWayDvInstValue_Type())
-acdTwampGenResultTwoWayDvInstValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultTwoWayDvInstValue.setStatus(_A)
-_AcdTwampGenResultTwoWayDvCurrSamples_Type=Unsigned32
-_AcdTwampGenResultTwoWayDvCurrSamples_Object=MibTableColumn
-acdTwampGenResultTwoWayDvCurrSamples=_AcdTwampGenResultTwoWayDvCurrSamples_Object((1,3,6,1,4,1,22420,2,19,1,1,16),_AcdTwampGenResultTwoWayDvCurrSamples_Type())
-acdTwampGenResultTwoWayDvCurrSamples.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultTwoWayDvCurrSamples.setStatus(_A)
-_AcdTwampGenResultTwoWayDvCurrMinValue_Type=Integer32
-_AcdTwampGenResultTwoWayDvCurrMinValue_Object=MibTableColumn
-acdTwampGenResultTwoWayDvCurrMinValue=_AcdTwampGenResultTwoWayDvCurrMinValue_Object((1,3,6,1,4,1,22420,2,19,1,1,17),_AcdTwampGenResultTwoWayDvCurrMinValue_Type())
-acdTwampGenResultTwoWayDvCurrMinValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultTwoWayDvCurrMinValue.setStatus(_A)
-_AcdTwampGenResultTwoWayDvCurrMaxValue_Type=Integer32
-_AcdTwampGenResultTwoWayDvCurrMaxValue_Object=MibTableColumn
-acdTwampGenResultTwoWayDvCurrMaxValue=_AcdTwampGenResultTwoWayDvCurrMaxValue_Object((1,3,6,1,4,1,22420,2,19,1,1,18),_AcdTwampGenResultTwoWayDvCurrMaxValue_Type())
-acdTwampGenResultTwoWayDvCurrMaxValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultTwoWayDvCurrMaxValue.setStatus(_A)
-_AcdTwampGenResultTwoWayDvCurrAvgValue_Type=Integer32
-_AcdTwampGenResultTwoWayDvCurrAvgValue_Object=MibTableColumn
-acdTwampGenResultTwoWayDvCurrAvgValue=_AcdTwampGenResultTwoWayDvCurrAvgValue_Object((1,3,6,1,4,1,22420,2,19,1,1,19),_AcdTwampGenResultTwoWayDvCurrAvgValue_Type())
-acdTwampGenResultTwoWayDvCurrAvgValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultTwoWayDvCurrAvgValue.setStatus(_A)
-_AcdTwampGenResultTwoWayDvCurrThreshEx_Type=Unsigned32
-_AcdTwampGenResultTwoWayDvCurrThreshEx_Object=MibTableColumn
-acdTwampGenResultTwoWayDvCurrThreshEx=_AcdTwampGenResultTwoWayDvCurrThreshEx_Object((1,3,6,1,4,1,22420,2,19,1,1,20),_AcdTwampGenResultTwoWayDvCurrThreshEx_Type())
-acdTwampGenResultTwoWayDvCurrThreshEx.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultTwoWayDvCurrThreshEx.setStatus(_A)
-_AcdTwampGenResultOneWayNeDelayValid_Type=TruthValue
-_AcdTwampGenResultOneWayNeDelayValid_Object=MibTableColumn
-acdTwampGenResultOneWayNeDelayValid=_AcdTwampGenResultOneWayNeDelayValid_Object((1,3,6,1,4,1,22420,2,19,1,1,21),_AcdTwampGenResultOneWayNeDelayValid_Type())
-acdTwampGenResultOneWayNeDelayValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayNeDelayValid.setStatus(_A)
-_AcdTwampGenResultOneWayNeDelayInstValue_Type=Integer32
-_AcdTwampGenResultOneWayNeDelayInstValue_Object=MibTableColumn
-acdTwampGenResultOneWayNeDelayInstValue=_AcdTwampGenResultOneWayNeDelayInstValue_Object((1,3,6,1,4,1,22420,2,19,1,1,22),_AcdTwampGenResultOneWayNeDelayInstValue_Type())
-acdTwampGenResultOneWayNeDelayInstValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayNeDelayInstValue.setStatus(_A)
-_AcdTwampGenResultOneWayNeDelayCurrSamples_Type=Unsigned32
-_AcdTwampGenResultOneWayNeDelayCurrSamples_Object=MibTableColumn
-acdTwampGenResultOneWayNeDelayCurrSamples=_AcdTwampGenResultOneWayNeDelayCurrSamples_Object((1,3,6,1,4,1,22420,2,19,1,1,23),_AcdTwampGenResultOneWayNeDelayCurrSamples_Type())
-acdTwampGenResultOneWayNeDelayCurrSamples.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayNeDelayCurrSamples.setStatus(_A)
-_AcdTwampGenResultOneWayNeDelayCurrMinValue_Type=Integer32
-_AcdTwampGenResultOneWayNeDelayCurrMinValue_Object=MibTableColumn
-acdTwampGenResultOneWayNeDelayCurrMinValue=_AcdTwampGenResultOneWayNeDelayCurrMinValue_Object((1,3,6,1,4,1,22420,2,19,1,1,24),_AcdTwampGenResultOneWayNeDelayCurrMinValue_Type())
-acdTwampGenResultOneWayNeDelayCurrMinValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayNeDelayCurrMinValue.setStatus(_A)
-_AcdTwampGenResultOneWayNeDelayCurrMaxValue_Type=Integer32
-_AcdTwampGenResultOneWayNeDelayCurrMaxValue_Object=MibTableColumn
-acdTwampGenResultOneWayNeDelayCurrMaxValue=_AcdTwampGenResultOneWayNeDelayCurrMaxValue_Object((1,3,6,1,4,1,22420,2,19,1,1,25),_AcdTwampGenResultOneWayNeDelayCurrMaxValue_Type())
-acdTwampGenResultOneWayNeDelayCurrMaxValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayNeDelayCurrMaxValue.setStatus(_A)
-_AcdTwampGenResultOneWayNeDelayCurrAvgValue_Type=Integer32
-_AcdTwampGenResultOneWayNeDelayCurrAvgValue_Object=MibTableColumn
-acdTwampGenResultOneWayNeDelayCurrAvgValue=_AcdTwampGenResultOneWayNeDelayCurrAvgValue_Object((1,3,6,1,4,1,22420,2,19,1,1,26),_AcdTwampGenResultOneWayNeDelayCurrAvgValue_Type())
-acdTwampGenResultOneWayNeDelayCurrAvgValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayNeDelayCurrAvgValue.setStatus(_A)
-_AcdTwampGenResultOneWayNeDelayCurrThreshEx_Type=Unsigned32
-_AcdTwampGenResultOneWayNeDelayCurrThreshEx_Object=MibTableColumn
-acdTwampGenResultOneWayNeDelayCurrThreshEx=_AcdTwampGenResultOneWayNeDelayCurrThreshEx_Object((1,3,6,1,4,1,22420,2,19,1,1,27),_AcdTwampGenResultOneWayNeDelayCurrThreshEx_Type())
-acdTwampGenResultOneWayNeDelayCurrThreshEx.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayNeDelayCurrThreshEx.setStatus(_A)
-_AcdTwampGenResultOneWayNeDvValid_Type=TruthValue
-_AcdTwampGenResultOneWayNeDvValid_Object=MibTableColumn
-acdTwampGenResultOneWayNeDvValid=_AcdTwampGenResultOneWayNeDvValid_Object((1,3,6,1,4,1,22420,2,19,1,1,28),_AcdTwampGenResultOneWayNeDvValid_Type())
-acdTwampGenResultOneWayNeDvValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayNeDvValid.setStatus(_A)
-_AcdTwampGenResultOneWayNeDvInstValue_Type=Integer32
-_AcdTwampGenResultOneWayNeDvInstValue_Object=MibTableColumn
-acdTwampGenResultOneWayNeDvInstValue=_AcdTwampGenResultOneWayNeDvInstValue_Object((1,3,6,1,4,1,22420,2,19,1,1,29),_AcdTwampGenResultOneWayNeDvInstValue_Type())
-acdTwampGenResultOneWayNeDvInstValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayNeDvInstValue.setStatus(_A)
-_AcdTwampGenResultOneWayNeDvCurrSamples_Type=Unsigned32
-_AcdTwampGenResultOneWayNeDvCurrSamples_Object=MibTableColumn
-acdTwampGenResultOneWayNeDvCurrSamples=_AcdTwampGenResultOneWayNeDvCurrSamples_Object((1,3,6,1,4,1,22420,2,19,1,1,30),_AcdTwampGenResultOneWayNeDvCurrSamples_Type())
-acdTwampGenResultOneWayNeDvCurrSamples.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayNeDvCurrSamples.setStatus(_A)
-_AcdTwampGenResultOneWayNeDvCurrMinValue_Type=Integer32
-_AcdTwampGenResultOneWayNeDvCurrMinValue_Object=MibTableColumn
-acdTwampGenResultOneWayNeDvCurrMinValue=_AcdTwampGenResultOneWayNeDvCurrMinValue_Object((1,3,6,1,4,1,22420,2,19,1,1,31),_AcdTwampGenResultOneWayNeDvCurrMinValue_Type())
-acdTwampGenResultOneWayNeDvCurrMinValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayNeDvCurrMinValue.setStatus(_A)
-_AcdTwampGenResultOneWayNeDvCurrMaxValue_Type=Integer32
-_AcdTwampGenResultOneWayNeDvCurrMaxValue_Object=MibTableColumn
-acdTwampGenResultOneWayNeDvCurrMaxValue=_AcdTwampGenResultOneWayNeDvCurrMaxValue_Object((1,3,6,1,4,1,22420,2,19,1,1,32),_AcdTwampGenResultOneWayNeDvCurrMaxValue_Type())
-acdTwampGenResultOneWayNeDvCurrMaxValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayNeDvCurrMaxValue.setStatus(_A)
-_AcdTwampGenResultOneWayNeDvCurrAvgValue_Type=Integer32
-_AcdTwampGenResultOneWayNeDvCurrAvgValue_Object=MibTableColumn
-acdTwampGenResultOneWayNeDvCurrAvgValue=_AcdTwampGenResultOneWayNeDvCurrAvgValue_Object((1,3,6,1,4,1,22420,2,19,1,1,33),_AcdTwampGenResultOneWayNeDvCurrAvgValue_Type())
-acdTwampGenResultOneWayNeDvCurrAvgValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayNeDvCurrAvgValue.setStatus(_A)
-_AcdTwampGenResultOneWayNeDvCurrThreshEx_Type=Unsigned32
-_AcdTwampGenResultOneWayNeDvCurrThreshEx_Object=MibTableColumn
-acdTwampGenResultOneWayNeDvCurrThreshEx=_AcdTwampGenResultOneWayNeDvCurrThreshEx_Object((1,3,6,1,4,1,22420,2,19,1,1,34),_AcdTwampGenResultOneWayNeDvCurrThreshEx_Type())
-acdTwampGenResultOneWayNeDvCurrThreshEx.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayNeDvCurrThreshEx.setStatus(_A)
-_AcdTwampGenResultOneWayFeDelayValid_Type=TruthValue
-_AcdTwampGenResultOneWayFeDelayValid_Object=MibTableColumn
-acdTwampGenResultOneWayFeDelayValid=_AcdTwampGenResultOneWayFeDelayValid_Object((1,3,6,1,4,1,22420,2,19,1,1,35),_AcdTwampGenResultOneWayFeDelayValid_Type())
-acdTwampGenResultOneWayFeDelayValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayFeDelayValid.setStatus(_A)
-_AcdTwampGenResultOneWayFeDelayInstValue_Type=Integer32
-_AcdTwampGenResultOneWayFeDelayInstValue_Object=MibTableColumn
-acdTwampGenResultOneWayFeDelayInstValue=_AcdTwampGenResultOneWayFeDelayInstValue_Object((1,3,6,1,4,1,22420,2,19,1,1,36),_AcdTwampGenResultOneWayFeDelayInstValue_Type())
-acdTwampGenResultOneWayFeDelayInstValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayFeDelayInstValue.setStatus(_A)
-_AcdTwampGenResultOneWayFeDelayCurrSamples_Type=Unsigned32
-_AcdTwampGenResultOneWayFeDelayCurrSamples_Object=MibTableColumn
-acdTwampGenResultOneWayFeDelayCurrSamples=_AcdTwampGenResultOneWayFeDelayCurrSamples_Object((1,3,6,1,4,1,22420,2,19,1,1,37),_AcdTwampGenResultOneWayFeDelayCurrSamples_Type())
-acdTwampGenResultOneWayFeDelayCurrSamples.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayFeDelayCurrSamples.setStatus(_A)
-_AcdTwampGenResultOneWayFeDelayCurrMinValue_Type=Integer32
-_AcdTwampGenResultOneWayFeDelayCurrMinValue_Object=MibTableColumn
-acdTwampGenResultOneWayFeDelayCurrMinValue=_AcdTwampGenResultOneWayFeDelayCurrMinValue_Object((1,3,6,1,4,1,22420,2,19,1,1,38),_AcdTwampGenResultOneWayFeDelayCurrMinValue_Type())
-acdTwampGenResultOneWayFeDelayCurrMinValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayFeDelayCurrMinValue.setStatus(_A)
-_AcdTwampGenResultOneWayFeDelayCurrMaxValue_Type=Integer32
-_AcdTwampGenResultOneWayFeDelayCurrMaxValue_Object=MibTableColumn
-acdTwampGenResultOneWayFeDelayCurrMaxValue=_AcdTwampGenResultOneWayFeDelayCurrMaxValue_Object((1,3,6,1,4,1,22420,2,19,1,1,39),_AcdTwampGenResultOneWayFeDelayCurrMaxValue_Type())
-acdTwampGenResultOneWayFeDelayCurrMaxValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayFeDelayCurrMaxValue.setStatus(_A)
-_AcdTwampGenResultOneWayFeDelayCurrAvgValue_Type=Integer32
-_AcdTwampGenResultOneWayFeDelayCurrAvgValue_Object=MibTableColumn
-acdTwampGenResultOneWayFeDelayCurrAvgValue=_AcdTwampGenResultOneWayFeDelayCurrAvgValue_Object((1,3,6,1,4,1,22420,2,19,1,1,40),_AcdTwampGenResultOneWayFeDelayCurrAvgValue_Type())
-acdTwampGenResultOneWayFeDelayCurrAvgValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayFeDelayCurrAvgValue.setStatus(_A)
-_AcdTwampGenResultOneWayFeDelayCurrThreshEx_Type=Unsigned32
-_AcdTwampGenResultOneWayFeDelayCurrThreshEx_Object=MibTableColumn
-acdTwampGenResultOneWayFeDelayCurrThreshEx=_AcdTwampGenResultOneWayFeDelayCurrThreshEx_Object((1,3,6,1,4,1,22420,2,19,1,1,41),_AcdTwampGenResultOneWayFeDelayCurrThreshEx_Type())
-acdTwampGenResultOneWayFeDelayCurrThreshEx.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayFeDelayCurrThreshEx.setStatus(_A)
-_AcdTwampGenResultOneWayFeDvValid_Type=TruthValue
-_AcdTwampGenResultOneWayFeDvValid_Object=MibTableColumn
-acdTwampGenResultOneWayFeDvValid=_AcdTwampGenResultOneWayFeDvValid_Object((1,3,6,1,4,1,22420,2,19,1,1,42),_AcdTwampGenResultOneWayFeDvValid_Type())
-acdTwampGenResultOneWayFeDvValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayFeDvValid.setStatus(_A)
-_AcdTwampGenResultOneWayFeDvInstValue_Type=Integer32
-_AcdTwampGenResultOneWayFeDvInstValue_Object=MibTableColumn
-acdTwampGenResultOneWayFeDvInstValue=_AcdTwampGenResultOneWayFeDvInstValue_Object((1,3,6,1,4,1,22420,2,19,1,1,43),_AcdTwampGenResultOneWayFeDvInstValue_Type())
-acdTwampGenResultOneWayFeDvInstValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayFeDvInstValue.setStatus(_A)
-_AcdTwampGenResultOneWayFeDvCurrSamples_Type=Unsigned32
-_AcdTwampGenResultOneWayFeDvCurrSamples_Object=MibTableColumn
-acdTwampGenResultOneWayFeDvCurrSamples=_AcdTwampGenResultOneWayFeDvCurrSamples_Object((1,3,6,1,4,1,22420,2,19,1,1,44),_AcdTwampGenResultOneWayFeDvCurrSamples_Type())
-acdTwampGenResultOneWayFeDvCurrSamples.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayFeDvCurrSamples.setStatus(_A)
-_AcdTwampGenResultOneWayFeDvCurrMinValue_Type=Integer32
-_AcdTwampGenResultOneWayFeDvCurrMinValue_Object=MibTableColumn
-acdTwampGenResultOneWayFeDvCurrMinValue=_AcdTwampGenResultOneWayFeDvCurrMinValue_Object((1,3,6,1,4,1,22420,2,19,1,1,45),_AcdTwampGenResultOneWayFeDvCurrMinValue_Type())
-acdTwampGenResultOneWayFeDvCurrMinValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayFeDvCurrMinValue.setStatus(_A)
-_AcdTwampGenResultOneWayFeDvCurrMaxValue_Type=Integer32
-_AcdTwampGenResultOneWayFeDvCurrMaxValue_Object=MibTableColumn
-acdTwampGenResultOneWayFeDvCurrMaxValue=_AcdTwampGenResultOneWayFeDvCurrMaxValue_Object((1,3,6,1,4,1,22420,2,19,1,1,46),_AcdTwampGenResultOneWayFeDvCurrMaxValue_Type())
-acdTwampGenResultOneWayFeDvCurrMaxValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayFeDvCurrMaxValue.setStatus(_A)
-_AcdTwampGenResultOneWayFeDvCurrAvgValue_Type=Integer32
-_AcdTwampGenResultOneWayFeDvCurrAvgValue_Object=MibTableColumn
-acdTwampGenResultOneWayFeDvCurrAvgValue=_AcdTwampGenResultOneWayFeDvCurrAvgValue_Object((1,3,6,1,4,1,22420,2,19,1,1,47),_AcdTwampGenResultOneWayFeDvCurrAvgValue_Type())
-acdTwampGenResultOneWayFeDvCurrAvgValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayFeDvCurrAvgValue.setStatus(_A)
-_AcdTwampGenResultOneWayFeDvCurrThreshEx_Type=Unsigned32
-_AcdTwampGenResultOneWayFeDvCurrThreshEx_Object=MibTableColumn
-acdTwampGenResultOneWayFeDvCurrThreshEx=_AcdTwampGenResultOneWayFeDvCurrThreshEx_Object((1,3,6,1,4,1,22420,2,19,1,1,48),_AcdTwampGenResultOneWayFeDvCurrThreshEx_Type())
-acdTwampGenResultOneWayFeDvCurrThreshEx.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultOneWayFeDvCurrThreshEx.setStatus(_A)
-_AcdTwampGenResultPktLossCurrSamples_Type=Unsigned32
-_AcdTwampGenResultPktLossCurrSamples_Object=MibTableColumn
-acdTwampGenResultPktLossCurrSamples=_AcdTwampGenResultPktLossCurrSamples_Object((1,3,6,1,4,1,22420,2,19,1,1,49),_AcdTwampGenResultPktLossCurrSamples_Type())
-acdTwampGenResultPktLossCurrSamples.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultPktLossCurrSamples.setStatus(_A)
-_AcdTwampGenResultPktLossCurrLostPackets_Type=Unsigned32
-_AcdTwampGenResultPktLossCurrLostPackets_Object=MibTableColumn
-acdTwampGenResultPktLossCurrLostPackets=_AcdTwampGenResultPktLossCurrLostPackets_Object((1,3,6,1,4,1,22420,2,19,1,1,50),_AcdTwampGenResultPktLossCurrLostPackets_Type())
-acdTwampGenResultPktLossCurrLostPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultPktLossCurrLostPackets.setStatus(_A)
-_AcdTwampGenResultPktLossCurrLossRatio_Type=Unsigned32
-_AcdTwampGenResultPktLossCurrLossRatio_Object=MibTableColumn
-acdTwampGenResultPktLossCurrLossRatio=_AcdTwampGenResultPktLossCurrLossRatio_Object((1,3,6,1,4,1,22420,2,19,1,1,51),_AcdTwampGenResultPktLossCurrLossRatio_Type())
-acdTwampGenResultPktLossCurrLossRatio.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultPktLossCurrLossRatio.setStatus(_A)
-_AcdTwampGenResultPktLossCurrOutOfOrder_Type=Unsigned32
-_AcdTwampGenResultPktLossCurrOutOfOrder_Object=MibTableColumn
-acdTwampGenResultPktLossCurrOutOfOrder=_AcdTwampGenResultPktLossCurrOutOfOrder_Object((1,3,6,1,4,1,22420,2,19,1,1,52),_AcdTwampGenResultPktLossCurrOutOfOrder_Type())
-acdTwampGenResultPktLossCurrOutOfOrder.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultPktLossCurrOutOfOrder.setStatus(_A)
-_AcdTwampGenResultPktLossCurrDuplicate_Type=Unsigned32
-_AcdTwampGenResultPktLossCurrDuplicate_Object=MibTableColumn
-acdTwampGenResultPktLossCurrDuplicate=_AcdTwampGenResultPktLossCurrDuplicate_Object((1,3,6,1,4,1,22420,2,19,1,1,53),_AcdTwampGenResultPktLossCurrDuplicate_Type())
-acdTwampGenResultPktLossCurrDuplicate.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultPktLossCurrDuplicate.setStatus(_A)
-_AcdTwampGenResultPktLossCurrGaps_Type=Unsigned32
-_AcdTwampGenResultPktLossCurrGaps_Object=MibTableColumn
-acdTwampGenResultPktLossCurrGaps=_AcdTwampGenResultPktLossCurrGaps_Object((1,3,6,1,4,1,22420,2,19,1,1,54),_AcdTwampGenResultPktLossCurrGaps_Type())
-acdTwampGenResultPktLossCurrGaps.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultPktLossCurrGaps.setStatus(_A)
-_AcdTwampGenResultPktLossCurrLargestGap_Type=Unsigned32
-_AcdTwampGenResultPktLossCurrLargestGap_Object=MibTableColumn
-acdTwampGenResultPktLossCurrLargestGap=_AcdTwampGenResultPktLossCurrLargestGap_Object((1,3,6,1,4,1,22420,2,19,1,1,55),_AcdTwampGenResultPktLossCurrLargestGap_Type())
-acdTwampGenResultPktLossCurrLargestGap.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenResultPktLossCurrLargestGap.setStatus(_A)
-_AcdTwampGenStatusTable_Object=MibTable
-acdTwampGenStatusTable=_AcdTwampGenStatusTable_Object((1,3,6,1,4,1,22420,2,19,2))
-if mibBuilder.loadTexts:acdTwampGenStatusTable.setStatus(_A)
-_AcdTwampGenStatusEntry_Object=MibTableRow
-acdTwampGenStatusEntry=_AcdTwampGenStatusEntry_Object((1,3,6,1,4,1,22420,2,19,2,1))
-acdTwampGenStatusEntry.setIndexNames((0,_B,_K))
-if mibBuilder.loadTexts:acdTwampGenStatusEntry.setStatus(_A)
-_AcdTwampGenStatusID_Type=Unsigned32
-_AcdTwampGenStatusID_Object=MibTableColumn
-acdTwampGenStatusID=_AcdTwampGenStatusID_Object((1,3,6,1,4,1,22420,2,19,2,1,1),_AcdTwampGenStatusID_Type())
-acdTwampGenStatusID.setMaxAccess(_F)
-if mibBuilder.loadTexts:acdTwampGenStatusID.setStatus(_A)
-class _AcdTwampGenStatusInstName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_AcdTwampGenStatusInstName_Type.__name__=_E
-_AcdTwampGenStatusInstName_Object=MibTableColumn
-acdTwampGenStatusInstName=_AcdTwampGenStatusInstName_Object((1,3,6,1,4,1,22420,2,19,2,1,2),_AcdTwampGenStatusInstName_Type())
-acdTwampGenStatusInstName.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenStatusInstName.setStatus(_A)
-_AcdTwampGenStatusTwoWayDelayAlert_Type=TruthValue
-_AcdTwampGenStatusTwoWayDelayAlert_Object=MibTableColumn
-acdTwampGenStatusTwoWayDelayAlert=_AcdTwampGenStatusTwoWayDelayAlert_Object((1,3,6,1,4,1,22420,2,19,2,1,3),_AcdTwampGenStatusTwoWayDelayAlert_Type())
-acdTwampGenStatusTwoWayDelayAlert.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenStatusTwoWayDelayAlert.setStatus(_A)
-_AcdTwampGenStatusTwoWayAvgDelayAlert_Type=TruthValue
-_AcdTwampGenStatusTwoWayAvgDelayAlert_Object=MibTableColumn
-acdTwampGenStatusTwoWayAvgDelayAlert=_AcdTwampGenStatusTwoWayAvgDelayAlert_Object((1,3,6,1,4,1,22420,2,19,2,1,4),_AcdTwampGenStatusTwoWayAvgDelayAlert_Type())
-acdTwampGenStatusTwoWayAvgDelayAlert.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenStatusTwoWayAvgDelayAlert.setStatus(_A)
-_AcdTwampGenStatusTwoWayDvAlert_Type=TruthValue
-_AcdTwampGenStatusTwoWayDvAlert_Object=MibTableColumn
-acdTwampGenStatusTwoWayDvAlert=_AcdTwampGenStatusTwoWayDvAlert_Object((1,3,6,1,4,1,22420,2,19,2,1,5),_AcdTwampGenStatusTwoWayDvAlert_Type())
-acdTwampGenStatusTwoWayDvAlert.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenStatusTwoWayDvAlert.setStatus(_A)
-_AcdTwampGenStatusTwoWayAvgDvAlert_Type=TruthValue
-_AcdTwampGenStatusTwoWayAvgDvAlert_Object=MibTableColumn
-acdTwampGenStatusTwoWayAvgDvAlert=_AcdTwampGenStatusTwoWayAvgDvAlert_Object((1,3,6,1,4,1,22420,2,19,2,1,6),_AcdTwampGenStatusTwoWayAvgDvAlert_Type())
-acdTwampGenStatusTwoWayAvgDvAlert.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenStatusTwoWayAvgDvAlert.setStatus(_A)
-_AcdTwampGenStatusOneWayNeDelayAlert_Type=TruthValue
-_AcdTwampGenStatusOneWayNeDelayAlert_Object=MibTableColumn
-acdTwampGenStatusOneWayNeDelayAlert=_AcdTwampGenStatusOneWayNeDelayAlert_Object((1,3,6,1,4,1,22420,2,19,2,1,7),_AcdTwampGenStatusOneWayNeDelayAlert_Type())
-acdTwampGenStatusOneWayNeDelayAlert.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenStatusOneWayNeDelayAlert.setStatus(_A)
-_AcdTwampGenStatusOneWayNeAvgDelayAlert_Type=TruthValue
-_AcdTwampGenStatusOneWayNeAvgDelayAlert_Object=MibTableColumn
-acdTwampGenStatusOneWayNeAvgDelayAlert=_AcdTwampGenStatusOneWayNeAvgDelayAlert_Object((1,3,6,1,4,1,22420,2,19,2,1,8),_AcdTwampGenStatusOneWayNeAvgDelayAlert_Type())
-acdTwampGenStatusOneWayNeAvgDelayAlert.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenStatusOneWayNeAvgDelayAlert.setStatus(_A)
-_AcdTwampGenStatusOneWayNeDvAlert_Type=TruthValue
-_AcdTwampGenStatusOneWayNeDvAlert_Object=MibTableColumn
-acdTwampGenStatusOneWayNeDvAlert=_AcdTwampGenStatusOneWayNeDvAlert_Object((1,3,6,1,4,1,22420,2,19,2,1,9),_AcdTwampGenStatusOneWayNeDvAlert_Type())
-acdTwampGenStatusOneWayNeDvAlert.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenStatusOneWayNeDvAlert.setStatus(_A)
-_AcdTwampGenStatusOneWayNeAvgDvAlert_Type=TruthValue
-_AcdTwampGenStatusOneWayNeAvgDvAlert_Object=MibTableColumn
-acdTwampGenStatusOneWayNeAvgDvAlert=_AcdTwampGenStatusOneWayNeAvgDvAlert_Object((1,3,6,1,4,1,22420,2,19,2,1,10),_AcdTwampGenStatusOneWayNeAvgDvAlert_Type())
-acdTwampGenStatusOneWayNeAvgDvAlert.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenStatusOneWayNeAvgDvAlert.setStatus(_A)
-_AcdTwampGenStatusOneWayFeDelayAlert_Type=TruthValue
-_AcdTwampGenStatusOneWayFeDelayAlert_Object=MibTableColumn
-acdTwampGenStatusOneWayFeDelayAlert=_AcdTwampGenStatusOneWayFeDelayAlert_Object((1,3,6,1,4,1,22420,2,19,2,1,11),_AcdTwampGenStatusOneWayFeDelayAlert_Type())
-acdTwampGenStatusOneWayFeDelayAlert.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenStatusOneWayFeDelayAlert.setStatus(_A)
-_AcdTwampGenStatusOneWayFeAvgDelayAlert_Type=TruthValue
-_AcdTwampGenStatusOneWayFeAvgDelayAlert_Object=MibTableColumn
-acdTwampGenStatusOneWayFeAvgDelayAlert=_AcdTwampGenStatusOneWayFeAvgDelayAlert_Object((1,3,6,1,4,1,22420,2,19,2,1,12),_AcdTwampGenStatusOneWayFeAvgDelayAlert_Type())
-acdTwampGenStatusOneWayFeAvgDelayAlert.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenStatusOneWayFeAvgDelayAlert.setStatus(_A)
-_AcdTwampGenStatusOneWayFeDvAlert_Type=TruthValue
-_AcdTwampGenStatusOneWayFeDvAlert_Object=MibTableColumn
-acdTwampGenStatusOneWayFeDvAlert=_AcdTwampGenStatusOneWayFeDvAlert_Object((1,3,6,1,4,1,22420,2,19,2,1,13),_AcdTwampGenStatusOneWayFeDvAlert_Type())
-acdTwampGenStatusOneWayFeDvAlert.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenStatusOneWayFeDvAlert.setStatus(_A)
-_AcdTwampGenStatusOneWayFeAvgDvAlert_Type=TruthValue
-_AcdTwampGenStatusOneWayFeAvgDvAlert_Object=MibTableColumn
-acdTwampGenStatusOneWayFeAvgDvAlert=_AcdTwampGenStatusOneWayFeAvgDvAlert_Object((1,3,6,1,4,1,22420,2,19,2,1,14),_AcdTwampGenStatusOneWayFeAvgDvAlert_Type())
-acdTwampGenStatusOneWayFeAvgDvAlert.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenStatusOneWayFeAvgDvAlert.setStatus(_A)
-_AcdTwampGenStatusPacketLossContinuityCheckAlert_Type=TruthValue
-_AcdTwampGenStatusPacketLossContinuityCheckAlert_Object=MibTableColumn
-acdTwampGenStatusPacketLossContinuityCheckAlert=_AcdTwampGenStatusPacketLossContinuityCheckAlert_Object((1,3,6,1,4,1,22420,2,19,2,1,15),_AcdTwampGenStatusPacketLossContinuityCheckAlert_Type())
-acdTwampGenStatusPacketLossContinuityCheckAlert.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenStatusPacketLossContinuityCheckAlert.setStatus(_A)
-_AcdTwampGenStatusPacketLossExcessivePacketLossAlert_Type=TruthValue
-_AcdTwampGenStatusPacketLossExcessivePacketLossAlert_Object=MibTableColumn
-acdTwampGenStatusPacketLossExcessivePacketLossAlert=_AcdTwampGenStatusPacketLossExcessivePacketLossAlert_Object((1,3,6,1,4,1,22420,2,19,2,1,16),_AcdTwampGenStatusPacketLossExcessivePacketLossAlert_Type())
-acdTwampGenStatusPacketLossExcessivePacketLossAlert.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenStatusPacketLossExcessivePacketLossAlert.setStatus(_A)
-_AcdTwampGenCfgTable_Object=MibTable
-acdTwampGenCfgTable=_AcdTwampGenCfgTable_Object((1,3,6,1,4,1,22420,2,19,3))
-if mibBuilder.loadTexts:acdTwampGenCfgTable.setStatus(_A)
-_AcdTwampGenCfgEntry_Object=MibTableRow
-acdTwampGenCfgEntry=_AcdTwampGenCfgEntry_Object((1,3,6,1,4,1,22420,2,19,3,1))
-acdTwampGenCfgEntry.setIndexNames((0,_B,_L))
-if mibBuilder.loadTexts:acdTwampGenCfgEntry.setStatus(_A)
-_AcdTwampGenCfgID_Type=Unsigned32
-_AcdTwampGenCfgID_Object=MibTableColumn
-acdTwampGenCfgID=_AcdTwampGenCfgID_Object((1,3,6,1,4,1,22420,2,19,3,1,1),_AcdTwampGenCfgID_Type())
-acdTwampGenCfgID.setMaxAccess(_F)
-if mibBuilder.loadTexts:acdTwampGenCfgID.setStatus(_A)
-class _AcdTwampGenCfgName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_AcdTwampGenCfgName_Type.__name__=_E
-_AcdTwampGenCfgName_Object=MibTableColumn
-acdTwampGenCfgName=_AcdTwampGenCfgName_Object((1,3,6,1,4,1,22420,2,19,3,1,2),_AcdTwampGenCfgName_Type())
-acdTwampGenCfgName.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgName.setStatus(_A)
-class _AcdTwampGenCfgState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('enable',0),('disable',1)))
-_AcdTwampGenCfgState_Type.__name__=_I
-_AcdTwampGenCfgState_Object=MibTableColumn
-acdTwampGenCfgState=_AcdTwampGenCfgState_Object((1,3,6,1,4,1,22420,2,19,3,1,3),_AcdTwampGenCfgState_Type())
-acdTwampGenCfgState.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgState.setStatus(_A)
-_AcdTwampGenCfgInterval_Type=Unsigned32
-_AcdTwampGenCfgInterval_Object=MibTableColumn
-acdTwampGenCfgInterval=_AcdTwampGenCfgInterval_Object((1,3,6,1,4,1,22420,2,19,3,1,4),_AcdTwampGenCfgInterval_Type())
-acdTwampGenCfgInterval.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgInterval.setStatus(_A)
-_AcdTwampGenCfgReferencePeriod_Type=Unsigned32
-_AcdTwampGenCfgReferencePeriod_Object=MibTableColumn
-acdTwampGenCfgReferencePeriod=_AcdTwampGenCfgReferencePeriod_Object((1,3,6,1,4,1,22420,2,19,3,1,5),_AcdTwampGenCfgReferencePeriod_Type())
-acdTwampGenCfgReferencePeriod.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgReferencePeriod.setStatus(_A)
-_AcdTwampGenCfgPktSize_Type=Unsigned32
-_AcdTwampGenCfgPktSize_Object=MibTableColumn
-acdTwampGenCfgPktSize=_AcdTwampGenCfgPktSize_Object((1,3,6,1,4,1,22420,2,19,3,1,6),_AcdTwampGenCfgPktSize_Type())
-acdTwampGenCfgPktSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgPktSize.setStatus(_A)
-_AcdTwampGenCfgDestIPv4Addr_Type=IpAddress
-_AcdTwampGenCfgDestIPv4Addr_Object=MibTableColumn
-acdTwampGenCfgDestIPv4Addr=_AcdTwampGenCfgDestIPv4Addr_Object((1,3,6,1,4,1,22420,2,19,3,1,7),_AcdTwampGenCfgDestIPv4Addr_Type())
-acdTwampGenCfgDestIPv4Addr.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgDestIPv4Addr.setStatus(_A)
-_AcdTwampGenCfgSourcePortNumber_Type=Unsigned32
-_AcdTwampGenCfgSourcePortNumber_Object=MibTableColumn
-acdTwampGenCfgSourcePortNumber=_AcdTwampGenCfgSourcePortNumber_Object((1,3,6,1,4,1,22420,2,19,3,1,8),_AcdTwampGenCfgSourcePortNumber_Type())
-acdTwampGenCfgSourcePortNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgSourcePortNumber.setStatus(_A)
-_AcdTwampGenCfgDestPortNumber_Type=Unsigned32
-_AcdTwampGenCfgDestPortNumber_Object=MibTableColumn
-acdTwampGenCfgDestPortNumber=_AcdTwampGenCfgDestPortNumber_Object((1,3,6,1,4,1,22420,2,19,3,1,9),_AcdTwampGenCfgDestPortNumber_Type())
-acdTwampGenCfgDestPortNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgDestPortNumber.setStatus(_A)
-_AcdTwampGenCfgDscp_Type=Unsigned32
-_AcdTwampGenCfgDscp_Object=MibTableColumn
-acdTwampGenCfgDscp=_AcdTwampGenCfgDscp_Object((1,3,6,1,4,1,22420,2,19,3,1,10),_AcdTwampGenCfgDscp_Type())
-acdTwampGenCfgDscp.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgDscp.setStatus(_A)
-_AcdTwampGenCfgEcn_Type=Unsigned32
-_AcdTwampGenCfgEcn_Object=MibTableColumn
-acdTwampGenCfgEcn=_AcdTwampGenCfgEcn_Object((1,3,6,1,4,1,22420,2,19,3,1,11),_AcdTwampGenCfgEcn_Type())
-acdTwampGenCfgEcn.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgEcn.setStatus(_A)
-_AcdTwampGenCfgVlan1Priority_Type=Unsigned32
-_AcdTwampGenCfgVlan1Priority_Object=MibTableColumn
-acdTwampGenCfgVlan1Priority=_AcdTwampGenCfgVlan1Priority_Object((1,3,6,1,4,1,22420,2,19,3,1,12),_AcdTwampGenCfgVlan1Priority_Type())
-acdTwampGenCfgVlan1Priority.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgVlan1Priority.setStatus(_A)
-_AcdTwampGenCfgTwoWayMaxDelay_Type=Unsigned32
-_AcdTwampGenCfgTwoWayMaxDelay_Object=MibTableColumn
-acdTwampGenCfgTwoWayMaxDelay=_AcdTwampGenCfgTwoWayMaxDelay_Object((1,3,6,1,4,1,22420,2,19,3,1,13),_AcdTwampGenCfgTwoWayMaxDelay_Type())
-acdTwampGenCfgTwoWayMaxDelay.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgTwoWayMaxDelay.setStatus(_A)
-_AcdTwampGenCfgTwoWayMaxDelayThrs_Type=Unsigned32
-_AcdTwampGenCfgTwoWayMaxDelayThrs_Object=MibTableColumn
-acdTwampGenCfgTwoWayMaxDelayThrs=_AcdTwampGenCfgTwoWayMaxDelayThrs_Object((1,3,6,1,4,1,22420,2,19,3,1,14),_AcdTwampGenCfgTwoWayMaxDelayThrs_Type())
-acdTwampGenCfgTwoWayMaxDelayThrs.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgTwoWayMaxDelayThrs.setStatus(_A)
-_AcdTwampGenCfgTwoWayAvgDelayThrs_Type=Unsigned32
-_AcdTwampGenCfgTwoWayAvgDelayThrs_Object=MibTableColumn
-acdTwampGenCfgTwoWayAvgDelayThrs=_AcdTwampGenCfgTwoWayAvgDelayThrs_Object((1,3,6,1,4,1,22420,2,19,3,1,15),_AcdTwampGenCfgTwoWayAvgDelayThrs_Type())
-acdTwampGenCfgTwoWayAvgDelayThrs.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgTwoWayAvgDelayThrs.setStatus(_A)
-_AcdTwampGenCfgTwoWayMaxDv_Type=Unsigned32
-_AcdTwampGenCfgTwoWayMaxDv_Object=MibTableColumn
-acdTwampGenCfgTwoWayMaxDv=_AcdTwampGenCfgTwoWayMaxDv_Object((1,3,6,1,4,1,22420,2,19,3,1,16),_AcdTwampGenCfgTwoWayMaxDv_Type())
-acdTwampGenCfgTwoWayMaxDv.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgTwoWayMaxDv.setStatus(_A)
-_AcdTwampGenCfgTwoWayMaxDvThrs_Type=Unsigned32
-_AcdTwampGenCfgTwoWayMaxDvThrs_Object=MibTableColumn
-acdTwampGenCfgTwoWayMaxDvThrs=_AcdTwampGenCfgTwoWayMaxDvThrs_Object((1,3,6,1,4,1,22420,2,19,3,1,17),_AcdTwampGenCfgTwoWayMaxDvThrs_Type())
-acdTwampGenCfgTwoWayMaxDvThrs.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgTwoWayMaxDvThrs.setStatus(_A)
-_AcdTwampGenCfgTwoWayAvgDvThrs_Type=Unsigned32
-_AcdTwampGenCfgTwoWayAvgDvThrs_Object=MibTableColumn
-acdTwampGenCfgTwoWayAvgDvThrs=_AcdTwampGenCfgTwoWayAvgDvThrs_Object((1,3,6,1,4,1,22420,2,19,3,1,18),_AcdTwampGenCfgTwoWayAvgDvThrs_Type())
-acdTwampGenCfgTwoWayAvgDvThrs.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgTwoWayAvgDvThrs.setStatus(_A)
-_AcdTwampGenCfgOneWayNearEndMaxDelay_Type=Unsigned32
-_AcdTwampGenCfgOneWayNearEndMaxDelay_Object=MibTableColumn
-acdTwampGenCfgOneWayNearEndMaxDelay=_AcdTwampGenCfgOneWayNearEndMaxDelay_Object((1,3,6,1,4,1,22420,2,19,3,1,19),_AcdTwampGenCfgOneWayNearEndMaxDelay_Type())
-acdTwampGenCfgOneWayNearEndMaxDelay.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgOneWayNearEndMaxDelay.setStatus(_A)
-_AcdTwampGenCfgOneWayNearEndMaxDelayThrs_Type=Unsigned32
-_AcdTwampGenCfgOneWayNearEndMaxDelayThrs_Object=MibTableColumn
-acdTwampGenCfgOneWayNearEndMaxDelayThrs=_AcdTwampGenCfgOneWayNearEndMaxDelayThrs_Object((1,3,6,1,4,1,22420,2,19,3,1,20),_AcdTwampGenCfgOneWayNearEndMaxDelayThrs_Type())
-acdTwampGenCfgOneWayNearEndMaxDelayThrs.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgOneWayNearEndMaxDelayThrs.setStatus(_A)
-_AcdTwampGenCfgOneWayNearEndAvgDelayThrs_Type=Unsigned32
-_AcdTwampGenCfgOneWayNearEndAvgDelayThrs_Object=MibTableColumn
-acdTwampGenCfgOneWayNearEndAvgDelayThrs=_AcdTwampGenCfgOneWayNearEndAvgDelayThrs_Object((1,3,6,1,4,1,22420,2,19,3,1,21),_AcdTwampGenCfgOneWayNearEndAvgDelayThrs_Type())
-acdTwampGenCfgOneWayNearEndAvgDelayThrs.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgOneWayNearEndAvgDelayThrs.setStatus(_A)
-_AcdTwampGenCfgOneWayNearEndMaxDv_Type=Unsigned32
-_AcdTwampGenCfgOneWayNearEndMaxDv_Object=MibTableColumn
-acdTwampGenCfgOneWayNearEndMaxDv=_AcdTwampGenCfgOneWayNearEndMaxDv_Object((1,3,6,1,4,1,22420,2,19,3,1,22),_AcdTwampGenCfgOneWayNearEndMaxDv_Type())
-acdTwampGenCfgOneWayNearEndMaxDv.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgOneWayNearEndMaxDv.setStatus(_A)
-_AcdTwampGenCfgOneWayNearEndMaxDvThrs_Type=Unsigned32
-_AcdTwampGenCfgOneWayNearEndMaxDvThrs_Object=MibTableColumn
-acdTwampGenCfgOneWayNearEndMaxDvThrs=_AcdTwampGenCfgOneWayNearEndMaxDvThrs_Object((1,3,6,1,4,1,22420,2,19,3,1,23),_AcdTwampGenCfgOneWayNearEndMaxDvThrs_Type())
-acdTwampGenCfgOneWayNearEndMaxDvThrs.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgOneWayNearEndMaxDvThrs.setStatus(_A)
-_AcdTwampGenCfgOneWayNearEndAvgDvThrs_Type=Unsigned32
-_AcdTwampGenCfgOneWayNearEndAvgDvThrs_Object=MibTableColumn
-acdTwampGenCfgOneWayNearEndAvgDvThrs=_AcdTwampGenCfgOneWayNearEndAvgDvThrs_Object((1,3,6,1,4,1,22420,2,19,3,1,24),_AcdTwampGenCfgOneWayNearEndAvgDvThrs_Type())
-acdTwampGenCfgOneWayNearEndAvgDvThrs.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgOneWayNearEndAvgDvThrs.setStatus(_A)
-_AcdTwampGenCfgOneWayFarEndMaxDelay_Type=Unsigned32
-_AcdTwampGenCfgOneWayFarEndMaxDelay_Object=MibTableColumn
-acdTwampGenCfgOneWayFarEndMaxDelay=_AcdTwampGenCfgOneWayFarEndMaxDelay_Object((1,3,6,1,4,1,22420,2,19,3,1,25),_AcdTwampGenCfgOneWayFarEndMaxDelay_Type())
-acdTwampGenCfgOneWayFarEndMaxDelay.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgOneWayFarEndMaxDelay.setStatus(_A)
-_AcdTwampGenCfgOneWayFarEndMaxDelayThrs_Type=Unsigned32
-_AcdTwampGenCfgOneWayFarEndMaxDelayThrs_Object=MibTableColumn
-acdTwampGenCfgOneWayFarEndMaxDelayThrs=_AcdTwampGenCfgOneWayFarEndMaxDelayThrs_Object((1,3,6,1,4,1,22420,2,19,3,1,26),_AcdTwampGenCfgOneWayFarEndMaxDelayThrs_Type())
-acdTwampGenCfgOneWayFarEndMaxDelayThrs.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgOneWayFarEndMaxDelayThrs.setStatus(_A)
-_AcdTwampGenCfgOneWayFarEndAvgDelayThrs_Type=Unsigned32
-_AcdTwampGenCfgOneWayFarEndAvgDelayThrs_Object=MibTableColumn
-acdTwampGenCfgOneWayFarEndAvgDelayThrs=_AcdTwampGenCfgOneWayFarEndAvgDelayThrs_Object((1,3,6,1,4,1,22420,2,19,3,1,27),_AcdTwampGenCfgOneWayFarEndAvgDelayThrs_Type())
-acdTwampGenCfgOneWayFarEndAvgDelayThrs.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgOneWayFarEndAvgDelayThrs.setStatus(_A)
-_AcdTwampGenCfgOneWayFarEndMaxDv_Type=Unsigned32
-_AcdTwampGenCfgOneWayFarEndMaxDv_Object=MibTableColumn
-acdTwampGenCfgOneWayFarEndMaxDv=_AcdTwampGenCfgOneWayFarEndMaxDv_Object((1,3,6,1,4,1,22420,2,19,3,1,28),_AcdTwampGenCfgOneWayFarEndMaxDv_Type())
-acdTwampGenCfgOneWayFarEndMaxDv.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgOneWayFarEndMaxDv.setStatus(_A)
-_AcdTwampGenCfgOneWayFarEndMaxDvThrs_Type=Unsigned32
-_AcdTwampGenCfgOneWayFarEndMaxDvThrs_Object=MibTableColumn
-acdTwampGenCfgOneWayFarEndMaxDvThrs=_AcdTwampGenCfgOneWayFarEndMaxDvThrs_Object((1,3,6,1,4,1,22420,2,19,3,1,29),_AcdTwampGenCfgOneWayFarEndMaxDvThrs_Type())
-acdTwampGenCfgOneWayFarEndMaxDvThrs.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgOneWayFarEndMaxDvThrs.setStatus(_A)
-_AcdTwampGenCfgOneWayFarEndAvgDvThrs_Type=Unsigned32
-_AcdTwampGenCfgOneWayFarEndAvgDvThrs_Object=MibTableColumn
-acdTwampGenCfgOneWayFarEndAvgDvThrs=_AcdTwampGenCfgOneWayFarEndAvgDvThrs_Object((1,3,6,1,4,1,22420,2,19,3,1,30),_AcdTwampGenCfgOneWayFarEndAvgDvThrs_Type())
-acdTwampGenCfgOneWayFarEndAvgDvThrs.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgOneWayFarEndAvgDvThrs.setStatus(_A)
-_AcdTwampGenCfgPacketLossContinuityCheck_Type=Unsigned32
-_AcdTwampGenCfgPacketLossContinuityCheck_Object=MibTableColumn
-acdTwampGenCfgPacketLossContinuityCheck=_AcdTwampGenCfgPacketLossContinuityCheck_Object((1,3,6,1,4,1,22420,2,19,3,1,31),_AcdTwampGenCfgPacketLossContinuityCheck_Type())
-acdTwampGenCfgPacketLossContinuityCheck.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgPacketLossContinuityCheck.setStatus(_A)
-_AcdTwampGenCfgPacketLossRate_Type=Unsigned32
-_AcdTwampGenCfgPacketLossRate_Object=MibTableColumn
-acdTwampGenCfgPacketLossRate=_AcdTwampGenCfgPacketLossRate_Object((1,3,6,1,4,1,22420,2,19,3,1,32),_AcdTwampGenCfgPacketLossRate_Type())
-acdTwampGenCfgPacketLossRate.setMaxAccess(_D)
-if mibBuilder.loadTexts:acdTwampGenCfgPacketLossRate.setStatus(_A)
-_AcdTwampGenHistResultTable_Object=MibTable
-acdTwampGenHistResultTable=_AcdTwampGenHistResultTable_Object((1,3,6,1,4,1,22420,2,19,4))
-if mibBuilder.loadTexts:acdTwampGenHistResultTable.setStatus(_A)
-_AcdTwampGenHistResultEntry_Object=MibTableRow
-acdTwampGenHistResultEntry=_AcdTwampGenHistResultEntry_Object((1,3,6,1,4,1,22420,2,19,4,1))
-acdTwampGenHistResultEntry.setIndexNames((0,_B,_G),(0,_B,_H))
-if mibBuilder.loadTexts:acdTwampGenHistResultEntry.setStatus(_A)
-_AcdTwampGenHistResultID_Type=Unsigned32
-_AcdTwampGenHistResultID_Object=MibTableColumn
-acdTwampGenHistResultID=_AcdTwampGenHistResultID_Object((1,3,6,1,4,1,22420,2,19,4,1,1),_AcdTwampGenHistResultID_Type())
-acdTwampGenHistResultID.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultID.setStatus(_A)
-_AcdTwampGenHistResultSampleIndex_Type=Unsigned32
-_AcdTwampGenHistResultSampleIndex_Object=MibTableColumn
-acdTwampGenHistResultSampleIndex=_AcdTwampGenHistResultSampleIndex_Object((1,3,6,1,4,1,22420,2,19,4,1,2),_AcdTwampGenHistResultSampleIndex_Type())
-acdTwampGenHistResultSampleIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultSampleIndex.setStatus(_A)
-class _AcdTwampGenHistResultInstName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_AcdTwampGenHistResultInstName_Type.__name__=_E
-_AcdTwampGenHistResultInstName_Object=MibTableColumn
-acdTwampGenHistResultInstName=_AcdTwampGenHistResultInstName_Object((1,3,6,1,4,1,22420,2,19,4,1,3),_AcdTwampGenHistResultInstName_Type())
-acdTwampGenHistResultInstName.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultInstName.setStatus(_A)
-_AcdTwampGenHistResultPeriodTime_Type=DateAndTime
-_AcdTwampGenHistResultPeriodTime_Object=MibTableColumn
-acdTwampGenHistResultPeriodTime=_AcdTwampGenHistResultPeriodTime_Object((1,3,6,1,4,1,22420,2,19,4,1,4),_AcdTwampGenHistResultPeriodTime_Type())
-acdTwampGenHistResultPeriodTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultPeriodTime.setStatus(_A)
-_AcdTwampGenHistResultTxPacketCount_Type=Counter64
-_AcdTwampGenHistResultTxPacketCount_Object=MibTableColumn
-acdTwampGenHistResultTxPacketCount=_AcdTwampGenHistResultTxPacketCount_Object((1,3,6,1,4,1,22420,2,19,4,1,5),_AcdTwampGenHistResultTxPacketCount_Type())
-acdTwampGenHistResultTxPacketCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultTxPacketCount.setStatus(_A)
-_AcdTwampGenHistResultRxPacketCount_Type=Counter64
-_AcdTwampGenHistResultRxPacketCount_Object=MibTableColumn
-acdTwampGenHistResultRxPacketCount=_AcdTwampGenHistResultRxPacketCount_Object((1,3,6,1,4,1,22420,2,19,4,1,6),_AcdTwampGenHistResultRxPacketCount_Type())
-acdTwampGenHistResultRxPacketCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultRxPacketCount.setStatus(_A)
-_AcdTwampGenHistResultTwoWayDelayValid_Type=TruthValue
-_AcdTwampGenHistResultTwoWayDelayValid_Object=MibTableColumn
-acdTwampGenHistResultTwoWayDelayValid=_AcdTwampGenHistResultTwoWayDelayValid_Object((1,3,6,1,4,1,22420,2,19,4,1,7),_AcdTwampGenHistResultTwoWayDelayValid_Type())
-acdTwampGenHistResultTwoWayDelayValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultTwoWayDelayValid.setStatus(_A)
-_AcdTwampGenHistResultTwoWayDelayInstValue_Type=Integer32
-_AcdTwampGenHistResultTwoWayDelayInstValue_Object=MibTableColumn
-acdTwampGenHistResultTwoWayDelayInstValue=_AcdTwampGenHistResultTwoWayDelayInstValue_Object((1,3,6,1,4,1,22420,2,19,4,1,8),_AcdTwampGenHistResultTwoWayDelayInstValue_Type())
-acdTwampGenHistResultTwoWayDelayInstValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultTwoWayDelayInstValue.setStatus(_A)
-_AcdTwampGenHistResultTwoWayDelaySamples_Type=Unsigned32
-_AcdTwampGenHistResultTwoWayDelaySamples_Object=MibTableColumn
-acdTwampGenHistResultTwoWayDelaySamples=_AcdTwampGenHistResultTwoWayDelaySamples_Object((1,3,6,1,4,1,22420,2,19,4,1,9),_AcdTwampGenHistResultTwoWayDelaySamples_Type())
-acdTwampGenHistResultTwoWayDelaySamples.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultTwoWayDelaySamples.setStatus(_A)
-_AcdTwampGenHistResultTwoWayDelayMinValue_Type=Integer32
-_AcdTwampGenHistResultTwoWayDelayMinValue_Object=MibTableColumn
-acdTwampGenHistResultTwoWayDelayMinValue=_AcdTwampGenHistResultTwoWayDelayMinValue_Object((1,3,6,1,4,1,22420,2,19,4,1,10),_AcdTwampGenHistResultTwoWayDelayMinValue_Type())
-acdTwampGenHistResultTwoWayDelayMinValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultTwoWayDelayMinValue.setStatus(_A)
-_AcdTwampGenHistResultTwoWayDelayMaxValue_Type=Integer32
-_AcdTwampGenHistResultTwoWayDelayMaxValue_Object=MibTableColumn
-acdTwampGenHistResultTwoWayDelayMaxValue=_AcdTwampGenHistResultTwoWayDelayMaxValue_Object((1,3,6,1,4,1,22420,2,19,4,1,11),_AcdTwampGenHistResultTwoWayDelayMaxValue_Type())
-acdTwampGenHistResultTwoWayDelayMaxValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultTwoWayDelayMaxValue.setStatus(_A)
-_AcdTwampGenHistResultTwoWayDelayAvgValue_Type=Integer32
-_AcdTwampGenHistResultTwoWayDelayAvgValue_Object=MibTableColumn
-acdTwampGenHistResultTwoWayDelayAvgValue=_AcdTwampGenHistResultTwoWayDelayAvgValue_Object((1,3,6,1,4,1,22420,2,19,4,1,12),_AcdTwampGenHistResultTwoWayDelayAvgValue_Type())
-acdTwampGenHistResultTwoWayDelayAvgValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultTwoWayDelayAvgValue.setStatus(_A)
-_AcdTwampGenHistResultTwoWayDelayThreshEx_Type=Unsigned32
-_AcdTwampGenHistResultTwoWayDelayThreshEx_Object=MibTableColumn
-acdTwampGenHistResultTwoWayDelayThreshEx=_AcdTwampGenHistResultTwoWayDelayThreshEx_Object((1,3,6,1,4,1,22420,2,19,4,1,13),_AcdTwampGenHistResultTwoWayDelayThreshEx_Type())
-acdTwampGenHistResultTwoWayDelayThreshEx.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultTwoWayDelayThreshEx.setStatus(_A)
-_AcdTwampGenHistResultTwoWayDvValid_Type=TruthValue
-_AcdTwampGenHistResultTwoWayDvValid_Object=MibTableColumn
-acdTwampGenHistResultTwoWayDvValid=_AcdTwampGenHistResultTwoWayDvValid_Object((1,3,6,1,4,1,22420,2,19,4,1,14),_AcdTwampGenHistResultTwoWayDvValid_Type())
-acdTwampGenHistResultTwoWayDvValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultTwoWayDvValid.setStatus(_A)
-_AcdTwampGenHistResultTwoWayDvInstValue_Type=Integer32
-_AcdTwampGenHistResultTwoWayDvInstValue_Object=MibTableColumn
-acdTwampGenHistResultTwoWayDvInstValue=_AcdTwampGenHistResultTwoWayDvInstValue_Object((1,3,6,1,4,1,22420,2,19,4,1,15),_AcdTwampGenHistResultTwoWayDvInstValue_Type())
-acdTwampGenHistResultTwoWayDvInstValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultTwoWayDvInstValue.setStatus(_A)
-_AcdTwampGenHistResultTwoWayDvSamples_Type=Unsigned32
-_AcdTwampGenHistResultTwoWayDvSamples_Object=MibTableColumn
-acdTwampGenHistResultTwoWayDvSamples=_AcdTwampGenHistResultTwoWayDvSamples_Object((1,3,6,1,4,1,22420,2,19,4,1,16),_AcdTwampGenHistResultTwoWayDvSamples_Type())
-acdTwampGenHistResultTwoWayDvSamples.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultTwoWayDvSamples.setStatus(_A)
-_AcdTwampGenHistResultTwoWayDvMinValue_Type=Integer32
-_AcdTwampGenHistResultTwoWayDvMinValue_Object=MibTableColumn
-acdTwampGenHistResultTwoWayDvMinValue=_AcdTwampGenHistResultTwoWayDvMinValue_Object((1,3,6,1,4,1,22420,2,19,4,1,17),_AcdTwampGenHistResultTwoWayDvMinValue_Type())
-acdTwampGenHistResultTwoWayDvMinValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultTwoWayDvMinValue.setStatus(_A)
-_AcdTwampGenHistResultTwoWayDvMaxValue_Type=Integer32
-_AcdTwampGenHistResultTwoWayDvMaxValue_Object=MibTableColumn
-acdTwampGenHistResultTwoWayDvMaxValue=_AcdTwampGenHistResultTwoWayDvMaxValue_Object((1,3,6,1,4,1,22420,2,19,4,1,18),_AcdTwampGenHistResultTwoWayDvMaxValue_Type())
-acdTwampGenHistResultTwoWayDvMaxValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultTwoWayDvMaxValue.setStatus(_A)
-_AcdTwampGenHistResultTwoWayDvAvgValue_Type=Integer32
-_AcdTwampGenHistResultTwoWayDvAvgValue_Object=MibTableColumn
-acdTwampGenHistResultTwoWayDvAvgValue=_AcdTwampGenHistResultTwoWayDvAvgValue_Object((1,3,6,1,4,1,22420,2,19,4,1,19),_AcdTwampGenHistResultTwoWayDvAvgValue_Type())
-acdTwampGenHistResultTwoWayDvAvgValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultTwoWayDvAvgValue.setStatus(_A)
-_AcdTwampGenHistResultTwoWayDvThreshEx_Type=Unsigned32
-_AcdTwampGenHistResultTwoWayDvThreshEx_Object=MibTableColumn
-acdTwampGenHistResultTwoWayDvThreshEx=_AcdTwampGenHistResultTwoWayDvThreshEx_Object((1,3,6,1,4,1,22420,2,19,4,1,20),_AcdTwampGenHistResultTwoWayDvThreshEx_Type())
-acdTwampGenHistResultTwoWayDvThreshEx.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultTwoWayDvThreshEx.setStatus(_A)
-_AcdTwampGenHistResultOneWayNeDelayValid_Type=TruthValue
-_AcdTwampGenHistResultOneWayNeDelayValid_Object=MibTableColumn
-acdTwampGenHistResultOneWayNeDelayValid=_AcdTwampGenHistResultOneWayNeDelayValid_Object((1,3,6,1,4,1,22420,2,19,4,1,21),_AcdTwampGenHistResultOneWayNeDelayValid_Type())
-acdTwampGenHistResultOneWayNeDelayValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayNeDelayValid.setStatus(_A)
-_AcdTwampGenHistResultOneWayNeDelayInstValue_Type=Integer32
-_AcdTwampGenHistResultOneWayNeDelayInstValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayNeDelayInstValue=_AcdTwampGenHistResultOneWayNeDelayInstValue_Object((1,3,6,1,4,1,22420,2,19,4,1,22),_AcdTwampGenHistResultOneWayNeDelayInstValue_Type())
-acdTwampGenHistResultOneWayNeDelayInstValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayNeDelayInstValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayNeDelaySamples_Type=Unsigned32
-_AcdTwampGenHistResultOneWayNeDelaySamples_Object=MibTableColumn
-acdTwampGenHistResultOneWayNeDelaySamples=_AcdTwampGenHistResultOneWayNeDelaySamples_Object((1,3,6,1,4,1,22420,2,19,4,1,23),_AcdTwampGenHistResultOneWayNeDelaySamples_Type())
-acdTwampGenHistResultOneWayNeDelaySamples.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayNeDelaySamples.setStatus(_A)
-_AcdTwampGenHistResultOneWayNeDelayMinValue_Type=Integer32
-_AcdTwampGenHistResultOneWayNeDelayMinValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayNeDelayMinValue=_AcdTwampGenHistResultOneWayNeDelayMinValue_Object((1,3,6,1,4,1,22420,2,19,4,1,24),_AcdTwampGenHistResultOneWayNeDelayMinValue_Type())
-acdTwampGenHistResultOneWayNeDelayMinValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayNeDelayMinValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayNeDelayMaxValue_Type=Integer32
-_AcdTwampGenHistResultOneWayNeDelayMaxValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayNeDelayMaxValue=_AcdTwampGenHistResultOneWayNeDelayMaxValue_Object((1,3,6,1,4,1,22420,2,19,4,1,25),_AcdTwampGenHistResultOneWayNeDelayMaxValue_Type())
-acdTwampGenHistResultOneWayNeDelayMaxValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayNeDelayMaxValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayNeDelayAvgValue_Type=Integer32
-_AcdTwampGenHistResultOneWayNeDelayAvgValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayNeDelayAvgValue=_AcdTwampGenHistResultOneWayNeDelayAvgValue_Object((1,3,6,1,4,1,22420,2,19,4,1,26),_AcdTwampGenHistResultOneWayNeDelayAvgValue_Type())
-acdTwampGenHistResultOneWayNeDelayAvgValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayNeDelayAvgValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayNeDelayThreshEx_Type=Unsigned32
-_AcdTwampGenHistResultOneWayNeDelayThreshEx_Object=MibTableColumn
-acdTwampGenHistResultOneWayNeDelayThreshEx=_AcdTwampGenHistResultOneWayNeDelayThreshEx_Object((1,3,6,1,4,1,22420,2,19,4,1,27),_AcdTwampGenHistResultOneWayNeDelayThreshEx_Type())
-acdTwampGenHistResultOneWayNeDelayThreshEx.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayNeDelayThreshEx.setStatus(_A)
-_AcdTwampGenHistResultOneWayNeDvValid_Type=TruthValue
-_AcdTwampGenHistResultOneWayNeDvValid_Object=MibTableColumn
-acdTwampGenHistResultOneWayNeDvValid=_AcdTwampGenHistResultOneWayNeDvValid_Object((1,3,6,1,4,1,22420,2,19,4,1,28),_AcdTwampGenHistResultOneWayNeDvValid_Type())
-acdTwampGenHistResultOneWayNeDvValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayNeDvValid.setStatus(_A)
-_AcdTwampGenHistResultOneWayNeDvInstValue_Type=Integer32
-_AcdTwampGenHistResultOneWayNeDvInstValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayNeDvInstValue=_AcdTwampGenHistResultOneWayNeDvInstValue_Object((1,3,6,1,4,1,22420,2,19,4,1,29),_AcdTwampGenHistResultOneWayNeDvInstValue_Type())
-acdTwampGenHistResultOneWayNeDvInstValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayNeDvInstValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayNeDvSamples_Type=Unsigned32
-_AcdTwampGenHistResultOneWayNeDvSamples_Object=MibTableColumn
-acdTwampGenHistResultOneWayNeDvSamples=_AcdTwampGenHistResultOneWayNeDvSamples_Object((1,3,6,1,4,1,22420,2,19,4,1,30),_AcdTwampGenHistResultOneWayNeDvSamples_Type())
-acdTwampGenHistResultOneWayNeDvSamples.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayNeDvSamples.setStatus(_A)
-_AcdTwampGenHistResultOneWayNeDvMinValue_Type=Integer32
-_AcdTwampGenHistResultOneWayNeDvMinValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayNeDvMinValue=_AcdTwampGenHistResultOneWayNeDvMinValue_Object((1,3,6,1,4,1,22420,2,19,4,1,31),_AcdTwampGenHistResultOneWayNeDvMinValue_Type())
-acdTwampGenHistResultOneWayNeDvMinValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayNeDvMinValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayNeDvMaxValue_Type=Integer32
-_AcdTwampGenHistResultOneWayNeDvMaxValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayNeDvMaxValue=_AcdTwampGenHistResultOneWayNeDvMaxValue_Object((1,3,6,1,4,1,22420,2,19,4,1,32),_AcdTwampGenHistResultOneWayNeDvMaxValue_Type())
-acdTwampGenHistResultOneWayNeDvMaxValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayNeDvMaxValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayNeDvAvgValue_Type=Integer32
-_AcdTwampGenHistResultOneWayNeDvAvgValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayNeDvAvgValue=_AcdTwampGenHistResultOneWayNeDvAvgValue_Object((1,3,6,1,4,1,22420,2,19,4,1,33),_AcdTwampGenHistResultOneWayNeDvAvgValue_Type())
-acdTwampGenHistResultOneWayNeDvAvgValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayNeDvAvgValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayNeDvThreshEx_Type=Unsigned32
-_AcdTwampGenHistResultOneWayNeDvThreshEx_Object=MibTableColumn
-acdTwampGenHistResultOneWayNeDvThreshEx=_AcdTwampGenHistResultOneWayNeDvThreshEx_Object((1,3,6,1,4,1,22420,2,19,4,1,34),_AcdTwampGenHistResultOneWayNeDvThreshEx_Type())
-acdTwampGenHistResultOneWayNeDvThreshEx.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayNeDvThreshEx.setStatus(_A)
-_AcdTwampGenHistResultOneWayFeDelayValid_Type=TruthValue
-_AcdTwampGenHistResultOneWayFeDelayValid_Object=MibTableColumn
-acdTwampGenHistResultOneWayFeDelayValid=_AcdTwampGenHistResultOneWayFeDelayValid_Object((1,3,6,1,4,1,22420,2,19,4,1,35),_AcdTwampGenHistResultOneWayFeDelayValid_Type())
-acdTwampGenHistResultOneWayFeDelayValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayFeDelayValid.setStatus(_A)
-_AcdTwampGenHistResultOneWayFeDelayInstValue_Type=Integer32
-_AcdTwampGenHistResultOneWayFeDelayInstValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayFeDelayInstValue=_AcdTwampGenHistResultOneWayFeDelayInstValue_Object((1,3,6,1,4,1,22420,2,19,4,1,36),_AcdTwampGenHistResultOneWayFeDelayInstValue_Type())
-acdTwampGenHistResultOneWayFeDelayInstValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayFeDelayInstValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayFeDelaySamples_Type=Unsigned32
-_AcdTwampGenHistResultOneWayFeDelaySamples_Object=MibTableColumn
-acdTwampGenHistResultOneWayFeDelaySamples=_AcdTwampGenHistResultOneWayFeDelaySamples_Object((1,3,6,1,4,1,22420,2,19,4,1,37),_AcdTwampGenHistResultOneWayFeDelaySamples_Type())
-acdTwampGenHistResultOneWayFeDelaySamples.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayFeDelaySamples.setStatus(_A)
-_AcdTwampGenHistResultOneWayFeDelayMinValue_Type=Integer32
-_AcdTwampGenHistResultOneWayFeDelayMinValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayFeDelayMinValue=_AcdTwampGenHistResultOneWayFeDelayMinValue_Object((1,3,6,1,4,1,22420,2,19,4,1,38),_AcdTwampGenHistResultOneWayFeDelayMinValue_Type())
-acdTwampGenHistResultOneWayFeDelayMinValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayFeDelayMinValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayFeDelayMaxValue_Type=Integer32
-_AcdTwampGenHistResultOneWayFeDelayMaxValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayFeDelayMaxValue=_AcdTwampGenHistResultOneWayFeDelayMaxValue_Object((1,3,6,1,4,1,22420,2,19,4,1,39),_AcdTwampGenHistResultOneWayFeDelayMaxValue_Type())
-acdTwampGenHistResultOneWayFeDelayMaxValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayFeDelayMaxValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayFeDelayAvgValue_Type=Integer32
-_AcdTwampGenHistResultOneWayFeDelayAvgValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayFeDelayAvgValue=_AcdTwampGenHistResultOneWayFeDelayAvgValue_Object((1,3,6,1,4,1,22420,2,19,4,1,40),_AcdTwampGenHistResultOneWayFeDelayAvgValue_Type())
-acdTwampGenHistResultOneWayFeDelayAvgValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayFeDelayAvgValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayFeDelayThreshEx_Type=Unsigned32
-_AcdTwampGenHistResultOneWayFeDelayThreshEx_Object=MibTableColumn
-acdTwampGenHistResultOneWayFeDelayThreshEx=_AcdTwampGenHistResultOneWayFeDelayThreshEx_Object((1,3,6,1,4,1,22420,2,19,4,1,41),_AcdTwampGenHistResultOneWayFeDelayThreshEx_Type())
-acdTwampGenHistResultOneWayFeDelayThreshEx.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayFeDelayThreshEx.setStatus(_A)
-_AcdTwampGenHistResultOneWayFeDvValid_Type=TruthValue
-_AcdTwampGenHistResultOneWayFeDvValid_Object=MibTableColumn
-acdTwampGenHistResultOneWayFeDvValid=_AcdTwampGenHistResultOneWayFeDvValid_Object((1,3,6,1,4,1,22420,2,19,4,1,42),_AcdTwampGenHistResultOneWayFeDvValid_Type())
-acdTwampGenHistResultOneWayFeDvValid.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayFeDvValid.setStatus(_A)
-_AcdTwampGenHistResultOneWayFeDvInstValue_Type=Integer32
-_AcdTwampGenHistResultOneWayFeDvInstValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayFeDvInstValue=_AcdTwampGenHistResultOneWayFeDvInstValue_Object((1,3,6,1,4,1,22420,2,19,4,1,43),_AcdTwampGenHistResultOneWayFeDvInstValue_Type())
-acdTwampGenHistResultOneWayFeDvInstValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayFeDvInstValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayFeDvSamples_Type=Unsigned32
-_AcdTwampGenHistResultOneWayFeDvSamples_Object=MibTableColumn
-acdTwampGenHistResultOneWayFeDvSamples=_AcdTwampGenHistResultOneWayFeDvSamples_Object((1,3,6,1,4,1,22420,2,19,4,1,44),_AcdTwampGenHistResultOneWayFeDvSamples_Type())
-acdTwampGenHistResultOneWayFeDvSamples.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayFeDvSamples.setStatus(_A)
-_AcdTwampGenHistResultOneWayFeDvMinValue_Type=Integer32
-_AcdTwampGenHistResultOneWayFeDvMinValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayFeDvMinValue=_AcdTwampGenHistResultOneWayFeDvMinValue_Object((1,3,6,1,4,1,22420,2,19,4,1,45),_AcdTwampGenHistResultOneWayFeDvMinValue_Type())
-acdTwampGenHistResultOneWayFeDvMinValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayFeDvMinValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayFeDvMaxValue_Type=Integer32
-_AcdTwampGenHistResultOneWayFeDvMaxValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayFeDvMaxValue=_AcdTwampGenHistResultOneWayFeDvMaxValue_Object((1,3,6,1,4,1,22420,2,19,4,1,46),_AcdTwampGenHistResultOneWayFeDvMaxValue_Type())
-acdTwampGenHistResultOneWayFeDvMaxValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayFeDvMaxValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayFeDvAvgValue_Type=Integer32
-_AcdTwampGenHistResultOneWayFeDvAvgValue_Object=MibTableColumn
-acdTwampGenHistResultOneWayFeDvAvgValue=_AcdTwampGenHistResultOneWayFeDvAvgValue_Object((1,3,6,1,4,1,22420,2,19,4,1,47),_AcdTwampGenHistResultOneWayFeDvAvgValue_Type())
-acdTwampGenHistResultOneWayFeDvAvgValue.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayFeDvAvgValue.setStatus(_A)
-_AcdTwampGenHistResultOneWayFeDvThreshEx_Type=Unsigned32
-_AcdTwampGenHistResultOneWayFeDvThreshEx_Object=MibTableColumn
-acdTwampGenHistResultOneWayFeDvThreshEx=_AcdTwampGenHistResultOneWayFeDvThreshEx_Object((1,3,6,1,4,1,22420,2,19,4,1,48),_AcdTwampGenHistResultOneWayFeDvThreshEx_Type())
-acdTwampGenHistResultOneWayFeDvThreshEx.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultOneWayFeDvThreshEx.setStatus(_A)
-_AcdTwampGenHistResultPktLossSamples_Type=Unsigned32
-_AcdTwampGenHistResultPktLossSamples_Object=MibTableColumn
-acdTwampGenHistResultPktLossSamples=_AcdTwampGenHistResultPktLossSamples_Object((1,3,6,1,4,1,22420,2,19,4,1,49),_AcdTwampGenHistResultPktLossSamples_Type())
-acdTwampGenHistResultPktLossSamples.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultPktLossSamples.setStatus(_A)
-_AcdTwampGenHistResultPktLossLostPackets_Type=Unsigned32
-_AcdTwampGenHistResultPktLossLostPackets_Object=MibTableColumn
-acdTwampGenHistResultPktLossLostPackets=_AcdTwampGenHistResultPktLossLostPackets_Object((1,3,6,1,4,1,22420,2,19,4,1,50),_AcdTwampGenHistResultPktLossLostPackets_Type())
-acdTwampGenHistResultPktLossLostPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultPktLossLostPackets.setStatus(_A)
-_AcdTwampGenHistResultPktLossLossRatio_Type=Unsigned32
-_AcdTwampGenHistResultPktLossLossRatio_Object=MibTableColumn
-acdTwampGenHistResultPktLossLossRatio=_AcdTwampGenHistResultPktLossLossRatio_Object((1,3,6,1,4,1,22420,2,19,4,1,51),_AcdTwampGenHistResultPktLossLossRatio_Type())
-acdTwampGenHistResultPktLossLossRatio.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultPktLossLossRatio.setStatus(_A)
-_AcdTwampGenHistResultPktLossOutOfOrder_Type=Unsigned32
-_AcdTwampGenHistResultPktLossOutOfOrder_Object=MibTableColumn
-acdTwampGenHistResultPktLossOutOfOrder=_AcdTwampGenHistResultPktLossOutOfOrder_Object((1,3,6,1,4,1,22420,2,19,4,1,52),_AcdTwampGenHistResultPktLossOutOfOrder_Type())
-acdTwampGenHistResultPktLossOutOfOrder.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultPktLossOutOfOrder.setStatus(_A)
-_AcdTwampGenHistResultPktLossDuplicate_Type=Unsigned32
-_AcdTwampGenHistResultPktLossDuplicate_Object=MibTableColumn
-acdTwampGenHistResultPktLossDuplicate=_AcdTwampGenHistResultPktLossDuplicate_Object((1,3,6,1,4,1,22420,2,19,4,1,53),_AcdTwampGenHistResultPktLossDuplicate_Type())
-acdTwampGenHistResultPktLossDuplicate.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultPktLossDuplicate.setStatus(_A)
-_AcdTwampGenHistResultPktLossGaps_Type=Unsigned32
-_AcdTwampGenHistResultPktLossGaps_Object=MibTableColumn
-acdTwampGenHistResultPktLossGaps=_AcdTwampGenHistResultPktLossGaps_Object((1,3,6,1,4,1,22420,2,19,4,1,54),_AcdTwampGenHistResultPktLossGaps_Type())
-acdTwampGenHistResultPktLossGaps.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultPktLossGaps.setStatus(_A)
-_AcdTwampGenHistResultPktLossLargestGap_Type=Unsigned32
-_AcdTwampGenHistResultPktLossLargestGap_Object=MibTableColumn
-acdTwampGenHistResultPktLossLargestGap=_AcdTwampGenHistResultPktLossLargestGap_Object((1,3,6,1,4,1,22420,2,19,4,1,55),_AcdTwampGenHistResultPktLossLargestGap_Type())
-acdTwampGenHistResultPktLossLargestGap.setMaxAccess(_C)
-if mibBuilder.loadTexts:acdTwampGenHistResultPktLossLargestGap.setStatus(_A)
-_AcdTwampGenNotifications_ObjectIdentity=ObjectIdentity
-acdTwampGenNotifications=_AcdTwampGenNotifications_ObjectIdentity((1,3,6,1,4,1,22420,2,19,5))
-_AcdTwampGenMIBObjects_ObjectIdentity=ObjectIdentity
-acdTwampGenMIBObjects=_AcdTwampGenMIBObjects_ObjectIdentity((1,3,6,1,4,1,22420,2,19,6))
-_AcdTwampGenConformance_ObjectIdentity=ObjectIdentity
-acdTwampGenConformance=_AcdTwampGenConformance_ObjectIdentity((1,3,6,1,4,1,22420,2,19,7))
-_AcdTwampGenCompliances_ObjectIdentity=ObjectIdentity
-acdTwampGenCompliances=_AcdTwampGenCompliances_ObjectIdentity((1,3,6,1,4,1,22420,2,19,7,1))
-_AcdTwampGenGroups_ObjectIdentity=ObjectIdentity
-acdTwampGenGroups=_AcdTwampGenGroups_ObjectIdentity((1,3,6,1,4,1,22420,2,19,7,2))
-acdTwampGenResultGroup=ObjectGroup((1,3,6,1,4,1,22420,2,19,7,2,1))
-acdTwampGenResultGroup.setObjects(*((_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD)))
-if mibBuilder.loadTexts:acdTwampGenResultGroup.setStatus(_A)
-acdTwampGenStatusGroup=ObjectGroup((1,3,6,1,4,1,22420,2,19,7,2,2))
-acdTwampGenStatusGroup.setObjects(*((_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS)))
-if mibBuilder.loadTexts:acdTwampGenStatusGroup.setStatus(_A)
-acdTwampGenCfgGroup=ObjectGroup((1,3,6,1,4,1,22420,2,19,7,2,3))
-acdTwampGenCfgGroup.setObjects(*((_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax)))
-if mibBuilder.loadTexts:acdTwampGenCfgGroup.setStatus(_A)
-acdTwampGenHistResultGroup=ObjectGroup((1,3,6,1,4,1,22420,2,19,7,2,4))
-acdTwampGenHistResultGroup.setObjects(*((_B,_G),(_B,_H),(_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_BU),(_B,_BV),(_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,_Bb),(_B,_Bc),(_B,_Bd),(_B,_Be),(_B,_Bf),(_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm),(_B,_Bn)))
-if mibBuilder.loadTexts:acdTwampGenHistResultGroup.setStatus(_A)
-acdTwampGenCompliance=ModuleCompliance((1,3,6,1,4,1,22420,2,19,7,1,1))
-acdTwampGenCompliance.setObjects(*((_B,_Bo),(_B,_Bp),(_B,_Bq),(_B,_Br)))
-if mibBuilder.loadTexts:acdTwampGenCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'acdTwampGen':acdTwampGen,'acdTwampGenResultTable':acdTwampGenResultTable,'acdTwampGenResultEntry':acdTwampGenResultEntry,_J:acdTwampGenResultID,_M:acdTwampGenResultInstName,_N:acdTwampGenResultPeriodNb,_O:acdTwampGenResultPeriodTime,_P:acdTwampGenResultCurrTxPacketCount,_Q:acdTwampGenResultCurrRxPacketCount,_R:acdTwampGenResultTwoWayDelayValid,_S:acdTwampGenResultTwoWayDelayInstValue,_T:acdTwampGenResultTwoWayDelayCurrSamples,_U:acdTwampGenResultTwoWayDelayCurrMinValue,_V:acdTwampGenResultTwoWayDelayCurrMaxValue,_W:acdTwampGenResultTwoWayDelayCurrAvgValue,_X:acdTwampGenResultTwoWayDelayCurrThreshEx,_Y:acdTwampGenResultTwoWayDvValid,_Z:acdTwampGenResultTwoWayDvInstValue,_a:acdTwampGenResultTwoWayDvCurrSamples,_b:acdTwampGenResultTwoWayDvCurrMinValue,_c:acdTwampGenResultTwoWayDvCurrMaxValue,_d:acdTwampGenResultTwoWayDvCurrAvgValue,_e:acdTwampGenResultTwoWayDvCurrThreshEx,_f:acdTwampGenResultOneWayNeDelayValid,_g:acdTwampGenResultOneWayNeDelayInstValue,_h:acdTwampGenResultOneWayNeDelayCurrSamples,_i:acdTwampGenResultOneWayNeDelayCurrMinValue,_j:acdTwampGenResultOneWayNeDelayCurrMaxValue,_k:acdTwampGenResultOneWayNeDelayCurrAvgValue,_l:acdTwampGenResultOneWayNeDelayCurrThreshEx,_m:acdTwampGenResultOneWayNeDvValid,_n:acdTwampGenResultOneWayNeDvInstValue,_o:acdTwampGenResultOneWayNeDvCurrSamples,_p:acdTwampGenResultOneWayNeDvCurrMinValue,_q:acdTwampGenResultOneWayNeDvCurrMaxValue,_r:acdTwampGenResultOneWayNeDvCurrAvgValue,_s:acdTwampGenResultOneWayNeDvCurrThreshEx,_t:acdTwampGenResultOneWayFeDelayValid,_u:acdTwampGenResultOneWayFeDelayInstValue,_v:acdTwampGenResultOneWayFeDelayCurrSamples,_w:acdTwampGenResultOneWayFeDelayCurrMinValue,_x:acdTwampGenResultOneWayFeDelayCurrMaxValue,_y:acdTwampGenResultOneWayFeDelayCurrAvgValue,_z:acdTwampGenResultOneWayFeDelayCurrThreshEx,_A0:acdTwampGenResultOneWayFeDvValid,_A1:acdTwampGenResultOneWayFeDvInstValue,_A2:acdTwampGenResultOneWayFeDvCurrSamples,_A3:acdTwampGenResultOneWayFeDvCurrMinValue,_A4:acdTwampGenResultOneWayFeDvCurrMaxValue,_A5:acdTwampGenResultOneWayFeDvCurrAvgValue,_A6:acdTwampGenResultOneWayFeDvCurrThreshEx,_A7:acdTwampGenResultPktLossCurrSamples,_A8:acdTwampGenResultPktLossCurrLostPackets,_A9:acdTwampGenResultPktLossCurrLossRatio,_AA:acdTwampGenResultPktLossCurrOutOfOrder,_AB:acdTwampGenResultPktLossCurrDuplicate,_AC:acdTwampGenResultPktLossCurrGaps,_AD:acdTwampGenResultPktLossCurrLargestGap,'acdTwampGenStatusTable':acdTwampGenStatusTable,'acdTwampGenStatusEntry':acdTwampGenStatusEntry,_K:acdTwampGenStatusID,_AE:acdTwampGenStatusInstName,_AF:acdTwampGenStatusTwoWayDelayAlert,_AG:acdTwampGenStatusTwoWayAvgDelayAlert,_AH:acdTwampGenStatusTwoWayDvAlert,_AI:acdTwampGenStatusTwoWayAvgDvAlert,_AJ:acdTwampGenStatusOneWayNeDelayAlert,_AK:acdTwampGenStatusOneWayNeAvgDelayAlert,_AL:acdTwampGenStatusOneWayNeDvAlert,_AM:acdTwampGenStatusOneWayNeAvgDvAlert,_AN:acdTwampGenStatusOneWayFeDelayAlert,_AO:acdTwampGenStatusOneWayFeAvgDelayAlert,_AP:acdTwampGenStatusOneWayFeDvAlert,_AQ:acdTwampGenStatusOneWayFeAvgDvAlert,_AR:acdTwampGenStatusPacketLossContinuityCheckAlert,_AS:acdTwampGenStatusPacketLossExcessivePacketLossAlert,'acdTwampGenCfgTable':acdTwampGenCfgTable,'acdTwampGenCfgEntry':acdTwampGenCfgEntry,_L:acdTwampGenCfgID,_AT:acdTwampGenCfgName,_AU:acdTwampGenCfgState,_AV:acdTwampGenCfgInterval,_AW:acdTwampGenCfgReferencePeriod,_AX:acdTwampGenCfgPktSize,_AY:acdTwampGenCfgDestIPv4Addr,_AZ:acdTwampGenCfgSourcePortNumber,_Aa:acdTwampGenCfgDestPortNumber,_Ab:acdTwampGenCfgDscp,_Ac:acdTwampGenCfgEcn,_Ad:acdTwampGenCfgVlan1Priority,_Ae:acdTwampGenCfgTwoWayMaxDelay,_Af:acdTwampGenCfgTwoWayMaxDelayThrs,_Ag:acdTwampGenCfgTwoWayAvgDelayThrs,_Ah:acdTwampGenCfgTwoWayMaxDv,_Ai:acdTwampGenCfgTwoWayMaxDvThrs,_Aj:acdTwampGenCfgTwoWayAvgDvThrs,_Ak:acdTwampGenCfgOneWayNearEndMaxDelay,_Al:acdTwampGenCfgOneWayNearEndMaxDelayThrs,_Am:acdTwampGenCfgOneWayNearEndAvgDelayThrs,_An:acdTwampGenCfgOneWayNearEndMaxDv,_Ao:acdTwampGenCfgOneWayNearEndMaxDvThrs,_Ap:acdTwampGenCfgOneWayNearEndAvgDvThrs,_Aq:acdTwampGenCfgOneWayFarEndMaxDelay,_Ar:acdTwampGenCfgOneWayFarEndMaxDelayThrs,_As:acdTwampGenCfgOneWayFarEndAvgDelayThrs,_At:acdTwampGenCfgOneWayFarEndMaxDv,_Au:acdTwampGenCfgOneWayFarEndMaxDvThrs,_Av:acdTwampGenCfgOneWayFarEndAvgDvThrs,_Aw:acdTwampGenCfgPacketLossContinuityCheck,_Ax:acdTwampGenCfgPacketLossRate,'acdTwampGenHistResultTable':acdTwampGenHistResultTable,'acdTwampGenHistResultEntry':acdTwampGenHistResultEntry,_G:acdTwampGenHistResultID,_H:acdTwampGenHistResultSampleIndex,_Ay:acdTwampGenHistResultInstName,_Az:acdTwampGenHistResultPeriodTime,_A_:acdTwampGenHistResultTxPacketCount,_B0:acdTwampGenHistResultRxPacketCount,_B1:acdTwampGenHistResultTwoWayDelayValid,_B2:acdTwampGenHistResultTwoWayDelayInstValue,_B3:acdTwampGenHistResultTwoWayDelaySamples,_B4:acdTwampGenHistResultTwoWayDelayMinValue,_B5:acdTwampGenHistResultTwoWayDelayMaxValue,_B6:acdTwampGenHistResultTwoWayDelayAvgValue,_B7:acdTwampGenHistResultTwoWayDelayThreshEx,_B8:acdTwampGenHistResultTwoWayDvValid,_B9:acdTwampGenHistResultTwoWayDvInstValue,_BA:acdTwampGenHistResultTwoWayDvSamples,_BB:acdTwampGenHistResultTwoWayDvMinValue,_BC:acdTwampGenHistResultTwoWayDvMaxValue,_BD:acdTwampGenHistResultTwoWayDvAvgValue,_BE:acdTwampGenHistResultTwoWayDvThreshEx,_BF:acdTwampGenHistResultOneWayNeDelayValid,_BG:acdTwampGenHistResultOneWayNeDelayInstValue,_BH:acdTwampGenHistResultOneWayNeDelaySamples,_BI:acdTwampGenHistResultOneWayNeDelayMinValue,_BJ:acdTwampGenHistResultOneWayNeDelayMaxValue,_BK:acdTwampGenHistResultOneWayNeDelayAvgValue,_BL:acdTwampGenHistResultOneWayNeDelayThreshEx,_BM:acdTwampGenHistResultOneWayNeDvValid,_BN:acdTwampGenHistResultOneWayNeDvInstValue,_BO:acdTwampGenHistResultOneWayNeDvSamples,_BP:acdTwampGenHistResultOneWayNeDvMinValue,_BQ:acdTwampGenHistResultOneWayNeDvMaxValue,_BR:acdTwampGenHistResultOneWayNeDvAvgValue,_BS:acdTwampGenHistResultOneWayNeDvThreshEx,_BT:acdTwampGenHistResultOneWayFeDelayValid,_BU:acdTwampGenHistResultOneWayFeDelayInstValue,_BV:acdTwampGenHistResultOneWayFeDelaySamples,_BW:acdTwampGenHistResultOneWayFeDelayMinValue,_BX:acdTwampGenHistResultOneWayFeDelayMaxValue,_BY:acdTwampGenHistResultOneWayFeDelayAvgValue,_BZ:acdTwampGenHistResultOneWayFeDelayThreshEx,_Ba:acdTwampGenHistResultOneWayFeDvValid,_Bb:acdTwampGenHistResultOneWayFeDvInstValue,_Bc:acdTwampGenHistResultOneWayFeDvSamples,_Bd:acdTwampGenHistResultOneWayFeDvMinValue,_Be:acdTwampGenHistResultOneWayFeDvMaxValue,_Bf:acdTwampGenHistResultOneWayFeDvAvgValue,_Bg:acdTwampGenHistResultOneWayFeDvThreshEx,_Bh:acdTwampGenHistResultPktLossSamples,_Bi:acdTwampGenHistResultPktLossLostPackets,_Bj:acdTwampGenHistResultPktLossLossRatio,_Bk:acdTwampGenHistResultPktLossOutOfOrder,_Bl:acdTwampGenHistResultPktLossDuplicate,_Bm:acdTwampGenHistResultPktLossGaps,_Bn:acdTwampGenHistResultPktLossLargestGap,'acdTwampGenNotifications':acdTwampGenNotifications,'acdTwampGenMIBObjects':acdTwampGenMIBObjects,'acdTwampGenConformance':acdTwampGenConformance,'acdTwampGenCompliances':acdTwampGenCompliances,'acdTwampGenCompliance':acdTwampGenCompliance,'acdTwampGenGroups':acdTwampGenGroups,_Bo:acdTwampGenResultGroup,_Bp:acdTwampGenStatusGroup,_Bq:acdTwampGenCfgGroup,_Br:acdTwampGenHistResultGroup})
+#
+# PySNMP MIB module ACD-TWAMP-GEN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/accedian/ACD-TWAMP-GEN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:44 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+acdMibs, = mibBuilder.importSymbols("ACCEDIAN-SMI", "acdMibs")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "DateAndTime", "TextualConvention")
+acdTwampGen = ModuleIdentity((1, 3, 6, 1, 4, 1, 22420, 2, 19))
+acdTwampGen.setRevisions(('2016-09-23 01:00', '2016-05-26 01:00', '2014-02-24 00:00',))
+if mibBuilder.loadTexts: acdTwampGen.setLastUpdated('201609230100Z')
+if mibBuilder.loadTexts: acdTwampGen.setOrganization('Accedian Networks, Inc.')
+acdTwampGenNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 22420, 2, 19, 5))
+acdTwampGenMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 22420, 2, 19, 6))
+acdTwampGenConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 22420, 2, 19, 7))
+acdTwampGenResultTable = MibTable((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1), )
+if mibBuilder.loadTexts: acdTwampGenResultTable.setStatus('current')
+acdTwampGenResultEntry = MibTableRow((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1), ).setIndexNames((0, "ACD-TWAMP-GEN-MIB", "acdTwampGenResultID"))
+if mibBuilder.loadTexts: acdTwampGenResultEntry.setStatus('current')
+acdTwampGenResultID = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: acdTwampGenResultID.setStatus('current')
+acdTwampGenResultInstName = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultInstName.setStatus('current')
+acdTwampGenResultPeriodNb = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultPeriodNb.setStatus('current')
+acdTwampGenResultPeriodTime = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultPeriodTime.setStatus('current')
+acdTwampGenResultCurrTxPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultCurrTxPacketCount.setStatus('current')
+acdTwampGenResultCurrRxPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultCurrRxPacketCount.setStatus('current')
+acdTwampGenResultTwoWayDelayValid = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 7), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultTwoWayDelayValid.setStatus('current')
+acdTwampGenResultTwoWayDelayInstValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultTwoWayDelayInstValue.setStatus('current')
+acdTwampGenResultTwoWayDelayCurrSamples = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultTwoWayDelayCurrSamples.setStatus('current')
+acdTwampGenResultTwoWayDelayCurrMinValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultTwoWayDelayCurrMinValue.setStatus('current')
+acdTwampGenResultTwoWayDelayCurrMaxValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultTwoWayDelayCurrMaxValue.setStatus('current')
+acdTwampGenResultTwoWayDelayCurrAvgValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultTwoWayDelayCurrAvgValue.setStatus('current')
+acdTwampGenResultTwoWayDelayCurrThreshEx = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 13), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultTwoWayDelayCurrThreshEx.setStatus('current')
+acdTwampGenResultTwoWayDvValid = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 14), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultTwoWayDvValid.setStatus('current')
+acdTwampGenResultTwoWayDvInstValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultTwoWayDvInstValue.setStatus('current')
+acdTwampGenResultTwoWayDvCurrSamples = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 16), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultTwoWayDvCurrSamples.setStatus('current')
+acdTwampGenResultTwoWayDvCurrMinValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultTwoWayDvCurrMinValue.setStatus('current')
+acdTwampGenResultTwoWayDvCurrMaxValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 18), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultTwoWayDvCurrMaxValue.setStatus('current')
+acdTwampGenResultTwoWayDvCurrAvgValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 19), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultTwoWayDvCurrAvgValue.setStatus('current')
+acdTwampGenResultTwoWayDvCurrThreshEx = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 20), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultTwoWayDvCurrThreshEx.setStatus('current')
+acdTwampGenResultOneWayNeDelayValid = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 21), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayNeDelayValid.setStatus('current')
+acdTwampGenResultOneWayNeDelayInstValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 22), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayNeDelayInstValue.setStatus('current')
+acdTwampGenResultOneWayNeDelayCurrSamples = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 23), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayNeDelayCurrSamples.setStatus('current')
+acdTwampGenResultOneWayNeDelayCurrMinValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 24), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayNeDelayCurrMinValue.setStatus('current')
+acdTwampGenResultOneWayNeDelayCurrMaxValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 25), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayNeDelayCurrMaxValue.setStatus('current')
+acdTwampGenResultOneWayNeDelayCurrAvgValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 26), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayNeDelayCurrAvgValue.setStatus('current')
+acdTwampGenResultOneWayNeDelayCurrThreshEx = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 27), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayNeDelayCurrThreshEx.setStatus('current')
+acdTwampGenResultOneWayNeDvValid = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 28), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayNeDvValid.setStatus('current')
+acdTwampGenResultOneWayNeDvInstValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 29), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayNeDvInstValue.setStatus('current')
+acdTwampGenResultOneWayNeDvCurrSamples = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 30), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayNeDvCurrSamples.setStatus('current')
+acdTwampGenResultOneWayNeDvCurrMinValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 31), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayNeDvCurrMinValue.setStatus('current')
+acdTwampGenResultOneWayNeDvCurrMaxValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 32), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayNeDvCurrMaxValue.setStatus('current')
+acdTwampGenResultOneWayNeDvCurrAvgValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 33), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayNeDvCurrAvgValue.setStatus('current')
+acdTwampGenResultOneWayNeDvCurrThreshEx = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 34), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayNeDvCurrThreshEx.setStatus('current')
+acdTwampGenResultOneWayFeDelayValid = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 35), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayFeDelayValid.setStatus('current')
+acdTwampGenResultOneWayFeDelayInstValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 36), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayFeDelayInstValue.setStatus('current')
+acdTwampGenResultOneWayFeDelayCurrSamples = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 37), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayFeDelayCurrSamples.setStatus('current')
+acdTwampGenResultOneWayFeDelayCurrMinValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 38), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayFeDelayCurrMinValue.setStatus('current')
+acdTwampGenResultOneWayFeDelayCurrMaxValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 39), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayFeDelayCurrMaxValue.setStatus('current')
+acdTwampGenResultOneWayFeDelayCurrAvgValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 40), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayFeDelayCurrAvgValue.setStatus('current')
+acdTwampGenResultOneWayFeDelayCurrThreshEx = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 41), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayFeDelayCurrThreshEx.setStatus('current')
+acdTwampGenResultOneWayFeDvValid = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 42), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayFeDvValid.setStatus('current')
+acdTwampGenResultOneWayFeDvInstValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 43), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayFeDvInstValue.setStatus('current')
+acdTwampGenResultOneWayFeDvCurrSamples = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 44), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayFeDvCurrSamples.setStatus('current')
+acdTwampGenResultOneWayFeDvCurrMinValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 45), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayFeDvCurrMinValue.setStatus('current')
+acdTwampGenResultOneWayFeDvCurrMaxValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 46), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayFeDvCurrMaxValue.setStatus('current')
+acdTwampGenResultOneWayFeDvCurrAvgValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 47), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayFeDvCurrAvgValue.setStatus('current')
+acdTwampGenResultOneWayFeDvCurrThreshEx = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 48), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultOneWayFeDvCurrThreshEx.setStatus('current')
+acdTwampGenResultPktLossCurrSamples = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 49), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultPktLossCurrSamples.setStatus('current')
+acdTwampGenResultPktLossCurrLostPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 50), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultPktLossCurrLostPackets.setStatus('current')
+acdTwampGenResultPktLossCurrLossRatio = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 51), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultPktLossCurrLossRatio.setStatus('current')
+acdTwampGenResultPktLossCurrOutOfOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 52), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultPktLossCurrOutOfOrder.setStatus('current')
+acdTwampGenResultPktLossCurrDuplicate = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 53), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultPktLossCurrDuplicate.setStatus('current')
+acdTwampGenResultPktLossCurrGaps = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 54), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultPktLossCurrGaps.setStatus('current')
+acdTwampGenResultPktLossCurrLargestGap = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 1, 1, 55), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenResultPktLossCurrLargestGap.setStatus('current')
+acdTwampGenStatusTable = MibTable((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2), )
+if mibBuilder.loadTexts: acdTwampGenStatusTable.setStatus('current')
+acdTwampGenStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1), ).setIndexNames((0, "ACD-TWAMP-GEN-MIB", "acdTwampGenStatusID"))
+if mibBuilder.loadTexts: acdTwampGenStatusEntry.setStatus('current')
+acdTwampGenStatusID = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: acdTwampGenStatusID.setStatus('current')
+acdTwampGenStatusInstName = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenStatusInstName.setStatus('current')
+acdTwampGenStatusTwoWayDelayAlert = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenStatusTwoWayDelayAlert.setStatus('current')
+acdTwampGenStatusTwoWayAvgDelayAlert = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 4), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenStatusTwoWayAvgDelayAlert.setStatus('current')
+acdTwampGenStatusTwoWayDvAlert = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 5), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenStatusTwoWayDvAlert.setStatus('current')
+acdTwampGenStatusTwoWayAvgDvAlert = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 6), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenStatusTwoWayAvgDvAlert.setStatus('current')
+acdTwampGenStatusOneWayNeDelayAlert = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 7), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenStatusOneWayNeDelayAlert.setStatus('current')
+acdTwampGenStatusOneWayNeAvgDelayAlert = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 8), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenStatusOneWayNeAvgDelayAlert.setStatus('current')
+acdTwampGenStatusOneWayNeDvAlert = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 9), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenStatusOneWayNeDvAlert.setStatus('current')
+acdTwampGenStatusOneWayNeAvgDvAlert = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 10), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenStatusOneWayNeAvgDvAlert.setStatus('current')
+acdTwampGenStatusOneWayFeDelayAlert = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 11), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenStatusOneWayFeDelayAlert.setStatus('current')
+acdTwampGenStatusOneWayFeAvgDelayAlert = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 12), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenStatusOneWayFeAvgDelayAlert.setStatus('current')
+acdTwampGenStatusOneWayFeDvAlert = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 13), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenStatusOneWayFeDvAlert.setStatus('current')
+acdTwampGenStatusOneWayFeAvgDvAlert = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 14), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenStatusOneWayFeAvgDvAlert.setStatus('current')
+acdTwampGenStatusPacketLossContinuityCheckAlert = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 15), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenStatusPacketLossContinuityCheckAlert.setStatus('current')
+acdTwampGenStatusPacketLossExcessivePacketLossAlert = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 2, 1, 16), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenStatusPacketLossExcessivePacketLossAlert.setStatus('current')
+acdTwampGenCfgTable = MibTable((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3), )
+if mibBuilder.loadTexts: acdTwampGenCfgTable.setStatus('current')
+acdTwampGenCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1), ).setIndexNames((0, "ACD-TWAMP-GEN-MIB", "acdTwampGenCfgID"))
+if mibBuilder.loadTexts: acdTwampGenCfgEntry.setStatus('current')
+acdTwampGenCfgID = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 1), Unsigned32())
+if mibBuilder.loadTexts: acdTwampGenCfgID.setStatus('current')
+acdTwampGenCfgName = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgName.setStatus('current')
+acdTwampGenCfgState = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("enable", 0), ("disable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgState.setStatus('current')
+acdTwampGenCfgInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 4), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgInterval.setStatus('current')
+acdTwampGenCfgReferencePeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 5), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgReferencePeriod.setStatus('current')
+acdTwampGenCfgTwoWayMaxDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 13), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgTwoWayMaxDelay.setStatus('current')
+acdTwampGenCfgTwoWayMaxDv = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 16), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgTwoWayMaxDv.setStatus('current')
+acdTwampGenCfgTwoWayMaxDelayThrs = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 14), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgTwoWayMaxDelayThrs.setStatus('current')
+acdTwampGenCfgTwoWayMaxDvThrs = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 17), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgTwoWayMaxDvThrs.setStatus('current')
+acdTwampGenCfgTwoWayAvgDelayThrs = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 15), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgTwoWayAvgDelayThrs.setStatus('current')
+acdTwampGenCfgTwoWayAvgDvThrs = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 18), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgTwoWayAvgDvThrs.setStatus('current')
+acdTwampGenCfgOneWayNearEndMaxDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 19), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgOneWayNearEndMaxDelay.setStatus('current')
+acdTwampGenCfgOneWayNearEndMaxDv = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 22), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgOneWayNearEndMaxDv.setStatus('current')
+acdTwampGenCfgOneWayNearEndMaxDelayThrs = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 20), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgOneWayNearEndMaxDelayThrs.setStatus('current')
+acdTwampGenCfgOneWayNearEndMaxDvThrs = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 23), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgOneWayNearEndMaxDvThrs.setStatus('current')
+acdTwampGenCfgOneWayNearEndAvgDelayThrs = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 21), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgOneWayNearEndAvgDelayThrs.setStatus('current')
+acdTwampGenCfgOneWayNearEndAvgDvThrs = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 24), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgOneWayNearEndAvgDvThrs.setStatus('current')
+acdTwampGenCfgOneWayFarEndMaxDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 25), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgOneWayFarEndMaxDelay.setStatus('current')
+acdTwampGenCfgOneWayFarEndMaxDv = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 28), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgOneWayFarEndMaxDv.setStatus('current')
+acdTwampGenCfgOneWayFarEndMaxDelayThrs = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 26), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgOneWayFarEndMaxDelayThrs.setStatus('current')
+acdTwampGenCfgOneWayFarEndMaxDvThrs = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 29), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgOneWayFarEndMaxDvThrs.setStatus('current')
+acdTwampGenCfgOneWayFarEndAvgDelayThrs = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 27), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgOneWayFarEndAvgDelayThrs.setStatus('current')
+acdTwampGenCfgOneWayFarEndAvgDvThrs = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 30), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgOneWayFarEndAvgDvThrs.setStatus('current')
+acdTwampGenCfgDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 10), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgDscp.setStatus('current')
+acdTwampGenCfgEcn = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 11), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgEcn.setStatus('current')
+acdTwampGenCfgVlan1Priority = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 12), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgVlan1Priority.setStatus('current')
+acdTwampGenCfgDestIPv4Addr = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 7), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgDestIPv4Addr.setStatus('current')
+acdTwampGenCfgDestPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 9), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgDestPortNumber.setStatus('current')
+acdTwampGenCfgSourcePortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 8), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgSourcePortNumber.setStatus('current')
+acdTwampGenCfgPktSize = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 6), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgPktSize.setStatus('current')
+acdTwampGenCfgPacketLossContinuityCheck = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 31), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgPacketLossContinuityCheck.setStatus('current')
+acdTwampGenCfgPacketLossRate = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 3, 1, 32), Unsigned32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: acdTwampGenCfgPacketLossRate.setStatus('current')
+acdTwampGenHistResultTable = MibTable((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4), )
+if mibBuilder.loadTexts: acdTwampGenHistResultTable.setStatus('current')
+acdTwampGenHistResultEntry = MibTableRow((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1), ).setIndexNames((0, "ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultID"), (0, "ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultSampleIndex"))
+if mibBuilder.loadTexts: acdTwampGenHistResultEntry.setStatus('current')
+acdTwampGenHistResultID = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultID.setStatus('current')
+acdTwampGenHistResultSampleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultSampleIndex.setStatus('current')
+acdTwampGenHistResultInstName = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultInstName.setStatus('current')
+acdTwampGenHistResultPeriodTime = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 4), DateAndTime()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultPeriodTime.setStatus('current')
+acdTwampGenHistResultTxPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 5), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultTxPacketCount.setStatus('current')
+acdTwampGenHistResultRxPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 6), Counter64()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultRxPacketCount.setStatus('current')
+acdTwampGenHistResultTwoWayDelayValid = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 7), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultTwoWayDelayValid.setStatus('current')
+acdTwampGenHistResultTwoWayDelayInstValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultTwoWayDelayInstValue.setStatus('current')
+acdTwampGenHistResultTwoWayDelaySamples = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 9), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultTwoWayDelaySamples.setStatus('current')
+acdTwampGenHistResultTwoWayDelayMinValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 10), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultTwoWayDelayMinValue.setStatus('current')
+acdTwampGenHistResultTwoWayDelayMaxValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 11), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultTwoWayDelayMaxValue.setStatus('current')
+acdTwampGenHistResultTwoWayDelayAvgValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 12), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultTwoWayDelayAvgValue.setStatus('current')
+acdTwampGenHistResultTwoWayDelayThreshEx = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 13), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultTwoWayDelayThreshEx.setStatus('current')
+acdTwampGenHistResultTwoWayDvValid = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 14), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultTwoWayDvValid.setStatus('current')
+acdTwampGenHistResultTwoWayDvInstValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 15), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultTwoWayDvInstValue.setStatus('current')
+acdTwampGenHistResultTwoWayDvSamples = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 16), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultTwoWayDvSamples.setStatus('current')
+acdTwampGenHistResultTwoWayDvMinValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 17), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultTwoWayDvMinValue.setStatus('current')
+acdTwampGenHistResultTwoWayDvMaxValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 18), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultTwoWayDvMaxValue.setStatus('current')
+acdTwampGenHistResultTwoWayDvAvgValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 19), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultTwoWayDvAvgValue.setStatus('current')
+acdTwampGenHistResultTwoWayDvThreshEx = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 20), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultTwoWayDvThreshEx.setStatus('current')
+acdTwampGenHistResultOneWayNeDelayValid = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 21), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayNeDelayValid.setStatus('current')
+acdTwampGenHistResultOneWayNeDelayInstValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 22), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayNeDelayInstValue.setStatus('current')
+acdTwampGenHistResultOneWayNeDelaySamples = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 23), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayNeDelaySamples.setStatus('current')
+acdTwampGenHistResultOneWayNeDelayMinValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 24), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayNeDelayMinValue.setStatus('current')
+acdTwampGenHistResultOneWayNeDelayMaxValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 25), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayNeDelayMaxValue.setStatus('current')
+acdTwampGenHistResultOneWayNeDelayAvgValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 26), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayNeDelayAvgValue.setStatus('current')
+acdTwampGenHistResultOneWayNeDelayThreshEx = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 27), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayNeDelayThreshEx.setStatus('current')
+acdTwampGenHistResultOneWayNeDvValid = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 28), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayNeDvValid.setStatus('current')
+acdTwampGenHistResultOneWayNeDvInstValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 29), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayNeDvInstValue.setStatus('current')
+acdTwampGenHistResultOneWayNeDvSamples = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 30), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayNeDvSamples.setStatus('current')
+acdTwampGenHistResultOneWayNeDvMinValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 31), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayNeDvMinValue.setStatus('current')
+acdTwampGenHistResultOneWayNeDvMaxValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 32), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayNeDvMaxValue.setStatus('current')
+acdTwampGenHistResultOneWayNeDvAvgValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 33), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayNeDvAvgValue.setStatus('current')
+acdTwampGenHistResultOneWayNeDvThreshEx = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 34), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayNeDvThreshEx.setStatus('current')
+acdTwampGenHistResultOneWayFeDelayValid = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 35), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayFeDelayValid.setStatus('current')
+acdTwampGenHistResultOneWayFeDelayInstValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 36), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayFeDelayInstValue.setStatus('current')
+acdTwampGenHistResultOneWayFeDelaySamples = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 37), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayFeDelaySamples.setStatus('current')
+acdTwampGenHistResultOneWayFeDelayMinValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 38), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayFeDelayMinValue.setStatus('current')
+acdTwampGenHistResultOneWayFeDelayMaxValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 39), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayFeDelayMaxValue.setStatus('current')
+acdTwampGenHistResultOneWayFeDelayAvgValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 40), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayFeDelayAvgValue.setStatus('current')
+acdTwampGenHistResultOneWayFeDelayThreshEx = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 41), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayFeDelayThreshEx.setStatus('current')
+acdTwampGenHistResultOneWayFeDvValid = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 42), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayFeDvValid.setStatus('current')
+acdTwampGenHistResultOneWayFeDvInstValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 43), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayFeDvInstValue.setStatus('current')
+acdTwampGenHistResultOneWayFeDvSamples = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 44), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayFeDvSamples.setStatus('current')
+acdTwampGenHistResultOneWayFeDvMinValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 45), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayFeDvMinValue.setStatus('current')
+acdTwampGenHistResultOneWayFeDvMaxValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 46), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayFeDvMaxValue.setStatus('current')
+acdTwampGenHistResultOneWayFeDvAvgValue = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 47), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayFeDvAvgValue.setStatus('current')
+acdTwampGenHistResultOneWayFeDvThreshEx = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 48), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultOneWayFeDvThreshEx.setStatus('current')
+acdTwampGenHistResultPktLossSamples = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 49), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultPktLossSamples.setStatus('current')
+acdTwampGenHistResultPktLossLostPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 50), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultPktLossLostPackets.setStatus('current')
+acdTwampGenHistResultPktLossLossRatio = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 51), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultPktLossLossRatio.setStatus('current')
+acdTwampGenHistResultPktLossOutOfOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 52), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultPktLossOutOfOrder.setStatus('current')
+acdTwampGenHistResultPktLossDuplicate = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 53), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultPktLossDuplicate.setStatus('current')
+acdTwampGenHistResultPktLossGaps = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 54), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultPktLossGaps.setStatus('current')
+acdTwampGenHistResultPktLossLargestGap = MibTableColumn((1, 3, 6, 1, 4, 1, 22420, 2, 19, 4, 1, 55), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: acdTwampGenHistResultPktLossLargestGap.setStatus('current')
+acdTwampGenCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 22420, 2, 19, 7, 1))
+acdTwampGenGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 22420, 2, 19, 7, 2))
+acdTwampGenResultGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 22420, 2, 19, 7, 2, 1)).setObjects(("ACD-TWAMP-GEN-MIB", "acdTwampGenResultInstName"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultPeriodNb"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultPeriodTime"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultCurrTxPacketCount"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultCurrRxPacketCount"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultTwoWayDelayValid"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultTwoWayDelayInstValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultTwoWayDelayCurrSamples"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultTwoWayDelayCurrMinValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultTwoWayDelayCurrMaxValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultTwoWayDelayCurrAvgValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultTwoWayDelayCurrThreshEx"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultTwoWayDvValid"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultTwoWayDvInstValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultTwoWayDvCurrSamples"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultTwoWayDvCurrMinValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultTwoWayDvCurrMaxValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultTwoWayDvCurrAvgValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultTwoWayDvCurrThreshEx"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayNeDelayValid"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayNeDelayInstValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayNeDelayCurrSamples"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayNeDelayCurrMinValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayNeDelayCurrMaxValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayNeDelayCurrAvgValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayNeDelayCurrThreshEx"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayNeDvValid"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayNeDvInstValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayNeDvCurrSamples"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayNeDvCurrMinValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayNeDvCurrMaxValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayNeDvCurrAvgValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayNeDvCurrThreshEx"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayFeDelayValid"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayFeDelayInstValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayFeDelayCurrSamples"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayFeDelayCurrMinValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayFeDelayCurrMaxValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayFeDelayCurrAvgValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayFeDelayCurrThreshEx"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayFeDvValid"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayFeDvInstValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayFeDvCurrSamples"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayFeDvCurrMinValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayFeDvCurrMaxValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayFeDvCurrAvgValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultOneWayFeDvCurrThreshEx"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultPktLossCurrSamples"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultPktLossCurrLostPackets"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultPktLossCurrLossRatio"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultPktLossCurrOutOfOrder"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultPktLossCurrDuplicate"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultPktLossCurrGaps"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenResultPktLossCurrLargestGap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    acdTwampGenResultGroup = acdTwampGenResultGroup.setStatus('current')
+acdTwampGenStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 22420, 2, 19, 7, 2, 2)).setObjects(("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusInstName"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusTwoWayDelayAlert"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusTwoWayAvgDelayAlert"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusTwoWayDvAlert"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusTwoWayAvgDvAlert"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusOneWayNeDelayAlert"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusOneWayNeAvgDelayAlert"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusOneWayNeDvAlert"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusOneWayNeAvgDvAlert"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusOneWayFeDelayAlert"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusOneWayFeAvgDelayAlert"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusOneWayFeDvAlert"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusOneWayFeAvgDvAlert"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusPacketLossContinuityCheckAlert"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusPacketLossExcessivePacketLossAlert"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    acdTwampGenStatusGroup = acdTwampGenStatusGroup.setStatus('current')
+acdTwampGenCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 22420, 2, 19, 7, 2, 3)).setObjects(("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgName"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgState"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgInterval"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgReferencePeriod"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgPktSize"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgDestIPv4Addr"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgSourcePortNumber"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgDestPortNumber"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgDscp"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgEcn"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgVlan1Priority"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgTwoWayMaxDelay"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgTwoWayMaxDelayThrs"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgTwoWayAvgDelayThrs"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgTwoWayMaxDv"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgTwoWayMaxDvThrs"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgTwoWayAvgDvThrs"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgOneWayNearEndMaxDelay"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgOneWayNearEndMaxDelayThrs"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgOneWayNearEndAvgDelayThrs"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgOneWayNearEndMaxDv"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgOneWayNearEndMaxDvThrs"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgOneWayNearEndAvgDvThrs"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgOneWayFarEndMaxDelay"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgOneWayFarEndMaxDelayThrs"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgOneWayFarEndAvgDelayThrs"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgOneWayFarEndMaxDv"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgOneWayFarEndMaxDvThrs"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgOneWayFarEndAvgDvThrs"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgPacketLossContinuityCheck"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgPacketLossRate"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    acdTwampGenCfgGroup = acdTwampGenCfgGroup.setStatus('current')
+acdTwampGenHistResultGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 22420, 2, 19, 7, 2, 4)).setObjects(("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultID"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultSampleIndex"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultInstName"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultPeriodTime"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultTxPacketCount"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultRxPacketCount"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultTwoWayDelayValid"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultTwoWayDelayInstValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultTwoWayDelaySamples"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultTwoWayDelayMinValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultTwoWayDelayMaxValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultTwoWayDelayAvgValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultTwoWayDelayThreshEx"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultTwoWayDvValid"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultTwoWayDvInstValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultTwoWayDvSamples"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultTwoWayDvMinValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultTwoWayDvMaxValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultTwoWayDvAvgValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultTwoWayDvThreshEx"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayNeDelayValid"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayNeDelayInstValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayNeDelaySamples"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayNeDelayMinValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayNeDelayMaxValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayNeDelayAvgValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayNeDelayThreshEx"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayNeDvValid"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayNeDvInstValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayNeDvSamples"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayNeDvMinValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayNeDvMaxValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayNeDvAvgValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayNeDvThreshEx"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayFeDelayValid"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayFeDelayInstValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayFeDelaySamples"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayFeDelayMinValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayFeDelayMaxValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayFeDelayAvgValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayFeDelayThreshEx"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayFeDvValid"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayFeDvInstValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayFeDvSamples"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayFeDvMinValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayFeDvMaxValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayFeDvAvgValue"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultOneWayFeDvThreshEx"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultPktLossSamples"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultPktLossLostPackets"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultPktLossLossRatio"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultPktLossOutOfOrder"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultPktLossDuplicate"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultPktLossGaps"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultPktLossLargestGap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    acdTwampGenHistResultGroup = acdTwampGenHistResultGroup.setStatus('current')
+acdTwampGenCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 22420, 2, 19, 7, 1, 1)).setObjects(("ACD-TWAMP-GEN-MIB", "acdTwampGenResultGroup"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenStatusGroup"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenCfgGroup"), ("ACD-TWAMP-GEN-MIB", "acdTwampGenHistResultGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    acdTwampGenCompliance = acdTwampGenCompliance.setStatus('current')
+mibBuilder.exportSymbols("ACD-TWAMP-GEN-MIB", acdTwampGenHistResultPktLossGaps=acdTwampGenHistResultPktLossGaps, acdTwampGenCfgGroup=acdTwampGenCfgGroup, acdTwampGenResultTable=acdTwampGenResultTable, acdTwampGenCfgTwoWayMaxDelay=acdTwampGenCfgTwoWayMaxDelay, acdTwampGenHistResultGroup=acdTwampGenHistResultGroup, acdTwampGenResultOneWayFeDvCurrThreshEx=acdTwampGenResultOneWayFeDvCurrThreshEx, acdTwampGenHistResultOneWayNeDelayInstValue=acdTwampGenHistResultOneWayNeDelayInstValue, acdTwampGenHistResultTwoWayDelayAvgValue=acdTwampGenHistResultTwoWayDelayAvgValue, acdTwampGenResultTwoWayDvInstValue=acdTwampGenResultTwoWayDvInstValue, acdTwampGenCfgTwoWayAvgDvThrs=acdTwampGenCfgTwoWayAvgDvThrs, acdTwampGenHistResultOneWayNeDvThreshEx=acdTwampGenHistResultOneWayNeDvThreshEx, acdTwampGenCfgOneWayFarEndMaxDvThrs=acdTwampGenCfgOneWayFarEndMaxDvThrs, acdTwampGenResultOneWayNeDvCurrMinValue=acdTwampGenResultOneWayNeDvCurrMinValue, acdTwampGenResultOneWayNeDvCurrThreshEx=acdTwampGenResultOneWayNeDvCurrThreshEx, acdTwampGenHistResultOneWayFeDelaySamples=acdTwampGenHistResultOneWayFeDelaySamples, acdTwampGenResultGroup=acdTwampGenResultGroup, acdTwampGenStatusEntry=acdTwampGenStatusEntry, acdTwampGenStatusTwoWayDvAlert=acdTwampGenStatusTwoWayDvAlert, acdTwampGenCfgTwoWayAvgDelayThrs=acdTwampGenCfgTwoWayAvgDelayThrs, acdTwampGenResultTwoWayDelayCurrAvgValue=acdTwampGenResultTwoWayDelayCurrAvgValue, acdTwampGenHistResultTwoWayDelayThreshEx=acdTwampGenHistResultTwoWayDelayThreshEx, acdTwampGenResultTwoWayDvCurrMaxValue=acdTwampGenResultTwoWayDvCurrMaxValue, acdTwampGen=acdTwampGen, acdTwampGenStatusOneWayNeAvgDvAlert=acdTwampGenStatusOneWayNeAvgDvAlert, acdTwampGenStatusOneWayFeDvAlert=acdTwampGenStatusOneWayFeDvAlert, acdTwampGenHistResultOneWayFeDvMaxValue=acdTwampGenHistResultOneWayFeDvMaxValue, acdTwampGenResultPktLossCurrGaps=acdTwampGenResultPktLossCurrGaps, acdTwampGenResultPktLossCurrSamples=acdTwampGenResultPktLossCurrSamples, acdTwampGenResultPktLossCurrOutOfOrder=acdTwampGenResultPktLossCurrOutOfOrder, acdTwampGenHistResultTwoWayDvMaxValue=acdTwampGenHistResultTwoWayDvMaxValue, acdTwampGenResultPeriodTime=acdTwampGenResultPeriodTime, acdTwampGenHistResultOneWayFeDelayThreshEx=acdTwampGenHistResultOneWayFeDelayThreshEx, acdTwampGenResultPktLossCurrLargestGap=acdTwampGenResultPktLossCurrLargestGap, acdTwampGenResultOneWayFeDvInstValue=acdTwampGenResultOneWayFeDvInstValue, acdTwampGenCfgID=acdTwampGenCfgID, acdTwampGenResultOneWayFeDelayCurrAvgValue=acdTwampGenResultOneWayFeDelayCurrAvgValue, acdTwampGenResultTwoWayDelayValid=acdTwampGenResultTwoWayDelayValid, acdTwampGenResultOneWayNeDelayCurrMinValue=acdTwampGenResultOneWayNeDelayCurrMinValue, acdTwampGenResultCurrRxPacketCount=acdTwampGenResultCurrRxPacketCount, acdTwampGenHistResultTwoWayDvValid=acdTwampGenHistResultTwoWayDvValid, acdTwampGenHistResultOneWayNeDelayMaxValue=acdTwampGenHistResultOneWayNeDelayMaxValue, acdTwampGenHistResultOneWayFeDvValid=acdTwampGenHistResultOneWayFeDvValid, acdTwampGenHistResultOneWayNeDelayMinValue=acdTwampGenHistResultOneWayNeDelayMinValue, acdTwampGenHistResultOneWayFeDvInstValue=acdTwampGenHistResultOneWayFeDvInstValue, acdTwampGenHistResultTwoWayDvMinValue=acdTwampGenHistResultTwoWayDvMinValue, acdTwampGenStatusGroup=acdTwampGenStatusGroup, acdTwampGenHistResultTable=acdTwampGenHistResultTable, acdTwampGenHistResultInstName=acdTwampGenHistResultInstName, acdTwampGenCompliances=acdTwampGenCompliances, acdTwampGenHistResultOneWayFeDvAvgValue=acdTwampGenHistResultOneWayFeDvAvgValue, acdTwampGenResultOneWayNeDelayCurrThreshEx=acdTwampGenResultOneWayNeDelayCurrThreshEx, acdTwampGenResultInstName=acdTwampGenResultInstName, acdTwampGenStatusOneWayFeAvgDelayAlert=acdTwampGenStatusOneWayFeAvgDelayAlert, acdTwampGenStatusTable=acdTwampGenStatusTable, acdTwampGenResultOneWayFeDelayValid=acdTwampGenResultOneWayFeDelayValid, acdTwampGenHistResultTwoWayDelayMaxValue=acdTwampGenHistResultTwoWayDelayMaxValue, acdTwampGenResultOneWayNeDvCurrMaxValue=acdTwampGenResultOneWayNeDvCurrMaxValue, acdTwampGenResultPktLossCurrDuplicate=acdTwampGenResultPktLossCurrDuplicate, acdTwampGenResultOneWayNeDelayCurrAvgValue=acdTwampGenResultOneWayNeDelayCurrAvgValue, acdTwampGenHistResultTwoWayDelayMinValue=acdTwampGenHistResultTwoWayDelayMinValue, acdTwampGenResultOneWayNeDvValid=acdTwampGenResultOneWayNeDvValid, acdTwampGenHistResultOneWayNeDelayThreshEx=acdTwampGenHistResultOneWayNeDelayThreshEx, acdTwampGenResultOneWayFeDvCurrMaxValue=acdTwampGenResultOneWayFeDvCurrMaxValue, acdTwampGenCfgSourcePortNumber=acdTwampGenCfgSourcePortNumber, acdTwampGenHistResultOneWayFeDvMinValue=acdTwampGenHistResultOneWayFeDvMinValue, acdTwampGenCfgTwoWayMaxDelayThrs=acdTwampGenCfgTwoWayMaxDelayThrs, acdTwampGenResultPktLossCurrLossRatio=acdTwampGenResultPktLossCurrLossRatio, acdTwampGenHistResultTxPacketCount=acdTwampGenHistResultTxPacketCount, acdTwampGenConformance=acdTwampGenConformance, acdTwampGenResultCurrTxPacketCount=acdTwampGenResultCurrTxPacketCount, acdTwampGenResultOneWayNeDvCurrAvgValue=acdTwampGenResultOneWayNeDvCurrAvgValue, acdTwampGenResultOneWayFeDvCurrAvgValue=acdTwampGenResultOneWayFeDvCurrAvgValue, acdTwampGenCfgName=acdTwampGenCfgName, acdTwampGenCfgOneWayNearEndMaxDelayThrs=acdTwampGenCfgOneWayNearEndMaxDelayThrs, acdTwampGenStatusPacketLossExcessivePacketLossAlert=acdTwampGenStatusPacketLossExcessivePacketLossAlert, acdTwampGenHistResultPktLossLossRatio=acdTwampGenHistResultPktLossLossRatio, acdTwampGenHistResultOneWayFeDvThreshEx=acdTwampGenHistResultOneWayFeDvThreshEx, acdTwampGenCfgDestPortNumber=acdTwampGenCfgDestPortNumber, acdTwampGenResultPeriodNb=acdTwampGenResultPeriodNb, acdTwampGenResultOneWayFeDvCurrSamples=acdTwampGenResultOneWayFeDvCurrSamples, acdTwampGenHistResultOneWayFeDelayMinValue=acdTwampGenHistResultOneWayFeDelayMinValue, acdTwampGenCfgDscp=acdTwampGenCfgDscp, acdTwampGenResultOneWayFeDvCurrMinValue=acdTwampGenResultOneWayFeDvCurrMinValue, acdTwampGenResultTwoWayDelayCurrSamples=acdTwampGenResultTwoWayDelayCurrSamples, acdTwampGenResultOneWayFeDelayCurrSamples=acdTwampGenResultOneWayFeDelayCurrSamples, acdTwampGenStatusOneWayFeDelayAlert=acdTwampGenStatusOneWayFeDelayAlert, acdTwampGenHistResultOneWayNeDvInstValue=acdTwampGenHistResultOneWayNeDvInstValue, acdTwampGenResultOneWayNeDelayCurrSamples=acdTwampGenResultOneWayNeDelayCurrSamples, acdTwampGenHistResultOneWayNeDelayValid=acdTwampGenHistResultOneWayNeDelayValid, acdTwampGenHistResultPktLossDuplicate=acdTwampGenHistResultPktLossDuplicate, acdTwampGenHistResultTwoWayDelaySamples=acdTwampGenHistResultTwoWayDelaySamples, acdTwampGenResultOneWayFeDelayCurrThreshEx=acdTwampGenResultOneWayFeDelayCurrThreshEx, acdTwampGenHistResultOneWayNeDvMinValue=acdTwampGenHistResultOneWayNeDvMinValue, acdTwampGenHistResultOneWayNeDvAvgValue=acdTwampGenHistResultOneWayNeDvAvgValue, acdTwampGenHistResultPktLossLargestGap=acdTwampGenHistResultPktLossLargestGap, acdTwampGenCfgTable=acdTwampGenCfgTable, acdTwampGenStatusInstName=acdTwampGenStatusInstName, acdTwampGenResultOneWayNeDelayCurrMaxValue=acdTwampGenResultOneWayNeDelayCurrMaxValue, acdTwampGenCfgOneWayNearEndMaxDvThrs=acdTwampGenCfgOneWayNearEndMaxDvThrs, acdTwampGenCfgOneWayNearEndAvgDvThrs=acdTwampGenCfgOneWayNearEndAvgDvThrs, acdTwampGenResultPktLossCurrLostPackets=acdTwampGenResultPktLossCurrLostPackets, acdTwampGenCfgOneWayFarEndMaxDelay=acdTwampGenCfgOneWayFarEndMaxDelay, acdTwampGenResultTwoWayDvCurrAvgValue=acdTwampGenResultTwoWayDvCurrAvgValue, acdTwampGenResultID=acdTwampGenResultID, acdTwampGenStatusOneWayNeDelayAlert=acdTwampGenStatusOneWayNeDelayAlert, acdTwampGenCfgTwoWayMaxDvThrs=acdTwampGenCfgTwoWayMaxDvThrs, acdTwampGenHistResultSampleIndex=acdTwampGenHistResultSampleIndex, acdTwampGenCfgState=acdTwampGenCfgState, acdTwampGenHistResultRxPacketCount=acdTwampGenHistResultRxPacketCount, acdTwampGenResultTwoWayDvCurrMinValue=acdTwampGenResultTwoWayDvCurrMinValue, acdTwampGenCompliance=acdTwampGenCompliance, acdTwampGenHistResultTwoWayDvInstValue=acdTwampGenHistResultTwoWayDvInstValue, acdTwampGenCfgOneWayFarEndMaxDelayThrs=acdTwampGenCfgOneWayFarEndMaxDelayThrs, acdTwampGenHistResultPeriodTime=acdTwampGenHistResultPeriodTime, acdTwampGenHistResultTwoWayDelayValid=acdTwampGenHistResultTwoWayDelayValid, acdTwampGenResultEntry=acdTwampGenResultEntry, acdTwampGenResultTwoWayDvCurrSamples=acdTwampGenResultTwoWayDvCurrSamples, acdTwampGenCfgOneWayFarEndAvgDvThrs=acdTwampGenCfgOneWayFarEndAvgDvThrs, acdTwampGenCfgEntry=acdTwampGenCfgEntry, PYSNMP_MODULE_ID=acdTwampGen, acdTwampGenCfgOneWayFarEndAvgDelayThrs=acdTwampGenCfgOneWayFarEndAvgDelayThrs, acdTwampGenStatusTwoWayAvgDvAlert=acdTwampGenStatusTwoWayAvgDvAlert, acdTwampGenHistResultID=acdTwampGenHistResultID, acdTwampGenCfgEcn=acdTwampGenCfgEcn, acdTwampGenResultTwoWayDelayCurrMinValue=acdTwampGenResultTwoWayDelayCurrMinValue, acdTwampGenHistResultEntry=acdTwampGenHistResultEntry, acdTwampGenHistResultOneWayFeDelayAvgValue=acdTwampGenHistResultOneWayFeDelayAvgValue, acdTwampGenResultTwoWayDvCurrThreshEx=acdTwampGenResultTwoWayDvCurrThreshEx, acdTwampGenStatusOneWayFeAvgDvAlert=acdTwampGenStatusOneWayFeAvgDvAlert, acdTwampGenCfgOneWayFarEndMaxDv=acdTwampGenCfgOneWayFarEndMaxDv, acdTwampGenResultOneWayNeDvInstValue=acdTwampGenResultOneWayNeDvInstValue, acdTwampGenCfgOneWayNearEndAvgDelayThrs=acdTwampGenCfgOneWayNearEndAvgDelayThrs, acdTwampGenHistResultOneWayNeDvMaxValue=acdTwampGenHistResultOneWayNeDvMaxValue, acdTwampGenHistResultOneWayFeDelayMaxValue=acdTwampGenHistResultOneWayFeDelayMaxValue, acdTwampGenHistResultTwoWayDvThreshEx=acdTwampGenHistResultTwoWayDvThreshEx, acdTwampGenResultOneWayFeDelayInstValue=acdTwampGenResultOneWayFeDelayInstValue, acdTwampGenMIBObjects=acdTwampGenMIBObjects, acdTwampGenHistResultTwoWayDvSamples=acdTwampGenHistResultTwoWayDvSamples, acdTwampGenHistResultOneWayFeDelayInstValue=acdTwampGenHistResultOneWayFeDelayInstValue, acdTwampGenHistResultOneWayNeDvSamples=acdTwampGenHistResultOneWayNeDvSamples, acdTwampGenCfgVlan1Priority=acdTwampGenCfgVlan1Priority, acdTwampGenCfgDestIPv4Addr=acdTwampGenCfgDestIPv4Addr, acdTwampGenHistResultOneWayNeDelaySamples=acdTwampGenHistResultOneWayNeDelaySamples, acdTwampGenResultTwoWayDelayCurrThreshEx=acdTwampGenResultTwoWayDelayCurrThreshEx, acdTwampGenHistResultOneWayFeDvSamples=acdTwampGenHistResultOneWayFeDvSamples, acdTwampGenResultOneWayFeDvValid=acdTwampGenResultOneWayFeDvValid, acdTwampGenResultTwoWayDvValid=acdTwampGenResultTwoWayDvValid, acdTwampGenHistResultPktLossLostPackets=acdTwampGenHistResultPktLossLostPackets, acdTwampGenCfgOneWayNearEndMaxDv=acdTwampGenCfgOneWayNearEndMaxDv, acdTwampGenResultOneWayFeDelayCurrMinValue=acdTwampGenResultOneWayFeDelayCurrMinValue, acdTwampGenHistResultOneWayFeDelayValid=acdTwampGenHistResultOneWayFeDelayValid, acdTwampGenHistResultPktLossSamples=acdTwampGenHistResultPktLossSamples, acdTwampGenStatusOneWayNeDvAlert=acdTwampGenStatusOneWayNeDvAlert, acdTwampGenResultTwoWayDelayInstValue=acdTwampGenResultTwoWayDelayInstValue, acdTwampGenCfgPacketLossContinuityCheck=acdTwampGenCfgPacketLossContinuityCheck, acdTwampGenStatusID=acdTwampGenStatusID, acdTwampGenStatusPacketLossContinuityCheckAlert=acdTwampGenStatusPacketLossContinuityCheckAlert, acdTwampGenCfgOneWayNearEndMaxDelay=acdTwampGenCfgOneWayNearEndMaxDelay, acdTwampGenResultOneWayNeDelayValid=acdTwampGenResultOneWayNeDelayValid, acdTwampGenStatusTwoWayDelayAlert=acdTwampGenStatusTwoWayDelayAlert, acdTwampGenStatusOneWayNeAvgDelayAlert=acdTwampGenStatusOneWayNeAvgDelayAlert, acdTwampGenResultOneWayNeDelayInstValue=acdTwampGenResultOneWayNeDelayInstValue, acdTwampGenStatusTwoWayAvgDelayAlert=acdTwampGenStatusTwoWayAvgDelayAlert, acdTwampGenCfgInterval=acdTwampGenCfgInterval, acdTwampGenResultOneWayFeDelayCurrMaxValue=acdTwampGenResultOneWayFeDelayCurrMaxValue, acdTwampGenHistResultTwoWayDelayInstValue=acdTwampGenHistResultTwoWayDelayInstValue, acdTwampGenHistResultOneWayNeDvValid=acdTwampGenHistResultOneWayNeDvValid, acdTwampGenCfgPktSize=acdTwampGenCfgPktSize, acdTwampGenCfgTwoWayMaxDv=acdTwampGenCfgTwoWayMaxDv, acdTwampGenGroups=acdTwampGenGroups, acdTwampGenHistResultTwoWayDvAvgValue=acdTwampGenHistResultTwoWayDvAvgValue, acdTwampGenNotifications=acdTwampGenNotifications, acdTwampGenResultOneWayNeDvCurrSamples=acdTwampGenResultOneWayNeDvCurrSamples, acdTwampGenResultTwoWayDelayCurrMaxValue=acdTwampGenResultTwoWayDelayCurrMaxValue, acdTwampGenCfgReferencePeriod=acdTwampGenCfgReferencePeriod, acdTwampGenHistResultPktLossOutOfOrder=acdTwampGenHistResultPktLossOutOfOrder, acdTwampGenCfgPacketLossRate=acdTwampGenCfgPacketLossRate, acdTwampGenHistResultOneWayNeDelayAvgValue=acdTwampGenHistResultOneWayNeDelayAvgValue)

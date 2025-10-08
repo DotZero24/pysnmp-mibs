@@ -1,66 +1,38 @@
-_G='nnsnmpTrapRcvrIndex'
-_F='SNMP-MIB'
-_E='DisplayString'
-_D='read-only'
-_C='read-write'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ntEnterpriseDataTasmanMgmt,=mibBuilder.importSymbols('NT-ENTERPRISE-DATA-MIB','ntEnterpriseDataTasmanMgmt')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_E,'PhysAddress','TextualConvention')
-nnsnmpMib=ModuleIdentity((1,3,6,1,4,1,562,73,1,1,1,5))
-if mibBuilder.loadTexts:nnsnmpMib.setRevisions(('1999-04-23 00:00',))
-_NnsnmpObjects_ObjectIdentity=ObjectIdentity
-nnsnmpObjects=_NnsnmpObjects_ObjectIdentity((1,3,6,1,4,1,562,73,1,1,1,5,1))
-class _NnsnmpAgentType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('other',1),('snmpV1',2),('snmpV2V1',3),('snmpV2cV1',4)))
-_NnsnmpAgentType_Type.__name__=_B
-_NnsnmpAgentType_Object=MibScalar
-nnsnmpAgentType=_NnsnmpAgentType_Object((1,3,6,1,4,1,562,73,1,1,1,5,1,1),_NnsnmpAgentType_Type())
-nnsnmpAgentType.setMaxAccess(_D)
-if mibBuilder.loadTexts:nnsnmpAgentType.setStatus(_A)
-class _NnsnmpRmonSupported_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('supported',1),('not-supported',2)))
-_NnsnmpRmonSupported_Type.__name__=_B
-_NnsnmpRmonSupported_Object=MibScalar
-nnsnmpRmonSupported=_NnsnmpRmonSupported_Object((1,3,6,1,4,1,562,73,1,1,1,5,1,2),_NnsnmpRmonSupported_Type())
-nnsnmpRmonSupported.setMaxAccess(_D)
-if mibBuilder.loadTexts:nnsnmpRmonSupported.setStatus(_A)
-_NnsnmpSourceAddress_Type=IpAddress
-_NnsnmpSourceAddress_Object=MibScalar
-nnsnmpSourceAddress=_NnsnmpSourceAddress_Object((1,3,6,1,4,1,562,73,1,1,1,5,1,3),_NnsnmpSourceAddress_Type())
-nnsnmpSourceAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:nnsnmpSourceAddress.setStatus(_A)
-_NnsnmpTrapRcvrTable_Object=MibTable
-nnsnmpTrapRcvrTable=_NnsnmpTrapRcvrTable_Object((1,3,6,1,4,1,562,73,1,1,1,5,1,4))
-if mibBuilder.loadTexts:nnsnmpTrapRcvrTable.setStatus(_A)
-_NnsnmpTrapRcvrEntry_Object=MibTableRow
-nnsnmpTrapRcvrEntry=_NnsnmpTrapRcvrEntry_Object((1,3,6,1,4,1,562,73,1,1,1,5,1,4,1))
-nnsnmpTrapRcvrEntry.setIndexNames((0,_F,_G))
-if mibBuilder.loadTexts:nnsnmpTrapRcvrEntry.setStatus(_A)
-_NnsnmpTrapRcvrIndex_Type=Integer32
-_NnsnmpTrapRcvrIndex_Object=MibTableColumn
-nnsnmpTrapRcvrIndex=_NnsnmpTrapRcvrIndex_Object((1,3,6,1,4,1,562,73,1,1,1,5,1,4,1,1),_NnsnmpTrapRcvrIndex_Type())
-nnsnmpTrapRcvrIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:nnsnmpTrapRcvrIndex.setStatus(_A)
-class _NnsnmpTrapRcvrEntryStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('valid',1),('invalid',2)))
-_NnsnmpTrapRcvrEntryStatus_Type.__name__=_B
-_NnsnmpTrapRcvrEntryStatus_Object=MibTableColumn
-nnsnmpTrapRcvrEntryStatus=_NnsnmpTrapRcvrEntryStatus_Object((1,3,6,1,4,1,562,73,1,1,1,5,1,4,1,2),_NnsnmpTrapRcvrEntryStatus_Type())
-nnsnmpTrapRcvrEntryStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:nnsnmpTrapRcvrEntryStatus.setStatus(_A)
-_NnsnmpTrapRcvrAddress_Type=IpAddress
-_NnsnmpTrapRcvrAddress_Object=MibTableColumn
-nnsnmpTrapRcvrAddress=_NnsnmpTrapRcvrAddress_Object((1,3,6,1,4,1,562,73,1,1,1,5,1,4,1,3),_NnsnmpTrapRcvrAddress_Type())
-nnsnmpTrapRcvrAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:nnsnmpTrapRcvrAddress.setStatus(_A)
-class _NnsnmpTrapRcvrCommunity_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
-_NnsnmpTrapRcvrCommunity_Type.__name__=_E
-_NnsnmpTrapRcvrCommunity_Object=MibTableColumn
-nnsnmpTrapRcvrCommunity=_NnsnmpTrapRcvrCommunity_Object((1,3,6,1,4,1,562,73,1,1,1,5,1,4,1,4),_NnsnmpTrapRcvrCommunity_Type())
-nnsnmpTrapRcvrCommunity.setMaxAccess(_C)
-if mibBuilder.loadTexts:nnsnmpTrapRcvrCommunity.setStatus(_A)
-mibBuilder.exportSymbols(_F,**{'nnsnmpMib':nnsnmpMib,'nnsnmpObjects':nnsnmpObjects,'nnsnmpAgentType':nnsnmpAgentType,'nnsnmpRmonSupported':nnsnmpRmonSupported,'nnsnmpSourceAddress':nnsnmpSourceAddress,'nnsnmpTrapRcvrTable':nnsnmpTrapRcvrTable,'nnsnmpTrapRcvrEntry':nnsnmpTrapRcvrEntry,_G:nnsnmpTrapRcvrIndex,'nnsnmpTrapRcvrEntryStatus':nnsnmpTrapRcvrEntryStatus,'nnsnmpTrapRcvrAddress':nnsnmpTrapRcvrAddress,'nnsnmpTrapRcvrCommunity':nnsnmpTrapRcvrCommunity})
+#
+# PySNMP MIB module SNMP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/nortel/SNMP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:59:13 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ntEnterpriseDataTasmanMgmt, = mibBuilder.importSymbols("NT-ENTERPRISE-DATA-MIB", "ntEnterpriseDataTasmanMgmt")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+nnsnmpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 1, 5))
+nnsnmpMib.setRevisions(('1999-04-23 00:00',))
+if mibBuilder.loadTexts: nnsnmpMib.setLastUpdated('9904230000Z')
+if mibBuilder.loadTexts: nnsnmpMib.setOrganization('Nortel Networks')
+nnsnmpObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 1, 5, 1))
+nnsnmpAgentType = MibScalar((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("snmpV1", 2), ("snmpV2V1", 3), ("snmpV2cV1", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nnsnmpAgentType.setStatus('current')
+nnsnmpRmonSupported = MibScalar((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 1, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("supported", 1), ("not-supported", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nnsnmpRmonSupported.setStatus('current')
+nnsnmpSourceAddress = MibScalar((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 1, 5, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nnsnmpSourceAddress.setStatus('current')
+nnsnmpTrapRcvrTable = MibTable((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 1, 5, 1, 4), )
+if mibBuilder.loadTexts: nnsnmpTrapRcvrTable.setStatus('current')
+nnsnmpTrapRcvrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 1, 5, 1, 4, 1), ).setIndexNames((0, "SNMP-MIB", "nnsnmpTrapRcvrIndex"))
+if mibBuilder.loadTexts: nnsnmpTrapRcvrEntry.setStatus('current')
+nnsnmpTrapRcvrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 1, 5, 1, 4, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nnsnmpTrapRcvrIndex.setStatus('current')
+nnsnmpTrapRcvrEntryStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 1, 5, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2))).clone('valid')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nnsnmpTrapRcvrEntryStatus.setStatus('current')
+nnsnmpTrapRcvrAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 1, 5, 1, 4, 1, 3), IpAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nnsnmpTrapRcvrAddress.setStatus('current')
+nnsnmpTrapRcvrCommunity = MibTableColumn((1, 3, 6, 1, 4, 1, 562, 73, 1, 1, 1, 5, 1, 4, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: nnsnmpTrapRcvrCommunity.setStatus('current')
+mibBuilder.exportSymbols("SNMP-MIB", nnsnmpObjects=nnsnmpObjects, nnsnmpTrapRcvrCommunity=nnsnmpTrapRcvrCommunity, nnsnmpTrapRcvrTable=nnsnmpTrapRcvrTable, PYSNMP_MODULE_ID=nnsnmpMib, nnsnmpAgentType=nnsnmpAgentType, nnsnmpTrapRcvrIndex=nnsnmpTrapRcvrIndex, nnsnmpSourceAddress=nnsnmpSourceAddress, nnsnmpTrapRcvrEntry=nnsnmpTrapRcvrEntry, nnsnmpTrapRcvrAddress=nnsnmpTrapRcvrAddress, nnsnmpTrapRcvrEntryStatus=nnsnmpTrapRcvrEntryStatus, nnsnmpMib=nnsnmpMib, nnsnmpRmonSupported=nnsnmpRmonSupported)

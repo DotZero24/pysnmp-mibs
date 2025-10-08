@@ -1,43 +1,39 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-nms=ModuleIdentity((1,3,6,1,4,1,52642))
-_NmsProducts_ObjectIdentity=ObjectIdentity
-nmsProducts=_NmsProducts_ObjectIdentity((1,3,6,1,4,1,52642,1))
-if mibBuilder.loadTexts:nmsProducts.setStatus(_A)
-_Nmslocal_ObjectIdentity=ObjectIdentity
-nmslocal=_Nmslocal_ObjectIdentity((1,3,6,1,4,1,52642,2))
-if mibBuilder.loadTexts:nmslocal.setStatus(_A)
-_Nmstemporary_ObjectIdentity=ObjectIdentity
-nmstemporary=_Nmstemporary_ObjectIdentity((1,3,6,1,4,1,52642,3))
-if mibBuilder.loadTexts:nmstemporary.setStatus(_A)
-_NmsMgmt_ObjectIdentity=ObjectIdentity
-nmsMgmt=_NmsMgmt_ObjectIdentity((1,3,6,1,4,1,52642,9))
-if mibBuilder.loadTexts:nmsMgmt.setStatus(_A)
-_NmsModules_ObjectIdentity=ObjectIdentity
-nmsModules=_NmsModules_ObjectIdentity((1,3,6,1,4,1,52642,12))
-if mibBuilder.loadTexts:nmsModules.setStatus(_A)
-_NmsPolicyAuto_ObjectIdentity=ObjectIdentity
-nmsPolicyAuto=_NmsPolicyAuto_ObjectIdentity((1,3,6,1,4,1,52642,18))
-if mibBuilder.loadTexts:nmsPolicyAuto.setStatus(_A)
-_NmsPibToMib_ObjectIdentity=ObjectIdentity
-nmsPibToMib=_NmsPibToMib_ObjectIdentity((1,3,6,1,4,1,52642,18,2))
-if mibBuilder.loadTexts:nmsPibToMib.setStatus(_A)
-_NmsWorkGroup_ObjectIdentity=ObjectIdentity
-nmsWorkGroup=_NmsWorkGroup_ObjectIdentity((1,3,6,1,4,1,52642,20))
-if mibBuilder.loadTexts:nmsWorkGroup.setStatus(_A)
-_NmsEPONGroup_ObjectIdentity=ObjectIdentity
-nmsEPONGroup=_NmsEPONGroup_ObjectIdentity((1,3,6,1,4,1,52642,101))
-if mibBuilder.loadTexts:nmsEPONGroup.setStatus(_A)
-_NmsPTNGroup_ObjectIdentity=ObjectIdentity
-nmsPTNGroup=_NmsPTNGroup_ObjectIdentity((1,3,6,1,4,1,52642,102))
-if mibBuilder.loadTexts:nmsPTNGroup.setStatus(_A)
-_NmsWlanGroup_ObjectIdentity=ObjectIdentity
-nmsWlanGroup=_NmsWlanGroup_ObjectIdentity((1,3,6,1,4,1,52642,103))
-if mibBuilder.loadTexts:nmsWlanGroup.setStatus(_A)
-mibBuilder.exportSymbols('FS-NMS-SMI',**{'nms':nms,'nmsProducts':nmsProducts,'nmslocal':nmslocal,'nmstemporary':nmstemporary,'nmsMgmt':nmsMgmt,'nmsModules':nmsModules,'nmsPolicyAuto':nmsPolicyAuto,'nmsPibToMib':nmsPibToMib,'nmsWorkGroup':nmsWorkGroup,'nmsEPONGroup':nmsEPONGroup,'nmsPTNGroup':nmsPTNGroup,'nmsWlanGroup':nmsWlanGroup})
+#
+# PySNMP MIB module FS-NMS-SMI (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-NMS-SMI
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:46 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+nms = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642))
+if mibBuilder.loadTexts: nms.setLastUpdated('200006280000Z')
+if mibBuilder.loadTexts: nms.setOrganization('')
+nmsProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 52642, 1))
+if mibBuilder.loadTexts: nmsProducts.setStatus('current')
+nmslocal = ObjectIdentity((1, 3, 6, 1, 4, 1, 52642, 2))
+if mibBuilder.loadTexts: nmslocal.setStatus('current')
+nmstemporary = ObjectIdentity((1, 3, 6, 1, 4, 1, 52642, 3))
+if mibBuilder.loadTexts: nmstemporary.setStatus('current')
+nmsMgmt = ObjectIdentity((1, 3, 6, 1, 4, 1, 52642, 9))
+if mibBuilder.loadTexts: nmsMgmt.setStatus('current')
+nmsModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 52642, 12))
+if mibBuilder.loadTexts: nmsModules.setStatus('current')
+nmsPolicyAuto = ObjectIdentity((1, 3, 6, 1, 4, 1, 52642, 18))
+if mibBuilder.loadTexts: nmsPolicyAuto.setStatus('current')
+nmsPibToMib = ObjectIdentity((1, 3, 6, 1, 4, 1, 52642, 18, 2))
+if mibBuilder.loadTexts: nmsPibToMib.setStatus('current')
+nmsWorkGroup = ObjectIdentity((1, 3, 6, 1, 4, 1, 52642, 20))
+if mibBuilder.loadTexts: nmsWorkGroup.setStatus('current')
+nmsEPONGroup = ObjectIdentity((1, 3, 6, 1, 4, 1, 52642, 101))
+if mibBuilder.loadTexts: nmsEPONGroup.setStatus('current')
+nmsPTNGroup = ObjectIdentity((1, 3, 6, 1, 4, 1, 52642, 102))
+if mibBuilder.loadTexts: nmsPTNGroup.setStatus('current')
+nmsWlanGroup = ObjectIdentity((1, 3, 6, 1, 4, 1, 52642, 103))
+if mibBuilder.loadTexts: nmsWlanGroup.setStatus('current')
+mibBuilder.exportSymbols("FS-NMS-SMI", nmslocal=nmslocal, nmsMgmt=nmsMgmt, nmsPolicyAuto=nmsPolicyAuto, nms=nms, nmsModules=nmsModules, nmsPibToMib=nmsPibToMib, nmsEPONGroup=nmsEPONGroup, nmsWorkGroup=nmsWorkGroup, nmstemporary=nmstemporary, nmsProducts=nmsProducts, PYSNMP_MODULE_ID=nms, nmsPTNGroup=nmsPTNGroup, nmsWlanGroup=nmsWlanGroup)

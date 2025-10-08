@@ -1,96 +1,54 @@
-_O='fsIgmpFilteringProfileMIBGroup'
-_N='fsIgmpFilteringProfileRangeStatus'
-_M='fsIgmpFilteringProfieRangeEndAddress'
-_L='fsIgmpFilteringProfileStatus'
-_K='fsIgmpFilteringProfileAction'
-_J='fsIgmpFilteringMaxProfiles'
-_I='read-write'
-_H='read-create'
-_G='fsIgmpFilteringProfieRangeFSAddress'
-_F='fsIgmpFilteringProfileRangeIndex'
-_E='fsIgmpFilteringProfileIndex'
-_D='read-only'
-_C='Integer32'
-_B='FS-IGMP-FILTERINGPROFILE-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsMgmt,=mibBuilder.importSymbols('FS-SMI','fsMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-fsIgmpFilteringProfileMIB=ModuleIdentity((1,3,6,1,4,1,52642,1,1,10,2,37))
-if mibBuilder.loadTexts:fsIgmpFilteringProfileMIB.setRevisions(('2003-12-09 00:00',))
-_FsIgmpFilteringProfileMIBObjects_ObjectIdentity=ObjectIdentity
-fsIgmpFilteringProfileMIBObjects=_FsIgmpFilteringProfileMIBObjects_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,37,1))
-_FsIgmpFilteringMaxProfiles_Type=Unsigned32
-_FsIgmpFilteringMaxProfiles_Object=MibScalar
-fsIgmpFilteringMaxProfiles=_FsIgmpFilteringMaxProfiles_Object((1,3,6,1,4,1,52642,1,1,10,2,37,1,1),_FsIgmpFilteringMaxProfiles_Type())
-fsIgmpFilteringMaxProfiles.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsIgmpFilteringMaxProfiles.setStatus(_A)
-_FsIgmpFilteringProfileActionTable_Object=MibTable
-fsIgmpFilteringProfileActionTable=_FsIgmpFilteringProfileActionTable_Object((1,3,6,1,4,1,52642,1,1,10,2,37,1,2))
-if mibBuilder.loadTexts:fsIgmpFilteringProfileActionTable.setStatus(_A)
-_FsIgmpFilteringProfileActionEntry_Object=MibTableRow
-fsIgmpFilteringProfileActionEntry=_FsIgmpFilteringProfileActionEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,37,1,2,1))
-fsIgmpFilteringProfileActionEntry.setIndexNames((0,_B,_E))
-if mibBuilder.loadTexts:fsIgmpFilteringProfileActionEntry.setStatus(_A)
-_FsIgmpFilteringProfileIndex_Type=Unsigned32
-_FsIgmpFilteringProfileIndex_Object=MibTableColumn
-fsIgmpFilteringProfileIndex=_FsIgmpFilteringProfileIndex_Object((1,3,6,1,4,1,52642,1,1,10,2,37,1,2,1,1),_FsIgmpFilteringProfileIndex_Type())
-fsIgmpFilteringProfileIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsIgmpFilteringProfileIndex.setStatus(_A)
-class _FsIgmpFilteringProfileAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('permit',1),('deny',2)))
-_FsIgmpFilteringProfileAction_Type.__name__=_C
-_FsIgmpFilteringProfileAction_Object=MibTableColumn
-fsIgmpFilteringProfileAction=_FsIgmpFilteringProfileAction_Object((1,3,6,1,4,1,52642,1,1,10,2,37,1,2,1,2),_FsIgmpFilteringProfileAction_Type())
-fsIgmpFilteringProfileAction.setMaxAccess(_I)
-if mibBuilder.loadTexts:fsIgmpFilteringProfileAction.setStatus(_A)
-class _FsIgmpFilteringProfileStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('valid',1),('invalid',2)))
-_FsIgmpFilteringProfileStatus_Type.__name__=_C
-_FsIgmpFilteringProfileStatus_Object=MibTableColumn
-fsIgmpFilteringProfileStatus=_FsIgmpFilteringProfileStatus_Object((1,3,6,1,4,1,52642,1,1,10,2,37,1,2,1,3),_FsIgmpFilteringProfileStatus_Type())
-fsIgmpFilteringProfileStatus.setMaxAccess(_I)
-if mibBuilder.loadTexts:fsIgmpFilteringProfileStatus.setStatus(_A)
-_FsIgmpFilteringProfileRangeTable_Object=MibTable
-fsIgmpFilteringProfileRangeTable=_FsIgmpFilteringProfileRangeTable_Object((1,3,6,1,4,1,52642,1,1,10,2,37,1,3))
-if mibBuilder.loadTexts:fsIgmpFilteringProfileRangeTable.setStatus(_A)
-_FsIgmpFilteringProfileRangeEntry_Object=MibTableRow
-fsIgmpFilteringProfileRangeEntry=_FsIgmpFilteringProfileRangeEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,37,1,3,1))
-fsIgmpFilteringProfileRangeEntry.setIndexNames((0,_B,_F),(0,_B,_G))
-if mibBuilder.loadTexts:fsIgmpFilteringProfileRangeEntry.setStatus(_A)
-_FsIgmpFilteringProfileRangeIndex_Type=Unsigned32
-_FsIgmpFilteringProfileRangeIndex_Object=MibTableColumn
-fsIgmpFilteringProfileRangeIndex=_FsIgmpFilteringProfileRangeIndex_Object((1,3,6,1,4,1,52642,1,1,10,2,37,1,3,1,1),_FsIgmpFilteringProfileRangeIndex_Type())
-fsIgmpFilteringProfileRangeIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:fsIgmpFilteringProfileRangeIndex.setStatus(_A)
-_FsIgmpFilteringProfieRangeFSAddress_Type=IpAddress
-_FsIgmpFilteringProfieRangeFSAddress_Object=MibTableColumn
-fsIgmpFilteringProfieRangeFSAddress=_FsIgmpFilteringProfieRangeFSAddress_Object((1,3,6,1,4,1,52642,1,1,10,2,37,1,3,1,2),_FsIgmpFilteringProfieRangeFSAddress_Type())
-fsIgmpFilteringProfieRangeFSAddress.setMaxAccess(_H)
-if mibBuilder.loadTexts:fsIgmpFilteringProfieRangeFSAddress.setStatus(_A)
-_FsIgmpFilteringProfieRangeEndAddress_Type=IpAddress
-_FsIgmpFilteringProfieRangeEndAddress_Object=MibTableColumn
-fsIgmpFilteringProfieRangeEndAddress=_FsIgmpFilteringProfieRangeEndAddress_Object((1,3,6,1,4,1,52642,1,1,10,2,37,1,3,1,3),_FsIgmpFilteringProfieRangeEndAddress_Type())
-fsIgmpFilteringProfieRangeEndAddress.setMaxAccess(_H)
-if mibBuilder.loadTexts:fsIgmpFilteringProfieRangeEndAddress.setStatus(_A)
-_FsIgmpFilteringProfileRangeStatus_Type=RowStatus
-_FsIgmpFilteringProfileRangeStatus_Object=MibTableColumn
-fsIgmpFilteringProfileRangeStatus=_FsIgmpFilteringProfileRangeStatus_Object((1,3,6,1,4,1,52642,1,1,10,2,37,1,3,1,4),_FsIgmpFilteringProfileRangeStatus_Type())
-fsIgmpFilteringProfileRangeStatus.setMaxAccess(_H)
-if mibBuilder.loadTexts:fsIgmpFilteringProfileRangeStatus.setStatus(_A)
-_FsIgmpFilteringProfileMIBConformance_ObjectIdentity=ObjectIdentity
-fsIgmpFilteringProfileMIBConformance=_FsIgmpFilteringProfileMIBConformance_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,37,2))
-_FsIgmpFilteringProfileMIBCompliances_ObjectIdentity=ObjectIdentity
-fsIgmpFilteringProfileMIBCompliances=_FsIgmpFilteringProfileMIBCompliances_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,37,2,1))
-_FsIgmpFilteringProfileMIBGroups_ObjectIdentity=ObjectIdentity
-fsIgmpFilteringProfileMIBGroups=_FsIgmpFilteringProfileMIBGroups_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,37,2,2))
-fsIgmpFilteringProfileMIBGroup=ObjectGroup((1,3,6,1,4,1,52642,1,1,10,2,37,2,2,1))
-fsIgmpFilteringProfileMIBGroup.setObjects(*((_B,_J),(_B,_E),(_B,_K),(_B,_L),(_B,_F),(_B,_G),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:fsIgmpFilteringProfileMIBGroup.setStatus(_A)
-fsIgmpFilteringProfileMIBCompliance=ModuleCompliance((1,3,6,1,4,1,52642,1,1,10,2,37,2,1,1))
-fsIgmpFilteringProfileMIBCompliance.setObjects((_B,_O))
-if mibBuilder.loadTexts:fsIgmpFilteringProfileMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'fsIgmpFilteringProfileMIB':fsIgmpFilteringProfileMIB,'fsIgmpFilteringProfileMIBObjects':fsIgmpFilteringProfileMIBObjects,_J:fsIgmpFilteringMaxProfiles,'fsIgmpFilteringProfileActionTable':fsIgmpFilteringProfileActionTable,'fsIgmpFilteringProfileActionEntry':fsIgmpFilteringProfileActionEntry,_E:fsIgmpFilteringProfileIndex,_K:fsIgmpFilteringProfileAction,_L:fsIgmpFilteringProfileStatus,'fsIgmpFilteringProfileRangeTable':fsIgmpFilteringProfileRangeTable,'fsIgmpFilteringProfileRangeEntry':fsIgmpFilteringProfileRangeEntry,_F:fsIgmpFilteringProfileRangeIndex,_G:fsIgmpFilteringProfieRangeFSAddress,_M:fsIgmpFilteringProfieRangeEndAddress,_N:fsIgmpFilteringProfileRangeStatus,'fsIgmpFilteringProfileMIBConformance':fsIgmpFilteringProfileMIBConformance,'fsIgmpFilteringProfileMIBCompliances':fsIgmpFilteringProfileMIBCompliances,'fsIgmpFilteringProfileMIBCompliance':fsIgmpFilteringProfileMIBCompliance,'fsIgmpFilteringProfileMIBGroups':fsIgmpFilteringProfileMIBGroups,_O:fsIgmpFilteringProfileMIBGroup})
+#
+# PySNMP MIB module FS-IGMP-FILTERINGPROFILE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-IGMP-FILTERINGPROFILE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:27 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+fsIgmpFilteringProfileMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37))
+fsIgmpFilteringProfileMIB.setRevisions(('2003-12-09 00:00',))
+if mibBuilder.loadTexts: fsIgmpFilteringProfileMIB.setLastUpdated('200312090000Z')
+if mibBuilder.loadTexts: fsIgmpFilteringProfileMIB.setOrganization('FS.COM Inc..')
+fsIgmpFilteringProfileMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 1))
+fsIgmpFilteringMaxProfiles = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsIgmpFilteringMaxProfiles.setStatus('current')
+fsIgmpFilteringProfileActionTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 1, 2), )
+if mibBuilder.loadTexts: fsIgmpFilteringProfileActionTable.setStatus('current')
+fsIgmpFilteringProfileActionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 1, 2, 1), ).setIndexNames((0, "FS-IGMP-FILTERINGPROFILE-MIB", "fsIgmpFilteringProfileIndex"))
+if mibBuilder.loadTexts: fsIgmpFilteringProfileActionEntry.setStatus('current')
+fsIgmpFilteringProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 1, 2, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsIgmpFilteringProfileIndex.setStatus('current')
+fsIgmpFilteringProfileAction = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("permit", 1), ("deny", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsIgmpFilteringProfileAction.setStatus('current')
+fsIgmpFilteringProfileStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsIgmpFilteringProfileStatus.setStatus('current')
+fsIgmpFilteringProfileRangeTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 1, 3), )
+if mibBuilder.loadTexts: fsIgmpFilteringProfileRangeTable.setStatus('current')
+fsIgmpFilteringProfileRangeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 1, 3, 1), ).setIndexNames((0, "FS-IGMP-FILTERINGPROFILE-MIB", "fsIgmpFilteringProfileRangeIndex"), (0, "FS-IGMP-FILTERINGPROFILE-MIB", "fsIgmpFilteringProfieRangeFSAddress"))
+if mibBuilder.loadTexts: fsIgmpFilteringProfileRangeEntry.setStatus('current')
+fsIgmpFilteringProfileRangeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 1, 3, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsIgmpFilteringProfileRangeIndex.setStatus('current')
+fsIgmpFilteringProfieRangeFSAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 1, 3, 1, 2), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsIgmpFilteringProfieRangeFSAddress.setStatus('current')
+fsIgmpFilteringProfieRangeEndAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 1, 3, 1, 3), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsIgmpFilteringProfieRangeEndAddress.setStatus('current')
+fsIgmpFilteringProfileRangeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 1, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fsIgmpFilteringProfileRangeStatus.setStatus('current')
+fsIgmpFilteringProfileMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 2))
+fsIgmpFilteringProfileMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 2, 1))
+fsIgmpFilteringProfileMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 2, 2))
+fsIgmpFilteringProfileMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 2, 1, 1)).setObjects(("FS-IGMP-FILTERINGPROFILE-MIB", "fsIgmpFilteringProfileMIBGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsIgmpFilteringProfileMIBCompliance = fsIgmpFilteringProfileMIBCompliance.setStatus('current')
+fsIgmpFilteringProfileMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 37, 2, 2, 1)).setObjects(("FS-IGMP-FILTERINGPROFILE-MIB", "fsIgmpFilteringMaxProfiles"), ("FS-IGMP-FILTERINGPROFILE-MIB", "fsIgmpFilteringProfileIndex"), ("FS-IGMP-FILTERINGPROFILE-MIB", "fsIgmpFilteringProfileAction"), ("FS-IGMP-FILTERINGPROFILE-MIB", "fsIgmpFilteringProfileStatus"), ("FS-IGMP-FILTERINGPROFILE-MIB", "fsIgmpFilteringProfileRangeIndex"), ("FS-IGMP-FILTERINGPROFILE-MIB", "fsIgmpFilteringProfieRangeFSAddress"), ("FS-IGMP-FILTERINGPROFILE-MIB", "fsIgmpFilteringProfieRangeEndAddress"), ("FS-IGMP-FILTERINGPROFILE-MIB", "fsIgmpFilteringProfileRangeStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fsIgmpFilteringProfileMIBGroup = fsIgmpFilteringProfileMIBGroup.setStatus('current')
+mibBuilder.exportSymbols("FS-IGMP-FILTERINGPROFILE-MIB", fsIgmpFilteringProfileIndex=fsIgmpFilteringProfileIndex, fsIgmpFilteringProfileRangeStatus=fsIgmpFilteringProfileRangeStatus, fsIgmpFilteringProfileActionTable=fsIgmpFilteringProfileActionTable, fsIgmpFilteringProfileMIB=fsIgmpFilteringProfileMIB, fsIgmpFilteringProfileMIBGroup=fsIgmpFilteringProfileMIBGroup, fsIgmpFilteringProfieRangeFSAddress=fsIgmpFilteringProfieRangeFSAddress, fsIgmpFilteringProfieRangeEndAddress=fsIgmpFilteringProfieRangeEndAddress, fsIgmpFilteringProfileRangeIndex=fsIgmpFilteringProfileRangeIndex, fsIgmpFilteringProfileMIBConformance=fsIgmpFilteringProfileMIBConformance, PYSNMP_MODULE_ID=fsIgmpFilteringProfileMIB, fsIgmpFilteringProfileActionEntry=fsIgmpFilteringProfileActionEntry, fsIgmpFilteringProfileRangeEntry=fsIgmpFilteringProfileRangeEntry, fsIgmpFilteringProfileAction=fsIgmpFilteringProfileAction, fsIgmpFilteringProfileRangeTable=fsIgmpFilteringProfileRangeTable, fsIgmpFilteringProfileMIBCompliance=fsIgmpFilteringProfileMIBCompliance, fsIgmpFilteringProfileMIBCompliances=fsIgmpFilteringProfileMIBCompliances, fsIgmpFilteringProfileMIBObjects=fsIgmpFilteringProfileMIBObjects, fsIgmpFilteringProfileStatus=fsIgmpFilteringProfileStatus, fsIgmpFilteringProfileMIBGroups=fsIgmpFilteringProfileMIBGroups, fsIgmpFilteringMaxProfiles=fsIgmpFilteringMaxProfiles)

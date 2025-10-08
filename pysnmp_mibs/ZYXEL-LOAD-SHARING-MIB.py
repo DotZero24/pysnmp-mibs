@@ -1,42 +1,30 @@
-_C='Integer32'
-_B='current'
-_A='read-write'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
-zyxelLoadSharing=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,44))
-_ZyxelLoadSharingSetup_ObjectIdentity=ObjectIdentity
-zyxelLoadSharingSetup=_ZyxelLoadSharingSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,44,1))
-_ZyLoadSharingState_Type=EnabledStatus
-_ZyLoadSharingState_Object=MibScalar
-zyLoadSharingState=_ZyLoadSharingState_Object((1,3,6,1,4,1,890,1,15,3,44,1,1),_ZyLoadSharingState_Type())
-zyLoadSharingState.setMaxAccess(_A)
-if mibBuilder.loadTexts:zyLoadSharingState.setStatus(_B)
-class _ZyLoadSharingCriteria_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('srcIp',1),('srcDstIp',2)))
-_ZyLoadSharingCriteria_Type.__name__=_C
-_ZyLoadSharingCriteria_Object=MibScalar
-zyLoadSharingCriteria=_ZyLoadSharingCriteria_Object((1,3,6,1,4,1,890,1,15,3,44,1,2),_ZyLoadSharingCriteria_Type())
-zyLoadSharingCriteria.setMaxAccess(_A)
-if mibBuilder.loadTexts:zyLoadSharingCriteria.setStatus(_B)
-_ZyLoadSharingAgingTime_Type=Integer32
-_ZyLoadSharingAgingTime_Object=MibScalar
-zyLoadSharingAgingTime=_ZyLoadSharingAgingTime_Object((1,3,6,1,4,1,890,1,15,3,44,1,3),_ZyLoadSharingAgingTime_Type())
-zyLoadSharingAgingTime.setMaxAccess(_A)
-if mibBuilder.loadTexts:zyLoadSharingAgingTime.setStatus(_B)
-_ZyLoadSharingDiscoverTime_Type=Integer32
-_ZyLoadSharingDiscoverTime_Object=MibScalar
-zyLoadSharingDiscoverTime=_ZyLoadSharingDiscoverTime_Object((1,3,6,1,4,1,890,1,15,3,44,1,4),_ZyLoadSharingDiscoverTime_Type())
-zyLoadSharingDiscoverTime.setMaxAccess(_A)
-if mibBuilder.loadTexts:zyLoadSharingDiscoverTime.setStatus(_B)
-_ZyLoadSharingMaxPaths_Type=Integer32
-_ZyLoadSharingMaxPaths_Object=MibScalar
-zyLoadSharingMaxPaths=_ZyLoadSharingMaxPaths_Object((1,3,6,1,4,1,890,1,15,3,44,1,5),_ZyLoadSharingMaxPaths_Type())
-zyLoadSharingMaxPaths.setMaxAccess(_A)
-if mibBuilder.loadTexts:zyLoadSharingMaxPaths.setStatus(_B)
-mibBuilder.exportSymbols('ZYXEL-LOAD-SHARING-MIB',**{'zyxelLoadSharing':zyxelLoadSharing,'zyxelLoadSharingSetup':zyxelLoadSharingSetup,'zyLoadSharingState':zyLoadSharingState,'zyLoadSharingCriteria':zyLoadSharingCriteria,'zyLoadSharingAgingTime':zyLoadSharingAgingTime,'zyLoadSharingDiscoverTime':zyLoadSharingDiscoverTime,'zyLoadSharingMaxPaths':zyLoadSharingMaxPaths})
+#
+# PySNMP MIB module ZYXEL-LOAD-SHARING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/zyxel/ZYXEL-LOAD-SHARING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:38:16 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
+zyxelLoadSharing = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 44))
+if mibBuilder.loadTexts: zyxelLoadSharing.setLastUpdated('201207010000Z')
+if mibBuilder.loadTexts: zyxelLoadSharing.setOrganization('Enterprise Solution ZyXEL')
+zyxelLoadSharingSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 44, 1))
+zyLoadSharingState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 44, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyLoadSharingState.setStatus('current')
+zyLoadSharingCriteria = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 44, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("srcIp", 1), ("srcDstIp", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyLoadSharingCriteria.setStatus('current')
+zyLoadSharingAgingTime = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 44, 1, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyLoadSharingAgingTime.setStatus('current')
+zyLoadSharingDiscoverTime = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 44, 1, 4), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyLoadSharingDiscoverTime.setStatus('current')
+zyLoadSharingMaxPaths = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 44, 1, 5), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: zyLoadSharingMaxPaths.setStatus('current')
+mibBuilder.exportSymbols("ZYXEL-LOAD-SHARING-MIB", zyxelLoadSharing=zyxelLoadSharing, zyLoadSharingAgingTime=zyLoadSharingAgingTime, zyLoadSharingCriteria=zyLoadSharingCriteria, zyxelLoadSharingSetup=zyxelLoadSharingSetup, PYSNMP_MODULE_ID=zyxelLoadSharing, zyLoadSharingMaxPaths=zyLoadSharingMaxPaths, zyLoadSharingState=zyLoadSharingState, zyLoadSharingDiscoverTime=zyLoadSharingDiscoverTime)

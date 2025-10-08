@@ -1,263 +1,141 @@
-_q='syslogStatusChanged'
-_p='syslogControlRowStatus'
-_o='syslogControlStorageType'
-_n='syslogControlMaxMessageSize'
-_m='syslogOperationsCounterDiscontinuityTime'
-_l='syslogOperationsRunIndex'
-_k='syslogOperationsLastErrorTime'
-_j='syslogOperationsLastError'
-_i='syslogOperationsStartTime'
-_h='syslogOperationsLastMsgTransmittedTime'
-_g='syslogOperationsLastMsgRecdTime'
-_f='syslogOperationsMsgsDiscarded'
-_e='syslogOperationsMsgsMalFormed'
-_d='syslogOperationsMsgsDropped'
-_c='syslogOperationsMsgsRelayed'
-_b='syslogOperationsMsgsTransmitted'
-_a='syslogOperationsMsgsReceived'
-_Z='syslogDefaultEncapsulation'
-_Y='syslogDefaultService'
-_X='syslogOperationsEntry'
-_W='syslogControlIndex'
-_V='SyslogEncapsulation'
-_U='SyslogService'
-_T='StorageType'
-_S='Unsigned32'
-_R='SnmpAdminString'
-_Q='syslogControlConfFileName'
-_P='syslogControlService'
-_O='syslogControlEncapsulation'
-_N='syslogControlBindAddr'
-_M='syslogControlBindAddrType'
-_L='syslogControlRoles'
-_K='syslogControlDescr'
-_J='syslogOperationsStatus'
-_I='Integer32'
-_H='syslogNotificationGroup'
-_G='syslogControlGroup'
-_F='syslogOperationsGroup'
-_E='syslogDefaultGroup'
-_D='read-create'
-_C='read-only'
-_B='current'
-_A='SYSLOG-R-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
-radExperimental,=mibBuilder.importSymbols('RAD-SMI-MIB','radExperimental')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_R)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_S,'iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_T,'TextualConvention','TimeStamp')
-syslogMIBR=ModuleIdentity((1,3,6,1,4,1,164,20,14))
-class SyslogRoles(TextualConvention,Bits):status=_B;namedValues=NamedValues(*(('sender',0),('receiver',1),('relay',2)))
-class SyslogService(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-class SyslogEncapsulation(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('other',1),('none',2),('tls',3),('beep',4)))
-_SyslogNotifications_ObjectIdentity=ObjectIdentity
-syslogNotifications=_SyslogNotifications_ObjectIdentity((1,3,6,1,4,1,164,20,14,0))
-_SyslogObjects_ObjectIdentity=ObjectIdentity
-syslogObjects=_SyslogObjects_ObjectIdentity((1,3,6,1,4,1,164,20,14,1))
-_SyslogSystem_ObjectIdentity=ObjectIdentity
-syslogSystem=_SyslogSystem_ObjectIdentity((1,3,6,1,4,1,164,20,14,1,1))
-class _SyslogDefaultService_Type(SyslogService):defaultValue=OctetString('514')
-_SyslogDefaultService_Type.__name__=_U
-_SyslogDefaultService_Object=MibScalar
-syslogDefaultService=_SyslogDefaultService_Object((1,3,6,1,4,1,164,20,14,1,1,1),_SyslogDefaultService_Type())
-syslogDefaultService.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogDefaultService.setStatus(_B)
-class _SyslogDefaultEncapsulation_Type(SyslogEncapsulation):defaultValue=2
-_SyslogDefaultEncapsulation_Type.__name__=_V
-_SyslogDefaultEncapsulation_Object=MibScalar
-syslogDefaultEncapsulation=_SyslogDefaultEncapsulation_Object((1,3,6,1,4,1,164,20,14,1,1,2),_SyslogDefaultEncapsulation_Type())
-syslogDefaultEncapsulation.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogDefaultEncapsulation.setStatus(_B)
-_SyslogControlTable_Object=MibTable
-syslogControlTable=_SyslogControlTable_Object((1,3,6,1,4,1,164,20,14,1,2))
-if mibBuilder.loadTexts:syslogControlTable.setStatus(_B)
-_SyslogControlEntry_Object=MibTableRow
-syslogControlEntry=_SyslogControlEntry_Object((1,3,6,1,4,1,164,20,14,1,2,1))
-syslogControlEntry.setIndexNames((0,_A,_W))
-if mibBuilder.loadTexts:syslogControlEntry.setStatus(_B)
-class _SyslogControlIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
-_SyslogControlIndex_Type.__name__=_S
-_SyslogControlIndex_Object=MibTableColumn
-syslogControlIndex=_SyslogControlIndex_Object((1,3,6,1,4,1,164,20,14,1,2,1,1),_SyslogControlIndex_Type())
-syslogControlIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:syslogControlIndex.setStatus(_B)
-_SyslogControlDescr_Type=SnmpAdminString
-_SyslogControlDescr_Object=MibTableColumn
-syslogControlDescr=_SyslogControlDescr_Object((1,3,6,1,4,1,164,20,14,1,2,1,2),_SyslogControlDescr_Type())
-syslogControlDescr.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogControlDescr.setStatus(_B)
-_SyslogControlRoles_Type=SyslogRoles
-_SyslogControlRoles_Object=MibTableColumn
-syslogControlRoles=_SyslogControlRoles_Object((1,3,6,1,4,1,164,20,14,1,2,1,3),_SyslogControlRoles_Type())
-syslogControlRoles.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogControlRoles.setStatus(_B)
-_SyslogControlBindAddrType_Type=InetAddressType
-_SyslogControlBindAddrType_Object=MibTableColumn
-syslogControlBindAddrType=_SyslogControlBindAddrType_Object((1,3,6,1,4,1,164,20,14,1,2,1,4),_SyslogControlBindAddrType_Type())
-syslogControlBindAddrType.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogControlBindAddrType.setStatus(_B)
-_SyslogControlBindAddr_Type=InetAddress
-_SyslogControlBindAddr_Object=MibTableColumn
-syslogControlBindAddr=_SyslogControlBindAddr_Object((1,3,6,1,4,1,164,20,14,1,2,1,5),_SyslogControlBindAddr_Type())
-syslogControlBindAddr.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogControlBindAddr.setStatus(_B)
-_SyslogControlService_Type=SyslogService
-_SyslogControlService_Object=MibTableColumn
-syslogControlService=_SyslogControlService_Object((1,3,6,1,4,1,164,20,14,1,2,1,6),_SyslogControlService_Type())
-syslogControlService.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogControlService.setStatus(_B)
-_SyslogControlEncapsulation_Type=SyslogEncapsulation
-_SyslogControlEncapsulation_Object=MibTableColumn
-syslogControlEncapsulation=_SyslogControlEncapsulation_Object((1,3,6,1,4,1,164,20,14,1,2,1,7),_SyslogControlEncapsulation_Type())
-syslogControlEncapsulation.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogControlEncapsulation.setStatus(_B)
-_SyslogControlMaxMessageSize_Type=Unsigned32
-_SyslogControlMaxMessageSize_Object=MibTableColumn
-syslogControlMaxMessageSize=_SyslogControlMaxMessageSize_Object((1,3,6,1,4,1,164,20,14,1,2,1,8),_SyslogControlMaxMessageSize_Type())
-syslogControlMaxMessageSize.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogControlMaxMessageSize.setStatus(_B)
-class _SyslogControlConfFileName_Type(SnmpAdminString):defaultValue=OctetString('/etc/syslog.conf')
-_SyslogControlConfFileName_Type.__name__=_R
-_SyslogControlConfFileName_Object=MibTableColumn
-syslogControlConfFileName=_SyslogControlConfFileName_Object((1,3,6,1,4,1,164,20,14,1,2,1,9),_SyslogControlConfFileName_Type())
-syslogControlConfFileName.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogControlConfFileName.setStatus(_B)
-class _SyslogControlStorageType_Type(StorageType):defaultValue=3
-_SyslogControlStorageType_Type.__name__=_T
-_SyslogControlStorageType_Object=MibTableColumn
-syslogControlStorageType=_SyslogControlStorageType_Object((1,3,6,1,4,1,164,20,14,1,2,1,11),_SyslogControlStorageType_Type())
-syslogControlStorageType.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogControlStorageType.setStatus(_B)
-_SyslogControlRowStatus_Type=RowStatus
-_SyslogControlRowStatus_Object=MibTableColumn
-syslogControlRowStatus=_SyslogControlRowStatus_Object((1,3,6,1,4,1,164,20,14,1,2,1,12),_SyslogControlRowStatus_Type())
-syslogControlRowStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogControlRowStatus.setStatus(_B)
-class _SyslogControlAccountingType_Type(Bits):namedValues=NamedValues(*(('shell',0),('system',1),('commands',2)))
-_SyslogControlAccountingType_Type.__name__='Bits'
-_SyslogControlAccountingType_Object=MibTableColumn
-syslogControlAccountingType=_SyslogControlAccountingType_Object((1,3,6,1,4,1,164,20,14,1,2,1,13),_SyslogControlAccountingType_Type())
-syslogControlAccountingType.setMaxAccess(_D)
-if mibBuilder.loadTexts:syslogControlAccountingType.setStatus(_B)
-_SyslogOperationsTable_Object=MibTable
-syslogOperationsTable=_SyslogOperationsTable_Object((1,3,6,1,4,1,164,20,14,1,3))
-if mibBuilder.loadTexts:syslogOperationsTable.setStatus(_B)
-_SyslogOperationsEntry_Object=MibTableRow
-syslogOperationsEntry=_SyslogOperationsEntry_Object((1,3,6,1,4,1,164,20,14,1,3,1))
-if mibBuilder.loadTexts:syslogOperationsEntry.setStatus(_B)
-_SyslogOperationsMsgsReceived_Type=Counter32
-_SyslogOperationsMsgsReceived_Object=MibTableColumn
-syslogOperationsMsgsReceived=_SyslogOperationsMsgsReceived_Object((1,3,6,1,4,1,164,20,14,1,3,1,1),_SyslogOperationsMsgsReceived_Type())
-syslogOperationsMsgsReceived.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogOperationsMsgsReceived.setStatus(_B)
-_SyslogOperationsMsgsTransmitted_Type=Counter32
-_SyslogOperationsMsgsTransmitted_Object=MibTableColumn
-syslogOperationsMsgsTransmitted=_SyslogOperationsMsgsTransmitted_Object((1,3,6,1,4,1,164,20,14,1,3,1,2),_SyslogOperationsMsgsTransmitted_Type())
-syslogOperationsMsgsTransmitted.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogOperationsMsgsTransmitted.setStatus(_B)
-_SyslogOperationsMsgsRelayed_Type=Counter32
-_SyslogOperationsMsgsRelayed_Object=MibTableColumn
-syslogOperationsMsgsRelayed=_SyslogOperationsMsgsRelayed_Object((1,3,6,1,4,1,164,20,14,1,3,1,3),_SyslogOperationsMsgsRelayed_Type())
-syslogOperationsMsgsRelayed.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogOperationsMsgsRelayed.setStatus(_B)
-_SyslogOperationsMsgsDropped_Type=Counter32
-_SyslogOperationsMsgsDropped_Object=MibTableColumn
-syslogOperationsMsgsDropped=_SyslogOperationsMsgsDropped_Object((1,3,6,1,4,1,164,20,14,1,3,1,4),_SyslogOperationsMsgsDropped_Type())
-syslogOperationsMsgsDropped.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogOperationsMsgsDropped.setStatus(_B)
-_SyslogOperationsMsgsMalFormed_Type=Counter32
-_SyslogOperationsMsgsMalFormed_Object=MibTableColumn
-syslogOperationsMsgsMalFormed=_SyslogOperationsMsgsMalFormed_Object((1,3,6,1,4,1,164,20,14,1,3,1,5),_SyslogOperationsMsgsMalFormed_Type())
-syslogOperationsMsgsMalFormed.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogOperationsMsgsMalFormed.setStatus(_B)
-_SyslogOperationsMsgsDiscarded_Type=Counter32
-_SyslogOperationsMsgsDiscarded_Object=MibTableColumn
-syslogOperationsMsgsDiscarded=_SyslogOperationsMsgsDiscarded_Object((1,3,6,1,4,1,164,20,14,1,3,1,6),_SyslogOperationsMsgsDiscarded_Type())
-syslogOperationsMsgsDiscarded.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogOperationsMsgsDiscarded.setStatus(_B)
-_SyslogOperationsLastMsgRecdTime_Type=TimeStamp
-_SyslogOperationsLastMsgRecdTime_Object=MibTableColumn
-syslogOperationsLastMsgRecdTime=_SyslogOperationsLastMsgRecdTime_Object((1,3,6,1,4,1,164,20,14,1,3,1,7),_SyslogOperationsLastMsgRecdTime_Type())
-syslogOperationsLastMsgRecdTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogOperationsLastMsgRecdTime.setStatus(_B)
-_SyslogOperationsLastMsgTransmittedTime_Type=TimeStamp
-_SyslogOperationsLastMsgTransmittedTime_Object=MibTableColumn
-syslogOperationsLastMsgTransmittedTime=_SyslogOperationsLastMsgTransmittedTime_Object((1,3,6,1,4,1,164,20,14,1,3,1,8),_SyslogOperationsLastMsgTransmittedTime_Type())
-syslogOperationsLastMsgTransmittedTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogOperationsLastMsgTransmittedTime.setStatus(_B)
-_SyslogOperationsStartTime_Type=TimeStamp
-_SyslogOperationsStartTime_Object=MibTableColumn
-syslogOperationsStartTime=_SyslogOperationsStartTime_Object((1,3,6,1,4,1,164,20,14,1,3,1,9),_SyslogOperationsStartTime_Type())
-syslogOperationsStartTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogOperationsStartTime.setStatus(_B)
-_SyslogOperationsLastError_Type=SnmpAdminString
-_SyslogOperationsLastError_Object=MibTableColumn
-syslogOperationsLastError=_SyslogOperationsLastError_Object((1,3,6,1,4,1,164,20,14,1,3,1,10),_SyslogOperationsLastError_Type())
-syslogOperationsLastError.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogOperationsLastError.setStatus(_B)
-_SyslogOperationsLastErrorTime_Type=TimeStamp
-_SyslogOperationsLastErrorTime_Object=MibTableColumn
-syslogOperationsLastErrorTime=_SyslogOperationsLastErrorTime_Object((1,3,6,1,4,1,164,20,14,1,3,1,11),_SyslogOperationsLastErrorTime_Type())
-syslogOperationsLastErrorTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogOperationsLastErrorTime.setStatus(_B)
-class _SyslogOperationsRunIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_SyslogOperationsRunIndex_Type.__name__=_I
-_SyslogOperationsRunIndex_Object=MibTableColumn
-syslogOperationsRunIndex=_SyslogOperationsRunIndex_Object((1,3,6,1,4,1,164,20,14,1,3,1,12),_SyslogOperationsRunIndex_Type())
-syslogOperationsRunIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogOperationsRunIndex.setStatus(_B)
-_SyslogOperationsCounterDiscontinuityTime_Type=TimeStamp
-_SyslogOperationsCounterDiscontinuityTime_Object=MibTableColumn
-syslogOperationsCounterDiscontinuityTime=_SyslogOperationsCounterDiscontinuityTime_Object((1,3,6,1,4,1,164,20,14,1,3,1,13),_SyslogOperationsCounterDiscontinuityTime_Type())
-syslogOperationsCounterDiscontinuityTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogOperationsCounterDiscontinuityTime.setStatus(_B)
-class _SyslogOperationsStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('unknown',1),('started',2),('suspended',3),('stopped',4)))
-_SyslogOperationsStatus_Type.__name__=_I
-_SyslogOperationsStatus_Object=MibTableColumn
-syslogOperationsStatus=_SyslogOperationsStatus_Object((1,3,6,1,4,1,164,20,14,1,3,1,14),_SyslogOperationsStatus_Type())
-syslogOperationsStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:syslogOperationsStatus.setStatus(_B)
-_SyslogConformance_ObjectIdentity=ObjectIdentity
-syslogConformance=_SyslogConformance_ObjectIdentity((1,3,6,1,4,1,164,20,14,3))
-_SyslogGroups_ObjectIdentity=ObjectIdentity
-syslogGroups=_SyslogGroups_ObjectIdentity((1,3,6,1,4,1,164,20,14,3,1))
-_SyslogCompliances_ObjectIdentity=ObjectIdentity
-syslogCompliances=_SyslogCompliances_ObjectIdentity((1,3,6,1,4,1,164,20,14,3,2))
-syslogControlEntry.registerAugmentions((_A,_X))
+#
+# PySNMP MIB module SYSLOG-R-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rad/SYSLOG-R-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:42:55 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
+radExperimental, = mibBuilder.importSymbols("RAD-SMI-MIB", "radExperimental")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, RowStatus, StorageType, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "StorageType", "TextualConvention")
+syslogMIBR = ModuleIdentity((1, 3, 6, 1, 4, 1, 164, 20, 14))
+if mibBuilder.loadTexts: syslogMIBR.setLastUpdated('201403051512Z')
+if mibBuilder.loadTexts: syslogMIBR.setOrganization('RAD Data Communications Ltd.')
+class SyslogRoles(TextualConvention, Bits):
+    reference = 'The Syslog Protocol [RFCPROT] sec. 3. '
+    status = 'current'
+    namedValues = NamedValues(("sender", 0), ("receiver", 1), ("relay", 2))
+
+class SyslogService(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+
+class SyslogEncapsulation(TextualConvention, Integer32):
+    reference = 'Transmission of syslog messages over UDP [RFCUDPX], TLS Transport Mapping for Syslog [RFCTLSX], Reliable Delivery for syslog [RFCBEEP]. '
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("other", 1), ("none", 2), ("tls", 3), ("beep", 4))
+
+syslogNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 164, 20, 14, 0))
+syslogObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 164, 20, 14, 1))
+syslogConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 164, 20, 14, 3))
+syslogSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 1))
+syslogDefaultService = MibScalar((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 1, 1), SyslogService().clone('514')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogDefaultService.setStatus('current')
+syslogDefaultEncapsulation = MibScalar((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 1, 2), SyslogEncapsulation().clone('none')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogDefaultEncapsulation.setStatus('current')
+syslogControlTable = MibTable((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 2), )
+if mibBuilder.loadTexts: syslogControlTable.setStatus('current')
+syslogControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 2, 1), ).setIndexNames((0, "SYSLOG-R-MIB", "syslogControlIndex"))
+if mibBuilder.loadTexts: syslogControlEntry.setStatus('current')
+syslogControlIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: syslogControlIndex.setStatus('current')
+syslogControlDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 2, 1, 2), SnmpAdminString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: syslogControlDescr.setStatus('current')
+syslogControlRoles = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 2, 1, 3), SyslogRoles()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: syslogControlRoles.setStatus('current')
+syslogControlBindAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 2, 1, 4), InetAddressType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: syslogControlBindAddrType.setStatus('current')
+syslogControlBindAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 2, 1, 5), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: syslogControlBindAddr.setStatus('current')
+syslogControlService = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 2, 1, 6), SyslogService()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: syslogControlService.setStatus('current')
+syslogControlEncapsulation = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 2, 1, 7), SyslogEncapsulation()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: syslogControlEncapsulation.setStatus('current')
+syslogControlMaxMessageSize = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 2, 1, 8), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: syslogControlMaxMessageSize.setStatus('current')
+syslogControlConfFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 2, 1, 9), SnmpAdminString().clone('/etc/syslog.conf')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: syslogControlConfFileName.setStatus('current')
+syslogControlStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 2, 1, 11), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: syslogControlStorageType.setStatus('current')
+syslogControlRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 2, 1, 12), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: syslogControlRowStatus.setStatus('current')
+syslogControlAccountingType = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 2, 1, 13), Bits().clone(namedValues=NamedValues(("shell", 0), ("system", 1), ("commands", 2)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: syslogControlAccountingType.setStatus('current')
+syslogOperationsTable = MibTable((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3), )
+if mibBuilder.loadTexts: syslogOperationsTable.setStatus('current')
+syslogOperationsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3, 1), )
+syslogControlEntry.registerAugmentions(("SYSLOG-R-MIB", "syslogOperationsEntry"))
 syslogOperationsEntry.setIndexNames(*syslogControlEntry.getIndexNames())
-syslogDefaultGroup=ObjectGroup((1,3,6,1,4,1,164,20,14,3,1,1))
-syslogDefaultGroup.setObjects(*((_A,_Y),(_A,_Z)))
-if mibBuilder.loadTexts:syslogDefaultGroup.setStatus(_B)
-syslogOperationsGroup=ObjectGroup((1,3,6,1,4,1,164,20,14,3,1,2))
-syslogOperationsGroup.setObjects(*((_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_J)))
-if mibBuilder.loadTexts:syslogOperationsGroup.setStatus(_B)
-syslogControlGroup=ObjectGroup((1,3,6,1,4,1,164,20,14,3,1,3))
-syslogControlGroup.setObjects(*((_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_n),(_A,_Q),(_A,_o),(_A,_p)))
-if mibBuilder.loadTexts:syslogControlGroup.setStatus(_B)
-syslogStatusChanged=NotificationType((1,3,6,1,4,1,164,20,14,0,1))
-syslogStatusChanged.setObjects(*((_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_P),(_A,_O),(_A,_Q),(_A,_J)))
-if mibBuilder.loadTexts:syslogStatusChanged.setStatus(_B)
-syslogNotificationGroup=NotificationGroup((1,3,6,1,4,1,164,20,14,3,1,4))
-syslogNotificationGroup.setObjects((_A,_q))
-if mibBuilder.loadTexts:syslogNotificationGroup.setStatus(_B)
-syslogFullCompliance1=ModuleCompliance((1,3,6,1,4,1,164,20,14,3,2,1))
-syslogFullCompliance1.setObjects(*((_A,_H),(_A,_E),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:syslogFullCompliance1.setStatus(_B)
-syslogFullCompliance2=ModuleCompliance((1,3,6,1,4,1,164,20,14,3,2,2))
-syslogFullCompliance2.setObjects(*((_A,_E),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:syslogFullCompliance2.setStatus(_B)
-syslogReadOnlyCompliance1=ModuleCompliance((1,3,6,1,4,1,164,20,14,3,2,3))
-syslogReadOnlyCompliance1.setObjects(*((_A,_H),(_A,_E),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:syslogReadOnlyCompliance1.setStatus(_B)
-syslogReadOnlyCompliance2=ModuleCompliance((1,3,6,1,4,1,164,20,14,3,2,4))
-syslogReadOnlyCompliance2.setObjects(*((_A,_E),(_A,_F),(_A,_G)))
-if mibBuilder.loadTexts:syslogReadOnlyCompliance2.setStatus(_B)
-syslogNotificationCompliance=ModuleCompliance((1,3,6,1,4,1,164,20,14,3,2,5))
-syslogNotificationCompliance.setObjects((_A,_H))
-if mibBuilder.loadTexts:syslogNotificationCompliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'SyslogRoles':SyslogRoles,_U:SyslogService,_V:SyslogEncapsulation,'syslogMIBR':syslogMIBR,'syslogNotifications':syslogNotifications,_q:syslogStatusChanged,'syslogObjects':syslogObjects,'syslogSystem':syslogSystem,_Y:syslogDefaultService,_Z:syslogDefaultEncapsulation,'syslogControlTable':syslogControlTable,'syslogControlEntry':syslogControlEntry,_W:syslogControlIndex,_K:syslogControlDescr,_L:syslogControlRoles,_M:syslogControlBindAddrType,_N:syslogControlBindAddr,_P:syslogControlService,_O:syslogControlEncapsulation,_n:syslogControlMaxMessageSize,_Q:syslogControlConfFileName,_o:syslogControlStorageType,_p:syslogControlRowStatus,'syslogControlAccountingType':syslogControlAccountingType,'syslogOperationsTable':syslogOperationsTable,_X:syslogOperationsEntry,_a:syslogOperationsMsgsReceived,_b:syslogOperationsMsgsTransmitted,_c:syslogOperationsMsgsRelayed,_d:syslogOperationsMsgsDropped,_e:syslogOperationsMsgsMalFormed,_f:syslogOperationsMsgsDiscarded,_g:syslogOperationsLastMsgRecdTime,_h:syslogOperationsLastMsgTransmittedTime,_i:syslogOperationsStartTime,_j:syslogOperationsLastError,_k:syslogOperationsLastErrorTime,_l:syslogOperationsRunIndex,_m:syslogOperationsCounterDiscontinuityTime,_J:syslogOperationsStatus,'syslogConformance':syslogConformance,'syslogGroups':syslogGroups,_E:syslogDefaultGroup,_F:syslogOperationsGroup,_G:syslogControlGroup,_H:syslogNotificationGroup,'syslogCompliances':syslogCompliances,'syslogFullCompliance1':syslogFullCompliance1,'syslogFullCompliance2':syslogFullCompliance2,'syslogReadOnlyCompliance1':syslogReadOnlyCompliance1,'syslogReadOnlyCompliance2':syslogReadOnlyCompliance2,'syslogNotificationCompliance':syslogNotificationCompliance})
+if mibBuilder.loadTexts: syslogOperationsEntry.setStatus('current')
+syslogOperationsMsgsReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogOperationsMsgsReceived.setStatus('current')
+syslogOperationsMsgsTransmitted = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogOperationsMsgsTransmitted.setStatus('current')
+syslogOperationsMsgsRelayed = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogOperationsMsgsRelayed.setStatus('current')
+syslogOperationsMsgsDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogOperationsMsgsDropped.setStatus('current')
+syslogOperationsMsgsMalFormed = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogOperationsMsgsMalFormed.setStatus('current')
+syslogOperationsMsgsDiscarded = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogOperationsMsgsDiscarded.setStatus('current')
+syslogOperationsLastMsgRecdTime = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3, 1, 7), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogOperationsLastMsgRecdTime.setStatus('current')
+syslogOperationsLastMsgTransmittedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3, 1, 8), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogOperationsLastMsgTransmittedTime.setStatus('current')
+syslogOperationsStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3, 1, 9), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogOperationsStartTime.setStatus('current')
+syslogOperationsLastError = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogOperationsLastError.setStatus('current')
+syslogOperationsLastErrorTime = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3, 1, 11), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogOperationsLastErrorTime.setStatus('current')
+syslogOperationsRunIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogOperationsRunIndex.setStatus('current')
+syslogOperationsCounterDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3, 1, 13), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogOperationsCounterDiscontinuityTime.setStatus('current')
+syslogOperationsStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 20, 14, 1, 3, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("started", 2), ("suspended", 3), ("stopped", 4))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: syslogOperationsStatus.setStatus('current')
+syslogStatusChanged = NotificationType((1, 3, 6, 1, 4, 1, 164, 20, 14, 0, 1)).setObjects(("SYSLOG-R-MIB", "syslogControlDescr"), ("SYSLOG-R-MIB", "syslogControlRoles"), ("SYSLOG-R-MIB", "syslogControlBindAddrType"), ("SYSLOG-R-MIB", "syslogControlBindAddr"), ("SYSLOG-R-MIB", "syslogControlService"), ("SYSLOG-R-MIB", "syslogControlEncapsulation"), ("SYSLOG-R-MIB", "syslogControlConfFileName"), ("SYSLOG-R-MIB", "syslogOperationsStatus"))
+if mibBuilder.loadTexts: syslogStatusChanged.setStatus('current')
+syslogGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 164, 20, 14, 3, 1))
+syslogCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 164, 20, 14, 3, 2))
+syslogDefaultGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 164, 20, 14, 3, 1, 1)).setObjects(("SYSLOG-R-MIB", "syslogDefaultService"), ("SYSLOG-R-MIB", "syslogDefaultEncapsulation"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    syslogDefaultGroup = syslogDefaultGroup.setStatus('current')
+syslogOperationsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 164, 20, 14, 3, 1, 2)).setObjects(("SYSLOG-R-MIB", "syslogOperationsMsgsReceived"), ("SYSLOG-R-MIB", "syslogOperationsMsgsTransmitted"), ("SYSLOG-R-MIB", "syslogOperationsMsgsRelayed"), ("SYSLOG-R-MIB", "syslogOperationsMsgsDropped"), ("SYSLOG-R-MIB", "syslogOperationsMsgsMalFormed"), ("SYSLOG-R-MIB", "syslogOperationsMsgsDiscarded"), ("SYSLOG-R-MIB", "syslogOperationsLastMsgRecdTime"), ("SYSLOG-R-MIB", "syslogOperationsLastMsgTransmittedTime"), ("SYSLOG-R-MIB", "syslogOperationsStartTime"), ("SYSLOG-R-MIB", "syslogOperationsLastError"), ("SYSLOG-R-MIB", "syslogOperationsLastErrorTime"), ("SYSLOG-R-MIB", "syslogOperationsRunIndex"), ("SYSLOG-R-MIB", "syslogOperationsCounterDiscontinuityTime"), ("SYSLOG-R-MIB", "syslogOperationsStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    syslogOperationsGroup = syslogOperationsGroup.setStatus('current')
+syslogControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 164, 20, 14, 3, 1, 3)).setObjects(("SYSLOG-R-MIB", "syslogControlDescr"), ("SYSLOG-R-MIB", "syslogControlRoles"), ("SYSLOG-R-MIB", "syslogControlBindAddrType"), ("SYSLOG-R-MIB", "syslogControlBindAddr"), ("SYSLOG-R-MIB", "syslogControlEncapsulation"), ("SYSLOG-R-MIB", "syslogControlService"), ("SYSLOG-R-MIB", "syslogControlMaxMessageSize"), ("SYSLOG-R-MIB", "syslogControlConfFileName"), ("SYSLOG-R-MIB", "syslogControlStorageType"), ("SYSLOG-R-MIB", "syslogControlRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    syslogControlGroup = syslogControlGroup.setStatus('current')
+syslogNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 164, 20, 14, 3, 1, 4)).setObjects(("SYSLOG-R-MIB", "syslogStatusChanged"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    syslogNotificationGroup = syslogNotificationGroup.setStatus('current')
+syslogFullCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 164, 20, 14, 3, 2, 1)).setObjects(("SYSLOG-R-MIB", "syslogNotificationGroup"), ("SYSLOG-R-MIB", "syslogDefaultGroup"), ("SYSLOG-R-MIB", "syslogOperationsGroup"), ("SYSLOG-R-MIB", "syslogControlGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    syslogFullCompliance1 = syslogFullCompliance1.setStatus('current')
+syslogFullCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 164, 20, 14, 3, 2, 2)).setObjects(("SYSLOG-R-MIB", "syslogDefaultGroup"), ("SYSLOG-R-MIB", "syslogOperationsGroup"), ("SYSLOG-R-MIB", "syslogControlGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    syslogFullCompliance2 = syslogFullCompliance2.setStatus('current')
+syslogReadOnlyCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 164, 20, 14, 3, 2, 3)).setObjects(("SYSLOG-R-MIB", "syslogNotificationGroup"), ("SYSLOG-R-MIB", "syslogDefaultGroup"), ("SYSLOG-R-MIB", "syslogOperationsGroup"), ("SYSLOG-R-MIB", "syslogControlGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    syslogReadOnlyCompliance1 = syslogReadOnlyCompliance1.setStatus('current')
+syslogReadOnlyCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 164, 20, 14, 3, 2, 4)).setObjects(("SYSLOG-R-MIB", "syslogDefaultGroup"), ("SYSLOG-R-MIB", "syslogOperationsGroup"), ("SYSLOG-R-MIB", "syslogControlGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    syslogReadOnlyCompliance2 = syslogReadOnlyCompliance2.setStatus('current')
+syslogNotificationCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 164, 20, 14, 3, 2, 5)).setObjects(("SYSLOG-R-MIB", "syslogNotificationGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    syslogNotificationCompliance = syslogNotificationCompliance.setStatus('current')
+mibBuilder.exportSymbols("SYSLOG-R-MIB", SyslogService=SyslogService, syslogOperationsMsgsReceived=syslogOperationsMsgsReceived, syslogFullCompliance2=syslogFullCompliance2, syslogOperationsLastMsgTransmittedTime=syslogOperationsLastMsgTransmittedTime, SyslogEncapsulation=SyslogEncapsulation, syslogControlRoles=syslogControlRoles, syslogOperationsMsgsMalFormed=syslogOperationsMsgsMalFormed, syslogDefaultService=syslogDefaultService, syslogNotifications=syslogNotifications, syslogControlBindAddrType=syslogControlBindAddrType, syslogReadOnlyCompliance2=syslogReadOnlyCompliance2, syslogOperationsCounterDiscontinuityTime=syslogOperationsCounterDiscontinuityTime, syslogOperationsEntry=syslogOperationsEntry, syslogDefaultGroup=syslogDefaultGroup, syslogSystem=syslogSystem, syslogControlConfFileName=syslogControlConfFileName, syslogOperationsMsgsTransmitted=syslogOperationsMsgsTransmitted, syslogControlStorageType=syslogControlStorageType, syslogControlIndex=syslogControlIndex, syslogNotificationGroup=syslogNotificationGroup, syslogOperationsLastError=syslogOperationsLastError, syslogControlEncapsulation=syslogControlEncapsulation, syslogOperationsStatus=syslogOperationsStatus, syslogReadOnlyCompliance1=syslogReadOnlyCompliance1, syslogFullCompliance1=syslogFullCompliance1, syslogStatusChanged=syslogStatusChanged, syslogControlTable=syslogControlTable, syslogObjects=syslogObjects, syslogControlDescr=syslogControlDescr, syslogOperationsGroup=syslogOperationsGroup, syslogControlBindAddr=syslogControlBindAddr, PYSNMP_MODULE_ID=syslogMIBR, syslogOperationsLastErrorTime=syslogOperationsLastErrorTime, syslogControlEntry=syslogControlEntry, syslogControlService=syslogControlService, syslogOperationsStartTime=syslogOperationsStartTime, syslogMIBR=syslogMIBR, syslogOperationsTable=syslogOperationsTable, syslogOperationsMsgsRelayed=syslogOperationsMsgsRelayed, syslogConformance=syslogConformance, syslogNotificationCompliance=syslogNotificationCompliance, syslogOperationsLastMsgRecdTime=syslogOperationsLastMsgRecdTime, syslogGroups=syslogGroups, syslogOperationsMsgsDiscarded=syslogOperationsMsgsDiscarded, syslogOperationsRunIndex=syslogOperationsRunIndex, syslogControlAccountingType=syslogControlAccountingType, syslogCompliances=syslogCompliances, syslogOperationsMsgsDropped=syslogOperationsMsgsDropped, syslogControlMaxMessageSize=syslogControlMaxMessageSize, SyslogRoles=SyslogRoles, syslogControlRowStatus=syslogControlRowStatus, syslogControlGroup=syslogControlGroup, syslogDefaultEncapsulation=syslogDefaultEncapsulation)

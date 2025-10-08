@@ -1,94 +1,52 @@
-_N='rcFreqAdj'
-_M='rcGpsLongtitude'
-_L='rcGpsLatitude'
-_K='rcSatelliteInView'
-_J='rcGpsAntPower'
-_I='rcGpsCableCompensate'
-_H='rcGpsLocInt'
-_G='rcGpsStatusChange'
-_F='read-write'
-_E='rcGpsStatus'
-_D='read-only'
-_C='Integer32'
-_B='RUGGEDCOM-GPS-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ruggedcomMgmt,ruggedcomTraps=mibBuilder.importSymbols('RUGGEDCOM-MIB','ruggedcomMgmt','ruggedcomTraps')
-RcTimeSyncStatus,=mibBuilder.importSymbols('RUGGEDCOM-TIMECONFIG-MIB','RcTimeSyncStatus')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-rcGps=ModuleIdentity((1,3,6,1,4,1,15004,4,9))
-if mibBuilder.loadTexts:rcGps.setRevisions(('2015-10-30 17:00','2014-12-01 17:00'))
-_RcGpsBase_ObjectIdentity=ObjectIdentity
-rcGpsBase=_RcGpsBase_ObjectIdentity((1,3,6,1,4,1,15004,4,9,1))
-_RcGpsStatus_Type=RcTimeSyncStatus
-_RcGpsStatus_Object=MibScalar
-rcGpsStatus=_RcGpsStatus_Object((1,3,6,1,4,1,15004,4,9,1,1),_RcGpsStatus_Type())
-rcGpsStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcGpsStatus.setStatus(_A)
-class _RcGpsLocInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,120))
-_RcGpsLocInt_Type.__name__=_C
-_RcGpsLocInt_Object=MibScalar
-rcGpsLocInt=_RcGpsLocInt_Object((1,3,6,1,4,1,15004,4,9,1,2),_RcGpsLocInt_Type())
-rcGpsLocInt.setMaxAccess(_F)
-if mibBuilder.loadTexts:rcGpsLocInt.setStatus(_A)
-class _RcGpsCableCompensate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,50000))
-_RcGpsCableCompensate_Type.__name__=_C
-_RcGpsCableCompensate_Object=MibScalar
-rcGpsCableCompensate=_RcGpsCableCompensate_Object((1,3,6,1,4,1,15004,4,9,1,3),_RcGpsCableCompensate_Type())
-rcGpsCableCompensate.setMaxAccess(_F)
-if mibBuilder.loadTexts:rcGpsCableCompensate.setStatus(_A)
-_RcGpsAntPower_Type=TruthValue
-_RcGpsAntPower_Object=MibScalar
-rcGpsAntPower=_RcGpsAntPower_Object((1,3,6,1,4,1,15004,4,9,1,4),_RcGpsAntPower_Type())
-rcGpsAntPower.setMaxAccess(_F)
-if mibBuilder.loadTexts:rcGpsAntPower.setStatus(_A)
-class _RcSatelliteInView_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,24))
-_RcSatelliteInView_Type.__name__=_C
-_RcSatelliteInView_Object=MibScalar
-rcSatelliteInView=_RcSatelliteInView_Object((1,3,6,1,4,1,15004,4,9,1,5),_RcSatelliteInView_Type())
-rcSatelliteInView.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcSatelliteInView.setStatus(_A)
-_RcGpsLatitude_Type=DisplayString
-_RcGpsLatitude_Object=MibScalar
-rcGpsLatitude=_RcGpsLatitude_Object((1,3,6,1,4,1,15004,4,9,1,6),_RcGpsLatitude_Type())
-rcGpsLatitude.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcGpsLatitude.setStatus(_A)
-_RcGpsLongtitude_Type=DisplayString
-_RcGpsLongtitude_Object=MibScalar
-rcGpsLongtitude=_RcGpsLongtitude_Object((1,3,6,1,4,1,15004,4,9,1,7),_RcGpsLongtitude_Type())
-rcGpsLongtitude.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcGpsLongtitude.setStatus(_A)
-class _RcOFM_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2147483647,2147483647))
-_RcOFM_Type.__name__=_C
-_RcOFM_Object=MibScalar
-rcOFM=_RcOFM_Object((1,3,6,1,4,1,15004,4,9,1,8),_RcOFM_Type())
-rcOFM.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcOFM.setStatus(_A)
-class _RcFreqAdj_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2147483647,2147483647))
-_RcFreqAdj_Type.__name__=_C
-_RcFreqAdj_Object=MibScalar
-rcFreqAdj=_RcFreqAdj_Object((1,3,6,1,4,1,15004,4,9,1,9),_RcFreqAdj_Type())
-rcFreqAdj.setMaxAccess(_D)
-if mibBuilder.loadTexts:rcFreqAdj.setStatus(_A)
-_RcGpsConformance_ObjectIdentity=ObjectIdentity
-rcGpsConformance=_RcGpsConformance_ObjectIdentity((1,3,6,1,4,1,15004,4,9,3))
-_RcGpsGroups_ObjectIdentity=ObjectIdentity
-rcGpsGroups=_RcGpsGroups_ObjectIdentity((1,3,6,1,4,1,15004,4,9,3,2))
-rcGpsBaseGroup=ObjectGroup((1,3,6,1,4,1,15004,4,9,3,2,1))
-rcGpsBaseGroup.setObjects((_B,_E))
-if mibBuilder.loadTexts:rcGpsBaseGroup.setStatus(_A)
-rcGpsNotifyGroup=ObjectGroup((1,3,6,1,4,1,15004,4,9,3,2,2))
-rcGpsNotifyGroup.setObjects((_B,_G))
-if mibBuilder.loadTexts:rcGpsNotifyGroup.setStatus(_A)
-rcGpsBaseGroup01=ObjectGroup((1,3,6,1,4,1,15004,4,9,3,2,3))
-rcGpsBaseGroup01.setObjects(*((_B,_E),(_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,'rcOFM'),(_B,_N)))
-if mibBuilder.loadTexts:rcGpsBaseGroup01.setStatus(_A)
-rcGpsStatusChange=NotificationType((1,3,6,1,4,1,15004,5,19))
-rcGpsStatusChange.setObjects((_B,_E))
-if mibBuilder.loadTexts:rcGpsStatusChange.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'rcGps':rcGps,'rcGpsBase':rcGpsBase,_E:rcGpsStatus,_H:rcGpsLocInt,_I:rcGpsCableCompensate,_J:rcGpsAntPower,_K:rcSatelliteInView,_L:rcGpsLatitude,_M:rcGpsLongtitude,'rcOFM':rcOFM,_N:rcFreqAdj,'rcGpsConformance':rcGpsConformance,'rcGpsGroups':rcGpsGroups,'rcGpsBaseGroup':rcGpsBaseGroup,'rcGpsNotifyGroup':rcGpsNotifyGroup,'rcGpsBaseGroup01':rcGpsBaseGroup01,_G:rcGpsStatusChange})
+#
+# PySNMP MIB module RUGGEDCOM-GPS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/siemens/RUGGEDCOM-GPS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:58 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ruggedcomTraps, ruggedcomMgmt = mibBuilder.importSymbols("RUGGEDCOM-MIB", "ruggedcomTraps", "ruggedcomMgmt")
+RcTimeSyncStatus, = mibBuilder.importSymbols("RUGGEDCOM-TIMECONFIG-MIB", "RcTimeSyncStatus")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+rcGps = ModuleIdentity((1, 3, 6, 1, 4, 1, 15004, 4, 9))
+rcGps.setRevisions(('2015-10-30 17:00', '2014-12-01 17:00',))
+if mibBuilder.loadTexts: rcGps.setLastUpdated('201510301700Z')
+if mibBuilder.loadTexts: rcGps.setOrganization('Siemens Canada Limited')
+rcGpsBase = MibIdentifier((1, 3, 6, 1, 4, 1, 15004, 4, 9, 1))
+rcGpsConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 15004, 4, 9, 3))
+rcGpsGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 15004, 4, 9, 3, 2))
+rcGpsStatus = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 9, 1, 1), RcTimeSyncStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcGpsStatus.setStatus('current')
+rcGpsLocInt = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 9, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 120))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcGpsLocInt.setStatus('current')
+rcGpsCableCompensate = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 9, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 50000))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcGpsCableCompensate.setStatus('current')
+rcGpsAntPower = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 9, 1, 4), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: rcGpsAntPower.setStatus('current')
+rcSatelliteInView = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 9, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 24))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcSatelliteInView.setStatus('current')
+rcGpsLatitude = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 9, 1, 6), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcGpsLatitude.setStatus('current')
+rcGpsLongtitude = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 9, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcGpsLongtitude.setStatus('current')
+rcOFM = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 9, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-2147483647, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcOFM.setStatus('current')
+rcFreqAdj = MibScalar((1, 3, 6, 1, 4, 1, 15004, 4, 9, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-2147483647, 2147483647))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rcFreqAdj.setStatus('current')
+rcGpsStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 15004, 5, 19)).setObjects(("RUGGEDCOM-GPS-MIB", "rcGpsStatus"))
+if mibBuilder.loadTexts: rcGpsStatusChange.setStatus('current')
+rcGpsBaseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 9, 3, 2, 1)).setObjects(("RUGGEDCOM-GPS-MIB", "rcGpsStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rcGpsBaseGroup = rcGpsBaseGroup.setStatus('current')
+rcGpsNotifyGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 9, 3, 2, 2)).setObjects(("RUGGEDCOM-GPS-MIB", "rcGpsStatusChange"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rcGpsNotifyGroup = rcGpsNotifyGroup.setStatus('current')
+rcGpsBaseGroup01 = ObjectGroup((1, 3, 6, 1, 4, 1, 15004, 4, 9, 3, 2, 3)).setObjects(("RUGGEDCOM-GPS-MIB", "rcGpsStatus"), ("RUGGEDCOM-GPS-MIB", "rcGpsLocInt"), ("RUGGEDCOM-GPS-MIB", "rcGpsCableCompensate"), ("RUGGEDCOM-GPS-MIB", "rcGpsAntPower"), ("RUGGEDCOM-GPS-MIB", "rcSatelliteInView"), ("RUGGEDCOM-GPS-MIB", "rcGpsLatitude"), ("RUGGEDCOM-GPS-MIB", "rcGpsLongtitude"), ("RUGGEDCOM-GPS-MIB", "rcOFM"), ("RUGGEDCOM-GPS-MIB", "rcFreqAdj"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rcGpsBaseGroup01 = rcGpsBaseGroup01.setStatus('current')
+mibBuilder.exportSymbols("RUGGEDCOM-GPS-MIB", rcOFM=rcOFM, rcGpsAntPower=rcGpsAntPower, PYSNMP_MODULE_ID=rcGps, rcGpsConformance=rcGpsConformance, rcGpsBaseGroup01=rcGpsBaseGroup01, rcGpsStatusChange=rcGpsStatusChange, rcGpsStatus=rcGpsStatus, rcFreqAdj=rcFreqAdj, rcGps=rcGps, rcSatelliteInView=rcSatelliteInView, rcGpsLongtitude=rcGpsLongtitude, rcGpsGroups=rcGpsGroups, rcGpsLatitude=rcGpsLatitude, rcGpsBaseGroup=rcGpsBaseGroup, rcGpsBase=rcGpsBase, rcGpsLocInt=rcGpsLocInt, rcGpsNotifyGroup=rcGpsNotifyGroup, rcGpsCableCompensate=rcGpsCableCompensate)

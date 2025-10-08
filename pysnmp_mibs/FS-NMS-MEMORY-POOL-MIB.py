@@ -1,67 +1,42 @@
-_B='current'
-_A='read-only'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-Percent,=mibBuilder.importSymbols('FS-NMS-QOS-PIB-MIB','Percent')
-nmsMgmt,=mibBuilder.importSymbols('FS-NMS-SMI','nmsMgmt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-nmsMemoryPoolMIB=ModuleIdentity((1,3,6,1,4,1,52642,9,48))
-if mibBuilder.loadTexts:nmsMemoryPoolMIB.setRevisions(('2003-10-16 00:00',))
-_NmsMemoryPoolUtilization_Type=Percent
-_NmsMemoryPoolUtilization_Object=MibScalar
-nmsMemoryPoolUtilization=_NmsMemoryPoolUtilization_Object((1,3,6,1,4,1,52642,9,48,1),_NmsMemoryPoolUtilization_Type())
-nmsMemoryPoolUtilization.setMaxAccess(_A)
-if mibBuilder.loadTexts:nmsMemoryPoolUtilization.setStatus(_B)
-_NmsMemoryPoolTotalMemorySize_Type=Unsigned32
-_NmsMemoryPoolTotalMemorySize_Object=MibScalar
-nmsMemoryPoolTotalMemorySize=_NmsMemoryPoolTotalMemorySize_Object((1,3,6,1,4,1,52642,9,48,2),_NmsMemoryPoolTotalMemorySize_Type())
-nmsMemoryPoolTotalMemorySize.setMaxAccess(_A)
-if mibBuilder.loadTexts:nmsMemoryPoolTotalMemorySize.setStatus(_B)
-_NmsMemoryPoolImageRatio_Type=Percent
-_NmsMemoryPoolImageRatio_Object=MibScalar
-nmsMemoryPoolImageRatio=_NmsMemoryPoolImageRatio_Object((1,3,6,1,4,1,52642,9,48,3),_NmsMemoryPoolImageRatio_Type())
-nmsMemoryPoolImageRatio.setMaxAccess(_A)
-if mibBuilder.loadTexts:nmsMemoryPoolImageRatio.setStatus(_B)
-_NmsMemoryPoolRegionRatio_Type=Percent
-_NmsMemoryPoolRegionRatio_Object=MibScalar
-nmsMemoryPoolRegionRatio=_NmsMemoryPoolRegionRatio_Object((1,3,6,1,4,1,52642,9,48,4),_NmsMemoryPoolRegionRatio_Type())
-nmsMemoryPoolRegionRatio.setMaxAccess(_A)
-if mibBuilder.loadTexts:nmsMemoryPoolRegionRatio.setStatus(_B)
-_NmsMemoryPoolHeapRatio_Type=Percent
-_NmsMemoryPoolHeapRatio_Object=MibScalar
-nmsMemoryPoolHeapRatio=_NmsMemoryPoolHeapRatio_Object((1,3,6,1,4,1,52642,9,48,5),_NmsMemoryPoolHeapRatio_Type())
-nmsMemoryPoolHeapRatio.setMaxAccess(_A)
-if mibBuilder.loadTexts:nmsMemoryPoolHeapRatio.setStatus(_B)
-_NmsMemoryPoolHeapUtilization_Type=Percent
-_NmsMemoryPoolHeapUtilization_Object=MibScalar
-nmsMemoryPoolHeapUtilization=_NmsMemoryPoolHeapUtilization_Object((1,3,6,1,4,1,52642,9,48,6),_NmsMemoryPoolHeapUtilization_Type())
-nmsMemoryPoolHeapUtilization.setMaxAccess(_A)
-if mibBuilder.loadTexts:nmsMemoryPoolHeapUtilization.setStatus(_B)
-_NmsMemoryPoolMessageBufferRatio_Type=Percent
-_NmsMemoryPoolMessageBufferRatio_Object=MibScalar
-nmsMemoryPoolMessageBufferRatio=_NmsMemoryPoolMessageBufferRatio_Object((1,3,6,1,4,1,52642,9,48,7),_NmsMemoryPoolMessageBufferRatio_Type())
-nmsMemoryPoolMessageBufferRatio.setMaxAccess(_A)
-if mibBuilder.loadTexts:nmsMemoryPoolMessageBufferRatio.setStatus(_B)
-_NmsMemoryPoolMessageBufferUtilization_Type=Percent
-_NmsMemoryPoolMessageBufferUtilization_Object=MibScalar
-nmsMemoryPoolMessageBufferUtilization=_NmsMemoryPoolMessageBufferUtilization_Object((1,3,6,1,4,1,52642,9,48,8),_NmsMemoryPoolMessageBufferUtilization_Type())
-nmsMemoryPoolMessageBufferUtilization.setMaxAccess(_A)
-if mibBuilder.loadTexts:nmsMemoryPoolMessageBufferUtilization.setStatus(_B)
-_NmsMemoryPoolTotalFlashSize_Type=Percent
-_NmsMemoryPoolTotalFlashSize_Object=MibScalar
-nmsMemoryPoolTotalFlashSize=_NmsMemoryPoolTotalFlashSize_Object((1,3,6,1,4,1,52642,9,48,9),_NmsMemoryPoolTotalFlashSize_Type())
-nmsMemoryPoolTotalFlashSize.setMaxAccess(_A)
-if mibBuilder.loadTexts:nmsMemoryPoolTotalFlashSize.setStatus(_B)
-_NmsMemoryPoolNotifications_ObjectIdentity=ObjectIdentity
-nmsMemoryPoolNotifications=_NmsMemoryPoolNotifications_ObjectIdentity((1,3,6,1,4,1,52642,9,48,20))
-_NmsMemoryPoolConformance_ObjectIdentity=ObjectIdentity
-nmsMemoryPoolConformance=_NmsMemoryPoolConformance_ObjectIdentity((1,3,6,1,4,1,52642,9,48,21))
-_NmsMemoryPoolCompliances_ObjectIdentity=ObjectIdentity
-nmsMemoryPoolCompliances=_NmsMemoryPoolCompliances_ObjectIdentity((1,3,6,1,4,1,52642,9,48,21,1))
-_NmsMemoryPoolGroups_ObjectIdentity=ObjectIdentity
-nmsMemoryPoolGroups=_NmsMemoryPoolGroups_ObjectIdentity((1,3,6,1,4,1,52642,9,48,21,2))
-mibBuilder.exportSymbols('FS-NMS-MEMORY-POOL-MIB',**{'nmsMemoryPoolMIB':nmsMemoryPoolMIB,'nmsMemoryPoolUtilization':nmsMemoryPoolUtilization,'nmsMemoryPoolTotalMemorySize':nmsMemoryPoolTotalMemorySize,'nmsMemoryPoolImageRatio':nmsMemoryPoolImageRatio,'nmsMemoryPoolRegionRatio':nmsMemoryPoolRegionRatio,'nmsMemoryPoolHeapRatio':nmsMemoryPoolHeapRatio,'nmsMemoryPoolHeapUtilization':nmsMemoryPoolHeapUtilization,'nmsMemoryPoolMessageBufferRatio':nmsMemoryPoolMessageBufferRatio,'nmsMemoryPoolMessageBufferUtilization':nmsMemoryPoolMessageBufferUtilization,'nmsMemoryPoolTotalFlashSize':nmsMemoryPoolTotalFlashSize,'nmsMemoryPoolNotifications':nmsMemoryPoolNotifications,'nmsMemoryPoolConformance':nmsMemoryPoolConformance,'nmsMemoryPoolCompliances':nmsMemoryPoolCompliances,'nmsMemoryPoolGroups':nmsMemoryPoolGroups})
+#
+# PySNMP MIB module FS-NMS-MEMORY-POOL-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-NMS-MEMORY-POOL-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+Percent, = mibBuilder.importSymbols("FS-NMS-QOS-PIB-MIB", "Percent")
+nmsMgmt, = mibBuilder.importSymbols("FS-NMS-SMI", "nmsMgmt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+nmsMemoryPoolMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 9, 48))
+nmsMemoryPoolMIB.setRevisions(('2003-10-16 00:00',))
+if mibBuilder.loadTexts: nmsMemoryPoolMIB.setLastUpdated('200310160000Z')
+if mibBuilder.loadTexts: nmsMemoryPoolMIB.setOrganization('')
+nmsMemoryPoolUtilization = MibScalar((1, 3, 6, 1, 4, 1, 52642, 9, 48, 1), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmsMemoryPoolUtilization.setStatus('current')
+nmsMemoryPoolTotalMemorySize = MibScalar((1, 3, 6, 1, 4, 1, 52642, 9, 48, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmsMemoryPoolTotalMemorySize.setStatus('current')
+nmsMemoryPoolImageRatio = MibScalar((1, 3, 6, 1, 4, 1, 52642, 9, 48, 3), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmsMemoryPoolImageRatio.setStatus('current')
+nmsMemoryPoolRegionRatio = MibScalar((1, 3, 6, 1, 4, 1, 52642, 9, 48, 4), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmsMemoryPoolRegionRatio.setStatus('current')
+nmsMemoryPoolHeapRatio = MibScalar((1, 3, 6, 1, 4, 1, 52642, 9, 48, 5), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmsMemoryPoolHeapRatio.setStatus('current')
+nmsMemoryPoolHeapUtilization = MibScalar((1, 3, 6, 1, 4, 1, 52642, 9, 48, 6), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmsMemoryPoolHeapUtilization.setStatus('current')
+nmsMemoryPoolMessageBufferRatio = MibScalar((1, 3, 6, 1, 4, 1, 52642, 9, 48, 7), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmsMemoryPoolMessageBufferRatio.setStatus('current')
+nmsMemoryPoolMessageBufferUtilization = MibScalar((1, 3, 6, 1, 4, 1, 52642, 9, 48, 8), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmsMemoryPoolMessageBufferUtilization.setStatus('current')
+nmsMemoryPoolTotalFlashSize = MibScalar((1, 3, 6, 1, 4, 1, 52642, 9, 48, 9), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: nmsMemoryPoolTotalFlashSize.setStatus('current')
+nmsMemoryPoolNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 9, 48, 20))
+nmsMemoryPoolConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 9, 48, 21))
+nmsMemoryPoolCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 9, 48, 21, 1))
+nmsMemoryPoolGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 9, 48, 21, 2))
+mibBuilder.exportSymbols("FS-NMS-MEMORY-POOL-MIB", nmsMemoryPoolMessageBufferUtilization=nmsMemoryPoolMessageBufferUtilization, nmsMemoryPoolMIB=nmsMemoryPoolMIB, nmsMemoryPoolMessageBufferRatio=nmsMemoryPoolMessageBufferRatio, nmsMemoryPoolTotalFlashSize=nmsMemoryPoolTotalFlashSize, nmsMemoryPoolNotifications=nmsMemoryPoolNotifications, nmsMemoryPoolCompliances=nmsMemoryPoolCompliances, nmsMemoryPoolTotalMemorySize=nmsMemoryPoolTotalMemorySize, nmsMemoryPoolUtilization=nmsMemoryPoolUtilization, nmsMemoryPoolImageRatio=nmsMemoryPoolImageRatio, nmsMemoryPoolHeapRatio=nmsMemoryPoolHeapRatio, nmsMemoryPoolConformance=nmsMemoryPoolConformance, nmsMemoryPoolGroups=nmsMemoryPoolGroups, PYSNMP_MODULE_ID=nmsMemoryPoolMIB, nmsMemoryPoolHeapUtilization=nmsMemoryPoolHeapUtilization, nmsMemoryPoolRegionRatio=nmsMemoryPoolRegionRatio)

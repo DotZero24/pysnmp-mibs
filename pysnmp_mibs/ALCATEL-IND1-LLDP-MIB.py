@@ -1,164 +1,86 @@
-_Z='alaLldpTrustTrapGroup'
-_Y='alaINDLLDPTrustRemoteAgentGroup'
-_X='alaINDLLDPTrustAgentGroup'
-_W='alaINDLLDPTrustBaseGroup'
-_V='alaLldpTrustViolation'
-_U='alaLLDPTrustChassisId'
-_T='alaLLDPTrustPortId'
-_S='alaLLDPTrustedRemPortId'
-_R='alaLLDPTrustedRemPortIdSubtype'
-_Q='alaLLDPTrustedRemChassisId'
-_P='alaLLDPTrustedRemChassisIdSubtype'
-_O='alaLldpTrustedChassisSubtype'
-_N='alaLldpTrustedStatus'
-_M='alaLldpTrustAction'
-_L='alaLldpTrustAdminStatus'
-_K='alaLLDPTrustedRemLocalPortNumber'
-_J='not-accessible'
-_I='alaLLDPTrustLocalPortNumber'
-_H='alaLLDPTrustViolationReason'
-_G='alaLLDPTrustPortIfIndex'
-_F='read-write'
-_E='accessible-for-notify'
-_D='read-only'
-_C='Integer32'
-_B='ALCATEL-IND1-LLDP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-alaLLDPTraps,softentIND1LLDP=mibBuilder.importSymbols('ALCATEL-IND1-BASE','alaLLDPTraps','softentIND1LLDP')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-LldpChassisId,LldpChassisIdSubtype,LldpPortId,LldpPortIdSubtype,LldpPortNumber=mibBuilder.importSymbols('LLDP-MIB','LldpChassisId','LldpChassisIdSubtype','LldpPortId','LldpPortIdSubtype','LldpPortNumber')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-alcatelIND1LLDPMIB=ModuleIdentity((1,3,6,1,4,1,6486,800,1,2,1,60,1))
-if mibBuilder.loadTexts:alcatelIND1LLDPMIB.setRevisions(('2009-08-08 00:00',))
-_AlaIND1LLDPMIBObjects_ObjectIdentity=ObjectIdentity
-alaIND1LLDPMIBObjects=_AlaIND1LLDPMIBObjects_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,60,1,1))
-if mibBuilder.loadTexts:alaIND1LLDPMIBObjects.setStatus(_A)
-_AlaLLDPPortTable_Object=MibTable
-alaLLDPPortTable=_AlaLLDPPortTable_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,1))
-if mibBuilder.loadTexts:alaLLDPPortTable.setStatus(_A)
-_AlaLLDPPortEntry_Object=MibTableRow
-alaLLDPPortEntry=_AlaLLDPPortEntry_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,1,1))
-alaLLDPPortEntry.setIndexNames((0,_B,_I))
-if mibBuilder.loadTexts:alaLLDPPortEntry.setStatus(_A)
-_AlaLLDPTrustLocalPortNumber_Type=LldpPortNumber
-_AlaLLDPTrustLocalPortNumber_Object=MibTableColumn
-alaLLDPTrustLocalPortNumber=_AlaLLDPTrustLocalPortNumber_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,1,1,1),_AlaLLDPTrustLocalPortNumber_Type())
-alaLLDPTrustLocalPortNumber.setMaxAccess(_J)
-if mibBuilder.loadTexts:alaLLDPTrustLocalPortNumber.setStatus(_A)
-class _AlaLldpTrustAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
-_AlaLldpTrustAdminStatus_Type.__name__=_C
-_AlaLldpTrustAdminStatus_Object=MibTableColumn
-alaLldpTrustAdminStatus=_AlaLldpTrustAdminStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,1,1,2),_AlaLldpTrustAdminStatus_Type())
-alaLldpTrustAdminStatus.setMaxAccess(_F)
-if mibBuilder.loadTexts:alaLldpTrustAdminStatus.setStatus(_A)
-class _AlaLldpTrustAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('trap',1),('shutdown',2),('both',3)))
-_AlaLldpTrustAction_Type.__name__=_C
-_AlaLldpTrustAction_Object=MibTableColumn
-alaLldpTrustAction=_AlaLldpTrustAction_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,1,1,3),_AlaLldpTrustAction_Type())
-alaLldpTrustAction.setMaxAccess(_F)
-if mibBuilder.loadTexts:alaLldpTrustAction.setStatus(_A)
-class _AlaLldpTrustedStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('trusted',1),('voilated',2)))
-_AlaLldpTrustedStatus_Type.__name__=_C
-_AlaLldpTrustedStatus_Object=MibTableColumn
-alaLldpTrustedStatus=_AlaLldpTrustedStatus_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,1,1,4),_AlaLldpTrustedStatus_Type())
-alaLldpTrustedStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaLldpTrustedStatus.setStatus(_A)
-class _AlaLldpTrustedChassisSubtype_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('chassisComponent',1),('interfaceAlias',2),('portComponent',3),('macAddress',4),('networkAddress',5),('interfaceName',6),('local',7),('any',8)))
-_AlaLldpTrustedChassisSubtype_Type.__name__=_C
-_AlaLldpTrustedChassisSubtype_Object=MibTableColumn
-alaLldpTrustedChassisSubtype=_AlaLldpTrustedChassisSubtype_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,1,1,5),_AlaLldpTrustedChassisSubtype_Type())
-alaLldpTrustedChassisSubtype.setMaxAccess(_F)
-if mibBuilder.loadTexts:alaLldpTrustedChassisSubtype.setStatus(_A)
-_AlaLLDPTrustedRemTable_Object=MibTable
-alaLLDPTrustedRemTable=_AlaLLDPTrustedRemTable_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,2))
-if mibBuilder.loadTexts:alaLLDPTrustedRemTable.setStatus(_A)
-_AlaLLDPTrustedRemEntry_Object=MibTableRow
-alaLLDPTrustedRemEntry=_AlaLLDPTrustedRemEntry_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,2,1))
-alaLLDPTrustedRemEntry.setIndexNames((0,_B,_K))
-if mibBuilder.loadTexts:alaLLDPTrustedRemEntry.setStatus(_A)
-_AlaLLDPTrustedRemLocalPortNumber_Type=LldpPortNumber
-_AlaLLDPTrustedRemLocalPortNumber_Object=MibTableColumn
-alaLLDPTrustedRemLocalPortNumber=_AlaLLDPTrustedRemLocalPortNumber_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,2,1,1),_AlaLLDPTrustedRemLocalPortNumber_Type())
-alaLLDPTrustedRemLocalPortNumber.setMaxAccess(_J)
-if mibBuilder.loadTexts:alaLLDPTrustedRemLocalPortNumber.setStatus(_A)
-_AlaLLDPTrustedRemChassisIdSubtype_Type=LldpChassisIdSubtype
-_AlaLLDPTrustedRemChassisIdSubtype_Object=MibTableColumn
-alaLLDPTrustedRemChassisIdSubtype=_AlaLLDPTrustedRemChassisIdSubtype_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,2,1,2),_AlaLLDPTrustedRemChassisIdSubtype_Type())
-alaLLDPTrustedRemChassisIdSubtype.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaLLDPTrustedRemChassisIdSubtype.setStatus(_A)
-_AlaLLDPTrustedRemChassisId_Type=LldpChassisId
-_AlaLLDPTrustedRemChassisId_Object=MibTableColumn
-alaLLDPTrustedRemChassisId=_AlaLLDPTrustedRemChassisId_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,2,1,3),_AlaLLDPTrustedRemChassisId_Type())
-alaLLDPTrustedRemChassisId.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaLLDPTrustedRemChassisId.setStatus(_A)
-_AlaLLDPTrustedRemPortIdSubtype_Type=LldpPortIdSubtype
-_AlaLLDPTrustedRemPortIdSubtype_Object=MibTableColumn
-alaLLDPTrustedRemPortIdSubtype=_AlaLLDPTrustedRemPortIdSubtype_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,2,1,4),_AlaLLDPTrustedRemPortIdSubtype_Type())
-alaLLDPTrustedRemPortIdSubtype.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaLLDPTrustedRemPortIdSubtype.setStatus(_A)
-_AlaLLDPTrustedRemPortId_Type=LldpPortId
-_AlaLLDPTrustedRemPortId_Object=MibTableColumn
-alaLLDPTrustedRemPortId=_AlaLLDPTrustedRemPortId_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,2,1,5),_AlaLLDPTrustedRemPortId_Type())
-alaLLDPTrustedRemPortId.setMaxAccess(_D)
-if mibBuilder.loadTexts:alaLLDPTrustedRemPortId.setStatus(_A)
-_AlaLLDPTrustPortIfIndex_Type=InterfaceIndex
-_AlaLLDPTrustPortIfIndex_Object=MibScalar
-alaLLDPTrustPortIfIndex=_AlaLLDPTrustPortIfIndex_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,3),_AlaLLDPTrustPortIfIndex_Type())
-alaLLDPTrustPortIfIndex.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaLLDPTrustPortIfIndex.setStatus(_A)
-class _AlaLLDPTrustViolationReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('agentalreadyexistonport',1),('agentalreadyexistonotherport',2),('chassisidsubtypemissmatch',3)))
-_AlaLLDPTrustViolationReason_Type.__name__=_C
-_AlaLLDPTrustViolationReason_Object=MibScalar
-alaLLDPTrustViolationReason=_AlaLLDPTrustViolationReason_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,4),_AlaLLDPTrustViolationReason_Type())
-alaLLDPTrustViolationReason.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaLLDPTrustViolationReason.setStatus(_A)
-_AlaLLDPTrustPortId_Type=Integer32
-_AlaLLDPTrustPortId_Object=MibScalar
-alaLLDPTrustPortId=_AlaLLDPTrustPortId_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,5),_AlaLLDPTrustPortId_Type())
-alaLLDPTrustPortId.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaLLDPTrustPortId.setStatus(_A)
-_AlaLLDPTrustChassisId_Type=LldpChassisId
-_AlaLLDPTrustChassisId_Object=MibScalar
-alaLLDPTrustChassisId=_AlaLLDPTrustChassisId_Object((1,3,6,1,4,1,6486,800,1,2,1,60,1,1,6),_AlaLLDPTrustChassisId_Type())
-alaLLDPTrustChassisId.setMaxAccess(_E)
-if mibBuilder.loadTexts:alaLLDPTrustChassisId.setStatus(_A)
-_AlaIND1LLDPMIBConformance_ObjectIdentity=ObjectIdentity
-alaIND1LLDPMIBConformance=_AlaIND1LLDPMIBConformance_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,60,1,2))
-if mibBuilder.loadTexts:alaIND1LLDPMIBConformance.setStatus(_A)
-_AlaIND1LLDPMIBGroups_ObjectIdentity=ObjectIdentity
-alaIND1LLDPMIBGroups=_AlaIND1LLDPMIBGroups_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,60,1,2,1))
-if mibBuilder.loadTexts:alaIND1LLDPMIBGroups.setStatus(_A)
-_AlaIND1LLDPMIBCompliances_ObjectIdentity=ObjectIdentity
-alaIND1LLDPMIBCompliances=_AlaIND1LLDPMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6486,800,1,2,1,60,1,2,2))
-if mibBuilder.loadTexts:alaIND1LLDPMIBCompliances.setStatus(_A)
-_AlaLLDPTrapsDesc_ObjectIdentity=ObjectIdentity
-alaLLDPTrapsDesc=_AlaLLDPTrapsDesc_ObjectIdentity((1,3,6,1,4,1,6486,800,1,3,2,24,1))
-_AlaLLDPTrapsDescRoot_ObjectIdentity=ObjectIdentity
-alaLLDPTrapsDescRoot=_AlaLLDPTrapsDescRoot_ObjectIdentity((1,3,6,1,4,1,6486,800,1,3,2,24,1,0))
-_AlaLLDPTrapsObj_ObjectIdentity=ObjectIdentity
-alaLLDPTrapsObj=_AlaLLDPTrapsObj_ObjectIdentity((1,3,6,1,4,1,6486,800,1,3,2,24,2))
-alaINDLLDPTrustBaseGroup=ObjectGroup((1,3,6,1,4,1,6486,800,1,2,1,60,1,2,1,1))
-alaINDLLDPTrustBaseGroup.setObjects(*((_B,_G),(_B,_H)))
-if mibBuilder.loadTexts:alaINDLLDPTrustBaseGroup.setStatus(_A)
-alaINDLLDPTrustAgentGroup=ObjectGroup((1,3,6,1,4,1,6486,800,1,2,1,60,1,2,1,2))
-alaINDLLDPTrustAgentGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O)))
-if mibBuilder.loadTexts:alaINDLLDPTrustAgentGroup.setStatus(_A)
-alaINDLLDPTrustRemoteAgentGroup=ObjectGroup((1,3,6,1,4,1,6486,800,1,2,1,60,1,2,1,3))
-alaINDLLDPTrustRemoteAgentGroup.setObjects(*((_B,_P),(_B,_Q),(_B,_R),(_B,_S)))
-if mibBuilder.loadTexts:alaINDLLDPTrustRemoteAgentGroup.setStatus(_A)
-alaLldpTrustViolation=NotificationType((1,3,6,1,4,1,6486,800,1,3,2,24,1,0,1))
-alaLldpTrustViolation.setObjects(*((_B,_G),(_B,_H),(_B,_T),(_B,_U)))
-if mibBuilder.loadTexts:alaLldpTrustViolation.setStatus(_A)
-alaLldpTrustTrapGroup=NotificationGroup((1,3,6,1,4,1,6486,800,1,2,1,60,1,2,1,4))
-alaLldpTrustTrapGroup.setObjects((_B,_V))
-if mibBuilder.loadTexts:alaLldpTrustTrapGroup.setStatus(_A)
-alaIND1LLDPMIBCompliance=ModuleCompliance((1,3,6,1,4,1,6486,800,1,2,1,60,1,2,2,1))
-alaIND1LLDPMIBCompliance.setObjects(*((_B,_W),(_B,_X),(_B,_Y),(_B,_Z)))
-if mibBuilder.loadTexts:alaIND1LLDPMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'alcatelIND1LLDPMIB':alcatelIND1LLDPMIB,'alaIND1LLDPMIBObjects':alaIND1LLDPMIBObjects,'alaLLDPPortTable':alaLLDPPortTable,'alaLLDPPortEntry':alaLLDPPortEntry,_I:alaLLDPTrustLocalPortNumber,_L:alaLldpTrustAdminStatus,_M:alaLldpTrustAction,_N:alaLldpTrustedStatus,_O:alaLldpTrustedChassisSubtype,'alaLLDPTrustedRemTable':alaLLDPTrustedRemTable,'alaLLDPTrustedRemEntry':alaLLDPTrustedRemEntry,_K:alaLLDPTrustedRemLocalPortNumber,_P:alaLLDPTrustedRemChassisIdSubtype,_Q:alaLLDPTrustedRemChassisId,_R:alaLLDPTrustedRemPortIdSubtype,_S:alaLLDPTrustedRemPortId,_G:alaLLDPTrustPortIfIndex,_H:alaLLDPTrustViolationReason,_T:alaLLDPTrustPortId,_U:alaLLDPTrustChassisId,'alaIND1LLDPMIBConformance':alaIND1LLDPMIBConformance,'alaIND1LLDPMIBGroups':alaIND1LLDPMIBGroups,_W:alaINDLLDPTrustBaseGroup,_X:alaINDLLDPTrustAgentGroup,_Y:alaINDLLDPTrustRemoteAgentGroup,_Z:alaLldpTrustTrapGroup,'alaIND1LLDPMIBCompliances':alaIND1LLDPMIBCompliances,'alaIND1LLDPMIBCompliance':alaIND1LLDPMIBCompliance,'alaLLDPTrapsDesc':alaLLDPTrapsDesc,'alaLLDPTrapsDescRoot':alaLLDPTrapsDescRoot,_V:alaLldpTrustViolation,'alaLLDPTrapsObj':alaLLDPTrapsObj})
+#
+# PySNMP MIB module ALCATEL-IND1-LLDP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/alcatel/ALCATEL-IND1-LLDP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:40:08 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+alaLLDPTraps, softentIND1LLDP = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "alaLLDPTraps", "softentIND1LLDP")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+LldpChassisId, LldpPortNumber, LldpPortId, LldpPortIdSubtype, LldpChassisIdSubtype = mibBuilder.importSymbols("LLDP-MIB", "LldpChassisId", "LldpPortNumber", "LldpPortId", "LldpPortIdSubtype", "LldpChassisIdSubtype")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+alcatelIND1LLDPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1))
+alcatelIND1LLDPMIB.setRevisions(('2009-08-08 00:00',))
+if mibBuilder.loadTexts: alcatelIND1LLDPMIB.setLastUpdated('200908080000Z')
+if mibBuilder.loadTexts: alcatelIND1LLDPMIB.setOrganization('Alcatel-Lucent')
+alaIND1LLDPMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1))
+if mibBuilder.loadTexts: alaIND1LLDPMIBObjects.setStatus('current')
+alaIND1LLDPMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 2))
+if mibBuilder.loadTexts: alaIND1LLDPMIBConformance.setStatus('current')
+alaIND1LLDPMIBGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 2, 1))
+if mibBuilder.loadTexts: alaIND1LLDPMIBGroups.setStatus('current')
+alaIND1LLDPMIBCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 2, 2))
+if mibBuilder.loadTexts: alaIND1LLDPMIBCompliances.setStatus('current')
+alaLLDPPortTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 1), )
+if mibBuilder.loadTexts: alaLLDPPortTable.setStatus('current')
+alaLLDPPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 1, 1), ).setIndexNames((0, "ALCATEL-IND1-LLDP-MIB", "alaLLDPTrustLocalPortNumber"))
+if mibBuilder.loadTexts: alaLLDPPortEntry.setStatus('current')
+alaLLDPTrustLocalPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 1, 1, 1), LldpPortNumber())
+if mibBuilder.loadTexts: alaLLDPTrustLocalPortNumber.setStatus('current')
+alaLldpTrustAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaLldpTrustAdminStatus.setStatus('current')
+alaLldpTrustAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("trap", 1), ("shutdown", 2), ("both", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaLldpTrustAction.setStatus('current')
+alaLldpTrustedStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("trusted", 1), ("voilated", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaLldpTrustedStatus.setStatus('current')
+alaLldpTrustedChassisSubtype = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("chassisComponent", 1), ("interfaceAlias", 2), ("portComponent", 3), ("macAddress", 4), ("networkAddress", 5), ("interfaceName", 6), ("local", 7), ("any", 8)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: alaLldpTrustedChassisSubtype.setStatus('current')
+alaLLDPTrustedRemTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 2), )
+if mibBuilder.loadTexts: alaLLDPTrustedRemTable.setStatus('current')
+alaLLDPTrustedRemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 2, 1), ).setIndexNames((0, "ALCATEL-IND1-LLDP-MIB", "alaLLDPTrustedRemLocalPortNumber"))
+if mibBuilder.loadTexts: alaLLDPTrustedRemEntry.setStatus('current')
+alaLLDPTrustedRemLocalPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 2, 1, 1), LldpPortNumber())
+if mibBuilder.loadTexts: alaLLDPTrustedRemLocalPortNumber.setStatus('current')
+alaLLDPTrustedRemChassisIdSubtype = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 2, 1, 2), LldpChassisIdSubtype()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaLLDPTrustedRemChassisIdSubtype.setStatus('current')
+alaLLDPTrustedRemChassisId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 2, 1, 3), LldpChassisId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaLLDPTrustedRemChassisId.setStatus('current')
+alaLLDPTrustedRemPortIdSubtype = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 2, 1, 4), LldpPortIdSubtype()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaLLDPTrustedRemPortIdSubtype.setStatus('current')
+alaLLDPTrustedRemPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 2, 1, 5), LldpPortId()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: alaLLDPTrustedRemPortId.setStatus('current')
+alaLLDPTrapsDesc = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 24, 1))
+alaLLDPTrapsDescRoot = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 24, 1, 0))
+alaLLDPTrapsObj = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 24, 2))
+alaLLDPTrustPortIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 3), InterfaceIndex()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: alaLLDPTrustPortIfIndex.setStatus('current')
+alaLLDPTrustViolationReason = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("agentalreadyexistonport", 1), ("agentalreadyexistonotherport", 2), ("chassisidsubtypemissmatch", 3)))).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: alaLLDPTrustViolationReason.setStatus('current')
+alaLLDPTrustPortId = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 5), Integer32()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: alaLLDPTrustPortId.setStatus('current')
+alaLLDPTrustChassisId = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 1, 6), LldpChassisId()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: alaLLDPTrustChassisId.setStatus('current')
+alaLldpTrustViolation = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 24, 1, 0, 1)).setObjects(("ALCATEL-IND1-LLDP-MIB", "alaLLDPTrustPortIfIndex"), ("ALCATEL-IND1-LLDP-MIB", "alaLLDPTrustViolationReason"), ("ALCATEL-IND1-LLDP-MIB", "alaLLDPTrustPortId"), ("ALCATEL-IND1-LLDP-MIB", "alaLLDPTrustChassisId"))
+if mibBuilder.loadTexts: alaLldpTrustViolation.setStatus('current')
+alaINDLLDPTrustBaseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 2, 1, 1)).setObjects(("ALCATEL-IND1-LLDP-MIB", "alaLLDPTrustPortIfIndex"), ("ALCATEL-IND1-LLDP-MIB", "alaLLDPTrustViolationReason"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaINDLLDPTrustBaseGroup = alaINDLLDPTrustBaseGroup.setStatus('current')
+alaINDLLDPTrustAgentGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 2, 1, 2)).setObjects(("ALCATEL-IND1-LLDP-MIB", "alaLldpTrustAdminStatus"), ("ALCATEL-IND1-LLDP-MIB", "alaLldpTrustAction"), ("ALCATEL-IND1-LLDP-MIB", "alaLldpTrustedStatus"), ("ALCATEL-IND1-LLDP-MIB", "alaLldpTrustedChassisSubtype"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaINDLLDPTrustAgentGroup = alaINDLLDPTrustAgentGroup.setStatus('current')
+alaINDLLDPTrustRemoteAgentGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 2, 1, 3)).setObjects(("ALCATEL-IND1-LLDP-MIB", "alaLLDPTrustedRemChassisIdSubtype"), ("ALCATEL-IND1-LLDP-MIB", "alaLLDPTrustedRemChassisId"), ("ALCATEL-IND1-LLDP-MIB", "alaLLDPTrustedRemPortIdSubtype"), ("ALCATEL-IND1-LLDP-MIB", "alaLLDPTrustedRemPortId"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaINDLLDPTrustRemoteAgentGroup = alaINDLLDPTrustRemoteAgentGroup.setStatus('current')
+alaLldpTrustTrapGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 2, 1, 4)).setObjects(("ALCATEL-IND1-LLDP-MIB", "alaLldpTrustViolation"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaLldpTrustTrapGroup = alaLldpTrustTrapGroup.setStatus('current')
+alaIND1LLDPMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 60, 1, 2, 2, 1)).setObjects(("ALCATEL-IND1-LLDP-MIB", "alaINDLLDPTrustBaseGroup"), ("ALCATEL-IND1-LLDP-MIB", "alaINDLLDPTrustAgentGroup"), ("ALCATEL-IND1-LLDP-MIB", "alaINDLLDPTrustRemoteAgentGroup"), ("ALCATEL-IND1-LLDP-MIB", "alaLldpTrustTrapGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    alaIND1LLDPMIBCompliance = alaIND1LLDPMIBCompliance.setStatus('current')
+mibBuilder.exportSymbols("ALCATEL-IND1-LLDP-MIB", alaLLDPTrustedRemPortId=alaLLDPTrustedRemPortId, alaLldpTrustViolation=alaLldpTrustViolation, alaINDLLDPTrustAgentGroup=alaINDLLDPTrustAgentGroup, alaLldpTrustAction=alaLldpTrustAction, alaLLDPTrustedRemChassisIdSubtype=alaLLDPTrustedRemChassisIdSubtype, alaLLDPTrapsObj=alaLLDPTrapsObj, alaLldpTrustTrapGroup=alaLldpTrustTrapGroup, alaLLDPTrustedRemEntry=alaLLDPTrustedRemEntry, alaLLDPTrustedRemLocalPortNumber=alaLLDPTrustedRemLocalPortNumber, alaIND1LLDPMIBGroups=alaIND1LLDPMIBGroups, alaLLDPTrapsDescRoot=alaLLDPTrapsDescRoot, alaLldpTrustedChassisSubtype=alaLldpTrustedChassisSubtype, alaIND1LLDPMIBObjects=alaIND1LLDPMIBObjects, alaLLDPPortEntry=alaLLDPPortEntry, alaINDLLDPTrustBaseGroup=alaINDLLDPTrustBaseGroup, alaLLDPTrustLocalPortNumber=alaLLDPTrustLocalPortNumber, alaLLDPTrustedRemChassisId=alaLLDPTrustedRemChassisId, alaLLDPTrustedRemTable=alaLLDPTrustedRemTable, alaLLDPTrustViolationReason=alaLLDPTrustViolationReason, alaIND1LLDPMIBConformance=alaIND1LLDPMIBConformance, alaIND1LLDPMIBCompliances=alaIND1LLDPMIBCompliances, PYSNMP_MODULE_ID=alcatelIND1LLDPMIB, alcatelIND1LLDPMIB=alcatelIND1LLDPMIB, alaLLDPTrustPortId=alaLLDPTrustPortId, alaIND1LLDPMIBCompliance=alaIND1LLDPMIBCompliance, alaLLDPTrustPortIfIndex=alaLLDPTrustPortIfIndex, alaLLDPPortTable=alaLLDPPortTable, alaINDLLDPTrustRemoteAgentGroup=alaINDLLDPTrustRemoteAgentGroup, alaLLDPTrustedRemPortIdSubtype=alaLLDPTrustedRemPortIdSubtype, alaLLDPTrapsDesc=alaLLDPTrapsDesc, alaLldpTrustAdminStatus=alaLldpTrustAdminStatus, alaLLDPTrustChassisId=alaLLDPTrustChassisId, alaLldpTrustedStatus=alaLldpTrustedStatus)

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module OS-PROV-LPBK-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/OS-PROV-LPBK-MIB
-# Produced by pysmi-1.1.12 at Mon Aug  4 17:02:33 2025
-# On host macmini.vegmond.io platform Darwin version 24.5.0 by user rob
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/mrv/OS-PROV-LPBK-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:36 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
 # Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
-oaOptiSwitch, TagList, EntryValidator = mibBuilder.importSymbols("OS-COMMON-TC-MIB", "oaOptiSwitch", "TagList", "EntryValidator")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+EntryValidator, oaOptiSwitch, TagList = mibBuilder.importSymbols("OS-COMMON-TC-MIB", "EntryValidator", "oaOptiSwitch", "TagList")
 osEthServId, = mibBuilder.importSymbols("OS-ETH-SERV-MIB", "osEthServId")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Unsigned32, Integer32, Gauge32, ModuleIdentity, TimeTicks, NotificationType, Counter32, Bits, IpAddress, iso, ObjectIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Unsigned32", "Integer32", "Gauge32", "ModuleIdentity", "TimeTicks", "NotificationType", "Counter32", "Bits", "IpAddress", "iso", "ObjectIdentity", "Counter64")
-TextualConvention, DisplayString, TruthValue, MacAddress = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue", "MacAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+MacAddress, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TruthValue", "TextualConvention")
 osProvLpbk = ModuleIdentity((1, 3, 6, 1, 4, 1, 6926, 2, 26))
 osProvLpbk.setRevisions(('2013-06-02 00:00',))
 if mibBuilder.loadTexts: osProvLpbk.setLastUpdated('201010260000Z')
@@ -58,4 +58,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 osProvLpbkMandatoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6926, 2, 26, 100, 2, 1)).setObjects(("OS-PROV-LPBK-MIB", "osProvLpbkPort"), ("OS-PROV-LPBK-MIB", "osProvLpbkTags"), ("OS-PROV-LPBK-MIB", "osProvLpbkIncludesUntagged"), ("OS-PROV-LPBK-MIB", "osProvLpbkDestMacAddress"), ("OS-PROV-LPBK-MIB", "osProvLpbkDestMacMask"), ("OS-PROV-LPBK-MIB", "osProvLpbkSrcMacAddress"), ("OS-PROV-LPBK-MIB", "osProvLpbkSrcMacMask"), ("OS-PROV-LPBK-MIB", "osProvLpbkAction"), ("OS-PROV-LPBK-MIB", "osProvLpbkAdminStatus"), ("OS-PROV-LPBK-MIB", "osProvLpbkOperStatus"), ("OS-PROV-LPBK-MIB", "osProvLpbkCfgBits"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     osProvLpbkMandatoryGroup = osProvLpbkMandatoryGroup.setStatus('current')
-mibBuilder.exportSymbols("OS-PROV-LPBK-MIB", osProvLpbkTags=osProvLpbkTags, osProvLpbkMIBCompliance=osProvLpbkMIBCompliance, osProvLpbkMIBCompliances=osProvLpbkMIBCompliances, osProvLpbkSrcMacMask=osProvLpbkSrcMacMask, osProvLpbkInd=osProvLpbkInd, osProvLpbkObjects=osProvLpbkObjects, osProvLpbkMandatoryGroup=osProvLpbkMandatoryGroup, osProvLpbkOperStatus=osProvLpbkOperStatus, osProvLpbkConformance=osProvLpbkConformance, osProvLpbkEntry=osProvLpbkEntry, osProvLpbk=osProvLpbk, osProvLpbkAdminStatus=osProvLpbkAdminStatus, osProvLpbkMIBGroups=osProvLpbkMIBGroups, PYSNMP_MODULE_ID=osProvLpbk, osProvLpbkAction=osProvLpbkAction, osProvLpbkSrcMacAddress=osProvLpbkSrcMacAddress, osProvLpbkDestMacMask=osProvLpbkDestMacMask, osProvLpbkIncludesUntagged=osProvLpbkIncludesUntagged, osProvLpbkDir=osProvLpbkDir, osProvLpbkPort=osProvLpbkPort, osProvLpbkDestMacAddress=osProvLpbkDestMacAddress, osProvLpbkCfgBits=osProvLpbkCfgBits, osProvLpbkTable=osProvLpbkTable)
+mibBuilder.exportSymbols("OS-PROV-LPBK-MIB", osProvLpbkMIBCompliances=osProvLpbkMIBCompliances, osProvLpbkCfgBits=osProvLpbkCfgBits, osProvLpbkMandatoryGroup=osProvLpbkMandatoryGroup, osProvLpbkInd=osProvLpbkInd, osProvLpbkAdminStatus=osProvLpbkAdminStatus, PYSNMP_MODULE_ID=osProvLpbk, osProvLpbkSrcMacMask=osProvLpbkSrcMacMask, osProvLpbkSrcMacAddress=osProvLpbkSrcMacAddress, osProvLpbkDestMacAddress=osProvLpbkDestMacAddress, osProvLpbkEntry=osProvLpbkEntry, osProvLpbkConformance=osProvLpbkConformance, osProvLpbkObjects=osProvLpbkObjects, osProvLpbkPort=osProvLpbkPort, osProvLpbkAction=osProvLpbkAction, osProvLpbkOperStatus=osProvLpbkOperStatus, osProvLpbk=osProvLpbk, osProvLpbkDestMacMask=osProvLpbkDestMacMask, osProvLpbkMIBCompliance=osProvLpbkMIBCompliance, osProvLpbkIncludesUntagged=osProvLpbkIncludesUntagged, osProvLpbkMIBGroups=osProvLpbkMIBGroups, osProvLpbkDir=osProvLpbkDir, osProvLpbkTags=osProvLpbkTags, osProvLpbkTable=osProvLpbkTable)

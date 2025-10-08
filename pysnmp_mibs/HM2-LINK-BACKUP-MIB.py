@@ -1,101 +1,56 @@
-_N='hm2LinkBackupBackupInterfaceStatus'
-_M='hm2LinkBackupPrimaryInterfaceStatus'
-_L='read-only'
-_K='accessible-for-notify'
-_J='TruthValue'
-_I='Integer32'
-_H='SnmpAdminString'
-_G='HmEnabledStatus'
-_F='HmLinkBackupStatus'
-_E='hm2LinkBackupBackupInterface'
-_D='hm2LinkBackupPrimaryInterface'
-_C='read-create'
-_B='HM2-LINK-BACKUP-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-hm2L2RedundancyMibObjects,=mibBuilder.importSymbols('HM2-L2REDUNDANCY-MIB','hm2L2RedundancyMibObjects')
-HmEnabledStatus,=mibBuilder.importSymbols('HM2-TC-MIB',_G)
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_H)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_J)
-hm2LinkBackupMibGroup=ModuleIdentity((1,3,6,1,4,1,248,11,40,1,3))
-if mibBuilder.loadTexts:hm2LinkBackupMibGroup.setRevisions(('2013-05-14 00:00',))
-class HmLinkBackupStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('forwarding',1),('blocking',2),('down',3),('unknown',4)))
-_Hm2LinkBackupNotifications_ObjectIdentity=ObjectIdentity
-hm2LinkBackupNotifications=_Hm2LinkBackupNotifications_ObjectIdentity((1,3,6,1,4,1,248,11,40,1,3,0))
-_Hm2LinkBackupObjects_ObjectIdentity=ObjectIdentity
-hm2LinkBackupObjects=_Hm2LinkBackupObjects_ObjectIdentity((1,3,6,1,4,1,248,11,40,1,3,1))
-_Hm2LinkBackupConfiguration_ObjectIdentity=ObjectIdentity
-hm2LinkBackupConfiguration=_Hm2LinkBackupConfiguration_ObjectIdentity((1,3,6,1,4,1,248,11,40,1,3,1,1))
-_Hm2LinkBackupGeneralGroup_ObjectIdentity=ObjectIdentity
-hm2LinkBackupGeneralGroup=_Hm2LinkBackupGeneralGroup_ObjectIdentity((1,3,6,1,4,1,248,11,40,1,3,1,1,1))
-class _Hm2LinkBackupAdminStatus_Type(HmEnabledStatus):defaultValue=2
-_Hm2LinkBackupAdminStatus_Type.__name__=_G
-_Hm2LinkBackupAdminStatus_Object=MibScalar
-hm2LinkBackupAdminStatus=_Hm2LinkBackupAdminStatus_Object((1,3,6,1,4,1,248,11,40,1,3,1,1,1,1),_Hm2LinkBackupAdminStatus_Type())
-hm2LinkBackupAdminStatus.setMaxAccess('read-write')
-if mibBuilder.loadTexts:hm2LinkBackupAdminStatus.setStatus(_A)
-_Hm2LinkBackupInterfaceGroup_ObjectIdentity=ObjectIdentity
-hm2LinkBackupInterfaceGroup=_Hm2LinkBackupInterfaceGroup_ObjectIdentity((1,3,6,1,4,1,248,11,40,1,3,1,1,2))
-_Hm2LinkBackupInterfaceConfigTable_Object=MibTable
-hm2LinkBackupInterfaceConfigTable=_Hm2LinkBackupInterfaceConfigTable_Object((1,3,6,1,4,1,248,11,40,1,3,1,1,2,1))
-if mibBuilder.loadTexts:hm2LinkBackupInterfaceConfigTable.setStatus(_A)
-_Hm2LinkBackupInterfaceConfigEntry_Object=MibTableRow
-hm2LinkBackupInterfaceConfigEntry=_Hm2LinkBackupInterfaceConfigEntry_Object((1,3,6,1,4,1,248,11,40,1,3,1,1,2,1,1))
-hm2LinkBackupInterfaceConfigEntry.setIndexNames((0,_B,_D),(0,_B,_E))
-if mibBuilder.loadTexts:hm2LinkBackupInterfaceConfigEntry.setStatus(_A)
-_Hm2LinkBackupPrimaryInterface_Type=InterfaceIndex
-_Hm2LinkBackupPrimaryInterface_Object=MibTableColumn
-hm2LinkBackupPrimaryInterface=_Hm2LinkBackupPrimaryInterface_Object((1,3,6,1,4,1,248,11,40,1,3,1,1,2,1,1,1),_Hm2LinkBackupPrimaryInterface_Type())
-hm2LinkBackupPrimaryInterface.setMaxAccess(_K)
-if mibBuilder.loadTexts:hm2LinkBackupPrimaryInterface.setStatus(_A)
-_Hm2LinkBackupBackupInterface_Type=InterfaceIndex
-_Hm2LinkBackupBackupInterface_Object=MibTableColumn
-hm2LinkBackupBackupInterface=_Hm2LinkBackupBackupInterface_Object((1,3,6,1,4,1,248,11,40,1,3,1,1,2,1,1,2),_Hm2LinkBackupBackupInterface_Type())
-hm2LinkBackupBackupInterface.setMaxAccess(_K)
-if mibBuilder.loadTexts:hm2LinkBackupBackupInterface.setStatus(_A)
-class _Hm2LinkBackupPrimaryInterfaceStatus_Type(HmLinkBackupStatus):defaultValue=4
-_Hm2LinkBackupPrimaryInterfaceStatus_Type.__name__=_F
-_Hm2LinkBackupPrimaryInterfaceStatus_Object=MibTableColumn
-hm2LinkBackupPrimaryInterfaceStatus=_Hm2LinkBackupPrimaryInterfaceStatus_Object((1,3,6,1,4,1,248,11,40,1,3,1,1,2,1,1,3),_Hm2LinkBackupPrimaryInterfaceStatus_Type())
-hm2LinkBackupPrimaryInterfaceStatus.setMaxAccess(_L)
-if mibBuilder.loadTexts:hm2LinkBackupPrimaryInterfaceStatus.setStatus(_A)
-class _Hm2LinkBackupBackupInterfaceStatus_Type(HmLinkBackupStatus):defaultValue=4
-_Hm2LinkBackupBackupInterfaceStatus_Type.__name__=_F
-_Hm2LinkBackupBackupInterfaceStatus_Object=MibTableColumn
-hm2LinkBackupBackupInterfaceStatus=_Hm2LinkBackupBackupInterfaceStatus_Object((1,3,6,1,4,1,248,11,40,1,3,1,1,2,1,1,4),_Hm2LinkBackupBackupInterfaceStatus_Type())
-hm2LinkBackupBackupInterfaceStatus.setMaxAccess(_L)
-if mibBuilder.loadTexts:hm2LinkBackupBackupInterfaceStatus.setStatus(_A)
-class _Hm2LinkBackupFailBackEnable_Type(TruthValue):defaultValue=1
-_Hm2LinkBackupFailBackEnable_Type.__name__=_J
-_Hm2LinkBackupFailBackEnable_Object=MibTableColumn
-hm2LinkBackupFailBackEnable=_Hm2LinkBackupFailBackEnable_Object((1,3,6,1,4,1,248,11,40,1,3,1,1,2,1,1,5),_Hm2LinkBackupFailBackEnable_Type())
-hm2LinkBackupFailBackEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2LinkBackupFailBackEnable.setStatus(_A)
-class _Hm2LinkBackupFailBackDelay_Type(Integer32):defaultValue=30;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,3600))
-_Hm2LinkBackupFailBackDelay_Type.__name__=_I
-_Hm2LinkBackupFailBackDelay_Object=MibTableColumn
-hm2LinkBackupFailBackDelay=_Hm2LinkBackupFailBackDelay_Object((1,3,6,1,4,1,248,11,40,1,3,1,1,2,1,1,6),_Hm2LinkBackupFailBackDelay_Type())
-hm2LinkBackupFailBackDelay.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2LinkBackupFailBackDelay.setStatus(_A)
-if mibBuilder.loadTexts:hm2LinkBackupFailBackDelay.setUnits('seconds')
-class _Hm2LinkBackupDescription_Type(SnmpAdminString):defaultValue=OctetString('')
-_Hm2LinkBackupDescription_Type.__name__=_H
-_Hm2LinkBackupDescription_Object=MibTableColumn
-hm2LinkBackupDescription=_Hm2LinkBackupDescription_Object((1,3,6,1,4,1,248,11,40,1,3,1,1,2,1,1,7),_Hm2LinkBackupDescription_Type())
-hm2LinkBackupDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2LinkBackupDescription.setStatus(_A)
-_Hm2LinkBackupRowStatus_Type=RowStatus
-_Hm2LinkBackupRowStatus_Object=MibTableColumn
-hm2LinkBackupRowStatus=_Hm2LinkBackupRowStatus_Object((1,3,6,1,4,1,248,11,40,1,3,1,1,2,1,1,10),_Hm2LinkBackupRowStatus_Type())
-hm2LinkBackupRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:hm2LinkBackupRowStatus.setStatus(_A)
-hm2LinkBackupStatusTrap=NotificationType((1,3,6,1,4,1,248,11,40,1,3,0,1))
-hm2LinkBackupStatusTrap.setObjects(*((_B,_D),(_B,_E),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:hm2LinkBackupStatusTrap.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{_F:HmLinkBackupStatus,'hm2LinkBackupMibGroup':hm2LinkBackupMibGroup,'hm2LinkBackupNotifications':hm2LinkBackupNotifications,'hm2LinkBackupStatusTrap':hm2LinkBackupStatusTrap,'hm2LinkBackupObjects':hm2LinkBackupObjects,'hm2LinkBackupConfiguration':hm2LinkBackupConfiguration,'hm2LinkBackupGeneralGroup':hm2LinkBackupGeneralGroup,'hm2LinkBackupAdminStatus':hm2LinkBackupAdminStatus,'hm2LinkBackupInterfaceGroup':hm2LinkBackupInterfaceGroup,'hm2LinkBackupInterfaceConfigTable':hm2LinkBackupInterfaceConfigTable,'hm2LinkBackupInterfaceConfigEntry':hm2LinkBackupInterfaceConfigEntry,_D:hm2LinkBackupPrimaryInterface,_E:hm2LinkBackupBackupInterface,_M:hm2LinkBackupPrimaryInterfaceStatus,_N:hm2LinkBackupBackupInterfaceStatus,'hm2LinkBackupFailBackEnable':hm2LinkBackupFailBackEnable,'hm2LinkBackupFailBackDelay':hm2LinkBackupFailBackDelay,'hm2LinkBackupDescription':hm2LinkBackupDescription,'hm2LinkBackupRowStatus':hm2LinkBackupRowStatus})
+#
+# PySNMP MIB module HM2-LINK-BACKUP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/hirschmann/HM2-LINK-BACKUP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:18 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+hm2L2RedundancyMibObjects, = mibBuilder.importSymbols("HM2-L2REDUNDANCY-MIB", "hm2L2RedundancyMibObjects")
+HmEnabledStatus, = mibBuilder.importSymbols("HM2-TC-MIB", "HmEnabledStatus")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+hm2LinkBackupMibGroup = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3))
+hm2LinkBackupMibGroup.setRevisions(('2013-05-14 00:00',))
+if mibBuilder.loadTexts: hm2LinkBackupMibGroup.setLastUpdated('201305140000Z')
+if mibBuilder.loadTexts: hm2LinkBackupMibGroup.setOrganization('Hirschmann Automation and Control GmbH')
+hm2LinkBackupNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 0))
+hm2LinkBackupObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 1))
+hm2LinkBackupConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 1, 1))
+hm2LinkBackupGeneralGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 1, 1, 1))
+hm2LinkBackupInterfaceGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 1, 1, 2))
+class HmLinkBackupStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("forwarding", 1), ("blocking", 2), ("down", 3), ("unknown", 4))
+
+hm2LinkBackupAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 1, 1, 1, 1), HmEnabledStatus().clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: hm2LinkBackupAdminStatus.setStatus('current')
+hm2LinkBackupInterfaceConfigTable = MibTable((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 1, 1, 2, 1), )
+if mibBuilder.loadTexts: hm2LinkBackupInterfaceConfigTable.setStatus('current')
+hm2LinkBackupInterfaceConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 1, 1, 2, 1, 1), ).setIndexNames((0, "HM2-LINK-BACKUP-MIB", "hm2LinkBackupPrimaryInterface"), (0, "HM2-LINK-BACKUP-MIB", "hm2LinkBackupBackupInterface"))
+if mibBuilder.loadTexts: hm2LinkBackupInterfaceConfigEntry.setStatus('current')
+hm2LinkBackupPrimaryInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 1, 1, 2, 1, 1, 1), InterfaceIndex()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: hm2LinkBackupPrimaryInterface.setStatus('current')
+hm2LinkBackupBackupInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 1, 1, 2, 1, 1, 2), InterfaceIndex()).setMaxAccess("accessiblefornotify")
+if mibBuilder.loadTexts: hm2LinkBackupBackupInterface.setStatus('current')
+hm2LinkBackupPrimaryInterfaceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 1, 1, 2, 1, 1, 3), HmLinkBackupStatus().clone(4)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LinkBackupPrimaryInterfaceStatus.setStatus('current')
+hm2LinkBackupBackupInterfaceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 1, 1, 2, 1, 1, 4), HmLinkBackupStatus().clone(4)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: hm2LinkBackupBackupInterfaceStatus.setStatus('current')
+hm2LinkBackupFailBackEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 1, 1, 2, 1, 1, 5), TruthValue().clone('true')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hm2LinkBackupFailBackEnable.setStatus('current')
+hm2LinkBackupFailBackDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 1, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 3600), )).clone(30)).setUnits('seconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hm2LinkBackupFailBackDelay.setStatus('current')
+hm2LinkBackupDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 1, 1, 2, 1, 1, 7), SnmpAdminString()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hm2LinkBackupDescription.setStatus('current')
+hm2LinkBackupRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 1, 1, 2, 1, 1, 10), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: hm2LinkBackupRowStatus.setStatus('current')
+hm2LinkBackupStatusTrap = NotificationType((1, 3, 6, 1, 4, 1, 248, 11, 40, 1, 3, 0, 1)).setObjects(("HM2-LINK-BACKUP-MIB", "hm2LinkBackupPrimaryInterface"), ("HM2-LINK-BACKUP-MIB", "hm2LinkBackupBackupInterface"), ("HM2-LINK-BACKUP-MIB", "hm2LinkBackupPrimaryInterfaceStatus"), ("HM2-LINK-BACKUP-MIB", "hm2LinkBackupBackupInterfaceStatus"))
+if mibBuilder.loadTexts: hm2LinkBackupStatusTrap.setStatus('current')
+mibBuilder.exportSymbols("HM2-LINK-BACKUP-MIB", hm2LinkBackupBackupInterfaceStatus=hm2LinkBackupBackupInterfaceStatus, hm2LinkBackupInterfaceConfigEntry=hm2LinkBackupInterfaceConfigEntry, hm2LinkBackupStatusTrap=hm2LinkBackupStatusTrap, hm2LinkBackupFailBackEnable=hm2LinkBackupFailBackEnable, hm2LinkBackupPrimaryInterface=hm2LinkBackupPrimaryInterface, hm2LinkBackupPrimaryInterfaceStatus=hm2LinkBackupPrimaryInterfaceStatus, hm2LinkBackupConfiguration=hm2LinkBackupConfiguration, HmLinkBackupStatus=HmLinkBackupStatus, hm2LinkBackupMibGroup=hm2LinkBackupMibGroup, hm2LinkBackupAdminStatus=hm2LinkBackupAdminStatus, hm2LinkBackupObjects=hm2LinkBackupObjects, hm2LinkBackupGeneralGroup=hm2LinkBackupGeneralGroup, hm2LinkBackupNotifications=hm2LinkBackupNotifications, hm2LinkBackupRowStatus=hm2LinkBackupRowStatus, hm2LinkBackupFailBackDelay=hm2LinkBackupFailBackDelay, hm2LinkBackupBackupInterface=hm2LinkBackupBackupInterface, hm2LinkBackupInterfaceGroup=hm2LinkBackupInterfaceGroup, hm2LinkBackupDescription=hm2LinkBackupDescription, hm2LinkBackupInterfaceConfigTable=hm2LinkBackupInterfaceConfigTable, PYSNMP_MODULE_ID=hm2LinkBackupMibGroup)

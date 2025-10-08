@@ -1,155 +1,71 @@
-_P='ctElanSFDSPeerIP'
-_O='destroy'
-_N='createAndWait'
-_M='createAndGo'
-_L='notReady'
-_K='notInService'
-_J='ctElanConfIndex'
-_I='DisplayString'
-_H='unknown'
-_G='active'
-_F='CTRON-ELAN-MIB'
-_E='CtLaneDebugLevel'
-_D='read-only'
-_C='Integer32'
-_B='read-write'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ctAtmfLanEmulation,=mibBuilder.importSymbols('CTRON-MIB-NAMES','ctAtmfLanEmulation')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_I,'PhysAddress','TextualConvention')
-class CtLaneDebugLevel(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('user',1),('all',2),('error',3),('warning',4),('informational',5),('detailed',6),('trace',7)))
-class ElanLocalIndex(Integer32):0
-_CtLeClient_ObjectIdentity=ObjectIdentity
-ctLeClient=_CtLeClient_ObjectIdentity((1,3,6,1,4,1,52,4,3,5,1))
-_CtElan_ObjectIdentity=ObjectIdentity
-ctElan=_CtElan_ObjectIdentity((1,3,6,1,4,1,52,4,3,5,2))
-_CtElanConfGroup_ObjectIdentity=ObjectIdentity
-ctElanConfGroup=_CtElanConfGroup_ObjectIdentity((1,3,6,1,4,1,52,4,3,5,2,1))
-_CtElanConfTable_Object=MibTable
-ctElanConfTable=_CtElanConfTable_Object((1,3,6,1,4,1,52,4,3,5,2,1,1))
-if mibBuilder.loadTexts:ctElanConfTable.setStatus(_A)
-_CtElanConfEntry_Object=MibTableRow
-ctElanConfEntry=_CtElanConfEntry_Object((1,3,6,1,4,1,52,4,3,5,2,1,1,1))
-ctElanConfEntry.setIndexNames((0,_F,_J))
-if mibBuilder.loadTexts:ctElanConfEntry.setStatus(_A)
-_CtElanConfIndex_Type=ElanLocalIndex
-_CtElanConfIndex_Object=MibTableColumn
-ctElanConfIndex=_CtElanConfIndex_Object((1,3,6,1,4,1,52,4,3,5,2,1,1,1,1),_CtElanConfIndex_Type())
-ctElanConfIndex.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctElanConfIndex.setStatus(_A)
-class _CtElanConfUnitNumber_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4))
-_CtElanConfUnitNumber_Type.__name__=_C
-_CtElanConfUnitNumber_Object=MibTableColumn
-ctElanConfUnitNumber=_CtElanConfUnitNumber_Object((1,3,6,1,4,1,52,4,3,5,2,1,1,1,2),_CtElanConfUnitNumber_Type())
-ctElanConfUnitNumber.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctElanConfUnitNumber.setStatus(_A)
-class _CtElanConfPolicy_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('secure',1),('nonsecure',2)))
-_CtElanConfPolicy_Type.__name__=_C
-_CtElanConfPolicy_Object=MibTableColumn
-ctElanConfPolicy=_CtElanConfPolicy_Object((1,3,6,1,4,1,52,4,3,5,2,1,1,1,3),_CtElanConfPolicy_Type())
-ctElanConfPolicy.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctElanConfPolicy.setStatus(_A)
-class _CtElanConfDelPolicyWithElan_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('true',1),('false',2)))
-_CtElanConfDelPolicyWithElan_Type.__name__=_C
-_CtElanConfDelPolicyWithElan_Object=MibTableColumn
-ctElanConfDelPolicyWithElan=_CtElanConfDelPolicyWithElan_Object((1,3,6,1,4,1,52,4,3,5,2,1,1,1,4),_CtElanConfDelPolicyWithElan_Type())
-ctElanConfDelPolicyWithElan.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctElanConfDelPolicyWithElan.setStatus(_A)
-class _CtElanConfRowStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_G,1),(_K,2),(_L,3),(_M,4),(_N,5),(_O,6)))
-_CtElanConfRowStatus_Type.__name__=_C
-_CtElanConfRowStatus_Object=MibTableColumn
-ctElanConfRowStatus=_CtElanConfRowStatus_Object((1,3,6,1,4,1,52,4,3,5,2,1,1,1,5),_CtElanConfRowStatus_Type())
-ctElanConfRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctElanConfRowStatus.setStatus(_A)
-_CtElanSFDSPeerTable_Object=MibTable
-ctElanSFDSPeerTable=_CtElanSFDSPeerTable_Object((1,3,6,1,4,1,52,4,3,5,2,1,2))
-if mibBuilder.loadTexts:ctElanSFDSPeerTable.setStatus(_A)
-_CtElanSFDSPeerEntry_Object=MibTableRow
-ctElanSFDSPeerEntry=_CtElanSFDSPeerEntry_Object((1,3,6,1,4,1,52,4,3,5,2,1,2,1))
-ctElanSFDSPeerEntry.setIndexNames((0,_F,_P))
-if mibBuilder.loadTexts:ctElanSFDSPeerEntry.setStatus(_A)
-_CtElanSFDSPeerIP_Type=IpAddress
-_CtElanSFDSPeerIP_Object=MibTableColumn
-ctElanSFDSPeerIP=_CtElanSFDSPeerIP_Object((1,3,6,1,4,1,52,4,3,5,2,1,2,1,1),_CtElanSFDSPeerIP_Type())
-ctElanSFDSPeerIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctElanSFDSPeerIP.setStatus(_A)
-class _CtElanSFDSPeerRowStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_G,1),(_K,2),(_L,3),(_M,4),(_N,5),(_O,6)))
-_CtElanSFDSPeerRowStatus_Type.__name__=_C
-_CtElanSFDSPeerRowStatus_Object=MibTableColumn
-ctElanSFDSPeerRowStatus=_CtElanSFDSPeerRowStatus_Object((1,3,6,1,4,1,52,4,3,5,2,1,2,1,2),_CtElanSFDSPeerRowStatus_Type())
-ctElanSFDSPeerRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctElanSFDSPeerRowStatus.setStatus(_A)
-_CtElanConfDirectoryServicesIP_Type=IpAddress
-_CtElanConfDirectoryServicesIP_Object=MibScalar
-ctElanConfDirectoryServicesIP=_CtElanConfDirectoryServicesIP_Object((1,3,6,1,4,1,52,4,3,5,2,1,3),_CtElanConfDirectoryServicesIP_Type())
-ctElanConfDirectoryServicesIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctElanConfDirectoryServicesIP.setStatus(_A)
-class _CtElanDSStatus_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('connected',1),('connectionLost',2),(_H,3)))
-_CtElanDSStatus_Type.__name__=_C
-_CtElanDSStatus_Object=MibScalar
-ctElanDSStatus=_CtElanDSStatus_Object((1,3,6,1,4,1,52,4,3,5,2,1,4),_CtElanDSStatus_Type())
-ctElanDSStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctElanDSStatus.setStatus(_A)
-class _CtElanUNIVersion_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_H,1),('uni30',2),('uni31',3),('uni40',4)))
-_CtElanUNIVersion_Type.__name__=_C
-_CtElanUNIVersion_Object=MibScalar
-ctElanUNIVersion=_CtElanUNIVersion_Object((1,3,6,1,4,1,52,4,3,5,2,1,5),_CtElanUNIVersion_Type())
-ctElanUNIVersion.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctElanUNIVersion.setStatus(_A)
-class _CtElanLaneDbgOutputFile_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_CtElanLaneDbgOutputFile_Type.__name__=_I
-_CtElanLaneDbgOutputFile_Object=MibScalar
-ctElanLaneDbgOutputFile=_CtElanLaneDbgOutputFile_Object((1,3,6,1,4,1,52,4,3,5,2,1,6),_CtElanLaneDbgOutputFile_Type())
-ctElanLaneDbgOutputFile.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctElanLaneDbgOutputFile.setStatus(_A)
-class _CtElanLaneDbgConnectionServices_Type(CtLaneDebugLevel):defaultValue=1
-_CtElanLaneDbgConnectionServices_Type.__name__=_E
-_CtElanLaneDbgConnectionServices_Object=MibScalar
-ctElanLaneDbgConnectionServices=_CtElanLaneDbgConnectionServices_Object((1,3,6,1,4,1,52,4,3,5,2,1,7),_CtElanLaneDbgConnectionServices_Type())
-ctElanLaneDbgConnectionServices.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctElanLaneDbgConnectionServices.setStatus(_A)
-class _CtElanLaneDbgDatabaseManagement_Type(CtLaneDebugLevel):defaultValue=1
-_CtElanLaneDbgDatabaseManagement_Type.__name__=_E
-_CtElanLaneDbgDatabaseManagement_Object=MibScalar
-ctElanLaneDbgDatabaseManagement=_CtElanLaneDbgDatabaseManagement_Object((1,3,6,1,4,1,52,4,3,5,2,1,8),_CtElanLaneDbgDatabaseManagement_Type())
-ctElanLaneDbgDatabaseManagement.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctElanLaneDbgDatabaseManagement.setStatus(_A)
-class _CtElanCtLaneDbgSNMP_Type(CtLaneDebugLevel):defaultValue=1
-_CtElanCtLaneDbgSNMP_Type.__name__=_E
-_CtElanCtLaneDbgSNMP_Object=MibScalar
-ctElanCtLaneDbgSNMP=_CtElanCtLaneDbgSNMP_Object((1,3,6,1,4,1,52,4,3,5,2,1,9),_CtElanCtLaneDbgSNMP_Type())
-ctElanCtLaneDbgSNMP.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctElanCtLaneDbgSNMP.setStatus(_A)
-class _CtElanLaneDbgLECS_Type(CtLaneDebugLevel):defaultValue=1
-_CtElanLaneDbgLECS_Type.__name__=_E
-_CtElanLaneDbgLECS_Object=MibScalar
-ctElanLaneDbgLECS=_CtElanLaneDbgLECS_Object((1,3,6,1,4,1,52,4,3,5,2,1,10),_CtElanLaneDbgLECS_Type())
-ctElanLaneDbgLECS.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctElanLaneDbgLECS.setStatus(_A)
-class _CtElanCtLaneDbgLES_Type(CtLaneDebugLevel):defaultValue=1
-_CtElanCtLaneDbgLES_Type.__name__=_E
-_CtElanCtLaneDbgLES_Object=MibScalar
-ctElanCtLaneDbgLES=_CtElanCtLaneDbgLES_Object((1,3,6,1,4,1,52,4,3,5,2,1,11),_CtElanCtLaneDbgLES_Type())
-ctElanCtLaneDbgLES.setMaxAccess(_B)
-if mibBuilder.loadTexts:ctElanCtLaneDbgLES.setStatus(_A)
-class _CtElanHotStandbyStatus_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('initial',1),(_G,2),('standby',3),(_H,4)))
-_CtElanHotStandbyStatus_Type.__name__=_C
-_CtElanHotStandbyStatus_Object=MibScalar
-ctElanHotStandbyStatus=_CtElanHotStandbyStatus_Object((1,3,6,1,4,1,52,4,3,5,2,1,12),_CtElanHotStandbyStatus_Type())
-ctElanHotStandbyStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctElanHotStandbyStatus.setStatus(_A)
-_CtElanConfHotStandbyIP_Type=IpAddress
-_CtElanConfHotStandbyIP_Object=MibScalar
-ctElanConfHotStandbyIP=_CtElanConfHotStandbyIP_Object((1,3,6,1,4,1,52,4,3,5,2,1,13),_CtElanConfHotStandbyIP_Type())
-ctElanConfHotStandbyIP.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctElanConfHotStandbyIP.setStatus(_A)
-_CtLes_ObjectIdentity=ObjectIdentity
-ctLes=_CtLes_ObjectIdentity((1,3,6,1,4,1,52,4,3,5,3))
-_CtBus_ObjectIdentity=ObjectIdentity
-ctBus=_CtBus_ObjectIdentity((1,3,6,1,4,1,52,4,3,5,4))
-mibBuilder.exportSymbols(_F,**{_E:CtLaneDebugLevel,'ElanLocalIndex':ElanLocalIndex,'ctLeClient':ctLeClient,'ctElan':ctElan,'ctElanConfGroup':ctElanConfGroup,'ctElanConfTable':ctElanConfTable,'ctElanConfEntry':ctElanConfEntry,_J:ctElanConfIndex,'ctElanConfUnitNumber':ctElanConfUnitNumber,'ctElanConfPolicy':ctElanConfPolicy,'ctElanConfDelPolicyWithElan':ctElanConfDelPolicyWithElan,'ctElanConfRowStatus':ctElanConfRowStatus,'ctElanSFDSPeerTable':ctElanSFDSPeerTable,'ctElanSFDSPeerEntry':ctElanSFDSPeerEntry,_P:ctElanSFDSPeerIP,'ctElanSFDSPeerRowStatus':ctElanSFDSPeerRowStatus,'ctElanConfDirectoryServicesIP':ctElanConfDirectoryServicesIP,'ctElanDSStatus':ctElanDSStatus,'ctElanUNIVersion':ctElanUNIVersion,'ctElanLaneDbgOutputFile':ctElanLaneDbgOutputFile,'ctElanLaneDbgConnectionServices':ctElanLaneDbgConnectionServices,'ctElanLaneDbgDatabaseManagement':ctElanLaneDbgDatabaseManagement,'ctElanCtLaneDbgSNMP':ctElanCtLaneDbgSNMP,'ctElanLaneDbgLECS':ctElanLaneDbgLECS,'ctElanCtLaneDbgLES':ctElanCtLaneDbgLES,'ctElanHotStandbyStatus':ctElanHotStandbyStatus,'ctElanConfHotStandbyIP':ctElanConfHotStandbyIP,'ctLes':ctLes,'ctBus':ctBus})
+#
+# PySNMP MIB module CTRON-ELAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CTRON-ELAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:38 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ctAtmfLanEmulation, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctAtmfLanEmulation")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+class CtLaneDebugLevel(Integer32):
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
+    namedValues = NamedValues(("user", 1), ("all", 2), ("error", 3), ("warning", 4), ("informational", 5), ("detailed", 6), ("trace", 7))
+
+class ElanLocalIndex(Integer32):
+    pass
+
+ctLeClient = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 1))
+ctElan = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2))
+ctLes = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 3))
+ctBus = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4))
+ctElanConfGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1))
+ctElanConfTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 1), )
+if mibBuilder.loadTexts: ctElanConfTable.setStatus('mandatory')
+ctElanConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 1, 1), ).setIndexNames((0, "CTRON-ELAN-MIB", "ctElanConfIndex"))
+if mibBuilder.loadTexts: ctElanConfEntry.setStatus('mandatory')
+ctElanConfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 1, 1, 1), ElanLocalIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctElanConfIndex.setStatus('mandatory')
+ctElanConfUnitNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctElanConfUnitNumber.setStatus('mandatory')
+ctElanConfPolicy = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("secure", 1), ("nonsecure", 2))).clone('nonsecure')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctElanConfPolicy.setStatus('mandatory')
+ctElanConfDelPolicyWithElan = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("true", 1), ("false", 2))).clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctElanConfDelPolicyWithElan.setStatus('mandatory')
+ctElanConfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("active", 1), ("notInService", 2), ("notReady", 3), ("createAndGo", 4), ("createAndWait", 5), ("destroy", 6)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctElanConfRowStatus.setStatus('mandatory')
+ctElanSFDSPeerTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 2), )
+if mibBuilder.loadTexts: ctElanSFDSPeerTable.setStatus('mandatory')
+ctElanSFDSPeerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 2, 1), ).setIndexNames((0, "CTRON-ELAN-MIB", "ctElanSFDSPeerIP"))
+if mibBuilder.loadTexts: ctElanSFDSPeerEntry.setStatus('mandatory')
+ctElanSFDSPeerIP = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 2, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctElanSFDSPeerIP.setStatus('mandatory')
+ctElanSFDSPeerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("active", 1), ("notInService", 2), ("notReady", 3), ("createAndGo", 4), ("createAndWait", 5), ("destroy", 6)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctElanSFDSPeerRowStatus.setStatus('mandatory')
+ctElanConfDirectoryServicesIP = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 3), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctElanConfDirectoryServicesIP.setStatus('mandatory')
+ctElanDSStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("connected", 1), ("connectionLost", 2), ("unknown", 3))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctElanDSStatus.setStatus('mandatory')
+ctElanUNIVersion = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("uni30", 2), ("uni31", 3), ("uni40", 4))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctElanUNIVersion.setStatus('mandatory')
+ctElanLaneDbgOutputFile = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctElanLaneDbgOutputFile.setStatus('mandatory')
+ctElanLaneDbgConnectionServices = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 7), CtLaneDebugLevel().clone('user')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctElanLaneDbgConnectionServices.setStatus('mandatory')
+ctElanLaneDbgDatabaseManagement = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 8), CtLaneDebugLevel().clone('user')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctElanLaneDbgDatabaseManagement.setStatus('mandatory')
+ctElanCtLaneDbgSNMP = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 9), CtLaneDebugLevel().clone('user')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctElanCtLaneDbgSNMP.setStatus('mandatory')
+ctElanLaneDbgLECS = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 10), CtLaneDebugLevel().clone('user')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctElanLaneDbgLECS.setStatus('mandatory')
+ctElanCtLaneDbgLES = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 11), CtLaneDebugLevel().clone('user')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctElanCtLaneDbgLES.setStatus('mandatory')
+ctElanHotStandbyStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("initial", 1), ("active", 2), ("standby", 3), ("unknown", 4))).clone('unknown')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctElanHotStandbyStatus.setStatus('mandatory')
+ctElanConfHotStandbyIP = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 2, 1, 13), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctElanConfHotStandbyIP.setStatus('mandatory')
+mibBuilder.exportSymbols("CTRON-ELAN-MIB", ctElanConfTable=ctElanConfTable, ctLes=ctLes, ctElanConfRowStatus=ctElanConfRowStatus, ctElanLaneDbgConnectionServices=ctElanLaneDbgConnectionServices, ctElanConfEntry=ctElanConfEntry, ElanLocalIndex=ElanLocalIndex, ctElanSFDSPeerEntry=ctElanSFDSPeerEntry, ctElanCtLaneDbgLES=ctElanCtLaneDbgLES, ctElanSFDSPeerRowStatus=ctElanSFDSPeerRowStatus, ctBus=ctBus, ctElanSFDSPeerIP=ctElanSFDSPeerIP, ctElanCtLaneDbgSNMP=ctElanCtLaneDbgSNMP, ctElanDSStatus=ctElanDSStatus, ctElanLaneDbgDatabaseManagement=ctElanLaneDbgDatabaseManagement, ctElanConfDirectoryServicesIP=ctElanConfDirectoryServicesIP, ctElanConfHotStandbyIP=ctElanConfHotStandbyIP, CtLaneDebugLevel=CtLaneDebugLevel, ctElanConfPolicy=ctElanConfPolicy, ctElanHotStandbyStatus=ctElanHotStandbyStatus, ctElanConfDelPolicyWithElan=ctElanConfDelPolicyWithElan, ctElanConfIndex=ctElanConfIndex, ctElanConfGroup=ctElanConfGroup, ctElanLaneDbgOutputFile=ctElanLaneDbgOutputFile, ctLeClient=ctLeClient, ctElanUNIVersion=ctElanUNIVersion, ctElanLaneDbgLECS=ctElanLaneDbgLECS, ctElan=ctElan, ctElanConfUnitNumber=ctElanConfUnitNumber, ctElanSFDSPeerTable=ctElanSFDSPeerTable)

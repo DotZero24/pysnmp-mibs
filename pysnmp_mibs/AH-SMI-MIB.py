@@ -1,37 +1,50 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
-aerohive=ModuleIdentity((1,3,6,1,4,1,26928))
-class AhString(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
-class AhNodeID(MacAddress):status=_A
-class AhInterfaceType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('ahPHYSICAL',0),('ahVIRTURAL',1)))
-class AhInterfaceMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('ahNotUsed',0),('ahAccess',1),('ahBackhaul',2),('ahBridge',3)))
-class AhMACProtocol(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('ah11a',0),('ah11b',1),('ah11g',2),('ah11na',3),('ah11ng',4)))
-_AhProduct_ObjectIdentity=ObjectIdentity
-ahProduct=_AhProduct_ObjectIdentity((1,3,6,1,4,1,26928,1))
-_AhAP_ObjectIdentity=ObjectIdentity
-ahAP=_AhAP_ObjectIdentity((1,3,6,1,4,1,26928,1,1))
-_AhAPCommon_ObjectIdentity=ObjectIdentity
-ahAPCommon=_AhAPCommon_ObjectIdentity((1,3,6,1,4,1,26928,1,1,1))
-_AhAPTrap_ObjectIdentity=ObjectIdentity
-ahAPTrap=_AhAPTrap_ObjectIdentity((1,3,6,1,4,1,26928,1,1,1,1))
-_AhAPInterface_ObjectIdentity=ObjectIdentity
-ahAPInterface=_AhAPInterface_ObjectIdentity((1,3,6,1,4,1,26928,1,1,1,2))
-_AhAPMRP_ObjectIdentity=ObjectIdentity
-ahAPMRP=_AhAPMRP_ObjectIdentity((1,3,6,1,4,1,26928,1,1,1,3))
-_AhAPIDP_ObjectIdentity=ObjectIdentity
-ahAPIDP=_AhAPIDP_ObjectIdentity((1,3,6,1,4,1,26928,1,1,1,4))
-_AhAPHiveAP020_ag_ObjectIdentity=ObjectIdentity
-ahAPHiveAP020_ag=_AhAPHiveAP020_ag_ObjectIdentity((1,3,6,1,4,1,26928,1,1,2))
-_AhAPHiveAP028_ag_ObjectIdentity=ObjectIdentity
-ahAPHiveAP028_ag=_AhAPHiveAP028_ag_ObjectIdentity((1,3,6,1,4,1,26928,1,1,3))
-_AhAPHiveAP320_n_ObjectIdentity=ObjectIdentity
-ahAPHiveAP320_n=_AhAPHiveAP320_n_ObjectIdentity((1,3,6,1,4,1,26928,1,1,4))
-_AhAPHiveAP340_n_ObjectIdentity=ObjectIdentity
-ahAPHiveAP340_n=_AhAPHiveAP340_n_ObjectIdentity((1,3,6,1,4,1,26928,1,1,5))
-mibBuilder.exportSymbols('AH-SMI-MIB',**{'AhString':AhString,'AhNodeID':AhNodeID,'AhInterfaceType':AhInterfaceType,'AhInterfaceMode':AhInterfaceMode,'AhMACProtocol':AhMACProtocol,'aerohive':aerohive,'ahProduct':ahProduct,'ahAP':ahAP,'ahAPCommon':ahAPCommon,'ahAPTrap':ahAPTrap,'ahAPInterface':ahAPInterface,'ahAPMRP':ahAPMRP,'ahAPIDP':ahAPIDP,'ahAPHiveAP020-ag':ahAPHiveAP020_ag,'ahAPHiveAP028-ag':ahAPHiveAP028_ag,'ahAPHiveAP320-n':ahAPHiveAP320_n,'ahAPHiveAP340-n':ahAPHiveAP340_n})
+#
+# PySNMP MIB module AH-SMI-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/aerohive/AH-SMI-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:04:15 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
+aerohive = ModuleIdentity((1, 3, 6, 1, 4, 1, 26928))
+if mibBuilder.loadTexts: aerohive.setLastUpdated('201608310000Z')
+if mibBuilder.loadTexts: aerohive.setOrganization('Aerohive Networks, Inc')
+ahProduct = MibIdentifier((1, 3, 6, 1, 4, 1, 26928, 1))
+ahAP = MibIdentifier((1, 3, 6, 1, 4, 1, 26928, 1, 1))
+ahAPCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 26928, 1, 1, 1))
+ahAPTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 26928, 1, 1, 1, 1))
+ahAPInterface = MibIdentifier((1, 3, 6, 1, 4, 1, 26928, 1, 1, 1, 2))
+ahAPMRP = MibIdentifier((1, 3, 6, 1, 4, 1, 26928, 1, 1, 1, 3))
+ahAPIDP = MibIdentifier((1, 3, 6, 1, 4, 1, 26928, 1, 1, 1, 4))
+ahAPHiveAP020_ag = MibIdentifier((1, 3, 6, 1, 4, 1, 26928, 1, 1, 2)).setLabel("ahAPHiveAP020-ag")
+ahAPHiveAP028_ag = MibIdentifier((1, 3, 6, 1, 4, 1, 26928, 1, 1, 3)).setLabel("ahAPHiveAP028-ag")
+ahAPHiveAP320_n = MibIdentifier((1, 3, 6, 1, 4, 1, 26928, 1, 1, 4)).setLabel("ahAPHiveAP320-n")
+ahAPHiveAP340_n = MibIdentifier((1, 3, 6, 1, 4, 1, 26928, 1, 1, 5)).setLabel("ahAPHiveAP340-n")
+class AhString(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 32)
+
+class AhNodeID(MacAddress):
+    status = 'current'
+
+class AhInterfaceType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
+    namedValues = NamedValues(("ahPHYSICAL", 0), ("ahVIRTURAL", 1))
+
+class AhInterfaceMode(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
+    namedValues = NamedValues(("ahNotUsed", 0), ("ahAccess", 1), ("ahBackhaul", 2), ("ahBridge", 3))
+
+class AhMACProtocol(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
+    namedValues = NamedValues(("ah11a", 0), ("ah11b", 1), ("ah11g", 2), ("ah11na", 3), ("ah11ng", 4))
+
+mibBuilder.exportSymbols("AH-SMI-MIB", ahAPHiveAP320_n=ahAPHiveAP320_n, aerohive=aerohive, ahAPTrap=ahAPTrap, ahAPInterface=ahAPInterface, ahAPHiveAP020_ag=ahAPHiveAP020_ag, ahAPHiveAP028_ag=ahAPHiveAP028_ag, ahAPIDP=ahAPIDP, ahAPCommon=ahAPCommon, ahAPHiveAP340_n=ahAPHiveAP340_n, ahProduct=ahProduct, AhString=AhString, AhInterfaceType=AhInterfaceType, AhMACProtocol=AhMACProtocol, AhInterfaceMode=AhInterfaceMode, PYSNMP_MODULE_ID=aerohive, AhNodeID=AhNodeID, ahAPMRP=ahAPMRP, ahAP=ahAP)

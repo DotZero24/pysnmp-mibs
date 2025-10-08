@@ -1,51 +1,40 @@
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,org=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','org')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-infinera=ModuleIdentity((1,3,6,1,4,1,21296))
-if mibBuilder.loadTexts:infinera.setRevisions(('2008-09-05 17:00',))
-_Dod_ObjectIdentity=ObjectIdentity
-dod=_Dod_ObjectIdentity((1,3,6))
-_Internet_ObjectIdentity=ObjectIdentity
-internet=_Internet_ObjectIdentity((1,3,6,1))
-_Private_ObjectIdentity=ObjectIdentity
-private=_Private_ObjectIdentity((1,3,6,1,4))
-_Enterprises_ObjectIdentity=ObjectIdentity
-enterprises=_Enterprises_ObjectIdentity((1,3,6,1,4,1))
-_Don_ObjectIdentity=ObjectIdentity
-don=_Don_ObjectIdentity((1,3,6,1,4,1,21296,2))
-if mibBuilder.loadTexts:don.setStatus(_A)
-_Base_ObjectIdentity=ObjectIdentity
-base=_Base_ObjectIdentity((1,3,6,1,4,1,21296,2,1))
-if mibBuilder.loadTexts:base.setStatus(_A)
-_Ne_ObjectIdentity=ObjectIdentity
-ne=_Ne_ObjectIdentity((1,3,6,1,4,1,21296,2,2))
-if mibBuilder.loadTexts:ne.setStatus(_A)
-_Common_ObjectIdentity=ObjectIdentity
-common=_Common_ObjectIdentity((1,3,6,1,4,1,21296,2,2,1))
-_InfnNE_ObjectIdentity=ObjectIdentity
-infnNE=_InfnNE_ObjectIdentity((1,3,6,1,4,1,21296,2,2,1,8))
-_CommonEquipment_ObjectIdentity=ObjectIdentity
-commonEquipment=_CommonEquipment_ObjectIdentity((1,3,6,1,4,1,21296,2,2,1,9))
-_CommonTerminationPoint_ObjectIdentity=ObjectIdentity
-commonTerminationPoint=_CommonTerminationPoint_ObjectIdentity((1,3,6,1,4,1,21296,2,2,1,10))
-_CommonPerfMon_ObjectIdentity=ObjectIdentity
-commonPerfMon=_CommonPerfMon_ObjectIdentity((1,3,6,1,4,1,21296,2,2,1,11))
-_Dtn_ObjectIdentity=ObjectIdentity
-dtn=_Dtn_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2))
-_Equipment_ObjectIdentity=ObjectIdentity
-equipment=_Equipment_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,1))
-_TerminationPoint_ObjectIdentity=ObjectIdentity
-terminationPoint=_TerminationPoint_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,2))
-_PerfMon_ObjectIdentity=ObjectIdentity
-perfMon=_PerfMon_ObjectIdentity((1,3,6,1,4,1,21296,2,2,2,3))
-_Ola_ObjectIdentity=ObjectIdentity
-ola=_Ola_ObjectIdentity((1,3,6,1,4,1,21296,2,2,3))
-_Ems_ObjectIdentity=ObjectIdentity
-ems=_Ems_ObjectIdentity((1,3,6,1,4,1,21296,2,3))
-if mibBuilder.loadTexts:ems.setStatus(_A)
-mibBuilder.exportSymbols('INFINERA-REG-MIB',**{'dod':dod,'internet':internet,'private':private,'enterprises':enterprises,'infinera':infinera,'don':don,'base':base,'ne':ne,'common':common,'infnNE':infnNE,'commonEquipment':commonEquipment,'commonTerminationPoint':commonTerminationPoint,'commonPerfMon':commonPerfMon,'dtn':dtn,'equipment':equipment,'terminationPoint':terminationPoint,'perfMon':perfMon,'ola':ola,'ems':ems})
+#
+# PySNMP MIB module INFINERA-REG-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/infinera/INFINERA-REG-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:10:14 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, org, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "org", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+infinera = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296))
+infinera.setRevisions(('2008-09-05 17:00',))
+if mibBuilder.loadTexts: infinera.setLastUpdated('200809051700Z')
+if mibBuilder.loadTexts: infinera.setOrganization('Infinera')
+dod = MibIdentifier((1, 3, 6))
+internet = MibIdentifier((1, 3, 6, 1))
+private = MibIdentifier((1, 3, 6, 1, 4))
+enterprises = MibIdentifier((1, 3, 6, 1, 4, 1))
+don = ObjectIdentity((1, 3, 6, 1, 4, 1, 21296, 2))
+if mibBuilder.loadTexts: don.setStatus('current')
+base = ObjectIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 1))
+if mibBuilder.loadTexts: base.setStatus('current')
+ne = ObjectIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2))
+if mibBuilder.loadTexts: ne.setStatus('current')
+common = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1))
+infnNE = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 8))
+commonEquipment = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 9))
+commonTerminationPoint = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 10))
+commonPerfMon = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 11))
+dtn = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2))
+equipment = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1))
+terminationPoint = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2))
+perfMon = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3))
+ola = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 3))
+ems = ObjectIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 3))
+if mibBuilder.loadTexts: ems.setStatus('current')
+mibBuilder.exportSymbols("INFINERA-REG-MIB", common=common, ems=ems, infinera=infinera, terminationPoint=terminationPoint, dod=dod, ola=ola, private=private, commonTerminationPoint=commonTerminationPoint, perfMon=perfMon, don=don, enterprises=enterprises, internet=internet, ne=ne, commonPerfMon=commonPerfMon, equipment=equipment, commonEquipment=commonEquipment, PYSNMP_MODULE_ID=infinera, infnNE=infnNE, base=base, dtn=dtn)

@@ -1,24 +1,22 @@
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Huawei_ObjectIdentity=ObjectIdentity
-huawei=_Huawei_ObjectIdentity((1,3,6,1,4,1,2011))
-_Products_ObjectIdentity=ObjectIdentity
-products=_Products_ObjectIdentity((1,3,6,1,4,1,2011,2))
-_Transmission_ObjectIdentity=ObjectIdentity
-transmission=_Transmission_ObjectIdentity((1,3,6,1,4,1,2011,2,25))
-_OptixCommon_ObjectIdentity=ObjectIdentity
-optixCommon=_OptixCommon_ObjectIdentity((1,3,6,1,4,1,2011,2,25,3))
-_OptixCommonSnmp_ObjectIdentity=ObjectIdentity
-optixCommonSnmp=_OptixCommonSnmp_ObjectIdentity((1,3,6,1,4,1,2011,2,25,3,1))
-_OptixCommonGlobal_ObjectIdentity=ObjectIdentity
-optixCommonGlobal=_OptixCommonGlobal_ObjectIdentity((1,3,6,1,4,1,2011,2,25,3,40))
-_OptixProvision_ObjectIdentity=ObjectIdentity
-optixProvision=_OptixProvision_ObjectIdentity((1,3,6,1,4,1,2011,2,25,4))
-_OptixProvisionWDM_ObjectIdentity=ObjectIdentity
-optixProvisionWDM=_OptixProvisionWDM_ObjectIdentity((1,3,6,1,4,1,2011,2,25,4,70))
-mibBuilder.exportSymbols('OPTIX-OID-MIB',**{'huawei':huawei,'products':products,'transmission':transmission,'optixCommon':optixCommon,'optixCommonSnmp':optixCommonSnmp,'optixCommonGlobal':optixCommonGlobal,'optixProvision':optixProvision,'optixProvisionWDM':optixProvisionWDM})
+#
+# PySNMP MIB module OPTIX-OID-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/huawei/OPTIX-OID-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:01:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+huawei = MibIdentifier((1, 3, 6, 1, 4, 1, 2011))
+products = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2))
+transmission = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 25))
+optixCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3))
+optixCommonSnmp = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 1))
+optixCommonGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 25, 3, 40))
+optixProvision = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 25, 4))
+optixProvisionWDM = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 2, 25, 4, 70))
+mibBuilder.exportSymbols("OPTIX-OID-MIB", optixCommon=optixCommon, transmission=transmission, optixCommonSnmp=optixCommonSnmp, optixCommonGlobal=optixCommonGlobal, optixProvisionWDM=optixProvisionWDM, products=products, huawei=huawei, optixProvision=optixProvision)

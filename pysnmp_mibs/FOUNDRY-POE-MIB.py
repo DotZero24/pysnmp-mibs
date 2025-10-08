@@ -1,137 +1,70 @@
-_H='snAgentPoeUnitIndex'
-_G='snAgentPoeModuleNumber'
-_F='snAgentPoePortNumber'
-_E='FOUNDRY-POE-MIB'
-_D='Integer32'
-_C='read-create'
-_B='read-only'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-snAgentSys,=mibBuilder.importSymbols('FOUNDRY-SN-ROOT-MIB','snAgentSys')
-InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-snAgentPoe=ModuleIdentity((1,3,6,1,4,1,1991,1,1,2,14))
-if mibBuilder.loadTexts:snAgentPoe.setRevisions(('2010-06-02 00:00','2009-09-30 00:00','2009-04-03 00:00'))
-_SnAgentPoeGbl_ObjectIdentity=ObjectIdentity
-snAgentPoeGbl=_SnAgentPoeGbl_ObjectIdentity((1,3,6,1,4,1,1991,1,1,2,14,1))
-_SnAgentPoeGblPowerCapacityTotal_Type=Unsigned32
-_SnAgentPoeGblPowerCapacityTotal_Object=MibScalar
-snAgentPoeGblPowerCapacityTotal=_SnAgentPoeGblPowerCapacityTotal_Object((1,3,6,1,4,1,1991,1,1,2,14,1,1),_SnAgentPoeGblPowerCapacityTotal_Type())
-snAgentPoeGblPowerCapacityTotal.setMaxAccess(_B)
-if mibBuilder.loadTexts:snAgentPoeGblPowerCapacityTotal.setStatus(_A)
-_SnAgentPoeGblPowerCapacityFree_Type=Unsigned32
-_SnAgentPoeGblPowerCapacityFree_Object=MibScalar
-snAgentPoeGblPowerCapacityFree=_SnAgentPoeGblPowerCapacityFree_Object((1,3,6,1,4,1,1991,1,1,2,14,1,2),_SnAgentPoeGblPowerCapacityFree_Type())
-snAgentPoeGblPowerCapacityFree.setMaxAccess(_B)
-if mibBuilder.loadTexts:snAgentPoeGblPowerCapacityFree.setStatus(_A)
-_SnAgentPoeGblPowerAllocationsRequestsHonored_Type=Unsigned32
-_SnAgentPoeGblPowerAllocationsRequestsHonored_Object=MibScalar
-snAgentPoeGblPowerAllocationsRequestsHonored=_SnAgentPoeGblPowerAllocationsRequestsHonored_Object((1,3,6,1,4,1,1991,1,1,2,14,1,3),_SnAgentPoeGblPowerAllocationsRequestsHonored_Type())
-snAgentPoeGblPowerAllocationsRequestsHonored.setMaxAccess(_B)
-if mibBuilder.loadTexts:snAgentPoeGblPowerAllocationsRequestsHonored.setStatus(_A)
-_SnAgentPoePort_ObjectIdentity=ObjectIdentity
-snAgentPoePort=_SnAgentPoePort_ObjectIdentity((1,3,6,1,4,1,1991,1,1,2,14,2))
-_SnAgentPoePortTable_Object=MibTable
-snAgentPoePortTable=_SnAgentPoePortTable_Object((1,3,6,1,4,1,1991,1,1,2,14,2,2))
-if mibBuilder.loadTexts:snAgentPoePortTable.setStatus(_A)
-_SnAgentPoePortEntry_Object=MibTableRow
-snAgentPoePortEntry=_SnAgentPoePortEntry_Object((1,3,6,1,4,1,1991,1,1,2,14,2,2,1))
-snAgentPoePortEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:snAgentPoePortEntry.setStatus(_A)
-_SnAgentPoePortNumber_Type=InterfaceIndex
-_SnAgentPoePortNumber_Object=MibTableColumn
-snAgentPoePortNumber=_SnAgentPoePortNumber_Object((1,3,6,1,4,1,1991,1,1,2,14,2,2,1,1),_SnAgentPoePortNumber_Type())
-snAgentPoePortNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:snAgentPoePortNumber.setStatus(_A)
-class _SnAgentPoePortControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('other',1),('disable',2),('enable',3),('enableLegacyDevice',4)))
-_SnAgentPoePortControl_Type.__name__=_D
-_SnAgentPoePortControl_Object=MibTableColumn
-snAgentPoePortControl=_SnAgentPoePortControl_Object((1,3,6,1,4,1,1991,1,1,2,14,2,2,1,2),_SnAgentPoePortControl_Type())
-snAgentPoePortControl.setMaxAccess(_C)
-if mibBuilder.loadTexts:snAgentPoePortControl.setStatus(_A)
-_SnAgentPoePortWattage_Type=Integer32
-_SnAgentPoePortWattage_Object=MibTableColumn
-snAgentPoePortWattage=_SnAgentPoePortWattage_Object((1,3,6,1,4,1,1991,1,1,2,14,2,2,1,3),_SnAgentPoePortWattage_Type())
-snAgentPoePortWattage.setMaxAccess(_C)
-if mibBuilder.loadTexts:snAgentPoePortWattage.setStatus(_A)
-_SnAgentPoePortClass_Type=Integer32
-_SnAgentPoePortClass_Object=MibTableColumn
-snAgentPoePortClass=_SnAgentPoePortClass_Object((1,3,6,1,4,1,1991,1,1,2,14,2,2,1,4),_SnAgentPoePortClass_Type())
-snAgentPoePortClass.setMaxAccess(_C)
-if mibBuilder.loadTexts:snAgentPoePortClass.setStatus(_A)
-class _SnAgentPoePortPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*(('invalid',0),('critical',1),('high',2),('low',3),('medium',4),('other',5)))
-_SnAgentPoePortPriority_Type.__name__=_D
-_SnAgentPoePortPriority_Object=MibTableColumn
-snAgentPoePortPriority=_SnAgentPoePortPriority_Object((1,3,6,1,4,1,1991,1,1,2,14,2,2,1,5),_SnAgentPoePortPriority_Type())
-snAgentPoePortPriority.setMaxAccess(_C)
-if mibBuilder.loadTexts:snAgentPoePortPriority.setStatus(_A)
-_SnAgentPoePortConsumed_Type=Integer32
-_SnAgentPoePortConsumed_Object=MibTableColumn
-snAgentPoePortConsumed=_SnAgentPoePortConsumed_Object((1,3,6,1,4,1,1991,1,1,2,14,2,2,1,6),_SnAgentPoePortConsumed_Type())
-snAgentPoePortConsumed.setMaxAccess(_B)
-if mibBuilder.loadTexts:snAgentPoePortConsumed.setStatus(_A)
-_SnAgentPoePortType_Type=DisplayString
-_SnAgentPoePortType_Object=MibTableColumn
-snAgentPoePortType=_SnAgentPoePortType_Object((1,3,6,1,4,1,1991,1,1,2,14,2,2,1,7),_SnAgentPoePortType_Type())
-snAgentPoePortType.setMaxAccess(_B)
-if mibBuilder.loadTexts:snAgentPoePortType.setStatus(_A)
-_SnAgentPoeModule_ObjectIdentity=ObjectIdentity
-snAgentPoeModule=_SnAgentPoeModule_ObjectIdentity((1,3,6,1,4,1,1991,1,1,2,14,3))
-_SnAgentPoeModuleTable_Object=MibTable
-snAgentPoeModuleTable=_SnAgentPoeModuleTable_Object((1,3,6,1,4,1,1991,1,1,2,14,3,1))
-if mibBuilder.loadTexts:snAgentPoeModuleTable.setStatus(_A)
-_SnAgentPoeModuleEntry_Object=MibTableRow
-snAgentPoeModuleEntry=_SnAgentPoeModuleEntry_Object((1,3,6,1,4,1,1991,1,1,2,14,3,1,1))
-snAgentPoeModuleEntry.setIndexNames((0,_E,_G))
-if mibBuilder.loadTexts:snAgentPoeModuleEntry.setStatus(_A)
-_SnAgentPoeModuleNumber_Type=Unsigned32
-_SnAgentPoeModuleNumber_Object=MibTableColumn
-snAgentPoeModuleNumber=_SnAgentPoeModuleNumber_Object((1,3,6,1,4,1,1991,1,1,2,14,3,1,1,1),_SnAgentPoeModuleNumber_Type())
-snAgentPoeModuleNumber.setMaxAccess(_B)
-if mibBuilder.loadTexts:snAgentPoeModuleNumber.setStatus(_A)
-_SnAgentPoeModuleBudget_Type=Unsigned32
-_SnAgentPoeModuleBudget_Object=MibTableColumn
-snAgentPoeModuleBudget=_SnAgentPoeModuleBudget_Object((1,3,6,1,4,1,1991,1,1,2,14,3,1,1,2),_SnAgentPoeModuleBudget_Type())
-snAgentPoeModuleBudget.setMaxAccess(_C)
-if mibBuilder.loadTexts:snAgentPoeModuleBudget.setStatus(_A)
-class _SnAgentPoeModuleMaxPDTypeSupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('ieee802dot3af',0),('ieee802dot3at',1)))
-_SnAgentPoeModuleMaxPDTypeSupport_Type.__name__=_D
-_SnAgentPoeModuleMaxPDTypeSupport_Object=MibTableColumn
-snAgentPoeModuleMaxPDTypeSupport=_SnAgentPoeModuleMaxPDTypeSupport_Object((1,3,6,1,4,1,1991,1,1,2,14,3,1,1,3),_SnAgentPoeModuleMaxPDTypeSupport_Type())
-snAgentPoeModuleMaxPDTypeSupport.setMaxAccess(_B)
-if mibBuilder.loadTexts:snAgentPoeModuleMaxPDTypeSupport.setStatus(_A)
-_SnAgentPoeUnit_ObjectIdentity=ObjectIdentity
-snAgentPoeUnit=_SnAgentPoeUnit_ObjectIdentity((1,3,6,1,4,1,1991,1,1,2,14,4))
-_SnAgentPoeUnitTable_Object=MibTable
-snAgentPoeUnitTable=_SnAgentPoeUnitTable_Object((1,3,6,1,4,1,1991,1,1,2,14,4,1))
-if mibBuilder.loadTexts:snAgentPoeUnitTable.setStatus(_A)
-_SnAgentPoeUnitEntry_Object=MibTableRow
-snAgentPoeUnitEntry=_SnAgentPoeUnitEntry_Object((1,3,6,1,4,1,1991,1,1,2,14,4,1,1))
-snAgentPoeUnitEntry.setIndexNames((0,_E,_H))
-if mibBuilder.loadTexts:snAgentPoeUnitEntry.setStatus(_A)
-_SnAgentPoeUnitIndex_Type=Unsigned32
-_SnAgentPoeUnitIndex_Object=MibTableColumn
-snAgentPoeUnitIndex=_SnAgentPoeUnitIndex_Object((1,3,6,1,4,1,1991,1,1,2,14,4,1,1,1),_SnAgentPoeUnitIndex_Type())
-snAgentPoeUnitIndex.setMaxAccess(_B)
-if mibBuilder.loadTexts:snAgentPoeUnitIndex.setStatus(_A)
-_SnAgentPoeUnitPowerCapacityTotal_Type=Unsigned32
-_SnAgentPoeUnitPowerCapacityTotal_Object=MibTableColumn
-snAgentPoeUnitPowerCapacityTotal=_SnAgentPoeUnitPowerCapacityTotal_Object((1,3,6,1,4,1,1991,1,1,2,14,4,1,1,2),_SnAgentPoeUnitPowerCapacityTotal_Type())
-snAgentPoeUnitPowerCapacityTotal.setMaxAccess(_B)
-if mibBuilder.loadTexts:snAgentPoeUnitPowerCapacityTotal.setStatus(_A)
-_SnAgentPoeUnitPowerCapacityFree_Type=Unsigned32
-_SnAgentPoeUnitPowerCapacityFree_Object=MibTableColumn
-snAgentPoeUnitPowerCapacityFree=_SnAgentPoeUnitPowerCapacityFree_Object((1,3,6,1,4,1,1991,1,1,2,14,4,1,1,3),_SnAgentPoeUnitPowerCapacityFree_Type())
-snAgentPoeUnitPowerCapacityFree.setMaxAccess(_B)
-if mibBuilder.loadTexts:snAgentPoeUnitPowerCapacityFree.setStatus(_A)
-_SnAgentPoeUnitPowerAllocationsRequestsHonored_Type=Unsigned32
-_SnAgentPoeUnitPowerAllocationsRequestsHonored_Object=MibTableColumn
-snAgentPoeUnitPowerAllocationsRequestsHonored=_SnAgentPoeUnitPowerAllocationsRequestsHonored_Object((1,3,6,1,4,1,1991,1,1,2,14,4,1,1,4),_SnAgentPoeUnitPowerAllocationsRequestsHonored_Type())
-snAgentPoeUnitPowerAllocationsRequestsHonored.setMaxAccess(_B)
-if mibBuilder.loadTexts:snAgentPoeUnitPowerAllocationsRequestsHonored.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'snAgentPoe':snAgentPoe,'snAgentPoeGbl':snAgentPoeGbl,'snAgentPoeGblPowerCapacityTotal':snAgentPoeGblPowerCapacityTotal,'snAgentPoeGblPowerCapacityFree':snAgentPoeGblPowerCapacityFree,'snAgentPoeGblPowerAllocationsRequestsHonored':snAgentPoeGblPowerAllocationsRequestsHonored,'snAgentPoePort':snAgentPoePort,'snAgentPoePortTable':snAgentPoePortTable,'snAgentPoePortEntry':snAgentPoePortEntry,_F:snAgentPoePortNumber,'snAgentPoePortControl':snAgentPoePortControl,'snAgentPoePortWattage':snAgentPoePortWattage,'snAgentPoePortClass':snAgentPoePortClass,'snAgentPoePortPriority':snAgentPoePortPriority,'snAgentPoePortConsumed':snAgentPoePortConsumed,'snAgentPoePortType':snAgentPoePortType,'snAgentPoeModule':snAgentPoeModule,'snAgentPoeModuleTable':snAgentPoeModuleTable,'snAgentPoeModuleEntry':snAgentPoeModuleEntry,_G:snAgentPoeModuleNumber,'snAgentPoeModuleBudget':snAgentPoeModuleBudget,'snAgentPoeModuleMaxPDTypeSupport':snAgentPoeModuleMaxPDTypeSupport,'snAgentPoeUnit':snAgentPoeUnit,'snAgentPoeUnitTable':snAgentPoeUnitTable,'snAgentPoeUnitEntry':snAgentPoeUnitEntry,_H:snAgentPoeUnitIndex,'snAgentPoeUnitPowerCapacityTotal':snAgentPoeUnitPowerCapacityTotal,'snAgentPoeUnitPowerCapacityFree':snAgentPoeUnitPowerCapacityFree,'snAgentPoeUnitPowerAllocationsRequestsHonored':snAgentPoeUnitPowerAllocationsRequestsHonored})
+#
+# PySNMP MIB module FOUNDRY-POE-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/brocade/FOUNDRY-POE-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:07:00 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+snAgentSys, = mibBuilder.importSymbols("FOUNDRY-SN-ROOT-MIB", "snAgentSys")
+InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+snAgentPoe = ModuleIdentity((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14))
+snAgentPoe.setRevisions(('2010-06-02 00:00', '2009-09-30 00:00', '2009-04-03 00:00',))
+if mibBuilder.loadTexts: snAgentPoe.setLastUpdated('201006020000Z')
+if mibBuilder.loadTexts: snAgentPoe.setOrganization('Brocade Communications Systems, Inc.')
+snAgentPoeGbl = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 1))
+snAgentPoePort = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 2))
+snAgentPoeModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 3))
+snAgentPoeUnit = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 4))
+snAgentPoeGblPowerCapacityTotal = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snAgentPoeGblPowerCapacityTotal.setStatus('current')
+snAgentPoeGblPowerCapacityFree = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snAgentPoeGblPowerCapacityFree.setStatus('current')
+snAgentPoeGblPowerAllocationsRequestsHonored = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snAgentPoeGblPowerAllocationsRequestsHonored.setStatus('current')
+snAgentPoePortTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 2, 2), )
+if mibBuilder.loadTexts: snAgentPoePortTable.setStatus('current')
+snAgentPoePortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 2, 2, 1), ).setIndexNames((0, "FOUNDRY-POE-MIB", "snAgentPoePortNumber"))
+if mibBuilder.loadTexts: snAgentPoePortEntry.setStatus('current')
+snAgentPoePortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 2, 2, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snAgentPoePortNumber.setStatus('current')
+snAgentPoePortControl = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("disable", 2), ("enable", 3), ("enableLegacyDevice", 4)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: snAgentPoePortControl.setStatus('current')
+snAgentPoePortWattage = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 2, 2, 1, 3), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: snAgentPoePortWattage.setStatus('current')
+snAgentPoePortClass = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 2, 2, 1, 4), Integer32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: snAgentPoePortClass.setStatus('current')
+snAgentPoePortPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 2, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("invalid", 0), ("critical", 1), ("high", 2), ("low", 3), ("medium", 4), ("other", 5)))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: snAgentPoePortPriority.setStatus('current')
+snAgentPoePortConsumed = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 2, 2, 1, 6), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snAgentPoePortConsumed.setStatus('current')
+snAgentPoePortType = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 2, 2, 1, 7), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snAgentPoePortType.setStatus('current')
+snAgentPoeModuleTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 3, 1), )
+if mibBuilder.loadTexts: snAgentPoeModuleTable.setStatus('current')
+snAgentPoeModuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 3, 1, 1), ).setIndexNames((0, "FOUNDRY-POE-MIB", "snAgentPoeModuleNumber"))
+if mibBuilder.loadTexts: snAgentPoeModuleEntry.setStatus('current')
+snAgentPoeModuleNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 3, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snAgentPoeModuleNumber.setStatus('current')
+snAgentPoeModuleBudget = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 3, 1, 1, 2), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: snAgentPoeModuleBudget.setStatus('current')
+snAgentPoeModuleMaxPDTypeSupport = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("ieee802dot3af", 0), ("ieee802dot3at", 1)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snAgentPoeModuleMaxPDTypeSupport.setStatus('current')
+snAgentPoeUnitTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 4, 1), )
+if mibBuilder.loadTexts: snAgentPoeUnitTable.setStatus('current')
+snAgentPoeUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 4, 1, 1), ).setIndexNames((0, "FOUNDRY-POE-MIB", "snAgentPoeUnitIndex"))
+if mibBuilder.loadTexts: snAgentPoeUnitEntry.setStatus('current')
+snAgentPoeUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 4, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snAgentPoeUnitIndex.setStatus('current')
+snAgentPoeUnitPowerCapacityTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 4, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snAgentPoeUnitPowerCapacityTotal.setStatus('current')
+snAgentPoeUnitPowerCapacityFree = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 4, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snAgentPoeUnitPowerCapacityFree.setStatus('current')
+snAgentPoeUnitPowerAllocationsRequestsHonored = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 2, 14, 4, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: snAgentPoeUnitPowerAllocationsRequestsHonored.setStatus('current')
+mibBuilder.exportSymbols("FOUNDRY-POE-MIB", snAgentPoePortControl=snAgentPoePortControl, snAgentPoePortWattage=snAgentPoePortWattage, snAgentPoePort=snAgentPoePort, snAgentPoeGblPowerAllocationsRequestsHonored=snAgentPoeGblPowerAllocationsRequestsHonored, snAgentPoeGbl=snAgentPoeGbl, snAgentPoeModule=snAgentPoeModule, snAgentPoeUnitPowerAllocationsRequestsHonored=snAgentPoeUnitPowerAllocationsRequestsHonored, snAgentPoePortConsumed=snAgentPoePortConsumed, snAgentPoeUnitPowerCapacityFree=snAgentPoeUnitPowerCapacityFree, snAgentPoePortNumber=snAgentPoePortNumber, snAgentPoeUnit=snAgentPoeUnit, snAgentPoe=snAgentPoe, snAgentPoeUnitEntry=snAgentPoeUnitEntry, snAgentPoePortEntry=snAgentPoePortEntry, snAgentPoeGblPowerCapacityFree=snAgentPoeGblPowerCapacityFree, snAgentPoeUnitTable=snAgentPoeUnitTable, snAgentPoePortTable=snAgentPoePortTable, snAgentPoePortClass=snAgentPoePortClass, snAgentPoeUnitPowerCapacityTotal=snAgentPoeUnitPowerCapacityTotal, snAgentPoeModuleEntry=snAgentPoeModuleEntry, snAgentPoePortPriority=snAgentPoePortPriority, snAgentPoeModuleMaxPDTypeSupport=snAgentPoeModuleMaxPDTypeSupport, snAgentPoeModuleNumber=snAgentPoeModuleNumber, snAgentPoePortType=snAgentPoePortType, PYSNMP_MODULE_ID=snAgentPoe, snAgentPoeGblPowerCapacityTotal=snAgentPoeGblPowerCapacityTotal, snAgentPoeModuleBudget=snAgentPoeModuleBudget, snAgentPoeModuleTable=snAgentPoeModuleTable, snAgentPoeUnitIndex=snAgentPoeUnitIndex)

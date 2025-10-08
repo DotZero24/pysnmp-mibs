@@ -1,935 +1,385 @@
-_Bd='cdspTranscodeProfileGroup'
-_Bc='cdspConferenceProfileGroup'
-_Bb='cdspMtpProfileGroup'
-_Ba='cdspTransCodingGroup'
-_BZ='cdspVoiceInfoGroup'
-_BY='cdspVideoOutOfResourceNotification'
-_BX='cdspVideoUsageNotification'
-_BW='cdspOperStateNotification'
-_BV='cdspConferenceProfileRowStatus'
-_BU='cdspConferenceProfileStorageType'
-_BT='cdspConferenceProfileMaxAvailSess'
-_BS='cdspConferenceProfileMaxConfSess'
-_BR='cdspConferenceProfileMaxCodec'
-_BQ='cdspConferenceApplicationStatus'
-_BP='cdspConferenceApplication'
-_BO='cdspConferenceAdminState'
-_BN='cdspConferenceService'
-_BM='cdspConferenceDescription'
-_BL='cdspConferenceResourceId'
-_BK='cdspMtpProfileMaxAvailSoftSess'
-_BJ='cdspMtpProfileMaxCodec'
-_BI='cdspMtpApplicationStatus'
-_BH='cdspMtpApplication'
-_BG='cdspMtpAdminState'
-_BF='cdspMtpService'
-_BE='cdspMtpDescription'
-_BD='cdspMtpResourceId'
-_BC='cdspTranscodeApplication'
-_BB='cdspTranscodeAdminState'
-_BA='cdspTranscodeService'
-_B9='cdspTranscodeDescription'
-_B8='cdspTranscodeResourceId'
-_B7='cdspVideoOutOfResourceNotificationEnable'
-_B6='cdspVideoUsageNotificationEnable'
-_B5='cdspTotUnusedMtpSess'
-_B4='cdspTotAvailMtpSess'
-_B3='cdspTotUnusedTranscodeSess'
-_B2='cdspTotAvailTranscodeSess'
-_B1='cdspMtpProfileMaxAvailHardSess'
-_B0='cdspMtpProfileMaxConfHardSess'
-_A_='cdspMtpProfileMaxConfSoftSess'
-_Az='cdspMtpProfileRowStatus'
-_Ay='cdspTranscodeProfileMaxAvailSess'
-_Ax='cdspTranscodeProfileMaxConfSess'
-_Aw='cdspTranscodeProfileRowStatus'
-_Av='cdspGlobMaxAvailTranscodeSess'
-_Au='cdspGlobMaxConfTranscodeSess'
-_At='cdspCurrentAvlbCap'
-_As='cdspCurrentUtilCap'
-_Ar='cdspVoiceModeIpIp'
-_Aq='cdspTransparentIpIp'
-_Ap='cdspPktLossConcealment'
-_Ao='cdspVqmThreshSES'
-_An='cdspRtcpXrExtRfactor'
-_Am='cdspRtcpXrGminDefault'
-_Al='cdspRtcpXrTransMultiplier'
-_Ak='cdspRtcpXrControl'
-_Aj='cdspVqmControl'
-_Ai='cdspEnableOperStateNotification'
-_Ah='cdspCodecTemplateSupported'
-_Ag='cdspXAvailableSigBandwidth'
-_Af='cdspXAvailableBearerBandwidth'
-_Ae='cdspXNumberOfSigCalls'
-_Ad='cdspXNumberOfBearerCalls'
-_Ac='cdspNumCongestionOccurrence'
-_Ab='cdspSigBearerChannelSplit'
-_Aa='cdspActiveChannels'
-_AZ='cdspInUseChannels'
-_AY='cdspTotalChannels'
-_AX='cdspCardMaxChanPerDSP'
-_AW='cdspStatusXEntry'
-_AV='cdspConferenceProfileId'
-_AU='cdspMtpProfileId'
-_AT='cdspTranscodeProfileId'
-_AS='cdspCodecPoolIndex'
-_AR='milliseconds'
-_AQ='StorageType'
-_AP='entPhysicalName'
-_AO='cdspMgmtVideoNotificationsGroup'
-_AN='cdspMgmtVideoInfoGroup'
-_AM='cdspMgmtExtGeneralInfoGroup'
-_AL='cdspMgmtNotificationsGroup'
-_AK='cdspMIBCardStateNotification'
-_AJ='cdspTranscodeProfileMaxCodec'
-_AI='cdspRtcpTimerControl'
-_AH='cdspDspNum'
-_AG='cdspNx64Dsp'
-_AF='cdspDspSwitchOverThreshold'
-_AE='cdspNormalDsp'
-_AD='cdspCongestedDsp'
-_AC='cdspFailedDsp'
-_AB='cdspTotalDsp'
-_AA='cdspMIBEnableCardStatusNotification'
-_A9='cdspLastAlarmTime'
-_A8='cdspLastAlarmCauseText'
-_A7='cdspLastAlarmCause'
-_A6='cdspAlarms'
-_A5='cdspCardLastResetTime'
-_A4='cdspCardLastHiWaterUtilization'
-_A3='cdspCardResourceUtilization'
-_A2='cdspCardIndex'
-_A1='invalid'
-_A0='notDone'
-_z='activeInDown'
-_y='activeInProgress'
-_x='done'
-_w='cube'
-_v='sbc'
-_u='sccp'
-_t='down'
-_s='secure'
-_r='nonSecure'
-_q='codecs'
-_p='normal'
-_o='cdspDspfarmInfoGroup'
-_n='cdspVoiceInfoGroupRev1'
-_m='cdspCardVideoPoolUtilizationThreshold'
-_l='cdspCardVideoPoolUtilization'
-_k='cdspDtmfPowerTwist'
-_j='cdspDtmfPowerLevel'
-_i='cdspVadAdaptive'
-_h='cdspRtcpRecvMultiplier'
-_g='cdspRtcpTransInterval'
-_f='cdspRtcpControl'
-_e='cdspRtpSidPayloadType'
-_d='cdspOperState'
-_c='cdspCardState'
-_b='not-accessible'
-_a='other'
-_Z='channels'
-_Y='percent'
-_X='Gauge32'
-_W='cdspUtilInfoGroup'
-_V='cdspMgmtGeneralInfoGroup'
-_U='sessions'
-_T='entPhysicalIndex'
-_S='cdspTransCodingGroup1'
-_R='ENTITY-MIB'
-_Q='none'
-_P='TruthValue'
-_O='cdspVoiceInfoGroupRev2'
-_N='cdspVQMGroup'
-_M='cdspMgmtNotificationsGroupRev1'
-_L='cdspMgmtGeneralInfoGroupRev1'
-_K='cdspMgmtExtGeneralInfoGroupRev1'
-_J='read-create'
-_I='cdspChannelExtGroup'
-_H='cdspChannelGroup'
-_G='deprecated'
-_F='Integer32'
-_E='read-write'
-_D='Unsigned32'
-_C='read-only'
-_B='current'
-_A='CISCO-DSP-MGMT-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-Percent,=mibBuilder.importSymbols('CISCO-QOS-PIB-MIB','Percent')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-entPhysicalIndex,entPhysicalName=mibBuilder.importSymbols(_R,_T,_AP)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64',_X,_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_AQ,'TextualConvention','TimeStamp',_P)
-ciscoDspMgmtMIB=ModuleIdentity((1,3,6,1,4,1,9,9,86))
-if mibBuilder.loadTexts:ciscoDspMgmtMIB.setRevisions(('2015-03-16 00:00','2011-02-17 00:00','2009-04-09 00:00','2007-09-03 00:05','2007-06-25 00:00','2007-06-20 00:00','2006-04-14 00:00','2005-11-02 00:00','2005-08-17 00:00','2005-08-04 00:00','2005-06-20 00:00','2005-05-18 00:00','2005-04-18 00:00','2004-10-21 00:00','2003-10-10 00:00','2003-08-20 00:00','2003-08-14 00:00','2000-08-14 00:00','1998-10-17 00:00'))
-_CdspMgmtNotifications_ObjectIdentity=ObjectIdentity
-cdspMgmtNotifications=_CdspMgmtNotifications_ObjectIdentity((1,3,6,1,4,1,9,9,86,0))
-_CdspMgmtObjects_ObjectIdentity=ObjectIdentity
-cdspMgmtObjects=_CdspMgmtObjects_ObjectIdentity((1,3,6,1,4,1,9,9,86,1))
-_CdspCardObjects_ObjectIdentity=ObjectIdentity
-cdspCardObjects=_CdspCardObjects_ObjectIdentity((1,3,6,1,4,1,9,9,86,1,1))
-_CdspCardStatusTable_Object=MibTable
-cdspCardStatusTable=_CdspCardStatusTable_Object((1,3,6,1,4,1,9,9,86,1,1,1))
-if mibBuilder.loadTexts:cdspCardStatusTable.setStatus(_B)
-_CdspCardStatusEntry_Object=MibTableRow
-cdspCardStatusEntry=_CdspCardStatusEntry_Object((1,3,6,1,4,1,9,9,86,1,1,1,1))
-cdspCardStatusEntry.setIndexNames((0,_R,_T))
-if mibBuilder.loadTexts:cdspCardStatusEntry.setStatus(_B)
-_CdspCardIndex_Type=Integer32
-_CdspCardIndex_Object=MibTableColumn
-cdspCardIndex=_CdspCardIndex_Object((1,3,6,1,4,1,9,9,86,1,1,1,1,1),_CdspCardIndex_Type())
-cdspCardIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspCardIndex.setStatus(_B)
-class _CdspCardState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_p,1),('warning',2),('critical',3),('fatal',4),('offLine',5)))
-_CdspCardState_Type.__name__=_F
-_CdspCardState_Object=MibTableColumn
-cdspCardState=_CdspCardState_Object((1,3,6,1,4,1,9,9,86,1,1,1,1,2),_CdspCardState_Type())
-cdspCardState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspCardState.setStatus(_B)
-class _CdspCardResourceUtilization_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_CdspCardResourceUtilization_Type.__name__=_D
-_CdspCardResourceUtilization_Object=MibTableColumn
-cdspCardResourceUtilization=_CdspCardResourceUtilization_Object((1,3,6,1,4,1,9,9,86,1,1,1,1,3),_CdspCardResourceUtilization_Type())
-cdspCardResourceUtilization.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspCardResourceUtilization.setStatus(_B)
-if mibBuilder.loadTexts:cdspCardResourceUtilization.setUnits(_Y)
-class _CdspCardLastHiWaterUtilization_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_CdspCardLastHiWaterUtilization_Type.__name__=_D
-_CdspCardLastHiWaterUtilization_Object=MibTableColumn
-cdspCardLastHiWaterUtilization=_CdspCardLastHiWaterUtilization_Object((1,3,6,1,4,1,9,9,86,1,1,1,1,4),_CdspCardLastHiWaterUtilization_Type())
-cdspCardLastHiWaterUtilization.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspCardLastHiWaterUtilization.setStatus(_B)
-if mibBuilder.loadTexts:cdspCardLastHiWaterUtilization.setUnits(_Y)
-_CdspCardLastResetTime_Type=TimeStamp
-_CdspCardLastResetTime_Object=MibTableColumn
-cdspCardLastResetTime=_CdspCardLastResetTime_Object((1,3,6,1,4,1,9,9,86,1,1,1,1,5),_CdspCardLastResetTime_Type())
-cdspCardLastResetTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspCardLastResetTime.setStatus(_B)
-_CdspCardMaxChanPerDSP_Type=Unsigned32
-_CdspCardMaxChanPerDSP_Object=MibTableColumn
-cdspCardMaxChanPerDSP=_CdspCardMaxChanPerDSP_Object((1,3,6,1,4,1,9,9,86,1,1,1,1,6),_CdspCardMaxChanPerDSP_Type())
-cdspCardMaxChanPerDSP.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspCardMaxChanPerDSP.setStatus(_B)
-if mibBuilder.loadTexts:cdspCardMaxChanPerDSP.setUnits(_Z)
-class _CdspTotalDsp_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2048))
-_CdspTotalDsp_Type.__name__=_D
-_CdspTotalDsp_Object=MibTableColumn
-cdspTotalDsp=_CdspTotalDsp_Object((1,3,6,1,4,1,9,9,86,1,1,1,1,7),_CdspTotalDsp_Type())
-cdspTotalDsp.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspTotalDsp.setStatus(_B)
-class _CdspFailedDsp_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2048))
-_CdspFailedDsp_Type.__name__=_X
-_CdspFailedDsp_Object=MibTableColumn
-cdspFailedDsp=_CdspFailedDsp_Object((1,3,6,1,4,1,9,9,86,1,1,1,1,8),_CdspFailedDsp_Type())
-cdspFailedDsp.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspFailedDsp.setStatus(_B)
-class _CdspDspSwitchOverThreshold_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2048))
-_CdspDspSwitchOverThreshold_Type.__name__=_D
-_CdspDspSwitchOverThreshold_Object=MibTableColumn
-cdspDspSwitchOverThreshold=_CdspDspSwitchOverThreshold_Object((1,3,6,1,4,1,9,9,86,1,1,1,1,9),_CdspDspSwitchOverThreshold_Type())
-cdspDspSwitchOverThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspDspSwitchOverThreshold.setStatus(_B)
-class _CdspCongestedDsp_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2048))
-_CdspCongestedDsp_Type.__name__=_X
-_CdspCongestedDsp_Object=MibTableColumn
-cdspCongestedDsp=_CdspCongestedDsp_Object((1,3,6,1,4,1,9,9,86,1,1,1,1,10),_CdspCongestedDsp_Type())
-cdspCongestedDsp.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspCongestedDsp.setStatus(_B)
-class _CdspNormalDsp_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2048))
-_CdspNormalDsp_Type.__name__=_X
-_CdspNormalDsp_Object=MibTableColumn
-cdspNormalDsp=_CdspNormalDsp_Object((1,3,6,1,4,1,9,9,86,1,1,1,1,11),_CdspNormalDsp_Type())
-cdspNormalDsp.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspNormalDsp.setStatus(_B)
-class _CdspNx64Dsp_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2048))
-_CdspNx64Dsp_Type.__name__=_D
-_CdspNx64Dsp_Object=MibTableColumn
-cdspNx64Dsp=_CdspNx64Dsp_Object((1,3,6,1,4,1,9,9,86,1,1,1,1,12),_CdspNx64Dsp_Type())
-cdspNx64Dsp.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspNx64Dsp.setStatus(_B)
-class _CdspCodecTemplateSupported_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('tgw',1),('cable',2),('umts3G',3),('cdma3G',4),('tgw2',5),('fmc',6)))
-_CdspCodecTemplateSupported_Type.__name__=_F
-_CdspCodecTemplateSupported_Object=MibTableColumn
-cdspCodecTemplateSupported=_CdspCodecTemplateSupported_Object((1,3,6,1,4,1,9,9,86,1,1,1,1,13),_CdspCodecTemplateSupported_Type())
-cdspCodecTemplateSupported.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspCodecTemplateSupported.setStatus(_B)
-_CdspCardVideoPoolUtilization_Type=Percent
-_CdspCardVideoPoolUtilization_Object=MibTableColumn
-cdspCardVideoPoolUtilization=_CdspCardVideoPoolUtilization_Object((1,3,6,1,4,1,9,9,86,1,1,1,1,14),_CdspCardVideoPoolUtilization_Type())
-cdspCardVideoPoolUtilization.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspCardVideoPoolUtilization.setStatus(_B)
-class _CdspCardVideoPoolUtilizationThreshold_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
-_CdspCardVideoPoolUtilizationThreshold_Type.__name__=_D
-_CdspCardVideoPoolUtilizationThreshold_Object=MibTableColumn
-cdspCardVideoPoolUtilizationThreshold=_CdspCardVideoPoolUtilizationThreshold_Object((1,3,6,1,4,1,9,9,86,1,1,1,1,15),_CdspCardVideoPoolUtilizationThreshold_Type())
-cdspCardVideoPoolUtilizationThreshold.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspCardVideoPoolUtilizationThreshold.setStatus(_B)
-_CdspObjects_ObjectIdentity=ObjectIdentity
-cdspObjects=_CdspObjects_ObjectIdentity((1,3,6,1,4,1,9,9,86,1,2))
-_CdspStatusTable_Object=MibTable
-cdspStatusTable=_CdspStatusTable_Object((1,3,6,1,4,1,9,9,86,1,2,1))
-if mibBuilder.loadTexts:cdspStatusTable.setStatus(_B)
-_CdspStatusEntry_Object=MibTableRow
-cdspStatusEntry=_CdspStatusEntry_Object((1,3,6,1,4,1,9,9,86,1,2,1,1))
-cdspStatusEntry.setIndexNames((0,_R,_T))
-if mibBuilder.loadTexts:cdspStatusEntry.setStatus(_B)
-class _CdspOperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_p,1),('shutdown',2),('congested',3),('failed',4)))
-_CdspOperState_Type.__name__=_F
-_CdspOperState_Object=MibTableColumn
-cdspOperState=_CdspOperState_Object((1,3,6,1,4,1,9,9,86,1,2,1,1,1),_CdspOperState_Type())
-cdspOperState.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspOperState.setStatus(_B)
-_CdspAlarms_Type=Counter32
-_CdspAlarms_Object=MibTableColumn
-cdspAlarms=_CdspAlarms_Object((1,3,6,1,4,1,9,9,86,1,2,1,1,2),_CdspAlarms_Type())
-cdspAlarms.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspAlarms.setStatus(_B)
-class _CdspLastAlarmCause_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_a,1),('noAlarm',2),('dspFatalError',3),('dspMemoryError',4),('dspBufferError',5),('dspDownloadError',6)))
-_CdspLastAlarmCause_Type.__name__=_F
-_CdspLastAlarmCause_Object=MibTableColumn
-cdspLastAlarmCause=_CdspLastAlarmCause_Object((1,3,6,1,4,1,9,9,86,1,2,1,1,3),_CdspLastAlarmCause_Type())
-cdspLastAlarmCause.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspLastAlarmCause.setStatus(_B)
-_CdspLastAlarmCauseText_Type=DisplayString
-_CdspLastAlarmCauseText_Object=MibTableColumn
-cdspLastAlarmCauseText=_CdspLastAlarmCauseText_Object((1,3,6,1,4,1,9,9,86,1,2,1,1,4),_CdspLastAlarmCauseText_Type())
-cdspLastAlarmCauseText.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspLastAlarmCauseText.setStatus(_B)
-_CdspLastAlarmTime_Type=TimeStamp
-_CdspLastAlarmTime_Object=MibTableColumn
-cdspLastAlarmTime=_CdspLastAlarmTime_Object((1,3,6,1,4,1,9,9,86,1,2,1,1,5),_CdspLastAlarmTime_Type())
-cdspLastAlarmTime.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspLastAlarmTime.setStatus(_B)
-_CdspTotalChannels_Type=Unsigned32
-_CdspTotalChannels_Object=MibTableColumn
-cdspTotalChannels=_CdspTotalChannels_Object((1,3,6,1,4,1,9,9,86,1,2,1,1,6),_CdspTotalChannels_Type())
-cdspTotalChannels.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspTotalChannels.setStatus(_B)
-if mibBuilder.loadTexts:cdspTotalChannels.setUnits(_Z)
-_CdspInUseChannels_Type=Gauge32
-_CdspInUseChannels_Object=MibTableColumn
-cdspInUseChannels=_CdspInUseChannels_Object((1,3,6,1,4,1,9,9,86,1,2,1,1,7),_CdspInUseChannels_Type())
-cdspInUseChannels.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspInUseChannels.setStatus(_B)
-if mibBuilder.loadTexts:cdspInUseChannels.setUnits(_Z)
-_CdspActiveChannels_Type=Gauge32
-_CdspActiveChannels_Object=MibTableColumn
-cdspActiveChannels=_CdspActiveChannels_Object((1,3,6,1,4,1,9,9,86,1,2,1,1,8),_CdspActiveChannels_Type())
-cdspActiveChannels.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspActiveChannels.setStatus(_B)
-if mibBuilder.loadTexts:cdspActiveChannels.setUnits(_Z)
-_CdspSigBearerChannelSplit_Type=TruthValue
-_CdspSigBearerChannelSplit_Object=MibTableColumn
-cdspSigBearerChannelSplit=_CdspSigBearerChannelSplit_Object((1,3,6,1,4,1,9,9,86,1,2,1,1,9),_CdspSigBearerChannelSplit_Type())
-cdspSigBearerChannelSplit.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspSigBearerChannelSplit.setStatus(_B)
-_CdspNumCongestionOccurrence_Type=Counter32
-_CdspNumCongestionOccurrence_Object=MibTableColumn
-cdspNumCongestionOccurrence=_CdspNumCongestionOccurrence_Object((1,3,6,1,4,1,9,9,86,1,2,1,1,10),_CdspNumCongestionOccurrence_Type())
-cdspNumCongestionOccurrence.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspNumCongestionOccurrence.setStatus(_B)
-class _CdspDspNum_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,252))
-_CdspDspNum_Type.__name__=_D
-_CdspDspNum_Object=MibTableColumn
-cdspDspNum=_CdspDspNum_Object((1,3,6,1,4,1,9,9,86,1,2,1,1,11),_CdspDspNum_Type())
-cdspDspNum.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspDspNum.setStatus(_B)
-_CdspStatusXTable_Object=MibTable
-cdspStatusXTable=_CdspStatusXTable_Object((1,3,6,1,4,1,9,9,86,1,2,2))
-if mibBuilder.loadTexts:cdspStatusXTable.setStatus(_B)
-_CdspStatusXEntry_Object=MibTableRow
-cdspStatusXEntry=_CdspStatusXEntry_Object((1,3,6,1,4,1,9,9,86,1,2,2,1))
-if mibBuilder.loadTexts:cdspStatusXEntry.setStatus(_B)
-_CdspXNumberOfBearerCalls_Type=Gauge32
-_CdspXNumberOfBearerCalls_Object=MibTableColumn
-cdspXNumberOfBearerCalls=_CdspXNumberOfBearerCalls_Object((1,3,6,1,4,1,9,9,86,1,2,2,1,1),_CdspXNumberOfBearerCalls_Type())
-cdspXNumberOfBearerCalls.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspXNumberOfBearerCalls.setStatus(_B)
-if mibBuilder.loadTexts:cdspXNumberOfBearerCalls.setUnits('calls')
-_CdspXNumberOfSigCalls_Type=Gauge32
-_CdspXNumberOfSigCalls_Object=MibTableColumn
-cdspXNumberOfSigCalls=_CdspXNumberOfSigCalls_Object((1,3,6,1,4,1,9,9,86,1,2,2,1,2),_CdspXNumberOfSigCalls_Type())
-cdspXNumberOfSigCalls.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspXNumberOfSigCalls.setStatus(_B)
-if mibBuilder.loadTexts:cdspXNumberOfSigCalls.setUnits('calls')
-_CdspXAvailableBearerBandwidth_Type=Gauge32
-_CdspXAvailableBearerBandwidth_Object=MibTableColumn
-cdspXAvailableBearerBandwidth=_CdspXAvailableBearerBandwidth_Object((1,3,6,1,4,1,9,9,86,1,2,2,1,3),_CdspXAvailableBearerBandwidth_Type())
-cdspXAvailableBearerBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspXAvailableBearerBandwidth.setStatus(_B)
-if mibBuilder.loadTexts:cdspXAvailableBearerBandwidth.setUnits(_Y)
-_CdspXAvailableSigBandwidth_Type=Gauge32
-_CdspXAvailableSigBandwidth_Object=MibTableColumn
-cdspXAvailableSigBandwidth=_CdspXAvailableSigBandwidth_Object((1,3,6,1,4,1,9,9,86,1,2,2,1,4),_CdspXAvailableSigBandwidth_Type())
-cdspXAvailableSigBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspXAvailableSigBandwidth.setStatus(_B)
-if mibBuilder.loadTexts:cdspXAvailableSigBandwidth.setUnits(_Y)
-_CdspMIBNotificationEnables_ObjectIdentity=ObjectIdentity
-cdspMIBNotificationEnables=_CdspMIBNotificationEnables_ObjectIdentity((1,3,6,1,4,1,9,9,86,1,3))
-class _CdspMIBEnableCardStatusNotification_Type(TruthValue):defaultValue=2
-_CdspMIBEnableCardStatusNotification_Type.__name__=_P
-_CdspMIBEnableCardStatusNotification_Object=MibScalar
-cdspMIBEnableCardStatusNotification=_CdspMIBEnableCardStatusNotification_Object((1,3,6,1,4,1,9,9,86,1,3,1),_CdspMIBEnableCardStatusNotification_Type())
-cdspMIBEnableCardStatusNotification.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspMIBEnableCardStatusNotification.setStatus(_B)
-class _CdspEnableOperStateNotification_Type(TruthValue):defaultValue=2
-_CdspEnableOperStateNotification_Type.__name__=_P
-_CdspEnableOperStateNotification_Object=MibScalar
-cdspEnableOperStateNotification=_CdspEnableOperStateNotification_Object((1,3,6,1,4,1,9,9,86,1,3,2),_CdspEnableOperStateNotification_Type())
-cdspEnableOperStateNotification.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspEnableOperStateNotification.setStatus(_B)
-_CdspVideoUsageNotificationEnable_Type=TruthValue
-_CdspVideoUsageNotificationEnable_Object=MibScalar
-cdspVideoUsageNotificationEnable=_CdspVideoUsageNotificationEnable_Object((1,3,6,1,4,1,9,9,86,1,3,3),_CdspVideoUsageNotificationEnable_Type())
-cdspVideoUsageNotificationEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspVideoUsageNotificationEnable.setStatus(_B)
-_CdspVideoOutOfResourceNotificationEnable_Type=TruthValue
-_CdspVideoOutOfResourceNotificationEnable_Object=MibScalar
-cdspVideoOutOfResourceNotificationEnable=_CdspVideoOutOfResourceNotificationEnable_Object((1,3,6,1,4,1,9,9,86,1,3,4),_CdspVideoOutOfResourceNotificationEnable_Type())
-cdspVideoOutOfResourceNotificationEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspVideoOutOfResourceNotificationEnable.setStatus(_B)
-_CdspVoiceObjects_ObjectIdentity=ObjectIdentity
-cdspVoiceObjects=_CdspVoiceObjects_ObjectIdentity((1,3,6,1,4,1,9,9,86,1,4))
-_CdspVoiceParamTable_Object=MibTable
-cdspVoiceParamTable=_CdspVoiceParamTable_Object((1,3,6,1,4,1,9,9,86,1,4,1))
-if mibBuilder.loadTexts:cdspVoiceParamTable.setStatus(_B)
-_CdspVoiceParamEntry_Object=MibTableRow
-cdspVoiceParamEntry=_CdspVoiceParamEntry_Object((1,3,6,1,4,1,9,9,86,1,4,1,1))
-cdspVoiceParamEntry.setIndexNames((0,_R,_T))
-if mibBuilder.loadTexts:cdspVoiceParamEntry.setStatus(_B)
-class _CdspRtpSidPayloadType_Type(Integer32):defaultValue=13;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(13,19)));namedValues=NamedValues(*(('decimal',13),('hexadecimal',19)))
-_CdspRtpSidPayloadType_Type.__name__=_F
-_CdspRtpSidPayloadType_Object=MibTableColumn
-cdspRtpSidPayloadType=_CdspRtpSidPayloadType_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,1),_CdspRtpSidPayloadType_Type())
-cdspRtpSidPayloadType.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspRtpSidPayloadType.setStatus(_B)
-class _CdspRtcpControl_Type(TruthValue):defaultValue=1
-_CdspRtcpControl_Type.__name__=_P
-_CdspRtcpControl_Object=MibTableColumn
-cdspRtcpControl=_CdspRtcpControl_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,2),_CdspRtcpControl_Type())
-cdspRtcpControl.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspRtcpControl.setStatus(_B)
-class _CdspRtcpTransInterval_Type(Unsigned32):defaultValue=5000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5000,65535))
-_CdspRtcpTransInterval_Type.__name__=_D
-_CdspRtcpTransInterval_Object=MibTableColumn
-cdspRtcpTransInterval=_CdspRtcpTransInterval_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,3),_CdspRtcpTransInterval_Type())
-cdspRtcpTransInterval.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspRtcpTransInterval.setStatus(_B)
-if mibBuilder.loadTexts:cdspRtcpTransInterval.setUnits(_AR)
-class _CdspRtcpRecvMultiplier_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,60))
-_CdspRtcpRecvMultiplier_Type.__name__=_D
-_CdspRtcpRecvMultiplier_Object=MibTableColumn
-cdspRtcpRecvMultiplier=_CdspRtcpRecvMultiplier_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,4),_CdspRtcpRecvMultiplier_Type())
-cdspRtcpRecvMultiplier.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspRtcpRecvMultiplier.setStatus(_B)
-class _CdspVadAdaptive_Type(TruthValue):defaultValue=2
-_CdspVadAdaptive_Type.__name__=_P
-_CdspVadAdaptive_Object=MibTableColumn
-cdspVadAdaptive=_CdspVadAdaptive_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,5),_CdspVadAdaptive_Type())
-cdspVadAdaptive.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspVadAdaptive.setStatus(_B)
-class _CdspDtmfPowerLevel_Type(Integer32):defaultValue=-120;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-250,30))
-_CdspDtmfPowerLevel_Type.__name__=_F
-_CdspDtmfPowerLevel_Object=MibTableColumn
-cdspDtmfPowerLevel=_CdspDtmfPowerLevel_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,6),_CdspDtmfPowerLevel_Type())
-cdspDtmfPowerLevel.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspDtmfPowerLevel.setStatus(_B)
-if mibBuilder.loadTexts:cdspDtmfPowerLevel.setUnits('0.1 dBm')
-class _CdspDtmfPowerTwist_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-100,100))
-_CdspDtmfPowerTwist_Type.__name__=_F
-_CdspDtmfPowerTwist_Object=MibTableColumn
-cdspDtmfPowerTwist=_CdspDtmfPowerTwist_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,7),_CdspDtmfPowerTwist_Type())
-cdspDtmfPowerTwist.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspDtmfPowerTwist.setStatus(_B)
-if mibBuilder.loadTexts:cdspDtmfPowerTwist.setUnits('0.1 dB')
-class _CdspRtcpTimerControl_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('disabled',1),('startImmediately',2),('startRtpOrRtcpPktRcvd',3),('startRtcpPktRcvd',4)))
-_CdspRtcpTimerControl_Type.__name__=_F
-_CdspRtcpTimerControl_Object=MibTableColumn
-cdspRtcpTimerControl=_CdspRtcpTimerControl_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,8),_CdspRtcpTimerControl_Type())
-cdspRtcpTimerControl.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspRtcpTimerControl.setStatus(_B)
-class _CdspVqmControl_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('disable',1),('rfc3611Vqm',2),('xnq',3)))
-_CdspVqmControl_Type.__name__=_F
-_CdspVqmControl_Object=MibTableColumn
-cdspVqmControl=_CdspVqmControl_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,9),_CdspVqmControl_Type())
-cdspVqmControl.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspVqmControl.setStatus(_B)
-class _CdspRtcpXrControl_Type(TruthValue):defaultValue=1
-_CdspRtcpXrControl_Type.__name__=_P
-_CdspRtcpXrControl_Object=MibTableColumn
-cdspRtcpXrControl=_CdspRtcpXrControl_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,10),_CdspRtcpXrControl_Type())
-cdspRtcpXrControl.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspRtcpXrControl.setStatus(_B)
-class _CdspRtcpXrTransMultiplier_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,5))
-_CdspRtcpXrTransMultiplier_Type.__name__=_D
-_CdspRtcpXrTransMultiplier_Object=MibTableColumn
-cdspRtcpXrTransMultiplier=_CdspRtcpXrTransMultiplier_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,11),_CdspRtcpXrTransMultiplier_Type())
-cdspRtcpXrTransMultiplier.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspRtcpXrTransMultiplier.setStatus(_B)
-class _CdspRtcpXrGminDefault_Type(Unsigned32):defaultValue=16;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
-_CdspRtcpXrGminDefault_Type.__name__=_D
-_CdspRtcpXrGminDefault_Object=MibTableColumn
-cdspRtcpXrGminDefault=_CdspRtcpXrGminDefault_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,12),_CdspRtcpXrGminDefault_Type())
-cdspRtcpXrGminDefault.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspRtcpXrGminDefault.setStatus(_B)
-class _CdspRtcpXrExtRfactor_Type(Unsigned32):defaultValue=127;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CdspRtcpXrExtRfactor_Type.__name__=_D
-_CdspRtcpXrExtRfactor_Object=MibTableColumn
-cdspRtcpXrExtRfactor=_CdspRtcpXrExtRfactor_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,13),_CdspRtcpXrExtRfactor_Type())
-cdspRtcpXrExtRfactor.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspRtcpXrExtRfactor.setStatus(_B)
-class _CdspPktLossConcealment_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_Q,1),('simple',2),('g711A1',3)))
-_CdspPktLossConcealment_Type.__name__=_F
-_CdspPktLossConcealment_Object=MibTableColumn
-cdspPktLossConcealment=_CdspPktLossConcealment_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,14),_CdspPktLossConcealment_Type())
-cdspPktLossConcealment.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspPktLossConcealment.setStatus(_B)
-class _CdspVqmThreshSES_Type(Unsigned32):defaultValue=50;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,1000))
-_CdspVqmThreshSES_Type.__name__=_D
-_CdspVqmThreshSES_Object=MibTableColumn
-cdspVqmThreshSES=_CdspVqmThreshSES_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,15),_CdspVqmThreshSES_Type())
-cdspVqmThreshSES.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspVqmThreshSES.setStatus(_B)
-if mibBuilder.loadTexts:cdspVqmThreshSES.setUnits(_AR)
-class _CdspTransparentIpIp_Type(TruthValue):defaultValue=2
-_CdspTransparentIpIp_Type.__name__=_P
-_CdspTransparentIpIp_Object=MibTableColumn
-cdspTransparentIpIp=_CdspTransparentIpIp_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,16),_CdspTransparentIpIp_Type())
-cdspTransparentIpIp.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspTransparentIpIp.setStatus(_G)
-class _CdspVoiceModeIpIp_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_p,1),('fastRoute',2),('transparent',3)))
-_CdspVoiceModeIpIp_Type.__name__=_F
-_CdspVoiceModeIpIp_Object=MibTableColumn
-cdspVoiceModeIpIp=_CdspVoiceModeIpIp_Object((1,3,6,1,4,1,9,9,86,1,4,1,1,17),_CdspVoiceModeIpIp_Type())
-cdspVoiceModeIpIp.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspVoiceModeIpIp.setStatus(_B)
-_CdspUtilObjects_ObjectIdentity=ObjectIdentity
-cdspUtilObjects=_CdspUtilObjects_ObjectIdentity((1,3,6,1,4,1,9,9,86,1,5))
-_CdspUtilTable_Object=MibTable
-cdspUtilTable=_CdspUtilTable_Object((1,3,6,1,4,1,9,9,86,1,5,1))
-if mibBuilder.loadTexts:cdspUtilTable.setStatus(_B)
-_CdspUtilEntry_Object=MibTableRow
-cdspUtilEntry=_CdspUtilEntry_Object((1,3,6,1,4,1,9,9,86,1,5,1,1))
-cdspUtilEntry.setIndexNames((0,_R,_T),(0,_A,_AS))
-if mibBuilder.loadTexts:cdspUtilEntry.setStatus(_B)
-class _CdspCodecPoolIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,64))
-_CdspCodecPoolIndex_Type.__name__=_D
-_CdspCodecPoolIndex_Object=MibTableColumn
-cdspCodecPoolIndex=_CdspCodecPoolIndex_Object((1,3,6,1,4,1,9,9,86,1,5,1,1,1),_CdspCodecPoolIndex_Type())
-cdspCodecPoolIndex.setMaxAccess(_b)
-if mibBuilder.loadTexts:cdspCodecPoolIndex.setStatus(_B)
-class _CdspCurrentUtilCap_Type(Unsigned32):defaultValue=0
-_CdspCurrentUtilCap_Type.__name__=_D
-_CdspCurrentUtilCap_Object=MibTableColumn
-cdspCurrentUtilCap=_CdspCurrentUtilCap_Object((1,3,6,1,4,1,9,9,86,1,5,1,1,2),_CdspCurrentUtilCap_Type())
-cdspCurrentUtilCap.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspCurrentUtilCap.setStatus(_B)
-class _CdspCurrentAvlbCap_Type(Unsigned32):defaultValue=0
-_CdspCurrentAvlbCap_Type.__name__=_D
-_CdspCurrentAvlbCap_Object=MibTableColumn
-cdspCurrentAvlbCap=_CdspCurrentAvlbCap_Object((1,3,6,1,4,1,9,9,86,1,5,1,1,3),_CdspCurrentAvlbCap_Type())
-cdspCurrentAvlbCap.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspCurrentAvlbCap.setStatus(_B)
-_CdspDspfarmObjects_ObjectIdentity=ObjectIdentity
-cdspDspfarmObjects=_CdspDspfarmObjects_ObjectIdentity((1,3,6,1,4,1,9,9,86,1,6))
-class _CdspGlobMaxConfTranscodeSess_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CdspGlobMaxConfTranscodeSess_Type.__name__=_D
-_CdspGlobMaxConfTranscodeSess_Object=MibScalar
-cdspGlobMaxConfTranscodeSess=_CdspGlobMaxConfTranscodeSess_Object((1,3,6,1,4,1,9,9,86,1,6,1),_CdspGlobMaxConfTranscodeSess_Type())
-cdspGlobMaxConfTranscodeSess.setMaxAccess(_E)
-if mibBuilder.loadTexts:cdspGlobMaxConfTranscodeSess.setStatus(_B)
-class _CdspGlobMaxAvailTranscodeSess_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CdspGlobMaxAvailTranscodeSess_Type.__name__=_D
-_CdspGlobMaxAvailTranscodeSess_Object=MibScalar
-cdspGlobMaxAvailTranscodeSess=_CdspGlobMaxAvailTranscodeSess_Object((1,3,6,1,4,1,9,9,86,1,6,2),_CdspGlobMaxAvailTranscodeSess_Type())
-cdspGlobMaxAvailTranscodeSess.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspGlobMaxAvailTranscodeSess.setStatus(_B)
-_CdspTranscodeProfileTable_Object=MibTable
-cdspTranscodeProfileTable=_CdspTranscodeProfileTable_Object((1,3,6,1,4,1,9,9,86,1,6,3))
-if mibBuilder.loadTexts:cdspTranscodeProfileTable.setStatus(_B)
-_CdspTranscodeProfileEntry_Object=MibTableRow
-cdspTranscodeProfileEntry=_CdspTranscodeProfileEntry_Object((1,3,6,1,4,1,9,9,86,1,6,3,1))
-cdspTranscodeProfileEntry.setIndexNames((0,_A,_AT))
-if mibBuilder.loadTexts:cdspTranscodeProfileEntry.setStatus(_B)
-class _CdspTranscodeProfileMaxCodec_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CdspTranscodeProfileMaxCodec_Type.__name__=_D
-_CdspTranscodeProfileMaxCodec_Object=MibTableColumn
-cdspTranscodeProfileMaxCodec=_CdspTranscodeProfileMaxCodec_Object((1,3,6,1,4,1,9,9,86,1,6,3,1,1),_CdspTranscodeProfileMaxCodec_Type())
-cdspTranscodeProfileMaxCodec.setMaxAccess(_J)
-if mibBuilder.loadTexts:cdspTranscodeProfileMaxCodec.setStatus(_B)
-if mibBuilder.loadTexts:cdspTranscodeProfileMaxCodec.setUnits(_q)
-class _CdspTranscodeProfileId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CdspTranscodeProfileId_Type.__name__=_D
-_CdspTranscodeProfileId_Object=MibTableColumn
-cdspTranscodeProfileId=_CdspTranscodeProfileId_Object((1,3,6,1,4,1,9,9,86,1,6,3,1,2),_CdspTranscodeProfileId_Type())
-cdspTranscodeProfileId.setMaxAccess(_b)
-if mibBuilder.loadTexts:cdspTranscodeProfileId.setStatus(_B)
-_CdspTranscodeProfileMaxConfSess_Type=Unsigned32
-_CdspTranscodeProfileMaxConfSess_Object=MibTableColumn
-cdspTranscodeProfileMaxConfSess=_CdspTranscodeProfileMaxConfSess_Object((1,3,6,1,4,1,9,9,86,1,6,3,1,3),_CdspTranscodeProfileMaxConfSess_Type())
-cdspTranscodeProfileMaxConfSess.setMaxAccess(_J)
-if mibBuilder.loadTexts:cdspTranscodeProfileMaxConfSess.setStatus(_B)
-if mibBuilder.loadTexts:cdspTranscodeProfileMaxConfSess.setUnits(_U)
-class _CdspTranscodeProfileMaxAvailSess_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CdspTranscodeProfileMaxAvailSess_Type.__name__=_D
-_CdspTranscodeProfileMaxAvailSess_Object=MibTableColumn
-cdspTranscodeProfileMaxAvailSess=_CdspTranscodeProfileMaxAvailSess_Object((1,3,6,1,4,1,9,9,86,1,6,3,1,4),_CdspTranscodeProfileMaxAvailSess_Type())
-cdspTranscodeProfileMaxAvailSess.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspTranscodeProfileMaxAvailSess.setStatus(_B)
-_CdspTranscodeProfileRowStatus_Type=RowStatus
-_CdspTranscodeProfileRowStatus_Object=MibTableColumn
-cdspTranscodeProfileRowStatus=_CdspTranscodeProfileRowStatus_Object((1,3,6,1,4,1,9,9,86,1,6,3,1,5),_CdspTranscodeProfileRowStatus_Type())
-cdspTranscodeProfileRowStatus.setMaxAccess(_J)
-if mibBuilder.loadTexts:cdspTranscodeProfileRowStatus.setStatus(_B)
-_CdspTranscodeResourceId_Type=Unsigned32
-_CdspTranscodeResourceId_Object=MibTableColumn
-cdspTranscodeResourceId=_CdspTranscodeResourceId_Object((1,3,6,1,4,1,9,9,86,1,6,3,1,6),_CdspTranscodeResourceId_Type())
-cdspTranscodeResourceId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspTranscodeResourceId.setStatus(_B)
-_CdspTranscodeDescription_Type=SnmpAdminString
-_CdspTranscodeDescription_Object=MibTableColumn
-cdspTranscodeDescription=_CdspTranscodeDescription_Object((1,3,6,1,4,1,9,9,86,1,6,3,1,7),_CdspTranscodeDescription_Type())
-cdspTranscodeDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspTranscodeDescription.setStatus(_B)
-class _CdspTranscodeService_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_r,1),(_s,2)))
-_CdspTranscodeService_Type.__name__=_F
-_CdspTranscodeService_Object=MibTableColumn
-cdspTranscodeService=_CdspTranscodeService_Object((1,3,6,1,4,1,9,9,86,1,6,3,1,8),_CdspTranscodeService_Type())
-cdspTranscodeService.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspTranscodeService.setStatus(_B)
-class _CdspTranscodeAdminState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_t,1),('up',2)))
-_CdspTranscodeAdminState_Type.__name__=_F
-_CdspTranscodeAdminState_Object=MibTableColumn
-cdspTranscodeAdminState=_CdspTranscodeAdminState_Object((1,3,6,1,4,1,9,9,86,1,6,3,1,9),_CdspTranscodeAdminState_Type())
-cdspTranscodeAdminState.setMaxAccess(_J)
-if mibBuilder.loadTexts:cdspTranscodeAdminState.setStatus(_B)
-class _CdspTranscodeApplication_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_Q,1),(_u,2),(_v,3),(_w,4),(_a,5)))
-_CdspTranscodeApplication_Type.__name__=_F
-_CdspTranscodeApplication_Object=MibTableColumn
-cdspTranscodeApplication=_CdspTranscodeApplication_Object((1,3,6,1,4,1,9,9,86,1,6,3,1,10),_CdspTranscodeApplication_Type())
-cdspTranscodeApplication.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspTranscodeApplication.setStatus(_B)
-class _CdspTranscodeApplicationStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_Q,1),(_x,2),(_y,3),(_z,4),(_A0,5),(_A1,6)))
-_CdspTranscodeApplicationStatus_Type.__name__=_F
-_CdspTranscodeApplicationStatus_Object=MibTableColumn
-cdspTranscodeApplicationStatus=_CdspTranscodeApplicationStatus_Object((1,3,6,1,4,1,9,9,86,1,6,3,1,11),_CdspTranscodeApplicationStatus_Type())
-cdspTranscodeApplicationStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspTranscodeApplicationStatus.setStatus(_B)
-_CdspMtpProfileTable_Object=MibTable
-cdspMtpProfileTable=_CdspMtpProfileTable_Object((1,3,6,1,4,1,9,9,86,1,6,4))
-if mibBuilder.loadTexts:cdspMtpProfileTable.setStatus(_B)
-_CdspMtpProfileEntry_Object=MibTableRow
-cdspMtpProfileEntry=_CdspMtpProfileEntry_Object((1,3,6,1,4,1,9,9,86,1,6,4,1))
-cdspMtpProfileEntry.setIndexNames((0,_A,_AU))
-if mibBuilder.loadTexts:cdspMtpProfileEntry.setStatus(_B)
-class _CdspMtpProfileId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CdspMtpProfileId_Type.__name__=_D
-_CdspMtpProfileId_Object=MibTableColumn
-cdspMtpProfileId=_CdspMtpProfileId_Object((1,3,6,1,4,1,9,9,86,1,6,4,1,1),_CdspMtpProfileId_Type())
-cdspMtpProfileId.setMaxAccess(_b)
-if mibBuilder.loadTexts:cdspMtpProfileId.setStatus(_B)
-class _CdspMtpProfileMaxConfSoftSess_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CdspMtpProfileMaxConfSoftSess_Type.__name__=_D
-_CdspMtpProfileMaxConfSoftSess_Object=MibTableColumn
-cdspMtpProfileMaxConfSoftSess=_CdspMtpProfileMaxConfSoftSess_Object((1,3,6,1,4,1,9,9,86,1,6,4,1,2),_CdspMtpProfileMaxConfSoftSess_Type())
-cdspMtpProfileMaxConfSoftSess.setMaxAccess(_J)
-if mibBuilder.loadTexts:cdspMtpProfileMaxConfSoftSess.setStatus(_B)
-if mibBuilder.loadTexts:cdspMtpProfileMaxConfSoftSess.setUnits(_U)
-class _CdspMtpProfileMaxConfHardSess_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CdspMtpProfileMaxConfHardSess_Type.__name__=_D
-_CdspMtpProfileMaxConfHardSess_Object=MibTableColumn
-cdspMtpProfileMaxConfHardSess=_CdspMtpProfileMaxConfHardSess_Object((1,3,6,1,4,1,9,9,86,1,6,4,1,3),_CdspMtpProfileMaxConfHardSess_Type())
-cdspMtpProfileMaxConfHardSess.setMaxAccess(_J)
-if mibBuilder.loadTexts:cdspMtpProfileMaxConfHardSess.setStatus(_B)
-if mibBuilder.loadTexts:cdspMtpProfileMaxConfHardSess.setUnits(_U)
-class _CdspMtpProfileMaxAvailHardSess_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CdspMtpProfileMaxAvailHardSess_Type.__name__=_D
-_CdspMtpProfileMaxAvailHardSess_Object=MibTableColumn
-cdspMtpProfileMaxAvailHardSess=_CdspMtpProfileMaxAvailHardSess_Object((1,3,6,1,4,1,9,9,86,1,6,4,1,4),_CdspMtpProfileMaxAvailHardSess_Type())
-cdspMtpProfileMaxAvailHardSess.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspMtpProfileMaxAvailHardSess.setStatus(_B)
-if mibBuilder.loadTexts:cdspMtpProfileMaxAvailHardSess.setUnits(_U)
-_CdspMtpProfileRowStatus_Type=RowStatus
-_CdspMtpProfileRowStatus_Object=MibTableColumn
-cdspMtpProfileRowStatus=_CdspMtpProfileRowStatus_Object((1,3,6,1,4,1,9,9,86,1,6,4,1,5),_CdspMtpProfileRowStatus_Type())
-cdspMtpProfileRowStatus.setMaxAccess(_J)
-if mibBuilder.loadTexts:cdspMtpProfileRowStatus.setStatus(_B)
-_CdspMtpResourceId_Type=Unsigned32
-_CdspMtpResourceId_Object=MibTableColumn
-cdspMtpResourceId=_CdspMtpResourceId_Object((1,3,6,1,4,1,9,9,86,1,6,4,1,6),_CdspMtpResourceId_Type())
-cdspMtpResourceId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspMtpResourceId.setStatus(_B)
-_CdspMtpDescription_Type=SnmpAdminString
-_CdspMtpDescription_Object=MibTableColumn
-cdspMtpDescription=_CdspMtpDescription_Object((1,3,6,1,4,1,9,9,86,1,6,4,1,7),_CdspMtpDescription_Type())
-cdspMtpDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspMtpDescription.setStatus(_B)
-class _CdspMtpService_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_r,1),(_s,2)))
-_CdspMtpService_Type.__name__=_F
-_CdspMtpService_Object=MibTableColumn
-cdspMtpService=_CdspMtpService_Object((1,3,6,1,4,1,9,9,86,1,6,4,1,8),_CdspMtpService_Type())
-cdspMtpService.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspMtpService.setStatus(_B)
-class _CdspMtpAdminState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_t,1),('up',2)))
-_CdspMtpAdminState_Type.__name__=_F
-_CdspMtpAdminState_Object=MibTableColumn
-cdspMtpAdminState=_CdspMtpAdminState_Object((1,3,6,1,4,1,9,9,86,1,6,4,1,9),_CdspMtpAdminState_Type())
-cdspMtpAdminState.setMaxAccess(_J)
-if mibBuilder.loadTexts:cdspMtpAdminState.setStatus(_B)
-class _CdspMtpApplication_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_Q,1),(_u,2),(_v,3),(_w,4),(_a,5)))
-_CdspMtpApplication_Type.__name__=_F
-_CdspMtpApplication_Object=MibTableColumn
-cdspMtpApplication=_CdspMtpApplication_Object((1,3,6,1,4,1,9,9,86,1,6,4,1,10),_CdspMtpApplication_Type())
-cdspMtpApplication.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspMtpApplication.setStatus(_B)
-class _CdspMtpApplicationStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_Q,1),(_x,2),(_y,3),(_z,4),(_A0,5),(_A1,6)))
-_CdspMtpApplicationStatus_Type.__name__=_F
-_CdspMtpApplicationStatus_Object=MibTableColumn
-cdspMtpApplicationStatus=_CdspMtpApplicationStatus_Object((1,3,6,1,4,1,9,9,86,1,6,4,1,11),_CdspMtpApplicationStatus_Type())
-cdspMtpApplicationStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspMtpApplicationStatus.setStatus(_B)
-_CdspMtpProfileMaxCodec_Type=Unsigned32
-_CdspMtpProfileMaxCodec_Object=MibTableColumn
-cdspMtpProfileMaxCodec=_CdspMtpProfileMaxCodec_Object((1,3,6,1,4,1,9,9,86,1,6,4,1,12),_CdspMtpProfileMaxCodec_Type())
-cdspMtpProfileMaxCodec.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspMtpProfileMaxCodec.setStatus(_B)
-if mibBuilder.loadTexts:cdspMtpProfileMaxCodec.setUnits(_q)
-_CdspMtpProfileMaxAvailSoftSess_Type=Unsigned32
-_CdspMtpProfileMaxAvailSoftSess_Object=MibTableColumn
-cdspMtpProfileMaxAvailSoftSess=_CdspMtpProfileMaxAvailSoftSess_Object((1,3,6,1,4,1,9,9,86,1,6,4,1,13),_CdspMtpProfileMaxAvailSoftSess_Type())
-cdspMtpProfileMaxAvailSoftSess.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspMtpProfileMaxAvailSoftSess.setStatus(_B)
-if mibBuilder.loadTexts:cdspMtpProfileMaxAvailSoftSess.setUnits(_U)
-_CdspConferenceProfileTable_Object=MibTable
-cdspConferenceProfileTable=_CdspConferenceProfileTable_Object((1,3,6,1,4,1,9,9,86,1,6,5))
-if mibBuilder.loadTexts:cdspConferenceProfileTable.setStatus(_B)
-_CdspConferenceProfileEntry_Object=MibTableRow
-cdspConferenceProfileEntry=_CdspConferenceProfileEntry_Object((1,3,6,1,4,1,9,9,86,1,6,5,1))
-cdspConferenceProfileEntry.setIndexNames((0,_A,_AV))
-if mibBuilder.loadTexts:cdspConferenceProfileEntry.setStatus(_B)
-class _CdspConferenceProfileId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
-_CdspConferenceProfileId_Type.__name__=_D
-_CdspConferenceProfileId_Object=MibTableColumn
-cdspConferenceProfileId=_CdspConferenceProfileId_Object((1,3,6,1,4,1,9,9,86,1,6,5,1,1),_CdspConferenceProfileId_Type())
-cdspConferenceProfileId.setMaxAccess(_b)
-if mibBuilder.loadTexts:cdspConferenceProfileId.setStatus(_B)
-_CdspConferenceResourceId_Type=Unsigned32
-_CdspConferenceResourceId_Object=MibTableColumn
-cdspConferenceResourceId=_CdspConferenceResourceId_Object((1,3,6,1,4,1,9,9,86,1,6,5,1,2),_CdspConferenceResourceId_Type())
-cdspConferenceResourceId.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspConferenceResourceId.setStatus(_B)
-_CdspConferenceDescription_Type=SnmpAdminString
-_CdspConferenceDescription_Object=MibTableColumn
-cdspConferenceDescription=_CdspConferenceDescription_Object((1,3,6,1,4,1,9,9,86,1,6,5,1,3),_CdspConferenceDescription_Type())
-cdspConferenceDescription.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspConferenceDescription.setStatus(_B)
-class _CdspConferenceService_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_r,1),(_s,2)))
-_CdspConferenceService_Type.__name__=_F
-_CdspConferenceService_Object=MibTableColumn
-cdspConferenceService=_CdspConferenceService_Object((1,3,6,1,4,1,9,9,86,1,6,5,1,4),_CdspConferenceService_Type())
-cdspConferenceService.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspConferenceService.setStatus(_B)
-class _CdspConferenceAdminState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_t,1),('up',2)))
-_CdspConferenceAdminState_Type.__name__=_F
-_CdspConferenceAdminState_Object=MibTableColumn
-cdspConferenceAdminState=_CdspConferenceAdminState_Object((1,3,6,1,4,1,9,9,86,1,6,5,1,5),_CdspConferenceAdminState_Type())
-cdspConferenceAdminState.setMaxAccess(_J)
-if mibBuilder.loadTexts:cdspConferenceAdminState.setStatus(_B)
-class _CdspConferenceApplication_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_Q,1),(_u,2),(_v,3),(_w,4),(_a,5)))
-_CdspConferenceApplication_Type.__name__=_F
-_CdspConferenceApplication_Object=MibTableColumn
-cdspConferenceApplication=_CdspConferenceApplication_Object((1,3,6,1,4,1,9,9,86,1,6,5,1,6),_CdspConferenceApplication_Type())
-cdspConferenceApplication.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspConferenceApplication.setStatus(_B)
-class _CdspConferenceApplicationStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_Q,1),(_x,2),(_y,3),(_z,4),(_A0,5),(_A1,6)))
-_CdspConferenceApplicationStatus_Type.__name__=_F
-_CdspConferenceApplicationStatus_Object=MibTableColumn
-cdspConferenceApplicationStatus=_CdspConferenceApplicationStatus_Object((1,3,6,1,4,1,9,9,86,1,6,5,1,7),_CdspConferenceApplicationStatus_Type())
-cdspConferenceApplicationStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspConferenceApplicationStatus.setStatus(_B)
-class _CdspConferenceProfileMaxCodec_Type(Unsigned32):defaultValue=0
-_CdspConferenceProfileMaxCodec_Type.__name__=_D
-_CdspConferenceProfileMaxCodec_Object=MibTableColumn
-cdspConferenceProfileMaxCodec=_CdspConferenceProfileMaxCodec_Object((1,3,6,1,4,1,9,9,86,1,6,5,1,8),_CdspConferenceProfileMaxCodec_Type())
-cdspConferenceProfileMaxCodec.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspConferenceProfileMaxCodec.setStatus(_B)
-if mibBuilder.loadTexts:cdspConferenceProfileMaxCodec.setUnits(_q)
-class _CdspConferenceProfileMaxConfSess_Type(Unsigned32):defaultValue=0
-_CdspConferenceProfileMaxConfSess_Type.__name__=_D
-_CdspConferenceProfileMaxConfSess_Object=MibTableColumn
-cdspConferenceProfileMaxConfSess=_CdspConferenceProfileMaxConfSess_Object((1,3,6,1,4,1,9,9,86,1,6,5,1,9),_CdspConferenceProfileMaxConfSess_Type())
-cdspConferenceProfileMaxConfSess.setMaxAccess(_J)
-if mibBuilder.loadTexts:cdspConferenceProfileMaxConfSess.setStatus(_B)
-_CdspConferenceProfileMaxAvailSess_Type=Unsigned32
-_CdspConferenceProfileMaxAvailSess_Object=MibTableColumn
-cdspConferenceProfileMaxAvailSess=_CdspConferenceProfileMaxAvailSess_Object((1,3,6,1,4,1,9,9,86,1,6,5,1,10),_CdspConferenceProfileMaxAvailSess_Type())
-cdspConferenceProfileMaxAvailSess.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspConferenceProfileMaxAvailSess.setStatus(_B)
-class _CdspConferenceProfileStorageType_Type(StorageType):defaultValue=3
-_CdspConferenceProfileStorageType_Type.__name__=_AQ
-_CdspConferenceProfileStorageType_Object=MibTableColumn
-cdspConferenceProfileStorageType=_CdspConferenceProfileStorageType_Object((1,3,6,1,4,1,9,9,86,1,6,5,1,11),_CdspConferenceProfileStorageType_Type())
-cdspConferenceProfileStorageType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspConferenceProfileStorageType.setStatus(_B)
-_CdspConferenceProfileRowStatus_Type=RowStatus
-_CdspConferenceProfileRowStatus_Object=MibTableColumn
-cdspConferenceProfileRowStatus=_CdspConferenceProfileRowStatus_Object((1,3,6,1,4,1,9,9,86,1,6,5,1,12),_CdspConferenceProfileRowStatus_Type())
-cdspConferenceProfileRowStatus.setMaxAccess(_J)
-if mibBuilder.loadTexts:cdspConferenceProfileRowStatus.setStatus(_B)
-_CdspDspfarmUtilObjects_ObjectIdentity=ObjectIdentity
-cdspDspfarmUtilObjects=_CdspDspfarmUtilObjects_ObjectIdentity((1,3,6,1,4,1,9,9,86,1,7))
-class _CdspTotAvailTranscodeSess_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CdspTotAvailTranscodeSess_Type.__name__=_D
-_CdspTotAvailTranscodeSess_Object=MibScalar
-cdspTotAvailTranscodeSess=_CdspTotAvailTranscodeSess_Object((1,3,6,1,4,1,9,9,86,1,7,1),_CdspTotAvailTranscodeSess_Type())
-cdspTotAvailTranscodeSess.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspTotAvailTranscodeSess.setStatus(_B)
-class _CdspTotUnusedTranscodeSess_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CdspTotUnusedTranscodeSess_Type.__name__=_D
-_CdspTotUnusedTranscodeSess_Object=MibScalar
-cdspTotUnusedTranscodeSess=_CdspTotUnusedTranscodeSess_Object((1,3,6,1,4,1,9,9,86,1,7,2),_CdspTotUnusedTranscodeSess_Type())
-cdspTotUnusedTranscodeSess.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspTotUnusedTranscodeSess.setStatus(_B)
-class _CdspTotAvailMtpSess_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CdspTotAvailMtpSess_Type.__name__=_D
-_CdspTotAvailMtpSess_Object=MibScalar
-cdspTotAvailMtpSess=_CdspTotAvailMtpSess_Object((1,3,6,1,4,1,9,9,86,1,7,3),_CdspTotAvailMtpSess_Type())
-cdspTotAvailMtpSess.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspTotAvailMtpSess.setStatus(_B)
-class _CdspTotUnusedMtpSess_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_CdspTotUnusedMtpSess_Type.__name__=_D
-_CdspTotUnusedMtpSess_Object=MibScalar
-cdspTotUnusedMtpSess=_CdspTotUnusedMtpSess_Object((1,3,6,1,4,1,9,9,86,1,7,4),_CdspTotUnusedMtpSess_Type())
-cdspTotUnusedMtpSess.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdspTotUnusedMtpSess.setStatus(_B)
-_CdspMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
-cdspMIBNotificationPrefix=_CdspMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,9,9,86,2))
-_CdspMIBNotifications_ObjectIdentity=ObjectIdentity
-cdspMIBNotifications=_CdspMIBNotifications_ObjectIdentity((1,3,6,1,4,1,9,9,86,2,0))
-_CdspMgmtConformance_ObjectIdentity=ObjectIdentity
-cdspMgmtConformance=_CdspMgmtConformance_ObjectIdentity((1,3,6,1,4,1,9,9,86,3))
-_CdspMgmtCompliances_ObjectIdentity=ObjectIdentity
-cdspMgmtCompliances=_CdspMgmtCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,86,3,1))
-_CdspMgmtGroups_ObjectIdentity=ObjectIdentity
-cdspMgmtGroups=_CdspMgmtGroups_ObjectIdentity((1,3,6,1,4,1,9,9,86,3,2))
-cdspStatusEntry.registerAugmentions((_A,_AW))
+#
+# PySNMP MIB module CISCO-DSP-MGMT-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-DSP-MGMT-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:11:33 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+Percent, = mibBuilder.importSymbols("CISCO-QOS-PIB-MIB", "Percent")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+entPhysicalName, entPhysicalIndex = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalName", "entPhysicalIndex")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TimeStamp, RowStatus, TextualConvention, TruthValue, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "TextualConvention", "TruthValue", "StorageType")
+ciscoDspMgmtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 86))
+ciscoDspMgmtMIB.setRevisions(('2015-03-16 00:00', '2011-02-17 00:00', '2009-04-09 00:00', '2007-09-03 00:05', '2007-06-25 00:00', '2007-06-20 00:00', '2006-04-14 00:00', '2005-11-02 00:00', '2005-08-17 00:00', '2005-08-04 00:00', '2005-06-20 00:00', '2005-05-18 00:00', '2005-04-18 00:00', '2004-10-21 00:00', '2003-10-10 00:00', '2003-08-20 00:00', '2003-08-14 00:00', '2000-08-14 00:00', '1998-10-17 00:00',))
+if mibBuilder.loadTexts: ciscoDspMgmtMIB.setLastUpdated('201505120000Z')
+if mibBuilder.loadTexts: ciscoDspMgmtMIB.setOrganization('Cisco Systems, Inc.')
+cdspMgmtNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 86, 0))
+cdspMgmtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 86, 1))
+cdspCardObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1))
+cdspObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2))
+cdspMIBNotificationEnables = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 3))
+cdspVoiceObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4))
+cdspUtilObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 5))
+cdspDspfarmObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6))
+cdspDspfarmUtilObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 7))
+cdspCardStatusTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1), )
+if mibBuilder.loadTexts: cdspCardStatusTable.setStatus('current')
+cdspCardStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: cdspCardStatusEntry.setStatus('current')
+cdspCardIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspCardIndex.setStatus('current')
+cdspCardState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("normal", 1), ("warning", 2), ("critical", 3), ("fatal", 4), ("offLine", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspCardState.setStatus('current')
+cdspCardResourceUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspCardResourceUtilization.setStatus('current')
+cdspCardLastHiWaterUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspCardLastHiWaterUtilization.setStatus('current')
+cdspCardLastResetTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1, 5), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspCardLastResetTime.setStatus('current')
+cdspCardMaxChanPerDSP = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1, 6), Unsigned32()).setUnits('channels').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspCardMaxChanPerDSP.setStatus('current')
+cdspTotalDsp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2048))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspTotalDsp.setStatus('current')
+cdspFailedDsp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1, 8), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 2048))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspFailedDsp.setStatus('current')
+cdspDspSwitchOverThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2048))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspDspSwitchOverThreshold.setStatus('current')
+cdspCongestedDsp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1, 10), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 2048))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspCongestedDsp.setStatus('current')
+cdspNormalDsp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1, 11), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 2048))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspNormalDsp.setStatus('current')
+cdspNx64Dsp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2048))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspNx64Dsp.setStatus('current')
+cdspCodecTemplateSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("tgw", 1), ("cable", 2), ("umts3G", 3), ("cdma3G", 4), ("tgw2", 5), ("fmc", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspCodecTemplateSupported.setStatus('current')
+cdspCardVideoPoolUtilization = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1, 14), Percent()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspCardVideoPoolUtilization.setStatus('current')
+cdspCardVideoPoolUtilizationThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 1, 1, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspCardVideoPoolUtilizationThreshold.setStatus('current')
+cdspStatusTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 1), )
+if mibBuilder.loadTexts: cdspStatusTable.setStatus('current')
+cdspStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: cdspStatusEntry.setStatus('current')
+cdspOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("normal", 1), ("shutdown", 2), ("congested", 3), ("failed", 4)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspOperState.setStatus('current')
+cdspAlarms = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 1, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspAlarms.setStatus('current')
+cdspLastAlarmCause = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("other", 1), ("noAlarm", 2), ("dspFatalError", 3), ("dspMemoryError", 4), ("dspBufferError", 5), ("dspDownloadError", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspLastAlarmCause.setStatus('current')
+cdspLastAlarmCauseText = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspLastAlarmCauseText.setStatus('current')
+cdspLastAlarmTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 1, 1, 5), TimeStamp()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspLastAlarmTime.setStatus('current')
+cdspTotalChannels = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 1, 1, 6), Unsigned32()).setUnits('channels').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspTotalChannels.setStatus('current')
+cdspInUseChannels = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 1, 1, 7), Gauge32()).setUnits('channels').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspInUseChannels.setStatus('current')
+cdspActiveChannels = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 1, 1, 8), Gauge32()).setUnits('channels').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspActiveChannels.setStatus('current')
+cdspSigBearerChannelSplit = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 1, 1, 9), TruthValue()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspSigBearerChannelSplit.setStatus('current')
+cdspNumCongestionOccurrence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 1, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspNumCongestionOccurrence.setStatus('current')
+cdspDspNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 1, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 252))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspDspNum.setStatus('current')
+cdspStatusXTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 2), )
+if mibBuilder.loadTexts: cdspStatusXTable.setStatus('current')
+cdspStatusXEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 2, 1), )
+cdspStatusEntry.registerAugmentions(("CISCO-DSP-MGMT-MIB", "cdspStatusXEntry"))
 cdspStatusXEntry.setIndexNames(*cdspStatusEntry.getIndexNames())
-cdspMgmtGeneralInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,1))
-cdspMgmtGeneralInfoGroup.setObjects(*((_A,_A2),(_A,_c),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_d),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA)))
-if mibBuilder.loadTexts:cdspMgmtGeneralInfoGroup.setStatus(_G)
-cdspChannelGroup=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,2))
-cdspChannelGroup.setObjects(*((_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa)))
-if mibBuilder.loadTexts:cdspChannelGroup.setStatus(_B)
-cdspMgmtExtGeneralInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,3))
-cdspMgmtExtGeneralInfoGroup.setObjects(*((_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH)))
-if mibBuilder.loadTexts:cdspMgmtExtGeneralInfoGroup.setStatus(_G)
-cdspVoiceInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,4))
-cdspVoiceInfoGroup.setObjects(*((_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k)))
-if mibBuilder.loadTexts:cdspVoiceInfoGroup.setStatus(_G)
-cdspChannelExtGroup=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,6))
-cdspChannelExtGroup.setObjects(*((_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag)))
-if mibBuilder.loadTexts:cdspChannelExtGroup.setStatus(_B)
-cdspVoiceInfoGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,7))
-cdspVoiceInfoGroupRev1.setObjects(*((_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_AI)))
-if mibBuilder.loadTexts:cdspVoiceInfoGroupRev1.setStatus(_G)
-cdspMgmtExtGeneralInfoGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,8))
-cdspMgmtExtGeneralInfoGroupRev1.setObjects(*((_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_Ah)))
-if mibBuilder.loadTexts:cdspMgmtExtGeneralInfoGroupRev1.setStatus(_B)
-cdspMgmtGeneralInfoGroupRev1=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,9))
-cdspMgmtGeneralInfoGroupRev1.setObjects(*((_A,_A2),(_A,_c),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_d),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_Ai)))
-if mibBuilder.loadTexts:cdspMgmtGeneralInfoGroupRev1.setStatus(_B)
-cdspVQMGroup=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,11))
-cdspVQMGroup.setObjects(*((_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao)))
-if mibBuilder.loadTexts:cdspVQMGroup.setStatus(_B)
-cdspVoiceInfoGroupRev2=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,12))
-cdspVoiceInfoGroupRev2.setObjects(*((_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_AI),(_A,_Ap)))
-if mibBuilder.loadTexts:cdspVoiceInfoGroupRev2.setStatus(_B)
-cdspTransCodingGroup=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,13))
-cdspTransCodingGroup.setObjects((_A,_Aq))
-if mibBuilder.loadTexts:cdspTransCodingGroup.setStatus(_G)
-cdspTransCodingGroup1=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,14))
-cdspTransCodingGroup1.setObjects((_A,_Ar))
-if mibBuilder.loadTexts:cdspTransCodingGroup1.setStatus(_B)
-cdspUtilInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,15))
-cdspUtilInfoGroup.setObjects(*((_A,_As),(_A,_At)))
-if mibBuilder.loadTexts:cdspUtilInfoGroup.setStatus(_B)
-cdspDspfarmInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,16))
-cdspDspfarmInfoGroup.setObjects(*((_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5)))
-if mibBuilder.loadTexts:cdspDspfarmInfoGroup.setStatus(_B)
-cdspMgmtVideoInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,18))
-cdspMgmtVideoInfoGroup.setObjects(*((_A,_l),(_A,_m),(_A,_B6),(_A,_B7)))
-if mibBuilder.loadTexts:cdspMgmtVideoInfoGroup.setStatus(_B)
-cdspTranscodeProfileGroup=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,19))
-cdspTranscodeProfileGroup.setObjects(*((_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_AJ),(_A,_AJ)))
-if mibBuilder.loadTexts:cdspTranscodeProfileGroup.setStatus(_B)
-cdspMtpProfileGroup=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,20))
-cdspMtpProfileGroup.setObjects(*((_A,_BD),(_A,_BE),(_A,_BF),(_A,_BG),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK)))
-if mibBuilder.loadTexts:cdspMtpProfileGroup.setStatus(_B)
-cdspConferenceProfileGroup=ObjectGroup((1,3,6,1,4,1,9,9,86,3,2,21))
-cdspConferenceProfileGroup.setObjects(*((_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_BQ),(_A,_BR),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_BV)))
-if mibBuilder.loadTexts:cdspConferenceProfileGroup.setStatus(_B)
-cdspMIBCardStateNotification=NotificationType((1,3,6,1,4,1,9,9,86,2,0,1))
-cdspMIBCardStateNotification.setObjects((_A,_c))
-if mibBuilder.loadTexts:cdspMIBCardStateNotification.setStatus(_B)
-cdspOperStateNotification=NotificationType((1,3,6,1,4,1,9,9,86,2,0,2))
-cdspOperStateNotification.setObjects(*((_A,_d),(_R,_AP)))
-if mibBuilder.loadTexts:cdspOperStateNotification.setStatus(_B)
-cdspVideoUsageNotification=NotificationType((1,3,6,1,4,1,9,9,86,2,0,3))
-cdspVideoUsageNotification.setObjects(*((_A,_l),(_A,_m)))
-if mibBuilder.loadTexts:cdspVideoUsageNotification.setStatus(_B)
-cdspVideoOutOfResourceNotification=NotificationType((1,3,6,1,4,1,9,9,86,2,0,4))
-cdspVideoOutOfResourceNotification.setObjects(*((_A,_l),(_A,_m)))
-if mibBuilder.loadTexts:cdspVideoOutOfResourceNotification.setStatus(_B)
-cdspMgmtNotificationsGroup=NotificationGroup((1,3,6,1,4,1,9,9,86,3,2,5))
-cdspMgmtNotificationsGroup.setObjects((_A,_AK))
-if mibBuilder.loadTexts:cdspMgmtNotificationsGroup.setStatus(_G)
-cdspMgmtNotificationsGroupRev1=NotificationGroup((1,3,6,1,4,1,9,9,86,3,2,10))
-cdspMgmtNotificationsGroupRev1.setObjects(*((_A,_AK),(_A,_BW)))
-if mibBuilder.loadTexts:cdspMgmtNotificationsGroupRev1.setStatus(_B)
-cdspMgmtVideoNotificationsGroup=NotificationGroup((1,3,6,1,4,1,9,9,86,3,2,17))
-cdspMgmtVideoNotificationsGroup.setObjects(*((_A,_BX),(_A,_BY)))
-if mibBuilder.loadTexts:cdspMgmtVideoNotificationsGroup.setStatus(_B)
-cdspMgmtCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,86,3,1,1))
-cdspMgmtCompliance.setObjects((_A,_V))
-if mibBuilder.loadTexts:cdspMgmtCompliance.setStatus(_G)
-cdspMgmtComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,9,86,3,1,2))
-cdspMgmtComplianceRev1.setObjects(*((_A,_V),(_A,_H)))
-if mibBuilder.loadTexts:cdspMgmtComplianceRev1.setStatus(_G)
-cdspMgmtComplianceRev2=ModuleCompliance((1,3,6,1,4,1,9,9,86,3,1,3))
-cdspMgmtComplianceRev2.setObjects(*((_A,_V),(_A,_AL),(_A,_AM),(_A,_H),(_A,_I),(_A,_BZ)))
-if mibBuilder.loadTexts:cdspMgmtComplianceRev2.setStatus(_G)
-cdspMgmtComplianceRev3=ModuleCompliance((1,3,6,1,4,1,9,9,86,3,1,4))
-cdspMgmtComplianceRev3.setObjects(*((_A,_V),(_A,_AL),(_A,_AM),(_A,_H),(_A,_I),(_A,_n)))
-if mibBuilder.loadTexts:cdspMgmtComplianceRev3.setStatus(_G)
-cdspMgmtComplianceRev4=ModuleCompliance((1,3,6,1,4,1,9,9,86,3,1,5))
-cdspMgmtComplianceRev4.setObjects(*((_A,_K),(_A,_H),(_A,_I),(_A,_n)))
-if mibBuilder.loadTexts:cdspMgmtComplianceRev4.setStatus(_G)
-cdspMgmtComplianceRev5=ModuleCompliance((1,3,6,1,4,1,9,9,86,3,1,6))
-cdspMgmtComplianceRev5.setObjects(*((_A,_L),(_A,_M),(_A,_K),(_A,_H),(_A,_I),(_A,_n),(_A,_N)))
-if mibBuilder.loadTexts:cdspMgmtComplianceRev5.setStatus(_G)
-cdspMgmtComplianceRev6=ModuleCompliance((1,3,6,1,4,1,9,9,86,3,1,7))
-cdspMgmtComplianceRev6.setObjects(*((_A,_L),(_A,_M),(_A,_K),(_A,_H),(_A,_I),(_A,_N),(_A,_O)))
-if mibBuilder.loadTexts:cdspMgmtComplianceRev6.setStatus(_G)
-cdspMgmtComplianceRev7=ModuleCompliance((1,3,6,1,4,1,9,9,86,3,1,8))
-cdspMgmtComplianceRev7.setObjects(*((_A,_L),(_A,_M),(_A,_K),(_A,_H),(_A,_I),(_A,_N),(_A,_O),(_A,_Ba)))
-if mibBuilder.loadTexts:cdspMgmtComplianceRev7.setStatus(_G)
-cdspMgmtComplianceRev8=ModuleCompliance((1,3,6,1,4,1,9,9,86,3,1,9))
-cdspMgmtComplianceRev8.setObjects(*((_A,_L),(_A,_M),(_A,_K),(_A,_H),(_A,_I),(_A,_N),(_A,_O),(_A,_S)))
-if mibBuilder.loadTexts:cdspMgmtComplianceRev8.setStatus(_G)
-cdspMgmtComplianceRev9=ModuleCompliance((1,3,6,1,4,1,9,9,86,3,1,10))
-cdspMgmtComplianceRev9.setObjects(*((_A,_L),(_A,_M),(_A,_K),(_A,_H),(_A,_I),(_A,_N),(_A,_O),(_A,_S),(_A,_W)))
-if mibBuilder.loadTexts:cdspMgmtComplianceRev9.setStatus(_G)
-cdspMgmtComplianceRev10=ModuleCompliance((1,3,6,1,4,1,9,9,86,3,1,11))
-cdspMgmtComplianceRev10.setObjects(*((_A,_L),(_A,_M),(_A,_K),(_A,_H),(_A,_I),(_A,_N),(_A,_O),(_A,_S),(_A,_W),(_A,_o)))
-if mibBuilder.loadTexts:cdspMgmtComplianceRev10.setStatus(_G)
-cdspMgmtComplianceRev11=ModuleCompliance((1,3,6,1,4,1,9,9,86,3,1,12))
-cdspMgmtComplianceRev11.setObjects(*((_A,_L),(_A,_M),(_A,_K),(_A,_H),(_A,_I),(_A,_N),(_A,_O),(_A,_S),(_A,_W),(_A,_o),(_A,_AN),(_A,_AO)))
-if mibBuilder.loadTexts:cdspMgmtComplianceRev11.setStatus(_G)
-cdspMgmtComplianceRev12=ModuleCompliance((1,3,6,1,4,1,9,9,86,3,1,13))
-cdspMgmtComplianceRev12.setObjects(*((_A,_L),(_A,_M),(_A,_K),(_A,_H),(_A,_I),(_A,_N),(_A,_O),(_A,_S),(_A,_W),(_A,_o),(_A,_AN),(_A,_AO),(_A,_Bb),(_A,_Bc),(_A,_Bd)))
-if mibBuilder.loadTexts:cdspMgmtComplianceRev12.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{'ciscoDspMgmtMIB':ciscoDspMgmtMIB,'cdspMgmtNotifications':cdspMgmtNotifications,'cdspMgmtObjects':cdspMgmtObjects,'cdspCardObjects':cdspCardObjects,'cdspCardStatusTable':cdspCardStatusTable,'cdspCardStatusEntry':cdspCardStatusEntry,_A2:cdspCardIndex,_c:cdspCardState,_A3:cdspCardResourceUtilization,_A4:cdspCardLastHiWaterUtilization,_A5:cdspCardLastResetTime,_AX:cdspCardMaxChanPerDSP,_AB:cdspTotalDsp,_AC:cdspFailedDsp,_AF:cdspDspSwitchOverThreshold,_AD:cdspCongestedDsp,_AE:cdspNormalDsp,_AG:cdspNx64Dsp,_Ah:cdspCodecTemplateSupported,_l:cdspCardVideoPoolUtilization,_m:cdspCardVideoPoolUtilizationThreshold,'cdspObjects':cdspObjects,'cdspStatusTable':cdspStatusTable,'cdspStatusEntry':cdspStatusEntry,_d:cdspOperState,_A6:cdspAlarms,_A7:cdspLastAlarmCause,_A8:cdspLastAlarmCauseText,_A9:cdspLastAlarmTime,_AY:cdspTotalChannels,_AZ:cdspInUseChannels,_Aa:cdspActiveChannels,_Ab:cdspSigBearerChannelSplit,_Ac:cdspNumCongestionOccurrence,_AH:cdspDspNum,'cdspStatusXTable':cdspStatusXTable,_AW:cdspStatusXEntry,_Ad:cdspXNumberOfBearerCalls,_Ae:cdspXNumberOfSigCalls,_Af:cdspXAvailableBearerBandwidth,_Ag:cdspXAvailableSigBandwidth,'cdspMIBNotificationEnables':cdspMIBNotificationEnables,_AA:cdspMIBEnableCardStatusNotification,_Ai:cdspEnableOperStateNotification,_B6:cdspVideoUsageNotificationEnable,_B7:cdspVideoOutOfResourceNotificationEnable,'cdspVoiceObjects':cdspVoiceObjects,'cdspVoiceParamTable':cdspVoiceParamTable,'cdspVoiceParamEntry':cdspVoiceParamEntry,_e:cdspRtpSidPayloadType,_f:cdspRtcpControl,_g:cdspRtcpTransInterval,_h:cdspRtcpRecvMultiplier,_i:cdspVadAdaptive,_j:cdspDtmfPowerLevel,_k:cdspDtmfPowerTwist,_AI:cdspRtcpTimerControl,_Aj:cdspVqmControl,_Ak:cdspRtcpXrControl,_Al:cdspRtcpXrTransMultiplier,_Am:cdspRtcpXrGminDefault,_An:cdspRtcpXrExtRfactor,_Ap:cdspPktLossConcealment,_Ao:cdspVqmThreshSES,_Aq:cdspTransparentIpIp,_Ar:cdspVoiceModeIpIp,'cdspUtilObjects':cdspUtilObjects,'cdspUtilTable':cdspUtilTable,'cdspUtilEntry':cdspUtilEntry,_AS:cdspCodecPoolIndex,_As:cdspCurrentUtilCap,_At:cdspCurrentAvlbCap,'cdspDspfarmObjects':cdspDspfarmObjects,_Au:cdspGlobMaxConfTranscodeSess,_Av:cdspGlobMaxAvailTranscodeSess,'cdspTranscodeProfileTable':cdspTranscodeProfileTable,'cdspTranscodeProfileEntry':cdspTranscodeProfileEntry,_AJ:cdspTranscodeProfileMaxCodec,_AT:cdspTranscodeProfileId,_Ax:cdspTranscodeProfileMaxConfSess,_Ay:cdspTranscodeProfileMaxAvailSess,_Aw:cdspTranscodeProfileRowStatus,_B8:cdspTranscodeResourceId,_B9:cdspTranscodeDescription,_BA:cdspTranscodeService,_BB:cdspTranscodeAdminState,_BC:cdspTranscodeApplication,'cdspTranscodeApplicationStatus':cdspTranscodeApplicationStatus,'cdspMtpProfileTable':cdspMtpProfileTable,'cdspMtpProfileEntry':cdspMtpProfileEntry,_AU:cdspMtpProfileId,_A_:cdspMtpProfileMaxConfSoftSess,_B0:cdspMtpProfileMaxConfHardSess,_B1:cdspMtpProfileMaxAvailHardSess,_Az:cdspMtpProfileRowStatus,_BD:cdspMtpResourceId,_BE:cdspMtpDescription,_BF:cdspMtpService,_BG:cdspMtpAdminState,_BH:cdspMtpApplication,_BI:cdspMtpApplicationStatus,_BJ:cdspMtpProfileMaxCodec,_BK:cdspMtpProfileMaxAvailSoftSess,'cdspConferenceProfileTable':cdspConferenceProfileTable,'cdspConferenceProfileEntry':cdspConferenceProfileEntry,_AV:cdspConferenceProfileId,_BL:cdspConferenceResourceId,_BM:cdspConferenceDescription,_BN:cdspConferenceService,_BO:cdspConferenceAdminState,_BP:cdspConferenceApplication,_BQ:cdspConferenceApplicationStatus,_BR:cdspConferenceProfileMaxCodec,_BS:cdspConferenceProfileMaxConfSess,_BT:cdspConferenceProfileMaxAvailSess,_BU:cdspConferenceProfileStorageType,_BV:cdspConferenceProfileRowStatus,'cdspDspfarmUtilObjects':cdspDspfarmUtilObjects,_B2:cdspTotAvailTranscodeSess,_B3:cdspTotUnusedTranscodeSess,_B4:cdspTotAvailMtpSess,_B5:cdspTotUnusedMtpSess,'cdspMIBNotificationPrefix':cdspMIBNotificationPrefix,'cdspMIBNotifications':cdspMIBNotifications,_AK:cdspMIBCardStateNotification,_BW:cdspOperStateNotification,_BX:cdspVideoUsageNotification,_BY:cdspVideoOutOfResourceNotification,'cdspMgmtConformance':cdspMgmtConformance,'cdspMgmtCompliances':cdspMgmtCompliances,'cdspMgmtCompliance':cdspMgmtCompliance,'cdspMgmtComplianceRev1':cdspMgmtComplianceRev1,'cdspMgmtComplianceRev2':cdspMgmtComplianceRev2,'cdspMgmtComplianceRev3':cdspMgmtComplianceRev3,'cdspMgmtComplianceRev4':cdspMgmtComplianceRev4,'cdspMgmtComplianceRev5':cdspMgmtComplianceRev5,'cdspMgmtComplianceRev6':cdspMgmtComplianceRev6,'cdspMgmtComplianceRev7':cdspMgmtComplianceRev7,'cdspMgmtComplianceRev8':cdspMgmtComplianceRev8,'cdspMgmtComplianceRev9':cdspMgmtComplianceRev9,'cdspMgmtComplianceRev10':cdspMgmtComplianceRev10,'cdspMgmtComplianceRev11':cdspMgmtComplianceRev11,'cdspMgmtComplianceRev12':cdspMgmtComplianceRev12,'cdspMgmtGroups':cdspMgmtGroups,_V:cdspMgmtGeneralInfoGroup,_H:cdspChannelGroup,_AM:cdspMgmtExtGeneralInfoGroup,_BZ:cdspVoiceInfoGroup,_AL:cdspMgmtNotificationsGroup,_I:cdspChannelExtGroup,_n:cdspVoiceInfoGroupRev1,_K:cdspMgmtExtGeneralInfoGroupRev1,_L:cdspMgmtGeneralInfoGroupRev1,_M:cdspMgmtNotificationsGroupRev1,_N:cdspVQMGroup,_O:cdspVoiceInfoGroupRev2,_Ba:cdspTransCodingGroup,_S:cdspTransCodingGroup1,_W:cdspUtilInfoGroup,_o:cdspDspfarmInfoGroup,_AO:cdspMgmtVideoNotificationsGroup,_AN:cdspMgmtVideoInfoGroup,_Bd:cdspTranscodeProfileGroup,_Bb:cdspMtpProfileGroup,_Bc:cdspConferenceProfileGroup})
+if mibBuilder.loadTexts: cdspStatusXEntry.setStatus('current')
+cdspXNumberOfBearerCalls = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 2, 1, 1), Gauge32()).setUnits('calls').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspXNumberOfBearerCalls.setStatus('current')
+cdspXNumberOfSigCalls = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 2, 1, 2), Gauge32()).setUnits('calls').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspXNumberOfSigCalls.setStatus('current')
+cdspXAvailableBearerBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 2, 1, 3), Gauge32()).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspXAvailableBearerBandwidth.setStatus('current')
+cdspXAvailableSigBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 2, 2, 1, 4), Gauge32()).setUnits('percent').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspXAvailableSigBandwidth.setStatus('current')
+cdspVoiceParamTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1), )
+if mibBuilder.loadTexts: cdspVoiceParamTable.setStatus('current')
+cdspVoiceParamEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
+if mibBuilder.loadTexts: cdspVoiceParamEntry.setStatus('current')
+cdspRtpSidPayloadType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(13, 19))).clone(namedValues=NamedValues(("decimal", 13), ("hexadecimal", 19))).clone('decimal')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspRtpSidPayloadType.setStatus('current')
+cdspRtcpControl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 2), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspRtcpControl.setStatus('current')
+cdspRtcpTransInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(5000, 65535)).clone(5000)).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspRtcpTransInterval.setStatus('current')
+cdspRtcpRecvMultiplier = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 60)).clone(5)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspRtcpRecvMultiplier.setStatus('current')
+cdspVadAdaptive = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspVadAdaptive.setStatus('current')
+cdspDtmfPowerLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-250, 30)).clone(-120)).setUnits('0.1 dBm').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspDtmfPowerLevel.setStatus('current')
+cdspDtmfPowerTwist = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-100, 100))).setUnits('0.1 dB').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspDtmfPowerTwist.setStatus('current')
+cdspRtcpTimerControl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("disabled", 1), ("startImmediately", 2), ("startRtpOrRtcpPktRcvd", 3), ("startRtcpPktRcvd", 4))).clone('startRtcpPktRcvd')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspRtcpTimerControl.setStatus('current')
+cdspVqmControl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("disable", 1), ("rfc3611Vqm", 2), ("xnq", 3))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspVqmControl.setStatus('current')
+cdspRtcpXrControl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 10), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspRtcpXrControl.setStatus('current')
+cdspRtcpXrTransMultiplier = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 5)).clone(1)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspRtcpXrTransMultiplier.setStatus('current')
+cdspRtcpXrGminDefault = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(16)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspRtcpXrGminDefault.setStatus('current')
+cdspRtcpXrExtRfactor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(127)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspRtcpXrExtRfactor.setStatus('current')
+cdspPktLossConcealment = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("simple", 2), ("g711A1", 3))).clone('simple')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspPktLossConcealment.setStatus('current')
+cdspVqmThreshSES = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10, 1000)).clone(50)).setUnits('milliseconds').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspVqmThreshSES.setStatus('current')
+cdspTransparentIpIp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 16), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspTransparentIpIp.setStatus('deprecated')
+cdspVoiceModeIpIp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 4, 1, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("normal", 1), ("fastRoute", 2), ("transparent", 3))).clone('normal')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspVoiceModeIpIp.setStatus('current')
+cdspUtilTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 5, 1), )
+if mibBuilder.loadTexts: cdspUtilTable.setStatus('current')
+cdspUtilEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 5, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-DSP-MGMT-MIB", "cdspCodecPoolIndex"))
+if mibBuilder.loadTexts: cdspUtilEntry.setStatus('current')
+cdspCodecPoolIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 5, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 64)))
+if mibBuilder.loadTexts: cdspCodecPoolIndex.setStatus('current')
+cdspCurrentUtilCap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 5, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspCurrentUtilCap.setStatus('current')
+cdspCurrentAvlbCap = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 5, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspCurrentAvlbCap.setStatus('current')
+cdspGlobMaxConfTranscodeSess = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspGlobMaxConfTranscodeSess.setStatus('current')
+cdspGlobMaxAvailTranscodeSess = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspGlobMaxAvailTranscodeSess.setStatus('current')
+cdspTranscodeProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 3), )
+if mibBuilder.loadTexts: cdspTranscodeProfileTable.setStatus('current')
+cdspTranscodeProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 3, 1), ).setIndexNames((0, "CISCO-DSP-MGMT-MIB", "cdspTranscodeProfileId"))
+if mibBuilder.loadTexts: cdspTranscodeProfileEntry.setStatus('current')
+cdspTranscodeProfileMaxCodec = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)).clone(1)).setUnits('codecs').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdspTranscodeProfileMaxCodec.setStatus('current')
+cdspTranscodeProfileId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 3, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cdspTranscodeProfileId.setStatus('current')
+cdspTranscodeProfileMaxConfSess = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 3, 1, 3), Unsigned32()).setUnits('sessions').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdspTranscodeProfileMaxConfSess.setStatus('current')
+cdspTranscodeProfileMaxAvailSess = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 3, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspTranscodeProfileMaxAvailSess.setStatus('current')
+cdspTranscodeProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 3, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdspTranscodeProfileRowStatus.setStatus('current')
+cdspTranscodeResourceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 3, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspTranscodeResourceId.setStatus('current')
+cdspTranscodeDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 3, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspTranscodeDescription.setStatus('current')
+cdspTranscodeService = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("nonSecure", 1), ("secure", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspTranscodeService.setStatus('current')
+cdspTranscodeAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 3, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("down", 1), ("up", 2))).clone('down')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdspTranscodeAdminState.setStatus('current')
+cdspTranscodeApplication = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("sccp", 2), ("sbc", 3), ("cube", 4), ("other", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspTranscodeApplication.setStatus('current')
+cdspTranscodeApplicationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 3, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("none", 1), ("done", 2), ("activeInProgress", 3), ("activeInDown", 4), ("notDone", 5), ("invalid", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspTranscodeApplicationStatus.setStatus('current')
+cdspMtpProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 4), )
+if mibBuilder.loadTexts: cdspMtpProfileTable.setStatus('current')
+cdspMtpProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 4, 1), ).setIndexNames((0, "CISCO-DSP-MGMT-MIB", "cdspMtpProfileId"))
+if mibBuilder.loadTexts: cdspMtpProfileEntry.setStatus('current')
+cdspMtpProfileId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 4, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cdspMtpProfileId.setStatus('current')
+cdspMtpProfileMaxConfSoftSess = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 4, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('sessions').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdspMtpProfileMaxConfSoftSess.setStatus('current')
+cdspMtpProfileMaxConfHardSess = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 4, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('sessions').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdspMtpProfileMaxConfHardSess.setStatus('current')
+cdspMtpProfileMaxAvailHardSess = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 4, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setUnits('sessions').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspMtpProfileMaxAvailHardSess.setStatus('current')
+cdspMtpProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 4, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdspMtpProfileRowStatus.setStatus('current')
+cdspMtpResourceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 4, 1, 6), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspMtpResourceId.setStatus('current')
+cdspMtpDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 4, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspMtpDescription.setStatus('current')
+cdspMtpService = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 4, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("nonSecure", 1), ("secure", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspMtpService.setStatus('current')
+cdspMtpAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 4, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("down", 1), ("up", 2))).clone('down')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdspMtpAdminState.setStatus('current')
+cdspMtpApplication = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 4, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("sccp", 2), ("sbc", 3), ("cube", 4), ("other", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspMtpApplication.setStatus('current')
+cdspMtpApplicationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 4, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("none", 1), ("done", 2), ("activeInProgress", 3), ("activeInDown", 4), ("notDone", 5), ("invalid", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspMtpApplicationStatus.setStatus('current')
+cdspMtpProfileMaxCodec = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 4, 1, 12), Unsigned32()).setUnits('codecs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspMtpProfileMaxCodec.setStatus('current')
+cdspMtpProfileMaxAvailSoftSess = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 4, 1, 13), Unsigned32()).setUnits('sessions').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspMtpProfileMaxAvailSoftSess.setStatus('current')
+cdspConferenceProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 5), )
+if mibBuilder.loadTexts: cdspConferenceProfileTable.setStatus('current')
+cdspConferenceProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 5, 1), ).setIndexNames((0, "CISCO-DSP-MGMT-MIB", "cdspConferenceProfileId"))
+if mibBuilder.loadTexts: cdspConferenceProfileEntry.setStatus('current')
+cdspConferenceProfileId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 5, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
+if mibBuilder.loadTexts: cdspConferenceProfileId.setStatus('current')
+cdspConferenceResourceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 5, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspConferenceResourceId.setStatus('current')
+cdspConferenceDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 5, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspConferenceDescription.setStatus('current')
+cdspConferenceService = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 5, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("nonSecure", 1), ("secure", 2)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspConferenceService.setStatus('current')
+cdspConferenceAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 5, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("down", 1), ("up", 2))).clone('down')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdspConferenceAdminState.setStatus('current')
+cdspConferenceApplication = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 5, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("sccp", 2), ("sbc", 3), ("cube", 4), ("other", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspConferenceApplication.setStatus('current')
+cdspConferenceApplicationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 5, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("none", 1), ("done", 2), ("activeInProgress", 3), ("activeInDown", 4), ("notDone", 5), ("invalid", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspConferenceApplicationStatus.setStatus('current')
+cdspConferenceProfileMaxCodec = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 5, 1, 8), Unsigned32()).setUnits('codecs').setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspConferenceProfileMaxCodec.setStatus('current')
+cdspConferenceProfileMaxConfSess = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 5, 1, 9), Unsigned32()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdspConferenceProfileMaxConfSess.setStatus('current')
+cdspConferenceProfileMaxAvailSess = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 5, 1, 10), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspConferenceProfileMaxAvailSess.setStatus('current')
+cdspConferenceProfileStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 5, 1, 11), StorageType().clone('nonVolatile')).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspConferenceProfileStorageType.setStatus('current')
+cdspConferenceProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 6, 5, 1, 12), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: cdspConferenceProfileRowStatus.setStatus('current')
+cdspTotAvailTranscodeSess = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 7, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspTotAvailTranscodeSess.setStatus('current')
+cdspTotUnusedTranscodeSess = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 7, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspTotUnusedTranscodeSess.setStatus('current')
+cdspTotAvailMtpSess = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 7, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspTotAvailMtpSess.setStatus('current')
+cdspTotUnusedMtpSess = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 7, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdspTotUnusedMtpSess.setStatus('current')
+cdspMIBEnableCardStatusNotification = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 3, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspMIBEnableCardStatusNotification.setStatus('current')
+cdspEnableOperStateNotification = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 3, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspEnableOperStateNotification.setStatus('current')
+cdspVideoUsageNotificationEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 3, 3), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspVideoUsageNotificationEnable.setStatus('current')
+cdspVideoOutOfResourceNotificationEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 86, 1, 3, 4), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdspVideoOutOfResourceNotificationEnable.setStatus('current')
+cdspMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 86, 2))
+cdspMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 86, 2, 0))
+cdspMIBCardStateNotification = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 86, 2, 0, 1)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspCardState"))
+if mibBuilder.loadTexts: cdspMIBCardStateNotification.setStatus('current')
+cdspOperStateNotification = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 86, 2, 0, 2)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspOperState"), ("ENTITY-MIB", "entPhysicalName"))
+if mibBuilder.loadTexts: cdspOperStateNotification.setStatus('current')
+cdspVideoUsageNotification = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 86, 2, 0, 3)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspCardVideoPoolUtilization"), ("CISCO-DSP-MGMT-MIB", "cdspCardVideoPoolUtilizationThreshold"))
+if mibBuilder.loadTexts: cdspVideoUsageNotification.setStatus('current')
+cdspVideoOutOfResourceNotification = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 86, 2, 0, 4)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspCardVideoPoolUtilization"), ("CISCO-DSP-MGMT-MIB", "cdspCardVideoPoolUtilizationThreshold"))
+if mibBuilder.loadTexts: cdspVideoOutOfResourceNotification.setStatus('current')
+cdspMgmtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 86, 3))
+cdspMgmtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 1))
+cdspMgmtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2))
+cdspMgmtCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 1, 1)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMgmtGeneralInfoGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtCompliance = cdspMgmtCompliance.setStatus('deprecated')
+cdspMgmtComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 1, 2)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMgmtGeneralInfoGroup"), ("CISCO-DSP-MGMT-MIB", "cdspChannelGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtComplianceRev1 = cdspMgmtComplianceRev1.setStatus('deprecated')
+cdspMgmtComplianceRev2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 1, 3)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMgmtGeneralInfoGroup"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtNotificationsGroup"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtExtGeneralInfoGroup"), ("CISCO-DSP-MGMT-MIB", "cdspChannelGroup"), ("CISCO-DSP-MGMT-MIB", "cdspChannelExtGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVoiceInfoGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtComplianceRev2 = cdspMgmtComplianceRev2.setStatus('deprecated')
+cdspMgmtComplianceRev3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 1, 4)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMgmtGeneralInfoGroup"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtNotificationsGroup"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtExtGeneralInfoGroup"), ("CISCO-DSP-MGMT-MIB", "cdspChannelGroup"), ("CISCO-DSP-MGMT-MIB", "cdspChannelExtGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVoiceInfoGroupRev1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtComplianceRev3 = cdspMgmtComplianceRev3.setStatus('deprecated')
+cdspMgmtComplianceRev4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 1, 5)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMgmtExtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspChannelGroup"), ("CISCO-DSP-MGMT-MIB", "cdspChannelExtGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVoiceInfoGroupRev1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtComplianceRev4 = cdspMgmtComplianceRev4.setStatus('deprecated')
+cdspMgmtComplianceRev5 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 1, 6)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMgmtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtNotificationsGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtExtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspChannelGroup"), ("CISCO-DSP-MGMT-MIB", "cdspChannelExtGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVoiceInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspVQMGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtComplianceRev5 = cdspMgmtComplianceRev5.setStatus('deprecated')
+cdspMgmtComplianceRev6 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 1, 7)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMgmtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtNotificationsGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtExtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspChannelGroup"), ("CISCO-DSP-MGMT-MIB", "cdspChannelExtGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVQMGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVoiceInfoGroupRev2"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtComplianceRev6 = cdspMgmtComplianceRev6.setStatus('deprecated')
+cdspMgmtComplianceRev7 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 1, 8)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMgmtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtNotificationsGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtExtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspChannelGroup"), ("CISCO-DSP-MGMT-MIB", "cdspChannelExtGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVQMGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVoiceInfoGroupRev2"), ("CISCO-DSP-MGMT-MIB", "cdspTransCodingGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtComplianceRev7 = cdspMgmtComplianceRev7.setStatus('deprecated')
+cdspMgmtComplianceRev8 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 1, 9)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMgmtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtNotificationsGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtExtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspChannelGroup"), ("CISCO-DSP-MGMT-MIB", "cdspChannelExtGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVQMGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVoiceInfoGroupRev2"), ("CISCO-DSP-MGMT-MIB", "cdspTransCodingGroup1"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtComplianceRev8 = cdspMgmtComplianceRev8.setStatus('deprecated')
+cdspMgmtComplianceRev9 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 1, 10)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMgmtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtNotificationsGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtExtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspChannelGroup"), ("CISCO-DSP-MGMT-MIB", "cdspChannelExtGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVQMGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVoiceInfoGroupRev2"), ("CISCO-DSP-MGMT-MIB", "cdspTransCodingGroup1"), ("CISCO-DSP-MGMT-MIB", "cdspUtilInfoGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtComplianceRev9 = cdspMgmtComplianceRev9.setStatus('deprecated')
+cdspMgmtComplianceRev10 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 1, 11)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMgmtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtNotificationsGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtExtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspChannelGroup"), ("CISCO-DSP-MGMT-MIB", "cdspChannelExtGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVQMGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVoiceInfoGroupRev2"), ("CISCO-DSP-MGMT-MIB", "cdspTransCodingGroup1"), ("CISCO-DSP-MGMT-MIB", "cdspUtilInfoGroup"), ("CISCO-DSP-MGMT-MIB", "cdspDspfarmInfoGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtComplianceRev10 = cdspMgmtComplianceRev10.setStatus('deprecated')
+cdspMgmtComplianceRev11 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 1, 12)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMgmtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtNotificationsGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtExtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspChannelGroup"), ("CISCO-DSP-MGMT-MIB", "cdspChannelExtGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVQMGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVoiceInfoGroupRev2"), ("CISCO-DSP-MGMT-MIB", "cdspTransCodingGroup1"), ("CISCO-DSP-MGMT-MIB", "cdspUtilInfoGroup"), ("CISCO-DSP-MGMT-MIB", "cdspDspfarmInfoGroup"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtVideoInfoGroup"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtVideoNotificationsGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtComplianceRev11 = cdspMgmtComplianceRev11.setStatus('deprecated')
+cdspMgmtComplianceRev12 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 1, 13)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMgmtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtNotificationsGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtExtGeneralInfoGroupRev1"), ("CISCO-DSP-MGMT-MIB", "cdspChannelGroup"), ("CISCO-DSP-MGMT-MIB", "cdspChannelExtGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVQMGroup"), ("CISCO-DSP-MGMT-MIB", "cdspVoiceInfoGroupRev2"), ("CISCO-DSP-MGMT-MIB", "cdspTransCodingGroup1"), ("CISCO-DSP-MGMT-MIB", "cdspUtilInfoGroup"), ("CISCO-DSP-MGMT-MIB", "cdspDspfarmInfoGroup"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtVideoInfoGroup"), ("CISCO-DSP-MGMT-MIB", "cdspMgmtVideoNotificationsGroup"), ("CISCO-DSP-MGMT-MIB", "cdspMtpProfileGroup"), ("CISCO-DSP-MGMT-MIB", "cdspConferenceProfileGroup"), ("CISCO-DSP-MGMT-MIB", "cdspTranscodeProfileGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtComplianceRev12 = cdspMgmtComplianceRev12.setStatus('current')
+cdspMgmtGeneralInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 1)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspCardIndex"), ("CISCO-DSP-MGMT-MIB", "cdspCardState"), ("CISCO-DSP-MGMT-MIB", "cdspCardResourceUtilization"), ("CISCO-DSP-MGMT-MIB", "cdspCardLastHiWaterUtilization"), ("CISCO-DSP-MGMT-MIB", "cdspCardLastResetTime"), ("CISCO-DSP-MGMT-MIB", "cdspOperState"), ("CISCO-DSP-MGMT-MIB", "cdspAlarms"), ("CISCO-DSP-MGMT-MIB", "cdspLastAlarmCause"), ("CISCO-DSP-MGMT-MIB", "cdspLastAlarmCauseText"), ("CISCO-DSP-MGMT-MIB", "cdspLastAlarmTime"), ("CISCO-DSP-MGMT-MIB", "cdspMIBEnableCardStatusNotification"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtGeneralInfoGroup = cdspMgmtGeneralInfoGroup.setStatus('deprecated')
+cdspChannelGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 2)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspCardMaxChanPerDSP"), ("CISCO-DSP-MGMT-MIB", "cdspTotalChannels"), ("CISCO-DSP-MGMT-MIB", "cdspInUseChannels"), ("CISCO-DSP-MGMT-MIB", "cdspActiveChannels"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspChannelGroup = cdspChannelGroup.setStatus('current')
+cdspMgmtExtGeneralInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 3)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspTotalDsp"), ("CISCO-DSP-MGMT-MIB", "cdspFailedDsp"), ("CISCO-DSP-MGMT-MIB", "cdspCongestedDsp"), ("CISCO-DSP-MGMT-MIB", "cdspNormalDsp"), ("CISCO-DSP-MGMT-MIB", "cdspDspSwitchOverThreshold"), ("CISCO-DSP-MGMT-MIB", "cdspNx64Dsp"), ("CISCO-DSP-MGMT-MIB", "cdspDspNum"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtExtGeneralInfoGroup = cdspMgmtExtGeneralInfoGroup.setStatus('deprecated')
+cdspVoiceInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 4)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspRtpSidPayloadType"), ("CISCO-DSP-MGMT-MIB", "cdspRtcpControl"), ("CISCO-DSP-MGMT-MIB", "cdspRtcpTransInterval"), ("CISCO-DSP-MGMT-MIB", "cdspRtcpRecvMultiplier"), ("CISCO-DSP-MGMT-MIB", "cdspVadAdaptive"), ("CISCO-DSP-MGMT-MIB", "cdspDtmfPowerLevel"), ("CISCO-DSP-MGMT-MIB", "cdspDtmfPowerTwist"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspVoiceInfoGroup = cdspVoiceInfoGroup.setStatus('deprecated')
+cdspMgmtNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 5)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMIBCardStateNotification"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtNotificationsGroup = cdspMgmtNotificationsGroup.setStatus('deprecated')
+cdspChannelExtGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 6)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspSigBearerChannelSplit"), ("CISCO-DSP-MGMT-MIB", "cdspNumCongestionOccurrence"), ("CISCO-DSP-MGMT-MIB", "cdspXNumberOfBearerCalls"), ("CISCO-DSP-MGMT-MIB", "cdspXNumberOfSigCalls"), ("CISCO-DSP-MGMT-MIB", "cdspXAvailableBearerBandwidth"), ("CISCO-DSP-MGMT-MIB", "cdspXAvailableSigBandwidth"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspChannelExtGroup = cdspChannelExtGroup.setStatus('current')
+cdspVoiceInfoGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 7)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspRtpSidPayloadType"), ("CISCO-DSP-MGMT-MIB", "cdspRtcpControl"), ("CISCO-DSP-MGMT-MIB", "cdspRtcpTransInterval"), ("CISCO-DSP-MGMT-MIB", "cdspRtcpRecvMultiplier"), ("CISCO-DSP-MGMT-MIB", "cdspVadAdaptive"), ("CISCO-DSP-MGMT-MIB", "cdspDtmfPowerLevel"), ("CISCO-DSP-MGMT-MIB", "cdspDtmfPowerTwist"), ("CISCO-DSP-MGMT-MIB", "cdspRtcpTimerControl"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspVoiceInfoGroupRev1 = cdspVoiceInfoGroupRev1.setStatus('deprecated')
+cdspMgmtExtGeneralInfoGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 8)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspTotalDsp"), ("CISCO-DSP-MGMT-MIB", "cdspFailedDsp"), ("CISCO-DSP-MGMT-MIB", "cdspCongestedDsp"), ("CISCO-DSP-MGMT-MIB", "cdspNormalDsp"), ("CISCO-DSP-MGMT-MIB", "cdspDspSwitchOverThreshold"), ("CISCO-DSP-MGMT-MIB", "cdspNx64Dsp"), ("CISCO-DSP-MGMT-MIB", "cdspDspNum"), ("CISCO-DSP-MGMT-MIB", "cdspCodecTemplateSupported"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtExtGeneralInfoGroupRev1 = cdspMgmtExtGeneralInfoGroupRev1.setStatus('current')
+cdspMgmtGeneralInfoGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 9)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspCardIndex"), ("CISCO-DSP-MGMT-MIB", "cdspCardState"), ("CISCO-DSP-MGMT-MIB", "cdspCardResourceUtilization"), ("CISCO-DSP-MGMT-MIB", "cdspCardLastHiWaterUtilization"), ("CISCO-DSP-MGMT-MIB", "cdspCardLastResetTime"), ("CISCO-DSP-MGMT-MIB", "cdspOperState"), ("CISCO-DSP-MGMT-MIB", "cdspAlarms"), ("CISCO-DSP-MGMT-MIB", "cdspLastAlarmCause"), ("CISCO-DSP-MGMT-MIB", "cdspLastAlarmCauseText"), ("CISCO-DSP-MGMT-MIB", "cdspLastAlarmTime"), ("CISCO-DSP-MGMT-MIB", "cdspMIBEnableCardStatusNotification"), ("CISCO-DSP-MGMT-MIB", "cdspEnableOperStateNotification"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtGeneralInfoGroupRev1 = cdspMgmtGeneralInfoGroupRev1.setStatus('current')
+cdspMgmtNotificationsGroupRev1 = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 10)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMIBCardStateNotification"), ("CISCO-DSP-MGMT-MIB", "cdspOperStateNotification"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtNotificationsGroupRev1 = cdspMgmtNotificationsGroupRev1.setStatus('current')
+cdspVQMGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 11)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspVqmControl"), ("CISCO-DSP-MGMT-MIB", "cdspRtcpXrControl"), ("CISCO-DSP-MGMT-MIB", "cdspRtcpXrTransMultiplier"), ("CISCO-DSP-MGMT-MIB", "cdspRtcpXrGminDefault"), ("CISCO-DSP-MGMT-MIB", "cdspRtcpXrExtRfactor"), ("CISCO-DSP-MGMT-MIB", "cdspVqmThreshSES"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspVQMGroup = cdspVQMGroup.setStatus('current')
+cdspVoiceInfoGroupRev2 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 12)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspRtpSidPayloadType"), ("CISCO-DSP-MGMT-MIB", "cdspRtcpControl"), ("CISCO-DSP-MGMT-MIB", "cdspRtcpTransInterval"), ("CISCO-DSP-MGMT-MIB", "cdspRtcpRecvMultiplier"), ("CISCO-DSP-MGMT-MIB", "cdspVadAdaptive"), ("CISCO-DSP-MGMT-MIB", "cdspDtmfPowerLevel"), ("CISCO-DSP-MGMT-MIB", "cdspDtmfPowerTwist"), ("CISCO-DSP-MGMT-MIB", "cdspRtcpTimerControl"), ("CISCO-DSP-MGMT-MIB", "cdspPktLossConcealment"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspVoiceInfoGroupRev2 = cdspVoiceInfoGroupRev2.setStatus('current')
+cdspTransCodingGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 13)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspTransparentIpIp"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspTransCodingGroup = cdspTransCodingGroup.setStatus('deprecated')
+cdspTransCodingGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 14)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspVoiceModeIpIp"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspTransCodingGroup1 = cdspTransCodingGroup1.setStatus('current')
+cdspUtilInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 15)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspCurrentUtilCap"), ("CISCO-DSP-MGMT-MIB", "cdspCurrentAvlbCap"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspUtilInfoGroup = cdspUtilInfoGroup.setStatus('current')
+cdspDspfarmInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 16)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspGlobMaxConfTranscodeSess"), ("CISCO-DSP-MGMT-MIB", "cdspGlobMaxAvailTranscodeSess"), ("CISCO-DSP-MGMT-MIB", "cdspTranscodeProfileRowStatus"), ("CISCO-DSP-MGMT-MIB", "cdspTranscodeProfileMaxConfSess"), ("CISCO-DSP-MGMT-MIB", "cdspTranscodeProfileMaxAvailSess"), ("CISCO-DSP-MGMT-MIB", "cdspMtpProfileRowStatus"), ("CISCO-DSP-MGMT-MIB", "cdspMtpProfileMaxConfSoftSess"), ("CISCO-DSP-MGMT-MIB", "cdspMtpProfileMaxConfHardSess"), ("CISCO-DSP-MGMT-MIB", "cdspMtpProfileMaxAvailHardSess"), ("CISCO-DSP-MGMT-MIB", "cdspTotAvailTranscodeSess"), ("CISCO-DSP-MGMT-MIB", "cdspTotUnusedTranscodeSess"), ("CISCO-DSP-MGMT-MIB", "cdspTotAvailMtpSess"), ("CISCO-DSP-MGMT-MIB", "cdspTotUnusedMtpSess"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspDspfarmInfoGroup = cdspDspfarmInfoGroup.setStatus('current')
+cdspMgmtVideoNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 17)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspVideoUsageNotification"), ("CISCO-DSP-MGMT-MIB", "cdspVideoOutOfResourceNotification"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtVideoNotificationsGroup = cdspMgmtVideoNotificationsGroup.setStatus('current')
+cdspMgmtVideoInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 18)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspCardVideoPoolUtilization"), ("CISCO-DSP-MGMT-MIB", "cdspCardVideoPoolUtilizationThreshold"), ("CISCO-DSP-MGMT-MIB", "cdspVideoUsageNotificationEnable"), ("CISCO-DSP-MGMT-MIB", "cdspVideoOutOfResourceNotificationEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMgmtVideoInfoGroup = cdspMgmtVideoInfoGroup.setStatus('current')
+cdspTranscodeProfileGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 19)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspTranscodeResourceId"), ("CISCO-DSP-MGMT-MIB", "cdspTranscodeDescription"), ("CISCO-DSP-MGMT-MIB", "cdspTranscodeService"), ("CISCO-DSP-MGMT-MIB", "cdspTranscodeAdminState"), ("CISCO-DSP-MGMT-MIB", "cdspTranscodeApplication"), ("CISCO-DSP-MGMT-MIB", "cdspTranscodeProfileMaxCodec"), ("CISCO-DSP-MGMT-MIB", "cdspTranscodeProfileMaxCodec"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspTranscodeProfileGroup = cdspTranscodeProfileGroup.setStatus('current')
+cdspMtpProfileGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 20)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspMtpResourceId"), ("CISCO-DSP-MGMT-MIB", "cdspMtpDescription"), ("CISCO-DSP-MGMT-MIB", "cdspMtpService"), ("CISCO-DSP-MGMT-MIB", "cdspMtpAdminState"), ("CISCO-DSP-MGMT-MIB", "cdspMtpApplication"), ("CISCO-DSP-MGMT-MIB", "cdspMtpApplicationStatus"), ("CISCO-DSP-MGMT-MIB", "cdspMtpProfileMaxCodec"), ("CISCO-DSP-MGMT-MIB", "cdspMtpProfileMaxAvailSoftSess"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspMtpProfileGroup = cdspMtpProfileGroup.setStatus('current')
+cdspConferenceProfileGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 86, 3, 2, 21)).setObjects(("CISCO-DSP-MGMT-MIB", "cdspConferenceResourceId"), ("CISCO-DSP-MGMT-MIB", "cdspConferenceDescription"), ("CISCO-DSP-MGMT-MIB", "cdspConferenceService"), ("CISCO-DSP-MGMT-MIB", "cdspConferenceAdminState"), ("CISCO-DSP-MGMT-MIB", "cdspConferenceApplication"), ("CISCO-DSP-MGMT-MIB", "cdspConferenceApplicationStatus"), ("CISCO-DSP-MGMT-MIB", "cdspConferenceProfileMaxCodec"), ("CISCO-DSP-MGMT-MIB", "cdspConferenceProfileMaxConfSess"), ("CISCO-DSP-MGMT-MIB", "cdspConferenceProfileMaxAvailSess"), ("CISCO-DSP-MGMT-MIB", "cdspConferenceProfileStorageType"), ("CISCO-DSP-MGMT-MIB", "cdspConferenceProfileRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    cdspConferenceProfileGroup = cdspConferenceProfileGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-DSP-MGMT-MIB", cdspDspSwitchOverThreshold=cdspDspSwitchOverThreshold, PYSNMP_MODULE_ID=ciscoDspMgmtMIB, cdspMgmtNotifications=cdspMgmtNotifications, cdspConferenceProfileStorageType=cdspConferenceProfileStorageType, cdspVoiceParamEntry=cdspVoiceParamEntry, cdspTotAvailMtpSess=cdspTotAvailMtpSess, cdspMIBNotificationPrefix=cdspMIBNotificationPrefix, cdspMtpProfileEntry=cdspMtpProfileEntry, cdspMtpProfileMaxAvailHardSess=cdspMtpProfileMaxAvailHardSess, cdspRtcpXrTransMultiplier=cdspRtcpXrTransMultiplier, cdspMgmtComplianceRev11=cdspMgmtComplianceRev11, cdspMgmtGeneralInfoGroup=cdspMgmtGeneralInfoGroup, cdspTranscodeProfileTable=cdspTranscodeProfileTable, cdspMtpProfileRowStatus=cdspMtpProfileRowStatus, cdspLastAlarmCause=cdspLastAlarmCause, cdspTotalDsp=cdspTotalDsp, cdspObjects=cdspObjects, cdspMgmtComplianceRev3=cdspMgmtComplianceRev3, cdspCodecTemplateSupported=cdspCodecTemplateSupported, cdspCardIndex=cdspCardIndex, cdspTranscodeDescription=cdspTranscodeDescription, cdspGlobMaxAvailTranscodeSess=cdspGlobMaxAvailTranscodeSess, cdspNumCongestionOccurrence=cdspNumCongestionOccurrence, cdspMgmtComplianceRev6=cdspMgmtComplianceRev6, cdspCardState=cdspCardState, cdspXAvailableBearerBandwidth=cdspXAvailableBearerBandwidth, cdspMgmtComplianceRev7=cdspMgmtComplianceRev7, cdspMgmtComplianceRev10=cdspMgmtComplianceRev10, cdspVQMGroup=cdspVQMGroup, cdspCurrentUtilCap=cdspCurrentUtilCap, cdspMgmtComplianceRev9=cdspMgmtComplianceRev9, cdspVoiceInfoGroup=cdspVoiceInfoGroup, cdspAlarms=cdspAlarms, cdspMIBNotifications=cdspMIBNotifications, cdspChannelExtGroup=cdspChannelExtGroup, cdspTranscodeService=cdspTranscodeService, cdspUtilEntry=cdspUtilEntry, cdspVqmThreshSES=cdspVqmThreshSES, cdspMtpProfileMaxConfSoftSess=cdspMtpProfileMaxConfSoftSess, cdspMgmtExtGeneralInfoGroupRev1=cdspMgmtExtGeneralInfoGroupRev1, cdspMtpResourceId=cdspMtpResourceId, cdspStatusTable=cdspStatusTable, cdspMgmtVideoNotificationsGroup=cdspMgmtVideoNotificationsGroup, cdspDtmfPowerTwist=cdspDtmfPowerTwist, cdspUtilTable=cdspUtilTable, cdspConferenceProfileMaxAvailSess=cdspConferenceProfileMaxAvailSess, cdspMIBCardStateNotification=cdspMIBCardStateNotification, cdspMtpProfileGroup=cdspMtpProfileGroup, cdspRtcpXrGminDefault=cdspRtcpXrGminDefault, cdspNormalDsp=cdspNormalDsp, cdspConferenceApplicationStatus=cdspConferenceApplicationStatus, cdspMgmtConformance=cdspMgmtConformance, cdspRtcpXrControl=cdspRtcpXrControl, cdspMgmtGeneralInfoGroupRev1=cdspMgmtGeneralInfoGroupRev1, cdspOperState=cdspOperState, cdspRtcpTimerControl=cdspRtcpTimerControl, cdspUtilObjects=cdspUtilObjects, cdspConferenceAdminState=cdspConferenceAdminState, cdspMgmtComplianceRev4=cdspMgmtComplianceRev4, cdspXNumberOfBearerCalls=cdspXNumberOfBearerCalls, cdspMgmtComplianceRev8=cdspMgmtComplianceRev8, cdspRtcpRecvMultiplier=cdspRtcpRecvMultiplier, cdspTotAvailTranscodeSess=cdspTotAvailTranscodeSess, cdspVideoUsageNotification=cdspVideoUsageNotification, cdspVideoUsageNotificationEnable=cdspVideoUsageNotificationEnable, cdspDspfarmInfoGroup=cdspDspfarmInfoGroup, cdspVoiceObjects=cdspVoiceObjects, cdspActiveChannels=cdspActiveChannels, cdspConferenceProfileId=cdspConferenceProfileId, cdspMgmtCompliance=cdspMgmtCompliance, cdspMtpService=cdspMtpService, cdspDtmfPowerLevel=cdspDtmfPowerLevel, cdspRtcpControl=cdspRtcpControl, cdspMtpDescription=cdspMtpDescription, cdspTransparentIpIp=cdspTransparentIpIp, cdspCodecPoolIndex=cdspCodecPoolIndex, cdspMgmtCompliances=cdspMgmtCompliances, cdspTranscodeProfileRowStatus=cdspTranscodeProfileRowStatus, cdspConferenceDescription=cdspConferenceDescription, cdspMgmtVideoInfoGroup=cdspMgmtVideoInfoGroup, cdspTransCodingGroup=cdspTransCodingGroup, cdspTranscodeProfileGroup=cdspTranscodeProfileGroup, cdspStatusXEntry=cdspStatusXEntry, cdspTranscodeProfileId=cdspTranscodeProfileId, cdspPktLossConcealment=cdspPktLossConcealment, cdspCardResourceUtilization=cdspCardResourceUtilization, cdspConferenceResourceId=cdspConferenceResourceId, cdspTranscodeProfileMaxConfSess=cdspTranscodeProfileMaxConfSess, cdspEnableOperStateNotification=cdspEnableOperStateNotification, cdspMgmtComplianceRev1=cdspMgmtComplianceRev1, cdspMtpProfileMaxConfHardSess=cdspMtpProfileMaxConfHardSess, cdspConferenceProfileGroup=cdspConferenceProfileGroup, cdspCardVideoPoolUtilization=cdspCardVideoPoolUtilization, cdspDspNum=cdspDspNum, cdspVoiceInfoGroupRev1=cdspVoiceInfoGroupRev1, cdspTransCodingGroup1=cdspTransCodingGroup1, cdspTranscodeApplicationStatus=cdspTranscodeApplicationStatus, cdspXAvailableSigBandwidth=cdspXAvailableSigBandwidth, cdspOperStateNotification=cdspOperStateNotification, cdspUtilInfoGroup=cdspUtilInfoGroup, cdspMgmtExtGeneralInfoGroup=cdspMgmtExtGeneralInfoGroup, cdspCardMaxChanPerDSP=cdspCardMaxChanPerDSP, cdspMtpProfileMaxCodec=cdspMtpProfileMaxCodec, cdspMgmtNotificationsGroupRev1=cdspMgmtNotificationsGroupRev1, cdspCardStatusEntry=cdspCardStatusEntry, ciscoDspMgmtMIB=ciscoDspMgmtMIB, cdspMgmtComplianceRev2=cdspMgmtComplianceRev2, cdspTranscodeProfileMaxAvailSess=cdspTranscodeProfileMaxAvailSess, cdspCongestedDsp=cdspCongestedDsp, cdspConferenceProfileEntry=cdspConferenceProfileEntry, cdspConferenceProfileTable=cdspConferenceProfileTable, cdspDspfarmUtilObjects=cdspDspfarmUtilObjects, cdspCurrentAvlbCap=cdspCurrentAvlbCap, cdspGlobMaxConfTranscodeSess=cdspGlobMaxConfTranscodeSess, cdspTranscodeResourceId=cdspTranscodeResourceId, cdspMtpApplicationStatus=cdspMtpApplicationStatus, cdspXNumberOfSigCalls=cdspXNumberOfSigCalls, cdspVideoOutOfResourceNotification=cdspVideoOutOfResourceNotification, cdspConferenceProfileMaxCodec=cdspConferenceProfileMaxCodec, cdspTranscodeProfileEntry=cdspTranscodeProfileEntry, cdspTotUnusedTranscodeSess=cdspTotUnusedTranscodeSess, cdspCardLastHiWaterUtilization=cdspCardLastHiWaterUtilization, cdspCardVideoPoolUtilizationThreshold=cdspCardVideoPoolUtilizationThreshold, cdspRtpSidPayloadType=cdspRtpSidPayloadType, cdspVoiceModeIpIp=cdspVoiceModeIpIp, cdspVoiceInfoGroupRev2=cdspVoiceInfoGroupRev2, cdspTranscodeApplication=cdspTranscodeApplication, cdspFailedDsp=cdspFailedDsp, cdspVoiceParamTable=cdspVoiceParamTable, cdspTotUnusedMtpSess=cdspTotUnusedMtpSess, cdspMtpAdminState=cdspMtpAdminState, cdspMgmtObjects=cdspMgmtObjects, cdspTotalChannels=cdspTotalChannels, cdspRtcpTransInterval=cdspRtcpTransInterval, cdspMIBEnableCardStatusNotification=cdspMIBEnableCardStatusNotification, cdspConferenceService=cdspConferenceService, cdspRtcpXrExtRfactor=cdspRtcpXrExtRfactor, cdspDspfarmObjects=cdspDspfarmObjects, cdspLastAlarmCauseText=cdspLastAlarmCauseText, cdspStatusXTable=cdspStatusXTable, cdspVadAdaptive=cdspVadAdaptive, cdspChannelGroup=cdspChannelGroup, cdspMgmtComplianceRev12=cdspMgmtComplianceRev12, cdspNx64Dsp=cdspNx64Dsp, cdspConferenceProfileRowStatus=cdspConferenceProfileRowStatus, cdspInUseChannels=cdspInUseChannels, cdspMtpProfileId=cdspMtpProfileId, cdspMtpProfileTable=cdspMtpProfileTable, cdspTranscodeAdminState=cdspTranscodeAdminState, cdspVqmControl=cdspVqmControl, cdspStatusEntry=cdspStatusEntry, cdspLastAlarmTime=cdspLastAlarmTime, cdspConferenceApplication=cdspConferenceApplication, cdspVideoOutOfResourceNotificationEnable=cdspVideoOutOfResourceNotificationEnable, cdspMgmtNotificationsGroup=cdspMgmtNotificationsGroup, cdspCardStatusTable=cdspCardStatusTable, cdspCardLastResetTime=cdspCardLastResetTime, cdspTranscodeProfileMaxCodec=cdspTranscodeProfileMaxCodec, cdspSigBearerChannelSplit=cdspSigBearerChannelSplit, cdspConferenceProfileMaxConfSess=cdspConferenceProfileMaxConfSess, cdspMgmtGroups=cdspMgmtGroups, cdspMgmtComplianceRev5=cdspMgmtComplianceRev5, cdspMIBNotificationEnables=cdspMIBNotificationEnables, cdspMtpProfileMaxAvailSoftSess=cdspMtpProfileMaxAvailSoftSess, cdspMtpApplication=cdspMtpApplication, cdspCardObjects=cdspCardObjects)

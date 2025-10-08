@@ -1,123 +1,74 @@
-_T='ctRatePolicingConfigGroup'
-_S='ctRatePolicingDirection'
-_R='ctRatePolicingDirectionsAllowed'
-_Q='ctRatePolicingActionsTaken'
-_P='ctRatePolicingRuleStatus'
-_O='ctRatePolicingPriorityList'
-_N='ctRatePolicingThreshHold'
-_M='ctRatePolicingAction'
-_L='ctRatePolicingActionsAllowed'
-_K='ctRatePolicingConfigLastChange'
-_J='ctRatePolicingAdminStatus'
-_I='kilobytes'
-_H='ctRatePolicingResourceIndex'
-_G='dot1dBasePort'
-_F='BRIDGE-MIB'
-_E='read-only'
-_D='read-write'
-_C='Integer32'
-_B='CTRON-RATE-POLICING-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-dot1dBasePort,=mibBuilder.importSymbols(_F,_G)
-ctPriorityExt,=mibBuilder.importSymbols('CTRON-MIB-NAMES','ctPriorityExt')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-ctRatePolicing=ModuleIdentity((1,3,6,1,4,1,52,4,1,2,14,7))
-if mibBuilder.loadTexts:ctRatePolicing.setRevisions(('2003-04-10 15:18','2003-03-11 15:53','2000-11-28 15:51','1999-06-21 00:00'))
-class CtPriList(TextualConvention,Integer32):status=_A;displayHint='x';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-class CtRatePolActionList(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('none',0),('dropPacket',1),('flowCtrlPacketAndDrop',2),('dropPacketOrFlowCtrlAndDrop',3)))
-class CtRatePolDirectionList(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('none',0),('inbound',1),('outbound',2),('inboundAndOutbound',3)))
-_CtRatePolicingObjects_ObjectIdentity=ObjectIdentity
-ctRatePolicingObjects=_CtRatePolicingObjects_ObjectIdentity((1,3,6,1,4,1,52,4,1,2,14,7,1))
-class _CtRatePolicingAdminStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_CtRatePolicingAdminStatus_Type.__name__=_C
-_CtRatePolicingAdminStatus_Object=MibScalar
-ctRatePolicingAdminStatus=_CtRatePolicingAdminStatus_Object((1,3,6,1,4,1,52,4,1,2,14,7,1,1),_CtRatePolicingAdminStatus_Type())
-ctRatePolicingAdminStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctRatePolicingAdminStatus.setStatus(_A)
-_CtRatePolicingConfigLastChange_Type=TimeTicks
-_CtRatePolicingConfigLastChange_Object=MibScalar
-ctRatePolicingConfigLastChange=_CtRatePolicingConfigLastChange_Object((1,3,6,1,4,1,52,4,1,2,14,7,1,2),_CtRatePolicingConfigLastChange_Type())
-ctRatePolicingConfigLastChange.setMaxAccess(_E)
-if mibBuilder.loadTexts:ctRatePolicingConfigLastChange.setStatus(_A)
-_CtRatePolicingConfigTable_Object=MibTable
-ctRatePolicingConfigTable=_CtRatePolicingConfigTable_Object((1,3,6,1,4,1,52,4,1,2,14,7,1,3))
-if mibBuilder.loadTexts:ctRatePolicingConfigTable.setStatus(_A)
-_CtRatePolicingConfigEntry_Object=MibTableRow
-ctRatePolicingConfigEntry=_CtRatePolicingConfigEntry_Object((1,3,6,1,4,1,52,4,1,2,14,7,1,3,1))
-ctRatePolicingConfigEntry.setIndexNames((0,_F,_G),(0,_B,_H))
-if mibBuilder.loadTexts:ctRatePolicingConfigEntry.setStatus(_A)
-class _CtRatePolicingResourceIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_CtRatePolicingResourceIndex_Type.__name__=_C
-_CtRatePolicingResourceIndex_Object=MibTableColumn
-ctRatePolicingResourceIndex=_CtRatePolicingResourceIndex_Object((1,3,6,1,4,1,52,4,1,2,14,7,1,3,1,1),_CtRatePolicingResourceIndex_Type())
-ctRatePolicingResourceIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:ctRatePolicingResourceIndex.setStatus(_A)
-_CtRatePolicingActionsAllowed_Type=CtRatePolActionList
-_CtRatePolicingActionsAllowed_Object=MibTableColumn
-ctRatePolicingActionsAllowed=_CtRatePolicingActionsAllowed_Object((1,3,6,1,4,1,52,4,1,2,14,7,1,3,1,2),_CtRatePolicingActionsAllowed_Type())
-ctRatePolicingActionsAllowed.setMaxAccess(_E)
-if mibBuilder.loadTexts:ctRatePolicingActionsAllowed.setStatus(_A)
-_CtRatePolicingAction_Type=CtRatePolActionList
-_CtRatePolicingAction_Object=MibTableColumn
-ctRatePolicingAction=_CtRatePolicingAction_Object((1,3,6,1,4,1,52,4,1,2,14,7,1,3,1,3),_CtRatePolicingAction_Type())
-ctRatePolicingAction.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctRatePolicingAction.setStatus(_A)
-class _CtRatePolicingThreshHoldMin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CtRatePolicingThreshHoldMin_Type.__name__=_C
-_CtRatePolicingThreshHoldMin_Object=MibTableColumn
-ctRatePolicingThreshHoldMin=_CtRatePolicingThreshHoldMin_Object((1,3,6,1,4,1,52,4,1,2,14,7,1,3,1,4),_CtRatePolicingThreshHoldMin_Type())
-ctRatePolicingThreshHoldMin.setMaxAccess(_E)
-if mibBuilder.loadTexts:ctRatePolicingThreshHoldMin.setStatus(_A)
-if mibBuilder.loadTexts:ctRatePolicingThreshHoldMin.setUnits(_I)
-class _CtRatePolicingThreshHold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
-_CtRatePolicingThreshHold_Type.__name__=_C
-_CtRatePolicingThreshHold_Object=MibTableColumn
-ctRatePolicingThreshHold=_CtRatePolicingThreshHold_Object((1,3,6,1,4,1,52,4,1,2,14,7,1,3,1,5),_CtRatePolicingThreshHold_Type())
-ctRatePolicingThreshHold.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctRatePolicingThreshHold.setStatus(_A)
-if mibBuilder.loadTexts:ctRatePolicingThreshHold.setUnits(_I)
-_CtRatePolicingPriorityList_Type=CtPriList
-_CtRatePolicingPriorityList_Object=MibTableColumn
-ctRatePolicingPriorityList=_CtRatePolicingPriorityList_Object((1,3,6,1,4,1,52,4,1,2,14,7,1,3,1,6),_CtRatePolicingPriorityList_Type())
-ctRatePolicingPriorityList.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctRatePolicingPriorityList.setStatus(_A)
-class _CtRatePolicingRuleStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('active',1),('disabled',2)))
-_CtRatePolicingRuleStatus_Type.__name__=_C
-_CtRatePolicingRuleStatus_Object=MibTableColumn
-ctRatePolicingRuleStatus=_CtRatePolicingRuleStatus_Object((1,3,6,1,4,1,52,4,1,2,14,7,1,3,1,7),_CtRatePolicingRuleStatus_Type())
-ctRatePolicingRuleStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctRatePolicingRuleStatus.setStatus(_A)
-_CtRatePolicingActionsTaken_Type=Integer32
-_CtRatePolicingActionsTaken_Object=MibTableColumn
-ctRatePolicingActionsTaken=_CtRatePolicingActionsTaken_Object((1,3,6,1,4,1,52,4,1,2,14,7,1,3,1,8),_CtRatePolicingActionsTaken_Type())
-ctRatePolicingActionsTaken.setMaxAccess(_E)
-if mibBuilder.loadTexts:ctRatePolicingActionsTaken.setStatus(_A)
-_CtRatePolicingDirectionsAllowed_Type=CtRatePolDirectionList
-_CtRatePolicingDirectionsAllowed_Object=MibTableColumn
-ctRatePolicingDirectionsAllowed=_CtRatePolicingDirectionsAllowed_Object((1,3,6,1,4,1,52,4,1,2,14,7,1,3,1,9),_CtRatePolicingDirectionsAllowed_Type())
-ctRatePolicingDirectionsAllowed.setMaxAccess(_E)
-if mibBuilder.loadTexts:ctRatePolicingDirectionsAllowed.setStatus(_A)
-_CtRatePolicingDirection_Type=CtRatePolDirectionList
-_CtRatePolicingDirection_Object=MibTableColumn
-ctRatePolicingDirection=_CtRatePolicingDirection_Object((1,3,6,1,4,1,52,4,1,2,14,7,1,3,1,10),_CtRatePolicingDirection_Type())
-ctRatePolicingDirection.setMaxAccess(_D)
-if mibBuilder.loadTexts:ctRatePolicingDirection.setStatus(_A)
-_CtRatePolicingConformance_ObjectIdentity=ObjectIdentity
-ctRatePolicingConformance=_CtRatePolicingConformance_ObjectIdentity((1,3,6,1,4,1,52,4,1,2,14,7,2))
-_CtRatePolicingGroups_ObjectIdentity=ObjectIdentity
-ctRatePolicingGroups=_CtRatePolicingGroups_ObjectIdentity((1,3,6,1,4,1,52,4,1,2,14,7,2,1))
-_CtRatePolicingCompliances_ObjectIdentity=ObjectIdentity
-ctRatePolicingCompliances=_CtRatePolicingCompliances_ObjectIdentity((1,3,6,1,4,1,52,4,1,2,14,7,2,2))
-ctRatePolicingConfigGroup=ObjectGroup((1,3,6,1,4,1,52,4,1,2,14,7,2,1,1))
-ctRatePolicingConfigGroup.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S)))
-if mibBuilder.loadTexts:ctRatePolicingConfigGroup.setStatus(_A)
-ctRatePolicingCompliance=ModuleCompliance((1,3,6,1,4,1,52,4,1,2,14,7,2,2,1))
-ctRatePolicingCompliance.setObjects((_B,_T))
-if mibBuilder.loadTexts:ctRatePolicingCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CtPriList':CtPriList,'CtRatePolActionList':CtRatePolActionList,'CtRatePolDirectionList':CtRatePolDirectionList,'ctRatePolicing':ctRatePolicing,'ctRatePolicingObjects':ctRatePolicingObjects,_J:ctRatePolicingAdminStatus,_K:ctRatePolicingConfigLastChange,'ctRatePolicingConfigTable':ctRatePolicingConfigTable,'ctRatePolicingConfigEntry':ctRatePolicingConfigEntry,_H:ctRatePolicingResourceIndex,_L:ctRatePolicingActionsAllowed,_M:ctRatePolicingAction,'ctRatePolicingThreshHoldMin':ctRatePolicingThreshHoldMin,_N:ctRatePolicingThreshHold,_O:ctRatePolicingPriorityList,_P:ctRatePolicingRuleStatus,_Q:ctRatePolicingActionsTaken,_R:ctRatePolicingDirectionsAllowed,_S:ctRatePolicingDirection,'ctRatePolicingConformance':ctRatePolicingConformance,'ctRatePolicingGroups':ctRatePolicingGroups,_T:ctRatePolicingConfigGroup,'ctRatePolicingCompliances':ctRatePolicingCompliances,'ctRatePolicingCompliance':ctRatePolicingCompliance})
+#
+# PySNMP MIB module CTRON-RATE-POLICING-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CTRON-RATE-POLICING-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
+ctPriorityExt, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctPriorityExt")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ctRatePolicing = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7))
+ctRatePolicing.setRevisions(('2003-04-10 15:18', '2003-03-11 15:53', '2000-11-28 15:51', '1999-06-21 00:00',))
+if mibBuilder.loadTexts: ctRatePolicing.setLastUpdated('200304101518Z')
+if mibBuilder.loadTexts: ctRatePolicing.setOrganization('Enterasys Networks, Inc')
+ctRatePolicingObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1))
+class CtPriList(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'x'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 255)
+
+class CtRatePolActionList(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
+    namedValues = NamedValues(("none", 0), ("dropPacket", 1), ("flowCtrlPacketAndDrop", 2), ("dropPacketOrFlowCtrlAndDrop", 3))
+
+class CtRatePolDirectionList(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
+    namedValues = NamedValues(("none", 0), ("inbound", 1), ("outbound", 2), ("inboundAndOutbound", 3))
+
+ctRatePolicingAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctRatePolicingAdminStatus.setStatus('current')
+ctRatePolicingConfigLastChange = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 2), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctRatePolicingConfigLastChange.setStatus('current')
+ctRatePolicingConfigTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3), )
+if mibBuilder.loadTexts: ctRatePolicingConfigTable.setStatus('current')
+ctRatePolicingConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"), (0, "CTRON-RATE-POLICING-MIB", "ctRatePolicingResourceIndex"))
+if mibBuilder.loadTexts: ctRatePolicingConfigEntry.setStatus('current')
+ctRatePolicingResourceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: ctRatePolicingResourceIndex.setStatus('current')
+ctRatePolicingActionsAllowed = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 2), CtRatePolActionList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctRatePolicingActionsAllowed.setStatus('current')
+ctRatePolicingAction = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 3), CtRatePolActionList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctRatePolicingAction.setStatus('current')
+ctRatePolicingThreshHoldMin = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('kilobytes').setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctRatePolicingThreshHoldMin.setStatus('current')
+ctRatePolicingThreshHold = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setUnits('kilobytes').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctRatePolicingThreshHold.setStatus('current')
+ctRatePolicingPriorityList = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 6), CtPriList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctRatePolicingPriorityList.setStatus('current')
+ctRatePolicingRuleStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("disabled", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctRatePolicingRuleStatus.setStatus('current')
+ctRatePolicingActionsTaken = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 8), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctRatePolicingActionsTaken.setStatus('current')
+ctRatePolicingDirectionsAllowed = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 9), CtRatePolDirectionList()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: ctRatePolicingDirectionsAllowed.setStatus('current')
+ctRatePolicingDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 1, 3, 1, 10), CtRatePolDirectionList()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: ctRatePolicingDirection.setStatus('current')
+ctRatePolicingConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 2))
+ctRatePolicingGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 2, 1))
+ctRatePolicingCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 2, 2))
+ctRatePolicingConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 2, 1, 1)).setObjects(("CTRON-RATE-POLICING-MIB", "ctRatePolicingAdminStatus"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingConfigLastChange"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingActionsAllowed"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingAction"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingThreshHold"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingPriorityList"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingRuleStatus"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingActionsTaken"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingDirectionsAllowed"), ("CTRON-RATE-POLICING-MIB", "ctRatePolicingDirection"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctRatePolicingConfigGroup = ctRatePolicingConfigGroup.setStatus('current')
+ctRatePolicingCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 7, 2, 2, 1)).setObjects(("CTRON-RATE-POLICING-MIB", "ctRatePolicingConfigGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ctRatePolicingCompliance = ctRatePolicingCompliance.setStatus('current')
+mibBuilder.exportSymbols("CTRON-RATE-POLICING-MIB", CtRatePolDirectionList=CtRatePolDirectionList, ctRatePolicingConfigLastChange=ctRatePolicingConfigLastChange, ctRatePolicingThreshHold=ctRatePolicingThreshHold, ctRatePolicingRuleStatus=ctRatePolicingRuleStatus, ctRatePolicingAdminStatus=ctRatePolicingAdminStatus, ctRatePolicingActionsTaken=ctRatePolicingActionsTaken, ctRatePolicingDirectionsAllowed=ctRatePolicingDirectionsAllowed, CtRatePolActionList=CtRatePolActionList, ctRatePolicingCompliance=ctRatePolicingCompliance, ctRatePolicingCompliances=ctRatePolicingCompliances, ctRatePolicingConfigGroup=ctRatePolicingConfigGroup, ctRatePolicingResourceIndex=ctRatePolicingResourceIndex, ctRatePolicingConformance=ctRatePolicingConformance, ctRatePolicingGroups=ctRatePolicingGroups, ctRatePolicingActionsAllowed=ctRatePolicingActionsAllowed, PYSNMP_MODULE_ID=ctRatePolicing, ctRatePolicingConfigEntry=ctRatePolicingConfigEntry, ctRatePolicingAction=ctRatePolicingAction, ctRatePolicingDirection=ctRatePolicingDirection, CtPriList=CtPriList, ctRatePolicing=ctRatePolicing, ctRatePolicingThreshHoldMin=ctRatePolicingThreshHoldMin, ctRatePolicingPriorityList=ctRatePolicingPriorityList, ctRatePolicingConfigTable=ctRatePolicingConfigTable, ctRatePolicingObjects=ctRatePolicingObjects)

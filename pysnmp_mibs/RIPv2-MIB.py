@@ -1,203 +1,98 @@
-_f='rip2PeerRcvBadRoutes'
-_e='rip2PeerRcvBadPackets'
-_d='rip2PeerVersion'
-_c='rip2PeerLastUpdate'
-_b='rip2IfConfSrcAddress'
-_a='rip2IfConfStatus'
-_Z='rip2IfConfDefaultMetric'
-_Y='rip2IfConfReceive'
-_X='rip2IfConfSend'
-_W='rip2IfConfAuthKey'
-_V='rip2IfConfAuthType'
-_U='rip2IfStatStatus'
-_T='rip2IfStatSentUpdates'
-_S='rip2IfStatRcvBadRoutes'
-_R='rip2IfStatRcvBadPackets'
-_Q='rip2GlobalQueries'
-_P='rip2GlobalRouteChanges'
-_O='RouteTag'
-_N='OctetString'
-_M='rip2PeerGroup'
-_L='rip2IfConfGroup'
-_K='rip2IfStatGroup'
-_J='rip2GlobalGroup'
-_I='rip2PeerDomain'
-_H='rip2PeerAddress'
-_G='rip2IfConfAddress'
-_F='rip2IfStatAddress'
-_E='Integer32'
-_D='read-create'
-_C='read-only'
-_B='current'
-_A='RIPv2-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_N,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
-DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
-rip2=ModuleIdentity((1,3,6,1,2,1,23))
-class RouteTag(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
-_Rip2Globals_ObjectIdentity=ObjectIdentity
-rip2Globals=_Rip2Globals_ObjectIdentity((1,3,6,1,2,1,23,1))
-_Rip2GlobalRouteChanges_Type=Counter32
-_Rip2GlobalRouteChanges_Object=MibScalar
-rip2GlobalRouteChanges=_Rip2GlobalRouteChanges_Object((1,3,6,1,2,1,23,1,1),_Rip2GlobalRouteChanges_Type())
-rip2GlobalRouteChanges.setMaxAccess(_C)
-if mibBuilder.loadTexts:rip2GlobalRouteChanges.setStatus(_B)
-_Rip2GlobalQueries_Type=Counter32
-_Rip2GlobalQueries_Object=MibScalar
-rip2GlobalQueries=_Rip2GlobalQueries_Object((1,3,6,1,2,1,23,1,2),_Rip2GlobalQueries_Type())
-rip2GlobalQueries.setMaxAccess(_C)
-if mibBuilder.loadTexts:rip2GlobalQueries.setStatus(_B)
-_Rip2IfStatTable_Object=MibTable
-rip2IfStatTable=_Rip2IfStatTable_Object((1,3,6,1,2,1,23,2))
-if mibBuilder.loadTexts:rip2IfStatTable.setStatus(_B)
-_Rip2IfStatEntry_Object=MibTableRow
-rip2IfStatEntry=_Rip2IfStatEntry_Object((1,3,6,1,2,1,23,2,1))
-rip2IfStatEntry.setIndexNames((0,_A,_F))
-if mibBuilder.loadTexts:rip2IfStatEntry.setStatus(_B)
-_Rip2IfStatAddress_Type=IpAddress
-_Rip2IfStatAddress_Object=MibTableColumn
-rip2IfStatAddress=_Rip2IfStatAddress_Object((1,3,6,1,2,1,23,2,1,1),_Rip2IfStatAddress_Type())
-rip2IfStatAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:rip2IfStatAddress.setStatus(_B)
-_Rip2IfStatRcvBadPackets_Type=Counter32
-_Rip2IfStatRcvBadPackets_Object=MibTableColumn
-rip2IfStatRcvBadPackets=_Rip2IfStatRcvBadPackets_Object((1,3,6,1,2,1,23,2,1,2),_Rip2IfStatRcvBadPackets_Type())
-rip2IfStatRcvBadPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:rip2IfStatRcvBadPackets.setStatus(_B)
-_Rip2IfStatRcvBadRoutes_Type=Counter32
-_Rip2IfStatRcvBadRoutes_Object=MibTableColumn
-rip2IfStatRcvBadRoutes=_Rip2IfStatRcvBadRoutes_Object((1,3,6,1,2,1,23,2,1,3),_Rip2IfStatRcvBadRoutes_Type())
-rip2IfStatRcvBadRoutes.setMaxAccess(_C)
-if mibBuilder.loadTexts:rip2IfStatRcvBadRoutes.setStatus(_B)
-_Rip2IfStatSentUpdates_Type=Counter32
-_Rip2IfStatSentUpdates_Object=MibTableColumn
-rip2IfStatSentUpdates=_Rip2IfStatSentUpdates_Object((1,3,6,1,2,1,23,2,1,4),_Rip2IfStatSentUpdates_Type())
-rip2IfStatSentUpdates.setMaxAccess(_C)
-if mibBuilder.loadTexts:rip2IfStatSentUpdates.setStatus(_B)
-_Rip2IfStatStatus_Type=RowStatus
-_Rip2IfStatStatus_Object=MibTableColumn
-rip2IfStatStatus=_Rip2IfStatStatus_Object((1,3,6,1,2,1,23,2,1,5),_Rip2IfStatStatus_Type())
-rip2IfStatStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:rip2IfStatStatus.setStatus(_B)
-_Rip2IfConfTable_Object=MibTable
-rip2IfConfTable=_Rip2IfConfTable_Object((1,3,6,1,2,1,23,3))
-if mibBuilder.loadTexts:rip2IfConfTable.setStatus(_B)
-_Rip2IfConfEntry_Object=MibTableRow
-rip2IfConfEntry=_Rip2IfConfEntry_Object((1,3,6,1,2,1,23,3,1))
-rip2IfConfEntry.setIndexNames((0,_A,_G))
-if mibBuilder.loadTexts:rip2IfConfEntry.setStatus(_B)
-_Rip2IfConfAddress_Type=IpAddress
-_Rip2IfConfAddress_Object=MibTableColumn
-rip2IfConfAddress=_Rip2IfConfAddress_Object((1,3,6,1,2,1,23,3,1,1),_Rip2IfConfAddress_Type())
-rip2IfConfAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:rip2IfConfAddress.setStatus(_B)
-class _Rip2IfConfDomain_Type(RouteTag):defaultHexValue='0000'
-_Rip2IfConfDomain_Type.__name__=_O
-_Rip2IfConfDomain_Object=MibTableColumn
-rip2IfConfDomain=_Rip2IfConfDomain_Object((1,3,6,1,2,1,23,3,1,2),_Rip2IfConfDomain_Type())
-rip2IfConfDomain.setMaxAccess(_D)
-if mibBuilder.loadTexts:rip2IfConfDomain.setStatus('obsolete')
-class _Rip2IfConfAuthType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('noAuthentication',1),('simplePassword',2),('md5',3)))
-_Rip2IfConfAuthType_Type.__name__=_E
-_Rip2IfConfAuthType_Object=MibTableColumn
-rip2IfConfAuthType=_Rip2IfConfAuthType_Object((1,3,6,1,2,1,23,3,1,3),_Rip2IfConfAuthType_Type())
-rip2IfConfAuthType.setMaxAccess(_D)
-if mibBuilder.loadTexts:rip2IfConfAuthType.setStatus(_B)
-class _Rip2IfConfAuthKey_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
-_Rip2IfConfAuthKey_Type.__name__=_N
-_Rip2IfConfAuthKey_Object=MibTableColumn
-rip2IfConfAuthKey=_Rip2IfConfAuthKey_Object((1,3,6,1,2,1,23,3,1,4),_Rip2IfConfAuthKey_Type())
-rip2IfConfAuthKey.setMaxAccess(_D)
-if mibBuilder.loadTexts:rip2IfConfAuthKey.setStatus(_B)
-class _Rip2IfConfSend_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('doNotSend',1),('ripVersion1',2),('rip1Compatible',3),('ripVersion2',4),('ripV1Demand',5),('ripV2Demand',6)))
-_Rip2IfConfSend_Type.__name__=_E
-_Rip2IfConfSend_Object=MibTableColumn
-rip2IfConfSend=_Rip2IfConfSend_Object((1,3,6,1,2,1,23,3,1,5),_Rip2IfConfSend_Type())
-rip2IfConfSend.setMaxAccess(_D)
-if mibBuilder.loadTexts:rip2IfConfSend.setStatus(_B)
-class _Rip2IfConfReceive_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('rip1',1),('rip2',2),('rip1OrRip2',3),('doNotRecieve',4)))
-_Rip2IfConfReceive_Type.__name__=_E
-_Rip2IfConfReceive_Object=MibTableColumn
-rip2IfConfReceive=_Rip2IfConfReceive_Object((1,3,6,1,2,1,23,3,1,6),_Rip2IfConfReceive_Type())
-rip2IfConfReceive.setMaxAccess(_D)
-if mibBuilder.loadTexts:rip2IfConfReceive.setStatus(_B)
-class _Rip2IfConfDefaultMetric_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
-_Rip2IfConfDefaultMetric_Type.__name__=_E
-_Rip2IfConfDefaultMetric_Object=MibTableColumn
-rip2IfConfDefaultMetric=_Rip2IfConfDefaultMetric_Object((1,3,6,1,2,1,23,3,1,7),_Rip2IfConfDefaultMetric_Type())
-rip2IfConfDefaultMetric.setMaxAccess(_D)
-if mibBuilder.loadTexts:rip2IfConfDefaultMetric.setStatus(_B)
-_Rip2IfConfStatus_Type=RowStatus
-_Rip2IfConfStatus_Object=MibTableColumn
-rip2IfConfStatus=_Rip2IfConfStatus_Object((1,3,6,1,2,1,23,3,1,8),_Rip2IfConfStatus_Type())
-rip2IfConfStatus.setMaxAccess(_D)
-if mibBuilder.loadTexts:rip2IfConfStatus.setStatus(_B)
-_Rip2IfConfSrcAddress_Type=IpAddress
-_Rip2IfConfSrcAddress_Object=MibTableColumn
-rip2IfConfSrcAddress=_Rip2IfConfSrcAddress_Object((1,3,6,1,2,1,23,3,1,9),_Rip2IfConfSrcAddress_Type())
-rip2IfConfSrcAddress.setMaxAccess(_D)
-if mibBuilder.loadTexts:rip2IfConfSrcAddress.setStatus(_B)
-_Rip2PeerTable_Object=MibTable
-rip2PeerTable=_Rip2PeerTable_Object((1,3,6,1,2,1,23,4))
-if mibBuilder.loadTexts:rip2PeerTable.setStatus(_B)
-_Rip2PeerEntry_Object=MibTableRow
-rip2PeerEntry=_Rip2PeerEntry_Object((1,3,6,1,2,1,23,4,1))
-rip2PeerEntry.setIndexNames((0,_A,_H),(0,_A,_I))
-if mibBuilder.loadTexts:rip2PeerEntry.setStatus(_B)
-_Rip2PeerAddress_Type=IpAddress
-_Rip2PeerAddress_Object=MibTableColumn
-rip2PeerAddress=_Rip2PeerAddress_Object((1,3,6,1,2,1,23,4,1,1),_Rip2PeerAddress_Type())
-rip2PeerAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:rip2PeerAddress.setStatus(_B)
-_Rip2PeerDomain_Type=RouteTag
-_Rip2PeerDomain_Object=MibTableColumn
-rip2PeerDomain=_Rip2PeerDomain_Object((1,3,6,1,2,1,23,4,1,2),_Rip2PeerDomain_Type())
-rip2PeerDomain.setMaxAccess(_C)
-if mibBuilder.loadTexts:rip2PeerDomain.setStatus(_B)
-_Rip2PeerLastUpdate_Type=TimeTicks
-_Rip2PeerLastUpdate_Object=MibTableColumn
-rip2PeerLastUpdate=_Rip2PeerLastUpdate_Object((1,3,6,1,2,1,23,4,1,3),_Rip2PeerLastUpdate_Type())
-rip2PeerLastUpdate.setMaxAccess(_C)
-if mibBuilder.loadTexts:rip2PeerLastUpdate.setStatus(_B)
-class _Rip2PeerVersion_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_Rip2PeerVersion_Type.__name__=_E
-_Rip2PeerVersion_Object=MibTableColumn
-rip2PeerVersion=_Rip2PeerVersion_Object((1,3,6,1,2,1,23,4,1,4),_Rip2PeerVersion_Type())
-rip2PeerVersion.setMaxAccess(_C)
-if mibBuilder.loadTexts:rip2PeerVersion.setStatus(_B)
-_Rip2PeerRcvBadPackets_Type=Counter32
-_Rip2PeerRcvBadPackets_Object=MibTableColumn
-rip2PeerRcvBadPackets=_Rip2PeerRcvBadPackets_Object((1,3,6,1,2,1,23,4,1,5),_Rip2PeerRcvBadPackets_Type())
-rip2PeerRcvBadPackets.setMaxAccess(_C)
-if mibBuilder.loadTexts:rip2PeerRcvBadPackets.setStatus(_B)
-_Rip2PeerRcvBadRoutes_Type=Counter32
-_Rip2PeerRcvBadRoutes_Object=MibTableColumn
-rip2PeerRcvBadRoutes=_Rip2PeerRcvBadRoutes_Object((1,3,6,1,2,1,23,4,1,6),_Rip2PeerRcvBadRoutes_Type())
-rip2PeerRcvBadRoutes.setMaxAccess(_C)
-if mibBuilder.loadTexts:rip2PeerRcvBadRoutes.setStatus(_B)
-_Rip2Conformance_ObjectIdentity=ObjectIdentity
-rip2Conformance=_Rip2Conformance_ObjectIdentity((1,3,6,1,2,1,23,5))
-_Rip2Groups_ObjectIdentity=ObjectIdentity
-rip2Groups=_Rip2Groups_ObjectIdentity((1,3,6,1,2,1,23,5,1))
-_Rip2Compliances_ObjectIdentity=ObjectIdentity
-rip2Compliances=_Rip2Compliances_ObjectIdentity((1,3,6,1,2,1,23,5,2))
-rip2GlobalGroup=ObjectGroup((1,3,6,1,2,1,23,5,1,1))
-rip2GlobalGroup.setObjects(*((_A,_P),(_A,_Q)))
-if mibBuilder.loadTexts:rip2GlobalGroup.setStatus(_B)
-rip2IfStatGroup=ObjectGroup((1,3,6,1,2,1,23,5,1,2))
-rip2IfStatGroup.setObjects(*((_A,_F),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
-if mibBuilder.loadTexts:rip2IfStatGroup.setStatus(_B)
-rip2IfConfGroup=ObjectGroup((1,3,6,1,2,1,23,5,1,3))
-rip2IfConfGroup.setObjects(*((_A,_G),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b)))
-if mibBuilder.loadTexts:rip2IfConfGroup.setStatus(_B)
-rip2PeerGroup=ObjectGroup((1,3,6,1,2,1,23,5,1,4))
-rip2PeerGroup.setObjects(*((_A,_H),(_A,_I),(_A,_c),(_A,_d),(_A,_e),(_A,_f)))
-if mibBuilder.loadTexts:rip2PeerGroup.setStatus(_B)
-rip2Compliance=ModuleCompliance((1,3,6,1,2,1,23,5,2,1))
-rip2Compliance.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_J),(_A,_K),(_A,_L),(_A,_M)))
-if mibBuilder.loadTexts:rip2Compliance.setStatus(_B)
-mibBuilder.exportSymbols(_A,**{_O:RouteTag,'rip2':rip2,'rip2Globals':rip2Globals,_P:rip2GlobalRouteChanges,_Q:rip2GlobalQueries,'rip2IfStatTable':rip2IfStatTable,'rip2IfStatEntry':rip2IfStatEntry,_F:rip2IfStatAddress,_R:rip2IfStatRcvBadPackets,_S:rip2IfStatRcvBadRoutes,_T:rip2IfStatSentUpdates,_U:rip2IfStatStatus,'rip2IfConfTable':rip2IfConfTable,'rip2IfConfEntry':rip2IfConfEntry,_G:rip2IfConfAddress,'rip2IfConfDomain':rip2IfConfDomain,_V:rip2IfConfAuthType,_W:rip2IfConfAuthKey,_X:rip2IfConfSend,_Y:rip2IfConfReceive,_Z:rip2IfConfDefaultMetric,_a:rip2IfConfStatus,_b:rip2IfConfSrcAddress,'rip2PeerTable':rip2PeerTable,'rip2PeerEntry':rip2PeerEntry,_H:rip2PeerAddress,_I:rip2PeerDomain,_c:rip2PeerLastUpdate,_d:rip2PeerVersion,_e:rip2PeerRcvBadPackets,_f:rip2PeerRcvBadRoutes,'rip2Conformance':rip2Conformance,'rip2Groups':rip2Groups,_J:rip2GlobalGroup,_K:rip2IfStatGroup,_L:rip2IfConfGroup,_M:rip2PeerGroup,'rip2Compliances':rip2Compliances,'rip2Compliance':rip2Compliance})
+#
+# PySNMP MIB module RIPv2-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/RIPv2-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:43:35 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Integer32, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, TimeTicks, Bits, mib_2, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Integer32", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Bits", "mib-2", "IpAddress")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+rip2 = ModuleIdentity((1, 3, 6, 1, 2, 1, 23))
+if mibBuilder.loadTexts: rip2.setLastUpdated('9407272253Z')
+if mibBuilder.loadTexts: rip2.setOrganization('IETF RIP-II Working Group')
+class RouteTag(TextualConvention, OctetString):
+    status = 'current'
+    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(2, 2)
+    fixedLength = 2
+
+rip2Globals = MibIdentifier((1, 3, 6, 1, 2, 1, 23, 1))
+rip2GlobalRouteChanges = MibScalar((1, 3, 6, 1, 2, 1, 23, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rip2GlobalRouteChanges.setStatus('current')
+rip2GlobalQueries = MibScalar((1, 3, 6, 1, 2, 1, 23, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rip2GlobalQueries.setStatus('current')
+rip2IfStatTable = MibTable((1, 3, 6, 1, 2, 1, 23, 2), )
+if mibBuilder.loadTexts: rip2IfStatTable.setStatus('current')
+rip2IfStatEntry = MibTableRow((1, 3, 6, 1, 2, 1, 23, 2, 1), ).setIndexNames((0, "RIPv2-MIB", "rip2IfStatAddress"))
+if mibBuilder.loadTexts: rip2IfStatEntry.setStatus('current')
+rip2IfStatAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 2, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rip2IfStatAddress.setStatus('current')
+rip2IfStatRcvBadPackets = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 2, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rip2IfStatRcvBadPackets.setStatus('current')
+rip2IfStatRcvBadRoutes = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 2, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rip2IfStatRcvBadRoutes.setStatus('current')
+rip2IfStatSentUpdates = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 2, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rip2IfStatSentUpdates.setStatus('current')
+rip2IfStatStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rip2IfStatStatus.setStatus('current')
+rip2IfConfTable = MibTable((1, 3, 6, 1, 2, 1, 23, 3), )
+if mibBuilder.loadTexts: rip2IfConfTable.setStatus('current')
+rip2IfConfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 23, 3, 1), ).setIndexNames((0, "RIPv2-MIB", "rip2IfConfAddress"))
+if mibBuilder.loadTexts: rip2IfConfEntry.setStatus('current')
+rip2IfConfAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 3, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rip2IfConfAddress.setStatus('current')
+rip2IfConfDomain = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 3, 1, 2), RouteTag().clone(hexValue="0000")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rip2IfConfDomain.setStatus('obsolete')
+rip2IfConfAuthType = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noAuthentication", 1), ("simplePassword", 2), ("md5", 3))).clone('noAuthentication')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rip2IfConfAuthType.setStatus('current')
+rip2IfConfAuthKey = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 3, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 16)).clone(hexValue="")).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rip2IfConfAuthKey.setStatus('current')
+rip2IfConfSend = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("doNotSend", 1), ("ripVersion1", 2), ("rip1Compatible", 3), ("ripVersion2", 4), ("ripV1Demand", 5), ("ripV2Demand", 6))).clone('rip1Compatible')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rip2IfConfSend.setStatus('current')
+rip2IfConfReceive = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("rip1", 1), ("rip2", 2), ("rip1OrRip2", 3), ("doNotRecieve", 4))).clone('rip1OrRip2')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rip2IfConfReceive.setStatus('current')
+rip2IfConfDefaultMetric = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 3, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rip2IfConfDefaultMetric.setStatus('current')
+rip2IfConfStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 3, 1, 8), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rip2IfConfStatus.setStatus('current')
+rip2IfConfSrcAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 3, 1, 9), IpAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: rip2IfConfSrcAddress.setStatus('current')
+rip2PeerTable = MibTable((1, 3, 6, 1, 2, 1, 23, 4), )
+if mibBuilder.loadTexts: rip2PeerTable.setStatus('current')
+rip2PeerEntry = MibTableRow((1, 3, 6, 1, 2, 1, 23, 4, 1), ).setIndexNames((0, "RIPv2-MIB", "rip2PeerAddress"), (0, "RIPv2-MIB", "rip2PeerDomain"))
+if mibBuilder.loadTexts: rip2PeerEntry.setStatus('current')
+rip2PeerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 4, 1, 1), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rip2PeerAddress.setStatus('current')
+rip2PeerDomain = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 4, 1, 2), RouteTag()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rip2PeerDomain.setStatus('current')
+rip2PeerLastUpdate = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 4, 1, 3), TimeTicks()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rip2PeerLastUpdate.setStatus('current')
+rip2PeerVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 4, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rip2PeerVersion.setStatus('current')
+rip2PeerRcvBadPackets = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 4, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rip2PeerRcvBadPackets.setStatus('current')
+rip2PeerRcvBadRoutes = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 4, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: rip2PeerRcvBadRoutes.setStatus('current')
+rip2Conformance = MibIdentifier((1, 3, 6, 1, 2, 1, 23, 5))
+rip2Groups = MibIdentifier((1, 3, 6, 1, 2, 1, 23, 5, 1))
+rip2Compliances = MibIdentifier((1, 3, 6, 1, 2, 1, 23, 5, 2))
+rip2Compliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 23, 5, 2, 1)).setObjects(("RIPv2-MIB", "rip2GlobalGroup"), ("RIPv2-MIB", "rip2IfStatGroup"), ("RIPv2-MIB", "rip2IfConfGroup"), ("RIPv2-MIB", "rip2PeerGroup"), ("RIPv2-MIB", "rip2GlobalGroup"), ("RIPv2-MIB", "rip2IfStatGroup"), ("RIPv2-MIB", "rip2IfConfGroup"), ("RIPv2-MIB", "rip2PeerGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rip2Compliance = rip2Compliance.setStatus('current')
+rip2GlobalGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 23, 5, 1, 1)).setObjects(("RIPv2-MIB", "rip2GlobalRouteChanges"), ("RIPv2-MIB", "rip2GlobalQueries"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rip2GlobalGroup = rip2GlobalGroup.setStatus('current')
+rip2IfStatGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 23, 5, 1, 2)).setObjects(("RIPv2-MIB", "rip2IfStatAddress"), ("RIPv2-MIB", "rip2IfStatRcvBadPackets"), ("RIPv2-MIB", "rip2IfStatRcvBadRoutes"), ("RIPv2-MIB", "rip2IfStatSentUpdates"), ("RIPv2-MIB", "rip2IfStatStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rip2IfStatGroup = rip2IfStatGroup.setStatus('current')
+rip2IfConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 23, 5, 1, 3)).setObjects(("RIPv2-MIB", "rip2IfConfAddress"), ("RIPv2-MIB", "rip2IfConfAuthType"), ("RIPv2-MIB", "rip2IfConfAuthKey"), ("RIPv2-MIB", "rip2IfConfSend"), ("RIPv2-MIB", "rip2IfConfReceive"), ("RIPv2-MIB", "rip2IfConfDefaultMetric"), ("RIPv2-MIB", "rip2IfConfStatus"), ("RIPv2-MIB", "rip2IfConfSrcAddress"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rip2IfConfGroup = rip2IfConfGroup.setStatus('current')
+rip2PeerGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 23, 5, 1, 4)).setObjects(("RIPv2-MIB", "rip2PeerAddress"), ("RIPv2-MIB", "rip2PeerDomain"), ("RIPv2-MIB", "rip2PeerLastUpdate"), ("RIPv2-MIB", "rip2PeerVersion"), ("RIPv2-MIB", "rip2PeerRcvBadPackets"), ("RIPv2-MIB", "rip2PeerRcvBadRoutes"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    rip2PeerGroup = rip2PeerGroup.setStatus('current')
+mibBuilder.exportSymbols("RIPv2-MIB", rip2Compliance=rip2Compliance, PYSNMP_MODULE_ID=rip2, rip2GlobalRouteChanges=rip2GlobalRouteChanges, rip2PeerDomain=rip2PeerDomain, rip2IfConfSend=rip2IfConfSend, rip2Globals=rip2Globals, RouteTag=RouteTag, rip2PeerRcvBadRoutes=rip2PeerRcvBadRoutes, rip2Compliances=rip2Compliances, rip2PeerAddress=rip2PeerAddress, rip2IfStatStatus=rip2IfStatStatus, rip2Conformance=rip2Conformance, rip2IfConfStatus=rip2IfConfStatus, rip2IfConfAuthType=rip2IfConfAuthType, rip2GlobalGroup=rip2GlobalGroup, rip2PeerLastUpdate=rip2PeerLastUpdate, rip2IfStatRcvBadRoutes=rip2IfStatRcvBadRoutes, rip2Groups=rip2Groups, rip2IfConfGroup=rip2IfConfGroup, rip2IfStatEntry=rip2IfStatEntry, rip2IfStatGroup=rip2IfStatGroup, rip2IfConfReceive=rip2IfConfReceive, rip2PeerEntry=rip2PeerEntry, rip2IfConfSrcAddress=rip2IfConfSrcAddress, rip2IfConfDomain=rip2IfConfDomain, rip2IfConfTable=rip2IfConfTable, rip2PeerVersion=rip2PeerVersion, rip2IfConfEntry=rip2IfConfEntry, rip2PeerTable=rip2PeerTable, rip2IfStatSentUpdates=rip2IfStatSentUpdates, rip2PeerGroup=rip2PeerGroup, rip2IfStatAddress=rip2IfStatAddress, rip2IfStatRcvBadPackets=rip2IfStatRcvBadPackets, rip2IfStatTable=rip2IfStatTable, rip2=rip2, rip2GlobalQueries=rip2GlobalQueries, rip2IfConfAddress=rip2IfConfAddress, rip2IfConfAuthKey=rip2IfConfAuthKey, rip2IfConfDefaultMetric=rip2IfConfDefaultMetric, rip2PeerRcvBadPackets=rip2PeerRcvBadPackets)

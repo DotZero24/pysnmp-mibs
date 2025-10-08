@@ -1,885 +1,377 @@
-_m='fsMIDot1qFutureUnicastMacLearningLimit'
-_l='fsMIDot1qFutureVlanOldTpFdbPort'
-_k='fsMIDot1qFutureVlanFid'
-_j='fsMIDot1qFutureVlanUnicastMacLimit'
-_i='fsMIDot1qFuturePortVlanExtEntry'
-_h='fsMIDot1qFutureStVlanExtEntry'
-_g='fsMIDot1qFutureStaticUnicastExtnEntry'
-_f='fsMIDot1qFutureVlanTpFdbEntry'
-_e='fsMIDot1qFutureVlanPortSubnetMapExtMask'
-_d='fsMIDot1qFutureVlanPortSubnetMapExtAddr'
-_c='suppress'
-_b='fsMIDot1qFutureVlanPortSubnetMapAddr'
-_a='MacLearningStatus'
-_Z='fsMIDot1qFutureVlanPortMacMapAddr'
-_Y='default'
-_X='disabled'
-_W='enabled'
-_V='DisplayString'
-_U='VlanIdOrNone'
-_T='fsDot1qTpPort'
-_S='fsDot1qTpFdbPort'
-_R='OctetString'
-_Q='fsMIDot1qFutureVlanWildCardMacAddress'
-_P='allow'
-_O='ARICENTQ-BRIDGE-MIB'
-_N='fsMIDot1qFutureVlanContextName'
-_M='fsMIDot1qFutureVlanIndex'
-_L='Unsigned32'
-_K='fsMIDot1qFutureVlanPort'
-_J='not-accessible'
-_I='EnabledStatus'
-_H='fsMIDot1qFutureVlanContextId'
-_G='TruthValue'
-_F='deprecated'
-_E='Integer32'
-_D='AricentMIVlan-MIB'
-_C='read-only'
-_B='read-write'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_R,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsDot1qStaticUnicastEntry,fsDot1qTpFdbEntry,fsDot1qTpFdbPort,fsDot1qTpPort,fsDot1qVlanStaticEntry,fsDot1qVlanStaticPortConfigEntry=mibBuilder.importSymbols(_O,'fsDot1qStaticUnicastEntry','fsDot1qTpFdbEntry',_S,_T,'fsDot1qVlanStaticEntry','fsDot1qVlanStaticPortConfigEntry')
-VlanIdOrNone,=mibBuilder.importSymbols('Q-BRIDGE-MIB',_U)
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_L,'enterprises','iso')
-DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_V,'MacAddress','PhysAddress','RowStatus','TextualConvention',_G)
-futureMIVlanMIB=ModuleIdentity((1,3,6,1,4,1,2076,120))
-if mibBuilder.loadTexts:futureMIVlanMIB.setRevisions(('2012-09-05 00:00',))
-class VlanId(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-class EnabledStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_W,1),(_X,2)))
-class MacLearningStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_W,1),(_X,2),(_Y,3)))
-_FsMIDot1qFutureVlan_ObjectIdentity=ObjectIdentity
-fsMIDot1qFutureVlan=_FsMIDot1qFutureVlan_ObjectIdentity((1,3,6,1,4,1,2076,120,1))
-_FsMIDot1qFutureVlanGlobalTrace_Type=TruthValue
-_FsMIDot1qFutureVlanGlobalTrace_Object=MibScalar
-fsMIDot1qFutureVlanGlobalTrace=_FsMIDot1qFutureVlanGlobalTrace_Object((1,3,6,1,4,1,2076,120,1,1),_FsMIDot1qFutureVlanGlobalTrace_Type())
-fsMIDot1qFutureVlanGlobalTrace.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanGlobalTrace.setStatus(_A)
-_FsMIDot1qFutureVlanGlobalsTable_Object=MibTable
-fsMIDot1qFutureVlanGlobalsTable=_FsMIDot1qFutureVlanGlobalsTable_Object((1,3,6,1,4,1,2076,120,1,2))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanGlobalsTable.setStatus(_A)
-_FsMIDot1qFutureVlanGlobalsEntry_Object=MibTableRow
-fsMIDot1qFutureVlanGlobalsEntry=_FsMIDot1qFutureVlanGlobalsEntry_Object((1,3,6,1,4,1,2076,120,1,2,1))
-fsMIDot1qFutureVlanGlobalsEntry.setIndexNames((0,_D,_H))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanGlobalsEntry.setStatus(_A)
-class _FsMIDot1qFutureVlanContextId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsMIDot1qFutureVlanContextId_Type.__name__=_E
-_FsMIDot1qFutureVlanContextId_Object=MibTableColumn
-fsMIDot1qFutureVlanContextId=_FsMIDot1qFutureVlanContextId_Object((1,3,6,1,4,1,2076,120,1,2,1,1),_FsMIDot1qFutureVlanContextId_Type())
-fsMIDot1qFutureVlanContextId.setMaxAccess(_J)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanContextId.setStatus(_A)
-_FsMIDot1qFutureVlanStatus_Type=EnabledStatus
-_FsMIDot1qFutureVlanStatus_Object=MibTableColumn
-fsMIDot1qFutureVlanStatus=_FsMIDot1qFutureVlanStatus_Object((1,3,6,1,4,1,2076,120,1,2,1,2),_FsMIDot1qFutureVlanStatus_Type())
-fsMIDot1qFutureVlanStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanStatus.setStatus(_A)
-_FsMIDot1qFutureVlanMacBasedOnAllPorts_Type=EnabledStatus
-_FsMIDot1qFutureVlanMacBasedOnAllPorts_Object=MibTableColumn
-fsMIDot1qFutureVlanMacBasedOnAllPorts=_FsMIDot1qFutureVlanMacBasedOnAllPorts_Object((1,3,6,1,4,1,2076,120,1,2,1,3),_FsMIDot1qFutureVlanMacBasedOnAllPorts_Type())
-fsMIDot1qFutureVlanMacBasedOnAllPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanMacBasedOnAllPorts.setStatus(_A)
-_FsMIDot1qFutureVlanPortProtoBasedOnAllPorts_Type=EnabledStatus
-_FsMIDot1qFutureVlanPortProtoBasedOnAllPorts_Object=MibTableColumn
-fsMIDot1qFutureVlanPortProtoBasedOnAllPorts=_FsMIDot1qFutureVlanPortProtoBasedOnAllPorts_Object((1,3,6,1,4,1,2076,120,1,2,1,4),_FsMIDot1qFutureVlanPortProtoBasedOnAllPorts_Type())
-fsMIDot1qFutureVlanPortProtoBasedOnAllPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortProtoBasedOnAllPorts.setStatus(_A)
-class _FsMIDot1qFutureVlanShutdownStatus_Type(TruthValue):defaultValue=2
-_FsMIDot1qFutureVlanShutdownStatus_Type.__name__=_G
-_FsMIDot1qFutureVlanShutdownStatus_Object=MibTableColumn
-fsMIDot1qFutureVlanShutdownStatus=_FsMIDot1qFutureVlanShutdownStatus_Object((1,3,6,1,4,1,2076,120,1,2,1,5),_FsMIDot1qFutureVlanShutdownStatus_Type())
-fsMIDot1qFutureVlanShutdownStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanShutdownStatus.setStatus(_F)
-_FsMIDot1qFutureGarpShutdownStatus_Type=TruthValue
-_FsMIDot1qFutureGarpShutdownStatus_Object=MibTableColumn
-fsMIDot1qFutureGarpShutdownStatus=_FsMIDot1qFutureGarpShutdownStatus_Object((1,3,6,1,4,1,2076,120,1,2,1,6),_FsMIDot1qFutureGarpShutdownStatus_Type())
-fsMIDot1qFutureGarpShutdownStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureGarpShutdownStatus.setStatus(_A)
-class _FsMIDot1qFutureVlanDebug_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,524287))
-_FsMIDot1qFutureVlanDebug_Type.__name__=_E
-_FsMIDot1qFutureVlanDebug_Object=MibTableColumn
-fsMIDot1qFutureVlanDebug=_FsMIDot1qFutureVlanDebug_Object((1,3,6,1,4,1,2076,120,1,2,1,7),_FsMIDot1qFutureVlanDebug_Type())
-fsMIDot1qFutureVlanDebug.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanDebug.setStatus(_A)
-class _FsMIDot1qFutureVlanLearningMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('ivl',1),('svl',2),('hybrid',3)))
-_FsMIDot1qFutureVlanLearningMode_Type.__name__=_E
-_FsMIDot1qFutureVlanLearningMode_Object=MibTableColumn
-fsMIDot1qFutureVlanLearningMode=_FsMIDot1qFutureVlanLearningMode_Object((1,3,6,1,4,1,2076,120,1,2,1,8),_FsMIDot1qFutureVlanLearningMode_Type())
-fsMIDot1qFutureVlanLearningMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanLearningMode.setStatus(_A)
-class _FsMIDot1qFutureVlanHybridTypeDefault_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ivl',1),('svl',2)))
-_FsMIDot1qFutureVlanHybridTypeDefault_Type.__name__=_E
-_FsMIDot1qFutureVlanHybridTypeDefault_Object=MibTableColumn
-fsMIDot1qFutureVlanHybridTypeDefault=_FsMIDot1qFutureVlanHybridTypeDefault_Object((1,3,6,1,4,1,2076,120,1,2,1,9),_FsMIDot1qFutureVlanHybridTypeDefault_Type())
-fsMIDot1qFutureVlanHybridTypeDefault.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanHybridTypeDefault.setStatus(_A)
-_FsMIDot1qFutureVlanOperStatus_Type=EnabledStatus
-_FsMIDot1qFutureVlanOperStatus_Object=MibTableColumn
-fsMIDot1qFutureVlanOperStatus=_FsMIDot1qFutureVlanOperStatus_Object((1,3,6,1,4,1,2076,120,1,2,1,10),_FsMIDot1qFutureVlanOperStatus_Type())
-fsMIDot1qFutureVlanOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanOperStatus.setStatus(_A)
-_FsMIDot1qFutureGvrpOperStatus_Type=EnabledStatus
-_FsMIDot1qFutureGvrpOperStatus_Object=MibTableColumn
-fsMIDot1qFutureGvrpOperStatus=_FsMIDot1qFutureGvrpOperStatus_Object((1,3,6,1,4,1,2076,120,1,2,1,11),_FsMIDot1qFutureGvrpOperStatus_Type())
-fsMIDot1qFutureGvrpOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureGvrpOperStatus.setStatus(_A)
-_FsMIDot1qFutureGmrpOperStatus_Type=EnabledStatus
-_FsMIDot1qFutureGmrpOperStatus_Object=MibTableColumn
-fsMIDot1qFutureGmrpOperStatus=_FsMIDot1qFutureGmrpOperStatus_Object((1,3,6,1,4,1,2076,120,1,2,1,12),_FsMIDot1qFutureGmrpOperStatus_Type())
-fsMIDot1qFutureGmrpOperStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureGmrpOperStatus.setStatus(_A)
-class _FsMIDot1qFutureVlanContextName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
-_FsMIDot1qFutureVlanContextName_Type.__name__=_V
-_FsMIDot1qFutureVlanContextName_Object=MibTableColumn
-fsMIDot1qFutureVlanContextName=_FsMIDot1qFutureVlanContextName_Object((1,3,6,1,4,1,2076,120,1,2,1,13),_FsMIDot1qFutureVlanContextName_Type())
-fsMIDot1qFutureVlanContextName.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanContextName.setStatus(_A)
-class _FsMIDot1qFutureGarpDebug_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1048575))
-_FsMIDot1qFutureGarpDebug_Type.__name__=_E
-_FsMIDot1qFutureGarpDebug_Object=MibTableColumn
-fsMIDot1qFutureGarpDebug=_FsMIDot1qFutureGarpDebug_Object((1,3,6,1,4,1,2076,120,1,2,1,14),_FsMIDot1qFutureGarpDebug_Type())
-fsMIDot1qFutureGarpDebug.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureGarpDebug.setStatus(_A)
-class _FsMIDot1qFutureUnicastMacLearningLimit_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_FsMIDot1qFutureUnicastMacLearningLimit_Type.__name__=_L
-_FsMIDot1qFutureUnicastMacLearningLimit_Object=MibTableColumn
-fsMIDot1qFutureUnicastMacLearningLimit=_FsMIDot1qFutureUnicastMacLearningLimit_Object((1,3,6,1,4,1,2076,120,1,2,1,15),_FsMIDot1qFutureUnicastMacLearningLimit_Type())
-fsMIDot1qFutureUnicastMacLearningLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureUnicastMacLearningLimit.setStatus(_A)
-class _FsMIDot1qFutureBaseBridgeMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('dot1dTransparentMode',1),('dot1qVlanMode',2)))
-_FsMIDot1qFutureBaseBridgeMode_Type.__name__=_E
-_FsMIDot1qFutureBaseBridgeMode_Object=MibTableColumn
-fsMIDot1qFutureBaseBridgeMode=_FsMIDot1qFutureBaseBridgeMode_Object((1,3,6,1,4,1,2076,120,1,2,1,16),_FsMIDot1qFutureBaseBridgeMode_Type())
-fsMIDot1qFutureBaseBridgeMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureBaseBridgeMode.setStatus(_A)
-_FsMIDot1qFutureVlanSubnetBasedOnAllPorts_Type=EnabledStatus
-_FsMIDot1qFutureVlanSubnetBasedOnAllPorts_Object=MibTableColumn
-fsMIDot1qFutureVlanSubnetBasedOnAllPorts=_FsMIDot1qFutureVlanSubnetBasedOnAllPorts_Object((1,3,6,1,4,1,2076,120,1,2,1,17),_FsMIDot1qFutureVlanSubnetBasedOnAllPorts_Type())
-fsMIDot1qFutureVlanSubnetBasedOnAllPorts.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanSubnetBasedOnAllPorts.setStatus(_A)
-class _FsMIDot1qFutureVlanGlobalMacLearningStatus_Type(EnabledStatus):defaultValue=1
-_FsMIDot1qFutureVlanGlobalMacLearningStatus_Type.__name__=_I
-_FsMIDot1qFutureVlanGlobalMacLearningStatus_Object=MibTableColumn
-fsMIDot1qFutureVlanGlobalMacLearningStatus=_FsMIDot1qFutureVlanGlobalMacLearningStatus_Object((1,3,6,1,4,1,2076,120,1,2,1,18),_FsMIDot1qFutureVlanGlobalMacLearningStatus_Type())
-fsMIDot1qFutureVlanGlobalMacLearningStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanGlobalMacLearningStatus.setStatus(_A)
-class _FsMIDot1qFutureVlanApplyEnhancedFilteringCriteria_Type(TruthValue):defaultValue=1
-_FsMIDot1qFutureVlanApplyEnhancedFilteringCriteria_Type.__name__=_G
-_FsMIDot1qFutureVlanApplyEnhancedFilteringCriteria_Object=MibTableColumn
-fsMIDot1qFutureVlanApplyEnhancedFilteringCriteria=_FsMIDot1qFutureVlanApplyEnhancedFilteringCriteria_Object((1,3,6,1,4,1,2076,120,1,2,1,19),_FsMIDot1qFutureVlanApplyEnhancedFilteringCriteria_Type())
-fsMIDot1qFutureVlanApplyEnhancedFilteringCriteria.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanApplyEnhancedFilteringCriteria.setStatus(_A)
-class _FsMIDot1qFutureVlanGlobalsFdbFlush_Type(TruthValue):defaultValue=2
-_FsMIDot1qFutureVlanGlobalsFdbFlush_Type.__name__=_G
-_FsMIDot1qFutureVlanGlobalsFdbFlush_Object=MibTableColumn
-fsMIDot1qFutureVlanGlobalsFdbFlush=_FsMIDot1qFutureVlanGlobalsFdbFlush_Object((1,3,6,1,4,1,2076,120,1,2,1,20),_FsMIDot1qFutureVlanGlobalsFdbFlush_Type())
-fsMIDot1qFutureVlanGlobalsFdbFlush.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanGlobalsFdbFlush.setStatus(_A)
-class _FsMIDot1qFutureVlanUserDefinedTPID_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsMIDot1qFutureVlanUserDefinedTPID_Type.__name__=_E
-_FsMIDot1qFutureVlanUserDefinedTPID_Object=MibTableColumn
-fsMIDot1qFutureVlanUserDefinedTPID=_FsMIDot1qFutureVlanUserDefinedTPID_Object((1,3,6,1,4,1,2076,120,1,2,1,21),_FsMIDot1qFutureVlanUserDefinedTPID_Type())
-fsMIDot1qFutureVlanUserDefinedTPID.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanUserDefinedTPID.setStatus(_A)
-class _FsMIDot1qFutureVlanRemoteFdbFlush_Type(TruthValue):defaultValue=2
-_FsMIDot1qFutureVlanRemoteFdbFlush_Type.__name__=_G
-_FsMIDot1qFutureVlanRemoteFdbFlush_Object=MibTableColumn
-fsMIDot1qFutureVlanRemoteFdbFlush=_FsMIDot1qFutureVlanRemoteFdbFlush_Object((1,3,6,1,4,1,2076,120,1,2,1,22),_FsMIDot1qFutureVlanRemoteFdbFlush_Type())
-fsMIDot1qFutureVlanRemoteFdbFlush.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanRemoteFdbFlush.setStatus(_A)
-_FsMIDot1qFutureVlanPortTable_Object=MibTable
-fsMIDot1qFutureVlanPortTable=_FsMIDot1qFutureVlanPortTable_Object((1,3,6,1,4,1,2076,120,1,3))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortTable.setStatus(_A)
-_FsMIDot1qFutureVlanPortEntry_Object=MibTableRow
-fsMIDot1qFutureVlanPortEntry=_FsMIDot1qFutureVlanPortEntry_Object((1,3,6,1,4,1,2076,120,1,3,1))
-fsMIDot1qFutureVlanPortEntry.setIndexNames((0,_D,_K))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortEntry.setStatus(_A)
-class _FsMIDot1qFutureVlanPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_FsMIDot1qFutureVlanPort_Type.__name__=_E
-_FsMIDot1qFutureVlanPort_Object=MibTableColumn
-fsMIDot1qFutureVlanPort=_FsMIDot1qFutureVlanPort_Object((1,3,6,1,4,1,2076,120,1,3,1,1),_FsMIDot1qFutureVlanPort_Type())
-fsMIDot1qFutureVlanPort.setMaxAccess(_J)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPort.setStatus(_A)
-class _FsMIDot1qFutureVlanPortType_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('accessPort',1),('trunkPort',2),('hybridPort',3),('hostPort',4),('promiscuousPort',5)))
-_FsMIDot1qFutureVlanPortType_Type.__name__=_E
-_FsMIDot1qFutureVlanPortType_Object=MibTableColumn
-fsMIDot1qFutureVlanPortType=_FsMIDot1qFutureVlanPortType_Object((1,3,6,1,4,1,2076,120,1,3,1,2),_FsMIDot1qFutureVlanPortType_Type())
-fsMIDot1qFutureVlanPortType.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortType.setStatus(_A)
-_FsMIDot1qFutureVlanPortMacBasedClassification_Type=EnabledStatus
-_FsMIDot1qFutureVlanPortMacBasedClassification_Object=MibTableColumn
-fsMIDot1qFutureVlanPortMacBasedClassification=_FsMIDot1qFutureVlanPortMacBasedClassification_Object((1,3,6,1,4,1,2076,120,1,3,1,3),_FsMIDot1qFutureVlanPortMacBasedClassification_Type())
-fsMIDot1qFutureVlanPortMacBasedClassification.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortMacBasedClassification.setStatus(_A)
-_FsMIDot1qFutureVlanPortPortProtoBasedClassification_Type=EnabledStatus
-_FsMIDot1qFutureVlanPortPortProtoBasedClassification_Object=MibTableColumn
-fsMIDot1qFutureVlanPortPortProtoBasedClassification=_FsMIDot1qFutureVlanPortPortProtoBasedClassification_Object((1,3,6,1,4,1,2076,120,1,3,1,4),_FsMIDot1qFutureVlanPortPortProtoBasedClassification_Type())
-fsMIDot1qFutureVlanPortPortProtoBasedClassification.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortPortProtoBasedClassification.setStatus(_A)
-class _FsMIDot1qFutureVlanFilteringUtilityCriteria_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Y,1),('enhanced',2)))
-_FsMIDot1qFutureVlanFilteringUtilityCriteria_Type.__name__=_E
-_FsMIDot1qFutureVlanFilteringUtilityCriteria_Object=MibTableColumn
-fsMIDot1qFutureVlanFilteringUtilityCriteria=_FsMIDot1qFutureVlanFilteringUtilityCriteria_Object((1,3,6,1,4,1,2076,120,1,3,1,5),_FsMIDot1qFutureVlanFilteringUtilityCriteria_Type())
-fsMIDot1qFutureVlanFilteringUtilityCriteria.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanFilteringUtilityCriteria.setStatus(_A)
-class _FsMIDot1qFutureVlanPortProtected_Type(TruthValue):defaultValue=2
-_FsMIDot1qFutureVlanPortProtected_Type.__name__=_G
-_FsMIDot1qFutureVlanPortProtected_Object=MibTableColumn
-fsMIDot1qFutureVlanPortProtected=_FsMIDot1qFutureVlanPortProtected_Object((1,3,6,1,4,1,2076,120,1,3,1,6),_FsMIDot1qFutureVlanPortProtected_Type())
-fsMIDot1qFutureVlanPortProtected.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortProtected.setStatus(_A)
-_FsMIDot1qFutureVlanPortSubnetBasedClassification_Type=EnabledStatus
-_FsMIDot1qFutureVlanPortSubnetBasedClassification_Object=MibTableColumn
-fsMIDot1qFutureVlanPortSubnetBasedClassification=_FsMIDot1qFutureVlanPortSubnetBasedClassification_Object((1,3,6,1,4,1,2076,120,1,3,1,7),_FsMIDot1qFutureVlanPortSubnetBasedClassification_Type())
-fsMIDot1qFutureVlanPortSubnetBasedClassification.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortSubnetBasedClassification.setStatus(_A)
-class _FsMIDot1qFutureVlanPortUnicastMacLearning_Type(EnabledStatus):defaultValue=1
-_FsMIDot1qFutureVlanPortUnicastMacLearning_Type.__name__=_I
-_FsMIDot1qFutureVlanPortUnicastMacLearning_Object=MibTableColumn
-fsMIDot1qFutureVlanPortUnicastMacLearning=_FsMIDot1qFutureVlanPortUnicastMacLearning_Object((1,3,6,1,4,1,2076,120,1,3,1,8),_FsMIDot1qFutureVlanPortUnicastMacLearning_Type())
-fsMIDot1qFutureVlanPortUnicastMacLearning.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortUnicastMacLearning.setStatus(_A)
-_FsMIDot1qFutureVlanPortGmrpJoinEmptyTxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGmrpJoinEmptyTxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGmrpJoinEmptyTxCount=_FsMIDot1qFutureVlanPortGmrpJoinEmptyTxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,9),_FsMIDot1qFutureVlanPortGmrpJoinEmptyTxCount_Type())
-fsMIDot1qFutureVlanPortGmrpJoinEmptyTxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGmrpJoinEmptyTxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGmrpJoinEmptyRxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGmrpJoinEmptyRxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGmrpJoinEmptyRxCount=_FsMIDot1qFutureVlanPortGmrpJoinEmptyRxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,10),_FsMIDot1qFutureVlanPortGmrpJoinEmptyRxCount_Type())
-fsMIDot1qFutureVlanPortGmrpJoinEmptyRxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGmrpJoinEmptyRxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGmrpJoinInTxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGmrpJoinInTxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGmrpJoinInTxCount=_FsMIDot1qFutureVlanPortGmrpJoinInTxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,11),_FsMIDot1qFutureVlanPortGmrpJoinInTxCount_Type())
-fsMIDot1qFutureVlanPortGmrpJoinInTxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGmrpJoinInTxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGmrpJoinInRxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGmrpJoinInRxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGmrpJoinInRxCount=_FsMIDot1qFutureVlanPortGmrpJoinInRxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,12),_FsMIDot1qFutureVlanPortGmrpJoinInRxCount_Type())
-fsMIDot1qFutureVlanPortGmrpJoinInRxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGmrpJoinInRxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGmrpLeaveInTxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGmrpLeaveInTxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGmrpLeaveInTxCount=_FsMIDot1qFutureVlanPortGmrpLeaveInTxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,13),_FsMIDot1qFutureVlanPortGmrpLeaveInTxCount_Type())
-fsMIDot1qFutureVlanPortGmrpLeaveInTxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGmrpLeaveInTxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGmrpLeaveInRxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGmrpLeaveInRxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGmrpLeaveInRxCount=_FsMIDot1qFutureVlanPortGmrpLeaveInRxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,14),_FsMIDot1qFutureVlanPortGmrpLeaveInRxCount_Type())
-fsMIDot1qFutureVlanPortGmrpLeaveInRxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGmrpLeaveInRxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGmrpLeaveEmptyTxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGmrpLeaveEmptyTxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGmrpLeaveEmptyTxCount=_FsMIDot1qFutureVlanPortGmrpLeaveEmptyTxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,15),_FsMIDot1qFutureVlanPortGmrpLeaveEmptyTxCount_Type())
-fsMIDot1qFutureVlanPortGmrpLeaveEmptyTxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGmrpLeaveEmptyTxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGmrpLeaveEmptyRxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGmrpLeaveEmptyRxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGmrpLeaveEmptyRxCount=_FsMIDot1qFutureVlanPortGmrpLeaveEmptyRxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,16),_FsMIDot1qFutureVlanPortGmrpLeaveEmptyRxCount_Type())
-fsMIDot1qFutureVlanPortGmrpLeaveEmptyRxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGmrpLeaveEmptyRxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGmrpEmptyTxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGmrpEmptyTxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGmrpEmptyTxCount=_FsMIDot1qFutureVlanPortGmrpEmptyTxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,17),_FsMIDot1qFutureVlanPortGmrpEmptyTxCount_Type())
-fsMIDot1qFutureVlanPortGmrpEmptyTxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGmrpEmptyTxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGmrpEmptyRxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGmrpEmptyRxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGmrpEmptyRxCount=_FsMIDot1qFutureVlanPortGmrpEmptyRxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,18),_FsMIDot1qFutureVlanPortGmrpEmptyRxCount_Type())
-fsMIDot1qFutureVlanPortGmrpEmptyRxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGmrpEmptyRxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGmrpLeaveAllTxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGmrpLeaveAllTxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGmrpLeaveAllTxCount=_FsMIDot1qFutureVlanPortGmrpLeaveAllTxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,19),_FsMIDot1qFutureVlanPortGmrpLeaveAllTxCount_Type())
-fsMIDot1qFutureVlanPortGmrpLeaveAllTxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGmrpLeaveAllTxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGmrpLeaveAllRxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGmrpLeaveAllRxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGmrpLeaveAllRxCount=_FsMIDot1qFutureVlanPortGmrpLeaveAllRxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,20),_FsMIDot1qFutureVlanPortGmrpLeaveAllRxCount_Type())
-fsMIDot1qFutureVlanPortGmrpLeaveAllRxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGmrpLeaveAllRxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGmrpDiscardCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGmrpDiscardCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGmrpDiscardCount=_FsMIDot1qFutureVlanPortGmrpDiscardCount_Object((1,3,6,1,4,1,2076,120,1,3,1,21),_FsMIDot1qFutureVlanPortGmrpDiscardCount_Type())
-fsMIDot1qFutureVlanPortGmrpDiscardCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGmrpDiscardCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGvrpJoinEmptyTxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGvrpJoinEmptyTxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGvrpJoinEmptyTxCount=_FsMIDot1qFutureVlanPortGvrpJoinEmptyTxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,22),_FsMIDot1qFutureVlanPortGvrpJoinEmptyTxCount_Type())
-fsMIDot1qFutureVlanPortGvrpJoinEmptyTxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGvrpJoinEmptyTxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGvrpJoinEmptyRxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGvrpJoinEmptyRxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGvrpJoinEmptyRxCount=_FsMIDot1qFutureVlanPortGvrpJoinEmptyRxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,23),_FsMIDot1qFutureVlanPortGvrpJoinEmptyRxCount_Type())
-fsMIDot1qFutureVlanPortGvrpJoinEmptyRxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGvrpJoinEmptyRxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGvrpJoinInTxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGvrpJoinInTxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGvrpJoinInTxCount=_FsMIDot1qFutureVlanPortGvrpJoinInTxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,24),_FsMIDot1qFutureVlanPortGvrpJoinInTxCount_Type())
-fsMIDot1qFutureVlanPortGvrpJoinInTxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGvrpJoinInTxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGvrpJoinInRxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGvrpJoinInRxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGvrpJoinInRxCount=_FsMIDot1qFutureVlanPortGvrpJoinInRxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,25),_FsMIDot1qFutureVlanPortGvrpJoinInRxCount_Type())
-fsMIDot1qFutureVlanPortGvrpJoinInRxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGvrpJoinInRxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGvrpLeaveInTxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGvrpLeaveInTxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGvrpLeaveInTxCount=_FsMIDot1qFutureVlanPortGvrpLeaveInTxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,26),_FsMIDot1qFutureVlanPortGvrpLeaveInTxCount_Type())
-fsMIDot1qFutureVlanPortGvrpLeaveInTxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGvrpLeaveInTxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGvrpLeaveInRxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGvrpLeaveInRxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGvrpLeaveInRxCount=_FsMIDot1qFutureVlanPortGvrpLeaveInRxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,27),_FsMIDot1qFutureVlanPortGvrpLeaveInRxCount_Type())
-fsMIDot1qFutureVlanPortGvrpLeaveInRxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGvrpLeaveInRxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGvrpLeaveEmptyTxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGvrpLeaveEmptyTxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGvrpLeaveEmptyTxCount=_FsMIDot1qFutureVlanPortGvrpLeaveEmptyTxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,28),_FsMIDot1qFutureVlanPortGvrpLeaveEmptyTxCount_Type())
-fsMIDot1qFutureVlanPortGvrpLeaveEmptyTxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGvrpLeaveEmptyTxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGvrpLeaveEmptyRxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGvrpLeaveEmptyRxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGvrpLeaveEmptyRxCount=_FsMIDot1qFutureVlanPortGvrpLeaveEmptyRxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,29),_FsMIDot1qFutureVlanPortGvrpLeaveEmptyRxCount_Type())
-fsMIDot1qFutureVlanPortGvrpLeaveEmptyRxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGvrpLeaveEmptyRxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGvrpEmptyTxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGvrpEmptyTxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGvrpEmptyTxCount=_FsMIDot1qFutureVlanPortGvrpEmptyTxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,30),_FsMIDot1qFutureVlanPortGvrpEmptyTxCount_Type())
-fsMIDot1qFutureVlanPortGvrpEmptyTxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGvrpEmptyTxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGvrpEmptyRxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGvrpEmptyRxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGvrpEmptyRxCount=_FsMIDot1qFutureVlanPortGvrpEmptyRxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,31),_FsMIDot1qFutureVlanPortGvrpEmptyRxCount_Type())
-fsMIDot1qFutureVlanPortGvrpEmptyRxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGvrpEmptyRxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGvrpLeaveAllTxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGvrpLeaveAllTxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGvrpLeaveAllTxCount=_FsMIDot1qFutureVlanPortGvrpLeaveAllTxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,32),_FsMIDot1qFutureVlanPortGvrpLeaveAllTxCount_Type())
-fsMIDot1qFutureVlanPortGvrpLeaveAllTxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGvrpLeaveAllTxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGvrpLeaveAllRxCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGvrpLeaveAllRxCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGvrpLeaveAllRxCount=_FsMIDot1qFutureVlanPortGvrpLeaveAllRxCount_Object((1,3,6,1,4,1,2076,120,1,3,1,33),_FsMIDot1qFutureVlanPortGvrpLeaveAllRxCount_Type())
-fsMIDot1qFutureVlanPortGvrpLeaveAllRxCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGvrpLeaveAllRxCount.setStatus(_A)
-_FsMIDot1qFutureVlanPortGvrpDiscardCount_Type=Counter32
-_FsMIDot1qFutureVlanPortGvrpDiscardCount_Object=MibTableColumn
-fsMIDot1qFutureVlanPortGvrpDiscardCount=_FsMIDot1qFutureVlanPortGvrpDiscardCount_Object((1,3,6,1,4,1,2076,120,1,3,1,34),_FsMIDot1qFutureVlanPortGvrpDiscardCount_Type())
-fsMIDot1qFutureVlanPortGvrpDiscardCount.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortGvrpDiscardCount.setStatus(_A)
-class _FsMIDot1qFutureVlanPortFdbFlush_Type(TruthValue):defaultValue=2
-_FsMIDot1qFutureVlanPortFdbFlush_Type.__name__=_G
-_FsMIDot1qFutureVlanPortFdbFlush_Object=MibTableColumn
-fsMIDot1qFutureVlanPortFdbFlush=_FsMIDot1qFutureVlanPortFdbFlush_Object((1,3,6,1,4,1,2076,120,1,3,1,35),_FsMIDot1qFutureVlanPortFdbFlush_Type())
-fsMIDot1qFutureVlanPortFdbFlush.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortFdbFlush.setStatus(_A)
-class _FsMIDot1qFutureVlanPortIngressEtherType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_FsMIDot1qFutureVlanPortIngressEtherType_Type.__name__=_E
-_FsMIDot1qFutureVlanPortIngressEtherType_Object=MibTableColumn
-fsMIDot1qFutureVlanPortIngressEtherType=_FsMIDot1qFutureVlanPortIngressEtherType_Object((1,3,6,1,4,1,2076,120,1,3,1,36),_FsMIDot1qFutureVlanPortIngressEtherType_Type())
-fsMIDot1qFutureVlanPortIngressEtherType.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortIngressEtherType.setStatus(_A)
-class _FsMIDot1qFutureVlanPortEgressEtherType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
-_FsMIDot1qFutureVlanPortEgressEtherType_Type.__name__=_E
-_FsMIDot1qFutureVlanPortEgressEtherType_Object=MibTableColumn
-fsMIDot1qFutureVlanPortEgressEtherType=_FsMIDot1qFutureVlanPortEgressEtherType_Object((1,3,6,1,4,1,2076,120,1,3,1,37),_FsMIDot1qFutureVlanPortEgressEtherType_Type())
-fsMIDot1qFutureVlanPortEgressEtherType.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortEgressEtherType.setStatus(_A)
-class _FsMIDot1qFutureVlanPortEgressTPIDType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('portbased',1),('vlanbased',2)))
-_FsMIDot1qFutureVlanPortEgressTPIDType_Type.__name__=_E
-_FsMIDot1qFutureVlanPortEgressTPIDType_Object=MibTableColumn
-fsMIDot1qFutureVlanPortEgressTPIDType=_FsMIDot1qFutureVlanPortEgressTPIDType_Object((1,3,6,1,4,1,2076,120,1,3,1,38),_FsMIDot1qFutureVlanPortEgressTPIDType_Type())
-fsMIDot1qFutureVlanPortEgressTPIDType.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortEgressTPIDType.setStatus(_A)
-class _FsMIDot1qFutureVlanPortAllowableTPID1_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsMIDot1qFutureVlanPortAllowableTPID1_Type.__name__=_E
-_FsMIDot1qFutureVlanPortAllowableTPID1_Object=MibTableColumn
-fsMIDot1qFutureVlanPortAllowableTPID1=_FsMIDot1qFutureVlanPortAllowableTPID1_Object((1,3,6,1,4,1,2076,120,1,3,1,39),_FsMIDot1qFutureVlanPortAllowableTPID1_Type())
-fsMIDot1qFutureVlanPortAllowableTPID1.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortAllowableTPID1.setStatus(_A)
-class _FsMIDot1qFutureVlanPortAllowableTPID2_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsMIDot1qFutureVlanPortAllowableTPID2_Type.__name__=_E
-_FsMIDot1qFutureVlanPortAllowableTPID2_Object=MibTableColumn
-fsMIDot1qFutureVlanPortAllowableTPID2=_FsMIDot1qFutureVlanPortAllowableTPID2_Object((1,3,6,1,4,1,2076,120,1,3,1,40),_FsMIDot1qFutureVlanPortAllowableTPID2_Type())
-fsMIDot1qFutureVlanPortAllowableTPID2.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortAllowableTPID2.setStatus(_A)
-class _FsMIDot1qFutureVlanPortAllowableTPID3_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsMIDot1qFutureVlanPortAllowableTPID3_Type.__name__=_E
-_FsMIDot1qFutureVlanPortAllowableTPID3_Object=MibTableColumn
-fsMIDot1qFutureVlanPortAllowableTPID3=_FsMIDot1qFutureVlanPortAllowableTPID3_Object((1,3,6,1,4,1,2076,120,1,3,1,41),_FsMIDot1qFutureVlanPortAllowableTPID3_Type())
-fsMIDot1qFutureVlanPortAllowableTPID3.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortAllowableTPID3.setStatus(_A)
-class _FsMIDot1qFutureVlanPortClearGarpStats_Type(TruthValue):defaultValue=2
-_FsMIDot1qFutureVlanPortClearGarpStats_Type.__name__=_G
-_FsMIDot1qFutureVlanPortClearGarpStats_Object=MibTableColumn
-fsMIDot1qFutureVlanPortClearGarpStats=_FsMIDot1qFutureVlanPortClearGarpStats_Object((1,3,6,1,4,1,2076,120,1,3,1,42),_FsMIDot1qFutureVlanPortClearGarpStats_Type())
-fsMIDot1qFutureVlanPortClearGarpStats.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortClearGarpStats.setStatus(_A)
-class _FsMIDot1qFutureVlanPortUnicastMacSecType_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('sav',1),('shv',2),('off',3)))
-_FsMIDot1qFutureVlanPortUnicastMacSecType_Type.__name__=_E
-_FsMIDot1qFutureVlanPortUnicastMacSecType_Object=MibTableColumn
-fsMIDot1qFutureVlanPortUnicastMacSecType=_FsMIDot1qFutureVlanPortUnicastMacSecType_Object((1,3,6,1,4,1,2076,120,1,3,1,43),_FsMIDot1qFutureVlanPortUnicastMacSecType_Type())
-fsMIDot1qFutureVlanPortUnicastMacSecType.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortUnicastMacSecType.setStatus(_A)
-class _FsMIDot1qFutureVlanPortStVlanList_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,512))
-_FsMIDot1qFutureVlanPortStVlanList_Type.__name__=_R
-_FsMIDot1qFutureVlanPortStVlanList_Object=MibTableColumn
-fsMIDot1qFutureVlanPortStVlanList=_FsMIDot1qFutureVlanPortStVlanList_Object((1,3,6,1,4,1,2076,120,1,3,1,44),_FsMIDot1qFutureVlanPortStVlanList_Type())
-fsMIDot1qFutureVlanPortStVlanList.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortStVlanList.setStatus(_A)
-class _FsMIDot1qFutureVlanPortStUntaggedVlan_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4094))
-_FsMIDot1qFutureVlanPortStUntaggedVlan_Type.__name__=_L
-_FsMIDot1qFutureVlanPortStUntaggedVlan_Object=MibTableColumn
-fsMIDot1qFutureVlanPortStUntaggedVlan=_FsMIDot1qFutureVlanPortStUntaggedVlan_Object((1,3,6,1,4,1,2076,120,1,3,1,45),_FsMIDot1qFutureVlanPortStUntaggedVlan_Type())
-fsMIDot1qFutureVlanPortStUntaggedVlan.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortStUntaggedVlan.setStatus(_A)
-class _FsMIDot1qFuturePortPacketReflectionStatus_Type(TruthValue):defaultValue=2
-_FsMIDot1qFuturePortPacketReflectionStatus_Type.__name__=_G
-_FsMIDot1qFuturePortPacketReflectionStatus_Object=MibTableColumn
-fsMIDot1qFuturePortPacketReflectionStatus=_FsMIDot1qFuturePortPacketReflectionStatus_Object((1,3,6,1,4,1,2076,120,1,3,1,46),_FsMIDot1qFuturePortPacketReflectionStatus_Type())
-fsMIDot1qFuturePortPacketReflectionStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFuturePortPacketReflectionStatus.setStatus(_A)
-_FsMIDot1qFutureVlanPortMacMapTable_Object=MibTable
-fsMIDot1qFutureVlanPortMacMapTable=_FsMIDot1qFutureVlanPortMacMapTable_Object((1,3,6,1,4,1,2076,120,1,4))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortMacMapTable.setStatus(_A)
-_FsMIDot1qFutureVlanPortMacMapEntry_Object=MibTableRow
-fsMIDot1qFutureVlanPortMacMapEntry=_FsMIDot1qFutureVlanPortMacMapEntry_Object((1,3,6,1,4,1,2076,120,1,4,1))
-fsMIDot1qFutureVlanPortMacMapEntry.setIndexNames((0,_D,_K),(0,_D,_Z))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortMacMapEntry.setStatus(_A)
-_FsMIDot1qFutureVlanPortMacMapAddr_Type=MacAddress
-_FsMIDot1qFutureVlanPortMacMapAddr_Object=MibTableColumn
-fsMIDot1qFutureVlanPortMacMapAddr=_FsMIDot1qFutureVlanPortMacMapAddr_Object((1,3,6,1,4,1,2076,120,1,4,1,1),_FsMIDot1qFutureVlanPortMacMapAddr_Type())
-fsMIDot1qFutureVlanPortMacMapAddr.setMaxAccess(_J)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortMacMapAddr.setStatus(_A)
-_FsMIDot1qFutureVlanPortMacMapVid_Type=VlanId
-_FsMIDot1qFutureVlanPortMacMapVid_Object=MibTableColumn
-fsMIDot1qFutureVlanPortMacMapVid=_FsMIDot1qFutureVlanPortMacMapVid_Object((1,3,6,1,4,1,2076,120,1,4,1,2),_FsMIDot1qFutureVlanPortMacMapVid_Type())
-fsMIDot1qFutureVlanPortMacMapVid.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortMacMapVid.setStatus(_A)
-_FsMIDot1qFutureVlanPortMacMapName_Type=DisplayString
-_FsMIDot1qFutureVlanPortMacMapName_Object=MibTableColumn
-fsMIDot1qFutureVlanPortMacMapName=_FsMIDot1qFutureVlanPortMacMapName_Object((1,3,6,1,4,1,2076,120,1,4,1,3),_FsMIDot1qFutureVlanPortMacMapName_Type())
-fsMIDot1qFutureVlanPortMacMapName.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortMacMapName.setStatus(_A)
-class _FsMIDot1qFutureVlanPortMacMapMcastBcastOption_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_P,1),('supress',2)))
-_FsMIDot1qFutureVlanPortMacMapMcastBcastOption_Type.__name__=_E
-_FsMIDot1qFutureVlanPortMacMapMcastBcastOption_Object=MibTableColumn
-fsMIDot1qFutureVlanPortMacMapMcastBcastOption=_FsMIDot1qFutureVlanPortMacMapMcastBcastOption_Object((1,3,6,1,4,1,2076,120,1,4,1,4),_FsMIDot1qFutureVlanPortMacMapMcastBcastOption_Type())
-fsMIDot1qFutureVlanPortMacMapMcastBcastOption.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortMacMapMcastBcastOption.setStatus(_A)
-_FsMIDot1qFutureVlanPortMacMapRowStatus_Type=RowStatus
-_FsMIDot1qFutureVlanPortMacMapRowStatus_Object=MibTableColumn
-fsMIDot1qFutureVlanPortMacMapRowStatus=_FsMIDot1qFutureVlanPortMacMapRowStatus_Object((1,3,6,1,4,1,2076,120,1,4,1,5),_FsMIDot1qFutureVlanPortMacMapRowStatus_Type())
-fsMIDot1qFutureVlanPortMacMapRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortMacMapRowStatus.setStatus(_A)
-_FsMIDot1qFutureVlanFidMapTable_Object=MibTable
-fsMIDot1qFutureVlanFidMapTable=_FsMIDot1qFutureVlanFidMapTable_Object((1,3,6,1,4,1,2076,120,1,5))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanFidMapTable.setStatus(_A)
-_FsMIDot1qFutureVlanFidMapEntry_Object=MibTableRow
-fsMIDot1qFutureVlanFidMapEntry=_FsMIDot1qFutureVlanFidMapEntry_Object((1,3,6,1,4,1,2076,120,1,5,1))
-fsMIDot1qFutureVlanFidMapEntry.setIndexNames((0,_D,_H),(0,_D,_M))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanFidMapEntry.setStatus(_A)
-class _FsMIDot1qFutureVlanIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_FsMIDot1qFutureVlanIndex_Type.__name__=_L
-_FsMIDot1qFutureVlanIndex_Object=MibTableColumn
-fsMIDot1qFutureVlanIndex=_FsMIDot1qFutureVlanIndex_Object((1,3,6,1,4,1,2076,120,1,5,1,1),_FsMIDot1qFutureVlanIndex_Type())
-fsMIDot1qFutureVlanIndex.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanIndex.setStatus(_A)
-class _FsMIDot1qFutureVlanFid_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
-_FsMIDot1qFutureVlanFid_Type.__name__=_L
-_FsMIDot1qFutureVlanFid_Object=MibTableColumn
-fsMIDot1qFutureVlanFid=_FsMIDot1qFutureVlanFid_Object((1,3,6,1,4,1,2076,120,1,5,1,2),_FsMIDot1qFutureVlanFid_Type())
-fsMIDot1qFutureVlanFid.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanFid.setStatus(_A)
-_FsMIDot1qFutureVlanCounterTable_Object=MibTable
-fsMIDot1qFutureVlanCounterTable=_FsMIDot1qFutureVlanCounterTable_Object((1,3,6,1,4,1,2076,120,1,6))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanCounterTable.setStatus(_A)
-_FsMIDot1qFutureVlanCounterEntry_Object=MibTableRow
-fsMIDot1qFutureVlanCounterEntry=_FsMIDot1qFutureVlanCounterEntry_Object((1,3,6,1,4,1,2076,120,1,6,1))
-fsMIDot1qFutureVlanCounterEntry.setIndexNames((0,_D,_H),(0,_D,_M))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanCounterEntry.setStatus(_A)
-_FsMIDot1qFutureVlanCounterRxUcast_Type=Counter32
-_FsMIDot1qFutureVlanCounterRxUcast_Object=MibTableColumn
-fsMIDot1qFutureVlanCounterRxUcast=_FsMIDot1qFutureVlanCounterRxUcast_Object((1,3,6,1,4,1,2076,120,1,6,1,1),_FsMIDot1qFutureVlanCounterRxUcast_Type())
-fsMIDot1qFutureVlanCounterRxUcast.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanCounterRxUcast.setStatus(_A)
-_FsMIDot1qFutureVlanCounterRxMcastBcast_Type=Counter32
-_FsMIDot1qFutureVlanCounterRxMcastBcast_Object=MibTableColumn
-fsMIDot1qFutureVlanCounterRxMcastBcast=_FsMIDot1qFutureVlanCounterRxMcastBcast_Object((1,3,6,1,4,1,2076,120,1,6,1,2),_FsMIDot1qFutureVlanCounterRxMcastBcast_Type())
-fsMIDot1qFutureVlanCounterRxMcastBcast.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanCounterRxMcastBcast.setStatus(_A)
-_FsMIDot1qFutureVlanCounterTxUnknUcast_Type=Counter32
-_FsMIDot1qFutureVlanCounterTxUnknUcast_Object=MibTableColumn
-fsMIDot1qFutureVlanCounterTxUnknUcast=_FsMIDot1qFutureVlanCounterTxUnknUcast_Object((1,3,6,1,4,1,2076,120,1,6,1,3),_FsMIDot1qFutureVlanCounterTxUnknUcast_Type())
-fsMIDot1qFutureVlanCounterTxUnknUcast.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanCounterTxUnknUcast.setStatus(_A)
-_FsMIDot1qFutureVlanCounterTxUcast_Type=Counter32
-_FsMIDot1qFutureVlanCounterTxUcast_Object=MibTableColumn
-fsMIDot1qFutureVlanCounterTxUcast=_FsMIDot1qFutureVlanCounterTxUcast_Object((1,3,6,1,4,1,2076,120,1,6,1,4),_FsMIDot1qFutureVlanCounterTxUcast_Type())
-fsMIDot1qFutureVlanCounterTxUcast.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanCounterTxUcast.setStatus(_A)
-_FsMIDot1qFutureVlanCounterTxBcast_Type=Counter32
-_FsMIDot1qFutureVlanCounterTxBcast_Object=MibTableColumn
-fsMIDot1qFutureVlanCounterTxBcast=_FsMIDot1qFutureVlanCounterTxBcast_Object((1,3,6,1,4,1,2076,120,1,6,1,5),_FsMIDot1qFutureVlanCounterTxBcast_Type())
-fsMIDot1qFutureVlanCounterTxBcast.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanCounterTxBcast.setStatus(_A)
-_FsMIDot1qFutureVlanCounterRxFrames_Type=Counter32
-_FsMIDot1qFutureVlanCounterRxFrames_Object=MibTableColumn
-fsMIDot1qFutureVlanCounterRxFrames=_FsMIDot1qFutureVlanCounterRxFrames_Object((1,3,6,1,4,1,2076,120,1,6,1,6),_FsMIDot1qFutureVlanCounterRxFrames_Type())
-fsMIDot1qFutureVlanCounterRxFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanCounterRxFrames.setStatus(_A)
-_FsMIDot1qFutureVlanCounterRxBytes_Type=Counter32
-_FsMIDot1qFutureVlanCounterRxBytes_Object=MibTableColumn
-fsMIDot1qFutureVlanCounterRxBytes=_FsMIDot1qFutureVlanCounterRxBytes_Object((1,3,6,1,4,1,2076,120,1,6,1,7),_FsMIDot1qFutureVlanCounterRxBytes_Type())
-fsMIDot1qFutureVlanCounterRxBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanCounterRxBytes.setStatus(_A)
-_FsMIDot1qFutureVlanCounterTxFrames_Type=Counter32
-_FsMIDot1qFutureVlanCounterTxFrames_Object=MibTableColumn
-fsMIDot1qFutureVlanCounterTxFrames=_FsMIDot1qFutureVlanCounterTxFrames_Object((1,3,6,1,4,1,2076,120,1,6,1,8),_FsMIDot1qFutureVlanCounterTxFrames_Type())
-fsMIDot1qFutureVlanCounterTxFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanCounterTxFrames.setStatus(_A)
-_FsMIDot1qFutureVlanCounterTxBytes_Type=Counter32
-_FsMIDot1qFutureVlanCounterTxBytes_Object=MibTableColumn
-fsMIDot1qFutureVlanCounterTxBytes=_FsMIDot1qFutureVlanCounterTxBytes_Object((1,3,6,1,4,1,2076,120,1,6,1,9),_FsMIDot1qFutureVlanCounterTxBytes_Type())
-fsMIDot1qFutureVlanCounterTxBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanCounterTxBytes.setStatus(_A)
-_FsMIDot1qFutureVlanCounterDiscardFrames_Type=Counter32
-_FsMIDot1qFutureVlanCounterDiscardFrames_Object=MibTableColumn
-fsMIDot1qFutureVlanCounterDiscardFrames=_FsMIDot1qFutureVlanCounterDiscardFrames_Object((1,3,6,1,4,1,2076,120,1,6,1,10),_FsMIDot1qFutureVlanCounterDiscardFrames_Type())
-fsMIDot1qFutureVlanCounterDiscardFrames.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanCounterDiscardFrames.setStatus(_A)
-_FsMIDot1qFutureVlanCounterDiscardBytes_Type=Counter32
-_FsMIDot1qFutureVlanCounterDiscardBytes_Object=MibTableColumn
-fsMIDot1qFutureVlanCounterDiscardBytes=_FsMIDot1qFutureVlanCounterDiscardBytes_Object((1,3,6,1,4,1,2076,120,1,6,1,11),_FsMIDot1qFutureVlanCounterDiscardBytes_Type())
-fsMIDot1qFutureVlanCounterDiscardBytes.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanCounterDiscardBytes.setStatus(_A)
-class _FsMIDot1qFutureVlanCounterStatus_Type(EnabledStatus):defaultValue=2
-_FsMIDot1qFutureVlanCounterStatus_Type.__name__=_I
-_FsMIDot1qFutureVlanCounterStatus_Object=MibTableColumn
-fsMIDot1qFutureVlanCounterStatus=_FsMIDot1qFutureVlanCounterStatus_Object((1,3,6,1,4,1,2076,120,1,6,1,12),_FsMIDot1qFutureVlanCounterStatus_Type())
-fsMIDot1qFutureVlanCounterStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanCounterStatus.setStatus(_A)
-_FsMIDot1qFutureVlanUnicastMacControlTable_Object=MibTable
-fsMIDot1qFutureVlanUnicastMacControlTable=_FsMIDot1qFutureVlanUnicastMacControlTable_Object((1,3,6,1,4,1,2076,120,1,7))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanUnicastMacControlTable.setStatus(_A)
-_FsMIDot1qFutureVlanUnicastMacControlEntry_Object=MibTableRow
-fsMIDot1qFutureVlanUnicastMacControlEntry=_FsMIDot1qFutureVlanUnicastMacControlEntry_Object((1,3,6,1,4,1,2076,120,1,7,1))
-fsMIDot1qFutureVlanUnicastMacControlEntry.setIndexNames((0,_D,_H),(0,_D,_M))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanUnicastMacControlEntry.setStatus(_A)
-class _FsMIDot1qFutureVlanUnicastMacLimit_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
-_FsMIDot1qFutureVlanUnicastMacLimit_Type.__name__=_L
-_FsMIDot1qFutureVlanUnicastMacLimit_Object=MibTableColumn
-fsMIDot1qFutureVlanUnicastMacLimit=_FsMIDot1qFutureVlanUnicastMacLimit_Object((1,3,6,1,4,1,2076,120,1,7,1,1),_FsMIDot1qFutureVlanUnicastMacLimit_Type())
-fsMIDot1qFutureVlanUnicastMacLimit.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanUnicastMacLimit.setStatus(_A)
-class _FsMIDot1qFutureVlanAdminMacLearningStatus_Type(MacLearningStatus):defaultValue=3
-_FsMIDot1qFutureVlanAdminMacLearningStatus_Type.__name__=_a
-_FsMIDot1qFutureVlanAdminMacLearningStatus_Object=MibTableColumn
-fsMIDot1qFutureVlanAdminMacLearningStatus=_FsMIDot1qFutureVlanAdminMacLearningStatus_Object((1,3,6,1,4,1,2076,120,1,7,1,2),_FsMIDot1qFutureVlanAdminMacLearningStatus_Type())
-fsMIDot1qFutureVlanAdminMacLearningStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanAdminMacLearningStatus.setStatus(_A)
-_FsMIDot1qFutureVlanOperMacLearningStatus_Type=EnabledStatus
-_FsMIDot1qFutureVlanOperMacLearningStatus_Object=MibTableColumn
-fsMIDot1qFutureVlanOperMacLearningStatus=_FsMIDot1qFutureVlanOperMacLearningStatus_Object((1,3,6,1,4,1,2076,120,1,7,1,3),_FsMIDot1qFutureVlanOperMacLearningStatus_Type())
-fsMIDot1qFutureVlanOperMacLearningStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanOperMacLearningStatus.setStatus(_A)
-_FsMIDot1qFutureGarpGlobalTrace_Type=TruthValue
-_FsMIDot1qFutureGarpGlobalTrace_Object=MibScalar
-fsMIDot1qFutureGarpGlobalTrace=_FsMIDot1qFutureGarpGlobalTrace_Object((1,3,6,1,4,1,2076,120,1,8),_FsMIDot1qFutureGarpGlobalTrace_Type())
-fsMIDot1qFutureGarpGlobalTrace.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureGarpGlobalTrace.setStatus(_A)
-_FsMIDot1qFutureVlanTpFdbTable_Object=MibTable
-fsMIDot1qFutureVlanTpFdbTable=_FsMIDot1qFutureVlanTpFdbTable_Object((1,3,6,1,4,1,2076,120,1,9))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTpFdbTable.setStatus(_A)
-_FsMIDot1qFutureVlanTpFdbEntry_Object=MibTableRow
-fsMIDot1qFutureVlanTpFdbEntry=_FsMIDot1qFutureVlanTpFdbEntry_Object((1,3,6,1,4,1,2076,120,1,9,1))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTpFdbEntry.setStatus(_A)
-class _FsMIDot1qFutureVlanOldTpFdbPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsMIDot1qFutureVlanOldTpFdbPort_Type.__name__=_E
-_FsMIDot1qFutureVlanOldTpFdbPort_Object=MibTableColumn
-fsMIDot1qFutureVlanOldTpFdbPort=_FsMIDot1qFutureVlanOldTpFdbPort_Object((1,3,6,1,4,1,2076,120,1,9,1,1),_FsMIDot1qFutureVlanOldTpFdbPort_Type())
-fsMIDot1qFutureVlanOldTpFdbPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanOldTpFdbPort.setStatus(_A)
-_FsMIDot1qFutureConnectionIdentifier_Type=MacAddress
-_FsMIDot1qFutureConnectionIdentifier_Object=MibTableColumn
-fsMIDot1qFutureConnectionIdentifier=_FsMIDot1qFutureConnectionIdentifier_Object((1,3,6,1,4,1,2076,120,1,9,1,2),_FsMIDot1qFutureConnectionIdentifier_Type())
-fsMIDot1qFutureConnectionIdentifier.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureConnectionIdentifier.setStatus(_A)
-_FsMIDot1qFutureVlanWildCardTable_Object=MibTable
-fsMIDot1qFutureVlanWildCardTable=_FsMIDot1qFutureVlanWildCardTable_Object((1,3,6,1,4,1,2076,120,1,10))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanWildCardTable.setStatus(_A)
-_FsMIDot1qFutureVlanWildCardEntry_Object=MibTableRow
-fsMIDot1qFutureVlanWildCardEntry=_FsMIDot1qFutureVlanWildCardEntry_Object((1,3,6,1,4,1,2076,120,1,10,1))
-fsMIDot1qFutureVlanWildCardEntry.setIndexNames((0,_D,_H),(0,_D,_Q))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanWildCardEntry.setStatus(_A)
-_FsMIDot1qFutureVlanWildCardMacAddress_Type=MacAddress
-_FsMIDot1qFutureVlanWildCardMacAddress_Object=MibTableColumn
-fsMIDot1qFutureVlanWildCardMacAddress=_FsMIDot1qFutureVlanWildCardMacAddress_Object((1,3,6,1,4,1,2076,120,1,10,1,1),_FsMIDot1qFutureVlanWildCardMacAddress_Type())
-fsMIDot1qFutureVlanWildCardMacAddress.setMaxAccess(_J)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanWildCardMacAddress.setStatus(_A)
-_FsMIDot1qFutureVlanWildCardRowStatus_Type=RowStatus
-_FsMIDot1qFutureVlanWildCardRowStatus_Object=MibTableColumn
-fsMIDot1qFutureVlanWildCardRowStatus=_FsMIDot1qFutureVlanWildCardRowStatus_Object((1,3,6,1,4,1,2076,120,1,10,1,2),_FsMIDot1qFutureVlanWildCardRowStatus_Type())
-fsMIDot1qFutureVlanWildCardRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanWildCardRowStatus.setStatus(_A)
-_FsMIDot1qFutureVlanWildCardPortTable_Object=MibTable
-fsMIDot1qFutureVlanWildCardPortTable=_FsMIDot1qFutureVlanWildCardPortTable_Object((1,3,6,1,4,1,2076,120,1,11))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanWildCardPortTable.setStatus(_A)
-_FsMIDot1qFutureVlanWildCardPortEntry_Object=MibTableRow
-fsMIDot1qFutureVlanWildCardPortEntry=_FsMIDot1qFutureVlanWildCardPortEntry_Object((1,3,6,1,4,1,2076,120,1,11,1))
-fsMIDot1qFutureVlanWildCardPortEntry.setIndexNames((0,_D,_H),(0,_D,_Q),(0,_O,_T))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanWildCardPortEntry.setStatus(_A)
-_FsMIDot1qFutureVlanIsWildCardEgressPort_Type=TruthValue
-_FsMIDot1qFutureVlanIsWildCardEgressPort_Object=MibTableColumn
-fsMIDot1qFutureVlanIsWildCardEgressPort=_FsMIDot1qFutureVlanIsWildCardEgressPort_Object((1,3,6,1,4,1,2076,120,1,11,1,1),_FsMIDot1qFutureVlanIsWildCardEgressPort_Type())
-fsMIDot1qFutureVlanIsWildCardEgressPort.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanIsWildCardEgressPort.setStatus(_A)
-_FsMIDot1qFutureStaticUnicastExtnTable_Object=MibTable
-fsMIDot1qFutureStaticUnicastExtnTable=_FsMIDot1qFutureStaticUnicastExtnTable_Object((1,3,6,1,4,1,2076,120,1,12))
-if mibBuilder.loadTexts:fsMIDot1qFutureStaticUnicastExtnTable.setStatus(_A)
-_FsMIDot1qFutureStaticUnicastExtnEntry_Object=MibTableRow
-fsMIDot1qFutureStaticUnicastExtnEntry=_FsMIDot1qFutureStaticUnicastExtnEntry_Object((1,3,6,1,4,1,2076,120,1,12,1))
-if mibBuilder.loadTexts:fsMIDot1qFutureStaticUnicastExtnEntry.setStatus(_A)
-_FsMIDot1qFutureStaticConnectionIdentifier_Type=MacAddress
-_FsMIDot1qFutureStaticConnectionIdentifier_Object=MibTableColumn
-fsMIDot1qFutureStaticConnectionIdentifier=_FsMIDot1qFutureStaticConnectionIdentifier_Object((1,3,6,1,4,1,2076,120,1,12,1,1),_FsMIDot1qFutureStaticConnectionIdentifier_Type())
-fsMIDot1qFutureStaticConnectionIdentifier.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureStaticConnectionIdentifier.setStatus(_A)
-_FsMIDot1qFutureVlanPortSubnetMapTable_Object=MibTable
-fsMIDot1qFutureVlanPortSubnetMapTable=_FsMIDot1qFutureVlanPortSubnetMapTable_Object((1,3,6,1,4,1,2076,120,1,13))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortSubnetMapTable.setStatus(_A)
-_FsMIDot1qFutureVlanPortSubnetMapEntry_Object=MibTableRow
-fsMIDot1qFutureVlanPortSubnetMapEntry=_FsMIDot1qFutureVlanPortSubnetMapEntry_Object((1,3,6,1,4,1,2076,120,1,13,1))
-fsMIDot1qFutureVlanPortSubnetMapEntry.setIndexNames((0,_D,_K),(0,_D,_b))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortSubnetMapEntry.setStatus(_A)
-_FsMIDot1qFutureVlanPortSubnetMapAddr_Type=IpAddress
-_FsMIDot1qFutureVlanPortSubnetMapAddr_Object=MibTableColumn
-fsMIDot1qFutureVlanPortSubnetMapAddr=_FsMIDot1qFutureVlanPortSubnetMapAddr_Object((1,3,6,1,4,1,2076,120,1,13,1,1),_FsMIDot1qFutureVlanPortSubnetMapAddr_Type())
-fsMIDot1qFutureVlanPortSubnetMapAddr.setMaxAccess(_J)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortSubnetMapAddr.setStatus(_A)
-_FsMIDot1qFutureVlanPortSubnetMapVid_Type=VlanId
-_FsMIDot1qFutureVlanPortSubnetMapVid_Object=MibTableColumn
-fsMIDot1qFutureVlanPortSubnetMapVid=_FsMIDot1qFutureVlanPortSubnetMapVid_Object((1,3,6,1,4,1,2076,120,1,13,1,2),_FsMIDot1qFutureVlanPortSubnetMapVid_Type())
-fsMIDot1qFutureVlanPortSubnetMapVid.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortSubnetMapVid.setStatus(_A)
-class _FsMIDot1qFutureVlanPortSubnetMapARPOption_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_P,1),(_c,2)))
-_FsMIDot1qFutureVlanPortSubnetMapARPOption_Type.__name__=_E
-_FsMIDot1qFutureVlanPortSubnetMapARPOption_Object=MibTableColumn
-fsMIDot1qFutureVlanPortSubnetMapARPOption=_FsMIDot1qFutureVlanPortSubnetMapARPOption_Object((1,3,6,1,4,1,2076,120,1,13,1,3),_FsMIDot1qFutureVlanPortSubnetMapARPOption_Type())
-fsMIDot1qFutureVlanPortSubnetMapARPOption.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortSubnetMapARPOption.setStatus(_A)
-_FsMIDot1qFutureVlanPortSubnetMapRowStatus_Type=RowStatus
-_FsMIDot1qFutureVlanPortSubnetMapRowStatus_Object=MibTableColumn
-fsMIDot1qFutureVlanPortSubnetMapRowStatus=_FsMIDot1qFutureVlanPortSubnetMapRowStatus_Object((1,3,6,1,4,1,2076,120,1,13,1,4),_FsMIDot1qFutureVlanPortSubnetMapRowStatus_Type())
-fsMIDot1qFutureVlanPortSubnetMapRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortSubnetMapRowStatus.setStatus(_A)
-_FsMIDot1qFutureVlanSwStatsEnabled_Type=TruthValue
-_FsMIDot1qFutureVlanSwStatsEnabled_Object=MibScalar
-fsMIDot1qFutureVlanSwStatsEnabled=_FsMIDot1qFutureVlanSwStatsEnabled_Object((1,3,6,1,4,1,2076,120,1,14),_FsMIDot1qFutureVlanSwStatsEnabled_Type())
-fsMIDot1qFutureVlanSwStatsEnabled.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanSwStatsEnabled.setStatus(_A)
-_FsMIDot1qFutureStVlanExtTable_Object=MibTable
-fsMIDot1qFutureStVlanExtTable=_FsMIDot1qFutureStVlanExtTable_Object((1,3,6,1,4,1,2076,120,1,15))
-if mibBuilder.loadTexts:fsMIDot1qFutureStVlanExtTable.setStatus(_A)
-_FsMIDot1qFutureStVlanExtEntry_Object=MibTableRow
-fsMIDot1qFutureStVlanExtEntry=_FsMIDot1qFutureStVlanExtEntry_Object((1,3,6,1,4,1,2076,120,1,15,1))
-if mibBuilder.loadTexts:fsMIDot1qFutureStVlanExtEntry.setStatus(_A)
-class _FsMIDot1qFutureStVlanPVlanType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('normal',1),('primary',2),('isolated',3),('community',4)))
-_FsMIDot1qFutureStVlanPVlanType_Type.__name__=_E
-_FsMIDot1qFutureStVlanPVlanType_Object=MibTableColumn
-fsMIDot1qFutureStVlanPVlanType=_FsMIDot1qFutureStVlanPVlanType_Object((1,3,6,1,4,1,2076,120,1,15,1,1),_FsMIDot1qFutureStVlanPVlanType_Type())
-fsMIDot1qFutureStVlanPVlanType.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureStVlanPVlanType.setStatus(_A)
-class _FsMIDot1qFutureStVlanPrimaryVid_Type(VlanIdOrNone):defaultValue=0
-_FsMIDot1qFutureStVlanPrimaryVid_Type.__name__=_U
-_FsMIDot1qFutureStVlanPrimaryVid_Object=MibTableColumn
-fsMIDot1qFutureStVlanPrimaryVid=_FsMIDot1qFutureStVlanPrimaryVid_Object((1,3,6,1,4,1,2076,120,1,15,1,2),_FsMIDot1qFutureStVlanPrimaryVid_Type())
-fsMIDot1qFutureStVlanPrimaryVid.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureStVlanPrimaryVid.setStatus(_A)
-class _FsMIDot1qFutureStVlanFdbFlush_Type(TruthValue):defaultValue=2
-_FsMIDot1qFutureStVlanFdbFlush_Type.__name__=_G
-_FsMIDot1qFutureStVlanFdbFlush_Object=MibTableColumn
-fsMIDot1qFutureStVlanFdbFlush=_FsMIDot1qFutureStVlanFdbFlush_Object((1,3,6,1,4,1,2076,120,1,15,1,3),_FsMIDot1qFutureStVlanFdbFlush_Type())
-fsMIDot1qFutureStVlanFdbFlush.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureStVlanFdbFlush.setStatus(_A)
-class _FsMIDot1qFutureStVlanEgressEthertype_Type(Integer32):defaultValue=33024;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
-_FsMIDot1qFutureStVlanEgressEthertype_Type.__name__=_E
-_FsMIDot1qFutureStVlanEgressEthertype_Object=MibTableColumn
-fsMIDot1qFutureStVlanEgressEthertype=_FsMIDot1qFutureStVlanEgressEthertype_Object((1,3,6,1,4,1,2076,120,1,15,1,4),_FsMIDot1qFutureStVlanEgressEthertype_Type())
-fsMIDot1qFutureStVlanEgressEthertype.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureStVlanEgressEthertype.setStatus(_A)
-_FsMIDot1qFutureVlanPortSubnetMapExtTable_Object=MibTable
-fsMIDot1qFutureVlanPortSubnetMapExtTable=_FsMIDot1qFutureVlanPortSubnetMapExtTable_Object((1,3,6,1,4,1,2076,120,1,16))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortSubnetMapExtTable.setStatus(_A)
-_FsMIDot1qFutureVlanPortSubnetMapExtEntry_Object=MibTableRow
-fsMIDot1qFutureVlanPortSubnetMapExtEntry=_FsMIDot1qFutureVlanPortSubnetMapExtEntry_Object((1,3,6,1,4,1,2076,120,1,16,1))
-fsMIDot1qFutureVlanPortSubnetMapExtEntry.setIndexNames((0,_D,_K),(0,_D,_d),(0,_D,_e))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortSubnetMapExtEntry.setStatus(_A)
-_FsMIDot1qFutureVlanPortSubnetMapExtAddr_Type=IpAddress
-_FsMIDot1qFutureVlanPortSubnetMapExtAddr_Object=MibTableColumn
-fsMIDot1qFutureVlanPortSubnetMapExtAddr=_FsMIDot1qFutureVlanPortSubnetMapExtAddr_Object((1,3,6,1,4,1,2076,120,1,16,1,1),_FsMIDot1qFutureVlanPortSubnetMapExtAddr_Type())
-fsMIDot1qFutureVlanPortSubnetMapExtAddr.setMaxAccess(_J)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortSubnetMapExtAddr.setStatus(_A)
-_FsMIDot1qFutureVlanPortSubnetMapExtMask_Type=IpAddress
-_FsMIDot1qFutureVlanPortSubnetMapExtMask_Object=MibTableColumn
-fsMIDot1qFutureVlanPortSubnetMapExtMask=_FsMIDot1qFutureVlanPortSubnetMapExtMask_Object((1,3,6,1,4,1,2076,120,1,16,1,2),_FsMIDot1qFutureVlanPortSubnetMapExtMask_Type())
-fsMIDot1qFutureVlanPortSubnetMapExtMask.setMaxAccess(_J)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortSubnetMapExtMask.setStatus(_A)
-_FsMIDot1qFutureVlanPortSubnetMapExtVid_Type=VlanId
-_FsMIDot1qFutureVlanPortSubnetMapExtVid_Object=MibTableColumn
-fsMIDot1qFutureVlanPortSubnetMapExtVid=_FsMIDot1qFutureVlanPortSubnetMapExtVid_Object((1,3,6,1,4,1,2076,120,1,16,1,3),_FsMIDot1qFutureVlanPortSubnetMapExtVid_Type())
-fsMIDot1qFutureVlanPortSubnetMapExtVid.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortSubnetMapExtVid.setStatus(_A)
-class _FsMIDot1qFutureVlanPortSubnetMapExtARPOption_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_P,1),(_c,2)))
-_FsMIDot1qFutureVlanPortSubnetMapExtARPOption_Type.__name__=_E
-_FsMIDot1qFutureVlanPortSubnetMapExtARPOption_Object=MibTableColumn
-fsMIDot1qFutureVlanPortSubnetMapExtARPOption=_FsMIDot1qFutureVlanPortSubnetMapExtARPOption_Object((1,3,6,1,4,1,2076,120,1,16,1,4),_FsMIDot1qFutureVlanPortSubnetMapExtARPOption_Type())
-fsMIDot1qFutureVlanPortSubnetMapExtARPOption.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortSubnetMapExtARPOption.setStatus(_A)
-_FsMIDot1qFutureVlanPortSubnetMapExtRowStatus_Type=RowStatus
-_FsMIDot1qFutureVlanPortSubnetMapExtRowStatus_Object=MibTableColumn
-fsMIDot1qFutureVlanPortSubnetMapExtRowStatus=_FsMIDot1qFutureVlanPortSubnetMapExtRowStatus_Object((1,3,6,1,4,1,2076,120,1,16,1,5),_FsMIDot1qFutureVlanPortSubnetMapExtRowStatus_Type())
-fsMIDot1qFutureVlanPortSubnetMapExtRowStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanPortSubnetMapExtRowStatus.setStatus(_A)
-_FsMIDot1qFuturePortVlanExtTable_Object=MibTable
-fsMIDot1qFuturePortVlanExtTable=_FsMIDot1qFuturePortVlanExtTable_Object((1,3,6,1,4,1,2076,120,1,17))
-if mibBuilder.loadTexts:fsMIDot1qFuturePortVlanExtTable.setStatus(_A)
-_FsMIDot1qFuturePortVlanExtEntry_Object=MibTableRow
-fsMIDot1qFuturePortVlanExtEntry=_FsMIDot1qFuturePortVlanExtEntry_Object((1,3,6,1,4,1,2076,120,1,17,1))
-if mibBuilder.loadTexts:fsMIDot1qFuturePortVlanExtEntry.setStatus(_A)
-class _FsMIDot1qFuturePortVlanFdbFlush_Type(TruthValue):defaultValue=2
-_FsMIDot1qFuturePortVlanFdbFlush_Type.__name__=_G
-_FsMIDot1qFuturePortVlanFdbFlush_Object=MibTableColumn
-fsMIDot1qFuturePortVlanFdbFlush=_FsMIDot1qFuturePortVlanFdbFlush_Object((1,3,6,1,4,1,2076,120,1,17,1,1),_FsMIDot1qFuturePortVlanFdbFlush_Type())
-fsMIDot1qFuturePortVlanFdbFlush.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFuturePortVlanFdbFlush.setStatus(_A)
-_FsMIDot1qFutureVlanLoopbackTable_Object=MibTable
-fsMIDot1qFutureVlanLoopbackTable=_FsMIDot1qFutureVlanLoopbackTable_Object((1,3,6,1,4,1,2076,120,1,18))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanLoopbackTable.setStatus(_A)
-_FsMIDot1qFutureVlanLoopbackEntry_Object=MibTableRow
-fsMIDot1qFutureVlanLoopbackEntry=_FsMIDot1qFutureVlanLoopbackEntry_Object((1,3,6,1,4,1,2076,120,1,18,1))
-fsMIDot1qFutureVlanLoopbackEntry.setIndexNames((0,_D,_H),(0,_D,_M))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanLoopbackEntry.setStatus(_A)
-class _FsMIDot1qFutureVlanLoopbackStatus_Type(EnabledStatus):defaultValue=2
-_FsMIDot1qFutureVlanLoopbackStatus_Type.__name__=_I
-_FsMIDot1qFutureVlanLoopbackStatus_Object=MibTableColumn
-fsMIDot1qFutureVlanLoopbackStatus=_FsMIDot1qFutureVlanLoopbackStatus_Object((1,3,6,1,4,1,2076,120,1,18,1,1),_FsMIDot1qFutureVlanLoopbackStatus_Type())
-fsMIDot1qFutureVlanLoopbackStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanLoopbackStatus.setStatus(_A)
-_FsMIDot1qFutureVlanTunnelConfig_ObjectIdentity=ObjectIdentity
-fsMIDot1qFutureVlanTunnelConfig=_FsMIDot1qFutureVlanTunnelConfig_ObjectIdentity((1,3,6,1,4,1,2076,120,2))
-_FsMIDot1qFutureVlanTunnelConfigTable_Object=MibTable
-fsMIDot1qFutureVlanTunnelConfigTable=_FsMIDot1qFutureVlanTunnelConfigTable_Object((1,3,6,1,4,1,2076,120,2,1))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelConfigTable.setStatus(_F)
-_FsMIDot1qFutureVlanTunnelConfigEntry_Object=MibTableRow
-fsMIDot1qFutureVlanTunnelConfigEntry=_FsMIDot1qFutureVlanTunnelConfigEntry_Object((1,3,6,1,4,1,2076,120,2,1,1))
-fsMIDot1qFutureVlanTunnelConfigEntry.setIndexNames((0,_D,_H))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelConfigEntry.setStatus(_F)
-class _FsMIDot1qFutureVlanBridgeMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('customerBridge',1),('providerBridge',2),('providerCoreBridge',3),('providerEdgeBridge',4),('invalidBridgeMode',5)))
-_FsMIDot1qFutureVlanBridgeMode_Type.__name__=_E
-_FsMIDot1qFutureVlanBridgeMode_Object=MibTableColumn
-fsMIDot1qFutureVlanBridgeMode=_FsMIDot1qFutureVlanBridgeMode_Object((1,3,6,1,4,1,2076,120,2,1,1,1),_FsMIDot1qFutureVlanBridgeMode_Type())
-fsMIDot1qFutureVlanBridgeMode.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanBridgeMode.setStatus(_F)
-class _FsMIDot1qFutureVlanTunnelBpduPri_Type(Integer32):defaultValue=7;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
-_FsMIDot1qFutureVlanTunnelBpduPri_Type.__name__=_E
-_FsMIDot1qFutureVlanTunnelBpduPri_Object=MibTableColumn
-fsMIDot1qFutureVlanTunnelBpduPri=_FsMIDot1qFutureVlanTunnelBpduPri_Object((1,3,6,1,4,1,2076,120,2,1,1,2),_FsMIDot1qFutureVlanTunnelBpduPri_Type())
-fsMIDot1qFutureVlanTunnelBpduPri.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelBpduPri.setStatus(_F)
-_FsMIDot1qFutureVlanTunnelTable_Object=MibTable
-fsMIDot1qFutureVlanTunnelTable=_FsMIDot1qFutureVlanTunnelTable_Object((1,3,6,1,4,1,2076,120,2,2))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelTable.setStatus(_F)
-_FsMIDot1qFutureVlanTunnelEntry_Object=MibTableRow
-fsMIDot1qFutureVlanTunnelEntry=_FsMIDot1qFutureVlanTunnelEntry_Object((1,3,6,1,4,1,2076,120,2,2,1))
-fsMIDot1qFutureVlanTunnelEntry.setIndexNames((0,_D,_K))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelEntry.setStatus(_F)
-class _FsMIDot1qFutureVlanTunnelStatus_Type(EnabledStatus):defaultValue=2
-_FsMIDot1qFutureVlanTunnelStatus_Type.__name__=_I
-_FsMIDot1qFutureVlanTunnelStatus_Object=MibTableColumn
-fsMIDot1qFutureVlanTunnelStatus=_FsMIDot1qFutureVlanTunnelStatus_Object((1,3,6,1,4,1,2076,120,2,2,1,1),_FsMIDot1qFutureVlanTunnelStatus_Type())
-fsMIDot1qFutureVlanTunnelStatus.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelStatus.setStatus(_F)
-_FsMIDot1qFutureVlanTunnelProtocolTable_Object=MibTable
-fsMIDot1qFutureVlanTunnelProtocolTable=_FsMIDot1qFutureVlanTunnelProtocolTable_Object((1,3,6,1,4,1,2076,120,2,3))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelProtocolTable.setStatus(_F)
-_FsMIDot1qFutureVlanTunnelProtocolEntry_Object=MibTableRow
-fsMIDot1qFutureVlanTunnelProtocolEntry=_FsMIDot1qFutureVlanTunnelProtocolEntry_Object((1,3,6,1,4,1,2076,120,2,3,1))
-fsMIDot1qFutureVlanTunnelProtocolEntry.setIndexNames((0,_D,_K))
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelProtocolEntry.setStatus(_F)
-class _FsMIDot1qFutureVlanTunnelStpPDUs_Type(EnabledStatus):defaultValue=2
-_FsMIDot1qFutureVlanTunnelStpPDUs_Type.__name__=_I
-_FsMIDot1qFutureVlanTunnelStpPDUs_Object=MibTableColumn
-fsMIDot1qFutureVlanTunnelStpPDUs=_FsMIDot1qFutureVlanTunnelStpPDUs_Object((1,3,6,1,4,1,2076,120,2,3,1,1),_FsMIDot1qFutureVlanTunnelStpPDUs_Type())
-fsMIDot1qFutureVlanTunnelStpPDUs.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelStpPDUs.setStatus(_F)
-_FsMIDot1qFutureVlanTunnelStpPDUsRecvd_Type=Counter32
-_FsMIDot1qFutureVlanTunnelStpPDUsRecvd_Object=MibTableColumn
-fsMIDot1qFutureVlanTunnelStpPDUsRecvd=_FsMIDot1qFutureVlanTunnelStpPDUsRecvd_Object((1,3,6,1,4,1,2076,120,2,3,1,2),_FsMIDot1qFutureVlanTunnelStpPDUsRecvd_Type())
-fsMIDot1qFutureVlanTunnelStpPDUsRecvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelStpPDUsRecvd.setStatus(_F)
-_FsMIDot1qFutureVlanTunnelStpPDUsSent_Type=Counter32
-_FsMIDot1qFutureVlanTunnelStpPDUsSent_Object=MibTableColumn
-fsMIDot1qFutureVlanTunnelStpPDUsSent=_FsMIDot1qFutureVlanTunnelStpPDUsSent_Object((1,3,6,1,4,1,2076,120,2,3,1,3),_FsMIDot1qFutureVlanTunnelStpPDUsSent_Type())
-fsMIDot1qFutureVlanTunnelStpPDUsSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelStpPDUsSent.setStatus(_F)
-class _FsMIDot1qFutureVlanTunnelGvrpPDUs_Type(EnabledStatus):defaultValue=1
-_FsMIDot1qFutureVlanTunnelGvrpPDUs_Type.__name__=_I
-_FsMIDot1qFutureVlanTunnelGvrpPDUs_Object=MibTableColumn
-fsMIDot1qFutureVlanTunnelGvrpPDUs=_FsMIDot1qFutureVlanTunnelGvrpPDUs_Object((1,3,6,1,4,1,2076,120,2,3,1,4),_FsMIDot1qFutureVlanTunnelGvrpPDUs_Type())
-fsMIDot1qFutureVlanTunnelGvrpPDUs.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelGvrpPDUs.setStatus(_F)
-_FsMIDot1qFutureVlanTunnelGvrpPDUsRecvd_Type=Counter32
-_FsMIDot1qFutureVlanTunnelGvrpPDUsRecvd_Object=MibTableColumn
-fsMIDot1qFutureVlanTunnelGvrpPDUsRecvd=_FsMIDot1qFutureVlanTunnelGvrpPDUsRecvd_Object((1,3,6,1,4,1,2076,120,2,3,1,5),_FsMIDot1qFutureVlanTunnelGvrpPDUsRecvd_Type())
-fsMIDot1qFutureVlanTunnelGvrpPDUsRecvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelGvrpPDUsRecvd.setStatus(_F)
-_FsMIDot1qFutureVlanTunnelGvrpPDUsSent_Type=Counter32
-_FsMIDot1qFutureVlanTunnelGvrpPDUsSent_Object=MibTableColumn
-fsMIDot1qFutureVlanTunnelGvrpPDUsSent=_FsMIDot1qFutureVlanTunnelGvrpPDUsSent_Object((1,3,6,1,4,1,2076,120,2,3,1,6),_FsMIDot1qFutureVlanTunnelGvrpPDUsSent_Type())
-fsMIDot1qFutureVlanTunnelGvrpPDUsSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelGvrpPDUsSent.setStatus(_F)
-class _FsMIDot1qFutureVlanTunnelIgmpPkts_Type(EnabledStatus):defaultValue=1
-_FsMIDot1qFutureVlanTunnelIgmpPkts_Type.__name__=_I
-_FsMIDot1qFutureVlanTunnelIgmpPkts_Object=MibTableColumn
-fsMIDot1qFutureVlanTunnelIgmpPkts=_FsMIDot1qFutureVlanTunnelIgmpPkts_Object((1,3,6,1,4,1,2076,120,2,3,1,7),_FsMIDot1qFutureVlanTunnelIgmpPkts_Type())
-fsMIDot1qFutureVlanTunnelIgmpPkts.setMaxAccess(_B)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelIgmpPkts.setStatus(_F)
-_FsMIDot1qFutureVlanTunnelIgmpPktsRecvd_Type=Counter32
-_FsMIDot1qFutureVlanTunnelIgmpPktsRecvd_Object=MibTableColumn
-fsMIDot1qFutureVlanTunnelIgmpPktsRecvd=_FsMIDot1qFutureVlanTunnelIgmpPktsRecvd_Object((1,3,6,1,4,1,2076,120,2,3,1,8),_FsMIDot1qFutureVlanTunnelIgmpPktsRecvd_Type())
-fsMIDot1qFutureVlanTunnelIgmpPktsRecvd.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelIgmpPktsRecvd.setStatus(_F)
-_FsMIDot1qFutureVlanTunnelIgmpPktsSent_Type=Counter32
-_FsMIDot1qFutureVlanTunnelIgmpPktsSent_Object=MibTableColumn
-fsMIDot1qFutureVlanTunnelIgmpPktsSent=_FsMIDot1qFutureVlanTunnelIgmpPktsSent_Object((1,3,6,1,4,1,2076,120,2,3,1,9),_FsMIDot1qFutureVlanTunnelIgmpPktsSent_Type())
-fsMIDot1qFutureVlanTunnelIgmpPktsSent.setMaxAccess(_C)
-if mibBuilder.loadTexts:fsMIDot1qFutureVlanTunnelIgmpPktsSent.setStatus(_F)
-_FsMIDot1qFutureVlanTraps_ObjectIdentity=ObjectIdentity
-fsMIDot1qFutureVlanTraps=_FsMIDot1qFutureVlanTraps_ObjectIdentity((1,3,6,1,4,1,2076,120,3))
-_FsMIDot1qVlanTraps_ObjectIdentity=ObjectIdentity
-fsMIDot1qVlanTraps=_FsMIDot1qVlanTraps_ObjectIdentity((1,3,6,1,4,1,2076,120,3,0))
-_FsMIDot1qFutureVlanTrapControl_ObjectIdentity=ObjectIdentity
-fsMIDot1qFutureVlanTrapControl=_FsMIDot1qFutureVlanTrapControl_ObjectIdentity((1,3,6,1,4,1,2076,120,4))
-fsDot1qTpFdbEntry.registerAugmentions((_D,_f))
+#
+# PySNMP MIB module AricentMIVlan-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/siaemic/AricentMIVlan-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:32:57 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+fsDot1qStaticUnicastEntry, fsDot1qTpPort, fsDot1qVlanStaticPortConfigEntry, fsDot1qTpFdbPort, fsDot1qVlanStaticEntry, fsDot1qTpFdbEntry = mibBuilder.importSymbols("ARICENTQ-BRIDGE-MIB", "fsDot1qStaticUnicastEntry", "fsDot1qTpPort", "fsDot1qVlanStaticPortConfigEntry", "fsDot1qTpFdbPort", "fsDot1qVlanStaticEntry", "fsDot1qTpFdbEntry")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+VlanIdOrNone, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIdOrNone")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, iso, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "iso", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, MacAddress, RowStatus, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "RowStatus", "TruthValue", "TextualConvention")
+futureMIVlanMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2076, 120))
+futureMIVlanMIB.setRevisions(('2012-09-05 00:00',))
+if mibBuilder.loadTexts: futureMIVlanMIB.setLastUpdated('201209050000Z')
+if mibBuilder.loadTexts: futureMIVlanMIB.setOrganization('ARICENT COMMUNICATIONS SOFTWARE')
+class VlanId(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 4094)
+
+class EnabledStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("enabled", 1), ("disabled", 2))
+
+class MacLearningStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
+    namedValues = NamedValues(("enabled", 1), ("disabled", 2), ("default", 3))
+
+fsMIDot1qFutureVlan = MibIdentifier((1, 3, 6, 1, 4, 1, 2076, 120, 1))
+fsMIDot1qFutureVlanTunnelConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 2076, 120, 2))
+fsMIDot1qFutureVlanTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2076, 120, 3))
+fsMIDot1qFutureVlanTrapControl = MibIdentifier((1, 3, 6, 1, 4, 1, 2076, 120, 4))
+fsMIDot1qFutureVlanGlobalTrace = MibScalar((1, 3, 6, 1, 4, 1, 2076, 120, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanGlobalTrace.setStatus('current')
+fsMIDot1qFutureVlanGlobalsTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2), )
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanGlobalsTable.setStatus('current')
+fsMIDot1qFutureVlanGlobalsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1), ).setIndexNames((0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanContextId"))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanGlobalsEntry.setStatus('current')
+fsMIDot1qFutureVlanContextId = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanContextId.setStatus('current')
+fsMIDot1qFutureVlanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 2), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanStatus.setStatus('current')
+fsMIDot1qFutureVlanMacBasedOnAllPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 3), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanMacBasedOnAllPorts.setStatus('current')
+fsMIDot1qFutureVlanPortProtoBasedOnAllPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 4), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortProtoBasedOnAllPorts.setStatus('current')
+fsMIDot1qFutureVlanShutdownStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanShutdownStatus.setStatus('deprecated')
+fsMIDot1qFutureGarpShutdownStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 6), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureGarpShutdownStatus.setStatus('current')
+fsMIDot1qFutureVlanDebug = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 524287))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanDebug.setStatus('current')
+fsMIDot1qFutureVlanLearningMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ivl", 1), ("svl", 2), ("hybrid", 3))).clone('ivl')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanLearningMode.setStatus('current')
+fsMIDot1qFutureVlanHybridTypeDefault = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ivl", 1), ("svl", 2))).clone('ivl')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanHybridTypeDefault.setStatus('current')
+fsMIDot1qFutureVlanOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 10), EnabledStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanOperStatus.setStatus('current')
+fsMIDot1qFutureGvrpOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 11), EnabledStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureGvrpOperStatus.setStatus('current')
+fsMIDot1qFutureGmrpOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 12), EnabledStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureGmrpOperStatus.setStatus('current')
+fsMIDot1qFutureVlanContextName = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanContextName.setStatus('current')
+fsMIDot1qFutureGarpDebug = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1048575))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureGarpDebug.setStatus('current')
+fsMIDot1qFutureUnicastMacLearningLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureUnicastMacLearningLimit.setStatus('current')
+fsMIDot1qFutureBaseBridgeMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("dot1dTransparentMode", 1), ("dot1qVlanMode", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureBaseBridgeMode.setStatus('current')
+fsMIDot1qFutureVlanSubnetBasedOnAllPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 17), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanSubnetBasedOnAllPorts.setStatus('current')
+fsMIDot1qFutureVlanGlobalMacLearningStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 18), EnabledStatus().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanGlobalMacLearningStatus.setStatus('current')
+fsMIDot1qFutureVlanApplyEnhancedFilteringCriteria = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 19), TruthValue().clone('true')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanApplyEnhancedFilteringCriteria.setStatus('current')
+fsMIDot1qFutureVlanGlobalsFdbFlush = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 20), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanGlobalsFdbFlush.setStatus('current')
+fsMIDot1qFutureVlanUserDefinedTPID = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanUserDefinedTPID.setStatus('current')
+fsMIDot1qFutureVlanRemoteFdbFlush = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 2, 1, 22), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanRemoteFdbFlush.setStatus('current')
+fsMIDot1qFutureVlanPortTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3), )
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortTable.setStatus('current')
+fsMIDot1qFutureVlanPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1), ).setIndexNames((0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanPort"))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortEntry.setStatus('current')
+fsMIDot1qFutureVlanPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPort.setStatus('current')
+fsMIDot1qFutureVlanPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("accessPort", 1), ("trunkPort", 2), ("hybridPort", 3), ("hostPort", 4), ("promiscuousPort", 5))).clone('hybridPort')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortType.setStatus('current')
+fsMIDot1qFutureVlanPortMacBasedClassification = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 3), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortMacBasedClassification.setStatus('current')
+fsMIDot1qFutureVlanPortPortProtoBasedClassification = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 4), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortPortProtoBasedClassification.setStatus('current')
+fsMIDot1qFutureVlanFilteringUtilityCriteria = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("default", 1), ("enhanced", 2))).clone('default')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanFilteringUtilityCriteria.setStatus('current')
+fsMIDot1qFutureVlanPortProtected = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 6), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortProtected.setStatus('current')
+fsMIDot1qFutureVlanPortSubnetBasedClassification = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 7), EnabledStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortSubnetBasedClassification.setStatus('current')
+fsMIDot1qFutureVlanPortUnicastMacLearning = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 8), EnabledStatus().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortUnicastMacLearning.setStatus('current')
+fsMIDot1qFutureVlanPortGmrpJoinEmptyTxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGmrpJoinEmptyTxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGmrpJoinEmptyRxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGmrpJoinEmptyRxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGmrpJoinInTxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGmrpJoinInTxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGmrpJoinInRxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 12), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGmrpJoinInRxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGmrpLeaveInTxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 13), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGmrpLeaveInTxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGmrpLeaveInRxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 14), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGmrpLeaveInRxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGmrpLeaveEmptyTxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 15), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGmrpLeaveEmptyTxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGmrpLeaveEmptyRxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 16), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGmrpLeaveEmptyRxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGmrpEmptyTxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 17), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGmrpEmptyTxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGmrpEmptyRxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 18), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGmrpEmptyRxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGmrpLeaveAllTxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 19), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGmrpLeaveAllTxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGmrpLeaveAllRxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 20), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGmrpLeaveAllRxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGmrpDiscardCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 21), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGmrpDiscardCount.setStatus('current')
+fsMIDot1qFutureVlanPortGvrpJoinEmptyTxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 22), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGvrpJoinEmptyTxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGvrpJoinEmptyRxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 23), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGvrpJoinEmptyRxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGvrpJoinInTxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 24), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGvrpJoinInTxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGvrpJoinInRxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 25), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGvrpJoinInRxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGvrpLeaveInTxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 26), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGvrpLeaveInTxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGvrpLeaveInRxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 27), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGvrpLeaveInRxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGvrpLeaveEmptyTxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 28), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGvrpLeaveEmptyTxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGvrpLeaveEmptyRxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 29), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGvrpLeaveEmptyRxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGvrpEmptyTxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 30), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGvrpEmptyTxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGvrpEmptyRxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 31), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGvrpEmptyRxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGvrpLeaveAllTxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 32), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGvrpLeaveAllTxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGvrpLeaveAllRxCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 33), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGvrpLeaveAllRxCount.setStatus('current')
+fsMIDot1qFutureVlanPortGvrpDiscardCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 34), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortGvrpDiscardCount.setStatus('current')
+fsMIDot1qFutureVlanPortFdbFlush = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 35), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortFdbFlush.setStatus('current')
+fsMIDot1qFutureVlanPortIngressEtherType = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 36), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortIngressEtherType.setStatus('current')
+fsMIDot1qFutureVlanPortEgressEtherType = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 37), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortEgressEtherType.setStatus('current')
+fsMIDot1qFutureVlanPortEgressTPIDType = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 38), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("portbased", 1), ("vlanbased", 2))).clone('portbased')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortEgressTPIDType.setStatus('current')
+fsMIDot1qFutureVlanPortAllowableTPID1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 39), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortAllowableTPID1.setStatus('current')
+fsMIDot1qFutureVlanPortAllowableTPID2 = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 40), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortAllowableTPID2.setStatus('current')
+fsMIDot1qFutureVlanPortAllowableTPID3 = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 41), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortAllowableTPID3.setStatus('current')
+fsMIDot1qFutureVlanPortClearGarpStats = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 42), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortClearGarpStats.setStatus('current')
+fsMIDot1qFutureVlanPortUnicastMacSecType = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 43), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("sav", 1), ("shv", 2), ("off", 3))).clone(3)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortUnicastMacSecType.setStatus('current')
+fsMIDot1qFutureVlanPortStVlanList = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 44), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 512))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortStVlanList.setStatus('current')
+fsMIDot1qFutureVlanPortStUntaggedVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 45), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortStUntaggedVlan.setStatus('current')
+fsMIDot1qFuturePortPacketReflectionStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 3, 1, 46), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFuturePortPacketReflectionStatus.setStatus('current')
+fsMIDot1qFutureVlanPortMacMapTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 1, 4), )
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortMacMapTable.setStatus('current')
+fsMIDot1qFutureVlanPortMacMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 1, 4, 1), ).setIndexNames((0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanPort"), (0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanPortMacMapAddr"))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortMacMapEntry.setStatus('current')
+fsMIDot1qFutureVlanPortMacMapAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 4, 1, 1), MacAddress())
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortMacMapAddr.setStatus('current')
+fsMIDot1qFutureVlanPortMacMapVid = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 4, 1, 2), VlanId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortMacMapVid.setStatus('current')
+fsMIDot1qFutureVlanPortMacMapName = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 4, 1, 3), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortMacMapName.setStatus('current')
+fsMIDot1qFutureVlanPortMacMapMcastBcastOption = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("allow", 1), ("supress", 2))).clone('allow')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortMacMapMcastBcastOption.setStatus('current')
+fsMIDot1qFutureVlanPortMacMapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 4, 1, 5), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortMacMapRowStatus.setStatus('current')
+fsMIDot1qFutureVlanFidMapTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 1, 5), )
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanFidMapTable.setStatus('current')
+fsMIDot1qFutureVlanFidMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 1, 5, 1), ).setIndexNames((0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanContextId"), (0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanIndex"))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanFidMapEntry.setStatus('current')
+fsMIDot1qFutureVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 5, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanIndex.setStatus('current')
+fsMIDot1qFutureVlanFid = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 5, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanFid.setStatus('current')
+fsMIDot1qFutureVlanTunnelConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 2, 1), )
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelConfigTable.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 2, 1, 1), ).setIndexNames((0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanContextId"))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelConfigEntry.setStatus('deprecated')
+fsMIDot1qFutureVlanBridgeMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("customerBridge", 1), ("providerBridge", 2), ("providerCoreBridge", 3), ("providerEdgeBridge", 4), ("invalidBridgeMode", 5)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanBridgeMode.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelBpduPri = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)).clone(7)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelBpduPri.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 2, 2), )
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelTable.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 2, 2, 1), ).setIndexNames((0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanPort"))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelEntry.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 2, 2, 1, 1), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelStatus.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelProtocolTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 2, 3), )
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelProtocolTable.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelProtocolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 2, 3, 1), ).setIndexNames((0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanPort"))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelProtocolEntry.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelStpPDUs = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 2, 3, 1, 1), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelStpPDUs.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelStpPDUsRecvd = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 2, 3, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelStpPDUsRecvd.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelStpPDUsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 2, 3, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelStpPDUsSent.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelGvrpPDUs = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 2, 3, 1, 4), EnabledStatus().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelGvrpPDUs.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelGvrpPDUsRecvd = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 2, 3, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelGvrpPDUsRecvd.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelGvrpPDUsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 2, 3, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelGvrpPDUsSent.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelIgmpPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 2, 3, 1, 7), EnabledStatus().clone('enabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelIgmpPkts.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelIgmpPktsRecvd = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 2, 3, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelIgmpPktsRecvd.setStatus('deprecated')
+fsMIDot1qFutureVlanTunnelIgmpPktsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 2, 3, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTunnelIgmpPktsSent.setStatus('deprecated')
+fsMIDot1qFutureVlanCounterTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 1, 6), )
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanCounterTable.setStatus('current')
+fsMIDot1qFutureVlanCounterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 1, 6, 1), ).setIndexNames((0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanContextId"), (0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanIndex"))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanCounterEntry.setStatus('current')
+fsMIDot1qFutureVlanCounterRxUcast = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 6, 1, 1), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanCounterRxUcast.setStatus('current')
+fsMIDot1qFutureVlanCounterRxMcastBcast = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 6, 1, 2), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanCounterRxMcastBcast.setStatus('current')
+fsMIDot1qFutureVlanCounterTxUnknUcast = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 6, 1, 3), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanCounterTxUnknUcast.setStatus('current')
+fsMIDot1qFutureVlanCounterTxUcast = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 6, 1, 4), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanCounterTxUcast.setStatus('current')
+fsMIDot1qFutureVlanCounterTxBcast = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 6, 1, 5), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanCounterTxBcast.setStatus('current')
+fsMIDot1qFutureVlanCounterRxFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 6, 1, 6), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanCounterRxFrames.setStatus('current')
+fsMIDot1qFutureVlanCounterRxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 6, 1, 7), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanCounterRxBytes.setStatus('current')
+fsMIDot1qFutureVlanCounterTxFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 6, 1, 8), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanCounterTxFrames.setStatus('current')
+fsMIDot1qFutureVlanCounterTxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 6, 1, 9), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanCounterTxBytes.setStatus('current')
+fsMIDot1qFutureVlanCounterDiscardFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 6, 1, 10), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanCounterDiscardFrames.setStatus('current')
+fsMIDot1qFutureVlanCounterDiscardBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 6, 1, 11), Counter32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanCounterDiscardBytes.setStatus('current')
+fsMIDot1qFutureVlanCounterStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 6, 1, 12), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanCounterStatus.setStatus('current')
+fsMIDot1qFutureVlanUnicastMacControlTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 1, 7), )
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanUnicastMacControlTable.setStatus('current')
+fsMIDot1qFutureVlanUnicastMacControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 1, 7, 1), ).setIndexNames((0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanContextId"), (0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanIndex"))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanUnicastMacControlEntry.setStatus('current')
+fsMIDot1qFutureVlanUnicastMacLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 7, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanUnicastMacLimit.setStatus('current')
+fsMIDot1qFutureVlanAdminMacLearningStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 7, 1, 2), MacLearningStatus().clone('default')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanAdminMacLearningStatus.setStatus('current')
+fsMIDot1qFutureVlanOperMacLearningStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 7, 1, 3), EnabledStatus()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanOperMacLearningStatus.setStatus('current')
+fsMIDot1qFutureGarpGlobalTrace = MibScalar((1, 3, 6, 1, 4, 1, 2076, 120, 1, 8), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureGarpGlobalTrace.setStatus('current')
+fsMIDot1qFutureVlanTpFdbTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 1, 9), )
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTpFdbTable.setStatus('current')
+fsMIDot1qFutureVlanTpFdbEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 1, 9, 1), )
+fsDot1qTpFdbEntry.registerAugmentions(("AricentMIVlan-MIB", "fsMIDot1qFutureVlanTpFdbEntry"))
 fsMIDot1qFutureVlanTpFdbEntry.setIndexNames(*fsDot1qTpFdbEntry.getIndexNames())
-fsDot1qStaticUnicastEntry.registerAugmentions((_D,_g))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanTpFdbEntry.setStatus('current')
+fsMIDot1qFutureVlanOldTpFdbPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 9, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanOldTpFdbPort.setStatus('current')
+fsMIDot1qFutureConnectionIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 9, 1, 2), MacAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIDot1qFutureConnectionIdentifier.setStatus('current')
+fsMIDot1qFutureVlanWildCardTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 1, 10), )
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanWildCardTable.setStatus('current')
+fsMIDot1qFutureVlanWildCardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 1, 10, 1), ).setIndexNames((0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanContextId"), (0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanWildCardMacAddress"))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanWildCardEntry.setStatus('current')
+fsMIDot1qFutureVlanWildCardMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 10, 1, 1), MacAddress())
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanWildCardMacAddress.setStatus('current')
+fsMIDot1qFutureVlanWildCardRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 10, 1, 2), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanWildCardRowStatus.setStatus('current')
+fsMIDot1qFutureVlanWildCardPortTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 1, 11), )
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanWildCardPortTable.setStatus('current')
+fsMIDot1qFutureVlanWildCardPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 1, 11, 1), ).setIndexNames((0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanContextId"), (0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanWildCardMacAddress"), (0, "ARICENTQ-BRIDGE-MIB", "fsDot1qTpPort"))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanWildCardPortEntry.setStatus('current')
+fsMIDot1qFutureVlanIsWildCardEgressPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 11, 1, 1), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanIsWildCardEgressPort.setStatus('current')
+fsMIDot1qFutureStaticUnicastExtnTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 1, 12), )
+if mibBuilder.loadTexts: fsMIDot1qFutureStaticUnicastExtnTable.setStatus('current')
+fsMIDot1qFutureStaticUnicastExtnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 1, 12, 1), )
+fsDot1qStaticUnicastEntry.registerAugmentions(("AricentMIVlan-MIB", "fsMIDot1qFutureStaticUnicastExtnEntry"))
 fsMIDot1qFutureStaticUnicastExtnEntry.setIndexNames(*fsDot1qStaticUnicastEntry.getIndexNames())
-fsDot1qVlanStaticEntry.registerAugmentions((_D,_h))
+if mibBuilder.loadTexts: fsMIDot1qFutureStaticUnicastExtnEntry.setStatus('current')
+fsMIDot1qFutureStaticConnectionIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 12, 1, 1), MacAddress()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureStaticConnectionIdentifier.setStatus('current')
+fsMIDot1qFutureVlanPortSubnetMapTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 1, 13), )
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortSubnetMapTable.setStatus('current')
+fsMIDot1qFutureVlanPortSubnetMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 1, 13, 1), ).setIndexNames((0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanPort"), (0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanPortSubnetMapAddr"))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortSubnetMapEntry.setStatus('current')
+fsMIDot1qFutureVlanPortSubnetMapAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 13, 1, 1), IpAddress())
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortSubnetMapAddr.setStatus('current')
+fsMIDot1qFutureVlanPortSubnetMapVid = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 13, 1, 2), VlanId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortSubnetMapVid.setStatus('current')
+fsMIDot1qFutureVlanPortSubnetMapARPOption = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 13, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("allow", 1), ("suppress", 2))).clone('allow')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortSubnetMapARPOption.setStatus('current')
+fsMIDot1qFutureVlanPortSubnetMapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 13, 1, 4), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortSubnetMapRowStatus.setStatus('current')
+fsMIDot1qFutureVlanSwStatsEnabled = MibScalar((1, 3, 6, 1, 4, 1, 2076, 120, 1, 14), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanSwStatsEnabled.setStatus('current')
+fsMIDot1qFutureStVlanExtTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 1, 15), )
+if mibBuilder.loadTexts: fsMIDot1qFutureStVlanExtTable.setStatus('current')
+fsMIDot1qFutureStVlanExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 1, 15, 1), )
+fsDot1qVlanStaticEntry.registerAugmentions(("AricentMIVlan-MIB", "fsMIDot1qFutureStVlanExtEntry"))
 fsMIDot1qFutureStVlanExtEntry.setIndexNames(*fsDot1qVlanStaticEntry.getIndexNames())
-fsDot1qVlanStaticPortConfigEntry.registerAugmentions((_D,_i))
+if mibBuilder.loadTexts: fsMIDot1qFutureStVlanExtEntry.setStatus('current')
+fsMIDot1qFutureStVlanPVlanType = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 15, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("normal", 1), ("primary", 2), ("isolated", 3), ("community", 4))).clone('normal')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureStVlanPVlanType.setStatus('current')
+fsMIDot1qFutureStVlanPrimaryVid = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 15, 1, 2), VlanIdOrNone()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureStVlanPrimaryVid.setStatus('current')
+fsMIDot1qFutureStVlanFdbFlush = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 15, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureStVlanFdbFlush.setStatus('current')
+fsMIDot1qFutureStVlanEgressEthertype = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 15, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(33024)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureStVlanEgressEthertype.setStatus('current')
+fsMIDot1qVlanTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2076, 120, 3, 0))
+fsMIDot1qFutureMacThresholdTrap = NotificationType((1, 3, 6, 1, 4, 1, 2076, 120, 3, 0, 1)).setObjects(("AricentMIVlan-MIB", "fsMIDot1qFutureVlanContextName"), ("AricentMIVlan-MIB", "fsMIDot1qFutureVlanIndex"), ("AricentMIVlan-MIB", "fsMIDot1qFutureVlanUnicastMacLimit"))
+if mibBuilder.loadTexts: fsMIDot1qFutureMacThresholdTrap.setStatus('current')
+fsMIDot1qFutureSrcRelearnTrap = NotificationType((1, 3, 6, 1, 4, 1, 2076, 120, 3, 0, 2)).setObjects(("AricentMIVlan-MIB", "fsMIDot1qFutureVlanContextName"), ("AricentMIVlan-MIB", "fsMIDot1qFutureVlanFid"), ("ARICENTQ-BRIDGE-MIB", "fsDot1qTpFdbPort"), ("AricentMIVlan-MIB", "fsMIDot1qFutureVlanOldTpFdbPort"))
+if mibBuilder.loadTexts: fsMIDot1qFutureSrcRelearnTrap.setStatus('current')
+fsMIDot1qFutureSwitchMacLimitTrap = NotificationType((1, 3, 6, 1, 4, 1, 2076, 120, 3, 0, 3)).setObjects(("AricentMIVlan-MIB", "fsMIDot1qFutureVlanContextName"), ("AricentMIVlan-MIB", "fsMIDot1qFutureUnicastMacLearningLimit"))
+if mibBuilder.loadTexts: fsMIDot1qFutureSwitchMacLimitTrap.setStatus('current')
+fsMIDot1qFutureVlanPortSubnetMapExtTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 1, 16), )
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortSubnetMapExtTable.setStatus('current')
+fsMIDot1qFutureVlanPortSubnetMapExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 1, 16, 1), ).setIndexNames((0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanPort"), (0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanPortSubnetMapExtAddr"), (0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanPortSubnetMapExtMask"))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortSubnetMapExtEntry.setStatus('current')
+fsMIDot1qFutureVlanPortSubnetMapExtAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 16, 1, 1), IpAddress())
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortSubnetMapExtAddr.setStatus('current')
+fsMIDot1qFutureVlanPortSubnetMapExtMask = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 16, 1, 2), IpAddress())
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortSubnetMapExtMask.setStatus('current')
+fsMIDot1qFutureVlanPortSubnetMapExtVid = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 16, 1, 3), VlanId()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortSubnetMapExtVid.setStatus('current')
+fsMIDot1qFutureVlanPortSubnetMapExtARPOption = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 16, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("allow", 1), ("suppress", 2))).clone('allow')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortSubnetMapExtARPOption.setStatus('current')
+fsMIDot1qFutureVlanPortSubnetMapExtRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 16, 1, 5), RowStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanPortSubnetMapExtRowStatus.setStatus('current')
+fsMIDot1qFuturePortVlanExtTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 1, 17), )
+if mibBuilder.loadTexts: fsMIDot1qFuturePortVlanExtTable.setStatus('current')
+fsMIDot1qFuturePortVlanExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 1, 17, 1), )
+fsDot1qVlanStaticPortConfigEntry.registerAugmentions(("AricentMIVlan-MIB", "fsMIDot1qFuturePortVlanExtEntry"))
 fsMIDot1qFuturePortVlanExtEntry.setIndexNames(*fsDot1qVlanStaticPortConfigEntry.getIndexNames())
-fsMIDot1qFutureMacThresholdTrap=NotificationType((1,3,6,1,4,1,2076,120,3,0,1))
-fsMIDot1qFutureMacThresholdTrap.setObjects(*((_D,_N),(_D,_M),(_D,_j)))
-if mibBuilder.loadTexts:fsMIDot1qFutureMacThresholdTrap.setStatus(_A)
-fsMIDot1qFutureSrcRelearnTrap=NotificationType((1,3,6,1,4,1,2076,120,3,0,2))
-fsMIDot1qFutureSrcRelearnTrap.setObjects(*((_D,_N),(_D,_k),(_O,_S),(_D,_l)))
-if mibBuilder.loadTexts:fsMIDot1qFutureSrcRelearnTrap.setStatus(_A)
-fsMIDot1qFutureSwitchMacLimitTrap=NotificationType((1,3,6,1,4,1,2076,120,3,0,3))
-fsMIDot1qFutureSwitchMacLimitTrap.setObjects(*((_D,_N),(_D,_m)))
-if mibBuilder.loadTexts:fsMIDot1qFutureSwitchMacLimitTrap.setStatus(_A)
-mibBuilder.exportSymbols(_D,**{'VlanId':VlanId,_I:EnabledStatus,_a:MacLearningStatus,'futureMIVlanMIB':futureMIVlanMIB,'fsMIDot1qFutureVlan':fsMIDot1qFutureVlan,'fsMIDot1qFutureVlanGlobalTrace':fsMIDot1qFutureVlanGlobalTrace,'fsMIDot1qFutureVlanGlobalsTable':fsMIDot1qFutureVlanGlobalsTable,'fsMIDot1qFutureVlanGlobalsEntry':fsMIDot1qFutureVlanGlobalsEntry,_H:fsMIDot1qFutureVlanContextId,'fsMIDot1qFutureVlanStatus':fsMIDot1qFutureVlanStatus,'fsMIDot1qFutureVlanMacBasedOnAllPorts':fsMIDot1qFutureVlanMacBasedOnAllPorts,'fsMIDot1qFutureVlanPortProtoBasedOnAllPorts':fsMIDot1qFutureVlanPortProtoBasedOnAllPorts,'fsMIDot1qFutureVlanShutdownStatus':fsMIDot1qFutureVlanShutdownStatus,'fsMIDot1qFutureGarpShutdownStatus':fsMIDot1qFutureGarpShutdownStatus,'fsMIDot1qFutureVlanDebug':fsMIDot1qFutureVlanDebug,'fsMIDot1qFutureVlanLearningMode':fsMIDot1qFutureVlanLearningMode,'fsMIDot1qFutureVlanHybridTypeDefault':fsMIDot1qFutureVlanHybridTypeDefault,'fsMIDot1qFutureVlanOperStatus':fsMIDot1qFutureVlanOperStatus,'fsMIDot1qFutureGvrpOperStatus':fsMIDot1qFutureGvrpOperStatus,'fsMIDot1qFutureGmrpOperStatus':fsMIDot1qFutureGmrpOperStatus,_N:fsMIDot1qFutureVlanContextName,'fsMIDot1qFutureGarpDebug':fsMIDot1qFutureGarpDebug,_m:fsMIDot1qFutureUnicastMacLearningLimit,'fsMIDot1qFutureBaseBridgeMode':fsMIDot1qFutureBaseBridgeMode,'fsMIDot1qFutureVlanSubnetBasedOnAllPorts':fsMIDot1qFutureVlanSubnetBasedOnAllPorts,'fsMIDot1qFutureVlanGlobalMacLearningStatus':fsMIDot1qFutureVlanGlobalMacLearningStatus,'fsMIDot1qFutureVlanApplyEnhancedFilteringCriteria':fsMIDot1qFutureVlanApplyEnhancedFilteringCriteria,'fsMIDot1qFutureVlanGlobalsFdbFlush':fsMIDot1qFutureVlanGlobalsFdbFlush,'fsMIDot1qFutureVlanUserDefinedTPID':fsMIDot1qFutureVlanUserDefinedTPID,'fsMIDot1qFutureVlanRemoteFdbFlush':fsMIDot1qFutureVlanRemoteFdbFlush,'fsMIDot1qFutureVlanPortTable':fsMIDot1qFutureVlanPortTable,'fsMIDot1qFutureVlanPortEntry':fsMIDot1qFutureVlanPortEntry,_K:fsMIDot1qFutureVlanPort,'fsMIDot1qFutureVlanPortType':fsMIDot1qFutureVlanPortType,'fsMIDot1qFutureVlanPortMacBasedClassification':fsMIDot1qFutureVlanPortMacBasedClassification,'fsMIDot1qFutureVlanPortPortProtoBasedClassification':fsMIDot1qFutureVlanPortPortProtoBasedClassification,'fsMIDot1qFutureVlanFilteringUtilityCriteria':fsMIDot1qFutureVlanFilteringUtilityCriteria,'fsMIDot1qFutureVlanPortProtected':fsMIDot1qFutureVlanPortProtected,'fsMIDot1qFutureVlanPortSubnetBasedClassification':fsMIDot1qFutureVlanPortSubnetBasedClassification,'fsMIDot1qFutureVlanPortUnicastMacLearning':fsMIDot1qFutureVlanPortUnicastMacLearning,'fsMIDot1qFutureVlanPortGmrpJoinEmptyTxCount':fsMIDot1qFutureVlanPortGmrpJoinEmptyTxCount,'fsMIDot1qFutureVlanPortGmrpJoinEmptyRxCount':fsMIDot1qFutureVlanPortGmrpJoinEmptyRxCount,'fsMIDot1qFutureVlanPortGmrpJoinInTxCount':fsMIDot1qFutureVlanPortGmrpJoinInTxCount,'fsMIDot1qFutureVlanPortGmrpJoinInRxCount':fsMIDot1qFutureVlanPortGmrpJoinInRxCount,'fsMIDot1qFutureVlanPortGmrpLeaveInTxCount':fsMIDot1qFutureVlanPortGmrpLeaveInTxCount,'fsMIDot1qFutureVlanPortGmrpLeaveInRxCount':fsMIDot1qFutureVlanPortGmrpLeaveInRxCount,'fsMIDot1qFutureVlanPortGmrpLeaveEmptyTxCount':fsMIDot1qFutureVlanPortGmrpLeaveEmptyTxCount,'fsMIDot1qFutureVlanPortGmrpLeaveEmptyRxCount':fsMIDot1qFutureVlanPortGmrpLeaveEmptyRxCount,'fsMIDot1qFutureVlanPortGmrpEmptyTxCount':fsMIDot1qFutureVlanPortGmrpEmptyTxCount,'fsMIDot1qFutureVlanPortGmrpEmptyRxCount':fsMIDot1qFutureVlanPortGmrpEmptyRxCount,'fsMIDot1qFutureVlanPortGmrpLeaveAllTxCount':fsMIDot1qFutureVlanPortGmrpLeaveAllTxCount,'fsMIDot1qFutureVlanPortGmrpLeaveAllRxCount':fsMIDot1qFutureVlanPortGmrpLeaveAllRxCount,'fsMIDot1qFutureVlanPortGmrpDiscardCount':fsMIDot1qFutureVlanPortGmrpDiscardCount,'fsMIDot1qFutureVlanPortGvrpJoinEmptyTxCount':fsMIDot1qFutureVlanPortGvrpJoinEmptyTxCount,'fsMIDot1qFutureVlanPortGvrpJoinEmptyRxCount':fsMIDot1qFutureVlanPortGvrpJoinEmptyRxCount,'fsMIDot1qFutureVlanPortGvrpJoinInTxCount':fsMIDot1qFutureVlanPortGvrpJoinInTxCount,'fsMIDot1qFutureVlanPortGvrpJoinInRxCount':fsMIDot1qFutureVlanPortGvrpJoinInRxCount,'fsMIDot1qFutureVlanPortGvrpLeaveInTxCount':fsMIDot1qFutureVlanPortGvrpLeaveInTxCount,'fsMIDot1qFutureVlanPortGvrpLeaveInRxCount':fsMIDot1qFutureVlanPortGvrpLeaveInRxCount,'fsMIDot1qFutureVlanPortGvrpLeaveEmptyTxCount':fsMIDot1qFutureVlanPortGvrpLeaveEmptyTxCount,'fsMIDot1qFutureVlanPortGvrpLeaveEmptyRxCount':fsMIDot1qFutureVlanPortGvrpLeaveEmptyRxCount,'fsMIDot1qFutureVlanPortGvrpEmptyTxCount':fsMIDot1qFutureVlanPortGvrpEmptyTxCount,'fsMIDot1qFutureVlanPortGvrpEmptyRxCount':fsMIDot1qFutureVlanPortGvrpEmptyRxCount,'fsMIDot1qFutureVlanPortGvrpLeaveAllTxCount':fsMIDot1qFutureVlanPortGvrpLeaveAllTxCount,'fsMIDot1qFutureVlanPortGvrpLeaveAllRxCount':fsMIDot1qFutureVlanPortGvrpLeaveAllRxCount,'fsMIDot1qFutureVlanPortGvrpDiscardCount':fsMIDot1qFutureVlanPortGvrpDiscardCount,'fsMIDot1qFutureVlanPortFdbFlush':fsMIDot1qFutureVlanPortFdbFlush,'fsMIDot1qFutureVlanPortIngressEtherType':fsMIDot1qFutureVlanPortIngressEtherType,'fsMIDot1qFutureVlanPortEgressEtherType':fsMIDot1qFutureVlanPortEgressEtherType,'fsMIDot1qFutureVlanPortEgressTPIDType':fsMIDot1qFutureVlanPortEgressTPIDType,'fsMIDot1qFutureVlanPortAllowableTPID1':fsMIDot1qFutureVlanPortAllowableTPID1,'fsMIDot1qFutureVlanPortAllowableTPID2':fsMIDot1qFutureVlanPortAllowableTPID2,'fsMIDot1qFutureVlanPortAllowableTPID3':fsMIDot1qFutureVlanPortAllowableTPID3,'fsMIDot1qFutureVlanPortClearGarpStats':fsMIDot1qFutureVlanPortClearGarpStats,'fsMIDot1qFutureVlanPortUnicastMacSecType':fsMIDot1qFutureVlanPortUnicastMacSecType,'fsMIDot1qFutureVlanPortStVlanList':fsMIDot1qFutureVlanPortStVlanList,'fsMIDot1qFutureVlanPortStUntaggedVlan':fsMIDot1qFutureVlanPortStUntaggedVlan,'fsMIDot1qFuturePortPacketReflectionStatus':fsMIDot1qFuturePortPacketReflectionStatus,'fsMIDot1qFutureVlanPortMacMapTable':fsMIDot1qFutureVlanPortMacMapTable,'fsMIDot1qFutureVlanPortMacMapEntry':fsMIDot1qFutureVlanPortMacMapEntry,_Z:fsMIDot1qFutureVlanPortMacMapAddr,'fsMIDot1qFutureVlanPortMacMapVid':fsMIDot1qFutureVlanPortMacMapVid,'fsMIDot1qFutureVlanPortMacMapName':fsMIDot1qFutureVlanPortMacMapName,'fsMIDot1qFutureVlanPortMacMapMcastBcastOption':fsMIDot1qFutureVlanPortMacMapMcastBcastOption,'fsMIDot1qFutureVlanPortMacMapRowStatus':fsMIDot1qFutureVlanPortMacMapRowStatus,'fsMIDot1qFutureVlanFidMapTable':fsMIDot1qFutureVlanFidMapTable,'fsMIDot1qFutureVlanFidMapEntry':fsMIDot1qFutureVlanFidMapEntry,_M:fsMIDot1qFutureVlanIndex,_k:fsMIDot1qFutureVlanFid,'fsMIDot1qFutureVlanCounterTable':fsMIDot1qFutureVlanCounterTable,'fsMIDot1qFutureVlanCounterEntry':fsMIDot1qFutureVlanCounterEntry,'fsMIDot1qFutureVlanCounterRxUcast':fsMIDot1qFutureVlanCounterRxUcast,'fsMIDot1qFutureVlanCounterRxMcastBcast':fsMIDot1qFutureVlanCounterRxMcastBcast,'fsMIDot1qFutureVlanCounterTxUnknUcast':fsMIDot1qFutureVlanCounterTxUnknUcast,'fsMIDot1qFutureVlanCounterTxUcast':fsMIDot1qFutureVlanCounterTxUcast,'fsMIDot1qFutureVlanCounterTxBcast':fsMIDot1qFutureVlanCounterTxBcast,'fsMIDot1qFutureVlanCounterRxFrames':fsMIDot1qFutureVlanCounterRxFrames,'fsMIDot1qFutureVlanCounterRxBytes':fsMIDot1qFutureVlanCounterRxBytes,'fsMIDot1qFutureVlanCounterTxFrames':fsMIDot1qFutureVlanCounterTxFrames,'fsMIDot1qFutureVlanCounterTxBytes':fsMIDot1qFutureVlanCounterTxBytes,'fsMIDot1qFutureVlanCounterDiscardFrames':fsMIDot1qFutureVlanCounterDiscardFrames,'fsMIDot1qFutureVlanCounterDiscardBytes':fsMIDot1qFutureVlanCounterDiscardBytes,'fsMIDot1qFutureVlanCounterStatus':fsMIDot1qFutureVlanCounterStatus,'fsMIDot1qFutureVlanUnicastMacControlTable':fsMIDot1qFutureVlanUnicastMacControlTable,'fsMIDot1qFutureVlanUnicastMacControlEntry':fsMIDot1qFutureVlanUnicastMacControlEntry,_j:fsMIDot1qFutureVlanUnicastMacLimit,'fsMIDot1qFutureVlanAdminMacLearningStatus':fsMIDot1qFutureVlanAdminMacLearningStatus,'fsMIDot1qFutureVlanOperMacLearningStatus':fsMIDot1qFutureVlanOperMacLearningStatus,'fsMIDot1qFutureGarpGlobalTrace':fsMIDot1qFutureGarpGlobalTrace,'fsMIDot1qFutureVlanTpFdbTable':fsMIDot1qFutureVlanTpFdbTable,_f:fsMIDot1qFutureVlanTpFdbEntry,_l:fsMIDot1qFutureVlanOldTpFdbPort,'fsMIDot1qFutureConnectionIdentifier':fsMIDot1qFutureConnectionIdentifier,'fsMIDot1qFutureVlanWildCardTable':fsMIDot1qFutureVlanWildCardTable,'fsMIDot1qFutureVlanWildCardEntry':fsMIDot1qFutureVlanWildCardEntry,_Q:fsMIDot1qFutureVlanWildCardMacAddress,'fsMIDot1qFutureVlanWildCardRowStatus':fsMIDot1qFutureVlanWildCardRowStatus,'fsMIDot1qFutureVlanWildCardPortTable':fsMIDot1qFutureVlanWildCardPortTable,'fsMIDot1qFutureVlanWildCardPortEntry':fsMIDot1qFutureVlanWildCardPortEntry,'fsMIDot1qFutureVlanIsWildCardEgressPort':fsMIDot1qFutureVlanIsWildCardEgressPort,'fsMIDot1qFutureStaticUnicastExtnTable':fsMIDot1qFutureStaticUnicastExtnTable,_g:fsMIDot1qFutureStaticUnicastExtnEntry,'fsMIDot1qFutureStaticConnectionIdentifier':fsMIDot1qFutureStaticConnectionIdentifier,'fsMIDot1qFutureVlanPortSubnetMapTable':fsMIDot1qFutureVlanPortSubnetMapTable,'fsMIDot1qFutureVlanPortSubnetMapEntry':fsMIDot1qFutureVlanPortSubnetMapEntry,_b:fsMIDot1qFutureVlanPortSubnetMapAddr,'fsMIDot1qFutureVlanPortSubnetMapVid':fsMIDot1qFutureVlanPortSubnetMapVid,'fsMIDot1qFutureVlanPortSubnetMapARPOption':fsMIDot1qFutureVlanPortSubnetMapARPOption,'fsMIDot1qFutureVlanPortSubnetMapRowStatus':fsMIDot1qFutureVlanPortSubnetMapRowStatus,'fsMIDot1qFutureVlanSwStatsEnabled':fsMIDot1qFutureVlanSwStatsEnabled,'fsMIDot1qFutureStVlanExtTable':fsMIDot1qFutureStVlanExtTable,_h:fsMIDot1qFutureStVlanExtEntry,'fsMIDot1qFutureStVlanPVlanType':fsMIDot1qFutureStVlanPVlanType,'fsMIDot1qFutureStVlanPrimaryVid':fsMIDot1qFutureStVlanPrimaryVid,'fsMIDot1qFutureStVlanFdbFlush':fsMIDot1qFutureStVlanFdbFlush,'fsMIDot1qFutureStVlanEgressEthertype':fsMIDot1qFutureStVlanEgressEthertype,'fsMIDot1qFutureVlanPortSubnetMapExtTable':fsMIDot1qFutureVlanPortSubnetMapExtTable,'fsMIDot1qFutureVlanPortSubnetMapExtEntry':fsMIDot1qFutureVlanPortSubnetMapExtEntry,_d:fsMIDot1qFutureVlanPortSubnetMapExtAddr,_e:fsMIDot1qFutureVlanPortSubnetMapExtMask,'fsMIDot1qFutureVlanPortSubnetMapExtVid':fsMIDot1qFutureVlanPortSubnetMapExtVid,'fsMIDot1qFutureVlanPortSubnetMapExtARPOption':fsMIDot1qFutureVlanPortSubnetMapExtARPOption,'fsMIDot1qFutureVlanPortSubnetMapExtRowStatus':fsMIDot1qFutureVlanPortSubnetMapExtRowStatus,'fsMIDot1qFuturePortVlanExtTable':fsMIDot1qFuturePortVlanExtTable,_i:fsMIDot1qFuturePortVlanExtEntry,'fsMIDot1qFuturePortVlanFdbFlush':fsMIDot1qFuturePortVlanFdbFlush,'fsMIDot1qFutureVlanLoopbackTable':fsMIDot1qFutureVlanLoopbackTable,'fsMIDot1qFutureVlanLoopbackEntry':fsMIDot1qFutureVlanLoopbackEntry,'fsMIDot1qFutureVlanLoopbackStatus':fsMIDot1qFutureVlanLoopbackStatus,'fsMIDot1qFutureVlanTunnelConfig':fsMIDot1qFutureVlanTunnelConfig,'fsMIDot1qFutureVlanTunnelConfigTable':fsMIDot1qFutureVlanTunnelConfigTable,'fsMIDot1qFutureVlanTunnelConfigEntry':fsMIDot1qFutureVlanTunnelConfigEntry,'fsMIDot1qFutureVlanBridgeMode':fsMIDot1qFutureVlanBridgeMode,'fsMIDot1qFutureVlanTunnelBpduPri':fsMIDot1qFutureVlanTunnelBpduPri,'fsMIDot1qFutureVlanTunnelTable':fsMIDot1qFutureVlanTunnelTable,'fsMIDot1qFutureVlanTunnelEntry':fsMIDot1qFutureVlanTunnelEntry,'fsMIDot1qFutureVlanTunnelStatus':fsMIDot1qFutureVlanTunnelStatus,'fsMIDot1qFutureVlanTunnelProtocolTable':fsMIDot1qFutureVlanTunnelProtocolTable,'fsMIDot1qFutureVlanTunnelProtocolEntry':fsMIDot1qFutureVlanTunnelProtocolEntry,'fsMIDot1qFutureVlanTunnelStpPDUs':fsMIDot1qFutureVlanTunnelStpPDUs,'fsMIDot1qFutureVlanTunnelStpPDUsRecvd':fsMIDot1qFutureVlanTunnelStpPDUsRecvd,'fsMIDot1qFutureVlanTunnelStpPDUsSent':fsMIDot1qFutureVlanTunnelStpPDUsSent,'fsMIDot1qFutureVlanTunnelGvrpPDUs':fsMIDot1qFutureVlanTunnelGvrpPDUs,'fsMIDot1qFutureVlanTunnelGvrpPDUsRecvd':fsMIDot1qFutureVlanTunnelGvrpPDUsRecvd,'fsMIDot1qFutureVlanTunnelGvrpPDUsSent':fsMIDot1qFutureVlanTunnelGvrpPDUsSent,'fsMIDot1qFutureVlanTunnelIgmpPkts':fsMIDot1qFutureVlanTunnelIgmpPkts,'fsMIDot1qFutureVlanTunnelIgmpPktsRecvd':fsMIDot1qFutureVlanTunnelIgmpPktsRecvd,'fsMIDot1qFutureVlanTunnelIgmpPktsSent':fsMIDot1qFutureVlanTunnelIgmpPktsSent,'fsMIDot1qFutureVlanTraps':fsMIDot1qFutureVlanTraps,'fsMIDot1qVlanTraps':fsMIDot1qVlanTraps,'fsMIDot1qFutureMacThresholdTrap':fsMIDot1qFutureMacThresholdTrap,'fsMIDot1qFutureSrcRelearnTrap':fsMIDot1qFutureSrcRelearnTrap,'fsMIDot1qFutureSwitchMacLimitTrap':fsMIDot1qFutureSwitchMacLimitTrap,'fsMIDot1qFutureVlanTrapControl':fsMIDot1qFutureVlanTrapControl})
+if mibBuilder.loadTexts: fsMIDot1qFuturePortVlanExtEntry.setStatus('current')
+fsMIDot1qFuturePortVlanFdbFlush = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 17, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFuturePortVlanFdbFlush.setStatus('current')
+fsMIDot1qFutureVlanLoopbackTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 120, 1, 18), )
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanLoopbackTable.setStatus('current')
+fsMIDot1qFutureVlanLoopbackEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 120, 1, 18, 1), ).setIndexNames((0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanContextId"), (0, "AricentMIVlan-MIB", "fsMIDot1qFutureVlanIndex"))
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanLoopbackEntry.setStatus('current')
+fsMIDot1qFutureVlanLoopbackStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 120, 1, 18, 1, 1), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIDot1qFutureVlanLoopbackStatus.setStatus('current')
+mibBuilder.exportSymbols("AricentMIVlan-MIB", fsMIDot1qFutureStaticUnicastExtnTable=fsMIDot1qFutureStaticUnicastExtnTable, fsMIDot1qFutureVlanPortAllowableTPID3=fsMIDot1qFutureVlanPortAllowableTPID3, fsMIDot1qFutureVlanPortType=fsMIDot1qFutureVlanPortType, fsMIDot1qFutureStVlanExtEntry=fsMIDot1qFutureStVlanExtEntry, fsMIDot1qFutureVlanDebug=fsMIDot1qFutureVlanDebug, fsMIDot1qFutureVlanGlobalsFdbFlush=fsMIDot1qFutureVlanGlobalsFdbFlush, fsMIDot1qFutureVlanPortSubnetMapARPOption=fsMIDot1qFutureVlanPortSubnetMapARPOption, fsMIDot1qFutureVlanPortSubnetMapExtRowStatus=fsMIDot1qFutureVlanPortSubnetMapExtRowStatus, fsMIDot1qFuturePortVlanExtTable=fsMIDot1qFuturePortVlanExtTable, fsMIDot1qFutureVlanPortSubnetMapExtEntry=fsMIDot1qFutureVlanPortSubnetMapExtEntry, fsMIDot1qFutureVlanPortGvrpLeaveInTxCount=fsMIDot1qFutureVlanPortGvrpLeaveInTxCount, fsMIDot1qFutureStVlanEgressEthertype=fsMIDot1qFutureStVlanEgressEthertype, fsMIDot1qFutureVlanHybridTypeDefault=fsMIDot1qFutureVlanHybridTypeDefault, fsMIDot1qFutureVlanTraps=fsMIDot1qFutureVlanTraps, fsMIDot1qFutureVlanCounterTxFrames=fsMIDot1qFutureVlanCounterTxFrames, fsMIDot1qFutureMacThresholdTrap=fsMIDot1qFutureMacThresholdTrap, fsMIDot1qFutureVlanPortGvrpJoinEmptyTxCount=fsMIDot1qFutureVlanPortGvrpJoinEmptyTxCount, fsMIDot1qFutureVlanBridgeMode=fsMIDot1qFutureVlanBridgeMode, fsMIDot1qFutureStVlanPVlanType=fsMIDot1qFutureStVlanPVlanType, fsMIDot1qFutureStaticConnectionIdentifier=fsMIDot1qFutureStaticConnectionIdentifier, fsMIDot1qFutureVlanCounterRxFrames=fsMIDot1qFutureVlanCounterRxFrames, fsMIDot1qFutureVlanOperMacLearningStatus=fsMIDot1qFutureVlanOperMacLearningStatus, fsMIDot1qFutureVlanPortGmrpLeaveEmptyTxCount=fsMIDot1qFutureVlanPortGmrpLeaveEmptyTxCount, fsMIDot1qFuturePortVlanExtEntry=fsMIDot1qFuturePortVlanExtEntry, fsMIDot1qFutureVlanPortAllowableTPID1=fsMIDot1qFutureVlanPortAllowableTPID1, fsMIDot1qFutureVlanPortGmrpEmptyTxCount=fsMIDot1qFutureVlanPortGmrpEmptyTxCount, fsMIDot1qFutureVlanPortSubnetMapExtMask=fsMIDot1qFutureVlanPortSubnetMapExtMask, fsMIDot1qFutureVlanPortTable=fsMIDot1qFutureVlanPortTable, fsMIDot1qFutureVlanSubnetBasedOnAllPorts=fsMIDot1qFutureVlanSubnetBasedOnAllPorts, fsMIDot1qFutureVlanPortSubnetBasedClassification=fsMIDot1qFutureVlanPortSubnetBasedClassification, fsMIDot1qFutureVlanPortMacMapAddr=fsMIDot1qFutureVlanPortMacMapAddr, fsMIDot1qFutureVlanTunnelGvrpPDUsSent=fsMIDot1qFutureVlanTunnelGvrpPDUsSent, fsMIDot1qFutureVlanPortGvrpDiscardCount=fsMIDot1qFutureVlanPortGvrpDiscardCount, fsMIDot1qFutureVlanTunnelIgmpPkts=fsMIDot1qFutureVlanTunnelIgmpPkts, fsMIDot1qFutureVlanPortEgressTPIDType=fsMIDot1qFutureVlanPortEgressTPIDType, fsMIDot1qFutureVlanWildCardPortEntry=fsMIDot1qFutureVlanWildCardPortEntry, fsMIDot1qFutureVlanMacBasedOnAllPorts=fsMIDot1qFutureVlanMacBasedOnAllPorts, fsMIDot1qFutureVlanOldTpFdbPort=fsMIDot1qFutureVlanOldTpFdbPort, fsMIDot1qFutureVlanContextId=fsMIDot1qFutureVlanContextId, fsMIDot1qFutureBaseBridgeMode=fsMIDot1qFutureBaseBridgeMode, fsMIDot1qFutureVlan=fsMIDot1qFutureVlan, fsMIDot1qFutureVlanLearningMode=fsMIDot1qFutureVlanLearningMode, fsMIDot1qFutureVlanPortGmrpLeaveInRxCount=fsMIDot1qFutureVlanPortGmrpLeaveInRxCount, fsMIDot1qFutureVlanTunnelGvrpPDUs=fsMIDot1qFutureVlanTunnelGvrpPDUs, fsMIDot1qFutureVlanPortSubnetMapAddr=fsMIDot1qFutureVlanPortSubnetMapAddr, futureMIVlanMIB=futureMIVlanMIB, fsMIDot1qFutureVlanShutdownStatus=fsMIDot1qFutureVlanShutdownStatus, fsMIDot1qFutureVlanUnicastMacLimit=fsMIDot1qFutureVlanUnicastMacLimit, fsMIDot1qFutureVlanPortEntry=fsMIDot1qFutureVlanPortEntry, fsMIDot1qFutureVlanPortFdbFlush=fsMIDot1qFutureVlanPortFdbFlush, fsMIDot1qFutureVlanPortSubnetMapRowStatus=fsMIDot1qFutureVlanPortSubnetMapRowStatus, fsMIDot1qFutureVlanUserDefinedTPID=fsMIDot1qFutureVlanUserDefinedTPID, fsMIDot1qFutureVlanPortStVlanList=fsMIDot1qFutureVlanPortStVlanList, fsMIDot1qFutureVlanPortGvrpJoinInTxCount=fsMIDot1qFutureVlanPortGvrpJoinInTxCount, fsMIDot1qFutureVlanWildCardEntry=fsMIDot1qFutureVlanWildCardEntry, fsMIDot1qFutureStaticUnicastExtnEntry=fsMIDot1qFutureStaticUnicastExtnEntry, fsMIDot1qFutureVlanTunnelConfig=fsMIDot1qFutureVlanTunnelConfig, fsMIDot1qFutureVlanTunnelGvrpPDUsRecvd=fsMIDot1qFutureVlanTunnelGvrpPDUsRecvd, fsMIDot1qFutureVlanWildCardRowStatus=fsMIDot1qFutureVlanWildCardRowStatus, fsMIDot1qFutureVlanPortSubnetMapExtARPOption=fsMIDot1qFutureVlanPortSubnetMapExtARPOption, fsMIDot1qFutureVlanPortMacMapRowStatus=fsMIDot1qFutureVlanPortMacMapRowStatus, fsMIDot1qFutureVlanPortGvrpLeaveAllRxCount=fsMIDot1qFutureVlanPortGvrpLeaveAllRxCount, fsMIDot1qFutureVlanTunnelEntry=fsMIDot1qFutureVlanTunnelEntry, fsMIDot1qFutureVlanPortSubnetMapVid=fsMIDot1qFutureVlanPortSubnetMapVid, fsMIDot1qFutureVlanPortGvrpLeaveInRxCount=fsMIDot1qFutureVlanPortGvrpLeaveInRxCount, fsMIDot1qFutureVlanTpFdbTable=fsMIDot1qFutureVlanTpFdbTable, fsMIDot1qFutureVlanCounterStatus=fsMIDot1qFutureVlanCounterStatus, fsMIDot1qFutureVlanGlobalTrace=fsMIDot1qFutureVlanGlobalTrace, fsMIDot1qFutureVlanPortGvrpEmptyTxCount=fsMIDot1qFutureVlanPortGvrpEmptyTxCount, MacLearningStatus=MacLearningStatus, fsMIDot1qFutureGmrpOperStatus=fsMIDot1qFutureGmrpOperStatus, fsMIDot1qFutureVlanCounterTable=fsMIDot1qFutureVlanCounterTable, fsMIDot1qFutureVlanIndex=fsMIDot1qFutureVlanIndex, fsMIDot1qFutureVlanPortSubnetMapEntry=fsMIDot1qFutureVlanPortSubnetMapEntry, fsMIDot1qFutureVlanPortGmrpJoinInTxCount=fsMIDot1qFutureVlanPortGmrpJoinInTxCount, fsMIDot1qFutureVlanPortGmrpLeaveEmptyRxCount=fsMIDot1qFutureVlanPortGmrpLeaveEmptyRxCount, fsMIDot1qFutureVlanLoopbackTable=fsMIDot1qFutureVlanLoopbackTable, fsMIDot1qFutureGarpShutdownStatus=fsMIDot1qFutureGarpShutdownStatus, fsMIDot1qVlanTraps=fsMIDot1qVlanTraps, fsMIDot1qFutureVlanPortGvrpEmptyRxCount=fsMIDot1qFutureVlanPortGvrpEmptyRxCount, fsMIDot1qFutureVlanTpFdbEntry=fsMIDot1qFutureVlanTpFdbEntry, fsMIDot1qFutureVlanUnicastMacControlEntry=fsMIDot1qFutureVlanUnicastMacControlEntry, fsMIDot1qFutureUnicastMacLearningLimit=fsMIDot1qFutureUnicastMacLearningLimit, fsMIDot1qFutureVlanPortGvrpLeaveEmptyRxCount=fsMIDot1qFutureVlanPortGvrpLeaveEmptyRxCount, fsMIDot1qFutureVlanUnicastMacControlTable=fsMIDot1qFutureVlanUnicastMacControlTable, fsMIDot1qFutureVlanLoopbackStatus=fsMIDot1qFutureVlanLoopbackStatus, fsMIDot1qFutureVlanApplyEnhancedFilteringCriteria=fsMIDot1qFutureVlanApplyEnhancedFilteringCriteria, fsMIDot1qFutureVlanGlobalsEntry=fsMIDot1qFutureVlanGlobalsEntry, fsMIDot1qFutureVlanPortClearGarpStats=fsMIDot1qFutureVlanPortClearGarpStats, fsMIDot1qFutureVlanPortGmrpEmptyRxCount=fsMIDot1qFutureVlanPortGmrpEmptyRxCount, fsMIDot1qFutureVlanAdminMacLearningStatus=fsMIDot1qFutureVlanAdminMacLearningStatus, fsMIDot1qFutureVlanCounterTxUcast=fsMIDot1qFutureVlanCounterTxUcast, PYSNMP_MODULE_ID=futureMIVlanMIB, fsMIDot1qFutureVlanPortGmrpJoinEmptyTxCount=fsMIDot1qFutureVlanPortGmrpJoinEmptyTxCount, EnabledStatus=EnabledStatus, fsMIDot1qFutureVlanPortGmrpJoinInRxCount=fsMIDot1qFutureVlanPortGmrpJoinInRxCount, fsMIDot1qFutureVlanPortAllowableTPID2=fsMIDot1qFutureVlanPortAllowableTPID2, fsMIDot1qFutureVlanPortMacMapName=fsMIDot1qFutureVlanPortMacMapName, fsMIDot1qFutureVlanPortGvrpLeaveAllTxCount=fsMIDot1qFutureVlanPortGvrpLeaveAllTxCount, fsMIDot1qFutureVlanPortStUntaggedVlan=fsMIDot1qFutureVlanPortStUntaggedVlan, fsMIDot1qFutureVlanPortGmrpLeaveInTxCount=fsMIDot1qFutureVlanPortGmrpLeaveInTxCount, fsMIDot1qFutureVlanFidMapTable=fsMIDot1qFutureVlanFidMapTable, fsMIDot1qFutureVlanPortEgressEtherType=fsMIDot1qFutureVlanPortEgressEtherType, fsMIDot1qFuturePortPacketReflectionStatus=fsMIDot1qFuturePortPacketReflectionStatus, fsMIDot1qFutureVlanTunnelIgmpPktsSent=fsMIDot1qFutureVlanTunnelIgmpPktsSent, fsMIDot1qFutureVlanCounterTxBytes=fsMIDot1qFutureVlanCounterTxBytes, fsMIDot1qFutureVlanFid=fsMIDot1qFutureVlanFid, fsMIDot1qFutureVlanTunnelProtocolTable=fsMIDot1qFutureVlanTunnelProtocolTable, fsMIDot1qFutureVlanPortMacMapTable=fsMIDot1qFutureVlanPortMacMapTable, fsMIDot1qFutureSrcRelearnTrap=fsMIDot1qFutureSrcRelearnTrap, fsMIDot1qFutureVlanGlobalMacLearningStatus=fsMIDot1qFutureVlanGlobalMacLearningStatus, fsMIDot1qFutureVlanPortGmrpJoinEmptyRxCount=fsMIDot1qFutureVlanPortGmrpJoinEmptyRxCount, fsMIDot1qFutureVlanTunnelBpduPri=fsMIDot1qFutureVlanTunnelBpduPri, fsMIDot1qFutureVlanWildCardTable=fsMIDot1qFutureVlanWildCardTable, fsMIDot1qFutureVlanPort=fsMIDot1qFutureVlanPort, fsMIDot1qFutureVlanPortGmrpLeaveAllRxCount=fsMIDot1qFutureVlanPortGmrpLeaveAllRxCount, fsMIDot1qFutureVlanPortMacMapVid=fsMIDot1qFutureVlanPortMacMapVid, fsMIDot1qFutureVlanCounterDiscardBytes=fsMIDot1qFutureVlanCounterDiscardBytes, fsMIDot1qFutureVlanPortGvrpJoinInRxCount=fsMIDot1qFutureVlanPortGvrpJoinInRxCount, fsMIDot1qFutureVlanPortSubnetMapExtVid=fsMIDot1qFutureVlanPortSubnetMapExtVid, fsMIDot1qFutureVlanGlobalsTable=fsMIDot1qFutureVlanGlobalsTable, fsMIDot1qFutureVlanTunnelStpPDUs=fsMIDot1qFutureVlanTunnelStpPDUs, fsMIDot1qFutureVlanCounterEntry=fsMIDot1qFutureVlanCounterEntry, fsMIDot1qFutureVlanWildCardPortTable=fsMIDot1qFutureVlanWildCardPortTable, fsMIDot1qFutureVlanPortIngressEtherType=fsMIDot1qFutureVlanPortIngressEtherType, fsMIDot1qFutureVlanCounterDiscardFrames=fsMIDot1qFutureVlanCounterDiscardFrames, fsMIDot1qFutureVlanTunnelIgmpPktsRecvd=fsMIDot1qFutureVlanTunnelIgmpPktsRecvd, fsMIDot1qFutureConnectionIdentifier=fsMIDot1qFutureConnectionIdentifier, fsMIDot1qFutureSwitchMacLimitTrap=fsMIDot1qFutureSwitchMacLimitTrap, fsMIDot1qFutureVlanPortGmrpLeaveAllTxCount=fsMIDot1qFutureVlanPortGmrpLeaveAllTxCount, fsMIDot1qFutureStVlanFdbFlush=fsMIDot1qFutureStVlanFdbFlush, fsMIDot1qFutureVlanCounterTxUnknUcast=fsMIDot1qFutureVlanCounterTxUnknUcast, fsMIDot1qFutureVlanPortGmrpDiscardCount=fsMIDot1qFutureVlanPortGmrpDiscardCount, fsMIDot1qFutureVlanCounterRxUcast=fsMIDot1qFutureVlanCounterRxUcast, fsMIDot1qFutureVlanPortMacBasedClassification=fsMIDot1qFutureVlanPortMacBasedClassification, fsMIDot1qFutureVlanStatus=fsMIDot1qFutureVlanStatus, fsMIDot1qFutureVlanCounterRxBytes=fsMIDot1qFutureVlanCounterRxBytes, fsMIDot1qFutureVlanPortSubnetMapExtTable=fsMIDot1qFutureVlanPortSubnetMapExtTable, fsMIDot1qFutureVlanRemoteFdbFlush=fsMIDot1qFutureVlanRemoteFdbFlush, fsMIDot1qFutureVlanPortPortProtoBasedClassification=fsMIDot1qFutureVlanPortPortProtoBasedClassification, fsMIDot1qFutureStVlanPrimaryVid=fsMIDot1qFutureStVlanPrimaryVid, fsMIDot1qFutureGvrpOperStatus=fsMIDot1qFutureGvrpOperStatus, fsMIDot1qFutureVlanPortGvrpJoinEmptyRxCount=fsMIDot1qFutureVlanPortGvrpJoinEmptyRxCount, fsMIDot1qFutureVlanTunnelStpPDUsRecvd=fsMIDot1qFutureVlanTunnelStpPDUsRecvd, fsMIDot1qFutureVlanTunnelTable=fsMIDot1qFutureVlanTunnelTable, fsMIDot1qFutureVlanPortSubnetMapExtAddr=fsMIDot1qFutureVlanPortSubnetMapExtAddr, fsMIDot1qFuturePortVlanFdbFlush=fsMIDot1qFuturePortVlanFdbFlush, fsMIDot1qFutureVlanIsWildCardEgressPort=fsMIDot1qFutureVlanIsWildCardEgressPort, fsMIDot1qFutureGarpGlobalTrace=fsMIDot1qFutureGarpGlobalTrace, fsMIDot1qFutureVlanTunnelStpPDUsSent=fsMIDot1qFutureVlanTunnelStpPDUsSent, fsMIDot1qFutureVlanPortProtected=fsMIDot1qFutureVlanPortProtected, fsMIDot1qFutureVlanTunnelProtocolEntry=fsMIDot1qFutureVlanTunnelProtocolEntry, fsMIDot1qFutureVlanContextName=fsMIDot1qFutureVlanContextName, fsMIDot1qFutureGarpDebug=fsMIDot1qFutureGarpDebug, fsMIDot1qFutureVlanFilteringUtilityCriteria=fsMIDot1qFutureVlanFilteringUtilityCriteria, fsMIDot1qFutureVlanSwStatsEnabled=fsMIDot1qFutureVlanSwStatsEnabled, fsMIDot1qFutureVlanPortGvrpLeaveEmptyTxCount=fsMIDot1qFutureVlanPortGvrpLeaveEmptyTxCount, fsMIDot1qFutureVlanTunnelConfigEntry=fsMIDot1qFutureVlanTunnelConfigEntry, fsMIDot1qFutureVlanLoopbackEntry=fsMIDot1qFutureVlanLoopbackEntry, fsMIDot1qFutureVlanCounterRxMcastBcast=fsMIDot1qFutureVlanCounterRxMcastBcast, fsMIDot1qFutureVlanPortMacMapMcastBcastOption=fsMIDot1qFutureVlanPortMacMapMcastBcastOption, fsMIDot1qFutureVlanTunnelStatus=fsMIDot1qFutureVlanTunnelStatus, fsMIDot1qFutureVlanPortProtoBasedOnAllPorts=fsMIDot1qFutureVlanPortProtoBasedOnAllPorts, fsMIDot1qFutureVlanTunnelConfigTable=fsMIDot1qFutureVlanTunnelConfigTable, fsMIDot1qFutureVlanTrapControl=fsMIDot1qFutureVlanTrapControl, fsMIDot1qFutureVlanWildCardMacAddress=fsMIDot1qFutureVlanWildCardMacAddress, fsMIDot1qFutureVlanPortSubnetMapTable=fsMIDot1qFutureVlanPortSubnetMapTable, fsMIDot1qFutureVlanPortMacMapEntry=fsMIDot1qFutureVlanPortMacMapEntry, fsMIDot1qFutureVlanOperStatus=fsMIDot1qFutureVlanOperStatus, fsMIDot1qFutureVlanPortUnicastMacLearning=fsMIDot1qFutureVlanPortUnicastMacLearning, fsMIDot1qFutureVlanCounterTxBcast=fsMIDot1qFutureVlanCounterTxBcast, fsMIDot1qFutureStVlanExtTable=fsMIDot1qFutureStVlanExtTable, fsMIDot1qFutureVlanPortUnicastMacSecType=fsMIDot1qFutureVlanPortUnicastMacSecType, fsMIDot1qFutureVlanFidMapEntry=fsMIDot1qFutureVlanFidMapEntry, VlanId=VlanId)

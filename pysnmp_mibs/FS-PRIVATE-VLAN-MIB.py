@@ -1,182 +1,103 @@
-_Z='fspvlanSVIGroup'
-_Y='fspvlanPortModeGroup'
-_X='fspvlanPromPortGroup'
-_W='fspvlanPrivatePortGroup'
-_V='fspvlanVlanGroup'
-_U='fspvlanSVIMappingPrimarySVI'
-_T='fspvlanPortMode'
-_S='fspvlanPromPortSecondaryRemap4k'
-_R='fspvlanPromPortSecondaryRemap3k'
-_Q='fspvlanPromPortSecondaryRemap2k'
-_P='fspvlanPromPortSecondaryRemap'
-_O='fspvlanPrivatePortSecondaryVlan'
-_N='fspvlanIfAssociatedPrimaryVlan'
-_M='fspvlanVlanAssociatedPrimaryVlan'
-_L='fspvlanVlanPrivateVlanType'
-_K='fspvlanSVIMappingVlanIndex'
-_J='Integer32'
-_I='fspvlanPrivatePortPrimaryVlan'
-_H='read-create'
-_G='fspvlanVlanIndex'
-_F='ifIndex'
-_E='IF-MIB'
-_D='OctetString'
-_C='read-write'
-_B='FS-PRIVATE-VLAN-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-fsMgmt,=mibBuilder.importSymbols('FS-SMI','fsMgmt')
-ifIndex,=mibBuilder.importSymbols(_E,_F)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_J,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-fsPrivateVlanMIB=ModuleIdentity((1,3,6,1,4,1,52642,1,1,10,2,44))
-if mibBuilder.loadTexts:fsPrivateVlanMIB.setRevisions(('2009-03-01 00:00',))
-class PrivateVlanType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('normal',1),('primary',2),('isolated',3),('community',4)))
-class VlanIndexOrZero(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
-_FspvlanMIBObjects_ObjectIdentity=ObjectIdentity
-fspvlanMIBObjects=_FspvlanMIBObjects_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,44,1))
-_FspvlanVlanObjects_ObjectIdentity=ObjectIdentity
-fspvlanVlanObjects=_FspvlanVlanObjects_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,44,1,1))
-_FspvlanVlanTable_Object=MibTable
-fspvlanVlanTable=_FspvlanVlanTable_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,1,1))
-if mibBuilder.loadTexts:fspvlanVlanTable.setStatus(_A)
-_FspvlanVlanEntry_Object=MibTableRow
-fspvlanVlanEntry=_FspvlanVlanEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,1,1,1))
-fspvlanVlanEntry.setIndexNames((0,_B,_G))
-if mibBuilder.loadTexts:fspvlanVlanEntry.setStatus(_A)
-_FspvlanVlanIndex_Type=VlanIndexOrZero
-_FspvlanVlanIndex_Object=MibTableColumn
-fspvlanVlanIndex=_FspvlanVlanIndex_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,1,1,1,1),_FspvlanVlanIndex_Type())
-fspvlanVlanIndex.setMaxAccess('read-only')
-if mibBuilder.loadTexts:fspvlanVlanIndex.setStatus(_A)
-_FspvlanVlanPrivateVlanType_Type=PrivateVlanType
-_FspvlanVlanPrivateVlanType_Object=MibTableColumn
-fspvlanVlanPrivateVlanType=_FspvlanVlanPrivateVlanType_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,1,1,1,2),_FspvlanVlanPrivateVlanType_Type())
-fspvlanVlanPrivateVlanType.setMaxAccess(_H)
-if mibBuilder.loadTexts:fspvlanVlanPrivateVlanType.setStatus(_A)
-_FspvlanVlanAssociatedPrimaryVlan_Type=VlanIndexOrZero
-_FspvlanVlanAssociatedPrimaryVlan_Object=MibTableColumn
-fspvlanVlanAssociatedPrimaryVlan=_FspvlanVlanAssociatedPrimaryVlan_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,1,1,1,3),_FspvlanVlanAssociatedPrimaryVlan_Type())
-fspvlanVlanAssociatedPrimaryVlan.setMaxAccess(_H)
-if mibBuilder.loadTexts:fspvlanVlanAssociatedPrimaryVlan.setStatus(_A)
-_FspvlanIfAssociatedPrimaryVlan_Type=TruthValue
-_FspvlanIfAssociatedPrimaryVlan_Object=MibTableColumn
-fspvlanIfAssociatedPrimaryVlan=_FspvlanIfAssociatedPrimaryVlan_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,1,1,1,4),_FspvlanIfAssociatedPrimaryVlan_Type())
-fspvlanIfAssociatedPrimaryVlan.setMaxAccess(_H)
-if mibBuilder.loadTexts:fspvlanIfAssociatedPrimaryVlan.setStatus(_A)
-_FspvlanPortObjects_ObjectIdentity=ObjectIdentity
-fspvlanPortObjects=_FspvlanPortObjects_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,44,1,2))
-_FspvlanPrivatePortTable_Object=MibTable
-fspvlanPrivatePortTable=_FspvlanPrivatePortTable_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,2,1))
-if mibBuilder.loadTexts:fspvlanPrivatePortTable.setStatus(_A)
-_FspvlanPrivatePortEntry_Object=MibTableRow
-fspvlanPrivatePortEntry=_FspvlanPrivatePortEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,2,1,1))
-fspvlanPrivatePortEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:fspvlanPrivatePortEntry.setStatus(_A)
-_FspvlanPrivatePortPrimaryVlan_Type=VlanIndexOrZero
-_FspvlanPrivatePortPrimaryVlan_Object=MibTableColumn
-fspvlanPrivatePortPrimaryVlan=_FspvlanPrivatePortPrimaryVlan_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,2,1,1,1),_FspvlanPrivatePortPrimaryVlan_Type())
-fspvlanPrivatePortPrimaryVlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:fspvlanPrivatePortPrimaryVlan.setStatus(_A)
-_FspvlanPrivatePortSecondaryVlan_Type=VlanIndexOrZero
-_FspvlanPrivatePortSecondaryVlan_Object=MibTableColumn
-fspvlanPrivatePortSecondaryVlan=_FspvlanPrivatePortSecondaryVlan_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,2,1,1,2),_FspvlanPrivatePortSecondaryVlan_Type())
-fspvlanPrivatePortSecondaryVlan.setMaxAccess(_C)
-if mibBuilder.loadTexts:fspvlanPrivatePortSecondaryVlan.setStatus(_A)
-_FspvlanPromPortTable_Object=MibTable
-fspvlanPromPortTable=_FspvlanPromPortTable_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,2,2))
-if mibBuilder.loadTexts:fspvlanPromPortTable.setStatus(_A)
-_FspvlanPromPortEntry_Object=MibTableRow
-fspvlanPromPortEntry=_FspvlanPromPortEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,2,2,1))
-fspvlanPromPortEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:fspvlanPromPortEntry.setStatus(_A)
-_FspvlanPrivatePortPrimaryVlanId_Type=VlanIndexOrZero
-_FspvlanPrivatePortPrimaryVlanId_Object=MibTableColumn
-fspvlanPrivatePortPrimaryVlanId=_FspvlanPrivatePortPrimaryVlanId_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,2,2,1,1),_FspvlanPrivatePortPrimaryVlanId_Type())
-fspvlanPrivatePortPrimaryVlanId.setMaxAccess(_C)
-if mibBuilder.loadTexts:fspvlanPrivatePortPrimaryVlanId.setStatus(_A)
-class _FspvlanPromPortSecondaryRemap_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_FspvlanPromPortSecondaryRemap_Type.__name__=_D
-_FspvlanPromPortSecondaryRemap_Object=MibTableColumn
-fspvlanPromPortSecondaryRemap=_FspvlanPromPortSecondaryRemap_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,2,2,1,2),_FspvlanPromPortSecondaryRemap_Type())
-fspvlanPromPortSecondaryRemap.setMaxAccess(_C)
-if mibBuilder.loadTexts:fspvlanPromPortSecondaryRemap.setStatus(_A)
-class _FspvlanPromPortSecondaryRemap2k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_FspvlanPromPortSecondaryRemap2k_Type.__name__=_D
-_FspvlanPromPortSecondaryRemap2k_Object=MibTableColumn
-fspvlanPromPortSecondaryRemap2k=_FspvlanPromPortSecondaryRemap2k_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,2,2,1,3),_FspvlanPromPortSecondaryRemap2k_Type())
-fspvlanPromPortSecondaryRemap2k.setMaxAccess(_C)
-if mibBuilder.loadTexts:fspvlanPromPortSecondaryRemap2k.setStatus(_A)
-class _FspvlanPromPortSecondaryRemap3k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_FspvlanPromPortSecondaryRemap3k_Type.__name__=_D
-_FspvlanPromPortSecondaryRemap3k_Object=MibTableColumn
-fspvlanPromPortSecondaryRemap3k=_FspvlanPromPortSecondaryRemap3k_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,2,2,1,4),_FspvlanPromPortSecondaryRemap3k_Type())
-fspvlanPromPortSecondaryRemap3k.setMaxAccess(_C)
-if mibBuilder.loadTexts:fspvlanPromPortSecondaryRemap3k.setStatus(_A)
-class _FspvlanPromPortSecondaryRemap4k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
-_FspvlanPromPortSecondaryRemap4k_Type.__name__=_D
-_FspvlanPromPortSecondaryRemap4k_Object=MibTableColumn
-fspvlanPromPortSecondaryRemap4k=_FspvlanPromPortSecondaryRemap4k_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,2,2,1,5),_FspvlanPromPortSecondaryRemap4k_Type())
-fspvlanPromPortSecondaryRemap4k.setMaxAccess(_C)
-if mibBuilder.loadTexts:fspvlanPromPortSecondaryRemap4k.setStatus(_A)
-_FspvlanPortModeTable_Object=MibTable
-fspvlanPortModeTable=_FspvlanPortModeTable_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,2,3))
-if mibBuilder.loadTexts:fspvlanPortModeTable.setStatus(_A)
-_FspvlanPortModeEntry_Object=MibTableRow
-fspvlanPortModeEntry=_FspvlanPortModeEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,2,3,1))
-fspvlanPortModeEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:fspvlanPortModeEntry.setStatus(_A)
-class _FspvlanPortMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('nonPrivateVlan',1),('host',2),('promiscuous',3)))
-_FspvlanPortMode_Type.__name__=_J
-_FspvlanPortMode_Object=MibTableColumn
-fspvlanPortMode=_FspvlanPortMode_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,2,3,1,1),_FspvlanPortMode_Type())
-fspvlanPortMode.setMaxAccess(_C)
-if mibBuilder.loadTexts:fspvlanPortMode.setStatus(_A)
-_FspvlanSVIObjects_ObjectIdentity=ObjectIdentity
-fspvlanSVIObjects=_FspvlanSVIObjects_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,44,1,3))
-_FspvlanSVIMappingTable_Object=MibTable
-fspvlanSVIMappingTable=_FspvlanSVIMappingTable_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,3,1))
-if mibBuilder.loadTexts:fspvlanSVIMappingTable.setStatus(_A)
-_FspvlanSVIMappingEntry_Object=MibTableRow
-fspvlanSVIMappingEntry=_FspvlanSVIMappingEntry_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,3,1,1))
-fspvlanSVIMappingEntry.setIndexNames((0,_B,_K))
-if mibBuilder.loadTexts:fspvlanSVIMappingEntry.setStatus(_A)
-_FspvlanSVIMappingVlanIndex_Type=VlanIndexOrZero
-_FspvlanSVIMappingVlanIndex_Object=MibTableColumn
-fspvlanSVIMappingVlanIndex=_FspvlanSVIMappingVlanIndex_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,3,1,1,1),_FspvlanSVIMappingVlanIndex_Type())
-fspvlanSVIMappingVlanIndex.setMaxAccess('not-accessible')
-if mibBuilder.loadTexts:fspvlanSVIMappingVlanIndex.setStatus(_A)
-_FspvlanSVIMappingPrimarySVI_Type=VlanIndexOrZero
-_FspvlanSVIMappingPrimarySVI_Object=MibTableColumn
-fspvlanSVIMappingPrimarySVI=_FspvlanSVIMappingPrimarySVI_Object((1,3,6,1,4,1,52642,1,1,10,2,44,1,3,1,1,2),_FspvlanSVIMappingPrimarySVI_Type())
-fspvlanSVIMappingPrimarySVI.setMaxAccess(_C)
-if mibBuilder.loadTexts:fspvlanSVIMappingPrimarySVI.setStatus(_A)
-_FspvlanMIBConformance_ObjectIdentity=ObjectIdentity
-fspvlanMIBConformance=_FspvlanMIBConformance_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,44,2))
-_FspvlanMIBCompliances_ObjectIdentity=ObjectIdentity
-fspvlanMIBCompliances=_FspvlanMIBCompliances_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,44,2,1))
-_FspvlanMIBGroups_ObjectIdentity=ObjectIdentity
-fspvlanMIBGroups=_FspvlanMIBGroups_ObjectIdentity((1,3,6,1,4,1,52642,1,1,10,2,44,2,2))
-fspvlanVlanGroup=ObjectGroup((1,3,6,1,4,1,52642,1,1,10,2,44,2,2,1))
-fspvlanVlanGroup.setObjects(*((_B,_G),(_B,_L),(_B,_M),(_B,_N)))
-if mibBuilder.loadTexts:fspvlanVlanGroup.setStatus(_A)
-fspvlanPrivatePortGroup=ObjectGroup((1,3,6,1,4,1,52642,1,1,10,2,44,2,2,2))
-fspvlanPrivatePortGroup.setObjects(*((_B,_I),(_B,_O)))
-if mibBuilder.loadTexts:fspvlanPrivatePortGroup.setStatus(_A)
-fspvlanPromPortGroup=ObjectGroup((1,3,6,1,4,1,52642,1,1,10,2,44,2,2,3))
-fspvlanPromPortGroup.setObjects(*((_B,_I),(_B,_P),(_B,_Q),(_B,_R),(_B,_S)))
-if mibBuilder.loadTexts:fspvlanPromPortGroup.setStatus(_A)
-fspvlanPortModeGroup=ObjectGroup((1,3,6,1,4,1,52642,1,1,10,2,44,2,2,4))
-fspvlanPortModeGroup.setObjects((_B,_T))
-if mibBuilder.loadTexts:fspvlanPortModeGroup.setStatus(_A)
-fspvlanSVIGroup=ObjectGroup((1,3,6,1,4,1,52642,1,1,10,2,44,2,2,5))
-fspvlanSVIGroup.setObjects((_B,_U))
-if mibBuilder.loadTexts:fspvlanSVIGroup.setStatus(_A)
-fspvlanMIBCompliance=ModuleCompliance((1,3,6,1,4,1,52642,1,1,10,2,44,2,1,1))
-fspvlanMIBCompliance.setObjects(*((_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z)))
-if mibBuilder.loadTexts:fspvlanMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'PrivateVlanType':PrivateVlanType,'VlanIndexOrZero':VlanIndexOrZero,'fsPrivateVlanMIB':fsPrivateVlanMIB,'fspvlanMIBObjects':fspvlanMIBObjects,'fspvlanVlanObjects':fspvlanVlanObjects,'fspvlanVlanTable':fspvlanVlanTable,'fspvlanVlanEntry':fspvlanVlanEntry,_G:fspvlanVlanIndex,_L:fspvlanVlanPrivateVlanType,_M:fspvlanVlanAssociatedPrimaryVlan,_N:fspvlanIfAssociatedPrimaryVlan,'fspvlanPortObjects':fspvlanPortObjects,'fspvlanPrivatePortTable':fspvlanPrivatePortTable,'fspvlanPrivatePortEntry':fspvlanPrivatePortEntry,_I:fspvlanPrivatePortPrimaryVlan,_O:fspvlanPrivatePortSecondaryVlan,'fspvlanPromPortTable':fspvlanPromPortTable,'fspvlanPromPortEntry':fspvlanPromPortEntry,'fspvlanPrivatePortPrimaryVlanId':fspvlanPrivatePortPrimaryVlanId,_P:fspvlanPromPortSecondaryRemap,_Q:fspvlanPromPortSecondaryRemap2k,_R:fspvlanPromPortSecondaryRemap3k,_S:fspvlanPromPortSecondaryRemap4k,'fspvlanPortModeTable':fspvlanPortModeTable,'fspvlanPortModeEntry':fspvlanPortModeEntry,_T:fspvlanPortMode,'fspvlanSVIObjects':fspvlanSVIObjects,'fspvlanSVIMappingTable':fspvlanSVIMappingTable,'fspvlanSVIMappingEntry':fspvlanSVIMappingEntry,_K:fspvlanSVIMappingVlanIndex,_U:fspvlanSVIMappingPrimarySVI,'fspvlanMIBConformance':fspvlanMIBConformance,'fspvlanMIBCompliances':fspvlanMIBCompliances,'fspvlanMIBCompliance':fspvlanMIBCompliance,'fspvlanMIBGroups':fspvlanMIBGroups,_V:fspvlanVlanGroup,_W:fspvlanPrivatePortGroup,_X:fspvlanPromPortGroup,_Y:fspvlanPortModeGroup,_Z:fspvlanSVIGroup})
+#
+# PySNMP MIB module FS-PRIVATE-VLAN-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/fscom/FS-PRIVATE-VLAN-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:58:31 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+fsPrivateVlanMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44))
+fsPrivateVlanMIB.setRevisions(('2009-03-01 00:00',))
+if mibBuilder.loadTexts: fsPrivateVlanMIB.setLastUpdated('200903230000Z')
+if mibBuilder.loadTexts: fsPrivateVlanMIB.setOrganization('FS.COM Inc..')
+class PrivateVlanType(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("normal", 1), ("primary", 2), ("isolated", 3), ("community", 4))
+
+class VlanIndexOrZero(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 4095)
+
+fspvlanMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1))
+fspvlanVlanObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 1))
+fspvlanPortObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 2))
+fspvlanSVIObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 3))
+fspvlanVlanTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 1, 1), )
+if mibBuilder.loadTexts: fspvlanVlanTable.setStatus('current')
+fspvlanVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 1, 1, 1), ).setIndexNames((0, "FS-PRIVATE-VLAN-MIB", "fspvlanVlanIndex"))
+if mibBuilder.loadTexts: fspvlanVlanEntry.setStatus('current')
+fspvlanVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 1, 1, 1, 1), VlanIndexOrZero()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fspvlanVlanIndex.setStatus('current')
+fspvlanVlanPrivateVlanType = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 1, 1, 1, 2), PrivateVlanType()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fspvlanVlanPrivateVlanType.setStatus('current')
+fspvlanVlanAssociatedPrimaryVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 1, 1, 1, 3), VlanIndexOrZero()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fspvlanVlanAssociatedPrimaryVlan.setStatus('current')
+fspvlanIfAssociatedPrimaryVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 1, 1, 1, 4), TruthValue()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: fspvlanIfAssociatedPrimaryVlan.setStatus('current')
+fspvlanPrivatePortTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 2, 1), )
+if mibBuilder.loadTexts: fspvlanPrivatePortTable.setStatus('current')
+fspvlanPrivatePortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: fspvlanPrivatePortEntry.setStatus('current')
+fspvlanPrivatePortPrimaryVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 2, 1, 1, 1), VlanIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fspvlanPrivatePortPrimaryVlan.setStatus('current')
+fspvlanPrivatePortSecondaryVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 2, 1, 1, 2), VlanIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fspvlanPrivatePortSecondaryVlan.setStatus('current')
+fspvlanPromPortTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 2, 2), )
+if mibBuilder.loadTexts: fspvlanPromPortTable.setStatus('current')
+fspvlanPromPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: fspvlanPromPortEntry.setStatus('current')
+fspvlanPrivatePortPrimaryVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 2, 2, 1, 1), VlanIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fspvlanPrivatePortPrimaryVlanId.setStatus('current')
+fspvlanPromPortSecondaryRemap = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 2, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fspvlanPromPortSecondaryRemap.setStatus('current')
+fspvlanPromPortSecondaryRemap2k = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 2, 2, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fspvlanPromPortSecondaryRemap2k.setStatus('current')
+fspvlanPromPortSecondaryRemap3k = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 2, 2, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fspvlanPromPortSecondaryRemap3k.setStatus('current')
+fspvlanPromPortSecondaryRemap4k = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 2, 2, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fspvlanPromPortSecondaryRemap4k.setStatus('current')
+fspvlanPortModeTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 2, 3), )
+if mibBuilder.loadTexts: fspvlanPortModeTable.setStatus('current')
+fspvlanPortModeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 2, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: fspvlanPortModeEntry.setStatus('current')
+fspvlanPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("nonPrivateVlan", 1), ("host", 2), ("promiscuous", 3)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fspvlanPortMode.setStatus('current')
+fspvlanSVIMappingTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 3, 1), )
+if mibBuilder.loadTexts: fspvlanSVIMappingTable.setStatus('current')
+fspvlanSVIMappingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 3, 1, 1), ).setIndexNames((0, "FS-PRIVATE-VLAN-MIB", "fspvlanSVIMappingVlanIndex"))
+if mibBuilder.loadTexts: fspvlanSVIMappingEntry.setStatus('current')
+fspvlanSVIMappingVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 3, 1, 1, 1), VlanIndexOrZero())
+if mibBuilder.loadTexts: fspvlanSVIMappingVlanIndex.setStatus('current')
+fspvlanSVIMappingPrimarySVI = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 1, 3, 1, 1, 2), VlanIndexOrZero()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fspvlanSVIMappingPrimarySVI.setStatus('current')
+fspvlanMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 2))
+fspvlanMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 2, 1))
+fspvlanMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 2, 2))
+fspvlanMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 2, 1, 1)).setObjects(("FS-PRIVATE-VLAN-MIB", "fspvlanVlanGroup"), ("FS-PRIVATE-VLAN-MIB", "fspvlanPrivatePortGroup"), ("FS-PRIVATE-VLAN-MIB", "fspvlanPromPortGroup"), ("FS-PRIVATE-VLAN-MIB", "fspvlanPortModeGroup"), ("FS-PRIVATE-VLAN-MIB", "fspvlanSVIGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fspvlanMIBCompliance = fspvlanMIBCompliance.setStatus('current')
+fspvlanVlanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 2, 2, 1)).setObjects(("FS-PRIVATE-VLAN-MIB", "fspvlanVlanIndex"), ("FS-PRIVATE-VLAN-MIB", "fspvlanVlanPrivateVlanType"), ("FS-PRIVATE-VLAN-MIB", "fspvlanVlanAssociatedPrimaryVlan"), ("FS-PRIVATE-VLAN-MIB", "fspvlanIfAssociatedPrimaryVlan"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fspvlanVlanGroup = fspvlanVlanGroup.setStatus('current')
+fspvlanPrivatePortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 2, 2, 2)).setObjects(("FS-PRIVATE-VLAN-MIB", "fspvlanPrivatePortPrimaryVlan"), ("FS-PRIVATE-VLAN-MIB", "fspvlanPrivatePortSecondaryVlan"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fspvlanPrivatePortGroup = fspvlanPrivatePortGroup.setStatus('current')
+fspvlanPromPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 2, 2, 3)).setObjects(("FS-PRIVATE-VLAN-MIB", "fspvlanPrivatePortPrimaryVlan"), ("FS-PRIVATE-VLAN-MIB", "fspvlanPromPortSecondaryRemap"), ("FS-PRIVATE-VLAN-MIB", "fspvlanPromPortSecondaryRemap2k"), ("FS-PRIVATE-VLAN-MIB", "fspvlanPromPortSecondaryRemap3k"), ("FS-PRIVATE-VLAN-MIB", "fspvlanPromPortSecondaryRemap4k"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fspvlanPromPortGroup = fspvlanPromPortGroup.setStatus('current')
+fspvlanPortModeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 2, 2, 4)).setObjects(("FS-PRIVATE-VLAN-MIB", "fspvlanPortMode"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fspvlanPortModeGroup = fspvlanPortModeGroup.setStatus('current')
+fspvlanSVIGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 44, 2, 2, 5)).setObjects(("FS-PRIVATE-VLAN-MIB", "fspvlanSVIMappingPrimarySVI"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    fspvlanSVIGroup = fspvlanSVIGroup.setStatus('current')
+mibBuilder.exportSymbols("FS-PRIVATE-VLAN-MIB", VlanIndexOrZero=VlanIndexOrZero, fspvlanPortModeTable=fspvlanPortModeTable, PYSNMP_MODULE_ID=fsPrivateVlanMIB, fspvlanVlanTable=fspvlanVlanTable, fspvlanPromPortSecondaryRemap3k=fspvlanPromPortSecondaryRemap3k, fspvlanMIBGroups=fspvlanMIBGroups, fspvlanMIBCompliance=fspvlanMIBCompliance, fspvlanIfAssociatedPrimaryVlan=fspvlanIfAssociatedPrimaryVlan, fspvlanSVIObjects=fspvlanSVIObjects, fspvlanPortMode=fspvlanPortMode, fspvlanPrivatePortGroup=fspvlanPrivatePortGroup, fspvlanPromPortGroup=fspvlanPromPortGroup, fspvlanPromPortSecondaryRemap4k=fspvlanPromPortSecondaryRemap4k, fspvlanMIBConformance=fspvlanMIBConformance, fspvlanPromPortSecondaryRemap2k=fspvlanPromPortSecondaryRemap2k, fspvlanSVIMappingEntry=fspvlanSVIMappingEntry, fspvlanPrivatePortPrimaryVlanId=fspvlanPrivatePortPrimaryVlanId, fspvlanMIBObjects=fspvlanMIBObjects, fspvlanSVIMappingTable=fspvlanSVIMappingTable, fspvlanSVIMappingVlanIndex=fspvlanSVIMappingVlanIndex, fspvlanVlanAssociatedPrimaryVlan=fspvlanVlanAssociatedPrimaryVlan, fspvlanVlanEntry=fspvlanVlanEntry, fspvlanVlanObjects=fspvlanVlanObjects, fspvlanPortObjects=fspvlanPortObjects, fspvlanMIBCompliances=fspvlanMIBCompliances, fspvlanPrivatePortTable=fspvlanPrivatePortTable, fspvlanPromPortSecondaryRemap=fspvlanPromPortSecondaryRemap, fsPrivateVlanMIB=fsPrivateVlanMIB, fspvlanVlanGroup=fspvlanVlanGroup, PrivateVlanType=PrivateVlanType, fspvlanVlanPrivateVlanType=fspvlanVlanPrivateVlanType, fspvlanPortModeEntry=fspvlanPortModeEntry, fspvlanPortModeGroup=fspvlanPortModeGroup, fspvlanPrivatePortPrimaryVlan=fspvlanPrivatePortPrimaryVlan, fspvlanPromPortTable=fspvlanPromPortTable, fspvlanSVIGroup=fspvlanSVIGroup, fspvlanSVIMappingPrimarySVI=fspvlanSVIMappingPrimarySVI, fspvlanVlanIndex=fspvlanVlanIndex, fspvlanPrivatePortSecondaryVlan=fspvlanPrivatePortSecondaryVlan, fspvlanPrivatePortEntry=fspvlanPrivatePortEntry, fspvlanPromPortEntry=fspvlanPromPortEntry)

@@ -1,83 +1,53 @@
-_M='mplsLcFrStdInterfaceConfStorageType'
-_L='mplsLcFrStdInterfaceConfRowStatus'
-_K='mplsLcFrStdCtrlMaxDlci'
-_J='mplsLcFrStdCtrlMinDlci'
-_I='mplsLcFrStdTrafficMaxDlci'
-_H='mplsLcFrStdTrafficMinDlci'
-_G='StorageType'
-_F='mplsInterfaceIndex'
-_E='MPLS-LSR-STD-MIB'
-_D='mplsLcFrStdIfGroup'
-_C='read-create'
-_B='MPLS-LC-FR-STD-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-DLCI,=mibBuilder.importSymbols('FRAME-RELAY-DTE-MIB','DLCI')
-mplsInterfaceIndex,=mibBuilder.importSymbols(_E,_F)
-mplsStdMIB,=mibBuilder.importSymbols('MPLS-TC-STD-MIB','mplsStdMIB')
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_G,'TextualConvention')
-mplsLcFrStdMIB=ModuleIdentity((1,3,6,1,2,1,10,166,10))
-if mibBuilder.loadTexts:mplsLcFrStdMIB.setRevisions(('2006-01-12 00:00',))
-_MplsLcFrStdNotifications_ObjectIdentity=ObjectIdentity
-mplsLcFrStdNotifications=_MplsLcFrStdNotifications_ObjectIdentity((1,3,6,1,2,1,10,166,10,0))
-_MplsLcFrStdObjects_ObjectIdentity=ObjectIdentity
-mplsLcFrStdObjects=_MplsLcFrStdObjects_ObjectIdentity((1,3,6,1,2,1,10,166,10,1))
-_MplsLcFrStdInterfaceConfTable_Object=MibTable
-mplsLcFrStdInterfaceConfTable=_MplsLcFrStdInterfaceConfTable_Object((1,3,6,1,2,1,10,166,10,1,1))
-if mibBuilder.loadTexts:mplsLcFrStdInterfaceConfTable.setStatus(_A)
-_MplsLcFrStdInterfaceConfEntry_Object=MibTableRow
-mplsLcFrStdInterfaceConfEntry=_MplsLcFrStdInterfaceConfEntry_Object((1,3,6,1,2,1,10,166,10,1,1,1))
-mplsLcFrStdInterfaceConfEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:mplsLcFrStdInterfaceConfEntry.setStatus(_A)
-_MplsLcFrStdTrafficMinDlci_Type=DLCI
-_MplsLcFrStdTrafficMinDlci_Object=MibTableColumn
-mplsLcFrStdTrafficMinDlci=_MplsLcFrStdTrafficMinDlci_Object((1,3,6,1,2,1,10,166,10,1,1,1,1),_MplsLcFrStdTrafficMinDlci_Type())
-mplsLcFrStdTrafficMinDlci.setMaxAccess(_C)
-if mibBuilder.loadTexts:mplsLcFrStdTrafficMinDlci.setStatus(_A)
-_MplsLcFrStdTrafficMaxDlci_Type=DLCI
-_MplsLcFrStdTrafficMaxDlci_Object=MibTableColumn
-mplsLcFrStdTrafficMaxDlci=_MplsLcFrStdTrafficMaxDlci_Object((1,3,6,1,2,1,10,166,10,1,1,1,2),_MplsLcFrStdTrafficMaxDlci_Type())
-mplsLcFrStdTrafficMaxDlci.setMaxAccess(_C)
-if mibBuilder.loadTexts:mplsLcFrStdTrafficMaxDlci.setStatus(_A)
-_MplsLcFrStdCtrlMinDlci_Type=DLCI
-_MplsLcFrStdCtrlMinDlci_Object=MibTableColumn
-mplsLcFrStdCtrlMinDlci=_MplsLcFrStdCtrlMinDlci_Object((1,3,6,1,2,1,10,166,10,1,1,1,3),_MplsLcFrStdCtrlMinDlci_Type())
-mplsLcFrStdCtrlMinDlci.setMaxAccess(_C)
-if mibBuilder.loadTexts:mplsLcFrStdCtrlMinDlci.setStatus(_A)
-_MplsLcFrStdCtrlMaxDlci_Type=DLCI
-_MplsLcFrStdCtrlMaxDlci_Object=MibTableColumn
-mplsLcFrStdCtrlMaxDlci=_MplsLcFrStdCtrlMaxDlci_Object((1,3,6,1,2,1,10,166,10,1,1,1,4),_MplsLcFrStdCtrlMaxDlci_Type())
-mplsLcFrStdCtrlMaxDlci.setMaxAccess(_C)
-if mibBuilder.loadTexts:mplsLcFrStdCtrlMaxDlci.setStatus(_A)
-_MplsLcFrStdInterfaceConfRowStatus_Type=RowStatus
-_MplsLcFrStdInterfaceConfRowStatus_Object=MibTableColumn
-mplsLcFrStdInterfaceConfRowStatus=_MplsLcFrStdInterfaceConfRowStatus_Object((1,3,6,1,2,1,10,166,10,1,1,1,5),_MplsLcFrStdInterfaceConfRowStatus_Type())
-mplsLcFrStdInterfaceConfRowStatus.setMaxAccess(_C)
-if mibBuilder.loadTexts:mplsLcFrStdInterfaceConfRowStatus.setStatus(_A)
-class _MplsLcFrStdInterfaceConfStorageType_Type(StorageType):defaultValue=3
-_MplsLcFrStdInterfaceConfStorageType_Type.__name__=_G
-_MplsLcFrStdInterfaceConfStorageType_Object=MibTableColumn
-mplsLcFrStdInterfaceConfStorageType=_MplsLcFrStdInterfaceConfStorageType_Object((1,3,6,1,2,1,10,166,10,1,1,1,6),_MplsLcFrStdInterfaceConfStorageType_Type())
-mplsLcFrStdInterfaceConfStorageType.setMaxAccess(_C)
-if mibBuilder.loadTexts:mplsLcFrStdInterfaceConfStorageType.setStatus(_A)
-_MplsLcFrStdConformance_ObjectIdentity=ObjectIdentity
-mplsLcFrStdConformance=_MplsLcFrStdConformance_ObjectIdentity((1,3,6,1,2,1,10,166,10,2))
-_MplsLcFrStdCompliances_ObjectIdentity=ObjectIdentity
-mplsLcFrStdCompliances=_MplsLcFrStdCompliances_ObjectIdentity((1,3,6,1,2,1,10,166,10,2,1))
-_MplsLcFrStdGroups_ObjectIdentity=ObjectIdentity
-mplsLcFrStdGroups=_MplsLcFrStdGroups_ObjectIdentity((1,3,6,1,2,1,10,166,10,2,2))
-mplsLcFrStdIfGroup=ObjectGroup((1,3,6,1,2,1,10,166,10,2,2,1))
-mplsLcFrStdIfGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M)))
-if mibBuilder.loadTexts:mplsLcFrStdIfGroup.setStatus(_A)
-mplsLcFrStdModuleFullCompliance=ModuleCompliance((1,3,6,1,2,1,10,166,10,2,1,1))
-mplsLcFrStdModuleFullCompliance.setObjects((_B,_D))
-if mibBuilder.loadTexts:mplsLcFrStdModuleFullCompliance.setStatus(_A)
-mplsLcFrStdModuleReadOnlyCompliance=ModuleCompliance((1,3,6,1,2,1,10,166,10,2,1,2))
-mplsLcFrStdModuleReadOnlyCompliance.setObjects((_B,_D))
-if mibBuilder.loadTexts:mplsLcFrStdModuleReadOnlyCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'mplsLcFrStdMIB':mplsLcFrStdMIB,'mplsLcFrStdNotifications':mplsLcFrStdNotifications,'mplsLcFrStdObjects':mplsLcFrStdObjects,'mplsLcFrStdInterfaceConfTable':mplsLcFrStdInterfaceConfTable,'mplsLcFrStdInterfaceConfEntry':mplsLcFrStdInterfaceConfEntry,_H:mplsLcFrStdTrafficMinDlci,_I:mplsLcFrStdTrafficMaxDlci,_J:mplsLcFrStdCtrlMinDlci,_K:mplsLcFrStdCtrlMaxDlci,_L:mplsLcFrStdInterfaceConfRowStatus,_M:mplsLcFrStdInterfaceConfStorageType,'mplsLcFrStdConformance':mplsLcFrStdConformance,'mplsLcFrStdCompliances':mplsLcFrStdCompliances,'mplsLcFrStdModuleFullCompliance':mplsLcFrStdModuleFullCompliance,'mplsLcFrStdModuleReadOnlyCompliance':mplsLcFrStdModuleReadOnlyCompliance,'mplsLcFrStdGroups':mplsLcFrStdGroups,_D:mplsLcFrStdIfGroup})
+#
+# PySNMP MIB module MPLS-LC-FR-STD-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/rfc/MPLS-LC-FR-STD-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:27:25 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+DLCI, = mibBuilder.importSymbols("FRAME-RELAY-DTE-MIB", "DLCI")
+mplsInterfaceIndex, = mibBuilder.importSymbols("MPLS-LSR-STD-MIB", "mplsInterfaceIndex")
+mplsStdMIB, = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "mplsStdMIB")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention, RowStatus, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus", "StorageType")
+mplsLcFrStdMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 166, 10))
+mplsLcFrStdMIB.setRevisions(('2006-01-12 00:00',))
+if mibBuilder.loadTexts: mplsLcFrStdMIB.setLastUpdated('200601120000Z')
+if mibBuilder.loadTexts: mplsLcFrStdMIB.setOrganization('Multiprotocol Label Switching (MPLS) Working Group')
+mplsLcFrStdNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 10, 0))
+mplsLcFrStdObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 10, 1))
+mplsLcFrStdConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 10, 2))
+mplsLcFrStdInterfaceConfTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 10, 1, 1), )
+if mibBuilder.loadTexts: mplsLcFrStdInterfaceConfTable.setStatus('current')
+mplsLcFrStdInterfaceConfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 10, 1, 1, 1), ).setIndexNames((0, "MPLS-LSR-STD-MIB", "mplsInterfaceIndex"))
+if mibBuilder.loadTexts: mplsLcFrStdInterfaceConfEntry.setStatus('current')
+mplsLcFrStdTrafficMinDlci = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 10, 1, 1, 1, 1), DLCI()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mplsLcFrStdTrafficMinDlci.setStatus('current')
+mplsLcFrStdTrafficMaxDlci = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 10, 1, 1, 1, 2), DLCI()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mplsLcFrStdTrafficMaxDlci.setStatus('current')
+mplsLcFrStdCtrlMinDlci = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 10, 1, 1, 1, 3), DLCI()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mplsLcFrStdCtrlMinDlci.setStatus('current')
+mplsLcFrStdCtrlMaxDlci = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 10, 1, 1, 1, 4), DLCI()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mplsLcFrStdCtrlMaxDlci.setStatus('current')
+mplsLcFrStdInterfaceConfRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 10, 1, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mplsLcFrStdInterfaceConfRowStatus.setStatus('current')
+mplsLcFrStdInterfaceConfStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 10, 1, 1, 1, 6), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: mplsLcFrStdInterfaceConfStorageType.setStatus('current')
+mplsLcFrStdCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 10, 2, 1))
+mplsLcFrStdGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 10, 2, 2))
+mplsLcFrStdModuleFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 166, 10, 2, 1, 1)).setObjects(("MPLS-LC-FR-STD-MIB", "mplsLcFrStdIfGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mplsLcFrStdModuleFullCompliance = mplsLcFrStdModuleFullCompliance.setStatus('current')
+mplsLcFrStdModuleReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 166, 10, 2, 1, 2)).setObjects(("MPLS-LC-FR-STD-MIB", "mplsLcFrStdIfGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mplsLcFrStdModuleReadOnlyCompliance = mplsLcFrStdModuleReadOnlyCompliance.setStatus('current')
+mplsLcFrStdIfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 10, 2, 2, 1)).setObjects(("MPLS-LC-FR-STD-MIB", "mplsLcFrStdTrafficMinDlci"), ("MPLS-LC-FR-STD-MIB", "mplsLcFrStdTrafficMaxDlci"), ("MPLS-LC-FR-STD-MIB", "mplsLcFrStdCtrlMinDlci"), ("MPLS-LC-FR-STD-MIB", "mplsLcFrStdCtrlMaxDlci"), ("MPLS-LC-FR-STD-MIB", "mplsLcFrStdInterfaceConfRowStatus"), ("MPLS-LC-FR-STD-MIB", "mplsLcFrStdInterfaceConfStorageType"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    mplsLcFrStdIfGroup = mplsLcFrStdIfGroup.setStatus('current')
+mibBuilder.exportSymbols("MPLS-LC-FR-STD-MIB", PYSNMP_MODULE_ID=mplsLcFrStdMIB, mplsLcFrStdMIB=mplsLcFrStdMIB, mplsLcFrStdInterfaceConfRowStatus=mplsLcFrStdInterfaceConfRowStatus, mplsLcFrStdConformance=mplsLcFrStdConformance, mplsLcFrStdInterfaceConfTable=mplsLcFrStdInterfaceConfTable, mplsLcFrStdInterfaceConfStorageType=mplsLcFrStdInterfaceConfStorageType, mplsLcFrStdModuleReadOnlyCompliance=mplsLcFrStdModuleReadOnlyCompliance, mplsLcFrStdTrafficMaxDlci=mplsLcFrStdTrafficMaxDlci, mplsLcFrStdCtrlMinDlci=mplsLcFrStdCtrlMinDlci, mplsLcFrStdIfGroup=mplsLcFrStdIfGroup, mplsLcFrStdNotifications=mplsLcFrStdNotifications, mplsLcFrStdInterfaceConfEntry=mplsLcFrStdInterfaceConfEntry, mplsLcFrStdCompliances=mplsLcFrStdCompliances, mplsLcFrStdTrafficMinDlci=mplsLcFrStdTrafficMinDlci, mplsLcFrStdGroups=mplsLcFrStdGroups, mplsLcFrStdModuleFullCompliance=mplsLcFrStdModuleFullCompliance, mplsLcFrStdObjects=mplsLcFrStdObjects, mplsLcFrStdCtrlMaxDlci=mplsLcFrStdCtrlMaxDlci)

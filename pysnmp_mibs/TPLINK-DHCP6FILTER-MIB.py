@@ -1,109 +1,53 @@
-_S='dhcp6FilterInterface'
-_R='dhcp6FilterServerIp'
-_Q='value30pps'
-_P='value25pps'
-_O='value20pps'
-_N='value15pps'
-_M='value10pps'
-_L='value5pps'
-_K='read-only'
-_J='enable'
-_I='ifIndex'
-_H='IF-MIB'
-_G='read-create'
-_F='TPLINK-DHCP6FILTER-MIB'
-_E='read-write'
-_D='disable'
-_C='OctetString'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ifIndex,=mibBuilder.importSymbols(_H,_I)
-InetAddress,=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-tplinkMgmt,=mibBuilder.importSymbols('TPLINK-MIB','tplinkMgmt')
-TPRowStatus,=mibBuilder.importSymbols('TPLINK-TC-MIB','TPRowStatus')
-tplinkDhcp6FilterMIB=ModuleIdentity((1,3,6,1,4,1,11863,6,67))
-if mibBuilder.loadTexts:tplinkDhcp6FilterMIB.setRevisions(('2012-12-17 10:14',))
-_TplinkDhcp6FilterMIBObjects_ObjectIdentity=ObjectIdentity
-tplinkDhcp6FilterMIBObjects=_TplinkDhcp6FilterMIBObjects_ObjectIdentity((1,3,6,1,4,1,11863,6,67,1))
-_Dhcp6FilterGlobalConfig_ObjectIdentity=ObjectIdentity
-dhcp6FilterGlobalConfig=_Dhcp6FilterGlobalConfig_ObjectIdentity((1,3,6,1,4,1,11863,6,67,1,1))
-class _Dhcp6FilterEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_J,1)))
-_Dhcp6FilterEnable_Type.__name__=_B
-_Dhcp6FilterEnable_Object=MibScalar
-dhcp6FilterEnable=_Dhcp6FilterEnable_Object((1,3,6,1,4,1,11863,6,67,1,1,1),_Dhcp6FilterEnable_Type())
-dhcp6FilterEnable.setMaxAccess(_E)
-if mibBuilder.loadTexts:dhcp6FilterEnable.setStatus(_A)
-_Dhcp6FilterPortConfig_ObjectIdentity=ObjectIdentity
-dhcp6FilterPortConfig=_Dhcp6FilterPortConfig_ObjectIdentity((1,3,6,1,4,1,11863,6,67,1,2))
-_Dhcp6FilterPortConfigTable_Object=MibTable
-dhcp6FilterPortConfigTable=_Dhcp6FilterPortConfigTable_Object((1,3,6,1,4,1,11863,6,67,1,2,1))
-if mibBuilder.loadTexts:dhcp6FilterPortConfigTable.setStatus(_A)
-_Dhcp6FilterPortConfigEntry_Object=MibTableRow
-dhcp6FilterPortConfigEntry=_Dhcp6FilterPortConfigEntry_Object((1,3,6,1,4,1,11863,6,67,1,2,1,1))
-dhcp6FilterPortConfigEntry.setIndexNames((0,_H,_I))
-if mibBuilder.loadTexts:dhcp6FilterPortConfigEntry.setStatus(_A)
-class _Dhcp6FilterPort_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
-_Dhcp6FilterPort_Type.__name__=_C
-_Dhcp6FilterPort_Object=MibTableColumn
-dhcp6FilterPort=_Dhcp6FilterPort_Object((1,3,6,1,4,1,11863,6,67,1,2,1,1,1),_Dhcp6FilterPort_Type())
-dhcp6FilterPort.setMaxAccess(_K)
-if mibBuilder.loadTexts:dhcp6FilterPort.setStatus(_A)
-class _Dhcp6FilterPortConfigState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_D,0),(_J,1)))
-_Dhcp6FilterPortConfigState_Type.__name__=_B
-_Dhcp6FilterPortConfigState_Object=MibTableColumn
-dhcp6FilterPortConfigState=_Dhcp6FilterPortConfigState_Object((1,3,6,1,4,1,11863,6,67,1,2,1,1,2),_Dhcp6FilterPortConfigState_Type())
-dhcp6FilterPortConfigState.setMaxAccess(_E)
-if mibBuilder.loadTexts:dhcp6FilterPortConfigState.setStatus(_A)
-class _Dhcp6FilterPortConfigRateLimit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,5,10,15,20,25,30)));namedValues=NamedValues(*((_D,0),(_L,5),(_M,10),(_N,15),(_O,20),(_P,25),(_Q,30)))
-_Dhcp6FilterPortConfigRateLimit_Type.__name__=_B
-_Dhcp6FilterPortConfigRateLimit_Object=MibTableColumn
-dhcp6FilterPortConfigRateLimit=_Dhcp6FilterPortConfigRateLimit_Object((1,3,6,1,4,1,11863,6,67,1,2,1,1,3),_Dhcp6FilterPortConfigRateLimit_Type())
-dhcp6FilterPortConfigRateLimit.setMaxAccess(_E)
-if mibBuilder.loadTexts:dhcp6FilterPortConfigRateLimit.setStatus(_A)
-class _Dhcp6FilterPortConfigDeclineRateLimit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,5,10,15,20,25,30)));namedValues=NamedValues(*((_D,0),(_L,5),(_M,10),(_N,15),(_O,20),(_P,25),(_Q,30)))
-_Dhcp6FilterPortConfigDeclineRateLimit_Type.__name__=_B
-_Dhcp6FilterPortConfigDeclineRateLimit_Object=MibTableColumn
-dhcp6FilterPortConfigDeclineRateLimit=_Dhcp6FilterPortConfigDeclineRateLimit_Object((1,3,6,1,4,1,11863,6,67,1,2,1,1,4),_Dhcp6FilterPortConfigDeclineRateLimit_Type())
-dhcp6FilterPortConfigDeclineRateLimit.setMaxAccess(_E)
-if mibBuilder.loadTexts:dhcp6FilterPortConfigDeclineRateLimit.setStatus(_A)
-class _Dhcp6FilterPortConfigPortLag_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
-_Dhcp6FilterPortConfigPortLag_Type.__name__=_C
-_Dhcp6FilterPortConfigPortLag_Object=MibTableColumn
-dhcp6FilterPortConfigPortLag=_Dhcp6FilterPortConfigPortLag_Object((1,3,6,1,4,1,11863,6,67,1,2,1,1,5),_Dhcp6FilterPortConfigPortLag_Type())
-dhcp6FilterPortConfigPortLag.setMaxAccess(_K)
-if mibBuilder.loadTexts:dhcp6FilterPortConfigPortLag.setStatus(_A)
-_Dhcp6FilterServerPermitEntryCofig_ObjectIdentity=ObjectIdentity
-dhcp6FilterServerPermitEntryCofig=_Dhcp6FilterServerPermitEntryCofig_ObjectIdentity((1,3,6,1,4,1,11863,6,67,1,3))
-_Dhcp6FilterServerPermitEntryTable_Object=MibTable
-dhcp6FilterServerPermitEntryTable=_Dhcp6FilterServerPermitEntryTable_Object((1,3,6,1,4,1,11863,6,67,1,3,1))
-if mibBuilder.loadTexts:dhcp6FilterServerPermitEntryTable.setStatus(_A)
-_Dhcp6FilterServerPermitEntry_Object=MibTableRow
-dhcp6FilterServerPermitEntry=_Dhcp6FilterServerPermitEntry_Object((1,3,6,1,4,1,11863,6,67,1,3,1,1))
-dhcp6FilterServerPermitEntry.setIndexNames((0,_F,_R),(0,_F,_S))
-if mibBuilder.loadTexts:dhcp6FilterServerPermitEntry.setStatus(_A)
-_Dhcp6FilterServerIp_Type=InetAddress
-_Dhcp6FilterServerIp_Object=MibTableColumn
-dhcp6FilterServerIp=_Dhcp6FilterServerIp_Object((1,3,6,1,4,1,11863,6,67,1,3,1,1,1),_Dhcp6FilterServerIp_Type())
-dhcp6FilterServerIp.setMaxAccess(_G)
-if mibBuilder.loadTexts:dhcp6FilterServerIp.setStatus(_A)
-class _Dhcp6FilterInterface_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,20))
-_Dhcp6FilterInterface_Type.__name__=_C
-_Dhcp6FilterInterface_Object=MibTableColumn
-dhcp6FilterInterface=_Dhcp6FilterInterface_Object((1,3,6,1,4,1,11863,6,67,1,3,1,1,2),_Dhcp6FilterInterface_Type())
-dhcp6FilterInterface.setMaxAccess(_G)
-if mibBuilder.loadTexts:dhcp6FilterInterface.setStatus(_A)
-_Dhcp6FilterRowStatus_Type=TPRowStatus
-_Dhcp6FilterRowStatus_Object=MibTableColumn
-dhcp6FilterRowStatus=_Dhcp6FilterRowStatus_Object((1,3,6,1,4,1,11863,6,67,1,3,1,1,3),_Dhcp6FilterRowStatus_Type())
-dhcp6FilterRowStatus.setMaxAccess(_G)
-if mibBuilder.loadTexts:dhcp6FilterRowStatus.setStatus(_A)
-_TplinkDhcp6FilterNotifications_ObjectIdentity=ObjectIdentity
-tplinkDhcp6FilterNotifications=_TplinkDhcp6FilterNotifications_ObjectIdentity((1,3,6,1,4,1,11863,6,67,2))
-mibBuilder.exportSymbols(_F,**{'tplinkDhcp6FilterMIB':tplinkDhcp6FilterMIB,'tplinkDhcp6FilterMIBObjects':tplinkDhcp6FilterMIBObjects,'dhcp6FilterGlobalConfig':dhcp6FilterGlobalConfig,'dhcp6FilterEnable':dhcp6FilterEnable,'dhcp6FilterPortConfig':dhcp6FilterPortConfig,'dhcp6FilterPortConfigTable':dhcp6FilterPortConfigTable,'dhcp6FilterPortConfigEntry':dhcp6FilterPortConfigEntry,'dhcp6FilterPort':dhcp6FilterPort,'dhcp6FilterPortConfigState':dhcp6FilterPortConfigState,'dhcp6FilterPortConfigRateLimit':dhcp6FilterPortConfigRateLimit,'dhcp6FilterPortConfigDeclineRateLimit':dhcp6FilterPortConfigDeclineRateLimit,'dhcp6FilterPortConfigPortLag':dhcp6FilterPortConfigPortLag,'dhcp6FilterServerPermitEntryCofig':dhcp6FilterServerPermitEntryCofig,'dhcp6FilterServerPermitEntryTable':dhcp6FilterServerPermitEntryTable,'dhcp6FilterServerPermitEntry':dhcp6FilterServerPermitEntry,_R:dhcp6FilterServerIp,_S:dhcp6FilterInterface,'dhcp6FilterRowStatus':dhcp6FilterRowStatus,'tplinkDhcp6FilterNotifications':tplinkDhcp6FilterNotifications})
+#
+# PySNMP MIB module TPLINK-DHCP6FILTER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/tplink/TPLINK-DHCP6FILTER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:36:13 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+InetAddress, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
+TPRowStatus, = mibBuilder.importSymbols("TPLINK-TC-MIB", "TPRowStatus")
+tplinkDhcp6FilterMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 67))
+tplinkDhcp6FilterMIB.setRevisions(('2012-12-17 10:14',))
+if mibBuilder.loadTexts: tplinkDhcp6FilterMIB.setLastUpdated('201212171014Z')
+if mibBuilder.loadTexts: tplinkDhcp6FilterMIB.setOrganization('TPLINK')
+tplinkDhcp6FilterMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1))
+tplinkDhcp6FilterNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 67, 2))
+dhcp6FilterGlobalConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 1))
+dhcp6FilterPortConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 2))
+dhcp6FilterServerPermitEntryCofig = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 3))
+dhcp6FilterEnable = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dhcp6FilterEnable.setStatus('current')
+dhcp6FilterPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 2, 1), )
+if mibBuilder.loadTexts: dhcp6FilterPortConfigTable.setStatus('current')
+dhcp6FilterPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: dhcp6FilterPortConfigEntry.setStatus('current')
+dhcp6FilterPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 2, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcp6FilterPort.setStatus('current')
+dhcp6FilterPortConfigState = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dhcp6FilterPortConfigState.setStatus('current')
+dhcp6FilterPortConfigRateLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 5, 10, 15, 20, 25, 30))).clone(namedValues=NamedValues(("disable", 0), ("value5pps", 5), ("value10pps", 10), ("value15pps", 15), ("value20pps", 20), ("value25pps", 25), ("value30pps", 30)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dhcp6FilterPortConfigRateLimit.setStatus('current')
+dhcp6FilterPortConfigDeclineRateLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 5, 10, 15, 20, 25, 30))).clone(namedValues=NamedValues(("disable", 0), ("value5pps", 5), ("value10pps", 10), ("value15pps", 15), ("value20pps", 20), ("value25pps", 25), ("value30pps", 30)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dhcp6FilterPortConfigDeclineRateLimit.setStatus('current')
+dhcp6FilterPortConfigPortLag = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 2, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dhcp6FilterPortConfigPortLag.setStatus('current')
+dhcp6FilterServerPermitEntryTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 3, 1), )
+if mibBuilder.loadTexts: dhcp6FilterServerPermitEntryTable.setStatus('current')
+dhcp6FilterServerPermitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 3, 1, 1), ).setIndexNames((0, "TPLINK-DHCP6FILTER-MIB", "dhcp6FilterServerIp"), (0, "TPLINK-DHCP6FILTER-MIB", "dhcp6FilterInterface"))
+if mibBuilder.loadTexts: dhcp6FilterServerPermitEntry.setStatus('current')
+dhcp6FilterServerIp = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 3, 1, 1, 1), InetAddress()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dhcp6FilterServerIp.setStatus('current')
+dhcp6FilterInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 3, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 20))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dhcp6FilterInterface.setStatus('current')
+dhcp6FilterRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 67, 1, 3, 1, 1, 3), TPRowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dhcp6FilterRowStatus.setStatus('current')
+mibBuilder.exportSymbols("TPLINK-DHCP6FILTER-MIB", dhcp6FilterServerPermitEntryCofig=dhcp6FilterServerPermitEntryCofig, tplinkDhcp6FilterNotifications=tplinkDhcp6FilterNotifications, dhcp6FilterPortConfigRateLimit=dhcp6FilterPortConfigRateLimit, dhcp6FilterPortConfigTable=dhcp6FilterPortConfigTable, dhcp6FilterServerPermitEntry=dhcp6FilterServerPermitEntry, dhcp6FilterPortConfigDeclineRateLimit=dhcp6FilterPortConfigDeclineRateLimit, tplinkDhcp6FilterMIB=tplinkDhcp6FilterMIB, dhcp6FilterInterface=dhcp6FilterInterface, dhcp6FilterServerPermitEntryTable=dhcp6FilterServerPermitEntryTable, dhcp6FilterPortConfigState=dhcp6FilterPortConfigState, dhcp6FilterRowStatus=dhcp6FilterRowStatus, dhcp6FilterPort=dhcp6FilterPort, PYSNMP_MODULE_ID=tplinkDhcp6FilterMIB, dhcp6FilterPortConfigEntry=dhcp6FilterPortConfigEntry, dhcp6FilterPortConfigPortLag=dhcp6FilterPortConfigPortLag, dhcp6FilterPortConfig=dhcp6FilterPortConfig, dhcp6FilterEnable=dhcp6FilterEnable, dhcp6FilterServerIp=dhcp6FilterServerIp, dhcp6FilterGlobalConfig=dhcp6FilterGlobalConfig, tplinkDhcp6FilterMIBObjects=tplinkDhcp6FilterMIBObjects)

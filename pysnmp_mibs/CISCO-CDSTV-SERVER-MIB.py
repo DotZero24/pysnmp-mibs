@@ -1,278 +1,120 @@
-_t='ciscoCdstvServerMIBCachingObjectGroup'
-_s='ciscoCdstvServerMIBStorageObjectGroup'
-_r='ciscoCdstvServerMIBStreamingObjectGroup'
-_q='ciscoCdstvServerMIBMainObjectGroup'
-_p='cdstvServerCacheGroupID'
-_o='cdstvServerCacheGroupName'
-_n='cdstvServerVaultGroupID'
-_m='cdstvServerVaultGroupName'
-_l='cdstvServerFTPOutSessions'
-_k='cdstvServerFTPOutBandwidth'
-_j='cdstvServerFTPOutInterface'
-_i='cdstvVaultLocalCopies'
-_h='cdstvVaultMirrorCopies'
-_g='cdstvServerStreamerIsCache'
-_f='cdstvServerStreamGroupID'
-_e='cdstvServerStreamGroupName'
-_d='cdstvStreamJumboFramesEnable'
-_c='cdstvServerEndingTransportPort'
-_b='cdstvServerStartingTransportPort'
-_a='cdstvServerNullStreamingEnable'
-_Z='cdstvServerSourceAddressType'
-_Y='cdstvServerCacheECN'
-_X='cdstvServerCacheDSCP'
-_W='cdstvServerTransportECN'
-_V='cdstvServerTransportDSCP'
-_U='cdstvServerOffloadEnable'
-_T='cdstvCacheJumboFramesEnable'
-_S='cdstvServerCachePort'
-_R='cdstvServerSourceAddress'
-_Q='cdstvServerTTL'
-_P='cdstvServerHostname'
-_O='cdstvServerGroupID'
-_N='cdstvServerID'
-_M='cdstvServerPartNo'
-_L='cdstvServerRole'
-_K='copies'
-_J='SnmpAdminString'
-_I='InetAddressType'
-_H='InetAddress'
-_G='Integer32'
-_F='InetPortNumber'
-_E='Unsigned32'
-_D='read-only'
-_C='read-write'
-_B='CISCO-CDSTV-SERVER-MIB'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
-Dscp,=mibBuilder.importSymbols('DIFFSERV-DSCP-TC','Dscp')
-InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB',_H,_I,_F)
-SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_J)
-ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
-DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
-ciscoCdstvServerMIB=ModuleIdentity((1,3,6,1,4,1,9,9,754))
-if mibBuilder.loadTexts:ciscoCdstvServerMIB.setRevisions(('2012-12-12 00:00','2010-07-13 00:00'))
-class CiscoCdstvEcn(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('ect1',1),('ect0',2),('congestion',3),('disabled',4)))
-_CiscoCdstvServerMIBNotifs_ObjectIdentity=ObjectIdentity
-ciscoCdstvServerMIBNotifs=_CiscoCdstvServerMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,754,0))
-_CiscoCdstvServerMIBObjects_ObjectIdentity=ObjectIdentity
-ciscoCdstvServerMIBObjects=_CiscoCdstvServerMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,754,1))
-_CdstvServerCommonObjects_ObjectIdentity=ObjectIdentity
-cdstvServerCommonObjects=_CdstvServerCommonObjects_ObjectIdentity((1,3,6,1,4,1,9,9,754,1,1))
-class _CdstvServerRole_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('isv',1),('vault',2),('streamer',3),('controller',4),('cachingserver',5),('recorder',6)))
-_CdstvServerRole_Type.__name__=_G
-_CdstvServerRole_Object=MibScalar
-cdstvServerRole=_CdstvServerRole_Object((1,3,6,1,4,1,9,9,754,1,1,1),_CdstvServerRole_Type())
-cdstvServerRole.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdstvServerRole.setStatus(_A)
-_CdstvServerPartNo_Type=SnmpAdminString
-_CdstvServerPartNo_Object=MibScalar
-cdstvServerPartNo=_CdstvServerPartNo_Object((1,3,6,1,4,1,9,9,754,1,1,2),_CdstvServerPartNo_Type())
-cdstvServerPartNo.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdstvServerPartNo.setStatus(_A)
-_CdstvServerID_Type=Unsigned32
-_CdstvServerID_Object=MibScalar
-cdstvServerID=_CdstvServerID_Object((1,3,6,1,4,1,9,9,754,1,1,3),_CdstvServerID_Type())
-cdstvServerID.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdstvServerID.setStatus(_A)
-_CdstvServerGroupID_Type=Unsigned32
-_CdstvServerGroupID_Object=MibScalar
-cdstvServerGroupID=_CdstvServerGroupID_Object((1,3,6,1,4,1,9,9,754,1,1,4),_CdstvServerGroupID_Type())
-cdstvServerGroupID.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdstvServerGroupID.setStatus(_A)
-class _CdstvServerHostname_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
-_CdstvServerHostname_Type.__name__=_J
-_CdstvServerHostname_Object=MibScalar
-cdstvServerHostname=_CdstvServerHostname_Object((1,3,6,1,4,1,9,9,754,1,1,5),_CdstvServerHostname_Type())
-cdstvServerHostname.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerHostname.setStatus(_A)
-class _CdstvServerTTL_Type(Unsigned32):defaultValue=16;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
-_CdstvServerTTL_Type.__name__=_E
-_CdstvServerTTL_Object=MibScalar
-cdstvServerTTL=_CdstvServerTTL_Object((1,3,6,1,4,1,9,9,754,1,1,6),_CdstvServerTTL_Type())
-cdstvServerTTL.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerTTL.setStatus(_A)
-if mibBuilder.loadTexts:cdstvServerTTL.setUnits('hops')
-_CdstvServerDefaultStreamCacheSettings_ObjectIdentity=ObjectIdentity
-cdstvServerDefaultStreamCacheSettings=_CdstvServerDefaultStreamCacheSettings_ObjectIdentity((1,3,6,1,4,1,9,9,754,1,1,7))
-class _CdstvServerSourceAddressType_Type(InetAddressType):defaultValue=1
-_CdstvServerSourceAddressType_Type.__name__=_I
-_CdstvServerSourceAddressType_Object=MibScalar
-cdstvServerSourceAddressType=_CdstvServerSourceAddressType_Object((1,3,6,1,4,1,9,9,754,1,1,7,1),_CdstvServerSourceAddressType_Type())
-cdstvServerSourceAddressType.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerSourceAddressType.setStatus(_A)
-class _CdstvServerSourceAddress_Type(InetAddress):defaultValue=OctetString('192.168.207.65')
-_CdstvServerSourceAddress_Type.__name__=_H
-_CdstvServerSourceAddress_Object=MibScalar
-cdstvServerSourceAddress=_CdstvServerSourceAddress_Object((1,3,6,1,4,1,9,9,754,1,1,7,2),_CdstvServerSourceAddress_Type())
-cdstvServerSourceAddress.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerSourceAddress.setStatus(_A)
-class _CdstvServerCachePort_Type(InetPortNumber):defaultValue=48879
-_CdstvServerCachePort_Type.__name__=_F
-_CdstvServerCachePort_Object=MibScalar
-cdstvServerCachePort=_CdstvServerCachePort_Object((1,3,6,1,4,1,9,9,754,1,1,7,3),_CdstvServerCachePort_Type())
-cdstvServerCachePort.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerCachePort.setStatus(_A)
-_CdstvCacheJumboFramesEnable_Type=TruthValue
-_CdstvCacheJumboFramesEnable_Object=MibScalar
-cdstvCacheJumboFramesEnable=_CdstvCacheJumboFramesEnable_Object((1,3,6,1,4,1,9,9,754,1,1,8),_CdstvCacheJumboFramesEnable_Type())
-cdstvCacheJumboFramesEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvCacheJumboFramesEnable.setStatus(_A)
-_CdstvServerOffloadEnable_Type=TruthValue
-_CdstvServerOffloadEnable_Object=MibScalar
-cdstvServerOffloadEnable=_CdstvServerOffloadEnable_Object((1,3,6,1,4,1,9,9,754,1,1,9),_CdstvServerOffloadEnable_Type())
-cdstvServerOffloadEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerOffloadEnable.setStatus(_A)
-_CdstvServerTransportCacheIPPkts_ObjectIdentity=ObjectIdentity
-cdstvServerTransportCacheIPPkts=_CdstvServerTransportCacheIPPkts_ObjectIdentity((1,3,6,1,4,1,9,9,754,1,1,10))
-_CdstvServerTransportDSCP_Type=Dscp
-_CdstvServerTransportDSCP_Object=MibScalar
-cdstvServerTransportDSCP=_CdstvServerTransportDSCP_Object((1,3,6,1,4,1,9,9,754,1,1,10,1),_CdstvServerTransportDSCP_Type())
-cdstvServerTransportDSCP.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerTransportDSCP.setStatus(_A)
-_CdstvServerTransportECN_Type=CiscoCdstvEcn
-_CdstvServerTransportECN_Object=MibScalar
-cdstvServerTransportECN=_CdstvServerTransportECN_Object((1,3,6,1,4,1,9,9,754,1,1,10,2),_CdstvServerTransportECN_Type())
-cdstvServerTransportECN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerTransportECN.setStatus(_A)
-_CdstvServerCacheDSCP_Type=Dscp
-_CdstvServerCacheDSCP_Object=MibScalar
-cdstvServerCacheDSCP=_CdstvServerCacheDSCP_Object((1,3,6,1,4,1,9,9,754,1,1,10,3),_CdstvServerCacheDSCP_Type())
-cdstvServerCacheDSCP.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerCacheDSCP.setStatus(_A)
-_CdstvServerCacheECN_Type=CiscoCdstvEcn
-_CdstvServerCacheECN_Object=MibScalar
-cdstvServerCacheECN=_CdstvServerCacheECN_Object((1,3,6,1,4,1,9,9,754,1,1,10,4),_CdstvServerCacheECN_Type())
-cdstvServerCacheECN.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerCacheECN.setStatus(_A)
-_CdstvServerNullStreamingEnable_Type=TruthValue
-_CdstvServerNullStreamingEnable_Object=MibScalar
-cdstvServerNullStreamingEnable=_CdstvServerNullStreamingEnable_Object((1,3,6,1,4,1,9,9,754,1,1,11),_CdstvServerNullStreamingEnable_Type())
-cdstvServerNullStreamingEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerNullStreamingEnable.setStatus(_A)
-_CdstvServerStreamingObjects_ObjectIdentity=ObjectIdentity
-cdstvServerStreamingObjects=_CdstvServerStreamingObjects_ObjectIdentity((1,3,6,1,4,1,9,9,754,1,2))
-class _CdstvServerStartingTransportPort_Type(InetPortNumber):defaultValue=48879
-_CdstvServerStartingTransportPort_Type.__name__=_F
-_CdstvServerStartingTransportPort_Object=MibScalar
-cdstvServerStartingTransportPort=_CdstvServerStartingTransportPort_Object((1,3,6,1,4,1,9,9,754,1,2,1),_CdstvServerStartingTransportPort_Type())
-cdstvServerStartingTransportPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerStartingTransportPort.setStatus(_A)
-_CdstvServerEndingTransportPort_Type=InetPortNumber
-_CdstvServerEndingTransportPort_Object=MibScalar
-cdstvServerEndingTransportPort=_CdstvServerEndingTransportPort_Object((1,3,6,1,4,1,9,9,754,1,2,2),_CdstvServerEndingTransportPort_Type())
-cdstvServerEndingTransportPort.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerEndingTransportPort.setStatus(_A)
-_CdstvStreamJumboFramesEnable_Type=TruthValue
-_CdstvStreamJumboFramesEnable_Object=MibScalar
-cdstvStreamJumboFramesEnable=_CdstvStreamJumboFramesEnable_Object((1,3,6,1,4,1,9,9,754,1,2,3),_CdstvStreamJumboFramesEnable_Type())
-cdstvStreamJumboFramesEnable.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvStreamJumboFramesEnable.setStatus(_A)
-_CdstvServerStreamGroupInfo_ObjectIdentity=ObjectIdentity
-cdstvServerStreamGroupInfo=_CdstvServerStreamGroupInfo_ObjectIdentity((1,3,6,1,4,1,9,9,754,1,2,4))
-_CdstvServerStreamGroupName_Type=SnmpAdminString
-_CdstvServerStreamGroupName_Object=MibScalar
-cdstvServerStreamGroupName=_CdstvServerStreamGroupName_Object((1,3,6,1,4,1,9,9,754,1,2,4,1),_CdstvServerStreamGroupName_Type())
-cdstvServerStreamGroupName.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdstvServerStreamGroupName.setStatus(_A)
-_CdstvServerStreamGroupID_Type=Unsigned32
-_CdstvServerStreamGroupID_Object=MibScalar
-cdstvServerStreamGroupID=_CdstvServerStreamGroupID_Object((1,3,6,1,4,1,9,9,754,1,2,4,2),_CdstvServerStreamGroupID_Type())
-cdstvServerStreamGroupID.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdstvServerStreamGroupID.setStatus(_A)
-_CdstvServerStreamerIsCache_Type=TruthValue
-_CdstvServerStreamerIsCache_Object=MibScalar
-cdstvServerStreamerIsCache=_CdstvServerStreamerIsCache_Object((1,3,6,1,4,1,9,9,754,1,2,4,3),_CdstvServerStreamerIsCache_Type())
-cdstvServerStreamerIsCache.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerStreamerIsCache.setStatus(_A)
-_CdstvServerStorageObjects_ObjectIdentity=ObjectIdentity
-cdstvServerStorageObjects=_CdstvServerStorageObjects_ObjectIdentity((1,3,6,1,4,1,9,9,754,1,3))
-class _CdstvVaultMirrorCopies_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10))
-_CdstvVaultMirrorCopies_Type.__name__=_E
-_CdstvVaultMirrorCopies_Object=MibScalar
-cdstvVaultMirrorCopies=_CdstvVaultMirrorCopies_Object((1,3,6,1,4,1,9,9,754,1,3,1),_CdstvVaultMirrorCopies_Type())
-cdstvVaultMirrorCopies.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvVaultMirrorCopies.setStatus(_A)
-if mibBuilder.loadTexts:cdstvVaultMirrorCopies.setUnits(_K)
-class _CdstvVaultLocalCopies_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
-_CdstvVaultLocalCopies_Type.__name__=_E
-_CdstvVaultLocalCopies_Object=MibScalar
-cdstvVaultLocalCopies=_CdstvVaultLocalCopies_Object((1,3,6,1,4,1,9,9,754,1,3,2),_CdstvVaultLocalCopies_Type())
-cdstvVaultLocalCopies.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvVaultLocalCopies.setStatus(_A)
-if mibBuilder.loadTexts:cdstvVaultLocalCopies.setUnits(_K)
-_CdstvServerFTPOutSettings_ObjectIdentity=ObjectIdentity
-cdstvServerFTPOutSettings=_CdstvServerFTPOutSettings_ObjectIdentity((1,3,6,1,4,1,9,9,754,1,3,3))
-class _CdstvServerFTPOutInterface_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('management',1),('ingest',2)))
-_CdstvServerFTPOutInterface_Type.__name__=_G
-_CdstvServerFTPOutInterface_Object=MibScalar
-cdstvServerFTPOutInterface=_CdstvServerFTPOutInterface_Object((1,3,6,1,4,1,9,9,754,1,3,3,1),_CdstvServerFTPOutInterface_Type())
-cdstvServerFTPOutInterface.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerFTPOutInterface.setStatus(_A)
-class _CdstvServerFTPOutBandwidth_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
-_CdstvServerFTPOutBandwidth_Type.__name__=_E
-_CdstvServerFTPOutBandwidth_Object=MibScalar
-cdstvServerFTPOutBandwidth=_CdstvServerFTPOutBandwidth_Object((1,3,6,1,4,1,9,9,754,1,3,3,2),_CdstvServerFTPOutBandwidth_Type())
-cdstvServerFTPOutBandwidth.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerFTPOutBandwidth.setStatus(_A)
-if mibBuilder.loadTexts:cdstvServerFTPOutBandwidth.setUnits('Mbps')
-class _CdstvServerFTPOutSessions_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
-_CdstvServerFTPOutSessions_Type.__name__=_E
-_CdstvServerFTPOutSessions_Object=MibScalar
-cdstvServerFTPOutSessions=_CdstvServerFTPOutSessions_Object((1,3,6,1,4,1,9,9,754,1,3,3,3),_CdstvServerFTPOutSessions_Type())
-cdstvServerFTPOutSessions.setMaxAccess(_C)
-if mibBuilder.loadTexts:cdstvServerFTPOutSessions.setStatus(_A)
-if mibBuilder.loadTexts:cdstvServerFTPOutSessions.setUnits('sessions')
-_CdstvServerVaultGroupInformation_ObjectIdentity=ObjectIdentity
-cdstvServerVaultGroupInformation=_CdstvServerVaultGroupInformation_ObjectIdentity((1,3,6,1,4,1,9,9,754,1,3,4))
-_CdstvServerVaultGroupName_Type=SnmpAdminString
-_CdstvServerVaultGroupName_Object=MibScalar
-cdstvServerVaultGroupName=_CdstvServerVaultGroupName_Object((1,3,6,1,4,1,9,9,754,1,3,4,1),_CdstvServerVaultGroupName_Type())
-cdstvServerVaultGroupName.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdstvServerVaultGroupName.setStatus(_A)
-_CdstvServerVaultGroupID_Type=Unsigned32
-_CdstvServerVaultGroupID_Object=MibScalar
-cdstvServerVaultGroupID=_CdstvServerVaultGroupID_Object((1,3,6,1,4,1,9,9,754,1,3,4,2),_CdstvServerVaultGroupID_Type())
-cdstvServerVaultGroupID.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdstvServerVaultGroupID.setStatus(_A)
-_CdstvServerCachingObjects_ObjectIdentity=ObjectIdentity
-cdstvServerCachingObjects=_CdstvServerCachingObjects_ObjectIdentity((1,3,6,1,4,1,9,9,754,1,4))
-_CdstvServerCacheGroupInformation_ObjectIdentity=ObjectIdentity
-cdstvServerCacheGroupInformation=_CdstvServerCacheGroupInformation_ObjectIdentity((1,3,6,1,4,1,9,9,754,1,4,1))
-_CdstvServerCacheGroupName_Type=SnmpAdminString
-_CdstvServerCacheGroupName_Object=MibScalar
-cdstvServerCacheGroupName=_CdstvServerCacheGroupName_Object((1,3,6,1,4,1,9,9,754,1,4,1,1),_CdstvServerCacheGroupName_Type())
-cdstvServerCacheGroupName.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdstvServerCacheGroupName.setStatus(_A)
-_CdstvServerCacheGroupID_Type=Unsigned32
-_CdstvServerCacheGroupID_Object=MibScalar
-cdstvServerCacheGroupID=_CdstvServerCacheGroupID_Object((1,3,6,1,4,1,9,9,754,1,4,1,2),_CdstvServerCacheGroupID_Type())
-cdstvServerCacheGroupID.setMaxAccess(_D)
-if mibBuilder.loadTexts:cdstvServerCacheGroupID.setStatus(_A)
-_CiscoCdstvServerMIBConform_ObjectIdentity=ObjectIdentity
-ciscoCdstvServerMIBConform=_CiscoCdstvServerMIBConform_ObjectIdentity((1,3,6,1,4,1,9,9,754,2))
-_CiscoCdstvServerMIBCompliances_ObjectIdentity=ObjectIdentity
-ciscoCdstvServerMIBCompliances=_CiscoCdstvServerMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,754,2,1))
-_CiscoCdstvServerMIBGroups_ObjectIdentity=ObjectIdentity
-ciscoCdstvServerMIBGroups=_CiscoCdstvServerMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,754,2,2))
-ciscoCdstvServerMIBMainObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,754,2,2,1))
-ciscoCdstvServerMIBMainObjectGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a)))
-if mibBuilder.loadTexts:ciscoCdstvServerMIBMainObjectGroup.setStatus(_A)
-ciscoCdstvServerMIBStreamingObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,754,2,2,2))
-ciscoCdstvServerMIBStreamingObjectGroup.setObjects(*((_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g)))
-if mibBuilder.loadTexts:ciscoCdstvServerMIBStreamingObjectGroup.setStatus(_A)
-ciscoCdstvServerMIBStorageObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,754,2,2,3))
-ciscoCdstvServerMIBStorageObjectGroup.setObjects(*((_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n)))
-if mibBuilder.loadTexts:ciscoCdstvServerMIBStorageObjectGroup.setStatus(_A)
-ciscoCdstvServerMIBCachingObjectGroup=ObjectGroup((1,3,6,1,4,1,9,9,754,2,2,4))
-ciscoCdstvServerMIBCachingObjectGroup.setObjects(*((_B,_o),(_B,_p)))
-if mibBuilder.loadTexts:ciscoCdstvServerMIBCachingObjectGroup.setStatus(_A)
-ciscoCdstvServerMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,754,2,1,1))
-ciscoCdstvServerMIBCompliance.setObjects(*((_B,_q),(_B,_r),(_B,_s),(_B,_t)))
-if mibBuilder.loadTexts:ciscoCdstvServerMIBCompliance.setStatus(_A)
-mibBuilder.exportSymbols(_B,**{'CiscoCdstvEcn':CiscoCdstvEcn,'ciscoCdstvServerMIB':ciscoCdstvServerMIB,'ciscoCdstvServerMIBNotifs':ciscoCdstvServerMIBNotifs,'ciscoCdstvServerMIBObjects':ciscoCdstvServerMIBObjects,'cdstvServerCommonObjects':cdstvServerCommonObjects,_L:cdstvServerRole,_M:cdstvServerPartNo,_N:cdstvServerID,_O:cdstvServerGroupID,_P:cdstvServerHostname,_Q:cdstvServerTTL,'cdstvServerDefaultStreamCacheSettings':cdstvServerDefaultStreamCacheSettings,_Z:cdstvServerSourceAddressType,_R:cdstvServerSourceAddress,_S:cdstvServerCachePort,_T:cdstvCacheJumboFramesEnable,_U:cdstvServerOffloadEnable,'cdstvServerTransportCacheIPPkts':cdstvServerTransportCacheIPPkts,_V:cdstvServerTransportDSCP,_W:cdstvServerTransportECN,_X:cdstvServerCacheDSCP,_Y:cdstvServerCacheECN,_a:cdstvServerNullStreamingEnable,'cdstvServerStreamingObjects':cdstvServerStreamingObjects,_b:cdstvServerStartingTransportPort,_c:cdstvServerEndingTransportPort,_d:cdstvStreamJumboFramesEnable,'cdstvServerStreamGroupInfo':cdstvServerStreamGroupInfo,_e:cdstvServerStreamGroupName,_f:cdstvServerStreamGroupID,_g:cdstvServerStreamerIsCache,'cdstvServerStorageObjects':cdstvServerStorageObjects,_h:cdstvVaultMirrorCopies,_i:cdstvVaultLocalCopies,'cdstvServerFTPOutSettings':cdstvServerFTPOutSettings,_j:cdstvServerFTPOutInterface,_k:cdstvServerFTPOutBandwidth,_l:cdstvServerFTPOutSessions,'cdstvServerVaultGroupInformation':cdstvServerVaultGroupInformation,_m:cdstvServerVaultGroupName,_n:cdstvServerVaultGroupID,'cdstvServerCachingObjects':cdstvServerCachingObjects,'cdstvServerCacheGroupInformation':cdstvServerCacheGroupInformation,_o:cdstvServerCacheGroupName,_p:cdstvServerCacheGroupID,'ciscoCdstvServerMIBConform':ciscoCdstvServerMIBConform,'ciscoCdstvServerMIBCompliances':ciscoCdstvServerMIBCompliances,'ciscoCdstvServerMIBCompliance':ciscoCdstvServerMIBCompliance,'ciscoCdstvServerMIBGroups':ciscoCdstvServerMIBGroups,_q:ciscoCdstvServerMIBMainObjectGroup,_r:ciscoCdstvServerMIBStreamingObjectGroup,_s:ciscoCdstvServerMIBStorageObjectGroup,_t:ciscoCdstvServerMIBCachingObjectGroup})
+#
+# PySNMP MIB module CISCO-CDSTV-SERVER-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cisco/CISCO-CDSTV-SERVER-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:16:15 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
+Dscp, = mibBuilder.importSymbols("DIFFSERV-DSCP-TC", "Dscp")
+InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
+SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ciscoCdstvServerMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 754))
+ciscoCdstvServerMIB.setRevisions(('2012-12-12 00:00', '2010-07-13 00:00',))
+if mibBuilder.loadTexts: ciscoCdstvServerMIB.setLastUpdated('201212120000Z')
+if mibBuilder.loadTexts: ciscoCdstvServerMIB.setOrganization('Cisco Systems, Inc.')
+class CiscoCdstvEcn(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
+    namedValues = NamedValues(("ect1", 1), ("ect0", 2), ("congestion", 3), ("disabled", 4))
+
+ciscoCdstvServerMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 754, 0))
+ciscoCdstvServerMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 754, 1))
+ciscoCdstvServerMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 754, 2))
+ciscoCdstvServerMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 754, 2, 1))
+cdstvServerCommonObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1))
+cdstvServerStreamingObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 2))
+cdstvServerStorageObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 3))
+cdstvServerCachingObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 4))
+cdstvServerRole = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("isv", 1), ("vault", 2), ("streamer", 3), ("controller", 4), ("cachingserver", 5), ("recorder", 6)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdstvServerRole.setStatus('current')
+cdstvServerPartNo = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdstvServerPartNo.setStatus('current')
+cdstvServerID = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdstvServerID.setStatus('current')
+cdstvServerGroupID = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdstvServerGroupID.setStatus('current')
+cdstvServerHostname = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 5), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerHostname.setStatus('current')
+cdstvServerTTL = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(16)).setUnits('hops').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerTTL.setStatus('current')
+cdstvServerDefaultStreamCacheSettings = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 7))
+cdstvCacheJumboFramesEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 8), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvCacheJumboFramesEnable.setStatus('current')
+cdstvServerOffloadEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 9), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerOffloadEnable.setStatus('current')
+cdstvServerTransportCacheIPPkts = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 10))
+cdstvServerNullStreamingEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 11), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerNullStreamingEnable.setStatus('current')
+cdstvServerStartingTransportPort = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 2, 1), InetPortNumber().clone(48879)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerStartingTransportPort.setStatus('current')
+cdstvServerEndingTransportPort = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 2, 2), InetPortNumber()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerEndingTransportPort.setStatus('current')
+cdstvStreamJumboFramesEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 2, 3), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvStreamJumboFramesEnable.setStatus('current')
+cdstvServerStreamGroupInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 2, 4))
+cdstvServerStreamGroupName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 2, 4, 1), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdstvServerStreamGroupName.setStatus('current')
+cdstvServerStreamGroupID = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 2, 4, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdstvServerStreamGroupID.setStatus('current')
+cdstvServerStreamerIsCache = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 2, 4, 3), TruthValue()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerStreamerIsCache.setStatus('current')
+cdstvVaultMirrorCopies = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 3, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 10))).setUnits('copies').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvVaultMirrorCopies.setStatus('current')
+cdstvServerCacheGroupInformation = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 4, 1))
+cdstvServerCacheGroupName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 4, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdstvServerCacheGroupName.setStatus('current')
+cdstvServerCacheGroupID = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 4, 1, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdstvServerCacheGroupID.setStatus('current')
+cdstvVaultLocalCopies = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 3, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4))).setUnits('copies').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvVaultLocalCopies.setStatus('current')
+cdstvServerFTPOutSettings = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 3, 3))
+cdstvServerVaultGroupInformation = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 3, 4))
+cdstvServerFTPOutInterface = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 3, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("management", 1), ("ingest", 2)))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerFTPOutInterface.setStatus('current')
+cdstvServerFTPOutBandwidth = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 3, 3, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setUnits('Mbps').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerFTPOutBandwidth.setStatus('current')
+cdstvServerFTPOutSessions = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 3, 3, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('sessions').setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerFTPOutSessions.setStatus('current')
+cdstvServerVaultGroupName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 3, 4, 1), SnmpAdminString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdstvServerVaultGroupName.setStatus('current')
+cdstvServerVaultGroupID = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 3, 4, 2), Unsigned32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: cdstvServerVaultGroupID.setStatus('current')
+cdstvServerSourceAddressType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 7, 1), InetAddressType().clone('ipv4')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerSourceAddressType.setStatus('current')
+cdstvServerSourceAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 7, 2), InetAddress().clone('192.168.207.65')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerSourceAddress.setStatus('current')
+cdstvServerCachePort = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 7, 3), InetPortNumber().clone(48879)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerCachePort.setStatus('current')
+cdstvServerTransportDSCP = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 10, 1), Dscp()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerTransportDSCP.setStatus('current')
+cdstvServerTransportECN = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 10, 2), CiscoCdstvEcn()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerTransportECN.setStatus('current')
+cdstvServerCacheDSCP = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 10, 3), Dscp()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerCacheDSCP.setStatus('current')
+cdstvServerCacheECN = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 754, 1, 1, 10, 4), CiscoCdstvEcn()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: cdstvServerCacheECN.setStatus('current')
+ciscoCdstvServerMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 754, 2, 2))
+ciscoCdstvServerMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 754, 2, 1, 1)).setObjects(("CISCO-CDSTV-SERVER-MIB", "ciscoCdstvServerMIBMainObjectGroup"), ("CISCO-CDSTV-SERVER-MIB", "ciscoCdstvServerMIBStreamingObjectGroup"), ("CISCO-CDSTV-SERVER-MIB", "ciscoCdstvServerMIBStorageObjectGroup"), ("CISCO-CDSTV-SERVER-MIB", "ciscoCdstvServerMIBCachingObjectGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCdstvServerMIBCompliance = ciscoCdstvServerMIBCompliance.setStatus('current')
+ciscoCdstvServerMIBMainObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 754, 2, 2, 1)).setObjects(("CISCO-CDSTV-SERVER-MIB", "cdstvServerRole"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerPartNo"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerID"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerGroupID"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerHostname"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerTTL"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerSourceAddress"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerCachePort"), ("CISCO-CDSTV-SERVER-MIB", "cdstvCacheJumboFramesEnable"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerOffloadEnable"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerTransportDSCP"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerTransportECN"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerCacheDSCP"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerCacheECN"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerSourceAddressType"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerNullStreamingEnable"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCdstvServerMIBMainObjectGroup = ciscoCdstvServerMIBMainObjectGroup.setStatus('current')
+ciscoCdstvServerMIBStreamingObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 754, 2, 2, 2)).setObjects(("CISCO-CDSTV-SERVER-MIB", "cdstvServerStartingTransportPort"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerEndingTransportPort"), ("CISCO-CDSTV-SERVER-MIB", "cdstvStreamJumboFramesEnable"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerStreamGroupName"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerStreamGroupID"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerStreamerIsCache"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCdstvServerMIBStreamingObjectGroup = ciscoCdstvServerMIBStreamingObjectGroup.setStatus('current')
+ciscoCdstvServerMIBStorageObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 754, 2, 2, 3)).setObjects(("CISCO-CDSTV-SERVER-MIB", "cdstvVaultMirrorCopies"), ("CISCO-CDSTV-SERVER-MIB", "cdstvVaultLocalCopies"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerFTPOutInterface"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerFTPOutBandwidth"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerFTPOutSessions"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerVaultGroupName"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerVaultGroupID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCdstvServerMIBStorageObjectGroup = ciscoCdstvServerMIBStorageObjectGroup.setStatus('current')
+ciscoCdstvServerMIBCachingObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 754, 2, 2, 4)).setObjects(("CISCO-CDSTV-SERVER-MIB", "cdstvServerCacheGroupName"), ("CISCO-CDSTV-SERVER-MIB", "cdstvServerCacheGroupID"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    ciscoCdstvServerMIBCachingObjectGroup = ciscoCdstvServerMIBCachingObjectGroup.setStatus('current')
+mibBuilder.exportSymbols("CISCO-CDSTV-SERVER-MIB", cdstvServerPartNo=cdstvServerPartNo, cdstvServerGroupID=cdstvServerGroupID, ciscoCdstvServerMIBCompliance=ciscoCdstvServerMIBCompliance, cdstvServerFTPOutSessions=cdstvServerFTPOutSessions, cdstvServerCacheECN=cdstvServerCacheECN, cdstvServerTransportECN=cdstvServerTransportECN, ciscoCdstvServerMIBObjects=ciscoCdstvServerMIBObjects, cdstvServerCachePort=cdstvServerCachePort, CiscoCdstvEcn=CiscoCdstvEcn, cdstvVaultMirrorCopies=cdstvVaultMirrorCopies, cdstvServerStreamGroupInfo=cdstvServerStreamGroupInfo, ciscoCdstvServerMIBCachingObjectGroup=ciscoCdstvServerMIBCachingObjectGroup, cdstvCacheJumboFramesEnable=cdstvCacheJumboFramesEnable, cdstvServerDefaultStreamCacheSettings=cdstvServerDefaultStreamCacheSettings, cdstvServerRole=cdstvServerRole, cdstvServerVaultGroupName=cdstvServerVaultGroupName, cdstvServerCacheDSCP=cdstvServerCacheDSCP, cdstvServerSourceAddressType=cdstvServerSourceAddressType, cdstvServerStreamingObjects=cdstvServerStreamingObjects, cdstvServerEndingTransportPort=cdstvServerEndingTransportPort, cdstvServerStorageObjects=cdstvServerStorageObjects, cdstvServerTTL=cdstvServerTTL, ciscoCdstvServerMIBNotifs=ciscoCdstvServerMIBNotifs, cdstvServerTransportDSCP=cdstvServerTransportDSCP, cdstvServerTransportCacheIPPkts=cdstvServerTransportCacheIPPkts, cdstvServerCacheGroupID=cdstvServerCacheGroupID, cdstvServerStreamGroupID=cdstvServerStreamGroupID, cdstvStreamJumboFramesEnable=cdstvStreamJumboFramesEnable, cdstvServerCacheGroupInformation=cdstvServerCacheGroupInformation, ciscoCdstvServerMIBMainObjectGroup=ciscoCdstvServerMIBMainObjectGroup, ciscoCdstvServerMIBStreamingObjectGroup=ciscoCdstvServerMIBStreamingObjectGroup, cdstvServerStreamGroupName=cdstvServerStreamGroupName, cdstvServerStreamerIsCache=cdstvServerStreamerIsCache, cdstvServerID=cdstvServerID, cdstvServerCommonObjects=cdstvServerCommonObjects, cdstvServerNullStreamingEnable=cdstvServerNullStreamingEnable, cdstvServerSourceAddress=cdstvServerSourceAddress, cdstvServerFTPOutSettings=cdstvServerFTPOutSettings, ciscoCdstvServerMIBGroups=ciscoCdstvServerMIBGroups, ciscoCdstvServerMIBCompliances=ciscoCdstvServerMIBCompliances, cdstvServerCacheGroupName=cdstvServerCacheGroupName, cdstvServerFTPOutInterface=cdstvServerFTPOutInterface, cdstvServerVaultGroupID=cdstvServerVaultGroupID, cdstvServerFTPOutBandwidth=cdstvServerFTPOutBandwidth, cdstvVaultLocalCopies=cdstvVaultLocalCopies, cdstvServerHostname=cdstvServerHostname, ciscoCdstvServerMIB=ciscoCdstvServerMIB, ciscoCdstvServerMIBConform=ciscoCdstvServerMIBConform, PYSNMP_MODULE_ID=ciscoCdstvServerMIB, cdstvServerVaultGroupInformation=cdstvServerVaultGroupInformation, ciscoCdstvServerMIBStorageObjectGroup=ciscoCdstvServerMIBStorageObjectGroup, cdstvServerStartingTransportPort=cdstvServerStartingTransportPort, cdstvServerCachingObjects=cdstvServerCachingObjects, cdstvServerOffloadEnable=cdstvServerOffloadEnable)

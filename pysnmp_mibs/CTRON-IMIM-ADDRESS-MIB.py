@@ -1,55 +1,31 @@
-_F='imimAddressChassisSlot'
-_E='CTRON-IMIM-ADDRESS-MIB'
-_D='Integer32'
-_C='OctetString'
-_B='read-only'
-_A='mandatory'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_Cabletron_ObjectIdentity=ObjectIdentity
-cabletron=_Cabletron_ObjectIdentity((1,3,6,1,4,1,52))
-_CommsDevice_ObjectIdentity=ObjectIdentity
-commsDevice=_CommsDevice_ObjectIdentity((1,3,6,1,4,1,52,1))
-_Subsystem_ObjectIdentity=ObjectIdentity
-subsystem=_Subsystem_ObjectIdentity((1,3,6,1,4,1,52,1,6))
-_BackplaneProtocol_ObjectIdentity=ObjectIdentity
-backplaneProtocol=_BackplaneProtocol_ObjectIdentity((1,3,6,1,4,1,52,1,6,5))
-_ImimAddress_ObjectIdentity=ObjectIdentity
-imimAddress=_ImimAddress_ObjectIdentity((1,3,6,1,4,1,52,1,6,5,1))
-_ImimAddressTable_Object=MibTable
-imimAddressTable=_ImimAddressTable_Object((1,3,6,1,4,1,52,1,6,5,1,1))
-if mibBuilder.loadTexts:imimAddressTable.setStatus(_A)
-_ImimAddressEntry_Object=MibTableRow
-imimAddressEntry=_ImimAddressEntry_Object((1,3,6,1,4,1,52,1,6,5,1,1,1))
-imimAddressEntry.setIndexNames((0,_E,_F))
-if mibBuilder.loadTexts:imimAddressEntry.setStatus(_A)
-class _ImimAddressChassisSlot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
-_ImimAddressChassisSlot_Type.__name__=_D
-_ImimAddressChassisSlot_Object=MibTableColumn
-imimAddressChassisSlot=_ImimAddressChassisSlot_Object((1,3,6,1,4,1,52,1,6,5,1,1,1,1),_ImimAddressChassisSlot_Type())
-imimAddressChassisSlot.setMaxAccess(_B)
-if mibBuilder.loadTexts:imimAddressChassisSlot.setStatus(_A)
-class _ImimAddressMAC_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
-_ImimAddressMAC_Type.__name__=_C
-_ImimAddressMAC_Object=MibTableColumn
-imimAddressMAC=_ImimAddressMAC_Object((1,3,6,1,4,1,52,1,6,5,1,1,1,2),_ImimAddressMAC_Type())
-imimAddressMAC.setMaxAccess(_B)
-if mibBuilder.loadTexts:imimAddressMAC.setStatus(_A)
-class _ImimAddressIP_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
-_ImimAddressIP_Type.__name__=_C
-_ImimAddressIP_Object=MibTableColumn
-imimAddressIP=_ImimAddressIP_Object((1,3,6,1,4,1,52,1,6,5,1,1,1,3),_ImimAddressIP_Type())
-imimAddressIP.setMaxAccess(_B)
-if mibBuilder.loadTexts:imimAddressIP.setStatus(_A)
-class _BackplaneHeartbeat_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('heartBeatPresent',1),('heartBeatAbsent',2),('notSupported',3)))
-_BackplaneHeartbeat_Type.__name__=_D
-_BackplaneHeartbeat_Object=MibScalar
-backplaneHeartbeat=_BackplaneHeartbeat_Object((1,3,6,1,4,1,52,1,6,5,1,2),_BackplaneHeartbeat_Type())
-backplaneHeartbeat.setMaxAccess(_B)
-if mibBuilder.loadTexts:backplaneHeartbeat.setStatus(_A)
-mibBuilder.exportSymbols(_E,**{'cabletron':cabletron,'commsDevice':commsDevice,'subsystem':subsystem,'backplaneProtocol':backplaneProtocol,'imimAddress':imimAddress,'imimAddressTable':imimAddressTable,'imimAddressEntry':imimAddressEntry,_F:imimAddressChassisSlot,'imimAddressMAC':imimAddressMAC,'imimAddressIP':imimAddressIP,'backplaneHeartbeat':backplaneHeartbeat})
+#
+# PySNMP MIB module CTRON-IMIM-ADDRESS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/cabletron/CTRON-IMIM-ADDRESS-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 10:05:33 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, NotificationType, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "NotificationType", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+cabletron = MibIdentifier((1, 3, 6, 1, 4, 1, 52))
+commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
+subsystem = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 6))
+backplaneProtocol = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 6, 5))
+imimAddress = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 6, 5, 1))
+imimAddressTable = MibTable((1, 3, 6, 1, 4, 1, 52, 1, 6, 5, 1, 1), )
+if mibBuilder.loadTexts: imimAddressTable.setStatus('mandatory')
+imimAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 1, 6, 5, 1, 1, 1), ).setIndexNames((0, "CTRON-IMIM-ADDRESS-MIB", "imimAddressChassisSlot"))
+if mibBuilder.loadTexts: imimAddressEntry.setStatus('mandatory')
+imimAddressChassisSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 1, 6, 5, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: imimAddressChassisSlot.setStatus('mandatory')
+imimAddressMAC = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 1, 6, 5, 1, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: imimAddressMAC.setStatus('mandatory')
+imimAddressIP = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 1, 6, 5, 1, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readonly")
+if mibBuilder.loadTexts: imimAddressIP.setStatus('mandatory')
+backplaneHeartbeat = MibScalar((1, 3, 6, 1, 4, 1, 52, 1, 6, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("heartBeatPresent", 1), ("heartBeatAbsent", 2), ("notSupported", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: backplaneHeartbeat.setStatus('mandatory')
+mibBuilder.exportSymbols("CTRON-IMIM-ADDRESS-MIB", imimAddressEntry=imimAddressEntry, cabletron=cabletron, imimAddressIP=imimAddressIP, subsystem=subsystem, imimAddress=imimAddress, imimAddressMAC=imimAddressMAC, imimAddressTable=imimAddressTable, imimAddressChassisSlot=imimAddressChassisSlot, backplaneHeartbeat=backplaneHeartbeat, backplaneProtocol=backplaneProtocol, commsDevice=commsDevice)

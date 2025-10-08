@@ -1,111 +1,67 @@
-_Q='fsMIStdOspfTrapEntry'
-_P='fsMIStdOspfVirtNbrState'
-_O='fsMIStdOspfVirtIfState'
-_N='fsMIStdOspfNbrState'
-_M='fsMIStdOspfIfState'
-_L='OctetString'
-_K='read-only'
-_J='fsMIStdOspfNbrRtrId'
-_I='fsMIStdOspfExtLsdbLimit'
-_H='Integer32'
-_G='fsMIStdOspfPacketSrc'
-_F='fsMIStdOspfConfigErrorType'
-_E='fsMIStdOspfPacketType'
-_D='SUPERMICRO-OSPFMI-TRAP-MIB'
-_C='fsMIStdOspfRouterId'
-_B='current'
-_A='SUPERMICRO-MISTDOSPF-MIB'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_L,'ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-fsMIStdOspfEntry,fsMIStdOspfExtLsdbLimit,fsMIStdOspfIfState,fsMIStdOspfNbrRtrId,fsMIStdOspfNbrState,fsMIStdOspfRouterId,fsMIStdOspfVirtIfState,fsMIStdOspfVirtNbrState=mibBuilder.importSymbols(_A,'fsMIStdOspfEntry',_I,_M,_J,_N,_C,_O,_P)
-fsMIStdOspfTrap=ModuleIdentity((1,3,6,1,4,1,10876,101,1,148))
-if mibBuilder.loadTexts:fsMIStdOspfTrap.setRevisions(('2012-09-05 00:00',))
-_FsMIStdOspfTraps_ObjectIdentity=ObjectIdentity
-fsMIStdOspfTraps=_FsMIStdOspfTraps_ObjectIdentity((1,3,6,1,4,1,10876,101,1,148,0))
-_FsMIStdOspfTrapControl_ObjectIdentity=ObjectIdentity
-fsMIStdOspfTrapControl=_FsMIStdOspfTrapControl_ObjectIdentity((1,3,6,1,4,1,10876,101,1,148,1))
-_FsMIStdOspfTrapTable_Object=MibTable
-fsMIStdOspfTrapTable=_FsMIStdOspfTrapTable_Object((1,3,6,1,4,1,10876,101,1,148,1,1))
-if mibBuilder.loadTexts:fsMIStdOspfTrapTable.setStatus(_B)
-_FsMIStdOspfTrapEntry_Object=MibTableRow
-fsMIStdOspfTrapEntry=_FsMIStdOspfTrapEntry_Object((1,3,6,1,4,1,10876,101,1,148,1,1,1))
-if mibBuilder.loadTexts:fsMIStdOspfTrapEntry.setStatus(_B)
-class _FsMIStdOspfSetTrap_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
-_FsMIStdOspfSetTrap_Type.__name__=_L
-_FsMIStdOspfSetTrap_Object=MibTableColumn
-fsMIStdOspfSetTrap=_FsMIStdOspfSetTrap_Object((1,3,6,1,4,1,10876,101,1,148,1,1,1,1),_FsMIStdOspfSetTrap_Type())
-fsMIStdOspfSetTrap.setMaxAccess('read-write')
-if mibBuilder.loadTexts:fsMIStdOspfSetTrap.setStatus(_B)
-class _FsMIStdOspfConfigErrorType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*(('badVersion',1),('areaMismatch',2),('unknownNbmaNbr',3),('unknownVirtualNbr',4),('authTypeMismatch',5),('authFailure',6),('netMaskMismatch',7),('helloIntervalMismatch',8),('deadIntervalMismatch',9),('optionMismatch',10)))
-_FsMIStdOspfConfigErrorType_Type.__name__=_H
-_FsMIStdOspfConfigErrorType_Object=MibTableColumn
-fsMIStdOspfConfigErrorType=_FsMIStdOspfConfigErrorType_Object((1,3,6,1,4,1,10876,101,1,148,1,1,1,2),_FsMIStdOspfConfigErrorType_Type())
-fsMIStdOspfConfigErrorType.setMaxAccess(_K)
-if mibBuilder.loadTexts:fsMIStdOspfConfigErrorType.setStatus(_B)
-class _FsMIStdOspfPacketType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('hello',1),('dbDescript',2),('lsReq',3),('lsUpdate',4),('lsAck',5)))
-_FsMIStdOspfPacketType_Type.__name__=_H
-_FsMIStdOspfPacketType_Object=MibTableColumn
-fsMIStdOspfPacketType=_FsMIStdOspfPacketType_Object((1,3,6,1,4,1,10876,101,1,148,1,1,1,3),_FsMIStdOspfPacketType_Type())
-fsMIStdOspfPacketType.setMaxAccess(_K)
-if mibBuilder.loadTexts:fsMIStdOspfPacketType.setStatus(_B)
-_FsMIStdOspfPacketSrc_Type=IpAddress
-_FsMIStdOspfPacketSrc_Object=MibTableColumn
-fsMIStdOspfPacketSrc=_FsMIStdOspfPacketSrc_Object((1,3,6,1,4,1,10876,101,1,148,1,1,1,4),_FsMIStdOspfPacketSrc_Type())
-fsMIStdOspfPacketSrc.setMaxAccess(_K)
-if mibBuilder.loadTexts:fsMIStdOspfPacketSrc.setStatus(_B)
-fsMIStdOspfEntry.registerAugmentions((_D,_Q))
+#
+# PySNMP MIB module SUPERMICRO-OSPFMI-TRAP-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-OSPFMI-TRAP-MIB
+# Produced by pysmi-1.1.12 at Thu Sep 11 09:56:48 2025
+# On host macmini.vegmond.io platform Darwin version 24.6.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, Counter64, enterprises, Gauge32, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "enterprises", "Gauge32", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+fsMIStdOspfEntry, fsMIStdOspfNbrRtrId, fsMIStdOspfNbrState, fsMIStdOspfExtLsdbLimit, fsMIStdOspfRouterId, fsMIStdOspfVirtNbrState, fsMIStdOspfVirtIfState, fsMIStdOspfIfState = mibBuilder.importSymbols("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfEntry", "fsMIStdOspfNbrRtrId", "fsMIStdOspfNbrState", "fsMIStdOspfExtLsdbLimit", "fsMIStdOspfRouterId", "fsMIStdOspfVirtNbrState", "fsMIStdOspfVirtIfState", "fsMIStdOspfIfState")
+fsMIStdOspfTrap = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148))
+fsMIStdOspfTrap.setRevisions(('2012-09-05 00:00',))
+if mibBuilder.loadTexts: fsMIStdOspfTrap.setLastUpdated('201209050000Z')
+if mibBuilder.loadTexts: fsMIStdOspfTrap.setOrganization('Super Micro Computer Inc.')
+fsMIStdOspfTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0))
+fsMIStdOspfTrapControl = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 1))
+fsMIStdOspfTrapTable = MibTable((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 1, 1), )
+if mibBuilder.loadTexts: fsMIStdOspfTrapTable.setStatus('current')
+fsMIStdOspfTrapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 1, 1, 1), )
+fsMIStdOspfEntry.registerAugmentions(("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfTrapEntry"))
 fsMIStdOspfTrapEntry.setIndexNames(*fsMIStdOspfEntry.getIndexNames())
-ospfVirtIfStateChange=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,1))
-ospfVirtIfStateChange.setObjects(*((_A,_C),(_A,_O)))
-if mibBuilder.loadTexts:ospfVirtIfStateChange.setStatus(_B)
-ospfNbrStateChange=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,2))
-ospfNbrStateChange.setObjects(*((_A,_C),(_A,_J),(_A,_N)))
-if mibBuilder.loadTexts:ospfNbrStateChange.setStatus(_B)
-ospfVirtNbrStateChange=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,3))
-ospfVirtNbrStateChange.setObjects(*((_A,_C),(_A,_P)))
-if mibBuilder.loadTexts:ospfVirtNbrStateChange.setStatus(_B)
-ospfIfConfigError=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,4))
-ospfIfConfigError.setObjects(*((_A,_C),(_D,_G),(_D,_F),(_D,_E)))
-if mibBuilder.loadTexts:ospfIfConfigError.setStatus(_B)
-ospfVirtIfConfigError=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,5))
-ospfVirtIfConfigError.setObjects(*((_A,_C),(_D,_F),(_D,_E)))
-if mibBuilder.loadTexts:ospfVirtIfConfigError.setStatus(_B)
-ospfIfAuthFailure=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,6))
-ospfIfAuthFailure.setObjects(*((_A,_C),(_D,_G),(_D,_F),(_D,_E)))
-if mibBuilder.loadTexts:ospfIfAuthFailure.setStatus(_B)
-ospfVirtIfAuthFailure=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,7))
-ospfVirtIfAuthFailure.setObjects(*((_A,_C),(_D,_F),(_D,_E)))
-if mibBuilder.loadTexts:ospfVirtIfAuthFailure.setStatus(_B)
-ospfIfRxBadPacket=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,8))
-ospfIfRxBadPacket.setObjects(*((_A,_C),(_D,_G),(_D,_E)))
-if mibBuilder.loadTexts:ospfIfRxBadPacket.setStatus(_B)
-ospfVirtIfRxBadPacket=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,9))
-ospfVirtIfRxBadPacket.setObjects(*((_A,_C),(_D,_E)))
-if mibBuilder.loadTexts:ospfVirtIfRxBadPacket.setStatus(_B)
-ospfTxRetransmit=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,10))
-ospfTxRetransmit.setObjects(*((_A,_C),(_A,_J),(_D,_E)))
-if mibBuilder.loadTexts:ospfTxRetransmit.setStatus(_B)
-ospfVirtIfTxRetransmit=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,11))
-ospfVirtIfTxRetransmit.setObjects(*((_A,_C),(_D,_E)))
-if mibBuilder.loadTexts:ospfVirtIfTxRetransmit.setStatus(_B)
-ospfOriginateLsa=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,12))
-ospfOriginateLsa.setObjects((_A,_C))
-if mibBuilder.loadTexts:ospfOriginateLsa.setStatus(_B)
-ospfMaxAgeLsa=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,13))
-ospfMaxAgeLsa.setObjects((_A,_C))
-if mibBuilder.loadTexts:ospfMaxAgeLsa.setStatus(_B)
-ospfLsdbOverflow=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,14))
-ospfLsdbOverflow.setObjects(*((_A,_C),(_A,_I)))
-if mibBuilder.loadTexts:ospfLsdbOverflow.setStatus(_B)
-ospfLsdbApproachingOverflow=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,15))
-ospfLsdbApproachingOverflow.setObjects(*((_A,_C),(_A,_I)))
-if mibBuilder.loadTexts:ospfLsdbApproachingOverflow.setStatus(_B)
-ospfIfStateChange=NotificationType((1,3,6,1,4,1,10876,101,1,148,0,16))
-ospfIfStateChange.setObjects(*((_A,_C),(_A,_M)))
-if mibBuilder.loadTexts:ospfIfStateChange.setStatus(_B)
-mibBuilder.exportSymbols(_D,**{'fsMIStdOspfTrap':fsMIStdOspfTrap,'fsMIStdOspfTraps':fsMIStdOspfTraps,'ospfVirtIfStateChange':ospfVirtIfStateChange,'ospfNbrStateChange':ospfNbrStateChange,'ospfVirtNbrStateChange':ospfVirtNbrStateChange,'ospfIfConfigError':ospfIfConfigError,'ospfVirtIfConfigError':ospfVirtIfConfigError,'ospfIfAuthFailure':ospfIfAuthFailure,'ospfVirtIfAuthFailure':ospfVirtIfAuthFailure,'ospfIfRxBadPacket':ospfIfRxBadPacket,'ospfVirtIfRxBadPacket':ospfVirtIfRxBadPacket,'ospfTxRetransmit':ospfTxRetransmit,'ospfVirtIfTxRetransmit':ospfVirtIfTxRetransmit,'ospfOriginateLsa':ospfOriginateLsa,'ospfMaxAgeLsa':ospfMaxAgeLsa,'ospfLsdbOverflow':ospfLsdbOverflow,'ospfLsdbApproachingOverflow':ospfLsdbApproachingOverflow,'ospfIfStateChange':ospfIfStateChange,'fsMIStdOspfTrapControl':fsMIStdOspfTrapControl,'fsMIStdOspfTrapTable':fsMIStdOspfTrapTable,_Q:fsMIStdOspfTrapEntry,'fsMIStdOspfSetTrap':fsMIStdOspfSetTrap,_F:fsMIStdOspfConfigErrorType,_E:fsMIStdOspfPacketType,_G:fsMIStdOspfPacketSrc})
+if mibBuilder.loadTexts: fsMIStdOspfTrapEntry.setStatus('current')
+fsMIStdOspfSetTrap = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 1, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: fsMIStdOspfSetTrap.setStatus('current')
+fsMIStdOspfConfigErrorType = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("badVersion", 1), ("areaMismatch", 2), ("unknownNbmaNbr", 3), ("unknownVirtualNbr", 4), ("authTypeMismatch", 5), ("authFailure", 6), ("netMaskMismatch", 7), ("helloIntervalMismatch", 8), ("deadIntervalMismatch", 9), ("optionMismatch", 10)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIStdOspfConfigErrorType.setStatus('current')
+fsMIStdOspfPacketType = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("hello", 1), ("dbDescript", 2), ("lsReq", 3), ("lsUpdate", 4), ("lsAck", 5)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIStdOspfPacketType.setStatus('current')
+fsMIStdOspfPacketSrc = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 1, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: fsMIStdOspfPacketSrc.setStatus('current')
+ospfIfStateChange = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 16)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfIfState"))
+if mibBuilder.loadTexts: ospfIfStateChange.setStatus('current')
+ospfVirtIfStateChange = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 1)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfVirtIfState"))
+if mibBuilder.loadTexts: ospfVirtIfStateChange.setStatus('current')
+ospfNbrStateChange = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 2)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfNbrRtrId"), ("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfNbrState"))
+if mibBuilder.loadTexts: ospfNbrStateChange.setStatus('current')
+ospfVirtNbrStateChange = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 3)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfVirtNbrState"))
+if mibBuilder.loadTexts: ospfVirtNbrStateChange.setStatus('current')
+ospfIfConfigError = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 4)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketSrc"), ("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfConfigErrorType"), ("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+if mibBuilder.loadTexts: ospfIfConfigError.setStatus('current')
+ospfVirtIfConfigError = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 5)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfConfigErrorType"), ("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+if mibBuilder.loadTexts: ospfVirtIfConfigError.setStatus('current')
+ospfIfAuthFailure = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 6)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketSrc"), ("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfConfigErrorType"), ("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+if mibBuilder.loadTexts: ospfIfAuthFailure.setStatus('current')
+ospfVirtIfAuthFailure = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 7)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfConfigErrorType"), ("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+if mibBuilder.loadTexts: ospfVirtIfAuthFailure.setStatus('current')
+ospfIfRxBadPacket = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 8)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketSrc"), ("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+if mibBuilder.loadTexts: ospfIfRxBadPacket.setStatus('current')
+ospfVirtIfRxBadPacket = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 9)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+if mibBuilder.loadTexts: ospfVirtIfRxBadPacket.setStatus('current')
+ospfTxRetransmit = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 10)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfNbrRtrId"), ("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+if mibBuilder.loadTexts: ospfTxRetransmit.setStatus('current')
+ospfVirtIfTxRetransmit = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 11)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("SUPERMICRO-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+if mibBuilder.loadTexts: ospfVirtIfTxRetransmit.setStatus('current')
+ospfOriginateLsa = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 12)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"))
+if mibBuilder.loadTexts: ospfOriginateLsa.setStatus('current')
+ospfMaxAgeLsa = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 13)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"))
+if mibBuilder.loadTexts: ospfMaxAgeLsa.setStatus('current')
+ospfLsdbOverflow = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 14)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfExtLsdbLimit"))
+if mibBuilder.loadTexts: ospfLsdbOverflow.setStatus('current')
+ospfLsdbApproachingOverflow = NotificationType((1, 3, 6, 1, 4, 1, 10876, 101, 1, 148, 0, 15)).setObjects(("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("SUPERMICRO-MISTDOSPF-MIB", "fsMIStdOspfExtLsdbLimit"))
+if mibBuilder.loadTexts: ospfLsdbApproachingOverflow.setStatus('current')
+mibBuilder.exportSymbols("SUPERMICRO-OSPFMI-TRAP-MIB", fsMIStdOspfPacketType=fsMIStdOspfPacketType, ospfMaxAgeLsa=ospfMaxAgeLsa, ospfIfAuthFailure=ospfIfAuthFailure, ospfVirtNbrStateChange=ospfVirtNbrStateChange, ospfVirtIfConfigError=ospfVirtIfConfigError, fsMIStdOspfTraps=fsMIStdOspfTraps, ospfVirtIfAuthFailure=ospfVirtIfAuthFailure, ospfIfConfigError=ospfIfConfigError, ospfLsdbApproachingOverflow=ospfLsdbApproachingOverflow, ospfOriginateLsa=ospfOriginateLsa, fsMIStdOspfPacketSrc=fsMIStdOspfPacketSrc, ospfVirtIfStateChange=ospfVirtIfStateChange, ospfLsdbOverflow=ospfLsdbOverflow, ospfTxRetransmit=ospfTxRetransmit, ospfIfRxBadPacket=ospfIfRxBadPacket, ospfVirtIfRxBadPacket=ospfVirtIfRxBadPacket, PYSNMP_MODULE_ID=fsMIStdOspfTrap, fsMIStdOspfSetTrap=fsMIStdOspfSetTrap, fsMIStdOspfTrapControl=fsMIStdOspfTrapControl, ospfIfStateChange=ospfIfStateChange, ospfNbrStateChange=ospfNbrStateChange, fsMIStdOspfTrapEntry=fsMIStdOspfTrapEntry, fsMIStdOspfConfigErrorType=fsMIStdOspfConfigErrorType, ospfVirtIfTxRetransmit=ospfVirtIfTxRetransmit, fsMIStdOspfTrapTable=fsMIStdOspfTrapTable, fsMIStdOspfTrap=fsMIStdOspfTrap)
